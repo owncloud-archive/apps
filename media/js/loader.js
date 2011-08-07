@@ -43,8 +43,17 @@ $(document).ready(function() {
 // 	FileActions.register('audio','Add to playlist','',addAudio);
 // 	FileActions.register('application/ogg','Add to playlist','',addAudio);
 
-	FileActions.register('audio','Play','',playAudio);
-	FileActions.register('application/ogg','','Play',playAudio);
-	FileActions.setDefault('audio','Play');
-	FileActions.setDefault('application/ogg','Play');
+	if(typeof FileActions!=='undefined'){
+		FileActions.register('audio','Play','',playAudio);
+		FileActions.register('application/ogg','','Play',playAudio);
+		FileActions.setDefault('audio','Play');
+		FileActions.setDefault('application/ogg','Play');
+	}
+	if(typeof PlayList==='undefined'){
+		if(typeof localStorage !== 'undefined' && localStorage){
+			if(localStorage.hasOwnProperty(oc_current_user+'oc_playlist_items') && localStorage.getItem(oc_current_user+'oc_playlist_items')!='[]' && localStorage.getItem(oc_current_user+'oc_playlist_active')!='true'){
+				loadPlayer();
+			}
+		}
+	}
 });
