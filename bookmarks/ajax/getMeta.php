@@ -26,22 +26,19 @@ $RUNTIME_NOSETUPFS=true;
 
 require_once('../../../lib/base.php');
 
+// We send json data
+header( 'Content-Type: application/jsonrequest' );
+
 // Check if we are a user
 if( !OC_User::isLoggedIn()){
-	header( "Content-Type: application/jsonrequest" );
-	echo json_encode( array( "status" => "error", "data" => array( "message" => "Authentication error" )));
+	echo json_encode( array( 'status' => 'error', 'data' => array( 'message' => 'Authentication error' )));
 	exit();
 }
 
-$query = OC_DB::prepare("
-	UPDATE *PREFIX*bookmarks
-	SET clickcount = clickcount + 1
-	WHERE user_id = ?
-		AND url LIKE ?
-	");
-	
-$params=array(OC_User::getUser(), htmlspecialchars_decode($_GET["url"]));
-$bookmarks = $query->execute($params);
+// $metadata = array();
 
-header( "HTTP/1.1 204 No Content" );
+require '../bookmarksHelper.php';
+$metadata = getURLMetadata(htmlspecialchars_decode($_GET["url"]));
 
+
+echo json_encode( array( 'status' => 'success', 'data' => $metadata));
