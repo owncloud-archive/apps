@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<info>
+	<id>kolab</id>
+	<name>Kolab</name>
+	<description>Integrate a Kolab Server into ownCloud</description>
+	<version>0.5</version>
+	<licence>AGPL</licence>
+	<author>Frank Karlitschek</author>
+	<require>2</require>
+</info>
