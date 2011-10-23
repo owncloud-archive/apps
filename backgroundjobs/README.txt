@@ -2,7 +2,7 @@
 
 Q: How do I activate Background Jobs
 A: Add the following line to your crontab:
-     */5 * * * * /path/to/owncloud/apps/backgroundjobs/cron.php 
+     */5 * * * * /path/to/owncloud/apps/backgroundjobs/cron.php 2>&1
    See the documentation of your distribution for more details.
 
 == Developers ==
@@ -34,9 +34,7 @@ A: You can use OC_Backgroundjobs_Queue::add($class,$method,$parameters) . This
    you have to make sure ownCloud knows about the module.
 
 Q: I want to save some information the task gathered
-A: Use OC_Backgroundjobs_Report::add($app,$task,$report) to add (debug)
-   messages. Please note that you should not flood this table. Better use it
-   only in the case of errors.
+A: Use OC_Log for this! But don't spam it.
 
 Q: I want to improve Background Jobs.
 A: Go ahead!
