@@ -1,7 +1,7 @@
 <?php
 
 /**
-* ownCloud - External plugin
+* ownCloud - Kolab plugin
 *
 * @author Frank Karlitschek
 * @copyright 2011 Frank Karlitschek karlitschek@kde.org
