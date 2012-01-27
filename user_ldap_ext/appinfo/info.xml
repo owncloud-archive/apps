@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<info>
+	<id>user_ldap_ext</id>
+	<name>LDAP user backend extended</name>
+	<description>Authenticate Users by LDAP and use some attributes</description>
+	<version>0.1</version>
+	<licence>AGPL</licence>
+	<author>Dominik Schmidt; Extended by Manuel Delgado</author>
+	<require>2</require>
+</info>
