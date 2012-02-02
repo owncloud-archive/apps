@@ -29,20 +29,24 @@ class OC_USER_PWAUTH extends OC_User_Backend {
 	public function __construct() {
 		$this->pwauth_min_uid = OC_Appconfig::getValue('user_pwauth', 'min_uid', OC_USER_BACKEND_PWAUTH_MIN_UID);
 		$this->pwauth_max_uid = OC_Appconfig::getValue('user_pwauth', 'max_uid', OC_USER_BACKEND_PWAUTH_MAX_UID);
+		$this->logger = new OC_Log;
 	}
 	
 	public function createUser() {
 		// Can't create user
+		$this->logger->write('OC_USER_PWAUTH', 'Not possible to create local users from web frontend using unix user backend',3);
 		return false;
 	}
 
 	public function deleteUser() {
 		// Can't delete user
+		$this->logger->write('OC_USER_PWAUTH', 'Not possible to delete local users from web frontend using unix user backend',3);
 		return false;
 	}
 
 	public function setPassword ( $uid, $password ) {
 		// We can't change user password
+		$this->logger->write('OC_USER_PWAUTH', 'Not possible to change password for local users from web frontend using unix user backend',3);
 		return false;
 	}
 	
@@ -58,6 +62,7 @@ class OC_USER_PWAUTH extends OC_User_Backend {
 		$handle = popen($this->pwauth_bin_path, 'w');
                 if ($handle === false) {
 			// Can't open pwauth executable
+					$this->logger->write('OC_USER_PWAUTH', 'Cannot open pwauth executable, check that it is installed on server.',3);
                         return false;
                 }
  
@@ -106,3 +111,4 @@ class OC_USER_PWAUTH extends OC_User_Backend {
 }
 
 ?>
+
