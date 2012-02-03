@@ -3,7 +3,7 @@
 	<id>user_pwauth</id>
 	<name>Unix user backend</name>
 	<description>Authenticate Users by PAM</description>
-	<version>0.42</version>
+	<version>0.43</version>
 	<licence>AGPL</licence>
 	<author>Clément Véret</author>
 	<require>3</require>
