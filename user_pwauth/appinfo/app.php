@@ -41,4 +41,4 @@ $entry = array(
 	'href' => OC_Helper::linkTo( "user_pwauth", "settings.php" ),
 	'name' => 'PWAUTH'
 );
-
+?>

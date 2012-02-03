@@ -36,3 +36,4 @@ $tmpl->assign( 'min_uid', OC_Appconfig::getValue('user_pwauth', 'min_uid', OC_US
 $tmpl->assign( 'max_uid', OC_Appconfig::getValue('user_pwauth', 'max_uid', OC_USER_BACKEND_PWAUTH_MAX_UID));
 
 return $tmpl->fetchPage();
+?>
