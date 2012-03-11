@@ -1,0 +1,14 @@
+SVG editor for ownCloud
+
+Copyright by Florian Hülsmann, 2012
+
+License:
+	LGPLv3 (plugin, php and javascript code)
+	MIT License (svg-edit, http://code.google.com/p/svg-edit/)
+	Creative Commons 3.0 by-sa (artwork, css stylesheets)
+
+Authors:
+	Florian Hülsmann <fh@cbix.de>
+
+This app enables you to view, create and modify SVG files inside
+the ownCloud user interface.
