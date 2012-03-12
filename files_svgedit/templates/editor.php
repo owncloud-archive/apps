@@ -18,11 +18,28 @@ OC_Util::addScript('files_svgedit', 'jgraduate/jpicker-1.0.12.min');
 ?>
 
 <script type="text/javascript">
+function setEditorSize(){
+    // Sets the size of the text editor window.
+    //fillWindow($('#editorContent'));
+    fillWindow($('#editorWrapper'));
+}
+
 $(document).ready(function() {
     // Load specified file's contents into editor:
     svgEditor.loadFromString(<?php echo $_['fileContents']; ?>);
+    setEditorSize();
+    $(window).resize(function() {
+        setEditorSize();
+    });
 });
 </script>
+<div id="controls">
+    <input type="button" id="svgeditButtonSave" value="<?php echo $l->t('Save'); ?>" />
+    <input type="button" id="svgeditButtonSaveAs" value="<?php echo $l->t('Save As'); ?>" />
+    <input type="button" id="svgeditButtonExport" value="<?php echo $l->t('Export PNG'); ?>" />
+    <input type="button" id="svgeditButtonProperties" value="<?php echo $l->t('Properties'); ?>" />
+    <input type="button" id="svgeditButtonClose" value="<?php echo $l->t('Close'); ?>" />
+</div>
 <div id="editorWrapper">
 <div id="editorContent">
 <div id="svg_editor">
