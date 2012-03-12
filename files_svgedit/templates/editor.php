@@ -1,5 +1,6 @@
 <?php
 // load required style sheets:
+OC_Util::addStyle('files_svgedit', 'ocsvg');
 OC_Util::addStyle('files_svgedit', 'jgraduate/css/jPicker-1.0.12');
 OC_Util::addStyle('files_svgedit', 'jgraduate/css/jgraduate');
 OC_Util::addStyle('files_svgedit', 'svg-editor');
@@ -22,7 +23,8 @@ $(document).ready(function() {
     svgEditor.loadFromString(<?php echo $_['fileContents']; ?>);
 });
 </script>
-
+<div id="editorWrapper">
+<div id="editorContent">
 <div id="svg_editor">
 
 <div id="workarea">
@@ -508,7 +510,8 @@ $(document).ready(function() {
 		<li class="push_button" id="tool_posbottom" title="Align Bottom"></li>
 	</ul>
 </div>
-
+</div> <!-- closing #editorContent -->
+</div> <!-- closing #editorWrapper -->
 
 <!-- hidden divs -->
 <div id="color_picker"></div>
