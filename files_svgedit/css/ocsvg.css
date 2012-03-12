@@ -1,0 +1,8 @@
+div#editorWrapper {
+	width: 100%;
+}
+div#editorContent {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
