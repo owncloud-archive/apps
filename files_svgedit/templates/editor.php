@@ -6,6 +6,7 @@ OC_Util::addStyle('files_svgedit', 'jgraduate/css/jgraduate');
 OC_Util::addStyle('files_svgedit', 'svg-editor');
 OC_Util::addStyle('files_svgedit', 'spinbtn/JQuerySpinBtn');
 // load required javascripts:
+OC_Util::addScript('files_svgedit', 'ocsvgEditor');
 OC_Util::addScript('files_svgedit', 'js-hotkeys/jquery.hotkeys.min');
 OC_Util::addScript('files_svgedit', 'jgraduate/jquery.jgraduate.min');
 OC_Util::addScript('files_svgedit', 'svgicons/jquery.svgicons.min');
@@ -15,25 +16,20 @@ OC_Util::addScript('files_svgedit', 'svgcanvas.min');
 OC_Util::addScript('files_svgedit', 'svg-editor.min');
 OC_Util::addScript('files_svgedit', 'locale/locale.min');
 OC_Util::addScript('files_svgedit', 'jgraduate/jpicker-1.0.12.min');
+//only for debugging:
+//OC_Util::addScript('files_svgedit', 'svgcanvas');
+//OC_Util::addScript('files_svgedit', 'svg-editor');
+//OC_Util::addScript('files_svgedit', 'locale/locale');
 ?>
 
 <script type="text/javascript">
-function setEditorSize(){
-    // Sets the size of the text editor window.
-    //fillWindow($('#editorContent'));
-    fillWindow($('#editorWrapper'));
-    //fillWindow($('#svg_editor'));
-    //fillWindow($('#workarea'));
-}
-
-$(document).ready(function() {
-    // Load specified file's contents into editor:
-    svgEditor.loadFromString(<?php echo $_['fileContents']; ?>);
-    setEditorSize();
-    $(window).resize(function() {
-        setEditorSize();
-    });
-});
+<!--
+var ocsvgFile = {
+    path: <?php echo $_['filePath']; ?>,
+    mtime: <?php echo $_['filemTime']; ?>,
+    contents: <?php echo $_['fileContents']; ?>
+};
+//-->
 </script>
 <div id="editorWrapper">
 <div id="editorContent">
@@ -50,36 +46,36 @@ $(document).ready(function() {
     
         <!-- File-like buttons: New, Save, Source -->
         <ul>
-            <li id="tool_clear">
+            <li id="tool_clear" title="">
                 <div></div>
                 <?php echo $l->t('New Image'); ?> [N]
             </li>
             
-            <li id="tool_open" style="display:none;">
+            <li id="tool_open" style="display:none;" title="">
                 <div id="fileinputs">
                     <div></div>
                 </div>
                 <?php echo $l->t('Open Image'); ?> [O]
             </li>
             
-            <li id="tool_import" style="display:none;">
+            <li id="tool_import" style="display:none;" title="">
                 <div id="fileinputs_import">
                     <div></div>
                 </div>
                 <?php echo $l->t('Import SVG'); ?>
             </li>
             
-            <li id="tool_save">
+            <li id="tool_save" title="">
                 <div></div>
                 <?php echo $l->t('Save Image'); ?> [S]
             </li>
             
-            <li id="tool_export">
+            <li id="tool_export" title="">
                 <div></div>
                 <?php echo $l->t('Export as PNG'); ?>
             </li>
             
-            <li id="tool_docprops">
+            <li id="tool_docprops" title="">
                 <div></div>
                 <?php echo $l->t('Document Properties'); ?> [P]
             </li>

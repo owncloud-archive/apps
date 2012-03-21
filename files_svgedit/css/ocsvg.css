@@ -2,7 +2,6 @@ div#editorWrapper {
 	position: fixed;
 	height: 0;
 	width: 0;
-    margin: 2px;
 }
 div#editorContent {
 	position: relative;
