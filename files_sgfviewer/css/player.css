@@ -1,0 +1,968 @@
+.player-container{
+margin-top:20px;
+}
+
+.eidogo-player-auto {
+    text-indent: -9999px;
+    font-size: 0;
+}
+.eidogo-player {
+	width: 800px;
+	position: relative;
+    	background: #ffffff;
+	padding: 5px;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 11px;
+	text-indent: 0;
+	line-height: normal;
+	font-weight: normal;
+	color: #000;
+	text-align: left;
+}
+.eidogo-player ul, .eidogo-player ol, .eidogo-player dl, .eidogo-player dd, .eidogo-player dt {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.eidogo-player input, .eidogo-player select {
+    background: #fff;
+    color: #000;
+}
+.eidogo-player .shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9998;
+    opacity: 0.55;
+    filter: alpha(opacity=55);
+    display: none;
+}
+.eidogo-player .controls-container {
+	width: 375px;
+	float: right;
+	position: relative;
+	padding: 5px 0 0 0;
+    background: #1D2D44;
+    color: #8aa;
+    -webkit-user-select: none;
+}
+.eidogo-player .controls {
+	height: 30px;
+	text-indent: -9999px;
+	font-size: 0;
+	padding-left: 2px;
+	-webkit-user-select: none;
+}
+.eidogo-player .controls .control {
+	margin: 5px 0 5px 3px;
+	user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	cursor: default;
+	width: 44px;
+	height: 19px;
+	float: left;
+	padding: 0;
+	background: url(../img/buttons.gif) no-repeat top left;
+}
+.eidogo-player .controls .back {
+    background-position: 0 -30px;
+}
+.eidogo-player .controls .back-on {
+    background-position: 0 -79px;
+	cursor: pointer;
+}
+.eidogo-player .controls .forward {
+    background-position: 0 -226px;
+}
+.eidogo-player .controls .forward-on {
+    background-position: 0 -275px;
+	cursor: pointer;
+}
+.eidogo-player .controls .first {
+    background-position: 0 -128px;
+}
+.eidogo-player .controls .first-on {
+    background-position: 0 -177px;
+	cursor: pointer;
+}
+.eidogo-player .controls .last {
+    background-position: 0 -324px;
+}
+.eidogo-player .controls .last-on {
+    background-position: 0 -373px;
+	cursor: pointer;
+}
+.eidogo-player .controls .pass {
+	float: right;
+    background-position: 0 -422px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+.eidogo-player .controls .pass-on {
+    background-position: 0 -471px;
+	cursor: pointer;
+}
+.eidogo-player .move-number {
+	position: absolute;
+	top: 12px;
+	left: 230px;
+	color: #acc;
+}
+.eidogo-player .permalink {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.eidogo-player .nav-slider {
+	clear: both;
+	position: relative;
+	height: 10px;
+	width: 365px;
+	margin: 0px 5px 5px 5px;
+	border-top: 1px solid #122;
+	background: #244;
+}
+.eidogo-player .nav-slider-thumb {
+    position: absolute;
+	width: 9px;
+	height: 9px;
+	background: #d11;
+    border-bottom: 1px solid #800;
+    border-right: 1px solid #800;
+	cursor: pointer;
+}
+.eidogo-player .variations-container {
+	width: 340px;
+    min-height: 20px;
+	padding: 10px 5px 0px 5px;
+}
+.eidogo-player .variations-label {
+	float: left;
+	padding: 0 5px 0 0;
+	cursor: default;
+}
+.eidogo-player .variation-nav {
+	float: left;
+    background: #799;
+    color: #b00;
+	font-weight: bold;
+	margin: 1px;
+	position: relative;
+	top: -3px;
+	padding: 2px 5px 1px 5px;
+	width: auto;
+	height: 14px;
+	cursor: pointer;
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+}
+.eidogo-player .variation-nav.none {
+	font-weight: normal;
+	width: auto;
+    padding-right: 5px;
+	color: #244;
+	background: #688;
+	cursor: default;
+}
+.eidogo-player .controls-stop {
+    display: none;
+}
+.eidogo-player .tools-container {
+    float: right;
+    clear: right;
+    background: #1D2D44;
+    width: 365px;
+    padding: 5px;
+    margin: 5px 0 0 0;
+}
+.eidogo-player .tools-label {
+    float: left;
+    padding: 5px 5px 0 0;
+    color: #a88;
+    cursor: default;
+}
+.eidogo-player .search-button, .eidogo-player .score-est-button {
+    margin: 0 0 0 5px;
+    color: #800;
+    font-size: 11px;
+    background: #b88;
+    border: 1px solid #b88;
+    cursor: pointer;
+    font-weight: bold;
+    display: none;
+}
+.eidogo-player .search-region {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 133px;
+    height: 133px;
+    background-color: #80f;
+    opacity: 0.30;
+    filter: alpha(opacity=30);
+    z-index: 9999;
+    display: none;
+}
+.eidogo-player .tools-select, .eidogo-player .search-algo {
+    font-family: verdana;
+    font-size: 11px !important;
+}
+.eidogo-player .search-algo {
+    margin: 0 0 0 4px;
+    display: none;
+}
+.eidogo-player .comment-pass, .eidogo-player .comment-resign {
+	color: #800;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+.eidogo-player .comment-status {
+	color: #000;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+.eidogo-player .comment-info {
+    color: #443;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    padding: 5px;
+    background: #aa9;
+}
+.eidogo-player .comment-info dl {
+    padding-top: 5px;
+    font-weight: normal;
+}
+.eidogo-player .comment-info dt {
+    float: left;
+    clear: left;
+    width: 70px;
+    padding: 0 0 3px 0;
+}
+.eidogo-player .comment-info dd {
+    margin: 0 0 0 75px;
+    padding: 0 0 3px 0;
+}
+.eidogo-player .comments {
+	clear: right;
+	float: right;
+	width: 356px;
+	height: 282px;
+	font-size: 11px;
+	margin: 5px 0 0 0;
+	padding: 15px 8px 40px 8px;
+	overflow: auto;
+    background: #bba;
+    border-left: 3px solid #998;
+    border-top: 2px solid #998;
+}
+.eidogo-player .comments-edit {
+    display: none;
+    z-index: 9999;
+}
+.eidogo-player .comments-edit-ta {
+    clear: right;
+    float: right;
+    width: 362px;
+    height: 213px;
+    font-size: 11px;
+    font-family: arial, helvetica, sans-serif;
+    padding: 15px 0px 40px 10px;
+    margin: 0 5px 0 0;
+    background: #eee;
+    border-left: 3px solid #ccc;
+    border-top: 2px solid #ccc;
+    border-right: none;
+    border-bottom: 1px solid #999;
+}
+.eidogo-player .comments-edit-done, .eidogo-player .game-info-edit-done {
+    clear: right;
+    float: right;
+    width: 361px;
+    height: 16px;
+    margin: 0 5px 0 0;
+    padding: 5px;
+    text-align: center;
+    background: #ccc url(../img/done_bg.png) repeat-x;
+    color: #222;
+    border: 2px solid #999;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+}
+.eidogo-player .comments a {
+    color: #008;
+}
+.eidogo-player .game-info-edit {
+    display: none;
+    z-index: 9999;
+    width: 375px;
+    height: 300px;
+    background: #ccc;
+    margin: 0;
+    padding: 0;
+}
+.eidogo-player .game-info-edit-form {
+    height: 240px;
+    overflow: auto;
+    padding: 15px 0px 15px 10px;
+}
+.eidogo-player .game-info-edit-form input {
+    font-family: arial, helvetica, verdana, sans-serif;
+    font-size: 11px;
+    border: 1px solid #888;
+    width: 240px;
+}
+.eidogo-player .game-info-edit-done {
+    margin: 0;
+}
+.eidogo-player .search-container {
+	clear: right;
+	float: right;
+	width: 352px;
+	height: 243px;
+	font-size: 11px;
+	margin: 5px 0 0 0;
+	padding: 15px 10px 40px 10px;
+	overflow: auto;
+    background: #bbe;
+    border-left: 3px solid #778;
+    border-top: 2px solid #778;
+    display: none;
+}
+.eidogo-player .search-container .search-count {
+    font-size: 11px;
+    padding: 0 0 5px 0;
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid #778;
+}
+.eidogo-player .search-container .search-close {
+    float: right;
+    padding: 4px 7px;
+    background: #aad;
+    color: #008;
+    cursor: pointer;
+    margin-top: -10px;
+    font-weight: bold;
+    border: 1px solid #99d;
+}
+.eidogo-player .search-container .search-count span {
+    font-weight: bold;
+}
+.eidogo-player .search-container .search-result {
+    display: block;
+    text-decoration: none;
+    color: #008;
+    cursor: pointer;
+}
+.eidogo-player .search-container div.search-result {
+    cursor: default;
+    color: #000;
+}
+.eidogo-player .search-container a.search-result.odd {
+    background: #aad;
+}
+.eidogo-player .search-container a.search-result:hover {
+    color: #fff;
+    background-color: #77c;
+}
+.eidogo-player .search-container .search-result span {
+    display: inline;
+    float: left;
+    padding: 5px;
+}
+.eidogo-player .search-container .search-result .id, .eidogo-player .search-container .search-result .mv {
+    display: none;
+}
+.eidogo-player .search-container .search-result .pw {
+    width: 95px;
+}
+.eidogo-player .search-container .search-result .pb {
+    width: 95px;
+}
+.eidogo-player .search-container .search-result .re {
+    width: 30px;
+}
+.eidogo-player .search-container .search-result .dt {
+    width: 60px;
+}
+.eidogo-player .search-container .search-result .clear {
+    clear: both;
+    font-size: 1px;
+}
+.eidogo-player .search-container .search-more {
+}
+.eidogo-player .search-container .search-more a {
+    clear: left;
+    display: block;
+    text-decoration: none;
+    color: #008;
+    background: #aad;
+    border: 1px solid #88c;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+}
+.eidogo-player .board-container {
+    float: left;
+	width: 421px;
+	height: 421px;
+    background: #654;
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+}
+.eidogo-player .board-container.shrunk, .eidogo-player .board-container.shrunk .board-gutter {
+    width: auto;
+    height: auto;
+    padding: 0px !important;
+    margin: 0px !important;
+    background: none;
+}
+.eidogo-player .board-gutter {
+    width: 371px;
+	height: 371px;
+	padding: 25px;
+	background: #654;
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+}
+.eidogo-player .board-gutter.with-coords {
+    background: #1D2D44 url(../img/board-bg-coords.png) no-repeat 5px 5px;
+}
+.eidogo-player .board.size9 {
+	position: absolute;
+	width: 181px;
+	height: 181px;
+	background: #888 url(../img/board-9.gif);
+	margin: 90px 90px;
+}
+.eidogo-player .board.size13 {
+	position: absolute;
+	width: 257px;
+	height: 257px;
+	background: #888 url(../img/board-13.gif);
+	margin: 57px 57px;
+}
+.eidogo-player .board.size19 {
+	position: absolute;
+	width: 371px;
+	height: 371px;
+	background: #E8C473 url(../img/board-19-simple.gif);
+}
+.eidogo-player .board .point {
+	position: absolute;
+	width: 19px;
+	height: 19px;
+	z-index: 1;
+}
+.eidogo-player .board .point.stone.black {
+	background: url(../img/b.png);
+}
+.eidogo-player .board .point.stone.white {
+	background: url(../img/w.png);
+}
+.eidogo-player .board .point.marker {
+	z-index: 2;
+	width: 19px;
+	height: 19px;
+	background: url(../img/markers.gif) no-repeat top left;
+}
+.eidogo-player .board .point.marker.label {
+	color: #f00;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px 0 0 5px;
+	width: 14px;
+	height: 16px;
+	cursor: default;
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	background: none;
+}
+.eidogo-player .board .point.marker.variation {
+	color: #831;
+	background: #ee974c;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 1px;
+	padding: 2px 5px 1px 5px;
+	width: auto;
+	height: 14px;
+	cursor: pointer;
+	user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	z-index: 3;
+}
+.eidogo-player .board .point.marker.current {
+	background-position: 0 -79px;
+}
+.eidogo-player .board .point.marker.triangle {
+	background-position: 0 -324px;
+}
+.eidogo-player .board .point.marker.square {
+	background-position: 0 -177px;
+}
+.eidogo-player .board .point.marker.circle {
+	background-position: 0 -30px;
+}
+.eidogo-player .board .point.marker.ex {
+	background-position: 0 -128px;
+}
+.eidogo-player .board .point.marker.territory-white {
+    background-position: 0 -275px;
+}
+.eidogo-player .board .point.marker.territory-black {
+    background-position: 0 -226px;
+}
+.eidogo-player .board .point.marker.dim {
+	background-image: url(../img/dim.png);
+}
+.eidogo-player .board-hover-move {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    z-index: 1;
+    margin: -8px 0 0 -8px;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    display: none;
+}
+.eidogo-player .board-hover-move-b {
+    background-image: url(../img/b.png);
+}
+.eidogo-player .board-hover-move-w {
+    background-image: url(../img/w.png);
+}
+.eidogo-player .info {
+    display: none;
+    float: left;
+	width: 421px;
+	margin: 5px 0 0 0;
+	padding: 5px 0 0 0;
+	background: #ffffff;
+    color: #000000;
+	font-size: 10px;
+}
+.eidogo-player .info .players {
+	width: 401px;
+	margin: 0px 10px;
+	height: 50px;
+	display: none;
+}
+.eidogo-player .info .players .player {
+	width: 199px;
+	float: left;
+	padding-top: 5px;
+	padding-right: 1px;
+}
+.eidogo-player .info .players .player.white .name {
+	border-top: 1px solid #999;
+    height: 11px;
+	padding: 4px 3px 3px 20px;
+	background: #555 url(../img/markers.gif) no-repeat top left;
+    background-position: 0 -275px;
+}
+.eidogo-player .info .players .player.black .name {
+	border-top: 1px solid #999;
+    height: 11px;
+	padding: 4px 3px 3px 20px;
+	background: #555 url(../img/markers.gif) no-repeat top left;
+    background-position: 0 -226px;
+}
+.eidogo-player .info .players .player .captures {
+    float: left;
+    width: 40%;
+	padding: 3px 3px 5px 5px;
+	color: #777;
+	background: #222;
+	font-size: 9px;
+	margin: 0 0 10px 0;
+}
+.eidogo-player .info .players .player .captures span {
+	color: #fff;
+	padding-left: 2px;
+}
+.eidogo-player .info .players .player .time {
+	padding: 3px 3px 5px 5px;
+	color: #777;
+	background: #222;
+	font-size: 9px;
+	margin: 0 0 10px 0;
+}
+.eidogo-player .info .players .player .time span {
+	color: #fff;
+	padding-left: 2px;
+}
+.eidogo-player .info .game dl {
+	clear: both;
+	padding: 5px 5px 10px 10px;
+}
+.eidogo-player .info .game dt {
+	clear: left;
+	width: 70px;
+	float: left;
+	padding: 0 0 3px 0;
+}
+.eidogo-player .info .game dd {
+	padding: 0 0 3px 0;
+	margin: 0 0 0 85px;
+}
+.eidogo-player .info a {
+    color: #fff;
+}
+.eidogo-player .nav-tree-container {
+    float: right;
+    width: 375px;
+    height: 100px;
+    padding: 5px 0 5px 0;
+    margin: 5px 0 5px 0;
+    overflow: auto;
+    background: #333;
+    display: none;
+    position: relative;
+}
+.eidogo-player .nav-tree ul {
+    clear: left;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background: url(../img/navtree-left.gif) no-repeat;
+    background-position: 0 24px;
+    position: relative;
+    top: -24px;
+}
+.eidogo-player .nav-tree ul.root {
+    position: static;
+    top: 0;
+    padding-left: 5px;
+}
+.eidogo-player .nav-tree ul.root > li {
+    padding-left: 0;
+}
+.eidogo-player .nav-tree li {
+    position: relative;
+    clear: left;
+    padding: 0 0 0 24px;
+    height: 19px;
+    background: url(../img/navtree-elbow.gif) no-repeat;
+}
+.eidogo-player .nav-tree li.first {
+    background: none;
+    cursor: pointer;
+}
+.eidogo-player .nav-tree li div.mainline {
+    height: 19px;
+}
+.eidogo-player .nav-tree a {
+    float: left;
+    margin: 0 5px 5px 0;
+    width: 19px;
+    height: 15px;
+    text-decoration: none;
+    font-size: 9px;
+    font-family: arial, helvetica, sans-serif;
+    text-align: center;
+    padding: 4px 0 0 0;
+    cursor: pointer;
+}
+.eidogo-player .nav-tree a.w {
+    background: url(../img/w.png);
+    color: #000;
+}
+.eidogo-player .nav-tree a.b {
+    background: url(../img/b.png);
+    color: #fff;
+}
+.eidogo-player .nav-tree a.x {
+    background: #444;
+    color: #ccc;
+}
+.eidogo-player .nav-tree a.current {
+    background: #822 !important;
+    color: #fff !important;
+}
+.eidogo-player .continuations {
+    background: #aa9;
+    padding: 5px;
+    margin: 0 0 20px 0;
+}
+.eidogo-player .continuation {
+   clear: left;
+   padding: 5px;
+   height: 12px;
+}
+.eidogo-player .continuation:hover {
+}
+.eidogo-player .continuation div.cont-label {
+    width: 15px;
+    float: left;
+    clear: left;
+    font-weight: bold;
+    color: #443;
+}
+.eidogo-player .continuation div.cont-bar {
+    float: left;
+    margin-top: 3px;
+    height: 7px;
+    background: #665;
+}
+.eidogo-player .continuation div.cont-count {
+    width: 80px;
+    float: left;
+    margin: 0 0 0 5px;
+    font-size: 9px;
+    color: #554;
+}
+#cont-search {
+    background: #ddc;
+    display: block;
+    padding: 5px;
+    margin: 0 0 10px -5px;
+    color: #332;
+    font-weight: bold;
+}
+#cont-search:hover {
+    background: #eed;
+}
+.eidogo-player .preferences {
+	clear: right;
+	float: right;
+	width: 352px;
+	font-size: 11px;
+	margin: 15px 0 0 20px;
+	overflow: auto;
+    background: #222;
+    color: #888;
+    display: none;
+}
+.eidogo-player .options {
+    width: 379px;
+    clear: right;
+    display: none;
+    float: right;
+}
+.eidogo-player .options a {
+    float: left;
+    display: block;
+    width: 172px;
+    padding: 7px 5px 7px 5px;
+    margin: 5px 0 20px 5px;
+    background: #181818;
+    border: 1px solid #282828;
+    text-align: center;
+    color: #fff;
+}
+.eidogo-loading {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	top: 62px;
+	left: 780px;
+	padding: 0px 0 0 0px;
+	color: #777;
+	z-index: 9999;
+    background: url(../img/loading.gif) no-repeat;
+    text-indent: -9999px;
+}
+.eidogo-error {
+	position: absolute;
+	top: 130px;
+	left: 150px;
+	width: 400px;
+	background: #933;
+	border-right: 2px solid #622;
+	border-bottom: 2px solid #622;
+	margin: 20px auto 20px auto;
+	padding: 20px;
+	color: #fff;
+	z-index: 9999;
+}
+.eidogo-player .footer {
+    clear: both;
+}
+/****************************************************************************
+ *  Compact Theme
+****************************************************************************/
+.eidogo-player.theme-compact {
+    width: 421px;
+    padding: 0;
+    background: #555;
+    border: 1px solid #555;
+}
+.eidogo-player.theme-compact .board.size19 {
+    background-image: url(../img/board-19-simple.gif) !important;
+}
+.eidogo-player.theme-compact .controls-container {
+    width: 421px;
+    border-top: 1px solid #244;
+    padding-top: 0;
+}
+.eidogo-player.theme-compact .move-number {
+    top: 9px;
+}
+.eidogo-player.theme-compact .nav-slider {
+    width: 411px;
+}
+.eidogo-player.theme-compact .variations-container {
+    display: none;
+}
+.eidogo-player.theme-compact .tools-container {
+    border-top: 1px solid #333;
+    width: 411px;
+    background: #644;
+    margin: 0;
+}
+.eidogo-player.theme-compact .comments {
+    margin: 0;
+    width: 401px;
+    height: 50px;
+    padding: 5px 10px;
+    border: none;
+    background: #ccb;
+    border-top: 3px solid #aa9;
+    overflow: auto;
+    float: none;
+}
+.eidogo-player.theme-compact .comment-info {
+    background: #bba;
+}
+.eidogo-player.theme-compact .comments-edit-ta {
+    margin: 0 !important;
+    width: 411px;
+    height: 50px;
+    padding: 5px 0 5px 10px;
+    border: none;
+    background: #eee;
+    border-top: 3px solid #ddd;
+    overflow: auto;
+    float: none;
+    font-size: 11px;
+    font-family: arial, helvetica, sans-serif;
+    border-bottom: 1px solid #999;
+}
+.eidogo-player.theme-compact .comments-edit-done {
+    float: none;
+    width: 411px;
+    height: 16px;
+    margin: 0 !important;
+    padding: 5px;
+    text-align: center;
+    background: #ccc url(../img/done_bg.png) repeat-x;
+    color: #222;
+    border: 1px solid #555;
+    border-top: 1px solid #fff !important;
+    position: relative;
+    left: -1px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+}
+.eidogo-player.theme-compact .info {
+    width: 421px;
+    padding: 0;
+    margin: 0;
+}
+.eidogo-player.theme-compact .info .players {
+    padding: 0 !important;
+    margin: 0 auto;
+    width: 422px !important;
+    height: auto;
+}
+.eidogo-player.theme-compact .info .player {
+    padding-top: 0 !important;
+    width: 210px !important;
+}
+.eidogo-player.theme-compact .info .player .captures, .eidogo-player.theme-compact .info .player .time {
+    margin: 0 !important;
+}
+.eidogo-player.theme-compact .info .player .name {
+    border-top: 1px solid #222 !important;
+}
+.eidogo-player.theme-compact .options {
+    background: #333;
+    border-top: 1px solid #555;
+}
+.eidogo-player.theme-compact .options-stop {
+    clear: right;
+}
+.eidogo-player.theme-compact .options a {
+    float: right;
+    margin: 0;
+    padding: 2px;
+    border: none;
+    color: #aaa;
+    text-decoration: none;
+    background: #444;
+}
+.eidogo-loading.theme-compact {
+    background: none;
+    width: 0;
+    height: 0;
+}
+.eidogo-error.theme-compact {
+    width: 360px;
+    left: 10px;
+}
+/****************************************************************************
+ *  Problem Theme
+****************************************************************************/
+.eidogo-player.theme-problem, .eidogo-player.theme-problem .board-container {
+    padding: 0;
+    margin: 0;
+    border: none;
+    float: none;
+}
+.eidogo-player.theme-problem {
+    width: 150px;
+    height: auto;
+    padding: 1px;
+    background: #666;
+}
+.eidogo-player.theme-problem .board-container {
+    width: auto;
+    height: auto;
+    min-height: 50px;
+    background: #555;
+}
+.eidogo-player.theme-problem .board.size19 {
+    background-image: url(../img/board-19-simple.gif) !important;
+}
+.eidogo-player.theme-problem .controls-container {
+    float: none;
+    width: auto;
+    background: #333;
+    padding: 0;
+}
+.eidogo-player.theme-problem .controls {
+    height: 19px;
+    padding: 0;
+}
+.eidogo-player.theme-problem .control {
+    margin: 0;
+    padding: 0;
+}
+.eidogo-player.theme-problem .comments {
+    float: none;
+    margin: 0;
+    background: #ccc;
+    border: none;
+    padding: 5px;
+    width: auto;
+    height: 35px;
+}
+.eidogo-player.theme-problem .controls .forward, 
+.eidogo-player.theme-problem .controls .last, .eidogo-player.theme-problem .controls .pass,
+.eidogo-player.theme-problem .variations-container, .eidogo-player.theme-problem .nav-slider,
+.eidogo-player.theme-problem .move-number {
+    display: none;
+}
