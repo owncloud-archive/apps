@@ -1,7 +1,3 @@
-//############################################## TODOs ##############################
-//add button to switch to problem mode
-//commit
-
 function viewSgf(dir, file) {
 
 	//tinker a valid sgf URL for the eidogo lib
