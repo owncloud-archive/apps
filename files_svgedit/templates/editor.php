@@ -1,12 +1,11 @@
 <?php
 // load required style sheets:
-OC_Util::addStyle('files_svgedit', 'ocsvg');
 OC_Util::addStyle('files_svgedit', 'jgraduate/css/jPicker-1.0.12');
 OC_Util::addStyle('files_svgedit', 'jgraduate/css/jgraduate');
 OC_Util::addStyle('files_svgedit', 'svg-editor');
 OC_Util::addStyle('files_svgedit', 'spinbtn/JQuerySpinBtn');
+OC_Util::addStyle('files_svgedit', 'ocsvg');
 // load required javascripts:
-OC_Util::addScript('files_svgedit', 'ocsvgEditor');
 OC_Util::addScript('files_svgedit', 'js-hotkeys/jquery.hotkeys.min');
 OC_Util::addScript('files_svgedit', 'jgraduate/jquery.jgraduate.min');
 OC_Util::addScript('files_svgedit', 'svgicons/jquery.svgicons.min');
@@ -16,6 +15,7 @@ OC_Util::addScript('files_svgedit', 'svgcanvas.min');
 OC_Util::addScript('files_svgedit', 'svg-editor.min');
 OC_Util::addScript('files_svgedit', 'locale/locale.min');
 OC_Util::addScript('files_svgedit', 'jgraduate/jpicker-1.0.12.min');
+OC_Util::addScript('files_svgedit', 'ocsvgEditor');
 //only for debugging:
 //OC_Util::addScript('files_svgedit', 'svgcanvas');
 //OC_Util::addScript('files_svgedit', 'svg-editor');
@@ -31,6 +31,11 @@ var ocsvgFile = {
 };
 //-->
 </script>
+<!--
+<div id="controls">
+<input type="button" value="Hello World!" onclick="alert('hello world!')" />
+</div>
+-->
 <div id="editorWrapper">
 <div id="editorContent">
 <div id="svg_editor">

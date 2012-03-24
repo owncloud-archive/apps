@@ -12,20 +12,24 @@ var ocsvg = {
         // set a new path for saving the file
         this.currentFile.path = newPath;
     },
+    setFileContents: function(newContents) {
+        // set file contents
+        this.currentFile.filecontents = newContents;
+    },
     setFileMTime: function(mtime) {
         // set last modified time of the file
         this.currentFile.mtime = mtime;
     },
-    save: function() {
-        var savePath = prompt(t('files_svgedit', 'Save as'), this.currentFile.path);
+    save: function(window, svgString) {
+        var savePath = prompt(t('files_svgedit', 'Save as'), ocsvg.currentFile.path);
         if(savePath === null || savePath == '') {
             return;
         } else {
-            this.currentFile.path = savePath;
-            this.currentFile.filecontents = svgCanvas.getSvgString();
+            ocsvg.setFilePath(savePath);
+            ocsvg.setFileContents('<?xml version="1.0"?>\n' + svgString);
             $.post(
                 OC.filePath('files_svgedit','ajax','save.php'),
-                this.currentFile,
+                ocsvg.currentFile,
                 function(result) {
                     if(result.status!='success'){
                         // Save failed
@@ -51,5 +55,13 @@ $(document).ready(function() {
     ocsvg.setEditorSize();
     $(window).resize(function() {
         ocsvg.setEditorSize();
+    });
+    // overwrite saveHandler:
+    /*svgEditor.setConfig({
+        saveHandler: ocsvg.save
+    });*/
+    svgEditor.addExtension("OCSVG Handlers", function() {
+        svgCanvas.bind('saved', ocsvg.save);
+        return {};
     });
 });
