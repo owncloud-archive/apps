@@ -26,14 +26,14 @@ var ocsvg = {
             return;
         } else {
             ocsvg.setFilePath(savePath);
-            ocsvg.setFileContents('<?xml version="1.0"?>\n' + svgString);
+            ocsvg.setFileContents('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n' + svgString);
             $.post(
                 OC.filePath('files_svgedit','ajax','save.php'),
                 ocsvg.currentFile,
                 function(result) {
                     if(result.status!='success'){
                         // Save failed
-                        alert(t('files_svgedit', 'Could not save:') + "\n" + ocsvg.currentFile.path);
+                        alert(t('files_svgedit', 'Could not save:') + "\n" + ocsvg.currentFile.path + "\n" + result.data.message);
                     } else {
                         // Save OK
                         // Update mtime:
