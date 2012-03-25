@@ -1,0 +1,18 @@
+ SVG Editor for ownCloud
+
+Here you find change log and release notes!
+
+2012/03/25 - alpha (internal version 0.1)
+ This is the first release with most things working!
+  Release notes:
+  * open svg file
+  * save svg file in editor
+  * save under different names
+  * most of svg-edit features working
+  
+  Known issues:
+  * doesn't work in WebKit
+  * png export
+  * issues with gradients
+  * some svg-edit drop-downs not working (start/middle/end symbol)
+  * some tags (rdf, cc, ?) are ignored at import

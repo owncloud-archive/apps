@@ -38,6 +38,7 @@ var ocsvg = {
                         // Save OK
                         // Update mtime:
                         ocsvg.currentFile.mtime = result.data.mtime;
+                        alert(t('files_svgedit', 'Successfully saved!'));
                     }
                 },
                 'json'
