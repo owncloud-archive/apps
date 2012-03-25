@@ -20,7 +20,7 @@ var ocsvg = {
         // set last modified time of the file
         this.currentFile.mtime = mtime;
     },
-    save: function(window, svgString) {
+    save: function(win, svgString) {
         var savePath = prompt(t('files_svgedit', 'Save as'), ocsvg.currentFile.path);
         if(savePath === null || savePath == '') {
             return;
@@ -34,6 +34,7 @@ var ocsvg = {
                     if(result.status!='success'){
                         // Save failed
                         alert(t('files_svgedit', 'Could not save:') + "\n" + ocsvg.currentFile.path + "\n" + result.data.message);
+                        ocsvg.save(win, svgString);
                     } else {
                         // Save OK
                         // Update mtime:

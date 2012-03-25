@@ -25,12 +25,13 @@ if($path != '' && $mtime != '') {
         if($mtime != $filemtime) {
             // Then the file has changed since opening
             OC_JSON::error(array("data" => array("message" => "File has been modified since opening!")));
-            OC_Log::write('files_svgedit',"File: ".$path." modified since opening.",OC_Log::ERROR);	
+            OC_Log::write('files_svgedit',"File: ".$path." modified since opening.",OC_Log::ERROR);
+            exit();
         }
     } else {
         // file doesn't exist yet, so let's create it!
         if($file == '') {
-            OC_JSON::error(array("data" => array( "message" => "Empty Filename" )));
+            OC_JSON::error(array("data" => array( "message" => "Empty Filename") ));
             exit();
         }
         if(!OC_Files::newFile($dir, $file, 'file')) {
@@ -49,7 +50,7 @@ if($path != '' && $mtime != '') {
         OC_JSON::success(array('data' => array('mtime' => $newmtime)));
     } else {
         // Not writeable!
-        OC_JSON::error(array('data' => array( 'message' => 'Insufficient permissions')));	
+        OC_JSON::error(array('data' => array( 'message' => 'Insufficient permissions')));
         OC_Log::write('files_svgedit',"User does not have permission to write to file: ".$path,OC_Log::ERROR);
     }
 } else {
