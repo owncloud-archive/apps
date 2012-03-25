@@ -24,7 +24,7 @@ if($path != '' && $mtime != '') {
         $filemtime = OC_Filesystem::filemtime($path);
         if($mtime != $filemtime) {
             // Then the file has changed since opening
-            OC_JSON::error();
+            OC_JSON::error(array("data" => array("message" => "File has been modified since opening!")));
             OC_Log::write('files_svgedit',"File: ".$path." modified since opening.",OC_Log::ERROR);	
         }
     } else {
