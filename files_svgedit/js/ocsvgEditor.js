@@ -1,4 +1,6 @@
+var svgCanvas = null;
 var ocsvg = {
+    frameDoc: null,
     currentFile: {
         filecontents: '',
         path: '',
@@ -20,7 +22,11 @@ var ocsvg = {
         // set last modified time of the file
         this.currentFile.mtime = mtime;
     },
-    save: function(win, svgString) {
+    save: function(svgString, error) {
+        if(error) {
+            alert("Couldn't get SVG contents:\n\n" + error);
+            return;
+        }
         var savePath = prompt(t('files_svgedit', 'Save as'), ocsvg.currentFile.path);
         if(savePath === null || savePath == '') {
             return;
@@ -34,7 +40,7 @@ var ocsvg = {
                     if(result.status!='success'){
                         // Save failed
                         alert(t('files_svgedit', 'Could not save:') + "\n" + ocsvg.currentFile.path + "\n" + result.data.message);
-                        ocsvg.save(win, svgString);
+                        ocsvg.save(svgString, null);
                     } else {
                         // Save OK
                         // Update mtime:
@@ -49,6 +55,35 @@ var ocsvg = {
 };
 
 $(document).ready(function() {
+    // set control buttons' onclick handlers:
+    $('#ocsvgBtnSave').click(function() {
+        svgCanvas.getSvgString()(ocsvg.save);
+    });
+    
+    // import file
+    ocsvg.setFileContents(ocsvgFile.contents);
+    ocsvg.setFilePath(ocsvgFile.path);
+    ocsvg.setFileMTime(ocsvgFile.mtime);
+    
+    // set editor's size fit into the window when resizing it:
+    $(window).resize(function() {
+        ocsvg.setEditorSize();
+    }).resize();
+    
+    // initialize editor frame:
+    var frame = document.getElementById('svgedit');
+    $(frame).load(function() {
+        ocsvg.frameDoc = $(frame).contents();
+        svgCanvas = new embedded_svg_edit(frame);
+        // hide main menu button, then shift the tool bar to the left border:
+        ocsvg.frameDoc.find('#main_button').hide().next().css('left', 0).css('padding-left', 2).css('padding-top', 2);
+        // fix broken color select field
+        ocsvg.frameDoc.find('#fill_color,#stroke_color').find('svg').css('height', '100%');
+        svgCanvas.setSvgString(ocsvg.currentFile.filecontents);
+    });
+});
+/*
+$(document).ready(function() {
     // Load specified file's contents into editor and set attributes:
     ocsvg.fileContents = ocsvgFile.contents;
     svgEditor.loadFromString(ocsvg.fileContents);
@@ -61,9 +96,10 @@ $(document).ready(function() {
     // overwrite saveHandler:
     /*svgEditor.setConfig({
         saveHandler: ocsvg.save
-    });*/
+    });*//*
     svgEditor.addExtension("OCSVG Handlers", function() {
         svgCanvas.bind('saved', ocsvg.save);
         return {};
     });
 });
+*/

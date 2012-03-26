@@ -21,3 +21,13 @@ Installation:
 
 Usage:
 	To edit an SVG file, simply click on it in your directory listing.
+
+Updating svg-edit:
+    To get the latest trunk version of svg-edit, go to files_svgedit/svg-edit
+    and execute the following commands:
+    
+        svn up
+        cp embedapi.js ../js/svg-edit/
+    
+    But you should first check if there've been changes on the svg-edit
+    project that could make it incompatible to ocsvg!
