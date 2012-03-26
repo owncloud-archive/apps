@@ -79,7 +79,11 @@ $(document).ready(function() {
         ocsvg.frameDoc.find('#main_button').hide().next().css('left', 0).css('padding-left', 2).css('padding-top', 2);
         // fix broken color select field
         ocsvg.frameDoc.find('#fill_color,#stroke_color').find('svg').css('height', '100%');
-        svgCanvas.setSvgString(ocsvg.currentFile.filecontents);
+        svgCanvas.setSvgString(ocsvg.currentFile.filecontents)(function(data, error) {
+            if(error) {
+                alert("Could not load file!\n\n" + error);
+            }
+        });
     });
 });
 /*
