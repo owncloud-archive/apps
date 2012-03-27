@@ -17,6 +17,7 @@ var ocsvgFile = {
 </script>
 <div id="controls">
     <input type="button" id="ocsvgBtnSave" value="<?php echo $l->t('Save'); ?>" />
+    <input type="button" id="ocsvgBtnPrefs" value="<?php echo $l->t('Preferences'); ?>" />
 </div>
 <div id="editor">
     <iframe src="<?php echo OC_Helper::linkTo('files_svgedit', 'svg-edit/svg-editor.html'); ?>" id="svgedit"></iframe>
