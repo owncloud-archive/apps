@@ -86,12 +86,11 @@ var ocsvg = {
 };
 
 $(document).ready(function() {
-    /*
     // set control buttons' onclick handlers:
     $('#ocsvgBtnSave').click(function() {
         svgCanvas.getSvgString()(ocsvg.save);
     });
-    */
+    
     // import file
     ocsvg.setFileContents(ocsvgFile.contents);
     ocsvg.setFilePath(ocsvgFile.path);
@@ -110,10 +109,9 @@ $(document).ready(function() {
         svgCanvas = new embedded_svg_edit(frame);
         
         // hide main menu button, then shift the tool bar to the left border:
-        //ocsvg.frameDoc.find('#main_button').hide().next().css('left', 0).css('padding-left', 2).css('padding-top', 2);
+        ocsvg.frameDoc.find('#main_button').hide().next().css('left', 0).css('padding-left', 2).css('padding-top', 2);
         // fix broken color select field
         ocsvg.frameDoc.find('#fill_color,#stroke_color').find('svg').css('height', '100%');
-        /*
         // set handler for show preferences button:
         //$('#ocsvgBtnPrefs').click(ocsvg.showPreferences);
         $('#ocsvgBtnPrefs').click(function() {
@@ -123,7 +121,7 @@ $(document).ready(function() {
         ocsvg.frameDoc.find('#tool_prefs_cancel').click(function() {
             ocsvg.frameDoc.find('#svg_prefs').hide();
         });
-        */
+        
         svgCanvas.setSvgString(ocsvg.currentFile.filecontents)(function(data, error) {
             if(error) {
                 alert("Could not load file!\n\n" + error);
@@ -131,3 +129,24 @@ $(document).ready(function() {
         });
     });
 });
+/*
+$(document).ready(function() {
+    // Load specified file's contents into editor and set attributes:
+    ocsvg.fileContents = ocsvgFile.contents;
+    svgEditor.loadFromString(ocsvg.fileContents);
+    ocsvg.setFilePath(ocsvgFile.path);
+    ocsvg.setFileMTime(ocsvgFile.mtime);
+    ocsvg.setEditorSize();
+    $(window).resize(function() {
+        ocsvg.setEditorSize();
+    });
+    // overwrite saveHandler:
+    /*svgEditor.setConfig({
+        saveHandler: ocsvg.save
+    });*//*
+    svgEditor.addExtension("OCSVG Handlers", function() {
+        svgCanvas.bind('saved', ocsvg.save);
+        return {};
+    });
+});
+*/
