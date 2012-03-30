@@ -22,9 +22,9 @@
 */
 OC_Util::addScript('files_svgedit', 'ocsvg');
 OC_App::register(array(
-    'order' => 80,
-    'id' => 'apptemplate',
-    'name' => 'App Template'
+    'order' => 50,
+    'id' => 'files_svgedit',
+    'name' => 'SVG Editor'
     ));
 
 ?>
