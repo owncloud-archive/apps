@@ -41,7 +41,7 @@ if($path != '' && $mtime != '') {
         }
     }
     // file should be existing now
-    if(OC_Filesystem::is_writeable($path)) {
+    if(OC_Filesystem::is_writable($path)) {
         OC_Filesystem::file_put_contents($path, $filecontents);
         // Clear statcache
         clearstatcache();
@@ -49,7 +49,7 @@ if($path != '' && $mtime != '') {
         $newmtime = OC_Filesystem::filemtime($path);
         OC_JSON::success(array('data' => array('mtime' => $newmtime)));
     } else {
-        // Not writeable!
+        // Not writable!
         OC_JSON::error(array('data' => array( 'message' => 'Insufficient permissions')));
         OC_Log::write('files_svgedit',"User does not have permission to write to file: ".$path,OC_Log::ERROR);
     }
