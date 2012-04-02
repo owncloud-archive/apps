@@ -10,7 +10,7 @@ var ocsvg = {
     },
     setEditorSize: function() {
         // Fits the size of editor area to the available space
-        fillWindow($('#editorWrapper'));
+        fillWindow($('#svgEditor'));
     },
     setFilePath: function(newPath) {
         // set a new path for saving the file
