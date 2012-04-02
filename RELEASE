@@ -2,6 +2,18 @@
 
 Here you find change log and release notes!
 
+2012/03/30 - beta1/0.2
+ Changing everything by using svgedit 2.6 (trunk version)
+  Release notes:
+  * using svgedit 2.6:
+   * many new features
+   * works in WebKit
+   * gradients working
+   * svg-edit dropdowns working
+  * using ownCloud control bar:
+   * saving works
+   * open preferences dialouge
+
 2012/03/25 - alpha (internal version 0.1)
  This is the first release with most things working!
   Release notes:
@@ -11,8 +23,6 @@ Here you find change log and release notes!
   * most of svg-edit features working
   
   Known issues:
-  * doesn't work in WebKit
   * png export
-  * issues with gradients
   * some svg-edit drop-downs not working (start/middle/end symbol)
   * some tags (rdf, cc, ?) are ignored at import

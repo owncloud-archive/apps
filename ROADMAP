@@ -1,16 +1,10 @@
-Roadmap for ocsvg (SVG editor for ownCloud)
+Roadmap for ocsvg (SVG editor for ownCloud) as of beta1
 
 beta:
- * WebKit support
  * PNG export
  * l10n (convert locale/lang.xx.js to php array)
- * better (ownCloud compliant) directory structure (keep svg-edit compatibility??)
  * better usage of jQuery UI
  * get rid of "really want to close?" after saving
- * use newer svg-edit version!! (has awesome features like grid, links, shape library etc...)
-
-1.0:
- * working gradients
 
 Ideas for the future:
  * collaborative editing
