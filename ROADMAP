@@ -2,7 +2,7 @@ Roadmap for ocsvg (SVG editor for ownCloud) as of beta1
 
 beta:
  * PNG export
- * l10n (convert locale/lang.xx.js to php array)
+ * l10n (set language to the current owncloud language)
  * better usage of jQuery UI
  * get rid of "really want to close?" after saving
 

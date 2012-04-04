@@ -4,7 +4,7 @@ Copyright by Florian Hülsmann, 2012
 
 License:
 	LGPLv3 (plugin, php and javascript code)
-	MIT License/Apache License (svg-edit, http://code.google.com/p/svg-edit/)
+	MIT License/Apache License (svg-edit, http://code.google.com/p/svg-edit)
 	Creative Commons 3.0 by-sa (artwork, css stylesheets)
 
 Authors:
@@ -15,9 +15,8 @@ Description:
 	the ownCloud user interface.
 
 Installation:
-	Simply copy the files_svgedit folder into your ownCloud's /apps/
-	directory, login as an administrator and enable this app in the
-	applications list.
+	Copy this folder to your ownCloud's /apps/ directory, rename it to
+	"files_svgedit" and enable the app in the admin interface.
 
 Usage:
 	To edit an SVG file, simply click on it in your directory listing.

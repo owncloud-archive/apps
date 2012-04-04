@@ -11,9 +11,15 @@ require_once('../../../lib/base.php');
 OC_JSON::checkLoggedIn();
 
 // Get paramteres
-$filecontents = htmlspecialchars_decode($_POST['filecontents']);
-$path = isset($_POST['path']) ? $_POST['path'] : '';
-$mtime = isset($_POST['mtime']) ? $_POST['mtime'] : '';
+$filecontents = htmlspecialchars_decode($_POST['file']['filecontents']);
+$path = isset($_POST['file']['path']) ? $_POST['file']['path'] : '';
+$mtime = isset($_POST['file']['mtime']) ? $_POST['file']['mtime'] : '';
+$force = isset($_POST['force']) ? ($_POST['force'] == 'true') : false;
+$b64encoded = isset($_POST['base64encoded']) ? ($_POST['base64encoded'] == 'true') : false;
+if($b64encoded) {
+	$b64type = isset($_POST['base64type']) ? $_POST['base64type'] : 'image/png';
+}
+
 $pathParts = pathinfo($path);
 $dir = $pathParts['dirname'];
 $file = $pathParts['basename'];
@@ -22,7 +28,7 @@ if($path != '' && $mtime != '') {
     if(OC_Filesystem::file_exists($path)) {
         // Get file mtime
         $filemtime = OC_Filesystem::filemtime($path);
-        if($mtime != $filemtime) {
+        if(!$force && $mtime != $filemtime) {
             // Then the file has changed since opening
             OC_JSON::error(array("data" => array("message" => "File has been modified since opening!")));
             OC_Log::write('files_svgedit',"File: ".$path." modified since opening.",OC_Log::ERROR);
@@ -41,7 +47,13 @@ if($path != '' && $mtime != '') {
         }
     }
     // file should be existing now
-    if(OC_Filesystem::is_writable($path)) {
+	if(OC_Filesystem::is_writable($path)) {
+		if($b64encoded) {
+			$b64prefix = 'data:' . $b64type . ';base64,';
+			if(strpos($filecontents, $b64prefix) === 0) {
+				$filecontents = base64_decode(substr($filecontents, strlen($b64prefix)));
+			}
+		}
         OC_Filesystem::file_put_contents($path, $filecontents);
         // Clear statcache
         clearstatcache();

@@ -3,6 +3,13 @@
 require_once('../../lib/base.php');
 OC_Util::checkLoggedIn();
 OC_Util::checkAppEnabled('files_svgedit');
+// load required style sheets:
+OC_Util::addStyle('files_svgedit', 'ocsvg');
+// load required javascripts:
+OC_Util::addScript('files_svgedit', 'svg-edit/embedapi');
+OC_Util::addScript('files_svgedit', 'ocsvgEditor');
+OC_Util::addScript('files_svgedit', 'canvg/canvg');
+OC_Util::addScript('files_svgedit', 'canvg/rgbcolor');
 if(isset($_GET['file']) and OC_Filesystem::is_writable($path = $_GET['file'])) {
     $filecontents = OC_Filesystem::file_get_contents($path);
     $filemtime = OC_Filesystem::filemtime($path);

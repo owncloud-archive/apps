@@ -3,7 +3,7 @@
 	<id>files_svgedit</id>
 	<name>SVG Editor</name>
 	<description>A complete javascript interface to view, modify and create vector graphics directly in ownCloud.</description>
-	<version>0.2-beta1</version>
+	<version>0.2-beta2-git</version>
 	<licence>LGPL</licence>
 	<author>Florian Hülsmann</author>
 	<require>2</require>

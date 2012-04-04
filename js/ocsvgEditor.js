@@ -8,6 +8,12 @@ var ocsvg = {
         path: '',
         mtime: 0
     },
+	exportFile: {
+		filecontents: '',
+		path: '',
+		mtime: 0
+	},
+	changed: false,
     setEditorSize: function() {
         // Fits the size of editor area to the available space
         fillWindow($('#svgEditor'));
@@ -24,65 +30,113 @@ var ocsvg = {
         // set last modified time of the file
         this.currentFile.mtime = mtime;
     },
-    save: function(svgString, error) {
-        if(error) {
-            alert("Couldn't get SVG contents:\n\n" + error);
-            return;
-        }
-        var savePath = prompt(t('files_svgedit', 'Save as'), ocsvg.currentFile.path);
+	setFileContentsSvg: function(svgString, e) {
+		ocsvg.setFileContents('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n' + svgString);
+	},
+	init: function(file) {
+		ocsvg.setFileContents(file.contents);
+		ocsvg.setFilePath(file.path);
+		ocsvg.setFileMTime(file.mtime);
+	},
+	saveFile: function(data, callback) {
+        var savePath;
+		if(data.force) {
+	   		savePath = data.file.path;
+		} else {
+			savePath = prompt(t('files_svgedit', 'Save as'), data.file.path);
+		}
         if(savePath === null || savePath == '') {
             return;
         } else {
-            ocsvg.setFilePath(savePath);
-            ocsvg.setFileContents('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n' + svgString);
+            data.file.path = savePath;
             $.post(
                 OC.filePath('files_svgedit','ajax','save.php'),
-                ocsvg.currentFile,
+				data,
                 function(result) {
                     if(result.status!='success'){
                         // Save failed
-                        alert(t('files_svgedit', 'Could not save:') + "\n" + ocsvg.currentFile.path + "\n" + result.data.message);
-                        ocsvg.save(svgString, null);
+                        data.force = confirm(
+							t('files_svgedit', 'Could not save:') + "\n"
+							+ savePath + "\n"
+							+ result.data.message + "\n"
+							+ t('files_svgedit', 'Save anyway?')
+						);
+						if(callback && callback.error) {
+							callback.error(result);
+						}
+                        ocsvg.saveFile(data);
                     } else {
                         // Save OK
                         // Update mtime:
-                        ocsvg.currentFile.mtime = result.data.mtime;
+                        data.file.mtime = result.data.mtime;
+						if(callback && callback.success) {
+							callback.success(result);
+						}
                         alert(t('files_svgedit', 'Successfully saved!'));
                     }
                 },
                 'json'
             );
         }
-    }/*,
-    showPreferences: function() {
-        if (ocsvg.prefsShown) return;
-        ocsvg.prefsShown = true;
-        
-        // Update background color with current one
-        var blocks = ocsvg.frameDoc.find('#bg_blocks div');
-        var cur_bg = 'cur_background';
-        var canvas_bg = ocsvg.frameWin.$.pref('bkgd_color');
-        var url = ocsvg.frameWin.$.pref('bkgd_url');
-// 		if(url) url = url[1];
-        blocks.each(function() {
-            var blk = $(this);
-            var is_bg = blk.css('background-color') == canvas_bg;
-            blk.toggleClass(cur_bg, is_bg);
-            if(is_bg) $(ocsvg.frameDoc).find('#canvas_bg_url').removeClass(cur_bg);
-        });
-        if(!canvas_bg) blocks.eq(0).addClass(cur_bg);
-        if(url) {
-            ocsvg.frameDoc.find('#canvas_bg_url').val(url);
+	},
+    save: function(svgString, error) {
+        if(error) {
+            alert("Couldn't get SVG contents:\n\n" + error);
+            return;
         }
-        ocsvg.frameDoc.find('grid_snapping_step').attr('value', ocsvg.frameWin.svgEditor.curConfig.snappingStep);
-        if (ocsvg.frameWin.svgEditor.curConfig.gridSnapping == true) {
-            ocsvg.frameDoc.find('#grid_snapping_on').attr('checked', 'checked');
-        } else {
-            ocsvg.frameDoc.find('#grid_snapping_on').removeAttr('checked');
+        ocsvg.setFileContentsSvg(svgString);
+		//saveFile
+		ocsvg.saveFile(
+			{
+				file: ocsvg.currentFile,
+			},
+			{success: function(result) {ocsvg.changed = false;}}
+		);
+    },
+	pngExport: function(svgString, error) {
+        if(error) {
+            alert("Couldn't get SVG contents:\n\n" + error);
+            return;
         }
-        
-        ocsvg.frameDoc.find('#svg_prefs').show();
-    }*/
+		// reimplementing png export is easier than trying to use svg-edit handlers...
+		if(!$('#exportCanvas').length) {
+			$('<canvas>', {id: 'exportCanvas'}).hide().appendTo('body');
+		}
+		var canvas = $('#exportCanvas')[0];
+
+		canvas.width = ocsvg.frameWin.svgCanvas.contentW;
+		canvas.height = ocsvg.frameWin.svgCanvas.contentH;
+		canvg(canvas, svgString, {renderCallback: function() {
+			var datauri = canvas.toDataURL('image/png');
+			//console.log('exported png:', datauri);
+			if(!ocsvg.exportFile.path.length) {
+				var savePath = ocsvg.currentFile.path;
+				if(savePath.substr(-4) == '.svg') {
+					savePath = savePath.substr(0, savePath.length - 4);
+				}
+				ocsvg.exportFile.path = savePath + '.png';
+			}
+			ocsvg.exportFile.filecontents = datauri;
+			ocsvg.saveFile({
+				file: ocsvg.exportFile,
+				base64encoded: true,
+				base64type: 'image/png'
+			});
+		}});
+	},
+	changedHandler: function() {
+		console.log('changed!!!');
+		if(!ocsvg.changed) {
+			ocsvg.changed = true;
+		}
+	},
+	confirmExit: function() {
+		if(ocsvg.changed) {
+			return t('files_svgedit', 'File has unsaved content. Really want to quit?');
+		} else {
+			return null;
+		}
+	}
 };
 
 $(document).ready(function() {
@@ -90,11 +144,12 @@ $(document).ready(function() {
     $('#ocsvgBtnSave').click(function() {
         svgCanvas.getSvgString()(ocsvg.save);
     });
+	$('#ocsvgBtnExport').click(function() {
+		svgCanvas.getSvgString()(ocsvg.pngExport);
+	});
     
     // import file
-    ocsvg.setFileContents(ocsvgFile.contents);
-    ocsvg.setFilePath(ocsvgFile.path);
-    ocsvg.setFileMTime(ocsvgFile.mtime);
+	ocsvg.init(ocsvgFile);
     
     // set editor's size fit into the window when resizing it:
     $(window).resize(function() {
@@ -126,27 +181,12 @@ $(document).ready(function() {
             if(error) {
                 alert("Could not load file!\n\n" + error);
             }
+			//svgCanvas.bind('changed', ocsvg.changedHandler)();
+			//TODO: svgCanvas.bind doesn't work here as I expect...
+			ocsvg.frameWin.svgCanvas.bind('changed', ocsvg.changedHandler);
         });
+
+		// set confirmation on exit (only if content has changed);
+		ocsvg.frameWin.onbeforeunload = ocsvg.confirmExit;
     });
 });
-/*
-$(document).ready(function() {
-    // Load specified file's contents into editor and set attributes:
-    ocsvg.fileContents = ocsvgFile.contents;
-    svgEditor.loadFromString(ocsvg.fileContents);
-    ocsvg.setFilePath(ocsvgFile.path);
-    ocsvg.setFileMTime(ocsvgFile.mtime);
-    ocsvg.setEditorSize();
-    $(window).resize(function() {
-        ocsvg.setEditorSize();
-    });
-    // overwrite saveHandler:
-    /*svgEditor.setConfig({
-        saveHandler: ocsvg.save
-    });*//*
-    svgEditor.addExtension("OCSVG Handlers", function() {
-        svgCanvas.bind('saved', ocsvg.save);
-        return {};
-    });
-});
-*/
