@@ -125,7 +125,6 @@ var ocsvg = {
 		}});
 	},
 	changedHandler: function() {
-		console.log('changed!!!');
 		if(!ocsvg.changed) {
 			ocsvg.changed = true;
 		}
