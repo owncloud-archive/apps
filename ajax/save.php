@@ -46,8 +46,13 @@ if($path != '' && $mtime != '') {
             exit();
         }
     }
-    // file should be existing now
-	if(OC_Filesystem::is_writable($path)) {
+	// file should be existing now
+	if(function_exists('OC_Filesystem::is_writable')) {
+		$writable = OC_Filesystem::is_writable($path);
+	} else {
+		$writable = OC_Filesystem::is_writeable($path);
+	}
+	if($writable) {
 		if($b64encoded) {
 			$b64prefix = 'data:' . $b64type . ';base64,';
 			if(strpos($filecontents, $b64prefix) === 0) {

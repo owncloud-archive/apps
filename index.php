@@ -10,7 +10,13 @@ OC_Util::addScript('files_svgedit', 'svg-edit/embedapi');
 OC_Util::addScript('files_svgedit', 'ocsvgEditor');
 OC_Util::addScript('files_svgedit', 'canvg/canvg');
 OC_Util::addScript('files_svgedit', 'canvg/rgbcolor');
-if(isset($_GET['file']) and OC_Filesystem::is_writable($path = $_GET['file'])) {
+$path = $_GET['file'];
+if(function_exists('OC_Filesystem::is_writable') {
+	$writable = OC_Filesystem::is_writable($path);
+} else {
+	$writable = OC_Filesystem::is_writeable($path);
+}
+if(isset($_GET['file']) and $writable) {
     $filecontents = OC_Filesystem::file_get_contents($path);
     $filemtime = OC_Filesystem::filemtime($path);
 } else {
