@@ -47,7 +47,7 @@ if($path != '' && $mtime != '') {
         }
     }
 	// file should be existing now
-	if(function_exists('OC_Filesystem::is_writable')) {
+	if(method_exists('OC_Filesystem', 'is_writable')) {
 		$writable = OC_Filesystem::is_writable($path);
 	} else {
 		$writable = OC_Filesystem::is_writeable($path);
