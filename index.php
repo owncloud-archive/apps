@@ -11,7 +11,7 @@ OC_Util::addScript('files_svgedit', 'ocsvgEditor');
 OC_Util::addScript('files_svgedit', 'canvg/canvg');
 OC_Util::addScript('files_svgedit', 'canvg/rgbcolor');
 $path = $_GET['file'];
-if(function_exists('OC_Filesystem::is_writable') {
+if(function_exists('OC_Filesystem::is_writable')) {
 	$writable = OC_Filesystem::is_writable($path);
 } else {
 	$writable = OC_Filesystem::is_writeable($path);
