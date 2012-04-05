@@ -2,6 +2,8 @@ SVG editor for ownCloud
 
 Copyright by Florian Hülsmann, 2012
 
+http://ocsvg.cbix.de
+
 License:
 	LGPLv3 (plugin, php and javascript code)
 	MIT License/Apache License (svg-edit, http://code.google.com/p/svg-edit)
@@ -28,5 +30,5 @@ Updating svg-edit:
         svn up
         cp embedapi.js ../js/svg-edit/
     
-    But you should first check if there've been changes on the svg-edit
+    But you should first check if there've been changes to the svg-edit
     project that could make it incompatible to ocsvg!

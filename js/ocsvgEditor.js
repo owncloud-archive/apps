@@ -106,9 +106,10 @@ var ocsvg = {
 
 		canvas.width = ocsvg.frameWin.svgCanvas.contentW;
 		canvas.height = ocsvg.frameWin.svgCanvas.contentH;
+		$('#ocsvgBtnExport').val(t('files_svgedit', 'Rendering...'));
 		canvg(canvas, svgString, {renderCallback: function() {
 			var datauri = canvas.toDataURL('image/png');
-			//console.log('exported png:', datauri);
+			$('#ocsvgBtnExport').val(t('files_svgedit', 'Export PNG'));
 			if(!ocsvg.exportFile.path.length) {
 				var savePath = ocsvg.currentFile.path;
 				if(savePath.substr(-4) == '.svg') {
@@ -146,7 +147,11 @@ $(document).ready(function() {
 	$('#ocsvgBtnExport').click(function() {
 		svgCanvas.getSvgString()(ocsvg.pngExport);
 	});
-    
+    $('#ocsvgBtnClose').click(function() {
+		var dir = ocsvg.currentFile.path.replace(/\/[^\/]*$/, '');
+		window.location = OC.linkTo('files', 'index.php') + '?dir=' + dir;
+	});
+
     // import file
 	ocsvg.init(ocsvgFile);
     

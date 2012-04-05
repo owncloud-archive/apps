@@ -10,6 +10,7 @@ OC_Util::addScript('files_svgedit', 'svg-edit/embedapi');
 OC_Util::addScript('files_svgedit', 'ocsvgEditor');
 OC_Util::addScript('files_svgedit', 'canvg/canvg');
 OC_Util::addScript('files_svgedit', 'canvg/rgbcolor');
+OC_App::setActiveNavigationEntry('files_index');
 $path = $_GET['file'];
 if(method_exists('OC_Filesystem', 'is_writable')) {
 	$writable = OC_Filesystem::is_writable($path);

@@ -40,7 +40,8 @@ if($path != '' && $mtime != '') {
             OC_JSON::error(array("data" => array( "message" => "Empty Filename") ));
             exit();
         }
-        if(!OC_Files::newFile($dir, $file, 'file')) {
+		OC_Files::newFile($dir, '', 'dir');
+		if(!OC_Files::newFile($dir, $file, 'file')) {
             OC_JSON::error(array("data" => array("message" => "Error when creating new file!")));
             OC_Log::write('files_svgedit', "Failed to create file: " . $path, OC_Log::ERROR);
             exit();
