@@ -1,0 +1,32 @@
+ SVG Editor for ownCloud
+Copyright (c) 2012 Florian Hülsmann <fh@cbix.de>
+
+Here you find change log and release notes!
+
+2012/04/04 - beta2/0.2
+ * PNG export (depending on browser's canvas capabilities)
+ * got rid of quit confirmation dialog when nothing has changed
+ * major bug fixes
+ 
+ known issues:
+ * PNG export not working reliable
+
+2012/03/30 - beta1/0.2
+ Changing everything by using svgedit 2.6 (trunk version)
+  Release notes:
+  * using svgedit 2.6:
+   * many new features
+   * works in WebKit
+   * gradients working
+   * svg-edit dropdowns working
+  * using ownCloud control bar:
+   * saving works
+   * open preferences dialouge
+
+2012/03/25 - alpha (internal version 0.1)
+ This is the first release with most things working!
+  Release notes:
+  * open svg file
+  * save svg file in editor
+  * save under different names
+  * most of svg-edit features working

@@ -1,0 +1,13 @@
+Roadmap for ocsvg (SVG editor for ownCloud) as of 0.2-beta2
+
+beta:
+ * l10n (set language to the current owncloud language)
+ * better usage of jQuery UI and OCdialogs (export options etc.)
+ * integration in "New File" drop down in file manager, create new svg file
+
+1.0:
+ * file picker dialogs for image/svg import and saving
+
+Ideas for the future:
+ * collaborative editing
+ * PDF export (possible?)
