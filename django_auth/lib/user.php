@@ -4,7 +4,7 @@
  * ownCloud - Django Authentification Backend
  *
  * @author Florian Reinhard
- * @copyright 2011 Florian Reinhard <florian.reinhard@googlemail.com>
+ * @copyright 2012 Florian Reinhard <florian.reinhard@googlemail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -24,63 +24,70 @@
 require_once('phpsec.crypt.php');
 
 /**
- * @brief Class providing django users to ownCloud
- * @see http://www.djangoproject.com
- *
- * Authentification backend to authenticate agains a django webapplication using
- * django.contrib.auth.
- */
-class OC_USER_DJANGO_AUTH extends OC_User_Backend {
+* @brief Class providing django users to ownCloud
+* @see http://www.djangoproject.com
+*
+* Authentification backend to authenticate agains a django webapplication using
+* django.contrib.auth.
+*/
+class OC_User_Django extends OC_User_Backend {
 	/**
-		* @brief Create a new user
-		* @param $uid The username of the user to create
-		* @param $password The password of the new user
-		* @returns true/false
-		*
-		* Creates a new user. Basic checking of username is done in OC_User
-		* itself, not in its subclasses.
-		*/
+	* @brief Create a new user
+	* @param $uid The username of the user to create
+	* @param $password The password of the new user
+	* @returns true/false
+	*
+	* Creates a new user. Basic checking of username is done in OC_User
+	* itself, not in its subclasses.
+	*/
 	public function createUser($uid, $password){
-		OC_Log::write('OC_USER_DJANGO_AUTH', 'Use the django webinterface to create users',3);
+		OC_Log::write('OC_User_Django', 'Use the django webinterface to create users',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
 	/**
-		* @brief delete a user
-		* @param $uid The username of the user to delete
-		* @returns true/false
-		*
-		* Deletes a user
-		*/
+	* @brief delete a user
+	* @param $uid The username of the user to delete
+	* @returns true/false
+	*
+	* Deletes a user
+	*/
 	public function deleteUser( $uid ){
-		OC_Log::write('OC_USER_DJANGO_AUTH', 'Use the django webinterface to delete users',3);
+		OC_Log::write('OC_User_Django', 'Use the django webinterface to delete users',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
 	/**
-		* @brief Set password
-		* @param $uid The username
-		* @param $password The new password
-		* @returns true/false
-		*
-		* Change the password of a user
-		*/
+	* @brief Set password
+	* @param $uid The username
+	* @param $password The new password
+	* @returns true/false
+	*
+	* Change the password of a user
+	*/
 	public function setPassword($uid, $password){
-		OC_Log::write('OC_USER_DJANGO_AUTH', 'Use the django webinterface to change passwords',3);
+		OC_Log::write('OC_User_Django', 'Use the django webinterface to change passwords',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
 	/**
-		* @brief Check if the password is correct
-		* @param $uid The username
-		* @param $password The password
-		* @returns true/false
-		*
-		* Check if the password is correct without logging in the user
-		*/
+	* @brief Helper function for checkPassword
+	* @param $str The String to be searched
+	* @param $sub The String to be found
+	* @returns true/false
+	*/
 	private function beginsWith($str,$sub){
 		return ( substr( $str, 0, strlen( $sub ) ) === $sub );
 	}
+
+	/**
+	* @brief Check if the password is correct
+	* @param $uid The username
+	* @param $password The password
+	* @returns true/false
+	*
+	* Check if the password is correct without logging in the user
+	*/
 	public function checkPassword($uid, $password){
 		$query  = OC_DB::prepare( 'SELECT username, password FROM auth_user WHERE username =  ?' );
 		$result = $query->execute( array( $uid));
@@ -104,17 +111,22 @@ class OC_USER_DJANGO_AUTH extends OC_User_Backend {
 				$salt = $chunks[2];
 				$hash = $chunks[3];
 
-				if ($algorithm === 'sha1')
+				if ($algorithm === 'sha1') {
 					$digest_size = 20;
-				elseif ($algorithm === 'sha256')
+				}
+				elseif ($algorithm === 'sha256') {
 					$digest_size = 32;
-				else
+				}
+				else {
 					return false;
+				}
 
-				if (base64_encode (phpsecCrypt::pbkdf2($password, $salt, $iter, $digest_size, $algorithm)) === $hash)
+				if (base64_encode (phpsecCrypt::pbkdf2($password, $salt, $iter, $digest_size, $algorithm)) === $hash) {
 					return $uid;
-				else
+				}
+				else {
 					return false;
+				}
 			}
 		}
 		else {
@@ -123,11 +135,11 @@ class OC_USER_DJANGO_AUTH extends OC_User_Backend {
 	}
 
 	/**
-		* @brief Get a list of all users
-		* @returns array with all active usernames
-		*
-		* Get a list of all users.
-		*/
+	* @brief Get a list of all users
+	* @returns array with all active usernames
+	*
+	* Get a list of all users.
+	*/
 	public function getUsers(){
 		$query  = OC_DB::prepare( 'SELECT id, username, is_active FROM `auth_user` WHERE is_active=1 ORDER BY username' );
 		$result = $query->execute();
@@ -139,10 +151,10 @@ class OC_USER_DJANGO_AUTH extends OC_User_Backend {
 	}
 
 	/**
-		* @brief check if a user exists
-		* @param string $uid the username
-		* @return boolean
-		*/
+	* @brief check if a user exists
+	* @param string $uid the username
+	* @return boolean
+	*/
 	public function userExists($uid){
 		$query  = OC_DB::prepare( 'SELECT username FROM `auth_user` WHERE username = ? AND is_active=1' );
 		$result = $query->execute( array( $uid ));

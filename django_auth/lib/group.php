@@ -22,13 +22,13 @@
  */
 
 /**
- * @brief Class providing django groups to ownCloud
- * @see http://www.djangoproject.com
- *
- * Authentification backend to authenticate agains a django webapplication using
- * django.contrib.auth.
- */
-class OC_GROUP_DJANGO_AUTH extends OC_Group_Backend {
+* @brief Class providing django groups to ownCloud
+* @see http://www.djangoproject.com
+*
+* Authentification backend to authenticate agains a django webapplication using
+* django.contrib.auth.
+*/
+class OC_Group_Django extends OC_Group_Backend {
 	static $staff_is_admin;
 	static $superuser_is_admin;
 
@@ -39,38 +39,38 @@ class OC_GROUP_DJANGO_AUTH extends OC_Group_Backend {
 	static private $userGroupCache=array();
 
 	/**
-	 * @brief Try to create a new group
-	 * @param $gid The name of the group to create
-	 * @returns true/false
-	 *
-	 * Trys to create a new group. If the group name already exists, false will
-	 * be returned.
-	 */
+	* @brief Try to create a new group
+	* @param $gid The name of the group to create
+	* @returns true/false
+	*
+	* Trys to create a new group. If the group name already exists, false will
+	* be returned.
+	*/
 	public static function createGroup( $gid ) {
-		OC_Log::write('OC_GROUP_DJANGO_AUTH', 'Use the django webinterface to create groups',3);
+		OC_Log::write('OC_Group_Django', 'Use the django webinterface to create groups',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
 	/**
-	 * @brief delete a group
-	 * @param $gid gid of the group to delete
-	 * @returns true/false
-	 *
-	 * Deletes a group and removes it from the group_user-table
-	 */
+	* @brief delete a group
+	* @param $gid gid of the group to delete
+	* @returns true/false
+	*
+	* Deletes a group and removes it from the group_user-table
+	*/
 	public static function deleteGroup( $gid ) {
-		OC_Log::write('OC_GROUP_DJANGO_AUTH', 'Use the django webinterface to delete groups',3);
+		OC_Log::write('OC_Group_Django', 'Use the django webinterface to delete groups',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
 	/**
-	 * @brief is user in group?
-	 * @param $uid uid of the user
-	 * @param $gid gid of the group
-	 * @returns true/false
-	 *
-	 * Checks whether the user is member of a group or not.
-	 */
+	* @brief is user in group?
+	* @param $uid uid of the user
+	* @param $gid gid of the group
+	* @returns true/false
+	*
+	* Checks whether the user is member of a group or not.
+	*/
 	public static function inGroup( $uid, $gid ) {
 		// Special case for the admin group
 		if ($gid =='admin') {
@@ -112,39 +112,39 @@ class OC_GROUP_DJANGO_AUTH extends OC_Group_Backend {
 	}
 
 	/**
-	 * @brief Add a user to a group
-	 * @param $uid Name of the user to add to group
-	 * @param $gid Name of the group in which add the user
-	 * @returns true/false
-	 *
-	 * Adds a user to a group.
-	 */
+	* @brief Add a user to a group
+	* @param $uid Name of the user to add to group
+	* @param $gid Name of the group in which add the user
+	* @returns true/false
+	*
+	* Adds a user to a group.
+	*/
 	public static function addToGroup( $uid, $gid ){
-		OC_Log::write('OC_GROUP_DJANGO_AUTH', 'Use the django webinterface to add users to groups',3);
+		OC_Log::write('OC_Group_Django', 'Use the django webinterface to add users to groups',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
 	/**
-	 * @brief Removes a user from a group
-	 * @param $uid Name of the user to remove from group
-	 * @param $gid Name of the group from which remove the user
-	 * @returns true/false
-	 *
-	 * removes the user from a group.
-	 */
+	* @brief Removes a user from a group
+	* @param $uid Name of the user to remove from group
+	* @param $gid Name of the group from which remove the user
+	* @returns true/false
+	*
+	* removes the user from a group.
+	*/
 	public static function removeFromGroup( $uid, $gid ){
-		OC_Log::write('OC_GROUP_DJANGO_AUTH', 'Use the django webinterface to remove users from groups',3);
+		OC_Log::write('OC_Group_Django', 'Use the django webinterface to remove users from groups',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
 
 	/**
-	 * @brief Get all groups a user belongs to
-	 * @param $uid Name of the user
-	 * @returns array with group names
-	 *
-	 * This function fetches all groups a user belongs to. It does not check
-	 * if the user exists at all.
-	 */
+	* @brief Get all groups a user belongs to
+	* @param $uid Name of the user
+	* @returns array with group names
+	*
+	* This function fetches all groups a user belongs to. It does not check
+	* if the user exists at all.
+	*/
 	public static function getUserGroups( $uid ){
 		$query = OC_DB::prepare( 'SELECT  `auth_group`.`name`
 FROM  `auth_group`
@@ -161,11 +161,11 @@ INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`use
 	}
 
 	/**
-	 * @brief get a list of all groups
-	 * @returns array with group names
-	 *
-	 * Returns a list with all groups
-	 */
+	* @brief get a list of all groups
+	* @returns array with group names
+	*
+	* Returns a list with all groups
+	*/
 	public static function getGroups(){
 		$query  = OC_DB::prepare( "SELECT id, name FROM auth_group ORDER BY name" );
 		$result = $query->execute();
@@ -178,9 +178,9 @@ INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`use
 	}
 
 	/**
-	 * @brief get a list of all users in a group
-	 * @returns array with user ids
-	 */
+	* @brief get a list of all users in a group
+	* @returns array with user ids
+	*/
 	public static function usersInGroup($gid) {
 		$query = OC_DB::prepare('SELECT `auth_user`.`username`
   FROM `auth_user`
