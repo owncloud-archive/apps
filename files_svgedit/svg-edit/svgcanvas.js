@@ -207,7 +207,7 @@ var current_group = null;
 // Object containing data for the currently selected styles
 var all_properties = {
 	shape: {
-		fill: "#" + curConfig.initFill.color,
+		fill: (curConfig.initFill.color == 'none' ? '' : '#') + curConfig.initFill.color,
 		fill_paint: null,
 		fill_opacity: curConfig.initFill.opacity,
 		stroke: "#" + curConfig.initStroke.color,
@@ -2516,10 +2516,11 @@ var getMouseTarget = this.getMouseTarget = function(evt) {
 					tlist.appendItem(svgroot.createSVGTransform());
 					
 					if(svgedit.browser.supportsNonScalingStroke()) {
-						//Handle crash for newer Chrome + Windows: https://code.google.com/p/svg-edit/issues/detail?id=904
-						// TODO: Remove this workaround (all isChromeWindows blocks) once vendor fixes the issue
-						var isChromeWindows = svgedit.browser.isChrome() && svgedit.browser.isWindows();
-						if(isChromeWindows) {
+						//Handle crash for newer Chrome: https://code.google.com/p/svg-edit/issues/detail?id=904
+						//Chromium issue: https://code.google.com/p/chromium/issues/detail?id=114625
+						// TODO: Remove this workaround (all isChrome blocks) once vendor fixes the issue
+						var isChrome = svgedit.browser.isChrome();
+						if(isChrome) {
 							var delayedStroke = function(ele) {
 								var _stroke = ele.getAttributeNS(null, 'stroke');
 								ele.removeAttributeNS(null, 'stroke');
@@ -2528,13 +2529,13 @@ var getMouseTarget = this.getMouseTarget = function(evt) {
 							}
 						}
 						mouse_target.style.vectorEffect = 'non-scaling-stroke';
-						if(isChromeWindows) delayedStroke(mouse_target);
+						if(isChrome) delayedStroke(mouse_target);
 
 						var all = mouse_target.getElementsByTagName('*'),
 						    len = all.length;
 						for(var i = 0; i < len; i++) {
 							all[i].style.vectorEffect = 'non-scaling-stroke';
-							if(isChromeWindows) delayedStroke(all[i]);
+							if(isChrome) delayedStroke(all[i]);
 						}
 					}
 				}
@@ -5040,7 +5041,7 @@ var removeUnusedDefElems = this.removeUnusedDefElems = function() {
 		}
 	};
 	
-	var defelems = $(svgcontent).find("linearGradient, radialGradient, filter, marker, svg, symbol");
+	var defelems = $(defs).find("linearGradient, radialGradient, filter, marker, svg, symbol");
 		defelem_ids = [],
 		i = defelems.length;
 	while (i--) {
@@ -6459,7 +6460,7 @@ this.getZoom = function(){return current_zoom;};
 // Function: getVersion
 // Returns a string which describes the revision number of SvgCanvas.
 this.getVersion = function() {
-	return "svgcanvas.js ($Rev: 2066 $)";
+	return "svgcanvas.js ($Rev: 2070 $)";
 };
 
 // Function: setUiStrings
