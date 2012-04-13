@@ -1,7 +1,7 @@
 <?php
 
 /**
-* ownCloud - user_ldap
+* ownCloud - Tattoo
 *
 * @author Arthur Schiwon
 * @copyright 2012 Arthur Schiwon blizzz@owncloud.com
