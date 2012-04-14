@@ -29,20 +29,26 @@ class OC_Mail
 
     public static function getFolders()
     {
-        $conn= OC_Mail::getImapConnection();
-        $mboxes= $conn->listMailboxes('', '*');
+        $accounts = OC_Mail::getAccounts();
+        foreach ($accounts as $account) {
+            $folders_out = array();
 
+            $conn = OC_Mail::getImapConnection($account);
 
-        $folders_out = array();
+            if ($conn->errornum == rcube_imap_generic::ERROR_OK){
+                $mboxes = $conn->listMailboxes('', '*');
 
-        foreach ($mboxes as $folder) {
-            $status= $conn->status($folder);
-            $folders_out[] = array('id' => $folder, 'name' => end(explode('.', $folder)), 'unseen' => $status['UNSEEN'], 'total' => $status['MESSAGES']);
+                foreach ($mboxes as $folder) {
+                    $status = $conn->status($folder);
+                    $folders_out[] = array('id' => $folder, 'name' => end(explode('.', $folder)), 'unseen' => $status['UNSEEN'], 'total' => $status['MESSAGES']);
+                }
+            }
+
+            $account = array('id' => $account['id'], 'name' => $account['id'], 'folders' => $folders_out, 'error' => $conn->error);
+
+            // close the connection
+            $conn->closeConnection();
         }
-//        $folders_out[] = array('id' => 'INBOX', 'name' => 'Posteingang', 'unseen' => 5, 'total' => 20);
-//        $folders_out[] = array('id' => 'Draft', 'name' => 'Vorlangen', 'unseen' => 0, 'total' => 5);
-
-        $account = array('id' => '0', 'name' => 'alice@owncloud.org', 'folders' => $folders_out);
 
         return array($account);
     }
@@ -76,23 +82,45 @@ class OC_Mail
     }
 
 
-    private static function getImapConnection(){
+    private static function getImapConnection($account)
+    {
         //
-        // TODO: add singleton pattern
+        // TODO: add singleton pattern - ???
         //
-        //
-        // TODO: user config missing
-        //
-        $host = 'darwin.rheno-borussia.rwth-aachen.de';
-        $user = 'tom';
-        $password = 'baumhaus';
-        $port = 993;
+        $host = $account['host'];
+        $user = $account['user'];
+        $password = $account['passward'];
+        $port = $account['port'];
+        $ssl_mode = $account['ssl_mode'];
 
         // connect to
         $conn = new rcube_imap_generic();
-        $conn->connect($host, $user, $password, array('port' => $port, 'ssl_mode' => 'ssl', 'timeout' => 60));
+        $conn->connect($host, $user, $password, array('port' => $port, 'ssl_mode' => $ssl_mode, 'timeout' => 60));
 
         return $conn;
+    }
+
+    private static function getAccounts()
+    {
+        //
+        // TODO: user config missing
+        //
+        $a0 = array('id' => 0,
+            'name' => 'bob@owncloud.org',
+            'host' => 'darwin.rheno-borussia.rwth-aachen.de',
+            'user' => 'tom',
+            'password' => 'baumhaus',
+            'port' => 993,
+            'ssl_mode' => 'ssl');
+
+        $a1 = array('id' => 1,
+            'name' => 'alice@owncloud.org',
+            'host' => 'darwin.rheno-borussia.rwth-aachen.de',
+            'user' => 'tom',
+            'password' => 'baumhaus',
+            'port' => 993,
+            'ssl_mode' => 'ssl');
+        return array($a0, $a1);
     }
 
 }
