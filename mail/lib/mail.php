@@ -29,7 +29,8 @@ class OC_Mail
     /**
      * Loads all user's accounts, connects to each server and queries all folders
      *
-     * @return array Folder list
+     * @static
+     * @return array
      */
     public static function getFolders()
     {
@@ -55,7 +56,7 @@ class OC_Mail
                 }
             }
 
-            $response[]= array('id' => $account['id'], 'name' => $account['id'], 'folders' => $folders_out, 'error' => $conn->error);
+            $response[] = array('id' => $account['id'], 'name' => $account['id'], 'folders' => $folders_out, 'error' => $conn->error);
 
             // close the connection
             $conn->closeConnection();
@@ -64,17 +65,44 @@ class OC_Mail
         return $response;
     }
 
+    /**
+     * @static
+     * @param $account_id
+     * @param $folder_id
+     * @param int $from
+     * @param int $count
+     * @return array
+     */
     public static function getMessages($account_id, $folder_id, $from = 0, $count = 20)
     {
-
-        $messages = array();
-        //OC_Util::formatDate($this->header->udate)
-        for ($i = 1; $i <= $count; $i++) {
-            $flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
-            $messages[] = array('id' => $from + $i, 'from' => 'alice@owncloud.org', 'to' => 'bob@owncloud.org', 'subject' => 'Hello, World!', 'date' => time(), 'size' => 123 * 1024, 'flags' => $flags);
+        // get the account
+        $account = OC_Mail::getAccount($account_id);
+        if (!$account) {
+            #TODO: i18n
+            return array('error' => 'unknown account');
         }
 
-        return array('account_id' => $account_id, 'folder_id' => $folder_id, 'messages' => $messages);
+        // connect to the imal server
+        $conn = OC_Mail::getImapConnection($account);
+
+        $messages = array();
+        if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
+
+            $total = $conn->countMessages($folder_id);
+
+            if (($from + $count) > $total) {
+                $count = $total - $from;
+            }
+
+            $headers = $conn->fetchHeaders($folder_id, ($from + 1) . ':' . ($from + $count));
+            foreach ($headers as $header) {
+                //                $flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
+                $flags = array();
+                $messages[] = array('id' => $header->id, 'from' => $header->from, 'to' => $header->to, 'subject' => $header->subject, 'date' => $header->timestamp, 'size' => $header->size, 'flags' => $flags);
+            }
+        }
+
+        return array('account_id' => $account_id, 'folder_id' => $folder_id, 'messages' => $messages, 'error' => $conn->error);
     }
 
     public static function getMessage($account_id, $folder_id, $message_id)
@@ -100,7 +128,7 @@ class OC_Mail
         //
         $host = $account['host'];
         $user = $account['user'];
-        $password = $account['passward'];
+        $password = $account['password'];
         $port = $account['port'];
         $ssl_mode = $account['ssl_mode'];
 
@@ -134,5 +162,16 @@ class OC_Mail
         return array($a0, $a1);
     }
 
-}
+    private static function getAccount($account_id)
+    {
+        $accounts = OC_Mail::getAccounts();
+        foreach ($accounts as $account) {
+            if ($account['ID'] == $account_id) {
+                return $account;
+            }
+        }
 
+        return false;
+    }
+
+}
