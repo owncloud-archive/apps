@@ -3,8 +3,8 @@
 /**
 * ownCloud - App Template Example
 *
-* @author Frank Karlitschek
-* @copyright 2011 Frank Karlitschek karlitschek@kde.org
+* @author Jakob Sack
+* @copyright 2012 Jakob Sack mail@jakobsack.de
 * 
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -34,11 +34,6 @@ OC_Util::addScript('mail','mail');
 OC_Util::addStyle('mail','mail');
 
 
-$somesetting=OC_Config::getValue( "somesetting", '' );
-OC_App::setActiveNavigationEntry( 'apptemplate');
-$tmpl = new OC_Template( 'apptemplate', 'main', 'user' );
-$tmpl->assign('somesetting',$somesetting);
+OC_App::setActiveNavigationEntry( 'mail');
+$tmpl = new OC_Template( 'mail', 'index', 'user' );
 $tmpl->printPage();
-
-
-?>
