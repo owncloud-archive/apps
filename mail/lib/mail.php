@@ -27,8 +27,8 @@ class OC_Mail{
 
         $folders_out = array();
 
-        array_push($folders_out, array("id" => "INBOX", "name" => "Posteingang", "unseen" => 5, "total" => 20));
-        array_push($folders_out, array("id" => "Draft", "name" => "Vorlangen", "unseen" => 0, "total" => 5));
+        $folders_out[]= array('id' => 'INBOX', 'name' => 'Posteingang', 'unseen' => 5, 'total' => 20);
+        $folders_out[]= array('id' => 'Draft', 'name' => 'Vorlangen', 'unseen' => 0, 'total' => 5);
 
         $account= array('id' => '0', 'name' => 'alice@owncloud.org', 'folders' => $folders_out);
 
@@ -41,10 +41,10 @@ class OC_Mail{
         //OC_Util::formatDate($this->header->udate)
         for ($i = 1; $i <= $count; $i++) {
             $flags= array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
-            array_push($messages, array("from" => "alice@owncloud.org", "to" => "bob@owncloud.org", "subject" => "Hello, World!", "date" => time(), "size" => 123*1024, "flags" => $flags));
+            $messages[]= array('id' => $from+$i,'from' => 'alice@owncloud.org', 'to' => 'bob@owncloud.org', 'subject' => 'Hello, World!', 'date' => time(), 'size' => 123*1024, 'flags' => $flags);
         }
 
-        return $messages;
+        return array('account_id' => $account_id, 'folder_id' => $folder_id, 'messages' => $messages);
     }
 
     public static function getMessage($account_id, $folder_id, $message_id){
@@ -52,10 +52,10 @@ class OC_Mail{
         $flags= array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
 
         $message = array(
-            "from" => "alice@owncloud.org", "to" => "bob@owncloud.org", "subject" => "Hello Bob!", "date" => time(), "size" => 123*1024, "flags" => $flags,
-            'body' => "Hi Bob,\n how are you?\n\n Greetings, Alice",
-            "attachments" => array(),
-            "header" => "TODO: add the header"
+            'from' => 'alice@owncloud.org', 'to' => 'bob@owncloud.org', 'subject' => 'Hello Bob!', 'date' => time(), 'size' => 123*1024, 'flags' => $flags,
+            'body' => 'Hi Bob,\n how are you?\n\n Greetings, Alice',
+            'attachments' => array(),
+            'header' => 'TODO: add the header'
         );
 
         return $message;
