@@ -29,6 +29,10 @@ if( !OC_User::isLoggedIn()){
 	exit();
 }
 
+// Add JavaScript and CSS files
+OC_Util::addScript('mail','mail');
+OC_Util::addStyle('mail','mail');
+
 
 $somesetting=OC_Config::getValue( "somesetting", '' );
 OC_App::setActiveNavigationEntry( 'apptemplate');
