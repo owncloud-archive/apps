@@ -26,16 +26,27 @@ require_once('3rdparty/rcube_imap_generic.php');
 
 class OC_Mail
 {
-
+    /**
+     * Loads all user's accounts, connects to each server and queries all folders
+     *
+     * @return array Folder list
+     */
     public static function getFolders()
     {
+        $response = array();
+
+        // get all account configured by the user
         $accounts = OC_Mail::getAccounts();
+
+        // iterate ...
         foreach ($accounts as $account) {
             $folders_out = array();
 
+            // open the imap connection
             $conn = OC_Mail::getImapConnection($account);
 
-            if ($conn->errornum == rcube_imap_generic::ERROR_OK){
+            // if successfull -> get all folders of that account
+            if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
                 $mboxes = $conn->listMailboxes('', '*');
 
                 foreach ($mboxes as $folder) {
@@ -44,13 +55,13 @@ class OC_Mail
                 }
             }
 
-            $account = array('id' => $account['id'], 'name' => $account['id'], 'folders' => $folders_out, 'error' => $conn->error);
+            $response[]= array('id' => $account['id'], 'name' => $account['id'], 'folders' => $folders_out, 'error' => $conn->error);
 
             // close the connection
             $conn->closeConnection();
         }
 
-        return array($account);
+        return $response;
     }
 
     public static function getMessages($account_id, $folder_id, $from = 0, $count = 20)
