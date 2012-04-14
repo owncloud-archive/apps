@@ -15,7 +15,7 @@ Mail={
 				type:'GET',
 				success:function(jsondata){
 					folders = jsondata.data;
-				},
+				}
 			});
 			$('#leftcontent').html(folders);
 			
@@ -96,7 +96,7 @@ $(document).ready(function(){
 	
 	// Clicking on a message loads the entire message
 	$('#mail_messages .mail_message_summary').live('click',function(){
-		var messages. account_id, folder_id, message_id;
+		var messages, account_id, folder_id, message_id;
 		messages = $('#mail_messages').first();
 		account_id = messages.data('account_id');
 		folder_id = messages.data('folder_id');
