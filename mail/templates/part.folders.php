@@ -14,9 +14,9 @@ function mail_recursive_folder_tree( $account, $folders, $depth ){
 	<input type="button" value="<?php echo $l->t('New Message'); ?>">
 </form>
 
-<h2 class="mail_account"><?php echo $account['name']; ?></h2>
 
 <?php foreach( $_['accounts'] as $account ): ?>
+	<h2 class="mail_account"><?php echo $account['name']; ?></h2>
 	<ul class="mail_folders" data-account_id="<?php echo $account['id']; ?>">
 		<?php mail_recursive_folder_tree( $account['id'], $account['folders'], 0 ); ?>
 	</ul>

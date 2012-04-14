@@ -15,5 +15,3 @@ OC_App::addNavigationEntry( array(
   'name' => 'Mail'));
 
 OC_APP::registerPersonal('mail','settings');
-
-
