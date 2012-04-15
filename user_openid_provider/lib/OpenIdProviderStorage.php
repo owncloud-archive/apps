@@ -87,37 +87,16 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
      */
     public function hasUser($id)
     {
-        $name = $this->_dir . '/user_' . md5($id);
-        $lock = @fopen($this->_dir . '/user.lock', 'w+');
-        if ($lock === false) {
-            return false;
-        }
-        if (!flock($lock, LOCK_SH)) {
-            fclose($lock);
-            return false;
-        }
-        try {
-            $f = @fopen($name, 'r');
-            if ($f === false) {
-                fclose($lock);
-                return false;
-            }
-            $ret = false;
-            $data = stream_get_contents($f);
-            if (!empty($data)) {
-                list($storedId, $storedPassword, $trusted) = unserialize($data);
-                if ($id === $storedId) {
-                    $ret = true;
-                }
-            }
-            fclose($f);
-            fclose($lock);
-            return $ret;
-        } catch (Exception $e) {
-            fclose($lock);
-            throw $e;
-        }
-    }
+		$userName='';
+		if(strpos($id,'?') and !strpos($id,'=')){
+			if(strpos($id,'/?')){
+				$userName=substr($id,strpos($id,'/?')+2);
+			}elseif(strpos($id,'.php?')){
+				$userName=substr($id,strpos($id,'.php?')+5);
+			}
+		}
+		return OC_User::userExists($userName);
+	}
 
     /**
      * Verify if user with given $id exists and has specified $password
@@ -128,37 +107,8 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
      */
     public function checkUser($id, $password)
     {
-        $name = $this->_dir . '/user_' . md5($id);
-        $lock = @fopen($this->_dir . '/user.lock', 'w+');
-        if ($lock === false) {
-            return false;
-        }
-        if (!flock($lock, LOCK_SH)) {
-            fclose($lock);
-            return false;
-        }
-        try {
-            $f = @fopen($name, 'r');
-            if ($f === false) {
-                fclose($lock);
-                return false;
-            }
-            $ret = false;
-            $data = stream_get_contents($f);
-            if (!empty($data)) {
-                list($storedId, $storedPassword, $trusted) = unserialize($data);
-                if ($id === $storedId && $password === $storedPassword) {
-                    $ret = true;
-                }
-            }
-            fclose($f);
-            fclose($lock);
-            return $ret;
-        } catch (Exception $e) {
-            fclose($lock);
-            throw $e;
-        }
-    }
+		throw new ErrorException('Not implemented.');
+	}
 
     /**
      * Removes information abou specified user
@@ -168,24 +118,8 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
      */
     public function delUser($id)
     {
-        $name = $this->_dir . '/user_' . md5($id);
-        $lock = @fopen($this->_dir . '/user.lock', 'w+');
-        if ($lock === false) {
-            return false;
-        }
-        if (!flock($lock, LOCK_EX)) {
-            fclose($lock);
-            return false;
-        }
-        try {
-            @unlink($name);
-            fclose($lock);
-            return true;
-        } catch (Exception $e) {
-            fclose($lock);
-            throw $e;
-        }
-    }
+		throw new ErrorException('Not implemented.');
+	}
 
     /**
      * Returns array of all trusted/untrusted sites for given user identified
@@ -196,37 +130,8 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
      */
     public function getTrustedSites($id)
     {
-        $name = $this->_dir . '/user_' . md5($id);
-        $lock = @fopen($this->_dir . '/user.lock', 'w+');
-        if ($lock === false) {
-            return false;
-        }
-        if (!flock($lock, LOCK_SH)) {
-            fclose($lock);
-            return false;
-        }
-        try {
-            $f = @fopen($name, 'r');
-            if ($f === false) {
-                fclose($lock);
-                return false;
-            }
-            $ret = false;
-            $data = stream_get_contents($f);
-            if (!empty($data)) {
-                list($storedId, $storedPassword, $trusted) = unserialize($data);
-                if ($id === $storedId) {
-                    $ret = $trusted;
-                }
-            }
-            fclose($f);
-            fclose($lock);
-            return $ret;
-        } catch (Exception $e) {
-            fclose($lock);
-            throw $e;
-        }
-    }
+		return array();
+	}
 
     /**
      * Stores information about trusted/untrusted site for given user
