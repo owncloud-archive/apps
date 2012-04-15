@@ -27,9 +27,9 @@ OC::$CLASSPATH['OC_OpenIdProviderStorage'] = 'apps/user_openid_provider/lib/Open
 
 $userName='';
 if(strpos($_SERVER["REQUEST_URI"],'?') and !strpos($_SERVER["REQUEST_URI"],'=')){
-	if(strpos($_SERVER["REQUEST_URI"],'/?')){
+	if(strpos($_SERVER["REQUEST_URI"],'/?') !== false){
 		$userName=substr($_SERVER["REQUEST_URI"],strpos($_SERVER["REQUEST_URI"],'/?')+2);
-	}elseif(strpos($_SERVER["REQUEST_URI"],'.php?')){
+	}elseif(strpos($_SERVER["REQUEST_URI"],'.php?') !== false){
 		$userName=substr($_SERVER["REQUEST_URI"],strpos($_SERVER["REQUEST_URI"],'.php?')+5);
 	}
 }
