@@ -27,7 +27,7 @@ require_once('../../../lib/base.php');
 OC_JSON::checkLoggedIn();
 OC_JSON::checkAppEnabled('mail');
 
-$accounts = OC_Mail::getFolders();
+$accounts = OC_Mail::getFolders( OC_User::getUser());
 
 if( $accounts['error'] ){
 	OC_JSON::error(array('data' => array('message' => $accounts['error'] )));
