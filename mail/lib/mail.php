@@ -97,6 +97,7 @@ class OC_Mail
             $headers = $conn->fetchHeaders($folder_id, ($from + 1) . ':' . ($from + $count));
             foreach ($headers as $header) {
                 //                $flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
+
                 $flags = array();
                 $messages[] = array('id' => $header->id, 'from' => $header->from, 'to' => $header->to, 'subject' => $header->subject, 'date' => $header->timestamp, 'size' => $header->size, 'flags' => $flags);
             }
@@ -105,21 +106,39 @@ class OC_Mail
         return array('account_id' => $account_id, 'folder_id' => $folder_id, 'messages' => $messages, 'error' => $conn->error);
     }
 
+    /**
+     * @static
+     * @param $account_id
+     * @param $folder_id
+     * @param $message_id
+     * @return array
+     */
     public static function getMessage($account_id, $folder_id, $message_id)
     {
+        // get the account
+        $account = OC_Mail::getAccount($account_id);
+        if (!$account) {
+            #TODO: i18n
+            return array('error' => 'unknown account');
+        }
 
-        $flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
+        // connect to the imal server
+        $conn = OC_Mail::getImapConnection($account);
 
-        $message = array(
-            'from' => 'alice@owncloud.org', 'to' => 'bob@owncloud.org', 'subject' => 'Hello Bob!', 'date' => time(), 'size' => 123 * 1024, 'flags' => $flags,
-            'body' => 'Hi Bob,\n how are you?\n\n Greetings, Alice',
-            'attachments' => array(),
-            'header' => 'TODO: add the header'
-        );
+        if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
 
-        return $message;
+            $flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
+
+            $message = array(
+                'from' => 'alice@owncloud.org', 'to' => 'bob@owncloud.org', 'subject' => 'Hello Bob!', 'date' => time(), 'size' => 123 * 1024, 'flags' => $flags,
+                'body' => 'Hi Bob,\n how are you?\n\n Greetings, Alice',
+                'attachments' => array(),
+                'header' => 'TODO: add the header'
+            );
+        }
+
+        return array('error' => 'unknown account', 'message' => $message);
     }
-
 
     private static function getImapConnection($account)
     {
@@ -166,7 +185,7 @@ class OC_Mail
     {
         $accounts = OC_Mail::getAccounts();
         foreach ($accounts as $account) {
-            if ($account['ID'] == $account_id) {
+            if ($account['id'] == $account_id) {
                 return $account;
             }
         }
