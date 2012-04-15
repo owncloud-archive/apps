@@ -29,10 +29,12 @@ OC_JSON::checkAppEnabled('mail');
 
 $account_id = isset( $_GET['account_id'] ) ? $_GET['account_id'] : null;
 $folder_id = isset( $_GET['folder_id'] ) ? $_GET['folder_id'] : null;
+$from = isset( $_GET['from'] ) ? $_GET['from'] : null;
+$count = isset( $_GET['count'] ) ? $_GET['count'] : null;
 
-$messages = OC_Mail::getMessages( $account_id, $folder_id );
+$messages = OC_Mail::getMessages( $account_id, $folder_id, $from, $count );
 
-$tmpl = new OC_Template('mail','part.messages');
+$tmpl = new OC_Template('mail','part.message_list');
 $tmpl->assign('account_id', $messages['account_id'] );
 $tmpl->assign('folder_id', $messages['folder_id'] );
 $tmpl->assign('messages', $messages['messages'] );

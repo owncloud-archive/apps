@@ -34,7 +34,7 @@ $message_id = isset( $_GET['message_id'] ) ? $_GET['message_id'] : null;
 $message = OC_Mail::getMessage( $account_id, $folder_id, $message_id );
 
 $tmpl = new OC_Template('mail','part.message');
-$tmpl->assign('message', $message );
+$tmpl->assign('message', $message['message'] );
 $page = $tmpl->fetchPage();
 
 OC_JSON::success(array('data' => $page ));

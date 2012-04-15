@@ -1,15 +1,3 @@
-<?php 
-function mail_recursive_folder_tree( $account, $folders, $depth ){
-	foreach( $folders as $folder ){
-		echo '<li data-folder_id="'.$folder['id'].'">';
-		echo $folder['name'];
-		echo '</li>';
-		if( isset( $folder['children'] ) && count( $folder['children'] )){
-			mail_recursive_folder_tree( $account, $folder['children'], $depth + 1 );
-		}
-	}
-}
-?>
 <form >
 	<input type="button" value="<?php echo $l->t('New Message'); ?>">
 </form>
@@ -18,6 +6,10 @@ function mail_recursive_folder_tree( $account, $folders, $depth ){
 <?php foreach( $_['accounts'] as $account ): ?>
 	<h2 class="mail_account"><?php echo $account['name']; ?></h2>
 	<ul class="mail_folders" data-account_id="<?php echo $account['id']; ?>">
-		<?php mail_recursive_folder_tree( $account['id'], $account['folders'], 0 ); ?>
+		<?php foreach( $account['folders'] as $folder ): ?>
+			<li data-folder_id="<?php echo $folder['id']; ?>">
+				<?php echo $folder['name']; ?>
+			</li>
+		<?php endforeach; ?>
 	</ul>
 <?php endforeach; ?>

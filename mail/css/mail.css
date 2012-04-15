@@ -1,0 +1,2 @@
+#mail_messages>li { border-bottom:1px solid black; }
+#mail_messages>li:last { border-bottom:none; }

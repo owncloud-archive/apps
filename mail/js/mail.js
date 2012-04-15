@@ -39,9 +39,9 @@ Mail={
 		},
 		
 		loadMessages:function( account_id, folder_id ){
-			// No magic in here
 			$.getJSON(OC.filePath('mail','ajax','messages.php'),{'account_id': account_id, 'folder_id': folder_id},function(jsondata){
 				if( jsondata.status == 'success' ){
+					// Add messages
 					$('#rightcontent').html( jsondata.data );
 				}
 				else{
@@ -60,7 +60,7 @@ Mail={
 					
 					// Find the correct message
 					message = $('#mail_messages li[data-message_id="'+message_id+'"]');
-					message.find('.message_summary').hide();
+					message.find('.mail_message_summary').hide();
 					message.append(jsondata.data);
 				}
 				else{
@@ -103,5 +103,43 @@ $(document).ready(function(){
 		message_id = $(this).parent('li').data('message_id');
 		
 		Mail.UI.openMessage( account_id, folder_id, message_id );
+	});
+					
+	// Add handler for endless scrolling
+	//   (using jquery.endless-scroll.js)
+	$('#rightcontent').endlessScroll({
+		fireDelay:10,
+		fireOnce:false,
+		callback:function(i){
+			var messages, from, account_id, folder_id;
+			if( $('#mail_messages').length > 0 ){
+				messages = $('#mail_messages').first();
+				account_id = messages.data('account_id');
+				folder_id = messages.data('folder_id');
+								
+				// do not work if we already hit the end
+				if( $('#mail_messages').data('stop_loading') != 'true' ){
+					from = $('#mail_messages>li').length
+					$.ajax(OC.filePath('mail','ajax','append_messages.php'),{
+						async:false, // no async!
+						data:{ 'account_id':account_id, 'folder_id':folder_id, 'from':from, 'count':20},
+						type:'GET',
+						success:function(jsondata){
+							if( jsondata.status == 'success' ){
+								$('#mail_messages>li').last().after(jsondata.data);
+							}
+							else{
+								OC.dialogs.alert(jsondata.data.message, t('mail', 'Error'));
+							}
+						}
+					});
+	
+					// If we did not get any new messages stop
+					if( from == $('#mail_messages>li').length ){
+						$('#mail_messages').data('stop_loading', 'true')
+					}
+				}
+			}
+		}
 	});
 });

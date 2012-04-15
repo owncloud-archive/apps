@@ -1,4 +1,4 @@
-<div class="mail_message">
+<div id="mail_message">
 	<div class="mail_message_header">
 		to <?php echo $_['message']['to']; ?><br>
 		from <?php echo $_['message']['from']; ?><br>

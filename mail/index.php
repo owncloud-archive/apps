@@ -31,6 +31,7 @@ if( !OC_User::isLoggedIn()){
 
 // Add JavaScript and CSS files
 OC_Util::addScript('mail','mail');
+OC_Util::addScript('mail','jquery.endless-scroll');
 OC_Util::addStyle('mail','mail');
 
 
