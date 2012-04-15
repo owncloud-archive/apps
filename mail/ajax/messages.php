@@ -31,6 +31,10 @@ $account_id = isset( $_GET['account_id'] ) ? $_GET['account_id'] : null;
 $folder_id = isset( $_GET['folder_id'] ) ? $_GET['folder_id'] : null;
 
 $messages = OC_Mail::getMessages( $account_id, $folder_id );
+if( $messages['error'] ){
+	OC_JSON::error(array('data' => array('message' => $messages['error'] )));
+	exit();
+}
 
 $tmpl = new OC_Template('mail','part.messages');
 $tmpl->assign('account_id', $messages['account_id'] );

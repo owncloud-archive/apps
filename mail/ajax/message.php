@@ -33,6 +33,11 @@ $message_id = isset( $_GET['message_id'] ) ? $_GET['message_id'] : null;
 
 $message = OC_Mail::getMessage( $account_id, $folder_id, $message_id );
 
+if( $message['error'] ){
+	OC_JSON::error(array('data' => array('message' => $message['error'] )));
+	exit();
+}
+
 $tmpl = new OC_Template('mail','part.message');
 $tmpl->assign('message', $message['message'] );
 $page = $tmpl->fetchPage();

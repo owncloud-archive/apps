@@ -29,6 +29,11 @@ OC_JSON::checkAppEnabled('mail');
 
 $accounts = OC_Mail::getFolders();
 
+if( $accounts['error'] ){
+	OC_JSON::error(array('data' => array('message' => $accounts['error'] )));
+	exit();
+}
+
 $tmpl = new OC_Template('mail','part.folders');
 $tmpl->assign('accounts', $accounts);
 $page = $tmpl->fetchPage();
