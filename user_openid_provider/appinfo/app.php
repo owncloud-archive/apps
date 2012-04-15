@@ -33,7 +33,7 @@ if(strpos($_SERVER["REQUEST_URI"],'?') and !strpos($_SERVER["REQUEST_URI"],'='))
 		$userName=substr($_SERVER["REQUEST_URI"],strpos($_SERVER["REQUEST_URI"],'.php?')+5);
 	}
 }
-
+//die('username: ' . $userName);
 OC_Util::addHeader('link',array('rel'=>'openid.server', 'href'=>OC_Helper::linkToAbsolute( 'user_openid_provider', 'provider.php' ).'/'.$userName));
 OC_Util::addHeader('link',array('rel'=>'openid.delegate', 'href'=>OC_Helper::linkToAbsolute( 'user_openid_provider', 'provider.php' ).'/'.$userName));
 
