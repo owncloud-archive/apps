@@ -4,7 +4,7 @@
 if (!in_array ('curl', get_loaded_extensions())){
 	return;
 }
-
+/*
 $userName='';
 if(strpos($_SERVER["REQUEST_URI"],'?') and !strpos($_SERVER["REQUEST_URI"],'=')){
 	if(strpos($_SERVER["REQUEST_URI"],'/?')){
@@ -16,6 +16,8 @@ if(strpos($_SERVER["REQUEST_URI"],'?') and !strpos($_SERVER["REQUEST_URI"],'='))
 
 OCP\Util::addHeader('link',array('rel'=>'openid.server', 'href'=>OCP\Util::linkToAbsolute( "user_openid", "user.php" ).'/'.$userName));
 OCP\Util::addHeader('link',array('rel'=>'openid.delegate', 'href'=>OCP\Util::linkToAbsolute( "user_openid", "user.php" ).'/'.$userName));
+ *
+ */
 
 OCP\App::registerPersonal('user_openid','settings');
 
