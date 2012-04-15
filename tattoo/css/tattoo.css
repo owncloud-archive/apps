@@ -1,5 +1,6 @@
 #content {
 	background-image: url(../img/tattoo-default.png);
-	background-position: 0 2.8em;
+	background-position: bottom right;
+	background-attachment: fixed;
 	background-repeat: no-repeat;
 }
