@@ -26,177 +26,174 @@ require_once('3rdparty/rcube_imap_generic.php');
 
 class OC_Mail
 {
-    /**
-     * Loads all user's accounts, connects to each server and queries all folders
-     *
-     * @static
-     * @return array
-     */
-    public static function getFolders()
-    {
-        $response = array();
+	/**
+	 * Loads all user's accounts, connects to each server and queries all folders
+	 *
+	 * @static
+	 * @return array
+	 */
+	public static function getFolders($user_id)
+	{
+		$response = array();
 
-        // get all account configured by the user
-        $accounts = OC_Mail::getAccounts();
+		// get all account configured by the user
+		$accounts = OC_Mail::getAccounts($user_id);
 
-        // iterate ...
-        foreach ($accounts as $account) {
-            $folders_out = array();
+		// iterate ...
+		foreach ($accounts as $account) {
+			$folders_out = array();
 
-            // open the imap connection
-            $conn = OC_Mail::getImapConnection($account);
+			// open the imap connection
+			$conn = OC_Mail::getImapConnection($account);
 
-            // if successfull -> get all folders of that account
-            if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
-                $mboxes = $conn->listMailboxes('', '*');
+			// if successfull -> get all folders of that account
+			if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
+				$mboxes = $conn->listMailboxes('', '*');
 
-                foreach ($mboxes as $folder) {
-                    $status = $conn->status($folder);
-                    $folders_out[] = array('id' => $folder, 'name' => end(explode('.', $folder)), 'unseen' => $status['UNSEEN'], 'total' => $status['MESSAGES']);
-                }
+				foreach ($mboxes as $folder) {
+					$status = $conn->status($folder);
+					$folders_out[] = array('id' => $folder, 'name' => end(explode('.', $folder)), 'unseen' => $status['UNSEEN'], 'total' => $status['MESSAGES']);
+				}
 
 
-                usort($folders_out, function ($a, $b)
-                {
-                    return strcmp($a['id'], $b['id']);
-                });
-            }
+				usort($folders_out, function ($a, $b)
+				{
+					return strcmp($a['id'], $b['id']);
+				});
+			}
 
-            $response[] = array('id' => $account['id'], 'name' => $account['id'], 'folders' => $folders_out, 'error' => $conn->error);
+			$response[] = array('id' => $account['id'], 'name' => $account['name'], 'folders' => $folders_out, 'error' => $conn->error);
 
-            // close the connection
-            $conn->closeConnection();
-        }
+			// close the connection
+			$conn->closeConnection();
+		}
 
-        return $response;
-    }
+		return $response;
+	}
 
-    /**
-     * @static
-     * @param $account_id
-     * @param $folder_id
-     * @param int $from
-     * @param int $count
-     * @return array
-     */
-    public static function getMessages($account_id, $folder_id, $from = 0, $count = 20)
-    {
-        // get the account
-        $account = OC_Mail::getAccount($account_id);
-        if (!$account) {
-            #TODO: i18n
-            return array('error' => 'unknown account');
-        }
+	/**
+	 * @static
+	 * @param $account_id
+	 * @param $folder_id
+	 * @param int $from
+	 * @param int $count
+	 * @return array
+	 */
+	public static function getMessages($user_id, $account_id, $folder_id, $from = 0, $count = 20)
+	{
+		// get the account
+		$account = OC_Mail::getAccount($user_id, $account_id);
+		if (!$account) {
+			#TODO: i18n
+			return array('error' => 'unknown account');
+		}
 
-        // connect to the imal server
-        $conn = OC_Mail::getImapConnection($account);
+		// connect to the imal server
+		$conn = OC_Mail::getImapConnection($account);
 
-        $messages = array();
-        if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
+		$messages = array();
+		if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
 
-            $total = $conn->countMessages($folder_id);
+			$total = $conn->countMessages($folder_id);
 
-            if (($from + $count) > $total) {
-                $count = $total - $from;
-            }
+			if (($from + $count) > $total) {
+				$count = $total - $from;
+			}
 
-            $headers = $conn->fetchHeaders($folder_id, ($from + 1) . ':' . ($from + $count));
-            foreach ($headers as $header) {
-                //                $flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
+			$headers = $conn->fetchHeaders($folder_id, ($from + 1) . ':' . ($from + $count));
+			foreach ($headers as $header) {
+				//				$flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
 
-                $flags = array();
-                $messages[] = array('id' => $header->id, 'from' => $header->from, 'to' => $header->to, 'subject' => $header->subject, 'date' => $header->timestamp, 'size' => $header->size, 'flags' => $flags);
-            }
-        }
+				$flags = array();
+				$messages[] = array('id' => $header->id, 'from' => $header->from, 'to' => $header->to, 'subject' => $header->subject, 'date' => $header->timestamp, 'size' => $header->size, 'flags' => $flags);
+			}
+		}
 
-        return array('account_id' => $account_id, 'folder_id' => $folder_id, 'messages' => $messages, 'error' => $conn->error);
-    }
+		return array('account_id' => $account_id, 'folder_id' => $folder_id, 'messages' => $messages, 'error' => $conn->error);
+	}
 
-    /**
-     * @static
-     * @param $account_id
-     * @param $folder_id
-     * @param $message_id
-     * @return array
-     */
-    public static function getMessage($account_id, $folder_id, $message_id)
-    {
-        // get the account
-        $account = OC_Mail::getAccount($account_id);
-        if (!$account) {
-            #TODO: i18n
-            return array('error' => 'unknown account');
-        }
+	/**
+	 * @static
+	 * @param $account_id
+	 * @param $folder_id
+	 * @param $message_id
+	 * @return array
+	 */
+	public static function getMessage($user_id, $account_id, $folder_id, $message_id)
+	{
+		// get the account
+		$account = OC_Mail::getAccount($user_id, $account_id);
+		if (!$account) {
+			#TODO: i18n
+			return array('error' => 'unknown account');
+		}
 
-        // connect to the imal server
-        $conn = OC_Mail::getImapConnection($account);
+		// connect to the imal server
+		$conn = OC_Mail::getImapConnection($account);
 
-        if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
+		if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
 
-            $flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
+			$flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
 
-            $message = array(
-                'from' => 'alice@owncloud.org', 'to' => 'bob@owncloud.org', 'subject' => 'Hello Bob!', 'date' => time(), 'size' => 123 * 1024, 'flags' => $flags,
-                'body' => 'Hi Bob,\n how are you?\n\n Greetings, Alice',
-                'attachments' => array(),
-                'header' => 'TODO: add the header'
-            );
-        }
+			$message = array(
+				'from' => 'alice@owncloud.org', 'to' => 'bob@owncloud.org', 'subject' => 'Hello Bob!', 'date' => time(), 'size' => 123 * 1024, 'flags' => $flags,
+				'body' => 'Hi Bob,\n how are you?\n\n Greetings, Alice',
+				'attachments' => array(),
+				'header' => 'TODO: add the header'
+			);
+		}
 
-        return array('error' => 'unknown account', 'message' => $message);
-    }
+		return array('error' => 'unknown account', 'message' => $message);
+	}
 
-    private static function getImapConnection($account)
-    {
-        //
-        // TODO: add singleton pattern - ???
-        //
-        $host = $account['host'];
-        $user = $account['user'];
-        $password = $account['password'];
-        $port = $account['port'];
-        $ssl_mode = $account['ssl_mode'];
+	private static function getImapConnection($account)
+	{
+		//
+		// TODO: add singleton pattern - ???
+		//
+		$host = $account['host'];
+		$user = $account['user'];
+		$password = $account['password'];
+		$port = $account['port'];
+		$ssl_mode = $account['ssl_mode'];
 
-        // connect to
-        $conn = new rcube_imap_generic();
-        $conn->connect($host, $user, $password, array('port' => $port, 'ssl_mode' => $ssl_mode, 'timeout' => 60));
+		// connect to
+		$conn = new rcube_imap_generic();
+		$conn->connect($host, $user, $password, array('port' => $port, 'ssl_mode' => $ssl_mode, 'timeout' => 60));
 
-        return $conn;
-    }
+		return $conn;
+	}
 
-    private static function getAccounts()
-    {
-        //
-        // TODO: user config missing
-        //
-        $a0 = array('id' => 0,
-            'name' => 'bob@owncloud.org',
-            'host' => 'darwin.rheno-borussia.rwth-aachen.de',
-            'user' => 'tom',
-            'password' => 'baumhaus',
-            'port' => 993,
-            'ssl_mode' => 'ssl');
+	private static function getAccounts($user_id)
+	{
+		$account_ids = OC_Preferences::getValue( $user_id, 'mail', 'accounts', '' );
+		$account_ids = explode(',', $account_ids );
 
-        $a1 = array('id' => 1,
-            'name' => 'alice@owncloud.org',
-            'host' => 'darwin.rheno-borussia.rwth-aachen.de',
-            'user' => 'tom',
-            'password' => 'baumhaus',
-            'port' => 993,
-            'ssl_mode' => 'ssl');
-        return array($a0, $a1);
-    }
+		$accounts = array();
+		foreach( $account_ids as $id ){
+			$account_string = 'account['.$id.']';
+			
+			$accounts[$id] = array(
+				'id' => $id,
+				'name' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[name]' ),
+				'host' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[host]' ),
+				'port' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[port]' ),
+				'user' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[user]' ),
+				'password' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[password]' ),
+				'ssl_mode' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[ssl_mode]' ));
+		}
+		
+		return $accounts;
+	}
 
-    private static function getAccount($account_id)
-    {
-        $accounts = OC_Mail::getAccounts();
-        foreach ($accounts as $account) {
-            if ($account['id'] == $account_id) {
-                return $account;
-            }
-        }
+	private static function getAccount($user_id, $account_id)
+	{
+		$accounts = OC_Mail::getAccounts($user_id);
+		
+		if( isset( $accounts[$account_id] )){
+			return $accounts[$account_id];
+		}
 
-        return false;
-    }
-
+		return false;
+	}
 }
