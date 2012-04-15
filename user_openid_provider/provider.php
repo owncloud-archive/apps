@@ -10,7 +10,10 @@ $loginPage = OC_Helper::linkToAbsolute( '', 'index.php' ).'?redirect_url='
 				. $_SERVER["QUERY_STRING"]);
 $trustPage = OC_Helper::linkToAbsolute('user_openid_provider', 'trust.php');
 
-$server = new Zend_OpenId_Provider($loginPage, $trustPage, $session, $storage);
+if ($_GET['openid.action']=='login') {
+	header('Location: '.$loginPage );
+}
+$server = new Zend_OpenId_Provider(null, $trustPage, $session, $storage);
 
 
 $ret = $server->handle();
