@@ -54,6 +54,12 @@ class OC_Mail
                     $status = $conn->status($folder);
                     $folders_out[] = array('id' => $folder, 'name' => end(explode('.', $folder)), 'unseen' => $status['UNSEEN'], 'total' => $status['MESSAGES']);
                 }
+
+
+                usort($folders_out, function ($a, $b)
+                {
+                    return strcmp($a['id'], $b['id']);
+                });
             }
 
             $response[] = array('id' => $account['id'], 'name' => $account['id'], 'folders' => $folders_out, 'error' => $conn->error);
