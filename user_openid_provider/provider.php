@@ -17,14 +17,14 @@ if (isset($_GET['openid.action']) and $_GET['openid.action']=='login') {
 		.urlencode(OC_Helper::linkToAbsolute('user_openid_provider', 'provider.php')
 				. $params);
 	header('Location: '.$loginPage );
-}
-$server = new Zend_OpenId_Provider(null, $trustPage, $session, $storage);
+} else {
+	$server = new Zend_OpenId_Provider(null, $trustPage, $session, $storage);
 
-
-$ret = $server->handle();
-if (is_string($ret)) {
-	echo $ret;
-} else if ($ret !== true) {
-	header('HTTP/1.0 403 Forbidden');
-	echo 'Forbidden';
+	$ret = $server->handle();
+	if (is_string($ret)) {
+		echo $ret;
+	} else if ($ret !== true) {
+		header('HTTP/1.0 403 Forbidden');
+		echo 'Forbidden';
+	}
 }
