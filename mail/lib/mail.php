@@ -143,7 +143,7 @@ class App_Mail
 			);
 		}
 
-		return array('error' => 'unknown account', 'message' => $message);
+		return array('error' => '', 'message' => $message);
 	}
 
 	private static function getImapConnection($account)
