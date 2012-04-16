@@ -1,9 +1,7 @@
 <?php foreach( $_['messages'] as $message ): ?>
-	<li data-message_id="<?php echo $message['id']; ?>">
-		<div class="mail_message_summary">
-			date: <?php echo OC_Util::formatDate( $message['date'] ); ?><br>
-			from: <?php echo $message['from']; ?><br>
-			subject: <?php echo $message['subject']; ?>
-		</div>
-	</li>
+	<tr class="mail_message_summary" data-message_id="<?php echo $message['id']; ?>">
+		<td class="mail_message_summary_from"><?php echo htmlspecialchars( $message['from'] ); ?></td>
+		<td class="mail_message_summary_subject"><?php echo htmlspecialchars( $message['subject'] ); ?></td>
+		<td class="mail_message_summary_date"><?php echo OC_Util::formatDate( $message['date'] ); ?></td>
+	</tr>
 <?php endforeach; ?>

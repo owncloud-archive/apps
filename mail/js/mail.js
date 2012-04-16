@@ -82,9 +82,8 @@ Mail={
 					Mail.UI.closeMessage();
 					
 					// Find the correct message
-					message = $('#mail_messages li[data-message_id="'+message_id+'"]');
-					message.find('.mail_message_summary').hide();
-					message.append(jsondata.data);
+					message = $('#mail_messages tr[data-message_id="'+message_id+'"]');
+					message.after(jsondata.data);
 					
 					// Set current Message as active
 					Mail.State.current_message_id = message_id;
@@ -99,10 +98,7 @@ Mail={
 			// Check if message is open
 			var message, parent;
 			if( Mail.State.current_message_id !== null ){
-				message = $('#mail_message')
-				parent = message.parent();
 				$('#mail_message').remove();
-				parent.find('.mail_message_summary').show();
 			}
 		},
 		
@@ -112,6 +108,56 @@ Mail={
 		
 		setFolderInactive:function(account_id,folder_id){
 			$('.mail_folders[data-account_id="'+account_id+'"]>li[data-folder_id="'+folder_id+'"]').removeClass( 'active' );
+		},
+		
+		bindEndlessScrolling:function(){
+			// Add handler for endless scrolling
+			//   (using jquery.endless-scroll.js)
+			$('#rightcontent').endlessScroll({
+				fireDelay:10,
+				fireOnce:false,
+				loader:false,
+				callback:function(i){
+					var from;
+					
+					// Only do the work if we show a folder
+					if( Mail.State.current_account_id !== null && Mail.State.current_folder_id !== null ){
+						
+						// do not work if we already hit the end
+						if( $('#mail_messages').data('stop_loading') != 'true' ){
+							from = $('#mail_messages>tr').length;
+							
+							// decrease if a message is shown
+							if( Mail.State.current_message_id !== null ){
+								from = from - 1;
+							}
+							
+							$.ajax(OC.filePath('mail','ajax','append_messages.php'),{
+								async:false, // no async!
+								data:{ 'account_id':Mail.State.current_account_id, 'folder_id':Mail.State.current_folder_id, 'from':from, 'count':20},
+								type:'GET',
+								success:function(jsondata){
+									if( jsondata.status == 'success' ){
+										$('#mail_messages').append(jsondata.data);
+									}
+									else{
+										OC.dialogs.alert(jsondata.data.message, t('mail', 'Error'));
+									}
+								}
+							});
+			
+							// If we did not get any new messages stop
+							if( from == $('#mail_messages>tr').length || ( from == $('#mail_messages>tr').length + 1 && Mail.State.current_message_id !== null )){
+								$('#mail_messages').data('stop_loading', 'true')
+							}
+						}
+					}
+				}
+			});
+		},
+		
+		unbindEndlessScrolling:function(){
+			$('#rightcontent').unbind('scroll');
 		}
 	}
 }
@@ -135,43 +181,6 @@ $(document).ready(function(){
 		
 		Mail.UI.openMessage( message_id );
 	});
-					
-	// Add handler for endless scrolling
-	//   (using jquery.endless-scroll.js)
-	$('#rightcontent').endlessScroll({
-		fireDelay:10,
-		fireOnce:false,
-		loader:false,
-		callback:function(i){
-			var messages, from, account_id, folder_id;
-			if( $('#mail_messages').length > 0 ){
-				messages = $('#mail_messages').first();
-				account_id = messages.data('account_id');
-				folder_id = messages.data('folder_id');
-								
-				// do not work if we already hit the end
-				if( $('#mail_messages').data('stop_loading') != 'true' ){
-					from = $('#mail_messages>li').length
-					$.ajax(OC.filePath('mail','ajax','append_messages.php'),{
-						async:false, // no async!
-						data:{ 'account_id':account_id, 'folder_id':folder_id, 'from':from, 'count':20},
-						type:'GET',
-						success:function(jsondata){
-							if( jsondata.status == 'success' ){
-								$('#mail_messages>li').last().after(jsondata.data);
-							}
-							else{
-								OC.dialogs.alert(jsondata.data.message, t('mail', 'Error'));
-							}
-						}
-					});
 	
-					// If we did not get any new messages stop
-					if( from == $('#mail_messages>li').length ){
-						$('#mail_messages').data('stop_loading', 'true')
-					}
-				}
-			}
-		}
-	});
+	Mail.UI.bindEndlessScrolling();
 });
