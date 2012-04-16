@@ -24,7 +24,7 @@ require_once('3rdparty/rcube_imap_generic.php');
  *
  */
 
-class OC_Mail
+class App_Mail
 {
 	/**
 	 * Loads all user's accounts, connects to each server and queries all folders
@@ -37,14 +37,14 @@ class OC_Mail
 		$response = array();
 
 		// get all account configured by the user
-		$accounts = OC_Mail::getAccounts($user_id);
+		$accounts = App_Mail::getAccounts($user_id);
 
 		// iterate ...
 		foreach ($accounts as $account) {
 			$folders_out = array();
 
 			// open the imap connection
-			$conn = OC_Mail::getImapConnection($account);
+			$conn = App_Mail::getImapConnection($account);
 
 			// if successfull -> get all folders of that account
 			if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
@@ -82,14 +82,14 @@ class OC_Mail
 	public static function getMessages($user_id, $account_id, $folder_id, $from = 0, $count = 20)
 	{
 		// get the account
-		$account = OC_Mail::getAccount($user_id, $account_id);
+		$account = App_Mail::getAccount($user_id, $account_id);
 		if (!$account) {
 			#TODO: i18n
 			return array('error' => 'unknown account');
 		}
 
 		// connect to the imal server
-		$conn = OC_Mail::getImapConnection($account);
+		$conn = App_Mail::getImapConnection($account);
 
 		$messages = array();
 		if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
@@ -122,14 +122,14 @@ class OC_Mail
 	public static function getMessage($user_id, $account_id, $folder_id, $message_id)
 	{
 		// get the account
-		$account = OC_Mail::getAccount($user_id, $account_id);
+		$account = App_Mail::getAccount($user_id, $account_id);
 		if (!$account) {
 			#TODO: i18n
 			return array('error' => 'unknown account');
 		}
 
 		// connect to the imal server
-		$conn = OC_Mail::getImapConnection($account);
+		$conn = App_Mail::getImapConnection($account);
 
 		if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
 
@@ -188,7 +188,7 @@ class OC_Mail
 
 	private static function getAccount($user_id, $account_id)
 	{
-		$accounts = OC_Mail::getAccounts($user_id);
+		$accounts = App_Mail::getAccounts($user_id);
 		
 		if( isset( $accounts[$account_id] )){
 			return $accounts[$account_id];

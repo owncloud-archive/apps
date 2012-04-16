@@ -30,7 +30,7 @@ OC_JSON::checkAppEnabled('mail');
 $account_id = isset( $_GET['account_id'] ) ? $_GET['account_id'] : null;
 $folder_id = isset( $_GET['folder_id'] ) ? $_GET['folder_id'] : null;
 
-$messages = OC_Mail::getMessages( OC_User::getUser(), $account_id, $folder_id );
+$messages = App_Mail::getMessages( OC_User::getUser(), $account_id, $folder_id );
 if( $messages['error'] ){
 	OC_JSON::error(array('data' => array('message' => $messages['error'] )));
 	exit();

@@ -31,7 +31,7 @@ $account_id = isset( $_GET['account_id'] ) ? $_GET['account_id'] : null;
 $folder_id = isset( $_GET['folder_id'] ) ? $_GET['folder_id'] : null;
 $message_id = isset( $_GET['message_id'] ) ? $_GET['message_id'] : null;
 
-$message = OC_Mail::getMessage( OC_User::getUser(), $account_id, $folder_id, $message_id );
+$message = App_Mail::getMessage( OC_User::getUser(), $account_id, $folder_id, $message_id );
 
 if( $message['error'] ){
 	OC_JSON::error(array('data' => array('message' => $message['error'] )));
