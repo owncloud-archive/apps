@@ -1,4 +1,9 @@
 Mail={
+	State:{
+		current_folder_id:null,
+		current_account_id:null,
+		current_message_id:null
+	},
 	UI:{
 		initializeInterface:function(){
 			var folders, messages, first_folder, account_id, folder_id;
@@ -26,6 +31,7 @@ Mail={
 				folder_id = first_folder.data('folder_id');
 				account_id = first_folder.parent().data('account_id');
 				
+				
 				$.ajax(OC.filePath('mail','ajax','messages.php'),{
 					async:false, // no async!
 					data:{'account_id': account_id, 'folder_id': folder_id},
@@ -35,25 +41,42 @@ Mail={
 					},
 				});
 				$('#rightcontent').html( messages );
+				
+				// Save current folder
+				Mail.UI.setFolderActive(account_id, folder_id);
+				Mail.State.current_account_id = account_id;
+				Mail.State.current_folder_id = folder_id;
 			}
 		},
 		
 		loadMessages:function( account_id, folder_id ){
+			// Set folder active
+			Mail.UI.setFolderInactive( Mail.State.current_account_id, Mail.State.current_folder_id );
+			Mail.UI.setFolderActive( account_id, folder_id );
+			
 			$.getJSON(OC.filePath('mail','ajax','messages.php'),{'account_id': account_id, 'folder_id': folder_id},function(jsondata){
 				if( jsondata.status == 'success' ){
 					// Add messages
 					$('#rightcontent').html( jsondata.data );
+					
+					Mail.State.current_account_id = account_id;
+					Mail.State.current_folder_id = folder_id;
+					Mail.State.current_message_id = null;
 				}
 				else{
+					// Set the old folder as being active
+					Mail.UI.setFolderInactive( account_id, folder_id );
+					Mail.UI.setFolderActive( Mail.State.current_account_id, Mail.State.current_folder_id );
+					
 					OC.dialogs.alert(jsondata.data.message, t('mail', 'Error'));
 				}
 			});
 		},
 		
-		openMessage:function( account_id, folder_id, message_id ){
+		openMessage:function( message_id ){
 			var message;
 			
-			$.getJSON(OC.filePath('mail','ajax','message.php'),{'account_id': account_id, 'folder_id': folder_id, 'message_id': message_id },function(jsondata){
+			$.getJSON(OC.filePath('mail','ajax','message.php'),{'account_id': Mail.State.current_account_id, 'folder_id': Mail.State.current_folder_id, 'message_id': message_id },function(jsondata){
 				if( jsondata.status == 'success' ){
 					// close email first
 					Mail.UI.closeMessage();
@@ -62,6 +85,9 @@ Mail={
 					message = $('#mail_messages li[data-message_id="'+message_id+'"]');
 					message.find('.mail_message_summary').hide();
 					message.append(jsondata.data);
+					
+					// Set current Message as active
+					Mail.State.current_message_id = message_id;
 				}
 				else{
 					OC.dialogs.alert(jsondata.data.message, t('mail', 'Error'));
@@ -72,12 +98,20 @@ Mail={
 		closeMessage:function(){
 			// Check if message is open
 			var message, parent;
-			message = $('#mail_message')
-			parent = message.parent();
-			if( message.length > 0 ){
+			if( Mail.State.current_message_id !== null ){
+				message = $('#mail_message')
+				parent = message.parent();
 				$('#mail_message').remove();
 				parent.find('.mail_message_summary').show();
 			}
+		},
+		
+		setFolderActive:function(account_id,folder_id){
+			$('.mail_folders[data-account_id="'+account_id+'"]>li[data-folder_id="'+folder_id+'"]').addClass('active');
+		},
+		
+		setFolderInactive:function(account_id,folder_id){
+			$('.mail_folders[data-account_id="'+account_id+'"]>li[data-folder_id="'+folder_id+'"]').removeClass( 'active' );
 		}
 	}
 }
@@ -97,12 +131,9 @@ $(document).ready(function(){
 	// Clicking on a message loads the entire message
 	$('#mail_messages .mail_message_summary').live('click',function(){
 		var messages, account_id, folder_id, message_id;
-		messages = $('#mail_messages').first();
-		account_id = messages.data('account_id');
-		folder_id = messages.data('folder_id');
 		message_id = $(this).parent('li').data('message_id');
 		
-		Mail.UI.openMessage( account_id, folder_id, message_id );
+		Mail.UI.openMessage( message_id );
 	});
 					
 	// Add handler for endless scrolling
@@ -110,6 +141,7 @@ $(document).ready(function(){
 	$('#rightcontent').endlessScroll({
 		fireDelay:10,
 		fireOnce:false,
+		loader:false,
 		callback:function(i){
 			var messages, from, account_id, folder_id;
 			if( $('#mail_messages').length > 0 ){
