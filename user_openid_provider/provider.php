@@ -7,7 +7,7 @@ $session = new OC_OpenIdProviderUserSession();
 $storage = new OC_OpenIdProviderStorage();
 $server = new Zend_OpenId_Provider(null, null, $session, $storage);
 
-if (OC_User::isLoggedIn() && !$session->getLoggedInUser()) {
+if (OC_User::isLoggedIn() and !$session->getLoggedInUser()) {
 	$session->setLoggedInUser(OC_Helper::linkToAbsolute('user_openid_provider', 'provider.php').'/'.OC_User::getUser());
 }
 
@@ -22,6 +22,7 @@ if (isset($_GET['openid_action']) and $_GET['openid_action']=='login') {
 				. $params);
 	header('Location: '.$loginPage );
 } else if (isset($_GET['openid_action']) and $_GET['openid_action'] == 'trust') {
+	OC_Util::checkLoggedIn();
 	if (isset($_POST['allow'])) {
 		$server->respondToConsumer($_GET);
 	} else {
