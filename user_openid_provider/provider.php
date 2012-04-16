@@ -7,7 +7,7 @@ $session = new OC_OpenIdProviderUserSession();
 $storage = new OC_OpenIdProviderStorage();
 $trustPage = OC_Helper::linkToAbsolute('user_openid_provider', 'trust.php');
 
-if ($_GET['openid.action']=='login') {
+if (isset($_GET['openid.action']) and $_GET['openid.action']=='login') {
 	unset($_GET['openid.action']);
 	$params = '?';
 	foreach($_GET as $key => $value) {
