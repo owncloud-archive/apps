@@ -5,10 +5,14 @@ OC_Util::checkAppEnabled('user_openid_provider');
 
 $session = new OC_OpenIdProviderUserSession();
 $storage = new OC_OpenIdProviderStorage();
-$trustPage = OC_Helper::linkToAbsolute('user_openid_provider', 'trust.php');
+$server = new Zend_OpenId_Provider(null, null, $session, $storage);
 
-if (isset($_GET['openid.action']) and $_GET['openid.action']=='login') {
-	unset($_GET['openid.action']);
+if (OC_User::isLoggedIn() && !$session->getLoggedInUser()) {
+	$session->setLoggedInUser(OC_Helper::linkToAbsolute('user_openid_provider', 'provider.php').'/'.OC_User::getUser());
+}
+
+if (isset($_GET['openid_action']) and $_GET['openid_action']=='login') {
+	unset($_GET['openid_action']);
 	$params = '?';
 	foreach($_GET as $key => $value) {
 		$params .= '&' . $key . '=' . $value;
@@ -17,8 +21,16 @@ if (isset($_GET['openid.action']) and $_GET['openid.action']=='login') {
 		.urlencode(OC_Helper::linkToAbsolute('user_openid_provider', 'provider.php')
 				. $params);
 	header('Location: '.$loginPage );
+} else if (isset($_GET['openid_action']) and $_GET['openid_action'] == 'trust') {
+	if (isset($_POST['allow'])) {
+		$server->respondToConsumer($_GET);
+	} else {
+		$tmpl = new OC_Template( 'user_openid_provider', 'trust', 'user');
+		$tmpl->assign('site', $server->getSiteRoot($_GET));
+		$tmpl->assign('openid', $server->getLoggedInUser());
+		$tmpl->printPage();
+	}
 } else {
-	$server = new Zend_OpenId_Provider(null, $trustPage, $session, $storage);
 
 	$ret = $server->handle();
 	if (is_string($ret)) {

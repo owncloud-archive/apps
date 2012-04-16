@@ -1,12 +1,11 @@
-<html>
-<body>
+<h1>OpenID Authentication</h1>
 <p>A site identifying as
-<a href="<?php echo htmlspecialchars($server->getSiteRoot($_GET));?>">
-<?php echo htmlspecialchars($server->getSiteRoot($_GET));?>
+<a href="<?php echo htmlspecialchars($_['site']);?>">
+<?php echo htmlspecialchars($_['site']);?>
 </a>
 has asked us for confirmation that
-<a href="<?php echo htmlspecialchars($server->getLoggedInUser());?>">
-<?php echo htmlspecialchars($server->getLoggedInUser());?>
+<a href="<?php echo htmlspecialchars($_['openid']);?>">
+<?php echo htmlspecialchars($_['openid']);?>
 </a>
 is your identity URL.
 </p>
@@ -17,5 +16,3 @@ is your identity URL.
 <input type="submit" name="allow" value="Allow">
 <input type="submit" name="deny" value="Deny">
 </form>
-</body>
-</html>
