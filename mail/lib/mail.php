@@ -179,7 +179,7 @@ class App_Mail
 				'host' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[host]' ),
 				'port' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[port]' ),
 				'user' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[user]' ),
-				'password' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[password]' ),
+				'password' => base64_decode( OC_Preferences::getValue( $user_id, 'mail', $account_string.'[password]' )),
 				'ssl_mode' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[ssl_mode]' ));
 		}
 		
