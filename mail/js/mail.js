@@ -177,7 +177,7 @@ $(document).ready(function(){
 	// Clicking on a message loads the entire message
 	$('#mail_messages .mail_message_summary').live('click',function(){
 		var messages, account_id, folder_id, message_id;
-		message_id = $(this).parent('li').data('message_id');
+		message_id = $(this).data('message_id');
 		
 		Mail.UI.openMessage( message_id );
 	});
