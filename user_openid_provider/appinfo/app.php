@@ -19,6 +19,9 @@
 * You should have received a copy of the GNU Lesser General Public
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 *
+*
+* This uses the Zend OpenID implementation, find a tutorial about it at http://framework.zend.com/manual/en/zend.openid.html .
+*
 */
 
 OC::$CLASSPATH['OC_OpenIdProviderUserSession'] = 'apps/user_openid_provider/lib/OpenIdProviderUserSession.php';
