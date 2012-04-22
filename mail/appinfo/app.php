@@ -1,6 +1,7 @@
 <?php
 
 OC::$CLASSPATH['App_Mail'] = 'apps/mail/lib/mail.php';
+OC::$CLASSPATH['App_Mail_Message'] = 'apps/mail/lib/message.php';
 
 OC_App::register( array(
   'order' => 1,
