@@ -3,7 +3,7 @@
 	<id>storage_charts</id>
 	<name>Storage Charts</name>
 	<description>Display storage charts, using HighCharts non-commercial free library (www.highcharts.com)</description>
-	<version>2.0</version>
+	<version>2.0.1</version>
 	<licence>AGPL</licence>
 	<author>Xavier Beurois (www.djazz-lab.net)</author>
 	<require>3</require>
