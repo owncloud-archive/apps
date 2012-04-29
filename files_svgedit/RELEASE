@@ -3,13 +3,31 @@ Copyright (c) 2012 Florian Hülsmann <fh@cbix.de>
 
 Here you find change log and release notes!
 
+2012/04/19 - beta5/0.2
+ * using a better maintained fork of jsPDF by willowsystems
+ * changing possibly irritating error messages on saving
+ * bug fixes:
+  * font size correctly set on PDF export
+  * always asking to overwrite existing file
+
+2012/04/16 - beta4/0.2
+ * bug fixes:
+  * use native confirm dialog if OCdialogs is not available
+  * fixed asynchronous svg saving
+
+2012/04/15 - beta3/0.2
+ * PDF export (using jsPDF)
+ * PNG export working better (because of the canvas preview)
+ * complete new saving dialog, integrates export
+ * create new image from file manager
+ * bug fixes:
+  * no saving error if mtime=0
+  * close button working
+
 2012/04/04 - beta2/0.2
  * PNG export (depending on browser's canvas capabilities)
  * got rid of quit confirmation dialog when nothing has changed
  * major bug fixes
- 
- known issues:
- * PNG export not working reliable
 
 2012/03/30 - beta1/0.2
  Changing everything by using svgedit 2.6 (trunk version)

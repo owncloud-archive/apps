@@ -28,10 +28,14 @@ if($path != '' && $mtime != '') {
     if(OC_Filesystem::file_exists($path)) {
         // Get file mtime
         $filemtime = OC_Filesystem::filemtime($path);
-        if(!$force && $mtime != $filemtime) {
-            // Then the file has changed since opening
-            OC_JSON::error(array("data" => array("message" => "File has been modified since opening!")));
-            OC_Log::write('files_svgedit',"File: ".$path." modified since opening.",OC_Log::ERROR);
+		if(!$force && $mtime != $filemtime) {
+			if($mtime == 0) {
+				$msg = "File already exists!";
+			} else {
+				$msg = "File has been modified since opening!";
+			}
+            OC_JSON::error(array("data" => array("message" => $msg)));
+            //OC_Log::write('files_svgedit',"File: ".$path." modified since opening.",OC_Log::ERROR);
             exit();
         }
     } else {

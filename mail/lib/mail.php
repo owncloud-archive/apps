@@ -128,28 +128,22 @@ class App_Mail
 			return array('error' => 'unknown account');
 		}
 
-		// connect to the imal server
+		// connect to the imap server
 		$conn = App_Mail::getImapConnection($account);
 
+		$message = array();
 		if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
-
-			$flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
-
-			$message = array(
-				'from' => 'alice@owncloud.org', 'to' => 'bob@owncloud.org', 'subject' => 'Hello Bob!', 'date' => time(), 'size' => 123 * 1024, 'flags' => $flags,
-				'body' => 'Hi Bob,\n how are you?\n\n Greetings, Alice',
-				'attachments' => array(),
-				'header' => 'TODO: add the header'
-			);
+			$m= new App_Mail_Message($conn, $folder_id, $message_id);
+			$message= $m->as_array();
 		}
 
-		return array('error' => '', 'message' => $message);
+		return array('error' => $conn->error, 'message' => $message);
 	}
 
 	private static function getImapConnection($account)
 	{
 		//
-		// TODO: add singleton pattern - ???
+		// TODO: cash connections for / within accounts???
 		//
 		$host = $account['host'];
 		$user = $account['user'];
@@ -159,7 +153,7 @@ class App_Mail
 
 		// connect to
 		$conn = new rcube_imap_generic();
-		$conn->connect($host, $user, $password, array('port' => $port, 'ssl_mode' => $ssl_mode, 'timeout' => 60));
+		$conn->connect($host, $user, $password, array('port' => $port, 'ssl_mode' => $ssl_mode, 'timeout' => 30));
 
 		return $conn;
 	}

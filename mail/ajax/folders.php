@@ -29,6 +29,9 @@ OC_JSON::checkAppEnabled('mail');
 
 $accounts = App_Mail::getFolders( OC_User::getUser());
 
+//
+// TODO: error is listed within the accounts
+//
 if( $accounts['error'] ){
 	OC_JSON::error(array('data' => array('message' => $accounts['error'] )));
 	exit();
