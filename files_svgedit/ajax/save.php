@@ -11,13 +11,17 @@ require_once('../../../lib/base.php');
 OC_JSON::checkLoggedIn();
 
 // Get paramteres
-$filecontents = htmlspecialchars_decode($_POST['file']['filecontents']);
+$filecontents = $_POST['file']['filecontents'];
 $path = isset($_POST['file']['path']) ? $_POST['file']['path'] : '';
 $mtime = isset($_POST['file']['mtime']) ? $_POST['file']['mtime'] : '';
 $force = isset($_POST['force']) ? ($_POST['force'] == 'true') : false;
 $b64encoded = isset($_POST['base64encoded']) ? ($_POST['base64encoded'] == 'true') : false;
 if($b64encoded) {
 	$b64type = isset($_POST['base64type']) ? $_POST['base64type'] : 'image/png';
+} else {
+    if(get_magic_quotes_gpc()) {
+        $filecontents = stripslashes($filecontents);
+    }
 }
 
 $pathParts = pathinfo($path);

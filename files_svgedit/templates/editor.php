@@ -11,6 +11,7 @@ var ocsvgFile = {
 	<input type="button" id="ocsvgBtnSave" value="<?php echo $l->t('Save'); ?>" />
 	<input type="button" id="ocsvgBtnProps" value="<?php echo $l->t('Properties'); ?>" />
 	<input type="button" id="ocsvgBtnPrefs" value="<?php echo $l->t('Preferences'); ?>" />
+	<input type="button" id="ocsvgBtnPrint" value="<?php echo $l->t('Print'); ?>" />
 	<div class="separator"></div>
 	<input type="button" id="ocsvgBtnClose" value="<?php echo $l->t('Close'); ?>" />
 </div>

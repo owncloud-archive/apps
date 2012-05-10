@@ -3,6 +3,11 @@ Copyright (c) 2012 Florian Hülsmann <fh@cbix.de>
 
 Here you find change log and release notes!
 
+2012/05/10 - beta6/0.2
+ * important security fix
+ * print button
+ * workaround for magic_quotes_gpc
+
 2012/04/19 - beta5/0.2
  * using a better maintained fork of jsPDF by willowsystems
  * changing possibly irritating error messages on saving
