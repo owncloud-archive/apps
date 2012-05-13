@@ -5,3 +5,10 @@ div#content input {
     width: auto;
     box-shadow: none;
 }
+
+div#carddavmate {
+    display: block;
+    position: fixed;
+    top: 3.5em;
+	overflow: auto;
+}

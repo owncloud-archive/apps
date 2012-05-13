@@ -35,7 +35,7 @@ OC_Util::addStyle('carddavmate', 'lib/jquery-ui-1.8.19.custom');
 OC_util::addScript('carddavmate', 'lib/jquery-ui-1.8.19.custom.min');
 
 OC_App::setActiveNavigationEntry('carddavmate_index');
-$carddavUrl = OC_Helper::linkToAbsolute('contacts', 'carddav.php') . '/addressbooks/';
+$carddavUrl = OC_Helper::linkTo('contacts', 'carddav.php', null, true) . '/addressbooks/';
 $tmpl = new OC_TEMPLATE( "carddavmate", "mate", "user" );
 $tmpl->assign("carddavUrl", $carddavUrl);
 $tmpl->printPage();
