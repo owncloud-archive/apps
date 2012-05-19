@@ -1,0 +1,14 @@
+div#content input {
+    background: none;
+    border: none;
+    border-radius: 0px;
+    width: auto;
+    box-shadow: none;
+}
+
+div#carddavmate {
+    display: block;
+    position: fixed;
+    top: 3.5em;
+	overflow: auto;
+}

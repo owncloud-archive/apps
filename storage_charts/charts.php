@@ -25,10 +25,25 @@ require_once('../../lib/base.php');
 OC_Util::checkAppEnabled('storage_charts');
 OC_Util::checkLoggedIn();
 
-$tmpl = new OC_Template('storage_charts', 'charts', 'user');
+$tmpl = new OC_Template('storage_charts', 'charts.tpl', 'user');
 
-// Get data for all users if admin or juste for the current user
-$tmpl->assign('pie_rfsus', OC_DLStCharts::getPieFreeUsedSpaceRatio());
-$tmpl->assign('lines_usse', OC_DLStCharts::getLinesLastSevenDaysUsedSpace());
+// Get data for all users if admin or just for the current user
+$displays = OC_DLStCharts::getUConfValue('c_disp', Array('uc_val' => 'a:3:{s:10:"cpie_rfsus";i:1;s:11:"clines_usse";i:1;s:9:"chisto_us";i:1;}'));
+$displays = unserialize($displays['uc_val']);
+
+$tmpl->assign('c_disp', $displays);
+
+if($displays['cpie_rfsus']){
+	$sc_sort = OC_DLStCharts::getUConfValue('sc_sort', Array('uc_val' => 'a:3:{i:0;s:10:"cpie_rfsus";i:1;s:11:"clines_usse";i:2;s:9:"chisto_us";}'));
+	$tmpl->assign('sc_sort', unserialize($sc_sort['uc_val']));
+}
+if($displays['clines_usse']){
+	$hu_size = OC_DLStCharts::getUConfValue('hu_size', Array('uc_val' => 3));
+	$tmpl->assign('hu_size', $hu_size['uc_val']);
+}
+if($displays['chisto_us']){
+	$hu_size_hus = OC_DLStCharts::getUConfValue('hu_size_hus', Array('uc_val' => 3));
+	$tmpl->assign('hu_size_hus', $hu_size_hus['uc_val']);
+}
 
 $tmpl->printPage();

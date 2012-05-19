@@ -1,0 +1,13 @@
+div.tagsinput { border: none; background: #ffffff; padding: 1px; min-height: 22px; max-height: 66px; overflow-y: auto; }
+div.tagsinput.readonly { border: none; background: #f9f9f9; padding: 1px; overflow-y: auto;}
+div.tagsinput span.tag { border: 1px solid #e0e0e0; -moz-border-radius: 2px; -webkit-border-radius: 2px; display: block; float: left; height: 18px; padding: 0px 2px 0px 2px; min-height: 17px; text-decoration:none; background: #f0f0f0; color: #000000; margin: 1px; white-space: pre; }
+div.tagsinput span.tag span { line-height: 19px; bottom: 0px; }
+div.tagsinput span.tag span, x:-moz-any-link, x:default { line-height: 17px;}
+div.tagsinput span.tag a { font-weight: normal; color: #b9b9b9; text-decoration:none; padding-left: 4px; }
+div.tagsinput.readonly span.tag a { display: none; }
+div#tags_addTag { padding: 2px 0px 2px 3px;}
+div.tagsinput input { width:130px; margin: 0px; border: none; padding: 0px; background: transparent; color: #000; outline:0px;}
+div.tagsinput div.input_container { width:130px; position: relative;}
+div.tagsinput div { display:block; float: left; } 
+.tags_clear { clear: both; width: 100%; height: 0px; }
+.not_valid {color: #90111a !important;}

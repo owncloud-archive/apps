@@ -23,7 +23,10 @@
 
 OC_Util::checkAppEnabled('storage_charts');
 
-OC::$CLASSPATH['OC_DLStCharts'] = "apps/storage_charts/lib/dlstcharts.class.php";
+OC::$CLASSPATH['OC_DLStCharts'] = "apps/storage_charts/lib/db.class.php";
+OC::$CLASSPATH['OC_DLStChartsLoader'] = "apps/storage_charts/lib/loader.class.php";
+
+$l = new OC_L10N('storage_charts', OC_L10N::findLanguage(Array('en', 'fr')));
 
 OC_App::register(Array(
 	'order' => 60,
@@ -39,11 +42,11 @@ OC_App::addNavigationEntry(Array(
 	'name' => 'DL Charts'
 ));
 
-if(OC_User::getUser()){
-	$path = substr(OC::$CONFIG_DATADIRECTORY, 0, strrpos(OC::$CONFIG_DATADIRECTORY, '/'));
-	$path = substr($path, 0, strrpos($path, '/')+1);
-	
+OC_App::registerPersonal('storage_charts','settings');
+
+$data_dir = OC_Config::getValue('datadirectory', '');
+if(OC_User::getUser() && strlen($data_dir) != 0){
 	$used = OC_DLStCharts::getTotalDataSize(OC::$CONFIG_DATADIRECTORY);
-	$total = OC_DLStCharts::getTotalDataSize($path) + OC_Filesystem::free_space();
+	$total = OC_DLStCharts::getTotalDataSize($data_dir) + OC_Filesystem::free_space();
 	OC_DLStCharts::update($used, $total);
 }

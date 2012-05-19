@@ -19,7 +19,15 @@
 * 
 */
 
-#storage-charts div.personalblock.topblock{margin-top:4.5em;}
-#storage-charts div.personalblock.bottomblock{margin-bottom:1em;}
-#storage-charts div.personalblock.titleblock{font-weight:bold;}
-#storage-charts div.personalblock{margin:1em 1em 0;padding:0.5em 1em;position:relative;background: none repeat scroll 0 0 #F8F8F8;border-radius:0.5em 0.5em 0.5em 0.5em;color:#555555;text-shadow:0 1px 0 #FFFFFF;border:1px solid #DDDDDD;box-shadow:0 1px 1px #FFFFFF,0 1px 1px #FFFFFF inset;}
+#storage-charts div.personalblock.topblock span{float:right;color:#BBB;font-style:italic;}
+
+#stc_sortable div.personalblock.topblock, #storage-charts div.personalblock.topblock{margin-top:4.5em;}
+#stc_sortable div.personalblock.bottomblock, #storage-charts div.personalblock.bottomblock{margin-bottom:1em;}
+#stc_sortable div.personalblock.titleblock, #storage-charts div.personalblock.titleblock{font-weight:bold;}
+#stc_sortable div.personalblock, #storage-charts div.personalblock{margin:1em 1em 0;padding:0.5em 1em;background: none repeat scroll 0 0 #F8F8F8;border-radius:0.5em 0.5em 0.5em 0.5em;color:#555555;text-shadow:0 1px 0 #FFFFFF;border:1px solid #DDDDDD;box-shadow:0 1px 1px #FFFFFF,0 1px 1px #FFFFFF inset;}
+
+#stc_frame{margin:1em 1em 0;}
+#stc_frame #stc_sortable div.personalblock{margin:0;margin-bottom:1em;}
+#stc_frame #stc_sortable div.personalblock h3{line-height:2.6;}
+#stc_frame #stc_sortable div.personalblock h3 img{vertical-align:middle;margin-right:10px;}
+#stc_frame #stc_sortable div.personalblock h3 span#selunits,#stc_frame #stc_sortable div.personalblock h3 span#selunits_hus{float:right;}

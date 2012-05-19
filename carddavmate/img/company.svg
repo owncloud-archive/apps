@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+]>
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="141px" height="160px" viewBox="0.5 0.5 141 160"
+	 overflow="visible" enable-background="new 0.5 0.5 141 160" xml:space="preserve">
+<defs>
+</defs>
+<rect x="0.5" y="0.5" fill="#FFFFFF" stroke="#FFFFFF" stroke-miterlimit="10" width="141" height="160"/>
+<path fill="#575756" d="M60.5,145.5c0,1.657-1.344,3-3,3h-42c-1.657,0-3-1.343-3-3v-52c0-1.656,1.343-3,3-3h42c1.656,0,3,1.344,3,3
+	V145.5z"/>
+<rect x="32.5" y="96.5" fill="#FFFFFF" width="8" height="10"/>
+<rect x="46.5" y="96.5" fill="#FFFFFF" width="8" height="10"/>
+<rect x="18.5" y="96.5" fill="#FFFFFF" width="8" height="10"/>
+<rect x="32.5" y="114.5" fill="#FFFFFF" width="8" height="10"/>
+<rect x="46.5" y="114.5" fill="#FFFFFF" width="8" height="10"/>
+<rect x="18.5" y="114.5" fill="#FFFFFF" width="8" height="10"/>
+<rect x="46.5" y="132.5" fill="#FFFFFF" width="8" height="10"/>
+<rect x="18.5" y="132.5" fill="#FFFFFF" width="8" height="10"/>
+<path fill="#575756" d="M129.5,145.5c0,1.657-1.344,3-3,3h-56c-1.656,0-3-1.343-3-3v-110c0-1.657,1.344-3,3-3h56
+	c1.656,0,3,1.343,3,3V145.5z"/>
+<rect x="75.5" y="58.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="93.5" y="58.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="111.5" y="58.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="75.5" y="76.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="93.5" y="76.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="111.5" y="76.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="75.5" y="94.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="93.5" y="94.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="111.5" y="94.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="75.5" y="112.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="93.5" y="112.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="111.5" y="112.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="75.5" y="130.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="111.5" y="130.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="75.5" y="40.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="93.5" y="40.5" fill="#FFFFFF" width="10" height="10"/>
+<rect x="111.5" y="40.5" fill="#FFFFFF" width="10" height="10"/>
+</svg>

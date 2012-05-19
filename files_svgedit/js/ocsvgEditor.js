@@ -125,6 +125,14 @@ $(document).ready(function() {
     $('#ocsvgBtnSave').click(function() {
 		$('#svgEditorSave').dialog('open');
     });
+	$('#ocsvgBtnPrint').click(function() {
+		svgCanvas.getSvgString()(function(svg, error) {
+			var printWin = window.open();
+			printWin.document.write('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n' + svg);
+			printWin.print();
+			printWin.close();
+		});
+	});
 	$('#svgSaveBtn').click(function() {
 		svgCanvas.getSvgString()(function(svg, error) {
 			var btn = $('#svgSaveBtn');
