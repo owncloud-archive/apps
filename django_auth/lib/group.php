@@ -28,7 +28,7 @@
 * Authentification backend to authenticate agains a django webapplication using
 * django.contrib.auth.
 */
-class OC_Group_Django extends OC_Group_Backend {
+class OC_GROUP_DJANGO extends OC_Group_Backend {
 	static $staff_is_admin;
 	static $superuser_is_admin;
 
