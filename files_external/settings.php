@@ -1,10 +1,10 @@
 <?php
 
 /**
-* ownCloud - user_ldap
+* ownCloud
 *
-* @author Dominik Schmidt
-* @copyright 2011 Dominik Schmidt dev@dominik-schmidt.de
+* @author Michael Gapczynski
+* @copyright 2012 Michael Gapczynski mtgap@owncloud.com
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -18,23 +18,18 @@
 *
 * You should have received a copy of the GNU Affero General Public
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
-*
 */
 
-require_once('apps/user_ldap/lib_ldap.php');
-require_once('apps/user_ldap/user_ldap.php');
-require_once('apps/user_ldap/group_ldap.php');
+OCP\Util::addscript('files_external', 'settings');
+OCP\Util::addstyle('files_external', 'settings');
+$tmpl = new OCP\Template('files_external', 'settings');
+$tmpl->assign('allowUserMounting', 'yes');
+$tmpl->assign('isAdminPage', true);
+$tmpl->assign('storage', array());
+$tmpl->assign('groups', OC_Group::getGroups());
+$tmpl->assign('backends', array('Amazon S3', 'FTP', 'Google Drive', 'SWIFT', 'WebDAV'));
+$tmpl->assign('configurations', '');
+$tmpl->assign('options', array('Encrypt', 'Version control', 'Allow sharing'));
+return $tmpl->fetchPage();
 
-OCP\App::registerAdmin('user_ldap','settings');
-
-// register user backend
-OC_User::useBackend( 'LDAP' );
-OC_Group::useBackend( new OC_GROUP_LDAP() );
-
-// add settings page to navigation
-$entry = array(
-	'id' => 'user_ldap_settings',
-	'order'=>1,
-	'href' => OCP\Util::linkTo( 'user_ldap', 'settings.php' ),
-	'name' => 'LDAP'
-);
+?>
