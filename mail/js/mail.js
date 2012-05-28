@@ -116,7 +116,7 @@ Mail={
 			$('#rightcontent').endlessScroll({
 				fireDelay:10,
 				fireOnce:false,
-				loader:false,
+				loader:'',
 				callback:function(i){
 					var from;
 					
