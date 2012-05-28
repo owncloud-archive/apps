@@ -20,25 +20,22 @@
  *
  */
 
-// Init owncloud
-require_once('../../../lib/base.php');
-
 // Check if we are a user
-OC_JSON::checkLoggedIn();
-OC_JSON::checkAppEnabled('mail');
+OCP\JSON::checkLoggedIn();
+OCP\JSON::checkAppEnabled('mail');
 
-$accounts = App_Mail::getFolders( OC_User::getUser());
+$accounts = OCA_Mail\App::getFolders( OCP\User::getUser());
 
 //
 // TODO: error is listed within the accounts
 //
 if( $accounts['error'] ){
-	OC_JSON::error(array('data' => array('message' => $accounts['error'] )));
+	OCP\JSON::error(array('data' => array('message' => $accounts['error'] )));
 	exit();
 }
 
-$tmpl = new OC_Template('mail','part.folders');
+$tmpl = new OCP\Template('mail','part.folders');
 $tmpl->assign('accounts', $accounts);
 $page = $tmpl->fetchPage();
 
-OC_JSON::success(array('data' => $page ));
+OCP\JSON::success(array('data' => $page ));

@@ -1,6 +1,6 @@
 <?php
 
-OC_Util::addScript('mail','settings');
+OCP\Util::addScript('mail','settings');
 
-$tmpl = new OC_Template( 'mail', 'settings');
+$tmpl = new OCP\Template( 'mail', 'settings');
 return $tmpl->fetchPage();

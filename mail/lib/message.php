@@ -20,7 +20,7 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-class App_Mail_Message{
+class OCA_Mail\Message{
 
 	// input $mbox = IMAP conn, $mid = message id
 	function __construct($conn, $folder_id, $message_id) {

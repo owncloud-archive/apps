@@ -24,7 +24,7 @@ require_once('3rdparty/rcube_imap_generic.php');
  *
  */
 
-class App_Mail
+class OCA_Mail\App
 {
 	/**
 	 * Loads all user's accounts, connects to each server and queries all folders
@@ -37,14 +37,14 @@ class App_Mail
 		$response = array();
 
 		// get all account configured by the user
-		$accounts = App_Mail::getAccounts($user_id);
+		$accounts = OCA_Mail\App::getAccounts($user_id);
 
 		// iterate ...
 		foreach ($accounts as $account) {
 			$folders_out = array();
 
 			// open the imap connection
-			$conn = App_Mail::getImapConnection($account);
+			$conn = OCA_Mail\App::getImapConnection($account);
 
 			// if successfull -> get all folders of that account
 			if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
@@ -82,14 +82,14 @@ class App_Mail
 	public static function getMessages($user_id, $account_id, $folder_id, $from = 0, $count = 20)
 	{
 		// get the account
-		$account = App_Mail::getAccount($user_id, $account_id);
+		$account = OCA_Mail\App::getAccount($user_id, $account_id);
 		if (!$account) {
 			#TODO: i18n
 			return array('error' => 'unknown account');
 		}
 
 		// connect to the imal server
-		$conn = App_Mail::getImapConnection($account);
+		$conn = OCA_Mail\App::getImapConnection($account);
 
 		$messages = array();
 		if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
@@ -122,18 +122,18 @@ class App_Mail
 	public static function getMessage($user_id, $account_id, $folder_id, $message_id)
 	{
 		// get the account
-		$account = App_Mail::getAccount($user_id, $account_id);
+		$account = OCA_Mail\App::getAccount($user_id, $account_id);
 		if (!$account) {
 			#TODO: i18n
 			return array('error' => 'unknown account');
 		}
 
 		// connect to the imap server
-		$conn = App_Mail::getImapConnection($account);
+		$conn = OCA_Mail\App::getImapConnection($account);
 
 		$message = array();
 		if ($conn->errornum == rcube_imap_generic::ERROR_OK) {
-			$m= new App_Mail_Message($conn, $folder_id, $message_id);
+			$m= new OCA_Mail\Message($conn, $folder_id, $message_id);
 			$message= $m->as_array();
 		}
 
@@ -160,7 +160,7 @@ class App_Mail
 
 	private static function getAccounts($user_id)
 	{
-		$account_ids = OC_Preferences::getValue( $user_id, 'mail', 'accounts', '' );
+		$account_ids = OCP\Preferences::getValue( $user_id, 'mail', 'accounts', '' );
 		$account_ids = explode(',', $account_ids );
 
 		$accounts = array();
@@ -169,12 +169,12 @@ class App_Mail
 			
 			$accounts[$id] = array(
 				'id' => $id,
-				'name' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[name]' ),
-				'host' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[host]' ),
-				'port' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[port]' ),
-				'user' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[user]' ),
-				'password' => base64_decode( OC_Preferences::getValue( $user_id, 'mail', $account_string.'[password]' )),
-				'ssl_mode' => OC_Preferences::getValue( $user_id, 'mail', $account_string.'[ssl_mode]' ));
+				'name' => OCP\Preferences::getValue( $user_id, 'mail', $account_string.'[name]' ),
+				'host' => OCP\Preferences::getValue( $user_id, 'mail', $account_string.'[host]' ),
+				'port' => OCP\Preferences::getValue( $user_id, 'mail', $account_string.'[port]' ),
+				'user' => OCP\Preferences::getValue( $user_id, 'mail', $account_string.'[user]' ),
+				'password' => base64_decode( OCP\Preferences::getValue( $user_id, 'mail', $account_string.'[password]' )),
+				'ssl_mode' => OCP\Preferences::getValue( $user_id, 'mail', $account_string.'[ssl_mode]' ));
 		}
 		
 		return $accounts;
@@ -182,7 +182,7 @@ class App_Mail
 
 	private static function getAccount($user_id, $account_id)
 	{
-		$accounts = App_Mail::getAccounts($user_id);
+		$accounts = OCA_Mail\App::getAccounts($user_id);
 		
 		if( isset( $accounts[$account_id] )){
 			return $accounts[$account_id];
