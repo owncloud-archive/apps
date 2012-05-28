@@ -23,7 +23,7 @@
 
 // Check if we are a user
 if( !OCP\User::isLoggedIn()){
-	header( "Location: ".OCP\Helper::linkTo( '', 'index.php' ));
+	header( "Location: ".OCP\Util::linkTo( '', 'index.php' ));
 	exit();
 }
 
