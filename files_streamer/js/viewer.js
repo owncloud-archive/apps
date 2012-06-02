@@ -6,23 +6,18 @@ function viewVideo(dir, file) {
 			OC.filePath('files','ajax','download.php')+
 			'?files='+file+'&dir='+dir;
 	
-	var container = '<div class="overlay" id="overlay" style="display:none;"></div><div class="nonebox" id="nonebox"><a class="box-close" id="box-close" href="#"></a><h0>'+file+'</h0><div id="container"></div></div>';
+	var container = '<div class="overlay" id="overlay" style="display:none;"></div><div class="nonebox" id="nonebox"><a class="box-close" id="box-close" href="#"></a><div id="container"></div>'+file+'</div>';
 	$('#body-user').append(container);
 	
 	var shift = ($('#body-user').height()*0.2);
 
 	$('#overlay').fadeIn('fast',function(){ // после клика запускаем наш ов$
-            $('#nonebox').animate({'top':shift+'px'},500); // а теперь аккуратно в$
+            $('#nonebox').fadeIn('fast');
         });
 
 	$(function() {
 		$('#box-close').click(function(){ // кликаем по элементу который всё это бу$
-        		$('#nonebox').animate({'top':'-'+shift+'px'},500,function(){ // убираем наш б$
-            			$('#nonebox').remove();
-				$('#overlay').fadeOut('fast', function() {
-					$('#overlay').remove();
-				}); // и теперь убираем оверлэй
-			});
+        		closeVideo();
     		});
 	});
 
@@ -36,6 +31,21 @@ function viewVideo(dir, file) {
 		skin:'apps/files_streamer/player/skin.zip'
 	});
 }
+
+function closeVideo() {
+	$('#nonebox').fadeOut('fast', function(){ // убираем на$
+        	$('#nonebox').remove();
+                $('#overlay').fadeOut('fast', function() {
+                	$('#overlay').remove();
+                }); // и теперь убираем оверлэй
+        });
+}
+
+$(document).keyup(function(e) {
+	if (e.keyCode == 27) {
+		// closeVideo();
+	}
+});
 
 $(document).ready(function() {	
 	if (typeof FileActions !== 'undefined') {
