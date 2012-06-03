@@ -65,7 +65,10 @@ function bindView(file) {
 }
 
 function closeVideo() {
-	if (player) player.sendEvent('STOP');
+	if (player) {
+		player.sendEvent('STOP');
+		player = null;
+	}
 	$('#nonebox').fadeOut('fast', function(){ // убираем на$
         	$('#nonebox').remove();
                 $('#overlay').fadeOut('fast', function() {
