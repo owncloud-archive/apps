@@ -753,8 +753,8 @@ jeroenwijering.Model.prototype = {
 	},
 
 	timeChanged: function() {
-		//var pos = Math.round(this.video.Position.Seconds*10)/10;
-		//this.view.onTime(pos,this.configuration['duration']);
+		var pos = Math.round(this.video.Position.Seconds*10)/10;
+		this.view.onTime(pos,this.configuration['duration']);
 	}
 }
 
