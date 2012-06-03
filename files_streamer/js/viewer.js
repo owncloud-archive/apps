@@ -8,8 +8,10 @@ function viewWMV(dir, file) {
 	playSilverLight(getUrl(dir, file));
 }
 
+var player;
+
 function playSilverLight(url) {
-	 new jeroenwijering.Player(
+	 player = new jeroenwijering.Player(
                         document.getElementById('container'),
                         'apps/files_streamer/player/wmvplayer.xaml',
                         {
@@ -63,6 +65,7 @@ function bindView(file) {
 }
 
 function closeVideo() {
+	if (player) player.sendEvent('STOP');
 	$('#nonebox').fadeOut('fast', function(){ // убираем на$
         	$('#nonebox').remove();
                 $('#overlay').fadeOut('fast', function() {
