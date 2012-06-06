@@ -20,7 +20,9 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-class App_Mail_Message{
+namespace OCA_Mail;
+
+class Message{
 
 	// input $mbox = IMAP conn, $mid = message id
 	function __construct($conn, $folder_id, $message_id) {
@@ -49,7 +51,7 @@ class App_Mail_Message{
 
 		// BODY
 		$bodystructure= $this->conn->getStructure($this->folder_id, $this->message_id);
-		$a= rcube_imap_generic::getStructurePartData($bodystructure, 0);
+		$a= \rcube_imap_generic::getStructurePartData($bodystructure, 0);
 		if ($a['type'] == 'multipart'){
 			for ($i=0; $i < count($bodystructure); $i++) {
 				if (!is_array($bodystructure[$i]))

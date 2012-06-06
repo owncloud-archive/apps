@@ -30,7 +30,7 @@ require_once('phpsec.crypt.php');
 * Authentification backend to authenticate agains a django webapplication using
 * django.contrib.auth.
 */
-class OC_User_Django extends OC_User_Backend {
+class OC_USER_DJANGO extends OC_User_Backend {
 	/**
 	* @brief Create a new user
 	* @param $uid The username of the user to create

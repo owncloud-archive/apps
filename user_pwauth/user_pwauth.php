@@ -73,17 +73,6 @@ class OC_USER_PWAUTH extends OC_User_Backend {
                 # Is the password valid?
 	        $result = pclose( $handle );
                 if ($result == 0){
-			// before returning the UID
-			// we must ensure that there Principals
-			// have been created for SabreDAV to function properly
-			// unless CardDAV and CalDAV server will be unusable
-			$myOC_Connector_Sabre_Principal = new OC_Connector_Sabre_Principal();
-			$principals = $myOC_Connector_Sabre_Principal->getPrincipalsByPrefix('principals/'.$uid);
-			if(empty($principals)) {
-				$params['uid'] = $uid;
-				$myOC_Connector_Sabre_Principal->addPrincipal($params);
-			}
-			unset($myOC_Connector_Sabre_Principal);
 			return $uid;
 		}
                 return false;

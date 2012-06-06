@@ -29,9 +29,6 @@ define('OC_GROUP_BACKEND_DJANGO_SUPERUSER_IS_ADMIN', true);
 
 OC_APP::registerAdmin('django_auth','settings');
 
-OC_User::registerBackend('Django');
 OC_User::useBackend( 'Django' );
-
-OC_Group::registerBackend('Django');
-OC_Group::setBackend( 'Django' );
+OC_Group::useBackend( new OC_GROUP_DJANGO() );
 ?>
