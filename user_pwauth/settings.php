@@ -20,7 +20,7 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-$params = array('min_uid', 'max_uid');
+$params = array('uid_list', 'pwauth_path');
 
 if ($_POST) {
 	foreach($params as $param){
@@ -32,8 +32,8 @@ if ($_POST) {
 
 // fill template
 $tmpl = new OC_Template( 'user_pwauth', 'settings');
-$tmpl->assign( 'min_uid', OC_Appconfig::getValue('user_pwauth', 'min_uid', OC_USER_BACKEND_PWAUTH_MIN_UID));
-$tmpl->assign( 'max_uid', OC_Appconfig::getValue('user_pwauth', 'max_uid', OC_USER_BACKEND_PWAUTH_MAX_UID));
+$tmpl->assign( 'uid_list', OC_Appconfig::getValue('user_pwauth', 'uid_list', OC_USER_BACKEND_PWAUTH_UID_LIST));
+$tmpl->assign( 'pwauth_path', OC_Appconfig::getValue('user_pwauth', 'pwauth_path', OC_USER_BACKEND_PWAUTH_PATH));
 
 return $tmpl->fetchPage();
 ?>

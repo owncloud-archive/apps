@@ -25,14 +25,13 @@ require_once('apps/user_pwauth/user_pwauth.php');
 
 OC_APP::registerAdmin('user_pwauth','settings');
 
-// define MIN_UID (first user on system)
-define('OC_USER_BACKEND_PWAUTH_MIN_UID', 1000);
+// define UID_LIST (first - last user;user;user)
+define('OC_USER_BACKEND_PWAUTH_UID_LIST', '1000-1010');
+define('OC_USER_BACKEND_PWAUTH_PATH', '/usr/sbin/pwauth');
 
-// define MAX_UID (last user to be seeked)
-define('OC_USER_BACKEND_PWAUTH_MAX_UID', 1010);
 
-OC_User::registerBackend("PWAUTH");
-OC_User::useBackend( "PWAUTH" );
+OC_User::registerBackend('PWAUTH');
+OC_User::useBackend('PWAUTH');
 
 // add settings page to navigation
 $entry = array(
