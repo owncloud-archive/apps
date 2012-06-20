@@ -4,7 +4,9 @@
 * ownCloud - App Template plugin
 *
 * @author Frank Karlitschek
+* @author Florian Hülsmann
 * @copyright 2011 Frank Karlitschek karlitschek@kde.org
+* @copyright 2012 Florian Hülsmann fh@cbix.de
 * 
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -16,14 +18,11 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
 *  
-* You should have received a copy of the GNU Lesser General Public 
+* You should have received a copy of the GNU Affero General Public 
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 * 
 */
 
-OC_APP::registerAdmin('apptemplate','settings');
+OCP\App::registerAdmin( 'apptemplate', 'settings' );
 
-OC_App::register( array( 'order' => 70, 'id' => 'apptemplate', 'name' => 'App Template' ));
-
-OC_App::addNavigationEntry( array( 'id' => 'apptemplate', 'order' => 74, 'href' => OC_Helper::linkTo( 'apptemplate', 'index.php' ), 'icon' => OC_Helper::imagePath( 'apptemplate', 'example.png' ), 'name' => 'App Template'));
-
+OCP\App::addNavigationEntry( array( 'id' => 'apptemplate', 'order' => 74, 'href' => OCP\Util::linkTo( 'apptemplate', 'index.php' ), 'icon' => OCP\Util::imagePath( 'apptemplate', 'example.png' ), 'name' => 'App Template'));
