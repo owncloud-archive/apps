@@ -20,24 +20,21 @@
  *
  */
 
-// Init owncloud
-require_once('../../../lib/base.php');
-
 // Check if we are a user
-OC_JSON::checkLoggedIn();
-OC_JSON::checkAppEnabled('mail');
+OCP\JSON::checkLoggedIn();
+OCP\JSON::checkAppEnabled('mail');
 
 $account_id = isset( $_GET['account_id'] ) ? $_GET['account_id'] : null;
 $folder_id = isset( $_GET['folder_id'] ) ? $_GET['folder_id'] : null;
 $from = isset( $_GET['from'] ) ? $_GET['from'] : null;
 $count = isset( $_GET['count'] ) ? $_GET['count'] : null;
 
-$messages = App_Mail::getMessages( OC_User::getUser(), $account_id, $folder_id, $from, $count );
+$messages = OCA_Mail\App::getMessages( OCP\User::getUser(), $account_id, $folder_id, $from, $count );
 
-$tmpl = new OC_Template('mail','part.message_list');
+$tmpl = new OCP\Template('mail','part.message_list');
 $tmpl->assign('account_id', $messages['account_id'] );
 $tmpl->assign('folder_id', $messages['folder_id'] );
 $tmpl->assign('messages', $messages['messages'] );
 $page = $tmpl->fetchPage();
 
-OC_JSON::success(array('data' => $page ));
+OCP\JSON::success(array('data' => $page ));

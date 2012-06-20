@@ -21,20 +21,18 @@
 * 
 */
 
-require_once('../../lib/base.php');
-
 // Check if we are a user
-if( !OC_User::isLoggedIn()){
-	header( "Location: ".OC_Helper::linkTo( '', 'index.php' ));
+if( !OCP\User::isLoggedIn()){
+	header( "Location: ".OCP\Util::linkTo( '', 'index.php' ));
 	exit();
 }
 
 // Add JavaScript and CSS files
-OC_Util::addScript('mail','mail');
-OC_Util::addScript('mail','jquery.endless-scroll');
-OC_Util::addStyle('mail','mail');
+OCP\Util::addScript('mail','mail');
+OCP\Util::addScript('mail','jquery.endless-scroll');
+OCP\Util::addStyle('mail','mail');
 
 
-OC_App::setActiveNavigationEntry( 'mail');
-$tmpl = new OC_Template( 'mail', 'index', 'user' );
+OCP\App::setActiveNavigationEntry( 'mail');
+$tmpl = new OCP\Template( 'mail', 'index', 'user' );
 $tmpl->printPage();
