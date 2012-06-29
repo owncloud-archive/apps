@@ -1,12 +1,12 @@
 <?php
 
-OC_Util::checkAdminUser();
+OCP\User::checkAdminUser();
 
-OC_Util::addScript( "user_openid_provider", "admin" );
+OCP\Util::addScript( "user_openid_provider", "admin" );
 
-$tmpl = new OC_Template( 'user_openid_provider', 'settings');
+$tmpl = new OCP\Template( 'user_openid_provider', 'settings');
 
-$tmpl->assign('url',OC_Config::getValue( "somesetting", '' ));
+$tmpl->assign('url',OCP\Config::getValue( "somesetting", '' ));
 
 return $tmpl->fetchPage();
 
