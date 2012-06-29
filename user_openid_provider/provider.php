@@ -14,9 +14,9 @@ if (OCP\User::isLoggedIn() and !$session->getLoggedInUser()) {
 if (isset($_GET['openid_action']) and $_GET['openid_action']=='login') {
 	unset($_GET['openid_action']);
 	$params = '?'.Zend_OpenId::paramsToQuery($_GET);
+	$next = OCP\Util::linkToRemote('openid_provider') . $params;
 	$loginPage = OCP\Util::linkToAbsolute( '', 'index.php' ).'?redirect_url='
-		.urlencode(OCP\Util::linkToRemote('openid_provider')
-				. $params);
+		.urlencode($next);
 	header('Location: '.$loginPage );
 } else if (isset($_GET['openid_action']) and $_GET['openid_action'] == 'trust') {
 	OCP\User::checkLoggedIn();
