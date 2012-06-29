@@ -37,8 +37,8 @@ if(strpos($_SERVER["REQUEST_URI"],'?') and !strpos($_SERVER["REQUEST_URI"],'='))
 	}
 }
 //die('username: ' . $userName);
-OCP\Util::addHeader('link',array('rel'=>'openid.server', 'href'=>OCP\Util::linkToAbsolute( 'user_openid_provider', 'provider.php' ).'/'.$userName));
-OCP\Util::addHeader('link',array('rel'=>'openid.delegate', 'href'=>OCP\Util::linkToAbsolute( 'user_openid_provider', 'provider.php' ).'/'.$userName));
+OCP\Util::addHeader('link',array('rel'=>'openid.server', 'href'=>OCP\Util::linkToRemote( 'openid_provider' ).$userName));
+OCP\Util::addHeader('link',array('rel'=>'openid.delegate', 'href'=>OCP\Util::linkToRemote( 'openid_provider' ).$userName));
 
 
 OCP\App::register( array( 'order' => 70, 'id' => 'user_openid_provider', 'name' => 'OpenID Provider' ));
