@@ -30,8 +30,6 @@ if (OCP\App::isEnabled('user_saml')) {
 
 	// register user backend
 	OC_User::useBackend( 'SAML' );
-	OC_Group::useBackend( new OC_GROUP_SAML() );
-
 
 	OC::$CLASSPATH['OC_USER_SAML_Hooks'] = 'apps/user_saml/lib/hooks.php';
 	OCP\Util::connectHook('OC_User', 'post_login', 'OC_USER_SAML_Hooks', 'post_login');
