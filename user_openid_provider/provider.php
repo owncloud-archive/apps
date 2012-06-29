@@ -32,7 +32,6 @@ if (isset($_GET['openid_action']) and $_GET['openid_action']=='login') {
 		$tmpl->printPage();
 	}
 } else {
-
 	$ret = $server->handle();
 	if (is_string($ret)) {
 		echo $ret;

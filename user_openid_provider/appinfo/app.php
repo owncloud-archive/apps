@@ -27,7 +27,6 @@
 OC::$CLASSPATH['OC_OpenIdProviderUserSession'] = 'apps/user_openid_provider/lib/OpenIdProviderUserSession.php';
 OC::$CLASSPATH['OC_OpenIdProviderStorage'] = 'apps/user_openid_provider/lib/OpenIdProviderStorage.php';
 
-
 $userName='';
 if(strpos($_SERVER["REQUEST_URI"],'?') and !strpos($_SERVER["REQUEST_URI"],'=')){
 	if(strpos($_SERVER["REQUEST_URI"],'/?') !== false){
