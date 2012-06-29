@@ -13,10 +13,7 @@ if (OCP\User::isLoggedIn() and !$session->getLoggedInUser()) {
 
 if (isset($_GET['openid_action']) and $_GET['openid_action']=='login') {
 	unset($_GET['openid_action']);
-	$params = '?';
-	foreach($_GET as $key => $value) {
-		$params .= '&' . $key . '=' . $value;
-	}
+	$params = '?'.Zend_OpenId::paramsToQuery($_GET);
 	$loginPage = OCP\Util::linkToAbsolute( '', 'index.php' ).'?redirect_url='
 		.urlencode(OCP\Util::linkToRemote('openid_provider')
 				. $params);
