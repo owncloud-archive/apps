@@ -35,6 +35,11 @@ if(strpos($_SERVER["REQUEST_URI"],'?') and !strpos($_SERVER["REQUEST_URI"],'='))
 		$userName=substr($_SERVER["REQUEST_URI"],strpos($_SERVER["REQUEST_URI"],'.php?')+5);
 	}
 }
+$remote_token = 'openid_provider';
+if (($pos = strpos($_SERVER["REQUEST_URI"],$remote_token)) !== false) {
+	$pos += strlen($remote_token)+1;
+	$userName = substr($_SERVER['REQUEST_URI'],$pos);
+}
 //die('username: ' . $userName);
 OCP\Util::addHeader('link',array('rel'=>'openid.server', 'href'=>OCP\Util::linkToRemote( 'openid_provider' ).$userName));
 OCP\Util::addHeader('link',array('rel'=>'openid.delegate', 'href'=>OCP\Util::linkToRemote( 'openid_provider' ).$userName));
