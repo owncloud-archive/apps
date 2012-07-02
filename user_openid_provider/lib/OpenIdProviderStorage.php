@@ -86,7 +86,7 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
 	 */
 	public function hasUser($id)
 	{
-		$userName=substr($id, strrpos($id, '/')+1);
+		$userName=substr($id, strrpos($id, '/')+2);
 		return OCP\User::userExists($userName);
 	}
 

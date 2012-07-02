@@ -8,7 +8,7 @@ $storage = new OC_OpenIdProviderStorage();
 $server = new Zend_OpenId_Provider(null, null, $session, $storage);
 
 if (OCP\User::isLoggedIn() and !$session->getLoggedInUser()) {
-	$session->setLoggedInUser(OCP\Util::linkToRemote('openid_provider').OCP\User::getUser());
+	$session->setLoggedInUser(OCP\Util::linkToAbsolute('', '?').OCP\User::getUser());
 }
 
 if (isset($_GET['openid_action']) and $_GET['openid_action']=='login') {
