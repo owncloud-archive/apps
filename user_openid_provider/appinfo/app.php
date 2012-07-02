@@ -41,8 +41,9 @@ if (($pos = strpos($_SERVER["REQUEST_URI"],$remote_token)) !== false) {
 	$userName = substr($_SERVER['REQUEST_URI'],$pos);
 }
 //die('username: ' . $userName);
-OCP\Util::addHeader('link',array('rel'=>'openid.server', 'href'=>OCP\Util::linkToRemote( 'openid_provider' ).$userName));
-OCP\Util::addHeader('link',array('rel'=>'openid.delegate', 'href'=>OCP\Util::linkToRemote( 'openid_provider' ).$userName));
-
+if ($userName != '') {
+	OCP\Util::addHeader('link',array('rel'=>'openid.server', 'href'=>OCP\Util::linkToRemote( $remote_token ).$userName));
+	OCP\Util::addHeader('link',array('rel'=>'openid.delegate', 'href'=>OCP\Util::linkToRemote( $remote_token ).$userName));
+}
 
 OCP\App::register( array( 'order' => 70, 'id' => 'user_openid_provider', 'name' => 'OpenID Provider' ));
