@@ -1,5 +1,4 @@
-
-<h1>This is an example app template</h1>
-
-<link rel="openid.server" href="<?php echo $_['testserver'];?>" />
-<?php echo $_['testid'];?>
+<form>
+<h1>OpenId page</h1>
+<?php echo $_SERVER['REQUEST_URI'] ?>
+</form>

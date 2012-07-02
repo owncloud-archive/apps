@@ -3,6 +3,11 @@
 require_once('Zend/OpenId/Provider.php');
 OCP\App::checkAppEnabled('user_openid_provider');
 
+if (!isset($_REQUEST['openid_mode'])) {
+	OC_Template::printGuestPage('user_openid_provider', 'main');
+	die;
+}
+
 $session = new OC_OpenIdProviderUserSession();
 $storage = new OC_OpenIdProviderStorage();
 $server = new Zend_OpenId_Provider(null, null, $session, $storage);
