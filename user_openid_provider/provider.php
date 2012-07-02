@@ -27,6 +27,9 @@ if (isset($_GET['openid_action']) and $_GET['openid_action']=='login') {
 	OCP\User::checkLoggedIn();
 	if (isset($_POST['allow'])) {
 		$server->respondToConsumer($_GET);
+	} else if (isset($_POST['deny'])) {
+		Zend_OpenId::redirect($_GET['openid_return_to'],
+				array('openid.mode'=>'cancel'));
 	} else {
 		$tmpl = new OCP\Template( 'user_openid_provider', 'trust', 'user');
 		$tmpl->assign('site', $server->getSiteRoot($_GET));
