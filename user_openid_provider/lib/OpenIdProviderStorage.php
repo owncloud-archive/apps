@@ -19,7 +19,7 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
 	public function addAssociation($handle, $macFunc, $secret, $expires)
 	{
 		$name = 'assoc_' . md5($handle);
-		$data = serialize(array($handle, $macFunc, $secret, $expires));
+		$data = serialize(array($handle, $macFunc, base64_encode($secret), $expires));
 		OCP\Config::setAppValue('user_openid_provider', $name, $data);
 	}
 
@@ -39,7 +39,8 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
 		$name = 'assoc_' . md5($handle);
 		$data = OCP\Config::getAppValue('user_openid_provider', $name);
 		if (!empty($data)) {
-			list($storedHandle, $macFunc, $secret, $expires) = unserialize($data);
+			list($storedHandle, $macFunc, $storedSecret, $expires) = unserialize($data);
+			$secret = base64_decode($storedSecret);
 			if ($handle === $storedHandle && $expires > time()) {
 				return true;
 			} else {
