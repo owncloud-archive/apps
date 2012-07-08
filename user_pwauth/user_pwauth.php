@@ -22,13 +22,29 @@
  */
 
 class OC_USER_PWAUTH extends OC_User_Backend {
-	protected $pwauth_bin_path = '/usr/sbin/pwauth';
-	protected $pwauth_min_uid;
-	protected $pwauth_max_uid;
-	
+	protected $pwauth_bin_path;
+	protected $pwauth_uid_list;
+
 	public function __construct() {
-		$this->pwauth_min_uid = OC_Appconfig::getValue('user_pwauth', 'min_uid', OC_USER_BACKEND_PWAUTH_MIN_UID);
-		$this->pwauth_max_uid = OC_Appconfig::getValue('user_pwauth', 'max_uid', OC_USER_BACKEND_PWAUTH_MAX_UID);
+		$this->pwauth_bin_path = OC_Appconfig::getValue('user_pwauth', 'pwauth_path', OC_USER_BACKEND_PWAUTH_PATH);
+		$list = explode(";", OC_Appconfig::getValue('user_pwauth', 'uid_list', OC_USER_BACKEND_PWAUTH_UID_LIST));
+		$r = array();
+		foreach($list as $entry) {
+			if(strpos($entry, "-") === FALSE) {
+				$r[] = $entry;
+			} else {
+				$range = explode("-", $entry); 
+				if($range[0] < 0) { $range[0] = 0; }
+				if($range[1] < $range[0]) { $range[1] = $range[0]; }
+
+				for($i = $range[0]; $i <= $range[1]; $i++) {
+					$r[] = $i;
+				}
+			}
+		}
+
+
+		$this->pwauth_uid_list = $r;
 	}
 	
 	public function createUser() {
@@ -56,7 +72,8 @@ class OC_USER_PWAUTH extends OC_User_Backend {
 		
 		// checks if the Unix UID number is allowed to connect
 		if(empty($unix_user)) return false; //user does not exist
-		if($unix_user['uid'] < $this->pwauth_min_uid || $unix_user['uid'] > $this->pwauth_max_uid) return false;
+		if(!in_array($unix_user['uid'], $this->pwauth_uid_list)) return false;
+		
 		
 		$handle = popen($this->pwauth_bin_path, 'w');
                 if ($handle === false) {
@@ -88,7 +105,7 @@ class OC_USER_PWAUTH extends OC_User_Backend {
 	*/
 	public function getUsers(){
 		$returnArray = array();
-		for($f = $this->pwauth_min_uid; $f <= $this->pwauth_max_uid; $f++) {
+		foreach($this->pwauth_uid_list as $f) {
 			if(is_array($array = posix_getpwuid($f))) {
 				$returnArray[] = $array['name'];
 			}

@@ -1,10 +1,10 @@
 <?php
 
 /**
- * ownCloud - user_pwauth
+ * ownCloud - user_saml
  *
- * @author Clément Véret
- * @copyright 2011 Clément Véret veretcle+owncloud@mateu.be
+ * @author Sixto Martin <smartin@yaco.es>
+ * @copyright 2012 Yaco Sistemas // CONFIA
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -20,20 +20,22 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-$params = array('uid_list', 'pwauth_path');
 
-if ($_POST) {
-	foreach($params as $param){
-		if(isset($_POST[$param])){
-			OC_Appconfig::setValue('user_pwauth', $param, $_POST[$param]);
-		}
+	require_once('../../lib/base.php');
+
+	$sspPath = OCP\Config::getAppValue('user_saml', 'saml_ssp_path', '');
+	$spSource = OCP\Config::getAppValue('user_saml', 'saml_sp_source', '');
+	$autocreate = OCP\Config::getAppValue('user_saml', 'saml_autocreate', false);
+
+	include_once($sspPath."/lib/_autoload.php");
+		
+	$auth = new SimpleSAML_Auth_Simple($spSource);
+
+	$auth->requireAuth();
+
+	if (!OC_User::login('', '')) {
+		$error = true;
+		OC_Log::write('saml','Error trying to authenticate the user',OC_Log::DEBUG);
 	}
-}
 
-// fill template
-$tmpl = new OC_Template( 'user_pwauth', 'settings');
-$tmpl->assign( 'uid_list', OC_Appconfig::getValue('user_pwauth', 'uid_list', OC_USER_BACKEND_PWAUTH_UID_LIST));
-$tmpl->assign( 'pwauth_path', OC_Appconfig::getValue('user_pwauth', 'pwauth_path', OC_USER_BACKEND_PWAUTH_PATH));
-
-return $tmpl->fetchPage();
-?>
+	OC_Util::redirectToDefaultPage();
