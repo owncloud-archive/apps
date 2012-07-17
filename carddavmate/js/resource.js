@@ -27,7 +27,7 @@ function loadResources(resourceList, forceLoad)
 		resourceList=[resourceList];
 
 	for(var i=0;i<resourceList.length;i++)
-		netFindResource(resourceList[i],'async');
+		netFindResource(resourceList[i]);
 }
 
 // ResourceList Class
@@ -45,9 +45,14 @@ function ResourceList()
 	// resource header value
 	this.getHeaderValue=function(inputResource)
 	{
-		var re=new RegExp('^(https?://)([^@/]+(?:@[^@/]+)?)@([^/]+).*/([^/]*)/','i');
-		var tmp=inputResource.accountUID.match(re);
-		var result=tmp[3].replace(RegExp(':[0-9]+$'),'')+'/'+decodeURIComponent(tmp[4]).replace(RegExp('(@.*)?$'),'');
+		if(typeof inputResource.hrefLabel=='string' && inputResource.hrefLabel!='')
+			var result=inputResource.hrefLabel;
+		else
+		{
+			var re=new RegExp('^(https?://)([^@/]+(?:@[^@/]+)?)@([^/]+).*/([^/]*)/','i');
+			var tmp=inputResource.accountUID.match(re);
+			var result=tmp[3].replace(RegExp(':[0-9]+$'),'')+'/'+decodeURIComponent(tmp[4]).replace(RegExp('(@.*)?$'),'');
+		}
 
 		if(typeof globalResourceHeaderShowLogin!='undefined' && globalResourceHeaderShowLogin==true)
 			result+=' ['+inputResource.userAuth.userName.replace(RegExp('@.*$'),'')+']'
@@ -75,7 +80,7 @@ function ResourceList()
 			{
 				if(this.collections[i].displayvalue==inputResource.displayvalue && this.collections[i].permissions.read_only==inputResource.permissions.read_only)
 				{
-					this.collections[i]=inputResource;
+					this.collections[i]=$.extend(inputResource, {syncToken: this.collections[i].syncToken, forceSyncPROPFIND: this.collections[i].forceSyncPROPFIND});
 					return 0;
 				}
 				else
@@ -360,6 +365,7 @@ function ResourceList()
 
 					// Show the progress loader ...
 					$('#ABListLoader').css('display','block');
+					$('#AddContact').prop('disabled',true);
 
 					// Make the selected collection active
 					$('#ResourceList').find('.resource_item').find('.resource_selected').removeClass('resource_selected');

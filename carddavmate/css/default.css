@@ -16,7 +16,7 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#content input, #content select, #content textarea
+body, input, select, textarea
 {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 14px;
@@ -72,6 +72,7 @@
 	position: absolute;
 	top: 0px;
 	left: 0px;
+	right: 0px;
 	border-right: 1px solid;
 	border-right-color: #c0c0c0;
 	width: 224px;
@@ -86,6 +87,7 @@
 
 #System *> div.resources_h
 {
+	position: absolute;
 	padding-left: 8px;
 	padding-top: 3px;
 	font-size: 1.1em;
@@ -157,7 +159,7 @@
 	position: absolute;
 	right: 0px;
 	padding-top: 4px;
-	padding-right: 8px;
+	padding-right: 6px;
 	width:16px;
 	height: 16px;
 }
@@ -346,7 +348,7 @@
 
 
 
-#content select
+select
 {
 	font-size: 1em;
 	min-height: 18px;
@@ -355,7 +357,7 @@
 	padding: 0px 0px 0px 0px;
 	border: none;
 
-	background: #ffffff url(../img/select.png) no-repeat center right;
+	background: #ffffff url(%appswebroot%/apps/carddavmate/img/select.png) no-repeat center right;
 
 	padding-left: 3px;		/* minor problem with chrome on windows */
 	padding-right: 13px;	/* original: 18 - minor problem with chrome on windows */
@@ -381,7 +383,7 @@
 		padding-right: 0px !important;
 
 		padding-bottom: 1px;
-		background: transparent url(../img/x.png) repeat-x;
+		background: transparent url(%appswebroot%/apps/carddavmate/img/x.png) repeat-x;
 	}
 
 	select option
@@ -415,7 +417,7 @@ select[disabled]:-moz-last-node
 
 	/* FF for windows fix */
 	padding-right: 0px !important;
-	background: transparent url(../img/y.png) repeat-x;
+	background: transparent url(%appswebroot%/apps/carddavmate/img/y.png) repeat-x;
 }
 
 select[disabled][data-type="%country"]
@@ -434,7 +436,7 @@ select[disabled][data-type="%country"]
 select[disabled][data-type="%country"]:-moz-last-node
 {
 	margin-left: 0px !important;
-	background: transparent url(../img/y.png) repeat-x;
+	background: transparent url(%appswebroot%/apps/carddavmate/img/y.png) repeat-x;
 }
 
 select[disabled][data-type="im_service_type"]
@@ -453,7 +455,7 @@ select[disabled][data-type="im_service_type"]
 select[disabled][data-type="im_service_type"]:-moz-last-node
 {
 	margin-left: 0px !important;
-	background: transparent url(../img/y.png) repeat-x;
+	background: transparent url(%appswebroot%/apps/carddavmate/img/y.png) repeat-x;
 }
 
 
@@ -466,7 +468,7 @@ td[data-size="half"] > select[data-type="%country"]
 @-moz-document url-prefix() {
 	td[data-size="half"]
 	{
-		background: url(../img/ff_half.png) no-repeat;
+		background: url(%appswebroot%/apps/carddavmate/img/ff_half.png) no-repeat;
 	}
 }
 
@@ -478,7 +480,7 @@ td[data-size="small"] > select
 @-moz-document url-prefix() {
 	td[data-size="small"]	/* FF image hack to show select box as text box */
 	{
-		background: url(../img/ff_small.png) no-repeat;
+		background: url(%appswebroot%/apps/carddavmate/img/ff_small.png) no-repeat;
 	}
 }
 
@@ -495,7 +497,7 @@ td[data-size="full"] > select[data-type="language"]
 @-moz-document url-prefix() {
 	td[data-size="full"]	/* FF image hack to show select box as text box */
 	{
-		background: url(../img/ff_full.png) no-repeat;
+		background: url(%appswebroot%/apps/carddavmate/img/ff_full.png) no-repeat;
 	}
 }
 
@@ -506,13 +508,13 @@ td[data-size="full"] > select[data-type="language"]
 
 
 
-#content input
+input
 {
 	font-size: 1em !important;
 	margin: 0px 0px 0px 0px;
 	padding: 0em 0em 0em 0em;
 }
-#content input::-moz-focus-inner	/* FF buttons */
+input::-moz-focus-inner	/* FF buttons */
 {
 	border: none;
 	padding: 0.07em 0em 0em 0em !important;
@@ -523,7 +525,7 @@ input[data-type=system_login]
 	margin-top: 3px;
 }
 
-#content input[type=button], #content input[type=submit]
+input[type=button], input[type=submit]
 {
 	cursor: pointer;
 	border: 1px solid;
@@ -812,7 +814,7 @@ textarea[readonly]
 {
 	width: 100%;
 	height: 100%;
-	background: url(../img/loadinfo.gif) no-repeat center center;
+	background: url(%appswebroot%/apps/carddavmate/img/loadinfo.gif) no-repeat center center;
 }
 
 
@@ -1018,14 +1020,14 @@ textarea[readonly]
 .company, .ablist_item_selected.company:hover
 {
 	padding-right: 30px;
-	background-image: url(../img/company_s_b.svg);
+	background-image: url(%appswebroot%/apps/carddavmate/img/company_s_b.svg);
 	background-repeat: no-repeat;
 	background-position: right top;
 }
 
 .ablist_item_selected.company
 {
-	background-image: url(../img/company_s_w.svg);
+	background-image: url(%appswebroot%/apps/carddavmate/img/company_s_w.svg);
 	background-repeat: no-repeat;
 	background-position: right top;
 }
@@ -1138,7 +1140,7 @@ textarea[readonly]
 
 .resource_ro, .resource.resource_ro:hover
 {
-	background-image: url(../img/read_only_b.svg);
+	background-image: url(%appswebroot%/apps/carddavmate/img/read_only_b.svg);
 	background-repeat: no-repeat;
 	background-position: 95% center;
 	padding-right: 32px;
@@ -1146,7 +1148,7 @@ textarea[readonly]
 
 .resource_selected.resource_ro
 {
-	background-image: url(../img/read_only_w.svg);
+	background-image: url(%appswebroot%/apps/carddavmate/img/read_only_w.svg);
 }
 
 .group
@@ -1201,7 +1203,7 @@ textarea[readonly]
 
 .r_operate
 {
-	background-image: url(../img/loadinfo_s1.gif) !important;
+	background-image: url(%appswebroot%/apps/carddavmate/img/loadinfo_s1.gif) !important;
 	background-repeat: no-repeat !important;
 	background-position: 97% center !important;
 	padding-right: 32px;
@@ -1209,17 +1211,17 @@ textarea[readonly]
 
 .r_operate.resource_selected
 {
-	background-image: url(../img/loadinfo_s3.gif) !important;
+	background-image: url(%appswebroot%/apps/carddavmate/img/loadinfo_s3.gif) !important;
 }
 
 .r_operate:hover
 {
-	background-image: url(../img/loadinfo_s2.gif) !important;
+	background-image: url(%appswebroot%/apps/carddavmate/img/loadinfo_s2.gif) !important;
 }
 
 .r_success
 {
-	background-image: url(../img/success_b.svg) !important;
+	background-image: url(%appswebroot%/apps/carddavmate/img/success_b.svg) !important;
 	background-repeat: no-repeat !important;
 	background-position: 97% center !important;
 	padding-right: 32px;
@@ -1227,17 +1229,17 @@ textarea[readonly]
 
 .r_success.resource_selected
 {
-	background-image: url(../img/success_w.svg) !important;
+	background-image: url(%appswebroot%/apps/carddavmate/img/success_w.svg) !important;
 }
 
 .r_success:hover
 {
-	background-image: url(../img/success_b.svg) !important;
+	background-image: url(%appswebroot%/apps/carddavmate/img/success_b.svg) !important;
 }
 
 .r_error
 {
-	background-image: url(../img/error_b.svg) !important;
+	background-image: url(%appswebroot%/apps/carddavmate/img/error_b.svg) !important;
 	background-repeat: no-repeat !important;
 	background-position: 97% center !important;
 	padding-right: 32px;
@@ -1245,12 +1247,12 @@ textarea[readonly]
 
 .r_error.resource_selected
 {
-	background-image: url(../img/error_w.svg) !important;
+	background-image: url(%appswebroot%/apps/carddavmate/img/error_w.svg) !important;
 }
 
 .r_error:hover
 {
-	background-image: url(../img/error_b.svg) !important;
+	background-image: url(%appswebroot%/apps/carddavmate/img/error_b.svg) !important;
 }
 
 

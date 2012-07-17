@@ -39,7 +39,7 @@ function processEditorElements(processingType, inputIsReadonly)
 	// company checkbox and text
 	var tmp=$('[id="vcard_editor"]').find('[data-type="isorg"]');
 	tmp.prop('disabled',disabled);
-	if(processingType=='hide' && !tmp.is(':checked'))
+	if(processingType=='hide' && !tmp.prop('checked'))
 		tmp.parent().addClass(cssGrayedTxt);
 	else
 		tmp.parent().removeClass(cssGrayedTxt);
@@ -115,7 +115,7 @@ function processEditorElements(processingType, inputIsReadonly)
 							}
 						}
 					);
-				else if(tmp.attr('value')!='')	// other elements (not address)
+				else if(tmp.val()!='')	// other elements (not address)
 					found=1;
 
 
@@ -215,6 +215,8 @@ function editor_cleanup(inputLoadEmpty)
 		}
 	});
 
+	$('[data-type="org"]').autocomplete({'source': function(request, response){var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), 'i'); response($.grep(globalAddressbookList.getABCompanies(), function(value){ value = value.label || value.value || value; return matcher.test(value) || matcher.test(value.multiReplace(globalSearchTransformAlphabet));}));}, 'minLength': 0, 'change': function(){$('[data-type="department"]').autocomplete({'source': function(request, response){ var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), 'i'); response($.grep(globalAddressbookList.getABCompanyDepartments($('[id="vcard_editor"] [data-type="org"]').val()), function(value){ value = value.label || value.value || value; return matcher.test(value) || matcher.test(value.multiReplace(globalSearchTransformAlphabet));}));}, 'minLength': 0})}});
+
 	// CUSTOM PLACEHOLDER (initialization for the editor)
 	$('#ABContact').find('input[placeholder],textarea[placeholder]').placeholder();
 
@@ -259,7 +261,7 @@ function show_editor_message(inputPosition,inputSetClass,inputMessage,inputDurat
 
 function set_address_country(inputSelectedAddressObj)
 {
-	var selectedCountry=$(inputSelectedAddressObj).find('option:selected').attr('data-type');
+	var selectedCountry=$(inputSelectedAddressObj).find('option').filter(':selected').attr('data-type');
 	var addressElement=$(inputSelectedAddressObj).closest('[data-type="\\%address"]');
 
 	// cleanup the data-addr-fields and placeholders
@@ -320,12 +322,12 @@ function set_address_country(inputSelectedAddressObj)
 	addressElement.find('input[data-type="value"][placeholder],textarea[data-type="value"][placeholder]').placeholder();
 }
 
-function add_element(inputElementID, inputParentSelector, newElementSelector, inputAddClassSelector, inputDelClassSelector, maxElements, newElementID)
+function add_element(inputElementID, inputParentSelector, newElementSelector, inputAddClassSelector, inputDelClassSelector, maxElements, newElementID) // note: newElementSelector is always used with .last()
 {
 	// allow only maxElements items for this attribute 
 	if((count=inputElementID.closest(inputParentSelector).parent().children(inputParentSelector).length) < maxElements)
 	{
-		newElement=$(newElementSelector).clone().wrap('<div>');
+		newElement=$(newElementSelector).last().clone().wrap('<div>');
 
 		// CUSTOM PLACEHOLDER
 		// remove the "placeholder" data (custom placeholder label for IE)
@@ -335,7 +337,7 @@ function add_element(inputElementID, inputParentSelector, newElementSelector, in
 		// unselect each selected element
 		newElement.find('option').prop('selected',false);
 		// remove the form values
-		newElement.find('[data-type="value"]').attr('value','');
+		newElement.find('[data-type="value"]').val('');
 		// add the data-id value
 		newElement.find(inputParentSelector).attr("data-id",newElementID);
 		// disable the "add" on last element if maximum count is reached
@@ -351,7 +353,7 @@ function add_element(inputElementID, inputParentSelector, newElementSelector, in
 
 		// CUSTOM PLACEHOLDER
 		// enable custom placeholder support (it is enable only if needed)
-		$(newElementSelector).find('input[data-type="value"][placeholder],textarea[data-type="value"][placeholder]').placeholder();
+		$(newElementSelector).last().find('input[data-type="value"][placeholder],textarea[data-type="value"][placeholder]').placeholder();
 
 		// enable the "del" button on all elements
 		$(inputParentSelector).find(inputDelClassSelector).css('visibility','');
@@ -416,7 +418,7 @@ $(document).on('keyup change', '[data-type^="date_"]', function(){
 // Timepicker hack (prevent IE to re-open the datepicker on date click + focus)
 var globalTmpTimePickerHackTime=new Object();
 
-$(document).on('focus', '[data-type^="date_"]', function(){if(!$(this).hasClass('hasDatepicker')){$(this).datepicker({disabled: $(this).prop('readonly') || $(this).prop('disabled'), showMonthAfterYear: true, prevText: '', nextText: '', monthNamesShort: ['01','02','03','04','05','06','07','08','09','10','11','12'], dateFormat: globalDatepickerFormat, defaultDate: '-'+Math.round(30*365.25-1), minDate: '-120y', maxDate: '+0', yearRange: 'c-120:+0', firstDay: 0, changeMonth: true, changeYear: true,
+$(document).on('focus', '[data-type^="date_"]', function(){if(!$(this).hasClass('hasDatepicker')){$(this).datepicker({disabled: $(this).prop('readonly') || $(this).prop('disabled'), showMonthAfterYear: true, prevText: '', nextText: '', monthNamesShort: ['01','02','03','04','05','06','07','08','09','10','11','12'], dateFormat: globalDatepickerFormat, defaultDate: '-'+Math.round(30*365.25-1), minDate: '-120y', maxDate: '+0', yearRange: 'c-120:+0', firstDay: 0, changeMonth: true, changeYear: true, showAnim: '',
 	beforeShow: function(input, inst)	// set the datepicker value if the date is out of range (min/max)
 	{
 		var valid=true;
@@ -474,10 +476,10 @@ $(document).on('focus', '[data-type^="date_"]', function(){if(!$(this).hasClass(
 	}
 });
 $(this).mousedown(function(){
-	if($(this).datepicker('widget').is(':visible'))
-		$(this).datepicker('hide');
-	else
+	if($(this).datepicker('widget').css('display')=='none')
 		$(this).datepicker('show');
+	else
+		$(this).datepicker('hide');
 });
 $(this).blur(function(event){
 	// handle onblur event because datepicker can be already closed
@@ -507,33 +509,113 @@ $(this).blur(function(event){
 })
 }});
 
+if(typeof globalEnableKbNavigation=='undefined' || globalEnableKbNavigation!==false)
+{
+	$(document.documentElement).keyup(function (event)
+	{
+		if($('#System').css('display')!='none' && $('#ABListLoader').css('display')=='none' && $('#ABListOverlay').css('display')=='none' && !$('input[data-type="search"]').is(':focus'))
+		{
+			// 37 = left, 38 = up, 39 = right, 40 = down
+			if((selected_contact=$('#ABList').find('.ablist_item_selected')).length==1)
+			{
+				if(event.keyCode == 38 && (next_contact=selected_contact.prevAll('.ablist_item').filter(':visible').first()).attr('data-id')!=undefined || event.keyCode == 40 && (next_contact=selected_contact.nextAll('.ablist_item').filter(':visible').first()).attr('data-id')!=undefined)
+					globalAddressbookList.loadContactByUID(next_contact.attr('data-id'));
+			}
+		}
+	});
+
+	$(document.documentElement).keydown(function(event)
+	{
+		if($('#System').css('display')!='none' && $('#ABListLoader').css('display')=='none' && $('#ABListOverlay').css('display')=='none' && !$('input[data-type="search"]').is(':focus'))
+		{
+			// 37 = left, 38 = up, 39 = right, 40 = down
+			if((selected_contact=$('#ABList').find('.ablist_item_selected')).length==1)
+			{
+				if(event.keyCode == 38 && (next_contact=selected_contact.prevAll('.ablist_item').filter(':visible').first()).attr('data-id')!=undefined || event.keyCode == 40 &&  (next_contact=selected_contact.nextAll('.ablist_item').filter(':visible').first()).attr('data-id')!=undefined)
+				{
+					switch(event.keyCode)
+					{
+						case 38:
+							event.preventDefault();
+							if(next_contact.offset().top<$('#ABList').height()*0.25)
+							{
+								var move=next_contact.offset().top-selected_contact.offset().top;
+								if(next_contact.offset().top<0)
+									$('#ABList').scrollTop($('#ABList').scrollTop()+next_contact.offset().top-$('#ABList').height()*0.25);
+								else
+									$('#ABList').scrollTop(Math.max(0,$('#ABList').scrollTop()+move));
+							}
+							else if(next_contact.offset().top>$('#ABList').height()*0.75)	/* contact invisible (scrollbar moved) */
+								$('#ABList').scrollTop($('#ABList').scrollTop()+next_contact.offset().top-($('#ABList').height()*0.75));
+							else
+								return false;
+							break;
+						case 40:
+							event.preventDefault();
+							if(selected_contact.offset().top>$('#ABList').height()*0.75)
+							{
+								var move=next_contact.offset().top-selected_contact.offset().top;
+								if($('#ABList').scrollTop()+$('#ABList').height()*0.75<selected_contact.offset().top)
+									$('#ABList').scrollTop(selected_contact.offset().top-$('#ABList').height()*0.75);
+								else
+									$('#ABList').scrollTop(Math.min($('#ABList').prop('scrollHeight'),$('#ABList').scrollTop()+move));
+							}
+							else if(selected_contact.offset().top<$('#ABList').height()*0.25)	/* contact invisible (scrollbar moved) */
+								$('#ABList').scrollTop($('#ABList').scrollTop()+selected_contact.offset().top-($('#ABList').height()*0.25));
+							else
+								return false;
+							break;
+						default:
+							break;
+					}
+				}
+				else	// no previous contact and up pressed || no next contact and down pressed
+				{
+
+					switch(event.keyCode)
+					{
+						case 38:
+							$('#ABList').scrollTop(0);
+							break;
+						case 40:
+							$('#ABList').scrollTop($('#ABList').prop('scrollHeight'));
+							break;
+						default:
+							break;
+					}
+				}
+			}
+		}
+	});
+}
+
 phoneMax=20;
-$(document).on('click', '[data-type="\\%phone"] [data-type="\\%add"] input', function(ignoreMaxElements){add_element($(this).parent(),'[data-type="\\%phone"]','[data-type="\\%phone"]:last','[data-type="\\%add"]','[data-type="\\%del"]',phoneMax,globalCounter['phoneID']++)});
+$(document).on('click', '[data-type="\\%phone"] [data-type="\\%add"] input', function(ignoreMaxElements){add_element($(this).parent(),'[data-type="\\%phone"]','[data-type="\\%phone"]','[data-type="\\%add"]','[data-type="\\%del"]',phoneMax,globalCounter['phoneID']++)});
 $(document).on('click', '[data-type="\\%phone"] [data-type="\\%del"] input', function(){del_element($(this).parent(),'[data-type="\\%phone"]','[data-type="\\%add"]','[data-type="\\%del"]')});
 //$('[data-type="\\%phone"]').children().filter('[data-type="\\%add"]').click();
 
 emailMax=20;
-$(document).on('click', '[data-type="\\%email"] [data-type="\\%add"] input', function(ignoreMaxElements){add_element($(this).parent(),'[data-type="\\%email"]','[data-type="\\%email"]:last','[data-type="\\%add"]','[data-type="\\%del"]',emailMax,globalCounter['emailID']++)});
+$(document).on('click', '[data-type="\\%email"] [data-type="\\%add"] input', function(ignoreMaxElements){add_element($(this).parent(),'[data-type="\\%email"]','[data-type="\\%email"]','[data-type="\\%add"]','[data-type="\\%del"]',emailMax,globalCounter['emailID']++)});
 $(document).on('click', '[data-type="\\%email"] [data-type="\\%del"] input', function(){del_element($(this).parent(),'[data-type="\\%email"]','[data-type="\\%add"]','[data-type="\\%del"]')});
 //$('[data-type="\\%email"]').children().filter('[data-type="\\%add"]').click();
 
 urlMax=20;
-$(document).on('click', '[data-type="\\%url"] [data-type="\\%add"] input', function(ignoreMaxElements){add_element($(this).parent(),'[data-type="\\%url"]','[data-type="\\%url"]:last','[data-type="\\%add"]','[data-type="\\%del"]',urlMax,globalCounter['urlID']++)});
+$(document).on('click', '[data-type="\\%url"] [data-type="\\%add"] input', function(ignoreMaxElements){add_element($(this).parent(),'[data-type="\\%url"]','[data-type="\\%url"]','[data-type="\\%add"]','[data-type="\\%del"]',urlMax,globalCounter['urlID']++)});
 $(document).on('click', '[data-type="\\%url"] [data-type="\\%del"] input', function(){del_element($(this).parent(),'[data-type="\\%url"]','[data-type="\\%add"]','[data-type="\\%del"]')});
 //$('[data-type="\\%url"]').children().filter('[data-type="\\%add"]').click();
 
 personMax=20;
-$(document).on('click', '[data-type="\\%person"] [data-type="\\%add"] input', function(ignoreMaxElements){add_element($(this).parent(),'[data-type="\\%person"]','[data-type="\\%person"]:last','[data-type="\\%add"]','[data-type="\\%del"]',personMax,globalCounter['personID']++)});
+$(document).on('click', '[data-type="\\%person"] [data-type="\\%add"] input', function(ignoreMaxElements){add_element($(this).parent(),'[data-type="\\%person"]','[data-type="\\%person"]','[data-type="\\%add"]','[data-type="\\%del"]',personMax,globalCounter['personID']++)});
 $(document).on('click', '[data-type="\\%person"] [data-type="\\%del"] input', function(){del_element($(this).parent(),'[data-type="\\%person"]','[data-type="\\%add"]','[data-type="\\%del"]')});
 //$('[data-type="\\%person"]').children().filter('[data-type="\\%add"]').click();
 
 imMax=20;
-$(document).on('click', '[data-type="\\%im"] [data-type="\\%add"] input', function(ignoreMaxElements){add_element($(this).parent(),'[data-type="\\%im"]','[data-type="\\%im"]:last','[data-type="\\%add"]','[data-type="\\%del"]',imMax,globalCounter['imID']++)});
+$(document).on('click', '[data-type="\\%im"] [data-type="\\%add"] input', function(ignoreMaxElements){add_element($(this).parent(),'[data-type="\\%im"]','[data-type="\\%im"]','[data-type="\\%add"]','[data-type="\\%del"]',imMax,globalCounter['imID']++)});
 $(document).on('click', '[data-type="\\%im"] [data-type="\\%del"] input', function(){del_element($(this).parent(),'[data-type="\\%im"]','[data-type="\\%add"]','[data-type="\\%del"]')});
 //$('[data-type="\\%im"]').children().filter('[data-type="\\%add"]').click();
 
 addrMax=20;
-$(document).on('click', '[data-type="\\%address"] [data-type="\\%add"] input', function(ignoreMaxElements){add_element($(this).parent(),'[data-type="\\%address"]','[data-type="\\%address"]:last','[data-type="\\%add"]','[data-type="\\%del"]',imMax,globalCounter['addressID']++)});
+$(document).on('click', '[data-type="\\%address"] [data-type="\\%add"] input', function(ignoreMaxElements){add_element($(this).parent(),'[data-type="\\%address"]','[data-type="\\%address"]','[data-type="\\%add"]','[data-type="\\%del"]',imMax,globalCounter['addressID']++)});
 $(document).on('click', '[data-type="\\%address"] [data-type="\\%del"] input', function(){del_element($(this).parent(),'[data-type="\\%address"]','[data-type="\\%add"]','[data-type="\\%del"]')});
 //$('[data-type="\\%address"]').children().filter('[data-type="\\%add"]').click();
-$(document).on('change', '[data-type="\\%address"] [data-type="\\%country"]', function(){set_address_country(this)});
+$(document).on('change', '[data-type="\\%address"] [data-type="\\%country"]', function(){set_address_country(this); $(this).parent().find('[data-type="\\%country"]').focus();});

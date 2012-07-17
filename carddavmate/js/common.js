@@ -1455,7 +1455,7 @@ function jqueryEscapeSelector(inputValue)
 // Escape vCard value - RFC2426 (Section 2.4.2)
 function vcardEscapeValue(inputValue)
 {
-	return (inputValue==undefined ? '' : inputValue).replace(/(,|:|;|\\)/g,"\\$1").replace(/\n/g,'\\n');
+	return (inputValue==undefined ? '' : inputValue).replace(/(,|;|\\)/g,"\\$1").replace(/\n/g,'\\n');
 }
 
 // Unescape vCard value - RFC2426 (Section 2.4.2)
@@ -1600,4 +1600,3 @@ jQuery.expr[':'].attrCaseInsensitive = function(elem, index, match) {
 		value = matchParams[1].replace(/^\s*"|"\s*$/g,'').toLowerCase();
 	return jQuery(elem)['attr'](attribute)!=undefined && jQuery(elem)['attr'](attribute)==value;
 }
-

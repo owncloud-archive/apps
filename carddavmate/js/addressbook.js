@@ -21,7 +21,7 @@ function loadAddressbook(inputCollection, forceLoad)
 	if(forceLoad!=true && globalWindowFocus==false)
 		return false;
 
-	netLoadCollection(inputCollection,'async',forceLoad);
+	netLoadCollection(inputCollection, forceLoad, false, null);
 }
 
 // AddressbookList Class
@@ -30,6 +30,7 @@ function AddressbookList()
 	this.contacts=new Array();
 	this.contact_groups=new Array();
 	this.contact_categories=new Object();
+	this.contact_companies=new Object();
 	this.contactLoaded=null;
 	this.contactGroupLoaded=null;
 
@@ -38,6 +39,7 @@ function AddressbookList()
 		this.contacts.splice(0,this.contacts.length);
 		this.contact_groups.splice(0,this.contact_groups.length);	// these are not removed from the interface (it's OK)
 		this.contact_categories=new Object();
+		this.contact_companies=new Object();
 		this.contactLoaded=null;
 		this.contactGroupLoaded=null;
 	}
@@ -201,7 +203,7 @@ function AddressbookList()
 	}
 
 	// Contact group list is not sorted, instead "insert sort" is performed
-	this.insertContactGroup=function(inputContact,forceReload)
+	this.insertContactGroup=function(inputContact)
 	{
 		if((inputContact.sortkey=this.getSortKey(inputContact.vcard,globalCollectionSort))===false || (inputContact.displayvalue=this.getSortKey(inputContact.vcard,globalCollectionDisplay))===false)
 			return false;	//invalid vcard
@@ -335,10 +337,17 @@ function AddressbookList()
 		}
 		else
 		{
+			var previousActiveIndex=null;	// used to find the nearest contact and set it as selected
+
 			// set all contacts as inactive
 			for(var i=0;i<this.contacts.length;i++)
 				if(this.contacts[i].headerOnly==undefined)
+				{
+					if(this.contacts[i].show==true && $('#ABList div[data-id="'+jqueryEscapeSelector(this.contacts[i].uid)+'"]').hasClass('ablist_item_selected'))
+						previousActiveIndex=i;
+
 					this.contacts[i].show=false;
+				}
 
 			var vcardUIDList=new Array();
 			// get the members of the array group
@@ -418,13 +427,24 @@ function AddressbookList()
 		if(inputForceLoadNext==true || $('[id=vcard_editor]').attr('data-editor-state')!='edit' && (lastActive!=null || $('#ABList').find('.ablist_item_selected').length==0))
 		{
 			var nextCandidateToLoad=null;
-			// get the first candidate to load
-			for(j=0;j<this.contacts.length;j++)
+			// get the nearest candidate to load
+			//  if we can go forward
+			for(j=(previousActiveIndex == null ? 0 : previousActiveIndex)+1;j<this.contacts.length;j++)
 				if(this.contacts[j].headerOnly!=true && this.contacts[j].show==true)
 				{
 					nextCandidateToLoad=this.contacts[j];
 					break;
 				}
+			//  we must go backwards
+			if(nextCandidateToLoad==null && previousActiveIndex!=null)
+			{
+				for(j=previousActiveIndex-1;j>=0;j--)
+					if(this.contacts[j].headerOnly!=true && this.contacts[j].show==true)
+					{
+						nextCandidateToLoad=this.contacts[j];
+						break;
+					}
+			}
 
 			// make the contact active
 			$('#ABList').find('.ablist_item').removeClass('ablist_item_selected');
@@ -481,12 +501,39 @@ function AddressbookList()
 		});
 	}
 
+	this.getABCompanies=function()
+	{
+		var companiesArr=[];
+
+		for(var company in this.contact_companies)
+			companiesArr.push(company);
+
+		return companiesArr.sort(
+			function(x,y){
+				var a = x.toLowerCase();
+				var b = y.toLowerCase();
+				if (a > b)
+					return 1;
+				if (a < b)
+					return -1;
+				return 0;
+		});
+	}
+
+	this.getABCompanyDepartments=function(inputCompany)
+	{
+		if(this.contact_companies[inputCompany]!=undefined)
+			return this.contact_companies[inputCompany].departments;
+		else
+			return [];
+	}
+
 	// Contact list is not sorted, instead "insert sort" is performed
 	this.insertContact=function(inputContact, forceReload)
 	{
 		// Apple "group" vCards
 		if(this.isContactGroup(inputContact.vcard))
-			return this.insertContactGroup(inputContact,forceReload);
+			return this.insertContactGroup(inputContact);
 
 		if((inputContact.sortkey=this.getSortKey(inputContact.vcard,globalCollectionSort))===false || (inputContact.displayvalue=this.getSortKey(inputContact.vcard,globalCollectionDisplay))===false)
 			return false;	//invalid vcard
@@ -496,8 +543,43 @@ function AddressbookList()
 		var allCategoriesArr=this.getABCategories();
 
 		// The search funcionality uses this ASCII value (you can add additional data here)
-		inputContact.searchvalue=inputContact.displayvalue.multiReplace(globalSearchTransformAlphabet)+' '+categoriesArr.join(' ').multiReplace(globalSearchTransformAlphabet);
+		// ORG attribute
+		var tmp=inputContact.vcard;
+		var orgArr=[];
+		var depArr=[];
+		while((vcard_element=tmp.match(vCard.pre['contentline_ORG']))!=null)
+		{
+			// parsed (contentline_parse) = [1]->"group.", [2]->"name", [3]->";param;param", [4]->"value"
+			parsed=vcard_element[0].match(vCard.pre['contentline_parse']);
+			tmp_in=vcardUnescapeValue(vcardSplitValue(parsed[4],';')[0]);
+			if(tmp_in!='')
+				orgArr[orgArr.length]=tmp_in;
+			tmp_in=vcardUnescapeValue(vcardSplitValue(parsed[4],';')[1]);
+			if(tmp_in!='')
+				depArr[depArr.length]=tmp_in;
 
+			// remove the processed parameter
+			tmp=tmp.replace(vcard_element[0],'\r\n');
+		}
+		var allOrgArr=this.getABCompanies();
+
+		// EMAIL attribute
+		var emailArr=[];
+		while((vcard_element=tmp.match(vCard.pre['contentline_EMAIL']))!=null)
+		{
+			// parsed (contentline_parse) = [1]->"group.", [2]->"name", [3]->";param;param", [4]->"value"
+			parsed=vcard_element[0].match(vCard.pre['contentline_parse']);
+
+			emailArr[emailArr.length]=parsed[4];
+
+			// remove the processed parameter
+			tmp=tmp.replace(vcard_element[0],'\r\n');
+		}
+
+		// Search data (displayvalue+categories+orgs+emails)
+		inputContact.searchvalue=(inputContact.displayvalue+' '+categoriesArr.join(' ')+' '+orgArr.join(' ')+' '+emailArr.join(' ')).multiReplace(globalSearchTransformAlphabet);
+
+		// CATEGORIES suggestion
 		for(var i=0;i<allCategoriesArr.length;i++)	// if a contact is changed remove it from previous categories
 			if(categoriesArr.indexOf(allCategoriesArr[i])==-1)
 			{
@@ -510,9 +592,24 @@ function AddressbookList()
 						delete this.contact_categories[allCategoriesArr[i]];
 				}
 			}
-
 		for(var i=0;i<categoriesArr.length;i++)	// add contact to it's categories
 			this.contact_categories[categoriesArr[i]]=(this.contact_categories[categoriesArr[i]]==undefined ? [] : this.contact_categories[categoriesArr[i]]).concat(inputContact.uid).sort().unique();
+
+		// ORG suggestion
+		for(var i=0;i<allOrgArr.length;i++)	// if a contact is changed remove it from previous companies
+			if(orgArr.indexOf(allOrgArr[i])==-1)
+			{
+				var index=this.contact_companies[allOrgArr[i]].uids.indexOf(inputContact.uid);
+				if(index!=-1)
+				{
+					this.contact_companies[allOrgArr[i]].uids.splice(index,1);
+
+					if(this.contact_companies[allOrgArr[i]].uids.length==0)
+						delete this.contact_companies[allOrgArr[i]];
+				}
+			}
+		for(var i=0;i<orgArr.length;i++)	// add contact to it's companies
+			this.contact_companies[orgArr[i]]={uids: (this.contact_companies[orgArr[i]]==undefined ? [] : this.contact_companies[orgArr[i]].uids).concat(inputContact.uid).sort().unique(), departments: (this.contact_companies[orgArr[i]]==undefined ? [] : this.contact_companies[orgArr[i]].departments).concat(depArr).sort().unique()};
 
 		// check for company contact
 		inputContact.isCompany=false;
@@ -702,8 +799,32 @@ function AddressbookList()
 						}
 					}
 
+				// ORG suggestion
+				var tmp=this.contacts[i].vcard;
+				var orgArr=[];
+				while((vcard_element=tmp.match(vCard.pre['contentline_ORG']))!=null)
+				{
+					// parsed (contentline_parse) = [1]->"group.", [2]->"name", [3]->";param;param", [4]->"value"
+					parsed=vcard_element[0].match(vCard.pre['contentline_parse']);
+					orgArr[orgArr.length]=vcardUnescapeValue(vcardSplitValue(parsed[4],';')[0]);
+
+					// remove the processed parameter
+					tmp=tmp.replace(vcard_element[0],'\r\n');
+				}
+				for(var j=0;j<orgArr.length;j++)
+					if(this.contact_companies[orgArr[j]].uids!=undefined)
+					{
+						var index=this.contact_companies[orgArr[j]].uids.indexOf(this.contacts[i].uid);
+						if(index!=-1)
+						{
+							this.contact_companies[orgArr[j]].uids.splice(index,1);
+
+							if(this.contact_companies[orgArr[j]].uids.length==0)
+								delete this.contact_companies[orgArr[j]];
+						}
+					}
+
 				var nextCandidateToLoad=null;
-				var uidRemoved=this.contacts[i].uid;
 				var item=$('#ABList').find('[data-id^="'+jqueryEscapeSelector(this.contacts[i].uid)+'"]');
 
 				// get the nearest candidate to load

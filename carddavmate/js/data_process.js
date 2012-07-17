@@ -381,7 +381,7 @@ function dataToVcard(accountUID, inputUID, inputFilterUID, inputEtag)
 					process_elem=process_elem.replace('##:::##group_wd##:::##','');
 				}
 
-				tmp_type=$(element).find('[data-type="address_type"] :selected').attr('data-type');
+				tmp_type=$(element).find('[data-type="address_type"] option').filter(':selected').attr('data-type');
 
 				params_wsc='';
 				tmp_normal_types=tmp_type.replace(RegExp('/[^/]+/','g'),'_').replaceAll('__','_').replace(RegExp('^_|_$','g'),'');
@@ -395,9 +395,9 @@ function dataToVcard(accountUID, inputUID, inputFilterUID, inputEtag)
 				process_elem=process_elem.replace('##:::##locality##:::##',vcardEscapeValue($(element).find('[data-addr-field="locality"]').val()));
 				process_elem=process_elem.replace('##:::##region##:::##',vcardEscapeValue($(element).find('[data-addr-field="region"]').val()));
 				process_elem=process_elem.replace('##:::##code##:::##',vcardEscapeValue($(element).find('[data-addr-field="code"]').val()));
-				process_elem=process_elem.replace('##:::##country##:::##',vcardEscapeValue($(element).find('[data-type="%country"] :selected').attr('data-full-name')));
+				process_elem=process_elem.replace('##:::##country##:::##',vcardEscapeValue($(element).find('[data-type="%country"] option').filter(':selected').attr('data-full-name')));
 
-				my_related='X-ABADR:'+vcardEscapeValue($(element).find('[data-type="%country"] :selected').attr('data-type'))+'\r\n';
+				my_related='X-ABADR:'+vcardEscapeValue($(element).find('[data-type="%country"] option').filter(':selected').attr('data-type'))+'\r\n';
 				parsed=('\r\n'+process_elem).match(vCard.pre['contentline_parse']);
 				if(parsed[1]!='')	// if group is present, we use it, otherwise we create a new group
 					process_elem+=parsed[1]+my_related;
@@ -450,7 +450,7 @@ function dataToVcard(accountUID, inputUID, inputFilterUID, inputEtag)
 					process_elem=process_elem.replace('##:::##group_wd##:::##','');
 				}
 
-				tmp_type=$(element).find('[data-type="phone_type"] :selected').attr('data-type');
+				tmp_type=$(element).find('[data-type="phone_type"] option').filter(':selected').attr('data-type');
 
 				params_wsc='';
 				tmp_normal_types=tmp_type.replace(RegExp('/[^/]+/','g'),'_').replaceAll('__','_').replace(RegExp('^_|_$','g'),'');
@@ -505,7 +505,7 @@ function dataToVcard(accountUID, inputUID, inputFilterUID, inputEtag)
 					process_elem=process_elem.replace('##:::##group_wd##:::##','');
 				}
 
-				tmp_type=$(element).find('[data-type="email_type"] :selected').attr('data-type');
+				tmp_type=$(element).find('[data-type="email_type"] option').filter(':selected').attr('data-type');
 
 				params_wsc='';
 				tmp_normal_types=tmp_type.replace(RegExp('/[^/]+/','g'),'_').replaceAll('__','_').replace(RegExp('^_|_$','g'),'');
@@ -560,7 +560,7 @@ function dataToVcard(accountUID, inputUID, inputFilterUID, inputEtag)
 					process_elem=process_elem.replace('##:::##group_wd##:::##','');
 				}
 
-				tmp_type=$(element).find('[data-type="url_type"] :selected').attr('data-type');
+				tmp_type=$(element).find('[data-type="url_type"] option').filter(':selected').attr('data-type');
 
 				params_wsc='';
 				tmp_normal_types=tmp_type.replace(RegExp('/[^/]+/','g'),'_').replaceAll('__','_').replace(RegExp('^_|_$','g'),'');
@@ -615,7 +615,7 @@ function dataToVcard(accountUID, inputUID, inputFilterUID, inputEtag)
 					process_elem=process_elem.replace('##:::##group_wd##:::##','');
 				}
 
-				tmp_type=$(element).find('[data-type="person_type"] :selected').attr('data-type');
+				tmp_type=$(element).find('[data-type="person_type"] option').filter(':selected').attr('data-type');
 
 				params_wsc='';
 				tmp_normal_types=tmp_type.replace(RegExp('/[^/]+/','g'),'_').replaceAll('__','_').replace(RegExp('^_|_$','g'),'');
@@ -691,14 +691,14 @@ function dataToVcard(accountUID, inputUID, inputFilterUID, inputEtag)
 					process_elem=process_elem.replace('##:::##group_wd##:::##','');
 				}
 
-				tmp_type=$(element).find('[data-type="im_type"] :selected').attr('data-type');
+				tmp_type=$(element).find('[data-type="im_type"] option').filter(':selected').attr('data-type');
 
 				params_wsc=params_wsc_old_repr='';
 				tmp_normal_types=tmp_type.replace(RegExp('/[^/]+/','g'),'_').replaceAll('__','_').replace(RegExp('^_|_$','g'),'');
 				if(tmp_normal_types!='')
 					params_wsc=params_wsc_old_repr=';TYPE='+vcardEscapeValue(tmp_normal_types).toUpperCase().replace(RegExp('_','g'),';TYPE=');
 
-				tmp_service_type=$(element).find('[data-type="im_service_type"] :selected').attr('data-type');
+				tmp_service_type=$(element).find('[data-type="im_service_type"] option').filter(':selected').attr('data-type');
 				if(dataTypes['im_service_type_store_as'][tmp_service_type]!=undefined)
 					tmp_service_type=dataTypes['im_service_type_store_as'][tmp_service_type];
 				params_wsc=';X-SERVICE-TYPE='+vcardEscapeValue(tmp_service_type)+params_wsc;

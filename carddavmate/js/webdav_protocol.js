@@ -23,12 +23,8 @@ function netVersionCheck()
 		type: 'GET',
 		url: globalVersionCheckURL,
 		cache: false,
-		async: true,
-		crossDomain: false,
-		xhrFields: {
-			withCredentials: false
-		},
-		timeout: 10000,
+		crossDomain: true,
+		timeout: 30000,
 		error: function(objAJAXRequest, strError){
 			console.log("Error: [netVersionCheck: '"+globalVersionCheckURL+"'] code: '"+objAJAXRequest.status+"'");
 			return false;
@@ -105,13 +101,12 @@ function netVersionCheck()
 }
 
 // Load the configuration from XML file
-function netCheckAndCreateConfiguration(configurationURL, inputMode)
+function netCheckAndCreateConfiguration(configurationURL)
 {
 	$.ajax({
 		type: 'PROPFIND',
 		url: configurationURL.href,
 		cache: false,
-		async: ((inputMode==undefined || inputMode=='async') ? true : false),
 		crossDomain: (typeof configurationURL.crossDomain=='undefined' ? true : configurationURL.crossDomain),
 		xhrFields: {
 			withCredentials: (typeof configurationURL.withCredentials=='undefined' ? false : configurationURL.withCredentials)
@@ -176,13 +171,12 @@ function netCheckAndCreateConfiguration(configurationURL, inputMode)
 }
 
 // Load the configuration from XML file
-function netLoadConfiguration(configurationURL, inputMode)
+function netLoadConfiguration(configurationURL)
 {
 	$.ajax({
 		type: 'GET',
 		url: configurationURL.href,
 		cache: false,
-		async: ((inputMode==undefined || inputMode=='async') ? true : false),
 		crossDomain: (typeof configurationURL.crossDomain=='undefined' ? true : configurationURL.crossDomain),
 		xhrFields: {
 			withCredentials: (typeof configurationURL.withCredentials=='undefined' ? false : configurationURL.withCredentials)
@@ -215,6 +209,8 @@ function netLoadConfiguration(configurationURL, inputMode)
 				function(index, element)
 				{
 					var href=$(element).find('href').text();
+					var tmp=$(element).find('hreflabel').text();
+					var hreflabel=(tmp!='' ? tmp : null);
 					var username=$(element).find('userauth').find('username').text();
 					var password=$(element).find('userauth').find('password').text();
 					var updateinterval=$(element).find('syncinterval').text();
@@ -226,7 +222,7 @@ function netLoadConfiguration(configurationURL, inputMode)
 					var tmp=$(element).find('crossdomain').text();
 					var crossdomain=((tmp=='false' || tmp=='no' || tmp=='0') ? false : true);
 
-					globalAccountSettings[globalAccountSettings.length]={type: 'network', href: href, crossDomain: crossdomain, withCredentials: withcredentials, userAuth: {userName: username, userPassword: password}, syncInterval: updateinterval, timeOut: timeout, lockTimeOut: locktimeout};
+					globalAccountSettings[globalAccountSettings.length]={type: 'network', href: href, hrefLabel: hreflabel, crossDomain: crossdomain, withCredentials: withcredentials, userAuth: {userName: username, userPassword: password}, syncInterval: updateinterval, timeOut: timeout, lockTimeOut: locktimeout};
 
 					count++;
 				}
@@ -245,10 +241,16 @@ function netLoadConfiguration(configurationURL, inputMode)
 	});
 }
 
-function unlockCollection(inputContactObj, inputFilterUID, inputLockToken)
+function unlockCollection(inputContactObj)
 {
 	var tmp=inputContactObj.uid.match(RegExp('^(https?://)([^@/]+(?:@[^@/]+)?)@([^/]+)(.*/)([^/]+/)([^/]*)','i'));
 	var collection_uid=tmp[1]+tmp[2]+'@'+tmp[3]+tmp[4]+tmp[5];
+
+	var lockToken=globalResourceList.getCollectionByUID(collection_uid).lockToken;
+
+	// resource not locked, we cannot unlock it
+	if(lockToken=='undefined' || lockToken==null)
+		return false;
 
 	var put_href=tmp[1]+tmp[3]+tmp[4]+tmp[5];
 	var put_href_part=tmp[4]+tmp[5];
@@ -268,13 +270,11 @@ function unlockCollection(inputContactObj, inputFilterUID, inputLockToken)
 
 	// the begin of each error message
 	var errBegin=localization[globalInterfaceLanguage].errUnableUnlockBegin;
-	var returnValue=false;	// only for async: false
 
 	$.ajax({
 		type: 'UNLOCK',
 		url: put_href,
 		cache: false,
-		async: false,
 		crossDomain: (typeof resourceSettings.crossDomain=='undefined' ? true : resourceSettings.crossDomain),
 		xhrFields: {
 			withCredentials: (typeof resourceSettings.withCredentials=='undefined' ? false : resourceSettings.withCredentials)
@@ -305,24 +305,143 @@ function unlockCollection(inputContactObj, inputFilterUID, inputLockToken)
 					show_editor_message('in','message_error',errBegin.replace('%%',localization[globalInterfaceLanguage].errHttpCommon.replace('%%',objAJAXRequest.status)),globalHideInfoMessageAfter);
 					break;
 			}
-			returnValue=false;
+			return false;
 		},
 		beforeSend: function(req) {
 			if(resourceSettings.userAuth.userName!='' && resourceSettings.userAuth.userPassword!='')
 				req.setRequestHeader('Authorization', basicAuth(resourceSettings.userAuth.userName,resourceSettings.userAuth.userPassword));
 			req.setRequestHeader('X-client', 'CardDavMATE '+globalCardDavMATEVersion+' (INF-IT CardDav Web Client)');
 			// req.setRequestHeader('Depth', '0');
-			if(inputLockToken!=null)
-				req.setRequestHeader('Lock-Token', '<'+inputLockToken+'>');
+			if(lockToken!=null)
+				req.setRequestHeader('Lock-Token', '<'+lockToken+'>');
 		},
 		data: '',
 		complete: function(xml,textStatus)
 		{
 			if(textStatus=='success')
-				returnValue=true;
+			{
+				globalResourceList.setCollectionFlagByUID(collection_uid, 'lockToken', null);
+				return true;
+			}
 		}
 	});
-	return returnValue;
+}
+
+function operationPerform(inputPerformOperation, inputContactObj, inputFilterUID)
+{
+	if(inputPerformOperation=='PUT')
+	{
+		var tmp=globalAddressbookList.getAddMeToContactGroups(inputContactObj.vcard, inputFilterUID);
+		var inputContactObjArr=new Array(inputContactObj);
+		inputContactObjArr=inputContactObjArr.concat(tmp);
+
+		putVcardToCollection(inputContactObjArr, inputFilterUID, 'PUT_ALL', null);
+	}
+	else if(inputPerformOperation=='DELETE')
+	{
+		var tmp=globalAddressbookList.getRemoveMeFromContactGroups(inputContactObj.uid, null);
+		var inputContactObjArr=new Array(inputContactObj);
+		inputContactObjArr=tmp.concat(inputContactObjArr);
+
+		if(inputContactObjArr.length==1)
+			deleteVcardFromCollection(inputContactObjArr[0], inputFilterUID, 'DELETE_LAST');
+		else
+			putVcardToCollection(inputContactObjArr, inputFilterUID, 'DELETE_LAST', null);
+	}
+	else if(inputPerformOperation=='ADD_TO_GROUP')
+	{
+		var tmp=globalAddressbookList.getAddMeToContactGroups(inputContactObj.vcard, [inputContactObj.addToContactGroupUID]);
+		tmp[0].uiObjects=inputContactObj.uiObjects
+		var inputContactObjArr=tmp;
+
+		putVcardToCollection(inputContactObjArr, inputFilterUID, 'ADD_TO_GROUP_LAST', null);
+	}
+	else if(inputPerformOperation=='DELETE_FROM_GROUP')
+	{
+		var inputContactObjArr=globalAddressbookList.getRemoveMeFromContactGroups(inputContactObj.uid, [inputFilterUID]);
+		putVcardToCollection(inputContactObjArr, inputFilterUID, 'DELETE_FROM_GROUP_LAST', null);
+	}
+	else if(inputPerformOperation=='IRM_DELETE')
+	{
+		var tmp=globalAddressbookList.getRemoveMeFromContactGroups(inputContactObj.uid, null);
+		var inputContactObjArr=new Array($.extend({withoutLockTocken: true}, inputContactObj), inputContactObj);	// first is used for PUT to destination resource (without lock token) and the second for the DELETE
+		inputContactObjArr=tmp.concat(inputContactObjArr);
+
+		putVcardToCollection(inputContactObjArr, inputFilterUID, 'IRM_DELETE_LAST', null);
+	}
+	else if(inputPerformOperation=='MOVE')
+	{
+		var tmp=globalAddressbookList.getRemoveMeFromContactGroups(inputContactObj.uid, null);
+		var inputContactObjArr=new Array(inputContactObj);
+		inputContactObjArr=tmp.concat(inputContactObjArr);
+
+		if(inputContactObjArr.length==1)
+			moveVcardToCollection(inputContactObjArr[0], inputFilterUID);
+		else
+			putVcardToCollection(inputContactObjArr, inputFilterUID, 'MOVE_LAST', null);
+	}
+}
+
+function operationPerformed(inputPerformOperation, inputContactObj, loadContactObj)
+{
+	if(inputPerformOperation=='ADD_TO_GROUP_LAST')
+	{
+		// success icon
+		setTimeout(function(){
+			inputContactObj.uiObjects.resource.addClass('r_success');
+			inputContactObj.uiObjects.resource.removeClass('r_operate');
+			setTimeout(function(){
+				inputContactObj.uiObjects.contact.animate({opacity: 1}, 750);
+				inputContactObj.uiObjects.contact.draggable('option', 'disabled', false);
+				inputContactObj.uiObjects.resource.removeClass('r_success');
+				inputContactObj.uiObjects.resource.droppable('option', 'disabled', false);
+			},1200);
+		},1000);
+	}
+	// contact group operation (only one contact group is changed at once)
+	else if(inputPerformOperation=='DELETE_FROM_GROUP_LAST')
+	{
+		// success message
+		var duration=show_editor_message('out','message_success',localization[globalInterfaceLanguage].succContactDeletedFromGroup,globalHideInfoMessageAfter);
+
+		// after the success message show the next automatically selected contact
+		setTimeout(function(){
+			$('#ResourceListOverlay').fadeOut(globalEditorFadeAnimation);
+			$('#ABListOverlay').fadeOut(globalEditorFadeAnimation,function(){});
+			$('#ABContactOverlay').fadeOut(globalEditorFadeAnimation,function(){$('#AddContact').prop('disabled',false);});
+		},duration);
+	}
+	// contact is added but it is hidden due to search filter
+	else if($('#ABList div[data-id="'+jqueryEscapeSelector(inputContactObj.uid)+'"]').hasClass('search_hide'))
+	{
+		// load the modified contact
+		globalAddressbookList.loadContactByUID(loadContactObj.uid);
+
+		// success message
+		var duration=show_editor_message('out','message_success',localization[globalInterfaceLanguage].succContactSaved,globalHideInfoMessageAfter);
+
+		// after the success message show the next automatically selected contact
+		setTimeout(function(){
+			$('#ResourceListOverlay').fadeOut(globalEditorFadeAnimation);
+			$('#ABListOverlay').fadeOut(globalEditorFadeAnimation,function(){});
+			$('#ABContactOverlay').fadeOut(globalEditorFadeAnimation,function(){$('#AddContact').prop('disabled',false);});
+		},duration+globalHideInfoMessageAfter);
+	}
+	else
+	{
+		// load the modified contact
+		globalAddressbookList.loadContactByUID(loadContactObj.uid);
+
+		// success message
+		show_editor_message('in','message_success',localization[globalInterfaceLanguage].succContactSaved,globalHideInfoMessageAfter);
+
+		// presunut do jednej funkcie s tym co je vyssie
+		$('#ResourceListOverlay').fadeOut(globalEditorFadeAnimation);
+		$('#ABListOverlay').fadeOut(globalEditorFadeAnimation);
+		$('#ABContactOverlay').fadeOut(globalEditorFadeAnimation,function(){$('#AddContact').prop('disabled',false);});
+	}
+
+	unlockCollection(inputContactObj);
 }
 
 function lockAndPerformToCollection(inputContactObj, inputFilterUID, inputPerformOperation)
@@ -353,7 +472,6 @@ function lockAndPerformToCollection(inputContactObj, inputFilterUID, inputPerfor
 		type: 'LOCK',
 		url: put_href,
 		cache: false,
-		async: true,
 		crossDomain: (typeof resourceSettings.crossDomain=='undefined' ? true : resourceSettings.crossDomain),
 		xhrFields: {
 			withCredentials: (typeof resourceSettings.withCredentials=='undefined' ? false : resourceSettings.withCredentials)
@@ -364,77 +482,9 @@ function lockAndPerformToCollection(inputContactObj, inputFilterUID, inputPerfor
 			// if the server not supports LOCK request (Mac OS X Lion) we perform
 			//  the operation without LOCK (even if it is dangerous and can cause data integrity errors)
 			if(objAJAXRequest.status==501)
-			{
-				if(inputPerformOperation=='PUT')
-				{
-					var tmp=globalAddressbookList.getAddMeToContactGroups(inputContactObj.vcard, inputFilterUID);
-					var inputContactObjArr=new Array(inputContactObj);
-					inputContactObjArr=inputContactObjArr.concat(tmp);
-
-					putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', null, 'PUT_ALL');
-				}
-				else if(inputPerformOperation=='DELETE')
-				{
-					var tmp=globalAddressbookList.getRemoveMeFromContactGroups(inputContactObj.uid, null);
-					var inputContactObjArr=new Array(inputContactObj);
-					inputContactObjArr=tmp.concat(inputContactObjArr);
-
-					if(inputContactObjArr.length==1)
-						deleteVcardFromCollection(inputContactObjArr[0], 'sync', null, 'DELETE_LAST');
-					else
-						putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', null, 'DELETE_LAST');
-				}
-				else if(inputPerformOperation=='ADD_TO_GROUP')
-				{
-					var tmp=globalAddressbookList.getAddMeToContactGroups(inputContactObj.vcard, [inputContactObj.addToContactGroupUID]);
-					tmp[0].uiObjects=inputContactObj.uiObjects
-					var inputContactObjArr=tmp;
-
-					putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', null, 'ADD_TO_GROUP_LAST');
-				}
-				else if(inputPerformOperation=='DELETE_FROM_GROUP')
-				{
-					var inputContactObjArr=globalAddressbookList.getRemoveMeFromContactGroups(inputContactObj.uid, [inputFilterUID]);
-					putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', null, 'DELETE_FROM_GROUP_LAST');
-				}
-				else if(inputPerformOperation=='IRM_DELETE')
-				{
-					var tmp=globalAddressbookList.getRemoveMeFromContactGroups(inputContactObj.uid, null);
-					var inputContactObjArr=new Array($.extend({withoutLockTocken: true}, inputContactObj), inputContactObj);	// first is used for PUT to destination resource (without lock token) and the second for the DELETE
-					inputContactObjArr=tmp.concat(inputContactObjArr);
-
-					putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', null, 'IRM_DELETE_LAST');
-				}
-				else if(inputPerformOperation=='MOVE')
-				{
-					var tmp=globalAddressbookList.getRemoveMeFromContactGroups(inputContactObj.uid, null);
-					var inputContactObjArr=new Array(inputContactObj);
-					inputContactObjArr=tmp.concat(inputContactObjArr);
-
-					if(inputContactObjArr.length==1)
-						moveVcardToCollection(inputContactObjArr[0], 'sync', null);
-					else
-						putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', null, 'MOVE_LAST');
-				}
-			}
+				operationPerform(inputPerformOperation, inputContactObj, inputFilterUID);
 			// if the operation type is 'MOVE' we cannot show error messages, error icon is used instead
-			else if(inputPerformOperation=='MOVE')
-			{
-				// error icon
-				setTimeout(function(){
-					inputContactObj.uiObjects.resource.addClass('r_error');
-					inputContactObj.uiObjects.resource.removeClass('r_operate');
-					setTimeout(function(){
-						inputContactObj.uiObjects.contact.animate({opacity: 1}, 1000);
-						inputContactObj.uiObjects.contact.draggable('option', 'disabled', false);
-						inputContactObj.uiObjects.resource.removeClass('r_error');
-						inputContactObj.uiObjects.resource.droppable('option', 'disabled', false);
-					},1200);
-				},1000);
-
-				$('#ABContactOverlay').fadeOut(1200,function(){$('#AddContact').prop('disabled',false);});
-			}
-			else
+			else if(inputPerformOperation!='MOVE')
 			{
 				switch(objAJAXRequest.status)
 				{
@@ -458,8 +508,19 @@ function lockAndPerformToCollection(inputContactObj, inputFilterUID, inputPerfor
 						break;
 				}
 
-				$('#ABContactOverlay').fadeOut(1200,function(){$('#AddContact').prop('disabled',false);});
+				// error icon
+				setTimeout(function(){
+					inputContactObj.uiObjects.resource.addClass('r_error');
+					inputContactObj.uiObjects.resource.removeClass('r_operate');
+					setTimeout(function(){
+						inputContactObj.uiObjects.contact.animate({opacity: 1}, 1000);
+						inputContactObj.uiObjects.contact.draggable('option', 'disabled', false);
+						inputContactObj.uiObjects.resource.removeClass('r_error');
+						inputContactObj.uiObjects.resource.droppable('option', 'disabled', false);
+					},globalHideInfoMessageAfter);
+				},globalHideInfoMessageAfter/10);
 			}
+			$('#ABContactOverlay').fadeOut(globalEditorFadeAnimation,function(){$('#AddContact').prop('disabled',false);});
 
 			return false;
 		},
@@ -473,7 +534,7 @@ function lockAndPerformToCollection(inputContactObj, inputFilterUID, inputPerfor
 			req.setRequestHeader('Timeout', 'Second-'+Math.ceil((resourceSettings.lockTimeOut!=undefined ? resourceSettings.lockTimeOut : 10000)/1000));
 		},
 		contentType: 'text/xml; charset=utf-8',
-		processData: true,
+		processData: false,
 		data: '<?xml version="1.0" encoding="utf-8"?><D:lockinfo xmlns:D=\'DAV:\'><D:lockscope><D:exclusive/></D:lockscope><D:locktype><D:write/></D:locktype><D:owner><D:href>'+escape(collection_uid)+'</D:href></D:owner></D:lockinfo>',
 		dataType: 'text',
 		complete: function(xml,textStatus)
@@ -481,6 +542,7 @@ function lockAndPerformToCollection(inputContactObj, inputFilterUID, inputPerfor
 			if(textStatus=='success')
 			{
 				var lockToken=$(xml.responseXML).children().filterNsNode('prop').children().filterNsNode('lockdiscovery').children().filterNsNode('activelock').children().filterNsNode('locktoken').children().filterNsNode('href').text();
+				globalResourceList.setCollectionFlagByUID(collection_uid, 'lockToken', (lockToken=='' ? null : lockToken));
 
 				// We have a lock!
 				if(lockToken!='')
@@ -489,79 +551,27 @@ function lockAndPerformToCollection(inputContactObj, inputFilterUID, inputPerfor
 					var collection=globalResourceList.getCollectionByUID(collection_uid);
 					collection.filterUID=inputFilterUID;
 
-					if(netLoadCollection(collection,'sync',false)==false)
-					{
-						show_editor_message('out','message_error',localization[globalInterfaceLanguage].errUnableSync,globalHideInfoMessageAfter);
-						// presunut do jednej funkcie s tym co je nizsie pri success
-						//$('#ResourceListOverlay').fadeOut(1200);
-						//$('#ABListOverlay').fadeOut(1200);
-						$('#ABContactOverlay').fadeOut(1200,function(){$('#AddContact').prop('disabled',false);});
-					}
-					else
-					{
-						if(inputPerformOperation=='PUT')
-						{
-							var tmp=globalAddressbookList.getAddMeToContactGroups(inputContactObj.vcard, inputFilterUID);
-							var inputContactObjArr=new Array(inputContactObj);
-							inputContactObjArr=inputContactObjArr.concat(tmp);
-
-							putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', lockToken, 'PUT_ALL');
-						}
-						else if(inputPerformOperation=='DELETE')
-						{
-							var tmp=globalAddressbookList.getRemoveMeFromContactGroups(inputContactObj.uid, null);
-							var inputContactObjArr=new Array(inputContactObj);
-							inputContactObjArr=tmp.concat(inputContactObjArr);
-
-							if(inputContactObjArr.length==1)
-								deleteVcardFromCollection(inputContactObjArr[0], 'sync', lockToken, 'DELETE_LAST');
-							else
-								putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', lockToken, 'DELETE_LAST');
-						}
-						else if(inputPerformOperation=='ADD_TO_GROUP')
-						{
-							var tmp=globalAddressbookList.getAddMeToContactGroups(inputContactObj.vcard, [inputContactObj.addToContactGroupUID]);
-							tmp[0].uiObjects=inputContactObj.uiObjects
-							var inputContactObjArr=tmp;
-
-							putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', lockToken, 'ADD_TO_GROUP_LAST');
-						}
-						else if(inputPerformOperation=='DELETE_FROM_GROUP')
-						{
-							var inputContactObjArr=globalAddressbookList.getRemoveMeFromContactGroups(inputContactObj.uid, [inputFilterUID]);
-							putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', lockToken, 'DELETE_FROM_GROUP_LAST');
-						}
-						else if(inputPerformOperation=='IRM_DELETE')
-						{
-							var tmp=globalAddressbookList.getRemoveMeFromContactGroups(inputContactObj.uid, null);
-							var inputContactObjArr=new Array($.extend({withoutLockTocken: true}, inputContactObj), inputContactObj);	// first is used for PUT to destination resource (without lock token) and the second for the DELETE
-							inputContactObjArr=tmp.concat(inputContactObjArr);
-
-							putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', lockToken, 'IRM_DELETE_LAST');
-						}
-						else if(inputPerformOperation=='MOVE')
-						{
-							var tmp=globalAddressbookList.getRemoveMeFromContactGroups(inputContactObj.uid, null);
-							var inputContactObjArr=new Array(inputContactObj);
-							inputContactObjArr=tmp.concat(inputContactObjArr);
-
-							if(inputContactObjArr.length==1)
-								moveVcardToCollection(inputContactObjArr[0], 'sync', lockToken);
-							else
-								putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', lockToken, 'MOVE_LAST');
-						}
-						// unlock
-						unlockCollection(inputContactObj, inputFilterUID, lockToken);
-					}
+					netLoadCollection(collection, false, false, {call: 'operationPerform', args: {performOperation: inputPerformOperation, contactObj: inputContactObj, filterUID: inputFilterUID}});
+					return true;
 				}
 				else
 				{
 					// We assume that empty lockToken means 423 Resource Locked error
 					show_editor_message('out','message_error',errBegin.replace('%%',localization[globalInterfaceLanguage].errResourceLocked),globalHideInfoMessageAfter);
-					// presunut do jednej funkcie s tym co je nizsie pri success
-					//$('#ResourceListOverlay').fadeOut(1200);
-					//$('#ABListOverlay').fadeOut(1200);
-					$('#ABContactOverlay').fadeOut(1200,function(){$('#AddContact').prop('disabled',false);});
+
+					// error icon
+					setTimeout(function(){
+						inputContactObj.uiObjects.resource.addClass('r_error');
+						inputContactObj.uiObjects.resource.removeClass('r_operate');
+						setTimeout(function(){
+							inputContactObj.uiObjects.contact.animate({opacity: 1}, 1000);
+							inputContactObj.uiObjects.contact.draggable('option', 'disabled', false);
+							inputContactObj.uiObjects.resource.removeClass('r_error');
+							inputContactObj.uiObjects.resource.droppable('option', 'disabled', false);
+						},globalHideInfoMessageAfter);
+					},globalHideInfoMessageAfter/10);
+
+					$('#ABContactOverlay').fadeOut(globalEditorFadeAnimation,function(){$('#AddContact').prop('disabled',false);});
 				}
 			}
 			return false;
@@ -576,13 +586,13 @@ function putVcardToCollectionMain(inputContactObj, inputFilterUID)
 		if(inputFilterUID!='')	// new contact with vCard group (we must use locking)
 			lockAndPerformToCollection(inputContactObj, inputFilterUID, 'PUT');
 		else	// new contact without vCard group (no locking required)
-			putVcardToCollection(inputContactObj, inputFilterUID, 'async', null, 'PUT_ALL');
+			putVcardToCollection(inputContactObj, inputFilterUID, 'PUT_ALL', null);
 	}
 	else	// existing contact modification (there is no support for contact group modification -> no locking required)
-		putVcardToCollection(inputContactObj, inputFilterUID, 'async',null, 'PUT_ALL');
+		putVcardToCollection(inputContactObj, inputFilterUID, 'PUT_ALL', null);
 }
 
-function putVcardToCollection(inputContactObjArr, inputFilterUID, inputMode, inputLockToken, recursiveMode)
+function putVcardToCollection(inputContactObjArr, inputFilterUID, recursiveMode, loadContactWithUID)
 {
 	if(!(inputContactObjArr instanceof Array))
 		inputContactObjArr=[inputContactObjArr];
@@ -601,20 +611,25 @@ function putVcardToCollection(inputContactObjArr, inputFilterUID, inputMode, inp
 	var tmp=inputContactObj.uid.match(RegExp('^(https?://)([^@/]+(?:@[^@/]+)?)@([^/]+)(.*/)([^/]+/)([^/]*)','i'));
 
 	var collection_uid=tmp[1]+tmp[2]+'@'+tmp[3]+tmp[4]+tmp[5];
+	var lockToken=globalResourceList.getCollectionByUID(collection_uid).lockToken;
 
 	// if inputContactObj.etag is empty, we have a newly created contact and need to create a .vcf file name for it
-	if(inputContactObj.etag!='')
+	if(inputContactObj.etag!='')	// existing contact
 	{
 		var put_href=tmp[1]+tmp[3]+tmp[4]+tmp[5]+tmp[6];
 		var put_href_part=tmp[4]+tmp[5]+tmp[6];
 	}
-	else
+	else	// new contact
 	{
 		var vcardFile=hex_sha256(inputContactObj.vcard+(new Date().getTime()))+'.vcf';
 		var put_href=tmp[1]+tmp[3]+tmp[4]+tmp[5]+vcardFile;
 		var put_href_part=tmp[4]+tmp[5]+vcardFile;
 		inputContactObj.uid+=vcardFile;
 	}
+
+	if(loadContactWithUID==null)	// store the first contact (it will be reloaded and marked as active)
+		loadContactWithUID=inputContactObj;
+
 	var resourceSettings=null;
 
 	// find the original settings for the resource and user
@@ -631,14 +646,12 @@ function putVcardToCollection(inputContactObjArr, inputFilterUID, inputMode, inp
 
 	// the begin of each error message
 	var errBegin=localization[globalInterfaceLanguage].errUnableSaveBegin;
-	var returnValue=false;	// only for async: false
 
 	var vcardList= new Array();
 	$.ajax({
 		type: 'PUT',
 		url: put_href,
 		cache: false,
-		async: ((inputMode==undefined || inputMode=='async') ? true : false),
 		crossDomain: (typeof resourceSettings.crossDomain=='undefined' ? true : resourceSettings.crossDomain),
 		xhrFields: {
 			withCredentials: (typeof resourceSettings.withCredentials=='undefined' ? false : resourceSettings.withCredentials)
@@ -692,17 +705,18 @@ function putVcardToCollection(inputContactObjArr, inputFilterUID, inputMode, inp
 			// presunut do jednej funkcie s tym co je nizsie pri success
 			//$('#ResourceListOverlay').fadeOut(1200);
 			//$('#ABListOverlay').fadeOut(1200);
-			$('#ABContactOverlay').fadeOut(1200,function(){$('#AddContact').prop('disabled',false);});
+			$('#ABContactOverlay').fadeOut(globalEditorFadeAnimation,function(){$('#AddContact').prop('disabled',false);});
 
-			returnValue=false;
+			unlockCollection(inputContactObj);
+			return false;
 		},
 		beforeSend: function(req)
 		{
 			if(resourceSettings.userAuth.userName!='' && resourceSettings.userAuth.userPassword!='')
 				req.setRequestHeader('Authorization', basicAuth(resourceSettings.userAuth.userName,resourceSettings.userAuth.userPassword));
 			req.setRequestHeader('X-client', 'CardDavMATE '+globalCardDavMATEVersion+' (INF-IT CardDav Web Client)');
-			if(inputLockToken!=null && inputContactObj.withoutLockTocken!=true)
-				req.setRequestHeader('Lock-Token', '<'+inputLockToken+'>');
+			if(lockToken!=null && inputContactObj.withoutLockTocken!=true)
+				req.setRequestHeader('Lock-Token', '<'+lockToken+'>');
 			if(inputContactObj.etag!='')
 				req.setRequestHeader('If-Match', inputContactObj.etag);
 			else	// adding new contact
@@ -717,13 +731,17 @@ function putVcardToCollection(inputContactObjArr, inputFilterUID, inputMode, inp
 			if(textStatus=='success')
 			{
 				if(inputContactObjArr.length==1 && (recursiveMode=='DELETE_LAST' || recursiveMode=='IRM_DELETE_LAST'))
-					return deleteVcardFromCollection(inputContactObjArr[0], 'sync', inputLockToken, recursiveMode);
+				{
+					deleteVcardFromCollection(inputContactObjArr[0], inputFilterUID, recursiveMode);
+					return true;
+				}
 				else if(inputContactObjArr.length==1 && recursiveMode=='MOVE_LAST')
-					return moveVcardToCollection(inputContactObjArr[0], 'sync', inputLockToken);
-				else if(inputContactObjArr.length>0)
-					putVcardToCollection(inputContactObjArr, inputFilterUID, 'sync', inputLockToken, recursiveMode);
-
+				{
+					moveVcardToCollection(inputContactObjArr[0], inputFilterUID);
+					return true;
+				}
 				var newEtag=xml.getResponseHeader('Etag');
+
 				// We get the Etag from the PUT response header instead of new collection sync (if the server supports this feature)
 				if(newEtag!=undefined && newEtag!='')
 				{
@@ -743,83 +761,39 @@ function putVcardToCollection(inputContactObjArr, inputFilterUID, inputMode, inp
 
 					globalAddressbookList.applyABFilter(inputFilterUID, recursiveMode=='DELETE_FROM_GROUP_LAST' || $('#ABList div[data-id="'+jqueryEscapeSelector(inputContactObj.uid)+'"]').hasClass('search_hide') ? true : false);
 				}
-				else	// otherwise we download the modified contact to get the new Etag
-				{
-					// todo: with sync token we can full-sync at once instead of after every change
-					// synchronously reload the contact changes (new etag for the saved contact)
-					var collection=globalResourceList.getCollectionByUID(collection_uid);
-					collection.filterUID=inputFilterUID;
-					// for DELETE_FROM_GROUP_LAST we need to force reload the contact (because the editor is in "edit" state = the contact is not loaded automatically)
-					netLoadAddressbook(collection, [{etag: '', href: put_href_part}], 'sync', (collection.forceSyncPROPFIND!=true ? true : false), false /* do not remove other contacts - this is not full sync */, recursiveMode=='DELETE_FROM_GROUP_LAST' ? true : false);
-				}
+				else	// otherwise mark collection for full sync
+					globalResourceList.setCollectionFlagByUID(collection_uid, 'forceSync', true);
 
-				if(recursiveMode=='ADD_TO_GROUP_LAST')
-				{
-					// success icon
-					setTimeout(function(){
-						inputContactObj.uiObjects.resource.addClass('r_success');
-						inputContactObj.uiObjects.resource.removeClass('r_operate');
-						setTimeout(function(){
-							inputContactObj.uiObjects.contact.animate({opacity: 1}, 750);
-							inputContactObj.uiObjects.contact.draggable('option', 'disabled', false);
-							inputContactObj.uiObjects.resource.removeClass('r_success');
-							inputContactObj.uiObjects.resource.droppable('option', 'disabled', false);
-						},1200);
-					},1000);
-				}
-				// contact group operation (only one contact group is changed at once)
-				else if(recursiveMode=='DELETE_FROM_GROUP_LAST')
-				{
-					// success message
-					var duration=show_editor_message('out','message_success',localization[globalInterfaceLanguage].succContactDeletedFromGroup,globalHideInfoMessageAfter);
-
-					// after the success message show the next automatically selected contact
-					setTimeout(function(){
-						// presunut do jednej funkcie s tym co je vyssie
-						$('#ResourceListOverlay').fadeOut(1200);
-						$('#ABListOverlay').fadeOut(1200,function(){});
-						$('#ABContactOverlay').fadeOut(1200,function(){$('#AddContact').prop('disabled',false);});
-					},duration);
-				}
-				// contact is added but it is hidden due to search filter
-				else if($('#ABList div[data-id="'+jqueryEscapeSelector(inputContactObj.uid)+'"]').hasClass('search_hide'))
-				{
-					// success message
-					var duration=show_editor_message('out','message_success',localization[globalInterfaceLanguage].succContactSaved,globalHideInfoMessageAfter);
-
-					// after the success message show the next automatically selected contact
-					setTimeout(function(){
-						// presunut do jednej funkcie s tym co je vyssie
-						$('#ResourceListOverlay').fadeOut(1200);
-						$('#ABListOverlay').fadeOut(1200,function(){});
-						$('#ABContactOverlay').fadeOut(1200,function(){$('#AddContact').prop('disabled',false);});
-					},duration+globalHideInfoMessageAfter);
-				}
+				if(inputContactObjArr.length>0)
+					putVcardToCollection(inputContactObjArr, inputFilterUID, recursiveMode, loadContactWithUID);
 				else
 				{
-					// load the modified contact
-					globalAddressbookList.loadContactByUID(inputContactObj.uid);
+					var collection=globalResourceList.getCollectionByUID(collection_uid);
 
-					// success message
-					show_editor_message('in','message_success',localization[globalInterfaceLanguage].succContactSaved,globalHideInfoMessageAfter);
+					if(collection.forceSync===true)
+					{
+						globalResourceList.setCollectionFlagByUID(collection_uid, 'forceSync', false);
+						collection.filterUID=inputFilterUID;
 
-					// presunut do jednej funkcie s tym co je vyssie
-					$('#ResourceListOverlay').fadeOut(1200);
-					$('#ABListOverlay').fadeOut(1200);
-					$('#ABContactOverlay').fadeOut(1200,function(){$('#AddContact').prop('disabled',false);});
+						// for DELETE_FROM_GROUP_LAST we need to force reload the contact (because the editor is in "edit" state = the contact is not loaded automatically)
+						netLoadCollection(collection, false, recursiveMode=='DELETE_FROM_GROUP_LAST' ? true : false, {call: 'operationPerformed', args: {mode: recursiveMode, contactObj: inputContactObj, loadContact: loadContactWithUID}});
+						return true;
+					}
+					operationPerformed(recursiveMode, inputContactObj, loadContactWithUID);
 				}
-
-				returnValue=true;
+				return true;
 			}
+			else
+				unlockCollection(inputContactObj);
 		}
 	});
-	return returnValue;
 }
 
-function moveVcardToCollection(inputContactObj, inputMode, inputLockToken)
+function moveVcardToCollection(inputContactObj, inputFilterUID)
 {
 	var tmp=inputContactObj.uid.match(RegExp('^(https?://)([^@/]+(?:@[^@/]+)?)@([^/]+)(.*/)([^/]+/)([^/]*)','i'));
 	var collection_uid=tmp[1]+tmp[2]+'@'+tmp[3]+tmp[4]+tmp[5];
+	var lockToken=globalResourceList.getCollectionByUID(collection_uid).lockToken;
 
 	var put_href=tmp[1]+tmp[3]+tmp[4]+tmp[5]+tmp[6];
 	var put_href_part=tmp[4]+tmp[5]+tmp[6];
@@ -839,13 +813,11 @@ function moveVcardToCollection(inputContactObj, inputMode, inputLockToken)
 		return false;
 
 	var vcardList= new Array();
-	var returnValue=false;	// only for async: false
 
 	$.ajax({
 		type: 'MOVE',
 		url: put_href,
 		cache: false,
-		async: ((inputMode==undefined || inputMode=='async') ? true : false),
 		crossDomain: (typeof resourceSettings.crossDomain=='undefined' ? true : resourceSettings.crossDomain),
 		xhrFields: {
 			withCredentials: (typeof resourceSettings.withCredentials=='undefined' ? false : resourceSettings.withCredentials)
@@ -865,15 +837,15 @@ function moveVcardToCollection(inputContactObj, inputMode, inputLockToken)
 				},1200);
 			},1000);
 
-			returnValue=false;
+			unlockCollection(inputContactObj);
 		},
 		beforeSend: function(req)
 		{
 			if(resourceSettings.userAuth.userName!='' && resourceSettings.userAuth.userPassword!='')
 				req.setRequestHeader('Authorization', basicAuth(resourceSettings.userAuth.userName,resourceSettings.userAuth.userPassword));
 			req.setRequestHeader('X-client', 'CardDavMATE '+globalCardDavMATEVersion+' (INF-IT CardDav Web Client)');
-			if(inputLockToken!=null)
-				req.setRequestHeader('Lock-Token', '<'+inputLockToken+'>');
+			if(lockToken!=null)
+				req.setRequestHeader('Lock-Token', '<'+lockToken+'>');
 			req.setRequestHeader('Destination', inputContactObj.moveDest);
 		},
 		data: '',
@@ -885,6 +857,7 @@ function moveVcardToCollection(inputContactObj, inputMode, inputLockToken)
 				setTimeout(function(){
 					// move is successfull we can remove the contact (no sync required)
 					globalAddressbookList.removeContact(inputContactObj.uid,true);
+					globalAddressbookList.applyABFilter(inputFilterUID, $('#ABList div[data-id="'+jqueryEscapeSelector(inputContactObj.uid)+'"]').hasClass('search_hide') ? true : false);
 
 					inputContactObj.uiObjects.resource.addClass('r_success');
 					inputContactObj.uiObjects.resource.removeClass('r_operate');
@@ -893,19 +866,19 @@ function moveVcardToCollection(inputContactObj, inputMode, inputLockToken)
 						inputContactObj.uiObjects.resource.droppable('option', 'disabled', false);
 					},1200);
 				},1000);
-
-				returnValue=true;
 			}
+
+			unlockCollection(inputContactObj);
 		}
 	});
-	return returnValue;
 }
 
-function deleteVcardFromCollection(inputContactObj, inputMode, inputLockToken, recursiveMode)
+function deleteVcardFromCollection(inputContactObj, inputFilterUID, recursiveMode)
 {
 	var tmp=inputContactObj.uid.match(RegExp('^(https?://)([^@/]+(?:@[^@/]+)?)@([^/]+)(.*/)([^/]+/)([^/]*)','i'));
 
 	var collection_uid=tmp[1]+tmp[2]+'@'+tmp[3]+tmp[4]+tmp[5];
+	var lockToken=globalResourceList.getCollectionByUID(collection_uid).lockToken;
 	var put_href=tmp[1]+tmp[3]+tmp[4]+tmp[5]+tmp[6];
 	var resourceSettings=null;
 
@@ -923,13 +896,11 @@ function deleteVcardFromCollection(inputContactObj, inputMode, inputLockToken, r
 
 	// the begin of each error message
 	var errBegin=localization[globalInterfaceLanguage].errUnableDeleteBegin;
-	var returnValue=false;	// only for async: false
 
 	$.ajax({
 		type: 'DELETE',
 		url: put_href,
 		cache: false,
-		async: ((inputMode==undefined || inputMode=='async') ? true : false),
 		crossDomain: (typeof resourceSettings.crossDomain=='undefined' ? true : resourceSettings.crossDomain),
 		xhrFields: {
 			withCredentials: (typeof resourceSettings.withCredentials=='undefined' ? false : resourceSettings.withCredentials)
@@ -981,18 +952,18 @@ function deleteVcardFromCollection(inputContactObj, inputMode, inputLockToken, r
 			}
 
 			// presunut do jednej funkcie s tym co je nizsie pri success
-			$('#ResourceListOverlay').fadeOut(1200);
-			$('#ABListOverlay').fadeOut(1200);
-			$('#ABContactOverlay').fadeOut(1200,function(){$('#AddContact').prop('disabled',false);});
+			$('#ResourceListOverlay').fadeOut(globalEditorFadeAnimation);
+			$('#ABListOverlay').fadeOut(globalEditorFadeAnimation);
+			$('#ABContactOverlay').fadeOut(globalEditorFadeAnimation,function(){$('#AddContact').prop('disabled',false);});
 
-			returnValue=false;
+			unlockCollection(inputContactObj);
 		},
 		beforeSend: function(req) {
 			if(resourceSettings.userAuth.userName!='' && resourceSettings.userAuth.userPassword!='')
 				req.setRequestHeader('Authorization', basicAuth(resourceSettings.userAuth.userName,resourceSettings.userAuth.userPassword));
 			req.setRequestHeader('X-client', 'CardDavMATE '+globalCardDavMATEVersion+' (INF-IT CardDav Web Client)');
-			if(inputLockToken!=null)
-				req.setRequestHeader('Lock-Token', '<'+inputLockToken+'>');
+			if(lockToken!=null)
+				req.setRequestHeader('Lock-Token', '<'+lockToken+'>');
 		},
 		data: '',
 		complete: function(text,textStatus)
@@ -1019,27 +990,26 @@ function deleteVcardFromCollection(inputContactObj, inputMode, inputLockToken, r
 					// success message
 					var duration=show_editor_message('out','message_success',localization[globalInterfaceLanguage].succContactDeleted,globalHideInfoMessageAfter);
 					globalAddressbookList.removeContact(inputContactObj.uid,true);
+					globalAddressbookList.applyABFilter(inputFilterUID, $('#ABList div[data-id="'+jqueryEscapeSelector(inputContactObj.uid)+'"]').hasClass('search_hide') ? true : false);
 
 					// after the success message show the next automatically selected contact
 					setTimeout(function(){
 						// presunut do jednej funkcie s tym co je vyssie
-						$('#ResourceListOverlay').fadeOut(1200);
-						$('#ABListOverlay').fadeOut(1200);
-						$('#ABContactOverlay').fadeOut(1200,function(){$('#AddContact').prop('disabled',false);});
+						$('#ResourceListOverlay').fadeOut(globalEditorFadeAnimation);
+						$('#ABListOverlay').fadeOut(globalEditorFadeAnimation);
+						$('#ABContactOverlay').fadeOut(globalEditorFadeAnimation,function(){$('#AddContact').prop('disabled',false);});
 					},duration);
 				}
-				returnValue=true;
 			}
+			unlockCollection(inputContactObj);
 		}
 	});
-
-	return returnValue;
 }
 
 /*
 iCloud auth (without this we have no access to iCloud photos)
 
-function netiCloudAuth(inputResource, inputMode)
+function netiCloudAuth(inputResource)
 {
 	var re=new RegExp('^(https?://)([^/]+)','i');
 	var tmp=inputResource.href.match(re);
@@ -1050,7 +1020,6 @@ function netiCloudAuth(inputResource, inputMode)
 		type: 'POST',
 		url: 'https://setup.icloud.com/setup/ws/1/login',
 		cache: false,
-		async: ((inputMode==undefined || inputMode=='async') ? true : false),
 		crossDomain: (typeof inputResource.crossDomain=='undefined' ? true : inputResource.crossDomain),
 		xhrFields: {
 			withCredentials: (typeof inputResource.withCredentials=='undefined' ? false : inputResource.withCredentials)
@@ -1090,7 +1059,7 @@ Permissions (from the davical wiki):
 	unbind - grants access to deleting resources (including collections) from the collection, or from collections of the principal.
 */
 
-function netFindResource(inputResource, inputMode)
+function netFindResource(inputResource)
 {
 	var re=new RegExp('^(https?://)([^/]+)','i');
 	var tmp=inputResource.href.match(re);
@@ -1102,7 +1071,6 @@ function netFindResource(inputResource, inputMode)
 		type: 'PROPFIND',
 		url: inputResource.href,
 		cache: false,
-		async: ((inputMode==undefined || inputMode=='async') ? true : false),
 		crossDomain: (typeof inputResource.crossDomain=='undefined' ? true : inputResource.crossDomain),
 		xhrFields: {
 			withCredentials: (typeof inputResource.withCredentials=='undefined' ? false : inputResource.withCredentials)
@@ -1128,7 +1096,8 @@ function netFindResource(inputResource, inputMode)
 			if(textStatus!='success')
 				return false;
 
-//			netiCloudAuth(inputResource,inputMode);
+// enable for iCloud cookie (to get "remote" photos from the iCloud server)
+//			netiCloudAuth(inputResource);
 
 			var response=$(xml.responseXML).children().filterNsNode('multistatus').children().filterNsNode('response');
 
@@ -1142,12 +1111,12 @@ function netFindResource(inputResource, inputMode)
 			else	// relative URL returned
 				inputResource.abhref=baseHref+addressbook_home;
 
-			netLoadABResource(inputResource, inputMode);
+			netLoadABResource(inputResource);
 		}
 	});
 }
 
-function netLoadABResource(inputResource, inputMode)
+function netLoadABResource(inputResource)
 {
 	var re=new RegExp('^(https?://)([^/]+)','i');
 
@@ -1162,7 +1131,6 @@ function netLoadABResource(inputResource, inputMode)
 		type: 'PROPFIND',
 		url: inputResource.abhref,
 		cache: false,
-		async: ((inputMode==undefined || inputMode=='async') ? true : false),
 		crossDomain: (typeof inputResource.crossDomain=='undefined' ? true : inputResource.crossDomain),
 		xhrFields: {
 			withCredentials: (typeof inputResource.withCredentials=='undefined' ? false : inputResource.withCredentials)
@@ -1225,9 +1193,8 @@ function netLoadABResource(inputResource, inputMode)
 									displayvalue=tmp_dv[1];
 
 								// insert the resource
-								globalResourceList.insertResource({timestamp: resultTimestamp, uid: uidBase+href, timeOut: inputResource.timeOut, displayvalue: displayvalue, userAuth: inputResource.userAuth, url: baseHref, accountUID: origUID, href: href, permissions: {full: permissions, read_only: read_only}, crossDomain: inputResource.crossDomain, withCredentials: inputResource.withCredentials});
+								globalResourceList.insertResource({timestamp: resultTimestamp, uid: uidBase+href, timeOut: inputResource.timeOut, displayvalue: displayvalue, userAuth: inputResource.userAuth, url: baseHref, accountUID: origUID, href: href, hrefLabel: inputResource.hrefLabel, permissions: {full: permissions, read_only: read_only}, crossDomain: inputResource.crossDomain, withCredentials: inputResource.withCredentials});
 							}
-
 						}
 					);
 				}
@@ -1242,19 +1209,17 @@ function netLoadABResource(inputResource, inputMode)
 	});
 }
 
-function netLoadCollection(inputCollection, inputMode, forceLoad)
+function netLoadCollection(inputCollection, forceLoad, forceLoadNextContact, innerOperationData)
 {
 	if(inputCollection.forceSyncPROPFIND==true)
 		var requestText='<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"  xmlns:C="urn:ietf:params:xml:ns:carddav"><D:prop><D:getetag/><D:getcontenttype/></D:prop></D:propfind>';
 	else	// if inputCollection.forceSyncPROPFIND is undefined or false
 		var requestText='<?xml version="1.0" encoding="utf-8"?><D:sync-collection xmlns:D="DAV:">'+(forceLoad==true || inputCollection.syncToken==undefined ? '<D:sync-token/>' : '<D:sync-token>'+inputCollection.syncToken+'</D:sync-token>')+ '<D:prop><D:getetag/><D:getcontenttype/></D:prop></D:sync-collection>';
 
-	var returnValue=false;	// only for async: false
 	$.ajax({
 		type: (inputCollection.forceSyncPROPFIND==true ? 'PROPFIND' : 'REPORT'),
 		url: inputCollection.url+inputCollection.href,
 		cache: false,
-		async: ((inputMode==undefined || inputMode=='async') ? true : false),
 		crossDomain: (typeof inputCollection.crossDomain=='undefined' ? true : inputCollection.crossDomain),
 		xhrFields: {
 			withCredentials: (typeof inputCollection.withCredentials=='undefined' ? false : inputCollection.withCredentials)
@@ -1262,11 +1227,14 @@ function netLoadCollection(inputCollection, inputMode, forceLoad)
 		timeout: inputCollection.timeOut,
 		error: function(objAJAXRequest, strError){
 			if((objAJAXRequest.status==400 /* bad request */ || objAJAXRequest.status==501 /* unimplemented */) && inputCollection.forceSyncPROPFIND!=true /* prevent recursion */)
-				return netLoadCollection(globalResourceList.setCollectionFlagByUID(inputCollection.uid, 'forceSyncPROPFIND', true), inputMode, forceLoad);
+			{
+				netLoadCollection(globalResourceList.setCollectionFlagByUID(inputCollection.uid, 'forceSyncPROPFIND', true), forceLoad, forceLoadNextContact, innerOperationData);
+				return true;
+			}
 			else
 			{
 				console.log("Error: [netLoadCollection: '"+inputCollection.url+inputCollection.href+"'] code: '"+objAJAXRequest.status+"'"+(objAJAXRequest.status==0 ? ' - see http://www.inf-it.com/carddavmate/misc/readme_network.txt' : ''));
-				returnValue=false;
+				return false;
 			}
 		},
 		beforeSend: function(req) {
@@ -1288,7 +1256,7 @@ function netLoadCollection(inputCollection, inputMode, forceLoad)
 			$(xml.responseXML).children().filterNsNode('multistatus').children().filterNsNode('response').each(
 				function(index, element)
 				{
-					var result=$(element).children().filterNsNode('propstat').children().filterNsNode('status').text();
+					var result=$(element).find('*').filterNsNode('status').text();	// note for 404 there is no propstat!
 					if(result.match(RegExp('200 OK$')))	// HTTP OK
 						vcardList[vcardList.length]={etag: $(element).children().filterNsNode('propstat').children().filterNsNode('prop').children().filterNsNode('getetag').text(), href: $(element).children().filterNsNode('href').text()};
 					else if(result.match(RegExp('404 Not Found$')))	// HTTP Not Found
@@ -1301,17 +1269,14 @@ function netLoadCollection(inputCollection, inputMode, forceLoad)
 				inputCollection.syncToken=$(xml.responseXML).children().filterNsNode('multistatus').children().filterNsNode('sync-token').text();
 
 			// we must call the netLoadAddressbook even if we get empty vcardList
-			returnValue=netLoadAddressbook(inputCollection, vcardList, inputMode, (inputCollection.forceSyncPROPFIND!=true ? true : false), true, false);
+			netLoadAddressbook(inputCollection, vcardList, (inputCollection.forceSyncPROPFIND!=true ? true : false), forceLoadNextContact, innerOperationData);
 		}
 	});
-	return returnValue;
 }
 
-
-function netLoadAddressbook(inputCollection, vcardList, inputMode, syncReportSupport, removeUntouched, forceLoadNext)
+function netLoadAddressbook(inputCollection, vcardList, syncReportSupport, forceLoadNext, innerOperationData)
 {
 	var vcardChangedList = new Array();
-
 	var resultTimestamp = new Date().getTime();
 
 	if(syncReportSupport==true)
@@ -1330,33 +1295,65 @@ function netLoadAddressbook(inputCollection, vcardList, inputMode, syncReportSup
 			if(!globalAddressbookList.checkAndTouchIfExists(uid,vcardList[i].etag,resultTimestamp))
 				vcardChangedList[vcardChangedList.length]=vcardList[i].href;
 		}
-		if(removeUntouched)	/* remove deleted contacts */
-			globalAddressbookList.removeOldContacts(inputCollection.uid, resultTimestamp);
+		globalAddressbookList.removeOldContacts(inputCollection.uid, resultTimestamp);
 	}
 
-	// if nothing is changed on server return
+	// not loaded vCards from the last multiget (if any)
+	if(inputCollection.pastUnloaded!=undefined && inputCollection.pastUnloaded.length>0)
+		vcardChangedList=vcardChangedList.concat(inputCollection.pastUnloaded).sort().unique();
+
+	// if nothing is changed on the server return
 	if(vcardChangedList.length==0)
 	{
+		$('#AddContact').prop('disabled',false);
 		$('#ABListLoader').css('display','none');
+
+		if(innerOperationData!=null)
+		{
+			if(innerOperationData.call=='operationPerform')
+				operationPerform(innerOperationData.args.performOperation, innerOperationData.args.contactObj, innerOperationData.args.filterUID);
+			else if(innerOperationData.call=='operationPerformed')
+				operationPerformed(innerOperationData.args.mode, innerOperationData.args.contactObj, innerOperationData.args.loadContact);
+		}
 		return true;
 	}
 
 	multigetData='<?xml version="1.0" encoding="utf-8"?><E:addressbook-multiget xmlns:E="urn:ietf:params:xml:ns:carddav"><A:prop xmlns:A="DAV:"><A:getetag/><E:address-data/></A:prop><A:href xmlns:A="DAV:">'+vcardChangedList.join('</A:href><A:href xmlns:A="DAV:">')+'</A:href></E:addressbook-multiget>';
 
-	var returnValue=false;	// only for async: false
 	$.ajax({
 		type: 'REPORT',
 		url: inputCollection.url+inputCollection.href,
 		cache: false,
-		async: (inputMode==undefined || inputMode=='async') ? true : false,
 		crossDomain: (typeof inputCollection.crossDomain=='undefined' ? true : inputCollection.crossDomain),
 		xhrFields: {
 			withCredentials: (typeof inputCollection.withCredentials=='undefined' ? false : inputCollection.withCredentials)
 		},
 		timeout: inputCollection.timeOut,
 		error: function(objAJAXRequest, strError){
+			// unable to load vCards, try to load them next time
+			inputCollection.pastUnloaded=vcardChangedList;
+
 			console.log("Error: [netLoadAddressbook: '"+inputCollection.url+inputCollection.href+"'] code: '"+objAJAXRequest.status+"'"+(objAJAXRequest.status==0 ? ' - see http://www.inf-it.com/carddavmate/misc/readme_network.txt' : ''));
-			returnValue=false;
+
+			if(innerOperationData!=null && innerOperationData.call=='operationPerform')
+			{
+				show_editor_message('out','message_error',localization[globalInterfaceLanguage].errUnableSync,globalHideInfoMessageAfter);
+
+				// error icon
+				setTimeout(function(){
+					inputContactObj.uiObjects.resource.addClass('r_error');
+					inputContactObj.uiObjects.resource.removeClass('r_operate');
+					setTimeout(function(){
+						inputContactObj.uiObjects.contact.animate({opacity: 1}, 1000);
+						inputContactObj.uiObjects.contact.draggable('option', 'disabled', false);
+						inputContactObj.uiObjects.resource.removeClass('r_error');
+						inputContactObj.uiObjects.resource.droppable('option', 'disabled', false);
+					},globalHideInfoMessageAfter);
+				},globalHideInfoMessageAfter/10);
+
+				$('#ABContactOverlay').fadeOut(globalEditorFadeAnimation,function(){$('#AddContact').prop('disabled',false);});
+			}
+			return false;
 		},
 		beforeSend: function(req) {
 			if(inputCollection.userAuth.userName!='' && inputCollection.userAuth.userPassword!='')
@@ -1371,6 +1368,8 @@ function netLoadAddressbook(inputCollection, vcardList, inputMode, syncReportSup
 		{
 			if(textStatus!='success')
 				return false;
+
+			inputCollection.pastUnloaded=[];	// all vCards loaded
 
 			$(xml.responseXML).children().filterNsNode('multistatus').children().filterNsNode('response').each(
 				function(index, element)
@@ -1392,7 +1391,7 @@ function netLoadAddressbook(inputCollection, vcardList, inputMode, syncReportSup
 						// ...
 						if($('#AddContact').attr('data-url')==inputCollection.uid)
 						{
-							globalAddressbookList.insertContact({timestamp: resultTimestamp, accountUID: inputCollection.accountUID, uid: uid, etag: etag, vcard: result.vcard, categories: result.categories, normalized: false}, (inputMode==undefined || inputMode=='async') ? false : true);	// when the inputMode=='sync' we force reload the contact
+							globalAddressbookList.insertContact({timestamp: resultTimestamp, accountUID: inputCollection.accountUID, uid: uid, etag: etag, vcard: result.vcard, categories: result.categories, normalized: false}, (innerOperationData!=null && innerOperationData.call=='operationPerformed' && innerOperationData.args.mode=='DELETE_FROM_GROUP_LAST'));	// if inner operation is DELETE_FROM_GROUP_LAST we force reload the contact
 						}
 						else	// "concurrent" write in progress
 						{
@@ -1410,10 +1409,18 @@ function netLoadAddressbook(inputCollection, vcardList, inputMode, syncReportSup
 			if($('#AddContact').attr('data-url')==inputCollection.uid)
 				globalAddressbookList.applyABFilter(inputCollection.filterUID, forceLoadNext);
 
+			$('#AddContact').prop('disabled',false);
 			$('#ABListLoader').css('display','none');
 
-			returnValue=true;
+			if(innerOperationData!=null)
+			{
+				if(innerOperationData.call=='operationPerform')
+					operationPerform(innerOperationData.args.performOperation, innerOperationData.args.contactObj, innerOperationData.args.filterUID);
+				else if(innerOperationData.call=='operationPerformed')
+					operationPerformed(innerOperationData.args.mode, innerOperationData.args.contactObj, innerOperationData.args.loadContact);
+			}
+
+			return true;
 		}
 	});
-	return returnValue;
 }

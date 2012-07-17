@@ -2,6 +2,7 @@
 <!--
 //configuration
 globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
+globalInterfaceLanguage = '<?php echo $l->t('en_US'); ?>';
 //-->
 </script>
 <div id="carddavmate">
@@ -11,24 +12,18 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 				<form onsubmit="login(); return false;">
 					<table>
 						<tr>
-							<td><img data-type="system_logo" src="<?php echo image_path('carddavmate', 'logo.svg'); ?>" alt="Logo" /></td>
+							<td><img data-type="system_logo" src="<?php echo OCP\Util::imagePath('carddavmate', 'logo.svg'); ?>" alt="Logo" /></td>
 						</tr>
 						<tr>
-							<td><input data-type="system_username" type="text" class="fs" autocomplete="off" placeholder="Login" /></td>
+							<td><input data-type="system_username" type="text" class="fs" autocomplete="off" placeholder="Login" value="<?php echo OCP\User::getUser(); ?>" /></td>
 						</tr>
 						<tr>
 							<td><input data-type="system_password" type="password" class="fs" autocomplete="off" placeholder="Password" /></td>
 						</tr>
 						<tr>
 							<td data-size="full">
-								<select data-type="language" onchange="globalInterfaceLanguage=$(this).find(':selected').attr('data-type'); init();">
-									<option data-type="cs_CZ">Čeština</option>
-									<option data-type="da_DK">Dansk</option>
-									<option data-type="de_DE">Deutsch</option>
-									<option data-type="en_US">English</option>
-									<option data-type="it_IT">Italiano</option>
-									<option data-type="hu_HU">Magyar</option>
-									<option data-type="sk_SK">Slovenčina</option>
+								<select data-type="language" onchange="globalInterfaceLanguage=$(this).find('option').filter(':selected').attr('data-type'); init();">
+									<option data-type=""></option>
 								</select>
 							</td>
 						</tr>
@@ -50,16 +45,16 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 		</div>
 		<div class="resources_d">
 			<div data-type="resources_txt" class="resources_h">Resources</div>
+			<input id="Logout" style="display: none;" data-url="" class="system_l" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'logout.svg'); ?>" alt="Logout" onclick="logout();" />
 		</div>
 		<div class="collection_d">
 			<div data-type="addressbook_txt" class="collection_h">Addressbook</div>
-			<input id="AddContact" data-account-uid="" data-url="" data-filter-url="" class="collection_a element_no_display" type="image" src="<?php echo image_path('carddavmate', 'new_contact.svg'); ?>" alt="Add Contact" onclick="$('#ResourceListOverlay').fadeTo(1200,0.6); $('#ABListOverlay').fadeTo(1200,0.6); $('#ABList').find('.ablist_item').removeClass('ablist_item_selected'); editor_cleanup(true); $('#vcard_editor').attr('data-account-uid',this.getAttribute('data-account-uid')); $('#vcard_editor').attr('data-url',this.getAttribute('data-url')); 
+			<input id="AddContact" disabled="disabled" data-account-uid="" data-url="" data-filter-url="" class="collection_a element_no_display" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'new_contact.svg'); ?>" alt="Add Contact" onclick="$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABList').find('.ablist_item').removeClass('ablist_item_selected'); editor_cleanup(true); $('#vcard_editor').attr('data-account-uid',this.getAttribute('data-account-uid')); $('#vcard_editor').attr('data-url',this.getAttribute('data-url')); 
 		$('#vcard_editor').find('[data-type=cancel]').attr('data-id',globalAddressbookList.getLoadedContactUID());
 		processEditorElements('add',null); $('[data-type=given]').focus();" />
 		</div>
 		<div class="contact_d">
 			<div data-type="contact_txt" class="contact_h">Contact</div>
-			<input id="Logout" style="display: none;" data-url="" class="system_l" type="image" src="<?php echo image_path('carddavmate', 'logout.svg'); ?>" alt="Logout" onclick="logout();" />
 		</div>
 		<div id="ResourceList">
 			<div id="ResourceListTemplate" style="display: none;">
@@ -74,11 +69,11 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 		</div>
 		<div id="ResourceListOverlay"></div>
 		<div id="SearchBox">
-			<img data-type="invalid" style="position: inline; margin-top: 0px; margin-left: 3px; vertical-align: top;" src="<?php echo image_path('carddavmate', 'search.svg'); ?>" alt="invalid" />
+			<img data-type="invalid" style="position: inline; margin-top: 0px; margin-left: 3px; vertical-align: top;" src="<?php echo OCP\Util::imagePath('carddavmate', 'search.svg'); ?>" alt="invalid" />
 			<div class="container">
 				<input data-type="search" type="text" placeholder="Search" size="45" value="" />
 			</div>
-			<img data-type="reset" style="display: none; position: absolute; margin-top: 7px; right: 9px; vertical-align: top;" src="<?php echo image_path('carddavmate', 'x.svg'); ?>" alt="reset" onclick="if(globalQs!=null){$('[data-type=search]').val(''); globalQs.search('');}" />
+			<img data-type="reset" style="display: none; position: absolute; margin-top: 7px; right: 9px; vertical-align: top;" src="<?php echo OCP\Util::imagePath('carddavmate', 'x.svg'); ?>" alt="reset" onclick="if(globalQs!=null){$('[data-type=search]').val(''); globalQs.search('');}" />
 		</div>
 		<div id="ABList">
 			<div id="ABListTemplate" style="display: none;">
@@ -122,7 +117,7 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 									<tr>
 										<td rowspan="8" class="photo_box">
 											<div class="photo_div">
-												<img id="photo" data-type="photo" class="photo" src="<?php echo image_path('carddavmate', 'user.svg'); ?>" alt="Photo" />
+												<img id="photo" data-type="photo" class="photo" src="<?php echo OCP\Util::imagePath('carddavmate', 'user.svg'); ?>" alt="Photo" />
 											</div>
 										</td>
 										<td><input data-type="given" type="text" class="hs" placeholder="FirstName" value="" /></td>
@@ -138,10 +133,10 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 									</tr>
 									<tr>
 										<td>
-											<input data-type="date_bday" type="text" class="hs" placeholder="BirthDay" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="<?php echo image_path('carddavmate', 'error_b.svg'); ?>" alt="invalid" />
+											<input data-type="date_bday" type="text" class="hs" placeholder="BirthDay" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="<?php echo OCP\Util::imagePath('carddavmate', 'error_b.svg'); ?>" alt="invalid" />
 										</td>
 										<td>
-											<input data-type="date_anniversary" type="text" class="hs" placeholder="Anniversary" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="<?php echo image_path('carddavmate', 'error_b.svg'); ?>" alt="invalid" />
+											<input data-type="date_anniversary" type="text" class="hs" placeholder="Anniversary" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="<?php echo OCP\Util::imagePath('carddavmate', 'error_b.svg'); ?>" alt="invalid" />
 										</td>
 									</tr>
 									<tr>
@@ -156,7 +151,7 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 									<tr class="heightfix">
 										<td colspan="2" class="heightfix">
 											<label>
-												<input data-type="isorg" type="checkbox" onclick="if($(this).is(':checked')){if($('#vcard_editor').find('img[data-type=photo]').attr('src')=='<?php echo image_path('carddavmate', 'user.svg'); ?>') $('#vcard_editor').find('img[data-type=photo]').attr('src','<?php echo image_path('carddavmate', 'company.svg'); ?>')} else if($('#vcard_editor').find('img[data-type=photo]').attr('src')=='<?php echo image_path('carddavmate', 'company.svg'); ?>') $('#vcard_editor').find('img[data-type=photo]').attr('src','<?php echo image_path('carddavmate', 'user.svg'); ?>')" /><span data-type="company_contact">Company Contact</span>
+												<input data-type="isorg" type="checkbox" onclick="if($(this).prop('checked')){if($('#vcard_editor').find('img[data-type=photo]').attr('src')=='<?php echo OCP\Util::imagePath('carddavmate', 'user.svg'); ?>') $('#vcard_editor').find('img[data-type=photo]').attr('src','<?php echo OCP\Util::imagePath('carddavmate', 'company.svg'); ?>')} else if($('#vcard_editor').find('img[data-type=photo]').attr('src')=='<?php echo OCP\Util::imagePath('carddavmate', 'company.svg'); ?>') $('#vcard_editor').find('img[data-type=photo]').attr('src','<?php echo OCP\Util::imagePath('carddavmate', 'user.svg'); ?>')" /><span data-type="company_contact">Company Contact</span>
 											</label>
 										</td>
 									</tr>
@@ -167,8 +162,8 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 							<td data-type="phone_txt" colspan="5" class="attr_desc">Phone</td>
 						</tr>
 						<tr data-type="%phone" data-id="0">
-							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo image_path('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
-							<td data-type="%add"><input class="op" type="image" src="<?php echo image_path('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
+							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
 							<td data-size="small">
 								<select data-type="phone_type">
 									<option data-type="work">work</option>
@@ -185,16 +180,16 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 									<option data-type="other">other</option>
 								</select>
 							</td>
-							<td colspan="2" onmouseover="if(typeof globalUriHandlerTel!='undefined' && globalUriHandlerTel!=null && $(this).find('input[data-type=value]').attr('readonly')=='readonly' && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
-								<input data-type="value" type="text" class="fs" placeholder="Phone" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php echo image_path('carddavmate', 'arrow.svg'); ?>" alt=">" onclick="if(typeof globalUriHandlerTel!='undefined' && globalUriHandlerTel!=null) parent.location=globalUriHandlerTel+$(this).parent().find('input[data-type=value]').attr('value');" />
+							<td colspan="2" onmouseover="if(typeof globalUriHandlerTel!='undefined' && globalUriHandlerTel!=null && $(this).find('input[data-type=value]').prop('readonly') && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
+								<input data-type="value" type="text" class="fs" placeholder="Phone" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'arrow.svg'); ?>" alt=">" onclick="if(typeof globalUriHandlerTel!='undefined' && globalUriHandlerTel!=null) parent.location=globalUriHandlerTel+$(this).parent().find('input[data-type=value]').val();" />
 							</td>
 						</tr>
 						<tr>
 							<td data-type="email_txt" colspan="5" class="attr_desc">Email</td>
 						</tr>
 						<tr data-type="%email" data-id="0">
-							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo image_path('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
-							<td data-type="%add"><input class="op" type="image" src="<?php echo image_path('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
+							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
 							<td data-size="small">
 								<select data-type="email_type">
 									<option data-type="internet_work">work</option>
@@ -203,16 +198,16 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 									<option data-type="/_$!<other>!$_/_internet">other</option>
 								</select>
 							</td>
-							<td colspan="2" onmouseover="if(typeof globalUriHandlerEmail!='undefined' && globalUriHandlerEmail!=null && $(this).find('input[data-type=value]').attr('readonly')=='readonly' && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
-								<input data-type="value" type="text" class="fs" placeholder="Email" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php echo image_path('carddavmate', 'arrow.svg'); ?>" alt=">" onclick="if(typeof globalUriHandlerEmail!='undefined' && globalUriHandlerEmail!=null) parent.location=globalUriHandlerEmail+$(this).parent().find('input[data-type=value]').attr('value');" />
+							<td colspan="2" onmouseover="if(typeof globalUriHandlerEmail!='undefined' && globalUriHandlerEmail!=null && $(this).find('input[data-type=value]').prop('readonly') && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
+								<input data-type="value" type="text" class="fs" placeholder="Email" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'arrow.svg'); ?>" alt=">" onclick="if(typeof globalUriHandlerEmail!='undefined' && globalUriHandlerEmail!=null) parent.location=globalUriHandlerEmail+$(this).parent().find('input[data-type=value]').val();" />
 							</td>
 						</tr>
 						<tr>
 							<td data-type="url_txt" colspan="5" class="attr_desc">URL</td>
 						</tr>
 						<tr data-type="%url" data-id="0">
-							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo image_path('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
-							<td data-type="%add"><input class="op" type="image" src="<?php echo image_path('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
+							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
 							<td data-size="small">
 								<select data-type="url_type">
 									<option data-type="work">work</option>
@@ -221,16 +216,16 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 									<option data-type="/_$!<other>!$_/">other</option>
 								</select>
 							</td>
-							<td colspan="2" onmouseover="if(typeof globalUriHandlerUrl!='undefined' && globalUriHandlerUrl!=null && $(this).find('input[data-type=value]').attr('readonly')=='readonly' && $(this).find('input[data-type=value]').attr('value')!='' && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
-								<input data-type="value" type="text" class="fs" placeholder="URL" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php echo image_path('carddavmate', 'arrow.svg'); ?>" alt=">" onclick="if(typeof globalUriHandlerUrl!='undefined' && globalUriHandlerUrl!=null){var value=$(this).parent().find('input[data-type=value]').attr('value'); if(value.match(RegExp('^[a-z0-9]+:','i'))==null) value=globalUriHandlerUrl+value; window.open(value);}" />
+							<td colspan="2" onmouseover="if(typeof globalUriHandlerUrl!='undefined' && globalUriHandlerUrl!=null && $(this).find('input[data-type=value]').prop('readonly') && $(this).find('input[data-type=value]').val()!='' && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
+								<input data-type="value" type="text" class="fs" placeholder="URL" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'arrow.svg'); ?>" alt=">" onclick="if(typeof globalUriHandlerUrl!='undefined' && globalUriHandlerUrl!=null){var value=$(this).parent().find('input[data-type=value]').val(); if(value.match(RegExp('^[a-z0-9]+:','i'))==null) value=globalUriHandlerUrl+value; window.open(value);}" />
 							</td>
 						</tr>
 						<tr>
 							<td data-type="related_txt" colspan="5" class="attr_desc">Related</td>
 						</tr>
 						<tr data-type="%person" data-id="0">
-							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo image_path('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
-							<td data-type="%add"><input class="op" type="image" src="<?php echo image_path('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
+							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
 							<td data-size="small">
 								<select data-type="person_type">
 									<option data-type="/_$!<father>!$_/">father</option>
@@ -253,8 +248,8 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 							<td data-type="im_txt" colspan="5" class="attr_desc">IM</td>
 						</tr>
 						<tr data-type="%im" data-id="0">
-							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo image_path('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
-							<td data-type="%add"><input class="op" type="image" src="<?php echo image_path('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
+							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
 							<td data-size="small">
 								<select data-type="im_type">
 									<option data-type="work">work</option>
@@ -284,8 +279,8 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 							<td data-type="address_txt" colspan="5" class="attr_desc">Address</td>
 						</tr>
 						<tr data-type="%address" data-id="0">
-							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo image_path('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
-							<td data-type="%add"><input class="op" type="image" src="<?php echo image_path('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
+							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
 							<td data-size="small">
 								<select data-type="address_type">
 									<option data-type="work">work</option>
@@ -344,7 +339,7 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 											<input data-type="value" data-addr-field="" type="text" class="fs" placeholder="" value="" />
 										</td>
 									</tr>
-									<tr data-type="container">
+	 								<tr data-type="container">
 										<td data-addr-fid="11" colspan="2" data-size="full">
 											<select data-addr-field="country" data-type="%country">
 												<option data-type="" data-full-name=""></option>
@@ -381,18 +376,18 @@ globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
 						</tr>
 						<tr>
 							<td colspan="5" class="buttons">
-								<input data-type="edit" type="button" value="Edit" onclick="$('#ResourceListOverlay').fadeTo(1200,0.6); $('[data-type=given]').focus(); $('#ABListOverlay').fadeTo(1200,0.6); processEditorElements('show',null);" />
+								<input data-type="edit" type="button" value="Edit" onclick="$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('[data-type=given]').focus(); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); processEditorElements('show',null);" />
 								<input data-type="save" type="button" value="Save" onclick="
-								if($('[id=vcard_editor]').find('img[data-type=invalid]').filter(function(){ return this.style.display != 'none' }).length>0){show_editor_message('in','message_error','Error: \'unable to save\': correct the highlighted invalid values!',globalHideInfoMessageAfter); return false;} else {$('#ResourceListOverlay').fadeTo(1200,0.6); $('#ABListOverlay').fadeTo(1200,0.6); $('#AddContact').attr('disabled',true); $('#ABContactOverlay').fadeTo(1200,1,function(){
-	dataToVcard($('[id=vcard_editor]').attr('data-account-uid'), $('[id=vcard_editor]').attr('data-url'), $('#AddContact').attr('data-filter-url'), $('[id=vcard_editor]').attr('data-etag'))})}" />
-								<input data-type="cancel" type="button" value="Cancel" data-id="" onclick="$('#ResourceListOverlay').fadeOut(1200); $('#ABListOverlay').fadeOut(1200); globalAddressbookList.loadContactByUID(this.getAttribute('data-id'));" />
+								if($('[id=vcard_editor]').find('img[data-type=invalid]').filter(function(){ return this.style.display != 'none' }).length>0){show_editor_message('in','message_error','Error: \'unable to save\': correct the highlighted invalid values!',globalHideInfoMessageAfter); return false;} else {$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#AddContact').prop('disabled',true); $('#ABContactOverlay').fadeTo(globalEditorFadeAnimation,1,function(){
+dataToVcard($('[id=vcard_editor]').attr('data-account-uid'), $('[id=vcard_editor]').attr('data-url'), $('#AddContact').attr('data-filter-url'), $('[id=vcard_editor]').attr('data-etag'))})}" />
+								<input data-type="cancel" type="button" value="Cancel" data-id="" onclick="$('#ResourceListOverlay').fadeOut(globalEditorFadeAnimation); $('#ABListOverlay').fadeOut(globalEditorFadeAnimation); globalAddressbookList.loadContactByUID(this.getAttribute('data-id'));" />
 								<input data-type="delete_from_group" type="button" value="Delete from Group" onclick="
-								$('#ResourceListOverlay').fadeTo(1200,0.6); $('#ABListOverlay').fadeTo(1200,0.6); $('#AddContact').attr('disabled',true); $('#ABContactOverlay').fadeTo(1200,1,function(){
+								$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#AddContact').prop('disabled',true); $('#ABContactOverlay').fadeTo(globalEditorFadeAnimation,1,function(){
 									lockAndPerformToCollection({accountUID: $('[id=vcard_editor]').attr('data-account-uid'), uid: $('[id=vcard_editor]').attr('data-url')}, $('#AddContact').attr('data-filter-url'), 'DELETE_FROM_GROUP');
 									});
 								" />
 								<input data-type="delete" type="button" value="Delete" onclick="
-								$('#ResourceListOverlay').fadeTo(1200,0.6); $('#ABListOverlay').fadeTo(1200,0.6); $('#AddContact').attr('disabled',true); $('#ABContactOverlay').fadeTo(1200,1,function(){
+								$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#AddContact').prop	('disabled',true); $('#ABContactOverlay').fadeTo(globalEditorFadeAnimation,1,function(){
 									lockAndPerformToCollection({accountUID: $('[id=vcard_editor]').attr('data-account-uid'), uid: $('[id=vcard_editor]').attr('data-url')}, $('#AddContact').attr('data-filter-url'), 'DELETE');
 									});
 								" />

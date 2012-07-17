@@ -16,7 +16,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-var globalCardDavMATEVersion='0.9.6';
+var globalCardDavMATEVersion='0.9.7.1';
 var globalVersionCheckURL='http://www.inf-it.com/versioncheck/CardDavMATE/?v='+globalCardDavMATEVersion;
 var globalAddressbookList = new AddressbookList();
 var globalResourceList=new ResourceList();
@@ -85,13 +85,41 @@ function logout()
 
 function main()
 {
-	// select the globalInterfaceLanguage in the interface
-	$('[data-type="language"]').find('[data-type='+globalInterfaceLanguage+']').prop('selected',true);
-
 	// create backup from the original editor objects (needed for localization switching)
 	origResourceListTemplate = $('#ResourceListTemplate').clone().wrap('<div>').parent().html();
 	origABListTemplate = $('#ABListTemplate').clone().wrap('<div>').parent().html();
 	origVcardTemplate = $('#vCardTemplate').clone().wrap('<div>').parent().html();
+
+	/* language selector */
+	var lang_num=0;
+	var language_option=$('#Login').find('[data-type="language"]').find('option');
+	$('#Login').find('[data-type="language"]').html('');
+
+	if(typeof globalInterfaceCustomLanguages!='undefined' && globalInterfaceCustomLanguages.length!=undefined && globalInterfaceCustomLanguages.length>0)
+	{
+		for(var i=0;i<globalInterfaceCustomLanguages.length;i++)
+			if(localization[globalInterfaceCustomLanguages[i]]!=undefined)
+			{
+				var tmp=language_option;
+				tmp.attr('data-type',globalInterfaceCustomLanguages[i]);
+				tmp.text(localization[globalInterfaceCustomLanguages[i]]['_name_']);
+				$('#Login').find('[data-type="language"]').append(tmp.clone());
+				lang_num++;
+			}
+	}
+	if(lang_num==0)	// no language option, use the default (all languages from localization.js)
+	{
+		for(var loc in localization)
+		{
+			var tmp=language_option;
+			tmp.attr('data-type',loc);
+			tmp.text(localization[loc]['_name_']);	// translation
+			$('#Login').find('[data-type="language"]').append(tmp.clone());
+		}
+	}
+
+	// select the globalInterfaceLanguage in the interface
+	$('[data-type="language"]').find('[data-type='+globalInterfaceLanguage+']').prop('selected',true);
 
 	init();
 }
@@ -132,7 +160,7 @@ function init()
 	$('[data-type="system_logo"]').attr('alt',localization[globalInterfaceLanguage].altLogo);
 	$('[data-type="system_username"]').attr('placeholder',localization[globalInterfaceLanguage].pholderUsername);
 	$('[data-type="system_password"]').attr('placeholder',localization[globalInterfaceLanguage].pholderPassword);
-	$('[data-type="system_login"]').attr('value',localization[globalInterfaceLanguage].buttonLogin);
+	$('[data-type="system_login"]').val(localization[globalInterfaceLanguage].buttonLogin);
 
 	$('[data-type="resources_txt"]').text(localization[globalInterfaceLanguage].txtResources);
 	$('[data-type="addressbook_txt"]').text(localization[globalInterfaceLanguage].txtAddressbook);
@@ -231,11 +259,11 @@ function init()
 	$('[data-type="note_txt"]').text(localization[globalInterfaceLanguage].txtNote);
 	$('[data-type="\\%note"]').find('textarea[data-type="value"]').attr('placeholder',localization[globalInterfaceLanguage].pholderNoteVal);
 
-	$('[data-type="edit"]').attr('value',localization[globalInterfaceLanguage].buttonEdit);
-	$('[data-type="save"]').attr('value',localization[globalInterfaceLanguage].buttonSave);
-	$('[data-type="cancel"]').attr('value',localization[globalInterfaceLanguage].buttonCancel);
-	$('[data-type="delete_from_group"]').attr('value',localization[globalInterfaceLanguage].buttonDeleteFromGroup);
-	$('[data-type="delete"]').attr('value',localization[globalInterfaceLanguage].buttonDelete);
+	$('[data-type="edit"]').val(localization[globalInterfaceLanguage].buttonEdit);
+	$('[data-type="save"]').val(localization[globalInterfaceLanguage].buttonSave);
+	$('[data-type="cancel"]').val(localization[globalInterfaceLanguage].buttonCancel);
+	$('[data-type="delete_from_group"]').val(localization[globalInterfaceLanguage].buttonDeleteFromGroup);
+	$('[data-type="delete"]').val(localization[globalInterfaceLanguage].buttonDelete);
 
 	cleanResourceListTemplate = $('#ResourceListTemplate').clone().wrap('<div>').parent().html();
 	cleanABListTemplate = $('#ABListTemplate').clone().wrap('<div>').parent().html();
@@ -324,7 +352,7 @@ function loadConfig()
 
 				console.log("Info: [globalNetworkCheckSettings: '"+globalNetworkCheckSettings.href+"'] crossDomain set to: '"+(globalNetworkCheckSettings.crossDomain==true ? 'true' : 'false')+"'");
 			}
-			netCheckAndCreateConfiguration(globalNetworkCheckSettings,'async');
+			netCheckAndCreateConfiguration(globalNetworkCheckSettings);
 			return true;
 		}
 	}
@@ -349,7 +377,7 @@ function loadConfig()
 
 				console.log("Info: [globalNetworkAccountSettings: '"+globalNetworkAccountSettings.href+"'] crossDomain set to: '"+(globalNetworkAccountSettings.crossDomain==true ? 'true' : 'false')+"'");
 			}
-			netLoadConfiguration(globalNetworkAccountSettings,'async');
+			netLoadConfiguration(globalNetworkAccountSettings);
 			return true;
 		}
 	}
