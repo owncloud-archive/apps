@@ -42,7 +42,6 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		var markup=$('<body />').append($('#imprint-template').html());
-		var style =$('<style type="text/css" />').html('body{padding:1.2em;}');
 		$('#imprint-content').contents().find('html body').html(markup.text());
 		$('#imprint-content').contents().find('html head').append(style);
 		$('#imprint-template').remove();
