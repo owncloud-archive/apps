@@ -45,7 +45,10 @@ $(document).ready(function(){
 				break;
 			case 'header-right':
 				anchor.css('float','right');
-				$('#header form.searchbox').after(anchor);
+// 				the 2 following lines are a workaround for chaotic header layout definitions in OC4
+				if ('right'!=$('#header .searchbox').css('float'))
+					anchor.css('right','250px');
+				$('#header').append(anchor);
 				break;
 			case 'navigation-top':
 				$('#navigation #apps').before(anchor);

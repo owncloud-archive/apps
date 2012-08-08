@@ -29,12 +29,13 @@
  * @author Christian Reiner
  */
 
+/* some general rules for the reference */
 .imprint-anchor{
 	margin:0 1em;
 	padding:0;
+	position:relative;
 	font-size:1.2em;
 	font-weight:inherit;
-	vertical-align:bottom;
 }
 #header .imprint-anchor{
 	line-height:2.5em;
@@ -46,6 +47,7 @@
 	color:666;
 }
 
+/* some rules for the settings */
 .imprint-option{
 	vertical-align:middle;
 }
@@ -53,17 +55,17 @@
 	display:inline-block;
 	width:6em;
 }
-
-.imprint-dummy{
-	width:32em;
-	padding: 1.6em;
-	text-align: center;
-}
 .imprint-option textarea{
 	min-width: 60em;
 	min-height:5em;
 }
 
+/* some rules for the 'dummy' content */
+.imprint-dummy{
+	width:32em;
+	padding: 1.6em;
+	text-align: center;
+}
 .imprint-factoid{
 	font-size: 160%;
 	font-weight: bold;
