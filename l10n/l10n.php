@@ -32,7 +32,7 @@
 
 $TRANSLATIONS = array(
 "Admin"                                                         => "Administration",
-"Placement"                                                     => "Plazierung",
+"Placement"                                                     => "Platzierung",
 "Content"                                                       => "Inhalt",
 "Imprint"                                                       => "Impressum",
 "Legal notice"                                                  => "Impressum",
