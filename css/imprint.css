@@ -49,6 +49,8 @@
 	vertical-align:middle;
 }
 .imprint-option label{
+	display:inline-block;
+	width:6em;
 }
 
 .imprint-dummy{
