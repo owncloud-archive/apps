@@ -4,8 +4,8 @@
 * @author Christian Reiner
 * @copyright 2011-2012 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
-* @link information http://apps.owncloud.com/content/show.php/Shorty?content=150401
-* @link repository https://svn.christian-reiner.info/svn/app/oc/shorty
+* @link information 
+* @link repository https://svn.christian-reiner.info/svn/app/oc/imprint
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -32,22 +32,17 @@ Open the 'Apps' section of the adminstration and select 'shorty', enable it.
 Then go on below with the basic configuration steps. 
 
 * Manual installation:
-Download the package from here: 
-http://apps.owncloud.com/content/show.php/Shorty?content=150401
-Create a subfolder 'shorty' in the "apps" subfolder of your ownCloud web root.
-Unpack the contents of the package into the new folder 'shorty'.
+Download the package from apps.owncloud.com. 
+Create a subfolder 'imprint' in the "apps" subfolder of your ownCloud web root.
+Unpack the contents of the package into the new folder 'imprint'.
 Now load ownCloud in your favorite web browser and login with an administrative
 account.
 Enable the plugin in the "Apps" section of the configuration ("*") inside
 ownClouds web gui (requires admin rights).
 
 * Basic configuration steps for BOTH types of installation: 
-The "Admin" section of the configuration allows to configure a base url to
-enable usage of the static backend (see USAGE).
-The "Preferences" section of that configuration now offers two elements:
-- a "Shortlet" to be dragged to the browsers bookmark area (see USAGE).
-- a configuration of a backend to use to generate source urls (see USAGE).
-The main part of the plugin can be accessed in the navigation menu as "Shorty".
+The "Admin" section of the configuration allows to configurethe two
+configuration aspects mentioned in the COFIGURATION doc file. 
 
 ***
 Have fun !

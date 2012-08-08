@@ -4,8 +4,8 @@
 * @author Christian Reiner
 * @copyright 2011-2012 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
-* @link information http://apps.owncloud.com/content/show.php/Shorty?content=150401
-* @link repository https://svn.christian-reiner.info/svn/app/oc/shorty
+* @link information 
+* @link repository https://svn.christian-reiner.info/svn/app/oc/imprint
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -25,15 +25,10 @@
 The current status of this package is as follows:
 
 The initial release is definately buggy and contains annoying shortcomings.
-It has been developed on a linux system using a firefox browser, so this is
+It has been developed on a linux system using only a few browsers, so this is
 most likely the best working combination. Basic usage test have been made with
 a few other browsers. The package appears to be working in general though there
 might be some minor differences in apeparance.
-
-Known shortcomings are:
-- only very basic input validation is done. 
-- access control is not yet fine grained, no user or group support exists.
-- markup, scripting and style definitions are the work of a web app newbie.
 
 So "sorry for any inconveniences" !
 
