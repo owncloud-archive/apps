@@ -37,13 +37,13 @@
 <!-- an iframe holding the imprints content (safety reasons...) -->
 <iframe id="imprint-content" width="100%" height="100%"></iframe>
 <!-- imprint template content to be processed by the small script below -->
-<script id="imprint-template" type="text/template"><?php echo $_['imprint'];?></script>
+<script id="imprint-template" type="text/template"><?php echo OCP\Config::getAppValue('imprint','content',FALSE);?></script>
 <!-- small script to transfer template content from above into the iframe document object -->
 <script type="text/javascript">
 	$(document).ready(function(){
 		var markup=$('<body />').append($('#imprint-template').html());
 		var style =$('<style type="text/css" />').html('body{padding:1.2em;}');
-		$('#imprint-content').contents().find('html body').html(markup.text());
+		$('#imprint-content').contents().find('html body').html(markup.html());
 		$('#imprint-content').contents().find('html head').append(style);
 		$('#imprint-template').remove();
 	})
