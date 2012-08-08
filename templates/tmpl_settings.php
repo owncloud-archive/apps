@@ -47,7 +47,7 @@
 			<label for="imprint-option-position" class="imprint-option"><?php echo $l->t("Placement").": ";?></label>
 			<select id="imprint-option-position" class="imprint-option" type="select" name="position">
 				<option value="standalone"><?php echo $l->t("Standanlone app");?></option>
-				<option value="header-left"><?php echo $l->t("Header Left");?></option>
+				<option value="header-left"><?php echo $l->t("Header left");?></option>
 				<option value="header-right"><?php echo $l->t("Header right");?></option>
 				<option value="navigation-top"><?php echo $l->t("Navigation top");?></option>
 				<option value="navigation-bottom"><?php echo $l->t("Navigation bottom");?></option>
