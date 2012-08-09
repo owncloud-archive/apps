@@ -40,13 +40,13 @@
 		<legend>
 			<span id="title" class="title">
 				<img class="" src="<?php echo OCP\Util::imagePath("imprint","imprint.png"); ?> ">
-				<strong><?php echo $l->t('Imprint');?></strong>
+				<strong><?php echo $l->t("Imprint");?></strong>
 			</span>
 		</legend>
 		<div id="imprint-options" class="imprint-option">
 			<label for="imprint-option-position" class="imprint-option"><?php echo $l->t("Placement").": ";?></label>
 			<select id="imprint-option-position" class="imprint-option" type="select" name="position">
-				<option value="standalone"><?php echo $l->t("Standanlone app");?></option>
+				<option value="standalone"><?php echo $l->t("Standalone app");?></option>
 				<option value="header-left"><?php echo $l->t("Header left");?></option>
 				<option value="header-right"><?php echo $l->t("Header right");?></option>
 				<option value="navigation-top"><?php echo $l->t("Navigation top");?></option>
