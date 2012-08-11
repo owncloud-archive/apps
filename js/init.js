@@ -30,7 +30,7 @@
  */
 $(document).ready(function(){
 	var anchor=$('<a />');
-	anchor.attr('href',OC.linkTo('imprint',''));
+	anchor.attr('href',OC.linkTo('imprint','index.php'));
 	anchor.text(t("imprint","Legal notice"));
 	anchor.addClass('imprint-anchor');
 	OC.AppConfig.getValue('imprint','position',null,function(value){
