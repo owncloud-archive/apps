@@ -24,6 +24,7 @@
 
 Changelog: 
 
+* Sun Aug 12 2012 Christian Reiner: version 1.0.4
 Small additional usage hint in the configuration.
 * Sat Aug 11 2012 Christian Reiner: version 1.0.3
 Fixed reference url to use propper syntax in all cases.
