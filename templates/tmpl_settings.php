@@ -52,9 +52,14 @@
 				<option value="navigation-top"><?php echo $l->t("Navigation top");?></option>
 				<option value="navigation-bottom"><?php echo $l->t("Navigation bottom");?></option>
 			</select>
-			<br/>
+			<br>
 			<label   for="imprint-content" class="imprint-option"><?php echo $l->t("Content").': ';?></label>
 			<textarea id="imprint-content" class="imprint-option"></textarea>
+			<br>
+			<label   for="imprint-usage"   class="imprint-option"></label>
+			<span     id="imprint-usage"   class="imprint-option imprint-hint">
+				<?php echo $l->t("You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;).");?>
+			</span>
 		</div>
   </fieldset>
 </form>

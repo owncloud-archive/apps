@@ -59,7 +59,10 @@
 	min-width: 60em;
 	min-height:5em;
 }
-
+.imprint-hint{
+	font-style: italic;
+	margin: 0 0.6em;
+}
 /* some rules for the 'dummy' content */
 .imprint-dummy{
 	width:32em;
