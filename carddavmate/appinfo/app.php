@@ -21,14 +21,9 @@
  *
  */
 
-OC_App::register(array(
-    'order' => 15,
-    'id' => 'carddavmate',
-    'name' => 'CardDavMATE'
-    ));
-OC_App::addNavigationEntry( array(
+OCP\App::addNavigationEntry( array(
   'id' => 'carddavmate_index',
   'order' => 15,
-  'href' => OC_Helper::linkTo( 'carddavmate', 'index.php' ),
-  'icon' => OC_Helper::imagePath( 'settings', 'users.svg' ),
-  'name' => $l->t('CardDavMATE') ));
+  'href' => OCP\Util::linkTo( 'carddavmate', 'index.php' ),
+  'icon' => OCP\Util::imagePath( 'settings', 'users.svg' ),
+  'name' => 'CardDavMATE'));

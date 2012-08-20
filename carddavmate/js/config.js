@@ -27,12 +27,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //      https://server.com:8443/caldav.php/USER/addressbook/		<- url to addressbook collection
 //      https://server.com:8443/principals/users/USER				<- missing '/'
 //      https://server.com:8443/caldav.php/USER						<- missing '/'
+// the hrefLabel sets the server name in the resource header - useful if your server name is 'something.server.com' and you want to see only the 'something' as the server name; if undefined, empty or or null, href value is used (see above)
 // the crossDomain sets jQuery's ajax crossDomain value (must be true if your CardDavMATE installation has not the same [protocol,hostname,port] as your CardDav server - by default null = autodetect /detected setting is shown in the console/)
 // the withCredentials sets jQuery's ajax withCredentials value for cross domain queries (if true, Access-Control-Allow-Origin "*" is not allowed)
 // the syncInterval sets how often (in miliseconds) to asynchronously sync the active collection on background (but only if the browser window has focus)
 // the timeOut sets the timeout for jQuery .ajax call (in miliseconds)
 // the lockTimeOut sets the LOCK Timeout value (in miliseconds)
-//var globalAccountSettings=[{href: 'https://server1.com:8443/principals/users/USERNAME1/', crossDomain: null, withCredentials: false, userAuth: {userName: 'USERNAME1', userPassword: 'PASSWORD1'}, syncInterval: 30000, timeOut: 30000, lockTimeOut: 10000}, {href: 'https://server1.com:8443/principals/users/USERNAME2/', crossDomain: null, withCredentials: false, userAuth: {userName: 'USERNAME2', userPassword: 'PASSWORD2'}, syncInterval: 30000, timeOut: 30000, lockTimeOut: 10000}, {href: 'https://server2.com:8443/principals/users/USERNAME/', crossDomain: null, withCredentials: false, userAuth: {userName: 'USERNAME', userPassword: 'PASSWORD'}, syncInterval: 30000, timeOut: 30000, lockTimeOut: 10000}];
+//var globalAccountSettings=[{href: 'https://server1.com:8443/principals/users/USERNAME1/', hrefLabel: null, crossDomain: null, withCredentials: false, userAuth: {userName: 'USERNAME1', userPassword: 'PASSWORD1'}, syncInterval: 60000, timeOut: 30000, lockTimeOut: 10000}, {href: 'https://server1.com:8443/principals/users/USERNAME2/', hrefLabel: null, crossDomain: null, withCredentials: false, userAuth: {userName: 'USERNAME2', userPassword: 'PASSWORD2'}, syncInterval: 60000, timeOut: 30000, lockTimeOut: 10000}, {href: 'https://server2.com:8443/principals/users/USERNAME/', hrefLabel: null, crossDomain: null, withCredentials: false, userAuth: {userName: 'USERNAME', userPassword: 'PASSWORD'}, syncInterval: 60000, timeOut: 30000, lockTimeOut: 10000}];
 
 // if set, the client authenticates against the href URL (the last character in href must be '/') and if the authentication is successful it appends the USER + '/' to end of href and sets the userAuth: {userName: USER, userPassword: PASSWORD}
 // then the client uses the modified globalNetworkCheckSettings in the same way as the globalAccountSettings
@@ -40,12 +41,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // the additionalResources array can contain additional resources (shared resources accessible by all users), for example: additionalResources: ['company','customers'] ... href values for these resources are created in the same way as described above for the USER
 // see globalAccountSettings for more information
 // Lion server example (http + https setup; see misc/readme_lion.txt for server setup):
-//var globalNetworkCheckSettings={href: 'http://lion.server.com:8008/principals/users/', additionalResources: [], crossDomain: null, withCredentials: false, syncInterval: 30000, timeOut: 30000, lockTimeOut: 10000}
-//var globalNetworkCheckSettings={href: 'https://lion.server.com:8443/principals/users/', additionalResources: [], crossDomain: null, withCredentials: false, syncInterval: 30000, timeOut: 30000, lockTimeOut: 10000}
+//var globalNetworkCheckSettings={href: 'http://lion.server.com:8008/principals/users/', hrefLabel: null, additionalResources: [], crossDomain: null, withCredentials: false, syncInterval: 60000, timeOut: 30000, lockTimeOut: 10000}
+//var globalNetworkCheckSettings={href: 'https://lion.server.com:8443/principals/users/', hrefLabel: null, additionalResources: [], crossDomain: null, withCredentials: false, syncInterval: 60000, timeOut: 30000, lockTimeOut: 10000}
 // Davical example (for cross-domain setup see misc/config_davical.txt):
-//var globalNetworkCheckSettings={href: 'http://davical.server.com:8080/caldav.php/', additionalResources: [], crossDomain: null, withCredentials: false, syncInterval: 30000, timeOut: 30000, lockTimeOut: 10000}
+//var globalNetworkCheckSettings={href: 'http://davical.server.com:8080/caldav.php/', hrefLabel: null, additionalResources: [], crossDomain: null, withCredentials: false, syncInterval: 60000, timeOut: 30000, lockTimeOut: 10000}
 // Davical example (CardDavMATE installed into Davical subdirectory - works out of the box, no additional setup required):
-var globalNetworkCheckSettings={href: location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+location.pathname.replace(RegExp('/+[^/]+/*$'),'')+'/caldav.php/', additionalResources: [], crossDomain: null, withCredentials: false, syncInterval: 30000, timeOut: 30000, lockTimeOut: 10000}
+var globalNetworkCheckSettings={href: location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+location.pathname.replace(RegExp('/+[^/]+/*$'),'')+'/caldav.php/', hrefLabel: null, additionalResources: [], crossDomain: null, withCredentials: false, syncInterval: 60000, timeOut: 30000, lockTimeOut: 10000}
 
 // if set, the configuration is loaded from the network (using HTTP auth) - the returned configuration XML settings are added
 //  to globalAccountSettings ... it is possible to combine this option with the globalAccountSettings although it is not recommended
@@ -56,12 +57,20 @@ var globalNetworkCheckSettings={href: location.protocol+'//'+location.hostname+(
 
 // default interface language - see localization.js
 //  supported languages (note: value is case sensitive):
-//   en_US (US English)
-//   de_DE (German; thanks Marten Gajda and Thomas Scheel)
-//   it_IT (Italian; thanks Luca Ferrario)
-//   hu_HU (Hungarian)
-//   sk_SK (Slovak)
+//   cs_CZ (Čeština [Czech])
+//   da_DK (Dansk [Danish]; thanks Niels Bo Andersen)
+//   fr_FR (Français [French]; thanks John Fischer)
+//   de_DE (Deutsch [German]; thanks Marten Gajda and Thomas Scheel)
+//   en_US (English [English/US])
+//   it_IT (Italiano [Italian]; thanks Luca Ferrario)
+//   hu_HU (Magyar [Hungarian])
+//   sk_SK (Slovenčina [Slovak])
 var globalInterfaceLanguage='en_US';
+
+// if defined and not empty then only languages listed here are shown at the login screen (for example: ['en_US','fr_FR']),
+//  otherwise (default) all languages are shown
+//  values in the array must refer to an existing localization defined in the common.js (see the option above)
+var globalInterfaceCustomLanguages=[];
 
 // compatibility settings
 //  anniversaryOutputFormat:
@@ -74,9 +83,9 @@ var globalCompatibility={anniversaryOutputFormat: ['apple']}
 // JavaScript localeCompare() or custom alphabet for addressbook sorting
 //  custom alphabet is used by default because the JavaScript localeCompare() not support collation and often returns "wrong" result
 //var globalSortAlphabet=null;	// use localeCompare()
-var globalSortAlphabet='0123456789AÁÄBCČDĎEÉFGHIÍJKLĹĽMNŇOÓÖŐÔPQRŔSŠTŤUÚÜŰVWXYÝZŽaáäbcčdďeéfghiíjklĺľmnňoóöőôpqrŕsšßtťuúüűvwxyýzž';	// use custom alphabet sorting
+var globalSortAlphabet='0123456789AÀÁÂÄÆÃÅĀBCÇĆČDĎEÈÉÊËĒĖĘĚFGHIÌÍÎÏĪĮJKLŁĹĽMNŃÑŇOÒÓÔÖŐŒØÕŌPQRŔŘSŚŠẞTŤUÙÚÛÜŰŮŪVWXYÝŸZŹŻŽaàáâäæãåābcçćčdďeèéêëēėęěfghiìíîïīįjklłĺľmnńñňoòóôöőœøõōpqrŕřsśšßtťuùúûüűůūvwxyýÿzźżž';	// use custom alphabet sorting
 // search functionality character equivalence (transformation to ASCII: key = regex text, value = result character)
-var globalSearchTransformAlphabet={'[ÀàÁáÂâÄäÆæÃãÅåĀā]': 'a', '[ÇçĆćČč]': 'c', '[Ďď]': 'd', '[ÈèÉéÊêËëĒēĖėĘęĚě]': 'e', '[ÎîÏïÍíĪīĮįÌì]': 'i', '[ŁłĽľĹĺ]': 'l', '[ÑñŃńŇň]': 'n', '[ÔôÖöÒòÓóŒœØøŌōÕõ]': 'o', '[Řř]': 'r', '[ẞßŚśŠš]': 's', '[Ťť]': 't', '[ÛûÜüÙùÚúŪūŰűŮů]': 'u', '[ÝýŸÿ]': 'y', '[ŽžŹźŻż]': 'z'};
+var globalSearchTransformAlphabet={'[ÀàÁáÂâÄäÆæÃãÅåĀā]': 'a', '[ÇçĆćČč]': 'c', '[Ďď]': 'd', '[ÈèÉéÊêËëĒēĖėĘęĚě]': 'e', '[ÌìÍíÎîÏïĪīĮį]': 'i', '[ŁłĹĺĽľ]': 'l', '[ŃńÑñŇň]': 'n', '[ÒòÓóÔôÖöŐőŒœØøÕõŌō]': 'o', '[ŔŕŘř]': 'r', '[ŚśŠšẞß]': 's', '[Ťť]': 't', '[ÙùÚúÛûÜüŰűŮůŪū]': 'u', '[ÝýŸÿ]': 'y', '[ŹźŻżŽž]': 'z'};
 
 // set the collection sorting, displaying and storing FN attribute into vCard - use a pair of values separated by a comma (spaces are allowed)
 //  possible values:
@@ -100,20 +109,28 @@ var globalNewVersionNotifyUsers=[];
 
 // set the datepicker format (see http://docs.jquery.com/UI/Datepicker/formatDate for valid values)
 var globalDatepickerFormat='yy-mm-dd';
+
 // default country for new address fields (must be defined in addressTypes variable - see common.js)
 var globalDefaultAddressCountry='us';
 // if there is no X-ABADR defined for the ADR attribute and the country name not matches any country name defined in the common.js the globalDefaultAddressCountry is used unless you define alternativne country names here
-//  the country must refer to existing country defined in the common.js and the regex is any regex string which matches the given country (note: regex match is case insensitive)
+//  the country must refer to an existing country defined in the common.js and the regex is any regex string which matches the given country (note: regex match is case insensitive)
 var globalAddressCountryEquivalence=[{country: 'de', regex: '^\\W*Deutschland\\W*$'}, {country: 'sk', regex: '^\\W*Slovensko\\W*$'}];
-// the countries listed here are shown at the top of the ADR country list (for example: ['de','sk'])
-//  the country must refer to an existing country defined in the common.js
+// countries listed here are shown at the top of the ADR country list (for example: ['de','sk'])
+//  values in the array must refer to an existing country defined in the common.js
 var globalAddressCountryFavorites=[];
 
 // editor hide information message (success, error) after X miliseconds
 var globalHideInfoMessageAfter=1800;
 
+// editor fade in/out animation duration (contact editing, saving)
+var globalEditorFadeAnimation=1000;
+
 // show login names in resource header information?
 var globalResourceHeaderShowLogin=true;
 
+// enable keyboard navigation?
+//  if undefined or not false, keyboard navigation is enabled
+var globalEnableKbNavigation=true;
+
 // asynchronously sync resources on background every X miliseconds (used for detection of collection changes in resources)
-var globalSyncResourcesInterval=30000;
+var globalSyncResourcesInterval=300000;
