@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<info>
+	<id>updater</id>
+	<name>Updater</name>
+	<description>Generic</description>
+	<version>0.1</version>
+	<licence>AGPL</licence>
+	<author>Victor Dubiniuk</author>
+	<require>4</require>
+		<types></types>
+</info>
