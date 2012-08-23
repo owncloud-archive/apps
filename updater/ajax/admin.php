@@ -24,6 +24,9 @@ $updateData = \OC_Updater::check();
 if (isset($updateData['version'])){
 	$packageVersion = $updateData['version'];
 }
+if (isset($updateData['url']) && extension_loaded('bz2')){
+	$packageUrl = $updateData['url'];
+}
 
 if (!$packageVersion){
 	\OCP\JSON::error(array('msg' => 'Version not found'));

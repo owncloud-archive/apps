@@ -20,7 +20,7 @@ class Downloader {
 		$path = \OC_Helper::tmpFile();
 
 		if (!copy($url, $path)) {
-			\OC_Log::write(App::APP_ID, 'Failed to download package', \OC_Log::ERROR);
+			\OC_Log::write(App::APP_ID, "Failed to download $url package to $path", \OC_Log::ERROR);
 			return false;
 		}
 
@@ -34,8 +34,8 @@ class Downloader {
 			rename($path, $path . '.tgz');
 			$path.='.tgz';
 		} elseif ($mime == 'application/x-bzip2'){
-			rename($path, $path . '.bz2');
-			$path.='.bz2';
+			rename($path, $path . '.tar.bz2');
+			$path.='.tar.bz2';
 		} else {
 			\OC_Log::write(App::APP_ID, 'Archives of type ' . $mime . ' are not supported', \OC_Log::ERROR);
 			return false;
@@ -47,10 +47,11 @@ class Downloader {
 			return false;
 		}
 
-		if ($archive = \OC_Archive::open($path)) {
+		$archive = \OC_Archive::open($path);
+		if ($archive) {
 			$archive->extract($extractDir);
 		} else {
-			\OC_Log::write(App::APP_ID, 'Failed to open package', \OC_Log::ERROR);
+			\OC_Log::write(App::APP_ID, "Failed to open package $path", \OC_Log::ERROR);
 			\OC_Helper::rmdirr($extractDir);
 			@unlink($path);
 			return false;
