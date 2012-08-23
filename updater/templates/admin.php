@@ -19,20 +19,23 @@
 	<br />
 	<?php $data=OC_Updater::check();
 		if(isset($data['version']) && !empty($data['version'])) { ?>
-			<button id="updater_backup"><?php echo $l->t('Update') ?></button>			
+			<button id="updater_backup"><?php echo $l->t('Update') ?></button>
+			
 	<?php	}		?>
 </fieldset>
 <script type="text/javascript">
     $(document).ready(function(){
 		$('#updater_backup').click(function(){
+			$('#updater_backup').attr('disabled', 'disabled');
+			$('#updater_backup').after('<div id="upgrade_status">In progress...</div>');
 			$.post(OC.filePath('updater', 'ajax', 'admin.php'),
 			{},
 			function(response){
 				if (response.status && response.status == 'success'){
-					alert('done');
+					$('#upgrade_status').html('Done. Reload the page to proceed.');
 				} else {
 					var error = response.msg ? ': '+response.msg : '';
-					alert('Error' + error);
+					$('#upgrade_status').html('Error' + error);
 				}
 			}
 		)
