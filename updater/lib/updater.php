@@ -34,7 +34,7 @@ class Updater {
 				get_include_path()
 		);
 
-		$tempPath = App::getBackupBase() . DIRECTORY_SEPARATOR . 'tmp';
+		$tempPath = App::getBackupBase() . 'tmp';
 		if  (!@mkdir($tempPath, 0777, true)){
 			return self::error('failed to create ' . $tempPath);
 		}
