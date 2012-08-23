@@ -1,3 +1,3 @@
 <?php $TRANSLATIONS = array(
-"Delete" => "Smazat"
+"unnamed" => "be pavadinimo"
 );
