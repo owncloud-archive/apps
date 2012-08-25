@@ -7,6 +7,7 @@
  */
 
 OCP\User::checkAdminUser();
+OCP\JSON::callCheck();
 
 OCP\Config::setSystemValue( 'somesetting', $_POST['somesetting'] );
 
