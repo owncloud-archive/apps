@@ -1,6 +1,6 @@
 <form id="external">
 	<fieldset class="personalblock">
-		<strong>External Sites</strong><br />
+		<strong><?php echo $l->t("External Sites"); ?></strong><br />
 		<ul class="external_sites">
 
 		<?php
@@ -15,7 +15,7 @@
 
 		</ul>
 
-        <input type="button" id="add_external_site" value="Add" />
+        <input type="button" id="add_external_site"><?php echo $l->t("Add"); ?></input>
 		<span class="msg"></span>
 	</fieldset>
 </form>

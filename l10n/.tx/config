@@ -81,3 +81,9 @@ source_file = templates/files_pdfviewer.pot
 source_lang = en
 type = PO
 
+[owncloud.external]
+file_filter = <lang>/external.po
+source_file = templates/external.pot
+source_lang = en
+type = PO
+
