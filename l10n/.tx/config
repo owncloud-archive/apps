@@ -93,3 +93,9 @@ source_file = templates/news.pot
 source_lang = en
 type = PO
 
+[owncloud.updater]
+file_filter = <lang>/updater.po
+source_file = templates/updater.pot
+source_lang = en
+type = PO
+
