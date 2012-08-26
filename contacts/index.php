@@ -52,7 +52,7 @@ OCP\Util::addscript('contacts', 'contacts');
 OCP\Util::addscript('contacts', 'expanding');
 OCP\Util::addscript('contacts', 'jquery.combobox');
 OCP\Util::addscript('files', 'jquery.fileupload');
-OCP\Util::addscript('contacts', 'jquery.inview');
+OCP\Util::addscript('core', 'jquery.inview');
 OCP\Util::addscript('contacts', 'jquery.Jcrop');
 OCP\Util::addscript('contacts', 'jquery.multi-autocomplete');
 OCP\Util::addStyle('', 'jquery.multiselect');
