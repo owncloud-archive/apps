@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<info>
+	<id>files_versions</id>
+	<name>Versions</name>
+	<licence>AGPL</licence>
+	<author>Frank Karlitschek</author>
+	<require>4</require>
+	<shipped>true</shipped>
+	<description>Versioning of files</description>
+	<types>
+		<filesystem/>
+	</types>
+	<default_enable/>
+</info>
