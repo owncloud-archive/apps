@@ -16,7 +16,7 @@
 #uploadprogressbar { display: none; padding: 0; bottom: 3em; height:2em; width: 20em; margin:0; background:#eee; border:1px solid #ccc; position:fixed; }
 #contacts_newcontact, #bottomcontrols .settings { float: left; margin: 0.2em 0 0 1em; border: 0 none; border-radius: 0; -moz-box-shadow: none; box-shadow: none; outline: 0 none; }
 #bottomcontrols .settings { float: right; margin: 0.2em 1em 0 0; }
-#actionbar { clear: both; height: 30px;}
+#actionbar { clear: both; height: 30px; position: fixed; top:200px; }
 #contacts_deletecard {position:relative; float:left; background:url('%webroot%/core/img/actions/delete.svg') no-repeat center; }
 #contacts_downloadcard {position:relative; float:left; background:url('%webroot%/core/img/actions/download.svg') no-repeat center; }
 #contacts_propertymenu { clear: left; float:left; max-width: 15em; margin: 2em; }
@@ -32,7 +32,7 @@
 
 #card input[type="text"].contacts_property,input[type="email"].contacts_property,input[type="url"].contacts_property { width: 14em; float: left; font-weight: bold; }
 .categories { float: left; width: 16em; }
-#card input[type="checkbox"].contacts_property, #card input[type="text"], #card input[type="email"], #card input[type="url"], #card input[type="tel"], #card input[type="date"], #card select, #card textarea { background-color: #fefefe; border: 0 !important; -moz-appearance:none  !important; -webkit-box-sizing:none !important; -moz-box-sizing:none !important; box-sizing:none !important; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; float: left; }
+#card input[type="checkbox"].contacts_property, #card input[type="text"], #card input[type="email"], #card input[type="url"], #card input[type="tel"], #card input[type="date"], #card select, #card textarea { background-color: #fefefe; border: 0 !important; -moz-appearance:none  !important; -webkit-box-sizing:none !important; -moz-box-sizing:none !important; box-sizing:none !important; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; float: left; font-size: 14px; }
 #card input[type="text"]:hover, #card input[type="text"]:focus, #card input[type="text"]:active, input[type="email"]:hover, #card input[type="url"]:hover, #card input[type="tel"]:hover, #card input[type="date"]:hover, #card input[type="date"], #card input[type="date"]:hover, #card input[type="date"]:active, #card input[type="date"]:active, #card input[type="date"]:active, #card input[type="email"]:active, #card input[type="url"]:active, #card input[type="tel"]:active, #card textarea:focus, #card textarea:hover { border: 0 !important; -webkit-appearance:textfield; -moz-appearance:textfield; -webkit-box-sizing:content-box; -moz-box-sizing:content-box; box-sizing:content-box; background:#fff; color:#333; border:1px solid #ddd; -moz-box-shadow:0 1px 1px #ddd, 0 2px 0 #bbb inset; -webkit-box-shadow:0 1px 1px #ddd, 0 1px 0 #bbb inset; box-shadow:0 1px 1px #ddd, 0 1px 0 #bbb inset; -moz-border-radius:.5em; -webkit-border-radius:.5em; border-radius:.5em; outline:none; float: left; }
 #card textarea { width: 80%; min-height: 5em; min-width: 30em; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
 dl.form { width: 100%; float: left; clear: right; margin: 0; padding: 0; cursor: normal; }
@@ -71,9 +71,9 @@ label:hover, dt:hover { color: #333; }
 #fn { float: left !important; width: 18em !important; }
 #name { /*position: absolute; top: 0px; left: 0px;*/ min-width: 25em; height: 2em; clear: right; display: block; }
 #identityprops { /*position: absolute; top: 2.5em; left: 0px;*/ }
-#contact_photo { float: left; margin: 1em; }
-#contact_identity { min-width: 30em; padding: 0.5em;}
-.contactsection { position: relative; float: left; width: 35em; padding: 0.5em; height: auto; }
+#contact_photo { position: fixed; padding: 0.5em ; }
+#contact_identity { min-width: 30em; padding: 0.5em; }
+.contactsection { position: relative; clear: left; width: 50em; margin-left:200px; height: auto; }
 
 #cropbox { margin: auto; }
 #contacts_details_photo_wrapper { width: 150px; }
@@ -86,8 +86,8 @@ label:hover, dt:hover { color: #333; }
 #phototools li a:hover { opacity: 0.8; }
 
 /* Address editor */
-#addressdisplay { padding: 0.5em; }
-dl.addresscard { background-color: #fff; float: left; width: auto; margin: 0 0.3em 0.3em 0.3em; padding: 0; border: 0; }
+#addressdisplay { padding: 0.5em; clear:left; max-width: 30px; }
+dl.addresscard { background-color: #fff; clear: left; width: auto; margin: 0 0.3em 0.3em 0.3em; padding: 0; border: 0; }
 dl.addresscard dd {}
 dl.addresscard dt { padding: 0.3em; font-weight: bold; clear: both; color: #aaa; }
 dl.addresscard dt:hover { color:#777; }
@@ -126,8 +126,6 @@ input[type="checkbox"] { width: 20px; height: 20px; vertical-align: bottom; }
 .propertylist li > .select_wrapper select { float: left; overflow: hidden; color: #bbb; }
 .propertylist li > .select_wrapper select option { color: #777; }
 .propertylist li > .select_wrapper select:hover,.propertylist li > select:focus,.propertylist li > select:active { color: #777; }
-.propertylist li > .select_wrapper select.impp { margin-left: -23px; direction: rtl; }
-.propertylist li > .select_wrapper select.types { margin-right: -23px; }
 .propertylist li > input[type="checkbox"].impp { clear: none; }
 .propertylist li > label.xab { display: block; color: #bbb; float:left; clear: both; padding: 0.5em 0 0 2.5em; }
 .propertylist li > label.xab:hover { color: #777; }
