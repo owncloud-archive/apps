@@ -43,14 +43,14 @@
    <field>
     <name>startdate</name>
     <type>timestamp</type>
-    <default>CURRENT_TIMESTAMP</default>
+    <default>0000-00-00 00:00:00</default>
     <notnull>false</notnull>
    </field>
 
    <field>
     <name>enddate</name>
     <type>timestamp</type>
-    <default>CURRENT_TIMESTAMP</default>
+    <default>0000-00-00 00:00:00</default>
     <notnull>false</notnull>
    </field>
 
