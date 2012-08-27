@@ -28,7 +28,9 @@ OC::$CLASSPATH['OC_Gallery_Sharing'] = 'gallery/lib/sharing.php';
 OC::$CLASSPATH['OC_Gallery_Hooks_Handlers'] = 'gallery/lib/hooks_handlers.php';
 OC::$CLASSPATH['OC\Pictures\ThumbnailsManager'] = 'gallery/lib/managers.php';
 OC::$CLASSPATH['OC\Pictures\DatabaseManager'] = 'gallery/lib/managers.php';
-OC::$CLASSPATH['Pictures_Tiles'] = 'gallery/lib/tiles.php';
+OC::$CLASSPATH['OC\Pictures\TilesLine'] = 'gallery/lib/tiles.php';
+OC::$CLASSPATH['OC\Pictures\TileSingle'] = 'gallery/lib/tiles.php';
+OC::$CLASSPATH['OC\Pictures\TileStack'] = 'gallery/lib/tiles.php';
 OC::$CLASSPATH['OC_Share_Backend_Photo'] = 'gallery/lib/share.php';
 
 // OCP\Share::registerBackend('photo', new OC_Share_Backend_Photo());
@@ -56,4 +58,5 @@ class OC_GallerySearchProvider extends OC_Search_Provider{
 
 //OC_Search::registerProvider('OC_GallerySearchProvider');
 
-require_once('gallery/lib/hooks_handlers.php');
+OCP\Util::connectHook('OC_Filesystem', 'delete', "OC_Gallery_Hooks_Handlers", "removePhoto");
+//OCP\Util::connectHook(OC_Filesystem::CLASSNAME, OC_Filesystem::signal_post_rename, "OC_Gallery_Hooks_Handlers", "renamePhoto");

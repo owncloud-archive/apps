@@ -37,8 +37,6 @@ OCP\Util::addScript('gallery', 'jquery.easing.min');
 OCP\Util::addScript('gallery', 'supersized.3.2.7.min');
 OCP\Util::addScript('gallery', 'supersized.shutter.min');
 
-include 'gallery/lib/tiles.php';
-
 $root = !empty($_GET['root']) ? $_GET['root'] : '/';
 $images = \OC_FileCache::searchByMime('image', null, '/'.\OCP\USER::getUser().'/files'.$root);
 sort($images);

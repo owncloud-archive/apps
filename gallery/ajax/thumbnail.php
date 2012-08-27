@@ -25,7 +25,6 @@ OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('gallery');
 session_write_close();
 
-
 $img = $_GET['filepath'];
 
 $image = \OC\Pictures\ThumbnailsManager::getInstance()->getThumbnail($img);

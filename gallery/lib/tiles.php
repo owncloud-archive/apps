@@ -2,9 +2,6 @@
 
 namespace OC\Pictures;
 
-require_once('lib/base.php');
-require_once('managers.php');
-
 const TAG = 'Pictures';
 const IMAGE_WIDTH = 150;
 
