@@ -2,7 +2,7 @@
 <info>
 	<id>files_streamer</id>
 	<name>Video Streamer</name>
-	<description>Simple video streamer based on JWPlayer.</description>
+	<description>Simple video streamer based on MediaElement.js by John Dyer.</description>
 	<licence>AGPL</licence>
 	<author>Dmitry Prichina</author>
 	<require>4</require>
