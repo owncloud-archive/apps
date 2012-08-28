@@ -5,5 +5,6 @@
 	<description>Simple video player based on MediaElement.js by John Dyer.</description>
 	<licence>AGPL</licence>
 	<author>Victor Dubiniuk</author>
+	<shipped>true</shipped>
 	<require>4</require>
 </info>
