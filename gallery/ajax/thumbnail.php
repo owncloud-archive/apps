@@ -24,7 +24,6 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('gallery');
 session_write_close();
-require_once('apps/gallery/lib/managers.php');
 
 
 $img = $_GET['filepath'];

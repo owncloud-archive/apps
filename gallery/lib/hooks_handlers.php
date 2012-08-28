@@ -24,8 +24,6 @@
 OCP\Util::connectHook('OC_Filesystem', 'delete', "OC_Gallery_Hooks_Handlers", "removePhoto");
 //OCP\Util::connectHook(OC_Filesystem::CLASSNAME, OC_Filesystem::signal_post_rename, "OC_Gallery_Hooks_Handlers", "renamePhoto");
 
-require_once(OC::$CLASSPATH['Pictures_Managers']);
-
 class OC_Gallery_Hooks_Handlers {
 
 	public static function removePhoto($params) {

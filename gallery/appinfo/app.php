@@ -26,7 +26,8 @@ OC::$CLASSPATH['OC_Gallery_Photo'] = 'gallery/lib/photo.php';
 OC::$CLASSPATH['OC_Gallery_Scanner'] = 'gallery/lib/scanner.php';
 OC::$CLASSPATH['OC_Gallery_Sharing'] = 'gallery/lib/sharing.php';
 OC::$CLASSPATH['OC_Gallery_Hooks_Handlers'] = 'gallery/lib/hooks_handlers.php';
-OC::$CLASSPATH['Pictures_Managers'] = 'gallery/lib/managers.php';
+OC::$CLASSPATH['OC\Pictures\ThumbnailsManager'] = 'gallery/lib/managers.php';
+OC::$CLASSPATH['OC\Pictures\DatabaseManager'] = 'gallery/lib/managers.php';
 OC::$CLASSPATH['Pictures_Tiles'] = 'gallery/lib/tiles.php';
 OC::$CLASSPATH['OC_Share_Backend_Photo'] = 'gallery/lib/share.php';
 
