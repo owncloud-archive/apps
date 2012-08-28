@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <appweb.cn@gmail.com>, 2012.
 # Phoenix Nemo <>, 2012.
 #   <rainofchaos@gmail.com>, 2012.
 #   <wengxt@gmail.com>, 2011, 2012.
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-11 02:02+0200\n"
-"PO-Revision-Date: 2012-08-11 00:02+0000\n"
-"Last-Translator: owncloud_robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-08-28 02:01+0200\n"
+"PO-Revision-Date: 2012-08-27 02:18+0000\n"
+"Last-Translator: hanfeng <appweb.cn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -71,7 +72,7 @@ msgstr "时区已修改"
 msgid "Invalid request"
 msgstr "非法请求"
 
-#: appinfo/app.php:35 templates/calendar.php:15
+#: appinfo/app.php:41 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "日历"
@@ -82,15 +83,15 @@ msgstr "ddd"
 
 #: js/calendar.js:833
 msgid "ddd M/d"
-msgstr ""
+msgstr "ddd M/d"
 
 #: js/calendar.js:834
 msgid "dddd M/d"
-msgstr ""
+msgstr "dddd M/d"
 
 #: js/calendar.js:837
 msgid "MMMM yyyy"
-msgstr ""
+msgstr "MMMM yyyy"
 
 #: js/calendar.js:839
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
@@ -98,7 +99,7 @@ msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:841
 msgid "dddd, MMM d, yyyy"
-msgstr ""
+msgstr "dddd, MMM d, yyyy"
 
 #: lib/app.php:121
 msgid "Birthday"
@@ -351,79 +352,79 @@ msgstr "日历"
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "星期天"
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "星期一"
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "星期二"
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "星期三"
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "星期四"
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "星期五"
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "星期六"
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "一月"
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "二月"
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "三月"
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "四月"
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "五月"
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "六月"
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "七月"
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "八月"
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "九月"
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "十月"
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "十一月"
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "十二月"
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -480,7 +481,7 @@ msgstr "今天"
 
 #: templates/calendar.php:46 templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -688,7 +689,7 @@ msgstr "导入日历文件"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "请选择日历"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
@@ -742,11 +743,11 @@ msgstr "时区"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr ""
+msgstr "自动更新时区"
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "时间格式"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -762,7 +763,7 @@ msgstr ""
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr ""
+msgstr "缓存"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
@@ -770,7 +771,7 @@ msgstr ""
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "连接"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
@@ -786,11 +787,11 @@ msgstr ""
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr ""
+msgstr "只读 iCanlendar 连接"
 
 #: templates/share.dropdown.php:20
 msgid "Users"

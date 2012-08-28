@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-25 02:04+0200\n"
-"PO-Revision-Date: 2012-08-24 13:10+0000\n"
+"POT-Creation-Date: 2012-08-28 02:01+0200\n"
+"PO-Revision-Date: 2012-08-27 17:21+0000\n"
 "Last-Translator: Denis <reg.transifex.net@demitel.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -261,7 +261,7 @@ msgstr "Ошибка доступа"
 
 #: js/contacts.js:763
 msgid "This property has to be non-empty."
-msgstr "Это свойство должно быть не пустым."
+msgstr "Это поле не должно быть пустым."
 
 #: js/contacts.js:789
 msgid "Couldn't serialize elements."
@@ -390,7 +390,7 @@ msgstr "Рабочий"
 msgid "Home"
 msgstr "Домашний"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:593
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:586
 msgid "Other"
 msgstr "Другое"
 
@@ -487,11 +487,11 @@ msgstr "День рождения {name}"
 msgid "Contact"
 msgstr "Контакт"
 
-#: lib/vcard.php:408
+#: lib/vcard.php:401
 msgid "You do not have the permissions to edit this contact."
 msgstr "У вас нет разрешений редактировать этот контакт."
 
-#: lib/vcard.php:483
+#: lib/vcard.php:476
 msgid "You do not have the permissions to delete this contact."
 msgstr "У вас нет разрешений удалять этот контакт."
 
@@ -645,11 +645,11 @@ msgstr "Предпочитаемый"
 
 #: templates/part.contact.php:60
 msgid "Please specify a valid email address."
-msgstr "Укажите действительный адрес электронной почты."
+msgstr "Укажите правильный адрес электронной почты."
 
 #: templates/part.contact.php:60
 msgid "Enter email address"
-msgstr "Укажите адрес электронной почты"
+msgstr "Укажите эл. почту"
 
 #: templates/part.contact.php:64
 msgid "Mail to address"
@@ -661,7 +661,7 @@ msgstr "Удалить адрес электронной почты"
 
 #: templates/part.contact.php:75
 msgid "Enter phone number"
-msgstr "Ввести номер телефона"
+msgstr "Введите номер телефона"
 
 #: templates/part.contact.php:79
 msgid "Delete phone number"
@@ -681,7 +681,7 @@ msgstr "Показать на карте"
 
 #: templates/part.contact.php:110
 msgid "Edit address details"
-msgstr "Ввести детали адреса"
+msgstr "Введите детали адреса"
 
 #: templates/part.contact.php:116
 msgid "Add notes here."
@@ -697,7 +697,7 @@ msgstr "Телефон"
 
 #: templates/part.contact.php:130
 msgid "Email"
-msgstr "Ящик эл. почты"
+msgstr "Эл. почта"
 
 #: templates/part.contact.php:131
 msgid "Instant Messaging"
@@ -784,7 +784,7 @@ msgstr "Адресная книга"
 
 #: templates/part.edit_name_dialog.php:23
 msgid "Hon. prefixes"
-msgstr "Уважительные префиксы"
+msgstr "Префикс имени"
 
 #: templates/part.edit_name_dialog.php:27
 msgid "Miss"
@@ -816,7 +816,7 @@ msgstr "Имя"
 
 #: templates/part.edit_name_dialog.php:37
 msgid "Additional names"
-msgstr "Дополнительные имена (отчество)"
+msgstr "Отчество"
 
 #: templates/part.edit_name_dialog.php:39
 msgid "Family name"
@@ -824,7 +824,7 @@ msgstr "Фамилия"
 
 #: templates/part.edit_name_dialog.php:41
 msgid "Hon. suffixes"
-msgstr "Hon. suffixes"
+msgstr "Суффикс имени"
 
 #: templates/part.edit_name_dialog.php:45
 msgid "J.D."
@@ -900,7 +900,7 @@ msgstr "Ввдите описание"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"
-msgstr "CardDAV синхронизации адресов"
+msgstr "Синхронизация адресов CardDAV"
 
 #: templates/settings.php:3
 msgid "more info"

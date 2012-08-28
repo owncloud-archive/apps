@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <ajarmund@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-27 01:38+0200\n"
-"PO-Revision-Date: 2012-08-26 23:39+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-08-28 02:01+0200\n"
+"PO-Revision-Date: 2012-08-27 15:39+0000\n"
+"Last-Translator: anjar <ajarmund@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,31 +20,31 @@ msgstr ""
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
-msgstr ""
+msgstr "Nyhetskilden finnes fra før."
 
 #: ajax/createfeed.php:57
 msgid "Error adding feed."
-msgstr ""
+msgstr "Kunne ikke legge til nyhetskilde."
 
 #: ajax/createfeed.php:74 js/news.js:141
 msgid "Feed added!"
-msgstr ""
+msgstr "Nyhetskilde lagt til!"
 
 #: ajax/createfolder.php:36
 msgid "Error adding folder."
-msgstr ""
+msgstr "Kunne ikke legge til mappe."
 
 #: ajax/createfolder.php:46
 msgid "Folder added!"
-msgstr ""
+msgstr "Mappen er lagt til!"
 
 #: ajax/deletefeed.php:28
 msgid "Error removing feed."
-msgstr ""
+msgstr "Kunne ikke fjerne nyhetskilde."
 
 #: ajax/deletefolder.php:27
 msgid "Error removing folder."
-msgstr ""
+msgstr "Kunne ikke fjerne mappe."
 
 #: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
@@ -55,27 +56,27 @@ msgstr ""
 
 #: ajax/feedlist.php:27
 msgid "Error updating feeds."
-msgstr ""
+msgstr "Kunne ikke oppdatere nyhetskilde."
 
 #: ajax/loadfeed.php:35 templates/part.feeds.php:77
 msgid "Starred"
-msgstr ""
+msgstr "Merket"
 
 #: ajax/loadfeed.php:40 templates/part.feeds.php:73
 msgid "New articles"
-msgstr ""
+msgstr "Nye artikler"
 
 #: ajax/loadfeed.php:52
 msgid "Feed loaded!"
-msgstr ""
+msgstr "Nyhetskilde lastet!"
 
 #: ajax/movefeedtofolder.php:33
 msgid "Error moving feed into folder."
-msgstr ""
+msgstr "Kunne ikke flytte nyhetskilden til mappen."
 
 #: ajax/selectfromcloud.php:37
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "Filen eksisterer ikke:"
 
 #: ajax/setallitemsread.php:54
 msgid "Error setting all items as read."
@@ -83,55 +84,55 @@ msgstr ""
 
 #: ajax/setitemstatus.php:46
 msgid "Error marking item as read."
-msgstr ""
+msgstr "Kunne ikke merke filen som lest."
 
 #: ajax/updatefeed.php:36
 msgid "Error updating feed."
-msgstr ""
+msgstr "Kunne ikke oppdatere nyhetskilde."
 
 #: ajax/updatefeed.php:44
 msgid "Feed updated!"
-msgstr ""
+msgstr "Nyhetskilde oppdatert!"
 
 #: appinfo/app.php:35
 msgid "News"
-msgstr ""
+msgstr "Nyheter"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
-msgstr ""
+msgstr "Mappenavnet kan ikke være tomt."
 
 #: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
 #: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
 #: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:40
 #: js/settings.js:49
 msgid "Error"
-msgstr ""
+msgstr "Feil"
 
 #: js/news.js:55 js/news.js:113
 msgid "Adding..."
-msgstr ""
+msgstr "Legger til..."
 
 #: js/news.js:78 templates/part.folderdialog.php:14
 msgid "Add folder"
-msgstr ""
+msgstr "Legg til mappe"
 
 #: js/news.js:83
 msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette mappen og alt dets innhold?"
 
 #: js/news.js:83 js/news.js:165
 msgid "Warning"
-msgstr ""
+msgstr "Advarsel"
 
 #: js/news.js:108
 msgid "URL cannot be empty."
-msgstr ""
+msgstr "URL-en kan ikke være tom."
 
 #: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:7
 #: templates/part.nofeeds.php:9
 msgid "Add feed"
-msgstr ""
+msgstr "Legg til nyhetskilde"
 
 #: js/news.js:156
 msgid "Error while parsing the feed"
@@ -143,11 +144,11 @@ msgstr ""
 
 #: js/news.js:165
 msgid "Are you sure you want to delete this feed?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette denne nyhetskilden?"
 
 #: js/news.js:208 js/news.js:245
 msgid "Error while loading the feed"
-msgstr ""
+msgstr "Kunne ikke laste nyhetskilden"
 
 #: js/news.js:324
 msgid "Error while saving the feed in a folder"
@@ -155,23 +156,23 @@ msgstr ""
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
-msgstr ""
+msgstr "Fil"
 
 #: js/settings.js:11
 msgid " loaded from cloud."
-msgstr ""
+msgstr "lastet fra skyen."
 
 #: js/settings.js:22
 msgid "No files selected."
-msgstr ""
+msgstr "Ingen filer valgt."
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
-msgstr ""
+msgstr "lastet fra lokalt filsystem."
 
 #: js/settings.js:32
 msgid "Importing..."
-msgstr ""
+msgstr "Importerer..."
 
 #: js/settings.js:40
 msgid "Import kind not specified"
@@ -179,7 +180,7 @@ msgstr ""
 
 #: js/settings.js:45
 msgid " out of "
-msgstr ""
+msgstr "av"
 
 #: js/settings.js:46
 msgid " feeds imported successfully from "
@@ -187,35 +188,35 @@ msgstr ""
 
 #: js/settings.js:47
 msgid "Success"
-msgstr ""
+msgstr "Suksess"
 
 #: js/settings.js:51 templates/settings.php:10
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 #: js/settings.js:57
 msgid "Downloading..."
-msgstr ""
+msgstr "Laster ned..."
 
 #: js/settings.js:59
 msgid "Download"
-msgstr ""
+msgstr "Last ned"
 
 #: js/settings.js:71
 msgid "Select file"
-msgstr ""
+msgstr "Velg fil"
 
 #: lib/feedmapper.php:174 lib/itemmapper.php:199
 msgid "no title"
-msgstr ""
+msgstr "Ingen tittel"
 
 #: lib/foldermapper.php:114
 msgid "no name"
-msgstr ""
+msgstr "Ingen navn"
 
 #: lib/itemmapper.php:204
 msgid "no body"
-msgstr ""
+msgstr "Ingen body"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
@@ -223,99 +224,99 @@ msgstr ""
 
 #: subscribe.php:30
 msgid "An error occurred"
-msgstr ""
+msgstr "En feil har oppstått"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr ""
+msgstr "Flott! Du abonnerer på"
 
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
-msgstr ""
+msgstr "Du abonnerer allerede på denne nyhetskilden!"
 
 #: templates/main.php:12
 msgid "Show everything"
-msgstr ""
+msgstr "Vis alt"
 
 #: templates/main.php:16
 msgid "Show only unread"
-msgstr ""
+msgstr "Vis kun uleste"
 
 #: templates/main.php:32
 msgid "Add feed or folder"
-msgstr ""
+msgstr "Legg til nyhetskilde eller mappe"
 
 #: templates/main.php:33
 msgid "Add Feed/Folder"
-msgstr ""
+msgstr "Legg til nyhetskilde/mappe"
 
 #: templates/main.php:35
 msgid "Feed"
-msgstr ""
+msgstr "Nyhetskilde"
 
 #: templates/main.php:36
 msgid "Folder"
-msgstr ""
+msgstr "Mappe"
 
 #: templates/main.php:43
 msgid "Settings"
-msgstr ""
+msgstr "Innstillinger"
 
 #: templates/part.feeddialog.php:2
 msgid "Add Subscription"
-msgstr ""
+msgstr "Legg til abonnement"
 
 #: templates/part.feeddialog.php:9
 msgid "Choose folder"
-msgstr ""
+msgstr "Velg mappe"
 
 #: templates/part.feeddialog.php:19 templates/part.nofeeds.php:6
 msgid "Address"
-msgstr ""
+msgstr "Adresser"
 
 #: templates/part.feeddialog.php:20
 msgid "Add"
-msgstr ""
+msgstr "Legg til"
 
 #: templates/part.folderdialog.php:2
 msgid "Add Folder"
-msgstr ""
+msgstr "Legg til mappe"
 
 #: templates/part.folderdialog.php:13
 msgid "Folder name"
-msgstr ""
+msgstr "Mappenavn"
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
-msgstr ""
+msgstr "Merk som uviktig"
 
 #: templates/part.items.php:38
 msgid "Mark as important"
-msgstr ""
+msgstr "Merk som viktig"
 
 #: templates/part.items.php:55
 msgid "from"
-msgstr ""
+msgstr "fra"
 
 #: templates/part.items.php:60
 msgid "by"
-msgstr ""
+msgstr "av"
 
 #: templates/part.items.php:67
 msgid "Keep unread"
-msgstr ""
+msgstr "Merk som ulest"
 
 #: templates/part.listfeed.php:22
 msgid "Delete feed"
-msgstr ""
+msgstr "Slett nyhetskilden"
 
 #: templates/part.listfolder.php:17
 msgid "Rename folder"
-msgstr ""
+msgstr "Gi mappen nytt navn"
 
 #: templates/part.listfolder.php:18
 msgid "Delete folder"
-msgstr ""
+msgstr "Slett mappe"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
@@ -327,51 +328,51 @@ msgstr ""
 
 #: templates/part.nofeeds.php:15
 msgid "Or..."
-msgstr ""
+msgstr "Eller..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
-msgstr ""
+msgstr "Importer nyhetskilder"
 
 #: templates/settings.php:3
 msgid "Upload file from desktop"
-msgstr ""
+msgstr "Last opp fil fra skrivebord"
 
 #: templates/settings.php:3
 msgid "Upload"
-msgstr ""
+msgstr "Last opp"
 
 #: templates/settings.php:4
 msgid "Select file from ownCloud"
-msgstr ""
+msgstr "Velg fil fra ownCloud"
 
 #: templates/settings.php:4
 msgid "Select"
-msgstr ""
+msgstr "Velg"
 
 #: templates/settings.php:6
 msgid "No file selected. Select file from "
-msgstr ""
+msgstr "Ingen filer valgt. Velg fil fra"
 
 #: templates/settings.php:6
 msgid "local filesystem"
-msgstr ""
+msgstr "lokalt filsystem"
 
 #: templates/settings.php:7
 msgid " or "
-msgstr ""
+msgstr "eller"
 
 #: templates/settings.php:7
 msgid "cloud"
-msgstr ""
+msgstr "skyen"
 
 #: templates/settings.php:12
 msgid "Export feeds"
-msgstr ""
+msgstr "Eksporter nyhetskilder"
 
 #: templates/settings.php:14
 msgid "Download OPML"
-msgstr ""
+msgstr "Last ned OPML"
 
 #: templates/settings.php:16
 msgid "Subscribelet"
@@ -385,4 +386,4 @@ msgstr ""
 
 #: templates/subscribelet.php:7
 msgid "Subscribe"
-msgstr ""
+msgstr "Abonner"

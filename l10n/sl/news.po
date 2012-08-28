@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Peter Peroša <peter.perosa@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-27 01:38+0200\n"
-"PO-Revision-Date: 2012-08-26 23:39+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-08-28 02:01+0200\n"
+"PO-Revision-Date: 2012-08-27 14:08+0000\n"
+"Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,370 +20,370 @@ msgstr ""
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
-msgstr ""
+msgstr "Vir že obstaja."
 
 #: ajax/createfeed.php:57
 msgid "Error adding feed."
-msgstr ""
+msgstr "Napaka pri dodajanju vira."
 
 #: ajax/createfeed.php:74 js/news.js:141
 msgid "Feed added!"
-msgstr ""
+msgstr "Vir je bil dodan!"
 
 #: ajax/createfolder.php:36
 msgid "Error adding folder."
-msgstr ""
+msgstr "Napaka pri dodajanju mape."
 
 #: ajax/createfolder.php:46
 msgid "Folder added!"
-msgstr ""
+msgstr "Mapa je bila dodana!"
 
 #: ajax/deletefeed.php:28
 msgid "Error removing feed."
-msgstr ""
+msgstr "Napaka pri odstranjevanju vira."
 
 #: ajax/deletefolder.php:27
 msgid "Error removing folder."
-msgstr ""
+msgstr "Napaka pri odstranjevanju mape."
 
 #: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
-msgstr ""
+msgstr "Pot do datoteke ni bila poslana."
 
 #: ajax/exportopml.php:41 ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
-msgstr ""
+msgstr "Pri razčlenjevanju datoteke je prišlo do napake."
 
 #: ajax/feedlist.php:27
 msgid "Error updating feeds."
-msgstr ""
+msgstr "Napaka pri posodabljanju virov."
 
 #: ajax/loadfeed.php:35 templates/part.feeds.php:77
 msgid "Starred"
-msgstr ""
+msgstr "Z zvezdico"
 
 #: ajax/loadfeed.php:40 templates/part.feeds.php:73
 msgid "New articles"
-msgstr ""
+msgstr "Novi članki"
 
 #: ajax/loadfeed.php:52
 msgid "Feed loaded!"
-msgstr ""
+msgstr "Vir je bil naložen!"
 
 #: ajax/movefeedtofolder.php:33
 msgid "Error moving feed into folder."
-msgstr ""
+msgstr "Napaka pri premikanju vira v mapo."
 
 #: ajax/selectfromcloud.php:37
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "Datoteka ne obstaja:"
 
 #: ajax/setallitemsread.php:54
 msgid "Error setting all items as read."
-msgstr ""
+msgstr "Napaka pri označevanju vseh predmetov za prebrane."
 
 #: ajax/setitemstatus.php:46
 msgid "Error marking item as read."
-msgstr ""
+msgstr "Napaka pri označevanju predmeta za prebranega."
 
 #: ajax/updatefeed.php:36
 msgid "Error updating feed."
-msgstr ""
+msgstr "Napaka pri posodabljanju vira."
 
 #: ajax/updatefeed.php:44
 msgid "Feed updated!"
-msgstr ""
+msgstr "Vir je bil posodobljen!"
 
 #: appinfo/app.php:35
 msgid "News"
-msgstr ""
+msgstr "Novice"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
-msgstr ""
+msgstr "Mapa mora imeti ime."
 
 #: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
 #: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
 #: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:40
 #: js/settings.js:49
 msgid "Error"
-msgstr ""
+msgstr "Napaka"
 
 #: js/news.js:55 js/news.js:113
 msgid "Adding..."
-msgstr ""
+msgstr "Dodajanje..."
 
 #: js/news.js:78 templates/part.folderdialog.php:14
 msgid "Add folder"
-msgstr ""
+msgstr "Dodaj mapo"
 
 #: js/news.js:83
 msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr ""
+msgstr "Ali ste prepričani, da želite izbrisati to mapo in vse njene vire?"
 
 #: js/news.js:83 js/news.js:165
 msgid "Warning"
-msgstr ""
+msgstr "Opozorilo"
 
 #: js/news.js:108
 msgid "URL cannot be empty."
-msgstr ""
+msgstr "URL ne more biti prazen."
 
 #: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:7
 #: templates/part.nofeeds.php:9
 msgid "Add feed"
-msgstr ""
+msgstr "Dodaj vir"
 
 #: js/news.js:156
 msgid "Error while parsing the feed"
-msgstr ""
+msgstr "Napaka pri razčlenjevanju vira"
 
 #: js/news.js:156
 msgid "Fatal Error"
-msgstr ""
+msgstr "Usodna napaka"
 
 #: js/news.js:165
 msgid "Are you sure you want to delete this feed?"
-msgstr ""
+msgstr "Ali ste prepričani, da želite izbrisati ta vir?"
 
 #: js/news.js:208 js/news.js:245
 msgid "Error while loading the feed"
-msgstr ""
+msgstr "Napaka pri nalaganju vira"
 
 #: js/news.js:324
 msgid "Error while saving the feed in a folder"
-msgstr ""
+msgstr "Napaka pri shranjevanju vira v mapo"
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
-msgstr ""
+msgstr "Datoteka"
 
 #: js/settings.js:11
 msgid " loaded from cloud."
-msgstr ""
+msgstr "naloženo iz oblaka."
 
 #: js/settings.js:22
 msgid "No files selected."
-msgstr ""
+msgstr "Datoteka ni izbrana."
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
-msgstr ""
+msgstr "naloženo iz lokalnega datotečnega sistema"
 
 #: js/settings.js:32
 msgid "Importing..."
-msgstr ""
+msgstr "Uvažanje..."
 
 #: js/settings.js:40
 msgid "Import kind not specified"
-msgstr ""
+msgstr "Tip uvoza ni bil naveden"
 
 #: js/settings.js:45
 msgid " out of "
-msgstr ""
+msgstr "od"
 
 #: js/settings.js:46
 msgid " feeds imported successfully from "
-msgstr ""
+msgstr "viri uspešno uvoženi iz"
 
 #: js/settings.js:47
 msgid "Success"
-msgstr ""
+msgstr "Uspeh"
 
 #: js/settings.js:51 templates/settings.php:10
 msgid "Import"
-msgstr ""
+msgstr "Uvozi"
 
 #: js/settings.js:57
 msgid "Downloading..."
-msgstr ""
+msgstr "Prenašam..."
 
 #: js/settings.js:59
 msgid "Download"
-msgstr ""
+msgstr "Prenesi"
 
 #: js/settings.js:71
 msgid "Select file"
-msgstr ""
+msgstr "Izberi datoteko"
 
 #: lib/feedmapper.php:174 lib/itemmapper.php:199
 msgid "no title"
-msgstr ""
+msgstr "brez naslova"
 
 #: lib/foldermapper.php:114
 msgid "no name"
-msgstr ""
+msgstr "brez imena"
 
 #: lib/itemmapper.php:204
 msgid "no body"
-msgstr ""
+msgstr "brez vsebine"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "naročnine v ownCloud - Novice"
 
 #: subscribe.php:30
 msgid "An error occurred"
-msgstr ""
+msgstr "Prišlo je do napake"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr ""
+msgstr "Naročili ste se na"
 
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
-msgstr ""
+msgstr "Na ta vir ste že naročeni!"
 
 #: templates/main.php:12
 msgid "Show everything"
-msgstr ""
+msgstr "Pokaži vse"
 
 #: templates/main.php:16
 msgid "Show only unread"
-msgstr ""
+msgstr "Prikaži le neprebrano"
 
 #: templates/main.php:32
 msgid "Add feed or folder"
-msgstr ""
+msgstr "Dodaj vir ali mapo"
 
 #: templates/main.php:33
 msgid "Add Feed/Folder"
-msgstr ""
+msgstr "Dodaj vit/mapo"
 
 #: templates/main.php:35
 msgid "Feed"
-msgstr ""
+msgstr "Vir"
 
 #: templates/main.php:36
 msgid "Folder"
-msgstr ""
+msgstr "Mapa"
 
 #: templates/main.php:43
 msgid "Settings"
-msgstr ""
+msgstr "Nastavitve"
 
 #: templates/part.feeddialog.php:2
 msgid "Add Subscription"
-msgstr ""
+msgstr "Dodaj naročnino"
 
 #: templates/part.feeddialog.php:9
 msgid "Choose folder"
-msgstr ""
+msgstr "Izberite mapo"
 
 #: templates/part.feeddialog.php:19 templates/part.nofeeds.php:6
 msgid "Address"
-msgstr ""
+msgstr "Naslov"
 
 #: templates/part.feeddialog.php:20
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #: templates/part.folderdialog.php:2
 msgid "Add Folder"
-msgstr ""
+msgstr "Dodaj mapo"
 
 #: templates/part.folderdialog.php:13
 msgid "Folder name"
-msgstr ""
+msgstr "Ime mape"
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
-msgstr ""
+msgstr "Označi kot nepomembno"
 
 #: templates/part.items.php:38
 msgid "Mark as important"
-msgstr ""
+msgstr "Označi kot pomembno"
 
 #: templates/part.items.php:55
 msgid "from"
-msgstr ""
+msgstr "od"
 
 #: templates/part.items.php:60
 msgid "by"
-msgstr ""
+msgstr "od"
 
 #: templates/part.items.php:67
 msgid "Keep unread"
-msgstr ""
+msgstr "Obdrži neprebrano"
 
 #: templates/part.listfeed.php:22
 msgid "Delete feed"
-msgstr ""
+msgstr "Izbriši vir"
 
 #: templates/part.listfolder.php:17
 msgid "Rename folder"
-msgstr ""
+msgstr "Preimenuj mapo"
 
 #: templates/part.listfolder.php:18
 msgid "Delete folder"
-msgstr ""
+msgstr "Izbriši mapo"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
-msgstr ""
+msgstr "V vašem bralniku ni virov."
 
 #: templates/part.nofeeds.php:10
 msgid "Import OPML"
-msgstr ""
+msgstr "Uvozi OPML"
 
 #: templates/part.nofeeds.php:15
 msgid "Or..."
-msgstr ""
+msgstr "Ali..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
-msgstr ""
+msgstr "Uvozi vire"
 
 #: templates/settings.php:3
 msgid "Upload file from desktop"
-msgstr ""
+msgstr "Naloži datoteko iz namizja"
 
 #: templates/settings.php:3
 msgid "Upload"
-msgstr ""
+msgstr "Naloži"
 
 #: templates/settings.php:4
 msgid "Select file from ownCloud"
-msgstr ""
+msgstr "Izberi datoteko iz ownCloud"
 
 #: templates/settings.php:4
 msgid "Select"
-msgstr ""
+msgstr "Izberi"
 
 #: templates/settings.php:6
 msgid "No file selected. Select file from "
-msgstr ""
+msgstr "Datoteka ni izbrana. Izberite jo iz"
 
 #: templates/settings.php:6
 msgid "local filesystem"
-msgstr ""
+msgstr "lokalnega datotečnega sistema"
 
 #: templates/settings.php:7
 msgid " or "
-msgstr ""
+msgstr "ali"
 
 #: templates/settings.php:7
 msgid "cloud"
-msgstr ""
+msgstr "oblaka"
 
 #: templates/settings.php:12
 msgid "Export feeds"
-msgstr ""
+msgstr "Izvozi vire"
 
 #: templates/settings.php:14
 msgid "Download OPML"
-msgstr ""
+msgstr "Prenesi OPML"
 
 #: templates/settings.php:16
 msgid "Subscribelet"
-msgstr ""
+msgstr "Vstavek za naročanje"
 
 #: templates/subscribelet.php:5
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr ""
+msgstr "Povlecite gumb med svoje zaznamke in kliknite nanj, ko se želite hitro prijaviti na novice obiskane spletne strani:"
 
 #: templates/subscribelet.php:7
 msgid "Subscribe"
-msgstr ""
+msgstr "Naroči se"

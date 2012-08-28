@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <asieriko@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-07-28 02:02+0200\n"
-"PO-Revision-Date: 2012-07-27 22:17+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-08-28 02:01+0200\n"
+"PO-Revision-Date: 2012-08-27 09:21+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,42 +20,42 @@ msgstr ""
 
 #: appinfo/app.php:14
 msgid "Bookmarks"
-msgstr ""
+msgstr "Laster-markak"
 
 #: bookmarksHelper.php:99
 msgid "unnamed"
-msgstr ""
+msgstr "izengabekoa"
 
 #: templates/bookmarklet.php:5
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr ""
+msgstr "Web orri bat laster-marketara azkar gehitzeko, arrastratu hau zure arakatzailearen laster-marketara eta klikatu bertan:"
 
 #: templates/bookmarklet.php:7
 msgid "Read later"
-msgstr ""
+msgstr "Irakurri geroago"
 
 #: templates/list.php:13
 msgid "Address"
-msgstr ""
+msgstr "Helbidea"
 
 #: templates/list.php:14
 msgid "Title"
-msgstr ""
+msgstr "Izenbrua"
 
 #: templates/list.php:15
 msgid "Tags"
-msgstr ""
+msgstr "Etiketak"
 
 #: templates/list.php:16
 msgid "Save bookmark"
-msgstr ""
+msgstr "Gorde laster-marka"
 
 #: templates/list.php:22
 msgid "You have no bookmarks"
-msgstr ""
+msgstr "Ez duzu laster-markarik"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
-msgstr ""
+msgstr "Bookmarklet <br />"
