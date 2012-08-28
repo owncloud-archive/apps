@@ -5,15 +5,16 @@
 # Translators:
 # Guilherme Maluf Balzana <guimalufb@gmail.com>, 2012.
 # Sandro Venezuela <sandrovenezuela@gmail.com>, 2012.
+#   <tbsoares@gmail.com>, 2012.
 # Thiago Vicente <thiagovice@gmail.com>, 2012.
 # Van Der Fran <transifex@vanderland.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-11 02:02+0200\n"
-"PO-Revision-Date: 2012-08-11 00:02+0000\n"
-"Last-Translator: owncloud_robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-08-28 02:01+0200\n"
+"PO-Revision-Date: 2012-08-27 18:39+0000\n"
+"Last-Translator: tbsoares <tbsoares@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,11 +24,11 @@ msgstr ""
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr ""
+msgstr "Nem todos os calendários estão completamente em cache."
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
-msgstr ""
+msgstr "Parece que tudo foi cacheado"
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
@@ -49,15 +50,15 @@ msgstr ""
 
 #: ajax/import/dropimport.php:31 ajax/import/import.php:67
 msgid "events has been saved in the new calendar"
-msgstr ""
+msgstr "os eventos foram salvos no novo calendário"
 
 #: ajax/import/import.php:56
 msgid "Import failed"
-msgstr ""
+msgstr "Falha na importação"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
-msgstr ""
+msgstr "os eventos foram salvos em seu calendário"
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
@@ -71,7 +72,7 @@ msgstr "Fuso horário alterado"
 msgid "Invalid request"
 msgstr "Pedido inválido"
 
-#: appinfo/app.php:35 templates/calendar.php:15
+#: appinfo/app.php:41 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Calendário"
@@ -162,7 +163,7 @@ msgstr "Trabalho"
 
 #: lib/app.php:351 lib/app.php:361
 msgid "by"
-msgstr ""
+msgstr "por"
 
 #: lib/app.php:359 lib/app.php:399
 msgid "unnamed"
@@ -351,79 +352,79 @@ msgstr "Cal."
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "Dom."
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "Seg."
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "Ter."
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "Qua."
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "Qui."
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "Sex."
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "Sáb."
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "Jan."
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "Fev."
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "Mar."
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "Abr."
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "Mai."
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "Jun."
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "Jul."
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "Ago."
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "Set."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "Out."
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "Nov."
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "Dez."
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -688,7 +689,7 @@ msgstr "Importar um arquivo de calendário"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "Escolha um calendário, por favor"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
@@ -702,7 +703,7 @@ msgstr ""
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr ""
+msgstr "Um calendário com este nome já existe. Se de qualquer forma você continuar, estes calendários serão fundidos."
 
 #: templates/part.import.php:47
 msgid "Import"

@@ -5,13 +5,14 @@
 # Translators:
 # Davor Kustec <dkustec@gmail.com>, 2011, 2012.
 # Domagoj Delimar <transifex.net@domdelimar.com>, 2012.
+#   <franz@franz-net.info>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-24 02:02+0200\n"
-"PO-Revision-Date: 2012-08-24 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-08-28 02:01+0200\n"
+"PO-Revision-Date: 2012-08-27 13:26+0000\n"
+"Last-Translator: fposavec <franz@franz-net.info>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/owncloud/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -216,7 +217,7 @@ msgstr ""
 msgid "No file was uploaded. Unknown error"
 msgstr ""
 
-#: appinfo/app.php:21
+#: appinfo/app.php:25
 msgid "Contacts"
 msgstr "Kontakti"
 
@@ -331,35 +332,35 @@ msgstr "Kontakt ne postoji."
 
 #: lib/app.php:116
 msgid "Jabber"
-msgstr ""
+msgstr "Jabber"
 
 #: lib/app.php:121
 msgid "AIM"
-msgstr ""
+msgstr "AIM"
 
 #: lib/app.php:126
 msgid "MSN"
-msgstr ""
+msgstr "MSN"
 
 #: lib/app.php:131
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: lib/app.php:136
 msgid "GoogleTalk"
-msgstr ""
+msgstr "GoogleTalk"
 
 #: lib/app.php:141
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: lib/app.php:146
 msgid "XMPP"
-msgstr ""
+msgstr "XMPP"
 
 #: lib/app.php:151
 msgid "ICQ"
-msgstr ""
+msgstr "ICQ"
 
 #: lib/app.php:156
 msgid "Yahoo"
@@ -367,15 +368,15 @@ msgstr ""
 
 #: lib/app.php:161
 msgid "Skype"
-msgstr ""
+msgstr "Skype"
 
 #: lib/app.php:166
 msgid "QQ"
-msgstr ""
+msgstr "QQ"
 
 #: lib/app.php:171
 msgid "GaduGadu"
-msgstr ""
+msgstr "GaduGadu"
 
 #: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
 msgid "Work"
@@ -385,7 +386,7 @@ msgstr "Posao"
 msgid "Home"
 msgstr "Kuća"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:593
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:586
 msgid "Other"
 msgstr ""
 
@@ -482,11 +483,11 @@ msgstr "{name} Rođendan"
 msgid "Contact"
 msgstr "Kontakt"
 
-#: lib/vcard.php:408
+#: lib/vcard.php:401
 msgid "You do not have the permissions to edit this contact."
 msgstr ""
 
-#: lib/vcard.php:483
+#: lib/vcard.php:476
 msgid "You do not have the permissions to delete this contact."
 msgstr ""
 
@@ -508,7 +509,7 @@ msgstr "Adresari"
 
 #: templates/index.php:36 templates/part.import.php:24
 msgid "Close"
-msgstr ""
+msgstr "Zatvori"
 
 #: templates/index.php:37
 msgid "Keyboard shortcuts"
@@ -564,7 +565,7 @@ msgstr "Dovucite fotografiju za slanje"
 
 #: templates/part.contact.php:19
 msgid "Delete current photo"
-msgstr ""
+msgstr "Izbriši trenutnu sliku"
 
 #: templates/part.contact.php:20
 msgid "Edit current photo"
@@ -572,7 +573,7 @@ msgstr "Uredi trenutnu sliku"
 
 #: templates/part.contact.php:21
 msgid "Upload new photo"
-msgstr ""
+msgstr "Učitaj novu sliku"
 
 #: templates/part.contact.php:22
 msgid "Select photo from ownCloud"
@@ -611,7 +612,7 @@ msgstr ""
 
 #: templates/part.contact.php:44
 msgid "http://www.somesite.com"
-msgstr ""
+msgstr "http://www.somesite.com"
 
 #: templates/part.contact.php:44
 msgid "Go to web site"
@@ -627,7 +628,7 @@ msgstr "Grupe"
 
 #: templates/part.contact.php:49
 msgid "Separate groups with commas"
-msgstr ""
+msgstr "Razdvoji grupe sa zarezom"
 
 #: templates/part.contact.php:50
 msgid "Edit groups"
@@ -640,7 +641,7 @@ msgstr "Preferirano"
 
 #: templates/part.contact.php:60
 msgid "Please specify a valid email address."
-msgstr ""
+msgstr "Upiši važeću email adresu."
 
 #: templates/part.contact.php:60
 msgid "Enter email address"
@@ -652,7 +653,7 @@ msgstr ""
 
 #: templates/part.contact.php:65
 msgid "Delete email address"
-msgstr ""
+msgstr "Izbriši email adresu"
 
 #: templates/part.contact.php:75
 msgid "Enter phone number"
@@ -660,7 +661,7 @@ msgstr "Unesi broj telefona"
 
 #: templates/part.contact.php:79
 msgid "Delete phone number"
-msgstr ""
+msgstr "Izbriši broj telefona"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
@@ -807,15 +808,15 @@ msgstr ""
 
 #: templates/part.edit_name_dialog.php:35
 msgid "Given name"
-msgstr ""
+msgstr "Ime"
 
 #: templates/part.edit_name_dialog.php:37
 msgid "Additional names"
-msgstr ""
+msgstr "sredenje ime"
 
 #: templates/part.edit_name_dialog.php:39
 msgid "Family name"
-msgstr ""
+msgstr "Prezime"
 
 #: templates/part.edit_name_dialog.php:41
 msgid "Hon. suffixes"
@@ -879,7 +880,7 @@ msgstr ""
 
 #: templates/part.no_contacts.php:5
 msgid "Add contact"
-msgstr ""
+msgstr "Dodaj kontakt"
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
@@ -899,7 +900,7 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr ""
+msgstr "više informacija"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
@@ -907,7 +908,7 @@ msgstr ""
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:20
 msgid "Show CardDav link"

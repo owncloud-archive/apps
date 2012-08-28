@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <cosenal@gmail.com>, 2012.
+# Vincenzo Reale <vinx.reale@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-27 01:38+0200\n"
-"PO-Revision-Date: 2012-08-26 23:39+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-08-28 02:01+0200\n"
+"PO-Revision-Date: 2012-08-27 10:58+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,370 +21,370 @@ msgstr ""
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
-msgstr ""
+msgstr "La fonte esiste già."
 
 #: ajax/createfeed.php:57
 msgid "Error adding feed."
-msgstr ""
+msgstr "Errore durante l'aggiunta della fonte."
 
 #: ajax/createfeed.php:74 js/news.js:141
 msgid "Feed added!"
-msgstr ""
+msgstr "Fonte aggiunta!"
 
 #: ajax/createfolder.php:36
 msgid "Error adding folder."
-msgstr ""
+msgstr "Errore durante l'aggiunta della cartella."
 
 #: ajax/createfolder.php:46
 msgid "Folder added!"
-msgstr ""
+msgstr "Cartella aggiunta!"
 
 #: ajax/deletefeed.php:28
 msgid "Error removing feed."
-msgstr ""
+msgstr "Errore durante la rimozione della fonte."
 
 #: ajax/deletefolder.php:27
 msgid "Error removing folder."
-msgstr ""
+msgstr "Errore durante la rimozione della cartella."
 
 #: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
-msgstr ""
+msgstr "Non è stato fornito alcun percorso al file."
 
 #: ajax/exportopml.php:41 ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
-msgstr ""
+msgstr "Si è verificato un errore durante l'elaborazione del file."
 
 #: ajax/feedlist.php:27
 msgid "Error updating feeds."
-msgstr ""
+msgstr "Errore durante l'aggiornamento delle fonti."
 
 #: ajax/loadfeed.php:35 templates/part.feeds.php:77
 msgid "Starred"
-msgstr ""
+msgstr "Preferiti"
 
 #: ajax/loadfeed.php:40 templates/part.feeds.php:73
 msgid "New articles"
-msgstr ""
+msgstr "Nuovi articoli"
 
 #: ajax/loadfeed.php:52
 msgid "Feed loaded!"
-msgstr ""
+msgstr "Fonte caricata!"
 
 #: ajax/movefeedtofolder.php:33
 msgid "Error moving feed into folder."
-msgstr ""
+msgstr "Errore durante lo spostamento della fonte in una cartella."
 
 #: ajax/selectfromcloud.php:37
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "Il file non esiste:"
 
 #: ajax/setallitemsread.php:54
 msgid "Error setting all items as read."
-msgstr ""
+msgstr "Errore durante l'impostazione di tutti gli elementi come letti."
 
 #: ajax/setitemstatus.php:46
 msgid "Error marking item as read."
-msgstr ""
+msgstr "Errore durante la marcatura dell'elemento come letto."
 
 #: ajax/updatefeed.php:36
 msgid "Error updating feed."
-msgstr ""
+msgstr "Errore durante l'aggiornamento della fonte."
 
 #: ajax/updatefeed.php:44
 msgid "Feed updated!"
-msgstr ""
+msgstr "La fonte è stata aggiornata!"
 
 #: appinfo/app.php:35
 msgid "News"
-msgstr ""
+msgstr "Notizie"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
-msgstr ""
+msgstr "Il nome della cartella non può essere vuoto."
 
 #: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
 #: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
 #: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:40
 #: js/settings.js:49
 msgid "Error"
-msgstr ""
+msgstr "Errore"
 
 #: js/news.js:55 js/news.js:113
 msgid "Adding..."
-msgstr ""
+msgstr "Aggiunta in corso..."
 
 #: js/news.js:78 templates/part.folderdialog.php:14
 msgid "Add folder"
-msgstr ""
+msgstr "Aggiungi cartella"
 
 #: js/news.js:83
 msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr ""
+msgstr "Sei sicuro di voler eliminare questa cartella e tutti le fonti che contiene?"
 
 #: js/news.js:83 js/news.js:165
 msgid "Warning"
-msgstr ""
+msgstr "Avviso"
 
 #: js/news.js:108
 msgid "URL cannot be empty."
-msgstr ""
+msgstr "L'URL non può essere vuoto."
 
 #: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:7
 #: templates/part.nofeeds.php:9
 msgid "Add feed"
-msgstr ""
+msgstr "Aggiungi fonte"
 
 #: js/news.js:156
 msgid "Error while parsing the feed"
-msgstr ""
+msgstr "Errore durante l'elaborazione della fonte"
 
 #: js/news.js:156
 msgid "Fatal Error"
-msgstr ""
+msgstr "Errore grave"
 
 #: js/news.js:165
 msgid "Are you sure you want to delete this feed?"
-msgstr ""
+msgstr "Sei sicuro di voler eliminare questa fonte?"
 
 #: js/news.js:208 js/news.js:245
 msgid "Error while loading the feed"
-msgstr ""
+msgstr "Errore durante il caricamento della fonte"
 
 #: js/news.js:324
 msgid "Error while saving the feed in a folder"
-msgstr ""
+msgstr "Errore durante il salvataggio della fonte in una cartella"
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
-msgstr ""
+msgstr "File"
 
 #: js/settings.js:11
 msgid " loaded from cloud."
-msgstr ""
+msgstr "caricati dalla nuvola."
 
 #: js/settings.js:22
 msgid "No files selected."
-msgstr ""
+msgstr "Nessun file selezionato."
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
-msgstr ""
+msgstr "caricati dal filesystem locale."
 
 #: js/settings.js:32
 msgid "Importing..."
-msgstr ""
+msgstr "Importazione in corso..."
 
 #: js/settings.js:40
 msgid "Import kind not specified"
-msgstr ""
+msgstr "Tipo di importazione non specificato"
 
 #: js/settings.js:45
 msgid " out of "
-msgstr ""
+msgstr "su"
 
 #: js/settings.js:46
 msgid " feeds imported successfully from "
-msgstr ""
+msgstr "fonti importati correttamente da"
 
 #: js/settings.js:47
 msgid "Success"
-msgstr ""
+msgstr "Avvenuta"
 
 #: js/settings.js:51 templates/settings.php:10
 msgid "Import"
-msgstr ""
+msgstr "Importa"
 
 #: js/settings.js:57
 msgid "Downloading..."
-msgstr ""
+msgstr "Scaricamento in corso..."
 
 #: js/settings.js:59
 msgid "Download"
-msgstr ""
+msgstr "Scarica"
 
 #: js/settings.js:71
 msgid "Select file"
-msgstr ""
+msgstr "Seleziona file"
 
 #: lib/feedmapper.php:174 lib/itemmapper.php:199
 msgid "no title"
-msgstr ""
+msgstr "nessun titolo"
 
 #: lib/foldermapper.php:114
 msgid "no name"
-msgstr ""
+msgstr "nessun nome"
 
 #: lib/itemmapper.php:204
 msgid "no body"
-msgstr ""
+msgstr "nessun corpo"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "sottoscrizioni in ownCloud - Notizie"
 
 #: subscribe.php:30
 msgid "An error occurred"
-msgstr ""
+msgstr "Si è verificato un errore"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr ""
+msgstr "Bene! Hai effettuato la sottoscrizione a"
 
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
-msgstr ""
+msgstr "Hai già sottoscritto a questa fonte!"
 
 #: templates/main.php:12
 msgid "Show everything"
-msgstr ""
+msgstr "Mostra tutto"
 
 #: templates/main.php:16
 msgid "Show only unread"
-msgstr ""
+msgstr "Mostra solo i non letti"
 
 #: templates/main.php:32
 msgid "Add feed or folder"
-msgstr ""
+msgstr "Aggiungi fonte o cartella"
 
 #: templates/main.php:33
 msgid "Add Feed/Folder"
-msgstr ""
+msgstr "Aggiungi fonte/cartella"
 
 #: templates/main.php:35
 msgid "Feed"
-msgstr ""
+msgstr "Fonte"
 
 #: templates/main.php:36
 msgid "Folder"
-msgstr ""
+msgstr "Cartella"
 
 #: templates/main.php:43
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 #: templates/part.feeddialog.php:2
 msgid "Add Subscription"
-msgstr ""
+msgstr "Aggiungi sottoscrizione"
 
 #: templates/part.feeddialog.php:9
 msgid "Choose folder"
-msgstr ""
+msgstr "Scegli la cartella"
 
 #: templates/part.feeddialog.php:19 templates/part.nofeeds.php:6
 msgid "Address"
-msgstr ""
+msgstr "Indirizzo"
 
 #: templates/part.feeddialog.php:20
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #: templates/part.folderdialog.php:2
 msgid "Add Folder"
-msgstr ""
+msgstr "Aggiungi cartella"
 
 #: templates/part.folderdialog.php:13
 msgid "Folder name"
-msgstr ""
+msgstr "Nome della cartella"
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
-msgstr ""
+msgstr "Marca come non importante"
 
 #: templates/part.items.php:38
 msgid "Mark as important"
-msgstr ""
+msgstr "Marca come importante"
 
 #: templates/part.items.php:55
 msgid "from"
-msgstr ""
+msgstr "da"
 
 #: templates/part.items.php:60
 msgid "by"
-msgstr ""
+msgstr "di"
 
 #: templates/part.items.php:67
 msgid "Keep unread"
-msgstr ""
+msgstr "Mantieni non letto"
 
 #: templates/part.listfeed.php:22
 msgid "Delete feed"
-msgstr ""
+msgstr "Elimina la fonte"
 
 #: templates/part.listfolder.php:17
 msgid "Rename folder"
-msgstr ""
+msgstr "Rinomina la cartella"
 
 #: templates/part.listfolder.php:18
 msgid "Delete folder"
-msgstr ""
+msgstr "Elimina la cartella"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
-msgstr ""
+msgstr "Non hai nessuna fonte nel lettore."
 
 #: templates/part.nofeeds.php:10
 msgid "Import OPML"
-msgstr ""
+msgstr "Importa OPML"
 
 #: templates/part.nofeeds.php:15
 msgid "Or..."
-msgstr ""
+msgstr "O..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
-msgstr ""
+msgstr "Importa fonti"
 
 #: templates/settings.php:3
 msgid "Upload file from desktop"
-msgstr ""
+msgstr "Carica file dal desktop"
 
 #: templates/settings.php:3
 msgid "Upload"
-msgstr ""
+msgstr "Carica"
 
 #: templates/settings.php:4
 msgid "Select file from ownCloud"
-msgstr ""
+msgstr "Seleziona file da ownCloud"
 
 #: templates/settings.php:4
 msgid "Select"
-msgstr ""
+msgstr "Seleziona"
 
 #: templates/settings.php:6
 msgid "No file selected. Select file from "
-msgstr ""
+msgstr "Nessun file selezionato. Seleziona file da"
 
 #: templates/settings.php:6
 msgid "local filesystem"
-msgstr ""
+msgstr "filesystem locale"
 
 #: templates/settings.php:7
 msgid " or "
-msgstr ""
+msgstr "o"
 
 #: templates/settings.php:7
 msgid "cloud"
-msgstr ""
+msgstr "nuvola"
 
 #: templates/settings.php:12
 msgid "Export feeds"
-msgstr ""
+msgstr "Esporta fonti"
 
 #: templates/settings.php:14
 msgid "Download OPML"
-msgstr ""
+msgstr "Scarica OPML"
 
 #: templates/settings.php:16
 msgid "Subscribelet"
-msgstr ""
+msgstr "Subscribelet"
 
 #: templates/subscribelet.php:5
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr ""
+msgstr "Trascina questo segnalibro nel tuo browser e fai clic su di esso ogni volta che vuoi sottoscrivere rapidamente una pagina web:"
 
 #: templates/subscribelet.php:7
 msgid "Subscribe"
-msgstr ""
+msgstr "Sottoscrivi"

@@ -1,3 +1,3 @@
 <?php $TRANSLATIONS = array(
-"Update" => "Update durchfühen"
+"Update" => "Update durchführen"
 );
