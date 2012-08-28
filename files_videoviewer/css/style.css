@@ -1,0 +1,33 @@
+.overlay{
+	position:fixed;
+	top:0px;bottom:0px;left:0px;right:0px;
+	z-index:100;
+	background:transparent url('%appswebroot%/apps/files_videoviewer/img/overlay.png') repeat 0 0;
+       }
+
+#nonebox{
+	position:fixed;
+	left:50%;top:50%;
+	z-index:101;  
+}
+
+#container{
+	position:relative;
+	left:-50%;margin-top:-50%;
+	padding:10px 10px 25px;border:5px solid #e4e4e4;
+	-webkit-border-radius:6px;
+	-moz-border-radius:5px;
+	-khtml-border-radius:10px;
+	border-radius:6px;
+	color:#4d4d4d;background:#fff;
+	box-shadow: 0 0 25px #555;
+}
+
+a.box-close{
+	display:block;position:absolute;
+	top:8px;right:11px;
+	width:26px;height:26px;
+	margin:-23px -23px 0px 0px;
+	cursor:pointer;
+	background:url('%appswebroot%/apps/files_videoviewer/img/close.png') no-repeat 0 0;
+}   
