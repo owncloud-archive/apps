@@ -5,13 +5,14 @@
 # Translators:
 #   <gp4004@arghh.org>, 2012.
 #   <mathieu.payrol@gmail.com>, 2012.
+# Romain DEP. <rom1dep@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-28 02:01+0200\n"
-"PO-Revision-Date: 2012-08-27 13:27+0000\n"
-"Last-Translator: MathieuP <mathieu.payrol@gmail.com>\n"
+"POT-Creation-Date: 2012-08-29 02:02+0200\n"
+"PO-Revision-Date: 2012-08-28 09:10+0000\n"
+"Last-Translator: Romain DEP. <rom1dep@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +30,7 @@ msgstr "Erreur lors de l'ajout du flux."
 
 #: ajax/createfeed.php:74 js/news.js:141
 msgid "Feed added!"
-msgstr "ux ajouté !"
+msgstr "Flux ajouté !"
 
 #: ajax/createfolder.php:36
 msgid "Error adding folder."
@@ -41,15 +42,15 @@ msgstr "Répertoire ajouté !"
 
 #: ajax/deletefeed.php:28
 msgid "Error removing feed."
-msgstr "Erreur de suppression du flux."
+msgstr "Erreur lors de la suppression du flux."
 
 #: ajax/deletefolder.php:27
 msgid "Error removing folder."
-msgstr "Erreur de suppression du répertoire."
+msgstr "Erreur lors de la suppression du répertoire."
 
 #: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
-msgstr "Aucun chemin de fichier n'a été indiqué."
+msgstr "Aucun chemin vers un fichier n'a été indiqué."
 
 #: ajax/exportopml.php:41 ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
@@ -57,7 +58,7 @@ msgstr "Une erreur est apparue lors de l'analyse du fichier."
 
 #: ajax/feedlist.php:27
 msgid "Error updating feeds."
-msgstr "Erreur de mise à jour des flux."
+msgstr "Erreur lors de la mise à jour des flux."
 
 #: ajax/loadfeed.php:35 templates/part.feeds.php:77
 msgid "Starred"
@@ -73,11 +74,11 @@ msgstr "Flux chargé !"
 
 #: ajax/movefeedtofolder.php:33
 msgid "Error moving feed into folder."
-msgstr "Erreur de déplacement du flux dans le répertoire."
+msgstr "Erreur lors du déplacement du flux dans le répertoire."
 
 #: ajax/selectfromcloud.php:37
 msgid "File doesn't exist:"
-msgstr "Le fichier n'existe pas :"
+msgstr "Ce fichier n'existe pas :"
 
 #: ajax/setallitemsread.php:54
 msgid "Error setting all items as read."
@@ -89,7 +90,7 @@ msgstr "Erreur lors du marquage de l'article comme lu."
 
 #: ajax/updatefeed.php:36
 msgid "Error updating feed."
-msgstr "Erreur de mise à jour du flux."
+msgstr "Erreur lors de la mise à jour du flux."
 
 #: ajax/updatefeed.php:44
 msgid "Feed updated!"
@@ -97,7 +98,7 @@ msgstr "Flux mis à jour !"
 
 #: appinfo/app.php:35
 msgid "News"
-msgstr ""
+msgstr "Abonnements"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
@@ -149,11 +150,11 @@ msgstr "Êtes-vous sûr de vouloir supprimer ce flux ?"
 
 #: js/news.js:208 js/news.js:245
 msgid "Error while loading the feed"
-msgstr "Erreur de chargement du flux"
+msgstr "Erreur lors du chargement du flux"
 
 #: js/news.js:324
 msgid "Error while saving the feed in a folder"
-msgstr "Erreur d’enregistrement du flux dans le répertoire."
+msgstr "Erreur lors de l’enregistrement du flux dans un répertoire."
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
@@ -205,7 +206,7 @@ msgstr "Télécharger"
 
 #: js/settings.js:71
 msgid "Select file"
-msgstr "Sélectionner le fichier"
+msgstr "Sélectionnez le fichier"
 
 #: lib/feedmapper.php:174 lib/itemmapper.php:199
 msgid "no title"
@@ -221,7 +222,7 @@ msgstr "sans contenu"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "Flux d'actualités dans ownCloud - Abonnements"
 
 #: subscribe.php:30
 msgid "An error occurred"
@@ -265,7 +266,7 @@ msgstr "Paramètres"
 
 #: templates/part.feeddialog.php:2
 msgid "Add Subscription"
-msgstr "Souscrire"
+msgstr "S'abonner à"
 
 #: templates/part.feeddialog.php:9
 msgid "Choose folder"
@@ -305,7 +306,7 @@ msgstr "par"
 
 #: templates/part.items.php:67
 msgid "Keep unread"
-msgstr "Conserver en non lu"
+msgstr "Garder non lu"
 
 #: templates/part.listfeed.php:22
 msgid "Delete feed"
@@ -325,7 +326,7 @@ msgstr "Vous n'avez pas de flux dans votre lecteur."
 
 #: templates/part.nofeeds.php:10
 msgid "Import OPML"
-msgstr "Importer OPML"
+msgstr "Importer depuis un fichier OPML"
 
 #: templates/part.nofeeds.php:15
 msgid "Or..."
@@ -345,7 +346,7 @@ msgstr "Envoyer"
 
 #: templates/settings.php:4
 msgid "Select file from ownCloud"
-msgstr "Sélectionner le fichier depuis OwnCloud"
+msgstr "Sélectionnez le fichier depuis OwnCloud"
 
 #: templates/settings.php:4
 msgid "Select"
@@ -353,7 +354,7 @@ msgstr "Sélectionner"
 
 #: templates/settings.php:6
 msgid "No file selected. Select file from "
-msgstr "Aucun fichier sélectionné. Sélectionner un fichier depuis"
+msgstr "Aucun fichier sélectionné. Sélectionnez un fichier depuis"
 
 #: templates/settings.php:6
 msgid "local filesystem"
@@ -383,8 +384,8 @@ msgstr ""
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr "Déposez ceci dans vos marque-pages et cliquez dessus lorsque vous souhaiterez souscrire rapidement à une page:"
+msgstr "Déposez ceci dans les marque-pages de votre navigateur et cliquez dessus lorsque vous souhaitez vous abonner rapidement à la page en cours de consultation :"
 
 #: templates/subscribelet.php:7
 msgid "Subscribe"
-msgstr ""
+msgstr "S'abonner"

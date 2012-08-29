@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Mariano  <mstreet@kde.org.ar>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-27 01:38+0200\n"
-"PO-Revision-Date: 2012-08-26 23:39+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-08-29 02:02+0200\n"
+"PO-Revision-Date: 2012-08-28 22:04+0000\n"
+"Last-Translator: Mariano <mstreet@kde.org.ar>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,43 +20,43 @@ msgstr ""
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
-msgstr ""
+msgstr "La fluo jam ekzistas."
 
 #: ajax/createfeed.php:57
 msgid "Error adding feed."
-msgstr ""
+msgstr "Eraro dum aldono de fluo."
 
 #: ajax/createfeed.php:74 js/news.js:141
 msgid "Feed added!"
-msgstr ""
+msgstr "Fluo aldonita!"
 
 #: ajax/createfolder.php:36
 msgid "Error adding folder."
-msgstr ""
+msgstr "Eraro dum aldono de dosierujo."
 
 #: ajax/createfolder.php:46
 msgid "Folder added!"
-msgstr ""
+msgstr "Dosierujo aldonita!"
 
 #: ajax/deletefeed.php:28
 msgid "Error removing feed."
-msgstr ""
+msgstr "Eraro dum forigo de fluo."
 
 #: ajax/deletefolder.php:27
 msgid "Error removing folder."
-msgstr ""
+msgstr "Eraro dum forigo de dosierujo."
 
 #: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
-msgstr ""
+msgstr "Neniu dosiervojo sendiĝis."
 
 #: ajax/exportopml.php:41 ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
-msgstr ""
+msgstr "Eraro okazis dum analiziĝis la dosiero."
 
 #: ajax/feedlist.php:27
 msgid "Error updating feeds."
-msgstr ""
+msgstr "Eraro dum ĝisdatigo de fluoj."
 
 #: ajax/loadfeed.php:35 templates/part.feeds.php:77
 msgid "Starred"
@@ -63,19 +64,19 @@ msgstr ""
 
 #: ajax/loadfeed.php:40 templates/part.feeds.php:73
 msgid "New articles"
-msgstr ""
+msgstr "Novaj artikoloj"
 
 #: ajax/loadfeed.php:52
 msgid "Feed loaded!"
-msgstr ""
+msgstr "Fluo ŝargita!"
 
 #: ajax/movefeedtofolder.php:33
 msgid "Error moving feed into folder."
-msgstr ""
+msgstr "Eraro dum movo de fluo en dosierujon."
 
 #: ajax/selectfromcloud.php:37
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "Dosiero ne ekzistas:"
 
 #: ajax/setallitemsread.php:54
 msgid "Error setting all items as read."
@@ -87,34 +88,34 @@ msgstr ""
 
 #: ajax/updatefeed.php:36
 msgid "Error updating feed."
-msgstr ""
+msgstr "Eraro dum ĝusdatigo de fluo."
 
 #: ajax/updatefeed.php:44
 msgid "Feed updated!"
-msgstr ""
+msgstr "Fluo ĝisdatigita!"
 
 #: appinfo/app.php:35
 msgid "News"
-msgstr ""
+msgstr "Novaĵoj"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
-msgstr ""
+msgstr "Nomo de dosierujo ne povas esti malplena"
 
 #: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
 #: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
 #: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:40
 #: js/settings.js:49
 msgid "Error"
-msgstr ""
+msgstr "Eraro"
 
 #: js/news.js:55 js/news.js:113
 msgid "Adding..."
-msgstr ""
+msgstr "Aldonante..."
 
 #: js/news.js:78 templates/part.folderdialog.php:14
 msgid "Add folder"
-msgstr ""
+msgstr "Aldoni dosierujon"
 
 #: js/news.js:83
 msgid "Are you sure you want to delete this folder and all its feeds?"
@@ -122,56 +123,56 @@ msgstr ""
 
 #: js/news.js:83 js/news.js:165
 msgid "Warning"
-msgstr ""
+msgstr "Averto"
 
 #: js/news.js:108
 msgid "URL cannot be empty."
-msgstr ""
+msgstr "URL ne povas esti malplena."
 
 #: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:7
 #: templates/part.nofeeds.php:9
 msgid "Add feed"
-msgstr ""
+msgstr "Aldoni fluon"
 
 #: js/news.js:156
 msgid "Error while parsing the feed"
-msgstr ""
+msgstr "Eraro dum analizo de fluo"
 
 #: js/news.js:156
 msgid "Fatal Error"
-msgstr ""
+msgstr "Neriparebla eraro"
 
 #: js/news.js:165
 msgid "Are you sure you want to delete this feed?"
-msgstr ""
+msgstr "Ĉu vi vere volas forigi ĉi tiun fluon?"
 
 #: js/news.js:208 js/news.js:245
 msgid "Error while loading the feed"
-msgstr ""
+msgstr "Eraro dum ŝargado de fluo"
 
 #: js/news.js:324
 msgid "Error while saving the feed in a folder"
-msgstr ""
+msgstr "Eraro dum konservo de fluo en dosierujon"
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
-msgstr ""
+msgstr "Dosiero"
 
 #: js/settings.js:11
 msgid " loaded from cloud."
-msgstr ""
+msgstr "ŝargita el nubo."
 
 #: js/settings.js:22
 msgid "No files selected."
-msgstr ""
+msgstr "Neniu dosiero elektita."
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
-msgstr ""
+msgstr "ŝargita el loka dosiersistemo."
 
 #: js/settings.js:32
 msgid "Importing..."
-msgstr ""
+msgstr "Enportante..."
 
 #: js/settings.js:40
 msgid "Import kind not specified"
@@ -183,47 +184,47 @@ msgstr ""
 
 #: js/settings.js:46
 msgid " feeds imported successfully from "
-msgstr ""
+msgstr "fluoj sukcese enportitaj el"
 
 #: js/settings.js:47
 msgid "Success"
-msgstr ""
+msgstr "Sukceso"
 
 #: js/settings.js:51 templates/settings.php:10
 msgid "Import"
-msgstr ""
+msgstr "Enporti"
 
 #: js/settings.js:57
 msgid "Downloading..."
-msgstr ""
+msgstr "Elŝutante..."
 
 #: js/settings.js:59
 msgid "Download"
-msgstr ""
+msgstr "Elŝuti"
 
 #: js/settings.js:71
 msgid "Select file"
-msgstr ""
+msgstr "Elekti dosieron"
 
 #: lib/feedmapper.php:174 lib/itemmapper.php:199
 msgid "no title"
-msgstr ""
+msgstr "neniu titolo"
 
 #: lib/foldermapper.php:114
 msgid "no name"
-msgstr ""
+msgstr "neniu nomo"
 
 #: lib/itemmapper.php:204
 msgid "no body"
-msgstr ""
+msgstr "neniu korpo"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "abonoj en ownCloud - Novaĵoj"
 
 #: subscribe.php:30
 msgid "An error occurred"
-msgstr ""
+msgstr "Eraro okazis"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
@@ -231,147 +232,147 @@ msgstr ""
 
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
-msgstr ""
+msgstr "Vi jam abonis ĉi tiun fluon!"
 
 #: templates/main.php:12
 msgid "Show everything"
-msgstr ""
+msgstr "Montri ĉion"
 
 #: templates/main.php:16
 msgid "Show only unread"
-msgstr ""
+msgstr "Montri nur legotajn"
 
 #: templates/main.php:32
 msgid "Add feed or folder"
-msgstr ""
+msgstr "Aldoni fluon aŭ dosierujon"
 
 #: templates/main.php:33
 msgid "Add Feed/Folder"
-msgstr ""
+msgstr "Aldoni fluon/dosierujon"
 
 #: templates/main.php:35
 msgid "Feed"
-msgstr ""
+msgstr "Fluo"
 
 #: templates/main.php:36
 msgid "Folder"
-msgstr ""
+msgstr "Dosierujo"
 
 #: templates/main.php:43
 msgid "Settings"
-msgstr ""
+msgstr "Agordo"
 
 #: templates/part.feeddialog.php:2
 msgid "Add Subscription"
-msgstr ""
+msgstr "Aldoni abonon"
 
 #: templates/part.feeddialog.php:9
 msgid "Choose folder"
-msgstr ""
+msgstr "Elekti dosierujon"
 
 #: templates/part.feeddialog.php:19 templates/part.nofeeds.php:6
 msgid "Address"
-msgstr ""
+msgstr "Adreso"
 
 #: templates/part.feeddialog.php:20
 msgid "Add"
-msgstr ""
+msgstr "Aldoni"
 
 #: templates/part.folderdialog.php:2
 msgid "Add Folder"
-msgstr ""
+msgstr "Aldoni dosierujon"
 
 #: templates/part.folderdialog.php:13
 msgid "Folder name"
-msgstr ""
+msgstr "Dosierujnomo"
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
-msgstr ""
+msgstr "Marki kiel negrava"
 
 #: templates/part.items.php:38
 msgid "Mark as important"
-msgstr ""
+msgstr "Marki kiel grava"
 
 #: templates/part.items.php:55
 msgid "from"
-msgstr ""
+msgstr "el"
 
 #: templates/part.items.php:60
 msgid "by"
-msgstr ""
+msgstr "de"
 
 #: templates/part.items.php:67
 msgid "Keep unread"
-msgstr ""
+msgstr "Lasi legota"
 
 #: templates/part.listfeed.php:22
 msgid "Delete feed"
-msgstr ""
+msgstr "Forigi fluon"
 
 #: templates/part.listfolder.php:17
 msgid "Rename folder"
-msgstr ""
+msgstr "Alinomigi dosierujon"
 
 #: templates/part.listfolder.php:18
 msgid "Delete folder"
-msgstr ""
+msgstr "Forigi dosierujon"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
-msgstr ""
+msgstr "Vi havas neniun fluon en via legilo."
 
 #: templates/part.nofeeds.php:10
 msgid "Import OPML"
-msgstr ""
+msgstr "Enporti OPML-on"
 
 #: templates/part.nofeeds.php:15
 msgid "Or..."
-msgstr ""
+msgstr "Aŭ..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
-msgstr ""
+msgstr "Enporti fluojn"
 
 #: templates/settings.php:3
 msgid "Upload file from desktop"
-msgstr ""
+msgstr "Alŝuti dosieron el la labortablo"
 
 #: templates/settings.php:3
 msgid "Upload"
-msgstr ""
+msgstr "Alŝuti"
 
 #: templates/settings.php:4
 msgid "Select file from ownCloud"
-msgstr ""
+msgstr "Elekti dosieron el ownCloud"
 
 #: templates/settings.php:4
 msgid "Select"
-msgstr ""
+msgstr "Elekti"
 
 #: templates/settings.php:6
 msgid "No file selected. Select file from "
-msgstr ""
+msgstr "Neniu dosiero elektita. Elekti dosieron el"
 
 #: templates/settings.php:6
 msgid "local filesystem"
-msgstr ""
+msgstr "loka dosiersistemo"
 
 #: templates/settings.php:7
 msgid " or "
-msgstr ""
+msgstr "aŭ"
 
 #: templates/settings.php:7
 msgid "cloud"
-msgstr ""
+msgstr "nubo"
 
 #: templates/settings.php:12
 msgid "Export feeds"
-msgstr ""
+msgstr "Malenporti fluojn"
 
 #: templates/settings.php:14
 msgid "Download OPML"
-msgstr ""
+msgstr "Elŝuti OPML-on"
 
 #: templates/settings.php:16
 msgid "Subscribelet"
@@ -385,4 +386,4 @@ msgstr ""
 
 #: templates/subscribelet.php:7
 msgid "Subscribe"
-msgstr ""
+msgstr "Aboni"

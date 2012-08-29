@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-28 02:01+0200\n"
-"PO-Revision-Date: 2012-08-27 14:09+0000\n"
+"POT-Creation-Date: 2012-08-29 02:02+0200\n"
+"PO-Revision-Date: 2012-08-28 13:50+0000\n"
 "Last-Translator: Denis <reg.transifex.net@demitel.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,7 @@ msgstr "Ошибка удаления ленты."
 
 #: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
-msgstr ""
+msgstr "Не было указано пути к файлу."
 
 #: ajax/exportopml.php:41 ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
@@ -60,7 +60,7 @@ msgstr "Ошибка обновления лент."
 
 #: ajax/loadfeed.php:35 templates/part.feeds.php:77
 msgid "Starred"
-msgstr ""
+msgstr "Отмеченный"
 
 #: ajax/loadfeed.php:40 templates/part.feeds.php:73
 msgid "New articles"
@@ -80,11 +80,11 @@ msgstr "Файл не существует:"
 
 #: ajax/setallitemsread.php:54
 msgid "Error setting all items as read."
-msgstr ""
+msgstr "Ошибка установки элементов как прочитанных."
 
 #: ajax/setitemstatus.php:46
 msgid "Error marking item as read."
-msgstr ""
+msgstr "Ошибка отметки элемента как прочитанного."
 
 #: ajax/updatefeed.php:36
 msgid "Error updating feed."
@@ -176,15 +176,15 @@ msgstr "Импорт..."
 
 #: js/settings.js:40
 msgid "Import kind not specified"
-msgstr ""
+msgstr "Тип импорта не указан"
 
 #: js/settings.js:45
 msgid " out of "
-msgstr ""
+msgstr " конец "
 
 #: js/settings.js:46
 msgid " feeds imported successfully from "
-msgstr ""
+msgstr " ленты успешно импортированы из "
 
 #: js/settings.js:47
 msgid "Success"
@@ -220,11 +220,11 @@ msgstr "без содержимого"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "подписки в ownCloud - Новости"
 
 #: subscribe.php:30
 msgid "An error occurred"
-msgstr ""
+msgstr "Произошла ошибка"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
@@ -296,15 +296,15 @@ msgstr "Пометить как важное"
 
 #: templates/part.items.php:55
 msgid "from"
-msgstr ""
+msgstr "из"
 
 #: templates/part.items.php:60
 msgid "by"
-msgstr ""
+msgstr "от"
 
 #: templates/part.items.php:67
 msgid "Keep unread"
-msgstr ""
+msgstr "Оставить непрочитанным"
 
 #: templates/part.listfeed.php:22
 msgid "Delete feed"
@@ -376,13 +376,13 @@ msgstr "Скачать OPML"
 
 #: templates/settings.php:16
 msgid "Subscribelet"
-msgstr ""
+msgstr "Быстрая подписка"
 
 #: templates/subscribelet.php:5
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr ""
+msgstr "Перетащите эту кнопку в закладки вашего браузера и нажимайте на неё для быстрого добавления страницы в закладки:"
 
 #: templates/subscribelet.php:7
 msgid "Subscribe"

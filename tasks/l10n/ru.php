@@ -11,7 +11,7 @@
 "Invalid priority" => "Неверный приоритет",
 "Add Task" => "Добавить задачу",
 "Order Due" => "Срок заказа",
-"Order List" => "Order List",
+"Order List" => "Список заказов",
 "Order Complete" => "Заказ выполнен",
 "Order Location" => "Местонахождение заказа",
 "Order Priority" => "Приоритет заказа",
