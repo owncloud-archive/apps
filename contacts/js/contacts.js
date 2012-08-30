@@ -397,6 +397,7 @@ OC.Contacts={
 			else {
 				localLoadContact(newid, bookid);
 			}
+			$('#contacts h3[data-id="'+bookid+'"]').addClass('active');
 		},
 		setEnabled:function(enabled) {
 			console.log('setEnabled', enabled);
