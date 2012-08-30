@@ -1,7 +1,7 @@
 #emptyfolder { position:absolute; margin:10em 0 0 10em; font-size:1.5em; font-weight:bold; color:#888; text-shadow:#fff 0 1px 0; }
 
 .impresslist {  margin-top:40px; padding:5px; width:100%;}
-.impresslist tr:hover {  backgound-color:#ccc; }
+.impresslist tr:hover {  background-color:#ccc; }
 .impresslist tr td {  padding:5px; }
 
 .docu { position: absolute; right: 13.5em; top: 0em; }
