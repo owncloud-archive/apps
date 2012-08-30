@@ -218,7 +218,11 @@ class OC_Contacts_Addressbook {
 		if ($addressbook['userid'] != OCP\User::getUser()) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
-				return false;
+				throw new Exception(
+					OC_Contacts_App::$l10n->t(
+						'You do not have the permissions to update this addressbook.'
+					)
+				);
 			}
 		}
 		if(is_null($name)) {
@@ -234,7 +238,11 @@ class OC_Contacts_Addressbook {
 		} catch(Exception $e) {
 			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', exception: '.$e->getMessage(), OCP\Util::ERROR);
 			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', id: '.$id, OCP\Util::DEBUG);
-			return false;
+			throw new Exception(
+				OC_Contacts_App::$l10n->t(
+					'There was an error updating the addressbook.'
+				)
+			);
 		}
 
 		return true;
