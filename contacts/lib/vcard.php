@@ -383,22 +383,35 @@ class OC_Contacts_VCard {
 	 * @brief edits a card
 	 * @param integer $id id of card
 	 * @param OC_VObject $card  vCard file
-	 * @return boolean
+	 * @return boolean true on success, otherwise an exception will be thrown
 	 */
 	public static function edit($id, OC_VObject $card){
 		$oldcard = self::find($id);
 		if (!$oldcard) {
-			return false;
+			OCP\Util::writeLog('contacts', __METHOD__.', id: '
+				. $id . ' not found.', OCP\Util::DEBUG);
+			throw new Exception(
+				OC_Contacts_App::$l10n->t(
+					'Could not find the vCard with ID.' . $id
+				)
+			);
 		}
 		if(is_null($card)) {
 			return false;
 		}
-		// NOTE: Owner checks are being made in the ajax files, which should be done inside the lib files to prevent any redundancies with sharing checks
+		// NOTE: Owner checks are being made in the ajax files, which should be done
+		// inside the lib files to prevent any redundancies with sharing checks
 		$addressbook = OC_Contacts_Addressbook::find($oldcard['addressbookid']);
 		if ($addressbook['userid'] != OCP\User::getUser()) {
-			$sharedContact = OCP\Share::getItemSharedWithBySource('contact', $id, OCP\Share::FORMAT_NONE, null, true);
-			if (!$sharedContact || !($sharedContact['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
-				throw new Exception(OC_Contacts_App::$l10n->t('You do not have the permissions to edit this contact.'));
+			$sharedContact = OCP\Share::getItemSharedWithBySource('contact', 
+				$id, OCP\Share::FORMAT_NONE, null, true);
+			if (!$sharedContact 
+				|| !($sharedContact['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+				throw new Exception(
+					OC_Contacts_App::$l10n->t(
+						'You do not have the permissions to edit this contact.'
+					)
+				);
 			}
 		}
 		OC_Contacts_App::loadCategoriesFromVCard($card);
@@ -458,15 +471,32 @@ class OC_Contacts_VCard {
 	/**
 	 * @brief deletes a card
 	 * @param integer $id id of card
-	 * @return boolean
+	 * @return boolean true on success, otherwise an exception will be thrown
 	 */
 	public static function delete($id){
 		$card = self::find($id);
 		if (!$card) {
-			return false;
+			OCP\Util::writeLog('contacts', __METHOD__.', id: '
+				. $id . ' not found.', OCP\Util::DEBUG);
+			throw new Exception(
+				OC_Contacts_App::$l10n->t(
+					'Could not find the vCard with ID: ' . $id
+				)
+			);
 		}
 		$addressbook = OC_Contacts_Addressbook::find($card['addressbookid']);
+		if(!$addressbook) {
+			throw new Exception(
+				OC_Contacts_App::$l10n->t(
+					'Could not find the Addressbook with ID: ' 
+					. $card['addressbookid']
+				)
+			);
+		}
+
 		if ($addressbook['userid'] != OCP\User::getUser()) {
+			OCP\Util::writeLog('contacts', __METHOD__.', '
+				. $addressbook['userid'] . ' != ' . OCP\User::getUser(), OCP\Util::DEBUG);
 			$sharedContact = OCP\Share::getItemSharedWithBySource('contact',
 				$id, OCP\Share::FORMAT_NONE, null, true);
 			if (!$sharedContact
@@ -489,7 +519,11 @@ class OC_Contacts_VCard {
 				', exception: ' . $e->getMessage(), OCP\Util::ERROR);
 			OCP\Util::writeLog('contacts', __METHOD__.', id: '
 				. $id, OCP\Util::DEBUG);
-			return false;
+			throw new Exception(
+				OC_Contacts_App::$l10n->t(
+					'There was an error deleting this contact.'
+				)
+			);
 		}
 
 		return true;

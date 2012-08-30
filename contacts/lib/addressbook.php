@@ -81,10 +81,14 @@ class OC_Contacts_Addressbook {
 		if(is_null($uid)) {
 			$uid = OCP\USER::getUser();
 		}
-		$activeaddressbooks = self::all($uid, true);
+		
+		// query all addressbooks to force creation of default if it desn't exist.
+		$activeaddressbooks = self::all($uid);
 		$ids = array();
 		foreach($activeaddressbooks as $addressbook) {
-			$ids[] = $addressbook['id'];
+			if($addressbook['active']) {
+				$ids[] = $addressbook['id'];
+			}
 		}
 		return $ids;
 	}
@@ -117,13 +121,11 @@ class OC_Contacts_Addressbook {
 		try {
 			$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_addressbooks` WHERE `id` = ?' );
 			$result = $stmt->execute(array($id));
-			return $result->fetchRow();
 		} catch(Exception $e) {
 			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', exception: '.$e->getMessage(), OCP\Util::ERROR);
 			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', id: '.$id, OCP\Util::DEBUG);
 			return false;
 		}
-
 		return $result->fetchRow();
 	}
 
@@ -274,30 +276,53 @@ class OC_Contacts_Addressbook {
 	/**
 	 * @brief removes an address book
 	 * @param integer $id
-	 * @return boolean
+	 * @return boolean true on success, otherwise an exception will be thrown
 	 */
 	public static function delete($id) {
 		$addressbook = self::find($id);
 		if ($addressbook['userid'] != OCP\User::getUser()) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_DELETE)) {
-				return false;
+				throw new Exception(
+					OC_Contacts_App::$l10n->t(
+						'You do not have the permissions to delete this addressbook.'
+					)
+				);
 			}
 		}
-		self::setActive($id, false);
-		try {
-			$stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*contacts_addressbooks` WHERE `id` = ?' );
-			$stmt->execute(array($id));
-		} catch(Exception $e) {
-			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', exception for '.$id.': '.$e->getMessage(), OCP\Util::ERROR);
-			return false;
-		}
 
+		// First delete cards belonging to this addressbook.
 		$cards = OC_Contacts_VCard::all($id);
 		foreach($cards as $card){
-			OC_Contacts_VCard::delete($card['id']);
+			try {
+				OC_Contacts_VCard::delete($card['id']);
+			} catch(Exception $e) {
+				OCP\Util::writeLog('contacts', 
+					__METHOD__.', exception deleting vCard '.$card['id'].': '
+					. $e->getMessage(), 
+					OCP\Util::ERROR);
+			}
 		}
 
+		try {
+			$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_addressbooks` WHERE `id` = ?');
+			$stmt->execute(array($id));
+		} catch(Exception $e) {
+			OCP\Util::writeLog('contacts',
+				__METHOD__.', exception for ' . $id . ': '
+				. $e->getMessage(), 
+				OCP\Util::ERROR);
+			throw new Exception(
+				OC_Contacts_App::$l10n->t(
+					'There was an error deleting this addressbook.'
+				)
+			);
+		}
+
+		if(count(self::all(OCP\User::getUser())) == 0) {
+			self::addDefault();
+		}
+		
 		return true;
 	}
 
