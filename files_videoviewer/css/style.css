@@ -2,7 +2,7 @@
 	position:fixed;
 	top:0px;bottom:0px;left:0px;right:0px;
 	z-index:100;
-	background:transparent url('%appswebroot%/apps/files_videoviewer/img/overlay.png') repeat 0 0;
+	background:transparent url('%appswebroot%/files_videoviewer/img/overlay.png') repeat 0 0;
        }
 
 #nonebox{
@@ -29,5 +29,5 @@ a.box-close{
 	width:26px;height:26px;
 	margin:-23px -23px 0px 0px;
 	cursor:pointer;
-	background:url('%appswebroot%/apps/files_videoviewer/img/close.png') no-repeat 0 0;
+	background:url('%appswebroot%/files_videoviewer/img/close.png') no-repeat 0 0;
 }   
