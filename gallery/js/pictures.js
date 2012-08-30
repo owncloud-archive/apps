@@ -65,7 +65,6 @@ function openNewGal(album_name) {
 	url = url + "&root="+encodeURIComponent(root);
 	//extract only the query part
 	var query=url.substr(url.indexOf('?'));
-	console.log(query);
 
 	window.location.search = query;
 }
