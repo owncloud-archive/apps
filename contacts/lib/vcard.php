@@ -47,13 +47,13 @@ class OC_Contacts_VCard {
 	 * The cards are associative arrays. You'll find the original vCard in
 	 * ['carddata']
 	 */
-	public static function all($id, $start=null, $num=null){
+	public static function all($id, $start=null, $num=null) {
 		$result = null;
 		if(is_array($id) && count($id)) {
 			$id_sql = join(',', array_fill(0, count($id), '?'));
 			$sql = 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` IN ('.$id_sql.') ORDER BY `fullname`';
 			try {
-				$stmt = OCP\DB::prepare( $sql, $num, $start );
+				$stmt = OCP\DB::prepare($sql, $num, $start);
 				$result = $stmt->execute($id);
 			} catch(Exception $e) {
 				OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), OCP\Util::ERROR);
@@ -64,7 +64,7 @@ class OC_Contacts_VCard {
 		} elseif(is_int($id) || is_string($id)) {
 			try {
 				$sql = 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? ORDER BY `fullname`';
-				$stmt = OCP\DB::prepare( $sql, $num, $start );
+				$stmt = OCP\DB::prepare($sql, $num, $start);
 				$result = $stmt->execute(array($id));
 			} catch(Exception $e) {
 				OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), OCP\Util::ERROR);
@@ -77,7 +77,7 @@ class OC_Contacts_VCard {
 		}
 		$cards = array();
 		if(!is_null($result)) {
-			while( $row = $result->fetchRow()){
+			while( $row = $result->fetchRow()) {
 				$cards[] = $row;
 			}
 		}
