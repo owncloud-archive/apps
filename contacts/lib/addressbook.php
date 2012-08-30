@@ -62,6 +62,9 @@ class OC_Contacts_Addressbook {
 
 		$addressbooks = array();
 		while( $row = $result->fetchRow()) {
+			$row['permissions'] = OCP\Share::PERMISSION_CREATE 
+				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE 
+				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE; 
 			$addressbooks[] = $row;
 		}
 		$addressbooks = array_merge($addressbooks, OCP\Share::getItemsSharedWith('addressbook', OC_Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS));
