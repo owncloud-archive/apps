@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Martin  <fireball@atlas.cz>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-27 01:38+0200\n"
-"PO-Revision-Date: 2012-08-26 23:39+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-08-30 02:02+0200\n"
+"PO-Revision-Date: 2012-08-30 00:03+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,207 +20,223 @@ msgstr ""
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
-msgstr ""
+msgstr "Příspěvek již existuje."
 
 #: ajax/createfeed.php:57
 msgid "Error adding feed."
-msgstr ""
+msgstr "Chyba při přidání příspěvku."
 
 #: ajax/createfeed.php:74 js/news.js:141
 msgid "Feed added!"
-msgstr ""
+msgstr "Příspěvek byl přidán!"
 
 #: ajax/createfolder.php:36
 msgid "Error adding folder."
-msgstr ""
+msgstr "Chyba během přidávání adresáře."
 
 #: ajax/createfolder.php:46
 msgid "Folder added!"
-msgstr ""
+msgstr "Adresář byl přidán!"
 
 #: ajax/deletefeed.php:28
 msgid "Error removing feed."
-msgstr ""
+msgstr "Chyba při odstraňování příspěvku."
 
 #: ajax/deletefolder.php:27
 msgid "Error removing folder."
-msgstr ""
+msgstr "Chyba při odstraňování adresáře."
 
 #: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
-msgstr ""
+msgstr "Neuvedena cesta k souboru."
 
 #: ajax/exportopml.php:41 ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
-msgstr ""
+msgstr "Chyba při převodu souboru."
 
 #: ajax/feedlist.php:27
 msgid "Error updating feeds."
-msgstr ""
+msgstr "Chyba při aktualizaci příspěvků."
 
 #: ajax/loadfeed.php:35 templates/part.feeds.php:77
 msgid "Starred"
-msgstr ""
+msgstr "Označené hvězdičkou"
 
 #: ajax/loadfeed.php:40 templates/part.feeds.php:73
 msgid "New articles"
-msgstr ""
+msgstr "Nové články"
 
 #: ajax/loadfeed.php:52
 msgid "Feed loaded!"
-msgstr ""
+msgstr "Příspěvky byly staženy!"
 
 #: ajax/movefeedtofolder.php:33
 msgid "Error moving feed into folder."
-msgstr ""
+msgstr "Chyba během přesuvu příspěvků do adresáře"
 
 #: ajax/selectfromcloud.php:37
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "Soubor neexistuje:"
 
 #: ajax/setallitemsread.php:54
 msgid "Error setting all items as read."
-msgstr ""
+msgstr "Chyba během nastavení atributu přečteno u  všech položek."
 
 #: ajax/setitemstatus.php:46
 msgid "Error marking item as read."
-msgstr ""
+msgstr "Chyba během nastavení atributu přečteno u položky."
 
 #: ajax/updatefeed.php:36
 msgid "Error updating feed."
-msgstr ""
+msgstr "Chyba při aktualizaci příspěvků"
 
 #: ajax/updatefeed.php:44
 msgid "Feed updated!"
-msgstr ""
+msgstr "Příspěveky aktualizovány!"
 
 #: appinfo/app.php:35
 msgid "News"
+msgstr "News"
+
+#: js/menu.js:398
+msgid "Load feed"
+msgstr ""
+
+#: js/menu.js:405
+msgid "Delete"
+msgstr ""
+
+#: js/menu.js:411
+msgid "Expand/Collapse"
+msgstr ""
+
+#: js/menu.js:417
+msgid "Edit"
 msgstr ""
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
-msgstr ""
+msgstr "Název adresáře nemůže být prázdný."
 
 #: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
 #: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
 #: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:40
 #: js/settings.js:49
 msgid "Error"
-msgstr ""
+msgstr "Chyba"
 
 #: js/news.js:55 js/news.js:113
 msgid "Adding..."
-msgstr ""
+msgstr "Přidává se..."
 
 #: js/news.js:78 templates/part.folderdialog.php:14
 msgid "Add folder"
-msgstr ""
+msgstr "Přidat adresář"
 
 #: js/news.js:83
 msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr ""
+msgstr "Opravdu mají být odstraněny adresáře i s jejich obsahem?"
 
 #: js/news.js:83 js/news.js:165
 msgid "Warning"
-msgstr ""
+msgstr "Upozornění"
 
 #: js/news.js:108
 msgid "URL cannot be empty."
-msgstr ""
+msgstr "URL nemůže zůstat prázdná"
 
 #: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:7
 #: templates/part.nofeeds.php:9
 msgid "Add feed"
-msgstr ""
+msgstr "Pčidat příspěvky"
 
 #: js/news.js:156
 msgid "Error while parsing the feed"
-msgstr ""
+msgstr "Chyba při převosu příspěvku"
 
 #: js/news.js:156
 msgid "Fatal Error"
-msgstr ""
+msgstr "Fatální chyba"
 
 #: js/news.js:165
 msgid "Are you sure you want to delete this feed?"
-msgstr ""
+msgstr "Opravdu odstranit tyto příspěvky?"
 
 #: js/news.js:208 js/news.js:245
 msgid "Error while loading the feed"
-msgstr ""
+msgstr "Chyba během aktualizace příspěvků"
 
 #: js/news.js:324
 msgid "Error while saving the feed in a folder"
-msgstr ""
+msgstr "Chyba během ukládání příspěvků do adresáře"
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
-msgstr ""
+msgstr "Soubor"
 
 #: js/settings.js:11
 msgid " loaded from cloud."
-msgstr ""
+msgstr "staženo z cloudu"
 
 #: js/settings.js:22
 msgid "No files selected."
-msgstr ""
+msgstr "Nejsou vybrány soubory."
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
-msgstr ""
+msgstr "staženo z lokálního souborového systému."
 
 #: js/settings.js:32
 msgid "Importing..."
-msgstr ""
+msgstr "Importuje se..."
 
 #: js/settings.js:40
 msgid "Import kind not specified"
-msgstr ""
+msgstr "Typ importu neni specifikován"
 
 #: js/settings.js:45
 msgid " out of "
-msgstr ""
+msgstr "z celkem"
 
 #: js/settings.js:46
 msgid " feeds imported successfully from "
-msgstr ""
+msgstr "příspěvky importovány úspěšně z"
 
 #: js/settings.js:47
 msgid "Success"
-msgstr ""
+msgstr "Úspěch"
 
 #: js/settings.js:51 templates/settings.php:10
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 #: js/settings.js:57
 msgid "Downloading..."
-msgstr ""
+msgstr "Stahuje se..."
 
 #: js/settings.js:59
 msgid "Download"
-msgstr ""
+msgstr "Stahování"
 
 #: js/settings.js:71
 msgid "Select file"
-msgstr ""
+msgstr "Vybrat soubor"
 
 #: lib/feedmapper.php:174 lib/itemmapper.php:199
 msgid "no title"
-msgstr ""
+msgstr "bez nadpisu"
 
 #: lib/foldermapper.php:114
 msgid "no name"
-msgstr ""
+msgstr "beze jména"
 
 #: lib/itemmapper.php:204
 msgid "no body"
-msgstr ""
+msgstr "bez těla"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "Odběr v ownCloud - News "
 
 #: subscribe.php:30
 msgid "An error occurred"

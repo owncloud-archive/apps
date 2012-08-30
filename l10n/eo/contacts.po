@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-24 02:02+0200\n"
-"PO-Revision-Date: 2012-08-24 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-08-30 02:02+0200\n"
+"PO-Revision-Date: 2012-08-29 20:21+0000\n"
+"Last-Translator: Mariano <mstreet@kde.org.ar>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -216,7 +216,7 @@ msgstr "Ne eblis ŝargi provizoran bildon: "
 msgid "No file was uploaded. Unknown error"
 msgstr "Neniu dosiero alŝutiĝis. Nekonata eraro."
 
-#: appinfo/app.php:21
+#: appinfo/app.php:25
 msgid "Contacts"
 msgstr "Kontaktoj"
 
@@ -244,15 +244,15 @@ msgstr "Eraro"
 
 #: js/contacts.js:424
 msgid "You do not have permission to add contacts to "
-msgstr ""
+msgstr "Vi ne havas permeson aldoni kontaktojn al"
 
 #: js/contacts.js:425
 msgid "Please select one of your own address books."
-msgstr ""
+msgstr "Bonvolu elekti unu el viaj propraj adresaroj."
 
 #: js/contacts.js:425
 msgid "Permission error"
-msgstr ""
+msgstr "Permesa eraro"
 
 #: js/contacts.js:763
 msgid "This property has to be non-empty."
@@ -284,7 +284,7 @@ msgstr "La dosiero, kiun vi provas alŝuti, transpasas la maksimuman grandon por
 
 #: js/contacts.js:1322
 msgid "Error loading profile picture."
-msgstr ""
+msgstr "Eraro dum ŝargado de profila bildo."
 
 #: js/contacts.js:1457 js/contacts.js:1498 js/contacts.js:1517
 #: js/contacts.js:1560
@@ -295,7 +295,7 @@ msgstr "Elektu tipon"
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
-msgstr ""
+msgstr "Iuj kontaktoj estas markitaj por forigo, sed ankoraŭ ne forigitaj. Bonvolu atendi ĝis ili foriĝos."
 
 #: js/contacts.js:1649
 msgid "Do you want to merge these address books?"
@@ -331,51 +331,51 @@ msgstr "Ne eblis trovi la kontakton."
 
 #: lib/app.php:116
 msgid "Jabber"
-msgstr ""
+msgstr "Jabber"
 
 #: lib/app.php:121
 msgid "AIM"
-msgstr ""
+msgstr "AIM"
 
 #: lib/app.php:126
 msgid "MSN"
-msgstr ""
+msgstr "MSN"
 
 #: lib/app.php:131
 msgid "Twitter"
-msgstr ""
+msgstr "Tvitero"
 
 #: lib/app.php:136
 msgid "GoogleTalk"
-msgstr ""
+msgstr "GoogleTalk"
 
 #: lib/app.php:141
 msgid "Facebook"
-msgstr ""
+msgstr "Vizaĝlibro"
 
 #: lib/app.php:146
 msgid "XMPP"
-msgstr ""
+msgstr "XMPP"
 
 #: lib/app.php:151
 msgid "ICQ"
-msgstr ""
+msgstr "ICQ"
 
 #: lib/app.php:156
 msgid "Yahoo"
-msgstr ""
+msgstr "Yahoo!"
 
 #: lib/app.php:161
 msgid "Skype"
-msgstr ""
+msgstr "Skajpo"
 
 #: lib/app.php:166
 msgid "QQ"
-msgstr ""
+msgstr "QQ"
 
 #: lib/app.php:171
 msgid "GaduGadu"
-msgstr ""
+msgstr "GaduGadu"
 
 #: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
 msgid "Work"
@@ -385,7 +385,7 @@ msgstr "Laboro"
 msgid "Home"
 msgstr "Hejmo"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:593
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:586
 msgid "Other"
 msgstr "Alia"
 
@@ -482,13 +482,13 @@ msgstr "Naskiĝtago de {name}"
 msgid "Contact"
 msgstr "Kontakto"
 
-#: lib/vcard.php:408
+#: lib/vcard.php:401
 msgid "You do not have the permissions to edit this contact."
-msgstr ""
+msgstr "Vi ne havas permeson redakti ĉi tiun kontakton."
 
-#: lib/vcard.php:483
+#: lib/vcard.php:476
 msgid "You do not have the permissions to delete this contact."
-msgstr ""
+msgstr "Vi ne havas permeson forigi ĉi tiun kontakton."
 
 #: templates/index.php:14
 msgid "Add Contact"
@@ -528,7 +528,7 @@ msgstr "Maljena kontakto en la listo"
 
 #: templates/index.php:46
 msgid "Expand/collapse current addressbook"
-msgstr ""
+msgstr "Etendi/Maletendi la nunan adresaron"
 
 #: templates/index.php:48
 msgid "Next addressbook"
@@ -664,7 +664,7 @@ msgstr "Forigi telefonnumeron"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
-msgstr ""
+msgstr "Tujmesaĝilo"
 
 #: templates/part.contact.php:101
 msgid "Delete IM"
@@ -696,7 +696,7 @@ msgstr "Retpoŝtadreso"
 
 #: templates/part.contact.php:131
 msgid "Instant Messaging"
-msgstr ""
+msgstr "Tujmesaĝado"
 
 #: templates/part.contact.php:132
 msgid "Address"
@@ -745,7 +745,7 @@ msgstr "Etendita"
 
 #: templates/part.edit_address_dialog.php:33
 msgid "Apartment number etc."
-msgstr ""
+msgstr "Apartamenta numero, ktp."
 
 #: templates/part.edit_address_dialog.php:36
 #: templates/part.edit_address_dialog.php:39
@@ -758,7 +758,7 @@ msgstr "Regiono"
 
 #: templates/part.edit_address_dialog.php:45
 msgid "E.g. state or province"
-msgstr ""
+msgstr "Ekz.: subŝtato aŭ provinco"
 
 #: templates/part.edit_address_dialog.php:48
 msgid "Zipcode"
@@ -919,7 +919,7 @@ msgstr "Montri nur legeblan VCF-ligilon"
 
 #: templates/settings.php:26
 msgid "Share"
-msgstr ""
+msgstr "Kunhavigi"
 
 #: templates/settings.php:29
 msgid "Download"

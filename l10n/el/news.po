@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-27 01:38+0200\n"
-"PO-Revision-Date: 2012-08-26 23:39+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-08-30 02:02+0200\n"
+"PO-Revision-Date: 2012-08-30 00:03+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,6 +95,22 @@ msgstr ""
 
 #: appinfo/app.php:35
 msgid "News"
+msgstr ""
+
+#: js/menu.js:398
+msgid "Load feed"
+msgstr ""
+
+#: js/menu.js:405
+msgid "Delete"
+msgstr ""
+
+#: js/menu.js:411
+msgid "Expand/Collapse"
+msgstr ""
+
+#: js/menu.js:417
+msgid "Edit"
 msgstr ""
 
 #: js/news.js:50

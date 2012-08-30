@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-29 02:02+0200\n"
+"POT-Creation-Date: 2012-08-30 02:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,6 +95,22 @@ msgstr ""
 
 #: appinfo/app.php:35
 msgid "News"
+msgstr ""
+
+#: js/menu.js:398
+msgid "Load feed"
+msgstr ""
+
+#: js/menu.js:405
+msgid "Delete"
+msgstr ""
+
+#: js/menu.js:411
+msgid "Expand/Collapse"
+msgstr ""
+
+#: js/menu.js:417
+msgid "Edit"
 msgstr ""
 
 #: js/news.js:50

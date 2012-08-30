@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-11 02:02+0200\n"
-"PO-Revision-Date: 2012-08-11 00:02+0000\n"
-"Last-Translator: owncloud_robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-08-30 02:02+0200\n"
+"PO-Revision-Date: 2012-08-29 19:05+0000\n"
+"Last-Translator: yunhye <limonade83@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr ""
+msgstr "모든 달력이 완벽히 캐시되지 않았습니다."
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
-msgstr ""
+msgstr "모든것이 완벽히 캐시 되었습니다."
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
@@ -43,19 +43,19 @@ msgstr "잘못된 달력"
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
-msgstr ""
+msgstr "이 파일은 이벤트가 없거나 모든 이벤트들이 이미 당신의 달력에 저장되어있습니다. "
 
 #: ajax/import/dropimport.php:31 ajax/import/import.php:67
 msgid "events has been saved in the new calendar"
-msgstr ""
+msgstr "이벤트가 새로운 달력에 저장되었습니다."
 
 #: ajax/import/import.php:56
 msgid "Import failed"
-msgstr ""
+msgstr "가져오기 실패"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
-msgstr ""
+msgstr "이벤트가 당신의 달력에 저장되었습니다."
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
@@ -69,7 +69,7 @@ msgstr "시간대 변경됨"
 msgid "Invalid request"
 msgstr "잘못된 요청"
 
-#: appinfo/app.php:35 templates/calendar.php:15
+#: appinfo/app.php:41 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "달력"
@@ -160,7 +160,7 @@ msgstr "작업"
 
 #: lib/app.php:351 lib/app.php:361
 msgid "by"
-msgstr ""
+msgstr "로"
 
 #: lib/app.php:359 lib/app.php:399
 msgid "unnamed"
@@ -349,79 +349,79 @@ msgstr "달력"
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "일요일"
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "월요일"
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "화요일"
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "수요일"
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "목요일"
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "금요일"
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "토요일"
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "1월"
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "2월"
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "3월"
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "4월"
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "5월"
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "6월"
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "7월"
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "8월"
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "9월"
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "10월"
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "11월"
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "12월"
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -478,7 +478,7 @@ msgstr "오늘"
 
 #: templates/calendar.php:46 templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "세팅"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -686,7 +686,7 @@ msgstr "달력 파일 가져오기"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "달력을 선택하세요"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
@@ -694,13 +694,13 @@ msgstr "새 달력 이름"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "사용 가능한 이름을 쓰세요!"
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr ""
+msgstr "이 이름의 달력은 이미 존재합니다. 계속 하신다면 이 달력들은 통합됩니다. "
 
 #: templates/part.import.php:47
 msgid "Import"
@@ -732,7 +732,7 @@ msgstr "에서"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "일반"
 
 #: templates/settings.php:15
 msgid "Timezone"
@@ -740,11 +740,11 @@ msgstr "시간대"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr ""
+msgstr "자동으로 시간대를 업데이트"
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "시간 포멧"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -756,39 +756,39 @@ msgstr "12시간"
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr ""
+msgstr "에 주 시작"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr ""
+msgstr "캐시"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr ""
+msgstr "이벤트 반복을 위한 캐시 삭제"
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "URLs"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
-msgstr ""
+msgstr "CalDAV 달력 주소 동기화"
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "더 많은 정보"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "기본 주소 (Kontact 외)"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr ""
+msgstr "iCalendar 링크만 읽기"
 
 #: templates/share.dropdown.php:20
 msgid "Users"
