@@ -119,7 +119,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 		showCardDAV:function(id) {
 			console.log('showCardDAV: ', id);
 			var row = this.adrsettings.find('tr[data-id="'+id+'"]');
-			this.showLink(id, row, totalurl+'/'+encodeURIComponent(oc_current_user));
+			this.showLink(id, row, totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(row.data('uri')));
 		},
 		showVCF:function(id) {
 			console.log('showVCF: ', id);
