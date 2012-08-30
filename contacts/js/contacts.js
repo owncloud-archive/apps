@@ -413,8 +413,8 @@ OC.Contacts={
 			var book = $('#contacts h3.active');
 			var permissions = parseInt(book.data('permissions'));
 			if(permissions == 0
-					|| permissions & OC.Share.PERMISSION_UPDATE
-					|| permissions & OC.Share.PERMISSION_DELETE) {
+					|| permissions & OC.PERMISSION_UPDATE
+					|| permissions & OC.PERMISSION_DELETE) {
 				with(this) {
 					delete id; delete fn; delete fullname; delete givname; delete famname;
 					delete addname; delete honpre; delete honsuf;
@@ -601,8 +601,8 @@ OC.Contacts={
 			var permissions = OC.Contacts.Card.permissions = parseInt($('#contacts ul[data-id="' + bookid + '"]').data('permissions'));
 			console.log('permissions', permissions);
 			this.setEnabled(permissions == 0
-				|| permissions & OC.Share.PERMISSION_UPDATE
-				|| permissions & OC.Share.PERMISSION_DELETE);
+				|| permissions & OC.PERMISSION_UPDATE
+				|| permissions & OC.PERMISSION_DELETE);
 		},
 		loadSingleProperties:function() {
 			var props = ['BDAY', 'NICKNAME', 'ORG', 'URL', 'CATEGORIES'];

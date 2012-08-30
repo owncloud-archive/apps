@@ -48,7 +48,7 @@ $(document).ready(function() {
 			'application/vnd.oasis.opendocument.presentation');
 		for (var i = 0; i < supportedMimes.length; ++i){
 			var mime = supportedMimes[i];
-			FileActions.register(mime,'View',FileActions.PERMISSION_READ,'',function(filename){
+			FileActions.register(mime,'View',OC.PERMISSION_READ,'',function(filename){
 				viewOdf($('#dir').val(),filename);
 			});
 			FileActions.setDefault(mime,'View');
