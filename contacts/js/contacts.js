@@ -1725,11 +1725,14 @@ OC.Contacts={
 				}
 			});
 		},
-		doImport:function(file, aid){
+		doImport:function(file, aid, cb) {
 			$.post(OC.filePath('contacts', '', 'import.php'), { id: aid, file: file, fstype: 'OC_FilesystemView' },
-				function(jsondata){
+				function(jsondata) {
 					if(jsondata.status != 'success'){
 						OC.Contacts.notify({message:jsondata.data.message});
+					}
+					if(typeof cb == 'function') {
+						cb();
 					}
 			});
 			return false;
@@ -2173,6 +2176,19 @@ $(document).ready(function(){
 			},
 			stop: function(e, data) {
 				// stop only gets fired once so we collect uploaded items here.
+				var waitForImport = function() {
+					if(numfiles == 0 && uploadedfiles == 0) {
+						$('#uploadprogressbar').progressbar('value',100);
+						OC.Contacts.notify({message:t('contacts', 'Import done')});
+						OC.Contacts.Contacts.update({aid:aid});
+						retries = aid = 0;
+						$('#uploadprogressbar').fadeOut();
+					} else {
+						setTimeout(function() { // 
+							waitForImport();
+						}, 1000);
+					}
+				}
 				var importFiles = function(aid, fileList) {
 					// Create a closure that can be called from different places.
 					if(numfiles != uploadedfiles) {
@@ -2192,17 +2208,14 @@ $(document).ready(function(){
 					$('#uploadprogressbar').progressbar('value',50);
 					var todo = uploadedfiles;
 					$.each(fileList, function(fileName, data) {
-						OC.Contacts.Contacts.doImport(fileName, aid);
-						delete fileList[fileName];
-						numfiles -= 1; uploadedfiles -= 1;
-						$('#uploadprogressbar').progressbar('value',50+(50/(todo-uploadedfiles)));
+						OC.Contacts.Contacts.doImport(fileName, aid, function() {
+							delete fileList[fileName];
+							numfiles -= 1; uploadedfiles -= 1;
+							$('#uploadprogressbar').progressbar('value',50+(50/(todo-uploadedfiles)));
+						});
 					})
-					$('#uploadprogressbar').progressbar('value',100);
-					$('#uploadprogressbar').fadeOut();
-					setTimeout(function() {
-						OC.Contacts.Contacts.update({aid:aid});
-						numfiles = uploadedfiles = retries = aid = 0;
-					}, 1000);
+					OC.Contacts.notify({message:t('contacts', 'Importing...'), timeout:20});
+					waitForImport();
 				}
 				if(!aid) {
 					// Either selected with filepicker or dropped outside of an address book.
