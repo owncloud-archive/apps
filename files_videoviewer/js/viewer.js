@@ -85,7 +85,7 @@ $(document).ready(function() {
 	if (typeof FileActions !== 'undefined') {
 		for (var i = 0; i < streamerPlayer.mimeTypes.length; ++i) {
 			var mime = streamerPlayer.mimeTypes[i];
-			FileActions.register(mime, 'View', '', streamerPlayer.onView);
+			FileActions.register(mime, 'View', FileActions.PERMISSION_READ, '', streamerPlayer.onView);
 			FileActions.setDefault(mime, 'View');
 		}
 		$(document).keydown(streamerPlayer.onKeyDown);
