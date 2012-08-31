@@ -1,23 +1,23 @@
-var streamerPlayer = {
+var videoViewer = {
 	UI : {
 		playerTemplate : '<video width="%width%" height="%height%" id="media_element" class="video-js vjs-default-skin" controls preload="none">' + 
 		'<source type="%type%" src="%src%" />' + 
 		'</video>',
 		init : function(){
-			OC.addScript('files_videoviewer','mediaelement-and-player', streamerPlayer.showPlayer);
+			OC.addScript('files_videoviewer','mediaelement-and-player', videoViewer.showPlayer);
 		},
 		show : function () {
-			$('<div id="videoviewer_overlay" style="display:none;"></div><div id="videoviewer_popup"><div id="videoviewer_container"><a class="box-close" id="box-close" href="#"></a><h3>'+streamerPlayer.file+'</h3></div></div>').appendTo('body');
+			$('<div id="videoviewer_overlay" style="display:none;"></div><div id="videoviewer_popup"><div id="videoviewer_container"><a class="box-close" id="box-close" href="#"></a><h3>'+videoViewer.file+'</h3></div></div>').appendTo('body');
 			
 			$('#videoviewer_overlay').fadeIn('fast',function(){
 				$('#videoviewer_popup').fadeIn('fast');
 			});
-			$('#box-close').click(streamerPlayer.hidePlayer);
-			var size = streamerPlayer.UI.getSize();
-			var playerView = streamerPlayer.UI.playerTemplate.replace(/%width%/g, size.width)
+			$('#box-close').click(videoViewer.hidePlayer);
+			var size = videoViewer.UI.getSize();
+			var playerView = videoViewer.UI.playerTemplate.replace(/%width%/g, size.width)
 								.replace(/%height%/g, size.height)
-								.replace(/%type%/g, streamerPlayer.mime)
-								.replace(/%src%/g, streamerPlayer.location)
+								.replace(/%type%/g, videoViewer.mime)
+								.replace(/%src%/g, videoViewer.location)
 			;
 			$(playerView).prependTo('#videoviewer_container');
 		},
@@ -55,16 +55,16 @@ var streamerPlayer = {
 		'video/x-ms-asf'
 	],
 	onView : function(file) {
-		streamerPlayer.file = file;
-		streamerPlayer.location = streamerPlayer.getMediaUrl(file);
-		streamerPlayer.mime = FileActions.getCurrentMimeType();
+		videoViewer.file = file;
+		videoViewer.location = videoViewer.getMediaUrl(file);
+		videoViewer.mime = FileActions.getCurrentMimeType();
 		
-		OC.addScript('files_videoviewer','mediaelement-and-player', streamerPlayer.showPlayer);
+		OC.addScript('files_videoviewer','mediaelement-and-player', videoViewer.showPlayer);
 	},
 	showPlayer : function() {
-		streamerPlayer.UI.show();
+		videoViewer.UI.show();
 	
-		streamerPlayer.player = new MediaElementPlayer('#media_element', {
+		videoViewer.player = new MediaElementPlayer('#media_element', {
 			features: ['playpause','progress','current','duration','tracks','volume','fullscreen'],
 			pluginPath : OC.filePath('files_videoviewer', 'js', ''),
 			pauseOtherPlayers: false,
@@ -73,10 +73,10 @@ var streamerPlayer = {
 			success: function (player, node) {
 				//set the size (for flash otherwise no video just sound!)
 				player.setVideoSize($(node).width(), $(node).height());
-				streamerPlayer.log(streamerPlayer.location);
+				videoViewer.log(videoViewer.location);
 				player.load();
 				player.pause();
-				streamerPlayer.log('ready');
+				videoViewer.log('ready');
 			},
 			error: function (m) { 
 				console.log(m);
@@ -84,11 +84,11 @@ var streamerPlayer = {
 		});
 	},
 	hidePlayer : function() {
-		streamerPlayer.player && streamerPlayer.pause();
-		streamerPlayer.player = false;
-		delete streamerPlayer.player;
+		videoViewer.player && videoViewer.pause();
+		videoViewer.player = false;
+		delete videoViewer.player;
 
-		streamerPlayer.UI.hide();
+		videoViewer.UI.hide();
 	},
 	getMediaUrl : function(file) {
 		var dir = $('#dir').val();
@@ -96,8 +96,8 @@ var streamerPlayer = {
 			encodeURIComponent('?dir='+ encodeURIComponent(dir) + '&files='+encodeURIComponent(file));
 	},
 	onKeyDown : function(e) {
-		if (e.keyCode == 27 && !$('.mejs-container-fullscreen').length && streamerPlayer.player) {
-			 streamerPlayer.hidePlayer();
+		if (e.keyCode == 27 && !$('.mejs-container-fullscreen').length && videoViewer.player) {
+			 videoViewer.hidePlayer();
 		}
 	},
 	log : function(message){
@@ -107,11 +107,11 @@ var streamerPlayer = {
 
 $(document).ready(function() {	
 	if (typeof FileActions !== 'undefined') {
-		for (var i = 0; i < streamerPlayer.mimeTypes.length; ++i) {
-			var mime = streamerPlayer.mimeTypes[i];
-			FileActions.register(mime, 'View', OC.PERMISSION_READ, '', streamerPlayer.onView);
+		for (var i = 0; i < videoViewer.mimeTypes.length; ++i) {
+			var mime = videoViewer.mimeTypes[i];
+			FileActions.register(mime, 'View', OC.PERMISSION_READ, '', videoViewer.onView);
 			FileActions.setDefault(mime, 'View');
 		}
-		$(document).keydown(streamerPlayer.onKeyDown);
+		$(document).keydown(videoViewer.onKeyDown);
 	}
 });
