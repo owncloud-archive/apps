@@ -1,6 +1,15 @@
 var streamerPlayer = {
 	UI : {
-		show : function (file) {
+		playerTemplate : '<video width="%width%" height="%height%" id="media_element" class="video-js vjs-default-skin" poster="" controls preload="auto">' + 
+		'<source type="video/mp4" src="%src%" />' + 
+		'<source type="video/webm" src="%src%"  />' +
+		'<source type="video/flv" src="%src%"  />' +
+		'<object width="%width%" height="%height%" type="application/x-shockwave-flash" data="%flash%">' +
+		'<param name="movie" value="%flash%" />' +
+		'<param name="flashvars" value="controls=true&amp;file=%src%" />' +
+		'</object>' +
+		'</video>',
+		show : function (file, location, flashUri) {
 			$('<div class="overlay" id="overlay" style="display:none;"></div><div id="nonebox"><div id="container"><a class="box-close" id="box-close" href="#"></a><h3>'+file+'</h3></div></div>').appendTo('body');
 			
 			$('#overlay').fadeIn('fast',function(){
@@ -8,14 +17,20 @@ var streamerPlayer = {
 			});
 			$('#box-close').click(streamerPlayer.hidePlayer);
 			var size = streamerPlayer.UI.getSize();
-			$('<video width="' + size.width + '" height="' + size.height + '" id="media_element" controls="controls" ></video>').prependTo('#container');
+			var playerView = streamerPlayer.UI.playerTemplate.replace(/%width%/g, size.width)
+								.replace(/%height%/g, size.height)
+								.replace(/%flash%/g, flashUri)
+								.replace(/%src%/g, location)
+			;
+			$(playerView).prependTo('#container');
 		},
 		hide : function() {
+			$(".mejs-container").remove();
 			$('#nonebox').fadeOut('fast', function() {
-				$('#nonebox').remove();
 				$('#overlay').fadeOut('fast', function() {
 					$('#overlay').remove();
 				});
+				$('#nonebox').remove();
 			});
 		},
 		getSize : function () {
@@ -28,56 +43,61 @@ var streamerPlayer = {
 			return size;
 		},
 	},
-	isVisible : false,
+	player : null,
 	mimeTypes : [
 		'video/mp4',
 		'video/webm',
 		'video/x-flv',
 		'application/ogg',
+		'application/octet-stream',
 		'video/quicktime',
 		'video/x-msvideo',
+		'video/x-matroska',
 		'video/x-ms-asf'
 	],
 	onView : function(file) {
-		streamerPlayer.UI.show(file);
 		var location = streamerPlayer.getMediaUrl(file);
 		var mime = FileActions.getCurrentMimeType();
-		streamerPlayer.addSource(mime, location);
 		
-		//some Fallbacks
-		streamerPlayer.addSource('video/x-flv', location);
-		streamerPlayer.addSource('video/x-ms-asf', location);
+		//Previous instance should NOT exist
+		streamerPlayer.player = false;
+		delete streamerPlayer.player;
 		
-		streamerPlayer.player = $('video#media_element').mediaelementplayer('#media_element', {
+		streamerPlayer.UI.show(file, location,  OC.filePath('files_videoviewer', 'js', 'flashmediaelement.swf'));
+	
+		streamerPlayer.player = new MediaElementPlayer('#media_element', {
 			features: ['playpause','progress','current','duration','tracks','volume','fullscreen'],
 			pluginPath : OC.filePath('files_videoviewer', 'js', ''),
-			enablePluginDebug: false,
-			plugins: ['flash','silverlight']
+			enablePluginDebug: true,
+			plugins: ['flash','silverlight'],
+			success: function (player, node) {
+				//set the size (for flash otherwise no video just sound!)
+				player.setVideoSize($(node).width(), $(node).height());
+				streamerPlayer.log(location);
+				player.load();
+				player.pause();
+				streamerPlayer.log('ready');
+			},
+			error: function (m) { 
+				console.log(m);
+			}
 		});
-
-		streamerPlayer.isVisible = true;
 	},
 	hidePlayer : function() {
-		streamerPlayer.isVisible = false;
-		streamerPlayer.player=null;
 		streamerPlayer.UI.hide();
-	},
-	addSource : function(mime, location) {
-		$('<source type="' + mime + '" src="' + location + '" />').appendTo('#media_element');
 	},
 	getMediaUrl : function(file) {
 		var dir = $('#dir').val();
-		var port = window.location.port !== "" ? window.location.port : "80";
-		return window.location.protocol+
-			"//"+document.domain+
-			":"+port+
-			OC.filePath('files','ajax','download.php')+
-			'?files='+file+'&dir='+dir;
+		return 	OC.filePath('files','ajax','download.php')+
+			encodeURIComponent('?dir='+ encodeURIComponent(dir) + '&files='+encodeURIComponent(file));
 	},
 	onKeyDown : function(e) {
-		if (e.keyCode == 27 && !$('.mejs-container-fullscreen').length && streamerPlayer.isVisible) {
+		if (e.keyCode == 27 && !$('.mejs-container-fullscreen').length && streamerPlayer.player) {
 			 streamerPlayer.hidePlayer();
 		}
+	},
+	log : function(message){
+		console.log(message);
 	}
 };
 
