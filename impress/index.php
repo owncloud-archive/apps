@@ -25,8 +25,8 @@ require_once('lib/impress.php');
 
 OCP\User::checkLoggedIn();
 OCP\JSON::checkAppEnabled('impress');
+OCP\Util::addStyle( 'impress', 'style' );
 OCP\App::setActiveNavigationEntry( 'impress_index' );
-
 
 
 $list=\OCA_Impress\Storage::getPresentations();
