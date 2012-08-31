@@ -43,6 +43,7 @@ var streamerPlayer = {
 			return size;
 		},
 	},
+	file : null,
 	player : null,
 	mimeTypes : [
 		'video/mp4',
@@ -55,19 +56,20 @@ var streamerPlayer = {
 		'video/x-matroska',
 		'video/x-ms-asf'
 	],
-	onView : function(file) {
-		var location = streamerPlayer.getMediaUrl(file);
+	showPlayer : function(){
+		var location = streamerPlayer.getMediaUrl(streamerPlayer.file);
 		var mime = FileActions.getCurrentMimeType();
 		
 		//Previous instance should NOT exist
 		streamerPlayer.player = false;
 		delete streamerPlayer.player;
 		
-		streamerPlayer.UI.show(file, location,  OC.filePath('files_videoviewer', 'js', 'flashmediaelement.swf'));
+		streamerPlayer.UI.show(streamerPlayer.file, location,  OC.filePath('files_videoviewer', 'js', 'flashmediaelement.swf'));
 	
 		streamerPlayer.player = new MediaElementPlayer('#media_element', {
 			features: ['playpause','progress','current','duration','tracks','volume','fullscreen'],
 			pluginPath : OC.filePath('files_videoviewer', 'js', ''),
+			pauseOtherPlayers: false,
 			enablePluginDebug: true,
 			plugins: ['flash','silverlight'],
 			success: function (player, node) {
@@ -82,6 +84,10 @@ var streamerPlayer = {
 				console.log(m);
 			}
 		});
+	},
+	onView : function(file) {
+		streamerPlayer.file = file;
+		OC.addScript('files_videoviewer','mediaelement-and-player').done(streamerPlayer.showPlayer);
 	},
 	hidePlayer : function() {
 		streamerPlayer.UI.hide();

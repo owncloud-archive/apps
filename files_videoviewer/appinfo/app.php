@@ -3,4 +3,4 @@
 OCP\Util::addStyle( 'files_videoviewer', 'style' );
 OCP\Util::addStyle( 'files_videoviewer', 'mediaelementplayer' );
 OCP\Util::addscript( 'files_videoviewer', 'viewer');
-OCP\Util::addscript( 'files_videoviewer', 'mediaelement-and-player');
+
