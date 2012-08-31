@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-30 02:02+0200\n"
-"PO-Revision-Date: 2012-08-30 00:03+0000\n"
+"POT-Creation-Date: 2012-08-31 02:02+0200\n"
+"PO-Revision-Date: 2012-08-31 00:04+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/owncloud/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -97,19 +97,19 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: js/menu.js:398
+#: js/menu.js:530
 msgid "Load feed"
 msgstr ""
 
-#: js/menu.js:405
+#: js/menu.js:537
 msgid "Delete"
 msgstr ""
 
-#: js/menu.js:411
+#: js/menu.js:543
 msgid "Expand/Collapse"
 msgstr ""
 
-#: js/menu.js:417
+#: js/menu.js:549
 msgid "Edit"
 msgstr ""
 
@@ -119,8 +119,7 @@ msgstr ""
 
 #: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
 #: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
-#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:40
-#: js/settings.js:49
+#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr ""
 
@@ -144,8 +143,7 @@ msgstr ""
 msgid "URL cannot be empty."
 msgstr ""
 
-#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:7
-#: templates/part.nofeeds.php:9
+#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr ""
 
@@ -189,35 +187,31 @@ msgstr ""
 msgid "Importing..."
 msgstr ""
 
-#: js/settings.js:40
-msgid "Import kind not specified"
-msgstr ""
-
-#: js/settings.js:45
+#: js/settings.js:43
 msgid " out of "
 msgstr ""
 
-#: js/settings.js:46
+#: js/settings.js:44
 msgid " feeds imported successfully from "
 msgstr ""
 
-#: js/settings.js:47
+#: js/settings.js:45
 msgid "Success"
 msgstr ""
 
-#: js/settings.js:51 templates/settings.php:10
+#: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
 msgid "Import"
 msgstr ""
 
-#: js/settings.js:57
+#: js/settings.js:55
 msgid "Downloading..."
 msgstr ""
 
-#: js/settings.js:59
+#: js/settings.js:57
 msgid "Download"
 msgstr ""
 
-#: js/settings.js:71
+#: js/settings.js:69
 msgid "Select file"
 msgstr ""
 
@@ -285,7 +279,7 @@ msgstr ""
 msgid "Choose folder"
 msgstr ""
 
-#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:6
+#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:7
 msgid "Address"
 msgstr ""
 
@@ -337,48 +331,52 @@ msgstr ""
 msgid "You don't have any feed in your reader."
 msgstr ""
 
-#: templates/part.nofeeds.php:10
+#: templates/part.nofeeds.php:8 templates/subscribelet.php:7
+msgid "Subscribe"
+msgstr ""
+
+#: templates/part.nofeeds.php:12
 msgid "Import OPML"
 msgstr ""
 
-#: templates/part.nofeeds.php:15
+#: templates/part.nofeeds.php:13 templates/settings.php:3
+msgid "Upload file from desktop"
+msgstr ""
+
+#: templates/part.nofeeds.php:13 templates/settings.php:3
+msgid "Upload"
+msgstr ""
+
+#: templates/part.nofeeds.php:14 templates/settings.php:4
+msgid "Select file from ownCloud"
+msgstr ""
+
+#: templates/part.nofeeds.php:14 templates/settings.php:4
+msgid "Select"
+msgstr ""
+
+#: templates/part.nofeeds.php:16 templates/settings.php:6
+msgid "Select file from"
+msgstr ""
+
+#: templates/part.nofeeds.php:16 templates/settings.php:6
+msgid "local filesystem"
+msgstr ""
+
+#: templates/part.nofeeds.php:17 templates/settings.php:7
+msgid " or "
+msgstr ""
+
+#: templates/part.nofeeds.php:17 templates/settings.php:7
+msgid "cloud"
+msgstr ""
+
+#: templates/part.nofeeds.php:26
 msgid "Or..."
 msgstr ""
 
 #: templates/settings.php:2
 msgid "Import feeds"
-msgstr ""
-
-#: templates/settings.php:3
-msgid "Upload file from desktop"
-msgstr ""
-
-#: templates/settings.php:3
-msgid "Upload"
-msgstr ""
-
-#: templates/settings.php:4
-msgid "Select file from ownCloud"
-msgstr ""
-
-#: templates/settings.php:4
-msgid "Select"
-msgstr ""
-
-#: templates/settings.php:6
-msgid "No file selected. Select file from "
-msgstr ""
-
-#: templates/settings.php:6
-msgid "local filesystem"
-msgstr ""
-
-#: templates/settings.php:7
-msgid " or "
-msgstr ""
-
-#: templates/settings.php:7
-msgid "cloud"
 msgstr ""
 
 #: templates/settings.php:12
@@ -397,8 +395,4 @@ msgstr ""
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr ""
-
-#: templates/subscribelet.php:7
-msgid "Subscribe"
 msgstr ""

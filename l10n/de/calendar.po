@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-24 02:02+0200\n"
-"PO-Revision-Date: 2012-08-23 09:20+0000\n"
+"POT-Creation-Date: 2012-08-31 02:02+0200\n"
+"PO-Revision-Date: 2012-08-30 10:03+0000\n"
 "Last-Translator: traductor <transifex.3.mensaje@spamgourmet.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -78,7 +78,7 @@ msgstr "Zeitzone geändert"
 msgid "Invalid request"
 msgstr "Fehlerhafte Anfrage"
 
-#: appinfo/app.php:37 templates/calendar.php:15
+#: appinfo/app.php:41 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Kalender"
@@ -491,7 +491,7 @@ msgstr "Einstellungen"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
-msgstr "Deine Kalender"
+msgstr "Ihre Kalender"
 
 #: templates/part.choosecalendar.php:27
 #: templates/part.choosecalendar.rowfields.php:11
@@ -525,7 +525,7 @@ msgstr "Löschen"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
-msgstr "Geteilt mit dir von"
+msgstr "Geteilt mit Ihnen von"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-30 02:02+0200\n"
-"PO-Revision-Date: 2012-08-30 00:03+0000\n"
+"POT-Creation-Date: 2012-08-31 02:02+0200\n"
+"PO-Revision-Date: 2012-08-31 00:04+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -99,21 +99,21 @@ msgstr "Flöde uppdaterat!"
 msgid "News"
 msgstr "Nyheter"
 
-#: js/menu.js:398
+#: js/menu.js:530
 msgid "Load feed"
-msgstr ""
+msgstr "Ladda flöde"
 
-#: js/menu.js:405
+#: js/menu.js:537
 msgid "Delete"
-msgstr ""
+msgstr "Radera"
 
-#: js/menu.js:411
+#: js/menu.js:543
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Visa/Dölj"
 
-#: js/menu.js:417
+#: js/menu.js:549
 msgid "Edit"
-msgstr ""
+msgstr "Redigera"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
@@ -121,8 +121,7 @@ msgstr "Namnet på mappen kan inte vara tomt."
 
 #: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
 #: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
-#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:40
-#: js/settings.js:49
+#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "Fel"
 
@@ -146,8 +145,7 @@ msgstr "Varning"
 msgid "URL cannot be empty."
 msgstr "URL kan inte vara tom."
 
-#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:7
-#: templates/part.nofeeds.php:9
+#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "Lägg till flöde"
 
@@ -191,35 +189,31 @@ msgstr "hämtat från lokalt filsystem."
 msgid "Importing..."
 msgstr "Importerar..."
 
-#: js/settings.js:40
-msgid "Import kind not specified"
-msgstr "Importeringstyp är inte specificerad"
-
-#: js/settings.js:45
+#: js/settings.js:43
 msgid " out of "
 msgstr "utav"
 
-#: js/settings.js:46
+#: js/settings.js:44
 msgid " feeds imported successfully from "
 msgstr "lyckades hämta flöden från"
 
-#: js/settings.js:47
+#: js/settings.js:45
 msgid "Success"
 msgstr "Lyckat"
 
-#: js/settings.js:51 templates/settings.php:10
+#: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
 msgid "Import"
 msgstr "Importera"
 
-#: js/settings.js:57
+#: js/settings.js:55
 msgid "Downloading..."
 msgstr "Laddar ner..."
 
-#: js/settings.js:59
+#: js/settings.js:57
 msgid "Download"
 msgstr "Ladda ner"
 
-#: js/settings.js:71
+#: js/settings.js:69
 msgid "Select file"
 msgstr "Välj fil"
 
@@ -287,7 +281,7 @@ msgstr "Lägg till prenumeration"
 msgid "Choose folder"
 msgstr "Välj mapp"
 
-#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:6
+#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:7
 msgid "Address"
 msgstr "Adress"
 
@@ -339,49 +333,53 @@ msgstr "Radera mapp"
 msgid "You don't have any feed in your reader."
 msgstr "Du har inget flöde i din läsare."
 
-#: templates/part.nofeeds.php:10
+#: templates/part.nofeeds.php:8 templates/subscribelet.php:7
+msgid "Subscribe"
+msgstr "Prenumerera"
+
+#: templates/part.nofeeds.php:12
 msgid "Import OPML"
 msgstr "Importera OPML"
 
-#: templates/part.nofeeds.php:15
+#: templates/part.nofeeds.php:13 templates/settings.php:3
+msgid "Upload file from desktop"
+msgstr "Ladda upp fil från skrivbord"
+
+#: templates/part.nofeeds.php:13 templates/settings.php:3
+msgid "Upload"
+msgstr "Ladda upp"
+
+#: templates/part.nofeeds.php:14 templates/settings.php:4
+msgid "Select file from ownCloud"
+msgstr "Välj fil från ownCloud"
+
+#: templates/part.nofeeds.php:14 templates/settings.php:4
+msgid "Select"
+msgstr "Välj"
+
+#: templates/part.nofeeds.php:16 templates/settings.php:6
+msgid "Select file from"
+msgstr ""
+
+#: templates/part.nofeeds.php:16 templates/settings.php:6
+msgid "local filesystem"
+msgstr "lokalt filsystem"
+
+#: templates/part.nofeeds.php:17 templates/settings.php:7
+msgid " or "
+msgstr "eller"
+
+#: templates/part.nofeeds.php:17 templates/settings.php:7
+msgid "cloud"
+msgstr "moln"
+
+#: templates/part.nofeeds.php:26
 msgid "Or..."
 msgstr "Eller..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
 msgstr "Importera flöden"
-
-#: templates/settings.php:3
-msgid "Upload file from desktop"
-msgstr "Ladda upp fil från skrivbord"
-
-#: templates/settings.php:3
-msgid "Upload"
-msgstr "Ladda upp"
-
-#: templates/settings.php:4
-msgid "Select file from ownCloud"
-msgstr "Välj fil från ownCloud"
-
-#: templates/settings.php:4
-msgid "Select"
-msgstr "Välj"
-
-#: templates/settings.php:6
-msgid "No file selected. Select file from "
-msgstr "Ingen fil vald. Välj från"
-
-#: templates/settings.php:6
-msgid "local filesystem"
-msgstr "lokalt filsystem"
-
-#: templates/settings.php:7
-msgid " or "
-msgstr "eller"
-
-#: templates/settings.php:7
-msgid "cloud"
-msgstr "moln"
 
 #: templates/settings.php:12
 msgid "Export feeds"
@@ -400,7 +398,3 @@ msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
 msgstr "Drag denna till din webbläsares bokmärken och klicka på den när du snabbt vill prenumerera på en webbsida:"
-
-#: templates/subscribelet.php:7
-msgid "Subscribe"
-msgstr "Prenumerera"

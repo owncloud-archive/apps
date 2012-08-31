@@ -19,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-25 02:04+0200\n"
-"PO-Revision-Date: 2012-08-24 13:55+0000\n"
-"Last-Translator: MathieuP <mathieu.payrol@gmail.com>\n"
+"POT-Creation-Date: 2012-08-31 02:02+0200\n"
+"PO-Revision-Date: 2012-08-31 00:03+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,11 +93,11 @@ msgstr "Ajout d'une propriété en double:"
 
 #: ajax/contact/addproperty.php:115 ajax/contact/saveproperty.php:93
 msgid "Missing IM parameter."
-msgstr "Paramètre de Messagerie Instantanée manquants."
+msgstr "Paramètre de messagerie instantanée manquants."
 
 #: ajax/contact/addproperty.php:119 ajax/contact/saveproperty.php:97
 msgid "Unknown IM: "
-msgstr "Messagerie Instantanée inconnue"
+msgstr "Messagerie instantanée inconnue"
 
 #: ajax/contact/deleteproperty.php:37
 msgid "Information about vCard is incorrect. Please reload the page."
@@ -243,71 +243,71 @@ msgid "Couldn't get a valid address."
 msgstr "Impossible de trouver une adresse valide."
 
 #: js/contacts.js:76 js/contacts.js:365 js/contacts.js:381 js/contacts.js:393
-#: js/contacts.js:723 js/contacts.js:763 js/contacts.js:789 js/contacts.js:921
-#: js/contacts.js:927 js/contacts.js:939 js/contacts.js:976
-#: js/contacts.js:1250 js/contacts.js:1258 js/contacts.js:1267
-#: js/contacts.js:1302 js/contacts.js:1338 js/contacts.js:1353
-#: js/contacts.js:1379 js/contacts.js:1609 js/contacts.js:1644
-#: js/contacts.js:1664 js/settings.js:26 js/settings.js:43 js/settings.js:68
+#: js/contacts.js:724 js/contacts.js:764 js/contacts.js:790 js/contacts.js:922
+#: js/contacts.js:928 js/contacts.js:940 js/contacts.js:977
+#: js/contacts.js:1251 js/contacts.js:1259 js/contacts.js:1268
+#: js/contacts.js:1303 js/contacts.js:1339 js/contacts.js:1354
+#: js/contacts.js:1380 js/contacts.js:1610 js/contacts.js:1645
+#: js/contacts.js:1665 js/settings.js:26 js/settings.js:43 js/settings.js:68
 msgid "Error"
 msgstr "Erreur"
 
-#: js/contacts.js:424
+#: js/contacts.js:425
 msgid "You do not have permission to add contacts to "
 msgstr "Vous n'avez pas l'autorisation d'ajouter des contacts à"
 
-#: js/contacts.js:425
+#: js/contacts.js:426
 msgid "Please select one of your own address books."
 msgstr "Veuillez sélectionner l'un de vos carnets d'adresses."
 
-#: js/contacts.js:425
+#: js/contacts.js:426
 msgid "Permission error"
 msgstr "Erreur de permission"
 
-#: js/contacts.js:763
+#: js/contacts.js:764
 msgid "This property has to be non-empty."
 msgstr "Cette valeur ne doit pas être vide"
 
-#: js/contacts.js:789
+#: js/contacts.js:790
 msgid "Couldn't serialize elements."
 msgstr "Impossible de sérialiser les éléments."
 
-#: js/contacts.js:921 js/contacts.js:939
+#: js/contacts.js:922 js/contacts.js:940
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "'deleteProperty' a été appelé sans type d'arguments. Merci de rapporter un bug à bugs.owncloud.org"
 
-#: js/contacts.js:958
+#: js/contacts.js:959
 msgid "Edit name"
 msgstr "Éditer le nom"
 
-#: js/contacts.js:1250
+#: js/contacts.js:1251
 msgid "No files selected for upload."
 msgstr "Aucun fichiers choisis pour être chargés"
 
-#: js/contacts.js:1258
+#: js/contacts.js:1259
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Le fichier que vous tentez de charger dépasse la taille maximum de fichier autorisée sur ce serveur."
 
-#: js/contacts.js:1322
+#: js/contacts.js:1323
 msgid "Error loading profile picture."
 msgstr "Erreur pendant le chargement de la photo de profil."
 
-#: js/contacts.js:1457 js/contacts.js:1498 js/contacts.js:1517
-#: js/contacts.js:1560
+#: js/contacts.js:1458 js/contacts.js:1499 js/contacts.js:1518
+#: js/contacts.js:1561
 msgid "Select type"
 msgstr "Sélectionner un type"
 
-#: js/contacts.js:1578
+#: js/contacts.js:1579
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Certains contacts sont marqués pour être supprimés, mais ne le sont pas encore. Veuillez attendre que l'opération se termine."
 
-#: js/contacts.js:1649
+#: js/contacts.js:1650
 msgid "Do you want to merge these address books?"
 msgstr "Voulez-vous fusionner ces carnets d'adresses ?"
 
@@ -327,6 +327,14 @@ msgstr "échoué."
 msgid "Displayname cannot be empty."
 msgstr "Le nom d'affichage ne peut pas être vide."
 
+#: lib/addressbook.php:291
+msgid "You do not have the permissions to delete this addressbook."
+msgstr ""
+
+#: lib/addressbook.php:320
+msgid "There was an error deleting this addressbook."
+msgstr ""
+
 #: lib/app.php:36
 msgid "Addressbook not found: "
 msgstr "Carnet d'adresse introuvable : "
@@ -345,7 +353,7 @@ msgstr "Jabber"
 
 #: lib/app.php:121
 msgid "AIM"
-msgstr "Messagerie Instantanée"
+msgstr "AOL Instant Messaging"
 
 #: lib/app.php:126
 msgid "MSN"
@@ -395,7 +403,7 @@ msgstr "Travail"
 msgid "Home"
 msgstr "Domicile"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:593
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:620
 msgid "Other"
 msgstr "Autre"
 
@@ -492,13 +500,29 @@ msgstr "Anniversaire de {name}"
 msgid "Contact"
 msgstr "Contact"
 
-#: lib/vcard.php:408
+#: lib/vcard.php:395
+msgid "Could not find the vCard with ID."
+msgstr ""
+
+#: lib/vcard.php:412
 msgid "You do not have the permissions to edit this contact."
 msgstr "Vous n'avez pas l'autorisation de modifier ce contact."
 
 #: lib/vcard.php:483
+msgid "Could not find the vCard with ID: "
+msgstr ""
+
+#: lib/vcard.php:491
+msgid "Could not find the Addressbook with ID: "
+msgstr ""
+
+#: lib/vcard.php:506
 msgid "You do not have the permissions to delete this contact."
 msgstr "Vous n'avez pas l'autorisation de supprimer ce contact."
+
+#: lib/vcard.php:524
+msgid "There was an error deleting this contact."
+msgstr ""
 
 #: templates/index.php:14
 msgid "Add Contact"
@@ -603,7 +627,7 @@ msgstr "Société"
 
 #: templates/part.contact.php:40 templates/part.contact.php:42
 #: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:36
+#: templates/part.contact.php:50 templates/settings.php:46
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -678,7 +702,7 @@ msgstr "Instant Messenger"
 
 #: templates/part.contact.php:101
 msgid "Delete IM"
-msgstr "Supprimer la Messagerie Instantanée"
+msgstr "Supprimer la messagerie instantanée"
 
 #: templates/part.contact.php:110
 msgid "View on map"
@@ -919,46 +943,46 @@ msgstr "Adresse principale"
 msgid "iOS/OS X"
 msgstr "iOS/OS X"
 
-#: templates/settings.php:20
+#: templates/settings.php:22
 msgid "Show CardDav link"
 msgstr "Afficher le lien CardDav"
 
-#: templates/settings.php:23
+#: templates/settings.php:25
 msgid "Show read-only VCF link"
 msgstr "Afficher les liens VCF en lecture seule"
 
-#: templates/settings.php:26
+#: templates/settings.php:32
 msgid "Share"
 msgstr "Partager"
 
-#: templates/settings.php:29
+#: templates/settings.php:36
 msgid "Download"
 msgstr "Télécharger"
 
-#: templates/settings.php:33
+#: templates/settings.php:41
 msgid "Edit"
 msgstr "Modifier"
 
-#: templates/settings.php:43
+#: templates/settings.php:54
 msgid "New Address Book"
 msgstr "Nouveau Carnet d'adresses"
 
-#: templates/settings.php:44
+#: templates/settings.php:55
 msgid "Name"
 msgstr "Nom"
 
-#: templates/settings.php:45
+#: templates/settings.php:56
 msgid "Description"
 msgstr "Description"
 
-#: templates/settings.php:46
+#: templates/settings.php:57
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: templates/settings.php:47
+#: templates/settings.php:58
 msgid "Cancel"
 msgstr "Annuler"
 
-#: templates/settings.php:52
+#: templates/settings.php:63
 msgid "More..."
 msgstr "Plus…"

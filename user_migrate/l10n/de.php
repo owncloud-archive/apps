@@ -5,6 +5,6 @@
 "Export your user account" => "Ihr Konto exportieren",
 "This will create a compressed file that contains your ownCloud account." => "Eine komprimierte Datei wird erzeugt, die Ihr ownCloud-Konto enthält.",
 "Import user account" => "Konto importieren",
-"ownCloud User Zip" => "Zip-Archiv mit Benutzerdaten",
+"ownCloud User Zip" => "ZIP-Archiv mit Benutzerdaten",
 "Import" => "Importieren"
 );

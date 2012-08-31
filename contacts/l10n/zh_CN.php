@@ -10,6 +10,7 @@
 "No contacts found." => "找不到联系人。",
 "There was an error adding the contact." => "添加联系人时出错。",
 "element name is not set." => "元素名称未设置",
+"Could not parse contact: " => "无法解析内容：",
 "Cannot add empty property." => "无法添加空属性。",
 "At least one of the address fields has to be filled out." => "至少需要填写一项地址。",
 "Trying to add duplicate property: " => "试图添加重复属性： ",

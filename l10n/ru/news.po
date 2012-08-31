@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Denis  <reg.transifex.net@demitel.ru>, 2012.
+#   <iuranemo@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-30 02:02+0200\n"
-"PO-Revision-Date: 2012-08-30 00:03+0000\n"
+"POT-Creation-Date: 2012-08-31 02:02+0200\n"
+"PO-Revision-Date: 2012-08-31 00:04+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -98,21 +99,21 @@ msgstr "Лента обновлена!"
 msgid "News"
 msgstr "Новости"
 
-#: js/menu.js:398
+#: js/menu.js:530
 msgid "Load feed"
-msgstr ""
+msgstr "Загрузить фид"
 
-#: js/menu.js:405
+#: js/menu.js:537
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
-#: js/menu.js:411
+#: js/menu.js:543
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Развернуть/Свернуть"
 
-#: js/menu.js:417
+#: js/menu.js:549
 msgid "Edit"
-msgstr ""
+msgstr "Изменить"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
@@ -120,8 +121,7 @@ msgstr "Имя папки не может быть пустым."
 
 #: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
 #: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
-#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:40
-#: js/settings.js:49
+#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "Ошибка"
 
@@ -145,8 +145,7 @@ msgstr "Предупреждение"
 msgid "URL cannot be empty."
 msgstr "Ссылка не может быть пустой."
 
-#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:7
-#: templates/part.nofeeds.php:9
+#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "Добавить ленту"
 
@@ -190,35 +189,31 @@ msgstr "загружен с локального диска."
 msgid "Importing..."
 msgstr "Импорт..."
 
-#: js/settings.js:40
-msgid "Import kind not specified"
-msgstr "Тип импорта не указан"
-
-#: js/settings.js:45
+#: js/settings.js:43
 msgid " out of "
 msgstr " конец "
 
-#: js/settings.js:46
+#: js/settings.js:44
 msgid " feeds imported successfully from "
 msgstr " ленты успешно импортированы из "
 
-#: js/settings.js:47
+#: js/settings.js:45
 msgid "Success"
 msgstr "Успешно"
 
-#: js/settings.js:51 templates/settings.php:10
+#: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
 msgid "Import"
 msgstr "Импорт"
 
-#: js/settings.js:57
+#: js/settings.js:55
 msgid "Downloading..."
 msgstr "Скачивание..."
 
-#: js/settings.js:59
+#: js/settings.js:57
 msgid "Download"
 msgstr "Скачать"
 
-#: js/settings.js:71
+#: js/settings.js:69
 msgid "Select file"
 msgstr "Выберите файл"
 
@@ -286,7 +281,7 @@ msgstr "Добавить подписку"
 msgid "Choose folder"
 msgstr "Выберите папку"
 
-#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:6
+#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:7
 msgid "Address"
 msgstr "Адрес"
 
@@ -338,49 +333,53 @@ msgstr "Удалить папку"
 msgid "You don't have any feed in your reader."
 msgstr "У вас нет лент."
 
-#: templates/part.nofeeds.php:10
+#: templates/part.nofeeds.php:8 templates/subscribelet.php:7
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: templates/part.nofeeds.php:12
 msgid "Import OPML"
 msgstr "Импаортировать OPML"
 
-#: templates/part.nofeeds.php:15
+#: templates/part.nofeeds.php:13 templates/settings.php:3
+msgid "Upload file from desktop"
+msgstr "Загрузить файл с рабочего стола"
+
+#: templates/part.nofeeds.php:13 templates/settings.php:3
+msgid "Upload"
+msgstr "Загрузка"
+
+#: templates/part.nofeeds.php:14 templates/settings.php:4
+msgid "Select file from ownCloud"
+msgstr "Выбрать файл из ownCloud"
+
+#: templates/part.nofeeds.php:14 templates/settings.php:4
+msgid "Select"
+msgstr "Выбрать"
+
+#: templates/part.nofeeds.php:16 templates/settings.php:6
+msgid "Select file from"
+msgstr ""
+
+#: templates/part.nofeeds.php:16 templates/settings.php:6
+msgid "local filesystem"
+msgstr "локальный диск"
+
+#: templates/part.nofeeds.php:17 templates/settings.php:7
+msgid " or "
+msgstr " или "
+
+#: templates/part.nofeeds.php:17 templates/settings.php:7
+msgid "cloud"
+msgstr "облако"
+
+#: templates/part.nofeeds.php:26
 msgid "Or..."
 msgstr "Или..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
 msgstr "Импортировать ленты"
-
-#: templates/settings.php:3
-msgid "Upload file from desktop"
-msgstr "Загрузить файл с рабочего стола"
-
-#: templates/settings.php:3
-msgid "Upload"
-msgstr "Загрузка"
-
-#: templates/settings.php:4
-msgid "Select file from ownCloud"
-msgstr "Выбрать файл из ownCloud"
-
-#: templates/settings.php:4
-msgid "Select"
-msgstr "Выбрать"
-
-#: templates/settings.php:6
-msgid "No file selected. Select file from "
-msgstr "Файлы не выбраны. Выберите файл с "
-
-#: templates/settings.php:6
-msgid "local filesystem"
-msgstr "локальный диск"
-
-#: templates/settings.php:7
-msgid " or "
-msgstr " или "
-
-#: templates/settings.php:7
-msgid "cloud"
-msgstr "облако"
 
 #: templates/settings.php:12
 msgid "Export feeds"
@@ -399,7 +398,3 @@ msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
 msgstr "Перетащите эту кнопку в закладки вашего браузера и нажимайте на неё для быстрого добавления страницы в закладки:"
-
-#: templates/subscribelet.php:7
-msgid "Subscribe"
-msgstr "Подписаться"

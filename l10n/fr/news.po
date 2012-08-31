@@ -4,14 +4,15 @@
 # 
 # Translators:
 #   <gp4004@arghh.org>, 2012.
+# Guillaume Paumier <guillom.pom@gmail.com>, 2012.
 #   <mathieu.payrol@gmail.com>, 2012.
 # Romain DEP. <rom1dep@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-30 02:02+0200\n"
-"PO-Revision-Date: 2012-08-30 00:03+0000\n"
+"POT-Creation-Date: 2012-08-31 02:02+0200\n"
+"PO-Revision-Date: 2012-08-31 00:04+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -100,21 +101,21 @@ msgstr "Flux mis à jour !"
 msgid "News"
 msgstr "Abonnements"
 
-#: js/menu.js:398
+#: js/menu.js:530
 msgid "Load feed"
-msgstr ""
+msgstr "Charger le flux"
 
-#: js/menu.js:405
+#: js/menu.js:537
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
-#: js/menu.js:411
+#: js/menu.js:543
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Dérouler/Enrouler"
 
-#: js/menu.js:417
+#: js/menu.js:549
 msgid "Edit"
-msgstr ""
+msgstr "Modifier"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
@@ -122,8 +123,7 @@ msgstr "Le nom du répertoire ne peut-être vide."
 
 #: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
 #: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
-#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:40
-#: js/settings.js:49
+#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "Erreur"
 
@@ -147,8 +147,7 @@ msgstr "Attention"
 msgid "URL cannot be empty."
 msgstr "L'URL ne peut-être vide"
 
-#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:7
-#: templates/part.nofeeds.php:9
+#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "Ajouter un flux"
 
@@ -192,35 +191,31 @@ msgstr "chargé depuis le système de fichier local."
 msgid "Importing..."
 msgstr "Import..."
 
-#: js/settings.js:40
-msgid "Import kind not specified"
-msgstr "Type d'import non spécifié."
-
-#: js/settings.js:45
+#: js/settings.js:43
 msgid " out of "
 msgstr "sur"
 
-#: js/settings.js:46
+#: js/settings.js:44
 msgid " feeds imported successfully from "
 msgstr "flux importés avec succès depuis"
 
-#: js/settings.js:47
+#: js/settings.js:45
 msgid "Success"
 msgstr "Succès"
 
-#: js/settings.js:51 templates/settings.php:10
+#: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
 msgid "Import"
 msgstr "Import"
 
-#: js/settings.js:57
+#: js/settings.js:55
 msgid "Downloading..."
 msgstr "Téléchargement..."
 
-#: js/settings.js:59
+#: js/settings.js:57
 msgid "Download"
 msgstr "Télécharger"
 
-#: js/settings.js:71
+#: js/settings.js:69
 msgid "Select file"
 msgstr "Sélectionnez le fichier"
 
@@ -288,7 +283,7 @@ msgstr "S'abonner à"
 msgid "Choose folder"
 msgstr "Choisir un dossier"
 
-#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:6
+#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:7
 msgid "Address"
 msgstr "Adresse"
 
@@ -340,49 +335,53 @@ msgstr "Supprimer le répertoire"
 msgid "You don't have any feed in your reader."
 msgstr "Vous n'avez pas de flux dans votre lecteur."
 
-#: templates/part.nofeeds.php:10
+#: templates/part.nofeeds.php:8 templates/subscribelet.php:7
+msgid "Subscribe"
+msgstr "S'abonner"
+
+#: templates/part.nofeeds.php:12
 msgid "Import OPML"
 msgstr "Importer depuis un fichier OPML"
 
-#: templates/part.nofeeds.php:15
+#: templates/part.nofeeds.php:13 templates/settings.php:3
+msgid "Upload file from desktop"
+msgstr "Envoyer le fichier depuis l'ordinateur"
+
+#: templates/part.nofeeds.php:13 templates/settings.php:3
+msgid "Upload"
+msgstr "Envoyer"
+
+#: templates/part.nofeeds.php:14 templates/settings.php:4
+msgid "Select file from ownCloud"
+msgstr "Sélectionnez le fichier depuis OwnCloud"
+
+#: templates/part.nofeeds.php:14 templates/settings.php:4
+msgid "Select"
+msgstr "Sélectionner"
+
+#: templates/part.nofeeds.php:16 templates/settings.php:6
+msgid "Select file from"
+msgstr ""
+
+#: templates/part.nofeeds.php:16 templates/settings.php:6
+msgid "local filesystem"
+msgstr "système de fichier local"
+
+#: templates/part.nofeeds.php:17 templates/settings.php:7
+msgid " or "
+msgstr "ou"
+
+#: templates/part.nofeeds.php:17 templates/settings.php:7
+msgid "cloud"
+msgstr "Cloud"
+
+#: templates/part.nofeeds.php:26
 msgid "Or..."
 msgstr "Ou..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
 msgstr "Importer des flux"
-
-#: templates/settings.php:3
-msgid "Upload file from desktop"
-msgstr "Envoyer le fichier depuis l'ordinateur"
-
-#: templates/settings.php:3
-msgid "Upload"
-msgstr "Envoyer"
-
-#: templates/settings.php:4
-msgid "Select file from ownCloud"
-msgstr "Sélectionnez le fichier depuis OwnCloud"
-
-#: templates/settings.php:4
-msgid "Select"
-msgstr "Sélectionner"
-
-#: templates/settings.php:6
-msgid "No file selected. Select file from "
-msgstr "Aucun fichier sélectionné. Sélectionnez un fichier depuis"
-
-#: templates/settings.php:6
-msgid "local filesystem"
-msgstr "système de fichier local"
-
-#: templates/settings.php:7
-msgid " or "
-msgstr "ou"
-
-#: templates/settings.php:7
-msgid "cloud"
-msgstr "Cloud"
 
 #: templates/settings.php:12
 msgid "Export feeds"
@@ -401,7 +400,3 @@ msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
 msgstr "Déposez ceci dans les marque-pages de votre navigateur et cliquez dessus lorsque vous souhaitez vous abonner rapidement à la page en cours de consultation :"
-
-#: templates/subscribelet.php:7
-msgid "Subscribe"
-msgstr "S'abonner"

@@ -98,6 +98,7 @@
 "Business" => "Negozioak",
 "Call" => "Deia",
 "Clients" => "Bezeroak",
+"Deliverer" => "Banatzailea",
 "Holidays" => "Oporrak",
 "Ideas" => "Ideiak",
 "Journey" => "Bidaia",

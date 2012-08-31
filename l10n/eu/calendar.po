@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-28 02:01+0200\n"
-"PO-Revision-Date: 2012-08-27 09:10+0000\n"
+"POT-Creation-Date: 2012-08-31 02:02+0200\n"
+"PO-Revision-Date: 2012-08-30 21:28+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -77,15 +77,15 @@ msgstr "Egutegia"
 
 #: js/calendar.js:832
 msgid "ddd"
-msgstr ""
+msgstr "ddd"
 
 #: js/calendar.js:833
 msgid "ddd M/d"
-msgstr ""
+msgstr "ddd M/d"
 
 #: js/calendar.js:834
 msgid "dddd M/d"
-msgstr ""
+msgstr "dddd M/d"
 
 #: js/calendar.js:837
 msgid "MMMM yyyy"
@@ -93,7 +93,7 @@ msgstr "yyyy MMMM"
 
 #: js/calendar.js:839
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
-msgstr ""
+msgstr "[ yyyy] MMM d{ '&#8212;'yyyy [ MMM] d}"
 
 #: js/calendar.js:841
 msgid "dddd, MMM d, yyyy"

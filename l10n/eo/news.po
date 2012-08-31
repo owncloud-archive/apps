@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-30 02:02+0200\n"
-"PO-Revision-Date: 2012-08-30 00:03+0000\n"
+"POT-Creation-Date: 2012-08-31 02:02+0200\n"
+"PO-Revision-Date: 2012-08-31 00:04+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
@@ -98,19 +98,19 @@ msgstr "Fluo ĝisdatigita!"
 msgid "News"
 msgstr "Novaĵoj"
 
-#: js/menu.js:398
+#: js/menu.js:530
 msgid "Load feed"
 msgstr ""
 
-#: js/menu.js:405
+#: js/menu.js:537
 msgid "Delete"
 msgstr ""
 
-#: js/menu.js:411
+#: js/menu.js:543
 msgid "Expand/Collapse"
 msgstr ""
 
-#: js/menu.js:417
+#: js/menu.js:549
 msgid "Edit"
 msgstr ""
 
@@ -120,8 +120,7 @@ msgstr "Nomo de dosierujo ne povas esti malplena"
 
 #: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
 #: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
-#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:40
-#: js/settings.js:49
+#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "Eraro"
 
@@ -145,8 +144,7 @@ msgstr "Averto"
 msgid "URL cannot be empty."
 msgstr "URL ne povas esti malplena."
 
-#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:7
-#: templates/part.nofeeds.php:9
+#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "Aldoni fluon"
 
@@ -190,35 +188,31 @@ msgstr "ŝargita el loka dosiersistemo."
 msgid "Importing..."
 msgstr "Enportante..."
 
-#: js/settings.js:40
-msgid "Import kind not specified"
-msgstr ""
-
-#: js/settings.js:45
+#: js/settings.js:43
 msgid " out of "
 msgstr ""
 
-#: js/settings.js:46
+#: js/settings.js:44
 msgid " feeds imported successfully from "
 msgstr "fluoj sukcese enportitaj el"
 
-#: js/settings.js:47
+#: js/settings.js:45
 msgid "Success"
 msgstr "Sukceso"
 
-#: js/settings.js:51 templates/settings.php:10
+#: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
 msgid "Import"
 msgstr "Enporti"
 
-#: js/settings.js:57
+#: js/settings.js:55
 msgid "Downloading..."
 msgstr "Elŝutante..."
 
-#: js/settings.js:59
+#: js/settings.js:57
 msgid "Download"
 msgstr "Elŝuti"
 
-#: js/settings.js:71
+#: js/settings.js:69
 msgid "Select file"
 msgstr "Elekti dosieron"
 
@@ -286,7 +280,7 @@ msgstr "Aldoni abonon"
 msgid "Choose folder"
 msgstr "Elekti dosierujon"
 
-#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:6
+#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:7
 msgid "Address"
 msgstr "Adreso"
 
@@ -338,49 +332,53 @@ msgstr "Forigi dosierujon"
 msgid "You don't have any feed in your reader."
 msgstr "Vi havas neniun fluon en via legilo."
 
-#: templates/part.nofeeds.php:10
+#: templates/part.nofeeds.php:8 templates/subscribelet.php:7
+msgid "Subscribe"
+msgstr "Aboni"
+
+#: templates/part.nofeeds.php:12
 msgid "Import OPML"
 msgstr "Enporti OPML-on"
 
-#: templates/part.nofeeds.php:15
+#: templates/part.nofeeds.php:13 templates/settings.php:3
+msgid "Upload file from desktop"
+msgstr "Alŝuti dosieron el la labortablo"
+
+#: templates/part.nofeeds.php:13 templates/settings.php:3
+msgid "Upload"
+msgstr "Alŝuti"
+
+#: templates/part.nofeeds.php:14 templates/settings.php:4
+msgid "Select file from ownCloud"
+msgstr "Elekti dosieron el ownCloud"
+
+#: templates/part.nofeeds.php:14 templates/settings.php:4
+msgid "Select"
+msgstr "Elekti"
+
+#: templates/part.nofeeds.php:16 templates/settings.php:6
+msgid "Select file from"
+msgstr ""
+
+#: templates/part.nofeeds.php:16 templates/settings.php:6
+msgid "local filesystem"
+msgstr "loka dosiersistemo"
+
+#: templates/part.nofeeds.php:17 templates/settings.php:7
+msgid " or "
+msgstr "aŭ"
+
+#: templates/part.nofeeds.php:17 templates/settings.php:7
+msgid "cloud"
+msgstr "nubo"
+
+#: templates/part.nofeeds.php:26
 msgid "Or..."
 msgstr "Aŭ..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
 msgstr "Enporti fluojn"
-
-#: templates/settings.php:3
-msgid "Upload file from desktop"
-msgstr "Alŝuti dosieron el la labortablo"
-
-#: templates/settings.php:3
-msgid "Upload"
-msgstr "Alŝuti"
-
-#: templates/settings.php:4
-msgid "Select file from ownCloud"
-msgstr "Elekti dosieron el ownCloud"
-
-#: templates/settings.php:4
-msgid "Select"
-msgstr "Elekti"
-
-#: templates/settings.php:6
-msgid "No file selected. Select file from "
-msgstr "Neniu dosiero elektita. Elekti dosieron el"
-
-#: templates/settings.php:6
-msgid "local filesystem"
-msgstr "loka dosiersistemo"
-
-#: templates/settings.php:7
-msgid " or "
-msgstr "aŭ"
-
-#: templates/settings.php:7
-msgid "cloud"
-msgstr "nubo"
 
 #: templates/settings.php:12
 msgid "Export feeds"
@@ -399,7 +397,3 @@ msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
 msgstr ""
-
-#: templates/subscribelet.php:7
-msgid "Subscribe"
-msgstr "Aboni"
