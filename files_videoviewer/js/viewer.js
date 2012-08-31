@@ -3,9 +3,6 @@ var videoViewer = {
 		playerTemplate : '<video width="%width%" height="%height%" id="media_element" class="video-js vjs-default-skin" controls preload="none">' + 
 		'<source type="%type%" src="%src%" />' + 
 		'</video>',
-		init : function(){
-			OC.addScript('files_videoviewer','mediaelement-and-player', videoViewer.showPlayer);
-		},
 		show : function () {
 			$('<div id="videoviewer_overlay" style="display:none;"></div><div id="videoviewer_popup"><div id="videoviewer_container"><a class="box-close" id="box-close" href="#"></a><h3>'+videoViewer.file+'</h3></div></div>').appendTo('body');
 			
@@ -24,8 +21,8 @@ var videoViewer = {
 		hide : function() {
 			$('#videoviewer_popup').fadeOut('fast', function() {
 				$('#videoviewer_overlay').fadeOut('fast', function() {
-					$('#videoviewer_overlay').remove();
 					$('#videoviewer_popup').remove();
+					$('#videoviewer_overlay').remove();
 				});
 			});
 		},
@@ -48,7 +45,7 @@ var videoViewer = {
 		'video/webm',
 		'video/x-flv',
 		'application/ogg',
-		'application/octet-stream',
+		'video/ogg',
 		'video/quicktime',
 		'video/x-msvideo',
 		'video/x-matroska',
@@ -73,10 +70,8 @@ var videoViewer = {
 			success: function (player, node) {
 				//set the size (for flash otherwise no video just sound!)
 				player.setVideoSize($(node).width(), $(node).height());
-				videoViewer.log(videoViewer.location);
 				player.load();
 				player.pause();
-				videoViewer.log('ready');
 			},
 			error: function (m) { 
 				console.log(m);
@@ -84,7 +79,6 @@ var videoViewer = {
 		});
 	},
 	hidePlayer : function() {
-		videoViewer.player && videoViewer.pause();
 		videoViewer.player = false;
 		delete videoViewer.player;
 
