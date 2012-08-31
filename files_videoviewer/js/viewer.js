@@ -1,36 +1,32 @@
 var streamerPlayer = {
 	UI : {
-		playerTemplate : '<video width="%width%" height="%height%" id="media_element" class="video-js vjs-default-skin" poster="" controls preload="auto">' + 
-		'<source type="video/mp4" src="%src%" />' + 
-		'<source type="video/webm" src="%src%"  />' +
-		'<source type="video/flv" src="%src%"  />' +
-		'<object width="%width%" height="%height%" type="application/x-shockwave-flash" data="%flash%">' +
-		'<param name="movie" value="%flash%" />' +
-		'<param name="flashvars" value="controls=true&amp;file=%src%" />' +
-		'</object>' +
+		playerTemplate : '<video width="%width%" height="%height%" id="media_element" class="video-js vjs-default-skin" controls preload="none">' + 
+		'<source type="%type%" src="%src%" />' + 
 		'</video>',
-		show : function (file, location, flashUri) {
-			$('<div class="overlay" id="overlay" style="display:none;"></div><div id="nonebox"><div id="container"><a class="box-close" id="box-close" href="#"></a><h3>'+file+'</h3></div></div>').appendTo('body');
+		init : function(){
+			OC.addScript('files_videoviewer','mediaelement-and-player', streamerPlayer.showPlayer);
+		},
+		show : function () {
+			$('<div id="videoviewer_overlay" style="display:none;"></div><div id="videoviewer_popup"><div id="videoviewer_container"><a class="box-close" id="box-close" href="#"></a><h3>'+streamerPlayer.file+'</h3></div></div>').appendTo('body');
 			
-			$('#overlay').fadeIn('fast',function(){
-				$('#nonebox').fadeIn('fast');
+			$('#videoviewer_overlay').fadeIn('fast',function(){
+				$('#videoviewer_popup').fadeIn('fast');
 			});
 			$('#box-close').click(streamerPlayer.hidePlayer);
 			var size = streamerPlayer.UI.getSize();
 			var playerView = streamerPlayer.UI.playerTemplate.replace(/%width%/g, size.width)
 								.replace(/%height%/g, size.height)
-								.replace(/%flash%/g, flashUri)
-								.replace(/%src%/g, location)
+								.replace(/%type%/g, streamerPlayer.mime)
+								.replace(/%src%/g, streamerPlayer.location)
 			;
-			$(playerView).prependTo('#container');
+			$(playerView).prependTo('#videoviewer_container');
 		},
 		hide : function() {
-			$(".mejs-container").remove();
-			$('#nonebox').fadeOut('fast', function() {
-				$('#overlay').fadeOut('fast', function() {
-					$('#overlay').remove();
+			$('#videoviewer_popup').fadeOut('fast', function() {
+				$('#videoviewer_overlay').fadeOut('fast', function() {
+					$('#videoviewer_overlay').remove();
+					$('#videoviewer_popup').remove();
 				});
-				$('#nonebox').remove();
 			});
 		},
 		getSize : function () {
@@ -43,7 +39,9 @@ var streamerPlayer = {
 			return size;
 		},
 	},
+	mime : null,
 	file : null,
+	location : null,
 	player : null,
 	mimeTypes : [
 		'video/mp4',
@@ -56,15 +54,15 @@ var streamerPlayer = {
 		'video/x-matroska',
 		'video/x-ms-asf'
 	],
-	showPlayer : function(){
-		var location = streamerPlayer.getMediaUrl(streamerPlayer.file);
-		var mime = FileActions.getCurrentMimeType();
+	onView : function(file) {
+		streamerPlayer.file = file;
+		streamerPlayer.location = streamerPlayer.getMediaUrl(file);
+		streamerPlayer.mime = FileActions.getCurrentMimeType();
 		
-		//Previous instance should NOT exist
-		streamerPlayer.player = false;
-		delete streamerPlayer.player;
-		
-		streamerPlayer.UI.show(streamerPlayer.file, location,  OC.filePath('files_videoviewer', 'js', 'flashmediaelement.swf'));
+		OC.addScript('files_videoviewer','mediaelement-and-player', streamerPlayer.showPlayer);
+	},
+	showPlayer : function() {
+		streamerPlayer.UI.show();
 	
 		streamerPlayer.player = new MediaElementPlayer('#media_element', {
 			features: ['playpause','progress','current','duration','tracks','volume','fullscreen'],
@@ -75,7 +73,7 @@ var streamerPlayer = {
 			success: function (player, node) {
 				//set the size (for flash otherwise no video just sound!)
 				player.setVideoSize($(node).width(), $(node).height());
-				streamerPlayer.log(location);
+				streamerPlayer.log(streamerPlayer.location);
 				player.load();
 				player.pause();
 				streamerPlayer.log('ready');
@@ -85,11 +83,11 @@ var streamerPlayer = {
 			}
 		});
 	},
-	onView : function(file) {
-		streamerPlayer.file = file;
-		OC.addScript('files_videoviewer','mediaelement-and-player').done(streamerPlayer.showPlayer);
-	},
 	hidePlayer : function() {
+		streamerPlayer.player && streamerPlayer.pause();
+		streamerPlayer.player = false;
+		delete streamerPlayer.player;
+
 		streamerPlayer.UI.hide();
 	},
 	getMediaUrl : function(file) {
