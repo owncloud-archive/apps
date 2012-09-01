@@ -17,7 +17,14 @@ if(!$calendar){
 	OCP\JSON::error(array('message'=>'permission denied'));
 	exit;
 }
-OC_Calendar_Calendar::setCalendarActive($calendarid, $_POST['active']);
+
+try {
+	OC_Calendar_Calendar::setCalendarActive($calendarid, $_POST['active']);
+} catch(Exception $e) {
+	OCP\JSON::error(array('message'=>$e->getMessage()));
+	exit;
+}
+
 $calendar = OC_Calendar_App::getCalendar($calendarid);
 OCP\JSON::success(array(
 	'active' => $calendar['active'],

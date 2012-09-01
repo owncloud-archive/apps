@@ -26,13 +26,14 @@ foreach($calendars as $cal){
 }
 
 $calendarid = $_POST['id'];
-$calendar = OC_Calendar_App::getCalendar($calendarid, true);
-if(!$calendar){
-	OCP\JSON::error(array('message'=>'permission denied'));
+
+try {
+	OC_Calendar_Calendar::editCalendar($calendarid, strip_tags($_POST['name']), null, null, null, $_POST['color']);
+	OC_Calendar_Calendar::setCalendarActive($calendarid, $_POST['active']);
+} catch(Exception $e) {
+	OCP\JSON::error(array('message'=>$e->getMessage()));
 	exit;
 }
-OC_Calendar_Calendar::editCalendar($calendarid, strip_tags($_POST['name']), null, null, null, $_POST['color']);
-OC_Calendar_Calendar::setCalendarActive($calendarid, $_POST['active']);
 
 $calendar = OC_Calendar_App::getCalendar($calendarid);
 $tmpl = new OCP\Template('calendar', 'part.choosecalendar.rowfields');

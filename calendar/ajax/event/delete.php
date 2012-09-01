@@ -12,10 +12,12 @@ OCP\JSON::checkAppEnabled('calendar');
 OCP\JSON::callCheck();
 
 $id = $_POST['id'];
-$access = OC_Calendar_App::getaccess($id, OC_Calendar_App::EVENT);
-if($access != 'owner' && $access != 'rw'){
-	OCP\JSON::error(array('message'=>'permission denied'));
+
+try {
+	OC_Calendar_Object::delete($id);
+} catch(Exception $e) {
+	OCP\JSON::error(array('message'=>$e->getMessage()));
 	exit;
 }
-$result = OC_Calendar_Object::delete($id);
+
 OCP\JSON::success();
