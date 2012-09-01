@@ -145,6 +145,16 @@ class OC_Calendar_Calendar{
 	public static function editCalendar($id,$name=null,$components=null,$timezone=null,$order=null,$color=null){
 		// Need these ones for checking uri
 		$calendar = self::find($id);
+		if ($calendar['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+				throw new Exception(
+					OC_Calendar_App::$l10n->t(
+						'You do not have the permissions to update this calendar.'
+					)
+				);
+			}
+		}
 
 		// Keep old stuff
 		if(is_null($name)) $name = $calendar['displayname'];
@@ -167,6 +177,17 @@ class OC_Calendar_Calendar{
 	 * @return boolean
 	 */
 	public static function setCalendarActive($id,$active){
+		$calendar = self::find($id);
+		if ($calendar['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+				throw new Exception(
+					OC_Calendar_App::$l10n->t(
+						'You do not have the permissions to update this calendar.'
+					)
+				);
+			}
+		}
 		$stmt = OCP\DB::prepare( 'UPDATE `*PREFIX*calendar_calendars` SET `active` = ? WHERE `id` = ?' );
 		$stmt->execute(array($active, $id));
 
@@ -191,6 +212,17 @@ class OC_Calendar_Calendar{
 	 * @return boolean
 	 */
 	public static function deleteCalendar($id){
+		$calendar = self::find($id);
+		if ($calendar['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+				throw new Exception(
+					OC_Calendar_App::$l10n->t(
+						'You do not have the permissions to delete this calendar.'
+					)
+				);
+			}
+		}
 		$stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*calendar_calendars` WHERE `id` = ?' );
 		$stmt->execute(array($id));
 
@@ -212,6 +244,17 @@ class OC_Calendar_Calendar{
 	 * @return boolean
 	 */
 	public static function mergeCalendar($id1, $id2){
+		$calendar = self::find($id1);
+		if ($calendar['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id1);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+				throw new Exception(
+					OC_Calendar_App::$l10n->t(
+						'You do not have the permissions to add to this calendar.'
+					)
+				);
+			}
+		}
 		$stmt = OCP\DB::prepare('UPDATE `*PREFIX*calendar_objects` SET `calendarid` = ? WHERE `calendarid` = ?');
 		$stmt->execute(array($id1, $id2));
 		self::touchCalendar($id1);

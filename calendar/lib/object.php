@@ -113,6 +113,17 @@ class OC_Calendar_Object{
 	 * @return insertid
 	 */
 	public static function add($id,$data){
+		$calendar = OC_Calendar_Calendar::find($id);
+		if ($calendar['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_CREATE)) {
+				throw new Exception(
+					OC_Calendar_App::$l10n->t(
+						'You do not have the permissions to add events to this calendar.'
+					)
+				);
+			}
+		}
 		$object = OC_VObject::parse($data);
 		OC_Calendar_App::loadCategoriesFromVCalendar($object);
 		list($type,$startdate,$enddate,$summary,$repeating,$uid) = self::extractData($object);
@@ -141,6 +152,17 @@ class OC_Calendar_Object{
 	 * @return insertid
 	 */
 	public static function addFromDAVData($id,$uri,$data){
+		$calendar = OC_Calendar_Calendar::find($id);
+		if ($calendar['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_CREATE)) {
+				throw new Sabre_DAV_Exception_Forbidden(
+					OC_Calendar_App::$l10n->t(
+						'You do not have the permissions to add events to this calendar.'
+					)
+				);
+			}
+		}
 		$object = OC_VObject::parse($data);
 		list($type,$startdate,$enddate,$summary,$repeating,$uid) = self::extractData($object);
 
@@ -162,6 +184,17 @@ class OC_Calendar_Object{
 	public static function edit($id, $data){
 		$oldobject = self::find($id);
 
+		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
+		if ($calendar['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+				throw new Exception(
+					OC_Calendar_App::$l10n->t(
+						'You do not have the permissions to edit this event.'
+					)
+				);
+			}
+		}
 		$object = OC_VObject::parse($data);
 		OC_Calendar_App::loadCategoriesFromVCalendar($object);
 		list($type,$startdate,$enddate,$summary,$repeating,$uid) = self::extractData($object);
@@ -185,6 +218,17 @@ class OC_Calendar_Object{
 	public static function editFromDAVData($cid,$uri,$data){
 		$oldobject = self::findWhereDAVDataIs($cid,$uri);
 
+		$calendar = OC_Calendar_Calendar::find($cid);
+		if ($calendar['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+				throw new Sabre_DAV_Exception_Forbidden(
+					OC_Calendar_App::$l10n->t(
+						'You do not have the permissions to edit this event.'
+					)
+				);
+			}
+		}
 		$object = OC_VObject::parse($data);
 		list($type,$startdate,$enddate,$summary,$repeating,$uid) = self::extractData($object);
 
@@ -204,6 +248,17 @@ class OC_Calendar_Object{
 	 */
 	public static function delete($id){
 		$oldobject = self::find($id);
+		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
+		if ($calendar['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+				throw new Exception(
+					OC_Calendar_App::$l10n->t(
+						'You do not have the permissions to delete this event.'
+					)
+				);
+			}
+		}
 		$stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*calendar_objects` WHERE `id` = ?' );
 		$stmt->execute(array($id));
 		OC_Calendar_Calendar::touchCalendar($oldobject['calendarid']);
@@ -220,6 +275,17 @@ class OC_Calendar_Object{
 	 */
 	public static function deleteFromDAVData($cid,$uri){
 		$oldobject = self::findWhereDAVDataIs($cid, $uri);
+		$calendar = OC_Calendar_Calendar::find($cid);
+		if ($calendar['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+				throw new Sabre_DAV_Exception_Forbidden(
+					OC_Calendar_App::$l10n->t(
+						'You do not have the permissions to delete this event.'
+					)
+				);
+			}
+		}
 		$stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*calendar_objects` WHERE `calendarid`= ? AND `uri`=?' );
 		$stmt->execute(array($cid,$uri));
 		OC_Calendar_Calendar::touchCalendar($cid);
@@ -229,6 +295,17 @@ class OC_Calendar_Object{
 	}
 
 	public static function moveToCalendar($id, $calendarid){
+		$calendar = OC_Calendar_Calendar::find($calendarid);
+		if ($calendar['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+				throw new Exception(
+					OC_Calendar_App::$l10n->t(
+						'You do not have the permissions to add events to this calendar.'
+					)
+				);
+			}
+		}
 		$stmt = OCP\DB::prepare( 'UPDATE `*PREFIX*calendar_objects` SET `calendarid`=? WHERE `id`=?' );
 		$stmt->execute(array($calendarid,$id));
 
