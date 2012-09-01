@@ -290,7 +290,11 @@ class OC_Contacts_VCard {
 		if ($addressbook['userid'] != OCP\User::getUser()) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $aid);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_CREATE)) {
-				return false;
+				throw new Exception(
+					OC_Contacts_App::$l10n->t(
+						'You do not have the permissions to add contacts to this addressbook.'
+					)
+				);
 			}
 		}
 		if(!$isChecked) {
