@@ -25,12 +25,8 @@
 </div>
 <div id="rightcontent" class="rightcontent" data-id="<?php echo $_['id']; ?>">
 	<?php
-		if($_['has_contacts']) {
 			echo $this->inc('part.contact');
-		}
-		else{
 			echo $this->inc('part.no_contacts');
-		}
 	?>
 	<div class="hidden popup" id="ninjahelp">
 		<a class="close" tabindex="0" role="button" title="<?php echo $l->t('Close'); ?>"></a>

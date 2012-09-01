@@ -371,28 +371,13 @@ OC.Contacts={
 			// Make sure proper DOM is loaded.
 			if(!$('#card').length && newid) {
 				console.log('Loading card DOM');
-				$.getJSON(OC.filePath('contacts', 'ajax', 'loadcard.php'),{requesttoken:requesttoken},function(jsondata){
-					if(jsondata.status == 'success'){
-						$('#rightcontent').html(jsondata.data.page).ready(function() {
-							OC.Contacts.loadHandlers();
-							localLoadContact(newid, bookid);
-						});
-					} else {
-						OC.dialogs.alert(jsondata.data.message, t('contacts', 'Error'));
-					}
-				});
+				$('#firstrun').hide();
+				$('#card').show();
 			} else if(!newid) {
 				console.log('Loading intro');
-				// load intro page
-				$.getJSON(OC.filePath('contacts', 'ajax', 'loadintro.php'),{},function(jsondata){
-					if(jsondata.status == 'success'){
-						id = '';
-						$('#rightcontent').data('id','');
-						$('#rightcontent').html(jsondata.data.page);
-					} else {
-						OC.dialogs.alert(jsondata.data.message, t('contacts', 'Error'));
-					}
-				});
+				// show intro page
+				$('#firstrun').show();
+				$('#card').hide();
 			}
 			else {
 				localLoadContact(newid, bookid);
@@ -427,11 +412,12 @@ OC.Contacts={
 			}
 			return false;
 		},
-		add:function(n, fn, aid, isnew){ // add a new contact
+		add:function(n, fn, aid, isnew) { // add a new contact
 			console.log('Adding ' + fn);
+			$('#firstrun').hide();
+			$('#card').show();
 			aid = aid?aid:$('#contacts h3.active').first().data('id');
-			var localAddcontact = function(n, fn, aid, isnew) {
-				$.post(OC.filePath('contacts', 'ajax', 'contact/add.php'), { n: n, fn: fn, aid: aid, isnew: isnew },
+			$.post(OC.filePath('contacts', 'ajax', 'contact/add.php'), { n: n, fn: fn, aid: aid, isnew: isnew },
 				function(jsondata) {
 					if (jsondata.status == 'success'){
 						$('#rightcontent').data('id',jsondata.data.id);
@@ -458,23 +444,6 @@ OC.Contacts={
 						OC.dialogs.alert(jsondata.data.message, t('contacts', 'Error'));
 					}
 				});
-			}
-
-			if(!$('#card').length) {
-				console.log('Loading card DOM');
-				$.getJSON(OC.filePath('contacts', 'ajax', 'loadcard.php'),{'requesttoken': requesttoken},function(jsondata){
-					if(jsondata.status == 'success'){
-						$('#rightcontent').html(jsondata.data.page).ready(function() {
-							OC.Contacts.loadHandlers();
-							localAddcontact(n, fn, aid, isnew);
-						});
-					} else{
-						OC.dialogs.alert(jsondata.data.message, t('contacts', 'Error'));
-					}
-				});
-			} else {
-				localAddcontact(n, fn, aid, isnew);
-			}
 		},
 		delayedDelete:function() {
 			$('#contacts_deletecard').tipsy('hide');
@@ -506,14 +475,8 @@ OC.Contacts={
 				OC.Contacts.Card.update({cid:newid, aid:bookid});
 			} else {
 				// load intro page
-				$.getJSON(OC.filePath('contacts', 'ajax', 'loadintro.php'),{},function(jsondata){
-					if(jsondata.status == 'success'){
-						id = '';
-						$('#rightcontent').html(jsondata.data.page).removeData('id');
-					} else {
-						OC.dialogs.alert(jsondata.data.message, t('contacts', 'Error'));
-					}
-				});
+				$('#firstrun').show();
+				$('#card').hide();
 			}
 			OC.Contacts.notify({
 				data:curlistitem,

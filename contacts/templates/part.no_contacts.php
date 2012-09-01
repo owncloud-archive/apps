@@ -1,5 +1,5 @@
 <div id="appsettings" class="popup bottomleft hidden"></div>
-<div id="firstrun">
+<div id="firstrun" <?php if($_['has_contacts']) { echo 'class="hidden"';} ?>>
 	<?php echo $l->t('You have no contacts in your addressbook.') ?>
 	<div id="selections">
 		<input type="button" value="<?php echo $l->t('Add contact') ?>" onclick="OC.Contacts.Card.editNew()" />
