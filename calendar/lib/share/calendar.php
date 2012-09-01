@@ -36,7 +36,7 @@ class OC_Share_Backend_Calendar implements OCP\Share_Backend_Collection {
 	*/
 	public function isValidSource($itemSource, $uidOwner) {
 		$calendar = OC_Calendar_App::getCalendar( $itemSource );
-		if ($calendar || $calendar['userid'] != $uidOwner) {
+		if ($calendar === false || $calendar['userid'] != $uidOwner) {
 			return false;
 		}
 		return true;
@@ -90,6 +90,7 @@ class OC_Share_Backend_Calendar implements OCP\Share_Backend_Collection {
 					continue; // TODO
 				}
 				$calendar['displaynamename'] = $item['item_target'];
+				$calendar['permissions'] = $item['permissions'];
 				$calendar['calendarid'] = $calendar['id'];
 				$calendar['owner'] = $calendar['userid'];
 				$calendars[] = $calendar;

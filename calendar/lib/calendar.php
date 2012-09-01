@@ -47,8 +47,12 @@ class OC_Calendar_Calendar{
 
 		$calendars = array();
 		while( $row = $result->fetchRow()){
+			$row['permissions'] = OCP\Share::PERMISSION_CREATE 
+				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE 
+				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE; 
 			$calendars[] = $row;
 		}
+		$calendars = array_merge($calendars, OCP\Share::getItemsSharedWith('calendar', OC_Share_Backend_Calendar::FORMAT_CALENDAR));
 
 		return $calendars;
 	}
