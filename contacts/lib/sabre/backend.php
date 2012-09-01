@@ -35,6 +35,9 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 		$addressbooks = array();
 
 		foreach($data as $i) {
+			if($i['userid'] != OCP\USER::getUser()) {
+				$i['uri'] = $i['uri'] . '_shared_by_' . $i['userid'];
+			}
 			$addressbooks[] = array(
 				'id'  => $i['id'],
 				'uri' => $i['uri'],

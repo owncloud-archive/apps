@@ -39,6 +39,9 @@ class OC_Connector_Sabre_CalDAV extends Sabre_CalDAV_Backend_Abstract {
 		foreach( $raw as $row ){
 			$components = explode(',',$row['components']);
 
+			if($row['userid'] != OCP\USER::getUser()) {
+				$row['uri'] = $row['uri'] . '_shared_by_' . $row['userid'];
+			}
 			$calendar = array(
 				'id' => $row['id'],
 				'uri' => $row['uri'],
