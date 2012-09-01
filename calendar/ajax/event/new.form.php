@@ -32,6 +32,12 @@ $start->setTimezone(new DateTimeZone($timezone));
 $end->setTimezone(new DateTimeZone($timezone));
 
 $calendar_options = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
+$share = OC_Calendar_Share::allSharedwithuser(OCP\USER::getUser(), OC_Calendar_Share::CALENDAR);
+for($i = 0; $i < count($share); $i++) {
+	if(OC_Calendar_Share::is_editing_allowed(OCP\USER::getUser(), $share[$i]['calendarid'], OC_Calendar_Share::CALENDAR)) {
+		array_push($calendar_options, OC_Calendar_App::getCalendar($share[$i]['calendarid'], false, false));
+	}
+}
 $repeat_options = OC_Calendar_App::getRepeatOptions();
 $repeat_end_options = OC_Calendar_App::getEndOptions();
 $repeat_month_options = OC_Calendar_App::getMonthOptions();
