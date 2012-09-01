@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Adam Toth <adazlord@gmail.com>, 2012.
+# Csaba Orban <vicsabi@gmail.com>, 2012.
 # Peter Borsa <peter.borsa@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-11 02:02+0200\n"
-"PO-Revision-Date: 2012-08-11 00:02+0000\n"
-"Last-Translator: owncloud_robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:02+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr ""
+msgstr "Nem minden naptár van a gyorsítótárban"
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
@@ -39,6 +40,10 @@ msgstr "Nem található esemény"
 msgid "Wrong calendar"
 msgstr "Hibás naptár"
 
+#: ajax/event/new.php:25
+msgid "Authentication error"
+msgstr ""
+
 #: ajax/import/dropimport.php:29 ajax/import/import.php:64
 msgid ""
 "The file contained either no events or all events are already saved in your "
@@ -47,15 +52,15 @@ msgstr ""
 
 #: ajax/import/dropimport.php:31 ajax/import/import.php:67
 msgid "events has been saved in the new calendar"
-msgstr ""
+msgstr "események mentve az új naptárba"
 
 #: ajax/import/import.php:56
 msgid "Import failed"
-msgstr ""
+msgstr "Az importálás sikertelen"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
-msgstr ""
+msgstr "az események mentve a naptáradba"
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
@@ -69,7 +74,7 @@ msgstr "Időzóna megváltozott"
 msgid "Invalid request"
 msgstr "Érvénytelen kérés"
 
-#: appinfo/app.php:35 templates/calendar.php:15
+#: appinfo/app.php:41 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Naptár"
@@ -160,7 +165,7 @@ msgstr "Munka"
 
 #: lib/app.php:351 lib/app.php:361
 msgid "by"
-msgstr ""
+msgstr "tőle"
 
 #: lib/app.php:359 lib/app.php:399
 msgid "unnamed"
@@ -349,79 +354,79 @@ msgstr "Naptár"
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "V."
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "H."
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "K."
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "Sze."
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "Cs."
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "P."
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "Szo."
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "Jan."
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "Feb."
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "Márc."
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "Ápr."
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "Máj."
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "Jún."
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "Júl."
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "Aug."
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "Szept."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "Okt."
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "Nov."
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "Dec."
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -478,7 +483,7 @@ msgstr "Ma"
 
 #: templates/calendar.php:46 templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Beállítások"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -686,7 +691,7 @@ msgstr "Naptár-fájl importálása"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "Kérlek válassz egy naptárt"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
@@ -694,13 +699,13 @@ msgstr "Új naptár neve"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "Válassz egy rendelkezésre álló nevet!"
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr ""
+msgstr "A naptár ezen a néven már létezik. Ha folytatja, akkor a naptárak összevonásra kerülnek."
 
 #: templates/part.import.php:47
 msgid "Import"
@@ -732,7 +737,7 @@ msgstr ", "
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "Általános"
 
 #: templates/settings.php:15
 msgid "Timezone"
@@ -740,11 +745,11 @@ msgstr "Időzóna"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr ""
+msgstr "Automatikus időzóna frissítés"
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "Idő formátum"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -756,39 +761,39 @@ msgstr "12h"
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr ""
+msgstr "A hét első napja"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr ""
+msgstr "Cache"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr ""
+msgstr "Az ismétlődő eseményeknél a Chace törlése"
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "URL-ek"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
-msgstr ""
+msgstr "CaIDAv naptár szinkronizálás eelérhetősége"
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "további info"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "Elsődleges cím (Kontakt)"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr ""
+msgstr "Csak az iCalendar link(ek) olvasása"
 
 #: templates/share.dropdown.php:20
 msgid "Users"

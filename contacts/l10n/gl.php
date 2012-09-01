@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Produciuse un erro (des)activando a axenda.",
 "id is not set." => "non se estableceu o id.",
 "Cannot update addressbook with an empty name." => "Non se pode actualizar a libreta de enderezos sen completar o nome.",
-"Error updating addressbook." => "Produciuse un erro actualizando a axenda.",
 "No ID provided" => "Non se proveeu ID",
 "Error setting checksum." => "Erro establecendo a suma de verificación",
 "No categories selected for deletion." => "Non se seleccionaron categorías para borrado.",

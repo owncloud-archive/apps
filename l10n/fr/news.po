@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <florentin.lemoal@gmail.com>, 2012.
 #   <gp4004@arghh.org>, 2012.
 # Guillaume Paumier <guillom.pom@gmail.com>, 2012.
 #   <mathieu.payrol@gmail.com>, 2012.
@@ -11,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-31 02:02+0200\n"
-"PO-Revision-Date: 2012-08-31 00:04+0000\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +30,7 @@ msgstr "Le flux existe déjà."
 msgid "Error adding feed."
 msgstr "Erreur lors de l'ajout du flux."
 
-#: ajax/createfeed.php:74 js/news.js:141
+#: ajax/createfeed.php:74
 msgid "Feed added!"
 msgstr "Flux ajouté !"
 
@@ -45,7 +46,7 @@ msgstr "Répertoire ajouté !"
 msgid "Error removing feed."
 msgstr "Erreur lors de la suppression du flux."
 
-#: ajax/deletefolder.php:27
+#: ajax/deletefolder.php:26
 msgid "Error removing folder."
 msgstr "Erreur lors de la suppression du répertoire."
 
@@ -61,11 +62,11 @@ msgstr "Une erreur est apparue lors de l'analyse du fichier."
 msgid "Error updating feeds."
 msgstr "Erreur lors de la mise à jour des flux."
 
-#: ajax/loadfeed.php:35 templates/part.feeds.php:77
+#: ajax/loadfeed.php:35 templates/part.feeds.php:49
 msgid "Starred"
 msgstr "Favoris"
 
-#: ajax/loadfeed.php:40 templates/part.feeds.php:73
+#: ajax/loadfeed.php:40 templates/part.feeds.php:43
 msgid "New articles"
 msgstr "Nouveaux articles"
 
@@ -81,7 +82,7 @@ msgstr "Erreur lors du déplacement du flux dans le répertoire."
 msgid "File doesn't exist:"
 msgstr "Ce fichier n'existe pas :"
 
-#: ajax/setallitemsread.php:54
+#: ajax/setallitemsread.php:57
 msgid "Error setting all items as read."
 msgstr "Erreur lors du marquage de tous les articles comme lus."
 
@@ -101,75 +102,56 @@ msgstr "Flux mis à jour !"
 msgid "News"
 msgstr "Abonnements"
 
-#: js/menu.js:530
-msgid "Load feed"
-msgstr "Charger le flux"
+#: js/items.js:101
+msgid "Error while loading the feed"
+msgstr "Erreur lors du chargement du flux"
 
-#: js/menu.js:537
-msgid "Delete"
-msgstr "Supprimer"
+#: js/items.js:101 js/items.js:167 js/items.js:534 js/items.js:571
+#: js/main.js:77 js/menu.js:561 js/menu.js:616 js/menu.js:637 js/menu.js:663
+#: js/menu.js:907 js/news.js:50 js/news.js:75 js/news.js:90 js/news.js:129
+#: js/settings.js:16 js/settings.js:22 js/settings.js:47
+msgid "Error"
+msgstr "Erreur"
 
-#: js/menu.js:543
-msgid "Expand/Collapse"
-msgstr "Dérouler/Enrouler"
+#: js/menu.js:534
+msgid "Are you sure you want to delete this feed?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce flux ?"
 
-#: js/menu.js:549
-msgid "Edit"
-msgstr "Modifier"
+#: js/menu.js:542
+msgid "Are you sure you want to delete this folder and all its feeds?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce répertoire et tous les flux qu'il contient ?"
+
+#: js/menu.js:550
+msgid "Warning"
+msgstr "Attention"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
 msgstr "Le nom du répertoire ne peut-être vide."
 
-#: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
-#: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
-#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:47
-msgid "Error"
-msgstr "Erreur"
-
-#: js/news.js:55 js/news.js:113
+#: js/news.js:55 js/news.js:95
 msgid "Adding..."
 msgstr "Ajout..."
 
-#: js/news.js:78 templates/part.folderdialog.php:14
+#: js/news.js:79 templates/part.folderdialog.php:14
 msgid "Add folder"
 msgstr "Ajouter un répertoire"
 
-#: js/news.js:83
-msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr "Êtes-vous sûr de vouloir supprimer ce répertoire et tous les flux qu'il contient ?"
-
-#: js/news.js:83 js/news.js:165
-msgid "Warning"
-msgstr "Attention"
-
-#: js/news.js:108
+#: js/news.js:90
 msgid "URL cannot be empty."
 msgstr "L'URL ne peut-être vide"
 
-#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:6
+#: js/news.js:133 js/news.js:140 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "Ajouter un flux"
 
-#: js/news.js:156
+#: js/news.js:137
 msgid "Error while parsing the feed"
 msgstr "Erreur lors de l'analyse du flux"
 
-#: js/news.js:156
+#: js/news.js:137
 msgid "Fatal Error"
 msgstr "Erreur fatale"
-
-#: js/news.js:165
-msgid "Are you sure you want to delete this feed?"
-msgstr "Êtes-vous sûr de vouloir supprimer ce flux ?"
-
-#: js/news.js:208 js/news.js:245
-msgid "Error while loading the feed"
-msgstr "Erreur lors du chargement du flux"
-
-#: js/news.js:324
-msgid "Error while saving the feed in a folder"
-msgstr "Erreur lors de l’enregistrement du flux dans un répertoire."
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
@@ -255,23 +237,23 @@ msgstr "Tout montrer"
 msgid "Show only unread"
 msgstr "Montrer uniquement les articles non-lus"
 
-#: templates/main.php:32
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "Ajouter un flux ou dossier"
 
-#: templates/main.php:33
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr "Ajouter un flux/dossier"
 
-#: templates/main.php:35
+#: templates/main.php:37
 msgid "Feed"
 msgstr "Flux"
 
-#: templates/main.php:36
+#: templates/main.php:38
 msgid "Folder"
 msgstr "Dossier"
 
-#: templates/main.php:43
+#: templates/main.php:45
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -290,6 +272,11 @@ msgstr "Adresse"
 #: templates/part.feeddialog.php:20
 msgid "Add"
 msgstr "Ajouter"
+
+#: templates/part.feeds.php:45 templates/part.listfeed.php:28
+#: templates/part.listfolder.php:22
+msgid "Mark all read"
+msgstr ""
 
 #: templates/part.folderdialog.php:2
 msgid "Add Folder"
@@ -319,17 +306,21 @@ msgstr "par"
 msgid "Keep unread"
 msgstr "Garder non lu"
 
-#: templates/part.listfeed.php:22
+#: templates/part.listfeed.php:27
 msgid "Delete feed"
 msgstr "Supprimer le flux"
 
 #: templates/part.listfolder.php:17
-msgid "Rename folder"
-msgstr "Renommer le répertoire"
+msgid "Collapse"
+msgstr ""
 
-#: templates/part.listfolder.php:18
+#: templates/part.listfolder.php:20
 msgid "Delete folder"
 msgstr "Supprimer le répertoire"
+
+#: templates/part.listfolder.php:21
+msgid "Rename folder"
+msgstr "Renommer le répertoire"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
@@ -361,7 +352,7 @@ msgstr "Sélectionner"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "Select file from"
-msgstr ""
+msgstr "Sélectionner le fichier depuis"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "local filesystem"
@@ -393,7 +384,7 @@ msgstr "Télécharger OPML"
 
 #: templates/settings.php:16
 msgid "Subscribelet"
-msgstr ""
+msgstr "Subscribelet"
 
 #: templates/subscribelet.php:5
 msgid ""

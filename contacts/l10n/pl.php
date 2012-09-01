@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Błąd (de)aktywowania książki adresowej.",
 "id is not set." => "id nie ustawione.",
 "Cannot update addressbook with an empty name." => "Nie można zaktualizować książki adresowej z pustą nazwą.",
-"Error updating addressbook." => "Błąd uaktualniania książki adresowej.",
 "No ID provided" => "Brak opatrzonego ID ",
 "Error setting checksum." => "Błąd ustawień sumy kontrolnej",
 "No categories selected for deletion." => "Nie zaznaczono kategorii do usunięcia",

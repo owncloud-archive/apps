@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Fout bij het (de)activeren van het adresboek.",
 "id is not set." => "id is niet ingesteld.",
 "Cannot update addressbook with an empty name." => "Kan adresboek zonder naam niet wijzigen",
-"Error updating addressbook." => "Fout bij het updaten van het adresboek.",
 "No ID provided" => "Geen ID opgegeven",
 "Error setting checksum." => "Instellen controlegetal mislukt",
 "No categories selected for deletion." => "Geen categorieën geselecteerd om te verwijderen.",

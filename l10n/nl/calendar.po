@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-25 02:04+0200\n"
-"PO-Revision-Date: 2012-08-24 08:53+0000\n"
-"Last-Translator: Richard Bos <radoeka@gmail.com>\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:02+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +34,7 @@ msgstr "Alles lijkt volledig gecached te zijn"
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
-msgstr "Geen kalenders gevonden."
+msgstr "Geen agenda's gevonden."
 
 #: ajax/categories/rescan.php:37
 msgid "No events found."
@@ -42,7 +42,11 @@ msgstr "Geen gebeurtenissen gevonden."
 
 #: ajax/event/edit.form.php:20
 msgid "Wrong calendar"
-msgstr "Verkeerde kalender"
+msgstr "Verkeerde agenda"
+
+#: ajax/event/new.php:25
+msgid "Authentication error"
+msgstr ""
 
 #: ajax/import/dropimport.php:29 ajax/import/import.php:64
 msgid ""
@@ -77,7 +81,7 @@ msgstr "Ongeldige aanvraag"
 #: appinfo/app.php:41 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
-msgstr "Kalender"
+msgstr "Agenda"
 
 #: js/calendar.js:832
 msgid "ddd"
@@ -174,7 +178,7 @@ msgstr "onbekend"
 #: lib/import.php:184 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
-msgstr "Nieuwe Kalender"
+msgstr "Nieuwe agenda"
 
 #: lib/object.php:372
 msgid "Does not repeat"
@@ -434,7 +438,7 @@ msgstr "Hele dag"
 
 #: templates/calendar.php:13
 msgid "Missing fields"
-msgstr "missende velden"
+msgstr "Ontbrekende velden"
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11
@@ -487,7 +491,7 @@ msgstr "Instellingen"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
-msgstr "Je kalenders"
+msgstr "Uw agenda's"
 
 #: templates/part.choosecalendar.php:27
 #: templates/part.choosecalendar.rowfields.php:11
@@ -525,11 +529,11 @@ msgstr "gedeeld met jou door"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
-msgstr "Nieuwe kalender"
+msgstr "Nieuwe agenda"
 
 #: templates/part.editcalendar.php:9
 msgid "Edit calendar"
-msgstr "Bewerk kalender"
+msgstr "Bewerk agenda"
 
 #: templates/part.editcalendar.php:12
 msgid "Displayname"
@@ -541,7 +545,7 @@ msgstr "Actief"
 
 #: templates/part.editcalendar.php:29
 msgid "Calendar color"
-msgstr "Kalender kleur"
+msgstr "Agenda kleur"
 
 #: templates/part.editcalendar.php:42
 msgid "Save"

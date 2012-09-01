@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-31 02:02+0200\n"
-"PO-Revision-Date: 2012-08-31 00:04+0000\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Syöte on jo olemassa."
 msgid "Error adding feed."
 msgstr "Virhe syötteen lisäyksessä."
 
-#: ajax/createfeed.php:74 js/news.js:141
+#: ajax/createfeed.php:74
 msgid "Feed added!"
 msgstr "Syöte lisätty!"
 
@@ -42,7 +42,7 @@ msgstr "Kansio lisätty!"
 msgid "Error removing feed."
 msgstr "Virhe syötettä poistaessa."
 
-#: ajax/deletefolder.php:27
+#: ajax/deletefolder.php:26
 msgid "Error removing folder."
 msgstr "Virhe kansiota poistaessa."
 
@@ -58,11 +58,11 @@ msgstr "Tiedostoa jäsennettäessä tapahtui virhe."
 msgid "Error updating feeds."
 msgstr "Virhe syötteitä päivittäessä."
 
-#: ajax/loadfeed.php:35 templates/part.feeds.php:77
+#: ajax/loadfeed.php:35 templates/part.feeds.php:49
 msgid "Starred"
 msgstr "Tähdellä varustettu"
 
-#: ajax/loadfeed.php:40 templates/part.feeds.php:73
+#: ajax/loadfeed.php:40 templates/part.feeds.php:43
 msgid "New articles"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr "Virhe siirrettäessä syötettä kansioon."
 msgid "File doesn't exist:"
 msgstr "Tiedostoa ei ole olemassa"
 
-#: ajax/setallitemsread.php:54
+#: ajax/setallitemsread.php:57
 msgid "Error setting all items as read."
 msgstr ""
 
@@ -98,75 +98,56 @@ msgstr "Syöte päivitetty!"
 msgid "News"
 msgstr "Uutiset"
 
-#: js/menu.js:530
-msgid "Load feed"
-msgstr ""
+#: js/items.js:101
+msgid "Error while loading the feed"
+msgstr "Virhe syötettä ladatessa."
 
-#: js/menu.js:537
-msgid "Delete"
-msgstr ""
+#: js/items.js:101 js/items.js:167 js/items.js:534 js/items.js:571
+#: js/main.js:77 js/menu.js:561 js/menu.js:616 js/menu.js:637 js/menu.js:663
+#: js/menu.js:907 js/news.js:50 js/news.js:75 js/news.js:90 js/news.js:129
+#: js/settings.js:16 js/settings.js:22 js/settings.js:47
+msgid "Error"
+msgstr "Virhe"
 
-#: js/menu.js:543
-msgid "Expand/Collapse"
-msgstr ""
+#: js/menu.js:534
+msgid "Are you sure you want to delete this feed?"
+msgstr "Haluatko varmasti poistaa tämän syötteen?"
 
-#: js/menu.js:549
-msgid "Edit"
-msgstr ""
+#: js/menu.js:542
+msgid "Are you sure you want to delete this folder and all its feeds?"
+msgstr "Haluatko varmasti poistaa tämän kansion ja kaikki sen syötteet?"
+
+#: js/menu.js:550
+msgid "Warning"
+msgstr "Varoitus"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
 msgstr "Kansion nimi ei voi olla tyhjä."
 
-#: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
-#: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
-#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:47
-msgid "Error"
-msgstr "Virhe"
-
-#: js/news.js:55 js/news.js:113
+#: js/news.js:55 js/news.js:95
 msgid "Adding..."
 msgstr "Lisätään..."
 
-#: js/news.js:78 templates/part.folderdialog.php:14
+#: js/news.js:79 templates/part.folderdialog.php:14
 msgid "Add folder"
 msgstr "Lisää kansio"
 
-#: js/news.js:83
-msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr "Haluatko varmasti poistaa tämän kansion ja kaikki sen syötteet?"
-
-#: js/news.js:83 js/news.js:165
-msgid "Warning"
-msgstr "Varoitus"
-
-#: js/news.js:108
+#: js/news.js:90
 msgid "URL cannot be empty."
 msgstr "Verkko-osoite ei voi olla tyhjä"
 
-#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:6
+#: js/news.js:133 js/news.js:140 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "Lisää syöte"
 
-#: js/news.js:156
+#: js/news.js:137
 msgid "Error while parsing the feed"
 msgstr "Virhe syötettä jäsennettäessä."
 
-#: js/news.js:156
+#: js/news.js:137
 msgid "Fatal Error"
 msgstr "Vakava virhe"
-
-#: js/news.js:165
-msgid "Are you sure you want to delete this feed?"
-msgstr "Haluatko varmasti poistaa tämän syötteen?"
-
-#: js/news.js:208 js/news.js:245
-msgid "Error while loading the feed"
-msgstr "Virhe syötettä ladatessa."
-
-#: js/news.js:324
-msgid "Error while saving the feed in a folder"
-msgstr "Virhe tallennettaessa syötettä kansioon"
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
@@ -252,23 +233,23 @@ msgstr "Näytä kaikki"
 msgid "Show only unread"
 msgstr "Näytä vain lukemattomat"
 
-#: templates/main.php:32
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "Lisää syöte tai kansio"
 
-#: templates/main.php:33
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr "Lisää syöte/kansio"
 
-#: templates/main.php:35
+#: templates/main.php:37
 msgid "Feed"
 msgstr "Syöte"
 
-#: templates/main.php:36
+#: templates/main.php:38
 msgid "Folder"
 msgstr "Kansio"
 
-#: templates/main.php:43
+#: templates/main.php:45
 msgid "Settings"
 msgstr "Asetukset"
 
@@ -287,6 +268,11 @@ msgstr "Osoite"
 #: templates/part.feeddialog.php:20
 msgid "Add"
 msgstr "Lisää"
+
+#: templates/part.feeds.php:45 templates/part.listfeed.php:28
+#: templates/part.listfolder.php:22
+msgid "Mark all read"
+msgstr ""
 
 #: templates/part.folderdialog.php:2
 msgid "Add Folder"
@@ -316,17 +302,21 @@ msgstr ""
 msgid "Keep unread"
 msgstr ""
 
-#: templates/part.listfeed.php:22
+#: templates/part.listfeed.php:27
 msgid "Delete feed"
 msgstr "Poista syöte"
 
 #: templates/part.listfolder.php:17
-msgid "Rename folder"
-msgstr "Muuta kansion nimeä"
+msgid "Collapse"
+msgstr ""
 
-#: templates/part.listfolder.php:18
+#: templates/part.listfolder.php:20
 msgid "Delete folder"
 msgstr "Poista kansio"
+
+#: templates/part.listfolder.php:21
+msgid "Rename folder"
+msgstr "Muuta kansion nimeä"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."

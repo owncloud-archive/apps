@@ -1,7 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Error (de)activating addressbook." => "(Dez)activarea agendei a întâmpinat o eroare.",
 "id is not set." => "ID-ul nu este stabilit",
-"Error updating addressbook." => "Eroare la actualizarea agendei.",
 "No ID provided" => "Nici un ID nu a fost furnizat",
 "Error setting checksum." => "Eroare la stabilirea sumei de control",
 "No categories selected for deletion." => "Nici o categorie selectată pentru ștergere",

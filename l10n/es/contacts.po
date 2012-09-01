@@ -9,13 +9,14 @@
 # oSiNaReF  <>, 2012.
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
 #   <rodrigo.calvo@gmail.com>, 2012.
+# Rubén Trujillo <rubentrf@gmail.com>, 2012.
 #   <sergioballesterossolanas@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-31 02:02+0200\n"
-"PO-Revision-Date: 2012-08-31 00:03+0000\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -24,23 +25,19 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:32
+#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
 msgstr "Error al (des)activar libreta de direcciones."
 
-#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:20
+#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
 #: ajax/contact/saveproperty.php:39
 msgid "id is not set."
 msgstr "no se ha puesto ninguna ID."
 
-#: ajax/addressbook/update.php:24
+#: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
 msgstr "No se puede actualizar una libreta de direcciones sin nombre."
-
-#: ajax/addressbook/update.php:28
-msgid "Error updating addressbook."
-msgstr "Error al actualizar la libreta de direcciones."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -249,15 +246,15 @@ msgstr "Fallo"
 
 #: js/contacts.js:425
 msgid "You do not have permission to add contacts to "
-msgstr ""
+msgstr "No tiene permisos para añadir contactos a"
 
 #: js/contacts.js:426
 msgid "Please select one of your own address books."
-msgstr ""
+msgstr "Por favor, selecciona una de sus libretas de direcciones."
 
 #: js/contacts.js:426
 msgid "Permission error"
-msgstr ""
+msgstr "Error de permisos"
 
 #: js/contacts.js:764
 msgid "This property has to be non-empty."
@@ -289,7 +286,7 @@ msgstr "El fichero que quieres subir excede el tamaño máximo permitido en este
 
 #: js/contacts.js:1323
 msgid "Error loading profile picture."
-msgstr ""
+msgstr "Error cargando la imagen del perfil."
 
 #: js/contacts.js:1458 js/contacts.js:1499 js/contacts.js:1518
 #: js/contacts.js:1561
@@ -300,11 +297,11 @@ msgstr "Selecciona el tipo"
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
-msgstr ""
+msgstr "Algunos contactos están marcados para su eliminación, pero no eliminados todavía. Por favor, espere a que sean eliminados."
 
 #: js/contacts.js:1650
 msgid "Do you want to merge these address books?"
-msgstr ""
+msgstr "¿Quieres mezclar estas libretas de direcciones?"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -320,19 +317,27 @@ msgstr "Fallo."
 
 #: js/settings.js:68
 msgid "Displayname cannot be empty."
+msgstr "El nombre a mostrar no puede estar vacío."
+
+#: lib/addressbook.php:223
+msgid "You do not have the permissions to update this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:291
+#: lib/addressbook.php:243
+msgid "There was an error updating the addressbook."
+msgstr ""
+
+#: lib/addressbook.php:299
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "No tienes permisos para eliminar esta libreta de direcciones."
 
-#: lib/addressbook.php:320
+#: lib/addressbook.php:328
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "Hubo un error eliminando esta libreta de direcciones."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
-msgstr ""
+msgstr "Libreta de direcciones no encontrada:"
 
 #: lib/app.php:52
 msgid "This is not your addressbook."
@@ -469,7 +474,7 @@ msgstr "Jornada"
 
 #: lib/app.php:260
 msgid "Jubilee"
-msgstr ""
+msgstr "Aniversario"
 
 #: lib/app.php:261
 msgid "Meeting"
@@ -497,27 +502,27 @@ msgstr "Contacto"
 
 #: lib/vcard.php:395
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "No se puede encontrar la vCard con ID."
 
 #: lib/vcard.php:412
 msgid "You do not have the permissions to edit this contact."
-msgstr ""
+msgstr "No tiene permisos para editar este contacto."
 
 #: lib/vcard.php:483
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "No se puede encontrar la vCard con ID:"
 
 #: lib/vcard.php:491
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "No se puede encontrar la libreta de direcciones con ID:"
 
 #: lib/vcard.php:506
 msgid "You do not have the permissions to delete this contact."
-msgstr ""
+msgstr "No tiene permisos para eliminar este contacto."
 
 #: lib/vcard.php:524
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "Hubo un error eliminando este contacto."
 
 #: templates/index.php:14
 msgid "Add Contact"
@@ -561,11 +566,11 @@ msgstr "Abrir/Cerrar la agenda"
 
 #: templates/index.php:48
 msgid "Next addressbook"
-msgstr ""
+msgstr "Siguiente libreta de direcciones"
 
 #: templates/index.php:50
 msgid "Previous addressbook"
-msgstr ""
+msgstr "Anterior libreta de direcciones"
 
 #: templates/index.php:54
 msgid "Actions"
@@ -697,7 +702,7 @@ msgstr "Mensajero instantáneo"
 
 #: templates/part.contact.php:101
 msgid "Delete IM"
-msgstr ""
+msgstr "Eliminar IM"
 
 #: templates/part.contact.php:110
 msgid "View on map"
@@ -940,11 +945,11 @@ msgstr "iOS/OS X"
 
 #: templates/settings.php:22
 msgid "Show CardDav link"
-msgstr ""
+msgstr "Mostrar enlace CardDav"
 
 #: templates/settings.php:25
 msgid "Show read-only VCF link"
-msgstr ""
+msgstr "Mostrar enlace VCF de sólo lectura"
 
 #: templates/settings.php:32
 msgid "Share"

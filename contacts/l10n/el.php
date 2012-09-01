@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Σφάλμα (απ)ενεργοποίησης βιβλίου διευθύνσεων",
 "id is not set." => "δεν ορίστηκε id",
 "Cannot update addressbook with an empty name." => "Δε μπορεί να γίνει αλλαγή βιβλίου διευθύνσεων χωρίς όνομα",
-"Error updating addressbook." => "Σφάλμα ενημέρωσης βιβλίου διευθύνσεων.",
 "No ID provided" => "Δε δόθηκε ID",
 "Error setting checksum." => "Λάθος κατά τον ορισμό checksum ",
 "No categories selected for deletion." => "Δε επελέγησαν κατηγορίες για διαγραφή",

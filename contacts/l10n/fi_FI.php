@@ -1,5 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Error updating addressbook." => "Virhe päivitettäessä osoitekirjaa.",
 "Error setting checksum." => "Virhe asettaessa tarkistussummaa.",
 "No categories selected for deletion." => "Luokkia ei ole valittu poistettavaksi.",
 "No address books found." => "Osoitekirjoja ei löytynyt.",

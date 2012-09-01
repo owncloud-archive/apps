@@ -1,6 +1,5 @@
 <?php $TRANSLATIONS = array(
 "Error (de)activating addressbook." => "在啟用或關閉電話簿時發生錯誤",
-"Error updating addressbook." => "電話簿更新中發生錯誤",
 "No ID provided" => "未提供 ID",
 "No contacts found." => "沒有找到聯絡人",
 "There was an error adding the contact." => "添加通訊錄發生錯誤",

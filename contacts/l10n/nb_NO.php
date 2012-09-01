@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Et problem oppsto med å (de)aktivere adresseboken.",
 "id is not set." => "id er ikke satt.",
 "Cannot update addressbook with an empty name." => "Kan ikke oppdatere adressebøker uten navn.",
-"Error updating addressbook." => "Et problem oppsto med å oppdatere adresseboken.",
 "No ID provided" => "Ingen ID angitt",
 "No categories selected for deletion." => "Ingen kategorier valgt for sletting.",
 "No address books found." => "Ingen adressebok funnet.",

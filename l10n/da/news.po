@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-31 02:02+0200\n"
-"PO-Revision-Date: 2012-08-31 00:04+0000\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Feedet eksisterer allerede."
 msgid "Error adding feed."
 msgstr "Der opstod en fejl under tilføjelsen af feedet."
 
-#: ajax/createfeed.php:74 js/news.js:141
+#: ajax/createfeed.php:74
 msgid "Feed added!"
 msgstr "Feed tilføjet!"
 
@@ -42,7 +42,7 @@ msgstr "Mappen er tilføjet!"
 msgid "Error removing feed."
 msgstr "Der opstod en fejl under fjernelsen af feedet."
 
-#: ajax/deletefolder.php:27
+#: ajax/deletefolder.php:26
 msgid "Error removing folder."
 msgstr "Der opstod en fejl under fjernelsen af mappen."
 
@@ -58,11 +58,11 @@ msgstr "Der opstod en fejl under læsningen af filen."
 msgid "Error updating feeds."
 msgstr "Der opstod en fejl under opdateringen af feedene."
 
-#: ajax/loadfeed.php:35 templates/part.feeds.php:77
+#: ajax/loadfeed.php:35 templates/part.feeds.php:49
 msgid "Starred"
 msgstr "Markéret"
 
-#: ajax/loadfeed.php:40 templates/part.feeds.php:73
+#: ajax/loadfeed.php:40 templates/part.feeds.php:43
 msgid "New articles"
 msgstr "Nye artikler"
 
@@ -78,7 +78,7 @@ msgstr "Fejl ved flytning af feed til mappe."
 msgid "File doesn't exist:"
 msgstr "Filen eksisterer ikke:"
 
-#: ajax/setallitemsread.php:54
+#: ajax/setallitemsread.php:57
 msgid "Error setting all items as read."
 msgstr "Kunne ikke markére alle artikler som læst."
 
@@ -98,75 +98,56 @@ msgstr "Feed opdateret."
 msgid "News"
 msgstr "Nyheder"
 
-#: js/menu.js:530
-msgid "Load feed"
-msgstr "Indlæs feed"
+#: js/items.js:101
+msgid "Error while loading the feed"
+msgstr "Der opstod en fejl under læsningen af feedet"
 
-#: js/menu.js:537
-msgid "Delete"
-msgstr "Slet"
+#: js/items.js:101 js/items.js:167 js/items.js:534 js/items.js:571
+#: js/main.js:77 js/menu.js:561 js/menu.js:616 js/menu.js:637 js/menu.js:663
+#: js/menu.js:907 js/news.js:50 js/news.js:75 js/news.js:90 js/news.js:129
+#: js/settings.js:16 js/settings.js:22 js/settings.js:47
+msgid "Error"
+msgstr "Fejl"
 
-#: js/menu.js:543
-msgid "Expand/Collapse"
-msgstr ""
+#: js/menu.js:534
+msgid "Are you sure you want to delete this feed?"
+msgstr "Er du sikker på du vil slette dette feed?"
 
-#: js/menu.js:549
-msgid "Edit"
-msgstr "Rediger"
+#: js/menu.js:542
+msgid "Are you sure you want to delete this folder and all its feeds?"
+msgstr "Er du sikker på du vil slette denne mappe og alle feeds i den?"
+
+#: js/menu.js:550
+msgid "Warning"
+msgstr "Advarsel"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
 msgstr "Navnet på mappen kan ikke være tomt."
 
-#: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
-#: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
-#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:47
-msgid "Error"
-msgstr "Fejl"
-
-#: js/news.js:55 js/news.js:113
+#: js/news.js:55 js/news.js:95
 msgid "Adding..."
 msgstr "Tilføjer..."
 
-#: js/news.js:78 templates/part.folderdialog.php:14
+#: js/news.js:79 templates/part.folderdialog.php:14
 msgid "Add folder"
 msgstr "Tilføj mappe"
 
-#: js/news.js:83
-msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr "Er du sikker på du vil slette denne mappe og alle feeds i den?"
-
-#: js/news.js:83 js/news.js:165
-msgid "Warning"
-msgstr "Advarsel"
-
-#: js/news.js:108
+#: js/news.js:90
 msgid "URL cannot be empty."
 msgstr "URLen kan ikke være tom."
 
-#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:6
+#: js/news.js:133 js/news.js:140 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "Tilføj feed"
 
-#: js/news.js:156
+#: js/news.js:137
 msgid "Error while parsing the feed"
 msgstr "Fejl under læsning af feed"
 
-#: js/news.js:156
+#: js/news.js:137
 msgid "Fatal Error"
 msgstr "Alvorlig fejl"
-
-#: js/news.js:165
-msgid "Are you sure you want to delete this feed?"
-msgstr "Er du sikker på du vil slette dette feed?"
-
-#: js/news.js:208 js/news.js:245
-msgid "Error while loading the feed"
-msgstr "Der opstod en fejl under læsningen af feedet"
-
-#: js/news.js:324
-msgid "Error while saving the feed in a folder"
-msgstr ""
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
@@ -252,23 +233,23 @@ msgstr "Vis alt"
 msgid "Show only unread"
 msgstr "Vis kun ulæste"
 
-#: templates/main.php:32
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "Tilføj feed eller mappe"
 
-#: templates/main.php:33
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr "Tilføj feed/mappe"
 
-#: templates/main.php:35
+#: templates/main.php:37
 msgid "Feed"
 msgstr "Feed"
 
-#: templates/main.php:36
+#: templates/main.php:38
 msgid "Folder"
 msgstr "Mappe"
 
-#: templates/main.php:43
+#: templates/main.php:45
 msgid "Settings"
 msgstr "Indstillinger"
 
@@ -287,6 +268,11 @@ msgstr "Adresse"
 #: templates/part.feeddialog.php:20
 msgid "Add"
 msgstr "Tilføj"
+
+#: templates/part.feeds.php:45 templates/part.listfeed.php:28
+#: templates/part.listfolder.php:22
+msgid "Mark all read"
+msgstr ""
 
 #: templates/part.folderdialog.php:2
 msgid "Add Folder"
@@ -316,17 +302,21 @@ msgstr "af"
 msgid "Keep unread"
 msgstr "Behold ulæste"
 
-#: templates/part.listfeed.php:22
+#: templates/part.listfeed.php:27
 msgid "Delete feed"
 msgstr "Slet feed"
 
 #: templates/part.listfolder.php:17
-msgid "Rename folder"
-msgstr "Omdøb mappe"
+msgid "Collapse"
+msgstr ""
 
-#: templates/part.listfolder.php:18
+#: templates/part.listfolder.php:20
 msgid "Delete folder"
 msgstr "Slet mappe"
+
+#: templates/part.listfolder.php:21
+msgid "Rename folder"
+msgstr "Omdøb mappe"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."

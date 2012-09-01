@@ -25,8 +25,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-31 02:02+0200\n"
-"PO-Revision-Date: 2012-08-31 00:03+0000\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -35,23 +35,19 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:32
+#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
 msgstr "(De-)Aktivierung des Adressbuches fehlgeschlagen"
 
-#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:20
+#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
 #: ajax/contact/saveproperty.php:39
 msgid "id is not set."
 msgstr "ID ist nicht angegeben."
 
-#: ajax/addressbook/update.php:24
+#: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
 msgstr "Adressbuch kann nicht mir leeren Namen aktualisiert werden."
-
-#: ajax/addressbook/update.php:28
-msgid "Error updating addressbook."
-msgstr "Adressbuch aktualisieren fehlgeschlagen."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -333,13 +329,21 @@ msgstr " fehlgeschlagen."
 msgid "Displayname cannot be empty."
 msgstr "Der Anzeigename darf nicht leer sein."
 
-#: lib/addressbook.php:291
-msgid "You do not have the permissions to delete this addressbook."
+#: lib/addressbook.php:223
+msgid "You do not have the permissions to update this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:320
-msgid "There was an error deleting this addressbook."
+#: lib/addressbook.php:243
+msgid "There was an error updating the addressbook."
 msgstr ""
+
+#: lib/addressbook.php:299
+msgid "You do not have the permissions to delete this addressbook."
+msgstr "Sie haben nicht die Erlaubnis, dieses Adressbuch zu löschen."
+
+#: lib/addressbook.php:328
+msgid "There was an error deleting this addressbook."
+msgstr "Beim Löschen des Adressbuches ist ein Fehler aufgetreten."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -508,7 +512,7 @@ msgstr "Kontakt"
 
 #: lib/vcard.php:395
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "Die vCard mit der ID konnte nicht gefunden werden."
 
 #: lib/vcard.php:412
 msgid "You do not have the permissions to edit this contact."
@@ -516,11 +520,11 @@ msgstr "Sie besitzen nicht die erforderlichen Rechte, um diesen Kontakt zu bearb
 
 #: lib/vcard.php:483
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "Die vCard mit der folgenden ID konnte nicht gefunden werden:"
 
 #: lib/vcard.php:491
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "Konnte das Adressbuch mit der folgenden ID nicht finden:"
 
 #: lib/vcard.php:506
 msgid "You do not have the permissions to delete this contact."
@@ -528,7 +532,7 @@ msgstr "Sie besitzen nicht die erforderlichen Rechte, um diesen Kontakte zu lös
 
 #: lib/vcard.php:524
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "Beim Löschen des Kontaktes ist ein Fehler aufgetreten."
 
 #: templates/index.php:14
 msgid "Add Contact"

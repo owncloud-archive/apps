@@ -1,7 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Error (de)activating addressbook." => "Fehler beim (de)aktivéieren vum Adressbuch.",
 "id is not set." => "ID ass net gesat.",
-"Error updating addressbook." => "Fehler beim updaten vum Adressbuch.",
 "No ID provided" => "Keng ID uginn",
 "Error setting checksum." => "Fehler beim setzen vun der Checksum.",
 "No categories selected for deletion." => "Keng Kategorien fir ze läschen ausgewielt.",

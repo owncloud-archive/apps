@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-11 02:02+0200\n"
-"PO-Revision-Date: 2012-08-11 00:02+0000\n"
-"Last-Translator: owncloud_robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:02+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr ""
+msgstr "Kõik kalendrid pole täielikult puhverdatud"
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
-msgstr ""
+msgstr "Kõik näib olevat puhverdatud"
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
@@ -38,23 +38,27 @@ msgstr "Üritusi ei leitud."
 msgid "Wrong calendar"
 msgstr "Vale kalender"
 
+#: ajax/event/new.php:25
+msgid "Authentication error"
+msgstr ""
+
 #: ajax/import/dropimport.php:29 ajax/import/import.php:64
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
-msgstr ""
+msgstr "Failis polnud ühtegi üritust või kõik üritused on juba sinu kalendrisse salvestatud."
 
 #: ajax/import/dropimport.php:31 ajax/import/import.php:67
 msgid "events has been saved in the new calendar"
-msgstr ""
+msgstr "üritust salvestati uude kalendrisse"
 
 #: ajax/import/import.php:56
 msgid "Import failed"
-msgstr ""
+msgstr "Importimine ebaõnnestus"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
-msgstr ""
+msgstr "üritused on salvestatud sinu kalendrisse"
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
@@ -68,7 +72,7 @@ msgstr "Ajavöönd on muudetud"
 msgid "Invalid request"
 msgstr "Vigane päring"
 
-#: appinfo/app.php:35 templates/calendar.php:15
+#: appinfo/app.php:41 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Kalender"
@@ -159,7 +163,7 @@ msgstr "Töö"
 
 #: lib/app.php:351 lib/app.php:361
 msgid "by"
-msgstr ""
+msgstr "lisas"
 
 #: lib/app.php:359 lib/app.php:399
 msgid "unnamed"
@@ -348,79 +352,79 @@ msgstr "Kal."
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "P"
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "E"
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "T"
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "K"
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "N"
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "R"
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "L"
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "Jaan."
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "Veebr."
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "Mär."
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "Apr."
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "Mai"
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "Jun."
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "Jul."
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "Aug."
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "Sept."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "Okt."
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "Nov."
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "Dets."
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -477,7 +481,7 @@ msgstr "Täna"
 
 #: templates/calendar.php:46 templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Seaded"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -685,7 +689,7 @@ msgstr "Impordi kalendrifail"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "Palun vali kalender"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
@@ -693,13 +697,13 @@ msgstr "Uue kalendri nimi"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "Võta saadaolev nimi!"
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr ""
+msgstr "Selle nimega kalender on juba olemas. Kui sa siiski jätkad, siis need kalendrid liidetakse."
 
 #: templates/part.import.php:47
 msgid "Import"
@@ -731,7 +735,7 @@ msgstr "kell"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "Üldine"
 
 #: templates/settings.php:15
 msgid "Timezone"
@@ -739,11 +743,11 @@ msgstr "Ajavöönd"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr ""
+msgstr "Uuenda ajavööndit automaatselt"
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "Ajavorming"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -755,39 +759,39 @@ msgstr "12h"
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr ""
+msgstr "Nädal algab päevaga"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr ""
+msgstr "Puhver"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr ""
+msgstr "Tühjenda korduvate ürituste puhver"
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "URL-id"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
-msgstr ""
+msgstr "Kalendri CalDAV sünkroniseerimise aadressid"
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "lisainfo"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "Peamine aadress (Kontact et al)"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr ""
+msgstr " iCalendar lingid ainult loetavana"
 
 #: templates/share.dropdown.php:20
 msgid "Users"

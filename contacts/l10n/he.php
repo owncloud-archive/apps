@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "שגיאה בהפעלה או בנטרול פנקס הכתובות.",
 "id is not set." => "מספר מזהה לא נקבע.",
 "Cannot update addressbook with an empty name." => "אי אפשר לעדכן ספר כתובות ללא שם",
-"Error updating addressbook." => "שגיאה בעדכון פנקס הכתובות.",
 "No ID provided" => "לא צוין מזהה",
 "Error setting checksum." => "שגיאה בהגדרת נתוני הביקורת.",
 "No categories selected for deletion." => "לא נבחור קטגוריות למחיקה.",

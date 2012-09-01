@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Errore bat egon da helbide-liburua (des)gaitzen",
 "id is not set." => "IDa ez da ezarri.",
 "Cannot update addressbook with an empty name." => "Ezin da helbide liburua eguneratu izen huts batekin.",
-"Error updating addressbook." => "Errore bat egon da helbide liburua eguneratzen.",
 "No ID provided" => "Ez da IDrik eman",
 "Error setting checksum." => "Errorea kontrol-batura ezartzean.",
 "No categories selected for deletion." => "Ez dira ezabatzeko kategoriak hautatu.",

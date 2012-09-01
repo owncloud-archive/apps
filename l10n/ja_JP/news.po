@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2012.
+#   <tetuyano+transi@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-31 02:02+0200\n"
-"PO-Revision-Date: 2012-08-31 00:04+0000\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +27,7 @@ msgstr "フィードは既に存在します。"
 msgid "Error adding feed."
 msgstr "フィードの追加エラー"
 
-#: ajax/createfeed.php:74 js/news.js:141
+#: ajax/createfeed.php:74
 msgid "Feed added!"
 msgstr "フィードを追加しました！"
 
@@ -42,7 +43,7 @@ msgstr "フォルダが追加されました！"
 msgid "Error removing feed."
 msgstr "フィードの削除エラー"
 
-#: ajax/deletefolder.php:27
+#: ajax/deletefolder.php:26
 msgid "Error removing folder."
 msgstr "フォルダの削除エラー"
 
@@ -58,11 +59,11 @@ msgstr "ファイルの解析中にエラーが発生しました。"
 msgid "Error updating feeds."
 msgstr "フィードの更新エラー"
 
-#: ajax/loadfeed.php:35 templates/part.feeds.php:77
+#: ajax/loadfeed.php:35 templates/part.feeds.php:49
 msgid "Starred"
 msgstr "共有"
 
-#: ajax/loadfeed.php:40 templates/part.feeds.php:73
+#: ajax/loadfeed.php:40 templates/part.feeds.php:43
 msgid "New articles"
 msgstr "新しい記事"
 
@@ -78,7 +79,7 @@ msgstr "フォルダへのフィードの移動エラー"
 msgid "File doesn't exist:"
 msgstr "ファイルは存在しません:"
 
-#: ajax/setallitemsread.php:54
+#: ajax/setallitemsread.php:57
 msgid "Error setting all items as read."
 msgstr "すべての項目の既読設定エラー"
 
@@ -98,75 +99,56 @@ msgstr "フィードを更新しました！"
 msgid "News"
 msgstr "ニュース"
 
-#: js/menu.js:530
-msgid "Load feed"
-msgstr "フィードをロード"
+#: js/items.js:101
+msgid "Error while loading the feed"
+msgstr "フィードの読み込みエラー"
 
-#: js/menu.js:537
-msgid "Delete"
-msgstr "削除"
+#: js/items.js:101 js/items.js:167 js/items.js:534 js/items.js:571
+#: js/main.js:77 js/menu.js:561 js/menu.js:616 js/menu.js:637 js/menu.js:663
+#: js/menu.js:907 js/news.js:50 js/news.js:75 js/news.js:90 js/news.js:129
+#: js/settings.js:16 js/settings.js:22 js/settings.js:47
+msgid "Error"
+msgstr "エラー"
 
-#: js/menu.js:543
-msgid "Expand/Collapse"
-msgstr "展開／折りたたみ"
+#: js/menu.js:534
+msgid "Are you sure you want to delete this feed?"
+msgstr "本当にこのフィードを削除してもよろしいですか？"
 
-#: js/menu.js:549
-msgid "Edit"
-msgstr "編集"
+#: js/menu.js:542
+msgid "Are you sure you want to delete this folder and all its feeds?"
+msgstr "本当にこのフォルダとフォルダ内のすべてのフィードを削除してもよろしいですか？"
+
+#: js/menu.js:550
+msgid "Warning"
+msgstr "警告"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
 msgstr "フォルダ名は空にできません。"
 
-#: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
-#: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
-#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:47
-msgid "Error"
-msgstr "エラー"
-
-#: js/news.js:55 js/news.js:113
+#: js/news.js:55 js/news.js:95
 msgid "Adding..."
 msgstr "追加中..."
 
-#: js/news.js:78 templates/part.folderdialog.php:14
+#: js/news.js:79 templates/part.folderdialog.php:14
 msgid "Add folder"
 msgstr "フォルダを追加"
 
-#: js/news.js:83
-msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr "本当にこのフォルダとフォルダ内のすべてのフィードを削除してもよろしいですか？"
-
-#: js/news.js:83 js/news.js:165
-msgid "Warning"
-msgstr "警告"
-
-#: js/news.js:108
+#: js/news.js:90
 msgid "URL cannot be empty."
 msgstr "URLは空にできません。"
 
-#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:6
+#: js/news.js:133 js/news.js:140 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "フィードを追加"
 
-#: js/news.js:156
+#: js/news.js:137
 msgid "Error while parsing the feed"
 msgstr "フィードの解析エラー"
 
-#: js/news.js:156
+#: js/news.js:137
 msgid "Fatal Error"
 msgstr "致命的なエラー"
-
-#: js/news.js:165
-msgid "Are you sure you want to delete this feed?"
-msgstr "本当にこのフィードを削除してもよろしいですか？"
-
-#: js/news.js:208 js/news.js:245
-msgid "Error while loading the feed"
-msgstr "フィードの読み込みエラー"
-
-#: js/news.js:324
-msgid "Error while saving the feed in a folder"
-msgstr "フォルダへのフィード保存エラー"
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
@@ -252,23 +234,23 @@ msgstr "すべてを表示"
 msgid "Show only unread"
 msgstr "未読のみを表示"
 
-#: templates/main.php:32
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "フィードもしくはフォルダを追加"
 
-#: templates/main.php:33
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr "フィード／フォルダを追加"
 
-#: templates/main.php:35
+#: templates/main.php:37
 msgid "Feed"
 msgstr "フィード"
 
-#: templates/main.php:36
+#: templates/main.php:38
 msgid "Folder"
 msgstr "フォルダ"
 
-#: templates/main.php:43
+#: templates/main.php:45
 msgid "Settings"
 msgstr "設定"
 
@@ -288,6 +270,11 @@ msgstr "アドレス"
 msgid "Add"
 msgstr "追加"
 
+#: templates/part.feeds.php:45 templates/part.listfeed.php:28
+#: templates/part.listfolder.php:22
+msgid "Mark all read"
+msgstr ""
+
 #: templates/part.folderdialog.php:2
 msgid "Add Folder"
 msgstr "フォルダを追加"
@@ -306,27 +293,31 @@ msgstr "重要マークを付ける"
 
 #: templates/part.items.php:55
 msgid "from"
-msgstr ""
+msgstr "から"
 
 #: templates/part.items.php:60
 msgid "by"
-msgstr ""
+msgstr "により"
 
 #: templates/part.items.php:67
 msgid "Keep unread"
 msgstr "未読のままにする"
 
-#: templates/part.listfeed.php:22
+#: templates/part.listfeed.php:27
 msgid "Delete feed"
 msgstr "フィードを削除"
 
 #: templates/part.listfolder.php:17
-msgid "Rename folder"
-msgstr "フォルダの名前を変更"
+msgid "Collapse"
+msgstr ""
 
-#: templates/part.listfolder.php:18
+#: templates/part.listfolder.php:20
 msgid "Delete folder"
 msgstr "フォルダを削除"
+
+#: templates/part.listfolder.php:21
+msgid "Rename folder"
+msgstr "フォルダの名前を変更"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
@@ -358,7 +349,7 @@ msgstr "選択"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "Select file from"
-msgstr ""
+msgstr "ファイル選択"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "local filesystem"
@@ -366,7 +357,7 @@ msgstr "ローカルファイルシステム"
 
 #: templates/part.nofeeds.php:17 templates/settings.php:7
 msgid " or "
-msgstr ""
+msgstr "または"
 
 #: templates/part.nofeeds.php:17 templates/settings.php:7
 msgid "cloud"
@@ -374,7 +365,7 @@ msgstr "クラウド"
 
 #: templates/part.nofeeds.php:26
 msgid "Or..."
-msgstr ""
+msgstr "または..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
@@ -390,7 +381,7 @@ msgstr "OPMLをダウンロード"
 
 #: templates/settings.php:16
 msgid "Subscribelet"
-msgstr ""
+msgstr "投稿"
 
 #: templates/subscribelet.php:5
 msgid ""

@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "(取消)激活地址簿错误。",
 "id is not set." => "没有设置 id。",
 "Cannot update addressbook with an empty name." => "无法使用一个空名称更新地址簿",
-"Error updating addressbook." => "更新地址簿错误",
 "No ID provided" => "未提供 ID",
 "Error setting checksum." => "设置校验值错误。",
 "No categories selected for deletion." => "未选中要删除的分类。",

@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "خطا در (غیر) فعال سازی کتابچه نشانه ها",
 "id is not set." => "شناسه تعیین نشده",
 "Cannot update addressbook with an empty name." => "نمی توانید کتابچه نشانی ها را با یک نام خالی بروزرسانی کنید",
-"Error updating addressbook." => "خطا در هنگام بروزرسانی کتابچه نشانی ها",
 "No ID provided" => "هیچ شناسه ای ارائه نشده",
 "Error setting checksum." => "خطا در تنظیم checksum",
 "No categories selected for deletion." => "هیچ گروهی برای حذف شدن در نظر گرفته نشده",

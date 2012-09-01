@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Ralat nyahaktif buku alamat.",
 "id is not set." => "ID tidak ditetapkan.",
 "Cannot update addressbook with an empty name." => "Tidak boleh kemaskini buku alamat dengan nama yang kosong.",
-"Error updating addressbook." => "Masalah mengemaskini buku alamat.",
 "No ID provided" => "tiada ID diberi",
 "Error setting checksum." => "Ralat menetapkan checksum.",
 "No categories selected for deletion." => "Tiada kategori dipilih untuk dibuang.",

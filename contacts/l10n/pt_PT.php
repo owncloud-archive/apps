@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Erro a (des)ativar o livro de endereços",
 "id is not set." => "id não está definido",
 "Cannot update addressbook with an empty name." => "Não é possivel actualizar o livro de endereços com o nome vazio.",
-"Error updating addressbook." => "Erro a atualizar o livro de endereços",
 "No ID provided" => "Nenhum ID inserido",
 "Error setting checksum." => "Erro a definir checksum.",
 "No categories selected for deletion." => "Nenhuma categoria selecionada para eliminar.",

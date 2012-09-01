@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Грешка (де)активирање на адресарот.",
 "id is not set." => "ид не е поставено.",
 "Cannot update addressbook with an empty name." => "Неможе да се ажурира адресар со празно име.",
-"Error updating addressbook." => "Грешка при ажурирање на адресарот.",
 "No ID provided" => "Нема доставено ИД",
 "Error setting checksum." => "Грешка во поставување сума за проверка.",
 "No categories selected for deletion." => "Нема избрано категории за бришење.",

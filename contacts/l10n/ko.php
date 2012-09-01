@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "주소록을 (비)활성화하는 데 실패했습니다.",
 "id is not set." => "아이디가 설정되어 있지 않습니다. ",
 "Cannot update addressbook with an empty name." => "주소록에 이름란이 비어있으면 업데이트를 할 수 없습니다. ",
-"Error updating addressbook." => "주소록을 업데이트할 수 없습니다.",
 "No ID provided" => "제공되는 아이디 없음",
 "Error setting checksum." => "오류 검사합계 설정",
 "No categories selected for deletion." => "삭제 카테고리를 선택하지 않았습니다. ",

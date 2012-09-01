@@ -121,7 +121,7 @@
 "Download" => "Baixa",
 "Edit" => "Edita",
 "Delete" => "Suprimeix",
-"shared with you by" => "compartit amb vós",
+"shared with you by" => "compartit per",
 "New calendar" => "Calendari nou",
 "Edit calendar" => "Edita el calendari",
 "Displayname" => "Mostra el nom",

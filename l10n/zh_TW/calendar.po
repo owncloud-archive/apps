@@ -5,13 +5,14 @@
 # Translators:
 # Donahue Chuang <soshinwu@gmail.com>, 2012.
 # Eddy Chang <taiwanmambo@gmail.com>, 2012.
+# Ming Yi Wu <mingi.wu@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-11 02:02+0200\n"
-"PO-Revision-Date: 2012-08-11 00:02+0000\n"
-"Last-Translator: owncloud_robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:02+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +22,11 @@ msgstr ""
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr ""
+msgstr "並非所有的日曆都完整 cached"
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
-msgstr ""
+msgstr "似乎所有事都已完整 cached"
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
@@ -39,23 +40,27 @@ msgstr "沒有找到活動"
 msgid "Wrong calendar"
 msgstr "錯誤日曆"
 
+#: ajax/event/new.php:25
+msgid "Authentication error"
+msgstr ""
+
 #: ajax/import/dropimport.php:29 ajax/import/import.php:64
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
-msgstr ""
+msgstr "檔案中包含的所有事件或無事件都已存到您的日曆"
 
 #: ajax/import/dropimport.php:31 ajax/import/import.php:67
 msgid "events has been saved in the new calendar"
-msgstr ""
+msgstr "事件已存到新日曆"
 
 #: ajax/import/import.php:56
 msgid "Import failed"
-msgstr ""
+msgstr "匯入失敗"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
-msgstr ""
+msgstr "事件已存到您的日曆"
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
@@ -69,26 +74,26 @@ msgstr "時區已變更"
 msgid "Invalid request"
 msgstr "無效請求"
 
-#: appinfo/app.php:35 templates/calendar.php:15
+#: appinfo/app.php:41 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "日曆"
 
 #: js/calendar.js:832
 msgid "ddd"
-msgstr ""
+msgstr "ddd"
 
 #: js/calendar.js:833
 msgid "ddd M/d"
-msgstr ""
+msgstr "M/d ddd"
 
 #: js/calendar.js:834
 msgid "dddd M/d"
-msgstr ""
+msgstr "M/d dddd"
 
 #: js/calendar.js:837
 msgid "MMMM yyyy"
-msgstr ""
+msgstr "yyyy MMMM"
 
 #: js/calendar.js:839
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
@@ -96,7 +101,7 @@ msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:841
 msgid "dddd, MMM d, yyyy"
-msgstr ""
+msgstr "MMM d, dddd, yyyy"
 
 #: lib/app.php:121
 msgid "Birthday"
@@ -160,7 +165,7 @@ msgstr "工作"
 
 #: lib/app.php:351 lib/app.php:361
 msgid "by"
-msgstr ""
+msgstr "由"
 
 #: lib/app.php:359 lib/app.php:399
 msgid "unnamed"
@@ -349,79 +354,79 @@ msgstr "行事曆"
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "日"
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "一"
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "二"
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "三"
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "四"
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "五"
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "六"
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "一月"
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "二月"
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "三月"
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "四月"
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "五月"
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "六月"
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "七月"
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "八月"
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "九月"
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "十月"
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "十一月"
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "十二月"
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -478,7 +483,7 @@ msgstr "今日"
 
 #: templates/calendar.php:46 templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -686,7 +691,7 @@ msgstr "匯入日曆檔案"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "請選擇一個日曆"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
@@ -694,13 +699,13 @@ msgstr "新日曆名稱"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "請取個可行的名稱!"
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr ""
+msgstr "已存在一個具有相同名稱的日曆。如果您依然要繼續，這些日曆將會合併成一個."
 
 #: templates/part.import.php:47
 msgid "Import"
@@ -732,7 +737,7 @@ msgstr "於"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 #: templates/settings.php:15
 msgid "Timezone"
@@ -740,11 +745,11 @@ msgstr "時區"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr ""
+msgstr "自動更新時區"
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "時間格式"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -756,39 +761,39 @@ msgstr "12小時制"
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr ""
+msgstr "一週起始於"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr ""
+msgstr "Cache"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr ""
+msgstr "清除重複事件的 cache"
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "URLs"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
-msgstr ""
+msgstr "CalDAV 的日曆同步地址"
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "更多資訊"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "主要地址"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr ""
+msgstr "唯讀的 iCalendar 連結(們)"
 
 #: templates/share.dropdown.php:20
 msgid "Users"

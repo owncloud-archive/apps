@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-31 02:02+0200\n"
-"PO-Revision-Date: 2012-08-31 00:04+0000\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "มี feed อยู่แล้วในระบบ"
 msgid "Error adding feed."
 msgstr "เกิดข้อผิดพลาดในการเพิ่ม feed"
 
-#: ajax/createfeed.php:74 js/news.js:141
+#: ajax/createfeed.php:74
 msgid "Feed added!"
 msgstr "เพิ่ม feed แล้ว!"
 
@@ -42,7 +42,7 @@ msgstr "โฟลเดอร์ถูกเพิ่มแล้ว"
 msgid "Error removing feed."
 msgstr "เกิดข้อผิดพลาดในการลบ feed ออก"
 
-#: ajax/deletefolder.php:27
+#: ajax/deletefolder.php:26
 msgid "Error removing folder."
 msgstr "เกิดข้อผิดพลาดในการลบโฟลเดอร์ออก"
 
@@ -58,11 +58,11 @@ msgstr "เกิดข้อผิดพลาดในระหว่างก
 msgid "Error updating feeds."
 msgstr "เกิดข้อผิดพลาดในการอัพเดท feed"
 
-#: ajax/loadfeed.php:35 templates/part.feeds.php:77
+#: ajax/loadfeed.php:35 templates/part.feeds.php:49
 msgid "Starred"
 msgstr "ติดดาวแล้ว"
 
-#: ajax/loadfeed.php:40 templates/part.feeds.php:73
+#: ajax/loadfeed.php:40 templates/part.feeds.php:43
 msgid "New articles"
 msgstr "บทความใหม่"
 
@@ -78,7 +78,7 @@ msgstr "เกิดข้อผิดพลาดในการย้าย fe
 msgid "File doesn't exist:"
 msgstr "ไม่มีไฟล์ดังกล่าวอยู่ในระบบ"
 
-#: ajax/setallitemsread.php:54
+#: ajax/setallitemsread.php:57
 msgid "Error setting all items as read."
 msgstr "เกิดข้อผิดพลาดในการตั้งค่ารายการทั้งหมดว่าอ่านแล้ว"
 
@@ -98,75 +98,56 @@ msgstr "อัพเดท feed แล้ว!"
 msgid "News"
 msgstr "ข่าวสาร"
 
-#: js/menu.js:530
-msgid "Load feed"
-msgstr "โหลด feed"
+#: js/items.js:101
+msgid "Error while loading the feed"
+msgstr "เกิดข้อผิดพลาดในระหว่างการโหลดข้อมูล feed"
 
-#: js/menu.js:537
-msgid "Delete"
-msgstr "ลบ"
+#: js/items.js:101 js/items.js:167 js/items.js:534 js/items.js:571
+#: js/main.js:77 js/menu.js:561 js/menu.js:616 js/menu.js:637 js/menu.js:663
+#: js/menu.js:907 js/news.js:50 js/news.js:75 js/news.js:90 js/news.js:129
+#: js/settings.js:16 js/settings.js:22 js/settings.js:47
+msgid "Error"
+msgstr "ข้อผิดพลาด"
 
-#: js/menu.js:543
-msgid "Expand/Collapse"
-msgstr "ขยาย/ย่อ"
+#: js/menu.js:534
+msgid "Are you sure you want to delete this feed?"
+msgstr "คุณแน่ใจแล้วหรือว่าต้องการลบ feed นี้ทิ้งไป?"
 
-#: js/menu.js:549
-msgid "Edit"
-msgstr "แก้ไข"
+#: js/menu.js:542
+msgid "Are you sure you want to delete this folder and all its feeds?"
+msgstr "คุณแน่ใจแล้วหรือว่าต้องการลบโฟลเดอร์นี้และ feed ทั้งหมดในหมวดดังกล่าวทิ้งไป?"
+
+#: js/menu.js:550
+msgid "Warning"
+msgstr "คำเตือน"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
 msgstr "ชื่อโฟลเดอร์ไม่สามารถเว้นว่างได้"
 
-#: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
-#: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
-#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:47
-msgid "Error"
-msgstr "ข้อผิดพลาด"
-
-#: js/news.js:55 js/news.js:113
+#: js/news.js:55 js/news.js:95
 msgid "Adding..."
 msgstr "กำลังเพิ่มข้อมูล..."
 
-#: js/news.js:78 templates/part.folderdialog.php:14
+#: js/news.js:79 templates/part.folderdialog.php:14
 msgid "Add folder"
 msgstr "เพิ่มโฟลเดอร์"
 
-#: js/news.js:83
-msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr "คุณแน่ใจแล้วหรือว่าต้องการลบโฟลเดอร์นี้และ feed ทั้งหมดในหมวดดังกล่าวทิ้งไป?"
-
-#: js/news.js:83 js/news.js:165
-msgid "Warning"
-msgstr "คำเตือน"
-
-#: js/news.js:108
+#: js/news.js:90
 msgid "URL cannot be empty."
 msgstr "URL ไม่สามารถเว้นว่างได้"
 
-#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:6
+#: js/news.js:133 js/news.js:140 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "เพิ่ม feed"
 
-#: js/news.js:156
+#: js/news.js:137
 msgid "Error while parsing the feed"
 msgstr "เกิดข้อผิดพลาดในระหว่างแยก ffed"
 
-#: js/news.js:156
+#: js/news.js:137
 msgid "Fatal Error"
 msgstr "ข้อผิดพลาดร้ายแรง"
-
-#: js/news.js:165
-msgid "Are you sure you want to delete this feed?"
-msgstr "คุณแน่ใจแล้วหรือว่าต้องการลบ feed นี้ทิ้งไป?"
-
-#: js/news.js:208 js/news.js:245
-msgid "Error while loading the feed"
-msgstr "เกิดข้อผิดพลาดในระหว่างการโหลดข้อมูล feed"
-
-#: js/news.js:324
-msgid "Error while saving the feed in a folder"
-msgstr "เกิดข้อผิดพลาดในการบันทึก feed ลงในโฟลเดอร์"
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
@@ -252,23 +233,23 @@ msgstr "แสดงทั้งหมด"
 msgid "Show only unread"
 msgstr "แสดงเฉพาะที่ยังไม่ได้อ่าน"
 
-#: templates/main.php:32
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "เพิ่ม feed หรือ โฟลเดอร์"
 
-#: templates/main.php:33
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr "เพิ่ม Feed/โฟลเดอร์"
 
-#: templates/main.php:35
+#: templates/main.php:37
 msgid "Feed"
 msgstr "Feed"
 
-#: templates/main.php:36
+#: templates/main.php:38
 msgid "Folder"
 msgstr "โฟลเดอร์"
 
-#: templates/main.php:43
+#: templates/main.php:45
 msgid "Settings"
 msgstr "ตั้งค่า"
 
@@ -287,6 +268,11 @@ msgstr "ที่อยู่"
 #: templates/part.feeddialog.php:20
 msgid "Add"
 msgstr "เพิ่ม"
+
+#: templates/part.feeds.php:45 templates/part.listfeed.php:28
+#: templates/part.listfolder.php:22
+msgid "Mark all read"
+msgstr ""
 
 #: templates/part.folderdialog.php:2
 msgid "Add Folder"
@@ -316,17 +302,21 @@ msgstr "โดย"
 msgid "Keep unread"
 msgstr "รักษาสถานะว่ายังไม่ได้เปิดอ่านไว้"
 
-#: templates/part.listfeed.php:22
+#: templates/part.listfeed.php:27
 msgid "Delete feed"
 msgstr "ลบ feed"
 
 #: templates/part.listfolder.php:17
-msgid "Rename folder"
-msgstr "เปลี่ยนชื่อโฟลเดอร์"
+msgid "Collapse"
+msgstr ""
 
-#: templates/part.listfolder.php:18
+#: templates/part.listfolder.php:20
 msgid "Delete folder"
 msgstr "ลบโฟลเดอร์"
+
+#: templates/part.listfolder.php:21
+msgid "Rename folder"
+msgstr "เปลี่ยนชื่อโฟลเดอร์"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
@@ -358,7 +348,7 @@ msgstr "เลือก"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "Select file from"
-msgstr ""
+msgstr "เลือกไฟล์จาก"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "local filesystem"

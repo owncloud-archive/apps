@@ -6,7 +6,7 @@
 # Borjan Tchakaloff <borjan@tchaka.fr>, 2012.
 # Cyril Glapa <kyriog@gmail.com>, 2012.
 #   <fboulogne@april.org>, 2011.
-#   <gp4004@arghh.org>, 2011, 2012.
+#   <gp4004@arghh.org>, 2011-2012.
 #   <guiguidu31300@gmail.com>, 2012.
 # Jan-Christoph Borchardt <JanCBorchardt@fsfe.org>, 2011.
 #   <mathieu.payrol@gmail.com>, 2012.
@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-31 02:02+0200\n"
-"PO-Revision-Date: 2012-08-31 00:03+0000\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -29,23 +29,19 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
-#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:32
+#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
 msgstr "Des erreurs se sont produites lors de l'activation/désactivation du carnet d'adresses."
 
-#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:20
+#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
 #: ajax/contact/saveproperty.php:39
 msgid "id is not set."
 msgstr "L'ID n'est pas défini."
 
-#: ajax/addressbook/update.php:24
+#: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
 msgstr "Impossible de mettre à jour le carnet d'adresses avec un nom vide."
-
-#: ajax/addressbook/update.php:28
-msgid "Error updating addressbook."
-msgstr "Erreur lors de la mise à jour du carnet d'adresses."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -327,13 +323,21 @@ msgstr "échoué."
 msgid "Displayname cannot be empty."
 msgstr "Le nom d'affichage ne peut pas être vide."
 
-#: lib/addressbook.php:291
-msgid "You do not have the permissions to delete this addressbook."
+#: lib/addressbook.php:223
+msgid "You do not have the permissions to update this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:320
-msgid "There was an error deleting this addressbook."
+#: lib/addressbook.php:243
+msgid "There was an error updating the addressbook."
 msgstr ""
+
+#: lib/addressbook.php:299
+msgid "You do not have the permissions to delete this addressbook."
+msgstr "Vous n'avez pas les droits pour supprimer ce carnet d'adresses."
+
+#: lib/addressbook.php:328
+msgid "There was an error deleting this addressbook."
+msgstr "Erreur lors de la suppression du carnet d'adresses."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -502,7 +506,7 @@ msgstr "Contact"
 
 #: lib/vcard.php:395
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "Impossible de trouver la vCard ayant l'ID."
 
 #: lib/vcard.php:412
 msgid "You do not have the permissions to edit this contact."
@@ -510,11 +514,11 @@ msgstr "Vous n'avez pas l'autorisation de modifier ce contact."
 
 #: lib/vcard.php:483
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "Impossible de trouver la vCard ayant l'ID :"
 
 #: lib/vcard.php:491
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "Impossible de trouver le carnet d'adresses ayant l'ID :"
 
 #: lib/vcard.php:506
 msgid "You do not have the permissions to delete this contact."
@@ -522,7 +526,7 @@ msgstr "Vous n'avez pas l'autorisation de supprimer ce contact."
 
 #: lib/vcard.php:524
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "Erreur lors de la suppression du contact."
 
 #: templates/index.php:14
 msgid "Add Contact"

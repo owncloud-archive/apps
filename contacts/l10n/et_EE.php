@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Viga aadressiraamatu (de)aktiveerimisel.",
 "id is not set." => "ID on määramata.",
 "Cannot update addressbook with an empty name." => "Tühja nimega aadressiraamatut ei saa uuendada.",
-"Error updating addressbook." => "Viga aadressiraamatu uuendamisel.",
 "No ID provided" => "ID-d pole sisestatud",
 "Error setting checksum." => "Viga kontrollsumma määramisel.",
 "No categories selected for deletion." => "Kustutamiseks pole valitud ühtegi kategooriat.",

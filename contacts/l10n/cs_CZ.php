@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Chyba při (de)aktivaci adresáře.",
 "id is not set." => "id neni nastaveno.",
 "Cannot update addressbook with an empty name." => "Nelze aktualizovat adresář s prázdným jménem.",
-"Error updating addressbook." => "Chyba při aktualizaci adresáře.",
 "No ID provided" => "ID nezadáno",
 "Error setting checksum." => "Chyba při nastavování kontrolního součtu.",
 "No categories selected for deletion." => "Žádné kategorie nebyly vybrány k smazání.",

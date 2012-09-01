@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Eraro dum (mal)aktivigo de adresaro.",
 "id is not set." => "identigilo ne agordiĝis.",
 "Cannot update addressbook with an empty name." => "Ne eblas ĝisdatigi adresaron kun malplena nomo.",
-"Error updating addressbook." => "Eraro dum ĝisdatigo de adresaro.",
 "No ID provided" => "Neniu identigilo proviziĝis.",
 "Error setting checksum." => "Eraro dum agordado de kontrolsumo.",
 "No categories selected for deletion." => "Neniu kategorio elektiĝis por forigi.",

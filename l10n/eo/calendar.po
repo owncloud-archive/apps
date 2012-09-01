@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-19 02:02+0200\n"
-"PO-Revision-Date: 2012-08-18 14:17+0000\n"
-"Last-Translator: Mariano <mstreet@kde.org.ar>\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:02+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,6 +38,10 @@ msgstr "Neniu okazaĵo troviĝis."
 #: ajax/event/edit.form.php:20
 msgid "Wrong calendar"
 msgstr "Malĝusta kalendaro"
+
+#: ajax/event/new.php:25
+msgid "Authentication error"
+msgstr ""
 
 #: ajax/import/dropimport.php:29 ajax/import/import.php:64
 msgid ""
@@ -69,7 +73,7 @@ msgstr "La horozono estas ŝanĝita"
 msgid "Invalid request"
 msgstr "Nevalida peto"
 
-#: appinfo/app.php:35 templates/calendar.php:15
+#: appinfo/app.php:41 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Kalendaro"

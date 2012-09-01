@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Fejl ved (de)aktivering af adressebogen",
 "id is not set." => "Intet ID medsendt.",
 "Cannot update addressbook with an empty name." => "Kan ikke opdatére adressebogen med et tomt navn.",
-"Error updating addressbook." => "Fejl ved opdatering af adressebog",
 "No ID provided" => "Intet ID medsendt",
 "Error setting checksum." => "Kunne ikke sætte checksum.",
 "No categories selected for deletion." => "Der ikke valgt nogle grupper at slette.",

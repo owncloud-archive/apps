@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Ошибка (де)активации адресной книги.",
 "id is not set." => "id не установлен.",
 "Cannot update addressbook with an empty name." => "Нельзя обновить адресную книгу с пустым именем.",
-"Error updating addressbook." => "Ошибка обновления адресной книги.",
 "No ID provided" => "ID не предоставлен",
 "Error setting checksum." => "Ошибка установки контрольной суммы.",
 "No categories selected for deletion." => "Категории для удаления не установлены.",

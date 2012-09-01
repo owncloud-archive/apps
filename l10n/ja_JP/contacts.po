@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-31 02:02+0200\n"
-"PO-Revision-Date: 2012-08-31 00:03+0000\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -19,23 +19,19 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:32
+#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
 msgstr "アドレス帳の有効／無効化に失敗しました。"
 
-#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:20
+#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
 #: ajax/contact/saveproperty.php:39
 msgid "id is not set."
 msgstr "idが設定されていません。"
 
-#: ajax/addressbook/update.php:24
+#: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
 msgstr "空白の名前でアドレス帳を更新することはできません。"
-
-#: ajax/addressbook/update.php:28
-msgid "Error updating addressbook."
-msgstr "アドレス帳の更新に失敗しました。"
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -317,13 +313,21 @@ msgstr " は失敗しました。"
 msgid "Displayname cannot be empty."
 msgstr "表示名は空にできません。"
 
-#: lib/addressbook.php:291
-msgid "You do not have the permissions to delete this addressbook."
+#: lib/addressbook.php:223
+msgid "You do not have the permissions to update this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:320
-msgid "There was an error deleting this addressbook."
+#: lib/addressbook.php:243
+msgid "There was an error updating the addressbook."
 msgstr ""
+
+#: lib/addressbook.php:299
+msgid "You do not have the permissions to delete this addressbook."
+msgstr "アドレス帳を削除する権限がありません。"
+
+#: lib/addressbook.php:328
+msgid "There was an error deleting this addressbook."
+msgstr "アドレス帳を削除するときにエラーが発生しました。"
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -492,7 +496,7 @@ msgstr "連絡先"
 
 #: lib/vcard.php:395
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "そのIDのvCardが見つかりませんでした。"
 
 #: lib/vcard.php:412
 msgid "You do not have the permissions to edit this contact."
@@ -500,11 +504,11 @@ msgstr "この連絡先を編集する権限がありません"
 
 #: lib/vcard.php:483
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "そのIDのvCardが見つかりませんでした："
 
 #: lib/vcard.php:491
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "そのIDのアドレス帳が見つかりませんでした："
 
 #: lib/vcard.php:506
 msgid "You do not have the permissions to delete this contact."
@@ -512,7 +516,7 @@ msgstr "この連絡先を削除する権限がありません"
 
 #: lib/vcard.php:524
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "連絡先を削除するときにエラーが発生しました。"
 
 #: templates/index.php:14
 msgid "Add Contact"

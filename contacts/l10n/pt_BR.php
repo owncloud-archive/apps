@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Erro ao (des)ativar agenda.",
 "id is not set." => "ID não definido.",
 "Cannot update addressbook with an empty name." => "Não é possível atualizar sua agenda com um nome em branco.",
-"Error updating addressbook." => "Erro ao atualizar agenda.",
 "No ID provided" => "Nenhum ID fornecido",
 "Error setting checksum." => "Erro ajustando checksum.",
 "No categories selected for deletion." => "Nenhum categoria selecionada para remoção.",

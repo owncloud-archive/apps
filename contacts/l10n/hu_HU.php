@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Címlista (de)aktiválása sikertelen",
 "id is not set." => "ID nincs beállítva",
 "Cannot update addressbook with an empty name." => "Üres névvel nem frissíthető a címlista",
-"Error updating addressbook." => "Hiba a címlista frissítésekor",
 "No ID provided" => "Nincs ID megadva",
 "Error setting checksum." => "Hiba az ellenőrzőösszeg beállításakor",
 "No categories selected for deletion." => "Nincs kiválasztva törlendő kategória",

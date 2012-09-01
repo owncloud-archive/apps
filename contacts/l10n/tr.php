@@ -2,7 +2,6 @@
 "Error (de)activating addressbook." => "Adres defteri etkisizleştirilirken hata oluştu.",
 "id is not set." => "id atanmamış.",
 "Cannot update addressbook with an empty name." => "Adres defterini boş bir isimle güncelleyemezsiniz.",
-"Error updating addressbook." => "Adres defteri güncellenirken hata oluştu.",
 "No ID provided" => "ID verilmedi",
 "Error setting checksum." => "İmza oluşturulurken hata.",
 "No categories selected for deletion." => "Silmek için bir kategori seçilmedi.",

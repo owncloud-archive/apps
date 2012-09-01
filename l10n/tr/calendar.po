@@ -5,6 +5,7 @@
 # Translators:
 #   <ahmet_kaplan@hotmail.com>, 2012.
 # Aranel Surion <aranel@aranelsurion.org>, 2011, 2012.
+# Caner Başaran <basaran.caner@gmail.com>, 2012.
 # Emre  <emresaracoglu@live.com>, 2012.
 #   <mesutgungor@iyte.edu.tr>, 2012.
 # Necdet Yücel <necdetyucel@gmail.com>, 2012.
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-11 02:02+0200\n"
-"PO-Revision-Date: 2012-08-11 00:02+0000\n"
-"Last-Translator: owncloud_robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-01 02:01+0200\n"
+"PO-Revision-Date: 2012-09-01 00:02+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,6 +42,10 @@ msgstr "Etkinlik yok."
 #: ajax/event/edit.form.php:20
 msgid "Wrong calendar"
 msgstr "Yanlış takvim"
+
+#: ajax/event/new.php:25
+msgid "Authentication error"
+msgstr ""
 
 #: ajax/import/dropimport.php:29 ajax/import/import.php:64
 msgid ""
@@ -72,7 +77,7 @@ msgstr "Zaman dilimi değiştirildi"
 msgid "Invalid request"
 msgstr "Geçersiz istek"
 
-#: appinfo/app.php:35 templates/calendar.php:15
+#: appinfo/app.php:41 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Takvim"
@@ -481,7 +486,7 @@ msgstr "Bugün"
 
 #: templates/calendar.php:46 templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -743,11 +748,11 @@ msgstr "Zaman dilimi"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr ""
+msgstr "Otomatik saatdilimi güncelle"
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "Saat biçimi"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -771,7 +776,7 @@ msgstr "Tekrar eden etkinlikler için ön belleği temizle."
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "URL'ler"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
