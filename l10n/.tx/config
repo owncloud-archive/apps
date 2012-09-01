@@ -99,3 +99,9 @@ source_file = templates/updater.pot
 source_lang = en
 type = PO
 
+[owncloud.ownpad_lite]
+file_filter = <lang>/ownpad_lite.po
+source_file = templates/ownpad_lite.pot
+source_lang = en
+type = PO
+
