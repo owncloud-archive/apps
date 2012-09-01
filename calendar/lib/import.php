@@ -104,8 +104,10 @@ class OC_Calendar_Import{
 			}
 			$dtend = OC_Calendar_Object::getDTEndFromVEvent($object);
 			$object->DTSTART->getDateTime()->setTimezone(new DateTimeZone($this->tz));
-			$object->DTEND->setDateTime($dtend->getDateTime(), $object->DTSTART->getDateType());
-			$object->DTEND->getDateTime()->setTimezone(new DateTimeZone($this->tz));
+			if($object->DTEND) {
+				$object->DTEND->setDateTime($dtend->getDateTime(), $object->DTSTART->getDateType());
+				$object->DTEND->getDateTime()->setTimezone(new DateTimeZone($this->tz));
+			}
 			$vcalendar = $this->createVCalendar($object->serialize());
 			$insertid = OC_Calendar_Object::add($this->id, $vcalendar);
 			$this->abscount++;
