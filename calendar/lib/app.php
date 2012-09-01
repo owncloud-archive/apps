@@ -298,8 +298,11 @@ class OC_Calendar_App{
 	 * @param (int) $id - id of the calendar / event
 	 * @param (string) $type - type of the id (calendar/event)
 	 * @return (string) $access - level of access
+	 * @deprecated deprecated since ownCloud version 4.5
 	 */
 	public static function getaccess($id, $type){
+		OC_Log::write('calendar', 'DEPRECATED: the method ' . __METHOD__
+			. ' is deprecated and will be removed soon.', OC_Log::WARN);
 		if($type == self::CALENDAR){
 			$calendar = self::getCalendar($id, false, false);
 			if($calendar['userid'] == OCP\USER::getUser()){
