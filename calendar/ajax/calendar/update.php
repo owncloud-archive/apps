@@ -42,7 +42,7 @@ $tmpl->assign('calendar', $calendar);
 $shared = false;
 if ($calendar['userid'] != OCP\User::getUser()) {
 	$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $calendarid);
-	if ($sharedCalendar || ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+	if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
 		$shared = true;
 	}
 }
