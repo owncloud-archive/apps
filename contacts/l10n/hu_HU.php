@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Nincs kiválasztva törlendő kategória",
 "No address books found." => "Nem található címlista",
 "No contacts found." => "Nem található kontakt",
-"There was an error adding the contact." => "Hiba a kapcsolat hozzáadásakor",
 "element name is not set." => "az elem neve nincs beállítva",
 "Cannot add empty property." => "Nem adható hozzá üres tulajdonság",
 "At least one of the address fields has to be filled out." => "Legalább egy címmező kitöltendő",

@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Geen categorieën geselecteerd om te verwijderen.",
 "No address books found." => "Geen adresboek gevonden",
 "No contacts found." => "Geen contracten gevonden",
-"There was an error adding the contact." => "Er was een fout bij het toevoegen van het contact.",
 "element name is not set." => "onderdeel naam is niet opgegeven.",
 "Could not parse contact: " => "Kon het contact niet verwerken",
 "Cannot add empty property." => "Kan geen lege eigenschap toevoegen.",

@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Žiadne kategórie neboli vybraté na odstránenie.",
 "No address books found." => "Žiadny adresár nenájdený.",
 "No contacts found." => "Žiadne kontakty nenájdené.",
-"There was an error adding the contact." => "Vyskytla sa chyba pri pridávaní kontaktu.",
 "element name is not set." => "meno elementu nie je nastavené.",
 "Cannot add empty property." => "Nemôžem pridať prázdny údaj.",
 "At least one of the address fields has to be filled out." => "Musí byť uvedený aspoň jeden adresný údaj.",

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-01 02:01+0200\n"
-"PO-Revision-Date: 2012-09-01 00:02+0000\n"
+"POT-Creation-Date: 2012-09-02 02:01+0200\n"
+"PO-Revision-Date: 2012-09-02 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -52,10 +52,6 @@ msgstr "アドレス帳が見つかりません。"
 #: ajax/categories/delete.php:34
 msgid "No contacts found."
 msgstr "連絡先が見つかりません。"
-
-#: ajax/contact/add.php:47
-msgid "There was an error adding the contact."
-msgstr "連絡先の追加でエラーが発生しました。"
 
 #: ajax/contact/addproperty.php:39 ajax/contact/saveproperty.php:36
 msgid "element name is not set."
@@ -228,72 +224,72 @@ msgstr "未実装"
 msgid "Couldn't get a valid address."
 msgstr "有効なアドレスを取得できませんでした。"
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:381 js/contacts.js:393
-#: js/contacts.js:724 js/contacts.js:764 js/contacts.js:790 js/contacts.js:922
-#: js/contacts.js:928 js/contacts.js:940 js/contacts.js:977
-#: js/contacts.js:1251 js/contacts.js:1259 js/contacts.js:1268
-#: js/contacts.js:1303 js/contacts.js:1339 js/contacts.js:1354
-#: js/contacts.js:1380 js/contacts.js:1610 js/contacts.js:1645
-#: js/contacts.js:1665 js/settings.js:26 js/settings.js:43 js/settings.js:68
+#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:687 js/contacts.js:727
+#: js/contacts.js:753 js/contacts.js:885 js/contacts.js:891 js/contacts.js:903
+#: js/contacts.js:940 js/contacts.js:1214 js/contacts.js:1222
+#: js/contacts.js:1231 js/contacts.js:1266 js/contacts.js:1302
+#: js/contacts.js:1317 js/contacts.js:1343 js/contacts.js:1573
+#: js/contacts.js:1608 js/contacts.js:1628 js/settings.js:26 js/settings.js:43
+#: js/settings.js:68
 msgid "Error"
 msgstr "エラー"
 
-#: js/contacts.js:425
+#: js/contacts.js:410
 msgid "You do not have permission to add contacts to "
 msgstr "連絡先を追加する権限がありません"
 
-#: js/contacts.js:426
+#: js/contacts.js:411
 msgid "Please select one of your own address books."
 msgstr "アドレス帳を一つ選択してください"
 
-#: js/contacts.js:426
+#: js/contacts.js:411
 msgid "Permission error"
 msgstr "権限エラー"
 
-#: js/contacts.js:764
+#: js/contacts.js:727
 msgid "This property has to be non-empty."
 msgstr "この属性は空にできません。"
 
-#: js/contacts.js:790
+#: js/contacts.js:753
 msgid "Couldn't serialize elements."
 msgstr "要素をシリアライズできませんでした。"
 
-#: js/contacts.js:922 js/contacts.js:940
+#: js/contacts.js:885 js/contacts.js:903
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "'deleteProperty' は型の引数無しで呼び出されました。bugs.owncloud.org へ報告してください。"
 
-#: js/contacts.js:959
+#: js/contacts.js:922
 msgid "Edit name"
 msgstr "名前を編集"
 
-#: js/contacts.js:1251
+#: js/contacts.js:1214
 msgid "No files selected for upload."
 msgstr "アップロードするファイルが選択されていません。"
 
-#: js/contacts.js:1259
+#: js/contacts.js:1222
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "アップロードしようとしているファイルは、このサーバの最大ファイルアップロードサイズを超えています。"
 
-#: js/contacts.js:1323
+#: js/contacts.js:1286
 msgid "Error loading profile picture."
 msgstr "プロファイルの画像の読み込みエラー"
 
-#: js/contacts.js:1458 js/contacts.js:1499 js/contacts.js:1518
-#: js/contacts.js:1561
+#: js/contacts.js:1421 js/contacts.js:1462 js/contacts.js:1481
+#: js/contacts.js:1524
 msgid "Select type"
 msgstr "タイプを選択"
 
-#: js/contacts.js:1579
+#: js/contacts.js:1542
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "いくつかの連絡先が削除とマークされていますが、まだ削除されていません。削除するまでお待ちください。"
 
-#: js/contacts.js:1650
+#: js/contacts.js:1613
 msgid "Do you want to merge these address books?"
 msgstr "これらのアドレス帳をマージしてもよろしいですか？"
 
@@ -397,7 +393,7 @@ msgstr "勤務先"
 msgid "Home"
 msgstr "住居"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:620
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:624
 msgid "Other"
 msgstr "その他"
 
@@ -494,27 +490,31 @@ msgstr "{name}の誕生日"
 msgid "Contact"
 msgstr "連絡先"
 
-#: lib/vcard.php:395
+#: lib/vcard.php:295
+msgid "You do not have the permissions to add contacts to this addressbook."
+msgstr ""
+
+#: lib/vcard.php:399
 msgid "Could not find the vCard with ID."
 msgstr "そのIDのvCardが見つかりませんでした。"
 
-#: lib/vcard.php:412
+#: lib/vcard.php:416
 msgid "You do not have the permissions to edit this contact."
 msgstr "この連絡先を編集する権限がありません"
 
-#: lib/vcard.php:483
+#: lib/vcard.php:487
 msgid "Could not find the vCard with ID: "
 msgstr "そのIDのvCardが見つかりませんでした："
 
-#: lib/vcard.php:491
+#: lib/vcard.php:495
 msgid "Could not find the Addressbook with ID: "
 msgstr "そのIDのアドレス帳が見つかりませんでした："
 
-#: lib/vcard.php:506
+#: lib/vcard.php:510
 msgid "You do not have the permissions to delete this contact."
 msgstr "この連絡先を削除する権限がありません"
 
-#: lib/vcard.php:524
+#: lib/vcard.php:528
 msgid "There was an error deleting this contact."
 msgstr "連絡先を削除するときにエラーが発生しました。"
 
@@ -534,55 +534,55 @@ msgstr "設定"
 msgid "Addressbooks"
 msgstr "アドレス帳"
 
-#: templates/index.php:36 templates/part.import.php:24
+#: templates/index.php:32 templates/part.import.php:24
 msgid "Close"
 msgstr "閉じる"
 
-#: templates/index.php:37
+#: templates/index.php:33
 msgid "Keyboard shortcuts"
 msgstr "キーボードショートカット"
 
-#: templates/index.php:39
+#: templates/index.php:35
 msgid "Navigation"
 msgstr "ナビゲーション"
 
-#: templates/index.php:42
+#: templates/index.php:38
 msgid "Next contact in list"
 msgstr "リスト内の次の連絡先"
 
-#: templates/index.php:44
+#: templates/index.php:40
 msgid "Previous contact in list"
 msgstr "リスト内の前の連絡先"
 
-#: templates/index.php:46
+#: templates/index.php:42
 msgid "Expand/collapse current addressbook"
 msgstr "現在のアドレス帳を展開する／折りたたむ"
 
-#: templates/index.php:48
+#: templates/index.php:44
 msgid "Next addressbook"
 msgstr "次のアドレス帳"
 
-#: templates/index.php:50
+#: templates/index.php:46
 msgid "Previous addressbook"
 msgstr "前のアドレス帳"
 
-#: templates/index.php:54
+#: templates/index.php:50
 msgid "Actions"
 msgstr "アクション"
 
-#: templates/index.php:57
+#: templates/index.php:53
 msgid "Refresh contacts list"
 msgstr "連絡先リストを再読込する"
 
-#: templates/index.php:59
+#: templates/index.php:55
 msgid "Add new contact"
 msgstr "新しい連絡先を追加"
 
-#: templates/index.php:61
+#: templates/index.php:57
 msgid "Add new addressbook"
 msgstr "新しいアドレス帳を追加"
 
-#: templates/index.php:63
+#: templates/index.php:59
 msgid "Delete current contact"
 msgstr "現在の連絡先を削除"
 

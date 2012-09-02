@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Niti jedna kategorija nije odabrana za brisanje.",
 "No address books found." => "Nema adresara.",
 "No contacts found." => "Nema kontakata.",
-"There was an error adding the contact." => "Dogodila se pogreška prilikom dodavanja kontakta.",
 "element name is not set." => "naziv elementa nije postavljen.",
 "Cannot add empty property." => "Prazno svojstvo se ne može dodati.",
 "At least one of the address fields has to be filled out." => "Morate ispuniti barem jedno od adresnih polja.",

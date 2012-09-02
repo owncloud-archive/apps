@@ -1,6 +1,5 @@
 <?php $TRANSLATIONS = array(
 "Error (de)activating addressbook." => "خطء خلال توقيف كتاب العناوين.",
-"There was an error adding the contact." => "خطء خلال اضافة معرفه جديده.",
 "Cannot add empty property." => "لا يمكنك اضافه صفه خاليه.",
 "At least one of the address fields has to be filled out." => "يجب ملء على الاقل خانه واحده من العنوان.",
 "Information about vCard is incorrect. Please reload the page." => "المعلومات الموجودة في ال vCard غير صحيحة. الرجاء إعادة تحديث الصفحة.",

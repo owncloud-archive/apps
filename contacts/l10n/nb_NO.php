@@ -6,7 +6,6 @@
 "No categories selected for deletion." => "Ingen kategorier valgt for sletting.",
 "No address books found." => "Ingen adressebok funnet.",
 "No contacts found." => "Ingen kontakter funnet.",
-"There was an error adding the contact." => "Et problem oppsto med å legge til kontakten.",
 "Cannot add empty property." => "Kan ikke legge til tomt felt.",
 "At least one of the address fields has to be filled out." => "Minst en av adressefeltene må oppgis.",
 "Information about vCard is incorrect. Please reload the page." => "Informasjonen om vCard-filen er ikke riktig. Last inn siden på nytt.",

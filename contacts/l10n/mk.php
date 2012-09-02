@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Нема избрано категории за бришење.",
 "No address books found." => "Не се најдени адресари.",
 "No contacts found." => "Не се најдени контакти.",
-"There was an error adding the contact." => "Имаше грешка при додавање на контактот.",
 "element name is not set." => "име за елементот не е поставена.",
 "Cannot add empty property." => "Неможе да се додаде празна вредност.",
 "At least one of the address fields has to be filled out." => "Барем една од полињата за адреса треба да биде пополнето.",

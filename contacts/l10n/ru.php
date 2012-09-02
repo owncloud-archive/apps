@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Категории для удаления не установлены.",
 "No address books found." => "Адресные книги не найдены.",
 "No contacts found." => "Контакты не найдены.",
-"There was an error adding the contact." => "Произошла ошибка при добавлении контакта.",
 "element name is not set." => "имя элемента не установлено.",
 "Could not parse contact: " => "Невозможно распознать контакт:",
 "Cannot add empty property." => "Невозможно добавить пустой параметр.",

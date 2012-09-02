@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-01 02:01+0200\n"
-"PO-Revision-Date: 2012-09-01 00:03+0000\n"
+"POT-Creation-Date: 2012-09-02 02:02+0200\n"
+"PO-Revision-Date: 2012-09-02 00:04+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -70,7 +70,7 @@ msgstr "Nowe artykuły"
 msgid "Feed loaded!"
 msgstr "Plik załadowany!"
 
-#: ajax/movefeedtofolder.php:33
+#: ajax/movefeedtofolder.php:36
 msgid "Error moving feed into folder."
 msgstr ""
 
@@ -98,28 +98,10 @@ msgstr "Plik zaktualizowany!"
 msgid "News"
 msgstr "Nowości"
 
-#: js/items.js:101
-msgid "Error while loading the feed"
-msgstr ""
-
-#: js/items.js:101 js/items.js:167 js/items.js:534 js/items.js:571
-#: js/main.js:77 js/menu.js:561 js/menu.js:616 js/menu.js:637 js/menu.js:663
-#: js/menu.js:907 js/news.js:50 js/news.js:75 js/news.js:90 js/news.js:129
+#: js/main.js:77 js/news.js:50 js/news.js:75 js/news.js:90 js/news.js:129
 #: js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "Błąd"
-
-#: js/menu.js:534
-msgid "Are you sure you want to delete this feed?"
-msgstr "Czy na pewno chcesz usunąć ten feed?"
-
-#: js/menu.js:542
-msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr "Czy jesteś pewien że chcesz usunąc ten folder wraz z całą zawartością?"
-
-#: js/menu.js:550
-msgid "Warning"
-msgstr "Ostrzeżenie"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
@@ -197,7 +179,7 @@ msgstr "Pobierz"
 msgid "Select file"
 msgstr "Wybierz plik"
 
-#: lib/feedmapper.php:174 lib/itemmapper.php:199
+#: lib/feedmapper.php:165 lib/itemmapper.php:199
 msgid "no title"
 msgstr "brak tytułu"
 
@@ -261,11 +243,15 @@ msgstr "Dodaj Subskrypcję"
 msgid "Choose folder"
 msgstr "Wybierz folder"
 
-#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:7
+#: templates/part.feeddialog.php:13
+msgid "None"
+msgstr ""
+
+#: templates/part.feeddialog.php:20 templates/part.nofeeds.php:7
 msgid "Address"
 msgstr "Adres"
 
-#: templates/part.feeddialog.php:20
+#: templates/part.feeddialog.php:21
 msgid "Add"
 msgstr "Dodaj"
 

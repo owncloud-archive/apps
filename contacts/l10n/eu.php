@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Ez dira ezabatzeko kategoriak hautatu.",
 "No address books found." => "Ez da helbide libururik aurkitu.",
 "No contacts found." => "Ez da kontakturik aurkitu.",
-"There was an error adding the contact." => "Errore bat egon da kontaktua gehitzerakoan",
 "element name is not set." => "elementuaren izena ez da ezarri.",
 "Could not parse contact: " => "Ezin izan da kontaktua analizatu:",
 "Cannot add empty property." => "Ezin da propieta hutsa gehitu.",

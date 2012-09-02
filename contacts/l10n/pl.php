@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Nie zaznaczono kategorii do usunięcia",
 "No address books found." => "Nie znaleziono książek adresowych",
 "No contacts found." => "Nie znaleziono kontaktów.",
-"There was an error adding the contact." => "Wystąpił błąd podczas dodawania kontaktu.",
 "element name is not set." => "nazwa elementu nie jest ustawiona.",
 "Could not parse contact: " => "Nie można parsować kontaktu:",
 "Cannot add empty property." => "Nie można dodać pustego elementu.",

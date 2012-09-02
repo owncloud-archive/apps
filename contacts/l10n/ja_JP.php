@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "削除するカテゴリが選択されていません。",
 "No address books found." => "アドレス帳が見つかりません。",
 "No contacts found." => "連絡先が見つかりません。",
-"There was an error adding the contact." => "連絡先の追加でエラーが発生しました。",
 "element name is not set." => "要素名が設定されていません。",
 "Could not parse contact: " => "連絡先を解析できませんでした:",
 "Cannot add empty property." => "項目の新規追加に失敗しました。",

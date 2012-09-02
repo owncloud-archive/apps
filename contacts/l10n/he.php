@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "לא נבחור קטגוריות למחיקה.",
 "No address books found." => "לא נמצאו פנקסי כתובות.",
 "No contacts found." => "לא נמצאו אנשי קשר.",
-"There was an error adding the contact." => "אירעה שגיאה בעת הוספת איש הקשר.",
 "element name is not set." => "שם האלמנט לא נקבע.",
 "Cannot add empty property." => "לא ניתן להוסיף מאפיין ריק.",
 "At least one of the address fields has to be filled out." => "יש למלא לפחות אחד משדות הכתובת.",

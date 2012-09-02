@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-01 02:01+0200\n"
-"PO-Revision-Date: 2012-09-01 00:02+0000\n"
+"POT-Creation-Date: 2012-09-02 02:01+0200\n"
+"PO-Revision-Date: 2012-09-02 00:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/owncloud/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -40,10 +40,6 @@ msgstr "לא נמצאו אירועים."
 #: ajax/event/edit.form.php:20
 msgid "Wrong calendar"
 msgstr "לוח שנה לא נכון"
-
-#: ajax/event/new.php:25
-msgid "Authentication error"
-msgstr ""
 
 #: ajax/import/dropimport.php:29 ajax/import/import.php:64
 msgid ""
@@ -164,184 +160,208 @@ msgstr "שאלות"
 msgid "Work"
 msgstr "עבודה"
 
-#: lib/app.php:351 lib/app.php:361
+#: lib/app.php:354 lib/app.php:364
 msgid "by"
 msgstr ""
 
-#: lib/app.php:359 lib/app.php:399
+#: lib/app.php:362 lib/app.php:402
 msgid "unnamed"
 msgstr "ללא שם"
 
-#: lib/import.php:184 templates/calendar.php:12
+#: lib/calendar.php:153 lib/calendar.php:186
+msgid "You do not have the permissions to update this calendar."
+msgstr ""
+
+#: lib/calendar.php:221
+msgid "You do not have the permissions to delete this calendar."
+msgstr ""
+
+#: lib/calendar.php:253
+msgid "You do not have the permissions to add to this calendar."
+msgstr ""
+
+#: lib/import.php:186 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "לוח שנה חדש"
 
-#: lib/object.php:372
+#: lib/object.php:122 lib/object.php:161 lib/object.php:304
+msgid "You do not have the permissions to add events to this calendar."
+msgstr ""
+
+#: lib/object.php:193 lib/object.php:227
+msgid "You do not have the permissions to edit this event."
+msgstr ""
+
+#: lib/object.php:257 lib/object.php:284
+msgid "You do not have the permissions to delete this event."
+msgstr ""
+
+#: lib/object.php:449
 msgid "Does not repeat"
 msgstr "ללא חזרה"
 
-#: lib/object.php:373
+#: lib/object.php:450
 msgid "Daily"
 msgstr "יומי"
 
-#: lib/object.php:374
+#: lib/object.php:451
 msgid "Weekly"
 msgstr "שבועי"
 
-#: lib/object.php:375
+#: lib/object.php:452
 msgid "Every Weekday"
 msgstr "כל יום עבודה"
 
-#: lib/object.php:376
+#: lib/object.php:453
 msgid "Bi-Weekly"
 msgstr "דו שבועי"
 
-#: lib/object.php:377
+#: lib/object.php:454
 msgid "Monthly"
 msgstr "חודשי"
 
-#: lib/object.php:378
+#: lib/object.php:455
 msgid "Yearly"
 msgstr "שנתי"
 
-#: lib/object.php:388
+#: lib/object.php:465
 msgid "never"
 msgstr "לעולם לא"
 
-#: lib/object.php:389
+#: lib/object.php:466
 msgid "by occurrences"
 msgstr "לפי מופעים"
 
-#: lib/object.php:390
+#: lib/object.php:467
 msgid "by date"
 msgstr "לפי תאריך"
 
-#: lib/object.php:400
+#: lib/object.php:477
 msgid "by monthday"
 msgstr "לפי היום בחודש"
 
-#: lib/object.php:401
+#: lib/object.php:478
 msgid "by weekday"
 msgstr "לפי היום בשבוע"
 
-#: lib/object.php:411 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:488 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr "יום שני"
 
-#: lib/object.php:412 templates/calendar.php:5
+#: lib/object.php:489 templates/calendar.php:5
 msgid "Tuesday"
 msgstr "יום שלישי"
 
-#: lib/object.php:413 templates/calendar.php:5
+#: lib/object.php:490 templates/calendar.php:5
 msgid "Wednesday"
 msgstr "יום רביעי"
 
-#: lib/object.php:414 templates/calendar.php:5
+#: lib/object.php:491 templates/calendar.php:5
 msgid "Thursday"
 msgstr "יום חמישי"
 
-#: lib/object.php:415 templates/calendar.php:5
+#: lib/object.php:492 templates/calendar.php:5
 msgid "Friday"
 msgstr "יום שישי"
 
-#: lib/object.php:416 templates/calendar.php:5
+#: lib/object.php:493 templates/calendar.php:5
 msgid "Saturday"
 msgstr "שבת"
 
-#: lib/object.php:417 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr "יום ראשון"
 
-#: lib/object.php:427
+#: lib/object.php:504
 msgid "events week of month"
 msgstr "שבוע בחודש לציון הפעילות"
 
-#: lib/object.php:428
+#: lib/object.php:505
 msgid "first"
 msgstr "ראשון"
 
-#: lib/object.php:429
+#: lib/object.php:506
 msgid "second"
 msgstr "שני"
 
-#: lib/object.php:430
+#: lib/object.php:507
 msgid "third"
 msgstr "שלישי"
 
-#: lib/object.php:431
+#: lib/object.php:508
 msgid "fourth"
 msgstr "רביעי"
 
-#: lib/object.php:432
+#: lib/object.php:509
 msgid "fifth"
 msgstr "חמישי"
 
-#: lib/object.php:433
+#: lib/object.php:510
 msgid "last"
 msgstr "אחרון"
 
-#: lib/object.php:467 templates/calendar.php:7
+#: lib/object.php:544 templates/calendar.php:7
 msgid "January"
 msgstr "ינואר"
 
-#: lib/object.php:468 templates/calendar.php:7
+#: lib/object.php:545 templates/calendar.php:7
 msgid "February"
 msgstr "פברואר"
 
-#: lib/object.php:469 templates/calendar.php:7
+#: lib/object.php:546 templates/calendar.php:7
 msgid "March"
 msgstr "מרץ"
 
-#: lib/object.php:470 templates/calendar.php:7
+#: lib/object.php:547 templates/calendar.php:7
 msgid "April"
 msgstr "אפריל"
 
-#: lib/object.php:471 templates/calendar.php:7
+#: lib/object.php:548 templates/calendar.php:7
 msgid "May"
 msgstr "מאי"
 
-#: lib/object.php:472 templates/calendar.php:7
+#: lib/object.php:549 templates/calendar.php:7
 msgid "June"
 msgstr "יוני"
 
-#: lib/object.php:473 templates/calendar.php:7
+#: lib/object.php:550 templates/calendar.php:7
 msgid "July"
 msgstr "יולי"
 
-#: lib/object.php:474 templates/calendar.php:7
+#: lib/object.php:551 templates/calendar.php:7
 msgid "August"
 msgstr "אוגוסט"
 
-#: lib/object.php:475 templates/calendar.php:7
+#: lib/object.php:552 templates/calendar.php:7
 msgid "September"
 msgstr "ספטמבר"
 
-#: lib/object.php:476 templates/calendar.php:7
+#: lib/object.php:553 templates/calendar.php:7
 msgid "October"
 msgstr "אוקטובר"
 
-#: lib/object.php:477 templates/calendar.php:7
+#: lib/object.php:554 templates/calendar.php:7
 msgid "November"
 msgstr "נובמבר"
 
-#: lib/object.php:478 templates/calendar.php:7
+#: lib/object.php:555 templates/calendar.php:7
 msgid "December"
 msgstr "דצמבר"
 
-#: lib/object.php:488
+#: lib/object.php:565
 msgid "by events date"
 msgstr "לפי תאריכי האירועים"
 
-#: lib/object.php:489
+#: lib/object.php:566
 msgid "by yearday(s)"
 msgstr "לפי ימים בשנה"
 
-#: lib/object.php:490
+#: lib/object.php:567
 msgid "by weeknumber(s)"
 msgstr "לפי מספרי השבועות"
 
-#: lib/object.php:491
+#: lib/object.php:568
 msgid "by day and month"
 msgstr "לפי יום וחודש"
 
@@ -491,7 +511,7 @@ msgid "Your calendars"
 msgstr "לוחות השנה שלך"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:11
+#: templates/part.choosecalendar.rowfields.php:15
 msgid "CalDav Link"
 msgstr "קישור CalDav"
 
@@ -503,19 +523,19 @@ msgstr "לוחות שנה מושתפים"
 msgid "No shared calendars"
 msgstr "אין לוחות שנה משותפים"
 
-#: templates/part.choosecalendar.rowfields.php:8
+#: templates/part.choosecalendar.rowfields.php:11
 msgid "Share Calendar"
 msgstr "שיתוף לוח שנה"
 
-#: templates/part.choosecalendar.rowfields.php:14
+#: templates/part.choosecalendar.rowfields.php:18
 msgid "Download"
 msgstr "הורדה"
 
-#: templates/part.choosecalendar.rowfields.php:17
+#: templates/part.choosecalendar.rowfields.php:22
 msgid "Edit"
 msgstr "עריכה"
 
-#: templates/part.choosecalendar.rowfields.php:20
+#: templates/part.choosecalendar.rowfields.php:27
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "מחיקה"

@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "هیچ گروهی برای حذف شدن در نظر گرفته نشده",
 "No address books found." => "هیچ کتابچه نشانی پیدا نشد",
 "No contacts found." => "هیچ شخصی پیدا نشد",
-"There was an error adding the contact." => "یک خطا در افزودن اطلاعات شخص مورد نظر",
 "element name is not set." => "نام اصلی تنظیم نشده است",
 "Cannot add empty property." => "نمیتوان یک  خاصیت خالی ایجاد کرد",
 "At least one of the address fields has to be filled out." => "At least one of the address fields has to be filled out. ",

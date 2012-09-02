@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-01 02:01+0200\n"
-"PO-Revision-Date: 2012-09-01 00:03+0000\n"
+"POT-Creation-Date: 2012-09-02 02:02+0200\n"
+"PO-Revision-Date: 2012-09-02 00:04+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -74,7 +74,7 @@ msgstr "Nouveaux articles"
 msgid "Feed loaded!"
 msgstr "Flux chargé !"
 
-#: ajax/movefeedtofolder.php:33
+#: ajax/movefeedtofolder.php:36
 msgid "Error moving feed into folder."
 msgstr "Erreur lors du déplacement du flux dans le répertoire."
 
@@ -102,28 +102,10 @@ msgstr "Flux mis à jour !"
 msgid "News"
 msgstr "Abonnements"
 
-#: js/items.js:101
-msgid "Error while loading the feed"
-msgstr "Erreur lors du chargement du flux"
-
-#: js/items.js:101 js/items.js:167 js/items.js:534 js/items.js:571
-#: js/main.js:77 js/menu.js:561 js/menu.js:616 js/menu.js:637 js/menu.js:663
-#: js/menu.js:907 js/news.js:50 js/news.js:75 js/news.js:90 js/news.js:129
+#: js/main.js:77 js/news.js:50 js/news.js:75 js/news.js:90 js/news.js:129
 #: js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "Erreur"
-
-#: js/menu.js:534
-msgid "Are you sure you want to delete this feed?"
-msgstr "Êtes-vous sûr de vouloir supprimer ce flux ?"
-
-#: js/menu.js:542
-msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr "Êtes-vous sûr de vouloir supprimer ce répertoire et tous les flux qu'il contient ?"
-
-#: js/menu.js:550
-msgid "Warning"
-msgstr "Attention"
 
 #: js/news.js:50
 msgid "Name of the folder cannot be empty."
@@ -201,7 +183,7 @@ msgstr "Télécharger"
 msgid "Select file"
 msgstr "Sélectionnez le fichier"
 
-#: lib/feedmapper.php:174 lib/itemmapper.php:199
+#: lib/feedmapper.php:165 lib/itemmapper.php:199
 msgid "no title"
 msgstr "sans titre"
 
@@ -265,18 +247,22 @@ msgstr "S'abonner à"
 msgid "Choose folder"
 msgstr "Choisir un dossier"
 
-#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:7
+#: templates/part.feeddialog.php:13
+msgid "None"
+msgstr ""
+
+#: templates/part.feeddialog.php:20 templates/part.nofeeds.php:7
 msgid "Address"
 msgstr "Adresse"
 
-#: templates/part.feeddialog.php:20
+#: templates/part.feeddialog.php:21
 msgid "Add"
 msgstr "Ajouter"
 
 #: templates/part.feeds.php:45 templates/part.listfeed.php:28
 #: templates/part.listfolder.php:22
 msgid "Mark all read"
-msgstr ""
+msgstr "Tout marquer comme lu"
 
 #: templates/part.folderdialog.php:2
 msgid "Add Folder"
@@ -312,7 +298,7 @@ msgstr "Supprimer le flux"
 
 #: templates/part.listfolder.php:17
 msgid "Collapse"
-msgstr ""
+msgstr "Replier"
 
 #: templates/part.listfolder.php:20
 msgid "Delete folder"

@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "未选中要删除的分类。",
 "No address books found." => "找不到地址簿。",
 "No contacts found." => "找不到联系人。",
-"There was an error adding the contact." => "添加联系人时出错。",
 "element name is not set." => "元素名称未设置",
 "Could not parse contact: " => "无法解析内容：",
 "Cannot add empty property." => "无法添加空属性。",

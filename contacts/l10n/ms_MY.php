@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Tiada kategori dipilih untuk dibuang.",
 "No address books found." => "Tiada buku alamat dijumpai.",
 "No contacts found." => "Tiada kenalan dijumpai.",
-"There was an error adding the contact." => "Terdapat masalah menambah maklumat.",
 "element name is not set." => "nama elemen tidak ditetapkan.",
 "Cannot add empty property." => "Tidak boleh menambah ruang kosong.",
 "At least one of the address fields has to be filled out." => "Sekurangnya satu ruangan alamat perlu diisikan.",

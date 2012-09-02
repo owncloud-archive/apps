@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Δε επελέγησαν κατηγορίες για διαγραφή",
 "No address books found." => "Δε βρέθηκε βιβλίο διευθύνσεων",
 "No contacts found." => "Δεν βρέθηκαν επαφές",
-"There was an error adding the contact." => "Σφάλμα κατά την προσθήκη επαφής.",
 "element name is not set." => "δεν ορίστηκε όνομα στοιχείου",
 "Could not parse contact: " => "Δε αναγνώστηκε η επαφή",
 "Cannot add empty property." => "Αδύνατη προσθήκη κενής ιδιότητας.",

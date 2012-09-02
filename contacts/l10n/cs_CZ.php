@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Žádné kategorie nebyly vybrány k smazání.",
 "No address books found." => "Žádný adresář nenalezen.",
 "No contacts found." => "Žádné kontakty nenalezeny.",
-"There was an error adding the contact." => "Během přidávání kontaktu nastala chyba.",
 "element name is not set." => "jméno elementu není nastaveno.",
 "Could not parse contact: " => "Nelze analyzovat kontakty",
 "Cannot add empty property." => "Nelze přidat prazdný údaj.",

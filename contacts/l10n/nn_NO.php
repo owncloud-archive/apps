@@ -1,6 +1,5 @@
 <?php $TRANSLATIONS = array(
 "Error (de)activating addressbook." => "Ein feil oppstod ved (de)aktivering av adressebok.",
-"There was an error adding the contact." => "Det kom ei feilmelding då kontakta vart lagt til.",
 "Cannot add empty property." => "Kan ikkje leggja til tomt felt.",
 "At least one of the address fields has to be filled out." => "Minst eit av adressefelta må fyllast ut.",
 "Information about vCard is incorrect. Please reload the page." => "Informasjonen om vCard-et er feil, ver venleg og last sida på nytt.",

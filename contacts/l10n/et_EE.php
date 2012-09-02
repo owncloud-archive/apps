@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Kustutamiseks pole valitud ühtegi kategooriat.",
 "No address books found." => "Ei leitud ühtegi aadressiraamatut.",
 "No contacts found." => "Ühtegi kontakti ei leitud.",
-"There was an error adding the contact." => "Konktakti lisamisel tekkis viga.",
 "element name is not set." => "elemendi nime pole määratud.",
 "Could not parse contact: " => "Kontakti parsimine ebaõnnestus: ",
 "Cannot add empty property." => "Tühja omadust ei saa lisada.",

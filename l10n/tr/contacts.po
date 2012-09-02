@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Aranel Surion <aranel@aranelsurion.org>, 2011, 2012.
+# Caner Başaran <basaran.caner@gmail.com>, 2012.
 #   <mesutgungor@iyte.edu.tr>, 2012.
 # Necdet Yücel <necdetyucel@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-01 02:01+0200\n"
-"PO-Revision-Date: 2012-09-01 00:02+0000\n"
+"POT-Creation-Date: 2012-09-02 02:01+0200\n"
+"PO-Revision-Date: 2012-09-02 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -54,10 +55,6 @@ msgstr "Adres defteri bulunamadı."
 msgid "No contacts found."
 msgstr "Bağlantı bulunamadı."
 
-#: ajax/contact/add.php:47
-msgid "There was an error adding the contact."
-msgstr "Kişi eklenirken hata oluştu."
-
 #: ajax/contact/addproperty.php:39 ajax/contact/saveproperty.php:36
 msgid "element name is not set."
 msgstr "eleman ismi atanmamış."
@@ -80,11 +77,11 @@ msgstr "Yinelenen özellik eklenmeye çalışılıyor: "
 
 #: ajax/contact/addproperty.php:115 ajax/contact/saveproperty.php:93
 msgid "Missing IM parameter."
-msgstr ""
+msgstr "IM parametersi kayıp."
 
 #: ajax/contact/addproperty.php:119 ajax/contact/saveproperty.php:97
 msgid "Unknown IM: "
-msgstr ""
+msgstr "Bilinmeyen IM:"
 
 #: ajax/contact/deleteproperty.php:37
 msgid "Information about vCard is incorrect. Please reload the page."
@@ -229,74 +226,74 @@ msgstr "Tamamlanmadı."
 msgid "Couldn't get a valid address."
 msgstr "Geçerli bir adres alınamadı."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:381 js/contacts.js:393
-#: js/contacts.js:724 js/contacts.js:764 js/contacts.js:790 js/contacts.js:922
-#: js/contacts.js:928 js/contacts.js:940 js/contacts.js:977
-#: js/contacts.js:1251 js/contacts.js:1259 js/contacts.js:1268
-#: js/contacts.js:1303 js/contacts.js:1339 js/contacts.js:1354
-#: js/contacts.js:1380 js/contacts.js:1610 js/contacts.js:1645
-#: js/contacts.js:1665 js/settings.js:26 js/settings.js:43 js/settings.js:68
+#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:687 js/contacts.js:727
+#: js/contacts.js:753 js/contacts.js:885 js/contacts.js:891 js/contacts.js:903
+#: js/contacts.js:940 js/contacts.js:1214 js/contacts.js:1222
+#: js/contacts.js:1231 js/contacts.js:1266 js/contacts.js:1302
+#: js/contacts.js:1317 js/contacts.js:1343 js/contacts.js:1573
+#: js/contacts.js:1608 js/contacts.js:1628 js/settings.js:26 js/settings.js:43
+#: js/settings.js:68
 msgid "Error"
 msgstr "Hata"
 
-#: js/contacts.js:425
+#: js/contacts.js:410
 msgid "You do not have permission to add contacts to "
-msgstr ""
+msgstr "Yeni bir kişi eklemek için yetkiniz yok."
 
-#: js/contacts.js:426
+#: js/contacts.js:411
 msgid "Please select one of your own address books."
-msgstr ""
+msgstr "Adres defterlerinizden birini seçiniz."
 
-#: js/contacts.js:426
+#: js/contacts.js:411
 msgid "Permission error"
-msgstr ""
+msgstr "Yetki hatası"
 
-#: js/contacts.js:764
+#: js/contacts.js:727
 msgid "This property has to be non-empty."
 msgstr "Bu özellik boş bırakılmamalı."
 
-#: js/contacts.js:790
+#: js/contacts.js:753
 msgid "Couldn't serialize elements."
 msgstr "Öğeler seri hale getiremedi"
 
-#: js/contacts.js:922 js/contacts.js:940
+#: js/contacts.js:885 js/contacts.js:903
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "'deleteProperty' tip argümanı olmadan çağrıldı. Lütfen bugs.owncloud.org a rapor ediniz."
 
-#: js/contacts.js:959
+#: js/contacts.js:922
 msgid "Edit name"
 msgstr "İsmi düzenle"
 
-#: js/contacts.js:1251
+#: js/contacts.js:1214
 msgid "No files selected for upload."
 msgstr "Yükleme için dosya seçilmedi."
 
-#: js/contacts.js:1259
+#: js/contacts.js:1222
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Yüklemeye çalıştığınız dosya sunucudaki dosya yükleme maksimum boyutunu aşmaktadır. "
 
-#: js/contacts.js:1323
+#: js/contacts.js:1286
 msgid "Error loading profile picture."
-msgstr ""
+msgstr "Profil resmi yüklenirken hata oluştu."
 
-#: js/contacts.js:1458 js/contacts.js:1499 js/contacts.js:1518
-#: js/contacts.js:1561
+#: js/contacts.js:1421 js/contacts.js:1462 js/contacts.js:1481
+#: js/contacts.js:1524
 msgid "Select type"
 msgstr "Tür seç"
 
-#: js/contacts.js:1579
+#: js/contacts.js:1542
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
-msgstr ""
+msgstr "Bazı kişiler silinmek için işaretlendi, hala silinmedi. Silinmesi için bekleyin."
 
-#: js/contacts.js:1650
+#: js/contacts.js:1613
 msgid "Do you want to merge these address books?"
-msgstr ""
+msgstr "Bu adres defterlerini birleştirmek istiyor musunuz?"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -312,27 +309,27 @@ msgstr " hatalı."
 
 #: js/settings.js:68
 msgid "Displayname cannot be empty."
-msgstr ""
+msgstr "GörünenAd boş olamaz."
 
 #: lib/addressbook.php:223
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "Bu adresdefterini güncellemek için yetkiniz yok."
 
 #: lib/addressbook.php:243
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "Adresdefteri güncellenirken hata oluştu."
 
 #: lib/addressbook.php:299
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "Bu adresdefterini silmek için yetkiniz yok."
 
 #: lib/addressbook.php:328
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "Adresdefteri silinirken hata oluştu."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
-msgstr ""
+msgstr "Adresdefteri bulunamadı:"
 
 #: lib/app.php:52
 msgid "This is not your addressbook."
@@ -344,51 +341,51 @@ msgstr "Kişi bulunamadı."
 
 #: lib/app.php:116
 msgid "Jabber"
-msgstr ""
+msgstr "Jabber"
 
 #: lib/app.php:121
 msgid "AIM"
-msgstr ""
+msgstr "AIM"
 
 #: lib/app.php:126
 msgid "MSN"
-msgstr ""
+msgstr "MSN"
 
 #: lib/app.php:131
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: lib/app.php:136
 msgid "GoogleTalk"
-msgstr ""
+msgstr "GoogleTalk"
 
 #: lib/app.php:141
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: lib/app.php:146
 msgid "XMPP"
-msgstr ""
+msgstr "XMPP"
 
 #: lib/app.php:151
 msgid "ICQ"
-msgstr ""
+msgstr "ICQ"
 
 #: lib/app.php:156
 msgid "Yahoo"
-msgstr ""
+msgstr "Yahoo"
 
 #: lib/app.php:161
 msgid "Skype"
-msgstr ""
+msgstr "Skype"
 
 #: lib/app.php:166
 msgid "QQ"
-msgstr ""
+msgstr "QQ"
 
 #: lib/app.php:171
 msgid "GaduGadu"
-msgstr ""
+msgstr "GaduGadu"
 
 #: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
 msgid "Work"
@@ -398,7 +395,7 @@ msgstr "İş"
 msgid "Home"
 msgstr "Ev"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:620
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:624
 msgid "Other"
 msgstr "Diğer"
 
@@ -495,29 +492,33 @@ msgstr "{name}'nin Doğumgünü"
 msgid "Contact"
 msgstr "Kişi"
 
-#: lib/vcard.php:395
+#: lib/vcard.php:295
+msgid "You do not have the permissions to add contacts to this addressbook."
+msgstr ""
+
+#: lib/vcard.php:399
 msgid "Could not find the vCard with ID."
 msgstr ""
 
-#: lib/vcard.php:412
+#: lib/vcard.php:416
 msgid "You do not have the permissions to edit this contact."
-msgstr ""
+msgstr "Bu kişiyi düzenlemek için yetkiniz yok."
 
-#: lib/vcard.php:483
+#: lib/vcard.php:487
 msgid "Could not find the vCard with ID: "
 msgstr ""
 
-#: lib/vcard.php:491
+#: lib/vcard.php:495
 msgid "Could not find the Addressbook with ID: "
 msgstr ""
 
-#: lib/vcard.php:506
+#: lib/vcard.php:510
 msgid "You do not have the permissions to delete this contact."
-msgstr ""
+msgstr "Bu kişiyi silmek için yetkiniz yok."
 
-#: lib/vcard.php:524
+#: lib/vcard.php:528
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "Kişi silinirken hata oluştu."
 
 #: templates/index.php:14
 msgid "Add Contact"
@@ -529,61 +530,61 @@ msgstr "İçe aktar"
 
 #: templates/index.php:18
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 #: templates/index.php:18 templates/settings.php:9
 msgid "Addressbooks"
 msgstr "Adres defterleri"
 
-#: templates/index.php:36 templates/part.import.php:24
+#: templates/index.php:32 templates/part.import.php:24
 msgid "Close"
 msgstr "Kapat"
 
-#: templates/index.php:37
+#: templates/index.php:33
 msgid "Keyboard shortcuts"
 msgstr "Klavye kısayolları"
 
-#: templates/index.php:39
+#: templates/index.php:35
 msgid "Navigation"
 msgstr "Dolaşım"
 
-#: templates/index.php:42
+#: templates/index.php:38
 msgid "Next contact in list"
 msgstr "Listedeki sonraki kişi"
 
-#: templates/index.php:44
+#: templates/index.php:40
 msgid "Previous contact in list"
 msgstr "Listedeki önceki kişi"
 
-#: templates/index.php:46
+#: templates/index.php:42
 msgid "Expand/collapse current addressbook"
 msgstr "Şuanki adres defterini genişlet/daralt"
 
-#: templates/index.php:48
+#: templates/index.php:44
 msgid "Next addressbook"
-msgstr ""
+msgstr "Sonraki adresdefteri"
+
+#: templates/index.php:46
+msgid "Previous addressbook"
+msgstr "Önceki adresdefteri"
 
 #: templates/index.php:50
-msgid "Previous addressbook"
-msgstr ""
-
-#: templates/index.php:54
 msgid "Actions"
 msgstr "Eylemler"
 
-#: templates/index.php:57
+#: templates/index.php:53
 msgid "Refresh contacts list"
 msgstr "Kişi listesini tazele"
 
-#: templates/index.php:59
+#: templates/index.php:55
 msgid "Add new contact"
 msgstr "Yeni kişi ekle"
 
-#: templates/index.php:61
+#: templates/index.php:57
 msgid "Add new addressbook"
 msgstr "Yeni adres defteri ekle"
 
-#: templates/index.php:63
+#: templates/index.php:59
 msgid "Delete current contact"
 msgstr "Şuanki kişiyi sil"
 
@@ -693,11 +694,11 @@ msgstr "Telefon numarasını sil"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
-msgstr ""
+msgstr "Instant Messenger"
 
 #: templates/part.contact.php:101
 msgid "Delete IM"
-msgstr ""
+msgstr "IM Sil"
 
 #: templates/part.contact.php:110
 msgid "View on map"
@@ -725,7 +726,7 @@ msgstr "Eposta"
 
 #: templates/part.contact.php:131
 msgid "Instant Messaging"
-msgstr ""
+msgstr "Anında Mesajlaşma"
 
 #: templates/part.contact.php:132
 msgid "Address"
@@ -940,15 +941,15 @@ msgstr "iOS/OS X"
 
 #: templates/settings.php:22
 msgid "Show CardDav link"
-msgstr ""
+msgstr "CardDav bağlantısı göster"
 
 #: templates/settings.php:25
 msgid "Show read-only VCF link"
-msgstr ""
+msgstr "Salt-okur VCF bağlantısı göster"
 
 #: templates/settings.php:32
 msgid "Share"
-msgstr ""
+msgstr "Paylaş"
 
 #: templates/settings.php:36
 msgid "Download"
@@ -964,11 +965,11 @@ msgstr "Yeni Adres Defteri"
 
 #: templates/settings.php:55
 msgid "Name"
-msgstr ""
+msgstr "Ad"
 
 #: templates/settings.php:56
 msgid "Description"
-msgstr ""
+msgstr "Tanımlama"
 
 #: templates/settings.php:57
 msgid "Save"
@@ -980,4 +981,4 @@ msgstr "İptal"
 
 #: templates/settings.php:63
 msgid "More..."
-msgstr ""
+msgstr "Devamı..."

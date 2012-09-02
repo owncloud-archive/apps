@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-01 02:01+0200\n"
-"PO-Revision-Date: 2012-09-01 00:02+0000\n"
+"POT-Creation-Date: 2012-09-02 02:01+0200\n"
+"PO-Revision-Date: 2012-09-02 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -53,10 +53,6 @@ msgstr "Ni bilo najdenih imenikov."
 #: ajax/categories/delete.php:34
 msgid "No contacts found."
 msgstr "Ni bilo najdenih stikov."
-
-#: ajax/contact/add.php:47
-msgid "There was an error adding the contact."
-msgstr "Med dodajanjem stika je prišlo do napake"
 
 #: ajax/contact/addproperty.php:39 ajax/contact/saveproperty.php:36
 msgid "element name is not set."
@@ -229,72 +225,72 @@ msgstr "Ni podprto"
 msgid "Couldn't get a valid address."
 msgstr "Ne morem dobiti veljavnega naslova."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:381 js/contacts.js:393
-#: js/contacts.js:724 js/contacts.js:764 js/contacts.js:790 js/contacts.js:922
-#: js/contacts.js:928 js/contacts.js:940 js/contacts.js:977
-#: js/contacts.js:1251 js/contacts.js:1259 js/contacts.js:1268
-#: js/contacts.js:1303 js/contacts.js:1339 js/contacts.js:1354
-#: js/contacts.js:1380 js/contacts.js:1610 js/contacts.js:1645
-#: js/contacts.js:1665 js/settings.js:26 js/settings.js:43 js/settings.js:68
+#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:687 js/contacts.js:727
+#: js/contacts.js:753 js/contacts.js:885 js/contacts.js:891 js/contacts.js:903
+#: js/contacts.js:940 js/contacts.js:1214 js/contacts.js:1222
+#: js/contacts.js:1231 js/contacts.js:1266 js/contacts.js:1302
+#: js/contacts.js:1317 js/contacts.js:1343 js/contacts.js:1573
+#: js/contacts.js:1608 js/contacts.js:1628 js/settings.js:26 js/settings.js:43
+#: js/settings.js:68
 msgid "Error"
 msgstr "Napaka"
 
-#: js/contacts.js:425
+#: js/contacts.js:410
 msgid "You do not have permission to add contacts to "
 msgstr "Nimate dovoljenja za dodajanje stikov v"
 
-#: js/contacts.js:426
+#: js/contacts.js:411
 msgid "Please select one of your own address books."
 msgstr "Prosimo, če izberete enega izmed vaših adresarjev."
 
-#: js/contacts.js:426
+#: js/contacts.js:411
 msgid "Permission error"
 msgstr "Napaka dovoljenj"
 
-#: js/contacts.js:764
+#: js/contacts.js:727
 msgid "This property has to be non-empty."
 msgstr "Ta lastnost ne sme biti prazna"
 
-#: js/contacts.js:790
+#: js/contacts.js:753
 msgid "Couldn't serialize elements."
 msgstr "Predmetov ni bilo mogoče dati v zaporedje."
 
-#: js/contacts.js:922 js/contacts.js:940
+#: js/contacts.js:885 js/contacts.js:903
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "\"deleteProperty\" je bila klicana brez vrste argumenta. Prosimo, če oddate  poročilo o napaki na bugs.owncloud.org"
 
-#: js/contacts.js:959
+#: js/contacts.js:922
 msgid "Edit name"
 msgstr "Uredi ime"
 
-#: js/contacts.js:1251
+#: js/contacts.js:1214
 msgid "No files selected for upload."
 msgstr "Nobena datoteka ni bila izbrana za nalaganje."
 
-#: js/contacts.js:1259
+#: js/contacts.js:1222
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Datoteka, ki jo poskušate naložiti, presega največjo dovoljeno velikost za nalaganje na tem strežniku."
 
-#: js/contacts.js:1323
+#: js/contacts.js:1286
 msgid "Error loading profile picture."
 msgstr "Napaka pri nalaganju slike profila."
 
-#: js/contacts.js:1458 js/contacts.js:1499 js/contacts.js:1518
-#: js/contacts.js:1561
+#: js/contacts.js:1421 js/contacts.js:1462 js/contacts.js:1481
+#: js/contacts.js:1524
 msgid "Select type"
 msgstr "Izberite vrsto"
 
-#: js/contacts.js:1579
+#: js/contacts.js:1542
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Nekateri stiki so označeni za izbris, vendar še niso izbrisani. Prosimo, če počakate na njihov izbris."
 
-#: js/contacts.js:1650
+#: js/contacts.js:1613
 msgid "Do you want to merge these address books?"
 msgstr "Ali želite združiti adresarje?"
 
@@ -316,11 +312,11 @@ msgstr "Ime za prikaz ne more biti prazno."
 
 #: lib/addressbook.php:223
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "Nimate pravic za posodobitev tega adresarja."
 
 #: lib/addressbook.php:243
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "Med posodabljanjem adresarja je prišlo do napake."
 
 #: lib/addressbook.php:299
 msgid "You do not have the permissions to delete this addressbook."
@@ -398,7 +394,7 @@ msgstr "Delo"
 msgid "Home"
 msgstr "Doma"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:620
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:624
 msgid "Other"
 msgstr "Drugo"
 
@@ -495,27 +491,31 @@ msgstr "{name} - rojstni dan"
 msgid "Contact"
 msgstr "Stik"
 
-#: lib/vcard.php:395
+#: lib/vcard.php:295
+msgid "You do not have the permissions to add contacts to this addressbook."
+msgstr ""
+
+#: lib/vcard.php:399
 msgid "Could not find the vCard with ID."
 msgstr "Ni bilo mogoče najti vCard z ID:"
 
-#: lib/vcard.php:412
+#: lib/vcard.php:416
 msgid "You do not have the permissions to edit this contact."
 msgstr "Nimate dovoljenj za urejanje tega stika."
 
-#: lib/vcard.php:483
+#: lib/vcard.php:487
 msgid "Could not find the vCard with ID: "
 msgstr "Ni bilo mogoče najti vCard z ID:"
 
-#: lib/vcard.php:491
+#: lib/vcard.php:495
 msgid "Could not find the Addressbook with ID: "
 msgstr "Ni bilo mogoče najti adresarja z ID:"
 
-#: lib/vcard.php:506
+#: lib/vcard.php:510
 msgid "You do not have the permissions to delete this contact."
 msgstr "Nimate dovoljenj za izbris tega stika."
 
-#: lib/vcard.php:524
+#: lib/vcard.php:528
 msgid "There was an error deleting this contact."
 msgstr "Med brisanjem stika je prišlo do napake."
 
@@ -535,55 +535,55 @@ msgstr "Nastavitve"
 msgid "Addressbooks"
 msgstr "Imeniki"
 
-#: templates/index.php:36 templates/part.import.php:24
+#: templates/index.php:32 templates/part.import.php:24
 msgid "Close"
 msgstr "Zapri"
 
-#: templates/index.php:37
+#: templates/index.php:33
 msgid "Keyboard shortcuts"
 msgstr "Bližnjice na tipkovnici"
 
-#: templates/index.php:39
+#: templates/index.php:35
 msgid "Navigation"
 msgstr "Krmarjenje"
 
-#: templates/index.php:42
+#: templates/index.php:38
 msgid "Next contact in list"
 msgstr "Naslednji stik na seznamu"
 
-#: templates/index.php:44
+#: templates/index.php:40
 msgid "Previous contact in list"
 msgstr "Predhodni stik na seznamu"
 
-#: templates/index.php:46
+#: templates/index.php:42
 msgid "Expand/collapse current addressbook"
 msgstr "Razširi/skrči trenutni adresar"
 
-#: templates/index.php:48
+#: templates/index.php:44
 msgid "Next addressbook"
 msgstr "Naslednji adresar"
 
-#: templates/index.php:50
+#: templates/index.php:46
 msgid "Previous addressbook"
 msgstr "Predhodni adresar"
 
-#: templates/index.php:54
+#: templates/index.php:50
 msgid "Actions"
 msgstr "Dejanja"
 
-#: templates/index.php:57
+#: templates/index.php:53
 msgid "Refresh contacts list"
 msgstr "Osveži seznam stikov"
 
-#: templates/index.php:59
+#: templates/index.php:55
 msgid "Add new contact"
 msgstr "Dodaj nov stik"
 
-#: templates/index.php:61
+#: templates/index.php:57
 msgid "Add new addressbook"
 msgstr "Dodaj nov adresar"
 
-#: templates/index.php:63
+#: templates/index.php:59
 msgid "Delete current contact"
 msgstr "Izbriši trenutni stik"
 

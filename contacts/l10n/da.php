@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Der ikke valgt nogle grupper at slette.",
 "No address books found." => "Der blev ikke fundet nogen adressebøger.",
 "No contacts found." => "Der blev ikke fundet nogen kontaktpersoner.",
-"There was an error adding the contact." => "Der opstod en fejl ved tilføjelse af kontaktpersonen.",
 "element name is not set." => "Elementnavnet er ikke medsendt.",
 "Cannot add empty property." => "Kan ikke tilføje en egenskab uden indhold.",
 "At least one of the address fields has to be filled out." => "Der skal udfyldes mindst et adressefelt.",

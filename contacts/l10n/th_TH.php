@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "ยังไม่ได้เลือกหมวดหมู่ที่ต้องการลบ",
 "No address books found." => "ไม่พบสมุดบันทึกที่อยู่ที่ต้องการ",
 "No contacts found." => "ไม่พบข้อมูลการติดต่อที่ต้องการ",
-"There was an error adding the contact." => "เกิดข้อผิดพลาดในการเพิ่มรายชื่อผู้ติดต่อใหม่",
 "element name is not set." => "ยังไม่ได้กำหนดชื่อ",
 "Could not parse contact: " => "ไม่สามารถแจกแจงรายชื่อผู้ติดต่อได้",
 "Cannot add empty property." => "ไม่สามารถเพิ่มรายละเอียดที่ไม่มีข้อมูลได้",

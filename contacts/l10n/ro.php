@@ -6,7 +6,6 @@
 "No categories selected for deletion." => "Nici o categorie selectată pentru ștergere",
 "No address books found." => "Nici o carte de adrese găsită",
 "No contacts found." => "Nici un contact găsit",
-"There was an error adding the contact." => "O eroare a împiedicat adăugarea contactului.",
 "element name is not set." => "numele elementului nu este stabilit.",
 "Cannot add empty property." => "Nu se poate adăuga un câmp gol.",
 "At least one of the address fields has to be filled out." => "Cel puțin unul din câmpurile adresei trebuie completat.",

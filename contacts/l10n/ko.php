@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "삭제 카테고리를 선택하지 않았습니다. ",
 "No address books found." => "주소록을 찾을 수 없습니다.",
 "No contacts found." => "연락처를 찾을 수 없습니다.",
-"There was an error adding the contact." => "연락처를 추가하는 중 오류가 발생하였습니다.",
 "element name is not set." => "element 이름이 설정되지 않았습니다.",
 "Could not parse contact: " => "연락처를 구분할 수 없습니다:",
 "Cannot add empty property." => "빈 속성을 추가할 수 없습니다.",

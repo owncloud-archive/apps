@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Neniu kategorio elektiĝis por forigi.",
 "No address books found." => "Neniu adresaro troviĝis.",
 "No contacts found." => "Neniu kontakto troviĝis.",
-"There was an error adding the contact." => "Eraro okazis dum aldono de kontakto.",
 "element name is not set." => "eronomo ne agordiĝis.",
 "Could not parse contact: " => "Ne eblis analizi kontakton:",
 "Cannot add empty property." => "Ne eblas aldoni malplenan propraĵon.",

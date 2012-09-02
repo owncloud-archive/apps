@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-01 02:01+0200\n"
-"PO-Revision-Date: 2012-09-01 00:02+0000\n"
+"POT-Creation-Date: 2012-09-02 02:01+0200\n"
+"PO-Revision-Date: 2012-09-02 00:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -38,10 +38,6 @@ msgstr "일정이 없습니다"
 #: ajax/event/edit.form.php:20
 msgid "Wrong calendar"
 msgstr "잘못된 달력"
-
-#: ajax/event/new.php:25
-msgid "Authentication error"
-msgstr ""
 
 #: ajax/import/dropimport.php:29 ajax/import/import.php:64
 msgid ""
@@ -162,184 +158,208 @@ msgstr "질문"
 msgid "Work"
 msgstr "작업"
 
-#: lib/app.php:351 lib/app.php:361
+#: lib/app.php:354 lib/app.php:364
 msgid "by"
 msgstr "로"
 
-#: lib/app.php:359 lib/app.php:399
+#: lib/app.php:362 lib/app.php:402
 msgid "unnamed"
 msgstr "익명의"
 
-#: lib/import.php:184 templates/calendar.php:12
+#: lib/calendar.php:153 lib/calendar.php:186
+msgid "You do not have the permissions to update this calendar."
+msgstr ""
+
+#: lib/calendar.php:221
+msgid "You do not have the permissions to delete this calendar."
+msgstr ""
+
+#: lib/calendar.php:253
+msgid "You do not have the permissions to add to this calendar."
+msgstr ""
+
+#: lib/import.php:186 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "새로운 달력"
 
-#: lib/object.php:372
+#: lib/object.php:122 lib/object.php:161 lib/object.php:304
+msgid "You do not have the permissions to add events to this calendar."
+msgstr ""
+
+#: lib/object.php:193 lib/object.php:227
+msgid "You do not have the permissions to edit this event."
+msgstr ""
+
+#: lib/object.php:257 lib/object.php:284
+msgid "You do not have the permissions to delete this event."
+msgstr ""
+
+#: lib/object.php:449
 msgid "Does not repeat"
 msgstr "반복 없음"
 
-#: lib/object.php:373
+#: lib/object.php:450
 msgid "Daily"
 msgstr "매일"
 
-#: lib/object.php:374
+#: lib/object.php:451
 msgid "Weekly"
 msgstr "매주"
 
-#: lib/object.php:375
+#: lib/object.php:452
 msgid "Every Weekday"
 msgstr "매주 특정 요일"
 
-#: lib/object.php:376
+#: lib/object.php:453
 msgid "Bi-Weekly"
 msgstr "2주마다"
 
-#: lib/object.php:377
+#: lib/object.php:454
 msgid "Monthly"
 msgstr "매월"
 
-#: lib/object.php:378
+#: lib/object.php:455
 msgid "Yearly"
 msgstr "매년"
 
-#: lib/object.php:388
+#: lib/object.php:465
 msgid "never"
 msgstr "전혀"
 
-#: lib/object.php:389
+#: lib/object.php:466
 msgid "by occurrences"
 msgstr "번 이후"
 
-#: lib/object.php:390
+#: lib/object.php:467
 msgid "by date"
 msgstr "날짜"
 
-#: lib/object.php:400
+#: lib/object.php:477
 msgid "by monthday"
 msgstr "월"
 
-#: lib/object.php:401
+#: lib/object.php:478
 msgid "by weekday"
 msgstr "주"
 
-#: lib/object.php:411 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:488 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr "월요일"
 
-#: lib/object.php:412 templates/calendar.php:5
+#: lib/object.php:489 templates/calendar.php:5
 msgid "Tuesday"
 msgstr "화요일"
 
-#: lib/object.php:413 templates/calendar.php:5
+#: lib/object.php:490 templates/calendar.php:5
 msgid "Wednesday"
 msgstr "수요일"
 
-#: lib/object.php:414 templates/calendar.php:5
+#: lib/object.php:491 templates/calendar.php:5
 msgid "Thursday"
 msgstr "목요일"
 
-#: lib/object.php:415 templates/calendar.php:5
+#: lib/object.php:492 templates/calendar.php:5
 msgid "Friday"
 msgstr "금요일"
 
-#: lib/object.php:416 templates/calendar.php:5
+#: lib/object.php:493 templates/calendar.php:5
 msgid "Saturday"
 msgstr "토요일"
 
-#: lib/object.php:417 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr "일요일"
 
-#: lib/object.php:427
+#: lib/object.php:504
 msgid "events week of month"
 msgstr "이달의 한 주 일정"
 
-#: lib/object.php:428
+#: lib/object.php:505
 msgid "first"
 msgstr "첫번째"
 
-#: lib/object.php:429
+#: lib/object.php:506
 msgid "second"
 msgstr "두번째"
 
-#: lib/object.php:430
+#: lib/object.php:507
 msgid "third"
 msgstr "세번째"
 
-#: lib/object.php:431
+#: lib/object.php:508
 msgid "fourth"
 msgstr "네번째"
 
-#: lib/object.php:432
+#: lib/object.php:509
 msgid "fifth"
 msgstr "다섯번째"
 
-#: lib/object.php:433
+#: lib/object.php:510
 msgid "last"
 msgstr "마지막"
 
-#: lib/object.php:467 templates/calendar.php:7
+#: lib/object.php:544 templates/calendar.php:7
 msgid "January"
 msgstr "1월"
 
-#: lib/object.php:468 templates/calendar.php:7
+#: lib/object.php:545 templates/calendar.php:7
 msgid "February"
 msgstr "2월"
 
-#: lib/object.php:469 templates/calendar.php:7
+#: lib/object.php:546 templates/calendar.php:7
 msgid "March"
 msgstr "3월"
 
-#: lib/object.php:470 templates/calendar.php:7
+#: lib/object.php:547 templates/calendar.php:7
 msgid "April"
 msgstr "4월"
 
-#: lib/object.php:471 templates/calendar.php:7
+#: lib/object.php:548 templates/calendar.php:7
 msgid "May"
 msgstr "5월"
 
-#: lib/object.php:472 templates/calendar.php:7
+#: lib/object.php:549 templates/calendar.php:7
 msgid "June"
 msgstr "6월"
 
-#: lib/object.php:473 templates/calendar.php:7
+#: lib/object.php:550 templates/calendar.php:7
 msgid "July"
 msgstr "7월"
 
-#: lib/object.php:474 templates/calendar.php:7
+#: lib/object.php:551 templates/calendar.php:7
 msgid "August"
 msgstr "8월"
 
-#: lib/object.php:475 templates/calendar.php:7
+#: lib/object.php:552 templates/calendar.php:7
 msgid "September"
 msgstr "9월"
 
-#: lib/object.php:476 templates/calendar.php:7
+#: lib/object.php:553 templates/calendar.php:7
 msgid "October"
 msgstr "10월"
 
-#: lib/object.php:477 templates/calendar.php:7
+#: lib/object.php:554 templates/calendar.php:7
 msgid "November"
 msgstr "11월"
 
-#: lib/object.php:478 templates/calendar.php:7
+#: lib/object.php:555 templates/calendar.php:7
 msgid "December"
 msgstr "12월"
 
-#: lib/object.php:488
+#: lib/object.php:565
 msgid "by events date"
 msgstr "이벤트 날짜 순"
 
-#: lib/object.php:489
+#: lib/object.php:566
 msgid "by yearday(s)"
 msgstr "날짜 번호 순"
 
-#: lib/object.php:490
+#: lib/object.php:567
 msgid "by weeknumber(s)"
 msgstr "주 번호 순"
 
-#: lib/object.php:491
+#: lib/object.php:568
 msgid "by day and month"
 msgstr "날짜 순"
 
@@ -489,7 +509,7 @@ msgid "Your calendars"
 msgstr "내 달력"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:11
+#: templates/part.choosecalendar.rowfields.php:15
 msgid "CalDav Link"
 msgstr "CalDav 링크"
 
@@ -501,19 +521,19 @@ msgstr "공유 달력"
 msgid "No shared calendars"
 msgstr "달력 공유하지 않음"
 
-#: templates/part.choosecalendar.rowfields.php:8
+#: templates/part.choosecalendar.rowfields.php:11
 msgid "Share Calendar"
 msgstr "달력 공유"
 
-#: templates/part.choosecalendar.rowfields.php:14
+#: templates/part.choosecalendar.rowfields.php:18
 msgid "Download"
 msgstr "다운로드"
 
-#: templates/part.choosecalendar.rowfields.php:17
+#: templates/part.choosecalendar.rowfields.php:22
 msgid "Edit"
 msgstr "편집"
 
-#: templates/part.choosecalendar.rowfields.php:20
+#: templates/part.choosecalendar.rowfields.php:27
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "삭제"

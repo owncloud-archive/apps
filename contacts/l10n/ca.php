@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "No heu seleccionat les categories a eliminar.",
 "No address books found." => "No s'han trobat llibretes d'adreces.",
 "No contacts found." => "No s'han trobat contactes.",
-"There was an error adding the contact." => "S'ha produït un error en afegir el contacte.",
 "element name is not set." => "no s'ha establert el nom de l'element.",
 "Could not parse contact: " => "No s'ha pogut processar el contacte:",
 "Cannot add empty property." => "No es pot afegir una propietat buida.",

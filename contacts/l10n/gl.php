@@ -7,7 +7,6 @@
 "No categories selected for deletion." => "Non se seleccionaron categorías para borrado.",
 "No address books found." => "Non se atoparon libretas de enderezos.",
 "No contacts found." => "Non se atoparon contactos.",
-"There was an error adding the contact." => "Produciuse un erro engadindo o contacto.",
 "element name is not set." => "non se nomeou o elemento.",
 "Cannot add empty property." => "Non se pode engadir unha propiedade baleira.",
 "At least one of the address fields has to be filled out." => "Polo menos un dos campos do enderezo ten que ser cuberto.",

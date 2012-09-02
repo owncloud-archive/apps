@@ -6,7 +6,6 @@
 "No categories selected for deletion." => "Keng Kategorien fir ze läschen ausgewielt.",
 "No address books found." => "Keen Adressbuch fonnt.",
 "No contacts found." => "Keng Kontakter fonnt.",
-"There was an error adding the contact." => "Fehler beim bäisetzen vun engem Kontakt.",
 "Cannot add empty property." => "Ka keng eidel Proprietéit bäisetzen.",
 "Trying to add duplicate property: " => "Probéieren duebel Proprietéit bäi ze setzen:",
 "Information about vCard is incorrect. Please reload the page." => "Informatioun iwwert vCard ass net richteg. Lued d'Säit wegl nei.",

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-01 02:01+0200\n"
-"PO-Revision-Date: 2012-09-01 00:02+0000\n"
+"POT-Creation-Date: 2012-09-02 02:01+0200\n"
+"PO-Revision-Date: 2012-09-02 00:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Somali (http://www.transifex.com/projects/p/owncloud/language/so/)\n"
 "MIME-Version: 1.0\n"
@@ -35,10 +35,6 @@ msgstr ""
 
 #: ajax/event/edit.form.php:20
 msgid "Wrong calendar"
-msgstr ""
-
-#: ajax/event/new.php:25
-msgid "Authentication error"
 msgstr ""
 
 #: ajax/import/dropimport.php:29 ajax/import/import.php:64
@@ -160,184 +156,208 @@ msgstr ""
 msgid "Work"
 msgstr ""
 
-#: lib/app.php:351 lib/app.php:361
+#: lib/app.php:354 lib/app.php:364
 msgid "by"
 msgstr ""
 
-#: lib/app.php:359 lib/app.php:399
+#: lib/app.php:362 lib/app.php:402
 msgid "unnamed"
 msgstr ""
 
-#: lib/import.php:184 templates/calendar.php:12
+#: lib/calendar.php:153 lib/calendar.php:186
+msgid "You do not have the permissions to update this calendar."
+msgstr ""
+
+#: lib/calendar.php:221
+msgid "You do not have the permissions to delete this calendar."
+msgstr ""
+
+#: lib/calendar.php:253
+msgid "You do not have the permissions to add to this calendar."
+msgstr ""
+
+#: lib/import.php:186 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr ""
 
-#: lib/object.php:372
+#: lib/object.php:122 lib/object.php:161 lib/object.php:304
+msgid "You do not have the permissions to add events to this calendar."
+msgstr ""
+
+#: lib/object.php:193 lib/object.php:227
+msgid "You do not have the permissions to edit this event."
+msgstr ""
+
+#: lib/object.php:257 lib/object.php:284
+msgid "You do not have the permissions to delete this event."
+msgstr ""
+
+#: lib/object.php:449
 msgid "Does not repeat"
 msgstr ""
 
-#: lib/object.php:373
+#: lib/object.php:450
 msgid "Daily"
 msgstr ""
 
-#: lib/object.php:374
+#: lib/object.php:451
 msgid "Weekly"
 msgstr ""
 
-#: lib/object.php:375
+#: lib/object.php:452
 msgid "Every Weekday"
 msgstr ""
 
-#: lib/object.php:376
+#: lib/object.php:453
 msgid "Bi-Weekly"
 msgstr ""
 
-#: lib/object.php:377
+#: lib/object.php:454
 msgid "Monthly"
 msgstr ""
 
-#: lib/object.php:378
+#: lib/object.php:455
 msgid "Yearly"
 msgstr ""
 
-#: lib/object.php:388
+#: lib/object.php:465
 msgid "never"
 msgstr ""
 
-#: lib/object.php:389
+#: lib/object.php:466
 msgid "by occurrences"
 msgstr ""
 
-#: lib/object.php:390
+#: lib/object.php:467
 msgid "by date"
 msgstr ""
 
-#: lib/object.php:400
+#: lib/object.php:477
 msgid "by monthday"
 msgstr ""
 
-#: lib/object.php:401
+#: lib/object.php:478
 msgid "by weekday"
 msgstr ""
 
-#: lib/object.php:411 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:488 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr ""
 
-#: lib/object.php:412 templates/calendar.php:5
+#: lib/object.php:489 templates/calendar.php:5
 msgid "Tuesday"
 msgstr ""
 
-#: lib/object.php:413 templates/calendar.php:5
+#: lib/object.php:490 templates/calendar.php:5
 msgid "Wednesday"
 msgstr ""
 
-#: lib/object.php:414 templates/calendar.php:5
+#: lib/object.php:491 templates/calendar.php:5
 msgid "Thursday"
 msgstr ""
 
-#: lib/object.php:415 templates/calendar.php:5
+#: lib/object.php:492 templates/calendar.php:5
 msgid "Friday"
 msgstr ""
 
-#: lib/object.php:416 templates/calendar.php:5
+#: lib/object.php:493 templates/calendar.php:5
 msgid "Saturday"
 msgstr ""
 
-#: lib/object.php:417 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr ""
 
-#: lib/object.php:427
+#: lib/object.php:504
 msgid "events week of month"
 msgstr ""
 
-#: lib/object.php:428
+#: lib/object.php:505
 msgid "first"
 msgstr ""
 
-#: lib/object.php:429
+#: lib/object.php:506
 msgid "second"
 msgstr ""
 
-#: lib/object.php:430
+#: lib/object.php:507
 msgid "third"
 msgstr ""
 
-#: lib/object.php:431
+#: lib/object.php:508
 msgid "fourth"
 msgstr ""
 
-#: lib/object.php:432
+#: lib/object.php:509
 msgid "fifth"
 msgstr ""
 
-#: lib/object.php:433
+#: lib/object.php:510
 msgid "last"
 msgstr ""
 
-#: lib/object.php:467 templates/calendar.php:7
+#: lib/object.php:544 templates/calendar.php:7
 msgid "January"
 msgstr ""
 
-#: lib/object.php:468 templates/calendar.php:7
+#: lib/object.php:545 templates/calendar.php:7
 msgid "February"
 msgstr ""
 
-#: lib/object.php:469 templates/calendar.php:7
+#: lib/object.php:546 templates/calendar.php:7
 msgid "March"
 msgstr ""
 
-#: lib/object.php:470 templates/calendar.php:7
+#: lib/object.php:547 templates/calendar.php:7
 msgid "April"
 msgstr ""
 
-#: lib/object.php:471 templates/calendar.php:7
+#: lib/object.php:548 templates/calendar.php:7
 msgid "May"
 msgstr ""
 
-#: lib/object.php:472 templates/calendar.php:7
+#: lib/object.php:549 templates/calendar.php:7
 msgid "June"
 msgstr ""
 
-#: lib/object.php:473 templates/calendar.php:7
+#: lib/object.php:550 templates/calendar.php:7
 msgid "July"
 msgstr ""
 
-#: lib/object.php:474 templates/calendar.php:7
+#: lib/object.php:551 templates/calendar.php:7
 msgid "August"
 msgstr ""
 
-#: lib/object.php:475 templates/calendar.php:7
+#: lib/object.php:552 templates/calendar.php:7
 msgid "September"
 msgstr ""
 
-#: lib/object.php:476 templates/calendar.php:7
+#: lib/object.php:553 templates/calendar.php:7
 msgid "October"
 msgstr ""
 
-#: lib/object.php:477 templates/calendar.php:7
+#: lib/object.php:554 templates/calendar.php:7
 msgid "November"
 msgstr ""
 
-#: lib/object.php:478 templates/calendar.php:7
+#: lib/object.php:555 templates/calendar.php:7
 msgid "December"
 msgstr ""
 
-#: lib/object.php:488
+#: lib/object.php:565
 msgid "by events date"
 msgstr ""
 
-#: lib/object.php:489
+#: lib/object.php:566
 msgid "by yearday(s)"
 msgstr ""
 
-#: lib/object.php:490
+#: lib/object.php:567
 msgid "by weeknumber(s)"
 msgstr ""
 
-#: lib/object.php:491
+#: lib/object.php:568
 msgid "by day and month"
 msgstr ""
 
@@ -487,7 +507,7 @@ msgid "Your calendars"
 msgstr ""
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:11
+#: templates/part.choosecalendar.rowfields.php:15
 msgid "CalDav Link"
 msgstr ""
 
@@ -499,19 +519,19 @@ msgstr ""
 msgid "No shared calendars"
 msgstr ""
 
-#: templates/part.choosecalendar.rowfields.php:8
+#: templates/part.choosecalendar.rowfields.php:11
 msgid "Share Calendar"
 msgstr ""
 
-#: templates/part.choosecalendar.rowfields.php:14
+#: templates/part.choosecalendar.rowfields.php:18
 msgid "Download"
 msgstr ""
 
-#: templates/part.choosecalendar.rowfields.php:17
+#: templates/part.choosecalendar.rowfields.php:22
 msgid "Edit"
 msgstr ""
 
-#: templates/part.choosecalendar.rowfields.php:20
+#: templates/part.choosecalendar.rowfields.php:27
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr ""
