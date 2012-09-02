@@ -10,24 +10,33 @@
  * later.
  */
  ?>
-  <div id="ownpad-location">
- <label><?php echo $l->t('Pad Title:') ?></label><input id="ownpad-title" value="eetest" /><button id="ownpad-open"><?php echo $l->t('Open') ?></button>
- </div>
+ <div id="ownpad-location">
+ <label><?php echo $l->t('Pad Title:') ?></label><input id="ownpad-title" value="eetest" />
+ <button id="ownpad-open"><?php echo $l->t('Open') ?></button>
+  </div>
  <div id="ownpad-content"></div>
  
  <script type="text/javascript">
  var ownPad = {
-	showPad : function(title){ 
+	showPad : function(){
 		$('#ownpad-content').pad({
-			'padId'            : title, 
 			'showControls'     : true,
 			'showChat'         : true,
 			'showLineNumbers'  : true,
-			'border'           : '1px'
+			'border'           : '1px',
+			'padId'            : ownPad.getTitle(),
+			'userName'         : ownPad.getUsername(),
+			'host'             : 'http://beta.etherpad.org',
+			'baseUrl'          : '/p/'
 		});
+	},
+	getTitle : function(){
+		return $('#ownpad-title').val();
+	},
+	getUsername : function(){
+		return OC.currentUser;
 	}
-}
-$('#ownpad-open').click(function(){
-	ownPad.showPad($('#ownpad-title').val());
-});
- </script>
+};
+
+$('#ownpad-open').click(ownPad.showPad);
+</script>
