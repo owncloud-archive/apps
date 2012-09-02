@@ -220,6 +220,7 @@ Calendar={
 			//}
 		},
 		scrollCalendar:function(event){
+			$('#fullcalendar').fullCalendar('option', 'height', $(window).height() - $('#controls').height() - $('#header').height() - 15);
 			$('.tipsy').remove();
 			var direction;
 			if(event.detail){
@@ -988,4 +989,5 @@ $(document).ready(function(){
 	$('#choosecalendar .calendarsettings').on('click keydown', function() {
 		OC.appSettings({appid:'calendar', loadJS:true, cache:false, scriptName:'calendar.php'});
 	});
+	$('#fullcalendar').fullCalendar('option', 'height', $(window).height() - $('#controls').height() - $('#header').height() - 15);
 });
