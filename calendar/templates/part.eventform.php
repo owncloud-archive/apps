@@ -246,6 +246,6 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 <div id="tabs-4">//Attendees</div>-->
 <?php if($_['access'] == 'owner') { ?>
 <div id="tabs-5">
-	<?php if($_['eventid'] != 'new'){ echo $this->inc('share.dropdown'); } ?>
+	<?php if($_['eventid'] != 'new'){ echo $this->inc('part.share'); } ?>
 </div>
 <?php } ?>
