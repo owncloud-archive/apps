@@ -64,3 +64,4 @@ function calendarcachecheck(){
 		}
 	});
 }
+OC.Share.loadIcons('calendar');
