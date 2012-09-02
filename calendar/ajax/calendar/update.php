@@ -35,14 +35,18 @@ try {
 	exit;
 }
 
-$calendar = OC_Calendar_App::getCalendar($calendarid);
+$calendar = OC_Calendar_Calendar::find($calendarid);
 $tmpl = new OCP\Template('calendar', 'part.choosecalendar.rowfields');
 $tmpl->assign('calendar', $calendar);
-if(OC_Calendar_Share::allUsersSharedwith($calendarid, OC_Calendar_Share::CALENDAR) == array()){
-	$shared = false;
-}else{
-	$shared = true;
+
+$shared = false;
+if ($calendar['userid'] != OCP\User::getUser()) {
+	$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $calendarid);
+	if ($sharedCalendar || ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+		$shared = true;
+	}
 }
+
 $tmpl->assign('shared', $shared);
 OCP\JSON::success(array(
 	'page' => $tmpl->fetchPage(),

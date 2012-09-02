@@ -17,10 +17,10 @@ $id = $_POST['id'];
 $data = OC_Calendar_App::getEventObject($id, false, false);
 
 if(!$data){
-	OCP\JSON::error(array('data' => array('message' => self::$l10n->t('Wrong calendar'))));
+	OCP\JSON::error(array('data' => array('message' => OC_Calendar_App::$l10n->t('Wrong calendar'))));
 	exit;
 }
-$access = OC_Calendar_App::getaccess($id, OC_Calendar_Share::EVENT);
+$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT);
 $object = OC_VObject::parse($data['calendardata']);
 $vevent = $object->VEVENT;
 
@@ -197,12 +197,6 @@ if($data['repeating'] == 1){
 	$repeat['repeat'] = 'doesnotrepeat';
 }
 $calendar_options = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
-$share = OC_Calendar_Share::allSharedwithuser(OCP\USER::getUser(), OC_Calendar_Share::CALENDAR);
-for($i = 0; $i < count($share); $i++) {
-	if(OC_Calendar_Share::is_editing_allowed(OCP\USER::getUser(), $share[$i]['calendarid'], OC_Calendar_Share::CALENDAR)) {
-		array_push($calendar_options, OC_Calendar_App::getCalendar($share[$i]['calendarid'], false, false));
-	}
-}
 $category_options = OC_Calendar_App::getCategoryOptions();
 $repeat_options = OC_Calendar_App::getRepeatOptions();
 $repeat_end_options = OC_Calendar_App::getEndOptions();
@@ -215,14 +209,14 @@ $repeat_bymonth_options = OC_Calendar_App::getByMonthOptions();
 $repeat_byweekno_options = OC_Calendar_App::getByWeekNoOptions();
 $repeat_bymonthday_options = OC_Calendar_App::getByMonthDayOptions();
 
-if($access == 'owner' || $access == 'rw'){
+if($permissions & OCP\Share::PERMISSION_UPDATE) {
 	$tmpl = new OCP\Template('calendar', 'part.editevent');
-}elseif($access == 'r'){
+} elseif($permissions & OCP\Share::PERMISSION_READ) {
 	$tmpl = new OCP\Template('calendar', 'part.showevent');
 }
 
 $tmpl->assign('eventid', $id);
-$tmpl->assign('access', $access);
+$tmpl->assign('permissions', $permissions);
 $tmpl->assign('lastmodified', $lastmodified);
 $tmpl->assign('calendar_options', $calendar_options);
 $tmpl->assign('repeat_options', $repeat_options);
