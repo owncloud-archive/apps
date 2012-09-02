@@ -239,7 +239,7 @@ Calendar={
 			var scroll = $(document).scrollTop(),
 				doc_height = $(document).height(),
 				win_height = $(window).height();
-			if(direction == 'down' && win_height == (doc_height - scroll)){
+			if(direction == 'down'/* && win_height == (doc_height - scroll)*/){
 				$('#fullcalendar').fullCalendar('next');
 				$(document).scrollTop(0);
 				event.preventDefault();
