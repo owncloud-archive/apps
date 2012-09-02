@@ -60,6 +60,10 @@ button.category{margin:0 3px;}
 -moz-box-shadow:0 1px 1px #777; -webkit-box-shadow:0 1px 1px #777; box-shadow:0 1px 1px #777;
 -moz-border-radius:0 0 1em 1em; -webkit-border-radius:0 0 1em 1em; border-radius:0 0 1em 1em;}
 
+.sharedby li .shareactions { float: right; }
+.sharedby li > .shareactions > * { display: none; }
+.sharedby li:hover > .shareactions > * { display: inline-block; }
+
 .fc-list-table
 {
     margin: 10px;
