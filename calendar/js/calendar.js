@@ -8,6 +8,7 @@
 
 Calendar={
 	UI:{
+		scrollcount: 0,
 		loading: function(isLoading){
 			if (isLoading){
 				$('#loading').show();
@@ -237,6 +238,11 @@ Calendar={
 					direction = 'down';
 				}
 			}
+			Calendar.UI.scrollcount++;
+			if(Calendar.UI.scrollcount < 5){
+				return;
+			}
+			
 			var scroll = $(document).scrollTop(),
 				doc_height = $(document).height(),
 				win_height = $(window).height();
@@ -249,6 +255,7 @@ Calendar={
 				$(document).scrollTop(win_height);
 				event.preventDefault();
 			}
+			Calendar.UI.scrollcount = 0;
 		},
 		repeat:function(task){
 			if(task=='init'){
