@@ -243,7 +243,7 @@ Calendar={
 				$('#fullcalendar').fullCalendar('next');
 				$(document).scrollTop(0);
 				event.preventDefault();
-			}else if (direction == 'top' && scroll == 0) {
+			}else/* if (direction == 'top' && scroll == 0) */{
 				$('#fullcalendar').fullCalendar('prev');
 				$(document).scrollTop(win_height);
 				event.preventDefault();
