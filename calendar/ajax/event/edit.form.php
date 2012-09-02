@@ -14,7 +14,7 @@ if(!OCP\User::isLoggedIn()) {
 OCP\JSON::checkAppEnabled('calendar');
 
 $id = $_POST['id'];
-$data = OC_Calendar_App::getEventObject($id, true, true);
+$data = OC_Calendar_App::getEventObject($id, false, false);
 
 if(!$data){
 	OCP\JSON::error(array('data' => array('message' => self::$l10n->t('Wrong calendar'))));
