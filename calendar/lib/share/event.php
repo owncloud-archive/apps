@@ -21,8 +21,10 @@ class OC_Share_Backend_Event implements OCP\Share_Backend {
 	}
 	
 	public function generateTarget($itemSource, $shareWith, $exclude = null) {
-		// TODO Get default calendar and check for conflicts
-		return self::$event['summary'];
+		if(!self::$event) {
+			self::$event = OC_Calendar_Object::find($itemSource);
+		}
+		return self::$event['summary'] .= ' (' . OC_Calendar_App::$l10n->t('by') .  ' ' . OC_Calendar_Object::getowner(self::$event['id']) . ')';;
 	}
 	
 	public function formatItems($items, $format, $parameters = null) {
