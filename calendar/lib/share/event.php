@@ -31,6 +31,7 @@ class OC_Share_Backend_Event implements OCP\Share_Backend {
 			foreach ($items as $item) {
 				$event = OC_Calendar_Object::find($item['item_source']);
 				$event['summary'] = $item['item_target'];
+				$event['permissions'] = $item['permissions'];
 				$events[] = $event;
 			}
 		}
