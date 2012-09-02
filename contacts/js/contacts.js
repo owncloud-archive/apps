@@ -1934,7 +1934,7 @@ $(document).ready(function(){
 			case 82: // r
 				OC.Contacts.Contacts.update({cid:OC.Contacts.Card.id});
 				break;
-			case 191: // ?
+			case 171: // ?
 				ninjahelp.toggle('fast');
 				break;
 		}
