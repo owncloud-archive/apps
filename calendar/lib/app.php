@@ -307,32 +307,30 @@ class OC_Calendar_App{
 			$calendar = self::getCalendar($id, false, false);
 			if($calendar['userid'] == OCP\USER::getUser()){
 				return 'owner';
-			}
-			$isshared = OC_Calendar_Share::check_access(OCP\USER::getUser(), $id, OC_Calendar_Share::CALENDAR);
-			if($isshared){
-				$writeaccess = OC_Calendar_Share::is_editing_allowed(OCP\USER::getUser(), $id, OC_Calendar_Share::CALENDAR);
-				if($writeaccess){
+			} else {
+				$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+				if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
 					return 'rw';
-				}else{
+				}
+				if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_READ)) {
 					return 'r';
 				}
-			}else{
-				return false;
 			}
-		}elseif($type == self::EVENT){
+		} elseif($type == self::EVENT){
 			if(OC_Calendar_Object::getowner($id) == OCP\USER::getUser()){
 				return 'owner';
-			}
-			$isshared = OC_Calendar_Share::check_access(OCP\USER::getUser(), $id, OC_Calendar_Share::EVENT);
-			if($isshared){
-				$writeaccess = OC_Calendar_Share::is_editing_allowed(OCP\USER::getUser(), $id, OC_Calendar_Share::EVENT);
-				if($writeaccess){
+			} else {
+				$object = OC_Calendar_Object::find($id);
+				$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $object['calendarid']);
+				$sharedEvent = OCP\Share::getItemSharedWithBySource('event', $id);
+				if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)
+					|| $sharedEvent && ($sharedEvent['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
 					return 'rw';
-				}else{
+				}
+				if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_READ)
+					|| $sharedEvent && ($sharedEvent['permissions'] & OCP\Share::PERMISSION_READ)) {
 					return 'r';
 				}
-			}else{
-				return false;
 			}
 		}
 	}
