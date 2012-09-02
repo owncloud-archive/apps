@@ -54,6 +54,7 @@ Calendar={
 					$(this).dialog('destroy').remove();
 				}
 			});
+			Calendar.UI.Share.init();
 		},
 		newEvent:function(start, end, allday){
 			start = Math.round(start.getTime()/1000);
@@ -539,6 +540,77 @@ Calendar={
 				$.post(OC.filePath('calendar', 'ajax/share', 'changepermission.php'),{id:id, idtype:idtype, sharewith: sharewith, sharetype:sharetype, permission: (permission?1:0)});
 			},
 			init:function(){
+				var itemShares = [OC.Share.SHARE_TYPE_USER, OC.Share.SHARE_TYPE_GROUP];
+				$('#sharewith').autocomplete({minLength: 2, source: function(search, response) {
+					$.get(OC.filePath('core', 'ajax', 'share.php'), { fetch: 'getShareWith', search: search.term, itemShares: itemShares }, function(result) {
+						if (result.status == 'success' && result.data.length > 0) {
+							response(result.data);
+						}
+					});
+				},
+				focus: function(event, focused) {
+					event.preventDefault();
+				},
+				select: function(event, selected) {
+					var itemType = 'event';
+					var itemSource = $('#sharewith').data('item-source');
+					var shareType = selected.item.value.shareType;
+					var shareWith = selected.item.value.shareWith;
+					$(this).val(shareWith);
+					// Default permissions are Read and Share
+					var permissions = OC.PERMISSION_READ | OC.PERMISSION_SHARE;
+					OC.Share.share(itemType, itemSource, shareType, shareWith, permissions, function(data) {
+						var newitem = '<li data-item-type="event"'
+							+ 'data-share-with="'+shareWith+'" '
+							+ 'data-permissions="'+permissions+'" '
+							+ 'data-share-type="'+shareType+'">'+shareWith+' ('+(shareType == OC.Share.SHARE_TYPE_USER ? t('core', 'user') : t('core', 'group'))+')'
+							+ '<span class="shareactions"><input class="update" type="checkbox" title="'+t('core', 'Editable')+'">'
+							+ '<input class="share" type="checkbox" title="'+t('core', 'Shareable')+'" checked="checked">'
+							+ '<input class="delete" type="checkbox" title="'+t('core', 'Deletable')+'">'
+							+ '<img class="svg action delete" title="Unshare"src="'+ OC.imagePath('core', 'actions/delete.svg') +'"></span></li>';
+						$('.sharedby.eventlist').append(newitem);
+						$('#sharedWithNobody').remove();
+						$('#sharewith').val('');
+					});
+					return false;
+				}
+				});
+				
+				$('.shareactions > input:checkbox').change(function() {
+					var container = $(this).parents('li').first();
+					var permissions = parseInt(container.data('permissions'));
+					var itemType = container.data('item-type');
+					var shareType = container.data('share-type');
+					var itemSource = container.data('item');
+					var shareWith = container.data('share-with');
+					var permission = null;
+					if($(this).hasClass('update')) {
+						permission = OC.PERMISSION_UPDATE;
+					} else if($(this).hasClass('share')) {
+						permission = OC.PERMISSION_SHARE;
+					} else if($(this).hasClass('delete')) {
+						permission = OC.PERMISSION_DELETE;
+					}
+					// This is probably not the right way, but it works :-P
+					if($(this).is(':checked')) {
+						permissions += permission;
+					} else {
+						permissions -= permission;
+					}
+					OC.Share.setPermissions(itemType, itemSource, shareType, shareWith, permissions);
+				});
+				
+				$('.shareactions > .delete').click(function() {
+					var container = $(this).parents('li').first();
+					var itemType = container.data('item-type');
+					var shareType = container.data('share-type');
+					var itemSource = container.data('item');
+					var shareWith = container.data('share-with');
+					OC.Share.unshare(itemType, itemSource, shareType, shareWith, function() {
+						container.remove();
+					});
+				});
+
 				$('.calendar_share_dropdown').live('mouseleave', function(){
 					$('.calendar_share_dropdown').hide('blind', function(){
 						$('.calendar_share_dropdown').remove();
@@ -586,22 +658,6 @@ Calendar={
 					}else{
 						Calendar.UI.Share.unshare(Calendar.UI.Share.currentid, Calendar.UI.Share.idtype, '', 'public');
 					}
-				});
-				$('#sharewithuser_list').live('mouseenter', function(){
-					$('#sharewithuser_list > li > img').css('display', 'block');
-					$('#sharewithuser_list > li > input').css('visibility', 'visible');
-				});
-				$('#sharewithuser_list').live('mouseleave', function(){
-					$('#sharewithuser_list > li > img').css('display', 'none');
-					$('#sharewithuser_list > li > input').css('visibility', 'hidden');
-				});
-				$('#sharewithgroup_list').live('mouseenter', function(){
-					$('#sharewithgroup_list > li > img').css('display', 'block');
-					$('#sharewithgroup_list > li > input').css('visibility', 'visible');
-				});
-				$('#sharewithgroup_list').live('mouseleave', function(){
-					$('#sharewithgroup_list > li > img').css('display', 'none');
-					$('#sharewithgroup_list > li > input').css('visibility', 'hidden');
 				});
 				/*var permissions = (this.checked) ? 1 : 0;*/
 			}
