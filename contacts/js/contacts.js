@@ -1934,7 +1934,13 @@ $(document).ready(function(){
 			case 82: // r
 				OC.Contacts.Contacts.update({cid:OC.Contacts.Card.id});
 				break;
-			case 171: // ?
+			case 63: // ? German.
+				if(event.shiftKey) {
+					ninjahelp.toggle('fast');
+				}
+				break;
+			case 171: // ? Danish
+			case 191: // ? Standard qwerty
 				ninjahelp.toggle('fast');
 				break;
 		}
