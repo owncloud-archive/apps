@@ -39,15 +39,12 @@ class OC_Calendar_App{
 		if(! is_numeric($id)){
 			return false;
 		}
+
 		$calendar = OC_Calendar_Calendar::find($id);
-		if($shared === true){
-			if(OC_Calendar_Share::check_access(OCP\USER::getUser(), $id, OC_Calendar_Share::CALENDAR)){
+		// FIXME: Correct arguments to just check for permissions
+		if($security === true || $shared === true) {
+			if(OCP\Share::getItemSharedWithBySource('calendar', $id)) {
 				return $calendar;
-			}
-		}
-		if($security === true){
-			if($calendar['userid'] != OCP\USER::getUser()){
-				return false;
 			}
 		}
 		return $calendar;
@@ -62,21 +59,17 @@ class OC_Calendar_App{
 	 */
 	public static function getEventObject($id, $security = true, $shared = false){
 		$event = OC_Calendar_Object::find($id);
-		if($shared === true){
-			if(OC_Calendar_Share::check_access(OCP\USER::getUser(), $id, OC_Calendar_Share::EVENT)){
+		if($shared === true || $security === true) {
+			$permissions = self::getPermissions($id, self::EVENT);
+			OCP\Util::writeLog('contacts', __METHOD__.' id: '.$id.', permissions: '.$permissions, OCP\Util::DEBUG);
+			if(self::getPermissions($id, self::EVENT)) {
 				return $event;
 			}
+		} else {
+			return $event;
 		}
-		if($security === true){
-			$calendar = self::getCalendar($event['calendarid'], false);
-			if($calendar['userid'] != OCP\USER::getUser()){
-				return false;
-			}
-		}
-		if($event === false){
-			return false;
-		}
-		return $event;
+
+		return false;
 	}
 	
 	/**
@@ -294,47 +287,49 @@ class OC_Calendar_App{
 	}
 
 	/**
-	 * @brief checks the access for a calendar / an event
+	 * @brief Get the permissions for a calendar / an event
 	 * @param (int) $id - id of the calendar / event
 	 * @param (string) $type - type of the id (calendar/event)
-	 * @return (string) $access - level of access
-	 * @deprecated deprecated since ownCloud version 4.5
+	 * @return (int) $permissions - CRUDS permissions
+	 * @see OCP\Share
 	 */
-	public static function getaccess($id, $type){
-		OC_Log::write('calendar', 'DEPRECATED: the method ' . __METHOD__
-			. ' is deprecated and will be removed soon.', OC_Log::WARN);
-		if($type == self::CALENDAR){
+	public static function getPermissions($id, $type) {
+		 $permissions_all = OCP\Share::PERMISSION_CREATE 
+				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE 
+				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
+
+		if($type == self::CALENDAR) {
 			$calendar = self::getCalendar($id, false, false);
-			if($calendar['userid'] == OCP\USER::getUser()){
-				return 'owner';
+			if($calendar['userid'] == OCP\USER::getUser()) {
+				return $permissions_all;
 			} else {
 				$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-				if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
-					return 'rw';
-				}
-				if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_READ)) {
-					return 'r';
+				if ($sharedCalendar) {
+					return $sharedCalendar['permissions'];
 				}
 			}
-		} elseif($type == self::EVENT){
-			if(OC_Calendar_Object::getowner($id) == OCP\USER::getUser()){
-				return 'owner';
+		}
+		elseif($type == self::EVENT) {
+			if(OC_Calendar_Object::getowner($id) == OCP\USER::getUser()) {
+				return $permissions_all;
 			} else {
 				$object = OC_Calendar_Object::find($id);
 				$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $object['calendarid']);
 				$sharedEvent = OCP\Share::getItemSharedWithBySource('event', $id);
-				if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)
-					|| $sharedEvent && ($sharedEvent['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
-					return 'rw';
+				$calendar_permissions = 0;
+				$event_permissions = 0;
+				if ($sharedCalendar) {
+					$calendar_permissions = $sharedCalendar['permissions'];
 				}
-				if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_READ)
-					|| $sharedEvent && ($sharedEvent['permissions'] & OCP\Share::PERMISSION_READ)) {
-					return 'r';
+				if ($sharedEvent) {
+					$event_permissions = $sharedEvent['permissions'];
 				}
+				return max($calendar_permissions, $event_permissions);
 			}
 		}
+		return 0;
 	}
-	
+	 
 	/**
 	 * @brief analyses the parameter for calendar parameter and returns the objects
 	 * @param (string) $calendarid - calendarid
