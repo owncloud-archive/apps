@@ -268,7 +268,10 @@ class OC_Calendar_Calendar{
 	 * @return string uri
 	 */
 	public static function createURI($name,$existing){
+		$strip=array(' ','/','?','&');//these may break sync clients
+		$name=str_replace($strip,'',$name);
 		$name = strtolower($name);
+		
 		$newname = $name;
 		$i = 1;
 		while(in_array($newname,$existing)){
