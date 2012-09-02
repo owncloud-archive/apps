@@ -4,7 +4,7 @@
 	<?php
 	$option_calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
 	for($i = 0; $i < count($option_calendars); $i++){
-		echo "<tr>";
+		echo "<tr data-id='".$option_calendars[$i]['id']."'>";
 		$tmpl = new OCP\Template('calendar', 'part.choosecalendar.rowfields');
 		$tmpl->assign('calendar', $option_calendars[$i]);
 		if(OC_Calendar_Share::allUsersSharedwith($option_calendars[$i]['id'], OC_Calendar_Share::CALENDAR) == array()){

@@ -431,6 +431,9 @@ Calendar={
 							$('#fullcalendar').fullCalendar('removeEventSource', url);
 							$('#choosecalendar_dialog').dialog('destroy').remove();
 							Calendar.UI.Calendar.overview();
+							$('#calendar tr[data-id="'+calid+'"]').fadeOut(400,function(){
+								$('#calendar tr[data-id="'+calid+'"]').remove();
+							});
 							$('#fullcalendar').fullCalendar('refetchEvents');
 						}
 					  });
