@@ -12,6 +12,7 @@
 "Timezone changed" => "Часовой пояс изменён",
 "Invalid request" => "Неверный запрос",
 "Calendar" => "Календарь",
+"Editable" => "Редактируемо",
 "ddd" => "ддд",
 "ddd M/d" => "ддд М/д",
 "dddd M/d" => "дддд М/д",
@@ -188,11 +189,5 @@
 "more info" => "подробнее",
 "Primary address (Kontact et al)" => "Основной адрес (Контакта)",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "Читать только ссылки iCalendar",
-"Users" => "Пользователи",
-"select users" => "выбрать пользователей",
-"Editable" => "Редактируемо",
-"Groups" => "Группы",
-"select groups" => "выбрать группы",
-"make public" => "селать публичным"
+"Read only iCalendar link(s)" => "Читать только ссылки iCalendar"
 );

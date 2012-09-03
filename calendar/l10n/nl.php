@@ -12,6 +12,7 @@
 "Timezone changed" => "Tijdzone is veranderd",
 "Invalid request" => "Ongeldige aanvraag",
 "Calendar" => "Agenda",
+"Editable" => "Te wijzigen",
 "ddd" => "ddd",
 "ddd M/d" => "ddd d.M",
 "dddd M/d" => "dddd d.M",
@@ -188,11 +189,5 @@
 "more info" => "meer informatie",
 "Primary address (Kontact et al)" => "Primary adres (voor Kontact en dergelijke)",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "Alleen lezen iCalendar link(en)",
-"Users" => "Gebruikers",
-"select users" => "kies gebruikers",
-"Editable" => "Te wijzigen",
-"Groups" => "Groepen",
-"select groups" => "kies groep",
-"make public" => "maak publiek"
+"Read only iCalendar link(s)" => "Alleen lezen iCalendar link(en)"
 );

@@ -12,6 +12,7 @@
 "Timezone changed" => "Ajavöönd on muudetud",
 "Invalid request" => "Vigane päring",
 "Calendar" => "Kalender",
+"Editable" => "Muudetav",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -188,11 +189,5 @@
 "more info" => "lisainfo",
 "Primary address (Kontact et al)" => "Peamine aadress (Kontact et al)",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => " iCalendar lingid ainult loetavana",
-"Users" => "Kasutajad",
-"select users" => "valitud kasutajad",
-"Editable" => "Muudetav",
-"Groups" => "Grupid",
-"select groups" => "valitud grupid",
-"make public" => "tee avalikuks"
+"Read only iCalendar link(s)" => " iCalendar lingid ainult loetavana"
 );

@@ -112,6 +112,7 @@
 "Questions" => "Frågor",
 "{name}'s Birthday" => "{name}'s födelsedag",
 "Contact" => "Kontakt",
+"You do not have the permissions to add contacts to this addressbook." => "Du har inte behörighet att lägga till kontakter i denna adressbok.",
 "Could not find the vCard with ID." => "Kan inte hitta vCard med ID.",
 "You do not have the permissions to edit this contact." => "Du saknar behörighet för att ändra denna kontakt.",
 "Could not find the vCard with ID: " => "Kan inte hitta vCard med ID:",

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:01+0200\n"
-"PO-Revision-Date: 2012-09-02 00:02+0000\n"
+"POT-Creation-Date: 2012-09-03 02:05+0200\n"
+"PO-Revision-Date: 2012-09-03 00:07+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -68,100 +68,120 @@ msgstr "Часовий пояс змінено"
 msgid "Invalid request"
 msgstr ""
 
-#: appinfo/app.php:41 templates/calendar.php:15
+#: appinfo/app.php:40 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Календар"
 
-#: js/calendar.js:832
+#: js/calendar.js:539
+msgid "user"
+msgstr ""
+
+#: js/calendar.js:539
+msgid "group"
+msgstr ""
+
+#: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
+msgid "Editable"
+msgstr ""
+
+#: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
+msgid "Shareable"
+msgstr ""
+
+#: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
+msgid "Deletable"
+msgstr ""
+
+#: js/calendar.js:811
 msgid "ddd"
 msgstr ""
 
-#: js/calendar.js:833
+#: js/calendar.js:812
 msgid "ddd M/d"
 msgstr ""
 
-#: js/calendar.js:834
+#: js/calendar.js:813
 msgid "dddd M/d"
 msgstr ""
 
-#: js/calendar.js:837
+#: js/calendar.js:816
 msgid "MMMM yyyy"
 msgstr ""
 
-#: js/calendar.js:839
+#: js/calendar.js:818
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 msgstr ""
 
-#: js/calendar.js:841
+#: js/calendar.js:820
 msgid "dddd, MMM d, yyyy"
 msgstr ""
 
-#: lib/app.php:121
+#: lib/app.php:114
 msgid "Birthday"
 msgstr "День народження"
 
-#: lib/app.php:122
+#: lib/app.php:115
 msgid "Business"
 msgstr "Справи"
 
-#: lib/app.php:123
+#: lib/app.php:116
 msgid "Call"
 msgstr "Подзвонити"
 
-#: lib/app.php:124
+#: lib/app.php:117
 msgid "Clients"
 msgstr "Клієнти"
 
-#: lib/app.php:125
+#: lib/app.php:118
 msgid "Deliverer"
 msgstr ""
 
-#: lib/app.php:126
+#: lib/app.php:119
 msgid "Holidays"
 msgstr "Свята"
 
-#: lib/app.php:127
+#: lib/app.php:120
 msgid "Ideas"
 msgstr "Ідеї"
 
-#: lib/app.php:128
+#: lib/app.php:121
 msgid "Journey"
 msgstr "Поїздка"
 
-#: lib/app.php:129
+#: lib/app.php:122
 msgid "Jubilee"
 msgstr "Ювілей"
 
-#: lib/app.php:130
+#: lib/app.php:123
 msgid "Meeting"
 msgstr "Зустріч"
 
-#: lib/app.php:131
+#: lib/app.php:124
 msgid "Other"
 msgstr "Інше"
 
-#: lib/app.php:132
+#: lib/app.php:125
 msgid "Personal"
 msgstr "Особисте"
 
-#: lib/app.php:133
+#: lib/app.php:126
 msgid "Projects"
 msgstr "Проекти"
 
-#: lib/app.php:134
+#: lib/app.php:127
 msgid "Questions"
 msgstr "Запитання"
 
-#: lib/app.php:135
+#: lib/app.php:128
 msgid "Work"
 msgstr "Робота"
 
-#: lib/app.php:354 lib/app.php:364
+#: lib/app.php:345 lib/share/event.php:27
 msgid "by"
 msgstr ""
 
-#: lib/app.php:362 lib/app.php:402
+#: lib/app.php:383
 msgid "unnamed"
 msgstr ""
 
@@ -737,6 +757,32 @@ msgstr ""
 msgid "Create a new event"
 msgstr "Створити нову подію"
 
+#: templates/part.share.php:27
+msgid "Share with:"
+msgstr ""
+
+#: templates/part.share.php:30
+msgid "Shared with"
+msgstr ""
+
+#: templates/part.share.php:47 templates/part.share.php:73
+msgid "Unshare"
+msgstr ""
+
+#: templates/part.share.php:53
+msgid "Nobody"
+msgstr ""
+
+#: templates/part.share.php:56
+msgid "Shared via calendar"
+msgstr ""
+
+#: templates/part.share.php:79
+msgid ""
+"NOTE: Actions on events shared via calendar will affect the entire calendar "
+"sharing."
+msgstr ""
+
 #: templates/part.showevent.php:1
 msgid "View an event"
 msgstr ""
@@ -811,28 +857,4 @@ msgstr ""
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr ""
-
-#: templates/share.dropdown.php:20
-msgid "Users"
-msgstr "Користувачі"
-
-#: templates/share.dropdown.php:21
-msgid "select users"
-msgstr ""
-
-#: templates/share.dropdown.php:36 templates/share.dropdown.php:62
-msgid "Editable"
-msgstr ""
-
-#: templates/share.dropdown.php:48
-msgid "Groups"
-msgstr "Групи"
-
-#: templates/share.dropdown.php:49
-msgid "select groups"
-msgstr ""
-
-#: templates/share.dropdown.php:75
-msgid "make public"
 msgstr ""

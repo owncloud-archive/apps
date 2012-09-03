@@ -6,6 +6,7 @@
 "Timezone changed" => "אזור זמן השתנה",
 "Invalid request" => "בקשה לא חוקית",
 "Calendar" => "ח שנה",
+"Editable" => "ניתן לעריכה",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -146,11 +147,5 @@
 "at" => "בשנה",
 "Timezone" => "אזור זמן",
 "24h" => "24 שעות",
-"12h" => "12 שעות",
-"Users" => "משתמשים",
-"select users" => "נא לבחור במשתמשים",
-"Editable" => "ניתן לעריכה",
-"Groups" => "קבוצות",
-"select groups" => "בחירת קבוצות",
-"make public" => "הפיכה לציבורי"
+"12h" => "12 שעות"
 );

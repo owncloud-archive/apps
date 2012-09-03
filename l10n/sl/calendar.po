@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:01+0200\n"
-"PO-Revision-Date: 2012-09-02 00:02+0000\n"
+"POT-Creation-Date: 2012-09-03 02:05+0200\n"
+"PO-Revision-Date: 2012-09-03 00:06+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -71,114 +71,134 @@ msgstr "Časovni pas je bil spremenjen"
 msgid "Invalid request"
 msgstr "Neveljaven zahtevek"
 
-#: appinfo/app.php:41 templates/calendar.php:15
+#: appinfo/app.php:40 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Koledar"
 
-#: js/calendar.js:832
+#: js/calendar.js:539
+msgid "user"
+msgstr ""
+
+#: js/calendar.js:539
+msgid "group"
+msgstr ""
+
+#: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
+msgid "Editable"
+msgstr "Možno urejanje"
+
+#: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
+msgid "Shareable"
+msgstr ""
+
+#: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
+msgid "Deletable"
+msgstr ""
+
+#: js/calendar.js:811
 msgid "ddd"
 msgstr "ddd"
 
-#: js/calendar.js:833
+#: js/calendar.js:812
 msgid "ddd M/d"
 msgstr "ddd M/d"
 
-#: js/calendar.js:834
+#: js/calendar.js:813
 msgid "dddd M/d"
 msgstr "dddd M/d"
 
-#: js/calendar.js:837
+#: js/calendar.js:816
 msgid "MMMM yyyy"
 msgstr "MMMM yyyy"
 
-#: js/calendar.js:839
+#: js/calendar.js:818
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
-#: js/calendar.js:841
+#: js/calendar.js:820
 msgid "dddd, MMM d, yyyy"
 msgstr "dddd, MMM d, yyyy"
 
-#: lib/app.php:121
+#: lib/app.php:114
 msgid "Birthday"
 msgstr "Rojstni dan"
 
-#: lib/app.php:122
+#: lib/app.php:115
 msgid "Business"
 msgstr "Poslovno"
 
-#: lib/app.php:123
+#: lib/app.php:116
 msgid "Call"
 msgstr "Pokliči"
 
-#: lib/app.php:124
+#: lib/app.php:117
 msgid "Clients"
 msgstr "Stranke"
 
-#: lib/app.php:125
+#: lib/app.php:118
 msgid "Deliverer"
 msgstr "Dobavitelj"
 
-#: lib/app.php:126
+#: lib/app.php:119
 msgid "Holidays"
 msgstr "Dopust"
 
-#: lib/app.php:127
+#: lib/app.php:120
 msgid "Ideas"
 msgstr "Ideje"
 
-#: lib/app.php:128
+#: lib/app.php:121
 msgid "Journey"
 msgstr "Potovanje"
 
-#: lib/app.php:129
+#: lib/app.php:122
 msgid "Jubilee"
 msgstr "Obletnica"
 
-#: lib/app.php:130
+#: lib/app.php:123
 msgid "Meeting"
 msgstr "Sestanek"
 
-#: lib/app.php:131
+#: lib/app.php:124
 msgid "Other"
 msgstr "Ostalo"
 
-#: lib/app.php:132
+#: lib/app.php:125
 msgid "Personal"
 msgstr "Osebno"
 
-#: lib/app.php:133
+#: lib/app.php:126
 msgid "Projects"
 msgstr "Projekt"
 
-#: lib/app.php:134
+#: lib/app.php:127
 msgid "Questions"
 msgstr "Vprašanja"
 
-#: lib/app.php:135
+#: lib/app.php:128
 msgid "Work"
 msgstr "Delo"
 
-#: lib/app.php:354 lib/app.php:364
+#: lib/app.php:345 lib/share/event.php:27
 msgid "by"
 msgstr "od"
 
-#: lib/app.php:362 lib/app.php:402
+#: lib/app.php:383
 msgid "unnamed"
 msgstr "neimenovan"
 
 #: lib/calendar.php:153 lib/calendar.php:186
 msgid "You do not have the permissions to update this calendar."
-msgstr ""
+msgstr "Nimate dovoljenj za posodobitev tega koledarja."
 
 #: lib/calendar.php:221
 msgid "You do not have the permissions to delete this calendar."
-msgstr ""
+msgstr "Nimate dovoljenj za izbris tega koledarja."
 
 #: lib/calendar.php:253
 msgid "You do not have the permissions to add to this calendar."
-msgstr ""
+msgstr "Nimate dovoljenj za dodajanje tega koledarja."
 
 #: lib/import.php:186 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
@@ -187,15 +207,15 @@ msgstr "Nov koledar"
 
 #: lib/object.php:122 lib/object.php:161 lib/object.php:304
 msgid "You do not have the permissions to add events to this calendar."
-msgstr ""
+msgstr "Nimate dovoljenj za dodajanje dogodkov v ta koledar."
 
 #: lib/object.php:193 lib/object.php:227
 msgid "You do not have the permissions to edit this event."
-msgstr ""
+msgstr "Nimate dovoljenj za urejanje tega dogodka."
 
 #: lib/object.php:257 lib/object.php:284
 msgid "You do not have the permissions to delete this event."
-msgstr ""
+msgstr "Nimate dovoljenj za izbris tega dogodka."
 
 #: lib/object.php:449
 msgid "Does not repeat"
@@ -740,6 +760,32 @@ msgstr "Zapri dialog"
 msgid "Create a new event"
 msgstr "Ustvari nov dogodek"
 
+#: templates/part.share.php:27
+msgid "Share with:"
+msgstr ""
+
+#: templates/part.share.php:30
+msgid "Shared with"
+msgstr ""
+
+#: templates/part.share.php:47 templates/part.share.php:73
+msgid "Unshare"
+msgstr ""
+
+#: templates/part.share.php:53
+msgid "Nobody"
+msgstr ""
+
+#: templates/part.share.php:56
+msgid "Shared via calendar"
+msgstr ""
+
+#: templates/part.share.php:79
+msgid ""
+"NOTE: Actions on events shared via calendar will affect the entire calendar "
+"sharing."
+msgstr ""
+
 #: templates/part.showevent.php:1
 msgid "View an event"
 msgstr "Poglej dogodek"
@@ -815,27 +861,3 @@ msgstr "iOS/OS X"
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
 msgstr "iCalendar povezava/e samo za branje"
-
-#: templates/share.dropdown.php:20
-msgid "Users"
-msgstr "Uporabniki"
-
-#: templates/share.dropdown.php:21
-msgid "select users"
-msgstr "izberite uporabnike"
-
-#: templates/share.dropdown.php:36 templates/share.dropdown.php:62
-msgid "Editable"
-msgstr "Možno urejanje"
-
-#: templates/share.dropdown.php:48
-msgid "Groups"
-msgstr "Skupine"
-
-#: templates/share.dropdown.php:49
-msgid "select groups"
-msgstr "izberite skupine"
-
-#: templates/share.dropdown.php:75
-msgid "make public"
-msgstr "objavi"

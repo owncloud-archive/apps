@@ -12,6 +12,7 @@
 "Timezone changed" => "Ordu-zonaldea aldatuta",
 "Invalid request" => "Baliogabeko eskaera",
 "Calendar" => "Egutegia",
+"Editable" => "Editagarria",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -184,11 +185,5 @@
 "more info" => "informazio gehiago",
 "Primary address (Kontact et al)" => "Helbide nagusia",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "Bakarrik irakurtzeko iCalendar lotura(k)",
-"Users" => "Erabiltzaileak",
-"select users" => "hautatutako erabiltzaileak",
-"Editable" => "Editagarria",
-"Groups" => "Taldeak",
-"select groups" => "hautatutako taldeak",
-"make public" => "publikoa egin"
+"Read only iCalendar link(s)" => "Bakarrik irakurtzeko iCalendar lotura(k)"
 );

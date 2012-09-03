@@ -12,6 +12,7 @@
 "Timezone changed" => "時區已變更",
 "Invalid request" => "無效請求",
 "Calendar" => "日曆",
+"Editable" => "可編輯",
 "ddd" => "ddd",
 "ddd M/d" => "M/d ddd",
 "dddd M/d" => "M/d dddd",
@@ -188,11 +189,5 @@
 "more info" => "更多資訊",
 "Primary address (Kontact et al)" => "主要地址",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "唯讀的 iCalendar 連結(們)",
-"Users" => "使用者",
-"select users" => "選擇使用者",
-"Editable" => "可編輯",
-"Groups" => "群組",
-"select groups" => "選擇群組",
-"make public" => "公開"
+"Read only iCalendar link(s)" => "唯讀的 iCalendar 連結(們)"
 );

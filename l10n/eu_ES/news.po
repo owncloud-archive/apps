@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:02+0200\n"
-"PO-Revision-Date: 2012-09-02 00:04+0000\n"
+"POT-Creation-Date: 2012-09-03 02:06+0200\n"
+"PO-Revision-Date: 2012-09-03 00:08+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Basque (Spain) (http://www.transifex.com/projects/p/owncloud/language/eu_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: ajax/changefoldername.php:29
+msgid "Error changing name of folder "
+msgstr ""
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -25,7 +29,7 @@ msgstr ""
 msgid "Error adding feed."
 msgstr ""
 
-#: ajax/createfeed.php:74
+#: ajax/createfeed.php:70
 msgid "Feed added!"
 msgstr ""
 
@@ -57,15 +61,15 @@ msgstr ""
 msgid "Error updating feeds."
 msgstr ""
 
-#: ajax/loadfeed.php:35 templates/part.feeds.php:49
+#: ajax/loadfeed.php:36 templates/part.feeds.php:50
 msgid "Starred"
 msgstr ""
 
-#: ajax/loadfeed.php:40 templates/part.feeds.php:43
+#: ajax/loadfeed.php:41 templates/part.feeds.php:44
 msgid "New articles"
 msgstr ""
 
-#: ajax/loadfeed.php:52
+#: ajax/loadfeed.php:53
 msgid "Feed loaded!"
 msgstr ""
 
@@ -97,36 +101,45 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: js/main.js:77 js/news.js:50 js/news.js:75 js/news.js:90 js/news.js:129
-#: js/settings.js:16 js/settings.js:22 js/settings.js:47
-msgid "Error"
-msgstr ""
-
-#: js/news.js:50
+#: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
 msgstr ""
 
-#: js/news.js:55 js/news.js:95
+#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:77 js/news.js:91
+#: js/news.js:117 js/settings.js:16 js/settings.js:22 js/settings.js:47
+msgid "Error"
+msgstr ""
+
+#: js/news.js:33 js/news.js:96
 msgid "Adding..."
 msgstr ""
 
-#: js/news.js:79 templates/part.folderdialog.php:14
+#: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
 msgstr ""
 
-#: js/news.js:90
+#: js/news.js:63
+msgid "Changing..."
+msgstr ""
+
+#: js/news.js:80 templates/part.dialogues.php:34
+#: templates/part.dialogues.php:38 templates/part.dialogues.php:43
+msgid "Change folder name"
+msgstr ""
+
+#: js/news.js:91
 msgid "URL cannot be empty."
 msgstr ""
 
-#: js/news.js:133 js/news.js:140 templates/part.nofeeds.php:6
+#: js/news.js:121 js/news.js:128 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr ""
 
-#: js/news.js:137
+#: js/news.js:125
 msgid "Error while parsing the feed"
 msgstr ""
 
-#: js/news.js:137
+#: js/news.js:125
 msgid "Fatal Error"
 msgstr ""
 
@@ -214,57 +227,61 @@ msgstr ""
 msgid "Show only unread"
 msgstr ""
 
-#: templates/main.php:34
+#: templates/main.php:32
 msgid "Add feed or folder"
 msgstr ""
 
-#: templates/main.php:35
+#: templates/main.php:33
 msgid "Add Feed/Folder"
 msgstr ""
 
-#: templates/main.php:37
+#: templates/main.php:35
 msgid "Feed"
 msgstr ""
 
-#: templates/main.php:38
+#: templates/main.php:36
 msgid "Folder"
 msgstr ""
 
-#: templates/main.php:45
+#: templates/main.php:43
 msgid "Settings"
 msgstr ""
 
-#: templates/part.feeddialog.php:2
-msgid "Add Subscription"
-msgstr ""
-
-#: templates/part.feeddialog.php:9
-msgid "Choose folder"
-msgstr ""
-
-#: templates/part.feeddialog.php:13
-msgid "None"
-msgstr ""
-
-#: templates/part.feeddialog.php:20 templates/part.nofeeds.php:7
-msgid "Address"
-msgstr ""
-
-#: templates/part.feeddialog.php:21
-msgid "Add"
-msgstr ""
-
-#: templates/part.feeds.php:45 templates/part.listfeed.php:28
-#: templates/part.listfolder.php:22
-msgid "Mark all read"
-msgstr ""
-
-#: templates/part.folderdialog.php:2
+#: templates/part.dialogues.php:1
 msgid "Add Folder"
 msgstr ""
 
-#: templates/part.folderdialog.php:13
+#: templates/part.dialogues.php:4
+msgid "Add new folder"
+msgstr ""
+
+#: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
+msgstr ""
+
+#: templates/part.dialogues.php:14
+msgid "Add Subscription"
+msgstr ""
+
+#: templates/part.dialogues.php:17
+msgid "Add new feed"
+msgstr ""
+
+#: templates/part.dialogues.php:20
+msgid "Choose folder"
+msgstr ""
+
+#: templates/part.dialogues.php:28 templates/part.nofeeds.php:7
+msgid "Address"
+msgstr ""
+
+#: templates/part.dialogues.php:29
+msgid "Add"
+msgstr ""
+
+#: templates/part.feeds.php:46 templates/part.listfeed.php:26
+#: templates/part.listfolder.php:20
+msgid "Mark all read"
 msgstr ""
 
 #: templates/part.items.php:35
@@ -287,19 +304,19 @@ msgstr ""
 msgid "Keep unread"
 msgstr ""
 
-#: templates/part.listfeed.php:27
+#: templates/part.listfeed.php:25
 msgid "Delete feed"
 msgstr ""
 
-#: templates/part.listfolder.php:17
+#: templates/part.listfolder.php:15
 msgid "Collapse"
 msgstr ""
 
-#: templates/part.listfolder.php:20
+#: templates/part.listfolder.php:18
 msgid "Delete folder"
 msgstr ""
 
-#: templates/part.listfolder.php:21
+#: templates/part.listfolder.php:19
 msgid "Rename folder"
 msgstr ""
 

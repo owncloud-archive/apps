@@ -6,6 +6,7 @@
 "Timezone changed" => "Časové pásmo zmenené",
 "Invalid request" => "Neplatná požiadavka",
 "Calendar" => "Kalendár",
+"Editable" => "Upravovateľné",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -146,11 +147,5 @@
 "at" => "v",
 "Timezone" => "Časová zóna",
 "24h" => "24h",
-"12h" => "12h",
-"Users" => "Používatelia",
-"select users" => "vybrať používateľov",
-"Editable" => "Upravovateľné",
-"Groups" => "Skupiny",
-"select groups" => "vybrať skupiny",
-"make public" => "zverejniť"
+"12h" => "12h"
 );

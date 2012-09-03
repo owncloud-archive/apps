@@ -112,6 +112,7 @@
 "Questions" => "Fragen",
 "{name}'s Birthday" => "Geburtstag von {name}",
 "Contact" => "Kontakt",
+"You do not have the permissions to add contacts to this addressbook." => "Sie haben nicht die Berechtigung, diesem Adressbuch Kontakte hinzuzufügen.",
 "Could not find the vCard with ID." => "Die vCard mit der ID konnte nicht gefunden werden.",
 "You do not have the permissions to edit this contact." => "Sie besitzen nicht die erforderlichen Rechte, um diesen Kontakt zu bearbeiten.",
 "Could not find the vCard with ID: " => "Die vCard mit der folgenden ID konnte nicht gefunden werden:",

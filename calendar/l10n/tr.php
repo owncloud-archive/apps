@@ -12,6 +12,7 @@
 "Timezone changed" => "Zaman dilimi değiştirildi",
 "Invalid request" => "Geçersiz istek",
 "Calendar" => "Takvim",
+"Editable" => "Düzenlenebilir",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -188,11 +189,5 @@
 "more info" => "daha fazla bilgi",
 "Primary address (Kontact et al)" => "Öncelikli adres",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "Sadece okunabilir iCalendar link(ler)i",
-"Users" => "Kullanıcılar",
-"select users" => "kullanıcıları seç",
-"Editable" => "Düzenlenebilir",
-"Groups" => "Gruplar",
-"select groups" => "grupları seç",
-"make public" => "kamuyla paylaş"
+"Read only iCalendar link(s)" => "Sadece okunabilir iCalendar link(ler)i"
 );

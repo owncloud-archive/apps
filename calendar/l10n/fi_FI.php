@@ -9,6 +9,7 @@
 "Timezone changed" => "Aikavyöhyke vaihdettu",
 "Invalid request" => "Virheellinen pyyntö",
 "Calendar" => "Kalenteri",
+"Editable" => "Muoktattava",
 "Birthday" => "Syntymäpäivä",
 "Call" => "Ota yhteyttä",
 "Clients" => "Asiakkaat",
@@ -149,11 +150,5 @@
 "Start week on" => "Viikon alkamispäivä",
 "Calendar CalDAV syncing addresses" => "Kalenterin CalDAV-synkronointiosoitteet",
 "Primary address (Kontact et al)" => "Ensisijainen osoite (Kontact ja muut vastaavat)",
-"iOS/OS X" => "iOS/OS X",
-"Users" => "Käyttäjät",
-"select users" => "valitse käyttäjät",
-"Editable" => "Muoktattava",
-"Groups" => "Ryhmät",
-"select groups" => "valitse ryhmät",
-"make public" => "aseta julkiseksi"
+"iOS/OS X" => "iOS/OS X"
 );

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:01+0200\n"
-"PO-Revision-Date: 2012-09-02 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-03 02:05+0200\n"
+"PO-Revision-Date: 2012-09-02 01:36+0000\n"
+"Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -312,7 +312,7 @@ msgstr "Ime za prikaz ne more biti prazno."
 
 #: lib/addressbook.php:223
 msgid "You do not have the permissions to update this addressbook."
-msgstr "Nimate pravic za posodobitev tega adresarja."
+msgstr "Nimate dovoljenj za posodobitev tega adresarja."
 
 #: lib/addressbook.php:243
 msgid "There was an error updating the addressbook."
@@ -320,7 +320,7 @@ msgstr "Med posodabljanjem adresarja je prišlo do napake."
 
 #: lib/addressbook.php:299
 msgid "You do not have the permissions to delete this addressbook."
-msgstr "Nimate pravic za izbris tega adresarja."
+msgstr "Nimate dovoljenj za izbris tega adresarja."
 
 #: lib/addressbook.php:328
 msgid "There was an error deleting this addressbook."
@@ -493,7 +493,7 @@ msgstr "Stik"
 
 #: lib/vcard.php:295
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "Nimate dovoljenj za dodajanje stika v ta adresar."
 
 #: lib/vcard.php:399
 msgid "Could not find the vCard with ID."
@@ -693,7 +693,7 @@ msgstr "Izbriši telefonsko številko"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
-msgstr "Takojšni sporočilnik"
+msgstr "Takojšnji sporočilnik"
 
 #: templates/part.contact.php:101
 msgid "Delete IM"

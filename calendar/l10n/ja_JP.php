@@ -12,6 +12,7 @@
 "Timezone changed" => "タイムゾーンが変更されました",
 "Invalid request" => "無効なリクエストです",
 "Calendar" => "カレンダー",
+"Editable" => "編集可能",
 "ddd" => "dddd",
 "ddd M/d" => "M月d日 （dddd）",
 "dddd M/d" => "M月d日 （dddd）",
@@ -188,11 +189,5 @@
 "more info" => "さらに",
 "Primary address (Kontact et al)" => "プライマリアドレス（コンタクト等）",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "読み取り専用のiCalendarリンク",
-"Users" => "ユーザ",
-"select users" => "ユーザを選択",
-"Editable" => "編集可能",
-"Groups" => "グループ",
-"select groups" => "グループを選択",
-"make public" => "公開する"
+"Read only iCalendar link(s)" => "読み取り専用のiCalendarリンク"
 );

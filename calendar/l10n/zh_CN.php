@@ -6,6 +6,7 @@
 "Timezone changed" => "时区已修改",
 "Invalid request" => "非法请求",
 "Calendar" => "日历",
+"Editable" => "可编辑",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -173,11 +174,5 @@
 "Cache" => "缓存",
 "URLs" => "连接",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "只读 iCanlendar 连接",
-"Users" => "用户",
-"select users" => "选中用户",
-"Editable" => "可编辑",
-"Groups" => "分组",
-"select groups" => "选中分组",
-"make public" => "公开"
+"Read only iCalendar link(s)" => "只读 iCanlendar 连接"
 );

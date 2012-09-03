@@ -12,6 +12,7 @@
 "Timezone changed" => "Fus orar schimbat",
 "Invalid request" => "Cerere eronată",
 "Calendar" => "Calendar",
+"Editable" => "Editabil",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -186,11 +187,5 @@
 "more info" => "mai multe informații",
 "Primary address (Kontact et al)" => "Adresa primară (Kontact et al)",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "Citeste numai linkuri iCalendar",
-"Users" => "Utilizatori",
-"select users" => "utilizatori selectați",
-"Editable" => "Editabil",
-"Groups" => "Grupuri",
-"select groups" => "grupuri selectate",
-"make public" => "fă public"
+"Read only iCalendar link(s)" => "Citeste numai linkuri iCalendar"
 );

@@ -112,6 +112,7 @@
 "Questions" => "Domande",
 "{name}'s Birthday" => "Data di nascita di {name}",
 "Contact" => "Contatto",
+"You do not have the permissions to add contacts to this addressbook." => "Non hai i permessi per aggiungere contatti a questa rubrica.",
 "Could not find the vCard with ID." => "Impossibile trovare la vCard con questo ID.",
 "You do not have the permissions to edit this contact." => "Non hai i permessi per modificare questo contatto.",
 "Could not find the vCard with ID: " => "Impossibile trovare la vCard con ID:",

@@ -11,6 +11,7 @@
 "Timezone changed" => "Fuso horário alterado",
 "Invalid request" => "Pedido inválido",
 "Calendar" => "Calendário",
+"Editable" => "Editável",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -173,11 +174,5 @@
 "at" => "para",
 "Timezone" => "Fuso horário",
 "24h" => "24h",
-"12h" => "12h",
-"Users" => "Usuários",
-"select users" => "Selecione usuários",
-"Editable" => "Editável",
-"Groups" => "Grupos",
-"select groups" => "Selecione grupos",
-"make public" => "Tornar público"
+"12h" => "12h"
 );

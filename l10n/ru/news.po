@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:02+0200\n"
-"PO-Revision-Date: 2012-09-02 00:04+0000\n"
+"POT-Creation-Date: 2012-09-03 02:06+0200\n"
+"PO-Revision-Date: 2012-09-03 00:08+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: ajax/changefoldername.php:29
+msgid "Error changing name of folder "
+msgstr ""
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -27,7 +31,7 @@ msgstr "Лента уже существует."
 msgid "Error adding feed."
 msgstr "Ошибка добавления ленты."
 
-#: ajax/createfeed.php:74
+#: ajax/createfeed.php:70
 msgid "Feed added!"
 msgstr "Лента добавлена!"
 
@@ -59,15 +63,15 @@ msgstr "При обработке файла возникла ошибка."
 msgid "Error updating feeds."
 msgstr "Ошибка обновления лент."
 
-#: ajax/loadfeed.php:35 templates/part.feeds.php:49
+#: ajax/loadfeed.php:36 templates/part.feeds.php:50
 msgid "Starred"
 msgstr "Отмеченный"
 
-#: ajax/loadfeed.php:40 templates/part.feeds.php:43
+#: ajax/loadfeed.php:41 templates/part.feeds.php:44
 msgid "New articles"
 msgstr "Новые статьи"
 
-#: ajax/loadfeed.php:52
+#: ajax/loadfeed.php:53
 msgid "Feed loaded!"
 msgstr "Лента загружена!"
 
@@ -99,36 +103,45 @@ msgstr "Лента обновлена!"
 msgid "News"
 msgstr "Новости"
 
-#: js/main.js:77 js/news.js:50 js/news.js:75 js/news.js:90 js/news.js:129
-#: js/settings.js:16 js/settings.js:22 js/settings.js:47
-msgid "Error"
-msgstr "Ошибка"
-
-#: js/news.js:50
+#: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
 msgstr "Имя папки не может быть пустым."
 
-#: js/news.js:55 js/news.js:95
+#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:77 js/news.js:91
+#: js/news.js:117 js/settings.js:16 js/settings.js:22 js/settings.js:47
+msgid "Error"
+msgstr "Ошибка"
+
+#: js/news.js:33 js/news.js:96
 msgid "Adding..."
 msgstr "Добавление..."
 
-#: js/news.js:79 templates/part.folderdialog.php:14
+#: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
 msgstr "Добавить папку"
 
-#: js/news.js:90
+#: js/news.js:63
+msgid "Changing..."
+msgstr ""
+
+#: js/news.js:80 templates/part.dialogues.php:34
+#: templates/part.dialogues.php:38 templates/part.dialogues.php:43
+msgid "Change folder name"
+msgstr ""
+
+#: js/news.js:91
 msgid "URL cannot be empty."
 msgstr "Ссылка не может быть пустой."
 
-#: js/news.js:133 js/news.js:140 templates/part.nofeeds.php:6
+#: js/news.js:121 js/news.js:128 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "Добавить ленту"
 
-#: js/news.js:137
+#: js/news.js:125
 msgid "Error while parsing the feed"
 msgstr "Ошибка обработки ленты"
 
-#: js/news.js:137
+#: js/news.js:125
 msgid "Fatal Error"
 msgstr "Неисправимая ошибка"
 
@@ -216,58 +229,62 @@ msgstr "Показать всё"
 msgid "Show only unread"
 msgstr "Показать только непрочитанные"
 
-#: templates/main.php:34
+#: templates/main.php:32
 msgid "Add feed or folder"
 msgstr "Добавить ленту или папку"
 
-#: templates/main.php:35
+#: templates/main.php:33
 msgid "Add Feed/Folder"
 msgstr "Добавить Ленту/Папку"
 
-#: templates/main.php:37
+#: templates/main.php:35
 msgid "Feed"
 msgstr "Новостная лента"
 
-#: templates/main.php:38
+#: templates/main.php:36
 msgid "Folder"
 msgstr "Папка"
 
-#: templates/main.php:45
+#: templates/main.php:43
 msgid "Settings"
 msgstr "Настройки"
 
-#: templates/part.feeddialog.php:2
-msgid "Add Subscription"
-msgstr "Добавить подписку"
-
-#: templates/part.feeddialog.php:9
-msgid "Choose folder"
-msgstr "Выберите папку"
-
-#: templates/part.feeddialog.php:13
-msgid "None"
-msgstr ""
-
-#: templates/part.feeddialog.php:20 templates/part.nofeeds.php:7
-msgid "Address"
-msgstr "Адрес"
-
-#: templates/part.feeddialog.php:21
-msgid "Add"
-msgstr "Добавить"
-
-#: templates/part.feeds.php:45 templates/part.listfeed.php:28
-#: templates/part.listfolder.php:22
-msgid "Mark all read"
-msgstr ""
-
-#: templates/part.folderdialog.php:2
+#: templates/part.dialogues.php:1
 msgid "Add Folder"
 msgstr "Добавить папку"
 
-#: templates/part.folderdialog.php:13
+#: templates/part.dialogues.php:4
+msgid "Add new folder"
+msgstr ""
+
+#: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
 msgstr "Имя папки"
+
+#: templates/part.dialogues.php:14
+msgid "Add Subscription"
+msgstr "Добавить подписку"
+
+#: templates/part.dialogues.php:17
+msgid "Add new feed"
+msgstr ""
+
+#: templates/part.dialogues.php:20
+msgid "Choose folder"
+msgstr "Выберите папку"
+
+#: templates/part.dialogues.php:28 templates/part.nofeeds.php:7
+msgid "Address"
+msgstr "Адрес"
+
+#: templates/part.dialogues.php:29
+msgid "Add"
+msgstr "Добавить"
+
+#: templates/part.feeds.php:46 templates/part.listfeed.php:26
+#: templates/part.listfolder.php:20
+msgid "Mark all read"
+msgstr ""
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
@@ -289,19 +306,19 @@ msgstr "от"
 msgid "Keep unread"
 msgstr "Оставить непрочитанным"
 
-#: templates/part.listfeed.php:27
+#: templates/part.listfeed.php:25
 msgid "Delete feed"
 msgstr "Удалить ленту"
 
-#: templates/part.listfolder.php:17
+#: templates/part.listfolder.php:15
 msgid "Collapse"
 msgstr ""
 
-#: templates/part.listfolder.php:20
+#: templates/part.listfolder.php:18
 msgid "Delete folder"
 msgstr "Удалить папку"
 
-#: templates/part.listfolder.php:21
+#: templates/part.listfolder.php:19
 msgid "Rename folder"
 msgstr "Переименовать папку"
 

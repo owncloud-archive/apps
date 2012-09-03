@@ -6,15 +6,16 @@
 #   <mikkelbjerglarsen@gmail.com>, 2011.
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2011, 2012.
 # Pascal d'Hermilly <pascal@dhermilly.dk>, 2011.
+#   <simon@rosmi.dk>, 2012.
 # Thomas Tanghus <>, 2012.
 # Thomas Tanghus <thomas@tanghus.net>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:01+0200\n"
-"PO-Revision-Date: 2012-09-02 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-03 02:05+0200\n"
+"PO-Revision-Date: 2012-09-02 14:20+0000\n"
+"Last-Translator: muunsim <simon@rosmi.dk>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,7 +63,7 @@ msgstr "Elementnavnet er ikke medsendt."
 
 #: ajax/contact/addproperty.php:46
 msgid "Could not parse contact: "
-msgstr ""
+msgstr "Kunne ikke indlæse kontaktperson"
 
 #: ajax/contact/addproperty.php:56
 msgid "Cannot add empty property."
@@ -78,11 +79,11 @@ msgstr "Kan ikke tilføje overlappende element."
 
 #: ajax/contact/addproperty.php:115 ajax/contact/saveproperty.php:93
 msgid "Missing IM parameter."
-msgstr ""
+msgstr "Manglende IM parameter."
 
 #: ajax/contact/addproperty.php:119 ajax/contact/saveproperty.php:97
 msgid "Unknown IM: "
-msgstr ""
+msgstr "Ukendt IM:"
 
 #: ajax/contact/deleteproperty.php:37
 msgid "Information about vCard is incorrect. Please reload the page."
@@ -239,15 +240,15 @@ msgstr "Fejl"
 
 #: js/contacts.js:410
 msgid "You do not have permission to add contacts to "
-msgstr ""
+msgstr "Du har ikke rettigheder til at tilføje kontaktpersoner til "
 
 #: js/contacts.js:411
 msgid "Please select one of your own address books."
-msgstr ""
+msgstr "Vælg venligst en af dine egne adressebøger."
 
 #: js/contacts.js:411
 msgid "Permission error"
-msgstr ""
+msgstr "Manglende rettigheder"
 
 #: js/contacts.js:727
 msgid "This property has to be non-empty."
@@ -279,7 +280,7 @@ msgstr "Dr."
 
 #: js/contacts.js:1286
 msgid "Error loading profile picture."
-msgstr ""
+msgstr "Fejl ved indlæsning af profilbillede"
 
 #: js/contacts.js:1421 js/contacts.js:1462 js/contacts.js:1481
 #: js/contacts.js:1524
@@ -290,11 +291,11 @@ msgstr "Vælg type"
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
-msgstr ""
+msgstr "Nogle kontakter er markeret til sletning, men er endnu ikke slettet. Vent venligst på, at de bliver slettet."
 
 #: js/contacts.js:1613
 msgid "Do you want to merge these address books?"
-msgstr ""
+msgstr "Vil du fusionere disse adressebøger?"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -310,27 +311,27 @@ msgstr " fejl."
 
 #: js/settings.js:68
 msgid "Displayname cannot be empty."
-msgstr ""
+msgstr "Brugernavn må ikke være tomt."
 
 #: lib/addressbook.php:223
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "Du har ikke rettigheder til at opdatere denne adressebog"
 
 #: lib/addressbook.php:243
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "Du har ikke rettigheder til at opdatere denne kontaktperson"
 
 #: lib/addressbook.php:299
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "Du har ikke rettigheder til at slette denne adressebog"
 
 #: lib/addressbook.php:328
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "Der opstod en fejl ved sletning af denne adressebog."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
-msgstr ""
+msgstr "Adressebog ikke fundet:"
 
 #: lib/app.php:52
 msgid "This is not your addressbook."
@@ -342,51 +343,51 @@ msgstr "Kontaktperson kunne ikke findes."
 
 #: lib/app.php:116
 msgid "Jabber"
-msgstr ""
+msgstr "Jabber"
 
 #: lib/app.php:121
 msgid "AIM"
-msgstr ""
+msgstr "AIM"
 
 #: lib/app.php:126
 msgid "MSN"
-msgstr ""
+msgstr "MSN"
 
 #: lib/app.php:131
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: lib/app.php:136
 msgid "GoogleTalk"
-msgstr ""
+msgstr "Google Talk"
 
 #: lib/app.php:141
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: lib/app.php:146
 msgid "XMPP"
-msgstr ""
+msgstr "XMPP"
 
 #: lib/app.php:151
 msgid "ICQ"
-msgstr ""
+msgstr "ICQ"
 
 #: lib/app.php:156
 msgid "Yahoo"
-msgstr ""
+msgstr "Yahoo"
 
 #: lib/app.php:161
 msgid "Skype"
-msgstr ""
+msgstr "Skype"
 
 #: lib/app.php:166
 msgid "QQ"
-msgstr ""
+msgstr "QQ"
 
 #: lib/app.php:171
 msgid "GaduGadu"
-msgstr ""
+msgstr "GaduGadu"
 
 #: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
 msgid "Work"
@@ -398,7 +399,7 @@ msgstr "Hjemme"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:624
 msgid "Other"
-msgstr ""
+msgstr "Andet"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -439,51 +440,51 @@ msgstr "Fødselsdag"
 
 #: lib/app.php:253
 msgid "Business"
-msgstr ""
+msgstr "Firma"
 
 #: lib/app.php:254
 msgid "Call"
-msgstr ""
+msgstr "Ring op"
 
 #: lib/app.php:255
 msgid "Clients"
-msgstr ""
+msgstr "Klienter"
 
 #: lib/app.php:256
 msgid "Deliverer"
-msgstr ""
+msgstr "Udbringer"
 
 #: lib/app.php:257
 msgid "Holidays"
-msgstr ""
+msgstr "Ferie"
 
 #: lib/app.php:258
 msgid "Ideas"
-msgstr ""
+msgstr "Ideer"
 
 #: lib/app.php:259
 msgid "Journey"
-msgstr ""
+msgstr "Rejse"
 
 #: lib/app.php:260
 msgid "Jubilee"
-msgstr ""
+msgstr "Jubilæum"
 
 #: lib/app.php:261
 msgid "Meeting"
-msgstr ""
+msgstr "Møde"
 
 #: lib/app.php:263
 msgid "Personal"
-msgstr ""
+msgstr "Personligt"
 
 #: lib/app.php:264
 msgid "Projects"
-msgstr ""
+msgstr "Projekter"
 
 #: lib/app.php:265
 msgid "Questions"
-msgstr ""
+msgstr "Spørgsmål"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
@@ -495,31 +496,31 @@ msgstr "Kontaktperson"
 
 #: lib/vcard.php:295
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "Du har ikke rettigheder til at tilføje kontaktpersoner til denne adressebog"
 
 #: lib/vcard.php:399
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "Kunne ikke finde vCard'et med ID."
 
 #: lib/vcard.php:416
 msgid "You do not have the permissions to edit this contact."
-msgstr ""
+msgstr "Du har ikke rettigheder til at redigere denne kontaktperson"
 
 #: lib/vcard.php:487
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "Kunne ikke finde vCard'et med ID:"
 
 #: lib/vcard.php:495
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "Kunne ikke finde adressebogen med ID."
 
 #: lib/vcard.php:510
 msgid "You do not have the permissions to delete this contact."
-msgstr ""
+msgstr "Du har ikke rettigheder til at slette denne kontaktperson"
 
 #: lib/vcard.php:528
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "Der opstod en fejl ved sletning af denne kontakt."
 
 #: templates/index.php:14
 msgid "Add Contact"
@@ -531,7 +532,7 @@ msgstr "Importer"
 
 #: templates/index.php:18
 msgid "Settings"
-msgstr ""
+msgstr "Indstillinger"
 
 #: templates/index.php:18 templates/settings.php:9
 msgid "Addressbooks"
@@ -543,51 +544,51 @@ msgstr "Luk"
 
 #: templates/index.php:33
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Tastaturgenveje"
 
 #: templates/index.php:35
 msgid "Navigation"
-msgstr ""
+msgstr "Navigering"
 
 #: templates/index.php:38
 msgid "Next contact in list"
-msgstr ""
+msgstr "Næste kontaktperson i listen"
 
 #: templates/index.php:40
 msgid "Previous contact in list"
-msgstr ""
+msgstr "Forrige kontaktperson i listen"
 
 #: templates/index.php:42
 msgid "Expand/collapse current addressbook"
-msgstr ""
+msgstr "Udvid/sammenfold nuværende adressebog"
 
 #: templates/index.php:44
 msgid "Next addressbook"
-msgstr ""
+msgstr "Næste adressebog"
 
 #: templates/index.php:46
 msgid "Previous addressbook"
-msgstr ""
+msgstr "Forrige adressebog"
 
 #: templates/index.php:50
 msgid "Actions"
-msgstr ""
+msgstr "Handlinger"
 
 #: templates/index.php:53
 msgid "Refresh contacts list"
-msgstr ""
+msgstr "Genindlæs kontaktliste"
 
 #: templates/index.php:55
 msgid "Add new contact"
-msgstr ""
+msgstr "Tilføj ny kontaktperson"
 
 #: templates/index.php:57
 msgid "Add new addressbook"
-msgstr ""
+msgstr "Tilføj ny adressebog"
 
 #: templates/index.php:59
 msgid "Delete current contact"
-msgstr ""
+msgstr "Slet aktuelle kontaktperson"
 
 #: templates/part.contact.php:17
 msgid "Drop photo to upload"
@@ -638,15 +639,15 @@ msgstr "Indtast kaldenavn"
 
 #: templates/part.contact.php:43 templates/part.contact.php:134
 msgid "Web site"
-msgstr ""
+msgstr "Hjemmeside"
 
 #: templates/part.contact.php:44
 msgid "http://www.somesite.com"
-msgstr ""
+msgstr "http://www.somesite.com"
 
 #: templates/part.contact.php:44
 msgid "Go to web site"
-msgstr ""
+msgstr "Gå til web site"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"
@@ -695,11 +696,11 @@ msgstr "Slet telefonnummer"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
-msgstr ""
+msgstr "Instant Messenger"
 
 #: templates/part.contact.php:101
 msgid "Delete IM"
-msgstr ""
+msgstr "Slet IM"
 
 #: templates/part.contact.php:110
 msgid "View on map"
@@ -727,7 +728,7 @@ msgstr "Email"
 
 #: templates/part.contact.php:131
 msgid "Instant Messaging"
-msgstr ""
+msgstr "Instant Messaging"
 
 #: templates/part.contact.php:132
 msgid "Address"
@@ -764,11 +765,11 @@ msgstr "Postboks"
 
 #: templates/part.edit_address_dialog.php:24
 msgid "Street address"
-msgstr ""
+msgstr "Gade"
 
 #: templates/part.edit_address_dialog.php:27
 msgid "Street and number"
-msgstr ""
+msgstr "Gade og nummer"
 
 #: templates/part.edit_address_dialog.php:30
 msgid "Extended"
@@ -776,7 +777,7 @@ msgstr "Udvidet"
 
 #: templates/part.edit_address_dialog.php:33
 msgid "Apartment number etc."
-msgstr ""
+msgstr "Etage, side osv."
 
 #: templates/part.edit_address_dialog.php:36
 #: templates/part.edit_address_dialog.php:39
@@ -789,7 +790,7 @@ msgstr "Region"
 
 #: templates/part.edit_address_dialog.php:45
 msgid "E.g. state or province"
-msgstr ""
+msgstr "F.eks. stat eller provins"
 
 #: templates/part.edit_address_dialog.php:48
 msgid "Zipcode"
@@ -797,7 +798,7 @@ msgstr "Postnummer"
 
 #: templates/part.edit_address_dialog.php:51
 msgid "Postal code"
-msgstr ""
+msgstr "Postnummer"
 
 #: templates/part.edit_address_dialog.php:54
 #: templates/part.edit_address_dialog.php:57
@@ -914,15 +915,15 @@ msgstr "Tilføj kontaktpeson."
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
-msgstr ""
+msgstr "Vælg adressebog"
 
 #: templates/part.selectaddressbook.php:27
 msgid "Enter name"
-msgstr ""
+msgstr "Indtast navn"
 
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
-msgstr ""
+msgstr "Indtast beskrivelse"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"
@@ -942,15 +943,15 @@ msgstr "iOS/OS X"
 
 #: templates/settings.php:22
 msgid "Show CardDav link"
-msgstr ""
+msgstr "Vis CardDav link"
 
 #: templates/settings.php:25
 msgid "Show read-only VCF link"
-msgstr ""
+msgstr "Vis skrivebeskyttet VCF link"
 
 #: templates/settings.php:32
 msgid "Share"
-msgstr ""
+msgstr "Del"
 
 #: templates/settings.php:36
 msgid "Download"
@@ -966,11 +967,11 @@ msgstr "Ny adressebog"
 
 #: templates/settings.php:55
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 #: templates/settings.php:56
 msgid "Description"
-msgstr ""
+msgstr "Beskrivelse"
 
 #: templates/settings.php:57
 msgid "Save"
@@ -982,4 +983,4 @@ msgstr "Fortryd"
 
 #: templates/settings.php:63
 msgid "More..."
-msgstr ""
+msgstr "Mere..."

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:01+0200\n"
-"PO-Revision-Date: 2012-09-02 00:02+0000\n"
+"POT-Creation-Date: 2012-09-03 02:05+0200\n"
+"PO-Revision-Date: 2012-09-03 00:07+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -71,100 +71,120 @@ msgstr "時區已變更"
 msgid "Invalid request"
 msgstr "無效請求"
 
-#: appinfo/app.php:41 templates/calendar.php:15
+#: appinfo/app.php:40 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "日曆"
 
-#: js/calendar.js:832
+#: js/calendar.js:539
+msgid "user"
+msgstr ""
+
+#: js/calendar.js:539
+msgid "group"
+msgstr ""
+
+#: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
+msgid "Editable"
+msgstr "可編輯"
+
+#: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
+msgid "Shareable"
+msgstr ""
+
+#: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
+msgid "Deletable"
+msgstr ""
+
+#: js/calendar.js:811
 msgid "ddd"
 msgstr "ddd"
 
-#: js/calendar.js:833
+#: js/calendar.js:812
 msgid "ddd M/d"
 msgstr "M/d ddd"
 
-#: js/calendar.js:834
+#: js/calendar.js:813
 msgid "dddd M/d"
 msgstr "M/d dddd"
 
-#: js/calendar.js:837
+#: js/calendar.js:816
 msgid "MMMM yyyy"
 msgstr "yyyy MMMM"
 
-#: js/calendar.js:839
+#: js/calendar.js:818
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
-#: js/calendar.js:841
+#: js/calendar.js:820
 msgid "dddd, MMM d, yyyy"
 msgstr "MMM d, dddd, yyyy"
 
-#: lib/app.php:121
+#: lib/app.php:114
 msgid "Birthday"
 msgstr "生日"
 
-#: lib/app.php:122
+#: lib/app.php:115
 msgid "Business"
 msgstr "商業"
 
-#: lib/app.php:123
+#: lib/app.php:116
 msgid "Call"
 msgstr "呼叫"
 
-#: lib/app.php:124
+#: lib/app.php:117
 msgid "Clients"
 msgstr "客戶"
 
-#: lib/app.php:125
+#: lib/app.php:118
 msgid "Deliverer"
 msgstr "遞送者"
 
-#: lib/app.php:126
+#: lib/app.php:119
 msgid "Holidays"
 msgstr "節日"
 
-#: lib/app.php:127
+#: lib/app.php:120
 msgid "Ideas"
 msgstr "主意"
 
-#: lib/app.php:128
+#: lib/app.php:121
 msgid "Journey"
 msgstr "旅行"
 
-#: lib/app.php:129
+#: lib/app.php:122
 msgid "Jubilee"
 msgstr "周年慶"
 
-#: lib/app.php:130
+#: lib/app.php:123
 msgid "Meeting"
 msgstr "會議"
 
-#: lib/app.php:131
+#: lib/app.php:124
 msgid "Other"
 msgstr "其他"
 
-#: lib/app.php:132
+#: lib/app.php:125
 msgid "Personal"
 msgstr "個人"
 
-#: lib/app.php:133
+#: lib/app.php:126
 msgid "Projects"
 msgstr "計畫"
 
-#: lib/app.php:134
+#: lib/app.php:127
 msgid "Questions"
 msgstr "問題"
 
-#: lib/app.php:135
+#: lib/app.php:128
 msgid "Work"
 msgstr "工作"
 
-#: lib/app.php:354 lib/app.php:364
+#: lib/app.php:345 lib/share/event.php:27
 msgid "by"
 msgstr "由"
 
-#: lib/app.php:362 lib/app.php:402
+#: lib/app.php:383
 msgid "unnamed"
 msgstr "無名稱的"
 
@@ -740,6 +760,32 @@ msgstr "關閉對話"
 msgid "Create a new event"
 msgstr "建立一個新事件"
 
+#: templates/part.share.php:27
+msgid "Share with:"
+msgstr ""
+
+#: templates/part.share.php:30
+msgid "Shared with"
+msgstr ""
+
+#: templates/part.share.php:47 templates/part.share.php:73
+msgid "Unshare"
+msgstr ""
+
+#: templates/part.share.php:53
+msgid "Nobody"
+msgstr ""
+
+#: templates/part.share.php:56
+msgid "Shared via calendar"
+msgstr ""
+
+#: templates/part.share.php:79
+msgid ""
+"NOTE: Actions on events shared via calendar will affect the entire calendar "
+"sharing."
+msgstr ""
+
 #: templates/part.showevent.php:1
 msgid "View an event"
 msgstr "觀看一個活動"
@@ -815,27 +861,3 @@ msgstr "iOS/OS X"
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
 msgstr "唯讀的 iCalendar 連結(們)"
-
-#: templates/share.dropdown.php:20
-msgid "Users"
-msgstr "使用者"
-
-#: templates/share.dropdown.php:21
-msgid "select users"
-msgstr "選擇使用者"
-
-#: templates/share.dropdown.php:36 templates/share.dropdown.php:62
-msgid "Editable"
-msgstr "可編輯"
-
-#: templates/share.dropdown.php:48
-msgid "Groups"
-msgstr "群組"
-
-#: templates/share.dropdown.php:49
-msgid "select groups"
-msgstr "選擇群組"
-
-#: templates/share.dropdown.php:75
-msgid "make public"
-msgstr "公開"

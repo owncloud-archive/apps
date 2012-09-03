@@ -12,6 +12,7 @@
 "Timezone changed" => "Η ζώνη ώρας άλλαξε",
 "Invalid request" => "Μη έγκυρο αίτημα",
 "Calendar" => "Ημερολόγιο",
+"Editable" => "Επεξεργάσιμο",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -188,11 +189,5 @@
 "more info" => "περισσότερες πλροφορίες",
 "Primary address (Kontact et al)" => "Κύρια Διεύθυνση(Επαφή και άλλα)",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => " iCalendar link(s) μόνο για ανάγνωση",
-"Users" => "Χρήστες",
-"select users" => "επέλεξε χρήστες",
-"Editable" => "Επεξεργάσιμο",
-"Groups" => "Ομάδες",
-"select groups" => "Επέλεξε ομάδες",
-"make public" => "κάνε το δημόσιο"
+"Read only iCalendar link(s)" => " iCalendar link(s) μόνο για ανάγνωση"
 );

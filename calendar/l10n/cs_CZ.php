@@ -12,6 +12,7 @@
 "Timezone changed" => "Časová zóna byla změněna",
 "Invalid request" => "Chybný požadavek",
 "Calendar" => "Kalendář",
+"Editable" => "Upravovatelné",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -188,11 +189,5 @@
 "more info" => "podrobnosti",
 "Primary address (Kontact et al)" => "Primární adresa (veřejná)",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "Odkaz(y) kalendáře pouze pro čtení",
-"Users" => "Uživatelé",
-"select users" => "vybrat uživatele",
-"Editable" => "Upravovatelné",
-"Groups" => "Skupiny",
-"select groups" => "vybrat skupiny",
-"make public" => "zveřejnit"
+"Read only iCalendar link(s)" => "Odkaz(y) kalendáře pouze pro čtení"
 );

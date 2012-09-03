@@ -12,6 +12,7 @@
 "Timezone changed" => "La horozono estas ŝanĝita",
 "Invalid request" => "Nevalida peto",
 "Calendar" => "Kalendaro",
+"Editable" => "Redaktebla",
 "ddd" => "ddd",
 "ddd M/d" => "ddd d/M",
 "dddd M/d" => "dddd d/M",
@@ -188,11 +189,5 @@
 "more info" => "pli da informo",
 "Primary address (Kontact et al)" => "Ĉefa adreso (Kontact kaj aliaj)",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "Nurlegebla(j) iCalendar-ligilo(j)",
-"Users" => "Uzantoj",
-"select users" => "elekti uzantojn",
-"Editable" => "Redaktebla",
-"Groups" => "Grupoj",
-"select groups" => "elekti grupojn",
-"make public" => "publikigi"
+"Read only iCalendar link(s)" => "Nurlegebla(j) iCalendar-ligilo(j)"
 );

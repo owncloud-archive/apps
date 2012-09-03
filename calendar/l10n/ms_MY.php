@@ -6,6 +6,7 @@
 "Timezone changed" => "Zon waktu diubah",
 "Invalid request" => "Permintaan tidak sah",
 "Calendar" => "Kalendar",
+"Editable" => "Boleh disunting",
 "ddd" => "ddd",
 "ddd M/d" => "dd M/d",
 "dddd M/d" => "dddd M/d",
@@ -146,11 +147,5 @@
 "at" => "di",
 "Timezone" => "Zon waktu",
 "24h" => "24h",
-"12h" => "12h",
-"Users" => "Pengguna",
-"select users" => "Pilih pengguna",
-"Editable" => "Boleh disunting",
-"Groups" => "Kumpulan-kumpulan",
-"select groups" => "pilih kumpulan-kumpulan",
-"make public" => "jadikan tontonan awam"
+"12h" => "12h"
 );

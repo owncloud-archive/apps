@@ -104,7 +104,5 @@
 "No categories selected" => "Nulle categorias seligite",
 "of" => "de",
 "at" => "in",
-"Timezone" => "Fuso horari",
-"Users" => "Usatores",
-"Groups" => "Gruppos"
+"Timezone" => "Fuso horari"
 );

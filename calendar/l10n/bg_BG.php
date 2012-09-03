@@ -79,6 +79,5 @@
 "Create a new event" => "Ново събитие",
 "View an event" => "Преглед на събитие",
 "No categories selected" => "Няма избрани категории",
-"Timezone" => "Часова зона",
-"Groups" => "Групи"
+"Timezone" => "Часова зона"
 );

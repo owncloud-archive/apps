@@ -10,6 +10,7 @@
 "Timezone changed" => "Időzóna megváltozott",
 "Invalid request" => "Érvénytelen kérés",
 "Calendar" => "Naptár",
+"Editable" => "Szerkeszthető",
 "ddd" => "nnn",
 "ddd M/d" => "nnn H/n",
 "dddd M/d" => "nnnn H/n",
@@ -186,11 +187,5 @@
 "more info" => "további info",
 "Primary address (Kontact et al)" => "Elsődleges cím (Kontakt)",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "Csak az iCalendar link(ek) olvasása",
-"Users" => "Felhasználók",
-"select users" => "válassz felhasználókat",
-"Editable" => "Szerkeszthető",
-"Groups" => "Csoportok",
-"select groups" => "válassz csoportokat",
-"make public" => "nyilvánossá tétel"
+"Read only iCalendar link(s)" => "Csak az iCalendar link(ek) olvasása"
 );

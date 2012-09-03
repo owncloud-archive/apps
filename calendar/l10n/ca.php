@@ -12,6 +12,7 @@
 "Timezone changed" => "La zona horària ha canviat",
 "Invalid request" => "Sol.licitud no vàlida",
 "Calendar" => "Calendari",
+"Editable" => "Editable",
 "ddd" => "ddd",
 "ddd M/d" => "ddd d/M",
 "dddd M/d" => "dddd d/M",
@@ -188,11 +189,5 @@
 "more info" => "més informació",
 "Primary address (Kontact et al)" => "Adreça primària (Kontact et al)",
 "iOS/OS X" => "IOS/OS X",
-"Read only iCalendar link(s)" => "Enllaç(os) iCalendar només de lectura",
-"Users" => "Usuaris",
-"select users" => "seleccioneu usuaris",
-"Editable" => "Editable",
-"Groups" => "Grups",
-"select groups" => "seleccioneu grups",
-"make public" => "fes-ho public"
+"Read only iCalendar link(s)" => "Enllaç(os) iCalendar només de lectura"
 );
