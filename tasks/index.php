@@ -11,6 +11,11 @@
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('tasks');
 
+if (!OCP\App::isEnabled('calendar')) {
+	OCP\Template::printUserPage('tasks', 'no-calendar-app');
+	exit;
+}
+
 $calendars = OC_Calendar_Calendar::allCalendars(OCP\User::getUser(), true);
 if( count($calendars) == 0 ) {
 	header('Location: ' . OCP\Util::linkTo('calendar', 'index.php'));
