@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Cyryl Sochacki <>, 2012.
 # Paweł Ciecierski <pciecierski@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:06+0200\n"
-"PO-Revision-Date: 2012-09-03 00:08+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-03 15:14+0200\n"
+"PO-Revision-Date: 2012-09-03 06:54+0000\n"
+"Last-Translator: Cyryl Sochacki <>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
-msgstr ""
+msgstr "Błąd zmiany nazwy folderu"
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -28,7 +29,7 @@ msgstr "Feed już istnieje"
 
 #: ajax/createfeed.php:57
 msgid "Error adding feed."
-msgstr ""
+msgstr "Błąd dodawania kanału."
 
 #: ajax/createfeed.php:70
 msgid "Feed added!"
@@ -36,7 +37,7 @@ msgstr "Feed dodany!"
 
 #: ajax/createfolder.php:36
 msgid "Error adding folder."
-msgstr ""
+msgstr "Błąd dodawania folderu."
 
 #: ajax/createfolder.php:46
 msgid "Folder added!"
@@ -44,7 +45,7 @@ msgstr "Dodano Folder!"
 
 #: ajax/deletefeed.php:28
 msgid "Error removing feed."
-msgstr ""
+msgstr "Błąd usuwania kanału."
 
 #: ajax/deletefolder.php:26
 msgid "Error removing folder."
@@ -52,15 +53,15 @@ msgstr "Nie wprowadzono ścieżki do pliku"
 
 #: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
-msgstr ""
+msgstr "Ścieżka do pliku nie została podana."
 
 #: ajax/exportopml.php:41 ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
-msgstr ""
+msgstr "Wystąpił błąd podczas analizowania pliku."
 
 #: ajax/feedlist.php:27
 msgid "Error updating feeds."
-msgstr ""
+msgstr "Błąd aktualizacji kanałów."
 
 #: ajax/loadfeed.php:36 templates/part.feeds.php:50
 msgid "Starred"
@@ -76,7 +77,7 @@ msgstr "Plik załadowany!"
 
 #: ajax/movefeedtofolder.php:36
 msgid "Error moving feed into folder."
-msgstr ""
+msgstr "Wystąpił błąd podczas przenoszenia kanału do folderu."
 
 #: ajax/selectfromcloud.php:37
 msgid "File doesn't exist:"
@@ -84,15 +85,15 @@ msgstr "Plik nie istnieje:"
 
 #: ajax/setallitemsread.php:57
 msgid "Error setting all items as read."
-msgstr ""
+msgstr "Błąd podczas ustawiania wszystkich elementów jako przeczytanych."
 
 #: ajax/setitemstatus.php:46
 msgid "Error marking item as read."
-msgstr ""
+msgstr "Błąd oznaczenia elementu jako przeczytanego."
 
 #: ajax/updatefeed.php:36
 msgid "Error updating feed."
-msgstr ""
+msgstr "Błąd aktualizacji kanału"
 
 #: ajax/updatefeed.php:44
 msgid "Feed updated!"
@@ -121,12 +122,12 @@ msgstr "Dodaj Folder"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr ""
+msgstr "Zmienianie..."
 
 #: js/news.js:80 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
-msgstr ""
+msgstr "Zmień nazwę folderu"
 
 #: js/news.js:91
 msgid "URL cannot be empty."
@@ -134,11 +135,11 @@ msgstr "URL nie może być pusty."
 
 #: js/news.js:121 js/news.js:128 templates/part.nofeeds.php:6
 msgid "Add feed"
-msgstr "Dodaj feed"
+msgstr "Dodaj kanał"
 
 #: js/news.js:125
 msgid "Error while parsing the feed"
-msgstr ""
+msgstr "Błąd podczas analizowania kanału"
 
 #: js/news.js:125
 msgid "Fatal Error"
@@ -170,7 +171,7 @@ msgstr "z"
 
 #: js/settings.js:44
 msgid " feeds imported successfully from "
-msgstr "Zaimportowano feed z "
+msgstr "Zaimportowano kanał z "
 
 #: js/settings.js:45
 msgid "Success"
@@ -218,7 +219,7 @@ msgstr "Super! Subskrybujesz"
 
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
-msgstr "Już subskrybujesz ten feed!"
+msgstr "Już subskrybujesz ten kanał!"
 
 #: templates/main.php:12
 msgid "Show everything"
@@ -234,11 +235,11 @@ msgstr "Dodaj feed do folderu"
 
 #: templates/main.php:33
 msgid "Add Feed/Folder"
-msgstr "Dodaj Feed/Folder"
+msgstr "Dodaj kanał/Folder"
 
 #: templates/main.php:35
 msgid "Feed"
-msgstr "Feed"
+msgstr "Kanał"
 
 #: templates/main.php:36
 msgid "Folder"
@@ -254,7 +255,7 @@ msgstr "Dodaj folder"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
-msgstr ""
+msgstr "Dodać nowy folder"
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
@@ -266,7 +267,7 @@ msgstr "Dodaj Subskrypcję"
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
-msgstr ""
+msgstr "Dodaj nowy kanał"
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
@@ -283,7 +284,7 @@ msgstr "Dodaj"
 #: templates/part.feeds.php:46 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:20
 msgid "Mark all read"
-msgstr ""
+msgstr "Oznacz wszystkie jako przeczytane"
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
@@ -311,7 +312,7 @@ msgstr "Usuń feed"
 
 #: templates/part.listfolder.php:15
 msgid "Collapse"
-msgstr ""
+msgstr "Zwiń"
 
 #: templates/part.listfolder.php:18
 msgid "Delete folder"
@@ -323,7 +324,7 @@ msgstr "Zmień nazwę folderu"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
-msgstr "Nie masz feed'ów w liście"
+msgstr "Nie masz kanałów w liście"
 
 #: templates/part.nofeeds.php:8 templates/subscribelet.php:7
 msgid "Subscribe"
@@ -351,7 +352,7 @@ msgstr "Wybierz"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "Select file from"
-msgstr ""
+msgstr "Wybierz plik z"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "local filesystem"
@@ -371,11 +372,11 @@ msgstr "lub..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
-msgstr "Importuj feed'y"
+msgstr "Importuj kanały"
 
 #: templates/settings.php:12
 msgid "Export feeds"
-msgstr "Eksportuj feed'y"
+msgstr "Eksportuj kanały"
 
 #: templates/settings.php:14
 msgid "Download OPML"
@@ -383,7 +384,7 @@ msgstr "Pobierz OPML"
 
 #: templates/settings.php:16
 msgid "Subscribelet"
-msgstr ""
+msgstr "Subskrybowane"
 
 #: templates/subscribelet.php:5
 msgid ""

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:06+0200\n"
-"PO-Revision-Date: 2012-09-03 00:08+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-03 15:14+0200\n"
+"PO-Revision-Date: 2012-09-03 07:22+0000\n"
+"Last-Translator: traductor <transifex.3.mensaje@spamgourmet.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
-msgstr ""
+msgstr "Fehler bei der Umbenennung des Ordners"
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -123,12 +123,12 @@ msgstr "Ordner hinzufügen"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr ""
+msgstr "Ändere..."
 
 #: js/news.js:80 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
-msgstr ""
+msgstr "Den Ordnernamen ändern"
 
 #: js/news.js:91
 msgid "URL cannot be empty."
@@ -256,7 +256,7 @@ msgstr "Ordner hinzufügen"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
-msgstr ""
+msgstr "Einen neuen Ordner hinzufügen"
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
@@ -268,7 +268,7 @@ msgstr "Abonnement hinzufügen"
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
-msgstr ""
+msgstr "Einen neuen Feed hinzufügen"
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"

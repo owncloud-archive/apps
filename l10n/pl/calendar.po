@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:05+0200\n"
-"PO-Revision-Date: 2012-09-03 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-03 15:14+0200\n"
+"PO-Revision-Date: 2012-09-03 06:56+0000\n"
+"Last-Translator: Cyryl Sochacki <>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,11 +77,11 @@ msgstr "Kalendarz"
 
 #: js/calendar.js:539
 msgid "user"
-msgstr ""
+msgstr "Użytkownik"
 
 #: js/calendar.js:539
 msgid "group"
-msgstr ""
+msgstr "Grupa"
 
 #: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
@@ -773,7 +773,7 @@ msgstr ""
 
 #: templates/part.share.php:53
 msgid "Nobody"
-msgstr ""
+msgstr "Nikt"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"

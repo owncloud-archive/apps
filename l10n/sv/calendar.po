@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:05+0200\n"
-"PO-Revision-Date: 2012-09-03 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-03 15:14+0200\n"
+"PO-Revision-Date: 2012-09-03 06:47+0000\n"
+"Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,11 +79,11 @@ msgstr "Kalender"
 
 #: js/calendar.js:539
 msgid "user"
-msgstr ""
+msgstr "Användare"
 
 #: js/calendar.js:539
 msgid "group"
-msgstr ""
+msgstr "Grupp"
 
 #: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
@@ -91,11 +91,11 @@ msgstr "Redigerbar"
 
 #: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
-msgstr ""
+msgstr "Utdelningsbar"
 
 #: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
-msgstr ""
+msgstr "Raderbar"
 
 #: js/calendar.js:811
 msgid "ddd"
@@ -763,29 +763,29 @@ msgstr "Skapa en ny händelse"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr ""
+msgstr "Dela med:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr ""
+msgstr "Delad med"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "Sluta dela"
 
 #: templates/part.share.php:53
 msgid "Nobody"
-msgstr ""
+msgstr "Ingen"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr ""
+msgstr "Delad via kalender"
 
 #: templates/part.share.php:79
 msgid ""
 "NOTE: Actions on events shared via calendar will affect the entire calendar "
 "sharing."
-msgstr ""
+msgstr "NOTERA: Åtgärder på händelser som delas via kalendern kommer att påverka hela kalendern delning."
 
 #: templates/part.showevent.php:1
 msgid "View an event"

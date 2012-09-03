@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:06+0200\n"
-"PO-Revision-Date: 2012-09-03 00:08+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-03 15:14+0200\n"
+"PO-Revision-Date: 2012-09-03 05:33+0000\n"
+"Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
-msgstr ""
+msgstr "Napaka pri spreminjanju imena mape"
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -121,12 +121,12 @@ msgstr "Dodaj mapo"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr ""
+msgstr "Spreminjam..."
 
 #: js/news.js:80 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
-msgstr ""
+msgstr "Spremeni ime mape"
 
 #: js/news.js:91
 msgid "URL cannot be empty."
@@ -254,7 +254,7 @@ msgstr "Dodaj mapo"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
-msgstr ""
+msgstr "Dodaj novo mapo"
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
@@ -266,7 +266,7 @@ msgstr "Dodaj naročnino"
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
-msgstr ""
+msgstr "Dodaj nov vir"
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
