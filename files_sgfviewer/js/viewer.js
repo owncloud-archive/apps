@@ -1,11 +1,7 @@
 function viewSgf(dir, file) {
 
         //tinker a valid sgf URL for the eidogo lib
-        var location= 	window.location.protocol+
-			"//"+document.domain+
-			OC.filePath('files','ajax','download.php')+
-			'?files='+file+'&dir='+dir;
-
+        var location = fileDownloadPath(dir, file);
         $('.actions,#file_action_panel').fadeOut('slow').promise().done(function() {
                 // sgf action toolbar
                 var sgfToolbarHtml = '<div class="crumb last">'+file+'</div>';

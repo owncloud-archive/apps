@@ -86,8 +86,7 @@ var videoViewer = {
 	},
 	getMediaUrl : function(file) {
 		var dir = $('#dir').val();
-		return 	OC.filePath('files','ajax','download.php')+
-			encodeURIComponent('?dir='+ encodeURIComponent(dir) + '&files='+encodeURIComponent(file));
+		return fileDownloadPath(dir, file);
 	},
 	onKeyDown : function(e) {
 		if (e.keyCode == 27 && !$('.mejs-container-fullscreen').length && videoViewer.player) {

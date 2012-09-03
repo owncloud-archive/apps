@@ -1,6 +1,6 @@
 function viewOdf(dir, file) {
 	OC.addScript('files_odfviewer','webodf').done(function(){
-		var location=OC.filePath('files','ajax','download.php')+'?files='+file+'&dir='+dir;
+		var location = fileDownloadPath(dir, file);
 
 		// fade out files menu and add odf menu
 		$('.actions,#file_action_panel').fadeOut('slow').promise().done(function() {
