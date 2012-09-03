@@ -20,5 +20,5 @@ OCP\App::setActiveNavigationEntry('ownpad_lite_index');
 
 
 $tmpl = new OCP\Template( "ownpad_lite", "index", "user" );
-$tmpl->assign('id', $id, false);
+/* $tmpl->assign('id', $id, false); */
 $tmpl->printPage();
