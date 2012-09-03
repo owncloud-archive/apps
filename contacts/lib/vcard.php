@@ -149,7 +149,14 @@ class OC_Contacts_VCard {
 		foreach($property->parameters as $key=>&$parameter){
 			if(strtoupper($parameter->name) == 'ENCODING') {
 				if(strtoupper($parameter->value) == 'QUOTED-PRINTABLE') { // what kind of other encodings could be used?
-					$property->value = quoted_printable_decode($property->value);
+					// Decode quoted-printable and strip any control chars
+					// except \n and \r
+					$property->value = preg_replace(
+								'/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/'
+								, ''
+								, 
+								quoted_printable_decode($property->value)
+					);
 					unset($property->parameters[$key]);
 				}
 			} elseif(strtoupper($parameter->name) == 'CHARSET') {
