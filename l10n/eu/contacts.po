@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:01+0200\n"
-"PO-Revision-Date: 2012-09-02 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-04 02:00+0200\n"
+"PO-Revision-Date: 2012-09-03 18:17+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
@@ -312,19 +312,19 @@ msgstr "Bistaratzeko izena ezin da hutsik egon."
 
 #: lib/addressbook.php:223
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "Ez duzu helbide-liburu hau eguneratzeko baimenik."
 
 #: lib/addressbook.php:243
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "Errore bat izan da helbide-liburua eguneratzean."
 
 #: lib/addressbook.php:299
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "Ez duzu helbide-liburu hau ezabatzeko baimenik."
 
 #: lib/addressbook.php:328
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "Errore bat izan da helbide-liburu hau ezabatzean."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -394,7 +394,7 @@ msgstr "Lana"
 msgid "Home"
 msgstr "Etxea"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:624
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:630
 msgid "Other"
 msgstr "Bestelakoa"
 
@@ -491,33 +491,33 @@ msgstr "{name}ren jaioteguna"
 msgid "Contact"
 msgstr "Kontaktua"
 
-#: lib/vcard.php:295
+#: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "Ez duzu helbide-liburu honetara kontaktuak gehitzeko baimenik."
 
-#: lib/vcard.php:399
+#: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "Ezin izan da IDa duen  vCard-a aurkitu."
 
-#: lib/vcard.php:416
+#: lib/vcard.php:422
 msgid "You do not have the permissions to edit this contact."
 msgstr "Ez duzu kontaktu hau editatzeko baimenik."
 
-#: lib/vcard.php:487
+#: lib/vcard.php:493
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "Ezin izan da hurrengo IDa duen  vCard-a aurkitu:"
 
-#: lib/vcard.php:495
+#: lib/vcard.php:501
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "Ezin izan da hurrengo IDa duen  helbide-liburua aurkitu:"
 
-#: lib/vcard.php:510
+#: lib/vcard.php:516
 msgid "You do not have the permissions to delete this contact."
 msgstr "Ez duzu kontaktu hau ezabatzeko baimenik."
 
-#: lib/vcard.php:528
+#: lib/vcard.php:534
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "Errore bat izan da kontaktua ezabatzean."
 
 #: templates/index.php:14
 msgid "Add Contact"

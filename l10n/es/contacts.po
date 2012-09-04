@@ -15,15 +15,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:01+0200\n"
-"PO-Revision-Date: 2012-09-02 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-04 02:00+0200\n"
+"PO-Revision-Date: 2012-09-03 19:43+0000\n"
+"Last-Translator: Rubén Trujillo <rubentrf@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
@@ -317,11 +317,11 @@ msgstr "El nombre a mostrar no puede estar vacío."
 
 #: lib/addressbook.php:223
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "No tiene permisos para actualizar esta libreta de direcciones."
 
 #: lib/addressbook.php:243
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "Hubo un error actualizando la libreta de direcciones."
 
 #: lib/addressbook.php:299
 msgid "You do not have the permissions to delete this addressbook."
@@ -399,7 +399,7 @@ msgstr "Trabajo"
 msgid "Home"
 msgstr "Particular"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:624
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:630
 msgid "Other"
 msgstr "Otro"
 
@@ -496,31 +496,31 @@ msgstr "Cumpleaños de {name}"
 msgid "Contact"
 msgstr "Contacto"
 
-#: lib/vcard.php:295
+#: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "No tiene permisos para añadir contactos a esta libreta de direcciones."
 
-#: lib/vcard.php:399
+#: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
 msgstr "No se puede encontrar la vCard con ID."
 
-#: lib/vcard.php:416
+#: lib/vcard.php:422
 msgid "You do not have the permissions to edit this contact."
 msgstr "No tiene permisos para editar este contacto."
 
-#: lib/vcard.php:487
+#: lib/vcard.php:493
 msgid "Could not find the vCard with ID: "
 msgstr "No se puede encontrar la vCard con ID:"
 
-#: lib/vcard.php:495
+#: lib/vcard.php:501
 msgid "Could not find the Addressbook with ID: "
 msgstr "No se puede encontrar la libreta de direcciones con ID:"
 
-#: lib/vcard.php:510
+#: lib/vcard.php:516
 msgid "You do not have the permissions to delete this contact."
 msgstr "No tiene permisos para eliminar este contacto."
 
-#: lib/vcard.php:528
+#: lib/vcard.php:534
 msgid "There was an error deleting this contact."
 msgstr "Hubo un error eliminando este contacto."
 

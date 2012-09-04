@@ -4,23 +4,24 @@
 # 
 # Translators:
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2012.
+#   <tehoratopato@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-24 02:02+0200\n"
-"PO-Revision-Date: 2012-08-23 11:37+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"POT-Creation-Date: 2012-09-04 02:01+0200\n"
+"PO-Revision-Date: 2012-09-03 17:32+0000\n"
+"Last-Translator: teho <tehoratopato@gmail.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi_FI\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr ""
+msgstr "Tämä on OpenID palvelimen päätepiste (endpoint). Lisätietoja:"
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
@@ -44,12 +45,12 @@ msgstr "Virhe: <b>Käyttäjää ei valittu"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
-msgstr ""
+msgstr "voit autentikoida muille sivustoille tällä osoitteella"
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"
-msgstr ""
+msgstr "Autorisoitu OpenID tarjoaja"
 
 #: templates/settings.php:6
 msgid "Your address at Wordpress, Identi.ca, &hellip;"
-msgstr ""
+msgstr "Osoitteesi Wordpress, Identi.ca,"

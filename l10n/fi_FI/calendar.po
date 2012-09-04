@@ -5,28 +5,29 @@
 # Translators:
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2012.
 # Johannes Korpela <>, 2012.
+#   <tehoratopato@gmail.com>, 2012.
 #   <tscooter@hotmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 15:14+0200\n"
-"PO-Revision-Date: 2012-09-03 10:58+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"POT-Creation-Date: 2012-09-04 02:00+0200\n"
+"PO-Revision-Date: 2012-09-03 18:11+0000\n"
+"Last-Translator: teho <tehoratopato@gmail.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi_FI\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr ""
+msgstr "Kaikki kalenterit eivät ole täysin välitallennettu"
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
-msgstr ""
+msgstr "Kaikki on ilmeisesti tallennettu välimuistiin"
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
@@ -48,7 +49,7 @@ msgstr "Tiedosto ei joko sisältänyt tapahtumia tai vaihtoehtoisesti kaikki tap
 
 #: ajax/import/dropimport.php:31 ajax/import/import.php:67
 msgid "events has been saved in the new calendar"
-msgstr ""
+msgstr "tapahtumat on tallennettu uuteen kalenteriin"
 
 #: ajax/import/import.php:56
 msgid "Import failed"
@@ -97,27 +98,27 @@ msgstr "Poistettavissa"
 
 #: js/calendar.js:811
 msgid "ddd"
-msgstr ""
+msgstr "ddd"
 
 #: js/calendar.js:812
 msgid "ddd M/d"
-msgstr ""
+msgstr "ddd M/d"
 
 #: js/calendar.js:813
 msgid "dddd M/d"
-msgstr ""
+msgstr "dddd M/d"
 
 #: js/calendar.js:816
 msgid "MMMM yyyy"
-msgstr ""
+msgstr "MMMM yyyy"
 
 #: js/calendar.js:818
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
-msgstr ""
+msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:820
 msgid "dddd, MMM d, yyyy"
-msgstr ""
+msgstr "dddd, MMM d, yyyy"
 
 #: lib/app.php:114
 msgid "Birthday"
@@ -125,7 +126,7 @@ msgstr "Syntymäpäivä"
 
 #: lib/app.php:115
 msgid "Business"
-msgstr ""
+msgstr "Työ"
 
 #: lib/app.php:116
 msgid "Call"
@@ -250,19 +251,19 @@ msgstr "Ei koskaan"
 
 #: lib/object.php:466
 msgid "by occurrences"
-msgstr ""
+msgstr "esiintymisten mukaan"
 
 #: lib/object.php:467
 msgid "by date"
-msgstr ""
+msgstr "päivämäärän mukaan"
 
 #: lib/object.php:477
 msgid "by monthday"
-msgstr ""
+msgstr "kuukaudenpäivän mukaan"
 
 #: lib/object.php:478
 msgid "by weekday"
-msgstr ""
+msgstr "viikonpäivän mukaan"
 
 #: lib/object.php:488 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
@@ -294,7 +295,7 @@ msgstr "Sunnuntai"
 
 #: lib/object.php:504
 msgid "events week of month"
-msgstr ""
+msgstr "tapahtumat kuukauden viikolla"
 
 #: lib/object.php:505
 msgid "first"
@@ -370,19 +371,19 @@ msgstr "Joulukuu"
 
 #: lib/object.php:565
 msgid "by events date"
-msgstr ""
+msgstr "tapahtumien päivämäärän mukaan"
 
 #: lib/object.php:566
 msgid "by yearday(s)"
-msgstr ""
+msgstr "vuoden päivän mukaan"
 
 #: lib/object.php:567
 msgid "by weeknumber(s)"
-msgstr ""
+msgstr "viikkonumero(ide)n mukaan"
 
 #: lib/object.php:568
 msgid "by day and month"
-msgstr ""
+msgstr "päivän ja kuukauden mukaan"
 
 #: lib/search.php:35 lib/search.php:37 lib/search.php:40
 msgid "Date"
@@ -390,7 +391,7 @@ msgstr "Päivämäärä"
 
 #: lib/search.php:43
 msgid "Cal."
-msgstr ""
+msgstr "Kal."
 
 #: templates/calendar.php:6
 msgid "Sun."
@@ -483,19 +484,19 @@ msgstr "Otsikko"
 
 #: templates/calendar.php:16
 msgid "From Date"
-msgstr ""
+msgstr "Päivämäärästä"
 
 #: templates/calendar.php:17
 msgid "From Time"
-msgstr ""
+msgstr "Alkuaika"
 
 #: templates/calendar.php:18
 msgid "To Date"
-msgstr ""
+msgstr "Päivämäärään"
 
 #: templates/calendar.php:19
 msgid "To Time"
-msgstr ""
+msgstr "Loppuaika"
 
 #: templates/calendar.php:20
 msgid "The event ends before it starts"
@@ -678,7 +679,7 @@ msgstr "Toisto"
 
 #: templates/part.eventform.php:107 templates/part.showevent.php:102
 msgid "Advanced"
-msgstr ""
+msgstr "Edistynyt"
 
 #: templates/part.eventform.php:151 templates/part.showevent.php:146
 msgid "Select weekdays"
@@ -691,11 +692,11 @@ msgstr "Valitse päivät"
 
 #: templates/part.eventform.php:169 templates/part.showevent.php:164
 msgid "and the events day of year."
-msgstr ""
+msgstr "ja tapahtumien päivä vuodessa."
 
 #: templates/part.eventform.php:182 templates/part.showevent.php:177
 msgid "and the events day of month."
-msgstr ""
+msgstr "ja tapahtumien päivä kuukaudessa."
 
 #: templates/part.eventform.php:190 templates/part.showevent.php:185
 msgid "Select months"
@@ -707,7 +708,7 @@ msgstr "Valitse viikot"
 
 #: templates/part.eventform.php:208 templates/part.showevent.php:203
 msgid "and the events week of year."
-msgstr ""
+msgstr "ja tapahtumien viikko vuodessa."
 
 #: templates/part.eventform.php:214 templates/part.showevent.php:209
 msgid "Interval"
@@ -715,11 +716,11 @@ msgstr "Intervalli"
 
 #: templates/part.eventform.php:220 templates/part.showevent.php:215
 msgid "End"
-msgstr ""
+msgstr "Loppu"
 
 #: templates/part.eventform.php:233 templates/part.showevent.php:228
 msgid "occurrences"
-msgstr ""
+msgstr "esiintymät"
 
 #: templates/part.import.php:14
 msgid "create a new calendar"
@@ -739,7 +740,7 @@ msgstr "Uuden kalenterin nimi"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "Ota nimi, joka on käytettävissä!"
 
 #: templates/part.import.php:45
 msgid ""
@@ -761,29 +762,29 @@ msgstr "Luo uusi tapahtuma"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr ""
+msgstr "Jaa:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr ""
+msgstr "Jaettu"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "Poista jakaminen"
 
 #: templates/part.share.php:53
 msgid "Nobody"
-msgstr ""
+msgstr "Ei kukaan"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr ""
+msgstr "Jaettu kalenterin kanssa"
 
 #: templates/part.share.php:79
 msgid ""
 "NOTE: Actions on events shared via calendar will affect the entire calendar "
 "sharing."
-msgstr ""
+msgstr "HUOMAA: Kalenterissa jaettujen tapahtumien toimenpiteet vaikuttavat koko kalenterin jakamiseen. "
 
 #: templates/part.showevent.php:1
 msgid "View an event"
@@ -795,11 +796,11 @@ msgstr "Luokkia ei ole valittu"
 
 #: templates/part.showevent.php:37
 msgid "of"
-msgstr ""
+msgstr " "
 
 #: templates/part.showevent.php:59 templates/part.showevent.php:67
 msgid "at"
-msgstr ""
+msgstr " "
 
 #: templates/settings.php:10
 msgid "General"
@@ -831,15 +832,15 @@ msgstr "Viikon alkamispäivä"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr ""
+msgstr "Välimuisti"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr ""
+msgstr "Tyhjennä välimuisti toistuvista tapahtumista"
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "URLs"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
@@ -847,7 +848,7 @@ msgstr "Kalenterin CalDAV-synkronointiosoitteet"
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "lisätietoja"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
@@ -859,4 +860,4 @@ msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr ""
+msgstr "iCalendar linkit, jotka ovat vain lukuoikeuksilla"

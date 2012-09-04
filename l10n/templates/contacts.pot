@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-03 15:14+0200\n"
+"POT-Creation-Date: 2012-09-04 02:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -391,7 +391,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:624
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:630
 msgid "Other"
 msgstr ""
 
@@ -488,31 +488,31 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
-#: lib/vcard.php:295
+#: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
 msgstr ""
 
-#: lib/vcard.php:399
+#: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
 msgstr ""
 
-#: lib/vcard.php:416
+#: lib/vcard.php:422
 msgid "You do not have the permissions to edit this contact."
 msgstr ""
 
-#: lib/vcard.php:487
+#: lib/vcard.php:493
 msgid "Could not find the vCard with ID: "
 msgstr ""
 
-#: lib/vcard.php:495
+#: lib/vcard.php:501
 msgid "Could not find the Addressbook with ID: "
 msgstr ""
 
-#: lib/vcard.php:510
+#: lib/vcard.php:516
 msgid "You do not have the permissions to delete this contact."
 msgstr ""
 
-#: lib/vcard.php:528
+#: lib/vcard.php:534
 msgid "There was an error deleting this contact."
 msgstr ""
 

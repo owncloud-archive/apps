@@ -8,19 +8,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:06+0200\n"
-"PO-Revision-Date: 2012-09-03 00:08+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-04 02:01+0200\n"
+"PO-Revision-Date: 2012-09-03 13:39+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
-msgstr ""
+msgstr "Errore bat izan da kapretaren izena aldatzean"
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -106,12 +106,12 @@ msgstr "Berriak"
 msgid "Name of the folder cannot be empty."
 msgstr "Karpetaren izena ezin da hutsik egon."
 
-#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:77 js/news.js:91
-#: js/news.js:117 js/settings.js:16 js/settings.js:22 js/settings.js:47
+#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
+#: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "Errorea"
 
-#: js/news.js:33 js/news.js:96
+#: js/news.js:33 js/news.js:95
 msgid "Adding..."
 msgstr "Gehitzen..."
 
@@ -121,26 +121,26 @@ msgstr "Gehitu karpeta"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr ""
+msgstr "Aldatzen..."
 
-#: js/news.js:80 templates/part.dialogues.php:34
+#: js/news.js:79 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
-msgstr ""
+msgstr "Aldatu karpetaren izena"
 
-#: js/news.js:91
+#: js/news.js:90
 msgid "URL cannot be empty."
 msgstr "URLa ezin da hutsik egon."
 
-#: js/news.js:121 js/news.js:128 templates/part.nofeeds.php:6
+#: js/news.js:120 js/news.js:127 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "Gehitu iturburua"
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Error while parsing the feed"
 msgstr "Errorea iturburua aztertzerakoan"
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Fatal Error"
 msgstr "Errore Larria"
 
@@ -254,7 +254,7 @@ msgstr "Gehitu Karpeta"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
-msgstr ""
+msgstr "Gehitu karpeta berria"
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
@@ -266,7 +266,7 @@ msgstr "Gehitu harpidetza"
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
-msgstr ""
+msgstr "Gehitu iturburu  berria"
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
@@ -283,7 +283,7 @@ msgstr "Gehitu"
 #: templates/part.feeds.php:46 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:20
 msgid "Mark all read"
-msgstr ""
+msgstr "Markatu guztiak irakurrita"
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
@@ -311,7 +311,7 @@ msgstr "Ezabatu iturburua"
 
 #: templates/part.listfolder.php:15
 msgid "Collapse"
-msgstr ""
+msgstr "Tolestu"
 
 #: templates/part.listfolder.php:18
 msgid "Delete folder"
@@ -351,7 +351,7 @@ msgstr "hautatu"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "Select file from"
-msgstr ""
+msgstr "Hautau fitxategia hemendik"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "local filesystem"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-03 15:14+0200\n"
+"POT-Creation-Date: 2012-09-04 02:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -105,12 +105,12 @@ msgstr ""
 msgid "Name of the folder cannot be empty."
 msgstr ""
 
-#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:77 js/news.js:91
-#: js/news.js:117 js/settings.js:16 js/settings.js:22 js/settings.js:47
+#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
+#: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr ""
 
-#: js/news.js:33 js/news.js:96
+#: js/news.js:33 js/news.js:95
 msgid "Adding..."
 msgstr ""
 
@@ -122,24 +122,24 @@ msgstr ""
 msgid "Changing..."
 msgstr ""
 
-#: js/news.js:80 templates/part.dialogues.php:34
+#: js/news.js:79 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
 msgstr ""
 
-#: js/news.js:91
+#: js/news.js:90
 msgid "URL cannot be empty."
 msgstr ""
 
-#: js/news.js:121 js/news.js:128 templates/part.nofeeds.php:6
+#: js/news.js:120 js/news.js:127 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr ""
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Error while parsing the feed"
 msgstr ""
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Fatal Error"
 msgstr ""
 

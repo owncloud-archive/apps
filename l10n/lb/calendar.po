@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <sim0n@trypill.org>, 2011, 2012.
+#   <sim0n@trypill.org>, 2011-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:05+0200\n"
-"PO-Revision-Date: 2012-09-03 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-04 02:00+0200\n"
+"PO-Revision-Date: 2012-09-03 22:13+0000\n"
+"Last-Translator: sim0n <sim0n@trypill.org>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lb\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
@@ -183,7 +183,7 @@ msgstr ""
 
 #: lib/app.php:383
 msgid "unnamed"
-msgstr ""
+msgstr "ouni Numm"
 
 #: lib/calendar.php:153 lib/calendar.php:186
 msgid "You do not have the permissions to update this calendar."
@@ -292,7 +292,7 @@ msgstr "Sonndes"
 
 #: lib/object.php:504
 msgid "events week of month"
-msgstr ""
+msgstr "Events Woch vum mount"
 
 #: lib/object.php:505
 msgid "first"
@@ -368,19 +368,19 @@ msgstr "Dezember"
 
 #: lib/object.php:565
 msgid "by events date"
-msgstr ""
+msgstr "no Events Datum"
 
 #: lib/object.php:566
 msgid "by yearday(s)"
-msgstr ""
+msgstr "no Joerdag/deeg"
 
 #: lib/object.php:567
 msgid "by weeknumber(s)"
-msgstr ""
+msgstr "no Wochenummer(en)"
 
 #: lib/object.php:568
 msgid "by day and month"
-msgstr ""
+msgstr "no Dag a Mount"
 
 #: lib/search.php:35 lib/search.php:37 lib/search.php:40
 msgid "Date"
@@ -542,7 +542,7 @@ msgstr "Keng gedeelten Kalenneren"
 
 #: templates/part.choosecalendar.rowfields.php:11
 msgid "Share Calendar"
-msgstr ""
+msgstr "Kalenner deelen"
 
 #: templates/part.choosecalendar.rowfields.php:18
 msgid "Download"
@@ -559,7 +559,7 @@ msgstr "Läschen"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
-msgstr ""
+msgstr "vun dir geshared mat"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
@@ -604,15 +604,15 @@ msgstr "Export"
 
 #: templates/part.eventform.php:8 templates/part.showevent.php:3
 msgid "Eventinfo"
-msgstr ""
+msgstr "Event Info"
 
 #: templates/part.eventform.php:9 templates/part.showevent.php:4
 msgid "Repeating"
-msgstr ""
+msgstr "Widderhëlt sech"
 
 #: templates/part.eventform.php:10 templates/part.showevent.php:5
 msgid "Alarm"
-msgstr ""
+msgstr "Alarm"
 
 #: templates/part.eventform.php:11 templates/part.showevent.php:6
 msgid "Attendees"
@@ -689,11 +689,11 @@ msgstr "Deeg auswielen"
 
 #: templates/part.eventform.php:169 templates/part.showevent.php:164
 msgid "and the events day of year."
-msgstr ""
+msgstr "an den Events Dag vum Joer."
 
 #: templates/part.eventform.php:182 templates/part.showevent.php:177
 msgid "and the events day of month."
-msgstr ""
+msgstr "an den Events Dag vum Mount."
 
 #: templates/part.eventform.php:190 templates/part.showevent.php:185
 msgid "Select months"
@@ -705,7 +705,7 @@ msgstr "Wochen auswielen"
 
 #: templates/part.eventform.php:208 templates/part.showevent.php:203
 msgid "and the events week of year."
-msgstr ""
+msgstr "an den d'Events Woch vum Joer."
 
 #: templates/part.eventform.php:214 templates/part.showevent.php:209
 msgid "Interval"

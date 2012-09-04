@@ -9,19 +9,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:06+0200\n"
-"PO-Revision-Date: 2012-09-03 00:08+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-04 02:01+0200\n"
+"PO-Revision-Date: 2012-09-03 16:02+0000\n"
+"Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja_JP\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
-msgstr ""
+msgstr "フォルダ名の変更エラー"
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -107,12 +107,12 @@ msgstr "ニュース"
 msgid "Name of the folder cannot be empty."
 msgstr "フォルダ名は空にできません。"
 
-#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:77 js/news.js:91
-#: js/news.js:117 js/settings.js:16 js/settings.js:22 js/settings.js:47
+#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
+#: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "エラー"
 
-#: js/news.js:33 js/news.js:96
+#: js/news.js:33 js/news.js:95
 msgid "Adding..."
 msgstr "追加中..."
 
@@ -122,26 +122,26 @@ msgstr "フォルダを追加"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr ""
+msgstr "変更中..."
 
-#: js/news.js:80 templates/part.dialogues.php:34
+#: js/news.js:79 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
-msgstr ""
+msgstr "フォルダ名を変更"
 
-#: js/news.js:91
+#: js/news.js:90
 msgid "URL cannot be empty."
 msgstr "URLは空にできません。"
 
-#: js/news.js:121 js/news.js:128 templates/part.nofeeds.php:6
+#: js/news.js:120 js/news.js:127 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "フィードを追加"
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Error while parsing the feed"
 msgstr "フィードの解析エラー"
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Fatal Error"
 msgstr "致命的なエラー"
 
@@ -255,7 +255,7 @@ msgstr "フォルダを追加"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
-msgstr ""
+msgstr "新しいフォルダを追加"
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
@@ -267,7 +267,7 @@ msgstr "購読を追加"
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
-msgstr ""
+msgstr "新しいフィードを追加"
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
@@ -284,7 +284,7 @@ msgstr "追加"
 #: templates/part.feeds.php:46 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:20
 msgid "Mark all read"
-msgstr ""
+msgstr "すべて既読にする"
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
@@ -312,7 +312,7 @@ msgstr "フィードを削除"
 
 #: templates/part.listfolder.php:15
 msgid "Collapse"
-msgstr ""
+msgstr "折りたたむ"
 
 #: templates/part.listfolder.php:18
 msgid "Delete folder"
