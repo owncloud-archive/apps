@@ -25,6 +25,10 @@ class App {
 	// Url of the hosted Etherpad solution
 	const CONFIG_USERNAME = 'etherpad_username';
 	
+	const ERROR_URL_INVALID = 'invalid URL';
+	
+	const ERROR_USERNAME_INVALID = 'invalid username';
+	
 	static public function getServiceUrl(){
 		return self::getValue(self::CONFIG_ETHERPAD_URL, self::CONFIG_ETHERPAD_URL_DEFAULT);
 	}
