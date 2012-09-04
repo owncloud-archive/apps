@@ -63,7 +63,7 @@ class Backup {
 			$fullPath = $path . DIRECTORY_SEPARATOR . $file;
 			if (is_dir($fullPath)) {
 				if (in_array($file, $exclusions['relative'])
-						|| in_array($fullPath, $exclusions['full'])
+					|| in_array($fullPath, $exclusions['full'])
 				) {
 					continue;
 				}

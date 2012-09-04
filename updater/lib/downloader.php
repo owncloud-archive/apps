@@ -42,7 +42,7 @@ class Downloader {
 		}
 
 		$extractDir = self::getPackageDir($version);
-		if (!mkdir($extractDir, 0777, true)){
+		if (!mkdir($extractDir, 0777, true)) {
 			\OC_Log::write(App::APP_ID, 'Unable to create temporary directory', \OC_Log::ERROR);
 			return false;
 		}
