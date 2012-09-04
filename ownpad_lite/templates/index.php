@@ -11,13 +11,12 @@
  */
  ?>
 <div id="ownpad-location">
- <label><?php echo $l->t('Pad Title:') ?></label><input id="ownpad-title" value="eetest" />
- <button id="ownpad-open"><?php echo $l->t('Open') ?></button>
- <button id="settingsbtn" title="<?php echo $l->t('Settings'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('core','actions/settings.png'); ?>" alt="<?php echo $l->t('Settings'); ?>"   /></button>
-  </div>
-  <div id="appsettings" class="popup bottomleft hidden">blabla</div>
- <div id="ownpad-content"></div>
- 
+	<button id="settingsbtn" title="<?php echo $l->t('Settings'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('core','actions/settings.png'); ?>" alt="<?php echo $l->t('Settings'); ?>"   /></button>
+	<label><?php echo $l->t('Pad Title:') ?></label><input id="ownpad-title" value="eetest" />
+	<button id="ownpad-open"><?php echo $l->t('Open') ?></button>
+</div>
+<div id="ownpad-content"></div>
+<div id="ownpad-appsettings"><div id="appsettings" class="popup hidden topright"></div></div>
  <script type="text/javascript">
  var ownPad = {
 	showPad : function(){
