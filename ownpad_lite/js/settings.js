@@ -6,6 +6,9 @@ $(document).ready(function(){
 			etherpad_username : $('#etherpad_username').val()
 		};
 		//TODO: Validation!!
-		$.post(OC.filePath('ownpad_lite', 'ajax', 'settings.php'), data, function(){});
+		$.post(OC.filePath('ownpad_lite', 'ajax', 'settings.php'), data, function(){
+			ownPad.setHost(data.etherpad_url);
+			ownPad.setUsername(data.etherpad_username);
+		});
 	});
 });

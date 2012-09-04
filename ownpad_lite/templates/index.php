@@ -11,7 +11,9 @@
  */
  ?>
 <div id="ownpad-location">
-	<button id="settingsbtn" title="<?php echo $l->t('Settings'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('core','actions/settings.png'); ?>" alt="<?php echo $l->t('Settings'); ?>"   /></button>
+	<button id="settingsbtn" title="<?php echo $l->t('Settings'); ?>">
+		<img class="svg" src="<?php echo OCP\Util::imagePath('core', 'actions/settings.png'); ?>" alt="<?php echo $l->t('Settings'); ?>" />
+	</button>
 	<label><?php echo $l->t('Pad Title:') ?></label><input id="ownpad-title" value="eetest" />
 	<button id="ownpad-open"><?php echo $l->t('Open') ?></button>
 </div>
@@ -20,6 +22,8 @@
  <script type="text/javascript">
  var ownPad = {
 	showPad : function(){
+		username : '<?php echo $_[OCA\ownpad_lite\App::CONFIG_USERNAME] ?>',
+		host :  '<?php echo $_[OCA\ownpad_lite\App::CONFIG_ETHERPAD_URL] ?>',
 		$('#ownpad-content').pad({
 			'showControls'     : true,
 			'showChat'         : true,
@@ -27,7 +31,7 @@
 			'border'           : '1px',
 			'padId'            : ownPad.getTitle(),
 			'userName'         : ownPad.getUsername(),
-			'host'             : '<?php echo $_[OCA\ownpad_lite\App::CONFIG_ETHERPAD_URL] ?>',
+			'host'             : ownPad.getHost),
 			'baseUrl'          : ''
 		});
 	},
@@ -35,7 +39,16 @@
 		return $('#ownpad-title').val();
 	},
 	getUsername : function(){
-		return '<?php echo $_[OCA\ownpad_lite\App::CONFIG_USERNAME] ?>';
+		return ownPad.username;
+	},
+	setUsername : function(username){
+		ownPad.username = username;
+	},
+	getHost : function(){
+		return ownPad.host;
+	},
+	setHost : function(host){
+		ownPad.host = host;
 	}
 };
 
