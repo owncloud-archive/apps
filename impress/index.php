@@ -21,7 +21,7 @@
  * 
  */
 
-require_once('lib/impress.php');
+require_once 'lib/impress.php';
 
 OCP\User::checkLoggedIn();
 OCP\JSON::checkAppEnabled('impress');
