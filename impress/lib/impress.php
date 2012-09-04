@@ -21,8 +21,6 @@
  * 
  */
 
-
-
 /*
 
 Todo:
@@ -36,7 +34,7 @@ class Storage {
 
 	public static function getPresentations() {
 		$presentations=array();
-		$list=\OC_FileCache::searchByMime('text','impress' );
+		$list=\OC_FileCache::searchByMime('text', 'impress' );
 		foreach($list as $l) {
 			$info=pathinfo($l);
 			$size=\OC_Filesystem::filesize($l);
@@ -65,7 +63,7 @@ class Storage {
 
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
 
-	<link href="'.\OCP\Util::linkToAbsolute('impress','css/player.css').'" rel="stylesheet" />
+	<link href="'.\OCP\Util::linkToAbsolute('impress', 'css/player.css').'" rel="stylesheet" />
     </head>
 
 <body class="impress-not-supported">
@@ -98,7 +96,7 @@ class Storage {
 		}
 		</script>
 
-		<script src="'.\OCP\Util::linkToAbsolute('impress','js/impress.js').'"></script>
+		<script src="'.\OCP\Util::linkToAbsolute('impress', 'js/impress.js').'"></script>
 		<script>impress().init();</script>
 		
 		<script>
@@ -114,5 +112,3 @@ class Storage {
 		
 
 }
-
-?>
