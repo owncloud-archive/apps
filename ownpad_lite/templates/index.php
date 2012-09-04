@@ -10,10 +10,12 @@
  * later.
  */
  ?>
- <div id="ownpad-location">
+<div id="ownpad-location">
  <label><?php echo $l->t('Pad Title:') ?></label><input id="ownpad-title" value="eetest" />
  <button id="ownpad-open"><?php echo $l->t('Open') ?></button>
+ <button id="settingsbtn" title="<?php echo $l->t('Settings'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('core','actions/settings.png'); ?>" alt="<?php echo $l->t('Settings'); ?>"   /></button>
   </div>
+  <div id="appsettings" class="popup bottomleft hidden">blabla</div>
  <div id="ownpad-content"></div>
  
  <script type="text/javascript">
@@ -26,17 +28,24 @@
 			'border'           : '1px',
 			'padId'            : ownPad.getTitle(),
 			'userName'         : ownPad.getUsername(),
-			'host'             : 'http://beta.etherpad.org',
-			'baseUrl'          : '/p/'
+			'host'             : '<?php echo $_[OCA\ownpad_lite\App::CONFIG_ETHERPAD_URL] ?>',
+			'baseUrl'          : ''
 		});
 	},
 	getTitle : function(){
 		return $('#ownpad-title').val();
 	},
 	getUsername : function(){
-		return OC.currentUser;
+		return '<?php echo $_[OCA\ownpad_lite\App::CONFIG_USERNAME] ?>';
 	}
 };
 
 $('#ownpad-open').click(ownPad.showPad);
+$('#settingsbtn').on('click keydown', function() {
+        try {
+            OC.appSettings({appid:'ownpad_lite', loadJS:true, cache:false});
+        } catch(e) {
+            console.log(e);
+        }
+    });
 </script>
