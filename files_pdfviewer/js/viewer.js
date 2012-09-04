@@ -8,6 +8,7 @@ function hidePDFviewer() {
 	document.title = showPDFviewer.lastTitle;
 	PDFView.active=false;
 	$('iframe').remove();
+    $('a.action').remove();
 }
 
 function showPDFviewer(dir,filename){
