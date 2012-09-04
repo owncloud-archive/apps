@@ -17,11 +17,11 @@ $username = isset($_POST[App::CONFIG_USERNAME]) ? $_POST[App::CONFIG_USERNAME] :
 
 //TODO: Validation!!!
 
-if ($username){
+if ($username) {
 	App::setUsername($username);
 }
 
-if ($serviceUrl){
+if ($serviceUrl) {
 	App::setServiceUrl($serviceUrl);
 }
 

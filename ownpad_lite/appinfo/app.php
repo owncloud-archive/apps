@@ -26,7 +26,7 @@ class App {
 	const CONFIG_USERNAME = 'etherpad_username';
 	
 	static public function getServiceUrl(){
-		return \OCP\Config::getUserValue(\OCP\User::getUser(), self::APP_ID, self::CONFIG_ETHERPAD_URL, self::CONFIG_ETHERPAD_URL_DEFAULT);
+		return self::getValue(self::CONFIG_ETHERPAD_URL, self::CONFIG_ETHERPAD_URL_DEFAULT);
 	}
 	
 	static public function setServiceUrl($url){
@@ -34,11 +34,15 @@ class App {
 	}
 	
 	static public function getUsername(){
-		return \OCP\Config::getUserValue(\OCP\User::getUser(), self::APP_ID, self::CONFIG_USERNAME, \OCP\User::getUser());
+		return self::getValue(self::CONFIG_USERNAME, \OCP\User::getUser());
 	}
 	
 	static public function setUsername($username){
 		return \OCP\Config::setUserValue(\OCP\User::getUser(), self::APP_ID, self::CONFIG_USERNAME, $username);
+	}
+	
+	static protected function getValue($key, $defaultValue){
+		return \OCP\Config::getUserValue(\OCP\User::getUser(), self::APP_ID, $key, $defaultValue);
 	}
 }
 
