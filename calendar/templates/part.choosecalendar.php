@@ -7,10 +7,10 @@
 		echo "<tr data-id='".$option_calendars[$i]['id']."'>";
 		$tmpl = new OCP\Template('calendar', 'part.choosecalendar.rowfields');
 		$tmpl->assign('calendar', $option_calendars[$i]);
-		if(OC_Calendar_Share::allUsersSharedwith($option_calendars[$i]['id'], OC_Calendar_Share::CALENDAR) == array()){
+		if ($option_calendars[$i]['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $option_calendars[$i]['id']);
+		} else {
 			$shared = false;
-		}else{
-			$shared = true;
 		}
 		$tmpl->assign('shared', $shared);
 		$tmpl->printpage();
