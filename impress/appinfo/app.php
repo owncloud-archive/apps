@@ -32,7 +32,3 @@ OCP\App::addNavigationEntry(array(
 	'icon' => OCP\Util::imagePath('impress', 'impress.png'), 
 	'name' => 'Impress')
 );
-
-
-
-?>
