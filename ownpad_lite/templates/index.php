@@ -21,9 +21,9 @@
 <div id="ownpad-appsettings"><div id="appsettings" class="popup hidden topright"></div></div>
  <script type="text/javascript">
  var ownPad = {
+	username : '<?php echo $_[OCA\ownpad_lite\App::CONFIG_USERNAME] ?>',
+	host :  '<?php echo $_[OCA\ownpad_lite\App::CONFIG_ETHERPAD_URL] ?>',
 	showPad : function(){
-		username : '<?php echo $_[OCA\ownpad_lite\App::CONFIG_USERNAME] ?>',
-		host :  '<?php echo $_[OCA\ownpad_lite\App::CONFIG_ETHERPAD_URL] ?>',
 		$('#ownpad-content').pad({
 			'showControls'     : true,
 			'showChat'         : true,
@@ -31,7 +31,7 @@
 			'border'           : '1px',
 			'padId'            : ownPad.getTitle(),
 			'userName'         : ownPad.getUsername(),
-			'host'             : ownPad.getHost),
+			'host'             : ownPad.getHost(),
 			'baseUrl'          : ''
 		});
 	},
