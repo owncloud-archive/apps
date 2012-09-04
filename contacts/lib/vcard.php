@@ -413,10 +413,18 @@ class OC_Contacts_VCard {
 		// inside the lib files to prevent any redundancies with sharing checks
 		$addressbook = OC_Contacts_Addressbook::find($oldcard['addressbookid']);
 		if ($addressbook['userid'] != OCP\User::getUser()) {
-			$sharedContact = OCP\Share::getItemSharedWithBySource('contact', 
-				$id, OCP\Share::FORMAT_NONE, null, true);
-			if (!$sharedContact 
-				|| !($sharedContact['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $oldcard['addressbookid'], OCP\Share::FORMAT_NONE, null, true);
+			$sharedContact = OCP\Share::getItemSharedWithBySource('contact', $id, OCP\Share::FORMAT_NONE, null, true);
+			$addressbook_permissions = 0;
+			$contact_permissions = 0;
+			if ($sharedAddressbook) {
+				$addressbook_permissions = $sharedAddressbook['permissions'];
+			}
+			if ($sharedContact) {
+				$contact_permissions = $sharedEvent['permissions'];
+			}
+			$permissions = max($addressbook_permissions, $contact_permissions);
+			if (!($permissions & OCP\Share::PERMISSION_UPDATE)) {
 				throw new Exception(
 					OC_Contacts_App::$l10n->t(
 						'You do not have the permissions to edit this contact.'
@@ -507,10 +515,18 @@ class OC_Contacts_VCard {
 		if ($addressbook['userid'] != OCP\User::getUser()) {
 			OCP\Util::writeLog('contacts', __METHOD__.', '
 				. $addressbook['userid'] . ' != ' . OCP\User::getUser(), OCP\Util::DEBUG);
-			$sharedContact = OCP\Share::getItemSharedWithBySource('contact',
-				$id, OCP\Share::FORMAT_NONE, null, true);
-			if (!$sharedContact
-				|| !($sharedContact['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $card['addressbookid'], OCP\Share::FORMAT_NONE, null, true);
+			$sharedContact = OCP\Share::getItemSharedWithBySource('contact', $id, OCP\Share::FORMAT_NONE, null, true);
+			$addressbook_permissions = 0;
+			$contact_permissions = 0;
+			if ($sharedAddressbook) {
+				$addressbook_permissions = $sharedAddressbook['permissions'];
+			}
+			if ($sharedContact) {
+				$contact_permissions = $sharedEvent['permissions'];
+			}
+			$permissions = max($addressbook_permissions, $contact_permissions);
+			if (!($permissions & OCP\Share::PERMISSION_DELETE)) {
 				throw new Exception(
 					OC_Contacts_App::$l10n->t(
 						'You do not have the permissions to delete this contact.'
