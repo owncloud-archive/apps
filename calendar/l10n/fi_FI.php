@@ -38,6 +38,7 @@
 "Projects" => "Projektit",
 "Questions" => "Kysymykset",
 "Work" => "Työ",
+"by" => "toimesta:",
 "unnamed" => "nimetön",
 "You do not have the permissions to update this calendar." => "Käyttöoikeutesi eivät riitä tämän kalenterin päivittämiseen.",
 "You do not have the permissions to delete this calendar." => "Käyttöoikeutesi eivät riitä tämän kalenterin poistamiseen.",

@@ -5,21 +5,22 @@
 # Translators:
 # Elad Alfassa <elad@fedoraproject.org>, 2011.
 #   <ido.parag@gmail.com>, 2012.
+# Tomer Cohen <tomerc+transifex.net@gmail.com>, 2012.
 #   <tomerc+transifex.net@gmail.com>, 2011.
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:05+0200\n"
-"PO-Revision-Date: 2012-09-03 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-05 02:02+0200\n"
+"PO-Revision-Date: 2012-09-04 23:13+0000\n"
+"Last-Translator: Tomer Cohen <tomerc+transifex.net@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/owncloud/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
@@ -53,7 +54,7 @@ msgstr ""
 
 #: ajax/import/import.php:56
 msgid "Import failed"
-msgstr ""
+msgstr "כשלון ביבוא"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
@@ -74,15 +75,15 @@ msgstr "בקשה לא חוקית"
 #: appinfo/app.php:40 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
-msgstr "ח שנה"
+msgstr "לוח שנה"
 
 #: js/calendar.js:539
 msgid "user"
-msgstr ""
+msgstr "משתמש"
 
 #: js/calendar.js:539
 msgid "group"
-msgstr ""
+msgstr "קבוצה"
 
 #: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
@@ -182,7 +183,7 @@ msgstr "עבודה"
 
 #: lib/app.php:345 lib/share/event.php:27
 msgid "by"
-msgstr ""
+msgstr "מאת"
 
 #: lib/app.php:383
 msgid "unnamed"
@@ -395,79 +396,79 @@ msgstr "לוח שנה"
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "א"
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "ב"
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "ג"
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "ד"
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "ה"
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "ו"
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "ש"
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "ינו׳"
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "פבר׳"
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "מרץ"
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "אפר׳"
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "מאי"
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "יונ׳"
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "יול׳"
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "אוג׳"
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "ספט׳"
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "אוק׳"
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "נוב׳"
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "דצמ׳"
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -524,7 +525,7 @@ msgstr "היום"
 
 #: templates/calendar.php:46 templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "הגדרות"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -732,7 +733,7 @@ msgstr "יבוא קובץ לוח שנה"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "נא לבחור לוח שנה"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
@@ -804,7 +805,7 @@ msgstr "בשנה"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "כללי"
 
 #: templates/settings.php:15
 msgid "Timezone"
@@ -812,11 +813,11 @@ msgstr "אזור זמן"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr ""
+msgstr "עדכון אזור זמן אוטומטי"
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "תבנית זמן"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -828,11 +829,11 @@ msgstr "12 שעות"
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr ""
+msgstr "שבוע מתחיל ביום"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr ""
+msgstr "מטמון"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
@@ -840,7 +841,7 @@ msgstr ""
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "כתובות"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
@@ -848,7 +849,7 @@ msgstr ""
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "מידע נוסף"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
@@ -856,7 +857,7 @@ msgstr ""
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"

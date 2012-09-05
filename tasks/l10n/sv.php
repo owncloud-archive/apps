@@ -9,6 +9,7 @@
 "Empty Summary" => "Tom sammanfattning",
 "Invalid percent complete" => "Ogiltig andel procent klar",
 "Invalid priority" => "Felaktig prioritet",
+"The calendar application also need to be enabled to use this application." => "Kalendern måste också ges möjlighet att använda det här programmet.",
 "Add Task" => "Lägg till uppgift",
 "Order Due" => "Förfaller",
 "Order List" => "Kategori",

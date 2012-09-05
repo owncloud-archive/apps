@@ -112,6 +112,7 @@
 "Questions" => "Questions",
 "{name}'s Birthday" => "Anniversaire de {name}",
 "Contact" => "Contact",
+"You do not have the permissions to add contacts to this addressbook." => "Vous n'avez pas les droits suffisants pour ajouter des contacts à ce carnet d'adresses.",
 "Could not find the vCard with ID." => "Impossible de trouver la vCard ayant l'ID.",
 "You do not have the permissions to edit this contact." => "Vous n'avez pas l'autorisation de modifier ce contact.",
 "Could not find the vCard with ID: " => "Impossible de trouver la vCard ayant l'ID :",

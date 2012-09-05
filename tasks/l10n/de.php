@@ -9,6 +9,7 @@
 "Empty Summary" => "Leere Zusammenfassung",
 "Invalid percent complete" => "Ungültige Prozent abgeschlossen",
 "Invalid priority" => "Falsche Priorität",
+"The calendar application also need to be enabled to use this application." => "Die Kalender-Anwendung muss ebenfalls aktiviert werden, um diese Anwendung zu nutzen.",
 "Add Task" => "Aufgabe hinzufügen",
 "Order Due" => "Nach Fälligkeit sortieren",
 "Order List" => "Nach Kategorie sortieren ",

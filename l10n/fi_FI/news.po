@@ -4,23 +4,24 @@
 # 
 # Translators:
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2012.
+#   <tehoratopato@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:06+0200\n"
-"PO-Revision-Date: 2012-09-03 00:08+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-05 02:02+0200\n"
+"PO-Revision-Date: 2012-09-04 15:49+0000\n"
+"Last-Translator: teho <tehoratopato@gmail.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi_FI\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
-msgstr ""
+msgstr "Virhe tapahtui, kun yritettiin muuttaa kansion nimeä"
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -68,7 +69,7 @@ msgstr "Tähdellä varustettu"
 
 #: ajax/loadfeed.php:41 templates/part.feeds.php:44
 msgid "New articles"
-msgstr ""
+msgstr "Uudet artikkelit"
 
 #: ajax/loadfeed.php:53
 msgid "Feed loaded!"
@@ -84,11 +85,11 @@ msgstr "Tiedostoa ei ole olemassa"
 
 #: ajax/setallitemsread.php:57
 msgid "Error setting all items as read."
-msgstr ""
+msgstr "Virhe tapahtui kun yritettiin merkitä kaikki luetuksi."
 
 #: ajax/setitemstatus.php:46
 msgid "Error marking item as read."
-msgstr ""
+msgstr "Virhe tapahtui kun yritettiin merkitä artikkeli luetuksi."
 
 #: ajax/updatefeed.php:36
 msgid "Error updating feed."
@@ -106,12 +107,12 @@ msgstr "Uutiset"
 msgid "Name of the folder cannot be empty."
 msgstr "Kansion nimi ei voi olla tyhjä."
 
-#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:77 js/news.js:91
-#: js/news.js:117 js/settings.js:16 js/settings.js:22 js/settings.js:47
+#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
+#: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "Virhe"
 
-#: js/news.js:33 js/news.js:96
+#: js/news.js:33 js/news.js:95
 msgid "Adding..."
 msgstr "Lisätään..."
 
@@ -121,26 +122,26 @@ msgstr "Lisää kansio"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr ""
+msgstr "Muutetaan..."
 
-#: js/news.js:80 templates/part.dialogues.php:34
+#: js/news.js:79 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
-msgstr ""
+msgstr "Muuta kansion nimi"
 
-#: js/news.js:91
+#: js/news.js:90
 msgid "URL cannot be empty."
 msgstr "Verkko-osoite ei voi olla tyhjä"
 
-#: js/news.js:121 js/news.js:128 templates/part.nofeeds.php:6
+#: js/news.js:120 js/news.js:127 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "Lisää syöte"
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Error while parsing the feed"
 msgstr "Virhe syötettä jäsennettäessä."
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Fatal Error"
 msgstr "Vakava virhe"
 
@@ -150,7 +151,7 @@ msgstr "Tiedosto"
 
 #: js/settings.js:11
 msgid " loaded from cloud."
-msgstr ""
+msgstr "Ladattu pilvestä."
 
 #: js/settings.js:22
 msgid "No files selected."
@@ -158,7 +159,7 @@ msgstr "Tiedostoja ei valittu."
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
-msgstr ""
+msgstr "Ladattu paikallisesta tiedostojärjestelmästä."
 
 #: js/settings.js:32
 msgid "Importing..."
@@ -166,15 +167,15 @@ msgstr "Tuodaan..."
 
 #: js/settings.js:43
 msgid " out of "
-msgstr ""
+msgstr "kokonaismäärästä"
 
 #: js/settings.js:44
 msgid " feeds imported successfully from "
-msgstr ""
+msgstr "syötteet tuotu onnistuneesti täältä:"
 
 #: js/settings.js:45
 msgid "Success"
-msgstr ""
+msgstr "Onnistui!"
 
 #: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
 msgid "Import"
@@ -194,19 +195,19 @@ msgstr "Valitse tiedosto"
 
 #: lib/feedmapper.php:165 lib/itemmapper.php:199
 msgid "no title"
-msgstr ""
+msgstr "ei otsikkoa"
 
 #: lib/foldermapper.php:114
 msgid "no name"
-msgstr ""
+msgstr "ei nimeä"
 
 #: lib/itemmapper.php:204
 msgid "no body"
-msgstr ""
+msgstr "ei sisältöä"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "tilaukset ownCloudista -Uutiset"
 
 #: subscribe.php:30
 msgid "An error occurred"
@@ -214,7 +215,7 @@ msgstr "Tapahtui virhe"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr ""
+msgstr "Hienoa! Olet tilannut"
 
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
@@ -254,7 +255,7 @@ msgstr "Lisää kansio"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
-msgstr ""
+msgstr "Lisää uusi kansio"
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
@@ -266,7 +267,7 @@ msgstr "Lisää tilaus"
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
-msgstr ""
+msgstr "Lisää uusi syöte"
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
@@ -283,11 +284,11 @@ msgstr "Lisää"
 #: templates/part.feeds.php:46 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:20
 msgid "Mark all read"
-msgstr ""
+msgstr "Merkitse kaikki luetuksi"
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
-msgstr ""
+msgstr "Merkitse ei-tärkeäksi"
 
 #: templates/part.items.php:38
 msgid "Mark as important"
@@ -295,15 +296,15 @@ msgstr "Merkitse tärkeäksi"
 
 #: templates/part.items.php:55
 msgid "from"
-msgstr ""
+msgstr "lähettäjältä"
 
 #: templates/part.items.php:60
 msgid "by"
-msgstr ""
+msgstr "kirjoittajalta"
 
 #: templates/part.items.php:67
 msgid "Keep unread"
-msgstr ""
+msgstr "Pidä ei-luettuna"
 
 #: templates/part.listfeed.php:25
 msgid "Delete feed"
@@ -311,7 +312,7 @@ msgstr "Poista syöte"
 
 #: templates/part.listfolder.php:15
 msgid "Collapse"
-msgstr ""
+msgstr "Kutista näkymää"
 
 #: templates/part.listfolder.php:18
 msgid "Delete folder"
@@ -323,7 +324,7 @@ msgstr "Muuta kansion nimeä"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
-msgstr ""
+msgstr "Sinulla ei ole yhtään syötettä lukijassa."
 
 #: templates/part.nofeeds.php:8 templates/subscribelet.php:7
 msgid "Subscribe"
@@ -351,7 +352,7 @@ msgstr "Valitse"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "Select file from"
-msgstr ""
+msgstr "Valitse tiedosto täältä:"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "local filesystem"
@@ -383,10 +384,10 @@ msgstr "Lataa OPML"
 
 #: templates/settings.php:16
 msgid "Subscribelet"
-msgstr ""
+msgstr "Tilauskainen"
 
 #: templates/subscribelet.php:5
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr ""
+msgstr "Vedä tämä selaimesi kirjanmerkkeihin ja napsauta sitä aina kun haluat tilata webbisivun nopeasti:"

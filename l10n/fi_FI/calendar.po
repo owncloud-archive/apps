@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-04 02:00+0200\n"
-"PO-Revision-Date: 2012-09-03 18:11+0000\n"
+"POT-Creation-Date: 2012-09-05 02:02+0200\n"
+"PO-Revision-Date: 2012-09-04 16:32+0000\n"
 "Last-Translator: teho <tehoratopato@gmail.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -182,7 +182,7 @@ msgstr "Työ"
 
 #: lib/app.php:345 lib/share/event.php:27
 msgid "by"
-msgstr ""
+msgstr "toimesta:"
 
 #: lib/app.php:383
 msgid "unnamed"

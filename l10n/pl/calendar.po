@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 15:14+0200\n"
-"PO-Revision-Date: 2012-09-03 06:56+0000\n"
+"POT-Creation-Date: 2012-09-05 02:02+0200\n"
+"PO-Revision-Date: 2012-09-04 15:32+0000\n"
 "Last-Translator: Cyryl Sochacki <>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
@@ -189,15 +189,15 @@ msgstr "nienazwany"
 
 #: lib/calendar.php:153 lib/calendar.php:186
 msgid "You do not have the permissions to update this calendar."
-msgstr ""
+msgstr "Nie masz uprawnień do aktualizacji tego kalendarza."
 
 #: lib/calendar.php:221
 msgid "You do not have the permissions to delete this calendar."
-msgstr ""
+msgstr "Nie masz uprawnień, aby usunąć ten kalendarz."
 
 #: lib/calendar.php:253
 msgid "You do not have the permissions to add to this calendar."
-msgstr ""
+msgstr "Nie masz uprawnień, aby dodawać do tego kalendarza."
 
 #: lib/import.php:186 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
