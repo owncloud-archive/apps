@@ -25,4 +25,10 @@
 
 OCP\App::registerAdmin( 'apptemplate', 'settings' );
 
-OCP\App::addNavigationEntry( array( 'id' => 'apptemplate', 'order' => 74, 'href' => OCP\Util::linkTo( 'apptemplate', 'index.php' ), 'icon' => OCP\Util::imagePath( 'apptemplate', 'example.png' ), 'name' => 'App Template'));
+OCP\App::addNavigationEntry( array( 
+	'id' => 'apptemplate',
+	'order' => 74,
+	'href' => OCP\Util::linkTo( 'apptemplate', 'index.php' ),
+	'icon' => OCP\Util::imagePath( 'apptemplate', 'example.png' ),
+	'name' => 'App Template'
+));
