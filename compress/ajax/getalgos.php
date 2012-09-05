@@ -21,12 +21,12 @@
 * 
 */
 
-require_once('../../../lib/base.php');
+require_once '../../../lib/base.php';
 
 OC_JSON::checkLoggedIn();
 OC_JSON::checkAppEnabled('compress');
 
-require_once('../config/config.php');
+require_once '../config/config.php';
 
 $k = Array();
 if(in_array('zip', get_loaded_extensions())){

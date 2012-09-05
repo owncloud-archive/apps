@@ -21,7 +21,7 @@
  * 
  */
 
-require_once('lib/external.php');
+require_once 'lib/external.php';
 
 OCP\User::checkLoggedIn();
 

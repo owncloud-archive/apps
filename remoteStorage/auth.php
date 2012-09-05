@@ -28,9 +28,9 @@
 header("X-Frame-Options: Sameorigin");
 
 OCP\App::checkAppEnabled('remoteStorage');
-require_once('Sabre/autoload.php');
-require_once('lib_remoteStorage.php');
-require_once('oauth_ro_auth.php');
+require_once 'Sabre/autoload.php';
+require_once 'lib_remoteStorage.php';
+require_once 'oauth_ro_auth.php';
 
 ini_set('default_charset', 'UTF-8');
 #ini_set('error_reporting', '');

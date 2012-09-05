@@ -21,7 +21,7 @@
 * 
 */
 
-require_once('../../lib/base.php');
+require_once '../../lib/base.php';
 OC_Util::checkAppEnabled('storage_charts');
 OC_Util::checkLoggedIn();
 

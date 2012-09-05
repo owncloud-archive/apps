@@ -22,8 +22,8 @@
 
 namespace OCA_Mail;
 
-//require_once('3rdparty/rcube_imap.php');
-require_once('3rdparty/rcube_imap_generic.php');
+//require_once '3rdparty/rcube_imap.php';
+require_once '3rdparty/rcube_imap_generic.php';
 
 class App
 {

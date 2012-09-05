@@ -4,7 +4,7 @@
  * Tom Needham <contact@tomneedham.com> 2011
  */
 // Init owncloud
-require_once('../../../lib/base.php');
+require_once '../../../lib/base.php';
 
 
 // Check if we are a user

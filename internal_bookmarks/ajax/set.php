@@ -21,7 +21,7 @@
 * 
 */
 
-require_once('../../../lib/base.php');
+require_once '../../../lib/base.php';
 OC_JSON::checkAppEnabled('internal_bookmarks');
 OC_JSON::checkLoggedIn();
 

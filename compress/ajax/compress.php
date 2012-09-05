@@ -23,7 +23,7 @@
 
 $app_id = 'compress';
 
-require_once('../../../lib/base.php');
+require_once '../../../lib/base.php';
 
 OC_JSON::checkLoggedIn();
 OC_JSON::checkAppEnabled('compress');

@@ -45,7 +45,7 @@ class OC_Compress {
 			$archiveName = md5(rand()) . '_' . $archiveName;
 		}
 		
-		require_once('../config/config.php');
+		require_once '../config/config.php';
 		exec($_CompressConf['tar_bin_path'] . " cf " . $dirTarget . '/' . $archiveName . " " . $oc_target);
 		exec($_CompressConf['gzip_bin_path'] . " -9 " . $dirTarget . '/' . $archiveName);
 	}

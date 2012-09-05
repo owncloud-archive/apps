@@ -21,7 +21,7 @@
  *
  */
 
-require_once('phpsec.crypt.php');
+require_once 'phpsec.crypt.php';
 
 /**
 * @brief Class providing django users to ownCloud

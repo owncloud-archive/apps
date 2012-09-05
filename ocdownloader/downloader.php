@@ -21,7 +21,7 @@
 * 
 */
 
-require_once('../../lib/base.php');
+require_once '../../lib/base.php';
 OC_Util::checkAppEnabled('ocdownloader');
 OC_Util::checkLoggedIn();
 

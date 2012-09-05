@@ -21,7 +21,7 @@
 * 
 */
 
-require_once('../../../../lib/base.php');
+require_once '../../../../lib/base.php';
 OC_JSON::checkAppEnabled('ocdownloader');
 OC_JSON::checkLoggedIn();
 
@@ -41,7 +41,7 @@ switch($pr){
 			
 			$pr_name = strtolower($pr_name['pr_name']);
 			if(file_exists(OC::$SERVERROOT . '/apps/ocdownloader/providers/' . $pr_name . '.php')){
-				require_once(OC::$SERVERROOT . '/apps/ocdownloader/providers/' . $pr_name . '.php');
+				require_once OC::$SERVERROOT . '/apps/ocdownloader/providers/' . $pr_name . '.php';
 			}
 		}
 }
