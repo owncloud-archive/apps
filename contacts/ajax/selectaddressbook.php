@@ -11,12 +11,8 @@ OCP\JSON::checkAppEnabled('contacts');
 
 $books = OC_Contacts_Addressbook::all(OCP\USER::getUser());
 if(count($books) > 1) {
-	$addressbooks = array();
-	foreach($books as $book) {
-		$addressbooks[] = array('id' => $book['id'], 'name' => $book['displayname']);
-	}
 	$tmpl = new OCP\Template("contacts", "part.selectaddressbook");
-	$tmpl->assign('addressbooks', $addressbooks);
+	$tmpl->assign('addressbooks', $books);
 	$page = $tmpl->fetchPage();
 	OCP\JSON::success(array('data' => array( 'type' => 'dialog', 'page' => $page )));
 } else {
