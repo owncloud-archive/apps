@@ -211,7 +211,7 @@ class OC_Contacts_VCard {
 		// Add version if needed
 		if($version && $version < '3.0') {
 			$upgrade = true;
-			OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Updating from version: '.$version, OCP\Util::DEBUG);
+			//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Updating from version: '.$version, OCP\Util::DEBUG);
 		}
 		foreach($vcard->children as &$property){
 			// Decode string properties and remove obsolete properties.
@@ -224,9 +224,9 @@ class OC_Contacts_VCard {
 			}
 			// Fix format of type parameters.
 			if($upgrade && in_array($property->name, $typeprops)) {
-				OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. before: '.$property->serialize(), OCP\Util::DEBUG);
+				//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. before: '.$property->serialize(), OCP\Util::DEBUG);
 				self::formatPropertyTypes($property);
-				OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. after: '.$property->serialize(), OCP\Util::DEBUG);
+				//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. after: '.$property->serialize(), OCP\Util::DEBUG);
 			}
 			if($property->name == 'FN') {
 				$fn = $property->value;
@@ -256,7 +256,7 @@ class OC_Contacts_VCard {
 				$fn = 'Unknown Name';
 			}
 			$vcard->setString('FN', $fn);
-			OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Added missing \'FN\' field: '.$fn, OCP\Util::DEBUG);
+			//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Added missing \'FN\' field: '.$fn, OCP\Util::DEBUG);
 		}
 		if(!$n || $n == ';;;;') { // Fix missing 'N' field. Ugly hack ahead ;-)
 			$slice = array_reverse(array_slice(explode(' ', $fn), 0, 2)); // Take 2 first name parts of 'FN' and reverse.
@@ -265,12 +265,12 @@ class OC_Contacts_VCard {
 			}
 			$n = implode(';', $slice).';;;';
 			$vcard->setString('N', $n);
-			OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Added missing \'N\' field: '.$n, OCP\Util::DEBUG);
+			//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Added missing \'N\' field: '.$n, OCP\Util::DEBUG);
 		}
 		if(!$uid) {
 			$vcard->setUID();
 			$uid = $vcard->getAsString('UID');
-			OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Added missing \'UID\' field: '.$uid, OCP\Util::DEBUG);
+			//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Added missing \'UID\' field: '.$uid, OCP\Util::DEBUG);
 		}
 		if(self::trueUID($aid, $uid)) {
 			$vcard->setString('UID', $uid);
