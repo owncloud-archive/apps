@@ -129,7 +129,23 @@ class OC_Contacts_Addressbook {
 			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', id: '.$id, OCP\Util::DEBUG);
 			return false;
 		}
-		return $result->fetchRow();
+		$row = $result->fetchRow();
+		if($row['userid'] != OCP\USER::getUser()) {
+			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
+			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_READ)) {
+				throw new Exception(
+					OC_Contacts_App::$l10n->t(
+						'You do not have the permissions to read this addressbook.'
+					)
+				);
+			}
+			$row['permissions'] = $sharedAddressbook['permissions'];
+		} else {
+			$row['permissions'] = OCP\Share::PERMISSION_CREATE 
+				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE 
+				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE; 
+		}
+		return $row;
 	}
 
 	/**
