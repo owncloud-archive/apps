@@ -80,7 +80,7 @@ class OC_Calendar_Calendar{
 		if($row['userid'] != OCP\USER::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_READ)) {
-				return false;
+				return $row; // I have to return the row so e.g. OC_Calendar_Object::getowner() works.
 			}
 			$row['permissions'] = $sharedCalendar['permissions'];
 		} else {
