@@ -49,7 +49,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 			console.log('doEdit: ', id);
 			var owner = this.adrsettings.find('[data-id="'+id+'"]').data('owner');
 			var actions = ['description', 'save', 'cancel'];
-			if(owner == OC.currentUser) {
+			if(owner == OC.currentUser || id === 'new') {
 				actions.push('active', 'name');
 			}
 			this.showActions(actions);
