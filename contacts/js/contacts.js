@@ -1762,16 +1762,18 @@ OC.Contacts={
 					$.each(books, function(b, book) {
 						if($('#contacts h3[data-id="'+b+'"]').length == 0) {
 							firstrun = true;
+							var sharedindicator = book.owner == OC.currentUser ? ''
+								: '<img class="shared svg" src="'+OC.imagePath('core', 'actions/shared')+'" title="'+t('contacts', 'Shared by ')+book.owner+'" />'
 							if($('#contacts h3').length == 0) {
 								$('#contacts').html('<h3 class="addressbook" contextmenu="addressbookmenu" data-id="'
 									+ b + '" data-permissions="' + book.permissions + '">' + book.displayname
-									+ '</h3><ul class="contacts hidden" data-id="'+b+'" data-permissions="'
+									+ sharedindicator + '</h3><ul class="contacts hidden" data-id="'+b+'" data-permissions="'
 									+ book.permissions + '"></ul>');
 							} else {
 								if(!$('#contacts h3[data-id="' + b + '"]').length) {
 									var item = $('<h3 class="addressbook" contextmenu="addressbookmenu" data-id="'
 										+ b + '" data-permissions="' + book.permissions + '">'
-										+ book.displayname+'</h3><ul class="contacts hidden" data-id="' + b
+										+ book.displayname+sharedindicator+'</h3><ul class="contacts hidden" data-id="' + b
 										+ '" data-permissions="' + book.permissions + '"></ul>');
 									var added = false;
 									$('#contacts h3').each(function(){
@@ -1819,6 +1821,7 @@ OC.Contacts={
 							}
 						}
 					});
+					$('#contacts h3 img.shared').tipsy()
 					if($('#contacts h3').length > 1) {
 						$('#contacts li,#contacts h3').draggable({
 							distance: 10,
