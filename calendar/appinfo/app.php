@@ -24,9 +24,7 @@ OCP\Util::connectHook('OC_Calendar', 'editEvent', 'OC_Calendar_Repeat', 'update'
 OCP\Util::connectHook('OC_Calendar', 'deleteEvent', 'OC_Calendar_Repeat', 'clean');
 OCP\Util::connectHook('OC_Calendar', 'moveEvent', 'OC_Calendar_Repeat', 'update');
 OCP\Util::connectHook('OC_Calendar', 'deleteCalendar', 'OC_Calendar_Repeat', 'cleanCalendar');
-//Sharing Hooks
-OCP\Util::connectHook('OC_Calendar', 'deleteEvent', 'OC_Calendar_Share', 'post_eventdelete');
-OCP\Util::connectHook('OC_Calendar', 'deleteCalendar', 'OC_Calendar_Share', 'post_caldelete');
+
 OCP\Util::addscript('calendar','loader');
 OCP\Util::addscript("3rdparty", "chosen/chosen.jquery.min");
 OCP\Util::addStyle("3rdparty", "chosen/chosen");
