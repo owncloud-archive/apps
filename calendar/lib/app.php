@@ -342,7 +342,7 @@ class OC_Calendar_App{
 		if($calendarid == 'shared_events') {
 			$singleevents = OCP\Share::getItemsSharedWith('event', OC_Share_Backend_Event::FORMAT_EVENT);
 			foreach($singleevents as $singleevent){
-				$singleevent['summary'] .= ' (' . self::$l10n->t('by') .  ' ' . OC_Calendar_Object::getowner($event['id']) . ')';
+				$singleevent['summary'] .= ' (' . self::$l10n->t('by') .  ' ' . OC_Calendar_Object::getowner($singleevent['id']) . ')';
 				$events[] =  $singleevent;
 			}
 		}else{
