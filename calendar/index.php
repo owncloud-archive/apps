@@ -59,7 +59,7 @@ OCP\Util::addscript('','oc-vcategories');
 OCP\App::setActiveNavigationEntry('calendar_index');
 $tmpl = new OCP\Template('calendar', 'calendar', 'user');
 $tmpl->assign('eventSources', $eventSources,false);
-$tmpl->assign('categories', $categories);
+$tmpl->assign('categories', $categories, false);
 if(array_key_exists('showevent', $_GET)){
 	$tmpl->assign('showevent', $_GET['showevent'], false);
 }

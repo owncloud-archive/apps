@@ -34,5 +34,5 @@ $categories = OC_Calendar_App::getCategoryOptions();
 $priority_options = OC_Task_App::getPriorityOptions();
 $output = new OCP\Template('tasks', 'tasks', 'user');
 $output->assign('priority_options', $priority_options);
-$output->assign('categories', $categories);
+$output->assign('categories', $categories, false);
 $output -> printPage();
