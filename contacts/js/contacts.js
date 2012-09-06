@@ -369,8 +369,9 @@ OC.Contacts={
 			}
 
 			// Make sure proper DOM is loaded.
-			if(!$('#card').length && newid) {
+			if(newid) {
 				console.log('Loading card DOM');
+				localLoadContact(newid, bookid);
 				$('#firstrun').hide();
 				$('#card').show();
 			} else if(!newid) {
@@ -378,9 +379,6 @@ OC.Contacts={
 				// show intro page
 				$('#firstrun').show();
 				$('#card').hide();
-			}
-			else {
-				localLoadContact(newid, bookid);
 			}
 			$('#contacts h3[data-id="'+bookid+'"]').addClass('active');
 		},
