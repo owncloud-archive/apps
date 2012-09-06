@@ -135,7 +135,9 @@ class OC_Calendar_App{
 	 */
 	protected static function getVCategories() {
 		if (is_null(self::$categories)) {
-			self::$categories = new OC_VCategories('calendar', null, self::getDefaultCategories());
+			self::$categories = new OC_VCategories('calendar',
+				null,
+				self::getDefaultCategories());
 		}
 		return self::$categories;
 	}
