@@ -24,6 +24,6 @@
 	</dd>
 	<dt>&nbsp;</dt>
 	<dd>
-		<button id="ownpad_settings_apply"><?php echo $l->t('Save'); ?>
+		<button id="ownpad_settings_apply" class="hidden"><?php echo $l->t('Save'); ?>
 	</dd>
 </dl>
