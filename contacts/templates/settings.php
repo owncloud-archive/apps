@@ -10,7 +10,10 @@
 		<dd class="addressbooks-settings hidden">
 			<table>
 			<?php foreach($_['addressbooks'] as $addressbook) { ?>
-			<tr class="addressbook" data-id="<?php echo $addressbook['id'] ?>" data-uri="<?php echo $addressbook['uri'] ?>">
+			<tr class="addressbook" data-id="<?php echo $addressbook['id'] ?>" 
+				data-uri="<?php echo $addressbook['uri'] ?>"
+				data-owner="<?php echo $addressbook['userid'] ?>"
+				>
 				<td class="active">
 					<?php if($addressbook['permissions'] & OCP\Share::PERMISSION_UPDATE) { ?>
 					<input type="checkbox" <?php echo (($addressbook['active']) == '1' ? ' checked="checked"' : ''); ?> />
