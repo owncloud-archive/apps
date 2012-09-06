@@ -24,7 +24,7 @@ if (version_compare($installedVersion, '0.5', '<')) {
 }
 if (version_compare($installedVersion, '0.6', '<=')) {
 	$calendar_stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_share_calendar`');
-	$calendar_result = $calendar_stmt->execute(array($id));
+	$calendar_result = $calendar_stmt->execute();
 	$calendar = array();
 	while( $row = $calendar_result->fetchRow()){
 		$calendar[] = $row;
@@ -34,7 +34,7 @@ if (version_compare($installedVersion, '0.6', '<=')) {
 		$result = $stmt->execute(array($cal['share'],$cal['owner'],$cal['calendarid'], ($cal['permissions'])?31:17));
 	}
 	$event_stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_share_event`');
-	$event_result = $event_stmt->execute(array($id));
+	$event_result = $event_stmt->execute();
 	$event = array();
 	while( $row = $event_result->fetchRow()){
 		$event[] = $row;
