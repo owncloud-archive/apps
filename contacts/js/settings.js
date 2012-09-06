@@ -48,9 +48,9 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 		doEdit:function(id) {
 			console.log('doEdit: ', id);
 			var owner = this.adrsettings.find('[data-id="'+id+'"]').data('owner');
-			var actions = ['active', 'description', 'save', 'cancel'];
+			var actions = ['description', 'save', 'cancel'];
 			if(owner == OC.currentUser) {
-				actions.push('name');
+				actions.push('active', 'name');
 			}
 			this.showActions(actions);
 			var name = this.adrsettings.find('[data-id="'+id+'"]').find('.name').text();
