@@ -11,11 +11,9 @@
 	</div>
 	<div id="uploadprogressbar"></div>
 	<div id="bottomcontrols">
-			<button class="svg" id="contacts_newcontact" title="<?php echo $l->t('Add Contact'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('contacts', 'contact-new.svg'); ?>" alt="<?php echo $l->t('Add Contact'); ?>" /></button>
-			<button class="svg import tip" title="<?php echo $l->t('Import'); ?>">
-				<img class="svg" src="<?php echo OCP\Util::imagePath('core', 'actions/upload.svg') ?>" alt="<?php echo $l->t('Import'); ?>" />
-			</button>
-			<button class="svg settings tip" title="<?php echo $l->t('Settings'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('core', 'actions/settings.svg') ?>" alt="<?php echo $l->t('Addressbooks'); ?>" /></button>
+			<button class="control newcontact" id="contacts_newcontact" title="<?php echo $l->t('Add Contact'); ?>"></button>
+			<button class="control import" title="<?php echo $l->t('Import'); ?>"></button>
+			<button class="control settings" title="<?php echo $l->t('Settings'); ?>"></button>
 		<form id="import_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadimport.php'); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
 			<input class="float" id="import_upload_start" type="file" accept="text/directory,text/vcard,text/x-vcard" name="importfile" />
 			<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">

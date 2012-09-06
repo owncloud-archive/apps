@@ -283,7 +283,7 @@ OC.Contacts={
 		$('#contacts_deletecard').tipsy({gravity: 'ne'});
 		$('#contacts_downloadcard').tipsy({gravity: 'ne'});
 		$('#contacts_propertymenu_button').tipsy();
-		$('#contacts_newcontact, #contacts_import, #bottomcontrols .settings').tipsy({gravity: 'sw'});
+		$('#bottomcontrols button').tipsy({gravity: 'sw'});
 
 		$('body').click(function(e){
 			if(!$(e.target).is('#contacts_propertymenu_button')) {
