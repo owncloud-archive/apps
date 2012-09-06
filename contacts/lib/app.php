@@ -40,7 +40,7 @@ class OC_Contacts_App {
 			} else {
 				$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id, OC_Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS);
 				if ($sharedAddressbook) {
-					return $sharedAddressbook;
+					return $sharedAddressbook[0];
 				} else {
 					OCP\Util::writeLog('contacts',
 						'Addressbook('.$id.') is not from '.OCP\USER::getUser(),
