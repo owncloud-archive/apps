@@ -28,6 +28,7 @@
 
 .actions {height: 33px;	min-width: 800px;}
 .controls {min-width: 800px;}
+#controls button, #controls input { max-height: 26px; padding: 5px; }
 .center {text-align: center;}
 .dateinfo {height: 20px;width: 100%; overflow: hidden; margin-top: 0; padding: 0; font-size: 12px;background: #F7F7F7;}
 .events {width: 100%; margin: 0; padding: 0;min-height: 100px;}
@@ -130,10 +131,6 @@ padding:0 8px 2px;
 .tipsy-event .description{
 line-height:1.2;
 margin-bottom:4px;
-}
-
-#choosecalendar a.settings{
-	margin-top: 25px;
 }
 
 #fullcalendar{
