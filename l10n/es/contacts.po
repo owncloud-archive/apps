@@ -5,7 +5,7 @@
 # Translators:
 #   <davidlopez.david@gmail.com>, 2012.
 # Javier Llorente <javier@opensuse.org>, 2012.
-#   <juanma@kde.org.ar>, 2011, 2012.
+#   <juanma@kde.org.ar>, 2011-2012.
 # oSiNaReF  <>, 2012.
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
 #   <rodrigo.calvo@gmail.com>, 2012.
@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-04 02:00+0200\n"
-"PO-Revision-Date: 2012-09-03 19:43+0000\n"
-"Last-Translator: Rubén Trujillo <rubentrf@gmail.com>\n"
+"POT-Creation-Date: 2012-09-06 02:02+0200\n"
+"PO-Revision-Date: 2012-09-05 15:45+0000\n"
+"Last-Translator: juanman <juanma@kde.org.ar>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -399,7 +399,7 @@ msgstr "Trabajo"
 msgid "Home"
 msgstr "Particular"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:630
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
 msgid "Other"
 msgstr "Otro"
 
@@ -454,7 +454,7 @@ msgstr "Clientes"
 
 #: lib/app.php:256
 msgid "Deliverer"
-msgstr ""
+msgstr "Mensajero"
 
 #: lib/app.php:257
 msgid "Holidays"
@@ -504,23 +504,23 @@ msgstr "No tiene permisos para añadir contactos a esta libreta de direcciones."
 msgid "Could not find the vCard with ID."
 msgstr "No se puede encontrar la vCard con ID."
 
-#: lib/vcard.php:422
+#: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
 msgstr "No tiene permisos para editar este contacto."
 
-#: lib/vcard.php:493
+#: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
 msgstr "No se puede encontrar la vCard con ID:"
 
-#: lib/vcard.php:501
+#: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
 msgstr "No se puede encontrar la libreta de direcciones con ID:"
 
-#: lib/vcard.php:516
+#: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
 msgstr "No tiene permisos para eliminar este contacto."
 
-#: lib/vcard.php:534
+#: lib/vcard.php:550
 msgid "There was an error deleting this contact."
 msgstr "Hubo un error eliminando este contacto."
 

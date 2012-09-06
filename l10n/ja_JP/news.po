@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-04 02:01+0200\n"
-"PO-Revision-Date: 2012-09-03 16:02+0000\n"
-"Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
+"POT-Creation-Date: 2012-09-06 02:02+0200\n"
+"PO-Revision-Date: 2012-09-06 00:03+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -295,14 +295,10 @@ msgid "Mark as important"
 msgstr "重要マークを付ける"
 
 #: templates/part.items.php:55
-msgid "from"
-msgstr "から"
-
-#: templates/part.items.php:60
 msgid "by"
 msgstr "により"
 
-#: templates/part.items.php:67
+#: templates/part.items.php:62
 msgid "Keep unread"
 msgstr "未読のままにする"
 

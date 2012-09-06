@@ -133,7 +133,7 @@
 "Cancel" => "Annuleren",
 "Edit an event" => "Bewerken van een afspraak",
 "Export" => "Exporteren",
-"Eventinfo" => "Geberurtenisinformatie",
+"Eventinfo" => "Gebeurtenisinformatie",
 "Repeating" => "Herhalend",
 "Alarm" => "Alarm",
 "Attendees" => "Deelnemers",

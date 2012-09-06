@@ -9,6 +9,7 @@
 "Empty Summary" => "ข้อมูลสรุปยังว่างอยู่",
 "Invalid percent complete" => "สัดส่วนเปอร์เซ็นต์ความสมบูรณ์ไม่ถูกต้อง",
 "Invalid priority" => "ความสำคัญไม่ถูกต้อง",
+"The calendar application also need to be enabled to use this application." => "แอพพลิเคชั่นปฏิทินจำเป็นต้องได้รับการเปิดใช้งานด้วยเช่นกันจึงจะสามารถใช้งานแอพพลิเคชั่นตัวนี้ได้",
 "Add Task" => "เพิ่มงานใหม่",
 "Order Due" => "จัดเรียงตามกำหนดเวลา",
 "Order List" => "จัดเรียงตามรายชื่อ",

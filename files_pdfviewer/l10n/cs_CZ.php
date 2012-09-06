@@ -4,5 +4,5 @@
 "Page Width" => "Šířka strany",
 "Page Fit" => "Umístění strany",
 "Print" => "Tisk",
-"Download" => "Stažení"
+"Download" => "Stáhnout"
 );

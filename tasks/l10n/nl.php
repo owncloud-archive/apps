@@ -9,6 +9,7 @@
 "Empty Summary" => "Lege samenvatting",
 "Invalid percent complete" => "Ongeldige percentage compleet",
 "Invalid priority" => "Ongeldige prioriteit",
+"The calendar application also need to be enabled to use this application." => "De kalender applicatie dient ingeschakeld te zijn om deze applicatie te gebruiken.",
 "Add Task" => "Voeg taak toe",
 "Order Due" => "Order gereed",
 "Order List" => "Orderlijst",

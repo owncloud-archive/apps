@@ -8,19 +8,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:06+0200\n"
-"PO-Revision-Date: 2012-09-03 00:07+0000\n"
+"POT-Creation-Date: 2012-09-06 02:02+0200\n"
+"PO-Revision-Date: 2012-09-06 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: th_TH\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
-msgstr ""
+msgstr "พบข้อผิดพลาดในการเปลี่ยนชื่อของโฟลเดอร์"
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -106,12 +106,12 @@ msgstr "ข่าวสาร"
 msgid "Name of the folder cannot be empty."
 msgstr "ชื่อโฟลเดอร์ไม่สามารถเว้นว่างได้"
 
-#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:77 js/news.js:91
-#: js/news.js:117 js/settings.js:16 js/settings.js:22 js/settings.js:47
+#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
+#: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "ข้อผิดพลาด"
 
-#: js/news.js:33 js/news.js:96
+#: js/news.js:33 js/news.js:95
 msgid "Adding..."
 msgstr "กำลังเพิ่มข้อมูล..."
 
@@ -121,26 +121,26 @@ msgstr "เพิ่มโฟลเดอร์"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr ""
+msgstr "กำลังเปลี่ยน..."
 
-#: js/news.js:80 templates/part.dialogues.php:34
+#: js/news.js:79 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
-msgstr ""
+msgstr "เปลี่ยนชื่อโฟลเดอร์"
 
-#: js/news.js:91
+#: js/news.js:90
 msgid "URL cannot be empty."
 msgstr "URL ไม่สามารถเว้นว่างได้"
 
-#: js/news.js:121 js/news.js:128 templates/part.nofeeds.php:6
+#: js/news.js:120 js/news.js:127 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "เพิ่ม feed"
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Error while parsing the feed"
 msgstr "เกิดข้อผิดพลาดในระหว่างแยก ffed"
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Fatal Error"
 msgstr "ข้อผิดพลาดร้ายแรง"
 
@@ -254,7 +254,7 @@ msgstr "เพิ่มโฟลเดอร์"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
-msgstr ""
+msgstr "เพิ่มโฟลเดอร์ใหม่"
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
@@ -266,7 +266,7 @@ msgstr "เพิ่มรายการสมัครรับข้อมู
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
-msgstr ""
+msgstr "เพิ่ม feed ใหม่"
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
@@ -294,14 +294,10 @@ msgid "Mark as important"
 msgstr "ทำเครื่องหมายว่าสำคัญ"
 
 #: templates/part.items.php:55
-msgid "from"
-msgstr "จาก"
-
-#: templates/part.items.php:60
 msgid "by"
 msgstr "โดย"
 
-#: templates/part.items.php:67
+#: templates/part.items.php:62
 msgid "Keep unread"
 msgstr "รักษาสถานะว่ายังไม่ได้เปิดอ่านไว้"
 

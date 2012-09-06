@@ -185,6 +185,7 @@
 "Shared with" => "共有",
 "Unshare" => "非共有",
 "Shared via calendar" => "カレンダー経由で共有中",
+"NOTE: Actions on events shared via calendar will affect the entire calendar sharing." => "注意: カレンダーを通して共有しているイベント上のアクションはカレンダー共有全体に影響します。",
 "View an event" => "イベントを閲覧",
 "No categories selected" => "カテゴリが選択されていません",
 "of" => "of",

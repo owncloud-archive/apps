@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-05 02:02+0200\n"
-"PO-Revision-Date: 2012-09-05 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-06 02:02+0200\n"
+"PO-Revision-Date: 2012-09-05 06:07+0000\n"
+"Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr "Min pad"
 
 #: templates/index.php:14 templates/index.php:15
 msgid "Settings"
-msgstr ""
+msgstr "Inställningar"
 
 #: templates/index.php:17
 msgid "Pad Title:"
@@ -36,12 +36,12 @@ msgstr "Öppna"
 
 #: templates/settings.php:15
 msgid "Etherpad service URL:"
-msgstr ""
+msgstr "Webbadress Etherpad-tjänst:"
 
 #: templates/settings.php:20
 msgid "Username:"
-msgstr ""
+msgstr "Användarnamn:"
 
 #: templates/settings.php:27
 msgid "Save"
-msgstr ""
+msgstr "Spara"

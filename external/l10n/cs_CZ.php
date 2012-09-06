@@ -1,7 +1,7 @@
 <?php $TRANSLATIONS = array(
-"External Sites" => "Externí strany",
+"External Sites" => "Externí stránky",
 "Name" => "Název",
 "URL" => "URL",
-"Remove site" => "Vyjmout stranu",
+"Remove site" => "Odstranit stránku",
 "Add" => "Přidat"
 );

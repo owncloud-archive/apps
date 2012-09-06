@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:06+0200\n"
-"PO-Revision-Date: 2012-09-03 00:07+0000\n"
+"POT-Creation-Date: 2012-09-06 02:02+0200\n"
+"PO-Revision-Date: 2012-09-06 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eo\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
@@ -106,12 +106,12 @@ msgstr "Novaĵoj"
 msgid "Name of the folder cannot be empty."
 msgstr "Nomo de dosierujo ne povas esti malplena"
 
-#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:77 js/news.js:91
-#: js/news.js:117 js/settings.js:16 js/settings.js:22 js/settings.js:47
+#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
+#: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "Eraro"
 
-#: js/news.js:33 js/news.js:96
+#: js/news.js:33 js/news.js:95
 msgid "Adding..."
 msgstr "Aldonante..."
 
@@ -123,24 +123,24 @@ msgstr "Aldoni dosierujon"
 msgid "Changing..."
 msgstr ""
 
-#: js/news.js:80 templates/part.dialogues.php:34
+#: js/news.js:79 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
 msgstr ""
 
-#: js/news.js:91
+#: js/news.js:90
 msgid "URL cannot be empty."
 msgstr "URL ne povas esti malplena."
 
-#: js/news.js:121 js/news.js:128 templates/part.nofeeds.php:6
+#: js/news.js:120 js/news.js:127 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "Aldoni fluon"
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Error while parsing the feed"
 msgstr "Eraro dum analizo de fluo"
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Fatal Error"
 msgstr "Neriparebla eraro"
 
@@ -294,14 +294,10 @@ msgid "Mark as important"
 msgstr "Marki kiel grava"
 
 #: templates/part.items.php:55
-msgid "from"
-msgstr "el"
-
-#: templates/part.items.php:60
 msgid "by"
 msgstr "de"
 
-#: templates/part.items.php:67
+#: templates/part.items.php:62
 msgid "Keep unread"
 msgstr "Lasi legota"
 

@@ -4,39 +4,40 @@
 # 
 # Translators:
 # Martin  <fireball@atlas.cz>, 2012.
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:06+0200\n"
-"PO-Revision-Date: 2012-09-03 00:07+0000\n"
+"POT-Creation-Date: 2012-09-06 02:02+0200\n"
+"PO-Revision-Date: 2012-09-06 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs_CZ\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
-msgstr ""
+msgstr "Chyba při změně názvu složky "
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
-msgstr "Příspěvek již existuje."
+msgstr "Kanál již existuje."
 
 #: ajax/createfeed.php:57
 msgid "Error adding feed."
-msgstr "Chyba při přidání příspěvku."
+msgstr "Chyba při přidávání kanálu."
 
 #: ajax/createfeed.php:70
 msgid "Feed added!"
-msgstr "Příspěvek byl přidán!"
+msgstr "Kanál byl přidán."
 
 #: ajax/createfolder.php:36
 msgid "Error adding folder."
-msgstr "Chyba během přidávání adresáře."
+msgstr "Chyba při přidávání adresáře."
 
 #: ajax/createfolder.php:46
 msgid "Folder added!"
@@ -48,7 +49,7 @@ msgstr "Chyba při odstraňování příspěvku."
 
 #: ajax/deletefolder.php:26
 msgid "Error removing folder."
-msgstr "Chyba při odstraňování adresáře."
+msgstr "Chyba při odstraňování složky."
 
 #: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
@@ -56,15 +57,15 @@ msgstr "Neuvedena cesta k souboru."
 
 #: ajax/exportopml.php:41 ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
-msgstr "Chyba při převodu souboru."
+msgstr "Nastala chyba při zpracování souboru."
 
 #: ajax/feedlist.php:27
 msgid "Error updating feeds."
-msgstr "Chyba při aktualizaci příspěvků."
+msgstr "Chyba při aktualizaci kanálů."
 
 #: ajax/loadfeed.php:36 templates/part.feeds.php:50
 msgid "Starred"
-msgstr "Označené hvězdičkou"
+msgstr "S hvězdičkou"
 
 #: ajax/loadfeed.php:41 templates/part.feeds.php:44
 msgid "New articles"
@@ -72,11 +73,11 @@ msgstr "Nové články"
 
 #: ajax/loadfeed.php:53
 msgid "Feed loaded!"
-msgstr "Příspěvky byly staženy!"
+msgstr "Kanály načteny."
 
 #: ajax/movefeedtofolder.php:36
 msgid "Error moving feed into folder."
-msgstr "Chyba během přesuvu příspěvků do adresáře"
+msgstr "Chyba při přesunu kanálu do adresáře"
 
 #: ajax/selectfromcloud.php:37
 msgid "File doesn't exist:"
@@ -84,93 +85,93 @@ msgstr "Soubor neexistuje:"
 
 #: ajax/setallitemsread.php:57
 msgid "Error setting all items as read."
-msgstr "Chyba během nastavení atributu přečteno u  všech položek."
+msgstr "Chyba při označování všech položek jako přečtené."
 
 #: ajax/setitemstatus.php:46
 msgid "Error marking item as read."
-msgstr "Chyba během nastavení atributu přečteno u položky."
+msgstr "Chyba při nastavení položky jako přečtené."
 
 #: ajax/updatefeed.php:36
 msgid "Error updating feed."
-msgstr "Chyba při aktualizaci příspěvků"
+msgstr "Chyba při aktualizaci kanálu."
 
 #: ajax/updatefeed.php:44
 msgid "Feed updated!"
-msgstr "Příspěveky aktualizovány!"
+msgstr "Kanál aktualizován."
 
 #: appinfo/app.php:35
 msgid "News"
-msgstr "News"
+msgstr "Novinky"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
-msgstr "Název adresáře nemůže být prázdný."
+msgstr "Název adresáře nesmí být prázdný."
 
-#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:77 js/news.js:91
-#: js/news.js:117 js/settings.js:16 js/settings.js:22 js/settings.js:47
+#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
+#: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "Chyba"
 
-#: js/news.js:33 js/news.js:96
+#: js/news.js:33 js/news.js:95
 msgid "Adding..."
-msgstr "Přidává se..."
+msgstr "Přidávám %1"
 
 #: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
-msgstr "Přidat adresář"
+msgstr "Přidat složku"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr ""
+msgstr "Měním..."
 
-#: js/news.js:80 templates/part.dialogues.php:34
+#: js/news.js:79 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
-msgstr ""
+msgstr "Změnit název složky"
 
-#: js/news.js:91
+#: js/news.js:90
 msgid "URL cannot be empty."
-msgstr "URL nemůže zůstat prázdná"
+msgstr "URL nemůže být prázdná"
 
-#: js/news.js:121 js/news.js:128 templates/part.nofeeds.php:6
+#: js/news.js:120 js/news.js:127 templates/part.nofeeds.php:6
 msgid "Add feed"
-msgstr "Pčidat příspěvky"
+msgstr "Přidat kanál"
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Error while parsing the feed"
-msgstr "Chyba při převosu příspěvku"
+msgstr "Chyba při zpracování kanálu"
 
-#: js/news.js:125
+#: js/news.js:124
 msgid "Fatal Error"
-msgstr "Fatální chyba"
+msgstr "Kritická chyba"
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
-msgstr "Soubor"
+msgstr "Soubor "
 
 #: js/settings.js:11
 msgid " loaded from cloud."
-msgstr "staženo z cloudu"
+msgstr " stažen z cloudu"
 
 #: js/settings.js:22
 msgid "No files selected."
-msgstr "Nejsou vybrány soubory."
+msgstr "Nebyly vybrány žádné soubory."
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
-msgstr "staženo z lokálního souborového systému."
+msgstr " načteno z místního souborového systému."
 
 #: js/settings.js:32
 msgid "Importing..."
-msgstr "Importuje se..."
+msgstr "Probíhá import..."
 
 #: js/settings.js:43
 msgid " out of "
-msgstr "z celkem"
+msgstr " z celkem "
 
 #: js/settings.js:44
 msgid " feeds imported successfully from "
-msgstr "příspěvky importovány úspěšně z"
+msgstr " kanály byly úspěšně importovány z "
 
 #: js/settings.js:45
 msgid "Success"
@@ -178,15 +179,15 @@ msgstr "Úspěch"
 
 #: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
 msgid "Import"
-msgstr "Import"
+msgstr "Importovat"
 
 #: js/settings.js:55
 msgid "Downloading..."
-msgstr "Stahuje se..."
+msgstr "Stahuji..."
 
 #: js/settings.js:57
 msgid "Download"
-msgstr "Stahování"
+msgstr "Stáhnout"
 
 #: js/settings.js:69
 msgid "Select file"
@@ -194,11 +195,11 @@ msgstr "Vybrat soubor"
 
 #: lib/feedmapper.php:165 lib/itemmapper.php:199
 msgid "no title"
-msgstr "bez nadpisu"
+msgstr "bez názvu"
 
 #: lib/foldermapper.php:114
 msgid "no name"
-msgstr "beze jména"
+msgstr "bez názvu"
 
 #: lib/itemmapper.php:204
 msgid "no body"
@@ -206,180 +207,176 @@ msgstr "bez těla"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
-msgstr "Odběr v ownCloud - News "
+msgstr "odběry v ownCloud - Novinky"
 
 #: subscribe.php:30
 msgid "An error occurred"
-msgstr ""
+msgstr "Nastala chyba"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr ""
+msgstr "Dobře. Jste přihlášen k "
 
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
-msgstr ""
+msgstr "Již jste přihlášen k tomuto kanálu."
 
 #: templates/main.php:12
 msgid "Show everything"
-msgstr ""
+msgstr "Zobrazit vše"
 
 #: templates/main.php:16
 msgid "Show only unread"
-msgstr ""
+msgstr "Zobrazit pouze nepřečtené"
 
 #: templates/main.php:32
 msgid "Add feed or folder"
-msgstr ""
+msgstr "Přidat kanál, či složku"
 
 #: templates/main.php:33
 msgid "Add Feed/Folder"
-msgstr ""
+msgstr "Přidat Kanál/složku"
 
 #: templates/main.php:35
 msgid "Feed"
-msgstr ""
+msgstr "Kanál"
 
 #: templates/main.php:36
 msgid "Folder"
-msgstr ""
+msgstr "Složka"
 
 #: templates/main.php:43
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 #: templates/part.dialogues.php:1
 msgid "Add Folder"
-msgstr ""
+msgstr "Přidat složku"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
-msgstr ""
+msgstr "Přidat novou složku"
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
-msgstr ""
+msgstr "Název složky"
 
 #: templates/part.dialogues.php:14
 msgid "Add Subscription"
-msgstr ""
+msgstr "Přidat odběr"
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
-msgstr ""
+msgstr "Přidat nový kanál"
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
-msgstr ""
+msgstr "Vybrat složku"
 
 #: templates/part.dialogues.php:28 templates/part.nofeeds.php:7
 msgid "Address"
-msgstr ""
+msgstr "Adresa"
 
 #: templates/part.dialogues.php:29
 msgid "Add"
-msgstr ""
+msgstr "Přidat"
 
 #: templates/part.feeds.php:46 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:20
 msgid "Mark all read"
-msgstr ""
+msgstr "Označit vše jako přečtené"
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
-msgstr ""
+msgstr "Označit jako nedůležité"
 
 #: templates/part.items.php:38
 msgid "Mark as important"
-msgstr ""
+msgstr "Označit jako důležité"
 
 #: templates/part.items.php:55
-msgid "from"
-msgstr ""
-
-#: templates/part.items.php:60
 msgid "by"
-msgstr ""
+msgstr "od"
 
-#: templates/part.items.php:67
+#: templates/part.items.php:62
 msgid "Keep unread"
-msgstr ""
+msgstr "Ponechat nepřečteno"
 
 #: templates/part.listfeed.php:25
 msgid "Delete feed"
-msgstr ""
+msgstr "Smazat kanál"
 
 #: templates/part.listfolder.php:15
 msgid "Collapse"
-msgstr ""
+msgstr "Svinout"
 
 #: templates/part.listfolder.php:18
 msgid "Delete folder"
-msgstr ""
+msgstr "Smazat složku"
 
 #: templates/part.listfolder.php:19
 msgid "Rename folder"
-msgstr ""
+msgstr "Přejmenovat složku"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
-msgstr ""
+msgstr "Nemáte žádné kanály ve Vaší čtečce."
 
 #: templates/part.nofeeds.php:8 templates/subscribelet.php:7
 msgid "Subscribe"
-msgstr ""
+msgstr "Odebírat"
 
 #: templates/part.nofeeds.php:12
 msgid "Import OPML"
-msgstr ""
+msgstr "Importovat OPML"
 
 #: templates/part.nofeeds.php:13 templates/settings.php:3
 msgid "Upload file from desktop"
-msgstr ""
+msgstr "Odeslat soubor z plochy"
 
 #: templates/part.nofeeds.php:13 templates/settings.php:3
 msgid "Upload"
-msgstr ""
+msgstr "Odeslat"
 
 #: templates/part.nofeeds.php:14 templates/settings.php:4
 msgid "Select file from ownCloud"
-msgstr ""
+msgstr "Vybrat soubor z ownCloud"
 
 #: templates/part.nofeeds.php:14 templates/settings.php:4
 msgid "Select"
-msgstr ""
+msgstr "Vybrat"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "Select file from"
-msgstr ""
+msgstr "Vybrat soubor z"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid "local filesystem"
-msgstr ""
+msgstr "místního souborového systému"
 
 #: templates/part.nofeeds.php:17 templates/settings.php:7
 msgid " or "
-msgstr ""
+msgstr " nebo "
 
 #: templates/part.nofeeds.php:17 templates/settings.php:7
 msgid "cloud"
-msgstr ""
+msgstr "cloudu"
 
 #: templates/part.nofeeds.php:26
 msgid "Or..."
-msgstr ""
+msgstr "Nebo..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
-msgstr ""
+msgstr "Importovat kanály"
 
 #: templates/settings.php:12
 msgid "Export feeds"
-msgstr ""
+msgstr "Exportovat kanály"
 
 #: templates/settings.php:14
 msgid "Download OPML"
-msgstr ""
+msgstr "Stáhnout OPML"
 
 #: templates/settings.php:16
 msgid "Subscribelet"
@@ -389,4 +386,4 @@ msgstr ""
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr ""
+msgstr "Přetáhněte do Vašeho prohlížeče a klikněte, pokud si přejete rychle odebírat stránku:"

@@ -101,6 +101,7 @@
 "Business" => "Negocio",
 "Call" => "Llamada",
 "Clients" => "Clientes",
+"Deliverer" => "Mensajero",
 "Holidays" => "Vacaciones",
 "Ideas" => "Ideas",
 "Journey" => "Jornada",
