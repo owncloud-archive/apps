@@ -43,7 +43,7 @@
 					</form>
 					<form id="choosecalendar">
 						<!--<input type="button" id="today_input" value="<?php echo $l->t("Today");?>"/>-->
-						<a class="settings calendarsettings" title="<?php echo $l->t('Settings'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('calendar', 'icon.svg'); ?>" alt="<?php echo $l->t('Settings'); ?>" /></a>
+						<a class="settings calendarsettings" title="<?php echo $l->t('Calendars'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('calendar', 'icon.svg'); ?>" alt="<?php echo $l->t('Calendars'); ?>" /></a>
 						<a class="settings generalsettings" title="<?php echo $l->t('Settings'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('core', 'actions/settings.svg'); ?>" alt="<?php echo $l->t('Settings'); ?>" /></a>
 					</form>
 					<form id="datecontrol">
