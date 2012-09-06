@@ -111,21 +111,21 @@ class OC_Calendar_App{
 	 */
 	protected static function getDefaultCategories(){
 		return array(
-			self::$l10n->t('Birthday'),
-			self::$l10n->t('Business'),
-			self::$l10n->t('Call'),
-			self::$l10n->t('Clients'),
-			self::$l10n->t('Deliverer'),
-			self::$l10n->t('Holidays'),
-			self::$l10n->t('Ideas'),
-			self::$l10n->t('Journey'),
-			self::$l10n->t('Jubilee'),
-			self::$l10n->t('Meeting'),
-			self::$l10n->t('Other'),
-			self::$l10n->t('Personal'),
-			self::$l10n->t('Projects'),
-			self::$l10n->t('Questions'),
-			self::$l10n->t('Work'),
+			(string)self::$l10n->t('Birthday'),
+			(string)self::$l10n->t('Business'),
+			(string)self::$l10n->t('Call'),
+			(string)self::$l10n->t('Clients'),
+			(string)self::$l10n->t('Deliverer'),
+			(string)self::$l10n->t('Holidays'),
+			(string)self::$l10n->t('Ideas'),
+			(string)self::$l10n->t('Journey'),
+			(string)self::$l10n->t('Jubilee'),
+			(string)self::$l10n->t('Meeting'),
+			(string)self::$l10n->t('Other'),
+			(string)self::$l10n->t('Personal'),
+			(string)self::$l10n->t('Projects'),
+			(string)self::$l10n->t('Questions'),
+			(string)self::$l10n->t('Work'),
 		);
 	}
 	
