@@ -76,7 +76,23 @@ class OC_Calendar_Calendar{
 		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*calendar_calendars` WHERE `id` = ?' );
 		$result = $stmt->execute(array($id));
 
-		return $result->fetchRow();
+		$row = $result->fetchRow();
+		if($row['userid'] != OCP\USER::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_READ)) {
+				throw new Exception(
+					OC_Contacts_App::$l10n->t(
+						'You do not have the permissions to read this calendar.'
+					)
+				);
+			}
+			$row['permissions'] = $sharedCalendar['permissions'];
+		} else {
+			$row['permissions'] = OCP\Share::PERMISSION_CREATE 
+				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE 
+				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE; 
+		}
+		return $row;
 	}
 
 	/**
