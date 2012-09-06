@@ -1660,7 +1660,7 @@ OC.Contacts={
 			var name = params.data ? params.data.displayname.toLowerCase() : contact.find('a').text().toLowerCase();
 			if(params.contacts) {
 				params.contacts.each(function() {
-					if ($(this).text().toLowerCase() > name) {
+					if ($(this).text().toLowerCase().localeCompare(name) > 0) {
 						$(this).before(contact);
 						added = true;
 						return false;
@@ -1775,7 +1775,7 @@ OC.Contacts={
 										+ '" data-permissions="' + book.permissions + '"></ul>');
 									var added = false;
 									$('#contacts h3').each(function(){
-										if ($(this).text().toLowerCase() > book.displayname.toLowerCase()) {
+										if ($(this).text().toLowerCase().localeCompare(book.displayname.toLowerCase()) > 0) {
 											$(this).before(item).fadeIn('fast');
 											added = true;
 											return false;
