@@ -30,7 +30,7 @@ if (version_compare($installedVersion, '0.6', '<=')) {
 		$calendar[] = $row;
 	}
 	foreach($calendar as $cal){
-		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*share` (`share_with`,`uid_owner`,`item_type`,`item_target`,`permissions`) VALUES(?,?,`calendar`,?,?)' );
+		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*share` (`share_with`,`uid_owner`,`item_type`,`item_target`,`permissions`) VALUES(?,?,\'calendar\',?,?)' );
 		$result = $stmt->execute(array($cal['share'],$cal['owner'],$cal['calendarid'], ($cal['permissions'])?31:17));
 	}
 	$event_stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_share_event`');
@@ -40,7 +40,7 @@ if (version_compare($installedVersion, '0.6', '<=')) {
 		$event[] = $row;
 	}
 	foreach($event as $evnt){
-		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*share` (`share_with`,`uid_owner`,`item_type`,`item_target`,`permissions`) VALUES(?,?,`event`,?,?)' );
+		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*share` (`share_with`,`uid_owner`,`item_type`,`item_target`,`permissions`) VALUES(?,?,\'event\',?,?)' );
 		$result = $stmt->execute(array($evnt['share'],$evnt['owner'],$evnt['eventid'], ($evnt['permissions'])?31:17));
 	}
 }
