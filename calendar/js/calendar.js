@@ -905,10 +905,12 @@ $(document).ready(function(){
 	});
 	Calendar.UI.Share.init();
 	Calendar.UI.Drop.init();
-	$('#choosecalendar .generalsettings').on('click keydown', function() {
+	$('#choosecalendar .generalsettings').on('click keydown', function(event) {
+		event.preventDefault();
 		OC.appSettings({appid:'calendar', loadJS:true, cache:false});
 	});
-	$('#choosecalendar .calendarsettings').on('click keydown', function() {
+	$('#choosecalendar .calendarsettings').on('click keydown', function(event) {
+		event.preventDefault();
 		OC.appSettings({appid:'calendar', loadJS:true, cache:false, scriptName:'calendar.php'});
 	});
 	$('#fullcalendar').fullCalendar('option', 'height', $(window).height() - $('#controls').height() - $('#header').height() - 15);
