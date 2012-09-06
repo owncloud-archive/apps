@@ -80,11 +80,7 @@ class OC_Calendar_Calendar{
 		if($row['userid'] != OCP\USER::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_READ)) {
-				throw new Exception(
-					OC_Contacts_App::$l10n->t(
-						'You do not have the permissions to read this calendar.'
-					)
-				);
+				return false;
 			}
 			$row['permissions'] = $sharedCalendar['permissions'];
 		} else {
