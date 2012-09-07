@@ -6,7 +6,9 @@
  * See the COPYING-README file.
  */
 
-class OC_Filestorage_Archive extends OC_Filestorage_Common{
+namespace OC\Files\Storage;
+
+class Archive extends \OC\Files\Storage\Common{
 	/**
 	 * underlying local storage used for missing functions
 	 * @var OC_Archive
@@ -25,7 +27,7 @@ class OC_Filestorage_Archive extends OC_Filestorage_Common{
 	}
 	
 	public function __construct($params){
-		$this->archive=OC_Archive::open($params['archive']);
+		$this->archive=\OC_Archive::open($params['archive']);
 		$this->path=$params['archive'];
 	}
 
@@ -53,7 +55,7 @@ class OC_Filestorage_Archive extends OC_Filestorage_Common{
 			}
 		}
 		$id=md5($this->path.$path);
-		OC_FakeDirStream::$dirs[$id]=$content;
+		\OC_FakeDirStream::$dirs[$id]=$content;
 		return opendir('fakedir://'.$id);
 	}
 	public function stat($path){
@@ -123,7 +125,7 @@ class OC_Filestorage_Archive extends OC_Filestorage_Common{
 		}
 	}
 	private function toTmpFile($path){
-		$tmpFile=OC_Helper::tmpFile($extension);
+		$tmpFile=\OC_Helper::tmpFile($extension);
 		$this->archive->extractFile($path,$tmpFile);
 		return $tmpFile;
 	}
@@ -146,7 +148,7 @@ class OC_Filestorage_Archive extends OC_Filestorage_Common{
 		}
 		$path=$params['path'];
 		if(!self::$rootView){
-			self::$rootView=new OC_FilesystemView('');
+			self::$rootView=new \OC_FilesystemView('');
 		}
 		self::$enableAutomount=false;//prevent recursion
 		$supported=array('zip','tar.gz','tar.bz2','tgz');
@@ -156,7 +158,7 @@ class OC_Filestorage_Archive extends OC_Filestorage_Common{
 				$archive=substr($path,0,$pos+strlen($ext)-1);
 				if(self::$rootView->file_exists($archive) and  array_search($archive,self::$mounted)===false){
 					$localArchive=self::$rootView->getLocalFile($archive);
-					OC_Filesystem::mount('OC_Filestorage_Archive',array('archive'=>$localArchive),$archive.'/');
+					\OC_Filesystem::mount('\OC\Files\Storage\Archive',array('archive'=>$localArchive),$archive.'/');
 					self::$mounted[]=$archive;
 				}
 			}

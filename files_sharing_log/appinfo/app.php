@@ -17,6 +17,6 @@ OCP\App::addNavigationEntry( array(
   'name' => $l->t('Shared files log'))
 );
 
-OCP\Util::connectHook('OC_Filestorage_Shared', 'fopen', 'OC_Files_Sharing_Log', 'fopen');
-OCP\Util::connectHook('OC_Filestorage_Shared', 'file_get_contents', 'OC_Files_Sharing_Log', 'file_get_contents');
-OCP\Util::connectHook('OC_Filestorage_Shared', 'file_put_contents', 'OC_Files_Sharing_Log', 'file_put_contents');
+OCP\Util::connectHook('\OC\Files\Storage\Shared', 'fopen', 'OC_Files_Sharing_Log', 'fopen');
+OCP\Util::connectHook('\OC\Files\Storage\Shared', 'file_get_contents', 'OC_Files_Sharing_Log', 'file_get_contents');
+OCP\Util::connectHook('\OC\Files\Storage\Shared', 'file_put_contents', 'OC_Files_Sharing_Log', 'file_put_contents');
