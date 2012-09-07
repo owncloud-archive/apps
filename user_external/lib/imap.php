@@ -37,4 +37,3 @@ class OC_User_IMAP extends OC_User_Backend{
 		return true;
 	}
 }
-

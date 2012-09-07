@@ -67,4 +67,3 @@ class OC_Connector_Sabre_Auth_ro_oauth extends Sabre_DAV_Auth_Backend_AbstractBa
 	}
 
 } 
-

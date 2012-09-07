@@ -52,4 +52,3 @@ $(document).ready(function() {
         }
 
 });
-

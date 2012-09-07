@@ -53,4 +53,3 @@ svgEditor.addExtension("server_opensave", {
 	
 	}
 });
-

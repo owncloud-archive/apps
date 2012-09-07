@@ -34,5 +34,3 @@ $list=\OCA_Impress\Storage::getPresentations();
 $tmpl = new OCP\Template('impress', 'presentations', 'user');
 $tmpl->assign('list', $list);
 $tmpl->printPage();
-
-

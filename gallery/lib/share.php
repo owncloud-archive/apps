@@ -38,4 +38,3 @@ abstract class OC_Share_Photo_Backend implements OCP\Share_Backend {
 	}
 
 }
-

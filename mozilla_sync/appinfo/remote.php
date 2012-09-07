@@ -25,4 +25,3 @@ else if($service === 'storageapi'){
   $storageService = new OCA_mozilla_sync\StorageService($urlParser);
   $storageService->run();
 }
-

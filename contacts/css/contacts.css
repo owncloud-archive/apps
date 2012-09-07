@@ -157,4 +157,3 @@ input[type="checkbox"] { width: 20px; height: 20px; vertical-align: bottom; }
 .addressbooks-settings a.action { opacity: 0.2; }
 .addressbooks-settings a.action:hover { opacity: 1; }
 .addressbooks-settings td.active, .addressbooks-settings td.action { width: 20px; }
-

@@ -114,4 +114,3 @@ class OC_USER_PWAUTH extends OC_User_Backend {
 		return $returnArray;
 	}
 }
-

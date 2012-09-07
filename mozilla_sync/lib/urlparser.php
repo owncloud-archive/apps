@@ -186,4 +186,3 @@ class UrlParser {
 	 */
 	private $commandsArray;
 }
-

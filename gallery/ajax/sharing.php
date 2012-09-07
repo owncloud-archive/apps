@@ -115,4 +115,3 @@ switch ($operation) {
     handleGetPhoto($token, urldecode($_GET['photo']));
     break;
 }
-

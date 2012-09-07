@@ -53,5 +53,3 @@ $(document).ready(function(){
 	});
 
 });
-
-

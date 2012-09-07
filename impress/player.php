@@ -61,4 +61,3 @@ header('Content-Length: '.OC_Filesystem::filesize($filename));
 \OCA_Impress\Storage::showHeader($title);
 OC_Filesystem::readfile( $filename );
 \OCA_Impress\Storage::showFooter();
-

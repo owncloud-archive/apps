@@ -284,4 +284,3 @@ class Storage
     return $whereString;
   }
 }
-

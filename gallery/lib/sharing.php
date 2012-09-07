@@ -86,4 +86,3 @@ class OC_Gallery_Sharing {
     $stmt->execute(array($albumId));
   }
 }
-
