@@ -12,12 +12,12 @@
  ?>
  
 <dl>
-	<dt><?php echo $l->t('Etherpad service URL:'); ?></dt>
+	<dt><?php echo $l->t('Etherpad service URL'); ?></dt>
 	<dd>
 		<input id="<?php echo OCA\ownpad_lite\App::CONFIG_ETHERPAD_URL ?>" value="<?php echo $_[OCA\ownpad_lite\App::CONFIG_ETHERPAD_URL] ?>" />
 	</dd>
 	<dt>
-		<?php echo $l->t('Username:'); ?>
+		<?php echo $l->t('Username'); ?>
 	</dt>
 	<dd>
 		<input id="<?php echo OCA\ownpad_lite\App::CONFIG_USERNAME ?>" value="<?php echo $_[OCA\ownpad_lite\App::CONFIG_USERNAME] ?>" />
