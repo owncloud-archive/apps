@@ -126,8 +126,6 @@
 "Settings" => "Nastavitve",
 "Your calendars" => "Vaši koledarji",
 "CalDav Link" => "CalDav povezava",
-"Shared calendars" => "Koledarji v souporabi",
-"No shared calendars" => "Ni koledarjev v souporabi",
 "Share Calendar" => "Daj koledar v souporabo",
 "Download" => "Prenesi",
 "Edit" => "Uredi",

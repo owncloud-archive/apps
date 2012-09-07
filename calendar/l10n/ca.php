@@ -126,8 +126,6 @@
 "Settings" => "Configuració",
 "Your calendars" => "Els vostres calendaris",
 "CalDav Link" => "Enllaç CalDav",
-"Shared calendars" => "Calendaris compartits",
-"No shared calendars" => "No hi ha calendaris compartits",
 "Share Calendar" => "Comparteix el calendari",
 "Download" => "Baixa",
 "Edit" => "Edita",

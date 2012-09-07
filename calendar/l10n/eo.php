@@ -116,8 +116,6 @@
 "Settings" => "Agordo",
 "Your calendars" => "Viaj kalendaroj",
 "CalDav Link" => "CalDav-a ligilo",
-"Shared calendars" => "Kunhavigitaj kalendaroj",
-"No shared calendars" => "Neniu kunhavigita kalendaro",
 "Share Calendar" => "Kunhavigi kalendaron",
 "Download" => "Elŝuti",
 "Edit" => "Redakti",

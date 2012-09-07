@@ -116,8 +116,6 @@
 "Settings" => "Ayarlar",
 "Your calendars" => "Takvimleriniz",
 "CalDav Link" => "CalDav Bağlantısı",
-"Shared calendars" => "Paylaşılan",
-"No shared calendars" => "Paylaşılan takvim yok",
 "Share Calendar" => "Takvimi paylaş",
 "Download" => "İndir",
 "Edit" => "Düzenle",

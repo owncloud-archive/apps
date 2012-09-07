@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:01+0200\n"
-"PO-Revision-Date: 2012-09-02 00:03+0000\n"
+"POT-Creation-Date: 2012-09-07 02:04+0200\n"
+"PO-Revision-Date: 2012-09-07 00:06+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
@@ -224,74 +224,111 @@ msgstr "구현되지 않음"
 msgid "Couldn't get a valid address."
 msgstr "유효한 주소를 얻을 수 없습니다."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:687 js/contacts.js:727
-#: js/contacts.js:753 js/contacts.js:885 js/contacts.js:891 js/contacts.js:903
-#: js/contacts.js:940 js/contacts.js:1214 js/contacts.js:1222
-#: js/contacts.js:1231 js/contacts.js:1266 js/contacts.js:1302
-#: js/contacts.js:1317 js/contacts.js:1343 js/contacts.js:1573
-#: js/contacts.js:1608 js/contacts.js:1628 js/settings.js:26 js/settings.js:43
-#: js/settings.js:68
+#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
+#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
+#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
+#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
+#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
+#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
+#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
+#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
 msgid "Error"
 msgstr "오류"
 
-#: js/contacts.js:410
+#: js/contacts.js:408
 msgid "You do not have permission to add contacts to "
 msgstr "당신은 연락처를 추가 할 수 있는 권한이 없습니다. "
 
-#: js/contacts.js:411
+#: js/contacts.js:409
 msgid "Please select one of your own address books."
 msgstr "당신의 Own 주소록 중 하나만 선택 하세요."
 
-#: js/contacts.js:411
+#: js/contacts.js:409
 msgid "Permission error"
 msgstr "권한 에러"
 
-#: js/contacts.js:727
+#: js/contacts.js:725
 msgid "This property has to be non-empty."
 msgstr "이 속성은 비어있어서는 안됩니다."
 
-#: js/contacts.js:753
+#: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr "요소를 직렬화 할 수 없습니다."
 
-#: js/contacts.js:885 js/contacts.js:903
+#: js/contacts.js:883 js/contacts.js:901
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "'deleteProperty'가 문서형식이 없이 불려왔습니다. bugs.owncloud.org에 보고해주세요. "
 
-#: js/contacts.js:922
+#: js/contacts.js:920
 msgid "Edit name"
 msgstr "이름 편집"
 
-#: js/contacts.js:1214
+#: js/contacts.js:1212
 msgid "No files selected for upload."
 msgstr "업로드를 위한 파일이 선택되지 않았습니다. "
 
-#: js/contacts.js:1222
+#: js/contacts.js:1220 js/contacts.js:2072
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "이 파일은 이 서버 파일 업로드 최대 용량을 초과 합니다. "
 
-#: js/contacts.js:1286
+#: js/contacts.js:1284
 msgid "Error loading profile picture."
 msgstr "프로필 사진 로딩 에러"
 
-#: js/contacts.js:1421 js/contacts.js:1462 js/contacts.js:1481
-#: js/contacts.js:1524
+#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
+#: js/contacts.js:1522
 msgid "Select type"
 msgstr "유형 선택"
 
-#: js/contacts.js:1542
+#: js/contacts.js:1540
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "일부 연락처가 삭제 표시 되었으나 아직 삭제되지 않았습니다. 삭제가 끝날 때 까지 기다려 주세요."
 
-#: js/contacts.js:1613
+#: js/contacts.js:1611
 msgid "Do you want to merge these address books?"
 msgstr "이 주소록을 통합하고 싶으십니까?"
+
+#: js/contacts.js:2065
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr ""
+
+#: js/contacts.js:2065
+msgid "Upload Error"
+msgstr ""
+
+#: js/contacts.js:2072
+msgid "Upload too large"
+msgstr ""
+
+#: js/contacts.js:2120
+msgid "Pending"
+msgstr ""
+
+#: js/contacts.js:2152
+msgid "Import done"
+msgstr ""
+
+#: js/contacts.js:2165
+msgid "Not all files uploaded. Retrying..."
+msgstr ""
+
+#: js/contacts.js:2171
+msgid "Something went wrong with the upload, please retry."
+msgstr ""
+
+#: js/contacts.js:2187
+msgid "Importing..."
+msgstr ""
+
+#: js/contacts.js:2208
+msgid "The address book name cannot be empty."
+msgstr ""
 
 #: js/loader.js:49
 msgid "Result: "
@@ -305,23 +342,27 @@ msgstr "불러오기,"
 msgid " failed."
 msgstr "실패."
 
-#: js/settings.js:68
+#: js/settings.js:73
 msgid "Displayname cannot be empty."
 msgstr "디스플레이 이름은 비워둘 수 없습니다. "
 
-#: lib/addressbook.php:223
+#: lib/addressbook.php:138
+msgid "You do not have the permissions to read this addressbook."
+msgstr ""
+
+#: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:243
+#: lib/addressbook.php:259
 msgid "There was an error updating the addressbook."
 msgstr ""
 
-#: lib/addressbook.php:299
+#: lib/addressbook.php:315
 msgid "You do not have the permissions to delete this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:328
+#: lib/addressbook.php:344
 msgid "There was an error deleting this addressbook."
 msgstr ""
 
@@ -393,7 +434,7 @@ msgstr "직장"
 msgid "Home"
 msgstr "자택"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:624
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
 msgid "Other"
 msgstr "그 외"
 
@@ -490,31 +531,31 @@ msgstr "{이름}의 생일"
 msgid "Contact"
 msgstr "연락처"
 
-#: lib/vcard.php:295
+#: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
 msgstr ""
 
-#: lib/vcard.php:399
+#: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
 msgstr ""
 
-#: lib/vcard.php:416
+#: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
 msgstr "당신은 연락처를 수정할 권한이 없습니다. "
 
-#: lib/vcard.php:487
+#: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
 msgstr ""
 
-#: lib/vcard.php:495
+#: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
 msgstr ""
 
-#: lib/vcard.php:510
+#: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
 msgstr "당신은 연락처를 삭제할 권한이 없습니다. "
 
-#: lib/vcard.php:528
+#: lib/vcard.php:550
 msgid "There was an error deleting this contact."
 msgstr ""
 
@@ -522,67 +563,63 @@ msgstr ""
 msgid "Add Contact"
 msgstr "연락처 추가"
 
-#: templates/index.php:15 templates/index.php:16 templates/part.import.php:17
+#: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
 msgstr "입력"
 
-#: templates/index.php:18
+#: templates/index.php:16
 msgid "Settings"
 msgstr "설정"
 
-#: templates/index.php:18 templates/settings.php:9
-msgid "Addressbooks"
-msgstr "주소록"
-
-#: templates/index.php:32 templates/part.import.php:24
+#: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
 msgstr "닫기"
 
-#: templates/index.php:33
+#: templates/index.php:31
 msgid "Keyboard shortcuts"
 msgstr "단축키"
 
-#: templates/index.php:35
+#: templates/index.php:33
 msgid "Navigation"
 msgstr "네비게이션"
 
-#: templates/index.php:38
+#: templates/index.php:36
 msgid "Next contact in list"
 msgstr "목록에서의 다음 연락처"
 
-#: templates/index.php:40
+#: templates/index.php:38
 msgid "Previous contact in list"
 msgstr "목록에서의 이전 연락처"
 
-#: templates/index.php:42
+#: templates/index.php:40
 msgid "Expand/collapse current addressbook"
 msgstr "현재 주소록을 확장/축소"
 
-#: templates/index.php:44
+#: templates/index.php:42
 msgid "Next addressbook"
 msgstr "다음 주소록"
 
-#: templates/index.php:46
+#: templates/index.php:44
 msgid "Previous addressbook"
 msgstr "이전 주소록"
 
-#: templates/index.php:50
+#: templates/index.php:48
 msgid "Actions"
 msgstr "작업"
 
-#: templates/index.php:53
+#: templates/index.php:51
 msgid "Refresh contacts list"
 msgstr "연락처 목록 새로 고침"
 
-#: templates/index.php:55
+#: templates/index.php:53
 msgid "Add new contact"
 msgstr "새로운 연락처 추가"
 
-#: templates/index.php:57
+#: templates/index.php:55
 msgid "Add new addressbook"
 msgstr "새로운 주소록 추가"
 
-#: templates/index.php:59
+#: templates/index.php:57
 msgid "Delete current contact"
 msgstr "현재 연락처 삭제"
 
@@ -621,7 +658,7 @@ msgstr "조직"
 
 #: templates/part.contact.php:40 templates/part.contact.php:42
 #: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:46
+#: templates/part.contact.php:50 templates/settings.php:49
 msgid "Delete"
 msgstr "삭제"
 
@@ -902,10 +939,15 @@ msgid "Importing contacts"
 msgstr "연락처 입력"
 
 #: templates/part.no_contacts.php:3
-msgid "You have no contacts in your addressbook."
-msgstr "당신의 주소록에는 연락처가 없습니다. "
+msgid ""
+"<h3>You have no contacts in your addressbook.</h3><p>You can import VCF "
+"files by dragging them to the contacts list and either drop them on an "
+"addressbook to import into it, or on an empty spot to create a new "
+"addressbook and import into that.<br />You can also import by clicking on "
+"the import button at the bottom of the list.</p>"
+msgstr ""
 
-#: templates/part.no_contacts.php:5
+#: templates/part.no_contacts.php:9
 msgid "Add contact"
 msgstr "연락처 추가"
 
@@ -937,46 +979,50 @@ msgstr "기본 주소 (Kontact et al)"
 msgid "iOS/OS X"
 msgstr "iOS/OS X"
 
-#: templates/settings.php:22
+#: templates/settings.php:9
+msgid "Addressbooks"
+msgstr "주소록"
+
+#: templates/settings.php:25
 msgid "Show CardDav link"
 msgstr "CardDav 링크를 표시"
 
-#: templates/settings.php:25
+#: templates/settings.php:28
 msgid "Show read-only VCF link"
 msgstr "읽기전용 VCF 링크 표시"
 
-#: templates/settings.php:32
+#: templates/settings.php:35
 msgid "Share"
 msgstr "공유"
 
-#: templates/settings.php:36
+#: templates/settings.php:39
 msgid "Download"
 msgstr "다운로드"
 
-#: templates/settings.php:41
+#: templates/settings.php:44
 msgid "Edit"
 msgstr "편집"
 
-#: templates/settings.php:54
+#: templates/settings.php:57
 msgid "New Address Book"
 msgstr "새 주소록"
 
-#: templates/settings.php:55
+#: templates/settings.php:58
 msgid "Name"
 msgstr "이름"
 
-#: templates/settings.php:56
+#: templates/settings.php:59
 msgid "Description"
 msgstr "종류"
 
-#: templates/settings.php:57
+#: templates/settings.php:60
 msgid "Save"
 msgstr "저장"
 
-#: templates/settings.php:58
+#: templates/settings.php:61
 msgid "Cancel"
 msgstr "취소"
 
-#: templates/settings.php:63
+#: templates/settings.php:66
 msgid "More..."
 msgstr "더..."

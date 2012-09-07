@@ -89,8 +89,6 @@
 "Today" => "امروز",
 "Your calendars" => "تقویم های شما",
 "CalDav Link" => "CalDav Link",
-"Shared calendars" => "تقویمهای به اشترک گذاری شده",
-"No shared calendars" => "هیچ تقویمی به  اشتراک گذارده نشده",
 "Share Calendar" => "تقویم را به اشتراک بگذارید",
 "Download" => "بارگیری",
 "Edit" => "ویرایش",

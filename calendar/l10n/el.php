@@ -116,8 +116,6 @@
 "Settings" => "Ρυθμίσεις",
 "Your calendars" => "Τα ημερολόγια σου",
 "CalDav Link" => "Σύνδεση CalDAV",
-"Shared calendars" => "Κοινόχρηστα ημερολόγια",
-"No shared calendars" => "Δεν υπάρχουν κοινόχρηστα ημερολόγια",
 "Share Calendar" => "Διαμοίρασε ένα ημερολόγιο",
 "Download" => "Λήψη",
 "Edit" => "Επεξεργασία",

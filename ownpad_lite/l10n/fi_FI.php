@@ -3,7 +3,7 @@
 "Settings" => "Asetukset",
 "Pad Title:" => "Muistion otsikko:",
 "Open" => "Avaa",
-"Etherpad service URL:" => "Etherpad palvelun osoite:",
+"Etherpad service URL:" => "Etherpad-palvelun osoite:",
 "Username:" => "Käyttäjätunnus:",
 "Save" => "Tallenna"
 );

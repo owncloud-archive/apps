@@ -126,8 +126,6 @@
 "Settings" => "Inställningar",
 "Your calendars" => "Dina kalendrar",
 "CalDav Link" => "CalDAV-länk",
-"Shared calendars" => "Delade kalendrar",
-"No shared calendars" => "Inga delade kalendrar",
 "Share Calendar" => "Dela kalender",
 "Download" => "Ladda ner",
 "Edit" => "Redigera",

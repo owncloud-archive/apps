@@ -89,8 +89,6 @@
 "Today" => "Денеска",
 "Your calendars" => "Ваши календари",
 "CalDav Link" => "Врска за CalDav",
-"Shared calendars" => "Споделени календари",
-"No shared calendars" => "Нема споделени календари",
 "Share Calendar" => "Сподели календар",
 "Download" => "Преземи",
 "Edit" => "Уреди",

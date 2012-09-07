@@ -104,8 +104,6 @@
 "Today" => "اليوم",
 "Your calendars" => "جداولك الزمنيه",
 "CalDav Link" => "وصلة CalDav",
-"Shared calendars" => "جداول زمنيه مشتركه",
-"No shared calendars" => "لا يوجد جداول زمنيه مشتركه",
 "Share Calendar" => "شارك الجدول الزمني",
 "Download" => "تحميل",
 "Edit" => "تعديل",

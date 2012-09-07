@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
+"POT-Creation-Date: 2012-09-07 02:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,16 +49,16 @@ msgstr ""
 msgid "Error removing folder."
 msgstr ""
 
-#: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
+#: ajax/feedlist.php:27
+msgid "Error updating feeds."
+msgstr ""
+
+#: ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
 msgstr ""
 
-#: ajax/exportopml.php:41 ajax/importopml.php:41
+#: ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
-msgstr ""
-
-#: ajax/feedlist.php:27
-msgid "Error updating feeds."
 msgstr ""
 
 #: ajax/loadfeed.php:36 templates/part.feeds.php:50

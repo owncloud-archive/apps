@@ -89,8 +89,6 @@
 "Today" => "Dnes",
 "Your calendars" => "Vaše kalendáre",
 "CalDav Link" => "CalDav odkaz",
-"Shared calendars" => "Zdielané kalendáre",
-"No shared calendars" => "Žiadne zdielané kalendáre",
 "Share Calendar" => "Zdielať kalendár",
 "Download" => "Stiahnuť",
 "Edit" => "Upraviť",

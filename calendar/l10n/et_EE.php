@@ -116,8 +116,6 @@
 "Settings" => "Seaded",
 "Your calendars" => "Sinu kalendrid",
 "CalDav Link" => "CalDav Link",
-"Shared calendars" => "Jagatud kalendrid",
-"No shared calendars" => "Jagatud kalendreid pole",
 "Share Calendar" => "Jaga kalendrit",
 "Download" => "Lae alla",
 "Edit" => "Muuda",

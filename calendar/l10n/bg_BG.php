@@ -41,8 +41,6 @@
 "List" => "Списък",
 "Today" => "Днес",
 "Your calendars" => "Вашите календари",
-"Shared calendars" => "Споделени календари",
-"No shared calendars" => "Няма споделени календари",
 "Share Calendar" => "Споделяне на календар",
 "Download" => "Изтегляне",
 "Edit" => "Промяна",

@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-05 02:02+0200\n"
-"PO-Revision-Date: 2012-09-04 23:13+0000\n"
-"Last-Translator: Tomer Cohen <tomerc+transifex.net@gmail.com>\n"
+"POT-Creation-Date: 2012-09-07 02:04+0200\n"
+"PO-Revision-Date: 2012-09-07 00:05+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/owncloud/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,7 +72,7 @@ msgstr "אזור זמן השתנה"
 msgid "Invalid request"
 msgstr "בקשה לא חוקית"
 
-#: appinfo/app.php:40 templates/calendar.php:15
+#: appinfo/app.php:38 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "לוח שנה"
@@ -181,23 +181,23 @@ msgstr "שאלות"
 msgid "Work"
 msgstr "עבודה"
 
-#: lib/app.php:345 lib/share/event.php:27
+#: lib/app.php:347 lib/share/event.php:27
 msgid "by"
 msgstr "מאת"
 
-#: lib/app.php:383
+#: lib/app.php:385
 msgid "unnamed"
 msgstr "ללא שם"
 
-#: lib/calendar.php:153 lib/calendar.php:186
+#: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
 msgstr ""
 
-#: lib/calendar.php:221
+#: lib/calendar.php:233
 msgid "You do not have the permissions to delete this calendar."
 msgstr ""
 
-#: lib/calendar.php:253
+#: lib/calendar.php:265
 msgid "You do not have the permissions to add to this calendar."
 msgstr ""
 
@@ -523,7 +523,11 @@ msgstr "רשימה"
 msgid "Today"
 msgstr "היום"
 
-#: templates/calendar.php:46 templates/calendar.php:47
+#: templates/calendar.php:46
+msgid "Calendars"
+msgstr ""
+
+#: templates/calendar.php:47
 msgid "Settings"
 msgstr "הגדרות"
 
@@ -535,14 +539,6 @@ msgstr "לוחות השנה שלך"
 #: templates/part.choosecalendar.rowfields.php:15
 msgid "CalDav Link"
 msgstr "קישור CalDav"
-
-#: templates/part.choosecalendar.php:31
-msgid "Shared calendars"
-msgstr "לוחות שנה מושתפים"
-
-#: templates/part.choosecalendar.php:48
-msgid "No shared calendars"
-msgstr "אין לוחות שנה משותפים"
 
 #: templates/part.choosecalendar.rowfields.php:11
 msgid "Share Calendar"

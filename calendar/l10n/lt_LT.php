@@ -72,8 +72,6 @@
 "Today" => "Šiandien",
 "Your calendars" => "Jūsų kalendoriai",
 "CalDav Link" => "CalDav adresas",
-"Shared calendars" => "Bendri kalendoriai",
-"No shared calendars" => "Bendrų kalendorių nėra",
 "Share Calendar" => "Dalintis kalendoriumi",
 "Download" => "Atsisiųsti",
 "Edit" => "Keisti",
