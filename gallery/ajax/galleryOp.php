@@ -5,24 +5,24 @@
 *
 * @author Bartek Przybylski
 * @copyright 2012 Bartek Przybylski bart.p.pl@gmail.com
-* 
+*
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
-* License as published by the Free Software Foundation; either 
+* License as published by the Free Software Foundation; either
 * version 3 of the License, or any later version.
-* 
+*
 * This library is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
-*  
-* You should have received a copy of the GNU Lesser General Public 
+*
+* You should have received a copy of the GNU Lesser General Public
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
-* 
+*
 */
 
 header('Content-type: text/html; charset=UTF-8') ;
- 
+
 
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('gallery');
@@ -74,7 +74,7 @@ function handleStoreSettings($root, $order) {
 		OCP\JSON::error(array('cause' => $root . ' is not a directory'));
 		return;
 	}
-	
+
 	$current_root = OCP\Config::getUserValue(OCP\USER::getUser(),'gallery', 'root', '/');
 	$root = trim($root);
 	$root = rtrim($root, '/').'/';
@@ -92,7 +92,7 @@ function handleGetGallery($path) {
 	$pathLen = strlen($path);
 	$result = OC_Gallery_Album::find(OCP\USER::getUser(), null, $path);
 	$album_details = $result->fetchRow();
-	
+
 	$result = OC_Gallery_Album::find(OCP\USER::getUser(), null, null, $path);
 
 	while ($r = $result->fetchRow()) {
@@ -100,18 +100,18 @@ function handleGetGallery($path) {
 		$size=OC_Gallery_Album::getAlbumSize($r['album_id']);
 		// this is a fallback mechanism and seems expensive
 		if ($size == 0) $size = OC_Gallery_Album::getIntermediateGallerySize($r['album_path']);
-		
+
 		$a[] = array('name' => utf8_encode($album_name), 'numOfItems' => min($size, 10),'path'=>substr($r['album_path'], $pathLen));
 	}
-	
+
 	$result = OC_Gallery_Photo::find($album_details['album_id']);
-	
+
 	$p = array();
-	
+
 	while ($r = $result->fetchRow()) {
 		$p[] = utf8_encode($r['file_path']);
 	}
-	
+
 	$r = OC_Gallery_Sharing::getEntryByAlbumId($album_details['album_id']);
 	$shared = false;
 	$recursive = false;
@@ -138,7 +138,7 @@ function handleShare($path, $share, $recursive) {
 		OCP\JSON::error(array('cause' => 'Couldn\'t find requested gallery'));
 		exit;
 	}
-    
+
 	if ($share == false) {
 		OC_Gallery_Sharing::remove($albumId);
 		OCP\JSON::success(array('sharing' => false));

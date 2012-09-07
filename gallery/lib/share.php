@@ -23,7 +23,7 @@ abstract class OC_Share_Photo_Backend implements OCP\Share_Backend {
 
 	public $dependsOn = 'file';
 	public $supportedFileExtensions = array('jpg', 'png', 'gif');
-	
+
 	public function getSource($item, $uid) {
 		return array('item' => 'blah.jpg', 'file' => $item);
 	}
@@ -32,7 +32,7 @@ abstract class OC_Share_Photo_Backend implements OCP\Share_Backend {
 		// TODO Make sure target path doesn't exist already
 		return $item;
 	}
-	
+
 	public function formatItems($items, $format, $parameters = null) {
 
 	}

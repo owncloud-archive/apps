@@ -8,7 +8,7 @@
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
-* License as published by the Free Software Foundation; either 
+* License as published by the Free Software Foundation; either
 * version 3 of the License, or any later version.
 *
 * This library is distributed in the hope that it will be useful,
@@ -16,7 +16,7 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
 *
-* You should have received a copy of the GNU Lesser General Public 
+* You should have received a copy of the GNU Lesser General Public
 * License along with this library. If not, see <http://www.gnu.org/licenses/>.
 *
 */
@@ -61,7 +61,7 @@ class OC_Gallery_Album {
 	public static function removeByName($owner, $name) { self::remove($ownmer, $name); }
 	public static function removeByPath($owner, $path) { self::remove($owner, null, $path); }
 	public static function removeByParentPath($owner, $parent) { self::remove($owner, null, null, $parent); }
-	
+
 	public static function find($owner, $name=null, $path=null, $parent=null){
 		$sql = 'SELECT * FROM `*PREFIX*gallery_albums` WHERE `uid_owner` = ?';
 		$args = array($owner);
