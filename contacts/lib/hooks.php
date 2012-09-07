@@ -22,7 +22,7 @@
 
 /**
  * The following signals are being emitted:
- * 
+ *
  * OC_Contacts_VCard::post_moveToAddressbook(array('aid' => $aid, 'id' => $id))
  * OC_Contacts_VCard::pre_deleteVCard(array('aid' => $aid, 'id' => $id, 'uri' = $uri)); (NOTE: the values can be null depending on which method emits them)
  * OC_Contacts_VCard::post_updateVCard($id)
@@ -61,7 +61,7 @@ class OC_Contacts_Hooks{
 	static public function getCalenderSources($parameters) {
 		$base_url = OCP\Util::linkTo('calendar', 'ajax/events.php').'?calendar_id=';
 		foreach(OC_Contacts_Addressbook::all(OCP\USER::getUser()) as $addressbook) {
-			$parameters['sources'][] 
+			$parameters['sources'][]
 				= array(
 					'url' => $base_url.'birthday_'. $addressbook['id'],
 					'backgroundColor' => '#cccccc',
@@ -91,14 +91,14 @@ class OC_Contacts_Hooks{
 				$date = new DateTime($birthday);
 				$vevent = new OC_VObject('VEVENT');
 				//$vevent->setDateTime('LAST-MODIFIED', new DateTime($vcard->REV));
-				$vevent->setDateTime('DTSTART', $date, 
+				$vevent->setDateTime('DTSTART', $date,
 					Sabre_VObject_Element_DateTime::DATE);
 				$vevent->setString('DURATION', 'P1D');
 				$vevent->setString('UID', substr(md5(rand().time()), 0, 10));
 				// DESCRIPTION?
 				$vevent->setString('RRULE', 'FREQ=YEARLY');
 				$title = str_replace('{name}',
-					$vcard->getAsString('FN'), 
+					$vcard->getAsString('FN'),
 					OC_Contacts_App::$l10n->t('{name}\'s Birthday'));
 				$parameters['events'][] = array(
 					'id' => 0,//$card['id'],
@@ -106,8 +106,8 @@ class OC_Contacts_Hooks{
 					'repeating' => true,
 					'summary' => $title,
 					'calendardata' => "BEGIN:VCALENDAR\nVERSION:2.0\n"
-						. "PRODID:ownCloud Contacts " 
-						. OCP\App::getAppVersion('contacts') . "\n" 
+						. "PRODID:ownCloud Contacts "
+						. OCP\App::getAppVersion('contacts') . "\n"
 						. $vevent->serialize() .  "END:VCALENDAR"
 					);
 			}

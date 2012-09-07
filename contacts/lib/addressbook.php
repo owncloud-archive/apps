@@ -62,9 +62,9 @@ class OC_Contacts_Addressbook {
 
 		$addressbooks = array();
 		while( $row = $result->fetchRow()) {
-			$row['permissions'] = OCP\Share::PERMISSION_CREATE 
-				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE 
-				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE; 
+			$row['permissions'] = OCP\Share::PERMISSION_CREATE
+				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE
+				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
 			$addressbooks[] = $row;
 		}
 		$addressbooks = array_merge($addressbooks, OCP\Share::getItemsSharedWith('addressbook', OC_Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS));
@@ -84,7 +84,7 @@ class OC_Contacts_Addressbook {
 		if(is_null($uid)) {
 			$uid = OCP\USER::getUser();
 		}
-		
+
 		// query all addressbooks to force creation of default if it desn't exist.
 		$activeaddressbooks = self::all($uid);
 		$ids = array();
@@ -141,9 +141,9 @@ class OC_Contacts_Addressbook {
 			}
 			$row['permissions'] = $sharedAddressbook['permissions'];
 		} else {
-			$row['permissions'] = OCP\Share::PERMISSION_CREATE 
-				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE 
-				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE; 
+			$row['permissions'] = OCP\Share::PERMISSION_CREATE
+				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE
+				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
 		}
 		return $row;
 	}
@@ -324,9 +324,9 @@ class OC_Contacts_Addressbook {
 			try {
 				OC_Contacts_VCard::delete($card['id']);
 			} catch(Exception $e) {
-				OCP\Util::writeLog('contacts', 
+				OCP\Util::writeLog('contacts',
 					__METHOD__.', exception deleting vCard '.$card['id'].': '
-					. $e->getMessage(), 
+					. $e->getMessage(),
 					OCP\Util::ERROR);
 			}
 		}
@@ -337,7 +337,7 @@ class OC_Contacts_Addressbook {
 		} catch(Exception $e) {
 			OCP\Util::writeLog('contacts',
 				__METHOD__.', exception for ' . $id . ': '
-				. $e->getMessage(), 
+				. $e->getMessage(),
 				OCP\Util::ERROR);
 			throw new Exception(
 				OC_Contacts_App::$l10n->t(
@@ -348,11 +348,11 @@ class OC_Contacts_Addressbook {
 
 		// TODO: Unshare all when that method is created
 		//OCP\Share::unshare('addressbook', $id);
-			
+
 		if(count(self::all(OCP\User::getUser())) == 0) {
 			self::addDefault();
 		}
-		
+
 		return true;
 	}
 

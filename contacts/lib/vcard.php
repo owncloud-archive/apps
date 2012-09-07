@@ -152,8 +152,8 @@ class OC_Contacts_VCard {
 					// Decode quoted-printable and strip any control chars
 					// except \n and \r
 					$property->value = preg_replace(
-								'/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/', 
-								'', 
+								'/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/',
+								'',
 								quoted_printable_decode($property->value)
 					);
 					unset($property->parameters[$key]);
@@ -506,7 +506,7 @@ class OC_Contacts_VCard {
 		if(!$addressbook) {
 			throw new Exception(
 				OC_Contacts_App::$l10n->t(
-					'Could not find the Addressbook with ID: ' 
+					'Could not find the Addressbook with ID: '
 					. $card['addressbookid']
 				)
 			);

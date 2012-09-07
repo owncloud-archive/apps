@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
- 
+
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('contacts');
 
@@ -23,7 +23,7 @@ foreach($vcard->children as $property){
 		$checksum = md5($property->serialize());
 		OCP\JSON::success(array(
 			'data' => array(
-				'value' => $property->value, 
+				'value' => $property->value,
 				'checksum' => $checksum,
 				)));
 		exit();

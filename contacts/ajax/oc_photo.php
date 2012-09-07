@@ -50,8 +50,8 @@ if($image->width() > 400 || $image->height() > 400) {
 	$image->resize(400); // Prettier resizing than with browser and saves bandwidth.
 }
 if(!$image->fixOrientation()) { // No fatal error so we don't bail out.
-	OCP\Util::writeLog('contacts', 
-		'ajax/oc_photo.php: Couldn\'t save correct image orientation: '.$localpath, 
+	OCP\Util::writeLog('contacts',
+		'ajax/oc_photo.php: Couldn\'t save correct image orientation: '.$localpath,
 		OCP\Util::DEBUG);
 }
 if(OC_Cache::set($tmpkey, $image->data(), 600)) {

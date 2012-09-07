@@ -2154,7 +2154,7 @@ $(document).ready(function(){
 						retries = aid = 0;
 						$('#uploadprogressbar').fadeOut();
 					} else {
-						setTimeout(function() { // 
+						setTimeout(function() { //
 							waitForImport();
 						}, 1000);
 					}
