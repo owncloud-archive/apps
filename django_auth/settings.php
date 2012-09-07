@@ -40,4 +40,3 @@ $tmpl->assign('staff_is_admin',    OC_Appconfig::getValue( 'django_auth', 'staff
 $tmpl->assign('superuser_is_admin',OC_Appconfig::getValue( 'django_auth', 'superuser_is_admin', OC_GROUP_BACKEND_DJANGO_SUPERUSER_IS_ADMIN ));
 
 return $tmpl->fetchPage();
-?>

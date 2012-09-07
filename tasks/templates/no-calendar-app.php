@@ -7,4 +7,3 @@
  */
 
 echo $l->t('The calendar application also need to be enabled to use this application.');
-?>

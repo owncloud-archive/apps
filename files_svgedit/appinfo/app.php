@@ -27,4 +27,3 @@ OC_App::register(array(
     'name' => 'SVG Editor'
     ));
 
-?>

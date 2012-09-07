@@ -31,4 +31,3 @@ OC_APP::registerAdmin('django_auth','settings');
 
 OC_User::useBackend( 'Django' );
 OC_Group::useBackend( new OC_GROUP_DJANGO() );
-?>

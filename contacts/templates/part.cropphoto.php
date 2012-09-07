@@ -64,4 +64,3 @@ $requesttoken = $_['requesttoken'];
 } else { 
 	echo $l->t('The temporary image has been removed from cache.');
 }
-?>
