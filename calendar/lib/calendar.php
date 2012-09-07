@@ -47,9 +47,9 @@ class OC_Calendar_Calendar{
 
 		$calendars = array();
 		while( $row = $result->fetchRow()){
-			$row['permissions'] = OCP\Share::PERMISSION_CREATE 
-				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE 
-				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE; 
+			$row['permissions'] = OCP\Share::PERMISSION_CREATE
+				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE
+				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
 			$calendars[] = $row;
 		}
 		$calendars = array_merge($calendars, OCP\Share::getItemsSharedWith('calendar', OC_Share_Backend_Calendar::FORMAT_CALENDAR));
@@ -84,9 +84,9 @@ class OC_Calendar_Calendar{
 			}
 			$row['permissions'] = $sharedCalendar['permissions'];
 		} else {
-			$row['permissions'] = OCP\Share::PERMISSION_CREATE 
-				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE 
-				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE; 
+			$row['permissions'] = OCP\Share::PERMISSION_CREATE
+				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE
+				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
 		}
 		return $row;
 	}
@@ -248,7 +248,7 @@ class OC_Calendar_Calendar{
 
 		return true;
 	}
-	
+
 	/**
 	 * @brief merges two calendars
 	 * @param integer $id1
@@ -272,7 +272,7 @@ class OC_Calendar_Calendar{
 		self::touchCalendar($id1);
 		self::deleteCalendar($id2);
 	}
-	
+
 	/**
 	 * @brief Creates a URI for Calendar
 	 * @param string $name name of the calendar
@@ -283,7 +283,7 @@ class OC_Calendar_Calendar{
 		$strip=array(' ','/','?','&');//these may break sync clients
 		$name=str_replace($strip,'',$name);
 		$name = strtolower($name);
-		
+
 		$newname = $name;
 		$i = 1;
 		while(in_array($newname,$existing)){
@@ -301,7 +301,7 @@ class OC_Calendar_Calendar{
 		list($prefix,$userid) = Sabre_DAV_URLUtil::splitPath($principaluri);
 		return $userid;
 	}
-	
+
 	/**
 	 * @brief returns the possible color for calendars
 	 * @return array
@@ -333,10 +333,10 @@ class OC_Calendar_Calendar{
 			'cache' => true,
 		);
 	}
-	
+
 	/*
 	 * @brief checks if a calendar name is available for a user
-	 * @param string $calendarname 
+	 * @param string $calendarname
 	 * @param string $userid
 	 * @return boolean
 	 */
@@ -349,7 +349,7 @@ class OC_Calendar_Calendar{
 		}
 		return true;
 	}
-	
+
 	/*
 	 * @brief generates the text color for the calendar
 	 * @param string $calendarcolor rgb calendar color code in hex format (with or without the leading #)

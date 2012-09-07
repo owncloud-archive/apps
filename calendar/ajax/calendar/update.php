@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
- 
+
 
 // Check if we are a user
 OCP\JSON::checkLoggedIn();

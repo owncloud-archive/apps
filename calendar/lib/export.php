@@ -45,7 +45,7 @@ class OC_Calendar_Export{
 		$return .= "END:VCALENDAR";
 		return $return;
 	}
-	
+
 	/**
 	 * @brief exports an event and convert all times to UTC
 	 * @param integer $id id of the event
@@ -58,7 +58,7 @@ class OC_Calendar_Export{
 		$return .= "END:VCALENDAR";
 		return $return;
 	 }
-	 
+
 	 /**
 	  * @brief generates the VEVENT with UTC dates
 	  * @param array $event
@@ -78,12 +78,12 @@ class OC_Calendar_Export{
 		}
 		return $object->VEVENT->serialize();
 	}
-	
+
 	/**
 	 * @brief fixes new line breaks
 	 * (fixes problems with Apple iCal)
 	 * @param string $string to fix
-	 * @return string 
+	 * @return string
 	 */
 	private static function fixLineBreaks($string){
 		$string = str_replace("\r\n", "\n", $string);

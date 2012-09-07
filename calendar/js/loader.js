@@ -128,7 +128,7 @@ Calendar_Import={
 			}
 		},
 		send: function(){
-			$.post(OC.filePath('calendar', 'ajax/import', 'import.php'), 
+			$.post(OC.filePath('calendar', 'ajax/import', 'import.php'),
 			{progresskey: Calendar_Import.Store.progresskey, method: String (Calendar_Import.Store.method), calname: String (Calendar_Import.Store.calname), path: String (Calendar_Import.Store.path), file: String (Calendar_Import.Store.file), id: String (Calendar_Import.Store.id), calcolor: String (Calendar_Import.Store.calcolor)}, function(data){
 				if(data.status == 'success'){
 					$('#calendar_import_progressbar').progressbar('option', 'value', 100);
@@ -173,7 +173,7 @@ Calendar_Import={
 }
 $(document).ready(function(){
 	if(typeof FileActions !== 'undefined'){
-		FileActions.register('text/calendar','importCalendar',  OC.PERMISSION_READ, '', Calendar_Import.Dialog.open); 
+		FileActions.register('text/calendar','importCalendar',  OC.PERMISSION_READ, '', Calendar_Import.Dialog.open);
 		FileActions.setDefault('text/calendar','importCalendar');
 	};
 });

@@ -34,7 +34,7 @@ class OC_Connector_Sabre_CalDAV extends Sabre_CalDAV_Backend_Abstract {
 	 */
 	public function getCalendarsForUser($principalUri) {
 		$raw = OC_Calendar_Calendar::allCalendarsWherePrincipalURIIs($principalUri);
-		
+
 		$calendars = array();
 		foreach( $raw as $row ){
 			$components = explode(',',$row['components']);
@@ -49,7 +49,7 @@ class OC_Connector_Sabre_CalDAV extends Sabre_CalDAV_Backend_Abstract {
 				'{' . Sabre_CalDAV_Plugin::NS_CALENDARSERVER . '}getctag' => $row['ctag']?$row['ctag']:'0',
 				'{' . Sabre_CalDAV_Plugin::NS_CALDAV . '}supported-calendar-component-set' => new Sabre_CalDAV_Property_SupportedCalendarComponentSet($components),
 			);
-	
+
 			foreach($this->propertyMap as $xmlName=>$dbName) {
 				$calendar[$xmlName] = $row[$dbName];
 			}
@@ -111,7 +111,7 @@ class OC_Connector_Sabre_CalDAV extends Sabre_CalDAV_Backend_Abstract {
 		if(!is_null($newValues['calendarcolor']) && strlen($newValues['calendarcolor']) == 9){
 			$newValues['calendarcolor'] = substr($newValues['calendarcolor'], 0, 7);
 		}
-		
+
 		return OC_Calendar_Calendar::addCalendarFromDAVData($principalUri,$calendarUri,$newValues['displayname'],$newValues['components'],$newValues['timezone'],$newValues['calendarorder'],$newValues['calendarcolor']);
 	}
 
@@ -174,7 +174,7 @@ class OC_Connector_Sabre_CalDAV extends Sabre_CalDAV_Backend_Abstract {
 
 			$fieldName = $this->propertyMap[$propertyName];
 			$newValues[$fieldName] = $propertyValue;
-	
+
 		}
 
 		// If there were any errors we need to fail the request
@@ -201,7 +201,7 @@ class OC_Connector_Sabre_CalDAV extends Sabre_CalDAV_Backend_Abstract {
 		if(!is_null($newValues['calendarcolor']) && strlen($newValues['calendarcolor']) == 9){
 			$newValues['calendarcolor'] = substr($newValues['calendarcolor'], 0, 7);
 		}
-		
+
 		OC_Calendar_Calendar::editCalendar($calendarId,$newValues['displayname'],null,$newValues['timezone'],$newValues['calendarorder'],$newValues['calendarcolor']);
 
 		return true;
@@ -218,7 +218,7 @@ class OC_Connector_Sabre_CalDAV extends Sabre_CalDAV_Backend_Abstract {
 	    if(preg_match( '=iCal/[1-4]?.*Mac OS X/10.[1-6](.[0-9])?=', $_SERVER['HTTP_USER_AGENT'] )){
 	    	throw new Sabre_DAV_Exception_Forbidden("Action is not possible with OSX 10.6.x", 403);
 		}
-		
+
 		OC_Calendar_Calendar::deleteCalendar($calendarId);
 	}
 
@@ -306,7 +306,7 @@ class OC_Connector_Sabre_CalDAV extends Sabre_CalDAV_Backend_Abstract {
 	public function deleteCalendarObject($calendarId,$objectUri){
 		OC_Calendar_Object::deleteFromDAVData($calendarId,$objectUri);
 	}
-	
+
 	/**
 	 * @brief Creates a etag
 	 * @param array $row Database result

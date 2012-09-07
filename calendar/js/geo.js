@@ -4,7 +4,7 @@
  * later.
  * See the COPYING-README file.
  */
-if (navigator.geolocation) { 
+if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position) {
 		$.post(OC.filePath('calendar', 'ajax/settings', 'guesstimezone.php'), {lat: position.coords.latitude, lng: position.coords.longitude},
 		function(data){

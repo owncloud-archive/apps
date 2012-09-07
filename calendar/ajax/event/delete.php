@@ -5,7 +5,7 @@
  * later.
  * See the COPYING-README file.
  */
- 
+
 
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('calendar');

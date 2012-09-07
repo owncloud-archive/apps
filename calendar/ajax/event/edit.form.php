@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
- 
+
 
 if(!OCP\User::isLoggedIn()) {
 	die('<script type="text/javascript">document.location = oc_webroot;</script>');
@@ -29,12 +29,12 @@ $dtend = OC_Calendar_Object::getDTEndFromVEvent($vevent);
 switch($dtstart->getDateType()) {
 	case Sabre_VObject_Property_DateTime::UTC:
 		$timeOffset = $_SESSION['timezone']*60;
-		$newDT      = $dtstart->getDateTime(); 
+		$newDT      = $dtstart->getDateTime();
 		$newDT->add(new DateInterval("PT" . $timeOffset . "M"));
-		$dtstart->setDateTime($newDT); 
-		$newDT      = $dtend->getDateTime(); 
+		$dtstart->setDateTime($newDT);
+		$newDT      = $dtend->getDateTime();
 		$newDT->add(new DateInterval("PT" . $timeOffset . "M"));
-		$dtend->setDateTime($newDT); 
+		$dtend->setDateTime($newDT);
 	case Sabre_VObject_Property_DateTime::LOCALTZ:
 	case Sabre_VObject_Property_DateTime::LOCAL:
 		$startdate = $dtstart->getDateTime()->format('d-m-Y');

@@ -242,7 +242,7 @@ Calendar={
 			if(Calendar.UI.scrollcount < 5){
 				return;
 			}
-			
+
 			var scroll = $(document).scrollTop(),
 				doc_height = $(document).height(),
 				win_height = $(window).height();
@@ -357,7 +357,7 @@ Calendar={
 					$('#advanced_weekday').css('display', 'block');
 				}
 			}
-			
+
 		},
 		setViewActive: function(view){
 			$('#view input[type="button"]').removeClass('active');
@@ -457,7 +457,7 @@ Calendar={
 						$("#displayname_"+calendarid).css('background-color', '#F8F8F8');
 					});
 				}
-				
+
 				var url;
 				if (calendarid == 'new'){
 					url = OC.filePath('calendar', 'ajax/calendar', 'new.php');
@@ -548,7 +548,7 @@ Calendar={
 					return false;
 				}
 				});
-				
+
 				$('.shareactions > input:checkbox').change(function() {
 					var container = $(this).parents('li').first();
 					var permissions = parseInt(container.data('permissions'));
@@ -572,7 +572,7 @@ Calendar={
 					}
 					OC.Share.setPermissions(itemType, itemSource, shareType, shareWith, permissions);
 				});
-				
+
 				$('.shareactions > .delete').click(function() {
 					var container = $(this).parents('li').first();
 					var itemType = container.data('item-type');
@@ -630,7 +630,7 @@ Calendar={
 	Settings:{
 		//
 	},
-	
+
 }
 $.fullCalendar.views.list = ListView;
 function ListView(element, calendar) {

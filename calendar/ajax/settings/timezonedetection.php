@@ -5,7 +5,7 @@
  * later.
  * See the COPYING-README file.
  */
- 
+
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('calendar');
 if(array_key_exists('timezonedetection', $_POST) && $_POST['timezonedetection'] == 'on'){

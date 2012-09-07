@@ -16,7 +16,7 @@ if(isset($cal)){
 		exit;
 	}
 	header('Content-Type: text/Calendar');
-	header('Content-Disposition: inline; filename=' . str_replace(' ', '-', $calendar['displayname']) . '.ics'); 
+	header('Content-Disposition: inline; filename=' . str_replace(' ', '-', $calendar['displayname']) . '.ics');
 	echo OC_Calendar_Export::export($cal, OC_Calendar_Export::CALENDAR);
 }elseif(isset($event)){
 	$data = OC_Calendar_App::getEventObject($_GET['eventid'], true);

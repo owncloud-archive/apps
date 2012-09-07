@@ -7,7 +7,7 @@
 <td width="20px">
   <?php if($_['calendar']['permissions'] & OCP\Share::PERMISSION_SHARE) { ?>
   <a href="#" class="share" data-item-type="calendar" data-item="<?php echo $_['calendar']['id']; ?>"
-	data-possible-permissions="<?php echo $_['calendar']['permissions'] ?>" 
+	data-possible-permissions="<?php echo $_['calendar']['permissions'] ?>"
 	title="<?php echo $l->t('Share Calendar') ?>" class="action"><img class="svg action" src="<?php echo (!$_['shared']) ? OCP\Util::imagePath('core', 'actions/share.svg') : OCP\Util::imagePath('core', 'actions/shared.svg') ?>"></a>
   <?php } ?>
 </td>

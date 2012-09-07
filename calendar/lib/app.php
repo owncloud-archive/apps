@@ -5,7 +5,7 @@
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  * See the COPYING-README file.
- * 
+ *
  * This class manages our app actions
  */
 OC_Calendar_App::$l10n = new OC_L10N('calendar');
@@ -17,7 +17,7 @@ class OC_Calendar_App{
 	 * @brief language object for calendar app
 	 */
 	public static $l10n;
-	
+
 	/**
 	 * @brief categories of the user
 	 */
@@ -27,7 +27,7 @@ class OC_Calendar_App{
 	 * @brief timezone of the user
 	 */
 	public static $tz;
-	
+
 	/**
 	 * @brief returns informations about a calendar
 	 * @param int $id - id of the calendar
@@ -49,7 +49,7 @@ class OC_Calendar_App{
 		}
 		return $calendar;
 	}
-	
+
 	/**
 	 * @brief returns informations about an event
 	 * @param int $id - id of the event
@@ -71,7 +71,7 @@ class OC_Calendar_App{
 
 		return false;
 	}
-	
+
 	/**
 	 * @brief returns the parsed calendar data
 	 * @param int $id - id of the event
@@ -89,7 +89,7 @@ class OC_Calendar_App{
 		}
 		return $vobject;
 	}
-	
+
 	/**
 	 * @brief checks if an event was edited and dies if it was
 	 * @param (object) $vevent - vevent object of the event
@@ -104,7 +104,7 @@ class OC_Calendar_App{
 		}
 		return true;
 	}
-	
+
 	/**
 	 * @brief returns the default categories of ownCloud
 	 * @return (array) $categories
@@ -128,7 +128,7 @@ class OC_Calendar_App{
 			(string)self::$l10n->t('Work'),
 		);
 	}
-	
+
 	/**
 	 * @brief returns the vcategories object of the user
 	 * @return (object) $vcategories
@@ -141,7 +141,7 @@ class OC_Calendar_App{
 		}
 		return self::$categories;
 	}
-	
+
 	/**
 	 * @brief returns the categories of the vcategories object
 	 * @return (array) $categories
@@ -197,7 +197,7 @@ class OC_Calendar_App{
 			self::getVCategories()->loadFromVObject($object, true);
 		}
 	}
-	
+
 	/**
 	 * @brief returns the options for the repeat rule of an repeating event
 	 * @return array - valid inputs for the repeat rule of an repeating event
@@ -205,7 +205,7 @@ class OC_Calendar_App{
 	public static function getRepeatOptions(){
 		return OC_Calendar_Object::getRepeatOptions(self::$l10n);
 	}
-	
+
 	/**
 	 * @brief returns the options for the end of an repeating event
 	 * @return array - valid inputs for the end of an repeating events
@@ -213,7 +213,7 @@ class OC_Calendar_App{
 	public static function getEndOptions(){
 		return OC_Calendar_Object::getEndOptions(self::$l10n);
 	}
-	
+
 	/**
 	 * @brief returns the options for an monthly repeating event
 	 * @return array - valid inputs for monthly repeating events
@@ -221,7 +221,7 @@ class OC_Calendar_App{
 	public static function getMonthOptions(){
 		return OC_Calendar_Object::getMonthOptions(self::$l10n);
 	}
-	
+
 	/**
 	 * @brief returns the options for an weekly repeating event
 	 * @return array - valid inputs for weekly repeating events
@@ -229,7 +229,7 @@ class OC_Calendar_App{
 	public static function getWeeklyOptions(){
 		return OC_Calendar_Object::getWeeklyOptions(self::$l10n);
 	}
-	
+
 	/**
 	 * @brief returns the options for an yearly repeating event
 	 * @return array - valid inputs for yearly repeating events
@@ -237,7 +237,7 @@ class OC_Calendar_App{
 	public static function getYearOptions(){
 		return OC_Calendar_Object::getYearOptions(self::$l10n);
 	}
-	
+
 	/**
 	 * @brief returns the options for an yearly repeating event which occurs on specific days of the year
 	 * @return array - valid inputs for yearly repeating events
@@ -245,7 +245,7 @@ class OC_Calendar_App{
 	public static function getByYearDayOptions(){
 		return OC_Calendar_Object::getByYearDayOptions();
 	}
-	
+
 	/**
 	 * @brief returns the options for an yearly repeating event which occurs on specific month of the year
 	 * @return array - valid inputs for yearly repeating events
@@ -253,7 +253,7 @@ class OC_Calendar_App{
 	public static function getByMonthOptions(){
 		return OC_Calendar_Object::getByMonthOptions(self::$l10n);
 	}
-	
+
 	/**
 	 * @brief returns the options for an yearly repeating event which occurs on specific week numbers of the year
 	 * @return array - valid inputs for yearly repeating events
@@ -261,7 +261,7 @@ class OC_Calendar_App{
 	public static function getByWeekNoOptions(){
 		return OC_Calendar_Object::getByWeekNoOptions();
 	}
-	
+
 	/**
 	 * @brief returns the options for an yearly or monthly repeating event which occurs on specific days of the month
 	 * @return array - valid inputs for yearly or monthly repeating events
@@ -269,7 +269,7 @@ class OC_Calendar_App{
 	public static function getByMonthDayOptions(){
 		return OC_Calendar_Object::getByMonthDayOptions();
 	}
-	
+
 	/**
 	 * @brief returns the options for an monthly repeating event which occurs on specific weeks of the month
 	 * @return array - valid inputs for monthly repeating events
@@ -296,8 +296,8 @@ class OC_Calendar_App{
 	 * @see OCP\Share
 	 */
 	public static function getPermissions($id, $type) {
-		 $permissions_all = OCP\Share::PERMISSION_CREATE 
-				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE 
+		 $permissions_all = OCP\Share::PERMISSION_CREATE
+				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE
 				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
 
 		if($type == self::CALENDAR) {
@@ -331,13 +331,13 @@ class OC_Calendar_App{
 		}
 		return 0;
 	}
-	 
+
 	/**
 	 * @brief analyses the parameter for calendar parameter and returns the objects
 	 * @param (string) $calendarid - calendarid
 	 * @param (int) $start - unixtimestamp of start
 	 * @param (int) $end - unixtimestamp of end
-	 * @return (array) $events 
+	 * @return (array) $events
 	 */
 	public static function getrequestedEvents($calendarid, $start, $end){
 		$events = array();
@@ -359,7 +359,7 @@ class OC_Calendar_App{
 		}
 		return $events;
 	}
-	
+
 	/**
 	 * @brief generates the output for an event which will be readable for our js
 	 * @param (mixed) $event - event object / array
@@ -414,7 +414,7 @@ class OC_Calendar_App{
 					continue;
 				}
 				$dynamicoutput = OC_Calendar_Object::generateStartEndDate($singleevent->DTSTART, OC_Calendar_Object::getDTEndFromVEvent($singleevent), $allday, self::$tz);
-				$return[] = array_merge($staticoutput, $dynamicoutput);			
+				$return[] = array_merge($staticoutput, $dynamicoutput);
 			}
 		}
 		return $return;

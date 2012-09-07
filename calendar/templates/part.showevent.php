@@ -217,7 +217,7 @@
 						<select id="end" name="end">
 							<?php
 							if($_['repeat_end'] == '') $_['repeat_end'] = 'never';
-							echo OCP\html_select_options(array($_['repeat_end_options'][$_['repeat_end']]), $_['repeat_end']); 
+							echo OCP\html_select_options(array($_['repeat_end_options'][$_['repeat_end']]), $_['repeat_end']);
 							?>
 						</select>
 					</td>

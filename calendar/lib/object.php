@@ -314,7 +314,7 @@ class OC_Calendar_Object{
 
 		return true;
 	}
-	
+
 	/**
      * @brief Creates a UID
      * @return string
@@ -409,7 +409,7 @@ class OC_Calendar_Object{
 	public static function getUTCforMDB($datetime){
 		return date('Y-m-d H:i', $datetime->format('U') - $datetime->getOffset());
 	}
-	
+
 	/**
 	 * @brief returns the DTEND of an $vevent object
 	 * @param object $vevent vevent object
@@ -439,7 +439,7 @@ class OC_Calendar_Object{
 		}
 		return $dtend;
 	}
-	
+
 	/**
 	 * @brief returns the options for the repeat rule of an repeating event
 	 * @return array - valid inputs for the repeat rule of an repeating event
@@ -455,7 +455,7 @@ class OC_Calendar_Object{
 			'yearly'        => $l10n->t('Yearly')
 		);
 	}
-	
+
 	/**
 	 * @brief returns the options for the end of an repeating event
 	 * @return array - valid inputs for the end of an repeating events
@@ -467,7 +467,7 @@ class OC_Calendar_Object{
 			'date'  => $l10n->t('by date')
 		);
 	}
-	
+
 	/**
 	 * @brief returns the options for an monthly repeating event
 	 * @return array - valid inputs for monthly repeating events
@@ -478,7 +478,7 @@ class OC_Calendar_Object{
 			'weekday'  => $l10n->t('by weekday')
 		);
 	}
-	
+
 	/**
 	 * @brief returns the options for an weekly repeating event
 	 * @return array - valid inputs for weekly repeating events
@@ -494,7 +494,7 @@ class OC_Calendar_Object{
 			'SU' => $l10n->t('Sunday')
 		);
 	}
-	
+
 	/**
 	 * @brief returns the options for an monthly repeating event which occurs on specific weeks of the month
 	 * @return array - valid inputs for monthly repeating events
@@ -510,7 +510,7 @@ class OC_Calendar_Object{
 			'-1' => $l10n->t('last')
 		);
 	}
-	
+
 	/**
 	 * @brief returns the options for an yearly repeating event which occurs on specific days of the year
 	 * @return array - valid inputs for yearly repeating events
@@ -522,7 +522,7 @@ class OC_Calendar_Object{
 		}
 		return $return;
 	}
-	
+
 	/**
 	 * @brief returns the options for an yearly or monthly repeating event which occurs on specific days of the month
 	 * @return array - valid inputs for yearly or monthly repeating events
@@ -534,7 +534,7 @@ class OC_Calendar_Object{
 		}
 		return $return;
 	}
-	
+
 	/**
 	 * @brief returns the options for an yearly repeating event which occurs on specific month of the year
 	 * @return array - valid inputs for yearly repeating events
@@ -555,7 +555,7 @@ class OC_Calendar_Object{
 			'12' => $l10n->t('December')
 		);
 	}
-	
+
 	/**
 	 * @brief returns the options for an yearly repeating event
 	 * @return array - valid inputs for yearly repeating events
@@ -568,7 +568,7 @@ class OC_Calendar_Object{
 			'bydaymonth'  => $l10n->t('by day and month')
 		);
 	}
-	
+
 	/**
 	 * @brief returns the options for an yearly repeating event which occurs on specific week numbers of the year
 	 * @return array - valid inputs for yearly repeating events
@@ -576,7 +576,7 @@ class OC_Calendar_Object{
 	public static function getByWeekNoOptions(){
 		return range(1, 52);
 	}
-	
+
 	/**
 	 * @brief validates a request
 	 * @param array $request
@@ -729,19 +729,19 @@ class OC_Calendar_Object{
 		}
 		return false;
 	}
-	
+
 	/**
 	 * @brief validates time
 	 * @param string $time
 	 * @return boolean
-	 */	
+	 */
 	protected static function checkTime($time){
 		list($hours, $minutes) = explode(':', $time);
 		return empty($time)
 			|| $hours < 0 || $hours > 24
 			|| $minutes < 0 || $minutes > 60;
 	}
-	
+
 	/**
 	 * @brief creates an VCalendar Object from the request data
 	 * @param array $request
@@ -759,7 +759,7 @@ class OC_Calendar_Object{
 		$vevent->setUID();
 		return self::updateVCalendarFromRequest($request, $vcalendar);
 	}
-	
+
 	/**
 	 * @brief updates an VCalendar Object from the request data
 	 * @param array $request
@@ -841,7 +841,7 @@ class OC_Calendar_Object{
 				case 'yearly':
 					$rrule .= 'FREQ=YEARLY';
 					if($request['advanced_year_select'] == 'bydate'){
-						
+
 					}elseif($request['advanced_year_select'] == 'byyearday'){
 						list($_day, $_month, $_year) = explode('-', $from);
 						$byyearday = date('z', mktime(0,0,0, $_month, $_day, $_year)) + 1;
@@ -887,7 +887,7 @@ class OC_Calendar_Object{
 								}
 							}
 							$rrule .= ';BYMONTH=' . $bymonth;
-							
+
 						}
 						if(array_key_exists('bymonthday', $request)){
 							$bymonthday = '';
@@ -899,7 +899,7 @@ class OC_Calendar_Object{
 								}
 							}
 							$rrule .= ';BYMONTHDAY=' . $bymonthday;
-							
+
 						}
 					}
 					break;
@@ -952,7 +952,7 @@ class OC_Calendar_Object{
 
 		return $vcalendar;
 	}
-	
+
 	/**
 	 * @brief returns the owner of an object
 	 * @param integer $id
@@ -963,7 +963,7 @@ class OC_Calendar_Object{
 		$cal = OC_Calendar_Calendar::find($event['calendarid']);
 		return $cal['userid'];
 	}
-	
+
 	/**
 	 * @brief returns the calendarid of an object
 	 * @param integer $id
@@ -973,7 +973,7 @@ class OC_Calendar_Object{
 		$event = self::find($id);
 		return $event['calendarid'];
 	}
-	
+
 	/**
 	 * @brief checks if an object is repeating
 	 * @param integer $id
@@ -983,9 +983,9 @@ class OC_Calendar_Object{
 		$event = self::find($id);
 		return ($event['repeating'] == 1)?true:false;
 	}
-	
+
 	/**
-	 * @brief converts the start_dt and end_dt to a new timezone 
+	 * @brief converts the start_dt and end_dt to a new timezone
 	 * @param object $dtstart
 	 * @param object $dtend
 	 * @param boolean $allday

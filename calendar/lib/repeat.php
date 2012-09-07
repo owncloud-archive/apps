@@ -13,7 +13,7 @@ class OC_Calendar_Repeat{
 	/**
 	 * @brief returns the cache of an event
 	 * @param (int) $id - id of the event
-	 * @return (array) 
+	 * @return (array)
 	 */
 	public static function get($id){
 		$stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_repeat` WHERE `eventid` = ?');
@@ -47,7 +47,7 @@ class OC_Calendar_Repeat{
 	/**
 	 * @brief returns the cache of all repeating events of a calendar
 	 * @param (int) $id - id of the calendar
-	 * @return (array) 
+	 * @return (array)
 	 */
 	public static function getCalendar($id){
 		$stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_repeat` WHERE `calid` = ?');

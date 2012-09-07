@@ -7,7 +7,7 @@
  */
 
 // Init owncloud
- 
+
 
 $l=OC_L10N::get('calendar');
 

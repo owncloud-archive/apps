@@ -13,61 +13,61 @@ class OC_Calendar_Import{
 	 * @brief counts the absolute number of parsed elements
 	 */
 	private $abscount;
-	
+
 	/*
 	 * @brief var saves if the percentage should be saved with OC_Cache
 	 */
 	private $cacheprogress;
-	
+
 	/*
 	 * @brief Sabre_VObject_Component_VCalendar object - for documentation see http://code.google.com/p/sabredav/wiki/Sabre_VObject_Component_VCalendar
 	 */
 	private $calobject;
-	
+
 	/*
 	 * @brief var counts the number of imported elements
 	 */
 	private $count;
-	
+
 	/*
 	 * @brief var to check if errors happend while initialization
 	 */
 	private $error;
-	
+
 	/*
 	 * @brief var saves the ical string that was submitted with the __construct function
 	 */
 	private $ical;
-	
+
 	/*
 	 * @brief calendar id for import
 	 */
 	private $id;
-	
+
 	/*
 	 * @brief var saves the percentage of the import's progress
 	 */
 	private $progress;
-	
+
 	/*
 	 * @brief var saves the key for the percentage of the import's progress
 	 */
 	private $progresskey;
-	
+
 	/*
 	 * @brief var saves the timezone the events shell converted to
 	 */
 	private $tz;
-	
+
 	/*
 	 * @brief var saves the userid
 	 */
 	private $userid;
 
 	/*
-	 * public methods 
+	 * public methods
 	 */
-	
+
 	/*
 	 * @brief does general initialization for import object
 	 * @param string $calendar content of ical file
@@ -88,7 +88,7 @@ class OC_Calendar_Import{
 		}
 		return true;
 	}
-	
+
 	/*
 	 * @brief imports a calendar
 	 * @return boolean
@@ -121,7 +121,7 @@ class OC_Calendar_Import{
 		OC_Cache::remove($this->progresskey);
 		return true;
 	}
-	
+
 	/*
 	 * @brief sets the timezone
 	 * @return boolean
@@ -130,7 +130,7 @@ class OC_Calendar_Import{
 		$this->tz = $tz;
 		return true;
 	}
-	
+
 	/*
 	 * @brief sets the progresskey
 	 * @return boolean
@@ -139,7 +139,7 @@ class OC_Calendar_Import{
 		$this->progresskey = $progresskey;
 		return true;
 	}
-	
+
 	/*
 	 * @brief checks if something went wrong while initialization
 	 * @return boolean
@@ -150,7 +150,7 @@ class OC_Calendar_Import{
 		}
 		return false;
 	}
-	
+
 	/*
 	 * @brief returns the percentage of progress
 	 * @return integer
@@ -158,7 +158,7 @@ class OC_Calendar_Import{
 	public function getProgress(){
 		return $this->progress;
 	}
-	
+
 	/*
 	 * @brief enables the cache for the percentage of progress
 	 * @return boolean
@@ -167,7 +167,7 @@ class OC_Calendar_Import{
 		$this->cacheprogress = true;
 		return true;
 	}
-	
+
 	/*
 	 * @brief disables the cache for the percentage of progress
 	 * @return boolean
@@ -176,12 +176,12 @@ class OC_Calendar_Import{
 		$this->cacheprogress = false;
 		return false;
 	}
-	
+
 	/*
 	 * @brief generates a new calendar name
 	 * @return string
 	 */
-	public function createCalendarName(){	
+	public function createCalendarName(){
 		$calendars = OC_Calendar_Calendar::allCalendars($this->userid);
 		$calendarname = $guessedcalendarname = !is_null($this->guessCalendarName())?($this->guessCalendarName()):(OC_Calendar_App::$l10n->t('New Calendar'));
 		$i = 1;
@@ -191,7 +191,7 @@ class OC_Calendar_Import{
 		}
 		return $calendarname;
 	}
-	
+
 	/*
 	 * @brief generates a new calendar color
 	 * @return string
@@ -202,7 +202,7 @@ class OC_Calendar_Import{
 		}
 		return $this->guessCalendarColor();
 	}
-	
+
 	/*
 	 * @brief sets the id for the calendar
 	 * @param integer $id of the calendar
@@ -212,7 +212,7 @@ class OC_Calendar_Import{
 		$this->id = $id;
 		return true;
 	}
-	
+
 	/*
 	 * @brief sets the userid to import the calendar
 	 * @param string $id of the user
@@ -222,9 +222,9 @@ class OC_Calendar_Import{
 		$this->userid = $userid;
 		return true;
 	}
-	
+
 	/*
-	 * @brief returns the private 
+	 * @brief returns the private
 	 * @param string $id of the user
 	 * @return boolean
 	 */
@@ -233,30 +233,30 @@ class OC_Calendar_Import{
 	}
 
 	/*
-	 * private methods 
+	 * private methods
 	 */
-	
+
 	/*
-	 * @brief generates an unique ID 
-	 * @return string 
+	 * @brief generates an unique ID
+	 * @return string
 	 */
 	//private function createUID(){
 	//	return substr(md5(rand().time()),0,10);
 	//}
-	
+
 	/*
 	 * @brief checks is the UID is already in use for another event
 	 * @param string $uid uid to check
 	 * @return boolean
 	 */
 	//private function isUIDAvailable($uid){
-	//	
+	//
 	//}
-	
+
 	/*
 	 * @brief generates a proper VCalendar string
 	 * @param string $vobject
-	 * @return string 
+	 * @return string
 	 */
 	private function createVCalendar($vobject){
 		if(is_object($vobject)){
@@ -267,7 +267,7 @@ class OC_Calendar_Import{
 		$vcalendar .= "END:VCALENDAR";
 		return $vcalendar;
 	}
-	
+
 	/*
 	 * @brief checks if an event already exists in the user's calendars
 	 * @param integer $insertid id of the new object
@@ -285,7 +285,7 @@ class OC_Calendar_Import{
 		}
 		return false;
 	}
-	
+
 	/*
 	 * @brief updates the progress var
 	 * @param integer $percentage
@@ -302,7 +302,7 @@ class OC_Calendar_Import{
 	/*
 	 * public methods for (pre)rendering of X-... Attributes
 	 */
-	
+
 	/*
 	 * @brief guesses the calendar color
 	 * @return mixed - string or boolean
@@ -313,7 +313,7 @@ class OC_Calendar_Import{
 		}
 		return null;
 	}
-	
+
 	/*
 	 * @brief guesses the calendar description
 	 * @return mixed - string or boolean
@@ -324,7 +324,7 @@ class OC_Calendar_Import{
 		}
 		return null;
 	}
-	
+
 	/*
 	 * @brief guesses the calendar name
 	 * @return mixed - string or boolean

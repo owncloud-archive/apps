@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
- 
+
 
 if(!OCP\User::isLoggedIn()) {
 	die('<script type="text/javascript">document.location = oc_webroot;</script>');
