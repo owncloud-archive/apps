@@ -21,7 +21,7 @@ class FolderMapper {
 
 	private $userid;
 
-	public function __construct($userid = null){
+	public function __construct($userid = null) {
 		if ($userid !== null) {
 			$this->userid = $userid;
 		}
@@ -40,7 +40,7 @@ class FolderMapper {
 					' WHERE user_id = ? AND parent_id = ?');
 		$result = $stmt->execute(array($this->userid, $parentid));
 		
-		while( $row = $result->fetchRow()){
+		while( $row = $result->fetchRow()) {
 			$folderid = $row['id'];
 			$folder = new Folder($row['name'], $folderid);
 			$children = self::childrenOf($folderid);
@@ -66,7 +66,7 @@ class FolderMapper {
 					' WHERE user_id = ? AND parent_id = ?');
 		$result = $stmt->execute(array($this->userid, $parentid));
 		
-		while( $row = $result->fetchRow()){
+		while( $row = $result->fetchRow()) {
 			$folderid = $row['id'];
 			$folder = new Folder($row['name'], $folderid);
 			$children = self::childrenOfWithFeeds($folderid);
@@ -83,7 +83,7 @@ class FolderMapper {
 	 * @param id The id of the folder in the database table.
 	 * @returns  an instance of OC_News_Folder
 	 */
-	public function find($id){
+	public function find($id) {
 		$stmt = \OCP\DB::prepare('SELECT *
 					FROM ' . self::tableName .
 					' WHERE user_id = ? AND id = ?');
@@ -100,7 +100,7 @@ class FolderMapper {
 	 * @param folder the folder to be saved
 	 * @returns The id of the folder in the database table.
 	 */
-	public function save(Folder $folder){
+	public function save(Folder $folder) {
 		$query = \OCP\DB::prepare('
 			INSERT INTO ' . self::tableName .
 			'(name, parent_id, user_id)
@@ -117,7 +117,7 @@ class FolderMapper {
 		$parentid = $folder->getParentId();
 
 		$params=array(
-		htmlspecialchars_decode($name),
+		$name,
 		$parentid,
 		$this->userid
 		);
@@ -128,12 +128,26 @@ class FolderMapper {
 		return $folderid;
 	}
 
+
+	/**
+	 * @brief Updates the folder
+	 * @param folder the folder to be updated
+	 */
+	public function update(Folder $folder) {
+		$query = \OCP\DB::prepare('UPDATE ' . self::tableName 
+			. ' SET name = ? ' . ' WHERE id = ?');
+
+		$params = array($folder->getName(), $folder->getId());
+		$query->execute($params);
+		return true;
+	}
+
 	/**
 	 * @brief Delete the folder and all its feeds from the database
 	 * @param folder the folder to be deleted (an instance of OCA\News\Folder)
 	 * @returns true if the folder has been deleted, false if an error occurred
 	 */
-	public function delete(Folder $folder){
+	public function delete(Folder $folder) {
 		$folderid = $folder->getId();
 		return deleteById(folderid);
 	}
@@ -143,8 +157,8 @@ class FolderMapper {
 	 * @param folder the folder to be deleted (an instance of OCA\News\Folder)
 	 * @returns true if the folder has been deleted, false if an error occurred
 	 */
-	public function deleteById($folderid){
-		if ($folderid == null){
+	public function deleteById($folderid) {
+		if ($folderid == null) {
 			return false;
 		}
 

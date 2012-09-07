@@ -21,7 +21,7 @@
 * 
 */
 
-require_once('../../../lib/base.php');
+require_once '../../../lib/base.php';
 OC_JSON::checkAppEnabled('internal_bookmarks');
 OC_JSON::checkLoggedIn();
 
@@ -30,7 +30,7 @@ $k = OC_IntBks::getItemByTarget($c);
 
 $return = Array('r' => FALSE);
 
-if(count($k) > 0){
+if(count($k) > 0) {
 	OC_IntBks::deleteItemByTarget($c);
 }else{
 	$return = Array('r' => TRUE, 'e' => OC_IntBks::insertNewItem($c));

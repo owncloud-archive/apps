@@ -18,7 +18,7 @@ class Updater {
 	protected static $_updateDirs = array();
 
 	public static function update($sourcePath, $backupPath) {
-		if (!is_dir($backupPath)){
+		if (!is_dir($backupPath)) {
 			return self::error('Backup directory is not found');
 		}
 		
@@ -35,7 +35,7 @@ class Updater {
 		);
 
 		$tempPath = App::getBackupBase() . 'tmp';
-		if  (!@mkdir($tempPath, 0777, true)){
+		if  (!@mkdir($tempPath, 0777, true)) {
 			return self::error('failed to create ' . $tempPath);
 		}
 
@@ -71,7 +71,7 @@ class Updater {
 			$fullPath = $source . DIRECTORY_SEPARATOR . $file;
 			if (is_dir($fullPath)) {
 				if (in_array($file, self::$_skipDirs['relative'])
-						|| in_array($fullPath, self::$_skipDirs['full'])
+					|| in_array($fullPath, self::$_skipDirs['full'])
 				) {
 					continue;
 				}
@@ -87,7 +87,7 @@ class Updater {
 	 * @param string $message
 	 * @return bool 
 	 */
-	protected static function error($message){
+	protected static function error($message) {
 		\OC_Log::write(App::APP_ID, $message, \OC_Log::ERROR);
 		return false;
 	}

@@ -1,6 +1,6 @@
 <?php
 // Init owncloud
-require_once('../../lib/base.php');
+require_once '../../lib/base.php';
 OC_Util::checkLoggedIn();
 OC_Util::checkAppEnabled('files_svgedit');
 // load required style sheets:
@@ -35,4 +35,3 @@ $tmpl->assign('fileContents', json_encode($filecontents));
 $tmpl->assign('filemTime', $filemtime);
 $tmpl->assign('filePath', json_encode($path));
 $tmpl->printPage();
-?>

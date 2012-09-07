@@ -80,4 +80,3 @@ if (!$image->valid()) {
 }
 header('Content-Type: '.$image->mimeType());
 $image->show();
-

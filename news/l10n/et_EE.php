@@ -15,11 +15,9 @@
 "Error" => "Viga",
 "Adding..." => "Lisamine...",
 "Add folder" => "Lisa kaust",
-"Warning" => "Hoiatus",
 "URL cannot be empty." => "URL ei saa olla tühi.",
 "Add feed" => "Lisa uudivoog",
 "Fatal Error" => "Saatuslik viga",
-"Error while loading the feed" => "Viga uudisvoo laadimisel",
 "File " => "Fail",
 " loaded from cloud." => "laaditud pilvest.",
 "No files selected." => "Ühtegi faili pole valitud.",
@@ -32,10 +30,10 @@
 "no title" => "pealkirja pole",
 "no name" => "nime pole",
 "no body" => "sisu pole",
+"Subscribe" => "Telli",
 "local filesystem" => "kohalik failisüsteem",
 " or " => "või",
 "cloud" => "pilv",
 "Export feeds" => "Ekspordi uudisvood",
-"Download OPML" => "Laadi OPMLfail alla",
-"Subscribe" => "Telli"
+"Download OPML" => "Laadi OPMLfail alla"
 );

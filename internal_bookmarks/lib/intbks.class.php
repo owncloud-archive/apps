@@ -31,10 +31,10 @@ class OC_IntBks {
 	 * @param $id The id of the item
 	 * @return Array or Boolean
 	 */
-	public static function getItemById($id){
+	public static function getItemById($id) {
 		$query = OC_DB::prepare("SELECT bktitle, bktarget FROM *PREFIX*internal_bookmarks WHERE bkid = ? AND uid = ?");
 		$result = $query->execute(Array($id, OC_User::getUser()))->fetchAll();
-		if(count($result) > 0){
+		if(count($result) > 0) {
 			return $result;
 		}
 		return FALSE;
@@ -44,10 +44,10 @@ class OC_IntBks {
 	 * Get all items by UID
 	 * @return Array
 	 */
-	public static function getAllItemsByUser(){
+	public static function getAllItemsByUser() {
 		$query = OC_DB::prepare("SELECT bkid, bktitle, bktarget, bkorder FROM *PREFIX*internal_bookmarks WHERE uid = ? ORDER BY bkorder");
 		$result = $query->execute(Array(OC_User::getUser()))->fetchAll();
-		if(count($result) > 0){
+		if(count($result) > 0) {
 			return $result;
 		}
 		return Array();
@@ -58,11 +58,11 @@ class OC_IntBks {
 	 * @param $target The target of the item
 	 * @return Array
 	 */
-	public static function getItemByTarget($target){
+	public static function getItemByTarget($target) {
 		self::cleanTarget($target);
 		$query = OC_DB::prepare("SELECT bkid, bktitle, bktarget FROM *PREFIX*internal_bookmarks WHERE bktarget = ? AND uid = ?");
 		$result = $query->execute(Array($target, OC_User::getUser()))->fetchAll();
-		if(count($result) > 0){
+		if(count($result) > 0) {
 			return $result[0];
 		}
 		return Array();
@@ -72,7 +72,7 @@ class OC_IntBks {
 	 * Delete an item by its target and UID
 	 * @param $target The target of the item
 	 */
-	public static function deleteItemByTarget($target){
+	public static function deleteItemByTarget($target) {
 		self::cleanTarget($target);
 		$query = OC_DB::prepare("DELETE FROM *PREFIX*internal_bookmarks WHERE bktarget = ? AND uid = ?");
 		$result = $query->execute(Array($target, OC_User::getUser()));
@@ -83,7 +83,7 @@ class OC_IntBks {
 	 * @param $target The target location of the item
 	 * @return Array Complete element just inserted 
 	 */
-	public static function insertNewItem($target){
+	public static function insertNewItem($target) {
 		self::cleanTarget($target);
 		$tot = self::getAllItemsByUser();
 		$tot = $tot[count($tot)-1]['bkorder'];
@@ -97,7 +97,7 @@ class OC_IntBks {
 	 * @param $id The id of the item
 	 * @param $name The new title of the item
 	 */
-	public static function updateItemNameById($id, $title){
+	public static function updateItemNameById($id, $title) {
 		$query = OC_DB::prepare("UPDATE *PREFIX*internal_bookmarks SET bktitle = ? WHERE bkid = ?");
 		$query->execute(Array($title, $id, OC_User::getUser()));
 	}
@@ -107,7 +107,7 @@ class OC_IntBks {
 	 * @param $id id
 	 * @param $order New order
 	 */
-	public static function updateItemOrder($id, $order){
+	public static function updateItemOrder($id, $order) {
 		$query = OC_DB::prepare("UPDATE *PREFIX*internal_bookmarks SET bkorder = ? WHERE bkid = ?");
 		$query->execute(Array($order, $id));
 	} 
@@ -117,7 +117,7 @@ class OC_IntBks {
 	 * @param $target The target you want to clean
 	 * @return String
 	 */
-	private static function cleanTarget($target){
+	private static function cleanTarget($target) {
 		$target = rtrim($target, "/");
 		return preg_replace('{(/)\1+}', "/", $target);
 	}

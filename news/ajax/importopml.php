@@ -27,7 +27,7 @@ if(!isset($_POST['path'])) {
 	bailOut($l->t('No file path was submitted.'));
 } 
 
-require_once('news/opmlparser.php');
+require_once 'news/opmlparser.php';
 
 $raw = file_get_contents($_POST['path']);
 
@@ -116,4 +116,3 @@ $countsuccess = importList($data, 0);
 
 OCP\JSON::success(array('data' => array('title'=>$parsed->getTitle(), 'count'=>$parsed->getCount(), 
 	'countsuccess'=>$countsuccess)));
-

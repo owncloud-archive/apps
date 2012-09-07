@@ -21,8 +21,8 @@
  * 
  */
 
-require_once('apps/django_auth/lib/user.php');
-require_once('apps/django_auth/lib/group.php');
+require_once 'apps/django_auth/lib/user.php';
+require_once 'apps/django_auth/lib/group.php' ;
 
 define('OC_GROUP_BACKEND_DJANGO_STAFF_IS_ADMIN',     true);
 define('OC_GROUP_BACKEND_DJANGO_SUPERUSER_IS_ADMIN', true);
@@ -31,4 +31,3 @@ OC_APP::registerAdmin('django_auth','settings');
 
 OC_User::useBackend( 'Django' );
 OC_Group::useBackend( new OC_GROUP_DJANGO() );
-?>

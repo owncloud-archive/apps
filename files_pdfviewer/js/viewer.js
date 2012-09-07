@@ -8,12 +8,13 @@ function hidePDFviewer() {
 	document.title = showPDFviewer.lastTitle;
 	PDFView.active=false;
 	$('iframe').remove();
+    $('a.action').remove();
 }
 
 function showPDFviewer(dir,filename){
 	if(!showPDFviewer.shown){
 		$("#editor").hide();
-		var url = OC.filePath('files','ajax','download.php')+encodeURIComponent('?files='+encodeURIComponent(filename)+"&dir="+encodeURIComponent(dir));
+		var url = fileDownloadPath(dir, filename);
 		$('table').hide();
 		function im(path) { return OC.filePath('files_pdfviewer','js','pdfjs/web/images/'+path); }
 		showPDFviewer.oldcode = $("#controls").html();
@@ -49,7 +50,7 @@ $(document).ready(function(){
 		if(location.href.indexOf("files")!=-1) {
 			PDFJS.workerSrc = OC.filePath('files_pdfviewer','js','pdfjs/build/pdf.js');
 			if(typeof FileActions!=='undefined'){
-				FileActions.register('application/pdf','Edit', FileActions.PERMISSION_READ, '',function(filename){
+				FileActions.register('application/pdf','Edit', OC.PERMISSION_READ, '',function(filename){
 					showPDFviewer($('#dir').val(),filename);
 				});
 				FileActions.setDefault('application/pdf','Edit');

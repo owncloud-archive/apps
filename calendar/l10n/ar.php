@@ -8,6 +8,7 @@
 "Timezone changed" => "تم تغيير المنطقة الزمنية",
 "Invalid request" => "طلب غير مفهوم",
 "Calendar" => "الجدول الزمني",
+"Editable" => "يمكن تعديله",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "ddd M/d",
@@ -103,8 +104,6 @@
 "Today" => "اليوم",
 "Your calendars" => "جداولك الزمنيه",
 "CalDav Link" => "وصلة CalDav",
-"Shared calendars" => "جداول زمنيه مشتركه",
-"No shared calendars" => "لا يوجد جداول زمنيه مشتركه",
 "Share Calendar" => "شارك الجدول الزمني",
 "Download" => "تحميل",
 "Edit" => "تعديل",
@@ -161,11 +160,5 @@
 "at" => "في",
 "Timezone" => "المنطقة الزمنية",
 "24h" => "24 ساعة",
-"12h" => "12 ساعة",
-"Users" => "المستخدمين",
-"select users" => "اختر المستخدمين",
-"Editable" => "يمكن تعديله",
-"Groups" => "مجموعات",
-"select groups" => "اختر المجموعات",
-"make public" => "حدث عام"
+"12h" => "12 ساعة"
 );

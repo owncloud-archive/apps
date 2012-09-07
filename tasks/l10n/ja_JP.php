@@ -9,6 +9,7 @@
 "Empty Summary" => "要旨が未記入",
 "Invalid percent complete" => "進捗％が不正",
 "Invalid priority" => "無効な優先度",
+"The calendar application also need to be enabled to use this application." => "このアプリケーションを利用するには、カレンダーアプリケーションを有効にする必要があります。",
 "Add Task" => "タスクを追加",
 "Order Due" => "期日で並べ替え",
 "Order List" => "リストで並び替え",

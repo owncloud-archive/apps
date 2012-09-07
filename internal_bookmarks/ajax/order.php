@@ -21,12 +21,12 @@
 * 
 */
 
-require_once('../../../lib/base.php');
+require_once '../../../lib/base.php';
 OC_JSON::checkAppEnabled('internal_bookmarks');
 
-if(count($_POST['o']) > 1){
+if(count($_POST['o']) > 1) {
 	$c = 1;
-	foreach($_POST['o'] as $b){
+	foreach($_POST['o'] as $b) {
 		$b = substr($b, strrpos($b, '_')+1);
 		OC_IntBks::updateItemOrder($b, $c);
 		$c++;

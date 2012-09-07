@@ -119,7 +119,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	*
 	* Adds a user to a group.
 	*/
-	public static function addToGroup( $uid, $gid ){
+	public static function addToGroup( $uid, $gid ) {
 		OC_Log::write('OC_Group_Django', 'Use the django webinterface to add users to groups',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
@@ -132,7 +132,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	*
 	* removes the user from a group.
 	*/
-	public static function removeFromGroup( $uid, $gid ){
+	public static function removeFromGroup( $uid, $gid ) {
 		OC_Log::write('OC_Group_Django', 'Use the django webinterface to remove users from groups',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
@@ -145,7 +145,7 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	* This function fetches all groups a user belongs to. It does not check
 	* if the user exists at all.
 	*/
-	public static function getUserGroups( $uid ){
+	public static function getUserGroups( $uid ) {
 		$query = OC_DB::prepare( 'SELECT  `auth_group`.`name`
 FROM  `auth_group`
 INNER JOIN  `auth_user_groups` ON (  `auth_group`.`id` =  `auth_user_groups`.`group_id` )
@@ -166,7 +166,7 @@ INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`use
 	*
 	* Returns a list with all groups
 	*/
-	public static function getGroups(){
+	public static function getGroups() {
 		$query  = OC_DB::prepare( "SELECT id, name FROM auth_group ORDER BY name" );
 		$result = $query->execute();
 		$groups = array();

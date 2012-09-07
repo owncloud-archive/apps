@@ -5,38 +5,38 @@
 *
 * @author Robin Appelman
 * @copyright 2010 Robin Appelman icewind1991@gmail.com
-* 
+*
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
-* License as published by the Free Software Foundation; either 
+* License as published by the Free Software Foundation; either
 * version 3 of the License, or any later version.
-* 
+*
 * This library is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
-*  
-* You should have received a copy of the GNU Lesser General Public 
+*
+* You should have received a copy of the GNU Lesser General Public
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
-* 
+*
 */
 
 OCP\App::checkAppEnabled('media');
- require_once(OC_App::getAppPath('media').'/lib_collection.php');
- require_once(OC_App::getAppPath('media').'/lib_ampache.php');
+ require_once OC_App::getAppPath('media').'/lib_collection.php';
+ require_once OC_App::getAppPath('media').'/lib_ampache.php' ;
 
 $arguments=$_POST;
-if(!isset($_POST['action']) and isset($_GET['action'])){
+if(!isset($_POST['action']) and isset($_GET['action'])) {
 	$arguments=$_GET;
 }
 
-foreach($arguments as &$argument){
+foreach($arguments as &$argument) {
 	$argument=stripslashes($argument);
 }
 @ob_clean();
-if(isset($arguments['action'])){
+if(isset($arguments['action'])) {
 	OCP\Util::writeLog('media','ampache '.$arguments['action'].' request', OCP\Util::DEBUG);
-	switch($arguments['action']){
+	switch($arguments['action']) {
 		case 'songs':
 			OC_MEDIA_AMPACHE::songs($arguments);
 			break;
@@ -76,4 +76,4 @@ if(isset($arguments['action'])){
 	}
 }
 
-?> 
+?>

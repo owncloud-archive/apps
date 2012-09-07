@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-28 02:01+0200\n"
-"PO-Revision-Date: 2012-08-27 09:14+0000\n"
+"POT-Creation-Date: 2012-09-03 15:14+0200\n"
+"PO-Revision-Date: 2012-09-03 12:42+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -22,12 +22,28 @@ msgstr ""
 msgid "Export this ownCloud instance"
 msgstr "Exportatu ownCloud instantzia hau"
 
-#: templates/settings.php:4
+#: templates/settings.php:5
 msgid ""
-"This will create a compressed file that contains the data of this owncloud instance.\n"
-"            Please choose the export type:"
-msgstr "Honek owncloud instantzia honen datuak dituen konprimatutako fitxategi bat sortuko du.\nMesedez hautatu exportazio mota:"
+"This will create a compressed file that contains the data of this owncloud "
+"instance."
+msgstr "Honek owncloud instantzia honen datuak dituen konprimitako fitxategi bat sortuko du."
+
+#: templates/settings.php:7
+msgid "Please choose the export type:"
+msgstr "Mesedez hautatu exportazio mota:"
+
+#: templates/settings.php:10
+msgid "ownCloud instance (suitable for import)"
+msgstr "ownCloud instantzia (exportatzeko egokia)"
+
+#: templates/settings.php:11
+msgid "ownCloud system files"
+msgstr "ownCloud Sistema fitxategiak"
 
 #: templates/settings.php:12
+msgid "Just user files"
+msgstr "Bakarrik erabiltzaileen fitxategiak"
+
+#: templates/settings.php:13
 msgid "Export"
 msgstr "Exportatu"

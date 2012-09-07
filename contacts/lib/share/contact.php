@@ -32,12 +32,12 @@ class OC_Share_Backend_Contact implements OCP\Share_Backend {
 		}
 		return false;
 	}
-	
+
 	public function generateTarget($itemSource, $shareWith, $exclude = null) {
 		// TODO Get default addressbook and check for conflicts
 		return self::$contact['fullname'];
 	}
-	
+
 	public function formatItems($items, $format, $parameters = null) {
 		$contacts = array();
 		if ($format == self::FORMAT_CONTACT) {

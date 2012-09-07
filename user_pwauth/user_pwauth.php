@@ -89,13 +89,13 @@ class OC_USER_PWAUTH extends OC_User_Backend {
  
                 # Is the password valid?
 	        $result = pclose( $handle );
-                if ($result == 0){
+                if ($result == 0) {
 			return $uid;
 		}
                 return false;
 	}
 	
-	public function userExists( $uid ){
+	public function userExists( $uid ) {
 		$user = posix_getpwnam( strtolower($uid) );
 		return is_array($user);
 	}
@@ -103,7 +103,7 @@ class OC_USER_PWAUTH extends OC_User_Backend {
 	* this is a tricky one : there is no way to list all users which UID > 1000 directly in PHP
 	* so we just scan all UIDs from $pwauth_min_uid to $pwauth_max_uid
 	*/
-	public function getUsers(){
+	public function getUsers() {
 		$returnArray = array();
 		foreach($this->pwauth_uid_list as $f) {
 			if(is_array($array = posix_getpwuid($f))) {
@@ -114,5 +114,3 @@ class OC_USER_PWAUTH extends OC_User_Backend {
 		return $returnArray;
 	}
 }
-
-?>

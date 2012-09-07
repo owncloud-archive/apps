@@ -52,7 +52,7 @@ class Message{
 		// BODY
 		$bodystructure= $this->conn->getStructure($this->folder_id, $this->message_id);
 		$a= \rcube_imap_generic::getStructurePartData($bodystructure, 0);
-		if ($a['type'] == 'multipart'){
+		if ($a['type'] == 'multipart') {
 			for ($i=0; $i < count($bodystructure); $i++) {
 				if (!is_array($bodystructure[$i]))
 					break;
@@ -87,10 +87,10 @@ class Message{
 		$data = $this->conn->handlePartBody($this->folder_id, $this->message_id, false, $partno);
 
 		// Any part may be encoded, even plain text messages, so check everything.
-		if (strtolower($p[5])=='quoted_printable'){
+		if (strtolower($p[5])=='quoted_printable') {
 			$data = quoted_printable_decode($data);
 		}
-		if (strtolower($p[5])=='base64'){
+		if (strtolower($p[5])=='base64') {
 			$data = base64_decode($data);
 		}
 		// no need to decode 7-bit, 8-bit, or binary
@@ -120,7 +120,7 @@ class Message{
 		elseif ($p[0]=='text' && $data) {
 			// Messages may be split in different parts because of inline attachments,
 			// so append parts together with blank row.
-			if (strtolower($p[1])=='plain'){
+			if (strtolower($p[1])=='plain') {
 				$this->plainmsg .= trim($data) ."\n\n";
 			} else {
 				$this->htmlmsg .= $data ."<br><br>";
@@ -148,7 +148,7 @@ class Message{
 //		}
 	}
 
-	private function get_attachment_info(){
+	private function get_attachment_info() {
 		$attachment_info = array();
 		foreach ($this->attachments as $filename => $data) {
 			// TODO: mime-type ???
@@ -158,7 +158,7 @@ class Message{
 		return $attachment_info;
 	}
 
-	public function as_array(){
+	public function as_array() {
 		$mail_body = $this->plainmsg;
 		$mail_body = ereg_replace("\n","<br>",$mail_body);
 

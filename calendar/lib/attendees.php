@@ -9,5 +9,5 @@
  * This class manages Attendees for calendars
  */
 class OC_Calendar_Attendees{
-	
+
 }

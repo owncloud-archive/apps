@@ -11,15 +11,15 @@ class TileBase {
 	public function getHeight() { return IMAGE_WIDTH; }
 
 	public function getOnHoverAction() { return false; }
-	
+
 	public function getOnOutAction() { return false; }
-	
+
 	public function getOnClickAction() { return false; }
 
 	public function getDisplayedLayer() { return false; }
 
 	public function getTileProportion() { return false; }
-	
+
 	public function get() { return false; }
 }
 
@@ -52,17 +52,17 @@ class TilesLine {
 	public function tileWillFit($tile) {
 		return $this->getLeftSpace() > $tile->getWidth();
 	}
-	
+
 	public function get() {
 		$r = '<div class="line gallery_div">';
-		
+
 		for ($i = 0; $i < count($this->tiles_array); $i++) {
 				$img_w = $this->tiles_array[$i]->getWidth();
 				$extra = '';
 				if ($img_w != IMAGE_WIDTH) $extra = ' style="width:'.$img_w.'px"';
 				$r .= '<div class="gallery_div" '.$extra.' onmouseover="'.$this->tiles_array[$i]->getOnHoverAction().'" onmouseout="'.$this->tiles_array[$i]->getOnOutAction().'" onclick="'.$this->tiles_array[$i]->getOnClickAction().'" style="background-color:#ddd">'.$this->tiles_array[$i]->get().'</div>';
 		}
-		
+
 		$r .= '</div>';
 		return $r;
 	}
@@ -88,11 +88,11 @@ class TileSingle extends TileBase {
 		$a = ThumbnailsManager::getInstance()->getThumbnailInfo($this->file_path);
 		return $a['width'];
 	}
-	
+
 	public function get($extra = '') {
 		return '<a rel="images" title="'.htmlentities(basename($this->getPath())).'" href="'.\OCP\Util::linkTo('gallery','ajax/viewImage.php').'?img='.urlencode($this->getPath()).'"><img rel="images" src="'.\OCP\Util::linkTo('gallery', 'ajax/thumbnail.php').'?filepath='.urlencode($this->getPath()).'" '.$extra.'></a>';
 	}
-	
+
 	public function getMiniatureSrc() {
 		return \OCP\Util::linkTo('gallery', 'ajax/thumbnail.php').'?filepath='.urlencode($this->getPath());
 	}
@@ -100,7 +100,7 @@ class TileSingle extends TileBase {
 	public function getPath() {
 		return $this->file_path;
 	}
-	
+
 	public function getOnClickAction() {
 		return '';//'javascript:openFile(\''.$this->file_path.'\');';
 	}
@@ -121,7 +121,7 @@ class TileStack extends TileBase {
 			array_push($this->tiles_array, $tile);
 		}
 	}
-	
+
 	public function forceSize($width_must_fit=false) {
 		for ($i = 0; $i < count($this->tiles_array); $i++)
 			$this->tiles_array[$i]->forceSize(true);
@@ -153,7 +153,7 @@ class TileStack extends TileBase {
 	public function getOnHoverAction() {
 		return 'javascript:explode(this);return false;';
 	}
-	
+
 	public function getOnOutAction() {
 		return 'javascript:deplode(this);return false;';
 	}
@@ -161,7 +161,7 @@ class TileStack extends TileBase {
 	public function getCount() {
 		return count($this->tiles_array);
 	}
-	
+
 	public function getOnClickAction() {
 		return 'javascript:openNewGal(\''.rawurlencode($this->stack_name).'\');';
 	}

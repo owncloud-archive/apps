@@ -11,13 +11,13 @@ OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('calendar');
 OCP\JSON::callCheck();
 
-if(trim($_POST['name']) == ''){
+if(trim($_POST['name']) == '') {
 	OCP\JSON::error(array('message'=>'empty'));
 	exit;
 }
 $calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
-foreach($calendars as $cal){
-	if($cal['displayname'] == $_POST['name']){
+foreach($calendars as $cal) {
+	if($cal['displayname'] == $_POST['name']) {
 		OCP\JSON::error(array('message'=>'namenotavailable'));
 		exit;
 	}
@@ -30,12 +30,7 @@ OC_Calendar_Calendar::setCalendarActive($calendarid, 1);
 $calendar = OC_Calendar_Calendar::find($calendarid);
 $tmpl = new OCP\Template('calendar', 'part.choosecalendar.rowfields');
 $tmpl->assign('calendar', $calendar);
-if(OC_Calendar_Share::allUsersSharedwith($calendarid, OC_Calendar_Share::CALENDAR) == array()){
-	$shared = false;
-}else{
-	$shared = true;
-}
-$tmpl->assign('shared', $shared);
+$tmpl->assign('shared', false);
 OCP\JSON::success(array(
 	'page' => $tmpl->fetchPage(),
 	'eventSource' => OC_Calendar_Calendar::getEventSourceInfo($calendar),

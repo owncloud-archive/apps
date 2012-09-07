@@ -6,7 +6,7 @@
 </fieldset>
 <form id="import" action="#" method="post" enctype="multipart/form-data">
     <fieldset class="personalblock">
-		<?php if(isset($_['error'])){ ?>
+		<?php if(isset($_['error'])) { ?>
 		<h3><?php echo $_['error']['error']; ?></h3>
 		<p><?php echo $_['error']['hint']; ?></p>
 		<?php } ?>

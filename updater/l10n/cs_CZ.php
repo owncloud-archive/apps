@@ -1,3 +1,3 @@
 <?php $TRANSLATIONS = array(
-"Update" => "Aktualizace"
+"Update" => "Aktualizovat"
 );

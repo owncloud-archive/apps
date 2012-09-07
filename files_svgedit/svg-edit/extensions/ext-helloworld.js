@@ -75,4 +75,3 @@ svgEditor.addExtension("Hello World", function() {
 			}
 		};
 });
-

@@ -6,6 +6,7 @@
 "Timezone changed" => "Časové pásmo zmenené",
 "Invalid request" => "Neplatná požiadavka",
 "Calendar" => "Kalendár",
+"Editable" => "Upravovateľné",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -88,8 +89,6 @@
 "Today" => "Dnes",
 "Your calendars" => "Vaše kalendáre",
 "CalDav Link" => "CalDav odkaz",
-"Shared calendars" => "Zdielané kalendáre",
-"No shared calendars" => "Žiadne zdielané kalendáre",
 "Share Calendar" => "Zdielať kalendár",
 "Download" => "Stiahnuť",
 "Edit" => "Upraviť",
@@ -146,11 +145,5 @@
 "at" => "v",
 "Timezone" => "Časová zóna",
 "24h" => "24h",
-"12h" => "12h",
-"Users" => "Používatelia",
-"select users" => "vybrať používateľov",
-"Editable" => "Upravovateľné",
-"Groups" => "Skupiny",
-"select groups" => "vybrať skupiny",
-"make public" => "zverejniť"
+"12h" => "12h"
 );

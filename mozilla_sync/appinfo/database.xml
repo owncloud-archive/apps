@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<database>
+	<name>*dbname*</name>
+	<create>true</create>
+	<overwrite>false</overwrite>
+	<charset>utf8</charset>
+  <table>
+
+  <name>*dbprefix*mozilla_sync_users</name>
+
+  <declaration>
+
+   <field>
+    <name>id</name>
+    <type>integer</type>
+    <default>0</default>
+    <notnull>true</notnull>
+    <autoincrement>1</autoincrement>
+    <unsigned>true</unsigned>
+    <length>4</length>
+   </field>
+
+   <field>
+    <name>username</name>
+    <type>text</type>
+    <default></default>
+    <notnull>true</notnull>
+    <length>32</length>
+   </field>
+
+  <field>
+    <name>sync_user</name>
+    <type>text</type>
+    <default></default>
+    <notnull>true</notnull>
+    <length>128</length>
+   </field>
+
+   <index>
+    <name>*dbprefix*mozilla_sync_users_sync_user</name>
+    <field>
+     <name>sync_user</name>
+     <sorting/>
+    </field>
+   </index>
+
+  </declaration>
+
+ </table>
+
+ <table>
+
+  <name>*dbprefix*mozilla_sync_collections</name>
+
+  <declaration>
+
+   <field>
+    <name>id</name>
+    <type>integer</type>
+    <default>0</default>
+    <notnull>true</notnull>
+    <autoincrement>1</autoincrement>
+    <unsigned>true</unsigned>
+    <length>4</length>
+   </field>
+
+   <field>
+    <name>userid</name>
+    <type>integer</type>
+    <default></default>
+    <notnull>true</notnull>
+    <unsigned>true</unsigned>
+    <length>4</length>
+   </field>
+
+  <field>
+    <name>name</name>
+    <type>text</type>
+    <default></default>
+    <notnull>true</notnull>
+    <length>32</length>
+   </field>
+
+  <index>
+    <name>*dbprefix*mozilla_sync_collections_userid_name</name>
+    <field>
+     <name>userid</name>
+     <sorting/>
+    </field>
+    <field>
+     <name>name</name>
+     <sorting/>
+    </field>
+  </index>
+
+  </declaration>
+
+ </table>
+
+  <table>
+
+  <name>*dbprefix*mozilla_sync_wbo</name>
+
+  <declaration>
+
+   <field>
+    <name>id</name>
+    <type>integer</type>
+    <default>0</default>
+    <notnull>true</notnull>
+    <autoincrement>1</autoincrement>
+    <unsigned>true</unsigned>
+    <length>4</length>
+   </field>
+
+  <field>
+    <name>collectionid</name>
+    <type>integer</type>
+    <default></default>
+    <notnull>true</notnull>
+    <unsigned>true</unsigned>
+    <length>4</length>
+   </field>
+
+  <field>
+    <name>name</name>
+    <type>text</type>
+    <default></default>
+    <notnull>true</notnull>
+    <length>64</length>
+   </field>
+
+  <field>
+    <name>parentid</name>
+    <type>text</type>
+    <default></default>
+    <notnull>false</notnull>
+    <length>64</length>
+   </field>
+
+  <field>
+    <name>predecessorid</name>
+    <type>text</type>
+    <default></default>
+    <notnull>false</notnull>
+    <length>64</length>
+   </field>
+
+  <field>
+    <name>sortindex</name>
+    <type>integer</type>
+    <default></default>
+    <notnull>true</notnull>
+    <unsigned>true</unsigned>
+    <length>4</length>
+   </field>
+
+   <field>
+    <name>modified</name>
+    <type>decimal</type>
+    <default></default>
+    <notnull>true</notnull>
+    <length>15</length>
+   </field>
+
+  <field>
+    <name>payload</name>
+    <type>clob</type>
+    <notnull>true</notnull>
+   </field>
+
+   <field>
+    <name>ttl</name>
+    <type>integer</type>
+    <default></default>
+    <notnull>true</notnull>
+    <unsigned>true</unsigned>
+    <length>4</length>
+   </field>
+
+   <index>
+    <name>*dbprefix*mozilla_sync_wbo_collectionid</name>
+    <field>
+     <name>collectionid</name>
+     <sorting/>
+    </field>
+   </index>
+
+   <index>
+    <name>*dbprefix*mozilla_sync_wbo_coll_name</name>
+    <field>
+     <name>collectionid</name>
+     <sorting/>
+    </field>
+    <field>
+     <name>name</name>
+     <sorting/>
+    </field>
+   </index>
+
+   <index>
+    <name>*dbprefix*mozilla_sync_wbo_coll_name_mod</name>
+    <field>
+     <name>collectionid</name>
+     <sorting/>
+    </field>
+    <field>
+     <name>name</name>
+     <sorting/>
+    </field>
+    <field>
+     <name>modified</name>
+     <sorting/>
+    </field>
+   </index>
+
+  </declaration>
+
+ </table>
+</database>

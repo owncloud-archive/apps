@@ -1869,5 +1869,3 @@ window.addEventListener('DOMMouseScroll', function(evt) {
       PDFView[direction]();
   }
 }, false);
-
-

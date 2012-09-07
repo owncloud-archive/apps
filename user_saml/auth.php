@@ -21,7 +21,7 @@
  *
  */
 
-	require_once('../../lib/base.php');
+	require_once '../../lib/base.php';
 
 	$sspPath = OCP\Config::getAppValue('user_saml', 'saml_ssp_path', '');
 	$spSource = OCP\Config::getAppValue('user_saml', 'saml_sp_source', '');

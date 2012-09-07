@@ -4,7 +4,7 @@
  * Tom Needham <contact@tomneedham.com> 2011
  */
 // Init owncloud
-require_once('../../../lib/base.php');
+require_once '../../../lib/base.php';
 
 
 // Check if we are a user
@@ -83,4 +83,3 @@ if($path != '' && $mtime != '') {
 	OC_JSON::error(array('data' => array( 'message' => 'File path or mtime not supplied')));
 	OC_Log::write('files_svgedit',"Invalid path supplied:".$path,OC_Log::ERROR);	
 }
-?>

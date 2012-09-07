@@ -1,17 +1,18 @@
-.overlay{
+#videoviewer_overlay{
 	position:fixed;
 	top:0px;bottom:0px;left:0px;right:0px;
 	z-index:100;
-	background:transparent url('%appswebroot%/apps/files_videoviewer/img/overlay.png') repeat 0 0;
+	background-color:#777;
+	background-color:rgba(50,50,50, .4);
        }
 
-#nonebox{
+#videoviewer_popup{
 	position:fixed;
 	left:50%;top:50%;
 	z-index:101;  
 }
 
-#container{
+#videoviewer_container{
 	position:relative;
 	left:-50%;margin-top:-50%;
 	padding:10px 10px 25px;border:5px solid #e4e4e4;
@@ -29,5 +30,5 @@ a.box-close{
 	width:26px;height:26px;
 	margin:-23px -23px 0px 0px;
 	cursor:pointer;
-	background:url('%appswebroot%/apps/files_videoviewer/img/close.png') no-repeat 0 0;
+	background:url('%appswebroot%/files_videoviewer/img/close.png') no-repeat 0 0;
 }   

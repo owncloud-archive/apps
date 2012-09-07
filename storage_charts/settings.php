@@ -26,11 +26,11 @@ OC_Util::checkLoggedIn();
 
 $tmpl = new OC_Template('storage_charts', 'settings.tpl');
 
-if(isset($_POST['storage_charts_disp']) && count($_POST['storage_charts_disp']) <= 3){
+if(isset($_POST['storage_charts_disp']) && count($_POST['storage_charts_disp']) <= 3) {
 	$c = $_POST['storage_charts_disp'];
 	$c_disp = Array('cpie_rfsus'=>0,'clines_usse'=>0,'chisto_us'=>0);
-	foreach(array_keys($c_disp) as $chart){
-		if(in_array($chart, $c)){
+	foreach(array_keys($c_disp) as $chart) {
+		if(in_array($chart, $c)) {
 			$c_disp[$chart] = 1;
 		}
 	}

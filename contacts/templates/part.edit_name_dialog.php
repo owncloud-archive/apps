@@ -8,7 +8,7 @@ $addressbooks = isset($_['addressbooks'])?$_['addressbooks']:null;
 	<form>
 	<fieldset>
 	<dl class="form">
-		<?php if(!is_null($addressbooks)) { 
+		<?php if(!is_null($addressbooks)) {
 			if(count($_['addressbooks'])==1) {
 		?>
 			<input type="hidden" id="aid" name="aid" value="<?php echo $_['addressbooks'][0]['id']; ?>">

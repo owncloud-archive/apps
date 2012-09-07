@@ -9,6 +9,7 @@
 "Empty Summary" => "Resumen vacío",
 "Invalid percent complete" => "Porcentaje completado inválido",
 "Invalid priority" => "Prioridad inválida",
+"The calendar application also need to be enabled to use this application." => "La aplicación de calendario también tiene que ser activada para usar esta aplicación.",
 "Add Task" => "Agregar tarea",
 "Order Due" => "Ordenar por",
 "Order List" => "Ordenar por lista",

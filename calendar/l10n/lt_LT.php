@@ -6,6 +6,7 @@
 "Timezone changed" => "Laiko zona pakeista",
 "Invalid request" => "Klaidinga užklausa",
 "Calendar" => "Kalendorius",
+"Editable" => "Redaguojamas",
 "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}" => "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}",
 "Birthday" => "Gimtadienis",
 "Business" => "Verslas",
@@ -71,8 +72,6 @@
 "Today" => "Šiandien",
 "Your calendars" => "Jūsų kalendoriai",
 "CalDav Link" => "CalDav adresas",
-"Shared calendars" => "Bendri kalendoriai",
-"No shared calendars" => "Bendrų kalendorių nėra",
 "Share Calendar" => "Dalintis kalendoriumi",
 "Download" => "Atsisiųsti",
 "Edit" => "Keisti",
@@ -121,11 +120,5 @@
 "No categories selected" => "Nepasirinktos jokios katagorijos",
 "Timezone" => "Laiko juosta",
 "24h" => "24val",
-"12h" => "12val",
-"Users" => "Vartotojai",
-"select users" => "pasirinkti vartotojus",
-"Editable" => "Redaguojamas",
-"Groups" => "Grupės",
-"select groups" => "pasirinkti grupes",
-"make public" => "viešinti"
+"12h" => "12val"
 );

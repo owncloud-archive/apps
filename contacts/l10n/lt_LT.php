@@ -1,7 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Error (de)activating addressbook." => "Klaida (de)aktyvuojant adresų knygą.",
 "No contacts found." => "Kontaktų nerasta.",
-"There was an error adding the contact." => "Pridedant kontaktą įvyko klaida.",
 "Information about vCard is incorrect. Please reload the page." => "Informacija apie vCard yra neteisinga. ",
 "Error reading contact photo." => "Klaida skaitant kontakto nuotrauką.",
 "The loading photo is not valid." => "Netinkama įkeliama nuotrauka.",
@@ -28,7 +27,6 @@
 "Birthday" => "Gimtadienis",
 "Contact" => "Kontaktas",
 "Add Contact" => "Pridėti kontaktą",
-"Addressbooks" => "Adresų knygos",
 "Organization" => "Organizacija",
 "Delete" => "Trinti",
 "Nickname" => "Slapyvardis",
@@ -45,6 +43,7 @@
 "Zipcode" => "Pašto indeksas",
 "Country" => "Šalis",
 "Addressbook" => "Adresų knyga",
+"Addressbooks" => "Adresų knygos",
 "Download" => "Atsisiųsti",
 "Edit" => "Keisti",
 "New Address Book" => "Nauja adresų knyga",

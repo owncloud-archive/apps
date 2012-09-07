@@ -6,6 +6,7 @@
 "Timezone changed" => "Vremenska zona promijenjena",
 "Invalid request" => "Neispravan zahtjev",
 "Calendar" => "Kalendar",
+"Editable" => "Može se uređivati",
 "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}" => "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}",
 "Birthday" => "Rođendan",
 "Business" => "Poslovno",
@@ -82,8 +83,6 @@
 "Today" => "Danas",
 "Your calendars" => "Vaši kalendari",
 "CalDav Link" => "CalDav poveznica",
-"Shared calendars" => "Podijeljeni kalendari",
-"No shared calendars" => "Nema zajedničkih kalendara",
 "Share Calendar" => "Podjeli kalendar",
 "Download" => "Spremi lokalno",
 "Edit" => "Uredi",
@@ -137,11 +136,5 @@
 "at" => "na",
 "Timezone" => "Vremenska zona",
 "24h" => "24h",
-"12h" => "12h",
-"Users" => "Korisnici",
-"select users" => "odaberi korisnike",
-"Editable" => "Može se uređivati",
-"Groups" => "Grupe",
-"select groups" => "izaberite grupe",
-"make public" => "podjeli s javnošću"
+"12h" => "12h"
 );

@@ -14,7 +14,7 @@ if ($feedId == -1 || $feedId == -2) { //TODO: change this values, too obscure
 	$items = $itemMapper->findEveryItemByStatus($status);
 }
 else {
-	if($showAll){
+	if($showAll) {
 		$items = $itemMapper->findAll($feedId);
         } else {
         	$items = $itemMapper->findAllStatus($feedId, OCA\News\StatusFlag::UNREAD);
@@ -24,13 +24,13 @@ else {
 echo '<ul>';
 foreach($items as $item) {
 	
-	if($item->isRead()){
+	if($item->isRead()) {
 		$newsItemClass = "read";
 	} else {
 		$newsItemClass = "";
 	}
 	
-	if($item->isImportant()){
+	if($item->isImportant()) {
 		$starClass = 'important';
 		$startTitle = $l->t('Mark as unimportant');
 	} else {
@@ -39,7 +39,7 @@ foreach($items as $item) {
 	}
 
 	echo '<li class="feed_item ' . $newsItemClass .'" data-id="' . $item->getId() . '" data-feedid="' . $feedId . '">';
-
+		echo '<span class="timestamp">' . $item->getDate() . '</span>';
 		echo '<h2 class="item_date"><time class="timeago" datetime="' . 
 			date('c', $item->getDate()) . '">' . date('F j, Y, g:i a', $item->getDate()) .  '</time>' . '</h2>';
 
@@ -49,15 +49,10 @@ foreach($items as $item) {
 			echo '</ul>';
 		echo '</div>';
 
-		echo '<h1 class="item_title"><a target="_blank" href="' . $item->getUrl() . '">' . $item->getTitle() . '</a></h1>';	
+		echo '<h1 class="item_title"><a target="_blank" href="' . $item->getUrl() . '">' . htmlspecialchars($item->getTitle(), ENT_QUOTES, 'UTF-8') . '</a></h1>';	
 		
-		if ($specialfeed) {
-			$from = $l->t('from') . ' ' . parse_url($item->getUrl(), PHP_URL_HOST);
-			echo '<h2 class="item_feed_title">' . $from .'</h2>';
-		}
-		
-		if(($item->getAuthor() !== null) && (trim($item->getAuthor()) != '')){
-			echo '<h2 class="item_author">'. $l->t('by') . ' ' . $item->getAuthor() . '</h2>';
+		if(($item->getAuthor() !== null) && (trim($item->getAuthor()) != '')) {
+			echo '<h2 class="item_author">'. $l->t('by') . ' ' . htmlspecialchars($item->getAuthor(), ENT_QUOTES, 'UTF-8') . '</h2>';
 		}
 		
 		echo '<div class="body">' . $item->getBody() . '</div>';

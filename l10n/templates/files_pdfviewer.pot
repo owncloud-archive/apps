@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-30 02:02+0200\n"
+"POT-Creation-Date: 2012-09-07 02:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: js/viewer.js:22
+#: js/viewer.js:23
 msgid "Previous"
 msgstr ""
 
-#: js/viewer.js:23
+#: js/viewer.js:24
 msgid "Next"
 msgstr ""
 
-#: js/viewer.js:29
+#: js/viewer.js:30
 msgid "Page Width"
 msgstr ""
 
-#: js/viewer.js:29
+#: js/viewer.js:30
 msgid "Page Fit"
 msgstr ""
 
-#: js/viewer.js:30
+#: js/viewer.js:31
 msgid "Print"
 msgstr ""
 
-#: js/viewer.js:32
+#: js/viewer.js:33
 msgid "Download"
 msgstr ""

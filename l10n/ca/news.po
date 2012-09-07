@@ -8,15 +8,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-30 02:02+0200\n"
-"PO-Revision-Date: 2012-08-30 00:03+0000\n"
+"POT-Creation-Date: 2012-09-06 02:02+0200\n"
+"PO-Revision-Date: 2012-09-06 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/changefoldername.php:29
+msgid "Error changing name of folder "
+msgstr "Error en canviar el nom de la carpeta"
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -26,7 +30,7 @@ msgstr "La font ja existeix"
 msgid "Error adding feed."
 msgstr "Error en afegir la font"
 
-#: ajax/createfeed.php:74 js/news.js:141
+#: ajax/createfeed.php:70
 msgid "Feed added!"
 msgstr "S'ha afegit la font!"
 
@@ -42,7 +46,7 @@ msgstr "S'ha afegit la carpeta"
 msgid "Error removing feed."
 msgstr "Error en eliminar la font."
 
-#: ajax/deletefolder.php:27
+#: ajax/deletefolder.php:26
 msgid "Error removing folder."
 msgstr "Error en eliminar la carpeta."
 
@@ -58,19 +62,19 @@ msgstr "S'ha produït un error en processar el fitxer."
 msgid "Error updating feeds."
 msgstr "Error en actualitzar les fonts."
 
-#: ajax/loadfeed.php:35 templates/part.feeds.php:77
+#: ajax/loadfeed.php:36 templates/part.feeds.php:50
 msgid "Starred"
 msgstr "Estrelles"
 
-#: ajax/loadfeed.php:40 templates/part.feeds.php:73
+#: ajax/loadfeed.php:41 templates/part.feeds.php:44
 msgid "New articles"
 msgstr "Articles nous"
 
-#: ajax/loadfeed.php:52
+#: ajax/loadfeed.php:53
 msgid "Feed loaded!"
 msgstr "S'ha carregat la font!"
 
-#: ajax/movefeedtofolder.php:33
+#: ajax/movefeedtofolder.php:36
 msgid "Error moving feed into folder."
 msgstr "Error en moure la font dins la carpeta."
 
@@ -78,7 +82,7 @@ msgstr "Error en moure la font dins la carpeta."
 msgid "File doesn't exist:"
 msgstr "El fitxer no existeix:"
 
-#: ajax/setallitemsread.php:54
+#: ajax/setallitemsread.php:57
 msgid "Error setting all items as read."
 msgstr "Error en establir tots els elements com a llegits."
 
@@ -98,77 +102,47 @@ msgstr "La font s'ha actualitzat!"
 msgid "News"
 msgstr "Notícies"
 
-#: js/menu.js:398
-msgid "Load feed"
-msgstr ""
-
-#: js/menu.js:405
-msgid "Delete"
-msgstr ""
-
-#: js/menu.js:411
-msgid "Expand/Collapse"
-msgstr ""
-
-#: js/menu.js:417
-msgid "Edit"
-msgstr ""
-
-#: js/news.js:50
+#: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
 msgstr "El nom de la carpeta no por ser buit"
 
-#: js/news.js:50 js/news.js:74 js/news.js:93 js/news.js:108 js/news.js:148
-#: js/news.js:181 js/news.js:208 js/news.js:245 js/news.js:324 js/news.js:466
-#: js/news.js:535 js/settings.js:16 js/settings.js:22 js/settings.js:40
-#: js/settings.js:49
+#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
+#: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
 msgstr "Error"
 
-#: js/news.js:55 js/news.js:113
+#: js/news.js:33 js/news.js:95
 msgid "Adding..."
 msgstr "Afegint..."
 
-#: js/news.js:78 templates/part.folderdialog.php:14
+#: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
 msgstr "Afegeix carpeta"
 
-#: js/news.js:83
-msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr "Segur que voleu eliminar aquesta carpeta i tots els seus elements?"
+#: js/news.js:63
+msgid "Changing..."
+msgstr "S'està canviant"
 
-#: js/news.js:83 js/news.js:165
-msgid "Warning"
-msgstr "Avís"
+#: js/news.js:79 templates/part.dialogues.php:34
+#: templates/part.dialogues.php:38 templates/part.dialogues.php:43
+msgid "Change folder name"
+msgstr "Canvia el nom de la carpeta"
 
-#: js/news.js:108
+#: js/news.js:90
 msgid "URL cannot be empty."
 msgstr "La URL no pot ser buida"
 
-#: js/news.js:152 js/news.js:159 templates/part.nofeeds.php:7
-#: templates/part.nofeeds.php:9
+#: js/news.js:120 js/news.js:127 templates/part.nofeeds.php:6
 msgid "Add feed"
 msgstr "Afegeix font"
 
-#: js/news.js:156
+#: js/news.js:124
 msgid "Error while parsing the feed"
 msgstr "Error en processar la font"
 
-#: js/news.js:156
+#: js/news.js:124
 msgid "Fatal Error"
 msgstr "Error fatal"
-
-#: js/news.js:165
-msgid "Are you sure you want to delete this feed?"
-msgstr "Segur que voleu eliminar aquesta font?"
-
-#: js/news.js:208 js/news.js:245
-msgid "Error while loading the feed"
-msgstr "Error en carregar la font"
-
-#: js/news.js:324
-msgid "Error while saving the feed in a folder"
-msgstr "Error en desar la font en una carpeta"
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
@@ -190,39 +164,35 @@ msgstr "carregat des d'un sistema de fitxers local."
 msgid "Importing..."
 msgstr "Important..."
 
-#: js/settings.js:40
-msgid "Import kind not specified"
-msgstr "Tipus d'importació no especificada"
-
-#: js/settings.js:45
+#: js/settings.js:43
 msgid " out of "
 msgstr "d'un total de"
 
-#: js/settings.js:46
+#: js/settings.js:44
 msgid " feeds imported successfully from "
 msgstr "fonts importades correctament des de"
 
-#: js/settings.js:47
+#: js/settings.js:45
 msgid "Success"
 msgstr "Èxit"
 
-#: js/settings.js:51 templates/settings.php:10
+#: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
 msgid "Import"
 msgstr "Importa"
 
-#: js/settings.js:57
+#: js/settings.js:55
 msgid "Downloading..."
 msgstr "Baixant..."
 
-#: js/settings.js:59
+#: js/settings.js:57
 msgid "Download"
 msgstr "Baixa"
 
-#: js/settings.js:71
+#: js/settings.js:69
 msgid "Select file"
 msgstr "Selecciona fitxer"
 
-#: lib/feedmapper.php:174 lib/itemmapper.php:199
+#: lib/feedmapper.php:165 lib/itemmapper.php:199
 msgid "no title"
 msgstr "sense títol"
 
@@ -278,29 +248,42 @@ msgstr "Carpeta"
 msgid "Settings"
 msgstr "Configuració"
 
-#: templates/part.feeddialog.php:2
-msgid "Add Subscription"
-msgstr "Afegeix subscripció"
-
-#: templates/part.feeddialog.php:9
-msgid "Choose folder"
-msgstr "Escull una carpeta"
-
-#: templates/part.feeddialog.php:19 templates/part.nofeeds.php:6
-msgid "Address"
-msgstr "Adreça"
-
-#: templates/part.feeddialog.php:20
-msgid "Add"
-msgstr "Afegeix"
-
-#: templates/part.folderdialog.php:2
+#: templates/part.dialogues.php:1
 msgid "Add Folder"
 msgstr "Afegeix una carpeta"
 
-#: templates/part.folderdialog.php:13
+#: templates/part.dialogues.php:4
+msgid "Add new folder"
+msgstr "Afegeix una carpeta nova"
+
+#: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
 msgstr "Nom de la carpeta"
+
+#: templates/part.dialogues.php:14
+msgid "Add Subscription"
+msgstr "Afegeix subscripció"
+
+#: templates/part.dialogues.php:17
+msgid "Add new feed"
+msgstr "Afegeix una font nova"
+
+#: templates/part.dialogues.php:20
+msgid "Choose folder"
+msgstr "Escull una carpeta"
+
+#: templates/part.dialogues.php:28 templates/part.nofeeds.php:7
+msgid "Address"
+msgstr "Adreça"
+
+#: templates/part.dialogues.php:29
+msgid "Add"
+msgstr "Afegeix"
+
+#: templates/part.feeds.php:46 templates/part.listfeed.php:26
+#: templates/part.listfolder.php:20
+msgid "Mark all read"
+msgstr "Marca-ho tot com a llegit"
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
@@ -311,76 +294,80 @@ msgid "Mark as important"
 msgstr "Marca com a important"
 
 #: templates/part.items.php:55
-msgid "from"
-msgstr "des de"
-
-#: templates/part.items.php:60
 msgid "by"
 msgstr "per"
 
-#: templates/part.items.php:67
+#: templates/part.items.php:62
 msgid "Keep unread"
 msgstr "Mantén com a sense llegir"
 
-#: templates/part.listfeed.php:22
+#: templates/part.listfeed.php:25
 msgid "Delete feed"
 msgstr "Elimina font"
 
-#: templates/part.listfolder.php:17
-msgid "Rename folder"
-msgstr "Reanomena carpeta"
+#: templates/part.listfolder.php:15
+msgid "Collapse"
+msgstr "Col·lapsa"
 
 #: templates/part.listfolder.php:18
 msgid "Delete folder"
 msgstr "Elimina carpeta"
 
+#: templates/part.listfolder.php:19
+msgid "Rename folder"
+msgstr "Reanomena carpeta"
+
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
 msgstr "No teniu cap font al vostre lector."
 
-#: templates/part.nofeeds.php:10
+#: templates/part.nofeeds.php:8 templates/subscribelet.php:7
+msgid "Subscribe"
+msgstr "Subscriu"
+
+#: templates/part.nofeeds.php:12
 msgid "Import OPML"
 msgstr "Importa OPML"
 
-#: templates/part.nofeeds.php:15
+#: templates/part.nofeeds.php:13 templates/settings.php:3
+msgid "Upload file from desktop"
+msgstr "Puja fitxer des de l'escriptori"
+
+#: templates/part.nofeeds.php:13 templates/settings.php:3
+msgid "Upload"
+msgstr "Puja"
+
+#: templates/part.nofeeds.php:14 templates/settings.php:4
+msgid "Select file from ownCloud"
+msgstr "Selecciona un fitxer des de ownCloud"
+
+#: templates/part.nofeeds.php:14 templates/settings.php:4
+msgid "Select"
+msgstr "Selecciona"
+
+#: templates/part.nofeeds.php:16 templates/settings.php:6
+msgid "Select file from"
+msgstr "Seleccioneu fitxer des de"
+
+#: templates/part.nofeeds.php:16 templates/settings.php:6
+msgid "local filesystem"
+msgstr "sistema de fitxers local"
+
+#: templates/part.nofeeds.php:17 templates/settings.php:7
+msgid " or "
+msgstr "o"
+
+#: templates/part.nofeeds.php:17 templates/settings.php:7
+msgid "cloud"
+msgstr "des del núvol"
+
+#: templates/part.nofeeds.php:26
 msgid "Or..."
 msgstr "o..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
 msgstr "Importa fonts"
-
-#: templates/settings.php:3
-msgid "Upload file from desktop"
-msgstr "Puja fitxer des de l'escriptori"
-
-#: templates/settings.php:3
-msgid "Upload"
-msgstr "Puja"
-
-#: templates/settings.php:4
-msgid "Select file from ownCloud"
-msgstr "Selecciona un fitxer des de ownCloud"
-
-#: templates/settings.php:4
-msgid "Select"
-msgstr "Selecciona"
-
-#: templates/settings.php:6
-msgid "No file selected. Select file from "
-msgstr "No hi ha fitxers seleccionats. Seleccioneu un fitxer des del"
-
-#: templates/settings.php:6
-msgid "local filesystem"
-msgstr "sistema de fitxers local"
-
-#: templates/settings.php:7
-msgid " or "
-msgstr "o"
-
-#: templates/settings.php:7
-msgid "cloud"
-msgstr "des del núvol"
 
 #: templates/settings.php:12
 msgid "Export feeds"
@@ -399,7 +386,3 @@ msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
 msgstr "Arrossegueu això a les adreces d'interès del vostre navegador i feu-hi clic quan vulgueu subscriure-us ràpidament en una pàgina web:"
-
-#: templates/subscribelet.php:7
-msgid "Subscribe"
-msgstr "Subscriu"

@@ -12,33 +12,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-24 02:02+0200\n"
-"PO-Revision-Date: 2012-08-24 00:02+0000\n"
+"POT-Creation-Date: 2012-09-07 02:04+0200\n"
+"PO-Revision-Date: 2012-09-07 00:05+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Malay (Malaysia) (http://www.transifex.com/projects/p/owncloud/language/ms_MY/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ms_MY\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:32
+#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
 msgstr "Ralat nyahaktif buku alamat."
 
-#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:20
+#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
 #: ajax/contact/saveproperty.php:39
 msgid "id is not set."
 msgstr "ID tidak ditetapkan."
 
-#: ajax/addressbook/update.php:24
+#: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
 msgstr "Tidak boleh kemaskini buku alamat dengan nama yang kosong."
-
-#: ajax/addressbook/update.php:28
-msgid "Error updating addressbook."
-msgstr "Masalah mengemaskini buku alamat."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -59,10 +55,6 @@ msgstr "Tiada buku alamat dijumpai."
 #: ajax/categories/delete.php:34
 msgid "No contacts found."
 msgstr "Tiada kenalan dijumpai."
-
-#: ajax/contact/add.php:47
-msgid "There was an error adding the contact."
-msgstr "Terdapat masalah menambah maklumat."
 
 #: ajax/contact/addproperty.php:39 ajax/contact/saveproperty.php:36
 msgid "element name is not set."
@@ -219,7 +211,7 @@ msgstr "Tidak boleh membuka imej sementara: "
 msgid "No file was uploaded. Unknown error"
 msgstr "Tiada fail dimuatnaik. Ralat tidak diketahui."
 
-#: appinfo/app.php:21
+#: appinfo/app.php:25
 msgid "Contacts"
 msgstr "Hubungan-hubungan"
 
@@ -235,73 +227,110 @@ msgstr "Tidak digunakan"
 msgid "Couldn't get a valid address."
 msgstr "Tidak boleh mendapat alamat yang sah."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:381 js/contacts.js:393
-#: js/contacts.js:723 js/contacts.js:763 js/contacts.js:789 js/contacts.js:921
-#: js/contacts.js:927 js/contacts.js:939 js/contacts.js:976
-#: js/contacts.js:1250 js/contacts.js:1258 js/contacts.js:1267
-#: js/contacts.js:1302 js/contacts.js:1338 js/contacts.js:1353
-#: js/contacts.js:1379 js/contacts.js:1609 js/contacts.js:1644
-#: js/contacts.js:1664 js/settings.js:26 js/settings.js:43 js/settings.js:68
+#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
+#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
+#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
+#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
+#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
+#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
+#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
+#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
 msgid "Error"
 msgstr "Ralat"
 
-#: js/contacts.js:424
+#: js/contacts.js:408
 msgid "You do not have permission to add contacts to "
 msgstr ""
 
-#: js/contacts.js:425
+#: js/contacts.js:409
 msgid "Please select one of your own address books."
 msgstr ""
 
-#: js/contacts.js:425
+#: js/contacts.js:409
 msgid "Permission error"
 msgstr ""
 
-#: js/contacts.js:763
+#: js/contacts.js:725
 msgid "This property has to be non-empty."
 msgstr "Nilai ini tidak boleh kosong."
 
-#: js/contacts.js:789
+#: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr "Tidak boleh menggabungkan elemen."
 
-#: js/contacts.js:921 js/contacts.js:939
+#: js/contacts.js:883 js/contacts.js:901
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "'deleteProperty' dipanggil tanpa argumen taip. Sila maklumkan di bugs.owncloud.org"
 
-#: js/contacts.js:958
+#: js/contacts.js:920
 msgid "Edit name"
 msgstr "Ubah nama"
 
-#: js/contacts.js:1250
+#: js/contacts.js:1212
 msgid "No files selected for upload."
 msgstr "Tiada fail dipilih untuk muatnaik."
 
-#: js/contacts.js:1258
+#: js/contacts.js:1220 js/contacts.js:2072
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Fail yang ingin dimuatnaik melebihi saiz yang dibenarkan."
 
-#: js/contacts.js:1322
+#: js/contacts.js:1284
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/contacts.js:1457 js/contacts.js:1498 js/contacts.js:1517
-#: js/contacts.js:1560
+#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
+#: js/contacts.js:1522
 msgid "Select type"
 msgstr "PIlih jenis"
 
-#: js/contacts.js:1578
+#: js/contacts.js:1540
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1649
+#: js/contacts.js:1611
 msgid "Do you want to merge these address books?"
+msgstr ""
+
+#: js/contacts.js:2065
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr ""
+
+#: js/contacts.js:2065
+msgid "Upload Error"
+msgstr ""
+
+#: js/contacts.js:2072
+msgid "Upload too large"
+msgstr ""
+
+#: js/contacts.js:2120
+msgid "Pending"
+msgstr ""
+
+#: js/contacts.js:2152
+msgid "Import done"
+msgstr ""
+
+#: js/contacts.js:2165
+msgid "Not all files uploaded. Retrying..."
+msgstr ""
+
+#: js/contacts.js:2171
+msgid "Something went wrong with the upload, please retry."
+msgstr ""
+
+#: js/contacts.js:2187
+msgid "Importing..."
+msgstr ""
+
+#: js/contacts.js:2208
+msgid "The address book name cannot be empty."
 msgstr ""
 
 #: js/loader.js:49
@@ -316,8 +345,28 @@ msgstr " import, "
 msgid " failed."
 msgstr " gagal."
 
-#: js/settings.js:68
+#: js/settings.js:73
 msgid "Displayname cannot be empty."
+msgstr ""
+
+#: lib/addressbook.php:138
+msgid "You do not have the permissions to read this addressbook."
+msgstr ""
+
+#: lib/addressbook.php:239
+msgid "You do not have the permissions to update this addressbook."
+msgstr ""
+
+#: lib/addressbook.php:259
+msgid "There was an error updating the addressbook."
+msgstr ""
+
+#: lib/addressbook.php:315
+msgid "You do not have the permissions to delete this addressbook."
+msgstr ""
+
+#: lib/addressbook.php:344
+msgid "There was an error deleting this addressbook."
 msgstr ""
 
 #: lib/app.php:36
@@ -388,7 +437,7 @@ msgstr "Kerja"
 msgid "Home"
 msgstr "Rumah"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:593
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
 msgid "Other"
 msgstr "Lain"
 
@@ -485,79 +534,95 @@ msgstr "Hari Lahir {name}"
 msgid "Contact"
 msgstr "Hubungan"
 
-#: lib/vcard.php:408
+#: lib/vcard.php:301
+msgid "You do not have the permissions to add contacts to this addressbook."
+msgstr ""
+
+#: lib/vcard.php:405
+msgid "Could not find the vCard with ID."
+msgstr ""
+
+#: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
 msgstr ""
 
-#: lib/vcard.php:483
+#: lib/vcard.php:501
+msgid "Could not find the vCard with ID: "
+msgstr ""
+
+#: lib/vcard.php:509
+msgid "Could not find the Addressbook with ID: "
+msgstr ""
+
+#: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
+msgstr ""
+
+#: lib/vcard.php:550
+msgid "There was an error deleting this contact."
 msgstr ""
 
 #: templates/index.php:14
 msgid "Add Contact"
 msgstr "Tambah kenalan"
 
-#: templates/index.php:15 templates/index.php:16 templates/part.import.php:17
+#: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
 msgstr "Import"
 
-#: templates/index.php:18
+#: templates/index.php:16
 msgid "Settings"
 msgstr "Tetapan"
 
-#: templates/index.php:18 templates/settings.php:9
-msgid "Addressbooks"
-msgstr "Senarai Buku Alamat"
-
-#: templates/index.php:36 templates/part.import.php:24
+#: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
 msgstr "Tutup"
 
-#: templates/index.php:37
+#: templates/index.php:31
 msgid "Keyboard shortcuts"
 msgstr ""
 
-#: templates/index.php:39
+#: templates/index.php:33
 msgid "Navigation"
 msgstr ""
 
-#: templates/index.php:42
+#: templates/index.php:36
 msgid "Next contact in list"
 msgstr ""
 
-#: templates/index.php:44
+#: templates/index.php:38
 msgid "Previous contact in list"
 msgstr ""
 
-#: templates/index.php:46
+#: templates/index.php:40
 msgid "Expand/collapse current addressbook"
 msgstr ""
 
-#: templates/index.php:48
+#: templates/index.php:42
 msgid "Next addressbook"
 msgstr "Buku alamat seterusnya"
 
-#: templates/index.php:50
+#: templates/index.php:44
 msgid "Previous addressbook"
 msgstr "Buku alamat sebelumnya"
 
-#: templates/index.php:54
+#: templates/index.php:48
 msgid "Actions"
 msgstr ""
 
-#: templates/index.php:57
+#: templates/index.php:51
 msgid "Refresh contacts list"
 msgstr ""
 
-#: templates/index.php:59
+#: templates/index.php:53
 msgid "Add new contact"
 msgstr ""
 
-#: templates/index.php:61
+#: templates/index.php:55
 msgid "Add new addressbook"
 msgstr ""
 
-#: templates/index.php:63
+#: templates/index.php:57
 msgid "Delete current contact"
 msgstr ""
 
@@ -596,7 +661,7 @@ msgstr "Organisasi"
 
 #: templates/part.contact.php:40 templates/part.contact.php:42
 #: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:36
+#: templates/part.contact.php:50 templates/settings.php:49
 msgid "Delete"
 msgstr "Padam"
 
@@ -877,10 +942,15 @@ msgid "Importing contacts"
 msgstr "Import senarai kenalan"
 
 #: templates/part.no_contacts.php:3
-msgid "You have no contacts in your addressbook."
-msgstr "Anda tidak mempunyai sebarang kenalan didalam buku alamat."
+msgid ""
+"<h3>You have no contacts in your addressbook.</h3><p>You can import VCF "
+"files by dragging them to the contacts list and either drop them on an "
+"addressbook to import into it, or on an empty spot to create a new "
+"addressbook and import into that.<br />You can also import by clicking on "
+"the import button at the bottom of the list.</p>"
+msgstr ""
 
-#: templates/part.no_contacts.php:5
+#: templates/part.no_contacts.php:9
 msgid "Add contact"
 msgstr "Letak kenalan"
 
@@ -912,46 +982,50 @@ msgstr "Alamat utama"
 msgid "iOS/OS X"
 msgstr "iOS/OS X"
 
-#: templates/settings.php:20
+#: templates/settings.php:9
+msgid "Addressbooks"
+msgstr "Senarai Buku Alamat"
+
+#: templates/settings.php:25
 msgid "Show CardDav link"
 msgstr ""
 
-#: templates/settings.php:23
+#: templates/settings.php:28
 msgid "Show read-only VCF link"
 msgstr ""
 
-#: templates/settings.php:26
+#: templates/settings.php:35
 msgid "Share"
 msgstr ""
 
-#: templates/settings.php:29
+#: templates/settings.php:39
 msgid "Download"
 msgstr "Muat naik"
 
-#: templates/settings.php:33
+#: templates/settings.php:44
 msgid "Edit"
 msgstr "Sunting"
 
-#: templates/settings.php:43
+#: templates/settings.php:57
 msgid "New Address Book"
 msgstr "Buku Alamat Baru"
 
-#: templates/settings.php:44
+#: templates/settings.php:58
 msgid "Name"
 msgstr "Nama"
 
-#: templates/settings.php:45
+#: templates/settings.php:59
 msgid "Description"
 msgstr "Keterangan"
 
-#: templates/settings.php:46
+#: templates/settings.php:60
 msgid "Save"
 msgstr "Simpan"
 
-#: templates/settings.php:47
+#: templates/settings.php:61
 msgid "Cancel"
 msgstr "Batal"
 
-#: templates/settings.php:52
+#: templates/settings.php:66
 msgid "More..."
 msgstr "Lagi..."

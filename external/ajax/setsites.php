@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
- 
+
 OCP\User::checkAdminUser();
 OCP\JSON::callCheck();
 

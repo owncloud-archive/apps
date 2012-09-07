@@ -5,7 +5,7 @@ class OC_remoteStorage {
 		$stmt=OCP\DB::prepare("SELECT `token`,`appUrl`,`category` FROM `*PREFIX*authtoken` WHERE `user`=?",100);
 		$result=$stmt->execute(array($ownCloudUser));
 		$ret = array();
-		while($row=$result->fetchRow()){
+		while($row=$result->fetchRow()) {
 			if(in_array($category, explode(',', $row['category']))) {
 				$ret[$row['token']]=true;
 			}
@@ -29,7 +29,7 @@ class OC_remoteStorage {
 		$stmt=OCP\DB::prepare("SELECT `token`,`appUrl`,`category` FROM `*PREFIX*authtoken` WHERE `user`=?",100);
 		$result=$stmt->execute(array($user));
 		$ret = array();
-		while($row=$result->fetchRow()){
+		while($row=$result->fetchRow()) {
 			$ret[$row['token']] = array(
 				'appUrl' => $row['appUrl'],
 				'categories' => $row['category'],
@@ -44,7 +44,7 @@ class OC_remoteStorage {
 		$stmt->execute(array($token,$user));
 		return 'unknown';//how can we see if any rows were affected?
 	}
-	private static function addToken($token, $appUrl, $categories){
+	private static function addToken($token, $appUrl, $categories) {
 		$user=OCP\USER::getUser();
 		$stmt=OCP\DB::prepare("INSERT INTO `*PREFIX*authtoken` (`token`,`appUrl`,`user`,`category`) VALUES(?,?,?,?)");
 		$stmt->execute(array($token,$appUrl,$user,$categories));
@@ -56,7 +56,7 @@ class OC_remoteStorage {
 		foreach(explode(',', $categories) as $category) {
 			//TODO: input checking on $category
 			$scopePathParts = array('remoteStorage', $category);
-			for($i=0;$i<=count($scopePathParts);$i++){
+			for($i=0;$i<=count($scopePathParts);$i++) {
 				$thisPath = '/'.implode('/', array_slice($scopePathParts, 0, $i));
 				if(!OC_Filesystem::file_exists($thisPath)) {
 					OC_Filesystem::mkdir($thisPath);

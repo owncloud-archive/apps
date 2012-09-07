@@ -19,7 +19,7 @@ $feedId = $_POST['feedId'];
 $mostRecentItemId = (int)$_POST['mostRecentItemId'];
 
 $itemMapper = new OCA\News\ItemMapper();
-$mostRecentItem = $itemMapper->find($mostRecentItemId);
+
 //echo $mostRecentItem->getDate();
 switch ($feedId) {
     case -2:
@@ -40,9 +40,12 @@ switch ($feedId) {
 // FeedMapper instead of iterating through every item and updating as 
 // necessary
 $success = false;
-foreach($items as $item){
+if($mostRecentItemId !== 0) {
+    $mostRecentItem = $itemMapper->find($mostRecentItemId);
+}
+foreach($items as $item) {
     // FIXME: this should compare the modified date
-    if($item->getDate() <= $mostRecentItem->getDate()){
+    if($mostRecentItemId === 0 || $item->getDate() <= $mostRecentItem->getDate()) {
         $item->setRead();
         $success = $itemMapper->update($item);    
     }
@@ -58,4 +61,3 @@ if(!$success) {
 
 //TODO: replace the following with a real success case. see contact/ajax/createaddressbook.php for inspirations
 OCP\JSON::success(array('data' => array('feedId' => $feedId )));
-

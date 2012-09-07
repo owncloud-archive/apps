@@ -22,8 +22,8 @@
 
 namespace OCA_Mail;
 
-//require_once('3rdparty/rcube_imap.php');
-require_once('3rdparty/rcube_imap_generic.php');
+//require_once '3rdparty/rcube_imap.php';
+require_once '3rdparty/rcube_imap_generic.php';
 
 class App
 {
@@ -165,7 +165,7 @@ class App
 		$account_ids = explode(',', $account_ids );
 
 		$accounts = array();
-		foreach( $account_ids as $id ){
+		foreach( $account_ids as $id ) {
 			$account_string = 'account['.$id.']';
 			
 			$accounts[$id] = array(
@@ -185,7 +185,7 @@ class App
 	{
 		$accounts = App::getAccounts($user_id);
 		
-		if( isset( $accounts[$account_id] )){
+		if( isset( $accounts[$account_id] )) {
 			return $accounts[$account_id];
 		}
 

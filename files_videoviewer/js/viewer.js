@@ -1,20 +1,28 @@
-var streamerPlayer = {
+var videoViewer = {
 	UI : {
-		show : function (file) {
-			$('<div class="overlay" id="overlay" style="display:none;"></div><div id="nonebox"><div id="container"><a class="box-close" id="box-close" href="#"></a><h3>'+file+'</h3></div></div>').appendTo('body');
+		playerTemplate : '<video width="%width%" height="%height%" id="media_element" class="video-js vjs-default-skin" controls preload="none">' + 
+		'<source type="%type%" src="%src%" />' + 
+		'</video>',
+		show : function () {
+			$('<div id="videoviewer_overlay" style="display:none;"></div><div id="videoviewer_popup"><div id="videoviewer_container"><a class="box-close" id="box-close" href="#"></a><h3>'+videoViewer.file+'</h3></div></div>').appendTo('body');
 			
-			$('#overlay').fadeIn('fast',function(){
-				$('#nonebox').fadeIn('fast');
+			$('#videoviewer_overlay').fadeIn('fast',function(){
+				$('#videoviewer_popup').fadeIn('fast');
 			});
-			$('#box-close').click(streamerPlayer.hidePlayer);
-			var size = streamerPlayer.UI.getSize();
-			$('<video width="' + size.width + '" height="' + size.height + '" id="media_element" controls="controls" ></video>').prependTo('#container');
+			$('#box-close').click(videoViewer.hidePlayer);
+			var size = videoViewer.UI.getSize();
+			var playerView = videoViewer.UI.playerTemplate.replace(/%width%/g, size.width)
+								.replace(/%height%/g, size.height)
+								.replace(/%type%/g, videoViewer.mime)
+								.replace(/%src%/g, videoViewer.location)
+			;
+			$(playerView).prependTo('#videoviewer_container');
 		},
 		hide : function() {
-			$('#nonebox').fadeOut('fast', function() {
-				$('#nonebox').remove();
-				$('#overlay').fadeOut('fast', function() {
-					$('#overlay').remove();
+			$('#videoviewer_popup').fadeOut('fast', function() {
+				$('#videoviewer_overlay').fadeOut('fast', function() {
+					$('#videoviewer_popup').remove();
+					$('#videoviewer_overlay').remove();
 				});
 			});
 		},
@@ -28,66 +36,75 @@ var streamerPlayer = {
 			return size;
 		},
 	},
-	isVisible : false,
+	mime : null,
+	file : null,
+	location : null,
+	player : null,
 	mimeTypes : [
 		'video/mp4',
 		'video/webm',
 		'video/x-flv',
 		'application/ogg',
+		'video/ogg',
 		'video/quicktime',
 		'video/x-msvideo',
+		'video/x-matroska',
 		'video/x-ms-asf'
 	],
 	onView : function(file) {
-		streamerPlayer.UI.show(file);
-		var location = streamerPlayer.getMediaUrl(file);
-		var mime = FileActions.getCurrentMimeType();
-		streamerPlayer.addSource(mime, location);
+		videoViewer.file = file;
+		videoViewer.location = videoViewer.getMediaUrl(file);
+		videoViewer.mime = FileActions.getCurrentMimeType();
 		
-		//some Fallbacks
-		streamerPlayer.addSource('video/x-flv', location);
-		streamerPlayer.addSource('video/x-ms-asf', location);
-		
-		streamerPlayer.player = $('video#media_element').mediaelementplayer('#media_element', {
+		OC.addScript('files_videoviewer','mediaelement-and-player', videoViewer.showPlayer);
+	},
+	showPlayer : function() {
+		videoViewer.UI.show();
+	
+		videoViewer.player = new MediaElementPlayer('#media_element', {
 			features: ['playpause','progress','current','duration','tracks','volume','fullscreen'],
 			pluginPath : OC.filePath('files_videoviewer', 'js', ''),
-			enablePluginDebug: false,
-			plugins: ['flash','silverlight']
+			pauseOtherPlayers: false,
+			enablePluginDebug: true,
+			plugins: ['flash','silverlight'],
+			success: function (player, node) {
+				//set the size (for flash otherwise no video just sound!)
+				player.setVideoSize($(node).width(), $(node).height());
+				player.load();
+				player.pause();
+			},
+			error: function (m) { 
+				console.log(m);
+			}
 		});
-
-		streamerPlayer.isVisible = true;
 	},
 	hidePlayer : function() {
-		streamerPlayer.isVisible = false;
-		streamerPlayer.player=null;
-		streamerPlayer.UI.hide();
-	},
-	addSource : function(mime, location) {
-		$('<source type="' + mime + '" src="' + location + '" />').appendTo('#media_element');
+		videoViewer.player = false;
+		delete videoViewer.player;
+
+		videoViewer.UI.hide();
 	},
 	getMediaUrl : function(file) {
 		var dir = $('#dir').val();
-		var port = window.location.port !== "" ? window.location.port : "80";
-		return window.location.protocol+
-			"//"+document.domain+
-			":"+port+
-			OC.filePath('files','ajax','download.php')+
-			'?files='+file+'&dir='+dir;
+		return fileDownloadPath(dir, file);
 	},
 	onKeyDown : function(e) {
-		if (e.keyCode == 27 && !$('.mejs-container-fullscreen').length && streamerPlayer.isVisible) {
-			 streamerPlayer.hidePlayer();
+		if (e.keyCode == 27 && !$('.mejs-container-fullscreen').length && videoViewer.player) {
+			 videoViewer.hidePlayer();
 		}
+	},
+	log : function(message){
+		console.log(message);
 	}
 };
 
 $(document).ready(function() {	
 	if (typeof FileActions !== 'undefined') {
-		for (var i = 0; i < streamerPlayer.mimeTypes.length; ++i) {
-			var mime = streamerPlayer.mimeTypes[i];
-			FileActions.register(mime, 'View', '', streamerPlayer.onView);
+		for (var i = 0; i < videoViewer.mimeTypes.length; ++i) {
+			var mime = videoViewer.mimeTypes[i];
+			FileActions.register(mime, 'View', OC.PERMISSION_READ, '', videoViewer.onView);
 			FileActions.setDefault(mime, 'View');
 		}
-		$(document).keydown(streamerPlayer.onKeyDown);
+		$(document).keydown(videoViewer.onKeyDown);
 	}
 });

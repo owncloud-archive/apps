@@ -26,7 +26,7 @@ class App {
 		\OC_APP::registerAdmin(self::APP_ID, 'admin');
 	}
 
-	public static function getBackupBase(){
+	public static function getBackupBase() {
 		return \OC::$SERVERROOT . \DIRECTORY_SEPARATOR 
 				. 'backup' . \DIRECTORY_SEPARATOR;
 	}

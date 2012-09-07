@@ -11,6 +11,7 @@
 "Timezone changed" => "Fuso horário alterado",
 "Invalid request" => "Pedido inválido",
 "Calendar" => "Calendário",
+"Editable" => "Editável",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -113,8 +114,6 @@
 "Today" => "Hoje",
 "Your calendars" => "Meus Calendários",
 "CalDav Link" => "Link para CalDav",
-"Shared calendars" => "Calendários Compartilhados",
-"No shared calendars" => "Nenhum Calendário Compartilhado",
 "Share Calendar" => "Compartilhar Calendário",
 "Download" => "Baixar",
 "Edit" => "Editar",
@@ -173,11 +172,5 @@
 "at" => "para",
 "Timezone" => "Fuso horário",
 "24h" => "24h",
-"12h" => "12h",
-"Users" => "Usuários",
-"select users" => "Selecione usuários",
-"Editable" => "Editável",
-"Groups" => "Grupos",
-"select groups" => "Selecione grupos",
-"make public" => "Tornar público"
+"12h" => "12h"
 );

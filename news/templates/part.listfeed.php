@@ -2,22 +2,27 @@
 
 $l = new OC_l10n('news');
 
-$feed = isset($_['feed']) ? $_['feed'] : null;
-$unreadItemsCount = isset($_['unreadItemsCount']) ? $_['unreadItemsCount'] : null;
-
-$favicon = $feed->getFavicon();
-if ($favicon == null) {
+if(isset($_['mock'])) {
+    $feedTitle = '';
+    $feedId = -1;
+    $unreadItemsCount = -1;
     $favicon = OCP\Util::imagePath('core', 'actions/public.svg');
-}
-
-if($unreadItemsCount == 0){
-    $allReadClass = 'all_read';
 } else {
-    $allReadClass = '';
+    $feed = isset($_['feed']) ? $_['feed'] : null;
+    $feedTitle = $feed->getTitle();
+    $feedId =  $feed->getId();
+    $unreadItemsCount = isset($_['unreadItemsCount']) ? $_['unreadItemsCount'] : null;
+    $favicon = $feed->getFavicon();
+    if ($favicon == null) {
+        $favicon = OCP\Util::imagePath('core', 'actions/public.svg');
+    }
 }
 
-echo '<li class="feed" data-id="' . $feed->getId() . '" style="background-image: url(' . $favicon . ');">';
-echo '<a href="#" " class="' . $allReadClass . '">' . htmlspecialchars_decode($feed->getTitle()) .'</a>';
-	echo '<span class="unreaditemcounter ' . $allReadClass . '">' . $unreadItemsCount . '</span>';
-echo '<button class="svg action feeds_delete" onClick="(News.Feed.delete(' . $feed->getId(). '))" title="' . $l->t('Delete feed') . '"></button>';
+echo '<li class="feed" data-id="' . $feedId . '">';
+    echo '<a style="background-image: url(' . $favicon . ');" href="#" class="title">' . htmlspecialchars($feedTitle, ENT_QUOTES, 'UTF-8') .'</a>';
+	echo '<span class="unread_items_counter">' . $unreadItemsCount . '</span>';
+    echo '<span class="buttons">';
+        echo '<button class="svg action feeds_delete" title="' . $l->t('Delete feed') . '"></button>';
+        echo '<button class="svg action feeds_markread" title="' . $l->t('Mark all read') . '"></button>';
+    echo '</span>';
 echo '</li>';

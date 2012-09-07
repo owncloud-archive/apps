@@ -5,4 +5,3 @@ OCP\Util::addscript( 'files_streamer', 'viewer');
 OCP\Util::addscript( 'files_streamer', 'jwplayer');
 OCP\Util::addscript( 'files_streamer', 'silverlight');
 OCP\Util::addscript( 'files_streamer', 'wmvplayer');
-?>

@@ -21,12 +21,12 @@
 * 
 */
 
-require_once('../../../lib/base.php');
+require_once '../../../lib/base.php';
 OC_JSON::checkAppEnabled('internal_bookmarks');
 
 $c = $_POST['c'];
 $k = OC_IntBks::getItemByTarget($c);
 
-if(count($k) > 0){
+if(count($k) > 0) {
 	OC_JSON::encodedPrint($k);
 }

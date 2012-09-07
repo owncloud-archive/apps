@@ -1,6 +1,6 @@
 function viewOdf(dir, file) {
 	OC.addScript('files_odfviewer','webodf').done(function(){
-		var location=OC.filePath('files','ajax','download.php')+'?files='+file+'&dir='+dir;
+		var location = fileDownloadPath(dir, file);
 
 		// fade out files menu and add odf menu
 		$('.actions,#file_action_panel').fadeOut('slow').promise().done(function() {
@@ -48,7 +48,7 @@ $(document).ready(function() {
 			'application/vnd.oasis.opendocument.presentation');
 		for (var i = 0; i < supportedMimes.length; ++i){
 			var mime = supportedMimes[i];
-			FileActions.register(mime,'View',FileActions.PERMISSION_READ,'',function(filename){
+			FileActions.register(mime,'View',OC.PERMISSION_READ,'',function(filename){
 				viewOdf($('#dir').val(),filename);
 			});
 			FileActions.setDefault(mime,'View');
@@ -59,4 +59,3 @@ $(document).ready(function() {
 		closeOdfViewer();	
 	});
 });
-

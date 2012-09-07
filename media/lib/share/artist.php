@@ -61,5 +61,3 @@ class OC_Share_Backend_Artist extends OCP\Share_Backend {
 	}
 
 }
-
-?>

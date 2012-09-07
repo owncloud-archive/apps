@@ -86,10 +86,16 @@ $modules[] =array(
 	'modules'=> array('core'),
 	'message'=> $l->t('The php-pdo module is needed to store owncloud data into a database.'));
 
+$modules[] =array(
+	'status' => function_exists('iconv') ? 'ok' : 'error',
+	'part'=> 'php-iconv',
+	'modules'=> array('files_texteditor','news','contacts'),
+	'message'=> $l->t('The iconv module is needed to convert data into the correct charset.'));
+
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
-		if(OCP\App::isEnabled($app) || $app=='core'){
+		if(OCP\App::isEnabled($app) || $app=='core') {
 				$enabled = true;
 		}
 	}

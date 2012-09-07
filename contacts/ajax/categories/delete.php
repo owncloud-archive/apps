@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
- 
+
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('contacts');
 OCP\JSON::callCheck();
@@ -28,7 +28,7 @@ if(count($addressbooks) == 0) {
 $addressbookids = array();
 foreach($addressbooks as $addressbook) {
 	$addressbookids[] = $addressbook['id'];
-} 
+}
 $contacts = OC_Contacts_VCard::all($addressbookids);
 if(count($contacts) == 0) {
 	bailOut(OC_Contacts_App::$l10n->t('No contacts found.'));
@@ -37,7 +37,7 @@ if(count($contacts) == 0) {
 $cards = array();
 foreach($contacts as $contact) {
 	$cards[] = array($contact['id'], $contact['carddata']);
-} 
+}
 
 debug('Before delete: '.print_r($categories, true));
 

@@ -5,21 +5,22 @@
  * later.
  * See the COPYING-README file.
  */
- 
+
 
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('calendar');
 OCP\JSON::callCheck();
 
 $cal = $_POST["calendarid"];
-$calendar = OC_Calendar_App::getCalendar($cal, true);
-if(!$calendar){
-	OCP\JSON::error(array('message'=>'permission denied'));
+
+try {
+	$del = OC_Calendar_Calendar::deleteCalendar($cal);
+	if($del == true) {
+		OCP\JSON::success();
+	}else{
+		OCP\JSON::error(array('error'=>'dberror'));
+	}
+} catch(Exception $e) {
+	OCP\JSON::error(array('message'=>$e->getMessage()));
 	exit;
-}
-$del = OC_Calendar_Calendar::deleteCalendar($cal);
-if($del == true){
-	OCP\JSON::success();
-}else{
-	OCP\JSON::error(array('error'=>'dberror'));
 }
