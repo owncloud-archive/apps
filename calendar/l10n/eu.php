@@ -124,8 +124,6 @@
 "Settings" => "Ezarpenak",
 "Your calendars" => "Zure egutegiak",
 "CalDav Link" => "CalDav lotura",
-"Shared calendars" => "Elkarbanatutako egutegiak",
-"No shared calendars" => "Ez dago elkarbanatutako egutegirik",
 "Share Calendar" => "Elkarbanatu egutegia",
 "Download" => "Deskargatu",
 "Edit" => "Editatu",

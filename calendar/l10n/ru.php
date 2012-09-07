@@ -116,8 +116,6 @@
 "Settings" => "Параметры",
 "Your calendars" => "Ваши календари",
 "CalDav Link" => "Ссылка для CalDav",
-"Shared calendars" => "Опубликованные",
-"No shared calendars" => "Нет опубликованных календарей",
 "Share Calendar" => "Опубликовать",
 "Download" => "Скачать",
 "Edit" => "Редактировать",

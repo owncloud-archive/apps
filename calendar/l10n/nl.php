@@ -116,8 +116,6 @@
 "Settings" => "Instellingen",
 "Your calendars" => "Uw agenda's",
 "CalDav Link" => "CalDav Link",
-"Shared calendars" => "Gedeelde kalenders",
-"No shared calendars" => "Geen gedeelde kalenders",
 "Share Calendar" => "Deel kalender",
 "Download" => "Download",
 "Edit" => "Bewerken",

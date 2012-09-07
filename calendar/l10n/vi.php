@@ -81,8 +81,6 @@
 "Today" => "Hôm nay",
 "Your calendars" => "Lịch của bạn",
 "CalDav Link" => "Liên kết CalDav ",
-"Shared calendars" => "Chia sẻ lịch",
-"No shared calendars" => "Không chia sẻ lcihj",
 "Share Calendar" => "Chia sẻ lịch",
 "Download" => "Tải về",
 "Edit" => "Chỉnh sửa",

@@ -126,8 +126,6 @@
 "Settings" => "Nastavení",
 "Your calendars" => "Vaše kalendáře",
 "CalDav Link" => "Odkaz CalDav",
-"Shared calendars" => "Sdílené kalendáře",
-"No shared calendars" => "Žádné sdílené kalendáře",
 "Share Calendar" => "Sdílet kalendář",
 "Download" => "Stáhnout",
 "Edit" => "Upravit",

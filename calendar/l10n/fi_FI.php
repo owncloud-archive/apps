@@ -126,8 +126,6 @@
 "Settings" => "Asetukset",
 "Your calendars" => "Omat kalenterisi",
 "CalDav Link" => "CalDav-linkki",
-"Shared calendars" => "Jaetut kalenterit",
-"No shared calendars" => "Ei jaettuja kalentereita",
 "Share Calendar" => "Jaa kalenteri",
 "Download" => "Lataa",
 "Edit" => "Muokkaa",

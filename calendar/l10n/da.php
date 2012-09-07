@@ -122,8 +122,6 @@
 "Settings" => "Indstillinger",
 "Your calendars" => "Dine kalendere",
 "CalDav Link" => "CalDav-link",
-"Shared calendars" => "Delte kalendere",
-"No shared calendars" => "Ingen delte kalendere",
 "Share Calendar" => "Del kalender",
 "Download" => "Hent",
 "Edit" => "Rediger",

@@ -115,8 +115,6 @@
 "Settings" => "Setări",
 "Your calendars" => "Calendarele tale",
 "CalDav Link" => "Legătură CalDav",
-"Shared calendars" => "Calendare partajate",
-"No shared calendars" => "Nici un calendar partajat",
 "Share Calendar" => "Partajați calendarul",
 "Download" => "Descarcă",
 "Edit" => "Modifică",

@@ -116,8 +116,6 @@
 "Settings" => "세팅",
 "Your calendars" => "내 달력",
 "CalDav Link" => "CalDav 링크",
-"Shared calendars" => "공유 달력",
-"No shared calendars" => "달력 공유하지 않음",
 "Share Calendar" => "달력 공유",
 "Download" => "다운로드",
 "Edit" => "편집",

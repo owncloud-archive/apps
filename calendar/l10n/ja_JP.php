@@ -126,8 +126,6 @@
 "Settings" => "設定",
 "Your calendars" => "あなたのカレンダー",
 "CalDav Link" => "CalDavへのリンク",
-"Shared calendars" => "共有カレンダー",
-"No shared calendars" => "共有カレンダーはありません",
 "Share Calendar" => "カレンダーを共有する",
 "Download" => "ダウンロード",
 "Edit" => "編集",

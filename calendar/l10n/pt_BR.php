@@ -114,8 +114,6 @@
 "Today" => "Hoje",
 "Your calendars" => "Meus Calendários",
 "CalDav Link" => "Link para CalDav",
-"Shared calendars" => "Calendários Compartilhados",
-"No shared calendars" => "Nenhum Calendário Compartilhado",
 "Share Calendar" => "Compartilhar Calendário",
 "Download" => "Baixar",
 "Edit" => "Editar",

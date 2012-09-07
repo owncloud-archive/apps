@@ -126,8 +126,6 @@
 "Settings" => "Einstellungen",
 "Your calendars" => "Ihre Kalender",
 "CalDav Link" => "CalDAV-Link",
-"Shared calendars" => "Geteilte Kalender",
-"No shared calendars" => "Keine geteilten Kalender",
 "Share Calendar" => "Kalender teilen",
 "Download" => "Herunterladen",
 "Edit" => "Bearbeiten",

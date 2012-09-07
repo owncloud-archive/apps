@@ -83,8 +83,6 @@
 "Today" => "Danas",
 "Your calendars" => "Vaši kalendari",
 "CalDav Link" => "CalDav poveznica",
-"Shared calendars" => "Podijeljeni kalendari",
-"No shared calendars" => "Nema zajedničkih kalendara",
 "Share Calendar" => "Podjeli kalendar",
 "Download" => "Spremi lokalno",
 "Edit" => "Uredi",
