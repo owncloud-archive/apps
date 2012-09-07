@@ -71,7 +71,7 @@ $dir_arr = explode('/', $previous_element);
 
 if (count($dir_arr)==0) {
 	$tl->addTile(new \OC\Pictures\TileSingle($previous_element));
-} else if (count($dir_arr) && $ts->getCount() == 0){
+} else if (count($dir_arr) && $ts->getCount() == 0) {
     $ts = new \OC\Pictures\TileStack(array($previous_element), $dir_arr[0]);
 } else {
 	$arr[] = $previous_element;

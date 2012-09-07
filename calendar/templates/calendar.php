@@ -23,7 +23,7 @@
 				var firstDay = '<?php echo (OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'firstday', 'mo') == 'mo' ? '1' : '0'); ?>';
 				$(document).ready(function() {
 				<?php
-				if(array_key_exists('showevent', $_)){
+				if(array_key_exists('showevent', $_)) {
 					$data = OC_Calendar_App::getEventObject($_['showevent']);
 					$date = substr($data['startdate'], 0, 10);
 					list($year, $month, $day) = explode('-', $date);

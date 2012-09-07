@@ -17,7 +17,7 @@ OCP\JSON::checkAppEnabled('calendar');
 OCP\JSON::callCheck();
 
 // Get data
-if( isset( $_POST['timezone'] ) ){
+if( isset( $_POST['timezone'] ) ) {
 	$timezone=$_POST['timezone'];
 	OCP\Config::setUserValue( OCP\USER::getUser(), 'calendar', 'timezone', $timezone );
 	OCP\JSON::success(array('data' => array( 'message' => $l->t('Timezone changed') )));

@@ -23,7 +23,7 @@ if(isset($bookid)) {
 	$batchsize = OCP\Config::getUserValue(OCP\User::getUser(),
 		'contacts',
 		'export_batch_size', 20);
-	while($cardobjects = OC_Contacts_VCard::all($bookid, $start, $batchsize)){
+	while($cardobjects = OC_Contacts_VCard::all($bookid, $start, $batchsize)) {
 		foreach($cardobjects as $card) {
 			echo $card['carddata'] . $nl;
 		}

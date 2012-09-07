@@ -1,7 +1,7 @@
 <?php
 //Prerendering for iCalendar file
 $file = OC_Filesystem::file_get_contents($_['path'] . '/' . $_['filename']);
-if(!$file){
+if(!$file) {
 	OCP\JSON::error(array('error'=>'404'));
 }
 $import = new OC_Calendar_Import($file);
@@ -24,7 +24,7 @@ $defaultcolors = OC_Calendar_Calendar::getCalendarColorOptions();
 		<div id="calendar_import_form_message"><?php echo $l->t('Please choose a calendar'); ?></div>
 		<select style="width:100%;" id="calendar_import_calendar" name="calendar_import_calendar">
 		<?php
-		for($i = 0;$i<count($calendar_options);$i++){
+		for($i = 0;$i<count($calendar_options);$i++) {
 			$calendar_options[$i]['displayname'] = $calendar_options[$i]['displayname'];
 		}
 		echo OCP\html_select_options($calendar_options, $calendar_options[0]['id'], array('value'=>'id', 'label'=>'displayname'));
@@ -36,7 +36,7 @@ $defaultcolors = OC_Calendar_Calendar::getCalendarColorOptions();
 			<input id="calendar_import_newcalendar"  class="" type="text" placeholder="<?php echo $l->t('Name of new calendar'); ?>" value="<?php echo $guessedcalendarname ?>"><br>
 			<div id="calendar_import_defaultcolors">
 				<?php
-				foreach($defaultcolors as $color){
+				foreach($defaultcolors as $color) {
 					echo '<span class="calendar-colorpicker-color" rel="' . $color . '" style="background-color: ' . $color .  ';"></span>';
 				}
 				?>

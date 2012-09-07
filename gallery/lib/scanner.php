@@ -130,16 +130,16 @@ class OC_Gallery_Scanner {
 	public static function findPaths() {
 		$images=OC_FileCache::searchByMime('image','', self::getScanningRoot());
 		$paths=array();
-		foreach($images as $image){
+		foreach($images as $image) {
 			$path=dirname($image);
 			$path = self::getGalleryRoot().($path=='.'?'':$path);
 			if ($path !== '/') $path=rtrim($path,'/');
-			if(array_search($path,$paths)===false){
+			if(array_search($path,$paths)===false) {
 				$paths[]=$path;
 			}
 			// add sub path also if they don't contain images
 			while ( ($path = dirname($path)) != '/') {
-				if(array_search($path,$paths)===false){
+				if(array_search($path,$paths)===false) {
 					$paths[]=$path;
 				}
 			}

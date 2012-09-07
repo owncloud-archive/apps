@@ -21,8 +21,8 @@ class OC_Calendar_Export{
 	 * @param string $type use OC_Calendar_Export constants
 	 * @return string
 	 */
-	public static function export($id, $type){
-		if($type == self::EVENT){
+	public static function export($id, $type) {
+		if($type == self::EVENT) {
 			$return = self::event($id);
 		}else{
 			$return = self::calendar($id);
@@ -35,11 +35,11 @@ class OC_Calendar_Export{
 	 * @param integer $id id of the calendar
 	 * @return string
 	 */
-	private static function calendar($id){
+	private static function calendar($id) {
 		$events = OC_Calendar_Object::all($id);
 		$calendar = OC_Calendar_Calendar::find($id);
 		$return = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:ownCloud Calendar " . OCP\App::getAppVersion('calendar') . "\nX-WR-CALNAME:" . $calendar['displayname'] . "\n";
-		foreach($events as $event){
+		foreach($events as $event) {
 			$return .= self::generateEvent($event);
 		}
 		$return .= "END:VCALENDAR";
@@ -51,7 +51,7 @@ class OC_Calendar_Export{
 	 * @param integer $id id of the event
 	 * @return string
 	 */
-	private static function event($id){
+	private static function event($id) {
 		$event = OC_Calendar_Object::find($id);
 		$return = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:ownCloud Calendar " . OCP\App::getAppVersion('calendar') . "\nX-WR-CALNAME:" . $event['summary'] . "\n";
 		$return .= self::generateEvent($event);
@@ -64,13 +64,13 @@ class OC_Calendar_Export{
 	  * @param array $event
 	  * @return string
 	  */
-	 private static function generateEvent($event){
+	 private static function generateEvent($event) {
 		$object = OC_VObject::parse($event['calendardata']);
 		$dtstart = $object->VEVENT->DTSTART;
 		$start_dt = $dtstart->getDateTime();
 		$dtend = OC_Calendar_Object::getDTEndFromVEvent($object->VEVENT);
 		$end_dt = $dtend->getDateTime();
-		if($dtstart->getDateType() !== Sabre_VObject_Element_DateTime::DATE){
+		if($dtstart->getDateType() !== Sabre_VObject_Element_DateTime::DATE) {
 			$start_dt->setTimezone(new DateTimeZone('UTC'));
 			$end_dt->setTimezone(new DateTimeZone('UTC'));
 			$object->VEVENT->setDateTime('DTSTART', $start_dt, Sabre_VObject_Property_DateTime::UTC);
@@ -85,7 +85,7 @@ class OC_Calendar_Export{
 	 * @param string $string to fix
 	 * @return string
 	 */
-	private static function fixLineBreaks($string){
+	private static function fixLineBreaks($string) {
 		$string = str_replace("\r\n", "\n", $string);
 		$string = str_replace("\r", "\n", $string);
 		$string = str_replace("\n", "\r\n", $string);

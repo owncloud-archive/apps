@@ -13,7 +13,7 @@ OCP\JSON::callCheck();
 
 $calendarid = $_POST['calendarid'];
 $calendar = OC_Calendar_App::getCalendar($calendarid, true);
-if(!$calendar){
+if(!$calendar) {
 	OCP\JSON::error(array('message'=>'permission denied'));
 	exit;
 }

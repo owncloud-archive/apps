@@ -28,10 +28,10 @@ class OC_Compress {
 	 * @param $target The target to compress
 	 * @return Boolean  
 	 */
-	public static function compressTarget($target){
+	public static function compressTarget($target) {
 		$oc_target = OC::$CONFIG_DATADIRECTORY . $target;
 		
-		if(OC_Filesystem::is_file($target)){
+		if(OC_Filesystem::is_file($target)) {
 			$fileinfo = pathinfo($oc_target);
 			$archiveName = $fileinfo['filename'];
 			$dirTarget = $fileinfo['dirname'];
@@ -41,13 +41,13 @@ class OC_Compress {
 		}
 		$archiveName .= '.zip';
 		
-		if(file_exists($dirTarget . '/' . $archiveName)){
+		if(file_exists($dirTarget . '/' . $archiveName)) {
 			$archiveName = md5(rand()) . '_' . $archiveName;
 		}
 		
 		$zip = new ZipArchive;
-		if($zip->open($dirTarget . '/' . $archiveName, ZipArchive::CREATE) === TRUE){
-		    if(!is_dir($oc_target)){
+		if($zip->open($dirTarget . '/' . $archiveName, ZipArchive::CREATE) === TRUE) {
+		    if(!is_dir($oc_target)) {
 	    		$zip->addFile($oc_target, basename($oc_target));
 			}else{
 				self::addFolderToZip($oc_target, $zip, basename($oc_target) . '/');
@@ -65,15 +65,15 @@ class OC_Compress {
 	 * // Function from pong_pc2 (http://fr2.php.net/manual/fr/ziparchive.addemptydir.php)
 	 * 
 	 */
-	private static function addFolderToZip($dir, $zipObj, $zipdir=''){
+	private static function addFolderToZip($dir, $zipObj, $zipdir='') {
 		if (is_dir($dir)) {
 	        if ($dh = opendir($dir)) {
-	            if(!empty($zipdir)){
+	            if(!empty($zipdir)) {
 	            	$zipObj->addEmptyDir($zipdir);
 				}
 	            while (($file = readdir($dh)) !== false) {
-	                if(!is_file($dir . "/" . $file)){
-	                    if( ($file !== ".") && ($file !== "..")){
+	                if(!is_file($dir . "/" . $file)) {
+	                    if( ($file !== ".") && ($file !== "..")) {
 	                        self::addFolderToZip($dir . "/" . $file, $zipObj, $zipdir . $file . "/");
 	                    }
 	                }else{

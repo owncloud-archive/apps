@@ -18,7 +18,7 @@ if(is_null($id)) {
 	exit();
 }
 $vcard = OC_Contacts_App::getContactVCard( $id );
-foreach($vcard->children as $property){
+foreach($vcard->children as $property) {
 	if($property->name == 'CATEGORIES') {
 		$checksum = md5($property->serialize());
 		OCP\JSON::success(array(

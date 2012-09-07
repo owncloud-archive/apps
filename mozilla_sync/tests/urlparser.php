@@ -2,7 +2,7 @@
 
 class Test_UrlParser extends UnitTestCase {
 
-  function testUserApi_1(){
+  function testUserApi_1() {
 
     $urlParser = new OCA_mozilla_sync\UrlParser('/1.0/aaa/');
     $this->assertTrue($urlParser->isValid());
@@ -12,14 +12,14 @@ class Test_UrlParser extends UnitTestCase {
 
   }
 
-  function testUserApi_2(){
+  function testUserApi_2() {
 
     $urlParser = new OCA_mozilla_sync\UrlParser('/1.0/');
     $this->assertFalse($urlParser->isValid());
 
   }
 
-  function testUserApi_3(){
+  function testUserApi_3() {
 
     $urlParser = new OCA_mozilla_sync\UrlParser('/1.0/123/node/weave');
     $this->assertTrue($urlParser->isValid());
@@ -30,7 +30,7 @@ class Test_UrlParser extends UnitTestCase {
     $this->assertTrue($urlParser->commandMatch('/node\/weave/'));
   }
 
-  function testUserApi_4(){
+  function testUserApi_4() {
 
     $urlParser = new OCA_mozilla_sync\UrlParser('/1.0/testuser/test@1234.pl');
     $this->assertTrue($urlParser->isValid());
@@ -39,7 +39,7 @@ class Test_UrlParser extends UnitTestCase {
     $this->assertTrue($urlParser->getCommands() === array('test@1234.pl'));
   }
 
-  function testUserApi_5(){
+  function testUserApi_5() {
 
     $urlParser = new OCA_mozilla_sync\UrlParser('/1.0/testuser///');
     $this->assertTrue($urlParser->isValid());
@@ -49,7 +49,7 @@ class Test_UrlParser extends UnitTestCase {
     $this->assertTrue($urlParser->commandCount() === 0);
   }
 
-  function testStorageApi_1(){
+  function testStorageApi_1() {
 
     $urlParser = new OCA_mozilla_sync\UrlParser('/1.1/testuser/storage/collection/id');
     $this->assertTrue($urlParser->isValid());
@@ -59,7 +59,7 @@ class Test_UrlParser extends UnitTestCase {
     $this->assertTrue($urlParser->commandCount() === 3);
   }
 
-  function testModifiers(){
+  function testModifiers() {
 
     $urlParser = new OCA_mozilla_sync\UrlParser('/1.1/testuser/storage/tabs');
     $modifierArray = array();

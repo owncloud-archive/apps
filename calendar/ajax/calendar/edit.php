@@ -13,7 +13,7 @@ OCP\JSON::callCheck();
 
 $calendarcolor_options = OC_Calendar_Calendar::getCalendarColorOptions();
 $calendar = OC_Calendar_App::getCalendar($_GET['calendarid'], true);
-if(!$calendar){
+if(!$calendar) {
 	OCP\JSON::error(array('message'=>'permission denied'));
 	exit;
 }

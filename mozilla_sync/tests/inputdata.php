@@ -2,7 +2,7 @@
 
 class Test_InputData extends UnitTestCase {
 
-	function test_CommonUsage(){
+	function test_CommonUsage() {
 
 	  $json_input = '{"password":"tajnehaslo","email":"test1234@test1234.pl","captcha-challenge":null,"captcha-response":null}';
 
@@ -29,7 +29,7 @@ class Test_InputData extends UnitTestCase {
 
 	}
 
-	function test_WrongInput(){
+	function test_WrongInput() {
 
 		$json_input = '{"password":"tajnehasl';
 

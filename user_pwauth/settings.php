@@ -23,8 +23,8 @@
 $params = array('uid_list', 'pwauth_path');
 
 if ($_POST) {
-	foreach($params as $param){
-		if(isset($_POST[$param])){
+	foreach($params as $param) {
+		if(isset($_POST[$param])) {
 			OC_Appconfig::setValue('user_pwauth', $param, $_POST[$param]);
 		}
 	}

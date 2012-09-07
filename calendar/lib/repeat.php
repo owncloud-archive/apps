@@ -15,11 +15,11 @@ class OC_Calendar_Repeat{
 	 * @param (int) $id - id of the event
 	 * @return (array)
 	 */
-	public static function get($id){
+	public static function get($id) {
 		$stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_repeat` WHERE `eventid` = ?');
 		$result = $stmt->execute(array($id));
 		$return = array();
-		while($row = $result->fetchRow()){
+		while($row = $result->fetchRow()) {
 			$return[] = $row;
 		}
 		return $return;
@@ -31,7 +31,7 @@ class OC_Calendar_Repeat{
 	 * @param (DateTime) $until - end for period in UTC
 	 * @return (array)
 	 */
-	public static function get_inperiod($id, $from, $until){
+	public static function get_inperiod($id, $from, $until) {
 		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*calendar_repeat` WHERE `eventid` = ?'
 		.' AND ((`startdate` >= ? AND `startdate` <= ?)'
 		.' OR (`enddate` >= ? AND `enddate` <= ?))');
@@ -39,7 +39,7 @@ class OC_Calendar_Repeat{
 					OC_Calendar_Object::getUTCforMDB($from), OC_Calendar_Object::getUTCforMDB($until),
 					OC_Calendar_Object::getUTCforMDB($from), OC_Calendar_Object::getUTCforMDB($until)));
 		$return = array();
-		while($row = $result->fetchRow()){
+		while($row = $result->fetchRow()) {
 			$return[] = $row;
 		}
 		return $return;
@@ -49,11 +49,11 @@ class OC_Calendar_Repeat{
 	 * @param (int) $id - id of the calendar
 	 * @return (array)
 	 */
-	public static function getCalendar($id){
+	public static function getCalendar($id) {
 		$stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_repeat` WHERE `calid` = ?');
 		$result = $stmt->execute(array($id));
 		$return = array();
-		while($row = $result->fetchRow()){
+		while($row = $result->fetchRow()) {
 			$return[] = $row;
 		}
 		return $return;
@@ -65,7 +65,7 @@ class OC_Calendar_Repeat{
 	 * @param (string) $until - end for period in UTC
 	 * @return (array)
 	 */
-	public static function getCalendar_inperiod($id, $from, $until){
+	public static function getCalendar_inperiod($id, $from, $until) {
 		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*calendar_repeat` WHERE `calid` = ?'
 		.' AND ((`startdate` >= ? AND `startdate` <= ?)'
 		.' OR (`enddate` >= ? AND `enddate` <= ?))');
@@ -73,7 +73,7 @@ class OC_Calendar_Repeat{
 					$from, $until,
 					$from, $until));
 		$return = array();
-		while($row = $result->fetchRow()){
+		while($row = $result->fetchRow()) {
 			$return[] = $row;
 		}
 		return $return;
@@ -83,9 +83,9 @@ class OC_Calendar_Repeat{
 	 * @param (int) id - id of the event
 	 * @return (bool)
 	 */
-	public static function generate($id){
+	public static function generate($id) {
 		$event = OC_Calendar_Object::find($id);
-		if($event['repeating'] == 0){
+		if($event['repeating'] == 0) {
 			return false;
 		}
 		$object = OC_VObject::parse($event['calendardata']);
@@ -94,8 +94,8 @@ class OC_Calendar_Repeat{
 		$end = new DateTime('31-12-' . date('Y') . ' 23:59:59', new DateTimeZone('UTC'));
 		$end->modify('+5 years');
 		$object->expand($start, $end);
-		foreach($object->getComponents() as $vevent){
-			if(!($vevent instanceof Sabre_VObject_Component_VEvent)){
+		foreach($object->getComponents() as $vevent) {
+			if(!($vevent instanceof Sabre_VObject_Component_VEvent)) {
 				continue;
 			}
 			$startenddate = OC_Calendar_Object::generateStartEndDate($vevent->DTSTART, OC_Calendar_Object::getDTEndFromVEvent($vevent), ($vevent->DTSTART->getDateType() == Sabre_VObject_Element_DateTime::DATE)?true:false, 'UTC');
@@ -109,9 +109,9 @@ class OC_Calendar_Repeat{
 	 * @param (int) id - id of the calendar
 	 * @return (bool)
 	 */
-	public static function generateCalendar($id){
+	public static function generateCalendar($id) {
 		$allobjects = OC_Calendar_Object::all($id);
-		foreach($allobjects as $event){
+		foreach($allobjects as $event) {
 			self::generate($event['id']);
 		}
 		return true;
@@ -121,7 +121,7 @@ class OC_Calendar_Repeat{
 	 * @param (int) id - id of the event
 	 * @return (bool)
 	 */
-	public static function update($id){
+	public static function update($id) {
 		self::clean($id);
 		self::generate($id);
 		return true;
@@ -131,7 +131,7 @@ class OC_Calendar_Repeat{
 	 * @param (int) id - id of the calendar
 	 * @return (bool)
 	 */
-	public static function updateCalendar($id){
+	public static function updateCalendar($id) {
 		self::cleanCalendar($id);
 		self::generateCalendar($id);
 		return true;
@@ -141,8 +141,8 @@ class OC_Calendar_Repeat{
 	 * @param (int) id - id of the event
 	 * @return (bool)
 	 */
-	public static function is_cached($id){
-		if(count(self::get($id)) != 0){
+	public static function is_cached($id) {
+		if(count(self::get($id)) != 0) {
 			return true;
 		}else{
 			return false;
@@ -155,8 +155,8 @@ class OC_Calendar_Repeat{
 	 * @param (DateTime) $until - end for period in UTC
 	 * @return (bool)
 	 */
-	public static function is_cached_inperiod($id, $start, $end){
-		if(count(self::get_inperiod($id, $start, $end)) != 0){
+	public static function is_cached_inperiod($id, $start, $end) {
+		if(count(self::get_inperiod($id, $start, $end)) != 0) {
 			return true;
 		}else{
 			return false;
@@ -168,16 +168,16 @@ class OC_Calendar_Repeat{
 	 * @param (int) id - id of the calendar
 	 * @return (bool)
 	 */
-	public static function is_calendar_cached($id){
+	public static function is_calendar_cached($id) {
 		$cachedevents = count(self::getCalendar($id));
 		$repeatingevents = 0;
 		$allevents = OC_Calendar_Object::all($id);
-		foreach($allevents as $event){
-			if($event['repeating'] === 1){
+		foreach($allevents as $event) {
+			if($event['repeating'] === 1) {
 				$repeatingevents++;
 			}
 		}
-		if($cachedevents < $repeatingevents){
+		if($cachedevents < $repeatingevents) {
 			return false;
 		}else{
 			return true;
@@ -188,7 +188,7 @@ class OC_Calendar_Repeat{
 	 * @param (int) id - id of the event
 	 * @return (bool)
 	 */
-	public static function clean($id){
+	public static function clean($id) {
 		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*calendar_repeat` WHERE `eventid` = ?');
 		$stmt->execute(array($id));
 	}
@@ -197,7 +197,7 @@ class OC_Calendar_Repeat{
 	 * @param (int) id - id of the calendar
 	 * @return (bool)
 	 */
-	public static function cleanCalendar($id){
+	public static function cleanCalendar($id) {
 		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*calendar_repeat` WHERE `calid` = ?');
 		$stmt->execute(array($id));
 	}

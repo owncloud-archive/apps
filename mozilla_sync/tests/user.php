@@ -3,11 +3,11 @@
 class Test_User extends UnitTestCase {
   private $user;
 
-	function setUp(){
+	function setUp() {
 	  $this->user = uniqid('test_');
 	}
 
-	function test(){
+	function test() {
     // TODO
 	}
 

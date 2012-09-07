@@ -3,7 +3,7 @@
 	<table width="100%" style="border: 0;">
 	<?php
 	$option_calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
-	for($i = 0; $i < count($option_calendars); $i++){
+	for($i = 0; $i < count($option_calendars); $i++) {
 		echo "<tr data-id='".$option_calendars[$i]['id']."'>";
 		$tmpl = new OCP\Template('calendar', 'part.choosecalendar.rowfields');
 		$tmpl->assign('calendar', $option_calendars[$i]);

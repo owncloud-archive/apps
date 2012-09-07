@@ -73,7 +73,7 @@ $lines = explode($nl, $file);
 $inelement = false;
 $parts = array();
 $card = array();
-foreach($lines as $line){
+foreach($lines as $line) {
 	if(strtoupper(trim($line)) == 'BEGIN:VCARD') {
 		$inelement = true;
 	} elseif (strtoupper(trim($line)) == 'END:VCARD') {
@@ -109,7 +109,7 @@ if(!count($parts) > 0) {
 	}
 	exit();
 }
-foreach($parts as $part){
+foreach($parts as $part) {
 	$card = OC_VObject::parse($part);
 	if (!$card) {
 		$failed += 1;

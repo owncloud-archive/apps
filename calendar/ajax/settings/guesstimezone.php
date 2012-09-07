@@ -17,7 +17,7 @@ $lng = $_POST['lng'];
 
 $timezone =  OC_Geo::timezone($lat, $lng);
 
-if($timezone == OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'timezone')){
+if($timezone == OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'timezone')) {
 	OCP\JSON::success();
 	exit;
 }

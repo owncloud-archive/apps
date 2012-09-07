@@ -19,11 +19,11 @@
 			<th width="75px"><?php echo $l->t("Category");?>:</th>
 			<td>
 				<?php
-				if(count($_['categories']) == 0 || $_['categories'] == ''){
+				if(count($_['categories']) == 0 || $_['categories'] == '') {
 					echo $l->t('No categories selected');
 				}else{
 					echo '<ul>';
-					foreach($_['categories'] as $categorie){
+					foreach($_['categories'] as $categorie) {
 						echo '<li>' . $categorie . '</li>';
 					}
 					echo '</ul>';
@@ -48,7 +48,7 @@
 		<tr>
 			<th width="75px"></th>
 			<td>
-				<input onclick="Calendar.UI.lockTime();" type="checkbox"<?php if($_['allday']){echo 'checked="checked"';} ?> id="allday_checkbox" name="allday" disabled="disabled">
+				<input onclick="Calendar.UI.lockTime();" type="checkbox"<?php if($_['allday']) {echo 'checked="checked"';} ?> id="allday_checkbox" name="allday" disabled="disabled">
 				<?php echo $l->t("All Day Event");?>
 			</td>
 		</tr>

@@ -90,7 +90,7 @@ class OC_Contacts_VCard {
 	 * @param integer $id
 	 * @return associative array or false.
 	 */
-	public static function find($id){
+	public static function find($id) {
 		try {
 			$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `id` = ?' );
 			$result = $stmt->execute(array($id));
@@ -109,7 +109,7 @@ class OC_Contacts_VCard {
 	 * @param string $uri the uri ('filename')
 	 * @return associative array or false.
 	 */
-	public static function findWhereDAVDataIs($aid,$uri){
+	public static function findWhereDAVDataIs($aid,$uri) {
 		try {
 			$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
 			$result = $stmt->execute(array($aid,$uri));
@@ -129,7 +129,7 @@ class OC_Contacts_VCard {
 	* This has to be changed to either TEL;TYPE=HOME,CELL:123456789 or TEL;TYPE=HOME;TYPE=CELL:123456789 - both are valid.
 	*/
 	public static function formatPropertyTypes(&$property) {
-		foreach($property->parameters as $key=>&$parameter){
+		foreach($property->parameters as $key=>&$parameter) {
 			$types = OC_Contacts_App::getTypesOfProperty($property->name);
 			if(is_array($types) && in_array(strtoupper($parameter->name), array_keys($types)) || strtoupper($parameter->name) == 'PREF') {
 				$property->parameters[] = new Sabre_VObject_Parameter('TYPE', $parameter->name);
@@ -146,7 +146,7 @@ class OC_Contacts_VCard {
 	*/
 	public static function decodeProperty(&$property) {
 		// Check out for encoded string and decode them :-[
-		foreach($property->parameters as $key=>&$parameter){
+		foreach($property->parameters as $key=>&$parameter) {
 			if(strtoupper($parameter->name) == 'ENCODING') {
 				if(strtoupper($parameter->value) == 'QUOTED-PRINTABLE') { // what kind of other encodings could be used?
 					// Decode quoted-printable and strip any control chars
@@ -213,7 +213,7 @@ class OC_Contacts_VCard {
 			$upgrade = true;
 			//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Updating from version: '.$version, OCP\Util::DEBUG);
 		}
-		foreach($vcard->children as &$property){
+		foreach($vcard->children as &$property) {
 			// Decode string properties and remove obsolete properties.
 			if($upgrade && in_array($property->name, $stringprops)) {
 				self::decodeProperty($property);
@@ -287,7 +287,7 @@ class OC_Contacts_VCard {
 	 * @param $isChecked boolean If the vCard should be checked for validity and version.
 	 * @return insertid on success or false.
 	 */
-	public static function add($aid, OC_VObject $card, $uri=null, $isChecked=false){
+	public static function add($aid, OC_VObject $card, $uri=null, $isChecked=false) {
 		if(is_null($card)) {
 			OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::add. No vCard supplied', OCP\Util::ERROR);
 			return null;
@@ -350,7 +350,7 @@ class OC_Contacts_VCard {
 	 * @param string $data  vCard file
 	 * @return insertid
 	 */
-	public static function addFromDAVData($id,$uri,$data){
+	public static function addFromDAVData($id,$uri,$data) {
 		$card = OC_VObject::parse($data);
 		return self::add($id, $card, $uri);
 	}
@@ -359,7 +359,7 @@ class OC_Contacts_VCard {
 	 * @brief Mass updates an array of cards
 	 * @param array $objects  An array of [id, carddata].
 	 */
-	public static function updateDataByID($objects){
+	public static function updateDataByID($objects) {
 		$stmt = OCP\DB::prepare( 'UPDATE `*PREFIX*contacts_cards` SET `carddata` = ?, `lastmodified` = ? WHERE `id` = ?' );
 		$now = new DateTime;
 		foreach($objects as $object) {
@@ -395,7 +395,7 @@ class OC_Contacts_VCard {
 	 * @param OC_VObject $card  vCard file
 	 * @return boolean true on success, otherwise an exception will be thrown
 	 */
-	public static function edit($id, OC_VObject $card){
+	public static function edit($id, OC_VObject $card) {
 		$oldcard = self::find($id);
 		if (!$oldcard) {
 			OCP\Util::writeLog('contacts', __METHOD__.', id: '
@@ -465,7 +465,7 @@ class OC_Contacts_VCard {
 	 * @param string $data  vCard file
 	 * @return boolean
 	 */
-	public static function editFromDAVData($aid, $uri, $data){
+	public static function editFromDAVData($aid, $uri, $data) {
 		$oldcard = self::findWhereDAVDataIs($aid, $uri);
 		$card = OC_VObject::parse($data);
 		if(!$card) {
@@ -491,7 +491,7 @@ class OC_Contacts_VCard {
 	 * @param integer $id id of card
 	 * @return boolean true on success, otherwise an exception will be thrown
 	 */
-	public static function delete($id){
+	public static function delete($id) {
 		$card = self::find($id);
 		if (!$card) {
 			OCP\Util::writeLog('contacts', __METHOD__.', id: '
@@ -561,7 +561,7 @@ class OC_Contacts_VCard {
 	 * @param string $uri the uri of the card
 	 * @return boolean
 	 */
-	public static function deleteFromDAVData($aid,$uri){
+	public static function deleteFromDAVData($aid,$uri) {
 		$addressbook = OC_Contacts_Addressbook::find($aid);
 		if ($addressbook['userid'] != OCP\User::getUser()) {
 			$query = OCP\DB::prepare( 'SELECT `id` FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
@@ -692,7 +692,7 @@ class OC_Contacts_VCard {
 			'value' => $value,
 			'parameters' => array(),
 			'checksum' => md5($property->serialize()));
-		foreach($property->parameters as $parameter){
+		foreach($property->parameters as $parameter) {
 			// Faulty entries by kaddressbook
 			// Actually TYPE=PREF is correct according to RFC 2426
 			// but this way is more handy in the UI. Tanghus.

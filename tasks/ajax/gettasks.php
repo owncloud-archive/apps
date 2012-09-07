@@ -14,13 +14,13 @@ $calendars = OC_Calendar_Calendar::allCalendars(OCP\User::getUser(), true);
 $user_timezone = OC_Calendar_App::getTimezone();
 
 $tasks = array();
-foreach( $calendars as $calendar ){
+foreach( $calendars as $calendar ) {
         $calendar_tasks = OC_Calendar_Object::all($calendar['id']);
-        foreach( $calendar_tasks as $task ){
-                if($task['objecttype']!='VTODO'){
+        foreach( $calendar_tasks as $task ) {
+                if($task['objecttype']!='VTODO') {
                         continue;
                 }
-                if(is_null($task['summary'])){
+                if(is_null($task['summary'])) {
                         continue;
                 }
 		$object = OC_VObject::parse($task['calendardata']);

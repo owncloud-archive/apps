@@ -30,7 +30,7 @@ $message_id = isset( $_GET['message_id'] ) ? $_GET['message_id'] : null;
 
 $message = OCA_Mail\App::getMessage( OCP\User::getUser(), $account_id, $folder_id, $message_id );
 
-if( $message['error'] ){
+if( $message['error'] ) {
 	OCP\JSON::error(array('data' => array('message' => $message['error'] )));
 	exit();
 }

@@ -26,8 +26,8 @@ $params = array('saml_ssp_path', 'saml_sp_source', 'saml_autocreate', 'saml_upda
 OCP\Util::addscript('user_saml', 'settings');
 
 if ($_POST) {
-	foreach($params as $param){
-		if(isset($_POST[$param])){
+	foreach($params as $param) {
+		if(isset($_POST[$param])) {
 			OCP\Config::setAppValue('user_saml', $param, $_POST[$param]);
 		}
 	}

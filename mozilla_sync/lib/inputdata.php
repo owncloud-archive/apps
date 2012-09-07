@@ -28,7 +28,7 @@ class InputData implements \arrayaccess
 
     $input = '';
 
-    if($jsonInput === self::NO_VALUE){
+    if($jsonInput === self::NO_VALUE) {
       $input = file_get_contents('php://input');
     }
     else{
@@ -37,7 +37,7 @@ class InputData implements \arrayaccess
 
     $parseResult = json_decode($input, true);
 
-    if($parseResult == NULL){
+    if($parseResult == NULL) {
       $this->parseValidFlag = false;
     }
     else{
@@ -51,7 +51,7 @@ class InputData implements \arrayaccess
    *
    * @return bool
    */
-  public function isValid(){
+  public function isValid() {
   	return $this->parseValidFlag;
   }
 
@@ -61,7 +61,7 @@ class InputData implements \arrayaccess
    * @param string $valueName
    * @return boolean
    */
-  public function hasValue($valueName){
+  public function hasValue($valueName) {
     return array_key_exists($valueName, $this->inputArray) && $this->inputArray[$valueName] != NULL;
   }
 
@@ -71,9 +71,9 @@ class InputData implements \arrayaccess
    * @param array $valuesNameArray
    * @return boolean
    */
-  public function hasValues($valuesNameArray){
-    foreach ($valuesNameArray as $valueName){
-      if(!$this->hasValue($valueName)){
+  public function hasValues($valuesNameArray) {
+    foreach ($valuesNameArray as $valueName) {
+      if(!$this->hasValue($valueName)) {
    	    return false;
    	  }
 
@@ -86,14 +86,14 @@ class InputData implements \arrayaccess
    *
    * @param string $valueName
    */
-  public function getValue($valueName){
+  public function getValue($valueName) {
     return $this->inputArray[$valueName];
   }
 
   /**
    * @brief Return input data as array
    */
-  public function getInputArray(){
+  public function getInputArray() {
     return $this->inputArray;
   }
 

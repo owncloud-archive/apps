@@ -24,12 +24,12 @@ class UserService extends Service
   /**
    * @brief Run service
    */
-  public function run(){
+  public function run() {
 
     //
     // Check if given url is valid
     //
-    if(!$this->urlParser->isValid()){
+    if(!$this->urlParser->isValid()) {
       Utils::changeHttpStatus(Utils::STATUS_NOT_FOUND);
       return false;
     }
@@ -37,25 +37,25 @@ class UserService extends Service
     //
     // Map request to functions
     //
-    if($this->urlParser->commandCount() == 0){
+    if($this->urlParser->commandCount() == 0) {
 
       $syncUserHash = $this->urlParser->getUserName();
 
-      switch(Utils::getRequestMethod()){
+      switch(Utils::getRequestMethod()) {
         case 'GET': $this->findUser($syncUserHash); break;
         case 'PUT': $this->createUser($syncUserHash); break;
         case 'DELETE': $this->deleteUser($syncUserHash); break;
         default: Utils::changeHttpStatus(Utils::STATUS_NOT_FOUND);
       }
     }
-    else if(($this->urlParser->commandCount() == 1) && (Utils::getRequestMethod() == 'POST')){
+    else if(($this->urlParser->commandCount() == 1) && (Utils::getRequestMethod() == 'POST')) {
 
     	$syncUserHash = $this->urlParser->getUserName();
       $password = $this->urlParser->getCommand(0);
 
       $this->changePassword($syncUserHash, $password);
     }
-    else if($this->urlParser->commandMatch('/node\/weave/')){
+    else if($this->urlParser->commandMatch('/node\/weave/')) {
       $this->getSyncServer();
     }
     else{
@@ -77,8 +77,8 @@ class UserService extends Service
    *
    *  @param string $userName
    */
-  private function findUser($syncUserHash){
-    if(User::syncUserExists($syncUserHash)){
+  private function findUser($syncUserHash) {
+    if(User::syncUserExists($syncUserHash)) {
       OutputData::write('1');
     }
     else{
@@ -100,7 +100,7 @@ class UserService extends Service
    *    503: there was an error getting a node | empty body
    *    404: user not found | empty body
    */
-  private function getSyncServer(){
+  private function getSyncServer() {
     OutputData::write(Utils::getServerAddress());
     return true;
   }
@@ -134,36 +134,36 @@ class UserService extends Service
    *
    *  @param string $userName
    */
-  private function createUser($syncUserHash){
+  private function createUser($syncUserHash) {
 
     $inputData = $this->getInputData();
 
     // JSON parse failure
-    if(!$inputData->isValid()){
+    if(!$inputData->isValid()) {
       Utils::sendError(400, 6);
       return true;
     }
 
     // No password
-    if(!$inputData->hasValue('password')){
+    if(!$inputData->hasValue('password')) {
       Utils::sendError(400, 7);
       return true;
     }
 
     // No email
-    if(!$inputData->hasValue('email')){
+    if(!$inputData->hasValue('email')) {
     	Utils::sendError(400, 12);
     	return true;
     }
 
     // User already exists
-    if(User::syncUserExists($syncUserHash)){
+    if(User::syncUserExists($syncUserHash)) {
       Utils::sendError(400, 4);
       return true;
     }
 
     // Create user
-    if(User::createUser($syncUserHash, $inputData->getValue('password'), $inputData->getValue('email'))){
+    if(User::createUser($syncUserHash, $inputData->getValue('password'), $inputData->getValue('email'))) {
       OutputData::write(strtolower($syncUserHash));
     }
     else{
@@ -191,30 +191,30 @@ class UserService extends Service
    *
    *  @param string $userName
    */
-  private function deleteUser($syncUserHash){
+  private function deleteUser($syncUserHash) {
 
-    if(User::syncUserExists($syncUserHash) == false){
+    if(User::syncUserExists($syncUserHash) == false) {
       Utils::changeHttpStatus(Utils::STATUS_NOT_FOUND);
       return true;
     }
 
-    if(User::authenticateUser($syncUserHash) == false){
+    if(User::authenticateUser($syncUserHash) == false) {
       Utils::changeHttpStatus(Utils::STATUS_INVALID_USER);
       return true;
     }
 
     $userId = User::userHashToId($syncUserHash);
-    if($userId == false){
+    if($userId == false) {
       Utils::changeHttpStatus(Utils::STATUS_INVALID_USER);
       return true;
     }
 
-    if(Storage::deleteStorage($userId) == false){
+    if(Storage::deleteStorage($userId) == false) {
       Utils::changeHttpStatus(Utils::STATUS_MAINTENANCE);
       return true;
     }
 
-    if(User::deleteUser($userId) == false){
+    if(User::deleteUser($userId) == false) {
       Utils::changeHttpStatus(Utils::STATUS_MAINTENANCE);
       return true;
     }
@@ -245,7 +245,7 @@ class UserService extends Service
    *    503: there was an error updating the password
    *    401: authentication failed
    */
-  private function changePassword($syncUserHash, $password){
+  private function changePassword($syncUserHash, $password) {
     OutputData::write('success');
     return true;
   }

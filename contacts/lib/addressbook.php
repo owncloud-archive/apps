@@ -110,7 +110,7 @@ class OC_Contacts_Addressbook {
 	 * @param string $principaluri
 	 * @return array
 	 */
-	public static function allWherePrincipalURIIs($principaluri){
+	public static function allWherePrincipalURIIs($principaluri) {
 		$uid = self::extractUserID($principaluri);
 		return self::all($uid);
 	}
@@ -180,7 +180,7 @@ class OC_Contacts_Addressbook {
 			return false;
 		}
 		$uris = array();
-		while($row = $result->fetchRow()){
+		while($row = $result->fetchRow()) {
 			$uris[] = $row['uri'];
 		}
 
@@ -320,7 +320,7 @@ class OC_Contacts_Addressbook {
 
 		// First delete cards belonging to this addressbook.
 		$cards = OC_Contacts_VCard::all($id);
-		foreach($cards as $card){
+		foreach($cards as $card) {
 			try {
 				OC_Contacts_VCard::delete($card['id']);
 			} catch(Exception $e) {

@@ -53,7 +53,7 @@ class Utils
   /**
    * @brief Change application state to test
    */
-  static public function setTestState(){
+  static public function setTestState() {
     self::$testTime = self::getMozillaTimestamp();
     self::$state = self::STATE_TEST;
   }
@@ -63,7 +63,7 @@ class Utils
    *
    * @return boolean
    */
-  static public function isNormalState(){
+  static public function isNormalState() {
     return self::$state === self::STATE_NORMAL;
   }
 
@@ -72,7 +72,7 @@ class Utils
    *
    * @return boolean
    */
-  static public function isTestState(){
+  static public function isTestState() {
     return self::$state === self::STATE_TEST;
   }
 
@@ -81,17 +81,17 @@ class Utils
    *
    * @param integer $statusCode
    */
-  public static function changeHttpStatus($statusCode){
+  public static function changeHttpStatus($statusCode) {
 
    $message = '';
-   switch($statusCode){
+   switch($statusCode) {
      case 404: $message = 'Not Found'; break;
      case 400: $message = 'Bad Request'; break;
      case 500: $message = 'Internal Server Error'; break;
      case 503: $message = 'Service Unavailable'; break;
    }
 
-   if(self::isNormalState()){
+   if(self::isNormalState()) {
      header('HTTP/1.0 ' . $statusCode . ' ' . $message);
    }
    else{
@@ -105,13 +105,13 @@ class Utils
    * @param integer $httpStatusCode
    * @param integer $syncErrorCode
    */
-  public static function sendError($httpStatusCode, $syncErrorCode){
+  public static function sendError($httpStatusCode, $syncErrorCode) {
     self::changeHttpStatus($httpStatusCode);
     OutputData::write($syncErrorCode);
   }
 
-  public static function getRequestMethod(){
-    if(self::isNormalState()){
+  public static function getRequestMethod() {
+    if(self::isNormalState()) {
       return $_SERVER['REQUEST_METHOD'];
     }
     else{
@@ -122,7 +122,7 @@ class Utils
   /**
    * @brief Generate Mozilla sync timestamp for time synchronization
    */
-  public static function generateMozillaTimestamp(){
+  public static function generateMozillaTimestamp() {
     header('X-Weave-Timestamp: ' . self::getMozillaTimestamp());
   }
   /**
@@ -130,8 +130,8 @@ class Utils
    *
    * @return number
    */
-  public static function getMozillaTimestamp(){
-    if(self::isNormalState()){
+  public static function getMozillaTimestamp() {
+    if(self::isNormalState()) {
       return round(microtime(true),2);
     }
     else{
@@ -144,7 +144,7 @@ class Utils
    *
    * @return string
    */
-  public static function getServerAddress(){
+  public static function getServerAddress() {
     return \OCP\Util::linkToRemote('mozilla_sync');
   }
 
@@ -166,17 +166,17 @@ class Utils
    *
    * @return string
    */
-  public static function prepareUrl(){
+  public static function prepareUrl() {
     unset($_GET['url']);
     unset($_GET['service']);
 
     $modifiers = '';
 
-    if(count($_GET) > 0){
+    if(count($_GET) > 0) {
       $first = true;
       foreach($_GET as $key => $value)
       {
-        if($first){
+        if($first) {
           $modifiers .= '?';
           $first = false;
         }
@@ -195,21 +195,21 @@ class Utils
    *
    * @return string
    */
-  public static function getSyncUrl(){
+  public static function getSyncUrl() {
     $url = self::getUrl();
-    if(self::getServiceType() === 'userapi'){
+    if(self::getServiceType() === 'userapi') {
       $url = str_replace('/user/','', $url);
     }
 
     return $url;
   }
 
-  private static function getUrl(){
+  private static function getUrl() {
     $url = $_SERVER['REQUEST_URI'];
     $url = str_replace('//','/',$url);
 
     $pos = strpos($url, 'mozilla_sync');
-    if($pos === false){
+    if($pos === false) {
       return false;
     }
     $pos += strlen('mozilla_sync');
@@ -224,8 +224,8 @@ class Utils
    *
    * @return string
    */
-  public static function getServiceType(){
-    if(strpos(self::getUrl(), '/user/') === 0){
+  public static function getServiceType() {
+    if(strpos(self::getUrl(), '/user/') === 0) {
       return 'userapi';
     }
 

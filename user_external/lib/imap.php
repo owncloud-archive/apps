@@ -9,7 +9,7 @@
 class OC_User_IMAP extends OC_User_Backend{
 	private $mailbox;
 	
-	public function __construct($mailbox){
+	public function __construct($mailbox) {
 		$this->mailbox=$mailbox;
 	}
 	
@@ -21,11 +21,11 @@ class OC_User_IMAP extends OC_User_Backend{
 	 *
 	 * Check if the password is correct without logging in the user
 	 */
-	public function checkPassword($uid, $password){
+	public function checkPassword($uid, $password) {
 		$mbox = @imap_open($this->mailbox, $uid, $password);
 		imap_errors();
 		imap_alerts();
-		if($mbox){
+		if($mbox) {
 			imap_close($mbox);
 			return $uid;
 		}else{
@@ -33,7 +33,7 @@ class OC_User_IMAP extends OC_User_Backend{
 		}
 	}
 
-	public function userExists($uid){
+	public function userExists($uid) {
 		return true;
 	}
 }

@@ -39,12 +39,12 @@ class OC_Calendar_Object{
 	 * The objects are associative arrays. You'll find the original vObject in
 	 * ['calendardata']
 	 */
-	public static function all($id){
+	public static function all($id) {
 		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*calendar_objects` WHERE `calendarid` = ?' );
 		$result = $stmt->execute(array($id));
 
 		$calendarobjects = array();
-		while( $row = $result->fetchRow()){
+		while( $row = $result->fetchRow()) {
 			$calendarobjects[] = $row;
 		}
 
@@ -61,7 +61,7 @@ class OC_Calendar_Object{
 	 * The objects are associative arrays. You'll find the original vObject
 	 * in ['calendardata']
 	 */
-	public static function allInPeriod($id, $start, $end){
+	public static function allInPeriod($id, $start, $end) {
 		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*calendar_objects` WHERE `calendarid` = ?'
 		.' AND ((`startdate` >= ? AND `startdate` <= ? AND `repeating` = 0)'
 		.' OR (`enddate` >= ? AND `enddate` <= ? AND `repeating` = 0)'
@@ -74,7 +74,7 @@ class OC_Calendar_Object{
 					$end));
 
 		$calendarobjects = array();
-		while( $row = $result->fetchRow()){
+		while( $row = $result->fetchRow()) {
 			$calendarobjects[] = $row;
 		}
 
@@ -86,7 +86,7 @@ class OC_Calendar_Object{
 	 * @param integer $id
 	 * @return associative array
 	 */
-	public static function find($id){
+	public static function find($id) {
 		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*calendar_objects` WHERE `id` = ?' );
 		$result = $stmt->execute(array($id));
 
@@ -99,7 +99,7 @@ class OC_Calendar_Object{
 	 * @param string $uri the uri ('filename')
 	 * @return associative array
 	 */
-	public static function findWhereDAVDataIs($cid,$uri){
+	public static function findWhereDAVDataIs($cid,$uri) {
 		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*calendar_objects` WHERE `calendarid` = ? AND `uri` = ?' );
 		$result = $stmt->execute(array($cid,$uri));
 
@@ -112,7 +112,7 @@ class OC_Calendar_Object{
 	 * @param string $data  object
 	 * @return insertid
 	 */
-	public static function add($id,$data){
+	public static function add($id,$data) {
 		$calendar = OC_Calendar_Calendar::find($id);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
@@ -128,7 +128,7 @@ class OC_Calendar_Object{
 		OC_Calendar_App::loadCategoriesFromVCalendar($object);
 		list($type,$startdate,$enddate,$summary,$repeating,$uid) = self::extractData($object);
 
-		if(is_null($uid)){
+		if(is_null($uid)) {
 			$object->setUID();
 			$data = $object->serialize();
 		}
@@ -151,7 +151,7 @@ class OC_Calendar_Object{
 	 * @param string $data  object
 	 * @return insertid
 	 */
-	public static function addFromDAVData($id,$uri,$data){
+	public static function addFromDAVData($id,$uri,$data) {
 		$calendar = OC_Calendar_Calendar::find($id);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
@@ -181,7 +181,7 @@ class OC_Calendar_Object{
 	 * @param string $data  object
 	 * @return boolean
 	 */
-	public static function edit($id, $data){
+	public static function edit($id, $data) {
 		$oldobject = self::find($id);
 
 		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
@@ -215,7 +215,7 @@ class OC_Calendar_Object{
 	 * @param string $data  object
 	 * @return boolean
 	 */
-	public static function editFromDAVData($cid,$uri,$data){
+	public static function editFromDAVData($cid,$uri,$data) {
 		$oldobject = self::findWhereDAVDataIs($cid,$uri);
 
 		$calendar = OC_Calendar_Calendar::find($cid);
@@ -246,7 +246,7 @@ class OC_Calendar_Object{
 	 * @param integer $id id of object
 	 * @return boolean
 	 */
-	public static function delete($id){
+	public static function delete($id) {
 		$oldobject = self::find($id);
 		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
@@ -273,7 +273,7 @@ class OC_Calendar_Object{
 	 * @param string $uri the uri of the object
 	 * @return boolean
 	 */
-	public static function deleteFromDAVData($cid,$uri){
+	public static function deleteFromDAVData($cid,$uri) {
 		$oldobject = self::findWhereDAVDataIs($cid, $uri);
 		$calendar = OC_Calendar_Calendar::find($cid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
@@ -294,7 +294,7 @@ class OC_Calendar_Object{
 		return true;
 	}
 
-	public static function moveToCalendar($id, $calendarid){
+	public static function moveToCalendar($id, $calendarid) {
 		$calendar = OC_Calendar_Calendar::find($calendarid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
@@ -319,7 +319,7 @@ class OC_Calendar_Object{
      * @brief Creates a UID
      * @return string
      */
-    protected static function createUID(){
+    protected static function createUID() {
         return substr(md5(rand().time()),0,10);
     }
 
@@ -330,34 +330,34 @@ class OC_Calendar_Object{
 	 *
 	 * [type, start, end, summary, repeating, uid]
 	 */
-	protected static function extractData($object){
+	protected static function extractData($object) {
 		$return = array('',null,null,'',0,null);
 
 		// Child to use
 		$children = 0;
 		$use = null;
-		foreach($object->children as $property){
-			if($property->name == 'VEVENT'){
+		foreach($object->children as $property) {
+			if($property->name == 'VEVENT') {
 				$children++;
 				$thisone = true;
 
-				foreach($property->children as &$element){
-					if($element->name == 'RECURRENCE-ID'){
+				foreach($property->children as &$element) {
+					if($element->name == 'RECURRENCE-ID') {
 						$thisone = false;
 					}
 				} unset($element);
 
-				if($thisone){
+				if($thisone) {
 					$use = $property;
 				}
 			}
-			elseif($property->name == 'VTODO' || $property->name == 'VJOURNAL'){
+			elseif($property->name == 'VTODO' || $property->name == 'VJOURNAL') {
 				$return[0] = $property->name;
-				foreach($property->children as &$element){
-					if($element->name == 'SUMMARY'){
+				foreach($property->children as &$element) {
+					if($element->name == 'SUMMARY') {
 						$return[3] = $element->value;
 					}
-					elseif($element->name == 'UID'){
+					elseif($element->name == 'UID') {
 						$return[5] = $element->value;
 					}
 				};
@@ -370,29 +370,29 @@ class OC_Calendar_Object{
 		}
 
 		// find the data
-		if(!is_null($use)){
+		if(!is_null($use)) {
 			$return[0] = $use->name;
-			foreach($use->children as $property){
-				if($property->name == 'DTSTART'){
+			foreach($use->children as $property) {
+				if($property->name == 'DTSTART') {
 					$return[1] = self::getUTCforMDB($property->getDateTime());
 				}
-				elseif($property->name == 'DTEND'){
+				elseif($property->name == 'DTEND') {
 					$return[2] = self::getUTCforMDB($property->getDateTime());
 				}
-				elseif($property->name == 'SUMMARY'){
+				elseif($property->name == 'SUMMARY') {
 					$return[3] = $property->value;
 				}
-				elseif($property->name == 'RRULE'){
+				elseif($property->name == 'RRULE') {
 					$return[4] = 1;
 				}
-				elseif($property->name == 'UID'){
+				elseif($property->name == 'UID') {
 					$return[5] = $property->value;
 				}
 			}
 		}
 
 		// More than one child means reoccuring!
-		if($children > 1){
+		if($children > 1) {
 			$return[4] = 1;
 		}
 		return $return;
@@ -406,7 +406,7 @@ class OC_Calendar_Object{
 	 * This function creates a date string that can be used by MDB2.
 	 * Furthermore it converts the time to UTC.
 	 */
-	public static function getUTCforMDB($datetime){
+	public static function getUTCforMDB($datetime) {
 		return date('Y-m-d H:i', $datetime->format('U') - $datetime->getOffset());
 	}
 
@@ -415,21 +415,21 @@ class OC_Calendar_Object{
 	 * @param object $vevent vevent object
 	 * @return object
 	 */
-	public static function getDTEndFromVEvent($vevent){
+	public static function getDTEndFromVEvent($vevent) {
 		if ($vevent->DTEND) {
 			$dtend = $vevent->DTEND;
 		}else{
 			$dtend = clone $vevent->DTSTART;
 			// clone creates a shallow copy, also clone DateTime
 			$dtend->setDateTime(clone $dtend->getDateTime(), $dtend->getDateType());
-			if ($vevent->DURATION){
+			if ($vevent->DURATION) {
 				$duration = strval($vevent->DURATION);
 				$invert = 0;
-				if ($duration[0] == '-'){
+				if ($duration[0] == '-') {
 					$duration = substr($duration, 1);
 					$invert = 1;
 				}
-				if ($duration[0] == '+'){
+				if ($duration[0] == '+') {
 					$duration = substr($duration, 1);
 				}
 				$interval = new DateInterval($duration);
@@ -444,7 +444,7 @@ class OC_Calendar_Object{
 	 * @brief returns the options for the repeat rule of an repeating event
 	 * @return array - valid inputs for the repeat rule of an repeating event
 	 */
-	public static function getRepeatOptions($l10n){
+	public static function getRepeatOptions($l10n) {
 		return array(
 			'doesnotrepeat' => $l10n->t('Does not repeat'),
 			'daily'         => $l10n->t('Daily'),
@@ -460,7 +460,7 @@ class OC_Calendar_Object{
 	 * @brief returns the options for the end of an repeating event
 	 * @return array - valid inputs for the end of an repeating events
 	 */
-	public static function getEndOptions($l10n){
+	public static function getEndOptions($l10n) {
 		return array(
 			'never' => $l10n->t('never'),
 			'count' => $l10n->t('by occurrences'),
@@ -472,7 +472,7 @@ class OC_Calendar_Object{
 	 * @brief returns the options for an monthly repeating event
 	 * @return array - valid inputs for monthly repeating events
 	 */
-	public static function getMonthOptions($l10n){
+	public static function getMonthOptions($l10n) {
 		return array(
 			'monthday' => $l10n->t('by monthday'),
 			'weekday'  => $l10n->t('by weekday')
@@ -483,7 +483,7 @@ class OC_Calendar_Object{
 	 * @brief returns the options for an weekly repeating event
 	 * @return array - valid inputs for weekly repeating events
 	 */
-	public static function getWeeklyOptions($l10n){
+	public static function getWeeklyOptions($l10n) {
 		return array(
 			'MO' => $l10n->t('Monday'),
 			'TU' => $l10n->t('Tuesday'),
@@ -499,7 +499,7 @@ class OC_Calendar_Object{
 	 * @brief returns the options for an monthly repeating event which occurs on specific weeks of the month
 	 * @return array - valid inputs for monthly repeating events
 	 */
-	public static function getWeekofMonth($l10n){
+	public static function getWeekofMonth($l10n) {
 		return array(
 			'auto' => $l10n->t('events week of month'),
 			'1' => $l10n->t('first'),
@@ -515,9 +515,9 @@ class OC_Calendar_Object{
 	 * @brief returns the options for an yearly repeating event which occurs on specific days of the year
 	 * @return array - valid inputs for yearly repeating events
 	 */
-	public static function getByYearDayOptions(){
+	public static function getByYearDayOptions() {
 		$return = array();
-		foreach(range(1,366) as $num){
+		foreach(range(1,366) as $num) {
 			$return[(string) $num] = (string) $num;
 		}
 		return $return;
@@ -527,9 +527,9 @@ class OC_Calendar_Object{
 	 * @brief returns the options for an yearly or monthly repeating event which occurs on specific days of the month
 	 * @return array - valid inputs for yearly or monthly repeating events
 	 */
-	public static function getByMonthDayOptions(){
+	public static function getByMonthDayOptions() {
 		$return = array();
-		foreach(range(1,31) as $num){
+		foreach(range(1,31) as $num) {
 			$return[(string) $num] = (string) $num;
 		}
 		return $return;
@@ -539,7 +539,7 @@ class OC_Calendar_Object{
 	 * @brief returns the options for an yearly repeating event which occurs on specific month of the year
 	 * @return array - valid inputs for yearly repeating events
 	 */
-	public static function getByMonthOptions($l10n){
+	public static function getByMonthOptions($l10n) {
 		return array(
 			'1'  => $l10n->t('January'),
 			'2'  => $l10n->t('February'),
@@ -560,7 +560,7 @@ class OC_Calendar_Object{
 	 * @brief returns the options for an yearly repeating event
 	 * @return array - valid inputs for yearly repeating events
 	 */
-	public static function getYearOptions($l10n){
+	public static function getYearOptions($l10n) {
 		return array(
 			'bydate' => $l10n->t('by events date'),
 			'byyearday' => $l10n->t('by yearday(s)'),
@@ -573,7 +573,7 @@ class OC_Calendar_Object{
 	 * @brief returns the options for an yearly repeating event which occurs on specific week numbers of the year
 	 * @return array - valid inputs for yearly repeating events
 	 */
-	public static function getByWeekNoOptions(){
+	public static function getByWeekNoOptions() {
 		return range(1, 52);
 	}
 
@@ -582,10 +582,10 @@ class OC_Calendar_Object{
 	 * @param array $request
 	 * @return mixed (array / boolean)
 	 */
-	public static function validateRequest($request){
+	public static function validateRequest($request) {
 		$errnum = 0;
 		$errarr = array('title'=>'false', 'cal'=>'false', 'from'=>'false', 'fromtime'=>'false', 'to'=>'false', 'totime'=>'false', 'endbeforestart'=>'false');
-		if($request['title'] == ''){
+		if($request['title'] == '') {
 			$errarr['title'] = 'true';
 			$errnum++;
 		}
@@ -593,7 +593,7 @@ class OC_Calendar_Object{
 		$fromday = substr($request['from'], 0, 2);
 		$frommonth = substr($request['from'], 3, 2);
 		$fromyear = substr($request['from'], 6, 4);
-		if(!checkdate($frommonth, $fromday, $fromyear)){
+		if(!checkdate($frommonth, $fromday, $fromyear)) {
 			$errarr['from'] = 'true';
 			$errnum++;
 		}
@@ -606,89 +606,89 @@ class OC_Calendar_Object{
 		$today = substr($request['to'], 0, 2);
 		$tomonth = substr($request['to'], 3, 2);
 		$toyear = substr($request['to'], 6, 4);
-		if(!checkdate($tomonth, $today, $toyear)){
+		if(!checkdate($tomonth, $today, $toyear)) {
 			$errarr['to'] = 'true';
 			$errnum++;
 		}
-		if($request['repeat'] != 'doesnotrepeat'){
-			if(is_nan($request['interval']) && $request['interval'] != ''){
+		if($request['repeat'] != 'doesnotrepeat') {
+			if(is_nan($request['interval']) && $request['interval'] != '') {
 				$errarr['interval'] = 'true';
 				$errnum++;
 			}
-			if(array_key_exists('repeat', $request) && !array_key_exists($request['repeat'], self::getRepeatOptions(OC_Calendar_App::$l10n))){
+			if(array_key_exists('repeat', $request) && !array_key_exists($request['repeat'], self::getRepeatOptions(OC_Calendar_App::$l10n))) {
 				$errarr['repeat'] = 'true';
 				$errnum++;
 			}
-			if(array_key_exists('advanced_month_select', $request) && !array_key_exists($request['advanced_month_select'], self::getMonthOptions(OC_Calendar_App::$l10n))){
+			if(array_key_exists('advanced_month_select', $request) && !array_key_exists($request['advanced_month_select'], self::getMonthOptions(OC_Calendar_App::$l10n))) {
 				$errarr['advanced_month_select'] = 'true';
 				$errnum++;
 			}
-			if(array_key_exists('advanced_year_select', $request) && !array_key_exists($request['advanced_year_select'], self::getYearOptions(OC_Calendar_App::$l10n))){
+			if(array_key_exists('advanced_year_select', $request) && !array_key_exists($request['advanced_year_select'], self::getYearOptions(OC_Calendar_App::$l10n))) {
 				$errarr['advanced_year_select'] = 'true';
 				$errnum++;
 			}
-			if(array_key_exists('weekofmonthoptions', $request) && !array_key_exists($request['weekofmonthoptions'], self::getWeekofMonth(OC_Calendar_App::$l10n))){
+			if(array_key_exists('weekofmonthoptions', $request) && !array_key_exists($request['weekofmonthoptions'], self::getWeekofMonth(OC_Calendar_App::$l10n))) {
 				$errarr['weekofmonthoptions'] = 'true';
 				$errnum++;
 			}
-			if($request['end'] != 'never'){
-				if(!array_key_exists($request['end'], self::getEndOptions(OC_Calendar_App::$l10n))){
+			if($request['end'] != 'never') {
+				if(!array_key_exists($request['end'], self::getEndOptions(OC_Calendar_App::$l10n))) {
 					$errarr['end'] = 'true';
 					$errnum++;
 				}
-				if($request['end'] == 'count' && is_nan($request['byoccurrences'])){
+				if($request['end'] == 'count' && is_nan($request['byoccurrences'])) {
 					$errarr['byoccurrences'] = 'true';
 					$errnum++;
 				}
-				if($request['end'] == 'date'){
+				if($request['end'] == 'date') {
 					list($bydate_day, $bydate_month, $bydate_year) = explode('-', $request['bydate']);
-					if(!checkdate($bydate_month, $bydate_day, $bydate_year)){
+					if(!checkdate($bydate_month, $bydate_day, $bydate_year)) {
 						$errarr['bydate'] = 'true';
 						$errnum++;
 					}
 				}
 			}
-			if(array_key_exists('weeklyoptions', $request)){
-				foreach($request['weeklyoptions'] as $option){
-					if(!in_array($option, self::getWeeklyOptions(OC_Calendar_App::$l10n))){
+			if(array_key_exists('weeklyoptions', $request)) {
+				foreach($request['weeklyoptions'] as $option) {
+					if(!in_array($option, self::getWeeklyOptions(OC_Calendar_App::$l10n))) {
 						$errarr['weeklyoptions'] = 'true';
 						$errnum++;
 					}
 				}
 			}
-			if(array_key_exists('byyearday', $request)){
-				foreach($request['byyearday'] as $option){
-					if(!array_key_exists($option, self::getByYearDayOptions())){
+			if(array_key_exists('byyearday', $request)) {
+				foreach($request['byyearday'] as $option) {
+					if(!array_key_exists($option, self::getByYearDayOptions())) {
 						$errarr['byyearday'] = 'true';
 						$errnum++;
 					}
 				}
 			}
-			if(array_key_exists('weekofmonthoptions', $request)){
-				if(is_nan((double)$request['weekofmonthoptions'])){
+			if(array_key_exists('weekofmonthoptions', $request)) {
+				if(is_nan((double)$request['weekofmonthoptions'])) {
 					$errarr['weekofmonthoptions'] = 'true';
 					$errnum++;
 				}
 			}
-			if(array_key_exists('bymonth', $request)){
-				foreach($request['bymonth'] as $option){
-					if(!in_array($option, self::getByMonthOptions(OC_Calendar_App::$l10n))){
+			if(array_key_exists('bymonth', $request)) {
+				foreach($request['bymonth'] as $option) {
+					if(!in_array($option, self::getByMonthOptions(OC_Calendar_App::$l10n))) {
 						$errarr['bymonth'] = 'true';
 						$errnum++;
 					}
 				}
 			}
-			if(array_key_exists('byweekno', $request)){
-				foreach($request['byweekno'] as $option){
-					if(!array_key_exists($option, self::getByWeekNoOptions())){
+			if(array_key_exists('byweekno', $request)) {
+				foreach($request['byweekno'] as $option) {
+					if(!array_key_exists($option, self::getByWeekNoOptions())) {
 						$errarr['byweekno'] = 'true';
 						$errnum++;
 					}
 				}
 			}
-			if(array_key_exists('bymonthday', $request)){
-				foreach($request['bymonthday'] as $option){
-					if(!array_key_exists($option, self::getByMonthDayOptions())){
+			if(array_key_exists('bymonthday', $request)) {
+				foreach($request['bymonthday'] as $option) {
+					if(!array_key_exists($option, self::getByMonthDayOptions())) {
 						$errarr['bymonthday'] = 'true';
 						$errnum++;
 					}
@@ -699,26 +699,26 @@ class OC_Calendar_Object{
 			$errarr['totime'] = 'true';
 			$errnum++;
 		}
-		if($today < $fromday && $frommonth == $tomonth && $fromyear == $toyear){
+		if($today < $fromday && $frommonth == $tomonth && $fromyear == $toyear) {
 			$errarr['endbeforestart'] = 'true';
 			$errnum++;
 		}
-		if($today == $fromday && $frommonth > $tomonth && $fromyear == $toyear){
+		if($today == $fromday && $frommonth > $tomonth && $fromyear == $toyear) {
 			$errarr['endbeforestart'] = 'true';
 			$errnum++;
 		}
-		if($today == $fromday && $frommonth == $tomonth && $fromyear > $toyear){
+		if($today == $fromday && $frommonth == $tomonth && $fromyear > $toyear) {
 			$errarr['endbeforestart'] = 'true';
 			$errnum++;
 		}
-		if(!$allday && $fromday == $today && $frommonth == $tomonth && $fromyear == $toyear){
+		if(!$allday && $fromday == $today && $frommonth == $tomonth && $fromyear == $toyear) {
 			list($tohours, $tominutes) = explode(':', $request['totime']);
 			list($fromhours, $fromminutes) = explode(':', $request['fromtime']);
-			if($tohours < $fromhours){
+			if($tohours < $fromhours) {
 				$errarr['endbeforestart'] = 'true';
 				$errnum++;
 			}
-			if($tohours == $fromhours && $tominutes < $fromminutes){
+			if($tohours == $fromhours && $tominutes < $fromminutes) {
 				$errarr['endbeforestart'] = 'true';
 				$errnum++;
 			}
@@ -735,7 +735,7 @@ class OC_Calendar_Object{
 	 * @param string $time
 	 * @return boolean
 	 */
-	protected static function checkTime($time){
+	protected static function checkTime($time) {
 		list($hours, $minutes) = explode(':', $time);
 		return empty($time)
 			|| $hours < 0 || $hours > 24
@@ -746,7 +746,7 @@ class OC_Calendar_Object{
 	 * @brief creates an VCalendar Object from the request data
 	 * @param array $request
 	 * @return object created $vcalendar
-	 */	public static function createVCalendarFromRequest($request){
+	 */	public static function createVCalendarFromRequest($request) {
 		$vcalendar = new OC_VObject('VCALENDAR');
 		$vcalendar->add('PRODID', 'ownCloud Calendar');
 		$vcalendar->add('VERSION', '2.0');
@@ -766,36 +766,36 @@ class OC_Calendar_Object{
 	 * @param object $vcalendar
 	 * @return object updated $vcalendar
 	 */
-	public static function updateVCalendarFromRequest($request, $vcalendar){
+	public static function updateVCalendarFromRequest($request, $vcalendar) {
 		$title = $request["title"];
 		$location = $request["location"];
 		$categories = $request["categories"];
 		$allday = isset($request["allday"]);
 		$from = $request["from"];
 		$to  = $request["to"];
-		if (!$allday){
+		if (!$allday) {
 			$fromtime = $request['fromtime'];
 			$totime = $request['totime'];
 		}
 		$vevent = $vcalendar->VEVENT;
 		$description = $request["description"];
 		$repeat = $request["repeat"];
-		if($repeat != 'doesnotrepeat'){
+		if($repeat != 'doesnotrepeat') {
 			$rrule = '';
 			$interval = $request['interval'];
 			$end = $request['end'];
 			$byoccurrences = $request['byoccurrences'];
-			switch($repeat){
+			switch($repeat) {
 				case 'daily':
 					$rrule .= 'FREQ=DAILY';
 					break;
 				case 'weekly':
 					$rrule .= 'FREQ=WEEKLY';
-					if(array_key_exists('weeklyoptions', $request)){
+					if(array_key_exists('weeklyoptions', $request)) {
 						$byday = '';
 						$daystrings = array_flip(self::getWeeklyOptions(OC_Calendar_App::$l10n));
-						foreach($request['weeklyoptions'] as $days){
-							if($byday == ''){
+						foreach($request['weeklyoptions'] as $days) {
+							if($byday == '') {
 								$byday .= $daystrings[$days];
 							}else{
 								$byday .= ',' .$daystrings[$days];
@@ -814,10 +814,10 @@ class OC_Calendar_Object{
 					break;
 				case 'monthly':
 					$rrule .= 'FREQ=MONTHLY';
-					if($request['advanced_month_select'] == 'monthday'){
+					if($request['advanced_month_select'] == 'monthday') {
 						break;
-					}elseif($request['advanced_month_select'] == 'weekday'){
-						if($request['weekofmonthoptions'] == 'auto'){
+					}elseif($request['advanced_month_select'] == 'weekday') {
+						if($request['weekofmonthoptions'] == 'auto') {
 							list($_day, $_month, $_year) = explode('-', $from);
 							$weekofmonth = floor($_day/7);
 						}else{
@@ -825,14 +825,14 @@ class OC_Calendar_Object{
 						}
 						$days = array_flip(self::getWeeklyOptions(OC_Calendar_App::$l10n));
 						$byday = '';
-						foreach($request['weeklyoptions'] as $day){
-							if($byday == ''){
+						foreach($request['weeklyoptions'] as $day) {
+							if($byday == '') {
 								$byday .= $weekofmonth . $days[$day];
 							}else{
 								$byday .= ',' . $weekofmonth . $days[$day];
 							}
 						}
-						if($byday == ''){
+						if($byday == '') {
 							$byday = 'MO,TU,WE,TH,FR,SA,SU';
 						}
 						$rrule .= ';BYDAY=' . $byday;
@@ -840,35 +840,35 @@ class OC_Calendar_Object{
 					break;
 				case 'yearly':
 					$rrule .= 'FREQ=YEARLY';
-					if($request['advanced_year_select'] == 'bydate'){
+					if($request['advanced_year_select'] == 'bydate') {
 
-					}elseif($request['advanced_year_select'] == 'byyearday'){
+					}elseif($request['advanced_year_select'] == 'byyearday') {
 						list($_day, $_month, $_year) = explode('-', $from);
 						$byyearday = date('z', mktime(0,0,0, $_month, $_day, $_year)) + 1;
-						if(array_key_exists('byyearday', $request)){
-							foreach($request['byyearday'] as $yearday){
+						if(array_key_exists('byyearday', $request)) {
+							foreach($request['byyearday'] as $yearday) {
 								$byyearday .= ',' . $yearday;
 							}
 						}
 						$rrule .= ';BYYEARDAY=' . $byyearday;
-					}elseif($request['advanced_year_select'] == 'byweekno'){
+					}elseif($request['advanced_year_select'] == 'byweekno') {
 						list($_day, $_month, $_year) = explode('-', $from);
 						$rrule .= ';BYDAY=' . strtoupper(substr(date('l', mktime(0,0,0, $_month, $_day, $_year)), 0, 2));
 						$byweekno = '';
-						foreach($request['byweekno'] as $weekno){
-							if($byweekno == ''){
+						foreach($request['byweekno'] as $weekno) {
+							if($byweekno == '') {
 								$byweekno = $weekno;
 							}else{
 								$byweekno .= ',' . $weekno;
 							}
 						}
 						$rrule .= ';BYWEEKNO=' . $byweekno;
-					}elseif($request['advanced_year_select'] == 'bydaymonth'){
-						if(array_key_exists('weeklyoptions', $request)){
+					}elseif($request['advanced_year_select'] == 'bydaymonth') {
+						if(array_key_exists('weeklyoptions', $request)) {
 							$days = array_flip(self::getWeeklyOptions(OC_Calendar_App::$l10n));
 							$byday = '';
-							foreach($request['weeklyoptions'] as $day){
-								if($byday == ''){
+							foreach($request['weeklyoptions'] as $day) {
+								if($byday == '') {
 								      $byday .= $days[$day];
 								}else{
 								      $byday .= ',' . $days[$day];
@@ -876,11 +876,11 @@ class OC_Calendar_Object{
 							}
 							$rrule .= ';BYDAY=' . $byday;
 						}
-						if(array_key_exists('bymonth', $request)){
+						if(array_key_exists('bymonth', $request)) {
 							$monthes = array_flip(self::getByMonthOptions(OC_Calendar_App::$l10n));
 							$bymonth = '';
-							foreach($request['bymonth'] as $month){
-								if($bymonth == ''){
+							foreach($request['bymonth'] as $month) {
+								if($bymonth == '') {
 								      $bymonth .= $monthes[$month];
 								}else{
 								      $bymonth .= ',' . $monthes[$month];
@@ -889,10 +889,10 @@ class OC_Calendar_Object{
 							$rrule .= ';BYMONTH=' . $bymonth;
 
 						}
-						if(array_key_exists('bymonthday', $request)){
+						if(array_key_exists('bymonthday', $request)) {
 							$bymonthday = '';
-							foreach($request['bymonthday'] as $monthday){
-								if($bymonthday == ''){
+							foreach($request['bymonthday'] as $monthday) {
+								if($bymonthday == '') {
 								      $bymonthday .= $monthday;
 								}else{
 								      $bymonthday .= ',' . $monthday;
@@ -906,13 +906,13 @@ class OC_Calendar_Object{
 				default:
 					break;
 			}
-			if($interval != ''){
+			if($interval != '') {
 				$rrule .= ';INTERVAL=' . $interval;
 			}
-			if($end == 'count'){
+			if($end == 'count') {
 				$rrule .= ';COUNT=' . $byoccurrences;
 			}
-			if($end == 'date'){
+			if($end == 'date') {
 				list($bydate_day, $bydate_month, $bydate_year) = explode('-', $request['bydate']);
 				$rrule .= ';UNTIL=' . $bydate_year . $bydate_month . $bydate_day;
 			}
@@ -927,7 +927,7 @@ class OC_Calendar_Object{
 		$vevent->setDateTime('DTSTAMP', 'now', Sabre_VObject_Property_DateTime::UTC);
 		$vevent->setString('SUMMARY', $title);
 
-		if($allday){
+		if($allday) {
 			$start = new DateTime($from);
 			$end = new DateTime($to.' +1 day');
 			$vevent->setDateTime('DTSTART', $start, Sabre_VObject_Property_DateTime::DATE);
@@ -946,7 +946,7 @@ class OC_Calendar_Object{
 		$vevent->setString('DESCRIPTION', $description);
 		$vevent->setString('CATEGORIES', $categories);
 
-		/*if($repeat == "true"){
+		/*if($repeat == "true") {
 			$vevent->RRULE = $repeat;
 		}*/
 
@@ -958,7 +958,7 @@ class OC_Calendar_Object{
 	 * @param integer $id
 	 * @return string
 	 */
-	public static function getowner($id){
+	public static function getowner($id) {
 		$event = self::find($id);
 		$cal = OC_Calendar_Calendar::find($event['calendarid']);
 		return $cal['userid'];
@@ -969,7 +969,7 @@ class OC_Calendar_Object{
 	 * @param integer $id
 	 * @return integer
 	 */
-	public static function getCalendarid($id){
+	public static function getCalendarid($id) {
 		$event = self::find($id);
 		return $event['calendarid'];
 	}
@@ -979,7 +979,7 @@ class OC_Calendar_Object{
 	 * @param integer $id
 	 * @return boolean
 	 */
-	public static function isrepeating($id){
+	public static function isrepeating($id) {
 		$event = self::find($id);
 		return ($event['repeating'] == 1)?true:false;
 	}
@@ -992,14 +992,14 @@ class OC_Calendar_Object{
 	 * @param string $tz
 	 * @return array
 	 */
-	public static function generateStartEndDate($dtstart, $dtend, $allday, $tz){
+	public static function generateStartEndDate($dtstart, $dtend, $allday, $tz) {
 		$start_dt = $dtstart->getDateTime();
 		$end_dt = $dtend->getDateTime();
 		$return = array();
-		if($allday){
+		if($allday) {
 			$return['start'] = $start_dt->format('Y-m-d');
 			$end_dt->modify('-1 minute');
-			while($start_dt >= $end_dt){
+			while($start_dt >= $end_dt) {
 				$end_dt->modify('+1 day');
 			}
 			$return['end'] = $end_dt->format('Y-m-d');

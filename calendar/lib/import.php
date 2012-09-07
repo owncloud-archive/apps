@@ -74,14 +74,14 @@ class OC_Calendar_Import{
 	 * @param string $tz timezone of the user
 	 * @return boolean
 	 */
-	public function __construct($ical){
+	public function __construct($ical) {
 		$this->error = null;
 		$this->ical = $ical;
 		$this->abscount = 0;
 		$this->count = 0;
 		try{
 			$this->calobject = OC_VObject::parse($this->ical);
-		}catch(Exception $e){
+		}catch(Exception $e) {
 			//MISSING: write some log
 			$this->error = true;
 			return false;
@@ -93,13 +93,13 @@ class OC_Calendar_Import{
 	 * @brief imports a calendar
 	 * @return boolean
 	 */
-	public function import(){
-		if(!$this->isValid()){
+	public function import() {
+		if(!$this->isValid()) {
 			return false;
 		}
 		$numofcomponents = count($this->calobject->getComponents());
-		foreach($this->calobject->getComponents() as $object){
-			if(!($object instanceof Sabre_VObject_Component_VEvent) && !($object instanceof Sabre_VObject_Component_VJournal) && !($object instanceof Sabre_VObject_Component_VTodo)){
+		foreach($this->calobject->getComponents() as $object) {
+			if(!($object instanceof Sabre_VObject_Component_VEvent) && !($object instanceof Sabre_VObject_Component_VJournal) && !($object instanceof Sabre_VObject_Component_VTodo)) {
 				continue;
 			}
 			$dtend = OC_Calendar_Object::getDTEndFromVEvent($object);
@@ -111,7 +111,7 @@ class OC_Calendar_Import{
 			$vcalendar = $this->createVCalendar($object->serialize());
 			$insertid = OC_Calendar_Object::add($this->id, $vcalendar);
 			$this->abscount++;
-			if($this->isDuplicate($insertid)){
+			if($this->isDuplicate($insertid)) {
 				OC_Calendar_Object::delete($insertid);
 			}else{
 				$this->count++;
@@ -126,7 +126,7 @@ class OC_Calendar_Import{
 	 * @brief sets the timezone
 	 * @return boolean
 	 */
-	public function setTimeZone($tz){
+	public function setTimeZone($tz) {
 		$this->tz = $tz;
 		return true;
 	}
@@ -135,7 +135,7 @@ class OC_Calendar_Import{
 	 * @brief sets the progresskey
 	 * @return boolean
 	 */
-	public function setProgresskey($progresskey){
+	public function setProgresskey($progresskey) {
 		$this->progresskey = $progresskey;
 		return true;
 	}
@@ -144,8 +144,8 @@ class OC_Calendar_Import{
 	 * @brief checks if something went wrong while initialization
 	 * @return boolean
 	 */
-	public function isValid(){
-		if(is_null($this->error)){
+	public function isValid() {
+		if(is_null($this->error)) {
 			return true;
 		}
 		return false;
@@ -155,7 +155,7 @@ class OC_Calendar_Import{
 	 * @brief returns the percentage of progress
 	 * @return integer
 	 */
-	public function getProgress(){
+	public function getProgress() {
 		return $this->progress;
 	}
 
@@ -163,7 +163,7 @@ class OC_Calendar_Import{
 	 * @brief enables the cache for the percentage of progress
 	 * @return boolean
 	 */
-	public function enableProgressCache(){
+	public function enableProgressCache() {
 		$this->cacheprogress = true;
 		return true;
 	}
@@ -172,7 +172,7 @@ class OC_Calendar_Import{
 	 * @brief disables the cache for the percentage of progress
 	 * @return boolean
 	 */
-	public function disableProgressCache(){
+	public function disableProgressCache() {
 		$this->cacheprogress = false;
 		return false;
 	}
@@ -181,11 +181,11 @@ class OC_Calendar_Import{
 	 * @brief generates a new calendar name
 	 * @return string
 	 */
-	public function createCalendarName(){
+	public function createCalendarName() {
 		$calendars = OC_Calendar_Calendar::allCalendars($this->userid);
 		$calendarname = $guessedcalendarname = !is_null($this->guessCalendarName())?($this->guessCalendarName()):(OC_Calendar_App::$l10n->t('New Calendar'));
 		$i = 1;
-		while(!OC_Calendar_Calendar::isCalendarNameavailable($calendarname, $this->userid)){
+		while(!OC_Calendar_Calendar::isCalendarNameavailable($calendarname, $this->userid)) {
 			$calendarname = $guessedcalendarname . ' (' . $i . ')';
 			$i++;
 		}
@@ -196,8 +196,8 @@ class OC_Calendar_Import{
 	 * @brief generates a new calendar color
 	 * @return string
 	 */
-	public function createCalendarColor(){
-		if(is_null($this->guessCalendarColor())){
+	public function createCalendarColor() {
+		if(is_null($this->guessCalendarColor())) {
 			return '#9fc6e7';
 		}
 		return $this->guessCalendarColor();
@@ -208,7 +208,7 @@ class OC_Calendar_Import{
 	 * @param integer $id of the calendar
 	 * @return boolean
 	 */
-	public function setCalendarID($id){
+	public function setCalendarID($id) {
 		$this->id = $id;
 		return true;
 	}
@@ -218,7 +218,7 @@ class OC_Calendar_Import{
 	 * @param string $id of the user
 	 * @return boolean
 	 */
-	public function setUserID($userid){
+	public function setUserID($userid) {
 		$this->userid = $userid;
 		return true;
 	}
@@ -228,7 +228,7 @@ class OC_Calendar_Import{
 	 * @param string $id of the user
 	 * @return boolean
 	 */
-	public function getCount(){
+	public function getCount() {
 		return $this->count;
 	}
 
@@ -240,7 +240,7 @@ class OC_Calendar_Import{
 	 * @brief generates an unique ID
 	 * @return string
 	 */
-	//private function createUID(){
+	//private function createUID() {
 	//	return substr(md5(rand().time()),0,10);
 	//}
 
@@ -249,7 +249,7 @@ class OC_Calendar_Import{
 	 * @param string $uid uid to check
 	 * @return boolean
 	 */
-	//private function isUIDAvailable($uid){
+	//private function isUIDAvailable($uid) {
 	//
 	//}
 
@@ -258,8 +258,8 @@ class OC_Calendar_Import{
 	 * @param string $vobject
 	 * @return string
 	 */
-	private function createVCalendar($vobject){
-		if(is_object($vobject)){
+	private function createVCalendar($vobject) {
+		if(is_object($vobject)) {
 			$vobject = @$vobject->serialize();
 		}
 		$vcalendar = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:ownCloud Calendar " . OCP\App::getAppVersion('calendar') . "\n";
@@ -273,14 +273,14 @@ class OC_Calendar_Import{
 	 * @param integer $insertid id of the new object
 	 * @return boolean
 	 */
-	private function isDuplicate($insertid){
+	private function isDuplicate($insertid) {
 		$newobject = OC_Calendar_Object::find($insertid);
 		$stmt = OCP\DB::prepare('SELECT COUNT(*) AS `count` FROM `*PREFIX*calendar_objects`
 								 INNER JOIN `*PREFIX*calendar_calendars` ON `calendarid`=`*PREFIX*calendar_calendars`.`id`
 								 WHERE `objecttype`=? AND `startdate`=? AND `enddate`=? AND `repeating`=? AND `summary`=? AND `calendardata`=? AND `userid` = ?');
 		$result = $stmt->execute(array($newobject['objecttype'],$newobject['startdate'],$newobject['enddate'],$newobject['repeating'],$newobject['summary'],$newobject['calendardata'], $this->userid));
 		$result = $result->fetchRow();
-		if($result['count'] >= 2){
+		if($result['count'] >= 2) {
 			return true;
 		}
 		return false;
@@ -291,9 +291,9 @@ class OC_Calendar_Import{
 	 * @param integer $percentage
 	 * @return boolean
 	 */
-	private function updateProgress($percentage){
+	private function updateProgress($percentage) {
 		$this->progress = $percentage;
-		if($this->cacheprogress){
+		if($this->cacheprogress) {
 			OC_Cache::set($this->progresskey, $this->progress, 300);
 		}
 		return true;
@@ -307,8 +307,8 @@ class OC_Calendar_Import{
 	 * @brief guesses the calendar color
 	 * @return mixed - string or boolean
 	 */
-	public function guessCalendarColor(){
-		if(!is_null($this->calobject->__get('X-APPLE-CALENDAR-COLOR'))){
+	public function guessCalendarColor() {
+		if(!is_null($this->calobject->__get('X-APPLE-CALENDAR-COLOR'))) {
 			return $this->calobject->__get('X-APPLE-CALENDAR-COLOR');
 		}
 		return null;
@@ -318,8 +318,8 @@ class OC_Calendar_Import{
 	 * @brief guesses the calendar description
 	 * @return mixed - string or boolean
 	 */
-	public function guessCalendarDescription(){
-		if(!is_null($this->calobject->__get('X-WR-CALDESC'))){
+	public function guessCalendarDescription() {
+		if(!is_null($this->calobject->__get('X-WR-CALDESC'))) {
 			return $this->calobject->__get('X-WR-CALDESC');
 		}
 		return null;
@@ -329,8 +329,8 @@ class OC_Calendar_Import{
 	 * @brief guesses the calendar name
 	 * @return mixed - string or boolean
 	 */
-	public function guessCalendarName(){
-		if(!is_null($this->calobject->__get('X-WR-CALNAME'))){
+	public function guessCalendarName() {
+		if(!is_null($this->calobject->__get('X-WR-CALNAME'))) {
 			return $this->calobject->__get('X-WR-CALNAME');
 		}
 		return null;

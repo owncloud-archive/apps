@@ -64,13 +64,13 @@ if($path != '' && $mtime != '' && $filecontents)
 			OCP\Util::writeLog('files_texteditor',"User does not have permission to write to file: ".$path,OCP\Util::ERROR);
 		}
 	}
-} else if($path == ''){
+} else if($path == '') {
 	OCP\JSON::error(array('data' => array( 'message' => 'File path not supplied')));
 	OCP\Util::writeLog('files_texteditor','No file path supplied', OCP\Util::ERROR);
-} else if($mtime == ''){
+} else if($mtime == '') {
 	OCP\JSON::error(array('data' => array( 'message' => 'File mtime not supplied')));
 	OCP\Util::writeLog('files_texteditor','No file mtime supplied' ,OCP\Util::ERROR);
-} else if(!$filecontents){
+} else if(!$filecontents) {
 	OCP\JSON::error(array('data' => array( 'message' => 'File contents not supplied')));
 	OCP\Util::writeLog('files_texteditor','The file contents was not supplied',OCP\Util::ERROR);	
 }

@@ -36,7 +36,7 @@ class UrlParser {
 
 		// there should be at least 2 arguments
 		// version, username
-		if( count($urlArray) < 2 ){
+		if( count($urlArray) < 2 ) {
 			$this->parseValidFlag = false;
 			return;
 		}
@@ -63,7 +63,7 @@ class UrlParser {
 	 *
 	 * @return bool
 	 */
-	public function isValid(){
+	public function isValid() {
 		return $this->parseValidFlag;
 	}
 
@@ -72,7 +72,7 @@ class UrlParser {
 	 *
 	 * @return string
 	 */
-	public function getVersion(){
+	public function getVersion() {
 		return $this->version;
 	}
 
@@ -81,7 +81,7 @@ class UrlParser {
 	 *
 	 * @return string
 	 */
-	public function getUserName(){
+	public function getUserName() {
 		return $this->username;
 	}
 
@@ -90,7 +90,7 @@ class UrlParser {
 	 *
 	 * @param integer $commandNumber
 	 */
-	public function getCommand($commandNumber){
+	public function getCommand($commandNumber) {
 
 	  $commandArray = explode('?', $this->commandsArray[$commandNumber]);
 
@@ -105,26 +105,26 @@ class UrlParser {
 	 *
 	 * @param integer $commandNumber
 	 */
-	public function getCommandModifiers($commandNumber){
+	public function getCommandModifiers($commandNumber) {
 
 	  $resultArray = array();
 
 	  $commandArray = explode('?', $this->commandsArray[$commandNumber]);
-	  if(count($commandArray) != 2){
+	  if(count($commandArray) != 2) {
 	    return $resultArray;
 	  }
 
 	  $modifiersArray = explode('&', $commandArray[1]);
-	  foreach($modifiersArray as $value){
+	  foreach($modifiersArray as $value) {
 	    $tmpArray = explode('=', $value);
-	    if(count($tmpArray) !=2 ){
+	    if(count($tmpArray) !=2 ) {
 	      continue;
 	    }
 
 	    $key = $tmpArray[0];
 
 	    //split argument list
-	    if(strpos($tmpArray[1], ',') == false){
+	    if(strpos($tmpArray[1], ',') == false) {
 	      $value = $tmpArray[1];
 	    }
 	    else{
@@ -142,7 +142,7 @@ class UrlParser {
 	 *
 	 * @return array;
 	 */
-	public function getCommands(){
+	public function getCommands() {
 	  return $this->commandsArray;
 	}
 
@@ -151,7 +151,7 @@ class UrlParser {
 	 *
 	 * @return integer
 	 */
-	public function commandCount(){
+	public function commandCount() {
 	  return count($this->commandsArray);
 	}
 
@@ -161,7 +161,7 @@ class UrlParser {
 	 * @param string $pattern
 	 * @return boolean
 	 */
-	public function commandMatch($pattern){
+	public function commandMatch($pattern) {
 	  $commandString = implode('/', $this->commandsArray);
 	  return preg_match($pattern, $commandString);
 	}

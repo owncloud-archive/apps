@@ -13,7 +13,7 @@ OCP\JSON::checkAppEnabled('calendar');
 OCP\JSON::callCheck();
 
 $errarr = OC_Calendar_Object::validateRequest($_POST);
-if($errarr){
+if($errarr) {
 	//show validate errors
 	OCP\JSON::error($errarr);
 	exit;

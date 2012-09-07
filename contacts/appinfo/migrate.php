@@ -51,7 +51,7 @@ class OC_Migration_Provider_Contacts extends OC_Migration_Provider{
 
 					$query = $this->content->prepare( 'SELECT * FROM `contacts_cards` WHERE `addressbookid` LIKE ?' );
 					$results = $query->execute( array( $oldid ) );
-					while( $row = $results->fetchRow() ){
+					while( $row = $results->fetchRow() ) {
 						// Import the contacts
 						$contactquery = OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards` (`addressbookid`, `fullname`, `carddata`, `uri`, `lastmodified`) VALUES (?, ?, ?, ?, ?)' );
 						$contactquery->execute( array( $newid, $row['fullname'], $row['carddata'], $row['uri'], $row['lastmodified'] ) );

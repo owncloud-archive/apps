@@ -22,7 +22,7 @@
 */
 
 class OC_Gallery_Album {
-	public static function create($owner, $name, $path){
+	public static function create($owner, $name, $path) {
 		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*gallery_albums` (`uid_owner`, `album_name`, `album_path`, `parent_path`) ALUES (?, ?, ?, ?)');
 		$stmt->execute(array($owner, $name, $path, self::getParentPath($path)));
 	}
@@ -42,15 +42,15 @@ class OC_Gallery_Album {
 	public static function remove($owner, $name=null, $path=null, $parent=null) {
 		$sql = 'DELETE FROM `*PREFIX*gallery_albums` WHERE `uid_owner` LIKE ?';
 		$args = array($owner);
-		if (!is_null($name)){
+		if (!is_null($name)) {
 			$sql .= ' AND `album_name` LIKE ?';
 			$args[] = $name;
 		}
-		if (!is_null($path)){
+		if (!is_null($path)) {
 			$sql .= ' AND `album_path` LIKE ?';
 			$args[] = $path;
 		}
-		if (!is_null($parent)){
+		if (!is_null($parent)) {
 			$sql .= ' AND `parent_path` LIKE ?';
 			$args[] = $parent;
 		}
@@ -62,18 +62,18 @@ class OC_Gallery_Album {
 	public static function removeByPath($owner, $path) { self::remove($owner, null, $path); }
 	public static function removeByParentPath($owner, $parent) { self::remove($owner, null, null, $parent); }
 
-	public static function find($owner, $name=null, $path=null, $parent=null){
+	public static function find($owner, $name=null, $path=null, $parent=null) {
 		$sql = 'SELECT * FROM `*PREFIX*gallery_albums` WHERE `uid_owner` = ?';
 		$args = array($owner);
-		if (!is_null($name)){
+		if (!is_null($name)) {
 			$sql .= ' AND `album_name` = ?';
 			$args[] = $name;
 		}
-		if (!is_null($path)){
+		if (!is_null($path)) {
 			$sql .= ' AND `album_path` = ?';
 			$args[] = $path;
 		}
-		if (!is_null($parent)){
+		if (!is_null($parent)) {
 			$sql .= ' AND `parent_path` = ?';
 			$args[] = $parent;
 		}
@@ -94,7 +94,7 @@ class OC_Gallery_Album {
 		$view->rename($oldname.'.png', $newname.'.png');
 	}
 
-	public static function getAlbumSize($id){
+	public static function getAlbumSize($id) {
 		$sql = 'SELECT COUNT(*) AS `size` FROM `*PREFIX*gallery_photos` WHERE `album_id` = ?';
 		$stmt = OCP\DB::prepare($sql);
 		$result=$stmt->execute(array($id))->fetchRow();

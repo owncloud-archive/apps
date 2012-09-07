@@ -24,7 +24,7 @@ class Test_UserService extends UnitTestCase {
 
   public function tearDown() {
     $userId = OCA_mozilla_sync\User::userHashToId($this->userHash);
-    if($userId != false){
+    if($userId != false) {
       OCA_mozilla_sync\User::deleteUser($userId);
     }
 
@@ -35,7 +35,7 @@ class Test_UserService extends UnitTestCase {
   /**
    * @brief Standard create user scenario
    */
-  public function test_CreateUserScenario(){
+  public function test_CreateUserScenario() {
 
     // User exist
     $this->userExist();
@@ -67,7 +67,7 @@ class Test_UserService extends UnitTestCase {
   /**
    * @brief Create user that already exists
    */
-  public function test_CreateExistUser(){
+  public function test_CreateExistUser() {
 
     // User exist
     $this->userExist();
@@ -103,7 +103,7 @@ class Test_UserService extends UnitTestCase {
   /**
    * @brief Delete user, wrong password request
    */
-  public function test_deleteUserNotAuth(){
+  public function test_deleteUserNotAuth() {
 
     // Create user
     $this->createUser();
@@ -133,7 +133,7 @@ class Test_UserService extends UnitTestCase {
   /**
    * @brief Create user with invalid data
    */
-  public function test_CreateUserInvalidData(){
+  public function test_CreateUserInvalidData() {
 
   //
   // Wrong password
@@ -195,13 +195,13 @@ class Test_UserService extends UnitTestCase {
   }
 
 
-  public function clearRequest(){
+  public function clearRequest() {
     OCA_mozilla_sync\OutputData::$outputBuffer = '';
     OCA_mozilla_sync\Utils::$requestMethod = 'GET';
     OCA_mozilla_sync\Utils::$lastStatus = OCA_mozilla_sync\Utils::STATUS_OK;
   }
 
-  private function userExist(){
+  private function userExist() {
 
     $this->clearRequest();
 
@@ -210,11 +210,11 @@ class Test_UserService extends UnitTestCase {
 
   }
 
-  private function createUser($inputArray = NULL){
+  private function createUser($inputArray = NULL) {
 
     $this->clearRequest();
 
-    if($inputArray == NULL){
+    if($inputArray == NULL) {
       $inputArray['password']           = $this->password;
       $inputArray['email']              = $this->email;
       $inputArray['captcha-challenge']  = NULL;
@@ -228,7 +228,7 @@ class Test_UserService extends UnitTestCase {
 
   }
 
-  private function deleteUser(){
+  private function deleteUser() {
 
     $this->clearRequest();
 

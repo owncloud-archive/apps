@@ -25,7 +25,7 @@ class Test_StorageService extends UnitTestCase {
   public function tearDown() {
 
     $userId = OCA_mozilla_sync\User::userHashToId($this->userHash);
-    if($userId != false){
+    if($userId != false) {
       OCA_mozilla_sync\Storage::deleteStorage($userId);
       OCA_mozilla_sync\User::deleteUser($userId);
     }
@@ -34,7 +34,7 @@ class Test_StorageService extends UnitTestCase {
     OC_User::deleteUser($this->userName);
   }
 
-  public function test_BasicScenario(){
+  public function test_BasicScenario() {
 
     //
     // info collection
@@ -230,7 +230,7 @@ class Test_StorageService extends UnitTestCase {
 
   }
 
-  public function test_Modifiers(){
+  public function test_Modifiers() {
 
     $currentTime = OCA_mozilla_sync\Utils::getMozillaTimestamp();
     $testTime[] = $currentTime + 1000;
@@ -249,18 +249,18 @@ class Test_StorageService extends UnitTestCase {
     // post collection
     //
     $id = 0;
-    foreach($testTime as $time){
+    foreach($testTime as $time) {
       $this->clearRequest();
       OCA_mozilla_sync\Utils::$testTime = $time;
       OCA_mozilla_sync\Utils::$requestMethod = 'POST';
       $inputArray = array();
       $successString = '';
-      for($i = 0; $i < 10; $i++){
+      for($i = 0; $i < 10; $i++) {
         $inputArray[] = array('payload' => 'payload' . $id,
             'id' => 'history' . $id,
             'sortindex' => $id + 1,
             'ttl' => 100 * $id);
-        if($i > 0){
+        if($i > 0) {
           $successString .= ',';
         }
         $successString .= '"history' . $id . '"';
@@ -331,15 +331,15 @@ class Test_StorageService extends UnitTestCase {
     $this->request('/1.1/' . $this->userHash . '/storage/history?older='. $testTime[1] . '&sort=oldest');
     $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
     $result = array();
-    for($i = 10; $i < 20; $i++){
+    for($i = 10; $i < 20; $i++) {
       $result[] = '"history' . $i . '"';
     }
     $this->assertTrue($this->outputContainInput($result, OCA_mozilla_sync\OutputData::$outputBuffer));
     $result = array();
-    for($i = 0; $i < 10; $i++){
+    for($i = 0; $i < 10; $i++) {
       $result[] = '"history' . $i . '"';
     }
-    for($i = 20; $i < 30; $i++){
+    for($i = 20; $i < 30; $i++) {
       $result[] = '"history' . $i . '"';
     }
     $this->assertTrue($this->outputNotContainInput($result, OCA_mozilla_sync\OutputData::$outputBuffer));
@@ -353,15 +353,15 @@ class Test_StorageService extends UnitTestCase {
     $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
 
     $result = array();
-    for($i = 0; $i < 10; $i++){
+    for($i = 0; $i < 10; $i++) {
       $result[] = '"history' . $i . '"';
     }
-    for($i = 20; $i < 30; $i++){
+    for($i = 20; $i < 30; $i++) {
       $result[] = '"history' . $i . '"';
     }
     $this->assertTrue($this->outputContainInput($result, OCA_mozilla_sync\OutputData::$outputBuffer));
     $result = array();
-    for($i = 10; $i < 20; $i++){
+    for($i = 10; $i < 20; $i++) {
       $result[] = '"history' . $i . '"';
     }
     $this->assertTrue($this->outputNotContainInput($result, OCA_mozilla_sync\OutputData::$outputBuffer));
@@ -391,22 +391,22 @@ class Test_StorageService extends UnitTestCase {
     $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
 
     $result = array();
-    for($i = 0; $i < 10; $i++){
+    for($i = 0; $i < 10; $i++) {
       $result[] = '"history' . $i . '"';
     }
-    for($i = 20; $i < 30; $i++){
+    for($i = 20; $i < 30; $i++) {
       $result[] = '"history' . $i . '"';
     }
     $this->assertTrue($this->outputContainInput($result, OCA_mozilla_sync\OutputData::$outputBuffer));
     $result = array();
-    for($i = 10; $i < 20; $i++){
+    for($i = 10; $i < 20; $i++) {
       $result[] = '"history' . $i . '"';
     }
     $this->assertTrue($this->outputNotContainInput($result, OCA_mozilla_sync\OutputData::$outputBuffer));
 
   }
 
-  public function test_DeleteOldWbo(){
+  public function test_DeleteOldWbo() {
 
     $currentTime = OCA_mozilla_sync\Utils::getMozillaTimestamp();
     $testTime = $currentTime - 1000;
@@ -427,12 +427,12 @@ class Test_StorageService extends UnitTestCase {
     OCA_mozilla_sync\Utils::$requestMethod = 'POST';
     $successString = '';
     $inputArray = array();
-    for($i = 0; $i < 10; $i++){
+    for($i = 0; $i < 10; $i++) {
       $inputArray[] = array('payload' => 'payload' . $i,
           'id' => 'history' . $i,
           'sortindex' => $i + 1,
           'ttl' => 100);
-      if($i > 0){
+      if($i > 0) {
         $successString .= ',';
       }
       $successString .= '"history' . $i . '"';
@@ -454,13 +454,13 @@ class Test_StorageService extends UnitTestCase {
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === '[]' . "\n");
   }
 
-  private function clearRequest(){
+  private function clearRequest() {
     OCA_mozilla_sync\OutputData::$outputBuffer = '';
     OCA_mozilla_sync\Utils::$requestMethod = 'GET';
     OCA_mozilla_sync\Utils::$lastStatus = OCA_mozilla_sync\Utils::STATUS_OK;
   }
 
-  private function request($url, $inputData = NULL){
+  private function request($url, $inputData = NULL) {
 
     $_SERVER['PHP_AUTH_USER'] = $this->userHash;
     $_SERVER['PHP_AUTH_PW'] = $this->password;
@@ -469,10 +469,10 @@ class Test_StorageService extends UnitTestCase {
     $userService->run();
   }
 
-  private function outputContainInput(&$input, &$output){
+  private function outputContainInput(&$input, &$output) {
 
-    foreach ($input as $value){
-      if(strpos($output, $value) === false){
+    foreach ($input as $value) {
+      if(strpos($output, $value) === false) {
         return false;
       }
     }
@@ -480,10 +480,10 @@ class Test_StorageService extends UnitTestCase {
     return true;
   }
 
-  private function outputNotContainInput(&$input, &$output){
+  private function outputNotContainInput(&$input, &$output) {
 
-    foreach ($input as $value){
-      if(strpos($output, $value) === false){
+    foreach ($input as $value) {
+      if(strpos($output, $value) === false) {
         continue;
       }
       else{

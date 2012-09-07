@@ -24,24 +24,24 @@ class StorageService extends Service
   /**
    * @brief Run service
    */
-  public function run(){
+  public function run() {
     //
     // Check if given url is valid
     //
-    if(!$this->urlParser->isValid()){
+    if(!$this->urlParser->isValid()) {
       Utils::changeHttpStatus(Utils::STATUS_INVALID_DATA);
       return false;
     }
 
     $syncUserHash = $this->urlParser->getUserName();
 
-    if(User::authenticateUser($syncUserHash) == false){
+    if(User::authenticateUser($syncUserHash) == false) {
       Utils::changeHttpStatus(Utils::STATUS_INVALID_USER);
       return false;
     }
 
     $userId = User::userHashToId($syncUserHash);
-    if($userId == false){
+    if($userId == false) {
       Utils::changeHttpStatus(Utils::STATUS_INVALID_USER);
       return false;
     }
@@ -54,13 +54,13 @@ class StorageService extends Service
 
     // Info case: https://server/pathname/version/username/info/
     if( ($this->urlParser->commandCount() == 2) &&
-        ($this->urlParser->getCommand(0) == 'info')){
+        ($this->urlParser->getCommand(0) == 'info')) {
 
-      if(Utils::getRequestMethod() != 'GET'){
+      if(Utils::getRequestMethod() != 'GET') {
         Utils::changeHttpStatus(Utils::STATUS_NOT_FOUND);
         return false;
       }
-      switch($this->urlParser->getCommand(1)){
+      switch($this->urlParser->getCommand(1)) {
         case 'collections': $this->getInfoCollections($userId); break;
         default: Utils::changeHttpStatus(Utils::STATUS_NOT_FOUND);
       }
@@ -68,9 +68,9 @@ class StorageService extends Service
     }
     // Storage case: https://server/pathname/version/username/storage/
     else if( ($this->urlParser->commandCount() == 1) &&
-        ($this->urlParser->getCommand(0) == 'storage')){
+        ($this->urlParser->getCommand(0) == 'storage')) {
 
-      switch(Utils::getRequestMethod()){
+      switch(Utils::getRequestMethod()) {
         case 'DELETE': $this->deleteStorage($userId); break;
         default: Utils::changeHttpStatus(Utils::STATUS_NOT_FOUND);
       }
@@ -78,14 +78,14 @@ class StorageService extends Service
     }
     // Collection case: https://server/pathname/version/username/storage/collection
     else if( ($this->urlParser->commandCount() == 2) &&
-        ($this->urlParser->getCommand(0) == 'storage')){
+        ($this->urlParser->getCommand(0) == 'storage')) {
 
       $collectionName = $this->urlParser->getCommand(1);
       $modifiers = $this->urlParser->getCommandModifiers(1);
 
       $collectionId = Storage::collectionNameToIndex($userId, $collectionName);
 
-      switch(Utils::getRequestMethod()){
+      switch(Utils::getRequestMethod()) {
         case 'GET': $this->getCollection($userId, $collectionId, $modifiers); break;
         case 'POST': $this->postCollection($userId, $collectionId); break;
         case 'DELETE': $this->deleteCollection($userId, $collectionId, $modifiers); break;
@@ -95,14 +95,14 @@ class StorageService extends Service
     }
     // Wbo case: https://server/pathname/version/username/storage/collection/id
     else if( ($this->urlParser->commandCount() == 3) &&
-        ($this->urlParser->getCommand(0) == 'storage')){
+        ($this->urlParser->getCommand(0) == 'storage')) {
 
       $collectionName = $this->urlParser->getCommand(1);
       $wboId = $this->urlParser->getCommand(2);
 
       $collectionId = Storage::collectionNameToIndex($userId, $collectionName);
 
-      switch(Utils::getRequestMethod()){
+      switch(Utils::getRequestMethod()) {
         case 'GET': $this->getWBO($userId, $collectionId, $wboId); break;
         case 'PUT': $this->putWBO($userId, $collectionId, $wboId); break;
         case 'DELETE': $this->deleteWBO($userId, $collectionId, $wboId); break;
@@ -139,7 +139,7 @@ class StorageService extends Service
    * @param integer $userId
    * @return bool true if success
    */
-  private function getInfoCollections($userId){
+  private function getInfoCollections($userId) {
 
     $query = \OCP\DB::prepare( 'select name,
                                     (select max(modified) FROM *PREFIX*mozilla_sync_wbo
@@ -148,16 +148,16 @@ class StorageService extends Service
                               FROM *PREFIX*mozilla_sync_collections WHERE userid = ?');
     $result = $query->execute( array($userId) );
 
-    if($result == false){
+    if($result == false) {
       return false;
     }
 
     $resultArray = array();
 
-    while (($row = $result->fetchRow())){
+    while (($row = $result->fetchRow())) {
 
       // Skip empty collections
-      if($row['modified'] == NULL){
+      if($row['modified'] == NULL) {
         continue;
       }
 
@@ -257,13 +257,13 @@ class StorageService extends Service
    * @param array $modifiers
    * @return bool true if success
    */
-  private function getCollection($userId, $collectionId, &$modifiers){
+  private function getCollection($userId, $collectionId, &$modifiers) {
 
     $queryArgs = array();
 
     // full or id modifier
     $queryFields = '';
-    if(isset($modifiers['full'])){
+    if(isset($modifiers['full'])) {
       $queryFields = 'payload, name as id, modified, parentid, predecessorid, sortindex, ttl';
     }
     else{
@@ -278,7 +278,7 @@ class StorageService extends Service
     $query = \OCP\DB::prepare( 'SELECT ' . $queryFields . ' FROM *PREFIX*mozilla_sync_wbo ' . $whereString );
     $result = $query->execute( $queryArgs );
 
-    if($result == false){
+    if($result == false) {
       return false;
     }
 
@@ -287,9 +287,9 @@ class StorageService extends Service
 
     $hasData = false;
 
-    while (($row = $result->fetchRow())){
+    while (($row = $result->fetchRow())) {
       $hasData = true;
-      if(isset($modifiers['full'])){
+      if(isset($modifiers['full'])) {
         OutputData::write($row);
       }
       else{
@@ -298,12 +298,12 @@ class StorageService extends Service
     }
 
     // No data
-    if($hasData == false){
+    if($hasData == false) {
       Utils::changeHttpStatus(Utils::STATUS_NOT_FOUND);
       return true;
     }
 
-    if(!isset($modifiers['full'])){
+    if(!isset($modifiers['full'])) {
       OutputData::write($resultIdArray);
     }
 
@@ -325,11 +325,11 @@ class StorageService extends Service
    * @param integer $collectionId
    * @return bool true if success
    */
-  private function postCollection($userId, $collectionId){
+  private function postCollection($userId, $collectionId) {
     //print 'postCollection';
     $inputData = $this->getInputData();
     if( (!$inputData->isValid()) &&
-        (count($inputData->getInputArray()) > 0)){
+        (count($inputData->getInputArray()) > 0)) {
       Utils::changeHttpStatus(Utils::STATUS_INVALID_DATA);
       return false;
     }
@@ -341,12 +341,12 @@ class StorageService extends Service
     $successArray = array();
     $failedArray = array();
 
-    for($i = 0; $i < count($inputData->getInputArray()); $i++){
+    for($i = 0; $i < count($inputData->getInputArray()); $i++) {
       $result = Storage::saveWBO($userId,
                                             $modifiedTime,
                                             $collectionId,
                                             $inputData[$i]);
-      if($result == true){
+      if($result == true) {
         $successArray[] = $inputData[$i]['id'];
       }
       else{
@@ -373,7 +373,7 @@ class StorageService extends Service
    * @param array $modifiers
    * @return bool true if success
    */
-  private function deleteCollection($userId, $collectionId, &$modifiers){
+  private function deleteCollection($userId, $collectionId, &$modifiers) {
 
     $queryArgs = array();
 
@@ -385,7 +385,7 @@ class StorageService extends Service
     $query = \OCP\DB::prepare( 'DELETE FROM *PREFIX*mozilla_sync_wbo ' . $whereString );
     $result = $query->execute( $queryArgs );
 
-    if($result == false){
+    if($result == false) {
       return false;
     }
 
@@ -393,12 +393,12 @@ class StorageService extends Service
     $result = $query->execute( array($collectionId) );
 
     // No wbo found, delete colection
-    if($result->fetchRow() == false){
+    if($result->fetchRow() == false) {
 
       $query = \OCP\DB::prepare( 'DELETE FROM *PREFIX*mozilla_sync_collections WHERE id = ?' );
       $result = $query->execute( array($collectionId) );
 
-      if($result == false){
+      if($result == false) {
         return false;
       }
     }
@@ -417,17 +417,17 @@ class StorageService extends Service
    * @param integer $wboId
    * @return bool true if success
    */
-  private function getWBO($userId, $collectionId, $wboId){
+  private function getWBO($userId, $collectionId, $wboId) {
     $query = \OCP\DB::prepare( 'SELECT sortindex, payload, name as id, modified FROM *PREFIX*mozilla_sync_wbo
                               WHERE collectionid = ? and name = ?');
     $result = $query->execute( array($collectionId, $wboId) );
 
-    if($result == false){
+    if($result == false) {
       return false;
     }
 
     $row=$result->fetchRow();
-    if($row == false){
+    if($row == false) {
       Utils::changeHttpStatus(Utils::STATUS_NOT_FOUND);
       return true;
     }
@@ -449,17 +449,17 @@ class StorageService extends Service
    * @param integer $wboId
    * @return bool true if success
    */
-  private function putWBO($userId, $collectionId, $wboId){
+  private function putWBO($userId, $collectionId, $wboId) {
     $inputData = $this->getInputData();
     if( (!$inputData->isValid()) &&
-        (count($inputData->getInputArray()) == 1)){
+        (count($inputData->getInputArray()) == 1)) {
       Utils::changeHttpStatus(Utils::STATUS_INVALID_DATA);
       return false;
     }
 
     $modifiedTime = Utils::getMozillaTimestamp();
 
-    if(isset($inputData['modified'])){
+    if(isset($inputData['modified'])) {
       $modifiedTime = $inputData['modified'];
     }
 
@@ -468,7 +468,7 @@ class StorageService extends Service
                                           $collectionId,
                                           $inputData->getInputArray());
 
-    if($result == false){
+    if($result == false) {
       return false;
     }
 
@@ -485,11 +485,11 @@ class StorageService extends Service
    * @param integer $wboId
    * @return bool true if success
    */
-  private function deleteWBO($userId, $collectionId, $wboId){
+  private function deleteWBO($userId, $collectionId, $wboId) {
 
     $result = Storage::deleteWBO($userId, $collectionId, $wboId);
 
-    if($result == false){
+    if($result == false) {
       return false;
     }
 
@@ -509,15 +509,15 @@ class StorageService extends Service
    * @param integer $userId
    * @return bool true if success
    */
-  private function deleteStorage($userId){
+  private function deleteStorage($userId) {
 
-    if(!isset($_SERVER['HTTP_X_CONFIRM_DELETE'])){
+    if(!isset($_SERVER['HTTP_X_CONFIRM_DELETE'])) {
       return false;
     }
 
     $result = Storage::deleteStorage($userId);
 
-    if($result == false){
+    if($result == false) {
       return false;
     }
 

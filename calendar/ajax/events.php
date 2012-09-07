@@ -24,7 +24,7 @@ $start = (version_compare(PHP_VERSION, '5.3.0', '>='))?DateTime::createFromForma
 $end = (version_compare(PHP_VERSION, '5.3.0', '>='))?DateTime::createFromFormat('U', $_GET['end']):new DateTime('@' . $_GET['end']);
 $events = OC_Calendar_App::getrequestedEvents($_GET['calendar_id'], $start, $end);
 $output = array();
-foreach($events as $event){
+foreach($events as $event) {
 	$output = array_merge($output, OC_Calendar_App::generateEventOutput($event, $start, $end));
 }
 OCP\JSON::encodedPrint(OCP\Util::sanitizeHTML($output));

@@ -30,10 +30,10 @@ class OC_ocDownloader {
 	 * Get user provider settings
 	 * @return Array
 	 */
-	public static function getProvidersList(){
+	public static function getProvidersList() {
 		$query = OC_DB::prepare("SELECT pr_id, pr_name, pr_logo FROM *PREFIX*ocdownloader_providers");
 		$result = $query->execute()->fetchAll();
-		if(count($result) > 0){
+		if(count($result) > 0) {
 			return $result;
 		}
 		return Array();
@@ -44,10 +44,10 @@ class OC_ocDownloader {
 	 * @param $pr_id the provider id
 	 * @return Array
 	 */
-	public static function getProvider($pr_id){
+	public static function getProvider($pr_id) {
 		$query = OC_DB::prepare("SELECT pr_id, pr_name, pr_logo FROM *PREFIX*ocdownloader_providers WHERE pr_id = ?");
 		$result = $query->execute(Array($pr_id))->fetchRow();
-		if($result){
+		if($result) {
 			return $result;
 		}
 		return Array();
@@ -58,10 +58,10 @@ class OC_ocDownloader {
 	 * @param $name Name of the provider
 	 * @param $logo Logo of the provider
 	 */
-	public static function addProvider($name, $logo){
+	public static function addProvider($name, $logo) {
 		$query = OC_DB::prepare("SELECT pr_id FROM *PREFIX*ocdownloader_providers WHERE pr_name = ?");
 		$result = $query->execute(Array($name))->fetchRow();
-		if(!$result){
+		if(!$result) {
 			$query = OC_DB::prepare("INSERT INTO *PREFIX*ocdownloader_providers (pr_name,pr_logo) VALUES (?,?)");
 			$query->execute(Array($name, $logo));
 		}
@@ -72,10 +72,10 @@ class OC_ocDownloader {
 	 * @param $pr_id Provider id
 	 * @return Array
 	 */
-	public static function getUserProviderInfo($pr_id){
+	public static function getUserProviderInfo($pr_id) {
 		$query = OC_DB::prepare("SELECT us_username, us_password FROM *PREFIX*ocdownloader_users_settings WHERE oc_uid = ? AND pr_fk = ?");
 		$result = $query->execute(Array(OC_User::getUser(), $pr_id))->fetchRow();
-		if($result){
+		if($result) {
 			return $result;
 		}
 		return Array();
@@ -85,10 +85,10 @@ class OC_ocDownloader {
 	 * Get a list of providers in the database
 	 * @return Array
 	 */
-	public static function getUserProvidersList(){
+	public static function getUserProvidersList() {
 		$query = OC_DB::prepare("SELECT p.pr_id, p.pr_name, u.us_id, u.us_username, u.us_password FROM *PREFIX*ocdownloader_providers p LEFT OUTER JOIN *PREFIX*ocdownloader_users_settings u ON p.pr_id = u.pr_fk WHERE u.oc_uid = ? OR u.oc_uid IS NULL");
 		$result = $query->execute(Array(OC_User::getUser()))->fetchAll();
-		if(count($result) > 0){
+		if(count($result) > 0) {
 			return $result;
 		}
 		return Array();
@@ -100,10 +100,10 @@ class OC_ocDownloader {
 	 * @param $username The user provider username
 	 * @param $password The user provider password
 	 */
-	public static function updateUserInfo($pr,$username,$password){
+	public static function updateUserInfo($pr,$username,$password) {
 		$query = OC_DB::prepare("SELECT us_id FROM *PREFIX*ocdownloader_users_settings WHERE oc_uid = ? AND pr_fk = ?");
 		$result = $query->execute(Array(OC_User::getUser(), $pr))->fetchRow();
-		if($result){
+		if($result) {
 			$query = OC_DB::prepare("UPDATE *PREFIX*ocdownloader_users_settings SET us_username = ?, us_password = ? WHERE oc_uid = ? AND pr_fk = ?");
 			$query->execute(Array($username, $password, OC_User::getUser(), $pr));
 		}else{
@@ -116,10 +116,10 @@ class OC_ocDownloader {
 	 * DELETE user provider info
 	 * @param $pr The provider id
 	 */
-	public static function deleteUserInfo($pr){
+	public static function deleteUserInfo($pr) {
 		$query = OC_DB::prepare("SELECT us_id FROM *PREFIX*ocdownloader_users_settings WHERE oc_uid = ? AND pr_fk = ?");
 		$result = $query->execute(Array(OC_User::getUser(), $pr))->fetchAll();
-		if(count($result) > 0){
+		if(count($result) > 0) {
 			$query = OC_DB::prepare("DELETE FROM *PREFIX*ocdownloader_users_settings WHERE us_id = ?");
 			$query->execute(Array($result[0]['us_id']));
 		}
@@ -130,13 +130,13 @@ class OC_ocDownloader {
 	 * @param $v App version
 	 * @return boolean
 	 */
-	public static function isUpToDate($v){
+	public static function isUpToDate($v) {
 		if(is_null($v))
 			return FALSE;
 			
 		$query = OC_DB::prepare("SELECT conf_id FROM *PREFIX*ocdownloader_config WHERE conf_version = ? AND conf_key = ?");
 		$result = $query->execute(Array((string)$v, 'init'))->fetchRow();
-		if($result){
+		if($result) {
 			return FALSE;
 		}
 		return TRUE;
@@ -146,12 +146,12 @@ class OC_ocDownloader {
 	 * Initialize providers list
 	 * @param $file Providers file list
 	 */
-	public static function initProviders($file){
+	public static function initProviders($file) {
 		$xml = new DOMDocument();
 		$xml->load($file);
 		
 		$providers = $xml->getElementsByTagName('provider');
-		foreach($providers as $provider){
+		foreach($providers as $provider) {
 			$name_key = $provider->getElementsByTagName('name');
 		  	$name_val = $name_key->item(0)->nodeValue;
 			$logo_key = $provider->getElementsByTagName('logo');
@@ -165,10 +165,10 @@ class OC_ocDownloader {
 	/**
 	 * Insert or Update conf key for the actual version of the application
 	 */
-	public static function updateApplicationConfig($key, $val){
+	public static function updateApplicationConfig($key, $val) {
 		$query = OC_DB::prepare("SELECT conf_id FROM *PREFIX*ocdownloader_config WHERE conf_key = ?");
 		$result = $query->execute(Array($key))->fetchRow();
-		if($result){
+		if($result) {
 			$query = OC_DB::prepare("UPDATE *PREFIX*ocdownloader_config SET conf_version = ?, conf_val = ? WHERE conf_id = ?");
 			$query->execute(Array((string)OC_Appconfig::getValue('ocdownloader', 'installed_version'), $val, $result['conf_id']));
 		}else{

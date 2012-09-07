@@ -49,7 +49,7 @@ class Storage {
 	}
 	
 
-	public static function showHeader($title){
+	public static function showHeader($title) {
 		
 		echo('
 		
@@ -83,7 +83,7 @@ class Storage {
 			
 	}
 
-	public static function showFooter(){
+	public static function showFooter() {
 			
 		echo('
 		

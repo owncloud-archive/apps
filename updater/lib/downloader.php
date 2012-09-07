@@ -33,7 +33,7 @@ class Downloader {
 		} elseif ($mime == 'application/x-gzip') {
 			rename($path, $path . '.tgz');
 			$path.='.tgz';
-		} elseif ($mime == 'application/x-bzip2'){
+		} elseif ($mime == 'application/x-bzip2') {
 			rename($path, $path . '.tar.bz2');
 			$path.='.tar.bz2';
 		} else {
@@ -60,7 +60,7 @@ class Downloader {
 		return $extractDir. DIRECTORY_SEPARATOR . self::PACKAGE_ROOT;
 	}
 
-	public static function getPackageDir($version){
+	public static function getPackageDir($version) {
 		return App::getBackupBase() . $version;
 	}
 	

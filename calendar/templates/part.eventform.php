@@ -52,7 +52,7 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 		<tr>
 			<th width="75px"></th>
 			<td>
-				<input onclick="Calendar.UI.lockTime();" type="checkbox"<?php if($_['allday']){echo 'checked="checked"';} ?> id="allday_checkbox" name="allday">
+				<input onclick="Calendar.UI.lockTime();" type="checkbox"<?php if($_['allday']) {echo 'checked="checked"';} ?> id="allday_checkbox" name="allday">
 				<label for="allday_checkbox"><?php echo $l->t("All Day Event");?></label>
 			</td>
 		</tr>
@@ -246,6 +246,6 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 <div id="tabs-4">//Attendees</div>-->
 <?php if($_['eventid'] != 'new' && $_['permissions'] & OCP\Share::PERMISSION_SHARE) { ?>
 <div id="tabs-5">
-	<?php if($_['eventid'] != 'new'){ echo $this->inc('part.share'); } ?>
+	<?php if($_['eventid'] != 'new') { echo $this->inc('part.share'); } ?>
 </div>
 <?php } ?>

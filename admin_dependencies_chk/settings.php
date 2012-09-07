@@ -95,7 +95,7 @@ $modules[] =array(
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
-		if(OCP\App::isEnabled($app) || $app=='core'){
+		if(OCP\App::isEnabled($app) || $app=='core') {
 				$enabled = true;
 		}
 	}

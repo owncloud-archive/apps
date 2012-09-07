@@ -21,14 +21,14 @@
  *
  */
 class OC_Gallery_Photo {
-	public static function create($albumId, $img){
+	public static function create($albumId, $img) {
 		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*gallery_photos` (`album_id`, `file_path`) VALUES (?, ?)');
 		$stmt->execute(array($albumId, $img));
 	}
-	public static function find($albumId, $img=null){
+	public static function find($albumId, $img=null) {
 		$sql = 'SELECT * FROM `*PREFIX*gallery_photos` WHERE `album_id` = ?';
 		$args = array($albumId);
-		if (!is_null($img)){
+		if (!is_null($img)) {
 			$sql .= ' AND `file_path` = ?';
 			$args[] = $img;
 		}

@@ -33,15 +33,15 @@ $displays = unserialize($displays['uc_val']);
 
 $tmpl->assign('c_disp', $displays);
 
-if($displays['cpie_rfsus']){
+if($displays['cpie_rfsus']) {
 	$sc_sort = OC_DLStCharts::getUConfValue('sc_sort', Array('uc_val' => 'a:3:{i:0;s:10:"cpie_rfsus";i:1;s:11:"clines_usse";i:2;s:9:"chisto_us";}'));
 	$tmpl->assign('sc_sort', unserialize($sc_sort['uc_val']));
 }
-if($displays['clines_usse']){
+if($displays['clines_usse']) {
 	$hu_size = OC_DLStCharts::getUConfValue('hu_size', Array('uc_val' => 3));
 	$tmpl->assign('hu_size', $hu_size['uc_val']);
 }
-if($displays['chisto_us']){
+if($displays['chisto_us']) {
 	$hu_size_hus = OC_DLStCharts::getUConfValue('hu_size_hus', Array('uc_val' => 3));
 	$tmpl->assign('hu_size_hus', $hu_size_hus['uc_val']);
 }
