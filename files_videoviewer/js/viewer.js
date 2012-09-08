@@ -56,7 +56,9 @@ var videoViewer = {
 		videoViewer.location = videoViewer.getMediaUrl(file);
 		videoViewer.mime = FileActions.getCurrentMimeType();
 		
-		OC.addScript('files_videoviewer','mediaelement-and-player', videoViewer.showPlayer);
+		OC.addScript('files_videoviewer','mediaelement-and-player', function(){
+			OC.addScript('files_videoviewer','mep-extra', videoViewer.showPlayer);
+		});
 	},
 	showPlayer : function() {
 		videoViewer.UI.show();
