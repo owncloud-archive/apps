@@ -27,6 +27,7 @@ class Album {
 	public static function create($owner, $name, $path) {
 		$stmt = \OCP\DB::prepare('INSERT INTO `*PREFIX*gallery_albums` (`uid_owner`, `album_name`, `album_path`, `parent_path`) ALUES (?, ?, ?, ?)');
 		$stmt->execute(array($owner, $name, $path, self::getParentPath($path)));
+		return \OCP\DB::insertID('*PREFIX*gallery_albums');
 	}
 
 	public static function cleanup( $user='' ) {
