@@ -1,6 +1,6 @@
 <?php
 
-namespace OC\Pictures;
+namespace OC\Gallary;
 
 const TAG = 'Pictures';
 const IMAGE_WIDTH = 150;

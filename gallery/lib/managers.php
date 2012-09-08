@@ -1,6 +1,6 @@
 <?php
 
-namespace OC\Pictures;
+namespace OCA\Gallery;
 
 class DatabaseManager {
 	private static $instance = null;

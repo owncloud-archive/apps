@@ -21,17 +21,22 @@
 *
 */
 
-class OC_Gallery_Album {
+namespace OCA\Gallery;
+
+class Album {
 	public static function create($owner, $name, $path) {
-		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*gallery_albums` (`uid_owner`, `album_name`, `album_path`, `parent_path`) ALUES (?, ?, ?, ?)');
+		$stmt = \OCP\DB::prepare('INSERT INTO `*PREFIX*gallery_albums` (`uid_owner`, `album_name`, `album_path`, `parent_path`) ALUES (?, ?, ?, ?)');
 		$stmt->execute(array($owner, $name, $path, self::getParentPath($path)));
 	}
 
-	public static function cleanup() {
-		$albums = self::find(OCP\USER::getUser());
-		while ($r = $albums->fetchRow()) {
-			OC_Gallery_Photo::removeByAlbumId($r['album_id']);
-			self::remove(OCP\USER::getUser(), $r['album_name']);
+	public static function cleanup( $user='' ) {
+		if(!$user){
+			$user = \OCP\USER::getUser();
+		}
+		$albums = self::find( $user );
+		foreach ( $albums as $album ) {
+			Photo::removeByAlbumId($album['album_id']);
+			self::remove(\OCP\USER::getUser(), $album['album_name']);
 		}
 	}
 
@@ -54,8 +59,8 @@ class OC_Gallery_Album {
 			$sql .= ' AND `parent_path` LIKE ?';
 			$args[] = $parent;
 		}
-		$stmt = OCP\DB::prepare($sql);
-		return $stmt->execute($args);
+		$stmt = \OCP\DB::prepare($sql);
+		$stmt->execute($args);
 	}
 
 	public static function removeByName($owner, $name) { self::remove($ownmer, $name); }
@@ -77,11 +82,12 @@ class OC_Gallery_Album {
 			$sql .= ' AND `parent_path` = ?';
 			$args[] = $parent;
 		}
-		$order = OCP\Config::getUserValue($owner, 'gallery', 'order', 'ASC');
+		$order = \OCP\Config::getUserValue($owner, 'gallery', 'order', 'ASC');
 		$sql .= ' ORDER BY `album_name` ' . $order;
 
-		$stmt = OCP\DB::prepare($sql);
-		return $stmt->execute($args);
+		$stmt = \OCP\DB::prepare($sql);
+		$result = $stmt->execute($args);
+		return $result->fetchAll();
 	}
 
 	public static function changePath($oldname, $newname, $owner) {
@@ -97,7 +103,7 @@ class OC_Gallery_Album {
 	public static function getAlbumSize($id) {
 		$sql = 'SELECT COUNT(*) AS `size` FROM `*PREFIX*gallery_photos` WHERE `album_id` = ?';
 		$stmt = OCP\DB::prepare($sql);
-		$result=$stmt->execute(array($id))->fetchRow();
+		$result = $stmt->execute(array($id))->fetchRow();
 		return $result['size'];
 	}
 

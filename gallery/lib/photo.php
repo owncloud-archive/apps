@@ -20,9 +20,12 @@
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-class OC_Gallery_Photo {
+
+namespace OCA\Gallery;
+
+class Photo {
 	public static function create($albumId, $img) {
-		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*gallery_photos` (`album_id`, `file_path`) VALUES (?, ?)');
+		$stmt = \OCP\DB::prepare('INSERT INTO `*PREFIX*gallery_photos` (`album_id`, `file_path`) VALUES (?, ?)');
 		$stmt->execute(array($albumId, $img));
 	}
 	public static function find($albumId, $img=null) {
@@ -32,44 +35,46 @@ class OC_Gallery_Photo {
 			$sql .= ' AND `file_path` = ?';
 			$args[] = $img;
 		}
-		$stmt = OCP\DB::prepare($sql);
-		return $stmt->execute($args);
+		$stmt = \OCP\DB::prepare($sql);
+		$result = $stmt->execute($args);
+		return $result->fetchAll();
 	}
 
 	public static function findForAlbum($owner, $album_name) {
-		$stmt = OCP\DB::prepare('SELECT *'
+		$stmt = \OCP\DB::prepare('SELECT *'
 					.' FROM `*PREFIX*gallery_photos photos`,'
 						.' `*PREFIX*gallery_albums albums`'
 					.' WHERE `albums`.`uid_owner` = ?'
 						.' AND `albums`.`album_name` = ?'
 						.' AND `photos`.`album_id` = `albums`.`album_id`');
-		return $stmt->execute(array($owner, $album_name));
+		$result = $stmt->execute(array($owner, $album_name));
+		return $result->fetchAll();
 	}
 
 	public static function removeByPath($path, $album_id) {
-		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*gallery_photos` WHERE `file_path` LIKE ? AND `album_id` = ?');
+		$stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*gallery_photos` WHERE `file_path` LIKE ? AND `album_id` = ?');
 		$stmt->execute(array($path, $album_id));
 	}
 
 	public static function removeById($id) {
-		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*gallery_photos` WHERE `photo_id` = ?');
+		$stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*gallery_photos` WHERE `photo_id` = ?');
 		$stmt->execute(array($id));
 	}
 
 	public static function removeByAlbumId($albumid) {
-		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*gallery_photos` WHERE `album_id` = ?');
+		$stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*gallery_photos` WHERE `album_id` = ?');
 		$stmt->execute(array($albumid));
 	}
 
 	public static function changePath($oldAlbumId, $newAlbumId, $oldpath, $newpath) {
-		$stmt = OCP\DB::prepare('UPDATE `*PREFIX*gallery_photos` SET `file_path` = ?, `album_id` = ? WHERE `album_id` = ? AND `file_path` = ?');
+		$stmt = \OCP\DB::prepare('UPDATE `*PREFIX*gallery_photos` SET `file_path` = ?, `album_id` = ? WHERE `album_id` = ? AND `file_path` = ?');
 		$stmt->execute(array($newpath, $newAlbumId, $oldAlbumId, $oldpath));
 	}
 
 	public static function getThumbnail($image_name, $owner = null) {
 		if (!$owner)
-			$owner = OCP\USER::getUser();
-		$view = OCP\Files::getStorage('gallery');
+			$owner = \OCP\USER::getUser();
+		$view = \OCP\Files::getStorage('gallery');
 		$save_dir = dirname($image_name);
 		if (!$view->is_dir($save_dir)) {
 			$view->mkdir($save_dir);
@@ -77,13 +82,13 @@ class OC_Gallery_Photo {
 		$view->chroot($view->getRoot() . '/' . $save_dir);
 		$thumb_file = basename($image_name);
 		if ($view->file_exists($thumb_file)) {
-			$image = new OC_Image($view->fopen($thumb_file, 'r'));
+			$image = new \OC_Image($view->fopen($thumb_file, 'r'));
 		} else {
-			$image_path = OC_Filesystem::getLocalFile($image_name);
+			$image_path = \OC_Filesystem::getLocalFile($image_name);
 			if (!file_exists($image_path)) {
 				return null;
 			}
-			$image = new OC_Image($image_path);
+			$image = new \OC_Image($image_path);
 			if ($image->valid()) {
 				$image->centerCrop(200);
 				$image->fixOrientation();
@@ -99,8 +104,8 @@ class OC_Gallery_Photo {
 	}
 
 	public static function getViewImage($image_name, $owner = null) {
-		if (!$owner) $owner = OCP\USER::getUser();
-		$save_dir = OCP\Config::getSystemValue("datadirectory") . '/' . $owner . '/gallery';
+		if (!$owner) $owner = \OCP\USER::getUser();
+		$save_dir = \OCP\Config::getSystemValue("datadirectory") . '/' . $owner . '/gallery';
 		$save_dir .= dirname($image_name) . '/view/';
 		$image_path = $image_name;
 		$view_file = $save_dir . basename($image_name);
@@ -108,13 +113,13 @@ class OC_Gallery_Photo {
 			mkdir($save_dir, 0777, true);
 		}
 		if (file_exists($view_file)) {
-			$image = new OC_Image($view_file);
+			$image = new \OC_Image($view_file);
 		} else {
-			$image_path = OC_Filesystem::getLocalFile($image_path);
+			$image_path = \OC_Filesystem::getLocalFile($image_path);
 			if (!file_exists($image_path)) {
 				return null;
 			}
-			$image = new OC_Image($image_path);
+			$image = new \OC_Image($image_path);
 			if ($image->valid()) {
 				$image->resize(1200);
 				$image->fixOrientation();
@@ -130,7 +135,7 @@ class OC_Gallery_Photo {
 	}
 
 	public static function getGalleryRoot() {
-		return OCP\Config::getUserValue(OCP\USER::getUser(), 'gallery', 'root', '');
+		return \OCP\Config::getUserValue(OCP\USER::getUser(), 'gallery', 'root', '');
 	}
 
 }

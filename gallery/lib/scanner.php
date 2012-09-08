@@ -21,17 +21,19 @@
 *
 */
 
-class OC_Gallery_Scanner {
+namespace OCA\Gallery;
+
+class Scanner {
 
 	public static function getGalleryRoot() {
-		return OCP\Config::getUserValue(OCP\USER::getUser(), 'gallery', 'root', '/');
+		return \OCP\Config::getUserValue(OCP\USER::getUser(), 'gallery', 'root', '/');
 	}
 	public static function getScanningRoot() {
-		return OC_Filesystem::getRoot().self::getGalleryRoot();
+		return \OC_Filesystem::getRoot().self::getGalleryRoot();
 	}
 
 	public static function cleanUp() {
-		OC_Gallery_Album::cleanup();
+		Album::cleanup();
 	}
 
 	public static function createName($name) {
@@ -40,26 +42,26 @@ class OC_Gallery_Scanner {
 	}
 
 	// Scan single dir relative to gallery root
-	public static function scan($eventSource) {
+	public static function scan( $eventSource = null ) {
 		$paths = self::findPaths();
 		$eventSource->send('count', count($paths)+1);
-		$owner = OCP\USER::getUser();
+		$owner = \OCP\USER::getUser();
 		foreach ($paths as $path) {
 			$name = self::createName($path);
 			$images = self::findFiles($path);
 
-			$result = OC_Gallery_Album::find($owner, null, $path);
+			$result = Album::find($owner, null, $path);
 			// don't duplicate galleries with same path
 			if (!($albumId = $result->fetchRow())) {
-				OC_Gallery_Album::create($owner, $name, $path);
-				$result = OC_Gallery_Album::find($owner, $name, $path);
+				Album::create($owner, $name, $path);
+				$result = Album::find($owner, $name, $path);
 				$albumId = $result->fetchRow();
 			}
 			$albumId = $albumId['album_id'];
 			foreach ($images as $img) {
-				$result = OC_Gallery_Photo::find($albumId, $img);
+				$result = Photo::find($albumId, $img);
 				if (!$result->fetchRow())
-					OC_Gallery_Photo::create($albumId, $img);
+					Photo::create($albumId, $img);
 			}
 			if (count($images))
 				self::createThumbnails($name, $images);
@@ -75,13 +77,13 @@ class OC_Gallery_Scanner {
 		$file_count = min(count($files), 10);
 		$thumbnail = imagecreatetruecolor($file_count*200, 200);
 		for ($i = 0; $i < $file_count; $i++) {
-			$image = OC_Gallery_Photo::getThumbnail($files[$i]);
+			$image = Photo::getThumbnail($files[$i]);
 			if ($image && $image->valid()) {
 				imagecopyresampled($thumbnail, $image->resource(), $i*200, 0, 0, 0, 200, 200, 200, 200);
 				$image->destroy();
 			}
 		}
-		$view = OCP\Files::getStorage('gallery');
+		$view = \OCP\Files::getStorage('gallery');
 		imagepng($thumbnail, $view->getLocalFile($albumName.'.png'));
 		imagedestroy($thumbnail);
 	}
@@ -97,8 +99,8 @@ class OC_Gallery_Scanner {
 					$p = $paths[$i-1];
 					foreach ($a as $e) {
 						$p .= ($p == '/'?'':'/').$e;
-						OC_Gallery_Album::create(OCP\USER::getUser(), $e, $p);
-						$arr = OC_FileCache::searchByMime('image','', OC_Filesystem::getRoot().$p);
+						Album::create(OCP\USER::getUser(), $e, $p);
+						$arr = \OC_FileCache::searchByMime('image','', OC_Filesystem::getRoot().$p);
 						$step = floor(count($arr)/10);
 						if ($step == 0) $step = 1;
 						$na = array();
@@ -119,7 +121,7 @@ class OC_Gallery_Scanner {
 	}
 
 	public static function findFiles($path) {
-		$images = OC_FileCache::searchByMime('image','', OC_Filesystem::getRoot().$path);
+		$images = \OC_FileCache::searchByMime('image','', \OC_Filesystem::getRoot().$path);
 		$new = array();
 		foreach ($images as $i)
 			if (strpos($i, '/',1) === FALSE)
@@ -128,7 +130,7 @@ class OC_Gallery_Scanner {
 	}
 
 	public static function findPaths() {
-		$images=OC_FileCache::searchByMime('image','', self::getScanningRoot());
+		$images=\OC_FileCache::searchByMime('image','', self::getScanningRoot());
 		$paths=array();
 		foreach($images as $image) {
 			$path=dirname($image);
