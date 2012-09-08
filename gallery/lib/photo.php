@@ -71,28 +71,29 @@ class Photo {
 		$stmt->execute(array($newpath, $newAlbumId, $oldAlbumId, $oldpath));
 	}
 
-	public static function getThumbnail($image_name, $owner = null) {
+	public static function getThumbnail($imagePath, $owner = null, $square = false) {
 		if (!$owner)
 			$owner = \OCP\USER::getUser();
-		$view = \OCP\Files::getStorage('gallery');
-		$save_dir = dirname($image_name);
-		if (!$view->is_dir($save_dir)) {
-			$view->mkdir($save_dir);
+		$galleryDir = \OC_User::getHome($owner) . '/gallery/';
+		$dir = dirname($imagePath);
+		if (!is_dir($galleryDir.$dir)) {
+			mkdir($galleryDir.$dir, 0, true);
 		}
-		$view->chroot($view->getRoot() . '/' . $save_dir);
-		$thumb_file = basename($image_name);
-		if ($view->file_exists($thumb_file)) {
-			$image = new \OC_Image($view->fopen($thumb_file, 'r'));
+		if (file_exists($galleryDir.$imagePath)) {
+			$image = new \OC_Image($galleryDir.$imagePath);
 		} else {
-			$image_path = \OC_Filesystem::getLocalFile($image_name);
-			if (!file_exists($image_path)) {
+			if (!\OC_Filesystem::file_exists($imagePath)) {
 				return null;
 			}
-			$image = new \OC_Image($image_path);
+			$image = new \OC_Image(\OC_Filesystem::getLocalFile($imagePath));
 			if ($image->valid()) {
-				$image->centerCrop(200);
 				$image->fixOrientation();
-				$image->save($view->getLocalFile($thumb_file));
+				if( $square ){
+					$image->centerCrop(200);
+				}else{
+					$image->fitIn(400,200);
+				}
+				$image->save($galleryDir.$imagePath);
 			}
 		}
 		if ($image->valid()) {
@@ -105,7 +106,7 @@ class Photo {
 
 	public static function getViewImage($image_name, $owner = null) {
 		if (!$owner) $owner = \OCP\USER::getUser();
-		$save_dir = \OCP\Config::getSystemValue("datadirectory") . '/' . $owner . '/gallery';
+		$save_dir = \OC_User::getHome($owner) . '/gallery/';
 		$save_dir .= dirname($image_name) . '/view/';
 		$image_path = $image_name;
 		$view_file = $save_dir . basename($image_name);

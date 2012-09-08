@@ -95,17 +95,18 @@ class Scanner {
 
 	public static function createThumbnails($albumId, $files) {
 		// create gallery thumbnail
-		$file_count = min(count($files), 10);
-		$thumbnail = imagecreatetruecolor($file_count*200, 200);
-		for ($i = 0; $i < $file_count; $i++) {
-			$image = Photo::getThumbnail($files[$i]);
+		$count = min(count($files), 10);
+		$thumbnail = imagecreatetruecolor($count*200, 200);
+		for ($i = 0; $i < $count; $i++) {
+			$image = Photo::getThumbnail($files[$i], null, true);
 			if ($image && $image->valid()) {
-				imagecopyresampled($thumbnail, $image->resource(), $i*200, 0, 0, 0, 200, 200, 200, 200);
+				imagecopy($thumbnail, $image->resource(), $i*200, 0, 0, 0, 200, 200, 200, 200);
 				$image->destroy();
 			}
 		}
-		$view = \OCP\Files::getStorage('gallery');
-		imagepng($thumbnail, $view->getLocalFile($albumId.'.png'));
+		
+		$galleryDir = \OC_User::getHome(OC_User::getUser()) . '/gallery/';
+		imagepng($thumbnail, $galleryDir.$albumId.'.png');
 		imagedestroy($thumbnail);
 	}
 }
