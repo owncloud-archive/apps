@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Denis  <reg.transifex.net@demitel.ru>, 2012.
+#   <victor.dubiniuk@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:03+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-08 02:01+0200\n"
+"PO-Revision-Date: 2012-09-07 11:03+0000\n"
+"Last-Translator: VicDeo <victor.dubiniuk@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,7 +68,7 @@ msgstr "Модуль php-pdo необходим для хранения данн
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "Модуль iconv необходим для преобразования данных в правильную кодировку"
 
 #: templates/settings.php:2
 msgid "Dependencies status"

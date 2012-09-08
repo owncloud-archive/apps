@@ -123,6 +123,7 @@
 "Month" => "เดือน",
 "List" => "รายการ",
 "Today" => "วันนี้",
+"Calendars" => "ปฏิทิน",
 "Settings" => "ตั้งค่า",
 "Your calendars" => "ปฏิทินของคุณ",
 "CalDav Link" => "ลิงค์ CalDav",

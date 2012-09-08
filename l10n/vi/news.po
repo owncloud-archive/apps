@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Sơn Nguyễn <sonnghit@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
-"PO-Revision-Date: 2012-09-06 00:03+0000\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-08 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -49,16 +50,16 @@ msgstr ""
 msgid "Error removing folder."
 msgstr ""
 
-#: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
+#: ajax/feedlist.php:27
+msgid "Error updating feeds."
+msgstr ""
+
+#: ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
 msgstr ""
 
-#: ajax/exportopml.php:41 ajax/importopml.php:41
+#: ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
-msgstr ""
-
-#: ajax/feedlist.php:27
-msgid "Error updating feeds."
 msgstr ""
 
 #: ajax/loadfeed.php:36 templates/part.feeds.php:50
@@ -79,7 +80,7 @@ msgstr ""
 
 #: ajax/selectfromcloud.php:37
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "Tập tin không tồn tại"
 
 #: ajax/setallitemsread.php:57
 msgid "Error setting all items as read."
@@ -99,7 +100,7 @@ msgstr ""
 
 #: appinfo/app.php:35
 msgid "News"
-msgstr ""
+msgstr "Tin tức"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
@@ -108,7 +109,7 @@ msgstr ""
 #: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
 #: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
 msgid "Error"
-msgstr ""
+msgstr "Lỗi"
 
 #: js/news.js:33 js/news.js:95
 msgid "Adding..."
@@ -116,7 +117,7 @@ msgstr ""
 
 #: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
-msgstr ""
+msgstr "Thêm thư mục"
 
 #: js/news.js:63
 msgid "Changing..."
@@ -129,11 +130,11 @@ msgstr ""
 
 #: js/news.js:90
 msgid "URL cannot be empty."
-msgstr ""
+msgstr "URL không được để trống."
 
 #: js/news.js:120 js/news.js:127 templates/part.nofeeds.php:6
 msgid "Add feed"
-msgstr ""
+msgstr "Tâp"
 
 #: js/news.js:124
 msgid "Error while parsing the feed"
@@ -145,7 +146,7 @@ msgstr ""
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
-msgstr ""
+msgstr "Tập tin"
 
 #: js/settings.js:11
 msgid " loaded from cloud."
@@ -153,7 +154,7 @@ msgstr ""
 
 #: js/settings.js:22
 msgid "No files selected."
-msgstr ""
+msgstr "Không có tập tin được chọn."
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
@@ -173,23 +174,23 @@ msgstr ""
 
 #: js/settings.js:45
 msgid "Success"
-msgstr ""
+msgstr "Thành công"
 
-#: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
+#: js/settings.js:49 templates/part.nofeeds.php:19 templates/settings.php:9
 msgid "Import"
 msgstr ""
 
 #: js/settings.js:55
 msgid "Downloading..."
-msgstr ""
+msgstr "Đang tải ..."
 
 #: js/settings.js:57
 msgid "Download"
-msgstr ""
+msgstr "Tải về"
 
 #: js/settings.js:69
 msgid "Select file"
-msgstr ""
+msgstr "Chọn tập tin"
 
 #: lib/feedmapper.php:165 lib/itemmapper.php:199
 msgid "no title"
@@ -221,11 +222,11 @@ msgstr ""
 
 #: templates/main.php:12
 msgid "Show everything"
-msgstr ""
+msgstr "Hiện tất cả"
 
 #: templates/main.php:16
 msgid "Show only unread"
-msgstr ""
+msgstr "Hiển thị chưa đọc"
 
 #: templates/main.php:32
 msgid "Add feed or folder"
@@ -345,22 +346,13 @@ msgid "Select"
 msgstr ""
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid "Select file from"
+msgid ""
+"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
+"filesystem</a> or <a href=\"#\" class=\"settings\" "
+"id=\"cloudlink\">cloud</a>"
 msgstr ""
 
-#: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid "local filesystem"
-msgstr ""
-
-#: templates/part.nofeeds.php:17 templates/settings.php:7
-msgid " or "
-msgstr ""
-
-#: templates/part.nofeeds.php:17 templates/settings.php:7
-msgid "cloud"
-msgstr ""
-
-#: templates/part.nofeeds.php:26
+#: templates/part.nofeeds.php:25
 msgid "Or..."
 msgstr ""
 
@@ -368,15 +360,15 @@ msgstr ""
 msgid "Import feeds"
 msgstr ""
 
-#: templates/settings.php:12
+#: templates/settings.php:11
 msgid "Export feeds"
 msgstr ""
 
-#: templates/settings.php:14
+#: templates/settings.php:13
 msgid "Download OPML"
 msgstr ""
 
-#: templates/settings.php:16
+#: templates/settings.php:15
 msgid "Subscribelet"
 msgstr ""
 

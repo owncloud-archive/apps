@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-07 08:48+0000\n"
+"Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -298,39 +298,39 @@ msgstr "Chcete spojit tyto knihy adres?"
 
 #: js/contacts.js:2065
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Nelze odeslat Váš soubor, protože je to adresář, nebo je jeho velikost 0 bajtů"
 
 #: js/contacts.js:2065
 msgid "Upload Error"
-msgstr ""
+msgstr "Chyba odesílání"
 
 #: js/contacts.js:2072
 msgid "Upload too large"
-msgstr ""
+msgstr "Odesílaný soubor je příliš velký"
 
 #: js/contacts.js:2120
 msgid "Pending"
-msgstr ""
+msgstr "Nevyřízené"
 
 #: js/contacts.js:2152
 msgid "Import done"
-msgstr ""
+msgstr "Import dokončen"
 
 #: js/contacts.js:2165
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Všechny soubory nebyly odeslány. Opakuji..."
 
 #: js/contacts.js:2171
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Něco se stalo špatně s odesílaným souborem, zkuste jej, prosím, odeslat znovu."
 
 #: js/contacts.js:2187
 msgid "Importing..."
-msgstr ""
+msgstr "Importuji..."
 
 #: js/contacts.js:2208
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "Název knihy adres nemůže být prázdný."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -350,7 +350,7 @@ msgstr "Zobrazované jméno nemůže být prázdné."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "Nemáte práva ke čtení této knihy adres."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -947,7 +947,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>Ve Vaší knize adres nemáte žádné kontakty.</h3><p>Můžete importovat soubory VCF přetažením na seznam kontaktů a upuštěním na knihu adres pro přidání, nebo do prázdného místa pro vytvoření nové knihy adres.<br />Můžete také importovat kliknutím na tlačítko Importovat na konci seznamu.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

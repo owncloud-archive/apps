@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:05+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-07 07:42+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -298,39 +298,39 @@ msgstr "Vuoi unire queste rubriche?"
 
 #: js/contacts.js:2065
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Impossibile caricare il file poiché è una cartella o ha una dimensione di 0 byte"
 
 #: js/contacts.js:2065
 msgid "Upload Error"
-msgstr ""
+msgstr "Errore di caricamento"
 
 #: js/contacts.js:2072
 msgid "Upload too large"
-msgstr ""
+msgstr "Caricamento troppo grande"
 
 #: js/contacts.js:2120
 msgid "Pending"
-msgstr ""
+msgstr "In corso"
 
 #: js/contacts.js:2152
 msgid "Import done"
-msgstr ""
+msgstr "Importazione completata"
 
 #: js/contacts.js:2165
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Non tutti i file sono stati caricati. Riprovo..."
 
 #: js/contacts.js:2171
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Qualcosa non ha funzionato durante il caricamento. Prova ancora."
 
 #: js/contacts.js:2187
 msgid "Importing..."
-msgstr ""
+msgstr "Importazione in corso..."
 
 #: js/contacts.js:2208
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "Il nome della rubrica non può essere vuoto."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -350,7 +350,7 @@ msgstr "Il nome visualizzato non può essere vuoto."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "Non hai i permessi per leggere questa rubrica."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -947,7 +947,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>Non hai contatti nella tua rubrica.</h3><p>Puoi importare file VCF trascinandoli sull'elenco dei contatti e rilasciandoli su una rubrica di destinazione o in un punto vuoto per creare una nuova rubrica.<br />Puoi inoltre importare facendo clic sul pulsante di importazione in fondo all'elenco.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

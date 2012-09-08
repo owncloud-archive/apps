@@ -123,6 +123,7 @@
 "Month" => "Mesec",
 "List" => "Seznam",
 "Today" => "Danes",
+"Calendars" => "Koledarji",
 "Settings" => "Nastavitve",
 "Your calendars" => "Vaši koledarji",
 "CalDav Link" => "CalDav povezava",

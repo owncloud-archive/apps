@@ -19,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:05+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-07 14:27+0000\n"
+"Last-Translator: Romain DEP. <rom1dep@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -306,39 +306,39 @@ msgstr "Voulez-vous fusionner ces carnets d'adresses ?"
 
 #: js/contacts.js:2065
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Impossible de téléverser votre fichier dans la mesure où il s'agit d'un répertoire ou d'un fichier de taille nulle"
 
 #: js/contacts.js:2065
 msgid "Upload Error"
-msgstr ""
+msgstr "Erreur lors du téléversement"
 
 #: js/contacts.js:2072
 msgid "Upload too large"
-msgstr ""
+msgstr "Téléversement trop volumineux"
 
 #: js/contacts.js:2120
 msgid "Pending"
-msgstr ""
+msgstr "En attente"
 
 #: js/contacts.js:2152
 msgid "Import done"
-msgstr ""
+msgstr "Fichiers importés"
 
 #: js/contacts.js:2165
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Tous les fichiers n'ont pas pu être téléversés. Nouvel essai…"
 
 #: js/contacts.js:2171
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Une erreur s'est produite pendant le téléversement, veuillez réessayer."
 
 #: js/contacts.js:2187
 msgid "Importing..."
-msgstr ""
+msgstr "Import en cours…"
 
 #: js/contacts.js:2208
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "Le nom du carnet d'adresses ne peut être vide."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -358,7 +358,7 @@ msgstr "Le nom d'affichage ne peut pas être vide."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "Vous n'avez pas les droits suffisants pour accéder à ce carnet d'adresses."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -955,7 +955,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>Vous n'avez pas de contact dans ce carnet d'adresses.</h3><p>Vous pouvez importer un fichier VCF par simple glisser/déposer vers la liste de contacts, vers un carnet d'adresses existant (afin d'y importer les nouveaux contacts), ou encore vers un emplacement libre afin de créer un nouveau carnet d'adresses à partir des contacts contenus dans le fichier.<br />Vous pouvez également utiliser le bouton d'import en bas de la liste.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

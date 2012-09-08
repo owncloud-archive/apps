@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-07 14:26+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -301,35 +301,35 @@ msgstr ""
 
 #: js/contacts.js:2065
 msgid "Upload Error"
-msgstr ""
+msgstr "Igotzeak huts egin du"
 
 #: js/contacts.js:2072
 msgid "Upload too large"
-msgstr ""
+msgstr "Igoera handiegia da"
 
 #: js/contacts.js:2120
 msgid "Pending"
-msgstr ""
+msgstr "Zain"
 
 #: js/contacts.js:2152
 msgid "Import done"
-msgstr ""
+msgstr "Inportazioa burutua"
 
 #: js/contacts.js:2165
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Fitxategi guztiak ez dira igo. Berriz saiatzen..."
 
 #: js/contacts.js:2171
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Zerbait gaizki joan da igotzean, mesedez saiatu berriz."
 
 #: js/contacts.js:2187
 msgid "Importing..."
-msgstr ""
+msgstr "Inportatzen"
 
 #: js/contacts.js:2208
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "Helbide-liburuaren izena ezin da hutsik egon."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -349,7 +349,7 @@ msgstr "Bistaratzeko izena ezin da hutsik egon."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "Ez duzu baimenik helbide-liburu hau irakurtzeko."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -946,7 +946,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>Ez duzu kontakturik zure helbide-liburuan.</h3><p>VCF fitxategiak inportatu ditzakezu kontaktu zerrendara arrastratuz eta helbide-liburu batean askatuz bertan inportatzeko, edo hutsune batera helbide-liburu berri bat sortzeko eta bertara inportatzeko.<br />Zerrendaren azpian dagoen inportatu botoia sakatuz ere inportatu dezakezu.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

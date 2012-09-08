@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-07 04:45+0000\n"
+"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -296,39 +296,39 @@ msgstr "คุณต้องการผสานข้อมูลสมุด
 
 #: js/contacts.js:2065
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "ไม่สามารถอัพโหลดไฟล์ของคุณได้ เนื่องจากไฟล์ดังกล่าวเป็นไดเร็กทอรี่ หรือ มีขนาดไฟล์ 0 ไบต์"
 
 #: js/contacts.js:2065
 msgid "Upload Error"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดในการอัพโหลด"
 
 #: js/contacts.js:2072
 msgid "Upload too large"
-msgstr ""
+msgstr "ไฟล์ที่อัพโหลดมีขนาดใหญ่เกินไป"
 
 #: js/contacts.js:2120
 msgid "Pending"
-msgstr ""
+msgstr "อยู่ระหว่างดำเนินการ"
 
 #: js/contacts.js:2152
 msgid "Import done"
-msgstr ""
+msgstr "เสร็จสิ้นการนำเข้าข้อมูล"
 
 #: js/contacts.js:2165
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "ไม่ใช่ไฟล์ทั้งหมดที่จะถูกอัพโหลด กำลังลองใหม่..."
 
 #: js/contacts.js:2171
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "เกิดข้อผิดพลาดบางประการในการอัพโหลด, กรุณาลองใหม่อีกครั้ง"
 
 #: js/contacts.js:2187
 msgid "Importing..."
-msgstr ""
+msgstr "กำลังนำเข้าข้อมูล..."
 
 #: js/contacts.js:2208
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "ชื่อของสมุดบันทึกที่อยู่ไม่สามารถเว้นว่างได้"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -348,7 +348,7 @@ msgstr "ชื่อที่ใช้แสดงไม่สามารถเ
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "คุณไม่ได้รับสิทธิ์ให้เปิดอ่านสมุดบันทึกที่อยู่"
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -945,7 +945,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>คุณยังไม่มีรายชื่อผู้ติดต่อใดๆในสมุดบันทึกที่อยู่ของคุณ.</h3><p>คุณสามารถนำเข้าไฟล์ VCF ได้โดยการลากไฟล์เหล่านั้นไปไว้ในรายการของรายชื่อผู้ติดต่อ แล้ววางไฟล์ดังกล่าวไว้ที่สมุดบันทึกที่อยู่ดังกล่าว เพื่อนำเข้าข้อมูลไปไว้ หรือ ที่ตำแหน่งว่างๆ เพื่อสร้างสมุดบันทึกที่อยู่ใหม่ และนำเข้าข้อมูลเข้าไปไว้ในนั้น.<br />คุณยังสามารถนำเข้าข้อมูลได้ด้วยการคลิกที่ปุ่มนำเข้าที่อยู่บริเวณตำแหน่งด้านล่างของรายการ.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

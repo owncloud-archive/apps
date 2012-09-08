@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-07 10:12+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -299,39 +299,39 @@ msgstr "Haluatko yhdistää nämä osoitekirjat?"
 
 #: js/contacts.js:2065
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Tiedoston lähetys epäonnistui, koska sen koko on 0 tavua tai kyseessä on kansio."
 
 #: js/contacts.js:2065
 msgid "Upload Error"
-msgstr ""
+msgstr "Lähetysvirhe"
 
 #: js/contacts.js:2072
 msgid "Upload too large"
-msgstr ""
+msgstr "Lähetettävä tiedosto on liian suuri"
 
 #: js/contacts.js:2120
 msgid "Pending"
-msgstr ""
+msgstr "Odottaa"
 
 #: js/contacts.js:2152
 msgid "Import done"
-msgstr ""
+msgstr "Tuonti valmis"
 
 #: js/contacts.js:2165
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Kaikkia tiedostoja ei lähetetty. Yritetään uudelleen..."
 
 #: js/contacts.js:2171
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Jokin meni vikaan lähettäessä. Yritä uudelleen."
 
 #: js/contacts.js:2187
 msgid "Importing..."
-msgstr ""
+msgstr "Tuodaan..."
 
 #: js/contacts.js:2208
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "Osoitekirjan nimi ei voi olla tyhjä"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -351,7 +351,7 @@ msgstr "Näyttönimi ei voi olla tyhjä."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "Käyttöoikeutesi eivät riitä tämän osoitekirjan lukuun."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."

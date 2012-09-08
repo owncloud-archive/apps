@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Marios Bekatoros <>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-05 02:02+0200\n"
-"PO-Revision-Date: 2012-09-05 00:03+0000\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-08 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -23,24 +24,24 @@ msgstr ""
 
 #: templates/index.php:14 templates/index.php:15
 msgid "Settings"
-msgstr ""
+msgstr "Ρυθμίσεις"
 
 #: templates/index.php:17
-msgid "Pad Title:"
+msgid "Pad Title"
 msgstr ""
 
 #: templates/index.php:18
 msgid "Open"
-msgstr ""
+msgstr "Άνοιγμα"
 
 #: templates/settings.php:15
-msgid "Etherpad service URL:"
+msgid "Etherpad service URL"
 msgstr ""
 
 #: templates/settings.php:20
-msgid "Username:"
+msgid "Username"
 msgstr ""
 
 #: templates/settings.php:27
 msgid "Save"
-msgstr ""
+msgstr "Αποθήκευση"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:03+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-08 02:01+0200\n"
+"PO-Revision-Date: 2012-09-07 13:02+0000\n"
+"Last-Translator: Richard Bos <radoeka@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,7 +67,7 @@ msgstr "De php-pdo module is nodig voor het opslaan van data in de database."
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "The iconv module is nodig voor het converteren van data naar de juiste character encoding."
 
 #: templates/settings.php:2
 msgid "Dependencies status"

@@ -123,6 +123,7 @@
 "Month" => "Mese",
 "List" => "Elenco",
 "Today" => "Oggi",
+"Calendars" => "Calendari",
 "Settings" => "Impostazioni",
 "Your calendars" => "I tuoi calendari",
 "CalDav Link" => "Collegamento CalDav",

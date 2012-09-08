@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
-"PO-Revision-Date: 2012-09-06 00:03+0000\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-08 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -50,17 +50,17 @@ msgstr "Napaka pri odstranjevanju vira."
 msgid "Error removing folder."
 msgstr "Napaka pri odstranjevanju mape."
 
-#: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
-msgid "No file path was submitted."
-msgstr "Pot do datoteke ni bila poslana."
-
-#: ajax/exportopml.php:41 ajax/importopml.php:41
-msgid "An error occurred while parsing the file."
-msgstr "Pri razčlenjevanju datoteke je prišlo do napake."
-
 #: ajax/feedlist.php:27
 msgid "Error updating feeds."
 msgstr "Napaka pri posodabljanju virov."
+
+#: ajax/importopml.php:27 ajax/selectfromcloud.php:30
+msgid "No file path was submitted."
+msgstr "Pot do datoteke ni bila poslana."
+
+#: ajax/importopml.php:41
+msgid "An error occurred while parsing the file."
+msgstr "Pri razčlenjevanju datoteke je prišlo do napake."
 
 #: ajax/loadfeed.php:36 templates/part.feeds.php:50
 msgid "Starred"
@@ -176,7 +176,7 @@ msgstr "viri uspešno uvoženi iz"
 msgid "Success"
 msgstr "Uspeh"
 
-#: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
+#: js/settings.js:49 templates/part.nofeeds.php:19 templates/settings.php:9
 msgid "Import"
 msgstr "Uvozi"
 
@@ -346,22 +346,13 @@ msgid "Select"
 msgstr "Izberi"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid "Select file from"
-msgstr "Izberi datoteko iz"
+msgid ""
+"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
+"filesystem</a> or <a href=\"#\" class=\"settings\" "
+"id=\"cloudlink\">cloud</a>"
+msgstr ""
 
-#: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid "local filesystem"
-msgstr "lokalnega datotečnega sistema"
-
-#: templates/part.nofeeds.php:17 templates/settings.php:7
-msgid " or "
-msgstr "ali"
-
-#: templates/part.nofeeds.php:17 templates/settings.php:7
-msgid "cloud"
-msgstr "oblaka"
-
-#: templates/part.nofeeds.php:26
+#: templates/part.nofeeds.php:25
 msgid "Or..."
 msgstr "Ali..."
 
@@ -369,15 +360,15 @@ msgstr "Ali..."
 msgid "Import feeds"
 msgstr "Uvozi vire"
 
-#: templates/settings.php:12
+#: templates/settings.php:11
 msgid "Export feeds"
 msgstr "Izvozi vire"
 
-#: templates/settings.php:14
+#: templates/settings.php:13
 msgid "Download OPML"
 msgstr "Prenesi OPML"
 
-#: templates/settings.php:16
+#: templates/settings.php:15
 msgid "Subscribelet"
 msgstr "Vstavek za naročanje"
 

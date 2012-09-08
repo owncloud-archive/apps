@@ -25,9 +25,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:05+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-07 05:57+0000\n"
+"Last-Translator: JamFX <niko@nik-o-mat.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -316,7 +316,7 @@ msgstr ""
 
 #: js/contacts.js:2065
 msgid "Upload Error"
-msgstr ""
+msgstr "Fehler beim Hochladen"
 
 #: js/contacts.js:2072
 msgid "Upload too large"
@@ -324,27 +324,27 @@ msgstr ""
 
 #: js/contacts.js:2120
 msgid "Pending"
-msgstr ""
+msgstr "Ausstehend"
 
 #: js/contacts.js:2152
 msgid "Import done"
-msgstr ""
+msgstr "Import ausgeführt"
 
 #: js/contacts.js:2165
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Es wurden nicht alle Dateien hochgeladen. Versuche erneut..."
 
 #: js/contacts.js:2171
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Beim Hochladen ist etwas schiefgegangen. Bitte erneut versuchen."
 
 #: js/contacts.js:2187
 msgid "Importing..."
-msgstr ""
+msgstr "Importiere..."
 
 #: js/contacts.js:2208
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "Der Name des Adressbuches darf nicht leer sein."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -364,7 +364,7 @@ msgstr "Der Anzeigename darf nicht leer sein."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "Sie haben keine Leseberechtigung für dieses Adressbuch."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."

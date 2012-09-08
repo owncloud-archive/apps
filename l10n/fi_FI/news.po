@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
-"PO-Revision-Date: 2012-09-06 00:03+0000\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-08 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -51,17 +51,17 @@ msgstr "Virhe syötettä poistaessa."
 msgid "Error removing folder."
 msgstr "Virhe kansiota poistaessa."
 
-#: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
-msgid "No file path was submitted."
-msgstr "Tiedoston polkua ei annettu."
-
-#: ajax/exportopml.php:41 ajax/importopml.php:41
-msgid "An error occurred while parsing the file."
-msgstr "Tiedostoa jäsennettäessä tapahtui virhe."
-
 #: ajax/feedlist.php:27
 msgid "Error updating feeds."
 msgstr "Virhe syötteitä päivittäessä."
+
+#: ajax/importopml.php:27 ajax/selectfromcloud.php:30
+msgid "No file path was submitted."
+msgstr "Tiedoston polkua ei annettu."
+
+#: ajax/importopml.php:41
+msgid "An error occurred while parsing the file."
+msgstr "Tiedostoa jäsennettäessä tapahtui virhe."
 
 #: ajax/loadfeed.php:36 templates/part.feeds.php:50
 msgid "Starred"
@@ -177,7 +177,7 @@ msgstr "syötteet tuotu onnistuneesti täältä:"
 msgid "Success"
 msgstr "Onnistui!"
 
-#: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
+#: js/settings.js:49 templates/part.nofeeds.php:19 templates/settings.php:9
 msgid "Import"
 msgstr "Tuo"
 
@@ -347,22 +347,13 @@ msgid "Select"
 msgstr "Valitse"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid "Select file from"
-msgstr "Valitse tiedosto täältä:"
+msgid ""
+"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
+"filesystem</a> or <a href=\"#\" class=\"settings\" "
+"id=\"cloudlink\">cloud</a>"
+msgstr ""
 
-#: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid "local filesystem"
-msgstr "paikallisesta tiedostojärjestelmästä"
-
-#: templates/part.nofeeds.php:17 templates/settings.php:7
-msgid " or "
-msgstr "tai"
-
-#: templates/part.nofeeds.php:17 templates/settings.php:7
-msgid "cloud"
-msgstr "pilvestä"
-
-#: templates/part.nofeeds.php:26
+#: templates/part.nofeeds.php:25
 msgid "Or..."
 msgstr "Tai..."
 
@@ -370,15 +361,15 @@ msgstr "Tai..."
 msgid "Import feeds"
 msgstr "Tuo syötteitä"
 
-#: templates/settings.php:12
+#: templates/settings.php:11
 msgid "Export feeds"
 msgstr "Vie syötteet"
 
-#: templates/settings.php:14
+#: templates/settings.php:13
 msgid "Download OPML"
 msgstr "Lataa OPML"
 
-#: templates/settings.php:16
+#: templates/settings.php:15
 msgid "Subscribelet"
 msgstr "Tilauskainen"
 

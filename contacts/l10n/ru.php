@@ -63,6 +63,8 @@
 "Select type" => "Выберите тип",
 "Some contacts are marked for deletion, but not deleted yet. Please wait for them to be deleted." => "Некоторые контакты помечены на удаление, но ещё не удалены. Подождите, пока они удаляются.",
 "Do you want to merge these address books?" => "Вы хотите соединить эти адресные книги?",
+"Import done" => "Импорт завершен",
+"Importing..." => "Импортирую...",
 "Result: " => "Результат:",
 " imported, " => "импортировано, ",
 " failed." => "не удалось.",

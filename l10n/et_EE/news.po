@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
-"PO-Revision-Date: 2012-09-06 00:03+0000\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-08 00:03+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -50,16 +50,16 @@ msgstr "Viga uudisvoo lisamisel."
 msgid "Error removing folder."
 msgstr "Viga kausta eemaldamisel."
 
-#: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
+#: ajax/feedlist.php:27
+msgid "Error updating feeds."
+msgstr ""
+
+#: ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
 msgstr ""
 
-#: ajax/exportopml.php:41 ajax/importopml.php:41
+#: ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
-msgstr ""
-
-#: ajax/feedlist.php:27
-msgid "Error updating feeds."
 msgstr ""
 
 #: ajax/loadfeed.php:36 templates/part.feeds.php:50
@@ -176,7 +176,7 @@ msgstr ""
 msgid "Success"
 msgstr "Korras"
 
-#: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
+#: js/settings.js:49 templates/part.nofeeds.php:19 templates/settings.php:9
 msgid "Import"
 msgstr "Impordi"
 
@@ -346,22 +346,13 @@ msgid "Select"
 msgstr ""
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid "Select file from"
+msgid ""
+"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
+"filesystem</a> or <a href=\"#\" class=\"settings\" "
+"id=\"cloudlink\">cloud</a>"
 msgstr ""
 
-#: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid "local filesystem"
-msgstr "kohalik failisüsteem"
-
-#: templates/part.nofeeds.php:17 templates/settings.php:7
-msgid " or "
-msgstr "või"
-
-#: templates/part.nofeeds.php:17 templates/settings.php:7
-msgid "cloud"
-msgstr "pilv"
-
-#: templates/part.nofeeds.php:26
+#: templates/part.nofeeds.php:25
 msgid "Or..."
 msgstr ""
 
@@ -369,15 +360,15 @@ msgstr ""
 msgid "Import feeds"
 msgstr ""
 
-#: templates/settings.php:12
+#: templates/settings.php:11
 msgid "Export feeds"
 msgstr "Ekspordi uudisvood"
 
-#: templates/settings.php:14
+#: templates/settings.php:13
 msgid "Download OPML"
 msgstr "Laadi OPMLfail alla"
 
-#: templates/settings.php:16
+#: templates/settings.php:15
 msgid "Subscribelet"
 msgstr ""
 
