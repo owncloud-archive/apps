@@ -559,7 +559,7 @@ OC.Contacts={
 				$('#contact_note').hide();
 				$('#contacts_propertymenu_dropdown a[data-type="NOTE"]').parent().show();
 			}
-			var permissions = OC.Contacts.Card.permissions = parseInt($('#contacts ul[data-id="' + bookid + '"]').data('permissions'));
+			var permissions = OC.Contacts.Card.permissions = parseInt(this.data.permissions);
 			console.log('permissions', permissions);
 			this.setEnabled(permissions == 0
 				|| permissions & OC.PERMISSION_UPDATE
