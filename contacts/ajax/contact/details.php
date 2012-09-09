@@ -54,9 +54,23 @@ $lastmodified = OC_Contacts_App::lastModified($vcard);
 if(!$lastmodified) {
 	$lastmodified = new DateTime();
 }
+
+$permissions = OCP\Share::PERMISSION_CREATE | OCP\Share::PERMISSION_READ 
+	| OCP\Share::PERMISSION_UPDATE | OCP\Share::PERMISSION_DELETE 
+	| OCP\Share::PERMISSION_SHARE;
+$addressbook = OC_Contacts_Addressbook::find($card['addressbookid']);
+if ($addressbook['userid'] != OCP\User::getUser()) {
+	$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $card['addressbookid']);
+	if($sharedAddressbook) {
+		$permissions = $sharedAddressbook['permissions'];
+	}
+}
+
+
 $details['id'] = $id;
 $details['displayname'] = $card['fullname'];
 $details['addressbookid'] = $card['addressbookid'];
 $details['lastmodified'] = $lastmodified->format('U');
+$details['permisions'] = $permissions;
 OC_Contacts_App::setLastModifiedHeader($vcard);
 OCP\JSON::success(array('data' => $details));
