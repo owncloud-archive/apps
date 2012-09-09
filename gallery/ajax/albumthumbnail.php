@@ -12,5 +12,5 @@ session_write_close();
 
 $img = $_GET['file'];
 
-$image = new \OCA\Gallery\Thumbnail($img);
+$image = new \OCA\Gallery\AlbumThumbnail($img);
 $image->show();

@@ -21,17 +21,8 @@
 *
 */
 
-OC::$CLASSPATH['OC_Gallery_Album'] = 'gallery/lib/album.php';
-OC::$CLASSPATH['OC_Gallery_Photo'] = 'gallery/lib/photo.php';
-OC::$CLASSPATH['OC_Gallery_Scanner'] = 'gallery/lib/scanner.php';
-OC::$CLASSPATH['OC_Gallery_Sharing'] = 'gallery/lib/sharing.php';
-OC::$CLASSPATH['OC_Gallery_Hooks_Handlers'] = 'gallery/lib/hooks_handlers.php';
-OC::$CLASSPATH['OC\Pictures\ThumbnailsManager'] = 'gallery/lib/managers.php';
-OC::$CLASSPATH['OC\Pictures\DatabaseManager'] = 'gallery/lib/managers.php';
-OC::$CLASSPATH['OC\Pictures\TilesLine'] = 'gallery/lib/tiles.php';
-OC::$CLASSPATH['OC\Pictures\TileSingle'] = 'gallery/lib/tiles.php';
-OC::$CLASSPATH['OC\Pictures\TileStack'] = 'gallery/lib/tiles.php';
-OC::$CLASSPATH['OC_Share_Backend_Photo'] = 'gallery/lib/share.php';
+OC::$CLASSPATH['OCA\Gallery\Thumbnail'] = 'gallery/lib/thumbnail.php';
+OC::$CLASSPATH['OCA\Gallery\AlbumThumbnail'] = 'gallery/lib/thumbnail.php';
 
 // OCP\Share::registerBackend('photo', new OC_Share_Backend_Photo());
 
@@ -44,19 +35,19 @@ OCP\App::addNavigationEntry( array(
  'icon' => OCP\Util::imagePath('core', 'places/picture.svg'),
  'name' => $l->t('Pictures')));
 
-class OC_GallerySearchProvider extends OC_Search_Provider{
-	function search($query) {
-		$stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*gallery_albums` WHERE `uid_owner` = ? AND `album_name` LIKE ?');
-		$result = $stmt->execute(array(OCP\USER::getUser(),'%'.$query.'%'));
-		$results=array();
-		while($row=$result->fetchRow()) {
-			$results[]=new OC_Search_Result($row['album_name'],'',OCP\Util::linkTo('gallery', 'index.php').'?view='.$row['album_name'], (string) $l->t('Galleries'));
-		}
-		return $results;
-	}
-}
+// class OC_GallerySearchProvider extends OC_Search_Provider{
+// 	function search($query) {
+// 		$stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*gallery_albums` WHERE `uid_owner` = ? AND `album_name` LIKE ?');
+// 		$result = $stmt->execute(array(OCP\USER::getUser(),'%'.$query.'%'));
+// 		$results=array();
+// 		while($row=$result->fetchRow()) {
+// 			$results[]=new OC_Search_Result($row['album_name'],'',OCP\Util::linkTo('gallery', 'index.php').'?view='.$row['album_name'],'Galleries');
+// 		}
+// 		return $results;
+// 	}
+// }
 
 //OC_Search::registerProvider('OC_GallerySearchProvider');
 
-OCP\Util::connectHook('OC_Filesystem', 'delete', "OC_Gallery_Hooks_Handlers", "removePhoto");
+// OCP\Util::connectHook('OC_Filesystem', 'delete', "OC_Gallery_Hooks_Handlers", "removePhoto");
 //OCP\Util::connectHook(OC_Filesystem::CLASSNAME, OC_Filesystem::signal_post_rename, "OC_Gallery_Hooks_Handlers", "renamePhoto");
