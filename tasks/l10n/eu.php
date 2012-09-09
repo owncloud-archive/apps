@@ -9,6 +9,7 @@
 "Empty Summary" => "Laburpen hutsa",
 "Invalid percent complete" => "Balioagabeko egindako ehunekoa",
 "Invalid priority" => "Baliogabeko lehentasuna",
+"The calendar application also need to be enabled to use this application." => "Aplikazio hau erabiltzeko egutegi aplikazioa ere gaitua egon behar da.",
 "Add Task" => "Gehitu zeregina",
 "Order Due" => "Ordenatu Epea",
 "Order List" => "Ordenatu Zerrenda",

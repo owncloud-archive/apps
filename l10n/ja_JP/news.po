@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-08 00:03+0000\n"
+"POT-Creation-Date: 2012-09-09 02:01+0200\n"
+"PO-Revision-Date: 2012-09-09 00:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,10 @@ msgstr ""
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
 msgstr "フォルダ名の変更エラー"
+
+#: ajax/collapsefolder.php:35
+msgid "Error collapsing folder."
+msgstr ""
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -197,7 +201,7 @@ msgstr "ファイルを選択"
 msgid "no title"
 msgstr "タイトル無し"
 
-#: lib/foldermapper.php:114
+#: lib/foldermapper.php:117
 msgid "no name"
 msgstr "名前無し"
 
@@ -282,7 +286,7 @@ msgid "Add"
 msgstr "追加"
 
 #: templates/part.feeds.php:46 templates/part.listfeed.php:26
-#: templates/part.listfolder.php:20
+#: templates/part.listfolder.php:21
 msgid "Mark all read"
 msgstr "すべて既読にする"
 
@@ -306,15 +310,15 @@ msgstr "未読のままにする"
 msgid "Delete feed"
 msgstr "フィードを削除"
 
-#: templates/part.listfolder.php:15
+#: templates/part.listfolder.php:16
 msgid "Collapse"
 msgstr "折りたたむ"
 
-#: templates/part.listfolder.php:18
+#: templates/part.listfolder.php:19
 msgid "Delete folder"
 msgstr "フォルダを削除"
 
-#: templates/part.listfolder.php:19
+#: templates/part.listfolder.php:20
 msgid "Rename folder"
 msgstr "フォルダの名前を変更"
 

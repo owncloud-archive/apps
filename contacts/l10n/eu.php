@@ -62,6 +62,7 @@
 "Select type" => "Hautatu mota",
 "Some contacts are marked for deletion, but not deleted yet. Please wait for them to be deleted." => "Kontaktu batzuk ezabatzeko markatuta daude, baina oraindik ez dira ezabatu. Mesedez itxoin ezabatu arte.",
 "Do you want to merge these address books?" => "Helbide-liburu hauek elkartu nahi dituzu?",
+"Unable to upload your file as it is a directory or has 0 bytes" => "Ezin izan da zure fitxategia igo karpeta bat delako edo 0 byte dituelako",
 "Upload Error" => "Igotzeak huts egin du",
 "Upload too large" => "Igoera handiegia da",
 "Pending" => "Zain",

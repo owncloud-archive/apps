@@ -121,6 +121,7 @@
 "Month" => "Hilabetea",
 "List" => "Zerrenda",
 "Today" => "Gaur",
+"Calendars" => "Egutegiak",
 "Settings" => "Ezarpenak",
 "Your calendars" => "Zure egutegiak",
 "CalDav Link" => "CalDav lotura",

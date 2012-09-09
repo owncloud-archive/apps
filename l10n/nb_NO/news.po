@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-08 00:03+0000\n"
+"POT-Creation-Date: 2012-09-09 02:01+0200\n"
+"PO-Revision-Date: 2012-09-09 00:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,10 @@ msgstr ""
 
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
+msgstr ""
+
+#: ajax/collapsefolder.php:35
+msgid "Error collapsing folder."
 msgstr ""
 
 #: ajax/createfeed.php:51
@@ -196,7 +200,7 @@ msgstr "Velg fil"
 msgid "no title"
 msgstr "Ingen tittel"
 
-#: lib/foldermapper.php:114
+#: lib/foldermapper.php:117
 msgid "no name"
 msgstr "Ingen navn"
 
@@ -281,7 +285,7 @@ msgid "Add"
 msgstr "Legg til"
 
 #: templates/part.feeds.php:46 templates/part.listfeed.php:26
-#: templates/part.listfolder.php:20
+#: templates/part.listfolder.php:21
 msgid "Mark all read"
 msgstr ""
 
@@ -305,15 +309,15 @@ msgstr "Merk som ulest"
 msgid "Delete feed"
 msgstr "Slett nyhetskilden"
 
-#: templates/part.listfolder.php:15
+#: templates/part.listfolder.php:16
 msgid "Collapse"
 msgstr ""
 
-#: templates/part.listfolder.php:18
+#: templates/part.listfolder.php:19
 msgid "Delete folder"
 msgstr "Slett mappe"
 
-#: templates/part.listfolder.php:19
+#: templates/part.listfolder.php:20
 msgid "Rename folder"
 msgstr "Gi mappen nytt navn"
 

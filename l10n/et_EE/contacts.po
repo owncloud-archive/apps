@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2011, 2012.
+# Rivo Zängov <eraser@eraser.ee>, 2011-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:05+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-09 02:01+0200\n"
+"PO-Revision-Date: 2012-09-08 13:36+0000\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -230,7 +230,7 @@ msgstr "Kehtiva aadressi hankimine ebaõnnestus"
 #: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
 #: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
 #: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:2243 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
 msgstr "Viga"
 
@@ -341,7 +341,7 @@ msgstr " imporditud, "
 msgid " failed."
 msgstr " ebaõnnestus."
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "Näidatav nimi ei saa olla tühi."
 
@@ -351,11 +351,11 @@ msgstr ""
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "Sul pole õigusi selle aadressiraamatu uuendamiseks."
 
 #: lib/addressbook.php:259
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "Aadressiraamatu uuendamisel tekkis viga."
 
 #: lib/addressbook.php:315
 msgid "You do not have the permissions to delete this addressbook."
@@ -532,11 +532,11 @@ msgstr "Kontakt"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "Sul pole õigusi sellesse aadressiraamatusse kontaktide lisamiseks."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "Ei leitud visiitkaarti ID-ga."
 
 #: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
@@ -544,7 +544,7 @@ msgstr "Sul pole selle kontakti muutmiseks õigusi."
 
 #: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "Ei leitud visiitkaarti ID-ga:"
 
 #: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
@@ -556,7 +556,7 @@ msgstr "Sul pole selle kontakti kustutamiseks õigusi."
 
 #: lib/vcard.php:550
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "Selle kontakti kustutamisel tekkis viga."
 
 #: templates/index.php:14
 msgid "Add Contact"

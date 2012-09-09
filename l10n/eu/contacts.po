@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-07 14:26+0000\n"
+"POT-Creation-Date: 2012-09-09 02:01+0200\n"
+"PO-Revision-Date: 2012-09-08 19:23+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -232,7 +232,7 @@ msgstr "Ezin izan da eposta baliagarri bat hartu."
 #: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
 #: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
 #: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:2243 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
 msgstr "Errorea"
 
@@ -297,7 +297,7 @@ msgstr "Helbide-liburu hauek elkartu nahi dituzu?"
 
 #: js/contacts.js:2065
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Ezin izan da zure fitxategia igo karpeta bat delako edo 0 byte dituelako"
 
 #: js/contacts.js:2065
 msgid "Upload Error"
@@ -343,7 +343,7 @@ msgstr " inportatua, "
 msgid " failed."
 msgstr "huts egin du."
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "Bistaratzeko izena ezin da hutsik egon."
 

@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-07 15:11+0000\n"
+"POT-Creation-Date: 2012-09-09 02:01+0200\n"
+"PO-Revision-Date: 2012-09-08 14:49+0000\n"
 "Last-Translator: VicDeo <victor.dubiniuk@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -237,7 +237,7 @@ msgstr "Не удалось получить адрес."
 #: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
 #: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
 #: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:2243 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
 msgstr "Ошибка"
 
@@ -302,19 +302,19 @@ msgstr "Вы хотите соединить эти адресные книги?
 
 #: js/contacts.js:2065
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Файл не был загружен: его размер 0 байт либо это не файл, а директория."
 
 #: js/contacts.js:2065
 msgid "Upload Error"
-msgstr ""
+msgstr "Ошибка при загрузке"
 
 #: js/contacts.js:2072
 msgid "Upload too large"
-msgstr ""
+msgstr "Файл слишком велик"
 
 #: js/contacts.js:2120
 msgid "Pending"
-msgstr ""
+msgstr "Ожидание"
 
 #: js/contacts.js:2152
 msgid "Import done"
@@ -322,11 +322,11 @@ msgstr "Импорт завершен"
 
 #: js/contacts.js:2165
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Не все файлы были загружены.  Повторяю..."
 
 #: js/contacts.js:2171
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "В процессе загрузки что-то пошло не так, пожалуйста загрузите повторно."
 
 #: js/contacts.js:2187
 msgid "Importing..."
@@ -334,7 +334,7 @@ msgstr "Импортирую..."
 
 #: js/contacts.js:2208
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "Имя адресной книги не может быть пустым."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -348,29 +348,29 @@ msgstr "импортировано, "
 msgid " failed."
 msgstr "не удалось."
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "Отображаемое имя не может быть пустым."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "У вас нет права просмотра этой адресной книги."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "У вас нет права обновлять эту адресную книгу."
 
 #: lib/addressbook.php:259
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "Ошибка при обновлении адресной книги."
 
 #: lib/addressbook.php:315
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "У вас нет права удалять эту адресную книгу."
 
 #: lib/addressbook.php:344
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "Ошибка при удалении адресной книги."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -539,11 +539,11 @@ msgstr "Контакт"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "У вас нет права создавать контакты в этой адресной книге."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "Не могу найти vCard с ID."
 
 #: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
@@ -551,11 +551,11 @@ msgstr "У вас нет разрешений редактировать это�
 
 #: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "Не могу найти vCard с ID:"
 
 #: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "Не могу найти адресную книгу с ID:"
 
 #: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
@@ -563,7 +563,7 @@ msgstr "У вас нет разрешений удалять этот конта
 
 #: lib/vcard.php:550
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "Ошибка при удалении контакта."
 
 #: templates/index.php:14
 msgid "Add Contact"
@@ -951,7 +951,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>В вашей адресной книге нет контактов.</h3><p>Вы можете импортировать файлы VCF, перетаскивая их в список контактов и бросая либо в нужную адресную книгу либо на свободное место для импорта в новую адресную книгу.<br />Так же вы можете импортировать контакты с помощью кнопку импорта внизу списка.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

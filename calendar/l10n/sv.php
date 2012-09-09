@@ -123,6 +123,7 @@
 "Month" => "Månad",
 "List" => "Lista",
 "Today" => "Idag",
+"Calendars" => "Kalendrar",
 "Settings" => "Inställningar",
 "Your calendars" => "Dina kalendrar",
 "CalDav Link" => "CalDAV-länk",
