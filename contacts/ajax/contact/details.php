@@ -71,6 +71,6 @@ $details['id'] = $id;
 $details['displayname'] = $card['fullname'];
 $details['addressbookid'] = $card['addressbookid'];
 $details['lastmodified'] = $lastmodified->format('U');
-$details['permisions'] = $permissions;
+$details['permissions'] = $permissions;
 OC_Contacts_App::setLastModifiedHeader($vcard);
 OCP\JSON::success(array('data' => $details));
