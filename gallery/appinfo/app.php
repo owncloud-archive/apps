@@ -50,7 +50,7 @@ class OC_GallerySearchProvider extends OC_Search_Provider{
 		$result = $stmt->execute(array(OCP\USER::getUser(),'%'.$query.'%'));
 		$results=array();
 		while($row=$result->fetchRow()) {
-			$results[]=new OC_Search_Result($row['album_name'],'',OCP\Util::linkTo('gallery', 'index.php').'?view='.$row['album_name'],'Galleries');
+			$results[]=new OC_Search_Result($row['album_name'],'',OCP\Util::linkTo('gallery', 'index.php').'?view='.$row['album_name'], (string) $l->t('Galleries'));
 		}
 		return $results;
 	}
