@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-09 02:01+0200\n"
-"PO-Revision-Date: 2012-09-09 00:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-10 02:02+0200\n"
+"PO-Revision-Date: 2012-09-09 19:59+0000\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
-msgstr ""
+msgstr "Viga kausta nime muutmisel"
 
 #: ajax/collapsefolder.php:35
 msgid "Error collapsing folder."
-msgstr ""
+msgstr "Viga kausta sulgemisel."
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -56,19 +56,19 @@ msgstr "Viga kausta eemaldamisel."
 
 #: ajax/feedlist.php:27
 msgid "Error updating feeds."
-msgstr ""
+msgstr "Viga uudisvoogude uuendamisel."
 
 #: ajax/importopml.php:27 ajax/selectfromcloud.php:30
 msgid "No file path was submitted."
-msgstr ""
+msgstr "Faili asukohta ei sisestatud."
 
 #: ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
-msgstr ""
+msgstr "Faili parsimisel tekkis viga."
 
 #: ajax/loadfeed.php:36 templates/part.feeds.php:50
 msgid "Starred"
-msgstr ""
+msgstr "Tärniga märgitud"
 
 #: ajax/loadfeed.php:41 templates/part.feeds.php:44
 msgid "New articles"
@@ -80,7 +80,7 @@ msgstr "Uudisvoog on laetud!"
 
 #: ajax/movefeedtofolder.php:36
 msgid "Error moving feed into folder."
-msgstr ""
+msgstr "Viga uudisvoo liigutamisel kausta."
 
 #: ajax/selectfromcloud.php:37
 msgid "File doesn't exist:"
@@ -92,11 +92,11 @@ msgstr "Viga kõigi kirjete loetuks märkimisel."
 
 #: ajax/setitemstatus.php:46
 msgid "Error marking item as read."
-msgstr ""
+msgstr "Viga kirje loetuks märkimisel."
 
 #: ajax/updatefeed.php:36
 msgid "Error updating feed."
-msgstr ""
+msgstr "Viga uudisvoo uuendamisel."
 
 #: ajax/updatefeed.php:44
 msgid "Feed updated!"
@@ -108,7 +108,7 @@ msgstr "Uudised"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
-msgstr ""
+msgstr "Kausta nimi ei saa olla tühi."
 
 #: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
 #: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
@@ -125,12 +125,12 @@ msgstr "Lisa kaust"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr ""
+msgstr "Muutmine..."
 
 #: js/news.js:79 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
-msgstr ""
+msgstr "Muuda kausta nime"
 
 #: js/news.js:90
 msgid "URL cannot be empty."
@@ -142,7 +142,7 @@ msgstr "Lisa uudivoog"
 
 #: js/news.js:124
 msgid "Error while parsing the feed"
-msgstr ""
+msgstr "Viga uudivoo parsimisel"
 
 #: js/news.js:124
 msgid "Fatal Error"
@@ -162,7 +162,7 @@ msgstr "Ühtegi faili pole valitud."
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
-msgstr ""
+msgstr "laetud kohalikust failisüsteemist."
 
 #: js/settings.js:32
 msgid "Importing..."
@@ -170,11 +170,11 @@ msgstr "Importimine..."
 
 #: js/settings.js:43
 msgid " out of "
-msgstr ""
+msgstr "/"
 
 #: js/settings.js:44
 msgid " feeds imported successfully from "
-msgstr ""
+msgstr "uudivoogu imporditud failist"
 
 #: js/settings.js:45
 msgid "Success"
@@ -210,120 +210,120 @@ msgstr "sisu pole"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "tellimust ownCloudis - Uudised"
 
 #: subscribe.php:30
 msgid "An error occurred"
-msgstr ""
+msgstr "Tekkis viga"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr ""
+msgstr "Lahe! Sa tellisid uudivoo"
 
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
-msgstr ""
+msgstr "Sa oled selle uudisvoo juba tellnud!"
 
 #: templates/main.php:12
 msgid "Show everything"
-msgstr ""
+msgstr "Näita kõike"
 
 #: templates/main.php:16
 msgid "Show only unread"
-msgstr ""
+msgstr "Näita ainult lugemata"
 
 #: templates/main.php:32
 msgid "Add feed or folder"
-msgstr ""
+msgstr "Lisa uudisvoog või kaust"
 
 #: templates/main.php:33
 msgid "Add Feed/Folder"
-msgstr ""
+msgstr "Lisa uudisvoog/kaust"
 
 #: templates/main.php:35
 msgid "Feed"
-msgstr ""
+msgstr "Uudisvoog"
 
 #: templates/main.php:36
 msgid "Folder"
-msgstr ""
+msgstr "Kaust"
 
 #: templates/main.php:43
 msgid "Settings"
-msgstr ""
+msgstr "Seaded"
 
 #: templates/part.dialogues.php:1
 msgid "Add Folder"
-msgstr ""
+msgstr "Lisa kaust"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
-msgstr ""
+msgstr "Lisa uus kaust"
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
-msgstr ""
+msgstr "Kausta nimi"
 
 #: templates/part.dialogues.php:14
 msgid "Add Subscription"
-msgstr ""
+msgstr "Lisa tellimus"
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
-msgstr ""
+msgstr "Lisa uudisvoog"
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
-msgstr ""
+msgstr "Vali kaust"
 
 #: templates/part.dialogues.php:28 templates/part.nofeeds.php:7
 msgid "Address"
-msgstr ""
+msgstr "Aadress"
 
 #: templates/part.dialogues.php:29
 msgid "Add"
-msgstr ""
+msgstr "Lisa"
 
 #: templates/part.feeds.php:46 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:21
 msgid "Mark all read"
-msgstr ""
+msgstr "Märgi loetuks"
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
-msgstr ""
+msgstr "Märgi mitteoluliseks"
 
 #: templates/part.items.php:38
 msgid "Mark as important"
-msgstr ""
+msgstr "Märgi oluliseks"
 
 #: templates/part.items.php:55
 msgid "by"
-msgstr ""
+msgstr "lisas"
 
 #: templates/part.items.php:62
 msgid "Keep unread"
-msgstr ""
+msgstr "Hoia kui lugemata"
 
 #: templates/part.listfeed.php:25
 msgid "Delete feed"
-msgstr ""
+msgstr "Kustuta uudisvoog"
 
 #: templates/part.listfolder.php:16
 msgid "Collapse"
-msgstr ""
+msgstr "Sulge"
 
 #: templates/part.listfolder.php:19
 msgid "Delete folder"
-msgstr ""
+msgstr "Kustuta kaust"
 
 #: templates/part.listfolder.php:20
 msgid "Rename folder"
-msgstr ""
+msgstr "Nimeta kaust ümber"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
-msgstr ""
+msgstr "Sinu lugejas pole ühtegi uudisvoogu."
 
 #: templates/part.nofeeds.php:8 templates/subscribelet.php:7
 msgid "Subscribe"
@@ -331,38 +331,38 @@ msgstr "Telli"
 
 #: templates/part.nofeeds.php:12
 msgid "Import OPML"
-msgstr ""
+msgstr "Impordi OPML"
 
 #: templates/part.nofeeds.php:13 templates/settings.php:3
 msgid "Upload file from desktop"
-msgstr ""
+msgstr "Lae üles fail töölaualt"
 
 #: templates/part.nofeeds.php:13 templates/settings.php:3
 msgid "Upload"
-msgstr ""
+msgstr "Lae üles"
 
 #: templates/part.nofeeds.php:14 templates/settings.php:4
 msgid "Select file from ownCloud"
-msgstr ""
+msgstr "Vali fail ownCloudist"
 
 #: templates/part.nofeeds.php:14 templates/settings.php:4
 msgid "Select"
-msgstr ""
+msgstr "Vali"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
 msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
-msgstr ""
+msgstr "Vali fail <a href=\"#\" class=\"settings\" id=\"browselink\">kohalikust arvutist</a> või <a href=\"#\" class=\"settings\" id=\"cloudlink\">pilvest</a>"
 
 #: templates/part.nofeeds.php:25
 msgid "Or..."
-msgstr ""
+msgstr "Või ..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
-msgstr ""
+msgstr "Impordi uudisvood"
 
 #: templates/settings.php:11
 msgid "Export feeds"
@@ -374,7 +374,7 @@ msgstr "Laadi OPMLfail alla"
 
 #: templates/settings.php:15
 msgid "Subscribelet"
-msgstr ""
+msgstr "Tellimuse vidin"
 
 #: templates/subscribelet.php:5
 msgid ""

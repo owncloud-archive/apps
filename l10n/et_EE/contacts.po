@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-09 02:01+0200\n"
-"PO-Revision-Date: 2012-09-08 13:36+0000\n"
+"POT-Creation-Date: 2012-09-10 02:02+0200\n"
+"PO-Revision-Date: 2012-09-09 19:20+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -299,35 +299,35 @@ msgstr ""
 
 #: js/contacts.js:2065
 msgid "Upload Error"
-msgstr ""
+msgstr "Üleslaadimise viga"
 
 #: js/contacts.js:2072
 msgid "Upload too large"
-msgstr ""
+msgstr "Üleslaadimine on liiga suur"
 
 #: js/contacts.js:2120
 msgid "Pending"
-msgstr ""
+msgstr "Ootel"
 
 #: js/contacts.js:2152
 msgid "Import done"
-msgstr ""
+msgstr "Importimine on tehtud"
 
 #: js/contacts.js:2165
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Kõiki faile ei laetud üles. Proovime uuesti..."
 
 #: js/contacts.js:2171
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Midagi läks üleslaadimisega valesti, palun proovi uuesti."
 
 #: js/contacts.js:2187
 msgid "Importing..."
-msgstr ""
+msgstr "Importimine..."
 
 #: js/contacts.js:2208
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "Aadressiraamatu nimi ei saa olla tühi."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -347,7 +347,7 @@ msgstr "Näidatav nimi ei saa olla tühi."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "Sul pole õigusi selle aadressiraamatu lugemiseks."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -359,11 +359,11 @@ msgstr "Aadressiraamatu uuendamisel tekkis viga."
 
 #: lib/addressbook.php:315
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "Sul pole õigusi selle aadressiraamatu kustutamiseks."
 
 #: lib/addressbook.php:344
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "Selle aadressiraamatu kustutamisel tekkis viga."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -500,7 +500,7 @@ msgstr "Ideed"
 
 #: lib/app.php:259
 msgid "Journey"
-msgstr ""
+msgstr "Teekond"
 
 #: lib/app.php:260
 msgid "Jubilee"
@@ -548,7 +548,7 @@ msgstr "Ei leitud visiitkaarti ID-ga:"
 
 #: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "Ei leitud aadressiraamatut ID-ga:"
 
 #: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
