@@ -37,6 +37,11 @@ OCP\Util::addScript('gallery', 'jquery.easing.min');
 OCP\Util::addScript('gallery', 'supersized.3.2.7.min');
 OCP\Util::addScript('gallery', 'supersized.shutter.min');
 
+if (!OCP\App::isEnabled('files_imageviewer')) {
+	OCP\Template::printUserPage('gallery', 'no-image-app');
+	exit;
+}
+
 $root = !empty($_GET['root']) ? $_GET['root'] : '/';
 $images = \OC_FileCache::searchByMime('image', null, '/'.\OCP\USER::getUser().'/files'.$root);
 sort($images);
