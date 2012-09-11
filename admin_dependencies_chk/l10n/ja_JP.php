@@ -9,6 +9,7 @@
 "The php-xml module is needed to share files with webdav." => "php-xmlモジュールはWebDAVでのファイル共有に必要です",
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve knowledge base from OCS servers" => "php.iniのallow_url_fopenはOCSサーバから知識ベースを取得するために1に設定しなくてはなりません",
 "The php-pdo module is needed to store owncloud data into a database." => "php-pdoモジュールはデータベースにownCloudのデータを格納するために必要です",
+"The iconv module is needed to convert data into the correct charset." => "iconv モジュールはデータを正しい文字コードに変換するために必要。",
 "Dependencies status" => "依存関係の状況",
 "Used by :" => "利用先 :"
 );

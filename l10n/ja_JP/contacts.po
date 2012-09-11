@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-10 02:02+0200\n"
+"PO-Revision-Date: 2012-09-09 14:29+0000\n"
+"Last-Translator: ttyn <tetuyano+transi@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -231,7 +231,7 @@ msgstr "有効なアドレスを取得できませんでした。"
 #: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
 #: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
 #: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:2243 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
 msgstr "エラー"
 
@@ -296,39 +296,39 @@ msgstr "これらのアドレス帳をマージしてもよろしいですか？
 
 #: js/contacts.js:2065
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "ディレクトリや0バイトのファイルはアップロードできません。"
 
 #: js/contacts.js:2065
 msgid "Upload Error"
-msgstr ""
+msgstr "アップロードエラー"
 
 #: js/contacts.js:2072
 msgid "Upload too large"
-msgstr ""
+msgstr "アップロードには大きすぎます。"
 
 #: js/contacts.js:2120
 msgid "Pending"
-msgstr ""
+msgstr "中断"
 
 #: js/contacts.js:2152
 msgid "Import done"
-msgstr ""
+msgstr "インポート完了"
 
 #: js/contacts.js:2165
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "ファイルがアップロード出来ませんでした。再実行中...。"
 
 #: js/contacts.js:2171
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "アップロード中に不具合が発生しました、再実行してください。"
 
 #: js/contacts.js:2187
 msgid "Importing..."
-msgstr ""
+msgstr "インポート中..."
 
 #: js/contacts.js:2208
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "アドレス帳名は空に出来ません。"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -342,13 +342,13 @@ msgstr " をインポート、 "
 msgid " failed."
 msgstr " は失敗しました。"
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "表示名は空にできません。"
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "このアドレス帳を見る権限がありません。"
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -945,7 +945,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>アドレス帳に連絡先がありません。</h3><p>連絡リストにVCFファイルをドラッグするとインポートできます。もしくは、アドレス帳にドラッグしてもインポートできます。空いているところの場合は新しいアドレス帳が作成されインポートされます。<br />リストの一番下のインポートボタンをクリックしてもインポートできます。</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

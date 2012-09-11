@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Soul Kim <warlock.rf@gmail.com>, 2012.
+#   <victor.dubiniuk@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-11 02:02+0200\n"
+"PO-Revision-Date: 2012-09-10 10:44+0000\n"
+"Last-Translator: VicDeo <victor.dubiniuk@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -230,9 +231,9 @@ msgstr ""
 #: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
 #: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
 #: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:2243 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
-msgstr ""
+msgstr "Помилка"
 
 #: js/contacts.js:408
 msgid "You do not have permission to add contacts to "
@@ -341,7 +342,7 @@ msgstr ""
 msgid " failed."
 msgstr ""
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr ""
 
@@ -528,7 +529,7 @@ msgstr ""
 
 #: lib/search.php:15
 msgid "Contact"
-msgstr ""
+msgstr "Контакт"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
@@ -568,7 +569,7 @@ msgstr ""
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
@@ -871,7 +872,7 @@ msgstr ""
 
 #: templates/part.edit_name_dialog.php:35
 msgid "Given name"
-msgstr ""
+msgstr "Ім'я"
 
 #: templates/part.edit_name_dialog.php:37
 msgid "Additional names"
@@ -948,7 +949,7 @@ msgstr ""
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"
-msgstr ""
+msgstr "Додати контакт"
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
@@ -1008,7 +1009,7 @@ msgstr "Нова адресна книга"
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Ім'я"
 
 #: templates/settings.php:59
 msgid "Description"
@@ -1016,11 +1017,11 @@ msgstr ""
 
 #: templates/settings.php:60
 msgid "Save"
-msgstr ""
+msgstr "Зберегти"
 
 #: templates/settings.php:61
 msgid "Cancel"
-msgstr ""
+msgstr "Відмінити"
 
 #: templates/settings.php:66
 msgid "More..."

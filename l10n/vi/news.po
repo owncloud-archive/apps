@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <mattheu_9x@yahoo.com>, 2012.
 # Sơn Nguyễn <sonnghit@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-09 02:01+0200\n"
-"PO-Revision-Date: 2012-09-09 00:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-11 02:02+0200\n"
+"PO-Revision-Date: 2012-09-10 13:47+0000\n"
+"Last-Translator: mattheu_9x <mattheu_9x@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: ajax/changefoldername.php:29
 msgid "Error changing name of folder "
-msgstr ""
+msgstr "Lỗi khi thay đổi tên của thư mục"
 
 #: ajax/collapsefolder.php:35
 msgid "Error collapsing folder."
@@ -44,7 +45,7 @@ msgstr ""
 
 #: ajax/createfolder.php:46
 msgid "Folder added!"
-msgstr ""
+msgstr "Thư mục đã được thêm"
 
 #: ajax/deletefeed.php:28
 msgid "Error removing feed."
@@ -52,7 +53,7 @@ msgstr ""
 
 #: ajax/deletefolder.php:26
 msgid "Error removing folder."
-msgstr ""
+msgstr "Lỗi xoá thư mục"
 
 #: ajax/feedlist.php:27
 msgid "Error updating feeds."
@@ -64,7 +65,7 @@ msgstr ""
 
 #: ajax/importopml.php:41
 msgid "An error occurred while parsing the file."
-msgstr ""
+msgstr "Một lỗi xảy ra trong khi phân tích các tập tin."
 
 #: ajax/loadfeed.php:36 templates/part.feeds.php:50
 msgid "Starred"
@@ -72,7 +73,7 @@ msgstr ""
 
 #: ajax/loadfeed.php:41 templates/part.feeds.php:44
 msgid "New articles"
-msgstr ""
+msgstr "Bài viết mới"
 
 #: ajax/loadfeed.php:53
 msgid "Feed loaded!"
@@ -117,7 +118,7 @@ msgstr "Lỗi"
 
 #: js/news.js:33 js/news.js:95
 msgid "Adding..."
-msgstr ""
+msgstr "Đang thêm..."
 
 #: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
@@ -125,12 +126,12 @@ msgstr "Thêm thư mục"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr ""
+msgstr "Đang thay đổi..."
 
 #: js/news.js:79 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
-msgstr ""
+msgstr "Thay đổi tên thư mục"
 
 #: js/news.js:90
 msgid "URL cannot be empty."
@@ -214,11 +215,11 @@ msgstr ""
 
 #: subscribe.php:30
 msgid "An error occurred"
-msgstr ""
+msgstr "Một lỗi đã xảy ra"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr ""
+msgstr "Tuyệt! Bạn đã đăng ký"
 
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
@@ -246,23 +247,23 @@ msgstr ""
 
 #: templates/main.php:36
 msgid "Folder"
-msgstr ""
+msgstr "Thư mục"
 
 #: templates/main.php:43
 msgid "Settings"
-msgstr ""
+msgstr "Cài đặt"
 
 #: templates/part.dialogues.php:1
 msgid "Add Folder"
-msgstr ""
+msgstr "Thêm thư mục"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
-msgstr ""
+msgstr "Thêm thư mục mới"
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
-msgstr ""
+msgstr "Tên thư mục"
 
 #: templates/part.dialogues.php:14
 msgid "Add Subscription"
@@ -274,15 +275,15 @@ msgstr ""
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
-msgstr ""
+msgstr "Chọn thư mục"
 
 #: templates/part.dialogues.php:28 templates/part.nofeeds.php:7
 msgid "Address"
-msgstr ""
+msgstr "Địa chỉ"
 
 #: templates/part.dialogues.php:29
 msgid "Add"
-msgstr ""
+msgstr "Thêm"
 
 #: templates/part.feeds.php:46 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:21
@@ -291,11 +292,11 @@ msgstr ""
 
 #: templates/part.items.php:35
 msgid "Mark as unimportant"
-msgstr ""
+msgstr "Đánh dấu là không quan trọng"
 
 #: templates/part.items.php:38
 msgid "Mark as important"
-msgstr ""
+msgstr "Đánh dấu là quan trọng"
 
 #: templates/part.items.php:55
 msgid "by"
@@ -303,7 +304,7 @@ msgstr ""
 
 #: templates/part.items.php:62
 msgid "Keep unread"
-msgstr ""
+msgstr "Giữ chưa đọc"
 
 #: templates/part.listfeed.php:25
 msgid "Delete feed"
@@ -311,7 +312,7 @@ msgstr ""
 
 #: templates/part.listfolder.php:16
 msgid "Collapse"
-msgstr ""
+msgstr "Thu gọn"
 
 #: templates/part.listfolder.php:19
 msgid "Delete folder"
@@ -354,7 +355,7 @@ msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
-msgstr ""
+msgstr "Chọn tập tin từ <a href=\"#\" class=\"settings\" id=\"browselink\">hệ thống tập tin trên máy tính</a> hoặc <a href=\"#\" class=\"settings\" id=\"cloudlink\">điện toán đám mây</a>"
 
 #: templates/part.nofeeds.php:25
 msgid "Or..."
