@@ -342,7 +342,7 @@ OC.Contacts={
 				bookid = parseInt(params.aid);
 			}
 			if(!bookid || !newid) {
-				bookid = parseInt($('#contacts h3').first().data('id'));
+				bookid = parseInt($('#contacts h3.addressbook').first().data('id'));
 				newid = parseInt($('#contacts').find('li[data-bookid="'+bookid+'"]').first().data('id'));
 			}
 			console.log('newid: ' + newid + ' bookid: ' +bookid);
@@ -357,7 +357,7 @@ OC.Contacts={
 									data:jsondata.data
 								});
 							}
-							$('#contacts li[data-id="'+newid+'"],#contacts h3[data-id="'+bookid+'"]').addClass('active');
+							$('#contacts li[data-id="'+newid+'"],#contacts h3.addressbook[data-id="'+bookid+'"]').addClass('active');
 							$('#contacts ul[data-id="'+bookid+'"]').slideDown(300);
 							OC.Contacts.Card.loadContact(jsondata.data, bookid);
 							OC.Contacts.Contacts.scrollTo(newid);
@@ -380,7 +380,7 @@ OC.Contacts={
 				$('#firstrun').show();
 				$('#card').hide();
 			}
-			$('#contacts h3[data-id="'+bookid+'"]').addClass('active');
+			$('#contacts h3.addressbook[data-id="'+bookid+'"]').addClass('active');
 		},
 		setEnabled:function(enabled) {
 			console.log('setEnabled', enabled);
@@ -414,7 +414,7 @@ OC.Contacts={
 			console.log('Adding ' + fn);
 			$('#firstrun').hide();
 			$('#card').show();
-			aid = aid?aid:$('#contacts h3.active').first().data('id');
+			aid = aid?aid:$('#contacts h3.addressbook.active').first().data('id');
 			$.post(OC.filePath('contacts', 'ajax', 'contact/add.php'), { n: n, fn: fn, aid: aid, isnew: isnew },
 				function(jsondata) {
 					if (jsondata.status == 'success'){
@@ -647,19 +647,19 @@ OC.Contacts={
 			$('#fn_select option').remove();
 			var names = [this.fn, this.fullname, this.givname + ' ' + this.famname, this.famname + ' ' + this.givname, this.famname + ', ' + this.givname];
 			if(this.data.ORG) {
-				names[names.length]=this.data.ORG[0].value;
+				names.push(this.data.ORG[0].value);
 			}
-			$.each(names, function(key, value) {
+			$.each($.unique(names), function(key, value) {
 				$('#fn_select')
 				.append($('<option></option>')
 				.text(value));
 			});
-				$('#fn_select').combobox('value', this.fn);
-				$('#contact_identity').find('*[data-element="N"]').data('checksum', this.data.N[0]['checksum']);
-				if(this.data.FN) {
-					$('#contact_identity').find('*[data-element="FN"]').data('checksum', this.data.FN[0]['checksum']);
-				}
-				$('#contact_identity').show();
+			$('#fn_select').combobox('value', this.fn);
+			$('#contact_identity').find('*[data-element="N"]').data('checksum', this.data.N[0]['checksum']);
+			if(this.data.FN) {
+				$('#contact_identity').find('*[data-element="FN"]').data('checksum', this.data.FN[0]['checksum']);
+			}
+			$('#contact_identity').show();
 		},
 		hasCategory:function(category) {
 			if(this.data.CATEGORIES) {
@@ -967,11 +967,11 @@ OC.Contacts={
 			var tmp = [this.fullname, this.givname + ' ' + this.famname, this.famname + ' ' + this.givname, this.famname + ', ' + this.givname];
 			var names = new Array();
 			for(var name in tmp) {
-				if(names.indexOf(tmp[name]) == -1) {
+				if(tmp[name] && names.indexOf(tmp[name]) == -1) {
 					names.push(tmp[name]);
 				}
 			}
-			$.each(names, function(key, value) {
+			$.each($.unique(names), function(key, value) {
 				$('#fn_select')
 				.append($('<option></option>')
 				.text(value));
@@ -1741,7 +1741,7 @@ OC.Contacts={
 			if(!params) { params = {}; }
 			if(!params.start) {
 				if(params.aid) {
-					$('#contacts h3[data-id="'+params.aid+'"],#contacts ul[data-id="'+params.aid+'"]').remove();
+					$('#contacts h3.addressbook[data-id="'+params.aid+'"],#contacts ul[data-id="'+params.aid+'"]').remove();
 				} else {
 					$('#contacts').empty();
 				}
@@ -1754,27 +1754,27 @@ OC.Contacts={
 			if(params.aid) {
 				opts['aid'] = params.aid;
 			}
-			$.getJSON(OC.filePath('contacts', 'ajax', 'contact/list.php'),opts,function(jsondata){
+			$.getJSON(OC.filePath('contacts', 'ajax', 'contact/list.php'),opts,function(jsondata) {
 				if(jsondata.status == 'success'){
 					var books = jsondata.data.entries;
 					$.each(books, function(b, book) {
-						if($('#contacts h3[data-id="'+b+'"]').length == 0) {
+						if($('#contacts h3.addressbook[data-id="'+b+'"]').length == 0) {
 							firstrun = true;
 							var sharedindicator = book.owner == OC.currentUser ? ''
 								: '<img class="shared svg" src="'+OC.imagePath('core', 'actions/shared')+'" title="'+t('contacts', 'Shared by ')+book.owner+'" />'
-							if($('#contacts h3').length == 0) {
-								$('#contacts').html('<h3 class="addressbook" contextmenu="addressbookmenu" data-id="'
+							if($('#contacts h3.addressbook').length == 0) {
+								$('#contacts').html('<h3 class="addressbook" title="' + book.description + '" contextmenu="addressbookmenu" data-id="'
 									+ b + '" data-permissions="' + book.permissions + '">' + book.displayname
-									+ sharedindicator + '</h3><ul class="contacts hidden" data-id="'+b+'" data-permissions="'
+									+ sharedindicator + '</h3><ul class="contacts addressbook hidden" data-id="'+b+'" data-permissions="'
 									+ book.permissions + '"></ul>');
 							} else {
-								if(!$('#contacts h3[data-id="' + b + '"]').length) {
-									var item = $('<h3 class="addressbook" contextmenu="addressbookmenu" data-id="'
+								if(!$('#contacts h3.addressbook[data-id="' + b + '"]').length) {
+									var item = $('<h3 class="addressbook" title="' + book.description + '" contextmenu="addressbookmenu" data-id="'
 										+ b + '" data-permissions="' + book.permissions + '">'
-										+ book.displayname+sharedindicator+'</h3><ul class="contacts hidden" data-id="' + b
+										+ book.displayname+sharedindicator+'</h3><ul class="contacts addressbook hidden" data-id="' + b
 										+ '" data-permissions="' + book.permissions + '"></ul>');
 									var added = false;
-									$('#contacts h3').each(function(){
+									$('#contacts h3.addressbook').each(function(){
 										if ($(this).text().toLowerCase().localeCompare(book.displayname.toLowerCase()) > 0) {
 											$(this).before(item).fadeIn('fast');
 											added = true;
@@ -1786,14 +1786,14 @@ OC.Contacts={
 									}
 								}
 							}
-							$('#contacts h3[data-id="'+b+'"]').on('click', function(event) {
-								$('#contacts h3').removeClass('active');
+							$('#contacts h3.addressbook[data-id="'+b+'"]').on('click', function(event) {
+								$('#contacts h3.addressbook').removeClass('active');
 								$(this).addClass('active');
 								$('#contacts ul[data-id="'+b+'"]').slideToggle(300);
 								return false;
 							});
 							var accept = 'li:not([data-bookid="'+b+'"]),h3:not([data-id="'+b+'"])';
-							$('#contacts h3[data-id="'+b+'"],#contacts ul[data-id="'+b+'"]').droppable({
+							$('#contacts h3.addressbook[data-id="'+b+'"],#contacts ul[data-id="'+b+'"]').droppable({
 								drop: OC.Contacts.Contacts.drop,
 								activeClass: 'ui-state-hover',
 								accept: accept
@@ -1837,6 +1837,74 @@ OC.Contacts={
 				} else {
 					OC.Contacts.notify({message:t('contacts', 'Error')+': '+jsondata.data.message});
 				}
+				$.getJSON(OC.filePath('contacts', 'ajax', 'contact/listbycategory.php'),opts,function(jsondata) {
+					if(jsondata.status == 'success') {
+						var categories = jsondata.data.categories;
+						$.each(categories, function(catid, category) {
+							console.log('category', catid, category.name);
+							if(!$('#contacts h3.category[data-id="' + catid + '"]').length) {
+								var item = $('<h3 class="category" data-id="' + catid + '">'
+									+ category.name + '</h3><ul class="contacts category hidden" data-id="' + catid + '"></ul>');
+								var added = false;
+								$('#contacts h3.category').each(function(){
+									if ($(this).text().toLowerCase().localeCompare(category.name.toLowerCase()) > 0) {
+										$(this).before(item).fadeIn('fast');
+										added = true;
+										return false;
+									}
+								});
+								if(!added) {
+									$('#contacts').append(item);
+								}
+								$('#contacts h3.category[data-id="'+catid+'"]').on('click', function(event) {
+									console.log('click');
+									$('#contacts h3.category').removeClass('active');
+									$(this).addClass('active');
+									$('#contacts ul.category[data-id="'+catid+'"]').slideToggle(300);
+									return false;
+								});
+								var contactlist = $('#contacts ul.category[data-id="'+catid+'"]');
+								var contacts = $('#contacts ul.category[data-id="'+catid+'"] li');
+								for(var c in category.contacts) {
+									if(category.contacts[c].id == undefined) { continue; }
+									if(!$('ul.category[data-id="'+catid+'"] li[data-id="'+category.contacts[c]['id']+'"]').length) {
+										var contact =  $('<li data-id="'+category.contacts[c].id+'" data-categoryid="'+catid
+													+ '" role="button"><a href="'+OC.linkTo('contacts', 'index.php')+'&id='
+													+ category.contacts[c].id+'"  style="background: url('+OC.filePath('contacts', '', 'thumbnail.php')
+													+ '?id='+category.contacts[c].id+') no-repeat scroll 0% 0% transparent;">'
+													+ category.contacts[c].fullname+'</a></li>');
+										var added = false;
+										var name = category.contacts[c].fullname.toLowerCase();
+										if(contacts.length) {
+											contacts.each(function() {
+												if ($(this).text().toLowerCase().localeCompare(name) > 0) {
+													$(this).before(contact);
+													added = true;
+													return false;
+												}
+											});
+										}
+										if(!added || !params.contacts) {
+											contactlist.append(contact);
+										}
+										/*var contact = OC.Contacts.Contacts.insertContact({contactlist:contactlist, contacts:contacts, data:categories.contacts[c]});
+										if(c == self.batchnum-10) {
+											contact.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
+												$(this).unbind(event);
+												var bookid = $(this).data('bookid');
+												var numsiblings = $('.contacts li[data-bookid="'+bookid+'"]').length;
+												if (isInView && numsiblings >= self.batchnum) {
+													console.log('This would be a good time to load more contacts.');
+													OC.Contacts.Contacts.update({cid:params.cid, aid:bookid, start:$('#contacts li[data-bookid="'+bookid+'"]').length});
+												}
+											});
+										}*/
+									}
+								}
+							}
+						});
+					}
+				});
 			});
 		},
 		refreshThumbnail:function(id){
@@ -1922,7 +1990,7 @@ $(document).ready(function(){
 				OC.Contacts.Contacts.nextAddressbook();
 				break;
 			case 79: // o
-				var aid = $('#contacts h3.active').first().data('id');
+				var aid = $('#contacts h3.addressbook.active').first().data('id');
 				if(aid) {
 					$('#contacts ul[data-id="'+aid+'"]').slideToggle(300);
 				}

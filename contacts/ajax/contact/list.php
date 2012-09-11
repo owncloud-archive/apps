@@ -41,6 +41,8 @@ foreach($active_addressbooks as $addressbook) {
 				= array('contacts' => array('type' => 'book',));
 		$contacts_addressbook[$addressbook['id']]['displayname']
 				= $addressbook['displayname'];
+		$contacts_addressbook[$addressbook['id']]['description']
+				= $addressbook['description'];
 		$contacts_addressbook[$addressbook['id']]['permissions']
 				= $addressbook['permissions'];
 		$contacts_addressbook[$addressbook['id']]['owner']

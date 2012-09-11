@@ -221,8 +221,11 @@ class OC_Contacts_App {
 	 * @brief returns the vcategories object of the user
 	 * @return (object) $vcategories
 	 */
-	protected static function getVCategories() {
+	public static function getVCategories() {
 		if (is_null(self::$categories)) {
+			if(OC_VCategories::isEmpty('contacts')) {
+				self::scanCategories();
+			}
 			self::$categories = new OC_VCategories('contacts',
 				null,
 				self::getDefaultCategories());
@@ -236,10 +239,6 @@ class OC_Contacts_App {
 	 */
 	public static function getCategories() {
 		$categories = self::getVCategories()->categories();
-		if(count($categories) == 0) {
-			self::scanCategories();
-			$categories = self::$categories->categories();
-		}
 		return ($categories ? $categories : self::getDefaultCategories());
 	}
 
@@ -281,18 +280,19 @@ class OC_Contacts_App {
 				}
 				$start = 0;
 				$batchsize = 10;
+				$categories = new OC_VCategories('contacts');
 				while($vccontacts =
 					OC_Contacts_VCard::all($vcaddressbookids, $start, $batchsize)) {
 					$cards = array();
 					foreach($vccontacts as $vccontact) {
-						$cards[] = $vccontact['carddata'];
+						$cards[] = array($vccontact['id'], $vccontact['carddata']);
 					}
 					OCP\Util::writeLog('contacts',
 						__CLASS__.'::'.__METHOD__
 							.', scanning: '.$batchsize.' starting from '.$start,
 						OCP\Util::DEBUG);
 					// only reset on first batch.
-					self::getVCategories()->rescan($cards,
+					$categories->rescan($cards,
 						true,
 						($start == 0 ? true : false));
 					$start += $batchsize;
@@ -305,8 +305,8 @@ class OC_Contacts_App {
 	 * check VCard for new categories.
 	 * @see OC_VCategories::loadFromVObject
 	 */
-	public static function loadCategoriesFromVCard(OC_VObject $contact) {
-		self::getVCategories()->loadFromVObject($contact, true);
+	public static function loadCategoriesFromVCard($id, OC_VObject $contact) {
+		self::getVCategories()->loadFromVObject($id, $contact, true);
 	}
 
 	/**

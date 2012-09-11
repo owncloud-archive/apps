@@ -135,6 +135,9 @@ class OC_Calendar_App{
 	 */
 	protected static function getVCategories() {
 		if (is_null(self::$categories)) {
+			if(OC_VCategories::isEmpty('calendar')) {
+				self::scanCategories();
+			}
 			self::$categories = new OC_VCategories('calendar',
 				null,
 				self::getDefaultCategories());
@@ -167,12 +170,24 @@ class OC_Calendar_App{
 			}
 		}
 		if(is_array($events) && count($events) > 0) {
-			$vcategories = self::getVCategories();
+			$vcategories = new OC_VCategories('contacts');
 			$vcategories->delete($vcategories->categories());
 			foreach($events as $event) {
 				$vobject = OC_VObject::parse($event['calendardata']);
 				if(!is_null($vobject)) {
-					self::loadCategoriesFromVCalendar($vobject);
+					$object = null;
+					if (isset($calendar->VEVENT)) {
+						$object = $calendar->VEVENT;
+					} else
+					if (isset($calendar->VTODO)) {
+						$object = $calendar->VTODO;
+					} else
+					if (isset($calendar->VJOURNAL)) {
+						$object = $calendar->VJOURNAL;
+					}
+					if ($object) {
+						$vcategories->loadFromVObject($event['id'], $vobject, true);
+					}
 				}
 			}
 		}
@@ -182,7 +197,7 @@ class OC_Calendar_App{
 	 * check VEvent for new categories.
 	 * @see OC_VCategories::loadFromVObject
 	 */
-	public static function loadCategoriesFromVCalendar(OC_VObject $calendar) {
+	public static function loadCategoriesFromVCalendar($id, OC_VObject $calendar) {
 		$object = null;
 		if (isset($calendar->VEVENT)) {
 			$object = $calendar->VEVENT;
@@ -194,7 +209,7 @@ class OC_Calendar_App{
 			$object = $calendar->VJOURNAL;
 		}
 		if ($object) {
-			self::getVCategories()->loadFromVObject($object, true);
+			self::getVCategories()->loadFromVObject($id, $object, true);
 		}
 	}
 
