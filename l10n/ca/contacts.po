@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:05+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-11 02:02+0200\n"
+"PO-Revision-Date: 2012-09-10 07:35+0000\n"
+"Last-Translator: rogerc <rcalvoi@yahoo.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -231,7 +231,7 @@ msgstr "No s'ha pogut obtenir una adreça vàlida."
 #: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
 #: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
 #: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:2243 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
 msgstr "Error"
 
@@ -296,39 +296,39 @@ msgstr "Voleu fusionar aquestes llibretes d'adreces?"
 
 #: js/contacts.js:2065
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "No es pot pujar el fitxer perquè és una carpeta o té 0 bytes"
 
 #: js/contacts.js:2065
 msgid "Upload Error"
-msgstr ""
+msgstr "Error en la pujada"
 
 #: js/contacts.js:2072
 msgid "Upload too large"
-msgstr ""
+msgstr "La pujada és massa gran"
 
 #: js/contacts.js:2120
 msgid "Pending"
-msgstr ""
+msgstr "Pendent"
 
 #: js/contacts.js:2152
 msgid "Import done"
-msgstr ""
+msgstr "S'ha importat"
 
 #: js/contacts.js:2165
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "No s'han pujat tots els fitxers. Es reintenta..."
 
 #: js/contacts.js:2171
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Alguna cosa ha fallat en la pujada, intenteu-ho de nou."
 
 #: js/contacts.js:2187
 msgid "Importing..."
-msgstr ""
+msgstr "Important..."
 
 #: js/contacts.js:2208
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "El nom de la llibreta d'adreces no pot ser buit."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -342,13 +342,13 @@ msgstr " importat, "
 msgid " failed."
 msgstr " fallada."
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "El nom a mostrar no pot ser buit"
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "No teniu permisos per llegir aquesta llibreta d'adreces."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -945,7 +945,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>No teniu contactes a la llibreta d'adreces.</h3><p>Podeu importar fitxers VCF arrossegant-los a la llista de contactes i deixant-los, o bé en una llibreta d'adreces per importar-les allà, o en un espai buit per crear una llibreta d'adreces nova i importar-les allà.<br />També podeu fer clic al botó per importar al final de la lliesta.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

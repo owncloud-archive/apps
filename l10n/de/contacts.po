@@ -8,6 +8,7 @@
 #   <fh@cbix.de>, 2012.
 #   <florian.ruechel+owncloud@gmail.com>, 2012.
 #   <georg.stefan.germany@googlemail.com>, 2011.
+# I Robot <thomas.mueller@tmit.eu>, 2012.
 # Jan-Christoph Borchardt <JanCBorchardt@fsfe.org>, 2011.
 # Jan-Christoph Borchardt <jan@unhosted.org>, 2011.
 # Marcel Kühlhorn <susefan93@gmx.de>, 2012.
@@ -25,9 +26,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-07 05:57+0000\n"
-"Last-Translator: JamFX <niko@nik-o-mat.de>\n"
+"POT-Creation-Date: 2012-09-11 02:02+0200\n"
+"PO-Revision-Date: 2012-09-10 13:06+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -247,7 +248,7 @@ msgstr "Konnte keine gültige Adresse abrufen."
 #: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
 #: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
 #: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:2243 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
 msgstr "Fehler"
 
@@ -312,7 +313,7 @@ msgstr "Möchten Sie diese Adressbücher zusammenführen?"
 
 #: js/contacts.js:2065
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Ihre Datei konnte nicht hoch geladen werden, weil es sich um einen Ordner handelt oder die Datei leer ist."
 
 #: js/contacts.js:2065
 msgid "Upload Error"
@@ -320,7 +321,7 @@ msgstr "Fehler beim Hochladen"
 
 #: js/contacts.js:2072
 msgid "Upload too large"
-msgstr ""
+msgstr "Die hoch geladene Datei ist zu groß"
 
 #: js/contacts.js:2120
 msgid "Pending"
@@ -358,7 +359,7 @@ msgstr " importiert, "
 msgid " failed."
 msgstr " fehlgeschlagen."
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "Der Anzeigename darf nicht leer sein."
 
@@ -961,7 +962,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>Sie haben noch keine Kontaktdaten in Ihrem Adressbuch.</h3><p>Sie können VCF-Dateien importieren, indem Sie diese herein ziehen und entweder \nauf einem bestehenden Adressbuch fallen lassen, um die Dateien in dieses Adressbuch zu importieren oder auf einen freien Bereich, um ein neues Adressbuch anzulegen und die Dateien dort zu importieren.<br />Sie können auch den Knopf 'Importieren' am Ende der Liste drücken.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

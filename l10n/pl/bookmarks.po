@@ -3,58 +3,63 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Cyryl Sochacki <>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-07-28 02:02+0200\n"
-"PO-Revision-Date: 2012-07-27 22:17+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-09-11 02:01+0200\n"
+"PO-Revision-Date: 2012-09-11 00:03+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: appinfo/app.php:14
 msgid "Bookmarks"
-msgstr ""
+msgstr "Zakładki"
 
 #: bookmarksHelper.php:99
 msgid "unnamed"
+msgstr "bez nazwy"
+
+#: lib/search.php:43
+msgid "Bookm."
 msgstr ""
 
 #: templates/bookmarklet.php:5
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr ""
+msgstr "Przeciągnij to do ulubionych przeglądarki i kliknij go, gdy użytkownik chce szybko dodać zakładkę strony sieci Web:"
 
 #: templates/bookmarklet.php:7
 msgid "Read later"
-msgstr ""
+msgstr "Czytaj później"
 
 #: templates/list.php:13
 msgid "Address"
-msgstr ""
+msgstr "Adres"
 
 #: templates/list.php:14
 msgid "Title"
-msgstr ""
+msgstr "Tytuł"
 
 #: templates/list.php:15
 msgid "Tags"
-msgstr ""
+msgstr "Tagi"
 
 #: templates/list.php:16
 msgid "Save bookmark"
-msgstr ""
+msgstr "Zapisz zakładkę"
 
 #: templates/list.php:22
 msgid "You have no bookmarks"
-msgstr ""
+msgstr "Nie masz żadnych zakładek"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
-msgstr ""
+msgstr "Skryptozakładka <br />"
