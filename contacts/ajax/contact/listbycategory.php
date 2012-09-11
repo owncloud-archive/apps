@@ -33,7 +33,7 @@ $list = array();
 $catmgr = OC_Contacts_App::getVCategories();
 
 if(is_null($category)) {
-	$categories = $catmgr->categories(true);
+	$categories = $catmgr->categories(OC_VCategories::FORMAT_MAP);
 	uasort($categories, 'cmpcategories');
 	foreach($categories as $category) {
 		$list[$category['id']] = array(
