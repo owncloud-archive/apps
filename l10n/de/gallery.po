@@ -5,6 +5,7 @@
 # Translators:
 #   <admin@s-goecker.de>, 2012.
 # Bartek  <bart.p.pl@gmail.com>, 2012.
+# I Robot <thomas.mueller@tmit.eu>, 2012.
 # Marcel Kühlhorn <susefan93@gmx.de>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
 #   <thomas.mueller@tmit.eu>, 2012.
@@ -12,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:02+0200\n"
-"PO-Revision-Date: 2012-09-11 00:02+0000\n"
+"POT-Creation-Date: 2012-09-12 02:01+0200\n"
+"PO-Revision-Date: 2012-09-11 20:37+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +29,7 @@ msgstr "Bilder"
 
 #: appinfo/app.php:53
 msgid "Galleries"
-msgstr ""
+msgstr "Galerien"
 
 #: js/pictures.js:12
 msgid "Share gallery"
@@ -50,4 +51,4 @@ msgstr "Slideshow"
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr ""
+msgstr "Die Anwendung \"Image Viewer\" muss aktiviert sein, damit Sie diese Anwendung benutzen können."

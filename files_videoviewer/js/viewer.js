@@ -67,7 +67,7 @@ var videoViewer = {
 			features: ['playpause','progress','current','duration','tracks','volume','fullscreen'],
 			pluginPath : OC.filePath('files_videoviewer', 'js', ''),
 			pauseOtherPlayers: false,
-			enablePluginDebug: true,
+			enablePluginDebug: false,
 			plugins: ['flash','silverlight'],
 			success: function (player, node) {
 				//set the size (for flash otherwise no video just sound!)
