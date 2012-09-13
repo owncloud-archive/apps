@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:03+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-12 02:01+0200\n"
+"PO-Revision-Date: 2012-09-11 10:19+0000\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,7 +67,7 @@ msgstr "php-pdo moodul on vajalik owncloudi andmete salvestamiseks andmebaasi."
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "iconv moodul on vajalik, et konvertida andmed korrektsesse märgistikku."
 
 #: templates/settings.php:2
 msgid "Dependencies status"
