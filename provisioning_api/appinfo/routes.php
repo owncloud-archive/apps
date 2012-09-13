@@ -22,25 +22,25 @@
 */
 
 // users
-OCP\API::register('get', '/cloud/users', array('OC_Provisioning_API_Users', 'getUsers'), 'provisioning_api');
-OCP\API::register('post', '/cloud/users', array('OC_Provisioning_API_Users', 'addUser'), 'provisioning_api');
-OCP\API::register('get', '/cloud/users/{userid}', array('OC_Provisioning_API_Users', 'getUser'), 'provisioning_api');
-OCP\API::register('put', '/cloud/users/{userid}', array('OC_Provisioning_API_Users', 'editUser'), 'provisioning_api');
-OCP\API::register('delete', '/cloud/users/{userid}', array('OC_Provisioning_API_Users', 'deleteUser'), 'provisioning_api');
-OCP\API::register('get', '/cloud/users/{userid}/sharedwith', array('OC_Provisioning_API_Users', 'getSharedWithUser'), 'provisioning_api');
-OCP\API::register('get', '/cloud/users/{userid}/sharedby', array('OC_Provisioning_API_Users', 'getSharedByUser'), 'provisioning_api');
-OCP\API::register('delete', '/cloud/users/{userid}/sharedby', array('OC_Provisioning_API_Users', 'deleteSharedByUser'), 'provisioning_api');
-OCP\API::register('get', '/cloud/users/{userid}/groups', array('OC_Provisioning_API_Users', 'getUsersGroups'), 'provisioning_api');
-OCP\API::register('post', '/cloud/users/{userid}/groups', array('OC_Provisioning_API_Users', 'addToGroup'), 'provisioning_api');
-OCP\API::register('delete', '/cloud/users/{userid}/groups', array('OC_Provisioning_API_Users', 'removeFromGroup'), 'provisioning_api');
+OCP\API::register('get', '/cloud/users', array('OC_Provisioning_API_Users', 'getUsers'), 'provisioning_api', OC_API::ADMIN_AUTH);
+OCP\API::register('post', '/cloud/users', array('OC_Provisioning_API_Users', 'addUser'), 'provisioning_api', OC_API::ADMIN_AUTH);
+OCP\API::register('get', '/cloud/users/{userid}', array('OC_Provisioning_API_Users', 'getUser'), 'provisioning_api', OC_API::USER_AUTH);
+OCP\API::register('put', '/cloud/users/{userid}', array('OC_Provisioning_API_Users', 'editUser'), 'provisioning_api', OC_API::USER_AUTH);
+OCP\API::register('delete', '/cloud/users/{userid}', array('OC_Provisioning_API_Users', 'deleteUser'), 'provisioning_api', OC_API::ADMIN_AUTH);
+OCP\API::register('get', '/cloud/users/{userid}/sharedwith', array('OC_Provisioning_API_Users', 'getSharedWithUser'), 'provisioning_api', OC_API::USER_AUTH);
+OCP\API::register('get', '/cloud/users/{userid}/sharedby', array('OC_Provisioning_API_Users', 'getSharedByUser'), 'provisioning_api', OC_API::USER_AUTH);
+OCP\API::register('delete', '/cloud/users/{userid}/sharedby', array('OC_Provisioning_API_Users', 'deleteSharedByUser'), 'provisioning_api', OC_API::USER_AUTH);
+OCP\API::register('get', '/cloud/users/{userid}/groups', array('OC_Provisioning_API_Users', 'getUsersGroups'), 'provisioning_api', OC_API::USER_AUTH);
+OCP\API::register('post', '/cloud/users/{userid}/groups', array('OC_Provisioning_API_Users', 'addToGroup'), 'provisioning_api', OC_API::SUBADMIN_AUTH);
+OCP\API::register('delete', '/cloud/users/{userid}/groups', array('OC_Provisioning_API_Users', 'removeFromGroup'), 'provisioning_api', OC_API::SUBADMIN_AUTH);
 // groups
-OCP\API::register('get', '/cloud/groups', array('OC_Provisioning_API_Groups', 'getGroups'), 'provisioning_api');
-OCP\API::register('post', '/cloud/groups', array('OC_Provisioning_API_Groups', 'addGroup'), 'provisioning_api');
-OCP\API::register('get', '/cloud/groups/{groupid}', array('OC_Provisioning_API_Groups', 'getGroup'), 'provisioning_api');
-OCP\API::register('delete', '/cloud/groups/{groupid}', array('OC_Provisioning_API_Groups', 'deleteGroup'), 'provisioning_api');
+OCP\API::register('get', '/cloud/groups', array('OC_Provisioning_API_Groups', 'getGroups'), 'provisioning_api', OC_API::SUBADMIN_AUTH);
+OCP\API::register('post', '/cloud/groups', array('OC_Provisioning_API_Groups', 'addGroup'), 'provisioning_api', OC_API::SUBADMIN_AUTH);
+OCP\API::register('get', '/cloud/groups/{groupid}', array('OC_Provisioning_API_Groups', 'getGroup'), 'provisioning_api', OC_API::USER_AUTH);
+OCP\API::register('delete', '/cloud/groups/{groupid}', array('OC_Provisioning_API_Groups', 'deleteGroup'), 'provisioning_api', OC_API::SUBADMIN_AUTH);
 // apps
-OCP\API::register('get', '/cloud/apps', array('OC_Provisioning_API_Apps', 'getApps'), 'provisioning_api');
-OCP\API::register('get', '/cloud/apps/{appid}', array('OC_Provisioning_API_Apps', 'getAppInfo'), 'provisioning_api');
-OCP\API::register('post', '/cloud/apps/{appid}', array('OC_Provisioning_API_Apps', 'enable'), 'provisioning_api');
-OCP\API::register('delete', '/cloud/apps/{appid}', array('OC_Provisioning_API_Apps', 'disable'), 'provisioning_api');
+OCP\API::register('get', '/cloud/apps', array('OC_Provisioning_API_Apps', 'getApps'), 'provisioning_api', OC_API::ADMIN_AUTH);
+OCP\API::register('get', '/cloud/apps/{appid}', array('OC_Provisioning_API_Apps', 'getAppInfo'), 'provisioning_api', OC_API::ADMIN_AUTH);
+OCP\API::register('post', '/cloud/apps/{appid}', array('OC_Provisioning_API_Apps', 'enable'), 'provisioning_api', OC_API::ADMIN_AUTH);
+OCP\API::register('delete', '/cloud/apps/{appid}', array('OC_Provisioning_API_Apps', 'disable'), 'provisioning_api', OC_API::ADMIN_AUTH);
 ?>
