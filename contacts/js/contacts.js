@@ -425,6 +425,8 @@ OC.Contacts={
 							if(jsondata.status == 'success'){
 								OC.Contacts.Card.loadContact(jsondata.data, aid);
 								var item = OC.Contacts.Contacts.insertContact({data:jsondata.data});
+								$('#contacts li').removeClass('active');
+								item.addClass('active');
 								if(isnew) { // add some default properties
 									OC.Contacts.Card.addProperty('EMAIL');
 									OC.Contacts.Card.addProperty('TEL');
