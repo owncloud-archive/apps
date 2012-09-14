@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-09 02:01+0200\n"
-"PO-Revision-Date: 2012-09-09 00:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-14 02:01+0200\n"
+"PO-Revision-Date: 2012-09-13 15:13+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr "Errore bat izan da kapretaren izena aldatzean"
 
 #: ajax/collapsefolder.php:35
 msgid "Error collapsing folder."
-msgstr ""
+msgstr "Errorea karpeta tolesten."
 
 #: ajax/createfeed.php:51
 msgid "Feed already exists."
@@ -196,15 +196,15 @@ msgstr "Deskargatu"
 msgid "Select file"
 msgstr "Hautatu fitxategia"
 
-#: lib/feedmapper.php:165 lib/itemmapper.php:199
+#: lib/feedmapper.php:167 lib/itemmapper.php:201
 msgid "no title"
 msgstr "izenbururik gabe"
 
-#: lib/foldermapper.php:117
+#: lib/foldermapper.php:119
 msgid "no name"
 msgstr "izenik gabe"
 
-#: lib/itemmapper.php:204
+#: lib/itemmapper.php:206
 msgid "no body"
 msgstr "gorputzik gabe"
 

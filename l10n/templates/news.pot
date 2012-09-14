@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-13 02:01+0200\n"
+"POT-Creation-Date: 2012-09-14 02:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -195,15 +195,15 @@ msgstr ""
 msgid "Select file"
 msgstr ""
 
-#: lib/feedmapper.php:165 lib/itemmapper.php:199
+#: lib/feedmapper.php:167 lib/itemmapper.php:201
 msgid "no title"
 msgstr ""
 
-#: lib/foldermapper.php:117
+#: lib/foldermapper.php:119
 msgid "no name"
 msgstr ""
 
-#: lib/itemmapper.php:204
+#: lib/itemmapper.php:206
 msgid "no body"
 msgstr ""
 

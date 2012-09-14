@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-07 05:23+0000\n"
+"POT-Creation-Date: 2012-09-14 02:01+0200\n"
+"PO-Revision-Date: 2012-09-13 08:49+0000\n"
 "Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -102,11 +102,11 @@ msgstr "ddd"
 
 #: js/calendar.js:812
 msgid "ddd M/d"
-msgstr "ddd M/d"
+msgstr "ddd, d. M."
 
 #: js/calendar.js:813
 msgid "dddd M/d"
-msgstr "dddd M/d"
+msgstr "dddd, d. M."
 
 #: js/calendar.js:816
 msgid "MMMM yyyy"
@@ -118,7 +118,7 @@ msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:820
 msgid "dddd, MMM d, yyyy"
-msgstr "dddd, MMM d, yyyy"
+msgstr "dddd, d. MMM, yyyy"
 
 #: lib/app.php:114
 msgid "Birthday"
