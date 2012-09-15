@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-09 02:01+0200\n"
-"PO-Revision-Date: 2012-09-09 00:02+0000\n"
+"POT-Creation-Date: 2012-09-15 02:03+0200\n"
+"PO-Revision-Date: 2012-09-15 00:04+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -17,87 +17,87 @@ msgstr ""
 "Language: lv\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
-#: ajax/changefoldername.php:29
+#: ajax/changefoldername.php:30
 msgid "Error changing name of folder "
 msgstr ""
 
-#: ajax/collapsefolder.php:35
+#: ajax/collapsefolder.php:36
 msgid "Error collapsing folder."
 msgstr ""
 
-#: ajax/createfeed.php:51
+#: ajax/createfeed.php:52
 msgid "Feed already exists."
 msgstr ""
 
-#: ajax/createfeed.php:57
+#: ajax/createfeed.php:58
 msgid "Error adding feed."
 msgstr ""
 
-#: ajax/createfeed.php:70
+#: ajax/createfeed.php:71
 msgid "Feed added!"
 msgstr ""
 
-#: ajax/createfolder.php:36
+#: ajax/createfolder.php:37
 msgid "Error adding folder."
 msgstr ""
 
-#: ajax/createfolder.php:46
+#: ajax/createfolder.php:47
 msgid "Folder added!"
 msgstr ""
 
-#: ajax/deletefeed.php:28
+#: ajax/deletefeed.php:29
 msgid "Error removing feed."
 msgstr ""
 
-#: ajax/deletefolder.php:26
+#: ajax/deletefolder.php:27
 msgid "Error removing folder."
 msgstr ""
 
-#: ajax/feedlist.php:27
+#: ajax/feedlist.php:28
 msgid "Error updating feeds."
 msgstr ""
 
-#: ajax/importopml.php:27 ajax/selectfromcloud.php:30
+#: ajax/importopml.php:28 ajax/selectfromcloud.php:31
 msgid "No file path was submitted."
 msgstr ""
 
-#: ajax/importopml.php:41
+#: ajax/importopml.php:42
 msgid "An error occurred while parsing the file."
 msgstr ""
 
-#: ajax/loadfeed.php:36 templates/part.feeds.php:50
+#: ajax/loadfeed.php:37 templates/part.feeds.php:50
 msgid "Starred"
 msgstr ""
 
-#: ajax/loadfeed.php:41 templates/part.feeds.php:44
+#: ajax/loadfeed.php:42 templates/part.feeds.php:44
 msgid "New articles"
 msgstr ""
 
-#: ajax/loadfeed.php:53
+#: ajax/loadfeed.php:54
 msgid "Feed loaded!"
 msgstr ""
 
-#: ajax/movefeedtofolder.php:36
+#: ajax/movefeedtofolder.php:37
 msgid "Error moving feed into folder."
 msgstr ""
 
-#: ajax/selectfromcloud.php:37
+#: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr ""
 
-#: ajax/setallitemsread.php:57
+#: ajax/setallitemsread.php:60
 msgid "Error setting all items as read."
 msgstr ""
 
-#: ajax/setitemstatus.php:46
+#: ajax/setitemstatus.php:47
 msgid "Error marking item as read."
 msgstr ""
 
-#: ajax/updatefeed.php:36
+#: ajax/updatefeed.php:37
 msgid "Error updating feed."
 msgstr ""
 
-#: ajax/updatefeed.php:44
+#: ajax/updatefeed.php:45
 msgid "Feed updated!"
 msgstr ""
 
@@ -105,13 +105,27 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: js/news.js:28 js/news.js:58
-msgid "Name of the folder cannot be empty."
+#: js/menu.js:507
+msgid "Are you sure you want to delete this feed?"
 msgstr ""
 
-#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
-#: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
+#: js/menu.js:515
+msgid "Are you sure you want to delete this folder and all its feeds?"
+msgstr ""
+
+#: js/menu.js:523
+msgid "Warning"
+msgstr ""
+
+#: js/menu.js:534 js/menu.js:595 js/menu.js:617 js/menu.js:644 js/menu.js:666
+#: js/menu.js:916 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
+#: js/settings.js:47
 msgid "Error"
+msgstr ""
+
+#: js/news.js:28 js/news.js:58
+msgid "Name of the folder cannot be empty."
 msgstr ""
 
 #: js/news.js:33 js/news.js:95
@@ -195,15 +209,15 @@ msgstr ""
 msgid "Select file"
 msgstr ""
 
-#: lib/feedmapper.php:165 lib/itemmapper.php:199
+#: lib/feedmapper.php:167 lib/itemmapper.php:201
 msgid "no title"
 msgstr ""
 
-#: lib/foldermapper.php:117
+#: lib/foldermapper.php:119
 msgid "no name"
 msgstr ""
 
-#: lib/itemmapper.php:204
+#: lib/itemmapper.php:206
 msgid "no body"
 msgstr ""
 

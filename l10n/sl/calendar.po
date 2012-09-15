@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-14 02:01+0200\n"
-"PO-Revision-Date: 2012-09-13 08:49+0000\n"
+"POT-Creation-Date: 2012-09-15 02:02+0200\n"
+"PO-Revision-Date: 2012-09-14 08:24+0000\n"
 "Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -671,7 +671,7 @@ msgstr "Opis dogodka"
 
 #: templates/part.eventform.php:100 templates/part.showevent.php:95
 msgid "Repeat"
-msgstr "Ponovi"
+msgstr "Ponovitve"
 
 #: templates/part.eventform.php:107 templates/part.showevent.php:102
 msgid "Advanced"
@@ -716,7 +716,7 @@ msgstr "Konec"
 
 #: templates/part.eventform.php:233 templates/part.showevent.php:228
 msgid "occurrences"
-msgstr "ponovitev"
+msgstr "ponovitve"
 
 #: templates/part.import.php:14
 msgid "create a new calendar"
