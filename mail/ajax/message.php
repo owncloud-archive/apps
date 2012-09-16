@@ -36,7 +36,7 @@ if( $message['error'] ) {
 }
 
 $tmpl = new OCP\Template('mail','part.message');
-$tmpl->assign('message', $message['message'] );
+$tmpl->assign('message', $message['message'], false );
 $page = $tmpl->fetchPage();
 
 OCP\JSON::success(array('data' => $page ));

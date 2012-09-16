@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-12 02:01+0200\n"
-"PO-Revision-Date: 2012-09-11 05:42+0000\n"
+"POT-Creation-Date: 2012-09-15 02:03+0200\n"
+"PO-Revision-Date: 2012-09-14 09:22+0000\n"
 "Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr "Notranja napaka"
 
 #: templates/index.php:27
 msgid "Slideshow"
-msgstr "predstavitev"
+msgstr "Predstavitev"
 
 #: templates/no-image-app.php:9
 msgid ""

@@ -1,5 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Error changing name of folder " => "Errore bat izan da kapretaren izena aldatzean",
+"Error collapsing folder." => "Errorea karpeta tolesten.",
 "Feed already exists." => "Iturburua dagoeneko existitzen da.",
 "Error adding feed." => "Errorea iturburua gehitzen.",
 "Feed added!" => "Iturburua gehituta!",
@@ -20,8 +21,8 @@
 "Error updating feed." => "Errorea iturburua eguneratzerakoan.",
 "Feed updated!" => "Iturburua eguneratuta!",
 "News" => "Berriak",
-"Name of the folder cannot be empty." => "Karpetaren izena ezin da hutsik egon.",
 "Error" => "Errorea",
+"Name of the folder cannot be empty." => "Karpetaren izena ezin da hutsik egon.",
 "Adding..." => "Gehitzen...",
 "Add folder" => "Gehitu karpeta",
 "Changing..." => "Aldatzen...",
