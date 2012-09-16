@@ -1765,13 +1765,13 @@ OC.Contacts={
 							var sharedindicator = book.owner == OC.currentUser ? ''
 								: '<img class="shared svg" src="'+OC.imagePath('core', 'actions/shared')+'" title="'+t('contacts', 'Shared by ')+book.owner+'" />'
 							if($('#contacts h3.addressbook').length == 0) {
-								$('#contacts').html('<h3 class="addressbook" title="' + book.description + '" contextmenu="addressbookmenu" data-id="'
+								$('#contacts').html('<h3 class="addressbook" data-id="'
 									+ b + '" data-permissions="' + book.permissions + '">' + book.displayname
 									+ sharedindicator + '</h3><ul class="contacts addressbook hidden" data-id="'+b+'" data-permissions="'
 									+ book.permissions + '"></ul>');
 							} else {
 								if(!$('#contacts h3.addressbook[data-id="' + b + '"]').length) {
-									var item = $('<h3 class="addressbook" title="' + book.description + '" contextmenu="addressbookmenu" data-id="'
+									var item = $('<h3 class="addressbook" data-id="'
 										+ b + '" data-permissions="' + book.permissions + '">'
 										+ book.displayname+sharedindicator+'</h3><ul class="contacts addressbook hidden" data-id="' + b
 										+ '" data-permissions="' + book.permissions + '"></ul>');
