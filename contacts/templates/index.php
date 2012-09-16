@@ -62,7 +62,3 @@
 <!-- Dialogs -->
 <div id="dialog_holder"></div>
 <!-- End of Dialogs -->
-<menu type="context" id="addressbookmenu">
-	<menuitem label="Delete" icon="<?php echo OCP\Util::imagePath('core', 'actions/delete.svg') ?>" onclick="alert('Really? ' + $(this).attr('data-id'))"></menuitem>
-	<menuitem label="Rename" icon="<?php echo OCP\Util::imagePath('core', 'actions/rename.svg') ?>" onclick="alert('Can\'t do that')"></menuitem>
-</menu>

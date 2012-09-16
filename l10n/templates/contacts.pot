@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-13 02:01+0200\n"
+"POT-Creation-Date: 2012-09-15 02:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -222,14 +222,14 @@ msgstr ""
 msgid "Couldn't get a valid address."
 msgstr ""
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
-#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
-#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
-#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
-#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
-#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:687 js/contacts.js:727
+#: js/contacts.js:753 js/contacts.js:885 js/contacts.js:891 js/contacts.js:903
+#: js/contacts.js:940 js/contacts.js:1214 js/contacts.js:1222
+#: js/contacts.js:1231 js/contacts.js:1266 js/contacts.js:1302
+#: js/contacts.js:1317 js/contacts.js:1343 js/contacts.js:1573
+#: js/contacts.js:1608 js/contacts.js:1628 js/contacts.js:1840
+#: js/contacts.js:1983 js/contacts.js:2173 js/contacts.js:2210
+#: js/contacts.js:2245 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
 msgstr ""
 
@@ -245,86 +245,86 @@ msgstr ""
 msgid "Permission error"
 msgstr ""
 
-#: js/contacts.js:725
+#: js/contacts.js:727
 msgid "This property has to be non-empty."
 msgstr ""
 
-#: js/contacts.js:751
+#: js/contacts.js:753
 msgid "Couldn't serialize elements."
 msgstr ""
 
-#: js/contacts.js:883 js/contacts.js:901
+#: js/contacts.js:885 js/contacts.js:903
 msgid ""
 "'deleteProperty' called without type argument. Please report at bugs."
 "owncloud.org"
 msgstr ""
 
-#: js/contacts.js:920
+#: js/contacts.js:922
 msgid "Edit name"
 msgstr ""
 
-#: js/contacts.js:1212
+#: js/contacts.js:1214
 msgid "No files selected for upload."
 msgstr ""
 
-#: js/contacts.js:1220 js/contacts.js:2072
+#: js/contacts.js:1222 js/contacts.js:2074
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr ""
 
-#: js/contacts.js:1284
+#: js/contacts.js:1286
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
-#: js/contacts.js:1522
+#: js/contacts.js:1421 js/contacts.js:1462 js/contacts.js:1481
+#: js/contacts.js:1524
 msgid "Select type"
 msgstr ""
 
-#: js/contacts.js:1540
+#: js/contacts.js:1542
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1611
+#: js/contacts.js:1613
 msgid "Do you want to merge these address books?"
 msgstr ""
 
-#: js/contacts.js:2065
+#: js/contacts.js:2067
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr ""
 
-#: js/contacts.js:2065
+#: js/contacts.js:2067
 msgid "Upload Error"
 msgstr ""
 
-#: js/contacts.js:2072
+#: js/contacts.js:2074
 msgid "Upload too large"
 msgstr ""
 
-#: js/contacts.js:2120
+#: js/contacts.js:2122
 msgid "Pending"
 msgstr ""
 
-#: js/contacts.js:2152
+#: js/contacts.js:2154
 msgid "Import done"
 msgstr ""
 
-#: js/contacts.js:2165
+#: js/contacts.js:2167
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/contacts.js:2171
+#: js/contacts.js:2173
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/contacts.js:2187
+#: js/contacts.js:2189
 msgid "Importing..."
 msgstr ""
 
-#: js/contacts.js:2208
+#: js/contacts.js:2210
 msgid "The address book name cannot be empty."
 msgstr ""
 

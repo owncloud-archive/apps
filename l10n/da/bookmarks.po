@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2012.
+#   <osos@openeyes.dk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:01+0200\n"
-"PO-Revision-Date: 2012-09-11 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-14 02:01+0200\n"
+"PO-Revision-Date: 2012-09-13 09:50+0000\n"
+"Last-Translator: osos <osos@openeyes.dk>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgstr "uden navn"
 
 #: lib/search.php:43
 msgid "Bookm."
-msgstr ""
+msgstr "Bogm."
 
 #: templates/bookmarklet.php:5
 msgid ""
@@ -54,7 +55,7 @@ msgstr "Mærker"
 
 #: templates/list.php:16
 msgid "Save bookmark"
-msgstr "Gen bogmærke"
+msgstr "Gem bogmærke"
 
 #: templates/list.php:22
 msgid "You have no bookmarks"
