@@ -237,8 +237,8 @@ class OC_Contacts_App {
 	 * @brief returns the categories for the user
 	 * @return (Array) $categories
 	 */
-	public static function getCategories() {
-		$categories = self::getVCategories()->categories();
+	public static function getCategories($format = null) {
+		$categories = self::getVCategories()->categories($format);
 		return ($categories ? $categories : self::getDefaultCategories());
 	}
 
@@ -280,7 +280,7 @@ class OC_Contacts_App {
 				}
 				$start = 0;
 				$batchsize = 10;
-				$categories = new OC_VCategories('contacts');
+				$categories = new OC_VCategories('contact');
 				while($vccontacts =
 					OC_Contacts_VCard::all($vcaddressbookids, $start, $batchsize)) {
 					$cards = array();

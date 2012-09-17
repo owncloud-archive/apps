@@ -29,6 +29,7 @@ OCP\App::setActiveNavigationEntry('contacts_index');
 // Load a specific user?
 $id = isset( $_GET['id'] ) ? $_GET['id'] : null;
 $impp_types = OC_Contacts_App::getTypesOfProperty('IMPP');
+$adr_types = OC_Contacts_App::getTypesOfProperty('ADR');
 $phone_types = OC_Contacts_App::getTypesOfProperty('TEL');
 $email_types = OC_Contacts_App::getTypesOfProperty('EMAIL');
 $ims = OC_Contacts_App::getIMOptions();
@@ -48,7 +49,8 @@ $maxUploadFilesize = min($maxUploadFilesize, $freeSpace);
 
 OCP\Util::addscript('', 'jquery.multiselect');
 OCP\Util::addscript('', 'oc-vcategories');
-OCP\Util::addscript('contacts', 'contacts');
+OCP\Util::addscript('contacts', 'app');
+OCP\Util::addscript('contacts', 'modernizr');
 OCP\Util::addscript('contacts', 'expanding');
 OCP\Util::addscript('contacts', 'jquery.combobox');
 OCP\Util::addscript('files', 'jquery.fileupload');
@@ -60,12 +62,13 @@ OCP\Util::addStyle('contacts', 'jquery.combobox');
 OCP\Util::addStyle('contacts', 'jquery.Jcrop');
 OCP\Util::addStyle('contacts', 'contacts');
 
-$tmpl = new OCP\Template( "contacts", "index", "user" );
+$tmpl = new OCP\Template( "contacts", "contacts", "user" );
 $tmpl->assign('uploadMaxFilesize', $maxUploadFilesize, false);
 $tmpl->assign('uploadMaxHumanFilesize',
 	OCP\Util::humanFileSize($maxUploadFilesize), false);
 $tmpl->assign('phone_types', $phone_types, false);
 $tmpl->assign('email_types', $email_types, false);
+$tmpl->assign('adr_types', $adr_types, false);
 $tmpl->assign('impp_types', $impp_types, false);
 $tmpl->assign('categories', $categories, false);
 $tmpl->assign('im_protocols', $im_protocols, false);

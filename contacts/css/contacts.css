@@ -1,15 +1,25 @@
 /*dl > dt {
 	font-weight: bold;
 }*/
+input[type=checkbox] { height: 14px; width: 14px; border: 1px solid #fff; -moz-appearance:none; -webkit-appearance: none; -moz-box-sizing:none; box-sizing:none; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
+input[type=checkbox]:hover { border: 1px solid #D4D4D4 !important; }
+input[type=checkbox]:checked::after {
+  content: url('%appswebroot%/contacts/img/checkmark.png');
+  display: block;
+  position: relative;
+  top: -8px;
+  left: -6px;
+}
+select { border: 1px solid silver; }
+option { border-left: 1px solid silver; border-right: 1px solid silver; }
+option:first-child { border-top: 1px solid silver; }
+option:last-child { border-bottom: 1px solid silver; }
 #leftcontent { top: 3.5em !important; padding: 0; margin: 0; }
 #leftcontent a { padding: 0 0 0 25px; }
-#rightcontent { top: 3.5em !important; padding-top: 5px; }
 #leftcontent h3 { cursor: pointer; -moz-transition: background 300ms ease 0s; background: none no-repeat scroll 1em center #eee; border-bottom: 1px solid #ddd; border-top: 1px solid #fff; display: block; max-width: 100%; padding: 0.5em 0.8em; color: #666; text-shadow: 0 1px 0 #f8f8f8; font-size: 1.2em; }
 #leftcontent h3:hover,#leftcontent h3:active,#leftcontent h3.active { background-color: #DBDBDB; border-bottom: 1px solid #CCCCCC; border-top: 1px solid #D4D4D4; color: #333333; font-weight: bold; }
 #leftcontent h3 img.shared { float: right; opacity: 0.4; }
 #leftcontent h3 img.shared:hover { opacity: 1; }
-#contacts { position: fixed; background: #fff; max-width: 100%; width: 20em; left: 12.5em; top: 3.7em; bottom: 3em; overflow: auto; padding: 0; margin: 0; }
-.contacts a { height: 23px; display: block; left: 12.5em; margin: 0 0 0 0; padding: 0 0 0 25px; }
 .contacts li.ui-draggable { height: 23px; }
 .ui-draggable-dragging { width: 17em; cursor: move; }
 .ui-state-hover { border: 1px solid dashed; }
@@ -17,34 +27,23 @@
 #bottomcontrols img { margin-top: 0.35em; }
 #uploadprogressbar { display: none; padding: 0; bottom: 3em; height:2em; width: 20em; margin:0; background:#eee; border:1px solid #ccc; position:fixed; }
 button.control { float: left; margin: 0.2em 0 0 1em; height: 2.4em; width: 2.4em; /* border: 0 none; border-radius: 0; -moz-box-shadow: none; box-shadow: none; outline: 0 none;*/ }
-.settings { background:url('%webroot%/core/img/actions/settings.svg') no-repeat center; float: right !important; margin: 0.2em 1em 0 0 !important; }
-.import { background:url('%webroot%/core/img/actions/upload.svg') no-repeat center; }
-.newcontact { background:url('%appswebroot%/contacts/img/contact-new.svg') no-repeat center; }
-#actionbar { clear: both; height: 30px;}
 #contacts_deletecard {position:relative; float:left; background:url('%webroot%/core/img/actions/delete.svg') no-repeat center; }
 #contacts_downloadcard {position:relative; float:left; background:url('%webroot%/core/img/actions/download.svg') no-repeat center; }
-#contacts_propertymenu { clear: left; float:left; max-width: 15em; margin: 2em; }
-#contacts_propertymenu_button { position:relative;top:0;left:0; margin: 0; }
-#contacts_propertymenu_dropdown { background-color: #fff; position:relative; right:0; overflow:hidden; text-overflow:ellipsis; border: thin solid #1d2d44; box-shadow: 0 3px 5px #bbb; /* -moz-box-shadow:0 0 10px #000; -webkit-box-shadow:0 0 10px #000;  box-shadow:0 0 10px #000; -moz-border-radius:0.5em; -webkit-border-radius:0.5em; border-radius:0.5em; -moz-border-radius:0.5em; -webkit-border-radius:0.5em;*/ border-radius: 3px; }
-#contacts_propertymenu li { display: block; font-weight: bold; height: 20px; }
-#contacts_propertymenu li a { padding: 3px; display: block }
-#contacts_propertymenu li:hover { background-color: #1d2d44; }
-#contacts_propertymenu li a:hover { color: #fff }
-#card { width: auto; font-size: 10px; /*max-width: 70em; border: thin solid lightgray; display: block;*/ }
+#contact { width: auto; font-size: 10px; /*max-width: 70em; border: thin solid lightgray; display: block;*/ }
 #firstrun { position: relative; top: 25%; left: 20%; right: 20%; width: 50%; font-weight:bold; text-align: center; color: #777; }
 #firstrun h3 { font-size:1.5em; text-align: center; margin-bottom: 1em; }
 #firstrun p { font-size:1.2em; text-align: }
 #firstrun #selections { font-size:0.8em; margin: 2em auto auto auto; clear: both; }
 
-#card input[type="text"].contacts_property,input[type="email"].contacts_property,input[type="url"].contacts_property { width: 14em; float: left; font-weight: bold; }
-.categories { float: left; width: 16em; }
-#card input[type="checkbox"].contacts_property, #card input[type="text"], #card input[type="email"], #card input[type="url"], #card input[type="tel"], #card input[type="date"], #card select, #card textarea { background-color: #fefefe; border: 0 !important; -moz-appearance:none  !important; -webkit-box-sizing:none !important; -moz-box-sizing:none !important; box-sizing:none !important; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; float: left; }
-#card input[type="text"]:hover, #card input[type="text"]:focus, #card input[type="text"]:active, input[type="email"]:hover, #card input[type="url"]:hover, #card input[type="tel"]:hover, #card input[type="date"]:hover, #card input[type="date"], #card input[type="date"]:hover, #card input[type="date"]:active, #card input[type="date"]:active, #card input[type="date"]:active, #card input[type="email"]:active, #card input[type="url"]:active, #card input[type="tel"]:active, #card textarea:focus, #card textarea:hover { border: 0 !important; -webkit-appearance:textfield; -moz-appearance:textfield; -webkit-box-sizing:content-box; -moz-box-sizing:content-box; box-sizing:content-box; background:#fff; color:#333; border:1px solid #ddd; -moz-box-shadow:0 1px 1px #ddd, 0 2px 0 #bbb inset; -webkit-box-shadow:0 1px 1px #ddd, 0 1px 0 #bbb inset; box-shadow:0 1px 1px #ddd, 0 1px 0 #bbb inset; -moz-border-radius:.5em; -webkit-border-radius:.5em; border-radius:.5em; outline:none; float: left; }
-#card textarea { width: 80%; min-height: 5em; min-width: 30em; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
-dl.form { width: 100%; float: left; clear: right; margin: 0; padding: 0; cursor: normal; }
+#contact input:not([type="checkbox"]), #contact select, #contact textarea { background-color: #fefefe; border: 1px solid #fff !important; -moz-appearance:none  !important; -webkit-appearance: none !important; -webkit-box-sizing:none !important; -moz-box-sizing:none !important; box-sizing:none !important; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; float: left; }
+#contact input:hover:not([type="checkbox"]), #contact input:active:not([type="checkbox"]), #contact textarea:focus, #contact textarea:hover { border: 1px solid silver !important; -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; outline:none; float: left; }
+
+#contact textarea { width: 80%; min-height: 5em; min-width: 30em; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
+
+#contact input[type="checkbox"] { margin-top: 10px; vertical-align: bottom; float: left; }
+dl.form { width: auto; margin: 0; padding: 0; cursor: normal; }
 .form dt { display: table-cell; clear: left; float: left; width: 7em; margin: 0; padding: 0.8em 0.5em 0 0; text-align:right; text-overflow:ellipsis; o-text-overflow: ellipsis; vertical-align: text-bottom; color: #bbb;/* white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap;*/ }
-.form dd { display: table-cell; clear: right; float: left; margin: 0; padding: 0px; white-space: nowrap; vertical-align: text-bottom; }
-label:hover, dt:hover { color: #333; }
+.form dd { display: table-cell; clear: right; float: left; margin: 0; padding: 0; white-space: nowrap; vertical-align: text-bottom; }
 /*::-webkit-input-placeholder { color: #bbb; }
 :-moz-placeholder { color: #bbb; }
 :-ms-input-placeholder { color: #bbb; }*/
@@ -66,7 +65,6 @@ label:hover, dt:hover { color: #333; }
 .upload { background:url('%webroot%/core/img/actions/upload.svg') no-repeat center; }
 .download { background:url('%webroot%/core/img/actions/download.svg') no-repeat center; }
 .cloud { background:url('%webroot%/core/img/places/picture.svg') no-repeat center; }
-/*.globe { background:url('../img/globe.svg') no-repeat center; }*/
 .globe { background:url('%webroot%/core/img/actions/public.svg') no-repeat center; }
 .transparent{ opacity: 0.6; }
 #edit_name_dialog { padding:0; }
@@ -74,19 +72,13 @@ label:hover, dt:hover { color: #333; }
 #edit_address_dialog { /*width: 30em;*/ }
 #edit_address_dialog > input { width: 15em; }
 #edit_photo_dialog_img { display: block; min-width: 150; min-height: 200; }
-#fn { float: left !important; width: 18em !important; }
-#name { /*position: absolute; top: 0px; left: 0px;*/ min-width: 25em; height: 2em; clear: right; display: block; }
-#identityprops { /*position: absolute; top: 2.5em; left: 0px;*/ }
-#contact_photo { float: left; margin: 1em; }
-#contact_identity { min-width: 30em; padding: 0.5em;}
-.contactsection { position: relative; float: left; width: 35em; padding: 0.5em; height: auto; }
 
 #cropbox { margin: auto; }
 #contacts_details_photo_wrapper { width: 150px; }
 #contacts_details_photo_wrapper.wait { opacity: 0.6; filter:alpha(opacity=0.6); z-index:1000; background: url('%webroot%/core/img/loading.gif') no-repeat center center; cursor: wait; }
-.contacts_details_photo { border-radius: 0.5em; border: thin solid #bbb; margin: 0.3em; background: url('%webroot%/core/img/loading.gif') no-repeat center center; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; opacity: 1; }
+.contacts_details_photo { border-radius: 0.3em; border: thin solid #bbb; margin: 0.3em; background: url('%webroot%/core/img/loading.gif') no-repeat center center; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; opacity: 1; }
 .contacts_details_photo:hover { background: #fff; cursor: default; }
-#phototools { position:absolute; margin: 5px 0 0 10px; width:auto; height:22px; padding:0px; background-color:#fff; list-style-type:none; border-radius: 0.5em; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; }
+#phototools { position:absolute; margin: 5px 0 0 10px; width:auto; height:22px; padding:0px; background-color:#fff; list-style-type:none; border-radius: 0.3em; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; }
 #phototools li { display: inline; }
 #phototools li a { float:left; cursor:pointer; width:22px; height:22px; opacity: 0.6; }
 #phototools li a:hover { opacity: 0.8; }
@@ -118,24 +110,26 @@ dl.addresscard .action { float: right; }
 #file_upload_form { width: 0; height: 0; }
 #file_upload_target, #import_upload_target, #crop_target { display:none; }
 #file_upload_start, #import_upload_start { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter:alpha(opacity=0); opacity:0; z-index:1001; width:0; height:0;}
-input[type="checkbox"] { width: 20px; height: 20px; vertical-align: bottom; }
 .big { font-weight:bold; font-size:1.2em; }
 .huge { font-weight:bold; font-size:1.5em; }
-.propertycontainer dd { float: left; width: 25em; }
-/*.propertylist { clear: none; max-width: 33em; }*/
-.propertylist li.propertycontainer { white-space: nowrap; min-width: 35em; display: block; clear: both; }
-.propertycontainer[data-element="EMAIL"] > input[type="email"],.propertycontainer[data-element="TEL"] > input[type="text"] { min-width: 12em !important; float: left; }
-.propertylist li > input[type="checkbox"],input[type="radio"] { float: left; clear: left; width: 16px; height: 16px; vertical-align: middle; padding: 0; }
+
+.propertylist li.propertycontainer { white-space: nowrap; min-width: 38em; display: block; clear: both; }
+.propertylist { float: left; }
+.propertylist li > input[type="checkbox"],input[type="radio"] { float: left; }
+.propertylist li > input.value:not([type="checkbox"]) { min-width: 16em; }
 .propertylist li > select { float: left; max-width: 8em; }
 .propertylist li > .select_wrapper { float: left; overflow: hidden; color: #bbb; font-size: 0.8em; }
-.propertylist li > .select_wrapper select { float: left; overflow: hidden; color: #bbb; }
+.propertylist li > .select_wrapper select { float: left; overflow: hidden; text-overflow: ellipsis; color: #bbb; width: 8em; }
+.propertylist li > .select_wrapper select:hover { overflow: inherit; text-overflow: inherit; }
 .propertylist li > .select_wrapper select option { color: #777; }
 .propertylist li > .select_wrapper select:hover,.propertylist li > select:focus,.propertylist li > select:active { color: #777; }
-.propertylist li > .select_wrapper select.impp { margin-left: -23px; direction: rtl; }
+.propertylist li > .select_wrapper select.rtl { margin-left: -24px; direction: rtl; }
 .propertylist li > .select_wrapper select.types { margin-right: -23px; }
 .propertylist li > input[type="checkbox"].impp { clear: none; }
 .propertylist li > label.xab { display: block; color: #bbb; float:left; clear: both; padding: 0.5em 0 0 2.5em; }
 .propertylist li > label.xab:hover { color: #777; }
+label, dt, .label { float: left; font-size: 0.7em; color: #bbb !important; max-width: 7em !important; border: 0; }
+label:hover, .form dt:hover, input.label:hover { color: #777 !important; }
 .typelist[type="button"] { float: left; max-width: 8em; border: 0; background-color: #fff; color: #bbb; box-shadow: none; } /* for multiselect */
 .typelist[type="button"]:hover { color: #777; } /* for multiselect */
 .addresslist { clear: both; font-weight: bold; }
@@ -157,3 +151,80 @@ input[type="checkbox"] { width: 20px; height: 20px; vertical-align: bottom; }
 .addressbooks-settings a.action { opacity: 0.2; }
 .addressbooks-settings a.action:hover { opacity: 1; }
 .addressbooks-settings td.active, .addressbooks-settings td.action { width: 20px; }
+
+#toggle_all { position: absolute; bottom: .5em; left: .8em; }
+.numcontacts { float: right; }
+input.propertytype { float: left; font-size: .8em; width: 8em !important; direction: rtl;}
+#rightcontent, .rightcontent { position:fixed; top: 7.5em; left: 32.5em; overflow-x:hidden; overflow-y: auto; }
+#rightcontent table { position: relative; top: 0; left: 0; right: 0; }
+#contactsheader { position: fixed; padding: 0; margin:0; top:3.5em; left: 32.5em; right: 0; height: 4em; border-bottom: 1px solid #DDDDDD; z-index: 50; }
+#contactsheader div { padding: 0 0.5em; height: 100%; width: 90%; margin:0; }
+
+#contactsheader button { width: 26px; height: 26px; margin-right: .5em; top: .7em; opacity: 0.5; }
+#contactsheader button:hover { opacity: 1; }
+#contactsheader .settings { background:url('%webroot%/core/img/actions/settings.svg') no-repeat center; position: absolute; right: 1em; margin: 0; }
+#contactsheader .import { background:url('%webroot%/core/img/actions/upload.svg') no-repeat center; }
+#contactsheader .newcontact { background:url('%appswebroot%/contacts/img/contact-new.svg') no-repeat center; }
+#contactsheader .delete { background:url('%webroot%/core/img/actions/delete.svg') no-repeat center; }
+#contactsheader .add { background:url('%webroot%/core/img/actions/add.svg') no-repeat center; margin-left: 5em; }
+
+#contactlist tr { height: 3em; }
+#contactlist tr td { text-overflow: ellipsis; border-bottom: 1px solid #DDDDDD; font-weight: normal; text-align: left; overflow: hidden; text-overflow: ellipsis;    vertical-align: middle; white-space: nowrap; }
+#contactlist tr td:hover { overflow: inherit; text-overflow: inherit; background-color: #fff; z-index: 200; }
+#contactlist tr td:not(.adr) { width: 15%; }
+#contactlist tr td.name>input[type=checkbox]:first-child { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter:alpha(opacity=0); opacity:0; float:left; margin:.5em 0 0 1.2em; -webkit-transition:opacity 200ms; -moz-transition:opacity 200ms; -o-transition:opacity 200ms; transition:opacity 200ms; }
+#contactlist tr td.name>input[type="checkbox"]:hover:first-child { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; filter:alpha(opacity=80); opacity:.8; }
+#contactlist tr td.name>input[type="checkbox"]:checked:first-child { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter:alpha(opacity=100); opacity:1; }
+#contactlist tr td.name { font-weight: bold; text-indent: 1.6em; -webkit-transition:background-image 500ms; -moz-transition:background-image 500ms; -o-transition:background-image 500ms;  transition:background-image 500ms; position:relative; background-position:1em .5em !important; background-repeat:no-repeat !important; }
+#contactlist tr td.email span { float: left; clear: none; }
+#contactlist tr td a.mailto { float: right; cursor:pointer; width:22px; height:22px; z-index: 200; opacity: 0.6; background:url('%webroot%/core/img/actions/mail.svg') no-repeat center; }
+#contactlist tr td a.mailto:hover { opacity: 0.8; }
+
+section#contact { position: relative; top: 0; left: 0; right: 0;  }
+
+#contact figure { float: left; clear: none; }
+#contact figure img { -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; border: thin solid #bbb; margin: 0.3em; background: url('%webroot%/core/img/loading.gif') no-repeat center center; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; opacity: 1; }
+#contact section { float: left; margin: 1em; }
+#contact footer { clear: both; margin: 1em; }
+#contact li { display: block; clear: both; white-space: nowrap; }
+#contact span.adr { float: left; max-width: 14em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#contact span.adr:hover { overflow: inherit; }
+#contact .value {float: left; }
+
+
+@media screen and (max-width: 1500px) {
+	#contactlist tr td.categories { display: none; }
+}
+@media screen and (max-width: 1400px) {
+	#contactlist tr td.adr { display: none; }
+}
+@media screen and (min-width: 1400px) {
+	ul.propertylist {
+		-moz-column-count: 3;
+		/*-webkit-columns: 3;*/
+		-o-columns: 3;
+		columns: 3;
+	}
+}
+@media screen and (min-width: 1100) and (max-width: 1200px) {
+	#contactlist tr td.tel { display: none; }
+}
+@media screen and (min-width: 800px) and (max-width: 1400) {
+	ul.propertylist {
+		-moz-column-count: 2;
+		-webkit-columns: 2;
+		-o-columns: 2;
+		columns: 2;
+	}
+}
+@media screen and (max-width: 900px) {
+	#contactlist tr td.email { display: none; }
+}
+@media screen and (max-width: 400px) {
+	ul.propertylist {
+		-moz-column-count: 1;
+		-webkit-columns: 1;
+		-o-columns: 1;
+		columns: 1;
+	}
+}

@@ -53,7 +53,7 @@ if(is_null($contact)) {
 OCP\Response::enableCaching($caching);
 OC_Contacts_App::setLastModifiedHeader($contact);
 
-$thumbnail_size = 23;
+$thumbnail_size = 28;
 
 // Find the photo from VCard.
 $image = new OC_Image();

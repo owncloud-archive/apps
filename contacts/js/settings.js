@@ -19,7 +19,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 					if(!active) {
 						$('#contacts h3[data-id="'+id+'"],#contacts ul[data-id="'+id+'"]').remove();
 					} else {
-						OC.Contacts.Contacts.update();
+						OC.Contacts.update();
 					}
 				} else {
 					console.log('Error:', jsondata.data.message);
@@ -41,7 +41,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 						$('#contacts h3[data-id="'+id+'"],#contacts ul[data-id="'+id+'"]').remove();
 						row.remove()
 						OC.Contacts.Settings.Addressbook.showActions(['new',]);
-						OC.Contacts.Contacts.update();
+						OC.Contacts.update();
 					} else {
 						OC.dialogs.alert(jsondata.data.message, t('contacts', 'Error'));
 					}
@@ -108,7 +108,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 							row.find('td.name').text(jsondata.data.addressbook.displayname);
 							row.find('td.description').text(jsondata.data.addressbook.description);
 						}
-						OC.Contacts.Contacts.update();
+						OC.Contacts.update();
 					} else {
 						OC.dialogs.alert(jsondata.data.message, t('contacts', 'Error'));
 					}

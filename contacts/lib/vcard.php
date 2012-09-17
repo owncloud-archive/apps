@@ -645,6 +645,9 @@ class OC_Contacts_VCard {
 					if($temp['label'] == '_$!<Other>!$_') {
 						$temp['label'] = OC_Contacts_App::$l10n->t('Other');
 					}
+					if($temp['label'] == '_$!<HomePage>!$_') {
+						$temp['label'] = OC_Contacts_App::$l10n->t('HomePage');
+					}
 				}
 				if(array_key_exists($pname, $details)) {
 					$details[$pname][] = $temp;
@@ -673,15 +676,31 @@ class OC_Contacts_VCard {
 	public static function structureProperty($property) {
 		$value = $property->value;
 		//$value = htmlspecialchars($value);
-		if($property->name == 'ADR' || $property->name == 'N') {
+		if($property->name == 'ADR' || $property->name == 'N' || $property->name == 'ORG') {
 			$value = self::unescapeDelimiters($value);
-		} elseif($property->name == 'BDAY') {
+		} elseif($property->name == 'CATEGORIES') {
+			$value = self::unescapeDelimiters($value, ',');
+		}
+		elseif($property->name == 'BDAY') {
 			if(strpos($value, '-') === false) {
 				if(strlen($value) >= 8) {
 					$value = substr($value, 0, 4).'-'.substr($value, 4, 2).'-'.substr($value, 6, 2);
 				} else {
 					return null; // Badly malformed :-(
 				}
+			}
+		}
+		elseif($property->name == 'IMPP') {
+			if(strpos($value, ':') !== false) {
+				$value = explode(':', $value);
+				$protocol = array_shift($value);
+				if(!isset($property->parameters['X-SERVICE-TYPE'])) {
+					$property->add(new Sabre_VObject_Parameter(
+								'X-SERVICE-TYPE',
+								strtoupper(strip_tags($protocol)))
+							);
+				}
+				$value = implode('', $value);
 			}
 		}
 		if(is_string($value)) {
@@ -702,12 +721,18 @@ class OC_Contacts_VCard {
 			}
 			// NOTE: Apparently Sabre_VObject_Reader can't always deal with value list parameters
 			// like TYPE=HOME,CELL,VOICE. Tanghus.
-			if (in_array($property->name, array('TEL', 'EMAIL')) && $parameter->name == 'TYPE') {
+			// TODO: Check if parameter is has commas and split + merge if so.
+			if ($parameter->name == 'TYPE') {
+				$pvalue = $parameter->value;
+				if(is_string($pvalue) && strpos($pvalue, ',') !== false) {
+					$pvalue = array_map('trim', explode(',', $pvalue));
+				}
+				$pvalue = is_array($pvalue) ? $pvalue : array($pvalue);
 				if (isset($temp['parameters'][$parameter->name])) {
-					$temp['parameters'][$parameter->name][] = $parameter->value;
+					$temp['parameters'][$parameter->name][] = $pvalue;
 				}
 				else {
-					$temp['parameters'][$parameter->name] = array($parameter->value);
+					$temp['parameters'][$parameter->name] = $pvalue;
 				}
 			}
 			else{

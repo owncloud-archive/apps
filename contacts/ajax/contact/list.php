@@ -8,18 +8,19 @@
 
 function cmp($a, $b)
 {
-    if ($a['displayname'] == $b['displayname']) {
+    if ($a['fullname'] == $b['fullname']) {
         return 0;
     }
-    return ($a['displayname'] < $b['displayname']) ? -1 : 1;
+    return ($a['fullname'] < $b['fullname']) ? -1 : 1;
 }
 
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('contacts');
 
-$start = isset($_GET['startat'])?$_GET['startat']:0;
+$offset = isset($_GET['offset']) ? $_GET['offset'] : 0;
 $aid = isset($_GET['aid'])?$_GET['aid']:null;
 
+$active_addressbooks = array();
 if(is_null($aid)) {
 	// Called initially to get the active addressbooks.
 	$active_addressbooks = OC_Contacts_Addressbook::active(OCP\USER::getUser());
@@ -36,7 +37,7 @@ $contacts_addressbook = array();
 $ids = array();
 foreach($active_addressbooks as $addressbook) {
 	$ids[] = $addressbook['id'];
-	if(!isset($contacts_addressbook[$addressbook['id']])) {
+	/*if(!isset($contacts_addressbook[$addressbook['id']])) {
 		$contacts_addressbook[$addressbook['id']]
 				= array('contacts' => array('type' => 'book',));
 		$contacts_addressbook[$addressbook['id']]['displayname']
@@ -47,25 +48,45 @@ foreach($active_addressbooks as $addressbook) {
 				= $addressbook['permissions'];
 		$contacts_addressbook[$addressbook['id']]['owner']
 				= $addressbook['userid'];
-	}
+	}*/
 }
 
 $contacts_alphabet = array();
 
 // get next 50 for each addressbook.
-foreach($ids as $id) {
+$contacts_alphabet = array_merge(
+	$contacts_alphabet,
+	OC_Contacts_VCard::all($ids)
+);
+/*foreach($ids as $id) {
 	if($id) {
 		$contacts_alphabet = array_merge(
 				$contacts_alphabet,
-				OC_Contacts_VCard::all($id, $start, 50)
+				OC_Contacts_VCard::all($id, $offset, 50)
 		);
 	}
-}
+}*/
+
+uasort($contacts_alphabet, 'cmp');
+
+$contacts = array();
+
+
 // Our new array for the contacts sorted by addressbook
 if($contacts_alphabet) {
 	foreach($contacts_alphabet as $contact) {
+		$vcard = OC_VObject::parse($contact['carddata']);
+		if(is_null($vcard)) {
+			continue;
+		}
+		$details = OC_Contacts_VCard::structureContact($vcard);
+		$contacts[] = array(
+				'id' => $contact['id'],
+				'aid' => $contact['addressbookid'],
+				'data' => $details,
+			);
 		// This should never execute.
-		if(!isset($contacts_addressbook[$contact['addressbookid']])) {
+		/*if(!isset($contacts_addressbook[$contact['addressbookid']])) {
 			$contacts_addressbook[$contact['addressbookid']] = array(
 				'contacts' => array('type' => 'book',)
 			);
@@ -89,10 +110,10 @@ if($contacts_alphabet) {
 				isset($contacts_addressbook[$contact['addressbookid']]['permissions'])
 					? $contacts_addressbook[$contact['addressbookid']]['permissions']
 					: '0',
-		);
+		);*/
 	}
 }
-unset($contacts_alphabet);
-uasort($contacts_addressbook, 'cmp');
+//unset($contacts_alphabet);
+uasort($contacts_alphabet, 'cmp');
 
-OCP\JSON::success(array('data' => array('entries' => $contacts_addressbook)));
+OCP\JSON::success(array('data' => array('contacts' => $contacts, 'addressbooks' => $active_addressbooks)));

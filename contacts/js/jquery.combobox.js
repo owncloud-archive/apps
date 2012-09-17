@@ -6,18 +6,21 @@
 	$.widget('ui.combobox', {
 		options: {
 			id: null,
-			name: null,
 			showButton: false,
-			editable: true
+			editable: true,
+			singleclick: false,
 		},
 		_create: function() {
 			var self = this,
 				select = this.element.hide(),
 				selected = select.children(':selected'),
 				value = selected.val() ? selected.text() : '';
-			var input = this.input = $('<input type="text">')
+			var name = this.element.attr('name');
+			//this.element.attr('name', 'old_' + name)
+			var input = this.input = $('<input type="text" />')
 				.insertAfter( select )
 				.val( value )
+				//.attr('name', name)
 				.autocomplete({
 					delay: 0,
 					minLength: 0,
@@ -80,10 +83,20 @@
 				self._setOption(key, value);
 			});
 
-			input.dblclick(function() {
-				// pass empty string as value to search for, displaying all results
-				input.autocomplete('search', '');
-			});
+			var clickHandler = function(e) {
+				var w = self.input.autocomplete('widget');
+				if(w.is(':visible')) {
+					self.input.autocomplete('close');
+				} else {
+					input.autocomplete('search', '');
+				}
+			}
+			
+			if(this.options['singleclick'] === true) {
+				input.click(clickHandler);
+			} else {
+				input.dblclick(clickHandler);
+			}
 
 			if(this.options['showButton']) {
 				this.button = $('<button type="button">&nbsp;</button>')
@@ -127,10 +140,6 @@
 				case 'id':
 					this.options['id'] = value;
 					this.input.attr('id', value);
-					break;
-				case 'name':
-					this.options['name'] = value;
-					this.input.attr('name', value);
 					break;
 				case 'attributes':
 					var input = this.input;
