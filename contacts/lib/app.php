@@ -280,7 +280,7 @@ class OC_Contacts_App {
 				}
 				$start = 0;
 				$batchsize = 10;
-				$categories = new OC_VCategories('contacts');
+				$categories = new OC_VCategories('contact');
 				while($vccontacts =
 					OC_Contacts_VCard::all($vcaddressbookids, $start, $batchsize)) {
 					$cards = array();
