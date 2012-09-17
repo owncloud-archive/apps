@@ -264,6 +264,8 @@ class OC_Calendar_Object{
 		OC_Calendar_Calendar::touchCalendar($oldobject['calendarid']);
 		OCP\Util::emitHook('OC_Calendar', 'deleteEvent', $id);
 
+		OC_Calendar_App::getVCategories()->purgeObject($id);
+
 		return true;
 	}
 

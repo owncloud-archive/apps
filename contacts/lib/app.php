@@ -223,10 +223,10 @@ class OC_Contacts_App {
 	 */
 	public static function getVCategories() {
 		if (is_null(self::$categories)) {
-			if(OC_VCategories::isEmpty('contacts')) {
+			if(OC_VCategories::isEmpty('contact')) {
 				self::scanCategories();
 			}
-			self::$categories = new OC_VCategories('contacts',
+			self::$categories = new OC_VCategories('contact',
 				null,
 				self::getDefaultCategories());
 		}

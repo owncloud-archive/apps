@@ -135,10 +135,10 @@ class OC_Calendar_App{
 	 */
 	protected static function getVCategories() {
 		if (is_null(self::$categories)) {
-			if(OC_VCategories::isEmpty('calendar')) {
+			if(OC_VCategories::isEmpty('event')) {
 				self::scanCategories();
 			}
-			self::$categories = new OC_VCategories('calendar',
+			self::$categories = new OC_VCategories('event',
 				null,
 				self::getDefaultCategories());
 		}
@@ -170,7 +170,7 @@ class OC_Calendar_App{
 			}
 		}
 		if(is_array($events) && count($events) > 0) {
-			$vcategories = new OC_VCategories('contacts');
+			$vcategories = new OC_VCategories('event');
 			$vcategories->delete($vcategories->categories());
 			foreach($events as $event) {
 				$vobject = OC_VObject::parse($event['calendardata']);
