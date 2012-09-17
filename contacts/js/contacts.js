@@ -137,8 +137,6 @@ OC.Contacts={
 		}
 		$('.propertylist li a.delete, .addresscard .delete').click(function() { deleteItem($(this)) });
 		$('.propertylist li a.delete, .addresscard .delete').keydown(function() { deleteItem($(this)) });
-		$('.propertylist li a.mail').click(function() { OC.Contacts.mailTo(this) });
-		$('.propertylist li a.mail').keydown(function() { OC.Contacts.mailTo(this) });
 		$('.addresscard .globe').click(function() { $(this).tipsy('hide');OC.Contacts.searchOSM(this); });
 		$('.addresscard .globe').keydown(function() { $(this).tipsy('hide');OC.Contacts.searchOSM(this); });
 		$('.addresscard .edit').click(function() { $(this).tipsy('hide');OC.Contacts.Card.editAddress(this, false); });
@@ -1416,13 +1414,16 @@ OC.Contacts={
 			emaillist.find('li.template:first-child').clone(true).appendTo(emaillist).show().find('a .tip').tipsy();
 			emaillist.find('li.template:last-child').find('select').addClass('contacts_property');
 			emaillist.find('li.template:last-child').removeClass('template').addClass('propertycontainer');
-			emaillist.find('li:last-child').find('input[type="email"]').focus();
-			emaillist.find('li:last-child').find('select').multiselect({
-												noneSelectedText: t('contacts', 'Select type'),
-													header: false,
-													selectedList: 4,
-													classes: 'typelist'
-												});
+			var current = emaillist.find('li.propertycontainer:last-child');
+			current.find('input[type="email"]').focus();
+			current.find('select').multiselect({
+											noneSelectedText: t('contacts', 'Select type'),
+											header: false,
+											selectedList: 4,
+											classes: 'typelist'
+										});
+			current.find('a.mail').click(function() { OC.Contacts.mailTo(this) });
+			current.find('a.mail').keydown(function() { OC.Contacts.mailTo(this) });
 			return false;
 		},
 		loadMails:function() {
