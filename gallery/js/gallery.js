@@ -158,6 +158,8 @@ Gallery.slideshow = {
 		if (BigScreen.enabled) {
 			BigScreen.request();
 		}
+
+		$('html').css('overflow', 'hidden');//hide scrollbar during the slideshow
 	},
 	end: function() {
 		BigScreen.exit();
@@ -174,6 +176,7 @@ Gallery.slideshow = {
 		Gallery.slideshow.supersized = {};
 		$.supersized.vars.in_animation = false;
 		$.supersized.vars.current_slide = 0;
+		$('html').css('overflow', 'auto');
 	}
 };
 
