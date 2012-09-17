@@ -54,7 +54,6 @@ if(stripos($data,'<script')<>false) {
 
 header('Content-Type: text/html', true);
 OCP\Response::disableCaching();
-header('Content-Length: '.OC_Filesystem::filesize($filename));
 
 @ob_end_clean();
 

@@ -247,7 +247,6 @@ class App
 					'host'     => "imap.tmit.eu",
 					'port'     => 993,
 					'user'     => "thomas",
-					'password' => "#Magier01#",
 					'ssl_mode' => "ssl"
 				));
 
