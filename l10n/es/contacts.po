@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <bui@g.pl>, 2012.
 #   <davidlopez.david@gmail.com>, 2012.
 # Javier Llorente <javier@opensuse.org>, 2012.
 #   <juanma@kde.org.ar>, 2011-2012.
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-17 16:59+0200\n"
+"PO-Revision-Date: 2012-09-16 18:24+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -230,26 +231,26 @@ msgstr "No esta implementada"
 msgid "Couldn't get a valid address."
 msgstr "Fallo : no hay dirección valida"
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
+#: js/contacts.js:76 js/contacts.js:363 js/contacts.js:685 js/contacts.js:725
 #: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
 #: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
 #: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
-#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
-#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1574
+#: js/contacts.js:1609 js/contacts.js:1629 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
 msgstr "Fallo"
 
-#: js/contacts.js:408
+#: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
 msgstr "No tiene permisos para añadir contactos a"
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Please select one of your own address books."
 msgstr "Por favor, selecciona una de sus libretas de direcciones."
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Permission error"
 msgstr "Error de permisos"
 
@@ -275,7 +276,7 @@ msgstr "Edita el Nombre"
 msgid "No files selected for upload."
 msgstr "No hay ficheros seleccionados para subir"
 
-#: js/contacts.js:1220 js/contacts.js:2072
+#: js/contacts.js:1220 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -285,56 +286,56 @@ msgstr "El fichero que quieres subir excede el tamaño máximo permitido en este
 msgid "Error loading profile picture."
 msgstr "Error cargando la imagen del perfil."
 
-#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
-#: js/contacts.js:1522
+#: js/contacts.js:1420 js/contacts.js:1463 js/contacts.js:1482
+#: js/contacts.js:1525
 msgid "Select type"
 msgstr "Selecciona el tipo"
 
-#: js/contacts.js:1540
+#: js/contacts.js:1543
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Algunos contactos están marcados para su eliminación, pero no eliminados todavía. Por favor, espere a que sean eliminados."
 
-#: js/contacts.js:1611
+#: js/contacts.js:1614
 msgid "Do you want to merge these address books?"
 msgstr "¿Quieres mezclar estas libretas de direcciones?"
 
-#: js/contacts.js:2065
+#: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Imposible subir su archivo, es un directorio o tiene 0 bytes"
 
-#: js/contacts.js:2065
+#: js/contacts.js:2068
 msgid "Upload Error"
-msgstr ""
+msgstr "Error de subida"
 
-#: js/contacts.js:2072
+#: js/contacts.js:2075
 msgid "Upload too large"
-msgstr ""
+msgstr "bida demasido grande"
 
-#: js/contacts.js:2120
+#: js/contacts.js:2123
 msgid "Pending"
-msgstr ""
+msgstr "Pendientes"
 
-#: js/contacts.js:2152
+#: js/contacts.js:2155
 msgid "Import done"
-msgstr ""
+msgstr "Importación realizada"
 
-#: js/contacts.js:2165
+#: js/contacts.js:2168
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "No se han podido subir todos los archivos. Reintentando..."
 
-#: js/contacts.js:2171
+#: js/contacts.js:2174
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Algo ha ido mal con la subida, por favor, reintentelo."
 
-#: js/contacts.js:2187
+#: js/contacts.js:2190
 msgid "Importing..."
-msgstr ""
+msgstr "Importando..."
 
-#: js/contacts.js:2208
+#: js/contacts.js:2211
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "El nombre de la libreta de direcciones no puede estar vacio."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -348,13 +349,13 @@ msgstr "Importado."
 msgid " failed."
 msgstr "Fallo."
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "El nombre a mostrar no puede estar vacío."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "Vd. no tiene permiso para leer esta libreta de direcciones."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -951,7 +952,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>Vd. no tiene contactos en su libreta de direcciones.</h3><p> Vd. puede importar archivos VCF arrastrando los contactos a la lista de contactos.<br />Tambien puede realizar la importación, haciendo click en el botón de importar en la parte inferior de la lista.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

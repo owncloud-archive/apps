@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-15 02:02+0200\n"
+"POT-Creation-Date: 2012-09-17 16:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -531,23 +531,23 @@ msgid "Your calendars"
 msgstr ""
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:15
+#: templates/part.choosecalendar.rowfields.php:17
 msgid "CalDav Link"
 msgstr ""
 
-#: templates/part.choosecalendar.rowfields.php:11
+#: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
 msgstr ""
 
-#: templates/part.choosecalendar.rowfields.php:18
+#: templates/part.choosecalendar.rowfields.php:20
 msgid "Download"
 msgstr ""
 
-#: templates/part.choosecalendar.rowfields.php:22
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "Edit"
 msgstr ""
 
-#: templates/part.choosecalendar.rowfields.php:27
+#: templates/part.choosecalendar.rowfields.php:29
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr ""
