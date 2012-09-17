@@ -551,7 +551,7 @@ class OC_Contacts_VCard {
 				)
 			);
 		}
-
+		OC_Contacts_App::getVCategories()->purgeObject($id);
 		return true;
 	}
 
