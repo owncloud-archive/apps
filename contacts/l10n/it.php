@@ -60,7 +60,7 @@
 "No files selected for upload." => "Nessun file selezionato per l'invio",
 "The file you are trying to upload exceed the maximum size for file uploads on this server." => "Il file che stai cercando di inviare supera la dimensione massima per l'invio dei file su questo server.",
 "Error loading profile picture." => "Errore durante il caricamento dell'immagine di profilo.",
-"Select type" => "Seleziona il tipo",
+"Select type" => "Seleziona tipo",
 "Some contacts are marked for deletion, but not deleted yet. Please wait for them to be deleted." => "Alcuni contatti sono marcati per l'eliminazione, ma non sono stati ancora rimossi. Attendi fino al completamento dell'operazione.",
 "Do you want to merge these address books?" => "Vuoi unire queste rubriche?",
 "Unable to upload your file as it is a directory or has 0 bytes" => "Impossibile caricare il file poiché è una cartella o ha una dimensione di 0 byte",

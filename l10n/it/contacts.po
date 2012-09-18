@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-07 07:42+0000\n"
+"POT-Creation-Date: 2012-09-18 02:00+0200\n"
+"PO-Revision-Date: 2012-09-17 15:52+0000\n"
 "Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -226,26 +226,26 @@ msgstr "Non implementata"
 msgid "Couldn't get a valid address."
 msgstr "Impossibile ottenere un indirizzo valido."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
+#: js/contacts.js:76 js/contacts.js:363 js/contacts.js:685 js/contacts.js:725
 #: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
 #: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
 #: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
-#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
-#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1574
+#: js/contacts.js:1609 js/contacts.js:1629 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
 msgstr "Errore"
 
-#: js/contacts.js:408
+#: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
 msgstr "Non hai i permessi per aggiungere contatti a"
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Please select one of your own address books."
 msgstr "Seleziona una delle tue rubriche."
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Permission error"
 msgstr "Errore relativo ai permessi"
 
@@ -271,7 +271,7 @@ msgstr "Modifica il nome"
 msgid "No files selected for upload."
 msgstr "Nessun file selezionato per l'invio"
 
-#: js/contacts.js:1220 js/contacts.js:2072
+#: js/contacts.js:1220 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -281,54 +281,54 @@ msgstr "Il file che stai cercando di inviare supera la dimensione massima per l'
 msgid "Error loading profile picture."
 msgstr "Errore durante il caricamento dell'immagine di profilo."
 
-#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
-#: js/contacts.js:1522
+#: js/contacts.js:1420 js/contacts.js:1463 js/contacts.js:1482
+#: js/contacts.js:1525
 msgid "Select type"
-msgstr "Seleziona il tipo"
+msgstr "Seleziona tipo"
 
-#: js/contacts.js:1540
+#: js/contacts.js:1543
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Alcuni contatti sono marcati per l'eliminazione, ma non sono stati ancora rimossi. Attendi fino al completamento dell'operazione."
 
-#: js/contacts.js:1611
+#: js/contacts.js:1614
 msgid "Do you want to merge these address books?"
 msgstr "Vuoi unire queste rubriche?"
 
-#: js/contacts.js:2065
+#: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Impossibile caricare il file poiché è una cartella o ha una dimensione di 0 byte"
 
-#: js/contacts.js:2065
+#: js/contacts.js:2068
 msgid "Upload Error"
 msgstr "Errore di caricamento"
 
-#: js/contacts.js:2072
+#: js/contacts.js:2075
 msgid "Upload too large"
 msgstr "Caricamento troppo grande"
 
-#: js/contacts.js:2120
+#: js/contacts.js:2123
 msgid "Pending"
 msgstr "In corso"
 
-#: js/contacts.js:2152
+#: js/contacts.js:2155
 msgid "Import done"
 msgstr "Importazione completata"
 
-#: js/contacts.js:2165
+#: js/contacts.js:2168
 msgid "Not all files uploaded. Retrying..."
 msgstr "Non tutti i file sono stati caricati. Riprovo..."
 
-#: js/contacts.js:2171
+#: js/contacts.js:2174
 msgid "Something went wrong with the upload, please retry."
 msgstr "Qualcosa non ha funzionato durante il caricamento. Prova ancora."
 
-#: js/contacts.js:2187
+#: js/contacts.js:2190
 msgid "Importing..."
 msgstr "Importazione in corso..."
 
-#: js/contacts.js:2208
+#: js/contacts.js:2211
 msgid "The address book name cannot be empty."
 msgstr "Il nome della rubrica non può essere vuoto."
 
@@ -344,7 +344,7 @@ msgstr " importato, "
 msgid " failed."
 msgstr " non riuscito."
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "Il nome visualizzato non può essere vuoto."
 

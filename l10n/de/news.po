@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-17 16:59+0200\n"
-"PO-Revision-Date: 2012-09-16 18:17+0000\n"
+"POT-Creation-Date: 2012-09-18 02:01+0200\n"
+"PO-Revision-Date: 2012-09-17 20:43+0000\n"
 "Last-Translator: traductor <transifex.3.mensaje@spamgourmet.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -255,7 +255,7 @@ msgstr "Feed oder Ordner hinzufügen"
 
 #: templates/main.php:33
 msgid "Add Feed/Folder"
-msgstr "Order / Feed hinzugefügen"
+msgstr "Order / Feed hinzufügen"
 
 #: templates/main.php:35
 msgid "Feed"
@@ -371,7 +371,7 @@ msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
-msgstr "Wählen sie eine Datei vom <a href=\"#\" class=\"settings\" id=\"browselink\">lokalen Dateisystem </a> oder aus der <a href=\"#\" class=\"settings\" id=\"cloudlink\">Cloud</a> aus."
+msgstr "Wählen Sie eine Datei vom <a href=\"#\" class=\"settings\" id=\"browselink\">lokalen Dateisystem </a> oder aus der <a href=\"#\" class=\"settings\" id=\"cloudlink\">Cloud</a> aus."
 
 #: templates/part.nofeeds.php:25
 msgid "Or..."

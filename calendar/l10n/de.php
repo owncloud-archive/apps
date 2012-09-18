@@ -159,7 +159,7 @@
 "Location of the Event" => "Ort",
 "Description" => "Beschreibung",
 "Description of the Event" => "Beschreibung",
-"Repeat" => "wiederholen",
+"Repeat" => "Wiederholen",
 "Advanced" => "Erweitert",
 "Select weekdays" => "Wochentage auswählen",
 "Select days" => "Tage auswählen",

@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
 # Nisok Kosin <nikos.efthimiou@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-24 02:02+0200\n"
-"PO-Revision-Date: 2012-08-23 08:57+0000\n"
-"Last-Translator: Nisok Kosin <nikos.efthimiou@gmail.com>\n"
+"POT-Creation-Date: 2012-09-18 02:01+0200\n"
+"PO-Revision-Date: 2012-09-17 19:09+0000\n"
+"Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: el\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
@@ -28,7 +29,7 @@ msgstr "Ταυτότητα: <b>"
 
 #: templates/nomode.php:15
 msgid "Realm: <b>"
-msgstr ""
+msgstr "Περιοχή: <b>"
 
 #: templates/nomode.php:16
 msgid "User: <b>"
@@ -44,7 +45,7 @@ msgstr "Σφάλμα: <b> Δεν έχει επιλεχθεί κάποιος χρ
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
-msgstr ""
+msgstr "μπορείτε να πιστοποιείστε σε άλλες ιστοσελίδες με αυτήν την διεύθυνση"
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"

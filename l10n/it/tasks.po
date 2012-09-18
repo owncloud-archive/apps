@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-05 02:02+0200\n"
-"PO-Revision-Date: 2012-09-04 05:09+0000\n"
+"POT-Creation-Date: 2012-09-18 02:01+0200\n"
+"PO-Revision-Date: 2012-09-17 15:50+0000\n"
 "Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -69,27 +69,27 @@ msgstr "Aggiungi attività"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "Ordina per scadenza"
+msgstr "Ordina scadenza"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr "Ordina per elenco"
+msgstr "Ordina elenco"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr "Ordina per completamento"
+msgstr "Ordina completamento"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr "Ordina per posizione"
+msgstr "Ordina posizione"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr "Ordina per priorità"
+msgstr "Ordina priorità"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr "Ordina per etichetta"
+msgstr "Ordina etichetta"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
