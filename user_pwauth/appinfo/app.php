@@ -21,7 +21,7 @@
 *
 */
 
-require_once('apps/user_pwauth/user_pwauth.php');
+require_once 'apps/user_pwauth/user_pwauth.php';
 
 OC_APP::registerAdmin('user_pwauth','settings');
 
@@ -40,4 +40,3 @@ $entry = array(
 	'href' => OC_Helper::linkTo( "user_pwauth", "settings.php" ),
 	'name' => 'PWAUTH'
 );
-?>

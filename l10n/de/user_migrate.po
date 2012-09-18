@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-24 02:02+0200\n"
-"PO-Revision-Date: 2012-08-23 10:16+0000\n"
+"POT-Creation-Date: 2012-08-31 02:02+0200\n"
+"PO-Revision-Date: 2012-08-30 10:31+0000\n"
 "Last-Translator: traductor <transifex.3.mensaje@spamgourmet.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "Konto importieren"
 
 #: templates/settings.php:15
 msgid "ownCloud User Zip"
-msgstr "Zip-Archiv mit Benutzerdaten"
+msgstr "ZIP-Archiv mit Benutzerdaten"
 
 #: templates/settings.php:17
 msgid "Import"

@@ -21,14 +21,14 @@
 * 
 */
 
-require_once('../../lib/base.php');
+require_once '../../lib/base.php';
 OC_Util::checkAppEnabled('ocdownloader');
 OC_Util::checkLoggedIn();
 
 $tmpl = new OC_Template('ocdownloader', 'downloader.tpl', 'user');
 
 // Get user downloader settings
-if(!in_array('curl', get_loaded_extensions())){
+if(!in_array('curl', get_loaded_extensions())) {
 	$tmpl->assign('curl_error', 'The application needs the <strong>PHP cURL</strong> extension to be loaded !');
 }else{
 	$tmpl->assign('user_prov_set', OC_ocDownloader::getProvidersList());

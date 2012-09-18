@@ -4,30 +4,47 @@
 # 
 # Translators:
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2012.
+#   <tehoratopato@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-17 00:44+0200\n"
-"PO-Revision-Date: 2012-08-16 10:55+0000\n"
+"POT-Creation-Date: 2012-09-07 02:03+0200\n"
+"PO-Revision-Date: 2012-09-06 11:55+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi_FI\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/settings.php:3
 msgid "Export this ownCloud instance"
-msgstr "Vie tämä ownCloud-istanssi"
+msgstr "Vie tämä ownCloud-instanssi"
 
-#: templates/settings.php:4
+#: templates/settings.php:5
 msgid ""
-"This will create a compressed file that contains the data of this owncloud instance.\n"
-"            Please choose the export type:"
-msgstr ""
+"This will create a compressed file that contains the data of this owncloud "
+"instance."
+msgstr "Tämä luo pakatun tiedoston, joka sisältää tämän ownCloud-instanssin datan."
+
+#: templates/settings.php:7
+msgid "Please choose the export type:"
+msgstr "Valitse viennin tyyppi:"
+
+#: templates/settings.php:10
+msgid "ownCloud instance (suitable for import)"
+msgstr "ownCloud-instanssi (joka voidaa tuoda)"
+
+#: templates/settings.php:11
+msgid "ownCloud system files"
+msgstr "ownCloud-järjestelmätiedostot"
 
 #: templates/settings.php:12
+msgid "Just user files"
+msgstr "Vain käyttäjätiedostot"
+
+#: templates/settings.php:13
 msgid "Export"
 msgstr "Vie"

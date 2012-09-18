@@ -63,7 +63,7 @@ class Backup {
 			$fullPath = $path . DIRECTORY_SEPARATOR . $file;
 			if (is_dir($fullPath)) {
 				if (in_array($file, $exclusions['relative'])
-						|| in_array($fullPath, $exclusions['full'])
+					|| in_array($fullPath, $exclusions['full'])
 				) {
 					continue;
 				}
@@ -112,7 +112,7 @@ class Backup {
 	 * @param string $message
 	 * @return bool 
 	 */
-	protected static function error($message){
+	protected static function error($message) {
 		\OC_Log::write(App::APP_ID, $message, \OC_Log::ERROR);
 		return false;
 	}

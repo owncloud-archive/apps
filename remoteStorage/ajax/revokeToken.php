@@ -26,7 +26,7 @@
 */
 
 OCP\App::checkAppEnabled('remoteStorage');
-require_once('remoteStorage/lib_remoteStorage.php');
+require_once 'remoteStorage/lib_remoteStorage.php';
 
 ini_set('default_charset', 'UTF-8');
 #ini_set('error_reporting', '');

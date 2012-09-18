@@ -1,0 +1,4 @@
+https://github.com/johnyma22/etherpad-lite-jquery-plugin
+
+jQuery Etherpad plugin written by John McLear (c) Primary Technology 2011
+Feel free to re-use, distribute, butcher, edit and whatever else you want. It's under the Apache licence.

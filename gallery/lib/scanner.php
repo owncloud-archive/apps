@@ -5,20 +5,20 @@
 *
 * @author Bartek Przybylski
 * @copyright 2012 Bartek Przybylski <bartek@alefzero.eu>
-* 
+*
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
-* License as published by the Free Software Foundation; either 
+* License as published by the Free Software Foundation; either
 * version 3 of the License, or any later version.
-* 
+*
 * This library is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
 *
-* You should have received a copy of the GNU Lesser General Public 
+* You should have received a copy of the GNU Lesser General Public
 * License along with this library. If not, see <http://www.gnu.org/licenses/>.
-* 
+*
 */
 
 class OC_Gallery_Scanner {
@@ -109,7 +109,7 @@ class OC_Gallery_Scanner {
 							self::createThumbnails($e, $na);
 					}
 				}
-			} 
+			}
 		}
 	}
 
@@ -130,16 +130,16 @@ class OC_Gallery_Scanner {
 	public static function findPaths() {
 		$images=OC_FileCache::searchByMime('image','', self::getScanningRoot());
 		$paths=array();
-		foreach($images as $image){
+		foreach($images as $image) {
 			$path=dirname($image);
 			$path = self::getGalleryRoot().($path=='.'?'':$path);
 			if ($path !== '/') $path=rtrim($path,'/');
-			if(array_search($path,$paths)===false){
+			if(array_search($path,$paths)===false) {
 				$paths[]=$path;
 			}
 			// add sub path also if they don't contain images
 			while ( ($path = dirname($path)) != '/') {
-				if(array_search($path,$paths)===false){
+				if(array_search($path,$paths)===false) {
 					$paths[]=$path;
 				}
 			}

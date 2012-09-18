@@ -7,7 +7,7 @@
  */
 OCP\App::checkAppEnabled('calendar');
 
-if(substr($_SERVER["REQUEST_URI"],0,strlen(OC_App::getAppWebPath('calendar').'/caldav.php')) == OC_App::getAppWebPath('calendar'). '/caldav.php'){
+if(substr($_SERVER["REQUEST_URI"],0,strlen(OC_App::getAppWebPath('calendar').'/caldav.php')) == OC_App::getAppWebPath('calendar'). '/caldav.php') {
 	$baseuri = OC_App::getAppWebPath('calendar').'/caldav.php';
 }
 

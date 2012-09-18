@@ -34,10 +34,13 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 			if(check == false){
 				return false;
 			} else {
+				var row = $('.addressbooks-settings tr[data-id="'+id+'"]');
+				OC.Contacts.loading(row.find('.name'));
 				$.post(OC.filePath('contacts', 'ajax', 'addressbook/delete.php'), { id: id}, function(jsondata) {
 					if (jsondata.status == 'success'){
 						$('#contacts h3[data-id="'+id+'"],#contacts ul[data-id="'+id+'"]').remove();
-						$('.addressbooks-settings tr[data-id="'+id+'"]').remove()
+						row.remove()
+						OC.Contacts.Settings.Addressbook.showActions(['new',]);
 						OC.Contacts.Contacts.update();
 					} else {
 						OC.dialogs.alert(jsondata.data.message, t('contacts', 'Error'));
@@ -47,7 +50,12 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 		},
 		doEdit:function(id) {
 			console.log('doEdit: ', id);
-			this.showActions(['active', 'name', 'description', 'save', 'cancel']);
+			var owner = this.adrsettings.find('[data-id="'+id+'"]').data('owner');
+			var actions = ['description', 'save', 'cancel'];
+			if(owner == OC.currentUser || id === 'new') {
+				actions.push('active', 'name');
+			}
+			this.showActions(actions);
 			var name = this.adrsettings.find('[data-id="'+id+'"]').find('.name').text();
 			var description = this.adrsettings.find('[data-id="'+id+'"]').find('.description').text();
 			var active = this.adrsettings.find('[data-id="'+id+'"]').find(':checkbox').is(':checked');
@@ -119,7 +127,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 		showCardDAV:function(id) {
 			console.log('showCardDAV: ', id);
 			var row = this.adrsettings.find('tr[data-id="'+id+'"]');
-			this.showLink(id, row, totalurl+'/'+encodeURIComponent(oc_current_user));
+			this.showLink(id, row, totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(row.data('uri')));
 		},
 		showVCF:function(id) {
 			console.log('showVCF: ', id);

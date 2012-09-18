@@ -1,12 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "Bilder",
+"Galleries" => "Galerien",
 "Share gallery" => "Galerie teilen",
 "Error: " => "Fehler:",
 "Internal error" => "Interner Fehler",
 "Slideshow" => "Slideshow",
-"Back" => "Zurück",
-"Remove confirmation" => "Bestätigung entfernen",
-"Do you want to remove album" => "Soll das Album entfernt werden",
-"Change album name" => "Albumname ändern",
-"New album name" => "Neuer Albumname"
+"The \"Image Viewer\" application also need to be enabled to use this application." => "Die Anwendung \"Image Viewer\" muss aktiviert sein, damit Sie diese Anwendung benutzen können."
 );

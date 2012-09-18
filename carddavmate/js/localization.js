@@ -3096,4 +3096,3 @@ localization['sk_SK']=	/* Jan Mate <jan.mate@inf-it.com> */
 	errHttp500: 'vnútorná chyba servera',
 	errHttp501: 'neimplementované'
 }
-

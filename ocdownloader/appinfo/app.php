@@ -28,7 +28,7 @@ OC_Util::checkAppEnabled($app_id);
 OC::$CLASSPATH['OC_ocDownloader'] = 'apps/' . $app_id . '/lib/ocDownloader.class.php';
 OC::$CLASSPATH['OC_ocDownloaderFile'] = 'apps/' . $app_id . '/lib/ocDownloaderFile.class.php';
 
-if(OC_ocDownloader::isUpToDate(OC_Appconfig::getValue($app_id, 'installed_version'))){
+if(OC_ocDownloader::isUpToDate(OC_Appconfig::getValue($app_id, 'installed_version'))) {
 	OC_ocDownloader::initProviders(dirname(__FILE__) . '/providers.xml');
 }
 

@@ -9,33 +9,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-25 02:04+0200\n"
-"PO-Revision-Date: 2012-08-24 02:39+0000\n"
+"POT-Creation-Date: 2012-09-10 02:02+0200\n"
+"PO-Revision-Date: 2012-09-09 14:29+0000\n"
 "Last-Translator: ttyn <tetuyano+transi@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja_JP\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:32
+#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
 msgstr "アドレス帳の有効／無効化に失敗しました。"
 
-#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:20
+#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
 #: ajax/contact/saveproperty.php:39
 msgid "id is not set."
 msgstr "idが設定されていません。"
 
-#: ajax/addressbook/update.php:24
+#: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
 msgstr "空白の名前でアドレス帳を更新することはできません。"
-
-#: ajax/addressbook/update.php:28
-msgid "Error updating addressbook."
-msgstr "アドレス帳の更新に失敗しました。"
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -56,10 +52,6 @@ msgstr "アドレス帳が見つかりません。"
 #: ajax/categories/delete.php:34
 msgid "No contacts found."
 msgstr "連絡先が見つかりません。"
-
-#: ajax/contact/add.php:47
-msgid "There was an error adding the contact."
-msgstr "連絡先の追加でエラーが発生しました。"
 
 #: ajax/contact/addproperty.php:39 ajax/contact/saveproperty.php:36
 msgid "element name is not set."
@@ -232,74 +224,111 @@ msgstr "未実装"
 msgid "Couldn't get a valid address."
 msgstr "有効なアドレスを取得できませんでした。"
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:381 js/contacts.js:393
-#: js/contacts.js:723 js/contacts.js:763 js/contacts.js:789 js/contacts.js:921
-#: js/contacts.js:927 js/contacts.js:939 js/contacts.js:976
-#: js/contacts.js:1250 js/contacts.js:1258 js/contacts.js:1267
-#: js/contacts.js:1302 js/contacts.js:1338 js/contacts.js:1353
-#: js/contacts.js:1379 js/contacts.js:1609 js/contacts.js:1644
-#: js/contacts.js:1664 js/settings.js:26 js/settings.js:43 js/settings.js:68
+#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
+#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
+#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
+#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
+#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
+#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
+#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
+#: js/contacts.js:2243 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
 msgstr "エラー"
 
-#: js/contacts.js:424
+#: js/contacts.js:408
 msgid "You do not have permission to add contacts to "
 msgstr "連絡先を追加する権限がありません"
 
-#: js/contacts.js:425
+#: js/contacts.js:409
 msgid "Please select one of your own address books."
 msgstr "アドレス帳を一つ選択してください"
 
-#: js/contacts.js:425
+#: js/contacts.js:409
 msgid "Permission error"
 msgstr "権限エラー"
 
-#: js/contacts.js:763
+#: js/contacts.js:725
 msgid "This property has to be non-empty."
 msgstr "この属性は空にできません。"
 
-#: js/contacts.js:789
+#: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr "要素をシリアライズできませんでした。"
 
-#: js/contacts.js:921 js/contacts.js:939
+#: js/contacts.js:883 js/contacts.js:901
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "'deleteProperty' は型の引数無しで呼び出されました。bugs.owncloud.org へ報告してください。"
 
-#: js/contacts.js:958
+#: js/contacts.js:920
 msgid "Edit name"
 msgstr "名前を編集"
 
-#: js/contacts.js:1250
+#: js/contacts.js:1212
 msgid "No files selected for upload."
 msgstr "アップロードするファイルが選択されていません。"
 
-#: js/contacts.js:1258
+#: js/contacts.js:1220 js/contacts.js:2072
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "アップロードしようとしているファイルは、このサーバの最大ファイルアップロードサイズを超えています。"
 
-#: js/contacts.js:1322
+#: js/contacts.js:1284
 msgid "Error loading profile picture."
 msgstr "プロファイルの画像の読み込みエラー"
 
-#: js/contacts.js:1457 js/contacts.js:1498 js/contacts.js:1517
-#: js/contacts.js:1560
+#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
+#: js/contacts.js:1522
 msgid "Select type"
 msgstr "タイプを選択"
 
-#: js/contacts.js:1578
+#: js/contacts.js:1540
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "いくつかの連絡先が削除とマークされていますが、まだ削除されていません。削除するまでお待ちください。"
 
-#: js/contacts.js:1649
+#: js/contacts.js:1611
 msgid "Do you want to merge these address books?"
 msgstr "これらのアドレス帳をマージしてもよろしいですか？"
+
+#: js/contacts.js:2065
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr "ディレクトリや0バイトのファイルはアップロードできません。"
+
+#: js/contacts.js:2065
+msgid "Upload Error"
+msgstr "アップロードエラー"
+
+#: js/contacts.js:2072
+msgid "Upload too large"
+msgstr "アップロードには大きすぎます。"
+
+#: js/contacts.js:2120
+msgid "Pending"
+msgstr "中断"
+
+#: js/contacts.js:2152
+msgid "Import done"
+msgstr "インポート完了"
+
+#: js/contacts.js:2165
+msgid "Not all files uploaded. Retrying..."
+msgstr "ファイルがアップロード出来ませんでした。再実行中...。"
+
+#: js/contacts.js:2171
+msgid "Something went wrong with the upload, please retry."
+msgstr "アップロード中に不具合が発生しました、再実行してください。"
+
+#: js/contacts.js:2187
+msgid "Importing..."
+msgstr "インポート中..."
+
+#: js/contacts.js:2208
+msgid "The address book name cannot be empty."
+msgstr "アドレス帳名は空に出来ません。"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -313,9 +342,29 @@ msgstr " をインポート、 "
 msgid " failed."
 msgstr " は失敗しました。"
 
-#: js/settings.js:68
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "表示名は空にできません。"
+
+#: lib/addressbook.php:138
+msgid "You do not have the permissions to read this addressbook."
+msgstr "このアドレス帳を見る権限がありません。"
+
+#: lib/addressbook.php:239
+msgid "You do not have the permissions to update this addressbook."
+msgstr "アドレスブックを更新する権限がありません"
+
+#: lib/addressbook.php:259
+msgid "There was an error updating the addressbook."
+msgstr "アドレスブックを更新中にエラーが発生しました。"
+
+#: lib/addressbook.php:315
+msgid "You do not have the permissions to delete this addressbook."
+msgstr "アドレス帳を削除する権限がありません。"
+
+#: lib/addressbook.php:344
+msgid "There was an error deleting this addressbook."
+msgstr "アドレス帳を削除するときにエラーが発生しました。"
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -385,7 +434,7 @@ msgstr "勤務先"
 msgid "Home"
 msgstr "住居"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:593
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
 msgid "Other"
 msgstr "その他"
 
@@ -482,79 +531,95 @@ msgstr "{name}の誕生日"
 msgid "Contact"
 msgstr "連絡先"
 
-#: lib/vcard.php:408
+#: lib/vcard.php:301
+msgid "You do not have the permissions to add contacts to this addressbook."
+msgstr "アドレスブックに連絡先を追加する権限がありません"
+
+#: lib/vcard.php:405
+msgid "Could not find the vCard with ID."
+msgstr "そのIDのvCardが見つかりませんでした。"
+
+#: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
 msgstr "この連絡先を編集する権限がありません"
 
-#: lib/vcard.php:483
+#: lib/vcard.php:501
+msgid "Could not find the vCard with ID: "
+msgstr "そのIDのvCardが見つかりませんでした："
+
+#: lib/vcard.php:509
+msgid "Could not find the Addressbook with ID: "
+msgstr "そのIDのアドレス帳が見つかりませんでした："
+
+#: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
 msgstr "この連絡先を削除する権限がありません"
+
+#: lib/vcard.php:550
+msgid "There was an error deleting this contact."
+msgstr "連絡先を削除するときにエラーが発生しました。"
 
 #: templates/index.php:14
 msgid "Add Contact"
 msgstr "連絡先の追加"
 
-#: templates/index.php:15 templates/index.php:16 templates/part.import.php:17
+#: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
 msgstr "インポート"
 
-#: templates/index.php:18
+#: templates/index.php:16
 msgid "Settings"
 msgstr "設定"
 
-#: templates/index.php:18 templates/settings.php:9
-msgid "Addressbooks"
-msgstr "アドレス帳"
-
-#: templates/index.php:36 templates/part.import.php:24
+#: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
 msgstr "閉じる"
 
-#: templates/index.php:37
+#: templates/index.php:31
 msgid "Keyboard shortcuts"
 msgstr "キーボードショートカット"
 
-#: templates/index.php:39
+#: templates/index.php:33
 msgid "Navigation"
 msgstr "ナビゲーション"
 
-#: templates/index.php:42
+#: templates/index.php:36
 msgid "Next contact in list"
 msgstr "リスト内の次の連絡先"
 
-#: templates/index.php:44
+#: templates/index.php:38
 msgid "Previous contact in list"
 msgstr "リスト内の前の連絡先"
 
-#: templates/index.php:46
+#: templates/index.php:40
 msgid "Expand/collapse current addressbook"
 msgstr "現在のアドレス帳を展開する／折りたたむ"
 
-#: templates/index.php:48
+#: templates/index.php:42
 msgid "Next addressbook"
 msgstr "次のアドレス帳"
 
-#: templates/index.php:50
+#: templates/index.php:44
 msgid "Previous addressbook"
 msgstr "前のアドレス帳"
 
-#: templates/index.php:54
+#: templates/index.php:48
 msgid "Actions"
 msgstr "アクション"
 
-#: templates/index.php:57
+#: templates/index.php:51
 msgid "Refresh contacts list"
 msgstr "連絡先リストを再読込する"
 
-#: templates/index.php:59
+#: templates/index.php:53
 msgid "Add new contact"
 msgstr "新しい連絡先を追加"
 
-#: templates/index.php:61
+#: templates/index.php:55
 msgid "Add new addressbook"
 msgstr "新しいアドレス帳を追加"
 
-#: templates/index.php:63
+#: templates/index.php:57
 msgid "Delete current contact"
 msgstr "現在の連絡先を削除"
 
@@ -593,7 +658,7 @@ msgstr "所属"
 
 #: templates/part.contact.php:40 templates/part.contact.php:42
 #: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:36
+#: templates/part.contact.php:50 templates/settings.php:49
 msgid "Delete"
 msgstr "削除"
 
@@ -874,10 +939,15 @@ msgid "Importing contacts"
 msgstr "連絡先をインポート"
 
 #: templates/part.no_contacts.php:3
-msgid "You have no contacts in your addressbook."
-msgstr "アドレス帳に連絡先が登録されていません。"
+msgid ""
+"<h3>You have no contacts in your addressbook.</h3><p>You can import VCF "
+"files by dragging them to the contacts list and either drop them on an "
+"addressbook to import into it, or on an empty spot to create a new "
+"addressbook and import into that.<br />You can also import by clicking on "
+"the import button at the bottom of the list.</p>"
+msgstr "<h3>アドレス帳に連絡先がありません。</h3><p>連絡リストにVCFファイルをドラッグするとインポートできます。もしくは、アドレス帳にドラッグしてもインポートできます。空いているところの場合は新しいアドレス帳が作成されインポートされます。<br />リストの一番下のインポートボタンをクリックしてもインポートできます。</p>"
 
-#: templates/part.no_contacts.php:5
+#: templates/part.no_contacts.php:9
 msgid "Add contact"
 msgstr "連絡先を追加"
 
@@ -909,46 +979,50 @@ msgstr "プライマリアドレス（Kontact 他）"
 msgid "iOS/OS X"
 msgstr "iOS/OS X"
 
-#: templates/settings.php:20
+#: templates/settings.php:9
+msgid "Addressbooks"
+msgstr "アドレス帳"
+
+#: templates/settings.php:25
 msgid "Show CardDav link"
 msgstr "CarDavリンクを表示"
 
-#: templates/settings.php:23
+#: templates/settings.php:28
 msgid "Show read-only VCF link"
 msgstr "読み取り専用のVCFリンクを表示"
 
-#: templates/settings.php:26
+#: templates/settings.php:35
 msgid "Share"
 msgstr "共有"
 
-#: templates/settings.php:29
+#: templates/settings.php:39
 msgid "Download"
 msgstr "ダウンロード"
 
-#: templates/settings.php:33
+#: templates/settings.php:44
 msgid "Edit"
 msgstr "編集"
 
-#: templates/settings.php:43
+#: templates/settings.php:57
 msgid "New Address Book"
 msgstr "新規のアドレス帳"
 
-#: templates/settings.php:44
+#: templates/settings.php:58
 msgid "Name"
 msgstr "名前"
 
-#: templates/settings.php:45
+#: templates/settings.php:59
 msgid "Description"
 msgstr "説明"
 
-#: templates/settings.php:46
+#: templates/settings.php:60
 msgid "Save"
 msgstr "保存"
 
-#: templates/settings.php:47
+#: templates/settings.php:61
 msgid "Cancel"
 msgstr "取り消し"
 
-#: templates/settings.php:52
+#: templates/settings.php:66
 msgid "More..."
 msgstr "もっと..."

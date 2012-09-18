@@ -3,30 +3,31 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Jan Krejci <krejca85@gmail.com>, 2011, 2012.
-# Martin  <fireball@atlas.cz>, 2011, 2012.
+# Jan Krejci <krejca85@gmail.com>, 2011-2012.
+# Martin  <fireball@atlas.cz>, 2011-2012.
 # Michal Hrušecký <Michal@hrusecky.net>, 2012.
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-16 02:04+0200\n"
-"PO-Revision-Date: 2012-08-15 09:41+0000\n"
-"Last-Translator: Martin <fireball@atlas.cz>\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-07 08:34+0000\n"
+"Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs_CZ\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr "V paměti nejsou uloženy kompletně všechny kalendáře"
+msgstr "V paměti nejsou uloženy úplně všechny kalendáře"
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
-msgstr "Zdá se, že vše je kompletně uloženo v paměti"
+msgstr "Zdá se, že úplně vše je uloženo v paměti"
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
@@ -44,11 +45,11 @@ msgstr "Nesprávný kalendář"
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
-msgstr "Soubor, obsahující všechny záznamy nebo je prázdný, je již uložen ve Vašem kalendáři."
+msgstr "Soubor neobsahoval žádné události, nebo jsou všechny události již ve Vašem kalendáři."
 
 #: ajax/import/dropimport.php:31 ajax/import/import.php:67
 msgid "events has been saved in the new calendar"
-msgstr "Záznam byl uložen v novém kalendáři"
+msgstr "události byly uloženy v novém kalendáři"
 
 #: ajax/import/import.php:56
 msgid "Import failed"
@@ -56,287 +57,331 @@ msgstr "Import selhal"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
-msgstr "záznamů bylo uloženo ve Vašem kalendáři"
+msgstr "událostí bylo uloženo ve Vašem kalendáři"
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
-msgstr "Nová časová zóna:"
+msgstr "Nové časové pásmo:"
 
 #: ajax/settings/settimezone.php:23
 msgid "Timezone changed"
-msgstr "Časová zóna byla změněna"
+msgstr "Časové pásmo bylo změněno"
 
 #: ajax/settings/settimezone.php:25
 msgid "Invalid request"
-msgstr "Chybný požadavek"
+msgstr "Neplatný požadavek"
 
-#: appinfo/app.php:35 templates/calendar.php:15
+#: appinfo/app.php:38 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Kalendář"
 
-#: js/calendar.js:832
+#: js/calendar.js:539
+msgid "user"
+msgstr "uživatel"
+
+#: js/calendar.js:539
+msgid "group"
+msgstr "skupina"
+
+#: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
+msgid "Editable"
+msgstr "Upravitelné"
+
+#: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
+msgid "Shareable"
+msgstr "Sdílitelné"
+
+#: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
+msgid "Deletable"
+msgstr "Odstranitelné"
+
+#: js/calendar.js:811
 msgid "ddd"
 msgstr "ddd"
 
-#: js/calendar.js:833
+#: js/calendar.js:812
 msgid "ddd M/d"
 msgstr "ddd M/d"
 
-#: js/calendar.js:834
+#: js/calendar.js:813
 msgid "dddd M/d"
 msgstr "dddd M/d"
 
-#: js/calendar.js:837
+#: js/calendar.js:816
 msgid "MMMM yyyy"
 msgstr "MMMM rrrr"
 
-#: js/calendar.js:839
+#: js/calendar.js:818
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 msgstr "d. MMM[ yyyy]{ '&#8212;' d.[ MMM] yyyy}"
 
-#: js/calendar.js:841
+#: js/calendar.js:820
 msgid "dddd, MMM d, yyyy"
 msgstr "dddd, MMM d, rrrr"
 
-#: lib/app.php:121
+#: lib/app.php:114
 msgid "Birthday"
 msgstr "Narozeniny"
 
-#: lib/app.php:122
+#: lib/app.php:115
 msgid "Business"
 msgstr "Obchodní"
 
-#: lib/app.php:123
+#: lib/app.php:116
 msgid "Call"
 msgstr "Hovor"
 
-#: lib/app.php:124
+#: lib/app.php:117
 msgid "Clients"
 msgstr "Klienti"
 
-#: lib/app.php:125
+#: lib/app.php:118
 msgid "Deliverer"
 msgstr "Doručovatel"
 
-#: lib/app.php:126
+#: lib/app.php:119
 msgid "Holidays"
 msgstr "Prázdniny"
 
-#: lib/app.php:127
+#: lib/app.php:120
 msgid "Ideas"
 msgstr "Nápady"
 
-#: lib/app.php:128
+#: lib/app.php:121
 msgid "Journey"
 msgstr "Cesta"
 
-#: lib/app.php:129
+#: lib/app.php:122
 msgid "Jubilee"
 msgstr "Výročí"
 
-#: lib/app.php:130
+#: lib/app.php:123
 msgid "Meeting"
 msgstr "Schůzka"
 
-#: lib/app.php:131
+#: lib/app.php:124
 msgid "Other"
-msgstr "Další"
+msgstr "Jiné"
 
-#: lib/app.php:132
+#: lib/app.php:125
 msgid "Personal"
 msgstr "Osobní"
 
-#: lib/app.php:133
+#: lib/app.php:126
 msgid "Projects"
 msgstr "Projekty"
 
-#: lib/app.php:134
+#: lib/app.php:127
 msgid "Questions"
 msgstr "Dotazy"
 
-#: lib/app.php:135
+#: lib/app.php:128
 msgid "Work"
-msgstr "Pracovní"
+msgstr "Práce"
 
-#: lib/app.php:351 lib/app.php:361
+#: lib/app.php:347 lib/share/event.php:27
 msgid "by"
 msgstr "od"
 
-#: lib/app.php:359 lib/app.php:399
+#: lib/app.php:385
 msgid "unnamed"
 msgstr "nepojmenováno"
 
-#: lib/import.php:184 templates/calendar.php:12
+#: lib/calendar.php:165 lib/calendar.php:198
+msgid "You do not have the permissions to update this calendar."
+msgstr "Nemáte práva pro aktualizaci tohoto kalendáře."
+
+#: lib/calendar.php:233
+msgid "You do not have the permissions to delete this calendar."
+msgstr "Nemáte práva pro smazání tohoto kalendáře."
+
+#: lib/calendar.php:265
+msgid "You do not have the permissions to add to this calendar."
+msgstr "Nemáte práva pro přidání tohoto kalendáře."
+
+#: lib/import.php:186 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Nový kalendář"
 
-#: lib/object.php:372
+#: lib/object.php:122 lib/object.php:161 lib/object.php:304
+msgid "You do not have the permissions to add events to this calendar."
+msgstr "Nemáte práva pro přidání událostí do tohoto kalendáře."
+
+#: lib/object.php:193 lib/object.php:227
+msgid "You do not have the permissions to edit this event."
+msgstr "Nemáte práva upravovat tuto událost."
+
+#: lib/object.php:257 lib/object.php:284
+msgid "You do not have the permissions to delete this event."
+msgstr "Nemáte práva smazat tuto událost."
+
+#: lib/object.php:449
 msgid "Does not repeat"
 msgstr "Neopakuje se"
 
-#: lib/object.php:373
+#: lib/object.php:450
 msgid "Daily"
 msgstr "Denně"
 
-#: lib/object.php:374
+#: lib/object.php:451
 msgid "Weekly"
 msgstr "Týdně"
 
-#: lib/object.php:375
+#: lib/object.php:452
 msgid "Every Weekday"
 msgstr "Každý všední den"
 
-#: lib/object.php:376
+#: lib/object.php:453
 msgid "Bi-Weekly"
 msgstr "Jednou za dva týdny"
 
-#: lib/object.php:377
+#: lib/object.php:454
 msgid "Monthly"
 msgstr "Měsíčně"
 
-#: lib/object.php:378
+#: lib/object.php:455
 msgid "Yearly"
 msgstr "Ročně"
 
-#: lib/object.php:388
+#: lib/object.php:465
 msgid "never"
 msgstr "nikdy"
 
-#: lib/object.php:389
+#: lib/object.php:466
 msgid "by occurrences"
 msgstr "podle výskytu"
 
-#: lib/object.php:390
+#: lib/object.php:467
 msgid "by date"
 msgstr "podle data"
 
-#: lib/object.php:400
+#: lib/object.php:477
 msgid "by monthday"
 msgstr "podle dne v měsíci"
 
-#: lib/object.php:401
+#: lib/object.php:478
 msgid "by weekday"
 msgstr "podle dne v týdnu"
 
-#: lib/object.php:411 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:488 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr "Pondělí"
 
-#: lib/object.php:412 templates/calendar.php:5
+#: lib/object.php:489 templates/calendar.php:5
 msgid "Tuesday"
 msgstr "Úterý"
 
-#: lib/object.php:413 templates/calendar.php:5
+#: lib/object.php:490 templates/calendar.php:5
 msgid "Wednesday"
 msgstr "Středa"
 
-#: lib/object.php:414 templates/calendar.php:5
+#: lib/object.php:491 templates/calendar.php:5
 msgid "Thursday"
 msgstr "Čtvrtek"
 
-#: lib/object.php:415 templates/calendar.php:5
+#: lib/object.php:492 templates/calendar.php:5
 msgid "Friday"
 msgstr "Pátek"
 
-#: lib/object.php:416 templates/calendar.php:5
+#: lib/object.php:493 templates/calendar.php:5
 msgid "Saturday"
 msgstr "Sobota"
 
-#: lib/object.php:417 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr "Neděle"
 
-#: lib/object.php:427
+#: lib/object.php:504
 msgid "events week of month"
 msgstr "týdenní události v měsíci"
 
-#: lib/object.php:428
+#: lib/object.php:505
 msgid "first"
 msgstr "první"
 
-#: lib/object.php:429
+#: lib/object.php:506
 msgid "second"
 msgstr "druhý"
 
-#: lib/object.php:430
+#: lib/object.php:507
 msgid "third"
 msgstr "třetí"
 
-#: lib/object.php:431
+#: lib/object.php:508
 msgid "fourth"
 msgstr "čtvrtý"
 
-#: lib/object.php:432
+#: lib/object.php:509
 msgid "fifth"
 msgstr "pátý"
 
-#: lib/object.php:433
+#: lib/object.php:510
 msgid "last"
 msgstr "poslední"
 
-#: lib/object.php:467 templates/calendar.php:7
+#: lib/object.php:544 templates/calendar.php:7
 msgid "January"
 msgstr "Leden"
 
-#: lib/object.php:468 templates/calendar.php:7
+#: lib/object.php:545 templates/calendar.php:7
 msgid "February"
 msgstr "Únor"
 
-#: lib/object.php:469 templates/calendar.php:7
+#: lib/object.php:546 templates/calendar.php:7
 msgid "March"
 msgstr "Březen"
 
-#: lib/object.php:470 templates/calendar.php:7
+#: lib/object.php:547 templates/calendar.php:7
 msgid "April"
 msgstr "Duben"
 
-#: lib/object.php:471 templates/calendar.php:7
+#: lib/object.php:548 templates/calendar.php:7
 msgid "May"
 msgstr "Květen"
 
-#: lib/object.php:472 templates/calendar.php:7
+#: lib/object.php:549 templates/calendar.php:7
 msgid "June"
 msgstr "Červen"
 
-#: lib/object.php:473 templates/calendar.php:7
+#: lib/object.php:550 templates/calendar.php:7
 msgid "July"
 msgstr "Červenec"
 
-#: lib/object.php:474 templates/calendar.php:7
+#: lib/object.php:551 templates/calendar.php:7
 msgid "August"
 msgstr "Srpen"
 
-#: lib/object.php:475 templates/calendar.php:7
+#: lib/object.php:552 templates/calendar.php:7
 msgid "September"
 msgstr "Září"
 
-#: lib/object.php:476 templates/calendar.php:7
+#: lib/object.php:553 templates/calendar.php:7
 msgid "October"
 msgstr "Říjen"
 
-#: lib/object.php:477 templates/calendar.php:7
+#: lib/object.php:554 templates/calendar.php:7
 msgid "November"
 msgstr "Listopad"
 
-#: lib/object.php:478 templates/calendar.php:7
+#: lib/object.php:555 templates/calendar.php:7
 msgid "December"
 msgstr "Prosinec"
 
-#: lib/object.php:488
+#: lib/object.php:565
 msgid "by events date"
 msgstr "podle data události"
 
-#: lib/object.php:489
+#: lib/object.php:566
 msgid "by yearday(s)"
 msgstr "po dni (dnech)"
 
-#: lib/object.php:490
+#: lib/object.php:567
 msgid "by weeknumber(s)"
 msgstr "podle čísel týdnů"
 
-#: lib/object.php:491
+#: lib/object.php:568
 msgid "by day and month"
 msgstr "podle dne a měsíce"
 
@@ -378,7 +423,7 @@ msgstr "So"
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr "Ne"
+msgstr "leden"
 
 #: templates/calendar.php:8
 msgid "Feb."
@@ -455,7 +500,7 @@ msgstr "Do"
 
 #: templates/calendar.php:20
 msgid "The event ends before it starts"
-msgstr "Akce končí před zahájením"
+msgstr "Událost končí před svým zahájením"
 
 #: templates/calendar.php:21
 msgid "There was a database fail"
@@ -463,11 +508,11 @@ msgstr "Chyba v databázi"
 
 #: templates/calendar.php:39
 msgid "Week"
-msgstr "týden"
+msgstr "Týden"
 
 #: templates/calendar.php:40
 msgid "Month"
-msgstr "měsíc"
+msgstr "Měsíc"
 
 #: templates/calendar.php:41
 msgid "List"
@@ -475,9 +520,13 @@ msgstr "Seznam"
 
 #: templates/calendar.php:45
 msgid "Today"
-msgstr "dnes"
+msgstr "Dnes"
 
-#: templates/calendar.php:46 templates/calendar.php:47
+#: templates/calendar.php:46
+msgid "Calendars"
+msgstr "Kalendáře"
+
+#: templates/calendar.php:47
 msgid "Settings"
 msgstr "Nastavení"
 
@@ -486,38 +535,30 @@ msgid "Your calendars"
 msgstr "Vaše kalendáře"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:11
+#: templates/part.choosecalendar.rowfields.php:15
 msgid "CalDav Link"
-msgstr "CalDav odkaz"
+msgstr "Odkaz CalDav"
 
-#: templates/part.choosecalendar.php:31
-msgid "Shared calendars"
-msgstr "Sdílené kalendáře"
-
-#: templates/part.choosecalendar.php:48
-msgid "No shared calendars"
-msgstr "Žádné sdílené kalendáře"
-
-#: templates/part.choosecalendar.rowfields.php:8
+#: templates/part.choosecalendar.rowfields.php:11
 msgid "Share Calendar"
 msgstr "Sdílet kalendář"
 
-#: templates/part.choosecalendar.rowfields.php:14
+#: templates/part.choosecalendar.rowfields.php:18
 msgid "Download"
 msgstr "Stáhnout"
 
-#: templates/part.choosecalendar.rowfields.php:17
+#: templates/part.choosecalendar.rowfields.php:22
 msgid "Edit"
-msgstr "Editovat"
+msgstr "Upravit"
 
-#: templates/part.choosecalendar.rowfields.php:20
+#: templates/part.choosecalendar.rowfields.php:27
 #: templates/part.editevent.php:9
 msgid "Delete"
-msgstr "Odstranit"
+msgstr "Smazat"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
-msgstr "sdíleno s vámi uživatelem"
+msgstr "sdíleno s Vámi uživatelem"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
@@ -525,7 +566,7 @@ msgstr "Nový kalendář"
 
 #: templates/part.editcalendar.php:9
 msgid "Edit calendar"
-msgstr "Editovat kalendář"
+msgstr "Upravit kalendář"
 
 #: templates/part.editcalendar.php:12
 msgid "Displayname"
@@ -546,19 +587,19 @@ msgstr "Uložit"
 #: templates/part.editcalendar.php:42 templates/part.editevent.php:8
 #: templates/part.newevent.php:6
 msgid "Submit"
-msgstr "Potvrdit"
+msgstr "Odeslat"
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"
-msgstr "Storno"
+msgstr "Zrušit"
 
 #: templates/part.editevent.php:1
 msgid "Edit an event"
-msgstr "Editovat událost"
+msgstr "Upravit událost"
 
 #: templates/part.editevent.php:10
 msgid "Export"
-msgstr "Export"
+msgstr "Exportovat"
 
 #: templates/part.eventform.php:8 templates/part.showevent.php:3
 msgid "Eventinfo"
@@ -566,11 +607,11 @@ msgstr "Informace o události"
 
 #: templates/part.eventform.php:9 templates/part.showevent.php:4
 msgid "Repeating"
-msgstr "Opakující se"
+msgstr "Opakování"
 
 #: templates/part.eventform.php:10 templates/part.showevent.php:5
 msgid "Alarm"
-msgstr "Alarm"
+msgstr "Upomínka"
 
 #: templates/part.eventform.php:11 templates/part.showevent.php:6
 msgid "Attendees"
@@ -602,15 +643,15 @@ msgstr "Celodenní událost"
 
 #: templates/part.eventform.php:60 templates/part.showevent.php:56
 msgid "From"
-msgstr "od"
+msgstr "Od"
 
 #: templates/part.eventform.php:68 templates/part.showevent.php:64
 msgid "To"
-msgstr "do"
+msgstr "Do"
 
 #: templates/part.eventform.php:76 templates/part.showevent.php:72
 msgid "Advanced options"
-msgstr "Pokročilé volby"
+msgstr "Pokročilé možnosti"
 
 #: templates/part.eventform.php:81 templates/part.showevent.php:77
 msgid "Location"
@@ -630,7 +671,7 @@ msgstr "Popis události"
 
 #: templates/part.eventform.php:100 templates/part.showevent.php:95
 msgid "Repeat"
-msgstr "Opakování"
+msgstr "Opakovat"
 
 #: templates/part.eventform.php:107 templates/part.showevent.php:102
 msgid "Advanced"
@@ -647,11 +688,11 @@ msgstr "Vybrat dny"
 
 #: templates/part.eventform.php:169 templates/part.showevent.php:164
 msgid "and the events day of year."
-msgstr "a denní události v roce"
+msgstr "a denní události v roce."
 
 #: templates/part.eventform.php:182 templates/part.showevent.php:177
 msgid "and the events day of month."
-msgstr "a denní události v měsíci"
+msgstr "a denní události v měsíci."
 
 #: templates/part.eventform.php:190 templates/part.showevent.php:185
 msgid "Select months"
@@ -663,7 +704,7 @@ msgstr "Vybrat týdny"
 
 #: templates/part.eventform.php:208 templates/part.showevent.php:203
 msgid "and the events week of year."
-msgstr "a týden s událostmi v roce"
+msgstr "a týden s událostmi v roce."
 
 #: templates/part.eventform.php:214 templates/part.showevent.php:209
 msgid "Interval"
@@ -687,7 +728,7 @@ msgstr "Importovat soubor kalendáře"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr "Vyberte prosím kalendář"
+msgstr "Vyberte, prosím, kalendář"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
@@ -695,17 +736,17 @@ msgstr "Název nového kalendáře"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr "Použijte volné jméno!"
+msgstr "Použijte dostupný název."
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr "Kalendář s trímto názvem již existuje. Pokud název použijete, stejnojmenné kalendáře budou sloučeny."
+msgstr "Kalendář s tímto názvem již existuje. Pokud název použijete, budou tyto kalendáře sloučeny."
 
 #: templates/part.import.php:47
 msgid "Import"
-msgstr "Import"
+msgstr "Importovat"
 
 #: templates/part.import.php:56
 msgid "Close Dialog"
@@ -714,6 +755,32 @@ msgstr "Zavřít dialog"
 #: templates/part.newevent.php:1
 msgid "Create a new event"
 msgstr "Vytvořit novou událost"
+
+#: templates/part.share.php:27
+msgid "Share with:"
+msgstr "Sdílet s:"
+
+#: templates/part.share.php:30
+msgid "Shared with"
+msgstr "Sdíleno s"
+
+#: templates/part.share.php:47 templates/part.share.php:73
+msgid "Unshare"
+msgstr "Od-sdílet"
+
+#: templates/part.share.php:53
+msgid "Nobody"
+msgstr "Nikdo"
+
+#: templates/part.share.php:56
+msgid "Shared via calendar"
+msgstr "Sdíleno skrze kalendář"
+
+#: templates/part.share.php:79
+msgid ""
+"NOTE: Actions on events shared via calendar will affect the entire calendar "
+"sharing."
+msgstr "POZNÁMKA: Činnosti na událostech sdílených skrze kalendář budou mít vliv na sdílení celého kalendáře."
 
 #: templates/part.showevent.php:1
 msgid "View an event"
@@ -741,7 +808,7 @@ msgstr "Časové pásmo"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr "Obnovit auronaricky časovou zónu."
+msgstr "Aktualizovat automaticky časové pásmo"
 
 #: templates/settings.php:52
 msgid "Time format"
@@ -757,19 +824,19 @@ msgstr "12h"
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr "Týden začína v"
+msgstr "Týden začíná v"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr "Paměť"
+msgstr "Vyrovnávací paměť"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr "Vymazat paměť pro opakuijísí se záznamy"
+msgstr "Vymazat paměť pro opakující se události"
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr "URLs"
+msgstr "URL"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
@@ -790,27 +857,3 @@ msgstr "iOS/OS X"
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
 msgstr "Odkaz(y) kalendáře pouze pro čtení"
-
-#: templates/share.dropdown.php:20
-msgid "Users"
-msgstr "Uživatelé"
-
-#: templates/share.dropdown.php:21
-msgid "select users"
-msgstr "vybrat uživatele"
-
-#: templates/share.dropdown.php:36 templates/share.dropdown.php:62
-msgid "Editable"
-msgstr "Upravovatelné"
-
-#: templates/share.dropdown.php:48
-msgid "Groups"
-msgstr "Skupiny"
-
-#: templates/share.dropdown.php:49
-msgid "select groups"
-msgstr "vybrat skupiny"
-
-#: templates/share.dropdown.php:75
-msgid "make public"
-msgstr "zveřejnit"

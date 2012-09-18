@@ -12,6 +12,7 @@
 "Timezone changed" => "Zona horária alterada",
 "Invalid request" => "Pedido inválido",
 "Calendar" => "Calendário",
+"Editable" => "Editavel",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -115,8 +116,6 @@
 "Settings" => "Configurações",
 "Your calendars" => "Os seus calendários",
 "CalDav Link" => "Endereço CalDav",
-"Shared calendars" => "Calendários partilhados",
-"No shared calendars" => "Nenhum calendário partilhado",
 "Share Calendar" => "Partilhar calendário",
 "Download" => "Transferir",
 "Edit" => "Editar",
@@ -188,11 +187,5 @@
 "more info" => "mais informação",
 "Primary address (Kontact et al)" => "Endereço principal (contactos et al.)",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "Ligaç(ão/ões) só de leitura do iCalendar",
-"Users" => "Utilizadores",
-"select users" => "Selecione utilizadores",
-"Editable" => "Editavel",
-"Groups" => "Grupos",
-"select groups" => "Selecione grupos",
-"make public" => "Tornar público"
+"Read only iCalendar link(s)" => "Ligaç(ão/ões) só de leitura do iCalendar"
 );

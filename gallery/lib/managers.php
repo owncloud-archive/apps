@@ -2,17 +2,17 @@
 
 namespace OC\Pictures;
 
-class DatabaseManager {        
+class DatabaseManager {
 	private static $instance = null;
 	protected $cache = array();
 	const TAG = 'DatabaseManager';
-	
+
 	public static function getInstance() {
 		if (self::$instance === null)
 			self::$instance = new DatabaseManager();
 		return self::$instance;
 	}
-	
+
 	protected function getPathData($path) {
 		$stmt = \OCP\DB::prepare('SELECT * FROM `*PREFIX*pictures_images_cache`
 			WHERE `uid_owner` LIKE ? AND `path` LIKE ? AND `path` NOT LIKE ?');
@@ -53,16 +53,16 @@ class DatabaseManager {
 		$this->cache[$dir][$path] = $ret;
 		return $ret;
 	}
-	
+
 	private function __construct() {}
 }
 
 class ThumbnailsManager {
-	
+
 	private static $instance = null;
 	const TAG = 'ThumbnailManager';
         const THUMBNAIL_HEIGHT = 150;
-	
+
 	public static function getInstance() {
 		if (self::$instance === null)
 			self::$instance = new ThumbnailsManager();
@@ -81,18 +81,18 @@ class ThumbnailsManager {
 		$image = new \OC_Image();
 		$image->loadFromFile(\OC_Filesystem::getLocalFile($path));
 		if (!$image->valid()) return false;
-                            
+
 		$image->fixOrientation();
-                
+
 		$ret = $image->preciseResize( floor((self::THUMBNAIL_HEIGHT*$image->width())/$image->height()), self::THUMBNAIL_HEIGHT );
-		
+
 		if (!$ret) {
 			\OC_Log::write(self::TAG, 'Couldn\'t resize image', \OC_Log::ERROR);
 			unset($image);
 			return false;
 		}
 		$l = $gallery_storage->getLocalFile($path);
-                
+
 		$image->save($l);
 		return $image;
 	}
@@ -120,14 +120,14 @@ class ThumbnailsManager {
 					 'height' => $arr['height']);
 		return $ret;
 	}
-	
+
 	public function delete($path) {
 		$thumbnail_storage = \OCP\Files::getStorage('gallery');
 		if ($thumbnail_storage->file_exists($path)) {
 			$thumbnail_storage->unlink($path);
 		}
 	}
-	
+
 	private function __construct() {}
 
 }

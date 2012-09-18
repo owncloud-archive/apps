@@ -156,4 +156,3 @@ oop.inherits(SqlHighlightRules, TextHighlightRules);
 
 exports.SqlHighlightRules = SqlHighlightRules;
 });
-

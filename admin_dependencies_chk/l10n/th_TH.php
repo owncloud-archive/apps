@@ -9,6 +9,7 @@
 "The php-xml module is needed to share files with webdav." => "โมดูล php-xml จำเป็นต้องใช้สำหรับแชร์ไฟล์ด้วย webdav",
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve knowledge base from OCS servers" => "คำสั่ง allow_url_fopen ที่อยู่ในไฟล์ php.ini ของคุณ ควรกำหนดเป็น 1 เพื่อดึงข้อมูลของฐานความรู้ต่างๆจากเซิร์ฟเวอร์ของ OCS",
 "The php-pdo module is needed to store owncloud data into a database." => "โมดูล php-pdo จำเป็นต้องใช้สำหรับจัดเก็บข้อมูลใน owncloud เข้าไปไว้ยังฐานข้อมูล",
+"The iconv module is needed to convert data into the correct charset." => "โมดูล iconv จำเป็นต้องได้รับการแปลงค่าข้อมูลไปเป็น charset ที่ถูกต้อง",
 "Dependencies status" => "สถานะการอ้างอิง",
 "Used by :" => "ใช้งานโดย:"
 );

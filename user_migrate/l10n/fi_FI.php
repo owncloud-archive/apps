@@ -5,5 +5,6 @@
 "Export your user account" => "Vie käyttäjätilisi",
 "This will create a compressed file that contains your ownCloud account." => "Tämä luo ownCloud-käyttäjätilisi sisältävän pakatun tiedoston.",
 "Import user account" => "Tuo käyttäjätili",
+"ownCloud User Zip" => "ownCloud käyttäjän postinumero",
 "Import" => "Tuo"
 );

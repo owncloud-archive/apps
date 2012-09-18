@@ -168,6 +168,3 @@ embedded_svg_edit.prototype.send = function(name, args, callback){
   return cbid;
   //this.stack.shift()("svgCanvas['"+name+"']("+argstr.join(",")+")")
 }
-
-
-

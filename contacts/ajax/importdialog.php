@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
- 
+
 OCP\JSON::checkLoggedIn();
 OCP\App::checkAppEnabled('contacts');
 $tmpl = new OCP\Template('contacts', 'part.import');

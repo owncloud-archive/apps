@@ -1,4 +1,4 @@
-<?php 
+<?php
 $id = $_['id'];
 $tmpkey = $_['tmpkey'];
 $requesttoken = $_['requesttoken'];
@@ -61,7 +61,6 @@ $requesttoken = $_['requesttoken'];
 	<iframe name="crop_target" id='crop_target' src=""></iframe>
 </form>
 <?php
-} else { 
+} else {
 	echo $l->t('The temporary image has been removed from cache.');
 }
-?>

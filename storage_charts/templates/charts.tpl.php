@@ -32,9 +32,9 @@ OC_Util::addScript('storage_charts', 'units.min');
 ?>
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function() {
     	$('#stc_sortable').sortable({
-    		axis:'y',handle:'h3',placeholder:'ui-state-highlight',update:function(e,u){
+    		axis:'y',handle:'h3',placeholder:'ui-state-highlight',update:function(e,u) {
     			$.ajax({
 		        	type:'POST',
 		        	url:OC.linkTo('storage_charts','ajax/config.php'),
@@ -55,23 +55,23 @@ OC_Util::addScript('storage_charts', 'units.min');
 </div>
 <div id="stc_frame">
 	<div id="stc_sortable">
-		<?php foreach($_['sc_sort'] as $sc_sort){
-			if(strcmp($sc_sort, 'cpie_rfsus') == 0){
+		<?php foreach($_['sc_sort'] as $sc_sort) {
+			if(strcmp($sc_sort, 'cpie_rfsus') == 0) {
 				$sc_sort_title = 'Current ratio free space / used space';
-			}elseif(strcmp($sc_sort, 'clines_usse') == 0){
+			}elseif(strcmp($sc_sort, 'clines_usse') == 0) {
 				$sc_sort_title = 'Daily Used Space Evolution';
 			}else{
 				$sc_sort_title = 'Monthly Used Space Evolution';
 			}
-			if($_['c_disp'][$sc_sort]){ ?>
+			if($_['c_disp'][$sc_sort]) { ?>
 			<div id="<?php print($sc_sort); ?>" class="personalblock">
 				<h3><img src="<?php print(OC_Helper::imagePath('storage_charts', 'move.png')); ?>" /><?php print($l->t($sc_sort_title).' '.$l->t('for')); ?> "<?php print(OC_Group::inGroup(OC_User::getUser(), 'admin')?$l->t('all users'):OC_User::getUser()); ?>"</h3>
 				<div id="<?php print(substr($sc_sort, 1)); ?>" style="max-width:100%;height:400px;margin:0 auto"></div>
-				<script type="text/javascript">$(document).ready(function(){<?php print(OC_DLStChartsLoader::loadChart($sc_sort, $l)); ?>});</script>
+				<script type="text/javascript">$(document).ready(function() {<?php print(OC_DLStChartsLoader::loadChart($sc_sort, $l)); ?>});</script>
 			</div>
 			<?php }
 		} ?>
 	</div>
-	<?php if($_['c_disp']['clines_usse']){print('<script type="text/javascript">$(document).ready(function(){getLinesUsseUnitsSelect('.$_['hu_size'].');});</script>');}
-	if($_['c_disp']['chisto_us']){print('<script type="text/javascript">$(document).ready(function(){getHistoUsUnitsSelect(' . $_['hu_size_hus'] . ');});</script>');} ?>
+	<?php if($_['c_disp']['clines_usse']) {print('<script type="text/javascript">$(document).ready(function() {getLinesUsseUnitsSelect('.$_['hu_size'].');});</script>');}
+	if($_['c_disp']['chisto_us']) {print('<script type="text/javascript">$(document).ready(function() {getHistoUsUnitsSelect(' . $_['hu_size_hus'] . ');});</script>');} ?>
 </div>

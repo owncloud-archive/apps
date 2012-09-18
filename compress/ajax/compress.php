@@ -23,14 +23,14 @@
 
 $app_id = 'compress';
 
-require_once('../../../lib/base.php');
+require_once '../../../lib/base.php';
 
 OC_JSON::checkLoggedIn();
 OC_JSON::checkAppEnabled('compress');
 
 OC::$CLASSPATH['OC_Compress'] = 'apps/' . $app_id . '/lib/' . $_POST['a'] . '.class.php';
 
-if(OC_Compress::compressTarget($_POST['f'])){
+if(OC_Compress::compressTarget($_POST['f'])) {
 	OC_JSON::encodedPrint(Array('r' => TRUE));
 }else{
 	OC_JSON::encodedPrint(Array('r' => FALSE));

@@ -24,7 +24,7 @@
 
 if (OCP\App::isEnabled('user_saml')) {
 
-	require_once('apps/user_saml/user_saml.php');
+	require_once 'apps/user_saml/user_saml.php';
 
 	OC_APP::registerAdmin('user_saml', 'settings');
 

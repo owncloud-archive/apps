@@ -28,21 +28,21 @@
 header("X-Frame-Options: Sameorigin");
 
 OCP\App::checkAppEnabled('remoteStorage');
-require_once('Sabre/autoload.php');
-require_once('lib_remoteStorage.php');
-require_once('oauth_ro_auth.php');
+require_once 'Sabre/autoload.php';
+require_once 'lib_remoteStorage.php';
+require_once 'oauth_ro_auth.php';
 
 ini_set('default_charset', 'UTF-8');
 #ini_set('error_reporting', '');
 @ob_clean();
 
 foreach($_GET as $k => $v) {
-  if($k=='userid'){
+  if($k=='userid') {
     $userId=$v;
-  } else if($k=='redirect_uri'){
+  } else if($k=='redirect_uri') {
     $appUrlParts=explode('/', $v);
     $appUrl = htmlentities($appUrlParts[2]);//TODO: check if this is equal to client_id
-  } else if($k=='scope'){
+  } else if($k=='scope') {
     $categories=htmlentities($v);
   }
 }

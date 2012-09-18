@@ -6,6 +6,7 @@
 "Timezone changed" => "Временската зона е променета",
 "Invalid request" => "Неправилно барање",
 "Calendar" => "Календар",
+"Editable" => "Изменливо",
 "ddd" => "ддд",
 "ddd M/d" => "ддд М/д",
 "dddd M/d" => "дддд М/д",
@@ -88,8 +89,6 @@
 "Today" => "Денеска",
 "Your calendars" => "Ваши календари",
 "CalDav Link" => "Врска за CalDav",
-"Shared calendars" => "Споделени календари",
-"No shared calendars" => "Нема споделени календари",
 "Share Calendar" => "Сподели календар",
 "Download" => "Преземи",
 "Edit" => "Уреди",
@@ -146,11 +145,5 @@
 "at" => "на",
 "Timezone" => "Временска зона",
 "24h" => "24ч",
-"12h" => "12ч",
-"Users" => "Корисници",
-"select users" => "избери корисници",
-"Editable" => "Изменливо",
-"Groups" => "Групи",
-"select groups" => "избери групи",
-"make public" => "направи јавно"
+"12h" => "12ч"
 );

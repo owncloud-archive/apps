@@ -32,7 +32,7 @@ OC_App::register(Array(
 OC_Util::addScript("internal_bookmarks", "actlink.min");
 
 $i = 0;
-foreach(OC_IntBks::getAllItemsByUser() as $item){
+foreach(OC_IntBks::getAllItemsByUser() as $item) {
 	OC_App::addNavigationEntry(Array(
   		'id' => 'internal_bookmarks_index_' . $item['bkid'],
   		'order' => 70 + ($item['bkorder'] / 100),
@@ -43,6 +43,6 @@ foreach(OC_IntBks::getAllItemsByUser() as $item){
 	$i++;
 }
 
-if($i > 0){
+if($i > 0) {
 	OC_App::registerPersonal('internal_bookmarks', 'settings');
 }

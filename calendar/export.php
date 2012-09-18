@@ -9,18 +9,18 @@ OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('calendar');
 $cal = isset($_GET['calid']) ? $_GET['calid'] : NULL;
 $event = isset($_GET['eventid']) ? $_GET['eventid'] : NULL;
-if(isset($cal)){
+if(isset($cal)) {
 	$calendar = OC_Calendar_App::getCalendar($cal, true);
-	if(!$calendar){
+	if(!$calendar) {
 		header('HTTP/1.0 404 Not Found');
 		exit;
 	}
 	header('Content-Type: text/Calendar');
-	header('Content-Disposition: inline; filename=' . str_replace(' ', '-', $calendar['displayname']) . '.ics'); 
+	header('Content-Disposition: inline; filename=' . str_replace(' ', '-', $calendar['displayname']) . '.ics');
 	echo OC_Calendar_Export::export($cal, OC_Calendar_Export::CALENDAR);
-}elseif(isset($event)){
+}elseif(isset($event)) {
 	$data = OC_Calendar_App::getEventObject($_GET['eventid'], true);
-	if(!$data){
+	if(!$data) {
 		header('HTTP/1.0 404 Not Found');
 		exit;
 	}

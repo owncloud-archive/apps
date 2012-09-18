@@ -27,16 +27,16 @@
 OCP\JSON::checkLoggedIn();
 OCP\App::checkAppEnabled('user_migrate');
 // Which operation
-if( $_GET['operation']=='create' ){
+if( $_GET['operation']=='create' ) {
 	$uid = !empty( $_POST['uid'] ) ? $_POST['uid'] :  OCP\USER::getUser();
-	if( $uid != OCP\USER::getUser() ){
+	if( $uid != OCP\USER::getUser() ) {
 	    // Needs to be admin to export someone elses account
 		OCP\JSON::error();	
 		die();
 	}
 	// Create the export zip
 	$response = json_decode( OC_Migrate::export( $uid ) );
-	if( !$response->success ){
+	if( !$response->success ) {
 		// Error
 		OCP\JSON::error();
 		die();
@@ -46,10 +46,10 @@ if( $_GET['operation']=='create' ){
 	}
 	OCP\JSON::success();
 	die();
-} else if( $_GET['operation']=='download' ){
+} else if( $_GET['operation']=='download' ) {
 	// Download the export
 	$path = isset( $_SESSION['ocuserexportpath'] ) ? $_SESSION['ocuserexportpath'] : false;
-	if( !$path ){
+	if( !$path ) {
 		OCP\JSON::error();	
 	}
 	header("Content-Type: application/zip");

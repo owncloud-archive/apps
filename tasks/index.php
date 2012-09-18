@@ -11,6 +11,11 @@
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('tasks');
 
+if (!OCP\App::isEnabled('calendar')) {
+	OCP\Template::printUserPage('tasks', 'no-calendar-app');
+	exit;
+}
+
 $calendars = OC_Calendar_Calendar::allCalendars(OCP\User::getUser(), true);
 if( count($calendars) == 0 ) {
 	header('Location: ' . OCP\Util::linkTo('calendar', 'index.php'));
@@ -29,5 +34,5 @@ $categories = OC_Calendar_App::getCategoryOptions();
 $priority_options = OC_Task_App::getPriorityOptions();
 $output = new OCP\Template('tasks', 'tasks', 'user');
 $output->assign('priority_options', $priority_options);
-$output->assign('categories', $categories);
+$output->assign('categories', $categories, false);
 $output -> printPage();

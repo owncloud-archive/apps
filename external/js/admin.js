@@ -6,7 +6,7 @@ $(document).ready(function(){
 	// Handler functions
 	function addSiteEventHandler(event) {
 		event.preventDefault();
-		
+
 		saveSites();
 	}
 
@@ -22,13 +22,13 @@ $(document).ready(function(){
 	function saveSites() {
 		var post = $('#external').serialize();
 		$.post( OC.filePath('external','ajax','setsites.php') , post, function(data) {
-			// OC.msg.finishedSaving('#site_name .msg', data); 
+			// OC.msg.finishedSaving('#site_name .msg', data);
 		});
 	}
 
 	function showDeleteButton(event) {
 		$(this).find('img.delete_button').fadeIn(100);
-	} 
+	}
 
 	function hideDeleteButton(event) {
 		$(this).find('img.delete_button').fadeOut(100);
@@ -49,9 +49,7 @@ $(document).ready(function(){
 		$('img.delete_button').click(deleteButtonEventHandler);
 		$('img.delete_button:last').tipsy();
 		$('#external li:last').hover(showDeleteButton, hideDeleteButton);
-		
+
 	});
 
 });
-
-

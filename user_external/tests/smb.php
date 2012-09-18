@@ -12,21 +12,21 @@ class Test_User_SMB extends UnitTestCase{
 	 */
 	private $instance;
 	
-	private function getConfig(){
+	private function getConfig() {
 		return include(__DIR__.'/config.php');
 	}
 	
-	function skip(){
+	function skip() {
 		$config=$this->getConfig();
 		$this->skipUnless($config['smb']['run']);
 	}
 	
-	function setUp(){
+	function setUp() {
 		$config=$this->getConfig();
 		$this->instance=new OC_User_SMB($config['smb']['host']);
 	}
 	
-	function testLogin(){
+	function testLogin() {
 		$config=$this->getConfig();
 		$this->assertEqual($config['smb']['user'],$this->instance->checkPassword($config['smb']['user'],$config['smb']['password']));
 		$this->assertFalse($this->instance->checkPassword($config['smb']['user'],$config['smb']['password'].'foo'));

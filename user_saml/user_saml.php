@@ -54,7 +54,7 @@ class OC_USER_SAML extends OC_User_Backend {
 	}
 
 
-	public function checkPassword($uid, $password){
+	public function checkPassword($uid, $password) {
 
 		if(!$this->auth->isAuthenticated()) {
 			return false;

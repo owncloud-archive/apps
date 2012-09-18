@@ -8,6 +8,7 @@
 
 Calendar={
 	UI:{
+		scrollcount: 0,
 		loading: function(isLoading){
 			if (isLoading){
 				$('#loading').show();
@@ -54,6 +55,7 @@ Calendar={
 					$(this).dialog('destroy').remove();
 				}
 			});
+			Calendar.UI.Share.init();
 		},
 		newEvent:function(start, end, allday){
 			start = Math.round(start.getTime()/1000);
@@ -219,6 +221,7 @@ Calendar={
 			//}
 		},
 		scrollCalendar:function(event){
+			$('#fullcalendar').fullCalendar('option', 'height', $(window).height() - $('#controls').height() - $('#header').height() - 15);
 			$('.tipsy').remove();
 			var direction;
 			if(event.detail){
@@ -235,18 +238,24 @@ Calendar={
 					direction = 'down';
 				}
 			}
+			Calendar.UI.scrollcount++;
+			if(Calendar.UI.scrollcount < 5){
+				return;
+			}
+
 			var scroll = $(document).scrollTop(),
 				doc_height = $(document).height(),
 				win_height = $(window).height();
-			if(direction == 'down' && win_height == (doc_height - scroll)){
+			if(direction == 'down'/* && win_height == (doc_height - scroll)*/){
 				$('#fullcalendar').fullCalendar('next');
 				$(document).scrollTop(0);
 				event.preventDefault();
-			}else if (direction == 'top' && scroll == 0) {
+			}else/* if (direction == 'top' && scroll == 0) */{
 				$('#fullcalendar').fullCalendar('prev');
 				$(document).scrollTop(win_height);
 				event.preventDefault();
 			}
+			Calendar.UI.scrollcount = 0;
 		},
 		repeat:function(task){
 			if(task=='init'){
@@ -348,7 +357,7 @@ Calendar={
 					$('#advanced_weekday').css('display', 'block');
 				}
 			}
-			
+
 		},
 		setViewActive: function(view){
 			$('#view input[type="button"]').removeClass('active');
@@ -429,6 +438,9 @@ Calendar={
 							$('#fullcalendar').fullCalendar('removeEventSource', url);
 							$('#choosecalendar_dialog').dialog('destroy').remove();
 							Calendar.UI.Calendar.overview();
+							$('#calendar tr[data-id="'+calid+'"]').fadeOut(400,function(){
+								$('#calendar tr[data-id="'+calid+'"]').remove();
+							});
 							$('#fullcalendar').fullCalendar('refetchEvents');
 						}
 					  });
@@ -445,7 +457,7 @@ Calendar={
 						$("#displayname_"+calendarid).css('background-color', '#F8F8F8');
 					});
 				}
-				
+
 				var url;
 				if (calendarid == 'new'){
 					url = OC.filePath('calendar', 'ajax/calendar', 'new.php');
@@ -500,110 +512,77 @@ Calendar={
 			}
 		},
 		Share:{
-			currentid: 'false',
-			idtype: '',
-			activation:function(object,owner,id){
-				$.post(OC.filePath('calendar', 'ajax/share', 'activation.php'),{id:id, idtype:'calendar', activation:object.checked?1:0});
-				$('#fullcalendar').fullCalendar('refetchEvents');
-			},
-			dropdown:function(userid, calid){
-				$('.calendar_share_dropdown').remove();
-				var element = document.getElementById(userid+'_'+calid);
-				$('<div class="calendar_share_dropdown"></div>').appendTo(element);
-				$.post(OC.filePath('calendar', 'ajax/share', 'dropdown.php'), {calid: calid}, function(data){
-					$('.calendar_share_dropdown').html(data);
-					$('.calendar_share_dropdown').show('blind');
-					$('#share_user').chosen();
-					$('#share_group').chosen();
-				});
-				Calendar.UI.Share.currentid = calid;
-				Calendar.UI.Share.idtype = 'calendar';
-			},
-			share:function(id, idtype, sharewith, sharetype){
-				$.post(OC.filePath('calendar', 'ajax/share', 'share.php'),{id:id, idtype:idtype, sharewith:sharewith, sharetype:sharetype}, function(data){
-					if(sharetype == 'public'){
-						$('#public_token').val(parent.location.protocol+'//'+location.host+OC.linkTo('', 'public.php')+'?service=calendar&t='+data.message);
-						$('#public_token').css('display', 'block');
-					}
-				});
-			},
-			unshare:function(id, idtype, sharewith, sharetype){
-				$.post(OC.filePath('calendar', 'ajax/share', 'unshare.php'),{id:id, idtype:idtype, sharewith:sharewith, sharetype:sharetype}, function(){
-					if(sharetype == 'public'){
-						$('#public_token').val('');
-						$('#public_token').css('display', 'none');
-					}
-				});
-			},
-			changepermission:function(id, idtype, sharewith, sharetype, permission){
-				$.post(OC.filePath('calendar', 'ajax/share', 'changepermission.php'),{id:id, idtype:idtype, sharewith: sharewith, sharetype:sharetype, permission: (permission?1:0)});
-			},
 			init:function(){
-				$('.calendar_share_dropdown').live('mouseleave', function(){
-					$('.calendar_share_dropdown').hide('blind', function(){
-						$('.calendar_share_dropdown').remove();
+				var itemShares = [OC.Share.SHARE_TYPE_USER, OC.Share.SHARE_TYPE_GROUP];
+				$('#sharewith').autocomplete({minLength: 2, source: function(search, response) {
+					$.get(OC.filePath('core', 'ajax', 'share.php'), { fetch: 'getShareWith', search: search.term, itemShares: itemShares }, function(result) {
+						if (result.status == 'success' && result.data.length > 0) {
+							response(result.data);
+						}
+					});
+				},
+				focus: function(event, focused) {
+					event.preventDefault();
+				},
+				select: function(event, selected) {
+					var itemType = 'event';
+					var itemSource = $('#sharewith').data('item-source');
+					var shareType = selected.item.value.shareType;
+					var shareWith = selected.item.value.shareWith;
+					$(this).val(shareWith);
+					// Default permissions are Read and Share
+					var permissions = OC.PERMISSION_READ | OC.PERMISSION_SHARE;
+					OC.Share.share(itemType, itemSource, shareType, shareWith, permissions, function(data) {
+						var newitem = '<li data-item-type="event"'
+							+ 'data-share-with="'+shareWith+'" '
+							+ 'data-permissions="'+permissions+'" '
+							+ 'data-share-type="'+shareType+'">'+shareWith+' ('+(shareType == OC.Share.SHARE_TYPE_USER ? t('core', 'user') : t('core', 'group'))+')'
+							+ '<span class="shareactions"><input class="update" type="checkbox" title="'+t('core', 'Editable')+'">'
+							+ '<input class="share" type="checkbox" title="'+t('core', 'Shareable')+'" checked="checked">'
+							+ '<input class="delete" type="checkbox" title="'+t('core', 'Deletable')+'">'
+							+ '<img class="svg action delete" title="Unshare"src="'+ OC.imagePath('core', 'actions/delete.svg') +'"></span></li>';
+						$('.sharedby.eventlist').append(newitem);
+						$('#sharedWithNobody').remove();
+						$('#sharewith').val('');
+					});
+					return false;
+				}
+				});
+
+				$('.shareactions > input:checkbox').change(function() {
+					var container = $(this).parents('li').first();
+					var permissions = parseInt(container.data('permissions'));
+					var itemType = container.data('item-type');
+					var shareType = container.data('share-type');
+					var itemSource = container.data('item');
+					var shareWith = container.data('share-with');
+					var permission = null;
+					if($(this).hasClass('update')) {
+						permission = OC.PERMISSION_UPDATE;
+					} else if($(this).hasClass('share')) {
+						permission = OC.PERMISSION_SHARE;
+					} else if($(this).hasClass('delete')) {
+						permission = OC.PERMISSION_DELETE;
+					}
+					// This is probably not the right way, but it works :-P
+					if($(this).is(':checked')) {
+						permissions += permission;
+					} else {
+						permissions -= permission;
+					}
+					OC.Share.setPermissions(itemType, itemSource, shareType, shareWith, permissions);
+				});
+
+				$('.shareactions > .delete').click(function() {
+					var container = $(this).parents('li').first();
+					var itemType = container.data('item-type');
+					var shareType = container.data('share-type');
+					var itemSource = container.data('item');
+					var shareWith = container.data('share-with');
+					OC.Share.unshare(itemType, itemSource, shareType, shareWith, function() {
+						container.remove();
 					});
 				});
-				$('#share_user').live('change', function(){
-					if($('#sharewithuser_' + $('#share_user option:selected').text()).length == 0){
-						Calendar.UI.Share.share(Calendar.UI.Share.currentid, Calendar.UI.Share.idtype, $('#share_user option:selected').text(), 'user');
-						var newitem = '<li id="sharewithuser_' + $('#share_user option:selected').text() +'"><input type="checkbox" width="12px" style="visibility:hidden;" title="' + $('#share_user option:selected').text() + '">' + $('#share_user option:selected').text() + '<img src="' + OC.imagePath('core', 'actions/delete.svg') + '" class="svg action" style="display:none;float:right;"></li>';
-						$('#sharewithuser_list').append(newitem);
-						$('#sharewithuser_' + $('#share_user option:selected').text() + ' > img').click(function(){
-							$('#share_user option[value="' + $(this).parent().text() + '"]').removeAttr('disabled');
-							Calendar.UI.Share.unshare(Calendar.UI.Share.currentid, Calendar.UI.Share.idtype, $(this).parent().text(), 'user' );
-							$("#share_user").trigger("liszt:updated");
-							$(this).parent().remove();
-						});
-						$('#share_user option:selected').attr('disabled', 'disabled');
-						$("#share_user").trigger("liszt:updated");
-					}
-				});
-				$('#share_group').live('change', function(){
-					if($('#sharewithgroup_' + $('#share_group option:selected').text()).length == 0){
-						Calendar.UI.Share.share(Calendar.UI.Share.currentid, Calendar.UI.Share.idtype, $('#share_group option:selected').text(), 'group');
-						var newitem = '<li id="sharewithgroup_' + $('#share_group option:selected').text() +'"><input type="checkbox" width="12px" style="visibility:hidden;" title="' + $('#share_group option:selected').text() + '">' + $('#share_group option:selected').text() + '<img src="' + OC.imagePath('core', 'actions/delete.svg') + '" class="svg action" style="display:none;float:right;"></li>';
-						$('#sharewithgroup_list').append(newitem);
-						$('#sharewithgroup_' + $('#share_group option:selected').text() + ' > img').click(function(){
-							$('#share_group option[value="' + $(this).parent().text() + '"]').removeAttr('disabled');
-							Calendar.UI.Share.unshare(Calendar.UI.Share.currentid, Calendar.UI.Share.idtype, $(this).parent().text(), 'group');
-							$("#share_group").trigger("liszt:updated");
-							$(this).parent().remove();
-						});
-						$('#share_group option:selected').attr('disabled', 'disabled');
-						$("#share_group").trigger("liszt:updated");
-					}
-				});
-				$('#sharewithuser_list > li > input:checkbox').live('change', function(){
-					Calendar.UI.Share.changepermission(Calendar.UI.Share.currentid, Calendar.UI.Share.idtype, $(this).parent().text(), 'user', this.checked);
-				});
-				$('#sharewithgroup_list > li > input:checkbox').live('change', function(){
-					Calendar.UI.Share.changepermission(Calendar.UI.Share.currentid, Calendar.UI.Share.idtype, $(this).parent().text(), 'group', this.checked);
-				});
-				$('#publish').live('change', function(){
-					if(this.checked == 1){
-						Calendar.UI.Share.share(Calendar.UI.Share.currentid, Calendar.UI.Share.idtype, '', 'public');
-					}else{
-						Calendar.UI.Share.unshare(Calendar.UI.Share.currentid, Calendar.UI.Share.idtype, '', 'public');
-					}
-				});
-				$('#sharewithuser_list').live('mouseenter', function(){
-					$('#sharewithuser_list > li > img').css('display', 'block');
-					$('#sharewithuser_list > li > input').css('visibility', 'visible');
-				});
-				$('#sharewithuser_list').live('mouseleave', function(){
-					$('#sharewithuser_list > li > img').css('display', 'none');
-					$('#sharewithuser_list > li > input').css('visibility', 'hidden');
-				});
-				$('#sharewithgroup_list').live('mouseenter', function(){
-					$('#sharewithgroup_list > li > img').css('display', 'block');
-					$('#sharewithgroup_list > li > input').css('visibility', 'visible');
-				});
-				$('#sharewithgroup_list').live('mouseleave', function(){
-					$('#sharewithgroup_list > li > img').css('display', 'none');
-					$('#sharewithgroup_list > li > input').css('visibility', 'hidden');
-				});
-				/*var permissions = (this.checked) ? 1 : 0;*/
 			}
 		},
 		Drop:{
@@ -651,7 +630,7 @@ Calendar={
 	Settings:{
 		//
 	},
-	
+
 }
 $.fullCalendar.views.list = ListView;
 function ListView(element, calendar) {
@@ -860,6 +839,7 @@ $(document).ready(function(){
 			else {
 				$('#fullcalendar').fullCalendar('option', 'aspectRatio', 1.35);
 			}
+			$('#fullcalendar').fullCalendar('rerenderEvents');
 		},
 		columnFormat: {
 		    week: 'ddd d. MMM'
@@ -871,7 +851,6 @@ $(document).ready(function(){
 		eventDrop: Calendar.UI.moveEvent,
 		eventResize: Calendar.UI.resizeEvent,
 		eventRender: function(event, element) {
-			element.find('.fc-event-title').html(element.find('.fc-event-title').text());
 			element.tipsy({
 				className: 'tipsy-event',
 				opacity: 0.9,
@@ -883,6 +862,11 @@ $(document).ready(function(){
 					return Calendar.UI.getEventPopupText(event);
 				}
 			});
+		},
+		eventAfterRender: function(event, element, view) {
+			if(view.name == 'agendaWeek'){
+				element.find('.fc-event-title').html(element.find('.fc-event-title').text());
+			}
 		},
 		loading: Calendar.UI.loading,
 		eventSources: eventSources
@@ -926,10 +910,13 @@ $(document).ready(function(){
 	});
 	Calendar.UI.Share.init();
 	Calendar.UI.Drop.init();
-	$('#choosecalendar .generalsettings').on('click keydown', function() {
+	$('#choosecalendar .generalsettings').on('click keydown', function(event) {
+		event.preventDefault();
 		OC.appSettings({appid:'calendar', loadJS:true, cache:false});
 	});
-	$('#choosecalendar .calendarsettings').on('click keydown', function() {
+	$('#choosecalendar .calendarsettings').on('click keydown', function(event) {
+		event.preventDefault();
 		OC.appSettings({appid:'calendar', loadJS:true, cache:false, scriptName:'calendar.php'});
 	});
+	$('#fullcalendar').fullCalendar('option', 'height', $(window).height() - $('#controls').height() - $('#header').height() - 15);
 });

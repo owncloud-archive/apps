@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <intense.feel@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2012-09-06 02:02+0200\n"
+"PO-Revision-Date: 2012-09-05 17:38+0000\n"
+"Last-Translator: intense <intense.feel@gmail.com>\n"
+"Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sk_SK\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: templates/noemail.php:2 templates/settings.php:2
+msgid "Mozilla Sync Service"
+msgstr "Synchronizačná služba Mozilla"
+
+#: templates/noemail.php:3
+msgid "Please set your email address in account settings"
+msgstr "Nastavte si prosím Vašu emailovú adresu v nastaveniach účtu"
+
+#: templates/settings.php:5
+msgid "Email"
+msgstr "Email"
+
+#: templates/settings.php:9
+msgid "Password and Confirmation"
+msgstr "Heslo a Potvrdenie"
+
+#: templates/settings.php:13
+msgid "Server address"
+msgstr "Adresa servera"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-13 23:12+0200\n"
-"PO-Revision-Date: 2012-08-13 12:31+0000\n"
+"POT-Creation-Date: 2012-09-03 15:14+0200\n"
+"PO-Revision-Date: 2012-09-03 06:40+0000\n"
 "Last-Translator: Cyryl Sochacki <>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -22,12 +22,28 @@ msgstr ""
 msgid "Export this ownCloud instance"
 msgstr "Eksportuj instancję ownCloud"
 
-#: templates/settings.php:4
+#: templates/settings.php:5
 msgid ""
-"This will create a compressed file that contains the data of this owncloud instance.\n"
-"            Please choose the export type:"
-msgstr "Spowoduje to utworzenie pliku skompresowanego, który zawiera dane tej instancji ownCloud.⏎ proszę wybrać typ eksportu:"
+"This will create a compressed file that contains the data of this owncloud "
+"instance."
+msgstr "Spowoduje to utworzenie pliku skompresowanego, który zawiera dane tej instancji owncloud."
+
+#: templates/settings.php:7
+msgid "Please choose the export type:"
+msgstr "Proszę wybrać typ eksportu:"
+
+#: templates/settings.php:10
+msgid "ownCloud instance (suitable for import)"
+msgstr " Instancja ownCloud (nadająca się do importu)"
+
+#: templates/settings.php:11
+msgid "ownCloud system files"
+msgstr "Systemu plików ownCloud"
 
 #: templates/settings.php:12
+msgid "Just user files"
+msgstr "Tylko pliki użytkownika"
+
+#: templates/settings.php:13
 msgid "Export"
 msgstr "Eksport"

@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-07-31 22:53+0200\n"
-"PO-Revision-Date: 2012-07-31 10:22+0000\n"
+"POT-Creation-Date: 2012-09-12 02:01+0200\n"
+"PO-Revision-Date: 2012-09-11 10:15+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: et_EE\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: appinfo/app.php:14
 msgid "Bookmarks"
@@ -26,11 +26,15 @@ msgstr "Järjehoidjad"
 msgid "unnamed"
 msgstr "nimetu"
 
+#: lib/search.php:43
+msgid "Bookm."
+msgstr "Järjeh."
+
 #: templates/bookmarklet.php:5
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr ""
+msgstr "Lohista see oma veebilehitseja järjehoidjatesse ja kliki sellele, kui sa soovid veebilehte kiirelt lisada:"
 
 #: templates/bookmarklet.php:7
 msgid "Read later"
@@ -58,4 +62,4 @@ msgstr "Sul pole järjehoidjaid"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
-msgstr ""
+msgstr "Järjehoidja vidin <br />"

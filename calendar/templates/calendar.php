@@ -23,7 +23,7 @@
 				var firstDay = '<?php echo (OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'firstday', 'mo') == 'mo' ? '1' : '0'); ?>';
 				$(document).ready(function() {
 				<?php
-				if(array_key_exists('showevent', $_)){
+				if(array_key_exists('showevent', $_)) {
 					$data = OC_Calendar_App::getEventObject($_['showevent']);
 					$date = substr($data['startdate'], 0, 10);
 					list($year, $month, $day) = explode('-', $date);
@@ -43,8 +43,8 @@
 					</form>
 					<form id="choosecalendar">
 						<!--<input type="button" id="today_input" value="<?php echo $l->t("Today");?>"/>-->
-						<a class="settings calendarsettings" title="<?php echo $l->t('Settings'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('calendar', 'icon.svg'); ?>" alt="<?php echo $l->t('Settings'); ?>" /></a>
-						<a class="settings generalsettings" title="<?php echo $l->t('Settings'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('core', 'actions/settings.svg'); ?>" alt="<?php echo $l->t('Settings'); ?>" /></a>
+						<button class="settings calendarsettings" title="<?php echo $l->t('Calendars'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('calendar', 'icon.svg'); ?>" alt="<?php echo $l->t('Calendars'); ?>" /></button>
+						<button class="settings generalsettings" title="<?php echo $l->t('Settings'); ?>"><img class="svg" src="<?php echo OCP\Util::imagePath('core', 'actions/settings.svg'); ?>" alt="<?php echo $l->t('Settings'); ?>" /></button>
 					</form>
 					<form id="datecontrol">
 						<input type="button" value="&nbsp;&lt;&nbsp;" id="datecontrol_left"/>

@@ -3,52 +3,53 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# marguerite su <i@marguerite.su>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-13 23:12+0200\n"
-"PO-Revision-Date: 2012-08-12 22:45+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-09-17 16:59+0200\n"
+"PO-Revision-Date: 2012-09-17 10:48+0000\n"
+"Last-Translator: marguerite su <i@marguerite.su>\n"
 "Language-Team: Chinese (China) (GB2312) (http://www.transifex.com/projects/p/owncloud/language/zh_CN.GB2312/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN.GB2312\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr ""
+msgstr "这是一个 OpenID 服务器终端。详情参考"
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
-msgstr ""
+msgstr "身份：<b>"
 
 #: templates/nomode.php:15
 msgid "Realm: <b>"
-msgstr ""
+msgstr "领域：<b>"
 
 #: templates/nomode.php:16
 msgid "User: <b>"
-msgstr ""
+msgstr "用户：<b>"
 
 #: templates/nomode.php:17
 msgid "Login"
-msgstr ""
+msgstr "登录"
 
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"
-msgstr ""
+msgstr "出错：<b>未选择用户"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
-msgstr ""
+msgstr "您可以使用此地址验证其他站点"
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"
-msgstr ""
+msgstr "验证的 OpenID 提供商"
 
 #: templates/settings.php:6
 msgid "Your address at Wordpress, Identi.ca, &hellip;"
-msgstr ""
+msgstr "你在 Wordpress，Identi.ca，&hellip 的地址;"

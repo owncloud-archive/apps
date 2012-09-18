@@ -21,16 +21,16 @@
 * 
 */
 
-require_once('../../../../lib/base.php');
+require_once '../../../../lib/base.php';
 OC_JSON::checkAppEnabled('ocdownloader');
 OC_JSON::checkLoggedIn();
 
 $k = Array();
-if(is_numeric($_POST['prov'])){
+if(is_numeric($_POST['prov'])) {
 	$p = $_POST['prov'];
 	$k = OC_ocDownloader::getProvider($p);
 }
 
-if(count($k) > 0){
+if(count($k) > 0) {
 	OC_JSON::encodedPrint($k);
 }

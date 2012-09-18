@@ -31,7 +31,7 @@ OC_Util::addScript('internal_bookmarks','settings.min');
 		<strong>Internal Bookmarks</strong>
 		<input type="hidden" id="h_intbks" name="h_intbks" value="1" />
 		<ul id="intbks_sortable">
-		<?php foreach($_['bk_list'] as $bk){ ?>
+		<?php foreach($_['bk_list'] as $bk) { ?>
 		<li rel="intbks_<?php print($bk['bkid']); ?>" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><?php print($bk['bktitle']); ?></li>
 		<?php } ?>
 		</ul>

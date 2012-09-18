@@ -20,7 +20,3 @@ window.onresize = resizeIframe;
 
 //-->
 </script>
-
-
-
-

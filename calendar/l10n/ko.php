@@ -12,6 +12,7 @@
 "Timezone changed" => "시간대 변경됨",
 "Invalid request" => "잘못된 요청",
 "Calendar" => "달력",
+"Editable" => "편집 가능",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -115,8 +116,6 @@
 "Settings" => "세팅",
 "Your calendars" => "내 달력",
 "CalDav Link" => "CalDav 링크",
-"Shared calendars" => "공유 달력",
-"No shared calendars" => "달력 공유하지 않음",
 "Share Calendar" => "달력 공유",
 "Download" => "다운로드",
 "Edit" => "편집",
@@ -188,11 +187,5 @@
 "more info" => "더 많은 정보",
 "Primary address (Kontact et al)" => "기본 주소 (Kontact 외)",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "iCalendar 링크만 읽기",
-"Users" => "사용자",
-"select users" => "사용자 선택",
-"Editable" => "편집 가능",
-"Groups" => "그룹",
-"select groups" => "선택 그룹",
-"make public" => "공개"
+"Read only iCalendar link(s)" => "iCalendar 링크만 읽기"
 );

@@ -21,7 +21,7 @@
  *
  */
 
-require_once('phpsec.crypt.php');
+require_once 'phpsec.crypt.php';
 
 /**
 * @brief Class providing django users to ownCloud
@@ -40,7 +40,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* Creates a new user. Basic checking of username is done in OC_User
 	* itself, not in its subclasses.
 	*/
-	public function createUser($uid, $password){
+	public function createUser($uid, $password) {
 		OC_Log::write('OC_User_Django', 'Use the django webinterface to create users',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
@@ -52,7 +52,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	*
 	* Deletes a user
 	*/
-	public function deleteUser( $uid ){
+	public function deleteUser( $uid ) {
 		OC_Log::write('OC_User_Django', 'Use the django webinterface to delete users',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
@@ -65,7 +65,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	*
 	* Change the password of a user
 	*/
-	public function setPassword($uid, $password){
+	public function setPassword($uid, $password) {
 		OC_Log::write('OC_User_Django', 'Use the django webinterface to change passwords',3);
 		return OC_USER_BACKEND_NOT_IMPLEMENTED;
 	}
@@ -76,7 +76,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* @param $sub The String to be found
 	* @returns true/false
 	*/
-	private function beginsWith($str,$sub){
+	private function beginsWith($str,$sub) {
 		return ( substr( $str, 0, strlen( $sub ) ) === $sub );
 	}
 
@@ -88,13 +88,13 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	*
 	* Check if the password is correct without logging in the user
 	*/
-	public function checkPassword($uid, $password){
+	public function checkPassword($uid, $password) {
 		$query  = OC_DB::prepare( 'SELECT username, password FROM auth_user WHERE username =  ?' );
 		$result = $query->execute( array( $uid));
 		$row    = $result->fetchRow();
 		if ($row) {
 			$storedHash=$row['password'];
-			if (self::beginsWith($storedHash, 'sha1')){
+			if (self::beginsWith($storedHash, 'sha1')) {
 				$chunks = preg_split('/\$/', $storedHash,3);
 				$salt   = $chunks[1];
 				$hash   = $chunks[2];
@@ -140,7 +140,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	*
 	* Get a list of all users.
 	*/
-	public function getUsers(){
+	public function getUsers() {
 		$query  = OC_DB::prepare( 'SELECT id, username, is_active FROM `auth_user` WHERE is_active=1 ORDER BY username' );
 		$result = $query->execute();
 		$users  = array();
@@ -155,7 +155,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	* @param string $uid the username
 	* @return boolean
 	*/
-	public function userExists($uid){
+	public function userExists($uid) {
 		$query  = OC_DB::prepare( 'SELECT username FROM `auth_user` WHERE username = ? AND is_active=1' );
 		$result = $query->execute( array( $uid ));
 		return $result->numRows() > 0;

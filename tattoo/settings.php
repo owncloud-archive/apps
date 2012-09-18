@@ -13,4 +13,3 @@ $tmpl = new OC_Template( 'tattoo', 'settings');
 $tmpl->assign('tattooSelectedWallpaper',$wallpaper);
 
 return $tmpl->fetchPage();
-

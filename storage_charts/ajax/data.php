@@ -21,7 +21,7 @@
 * 
 */
 
-require_once('../../../lib/base.php');
+require_once '../../../lib/base.php';
 
 OC_JSON::checkLoggedIn();
 OC_JSON::checkAppEnabled('storage_charts');
@@ -29,9 +29,9 @@ OC_JSON::checkAppEnabled('storage_charts');
 $l = new OC_L10N('storage_charts', OC_L10N::findLanguage(Array('en', 'fr')));
 
 // Update and save the new configuration
-if(is_numeric($_POST['s']) && in_array($_POST['k'], Array('hu_size','hu_size_hus'))){
+if(is_numeric($_POST['s']) && in_array($_POST['k'], Array('hu_size','hu_size_hus'))) {
 	OC_DLStCharts::setUConfValue($_POST['k'], $_POST['s']);
-	if(strcmp($_POST['k'],'hu_size') == 0){
+	if(strcmp($_POST['k'],'hu_size') == 0) {
 		OC_JSON::encodedPrint(Array('r' => OC_DLStChartsLoader::loadChart('clines_usse', $l)));
 	}else{
 		OC_JSON::encodedPrint(Array('r' => OC_DLStChartsLoader::loadChart('chisto_us', $l)));

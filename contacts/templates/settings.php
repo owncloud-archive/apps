@@ -10,9 +10,14 @@
 		<dd class="addressbooks-settings hidden">
 			<table>
 			<?php foreach($_['addressbooks'] as $addressbook) { ?>
-			<tr class="addressbook" data-id="<?php echo $addressbook['id'] ?>" data-uri="<?php echo $addressbook['uri'] ?>">
+			<tr class="addressbook" data-id="<?php echo $addressbook['id'] ?>"
+				data-uri="<?php echo $addressbook['uri'] ?>"
+				data-owner="<?php echo $addressbook['userid'] ?>"
+				>
 				<td class="active">
+					<?php if($addressbook['permissions'] & OCP\Share::PERMISSION_UPDATE) { ?>
 					<input type="checkbox" <?php echo (($addressbook['active']) == '1' ? ' checked="checked"' : ''); ?> />
+					<?php } ?>
 				</td>
 				<td class="name"><?php echo $addressbook['displayname'] ?></td>
 				<td class="description"><?php echo $addressbook['description'] ?></td>
@@ -23,17 +28,26 @@
 					<a class="svg action cloud" title="<?php echo $l->t('Show read-only VCF link'); ?>"></a>
 				</td>
 				<td class="action">
-					<a class="svg action share" data-item-type="addressbook" data-item="<?php echo $addressbook['id'] ?>" title="<?php echo $l->t("Share"); ?>"></a>
+					<?php if($addressbook['permissions'] & OCP\Share::PERMISSION_SHARE) { ?>
+					<a class="svg action share" data-item-type="addressbook"
+						data-item="<?php echo $addressbook['id'] ?>"
+						data-possible-permissions="<?php echo $addressbook['permissions'] ?>"
+						title="<?php echo $l->t("Share"); ?>"></a>
+					<?php } ?>
 				</td>
 				<td class="action">
 					<a class="svg action download" title="<?php echo $l->t('Download'); ?>"
 						href="<?php echo OCP\Util::linkToAbsolute('contacts', 'export.php'); ?>?bookid=<?php echo $addressbook['id'] ?>"></a>
 				</td>
 				<td class="action">
+					<?php if($addressbook['permissions'] & OCP\Share::PERMISSION_UPDATE) { ?>
 					<a class="svg action edit" title="<?php echo $l->t("Edit"); ?>"></a>
+					<?php } ?>
 				</td>
 				<td class="action">
+					<?php if($addressbook['permissions'] & OCP\Share::PERMISSION_DELETE) { ?>
 					<a class="svg action delete" title="<?php echo $l->t("Delete"); ?>"></a>
+					<?php } ?>
 				</td>
 			</tr>
 			<?php } ?>
