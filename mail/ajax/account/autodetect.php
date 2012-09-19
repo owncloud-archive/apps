@@ -24,6 +24,12 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('mail');
 
+$host = $account['host'];
+$user = $account['user'];
+$password = $account['password'];
+$port = $account['port'];
+$ssl_mode = $account['ssl_mode'];
+
 $host = isset( $_GET['host'] ) ? $_GET['host'] : null;
 $user = isset( $_GET['user'] ) ? $_GET['user'] : null;
 $password = isset( $_GET['password'] ) ? $_GET['password'] : null;
@@ -31,5 +37,6 @@ $port = isset( $_GET['port'] ) ? $_GET['port'] : null;
 $ssl_mode = isset( $_GET['ssl_mode'] ) ? $_GET['ssl_mode'] : null;
 
 $id = OCA_Mail\App::addAccount( OCP\User::getUser(), $host, $port, $user, $password, $ssl_mode );
+
 
 OCP\JSON::success(array('data' => array( 'id' => $id )));
