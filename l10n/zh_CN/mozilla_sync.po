@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-18 02:01+0200\n"
-"PO-Revision-Date: 2012-09-17 16:18+0000\n"
+"POT-Creation-Date: 2012-09-19 02:02+0200\n"
+"PO-Revision-Date: 2012-09-18 05:42+0000\n"
 "Last-Translator: hanfeng <appweb.cn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -24,16 +24,16 @@ msgstr "Mozilla同步服务"
 
 #: templates/noemail.php:3
 msgid "Please set your email address in account settings"
-msgstr ""
+msgstr "请在帐号设置中设置您的电邮地址"
 
 #: templates/settings.php:5
 msgid "Email"
-msgstr ""
+msgstr "电邮"
 
 #: templates/settings.php:9
 msgid "Password and Confirmation"
-msgstr ""
+msgstr "密码及确认"
 
 #: templates/settings.php:13
 msgid "Server address"
-msgstr ""
+msgstr "服务器地址"

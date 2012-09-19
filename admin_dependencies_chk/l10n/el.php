@@ -1,6 +1,5 @@
 <?php $TRANSLATIONS = array(
 "The php-json module is needed by the many applications for inter communications" => "Το άρθρωμα php-json απαιτείται από πολλές εφαρμογές για εσωτερική επικοινωνία",
-"The php-curl modude is needed to fetch the page title when adding a bookmarks" => "Το άρθρωμα php-curl απαιτείται για την λήψη του τίτλου της σελίδας όταν προσθέτετε σελιδοδείτκες",
 "The php-gd module is needed to create thumbnails of your images" => "Το άρθρωμα php-gd απαιτείται για δημιουργία εικόνων επισκόπησης των φωτογραφιών σας",
 "The php-ldap module is needed connect to your ldap server" => "Το άρθρωμα php-ldap απαιτείται για σύνδεση με τον ldap εξυπηρετητή σας",
 "The php-zip module is needed download multiple files at once" => "Το άρθρωμα php-zip απαιτείται για λήψη πολλών αρχείων με την μία",

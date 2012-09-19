@@ -1,6 +1,5 @@
 <?php $TRANSLATIONS = array(
 "The php-json module is needed by the many applications for inter communications" => "Php-json modulis yra reikalingas duomenų keitimuisi tarp programų",
-"The php-curl modude is needed to fetch the page title when adding a bookmarks" => "Php-curl modulis automatiškai nuskaito tinklapio pavadinimą kuomet išsaugoma žymelė.",
 "The php-gd module is needed to create thumbnails of your images" => "Php-gd modulis yra naudojamas paveikslėlių miniatiūroms kurti.",
 "The php-ldap module is needed connect to your ldap server" => "Php-ldap modulis yra reikalingas prisijungimui prie jūsų ldap serverio",
 "The php-zip module is needed download multiple files at once" => "Php-zip modulis yra reikalingas kelių failų atsiuntimui iš karto.",
