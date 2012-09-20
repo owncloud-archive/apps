@@ -14,7 +14,7 @@
   <?php } ?>
 </td>
 <td width="20px">
-  <a href="#" onclick="Calendar.UI.showCalDAVUrl('<?php echo OCP\USER::getUser() ?>', '<?php echo rawurlencode(html_entity_decode($_['calendar']['uri'], ENT_QUOTES, 'UTF-8')) ?>');" title="<?php echo $l->t('CalDav Link') ?>" class="action"><img class="svg action" src="<?php echo OCP\Util::imagePath('core', 'actions/public.svg') ?>"></a>
+  <a href="#" onclick="Calendar.UI.showCalDAVUrl('<?php echo $_['calendar']['userid'] ?>', '<?php echo rawurlencode(html_entity_decode($_['calendar']['uri'], ENT_QUOTES, 'UTF-8')) ?>');" title="<?php echo $l->t('CalDav Link') ?>" class="action"><img class="svg action" src="<?php echo OCP\Util::imagePath('core', 'actions/public.svg') ?>"></a>
 </td>
 <td width="20px">
   <a href="<?php echo OCP\Util::linkTo('calendar', 'export.php') . '?calid=' . $_['calendar']['id'] ?>" title="<?php echo $l->t('Download') ?>" class="action"><img class="svg action" src="<?php echo OCP\Util::imagePath('core', 'actions/download.svg') ?>"></a>
