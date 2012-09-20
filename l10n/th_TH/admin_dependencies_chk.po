@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-19 02:02+0200\n"
-"PO-Revision-Date: 2012-09-19 00:03+0000\n"
+"POT-Creation-Date: 2012-09-20 02:05+0200\n"
+"PO-Revision-Date: 2012-09-20 00:07+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "โมดูล php-json จำเป็นต้องใช้สำ�
 
 #: settings.php:39
 msgid ""
-"The php-curl modude is needed to fetch the page title when adding a bookmark"
+"The php-curl module is needed to fetch the page title when adding a bookmark"
 msgstr ""
 
 #: settings.php:45
