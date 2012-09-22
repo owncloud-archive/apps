@@ -6,14 +6,16 @@
  * See the COPYING-README file.
  */
 
-class Test_Filestorage_Archive_Zip extends Test_FileStorage {
+namespace Test\Files\Storage;
+
+class Archive_Zip extends Storage {
 	/**
 	 * @var string tmpDir
 	 */
 	private $tmpFile;
 	
 	public function setUp() {
-		$this->tmpFile=OCP\Files::tmpFile('.zip');
+		$this->tmpFile=\OCP\Files::tmpFile('.zip');
 		$this->instance=new \OC\Files\Storage\Archive(array('archive'=>$this->tmpFile));
 	}
 
@@ -22,14 +24,14 @@ class Test_Filestorage_Archive_Zip extends Test_FileStorage {
 	}
 }
 
-class Test_Filestorage_Archive_Tar extends Test_FileStorage {
+class Archive_Tar extends Storage {
 	/**
 	 * @var string tmpDir
 	 */
 	private $tmpFile;
 
 	public function setUp() {
-		$this->tmpFile=OCP\Files::tmpFile('.tar.gz');
+		$this->tmpFile=\OCP\Files::tmpFile('.tar.gz');
 		$this->instance=new \OC\Files\Storage\Archive(array('archive'=>$this->tmpFile));
 	}
 
