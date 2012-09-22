@@ -18,14 +18,14 @@ class Archive extends Common{
 	private static $mounted=array();
 	private static $enableAutomount=true;
 	private static $rootView;
-	
+
 	private function stripPath($path) {//files should never start with /
 		if(!$path || $path[0]=='/') {
 			$path=substr($path,1);
 		}
 		return $path;
 	}
-	
+
 	public function __construct($params) {
 		$this->archive=\OC_Archive::open($params['archive']);
 		$this->path=$params['archive'];
@@ -120,6 +120,7 @@ class Archive extends Common{
 			$tmpFile=\OCP\Files::tmpFile();
 			$this->archive->extractFile($path,$tmpFile);
 			$this->archive->addfile($path,$tmpFile);
+			return true;
 		}else{
 			return false;//not supported
 		}
@@ -141,7 +142,7 @@ class Archive extends Common{
 
 	/**
 	 * automount paths from file hooks
-	 * @param array params
+	 * @param array $params
 	 */
 	public static function autoMount($params) {
 		if(!self::$enableAutomount) {
@@ -173,5 +174,9 @@ class Archive extends Common{
 
 	public function hasUpdated($path,$time) {
 		return $this->filemtime($this->path)>$time;
+	}
+
+	public function getId() {
+		return 'archive::'.$this->path;
 	}
 }
