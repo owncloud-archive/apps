@@ -22,11 +22,12 @@ Mail={
 					folders = jsondata.data;
 				}
 			});
-			$('#leftcontent').html(folders);
+			$('#mail-folders').html(folders);
 			
 			first_folder = $('#leftcontent .mail_folders li')
 			
 			if( first_folder.length > 0 ){
+                $('#leftcontent').fadeIn(800);
 				first_folder = first_folder.first();
 				folder_id = first_folder.data('folder_id');
 				account_id = first_folder.parent().data('account_id');
@@ -38,15 +39,17 @@ Mail={
 					type:'GET',
 					success:function(jsondata){
 						messages = jsondata.data;
-					},
-				});
+					}
+                });
 				$('#rightcontent').html( messages );
 				
 				// Save current folder
 				Mail.UI.setFolderActive(account_id, folder_id);
 				Mail.State.current_account_id = account_id;
 				Mail.State.current_folder_id = folder_id;
-			}
+			} else {
+                $('#leftcontent').fadeOut(800);
+            }
 		},
 		
 		loadMessages:function( account_id, folder_id ){

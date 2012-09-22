@@ -15,7 +15,6 @@ namespace OCA\ownpad_lite;
 $serviceUrl = isset($_POST[App::CONFIG_ETHERPAD_URL]) ? $_POST[App::CONFIG_ETHERPAD_URL] : false;
 $username = isset($_POST[App::CONFIG_USERNAME]) ? $_POST[App::CONFIG_USERNAME] : false;
 
-//Validation
 $errors = array();
 
 $username = preg_replace('/[^0-9a-zA-Z\.\-_]*/i', '', $username);

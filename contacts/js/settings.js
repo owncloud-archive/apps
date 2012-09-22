@@ -34,10 +34,13 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 			if(check == false){
 				return false;
 			} else {
+				var row = $('.addressbooks-settings tr[data-id="'+id+'"]');
+				OC.Contacts.loading(row.find('.name'));
 				$.post(OC.filePath('contacts', 'ajax', 'addressbook/delete.php'), { id: id}, function(jsondata) {
 					if (jsondata.status == 'success'){
 						$('#contacts h3[data-id="'+id+'"],#contacts ul[data-id="'+id+'"]').remove();
-						$('.addressbooks-settings tr[data-id="'+id+'"]').remove()
+						row.remove()
+						OC.Contacts.Settings.Addressbook.showActions(['new',]);
 						OC.Contacts.Contacts.update();
 					} else {
 						OC.dialogs.alert(jsondata.data.message, t('contacts', 'Error'));
@@ -49,7 +52,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 			console.log('doEdit: ', id);
 			var owner = this.adrsettings.find('[data-id="'+id+'"]').data('owner');
 			var actions = ['description', 'save', 'cancel'];
-			if(owner == OC.currentUser) {
+			if(owner == OC.currentUser || id === 'new') {
 				actions.push('active', 'name');
 			}
 			this.showActions(actions);

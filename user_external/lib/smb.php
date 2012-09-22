@@ -12,7 +12,7 @@ class OC_User_SMB extends OC_User_Backend{
 	const smbclient='smbclient';
 	const loginError='NT_STATUS_LOGON_FAILURE';
 	
-	public function __construct($host){
+	public function __construct($host) {
 		$this->host=$host;
 	}
 	
@@ -24,20 +24,20 @@ class OC_User_SMB extends OC_User_Backend{
 	 *
 	 * Check if the password is correct without logging in the user
 	 */
-	public function checkPassword($uid, $password){
+	public function checkPassword($uid, $password) {
 		$uidEscaped=escapeshellarg($uid);
 		$password=escapeshellarg($password);
 		$result=array();
 		$command=self::smbclient.' //'.$this->host.'/dummy -U'.$uidEscaped.'%'.$password;
 		$result=exec($command,$result);
-		if(substr($result,-strlen(self::loginError))==self::loginError){
+		if(substr($result,-strlen(self::loginError))==self::loginError) {
 			return false;
 		}else{
 			return $uid;
 		}
 	}
 	
-	public function userExists($uid){
+	public function userExists($uid) {
 		return true;
 	}
 }

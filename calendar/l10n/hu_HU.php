@@ -114,8 +114,6 @@
 "Settings" => "Beállítások",
 "Your calendars" => "Naptárjaid",
 "CalDav Link" => "CalDAV link",
-"Shared calendars" => "Megosztott naptárak",
-"No shared calendars" => "Nincs megosztott naptár",
 "Share Calendar" => "Naptármegosztás",
 "Download" => "Letöltés",
 "Edit" => "Szerkesztés",

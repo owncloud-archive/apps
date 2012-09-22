@@ -5,7 +5,7 @@
  * later.
  * See the COPYING-README file.
  */
- 
+
 OCP\JSON::checkLoggedIn();
 OCP\JSON::callCheck();
 
@@ -24,11 +24,11 @@ $dtstart = $vevent->DTSTART;
 $dtend = OC_Calendar_Object::getDTEndFromVEvent($vevent);
 $start_type = $dtstart->getDateType();
 $end_type = $dtend->getDateType();
-if ($allday && $start_type != Sabre_VObject_Property_DateTime::DATE){
+if ($allday && $start_type != Sabre_VObject_Property_DateTime::DATE) {
 	$start_type = $end_type = Sabre_VObject_Property_DateTime::DATE;
 	$dtend->setDateTime($dtend->getDateTime()->modify('+1 day'), $end_type);
 }
-if (!$allday && $start_type == Sabre_VObject_Property_DateTime::DATE){
+if (!$allday && $start_type == Sabre_VObject_Property_DateTime::DATE) {
 	$start_type = $end_type = Sabre_VObject_Property_DateTime::LOCALTZ;
 }
 $dtstart->setDateTime($dtstart->getDateTime()->add($delta), $start_type);

@@ -4,21 +4,22 @@
 # 
 # Translators:
 #   <intense.feel@gmail.com>, 2012.
+#   <martin.babik@gmail.com>, 2012.
 # Roman Priesol <roman@priesol.net>, 2012.
 #   <zixo@zixo.sk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:01+0200\n"
-"PO-Revision-Date: 2012-09-02 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-22 02:01+0200\n"
+"PO-Revision-Date: 2012-09-21 10:26+0000\n"
+"Last-Translator: martinb <martin.babik@gmail.com>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sk_SK\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
@@ -76,11 +77,11 @@ msgstr "Pokúšate sa pridať rovnaký atribút:"
 
 #: ajax/contact/addproperty.php:115 ajax/contact/saveproperty.php:93
 msgid "Missing IM parameter."
-msgstr ""
+msgstr "Chýba údaj o IM."
 
 #: ajax/contact/addproperty.php:119 ajax/contact/saveproperty.php:97
 msgid "Unknown IM: "
-msgstr ""
+msgstr "Neznáme IM:"
 
 #: ajax/contact/deleteproperty.php:37
 msgid "Information about vCard is incorrect. Please reload the page."
@@ -225,73 +226,110 @@ msgstr "Neimplementované"
 msgid "Couldn't get a valid address."
 msgstr "Nemôžem získať platnú adresu."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:687 js/contacts.js:727
-#: js/contacts.js:753 js/contacts.js:885 js/contacts.js:891 js/contacts.js:903
-#: js/contacts.js:940 js/contacts.js:1214 js/contacts.js:1222
-#: js/contacts.js:1231 js/contacts.js:1266 js/contacts.js:1302
-#: js/contacts.js:1317 js/contacts.js:1343 js/contacts.js:1573
-#: js/contacts.js:1608 js/contacts.js:1628 js/settings.js:26 js/settings.js:43
-#: js/settings.js:68
+#: js/contacts.js:76 js/contacts.js:363 js/contacts.js:685 js/contacts.js:725
+#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
+#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
+#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
+#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1574
+#: js/contacts.js:1609 js/contacts.js:1629 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
 msgstr "Chyba"
 
-#: js/contacts.js:410
+#: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
-msgstr ""
+msgstr "Nemáte oprávnenie pre pridanie kontaktu do"
 
-#: js/contacts.js:411
+#: js/contacts.js:407
 msgid "Please select one of your own address books."
-msgstr ""
+msgstr "Zvoľte jeden z vašich adresárov."
 
-#: js/contacts.js:411
+#: js/contacts.js:407
 msgid "Permission error"
-msgstr ""
+msgstr "Porucha oprávnenia."
 
-#: js/contacts.js:727
+#: js/contacts.js:725
 msgid "This property has to be non-empty."
 msgstr "Tento parameter nemôže byť prázdny."
 
-#: js/contacts.js:753
+#: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr "Nemôžem previesť prvky."
 
-#: js/contacts.js:885 js/contacts.js:903
+#: js/contacts.js:883 js/contacts.js:901
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "'deleteProperty' zavolané bez argument. Prosím oznámte chybu na bugs.owncloud.org"
 
-#: js/contacts.js:922
+#: js/contacts.js:920
 msgid "Edit name"
 msgstr "Upraviť meno"
 
-#: js/contacts.js:1214
+#: js/contacts.js:1212
 msgid "No files selected for upload."
 msgstr "Žiadne súbory neboli vybrané k nahratiu"
 
-#: js/contacts.js:1222
+#: js/contacts.js:1220 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Súbor, ktorý sa pokúšate nahrať, presahuje maximálnu povolenú veľkosť."
 
-#: js/contacts.js:1286
+#: js/contacts.js:1284
 msgid "Error loading profile picture."
-msgstr ""
+msgstr "Chyba pri nahrávaní profilového obrázku."
 
-#: js/contacts.js:1421 js/contacts.js:1462 js/contacts.js:1481
-#: js/contacts.js:1524
+#: js/contacts.js:1420 js/contacts.js:1463 js/contacts.js:1482
+#: js/contacts.js:1525
 msgid "Select type"
 msgstr "Vybrať typ"
 
-#: js/contacts.js:1542
+#: js/contacts.js:1543
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
+msgstr "Počkajte prosím do skončenia mazania kontaktov označených na mazanie."
+
+#: js/contacts.js:1614
+msgid "Do you want to merge these address books?"
+msgstr "Chcete zlúčiť tieto adresáre?"
+
+#: js/contacts.js:2068
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr ""
 
-#: js/contacts.js:1613
-msgid "Do you want to merge these address books?"
+#: js/contacts.js:2068
+msgid "Upload Error"
+msgstr ""
+
+#: js/contacts.js:2075
+msgid "Upload too large"
+msgstr ""
+
+#: js/contacts.js:2123
+msgid "Pending"
+msgstr ""
+
+#: js/contacts.js:2155
+msgid "Import done"
+msgstr ""
+
+#: js/contacts.js:2168
+msgid "Not all files uploaded. Retrying..."
+msgstr ""
+
+#: js/contacts.js:2174
+msgid "Something went wrong with the upload, please retry."
+msgstr ""
+
+#: js/contacts.js:2190
+msgid "Importing..."
+msgstr ""
+
+#: js/contacts.js:2211
+msgid "The address book name cannot be empty."
 msgstr ""
 
 #: js/loader.js:49
@@ -306,29 +344,33 @@ msgstr " importovaných, "
 msgid " failed."
 msgstr " zlyhaných."
 
-#: js/settings.js:68
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr ""
 
-#: lib/addressbook.php:223
+#: lib/addressbook.php:138
+msgid "You do not have the permissions to read this addressbook."
+msgstr ""
+
+#: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:243
+#: lib/addressbook.php:259
 msgid "There was an error updating the addressbook."
 msgstr ""
 
-#: lib/addressbook.php:299
+#: lib/addressbook.php:315
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "Nemáte oprávnenie pre zmazanie tohto adresára."
 
-#: lib/addressbook.php:328
+#: lib/addressbook.php:344
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "Vyskytla sa chyba pri mazaní tohto adresára."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
-msgstr ""
+msgstr "Adresár nebol nájdený:"
 
 #: lib/app.php:52
 msgid "This is not your addressbook."
@@ -340,51 +382,51 @@ msgstr "Kontakt nebol nájdený."
 
 #: lib/app.php:116
 msgid "Jabber"
-msgstr ""
+msgstr "Jabber"
 
 #: lib/app.php:121
 msgid "AIM"
-msgstr ""
+msgstr "AIM"
 
 #: lib/app.php:126
 msgid "MSN"
-msgstr ""
+msgstr "MSN"
 
 #: lib/app.php:131
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: lib/app.php:136
 msgid "GoogleTalk"
-msgstr ""
+msgstr "GoogleTalk"
 
 #: lib/app.php:141
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: lib/app.php:146
 msgid "XMPP"
-msgstr ""
+msgstr "XMPP"
 
 #: lib/app.php:151
 msgid "ICQ"
-msgstr ""
+msgstr "ICQ"
 
 #: lib/app.php:156
 msgid "Yahoo"
-msgstr ""
+msgstr "Yahoo"
 
 #: lib/app.php:161
 msgid "Skype"
-msgstr ""
+msgstr "Skype"
 
 #: lib/app.php:166
 msgid "QQ"
-msgstr ""
+msgstr "QQ"
 
 #: lib/app.php:171
 msgid "GaduGadu"
-msgstr ""
+msgstr "GaduGadu"
 
 #: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
 msgid "Work"
@@ -394,7 +436,7 @@ msgstr "Práca"
 msgid "Home"
 msgstr "Domov"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:624
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
 msgid "Other"
 msgstr "Iné"
 
@@ -465,7 +507,7 @@ msgstr ""
 
 #: lib/app.php:260
 msgid "Jubilee"
-msgstr ""
+msgstr "Jubileum"
 
 #: lib/app.php:261
 msgid "Meeting"
@@ -473,7 +515,7 @@ msgstr "Stretnutie"
 
 #: lib/app.php:263
 msgid "Personal"
-msgstr ""
+msgstr "Osobné"
 
 #: lib/app.php:264
 msgid "Projects"
@@ -491,99 +533,95 @@ msgstr "Narodeniny {name}"
 msgid "Contact"
 msgstr "Kontakt"
 
-#: lib/vcard.php:295
+#: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
 msgstr ""
 
-#: lib/vcard.php:399
+#: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
 msgstr ""
 
-#: lib/vcard.php:416
+#: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
-msgstr ""
+msgstr "Nemáte oprávnenie pre úpravu tohto kontaktu."
 
-#: lib/vcard.php:487
+#: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
 msgstr ""
 
-#: lib/vcard.php:495
+#: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
 msgstr ""
 
-#: lib/vcard.php:510
+#: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
-msgstr ""
+msgstr "Nemáte oprávnenie pre zmazanie tohto kontaktu."
 
-#: lib/vcard.php:528
+#: lib/vcard.php:550
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "Vyskytla sa chyba pri mazaní tohto kontaktu."
 
 #: templates/index.php:14
 msgid "Add Contact"
 msgstr "Pridať Kontakt."
 
-#: templates/index.php:15 templates/index.php:16 templates/part.import.php:17
+#: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
 msgstr "Importovať"
 
-#: templates/index.php:18
+#: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Nastavenia"
 
-#: templates/index.php:18 templates/settings.php:9
-msgid "Addressbooks"
-msgstr "Adresáre"
-
-#: templates/index.php:32 templates/part.import.php:24
+#: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
 msgstr "Zatvoriť"
 
-#: templates/index.php:33
+#: templates/index.php:31
 msgid "Keyboard shortcuts"
 msgstr "Klávesové skratky"
 
-#: templates/index.php:35
+#: templates/index.php:33
 msgid "Navigation"
 msgstr "Navigácia"
 
-#: templates/index.php:38
+#: templates/index.php:36
 msgid "Next contact in list"
 msgstr "Ďalší kontakt v zozname"
 
-#: templates/index.php:40
+#: templates/index.php:38
 msgid "Previous contact in list"
 msgstr "Predchádzajúci kontakt v zozname"
 
-#: templates/index.php:42
+#: templates/index.php:40
 msgid "Expand/collapse current addressbook"
-msgstr ""
+msgstr "Roztiahnuť/stiahnuť aktuálny adresár"
+
+#: templates/index.php:42
+msgid "Next addressbook"
+msgstr "Ďalší adresár"
 
 #: templates/index.php:44
-msgid "Next addressbook"
-msgstr ""
-
-#: templates/index.php:46
 msgid "Previous addressbook"
-msgstr ""
+msgstr "Predošlý adresár"
 
-#: templates/index.php:50
+#: templates/index.php:48
 msgid "Actions"
 msgstr "Akcie"
 
-#: templates/index.php:53
+#: templates/index.php:51
 msgid "Refresh contacts list"
 msgstr "Obnov zoznam kontaktov"
 
-#: templates/index.php:55
+#: templates/index.php:53
 msgid "Add new contact"
 msgstr "Pridaj nový kontakt"
 
-#: templates/index.php:57
+#: templates/index.php:55
 msgid "Add new addressbook"
 msgstr "Pridaj nový adresár"
 
-#: templates/index.php:59
+#: templates/index.php:57
 msgid "Delete current contact"
 msgstr "Vymaž súčasný kontakt"
 
@@ -622,7 +660,7 @@ msgstr "Organizácia"
 
 #: templates/part.contact.php:40 templates/part.contact.php:42
 #: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:46
+#: templates/part.contact.php:50 templates/settings.php:49
 msgid "Delete"
 msgstr "Odstrániť"
 
@@ -636,11 +674,11 @@ msgstr "Zadajte prezývku"
 
 #: templates/part.contact.php:43 templates/part.contact.php:134
 msgid "Web site"
-msgstr ""
+msgstr "Web stránka"
 
 #: templates/part.contact.php:44
 msgid "http://www.somesite.com"
-msgstr ""
+msgstr "http://www.stranka.sk"
 
 #: templates/part.contact.php:44
 msgid "Go to web site"
@@ -693,11 +731,11 @@ msgstr "Odstrániť telefónne číslo"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
-msgstr ""
+msgstr "Okamžité správy IM"
 
 #: templates/part.contact.php:101
 msgid "Delete IM"
-msgstr ""
+msgstr "Zmazať IM"
 
 #: templates/part.contact.php:110
 msgid "View on map"
@@ -725,7 +763,7 @@ msgstr "E-mail"
 
 #: templates/part.contact.php:131
 msgid "Instant Messaging"
-msgstr ""
+msgstr "Okamžité správy IM"
 
 #: templates/part.contact.php:132
 msgid "Address"
@@ -774,7 +812,7 @@ msgstr "Rozšírené"
 
 #: templates/part.edit_address_dialog.php:33
 msgid "Apartment number etc."
-msgstr ""
+msgstr "Číslo bytu a pod."
 
 #: templates/part.edit_address_dialog.php:36
 #: templates/part.edit_address_dialog.php:39
@@ -787,7 +825,7 @@ msgstr "Región"
 
 #: templates/part.edit_address_dialog.php:45
 msgid "E.g. state or province"
-msgstr ""
+msgstr "Napr. štát alebo provincia"
 
 #: templates/part.edit_address_dialog.php:48
 msgid "Zipcode"
@@ -903,16 +941,21 @@ msgid "Importing contacts"
 msgstr "Importovanie kontaktov"
 
 #: templates/part.no_contacts.php:3
-msgid "You have no contacts in your addressbook."
-msgstr "Nemáte žiadne kontakty v adresári."
+msgid ""
+"<h3>You have no contacts in your addressbook.</h3><p>You can import VCF "
+"files by dragging them to the contacts list and either drop them on an "
+"addressbook to import into it, or on an empty spot to create a new "
+"addressbook and import into that.<br />You can also import by clicking on "
+"the import button at the bottom of the list.</p>"
+msgstr ""
 
-#: templates/part.no_contacts.php:5
+#: templates/part.no_contacts.php:9
 msgid "Add contact"
 msgstr "Pridať kontakt"
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
-msgstr ""
+msgstr "Zvoliť adresáre"
 
 #: templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -920,7 +963,7 @@ msgstr "Zadaj meno"
 
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
-msgstr ""
+msgstr "Zadať popis"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"
@@ -938,46 +981,50 @@ msgstr "Predvolená adresa (Kontakt etc)"
 msgid "iOS/OS X"
 msgstr "iOS/OS X"
 
-#: templates/settings.php:22
-msgid "Show CardDav link"
-msgstr ""
+#: templates/settings.php:9
+msgid "Addressbooks"
+msgstr "Adresáre"
 
 #: templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "Zobraz odkaz pre CardDav"
+
+#: templates/settings.php:28
 msgid "Show read-only VCF link"
-msgstr ""
+msgstr "Zobraz VCF odkaz len na čítanie"
 
-#: templates/settings.php:32
+#: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "Zdieľať"
 
-#: templates/settings.php:36
+#: templates/settings.php:39
 msgid "Download"
 msgstr "Stiahnuť"
 
-#: templates/settings.php:41
+#: templates/settings.php:44
 msgid "Edit"
 msgstr "Upraviť"
 
-#: templates/settings.php:54
+#: templates/settings.php:57
 msgid "New Address Book"
 msgstr "Nový adresár"
 
-#: templates/settings.php:55
+#: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Meno"
 
-#: templates/settings.php:56
+#: templates/settings.php:59
 msgid "Description"
-msgstr ""
+msgstr "Popis"
 
-#: templates/settings.php:57
+#: templates/settings.php:60
 msgid "Save"
 msgstr "Uložiť"
 
-#: templates/settings.php:58
+#: templates/settings.php:61
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: templates/settings.php:63
+#: templates/settings.php:66
 msgid "More..."
-msgstr ""
+msgstr "Viac..."

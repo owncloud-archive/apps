@@ -39,7 +39,7 @@ var News = News || {};
         
         // mark items whose title was hid under the top edge as read
         this._scrollTimeoutMiliSecs = 100;
-        this._markReadTimeoutMiliSecs = 1000;
+        this._markReadTimeoutMiliSecs = 500;
         this._isScrolling = false;
         this._$articleList.scroll(function(){
             // prevent too many scroll requests;
@@ -53,7 +53,7 @@ var News = News || {};
                     var item = this;
                     var itemOffset = $(item).position().top;
                     if(itemOffset <= 0){
-                        setTimeout(function(){ 
+                        setTimeout(function(){
                             self._markItemAsReadTimeout(item);
                         }, self._markReadTimeoutMiliSecs);
                     }
@@ -63,7 +63,7 @@ var News = News || {};
         });
 
         this._itemCache.populate(this._$articleList.children('ul'));
-    }
+    };
 
     /**
      * Marks an item as read which is called by the timeout
@@ -72,14 +72,14 @@ var News = News || {};
     Items.prototype._markItemAsReadTimeout = function(item) {
         var itemId = parseInt($(item).data('id'));
         var itemOffset = $(item).position().top;
-        var item = this._itemCache.getItem(itemId);
+        var cachedItem = this._itemCache.getItem(itemId);
         if(itemOffset < 0){
-            if(!item.isLocked()){
+            if(!cachedItem.isLocked()){
                 // lock item to prevent massive request when scrolling
-                item.setLocked(true);
-                item.setRead(true);
+                cachedItem.setLocked(true);
+                cachedItem.setRead(true);
             }
-        } 
+        }
     };
 
     /**
@@ -89,6 +89,9 @@ var News = News || {};
      * @param onSuccessCallback a callback that is executed when the loading succeeded
      */
     Items.prototype.load = function(type, id, onSuccessCallback) {
+        this._lastActiveFeedId = id;
+        this._lastActiveFeedType = type;
+
         var self = this;
         var data = {
             id: id,
@@ -100,20 +103,24 @@ var News = News || {};
         this._$articleList.children('ul').hide();
 
         $.post(OC.filePath('news', 'ajax', 'loadfeed.php'), data, function(jsonData) {
-            if(jsonData.status == 'success'){
-                self._$articleList.empty() // FIXME: does this also removed cached items?
-                self._itemCache.populate(jsonData.data.feedItems);
+            // prevent loading in selected feeds that are not active any more when
+            // the post finishes later
+            if(self._lastActiveFeedType === type && self._lastActiveFeedId === id){
+                if(jsonData.status == 'success'){
+                    self._$articleList.empty(); // FIXME: does this also removed cached items?
+                    self._itemCache.populate(jsonData.data.feedItems);
 
-                var $items = self._itemCache.getFeedHtml(type, id);
-                self._$articleList.append($items);
-                self._$articleList.scrollTop(0);
-                onSuccessCallback();
-            } else {
-                OC.dialogs.alert(t('news', 'Error while loading the feed'), t('news', 'Error'));
-                self._$articleList.children('ul').show();
+                    var $items = self._itemCache.getFeedHtml(type, id);
+                    self._$articleList.append($items);
+                    self._$articleList.scrollTop(0);
+                    onSuccessCallback();
+                } else {
+                    OC.dialogs.alert(t('news', 'Error while loading the feed'), t('news', 'Error'));
+                    self._$articleList.children('ul').show();
+                }
+                self._$articleList.removeClass('loading');
+                self._setScrollBottom();
             }
-            self._$articleList.removeClass('loading');
-            self._setScrollBottom();
         });
     };
 
@@ -155,7 +162,7 @@ var News = News || {};
             var $items = $('.feed_item');
             if($items.length > 0){
                 var id = parseInt($items.last().data('id'));
-                self._jumpToElemenId(id);    
+                self._jumpToElemenId(id);
             }
         }
     };
@@ -197,12 +204,12 @@ var News = News || {};
         this._markCurrentlyViewed();
     };
 
-    /** 
+    /**
      * Adds padding to the bottom to be able to scroll the last element beyond
      * the top area
      */
     Items.prototype._setScrollBottom = function() {
-        var padding = this._$articleList.height() - 80; 
+        var padding = this._$articleList.height() - 80;
         this._$articleList.children('ul').css('padding-bottom', padding + 'px');
     };
 
@@ -245,7 +252,7 @@ var News = News || {};
     var ItemCache = function() {
         this._items = {};
         this._feeds = {};
-    }
+    };
 
     /**
      * Returns an item from the cache
@@ -262,10 +269,11 @@ var News = News || {};
      * @param id the id
      */
     ItemCache.prototype.markAllRead = function(type, id) {
+        var itemId;
         var ids = this._getItemIdTimestampPairs(type, id);
         for(var i=0; i<ids.length; i++){
-            var id = ids[i].key;
-            this._items[id].setReadLocally();
+            itemId = ids[i].key;
+            this._items[itemId].setReadLocally();
         }
     };
 
@@ -294,7 +302,7 @@ var News = News || {};
 
 
     ItemCache.prototype._getItemIdTimestampPairs = function(type, id) {
-        var pairs = new Array();
+        var pairs = [];
         if(Object.keys(this._feeds).length === 0 || Object.keys(this._items).length === 0){
             return pairs;
         }
@@ -409,11 +417,14 @@ var News = News || {};
         this._read = this._$html.hasClass('read');
         this._locked = false;
         this._important = this._$html.find('li.star').hasClass('important');
+        // get timestamp for sorting
         var $stamp = this._$html.find('.timestamp');
         this._timestamp = parseInt($stamp.html());
         $stamp.remove();
+        // open all links in new tabs
+        this._$html.find('.body a').attr('target', '_blank');
         this._bindItemEventListeners();
-     }
+     };
 
     /**
      * @return the id of the item
@@ -513,8 +524,8 @@ var News = News || {};
 
         if(read && this._isKeptUnread()){
             this.setLocked(false);
-            return; 
-        } 
+            return;
+        }
 
         if(read){
             status = 'read';
@@ -595,7 +606,7 @@ var News = News || {};
     Item.prototype._toggleKeepUnread = function() {
         var checkBox = this._$html.find('.keep_unread input[type=checkbox]');
         if(this._isKeptUnread()){
-            this._$html.removeClass('keep_unread');    
+            this._$html.removeClass('keep_unread');
             checkBox.prop("checked", false);
         } else {
             this.setRead(false);

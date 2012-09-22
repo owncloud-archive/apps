@@ -94,4 +94,3 @@ unset($contacts_alphabet);
 uasort($contacts_addressbook, 'cmp');
 
 OCP\JSON::success(array('data' => array('entries' => $contacts_addressbook)));
-

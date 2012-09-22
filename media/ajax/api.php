@@ -5,20 +5,20 @@
 *
 * @author Robin Appelman
 * @copyright 2010 Robin Appelman icewind1991@gmail.com
-* 
+*
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
-* License as published by the Free Software Foundation; either 
+* License as published by the Free Software Foundation; either
 * version 3 of the License, or any later version.
-* 
+*
 * This library is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
-*  
-* You should have received a copy of the GNU Lesser General Public 
+*
+* You should have received a copy of the GNU Lesser General Public
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
-* 
+*
 */
 
 header('Content-type: text/html; charset=UTF-8') ;
@@ -31,34 +31,34 @@ session_write_close();
 
 $arguments=$_POST;
 
-if(!isset($_POST['action']) and isset($_GET['action'])){
+if(!isset($_POST['action']) and isset($_GET['action'])) {
 	$arguments=$_GET;
 }
 
-foreach($arguments as &$argument){
+foreach($arguments as &$argument) {
 	$argument=stripslashes($argument);
 }
 @ob_clean();
-if(!isset($arguments['artist'])){
+if(!isset($arguments['artist'])) {
 	$arguments['artist']=0;
 }
-if(!isset($arguments['album'])){
+if(!isset($arguments['album'])) {
 	$arguments['album']=0;
 }
-if(!isset($arguments['search'])){
+if(!isset($arguments['search'])) {
 	$arguments['search']='';
 }
 
 session_write_close();
 
 OC_MEDIA_COLLECTION::$uid=OCP\USER::getUser();
-if($arguments['action']){
-	switch($arguments['action']){
+if($arguments['action']) {
+	switch($arguments['action']) {
 		case 'delete':
 			$path=$arguments['path'];
 			OC_MEDIA_COLLECTION::deleteSongByPath($path);
 			$paths=explode(PATH_SEPARATOR,OCP\Config::getUserValue(OCP\USER::getUser(),'media','paths',''));
-			if(array_search($path,$paths)!==false){
+			if(array_search($path,$paths)!==false) {
 				unset($paths[array_search($path,$paths)]);
 				OCP\Config::setUserValue(OCP\USER::getUser(),'media','paths',implode(PATH_SEPARATOR,$paths));
 			}
@@ -90,13 +90,13 @@ if($arguments['action']){
 			OCP\JSON::encodedPrint(OC_MEDIA_COLLECTION::getSongs($arguments['artist'],$arguments['album'],$arguments['search']));
 			break;
 		case 'get_path_info':
-			if(OC_Filesystem::file_exists($arguments['path'])){
+			if(OC_Filesystem::file_exists($arguments['path'])) {
 				$songId=OC_MEDIA_COLLECTION::getSongByPath($arguments['path']);
-				if($songId==0){
+				if($songId==0) {
 					unset($_SESSION['collection']);
 					$songId= OC_MEDIA_SCANNER::scanFile($arguments['path']);
 				}
-				if($songId>0){
+				if($songId>0) {
 					$song=OC_MEDIA_COLLECTION::getSong($songId);
 					$song['artist']=OC_MEDIA_COLLECTION::getArtistName($song['song_artist']);
 					$song['album']=OC_MEDIA_COLLECTION::getAlbumName($song['song_album']);
@@ -106,23 +106,23 @@ if($arguments['action']){
 			break;
 		case 'play':
 			@ob_end_clean();
-			
+
 			$ftype=OC_Filesystem::getMimeType( $arguments['path'] );
-			if(substr($ftype,0,5)!='audio' and $ftype!='application/ogg'){
+			if(substr($ftype,0,5)!='audio' and $ftype!='application/ogg') {
 				echo 'Not an audio file';
 				exit();
 			}
-			
+
 			$songId=OC_MEDIA_COLLECTION::getSongByPath($arguments['path']);
 			OC_MEDIA_COLLECTION::registerPlay($songId);
-			
+
 			header('Content-Type:'.$ftype);
 			OCP\Response::enableCaching(3600 * 24); // 24 hour
 			header('Accept-Ranges: bytes');
 			header('Content-Length: '.OC_Filesystem::filesize($arguments['path']));
 			$mtime = OC_Filesystem::filemtime($arguments['path']);
 			OCP\Response::setLastModifiedHeader($mtime);
-			
+
 			OC_Filesystem::readfile($arguments['path']);
 			exit;
 		case 'find_music':

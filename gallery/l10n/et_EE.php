@@ -1,12 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "Pildid",
-"Settings" => "Seaded",
-"Rescan" => "Skänni uuesti",
-"Stop" => "Peata",
-"Share" => "Jaga",
-"Back" => "Tagasi",
-"Remove confirmation" => "Eemaldamise kinnitus",
-"Do you want to remove album" => "Kas sa soovid albumit eemaldada",
-"Change album name" => "Muuda albumi nime",
-"New album name" => "Uue albumi nimi"
+"Galleries" => "Galeriid",
+"Share gallery" => "Jaga galeriid",
+"Error: " => "Viga: ",
+"Internal error" => "Sisemine viga",
+"Slideshow" => "Slaidiseanss",
+"The \"Image Viewer\" application also need to be enabled to use this application." => "\"Pildivaataja\" rakendus tuleb sisse lülitada, et seda rakendust kasutada."
 );

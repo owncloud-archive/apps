@@ -1,5 +1,5 @@
 $(document).ready(function(){
-        
+
 	$.endSlideshow = function () {
 		if($.supersized.vars.slideshow_interval){
 			clearInterval($.supersized.vars.slideshow_interval);
@@ -9,7 +9,7 @@ $(document).ready(function(){
 		$('#slideshow-content').hide();
 		$('#thumb-list').remove();
 	}
-        
+
 	// add slideshow in holder div
 	$('#slideshow input.start').click(function(){
 
@@ -39,10 +39,11 @@ $(document).ready(function(){
 				transition          :   1, 		// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
 				transition_speed    :   700,		// Speed of transition
 
-				// Components							
-				slide_links         :   'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+				// Components
+				slide_links         :   false,	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+				new_window          :   false,
 				slides              :   images		// Slideshow Images
-							    
+
 			});
 		});
 

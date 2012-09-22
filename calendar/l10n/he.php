@@ -113,8 +113,6 @@
 "Settings" => "הגדרות",
 "Your calendars" => "לוחות השנה שלך",
 "CalDav Link" => "קישור CalDav",
-"Shared calendars" => "לוחות שנה מושתפים",
-"No shared calendars" => "אין לוחות שנה משותפים",
 "Share Calendar" => "שיתוף לוח שנה",
 "Download" => "הורדה",
 "Edit" => "עריכה",

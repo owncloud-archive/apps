@@ -28,4 +28,3 @@ OCP\Util::addscript('contacts', 'loader');
 OC_Search::registerProvider('OC_Search_Provider_Contacts');
 OCP\Share::registerBackend('contact', 'OC_Share_Backend_Contact');
 OCP\Share::registerBackend('addressbook', 'OC_Share_Backend_Addressbook', 'contact');
-

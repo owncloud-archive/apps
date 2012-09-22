@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:01+0200\n"
-"PO-Revision-Date: 2012-09-05 06:32+0000\n"
+"POT-Creation-Date: 2012-09-21 02:02+0200\n"
+"PO-Revision-Date: 2012-09-20 08:08+0000\n"
 "Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -26,9 +26,8 @@ msgstr "Modulen php-json behövs av många applikationer som interagerar."
 
 #: settings.php:39
 msgid ""
-"The php-curl modude is needed to fetch the page title when adding a "
-"bookmarks"
-msgstr "Modulen php-curl behövs för att hämta sidans titel när du lägger till bokmärken."
+"The php-curl module is needed to fetch the page title when adding a bookmark"
+msgstr "Modulen php-curl behövs för att hämta sidans titel när du lägger till ett bokmärke."
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
@@ -64,6 +63,10 @@ msgstr "Direktivet allow_url_fopen i php.ini bör sättas till 1 för att kunna 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
 msgstr "Modulen php-pdo behövs för att kunna lagra ownCloud data i en databas."
+
+#: settings.php:93
+msgid "The iconv module is needed to convert data into the correct charset."
+msgstr "Modulen iconv behövs för att omvandla till korrekt teckenuppsättning."
 
 #: templates/settings.php:2
 msgid "Dependencies status"

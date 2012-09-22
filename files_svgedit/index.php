@@ -35,4 +35,3 @@ $tmpl->assign('fileContents', json_encode($filecontents));
 $tmpl->assign('filemTime', $filemtime);
 $tmpl->assign('filePath', json_encode($path));
 $tmpl->printPage();
-?>

@@ -12,21 +12,21 @@ class Test_User_Imap extends UnitTestCase{
 	 */
 	private $instance;
 
-	private function getConfig(){
+	private function getConfig() {
 		return include(__DIR__.'/config.php');
 	}
 
-	function skip(){
+	function skip() {
 		$config=$this->getConfig();
 		$this->skipUnless($config['imap']['run']);
 	} 
 
-	function setUp(){
+	function setUp() {
 		$config=$this->getConfig();
 		$this->instance=new OC_User_IMAP($config['imap']['mailbox']);
 	}
 	
-	function testLogin(){
+	function testLogin() {
 		$config=$this->getConfig();
 		$this->assertEqual($config['imap']['user'],$this->instance->checkPassword($config['imap']['user'],$config['imap']['password']));
 		$this->assertFalse($this->instance->checkPassword($config['imap']['user'],$config['imap']['password'].'foo'));

@@ -24,7 +24,7 @@ $(document).ready(function(){
 	$('#timezonedetection').change( function(){
 		var post = $('#timezonedetection').serialize();
 		$.post( OC.filePath('calendar', 'ajax/settings', 'timezonedetection.php'), post, function(data){
-			
+
 		});
 	});
 	$.getJSON(OC.filePath('calendar', 'ajax/settings', 'timeformat.php'), function(jsondata, status) {
@@ -48,7 +48,7 @@ $(document).ready(function(){
 		});
 	});
 	calendarcachecheck();
-	
+
 });
 function calendarcachecheck(){
 	$.getJSON(OC.filePath('calendar', 'ajax/cache', 'status.php'), function(jsondata, status) {

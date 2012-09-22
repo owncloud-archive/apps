@@ -89,8 +89,6 @@
 "Today" => "Hari ini",
 "Your calendars" => "Kalendar anda",
 "CalDav Link" => "Pautan CalDav",
-"Shared calendars" => "Kalendar Kongsian",
-"No shared calendars" => "Tiada kalendar kongsian",
 "Share Calendar" => "Kongsi Kalendar",
 "Download" => "Muat turun",
 "Edit" => "Edit",

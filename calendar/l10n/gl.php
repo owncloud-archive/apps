@@ -89,8 +89,6 @@
 "Today" => "Hoxe",
 "Your calendars" => "Os seus calendarios",
 "CalDav Link" => "Ligazón CalDav",
-"Shared calendars" => "Calendarios compartidos",
-"No shared calendars" => "Sen calendarios compartidos",
 "Share Calendar" => "Compartir calendario",
 "Download" => "Descargar",
 "Edit" => "Editar",

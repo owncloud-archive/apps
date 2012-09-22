@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
-"PO-Revision-Date: 2012-09-05 00:35+0000\n"
+"POT-Creation-Date: 2012-09-09 02:01+0200\n"
+"PO-Revision-Date: 2012-09-08 03:32+0000\n"
 "Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -27,19 +27,19 @@ msgid "Settings"
 msgstr "ตั้งค่า"
 
 #: templates/index.php:17
-msgid "Pad Title:"
-msgstr "ชื่อของแพ็ด:"
+msgid "Pad Title"
+msgstr "ชื่อของ Pad"
 
 #: templates/index.php:18
 msgid "Open"
 msgstr "เปิด"
 
 #: templates/settings.php:15
-msgid "Etherpad service URL:"
-msgstr "URL ของบริการ Etherpad:"
+msgid "Etherpad service URL"
+msgstr "URL ของบริการจาก Etherpad"
 
 #: templates/settings.php:20
-msgid "Username:"
+msgid "Username"
 msgstr "ชื่อผู้ใช้งาน"
 
 #: templates/settings.php:27

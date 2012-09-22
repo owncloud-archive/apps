@@ -9,6 +9,7 @@
 "Empty Summary" => "Пустая сводка",
 "Invalid percent complete" => "Неверный процент завершения",
 "Invalid priority" => "Неверный приоритет",
+"The calendar application also need to be enabled to use this application." => "Для работы данного приложения необходимо включить приложение Calendar.",
 "Add Task" => "Добавить задачу",
 "Order Due" => "Срок заказа",
 "Order List" => "Список заказов",

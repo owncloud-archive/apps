@@ -31,4 +31,3 @@ Scanner={
     $('#scanprogressbar').fadeOut();
   }
 }
-

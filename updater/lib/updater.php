@@ -87,7 +87,7 @@ class Updater {
 	 * @param string $message
 	 * @return bool 
 	 */
-	protected static function error($message){
+	protected static function error($message) {
 		\OC_Log::write(App::APP_ID, $message, \OC_Log::ERROR);
 		return false;
 	}

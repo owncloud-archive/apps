@@ -28,10 +28,10 @@ class OC_Compress {
 	 * @param $target The target to compress
 	 * @return Boolean  
 	 */
-	public static function compressTarget($target){
+	public static function compressTarget($target) {
 		$oc_target = OC::$CONFIG_DATADIRECTORY . $target;
 		
-		if(OC_Filesystem::is_file($target)){
+		if(OC_Filesystem::is_file($target)) {
 			$fileinfo = pathinfo($oc_target);
 			$archiveName = $fileinfo['filename'];
 			$dirTarget = $fileinfo['dirname'];
@@ -41,7 +41,7 @@ class OC_Compress {
 		}
 		$archiveName .= '.tar';
 		
-		if(file_exists($dirTarget . '/' . $archiveName)){
+		if(file_exists($dirTarget . '/' . $archiveName)) {
 			$archiveName = md5(rand()) . '_' . $archiveName;
 		}
 		

@@ -83,4 +83,3 @@ if($path != '' && $mtime != '') {
 	OC_JSON::error(array('data' => array( 'message' => 'File path or mtime not supplied')));
 	OC_Log::write('files_svgedit',"Invalid path supplied:".$path,OC_Log::ERROR);	
 }
-?>

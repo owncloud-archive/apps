@@ -48,7 +48,7 @@ if($fn) {
 // File input transfers are handled here
 if (!isset($_FILES['importfile'])) {
 	OCP\Util::writeLog('contacts',
-		'ajax/uploadphoto.php: No file was uploaded. Unknown error.', 
+		'ajax/uploadphoto.php: No file was uploaded. Unknown error.',
 		OCP\Util::DEBUG);
 	OCP\JSON::error(array('
 		data' => array(

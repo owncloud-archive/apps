@@ -177,4 +177,3 @@ svgEditor.addExtension("server_opensave", {
 		$("#tool_image").prepend(import_img_form);
 	}
 });
-

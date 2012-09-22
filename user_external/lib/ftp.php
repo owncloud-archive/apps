@@ -11,11 +11,11 @@ class OC_User_FTP extends OC_User_Backend{
 	private $secure;
 	private $protocol;
 
-	public function __construct($host,$secure=false){
+	public function __construct($host,$secure=false) {
 		$this->host=$host;
 		$this->secure=$secure;
 		$this->protocol='ftp';
-		if($this->secure){
+		if($this->secure) {
 			$this->protocol.='s';
 		}
 		$this->protocol.='://';
@@ -29,17 +29,17 @@ class OC_User_FTP extends OC_User_Backend{
 	 *
 	 * Check if the password is correct without logging in the user
 	 */
-	public function checkPassword($uid, $password){
+	public function checkPassword($uid, $password) {
 		$url=$this->protocol.$uid.':'.$password.'@'.$this->host.'/';
 		$result=@opendir($url);
-		if(is_resource($result)){
+		if(is_resource($result)) {
 			return $uid;
 		}else{
 			return false;
 		}
 	}
 
-	public function userExists($uid){
+	public function userExists($uid) {
 		return true;
 	}
 }

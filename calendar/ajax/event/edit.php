@@ -6,14 +6,14 @@
  * See the COPYING-README file.
  */
 
- 
+
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('calendar');
 OCP\JSON::callCheck();
 
 $id = $_POST['id'];
 
-if(!array_key_exists('calendar', $_POST)){
+if(!array_key_exists('calendar', $_POST)) {
 	$cal = OC_Calendar_Object::getCalendarid($id);
 	$_POST['calendar'] = $cal;
 }else{
@@ -21,7 +21,7 @@ if(!array_key_exists('calendar', $_POST)){
 }
 
 $errarr = OC_Calendar_Object::validateRequest($_POST);
-if($errarr){
+if($errarr) {
 	//show validate errors
 	OCP\JSON::error($errarr);
 	exit;

@@ -18,8 +18,8 @@ abstract class Service
 {
   abstract public function run();
 
-  protected function getInputData(){
-    if($this->inputData == NULL){
+  protected function getInputData() {
+    if($this->inputData == NULL) {
       $this->inputData = new InputData();
     }
     return $this->inputData;

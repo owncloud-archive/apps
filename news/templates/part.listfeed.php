@@ -2,14 +2,14 @@
 
 $l = new OC_l10n('news');
 
-if(isset($_['mock'])){
+if(isset($_['mock'])) {
     $feedTitle = '';
     $feedId = -1;
     $unreadItemsCount = -1;
     $favicon = OCP\Util::imagePath('core', 'actions/public.svg');
 } else {
     $feed = isset($_['feed']) ? $_['feed'] : null;
-    $feedTitle = $feed->getTitle();
+    htmlspecialchars_decode($feedTitle = $feed->getTitle());
     $feedId =  $feed->getId();
     $unreadItemsCount = isset($_['unreadItemsCount']) ? $_['unreadItemsCount'] : null;
     $favicon = $feed->getFavicon();
@@ -19,7 +19,7 @@ if(isset($_['mock'])){
 }
 
 echo '<li class="feed" data-id="' . $feedId . '">';
-    echo '<a style="background-image: url(' . $favicon . ');" href="#" class="title">' . htmlspecialchars($feedTitle, ENT_QUOTES, 'UTF-8') .'</a>';
+    echo '<a style="background-image: url(' . $favicon . ');" href="#" class="title">' . $feedTitle .'</a>';
 	echo '<span class="unread_items_counter">' . $unreadItemsCount . '</span>';
     echo '<span class="buttons">';
         echo '<button class="svg action feeds_delete" title="' . $l->t('Delete feed') . '"></button>';

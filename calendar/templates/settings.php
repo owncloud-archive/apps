@@ -93,7 +93,7 @@
 		<dt><?php echo $l->t('Read only iCalendar link(s)'); ?></dt>
 		<dd>
 			<?php foreach($_['calendars'] as $calendar) { ?>
-			<a href="<?php echo OCP\Util::linkToRemote('caldav').'calendars/'.OCP\USER::getUser().'/'.rawurlencode($calendar['uri']) ?>?export"><?php echo $calendar['displayname'] ?></a><br />
+			<a href="<?php echo OCP\Util::linkToRemote('caldav').'calendars/'.OCP\USER::getUser().'/'.rawurlencode($calendar['uri']) ?>?export"><?php echo OCP\Util::sanitizeHTML($calendar['displayname']) ?></a><br />
 			<?php } ?>
 		</dd>
 		</dl>

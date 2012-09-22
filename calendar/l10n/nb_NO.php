@@ -82,8 +82,6 @@
 "Today" => "I dag",
 "Your calendars" => "Dine kalendere",
 "CalDav Link" => "CalDav-lenke",
-"Shared calendars" => "Delte kalendere",
-"No shared calendars" => "Ingen delte kalendere",
 "Share Calendar" => "Del Kalender",
 "Download" => "Last ned",
 "Edit" => "Endre",

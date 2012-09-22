@@ -247,7 +247,7 @@ class OC_Contacts_App {
 	 * @brief returns the default categories of ownCloud
 	 * @return (array) $categories
 	 */
-	public static function getDefaultCategories(){
+	public static function getDefaultCategories() {
 		return array(
 			(string)self::$l10n->t('Birthday'),
 			(string)self::$l10n->t('Business'),

@@ -10,7 +10,7 @@
 		<dd class="addressbooks-settings hidden">
 			<table>
 			<?php foreach($_['addressbooks'] as $addressbook) { ?>
-			<tr class="addressbook" data-id="<?php echo $addressbook['id'] ?>" 
+			<tr class="addressbook" data-id="<?php echo $addressbook['id'] ?>"
 				data-uri="<?php echo $addressbook['uri'] ?>"
 				data-owner="<?php echo $addressbook['userid'] ?>"
 				>
@@ -29,9 +29,9 @@
 				</td>
 				<td class="action">
 					<?php if($addressbook['permissions'] & OCP\Share::PERMISSION_SHARE) { ?>
-					<a class="svg action share" data-item-type="addressbook" 
-						data-item="<?php echo $addressbook['id'] ?>" 
-						data-possible-permissions="<?php echo $addressbook['permissions'] ?>" 
+					<a class="svg action share" data-item-type="addressbook"
+						data-item="<?php echo $addressbook['id'] ?>"
+						data-possible-permissions="<?php echo $addressbook['permissions'] ?>"
 						title="<?php echo $l->t("Share"); ?>"></a>
 					<?php } ?>
 				</td>

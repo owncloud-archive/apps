@@ -83,8 +83,6 @@
 "Today" => "Haut",
 "Your calendars" => "Deng Kalenneren",
 "CalDav Link" => "CalDav Link",
-"Shared calendars" => "Gedeelte Kalenneren",
-"No shared calendars" => "Keng gedeelten Kalenneren",
 "Share Calendar" => "Kalenner deelen",
 "Download" => "Eroflueden",
 "Edit" => "Editéieren",

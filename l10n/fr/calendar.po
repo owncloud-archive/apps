@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-05 02:02+0200\n"
-"PO-Revision-Date: 2012-09-04 11:35+0000\n"
+"POT-Creation-Date: 2012-09-08 02:02+0200\n"
+"PO-Revision-Date: 2012-09-07 14:01+0000\n"
 "Last-Translator: Romain DEP. <rom1dep@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr "Fuseau horaire modifié"
 msgid "Invalid request"
 msgstr "Requête invalide"
 
-#: appinfo/app.php:40 templates/calendar.php:15
+#: appinfo/app.php:38 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Calendrier"
@@ -185,23 +185,23 @@ msgstr "Questions"
 msgid "Work"
 msgstr "Travail"
 
-#: lib/app.php:345 lib/share/event.php:27
+#: lib/app.php:347 lib/share/event.php:27
 msgid "by"
 msgstr "par"
 
-#: lib/app.php:383
+#: lib/app.php:385
 msgid "unnamed"
 msgstr "sans nom"
 
-#: lib/calendar.php:153 lib/calendar.php:186
+#: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
 msgstr "Vous n'avez pas les droits suffisants pour mettre à jour ce calendrier."
 
-#: lib/calendar.php:221
+#: lib/calendar.php:233
 msgid "You do not have the permissions to delete this calendar."
 msgstr "Vous n'avez pas les droits suffisants pour supprimer ce calendrier."
 
-#: lib/calendar.php:253
+#: lib/calendar.php:265
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Vous n'avez pas les droits suffisants pour ajouter du contenu à ce calendrier."
 
@@ -527,7 +527,11 @@ msgstr "Liste"
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: templates/calendar.php:46 templates/calendar.php:47
+#: templates/calendar.php:46
+msgid "Calendars"
+msgstr "Calendriers"
+
+#: templates/calendar.php:47
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -539,14 +543,6 @@ msgstr "Vos calendriers"
 #: templates/part.choosecalendar.rowfields.php:15
 msgid "CalDav Link"
 msgstr "Lien CalDav"
-
-#: templates/part.choosecalendar.php:31
-msgid "Shared calendars"
-msgstr "Calendriers partagés"
-
-#: templates/part.choosecalendar.php:48
-msgid "No shared calendars"
-msgstr "Aucun calendrier partagé"
 
 #: templates/part.choosecalendar.rowfields.php:11
 msgid "Share Calendar"

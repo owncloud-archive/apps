@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-05 02:02+0200\n"
-"PO-Revision-Date: 2012-09-04 06:53+0000\n"
+"POT-Creation-Date: 2012-09-18 02:01+0200\n"
+"PO-Revision-Date: 2012-09-17 20:50+0000\n"
 "Last-Translator: traductor <transifex.3.mensaje@spamgourmet.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr "Datum/Uhrzeit ungültig"
+msgstr "Datum / Uhrzeit ungültig"
 
 #: appinfo/app.php:10
 msgid "Tasks"
@@ -95,7 +95,7 @@ msgstr "Nach Label sortieren"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr "Lade Aufgaben ..."
+msgstr "Lade Aufgaben..."
 
 #: templates/tasks.php:20
 msgid "Important"

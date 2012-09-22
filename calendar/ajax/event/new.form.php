@@ -6,14 +6,14 @@
  * See the COPYING-README file.
  */
 
- 
+
 
 if(!OCP\User::isLoggedIn()) {
 	die('<script type="text/javascript">document.location = oc_webroot;</script>');
 }
 OCP\JSON::checkAppEnabled('calendar');
 
-if (!isset($_POST['start'])){
+if (!isset($_POST['start'])) {
 	OCP\JSON::error();
 	die;
 }
@@ -21,7 +21,7 @@ $start = $_POST['start'];
 $end = $_POST['end'];
 $allday = $_POST['allday'];
 
-if (!$end){
+if (!$end) {
 	$duration = OCP\Config::getUserValue( OCP\USER::getUser(), 'calendar', 'duration', '60');
 	$end = $start + ($duration * 60);
 }

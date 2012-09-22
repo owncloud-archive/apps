@@ -14,6 +14,7 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('news');
 OCP\JSON::callCheck();
+session_write_close();
 
 $userid = OCP\USER::getUser();
 
@@ -54,4 +55,3 @@ OCP\JSON::success(array('data' => array( 'message' => $l->t('Feed loaded!'),
                                         'feedTitle' => $feedTitle,
 					                   'feedItems' => $feedItems,
                                        'unreadItemCount' => $unreadItemCount )));
-

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
-"PO-Revision-Date: 2012-09-06 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-17 16:59+0200\n"
+"PO-Revision-Date: 2012-09-15 16:39+0000\n"
+"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,83 +18,87 @@ msgstr ""
 "Language: th_TH\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ajax/changefoldername.php:29
+#: ajax/changefoldername.php:30
 msgid "Error changing name of folder "
 msgstr "พบข้อผิดพลาดในการเปลี่ยนชื่อของโฟลเดอร์"
 
-#: ajax/createfeed.php:51
+#: ajax/collapsefolder.php:36
+msgid "Error collapsing folder."
+msgstr "พบข้อผิดพลาดในการยุบโฟลเดอร์ลง"
+
+#: ajax/createfeed.php:52
 msgid "Feed already exists."
 msgstr "มี feed อยู่แล้วในระบบ"
 
-#: ajax/createfeed.php:57
+#: ajax/createfeed.php:58
 msgid "Error adding feed."
 msgstr "เกิดข้อผิดพลาดในการเพิ่ม feed"
 
-#: ajax/createfeed.php:70
+#: ajax/createfeed.php:71
 msgid "Feed added!"
 msgstr "เพิ่ม feed แล้ว!"
 
-#: ajax/createfolder.php:36
+#: ajax/createfolder.php:37
 msgid "Error adding folder."
 msgstr "เกิดข้อผิดพลาดในการเพิ่มโฟลเดอร์"
 
-#: ajax/createfolder.php:46
+#: ajax/createfolder.php:47
 msgid "Folder added!"
 msgstr "โฟลเดอร์ถูกเพิ่มแล้ว"
 
-#: ajax/deletefeed.php:28
+#: ajax/deletefeed.php:29
 msgid "Error removing feed."
 msgstr "เกิดข้อผิดพลาดในการลบ feed ออก"
 
-#: ajax/deletefolder.php:26
+#: ajax/deletefolder.php:27
 msgid "Error removing folder."
 msgstr "เกิดข้อผิดพลาดในการลบโฟลเดอร์ออก"
 
-#: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
-msgid "No file path was submitted."
-msgstr "ยังไม่ได้ส่งข้อมูลตำแหน่งพาธของไฟล์"
-
-#: ajax/exportopml.php:41 ajax/importopml.php:41
-msgid "An error occurred while parsing the file."
-msgstr "เกิดข้อผิดพลาดในระหว่างการแยกไฟล์ออก"
-
-#: ajax/feedlist.php:27
+#: ajax/feedlist.php:28
 msgid "Error updating feeds."
 msgstr "เกิดข้อผิดพลาดในการอัพเดท feed"
 
-#: ajax/loadfeed.php:36 templates/part.feeds.php:50
+#: ajax/importopml.php:28 ajax/selectfromcloud.php:31
+msgid "No file path was submitted."
+msgstr "ยังไม่ได้ส่งข้อมูลตำแหน่งพาธของไฟล์"
+
+#: ajax/importopml.php:42
+msgid "An error occurred while parsing the file."
+msgstr "เกิดข้อผิดพลาดในระหว่างการแยกไฟล์ออก"
+
+#: ajax/loadfeed.php:37 templates/part.feeds.php:50
 msgid "Starred"
 msgstr "ติดดาวแล้ว"
 
-#: ajax/loadfeed.php:41 templates/part.feeds.php:44
+#: ajax/loadfeed.php:42 templates/part.feeds.php:44
 msgid "New articles"
 msgstr "บทความใหม่"
 
-#: ajax/loadfeed.php:53
+#: ajax/loadfeed.php:54
 msgid "Feed loaded!"
 msgstr "โหลดข้อมูล feed แล้ว!"
 
-#: ajax/movefeedtofolder.php:36
+#: ajax/movefeedtofolder.php:37
 msgid "Error moving feed into folder."
 msgstr "เกิดข้อผิดพลาดในการย้าย feed ไปที่โฟลเดอร์"
 
-#: ajax/selectfromcloud.php:37
+#: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr "ไม่มีไฟล์ดังกล่าวอยู่ในระบบ"
 
-#: ajax/setallitemsread.php:57
+#: ajax/setallitemsread.php:60
 msgid "Error setting all items as read."
 msgstr "เกิดข้อผิดพลาดในการตั้งค่ารายการทั้งหมดว่าอ่านแล้ว"
 
-#: ajax/setitemstatus.php:46
+#: ajax/setitemstatus.php:47
 msgid "Error marking item as read."
 msgstr "เกิดข้อผิดพลาดในระหว่างการทำเครื่องหมายรายการว่าอ่านแล้ว"
 
-#: ajax/updatefeed.php:36
+#: ajax/updatefeed.php:37
 msgid "Error updating feed."
 msgstr "เกิดข้อผิดพลาดในการอัพเดท feed"
 
-#: ajax/updatefeed.php:44
+#: ajax/updatefeed.php:45
 msgid "Feed updated!"
 msgstr "อัพเดท feed แล้ว!"
 
@@ -102,14 +106,28 @@ msgstr "อัพเดท feed แล้ว!"
 msgid "News"
 msgstr "ข่าวสาร"
 
+#: js/menu.js:507
+msgid "Are you sure you want to delete this feed?"
+msgstr "คุณแน่ใจแล้วหรือว่าต้องการลบฟีดนี้ทิ้งไป?"
+
+#: js/menu.js:515
+msgid "Are you sure you want to delete this folder and all its feeds?"
+msgstr "คุณแน่ใจแล้วหรือว่าต้องการลบโฟลเดอร์และรายการฟีดทั้งหมดในโฟลเดอร์ทิ้งไป?"
+
+#: js/menu.js:523
+msgid "Warning"
+msgstr "คำเตือน"
+
+#: js/menu.js:534 js/menu.js:595 js/menu.js:617 js/menu.js:644 js/menu.js:666
+#: js/menu.js:916 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
+#: js/settings.js:47
+msgid "Error"
+msgstr "ข้อผิดพลาด"
+
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
 msgstr "ชื่อโฟลเดอร์ไม่สามารถเว้นว่างได้"
-
-#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
-#: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
-msgid "Error"
-msgstr "ข้อผิดพลาด"
 
 #: js/news.js:33 js/news.js:95
 msgid "Adding..."
@@ -176,7 +194,7 @@ msgstr "เสร็จสิ้นการนำเข้า feed จาก"
 msgid "Success"
 msgstr "เสร็จสิ้น"
 
-#: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
+#: js/settings.js:49 templates/part.nofeeds.php:19 templates/settings.php:9
 msgid "Import"
 msgstr "นำเข้า"
 
@@ -192,15 +210,15 @@ msgstr "ดาวน์โหลด"
 msgid "Select file"
 msgstr "เลือกไฟล์"
 
-#: lib/feedmapper.php:165 lib/itemmapper.php:199
+#: lib/feedmapper.php:167 lib/itemmapper.php:201
 msgid "no title"
 msgstr "ยังไม่มีชื่อ"
 
-#: lib/foldermapper.php:114
+#: lib/foldermapper.php:119
 msgid "no name"
 msgstr "ไม่มีชื่อ"
 
-#: lib/itemmapper.php:204
+#: lib/itemmapper.php:206
 msgid "no body"
 msgstr "ยังไม่มีเนื้อหา"
 
@@ -281,7 +299,7 @@ msgid "Add"
 msgstr "เพิ่ม"
 
 #: templates/part.feeds.php:46 templates/part.listfeed.php:26
-#: templates/part.listfolder.php:20
+#: templates/part.listfolder.php:21
 msgid "Mark all read"
 msgstr "ทำเครื่องหมายว่าอ่านแล้วทั้งหมด"
 
@@ -305,15 +323,15 @@ msgstr "รักษาสถานะว่ายังไม่ได้เป
 msgid "Delete feed"
 msgstr "ลบ feed"
 
-#: templates/part.listfolder.php:15
+#: templates/part.listfolder.php:16
 msgid "Collapse"
 msgstr "ย่อ"
 
-#: templates/part.listfolder.php:18
+#: templates/part.listfolder.php:19
 msgid "Delete folder"
 msgstr "ลบโฟลเดอร์"
 
-#: templates/part.listfolder.php:19
+#: templates/part.listfolder.php:20
 msgid "Rename folder"
 msgstr "เปลี่ยนชื่อโฟลเดอร์"
 
@@ -346,22 +364,13 @@ msgid "Select"
 msgstr "เลือก"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid "Select file from"
-msgstr "เลือกไฟล์จาก"
+msgid ""
+"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
+"filesystem</a> or <a href=\"#\" class=\"settings\" "
+"id=\"cloudlink\">cloud</a>"
+msgstr "เลือกไฟล์จาก <a href=\"#\" class=\"settings\" id=\"browselink\">ระบบไฟล์ภายในเครื่อง</a> หรือ <a href=\"#\" class=\"settings\" id=\"cloudlink\">บนกลุ่มเมฆ</a>"
 
-#: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid "local filesystem"
-msgstr "ระบบภายในเครื่อง"
-
-#: templates/part.nofeeds.php:17 templates/settings.php:7
-msgid " or "
-msgstr "หรือ"
-
-#: templates/part.nofeeds.php:17 templates/settings.php:7
-msgid "cloud"
-msgstr "กลุ่มเมฆ"
-
-#: templates/part.nofeeds.php:26
+#: templates/part.nofeeds.php:25
 msgid "Or..."
 msgstr "หรือ..."
 
@@ -369,15 +378,15 @@ msgstr "หรือ..."
 msgid "Import feeds"
 msgstr "นำเข้า feed"
 
-#: templates/settings.php:12
+#: templates/settings.php:11
 msgid "Export feeds"
 msgstr "ส่งออก feed"
 
-#: templates/settings.php:14
+#: templates/settings.php:13
 msgid "Download OPML"
 msgstr "ดาวน์โหลด OPML"
 
-#: templates/settings.php:16
+#: templates/settings.php:15
 msgid "Subscribelet"
 msgstr "ปุ่มสมัครรับข้อมูล"
 

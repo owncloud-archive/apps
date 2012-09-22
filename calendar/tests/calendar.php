@@ -7,7 +7,7 @@
  */
 
 class Test_Calendar_Calendars extends UnitTestCase {
-	function testBasic(){
+	function testBasic() {
 		$uid=uniqid();
 
 		$this->assertEqual(OC_Calendar_Calendar::allCalendars($uid),array());
@@ -22,10 +22,10 @@ class Test_Calendar_Calendars extends UnitTestCase {
 
 		$calId2=OC_Calendar_Calendar::addCalendar($uid,'test');
 		$this->assertNotEqual($calId1, $calId2);
-		
+
 		$all=OC_Calendar_Calendar::allCalendars($uid);
 		$this->assertEqual(count($all),2);
-		
+
 		$this->assertEqual($all[1]['id'],$calId2);
 		$this->assertEqual($all[1]['displayname'],'test');
 		$this->assertEqual($all[1]['uri'],'test1');

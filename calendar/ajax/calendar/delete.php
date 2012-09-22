@@ -5,7 +5,7 @@
  * later.
  * See the COPYING-README file.
  */
- 
+
 
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('calendar');
@@ -15,7 +15,7 @@ $cal = $_POST["calendarid"];
 
 try {
 	$del = OC_Calendar_Calendar::deleteCalendar($cal);
-	if($del == true){
+	if($del == true) {
 		OCP\JSON::success();
 	}else{
 		OCP\JSON::error(array('error'=>'dberror'));

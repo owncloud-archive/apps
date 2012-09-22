@@ -9,6 +9,7 @@
 "Empty Summary" => "Άδεια περίληψη",
 "Invalid percent complete" => "Μη έγκυρο ποσοστό ολοκλήρωσης",
 "Invalid priority" => "Μη έγκυρη προτεραιότητα ",
+"The calendar application also need to be enabled to use this application." => "Η εφαρμογή του ημερολογίου πρέπει να είναι ενεργοποιημένη για να χρησιμοποιήσετε αυτή την εφαρμογή.",
 "Add Task" => "Προσθήκη εργασίας",
 "Loading tasks..." => "Φόρτωση εργασιών...",
 "Important" => "Σημαντικό ",

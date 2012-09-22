@@ -9,6 +9,7 @@
 "Empty Summary" => "Tühi kokkuvõte",
 "Invalid percent complete" => "Vigane edenemise protsent",
 "Invalid priority" => "Vigane tähtsus",
+"The calendar application also need to be enabled to use this application." => "Selle rakenduse kasutamiseks peab olema ka kalendri rakendus sisse lülitatud.",
 "Add Task" => "Lisa ülesanne",
 "Order Due" => "Tähtaja järgi",
 "Order List" => "Nimekirja järgi",

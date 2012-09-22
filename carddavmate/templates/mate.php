@@ -73,7 +73,7 @@ globalInterfaceLanguage = '<?php echo $l->t('en_US'); ?>';
 			<div class="container">
 				<input data-type="search" type="text" placeholder="Search" size="45" value="" />
 			</div>
-			<img data-type="reset" style="display: none; position: absolute; margin-top: 7px; right: 9px; vertical-align: top;" src="<?php echo OCP\Util::imagePath('carddavmate', 'x.svg'); ?>" alt="reset" onclick="if(globalQs!=null){$('[data-type=search]').val(''); globalQs.search('');}" />
+			<img data-type="reset" style="display: none; position: absolute; margin-top: 7px; right: 9px; vertical-align: top;" src="<?php echo OCP\Util::imagePath('carddavmate', 'x.svg'); ?>" alt="reset" onclick="if(globalQs!=null) {$('[data-type=search]').val(''); globalQs.search('');}" />
 		</div>
 		<div id="ABList">
 			<div id="ABListTemplate" style="display: none;">
@@ -151,7 +151,7 @@ globalInterfaceLanguage = '<?php echo $l->t('en_US'); ?>';
 									<tr class="heightfix">
 										<td colspan="2" class="heightfix">
 											<label>
-												<input data-type="isorg" type="checkbox" onclick="if($(this).prop('checked')){if($('#vcard_editor').find('img[data-type=photo]').attr('src')=='<?php echo OCP\Util::imagePath('carddavmate', 'user.svg'); ?>') $('#vcard_editor').find('img[data-type=photo]').attr('src','<?php echo OCP\Util::imagePath('carddavmate', 'company.svg'); ?>')} else if($('#vcard_editor').find('img[data-type=photo]').attr('src')=='<?php echo OCP\Util::imagePath('carddavmate', 'company.svg'); ?>') $('#vcard_editor').find('img[data-type=photo]').attr('src','<?php echo OCP\Util::imagePath('carddavmate', 'user.svg'); ?>')" /><span data-type="company_contact">Company Contact</span>
+												<input data-type="isorg" type="checkbox" onclick="if($(this).prop('checked')) {if($('#vcard_editor').find('img[data-type=photo]').attr('src')=='<?php echo OCP\Util::imagePath('carddavmate', 'user.svg'); ?>') $('#vcard_editor').find('img[data-type=photo]').attr('src','<?php echo OCP\Util::imagePath('carddavmate', 'company.svg'); ?>')} else if($('#vcard_editor').find('img[data-type=photo]').attr('src')=='<?php echo OCP\Util::imagePath('carddavmate', 'company.svg'); ?>') $('#vcard_editor').find('img[data-type=photo]').attr('src','<?php echo OCP\Util::imagePath('carddavmate', 'user.svg'); ?>')" /><span data-type="company_contact">Company Contact</span>
 											</label>
 										</td>
 									</tr>
@@ -217,7 +217,7 @@ globalInterfaceLanguage = '<?php echo $l->t('en_US'); ?>';
 								</select>
 							</td>
 							<td colspan="2" onmouseover="if(typeof globalUriHandlerUrl!='undefined' && globalUriHandlerUrl!=null && $(this).find('input[data-type=value]').prop('readonly') && $(this).find('input[data-type=value]').val()!='' && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
-								<input data-type="value" type="text" class="fs" placeholder="URL" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'arrow.svg'); ?>" alt=">" onclick="if(typeof globalUriHandlerUrl!='undefined' && globalUriHandlerUrl!=null){var value=$(this).parent().find('input[data-type=value]').val(); if(value.match(RegExp('^[a-z0-9]+:','i'))==null) value=globalUriHandlerUrl+value; window.open(value);}" />
+								<input data-type="value" type="text" class="fs" placeholder="URL" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'arrow.svg'); ?>" alt=">" onclick="if(typeof globalUriHandlerUrl!='undefined' && globalUriHandlerUrl!=null) {var value=$(this).parent().find('input[data-type=value]').val(); if(value.match(RegExp('^[a-z0-9]+:','i'))==null) value=globalUriHandlerUrl+value; window.open(value);}" />
 							</td>
 						</tr>
 						<tr>
@@ -378,16 +378,16 @@ globalInterfaceLanguage = '<?php echo $l->t('en_US'); ?>';
 							<td colspan="5" class="buttons">
 								<input data-type="edit" type="button" value="Edit" onclick="$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('[data-type=given]').focus(); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); processEditorElements('show',null);" />
 								<input data-type="save" type="button" value="Save" onclick="
-								if($('[id=vcard_editor]').find('img[data-type=invalid]').filter(function(){ return this.style.display != 'none' }).length>0){show_editor_message('in','message_error','Error: \'unable to save\': correct the highlighted invalid values!',globalHideInfoMessageAfter); return false;} else {$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#AddContact').prop('disabled',true); $('#ABContactOverlay').fadeTo(globalEditorFadeAnimation,1,function(){
+								if($('[id=vcard_editor]').find('img[data-type=invalid]').filter(function() { return this.style.display != 'none' }).length>0) {show_editor_message('in','message_error','Error: \'unable to save\': correct the highlighted invalid values!',globalHideInfoMessageAfter); return false;} else {$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#AddContact').prop('disabled',true); $('#ABContactOverlay').fadeTo(globalEditorFadeAnimation,1,function() {
 dataToVcard($('[id=vcard_editor]').attr('data-account-uid'), $('[id=vcard_editor]').attr('data-url'), $('#AddContact').attr('data-filter-url'), $('[id=vcard_editor]').attr('data-etag'))})}" />
 								<input data-type="cancel" type="button" value="Cancel" data-id="" onclick="$('#ResourceListOverlay').fadeOut(globalEditorFadeAnimation); $('#ABListOverlay').fadeOut(globalEditorFadeAnimation); globalAddressbookList.loadContactByUID(this.getAttribute('data-id'));" />
 								<input data-type="delete_from_group" type="button" value="Delete from Group" onclick="
-								$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#AddContact').prop('disabled',true); $('#ABContactOverlay').fadeTo(globalEditorFadeAnimation,1,function(){
+								$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#AddContact').prop('disabled',true); $('#ABContactOverlay').fadeTo(globalEditorFadeAnimation,1,function() {
 									lockAndPerformToCollection({accountUID: $('[id=vcard_editor]').attr('data-account-uid'), uid: $('[id=vcard_editor]').attr('data-url')}, $('#AddContact').attr('data-filter-url'), 'DELETE_FROM_GROUP');
 									});
 								" />
 								<input data-type="delete" type="button" value="Delete" onclick="
-								$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#AddContact').prop	('disabled',true); $('#ABContactOverlay').fadeTo(globalEditorFadeAnimation,1,function(){
+								$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#AddContact').prop	('disabled',true); $('#ABContactOverlay').fadeTo(globalEditorFadeAnimation,1,function() {
 									lockAndPerformToCollection({accountUID: $('[id=vcard_editor]').attr('data-account-uid'), uid: $('[id=vcard_editor]').attr('data-url')}, $('#AddContact').attr('data-filter-url'), 'DELETE');
 									});
 								" />

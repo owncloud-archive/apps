@@ -6,14 +6,14 @@
  * See the COPYING-README file.
  */
 
- 
+
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('calendar');
 OCP\JSON::callCheck();
 
 $calendarid = $_POST['calendarid'];
 $calendar = OC_Calendar_App::getCalendar($calendarid, true);
-if(!$calendar){
+if(!$calendar) {
 	OCP\JSON::error(array('message'=>'permission denied'));
 	exit;
 }

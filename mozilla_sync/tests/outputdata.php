@@ -2,7 +2,7 @@
 
 class Test_OutputData extends UnitTestCase {
 
-  function test_SimpleOutput(){
+  function test_SimpleOutput() {
 
     OCA_mozilla_sync\OutputData::$outputFlag = OCA_mozilla_sync\OutputData::ConstOutputBuffer;
     OCA_mozilla_sync\OutputData::$outputBuffer = '';
@@ -12,7 +12,7 @@ class Test_OutputData extends UnitTestCase {
 
   }
 
-  function test_JsonOutput(){
+  function test_JsonOutput() {
 
     OCA_mozilla_sync\OutputData::$outputFlag = OCA_mozilla_sync\OutputData::ConstOutputBuffer;
     OCA_mozilla_sync\OutputData::$outputBuffer = '';
@@ -29,7 +29,7 @@ class Test_OutputData extends UnitTestCase {
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === $outputBuffer);
   }
 
-  function test_JsonOutputNoIndexArray(){
+  function test_JsonOutputNoIndexArray() {
 
     OCA_mozilla_sync\OutputData::$outputFlag = OCA_mozilla_sync\OutputData::ConstOutputBuffer;
     OCA_mozilla_sync\OutputData::$outputBuffer = '';

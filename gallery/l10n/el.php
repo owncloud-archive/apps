@@ -1,12 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "Εικόνες",
+"Galleries" => "Συλλογή",
 "Share gallery" => "Κοινοποίηση συλλογής",
 "Error: " => "Σφάλμα: ",
 "Internal error" => "Εσωτερικό σφάλμα",
 "Slideshow" => "Προβολή Διαφανειών",
-"Back" => "Επιστροφή",
-"Remove confirmation" => "Αφαίρεση επιβεβαίωσης",
-"Do you want to remove album" => "Θέλετε να αφαιρέσετε το άλμπουμ",
-"Change album name" => "Αλλάξτε το όνομα του άλμπουμ",
-"New album name" => "Νέο όνομα άλμπουμ"
+"The \"Image Viewer\" application also need to be enabled to use this application." => "Η εφαρμογή \"Προβολής Εικόνων\" πρέπει να είναι ενεργοποιημένη για την χρήση αυτής της εφαρμογής."
 );

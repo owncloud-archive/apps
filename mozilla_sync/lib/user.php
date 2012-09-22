@@ -21,12 +21,12 @@ class User
    *
    * @param string $email
    */
-  public static function emailToUserId($email){
+  public static function emailToUserId($email) {
     $query = \OCP\DB::prepare( 'SELECT userid FROM *PREFIX*preferences WHERE appid = ? and configkey = ? and configvalue = ?');
     $result = $query->execute( array('settings', 'email', $email) );
 
     $row=$result->fetchRow();
-    if($row){
+    if($row) {
       return $row['userid'];
     }
     else{
@@ -41,12 +41,12 @@ class User
    *
    * @param string $userHash
    */
-  public static function userHashToUserName($userHash){
+  public static function userHashToUserName($userHash) {
     $query = \OCP\DB::prepare( 'SELECT username FROM *PREFIX*mozilla_sync_users WHERE sync_user = ?');
     $result = $query->execute( array($userHash) );
 
     $row=$result->fetchRow();
-    if($row){
+    if($row) {
       return $row['username'];
     }
     else{
@@ -54,12 +54,12 @@ class User
     }
   }
 
-  public static function userHashToId($userHash){
+  public static function userHashToId($userHash) {
     $query = \OCP\DB::prepare( 'SELECT id FROM *PREFIX*mozilla_sync_users WHERE sync_user = ?');
     $result = $query->execute( array($userHash) );
 
     $row=$result->fetchRow();
-    if($row){
+    if($row) {
       return $row['id'];
     }
     else{
@@ -74,21 +74,21 @@ class User
    * @param string $password The password of the new user
    * @returns boolean
    */
-  public static function createUser($syncUserHash, $password, $email){
+  public static function createUser($syncUserHash, $password, $email) {
 
     $userId = self::emailToUserId($email);
-    if($userId == false){
+    if($userId == false) {
       return false;
     }
 
-    if(\OCP\User::checkPassword($userId, $password) == false){
+    if(\OCP\User::checkPassword($userId, $password) == false) {
       return false;
     }
 
     $query = \OCP\DB::prepare( 'INSERT INTO *PREFIX*mozilla_sync_users (username, sync_user) VALUES (?,?)' );
     $result = $query->execute( array($userId, $syncUserHash) );
 
-    if($result == false){
+    if($result == false) {
       return false;
     }
 
@@ -101,11 +101,11 @@ class User
    * @param integer $userId
    * @return boolean true if success
    */
-  public static function deleteUser($userId){
+  public static function deleteUser($userId) {
     $query = \OCP\DB::prepare( 'DELETE FROM *PREFIX*mozilla_sync_users WHERE id = ?');
     $result = $query->execute( array($userId) );
 
-    if($result == false){
+    if($result == false) {
       return false;
     }
 
@@ -118,7 +118,7 @@ class User
    * @param string $userHash The sync hash of the user to check
    * @returns boolean
    */
-  public static function syncUserExists($userHash){
+  public static function syncUserExists($userHash) {
     $query = \OCP\DB::prepare( 'SELECT 1 FROM *PREFIX*mozilla_sync_users WHERE sync_user = ?');
     $result = $query->execute( array($userHash) );
 
@@ -131,18 +131,18 @@ class User
    * @param string $userHash User hash parameter specified by Url parameter
    * @return boolean
    */
-  public static function authenticateUser($userHash){
+  public static function authenticateUser($userHash) {
 
-    if(!isset($_SERVER['PHP_AUTH_USER'])){
+    if(!isset($_SERVER['PHP_AUTH_USER'])) {
       return false;
     }
     // user name parameter and authentication user name doen't match
-    if($userHash != $_SERVER['PHP_AUTH_USER']){
+    if($userHash != $_SERVER['PHP_AUTH_USER']) {
       return false;
     }
 
     $userId = self::userHashToUserName($userHash);
-    if($userId == false){
+    if($userId == false) {
       return false;
     }
 

@@ -7,7 +7,7 @@
  */
 //check for addressbooks rights or create new one
 ob_start();
- 
+
 OCP\JSON::checkLoggedIn();
 OCP\App::checkAppEnabled('contacts');
 session_write_close();
@@ -39,7 +39,7 @@ if(!$file) {
 	exit();
 }
 if(isset($_POST['method']) && $_POST['method'] == 'new') {
-	$id = OC_Contacts_Addressbook::add(OCP\USER::getUser(), 
+	$id = OC_Contacts_Addressbook::add(OCP\USER::getUser(),
 		$_POST['addressbookname']);
 	if(!$id) {
 		OCP\JSON::error(
@@ -56,7 +56,7 @@ if(isset($_POST['method']) && $_POST['method'] == 'new') {
 		OCP\JSON::error(
 			array(
 				'data' => array(
-					'message' => 'Error getting the ID of the address book.', 
+					'message' => 'Error getting the ID of the address book.',
 					'file'=>$_POST['file']
 				)
 			)
@@ -73,7 +73,7 @@ $lines = explode($nl, $file);
 $inelement = false;
 $parts = array();
 $card = array();
-foreach($lines as $line){
+foreach($lines as $line) {
 	if(strtoupper(trim($line)) == 'BEGIN:VCARD') {
 		$inelement = true;
 	} elseif (strtoupper(trim($line)) == 'END:VCARD') {
@@ -95,26 +95,26 @@ if(!count($parts) > 0) {
 		array(
 			'data' => array(
 				'message' => 'No contacts to import in '
-					. $_POST['file'].'. Please check if the file is corrupted.', 
+					. $_POST['file'].'. Please check if the file is corrupted.',
 				'file'=>$_POST['file']
 			)
 		)
 	);
 	if(isset($_POST['fstype']) && $_POST['fstype'] == 'OC_FilesystemView') {
 		if(!$view->unlink('/imports/' . $_POST['file'])) {
-			OCP\Util::writeLog('contacts', 
-				'Import: Error unlinking OC_FilesystemView ' . '/' . $_POST['file'], 
+			OCP\Util::writeLog('contacts',
+				'Import: Error unlinking OC_FilesystemView ' . '/' . $_POST['file'],
 				OCP\Util::ERROR);
 		}
 	}
 	exit();
 }
-foreach($parts as $part){
+foreach($parts as $part) {
 	$card = OC_VObject::parse($part);
 	if (!$card) {
 		$failed += 1;
-		OCP\Util::writeLog('contacts', 
-			'Import: skipping card. Error parsing VCard: ' . $part, 
+		OCP\Util::writeLog('contacts',
+			'Import: skipping card. Error parsing VCard: ' . $part,
 				OCP\Util::ERROR);
 		continue; // Ditch cards that can't be parsed by Sabre.
 	}
@@ -122,8 +122,8 @@ foreach($parts as $part){
 		OC_Contacts_VCard::add($id, $card);
 		$imported += 1;
 	} catch (Exception $e) {
-		OCP\Util::writeLog('contacts', 
-			'Error importing vcard: ' . $e->getMessage() . $nl . $card, 
+		OCP\Util::writeLog('contacts',
+			'Error importing vcard: ' . $e->getMessage() . $nl . $card,
 			OCP\Util::ERROR);
 		$failed += 1;
 	}
@@ -134,16 +134,16 @@ sleep(3);
 OC_Cache::remove($progresskey);
 if(isset($_POST['fstype']) && $_POST['fstype'] == 'OC_FilesystemView') {
 	if(!$view->unlink('/imports/' . $_POST['file'])) {
-		OCP\Util::writeLog('contacts', 
-			'Import: Error unlinking OC_FilesystemView ' . '/' . $_POST['file'], 
+		OCP\Util::writeLog('contacts',
+			'Import: Error unlinking OC_FilesystemView ' . '/' . $_POST['file'],
 			OCP\Util::ERROR);
 	}
 }
 OCP\JSON::success(
 	array(
 		'data' => array(
-			'imported'=>$imported, 
-			'failed'=>$failed, 
+			'imported'=>$imported,
+			'failed'=>$failed,
 			'file'=>$_POST['file'],
 		)
 	)

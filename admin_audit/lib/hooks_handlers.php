@@ -2,11 +2,11 @@
 
 class OC_Admin_Audit_Hooks_Handlers {
 	static public function pre_login($params) {
-		$path = $params['uid'];
+		$user = $params['uid'];
 		self::log('Trying login '.$user);
 	}
 	static public function post_login($params) {
-		$path = $params['uid'];
+		$user = $params['uid'];
 		self::log('Login '.$user);
 	}
 	static public function logout($params) {

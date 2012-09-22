@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
-"PO-Revision-Date: 2012-09-05 13:36+0000\n"
+"POT-Creation-Date: 2012-09-12 02:01+0200\n"
+"PO-Revision-Date: 2012-09-11 07:30+0000\n"
 "Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,10 @@ msgstr ""
 #: appinfo/app.php:45
 msgid "Pictures"
 msgstr "Obrázky"
+
+#: appinfo/app.php:53
+msgid "Galleries"
+msgstr "Galerie"
 
 #: js/pictures.js:12
 msgid "Share gallery"
@@ -40,3 +44,9 @@ msgstr "Vnitřní chyba"
 #: templates/index.php:27
 msgid "Slideshow"
 msgstr "Prezentace"
+
+#: templates/no-image-app.php:9
+msgid ""
+"The \"Image Viewer\" application also need to be enabled to use this "
+"application."
+msgstr "Aplikace \"Prohlížeč obrázků\" musí být také povolena pro použití této aplikace."

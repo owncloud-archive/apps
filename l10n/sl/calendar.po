@@ -11,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 15:14+0200\n"
-"PO-Revision-Date: 2012-09-03 12:34+0000\n"
+"POT-Creation-Date: 2012-09-15 02:02+0200\n"
+"PO-Revision-Date: 2012-09-14 08:24+0000\n"
 "Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3)\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
@@ -71,7 +71,7 @@ msgstr "Časovni pas je bil spremenjen"
 msgid "Invalid request"
 msgstr "Neveljaven zahtevek"
 
-#: appinfo/app.php:40 templates/calendar.php:15
+#: appinfo/app.php:38 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Koledar"
@@ -102,11 +102,11 @@ msgstr "ddd"
 
 #: js/calendar.js:812
 msgid "ddd M/d"
-msgstr "ddd M/d"
+msgstr "ddd, d. M."
 
 #: js/calendar.js:813
 msgid "dddd M/d"
-msgstr "dddd M/d"
+msgstr "dddd, d. M."
 
 #: js/calendar.js:816
 msgid "MMMM yyyy"
@@ -118,7 +118,7 @@ msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:820
 msgid "dddd, MMM d, yyyy"
-msgstr "dddd, MMM d, yyyy"
+msgstr "dddd, d. MMM, yyyy"
 
 #: lib/app.php:114
 msgid "Birthday"
@@ -180,23 +180,23 @@ msgstr "Vprašanja"
 msgid "Work"
 msgstr "Delo"
 
-#: lib/app.php:345 lib/share/event.php:27
+#: lib/app.php:347 lib/share/event.php:27
 msgid "by"
 msgstr "od"
 
-#: lib/app.php:383
+#: lib/app.php:385
 msgid "unnamed"
 msgstr "neimenovan"
 
-#: lib/calendar.php:153 lib/calendar.php:186
+#: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
 msgstr "Nimate dovoljenj za posodobitev tega koledarja."
 
-#: lib/calendar.php:221
+#: lib/calendar.php:233
 msgid "You do not have the permissions to delete this calendar."
 msgstr "Nimate dovoljenj za izbris tega koledarja."
 
-#: lib/calendar.php:253
+#: lib/calendar.php:265
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Nimate dovoljenj za dodajanje tega koledarja."
 
@@ -522,7 +522,11 @@ msgstr "Seznam"
 msgid "Today"
 msgstr "Danes"
 
-#: templates/calendar.php:46 templates/calendar.php:47
+#: templates/calendar.php:46
+msgid "Calendars"
+msgstr "Koledarji"
+
+#: templates/calendar.php:47
 msgid "Settings"
 msgstr "Nastavitve"
 
@@ -534,14 +538,6 @@ msgstr "Vaši koledarji"
 #: templates/part.choosecalendar.rowfields.php:15
 msgid "CalDav Link"
 msgstr "CalDav povezava"
-
-#: templates/part.choosecalendar.php:31
-msgid "Shared calendars"
-msgstr "Koledarji v souporabi"
-
-#: templates/part.choosecalendar.php:48
-msgid "No shared calendars"
-msgstr "Ni koledarjev v souporabi"
 
 #: templates/part.choosecalendar.rowfields.php:11
 msgid "Share Calendar"
@@ -675,7 +671,7 @@ msgstr "Opis dogodka"
 
 #: templates/part.eventform.php:100 templates/part.showevent.php:95
 msgid "Repeat"
-msgstr "Ponovi"
+msgstr "Ponovitve"
 
 #: templates/part.eventform.php:107 templates/part.showevent.php:102
 msgid "Advanced"
@@ -720,7 +716,7 @@ msgstr "Konec"
 
 #: templates/part.eventform.php:233 templates/part.showevent.php:228
 msgid "occurrences"
-msgstr "ponovitev"
+msgstr "ponovitve"
 
 #: templates/part.import.php:14
 msgid "create a new calendar"

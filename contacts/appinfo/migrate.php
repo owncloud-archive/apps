@@ -1,6 +1,6 @@
 <?php
 class OC_Migration_Provider_Contacts extends OC_Migration_Provider{
-	
+
 	// Create the xml for the user supplied
 	function export( ) {
 		$options = array(
@@ -16,19 +16,19 @@ class OC_Migration_Provider_Contacts extends OC_Migration_Provider{
 			'matchcol'=>'addressbookid',
 			'matchval'=>$ids
 		);
-		
+
 		// Export tags
 		$ids2 = $this->content->copyRows( $options );
-		
+
 		// If both returned some ids then they worked
 		if(is_array($ids) && is_array($ids2)) {
 			return true;
 		} else {
 			return false;
 		}
-		
+
 	}
-	
+
 	// Import function for contacts
 	function import( ) {
 		switch( $this->appinfo->version ) {
@@ -38,7 +38,7 @@ class OC_Migration_Provider_Contacts extends OC_Migration_Provider{
 				$results = $query->execute( array( $this->olduid ) );
 				$idmap = array();
 				while( $row = $results->fetchRow() ) {
-					// Import each addressbook	
+					// Import each addressbook
 					$addressbookquery = OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_addressbooks` (`userid`, `displayname`, `uri`, `description`, `ctag`) VALUES (?, ?, ?, ?, ?)' );
 					$addressbookquery->execute( array( $this->uid, $row['displayname'], $row['uri'], $row['description'], $row['ctag'] ) );
 					// Map the id
@@ -48,22 +48,22 @@ class OC_Migration_Provider_Contacts extends OC_Migration_Provider{
 				}
 				// Now tags
 				foreach($idmap as $oldid => $newid) {
-					
+
 					$query = $this->content->prepare( 'SELECT * FROM `contacts_cards` WHERE `addressbookid` LIKE ?' );
 					$results = $query->execute( array( $oldid ) );
-					while( $row = $results->fetchRow() ){
+					while( $row = $results->fetchRow() ) {
 						// Import the contacts
 						$contactquery = OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards` (`addressbookid`, `fullname`, `carddata`, `uri`, `lastmodified`) VALUES (?, ?, ?, ?, ?)' );
-						$contactquery->execute( array( $newid, $row['fullname'], $row['carddata'], $row['uri'], $row['lastmodified'] ) );	
-					}		
+						$contactquery->execute( array( $newid, $row['fullname'], $row['carddata'], $row['uri'], $row['lastmodified'] ) );
+					}
 				}
 				// All done!
 			break;
 		}
-		
+
 		return true;
 	}
-	
+
 }
 
 // Load the provider

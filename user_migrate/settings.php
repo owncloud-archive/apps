@@ -33,7 +33,7 @@ if (isset($_POST['user_import'])) {
 	// Copy the uploaded file
 	$from = $_FILES['owncloud_import']['tmp_name'];
 	$to = get_temp_dir().'/'.$importname.'.zip';
-	if( !move_uploaded_file( $from, $to ) ){
+	if( !move_uploaded_file( $from, $to ) ) {
 
 		$error = array('error'=>'Failed to move the uploaded file','hint'=>'Try checking the permissions of the '.get_temp_dir().' dir.');
 		OCP\Util::writeLog( 'user_migrate', "Failed to copy the uploaded file", OCP\Util::ERROR );
@@ -44,31 +44,31 @@ if (isset($_POST['user_import'])) {
 		
 
 	$response = json_decode( OC_Migrate::import( $to, 'user' ) );
-	if( !$response->success ){
+	if( !$response->success ) {
 		$error = array('error'=>'There was an error while importing the user!','hint'=>'Please check the logs for a more detailed explaination');
 		$tmpl = new OCP\Template('user_migrate', 'settings');
 		$tmpl->assign('error',$error);
     	//return $tmpl->fetchPage();	
 	} else {
 		// Check import status
-		foreach( $response->data as $app => $status ){
-			if( $status != 'true' ){
+		foreach( $response->data as $app => $status ) {
+			if( $status != 'true' ) {
 				// It failed for some reason
-				if( $status == 'notsupported' ){
+				if( $status == 'notsupported' ) {
 					$notsupported[] = $app;	
-				} else if( !$status ){
+				} else if( !$status ) {
 					$failed[] = $app;
 				}
 			}	
 		}
 		// Any problems?
-		if( isset( $notsupported ) || isset( $failed ) ){
-			if( count( $failed ) > 0 ){
+		if( isset( $notsupported ) || isset( $failed ) ) {
+			if( count( $failed ) > 0 ) {
 				$error = array('error'=>'Some app data failed to import','hint'=>'App data for: '.implode(', ', $failed).' failed to import.');
 				$tmpl = new OCP\Template('user_migrate', 'settings');
 				$tmpl->assign('error',$error);
     			//return $tmpl->fetchPage();	
-			} else if( count( $notsupported ) > 0 ){
+			} else if( count( $notsupported ) > 0 ) {
 				$error = array('error'=>'Some app data could not be imported, as the apps are not installed on this instance','hint'=>'App data for: '.implode(', ', $notsupported).' failed to import as they were not found. Please install the apps and try again');
 				$tmpl = new OCP\Template('user_migrate', 'settings');
 				$tmpl->assign('error',$error);

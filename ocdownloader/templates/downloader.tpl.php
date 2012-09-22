@@ -33,7 +33,7 @@ OC_Util::addScript('ocdownloader', 'functions');
 	<div class="personalblock topblock titleblock">
 		ocDownloader
 	</div>
-	<?php if(isset($_['curl_error'])){ ?>
+	<?php if(isset($_['curl_error'])) { ?>
 	<div class="personalblock red">
 		<?php print($_['curl_error']); ?>
 	</div>	
@@ -45,7 +45,7 @@ OC_Util::addScript('ocdownloader', 'functions');
 				<select id="provsel" class="chzen-select" name="provsel">
 					<option value="0"></option>
 					<option value="web">From the WEB</option>
-					<?php foreach($_['user_prov_set'] as $setting){ ?>
+					<?php foreach($_['user_prov_set'] as $setting) { ?>
 					<option value="<?php print($setting['pr_id']); ?>"><?php print($setting['pr_name']); ?></option>
 					<?php } ?>
 				</select>

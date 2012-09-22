@@ -15,7 +15,7 @@ $import = new OC_Calendar_Import($data);
 $import->setUserID(OCP\User::getUser());
 $import->setTimeZone(OC_Calendar_App::$tz);
 $import->disableProgressCache();
-if(!$import->isValid()){
+if(!$import->isValid()) {
 	OCP\JSON::error();
 	exit;
 }
@@ -24,7 +24,7 @@ $newid = OC_Calendar_Calendar::addCalendar(OCP\User::getUser(),$newcalendarname,
 $import->setCalendarID($newid);
 $import->import();
 $count = $import->getCount();
-if($count == 0){
+if($count == 0) {
 	OC_Calendar_Calendar::deleteCalendar($newid);
 	OCP\JSON::error(array('message'=>OC_Calendar_App::$l10n->t('The file contained either no events or all events are already saved in your calendar.')));
 }else{

@@ -1,12 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "Fotos",
+"Galleries" => "Galeries",
 "Share gallery" => "Comperteix la galeria",
 "Error: " => "Error: ",
 "Internal error" => "Error intern",
 "Slideshow" => "Passi de diapositives",
-"Back" => "Enrera",
-"Remove confirmation" => "Elimina la confirmació",
-"Do you want to remove album" => "Voleu eliminar l'àlbum",
-"Change album name" => "Canvia el nom de l'àlbum",
-"New album name" => "Nom nou de l'àlbum"
+"The \"Image Viewer\" application also need to be enabled to use this application." => "L'apliació \"Visualitzador d'Imatges\" també ha d'estar activada per a poder utilitzar aquesta aplicació."
 );

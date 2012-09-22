@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
-"PO-Revision-Date: 2012-09-05 13:37+0000\n"
+"POT-Creation-Date: 2012-09-07 02:04+0200\n"
+"PO-Revision-Date: 2012-09-06 08:43+0000\n"
 "Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -71,27 +71,27 @@ msgstr "Přidat úkol"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "Order Due"
+msgstr "Řadit dle termínu"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr "Order List"
+msgstr "Řadit dle kategorie"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr "Order Complete"
+msgstr "Řadit dle dokončení"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr "Order Location"
+msgstr "Řadit dle umístění"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr "Order Priority"
+msgstr "Řadit dle priority"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr "Order Label"
+msgstr "Řadit dle popisku"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."

@@ -29,23 +29,23 @@ class App {
 	
 	const ERROR_USERNAME_INVALID = 'invalid username';
 	
-	static public function getServiceUrl(){
+	static public function getServiceUrl() {
 		return self::getValue(self::CONFIG_ETHERPAD_URL, self::CONFIG_ETHERPAD_URL_DEFAULT);
 	}
 	
-	static public function setServiceUrl($url){
+	static public function setServiceUrl($url) {
 		return \OCP\Config::setUserValue(\OCP\User::getUser(), self::APP_ID, self::CONFIG_ETHERPAD_URL, $url);
 	}
 	
-	static public function getUsername(){
+	static public function getUsername() {
 		return self::getValue(self::CONFIG_USERNAME, \OCP\User::getUser());
 	}
 	
-	static public function setUsername($username){
+	static public function setUsername($username) {
 		return \OCP\Config::setUserValue(\OCP\User::getUser(), self::APP_ID, self::CONFIG_USERNAME, $username);
 	}
 	
-	static protected function getValue($key, $defaultValue){
+	static protected function getValue($key, $defaultValue) {
 		return \OCP\Config::getUserValue(\OCP\User::getUser(), self::APP_ID, $key, $defaultValue);
 	}
 }

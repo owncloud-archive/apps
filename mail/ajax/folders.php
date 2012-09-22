@@ -29,7 +29,7 @@ $accounts = OCA_Mail\App::getFolders( OCP\User::getUser());
 //
 // TODO: error is listed within the accounts
 //
-if( $accounts['error'] ){
+if( $accounts['error'] ) {
 	OCP\JSON::error(array('data' => array('message' => $accounts['error'] )));
 	exit();
 }

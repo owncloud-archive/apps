@@ -38,13 +38,25 @@ if(!OC_Filesystem::file_exists($filename)) {
 	exit;
 }
 
+$data=OC_Filesystem::file_get_contents( $filename );
+
+
+if((stripos($data,'<html')<>false) or (stripos($data,'<head')<>false) or (stripos($data,'<body')<>false)) {
+	echo('<br /><center>This is not a valid impress file. Please check the documentation.</center>');
+	exit;
+}
+
+if(stripos($data,'<script')<>false) {
+	echo('<br /><center>Please don\'t use javascript in impress files.</center>');
+	exit;
+}
+
+
 header('Content-Type: text/html', true);
 OCP\Response::disableCaching();
-header('Content-Length: '.OC_Filesystem::filesize($filename));
 
 @ob_end_clean();
 
 \OCA_Impress\Storage::showHeader($title);
 OC_Filesystem::readfile( $filename );
 \OCA_Impress\Storage::showFooter();
-

@@ -6,20 +6,20 @@
  * See the COPYING-README file.
  */
 
- 
+
 
 // Check if we are a user
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('calendar');
 OCP\JSON::callCheck();
 
-if(trim($_POST['name']) == ''){
+if(trim($_POST['name']) == '') {
 	OCP\JSON::error(array('message'=>'empty'));
 	exit;
 }
 $calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
-foreach($calendars as $cal){
-	if($cal['displayname'] == $_POST['name'] && $cal['id'] != $_POST['id']){
+foreach($calendars as $cal) {
+	if($cal['displayname'] == $_POST['name'] && $cal['id'] != $_POST['id']) {
 		OCP\JSON::error(array('message'=>'namenotavailable'));
 		exit;
 	}

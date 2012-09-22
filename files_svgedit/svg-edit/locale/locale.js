@@ -317,4 +317,3 @@ var svgEditor = (function($, Editor) {
 	
 	return Editor;
 }(jQuery, svgEditor));
-

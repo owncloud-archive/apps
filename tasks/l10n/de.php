@@ -1,5 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Invalid date/time" => "Datum/Uhrzeit ungültig",
+"Invalid date/time" => "Datum / Uhrzeit ungültig",
 "Tasks" => "Aufgaben",
 "No category" => "Keine Kategorie",
 "Unspecified" => "Nicht angegeben",
@@ -17,7 +17,7 @@
 "Order Location" => "Nach Ort sortieren",
 "Order Priority" => "Nach Priorität sortieren",
 "Order Label" => "Nach Label sortieren",
-"Loading tasks..." => "Lade Aufgaben ...",
+"Loading tasks..." => "Lade Aufgaben...",
 "Important" => "Wichtig",
 "More" => "Mehr",
 "Less" => "Weniger",

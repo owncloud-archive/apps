@@ -7,4 +7,3 @@ $tmpl->assign('identity',htmlentities($identity));
 OCP\Util::addscript('user_openid','settings');
 
 return $tmpl->fetchPage();
-?>

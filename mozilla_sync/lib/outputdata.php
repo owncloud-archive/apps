@@ -41,15 +41,15 @@ class OutputData
    *
    * @param any $output
    */
-  static public function write($output){
+  static public function write($output) {
 
     // write simple output
-    if(gettype($output) != 'array'){
+    if(gettype($output) != 'array') {
       self::writeOutput($output);
     }
     // write json encoded output
     else{
-      if(OutputData::getOutputFormat() == self::NewLineFormat){
+      if(OutputData::getOutputFormat() == self::NewLineFormat) {
         self::writeNewLineFormat($output);
       }
       else{
@@ -70,24 +70,24 @@ class OutputData
    *  - application/newlines:   each record is a separate json object on its own line.
    *                            Newlines in the body of the json object are replaced by ‘u000a’
    */
-  static private function getOutputFormat(){
-    if( isset($_SERVER['HTTP_ACCEPT']) && stristr($_SERVER['HTTP_ACCEPT'], 'application/whoisi') ){
+  static private function getOutputFormat() {
+    if( isset($_SERVER['HTTP_ACCEPT']) && stristr($_SERVER['HTTP_ACCEPT'], 'application/whoisi') ) {
       return self::LengthFormat;
     }
     return self::NewLineFormat;
   }
 
-  static private function writeNewLineFormat($outputArray){
+  static private function writeNewLineFormat($outputArray) {
     self::writeOutput(json_encode($outputArray));
     self::writeOutput("\n");
   }
 
-  static private function writeLengthFormat($outputArray){
+  static private function writeLengthFormat($outputArray) {
     //TODO: application/whoisi ouput format
   }
 
-  static private function writeOutput($outputString){
-    if(self::$outputFlag == self::ConstOutputNormal){
+  static private function writeOutput($outputString) {
+    if(self::$outputFlag == self::ConstOutputNormal) {
       print $outputString;
     }
     else{

@@ -1,9 +1,9 @@
 <?php $TRANSLATIONS = array(
-"My pad" => "Moj pad",
+"My pad" => "Moja beležka",
 "Settings" => "Nastavitve",
-"Pad Title:" => "Naslov pada:",
+"Pad Title" => "Naslov beležke",
 "Open" => "Odpri",
-"Etherpad service URL:" => "URL servisa Etherpad:",
-"Username:" => "Uporabniško ime:",
+"Etherpad service URL" => "URL Etherpad storitve",
+"Username" => "Uporabniško ime",
 "Save" => "Shrani"
 );

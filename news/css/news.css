@@ -50,6 +50,8 @@ div.add_parentfolder {
         clear: both; 
     }
     
+    #firstrun #feed_add_url { width:20em; }
+    
     #firstrun #selections #addfeed_dialog_firstrun, #firstrun #selections #importopml_dialog_firstrun {
 	width:40em;
 	border:1px solid;
@@ -57,7 +59,15 @@ div.add_parentfolder {
 	border-radius:10px;
 	-moz-border-radius:10px; /* Firefox 3.6 and earlier */
     }
-
+    
+    #firstrun #selections #addfeed_dialog_firstrun {
+    	height:5em;
+    }
+    
+    #firstrun #selections #importopml_dialog_firstrun {
+    	height:4em;
+    }
+    
 /* feed/folder list */
 #leftcontent_news { 
     width: 20em; 
@@ -96,13 +106,16 @@ div.add_parentfolder {
     }
 
     #feeds > ul {
-        height: 100%;
+        min-height: 100%;
         overflow-x: hidden;
     }
 
     .dnd_over {
         -moz-transition: padding-bottom 500ms ease 0s;
-        transition: padding-bottom 500ms ease 0s;         
+        -o-transition: padding-bottom 500ms ease 0s;
+        -webkit-transition: padding-bottom 500ms ease 0s;
+        -ms-transition: padding-bottom 500ms ease 0s;
+        transition: padding-bottom 500ms ease 0s;    
     }
     
     #feeds > ul.dnd_over {
@@ -110,12 +123,18 @@ div.add_parentfolder {
     }
     .dnd_over > ul {
         -moz-transition: padding-bottom 500ms ease 0s;
+        -o-transition: padding-bottom 500ms ease 0s;
+        -webkit-transition: padding-bottom 500ms ease 0s;
+        -ms-transition: padding-bottom 500ms ease 0s;
         transition: padding-bottom 500ms ease 0s;
         padding-bottom: 2.5em! important;
 
     }
     #feeds > ul ul.dnd_over {
         -moz-transition: padding-bottom 500ms ease 0s;
+        -o-transition: padding-bottom 500ms ease 0s;
+        -webkit-transition: padding-bottom 500ms ease 0s;
+        -ms-transition: padding-bottom 500ms ease 0s;
         transition: padding-bottom 500ms ease 0s;
         padding-bottom: 2.5em !important;
     }    
@@ -134,7 +153,7 @@ div.add_parentfolder {
     }
 
         #feeds .buttons button {
-            margin: .8em .3em 0 0;
+            margin: .6em .3em 0 0;
             background-position: center;
             background-repeat: no-repeat;
         }
@@ -171,14 +190,19 @@ div.add_parentfolder {
         box-shadow: none;
         -moz-box-shadow: none;
         display: none;
-    }
-
-    #feeds button.collapsable_trigger.triggered {
         -moz-transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
         -ms-transform:rotate(-90deg);
         -o-transform:rotate(-90deg);
         transform: rotate(-90deg);
+    }
+
+    #feeds .open .collapsable_trigger {
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -ms-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+        transform: rotate(0deg);
     }
 
         #feeds .folder.collapsable:hover button.collapsable_trigger {
@@ -188,7 +212,7 @@ div.add_parentfolder {
     #feeds li {
         border-bottom: 1px solid #ddd;
         border-top: 1px solid #fff;
-        padding: 0 .5em;
+        padding: 0;
         font-weight: bold ;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -214,14 +238,19 @@ div.add_parentfolder {
             white-space: nowrap;
             display: block;
             padding-left: 2em;
+            padding: 0 .5em 0 2.5em;
             background-size: 16px 16px;
             background-repeat: no-repeat;
-            background-position: .2em center;
-            line-height: 2.8em;
+            background-position: .7em center;
+            line-height: 2.5em;
         }
 
             #feeds li:hover > a.title {
-                width: 75%;
+                padding-right: 4em !important;
+            }
+
+            #feeds li.folder:hover > a.title {
+                padding-right: 5.5em !important;
             }
 
         #feeds .starred a.title {
@@ -236,14 +265,14 @@ div.add_parentfolder {
         border-bottom: 1px solid #ccc;
     }
 
-    #feeds li:hover {
+    #feeds li:hover, #feeds li:active, .ui-draggable-dragging {
         background-color: #ddd;
-        border-bottom: 1px solid #ccc;
-        border-top: 1px solid #d4d4d4;
+        border-bottom: 1px solid #ccc !important;
+        border-top: 1px solid #d4d4d4 !important;
     }
 
     #feeds .folder {
-        padding: 0 .5em;
+        padding: 0;
     }
 
         #feeds .folder > a.title {
@@ -253,6 +282,14 @@ div.add_parentfolder {
         #feeds .folder.collapsable:hover a {
             background-image: none;
         }
+
+    #feeds .folder.collapsable ul {
+        display: none;
+    }
+
+    #feeds .folder.collapsable.open ul {
+        display: block;
+    }
 
     #feeds .folder.collapsable.open {
         padding: 0;
@@ -268,29 +305,21 @@ div.add_parentfolder {
             box-shadow: inset 0 0 3px #cccccc;
         }
 
-        #feeds .folder.collapsable.open a.title {
-            margin: 0 .5em;
-        }
 
         #feeds .folder.open ul li {
             border: 0;
+            border-top: 1px solid rgba(0,0,0,0);
+            border-bottom: 1px solid rgba(0,0,0,0);
             box-sizing: border-box;
             -moz-box-sizing: border-box;
         }
 
             #feeds .folder.open ul li a.title {
-                padding-left: 3.2em;
+                padding-left: 4.3em;
                 padding-right: .5em;
-                background-position: 1.4em center;
+                background-position: 2.5em center;
             }
 
-        #feeds .folder.open ul li:first-child {
-            border-top: 0 solid #ddd;
-        }
-
-        #feeds .folder.open ul li:last-child {
-            border-bottom: 0;
-        }
 
 
 /* feed settings */
@@ -562,11 +591,11 @@ div.add_parentfolder {
              * Body of the feed item
              */
             .feed_item div.body { 
-                overflow: hidden;
                 padding: .75em 3em 0 3em; 
                 max-width: 55em;
                 font-size: 1.1em;
                 clear: both;
+                overflow: auto;
             }
 
                 .feed_item div.body p { 
@@ -574,8 +603,11 @@ div.add_parentfolder {
                     margin: .5em 0 1em 0;
                 }
 
-                .feed_item div.body img {
+                .feed_item div.body img, .feed_item div.body table {
                     max-width: 100%;
+                    height: auto;
+                    overflow: auto;
+                    word-wrap: break-word;
                 }
 
                 .feed_item div.body > img:first-child {
@@ -727,6 +759,3 @@ ul.menu {
     left: 33.3em;
     /*left: 3.8em;*/
 }
-
-
-

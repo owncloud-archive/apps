@@ -36,7 +36,7 @@ $modules[] =array(
 	'status' => function_exists('curl_init') ? 'ok' : 'error',
 	'part'=> 'php-curl',
 	'modules'=> array('bookmarks'),
-	'message'=> $l->t('The php-curl modude is needed to fetch the page title when adding a bookmarks'));
+	'message'=> $l->t('The php-curl module is needed to fetch the page title when adding a bookmark'));
 
 $modules[] =array(
 	'status' => function_exists('imagepng') ? 'ok' : 'error',
@@ -95,7 +95,7 @@ $modules[] =array(
 foreach($modules as $key => $module) {
 	$enabled = false ;
 	foreach($module['modules'] as $app) {
-		if(OCP\App::isEnabled($app) || $app=='core'){
+		if(OCP\App::isEnabled($app) || $app=='core') {
 				$enabled = true;
 		}
 	}

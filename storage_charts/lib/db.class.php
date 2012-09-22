@@ -31,10 +31,10 @@ class OC_DLStCharts {
 	 * @param $used user used space
 	 * @param $total total users used space
 	 */
-	public static function update($used, $total){
+	public static function update($used, $total) {
 		$query = OC_DB::prepare("SELECT stc_id FROM *PREFIX*dlstcharts WHERE oc_uid = ? AND stc_dayts = ?");
 		$result = $query->execute(Array(OC_User::getUser(), mktime(0,0,0)))->fetchRow();
-		if($result){
+		if($result) {
 			$query = OC_DB::prepare("UPDATE *PREFIX*dlstcharts SET stc_used = ?, stc_total = ? WHERE stc_id = ?");
 			$query->execute(Array($used, $total, $result['stc_id']));
 		}else{
@@ -47,20 +47,20 @@ class OC_DLStCharts {
 	 * Get the size of the data folder
 	 * @param $path path to the folder you want to calculate the total size
 	 */
-	public static function getTotalDataSize($path){
-		if(is_file($path)){
+	public static function getTotalDataSize($path) {
+		if(is_file($path)) {
 			$path = dirname($path);
 		}
 		$path = str_replace('//', '/', $path);
-		if(is_dir($path) and strcmp(substr($path, -1), '/') != 0){
+		if(is_dir($path) and strcmp(substr($path, -1), '/') != 0) {
 			$path .= '/';
 		}
 		$size = 0;
-		if($dh = opendir($path)){
+		if($dh = opendir($path)) {
 			while(($filename = readdir($dh)) !== false) {
-				if(strcmp($filename, '.') != 0 and strcmp($filename, '..') != 0){
+				if(strcmp($filename, '.') != 0 and strcmp($filename, '..') != 0) {
 					$subFile = $path . '/' . $filename;
-					if(is_file($subFile)){
+					if(is_file($subFile)) {
 						$size += filesize($subFile);
 					}else{
 						$size += self::getTotalDataSize($subFile);
@@ -74,8 +74,8 @@ class OC_DLStCharts {
 	/**
 	 * Get data to build the pie about the Free-Used space ratio
 	 */
-	public static function getPieFreeUsedSpaceRatio(){
-		if(OC_Group::inGroup(OC_User::getUser(), 'admin')){
+	public static function getPieFreeUsedSpaceRatio() {
+		if(OC_Group::inGroup(OC_User::getUser(), 'admin')) {
 			$query = OC_DB::prepare("SELECT stc_id, stc_dayts, oc_uid FROM (SELECT * FROM *PREFIX*dlstcharts ORDER BY stc_dayts DESC) last GROUP BY oc_uid");
 			$results = $query->execute()->fetchAll();
 		}else{
@@ -84,7 +84,7 @@ class OC_DLStCharts {
 		}
 		
 		$return = Array();
-		foreach($results as $result){
+		foreach($results as $result) {
 			$query = OC_DB::prepare("SELECT oc_uid, stc_used, stc_total FROM *PREFIX*dlstcharts WHERE stc_id = ?");
 			$return[] = $query->execute(Array($result['stc_id']))->fetchAll();
 		}
@@ -95,18 +95,18 @@ class OC_DLStCharts {
 	/**
 	 * Get data to build the line chart about last 7 days used space evolution
 	 */
-	public static function getUsedSpaceOverTime($time){
+	public static function getUsedSpaceOverTime($time) {
 		$return = Array();
-		if(OC_Group::inGroup(OC_User::getUser(), 'admin')){
-			foreach(OC_User::getUsers() as $user){
-				if(strcmp($time, 'daily') == 0){
+		if(OC_Group::inGroup(OC_User::getUser(), 'admin')) {
+			foreach(OC_User::getUsers() as $user) {
+				if(strcmp($time, 'daily') == 0) {
 					$return[$user] = self::getDataByUserToLineChart($user);
 				}else{
 					$return[$user] = self::getDataByUserToHistoChart($user);
 				}
 			}
 		}else{
-			if(strcmp($time, 'daily') == 0){
+			if(strcmp($time, 'daily') == 0) {
 				$return[OC_User::getUser()] = self::getDataByUserToLineChart(OC_User::getUser());
 			}else{
 				$return[OC_User::getUser()] = self::getDataByUserToHistoChart(OC_User::getUser());
@@ -120,10 +120,10 @@ class OC_DLStCharts {
 	 * @param $key The conf key
 	 * @return Array The conf value
 	 */
-	public static function getUConfValue($key, $default = NULL){
+	public static function getUConfValue($key, $default = NULL) {
 		$query = OC_DB::prepare("SELECT uc_id,uc_val FROM *PREFIX*dlstcharts_uconf WHERE oc_uid = ? AND uc_key = ?");
 		$result = $query->execute(Array(OC_User::getUser(), $key))->fetchRow();
-		if($result){
+		if($result) {
 			return $result;
 		}
 		return $default;
@@ -134,9 +134,9 @@ class OC_DLStCharts {
 	 * @param $key The conf key
 	 * @param $val The conf value
 	 */
-	public static function setUConfValue($key,$val){
+	public static function setUConfValue($key,$val) {
 		$conf = self::getUConfValue($key);
-		if(!is_null($conf)){
+		if(!is_null($conf)) {
 			$query = OC_DB::prepare("UPDATE *PREFIX*dlstcharts_uconf SET uc_val = ? WHERE uc_id = ?");
 			$query->execute(Array($val, $conf['uc_id']));
 		}else{
@@ -150,12 +150,12 @@ class OC_DLStCharts {
 	 * @param $operation operation to do 
 	 * @param $elements elements to parse
 	 */
-	public static function arrayParser($operation, $elements, $l, $data_sep = ',', $ck = 'hu_size'){
+	public static function arrayParser($operation, $elements, $l, $data_sep = ',', $ck = 'hu_size') {
 		$return = "";
-		switch($operation){
+		switch($operation) {
 			case 'pie':
 				$free = $total = 0;
-				foreach($elements as $element){
+				foreach($elements as $element) {
 					$element = $element[0];
 					
 					$total = $element['stc_total'];
@@ -169,7 +169,7 @@ class OC_DLStCharts {
 			case 'line':
 				$conf = self::getUConfValue($ck, Array('uc_val' => 3));
 				$div = 1;
-				switch($conf['uc_val']){
+				switch($conf['uc_val']) {
 					case 4:
 						$div = 1024;
 					case 3:
@@ -180,9 +180,9 @@ class OC_DLStCharts {
 						$div *= 1024;
 				}
 				
-				foreach($elements as $user => $data){
+				foreach($elements as $user => $data) {
 					$return_tmp = '{"name":"' . $user . '","data":[';
-					foreach($data as $number){
+					foreach($data as $number) {
 						$return_tmp .= round($number/$div, 2) . ",";
 					}
 					$return_tmp = substr($return_tmp, 0, -1) . "]}";
@@ -200,7 +200,7 @@ class OC_DLStCharts {
 	 * @param $user the user
 	 * @return Array
 	 */
-	private static function getDataByUserToLineChart($user){
+	private static function getDataByUserToLineChart($user) {
 		$dates = Array(
 			mktime(0,0,0,date('m'),date('d')-6),
 			mktime(0,0,0,date('m'),date('d')-5),
@@ -212,18 +212,18 @@ class OC_DLStCharts {
 		);
 		
 		$return = Array();
-		foreach($dates as $kd => $date){
+		foreach($dates as $kd => $date) {
 			$query = OC_DB::prepare("SELECT stc_used FROM *PREFIX*dlstcharts WHERE oc_uid = ? AND stc_dayts = ?");
 			$result = $query->execute(Array($user, $date))->fetchAll();
 			
-			if(count($result) > 0){
+			if(count($result) > 0) {
 				$return[] = $result[0]['stc_used'];
 			}else{
-				if($kd == 0){
+				if($kd == 0) {
 					$query = OC_DB::prepare("SELECT stc_used FROM *PREFIX*dlstcharts WHERE oc_uid = ? AND stc_dayts < ? ORDER BY stc_dayts DESC");
 					$result = $query->execute(Array($user, $date))->fetchAll();
 					
-					if(count($result) > 0){
+					if(count($result) > 0) {
 						$return[] = $result[0]['stc_used'];
 					}else{
 						$return[] = 0;
@@ -236,7 +236,7 @@ class OC_DLStCharts {
 		
 		$last = 0;
 		foreach ($return as $key => $value) {
-			if($value == 0){
+			if($value == 0) {
 				$return[$key] = $last;
 			}
 			$last = $return[$key];
@@ -249,7 +249,7 @@ class OC_DLStCharts {
 	 * @param $user The user
 	 * @return Array
 	 */
-	private static function getDataByUserToHistoChart($user){
+	private static function getDataByUserToHistoChart($user) {
 		$months = Array(
 			date('Ym',mktime(0,0,0,date('m')-11)),
 			date('Ym',mktime(0,0,0,date('m')-10)),
@@ -266,11 +266,11 @@ class OC_DLStCharts {
 		);
 		
 		$return = Array();
-		foreach($months as $km => $month){
+		foreach($months as $km => $month) {
 			$query = OC_DB::prepare("SELECT AVG(stc_used) as stc_used FROM *PREFIX*dlstcharts WHERE oc_uid = ? AND stc_month = ?");
 			$result = $query->execute(Array($user, $month))->fetchAll();
 			
-			if(count($result) > 0){
+			if(count($result) > 0) {
 				$return[] = $result[0]['stc_used'];
 			}else{
 				$return[] = 0;
@@ -279,7 +279,7 @@ class OC_DLStCharts {
 		
 		$last = 0;
 		foreach ($return as $key => $value) {
-			if($value == 0){
+			if($value == 0) {
 				$return[$key] = $last;
 			}
 			$last = $return[$key];

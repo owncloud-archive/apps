@@ -14,6 +14,7 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('news');
 OCP\JSON::callCheck();
+session_write_close();
 
 $folderId = (int)$_POST['folderId'];
 $feedId = $_POST['feedId'];
@@ -22,7 +23,7 @@ $feedId = $_POST['feedId'];
 $feedMapper = new OCA\News\FeedMapper();
 $feed = $feedMapper->findById($feedId);
 
-if($folderId === 0){
+if($folderId === 0) {
     $success = $feedMapper->save($feed, $folderId);
 } else {
     $folderMapper = new OCA\News\FolderMapper();

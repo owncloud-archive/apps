@@ -26,14 +26,14 @@ require_once '../../../lib/base.php';
 OC_JSON::checkLoggedIn();
 OC_JSON::checkAppEnabled('storage_charts');
 
-if(in_array($_POST['k'], Array('hu_size','sc_sort','hu_size_hus'))){
-	switch($_POST['o']){
+if(in_array($_POST['k'], Array('hu_size','sc_sort','hu_size_hus'))) {
+	switch($_POST['o']) {
 		case 'set':
 			$i = NULL;
-			if(is_array($_POST['i'])){
+			if(is_array($_POST['i'])) {
 				$i = serialize($_POST['i']);
 				
-			}elseif(is_numeric($_POST['i'])){
+			}elseif(is_numeric($_POST['i'])) {
 				$i = $_POST['i'];
 			}
 			OC_DLStCharts::setUConfValue($_POST['k'], $i);
