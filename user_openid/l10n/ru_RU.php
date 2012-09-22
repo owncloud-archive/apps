@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
+"Identity: <b>" => "Идентификация: <b>",
 "Realm: <b>" => "Область: <b>",
 "User: <b>" => "Пользователь: <b>",
 "Login" => "Вход",

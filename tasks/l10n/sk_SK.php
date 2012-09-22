@@ -1,0 +1,23 @@
+<?php $TRANSLATIONS = array(
+"Invalid date/time" => "Nepsrávny dátum/čas",
+"Tasks" => "Úlohy",
+"No category" => "Žiadna kategória",
+"Unspecified" => "Nešpecifikované",
+"1=highest" => "1= najvyššia",
+"5=medium" => "5=stredná",
+"9=lowest" => "9=najnižšia",
+"Empty Summary" => "Prázdny sumár",
+"The calendar application also need to be enabled to use this application." => "Táto aplikácia si vyžaduje aj aplikáciu kalendár.",
+"Add Task" => "Pridať úlohu",
+"Order Due" => "A/Z Termín",
+"Order List" => "A/Z Zoznam",
+"Order Complete" => "A/Z Komplet",
+"Order Location" => "A/Z Umiestnenie",
+"Order Priority" => "A/Z Priorita",
+"Order Label" => "A/Z Štítok",
+"Loading tasks..." => "Nahrávam úlohy",
+"Important" => "Dôležité",
+"More" => "Viac",
+"Less" => "Menej",
+"Delete" => "Zmazať"
+);
