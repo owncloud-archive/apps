@@ -6,6 +6,6 @@
 "Login" => "Anmelden",
 "Error: <b>No user Selected" => "Fehler: <b> Kein Benutzer ausgewählt",
 "you can authenticate to other sites with this address" => "Sie können sich auf anderen Seiten mit dieser Adresse authentifizieren.",
-"Authorized OpenID provider" => "Authorisierter OpenID-Anbieter",
+"Authorized OpenID provider" => "Autorisierter OpenID-Anbieter",
 "Your address at Wordpress, Identi.ca, &hellip;" => "Ihre Adresse bei Wordpress, Identi.ca, &hellip;"
 );

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2012.
 #   <sr@ybnet.dk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-04 02:01+0200\n"
-"PO-Revision-Date: 2012-09-04 00:01+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-24 02:02+0200\n"
+"PO-Revision-Date: 2012-09-23 08:51+0000\n"
+"Last-Translator: Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,16 +53,16 @@ msgstr "Tom beskrivelse"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr ""
+msgstr "Ugyldig procent for fuldførelse"
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr ""
+msgstr "Ugyldig prioritet"
 
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr ""
+msgstr "Kalenderapplikationen skal også aktiveres, for at denne applikation kan anvendes."
 
 #: templates/tasks.php:3
 msgid "Add Task"
@@ -69,27 +70,27 @@ msgstr "Tilføj opgave"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "Sorter efter tidsfrist"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr ""
+msgstr "Sorter liste"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr ""
+msgstr " Sorter efter fuldført"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr ""
+msgstr "Sorter efter geografisk placering"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr ""
+msgstr "Sorter efter prioritet"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr ""
+msgstr "Sorter efter mærkat"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."

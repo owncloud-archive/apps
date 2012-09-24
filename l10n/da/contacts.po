@@ -4,7 +4,7 @@
 # 
 # Translators:
 #   <mikkelbjerglarsen@gmail.com>, 2011.
-# Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2011, 2012.
+# Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2011-2012.
 # Pascal d'Hermilly <pascal@dhermilly.dk>, 2011.
 #   <simon@rosmi.dk>, 2012.
 # Thomas Tanghus <>, 2012.
@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:05+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-24 02:01+0200\n"
+"PO-Revision-Date: 2012-09-23 07:53+0000\n"
+"Last-Translator: Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -228,26 +228,26 @@ msgstr "Ikke implementeret"
 msgid "Couldn't get a valid address."
 msgstr "Kunne ikke finde en gyldig adresse."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
+#: js/contacts.js:76 js/contacts.js:363 js/contacts.js:685 js/contacts.js:725
 #: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
 #: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
 #: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
-#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
-#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1574
+#: js/contacts.js:1609 js/contacts.js:1629 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
 msgid "Error"
 msgstr "Fejl"
 
-#: js/contacts.js:408
+#: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
 msgstr "Du har ikke rettigheder til at tilføje kontaktpersoner til "
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Please select one of your own address books."
 msgstr "Vælg venligst en af dine egne adressebøger."
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Permission error"
 msgstr "Manglende rettigheder"
 
@@ -273,7 +273,7 @@ msgstr "Rediger navn"
 msgid "No files selected for upload."
 msgstr "Der er ikke valgt nogen filer at uploade."
 
-#: js/contacts.js:1220 js/contacts.js:2072
+#: js/contacts.js:1220 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -283,56 +283,56 @@ msgstr "Dr."
 msgid "Error loading profile picture."
 msgstr "Fejl ved indlæsning af profilbillede"
 
-#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
-#: js/contacts.js:1522
+#: js/contacts.js:1420 js/contacts.js:1463 js/contacts.js:1482
+#: js/contacts.js:1525
 msgid "Select type"
 msgstr "Vælg type"
 
-#: js/contacts.js:1540
+#: js/contacts.js:1543
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Nogle kontakter er markeret til sletning, men er endnu ikke slettet. Vent venligst på, at de bliver slettet."
 
-#: js/contacts.js:1611
+#: js/contacts.js:1614
 msgid "Do you want to merge these address books?"
 msgstr "Vil du fusionere disse adressebøger?"
 
-#: js/contacts.js:2065
+#: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Kan ikke uploade din fil - det er enten en mappe eller en fil med et indhold på 0 bytes."
 
-#: js/contacts.js:2065
+#: js/contacts.js:2068
 msgid "Upload Error"
-msgstr ""
+msgstr "Fejl i upload"
 
-#: js/contacts.js:2072
+#: js/contacts.js:2075
 msgid "Upload too large"
-msgstr ""
+msgstr "Upload er for stor"
 
-#: js/contacts.js:2120
+#: js/contacts.js:2123
 msgid "Pending"
-msgstr ""
+msgstr "Afventer"
 
-#: js/contacts.js:2152
+#: js/contacts.js:2155
 msgid "Import done"
-msgstr ""
+msgstr "Import fuldført"
 
-#: js/contacts.js:2165
+#: js/contacts.js:2168
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Nogle filer blev ikke uploadet. Forsøger igen..."
 
-#: js/contacts.js:2171
+#: js/contacts.js:2174
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Der opstod en fejl under upload. Forsøg igen."
 
-#: js/contacts.js:2187
+#: js/contacts.js:2190
 msgid "Importing..."
-msgstr ""
+msgstr "Importerer..."
 
-#: js/contacts.js:2208
+#: js/contacts.js:2211
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "Adressebogens navn kan ikke være tomt."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -346,13 +346,13 @@ msgstr " importeret "
 msgid " failed."
 msgstr " fejl."
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "Brugernavn må ikke være tomt."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "Du har ikke rettigheder til at se denne adressebog."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -949,7 +949,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>Du har ingen kontakter i din adressebog.</h3><p>Du kan importere VCF-filer ved at trække dem gil kontaktlisten og enten slippe dem på en adressebog for at importere ind i den eller udenfor listen for at oprette en ny med kontaktoplysningerne fra filen.<br />Du kan også importere ved at klikke på importknappen under listen.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"
