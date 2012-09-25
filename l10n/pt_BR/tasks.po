@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-24 02:02+0200\n"
-"PO-Revision-Date: 2012-09-23 15:54+0000\n"
+"POT-Creation-Date: 2012-09-25 02:03+0200\n"
+"PO-Revision-Date: 2012-09-24 01:38+0000\n"
 "Last-Translator: sedir <philippi.sedir@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -65,11 +65,11 @@ msgstr "A aplicação de calendário também precisa estar habilitada para usar 
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr "Adicionar tarefa"
+msgstr "Adicionar Tarefa"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "Ordenar por Vencimento"
+msgstr "Ordenar Vencimento"
 
 #: templates/tasks.php:5
 msgid "Order List"
@@ -77,19 +77,19 @@ msgstr "Ordenar Lista"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr "Ordenar por Completo"
+msgstr "Ordenar Completo"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr "Ordenar por Local"
+msgstr "Ordenar Local"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr "Ordenar por Prioridade"
+msgstr "Ordenar Prioridade"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr "Ordenar por Rótulo"
+msgstr "Ordenar Rótulo"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
