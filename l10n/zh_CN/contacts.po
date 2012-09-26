@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-17 16:59+0200\n"
-"PO-Revision-Date: 2012-09-15 15:02+0000\n"
-"Last-Translator: hanfeng <appweb.cn@gmail.com>\n"
+"POT-Creation-Date: 2012-09-26 13:19+0200\n"
+"PO-Revision-Date: 2012-09-26 11:20+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -226,16 +226,41 @@ msgstr "未实现"
 msgid "Couldn't get a valid address."
 msgstr "无法获取一个合法的地址。"
 
-#: js/contacts.js:76 js/contacts.js:363 js/contacts.js:685 js/contacts.js:725
-#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
-#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
-#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1574
-#: js/contacts.js:1609 js/contacts.js:1629 js/contacts.js:1841
-#: js/contacts.js:1984 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
+#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
+#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
+#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
+#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
+#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
+#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
+#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
+#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
 #: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "错误"
+
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr ""
+
+#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "输入姓名"
+
+#: js/contacts.js:177 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "自定义格式，简称，全名，姓在前，姓在前并用逗号分割"
+
+#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
+#: js/contacts.js:1482 js/contacts.js:1525
+msgid "Select type"
+msgstr "选择类型"
+
+#: js/contacts.js:214
+msgid "Select photo"
+msgstr ""
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -249,6 +274,14 @@ msgstr "请选择一个您的地址簿"
 msgid "Permission error"
 msgstr "权限错误"
 
+#: js/contacts.js:481
+msgid "Click to undo deletion of \""
+msgstr ""
+
+#: js/contacts.js:495
+msgid "Cancelled deletion of: \""
+msgstr ""
+
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
 msgstr "这个属性必须是非空的"
@@ -256,6 +289,10 @@ msgstr "这个属性必须是非空的"
 #: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr "无法序列化元素"
+
+#: js/contacts.js:762
+msgid "Unknown error. Please check logs."
+msgstr ""
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -271,7 +308,7 @@ msgstr "编辑名称"
 msgid "No files selected for upload."
 msgstr "没有选择文件以上传"
 
-#: js/contacts.js:1220 js/contacts.js:2075
+#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -280,11 +317,6 @@ msgstr "您试图上传的文件超出了该服务器的最大文件限制"
 #: js/contacts.js:1284
 msgid "Error loading profile picture."
 msgstr "载入档案图片时出错"
-
-#: js/contacts.js:1420 js/contacts.js:1463 js/contacts.js:1482
-#: js/contacts.js:1525
-msgid "Select type"
-msgstr "选择类型"
 
 #: js/contacts.js:1543
 msgid ""
@@ -296,6 +328,28 @@ msgstr "一些联系人已被标注为删除，但是尚未完成，请稍候。
 msgid "Do you want to merge these address books?"
 msgstr "是否想合并这些地址簿？"
 
+#: js/contacts.js:1767
+msgid "Shared by "
+msgstr ""
+
+#: js/contacts.js:2000 js/contacts.js:2075
+msgid "Upload too large"
+msgstr "上传文件过大"
+
+#: js/contacts.js:2004
+msgid "Only image files can be used as profile picture."
+msgstr ""
+
+#: js/contacts.js:2004
+msgid "Wrong file type"
+msgstr ""
+
+#: js/contacts.js:2010
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr ""
+
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "无法上传您的文件，文件夹或者空文件"
@@ -303,10 +357,6 @@ msgstr "无法上传您的文件，文件夹或者空文件"
 #: js/contacts.js:2068
 msgid "Upload Error"
 msgstr "上传错误"
-
-#: js/contacts.js:2075
-msgid "Upload too large"
-msgstr "上传文件过大"
 
 #: js/contacts.js:2123
 msgid "Pending"
@@ -347,6 +397,41 @@ msgstr " 失败。"
 #: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "显示名称不能为空"
+
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "显示CardDav连接"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "显示只读VCF连接"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "下载"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "编辑"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "删除"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "取消"
+
+#: js/settings.js:157 templates/settings.php:66
+msgid "More..."
+msgstr "更多"
+
+#: js/settings.js:161
+msgid "Less..."
+msgstr ""
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
@@ -645,10 +730,6 @@ msgstr "上传新照片"
 msgid "Select photo from ownCloud"
 msgstr "从 ownCloud 选择照片"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "自定义格式，简称，全名，姓在前，姓在前并用逗号分割"
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
 msgstr "编辑名称详情"
@@ -657,12 +738,6 @@ msgstr "编辑名称详情"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "组织"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:49
-msgid "Delete"
-msgstr "删除"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -957,10 +1032,6 @@ msgstr "添加联系人"
 msgid "Select Address Books"
 msgstr "选择地址簿"
 
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "输入姓名"
-
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "输入描述"
@@ -985,25 +1056,9 @@ msgstr "iOS/OS X"
 msgid "Addressbooks"
 msgstr "地址簿"
 
-#: templates/settings.php:25
-msgid "Show CardDav link"
-msgstr "显示CardDav连接"
-
-#: templates/settings.php:28
-msgid "Show read-only VCF link"
-msgstr "显示只读VCF连接"
-
 #: templates/settings.php:35
 msgid "Share"
 msgstr "共享"
-
-#: templates/settings.php:39
-msgid "Download"
-msgstr "下载"
-
-#: templates/settings.php:44
-msgid "Edit"
-msgstr "编辑"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1020,11 +1075,3 @@ msgstr "描述"
 #: templates/settings.php:60
 msgid "Save"
 msgstr "保存"
-
-#: templates/settings.php:61
-msgid "Cancel"
-msgstr "取消"
-
-#: templates/settings.php:66
-msgid "More..."
-msgstr "更多"

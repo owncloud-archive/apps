@@ -1,5 +1,4 @@
 <?php $TRANSLATIONS = array(
-"regex" => "regex",
 "Save" => "Lưu",
 "Close" => "Đóng",
 "Saving..." => "Đang lưu...",

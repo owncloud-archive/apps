@@ -1,5 +1,4 @@
 <?php $TRANSLATIONS = array(
-"regex" => "регулярный",
 "Save" => "Сохранить",
 "Close" => "Закрыть",
 "Saving..." => "Сохранение",

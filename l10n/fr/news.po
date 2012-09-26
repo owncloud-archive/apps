@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-24 02:02+0200\n"
-"PO-Revision-Date: 2012-09-23 22:41+0000\n"
-"Last-Translator: Romain DEP. <rom1dep@gmail.com>\n"
+"POT-Creation-Date: 2012-09-26 13:19+0200\n"
+"PO-Revision-Date: 2012-09-26 11:22+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -110,6 +110,30 @@ msgstr "Flux mis à jour !"
 msgid "News"
 msgstr "Abonnements"
 
+#: js/items.js:118
+msgid "Error while loading the feed"
+msgstr ""
+
+#: js/items.js:118 js/items.js:560 js/items.js:665 js/main.js:121
+#: js/menu.js:534 js/menu.js:595 js/menu.js:617 js/menu.js:644 js/menu.js:666
+#: js/menu.js:916 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
+#: js/settings.js:47
+msgid "Error"
+msgstr "Erreur"
+
+#: js/main.js:40
+msgid "None"
+msgstr ""
+
+#: js/main.js:108 templates/main.php:16
+msgid "Show only unread"
+msgstr "Montrer uniquement les articles non-lus"
+
+#: js/main.js:112 templates/main.php:12
+msgid "Show everything"
+msgstr "Tout montrer"
+
 #: js/menu.js:507
 msgid "Are you sure you want to delete this feed?"
 msgstr "Êtes vous certain de vouloir supprimer ce flux ?"
@@ -121,13 +145,6 @@ msgstr "Êtes vous certain de vouloir supprimer ce répertoire ainsi que tous le
 #: js/menu.js:523
 msgid "Warning"
 msgstr "Attention"
-
-#: js/menu.js:534 js/menu.js:595 js/menu.js:617 js/menu.js:644 js/menu.js:666
-#: js/menu.js:916 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
-#: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
-#: js/settings.js:47
-msgid "Error"
-msgstr "Erreur"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
@@ -241,14 +258,6 @@ msgstr "Vous avez souscrit à"
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
 msgstr "Vous avez déjà souscrit à ce flux!"
-
-#: templates/main.php:12
-msgid "Show everything"
-msgstr "Tout montrer"
-
-#: templates/main.php:16
-msgid "Show only unread"
-msgstr "Montrer uniquement les articles non-lus"
 
 #: templates/main.php:32
 msgid "Add feed or folder"
