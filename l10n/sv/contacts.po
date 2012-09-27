@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 14:43+0000\n"
+"Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -245,7 +245,7 @@ msgstr "Fel"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "Ange en e-postadress."
 
 #: js/contacts.js:176 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -262,7 +262,7 @@ msgstr "Välj typ"
 
 #: js/contacts.js:214
 msgid "Select photo"
-msgstr ""
+msgstr "Välj foto"
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -278,11 +278,11 @@ msgstr "Behörighetsfel"
 
 #: js/contacts.js:481
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "Klicka för att ångra radering av \""
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "Avbruten radering av: \""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -294,7 +294,7 @@ msgstr "Kunde inte serialisera element."
 
 #: js/contacts.js:762
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "Okänt fel. Kontrollera loggarna."
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -332,7 +332,7 @@ msgstr "Vill du slå samman dessa adressböcker?"
 
 #: js/contacts.js:1767
 msgid "Shared by "
-msgstr ""
+msgstr "Delad av"
 
 #: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
@@ -340,17 +340,17 @@ msgstr "För stor uppladdning"
 
 #: js/contacts.js:2004
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "Endast bildfiler kan användas som profilbild."
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
-msgstr ""
+msgstr "Felaktig filtyp"
 
 #: js/contacts.js:2010
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "Din webbläsare saknar stöd för uppladdning med AJAX. Klicka på profilbilden för att välja ett foto att ladda upp."
 
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
@@ -433,7 +433,7 @@ msgstr "Mer..."
 
 #: js/settings.js:161
 msgid "Less..."
-msgstr ""
+msgstr "Mindre..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."

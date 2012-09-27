@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 11:25+0000\n"
+"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -241,7 +241,7 @@ msgstr "พบข้อผิดพลาด"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "กรุณากรอกที่อยู่อีเมล"
 
 #: js/contacts.js:176 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -258,7 +258,7 @@ msgstr "เลือกชนิด"
 
 #: js/contacts.js:214
 msgid "Select photo"
-msgstr ""
+msgstr "เลือกรูปถ่าย"
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -274,11 +274,11 @@ msgstr "เกิดข้อผิดพลาดเกี่ยวกับส
 
 #: js/contacts.js:481
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "คลิกเพื่อเลิกทำการลบทิ้งของ \""
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "ยกเลิกแล้ว สำหรับการลบทิ้งของ: \""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -290,7 +290,7 @@ msgstr "ไม่สามารถทำสัญลักษณ์องค์
 
 #: js/contacts.js:762
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "เกิดข้อผิดพลาดโดยไม่ทราบสาเหตุ กรุณาตรวจสอบบันทึกการเปลี่ยนแปลง"
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -328,7 +328,7 @@ msgstr "คุณต้องการผสานข้อมูลสมุด
 
 #: js/contacts.js:1767
 msgid "Shared by "
-msgstr ""
+msgstr "แชร์โดย"
 
 #: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
@@ -336,17 +336,17 @@ msgstr "ไฟล์ที่อัพโหลดมีขนาดใหญ่
 
 #: js/contacts.js:2004
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "เฉพาะไฟล์รูปภาพเท่านั้นที่สามารถใช้งานเป็นรูปภาพโปรไฟล์ได้"
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
-msgstr ""
+msgstr "ชนิดของไฟล์ไม่ถูกต้อง"
 
 #: js/contacts.js:2010
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "โปรแกรมบราวเซอร์ของคุณไม่รองรับคุณสมบัติการอัพโหลดไฟล์แบบ AJAX กรุณาคลิกที่รูปภาพโปรไฟล์เพื่อเลือกรูปภาพที่ต้องการอัพโหลด"
 
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
@@ -429,7 +429,7 @@ msgstr "เพิ่มเติม..."
 
 #: js/settings.js:161
 msgid "Less..."
-msgstr ""
+msgstr "ย่อ..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."

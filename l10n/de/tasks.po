@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# I Robot <thomas.mueller@tmit.eu>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
 #   <thomas.mueller@tmit.eu>, 2012.
 #   <transifex.3.mensaje@spamgourmet.com>, 2012.
@@ -10,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:21+0000\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 11:37+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -30,15 +31,15 @@ msgstr "Aufgaben"
 
 #: js/tasks.js:78
 msgid "Due"
-msgstr ""
+msgstr "Fällig"
 
 #: js/tasks.js:107
 msgid "List"
-msgstr ""
+msgstr "Liste"
 
 #: js/tasks.js:128
 msgid "Location"
-msgstr ""
+msgstr "Ort"
 
 #: js/tasks.js:415
 msgid "No category"

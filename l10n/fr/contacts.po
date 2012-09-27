@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Borjan Tchakaloff <borjan@tchaka.fr>, 2012.
+# Christophe Lherieau <skimpax@gmail.com>, 2012.
 # Cyril Glapa <kyriog@gmail.com>, 2012.
 #   <fboulogne@april.org>, 2011.
 #   <gp4004@arghh.org>, 2011-2012.
@@ -19,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 13:04+0000\n"
+"Last-Translator: Christophe Lherieau <skimpax@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,7 +110,7 @@ msgstr "L'hachage n'est pas défini."
 
 #: ajax/contact/saveproperty.php:62
 msgid "Information about vCard is incorrect. Please reload the page: "
-msgstr "L'informatiion à propos de la vCard est incorrect. Merci de rafraichir la page:"
+msgstr "Les informations relatives à cette vCard sont incorrectes. Veuillez recharger la page :"
 
 #: ajax/contact/saveproperty.php:69
 msgid "Something went FUBAR. "
@@ -251,7 +252,7 @@ msgstr "Erreur"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "Veuillez entrer une adresse e-mail."
 
 #: js/contacts.js:176 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -268,7 +269,7 @@ msgstr "Sélectionner un type"
 
 #: js/contacts.js:214
 msgid "Select photo"
-msgstr ""
+msgstr "Sélectionner une photo"
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -284,11 +285,11 @@ msgstr "Erreur de permission"
 
 #: js/contacts.js:481
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "Cliquer pour annuler la suppression de \""
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "Suppression annulée pour : \""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -300,13 +301,13 @@ msgstr "Impossible de sérialiser les éléments."
 
 #: js/contacts.js:762
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "Erreur inconnue. Veuillez vérifier les logs."
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
-msgstr "'deleteProperty' a été appelé sans type d'arguments. Merci de rapporter un bug à bugs.owncloud.org"
+msgstr "'deleteProperty' a été appelé sans type d'argument. Merci de rapporter un bug à bugs.owncloud.org"
 
 #: js/contacts.js:920
 msgid "Edit name"
@@ -338,7 +339,7 @@ msgstr "Voulez-vous fusionner ces carnets d'adresses ?"
 
 #: js/contacts.js:1767
 msgid "Shared by "
-msgstr ""
+msgstr "Partagé par"
 
 #: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
@@ -346,17 +347,17 @@ msgstr "Téléversement trop volumineux"
 
 #: js/contacts.js:2004
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "Seuls des fichiers d'images peuvent être utilisés pour l'image du profil."
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
-msgstr ""
+msgstr "Mauvais type de fichier"
 
 #: js/contacts.js:2010
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "Votre navigateur ne supporte pas le téléversement AJAX. Veuillez cliquer sur l'image du profil pour sélectionner une photo à téléverser."
 
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
@@ -439,7 +440,7 @@ msgstr "Plus…"
 
 #: js/settings.js:161
 msgid "Less..."
-msgstr ""
+msgstr "Moins..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
@@ -790,7 +791,7 @@ msgstr "Préféré"
 
 #: templates/part.contact.php:60
 msgid "Please specify a valid email address."
-msgstr "Merci d'entrer une adresse e-mail valide."
+msgstr "Veuillez entrer une adresse e-mail valide."
 
 #: templates/part.contact.php:60
 msgid "Enter email address"
@@ -1009,7 +1010,7 @@ msgstr "Importer un fichier de contacts"
 
 #: templates/part.import.php:6
 msgid "Please choose the addressbook"
-msgstr "Choisissez le carnet d'adresses SVP"
+msgstr "Veuillez choisir le carnet d'adresses"
 
 #: templates/part.import.php:10
 msgid "create a new addressbook"
