@@ -39,20 +39,25 @@ class OC_Files_Antivirus {
 				$path = $root.$path;
 				\OCP\Util::writeLog('files_antivirus','Init scan: '.$path, \OCP\Util::DEBUG);
 				$result = self::clamav_scan($path);
+				/*switch($result) {
+					case CLAMAV_SCANRESULT_UNCHECKED:
+						//TODO: Show warning to the user: The file can not be checked
+						break;
+					case CLAMAV_SCANRESULT_INFECTED:
+						//remove file
+						//TODO: notify the user
+						
+						break;
+						
+					case CLAMAV_SCANRESULT_CLEAN:
+						//do nothing
+						break;
+				}*/
 			}
 		}		
-
-/*TODO: throw an error and/or send the mail and remove the infected file
-		if($result == CLAMAV_SCANRESULT_INFECTED) {
-			form_set_error($form_element, t('A virus has been detected in the file.  The file will not be accepted.'));
-		}
-		elseif ($result == CLAMAV_SCANRESULT_UNCHECKED && variable_get('clamav_unchecked_files', CLAMAV_DEFAULT_UNCHECKED) == CLAMAV_BLOCK_UNCHECKED) {
-			form_set_error($form_element, t('The anti-virus scanner was not able to check the file.  The file cannot be uploaded.'));
-		}
-*/
 	}
 	
-	function clamav_scan($filepath) {
+	private static function clamav_scan($filepath) {
 		$av_mode = \OCP\Config::getAppValue('files_antivirus', 'av_mode', 'executable');
 		switch($av_mode) {
 			case 'daemon':
@@ -62,7 +67,7 @@ class OC_Files_Antivirus {
 		}
 	}
   
-	function _clamav_scan_via_daemon($filepath) {
+	private static function _clamav_scan_via_daemon($filepath) {
 		$av_host = \OCP\Config::getAppValue('files_antivirus', 'av_host', '');
 		$av_port = \OCP\Config::getAppValue('files_antivirus', 'av_port', '');
 		
@@ -102,7 +107,7 @@ class OC_Files_Antivirus {
 		}
 	}
 	
-	function _clamav_scan_via_exec($filepath) {
+	private static function _clamav_scan_via_exec($filepath) {
 		\OCP\Util::writeLog('files_antivirus','Exec scan: '.$filepath, \OCP\Util::DEBUG);
 		// get the path to the executable
 		$av_path = \OCP\Config::getAppValue('files_antivirus', 'av_path', '/usr/bin/clamscan');
@@ -114,7 +119,7 @@ class OC_Files_Antivirus {
 		}
 
 		// using 2>&1 to grab the full command-line output.
-		$cmd = escapeshellcmd($av_path) ." '". escapeshellarg($filepath) . "' 2>&1";
+		$cmd = escapeshellcmd($av_path) ." ". escapeshellarg($filepath) . " 2>&1";
 		exec($cmd, $output, $result);
 
 
@@ -127,15 +132,19 @@ class OC_Files_Antivirus {
 		 */
 		switch($result) {
 			case 0:
+			  \OCP\Util::writeLog('files_antivirus','Result CLEAN!', \OCP\Util::DEBUG);
 			  return CLAMAV_SCANRESULT_CLEAN;
 
 			case 1:
-			  // pass each line of the exec output through checkplain.
-			  // The t operator ! is used instead of @, because <br /> tags are being added.
-			  foreach($output as $key => $line) {
-			    $output[$key] = check_plain($line);
+			  $line = 0;
+			  $report = array();
+			  while ( strpos($output[$line], "--- SCAN SUMMARY ---") === FALSE ) {	  	
+					if (preg_match('/.*: (.*) FOUND$/', $output[$line], $matches)) {
+						$report[] = $matches[1];
+					}
+			    $line++;
 			  }
-			  \OCP\Util::writeLog('files_antivirus','Virus detected in file.  Clamscan reported: '.implode(', ', $output), \OCP\Util::WARN);
+			  \OCP\Util::writeLog('files_antivirus','Virus detected in file.  Clamscan reported: '.implode(', ', $report), \OCP\Util::WARN);
 			  return CLAMAV_SCANRESULT_INFECTED;
 
 			default:
