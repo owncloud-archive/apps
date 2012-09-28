@@ -7,6 +7,10 @@
 "No file was uploaded" => "Nulle file esseva incargate.",
 "Missing a temporary folder" => "Manca un dossier temporari",
 "Contacts" => "Contactos",
+"Download" => "Discargar",
+"Edit" => "Modificar",
+"Delete" => "Deler",
+"Cancel" => "Cancellar",
 "This is not your addressbook." => "Iste non es tu libro de adresses",
 "Contact could not be found." => "Contacto non poterea esser legite",
 "Work" => "Travalio",
@@ -28,7 +32,6 @@
 "Upload new photo" => "Incargar nove photo",
 "Select photo from ownCloud" => "Seliger photo ex ownCloud",
 "Organization" => "Organisation",
-"Delete" => "Deler",
 "Nickname" => "Pseudonymo",
 "Enter nickname" => "Inserer pseudonymo",
 "Groups" => "Gruppos",
@@ -73,9 +76,6 @@
 "more info" => "plus info",
 "iOS/OS X" => "iOS/OS X",
 "Addressbooks" => "Adressarios",
-"Download" => "Discargar",
-"Edit" => "Modificar",
 "New Address Book" => "Nove adressario",
-"Save" => "Salveguardar",
-"Cancel" => "Cancellar"
+"Save" => "Salveguardar"
 );

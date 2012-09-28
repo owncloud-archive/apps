@@ -37,8 +37,8 @@ class OC_MEDIA_SCANNER{
 	 * @return int the number of songs found
 	 */
 	public static function scanCollection($eventSource=null) {
-		$music=OC_FileCache::searchByMime('audio');
-		$ogg=OC_FileCache::searchByMime('application','ogg');
+		$music=OC_Files::searchByMime('audio');
+		$ogg=OC_Files::searchByMime('application/ogg');
 		$music=array_merge($music,$ogg);
 		$eventSource->send('count',count($music));
 		$songs=0;
@@ -123,7 +123,7 @@ class OC_MEDIA_SCANNER{
 			$albumId=self::$albums[$artist.'/'.$album];
 		}
 		$songId=OC_MEDIA_COLLECTION::addSong($title,$path,$artistId,$albumId,$length,$track,$size);
-		return (!($title=='unkown' && $artist=='unkown' && $album=='unkown'))?$songId:0;
+		return (!($title=='unknown' && $artist=='unknown' && $album=='unknown'))?$songId:0;
 	}
 
 	/**

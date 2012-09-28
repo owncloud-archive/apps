@@ -4,14 +4,15 @@
 # 
 # Translators:
 # I Robot <thomas.mueller@tmit.eu>, 2012.
+#   <martin@oemus.net>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
 #   <transifex.3.mensaje@spamgourmet.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
-"PO-Revision-Date: 2012-09-06 00:03+0000\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 11:38+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -20,83 +21,87 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajax/changefoldername.php:29
+#: ajax/changefoldername.php:30
 msgid "Error changing name of folder "
 msgstr "Fehler bei der Umbenennung des Ordners"
 
-#: ajax/createfeed.php:51
+#: ajax/collapsefolder.php:36
+msgid "Error collapsing folder."
+msgstr "Fehler beim Zusammenklappen der Ordner."
+
+#: ajax/createfeed.php:52
 msgid "Feed already exists."
 msgstr "Dieser Feed ist bereits vorhanden."
 
-#: ajax/createfeed.php:57
+#: ajax/createfeed.php:58
 msgid "Error adding feed."
 msgstr "Fehler beim Hinzufügen des Feeds."
 
-#: ajax/createfeed.php:70
+#: ajax/createfeed.php:71
 msgid "Feed added!"
 msgstr "Feed hinzugefügt!"
 
-#: ajax/createfolder.php:36
+#: ajax/createfolder.php:37
 msgid "Error adding folder."
 msgstr "Fehler beim Hinzufügen des Ordners."
 
-#: ajax/createfolder.php:46
+#: ajax/createfolder.php:47
 msgid "Folder added!"
 msgstr "Der Ordner wurde hinzugefügt!"
 
-#: ajax/deletefeed.php:28
+#: ajax/deletefeed.php:29
 msgid "Error removing feed."
 msgstr "Fehler beim Entfernen des Feeds."
 
-#: ajax/deletefolder.php:26
+#: ajax/deletefolder.php:27
 msgid "Error removing folder."
 msgstr "Fehler beim Entfernen des Ordners."
 
-#: ajax/exportopml.php:27 ajax/importopml.php:27 ajax/selectfromcloud.php:30
-msgid "No file path was submitted."
-msgstr "Es wurde kein Dateipfad übermittelt."
-
-#: ajax/exportopml.php:41 ajax/importopml.php:41
-msgid "An error occurred while parsing the file."
-msgstr "Es ist ein Fehler beim Einlesen der Datei aufgetreten."
-
-#: ajax/feedlist.php:27
+#: ajax/feedlist.php:28
 msgid "Error updating feeds."
 msgstr "Fehler bei der Aktualisierung der Feeds."
 
-#: ajax/loadfeed.php:36 templates/part.feeds.php:50
+#: ajax/importopml.php:28 ajax/selectfromcloud.php:31
+msgid "No file path was submitted."
+msgstr "Es wurde kein Dateipfad übermittelt."
+
+#: ajax/importopml.php:42
+msgid "An error occurred while parsing the file."
+msgstr "Es ist ein Fehler beim Einlesen der Datei aufgetreten."
+
+#: ajax/loadfeed.php:37 templates/part.feeds.php:50
 msgid "Starred"
 msgstr "Markiert"
 
-#: ajax/loadfeed.php:41 templates/part.feeds.php:44
+#: ajax/loadfeed.php:42 templates/part.feeds.php:44
 msgid "New articles"
 msgstr "Neue Artikel"
 
-#: ajax/loadfeed.php:53
+#: ajax/loadfeed.php:54
 msgid "Feed loaded!"
 msgstr "Feed geladen!"
 
-#: ajax/movefeedtofolder.php:36
+#: ajax/movefeedtofolder.php:37
 msgid "Error moving feed into folder."
 msgstr "Fehler beim Verschieben des Feeds in den Ordner."
 
-#: ajax/selectfromcloud.php:37
+#: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr "Die Datei existiert nicht:"
 
-#: ajax/setallitemsread.php:57
+#: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
 msgstr "Der Versuch, alle Artikel als gelesen zu markieren, ist fehlgeschlagen."
 
-#: ajax/setitemstatus.php:46
+#: ajax/setitemstatus.php:47
 msgid "Error marking item as read."
 msgstr "Der Versuch, den Artikel als gelesen zu markieren, ist fehlgeschlagen."
 
-#: ajax/updatefeed.php:36
+#: ajax/updatefeed.php:37
 msgid "Error updating feed."
 msgstr "Fehler bei der Aktualisierung der Feeds."
 
-#: ajax/updatefeed.php:44
+#: ajax/updatefeed.php:45
 msgid "Feed updated!"
 msgstr "Feed aktualisiert!"
 
@@ -104,14 +109,45 @@ msgstr "Feed aktualisiert!"
 msgid "News"
 msgstr "Nachrichten"
 
+#: js/items.js:118
+msgid "Error while loading the feed"
+msgstr "Fehler während des Ladens eines Feeds"
+
+#: js/items.js:118 js/items.js:560 js/items.js:665 js/main.js:121
+#: js/menu.js:534 js/menu.js:595 js/menu.js:617 js/menu.js:644 js/menu.js:666
+#: js/menu.js:916 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
+#: js/settings.js:47
+msgid "Error"
+msgstr "Fehler"
+
+#: js/main.js:40
+msgid "None"
+msgstr "Nichts"
+
+#: js/main.js:108 templates/main.php:16
+msgid "Show only unread"
+msgstr "Nur Ungelesene anzeigen"
+
+#: js/main.js:112 templates/main.php:12
+msgid "Show everything"
+msgstr "Alles anzeigen"
+
+#: js/menu.js:507
+msgid "Are you sure you want to delete this feed?"
+msgstr "Wollen Sie diesen Feed wirklich löschen?"
+
+#: js/menu.js:515
+msgid "Are you sure you want to delete this folder and all its feeds?"
+msgstr "Wollen Sie wirklich diesen Ordner mit allen Feeds löschen?"
+
+#: js/menu.js:523
+msgid "Warning"
+msgstr "Warnung"
+
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
 msgstr "Der Name des Ordners darf nicht leer sein."
-
-#: js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76 js/news.js:90
-#: js/news.js:116 js/settings.js:16 js/settings.js:22 js/settings.js:47
-msgid "Error"
-msgstr "Fehler"
 
 #: js/news.js:33 js/news.js:95
 msgid "Adding..."
@@ -178,7 +214,7 @@ msgstr "Feeds erfolgreich importiert von"
 msgid "Success"
 msgstr "Erfolgreich"
 
-#: js/settings.js:49 templates/part.nofeeds.php:20 templates/settings.php:10
+#: js/settings.js:49 templates/part.nofeeds.php:19 templates/settings.php:9
 msgid "Import"
 msgstr "Import"
 
@@ -194,17 +230,17 @@ msgstr "Herunterladen"
 msgid "Select file"
 msgstr "Datei auswählen"
 
-#: lib/feedmapper.php:165 lib/itemmapper.php:199
+#: lib/feedmapper.php:167 lib/itemmapper.php:201
 msgid "no title"
 msgstr "kein Titel"
 
-#: lib/foldermapper.php:114
+#: lib/foldermapper.php:119
 msgid "no name"
 msgstr "kein Name"
 
-#: lib/itemmapper.php:204
+#: lib/itemmapper.php:206
 msgid "no body"
-msgstr "keinen Nachrichtentext"
+msgstr "kein Nachrichtentext"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
@@ -222,21 +258,13 @@ msgstr "Gratulation! Sie haben Folgendes abonniert:"
 msgid "You had already subcribed to this feed!"
 msgstr "Sie haben diesen Feed bereits abonniert!"
 
-#: templates/main.php:12
-msgid "Show everything"
-msgstr "Alles anzeigen"
-
-#: templates/main.php:16
-msgid "Show only unread"
-msgstr "Nur Ungelesene anzeigen"
-
 #: templates/main.php:32
 msgid "Add feed or folder"
 msgstr "Feed oder Ordner hinzufügen"
 
 #: templates/main.php:33
 msgid "Add Feed/Folder"
-msgstr "Order / Feed hinzugefügen"
+msgstr "Order / Feed hinzufügen"
 
 #: templates/main.php:35
 msgid "Feed"
@@ -283,7 +311,7 @@ msgid "Add"
 msgstr "Hinzufügen"
 
 #: templates/part.feeds.php:46 templates/part.listfeed.php:26
-#: templates/part.listfolder.php:20
+#: templates/part.listfolder.php:21
 msgid "Mark all read"
 msgstr "Alles als gelesen kennzeichnen"
 
@@ -307,15 +335,15 @@ msgstr "Ungelesenes behalten"
 msgid "Delete feed"
 msgstr "Feed löschen"
 
-#: templates/part.listfolder.php:15
+#: templates/part.listfolder.php:16
 msgid "Collapse"
 msgstr "Zuklappen"
 
-#: templates/part.listfolder.php:18
+#: templates/part.listfolder.php:19
 msgid "Delete folder"
 msgstr "Ordner löschen"
 
-#: templates/part.listfolder.php:19
+#: templates/part.listfolder.php:20
 msgid "Rename folder"
 msgstr "Ordner umbenennen"
 
@@ -348,22 +376,13 @@ msgid "Select"
 msgstr "Auswählen"
 
 #: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid "Select file from"
-msgstr "Wählen Sie eine Datei von"
+msgid ""
+"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
+"filesystem</a> or <a href=\"#\" class=\"settings\" "
+"id=\"cloudlink\">cloud</a>"
+msgstr "Wählen Sie eine Datei vom <a href=\"#\" class=\"settings\" id=\"browselink\">lokalen Dateisystem </a> oder aus der <a href=\"#\" class=\"settings\" id=\"cloudlink\">Cloud</a> aus."
 
-#: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid "local filesystem"
-msgstr "lokales Dateisystem"
-
-#: templates/part.nofeeds.php:17 templates/settings.php:7
-msgid " or "
-msgstr "oder"
-
-#: templates/part.nofeeds.php:17 templates/settings.php:7
-msgid "cloud"
-msgstr "Cloud"
-
-#: templates/part.nofeeds.php:26
+#: templates/part.nofeeds.php:25
 msgid "Or..."
 msgstr "Oder..."
 
@@ -371,15 +390,15 @@ msgstr "Oder..."
 msgid "Import feeds"
 msgstr "Feeds importieren"
 
-#: templates/settings.php:12
+#: templates/settings.php:11
 msgid "Export feeds"
 msgstr "Feeds exportieren"
 
-#: templates/settings.php:14
+#: templates/settings.php:13
 msgid "Download OPML"
 msgstr "OPML herunterladen"
 
-#: templates/settings.php:16
+#: templates/settings.php:15
 msgid "Subscribelet"
 msgstr "Subscribelet"
 
@@ -387,4 +406,4 @@ msgstr "Subscribelet"
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr "Legen Sie dies bei Ihren Lesezeichen ab und klicken Sie darauf, wann immer sie schnellstmöglich eine Seite abonnieren wollen:"
+msgstr "Legen Sie dies bei Ihren Lesezeichen ab und klicken Sie darauf, wann immer Sie schnellstmöglich eine Seite abonnieren wollen:"

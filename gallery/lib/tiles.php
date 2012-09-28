@@ -90,7 +90,7 @@ class TileSingle extends TileBase {
 	}
 
 	public function get($extra = '') {
-		return '<a rel="images" title="'.htmlentities(basename($this->getPath())).'" href="'.\OCP\Util::linkTo('gallery','ajax/viewImage.php').'?img='.urlencode($this->getPath()).'"><img rel="images" src="'.\OCP\Util::linkTo('gallery', 'ajax/thumbnail.php').'?filepath='.urlencode($this->getPath()).'" '.$extra.'></a>';
+		return '<a rel="images" title="'.\OCP\Util::sanitizeHTML(basename($this->getPath())).'" href="'.\OCP\Util::linkTo('gallery','ajax/viewImage.php').'?img='.urlencode($this->getPath()).'"><img rel="images" src="'.\OCP\Util::linkTo('gallery', 'ajax/thumbnail.php').'?filepath='.urlencode($this->getPath()).'" '.$extra.'></a>';
 	}
 
 	public function getMiniatureSrc() {

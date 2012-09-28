@@ -11,7 +11,7 @@
 <tr>
 	<th><?php echo $l->t('Displayname') ?></th>
 	<td>
-		<input id="displayname_<?php echo $_['calendar']['id'] ?>" type="text" value="<?php echo $_['calendar']['displayname'] ?>">
+		<input id="displayname_<?php echo $_['calendar']['id'] ?>" type="text" value="<?php echo OCP\Util::sanitizeHTML($_['calendar']['displayname']) ?>">
 	</td>
 </tr>
 <?php if (!$_['new']): ?>

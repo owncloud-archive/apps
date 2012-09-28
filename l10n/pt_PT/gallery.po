@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Duarte Velez Grilo <duartegrilo@gmail.com>, 2012.
 #   <geral@ricardolameiro.pt>, 2012.
 #   <helder.meneses@gmail.com>, 2012.
 # Helder Meneses <helder.meneses@gmail.com>, 2012.
@@ -11,19 +12,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-24 02:02+0200\n"
-"PO-Revision-Date: 2012-08-23 19:50+0000\n"
-"Last-Translator: rlameiro <geral@ricardolameiro.pt>\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 13:18+0000\n"
+"Last-Translator: Duarte Velez Grilo <duartegrilo@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_PT\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:42
+#: appinfo/app.php:45
 msgid "Pictures"
 msgstr "Imagens"
+
+#: appinfo/app.php:53
+msgid "Galleries"
+msgstr "Galerias"
 
 #: js/pictures.js:12
 msgid "Share gallery"
@@ -40,3 +45,9 @@ msgstr "Erro interno"
 #: templates/index.php:27
 msgid "Slideshow"
 msgstr "Slideshow"
+
+#: templates/no-image-app.php:9
+msgid ""
+"The \"Image Viewer\" application also need to be enabled to use this "
+"application."
+msgstr "A aplicação \"Image Viewer\" também precisar de estar activada para usar esta aplicação."

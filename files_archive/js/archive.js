@@ -14,6 +14,14 @@ $(document).ready(function() {
 		FileActions.register('application/x-gzip','Open', OC.PERMISSION_READ, '',function(filename){
 			window.location=OC.linkTo('files', 'index.php')+'&dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
 		});
-		FileActions.setDefault('application/x-gzip','Open');
+		FileActions.setDefault('application/x-compressed','Open');
+		FileActions.register('application/x-compressed','Open', OC.PERMISSION_READ, '',function(filename){
+			window.location=OC.linkTo('files', 'index.php')+'&dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
+		});
+		FileActions.setDefault('application/x-compressed','Open');
+		FileActions.register('application/x-tar','Open', OC.PERMISSION_READ, '',function(filename){
+			window.location=OC.linkTo('files', 'index.php')+'&dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
+		});
+		FileActions.setDefault('application/x-tar','Open');
 	}
 });

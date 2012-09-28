@@ -10,11 +10,7 @@ OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('contacts');
 
 $books = OC_Contacts_Addressbook::all(OCP\USER::getUser());
-if(count($books) > 1) {
-	$tmpl = new OCP\Template("contacts", "part.selectaddressbook");
-	$tmpl->assign('addressbooks', $books);
-	$page = $tmpl->fetchPage();
-	OCP\JSON::success(array('data' => array( 'type' => 'dialog', 'page' => $page )));
-} else {
-	OCP\JSON::success(array('data' => array( 'type' => 'result', 'id' => $books[0]['id'] )));
-}
+$tmpl = new OCP\Template("contacts", "part.selectaddressbook");
+$tmpl->assign('addressbooks', $books);
+$page = $tmpl->fetchPage();
+OCP\JSON::success(array('data' => array( 'page' => $page )));

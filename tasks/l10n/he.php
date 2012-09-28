@@ -1,0 +1,20 @@
+<?php $TRANSLATIONS = array(
+"Tasks" => "משימות",
+"No category" => "אין קטגוריה",
+"1=highest" => "1=גבוהה ביותר",
+"5=medium" => "5=בינונית",
+"9=lowest" => "9=נמוכה ביותר",
+"The calendar application also need to be enabled to use this application." => "יישום לוח השנה צריך להיות מופעל כדי להשתמש ביישום זה.",
+"Add Task" => "הוספת משימה",
+"Order Due" => "סידור לפי מועד סיום",
+"Order List" => "סידור רשימה",
+"Order Complete" => "סידור לפי השלמה",
+"Order Location" => "סידור לפי מיקום",
+"Order Priority" => "סידור לפי עדיפות",
+"Order Label" => "סידור לפי שם",
+"Loading tasks..." => "משימות בטעינה…",
+"Important" => "חשוב",
+"More" => "יותר",
+"Less" => "פחות",
+"Delete" => "מחיקה"
+);

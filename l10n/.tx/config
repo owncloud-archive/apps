@@ -75,12 +75,6 @@ source_file = templates/files_odfviewer.pot
 source_lang = en
 type = PO
 
-[owncloud.files_pdfviewer]
-file_filter = <lang>/files_pdfviewer.po
-source_file = templates/files_pdfviewer.pot
-source_lang = en
-type = PO
-
 [owncloud.external]
 file_filter = <lang>/external.po
 source_file = templates/external.pot

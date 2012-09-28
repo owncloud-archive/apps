@@ -6,15 +6,16 @@
 #   <appweb.cn@gmail.com>, 2012.
 # Phoenix Nemo <>, 2012.
 #   <rainofchaos@gmail.com>, 2012.
+#   <suiy02@gmail.com>, 2012.
 #   <wengxt@gmail.com>, 2011, 2012.
 # 冰 蓝 <lanbing89@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:05+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-28 02:02+0200\n"
+"PO-Revision-Date: 2012-09-27 13:48+0000\n"
+"Last-Translator: waterone <suiy02@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,6 +77,18 @@ msgstr "非法请求"
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "日历"
+
+#: js/calendar.js:96
+msgid "Deletion failed"
+msgstr "删除失败"
+
+#: js/calendar.js:185
+msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+msgstr "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+
+#: js/calendar.js:187
+msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+msgstr "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:539
 msgid "user"
@@ -525,7 +538,7 @@ msgstr "今天"
 
 #: templates/calendar.php:46
 msgid "Calendars"
-msgstr ""
+msgstr "日历"
 
 #: templates/calendar.php:47
 msgid "Settings"
@@ -536,23 +549,23 @@ msgid "Your calendars"
 msgstr "您的日历"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:15
+#: templates/part.choosecalendar.rowfields.php:17
 msgid "CalDav Link"
 msgstr "CalDav 链接"
 
-#: templates/part.choosecalendar.rowfields.php:11
+#: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
 msgstr "共享日历"
 
-#: templates/part.choosecalendar.rowfields.php:18
+#: templates/part.choosecalendar.rowfields.php:20
 msgid "Download"
 msgstr "下载"
 
-#: templates/part.choosecalendar.rowfields.php:22
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "Edit"
 msgstr "编辑"
 
-#: templates/part.choosecalendar.rowfields.php:27
+#: templates/part.choosecalendar.rowfields.php:29
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "删除"

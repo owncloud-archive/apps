@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:05+0000\n"
+"POT-Creation-Date: 2012-09-26 13:19+0200\n"
+"PO-Revision-Date: 2012-09-26 11:20+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -75,6 +75,18 @@ msgstr "無效請求"
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "日曆"
+
+#: js/calendar.js:96
+msgid "Deletion failed"
+msgstr ""
+
+#: js/calendar.js:185
+msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+msgstr ""
+
+#: js/calendar.js:187
+msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+msgstr ""
 
 #: js/calendar.js:539
 msgid "user"
@@ -524,7 +536,7 @@ msgstr "今日"
 
 #: templates/calendar.php:46
 msgid "Calendars"
-msgstr ""
+msgstr "日曆"
 
 #: templates/calendar.php:47
 msgid "Settings"
@@ -535,23 +547,23 @@ msgid "Your calendars"
 msgstr "你的行事曆"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:15
+#: templates/part.choosecalendar.rowfields.php:17
 msgid "CalDav Link"
 msgstr "CalDav 聯結"
 
-#: templates/part.choosecalendar.rowfields.php:11
+#: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
 msgstr "分享行事曆"
 
-#: templates/part.choosecalendar.rowfields.php:18
+#: templates/part.choosecalendar.rowfields.php:20
 msgid "Download"
 msgstr "下載"
 
-#: templates/part.choosecalendar.rowfields.php:22
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "Edit"
 msgstr "編輯"
 
-#: templates/part.choosecalendar.rowfields.php:27
+#: templates/part.choosecalendar.rowfields.php:29
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "刪除"
@@ -758,11 +770,11 @@ msgstr "建立一個新事件"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr ""
+msgstr "分享給:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr ""
+msgstr "共享者"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
@@ -770,17 +782,17 @@ msgstr "取消共享"
 
 #: templates/part.share.php:53
 msgid "Nobody"
-msgstr ""
+msgstr "無"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr ""
+msgstr "透過日曆分享"
 
 #: templates/part.share.php:79
 msgid ""
 "NOTE: Actions on events shared via calendar will affect the entire calendar "
 "sharing."
-msgstr ""
+msgstr "注意: 透過日曆分享事件的動作將會影響整個分享日曆"
 
 #: templates/part.showevent.php:1
 msgid "View an event"

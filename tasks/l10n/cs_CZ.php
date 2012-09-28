@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Neplatné datum/čas",
 "Tasks" => "Úkoly",
+"Due" => "Termín",
+"List" => "Kategorie",
+"Location" => "Umístění",
 "No category" => "Bez kategorie",
 "Unspecified" => "Neurčeno",
 "1=highest" => "1=nejvyšší",

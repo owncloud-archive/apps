@@ -1,5 +1,9 @@
 <?php $TRANSLATIONS = array(
 "My pad" => "Nire Pad-a",
-"Pad Title:" => "Pad-aren izenburua:",
-"Open" => "Ireki"
+"Settings" => "Ezarpenak",
+"Pad Title" => "Pad-aren izenburua",
+"Open" => "Ireki",
+"Etherpad service URL" => "Etherpad zerbitzuaren URLa",
+"Username" => "Erabiltzaile izena",
+"Save" => "Gorde"
 );

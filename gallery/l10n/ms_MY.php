@@ -1,4 +1,7 @@
 <?php $TRANSLATIONS = array(
-"Rescan" => "Imbas semula",
-"Back" => "Kembali"
+"Pictures" => "Gambar",
+"Share gallery" => "Kongi galeri",
+"Error: " => "Ralat:",
+"Internal error" => "Ralat dalaman",
+"Slideshow" => "Paparan slide"
 );

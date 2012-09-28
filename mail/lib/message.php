@@ -46,22 +46,52 @@ class Message{
 
 	private function getmsg() {
 
-		// HEADER
-		$this->header = $this->conn->fetchHeader($this->folder_id, $this->message_id);
+		$headers = array();
 
-		// BODY
-		$bodystructure= $this->conn->getStructure($this->folder_id, $this->message_id);
-		$a= \rcube_imap_generic::getStructurePartData($bodystructure, 0);
-		if ($a['type'] == 'multipart') {
-			for ($i=0; $i < count($bodystructure); $i++) {
-				if (!is_array($bodystructure[$i]))
-					break;
-				$this->getpart($bodystructure[$i],$i+1);
-			}
-		} else {
-			// get part no 1
-			$this->getpart($bodystructure,1);
-		}
+		$fetch_query = new \Horde_Imap_Client_Fetch_Query();
+		$fetch_query->envelope();
+//		$fetch_query->fullText();
+		$fetch_query->bodyText();
+		$fetch_query->flags();
+		$fetch_query->seq();
+		$fetch_query->size();
+		$fetch_query->uid();
+		$fetch_query->imapDate();
+
+		$headers = array_merge($headers, array(
+			'importance',
+			'list-post',
+			'x-priority'
+		));
+		$headers[] = 'content-type';
+
+		$fetch_query->headers('imp', $headers, array(
+			'cache' => true,
+			'peek'  => true
+		));
+
+		// $list is an array of Horde_Imap_Client_Data_Fetch objects.
+		$ids = new \Horde_Imap_Client_Ids($this->message_id);
+		$headers = $this->conn->fetch($this->folder_id, $fetch_query, array('ids' => $ids));
+
+		$this->plainmsg = $headers[$this->message_id]->getBodyText();
+//
+//		// HEADER
+//		$this->header = $this->conn->fetchHeader($this->folder_id, $this->message_id);
+//
+//		// BODY
+//		$bodystructure= $this->conn->getStructure($this->folder_id, $this->message_id);
+//		$a= \rcube_imap_generic::getStructurePartData($bodystructure, 0);
+//		if ($a['type'] == 'multipart') {
+//			for ($i=0; $i < count($bodystructure); $i++) {
+//				if (!is_array($bodystructure[$i]))
+//					break;
+//				$this->getpart($bodystructure[$i],$i+1);
+//			}
+//		} else {
+//			// get part no 1
+//			$this->getpart($bodystructure,1);
+//		}
 	}
 
 	function extract_params($p) {

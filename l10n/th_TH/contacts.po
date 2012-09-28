@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 11:25+0000\n"
+"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -224,28 +224,61 @@ msgstr "ยังไม่ได้ถูกดำเนินการ"
 msgid "Couldn't get a valid address."
 msgstr "ไม่สามารถดึงที่อยู่ที่ถูกต้องได้"
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
-#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
-#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
-#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
-#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
-#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
+#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
+#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
+#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
+#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
+#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
+#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
+#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
+#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "พบข้อผิดพลาด"
 
-#: js/contacts.js:408
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr "กรุณากรอกที่อยู่อีเมล"
+
+#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "กรอกชื่อ"
+
+#: js/contacts.js:177 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "กำหนดรูปแบบของชื่อย่อ, ชื่อจริง, ย้อนค่ากลัีบด้วยคอมม่าเอง"
+
+#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
+#: js/contacts.js:1482 js/contacts.js:1525
+msgid "Select type"
+msgstr "เลือกชนิด"
+
+#: js/contacts.js:214
+msgid "Select photo"
+msgstr "เลือกรูปถ่าย"
+
+#: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
 msgstr "คุณไม่ได้รับสิทธิ์ให้เพิ่มข้อมูลผู้ติดต่อเข้าไปที่"
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Please select one of your own address books."
 msgstr "กรุณาเลือกสมุดบันทึกที่อยู่ที่คุณเป็นเจ้าของ"
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Permission error"
 msgstr "เกิดข้อผิดพลาดเกี่ยวกับสิทธิ์การเข้าใช้งาน"
+
+#: js/contacts.js:481
+msgid "Click to undo deletion of \""
+msgstr "คลิกเพื่อเลิกทำการลบทิ้งของ \""
+
+#: js/contacts.js:495
+msgid "Cancelled deletion of: \""
+msgstr "ยกเลิกแล้ว สำหรับการลบทิ้งของ: \""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -254,6 +287,10 @@ msgstr "คุณสมบัตินี้ต้องไม่มีข้อ
 #: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr "ไม่สามารถทำสัญลักษณ์องค์ประกอบต่างๆให้เป็นตัวเลขตามลำดับได้"
+
+#: js/contacts.js:762
+msgid "Unknown error. Please check logs."
+msgstr "เกิดข้อผิดพลาดโดยไม่ทราบสาเหตุ กรุณาตรวจสอบบันทึกการเปลี่ยนแปลง"
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -269,7 +306,7 @@ msgstr "แก้ไขชื่อ"
 msgid "No files selected for upload."
 msgstr "ยังไม่ได้เลือกไฟล์ำสำหรับอัพโหลด"
 
-#: js/contacts.js:1220 js/contacts.js:2072
+#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -279,56 +316,69 @@ msgstr "ไฟล์ที่คุณกำลังพยายามที่
 msgid "Error loading profile picture."
 msgstr "เกิดข้อผิดพลาดในการโหลดรูปภาพประจำตัว"
 
-#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
-#: js/contacts.js:1522
-msgid "Select type"
-msgstr "เลือกชนิด"
-
-#: js/contacts.js:1540
+#: js/contacts.js:1543
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "ข้อมูลผู้ติดต่อบางรายการได้ถูกทำเครื่องหมายสำหรับลบทิ้งเอาไว้, แต่ยังไม่ได้ถูกลบทิ้ง, กรุณารอให้รายการดังกล่าวถูกลบทิ้งเสียก่อน"
 
-#: js/contacts.js:1611
+#: js/contacts.js:1614
 msgid "Do you want to merge these address books?"
 msgstr "คุณต้องการผสานข้อมูลสมุดบันทึกที่อยู่เหล่านี้หรือไม่?"
 
-#: js/contacts.js:2065
-msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+#: js/contacts.js:1767
+msgid "Shared by "
+msgstr "แชร์โดย"
 
-#: js/contacts.js:2065
-msgid "Upload Error"
-msgstr ""
-
-#: js/contacts.js:2072
+#: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
-msgstr ""
+msgstr "ไฟล์ที่อัพโหลดมีขนาดใหญ่เกินไป"
 
-#: js/contacts.js:2120
+#: js/contacts.js:2004
+msgid "Only image files can be used as profile picture."
+msgstr "เฉพาะไฟล์รูปภาพเท่านั้นที่สามารถใช้งานเป็นรูปภาพโปรไฟล์ได้"
+
+#: js/contacts.js:2004
+msgid "Wrong file type"
+msgstr "ชนิดของไฟล์ไม่ถูกต้อง"
+
+#: js/contacts.js:2010
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr "โปรแกรมบราวเซอร์ของคุณไม่รองรับคุณสมบัติการอัพโหลดไฟล์แบบ AJAX กรุณาคลิกที่รูปภาพโปรไฟล์เพื่อเลือกรูปภาพที่ต้องการอัพโหลด"
+
+#: js/contacts.js:2068
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr "ไม่สามารถอัพโหลดไฟล์ของคุณได้ เนื่องจากไฟล์ดังกล่าวเป็นไดเร็กทอรี่ หรือ มีขนาดไฟล์ 0 ไบต์"
+
+#: js/contacts.js:2068
+msgid "Upload Error"
+msgstr "เกิดข้อผิดพลาดในการอัพโหลด"
+
+#: js/contacts.js:2123
 msgid "Pending"
-msgstr ""
+msgstr "อยู่ระหว่างดำเนินการ"
 
-#: js/contacts.js:2152
+#: js/contacts.js:2155
 msgid "Import done"
-msgstr ""
+msgstr "เสร็จสิ้นการนำเข้าข้อมูล"
 
-#: js/contacts.js:2165
+#: js/contacts.js:2168
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "ไม่ใช่ไฟล์ทั้งหมดที่จะถูกอัพโหลด กำลังลองใหม่..."
 
-#: js/contacts.js:2171
+#: js/contacts.js:2174
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "เกิดข้อผิดพลาดบางประการในการอัพโหลด, กรุณาลองใหม่อีกครั้ง"
 
-#: js/contacts.js:2187
+#: js/contacts.js:2190
 msgid "Importing..."
-msgstr ""
+msgstr "กำลังนำเข้าข้อมูล..."
 
-#: js/contacts.js:2208
+#: js/contacts.js:2211
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "ชื่อของสมุดบันทึกที่อยู่ไม่สามารถเว้นว่างได้"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -342,13 +392,48 @@ msgstr " นำเข้าข้อมูลแล้ว, "
 msgid " failed."
 msgstr " ล้มเหลว."
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "ชื่อที่ใช้แสดงไม่สามารถเว้นว่างได้"
 
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "แสดงลิงก์ CardDav"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "แสดงลิงก์ VCF สำหรับอ่านเท่านั้น"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "ดาวน์โหลด"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "แก้ไข"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "ลบ"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#: js/settings.js:157 templates/settings.php:66
+msgid "More..."
+msgstr "เพิ่มเติม..."
+
+#: js/settings.js:161
+msgid "Less..."
+msgstr "ย่อ..."
+
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "คุณไม่ได้รับสิทธิ์ให้เปิดอ่านสมุดบันทึกที่อยู่"
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -643,10 +728,6 @@ msgstr "อัพโหลดรูปภาพใหม่"
 msgid "Select photo from ownCloud"
 msgstr "เลือกรูปภาพจาก ownCloud"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "กำหนดรูปแบบของชื่อย่อ, ชื่อจริง, ย้อนค่ากลัีบด้วยคอมม่าเอง"
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
 msgstr "แก้ไขรายละเอียดของชื่อ"
@@ -655,12 +736,6 @@ msgstr "แก้ไขรายละเอียดของชื่อ"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "หน่วยงาน"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:49
-msgid "Delete"
-msgstr "ลบ"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -945,7 +1020,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>คุณยังไม่มีรายชื่อผู้ติดต่อใดๆในสมุดบันทึกที่อยู่ของคุณ.</h3><p>คุณสามารถนำเข้าไฟล์ VCF ได้โดยการลากไฟล์เหล่านั้นไปไว้ในรายการของรายชื่อผู้ติดต่อ แล้ววางไฟล์ดังกล่าวไว้ที่สมุดบันทึกที่อยู่ดังกล่าว เพื่อนำเข้าข้อมูลไปไว้ หรือ ที่ตำแหน่งว่างๆ เพื่อสร้างสมุดบันทึกที่อยู่ใหม่ และนำเข้าข้อมูลเข้าไปไว้ในนั้น.<br />คุณยังสามารถนำเข้าข้อมูลได้ด้วยการคลิกที่ปุ่มนำเข้าที่อยู่บริเวณตำแหน่งด้านล่างของรายการ.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"
@@ -954,10 +1029,6 @@ msgstr "เพิ่มชื่อผู้ติดต่อ"
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
 msgstr "เลือกสมุดบันทึกที่อยู่"
-
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "กรอกชื่อ"
 
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
@@ -983,25 +1054,9 @@ msgstr "iOS/OS X"
 msgid "Addressbooks"
 msgstr "สมุดบันทึกที่อยู่"
 
-#: templates/settings.php:25
-msgid "Show CardDav link"
-msgstr "แสดงลิงก์ CardDav"
-
-#: templates/settings.php:28
-msgid "Show read-only VCF link"
-msgstr "แสดงลิงก์ VCF สำหรับอ่านเท่านั้น"
-
 #: templates/settings.php:35
 msgid "Share"
 msgstr "แชร์"
-
-#: templates/settings.php:39
-msgid "Download"
-msgstr "ดาวน์โหลด"
-
-#: templates/settings.php:44
-msgid "Edit"
-msgstr "แก้ไข"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1018,11 +1073,3 @@ msgstr "คำอธิบาย"
 #: templates/settings.php:60
 msgid "Save"
 msgstr "บันทึก"
-
-#: templates/settings.php:61
-msgid "Cancel"
-msgstr "ยกเลิก"
-
-#: templates/settings.php:66
-msgid "More..."
-msgstr "เพิ่มเติม..."

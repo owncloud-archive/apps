@@ -137,8 +137,6 @@ OC.Contacts={
 		}
 		$('.propertylist li a.delete, .addresscard .delete').click(function() { deleteItem($(this)) });
 		$('.propertylist li a.delete, .addresscard .delete').keydown(function() { deleteItem($(this)) });
-		$('.propertylist li a.mail').click(function() { OC.Contacts.mailTo(this) });
-		$('.propertylist li a.mail').keydown(function() { OC.Contacts.mailTo(this) });
 		$('.addresscard .globe').click(function() { $(this).tipsy('hide');OC.Contacts.searchOSM(this); });
 		$('.addresscard .globe').keydown(function() { $(this).tipsy('hide');OC.Contacts.searchOSM(this); });
 		$('.addresscard .edit').click(function() { $(this).tipsy('hide');OC.Contacts.Card.editAddress(this, false); });
@@ -425,6 +423,8 @@ OC.Contacts={
 							if(jsondata.status == 'success'){
 								OC.Contacts.Card.loadContact(jsondata.data, aid);
 								var item = OC.Contacts.Contacts.insertContact({data:jsondata.data});
+								$('#contacts li').removeClass('active');
+								item.addClass('active');
 								if(isnew) { // add some default properties
 									OC.Contacts.Card.addProperty('EMAIL');
 									OC.Contacts.Card.addProperty('TEL');
@@ -559,7 +559,7 @@ OC.Contacts={
 				$('#contact_note').hide();
 				$('#contacts_propertymenu_dropdown a[data-type="NOTE"]').parent().show();
 			}
-			var permissions = OC.Contacts.Card.permissions = parseInt($('#contacts ul[data-id="' + bookid + '"]').data('permissions'));
+			var permissions = OC.Contacts.Card.permissions = parseInt(this.data.permissions);
 			console.log('permissions', permissions);
 			this.setEnabled(permissions == 0
 				|| permissions & OC.PERMISSION_UPDATE
@@ -1414,13 +1414,16 @@ OC.Contacts={
 			emaillist.find('li.template:first-child').clone(true).appendTo(emaillist).show().find('a .tip').tipsy();
 			emaillist.find('li.template:last-child').find('select').addClass('contacts_property');
 			emaillist.find('li.template:last-child').removeClass('template').addClass('propertycontainer');
-			emaillist.find('li:last-child').find('input[type="email"]').focus();
-			emaillist.find('li:last-child').find('select').multiselect({
-												noneSelectedText: t('contacts', 'Select type'),
-													header: false,
-													selectedList: 4,
-													classes: 'typelist'
-												});
+			var current = emaillist.find('li.propertycontainer:last-child');
+			current.find('input[type="email"]').focus();
+			current.find('select').multiselect({
+											noneSelectedText: t('contacts', 'Select type'),
+											header: false,
+											selectedList: 4,
+											classes: 'typelist'
+										});
+			current.find('a.mail').click(function() { OC.Contacts.mailTo(this) });
+			current.find('a.mail').keydown(function() { OC.Contacts.mailTo(this) });
 			return false;
 		},
 		loadMails:function() {
@@ -1763,13 +1766,13 @@ OC.Contacts={
 							var sharedindicator = book.owner == OC.currentUser ? ''
 								: '<img class="shared svg" src="'+OC.imagePath('core', 'actions/shared')+'" title="'+t('contacts', 'Shared by ')+book.owner+'" />'
 							if($('#contacts h3').length == 0) {
-								$('#contacts').html('<h3 class="addressbook" contextmenu="addressbookmenu" data-id="'
+								$('#contacts').html('<h3 class="addressbook" data-id="'
 									+ b + '" data-permissions="' + book.permissions + '">' + book.displayname
 									+ sharedindicator + '</h3><ul class="contacts hidden" data-id="'+b+'" data-permissions="'
 									+ book.permissions + '"></ul>');
 							} else {
 								if(!$('#contacts h3[data-id="' + b + '"]').length) {
-									var item = $('<h3 class="addressbook" contextmenu="addressbookmenu" data-id="'
+									var item = $('<h3 class="addressbook" data-id="'
 										+ b + '" data-permissions="' + book.permissions + '">'
 										+ book.displayname+sharedindicator+'</h3><ul class="contacts hidden" data-id="' + b
 										+ '" data-permissions="' + book.permissions + '"></ul>');

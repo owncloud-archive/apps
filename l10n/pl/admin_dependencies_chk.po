@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Cyryl Sochacki <>, 2012.
+#   <mplichta@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:03+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-26 13:19+0200\n"
+"PO-Revision-Date: 2012-09-26 10:42+0000\n"
+"Last-Translator: emc <mplichta@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,9 +27,8 @@ msgstr "Moduł php-json jest wymagane przez wiele aplikacji do wewnętrznej łą
 
 #: settings.php:39
 msgid ""
-"The php-curl modude is needed to fetch the page title when adding a "
-"bookmarks"
-msgstr "Modude php-curl jest wymagany do pobrania tytułu strony podczas dodawania zakładki"
+"The php-curl module is needed to fetch the page title when adding a bookmark"
+msgstr "Moduł php-curl jest potrzebny do sciągnięcia tytułu strony przy dodawaniu ulubionych"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
@@ -67,7 +67,7 @@ msgstr "Moduł php-pdo jest wymagany do przechowywania danych owncloud w bazie d
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "Moduł iconv jest potrzebny do konwersji danych do odpowiedniego zestawu znaków."
 
 #: templates/settings.php:2
 msgid "Dependencies status"

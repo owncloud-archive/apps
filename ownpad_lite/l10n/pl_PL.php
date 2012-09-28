@@ -1,9 +1,9 @@
 <?php $TRANSLATIONS = array(
 "My pad" => "Moja konsola",
 "Settings" => "Ustawienia",
-"Pad Title:" => "Tytuł konsoli",
+"Pad Title" => "Tytuł bloku",
 "Open" => "Otwórz",
-"Etherpad service URL:" => "Adres URL usługi Etherpad:",
-"Username:" => "Nazwa użytkownika",
+"Etherpad service URL" => "Adres URL usługi Etherpad",
+"Username" => "Nazwa użytkownika",
 "Save" => "Zapisz"
 );

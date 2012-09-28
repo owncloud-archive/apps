@@ -14,12 +14,13 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('news');
 OCP\JSON::callCheck();
+session_write_close();
 
 $itemId = $_POST['itemId'];
 $status = $_POST['status'];
 
 $itemMapper = new OCA\News\ItemMapper();
-$item = $itemMapper->find($itemId);
+$item = $itemMapper->findById($itemId);
 
 switch ($status) {
     case 'read':

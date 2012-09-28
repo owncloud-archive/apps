@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Denis  <reg.transifex.net@demitel.ru>, 2012.
+#   <victor.dubiniuk@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:03+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
+"POT-Creation-Date: 2012-09-20 02:05+0200\n"
+"PO-Revision-Date: 2012-09-20 00:07+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -26,9 +27,8 @@ msgstr "Модуль php-json необходим многим приложени
 
 #: settings.php:39
 msgid ""
-"The php-curl modude is needed to fetch the page title when adding a "
-"bookmarks"
-msgstr "Модуль php-curl необходим для получения заголовка страницы при добавлении закладок"
+"The php-curl module is needed to fetch the page title when adding a bookmark"
+msgstr ""
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
@@ -67,7 +67,7 @@ msgstr "Модуль php-pdo необходим для хранения данн
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "Модуль iconv необходим для преобразования данных в правильную кодировку"
 
 #: templates/settings.php:2
 msgid "Dependencies status"

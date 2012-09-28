@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <cdewqazxsqwe@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-05 02:02+0200\n"
-"PO-Revision-Date: 2012-09-05 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-21 02:03+0200\n"
+"PO-Revision-Date: 2012-09-20 12:59+0000\n"
+"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,28 +20,28 @@ msgstr ""
 
 #: appinfo/app.php:58
 msgid "My pad"
-msgstr ""
+msgstr "Моя панель"
 
 #: templates/index.php:14 templates/index.php:15
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: templates/index.php:17
-msgid "Pad Title:"
-msgstr ""
+msgid "Pad Title"
+msgstr "Название панели"
 
 #: templates/index.php:18
 msgid "Open"
-msgstr ""
+msgstr "Открыть"
 
 #: templates/settings.php:15
-msgid "Etherpad service URL:"
-msgstr ""
+msgid "Etherpad service URL"
+msgstr "Etherpad сервис URL"
 
 #: templates/settings.php:20
-msgid "Username:"
-msgstr ""
+msgid "Username"
+msgstr "Имя пользователя"
 
 #: templates/settings.php:27
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"

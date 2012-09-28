@@ -14,6 +14,7 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('news');
 OCP\JSON::callCheck();
+session_write_close();
 
 $feedId = $_POST['feedId'];
 $mostRecentItemId = (int)$_POST['mostRecentItemId'];
@@ -41,18 +42,23 @@ switch ($feedId) {
 // necessary
 $success = false;
 if($mostRecentItemId !== 0) {
-    $mostRecentItem = $itemMapper->find($mostRecentItemId);
+    $mostRecentItem = $itemMapper->findById($mostRecentItemId);
 }
+
+$unreadCount = count($items);
 foreach($items as $item) {
     // FIXME: this should compare the modified date
     if($mostRecentItemId === 0 || $item->getDate() <= $mostRecentItem->getDate()) {
         $item->setRead();
-        $success = $itemMapper->update($item);    
+        $success = $itemMapper->update($item);  
+        $unreadCount--;  
     }
 }
 
 $l = OC_L10N::get('news');
 
+// FIXME: when we have no items we to mark read we shouldnt throw an error
+$success = true;
 if(!$success) {
     OCP\JSON::error(array('data' => array('message' => $l->t('Error setting all items as read.'))));
     OCP\Util::writeLog('news','ajax/setallitemsread.php: Error setting all items as read of feed '. $feedId, OCP\Util::ERROR);
@@ -60,4 +66,4 @@ if(!$success) {
 }
 
 //TODO: replace the following with a real success case. see contact/ajax/createaddressbook.php for inspirations
-OCP\JSON::success(array('data' => array('feedId' => $feedId )));
+OCP\JSON::success(array('data' => array('feedId' => $feedId, 'unreadCount' => $unreadCount)));

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:05+0000\n"
+"POT-Creation-Date: 2012-09-26 13:19+0200\n"
+"PO-Revision-Date: 2012-09-26 11:20+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -76,6 +76,18 @@ msgstr "Neveljaven zahtevek"
 msgid "Calendar"
 msgstr "Koledar"
 
+#: js/calendar.js:96
+msgid "Deletion failed"
+msgstr ""
+
+#: js/calendar.js:185
+msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+msgstr ""
+
+#: js/calendar.js:187
+msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+msgstr ""
+
 #: js/calendar.js:539
 msgid "user"
 msgstr "uporabnik"
@@ -102,11 +114,11 @@ msgstr "ddd"
 
 #: js/calendar.js:812
 msgid "ddd M/d"
-msgstr "ddd M/d"
+msgstr "ddd, d. M."
 
 #: js/calendar.js:813
 msgid "dddd M/d"
-msgstr "dddd M/d"
+msgstr "dddd, d. M."
 
 #: js/calendar.js:816
 msgid "MMMM yyyy"
@@ -118,7 +130,7 @@ msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:820
 msgid "dddd, MMM d, yyyy"
-msgstr "dddd, MMM d, yyyy"
+msgstr "dddd, d. MMM, yyyy"
 
 #: lib/app.php:114
 msgid "Birthday"
@@ -524,7 +536,7 @@ msgstr "Danes"
 
 #: templates/calendar.php:46
 msgid "Calendars"
-msgstr ""
+msgstr "Koledarji"
 
 #: templates/calendar.php:47
 msgid "Settings"
@@ -535,23 +547,23 @@ msgid "Your calendars"
 msgstr "Vaši koledarji"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:15
+#: templates/part.choosecalendar.rowfields.php:17
 msgid "CalDav Link"
 msgstr "CalDav povezava"
 
-#: templates/part.choosecalendar.rowfields.php:11
+#: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
 msgstr "Daj koledar v souporabo"
 
-#: templates/part.choosecalendar.rowfields.php:18
+#: templates/part.choosecalendar.rowfields.php:20
 msgid "Download"
 msgstr "Prenesi"
 
-#: templates/part.choosecalendar.rowfields.php:22
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "Edit"
 msgstr "Uredi"
 
-#: templates/part.choosecalendar.rowfields.php:27
+#: templates/part.choosecalendar.rowfields.php:29
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "Izbriši"
@@ -671,7 +683,7 @@ msgstr "Opis dogodka"
 
 #: templates/part.eventform.php:100 templates/part.showevent.php:95
 msgid "Repeat"
-msgstr "Ponovi"
+msgstr "Ponovitve"
 
 #: templates/part.eventform.php:107 templates/part.showevent.php:102
 msgid "Advanced"
@@ -716,7 +728,7 @@ msgstr "Konec"
 
 #: templates/part.eventform.php:233 templates/part.showevent.php:228
 msgid "occurrences"
-msgstr "ponovitev"
+msgstr "ponovitve"
 
 #: templates/part.import.php:14
 msgid "create a new calendar"

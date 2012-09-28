@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Denis  <reg.transifex.net@demitel.ru>, 2012.
+#   <victor.dubiniuk@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-04 02:01+0200\n"
-"PO-Revision-Date: 2012-09-04 00:01+0000\n"
+"POT-Creation-Date: 2012-09-26 13:19+0200\n"
+"PO-Revision-Date: 2012-09-26 11:21+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +26,18 @@ msgstr "Неверные дата/время"
 #: appinfo/app.php:10
 msgid "Tasks"
 msgstr "Задачи"
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr ""
+
+#: js/tasks.js:107
+msgid "List"
+msgstr ""
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr ""
 
 #: js/tasks.js:415
 msgid "No category"
@@ -61,7 +74,7 @@ msgstr "Неверный приоритет"
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr ""
+msgstr "Для работы данного приложения необходимо включить приложение Calendar."
 
 #: templates/tasks.php:3
 msgid "Add Task"

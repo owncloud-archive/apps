@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Sơn Nguyễn <sonnghit@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:03+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
+"POT-Creation-Date: 2012-09-20 02:05+0200\n"
+"PO-Revision-Date: 2012-09-20 00:07+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -21,57 +22,56 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr ""
+msgstr "module php-json là cần thiết của rất nhiều các ứng dụng cho truyền thông "
 
 #: settings.php:39
 msgid ""
-"The php-curl modude is needed to fetch the page title when adding a "
-"bookmarks"
+"The php-curl module is needed to fetch the page title when adding a bookmark"
 msgstr ""
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr ""
+msgstr "module php-gd dùng để tạo ra các hình thu nhỏ cho hình ảnh"
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr ""
+msgstr "module php-ldap dùng để kết nối tới máy chủ ldap"
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr ""
+msgstr "module php-zip cần tải nhiều dữ liệu cùng một lúc"
 
 #: settings.php:63
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
-msgstr ""
+msgstr "module php-mb_multibyte dùng để quản lý một cách chính xác các bộ mã hóa."
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr ""
+msgstr "module php-ctype dùng để xác nhận dữ liệu."
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr ""
+msgstr "module php-xml dùng để chia sẻ tập tin với WebDAV."
 
 #: settings.php:81
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr ""
+msgstr "Các chỉ thị allow_url_fopen php.ini  nên được thiết lập là 1 để lấy từ máy chủ OCS"
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr ""
+msgstr "module php-PDO dùng để lưu trữ dữ liệu owncloud vào một cơ sở dữ liệu."
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "Các module iconv dùng để chuyển đổi dữ liệu vào các ký tự ."
 
 #: templates/settings.php:2
 msgid "Dependencies status"
-msgstr ""
+msgstr "Tình trạng"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr ""
+msgstr "Sử dụng bởi:"

@@ -27,9 +27,16 @@ OCP\Util::addscript('user_saml', 'settings');
 
 if ($_POST) {
 	foreach($params as $param) {
-		if(isset($_POST[$param])) {
+		if (isset($_POST[$param])) {
 			OCP\Config::setAppValue('user_saml', $param, $_POST[$param]);
-		}
+		}  
+		elseif ('saml_autocreate' == $param) {
+                        // unchecked checkboxes are not included in the post paramters
+                                OCP\Config::setAppValue('user_saml', $param, 0);
+                }
+                elseif ('saml_update_user_data' == $param) {
+                        OCP\Config::setAppValue('user_saml', $param, 0);
+                }
 	}
 }
 
@@ -48,7 +55,7 @@ $tmpl->assign( 'saml_update_user_data', OCP\Config::getAppValue('user_saml', 'sa
 $tmpl->assign( 'saml_protected_groups', OCP\Config::getAppValue('user_saml', 'saml_protected_groups', ''));
 $tmpl->assign( 'saml_default_group', OCP\Config::getAppValue('user_saml', 'saml_default_group', ''));
 $tmpl->assign( 'saml_username_mapping', OCP\Config::getAppValue('user_saml', 'saml_username_mapping', 'uid'));
-$tmpl->assign( 'saml_email_mapping', OCP\Config::getAppValue('user_saml', 'saml_email_mapping', 'irisMailMainAddress'));
-$tmpl->assign( 'saml_group_mapping', OCP\Config::getAppValue('user_saml', 'saml_group_mapping', 'eduPersonAffiliation'));
+$tmpl->assign( 'saml_email_mapping', OCP\Config::getAppValue('user_saml', 'saml_email_mapping', 'mail'));
+$tmpl->assign( 'saml_group_mapping', OCP\Config::getAppValue('user_saml', 'saml_group_mapping', ''));
 
 return $tmpl->fetchPage();

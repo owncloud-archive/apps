@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# I Robot <thomas.mueller@tmit.eu>, 2012.
 # Maurice Preuß <>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
 #   <thomas.mueller@tmit.eu>, 2012.
@@ -11,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:03+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
+"POT-Creation-Date: 2012-09-22 02:01+0200\n"
+"PO-Revision-Date: 2012-09-21 14:59+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -29,8 +30,7 @@ msgstr "Das Modul php-json wird von vielen Anwendungen zur internen Kommunikatio
 
 #: settings.php:39
 msgid ""
-"The php-curl modude is needed to fetch the page title when adding a "
-"bookmarks"
+"The php-curl module is needed to fetch the page title when adding a bookmark"
 msgstr "Das Modul php-curl wird benötigt, um den Titel der Seite für die Lesezeichen hinzuzufügen."
 
 #: settings.php:45
@@ -70,7 +70,7 @@ msgstr "Das Modul php-pdo wird benötigt, um Daten in der Datenbank zu speichern
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "Das Modul iconv wird benötigt um Daten in den richtigen Zeichensatz zu konvertieren."
 
 #: templates/settings.php:2
 msgid "Dependencies status"

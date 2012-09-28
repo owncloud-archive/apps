@@ -13,6 +13,7 @@
 namespace OCA_Updater;
 
 \OCP\JSON::checkAdminUser();
+\OCP\JSON::callCheck();
 
 // Url to download package e.g. http://download.owncloud.org/releases/owncloud-4.0.5.tar.bz2
 $packageUrl = 'http://owncloud.org/releases/owncloud-latest.zip';
