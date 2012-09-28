@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-28 02:03+0200\n"
+"PO-Revision-Date: 2012-09-27 20:02+0000\n"
+"Last-Translator: Marios Bekatoros <>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -247,7 +247,7 @@ msgstr "Σφάλμα"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "Παρακαλώ εισάγεται μια διεύθυνση ηλ. ταχυδρομείου"
 
 #: js/contacts.js:176 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -264,7 +264,7 @@ msgstr "Επιλογή τύπου"
 
 #: js/contacts.js:214
 msgid "Select photo"
-msgstr ""
+msgstr "Επέλεξε φωτογραφία"
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -296,7 +296,7 @@ msgstr "Αδύνατο να μπουν σε σειρά τα στοιχεία"
 
 #: js/contacts.js:762
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "Άγνωστο σφάλμα.Παρακαλώ έλεγξε το αρχείο καταγραφής."
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -334,7 +334,7 @@ msgstr "Επιθυμείτε να συγχωνεύσετε αυτά τα δύο 
 
 #: js/contacts.js:1767
 msgid "Shared by "
-msgstr ""
+msgstr "Μοιράστηκε από"
 
 #: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
@@ -346,7 +346,7 @@ msgstr ""
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
-msgstr ""
+msgstr "Λάθος τύπος αρχείου"
 
 #: js/contacts.js:2010
 msgid ""
@@ -435,7 +435,7 @@ msgstr "Περισσότερα..."
 
 #: js/settings.js:161
 msgid "Less..."
-msgstr ""
+msgstr "Λιγότερα"
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."

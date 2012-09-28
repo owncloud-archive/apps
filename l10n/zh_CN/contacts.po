@@ -6,14 +6,15 @@
 #   <appweb.cn@gmail.com>, 2012.
 # Phoenix Nemo <>, 2012.
 #   <rainofchaos@gmail.com>, 2012.
+#   <suiy02@gmail.com>, 2012.
 #   <wengxt@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-28 02:03+0200\n"
+"PO-Revision-Date: 2012-09-27 14:23+0000\n"
+"Last-Translator: waterone <suiy02@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -243,7 +244,7 @@ msgstr "错误"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "请输入电子邮件地址"
 
 #: js/contacts.js:176 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -260,7 +261,7 @@ msgstr "选择类型"
 
 #: js/contacts.js:214
 msgid "Select photo"
-msgstr ""
+msgstr "选择图片"
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -276,11 +277,11 @@ msgstr "权限错误"
 
 #: js/contacts.js:481
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "撤销删除"
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "已取消删除:"
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -292,7 +293,7 @@ msgstr "无法序列化元素"
 
 #: js/contacts.js:762
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "未知错误。请检查日志"
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -330,7 +331,7 @@ msgstr "是否想合并这些地址簿？"
 
 #: js/contacts.js:1767
 msgid "Shared by "
-msgstr ""
+msgstr "共享人"
 
 #: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
@@ -338,17 +339,17 @@ msgstr "上传文件过大"
 
 #: js/contacts.js:2004
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "只有图像文件才可用作头像"
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
-msgstr ""
+msgstr "错误的文件类型"
 
 #: js/contacts.js:2010
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "您的浏览器不支持 AJAX 方式上传。请先点击头像再选择相片上传。"
 
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
@@ -431,7 +432,7 @@ msgstr "更多"
 
 #: js/settings.js:161
 msgid "Less..."
-msgstr ""
+msgstr "概要..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:22+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-28 02:03+0200\n"
+"PO-Revision-Date: 2012-09-27 20:01+0000\n"
+"Last-Translator: Marios Bekatoros <>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -110,7 +110,7 @@ msgstr "Ειδήσεις"
 
 #: js/items.js:118
 msgid "Error while loading the feed"
-msgstr ""
+msgstr "Σφάλμα κατά τη φόρτωση της ροής"
 
 #: js/items.js:118 js/items.js:560 js/items.js:665 js/main.js:121
 #: js/menu.js:534 js/menu.js:595 js/menu.js:617 js/menu.js:644 js/menu.js:666
@@ -122,7 +122,7 @@ msgstr "Σφάλμα"
 
 #: js/main.js:40
 msgid "None"
-msgstr ""
+msgstr "Τίποτα"
 
 #: js/main.js:108 templates/main.php:16
 msgid "Show only unread"

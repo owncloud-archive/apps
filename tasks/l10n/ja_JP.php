@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "無効な日付／時刻",
 "Tasks" => "タスク",
+"Due" => "期日",
+"List" => "リスト",
+"Location" => "位置",
 "No category" => "カテゴリ無し",
 "Unspecified" => "未指定",
 "1=highest" => "1=高",

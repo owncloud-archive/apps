@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-28 02:03+0200\n"
+"PO-Revision-Date: 2012-09-27 07:39+0000\n"
+"Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -241,7 +241,7 @@ msgstr "エラー"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "メールアドレスを入力してください。"
 
 #: js/contacts.js:176 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -258,7 +258,7 @@ msgstr "タイプを選択"
 
 #: js/contacts.js:214
 msgid "Select photo"
-msgstr ""
+msgstr "写真を選択"
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -274,11 +274,11 @@ msgstr "権限エラー"
 
 #: js/contacts.js:481
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "削除の取り消すためにクリックしてください: \""
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "キャンセルされた削除: \""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -290,7 +290,7 @@ msgstr "要素をシリアライズできませんでした。"
 
 #: js/contacts.js:762
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "不明なエラーです。ログを確認して下さい。"
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -336,17 +336,17 @@ msgstr "アップロードには大きすぎます。"
 
 #: js/contacts.js:2004
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "画像ファイルのみがプロファイル写真として使用することができます。"
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
-msgstr ""
+msgstr "誤ったファイルタイプ"
 
 #: js/contacts.js:2010
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "あなたのブラウザはAJAXのアップロードをサポートしていません。プロファイル写真をクリックしてアップロードする写真を選択してください。"
 
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
