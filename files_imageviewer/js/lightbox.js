@@ -10,6 +10,7 @@ $(document).ready(function() {
 		var a=row.find('a');
 		a.attr('href','#');
 		a.click(function(){
+			image = decodeURIComponent(image);
 			var pos=image.lastIndexOf('/')
 			var file=image.substr(pos + 1);
 			var dir=image.substr(0,pos);

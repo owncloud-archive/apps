@@ -320,7 +320,8 @@ $(document).ready(function(){
 		a.data('file',text);
 		a.attr('href','#');
 		a.click(function(){
-			var pos=text.lastIndexOf('/')
+			text = decodeURIComponent(text);
+			var pos=text.lastIndexOf('/');
 			var file=text.substr(pos + 1);
 			var dir=text.substr(0,pos);
 			showFileEditor(dir,file);
