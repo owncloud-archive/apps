@@ -8,6 +8,7 @@
 #   <fh@cbix.de>, 2012.
 #   <florian.ruechel+owncloud@gmail.com>, 2012.
 #   <georg.stefan.germany@googlemail.com>, 2011.
+# hebbet  <pascal.herbert@gmail.com>, 2012.
 # I Robot <thomas.mueller@tmit.eu>, 2012.
 # Jan-Christoph Borchardt <JanCBorchardt@fsfe.org>, 2011.
 # Jan-Christoph Borchardt <jan@unhosted.org>, 2011.
@@ -26,9 +27,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-27 02:01+0200\n"
-"PO-Revision-Date: 2012-09-26 11:50+0000\n"
-"Last-Translator: JamFX <niko@nik-o-mat.de>\n"
+"POT-Creation-Date: 2012-09-29 02:03+0200\n"
+"PO-Revision-Date: 2012-09-28 15:32+0000\n"
+"Last-Translator: hebbet <pascal.herbert@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -307,7 +308,7 @@ msgstr "Konnte Elemente nicht serialisieren"
 
 #: js/contacts.js:762
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "Unbekannter Fehler. Bitte Logs überprüfen"
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -363,7 +364,7 @@ msgstr "Falscher Dateityp"
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "Der verwendete Browser unterstützt keinen Upload via AJAX. Bitte das Profilbild anklicken um ein Foto hochzuladen. "
 
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
@@ -446,7 +447,7 @@ msgstr "Mehr..."
 
 #: js/settings.js:161
 msgid "Less..."
-msgstr ""
+msgstr "Weniger..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."

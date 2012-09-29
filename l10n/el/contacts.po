@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-28 02:03+0200\n"
-"PO-Revision-Date: 2012-09-27 20:02+0000\n"
-"Last-Translator: Marios Bekatoros <>\n"
+"POT-Creation-Date: 2012-09-29 02:03+0200\n"
+"PO-Revision-Date: 2012-09-28 01:10+0000\n"
+"Last-Translator: Dimitris M. <monopatis@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -342,7 +342,7 @@ msgstr "Πολύ μεγάλο αρχείο για μεταφόρτωση"
 
 #: js/contacts.js:2004
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "Μόνο αρχεία εικόνας μπορούν να χρησιμοποιηθούν σαν εικόνα προφίλ."
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
@@ -352,7 +352,7 @@ msgstr "Λάθος τύπος αρχείου"
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "Ο περιηγητής σας δεν υποστηρίζει μεταφόρτωση σε AJAX. Παρακαλώ κάντε κλικ πάνω στην εικόνα προφίλ για να επιλέξετε μια φωτογραφία για να την ανεβάσετε."
 
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
