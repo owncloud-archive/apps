@@ -8,6 +8,7 @@
 #   <fh@cbix.de>, 2012.
 #   <florian.ruechel+owncloud@gmail.com>, 2012.
 #   <georg.stefan.germany@googlemail.com>, 2011.
+# hebbet  <pascal.herbert@gmail.com>, 2012.
 # I Robot <thomas.mueller@tmit.eu>, 2012.
 # Jan-Christoph Borchardt <JanCBorchardt@fsfe.org>, 2011.
 # Jan-Christoph Borchardt <jan@unhosted.org>, 2011.
@@ -26,9 +27,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:02+0200\n"
-"PO-Revision-Date: 2012-09-10 13:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-29 02:03+0200\n"
+"PO-Revision-Date: 2012-09-28 15:32+0000\n"
+"Last-Translator: hebbet <pascal.herbert@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +49,7 @@ msgstr "ID ist nicht angegeben."
 
 #: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
-msgstr "Adressbuch kann nicht mir leeren Namen aktualisiert werden."
+msgstr "Das Adressbuch kann nicht mir leeren Namen aktualisiert werden."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -241,28 +242,61 @@ msgstr "Nicht verfügbar"
 msgid "Couldn't get a valid address."
 msgstr "Konnte keine gültige Adresse abrufen."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
-#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
-#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
-#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
-#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
-#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
+#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
+#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
+#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
+#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
+#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
+#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
+#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
+#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "Fehler"
 
-#: js/contacts.js:408
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr "Bitte geben Sie eine E-Mailadresse an."
+
+#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "Name eingeben"
+
+#: js/contacts.js:177 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "Format benutzerdefiniert, Kurzname, voller Name, Rückwärts oder Rückwärts mit Komma"
+
+#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
+#: js/contacts.js:1482 js/contacts.js:1525
+msgid "Select type"
+msgstr "Wähle Typ"
+
+#: js/contacts.js:214
+msgid "Select photo"
+msgstr "Wählen Sie ein Foto"
+
+#: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
 msgstr "Sie besitzen nicht die erforderlichen Rechte, um Kontakte hinzuzufügen"
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Please select one of your own address books."
 msgstr "Bitte wählen Sie eines Ihrer Adressbücher aus."
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Permission error"
 msgstr "Berechtigungsfehler"
+
+#: js/contacts.js:481
+msgid "Click to undo deletion of \""
+msgstr "Klicken Sie hier für die Wiederherstellung von \""
+
+#: js/contacts.js:495
+msgid "Cancelled deletion of: \""
+msgstr "Abbrechen des Löschens von: \""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -271,6 +305,10 @@ msgstr "Dieses Feld darf nicht leer sein."
 #: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr "Konnte Elemente nicht serialisieren"
+
+#: js/contacts.js:762
+msgid "Unknown error. Please check logs."
+msgstr "Unbekannter Fehler. Bitte Logs überprüfen"
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -286,7 +324,7 @@ msgstr "Name ändern"
 msgid "No files selected for upload."
 msgstr "Keine Datei(en) zum Hochladen ausgewählt."
 
-#: js/contacts.js:1220 js/contacts.js:2072
+#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -296,54 +334,67 @@ msgstr "Die Datei, die Sie hochladen möchten, überschreitet die maximale Grö�
 msgid "Error loading profile picture."
 msgstr "Fehler beim Laden des Profilbildes."
 
-#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
-#: js/contacts.js:1522
-msgid "Select type"
-msgstr "Wähle Typ"
-
-#: js/contacts.js:1540
+#: js/contacts.js:1543
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Einige zum Löschen vorgemerkte Kontakte wurden noch nicht gelöscht. Bitte warten."
 
-#: js/contacts.js:1611
+#: js/contacts.js:1614
 msgid "Do you want to merge these address books?"
 msgstr "Möchten Sie diese Adressbücher zusammenführen?"
 
-#: js/contacts.js:2065
-msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr "Ihre Datei konnte nicht hoch geladen werden, weil es sich um einen Ordner handelt oder die Datei leer ist."
+#: js/contacts.js:1767
+msgid "Shared by "
+msgstr "Geteilt von "
 
-#: js/contacts.js:2065
+#: js/contacts.js:2000 js/contacts.js:2075
+msgid "Upload too large"
+msgstr "Die hochgeladene Datei ist zu groß"
+
+#: js/contacts.js:2004
+msgid "Only image files can be used as profile picture."
+msgstr "Nur Bilder können als Profilbild genutzt werden."
+
+#: js/contacts.js:2004
+msgid "Wrong file type"
+msgstr "Falscher Dateityp"
+
+#: js/contacts.js:2010
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr "Der verwendete Browser unterstützt keinen Upload via AJAX. Bitte das Profilbild anklicken um ein Foto hochzuladen. "
+
+#: js/contacts.js:2068
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr "Ihre Datei konnte nicht hochgeladen werden, weil es sich um einen Ordner handelt oder die Datei leer ist."
+
+#: js/contacts.js:2068
 msgid "Upload Error"
 msgstr "Fehler beim Hochladen"
 
-#: js/contacts.js:2072
-msgid "Upload too large"
-msgstr "Die hoch geladene Datei ist zu groß"
-
-#: js/contacts.js:2120
+#: js/contacts.js:2123
 msgid "Pending"
 msgstr "Ausstehend"
 
-#: js/contacts.js:2152
+#: js/contacts.js:2155
 msgid "Import done"
 msgstr "Import ausgeführt"
 
-#: js/contacts.js:2165
+#: js/contacts.js:2168
 msgid "Not all files uploaded. Retrying..."
 msgstr "Es wurden nicht alle Dateien hochgeladen. Versuche erneut..."
 
-#: js/contacts.js:2171
+#: js/contacts.js:2174
 msgid "Something went wrong with the upload, please retry."
-msgstr "Beim Hochladen ist etwas schiefgegangen. Bitte erneut versuchen."
+msgstr "Beim Hochladen ist etwas schiefgegangen. Bitte versuchen Sie es erneut."
 
-#: js/contacts.js:2187
+#: js/contacts.js:2190
 msgid "Importing..."
 msgstr "Importiere..."
 
-#: js/contacts.js:2208
+#: js/contacts.js:2211
 msgid "The address book name cannot be empty."
 msgstr "Der Name des Adressbuches darf nicht leer sein."
 
@@ -363,6 +414,41 @@ msgstr " fehlgeschlagen."
 msgid "Displayname cannot be empty."
 msgstr "Der Anzeigename darf nicht leer sein."
 
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "CardDav-Link anzeigen"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "Schreibgeschützten VCF-Link anzeigen"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "Herunterladen"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "Löschen"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: js/settings.js:157 templates/settings.php:66
+msgid "More..."
+msgstr "Mehr..."
+
+#: js/settings.js:161
+msgid "Less..."
+msgstr "Weniger..."
+
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
 msgstr "Sie haben keine Leseberechtigung für dieses Adressbuch."
@@ -377,7 +463,7 @@ msgstr "Ein Fehler ist bei der Aktualisierung des Adressbuches aufgetreten."
 
 #: lib/addressbook.php:315
 msgid "You do not have the permissions to delete this addressbook."
-msgstr "Sie haben nicht die Erlaubnis, dieses Adressbuch zu löschen."
+msgstr "Sie besitzen nicht die erforderlichen Rechte, dieses Adressbuch zu löschen."
 
 #: lib/addressbook.php:344
 msgid "There was an error deleting this addressbook."
@@ -550,7 +636,7 @@ msgstr "Kontakt"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr "Sie haben nicht die Berechtigung, diesem Adressbuch Kontakte hinzuzufügen."
+msgstr "Sie besitzen nicht die erforderlichen Rechte, diesem Adressbuch Kontakte hinzuzufügen."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
@@ -610,7 +696,7 @@ msgstr "Vorheriger Kontakt aus der Liste"
 
 #: templates/index.php:40
 msgid "Expand/collapse current addressbook"
-msgstr "Ausklappen/Einklappen des Adressbuches"
+msgstr "Ausklappen / Einklappen des Adressbuches"
 
 #: templates/index.php:42
 msgid "Next addressbook"
@@ -660,10 +746,6 @@ msgstr "Neues Foto hochladen"
 msgid "Select photo from ownCloud"
 msgstr "Foto aus der ownCloud auswählen"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "Format benutzerdefiniert, Kurzname, voller Name, Rückwärts oder Rückwärts mit Komma"
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
 msgstr "Name ändern"
@@ -672,12 +754,6 @@ msgstr "Name ändern"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Organisation"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:49
-msgid "Delete"
-msgstr "Löschen"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -722,7 +798,7 @@ msgstr "Bevorzugt"
 
 #: templates/part.contact.php:60
 msgid "Please specify a valid email address."
-msgstr "Bitte eine gültige E-Mail-Adresse angeben."
+msgstr "Bitte geben Sie eine gültige E-Mail-Adresse an."
 
 #: templates/part.contact.php:60
 msgid "Enter email address"
@@ -730,7 +806,7 @@ msgstr "E-Mail-Adresse angeben"
 
 #: templates/part.contact.php:64
 msgid "Mail to address"
-msgstr "E-Mail an diese Adresse schreiben"
+msgstr "E-Mail an diese Adresse schicken"
 
 #: templates/part.contact.php:65
 msgid "Delete email address"
@@ -819,7 +895,7 @@ msgstr "Straßenanschrift"
 
 #: templates/part.edit_address_dialog.php:27
 msgid "Street and number"
-msgstr "Straße und Nummer"
+msgstr "Straße und Hausnummer"
 
 #: templates/part.edit_address_dialog.php:30
 msgid "Extended"
@@ -962,7 +1038,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr "<h3>Sie haben noch keine Kontaktdaten in Ihrem Adressbuch.</h3><p>Sie können VCF-Dateien importieren, indem Sie diese herein ziehen und entweder \nauf einem bestehenden Adressbuch fallen lassen, um die Dateien in dieses Adressbuch zu importieren oder auf einen freien Bereich, um ein neues Adressbuch anzulegen und die Dateien dort zu importieren.<br />Sie können auch den Knopf 'Importieren' am Ende der Liste drücken.</p>"
+msgstr "<h3>Sie haben noch keine Kontaktdaten in Ihrem Adressbuch.</h3><p>Sie können VCF-Dateien importieren, indem Sie diese herein ziehen und entweder \nauf einem bestehenden Adressbuch fallen lassen, um die Dateien in dieses Adressbuch zu importieren, oder auf einen freien Bereich, um ein neues Adressbuch anzulegen und die Dateien dort zu importieren.<br />Sie können auch den Knopf 'Importieren' am Ende der Liste drücken.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"
@@ -971,10 +1047,6 @@ msgstr "Kontakt hinzufügen"
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
 msgstr "Wähle Adressbuch"
-
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "Name eingeben"
 
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
@@ -994,31 +1066,15 @@ msgstr "Primäre Adresse (für Kontakt o.ä.)"
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
-msgstr "iOS/OS X"
+msgstr "iOS / OS X"
 
 #: templates/settings.php:9
 msgid "Addressbooks"
 msgstr "Adressbücher"
 
-#: templates/settings.php:25
-msgid "Show CardDav link"
-msgstr "CardDav-Link anzeigen"
-
-#: templates/settings.php:28
-msgid "Show read-only VCF link"
-msgstr "Schreibgeschützten VCF-Link anzeigen"
-
 #: templates/settings.php:35
 msgid "Share"
 msgstr "Teilen"
-
-#: templates/settings.php:39
-msgid "Download"
-msgstr "Herunterladen"
-
-#: templates/settings.php:44
-msgid "Edit"
-msgstr "Bearbeiten"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1035,11 +1091,3 @@ msgstr "Beschreibung"
 #: templates/settings.php:60
 msgid "Save"
 msgstr "Speichern"
-
-#: templates/settings.php:61
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: templates/settings.php:66
-msgid "More..."
-msgstr "Mehr..."

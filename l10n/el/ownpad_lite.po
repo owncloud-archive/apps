@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Dimitris M. <monopatis@gmail.com>, 2012.
+# Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
 # Marios Bekatoros <>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-08 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-28 02:03+0200\n"
+"PO-Revision-Date: 2012-09-27 23:45+0000\n"
+"Last-Translator: Dimitris M. <monopatis@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +22,7 @@ msgstr ""
 
 #: appinfo/app.php:58
 msgid "My pad"
-msgstr ""
+msgstr "Το pad μου"
 
 #: templates/index.php:14 templates/index.php:15
 msgid "Settings"
@@ -28,7 +30,7 @@ msgstr "Ρυθμίσεις"
 
 #: templates/index.php:17
 msgid "Pad Title"
-msgstr ""
+msgstr "Τίτλος Pad"
 
 #: templates/index.php:18
 msgid "Open"
@@ -36,11 +38,11 @@ msgstr "Άνοιγμα"
 
 #: templates/settings.php:15
 msgid "Etherpad service URL"
-msgstr ""
+msgstr "URL υπηρεσίας Etherpad"
 
 #: templates/settings.php:20
 msgid "Username"
-msgstr ""
+msgstr "Όνομα χρήστη"
 
 #: templates/settings.php:27
 msgid "Save"

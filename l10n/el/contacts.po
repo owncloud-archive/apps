@@ -5,18 +5,19 @@
 # Translators:
 #   <christosvas@in.gr>, 2011.
 # Dimitris M. <monopatis@gmail.com>, 2012.
+# Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
 # Marios Bekatoros <>, 2012.
 # Nisok Kosin <nikos.efthimiou@gmail.com>, 2012.
-# Petros Kyladitis <petros.kyladitis@gmail.com>, 2011, 2012.
+# Petros Kyladitis <petros.kyladitis@gmail.com>, 2011-2012.
 #   <vagelis@cyberdest.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:05+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-29 02:03+0200\n"
+"PO-Revision-Date: 2012-09-28 01:10+0000\n"
+"Last-Translator: Dimitris M. <monopatis@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -229,28 +230,61 @@ msgstr "Δεν έχει υλοποιηθεί"
 msgid "Couldn't get a valid address."
 msgstr "Αδυναμία λήψης έγκυρης διεύθυνσης"
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
-#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
-#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
-#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
-#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
-#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
+#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
+#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
+#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
+#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
+#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
+#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
+#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
+#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "Σφάλμα"
 
-#: js/contacts.js:408
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr "Παρακαλώ εισάγεται μια διεύθυνση ηλ. ταχυδρομείου"
+
+#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "Εισαγωγή ονόματος"
+
+#: js/contacts.js:177 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "Format custom, Όνομα, Επώνυμο, Αντίστροφο ή Αντίστροφο με κόμμα"
+
+#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
+#: js/contacts.js:1482 js/contacts.js:1525
+msgid "Select type"
+msgstr "Επιλογή τύπου"
+
+#: js/contacts.js:214
+msgid "Select photo"
+msgstr "Επέλεξε φωτογραφία"
+
+#: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
 msgstr "Δεν έχετε επαρκή δικαιώματα για προσθέσετε επαφές στο "
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Please select one of your own address books."
 msgstr "Παρακαλούμε επιλέξτε ένα από τα δικάς σας βιβλία διευθύνσεων."
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Permission error"
 msgstr "Σφάλμα δικαιωμάτων"
+
+#: js/contacts.js:481
+msgid "Click to undo deletion of \""
+msgstr ""
+
+#: js/contacts.js:495
+msgid "Cancelled deletion of: \""
+msgstr ""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -259,6 +293,10 @@ msgstr "Το πεδίο δεν πρέπει να είναι άδειο."
 #: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr "Αδύνατο να μπουν σε σειρά τα στοιχεία"
+
+#: js/contacts.js:762
+msgid "Unknown error. Please check logs."
+msgstr "Άγνωστο σφάλμα.Παρακαλώ έλεγξε το αρχείο καταγραφής."
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -274,7 +312,7 @@ msgstr "Αλλαγή ονόματος"
 msgid "No files selected for upload."
 msgstr "Δεν επιλέχτηκαν αρχεία για μεταφόρτωση"
 
-#: js/contacts.js:1220 js/contacts.js:2072
+#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -284,56 +322,69 @@ msgstr "Το αρχείο που προσπαθείτε να ανεβάσετε 
 msgid "Error loading profile picture."
 msgstr "Σφάλμα στην φόρτωση εικόνας προφίλ."
 
-#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
-#: js/contacts.js:1522
-msgid "Select type"
-msgstr "Επιλογή τύπου"
-
-#: js/contacts.js:1540
+#: js/contacts.js:1543
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Κάποιες επαφές σημειώθηκαν προς διαγραφή,δεν έχουν διαγραφεί ακόμα. Παρακαλώ περιμένετε μέχρι να διαγραφούν."
 
-#: js/contacts.js:1611
+#: js/contacts.js:1614
 msgid "Do you want to merge these address books?"
 msgstr "Επιθυμείτε να συγχωνεύσετε αυτά τα δύο βιβλία διευθύνσεων?"
 
-#: js/contacts.js:2065
-msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+#: js/contacts.js:1767
+msgid "Shared by "
+msgstr "Μοιράστηκε από"
 
-#: js/contacts.js:2065
-msgid "Upload Error"
-msgstr ""
-
-#: js/contacts.js:2072
+#: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
-msgstr ""
+msgstr "Πολύ μεγάλο αρχείο για μεταφόρτωση"
 
-#: js/contacts.js:2120
+#: js/contacts.js:2004
+msgid "Only image files can be used as profile picture."
+msgstr "Μόνο αρχεία εικόνας μπορούν να χρησιμοποιηθούν σαν εικόνα προφίλ."
+
+#: js/contacts.js:2004
+msgid "Wrong file type"
+msgstr "Λάθος τύπος αρχείου"
+
+#: js/contacts.js:2010
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr "Ο περιηγητής σας δεν υποστηρίζει μεταφόρτωση σε AJAX. Παρακαλώ κάντε κλικ πάνω στην εικόνα προφίλ για να επιλέξετε μια φωτογραφία για να την ανεβάσετε."
+
+#: js/contacts.js:2068
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr "Αδυναμία μεταφόρτωσης του αρχείου σας διότι είναι κατάλογος ή έχει μέγεθος 0 bytes"
+
+#: js/contacts.js:2068
+msgid "Upload Error"
+msgstr "Σφάλμα Μεταφόρτωσης"
+
+#: js/contacts.js:2123
 msgid "Pending"
-msgstr ""
+msgstr "Εκκρεμεί"
 
-#: js/contacts.js:2152
+#: js/contacts.js:2155
 msgid "Import done"
-msgstr ""
+msgstr "Η εισαγωγή ολοκληρώθηκε"
 
-#: js/contacts.js:2165
+#: js/contacts.js:2168
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Δεν μεταφορτώθηκαν όλα τα αρχεία. Προσπάθεια ξανά..."
 
-#: js/contacts.js:2171
+#: js/contacts.js:2174
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Κάτι πήγε στραβά με την μεταφόρτωση, παρακαλώ προσπαθήστε ξανά."
 
-#: js/contacts.js:2187
+#: js/contacts.js:2190
 msgid "Importing..."
-msgstr ""
+msgstr "Γίνεται εισαγωγή..."
 
-#: js/contacts.js:2208
+#: js/contacts.js:2211
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "Το όνομα του βιβλίου διευθύνσεων δεν πρέπει να είναι κενό."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -347,29 +398,64 @@ msgstr " εισάγεται,"
 msgid " failed."
 msgstr " απέτυχε."
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "Το όνομα προβολής δεν μπορεί να είναι κενό. "
 
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "Εμφάνιση συνδέσμου CardDav"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "Εμφάνιση συνδέσμου VCF μόνο για ανάγνωση"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "Λήψη"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: js/settings.js:157 templates/settings.php:66
+msgid "More..."
+msgstr "Περισσότερα..."
+
+#: js/settings.js:161
+msgid "Less..."
+msgstr "Λιγότερα"
+
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "Δεν έχετε δικαιώματα ανάγνωσης αυτού του βιβλίου διευθύνσεων."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "Δεν έχετε δικαιώματα ενημέρωσης αυτού του βιβλίου διευθύνσεων."
 
 #: lib/addressbook.php:259
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "Υπήρξε σφάλμα κατά την ενημέρωση του βιβλίου διευθύνσεων."
 
 #: lib/addressbook.php:315
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "Δεν έχετε δικαιώματα να διαγράψετε αυτό το βιβλίο διευθύνσεων."
 
 #: lib/addressbook.php:344
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "Υπήρξε σφάλμα κατά την διαγραφή αυτού του βιβλίου διευθύνσεων"
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -530,7 +616,7 @@ msgstr "Ερωτήσεις"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
-msgstr "{name} έχει Γενέθλια"
+msgstr "Τα Γεννέθλια του/της {name}"
 
 #: lib/search.php:15
 msgid "Contact"
@@ -538,11 +624,11 @@ msgstr "Επαφή"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "Δεν έχετε δικαιώματα να προσθέσετε επαφές σε αυτό το βιβλίο διευθύνσεων."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "Αδυναμία εύρεσης της vCard με το ID."
 
 #: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
@@ -550,11 +636,11 @@ msgstr "Δεν διαθέτε επαρκή δικαιώματα για την ε
 
 #: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "Αδυναμία εύρεσης της vCard με το ID:"
 
 #: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "Αδυναμία εύρεσης της Βιβλίου Διευθύνσεων με το ID:"
 
 #: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
@@ -562,7 +648,7 @@ msgstr "Δεν διαθέτε επαρκή δικαιώματα για την δ
 
 #: lib/vcard.php:550
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "Υπήρξε σφάλμα κατά την διαγραφή αυτής της επαφής."
 
 #: templates/index.php:14
 msgid "Add Contact"
@@ -648,10 +734,6 @@ msgstr "Ανέβασε νέα φωτογραφία"
 msgid "Select photo from ownCloud"
 msgstr "Επέλεξε φωτογραφία από το ownCloud"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "Format custom, Όνομα, Επώνυμο, Αντίστροφο ή Αντίστροφο με κόμμα"
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
 msgstr "Αλλάξτε τις λεπτομέρειες ονόματος"
@@ -660,12 +742,6 @@ msgstr "Αλλάξτε τις λεπτομέρειες ονόματος"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Οργανισμός"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:49
-msgid "Delete"
-msgstr "Διαγραφή"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -950,7 +1026,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>Δεν έχετε επαφές στο βιβλίο διευθύνσεων.</h3><p>Μπορείτε να εισάγετε αρχεία VCF σύροντάς τα στην λίστα επαφών και είτε αφήνοντάς τα στο βιβλίο διευθύνσεων ώστε να εισαχθούν σε αυτό, είτε σε κάποιο κενό σημείο ώστε να δημιουργηθεί νέο βιβλίο διευθύνσεων και να εισαχθούν σε αυτό.<br />Μπορείτε επίσης να τα εισάγετε κάνοντας κλικ στο κουμπί εισαγωγής στο κάτω μέρος της λίστας.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"
@@ -959,10 +1035,6 @@ msgstr "Προσθήκη επαφής"
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
 msgstr "Επέλεξε βιβλίο διευθύνσεων"
-
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "Εισαγωγή ονόματος"
 
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
@@ -988,25 +1060,9 @@ msgstr "iOS/OS X"
 msgid "Addressbooks"
 msgstr "Βιβλία διευθύνσεων"
 
-#: templates/settings.php:25
-msgid "Show CardDav link"
-msgstr "Εμφάνιση συνδέσμου CardDav"
-
-#: templates/settings.php:28
-msgid "Show read-only VCF link"
-msgstr "Εμφάνιση συνδέσμου VCF μόνο για ανάγνωση"
-
 #: templates/settings.php:35
 msgid "Share"
 msgstr "Μοιράσου"
-
-#: templates/settings.php:39
-msgid "Download"
-msgstr "Λήψη"
-
-#: templates/settings.php:44
-msgid "Edit"
-msgstr "Επεξεργασία"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1023,11 +1079,3 @@ msgstr "Περιγραφή"
 #: templates/settings.php:60
 msgid "Save"
 msgstr "Αποθήκευση"
-
-#: templates/settings.php:61
-msgid "Cancel"
-msgstr "Ακύρωση"
-
-#: templates/settings.php:66
-msgid "More..."
-msgstr "Περισσότερα..."

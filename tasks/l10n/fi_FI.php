@@ -1,6 +1,7 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Virheellinen päivä tai aika",
 "Tasks" => "Tehtävät",
+"Location" => "Sijainti",
 "No category" => "Ei luokkaa",
 "Unspecified" => "Määrittelemätön",
 "1=highest" => "1=korkein",

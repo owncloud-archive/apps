@@ -6,6 +6,7 @@
 #   <admin@s-goecker.de>, 2011, 2012.
 #   <driz@i2pmail.org>, 2012.
 #   <georg.stefan.germany@googlemail.com>, 2011, 2012.
+# I Robot <thomas.mueller@tmit.eu>, 2012.
 # Jan-Christoph Borchardt <JanCBorchardt@fsfe.org>, 2011.
 # Jan-Christoph Borchardt <jan@unhosted.org>, 2011.
 # Marcel Kühlhorn <susefan93@gmx.de>, 2012.
@@ -18,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-07 05:52+0000\n"
-"Last-Translator: JamFX <niko@nik-o-mat.de>\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 11:40+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,6 +83,18 @@ msgstr "Fehlerhafte Anfrage"
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Kalender"
+
+#: js/calendar.js:96
+msgid "Deletion failed"
+msgstr "Löschen fehlgeschlagen"
+
+#: js/calendar.js:185
+msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+msgstr "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+
+#: js/calendar.js:187
+msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+msgstr "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:539
 msgid "user"
@@ -542,23 +555,23 @@ msgid "Your calendars"
 msgstr "Ihre Kalender"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:15
+#: templates/part.choosecalendar.rowfields.php:17
 msgid "CalDav Link"
 msgstr "CalDAV-Link"
 
-#: templates/part.choosecalendar.rowfields.php:11
+#: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
 msgstr "Kalender teilen"
 
-#: templates/part.choosecalendar.rowfields.php:18
+#: templates/part.choosecalendar.rowfields.php:20
 msgid "Download"
 msgstr "Herunterladen"
 
-#: templates/part.choosecalendar.rowfields.php:22
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: templates/part.choosecalendar.rowfields.php:27
+#: templates/part.choosecalendar.rowfields.php:29
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "Löschen"
@@ -678,7 +691,7 @@ msgstr "Beschreibung"
 
 #: templates/part.eventform.php:100 templates/part.showevent.php:95
 msgid "Repeat"
-msgstr "wiederholen"
+msgstr "Wiederholen"
 
 #: templates/part.eventform.php:107 templates/part.showevent.php:102
 msgid "Advanced"

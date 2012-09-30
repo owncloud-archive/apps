@@ -37,6 +37,10 @@
 "No file was uploaded" => "שום קובץ לא הועלה",
 "Missing a temporary folder" => "תקיה זמנית חסרה",
 "Contacts" => "אנשי קשר",
+"Download" => "הורדה",
+"Edit" => "עריכה",
+"Delete" => "מחיקה",
+"Cancel" => "ביטול",
 "This is not your addressbook." => "זהו אינו ספר הכתובות שלך",
 "Contact could not be found." => "לא ניתן לאתר איש קשר",
 "Work" => "עבודה",
@@ -61,7 +65,6 @@
 "Select photo from ownCloud" => "בחר תמונה מ ownCloud",
 "Edit name details" => "ערוך פרטי שם",
 "Organization" => "ארגון",
-"Delete" => "מחיקה",
 "Nickname" => "כינוי",
 "Enter nickname" => "הכנס כינוי",
 "dd-mm-yyyy" => "dd-mm-yyyy",
@@ -124,9 +127,6 @@
 "Primary address (Kontact et al)" => "כתובת ראשית",
 "iOS/OS X" => "iOS/OS X",
 "Addressbooks" => "פנקסי כתובות",
-"Download" => "הורדה",
-"Edit" => "עריכה",
 "New Address Book" => "פנקס כתובות חדש",
-"Save" => "שמירה",
-"Cancel" => "ביטול"
+"Save" => "שמירה"
 );

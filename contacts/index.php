@@ -73,5 +73,5 @@ $tmpl->assign('impp_types', $impp_types, false);
 $tmpl->assign('categories', $categories, false);
 $tmpl->assign('im_protocols', $im_protocols, false);
 $tmpl->assign('has_contacts', $has_contacts, false);
-$tmpl->assign('id', $id, false);
+$tmpl->assign('id', $id);
 $tmpl->printPage();

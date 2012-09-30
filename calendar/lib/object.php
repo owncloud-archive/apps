@@ -448,13 +448,13 @@ class OC_Calendar_Object{
 	 */
 	public static function getRepeatOptions($l10n) {
 		return array(
-			'doesnotrepeat' => $l10n->t('Does not repeat'),
-			'daily'         => $l10n->t('Daily'),
-			'weekly'        => $l10n->t('Weekly'),
-			'weekday'       => $l10n->t('Every Weekday'),
-			'biweekly'      => $l10n->t('Bi-Weekly'),
-			'monthly'       => $l10n->t('Monthly'),
-			'yearly'        => $l10n->t('Yearly')
+			'doesnotrepeat' => (string)$l10n->t('Does not repeat'),
+			'daily'         => (string)$l10n->t('Daily'),
+			'weekly'        => (string)$l10n->t('Weekly'),
+			'weekday'       => (string)$l10n->t('Every Weekday'),
+			'biweekly'      => (string)$l10n->t('Bi-Weekly'),
+			'monthly'       => (string)$l10n->t('Monthly'),
+			'yearly'        => (string)$l10n->t('Yearly')
 		);
 	}
 
@@ -464,9 +464,9 @@ class OC_Calendar_Object{
 	 */
 	public static function getEndOptions($l10n) {
 		return array(
-			'never' => $l10n->t('never'),
-			'count' => $l10n->t('by occurrences'),
-			'date'  => $l10n->t('by date')
+			'never' => (string)$l10n->t('never'),
+			'count' => (string)$l10n->t('by occurrences'),
+			'date'  => (string)$l10n->t('by date')
 		);
 	}
 
@@ -476,8 +476,8 @@ class OC_Calendar_Object{
 	 */
 	public static function getMonthOptions($l10n) {
 		return array(
-			'monthday' => $l10n->t('by monthday'),
-			'weekday'  => $l10n->t('by weekday')
+			'monthday' => (string)$l10n->t('by monthday'),
+			'weekday'  => (string)$l10n->t('by weekday')
 		);
 	}
 
@@ -487,13 +487,13 @@ class OC_Calendar_Object{
 	 */
 	public static function getWeeklyOptions($l10n) {
 		return array(
-			'MO' => $l10n->t('Monday'),
-			'TU' => $l10n->t('Tuesday'),
-			'WE' => $l10n->t('Wednesday'),
-			'TH' => $l10n->t('Thursday'),
-			'FR' => $l10n->t('Friday'),
-			'SA' => $l10n->t('Saturday'),
-			'SU' => $l10n->t('Sunday')
+			'MO' => (string)$l10n->t('Monday'),
+			'TU' => (string)$l10n->t('Tuesday'),
+			'WE' => (string)$l10n->t('Wednesday'),
+			'TH' => (string)$l10n->t('Thursday'),
+			'FR' => (string)$l10n->t('Friday'),
+			'SA' => (string)$l10n->t('Saturday'),
+			'SU' => (string)$l10n->t('Sunday')
 		);
 	}
 
@@ -503,13 +503,13 @@ class OC_Calendar_Object{
 	 */
 	public static function getWeekofMonth($l10n) {
 		return array(
-			'auto' => $l10n->t('events week of month'),
-			'1' => $l10n->t('first'),
-			'2' => $l10n->t('second'),
-			'3' => $l10n->t('third'),
-			'4' => $l10n->t('fourth'),
-			'5' => $l10n->t('fifth'),
-			'-1' => $l10n->t('last')
+			'auto' => (string)$l10n->t('events week of month'),
+			'1' => (string)$l10n->t('first'),
+			'2' => (string)$l10n->t('second'),
+			'3' => (string)$l10n->t('third'),
+			'4' => (string)$l10n->t('fourth'),
+			'5' => (string)$l10n->t('fifth'),
+			'-1' => (string)$l10n->t('last')
 		);
 	}
 
@@ -543,18 +543,18 @@ class OC_Calendar_Object{
 	 */
 	public static function getByMonthOptions($l10n) {
 		return array(
-			'1'  => $l10n->t('January'),
-			'2'  => $l10n->t('February'),
-			'3'  => $l10n->t('March'),
-			'4'  => $l10n->t('April'),
-			'5'  => $l10n->t('May'),
-			'6'  => $l10n->t('June'),
-			'7'  => $l10n->t('July'),
-			'8'  => $l10n->t('August'),
-			'9'  => $l10n->t('September'),
-			'10' => $l10n->t('October'),
-			'11' => $l10n->t('November'),
-			'12' => $l10n->t('December')
+			'1'  => (string)$l10n->t('January'),
+			'2'  => (string)$l10n->t('February'),
+			'3'  => (string)$l10n->t('March'),
+			'4'  => (string)$l10n->t('April'),
+			'5'  => (string)$l10n->t('May'),
+			'6'  => (string)$l10n->t('June'),
+			'7'  => (string)$l10n->t('July'),
+			'8'  => (string)$l10n->t('August'),
+			'9'  => (string)$l10n->t('September'),
+			'10' => (string)$l10n->t('October'),
+			'11' => (string)$l10n->t('November'),
+			'12' => (string)$l10n->t('December')
 		);
 	}
 
@@ -564,10 +564,10 @@ class OC_Calendar_Object{
 	 */
 	public static function getYearOptions($l10n) {
 		return array(
-			'bydate' => $l10n->t('by events date'),
-			'byyearday' => $l10n->t('by yearday(s)'),
-			'byweekno'  => $l10n->t('by weeknumber(s)'),
-			'bydaymonth'  => $l10n->t('by day and month')
+			'bydate' => (string)$l10n->t('by events date'),
+			'byyearday' => (string)$l10n->t('by yearday(s)'),
+			'byweekno'  => (string)$l10n->t('by weeknumber(s)'),
+			'bydaymonth'  => (string)$l10n->t('by day and month')
 		);
 	}
 
