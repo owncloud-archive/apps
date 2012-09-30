@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
-"PO-Revision-Date: 2012-09-05 00:20+0000\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 11:27+0000\n"
 "Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,18 @@ msgstr "วันที่ / เวลา ไม่ถูกต้อง"
 #: appinfo/app.php:10
 msgid "Tasks"
 msgstr "งาน"
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr "วันที่ครบกำหนด"
+
+#: js/tasks.js:107
+msgid "List"
+msgstr "รายการ"
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr "ตำแหน่งที่อยู่"
 
 #: js/tasks.js:415
 msgid "No category"

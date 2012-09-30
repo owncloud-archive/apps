@@ -12,6 +12,7 @@
 "Timezone changed" => "タイムゾーンが変更されました",
 "Invalid request" => "無効なリクエストです",
 "Calendar" => "カレンダー",
+"Deletion failed" => "削除に失敗しました",
 "user" => "ユーザ",
 "group" => "グループ",
 "Editable" => "編集可能",

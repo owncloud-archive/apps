@@ -60,6 +60,7 @@ require_once 'Horde/Mime.php';
 require_once 'Horde/Mime/Headers.php';
 require_once 'Horde/Mail/Rfc822.php';
 
+
 class App
 {
 	/**
@@ -240,17 +241,7 @@ class App
 	private static function getAccounts($user_id) {
 		$account_ids = \OCP\Config::getUserValue($user_id, 'mail', 'accounts', '');
 		if ($account_ids == "") {
-			return array(
-				array(
-					'id'       => 0,
-					'name'     => "thomas.mueller@tmit.eu",
-					'host'     => "imap.tmit.eu",
-					'port'     => 993,
-					'user'     => "thomas",
-					'ssl_mode' => "ssl"
-				));
-
-//			return array();
+			return array();
 		}
 
 		$account_ids = explode(',', $account_ids);
@@ -271,6 +262,27 @@ class App
 
 		return $accounts;
 	}
+
+	public static function addAccount($user_id, $host, $port, $user, $password, $ssl_mode) {
+		$id = time();
+		$account_string = 'account[' . $id . ']';
+		\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[name]', $user);
+		\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[host]', $host);
+		\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[port]', $port);
+		\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[user]', $user);
+		\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[password]', base64_encode($password));
+		\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[ssl_mode]', $ssl_mode);
+
+		$account_ids = \OCP\Config::getUserValue($user_id, 'mail', 'accounts', '');
+		$account_ids = explode(',', $account_ids);
+		$account_ids[] = $id;
+		$account_ids = implode(",", $account_ids);
+
+		\OCP\Config::setUserValue($user_id, 'mail', 'accounts', $account_ids);
+
+		return $id;
+	}
+
 
 	private static function getAccount($user_id, $account_id) {
 		$accounts = App::getAccounts($user_id);

@@ -1,5 +1,4 @@
 <?php $TRANSLATIONS = array(
-"regex" => "expressió regular",
 "Save" => "Desa",
 "Close" => "Tanca",
 "Saving..." => "Desant...",

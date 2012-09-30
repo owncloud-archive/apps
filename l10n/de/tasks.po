@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# I Robot <thomas.mueller@tmit.eu>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
 #   <thomas.mueller@tmit.eu>, 2012.
 #   <transifex.3.mensaje@spamgourmet.com>, 2012.
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-05 02:02+0200\n"
-"PO-Revision-Date: 2012-09-04 06:53+0000\n"
-"Last-Translator: traductor <transifex.3.mensaje@spamgourmet.com>\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 11:37+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,11 +23,23 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr "Datum/Uhrzeit ungültig"
+msgstr "Datum / Uhrzeit ungültig"
 
 #: appinfo/app.php:10
 msgid "Tasks"
 msgstr "Aufgaben"
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr "Fällig"
+
+#: js/tasks.js:107
+msgid "List"
+msgstr "Liste"
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr "Ort"
 
 #: js/tasks.js:415
 msgid "No category"
@@ -95,7 +108,7 @@ msgstr "Nach Label sortieren"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr "Lade Aufgaben ..."
+msgstr "Lade Aufgaben..."
 
 #: templates/tasks.php:20
 msgid "Important"

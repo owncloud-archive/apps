@@ -12,6 +12,7 @@
 "Timezone changed" => "Aikavyöhyke vaihdettu",
 "Invalid request" => "Virheellinen pyyntö",
 "Calendar" => "Kalenteri",
+"Deletion failed" => "Poisto epäonnistui",
 "user" => "käyttäjä",
 "group" => "ryhmä",
 "Editable" => "Muoktattava",

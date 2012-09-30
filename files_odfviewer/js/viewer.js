@@ -7,8 +7,8 @@ function viewOdf(dir, file) {
 			// odf action toolbar
 			var odfToolbarHtml =
 				'<div id="odf-toolbar">' +
-				'<input type="button" id="odf_close">'+t('files_odfviewer','Close')+
-				'</div>';
+				'<button id="odf_close">'+t('files_odfviewer','Close')+
+				'</button></div>';
 			$('#controls').append(odfToolbarHtml);
 
 		});
