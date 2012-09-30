@@ -60,6 +60,7 @@ OCP\JSON::success(array(
 	'data' => array(
 		'id' => $id,
 		'aid' => $aid,
+		'details' => OC_Contacts_VCard::structureContact($vcard),
 		'lastmodified' => $lastmodified->format('U')
 	)
 ));
