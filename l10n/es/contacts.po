@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-30 02:02+0200\n"
+"PO-Revision-Date: 2012-09-29 20:48+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -248,7 +248,7 @@ msgstr "Fallo"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "Por favor introduzca una dirección de e-mail"
 
 #: js/contacts.js:176 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -265,7 +265,7 @@ msgstr "Selecciona el tipo"
 
 #: js/contacts.js:214
 msgid "Select photo"
-msgstr ""
+msgstr "eccionar una foto"
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -281,11 +281,11 @@ msgstr "Error de permisos"
 
 #: js/contacts.js:481
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "Click para deshacer el borrado de \""
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "Cancelado el borrado de: \""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -297,7 +297,7 @@ msgstr "Fallo no podido ordenar los elementos"
 
 #: js/contacts.js:762
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "Error desconocido. Por favor revise el log."
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -335,7 +335,7 @@ msgstr "¿Quieres mezclar estas libretas de direcciones?"
 
 #: js/contacts.js:1767
 msgid "Shared by "
-msgstr ""
+msgstr "compartido por"
 
 #: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
@@ -343,17 +343,17 @@ msgstr "bida demasido grande"
 
 #: js/contacts.js:2004
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "Solamente archivos de imagen pueden ser usados como imagen del perfil "
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
-msgstr ""
+msgstr "Tipo de archivo incorrecto"
 
 #: js/contacts.js:2010
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "Su explorador no soporta subidas AJAX. Por favor haga click en la imagen del perfil para seleccionar una foto para subir."
 
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
@@ -436,7 +436,7 @@ msgstr "Más..."
 
 #: js/settings.js:161
 msgid "Less..."
-msgstr ""
+msgstr "Menos..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."

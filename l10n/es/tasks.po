@@ -4,15 +4,16 @@
 # 
 # Translators:
 #   <juanma@kde.org.ar>, 2012.
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
 # Rubén Trujillo <rubentrf@gmail.com>, 2012.
 #   <sergio@entrecables.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-29 02:04+0200\n"
-"PO-Revision-Date: 2012-09-28 18:09+0000\n"
-"Last-Translator: scambra <sergio@entrecables.com>\n"
+"POT-Creation-Date: 2012-09-30 02:03+0200\n"
+"PO-Revision-Date: 2012-09-29 20:49+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,11 +31,11 @@ msgstr "Tareas"
 
 #: js/tasks.js:78
 msgid "Due"
-msgstr ""
+msgstr "Debido"
 
 #: js/tasks.js:107
 msgid "List"
-msgstr ""
+msgstr "Lista"
 
 #: js/tasks.js:128
 msgid "Location"

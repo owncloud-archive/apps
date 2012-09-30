@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-24 02:01+0200\n"
-"PO-Revision-Date: 2012-09-23 17:01+0000\n"
+"POT-Creation-Date: 2012-09-30 02:02+0200\n"
+"PO-Revision-Date: 2012-09-29 03:53+0000\n"
 "Last-Translator: sedir <philippi.sedir@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: appinfo/app.php:14
 msgid "Bookmarks"
-msgstr "Favoritos"
+msgstr "Marcadores"
 
 #: bookmarksHelper.php:99
 msgid "unnamed"
@@ -28,13 +28,13 @@ msgstr "sem nome"
 
 #: lib/search.php:43
 msgid "Bookm."
-msgstr "Fav."
+msgstr "Marc."
 
 #: templates/bookmarklet.php:5
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr "Arraste isso para os favoritos do seu navegador web e clique nele quando você quiser favoritar uma página rapidamente:"
+msgstr "Arraste isso para os favoritos do seu navegador web e clique nele quando você quiser marcar/favoritar uma página rapidamente:"
 
 #: templates/bookmarklet.php:7
 msgid "Read later"
@@ -54,11 +54,11 @@ msgstr "Tags"
 
 #: templates/list.php:16
 msgid "Save bookmark"
-msgstr "Salvar favorito"
+msgstr "Salvar marcador"
 
 #: templates/list.php:22
 msgid "You have no bookmarks"
-msgstr "Você não tem favoritos"
+msgstr "Você não tem marcadores"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"

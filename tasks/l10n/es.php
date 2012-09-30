@@ -1,6 +1,8 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Fecha/hora inválida",
 "Tasks" => "Tareas",
+"Due" => "Debido",
+"List" => "Lista",
 "Location" => "Ubicación",
 "No category" => "Sin categoría",
 "Unspecified" => "Sin especificar",
