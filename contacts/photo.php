@@ -23,7 +23,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : null;
 $etag = null;
 $caching = null;
 
-if(is_null($id)) {
+if(!$id) {
 	getStandardImage();
 }
 
