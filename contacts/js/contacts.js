@@ -1306,7 +1306,7 @@ OC.Contacts={
 				return;
 			}
 			//alert('editPhoto: ' + tmpkey);
-			$.getJSON(OC.filePath('contacts', 'ajax', 'cropphoto.php'),{'tmpkey':tmpkey,'id':this.id, 'requesttoken':requesttoken},function(jsondata){
+			$.getJSON(OC.filePath('contacts', 'ajax', 'cropphoto.php'),{'tmpkey':tmpkey,'id':this.id, 'requesttoken':oc_requesttoken},function(jsondata){
 				if(jsondata.status == 'success'){
 					//alert(jsondata.data.page);
 					$('#edit_photo_dialog_img').html(jsondata.data.page);
@@ -2100,7 +2100,7 @@ $(document).ready(function(){
 					//}
 				}
 			};
-			xhr.open('POST', OC.filePath('contacts', 'ajax', 'uploadphoto.php')+'?id='+OC.Contacts.Card.id+'&requesttoken='+requesttoken+'&imagefile='+encodeURIComponent(file.name), true);
+			xhr.open('POST', OC.filePath('contacts', 'ajax', 'uploadphoto.php')+'?id='+OC.Contacts.Card.id+'&requesttoken='+oc_requesttoken+'&imagefile='+encodeURIComponent(file.name), true);
 			xhr.setRequestHeader('Cache-Control', 'no-cache');
 			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 			xhr.setRequestHeader('X_FILE_NAME', encodeURIComponent(file.name));
