@@ -10,6 +10,7 @@ input[type=checkbox]:checked::after {
   top: -8px;
   left: -6px;
 }
+textarea { font-family: inherit; }
 select { border: 1px solid silver; }
 option { border-left: 1px solid silver; border-right: 1px solid silver; }
 option:first-child { border-top: 1px solid silver; }
@@ -160,13 +161,15 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 #contactsheader { position: fixed; padding: 0; margin:0; top:3.5em; left: 32.5em; right: 0; height: 4em; border-bottom: 1px solid #DDDDDD; z-index: 50; }
 #contactsheader div { padding: 0 0.5em; height: 100%; width: 90%; margin:0; }
 
-#contactsheader button { width: 26px; height: 26px; margin-right: .5em; top: .7em; opacity: 0.5; }
+#contactsheader button { position: relative; float: left; min-width: 26px; height: 26px; margin: .7em; padding: .2em; opacity: 0.5; clear: none; }
 #contactsheader button:hover { opacity: 1; }
-#contactsheader .settings { background:url('%webroot%/core/img/actions/settings.svg') no-repeat center; position: absolute; right: 1em; margin: 0; }
+#contactsheader .back {  }
 #contactsheader .import { background:url('%webroot%/core/img/actions/upload.svg') no-repeat center; }
 #contactsheader .newcontact { background:url('%appswebroot%/contacts/img/contact-new.svg') no-repeat center; }
 #contactsheader .delete { background:url('%webroot%/core/img/actions/delete.svg') no-repeat center; }
-#contactsheader .add { background:url('%webroot%/core/img/actions/add.svg') no-repeat center; margin-left: 5em; }
+#contactsheader .add { background:url('%webroot%/core/img/actions/add.svg') no-repeat center; }
+#contactsheader .list.add { margin-left: 5em; }
+#contactsheader .settings { background:url('%webroot%/core/img/actions/settings.svg') no-repeat center; position: absolute; top: .7em; right: 1em; margin: 0; }
 
 #contactlist tr { height: 3em; }
 #contactlist tr td { text-overflow: ellipsis; border-bottom: 1px solid #DDDDDD; font-weight: normal; text-align: left; overflow: hidden; text-overflow: ellipsis;    vertical-align: middle; white-space: nowrap; }
