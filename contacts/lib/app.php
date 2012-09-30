@@ -213,6 +213,7 @@ class OC_Contacts_App {
 					'WORK' => $l->t('Work'),
 					'HOME' => $l->t('Home'),
 					'INTERNET' => $l->t('Internet'),
+					'OTHER' =>  $l->t('Other'),
 				);
 		}
 	}
