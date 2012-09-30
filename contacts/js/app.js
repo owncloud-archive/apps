@@ -152,8 +152,8 @@ OC.Contacts = OC.Contacts || {
 				self.$header.find('.delete').hide();
 			}
 		});
-		$(document).bind('status.contactsLoaded', function(e, result) {
-			console.log('contactsLoaded', result);
+		$(document).bind('status.contacts.loaded', function(e, result) {
+			console.log('status.contacts.loaded', result);
 			if(result.status !== true) {
 				alert('Error loading contacts!');
 			}
@@ -212,6 +212,16 @@ OC.Contacts = OC.Contacts || {
 			self.$header.find('.list').hide();
 			self.$header.find('.single').show();
 			self.$rightContent.prepend(self.Contacts.showContact(self.currentid));
+		});
+		this.$header.find('.back').on('click keydown', function() {
+			console.log('back');
+			var listelem = self.Contacts.contacts[parseInt(self.currentid)].detach().remove();
+			self.$contactList.show();
+		});
+		this.$header.find('.add').on('click keydown', function() {
+			console.log('add');
+			self.$contactList.hide();
+			self.$rightContent.prepend(self.Contacts.addContact());
 		});
 		this.$header.find('.delete').on('click keydown', function() {
 			console.log('delete');
@@ -706,8 +716,9 @@ OC.Contacts = OC.Contacts || {
 				self.deleteContact(listelem.data('id'), true);
 			},
 			clickhandler:function(listelem) {
-				self.insertContact({contact:listelem});
-				OC.Contacts.notify({message:t('contacts', 'Cancelled deletion of: "') + listelem.find('a').text() + '"'});
+				console.log('clickhandler', listelem);
+				self.insertContact(listelem);
+				OC.Contacts.notify({message:t('contacts', 'Cancelled deletion of: "') + listelem.find('td.name').text() + '"'});
 				window.onbeforeunload = null;
 			}
 		});
@@ -776,13 +787,43 @@ OC.Contacts = OC.Contacts || {
 	};
 
 	/**
-	* Insert a contact in the list
-	* @param jQuery object
-	*/
+	 * Insert a rendered contact list item into the list
+	 * @param contact jQuery object.
+	 */
 	ContactList.prototype.insertContact = function(contact) {
-		console.log('insertContact', contact);
+		//console.log('insertContact', contact);
+		var name = contact.find('td.name').text().toLowerCase();
+		var added = false
+		this.$contactList.find('tr').each(function() {
+			if ($(this).find('td.name').text().toLowerCase().localeCompare(name) > 0) {
+				$(this).before(contact);
+				added = true;
+				return false;
+			}
+		});
+		if(!added) {
+			this.$contactList.append(contact);
+		}
+		//this.contacts[id] = contact;
+		return contact;
 	}
 	
+	/**
+	* Add contact
+	* @param int offset
+	*/
+	ContactList.prototype.addContact = function() {
+		var contact = new Contact(
+			this, 
+			null,
+			null,
+			null, 
+			this.$contactListItemTemplate, 
+			this.$contactFullTemplate,
+			this.contactDetailTemplates
+		);
+		return contact.renderContact();
+	}
 	/**
 	* Load contacts
 	* @param int offset
@@ -809,9 +850,10 @@ OC.Contacts = OC.Contacts || {
 							self.contactDetailTemplates
 						);
 					var item = self.contacts[parseInt(contact.id)].renderListItem()
-					self.$contactList.append(item);
+					//self.$contactList.append(item);
+					self.insertContact(item);
 				});
-				$(document).trigger('status.contactsLoaded', {
+				$(document).trigger('status.contacts.loaded', {
 					status: true, 
 					numcontacts: jsondata.data.contacts.length 
 				});
