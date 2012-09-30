@@ -28,6 +28,7 @@
 		<button class="add"></button>
 	</div>
 	<div class="single hidden">
+		<button class="back" title="<?php echo $l->t('Back'); ?>"><?php echo $l->t('Back'); ?></button>
 		<button class="add" title="<?php echo $l->t('Add Contact'); ?>"></button>
 		<button class="delete" title="<?php echo $l->t('Delete Contact'); ?>"></button>
 	</div>
