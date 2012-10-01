@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-22 02:01+0200\n"
-"PO-Revision-Date: 2012-09-21 10:26+0000\n"
-"Last-Translator: martinb <martin.babik@gmail.com>\n"
+"POT-Creation-Date: 2012-09-26 13:19+0200\n"
+"PO-Revision-Date: 2012-09-26 11:20+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -226,16 +226,41 @@ msgstr "Neimplementované"
 msgid "Couldn't get a valid address."
 msgstr "Nemôžem získať platnú adresu."
 
-#: js/contacts.js:76 js/contacts.js:363 js/contacts.js:685 js/contacts.js:725
-#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
-#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
-#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1574
-#: js/contacts.js:1609 js/contacts.js:1629 js/contacts.js:1841
-#: js/contacts.js:1984 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
+#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
+#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
+#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
+#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
+#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
+#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
+#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
+#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
 #: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "Chyba"
+
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr ""
+
+#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "Zadaj meno"
+
+#: js/contacts.js:177 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "Formát vlastný, krátke meno, celé meno, obrátené alebo obrátené s čiarkami"
+
+#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
+#: js/contacts.js:1482 js/contacts.js:1525
+msgid "Select type"
+msgstr "Vybrať typ"
+
+#: js/contacts.js:214
+msgid "Select photo"
+msgstr ""
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -249,6 +274,14 @@ msgstr "Zvoľte jeden z vašich adresárov."
 msgid "Permission error"
 msgstr "Porucha oprávnenia."
 
+#: js/contacts.js:481
+msgid "Click to undo deletion of \""
+msgstr ""
+
+#: js/contacts.js:495
+msgid "Cancelled deletion of: \""
+msgstr ""
+
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
 msgstr "Tento parameter nemôže byť prázdny."
@@ -256,6 +289,10 @@ msgstr "Tento parameter nemôže byť prázdny."
 #: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr "Nemôžem previesť prvky."
+
+#: js/contacts.js:762
+msgid "Unknown error. Please check logs."
+msgstr ""
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -271,7 +308,7 @@ msgstr "Upraviť meno"
 msgid "No files selected for upload."
 msgstr "Žiadne súbory neboli vybrané k nahratiu"
 
-#: js/contacts.js:1220 js/contacts.js:2075
+#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -280,11 +317,6 @@ msgstr "Súbor, ktorý sa pokúšate nahrať, presahuje maximálnu povolenú ve�
 #: js/contacts.js:1284
 msgid "Error loading profile picture."
 msgstr "Chyba pri nahrávaní profilového obrázku."
-
-#: js/contacts.js:1420 js/contacts.js:1463 js/contacts.js:1482
-#: js/contacts.js:1525
-msgid "Select type"
-msgstr "Vybrať typ"
 
 #: js/contacts.js:1543
 msgid ""
@@ -296,16 +328,34 @@ msgstr "Počkajte prosím do skončenia mazania kontaktov označených na mazani
 msgid "Do you want to merge these address books?"
 msgstr "Chcete zlúčiť tieto adresáre?"
 
+#: js/contacts.js:1767
+msgid "Shared by "
+msgstr ""
+
+#: js/contacts.js:2000 js/contacts.js:2075
+msgid "Upload too large"
+msgstr ""
+
+#: js/contacts.js:2004
+msgid "Only image files can be used as profile picture."
+msgstr ""
+
+#: js/contacts.js:2004
+msgid "Wrong file type"
+msgstr ""
+
+#: js/contacts.js:2010
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr ""
+
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr ""
 
 #: js/contacts.js:2068
 msgid "Upload Error"
-msgstr ""
-
-#: js/contacts.js:2075
-msgid "Upload too large"
 msgstr ""
 
 #: js/contacts.js:2123
@@ -346,6 +396,41 @@ msgstr " zlyhaných."
 
 #: js/settings.js:76
 msgid "Displayname cannot be empty."
+msgstr ""
+
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "Zobraz odkaz pre CardDav"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "Zobraz VCF odkaz len na čítanie"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "Stiahnuť"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "Upraviť"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "Odstrániť"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#: js/settings.js:157 templates/settings.php:66
+msgid "More..."
+msgstr "Viac..."
+
+#: js/settings.js:161
+msgid "Less..."
 msgstr ""
 
 #: lib/addressbook.php:138
@@ -645,10 +730,6 @@ msgstr "Nahrať novú fotku"
 msgid "Select photo from ownCloud"
 msgstr "Vybrať fotku z ownCloud"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "Formát vlastný, krátke meno, celé meno, obrátené alebo obrátené s čiarkami"
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
 msgstr "Upraviť podrobnosti mena"
@@ -657,12 +738,6 @@ msgstr "Upraviť podrobnosti mena"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Organizácia"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:49
-msgid "Delete"
-msgstr "Odstrániť"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -957,10 +1032,6 @@ msgstr "Pridať kontakt"
 msgid "Select Address Books"
 msgstr "Zvoliť adresáre"
 
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "Zadaj meno"
-
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "Zadať popis"
@@ -985,25 +1056,9 @@ msgstr "iOS/OS X"
 msgid "Addressbooks"
 msgstr "Adresáre"
 
-#: templates/settings.php:25
-msgid "Show CardDav link"
-msgstr "Zobraz odkaz pre CardDav"
-
-#: templates/settings.php:28
-msgid "Show read-only VCF link"
-msgstr "Zobraz VCF odkaz len na čítanie"
-
 #: templates/settings.php:35
 msgid "Share"
 msgstr "Zdieľať"
-
-#: templates/settings.php:39
-msgid "Download"
-msgstr "Stiahnuť"
-
-#: templates/settings.php:44
-msgid "Edit"
-msgstr "Upraviť"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1020,11 +1075,3 @@ msgstr "Popis"
 #: templates/settings.php:60
 msgid "Save"
 msgstr "Uložiť"
-
-#: templates/settings.php:61
-msgid "Cancel"
-msgstr "Zrušiť"
-
-#: templates/settings.php:66
-msgid "More..."
-msgstr "Viac..."

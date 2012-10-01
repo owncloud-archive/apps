@@ -65,7 +65,10 @@ class OC_Calendar_Export{
 	  * @return string
 	  */
 	 private static function generateEvent($event) {
-		$object = OC_VObject::parse($event['calendardata']);
+	 	$object = OC_VObject::parse($event['calendardata']);
+		if(!$object){
+			return false;
+		}
 		$dtstart = $object->VEVENT->DTSTART;
 		$start_dt = $dtstart->getDateTime();
 		$dtend = OC_Calendar_Object::getDTEndFromVEvent($object->VEVENT);
