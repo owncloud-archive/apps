@@ -4,7 +4,7 @@
 	<!-- Set dir value to be passed to integrate.js -->
 	<input type="hidden" name="dir" value="<?php echo empty($_['dir'])?'':rtrim($_['dir'],'/') ?>" id="dir">
 </div>
-<div class = "actions"></div>
+<div class="actions"></div>
 <?php
 	// Get the current directory.
 	$dir = empty($_['dir'])?'/':$_['dir'];
