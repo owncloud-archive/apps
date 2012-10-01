@@ -20,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-27 02:01+0200\n"
-"PO-Revision-Date: 2012-09-26 13:04+0000\n"
-"Last-Translator: Christophe Lherieau <skimpax@gmail.com>\n"
+"POT-Creation-Date: 2012-10-01 02:04+0200\n"
+"PO-Revision-Date: 2012-09-30 15:49+0000\n"
+"Last-Translator: Romain DEP. <rom1dep@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -285,7 +285,7 @@ msgstr "Erreur de permission"
 
 #: js/contacts.js:481
 msgid "Click to undo deletion of \""
-msgstr "Cliquer pour annuler la suppression de \""
+msgstr "Cliquez pour annuler la suppression de \""
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
@@ -301,13 +301,13 @@ msgstr "Impossible de sérialiser les éléments."
 
 #: js/contacts.js:762
 msgid "Unknown error. Please check logs."
-msgstr "Erreur inconnue. Veuillez vérifier les logs."
+msgstr "Erreur inconnue. Veuillez consulter les logs."
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
-msgstr "'deleteProperty' a été appelé sans type d'argument. Merci de rapporter un bug à bugs.owncloud.org"
+msgstr "'deleteProperty' a été appelé sans type d'argument. Merci de rapporter cette anomalie à bugs.owncloud.org"
 
 #: js/contacts.js:920
 msgid "Edit name"
@@ -347,7 +347,7 @@ msgstr "Téléversement trop volumineux"
 
 #: js/contacts.js:2004
 msgid "Only image files can be used as profile picture."
-msgstr "Seuls des fichiers d'images peuvent être utilisés pour l'image du profil."
+msgstr "Seuls les fichiers images peuvent être utilisés pour la photo de profil."
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
@@ -357,7 +357,7 @@ msgstr "Mauvais type de fichier"
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr "Votre navigateur ne supporte pas le téléversement AJAX. Veuillez cliquer sur l'image du profil pour sélectionner une photo à téléverser."
+msgstr "Votre navigateur ne supporte pas le téléversement avec AJAX. Veuillez cliquer sur l'image du profil pour sélectionner une photo à téléverser."
 
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
