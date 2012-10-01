@@ -69,17 +69,26 @@ class OC_Calendar_Export{
 		if(!$object){
 			return false;
 		}
-		$dtstart = $object->VEVENT->DTSTART;
-		$start_dt = $dtstart->getDateTime();
-		$dtend = OC_Calendar_Object::getDTEndFromVEvent($object->VEVENT);
-		$end_dt = $dtend->getDateTime();
-		if($dtstart->getDateType() !== Sabre_VObject_Element_DateTime::DATE) {
-			$start_dt->setTimezone(new DateTimeZone('UTC'));
-			$end_dt->setTimezone(new DateTimeZone('UTC'));
-			$object->VEVENT->setDateTime('DTSTART', $start_dt, Sabre_VObject_Property_DateTime::UTC);
-			$object->VEVENT->setDateTime('DTEND', $end_dt, Sabre_VObject_Property_DateTime::UTC);
+		if($object->VEVENT){
+			$dtstart = $object->VEVENT->DTSTART;
+			$start_dt = $dtstart->getDateTime();
+			$dtend = OC_Calendar_Object::getDTEndFromVEvent($object->VEVENT);
+			$end_dt = $dtend->getDateTime();
+			if($dtstart->getDateType() !== Sabre_VObject_Element_DateTime::DATE) {
+				$start_dt->setTimezone(new DateTimeZone('UTC'));
+				$end_dt->setTimezone(new DateTimeZone('UTC'));
+				$object->VEVENT->setDateTime('DTSTART', $start_dt, Sabre_VObject_Property_DateTime::UTC);
+				$object->VEVENT->setDateTime('DTEND', $end_dt, Sabre_VObject_Property_DateTime::UTC);
+			}
+			return $object->VEVENT->serialize();
 		}
-		return $object->VEVENT->serialize();
+		if($object->VTODO){
+			return $object->VTODO->serialize();
+		}
+		if($object->VJOURNAL){
+			return $object->VJOURNAL->serialize();
+		}
+		return '';
 	}
 
 	/**
