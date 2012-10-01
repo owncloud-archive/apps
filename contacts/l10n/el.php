@@ -58,6 +58,8 @@
 "You do not have permission to add contacts to " => "Δεν έχετε επαρκή δικαιώματα για προσθέσετε επαφές στο ",
 "Please select one of your own address books." => "Παρακαλούμε επιλέξτε ένα από τα δικάς σας βιβλία διευθύνσεων.",
 "Permission error" => "Σφάλμα δικαιωμάτων",
+"Click to undo deletion of \"" => "Επιλογή για αναίρεση της διαγραφής του \"",
+"Cancelled deletion of: \"" => "Ακύρωση διαγραφής του: \"",
 "This property has to be non-empty." => "Το πεδίο δεν πρέπει να είναι άδειο.",
 "Couldn't serialize elements." => "Αδύνατο να μπουν σε σειρά τα στοιχεία",
 "Unknown error. Please check logs." => "Άγνωστο σφάλμα.Παρακαλώ έλεγξε το αρχείο καταγραφής.",

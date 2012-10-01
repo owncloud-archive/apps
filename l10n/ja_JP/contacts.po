@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-28 02:03+0200\n"
-"PO-Revision-Date: 2012-09-27 07:39+0000\n"
-"Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
+"POT-Creation-Date: 2012-10-01 02:04+0200\n"
+"PO-Revision-Date: 2012-09-30 12:31+0000\n"
+"Last-Translator: ttyn <tetuyano+transi@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -328,7 +328,7 @@ msgstr "これらのアドレス帳をマージしてもよろしいですか？
 
 #: js/contacts.js:1767
 msgid "Shared by "
-msgstr ""
+msgstr "共有"
 
 #: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
@@ -429,7 +429,7 @@ msgstr "もっと..."
 
 #: js/settings.js:161
 msgid "Less..."
-msgstr ""
+msgstr "簡略..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
