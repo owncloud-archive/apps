@@ -23,10 +23,9 @@
 }
 
 a.box-close{
-	display:block;position:absolute;
-	top:8px;right:11px;
-	width:26px;height:26px;
-	margin:-23px -23px 0px 0px;
+	position:absolute;
+	top:-15px;right:-15px;
+	width:30px;height:30px;
 	cursor:pointer;
 	background:url('%appswebroot%/files_videoviewer/img/close.png') no-repeat 0 0;
 }   
