@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-07 08:48+0000\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 12:11+0000\n"
 "Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -226,28 +226,61 @@ msgstr "Neimplementováno"
 msgid "Couldn't get a valid address."
 msgstr "Nelze získat platnou adresu."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
-#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
-#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
-#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
-#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
-#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
+#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
+#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
+#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
+#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
+#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
+#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
+#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
+#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "Chyba"
 
-#: js/contacts.js:408
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr "Zadejte, prosím, adresu e-mailu."
+
+#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "Zadejte jméno"
+
+#: js/contacts.js:177 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "Formát vlastní, křestní jméno, celé jméno, obráceně, nebo obráceně oddělené čárkami"
+
+#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
+#: js/contacts.js:1482 js/contacts.js:1525
+msgid "Select type"
+msgstr "Vybrat typ"
+
+#: js/contacts.js:214
+msgid "Select photo"
+msgstr "Vybrat fotku"
+
+#: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
 msgstr "Nemáte práva přidat kontakt do "
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Please select one of your own address books."
 msgstr "Prosím vyberte jedu z Vašich knih adres."
 
-#: js/contacts.js:409
+#: js/contacts.js:407
 msgid "Permission error"
 msgstr "Chyba přístupových práv"
+
+#: js/contacts.js:481
+msgid "Click to undo deletion of \""
+msgstr "Klikněte pro zrušení smazání \""
+
+#: js/contacts.js:495
+msgid "Cancelled deletion of: \""
+msgstr "Zrušeno mazání: \""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -256,6 +289,10 @@ msgstr "Tato vlastnost musí být zadána."
 #: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr "Prvky nelze převést."
+
+#: js/contacts.js:762
+msgid "Unknown error. Please check logs."
+msgstr "Neznámá chyba. Zkontrolujte záznamy."
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -271,7 +308,7 @@ msgstr "Upravit jméno"
 msgid "No files selected for upload."
 msgstr "Žádné soubory nebyly vybrány k nahrání."
 
-#: js/contacts.js:1220 js/contacts.js:2072
+#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -281,54 +318,67 @@ msgstr "Soubor, který se pokoušíte odeslat, přesahuje maximální povolenou 
 msgid "Error loading profile picture."
 msgstr "Chyba při načítání obrázku profilu."
 
-#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
-#: js/contacts.js:1522
-msgid "Select type"
-msgstr "Vybrat typ"
-
-#: js/contacts.js:1540
+#: js/contacts.js:1543
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Některé kontakty jsou označeny ke smazání, ale nejsou smazány. Počkejte, prosím, na dokončení operace."
 
-#: js/contacts.js:1611
+#: js/contacts.js:1614
 msgid "Do you want to merge these address books?"
 msgstr "Chcete spojit tyto knihy adres?"
 
-#: js/contacts.js:2065
-msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr "Nelze odeslat Váš soubor, protože je to adresář, nebo je jeho velikost 0 bajtů"
+#: js/contacts.js:1767
+msgid "Shared by "
+msgstr "Sdílí"
 
-#: js/contacts.js:2065
-msgid "Upload Error"
-msgstr "Chyba odesílání"
-
-#: js/contacts.js:2072
+#: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
 msgstr "Odesílaný soubor je příliš velký"
 
-#: js/contacts.js:2120
+#: js/contacts.js:2004
+msgid "Only image files can be used as profile picture."
+msgstr "Jako profilový obrázek lze použít pouze soubory obrázků."
+
+#: js/contacts.js:2004
+msgid "Wrong file type"
+msgstr "Špatný typ souboru"
+
+#: js/contacts.js:2010
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr "Váš prohlížeč nepodporuje odesílání skrze AJAX. Prosím klikněte na profilový obrázek pro výběr fotografie k odeslání."
+
+#: js/contacts.js:2068
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr "Nelze odeslat Váš soubor, protože je to adresář, nebo je jeho velikost 0 bajtů"
+
+#: js/contacts.js:2068
+msgid "Upload Error"
+msgstr "Chyba odesílání"
+
+#: js/contacts.js:2123
 msgid "Pending"
 msgstr "Nevyřízené"
 
-#: js/contacts.js:2152
+#: js/contacts.js:2155
 msgid "Import done"
 msgstr "Import dokončen"
 
-#: js/contacts.js:2165
+#: js/contacts.js:2168
 msgid "Not all files uploaded. Retrying..."
 msgstr "Všechny soubory nebyly odeslány. Opakuji..."
 
-#: js/contacts.js:2171
+#: js/contacts.js:2174
 msgid "Something went wrong with the upload, please retry."
 msgstr "Něco se stalo špatně s odesílaným souborem, zkuste jej, prosím, odeslat znovu."
 
-#: js/contacts.js:2187
+#: js/contacts.js:2190
 msgid "Importing..."
 msgstr "Importuji..."
 
-#: js/contacts.js:2208
+#: js/contacts.js:2211
 msgid "The address book name cannot be empty."
 msgstr "Název knihy adres nemůže být prázdný."
 
@@ -344,9 +394,44 @@ msgstr " importováno, "
 msgid " failed."
 msgstr " selhalo."
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "Zobrazované jméno nemůže být prázdné."
+
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "Zobrazit odkaz CardDAV"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "Zobrazit odkaz VCF pouze pro čtení"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "Stáhnout"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "Upravit"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "Smazat"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: js/settings.js:157 templates/settings.php:66
+msgid "More..."
+msgstr "Více..."
+
+#: js/settings.js:161
+msgid "Less..."
+msgstr "Méně..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
@@ -645,10 +730,6 @@ msgstr "Nahrát novou fotku"
 msgid "Select photo from ownCloud"
 msgstr "Vybrat fotku z ownCloudu"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "Formát vlastní, křestní jméno, celé jméno, obráceně, nebo obráceně oddělené čárkami"
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
 msgstr "Upravit podrobnosti jména"
@@ -657,12 +738,6 @@ msgstr "Upravit podrobnosti jména"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Organizace"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:49
-msgid "Delete"
-msgstr "Smazat"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -957,10 +1032,6 @@ msgstr "Přidat kontakt"
 msgid "Select Address Books"
 msgstr "Vybrat knihu adres"
 
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "Zadejte jméno"
-
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "Zadejte popis"
@@ -985,25 +1056,9 @@ msgstr "iOS/OS X"
 msgid "Addressbooks"
 msgstr "Knihy adres"
 
-#: templates/settings.php:25
-msgid "Show CardDav link"
-msgstr "Zobrazit odkaz CardDAV"
-
-#: templates/settings.php:28
-msgid "Show read-only VCF link"
-msgstr "Zobrazit odkaz VCF pouze pro čtení"
-
 #: templates/settings.php:35
 msgid "Share"
 msgstr "Sdílet"
-
-#: templates/settings.php:39
-msgid "Download"
-msgstr "Stáhnout"
-
-#: templates/settings.php:44
-msgid "Edit"
-msgstr "Upravit"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1020,11 +1075,3 @@ msgstr "Popis"
 #: templates/settings.php:60
 msgid "Save"
 msgstr "Uložit"
-
-#: templates/settings.php:61
-msgid "Cancel"
-msgstr "Zrušit"
-
-#: templates/settings.php:66
-msgid "More..."
-msgstr "Více..."

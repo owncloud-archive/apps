@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <philippi.sedir@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-08 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-24 02:02+0200\n"
+"PO-Revision-Date: 2012-09-23 17:04+0000\n"
+"Last-Translator: sedir <philippi.sedir@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,28 +20,28 @@ msgstr ""
 
 #: appinfo/app.php:58
 msgid "My pad"
-msgstr ""
+msgstr "Meu bloco"
 
 #: templates/index.php:14 templates/index.php:15
 msgid "Settings"
-msgstr ""
+msgstr "Ajustes"
 
 #: templates/index.php:17
 msgid "Pad Title"
-msgstr ""
+msgstr "Título do bloco"
 
 #: templates/index.php:18
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: templates/settings.php:15
 msgid "Etherpad service URL"
-msgstr ""
+msgstr "URL de serviço Etherpad"
 
 #: templates/settings.php:20
 msgid "Username"
-msgstr ""
+msgstr "Nome de usuário"
 
 #: templates/settings.php:27
 msgid "Save"
-msgstr ""
+msgstr "Salvar"

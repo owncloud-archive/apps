@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Data/timpul invalid",
 "Tasks" => "Sarcini",
+"Due" => "Până la",
+"List" => "Listă",
+"Location" => "Locație",
 "No category" => "Fără categorie",
 "Unspecified" => "Nespecificat",
 "1=highest" => "1=cel mai înalt",

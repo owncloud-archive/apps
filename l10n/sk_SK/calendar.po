@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-22 02:01+0200\n"
-"PO-Revision-Date: 2012-09-21 10:13+0000\n"
+"POT-Creation-Date: 2012-10-02 02:02+0200\n"
+"PO-Revision-Date: 2012-10-01 08:40+0000\n"
 "Last-Translator: martinb <martin.babik@gmail.com>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -75,6 +75,18 @@ msgstr "Neplatná požiadavka"
 msgid "Calendar"
 msgstr "Kalendár"
 
+#: js/calendar.js:96
+msgid "Deletion failed"
+msgstr "Mazanie zlyhalo"
+
+#: js/calendar.js:185
+msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+msgstr ""
+
+#: js/calendar.js:187
+msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+msgstr ""
+
 #: js/calendar.js:539
 msgid "user"
 msgstr "užívateľ"
@@ -89,11 +101,11 @@ msgstr "Upravovateľné"
 
 #: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
-msgstr ""
+msgstr "Zdieľateľný"
 
 #: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
-msgstr ""
+msgstr "Zmazateľný"
 
 #: js/calendar.js:811
 msgid "ddd"
@@ -523,7 +535,7 @@ msgstr "Dnes"
 
 #: templates/calendar.php:46
 msgid "Calendars"
-msgstr ""
+msgstr "Kalendáre"
 
 #: templates/calendar.php:47
 msgid "Settings"
@@ -534,7 +546,7 @@ msgid "Your calendars"
 msgstr "Vaše kalendáre"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:17
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
 msgstr "CalDav odkaz"
 
@@ -542,15 +554,15 @@ msgstr "CalDav odkaz"
 msgid "Share Calendar"
 msgstr "Zdielať kalendár"
 
-#: templates/part.choosecalendar.rowfields.php:20
+#: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
 msgstr "Stiahnuť"
 
-#: templates/part.choosecalendar.rowfields.php:24
+#: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
 msgstr "Upraviť"
 
-#: templates/part.choosecalendar.rowfields.php:29
+#: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "Odstrániť"
@@ -735,7 +747,7 @@ msgstr "Meno nového kalendára"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "Vybrať existujúce meno"
 
 #: templates/part.import.php:45
 msgid ""
@@ -757,23 +769,23 @@ msgstr "Vytvoriť udalosť"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr ""
+msgstr "Zdieľať s:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr ""
+msgstr "Zdieľaný s:"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "Nezdieľať"
 
 #: templates/part.share.php:53
 msgid "Nobody"
-msgstr ""
+msgstr "Nikto"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr ""
+msgstr "Zdieľané cez kalendár"
 
 #: templates/part.share.php:79
 msgid ""

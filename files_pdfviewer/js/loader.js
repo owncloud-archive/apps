@@ -1,5 +1,5 @@
 function hidePDFviewer() {
-	$('table').show();
+	$('#content table').show();
     $("#controls").show();
     $("#editor").show();
 	$('iframe').remove();
@@ -10,7 +10,7 @@ function showPDFviewer(dir,filename){
 	if(!showPDFviewer.shown){
 		$("#editor").hide();
 		var url = fileDownloadPath(dir, filename);
-		$('table').hide();
+		$('#content table').hide();
 		$("#controls").hide();
 		var oldcontent = $("#content").html();
         var viewer = OC.linkTo('files_pdfviewer','viewer.php')+'&dir='+dir+'&file='+filename;

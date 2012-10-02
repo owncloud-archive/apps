@@ -4,8 +4,10 @@
 # 
 # Translators:
 #   <admin@s-goecker.de>, 2011, 2012.
+#   <blobbyjj@ymail.com>, 2012.
 #   <driz@i2pmail.org>, 2012.
 #   <georg.stefan.germany@googlemail.com>, 2011, 2012.
+# I Robot <thomas.mueller@tmit.eu>, 2012.
 # Jan-Christoph Borchardt <JanCBorchardt@fsfe.org>, 2011.
 # Jan-Christoph Borchardt <jan@unhosted.org>, 2011.
 # Marcel Kühlhorn <susefan93@gmx.de>, 2012.
@@ -18,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-18 02:00+0200\n"
-"PO-Revision-Date: 2012-09-17 21:36+0000\n"
-"Last-Translator: traductor <transifex.3.mensaje@spamgourmet.com>\n"
+"POT-Creation-Date: 2012-10-02 02:02+0200\n"
+"PO-Revision-Date: 2012-10-01 23:56+0000\n"
+"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,7 +66,7 @@ msgstr "Import fehlgeschlagen"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
-msgstr "Der Termin wurde im Kalender gespeichert."
+msgstr "Der Termin wurde in Deinem Kalender gespeichert."
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
@@ -83,6 +85,18 @@ msgstr "Fehlerhafte Anfrage"
 msgid "Calendar"
 msgstr "Kalender"
 
+#: js/calendar.js:96
+msgid "Deletion failed"
+msgstr "Löschen fehlgeschlagen"
+
+#: js/calendar.js:185
+msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+msgstr "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+
+#: js/calendar.js:187
+msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+msgstr "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+
 #: js/calendar.js:539
 msgid "user"
 msgstr "Benutzer"
@@ -97,7 +111,7 @@ msgstr "editierbar"
 
 #: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
-msgstr "Kann geteilt werden"
+msgstr "Kann freigegeben werden"
 
 #: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
@@ -197,15 +211,15 @@ msgstr "unbenannt"
 
 #: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
-msgstr "Sie haben nicht die Berechtigung, diesen Kalender zu aktualisieren."
+msgstr "Du besitzt nicht die Berechtigung, diesen Kalender zu aktualisieren."
 
 #: lib/calendar.php:233
 msgid "You do not have the permissions to delete this calendar."
-msgstr "Sie haben nicht die Berechtigung, diesen Kalender zu löschen."
+msgstr "Du besitzt nicht die Berechtigung, diesen Kalender zu löschen."
 
 #: lib/calendar.php:265
 msgid "You do not have the permissions to add to this calendar."
-msgstr "Sie haben nicht die Berechtigung, diesem Kalender etwas hinzuzufügen."
+msgstr "Du besitzt nicht die Berechtigung, diesem Kalender etwas hinzuzufügen."
 
 #: lib/import.php:186 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
@@ -214,15 +228,15 @@ msgstr "Neuer Kalender"
 
 #: lib/object.php:122 lib/object.php:161 lib/object.php:304
 msgid "You do not have the permissions to add events to this calendar."
-msgstr "Sie haben nicht die Berechtigung, diesem Kalender eine Veranstaltung hinzuzufügen."
+msgstr "Du besitzt nicht die Berechtigung, diesem Kalender eine Veranstaltung hinzuzufügen."
 
 #: lib/object.php:193 lib/object.php:227
 msgid "You do not have the permissions to edit this event."
-msgstr "Sie haben nicht die Berechtigung, diese Veranstaltung zu bearbeiten."
+msgstr "Du besitzt nicht die Berechtigung, diese Veranstaltung zu bearbeiten."
 
 #: lib/object.php:257 lib/object.php:284
 msgid "You do not have the permissions to delete this event."
-msgstr "Sie haben nicht die Berechtigung, diese Veranstaltung zu löschen."
+msgstr "Du besitzt nicht die Berechtigung, diese Veranstaltung zu löschen."
 
 #: lib/object.php:449
 msgid "Does not repeat"
@@ -302,7 +316,7 @@ msgstr "Sonntag"
 
 #: lib/object.php:504
 msgid "events week of month"
-msgstr "Woche des Monats vom Termin"
+msgstr "Woche des Monats des Termins"
 
 #: lib/object.php:505
 msgid "first"
@@ -378,7 +392,7 @@ msgstr "Dezember"
 
 #: lib/object.php:565
 msgid "by events date"
-msgstr "nach Tag des Termins"
+msgstr "nach Datum des Termins"
 
 #: lib/object.php:566
 msgid "by yearday(s)"
@@ -478,7 +492,7 @@ msgstr "Dez."
 
 #: templates/calendar.php:11
 msgid "All day"
-msgstr "Ganztags"
+msgstr "Ganztägig"
 
 #: templates/calendar.php:13
 msgid "Missing fields"
@@ -507,11 +521,11 @@ msgstr "Endzeit"
 
 #: templates/calendar.php:20
 msgid "The event ends before it starts"
-msgstr "Der Termin hört auf, bevor er angefangen hat."
+msgstr "Der Termin endet, bevor er angefangen hat."
 
 #: templates/calendar.php:21
 msgid "There was a database fail"
-msgstr "Datenbankfehler"
+msgstr "Es ist ein Datenbankfehler aufgetreten"
 
 #: templates/calendar.php:39
 msgid "Week"
@@ -539,33 +553,33 @@ msgstr "Einstellungen"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
-msgstr "Ihre Kalender"
+msgstr "Deine Kalender"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:17
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
 msgstr "CalDAV-Link"
 
 #: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
-msgstr "Kalender teilen"
+msgstr "Kalender freigeben"
 
-#: templates/part.choosecalendar.rowfields.php:20
+#: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
 msgstr "Herunterladen"
 
-#: templates/part.choosecalendar.rowfields.php:24
+#: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: templates/part.choosecalendar.rowfields.php:29
+#: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "Löschen"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
-msgstr "Geteilt mit Ihnen von"
+msgstr "Für Dich freigegeben von"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
@@ -626,11 +640,11 @@ msgstr "Teilnehmer"
 
 #: templates/part.eventform.php:13
 msgid "Share"
-msgstr "Teilen"
+msgstr "Freigeben"
 
 #: templates/part.eventform.php:21
 msgid "Title of the Event"
-msgstr "Name"
+msgstr "Titel"
 
 #: templates/part.eventform.php:27 templates/part.showevent.php:19
 msgid "Category"
@@ -638,7 +652,7 @@ msgstr "Kategorie"
 
 #: templates/part.eventform.php:29
 msgid "Separate categories with commas"
-msgstr "Kategorien mit Kommas trennen"
+msgstr "Kategorien mit Kommata trennen"
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
@@ -695,11 +709,11 @@ msgstr "Tage auswählen"
 
 #: templates/part.eventform.php:169 templates/part.showevent.php:164
 msgid "and the events day of year."
-msgstr "und den Tag des Jahres vom Termin"
+msgstr "und den Tag des Jahres des Termins"
 
 #: templates/part.eventform.php:182 templates/part.showevent.php:177
 msgid "and the events day of month."
-msgstr "und den Tag des Monats vom Termin"
+msgstr "und den Tag des Monats des Termins"
 
 #: templates/part.eventform.php:190 templates/part.showevent.php:185
 msgid "Select months"
@@ -711,7 +725,7 @@ msgstr "Wochen auswählen"
 
 #: templates/part.eventform.php:208 templates/part.showevent.php:203
 msgid "and the events week of year."
-msgstr "und den Tag des Jahres vom Termin"
+msgstr "und den Tag des Jahres des Termins"
 
 #: templates/part.eventform.php:214 templates/part.showevent.php:209
 msgid "Interval"
@@ -723,7 +737,7 @@ msgstr "Ende"
 
 #: templates/part.eventform.php:233 templates/part.showevent.php:228
 msgid "occurrences"
-msgstr "Termine"
+msgstr "Ereignisse"
 
 #: templates/part.import.php:14
 msgid "create a new calendar"
@@ -735,21 +749,21 @@ msgstr "Kalenderdatei importieren"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr "Wählen Sie bitte einen Kalender."
+msgstr "Bitte wähle einen Kalender."
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
-msgstr "Kalendername"
+msgstr "Name des neuen Kalenders"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr "Wählen Sie einen verfügbaren Namen."
+msgstr "Bitte wähle einen verfügbaren Namen!"
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr "Ein Kalender mit diesem Namen existiert bereits. Sollten Sie fortfahren, werden die beiden Kalender zusammengeführt."
+msgstr "Ein Kalender mit diesem Namen existiert bereits. Solltest Du fortfahren, werden die beiden Kalender zusammengeführt."
 
 #: templates/part.import.php:47
 msgid "Import"
@@ -761,19 +775,19 @@ msgstr "Dialog schließen"
 
 #: templates/part.newevent.php:1
 msgid "Create a new event"
-msgstr "Neues Ereignis"
+msgstr "Neues Ereignis erstellen"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr "Teilen mit:"
+msgstr "Freigeben für:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr "Geteilt mit"
+msgstr "Freigegeben für"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr "Kann nicht geteilt werden"
+msgstr "Freigabe zurücknehmen"
 
 #: templates/part.share.php:53
 msgid "Nobody"
@@ -781,7 +795,7 @@ msgstr "Niemand"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr "Mittels des Kalenders geteilt"
+msgstr "Mittels des Kalenders freigegeben"
 
 #: templates/part.share.php:79
 msgid ""
@@ -791,7 +805,7 @@ msgstr "ANMERKUNG: Aktionen, die auf Ereignissen beruhen und mittels des Kalende
 
 #: templates/part.showevent.php:1
 msgid "View an event"
-msgstr "Termin öffnen"
+msgstr "Termin ansehen"
 
 #: templates/part.showevent.php:23
 msgid "No categories selected"

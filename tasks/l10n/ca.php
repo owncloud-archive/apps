@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "data/hora incorrecta",
 "Tasks" => "Tasques",
+"Due" => "A causa",
+"List" => "Llista",
+"Location" => "Ubicació",
 "No category" => "Cap categoria",
 "Unspecified" => "Sense especificar",
 "1=highest" => "1=major",
