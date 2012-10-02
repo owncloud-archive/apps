@@ -5,7 +5,7 @@
 	<version>0.1</version>
 	<licence>AGPL</licence>
 	<author>Bart Visscher</author>
-	<require>4</require>
-	<description>Audit user actions in Owncloud</description>
+	<require>4.9</require>
+	<description>Audit user actions in ownCloud</description>
 	<shipped>true</shipped>
 </info>

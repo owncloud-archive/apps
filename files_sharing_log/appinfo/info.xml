@@ -5,6 +5,6 @@
 	<description>Log access to shared files</description>
 	<licence>AGPL</licence>
 	<author>Bart Visscher</author>
-	<require>4</require>
+	<require>4.9</require>
 	<shipped>true</shipped>
 </info>

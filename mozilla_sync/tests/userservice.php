@@ -12,7 +12,7 @@ class Test_UserService extends UnitTestCase {
 
     OCA_mozilla_sync\Utils::setTestState();
 
-    // Create Owncloud Test User
+    // Create ownCloud Test User
     OC_User::createUser($this->userName, $this->password);
     OC_Preferences::setValue($this->userName,'settings', 'email', $this->email);
 
