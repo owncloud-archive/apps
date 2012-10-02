@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-28 02:03+0200\n"
-"PO-Revision-Date: 2012-09-27 07:34+0000\n"
+"POT-Creation-Date: 2012-10-02 02:03+0200\n"
+"PO-Revision-Date: 2012-10-01 08:46+0000\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -65,7 +65,7 @@ msgstr "要旨が未記入"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr "進捗％が不正"
+msgstr "無効な進捗％"
 
 #: lib/app.php:107
 msgid "Invalid priority"
@@ -86,7 +86,7 @@ msgstr "期日で並べ替え"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr "リストで並び替え"
+msgstr "リストで並べ替え"
 
 #: templates/tasks.php:6
 msgid "Order Complete"

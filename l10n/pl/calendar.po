@@ -4,16 +4,16 @@
 # 
 # Translators:
 # Cyryl Sochacki <>, 2012.
-# Marcin Małecki <gerber@tkdami.net>, 2011, 2012.
+# Marcin Małecki <gerber@tkdami.net>, 2011-2012.
 #   <mplichta@gmail.com>, 2012.
 # Piotr Sokół <psokol@jabster.pl>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:19+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-02 02:02+0200\n"
+"PO-Revision-Date: 2012-10-01 11:58+0000\n"
+"Last-Translator: Marcin Małecki <gerber@tkdami.net>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,15 +78,15 @@ msgstr "Kalendarz"
 
 #: js/calendar.js:96
 msgid "Deletion failed"
-msgstr ""
+msgstr "Skasowanie nie powiodło się"
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ rrrr]{ -[ddd d] MMMM rrrr}"
 
 #: js/calendar.js:187
 msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ rrrr] HH:mm{ -[ ddd d MMMM rrrr] HH:mm}"
 
 #: js/calendar.js:539
 msgid "user"
@@ -547,7 +547,7 @@ msgid "Your calendars"
 msgstr "Twoje kalendarze"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:17
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
 msgstr "Wyświetla odnośnik CalDAV"
 
@@ -555,15 +555,15 @@ msgstr "Wyświetla odnośnik CalDAV"
 msgid "Share Calendar"
 msgstr "Współdziel kalendarz"
 
-#: templates/part.choosecalendar.rowfields.php:20
+#: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
 msgstr "Pobiera kalendarz"
 
-#: templates/part.choosecalendar.rowfields.php:24
+#: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
 msgstr "Edytuje kalendarz"
 
-#: templates/part.choosecalendar.rowfields.php:29
+#: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "Usuwa kalendarz"
