@@ -168,6 +168,7 @@ class App
 			// $list is an array of Horde_Imap_Client_Data_Fetch objects.
 			$headers = $conn->fetch($folder_id, $fetch_query);
 
+			ob_start(); // fix for Horde warnings
 			foreach ($headers as $header) {
 				$flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
 //					\Horde_Imap_Client_Data_Fetch::HEADER_PARSE
@@ -184,6 +185,7 @@ class App
 				$messages[] = array('id'   => $id, 'from' => $from, 'to' => $to, 'subject' => $e->subject_decoded,
 				                    'date' => $date, 'size' => $header->getSize(), 'flags' => $flags);
 			}
+			ob_clean();
 
 			return array('account_id' => $account_id, 'folder_id' => $folder_id, 'messages' => $messages);
 		} catch (\Horde_Imap_Client_Exception $e) {
