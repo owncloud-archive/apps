@@ -224,7 +224,7 @@ class App
 
 	private static function getImapConnection($account) {
 		//
-		// TODO: cash connections for / within accounts???
+		// TODO: cache connections for / within accounts???
 		//
 		$host = $account['host'];
 		$user = $account['user'];

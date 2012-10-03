@@ -19,7 +19,11 @@ Mail={
 				data:{},
 				type:'GET',
 				success:function(jsondata){
-					folders = jsondata.data;
+					if (jsondata.status == 'success') {
+						folders = jsondata.data;
+					} else {
+						OC.dialogs.alert(jsondata.data.message, t('mail', 'Error'));
+					}
 				}
 			});
 			$('#mail-folders').html(folders);
