@@ -164,8 +164,10 @@ class OC_Calendar_App{
 			if(count($calendars) > 0) {
 				$events = array();
 				foreach($calendars as $calendar) {
-					$calendar_events = OC_Calendar_Object::all($calendar['id']);
-					$events = $events + $calendar_events;
+					if($calendar['userid'] === OCP\User::getUser()) {
+						$calendar_events = OC_Calendar_Object::all($calendar['id']);
+						$events = $events + $calendar_events;
+					}
 				}
 			}
 		}
