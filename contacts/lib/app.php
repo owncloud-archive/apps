@@ -276,7 +276,9 @@ class OC_Contacts_App {
 			if(count($vcaddressbooks) > 0) {
 				$vcaddressbookids = array();
 				foreach($vcaddressbooks as $vcaddressbook) {
-					$vcaddressbookids[] = $vcaddressbook['id'];
+					if($vcaddressbook['userid'] === OCP\User::getUser()) {
+						$vcaddressbookids[] = $vcaddressbook['id'];
+					}
 				}
 				$start = 0;
 				$batchsize = 10;
