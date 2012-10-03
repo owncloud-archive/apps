@@ -248,21 +248,10 @@ class OC_Contacts_App {
 	 */
 	public static function getDefaultCategories() {
 		return array(
-			(string)self::$l10n->t('Birthday'),
-			(string)self::$l10n->t('Business'),
-			(string)self::$l10n->t('Call'),
-			(string)self::$l10n->t('Clients'),
-			(string)self::$l10n->t('Deliverer'),
-			(string)self::$l10n->t('Holidays'),
-			(string)self::$l10n->t('Ideas'),
-			(string)self::$l10n->t('Journey'),
-			(string)self::$l10n->t('Jubilee'),
-			(string)self::$l10n->t('Meeting'),
-			(string)self::$l10n->t('Other'),
-			(string)self::$l10n->t('Personal'),
-			(string)self::$l10n->t('Projects'),
-			(string)self::$l10n->t('Questions'),
+			(string)self::$l10n->t('Friends'),
+			(string)self::$l10n->t('Family'),
 			(string)self::$l10n->t('Work'),
+			(string)self::$l10n->t('Other'),
 		);
 	}
 
