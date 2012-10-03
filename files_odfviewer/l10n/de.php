@@ -1,3 +1,3 @@
 <?php $TRANSLATIONS = array(
-"Close" => "Schliessen"
+"Close" => "Schließen"
 );

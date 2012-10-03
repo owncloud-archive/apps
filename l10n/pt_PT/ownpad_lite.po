@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-01 02:05+0200\n"
-"PO-Revision-Date: 2012-09-30 22:22+0000\n"
+"POT-Creation-Date: 2012-10-03 02:04+0200\n"
+"PO-Revision-Date: 2012-10-02 10:38+0000\n"
 "Last-Translator: Duarte Velez Grilo <duartegrilo@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: appinfo/app.php:58
 msgid "My pad"
-msgstr ""
+msgstr "O meu pad"
 
 #: templates/index.php:14 templates/index.php:15
 msgid "Settings"
@@ -28,7 +28,7 @@ msgstr "Configuração"
 
 #: templates/index.php:17
 msgid "Pad Title"
-msgstr ""
+msgstr "Título do Pad"
 
 #: templates/index.php:18
 msgid "Open"
@@ -36,7 +36,7 @@ msgstr "Abrir"
 
 #: templates/settings.php:15
 msgid "Etherpad service URL"
-msgstr ""
+msgstr "URL do serviço etherpad"
 
 #: templates/settings.php:20
 msgid "Username"

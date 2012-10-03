@@ -50,6 +50,7 @@
 "Not implemented" => "Nie wdrożono",
 "Couldn't get a valid address." => "Nie można pobrać prawidłowego adresu.",
 "Error" => "Błąd",
+"Please enter an email address." => "Podaj adres email",
 "Enter name" => "Wpisz nazwę",
 "Format custom, Short name, Full name, Reverse or Reverse with comma" => "Format niestandardowy, krótkie nazwy, imię i nazwisko, Odwracać lub Odwrócić z przecinkiem",
 "Select type" => "Wybierz typ",
