@@ -24,17 +24,17 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('mail');
 
-$host = $account['host'];
-$user = $account['user'];
-$password = $account['password'];
-$port = $account['port'];
-$ssl_mode = $account['ssl_mode'];
-
-$host = isset( $_GET['host'] ) ? $_GET['host'] : null;
-$user = isset( $_GET['user'] ) ? $_GET['user'] : null;
-$password = isset( $_GET['password'] ) ? $_GET['password'] : null;
-$port = isset( $_GET['port'] ) ? $_GET['port'] : null;
-$ssl_mode = isset( $_GET['ssl_mode'] ) ? $_GET['ssl_mode'] : null;
+$email_address = isset($_POST['email_address']) ? $_POST['email_address'] : null;
+$password = isset( $_POST['password'] ) ? $_POST['password'] : null;
+if (!$email_address || !filter_var($email_address, FILTER_VALIDATE_EMAIL)) {
+	OCP\JSON::error(array('message' => 'email'));
+	exit;
+}
+list($user, $host) = explode('@', $email_address, 2);
+// TODO autodetect port and ssl_mode
+// default to simple imap port
+$port = 143;
+$ssl_mode = false;
 
 $id = OCA_Mail\App::addAccount( OCP\User::getUser(), $host, $port, $user, $password, $ssl_mode );
 

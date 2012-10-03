@@ -168,6 +168,28 @@ Mail={
 $(document).ready(function(){
 	Mail.UI.initializeInterface();
 
+	$('#auto_detect_account').click(function(){
+		var email_address, password;
+		email_address = $('#email_address').val();
+		password = $('#password').val();
+		$.ajax(OC.filePath('mail', 'ajax', 'account/autodetect.php'), {
+			data:{email_address:email_address, password:password},
+			type:'POST',
+			success:function(jsondata){
+				if (jsondata.status == 'success') {
+				} else {
+					var error;
+
+					if (jsondata.message == 'email') {
+						error = t('mail', 'Not a email address');
+					} else {
+						error = 'Unknown error code: '+jsondata.message;
+					}
+					OC.dialogs.alert(error, t('mail', 'Error'));
+				}
+			}
+		});
+	});
 	// Clicking on a folder loads the message list
 	$('ul.mail_folders li').live('click',function(){
 		var account_id, folder_id;

@@ -274,7 +274,12 @@ class App
 		\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[ssl_mode]', $ssl_mode);
 
 		$account_ids = \OCP\Config::getUserValue($user_id, 'mail', 'accounts', '');
-		$account_ids = explode(',', $account_ids);
+		if ($account_ids) {
+			$account_ids = explode(',', $account_ids);
+		}
+		else {
+			$account_ids = array();
+		}
 		$account_ids[] = $id;
 		$account_ids = implode(",", $account_ids);
 
