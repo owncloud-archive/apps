@@ -209,7 +209,7 @@ Calendar={
 			}
 		},
 		showCalDAVUrl:function(username, calname){
-			$('#caldav_url').val(totalurl + '/' + username + '/' + decodeURIComponent(calname));
+			$('#caldav_url').val(totalurl + '/' + username + '/' + calname);
 			$('#caldav_url').show();
 			$("#caldav_url_close").show();
 		},
