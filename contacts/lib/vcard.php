@@ -512,7 +512,7 @@ class OC_Contacts_VCard {
 			);
 		}
 
-		if ($addressbook['userid'] != OCP\User::getUser()) {
+		if ($addressbook['userid'] != OCP\User::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			OCP\Util::writeLog('contacts', __METHOD__.', '
 				. $addressbook['userid'] . ' != ' . OCP\User::getUser(), OCP\Util::DEBUG);
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $card['addressbookid'], OCP\Share::FORMAT_NONE, null, true);

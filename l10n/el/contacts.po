@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-29 02:03+0200\n"
-"PO-Revision-Date: 2012-09-28 01:10+0000\n"
+"POT-Creation-Date: 2012-10-01 02:04+0200\n"
+"PO-Revision-Date: 2012-09-30 17:31+0000\n"
 "Last-Translator: Dimitris M. <monopatis@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -280,11 +280,11 @@ msgstr "Σφάλμα δικαιωμάτων"
 
 #: js/contacts.js:481
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "Επιλογή για αναίρεση της διαγραφής του \""
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "Ακύρωση διαγραφής του: \""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
