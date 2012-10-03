@@ -127,12 +127,16 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 		showCardDAV:function(id) {
 			console.log('showCardDAV: ', id);
 			var row = this.adrsettings.find('tr[data-id="'+id+'"]');
-			this.showLink(id, row, totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(row.data('uri')));
+			var owner = row.data('owner');
+			var uri = (owner === oc_current_user ) ? row.data('uri') : row.data('uri') + '_shared_by_' + owner;
+			this.showLink(id, row, totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri));
 		},
 		showVCF:function(id) {
 			console.log('showVCF: ', id);
 			var row = this.adrsettings.find('tr[data-id="'+id+'"]');
-			var link = totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(row.data('uri'))+'?export';
+			var owner = row.data('owner');
+			var uri = (owner === oc_current_user ) ? row.data('uri') : row.data('uri') + '_shared_by_' + owner;
+			var link = totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri)+'?export';
 			console.log(link);
 			this.showLink(id, row, link);
 		}
