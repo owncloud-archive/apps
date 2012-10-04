@@ -31,20 +31,26 @@ define('CLAMAV_SCANRESULT_INFECTED', 1);
 class OC_Files_Antivirus {
 	
 	public static function av_scan($path) {
+		OCP\JSON::checkLoggedIn();
+		//OCP\JSON::callCheck();
+		
 		$path=$path[\OC_Filesystem::signal_param_path];
 		if ($path != '') {
 			$files_view = \OCP\Files::getStorage("files");
 			if($files_view->file_exists($path)){
 				$root=OC_User::getHome(OC_User::getUser()).'/files';
-				$path = $root.$path;
-				\OCP\Util::writeLog('files_antivirus','Init scan: '.$path, \OCP\Util::DEBUG);
-				$result = self::clamav_scan($path);
-				/*switch($result) {
+				$file = $root.$path;
+				\OCP\Util::writeLog('files_antivirus','Init scan: '.$file, \OCP\Util::DEBUG);
+				$result = self::clamav_scan($file);
+				switch($result) {
 					case CLAMAV_SCANRESULT_UNCHECKED:
 						//TODO: Show warning to the user: The file can not be checked
 						break;
 					case CLAMAV_SCANRESULT_INFECTED:
 						//remove file
+						$files_view->unlink($path);
+						OCP\JSON::error(array("data" => array( "message" => "Virus detected!, file not uploaded." )));
+						exit();
 						//TODO: notify the user
 						
 						break;
@@ -52,7 +58,7 @@ class OC_Files_Antivirus {
 					case CLAMAV_SCANRESULT_CLEAN:
 						//do nothing
 						break;
-				}*/
+				}
 			}
 		}		
 	}
