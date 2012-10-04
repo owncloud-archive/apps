@@ -40,4 +40,8 @@
 		OC_Log::write('saml','Error trying to authenticate the user',OC_Log::DEBUG);
 	}
 
+        if (isset($_SERVER["QUERY_STRING"]) && !empty($_SERVER["QUERY_STRING"])) {
+		header( 'Location: ' . OC::$WEBROOT . '/?' . $_SERVER["QUERY_STRING"]);
+		exit();
+	}
 	OC_Util::redirectToDefaultPage();
