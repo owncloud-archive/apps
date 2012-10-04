@@ -41,10 +41,7 @@
          <script src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/raphael.js'); ?>" type="text/javascript"></script>
          <script src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/freetransform.js'); ?>" type="text/javascript"></script>
          <script src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/jqueryui.js'); ?>" type="text/javascript"></script>
-         <script src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/bootstrap-button.js'); ?>" type="text/javascript"></script>
-         <script src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/bootstrap-dropdown.js'); ?>" type="text/javascript"></script>
-         <script src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/bootstrap-modal.js'); ?>" type="text/javascript"></script>
-         <script src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/bootstrap-tooltip.js'); ?>"type="text/javascript"></script>
+         <script src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/bootstrap.js'); ?>" type="text/javascript"></script>
          <script src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/advanced.js'); ?>" type="text/javascript"></script>
          <script src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/wysihtml5-0.3.0.js'); ?>" type="tet/javascript"></script>
          <script>
