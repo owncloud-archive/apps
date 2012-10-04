@@ -24,20 +24,20 @@
 OC_Util::checkAppEnabled('ocdownloader');
 OC_Util::checkLoggedIn();
 
-if(isset($_POST['ocdownloader']) && $_POST['ocdownloader'] == 1){
-	foreach($_POST as $key => $value){
+if(isset($_POST['ocdownloader']) && $_POST['ocdownloader'] == 1) {
+	foreach($_POST as $key => $value) {
 		$value = trim($value);
-		if(strcmp(substr($key, 0, 19), 'ocdownloader_pr_un_') == 0){
+		if(strcmp(substr($key, 0, 19), 'ocdownloader_pr_un_') == 0) {
 			$pr_id = substr($key, strrpos($key, '_')+1);
-			if(strlen($value) != 0){
-				if(is_numeric($pr_id)){
+			if(strlen($value) != 0) {
+				if(is_numeric($pr_id)) {
 					$pwd = trim($_POST['ocdownloader_pr_pw_' . $pr_id]);
-					if(strlen($pwd) != 0){
+					if(strlen($pwd) != 0) {
 						OC_ocDownloader::updateUserInfo($pr_id, $value, $pwd);
 					}
 				}
 			}else{
-				if(is_numeric($pr_id)){
+				if(is_numeric($pr_id)) {
 					OC_ocDownloader::deleteUserInfo($pr_id);
 				}
 			}

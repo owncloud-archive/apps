@@ -30,7 +30,11 @@ $id = $_POST['id'];
 if(!$id) {
 	bailOut(OC_Contacts_App::$l10n->t('id is not set.'));
 }
-OC_Contacts_App::getAddressbook( $id ); // is owner access check
 
-OC_Contacts_Addressbook::delete($id);
+try {
+	OC_Contacts_Addressbook::delete($id);
+} catch(Exception $e) {
+	bailOut($e->getMessage());
+}
+
 OCP\JSON::success(array('data' => array( 'id' => $id )));

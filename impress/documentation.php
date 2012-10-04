@@ -21,15 +21,11 @@
  * 
  */
 
-require_once('lib/impress.php');
+require_once 'lib/impress.php';
 
 OCP\User::checkLoggedIn();
 OCP\JSON::checkAppEnabled('impress');
 OCP\App::setActiveNavigationEntry( 'impress_index' );
 
-
-
 $tmpl = new OCP\Template('impress', 'documentation', 'user');
 $tmpl->printPage();
-
-

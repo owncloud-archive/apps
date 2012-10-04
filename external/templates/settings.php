@@ -15,7 +15,7 @@
 
 		</ul>
 
-        <input type="button" id="add_external_site"><?php echo $l->t("Add"); ?></input>
+        <input type="button" id="add_external_site" value="<?php echo $l->t("Add"); ?>" />
 		<span class="msg"></span>
 	</fieldset>
 </form>

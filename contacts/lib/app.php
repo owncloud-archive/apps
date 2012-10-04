@@ -40,7 +40,7 @@ class OC_Contacts_App {
 			} else {
 				$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id, OC_Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS);
 				if ($sharedAddressbook) {
-					return $sharedAddressbook;
+					return $sharedAddressbook[0];
 				} else {
 					OCP\Util::writeLog('contacts',
 						'Addressbook('.$id.') is not from '.OCP\USER::getUser(),
@@ -247,7 +247,7 @@ class OC_Contacts_App {
 	 * @brief returns the default categories of ownCloud
 	 * @return (array) $categories
 	 */
-	public static function getDefaultCategories(){
+	public static function getDefaultCategories() {
 		return array(
 			(string)self::$l10n->t('Birthday'),
 			(string)self::$l10n->t('Business'),

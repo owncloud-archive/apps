@@ -8,23 +8,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-15 02:03+0200\n"
-"PO-Revision-Date: 2012-08-14 15:26+0000\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 11:27+0000\n"
 "Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: th_TH\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
 msgstr "วันที่ / เวลา ไม่ถูกต้อง"
 
-#: appinfo/app.php:11
+#: appinfo/app.php:10
 msgid "Tasks"
 msgstr "งาน"
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr "วันที่ครบกำหนด"
+
+#: js/tasks.js:107
+msgid "List"
+msgstr "รายการ"
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr "ตำแหน่งที่อยู่"
 
 #: js/tasks.js:415
 msgid "No category"
@@ -57,6 +69,11 @@ msgstr "สัดส่วนเปอร์เซ็นต์ความสม
 #: lib/app.php:107
 msgid "Invalid priority"
 msgstr "ความสำคัญไม่ถูกต้อง"
+
+#: templates/no-calendar-app.php:9
+msgid ""
+"The calendar application also need to be enabled to use this application."
+msgstr "แอพพลิเคชั่นปฏิทินจำเป็นต้องได้รับการเปิดใช้งานด้วยเช่นกันจึงจะสามารถใช้งานแอพพลิเคชั่นตัวนี้ได้"
 
 #: templates/tasks.php:3
 msgid "Add Task"

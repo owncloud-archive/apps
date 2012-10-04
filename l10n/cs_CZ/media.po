@@ -6,27 +6,36 @@
 # Jan Krejci <krejca85@gmail.com>, 2011.
 # Martin  <fireball@atlas.cz>, 2011.
 # Michal Hrušecký <Michal@hrusecky.net>, 2012.
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-06-06 00:12+0200\n"
-"PO-Revision-Date: 2012-06-05 22:15+0000\n"
-"Last-Translator: icewind <icewind1991@gmail.com>\n"
-"Language-Team: Czech (Czech Republic) (http://www.transifex.net/projects/p/owncloud/language/cs_CZ/)\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 11:43+0000\n"
+"Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs_CZ\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: appinfo/app.php:32 templates/player.php:8
+#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
 msgid "Music"
 msgstr "Hudba"
 
+#: js/collection.js:100 js/collection.js:210 js/collection.js:257
+msgid "songs"
+msgstr "skladby"
+
+#: js/collection.js:101 js/collection.js:208
+msgid "albums"
+msgstr "alba"
+
 #: js/music.js:18
 msgid "Add album to playlist"
-msgstr ""
+msgstr "Přidat album do seznamu skladeb"
 
 #: templates/music.php:3 templates/player.php:12
 msgid "Play"
@@ -34,7 +43,7 @@ msgstr "Přehrát"
 
 #: templates/music.php:4 templates/music.php:26 templates/player.php:13
 msgid "Pause"
-msgstr "Pauza"
+msgstr "Pozastavit"
 
 #: templates/music.php:5
 msgid "Previous"
@@ -42,19 +51,19 @@ msgstr "Předchozí"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
-msgstr "Další"
+msgstr "Následující"
 
 #: templates/music.php:7
 msgid "Mute"
-msgstr "Vypnout zvuk"
+msgstr "Ztlumit"
 
 #: templates/music.php:8
 msgid "Unmute"
-msgstr "Zapnout zvuk"
+msgstr "Obnovit"
 
 #: templates/music.php:25
 msgid "Rescan Collection"
-msgstr "Znovu prohledat "
+msgstr "Znovu prohledat"
 
 #: templates/music.php:37
 msgid "Artist"

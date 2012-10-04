@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Marcin Małecki <gerber@tkdami.net>, 2012.
+# Paweł Ciecierski <pciecierski@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-28 02:01+0200\n"
-"PO-Revision-Date: 2012-08-27 12:32+0000\n"
-"Last-Translator: Marcin Małecki <gerber@tkdami.net>\n"
+"POT-Creation-Date: 2012-08-31 02:02+0200\n"
+"PO-Revision-Date: 2012-08-30 15:15+0000\n"
+"Last-Translator: Paweł Ciecierski <pciecierski@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr "Szerokość strony"
 
 #: js/viewer.js:29
 msgid "Page Fit"
-msgstr ""
+msgstr "Page Fit"
 
 #: js/viewer.js:30
 msgid "Print"

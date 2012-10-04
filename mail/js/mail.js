@@ -19,14 +19,19 @@ Mail={
 				data:{},
 				type:'GET',
 				success:function(jsondata){
-					folders = jsondata.data;
+					if (jsondata.status == 'success') {
+						folders = jsondata.data;
+					} else {
+						OC.dialogs.alert(jsondata.data.message, t('mail', 'Error'));
+					}
 				}
 			});
-			$('#leftcontent').html(folders);
+			$('#mail-folders').html(folders);
 			
 			first_folder = $('#leftcontent .mail_folders li')
 			
 			if( first_folder.length > 0 ){
+                $('#leftcontent').fadeIn(800);
 				first_folder = first_folder.first();
 				folder_id = first_folder.data('folder_id');
 				account_id = first_folder.parent().data('account_id');
@@ -38,15 +43,17 @@ Mail={
 					type:'GET',
 					success:function(jsondata){
 						messages = jsondata.data;
-					},
-				});
+					}
+                });
 				$('#rightcontent').html( messages );
 				
 				// Save current folder
 				Mail.UI.setFolderActive(account_id, folder_id);
 				Mail.State.current_account_id = account_id;
 				Mail.State.current_folder_id = folder_id;
-			}
+			} else {
+                $('#leftcontent').fadeOut(800);
+            }
 		},
 		
 		loadMessages:function( account_id, folder_id ){
@@ -165,6 +172,28 @@ Mail={
 $(document).ready(function(){
 	Mail.UI.initializeInterface();
 
+	$('#auto_detect_account').click(function(){
+		var email_address, password;
+		email_address = $('#email_address').val();
+		password = $('#password').val();
+		$.ajax(OC.filePath('mail', 'ajax', 'account/autodetect.php'), {
+			data:{email_address:email_address, password:password},
+			type:'POST',
+			success:function(jsondata){
+				if (jsondata.status == 'success') {
+				} else {
+					var error;
+
+					if (jsondata.message == 'email') {
+						error = t('mail', 'Not a email address');
+					} else {
+						error = 'Unknown error code: '+jsondata.message;
+					}
+					OC.dialogs.alert(error, t('mail', 'Error'));
+				}
+			}
+		});
+	});
 	// Clicking on a folder loads the message list
 	$('ul.mail_folders li').live('click',function(){
 		var account_id, folder_id;

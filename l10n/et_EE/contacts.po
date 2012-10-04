@@ -3,38 +3,34 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2011, 2012.
+# Rivo Zängov <eraser@eraser.ee>, 2011-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-24 02:02+0200\n"
-"PO-Revision-Date: 2012-08-24 00:02+0000\n"
+"POT-Creation-Date: 2012-09-26 13:19+0200\n"
+"PO-Revision-Date: 2012-09-26 11:20+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: et_EE\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:32
+#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
 msgstr "Viga aadressiraamatu (de)aktiveerimisel."
 
-#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:20
+#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
 #: ajax/contact/saveproperty.php:39
 msgid "id is not set."
 msgstr "ID on määramata."
 
-#: ajax/addressbook/update.php:24
+#: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
 msgstr "Tühja nimega aadressiraamatut ei saa uuendada."
-
-#: ajax/addressbook/update.php:28
-msgid "Error updating addressbook."
-msgstr "Viga aadressiraamatu uuendamisel."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -56,17 +52,13 @@ msgstr "Ei leitud ühtegi aadressiraamatut."
 msgid "No contacts found."
 msgstr "Ühtegi kontakti ei leitud."
 
-#: ajax/contact/add.php:47
-msgid "There was an error adding the contact."
-msgstr "Konktakti lisamisel tekkis viga."
-
 #: ajax/contact/addproperty.php:39 ajax/contact/saveproperty.php:36
 msgid "element name is not set."
 msgstr "elemendi nime pole määratud."
 
 #: ajax/contact/addproperty.php:46
 msgid "Could not parse contact: "
-msgstr ""
+msgstr "Kontakti parsimine ebaõnnestus: "
 
 #: ajax/contact/addproperty.php:56
 msgid "Cannot add empty property."
@@ -82,11 +74,11 @@ msgstr "Proovitakse lisada topeltomadust: "
 
 #: ajax/contact/addproperty.php:115 ajax/contact/saveproperty.php:93
 msgid "Missing IM parameter."
-msgstr ""
+msgstr "Puuduv IM parameeter"
 
 #: ajax/contact/addproperty.php:119 ajax/contact/saveproperty.php:97
 msgid "Unknown IM: "
-msgstr ""
+msgstr "Tundmatu IM:"
 
 #: ajax/contact/deleteproperty.php:37
 msgid "Information about vCard is incorrect. Please reload the page."
@@ -215,7 +207,7 @@ msgstr "Ajutise pildi laadimine ebaõnnestus: "
 msgid "No file was uploaded. Unknown error"
 msgstr "Ühtegi faili ei laetud üles. Tundmatu viga"
 
-#: appinfo/app.php:21
+#: appinfo/app.php:25
 msgid "Contacts"
 msgstr "Kontaktid"
 
@@ -231,74 +223,161 @@ msgstr "Pole implementeeritud"
 msgid "Couldn't get a valid address."
 msgstr "Kehtiva aadressi hankimine ebaõnnestus"
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:381 js/contacts.js:393
-#: js/contacts.js:723 js/contacts.js:763 js/contacts.js:789 js/contacts.js:921
-#: js/contacts.js:927 js/contacts.js:939 js/contacts.js:976
-#: js/contacts.js:1250 js/contacts.js:1258 js/contacts.js:1267
-#: js/contacts.js:1302 js/contacts.js:1338 js/contacts.js:1353
-#: js/contacts.js:1379 js/contacts.js:1609 js/contacts.js:1644
-#: js/contacts.js:1664 js/settings.js:26 js/settings.js:43 js/settings.js:68
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
+#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
+#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
+#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
+#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
+#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
+#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
+#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
+#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "Viga"
 
-#: js/contacts.js:424
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr ""
+
+#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "Sisesta nimi"
+
+#: js/contacts.js:177 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "Kohandatud vorming, Lühike nimi, Täielik nimi, vastupidine või vastupidine komadega"
+
+#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
+#: js/contacts.js:1482 js/contacts.js:1525
+msgid "Select type"
+msgstr "Vali tüüp"
+
+#: js/contacts.js:214
+msgid "Select photo"
+msgstr ""
+
+#: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
-msgstr ""
+msgstr "Sul pole luba lisada kontakti aadressiraamatusse"
 
-#: js/contacts.js:425
+#: js/contacts.js:407
 msgid "Please select one of your own address books."
-msgstr ""
+msgstr "Palun vali üks oma aadressiraamatutest."
 
-#: js/contacts.js:425
+#: js/contacts.js:407
 msgid "Permission error"
+msgstr "Õiguse viga"
+
+#: js/contacts.js:481
+msgid "Click to undo deletion of \""
 msgstr ""
 
-#: js/contacts.js:763
+#: js/contacts.js:495
+msgid "Cancelled deletion of: \""
+msgstr ""
+
+#: js/contacts.js:725
 msgid "This property has to be non-empty."
 msgstr "See omadus ei tohi olla tühi."
 
-#: js/contacts.js:789
+#: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr ""
 
-#: js/contacts.js:921 js/contacts.js:939
+#: js/contacts.js:762
+msgid "Unknown error. Please check logs."
+msgstr ""
+
+#: js/contacts.js:883 js/contacts.js:901
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr ""
 
-#: js/contacts.js:958
+#: js/contacts.js:920
 msgid "Edit name"
 msgstr "Muuda nime"
 
-#: js/contacts.js:1250
+#: js/contacts.js:1212
 msgid "No files selected for upload."
 msgstr "Üleslaadimiseks pole faile valitud."
 
-#: js/contacts.js:1258
+#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr ""
 
-#: js/contacts.js:1322
+#: js/contacts.js:1284
 msgid "Error loading profile picture."
-msgstr ""
+msgstr "Viga profiilipildi laadimisel"
 
-#: js/contacts.js:1457 js/contacts.js:1498 js/contacts.js:1517
-#: js/contacts.js:1560
-msgid "Select type"
-msgstr "Vali tüüp"
-
-#: js/contacts.js:1578
+#: js/contacts.js:1543
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
+msgstr "Mõned kontaktid on märgitud kustutamiseks, aga pole veel kustutatud. Palun oota, kuni need kustutatakse."
+
+#: js/contacts.js:1614
+msgid "Do you want to merge these address books?"
+msgstr "Kas sa soovid liita neid aadressiraamatuid?"
+
+#: js/contacts.js:1767
+msgid "Shared by "
 msgstr ""
 
-#: js/contacts.js:1649
-msgid "Do you want to merge these address books?"
+#: js/contacts.js:2000 js/contacts.js:2075
+msgid "Upload too large"
+msgstr "Üleslaadimine on liiga suur"
+
+#: js/contacts.js:2004
+msgid "Only image files can be used as profile picture."
 msgstr ""
+
+#: js/contacts.js:2004
+msgid "Wrong file type"
+msgstr ""
+
+#: js/contacts.js:2010
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr ""
+
+#: js/contacts.js:2068
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr ""
+
+#: js/contacts.js:2068
+msgid "Upload Error"
+msgstr "Üleslaadimise viga"
+
+#: js/contacts.js:2123
+msgid "Pending"
+msgstr "Ootel"
+
+#: js/contacts.js:2155
+msgid "Import done"
+msgstr "Importimine on tehtud"
+
+#: js/contacts.js:2168
+msgid "Not all files uploaded. Retrying..."
+msgstr "Kõiki faile ei laetud üles. Proovime uuesti..."
+
+#: js/contacts.js:2174
+msgid "Something went wrong with the upload, please retry."
+msgstr "Midagi läks üleslaadimisega valesti, palun proovi uuesti."
+
+#: js/contacts.js:2190
+msgid "Importing..."
+msgstr "Importimine..."
+
+#: js/contacts.js:2211
+msgid "The address book name cannot be empty."
+msgstr "Aadressiraamatu nimi ei saa olla tühi."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -312,13 +391,68 @@ msgstr " imporditud, "
 msgid " failed."
 msgstr " ebaõnnestus."
 
-#: js/settings.js:68
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
+msgstr "Näidatav nimi ei saa olla tühi."
+
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "Näita CardDav linki"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "Näita VCF linki (ainult lugemisõigusega)"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "Lae alla"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "Muuda"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "Kustuta"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "Loobu"
+
+#: js/settings.js:157 templates/settings.php:66
+msgid "More..."
+msgstr "Veel..."
+
+#: js/settings.js:161
+msgid "Less..."
 msgstr ""
+
+#: lib/addressbook.php:138
+msgid "You do not have the permissions to read this addressbook."
+msgstr "Sul pole õigusi selle aadressiraamatu lugemiseks."
+
+#: lib/addressbook.php:239
+msgid "You do not have the permissions to update this addressbook."
+msgstr "Sul pole õigusi selle aadressiraamatu uuendamiseks."
+
+#: lib/addressbook.php:259
+msgid "There was an error updating the addressbook."
+msgstr "Aadressiraamatu uuendamisel tekkis viga."
+
+#: lib/addressbook.php:315
+msgid "You do not have the permissions to delete this addressbook."
+msgstr "Sul pole õigusi selle aadressiraamatu kustutamiseks."
+
+#: lib/addressbook.php:344
+msgid "There was an error deleting this addressbook."
+msgstr "Selle aadressiraamatu kustutamisel tekkis viga."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
-msgstr ""
+msgstr "Aadressiraamatut ei leitud:"
 
 #: lib/app.php:52
 msgid "This is not your addressbook."
@@ -330,51 +464,51 @@ msgstr "Kontakti ei leitud."
 
 #: lib/app.php:116
 msgid "Jabber"
-msgstr ""
+msgstr "Jabber"
 
 #: lib/app.php:121
 msgid "AIM"
-msgstr ""
+msgstr "AIM"
 
 #: lib/app.php:126
 msgid "MSN"
-msgstr ""
+msgstr "MSN"
 
 #: lib/app.php:131
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: lib/app.php:136
 msgid "GoogleTalk"
-msgstr ""
+msgstr "GoogleTalk"
 
 #: lib/app.php:141
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: lib/app.php:146
 msgid "XMPP"
-msgstr ""
+msgstr "XMPP"
 
 #: lib/app.php:151
 msgid "ICQ"
-msgstr ""
+msgstr "ICQ"
 
 #: lib/app.php:156
 msgid "Yahoo"
-msgstr ""
+msgstr "Yahoo"
 
 #: lib/app.php:161
 msgid "Skype"
-msgstr ""
+msgstr "Skype"
 
 #: lib/app.php:166
 msgid "QQ"
-msgstr ""
+msgstr "QQ"
 
 #: lib/app.php:171
 msgid "GaduGadu"
-msgstr ""
+msgstr "GaduGadu"
 
 #: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
 msgid "Work"
@@ -384,9 +518,9 @@ msgstr "Töö"
 msgid "Home"
 msgstr "Kodu"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:593
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
 msgid "Other"
-msgstr ""
+msgstr "Muu"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -427,51 +561,51 @@ msgstr "Sünnipäev"
 
 #: lib/app.php:253
 msgid "Business"
-msgstr ""
+msgstr "Ettevõte"
 
 #: lib/app.php:254
 msgid "Call"
-msgstr ""
+msgstr "Helista"
 
 #: lib/app.php:255
 msgid "Clients"
-msgstr ""
+msgstr "Kliendid"
 
 #: lib/app.php:256
 msgid "Deliverer"
-msgstr ""
+msgstr "Kohaletoimetaja"
 
 #: lib/app.php:257
 msgid "Holidays"
-msgstr ""
+msgstr "Puhkused"
 
 #: lib/app.php:258
 msgid "Ideas"
-msgstr ""
+msgstr "Ideed"
 
 #: lib/app.php:259
 msgid "Journey"
-msgstr ""
+msgstr "Teekond"
 
 #: lib/app.php:260
 msgid "Jubilee"
-msgstr ""
+msgstr "Juubel"
 
 #: lib/app.php:261
 msgid "Meeting"
-msgstr ""
+msgstr "Kohtumine"
 
 #: lib/app.php:263
 msgid "Personal"
-msgstr ""
+msgstr "Isiklik"
 
 #: lib/app.php:264
 msgid "Projects"
-msgstr ""
+msgstr "Projektid"
 
 #: lib/app.php:265
 msgid "Questions"
-msgstr ""
+msgstr "Küsimused"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
@@ -481,81 +615,97 @@ msgstr "{name} sünnipäev"
 msgid "Contact"
 msgstr "Kontakt"
 
-#: lib/vcard.php:408
-msgid "You do not have the permissions to edit this contact."
-msgstr ""
+#: lib/vcard.php:301
+msgid "You do not have the permissions to add contacts to this addressbook."
+msgstr "Sul pole õigusi sellesse aadressiraamatusse kontaktide lisamiseks."
 
-#: lib/vcard.php:483
+#: lib/vcard.php:405
+msgid "Could not find the vCard with ID."
+msgstr "Ei leitud visiitkaarti ID-ga."
+
+#: lib/vcard.php:430
+msgid "You do not have the permissions to edit this contact."
+msgstr "Sul pole selle kontakti muutmiseks õigusi."
+
+#: lib/vcard.php:501
+msgid "Could not find the vCard with ID: "
+msgstr "Ei leitud visiitkaarti ID-ga:"
+
+#: lib/vcard.php:509
+msgid "Could not find the Addressbook with ID: "
+msgstr "Ei leitud aadressiraamatut ID-ga:"
+
+#: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
-msgstr ""
+msgstr "Sul pole selle kontakti kustutamiseks õigusi."
+
+#: lib/vcard.php:550
+msgid "There was an error deleting this contact."
+msgstr "Selle kontakti kustutamisel tekkis viga."
 
 #: templates/index.php:14
 msgid "Add Contact"
 msgstr "Lisa kontakt"
 
-#: templates/index.php:15 templates/index.php:16 templates/part.import.php:17
+#: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
 msgstr "Impordi"
 
-#: templates/index.php:18
+#: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Seaded"
 
-#: templates/index.php:18 templates/settings.php:9
-msgid "Addressbooks"
-msgstr "Aadressiraamatud"
-
-#: templates/index.php:36 templates/part.import.php:24
+#: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
 msgstr "Sule"
 
-#: templates/index.php:37
+#: templates/index.php:31
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Klvaiatuuri otseteed"
 
-#: templates/index.php:39
+#: templates/index.php:33
 msgid "Navigation"
-msgstr ""
+msgstr "Navigeerimine"
+
+#: templates/index.php:36
+msgid "Next contact in list"
+msgstr "Järgmine kontakt nimekirjas"
+
+#: templates/index.php:38
+msgid "Previous contact in list"
+msgstr "Eelmine kontakt nimekirjas"
+
+#: templates/index.php:40
+msgid "Expand/collapse current addressbook"
+msgstr "Ava/Sulge praegune aadressiraamat"
 
 #: templates/index.php:42
-msgid "Next contact in list"
-msgstr ""
+msgid "Next addressbook"
+msgstr "Järgmine aadressiraamat"
 
 #: templates/index.php:44
-msgid "Previous contact in list"
-msgstr ""
-
-#: templates/index.php:46
-msgid "Expand/collapse current addressbook"
-msgstr ""
+msgid "Previous addressbook"
+msgstr "Eelmine aadressiraamat"
 
 #: templates/index.php:48
-msgid "Next addressbook"
-msgstr ""
-
-#: templates/index.php:50
-msgid "Previous addressbook"
-msgstr ""
-
-#: templates/index.php:54
 msgid "Actions"
-msgstr ""
+msgstr "Tegevused"
+
+#: templates/index.php:51
+msgid "Refresh contacts list"
+msgstr "Värskenda kontaktide nimekirja"
+
+#: templates/index.php:53
+msgid "Add new contact"
+msgstr "Lisa uus kontakt"
+
+#: templates/index.php:55
+msgid "Add new addressbook"
+msgstr "Lisa uus aadressiraamat"
 
 #: templates/index.php:57
-msgid "Refresh contacts list"
-msgstr ""
-
-#: templates/index.php:59
-msgid "Add new contact"
-msgstr ""
-
-#: templates/index.php:61
-msgid "Add new addressbook"
-msgstr ""
-
-#: templates/index.php:63
 msgid "Delete current contact"
-msgstr ""
+msgstr "Kustuta praegune kontakt"
 
 #: templates/part.contact.php:17
 msgid "Drop photo to upload"
@@ -577,10 +727,6 @@ msgstr "Lae üles uus foto"
 msgid "Select photo from ownCloud"
 msgstr "Vali foto ownCloudist"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "Kohandatud vorming, Lühike nimi, Täielik nimi, vastupidine või vastupidine komadega"
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
 msgstr "Muuda nime üksikasju"
@@ -589,12 +735,6 @@ msgstr "Muuda nime üksikasju"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Organisatsioon"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:36
-msgid "Delete"
-msgstr "Kustuta"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -606,15 +746,15 @@ msgstr "Sisesta hüüdnimi"
 
 #: templates/part.contact.php:43 templates/part.contact.php:134
 msgid "Web site"
-msgstr ""
+msgstr "Veebisait"
 
 #: templates/part.contact.php:44
 msgid "http://www.somesite.com"
-msgstr ""
+msgstr "http://www.mingisait.ee"
 
 #: templates/part.contact.php:44
 msgid "Go to web site"
-msgstr ""
+msgstr "Mine veebisaidile"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"
@@ -663,11 +803,11 @@ msgstr "Kustuta telefoninumber"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
-msgstr ""
+msgstr "Kiirsõnum"
 
 #: templates/part.contact.php:101
 msgid "Delete IM"
-msgstr ""
+msgstr "Kustuta IM"
 
 #: templates/part.contact.php:110
 msgid "View on map"
@@ -695,7 +835,7 @@ msgstr "E-post"
 
 #: templates/part.contact.php:131
 msgid "Instant Messaging"
-msgstr ""
+msgstr "Kiirsõnumid"
 
 #: templates/part.contact.php:132
 msgid "Address"
@@ -732,11 +872,11 @@ msgstr "Postkontori postkast"
 
 #: templates/part.edit_address_dialog.php:24
 msgid "Street address"
-msgstr ""
+msgstr "Tänava aadress"
 
 #: templates/part.edit_address_dialog.php:27
 msgid "Street and number"
-msgstr ""
+msgstr "Tänav ja number"
 
 #: templates/part.edit_address_dialog.php:30
 msgid "Extended"
@@ -744,7 +884,7 @@ msgstr "Laiendatud"
 
 #: templates/part.edit_address_dialog.php:33
 msgid "Apartment number etc."
-msgstr ""
+msgstr "Korteri nr jne."
 
 #: templates/part.edit_address_dialog.php:36
 #: templates/part.edit_address_dialog.php:39
@@ -757,7 +897,7 @@ msgstr "Piirkond"
 
 #: templates/part.edit_address_dialog.php:45
 msgid "E.g. state or province"
-msgstr ""
+msgstr "Näiteks maakond või piirkond"
 
 #: templates/part.edit_address_dialog.php:48
 msgid "Zipcode"
@@ -765,7 +905,7 @@ msgstr "Postiindeks"
 
 #: templates/part.edit_address_dialog.php:51
 msgid "Postal code"
-msgstr ""
+msgstr "Postiindeks"
 
 #: templates/part.edit_address_dialog.php:54
 #: templates/part.edit_address_dialog.php:57
@@ -873,24 +1013,25 @@ msgid "Importing contacts"
 msgstr "Kontaktide importimine"
 
 #: templates/part.no_contacts.php:3
-msgid "You have no contacts in your addressbook."
-msgstr "Sinu aadressiraamatus pole ühtegi kontakti."
+msgid ""
+"<h3>You have no contacts in your addressbook.</h3><p>You can import VCF "
+"files by dragging them to the contacts list and either drop them on an "
+"addressbook to import into it, or on an empty spot to create a new "
+"addressbook and import into that.<br />You can also import by clicking on "
+"the import button at the bottom of the list.</p>"
+msgstr ""
 
-#: templates/part.no_contacts.php:5
+#: templates/part.no_contacts.php:9
 msgid "Add contact"
 msgstr "Lisa kontakt"
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
-msgstr ""
-
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr ""
+msgstr "Vali aadressiraamatud"
 
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
-msgstr ""
+msgstr "Sisesta kirjeldus"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"
@@ -908,46 +1049,26 @@ msgstr "Peamine aadress"
 msgid "iOS/OS X"
 msgstr "iOS/OS X"
 
-#: templates/settings.php:20
-msgid "Show CardDav link"
-msgstr ""
+#: templates/settings.php:9
+msgid "Addressbooks"
+msgstr "Aadressiraamatud"
 
-#: templates/settings.php:23
-msgid "Show read-only VCF link"
-msgstr ""
-
-#: templates/settings.php:26
+#: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "Jaga"
 
-#: templates/settings.php:29
-msgid "Download"
-msgstr "Lae alla"
-
-#: templates/settings.php:33
-msgid "Edit"
-msgstr "Muuda"
-
-#: templates/settings.php:43
+#: templates/settings.php:57
 msgid "New Address Book"
 msgstr "Uus aadressiraamat"
 
-#: templates/settings.php:44
+#: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Nimi"
 
-#: templates/settings.php:45
+#: templates/settings.php:59
 msgid "Description"
-msgstr ""
+msgstr "Kirjeldus"
 
-#: templates/settings.php:46
+#: templates/settings.php:60
 msgid "Save"
 msgstr "Salvesta"
-
-#: templates/settings.php:47
-msgid "Cancel"
-msgstr "Loobu"
-
-#: templates/settings.php:52
-msgid "More..."
-msgstr ""

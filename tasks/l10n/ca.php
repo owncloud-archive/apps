@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "data/hora incorrecta",
 "Tasks" => "Tasques",
+"Due" => "A causa",
+"List" => "Llista",
+"Location" => "Ubicació",
 "No category" => "Cap categoria",
 "Unspecified" => "Sense especificar",
 "1=highest" => "1=major",
@@ -9,6 +12,7 @@
 "Empty Summary" => "Elimina el resum",
 "Invalid percent complete" => "Percentatge completat no vàlid",
 "Invalid priority" => "Prioritat no vàlida",
+"The calendar application also need to be enabled to use this application." => "L'apliació calendari també ha d'estar activada per poder usar aquesta aplicació.",
 "Add Task" => "Afegeix una tasca",
 "Order Due" => "Ordena per",
 "Order List" => "Ordena per llista",

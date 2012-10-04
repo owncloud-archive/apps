@@ -6,24 +6,29 @@
 # Javier Llorente <javier@opensuse.org>, 2012.
 #   <juanma@kde.org.ar>, 2012.
 #   <rodrigo.calvo@gmail.com>, 2012.
+# Rubén Trujillo <rubentrf@gmail.com>, 2012.
 #   <sergioballesterossolanas@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-07-26 02:01+0200\n"
-"PO-Revision-Date: 2012-07-25 23:13+0000\n"
-"Last-Translator: juanman <juanma@kde.org.ar>\n"
+"POT-Creation-Date: 2012-09-12 02:01+0200\n"
+"PO-Revision-Date: 2012-09-11 17:29+0000\n"
+"Last-Translator: Rubén Trujillo <rubentrf@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:39
+#: appinfo/app.php:45
 msgid "Pictures"
 msgstr "Imágenes"
+
+#: appinfo/app.php:53
+msgid "Galleries"
+msgstr "Galerías"
 
 #: js/pictures.js:12
 msgid "Share gallery"
@@ -41,22 +46,8 @@ msgstr "Fallo interno"
 msgid "Slideshow"
 msgstr "Presentación"
 
-#: templates/view_album.php:19
-msgid "Back"
-msgstr "Atrás"
-
-#: templates/view_album.php:36
-msgid "Remove confirmation"
-msgstr "Borrar confirmación"
-
-#: templates/view_album.php:37
-msgid "Do you want to remove album"
-msgstr "¿Quieres eliminar el álbum"
-
-#: templates/view_album.php:40
-msgid "Change album name"
-msgstr "Cambiar nombre al álbum"
-
-#: templates/view_album.php:43
-msgid "New album name"
-msgstr "Nuevo nombre de álbum"
+#: templates/no-image-app.php:9
+msgid ""
+"The \"Image Viewer\" application also need to be enabled to use this "
+"application."
+msgstr "La aplicación \"Visor de imágenes\" también necesita ser activada para usar esta aplicación."

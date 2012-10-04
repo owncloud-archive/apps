@@ -3,14 +3,14 @@
 	<table width="100%" style="border: 0;">
 	<?php
 	$option_calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
-	for($i = 0; $i < count($option_calendars); $i++){
-		echo "<tr>";
+	for($i = 0; $i < count($option_calendars); $i++) {
+		echo "<tr data-id='".$option_calendars[$i]['id']."'>";
 		$tmpl = new OCP\Template('calendar', 'part.choosecalendar.rowfields');
 		$tmpl->assign('calendar', $option_calendars[$i]);
-		if(OC_Calendar_Share::allUsersSharedwith($option_calendars[$i]['id'], OC_Calendar_Share::CALENDAR) == array()){
+		if ($option_calendars[$i]['userid'] != OCP\User::getUser()) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $option_calendars[$i]['id']);
+		} else {
 			$shared = false;
-		}else{
-			$shared = true;
 		}
 		$tmpl->assign('shared', $shared);
 		$tmpl->printpage();
@@ -28,25 +28,5 @@
 		</td>
 	</tr>
 	</table><br>
-	<p><b><?php echo $l->t('Shared calendars'); ?>: </b></p>
-	<table width="100%" style="border: 0;">
-	<?php
-	$share = OC_Calendar_Share::allSharedwithuser(OCP\USER::getUser(), OC_Calendar_Share::CALENDAR);
-	$count = count($share);
-	for($i = 0; $i < $count; $i++){
-		$share[$i]['calendar'] = OC_Calendar_App::getCalendar($share[$i]['calendarid'], false, false);
-		echo '<tr>';
-		$tmpl = new OCP\Template('calendar', 'part.choosecalendar.rowfields.shared');
-		$tmpl->assign('share', $share[$i]);
-		$tmpl->printpage();
-		echo '</tr>';
-	}
-	?>
-	</table>
-	<?php
-	if($count == 0){
-		echo '<p style="text-align:center;"><b>' . $l->t('No shared calendars') . '</b></p>';
-	}
-	?>
 	</fieldset>
 </form>

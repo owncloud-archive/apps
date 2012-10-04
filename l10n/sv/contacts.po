@@ -13,33 +13,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-25 02:04+0200\n"
-"PO-Revision-Date: 2012-08-24 07:00+0000\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 14:43+0000\n"
 "Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:32
+#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
 msgstr "Fel (av)aktivera adressbok."
 
-#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:20
+#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
 #: ajax/contact/saveproperty.php:39
 msgid "id is not set."
 msgstr "ID är inte satt."
 
-#: ajax/addressbook/update.php:24
+#: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
 msgstr "Kan inte uppdatera adressboken med ett tomt namn."
-
-#: ajax/addressbook/update.php:28
-msgid "Error updating addressbook."
-msgstr "Fel uppstod när adressbok skulle uppdateras."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -60,10 +56,6 @@ msgstr "Ingen adressbok funnen."
 #: ajax/categories/delete.php:34
 msgid "No contacts found."
 msgstr "Inga kontakter funna."
-
-#: ajax/contact/add.php:47
-msgid "There was an error adding the contact."
-msgstr "Det uppstod ett fel när kontakten skulle läggas till."
 
 #: ajax/contact/addproperty.php:39 ajax/contact/saveproperty.php:36
 msgid "element name is not set."
@@ -236,74 +228,161 @@ msgstr "Inte införd"
 msgid "Couldn't get a valid address."
 msgstr "Kunde inte hitta en giltig adress."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:381 js/contacts.js:393
-#: js/contacts.js:723 js/contacts.js:763 js/contacts.js:789 js/contacts.js:921
-#: js/contacts.js:927 js/contacts.js:939 js/contacts.js:976
-#: js/contacts.js:1250 js/contacts.js:1258 js/contacts.js:1267
-#: js/contacts.js:1302 js/contacts.js:1338 js/contacts.js:1353
-#: js/contacts.js:1379 js/contacts.js:1609 js/contacts.js:1644
-#: js/contacts.js:1664 js/settings.js:26 js/settings.js:43 js/settings.js:68
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
+#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
+#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
+#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
+#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
+#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
+#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
+#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
+#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "Fel"
 
-#: js/contacts.js:424
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr "Ange en e-postadress."
+
+#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "Ange namn"
+
+#: js/contacts.js:177 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr " anpassad, korta namn, hela namn, bakåt eller bakåt med komma"
+
+#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
+#: js/contacts.js:1482 js/contacts.js:1525
+msgid "Select type"
+msgstr "Välj typ"
+
+#: js/contacts.js:214
+msgid "Select photo"
+msgstr "Välj foto"
+
+#: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
 msgstr "Du saknar behörighet att skapa kontakter i"
 
-#: js/contacts.js:425
+#: js/contacts.js:407
 msgid "Please select one of your own address books."
 msgstr "Välj en av dina egna adressböcker."
 
-#: js/contacts.js:425
+#: js/contacts.js:407
 msgid "Permission error"
 msgstr "Behörighetsfel"
 
-#: js/contacts.js:763
+#: js/contacts.js:481
+msgid "Click to undo deletion of \""
+msgstr "Klicka för att ångra radering av \""
+
+#: js/contacts.js:495
+msgid "Cancelled deletion of: \""
+msgstr "Avbruten radering av: \""
+
+#: js/contacts.js:725
 msgid "This property has to be non-empty."
 msgstr "Denna egenskap får inte vara tom."
 
-#: js/contacts.js:789
+#: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr "Kunde inte serialisera element."
 
-#: js/contacts.js:921 js/contacts.js:939
+#: js/contacts.js:762
+msgid "Unknown error. Please check logs."
+msgstr "Okänt fel. Kontrollera loggarna."
+
+#: js/contacts.js:883 js/contacts.js:901
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "\"deleteProperty\" anropades utan typargument. Vänligen rapportera till bugs.owncloud.org"
 
-#: js/contacts.js:958
+#: js/contacts.js:920
 msgid "Edit name"
 msgstr "Ändra namn"
 
-#: js/contacts.js:1250
+#: js/contacts.js:1212
 msgid "No files selected for upload."
 msgstr "Inga filer valda för uppladdning"
 
-#: js/contacts.js:1258
+#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Filen du försöker ladda upp är större än den maximala storleken för filuppladdning på denna server."
 
-#: js/contacts.js:1322
+#: js/contacts.js:1284
 msgid "Error loading profile picture."
 msgstr "Fel vid hämtning av profilbild."
 
-#: js/contacts.js:1457 js/contacts.js:1498 js/contacts.js:1517
-#: js/contacts.js:1560
-msgid "Select type"
-msgstr "Välj typ"
-
-#: js/contacts.js:1578
+#: js/contacts.js:1543
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Vissa kontakter är markerade för radering, men är inte raderade än. Vänta tills dom är raderade."
 
-#: js/contacts.js:1649
+#: js/contacts.js:1614
 msgid "Do you want to merge these address books?"
 msgstr "Vill du slå samman dessa adressböcker?"
+
+#: js/contacts.js:1767
+msgid "Shared by "
+msgstr "Delad av"
+
+#: js/contacts.js:2000 js/contacts.js:2075
+msgid "Upload too large"
+msgstr "För stor uppladdning"
+
+#: js/contacts.js:2004
+msgid "Only image files can be used as profile picture."
+msgstr "Endast bildfiler kan användas som profilbild."
+
+#: js/contacts.js:2004
+msgid "Wrong file type"
+msgstr "Felaktig filtyp"
+
+#: js/contacts.js:2010
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr "Din webbläsare saknar stöd för uppladdning med AJAX. Klicka på profilbilden för att välja ett foto att ladda upp."
+
+#: js/contacts.js:2068
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr "Kan inte ladda upp din fil eftersom det är en katalog eller har 0 bytes"
+
+#: js/contacts.js:2068
+msgid "Upload Error"
+msgstr "Fel vid uppladdning"
+
+#: js/contacts.js:2123
+msgid "Pending"
+msgstr "Väntar"
+
+#: js/contacts.js:2155
+msgid "Import done"
+msgstr "Import klar"
+
+#: js/contacts.js:2168
+msgid "Not all files uploaded. Retrying..."
+msgstr "Alla filer är inte uppladdade. Försöker igen..."
+
+#: js/contacts.js:2174
+msgid "Something went wrong with the upload, please retry."
+msgstr "Något gick fel med uppladdningen, försök igen."
+
+#: js/contacts.js:2190
+msgid "Importing..."
+msgstr "Importerar..."
+
+#: js/contacts.js:2211
+msgid "The address book name cannot be empty."
+msgstr "Adressbokens namn kan inte vara tomt."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -317,9 +396,64 @@ msgstr "importerad,"
 msgid " failed."
 msgstr "misslyckades."
 
-#: js/settings.js:68
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "Visningsnamn får inte vara tomt."
+
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "Visa CardDav-länk"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "Visa skrivskyddad VCF-länk"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "Nedladdning"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "Redigera"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "Radera"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: js/settings.js:157 templates/settings.php:66
+msgid "More..."
+msgstr "Mer..."
+
+#: js/settings.js:161
+msgid "Less..."
+msgstr "Mindre..."
+
+#: lib/addressbook.php:138
+msgid "You do not have the permissions to read this addressbook."
+msgstr "Du har inte behörighet att läsa denna adressbok."
+
+#: lib/addressbook.php:239
+msgid "You do not have the permissions to update this addressbook."
+msgstr "Du har inte behörighet att ändra denna adressbok."
+
+#: lib/addressbook.php:259
+msgid "There was an error updating the addressbook."
+msgstr "Ett fel uppstod när adressboken skulle uppdateras."
+
+#: lib/addressbook.php:315
+msgid "You do not have the permissions to delete this addressbook."
+msgstr "Du har inte behörighet att radera denna adressbok."
+
+#: lib/addressbook.php:344
+msgid "There was an error deleting this addressbook."
+msgstr "Fel uppstod vid radering av denna adressbok."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -389,7 +523,7 @@ msgstr "Arbete"
 msgid "Home"
 msgstr "Hem"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:593
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
 msgid "Other"
 msgstr "Annat"
 
@@ -486,79 +620,95 @@ msgstr "{name}'s födelsedag"
 msgid "Contact"
 msgstr "Kontakt"
 
-#: lib/vcard.php:408
+#: lib/vcard.php:301
+msgid "You do not have the permissions to add contacts to this addressbook."
+msgstr "Du har inte behörighet att lägga till kontakter i denna adressbok."
+
+#: lib/vcard.php:405
+msgid "Could not find the vCard with ID."
+msgstr "Kan inte hitta vCard med ID."
+
+#: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
 msgstr "Du saknar behörighet för att ändra denna kontakt."
 
-#: lib/vcard.php:483
+#: lib/vcard.php:501
+msgid "Could not find the vCard with ID: "
+msgstr "Kan inte hitta vCard med ID:"
+
+#: lib/vcard.php:509
+msgid "Could not find the Addressbook with ID: "
+msgstr "Kan inte hitta adressboken med ID:"
+
+#: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
 msgstr "Du saknar behörighet för att radera denna kontakt."
+
+#: lib/vcard.php:550
+msgid "There was an error deleting this contact."
+msgstr "Fel uppstod vid radering av denna kontakt."
 
 #: templates/index.php:14
 msgid "Add Contact"
 msgstr "Lägg till kontakt"
 
-#: templates/index.php:15 templates/index.php:16 templates/part.import.php:17
+#: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
 msgstr "Importera"
 
-#: templates/index.php:18
+#: templates/index.php:16
 msgid "Settings"
 msgstr "Inställningar"
 
-#: templates/index.php:18 templates/settings.php:9
-msgid "Addressbooks"
-msgstr "Adressböcker"
-
-#: templates/index.php:36 templates/part.import.php:24
+#: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
 msgstr "Stäng"
 
-#: templates/index.php:37
+#: templates/index.php:31
 msgid "Keyboard shortcuts"
 msgstr "Kortkommandon"
 
-#: templates/index.php:39
+#: templates/index.php:33
 msgid "Navigation"
 msgstr "Navigering"
 
-#: templates/index.php:42
+#: templates/index.php:36
 msgid "Next contact in list"
 msgstr "Nästa kontakt i listan"
 
-#: templates/index.php:44
+#: templates/index.php:38
 msgid "Previous contact in list"
 msgstr "Föregående kontakt i listan"
 
-#: templates/index.php:46
+#: templates/index.php:40
 msgid "Expand/collapse current addressbook"
 msgstr "Visa/dölj aktuell adressbok"
 
-#: templates/index.php:48
+#: templates/index.php:42
 msgid "Next addressbook"
 msgstr "Nästa adressbok"
 
-#: templates/index.php:50
+#: templates/index.php:44
 msgid "Previous addressbook"
 msgstr "Föregående adressbok"
 
-#: templates/index.php:54
+#: templates/index.php:48
 msgid "Actions"
 msgstr "Åtgärder"
 
-#: templates/index.php:57
+#: templates/index.php:51
 msgid "Refresh contacts list"
 msgstr "Uppdatera kontaktlistan"
 
-#: templates/index.php:59
+#: templates/index.php:53
 msgid "Add new contact"
 msgstr "Lägg till ny kontakt"
 
-#: templates/index.php:61
+#: templates/index.php:55
 msgid "Add new addressbook"
 msgstr "Lägg till ny adressbok"
 
-#: templates/index.php:63
+#: templates/index.php:57
 msgid "Delete current contact"
 msgstr "Radera denna kontakt"
 
@@ -582,10 +732,6 @@ msgstr "Ladda upp ett nytt foto"
 msgid "Select photo from ownCloud"
 msgstr "Välj foto från ownCloud"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr " anpassad, korta namn, hela namn, bakåt eller bakåt med komma"
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
 msgstr "Redigera detaljer för namn"
@@ -594,12 +740,6 @@ msgstr "Redigera detaljer för namn"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Organisation"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:36
-msgid "Delete"
-msgstr "Radera"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -878,20 +1018,21 @@ msgid "Importing contacts"
 msgstr "Importerar kontakter"
 
 #: templates/part.no_contacts.php:3
-msgid "You have no contacts in your addressbook."
-msgstr "Du har inga kontakter i din adressbok."
+msgid ""
+"<h3>You have no contacts in your addressbook.</h3><p>You can import VCF "
+"files by dragging them to the contacts list and either drop them on an "
+"addressbook to import into it, or on an empty spot to create a new "
+"addressbook and import into that.<br />You can also import by clicking on "
+"the import button at the bottom of the list.</p>"
+msgstr "<h3>Det finns inga kontakter i din adressbok.</h3><p>Du kan importera VCF-filer genom att antingen dra till kontaktlistan och släppa på en befintlig adressbok, eller på en tom plats för att skapa en ny adressbok.<br />Du kan också importera genom att klicka på importknappen längst ner i listan.</p>"
 
-#: templates/part.no_contacts.php:5
+#: templates/part.no_contacts.php:9
 msgid "Add contact"
 msgstr "Lägg till en kontakt"
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
 msgstr "Välj adressböcker"
-
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "Ange namn"
 
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
@@ -913,46 +1054,26 @@ msgstr "Primär adress (Kontakt o.a.)"
 msgid "iOS/OS X"
 msgstr "iOS/OS X"
 
-#: templates/settings.php:20
-msgid "Show CardDav link"
-msgstr "Visa CardDav-länk"
+#: templates/settings.php:9
+msgid "Addressbooks"
+msgstr "Adressböcker"
 
-#: templates/settings.php:23
-msgid "Show read-only VCF link"
-msgstr "Visa skrivskyddad VCF-länk"
-
-#: templates/settings.php:26
+#: templates/settings.php:35
 msgid "Share"
 msgstr "Dela"
 
-#: templates/settings.php:29
-msgid "Download"
-msgstr "Nedladdning"
-
-#: templates/settings.php:33
-msgid "Edit"
-msgstr "Redigera"
-
-#: templates/settings.php:43
+#: templates/settings.php:57
 msgid "New Address Book"
 msgstr "Ny adressbok"
 
-#: templates/settings.php:44
+#: templates/settings.php:58
 msgid "Name"
 msgstr "Namn"
 
-#: templates/settings.php:45
+#: templates/settings.php:59
 msgid "Description"
 msgstr "Beskrivning"
 
-#: templates/settings.php:46
+#: templates/settings.php:60
 msgid "Save"
 msgstr "Spara"
-
-#: templates/settings.php:47
-msgid "Cancel"
-msgstr "Avbryt"
-
-#: templates/settings.php:52
-msgid "More..."
-msgstr "Mer..."

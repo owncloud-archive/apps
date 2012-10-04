@@ -5,14 +5,14 @@
  * later.
  * See the COPYING-README file.
  */
- 
+
 OCP\JSON::checkLoggedIn();
 OCP\JSON::callCheck();
 
 $id = $_POST['id'];
 
-$access = OC_Calendar_App::getaccess($id, OC_Calendar_App::EVENT);
-if($access != 'owner' && $access != 'rw'){
+$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT);
+if(!$permissions & OCP\Share::PERMISSION_UPDATE) {
 	OCP\JSON::error(array('message'=>'permission denied'));
 	exit;
 }

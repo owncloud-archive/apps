@@ -21,18 +21,18 @@
 * 
 */
 
-require_once('../../../lib/base.php');
+require_once '../../../lib/base.php';
 
 OC_JSON::checkLoggedIn();
 OC_JSON::checkAppEnabled('compress');
 
-require_once('../config/config.php');
+require_once '../config/config.php';
 
 $k = Array();
-if(in_array('zip', get_loaded_extensions())){
+if(in_array('zip', get_loaded_extensions())) {
 	$k[] = '<option value="zip">Zip</option>';
 }
-if(file_exists($_CompressConf['tar_bin_path']) && file_exists($_CompressConf['gzip_bin_path'])){
+if(file_exists($_CompressConf['tar_bin_path']) && file_exists($_CompressConf['gzip_bin_path'])) {
 	$k[] = '<option value="gzip">Gzip</option>';
 }
 

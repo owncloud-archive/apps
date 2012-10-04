@@ -1,4 +1,7 @@
 <?php $TRANSLATIONS = array(
-"Rescan" => "Оновити",
-"Back" => "Назад"
+"Pictures" => "Зображення",
+"Share gallery" => "Поділитися галереєю",
+"Error: " => "Помилка:",
+"Internal error" => "Внутрішня помилка",
+"Slideshow" => "Слайдшоу"
 );

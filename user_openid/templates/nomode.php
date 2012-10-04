@@ -25,4 +25,3 @@ global $profile;
 		</li>
 	</ul>
 </div>
-

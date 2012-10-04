@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Baliogabeko data/ordua",
 "Tasks" => "Zereginak",
+"Due" => "Epea",
+"List" => "Zerrenda",
+"Location" => "Kokapena",
 "No category" => "Kategoriarik ez",
 "Unspecified" => "Zehaztu gabe",
 "1=highest" => "1=handiena",
@@ -9,6 +12,7 @@
 "Empty Summary" => "Laburpen hutsa",
 "Invalid percent complete" => "Balioagabeko egindako ehunekoa",
 "Invalid priority" => "Baliogabeko lehentasuna",
+"The calendar application also need to be enabled to use this application." => "Aplikazio hau erabiltzeko egutegi aplikazioa ere gaitua egon behar da.",
 "Add Task" => "Gehitu zeregina",
 "Order Due" => "Ordenatu Epea",
 "Order List" => "Ordenatu Zerrenda",

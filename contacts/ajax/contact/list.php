@@ -42,9 +42,9 @@ foreach($active_addressbooks as $addressbook) {
 		$contacts_addressbook[$addressbook['id']]['displayname']
 				= $addressbook['displayname'];
 		$contacts_addressbook[$addressbook['id']]['permissions']
-				= isset($addressbook['permissions'])
-				? $addressbook['permissions']
-				: '0';
+				= $addressbook['permissions'];
+		$contacts_addressbook[$addressbook['id']]['owner']
+				= $addressbook['userid'];
 	}
 }
 
@@ -94,4 +94,3 @@ unset($contacts_alphabet);
 uasort($contacts_addressbook, 'cmp');
 
 OCP\JSON::success(array('data' => array('entries' => $contacts_addressbook)));
-

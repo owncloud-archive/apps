@@ -1,6 +1,6 @@
 <script type="text/javascript">
 
-var root = "<?php echo $_['root']; ?>";
+var root = "<?php echo OCP\Util::sanitizeHTML($_['root']); ?>";
 
 $(document).ready(function() {
 		$("a[rel=images]").fancybox({
@@ -21,7 +21,7 @@ $(document).ready(function() {
 			echo '<div class="'.$classess.'" style="background-image:url(\''.\OCP\image_path('core','breadcrumb.png').'\')"><a href="'.\OCP\Util::linkTo('gallery', 'index.php').'&root='.$path.'">'.OCP\Util::sanitizeHTML($paths[$i]).'</a></div>';
 		}
 	}
-		
+
 ?>
 	<div id="slideshow">
 		<input type="button" class="start" value="<?php echo $l->t('Slideshow')?>" />

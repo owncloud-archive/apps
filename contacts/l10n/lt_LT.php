@@ -1,7 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Error (de)activating addressbook." => "Klaida (de)aktyvuojant adresų knygą.",
 "No contacts found." => "Kontaktų nerasta.",
-"There was an error adding the contact." => "Pridedant kontaktą įvyko klaida.",
 "Information about vCard is incorrect. Please reload the page." => "Informacija apie vCard yra neteisinga. ",
 "Error reading contact photo." => "Klaida skaitant kontakto nuotrauką.",
 "The loading photo is not valid." => "Netinkama įkeliama nuotrauka.",
@@ -13,6 +12,10 @@
 "The uploaded file was only partially uploaded" => "Failas buvo įkeltas tik dalinai",
 "No file was uploaded" => "Nebuvo įkeltas joks failas",
 "Contacts" => "Kontaktai",
+"Download" => "Atsisiųsti",
+"Edit" => "Keisti",
+"Delete" => "Trinti",
+"Cancel" => "Atšaukti",
 "This is not your addressbook." => "Tai ne jūsų adresų knygelė.",
 "Contact could not be found." => "Kontaktas nerastas",
 "Work" => "Darbo",
@@ -28,9 +31,7 @@
 "Birthday" => "Gimtadienis",
 "Contact" => "Kontaktas",
 "Add Contact" => "Pridėti kontaktą",
-"Addressbooks" => "Adresų knygos",
 "Organization" => "Organizacija",
-"Delete" => "Trinti",
 "Nickname" => "Slapyvardis",
 "Enter nickname" => "Įveskite slapyvardį",
 "Phone" => "Telefonas",
@@ -45,9 +46,7 @@
 "Zipcode" => "Pašto indeksas",
 "Country" => "Šalis",
 "Addressbook" => "Adresų knyga",
-"Download" => "Atsisiųsti",
-"Edit" => "Keisti",
+"Addressbooks" => "Adresų knygos",
 "New Address Book" => "Nauja adresų knyga",
-"Save" => "Išsaugoti",
-"Cancel" => "Atšaukti"
+"Save" => "Išsaugoti"
 );

@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-07-29 02:03+0200\n"
-"PO-Revision-Date: 2012-07-28 11:33+0000\n"
+"POT-Creation-Date: 2012-09-18 02:00+0200\n"
+"PO-Revision-Date: 2012-09-17 17:23+0000\n"
 "Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: el\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: appinfo/app.php:14
 msgid "Bookmarks"
@@ -26,6 +26,10 @@ msgstr "Σελιδοδείκτες"
 #: bookmarksHelper.php:99
 msgid "unnamed"
 msgstr "ανώνυμο"
+
+#: lib/search.php:43
+msgid "Bookm."
+msgstr "Σελιδοδεικτ."
 
 #: templates/bookmarklet.php:5
 msgid ""

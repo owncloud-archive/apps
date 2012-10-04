@@ -27,7 +27,7 @@ OCP\JSON::callCheck();
 
 require_once __DIR__.'/../loghandler.php';
 
-$id = isset($_POST['id'])?$_POST['id']:null;
+$id = isset($_POST['id']) ? $_POST['id'] : null;
 if(!$id) {
 	bailOut(OC_Contacts_App::$l10n->t('id is not set.'));
 }
@@ -35,10 +35,7 @@ if(!$id) {
 try {
 	OC_Contacts_VCard::delete($id);
 } catch(Exception $e) {
-	$msg = $e->getMessage();
-	OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$msg,
-		OCP\Util::DEBUG);
-	OCP\Util::writeLog('contacts', __METHOD__.', id'.$id, OCP\Util::DEBUG);
-	bailOut($msg);
+	bailOut($e->getMessage());
 }
+
 OCP\JSON::success(array('data' => array( 'id' => $id )));

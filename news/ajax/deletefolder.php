@@ -14,11 +14,11 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('news');
 OCP\JSON::callCheck();
+session_write_close();
 
 $userid = OCP\USER::getUser();
 
 $folderid = trim($_POST['folderid']);
-$shownfeedid = trim($_POST['shownfeedid']);
 $part_items = false;
 
 $foldermapper = new OCA\News\FolderMapper($userid);

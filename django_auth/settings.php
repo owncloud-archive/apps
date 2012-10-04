@@ -23,8 +23,8 @@
 $params = array('staff_is_admin', 'superuser_is_admin');
 
 if ($_POST) {
-	foreach($params as $param){
-		if(isset($_POST[$param])){
+	foreach($params as $param) {
+		if(isset($_POST[$param])) {
 			OC_Appconfig::setValue('django_auth', $param, $_POST[$param]);
 		}
 		else {
@@ -40,4 +40,3 @@ $tmpl->assign('staff_is_admin',    OC_Appconfig::getValue( 'django_auth', 'staff
 $tmpl->assign('superuser_is_admin',OC_Appconfig::getValue( 'django_auth', 'superuser_is_admin', OC_GROUP_BACKEND_DJANGO_SUPERUSER_IS_ADMIN ));
 
 return $tmpl->fetchPage();
-?>

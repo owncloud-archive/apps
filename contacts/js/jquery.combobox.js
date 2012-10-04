@@ -4,7 +4,7 @@
 
 (function( $ ) {
 	$.widget('ui.combobox', {
-		options: { 
+		options: {
 			id: null,
 			name: null,
 			showButton: false,
@@ -84,7 +84,7 @@
 				// pass empty string as value to search for, displaying all results
 				input.autocomplete('search', '');
 			});
-			
+
 			if(this.options['showButton']) {
 				this.button = $('<button type="button">&nbsp;</button>')
 					.attr('tabIndex', -1 )

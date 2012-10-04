@@ -3,30 +3,47 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <g.ciprian@osn.ro>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-13 23:12+0200\n"
-"PO-Revision-Date: 2012-08-12 22:32+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-09-19 02:02+0200\n"
+"PO-Revision-Date: 2012-09-18 12:31+0000\n"
+"Last-Translator: g.ciprian <g.ciprian@osn.ro>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ro\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1))\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #: templates/settings.php:3
 msgid "Export this ownCloud instance"
-msgstr ""
+msgstr "Eportă această instanță ownCloud"
 
-#: templates/settings.php:4
+#: templates/settings.php:5
 msgid ""
-"This will create a compressed file that contains the data of this owncloud instance.\n"
-"            Please choose the export type:"
-msgstr ""
+"This will create a compressed file that contains the data of this owncloud "
+"instance."
+msgstr "Această acțiune va crea un fișier arhivat care va conține datele acestei instanțe owncloud."
+
+#: templates/settings.php:7
+msgid "Please choose the export type:"
+msgstr "Te rugăm să alegi tipul de exportat:"
+
+#: templates/settings.php:10
+msgid "ownCloud instance (suitable for import)"
+msgstr "Instanță ownCloud (potrivită pentru importare)"
+
+#: templates/settings.php:11
+msgid "ownCloud system files"
+msgstr "Fișiere de sistem ownCloud"
 
 #: templates/settings.php:12
+msgid "Just user files"
+msgstr "Doar fișierele utilizatorilor"
+
+#: templates/settings.php:13
 msgid "Export"
-msgstr ""
+msgstr "Exportă"

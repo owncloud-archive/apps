@@ -14,12 +14,13 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('news');
 OCP\JSON::callCheck();
+session_write_close();
 
 $itemId = $_POST['itemId'];
 $status = $_POST['status'];
 
 $itemMapper = new OCA\News\ItemMapper();
-$item = $itemMapper->find($itemId);
+$item = $itemMapper->findById($itemId);
 
 switch ($status) {
     case 'read':
@@ -50,4 +51,3 @@ if(!$success) {
 
 //TODO: replace the following with a real success case. see contact/ajax/createaddressbook.php for inspirations
 OCP\JSON::success(array('data' => array('itemId' => $itemId )));
-

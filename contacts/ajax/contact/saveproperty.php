@@ -153,7 +153,6 @@ if(!$value) {
 			}
 			break;
 		default:
-			debug('Setting string:'.$name.' '.$value);
 			$vcard->setString($name, $value);
 			break;
 	}

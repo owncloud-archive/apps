@@ -36,7 +36,7 @@ class OC_Share_Backend_Calendar implements OCP\Share_Backend_Collection {
 	*/
 	public function isValidSource($itemSource, $uidOwner) {
 		$calendar = OC_Calendar_App::getCalendar( $itemSource );
-		if ($calendar || $calendar['userid'] != $uidOwner) {
+		if ($calendar === false || $calendar['userid'] != $uidOwner) {
 			return false;
 		}
 		return true;
@@ -55,7 +55,7 @@ class OC_Share_Backend_Calendar implements OCP\Share_Backend_Collection {
 	public function generateTarget($itemSource, $shareWith, $exclude = null) {
 		$calendar = OC_Calendar_App::getCalendar( $itemSource );
 		$user_calendars = array();
-		foreach(OC_Contacts_Addressbook::all($uid) as $user_calendar) {
+		foreach(OC_Calendar_Calendar::allCalendars($shareWith) as $user_calendar) {
 			$user_calendars[] = $user_calendar['displayname'];
 		}
 		$name = $calendar['userid']."'s ".$calendar['displayname'];
@@ -63,7 +63,7 @@ class OC_Share_Backend_Calendar implements OCP\Share_Backend_Collection {
 		while (in_array($name.$suffix, $user_calendars)) {
 			$suffix++;
 		}
-		
+
 		return $name.$suffix;
 	}
 
@@ -90,6 +90,7 @@ class OC_Share_Backend_Calendar implements OCP\Share_Backend_Collection {
 					continue; // TODO
 				}
 				$calendar['displaynamename'] = $item['item_target'];
+				$calendar['permissions'] = $item['permissions'];
 				$calendar['calendarid'] = $calendar['id'];
 				$calendar['owner'] = $calendar['userid'];
 				$calendars[] = $calendar;
@@ -99,13 +100,13 @@ class OC_Share_Backend_Calendar implements OCP\Share_Backend_Collection {
 	}
 
 	public function getChildren($itemSource) {
-		$query = OCP\DB::prepare('SELECT `id` FROM `*PREFIX*calendar_objects` WHERE `calendarid` = ?');
+		$query = OCP\DB::prepare('SELECT `id`, `summary` FROM `*PREFIX*calendar_objects` WHERE `calendarid` = ?');
 		$result = $query->execute(array($itemSource));
-		$sources = array();
+		$children = array();
 		while ($object = $result->fetchRow()) {
-			$sources[] = $object['id'];
+			$children[] = array('source' => $object['id'], 'target' => $object['summary']);
 		}
-		return $sources;
+		return $children;
 	}
 
 }

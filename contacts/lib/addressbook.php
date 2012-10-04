@@ -62,6 +62,9 @@ class OC_Contacts_Addressbook {
 
 		$addressbooks = array();
 		while( $row = $result->fetchRow()) {
+			$row['permissions'] = OCP\Share::PERMISSION_CREATE
+				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE
+				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
 			$addressbooks[] = $row;
 		}
 		$addressbooks = array_merge($addressbooks, OCP\Share::getItemsSharedWith('addressbook', OC_Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS));
@@ -81,10 +84,14 @@ class OC_Contacts_Addressbook {
 		if(is_null($uid)) {
 			$uid = OCP\USER::getUser();
 		}
-		$activeaddressbooks = self::all($uid, true);
+
+		// query all addressbooks to force creation of default if it desn't exist.
+		$activeaddressbooks = self::all($uid);
 		$ids = array();
 		foreach($activeaddressbooks as $addressbook) {
-			$ids[] = $addressbook['id'];
+			if($addressbook['active']) {
+				$ids[] = $addressbook['id'];
+			}
 		}
 		return $ids;
 	}
@@ -103,7 +110,7 @@ class OC_Contacts_Addressbook {
 	 * @param string $principaluri
 	 * @return array
 	 */
-	public static function allWherePrincipalURIIs($principaluri){
+	public static function allWherePrincipalURIIs($principaluri) {
 		$uid = self::extractUserID($principaluri);
 		return self::all($uid);
 	}
@@ -117,14 +124,28 @@ class OC_Contacts_Addressbook {
 		try {
 			$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_addressbooks` WHERE `id` = ?' );
 			$result = $stmt->execute(array($id));
-			return $result->fetchRow();
 		} catch(Exception $e) {
 			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', exception: '.$e->getMessage(), OCP\Util::ERROR);
 			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', id: '.$id, OCP\Util::DEBUG);
 			return false;
 		}
-
-		return $result->fetchRow();
+		$row = $result->fetchRow();
+		if($row['userid'] != OCP\USER::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
+			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
+			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_READ)) {
+				throw new Exception(
+					OC_Contacts_App::$l10n->t(
+						'You do not have the permissions to read this addressbook.'
+					)
+				);
+			}
+			$row['permissions'] = $sharedAddressbook['permissions'];
+		} else {
+			$row['permissions'] = OCP\Share::PERMISSION_CREATE
+				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE
+				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
+		}
+		return $row;
 	}
 
 	/**
@@ -159,7 +180,7 @@ class OC_Contacts_Addressbook {
 			return false;
 		}
 		$uris = array();
-		while($row = $result->fetchRow()){
+		while($row = $result->fetchRow()) {
 			$uris[] = $row['uri'];
 		}
 
@@ -210,10 +231,14 @@ class OC_Contacts_Addressbook {
 	public static function edit($id,$name,$description) {
 		// Need these ones for checking uri
 		$addressbook = self::find($id);
-		if ($addressbook['userid'] != OCP\User::getUser()) {
+		if ($addressbook['userid'] != OCP\User::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
-				return false;
+				throw new Exception(
+					OC_Contacts_App::$l10n->t(
+						'You do not have the permissions to update this addressbook.'
+					)
+				);
 			}
 		}
 		if(is_null($name)) {
@@ -229,7 +254,11 @@ class OC_Contacts_Addressbook {
 		} catch(Exception $e) {
 			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', exception: '.$e->getMessage(), OCP\Util::ERROR);
 			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', id: '.$id, OCP\Util::DEBUG);
-			return false;
+			throw new Exception(
+				OC_Contacts_App::$l10n->t(
+					'There was an error updating the addressbook.'
+				)
+			);
 		}
 
 		return true;
@@ -274,28 +303,54 @@ class OC_Contacts_Addressbook {
 	/**
 	 * @brief removes an address book
 	 * @param integer $id
-	 * @return boolean
+	 * @return boolean true on success, otherwise an exception will be thrown
 	 */
 	public static function delete($id) {
 		$addressbook = self::find($id);
-		if ($addressbook['userid'] != OCP\User::getUser()) {
+		if ($addressbook['userid'] != OCP\User::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_DELETE)) {
-				return false;
+				throw new Exception(
+					OC_Contacts_App::$l10n->t(
+						'You do not have the permissions to delete this addressbook.'
+					)
+				);
 			}
 		}
-		self::setActive($id, false);
-		try {
-			$stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*contacts_addressbooks` WHERE `id` = ?' );
-			$stmt->execute(array($id));
-		} catch(Exception $e) {
-			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', exception for '.$id.': '.$e->getMessage(), OCP\Util::ERROR);
-			return false;
+
+		// First delete cards belonging to this addressbook.
+		$cards = OC_Contacts_VCard::all($id);
+		foreach($cards as $card) {
+			try {
+				OC_Contacts_VCard::delete($card['id']);
+			} catch(Exception $e) {
+				OCP\Util::writeLog('contacts',
+					__METHOD__.', exception deleting vCard '.$card['id'].': '
+					. $e->getMessage(),
+					OCP\Util::ERROR);
+			}
 		}
 
-		$cards = OC_Contacts_VCard::all($id);
-		foreach($cards as $card){
-			OC_Contacts_VCard::delete($card['id']);
+		try {
+			$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_addressbooks` WHERE `id` = ?');
+			$stmt->execute(array($id));
+		} catch(Exception $e) {
+			OCP\Util::writeLog('contacts',
+				__METHOD__.', exception for ' . $id . ': '
+				. $e->getMessage(),
+				OCP\Util::ERROR);
+			throw new Exception(
+				OC_Contacts_App::$l10n->t(
+					'There was an error deleting this addressbook.'
+				)
+			);
+		}
+
+		// TODO: Unshare all when that method is created
+		//OCP\Share::unshare('addressbook', $id);
+
+		if(count(self::all(OCP\User::getUser())) == 0) {
+			self::addDefault();
 		}
 
 		return true;

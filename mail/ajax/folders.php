@@ -26,12 +26,11 @@ OCP\JSON::checkAppEnabled('mail');
 
 $accounts = OCA_Mail\App::getFolders( OCP\User::getUser());
 
-//
-// TODO: error is listed within the accounts
-//
-if( $accounts['error'] ){
-	OCP\JSON::error(array('data' => array('message' => $accounts['error'] )));
-	exit();
+foreach($accounts as $account) {
+	if( isset($account['error']) ) {
+		OCP\JSON::error(array('data' => array('message' => $account['error'] )));
+		exit();
+	}
 }
 
 $tmpl = new OCP\Template('mail','part.folders');

@@ -5,10 +5,10 @@
  * later.
  * See the COPYING-README file.
  */
- 
+
 OCP\JSON::checkLoggedIn();
 OCP\JSON::callCheck();
-if(isset($_POST["firstday"])){
+if(isset($_POST["firstday"])) {
 	OCP\Config::setUserValue(OCP\USER::getUser(), 'calendar', 'firstday', $_POST["firstday"]);
 	OCP\JSON::success();
 }else{

@@ -47,13 +47,13 @@ class OC_Contacts_VCard {
 	 * The cards are associative arrays. You'll find the original vCard in
 	 * ['carddata']
 	 */
-	public static function all($id, $start=null, $num=null){
+	public static function all($id, $start=null, $num=null) {
 		$result = null;
 		if(is_array($id) && count($id)) {
 			$id_sql = join(',', array_fill(0, count($id), '?'));
 			$sql = 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` IN ('.$id_sql.') ORDER BY `fullname`';
 			try {
-				$stmt = OCP\DB::prepare( $sql, $num, $start );
+				$stmt = OCP\DB::prepare($sql, $num, $start);
 				$result = $stmt->execute($id);
 			} catch(Exception $e) {
 				OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), OCP\Util::ERROR);
@@ -64,7 +64,7 @@ class OC_Contacts_VCard {
 		} elseif(is_int($id) || is_string($id)) {
 			try {
 				$sql = 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? ORDER BY `fullname`';
-				$stmt = OCP\DB::prepare( $sql, $num, $start );
+				$stmt = OCP\DB::prepare($sql, $num, $start);
 				$result = $stmt->execute(array($id));
 			} catch(Exception $e) {
 				OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), OCP\Util::ERROR);
@@ -77,7 +77,7 @@ class OC_Contacts_VCard {
 		}
 		$cards = array();
 		if(!is_null($result)) {
-			while( $row = $result->fetchRow()){
+			while( $row = $result->fetchRow()) {
 				$cards[] = $row;
 			}
 		}
@@ -90,7 +90,7 @@ class OC_Contacts_VCard {
 	 * @param integer $id
 	 * @return associative array or false.
 	 */
-	public static function find($id){
+	public static function find($id) {
 		try {
 			$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `id` = ?' );
 			$result = $stmt->execute(array($id));
@@ -109,7 +109,7 @@ class OC_Contacts_VCard {
 	 * @param string $uri the uri ('filename')
 	 * @return associative array or false.
 	 */
-	public static function findWhereDAVDataIs($aid,$uri){
+	public static function findWhereDAVDataIs($aid,$uri) {
 		try {
 			$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
 			$result = $stmt->execute(array($aid,$uri));
@@ -129,7 +129,7 @@ class OC_Contacts_VCard {
 	* This has to be changed to either TEL;TYPE=HOME,CELL:123456789 or TEL;TYPE=HOME;TYPE=CELL:123456789 - both are valid.
 	*/
 	public static function formatPropertyTypes(&$property) {
-		foreach($property->parameters as $key=>&$parameter){
+		foreach($property->parameters as $key=>&$parameter) {
 			$types = OC_Contacts_App::getTypesOfProperty($property->name);
 			if(is_array($types) && in_array(strtoupper($parameter->name), array_keys($types)) || strtoupper($parameter->name) == 'PREF') {
 				$property->parameters[] = new Sabre_VObject_Parameter('TYPE', $parameter->name);
@@ -146,10 +146,16 @@ class OC_Contacts_VCard {
 	*/
 	public static function decodeProperty(&$property) {
 		// Check out for encoded string and decode them :-[
-		foreach($property->parameters as $key=>&$parameter){
+		foreach($property->parameters as $key=>&$parameter) {
 			if(strtoupper($parameter->name) == 'ENCODING') {
 				if(strtoupper($parameter->value) == 'QUOTED-PRINTABLE') { // what kind of other encodings could be used?
-					$property->value = quoted_printable_decode($property->value);
+					// Decode quoted-printable and strip any control chars
+					// except \n and \r
+					$property->value = preg_replace(
+								'/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/',
+								'',
+								quoted_printable_decode($property->value)
+					);
 					unset($property->parameters[$key]);
 				}
 			} elseif(strtoupper($parameter->name) == 'CHARSET') {
@@ -205,9 +211,9 @@ class OC_Contacts_VCard {
 		// Add version if needed
 		if($version && $version < '3.0') {
 			$upgrade = true;
-			OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Updating from version: '.$version, OCP\Util::DEBUG);
+			//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Updating from version: '.$version, OCP\Util::DEBUG);
 		}
-		foreach($vcard->children as &$property){
+		foreach($vcard->children as &$property) {
 			// Decode string properties and remove obsolete properties.
 			if($upgrade && in_array($property->name, $stringprops)) {
 				self::decodeProperty($property);
@@ -218,9 +224,9 @@ class OC_Contacts_VCard {
 			}
 			// Fix format of type parameters.
 			if($upgrade && in_array($property->name, $typeprops)) {
-				OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. before: '.$property->serialize(), OCP\Util::DEBUG);
+				//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. before: '.$property->serialize(), OCP\Util::DEBUG);
 				self::formatPropertyTypes($property);
-				OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. after: '.$property->serialize(), OCP\Util::DEBUG);
+				//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. after: '.$property->serialize(), OCP\Util::DEBUG);
 			}
 			if($property->name == 'FN') {
 				$fn = $property->value;
@@ -250,7 +256,7 @@ class OC_Contacts_VCard {
 				$fn = 'Unknown Name';
 			}
 			$vcard->setString('FN', $fn);
-			OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Added missing \'FN\' field: '.$fn, OCP\Util::DEBUG);
+			//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Added missing \'FN\' field: '.$fn, OCP\Util::DEBUG);
 		}
 		if(!$n || $n == ';;;;') { // Fix missing 'N' field. Ugly hack ahead ;-)
 			$slice = array_reverse(array_slice(explode(' ', $fn), 0, 2)); // Take 2 first name parts of 'FN' and reverse.
@@ -259,12 +265,12 @@ class OC_Contacts_VCard {
 			}
 			$n = implode(';', $slice).';;;';
 			$vcard->setString('N', $n);
-			OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Added missing \'N\' field: '.$n, OCP\Util::DEBUG);
+			//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Added missing \'N\' field: '.$n, OCP\Util::DEBUG);
 		}
 		if(!$uid) {
 			$vcard->setUID();
 			$uid = $vcard->getAsString('UID');
-			OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Added missing \'UID\' field: '.$uid, OCP\Util::DEBUG);
+			//OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::updateValuesFromAdd. Added missing \'UID\' field: '.$uid, OCP\Util::DEBUG);
 		}
 		if(self::trueUID($aid, $uid)) {
 			$vcard->setString('UID', $uid);
@@ -281,7 +287,7 @@ class OC_Contacts_VCard {
 	 * @param $isChecked boolean If the vCard should be checked for validity and version.
 	 * @return insertid on success or false.
 	 */
-	public static function add($aid, OC_VObject $card, $uri=null, $isChecked=false){
+	public static function add($aid, OC_VObject $card, $uri=null, $isChecked=false) {
 		if(is_null($card)) {
 			OCP\Util::writeLog('contacts', 'OC_Contacts_VCard::add. No vCard supplied', OCP\Util::ERROR);
 			return null;
@@ -290,7 +296,11 @@ class OC_Contacts_VCard {
 		if ($addressbook['userid'] != OCP\User::getUser()) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $aid);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_CREATE)) {
-				return false;
+				throw new Exception(
+					OC_Contacts_App::$l10n->t(
+						'You do not have the permissions to add contacts to this addressbook.'
+					)
+				);
 			}
 		}
 		if(!$isChecked) {
@@ -340,7 +350,7 @@ class OC_Contacts_VCard {
 	 * @param string $data  vCard file
 	 * @return insertid
 	 */
-	public static function addFromDAVData($id,$uri,$data){
+	public static function addFromDAVData($id,$uri,$data) {
 		$card = OC_VObject::parse($data);
 		return self::add($id, $card, $uri);
 	}
@@ -349,7 +359,7 @@ class OC_Contacts_VCard {
 	 * @brief Mass updates an array of cards
 	 * @param array $objects  An array of [id, carddata].
 	 */
-	public static function updateDataByID($objects){
+	public static function updateDataByID($objects) {
 		$stmt = OCP\DB::prepare( 'UPDATE `*PREFIX*contacts_cards` SET `carddata` = ?, `lastmodified` = ? WHERE `id` = ?' );
 		$now = new DateTime;
 		foreach($objects as $object) {
@@ -383,22 +393,43 @@ class OC_Contacts_VCard {
 	 * @brief edits a card
 	 * @param integer $id id of card
 	 * @param OC_VObject $card  vCard file
-	 * @return boolean
+	 * @return boolean true on success, otherwise an exception will be thrown
 	 */
-	public static function edit($id, OC_VObject $card){
+	public static function edit($id, OC_VObject $card) {
 		$oldcard = self::find($id);
 		if (!$oldcard) {
-			return false;
+			OCP\Util::writeLog('contacts', __METHOD__.', id: '
+				. $id . ' not found.', OCP\Util::DEBUG);
+			throw new Exception(
+				OC_Contacts_App::$l10n->t(
+					'Could not find the vCard with ID.' . $id
+				)
+			);
 		}
 		if(is_null($card)) {
 			return false;
 		}
-		// NOTE: Owner checks are being made in the ajax files, which should be done inside the lib files to prevent any redundancies with sharing checks
+		// NOTE: Owner checks are being made in the ajax files, which should be done
+		// inside the lib files to prevent any redundancies with sharing checks
 		$addressbook = OC_Contacts_Addressbook::find($oldcard['addressbookid']);
 		if ($addressbook['userid'] != OCP\User::getUser()) {
+			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $oldcard['addressbookid'], OCP\Share::FORMAT_NONE, null, true);
 			$sharedContact = OCP\Share::getItemSharedWithBySource('contact', $id, OCP\Share::FORMAT_NONE, null, true);
-			if (!$sharedContact || !($sharedContact['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
-				throw new Exception(OC_Contacts_App::$l10n->t('You do not have the permissions to edit this contact.'));
+			$addressbook_permissions = 0;
+			$contact_permissions = 0;
+			if ($sharedAddressbook) {
+				$addressbook_permissions = $sharedAddressbook['permissions'];
+			}
+			if ($sharedContact) {
+				$contact_permissions = $sharedEvent['permissions'];
+			}
+			$permissions = max($addressbook_permissions, $contact_permissions);
+			if (!($permissions & OCP\Share::PERMISSION_UPDATE)) {
+				throw new Exception(
+					OC_Contacts_App::$l10n->t(
+						'You do not have the permissions to edit this contact.'
+					)
+				);
 			}
 		}
 		OC_Contacts_App::loadCategoriesFromVCard($card);
@@ -434,7 +465,7 @@ class OC_Contacts_VCard {
 	 * @param string $data  vCard file
 	 * @return boolean
 	 */
-	public static function editFromDAVData($aid, $uri, $data){
+	public static function editFromDAVData($aid, $uri, $data) {
 		$oldcard = self::findWhereDAVDataIs($aid, $uri);
 		$card = OC_VObject::parse($data);
 		if(!$card) {
@@ -458,19 +489,44 @@ class OC_Contacts_VCard {
 	/**
 	 * @brief deletes a card
 	 * @param integer $id id of card
-	 * @return boolean
+	 * @return boolean true on success, otherwise an exception will be thrown
 	 */
-	public static function delete($id){
+	public static function delete($id) {
 		$card = self::find($id);
 		if (!$card) {
-			return false;
+			OCP\Util::writeLog('contacts', __METHOD__.', id: '
+				. $id . ' not found.', OCP\Util::DEBUG);
+			throw new Exception(
+				OC_Contacts_App::$l10n->t(
+					'Could not find the vCard with ID: ' . $id
+				)
+			);
 		}
 		$addressbook = OC_Contacts_Addressbook::find($card['addressbookid']);
-		if ($addressbook['userid'] != OCP\User::getUser()) {
-			$sharedContact = OCP\Share::getItemSharedWithBySource('contact',
-				$id, OCP\Share::FORMAT_NONE, null, true);
-			if (!$sharedContact
-				|| !($sharedContact['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+		if(!$addressbook) {
+			throw new Exception(
+				OC_Contacts_App::$l10n->t(
+					'Could not find the Addressbook with ID: '
+					. $card['addressbookid']
+				)
+			);
+		}
+
+		if ($addressbook['userid'] != OCP\User::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
+			OCP\Util::writeLog('contacts', __METHOD__.', '
+				. $addressbook['userid'] . ' != ' . OCP\User::getUser(), OCP\Util::DEBUG);
+			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $card['addressbookid'], OCP\Share::FORMAT_NONE, null, true);
+			$sharedContact = OCP\Share::getItemSharedWithBySource('contact', $id, OCP\Share::FORMAT_NONE, null, true);
+			$addressbook_permissions = 0;
+			$contact_permissions = 0;
+			if ($sharedAddressbook) {
+				$addressbook_permissions = $sharedAddressbook['permissions'];
+			}
+			if ($sharedContact) {
+				$contact_permissions = $sharedEvent['permissions'];
+			}
+			$permissions = max($addressbook_permissions, $contact_permissions);
+			if (!($permissions & OCP\Share::PERMISSION_DELETE)) {
 				throw new Exception(
 					OC_Contacts_App::$l10n->t(
 						'You do not have the permissions to delete this contact.'
@@ -489,7 +545,11 @@ class OC_Contacts_VCard {
 				', exception: ' . $e->getMessage(), OCP\Util::ERROR);
 			OCP\Util::writeLog('contacts', __METHOD__.', id: '
 				. $id, OCP\Util::DEBUG);
-			return false;
+			throw new Exception(
+				OC_Contacts_App::$l10n->t(
+					'There was an error deleting this contact.'
+				)
+			);
 		}
 
 		return true;
@@ -501,7 +561,7 @@ class OC_Contacts_VCard {
 	 * @param string $uri the uri of the card
 	 * @return boolean
 	 */
-	public static function deleteFromDAVData($aid,$uri){
+	public static function deleteFromDAVData($aid,$uri) {
 		$addressbook = OC_Contacts_Addressbook::find($aid);
 		if ($addressbook['userid'] != OCP\User::getUser()) {
 			$query = OCP\DB::prepare( 'SELECT `id` FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
@@ -632,7 +692,7 @@ class OC_Contacts_VCard {
 			'value' => $value,
 			'parameters' => array(),
 			'checksum' => md5($property->serialize()));
-		foreach($property->parameters as $parameter){
+		foreach($property->parameters as $parameter) {
 			// Faulty entries by kaddressbook
 			// Actually TYPE=PREF is correct according to RFC 2426
 			// but this way is more handy in the UI. Tanghus.

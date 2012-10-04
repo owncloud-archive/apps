@@ -6,6 +6,7 @@
 "Timezone changed" => "زمان محلی تغییر یافت",
 "Invalid request" => "درخواست نامعتبر",
 "Calendar" => "تقویم",
+"Editable" => "قابل ویرایش",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -88,8 +89,6 @@
 "Today" => "امروز",
 "Your calendars" => "تقویم های شما",
 "CalDav Link" => "CalDav Link",
-"Shared calendars" => "تقویمهای به اشترک گذاری شده",
-"No shared calendars" => "هیچ تقویمی به  اشتراک گذارده نشده",
 "Share Calendar" => "تقویم را به اشتراک بگذارید",
 "Download" => "بارگیری",
 "Edit" => "ویرایش",
@@ -146,11 +145,5 @@
 "at" => "در",
 "Timezone" => "زمان محلی",
 "24h" => "24 ساعت",
-"12h" => "12 ساعت",
-"Users" => "کاربرها",
-"select users" => "انتخاب شناسه ها",
-"Editable" => "قابل ویرایش",
-"Groups" => "گروه ها",
-"select groups" => "انتخاب گروه ها",
-"make public" => "عمومی سازی"
+"12h" => "12 ساعت"
 );

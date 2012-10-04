@@ -4,38 +4,35 @@
 # 
 # Translators:
 #   <joan@montane.cat>, 2012.
-#   <rcalvoi@yahoo.com>, 2011, 2012.
+# Josep Tomàs <jtomas.binsoft@gmail.com>, 2012.
+#   <rcalvoi@yahoo.com>, 2011-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-25 02:04+0200\n"
-"PO-Revision-Date: 2012-08-24 08:24+0000\n"
-"Last-Translator: rogerc <rcalvoi@yahoo.com>\n"
+"POT-Creation-Date: 2012-09-30 02:02+0200\n"
+"PO-Revision-Date: 2012-09-29 15:54+0000\n"
+"Last-Translator: Josep Tomàs <jtomas.binsoft@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:32
+#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
 msgstr "Error en (des)activar la llibreta d'adreces."
 
-#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:20
+#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
 #: ajax/contact/saveproperty.php:39
 msgid "id is not set."
 msgstr "no s'ha establert la id."
 
-#: ajax/addressbook/update.php:24
+#: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
 msgstr "No es pot actualitzar la llibreta d'adreces amb un nom buit"
-
-#: ajax/addressbook/update.php:28
-msgid "Error updating addressbook."
-msgstr "Error en actualitzar la llibreta d'adreces."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -56,10 +53,6 @@ msgstr "No s'han trobat llibretes d'adreces."
 #: ajax/categories/delete.php:34
 msgid "No contacts found."
 msgstr "No s'han trobat contactes."
-
-#: ajax/contact/add.php:47
-msgid "There was an error adding the contact."
-msgstr "S'ha produït un error en afegir el contacte."
 
 #: ajax/contact/addproperty.php:39 ajax/contact/saveproperty.php:36
 msgid "element name is not set."
@@ -232,74 +225,161 @@ msgstr "No implementada"
 msgid "Couldn't get a valid address."
 msgstr "No s'ha pogut obtenir una adreça vàlida."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:381 js/contacts.js:393
-#: js/contacts.js:723 js/contacts.js:763 js/contacts.js:789 js/contacts.js:921
-#: js/contacts.js:927 js/contacts.js:939 js/contacts.js:976
-#: js/contacts.js:1250 js/contacts.js:1258 js/contacts.js:1267
-#: js/contacts.js:1302 js/contacts.js:1338 js/contacts.js:1353
-#: js/contacts.js:1379 js/contacts.js:1609 js/contacts.js:1644
-#: js/contacts.js:1664 js/settings.js:26 js/settings.js:43 js/settings.js:68
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
+#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
+#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
+#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
+#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
+#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
+#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
+#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
+#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "Error"
 
-#: js/contacts.js:424
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr "Si us plau, introdueixi una adreça de correu electrònic."
+
+#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "Escriviu un nom"
+
+#: js/contacts.js:177 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "Format personalitzat, Nom curt, Nom sencer, Invertit o Invertit amb coma"
+
+#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
+#: js/contacts.js:1482 js/contacts.js:1525
+msgid "Select type"
+msgstr "Seleccioneu un tipus"
+
+#: js/contacts.js:214
+msgid "Select photo"
+msgstr "Selecciona una foto"
+
+#: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
 msgstr "No teniu permisos per afegir contactes a "
 
-#: js/contacts.js:425
+#: js/contacts.js:407
 msgid "Please select one of your own address books."
 msgstr "Seleccioneu una de les vostres llibretes d'adreces"
 
-#: js/contacts.js:425
+#: js/contacts.js:407
 msgid "Permission error"
 msgstr "Error de permisos"
 
-#: js/contacts.js:763
+#: js/contacts.js:481
+msgid "Click to undo deletion of \""
+msgstr "Feu clic per desfer l'eliminació de \""
+
+#: js/contacts.js:495
+msgid "Cancelled deletion of: \""
+msgstr "Eliminació Cancel·lada : \""
+
+#: js/contacts.js:725
 msgid "This property has to be non-empty."
 msgstr "Aquesta propietat no pot ser buida."
 
-#: js/contacts.js:789
+#: js/contacts.js:751
 msgid "Couldn't serialize elements."
 msgstr "No s'han pogut serialitzar els elements."
 
-#: js/contacts.js:921 js/contacts.js:939
+#: js/contacts.js:762
+msgid "Unknown error. Please check logs."
+msgstr "Error desconegut. Si us plau, revisa els registres."
+
+#: js/contacts.js:883 js/contacts.js:901
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "'deleteProperty' s'ha cridat sense argument de tipus. Informeu-ne a  bugs.owncloud.org"
 
-#: js/contacts.js:958
+#: js/contacts.js:920
 msgid "Edit name"
 msgstr "Edita el nom"
 
-#: js/contacts.js:1250
+#: js/contacts.js:1212
 msgid "No files selected for upload."
 msgstr "No s'han seleccionat fitxers per a la pujada."
 
-#: js/contacts.js:1258
+#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "El fitxer que intenteu pujar excedeix la mida màxima de pujada en aquest servidor."
 
-#: js/contacts.js:1322
+#: js/contacts.js:1284
 msgid "Error loading profile picture."
 msgstr "Error en carregar la imatge de perfil."
 
-#: js/contacts.js:1457 js/contacts.js:1498 js/contacts.js:1517
-#: js/contacts.js:1560
-msgid "Select type"
-msgstr "Seleccioneu un tipus"
-
-#: js/contacts.js:1578
+#: js/contacts.js:1543
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Heu marcat eliminar alguns contactes, però encara no s'han eliminat. Espereu mentre s'esborren."
 
-#: js/contacts.js:1649
+#: js/contacts.js:1614
 msgid "Do you want to merge these address books?"
 msgstr "Voleu fusionar aquestes llibretes d'adreces?"
+
+#: js/contacts.js:1767
+msgid "Shared by "
+msgstr "Compartit per"
+
+#: js/contacts.js:2000 js/contacts.js:2075
+msgid "Upload too large"
+msgstr "La pujada és massa gran"
+
+#: js/contacts.js:2004
+msgid "Only image files can be used as profile picture."
+msgstr "Només els arxius d'imatge es poden utilitzar com a foto de perfil."
+
+#: js/contacts.js:2004
+msgid "Wrong file type"
+msgstr "Tipus d'arxiu incorrecte"
+
+#: js/contacts.js:2010
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr "El seu navegador no suporta la càrrega de AJAX. Feu clic a la foto de perfil per seleccionar la foto que voleu carregar."
+
+#: js/contacts.js:2068
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr "No es pot pujar el fitxer perquè és una carpeta o té 0 bytes"
+
+#: js/contacts.js:2068
+msgid "Upload Error"
+msgstr "Error en la pujada"
+
+#: js/contacts.js:2123
+msgid "Pending"
+msgstr "Pendent"
+
+#: js/contacts.js:2155
+msgid "Import done"
+msgstr "S'ha importat"
+
+#: js/contacts.js:2168
+msgid "Not all files uploaded. Retrying..."
+msgstr "No s'han pujat tots els fitxers. Es reintenta..."
+
+#: js/contacts.js:2174
+msgid "Something went wrong with the upload, please retry."
+msgstr "Alguna cosa ha fallat en la pujada, intenteu-ho de nou."
+
+#: js/contacts.js:2190
+msgid "Importing..."
+msgstr "Important..."
+
+#: js/contacts.js:2211
+msgid "The address book name cannot be empty."
+msgstr "El nom de la llibreta d'adreces no pot ser buit."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -313,9 +393,64 @@ msgstr " importat, "
 msgid " failed."
 msgstr " fallada."
 
-#: js/settings.js:68
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "El nom a mostrar no pot ser buit"
+
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "Mostra l'enllaç CardDav"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "Mostra l'enllaç VCF només de lectura"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "Baixa"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "Edita"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "Suprimeix"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: js/settings.js:157 templates/settings.php:66
+msgid "More..."
+msgstr "Més..."
+
+#: js/settings.js:161
+msgid "Less..."
+msgstr "Menys..."
+
+#: lib/addressbook.php:138
+msgid "You do not have the permissions to read this addressbook."
+msgstr "No teniu permisos per llegir aquesta llibreta d'adreces."
+
+#: lib/addressbook.php:239
+msgid "You do not have the permissions to update this addressbook."
+msgstr "No teniu permisos per actualitzar aquesta llibreta d'adreces."
+
+#: lib/addressbook.php:259
+msgid "There was an error updating the addressbook."
+msgstr "S'ha produït un error en actualitzar la llibreta d'adreces."
+
+#: lib/addressbook.php:315
+msgid "You do not have the permissions to delete this addressbook."
+msgstr "No teniu permisos per eliminar aquesta llibreta d'adreces"
+
+#: lib/addressbook.php:344
+msgid "There was an error deleting this addressbook."
+msgstr "S'ha produït un error en eliminar la llibreta d'adreces"
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -385,7 +520,7 @@ msgstr "Feina"
 msgid "Home"
 msgstr "Casa"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:593
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
 msgid "Other"
 msgstr "Altres"
 
@@ -482,79 +617,95 @@ msgstr "Aniversari de {name}"
 msgid "Contact"
 msgstr "Contacte"
 
-#: lib/vcard.php:408
+#: lib/vcard.php:301
+msgid "You do not have the permissions to add contacts to this addressbook."
+msgstr "No teniu permisos per afegir contactes a aquesta llibreta d'adreces."
+
+#: lib/vcard.php:405
+msgid "Could not find the vCard with ID."
+msgstr "No s'ha trobat la vCard amb ID."
+
+#: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
 msgstr "No teniu permisos per editar aquest contacte"
 
-#: lib/vcard.php:483
+#: lib/vcard.php:501
+msgid "Could not find the vCard with ID: "
+msgstr "No s'ha trobat la vCard amb ID:"
+
+#: lib/vcard.php:509
+msgid "Could not find the Addressbook with ID: "
+msgstr "No s'ha trobat la llibreta d'adreces amb ID:"
+
+#: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
 msgstr "No teniu permisos per esborrar aquest contacte"
+
+#: lib/vcard.php:550
+msgid "There was an error deleting this contact."
+msgstr "S'ha produït un error en eliminar aquest contacte."
 
 #: templates/index.php:14
 msgid "Add Contact"
 msgstr "Afegeix un contacte"
 
-#: templates/index.php:15 templates/index.php:16 templates/part.import.php:17
+#: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
 msgstr "Importa"
 
-#: templates/index.php:18
+#: templates/index.php:16
 msgid "Settings"
 msgstr "Configuració"
 
-#: templates/index.php:18 templates/settings.php:9
-msgid "Addressbooks"
-msgstr "Llibretes d'adreces"
-
-#: templates/index.php:36 templates/part.import.php:24
+#: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
 msgstr "Tanca"
 
-#: templates/index.php:37
+#: templates/index.php:31
 msgid "Keyboard shortcuts"
 msgstr "Dreceres de teclat"
 
-#: templates/index.php:39
+#: templates/index.php:33
 msgid "Navigation"
 msgstr "Navegació"
 
-#: templates/index.php:42
+#: templates/index.php:36
 msgid "Next contact in list"
 msgstr "Següent contacte de la llista"
 
-#: templates/index.php:44
+#: templates/index.php:38
 msgid "Previous contact in list"
 msgstr "Contacte anterior de la llista"
 
-#: templates/index.php:46
+#: templates/index.php:40
 msgid "Expand/collapse current addressbook"
 msgstr "Expandeix/col·lapsa la llibreta d'adreces"
 
-#: templates/index.php:48
+#: templates/index.php:42
 msgid "Next addressbook"
 msgstr "Llibreta d'adreces següent"
 
-#: templates/index.php:50
+#: templates/index.php:44
 msgid "Previous addressbook"
 msgstr "Llibreta d'adreces anterior"
 
-#: templates/index.php:54
+#: templates/index.php:48
 msgid "Actions"
 msgstr "Accions"
 
-#: templates/index.php:57
+#: templates/index.php:51
 msgid "Refresh contacts list"
 msgstr "Carrega de nou la llista de contactes"
 
-#: templates/index.php:59
+#: templates/index.php:53
 msgid "Add new contact"
 msgstr "Afegeix un contacte nou"
 
-#: templates/index.php:61
+#: templates/index.php:55
 msgid "Add new addressbook"
 msgstr "Afegeix una llibreta d'adreces nova"
 
-#: templates/index.php:63
+#: templates/index.php:57
 msgid "Delete current contact"
 msgstr "Esborra el contacte"
 
@@ -578,10 +729,6 @@ msgstr "Carrega una foto nova"
 msgid "Select photo from ownCloud"
 msgstr "Selecciona una foto de ownCloud"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "Format personalitzat, Nom curt, Nom sencer, Invertit o Invertit amb coma"
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
 msgstr "Edita detalls del nom"
@@ -590,12 +737,6 @@ msgstr "Edita detalls del nom"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Organització"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:36
-msgid "Delete"
-msgstr "Suprimeix"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -874,20 +1015,21 @@ msgid "Importing contacts"
 msgstr "S'estan important contactes"
 
 #: templates/part.no_contacts.php:3
-msgid "You have no contacts in your addressbook."
-msgstr "No teniu contactes a la llibreta d'adreces."
+msgid ""
+"<h3>You have no contacts in your addressbook.</h3><p>You can import VCF "
+"files by dragging them to the contacts list and either drop them on an "
+"addressbook to import into it, or on an empty spot to create a new "
+"addressbook and import into that.<br />You can also import by clicking on "
+"the import button at the bottom of the list.</p>"
+msgstr "<h3>No teniu contactes a la llibreta d'adreces.</h3><p>Podeu importar fitxers VCF arrossegant-los a la llista de contactes i deixant-los, o bé en una llibreta d'adreces per importar-les allà, o en un espai buit per crear una llibreta d'adreces nova i importar-les allà.<br />També podeu fer clic al botó per importar al final de la lliesta.</p>"
 
-#: templates/part.no_contacts.php:5
+#: templates/part.no_contacts.php:9
 msgid "Add contact"
 msgstr "Afegeix un contacte"
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
 msgstr "Selecccioneu llibretes d'adreces"
-
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "Escriviu un nom"
 
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
@@ -909,46 +1051,26 @@ msgstr "Adreça primària (Kontact i al)"
 msgid "iOS/OS X"
 msgstr "iOS/OS X"
 
-#: templates/settings.php:20
-msgid "Show CardDav link"
-msgstr "Mostra l'enllaç CardDav"
+#: templates/settings.php:9
+msgid "Addressbooks"
+msgstr "Llibretes d'adreces"
 
-#: templates/settings.php:23
-msgid "Show read-only VCF link"
-msgstr "Mostra l'enllaç VCF només de lectura"
-
-#: templates/settings.php:26
+#: templates/settings.php:35
 msgid "Share"
 msgstr "Comparteix"
 
-#: templates/settings.php:29
-msgid "Download"
-msgstr "Baixa"
-
-#: templates/settings.php:33
-msgid "Edit"
-msgstr "Edita"
-
-#: templates/settings.php:43
+#: templates/settings.php:57
 msgid "New Address Book"
 msgstr "Nova llibreta d'adreces"
 
-#: templates/settings.php:44
+#: templates/settings.php:58
 msgid "Name"
 msgstr "Nom"
 
-#: templates/settings.php:45
+#: templates/settings.php:59
 msgid "Description"
 msgstr "Descripció"
 
-#: templates/settings.php:46
+#: templates/settings.php:60
 msgid "Save"
 msgstr "Desa"
-
-#: templates/settings.php:47
-msgid "Cancel"
-msgstr "Cancel·la"
-
-#: templates/settings.php:52
-msgid "More..."
-msgstr "Més..."

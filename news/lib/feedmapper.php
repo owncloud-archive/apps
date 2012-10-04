@@ -20,11 +20,13 @@ class FeedMapper {
 	const tableName = '*PREFIX*news_feeds';
 	private $userid;
 
-	public function __construct($userid = null){
+	public function __construct($userid = null) {
 		if ($userid !== null) {
 			$this->userid = $userid;
 		}
-		$this->userid = \OCP\USER::getUser();
+		else {
+			$this->userid = \OCP\USER::getUser();
+		}
 	}
 
 	/**
@@ -32,7 +34,7 @@ class FeedMapper {
 	 * @param row a row from the feeds table of the database
 	 * @returns an object of the class OCA\News\Feed
 	 */
-	public function fromRow($row){
+	public function fromRow($row) {
 		$url = $row['url'];
 		$title = $row['title'];
 		$id = $row['id'];
@@ -48,10 +50,10 @@ class FeedMapper {
 	 * @param userid
 	 * @returns
 	 */
-	public function findAll(){
+	public function findAll() {
 		$query = 'SELECT * FROM ' . self::tableName;
 		$params = array();
-		if( $this->userid ){
+		if( $this->userid ) {
 			$query = $query.' WHERE user_id = ?';
 			$params[] = $this->userid;
 		}
@@ -75,7 +77,7 @@ class FeedMapper {
 	 * @param id The id of the feed in the database table.
 	 * @returns
 	 */
-	public function findById($id){
+	public function findById($id) {
 		$stmt = \OCP\DB::prepare('SELECT * FROM ' . self::tableName . ' WHERE id = ?');
 		$result = $stmt->execute(array($id));
 		if(!$row = $result->fetchRow())
@@ -89,7 +91,7 @@ class FeedMapper {
 	 * @param folderid The id of the folder in the database table.
 	 * @returns a list of feeds
 	 */
-	public function findByFolderId($folderid){
+	public function findByFolderId($folderid) {
 		$stmt = \OCP\DB::prepare('SELECT * FROM ' . self::tableName . ' WHERE user_id = ? AND folder_id = ?');
 		$result = $stmt->execute(array($this->userid, $folderid));
 		$feeds = array();
@@ -106,14 +108,14 @@ class FeedMapper {
 	 * @param id The id of the feed in the database table.
 	 * @returns an instance of OCA\News\Feed
 	 */
-	public function findWithItems($id){
+	public function findWithItems($id) {
 		$stmt = \OCP\DB::prepare('SELECT * FROM ' . self::tableName . ' WHERE id = ?');
 		$result = $stmt->execute(array($id));
 		$row = $result->fetchRow();
 		
 		$feed = self::fromRow($row);
 		$itemMapper = new ItemMapper();
-		$items = $itemMapper->findAll($id);
+		$items = $itemMapper->findById($id);
 		$feed->setItems($items);
 
 		return $feed;
@@ -125,25 +127,25 @@ class FeedMapper {
 	 * @return id of the feed corresponding to the url passed as parameters
 	 *	null - if there is no such feed
 	 */
-	public function findIdFromUrl($url){
+	public function findIdFromUrl($url) {
 		$url_hash = md5($url);
 		$stmt = \OCP\DB::prepare('SELECT * FROM ' . self::tableName . ' WHERE url_hash = ?');
 		$result = $stmt->execute(array($url_hash));
 		$row = $result->fetchRow();
 		$id = null;
-		if ($row != null){
+		if ($row != null) {
 			$id = $row['id'];
 		}
 		return $id;
 	}
 
-	public function mostRecent(){
+	public function mostRecent() {
 		//FIXME: does something like SELECT TOP 1 * exists in pear/mdb2 ??
 		$stmt = \OCP\DB::prepare('SELECT * FROM ' . self::tableName . ' ORDER BY lastmodified');
 		$result = $stmt->execute();
 		$row = $result->fetchRow();
 		$id = null;
-		if ($row != null){
+		if ($row != null) {
 			$id = $row['id'];
 		}
 		return $id;
@@ -155,16 +157,7 @@ class FeedMapper {
 	 * @returns The id of the feed in the database table.
 	 */
 	 //TODO: handle error case
-	public function save(Feed $feed, $folderid){
-		$CONFIG_DBTYPE = \OCP\Config::getSystemValue( "dbtype", "sqlite" );
-		if( $CONFIG_DBTYPE == 'sqlite' or $CONFIG_DBTYPE == 'sqlite3' ){
-			$_ut = "strftime('%s','now')";
-		} elseif($CONFIG_DBTYPE == 'pgsql') {
-			$_ut = 'date_part(\'epoch\',now())::integer';
-		} else {
-			$_ut = "UNIX_TIMESTAMP()";
-		}
-
+	public function save(Feed $feed, $folderid) {
 		$title = $feed->getTitle();
 		$url = $feed->getUrl();
 		$url_hash = md5($url);
@@ -178,11 +171,11 @@ class FeedMapper {
 		
 		//FIXME: Detect when feed contains already a database id
 		$feedid =  $this->findIdFromUrl($url);
-		if ($feedid === null){
+		if ($feedid === null) {
 			$query = \OCP\DB::prepare("
 				INSERT INTO " . self::tableName .
 				"(url, url_hash, title, favicon_link, folder_id, user_id, added, lastmodified)
-				VALUES (?, ?, ?, ?, ?, ?, $_ut, $_ut)
+				VALUES (?, ?, ?, ?, ?, ?, UNIX_TIMESTAMP(), UNIX_TIMESTAMP())
 				");
 
 			$params=array(
@@ -201,13 +194,13 @@ class FeedMapper {
 		//update the db. it needs to be done, since it might be the first save after a full fetch
 			$stmt = \OCP\DB::prepare('
 					UPDATE ' . self::tableName .
-					' SET favicon_link = ? , lastmodified = ? 
+					' SET favicon_link = ? , lastmodified = UNIX_TIMESTAMP() , folder_id = ?
 					WHERE id = ?
 					');
 				
 			$params=array(
 				$favicon,
-				$_ut,
+				$folderid,
 				$feedid
 				);
 			$stmt->execute($params);		
@@ -218,7 +211,7 @@ class FeedMapper {
 
 		$items = $feed->getItems();
 		if ($items !== null) {
-			foreach($items as $item){
+			foreach($items as $item) {
 				$itemMapper->save($item, $feedid);
 			}
 		}
@@ -227,7 +220,7 @@ class FeedMapper {
 	}
 	
 
-	public function deleteById($id){
+	public function deleteById($id) {
 		if ($id == null) {
 			return false;
 		}
@@ -242,12 +235,12 @@ class FeedMapper {
 		return true;
 	}
 	
-	public function delete(Feed $feed){
+	public function delete(Feed $feed) {
 		$id = $feed->getId();
 		return deleteById($id);
 	}
 
-	public function deleteAll($folderid){
+	public function deleteAll($folderid) {
 		if ($folderid == null) {
 			return false;
 		}

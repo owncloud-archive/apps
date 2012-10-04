@@ -45,7 +45,7 @@ class OC_Connector_Sabre_CalDAV_CalendarObject extends Sabre_CalDAV_CalendarObje
 		$uid = OC_Calendar_Calendar::extractUserID($this->getOwner());
 
 		if($uid != OCP\USER::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $this->$calendarInfo['id']);
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $this->calendarInfo['id']);
 			if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_READ)) {
 				$readprincipal = 'principals/' . OCP\USER::getUser();
 			}

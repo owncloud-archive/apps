@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Documentation" => "Dokumentace"
+"Documentation" => "Dokumentace",
+"No Impress files are found in your ownCloud. Please upload a .impress file." => "Nebyly nalezeny žádné soubory impress ve Vašem ownCloud. Nahrajte, prosím, soubor impress."
 );

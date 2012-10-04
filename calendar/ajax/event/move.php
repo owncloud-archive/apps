@@ -5,16 +5,12 @@
  * later.
  * See the COPYING-README file.
  */
- 
+
 OCP\JSON::checkLoggedIn();
 OCP\JSON::callCheck();
 
 $id = $_POST['id'];
-$access = OC_Calendar_App::getaccess($id, OC_Calendar_App::EVENT);
-if($access != 'owner' && $access != 'rw'){
-	OCP\JSON::error(array('message'=>'permission denied'));
-	exit;
-}
+
 $vcalendar = OC_Calendar_App::getVCalendar($id, false, false);
 $vevent = $vcalendar->VEVENT;
 
@@ -28,11 +24,11 @@ $dtstart = $vevent->DTSTART;
 $dtend = OC_Calendar_Object::getDTEndFromVEvent($vevent);
 $start_type = $dtstart->getDateType();
 $end_type = $dtend->getDateType();
-if ($allday && $start_type != Sabre_VObject_Property_DateTime::DATE){
+if ($allday && $start_type != Sabre_VObject_Property_DateTime::DATE) {
 	$start_type = $end_type = Sabre_VObject_Property_DateTime::DATE;
 	$dtend->setDateTime($dtend->getDateTime()->modify('+1 day'), $end_type);
 }
-if (!$allday && $start_type == Sabre_VObject_Property_DateTime::DATE){
+if (!$allday && $start_type == Sabre_VObject_Property_DateTime::DATE) {
 	$start_type = $end_type = Sabre_VObject_Property_DateTime::LOCALTZ;
 }
 $dtstart->setDateTime($dtstart->getDateTime()->add($delta), $start_type);
@@ -42,6 +38,12 @@ unset($vevent->DURATION);
 $vevent->setDateTime('LAST-MODIFIED', 'now', Sabre_VObject_Property_DateTime::UTC);
 $vevent->setDateTime('DTSTAMP', 'now', Sabre_VObject_Property_DateTime::UTC);
 
-$result = OC_Calendar_Object::edit($id, $vcalendar->serialize());
+try {
+	OC_Calendar_Object::edit($id, $vcalendar->serialize());
+} catch(Exception $e) {
+	OCP\JSON::error(array('message'=>$e->getMessage()));
+	exit;
+}
+
 $lastmodified = $vevent->__get('LAST-MODIFIED')->getDateTime();
 OCP\JSON::success(array('lastmodified'=>(int)$lastmodified->format('U')));

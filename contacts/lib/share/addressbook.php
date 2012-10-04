@@ -44,7 +44,7 @@ class OC_Share_Backend_Addressbook implements OCP\Share_Backend_Collection {
 		foreach(OC_Contacts_Addressbook::all($shareWith) as $user_addressbook) {
 			$user_addressbooks[] = $user_addressbook['displayname'];
 		}
-		$name = $addressbook['userid']."'s ".$addressbook['displayname'];
+		$name = $addressbook['displayname'];
 		$suffix = '';
 		while (in_array($name.$suffix, $user_addressbooks)) {
 			$suffix++;
@@ -82,13 +82,13 @@ class OC_Share_Backend_Addressbook implements OCP\Share_Backend_Collection {
 	}
 
 	public function getChildren($itemSource) {
-		$query = OCP\DB::prepare('SELECT `id` FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ?');
+		$query = OCP\DB::prepare('SELECT `id`, `fullname` FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ?');
 		$result = $query->execute(array($itemSource));
-		$sources = array();
+		$children = array();
 		while ($contact = $result->fetchRow()) {
-			$sources[] = $contact['id'];
+			$children[] = array('source' => $contact['id'], 'target' => $contact['fullname']);
 		}
-		return $sources;
+		return $children;
 	}
 
 }

@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
- 
+
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('contacts');
 require_once 'loghandler.php';

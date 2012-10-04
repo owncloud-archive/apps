@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <didi.debian@cknow.org>, 2012.
 # Richard Bos <radoeka@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-25 02:04+0200\n"
-"PO-Revision-Date: 2012-08-24 19:06+0000\n"
+"POT-Creation-Date: 2012-09-12 02:01+0200\n"
+"PO-Revision-Date: 2012-09-11 17:25+0000\n"
 "Last-Translator: Richard Bos <radoeka@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: appinfo/app.php:14
 msgid "Bookmarks"
@@ -25,6 +26,10 @@ msgstr "Bladwijzers"
 #: bookmarksHelper.php:99
 msgid "unnamed"
 msgstr "geen naam"
+
+#: lib/search.php:43
+msgid "Bookm."
+msgstr "Bladw."
 
 #: templates/bookmarklet.php:5
 msgid ""
@@ -50,12 +55,12 @@ msgstr "Tags"
 
 #: templates/list.php:16
 msgid "Save bookmark"
-msgstr "Bewaar bookmark"
+msgstr "Bewaar bladwijzer"
 
 #: templates/list.php:22
 msgid "You have no bookmarks"
-msgstr "U heeft geen bookmarks"
+msgstr "U heeft geen bladwijzers"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
-msgstr ""
+msgstr "Bookmarklet <br />"

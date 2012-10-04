@@ -1,12 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "Imagini",
-"Settings" => "Setări",
-"Rescan" => "Re-scanează",
-"Stop" => "Stop",
-"Share" => "Partajează",
-"Back" => "Înapoi",
-"Remove confirmation" => "Șterge confirmarea",
-"Do you want to remove album" => "Vrei să ștergi albumul",
-"Change album name" => "Schimbă numele albumului",
-"New album name" => "Nume nou album"
+"Galleries" => "Galerii",
+"Share gallery" => "Împărtășește galaria",
+"Error: " => "Eroare:",
+"Internal error" => "Eroare internă",
+"Slideshow" => "Diaporamă",
+"The \"Image Viewer\" application also need to be enabled to use this application." => "Și aplicația \"Vizualizator imagini\" trebuie, de asemenea, să fie activată pentru a putea folosi această aplicație."
 );

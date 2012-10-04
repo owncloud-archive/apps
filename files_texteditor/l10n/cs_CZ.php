@@ -1,8 +1,7 @@
 <?php $TRANSLATIONS = array(
-"regex" => "regex",
 "Save" => "Uložit",
 "Close" => "Zavřít",
-"Saving..." => "Ukládá se...",
-"An error occurred!" => "Nastala chyba!",
-"There were unsaved changes, click here to go back" => "Změny nejsou uloženy, klikněte sem pro návrat"
+"Saving..." => "Ukládám...",
+"An error occurred!" => "Nastala chyba.",
+"There were unsaved changes, click here to go back" => "Existují neuložené změny, klikněte zde pro návrat"
 );

@@ -6,6 +6,7 @@
 "Timezone changed" => "Zon waktu diubah",
 "Invalid request" => "Permintaan tidak sah",
 "Calendar" => "Kalendar",
+"Editable" => "Boleh disunting",
 "ddd" => "ddd",
 "ddd M/d" => "dd M/d",
 "dddd M/d" => "dddd M/d",
@@ -88,8 +89,6 @@
 "Today" => "Hari ini",
 "Your calendars" => "Kalendar anda",
 "CalDav Link" => "Pautan CalDav",
-"Shared calendars" => "Kalendar Kongsian",
-"No shared calendars" => "Tiada kalendar kongsian",
 "Share Calendar" => "Kongsi Kalendar",
 "Download" => "Muat turun",
 "Edit" => "Edit",
@@ -146,11 +145,5 @@
 "at" => "di",
 "Timezone" => "Zon waktu",
 "24h" => "24h",
-"12h" => "12h",
-"Users" => "Pengguna",
-"select users" => "Pilih pengguna",
-"Editable" => "Boleh disunting",
-"Groups" => "Kumpulan-kumpulan",
-"select groups" => "pilih kumpulan-kumpulan",
-"make public" => "jadikan tontonan awam"
+"12h" => "12h"
 );

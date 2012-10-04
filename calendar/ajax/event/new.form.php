@@ -6,14 +6,14 @@
  * See the COPYING-README file.
  */
 
- 
+
 
 if(!OCP\User::isLoggedIn()) {
 	die('<script type="text/javascript">document.location = oc_webroot;</script>');
 }
 OCP\JSON::checkAppEnabled('calendar');
 
-if (!isset($_POST['start'])){
+if (!isset($_POST['start'])) {
 	OCP\JSON::error();
 	die;
 }
@@ -21,7 +21,7 @@ $start = $_POST['start'];
 $end = $_POST['end'];
 $allday = $_POST['allday'];
 
-if (!$end){
+if (!$end) {
 	$duration = OCP\Config::getUserValue( OCP\USER::getUser(), 'calendar', 'duration', '60');
 	$end = $start + ($duration * 60);
 }
@@ -31,7 +31,19 @@ $timezone = OC_Calendar_App::getTimezone();
 $start->setTimezone(new DateTimeZone($timezone));
 $end->setTimezone(new DateTimeZone($timezone));
 
-$calendar_options = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
+$calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
+$calendar_options = array();
+
+foreach($calendars as $calendar) {
+	if($calendar['userid'] != OCP\User::getUser()) {
+		$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $calendar['id']);
+		if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+			array_push($calendar_options, $calendar);
+		}
+	} else {
+		array_push($calendar_options, $calendar);
+	}
+}
 $repeat_options = OC_Calendar_App::getRepeatOptions();
 $repeat_end_options = OC_Calendar_App::getEndOptions();
 $repeat_month_options = OC_Calendar_App::getMonthOptions();

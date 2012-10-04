@@ -23,7 +23,7 @@ class OC_Connector_Sabre_Auth_ro_oauth extends Sabre_DAV_Auth_Backend_AbstractBa
 	 *
 	 * @return bool
 	 */
-	protected function validateUserPass($username, $password){
+	protected function validateUserPass($username, $password) {
 		//always give read-only:
 		if(($_SERVER['REQUEST_METHOD'] == 'OPTIONS')
 		    || (isset($this->validTokens[$password]))
@@ -67,4 +67,3 @@ class OC_Connector_Sabre_Auth_ro_oauth extends Sabre_DAV_Auth_Backend_AbstractBa
 	}
 
 } 
-

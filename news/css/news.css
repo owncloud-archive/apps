@@ -40,316 +40,302 @@ div.add_parentfolder {
     font-size:1.5em; 
     color:#777; 
 }
-    
-    #firstrun table {
-        margin: auto;
-    }
 
     #firstrun small { display: block; font-weight: normal; font-size: 0.8em; margin: .5em 0 1em 0; }
     #firstrun .button { font-size: 0.7em; }
 
     #firstrun #selections { 
         font-size:0.8em; 
-        margin: 2em auto 2em auto; 
+        margin: 2em auto 2em 10em; 
         clear: both; 
     }
-
-    #addfeedbtn { 
-        background-image: url('%appswebroot%/news/img/rss.svg'); 
-        background-position: .5em center;
-        background-repeat: no-repeat;
-        padding-left: 1.8em; 
+    
+    #firstrun #feed_add_url { width:20em; }
+    
+    #firstrun #selections #addfeed_dialog_firstrun, #firstrun #selections #importopml_dialog_firstrun {
+	width:40em;
+	border:1px solid;
+	border-color: gray;
+	border-radius:10px;
+	-moz-border-radius:10px; /* Firefox 3.6 and earlier */
     }
-
-    #importopmlbtn { 
-        background-image: url('%appswebroot%/news/img/opml-icon.svg'); 
-        background-position: .5em center;
-        background-repeat: no-repeat;
-        padding-left: 1.8em; 
+    
+    #firstrun #selections #addfeed_dialog_firstrun {
+    	height:5em;
     }
-
-
+    
+    #firstrun #selections #importopml_dialog_firstrun {
+    	height:4em;
+    }
+    
 /* feed/folder list */
-#leftcontent { 
+#leftcontent_news { 
     width: 20em; 
     margin: 0; 
-    z-index: 0;
+    height: 100%;
     position: relative;
     overflow: hidden;
-    top: 0;
-    bottom: 0;
-}
-
-
-#feeds { 
-    background-color: #f8f8f8; 
-    position: absolute;
-    top: 0;
-    bottom: 2.8em;
-    left: 0;
-    right: 0;
+    border-right: 1px solid #ccc;
+    background-color: #f8f8f8;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
 
+
+#feed_wrapper { 
+    background-color: #f8f8f8; 
+    position: relative;
+    top: 0;
+    height: 100%;
+    padding-bottom: 2.8em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+#feeds {
+    height: 100%;
+    overflow: auto;
+    background-color: #eee;
+    color: #333;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+    #feeds .unread_items_counter {
+        display: none;
+    }
+
     #feeds > ul {
-        height: 100%;
-        overflow: auto;     
+        min-height: 100%;
+        overflow-x: hidden;
+    }
+
+    .dnd_over {
+        -moz-transition: padding-bottom 500ms ease 0s;
+        -o-transition: padding-bottom 500ms ease 0s;
+        -webkit-transition: padding-bottom 500ms ease 0s;
+        -ms-transition: padding-bottom 500ms ease 0s;
+        transition: padding-bottom 500ms ease 0s;    
     }
     
-    .dnd_over {
-        -moz-transition: background-color 200ms ease 0s;
-        transition: background-color 200ms ease 0s; 
-        background-color: #d0d0d0! important;
+    #feeds > ul.dnd_over {
+
     }
     .dnd_over > ul {
-        padding-bottom: 2.5em;
         -moz-transition: padding-bottom 500ms ease 0s;
-        transition: padding-bottom 500ms ease 0s; 
+        -o-transition: padding-bottom 500ms ease 0s;
+        -webkit-transition: padding-bottom 500ms ease 0s;
+        -ms-transition: padding-bottom 500ms ease 0s;
+        transition: padding-bottom 500ms ease 0s;
+        padding-bottom: 2.5em! important;
+
+    }
+    #feeds > ul ul.dnd_over {
+        -moz-transition: padding-bottom 500ms ease 0s;
+        -o-transition: padding-bottom 500ms ease 0s;
+        -webkit-transition: padding-bottom 500ms ease 0s;
+        -ms-transition: padding-bottom 500ms ease 0s;
+        transition: padding-bottom 500ms ease 0s;
+        padding-bottom: 2.5em !important;
+    }    
+
+    .all_read {
+        font-weight: normal !important;
+    }
+
+
+    #feeds .buttons {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: none;
+    }
+
+        #feeds .buttons button {
+            margin: .6em .3em 0 0;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #feeds li:hover > .buttons {
+            display: block;
+        }
+
+        #feeds .buttons button.feeds_delete {
+            background-image: url('%webroot%/core/img/actions/delete.svg'); 
+        }
+
+        #feeds .buttons button.feeds_edit {
+            background-image: url('%webroot%/core/img/actions/rename.svg'); 
+        }
+
+        #feeds .buttons button.feeds_markread {
+            background-image: url('%appswebroot%/news/img/mark_read.svg'); 
+        }
+
+    #feeds button.collapsable_trigger {
+        position: absolute;
+        left: .5em;
+        top: .4em;
+        background: none;
+        background-image: url('%webroot%/core/img/actions/triangle-s.svg'); 
+        background-repeat: no-repeat;
+        background-size: 16px 16px;
+        height: 16px;
+        width: 16px;
+        border: none;
+        border-radius: 0;
+        outline: none !important;
+        box-shadow: none;
+        -moz-box-shadow: none;
+        display: none;
+        -moz-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -ms-transform:rotate(-90deg);
+        -o-transform:rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    #feeds .open .collapsable_trigger {
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -ms-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+        #feeds .folder.collapsable:hover button.collapsable_trigger {
+            display: block;
+        }
+
+    #feeds li {
+        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #fff;
+        padding: 0;
+        font-weight: bold ;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        width: 100%;
+        position: relative;
+    }
+
+    #feeds li.active { 
+        background: none !important;
+        background-color: #d0d0d0 !important;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ddd;
+        font-style: oblique;
+    }
+
+        #feeds li a.title {
+            color: #333;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            display: block;
+            padding-left: 2em;
+            padding: 0 .5em 0 2.5em;
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+            background-position: .7em center;
+            line-height: 2.5em;
+        }
+
+            #feeds li:hover > a.title {
+                padding-right: 4em !important;
+            }
+
+            #feeds li.folder:hover > a.title {
+                padding-right: 5.5em !important;
+            }
+
+        #feeds .starred a.title {
+            background-image: url('%appswebroot%/news/img/starred.png'); 
+        }
+
+        #feeds .subscriptions a.title {
+            background-image: url('%appswebroot%/news/img/rss.svg'); 
+        }
+
+    #feeds .feed {
+        border-bottom: 1px solid #ccc;
+    }
+
+    #feeds li:hover, #feeds li:active, .ui-draggable-dragging {
+        background-color: #ddd;
+        border-bottom: 1px solid #ccc !important;
+        border-top: 1px solid #d4d4d4 !important;
     }
 
     #feeds .folder {
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        padding: .5em 0 .5em 2.5em !important;
-        background-color: #dfdfdf !important;
-        font-weight: bold ;
-        border-bottom: 1px solid #bbb !important;
-        position: relative;
-        z-index: 1;
+        padding: 0;
     }
 
-        #feeds .folder a {
-            float: none;
-            display: inline-block;
-            position: relative;
+        #feeds .folder > a.title {
+            background-image: url('%webroot%/core/img/places/folder.svg');
         }
 
-        #feeds .folder:hover {
-            background-color: #d0d0d0 !important;
-            -moz-transition: background-color 200ms ease 0s;
-            transition: background-color 200ms ease 0s;    
+        #feeds .folder.collapsable:hover a {
+            background-image: none;
         }
 
-    #feeds .subscriptions, #feeds .subscriptions:hover {
-        background-image: url('%appswebroot%/news/img/rss.svg'); 
-        background-repeat: no-repeat;
-        background-size: 16px 16px;
-        background-position: .8em center;
+    #feeds .folder.collapsable ul {
+        display: none;
     }
 
-    #feeds .starred, #feeds .starred:hover {
-        background-image: url('%appswebroot%/news/img/starred.svg'); 
-        background-repeat: no-repeat;
-        background-size: 16px 16px;
-        background-position: .8em center;
-        
+    #feeds .folder.collapsable.open ul {
+        display: block;
     }
 
-        #feeds .subscriptions a, #feeds .starred a {
-            display: inline-block;
-            width: 75%;
-        }
-
-    #feeds li.feed { 
-        position: relative; 
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        border-bottom: 1px solid #ccc;
-        padding-left: 2.5em;
-        -moz-transition: background-color 200ms ease 0s;
-        transition: background-color 200ms ease 0s;
-        background-color: #f1f1f1;
-        z-index: 1;
-        background-size:16px 16px;
-        background-repeat: no-repeat;
-        background-position: .8em center;
+    #feeds .folder.collapsable.open {
+        padding: 0;
+        background-image: linear-gradient(top, rgb(238,238,238) 0%, rgb(245,245,245) 100%);
+        background-image: -o-linear-gradient(top, rgb(238,238,238) 0%, rgb(245,245,245) 100%);
+        background-image: -moz-linear-gradient(top, rgb(238,238,238) 0%, rgb(245,245,245) 100%);
+        background-image: -webkit-linear-gradient(top, rgb(238,238,238) 0%, rgb(245,245,245) 100%);
+        background-image: -ms-linear-gradient(top, rgb(238,238,238) 0%, rgb(245,245,245) 100%);
     }
-    
-        #feeds li.feed a { 
-            display: inline-block;
-            overflow: hidden; 
-            text-overflow: ellipsis; 
-            text-align: left; 
-            width: 85%; 
-            font-weight: bold; 
-        }
-                
-        #feeds li.feed a.all_read, #feeds .all_read { 
-            font-weight: normal; 
+
+        #feeds .folder.collapsable.open:hover {
+            -webkit-box-shadow: inset 0 0 3px #cccccc;
+            box-shadow: inset 0 0 3px #cccccc;
         }
 
-        #feeds li#selected_feed { 
-            background-color: #ffffff !important;
-	    font-style: oblique;
-        }
 
-        #feeds li.feed.updating {
-            padding-right: 21px;
-            background-image: url('%webroot%/core/img/loader.gif');
-            background-size: 16px 16px;
-            background-repeat: no-repeat;
-            background-position: right center;
-        }
-        
-        #feeds li.feed:hover { 
-            background-color: #ddd;
-        }
-
-            #feeds li.feed .feeds_delete, 
-            #feeds li.feed .feeds_edit {
-                display: none;
-		border: none;
-            }
-
-            #feeds li.feed:hover .unreaditemcounter {
-                display: none;
-            }
-
-            #feeds li.feed:hover .feeds_delete, 
-            #feeds li.feed:hover .feeds_edit, 
-            #feeds .collapsable:hover .feeds_delete, 
-            #feeds .collapsable:hover .feeds_edit {
-                display: inline-block;
-            }
-
-        #feeds .feeds_delete { 
-            position: absolute; 
-            right: 0.2em; 
-            background: url('%webroot%/core/img/actions/delete.svg') no-repeat center; 
-            display: none; 
-            padding: 0; 
-            margin: -8px 0 0 0; 
-            top: 50%; 
-        }
-        
-        #feeds .feeds_edit { 
-            position: absolute; 
-            right: 1.6em; 
-            background: url('%webroot%/core/img/actions/rename.svg') no-repeat center; 
-            display: none; 
-            padding: 0; 
-            margin: -8px 0 0 0; 
-            top: 50%; 
-        }
-
-        #feeds .unreaditemcounter { 
-            position: relative; 
-            top: .3em;
-            right: .3em;
-            background: #5E5E5E; 
-            border-radius: 5px; 
-            padding: 2px 5px; 
-            color: white; 
-            text-align: center; 
-            font-weight: normal;
-            margin: 0;
-            display: none;
-        }
-        
-            #feeds .unreaditemcounter.all_read { 
-                display: none !important;
-            }
-
-        #feeds li.collapsable_container { 
-            background-color: #dfdfdf;
-            font-weight: bold;
-            padding: 0;
+        #feeds .folder.open ul li {
             border: 0;
-            border-bottom: 1px solid #bbb;
-            position: relative;
-            z-index: 1;
+            border-top: 1px solid rgba(0,0,0,0);
+            border-bottom: 1px solid rgba(0,0,0,0);
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
         }
 
-        #feeds li.collapsable_container.open { 
-            background-image: linear-gradient(bottom, rgb(208,208,208) 0%, rgb(222,222,222) 100%);
-            background-image: -o-linear-gradient(bottom, rgb(208,208,208) 0%, rgb(222,222,222) 100%);
-            background-image: -moz-linear-gradient(bottom, rgb(208,208,208) 0%, rgb(222,222,222) 100%);
-            background-image: -webkit-linear-gradient(bottom, rgb(208,208,208) 0%, rgb(222,222,222) 100%);
-            background-image: -ms-linear-gradient(bottom, rgb(208,208,208) 0%, rgb(222,222,222) 100%);
-            font-weight: bold;
-            padding: 0;
-            border: 0;
-            border-bottom: 1px solid #bbb;
-            border-top: 1px solid #bbb;
-            -webkit-box-shadow: inset 0 0 5px -1px #bbb;
-            box-shadow: inset 0 0 5px -1px #bbb; 
-        }
-
-            #feeds li.collapsable_container:hover { 
-                background-color: #d0d0d0;
-                -moz-transition: background-color 200ms ease 0s;
-                transition: background-color 200ms ease 0s;
-            }
-        
-
-
-        #feeds li.collapsable_container.open > ul { 
-            margin: 0 8px 8px 8px; 
-            position: relative;
-            z-index: 1;
-        }
-
-            #feeds li.collapsable_container > ul > li {
-                border: 1px solid #ccc;
-                border-bottom: 0;
+            #feeds .folder.open ul li a.title {
+                padding-left: 4.3em;
+                padding-right: .5em;
+                background-position: 2.5em center;
             }
 
-            #feeds li.collapsable_container > ul > li:last-child {
-                border: 1px solid #ccc;
-            }            
-
-        #feeds div.collapsable { 
-            position: relative;
-            z-index: 1; 
-            border-radius: 5px; 
-        }
-
-        
-        #feeds .collapsable_trigger { 
-            border: none ; 
-            margin: 0 0 0 .8em; 
-            padding: 0; 
-            border-radius: 0; 
-            box-shadow: none; 
-            vertical-align: middle !important; 
-            background: url('%webroot%/core/img/places/folder.svg') no-repeat; 
-            outline: none;
-            opacity: 1; 
-        }
-
-        #feeds .collapsable_container:hover .collapsable_trigger.triggerable {
-            background-image: url('%webroot%/core/img/actions/triangle-s.svg');
-            -moz-transform: none;
-            transform: none;
-        }
-
-        #feeds .collapsable_container:hover .collapsable_trigger.triggered {
-            background-image: url('%webroot%/core/img/actions/triangle-s.svg');
-            -moz-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-        }
-        
-        #feeds .collapsable_title { 
-            padding: .5em 0 .5em .5em; 
-            line-height: 1.5em;
-            float: none;
-            display: inline-block;
-            position: relative;
-        }
 
 
 /* feed settings */
 #feed_settings { 
     padding: 0; 
-    bottom: 0px; 
+    bottom: 0; 
     overflow:visible; 
     height:2.8em; 
     width: 20em; 
     margin:0; 
+    z-index: 2;
     background:#eee; 
-    border-top:1px 
-    solid #ccc; 
+    border-top: 1px solid #ccc; 
+    border-right: 1px solid #ccc; 
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
     position:fixed; 
 }
     
@@ -384,16 +370,16 @@ div.add_parentfolder {
     #feed_settings #view button {
         padding-top: .2em;
         background-size: 80%;
-        background-position: center;
+        background-position: center center;
         background-repeat: no-repeat;
     }
 
     #feed_settings #view.show_all button {
-        background-image: url('%appswebroot%/news/img/eye_all.svg'); 
+        background-image: url('%appswebroot%/news/img/eye_all.png'); 
     }
 
     #feed_settings #view.show_unread button {
-        background-image: url('%appswebroot%/news/img/eye_unread.svg'); 
+        background-image: url('%appswebroot%/news/img/eye_unread.png'); 
     }
 
     #feed_settings #addfeedfolder {
@@ -421,6 +407,7 @@ div.add_parentfolder {
             background:-o-linear-gradient(#DCDCDC, #EEEEEE); 
             background:linear-gradient(#DCDCDC, #EEEEEE); 
             position:fixed; 
+            z-index: 6;
             margin-left: 0; 
             bottom: 2.8em; 
             border-left:1px solid #ccc; 
@@ -450,7 +437,7 @@ div.add_parentfolder {
     top: 3.5em !important; 
     box-sizing: border-box; 
     -moz-box-sizing: border-box; 
-    left: 32.6em;
+    left: 32.5em;
     overflow: hidden;
 }
 
@@ -487,8 +474,13 @@ div.add_parentfolder {
             background-image: -webkit-linear-gradient(top, rgb(248,248,248) 0, rgb(255,255,255) 6em);
             background-image: -ms-linear-gradient(top, rgb(248,248,248) 0, rgb(255,255,255) 6em);
             padding: 2.5em 0 0 0;
-	    cursor: default;
+	        cursor: default;
         }
+
+        .feed_item.viewed {
+            border-right: 5px solid #F28627;
+        }
+
 
         .feed_item:first-child {
             border-top: 0;
@@ -578,7 +570,11 @@ div.add_parentfolder {
             .feed_item h2.item_author {
                 color: #aaa;
                 font-size: 1.1em;
-                margin-left: 3em;
+                margin: .2em 0 0 3em;
+            }
+
+            .timestamp {
+                display: none;
             }
 
             /**
@@ -595,10 +591,11 @@ div.add_parentfolder {
              * Body of the feed item
              */
             .feed_item div.body { 
-                overflow: hidden;
-                padding: .5em 3em 0 3em; 
+                padding: .75em 3em 0 3em; 
                 max-width: 55em;
                 font-size: 1.1em;
+                clear: both;
+                overflow: auto;
             }
 
                 .feed_item div.body p { 
@@ -606,8 +603,16 @@ div.add_parentfolder {
                     margin: .5em 0 1em 0;
                 }
 
-                .feed_item div.body img {
-                    max-width: 55em;
+                .feed_item div.body img, .feed_item div.body table {
+                    max-width: 100%;
+                    height: auto;
+                    overflow: auto;
+                    word-wrap: break-word;
+                }
+
+                .feed_item div.body > img:first-child {
+                    padding: 0 1em 0 0;
+                    float: left;
                 }
 
                 .feed_item div.body h1, .feed_item div.body h2 {
@@ -654,7 +659,7 @@ div.add_parentfolder {
                     padding: .5em .5em .5em 1em; 
                     background-color: #dadada; 
                     border: 1px solid #ccc; 
-                    margin: .5em 0;
+                    margin: .5em 0 1em 0;
                     background-image: linear-gradient(top, rgb(215,215,215) 0%, rgb(220,220,220) 100%);
                     background-image: -o-linear-gradient(top, rgb(215,215,215) 0%, rgb(220,220,220) 100%);
                     background-image: -moz-linear-gradient(top, rgb(215,215,215) 0%, rgb(220,220,220) 100%);
@@ -706,11 +711,15 @@ div.add_parentfolder {
                 }
 
 /* dialog/menues */
-div.dialog { 
-    overflow: visible; 
+#addfolder_dialog, #addfeed_dialog, #changefolder_dialog {
+    display: none;
 }
 
-#dropdownBtn { 
+.ui-dialog tbody tr:hover, .ui-dialog tr:active {
+    background: none !important;
+}
+
+.dropdownBtn { 
     width: 12.5em; 
     padding-left: 0; 
     padding-right:20px; 
@@ -719,7 +728,7 @@ div.dialog {
     overflow: hidden;
 }
 
-ul#dropdownmenu { 
+ul.dropdownmenu { 
     left: 0em; 
 }
 
@@ -750,6 +759,3 @@ ul.menu {
     left: 33.3em;
     /*left: 3.8em;*/
 }
-
-
-

@@ -6,42 +6,39 @@
 # Jesse Jaara <jesse.jaara@gmail.com>, 2012.
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2012.
 # Johannes Korpela <>, 2012.
+#   <tehoratopato@gmail.com>, 2012.
 #   <tscooter@hotmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-24 02:02+0200\n"
-"PO-Revision-Date: 2012-08-24 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 12:19+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi_FI\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:32
+#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
-msgstr ""
+msgstr "Virhe osoitekirjan (de)aktivoinnissa "
 
-#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:20
+#: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
 #: ajax/contact/saveproperty.php:39
 msgid "id is not set."
-msgstr ""
+msgstr "Tunnistetta (ID) ei ole asetettu."
 
-#: ajax/addressbook/update.php:24
+#: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
-msgstr ""
-
-#: ajax/addressbook/update.php:28
-msgid "Error updating addressbook."
-msgstr "Virhe päivitettäessä osoitekirjaa."
+msgstr "Osoitekirjaa ei voida päivittää, koska nimi on tyhjä."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
-msgstr ""
+msgstr "Tunnistetta (ID) ei ole tarjottu"
 
 #: ajax/categories/categoriesfor.php:34
 msgid "Error setting checksum."
@@ -59,17 +56,13 @@ msgstr "Osoitekirjoja ei löytynyt."
 msgid "No contacts found."
 msgstr "Yhteystietoja ei löytynyt."
 
-#: ajax/contact/add.php:47
-msgid "There was an error adding the contact."
-msgstr "Virhe yhteystietoa lisättäessä."
-
 #: ajax/contact/addproperty.php:39 ajax/contact/saveproperty.php:36
 msgid "element name is not set."
-msgstr ""
+msgstr "kohteen nimeä ei ole asetettu."
 
 #: ajax/contact/addproperty.php:46
 msgid "Could not parse contact: "
-msgstr ""
+msgstr "Ei kyetä tulkitsemaan yhteystietoa:"
 
 #: ajax/contact/addproperty.php:56
 msgid "Cannot add empty property."
@@ -81,15 +74,15 @@ msgstr "Vähintään yksi osoitekenttä tulee täyttää."
 
 #: ajax/contact/addproperty.php:76
 msgid "Trying to add duplicate property: "
-msgstr ""
+msgstr "Yritetään lisätä kaksinkertainen ominaisuus"
 
 #: ajax/contact/addproperty.php:115 ajax/contact/saveproperty.php:93
 msgid "Missing IM parameter."
-msgstr ""
+msgstr "Puuttuva IM-arvo."
 
 #: ajax/contact/addproperty.php:119 ajax/contact/saveproperty.php:97
 msgid "Unknown IM: "
-msgstr ""
+msgstr "Tuntematon IM-arvo."
 
 #: ajax/contact/deleteproperty.php:37
 msgid "Information about vCard is incorrect. Please reload the page."
@@ -97,7 +90,7 @@ msgstr "vCardin tiedot eivät kelpaa. Lataa sivu uudelleen."
 
 #: ajax/contact/details.php:31
 msgid "Missing ID"
-msgstr ""
+msgstr "Puuttuva tunniste (ID)"
 
 #: ajax/contact/details.php:36
 msgid "Error parsing VCard for ID: \""
@@ -105,24 +98,24 @@ msgstr "Virhe jäsennettäessä vCardia tunnisteelle: \""
 
 #: ajax/contact/saveproperty.php:42
 msgid "checksum is not set."
-msgstr ""
+msgstr "tarkistussummaa ei ole asetettu."
 
 #: ajax/contact/saveproperty.php:62
 msgid "Information about vCard is incorrect. Please reload the page: "
-msgstr ""
+msgstr "vCard osoitetietueen tiedot ovat virheelliset. Virkistä sivu uudestaan: "
 
 #: ajax/contact/saveproperty.php:69
 msgid "Something went FUBAR. "
-msgstr ""
+msgstr "Jokin meni pahasti pieleen."
 
 #: ajax/currentphoto.php:30 ajax/oc_photo.php:28 ajax/uploadphoto.php:36
 #: ajax/uploadphoto.php:68
 msgid "No contact ID was submitted."
-msgstr ""
+msgstr "Yhteystiedon tunnistetta (ID) ei lähetetty."
 
 #: ajax/currentphoto.php:36
 msgid "Error reading contact photo."
-msgstr ""
+msgstr "Virhe yhteystiedon kuvan lukemisessa."
 
 #: ajax/currentphoto.php:48
 msgid "Error saving temporary file."
@@ -130,11 +123,11 @@ msgstr "Virhe tallennettaessa tilapäistiedostoa."
 
 #: ajax/currentphoto.php:51
 msgid "The loading photo is not valid."
-msgstr ""
+msgstr "Kuvatiedosto on kelvoton."
 
 #: ajax/editname.php:31
 msgid "Contact ID is missing."
-msgstr ""
+msgstr "Yhteystiedon tunniste (ID) puuttuu."
 
 #: ajax/oc_photo.php:32
 msgid "No photo path was submitted."
@@ -150,11 +143,11 @@ msgstr "Virhe kuvaa ladatessa."
 
 #: ajax/savecrop.php:69
 msgid "Error getting contact object."
-msgstr ""
+msgstr "Virhe yhteystieto-objektin saamisessa."
 
 #: ajax/savecrop.php:79
 msgid "Error getting PHOTO property."
-msgstr ""
+msgstr "Virhe KUVA ominaisuuden saamisessa."
 
 #: ajax/savecrop.php:98
 msgid "Error saving contact."
@@ -174,11 +167,11 @@ msgstr "Virhe luotaessa väliaikaista kuvaa"
 
 #: ajax/savecrop.php:118
 msgid "Error finding image: "
-msgstr ""
+msgstr "Virhe. Ei löydetä kuvaa:"
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
-msgstr ""
+msgstr "Virhe yhteystietojen lataamisessa talletettavaksi."
 
 #: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
@@ -192,7 +185,7 @@ msgstr "Lähetetyn tiedoston koko ylittää upload_max_filesize-asetuksen arvon 
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
+msgstr "Ladattavan tiedoston maksimikoko ylittää MAX_FILE_SIZE dirketiivin, joka on määritelty HTML-lomakkeessa"
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
@@ -218,90 +211,177 @@ msgstr "Väliaikaiskuvan lataus epäonnistui:"
 msgid "No file was uploaded. Unknown error"
 msgstr "Tiedostoa ei lähetetty. Tuntematon virhe"
 
-#: appinfo/app.php:21
+#: appinfo/app.php:25
 msgid "Contacts"
 msgstr "Yhteystiedot"
 
 #: js/contacts.js:71
 msgid "Sorry, this functionality has not been implemented yet"
-msgstr ""
+msgstr "Sori, tätä toiminnallisuutta ei ole vielä toteutettu"
 
 #: js/contacts.js:71
 msgid "Not implemented"
-msgstr ""
+msgstr "Ei toteutettu"
 
 #: js/contacts.js:76
 msgid "Couldn't get a valid address."
-msgstr ""
+msgstr "Ei kyetä saamaan kelvollista osoitetta."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:381 js/contacts.js:393
-#: js/contacts.js:723 js/contacts.js:763 js/contacts.js:789 js/contacts.js:921
-#: js/contacts.js:927 js/contacts.js:939 js/contacts.js:976
-#: js/contacts.js:1250 js/contacts.js:1258 js/contacts.js:1267
-#: js/contacts.js:1302 js/contacts.js:1338 js/contacts.js:1353
-#: js/contacts.js:1379 js/contacts.js:1609 js/contacts.js:1644
-#: js/contacts.js:1664 js/settings.js:26 js/settings.js:43 js/settings.js:68
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
+#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
+#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
+#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
+#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
+#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
+#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
+#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
+#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
+#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
+#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "Virhe"
 
-#: js/contacts.js:424
-msgid "You do not have permission to add contacts to "
-msgstr ""
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr "Anna sähköpostiosoite."
 
-#: js/contacts.js:425
-msgid "Please select one of your own address books."
-msgstr ""
+#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "Anna nimi"
 
-#: js/contacts.js:425
-msgid "Permission error"
-msgstr ""
+#: js/contacts.js:177 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "Itsemääritelty muoto, lyhyt nimi, pitkä nimi, vastakkainen tai vastakkainen pilkun kanssa"
 
-#: js/contacts.js:763
-msgid "This property has to be non-empty."
-msgstr ""
-
-#: js/contacts.js:789
-msgid "Couldn't serialize elements."
-msgstr ""
-
-#: js/contacts.js:921 js/contacts.js:939
-msgid ""
-"'deleteProperty' called without type argument. Please report at "
-"bugs.owncloud.org"
-msgstr ""
-
-#: js/contacts.js:958
-msgid "Edit name"
-msgstr "Muokkaa nimeä"
-
-#: js/contacts.js:1250
-msgid "No files selected for upload."
-msgstr "Tiedostoja ei ole valittu lähetettäväksi."
-
-#: js/contacts.js:1258
-msgid ""
-"The file you are trying to upload exceed the maximum size for file uploads "
-"on this server."
-msgstr ""
-
-#: js/contacts.js:1322
-msgid "Error loading profile picture."
-msgstr "Virhe profiilikuvaa ladatessa."
-
-#: js/contacts.js:1457 js/contacts.js:1498 js/contacts.js:1517
-#: js/contacts.js:1560
+#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
+#: js/contacts.js:1482 js/contacts.js:1525
 msgid "Select type"
 msgstr "Valitse tyyppi"
 
-#: js/contacts.js:1578
+#: js/contacts.js:214
+msgid "Select photo"
+msgstr "Valitse valokuva"
+
+#: js/contacts.js:406
+msgid "You do not have permission to add contacts to "
+msgstr "Sinulla ei ole oikeuksia lisätä yhteystietoja tänne:"
+
+#: js/contacts.js:407
+msgid "Please select one of your own address books."
+msgstr "Valitse jokin omista osoitekirjoistasi."
+
+#: js/contacts.js:407
+msgid "Permission error"
+msgstr "Käyttöoikeusvirhe"
+
+#: js/contacts.js:481
+msgid "Click to undo deletion of \""
+msgstr ""
+
+#: js/contacts.js:495
+msgid "Cancelled deletion of: \""
+msgstr ""
+
+#: js/contacts.js:725
+msgid "This property has to be non-empty."
+msgstr "Tämä ominaisuus ei saa olla tyhjä."
+
+#: js/contacts.js:751
+msgid "Couldn't serialize elements."
+msgstr "Ei kyetä sarjallistamaan elementtejä."
+
+#: js/contacts.js:762
+msgid "Unknown error. Please check logs."
+msgstr "Tuntematon virhe. Tarkista lokitiedostot."
+
+#: js/contacts.js:883 js/contacts.js:901
+msgid ""
+"'deleteProperty' called without type argument. Please report at "
+"bugs.owncloud.org"
+msgstr "'poistaOminaisuus' kutsuttu ilman tyyppiä. Kerro virheestä bugs.owncloud.org"
+
+#: js/contacts.js:920
+msgid "Edit name"
+msgstr "Muokkaa nimeä"
+
+#: js/contacts.js:1212
+msgid "No files selected for upload."
+msgstr "Tiedostoja ei ole valittu lähetettäväksi."
+
+#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
+msgid ""
+"The file you are trying to upload exceed the maximum size for file uploads "
+"on this server."
+msgstr "Tiedosto, jota yrität ladata ylittää suurimman sallitun koon tällä palvelimella."
+
+#: js/contacts.js:1284
+msgid "Error loading profile picture."
+msgstr "Virhe profiilikuvaa ladatessa."
+
+#: js/contacts.js:1543
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Jotkin yhteystiedot on merkitty poistettaviksi, mutta niitä ei ole vielä poistettu. Odota hetki, että kyseiset yhteystiedot poistetaan."
 
-#: js/contacts.js:1649
+#: js/contacts.js:1614
 msgid "Do you want to merge these address books?"
 msgstr "Haluatko yhdistää nämä osoitekirjat?"
+
+#: js/contacts.js:1767
+msgid "Shared by "
+msgstr ""
+
+#: js/contacts.js:2000 js/contacts.js:2075
+msgid "Upload too large"
+msgstr "Lähetettävä tiedosto on liian suuri"
+
+#: js/contacts.js:2004
+msgid "Only image files can be used as profile picture."
+msgstr "Profiilikuvaksi voi asettaa vain kuvatiedostoja."
+
+#: js/contacts.js:2004
+msgid "Wrong file type"
+msgstr "Väärä tiedostotyyppi"
+
+#: js/contacts.js:2010
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr "Selaimesi ei tue AJAX-lähetyksiä. Napsauta profiilikuvaa valitaksesi lähetettävän valokuvan."
+
+#: js/contacts.js:2068
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr "Tiedoston lähetys epäonnistui, koska sen koko on 0 tavua tai kyseessä on kansio."
+
+#: js/contacts.js:2068
+msgid "Upload Error"
+msgstr "Lähetysvirhe"
+
+#: js/contacts.js:2123
+msgid "Pending"
+msgstr "Odottaa"
+
+#: js/contacts.js:2155
+msgid "Import done"
+msgstr "Tuonti valmis"
+
+#: js/contacts.js:2168
+msgid "Not all files uploaded. Retrying..."
+msgstr "Kaikkia tiedostoja ei lähetetty. Yritetään uudelleen..."
+
+#: js/contacts.js:2174
+msgid "Something went wrong with the upload, please retry."
+msgstr "Jokin meni vikaan lähettäessä. Yritä uudelleen."
+
+#: js/contacts.js:2190
+msgid "Importing..."
+msgstr "Tuodaan..."
+
+#: js/contacts.js:2211
+msgid "The address book name cannot be empty."
+msgstr "Osoitekirjan nimi ei voi olla tyhjä"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -315,9 +395,64 @@ msgstr " tuotu, "
 msgid " failed."
 msgstr " epäonnistui."
 
-#: js/settings.js:68
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "Näyttönimi ei voi olla tyhjä."
+
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "Näytä CardDav-linkki"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "Näytä vain luku -muodossa oleva VCF-linkki"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "Lataa"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "Poista"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "Peru"
+
+#: js/settings.js:157 templates/settings.php:66
+msgid "More..."
+msgstr "Lisää..."
+
+#: js/settings.js:161
+msgid "Less..."
+msgstr "Vähemmän..."
+
+#: lib/addressbook.php:138
+msgid "You do not have the permissions to read this addressbook."
+msgstr "Käyttöoikeutesi eivät riitä tämän osoitekirjan lukuun."
+
+#: lib/addressbook.php:239
+msgid "You do not have the permissions to update this addressbook."
+msgstr "Oikeutesi eivät riitä tämän osoitekirjan päivittämiseen."
+
+#: lib/addressbook.php:259
+msgid "There was an error updating the addressbook."
+msgstr "Virhe osoitekirjaa päivittäessä."
+
+#: lib/addressbook.php:315
+msgid "You do not have the permissions to delete this addressbook."
+msgstr "Oikeutesi eivät riitä tämän osoitekirjan poistamiseen."
+
+#: lib/addressbook.php:344
+msgid "There was an error deleting this addressbook."
+msgstr "Virhe osoitekirjaa poistaessa."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -387,7 +522,7 @@ msgstr "Työ"
 msgid "Home"
 msgstr "Koti"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:593
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
 msgid "Other"
 msgstr "Muu"
 
@@ -434,43 +569,43 @@ msgstr "Työ"
 
 #: lib/app.php:254
 msgid "Call"
-msgstr ""
+msgstr "Kutsu"
 
 #: lib/app.php:255
 msgid "Clients"
-msgstr ""
+msgstr "Asiakkaat"
 
 #: lib/app.php:256
 msgid "Deliverer"
-msgstr ""
+msgstr "Toimittaja"
 
 #: lib/app.php:257
 msgid "Holidays"
-msgstr ""
+msgstr "Vapaapäivät"
 
 #: lib/app.php:258
 msgid "Ideas"
-msgstr ""
+msgstr "Ideat"
 
 #: lib/app.php:259
 msgid "Journey"
-msgstr ""
+msgstr "Matka"
 
 #: lib/app.php:260
 msgid "Jubilee"
-msgstr ""
+msgstr "Juhla"
 
 #: lib/app.php:261
 msgid "Meeting"
-msgstr ""
+msgstr "Kokous"
 
 #: lib/app.php:263
 msgid "Personal"
-msgstr ""
+msgstr "Henkilökohtainen"
 
 #: lib/app.php:264
 msgid "Projects"
-msgstr ""
+msgstr "Projektit"
 
 #: lib/app.php:265
 msgid "Questions"
@@ -484,85 +619,101 @@ msgstr "Henkilön {name} syntymäpäivä"
 msgid "Contact"
 msgstr "Yhteystieto"
 
-#: lib/vcard.php:408
-msgid "You do not have the permissions to edit this contact."
-msgstr ""
+#: lib/vcard.php:301
+msgid "You do not have the permissions to add contacts to this addressbook."
+msgstr "Sinulla ei ole oikeuksia lisätä yhteystietoja tähän osoitekirjaan."
 
-#: lib/vcard.php:483
+#: lib/vcard.php:405
+msgid "Could not find the vCard with ID."
+msgstr "Ei löydy VCard osoitetietuetta, jossa on tunniste ID:"
+
+#: lib/vcard.php:430
+msgid "You do not have the permissions to edit this contact."
+msgstr "Käyttöoikeutesi eivät riitä tämän yhteystiedon muokkaukseen."
+
+#: lib/vcard.php:501
+msgid "Could not find the vCard with ID: "
+msgstr "Ei löydy VCard osoitetietuetta, jossa on tunniste ID:"
+
+#: lib/vcard.php:509
+msgid "Could not find the Addressbook with ID: "
+msgstr "Ei löydy osoitekirjaa, jossa on tunniste ID:"
+
+#: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
-msgstr ""
+msgstr "Käyttöoikeutesi eivät riitä tämän yhteystiedon poistamiseen."
+
+#: lib/vcard.php:550
+msgid "There was an error deleting this contact."
+msgstr "Tämän yhteystiedon poistamisessa tapahtui virhe"
 
 #: templates/index.php:14
 msgid "Add Contact"
 msgstr "Lisää yhteystieto"
 
-#: templates/index.php:15 templates/index.php:16 templates/part.import.php:17
+#: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
 msgstr "Tuo"
 
-#: templates/index.php:18
+#: templates/index.php:16
 msgid "Settings"
 msgstr "Asetukset"
 
-#: templates/index.php:18 templates/settings.php:9
-msgid "Addressbooks"
-msgstr "Osoitekirjat"
-
-#: templates/index.php:36 templates/part.import.php:24
+#: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
 msgstr "Sulje"
 
-#: templates/index.php:37
+#: templates/index.php:31
 msgid "Keyboard shortcuts"
 msgstr "Pikanäppäimet"
 
-#: templates/index.php:39
+#: templates/index.php:33
 msgid "Navigation"
-msgstr ""
+msgstr "Suunnistus"
 
-#: templates/index.php:42
+#: templates/index.php:36
 msgid "Next contact in list"
 msgstr "Seuraava yhteystieto luettelossa"
 
-#: templates/index.php:44
+#: templates/index.php:38
 msgid "Previous contact in list"
 msgstr "Edellinen yhteystieto luettelossa"
 
-#: templates/index.php:46
+#: templates/index.php:40
 msgid "Expand/collapse current addressbook"
-msgstr ""
+msgstr "Laajenna/supista nykyinen osoitekirja"
 
-#: templates/index.php:48
+#: templates/index.php:42
 msgid "Next addressbook"
 msgstr "Seuraava osoitekirja"
 
-#: templates/index.php:50
+#: templates/index.php:44
 msgid "Previous addressbook"
 msgstr "Edellinen osoitekirja"
 
-#: templates/index.php:54
+#: templates/index.php:48
 msgid "Actions"
 msgstr "Toiminnot"
 
-#: templates/index.php:57
+#: templates/index.php:51
 msgid "Refresh contacts list"
 msgstr "Päivitä yhteystietoluettelo"
 
-#: templates/index.php:59
+#: templates/index.php:53
 msgid "Add new contact"
 msgstr "Lisää uusi yhteystieto"
 
-#: templates/index.php:61
+#: templates/index.php:55
 msgid "Add new addressbook"
 msgstr "Lisää uusi osoitekirja"
 
-#: templates/index.php:63
+#: templates/index.php:57
 msgid "Delete current contact"
 msgstr "Poista nykyinen yhteystieto"
 
 #: templates/part.contact.php:17
 msgid "Drop photo to upload"
-msgstr ""
+msgstr "Ladataksesi pudota kuva"
 
 #: templates/part.contact.php:19
 msgid "Delete current photo"
@@ -580,10 +731,6 @@ msgstr "Lähetä uusi valokuva"
 msgid "Select photo from ownCloud"
 msgstr "Valitse valokuva ownCloudista"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr ""
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
 msgstr "Muokkaa nimitietoja"
@@ -592,12 +739,6 @@ msgstr "Muokkaa nimitietoja"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Organisaatio"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:36
-msgid "Delete"
-msgstr "Poista"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -621,7 +762,7 @@ msgstr "Siirry verkkosivulle"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"
-msgstr ""
+msgstr "pp-kk-vvvv"
 
 #: templates/part.contact.php:47 templates/part.contact.php:135
 msgid "Groups"
@@ -670,7 +811,7 @@ msgstr "Pikaviestin"
 
 #: templates/part.contact.php:101
 msgid "Delete IM"
-msgstr ""
+msgstr "Poista IM"
 
 #: templates/part.contact.php:110
 msgid "View on map"
@@ -698,7 +839,7 @@ msgstr "Sähköposti"
 
 #: templates/part.contact.php:131
 msgid "Instant Messaging"
-msgstr ""
+msgstr "Pikaviestintä"
 
 #: templates/part.contact.php:132
 msgid "Address"
@@ -760,7 +901,7 @@ msgstr "Alue"
 
 #: templates/part.edit_address_dialog.php:45
 msgid "E.g. state or province"
-msgstr ""
+msgstr "Esim. maakunta tai alue"
 
 #: templates/part.edit_address_dialog.php:48
 msgid "Zipcode"
@@ -781,31 +922,31 @@ msgstr "Osoitekirja"
 
 #: templates/part.edit_name_dialog.php:23
 msgid "Hon. prefixes"
-msgstr ""
+msgstr "Kunnianarvoisa etuliite"
 
 #: templates/part.edit_name_dialog.php:27
 msgid "Miss"
-msgstr ""
+msgstr "Neiti"
 
 #: templates/part.edit_name_dialog.php:28
 msgid "Ms"
-msgstr ""
+msgstr "Neiti"
 
 #: templates/part.edit_name_dialog.php:29
 msgid "Mr"
-msgstr ""
+msgstr "Herra"
 
 #: templates/part.edit_name_dialog.php:30
 msgid "Sir"
-msgstr ""
+msgstr "Herra"
 
 #: templates/part.edit_name_dialog.php:31
 msgid "Mrs"
-msgstr ""
+msgstr "Rouva"
 
 #: templates/part.edit_name_dialog.php:32
 msgid "Dr"
-msgstr ""
+msgstr "Tohtori"
 
 #: templates/part.edit_name_dialog.php:35
 msgid "Given name"
@@ -821,39 +962,39 @@ msgstr "Sukunimi"
 
 #: templates/part.edit_name_dialog.php:41
 msgid "Hon. suffixes"
-msgstr ""
+msgstr "Kunnianarvoisa jälkiliite"
 
 #: templates/part.edit_name_dialog.php:45
 msgid "J.D."
-msgstr ""
+msgstr "J.D."
 
 #: templates/part.edit_name_dialog.php:46
 msgid "M.D."
-msgstr ""
+msgstr "M.D."
 
 #: templates/part.edit_name_dialog.php:47
 msgid "D.O."
-msgstr ""
+msgstr "D.O."
 
 #: templates/part.edit_name_dialog.php:48
 msgid "D.C."
-msgstr ""
+msgstr "D.C."
 
 #: templates/part.edit_name_dialog.php:49
 msgid "Ph.D."
-msgstr ""
+msgstr "Fil. Tri"
 
 #: templates/part.edit_name_dialog.php:50
 msgid "Esq."
-msgstr ""
+msgstr "Esq."
 
 #: templates/part.edit_name_dialog.php:51
 msgid "Jr."
-msgstr ""
+msgstr "Jr."
 
 #: templates/part.edit_name_dialog.php:52
 msgid "Sn."
-msgstr ""
+msgstr "Sr."
 
 #: templates/part.import.php:1
 msgid "Import a contacts file"
@@ -876,20 +1017,21 @@ msgid "Importing contacts"
 msgstr "Tuodaan yhteystietoja"
 
 #: templates/part.no_contacts.php:3
-msgid "You have no contacts in your addressbook."
-msgstr "Osoitekirjassasi ei ole yhteystietoja."
+msgid ""
+"<h3>You have no contacts in your addressbook.</h3><p>You can import VCF "
+"files by dragging them to the contacts list and either drop them on an "
+"addressbook to import into it, or on an empty spot to create a new "
+"addressbook and import into that.<br />You can also import by clicking on "
+"the import button at the bottom of the list.</p>"
+msgstr ""
 
-#: templates/part.no_contacts.php:5
+#: templates/part.no_contacts.php:9
 msgid "Add contact"
 msgstr "Lisää yhteystieto"
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
 msgstr "Valitse osoitekirjat"
-
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "Anna nimi"
 
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
@@ -901,56 +1043,36 @@ msgstr "CardDAV-synkronointiosoitteet"
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr ""
+msgstr "lisää tietoa"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "Varsinainen osoite (yhteystiedot jne.)"
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
 msgstr "iOS/OS X"
 
-#: templates/settings.php:20
-msgid "Show CardDav link"
-msgstr "Näytä CardDav-linkki"
+#: templates/settings.php:9
+msgid "Addressbooks"
+msgstr "Osoitekirjat"
 
-#: templates/settings.php:23
-msgid "Show read-only VCF link"
-msgstr "Näytä vain luku -muodossa oleva VCF-linkki"
-
-#: templates/settings.php:26
+#: templates/settings.php:35
 msgid "Share"
 msgstr "Jaa"
 
-#: templates/settings.php:29
-msgid "Download"
-msgstr "Lataa"
-
-#: templates/settings.php:33
-msgid "Edit"
-msgstr "Muokkaa"
-
-#: templates/settings.php:43
+#: templates/settings.php:57
 msgid "New Address Book"
 msgstr "Uusi osoitekirja"
 
-#: templates/settings.php:44
+#: templates/settings.php:58
 msgid "Name"
 msgstr "Nimi"
 
-#: templates/settings.php:45
+#: templates/settings.php:59
 msgid "Description"
 msgstr "Kuvaus"
 
-#: templates/settings.php:46
+#: templates/settings.php:60
 msgid "Save"
 msgstr "Tallenna"
-
-#: templates/settings.php:47
-msgid "Cancel"
-msgstr "Peru"
-
-#: templates/settings.php:52
-msgid "More..."
-msgstr "Lisää..."

@@ -9,7 +9,7 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 	<li><a href="#tabs-2"><?php echo $l->t('Repeating'); ?></a></li>
 	<!--<li><a href="#tabs-3"><?php echo $l->t('Alarm'); ?></a></li>
 	<li><a href="#tabs-4"><?php echo $l->t('Attendees'); ?></a></li>-->
-	<?php if($_['access'] == 'owner' && $_['eventid'] != 'new') { ?>
+	<?php if($_['eventid'] != 'new' && $_['permissions'] & OCP\Share::PERMISSION_SHARE) { ?>
 	<li><a href="#tabs-5"><?php echo $l->t('Share'); ?></a></li>
 	<?php } ?>
 </ul>
@@ -52,7 +52,7 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 		<tr>
 			<th width="75px"></th>
 			<td>
-				<input onclick="Calendar.UI.lockTime();" type="checkbox"<?php if($_['allday']){echo 'checked="checked"';} ?> id="allday_checkbox" name="allday">
+				<input onclick="Calendar.UI.lockTime();" type="checkbox"<?php if($_['allday']) {echo 'checked="checked"';} ?> id="allday_checkbox" name="allday">
 				<label for="allday_checkbox"><?php echo $l->t("All Day Event");?></label>
 			</td>
 		</tr>
@@ -222,7 +222,7 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 						<select id="end" name="end">
 							<?php
 							if($_['repeat_end'] == '') $_['repeat_end'] = 'never';
-							echo OCP\html_select_options($_['repeat_end_options'], $_['repeat_end']); 
+							echo OCP\html_select_options($_['repeat_end_options'], $_['repeat_end']);
 							?>
 						</select>
 					</td>
@@ -244,8 +244,8 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 </div>
 <!--<div id="tabs-3">//Alarm</div>
 <div id="tabs-4">//Attendees</div>-->
-<?php if($_['access'] == 'owner') { ?>
+<?php if($_['eventid'] != 'new' && $_['permissions'] & OCP\Share::PERMISSION_SHARE) { ?>
 <div id="tabs-5">
-	<?php if($_['eventid'] != 'new'){ echo $this->inc('share.dropdown'); } ?>
+	<?php if($_['eventid'] != 'new') { echo $this->inc('part.share'); } ?>
 </div>
 <?php } ?>

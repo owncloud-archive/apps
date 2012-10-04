@@ -21,12 +21,12 @@
  * 
  */
 
-require_once('lib/impress.php');
+require_once 'lib/impress.php';
 
 OCP\User::checkLoggedIn();
 OCP\JSON::checkAppEnabled('impress');
+OCP\Util::addStyle( 'impress', 'style' );
 OCP\App::setActiveNavigationEntry( 'impress_index' );
-
 
 
 $list=\OCA_Impress\Storage::getPresentations();
@@ -34,5 +34,3 @@ $list=\OCA_Impress\Storage::getPresentations();
 $tmpl = new OCP\Template('impress', 'presentations', 'user');
 $tmpl->assign('list', $list);
 $tmpl->printPage();
-
-

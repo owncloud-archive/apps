@@ -17,8 +17,52 @@ if (version_compare($installedVersion, '0.2.1', '<')) {
 }
 if (version_compare($installedVersion, '0.5', '<')) {
 	$calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
-	foreach($calendars as $calendar){
+	foreach($calendars as $calendar) {
 		OC_Calendar_Repeat::cleanCalendar($calendar['id']);
 		OC_Calendar_Repeat::generateCalendar($calendar['id']);
+	}
+}
+if ($installedVersion == '0.6') {
+	// the update script in this version was not correct
+	// also sharing of calendars did not work
+	//$query = OCP\DB::prepare("DELETE FROM `*PREFIX*share` WHERE `item_type` IN ('calendar', 'event')");
+	//$query->execute();
+}
+if (version_compare($installedVersion, '0.6.1', '<=')) {
+	$calendar_stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_share_calendar`');
+	$calendar_result = $calendar_stmt->execute();
+	while( $cal = $calendar_result->fetchRow()) {
+		$shareType = OCP\Share::SHARE_TYPE_USER;
+		if ($cal['sharetype'] == 'group') {
+			$shareType = OCP\Share::SHARE_TYPE_GROUP;
+		}
+		else if ($cal['sharetype'] == 'public') {
+			$shareType = OCP\Share::SHARE_TYPE_LINK;
+		}
+		OC_User::setUserId($cal['owner']);
+		try {
+			OCP\Share::shareItem('calendar', $cal['calendarid'], $shareType, $cal['share'], $cal['permissions']?31:17); // CRUDS:RS
+		}
+		catch (Exception $e) {
+			// nothing to do, the exception is already written to the log
+		}
+	}
+	$event_stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_share_event`');
+	$event_result = $event_stmt->execute();
+	while( $event = $event_result->fetchRow()) {
+		$shareType = OCP\Share::SHARE_TYPE_USER;
+		if ($event['sharetype'] == 'group') {
+			$shareType = OCP\Share::SHARE_TYPE_GROUP;
+		}
+		else if ($event['sharetype'] == 'public') {
+			$shareType = OCP\Share::SHARE_TYPE_LINK;
+		}
+		OC_User::setUserId($event['owner']);
+		try {
+			OCP\Share::shareItem('event', $event['eventid'], $shareType, $event['share'], $event['permissions']?31:17); // CRUDS:RS
+		}
+		catch (Exception $e) {
+			// nothing to do, the exception is already written to the log
+		}
 	}
 }

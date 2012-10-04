@@ -7,7 +7,7 @@ echo('<div id="controls">
 	');
 
 if(empty($_['list'])) {
-	echo('<div id="emptyfolder">No Impress files are found in your ownCloud. Please upload a .impress file.</div>');
+	echo('<div id="emptyfolder">'.$l->t('No Impress files are found in your ownCloud. Please upload a .impress file.').'</div>');
 } else {
 	echo('<table class="impresslist" >');
 	foreach($_['list'] as $entry) {

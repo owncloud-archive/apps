@@ -6,6 +6,7 @@
 "Timezone changed" => "Tidssone endret",
 "Invalid request" => "Ugyldig forespørsel",
 "Calendar" => "Kalender",
+"Editable" => "Redigerbar",
 "Birthday" => "Bursdag",
 "Business" => "Forretninger",
 "Call" => "Ring",
@@ -81,8 +82,6 @@
 "Today" => "I dag",
 "Your calendars" => "Dine kalendere",
 "CalDav Link" => "CalDav-lenke",
-"Shared calendars" => "Delte kalendere",
-"No shared calendars" => "Ingen delte kalendere",
 "Share Calendar" => "Del Kalender",
 "Download" => "Last ned",
 "Edit" => "Endre",
@@ -137,11 +136,5 @@
 "No categories selected" => "Ingen kategorier valgt",
 "Timezone" => "Tidssone",
 "24h" => "24 t",
-"12h" => "12 t",
-"Users" => "Brukere",
-"select users" => "valgte brukere",
-"Editable" => "Redigerbar",
-"Groups" => "Grupper",
-"select groups" => "velg grupper",
-"make public" => "gjør offentlig"
+"12h" => "12 t"
 );

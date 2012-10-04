@@ -6,6 +6,7 @@
 "Timezone changed" => "Fuso horario trocado",
 "Invalid request" => "Petición non válida",
 "Calendar" => "Calendario",
+"Editable" => "Editable",
 "ddd" => "ddd",
 "ddd M/d" => "ddd M/d",
 "dddd M/d" => "dddd M/d",
@@ -88,8 +89,6 @@
 "Today" => "Hoxe",
 "Your calendars" => "Os seus calendarios",
 "CalDav Link" => "Ligazón CalDav",
-"Shared calendars" => "Calendarios compartidos",
-"No shared calendars" => "Sen calendarios compartidos",
 "Share Calendar" => "Compartir calendario",
 "Download" => "Descargar",
 "Edit" => "Editar",
@@ -146,11 +145,5 @@
 "at" => "a",
 "Timezone" => "Fuso horario",
 "24h" => "24h",
-"12h" => "12h",
-"Users" => "Usuarios",
-"select users" => "escoller usuarios",
-"Editable" => "Editable",
-"Groups" => "Grupos",
-"select groups" => "escoller grupos",
-"make public" => "facer público"
+"12h" => "12h"
 );

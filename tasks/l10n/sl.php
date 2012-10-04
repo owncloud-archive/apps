@@ -9,6 +9,7 @@
 "Empty Summary" => "Prazen povzetek",
 "Invalid percent complete" => "Neveljaven odstotek dokončanja",
 "Invalid priority" => "Neveljavna prednost",
+"The calendar application also need to be enabled to use this application." => "Za uporabo te aplikacije mora biti koledar omogočen.",
 "Add Task" => "Dodaj opravilo",
 "Order Due" => "Razvrsti po roku",
 "Order List" => "Razvrsti v seznam",

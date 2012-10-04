@@ -3,27 +3,28 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Xosé M. Lamas <correo.xmgz@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-13 23:12+0200\n"
-"PO-Revision-Date: 2012-08-12 22:45+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-09-19 02:03+0200\n"
+"PO-Revision-Date: 2012-09-18 09:55+0000\n"
+"Last-Translator: Xosé M. Lamas <correo.xmgz@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gl\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr ""
+msgstr "Este é un final do servidor OpenID. Para máis información, vexa"
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
-msgstr ""
+msgstr "Identidade: <b>"
 
 #: templates/nomode.php:15
 msgid "Realm: <b>"
@@ -31,24 +32,24 @@ msgstr ""
 
 #: templates/nomode.php:16
 msgid "User: <b>"
-msgstr ""
+msgstr "Usuario: <b>"
 
 #: templates/nomode.php:17
 msgid "Login"
-msgstr ""
+msgstr "Conexión"
 
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"
-msgstr ""
+msgstr "Erro:<b>Sen usuario seleccionado"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
-msgstr ""
+msgstr "pode autenticarse en outros sitios con este enderezo"
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"
-msgstr ""
+msgstr "Fornecedor OpenID autorizado"
 
 #: templates/settings.php:6
 msgid "Your address at Wordpress, Identi.ca, &hellip;"
-msgstr ""
+msgstr "O seu enderezo en Wordpress, Identi.ca, &hellip;"

@@ -14,6 +14,7 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('news');
 OCP\JSON::callCheck();
+session_write_close();
 
 $userid = OCP\USER::getUser();
 
@@ -30,4 +31,3 @@ if($feeds == null) {
 }
 
 OCP\JSON::success(array('data' => $feeds));
-

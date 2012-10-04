@@ -35,6 +35,6 @@ OC_Util::addScript($app_id, 'actlink.min');
 OC_Util::addScript('3rdparty','chosen/chosen.jquery.min');
 OC_Util::addStyle('3rdparty','chosen/chosen');
 
-if(!OC_App::isEnabled('files_sharing')){
+if(!OC_App::isEnabled('files_sharing')) {
 	OC_Util::addStyle($app_id,'styles');
 }

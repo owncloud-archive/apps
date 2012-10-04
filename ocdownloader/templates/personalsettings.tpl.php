@@ -27,7 +27,7 @@
 	<fieldset class="personalblock">
 		<strong>ocDownloader</strong>
 		<input type="hidden" id="ocdownloader" name="ocdownloader" value="1" />
-		<?php foreach($_['pr_list'] as $p){ ?>
+		<?php foreach($_['pr_list'] as $p) { ?>
 		<div>
 			<div style="float:left;width:100px;margin-top:8px;">
 				<label><?php print($p['pr_name']); ?></label>
@@ -39,8 +39,8 @@
 	</fieldset>
 </form>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$('.ocdownloader-delete').bind('click', function(){
+	$(document).ready(function() {
+		$('.ocdownloader-delete').bind('click', function() {
 			$('#ocdownloader_pr_un_' + $(this).attr('rel')).val('');
 			$('#ocdownloader_pr_pw_' + $(this).attr('rel')).val('');
 		});

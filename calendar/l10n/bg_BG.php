@@ -41,8 +41,6 @@
 "List" => "Списък",
 "Today" => "Днес",
 "Your calendars" => "Вашите календари",
-"Shared calendars" => "Споделени календари",
-"No shared calendars" => "Няма споделени календари",
 "Share Calendar" => "Споделяне на календар",
 "Download" => "Изтегляне",
 "Edit" => "Промяна",
@@ -79,6 +77,5 @@
 "Create a new event" => "Ново събитие",
 "View an event" => "Преглед на събитие",
 "No categories selected" => "Няма избрани категории",
-"Timezone" => "Часова зона",
-"Groups" => "Групи"
+"Timezone" => "Часова зона"
 );
