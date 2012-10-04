@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-04 02:04+0200\n"
+"PO-Revision-Date: 2012-10-03 08:07+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -242,7 +242,7 @@ msgstr "Errorea"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "Mesedez sartu eposta helbidea."
 
 #: js/contacts.js:176 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -259,7 +259,7 @@ msgstr "Hautatu mota"
 
 #: js/contacts.js:214
 msgid "Select photo"
-msgstr ""
+msgstr "Hautatu argazkia"
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -275,11 +275,11 @@ msgstr "Baimen errorea."
 
 #: js/contacts.js:481
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "Klikatu honen ezabaketa desegiteko \""
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "Honen ezabaketa bertan behera utzi da: \""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -291,7 +291,7 @@ msgstr "Ezin izan dira elementuak serializatu."
 
 #: js/contacts.js:762
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "Errore ezezaguna. Mesedez begiratu log-ak."
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -329,7 +329,7 @@ msgstr "Helbide-liburu hauek elkartu nahi dituzu?"
 
 #: js/contacts.js:1767
 msgid "Shared by "
-msgstr ""
+msgstr "Honek partekatuta: "
 
 #: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
@@ -337,17 +337,17 @@ msgstr "Igoera handiegia da"
 
 #: js/contacts.js:2004
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "Bakarrik irudiak erabil daitezke profil irudietan."
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
-msgstr ""
+msgstr "Fitxategi mota ez-egokia"
 
 #: js/contacts.js:2010
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "Zure arakatzaileak ez du AJAX bidezko igoera onartzen. Mesedez kilikatu profilaren irudian igotzeko irudi bat hautatzeko."
 
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
@@ -424,13 +424,13 @@ msgstr "Ezabatu"
 msgid "Cancel"
 msgstr "Ezeztatu"
 
-#: js/settings.js:157 templates/settings.php:66
+#: js/settings.js:161 templates/settings.php:66
 msgid "More..."
 msgstr "Gehiago..."
 
-#: js/settings.js:161
+#: js/settings.js:165
 msgid "Less..."
-msgstr ""
+msgstr "Gutxiago..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."

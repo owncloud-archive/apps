@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Baliogabeko data/ordua",
 "Tasks" => "Zereginak",
+"Due" => "Epea",
+"List" => "Zerrenda",
+"Location" => "Kokapena",
 "No category" => "Kategoriarik ez",
 "Unspecified" => "Zehaztu gabe",
 "1=highest" => "1=handiena",
