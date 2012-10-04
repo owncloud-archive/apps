@@ -80,6 +80,17 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
 	}
 
 	/**
+	 * Returns the username from given $id
+	 *
+	 * @param string $id user identity URL
+	 * @return string
+	 */
+	protected function getUsernameFromId($id)
+	{
+		return substr($id, strrpos($id, '/')+2);
+	}
+
+	/**
 	 * Returns true if user with given $id exists and false otherwise
 	 *
 	 * @param string $id user identity URL
@@ -87,7 +98,7 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
 	 */
 	public function hasUser($id)
 	{
-		$userName=substr($id, strrpos($id, '/')+2);
+		$userName=$this->getUsernameFromId($id);
 		return OCP\User::userExists($userName);
 	}
 
@@ -104,7 +115,7 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
 	}
 
 	/**
-	 * Removes information abou specified user
+	 * Removes information about specified user
 	 *
 	 * @param string $id user identity URL
 	 * @return bool
@@ -123,7 +134,13 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
 	 */
 	public function getTrustedSites($id)
 	{
-		return array();
+		$username = $this->getUsernameFromId($id);
+		$data = OCP\Config::getUserValue($username, 'user_openid_provider', 'trusted_sites');
+		$sites = array();
+		if (!empty($data)) {
+			$sites = unserialize($data);
+		}
+		return $sites;
 	}
 
 	/**
@@ -132,48 +149,21 @@ class OC_OpenIdProviderStorage extends Zend_OpenId_Provider_Storage
 	 * @param string $id user identity URL
 	 * @param string $site site URL
 	 * @param mixed $trusted trust data from extension or just a boolean value
-	 * @return bool
 	 */
 	public function addSite($id, $site, $trusted)
 	{
-		$name = $this->_dir . '/user_' . md5($id);
-		$lock = @fopen($this->_dir . '/user.lock', 'w+');
-		if ($lock === false) {
-			return false;
+		$username = $this->getUsernameFromId($id);
+		$data = OCP\Config::getUserValue($username, 'user_openid_provider', 'trusted_sites');
+		$sites = array();
+		if (!empty($data)) {
+			$sites = unserialize($data);
 		}
-		if (!flock($lock, LOCK_EX)) {
-			fclose($lock);
-			return false;
+		if ($trusted === null) {
+			unset($sites[$site]);
+		} else {
+			$sites[$site] = $trusted;
 		}
-		try {
-			$f = @fopen($name, 'r+');
-			if ($f === false) {
-				fclose($lock);
-				return false;
-			}
-			$ret = false;
-			$data = stream_get_contents($f);
-			if (!empty($data)) {
-				list($storedId, $storedPassword, $sites) = unserialize($data);
-				if ($id === $storedId) {
-					if ($trusted === null) {
-						unset($sites[$site]);
-					} else {
-						$sites[$site] = $trusted;
-					}
-					rewind($f);
-					ftruncate($f, 0);
-					$data = serialize(array($id, $storedPassword, $sites));
-					fwrite($f, $data);
-					$ret = true;
-				}
-			}
-			fclose($f);
-			fclose($lock);
-			return $ret;
-		} catch (Exception $e) {
-			fclose($lock);
-			throw $e;
-		}
+		$data = serialize($sites);
+		OCP\Config::setUserValue($username, 'user_openid_provider', 'trusted_sites', $data);
 	}
 }

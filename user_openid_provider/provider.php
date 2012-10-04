@@ -27,8 +27,14 @@ if (isset($_GET['openid_action']) and $_GET['openid_action']=='login') {
 } else if (isset($_GET['openid_action']) and $_GET['openid_action'] == 'trust') {
 	OCP\User::checkLoggedIn();
 	if (isset($_POST['allow'])) {
+		if (isset($_POST['forever'])) {
+			$server->allowSite($server->getSiteRoot($_GET));
+		}
 		$server->respondToConsumer($_GET);
 	} else if (isset($_POST['deny'])) {
+		if (isset($_POST['forever'])) {
+			$server->denySite($server->getSiteRoot($_GET));
+		}
 		Zend_OpenId::redirect($_GET['openid_return_to'],
 				array('openid.mode'=>'cancel'));
 	} else {
