@@ -290,6 +290,38 @@ class App
 		return $id;
 	}
 
+	public static function autoDetectAccount($user_id, $email, $password) {
+		list($user, $host) = explode("@", $email);
+
+		/*
+	    IMAP - port 143
+	    Secure IMAP (IMAP4-SSL) - port 585
+	    IMAP4 over SSL (IMAPS) - port 993
+		 */
+		$account = array(
+			'name'     => $email,
+			'host'     => $host,
+			'user'     => $user,
+			'password' => $password,
+		);
+
+		$ports = array(143, 585, 993);
+		$sec_modes = array('ssl', 'tls', null);
+		foreach($ports as $port) {
+			$account['port'] = $port;
+			foreach($sec_modes as $sec_mode) {
+				$account['ssl_mode'] = $sec_mode;
+				try {
+					$client = App::getImapConnection($account);
+					return App::addAccount($user_id, $host, $port, $user, $password, $sec_mode);
+				} catch (\Horde_Imap_Client_Exception $e) {
+					// nothing to do
+				}
+			}
+		}
+
+		return null;
+	}
 
 	private static function getAccount($user_id, $account_id) {
 		$accounts = App::getAccounts($user_id);

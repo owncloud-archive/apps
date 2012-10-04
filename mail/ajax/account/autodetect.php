@@ -30,13 +30,10 @@ if (!$email_address || !filter_var($email_address, FILTER_VALIDATE_EMAIL)) {
 	OCP\JSON::error(array('message' => 'email'));
 	exit;
 }
-list($user, $host) = explode('@', $email_address, 2);
-// TODO autodetect port and ssl_mode
-// default to simple imap port
-$port = 143;
-$ssl_mode = false;
 
-$id = OCA_Mail\App::addAccount( OCP\User::getUser(), $host, $port, $user, $password, $ssl_mode );
-
-
-OCP\JSON::success(array('data' => array( 'id' => $id )));
+$id = OCA_Mail\App::autoDetectAccount( OCP\User::getUser(), $email_address, $password);
+if ($id == null) {
+	OCP\JSON::error(array('data' => array('message' => 'Auto detect failed. Please use manual mode.' )));
+} else {
+	OCP\JSON::success(array('data' => array( 'id' => $id )));
+}
