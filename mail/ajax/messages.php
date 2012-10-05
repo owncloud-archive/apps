@@ -33,10 +33,4 @@ if( isset($messages['error']) ) {
 	exit();
 }
 
-$tmpl = new OCP\Template('mail','part.messages');
-$tmpl->assign('account_id', $messages['account_id'] );
-$tmpl->assign('folder_id', $messages['folder_id'] );
-$tmpl->assign('messages', $messages['messages'] );
-$page = $tmpl->fetchPage();
-
-OCP\JSON::success(array('data' => $page ));
+OCP\JSON::success(array('data' => $messages ));

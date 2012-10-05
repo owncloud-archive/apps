@@ -31,10 +31,4 @@ $count = isset( $_GET['count'] ) ? $_GET['count'] : null;
 
 $messages = OCA\Mail\App::getMessages( OCP\User::getUser(), $account_id, $folder_id, $from, $count );
 
-$tmpl = new OCP\Template('mail','part.message_list');
-$tmpl->assign('account_id', $messages['account_id'] );
-$tmpl->assign('folder_id', $messages['folder_id'] );
-$tmpl->assign('messages', $messages['messages'] );
-$page = $tmpl->fetchPage();
-
-OCP\JSON::success(array('data' => $page ));
+OCP\JSON::success(array('data' => $messages ));
