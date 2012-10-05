@@ -293,6 +293,16 @@ class App
 	public static function autoDetectAccount($user_id, $email, $password) {
 		list($user, $host) = explode("@", $email);
 
+		$new_account = self::testAccount($user_id, $email, $host, $user, $password);
+
+		// try full email address as user name now (e.g. gmail does so)
+		if ($new_account == null)
+			$new_account = self::testAccount($user_id, $email, $host, $email, $password);
+
+		return $new_account;
+	}
+
+	private static function testAccount($user_id, $email, $host, $user, $password) {
 		/*
 	    IMAP - port 143
 	    Secure IMAP (IMAP4-SSL) - port 585
@@ -307,9 +317,9 @@ class App
 
 		$ports = array(143, 585, 993);
 		$sec_modes = array('ssl', 'tls', null);
-		foreach($ports as $port) {
+		foreach ($ports as $port) {
 			$account['port'] = $port;
-			foreach($sec_modes as $sec_mode) {
+			foreach ($sec_modes as $sec_mode) {
 				$account['ssl_mode'] = $sec_mode;
 				try {
 					$client = App::getImapConnection($account);
