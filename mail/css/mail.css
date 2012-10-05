@@ -48,6 +48,9 @@ button.control { float: left; margin: 0.2em 0 0 1em; height: 2.4em; width: 2.4em
 #mail_messages>tbody>tr>td { border-bottom:1px solid black; }
 #mail_messages>tbody>tr>td:last { border-bottom:none; }
 
+#mail_messages>tbody>tr>td.unseen { font-weight: bold; }
+
+
 .mail_message_summary_info { white-space:nowrap; overflow: hidden; padding-left: 5px; }
 .mail_message_summary_subject { white-space:nowrap; overflow:hidden; padding-left: 5px; }
 .mail_message_summary_date { padding-left: 5px; }

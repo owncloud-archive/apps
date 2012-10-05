@@ -192,7 +192,7 @@ class App
 				$date = $header->getImapDate()->format('U');
 				$id = $header->getUid();
 				$e = $header->getEnvelope();
-				$flags = array();
+				$flags = array('unseen' => !in_array("\seen", $f));
 				$to = $e->to_decoded[0];
 				$to = $to['personal']; //."<".$to['mailbox']."@".$to['host'].">";
 				$from = $e->from_decoded[0];
