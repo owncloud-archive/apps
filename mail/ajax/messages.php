@@ -27,7 +27,7 @@ OCP\JSON::checkAppEnabled('mail');
 $account_id = isset( $_GET['account_id'] ) ? $_GET['account_id'] : null;
 $folder_id = isset( $_GET['folder_id'] ) ? $_GET['folder_id'] : null;
 
-$messages = OCA_Mail\App::getMessages( OCP\User::getUser(), $account_id, $folder_id );
+$messages = OCA\Mail\App::getMessages( OCP\User::getUser(), $account_id, $folder_id );
 if( isset($messages['error']) ) {
 	OCP\JSON::error(array('data' => array('message' => $messages['error'] )));
 	exit();

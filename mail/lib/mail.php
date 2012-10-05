@@ -20,7 +20,7 @@
  *
  */
 
-namespace OCA_Mail;
+namespace OCA\Mail;
 
 require_once 'Horde/Translation/Handler.php';
 require_once 'Horde/Translation/Handler/Gettext.php';

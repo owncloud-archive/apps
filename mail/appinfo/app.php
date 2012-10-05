@@ -1,7 +1,7 @@
 <?php
 
-OC::$CLASSPATH['OCA_Mail\App'] = 'apps/mail/lib/mail.php';
-OC::$CLASSPATH['OCA_Mail\Message'] = 'apps/mail/lib/message.php';
+OC::$CLASSPATH['OCA\Mail\App'] = 'apps/mail/lib/mail.php';
+OC::$CLASSPATH['OCA\Mail\Message'] = 'apps/mail/lib/message.php';
 
 OCP\App::addNavigationEntry( array(
   'id' => 'mail_index',

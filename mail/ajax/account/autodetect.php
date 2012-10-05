@@ -31,7 +31,7 @@ if (!$email_address || !filter_var($email_address, FILTER_VALIDATE_EMAIL)) {
 	exit;
 }
 
-$id = OCA_Mail\App::autoDetectAccount( OCP\User::getUser(), $email_address, $password);
+$id = OCA\Mail\App::autoDetectAccount( OCP\User::getUser(), $email_address, $password);
 if ($id == null) {
 	OCP\JSON::error(array('data' => array('message' => 'Auto detect failed. Please use manual mode.' )));
 } else {

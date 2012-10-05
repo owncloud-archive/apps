@@ -1,5 +1,5 @@
 <?php
-$accounts = OCA_Mail\App::getFolders(OCP\User::getUser());
+$accounts = OCA\Mail\App::getFolders(OCP\User::getUser());
 if (count($accounts) == 0) {
 	echo $this->inc("part.no-accounts");
 } else {

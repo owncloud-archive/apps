@@ -20,7 +20,7 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace OCA_Mail;
+namespace OCA\Mail;
 
 class Message{
 
