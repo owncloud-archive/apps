@@ -683,6 +683,8 @@ class OC_Contacts_VCard {
 					return null; // Badly malformed :-(
 				}
 			}
+		} elseif($property->name == 'PHOTO') {
+			$property->value = true;
 		}
 		if(is_string($value)) {
 			$value = strtr($value, array('\,' => ',', '\;' => ';'));
