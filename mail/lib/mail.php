@@ -184,21 +184,10 @@ class App
 			$headers = $conn->fetch($folder_id, $fetch_query);
 
 			ob_start(); // fix for Horde warnings
-			foreach ($headers as $header) {
-				$flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
-//					\Horde_Imap_Client_Data_Fetch::HEADER_PARSE
-
-				$f = $header->getFlags();
-				$date = $header->getImapDate()->format('U');
-				$id = $header->getUid();
-				$e = $header->getEnvelope();
-				$flags = array('unseen' => !in_array("\seen", $f));
-				$to = $e->to_decoded[0];
-				$to = $to['personal']; //."<".$to['mailbox']."@".$to['host'].">";
-				$from = $e->from_decoded[0];
-				$from = $from['personal']; //."<".$from['mailbox']."@".$from['host'].">";
-				$messages[] = array('id'   => $id, 'from' => $from, 'to' => $to, 'subject' => $e->subject_decoded,
-				                    'date' => $date, 'size' => $header->getSize(), 'flags' => $flags);
+			foreach ($headers as $message_id => $header) {
+				$message = new Message($conn, $folder_id, $message_id);
+				$message->setInfo($header);
+				$messages[] = $message->getListArray();
 			}
 			ob_clean();
 

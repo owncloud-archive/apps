@@ -22,15 +22,13 @@
  */
 namespace OCA\Mail;
 
-class Message{
+class Message {
 
 	// input $mbox = IMAP conn, $mid = message id
 	function __construct($conn, $folder_id, $message_id) {
 		$this->conn = $conn;
 		$this->folder_id = $folder_id;
 		$this->message_id = $message_id;
-
-		$this->getmsg();
 	}
 
 	// output all the following:
@@ -42,7 +40,50 @@ class Message{
 	public $attachments = array();
 
 	private $conn, $folder_id, $message_id;
+	private $fetch;
 
+	public function setInfo($info) {
+		$this->fetch = $info;
+	}
+
+	public function getUid() {
+		return $this->fetch->getUid();
+	}
+
+	public function getFlags() {
+		$flags = $this->fetch->getFlags();
+		return array('unseen' => !in_array("\seen", $flags));
+	}
+
+	public function getEnvelope() {
+		return $this->fetch->getEnvelope();
+	}
+
+	public function getFrom() {
+		$e = $this->getEnvelope();
+		$from = $e->from_decoded[0];
+		return $from['personal']; //."<".$from['mailbox']."@".$from['host'].">";
+	}
+
+	public function getTo() {
+		$e = $this->getEnvelope();
+		$to = $e->to_decoded[0];
+		return $to['personal']; //."<".$to['mailbox']."@".$to['host'].">";
+	}
+
+	public function getSubject() {
+		$e = $this->getEnvelope();
+		return $e->subject_decoded;
+	}
+
+	public function getSentDate() {
+		// TODO: Use internal imap date for now
+		return $this->fetch->getImapDate();
+	}
+
+	public function getSize() {
+		return $this->fetch->getSize();
+	}
 
 	private function getmsg() {
 
@@ -73,6 +114,7 @@ class Message{
 		// $list is an array of Horde_Imap_Client_Data_Fetch objects.
 		$ids = new \Horde_Imap_Client_Ids($this->message_id);
 		$headers = $this->conn->fetch($this->folder_id, $fetch_query, array('ids' => $ids));
+		$this->fetch = $headers[$this->message_id];
 
 		$this->plainmsg = $headers[$this->message_id]->getBodyText();
 //
@@ -189,8 +231,9 @@ class Message{
 	}
 
 	public function as_array() {
+		$this->getmsg();
 		$mail_body = $this->plainmsg;
-		$mail_body = ereg_replace("\n","<br>",$mail_body);
+		$mail_body = nl2br($mail_body);
 
 		if (empty($this->plainmsg) && !empty($this->htmlmsg)) {
 			$mail_body = "<br/><h2>Only Html body available!</h2><br/>";
@@ -215,5 +258,16 @@ class Message{
 			'attachments' => $this->get_attachment_info(),
 			'header' => 'TODO: add the header'
 		);
+	}
+
+	public function getListArray() {
+		$data = array();
+		$data['id'] = $this->getUid();
+		$data['from'] = $this->getFrom();
+		$data['subject'] = $this->getSubject();
+		$data['date'] = $this->getSentDate()->format('U');
+		$data['size'] = $this->getSize();
+		$data['flags'] = $this->getFlags();
+		return $data;
 	}
 }
