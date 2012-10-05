@@ -30,17 +30,13 @@ define('CLAMAV_SCANRESULT_INFECTED', 1);
 
 class OC_Files_Antivirus {
 	
-	public static function av_scan($path) {
-		OCP\JSON::checkLoggedIn();
-		//OCP\JSON::callCheck();
-		
+	public static function av_scan($path) {		
 		$path=$path[\OC_Filesystem::signal_param_path];
 		if ($path != '') {
 			$files_view = \OCP\Files::getStorage("files");
 			if($files_view->file_exists($path)){
 				$root=OC_User::getHome(OC_User::getUser()).'/files';
 				$file = $root.$path;
-				\OCP\Util::writeLog('files_antivirus','Init scan: '.$file, \OCP\Util::DEBUG);
 				$result = self::clamav_scan($file);
 				switch($result) {
 					case CLAMAV_SCANRESULT_UNCHECKED:
@@ -49,7 +45,18 @@ class OC_Files_Antivirus {
 					case CLAMAV_SCANRESULT_INFECTED:
 						//remove file
 						$files_view->unlink($path);
-						OCP\JSON::error(array("data" => array( "message" => "Virus detected!, file not uploaded." )));
+						OCP\JSON::error(array("data" => array( "message" => "Virus detected!, Can't upload the file." )));
+						$email = OC_Preferences::getValue(OC_User::getUser(), 'settings', 'email', '');
+						\OCP\Util::writeLog('files_antivirus','Email: '.$email, \OCP\Util::DEBUG);
+						if (!empty($email) ) {
+							$tmpl = new OC_Template('files_antivirus', 'notification');
+							$tmpl->assign('file', $path, false);
+							$msg = $tmpl->fetchPage();
+							\OCP\Util::writeLog('files_antivirus','$msg: '.$msg, \OCP\Util::DEBUG);
+							$from = 'security-noreply@' . OCP\Util::getServerHost();
+							\OCP\Util::writeLog('files_antivirus','$from: '.$from, \OCP\Util::DEBUG);
+							OC_MAIL::send($email, OC_User::getUser(), 'Malware detected', $msg, $from, 'ownCloud', 1);
+						}
 						exit();
 						//TODO: notify the user
 						
@@ -112,6 +119,7 @@ class OC_Files_Antivirus {
 		  return CLAMAV_SCANRESULT_UNCHECKED;
 		}
 	}
+	
 	
 	private static function _clamav_scan_via_exec($filepath) {
 		\OCP\Util::writeLog('files_antivirus','Exec scan: '.$filepath, \OCP\Util::DEBUG);
