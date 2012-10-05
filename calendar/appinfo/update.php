@@ -65,4 +65,11 @@ if (version_compare($installedVersion, '0.6.1', '<=')) {
 			// nothing to do, the exception is already written to the log
 		}
 	}
+	//logout and login - fix wrong calendar permissions from oc-1914
+	$user = OCP\User::getUser();
+	session_unset();
+	session_destroy();
+	OC_User::unsetMagicInCookie();
+	session_regenerate_id(true);
+	OC_User::setUserId($user);
 }

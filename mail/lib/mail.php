@@ -168,6 +168,7 @@ class App
 			// $list is an array of Horde_Imap_Client_Data_Fetch objects.
 			$headers = $conn->fetch($folder_id, $fetch_query);
 
+			ob_start(); // fix for Horde warnings
 			foreach ($headers as $header) {
 				$flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
 //					\Horde_Imap_Client_Data_Fetch::HEADER_PARSE
@@ -184,6 +185,7 @@ class App
 				$messages[] = array('id'   => $id, 'from' => $from, 'to' => $to, 'subject' => $e->subject_decoded,
 				                    'date' => $date, 'size' => $header->getSize(), 'flags' => $flags);
 			}
+			ob_clean();
 
 			return array('account_id' => $account_id, 'folder_id' => $folder_id, 'messages' => $messages);
 		} catch (\Horde_Imap_Client_Exception $e) {
@@ -224,7 +226,7 @@ class App
 
 	private static function getImapConnection($account) {
 		//
-		// TODO: cash connections for / within accounts???
+		// TODO: cache connections for / within accounts???
 		//
 		$host = $account['host'];
 		$user = $account['user'];
@@ -274,7 +276,12 @@ class App
 		\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[ssl_mode]', $ssl_mode);
 
 		$account_ids = \OCP\Config::getUserValue($user_id, 'mail', 'accounts', '');
-		$account_ids = explode(',', $account_ids);
+		if ($account_ids) {
+			$account_ids = explode(',', $account_ids);
+		}
+		else {
+			$account_ids = array();
+		}
 		$account_ids[] = $id;
 		$account_ids = implode(",", $account_ids);
 
@@ -283,6 +290,38 @@ class App
 		return $id;
 	}
 
+	public static function autoDetectAccount($user_id, $email, $password) {
+		list($user, $host) = explode("@", $email);
+
+		/*
+	    IMAP - port 143
+	    Secure IMAP (IMAP4-SSL) - port 585
+	    IMAP4 over SSL (IMAPS) - port 993
+		 */
+		$account = array(
+			'name'     => $email,
+			'host'     => $host,
+			'user'     => $user,
+			'password' => $password,
+		);
+
+		$ports = array(143, 585, 993);
+		$sec_modes = array('ssl', 'tls', null);
+		foreach($ports as $port) {
+			$account['port'] = $port;
+			foreach($sec_modes as $sec_mode) {
+				$account['ssl_mode'] = $sec_mode;
+				try {
+					$client = App::getImapConnection($account);
+					return App::addAccount($user_id, $host, $port, $user, $password, $sec_mode);
+				} catch (\Horde_Imap_Client_Exception $e) {
+					// nothing to do
+				}
+			}
+		}
+
+		return null;
+	}
 
 	private static function getAccount($user_id, $account_id) {
 		$accounts = App::getAccounts($user_id);

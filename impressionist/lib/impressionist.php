@@ -64,7 +64,7 @@ class Storage {
                         <div class="fallback-message">
                                 <p>Your browser <b>does not support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
                                 <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
-                                <p>Note that Impressionist currrently supports only -webkit browsers.</p>
+                                <p>Note that Impressionist currently supports only -webkit browsers.</p>
                         </div>
                         <div class="impress">       
                     ');
@@ -76,7 +76,7 @@ class Storage {
 		echo('
 		
                             <div class="hint">
-                                <p>Make fullscreen and use a spacebar or arrow keys to navigate</p>
+                                <p>Make full screen and use a space bar or arrow keys to navigate</p>
                             </div>
                             <script>
                                 if ("ontouchstart" in document.documentElement) { 
