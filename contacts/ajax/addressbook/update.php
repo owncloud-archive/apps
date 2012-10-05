@@ -33,7 +33,7 @@ if(!OC_Contacts_Addressbook::setActive($id, $_POST['active'])) {
 	bailOut(OC_Contacts_App::$l10n->t('Error (de)activating addressbook.'));
 }
 
-$addressbook = OC_Contacts_App::getAddressbook($id);
+$addressbook = OC_Contacts_Addressbook::find($id);
 OCP\JSON::success(array(
 	'data' => array('addressbook' => $addressbook),
 ));

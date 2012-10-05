@@ -15,12 +15,11 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 			var active = tgt.is(':checked');
 			//console.log('doActivate: ', id, active);
 			$.post(OC.filePath('contacts', 'ajax', 'addressbook/activate.php'), {id: id, active: Number(active)}, function(jsondata) {
-				if (jsondata.status == 'success'){
-					if(!active) {
-						$('#contacts h3[data-id="'+id+'"],#contacts ul[data-id="'+id+'"]').remove();
-					} else {
-						OC.Contacts.update();
-					}
+				if (jsondata.status == 'success') {
+					$(document).trigger('request.addressbook.activate', {
+						id: id,
+						activate: active,
+					});
 				} else {
 					//console.log('Error:', jsondata.data.message);
 					OC.Contacts.notify(t('contacts', 'Error') + ': ' + jsondata.data.message);
@@ -157,11 +156,9 @@ $(document).ready(function() {
 		event.preventDefault();
 		if(OC.Contacts.Settings.Addressbook.adrsettings.is(':visible')) {
 			OC.Contacts.Settings.Addressbook.adrsettings.slideUp();
-			OC.Contacts.Settings.Addressbook.adrsettings.prev('dt').hide();
 			moreless.text(t('contacts', 'More...'));
 		} else {
 			OC.Contacts.Settings.Addressbook.adrsettings.slideDown();
-			OC.Contacts.Settings.Addressbook.adrsettings.prev('dt').show();
 			moreless.text(t('contacts', 'Less...'));
 		}
 	});

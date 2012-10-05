@@ -696,14 +696,14 @@ class OC_Contacts_VCard {
 			if(strpos($value, ':') !== false) {
 				$value = explode(':', $value);
 				$protocol = array_shift($value);
-				if(!isset($property->parameters['X-SERVICE-TYPE'])) {
-					$property->add(new Sabre_VObject_Parameter(
-								'X-SERVICE-TYPE',
-								strtoupper(strip_tags($protocol)))
-							);
+				if(!isset($property['X-SERVICE-TYPE'])) {
+					$property['X-SERVICE-TYPE'] = strtoupper(strip_tags($protocol));
 				}
 				$value = implode('', $value);
 			}
+		}
+		elseif($property->name == 'PHOTO') {
+			$property->value = true;
 		}
 		if(is_string($value)) {
 			$value = strtr($value, array('\,' => ',', '\;' => ';'));
@@ -752,7 +752,7 @@ class OC_Contacts_VCard {
 	 *
 	 */
 	public static function moveToAddressBook($aid, $id, $isAddressbook = false) {
-		OC_Contacts_App::getAddressbook($aid); // check for user ownership.
+		OC_Contacts_Addressbook::find($aid);
 		$addressbook = OC_Contacts_Addressbook::find($aid);
 		if ($addressbook['userid'] != OCP\User::getUser()) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $aid);

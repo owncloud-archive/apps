@@ -63,7 +63,19 @@ if(isset($_POST['method']) && $_POST['method'] == 'new') {
 		);
 		exit();
 	}
-	OC_Contacts_App::getAddressbook($id); // is owner access check
+	try {
+		OC_Contacts_Addressbook::find($id); // is owner access check
+	} catch(Exception $e) {
+		OCP\JSON::error(
+			array(
+				'data' => array(
+					'message' => $e->getMessage(),
+					'file'=>$_POST['file']
+				)
+			)
+		);
+		exit();
+	}
 }
 //analyse the contacts file
 writeProgress('40');

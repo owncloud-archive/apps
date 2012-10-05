@@ -6,39 +6,59 @@
 	var id = '<?php echo $_['id']; ?>';
 	var lang = '<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>';
 </script>
-<div id="leftcontent">
+<div id="leftcontent" class="loading">
 	<div class="hidden" id="statusbar"></div>
 	<nav id="grouplist">
 	</nav>
-	<div id="uploadprogressbar"></div>
-	<div id="bottomcontrols">
-			<button class="control newcontact" id="contacts_newcontact" title="<?php echo $l->t('Add Contact'); ?>"></button>
-			<button class="control import" title="<?php echo $l->t('Import'); ?>"></button>
-			<button class="control settings" title="<?php echo $l->t('Settings'); ?>"></button>
-		<form id="import_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadimport.php'); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
-			<input class="float" id="import_upload_start" type="file" accept="text/directory,text/vcard,text/x-vcard" name="importfile" />
-			<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
-		</form>
-		<iframe name="import_upload_target" id='import_upload_target' src=""></iframe>
-	</div>
 </div>
 <div id="contactsheader">
-	<div class="list">
-		<input type="checkbox" id="toggle_all" title="<?php echo $l->t('(De-)select all'); ?>" />
-		<button class="add"></button>
+	<input type="checkbox" id="toggle_all" title="<?php echo $l->t('(De-)select all'); ?>" />
+	<div class="actions">
+		<button class="back control" title="<?php echo $l->t('Back'); ?>"><?php echo $l->t('Back'); ?></button>
+		<button class="add control" title="<?php echo $l->t('Add Contact'); ?>"></button>
+		<button class="download control" title="<?php echo $l->t('Download Contact'); ?>"></button>
+		<button class="delete control" title="<?php echo $l->t('Delete Contact'); ?>"></button>
+		<select class="groups control" name="groups">
+			<option value="-1" disabled="disabled" selected="selected"><?php echo $l->t('Groups'); ?></option>
+		</select>
 	</div>
-	<div class="single hidden">
-		<button class="back" title="<?php echo $l->t('Back'); ?>"><?php echo $l->t('Back'); ?></button>
-		<button class="add" title="<?php echo $l->t('Add Contact'); ?>"></button>
-		<button class="delete" title="<?php echo $l->t('Delete Contact'); ?>"></button>
-	</div>
-	<button class="settings"></button>
+	<button class="settings control"></button>
 </div>
 <div id="rightcontent" class="loading">
-<table>
-	<tbody id="contactlist">
-	</tbody>
-</table>
+	<table id="contactlist">
+	</table>
+<div class="hidden popup" id="ninjahelp">
+	<a class="close" tabindex="0" role="button" title="<?php echo $l->t('Close'); ?>"></a>
+	<h2><?php echo $l->t('Keyboard shortcuts'); ?></h2>
+	<div class="help-section">
+		<h3><?php echo $l->t('Navigation'); ?></h3>
+		<dl>
+			<dt>j/Down</dt>
+			<dd><?php echo $l->t('Next contact in list'); ?></dd>
+			<dt>k/Up</dt>
+			<dd><?php echo $l->t('Previous contact in list'); ?></dd>
+			<dt>o</dt>
+			<dd><?php echo $l->t('Expand/collapse current addressbook'); ?></dd>
+			<dt>n/PageDown</dt>
+			<dd><?php echo $l->t('Next addressbook'); ?></dd>
+			<dt>p/PageUp</dt>
+			<dd><?php echo $l->t('Previous addressbook'); ?></dd>
+		</dl>
+	</div>
+	<div class="help-section">
+		<h3><?php echo $l->t('Actions'); ?></h3>
+		<dl>
+			<dt>r</dt>
+			<dd><?php echo $l->t('Refresh contacts list'); ?></dd>
+			<dt>a</dt>
+			<dd><?php echo $l->t('Add new contact'); ?></dd>
+			<!-- dt>Shift-a</dt>
+			<dd><?php echo $l->t('Add new addressbook'); ?></dd -->
+			<dt>Shift-Delete</dt>
+			<dd><?php echo $l->t('Delete current contact'); ?></dd>
+		</dl>
+	</div>
+</div>
 </div>
 <script id="contactListItemTemplate" type="text/template">
 	<tr class="contact" data-id="{id}">
@@ -61,59 +81,69 @@
 </script>
 
 <script id="contactFullTemplate" type="text/template">
+<form action="<?php echo OCP\Util::linkTo('contacts', 'index.php'); ?>" method="post" enctype="multipart/form-data">
 	<section id="contact" data-id="{id}">
-		<form>
-		<section class="singlevalues">
-			<figure id="profilepicture" tabindex="1">
-				<img src="<?php echo OCP\Util::linkTo('contacts', 'photo.php'); ?>?id={id}" />
-			</figure>
-			<div style="float: left;" data-element="fn" class="propertycontainer">
-			<input class="huge value" type="text" name="value" value="{name}" />
+	<ul>
+		<li>
+			<img class="contactphoto" src="<?php echo OCP\Util::linkTo('contacts', 'photo.php'); ?>?id={id}" />
+			<div>
+			<input class="fullname value propertycontainer" data-element="fn" type="text" name="value" value="{name}" />
 			<dl class="form">
-				<dt data-element="nickname" class="hidden">
+				<dt data-element="nickname">
 					<?php echo $l->t('Nickname'); ?>
 				</dt>
-				<dd data-element="nickname" class="propertycontainer hidden">
+				<dd data-element="nickname" class="propertycontainer">
 					<input class="value" type="text" name="value" value="{nickname}" />
 				</dd>
-				<dt data-element="title" class="hidden">
+				<dt data-element="title">
 					<?php echo $l->t('Title'); ?>
 				</dt>
-				<dd data-element="title" class="propertycontainer hidden">
+				<dd data-element="title" class="propertycontainer">
 					<input class="value" type="text" name="value" value="{title}" />
 				</dd>
-				<dt data-element="org" class="hidden">
+				<dt data-element="org">
 					<?php echo $l->t('Organization'); ?>
 				</dt>
-				<dd data-element="org" class="propertycontainer hidden">
+				<dd data-element="org" class="propertycontainer">
 					<input class="value" type="text" name="value" value="{org}" />
 				</dd>
-				<dt data-element="bday" class="hidden">
+				<dt data-element="bday">
 					<?php echo $l->t('Birthday'); ?>
 				</dt>
-				<dd data-element="bday" class="propertycontainer hidden">
+				<dd data-element="bday" class="propertycontainer">
 					<input class="value" type="text" name="value" value="{bday}" />
 				</dd>
 			</dl>
 			</div>
-			<section class="note" data-element="note">
-				<textarea class="value">Some text here</textarea>
-			</section>
-		</section>
-		<section class="multivalues">
+		</li>
+		<li>
 			<ul class="email propertylist hidden">
 			</ul>
+		</li>
+		<li>
 			<ul class="tel propertylist hidden">
 			</ul>
+		</li>
+		<li>
 			<ul class="adr propertylist hidden">
 			</ul>
+		</li>
+		<li>
 			<ul class="url propertylist hidden">
 			</ul>
+		</li>
+		<li>
 			<ul class="impp propertylist hidden">
 			</ul>
-		</section>
-		</form>
-		<footer>
+		</li>
+		<li>
+			<section class="note" data-element="note">
+				<textarea class="value" placeholder="<?php echo $l->t('Notes go here...'); ?>"></textarea>
+			</section>
+		</li>
+	</ul>
+	</section>
+	<footer>
 		<select id="addproperty">
 			<option value=""><?php echo $l->t('Add'); ?></option>
 			<option value="ORG"><?php echo $l->t('Organization'); ?></option>
@@ -127,8 +157,8 @@
 			<option value="URL"><?php echo $l->t('Web site'); ?></option>
 			<option value="CATEGORIES"><?php echo $l->t('Groups'); ?></option>
 		</select>
-		Add button here</footer>
-	</section>
+	</footer>
+</form>
 </script>
 
 <script id="contactDetailsTemplate" class="hidden" type="text/template">
@@ -190,13 +220,13 @@
 			<select class="type value" name="parameters[TYPE][]">
 				<?php echo OCP\html_select_options($_['impp_types'], array()) ?>
 			</select>
-			<input type="checkbox" class="contacts_property impp tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+			<input type="checkbox" class="value impp tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
 			<div class="select_wrapper">
 			<select class="rtl value label impp" name="parameters[X-SERVICE-TYPE]">
 				<?php echo OCP\html_select_options($_['im_protocols'], array()) ?>
 			</select>
 			</div>
-			<input type="text" required="required" class="nonempty contacts_property" name="value" value="{value}"
+			<input type="text" required="required" class="nonempty value" name="value" value="{value}"
 					placeholder="<?php echo $l->t('Instant Messenger'); ?>" />
 			<a role="button" class="action delete" title="<?php echo $l->t('Delete IM'); ?>"></a>
 		</li>

@@ -80,7 +80,7 @@ class OC_Contacts_Hooks{
 		}
 		$info = explode('_', $name);
 		$aid = $info[1];
-		OC_Contacts_App::getAddressbook($aid);
+		OC_Contacts_Addressbook::find($aid);
 		foreach(OC_Contacts_VCard::all($aid) as $card) {
 			$vcard = OC_VObject::parse($card['carddata']);
 			if (!$vcard) {

@@ -21,71 +21,17 @@ class OC_Contacts_App {
 	 */
 	public static $categories = null;
 
-	public static function getAddressbook($id) {
-		// TODO: Throw an exception instead of returning json.
-		$addressbook = OC_Contacts_Addressbook::find( $id );
-		if($addressbook === false || $addressbook['userid'] != OCP\USER::getUser()) {
-			if ($addressbook === false) {
-				OCP\Util::writeLog('contacts',
-					'Addressbook not found: '. $id,
-					OCP\Util::ERROR);
-				//throw new Exception('Addressbook not found: '. $id);
-				OCP\JSON::error(
-					array(
-						'data' => array(
-							'message' => self::$l10n->t('Addressbook not found: ' . $id)
-						)
-					)
-				);
-			} else {
-				$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id, OC_Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS);
-				if ($sharedAddressbook) {
-					return $sharedAddressbook[0];
-				} else {
-					OCP\Util::writeLog('contacts',
-						'Addressbook('.$id.') is not from '.OCP\USER::getUser(),
-						OCP\Util::ERROR);
-					//throw new Exception('This is not your addressbook.');
-					OCP\JSON::error(
-						array(
-							'data' => array(
-								'message' => self::$l10n->t('This is not your addressbook.')
-							)
-						)
-					);
-				}
-			}
-		}
-		return $addressbook;
-	}
-
-	public static function getContactObject($id) {
-		$card = OC_Contacts_VCard::find( $id );
-		if( $card === false ) {
-			OCP\Util::writeLog('contacts',
-				'Contact could not be found: '.$id,
-				OCP\Util::ERROR);
-			OCP\JSON::error(
-				array(
-					'data' => array(
-						'message' => self::$l10n->t('Contact could not be found.')
-							.' '.print_r($id, true)
-					)
-				)
-			);
-			exit();
-		}
-
-		self::getAddressbook( $card['addressbookid'] );//access check
-		return $card;
-	}
-
 	/**
 	 * @brief Gets the VCard as an OC_VObject
 	 * @returns The card or null if the card could not be parsed.
 	 */
 	public static function getContactVCard($id) {
-		$card = self::getContactObject( $id );
+		$card = null;
+		try {
+			$card = OC_Contacts_VCard::find($id);
+		} catch(Exception $e) {
+			return null;
+		}
 
 		$vcard = OC_VObject::parse($card['carddata']);
 		if (!is_null($vcard) && !isset($vcard->REV)) {

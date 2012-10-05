@@ -13,7 +13,20 @@ OCP\JSON::checkAppEnabled('contacts');
 OCP\JSON::callCheck();
 
 $id = $_POST['id'];
-$book = OC_Contacts_App::getAddressbook($id);// is owner access check
+
+try {
+	$book = OC_Contacts_Addressbook::find($id); // is owner access check
+} catch(Exception $e) {
+	OCP\JSON::error(
+		array(
+			'data' => array(
+				'message' => $e->getMessage(),
+				'file'=>$_POST['file']
+			)
+		)
+	);
+	exit();
+}
 
 if(!OC_Contacts_Addressbook::setActive($id, $_POST['active'])) {
 	OCP\Util::writeLog('contacts',

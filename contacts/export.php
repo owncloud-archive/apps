@@ -13,7 +13,18 @@ $bookid = isset($_GET['bookid']) ? $_GET['bookid'] : null;
 $contactid = isset($_GET['contactid']) ? $_GET['contactid'] : null;
 $nl = "\n";
 if(isset($bookid)) {
-	$addressbook = OC_Contacts_App::getAddressbook($bookid);
+	try {
+		$addressbook = OC_Contacts_Addressbook::find($id); // is owner access check
+	} catch(Exception $e) {
+		OCP\JSON::error(
+			array(
+				'data' => array(
+					'message' => $e->getMessage(),
+				)
+			)
+		);
+		exit();
+	}
 	//$cardobjects = OC_Contacts_VCard::all($bookid);
 	header('Content-Type: text/directory');
 	header('Content-Disposition: inline; filename='
@@ -30,7 +41,18 @@ if(isset($bookid)) {
 		$start += $batchsize;
 	}
 }elseif(isset($contactid)) {
-	$data = OC_Contacts_App::getContactObject($contactid);
+	try {
+		$data = OC_Contacts_VCard::find($contactid);
+	} catch(Exception $e) {
+		OCP\JSON::error(
+			array(
+				'data' => array(
+					'message' => $e->getMessage(),
+				)
+			)
+		);
+		exit();
+	}
 	header('Content-Type: text/vcard');
 	header('Content-Disposition: inline; filename='
 		. str_replace(' ', '_', $data['fullname']) . '.vcf');
