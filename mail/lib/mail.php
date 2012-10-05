@@ -118,10 +118,11 @@ class App
 	private static function getMailboxStatus($conn, $mailbox) {
 
 		try {
+			$display_name = \Horde_Imap_Client_Utf7imap::Utf7ImapToUtf8($mailbox);
 			$status = $conn->status($mailbox);
-			return array('id' => $mailbox, 'name' => $mailbox, 'unseen' => $status['unseen'], 'total' => $status['messages']);
+			return array('id' => $mailbox, 'name' => $display_name, 'unseen' => $status['unseen'], 'total' => $status['messages']);
 		} catch (\Horde_Imap_Client_Exception $e) {
-			return array('id' => $mailbox, 'name' => $mailbox, 'unseen' => 0, 'total' => 0, 'error' => $e->getMessage());
+			return array('id' => $mailbox, 'name' => $display_name, 'unseen' => 0, 'total' => 0, 'error' => $e->getMessage());
 		}
 	}
 
