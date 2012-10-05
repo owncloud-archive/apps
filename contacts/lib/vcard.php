@@ -689,6 +689,8 @@ class OC_Contacts_VCard {
 					return null; // Badly malformed :-(
 				}
 			}
+		} elseif($property->name == 'PHOTO') {
+			$property->value = true;
 		}
 		elseif($property->name == 'IMPP') {
 			if(strpos($value, ':') !== false) {
