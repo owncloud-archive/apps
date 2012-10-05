@@ -10,13 +10,14 @@
 #   <mplichta@gmail.com>, 2012.
 # Paweł Ciecierski <pciecierski@gmail.com>, 2012.
 # Piotr Sokół <psokol@jabster.pl>, 2012.
+#   <urban@fail.pl>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-03 02:03+0200\n"
-"PO-Revision-Date: 2012-10-02 13:37+0000\n"
-"Last-Translator: Marcin Małecki <gerber@tkdami.net>\n"
+"POT-Creation-Date: 2012-10-05 02:03+0200\n"
+"PO-Revision-Date: 2012-10-04 21:36+0000\n"
+"Last-Translator: urban <urban@fail.pl>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -279,7 +280,7 @@ msgstr "Błąd uprawnień"
 
 #: js/contacts.js:481
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "Kliknij aby cofnąć usunięcie \""
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
@@ -333,7 +334,7 @@ msgstr "Czy chcesz scalić te książki adresowe?"
 
 #: js/contacts.js:1767
 msgid "Shared by "
-msgstr ""
+msgstr "Udostępniane przez"
 
 #: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
@@ -341,7 +342,7 @@ msgstr "Załadunek za duży"
 
 #: js/contacts.js:2004
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "Tylko obrazki mogą być użyte jako zdjęcie profilowe."
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
@@ -428,13 +429,13 @@ msgstr "Usuwa książkę adresową"
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: js/settings.js:157 templates/settings.php:66
+#: js/settings.js:161 templates/settings.php:66
 msgid "More..."
 msgstr "Więcej..."
 
-#: js/settings.js:161
+#: js/settings.js:165
 msgid "Less..."
-msgstr ""
+msgstr "Mniej..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
