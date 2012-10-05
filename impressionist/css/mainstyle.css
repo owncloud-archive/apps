@@ -1,61 +1,37 @@
+@import url('bootstrap.css');
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url("fonts/OpenSans.ttf") format("truetype");
+        font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Artifika';
+	src: url("fonts/Artifika.ttf") format("truetype");
+        font-weight:normal;
+}
+
+@font-face {
+	font-family: 'Comfortaa';
+	src: url("fonts/Comfortaa.ttf") format("truetype");
+        font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Cardo';
+	src: url("fonts/Cardob.ttf") format("truetype");
+        font-weight: normal;
+}
 
 
-body,html
-{
-	width: 100%;
-    height: 100%;
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	overflow: hidden;
-	overflow-x:hidden;
-	scroll-y:hidden;
-	font-family: 'Armata', sans-serif;
-	-webkit-user-select: none;
-
-}
-a
-{
-	/*font-family: 'Inika', serif;*/
-	font-family: 'Armata', sans-serif;
-
-}
-p
-{
-	/*font-family: 'Inika', serif;*/	
-	font-family: 'Armata', sans-serif;
-	text-align:left;
-}
-h3, h4
-{
-	text-align:left;
-		font-family: 'Armata', sans-serif;
-	/*font-family: 'Inika', serif;*/
-}
-#smalltextinput
-{
-	margin-top: 10px;
-	height:25px;
-	width:30px;
-		font-family: 'Armata', sans-serif;
-	/*font-family: 'Inika', serif;*/
-
-}
-.customp
-{
-	/*font-family: 'Inika', serif;*/	
-		font-family: 'Armata', sans-serif;	
-	color: #DDD;
-
-}
 #brandlogo
 {
 	color:#222;
 	font-size : 150%;
 	vertical-align: middle;
-	/*font-family: 'Inika', serif;*/
-		font-family: 'Crete Round', serif;
-		margin-left: 10px;
+	font-family: 'Open Sans', serif;
+	margin-left: 10px;
 }
 #subnav
 {
@@ -159,9 +135,7 @@ h3, h4
 	vertical-align:middle;
 	margin-top:30px;
 	margin-left:45px;
-
-	/*font-family: 'Inika', serif;*/
-		font-family: 'Armata', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size:90%;
 	width:20px;
 	height:20px;
@@ -182,7 +156,6 @@ h3, h4
 	vertical-align:middle;
 	margin-top:60px;
 	margin-left:-15px;
-	/*font-family: 'Inika', serif;*/
 	width:20px;
 	height:20px;
 	color:#FFF;
@@ -264,8 +237,8 @@ h3, h4
 }
 .itemselected
 {
-		outline:1px solid #0ca4eb;
-		outline-offset: 5px; 
+	outline:1px solid #0ca4eb;
+	outline-offset: 5px; 
 }
 .picselected
 {
@@ -275,7 +248,7 @@ h3, h4
 
 .largeheader:hover
 {
-		cursor:pointer;
+	cursor:pointer;
 
 }
 .jumbo
@@ -291,7 +264,7 @@ h3, h4
 .slideobject
 {
 	position: absolute;
-	font-family:"Inika",serif;
+	font-family:"Open Sans",serif;
 
 }
 .selectionrect
@@ -307,43 +280,22 @@ h3, h4
 }
 #editorBox
 {
-		/*font-family: 'Inika', serif;*/
-		font-family: 'Armata', sans-serif;
-		position: absolute;
-		padding: 5px 0px 5px 0px;
-		text-align: left;
-		line-height:60px;
+	font-family: 'Open Sans', sans-serif;
+	position: absolute;
+	padding: 5px 0px 5px 0px;
+	text-align: left;
+	line-height:60px;
 }
 .largeeditor
 {
 	height:120px;
 
 }
-.inika
-{
-	font-family: 'Inika', serif;
-}
-.bevan
-{
-	font-family: 'Bevan', serif;
-}
-.fresca
-{
-	font-family: 'Fresca', sans-serif;;
-}
-.doppio
-{
-	font-family: 'Armata', sans-serif;
-}
-.walter
-{
-	font-family: 'Walter Turncoat', cursive;
-}
 
 .deleteicon
 {
 	vertical-align:middle;
-	font-family: 'Inika', serif;
+	font-family: "Open Sans", serif;
 	width:20px;
 	height:20px;
 	color:#FFF;
@@ -361,7 +313,7 @@ h3, h4
 }
 .deleteicon:hover
 {
-		background-color: #8c0000;
+	background-color: #8c0000;
 
 }
 .thumbdeleteicon
@@ -415,8 +367,8 @@ h3, h4
 	background-color: #FFF;
 	overflow:scroll;
 	border-left: 1px solid #DDD;
-    border-right: 1px solid #DDD;
-    overflow: hidden;
+        border-right: 1px solid #DDD;
+        overflow: hidden;
 
 	
 
@@ -452,15 +404,13 @@ h3, h4
 }
 .whitep
 {
-	/*font-family: 'Inika', serif;*/
-		font-family: 'Armata', sans-serif;	
+	font-family: 'Open Sans', sans-serif;	
 	color:#FFF;
 	margin-top:-5px;
 }
 .blackp
 {
-	/*font-family: 'Inika', serif;*/
-		font-family: 'Armata', sans-serif;	
+	font-family: "Open Sans", sans-serif;	
 	color:#000;
 	margin-top:-5px;
 }
@@ -579,8 +529,7 @@ h3, h4
 	left:10px;
 	width:500px;
 	margin-left: -25px;
-	/*font-family: 'Inika', serif;*/
-		font-family: 'Armata', sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-size:110%;
 	font-weight:bold;
 }
@@ -596,10 +545,10 @@ h3, h4
 }
 .warninglabel
 {
-		position: absolute;
-		left:220px;
-		width:200px;
-		text-align:left;
+	position: absolute;
+	left:220px;
+	width:200px;
+	text-align:left;
 
 }
 #outputconsole
@@ -656,7 +605,7 @@ h3, h4
 	left:10px;
 	width:500px;
 	margin-left: -25px;
-	font-family:"Inika", serif;
+	font-family:"Open Sans", serif;
 	font-size:110%;
 	font-weight:bold;
 }
@@ -673,7 +622,6 @@ h3, h4
 	width:100%;
 	border-bottom:1px dotted #CCC;
 	text-align:left;
-	/*font-family: 'Inika', serif;*/
 }
 .presolistitem:hover
 {
@@ -724,7 +672,7 @@ h3, h4
 }
 #filedropdown, #fontsizedropdown, #viewchangedropdown, #fonttypedropdown, #colorselector
 {
-	/*z-index:40000*/;
+	/*z-index:40000*/
 }
 .shadedanchor
 {
@@ -833,7 +781,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', end
 	height:20px;
 	font-size:12px;
 	padding-top:3px;
-	font-family: 'Armata', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 #shaperesize
 {

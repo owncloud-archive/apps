@@ -11,17 +11,7 @@
  
 var templatearray = [
 			"<html><head><title>Impressionist Previewer foe ownCloud</title>",
-			"<link href='http://fonts.googleapis.com/css?family=Inika:400,700' rel='stylesheet' type='text/css'>",
-			"<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'><link href='css/style.css' rel='stylesheet' />",
-			"<link href='http://fonts.googleapis.com/css?family=Doppio+One' rel=',stylesheet' type='text/css'>",
-    			"<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>",
-    			"<link href='http://fonts.googleapis.com/css?family=Henny+Penny' rel='stylesheet' type='text/css'>",
-    			"<link href='http://fonts.googleapis.com/css?family=Ribeye+Marrow' rel='stylesheet' type='text/css'>",
-    			"<link href='http://fonts.googleapis.com/css?family=Unkempt' rel='stylesheet' type='text/css'>",
-    			"<link href='http://fonts.googleapis.com/css?family=Fresca' rel='stylesheet' type='text/css'>",
-    			"<link href='http://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>",
 			"<link href='../css/mappingstyle.css' rel='stylesheet' />",
-			"<script src='jquery.js'></script>",
 			"</head>",
 			"<body class='impress-not-supported'>",
 			"<div id='impress' style='background-color:#FFCC00;'>",
@@ -45,5 +35,5 @@ var ultemplate = "<ul id='!ULID!'><li></li></ul>";
 
 var fontStyle = "largeheader";
 var bevantext = "'Bevan', serif;";
-var inikatext = "'Inika', serif;";
+var inikatext = "'Open Sans', sans;";
 

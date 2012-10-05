@@ -241,7 +241,7 @@ table {
 
 
 body {
-    font-family: 'Inika', serif;
+    font-family: "Open Sans", serif;
     
     min-height: 740px;
 
@@ -300,7 +300,7 @@ a,iframe,
     -o-box-sizing:      border-box;
     box-sizing:         border-box;
 
-     font-family: 'Inika', serif;
+     font-family: "Open Sans", serif;
 
 
     font-size: 48px;
@@ -329,25 +329,19 @@ a,iframe,
     position: fixed;
     left: 0;
     right: 0;
-    bottom: 200px;
-    
+    bottom: 200px;   
     background: rgba(0,0,0,0.5);
     color: #EEE;
     text-align: center;
-    
     font-size: 50px;
     padding: 20px;
-    
-    z-index: 100;
-    
+    z-index: 100;    
     opacity: 0;
-    
     -webkit-transform: translateY(400px);
     -moz-transform:    translateY(400px);
     -ms-transform:     translateY(400px);
     -o-transform:      translateY(400px);
     transform:         translateY(400px);
-
     -webkit-transition: opacity 1s, -webkit-transform 0.5s 1s;
     -moz-transition:    opacity 1s,    -moz-transform 0.5s 1s;
     -ms-transition:     opacity 1s,     -ms-transform 0.5s 1s;

@@ -135,7 +135,7 @@ var firstLayout = true;
 var orchpages = 0;
 var currentOrchPage = 0;
 var isOrchestration = false;
-var currentSelectedFont = "Inika";
+var currentSelectedFont = "Open Sans";
 var currentselectedslidethumb = "";
 
 //startup
