@@ -78,52 +78,14 @@ class App
 
 		// iterate ...
 		foreach ($accounts as $account) {
-			$folders_out = array();
-
 			try {
-				// open the imap connection
-				$conn = App::getImapConnection($account);
-
-				// if successful -> get all folders of that account
-				$mboxes = $conn->listMailboxes('*');
-
-				foreach ($mboxes as $folder) {
-
-					$status = self::getMailboxStatus($conn, $folder['mailbox']);
-
-					$folders_out[] = $status;
-				}
-
-				usort($folders_out, function ($a, $b) {
-					return strcmp($a['id'], $b['id']);
-				});
-
-				$response[] = array('id' => $account['id'], 'name' => $account['name'], 'folders' => $folders_out);
-
-				// close the connection
-				$conn->close();
+				$response[] = $account->getListArray();
 			} catch (\Horde_Imap_Client_Exception $e) {
-				$response[] = array('id' => $account['id'], 'name' => $account['name'], 'error' => $e->getMessage());
+				$response[] = array('id' => $account->getId(), 'name' => $account->getName(), 'error' => $e->getMessage());
 			}
 		}
 
 		return $response;
-	}
-
-	/**
-	 * @param $conn
-	 * @param $mailbox
-	 * @return array
-	 */
-	private static function getMailboxStatus($conn, $mailbox) {
-
-		try {
-			$display_name = \Horde_Imap_Client_Utf7imap::Utf7ImapToUtf8($mailbox);
-			$status = $conn->status($mailbox);
-			return array('id' => $mailbox, 'name' => $display_name, 'unseen' => $status['unseen'], 'total' => $status['messages']);
-		} catch (\Horde_Imap_Client_Exception $e) {
-			return array('id' => $mailbox, 'name' => $display_name, 'unseen' => 0, 'total' => 0, 'error' => $e->getMessage());
-		}
 	}
 
 	/**
@@ -144,52 +106,8 @@ class App
 		}
 
 		try {
-			// connect to the imap server
-			$conn = App::getImapConnection($account);
-
-			$messages = array();
-
-//			$mb = new \Horde_Imap_Client_Mailbox($folder_id);
-			$status = $conn->status($folder_id, \Horde_Imap_Client::STATUS_MESSAGES);
-			$total = $status['messages'];
-
-			if (($from + $count) > $total) {
-				$count = $total - $from;
-			}
-
-			$headers = array();
-
-			$fetch_query = new \Horde_Imap_Client_Fetch_Query();
-			$fetch_query->envelope();
-			$fetch_query->flags();
-			$fetch_query->seq();
-			$fetch_query->size();
-			$fetch_query->uid();
-			$fetch_query->imapDate();
-
-			$headers = array_merge($headers, array(
-				'importance',
-				'list-post',
-				'x-priority'
-			));
-			$headers[] = 'content-type';
-
-			$fetch_query->headers('imp', $headers, array(
-				'cache' => true,
-				'peek'  => true
-			));
-
-			$opt = array('ids' => ($from + 1) . ':' . ($from + 1 + $count));
-			// $list is an array of Horde_Imap_Client_Data_Fetch objects.
-			$headers = $conn->fetch($folder_id, $fetch_query);
-
-			ob_start(); // fix for Horde warnings
-			foreach ($headers as $message_id => $header) {
-				$message = new Message($conn, $folder_id, $message_id);
-				$message->setInfo($header);
-				$messages[] = $message->getListArray();
-			}
-			ob_clean();
+			$mailbox = $account->getMailbox($folder_id);
+			$messages = $mailbox->getMessages($from, $count);
 
 			return array('account_id' => $account_id, 'folder_id' => $folder_id, 'messages' => $messages);
 		} catch (\Horde_Imap_Client_Exception $e) {
@@ -214,34 +132,14 @@ class App
 		}
 
 		try {
-
-			// connect to the imap server
-			$conn = App::getImapConnection($account);
-
-			$message = array();
-			$m = new Message($conn, $folder_id, $message_id);
+			$mailbox = $account->getMailbox($folder_id);
+			$m = $mailbox->getMessage($message_id);
 			$message = $m->as_array();
 
 			return array('error' => $conn->error, 'message' => $message);
 		} catch (\Horde_Imap_Client_Exception $e) {
 			return array('error' => $e->getMessage());
 		}
-	}
-
-	private static function getImapConnection($account) {
-		//
-		// TODO: cache connections for / within accounts???
-		//
-		$host = $account['host'];
-		$user = $account['user'];
-		$password = $account['password'];
-		$port = $account['port'];
-		$ssl_mode = $account['ssl_mode'];
-
-		$client = new \Horde_Imap_Client_Socket(array(
-			'username' => $user, 'password' => $password, 'hostspec' => $host, 'port' => $port, 'secure' => $ssl_mode, 'timeout' => 2));
-		$client->login();
-		return $client;
 	}
 
 	private static function getAccounts($user_id) {
@@ -256,17 +154,28 @@ class App
 		foreach ($account_ids as $id) {
 			$account_string = 'account[' . $id . ']';
 
-			$accounts[$id] = array(
+			$accounts[$id] = new Account(array(
 				'id'       => $id,
 				'name'     => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[name]'),
 				'host'     => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[host]'),
 				'port'     => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[port]'),
 				'user'     => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[user]'),
 				'password' => base64_decode(\OCP\Config::getUserValue($user_id, 'mail', $account_string . '[password]')),
-				'ssl_mode' => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[ssl_mode]'));
+				'ssl_mode' => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[ssl_mode]')
+			));
 		}
 
 		return $accounts;
+	}
+
+	private static function getAccount($user_id, $account_id) {
+		$accounts = App::getAccounts($user_id);
+
+		if (isset($accounts[$account_id])) {
+			return $accounts[$account_id];
+		}
+
+		return false;
 	}
 
 	public static function addAccount($user_id, $host, $port, $user, $password, $ssl_mode) {
@@ -330,7 +239,8 @@ class App
 				foreach ($sec_modes as $sec_mode) {
 					$account['ssl_mode'] = $sec_mode;
 					try {
-						$client = App::getImapConnection($account);
+						$account = new Account($account_info);
+						$client = $account->getImapConnection();
 						return App::addAccount($user_id, $h, $port, $user, $password, $sec_mode);
 					} catch (\Horde_Imap_Client_Exception $e) {
 						// nothing to do
@@ -341,15 +251,5 @@ class App
 		}
 
 		return null;
-	}
-
-	private static function getAccount($user_id, $account_id) {
-		$accounts = App::getAccounts($user_id);
-
-		if (isset($accounts[$account_id])) {
-			return $accounts[$account_id];
-		}
-
-		return false;
 	}
 }

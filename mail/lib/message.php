@@ -1,5 +1,4 @@
 <?php
-
 /**
  * ownCloud - Mail app
  *
@@ -20,6 +19,7 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+
 namespace OCA\Mail;
 
 class Message {
