@@ -89,10 +89,9 @@ class App
 
 				foreach ($mboxes as $folder) {
 
-					$status = $conn->status($folder['mailbox']);
+					$status = self::getMailboxStatus($conn, $folder['mailbox']);
 
-					$folders_out[] = array('id'     => $folder['mailbox'], 'name' => $folder['mailbox'],
-					                       'unseen' => $status['unseen'], 'total' => $status['messages']);
+					$folders_out[] = $status;
 				}
 
 				usort($folders_out, function ($a, $b) {
@@ -109,6 +108,21 @@ class App
 		}
 
 		return $response;
+	}
+
+	/**
+	 * @param $conn
+	 * @param $mailbox
+	 * @return array
+	 */
+	private static function getMailboxStatus($conn, $mailbox) {
+
+		try {
+			$status = $conn->status($mailbox);
+			return array('id' => $mailbox, 'name' => $mailbox, 'unseen' => $status['unseen'], 'total' => $status['messages']);
+		} catch (\Horde_Imap_Client_Exception $e) {
+			return array('id' => $mailbox, 'name' => $mailbox, 'unseen' => 0, 'total' => 0, 'error' => $e->getMessage());
+		}
 	}
 
 	/**
@@ -235,7 +249,7 @@ class App
 		$ssl_mode = $account['ssl_mode'];
 
 		$client = new \Horde_Imap_Client_Socket(array(
-			'username' => $user, 'password' => $password, 'hostspec' => $host, 'port' => $port, 'secure' => $ssl_mode));
+			'username' => $user, 'password' => $password, 'hostspec' => $host, 'port' => $port, 'secure' => $ssl_mode, 'timeout' => 2));
 		$client->login();
 		return $client;
 	}
@@ -278,8 +292,7 @@ class App
 		$account_ids = \OCP\Config::getUserValue($user_id, 'mail', 'accounts', '');
 		if ($account_ids) {
 			$account_ids = explode(',', $account_ids);
-		}
-		else {
+		} else {
 			$account_ids = array();
 		}
 		$account_ids[] = $id;
@@ -296,8 +309,9 @@ class App
 		$new_account = self::testAccount($user_id, $email, $host, $user, $password);
 
 		// try full email address as user name now (e.g. gmail does so)
-		if ($new_account == null)
+		if ($new_account == null) {
 			$new_account = self::testAccount($user_id, $email, $host, $email, $password);
+		}
 
 		return $new_account;
 	}
@@ -317,15 +331,21 @@ class App
 
 		$ports = array(143, 585, 993);
 		$sec_modes = array('ssl', 'tls', null);
-		foreach ($ports as $port) {
-			$account['port'] = $port;
-			foreach ($sec_modes as $sec_mode) {
-				$account['ssl_mode'] = $sec_mode;
-				try {
-					$client = App::getImapConnection($account);
-					return App::addAccount($user_id, $host, $port, $user, $password, $sec_mode);
-				} catch (\Horde_Imap_Client_Exception $e) {
-					// nothing to do
+		$host_prefixes = array('', 'imap.');
+		foreach ($host_prefixes as $host_prefix) {
+			$h = $host_prefix . $host;
+			$account['host'] = $h;
+			foreach ($ports as $port) {
+				$account['port'] = $port;
+				foreach ($sec_modes as $sec_mode) {
+					$account['ssl_mode'] = $sec_mode;
+					try {
+						$client = App::getImapConnection($account);
+						return App::addAccount($user_id, $h, $port, $user, $password, $sec_mode);
+					} catch (\Horde_Imap_Client_Exception $e) {
+						// nothing to do
+						error_log("Failed: $user_id, $h, $port, $user, $password, $sec_mode");
+					}
 				}
 			}
 		}
