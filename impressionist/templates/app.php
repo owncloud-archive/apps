@@ -9,23 +9,25 @@
  * Impressionist Copyright 2012 Harish Sivaramakrishnan (@hsivaram) 
  -->
     <script>
-        var editor;
-        $(document).ready(function (e) {
-            $("#mybody").css("visibility", "hidden");
-
-            if (Utilities.isSupportedUA()) {
-                $("#mybody").css("visibility", "visible");
-                init();
-            }
-            initializeEditor();
-        });
-        function initializeEditor() {
-            editor = new wysihtml5.Editor("adveditorBox", {
-                parserRules:wysihtml5ParserRules
-            });
-            editor.setValue(ultemplate);
-            console.log(editor.getValue())
-        }
+    var editor;
+    $(document).ready(function(e)
+    {
+      $("#mybody").css("visibility", "hidden");      
+      if(Utilities.isSupportedUA())
+      {
+        $("#mybody").css("visibility", "visible");
+        init();
+      }
+      initializeEditor();
+    });
+    function initializeEditor()
+    {
+      editor = new wysihtml5.Editor("adveditorBox", {
+         parserRules:  wysihtml5ParserRules
+     });
+      editor.setValue(ultemplate);
+      console.log(editor.getValue())
+    }
     </script>
 <body id="mybody">
 <div class="navbar headerbg" id="topnavbar">

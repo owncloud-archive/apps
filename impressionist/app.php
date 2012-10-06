@@ -24,7 +24,7 @@
 require_once 'lib/impressionist.php';
 
 OCP\User::checkLoggedIn();
-OCP\JSON::checkAppEnabled('impressionist');
+OCP\App::checkAppEnabled('impressionist');
 OCP\App::setActiveNavigationEntry( 'impressionist_index' );
 
 OCP\Util::addStyle('impressionist', 'mainstyle');
@@ -45,6 +45,7 @@ OCP\Util::addScript('impressionist', 'jqueryui');
 OCP\Util::addScript('impressionist', 'bootstrap');
 OCP\Util::addScript('impressionist', 'advanced');
 OCP\Util::addScript('impressionist', 'wysihtml5-0.3.0');
+OCP\Util::addScript('impressionist', 'utilities');
 
 
 $tmpl = new OCP\Template('impressionist', 'app', 'user');

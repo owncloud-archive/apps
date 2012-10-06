@@ -86,29 +86,29 @@
 }
 .slidethumbnail
 {
-	border:1px solid #DDD;
-	width:120px;
-	height:80px;
+    border:1px solid #DDD;
+    width:120px;
+    height:80px;
     background-color: #FFF;
     margin-top:10px;
     -webkit-box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
-	-moz-box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
-	box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
+    -moz-box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
+    box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
 	
 
 
 }
 .orchestrationthumbnail
 {
-	border:1px solid #777;
-	width:150px;
-	height:150px;
+    border:1px solid #777;
+    width:150px;
+    height:150px;
     background-color: #FFF;
     margin-top:10px;
     position: absolute;
     -webkit-box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
-	-moz-box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
-	box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
+    -moz-box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
+    box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
 
 
 }
@@ -756,42 +756,42 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', end
 }
 .subnavbg
 {
-	background-image :url('%webroot%/apps/impressionist/img/bgtexture3.jpg');
-	background-repeat:repeat-x;
-	border: 1px solid #222;
-	height:40px;
-	-webkit-box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
-	-moz-box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
-	box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
+    background-image :url('%webroot%/apps/impressionist/img/bgtexture3.jpg');
+    background-repeat:repeat-x;
+    border: 1px solid #222;
+    height:40px;
+    -webkit-box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
+    -moz-box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
+    box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, 0.5);
 }
 .logopic
 {
-	position: absolute;
-	left:5px;
-	top:5px;
+    position: absolute;
+    left:5px;
+    top:5px;
 }
 .blacktext:hover
 {
-	color:#999;
+    color:#999;
 }
 #filenamespan
 {
-	position: absolute;
-	top:7px;
-	height:20px;
-	font-size:12px;
-	padding-top:3px;
-	font-family: 'Open Sans', sans-serif;
+    position: absolute;
+    top:7px;
+    height:20px;
+    font-size:12px;
+    padding-top:3px;
+    font-family: 'Open Sans', sans-serif;
 }
 #shaperesize
 {
-	outline:1px solid #0ca4eb;
-	outline-offset: 5px; 
-	position: absolute;
-	left:0px
-	top:0px;
-	width:50px;
-	height:50px;
+    outline:1px solid #0ca4eb;
+    outline-offset: 5px; 
+    position: absolute;
+    left:0px;
+    top:0px;
+    width:50px;
+    height:50px;
 }
 ::-webkit-scrollbar {
     width: 7px;

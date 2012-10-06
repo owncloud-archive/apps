@@ -34,6 +34,5 @@ var ultemplate = "<ul id='!ULID!'><li></li></ul>";
 
 
 var fontStyle = "largeheader";
-var bevantext = "'Bevan', serif;";
 var inikatext = "'Open Sans', sans;";
 
