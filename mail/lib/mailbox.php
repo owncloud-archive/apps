@@ -81,8 +81,8 @@ class Mailbox {
 	 * @return array
 	 */
 	public function getListArray() {
+		$display_name = $this->getDisplayName();
 		try {
-			$display_name = $this->getDisplayName();
 			$status = $this->getStatus();
 			return array('id' => $this->folder_id, 'name' => $display_name, 'unseen' => $status['unseen'], 'total' => $status['messages']);
 		} catch (\Horde_Imap_Client_Exception $e) {
