@@ -51,15 +51,13 @@ class OC_Files_Antivirus {
 						if (!empty($email) ) {
 							$tmpl = new OC_Template('files_antivirus', 'notification');
 							$tmpl->assign('file', $path, false);
+							$tmpl->assign('host', OCP\Util::getServerHost(), false);
+							$tmpl->assign('user', OC_User::getUser(), false);
 							$msg = $tmpl->fetchPage();
-							\OCP\Util::writeLog('files_antivirus','$msg: '.$msg, \OCP\Util::DEBUG);
 							$from = 'security-noreply@' . OCP\Util::getServerHost();
-							\OCP\Util::writeLog('files_antivirus','$from: '.$from, \OCP\Util::DEBUG);
-							OC_MAIL::send($email, OC_User::getUser(), 'Malware detected', $msg, $from, 'ownCloud', 1);
+							\OC_MAIL::send($email, OC_User::getUser(), 'Malware detected', $msg, $from, 'ownCloud',1);
 						}
-						exit();
-						//TODO: notify the user
-						
+						exit();						
 						break;
 						
 					case CLAMAV_SCANRESULT_CLEAN:

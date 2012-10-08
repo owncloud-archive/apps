@@ -10,19 +10,19 @@ remove the file if it's infected.
 ##Status
 
 The App is not complete yet...
-* It can be configured to work with the excecutable or the daemond mode of ClamAV
+* It can be configured to work with the excecutable or the daemond (not testet) mode of ClamAV
 * When the user uploads a file, it's checked
-* If an uploaded file is infected, it's deleted and a notification is shown to the user on screen
+* If an uploaded file is infected, it's deleted and a notification is shown to the user on screen and an email is sent with details.
 * Tested in Linux only
 
 ##In progress
 
-* Email notification
 * Daemond Mode tests
 
 ##ToDo
 
 * Background Job to scan all files
+* Test uploading from Webdav and clients
 * Configurations Tune-ups
 * Other OS Testing
 * Look for ideas :P
