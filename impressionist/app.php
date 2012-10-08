@@ -36,7 +36,7 @@ OCP\Util::addStyle('impressionist', 'bootstrap');
 OCP\Util::addScript('impressionist', 'appui');
 OCP\Util::addScript('impressionist', 'keymaster');
 OCP\Util::addScript('impressionist', 'datastore');
-OCP\Util::addScript('impressionist', 'colorpicker')
+OCP\Util::addScript('impressionist', 'colorpicker');
 OCP\Util::addScript('impressionist', 'fileops');
 OCP\Util::addScript('impressionist', 'templ');
 OCP\Util::addScript('impressionist', 'knobdial');
