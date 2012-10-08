@@ -143,7 +143,7 @@ var currentselectedslidethumb = "";
 function init()
 {
 	//localStorage.clear();	
-	console.log("I am the correct file")
+	//console.log("I am the correct file")
 	$(document).bind("mouseup", onDocMouseUp);
 	//$("#mask").css("visibility", "visible")
 	$("#play").css("visibility","hidden")
