@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-04 02:05+0200\n"
-"PO-Revision-Date: 2012-10-03 13:46+0000\n"
+"POT-Creation-Date: 2012-10-09 02:03+0200\n"
+"PO-Revision-Date: 2012-10-08 13:46+0000\n"
 "Last-Translator: Duarte Velez Grilo <duartegrilo@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -68,7 +68,7 @@ msgstr ""
 
 #: ajax/loadfeed.php:37 templates/part.feeds.php:50
 msgid "Starred"
-msgstr ""
+msgstr "Estrelado"
 
 #: ajax/loadfeed.php:42 templates/part.feeds.php:44
 msgid "New articles"
@@ -148,11 +148,11 @@ msgstr ""
 
 #: js/news.js:33 js/news.js:95
 msgid "Adding..."
-msgstr ""
+msgstr "A acrescentar..."
 
 #: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
-msgstr ""
+msgstr "Acrescentar pasta"
 
 #: js/news.js:63
 msgid "Changing..."
@@ -201,7 +201,7 @@ msgstr "A importar..."
 
 #: js/settings.js:43
 msgid " out of "
-msgstr ""
+msgstr "sem"
 
 #: js/settings.js:44
 msgid " feeds imported successfully from "
@@ -233,7 +233,7 @@ msgstr "sem titulo"
 
 #: lib/foldermapper.php:119
 msgid "no name"
-msgstr ""
+msgstr "sem nome"
 
 #: lib/itemmapper.php:206
 msgid "no body"
@@ -249,7 +249,7 @@ msgstr "Ocorreu um erro"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr ""
+msgstr "Boa! Subscreveu"
 
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
@@ -265,19 +265,19 @@ msgstr ""
 
 #: templates/main.php:35
 msgid "Feed"
-msgstr ""
+msgstr "Feed"
 
 #: templates/main.php:36
 msgid "Folder"
-msgstr ""
+msgstr "Pasta"
 
 #: templates/main.php:43
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
 #: templates/part.dialogues.php:1
 msgid "Add Folder"
-msgstr ""
+msgstr "Acrescentar pasta"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
@@ -285,7 +285,7 @@ msgstr ""
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
-msgstr ""
+msgstr "Nome da pasta"
 
 #: templates/part.dialogues.php:14
 msgid "Add Subscription"
@@ -297,15 +297,15 @@ msgstr ""
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
-msgstr ""
+msgstr "Escolha uma pasta"
 
 #: templates/part.dialogues.php:28 templates/part.nofeeds.php:7
 msgid "Address"
-msgstr ""
+msgstr "Endereço"
 
 #: templates/part.dialogues.php:29
 msgid "Add"
-msgstr ""
+msgstr "Acrescentar"
 
 #: templates/part.feeds.php:46 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:21
@@ -322,11 +322,11 @@ msgstr ""
 
 #: templates/part.items.php:55
 msgid "by"
-msgstr ""
+msgstr "por"
 
 #: templates/part.items.php:62
 msgid "Keep unread"
-msgstr ""
+msgstr "Manter como não lido"
 
 #: templates/part.listfeed.php:25
 msgid "Delete feed"
@@ -338,15 +338,15 @@ msgstr ""
 
 #: templates/part.listfolder.php:19
 msgid "Delete folder"
-msgstr ""
+msgstr "Apagar pasta"
 
 #: templates/part.listfolder.php:20
 msgid "Rename folder"
-msgstr ""
+msgstr "Renomear pasta"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
-msgstr ""
+msgstr "Não tem nenhum feed no seu leitor."
 
 #: templates/part.nofeeds.php:8 templates/subscribelet.php:7
 msgid "Subscribe"
