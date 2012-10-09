@@ -167,7 +167,7 @@
 <div class="navbar subnavbg" id="subnav2" style="background-color:#222">
     <div class="container" style="width: auto;">
         <div class="nav-collapse">
-            <ul class="nav">
+            <ul class="nav" style="margin-top:-28px;">
                 <li><a>Rotation</a></li>
                 <li>
                     <input id="slideknob" class="knob" data-thickness=".3" data-width="38" data-min="-90" data-max="90"
@@ -198,8 +198,7 @@
                 </li>
                 <li class="dropdown"></li>
             </ul>
-            <ul class="nav pull-right">
-                <li class="divider-vertical"></li>
+            <ul class="nav pull-right" style="margin-top:-28px;">
                 <li>
                     <div class="btn-group">
                         <a class="btn btn-small" onclick="preparePreview()" href="#"><i class="icon-play-circle"></i>
