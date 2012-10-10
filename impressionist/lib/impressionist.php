@@ -37,8 +37,8 @@ class Storage {
 		$list=\OC_FileCache::searchByMime('text', 'impress' ); 
 		foreach($list as $l) {
 			$info=pathinfo($l);
-			$size=\OC_Filesystem::filesize($l);
-			$mtime=\OC_Filesystem::filemtime($l);
+			$size=\OC\Files\Filesystem::filesize($l);
+			$mtime=\OC\Files\Filesystem::filemtime($l);
 
 			$entry=array('url'=>$l,'name'=>$info['filename'],'size'=>$size,'mtime'=>$mtime);
 			$presentations[]=$entry;

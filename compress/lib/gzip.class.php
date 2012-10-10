@@ -31,7 +31,7 @@ class OC_Compress {
 	public static function compressTarget($target) {
 		$oc_target = OC::$CONFIG_DATADIRECTORY . $target;
 		
-		if(OC_Filesystem::is_file($target)) {
+		if(\OC\Files\Filesystem::is_file($target)) {
 			$fileinfo = pathinfo($oc_target);
 			$archiveName = $fileinfo['filename'];
 			$dirTarget = $fileinfo['dirname'];

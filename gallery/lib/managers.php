@@ -74,12 +74,12 @@ class ThumbnailsManager {
 		if ($gallery_storage->file_exists($path)) {
 			return new \OC_Image($gallery_storage->getLocalFile($path));
 		}
-		if (!\OC_Filesystem::file_exists($path)) {
+		if (!\OC\Files\Filesystem::file_exists($path)) {
 			\OC_Log::write(self::TAG, 'File '.$path.' don\'t exists', \OC_Log::WARN);
 			return false;
 		}
 		$image = new \OC_Image();
-		$image->loadFromFile(\OC_Filesystem::getLocalFile($path));
+		$image->loadFromFile(\OC\Files\Filesystem::getLocalFile($path));
 		if (!$image->valid()) return false;
 
 		$image->fixOrientation();
@@ -104,12 +104,12 @@ class ThumbnailsManager {
 	public function getThumbnailInfo($path) {
 		$arr = DatabaseManager::getInstance()->getFileData($path);
 		if (!$arr) {
-			if (!\OC_Filesystem::file_exists($path)) {
+			if (!\OC\Files\Filesystem::file_exists($path)) {
 				\OC_Log::write(self::TAG, 'File '.$path.' don\'t exists', \OC_Log::WARN);
 				return false;
 			}
 			$image = new \OC_Image();
-			$image->loadFromFile(\OC_Filesystem::getLocalFile($path));
+			$image->loadFromFile(\OC\Files\Filesystem::getLocalFile($path));
 			if (!$image->valid()) {
 				return false;
 			}

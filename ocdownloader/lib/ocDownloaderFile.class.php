@@ -47,10 +47,10 @@ class OC_ocDownloaderFile {
 				$filename = substr($filename, 0, strpos($filename, '&'));
 			}
 		  	
-			if(OC_Filesystem::file_exists('/Downloads/' . $filename)) {
+			if(\OC\Files\Filesystem::file_exists('/Downloads/' . $filename)) {
 				$filename = md5(rand()) . '_' . $filename;
 			}
-			$fs = OC_Filesystem::fopen('/Downloads/' . $filename, 'w');
+			$fs = \OC\Files\Filesystem::fopen('/Downloads/' . $filename, 'w');
 			
 			$size = self::getRemoteFileSize($file);
 			if($size == 0) {

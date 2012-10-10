@@ -175,7 +175,7 @@ class Archive extends Common {
 				$archive = substr($path, 0, $pos + strlen($ext) - 1);
 				if (self::$rootView->file_exists($archive) and  array_search($archive, self::$mounted) === false) {
 					$localArchive = self::$rootView->getLocalFile($archive);
-					\OC_Filesystem::mount('\OC\Files\Storage\Archive', array('archive' => $localArchive), $archive . '/');
+					\OC\Files\Filesystem::mount('\OC\Files\Storage\Archive', array('archive' => $localArchive), $archive . '/');
 					self::$mounted[] = $archive;
 				}
 			}

@@ -25,8 +25,8 @@ require_once '../../../../lib/base.php';
 OC_JSON::checkAppEnabled('ocdownloader');
 OC_JSON::checkLoggedIn();
 
-if(!OC_Filesystem::is_dir('/Downloads')) {
-	OC_Filesystem::mkdir('/Downloads');
+if(!\OC\Files\Filesystem::is_dir('/Downloads')) {
+	\OC\Files\Filesystem::mkdir('/Downloads');
 }
 
 $pr = $_POST['pr'];

@@ -58,8 +58,8 @@ class OC_remoteStorage {
 			$scopePathParts = array('remoteStorage', $category);
 			for($i=0;$i<=count($scopePathParts);$i++) {
 				$thisPath = '/'.implode('/', array_slice($scopePathParts, 0, $i));
-				if(!OC_Filesystem::file_exists($thisPath)) {
-					OC_Filesystem::mkdir($thisPath);
+				if(!\OC\Files\Filesystem::file_exists($thisPath)) {
+					\OC\Files\Filesystem::mkdir($thisPath);
 				}
 			}
 		}

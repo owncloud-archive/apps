@@ -47,6 +47,6 @@ OC_App::registerPersonal('storage_charts','settings');
 $data_dir = OC_Config::getValue('datadirectory', '');
 if(OC_User::getUser() && strlen($data_dir) != 0) {
 	$used = OC_DLStCharts::getTotalDataSize(OC::$CONFIG_DATADIRECTORY);
-	$total = OC_DLStCharts::getTotalDataSize($data_dir) + OC_Filesystem::free_space();
+	$total = OC_DLStCharts::getTotalDataSize($data_dir) + \OC\Files\Filesystem::free_space();
 	OC_DLStCharts::update($used, $total);
 }

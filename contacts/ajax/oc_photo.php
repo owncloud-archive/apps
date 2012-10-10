@@ -32,7 +32,7 @@ if(!isset($_GET['path'])) {
 	bailOut(OC_Contacts_App::$l10n->t('No photo path was submitted.'));
 }
 
-$localpath = OC_Filesystem::getLocalFile($_GET['path']);
+$localpath = \OC\Files\Filesystem::getLocalFile($_GET['path']);
 $tmpkey = 'contact-photo-'.$_GET['id'];
 
 if(!file_exists($localpath)) {

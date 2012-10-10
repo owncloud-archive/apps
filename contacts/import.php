@@ -32,7 +32,7 @@ if(isset($_POST['fstype']) && $_POST['fstype'] == 'OC_FilesystemView') {
 	$view = OCP\Files::getStorage('contacts');
 	$file = $view->file_get_contents('/imports/' . $_POST['file']);
 } else {
-	$file = OC_Filesystem::file_get_contents($_POST['path'] . '/' . $_POST['file']);
+	$file = \OC\Files\Filesystem::file_get_contents($_POST['path'] . '/' . $_POST['file']);
 }
 if(!$file) {
 	OCP\JSON::error(array('data' => array('message' => 'Import file was empty.')));

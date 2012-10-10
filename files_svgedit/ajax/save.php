@@ -29,9 +29,9 @@ $dir = $pathParts['dirname'];
 $file = $pathParts['basename'];
 
 if($path != '' && $mtime != '') {
-    if(OC_Filesystem::file_exists($path)) {
+    if(\OC\Files\Filesystem::file_exists($path)) {
         // Get file mtime
-        $filemtime = OC_Filesystem::filemtime($path);
+        $filemtime = \OC\Files\Filesystem::filemtime($path);
 		if(!$force && $mtime != $filemtime) {
 			if($mtime == 0) {
 				$msg = "File already exists!";
@@ -57,9 +57,9 @@ if($path != '' && $mtime != '') {
     }
 	// file should be existing now
 	if(method_exists('OC_Filesystem', 'is_writable')) {
-		$writable = OC_Filesystem::is_writable($path);
+		$writable = \OC\Files\Filesystem::is_writable($path);
 	} else {
-		$writable = OC_Filesystem::is_writeable($path);
+		$writable = \OC\Files\Filesystem::is_writeable($path);
 	}
 	if($writable) {
 		if($b64encoded) {
@@ -68,11 +68,11 @@ if($path != '' && $mtime != '') {
 				$filecontents = base64_decode(substr($filecontents, strlen($b64prefix)));
 			}
 		}
-        OC_Filesystem::file_put_contents($path, $filecontents);
+		\OC\Files\Filesystem::file_put_contents($path, $filecontents);
         // Clear statcache
         clearstatcache();
         // Get new mtime
-        $newmtime = OC_Filesystem::filemtime($path);
+        $newmtime = \OC\Files\Filesystem::filemtime($path);
         OC_JSON::success(array('data' => array('mtime' => $newmtime)));
     } else {
         // Not writable!

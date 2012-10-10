@@ -24,12 +24,12 @@
 class OC_Gallery_Hooks_Handlers {
 
 	public static function removePhoto($params) {
-		\OC\Pictures\ThumbnailsManager::getInstance()->delete($params[OC_Filesystem::signal_param_path]);
+		\OC\Pictures\ThumbnailsManager::getInstance()->delete($params[\OC\Files\Filesystem::signal_param_path]);
 	}
 
 	public static function renamePhoto($params) {
-		$oldpath = $params[OC_Filesystem::signal_param_oldpath];
-		$newpath = $params[OC_Filesystem::signal_param_newpath];
+		$oldpath = $params[\OC\Files\Filesystem::signal_param_oldpath];
+		$newpath = $params[\OC\Files\Filesystem::signal_param_newpath];
 		//TODO: implement this
 	}
 }

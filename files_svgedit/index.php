@@ -18,13 +18,13 @@ OC_Util::addScript('files_svgedit', 'svgToPdf');
 OC_App::setActiveNavigationEntry('files_index');
 $path = $_GET['file'];
 if(method_exists('OC_Filesystem', 'is_writable')) {
-	$writable = OC_Filesystem::is_writable($path);
+	$writable = \OC\Files\Filesystem::is_writable($path);
 } else {
-	$writable = OC_Filesystem::is_writeable($path);
+	$writable = \OC\Files\Filesystem::is_writeable($path);
 }
 if(isset($_GET['file']) and $writable) {
-    $filecontents = OC_Filesystem::file_get_contents($path);
-    $filemtime = OC_Filesystem::filemtime($path);
+    $filecontents = \OC\Files\Filesystem::file_get_contents($path);
+    $filemtime = \OC\Files\Filesystem::filemtime($path);
 } else {
     $filecontents = "";
     $filemtime = 0;
