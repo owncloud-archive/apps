@@ -34,7 +34,7 @@ class Storage {
 
 	public static function getPresentations() {
 		$presentations=array();
-		$list=\OC_FileCache::searchByMime('text', 'impress' ); // searching .impress files? Am I supposed to look for .impress mimetype? Check. 
+		$list=\OC_FileCache::searchByMime('text', 'impress' ); 
 		foreach($list as $l) {
 			$info=pathinfo($l);
 			$size=\OC_Filesystem::filesize($l);
@@ -47,8 +47,7 @@ class Storage {
 	
 		return $presentations;
 	}
-        //For running the impress files made.
-        // I dont think the player.css is required as we making files and not running demos. Check. 
+ 
         public static function showHeader() {
             echo ('
                 <!doctype html>
@@ -70,7 +69,7 @@ class Storage {
                     ');
             
         }
-        //For adding scripts to the impress files.
+
 	public static function showFooter() {
 			
 		echo('

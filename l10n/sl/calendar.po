@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-08 02:02+0200\n"
+"PO-Revision-Date: 2012-10-07 10:54+0000\n"
+"Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,7 +78,7 @@ msgstr "Koledar"
 
 #: js/calendar.js:96
 msgid "Deletion failed"
-msgstr ""
+msgstr "Brisanje je spodletelo."
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
@@ -212,7 +212,7 @@ msgstr "Nimate dovoljenj za izbris tega koledarja."
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Nimate dovoljenj za dodajanje tega koledarja."
 
-#: lib/import.php:186 templates/calendar.php:12
+#: lib/import.php:195 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Nov koledar"
@@ -547,7 +547,7 @@ msgid "Your calendars"
 msgstr "Vaši koledarji"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:17
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
 msgstr "CalDav povezava"
 
@@ -555,15 +555,15 @@ msgstr "CalDav povezava"
 msgid "Share Calendar"
 msgstr "Daj koledar v souporabo"
 
-#: templates/part.choosecalendar.rowfields.php:20
+#: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
 msgstr "Prenesi"
 
-#: templates/part.choosecalendar.rowfields.php:24
+#: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
 msgstr "Uredi"
 
-#: templates/part.choosecalendar.rowfields.php:29
+#: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "Izbriši"

@@ -58,5 +58,6 @@ class OC_GallerySearchProvider extends OC_Search_Provider{
 
 //OC_Search::registerProvider('OC_GallerySearchProvider');
 
-OCP\Util::connectHook('OC_Filesystem', 'delete', "OC_Gallery_Hooks_Handlers", "removePhoto");
+OCP\Util::connectHook(OC_Filesystem::CLASSNAME, OC_Filesystem::signal_post_write, 'OC_Gallery_Hooks_Handlers', 'writePhoto');
+OCP\Util::connectHook(OC_Filesystem::CLASSNAME, OC_Filesystem::signal_delete, 'OC_Gallery_Hooks_Handlers', 'removePhoto');
 //OCP\Util::connectHook(OC_Filesystem::CLASSNAME, OC_Filesystem::signal_post_rename, "OC_Gallery_Hooks_Handlers", "renamePhoto");

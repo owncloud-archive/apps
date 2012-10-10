@@ -5,6 +5,7 @@
 # Translators:
 # Bartek  <bart.p.pl@gmail.com>, 2012.
 # Cyryl Sochacki <>, 2012.
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012.
 #   <czarnystokrotek@mailoo.org>, 2012.
 # Marcin Małecki <gerber@tkdami.net>, 2011-2012.
 #   <mplichta@gmail.com>, 2012.
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-05 02:03+0200\n"
-"PO-Revision-Date: 2012-10-04 21:36+0000\n"
-"Last-Translator: urban <urban@fail.pl>\n"
+"POT-Creation-Date: 2012-10-06 02:03+0200\n"
+"PO-Revision-Date: 2012-10-05 21:18+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -284,7 +285,7 @@ msgstr "Kliknij aby cofnąć usunięcie \""
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "Anulowane usunięcie :\""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -296,7 +297,7 @@ msgstr "Nie można serializować elementów."
 
 #: js/contacts.js:762
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "Nieznany błąd. Sprawdź logi"
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -352,7 +353,7 @@ msgstr "Zły typ pliku"
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "Twoja przeglądarka nie obsługuje wczytywania AJAX. Proszę kliknąć na zdjęcie profilu, aby wybrać zdjęcie do wgrania."
 
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"

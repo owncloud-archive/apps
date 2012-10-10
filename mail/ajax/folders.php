@@ -24,7 +24,7 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('mail');
 
-$accounts = OCA_Mail\App::getFolders( OCP\User::getUser());
+$accounts = OCA\Mail\App::getFolders( OCP\User::getUser());
 
 foreach($accounts as $account) {
 	if( isset($account['error']) ) {

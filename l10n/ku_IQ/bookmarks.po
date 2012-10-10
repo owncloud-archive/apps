@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Hozha Koyi <hozhan@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2012-10-08 02:02+0200\n"
+"PO-Revision-Date: 2012-10-07 00:31+0000\n"
+"Last-Translator: Hozha Koyi <hozhan@gmail.com>\n"
+"Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ku_IQ\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:14
+msgid "Bookmarks"
+msgstr "دڵخوازه‌کان"
+
+#: bookmarksHelper.php:99
+msgid "unnamed"
+msgstr "بێ ناو"
+
+#: lib/search.php:43
+msgid "Bookm."
+msgstr "نیشانکردن"
+
+#: templates/bookmarklet.php:5
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "رابکێشه‌ ئه‌مه بۆ دڵخوازه‌کان له‌ وێبگه‌ڕه‌که‌ت وه‌ کرته‌ بکه‌ لێی، کاتێك ده‌ته‌وێت ماڵپه‌ڕێك دڵخواز بکه‌ی به‌خێرای:"
+
+#: templates/bookmarklet.php:7
+msgid "Read later"
+msgstr "دووای بیخوێنه‌وه"
+
+#: templates/list.php:13
+msgid "Address"
+msgstr "ناونیشان"
+
+#: templates/list.php:14
+msgid "Title"
+msgstr "ناونیشان"
+
+#: templates/list.php:15
+msgid "Tags"
+msgstr "تاگه‌کان"
+
+#: templates/list.php:16
+msgid "Save bookmark"
+msgstr "پاشکه‌وتکردنی دڵخواز"
+
+#: templates/list.php:22
+msgid "You have no bookmarks"
+msgstr "تۆ دڵخوازت نیه"
+
+#: templates/settings.php:11
+msgid "Bookmarklet <br />"
+msgstr "دڵخوازکرا <br />"

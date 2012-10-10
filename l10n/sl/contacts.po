@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-08 02:03+0200\n"
+"PO-Revision-Date: 2012-10-07 10:57+0000\n"
+"Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -242,7 +242,7 @@ msgstr "Napaka"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "Prosimo, če vpišete e-poštni naslov."
 
 #: js/contacts.js:176 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -259,7 +259,7 @@ msgstr "Izberite vrsto"
 
 #: js/contacts.js:214
 msgid "Select photo"
-msgstr ""
+msgstr "Izberite sliko"
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -275,11 +275,11 @@ msgstr "Napaka dovoljenj"
 
 #: js/contacts.js:481
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "Kliknite za preklic izbrisa \""
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "Preklican izbris: \""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -341,7 +341,7 @@ msgstr ""
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
-msgstr ""
+msgstr "Napačna vrsta datoteke"
 
 #: js/contacts.js:2010
 msgid ""
@@ -424,11 +424,11 @@ msgstr "Izbriši"
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: js/settings.js:157 templates/settings.php:66
+#: js/settings.js:161 templates/settings.php:66
 msgid "More..."
 msgstr "Več..."
 
-#: js/settings.js:161
+#: js/settings.js:165
 msgid "Less..."
 msgstr ""
 
