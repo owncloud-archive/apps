@@ -5,8 +5,8 @@
 * @author Christian Reiner
 * @copyright 2012 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
-* @link information http://apps.owncloud.com/content/show.php/Shorty?content=150401
-* @link repository https://svn.christian-reiner.info/svn/app/oc/shorty
+* @link information http://apps.owncloud.com/content/show.php?content=153220
+* @link repository https://svn.christian-reiner.info/svn/app/oc/imprint
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
