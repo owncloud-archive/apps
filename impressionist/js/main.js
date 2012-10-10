@@ -135,7 +135,7 @@ var firstLayout = true;
 var orchpages = 0;
 var currentOrchPage = 0;
 var isOrchestration = false;
-var currentSelectedFont = "Inika";
+var currentSelectedFont = "Open Sans";
 var currentselectedslidethumb = "";
 
 //startup
@@ -143,7 +143,7 @@ var currentselectedslidethumb = "";
 function init()
 {
 	//localStorage.clear();	
-	console.log("I am the correct file")
+	//console.log("I am the correct file")
 	$(document).bind("mouseup", onDocMouseUp);
 	//$("#mask").css("visibility", "visible")
 	$("#play").css("visibility","hidden")

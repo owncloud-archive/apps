@@ -12,6 +12,7 @@
 "Timezone changed" => "Časovni pas je bil spremenjen",
 "Invalid request" => "Neveljaven zahtevek",
 "Calendar" => "Koledar",
+"Deletion failed" => "Brisanje je spodletelo.",
 "user" => "uporabnik",
 "group" => "skupina",
 "Editable" => "Možno urejanje",

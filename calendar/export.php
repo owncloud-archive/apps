@@ -15,7 +15,7 @@ if(isset($cal)) {
 		header('HTTP/1.0 404 Not Found');
 		exit;
 	}
-	header('Content-Type: text/Calendar');
+	header('Content-Type: text/calendar');
 	header('Content-Disposition: inline; filename=' . str_replace(' ', '-', $calendar['displayname']) . '.ics');
 	echo OC_Calendar_Export::export($cal, OC_Calendar_Export::CALENDAR);
 }elseif(isset($event)) {
@@ -24,7 +24,7 @@ if(isset($cal)) {
 		header('HTTP/1.0 404 Not Found');
 		exit;
 	}
-	header('Content-Type: text/Calendar');
+	header('Content-Type: text/calendar');
 	header('Content-Disposition: inline; filename=' . str_replace(' ', '-', $data['summary']) . '.ics');
 	echo OC_Calendar_Export::export($event, OC_Calendar_Export::EVENT);
 }

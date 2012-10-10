@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-10 02:04+0200\n"
+"PO-Revision-Date: 2012-10-09 18:32+0000\n"
+"Last-Translator: martinb <martin.babik@gmail.com>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -243,7 +243,7 @@ msgstr "Chyba"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "Zadať e-mailovú adresu"
 
 #: js/contacts.js:176 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -260,7 +260,7 @@ msgstr "Vybrať typ"
 
 #: js/contacts.js:214
 msgid "Select photo"
-msgstr ""
+msgstr "Vybrať fotku"
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -330,7 +330,7 @@ msgstr "Chcete zlúčiť tieto adresáre?"
 
 #: js/contacts.js:1767
 msgid "Shared by "
-msgstr ""
+msgstr "Zdieľané"
 
 #: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
@@ -342,7 +342,7 @@ msgstr ""
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
-msgstr ""
+msgstr "Nesprávny typ súboru"
 
 #: js/contacts.js:2010
 msgid ""
@@ -356,15 +356,15 @@ msgstr ""
 
 #: js/contacts.js:2068
 msgid "Upload Error"
-msgstr ""
+msgstr "Chyba pri posielaní"
 
 #: js/contacts.js:2123
 msgid "Pending"
-msgstr ""
+msgstr "Prebieha"
 
 #: js/contacts.js:2155
 msgid "Import done"
-msgstr ""
+msgstr "Import ukončený"
 
 #: js/contacts.js:2168
 msgid "Not all files uploaded. Retrying..."
@@ -376,7 +376,7 @@ msgstr ""
 
 #: js/contacts.js:2190
 msgid "Importing..."
-msgstr ""
+msgstr "Importujem..."
 
 #: js/contacts.js:2211
 msgid "The address book name cannot be empty."
@@ -396,7 +396,7 @@ msgstr " zlyhaných."
 
 #: js/settings.js:76
 msgid "Displayname cannot be empty."
-msgstr ""
+msgstr "Zobrazované meno nemôže byť prázdne"
 
 #: js/settings.js:98 templates/settings.php:25
 msgid "Show CardDav link"
@@ -425,13 +425,13 @@ msgstr "Odstrániť"
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: js/settings.js:157 templates/settings.php:66
+#: js/settings.js:161 templates/settings.php:66
 msgid "More..."
 msgstr "Viac..."
 
-#: js/settings.js:161
+#: js/settings.js:165
 msgid "Less..."
-msgstr ""
+msgstr "Menej..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
@@ -568,7 +568,7 @@ msgstr "Biznis"
 
 #: lib/app.php:254
 msgid "Call"
-msgstr ""
+msgstr "Zavolať"
 
 #: lib/app.php:255
 msgid "Clients"
@@ -584,11 +584,11 @@ msgstr "Prázdniny"
 
 #: lib/app.php:258
 msgid "Ideas"
-msgstr ""
+msgstr "Nápady"
 
 #: lib/app.php:259
 msgid "Journey"
-msgstr ""
+msgstr "Cesta"
 
 #: lib/app.php:260
 msgid "Jubilee"
@@ -757,7 +757,7 @@ msgstr "http://www.stranka.sk"
 
 #: templates/part.contact.php:44
 msgid "Go to web site"
-msgstr ""
+msgstr "Navštíviť web"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"

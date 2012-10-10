@@ -33,4 +33,3 @@ $list=\OCA_Impressionist\Storage::getPresentations();
 $tmpl = new OCP\Template('impressionist', 'viewer', 'user');
 $tmpl->assign('list', $list);
 $tmpl->printPage();
-

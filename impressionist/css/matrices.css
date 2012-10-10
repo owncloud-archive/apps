@@ -1,59 +1,35 @@
-html, body {
-	padding:0;
-	margin:0;
-	background:#def;
-}
-
-body {
-	font-family:arial,tahoma,verdana;
-	font-size:75%;
-	line-height:1.5;
-	padding:20px;
-}
-
-h1 {
-	font-family:georgia, garamond, serif;
-	font-weight:normal;
-	color:rgba(0,0,0,0.5);
-	text-shadow: 1px 1px 2px rgba(0,0,0,0.25);
-}
-
-p {
-	width:230px;
-}
-
 #save {
-	width:300px;
-	height:300px;
-	padding:20px;
-	position:absolute;
-	left:50%;
-	top:50%;
-	margin:-150px 0 0 -150px;
-	border:1px dashed rgba(0,0,0,0.5);
-	color:rgba(0,0,0,0.5);
-
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+    width:300px;
+    height:300px;	
+    padding:20px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin:-150px 0 0 -150px;
+    border:1px dashed rgba(0,0,0,0.5);
+    color:rgba(0,0,0,0.5);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 
 	
 }
-	#save a.reset {
-		position:absolute;
-		color:rgba(0,0,0,0.5);
-		left:20px;
-		bottom:20px;
-		text-decoration:none;
-		font-size:10px;
-	}
-		#save a.reset:hover {
-			-webkit-transform: matrix(1.4172,-0.3424,0.3074,1.2345,0,0); 
-			-moz-transform: matrix(1.4172,-0.3424,0.3074,1.2345,0px,0px); 
-			-ms-transform: matrix(1.4172,-0.3424,0.3074,1.2345,0,0); 
-			-o-transform: matrix(1.4172,-0.3424,0.3074,1.2345,0,0); 
-			transform: matrix(1.4172,-0.3424,0.3074,1.2345,0,0);
-		}
+
+#save a.reset {
+	position:absolute;
+	color:rgba(0,0,0,0.5);
+        left:20px;
+	bottom:20px;
+	text-decoration:none;
+	font-size:10px;
+}
+#save a.reset:hover {
+	-webkit-transform: matrix(1.4172,-0.3424,0.3074,1.2345,0,0); 
+	-moz-transform: matrix(1.4172,-0.3424,0.3074,1.2345,0px,0px); 
+        -ms-transform: matrix(1.4172,-0.3424,0.3074,1.2345,0,0); 
+	-o-transform: matrix(1.4172,-0.3424,0.3074,1.2345,0,0); 
+	transform: matrix(1.4172,-0.3424,0.3074,1.2345,0,0);
+}
 
 #play {
 	width:300px;

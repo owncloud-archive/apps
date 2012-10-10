@@ -34,7 +34,7 @@ class Storage {
 
 	public static function getPresentations() {
 		$presentations=array();
-		$list=\OC_FileCache::searchByMime('text', 'impress' ); // searching .impress files? Am I supposed to look for .impress mimetype? Check. 
+		$list=\OC_FileCache::searchByMime('text', 'impress' ); 
 		foreach($list as $l) {
 			$info=pathinfo($l);
 			$size=\OC_Filesystem::filesize($l);
@@ -47,8 +47,7 @@ class Storage {
 	
 		return $presentations;
 	}
-        //For running the impress files made.
-        // I dont think the player.css is required as we making files and not running demos. Check. 
+ 
         public static function showHeader() {
             echo ('
                 <!doctype html>
@@ -64,19 +63,19 @@ class Storage {
                         <div class="fallback-message">
                                 <p>Your browser <b>does not support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
                                 <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
-                                <p>Note that Impressionist currrently supports only -webkit browsers.</p>
+                                <p>Note that Impressionist currently supports only -webkit browsers.</p>
                         </div>
                         <div class="impress">       
                     ');
             
         }
-        //For adding scripts to the impress files.
+
 	public static function showFooter() {
 			
 		echo('
 		
                             <div class="hint">
-                                <p>Make fullscreen and use a spacebar or arrow keys to navigate</p>
+                                <p>Make full screen and use a space bar or arrow keys to navigate</p>
                             </div>
                             <script>
                                 if ("ontouchstart" in document.documentElement) { 

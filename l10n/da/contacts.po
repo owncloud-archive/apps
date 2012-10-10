@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <claus_chr@webspeed.dk>, 2012.
 #   <mikkelbjerglarsen@gmail.com>, 2011.
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2011-2012.
 # Pascal d'Hermilly <pascal@dhermilly.dk>, 2011.
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-10 02:04+0200\n"
+"PO-Revision-Date: 2012-10-09 08:28+0000\n"
+"Last-Translator: claus_chr <claus_chr@webspeed.dk>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -262,7 +263,7 @@ msgstr "Vælg type"
 
 #: js/contacts.js:214
 msgid "Select photo"
-msgstr ""
+msgstr "Vælg foto"
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
@@ -332,7 +333,7 @@ msgstr "Vil du fusionere disse adressebøger?"
 
 #: js/contacts.js:1767
 msgid "Shared by "
-msgstr ""
+msgstr "Delt af"
 
 #: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
@@ -427,13 +428,13 @@ msgstr "Slet"
 msgid "Cancel"
 msgstr "Fortryd"
 
-#: js/settings.js:157 templates/settings.php:66
+#: js/settings.js:161 templates/settings.php:66
 msgid "More..."
 msgstr "Mere..."
 
-#: js/settings.js:161
+#: js/settings.js:165
 msgid "Less..."
-msgstr ""
+msgstr "Mindre..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
