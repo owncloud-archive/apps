@@ -42,7 +42,7 @@ $TRANSLATIONS = array(
 "Navigation top"                                                => "Navigation oben",
 "Navigation bottom"                                             => "Navigation unten",
 "Nothing here yet"                                              => "Hier gibt's noch nichts",
+"The configuration is done here"                                => "Die Konfiguration findet sich hier",
 "The content of the legal notice has to be configured first"    => "Der Inhalt des Impressums muss zuerst konfiguriert werden",
-"The configuration is done in the settings section of this app" => "Die Konfiguration wird im Einstellungs-Abschnitt dieser Anwendung gemacht",
 );
 ?>
