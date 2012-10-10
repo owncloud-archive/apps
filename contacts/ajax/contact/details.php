@@ -44,10 +44,7 @@ if(!isset($details['N'])) {
 }
 
 // Don't wanna transfer the photo in a json string.
-if(isset($details['PHOTO'])) {
-	$details['PHOTO'] = true;
-	//unset($details['PHOTO']);
-} else {
+if(!isset($details['PHOTO'])) {
 	$details['PHOTO'] = false;
 }
 $lastmodified = OC_Contacts_App::lastModified($vcard);

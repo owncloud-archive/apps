@@ -15,7 +15,7 @@ $id = isset($_['id']) ? $_['id'] : '';
 
 	<iframe name="file_upload_target" id='file_upload_target' src=""></iframe>
 	<div class="tip propertycontainer" id="contacts_details_photo_wrapper" title="<?php echo $l->t('Drop photo to upload'); ?> (max <?php echo $_['uploadMaxHumanFilesize']; ?>)" data-element="PHOTO">
-	<ul id="phototools" class="transparent hidden">
+	<ul id="phototools" class="transparent hidden contacts_property">
 		<li><a class="svg delete" title="<?php echo $l->t('Delete current photo'); ?>"></a></li>
 		<li><a class="svg edit" title="<?php echo $l->t('Edit current photo'); ?>"></a></li>
 		<li><a class="svg upload" title="<?php echo $l->t('Upload new photo'); ?>"></a></li>
