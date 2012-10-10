@@ -5,6 +5,7 @@
 # Translators:
 # Elad Alfassa <elad@fedoraproject.org>, 2011.
 #   <ido.parag@gmail.com>, 2012.
+#   <nurielmeni@gmail.com>, 2012.
 # Tomer Cohen <tomerc+transifex.net@gmail.com>, 2012.
 #   <tomerc+transifex.net@gmail.com>, 2011.
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2011, 2012.
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:05+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-10 02:04+0200\n"
+"PO-Revision-Date: 2012-10-09 10:58+0000\n"
+"Last-Translator: nurielmeni <nurielmeni@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/owncloud/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,11 +25,11 @@ msgstr ""
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr ""
+msgstr "לא כל לוחות השנה נשמרו בזיכרון המטמון"
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
-msgstr ""
+msgstr "נראה שכל המידע נשמר בזיכרון המטמון"
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
@@ -46,11 +47,11 @@ msgstr "לוח שנה לא נכון"
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
-msgstr ""
+msgstr "או שהקובץ לא מכיל אירועים או שכל האירועים כבר נשמרו בלוח השנה"
 
 #: ajax/import/dropimport.php:31 ajax/import/import.php:67
 msgid "events has been saved in the new calendar"
-msgstr ""
+msgstr "האירועים נשמרו בלוח השנה החדש"
 
 #: ajax/import/import.php:56
 msgid "Import failed"
@@ -58,7 +59,7 @@ msgstr "כשלון ביבוא"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
-msgstr ""
+msgstr "אירועים נשמרו בלוח השנה שלך"
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
@@ -77,6 +78,18 @@ msgstr "בקשה לא חוקית"
 msgid "Calendar"
 msgstr "לוח שנה"
 
+#: js/calendar.js:96
+msgid "Deletion failed"
+msgstr "מחיקה נכשלה"
+
+#: js/calendar.js:185
+msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+msgstr "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+
+#: js/calendar.js:187
+msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+msgstr "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+
 #: js/calendar.js:539
 msgid "user"
 msgstr "משתמש"
@@ -91,11 +104,11 @@ msgstr "ניתן לעריכה"
 
 #: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
-msgstr ""
+msgstr "ניתן לשיתוף"
 
 #: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
-msgstr ""
+msgstr "ניתן למחיקה"
 
 #: js/calendar.js:811
 msgid "ddd"
@@ -191,32 +204,32 @@ msgstr "ללא שם"
 
 #: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
-msgstr ""
+msgstr "אין לך הרשאות לעדכן את לוח השנה הזה."
 
 #: lib/calendar.php:233
 msgid "You do not have the permissions to delete this calendar."
-msgstr ""
+msgstr "אין לך הרשאות למחוק את לוח השנה הזה."
 
 #: lib/calendar.php:265
 msgid "You do not have the permissions to add to this calendar."
-msgstr ""
+msgstr "אין לך הרשאות להוסיף את לוח השנה הזה."
 
-#: lib/import.php:186 templates/calendar.php:12
+#: lib/import.php:195 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "לוח שנה חדש"
 
 #: lib/object.php:122 lib/object.php:161 lib/object.php:304
 msgid "You do not have the permissions to add events to this calendar."
-msgstr ""
+msgstr "אין לך הרשאות להוספת אירועים ללוח השנה הזה."
 
 #: lib/object.php:193 lib/object.php:227
 msgid "You do not have the permissions to edit this event."
-msgstr ""
+msgstr "אין לך הרשאות לערוך את האירוע הזה."
 
 #: lib/object.php:257 lib/object.php:284
 msgid "You do not have the permissions to delete this event."
-msgstr ""
+msgstr "אין לך הרשאות למחוק את האירוע הזה."
 
 #: lib/object.php:449
 msgid "Does not repeat"
@@ -525,7 +538,7 @@ msgstr "היום"
 
 #: templates/calendar.php:46
 msgid "Calendars"
-msgstr ""
+msgstr "לוחות שנה"
 
 #: templates/calendar.php:47
 msgid "Settings"
@@ -536,23 +549,23 @@ msgid "Your calendars"
 msgstr "לוחות השנה שלך"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:15
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
 msgstr "קישור CalDav"
 
-#: templates/part.choosecalendar.rowfields.php:11
+#: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
 msgstr "שיתוף לוח שנה"
 
-#: templates/part.choosecalendar.rowfields.php:18
+#: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
 msgstr "הורדה"
 
-#: templates/part.choosecalendar.rowfields.php:22
+#: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
 msgstr "עריכה"
 
-#: templates/part.choosecalendar.rowfields.php:27
+#: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "מחיקה"
@@ -737,13 +750,13 @@ msgstr "שם לוח השנה החדש"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "בחר שם פנוי!"
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr ""
+msgstr "לוח שנה בשם הזה כבר קיים. אם תמשיך בכל זאת, לוחות השנה ימוזגו."
 
 #: templates/part.import.php:47
 msgid "Import"
@@ -759,29 +772,29 @@ msgstr "יצירת אירוע חדש"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr ""
+msgstr "שתף עם:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr ""
+msgstr "משותף עם:"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "הסר שיתוף"
 
 #: templates/part.share.php:53
 msgid "Nobody"
-msgstr ""
+msgstr "אף אחד"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr ""
+msgstr "משותף דרך לוח שנה"
 
 #: templates/part.share.php:79
 msgid ""
 "NOTE: Actions on events shared via calendar will affect the entire calendar "
 "sharing."
-msgstr ""
+msgstr "הערה: פעולות על אירועים שמשותפים דרך לוח השנה ישפיעו על שיתוף לוח השנה כולו."
 
 #: templates/part.showevent.php:1
 msgid "View an event"
@@ -833,7 +846,7 @@ msgstr "מטמון"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr ""
+msgstr "נקה מטמון עבור אירועים חוזרים"
 
 #: templates/settings.php:85
 msgid "URLs"
@@ -841,7 +854,7 @@ msgstr "כתובות"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
-msgstr ""
+msgstr "כתובות סנכרון ללוח שנה CalDAV"
 
 #: templates/settings.php:87
 msgid "more info"
@@ -849,7 +862,7 @@ msgstr "מידע נוסף"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "כתובת ראשית (קונטקט ואחרים)"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
@@ -857,4 +870,4 @@ msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr ""
+msgstr "קרא רק קישורי iCalendar"

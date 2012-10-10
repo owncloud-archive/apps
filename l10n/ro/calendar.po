@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-17 16:59+0200\n"
-"PO-Revision-Date: 2012-09-17 08:34+0000\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 13:27+0000\n"
 "Last-Translator: g.ciprian <g.ciprian@osn.ro>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -78,6 +78,18 @@ msgstr "Cerere eronată"
 msgid "Calendar"
 msgstr "Calendar"
 
+#: js/calendar.js:96
+msgid "Deletion failed"
+msgstr "Ștergerea a eșuat"
+
+#: js/calendar.js:185
+msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+msgstr "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+
+#: js/calendar.js:187
+msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+msgstr "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+
 #: js/calendar.js:539
 msgid "user"
 msgstr "utilizator"
@@ -96,7 +108,7 @@ msgstr "Partajabil"
 
 #: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
-msgstr ""
+msgstr "Se poate șterge"
 
 #: js/calendar.js:811
 msgid "ddd"
@@ -200,7 +212,7 @@ msgstr "Nu ai permisiunile necesare pentru a așterge acest calendar."
 
 #: lib/calendar.php:265
 msgid "You do not have the permissions to add to this calendar."
-msgstr ""
+msgstr "Nu ai permisiuni pentru a face adăugiri în acest calendar."
 
 #: lib/import.php:186 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
@@ -782,7 +794,7 @@ msgstr "Partajat prin calendar"
 msgid ""
 "NOTE: Actions on events shared via calendar will affect the entire calendar "
 "sharing."
-msgstr ""
+msgstr "NOTĂ: Acțiunile asupra evenimentelor partajate prin calendar vor fi aplicate la partajarea intregului calendar."
 
 #: templates/part.showevent.php:1
 msgid "View an event"
@@ -842,7 +854,7 @@ msgstr "linkuri"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
-msgstr ""
+msgstr "Adrese de sincronizare calendar CalDAV"
 
 #: templates/settings.php:87
 msgid "more info"

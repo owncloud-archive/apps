@@ -19,6 +19,9 @@ if(trim($_POST['name']) == '') {
 }
 $calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
 foreach($calendars as $cal) {
+	if($cal['userid'] != OCP\User::getUser()){
+		continue;
+	}
 	if($cal['displayname'] == $_POST['name'] && $cal['id'] != $_POST['id']) {
 		OCP\JSON::error(array('message'=>'namenotavailable'));
 		exit;

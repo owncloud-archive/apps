@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <khanhnd@kenhgiaiphap.vn>, 2012.
 #   <mattheu_9x@yahoo.com>, 2012.
 # Sơn Nguyễn <sonnghit@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:05+0000\n"
+"POT-Creation-Date: 2012-09-26 13:19+0200\n"
+"PO-Revision-Date: 2012-09-26 11:20+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -73,6 +74,18 @@ msgstr "Yêu cầu không hợp lệ"
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Lịch"
+
+#: js/calendar.js:96
+msgid "Deletion failed"
+msgstr ""
+
+#: js/calendar.js:185
+msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+msgstr ""
+
+#: js/calendar.js:187
+msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+msgstr ""
 
 #: js/calendar.js:539
 msgid "user"
@@ -373,7 +386,7 @@ msgstr "Theo ngày tháng sự kiện"
 
 #: lib/object.php:566
 msgid "by yearday(s)"
-msgstr ""
+msgstr "theo năm"
 
 #: lib/object.php:567
 msgid "by weeknumber(s)"
@@ -533,23 +546,23 @@ msgid "Your calendars"
 msgstr "Lịch của bạn"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:15
+#: templates/part.choosecalendar.rowfields.php:17
 msgid "CalDav Link"
 msgstr "Liên kết CalDav "
 
-#: templates/part.choosecalendar.rowfields.php:11
+#: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
 msgstr "Chia sẻ lịch"
 
-#: templates/part.choosecalendar.rowfields.php:18
+#: templates/part.choosecalendar.rowfields.php:20
 msgid "Download"
 msgstr "Tải về"
 
-#: templates/part.choosecalendar.rowfields.php:22
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
-#: templates/part.choosecalendar.rowfields.php:27
+#: templates/part.choosecalendar.rowfields.php:29
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "Xóa"
@@ -597,7 +610,7 @@ msgstr "Sửa sự kiện"
 
 #: templates/part.editevent.php:10
 msgid "Export"
-msgstr ""
+msgstr "Xuất"
 
 #: templates/part.eventform.php:8 templates/part.showevent.php:3
 msgid "Eventinfo"
@@ -726,7 +739,7 @@ msgstr ""
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "Vui lòng chọn lịch"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
@@ -734,17 +747,17 @@ msgstr "Tên lịch mới"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "Chọn một tên tồn tại"
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr ""
+msgstr "Đã tồn tại một lịch với tên này. Nếu bạn tiếp tục, những lịch này sẽ trộn với nhau."
 
 #: templates/part.import.php:47
 msgid "Import"
-msgstr ""
+msgstr "Nhập"
 
 #: templates/part.import.php:56
 msgid "Close Dialog"

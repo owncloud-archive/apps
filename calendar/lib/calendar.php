@@ -77,7 +77,7 @@ class OC_Calendar_Calendar{
 		$result = $stmt->execute(array($id));
 
 		$row = $result->fetchRow();
-		if($row['userid'] != OCP\USER::getUser()) {
+		if($row['userid'] != OCP\USER::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_READ)) {
 				return $row; // I have to return the row so e.g. OC_Calendar_Object::getowner() works.
@@ -157,7 +157,7 @@ class OC_Calendar_Calendar{
 	public static function editCalendar($id,$name=null,$components=null,$timezone=null,$order=null,$color=null) {
 		// Need these ones for checking uri
 		$calendar = self::find($id);
-		if ($calendar['userid'] != OCP\User::getUser()) {
+		if ($calendar['userid'] != OCP\User::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
 				throw new Exception(
@@ -225,7 +225,7 @@ class OC_Calendar_Calendar{
 	 */
 	public static function deleteCalendar($id) {
 		$calendar = self::find($id);
-		if ($calendar['userid'] != OCP\User::getUser()) {
+		if ($calendar['userid'] != OCP\User::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
 				throw new Exception(
@@ -257,7 +257,7 @@ class OC_Calendar_Calendar{
 	 */
 	public static function mergeCalendar($id1, $id2) {
 		$calendar = self::find($id1);
-		if ($calendar['userid'] != OCP\User::getUser()) {
+		if ($calendar['userid'] != OCP\User::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id1);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
 				throw new Exception(

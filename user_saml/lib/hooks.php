@@ -112,7 +112,7 @@ function update_groups($uid, $groups, $protected_groups=array(), $just_created=f
 	if(!$just_created) {
 		$old_groups = OC_Group::getUserGroups($uid);
 		foreach($old_groups as $group) {
-			if(!in_array($group, protected_groups) && !in_array($group, $groups)) {
+			if(!in_array($group, $protected_groups) && !in_array($group, $groups)) {
 				OC_Group::removeFromGroup($uid,$group);
 				OC_Log::write('saml','Removed "'.$uid.'" from the group "'.$group.'"', OC_Log::DEBUG);
 			}

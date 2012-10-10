@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Dimitris M. <monopatis@gmail.com>, 2012.
 # Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
 # Nisok Kosin <nikos.efthimiou@gmail.com>, 2012.
+# Petros Kyladitis <petros.kyladitis@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-18 02:01+0200\n"
-"PO-Revision-Date: 2012-09-17 18:54+0000\n"
-"Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
+"POT-Creation-Date: 2012-10-09 02:03+0200\n"
+"PO-Revision-Date: 2012-10-08 07:59+0000\n"
+"Last-Translator: Petros Kyladitis <petros.kyladitis@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,6 +28,18 @@ msgstr "Μην έγκυρη ημερομηνία / ώρα"
 #: appinfo/app.php:10
 msgid "Tasks"
 msgstr "Εργασίες"
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr "Στις"
+
+#: js/tasks.js:107
+msgid "List"
+msgstr "Λίστα"
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr "Μέρος"
 
 #: js/tasks.js:415
 msgid "No category"
@@ -70,27 +84,27 @@ msgstr "Προσθήκη εργασίας"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "Ταξινόμηση με βάση τις ληξιπρόθεσμες"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr ""
+msgstr "Λίστα"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr ""
+msgstr "Ολοκληρωμένα"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr ""
+msgstr "Μέρος"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr ""
+msgstr "Προτεραιότητα"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr ""
+msgstr "Ταξινόμηση με βάση την ετικέτα"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."

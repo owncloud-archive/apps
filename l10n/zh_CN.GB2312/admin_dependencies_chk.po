@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-17 16:59+0200\n"
-"PO-Revision-Date: 2012-09-17 12:23+0000\n"
+"POT-Creation-Date: 2012-09-22 02:01+0200\n"
+"PO-Revision-Date: 2012-09-21 19:04+0000\n"
 "Last-Translator: marguerite su <i@marguerite.su>\n"
 "Language-Team: Chinese (China) (GB2312) (http://www.transifex.com/projects/p/owncloud/language/zh_CN.GB2312/)\n"
 "MIME-Version: 1.0\n"
@@ -26,9 +26,8 @@ msgstr "许多应用都需要 php-json 模块以进行内部通讯"
 
 #: settings.php:39
 msgid ""
-"The php-curl modude is needed to fetch the page title when adding a "
-"bookmarks"
-msgstr "添加书签时需要 php-curl 模块以获取页面标题"
+"The php-curl module is needed to fetch the page title when adding a bookmark"
+msgstr "需要 php-curl 模块以在添加书签时获取页面标题"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"

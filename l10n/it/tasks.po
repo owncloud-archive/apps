@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-18 02:01+0200\n"
-"PO-Revision-Date: 2012-09-17 15:50+0000\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 11:58+0000\n"
 "Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,18 @@ msgstr "Ora/Data non valida"
 #: appinfo/app.php:10
 msgid "Tasks"
 msgstr "Attività"
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr "Scadenza"
+
+#: js/tasks.js:107
+msgid "List"
+msgstr "Elenco"
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr "Posizione"
 
 #: js/tasks.js:415
 msgid "No category"

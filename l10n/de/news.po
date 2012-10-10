@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <blobbyjj@ymail.com>, 2012.
 # I Robot <thomas.mueller@tmit.eu>, 2012.
 #   <martin@oemus.net>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-18 02:01+0200\n"
-"PO-Revision-Date: 2012-09-17 20:43+0000\n"
-"Last-Translator: traductor <transifex.3.mensaje@spamgourmet.com>\n"
+"POT-Creation-Date: 2012-10-03 02:04+0200\n"
+"PO-Revision-Date: 2012-10-02 09:24+0000\n"
+"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +28,7 @@ msgstr "Fehler bei der Umbenennung des Ordners"
 
 #: ajax/collapsefolder.php:36
 msgid "Error collapsing folder."
-msgstr "Fehler beim Zusammenklappen der Ordner."
+msgstr "Fehler beim Einklappen des Ordnes."
 
 #: ajax/createfeed.php:52
 msgid "Feed already exists."
@@ -89,7 +90,7 @@ msgstr "Fehler beim Verschieben des Feeds in den Ordner."
 msgid "File doesn't exist:"
 msgstr "Die Datei existiert nicht:"
 
-#: ajax/setallitemsread.php:60
+#: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
 msgstr "Der Versuch, alle Artikel als gelesen zu markieren, ist fehlgeschlagen."
 
@@ -109,24 +110,41 @@ msgstr "Feed aktualisiert!"
 msgid "News"
 msgstr "Nachrichten"
 
-#: js/menu.js:507
-msgid "Are you sure you want to delete this feed?"
-msgstr "Wollen Sie diesen Feed wirklich löschen?"
+#: js/items.js:118
+msgid "Error while loading the feed"
+msgstr "Fehler während des Ladens eines Feeds"
 
-#: js/menu.js:515
-msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr "Wollen Sie wirklich diesen Ordner mit allen Feeds löschen?"
-
-#: js/menu.js:523
-msgid "Warning"
-msgstr "Warnung"
-
+#: js/items.js:118 js/items.js:560 js/items.js:665 js/main.js:121
 #: js/menu.js:534 js/menu.js:595 js/menu.js:617 js/menu.js:644 js/menu.js:666
 #: js/menu.js:916 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
 msgstr "Fehler"
+
+#: js/main.js:40
+msgid "None"
+msgstr "Nichts"
+
+#: js/main.js:108 templates/main.php:16
+msgid "Show only unread"
+msgstr "Nur Ungelesene anzeigen"
+
+#: js/main.js:112 templates/main.php:12
+msgid "Show everything"
+msgstr "Alles anzeigen"
+
+#: js/menu.js:507
+msgid "Are you sure you want to delete this feed?"
+msgstr "Willst Du diesen Feed wirklich löschen?"
+
+#: js/menu.js:515
+msgid "Are you sure you want to delete this folder and all its feeds?"
+msgstr "Willst Du wirklich diesen Ordner mit allen Feeds löschen?"
+
+#: js/menu.js:523
+msgid "Warning"
+msgstr "Warnung"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
@@ -235,19 +253,11 @@ msgstr "Es ist ein Fehler aufgetreten"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr "Gratulation! Sie haben Folgendes abonniert:"
+msgstr "Gratulation! Du hast Folgendes abonniert:"
 
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
-msgstr "Sie haben diesen Feed bereits abonniert!"
-
-#: templates/main.php:12
-msgid "Show everything"
-msgstr "Alles anzeigen"
-
-#: templates/main.php:16
-msgid "Show only unread"
-msgstr "Nur Ungelesene anzeigen"
+msgstr "Du hast diesen Feed bereits abonniert!"
 
 #: templates/main.php:32
 msgid "Add feed or folder"
@@ -340,7 +350,7 @@ msgstr "Ordner umbenennen"
 
 #: templates/part.nofeeds.php:3
 msgid "You don't have any feed in your reader."
-msgstr "Sie haben noch keinen Feed in Ihrem Feed-Reader abonniert."
+msgstr "Du hast noch keinen Feed in Deinem Feed-Reader abonniert."
 
 #: templates/part.nofeeds.php:8 templates/subscribelet.php:7
 msgid "Subscribe"
@@ -360,7 +370,7 @@ msgstr "Hochladen"
 
 #: templates/part.nofeeds.php:14 templates/settings.php:4
 msgid "Select file from ownCloud"
-msgstr "Wählen Sie eine Datei aus Ihrer ownCloud"
+msgstr "Wähle eine Datei aus Deiner ownCloud"
 
 #: templates/part.nofeeds.php:14 templates/settings.php:4
 msgid "Select"
@@ -371,7 +381,7 @@ msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
-msgstr "Wählen Sie eine Datei vom <a href=\"#\" class=\"settings\" id=\"browselink\">lokalen Dateisystem </a> oder aus der <a href=\"#\" class=\"settings\" id=\"cloudlink\">Cloud</a> aus."
+msgstr "Wähle eine Datei vom <a href=\"#\" class=\"settings\" id=\"browselink\">lokalen Dateisystem </a> oder aus der <a href=\"#\" class=\"settings\" id=\"cloudlink\">Cloud</a> aus."
 
 #: templates/part.nofeeds.php:25
 msgid "Or..."
@@ -397,4 +407,4 @@ msgstr "Subscribelet"
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr "Legen Sie dies bei Ihren Lesezeichen ab und klicken Sie darauf, wann immer Sie schnellstmöglich eine Seite abonnieren wollen:"
+msgstr "Lege dies in Deinen Lesezeichen ab und klicke darauf, wann immer Du schnellstmöglich eine Seite abonnieren möchtest:"

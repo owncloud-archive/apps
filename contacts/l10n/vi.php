@@ -17,6 +17,10 @@
 "Error uploading contacts to storage." => "Lỗi tải lên danh sách địa chỉ để lưu trữ.",
 "There is no error, the file uploaded with success" => "Không có lỗi, các tập tin tải lên thành công",
 "Contacts" => "Liên lạc",
+"Download" => "Tải về",
+"Edit" => "Sửa",
+"Delete" => "Xóa",
+"Cancel" => "Hủy",
 "This is not your addressbook." => "Đây không phải là sổ địa chỉ của bạn.",
 "Work" => "Công việc",
 "Home" => "Nhà",
@@ -30,7 +34,6 @@
 "Contact" => "Danh sách",
 "Add Contact" => "Thêm liên lạc",
 "Organization" => "Tổ chức",
-"Delete" => "Xóa",
 "Preferred" => "Được ưu tiên",
 "Phone" => "Điện thoại",
 "Email" => "Email",
@@ -45,9 +48,6 @@
 "Country" => "Quốc gia",
 "Addressbook" => "Sổ địa chỉ",
 "Addressbooks" => "Sổ địa chỉ",
-"Download" => "Tải về",
-"Edit" => "Sửa",
 "New Address Book" => "Sổ địa chỉ mới",
-"Save" => "Lưu",
-"Cancel" => "Hủy"
+"Save" => "Lưu"
 );

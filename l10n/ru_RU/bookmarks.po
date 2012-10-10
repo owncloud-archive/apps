@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <cdewqazxsqwe@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:01+0200\n"
-"PO-Revision-Date: 2012-09-11 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-09 02:02+0200\n"
+"PO-Revision-Date: 2012-10-08 12:55+0000\n"
+"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,11 @@ msgstr ""
 
 #: appinfo/app.php:14
 msgid "Bookmarks"
-msgstr ""
+msgstr "Закладки"
 
 #: bookmarksHelper.php:99
 msgid "unnamed"
-msgstr ""
+msgstr "безымянный"
 
 #: lib/search.php:43
 msgid "Bookm."
@@ -33,31 +34,31 @@ msgstr ""
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr ""
+msgstr "Перетащите это в закладки Вашего браузера и кликните на него, когда захотите быстро добавить страницу в закладки:"
 
 #: templates/bookmarklet.php:7
 msgid "Read later"
-msgstr ""
+msgstr "Прочитать позже"
 
 #: templates/list.php:13
 msgid "Address"
-msgstr ""
+msgstr "Адрес"
 
 #: templates/list.php:14
 msgid "Title"
-msgstr ""
+msgstr "Название"
 
 #: templates/list.php:15
 msgid "Tags"
-msgstr ""
+msgstr "Теги"
 
 #: templates/list.php:16
 msgid "Save bookmark"
-msgstr ""
+msgstr "Сохранить закладку"
 
 #: templates/list.php:22
 msgid "You have no bookmarks"
-msgstr ""
+msgstr "У Вас нет закладок"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"

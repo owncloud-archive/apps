@@ -4,6 +4,10 @@
 "At least one of the address fields has to be filled out." => "Minst eit av adressefelta må fyllast ut.",
 "Information about vCard is incorrect. Please reload the page." => "Informasjonen om vCard-et er feil, ver venleg og last sida på nytt.",
 "Contacts" => "Kotaktar",
+"Download" => "Last ned",
+"Edit" => "Endra",
+"Delete" => "Slett",
+"Cancel" => "Kanseller",
 "This is not your addressbook." => "Dette er ikkje di adressebok.",
 "Contact could not be found." => "Fann ikkje kontakten.",
 "Work" => "Arbeid",
@@ -18,7 +22,6 @@
 "Contact" => "Kontakt",
 "Add Contact" => "Legg til kontakt",
 "Organization" => "Organisasjon",
-"Delete" => "Slett",
 "Preferred" => "Føretrekt",
 "Phone" => "Telefonnummer",
 "Email" => "Epost",
@@ -34,9 +37,6 @@
 "Country" => "Land",
 "Addressbook" => "Adressebok",
 "Addressbooks" => "Adressebøker",
-"Download" => "Last ned",
-"Edit" => "Endra",
 "New Address Book" => "Ny adressebok",
-"Save" => "Lagre",
-"Cancel" => "Kanseller"
+"Save" => "Lagre"
 );

@@ -14,7 +14,14 @@
   <?php } ?>
 </td>
 <td width="20px">
-  <a href="#" onclick="Calendar.UI.showCalDAVUrl('<?php echo OCP\USER::getUser() ?>', '<?php echo rawurlencode(html_entity_decode($_['calendar']['uri'], ENT_QUOTES, 'UTF-8')) ?>');" title="<?php echo $l->t('CalDav Link') ?>" class="action"><img class="svg action" src="<?php echo OCP\Util::imagePath('core', 'actions/public.svg') ?>"></a>
+<?php
+if($_['calendar']['userid'] == OCP\USER::getUser()){
+	$caldav = rawurlencode(html_entity_decode($_['calendar']['uri'], ENT_QUOTES, 'UTF-8'));
+}else{
+	$caldav = rawurlencode(html_entity_decode($_['calendar']['uri'], ENT_QUOTES, 'UTF-8')) . '_shared_by_' . $_['calendar']['userid'];
+}
+?>
+  <a href="#" onclick="Calendar.UI.showCalDAVUrl('<?php echo OCP\USER::getUser() ?>', '<?php echo $caldav ?>');" title="<?php echo $l->t('CalDav Link') ?>" class="action"><img class="svg action" src="<?php echo OCP\Util::imagePath('core', 'actions/public.svg') ?>"></a>
 </td>
 <td width="20px">
   <a href="<?php echo OCP\Util::linkTo('calendar', 'export.php') . '?calid=' . $_['calendar']['id'] ?>" title="<?php echo $l->t('Download') ?>" class="action"><img class="svg action" src="<?php echo OCP\Util::imagePath('core', 'actions/download.svg') ?>"></a>

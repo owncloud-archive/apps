@@ -11,6 +11,10 @@
 "File doesn't exist:" => "檔案不存在",
 "No file was uploaded" => "沒有已上傳的檔案",
 "Contacts" => "通訊錄",
+"Download" => "下載",
+"Edit" => "編輯",
+"Delete" => "刪除",
+"Cancel" => "取消",
 "This is not your addressbook." => "這不是你的電話簿",
 "Contact could not be found." => "通訊錄未發現",
 "Work" => "公司",
@@ -31,7 +35,6 @@
 "Upload new photo" => "上傳新照片",
 "Edit name details" => "編輯姓名詳細資訊",
 "Organization" => "組織",
-"Delete" => "刪除",
 "Nickname" => "綽號",
 "Enter nickname" => "輸入綽號",
 "dd-mm-yyyy" => "dd-mm-yyyy",
@@ -71,9 +74,6 @@
 "Additional names" => "額外名",
 "Family name" => "家族名（姓）",
 "Addressbooks" => "電話簿",
-"Download" => "下載",
-"Edit" => "編輯",
 "New Address Book" => "新電話簿",
-"Save" => "儲存",
-"Cancel" => "取消"
+"Save" => "儲存"
 );
