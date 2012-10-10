@@ -220,7 +220,7 @@ class OC_Calendar_Object{
 
 		$calendar = OC_Calendar_Calendar::find($cid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $cid);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
 				throw new Sabre_DAV_Exception_Forbidden(
 					OC_Calendar_App::$l10n->t(
@@ -277,7 +277,7 @@ class OC_Calendar_Object{
 		$oldobject = self::findWhereDAVDataIs($cid, $uri);
 		$calendar = OC_Calendar_Calendar::find($cid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $cid);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
 				throw new Sabre_DAV_Exception_Forbidden(
 					OC_Calendar_App::$l10n->t(

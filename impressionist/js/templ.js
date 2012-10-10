@@ -1,4 +1,3 @@
-//Template for the implemented files.! WE dont need this. Have to run through ownCloud. CHECK!
 /**
  * Impressionist
  *
@@ -10,32 +9,19 @@
  * Impressionist Copyright 2012 Harish Sivaramakrishnan (@hsivaram) 
  */
  
-var templatearray =
-					[
-
-						 "<html><head><title>Impressionist previewer - (by @hsivaram)</title>",
-						 "<link href='http://fonts.googleapis.com/css?family=Inika:400,700' rel='stylesheet' type='text/css'>",
-						 "<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'><link href='css/style.css' rel='stylesheet' />",
-						 "<link href='http://fonts.googleapis.com/css?family=Doppio+One' rel=',stylesheet' type='text/css'>",
-    					 "<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>",
-    					 "<link href='http://fonts.googleapis.com/css?family=Henny+Penny' rel='stylesheet' type='text/css'>",
-    					 "<link href='http://fonts.googleapis.com/css?family=Ribeye+Marrow' rel='stylesheet' type='text/css'>",
-    					 "<link href='http://fonts.googleapis.com/css?family=Unkempt' rel='stylesheet' type='text/css'>",
-    					 "<link href='http://fonts.googleapis.com/css?family=Fresca' rel='stylesheet' type='text/css'>",
-    					 "<link href='http://fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>",
-						 "<link href='css/mappingstyle.css' rel='stylesheet' />",
-						 "<script src='scripts/jquery.js'></script>",
-						 "</head>",
-						 "<body class='impress-not-supported'>",
-						 "<div id='impress' style='background-color:#FFCC00;'>",
-						 "<div></div>",
-						 "!____PLACEHOLDER____!",
-						 "</div>",
-						 "<script src='scripts/impress.js'></script>",
+var templatearray = [
+			"<html><head><title>Impressionist Previewer foe ownCloud</title>",
+			"<link href='../css/mappingstyle.css' rel='stylesheet' />",
+			"</head>",
+			"<body class='impress-not-supported'>",
+			"<div id='impress' style='background-color:#FFCC00;'>",
+			"<div></div>",
+			"!____PLACEHOLDER____!",
+			"</div>",
+			"<script src='impress.js'></script>",
                          "<script>impress().init();</script>",
-						 "</body>",
-						 "</html>"
-					];
+			"</body>",
+			"</html>"];
 
 var largetext = "<h3 class='!OBJECT_SIZE! slideobject' id='!ID!' data-font-size='largeheader' data-font-face='Inika' data-selected-color='#000000'>This is sample text</h3>";
 var orchtemplate = "<div class='orchestrationthumbnail' id='!SLIDE_ID!'><div id='!THUMBCONTID!'></div><span id='!XP!'class='label label-info xspan'></span><span id='!YP!' class='label label-info vspan'></span><p id='!SLIDENUMBER!' class='slidethumbnailnumberorch'>!COUNT!</p><div class='subbottombar'><a class='blackp' id='!OROT!'>!ROTTEXT!<sup>o</sup></a></div><div class='bottombar'><a class='whitep' id='!ZP!'>!DEPTH!</a><br/><a class='whitep' ></a></div></div>";
@@ -48,6 +34,5 @@ var ultemplate = "<ul id='!ULID!'><li></li></ul>";
 
 
 var fontStyle = "largeheader";
-var bevantext = "'Bevan', serif;";
-var inikatext = "'Inika', serif;";
+var inikatext = "'Open Sans', sans;";
 

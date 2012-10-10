@@ -19,7 +19,11 @@ Mail={
 				data:{},
 				type:'GET',
 				success:function(jsondata){
-					folders = jsondata.data;
+					if (jsondata.status == 'success') {
+						folders = jsondata.data;
+					} else {
+						OC.dialogs.alert(jsondata.data.message, t('mail', 'Error'));
+					}
 				}
 			});
 			$('#mail-folders').html(folders);
@@ -41,7 +45,7 @@ Mail={
 						messages = jsondata.data;
 					}
                 });
-				$('#rightcontent').html( messages );
+				Mail.UI.addMessages(messages);
 				
 				// Save current folder
 				Mail.UI.setFolderActive(account_id, folder_id);
@@ -52,6 +56,29 @@ Mail={
             }
 		},
 		
+		addMessages:function(data) {
+			var table = $('#mail_messages'),
+				template = table.find('tr.template').clone()
+				messages = data.messages;
+			//table.date('');
+			for(var i in messages) {
+				var message = messages[i],
+					clone = template.clone();
+				clone.removeClass('template');
+
+				clone.data('message_id', message.id);
+				if (message.flags['unseen']) {
+					clone.addClass('unseen');
+				}
+				clone.find('.mail_message_summary_from').text(message.from);
+				clone.find('.mail_message_summary_subject').text(message.subject);
+				clone.find('.mail_message_summary_date').text(message.date);
+				clone.find('.mail_message_summary_size').text(message.size);
+
+				table.append(clone);
+			}
+		},
+
 		loadMessages:function( account_id, folder_id ){
 			// Set folder active
 			Mail.UI.setFolderInactive( Mail.State.current_account_id, Mail.State.current_folder_id );
@@ -121,14 +148,15 @@ Mail={
 				fireOnce:false,
 				loader:'',
 				callback:function(i){
-					var from;
+					var from, new_length;
 					
 					// Only do the work if we show a folder
 					if( Mail.State.current_account_id !== null && Mail.State.current_folder_id !== null ){
 						
 						// do not work if we already hit the end
 						if( $('#mail_messages').data('stop_loading') != 'true' ){
-							from = $('#mail_messages>tr').length;
+							from = $('#mail_messages .mail_message_summary').length - 1;
+							// minus 1 because of the template
 							
 							// decrease if a message is shown
 							if( Mail.State.current_message_id !== null ){
@@ -141,7 +169,7 @@ Mail={
 								type:'GET',
 								success:function(jsondata){
 									if( jsondata.status == 'success' ){
-										$('#mail_messages').append(jsondata.data);
+										Mail.UI.addMessages(jsondata.data);
 									}
 									else{
 										OC.dialogs.alert(jsondata.data.message, t('mail', 'Error'));
@@ -150,7 +178,9 @@ Mail={
 							});
 			
 							// If we did not get any new messages stop
-							if( from == $('#mail_messages>tr').length || ( from == $('#mail_messages>tr').length + 1 && Mail.State.current_message_id !== null )){
+							new_length = $('#mail_messages .mail_message_summary').length - 1;
+							// minus 1 because of the template
+							if( from == new_length || ( from == new_length + 1 && Mail.State.current_message_id !== null )){
 								$('#mail_messages').data('stop_loading', 'true')
 							}
 						}
@@ -168,6 +198,28 @@ Mail={
 $(document).ready(function(){
 	Mail.UI.initializeInterface();
 
+	$('#auto_detect_account').click(function(){
+		var email_address, password;
+		email_address = $('#email_address').val();
+		password = $('#password').val();
+		$.ajax(OC.filePath('mail', 'ajax', 'account/autodetect.php'), {
+			data:{email_address:email_address, password:password},
+			type:'POST',
+			success:function(jsondata){
+				if (jsondata.status == 'success') {
+				} else {
+					var error;
+
+					if (jsondata.message == 'email') {
+						error = t('mail', 'Not a email address');
+					} else {
+						error = 'Unknown error code: '+jsondata.message;
+					}
+					OC.dialogs.alert(error, t('mail', 'Error'));
+				}
+			}
+		});
+	});
 	// Clicking on a folder loads the message list
 	$('ul.mail_folders li').live('click',function(){
 		var account_id, folder_id;

@@ -23,9 +23,7 @@
 
 OCP\Util::addStyle('impressionist', 'style'); // Basic layout of the page. 
 
-OCP\App::register(array('order' => 70, 'id' => 'impressionist', 'name' => 'Impressionist'));
-
-OCP\App::addNavigationEntry( array( 
+OCP\App::addNavigationEntry( array(
 	'id' => 'impressionist_index',
 	'order' => 74,
 	'href' => OCP\Util::linkTo( 'impressionist', 'index.php' ),

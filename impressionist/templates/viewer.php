@@ -1,8 +1,7 @@
 <?php
     
 echo('<div id="controls">	
-	<a target="_blank" href="'.\OCP\Util::linkToAbsolute('impressionist','app.php').'" class="button">'.$l->t('Create Presentation').'</a>
-            <a target="_blank" href="'.\OCP\Util::linkToAbsolute('impressionist','documentation.php').'" class="button docu">'.$l->t('Documentation').'</a>
+	<a href="'.\OCP\Util::linkToAbsolute('impressionist','app.php').'" class="button">'.$l->t('Create Presentation').'</a>
 	</div>
 	');
     

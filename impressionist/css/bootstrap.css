@@ -130,14 +130,7 @@ textarea {
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-body {
-  margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  color: #333333;
-  background-color: #ffffff;
-}
+
 a {
   color: #0088cc;
   text-decoration: none;
@@ -406,19 +399,13 @@ h6 {
   line-height: 1;
 }
 ul,
-ol {
-  padding: 0;
-  margin: 0 0 9px 25px;
-}
 ul ul,
 ul ol,
 ol ol,
 ol ul {
   margin-bottom: 0;
 }
-ul {
-  list-style: disc;
-}
+
 ol {
   list-style: decimal;
 }

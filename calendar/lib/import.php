@@ -79,6 +79,15 @@ class OC_Calendar_Import{
 		$this->ical = $ical;
 		$this->abscount = 0;
 		$this->count = 0;
+		//fix for multiple subcalendars
+		if(substr_count($ical, 'BEGIN:VCALENDAR') > 1){
+			$ical = substr_replace($ical, '**##++FancyReplacementForFirstOccurrenceOfTheSearchPattern++##**', 0, 15);
+			$ical = str_replace('BEGIN:VCALENDAR', '', $ical);
+			$ical = str_replace('END:VCALENDAR', '', $ical);
+			$ical = substr_replace($ical, 'BEGIN:VCALENDAR', 0, 64);
+			$ical .= "\n" . 'END:VCALENDAR';
+			$this->ical = $ical;
+		}
 		try{
 			$this->calobject = OC_VObject::parse($this->ical);
 		}catch(Exception $e) {
