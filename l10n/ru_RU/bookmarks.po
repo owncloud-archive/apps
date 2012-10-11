@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-09 02:02+0200\n"
-"PO-Revision-Date: 2012-10-08 12:55+0000\n"
-"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
+"POT-Creation-Date: 2012-10-11 02:03+0200\n"
+"PO-Revision-Date: 2012-10-11 00:05+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,16 +18,52 @@ msgstr ""
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: appinfo/app.php:14
+#: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: bookmarksHelper.php:99
-msgid "unnamed"
-msgstr "безымянный"
+#: js/addBm.js:42 js/bookmarks.js:243
+msgid "Tags"
+msgstr "Теги"
 
-#: lib/search.php:43
+#: js/bookmarks.js:178
+msgid "Edit bookmark"
+msgstr ""
+
+#: js/bookmarks.js:409
+msgid "Are you sure you want to remove this tag from every entry?"
+msgstr ""
+
+#: js/bookmarks.js:410
+msgid "Warning"
+msgstr ""
+
+#: lib/search.php:38
 msgid "Bookm."
+msgstr ""
+
+#: templates/addBm.php:11
+msgid "Add a bookmark"
+msgstr ""
+
+#: templates/addBm.php:14
+msgid "Close"
+msgstr ""
+
+#: templates/addBm.php:22 templates/list.php:91
+msgid "The title of the page"
+msgstr ""
+
+#: templates/addBm.php:27 templates/list.php:95
+msgid "The address of the page"
+msgstr ""
+
+#: templates/addBm.php:40 templates/list.php:104
+msgid "Description of the page"
+msgstr ""
+
+#: templates/addBm.php:44 templates/list.php:108
+msgid "Save"
 msgstr ""
 
 #: templates/bookmarklet.php:5
@@ -40,26 +76,70 @@ msgstr "Перетащите это в закладки Вашего брауз�
 msgid "Read later"
 msgstr "Прочитать позже"
 
-#: templates/list.php:13
+#: templates/list.php:12
 msgid "Address"
 msgstr "Адрес"
 
-#: templates/list.php:14
-msgid "Title"
-msgstr "Название"
-
-#: templates/list.php:15
-msgid "Tags"
-msgstr "Теги"
+#: templates/list.php:13
+msgid "Add bookmark"
+msgstr ""
 
 #: templates/list.php:16
-msgid "Save bookmark"
-msgstr "Сохранить закладку"
+msgid "List"
+msgstr ""
+
+#: templates/list.php:17
+msgid "Image"
+msgstr ""
 
 #: templates/list.php:22
+msgid "Hide"
+msgstr ""
+
+#: templates/list.php:23
+msgid "Show"
+msgstr ""
+
+#: templates/list.php:30
+msgid "Related Tags"
+msgstr ""
+
+#: templates/list.php:39
 msgid "You have no bookmarks"
 msgstr "У Вас нет закладок"
 
+#: templates/list.php:64
+msgid "Edit"
+msgstr ""
+
+#: templates/list.php:68
+msgid "Delete"
+msgstr ""
+
+#: templates/list.php:107
+msgid "Cancel"
+msgstr ""
+
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
+msgstr ""
+
+#: templates/settings.php:26
+msgid "Import bookmarks"
+msgstr ""
+
+#: templates/settings.php:28
+msgid "Bookmark html file"
+msgstr ""
+
+#: templates/settings.php:30
+msgid "Import"
+msgstr ""
+
+#: templates/settings.php:33
+msgid "Export bookmarks"
+msgstr ""
+
+#: templates/settings.php:35
+msgid "Export"
 msgstr ""
