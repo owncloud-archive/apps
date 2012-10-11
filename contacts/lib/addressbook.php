@@ -272,7 +272,7 @@ class OC_Contacts_Addressbook {
 	 */
 	public static function setActive($id,$active) {
 		$sql = 'UPDATE `*PREFIX*contacts_addressbooks` SET `active` = ? WHERE `id` = ?';
-		OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', id: '.$id.', active: '.intval($active), OCP\Util::ERROR);
+
 		try {
 			$stmt = OCP\DB::prepare($sql);
 			$stmt->execute(array(intval($active), $id));
