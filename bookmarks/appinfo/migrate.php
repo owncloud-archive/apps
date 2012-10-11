@@ -41,7 +41,7 @@ class OC_Migration_Provider_Bookmarks extends OC_Migration_Provider{
 					// Import each bookmark, saving its id into the map
 					$sql = "INSERT INTO `*PREFIX*bookmarks`
 						(`url`, `title`, `user_id`, `public`, `added`, `lastmodified`) VALUES (?, ?, ?, ?, ?, ?)" ;
-					$query = OCP\DB::prepare($sql;
+					$query = OCP\DB::prepare($sql);
 					$query->execute(array(
 						$row['url'], $row['title'], $this->uid, $row['public'],
 						$row['added'], $row['lastmodified']
@@ -55,7 +55,8 @@ class OC_Migration_Provider_Bookmarks extends OC_Migration_Provider{
 					$results = $query->execute( array( $oldid ) );
 					while( $row = $results->fetchRow() ) {
 						// Import the tags for this bookmark, using the new bookmark id
-						$query = OCP\DB::prepare( "INSERT INTO `*PREFIX*bookmarks_tags`(`bookmark_id`, `tag`) VALUES (?, ?)" );
+						$sql = "INSERT INTO `*PREFIX*bookmarks_tags`(`bookmark_id`, `tag`) VALUES (?, ?)";
+						$query = OCP\DB::prepare($sql);
 						$query->execute( array( $newid, $row['tag'] ) );	
 					}		
 				}

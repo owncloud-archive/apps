@@ -14,6 +14,7 @@
 "The calendar application also need to be enabled to use this application." => "A aplicação calendário também precisa de ser activada para usar esta aplicação.",
 "Add Task" => "Acrescentar tarefa",
 "Order Due" => "Data de vencimento",
+"Order Complete" => "Ordem concluida",
 "Loading tasks..." => "A carregar tarefas...",
 "Important" => "Importante",
 "More" => "Mais",

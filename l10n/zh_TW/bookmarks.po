@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:01+0200\n"
-"PO-Revision-Date: 2012-09-11 00:03+0000\n"
+"POT-Creation-Date: 2012-10-11 02:03+0200\n"
+"PO-Revision-Date: 2012-10-11 00:05+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -18,16 +18,52 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:14
+#: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "書籤"
 
-#: bookmarksHelper.php:99
-msgid "unnamed"
-msgstr "未命名"
+#: js/addBm.js:42 js/bookmarks.js:243
+msgid "Tags"
+msgstr "標籤"
 
-#: lib/search.php:43
+#: js/bookmarks.js:178
+msgid "Edit bookmark"
+msgstr ""
+
+#: js/bookmarks.js:409
+msgid "Are you sure you want to remove this tag from every entry?"
+msgstr ""
+
+#: js/bookmarks.js:410
+msgid "Warning"
+msgstr ""
+
+#: lib/search.php:38
 msgid "Bookm."
+msgstr ""
+
+#: templates/addBm.php:11
+msgid "Add a bookmark"
+msgstr ""
+
+#: templates/addBm.php:14
+msgid "Close"
+msgstr ""
+
+#: templates/addBm.php:22 templates/list.php:91
+msgid "The title of the page"
+msgstr ""
+
+#: templates/addBm.php:27 templates/list.php:95
+msgid "The address of the page"
+msgstr ""
+
+#: templates/addBm.php:40 templates/list.php:104
+msgid "Description of the page"
+msgstr ""
+
+#: templates/addBm.php:44 templates/list.php:108
+msgid "Save"
 msgstr ""
 
 #: templates/bookmarklet.php:5
@@ -40,26 +76,70 @@ msgstr "將此拖曳至您的瀏覽器書籤並點擊, 當你想要將網頁快�
 msgid "Read later"
 msgstr "稍後閱讀"
 
-#: templates/list.php:13
+#: templates/list.php:12
 msgid "Address"
 msgstr "網址"
 
-#: templates/list.php:14
-msgid "Title"
-msgstr "標題"
-
-#: templates/list.php:15
-msgid "Tags"
-msgstr "標籤"
+#: templates/list.php:13
+msgid "Add bookmark"
+msgstr ""
 
 #: templates/list.php:16
-msgid "Save bookmark"
-msgstr "儲存書籤"
+msgid "List"
+msgstr ""
+
+#: templates/list.php:17
+msgid "Image"
+msgstr ""
 
 #: templates/list.php:22
+msgid "Hide"
+msgstr ""
+
+#: templates/list.php:23
+msgid "Show"
+msgstr ""
+
+#: templates/list.php:30
+msgid "Related Tags"
+msgstr ""
+
+#: templates/list.php:39
 msgid "You have no bookmarks"
 msgstr "你沒有書籤"
+
+#: templates/list.php:64
+msgid "Edit"
+msgstr ""
+
+#: templates/list.php:68
+msgid "Delete"
+msgstr ""
+
+#: templates/list.php:107
+msgid "Cancel"
+msgstr ""
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
 msgstr "書籤小工具"
+
+#: templates/settings.php:26
+msgid "Import bookmarks"
+msgstr ""
+
+#: templates/settings.php:28
+msgid "Bookmark html file"
+msgstr ""
+
+#: templates/settings.php:30
+msgid "Import"
+msgstr ""
+
+#: templates/settings.php:33
+msgid "Export bookmarks"
+msgstr ""
+
+#: templates/settings.php:35
+msgid "Export"
+msgstr ""

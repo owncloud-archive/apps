@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <khanhnd@kenhgiaiphap.vn>, 2012.
 #   <mattheu_9x@yahoo.com>, 2012.
 # Sơn Nguyễn <sonnghit@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-11 02:04+0200\n"
+"PO-Revision-Date: 2012-10-10 08:31+0000\n"
+"Last-Translator: khanhnd <khanhnd@kenhgiaiphap.vn>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +32,7 @@ msgstr "id không được thiết lập."
 
 #: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
-msgstr ""
+msgstr "Không thể cập nhật sổ liên lạc mà không có tên"
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -43,7 +44,7 @@ msgstr "Lỗi thiết lập kiểm tra."
 
 #: ajax/categories/delete.php:19
 msgid "No categories selected for deletion."
-msgstr ""
+msgstr "Bạn chưa chọn mục để xóa"
 
 #: ajax/categories/delete.php:26
 msgid "No address books found."
@@ -71,7 +72,7 @@ msgstr "Ít nhất một địa chỉ phải được điền."
 
 #: ajax/contact/addproperty.php:76
 msgid "Trying to add duplicate property: "
-msgstr ""
+msgstr "Thêm hai thuộc tính trùng nhau"
 
 #: ajax/contact/addproperty.php:115 ajax/contact/saveproperty.php:93
 msgid "Missing IM parameter."
@@ -108,7 +109,7 @@ msgstr ""
 #: ajax/currentphoto.php:30 ajax/oc_photo.php:28 ajax/uploadphoto.php:36
 #: ajax/uploadphoto.php:68
 msgid "No contact ID was submitted."
-msgstr ""
+msgstr "Không có ID của liên lạc được tìm thấy"
 
 #: ajax/currentphoto.php:36
 msgid "Error reading contact photo."
@@ -116,7 +117,7 @@ msgstr "Lỗi đọc liên lạc hình ảnh."
 
 #: ajax/currentphoto.php:48
 msgid "Error saving temporary file."
-msgstr ""
+msgstr "Lỗi trong quá trình lưu file tạm"
 
 #: ajax/currentphoto.php:51
 msgid "The loading photo is not valid."
@@ -124,11 +125,11 @@ msgstr "Các hình ảnh tải không hợp lệ."
 
 #: ajax/editname.php:31
 msgid "Contact ID is missing."
-msgstr ""
+msgstr "ID của liên lạc bị thiếu"
 
 #: ajax/oc_photo.php:32
 msgid "No photo path was submitted."
-msgstr ""
+msgstr "Đường dẫn hình ảnh bị thiếu"
 
 #: ajax/oc_photo.php:39
 msgid "File doesn't exist:"
@@ -176,7 +177,7 @@ msgstr "Không có lỗi, các tập tin tải lên thành công"
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
+msgstr "Dung lượng file tải lên vượt quá giới hạn cho phép."
 
 #: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
 msgid ""
@@ -190,7 +191,7 @@ msgstr ""
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Chưa có file nào được tải lên"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
@@ -245,7 +246,7 @@ msgstr ""
 
 #: js/contacts.js:176 templates/part.selectaddressbook.php:27
 msgid "Enter name"
-msgstr ""
+msgstr "Nhập tên"
 
 #: js/contacts.js:177 templates/part.contact.php:35
 msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
@@ -423,11 +424,11 @@ msgstr "Xóa"
 msgid "Cancel"
 msgstr "Hủy"
 
-#: js/settings.js:157 templates/settings.php:66
+#: js/settings.js:161 templates/settings.php:66
 msgid "More..."
 msgstr ""
 
-#: js/settings.js:161
+#: js/settings.js:165
 msgid "Less..."
 msgstr ""
 
@@ -461,7 +462,7 @@ msgstr "Đây không phải là sổ địa chỉ của bạn."
 
 #: lib/app.php:71
 msgid "Contact could not be found."
-msgstr ""
+msgstr "Liên lạc không được tìm thấy"
 
 #: lib/app.php:116
 msgid "Jabber"
@@ -654,7 +655,7 @@ msgstr ""
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Tùy chỉnh"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
@@ -678,7 +679,7 @@ msgstr ""
 
 #: templates/index.php:40
 msgid "Expand/collapse current addressbook"
-msgstr ""
+msgstr "Đóng/mở sổ địa chỉ"
 
 #: templates/index.php:42
 msgid "Next addressbook"
@@ -694,39 +695,39 @@ msgstr ""
 
 #: templates/index.php:51
 msgid "Refresh contacts list"
-msgstr ""
+msgstr "Làm mới danh sách liên lạc"
 
 #: templates/index.php:53
 msgid "Add new contact"
-msgstr ""
+msgstr "Thêm liên lạc mới"
 
 #: templates/index.php:55
 msgid "Add new addressbook"
-msgstr ""
+msgstr "Thêm sổ địa chỉ mới"
 
 #: templates/index.php:57
 msgid "Delete current contact"
-msgstr ""
+msgstr "Xóa liên lạc hiện tại"
 
 #: templates/part.contact.php:17
 msgid "Drop photo to upload"
-msgstr ""
+msgstr "Kéo và thả hình ảnh để tải lên"
 
 #: templates/part.contact.php:19
 msgid "Delete current photo"
-msgstr ""
+msgstr "Xóa hình ảnh hiện tại"
 
 #: templates/part.contact.php:20
 msgid "Edit current photo"
-msgstr ""
+msgstr "Sửa hình ảnh hiện tại"
 
 #: templates/part.contact.php:21
 msgid "Upload new photo"
-msgstr ""
+msgstr "Tải hình ảnh mới"
 
 #: templates/part.contact.php:22
 msgid "Select photo from ownCloud"
-msgstr ""
+msgstr "Chọn hình đã tải lên Kcloud"
 
 #: templates/part.contact.php:36
 msgid "Edit name details"
@@ -743,7 +744,7 @@ msgstr ""
 
 #: templates/part.contact.php:42
 msgid "Enter nickname"
-msgstr ""
+msgstr "Nhập nickname"
 
 #: templates/part.contact.php:43 templates/part.contact.php:134
 msgid "Web site"
@@ -755,7 +756,7 @@ msgstr ""
 
 #: templates/part.contact.php:44
 msgid "Go to web site"
-msgstr ""
+msgstr "Đi tới website"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"
@@ -763,15 +764,15 @@ msgstr ""
 
 #: templates/part.contact.php:47 templates/part.contact.php:135
 msgid "Groups"
-msgstr ""
+msgstr "Nhóm"
 
 #: templates/part.contact.php:49
 msgid "Separate groups with commas"
-msgstr ""
+msgstr "Phân cách bởi dấu phẩy"
 
 #: templates/part.contact.php:50
 msgid "Edit groups"
-msgstr ""
+msgstr "Sửa nhóm"
 
 #: templates/part.contact.php:59 templates/part.contact.php:73
 #: templates/part.contact.php:98
@@ -780,27 +781,27 @@ msgstr "Được ưu tiên"
 
 #: templates/part.contact.php:60
 msgid "Please specify a valid email address."
-msgstr ""
+msgstr "Vui lòng nhập địa chỉ Email hợp lệ."
 
 #: templates/part.contact.php:60
 msgid "Enter email address"
-msgstr ""
+msgstr "Nhập địa chỉ Email"
 
 #: templates/part.contact.php:64
 msgid "Mail to address"
-msgstr ""
+msgstr "Gửi email"
 
 #: templates/part.contact.php:65
 msgid "Delete email address"
-msgstr ""
+msgstr "Xóa Email"
 
 #: templates/part.contact.php:75
 msgid "Enter phone number"
-msgstr ""
+msgstr "Nhập số điện thoại"
 
 #: templates/part.contact.php:79
 msgid "Delete phone number"
-msgstr ""
+msgstr "Xóa số điện thoại"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
@@ -812,19 +813,19 @@ msgstr ""
 
 #: templates/part.contact.php:110
 msgid "View on map"
-msgstr ""
+msgstr "Xem trên bản đồ"
 
 #: templates/part.contact.php:110
 msgid "Edit address details"
-msgstr ""
+msgstr "Sửa thông tin địa chỉ"
 
 #: templates/part.contact.php:116
 msgid "Add notes here."
-msgstr ""
+msgstr "Thêm chú thích"
 
 #: templates/part.contact.php:124
 msgid "Add field"
-msgstr ""
+msgstr "Thêm trường mới"
 
 #: templates/part.contact.php:129
 msgid "Phone"
@@ -844,11 +845,11 @@ msgstr "Địa chỉ"
 
 #: templates/part.contact.php:133
 msgid "Note"
-msgstr ""
+msgstr "Chú thích"
 
 #: templates/part.contact.php:138
 msgid "Download contact"
-msgstr ""
+msgstr "Tải liên lạc"
 
 #: templates/part.contact.php:139
 msgid "Delete contact"
@@ -860,7 +861,7 @@ msgstr ""
 
 #: templates/part.edit_address_dialog.php:6
 msgid "Edit address"
-msgstr ""
+msgstr "Sửa địa chỉ"
 
 #: templates/part.edit_address_dialog.php:10
 msgid "Type"
@@ -873,11 +874,11 @@ msgstr "Hòm thư bưu điện"
 
 #: templates/part.edit_address_dialog.php:24
 msgid "Street address"
-msgstr ""
+msgstr "Địa chỉ nhà"
 
 #: templates/part.edit_address_dialog.php:27
 msgid "Street and number"
-msgstr ""
+msgstr "Số nhà"
 
 #: templates/part.edit_address_dialog.php:30
 msgid "Extended"
@@ -898,7 +899,7 @@ msgstr "Vùng/miền"
 
 #: templates/part.edit_address_dialog.php:45
 msgid "E.g. state or province"
-msgstr ""
+msgstr "Vd tiểu bang hoặc tỉnh thành"
 
 #: templates/part.edit_address_dialog.php:48
 msgid "Zipcode"
@@ -906,7 +907,7 @@ msgstr "Mã bưu điện"
 
 #: templates/part.edit_address_dialog.php:51
 msgid "Postal code"
-msgstr ""
+msgstr "Mã bưu chính"
 
 #: templates/part.edit_address_dialog.php:54
 #: templates/part.edit_address_dialog.php:57
@@ -1028,11 +1029,11 @@ msgstr ""
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
-msgstr ""
+msgstr "Chọn sổ địa chỉ"
 
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
-msgstr ""
+msgstr "Nhập mô tả"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"
