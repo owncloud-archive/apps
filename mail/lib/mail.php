@@ -101,7 +101,7 @@ class App
 		// get the account
 		$account = App::getAccount($user_id, $account_id);
 		if (!$account) {
-			#TODO: i18n
+			//@TODO: i18n
 			return array('error' => 'unknown account');
 		}
 
@@ -127,7 +127,7 @@ class App
 		// get the account
 		$account = App::getAccount($user_id, $account_id);
 		if (!$account) {
-			#TODO: i18n
+			//@TODO: i18n
 			return array('error' => 'unknown account');
 		}
 

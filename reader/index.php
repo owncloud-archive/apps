@@ -21,4 +21,3 @@ $tmpl = new OCP\Template( 'reader', 'index', 'user' );
 $tmpl->assign('dir', $dir);
 $tmpl->printPage();
 
-?>
