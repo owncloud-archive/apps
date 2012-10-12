@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-03 02:03+0200\n"
-"PO-Revision-Date: 2012-10-02 12:38+0000\n"
+"POT-Creation-Date: 2012-10-12 02:03+0200\n"
+"PO-Revision-Date: 2012-10-11 08:58+0000\n"
 "Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -103,7 +103,7 @@ msgstr "Совместный "
 
 #: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
-msgstr ""
+msgstr "Удаляемый"
 
 #: js/calendar.js:811
 msgid "ddd"
@@ -209,7 +209,7 @@ msgstr "У Вас нет прав доступа для удаления это�
 msgid "You do not have the permissions to add to this calendar."
 msgstr "У Вас нет прав доступа для добавления этого календаря."
 
-#: lib/import.php:186 templates/calendar.php:12
+#: lib/import.php:195 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Новый календарь"
@@ -260,7 +260,7 @@ msgstr "никогда"
 
 #: lib/object.php:466
 msgid "by occurrences"
-msgstr ""
+msgstr "по распространенности"
 
 #: lib/object.php:467
 msgid "by date"
@@ -268,11 +268,11 @@ msgstr "по дате"
 
 #: lib/object.php:477
 msgid "by monthday"
-msgstr ""
+msgstr "по дню месяца"
 
 #: lib/object.php:478
 msgid "by weekday"
-msgstr ""
+msgstr "по дню недели"
 
 #: lib/object.php:488 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
@@ -304,7 +304,7 @@ msgstr "Воскресенье"
 
 #: lib/object.php:504
 msgid "events week of month"
-msgstr ""
+msgstr "события недели месяца"
 
 #: lib/object.php:505
 msgid "first"
@@ -380,11 +380,11 @@ msgstr "Декабрь"
 
 #: lib/object.php:565
 msgid "by events date"
-msgstr ""
+msgstr "по дате событий"
 
 #: lib/object.php:566
 msgid "by yearday(s)"
-msgstr ""
+msgstr "по дням года"
 
 #: lib/object.php:567
 msgid "by weeknumber(s)"
@@ -624,7 +624,7 @@ msgstr ""
 
 #: templates/part.eventform.php:11 templates/part.showevent.php:6
 msgid "Attendees"
-msgstr ""
+msgstr "Участники"
 
 #: templates/part.eventform.php:13
 msgid "Share"
@@ -640,7 +640,7 @@ msgstr "Категория"
 
 #: templates/part.eventform.php:29
 msgid "Separate categories with commas"
-msgstr ""
+msgstr "Разделите категории запятыми"
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
@@ -684,7 +684,7 @@ msgstr "Повтор"
 
 #: templates/part.eventform.php:107 templates/part.showevent.php:102
 msgid "Advanced"
-msgstr ""
+msgstr "Расширенный"
 
 #: templates/part.eventform.php:151 templates/part.showevent.php:146
 msgid "Select weekdays"
@@ -725,7 +725,7 @@ msgstr "Конец"
 
 #: templates/part.eventform.php:233 templates/part.showevent.php:228
 msgid "occurrences"
-msgstr ""
+msgstr "распространенность"
 
 #: templates/part.import.php:14
 msgid "create a new calendar"

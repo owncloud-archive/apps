@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-11 02:03+0200\n"
-"PO-Revision-Date: 2012-10-11 00:05+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-12 02:03+0200\n"
+"PO-Revision-Date: 2012-10-11 10:54+0000\n"
+"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,17 +30,17 @@ msgstr "Теги"
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:409
+#: js/bookmarks.js:410
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:410
+#: js/bookmarks.js:411
 msgid "Warning"
 msgstr ""
 
 #: lib/search.php:38
 msgid "Bookm."
-msgstr ""
+msgstr "Bookm."
 
 #: templates/addBm.php:11
 msgid "Add a bookmark"
@@ -122,7 +122,7 @@ msgstr ""
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
-msgstr ""
+msgstr "Bookmarklet <br />"
 
 #: templates/settings.php:26
 msgid "Import bookmarks"
