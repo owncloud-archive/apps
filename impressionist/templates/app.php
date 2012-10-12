@@ -26,7 +26,7 @@
          parserRules:  wysihtml5ParserRules
      });
       editor.setValue(ultemplate);
-      console.log(editor.getValue())
+      //console.log(editor.getValue())
     }
     </script>
 <body id="mybody">
