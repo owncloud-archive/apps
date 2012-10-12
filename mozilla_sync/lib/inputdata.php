@@ -37,7 +37,7 @@ class InputData implements \arrayaccess
 
     $parseResult = json_decode($input, true);
 
-    if($parseResult == NULL) {
+    if($parseResult == null) {
       $this->parseValidFlag = false;
     }
     else{
@@ -62,7 +62,7 @@ class InputData implements \arrayaccess
    * @return boolean
    */
   public function hasValue($valueName) {
-    return array_key_exists($valueName, $this->inputArray) && $this->inputArray[$valueName] != NULL;
+    return array_key_exists($valueName, $this->inputArray) && $this->inputArray[$valueName] != null;
   }
 
   /**

@@ -29,7 +29,7 @@ OC_JSON::checkAppEnabled('storage_charts');
 if(in_array($_POST['k'], Array('hu_size','sc_sort','hu_size_hus'))) {
 	switch($_POST['o']) {
 		case 'set':
-			$i = NULL;
+			$i = null;
 			if(is_array($_POST['i'])) {
 				$i = serialize($_POST['i']);
 				

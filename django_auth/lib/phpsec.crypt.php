@@ -111,7 +111,7 @@ class phpsecCrypt {
       'mac'   => true,
     );
 
-    if($data === NULL || phpsec::arrayCheck($data, $dataStructure) !== true) {
+    if($data === null || phpsec::arrayCheck($data, $dataStructure) !== true) {
       phpsec::error('Invalid data passed to decrypt()');
       return false;
     }

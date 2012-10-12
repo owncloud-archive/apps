@@ -33,7 +33,7 @@ class Message {
 
 	// output all the following:
 	// the message may in $htmlmsg, $plainmsg, or both
-	public $header = NULL;
+	public $header = null;
 	public $htmlmsg = '';
 	public $plainmsg = '';
 	public $charset = '';
