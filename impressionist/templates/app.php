@@ -370,5 +370,5 @@
 <div id="footerbar" class="navbar">
 
 </div>
-<script type="text/javascript" src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/utilities.js'); ?>"
+<script type="text/javascript" src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/utilities.js'); ?>"></script>
         </body>
