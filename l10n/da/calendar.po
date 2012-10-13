@@ -5,6 +5,7 @@
 # Translators:
 #   <mikkelbjerglarsen@gmail.com>, 2011.
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2011-2012.
+# Ole Holm Frandsen <froksen@gmail.com>, 2012.
 #   <osos@openeyes.dk>, 2012.
 # Pascal d'Hermilly <pascal@dhermilly.dk>, 2011.
 #   <simon@rosmi.dk>, 2012.
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:19+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-13 02:04+0200\n"
+"PO-Revision-Date: 2012-10-12 17:30+0000\n"
+"Last-Translator: Ole Holm Frandsen <froksen@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,15 +83,15 @@ msgstr "Kalender"
 
 #: js/calendar.js:96
 msgid "Deletion failed"
-msgstr ""
+msgstr "Fejl ved sletning"
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
 
 #: js/calendar.js:187
 msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:539
 msgid "user"
@@ -216,7 +217,7 @@ msgstr "Du har ikke rettigheder til at slette denne kalender."
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Du har ikke rettigheder til at tilføje til denne kalender."
 
-#: lib/import.php:186 templates/calendar.php:12
+#: lib/import.php:195 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Ny kalender"
@@ -551,7 +552,7 @@ msgid "Your calendars"
 msgstr "Dine kalendere"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:17
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
 msgstr "CalDav-link"
 
@@ -559,15 +560,15 @@ msgstr "CalDav-link"
 msgid "Share Calendar"
 msgstr "Del kalender"
 
-#: templates/part.choosecalendar.rowfields.php:20
+#: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
 msgstr "Hent"
 
-#: templates/part.choosecalendar.rowfields.php:24
+#: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
 msgstr "Rediger"
 
-#: templates/part.choosecalendar.rowfields.php:29
+#: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "Slet"

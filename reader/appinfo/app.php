@@ -11,4 +11,4 @@ OCP\App::addNavigationEntry( array(
  'icon' => OCP\Util::imagePath( 'reader', 'reader.png' ),
  'name'=>'Reader'));
 
-?>
+

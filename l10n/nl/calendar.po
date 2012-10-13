@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:19+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-13 02:04+0200\n"
+"PO-Revision-Date: 2012-10-12 20:10+0000\n"
+"Last-Translator: Richard Bos <radoeka@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,15 +82,15 @@ msgstr "Agenda"
 
 #: js/calendar.js:96
 msgid "Deletion failed"
-msgstr ""
+msgstr "Verwijdering faalde"
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
 
 #: js/calendar.js:187
 msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:539
 msgid "user"
@@ -216,7 +216,7 @@ msgstr "U heeft geen permissie om deze agenda te verwijderen."
 msgid "You do not have the permissions to add to this calendar."
 msgstr "U heeft geen permissie om deze agenda toe te voegen."
 
-#: lib/import.php:186 templates/calendar.php:12
+#: lib/import.php:195 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Nieuwe agenda"
@@ -235,7 +235,7 @@ msgstr "U heeft geen permissie om deze gebeurtenis te verwijderen."
 
 #: lib/object.php:449
 msgid "Does not repeat"
-msgstr "Wordt niet herhaald"
+msgstr "Geen"
 
 #: lib/object.php:450
 msgid "Daily"
@@ -263,7 +263,7 @@ msgstr "Jaarlijks"
 
 #: lib/object.php:465
 msgid "never"
-msgstr "nooit meer"
+msgstr "geen"
 
 #: lib/object.php:466
 msgid "by occurrences"
@@ -387,7 +387,7 @@ msgstr "December"
 
 #: lib/object.php:565
 msgid "by events date"
-msgstr "volgens evenementsdatum"
+msgstr "volgens gebeurtenisdatum"
 
 #: lib/object.php:566
 msgid "by yearday(s)"
@@ -516,7 +516,7 @@ msgstr "Eindtijd"
 
 #: templates/calendar.php:20
 msgid "The event ends before it starts"
-msgstr "Het evenement eindigt voordat het begint"
+msgstr "De gebeuertenis eindigt voordat het begint"
 
 #: templates/calendar.php:21
 msgid "There was a database fail"
@@ -551,7 +551,7 @@ msgid "Your calendars"
 msgstr "Uw agenda's"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:17
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
 msgstr "CalDav Link"
 
@@ -559,15 +559,15 @@ msgstr "CalDav Link"
 msgid "Share Calendar"
 msgstr "Deel kalender"
 
-#: templates/part.choosecalendar.rowfields.php:20
+#: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
 msgstr "Download"
 
-#: templates/part.choosecalendar.rowfields.php:24
+#: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
 msgstr "Bewerken"
 
-#: templates/part.choosecalendar.rowfields.php:29
+#: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "Verwijderen"
@@ -623,7 +623,7 @@ msgstr "Gebeurtenisinformatie"
 
 #: templates/part.eventform.php:9 templates/part.showevent.php:4
 msgid "Repeating"
-msgstr "Herhalend"
+msgstr "Herhaling"
 
 #: templates/part.eventform.php:10 templates/part.showevent.php:5
 msgid "Alarm"
@@ -683,11 +683,11 @@ msgstr "Beschrijving"
 
 #: templates/part.eventform.php:91
 msgid "Description of the Event"
-msgstr "Beschrijving van het evenement"
+msgstr "Beschrijving van de gebeurtenis"
 
 #: templates/part.eventform.php:100 templates/part.showevent.php:95
 msgid "Repeat"
-msgstr "Herhalen"
+msgstr "Herhaling"
 
 #: templates/part.eventform.php:107 templates/part.showevent.php:102
 msgid "Advanced"

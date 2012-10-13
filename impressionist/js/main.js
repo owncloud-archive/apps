@@ -546,7 +546,7 @@ function onSlideMouseUp(event)
 
 
 	var target = (event.target.id).split("____slide");
-	console.log("Mouse uping "+event.target.id);
+	//console.log("Mouse uping "+event.target.id);
 	if(target.length > 1)
 	{
 	
@@ -577,7 +577,7 @@ function onSlideMouseUp(event)
 		ismarkedforcut = false;
 	}
 	addObjectFlag = false;
-	console.log("Ammeda kindi: " +editor.getValue());
+	//console.log("Ammeda kindi: " +editor.getValue());
 }
 function calculateTextWidth()
 {

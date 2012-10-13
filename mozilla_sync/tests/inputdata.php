@@ -24,8 +24,8 @@ class Test_InputData extends UnitTestCase {
 
 		$this->assertFalse($InputData->hasValue('captcha-challenge'));
 		$this->assertFalse(isset($InputData['captcha-challenge']));
-		$this->assertTrue($InputData->getValue('captcha-challenge') === NULL);
-		$this->assertTrue($InputData['captcha-challenge'] === NULL);
+		$this->assertTrue($InputData->getValue('captcha-challenge') === null);
+		$this->assertTrue($InputData['captcha-challenge'] === null);
 
 	}
 

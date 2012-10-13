@@ -30,7 +30,7 @@ class OC_ocDownloaderFile {
 	 * Get the file by an URL
 	 * @param URL of the file
 	 */
-	public static function getHttpFile($file, $pr_transfer = NULL) {
+	public static function getHttpFile($file, $pr_transfer = null) {
 		try{
 	    	if(!self::remoteFileExists($file)) {
 	    		return 'The file does not exists ...';

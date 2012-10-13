@@ -210,15 +210,15 @@ class Test_UserService extends UnitTestCase {
 
   }
 
-  private function createUser($inputArray = NULL) {
+  private function createUser($inputArray = null) {
 
     $this->clearRequest();
 
-    if($inputArray == NULL) {
+    if($inputArray == null) {
       $inputArray['password']           = $this->password;
       $inputArray['email']              = $this->email;
-      $inputArray['captcha-challenge']  = NULL;
-      $inputArray['captcha-response']   = NULL;
+      $inputArray['captcha-challenge']  = null;
+      $inputArray['captcha-response']   = null;
     }
     OCA_mozilla_sync\Utils::$requestMethod = 'PUT';
     $inputData = new OCA_mozilla_sync\InputData(json_encode($inputArray));
