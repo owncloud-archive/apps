@@ -14,24 +14,26 @@
 	<div class="all">All</div>
 	<div class="done">Done</div>
 </div>
-<div id="tasks_list" class="rightcontent">
 <p class="loading"><?php echo $l->t('Loading tasks...') ?></p>
-</div>
-<div id="task_template" class="task">
-	<input type="checkbox" />
-	<span class="summary"></span>
-	<span class="description"></span>
-	<div class="categories"></div>
-	<span class="due"></span>
-	<div class="task_actions">
-		<span class="task_edit">
-			<img class="svg action" title="<?php echo $l->t('Edit');?>" src="<?php echo OCP\image_path("", "actions/rename.svg");?>" />
-		</span>
-		<span class="task_delete">
-			<img class="svg action" title="<?php echo $l->t('Delete') ?>" src="<?php echo OCP\image_path('core', 'actions/delete.svg') ?>" />
-		</span>
-	</div>
-	
+<table id="tasks_list" class="rightcontent">
+	<tbody>
+		<tr id="task_template" class="task">
+			<td class="completed"><input type="checkbox" /></td>
+			<td class="summary"></td>
+			<td class="description"></td>
+			<td class="categories"></td>
+			<td class="due"></td>
+			<td class="task_actions">
+				<span class="task_edit">
+					<img class="svg action" title="<?php echo $l->t('Edit');?>" src="<?php echo OCP\image_path("", "actions/rename.svg");?>" />
+				</span>
+				<span class="task_delete">
+					<img class="svg action" title="<?php echo $l->t('Delete') ?>" src="<?php echo OCP\image_path('core', 'actions/delete.svg') ?>" />
+				</span>
+			</td>
+		</tr>
+	</tbody>
+</table>
 <script type='text/javascript'>
 var categories = <?php echo json_encode($_['categories']); ?>;
 </script>

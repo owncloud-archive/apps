@@ -11,20 +11,20 @@ OC.Tasks = {
 		}
 		return a.localeCompare(b);
 	},
-	create_task_div:function(task) {
-		var taskTemplate = $('#task_template').clone();
-		$(taskTemplate).removeAttr('id');
-		$(taskTemplate).attr('data-id', task.id);
-		$(taskTemplate).data('task', task);
-		$(taskTemplate).find('.summary').text(task.summary);
-		$(taskTemplate).find('.description').text(task.description);
-		var categories = $(taskTemplate).find('.categories');
+	createTaskRow:function(task) {
+		var row = $('#task_template').clone();
+		$(row).removeAttr('id');
+		$(row).attr('data-id', task.id);
+		$(row).data('task', task);
+		$(row).find('.summary').text(task.summary);
+		$(row).find('.description').text(task.description);
+		var categories = $(row).find('.categories');
 		$(task.categories).each(function(i, category) {
 			$(categories).append($('<a>').addClass('tag').text(category));
 		});
-		$(taskTemplate).find('input[type="checkbox"]').click(OC.Tasks.complete_task);
-		$(taskTemplate).find('.task_edit').click(OC.Tasks.editClickHandler);
-		$(taskTemplate).find('.task_delete').click(OC.Tasks.deleteClickHandler);
+		$(row).find('input[type="checkbox"]').click(OC.Tasks.complete_task);
+		$(row).find('.task_edit').click(OC.Tasks.editClickHandler);
+		$(row).find('.task_delete').click(OC.Tasks.deleteClickHandler);
 // 		OC.Tasks.setSummary(summary_container, task);
 // 		var task_container = $('<div>')
 // 			.addClass('task')
@@ -143,7 +143,7 @@ OC.Tasks = {
 // 				});
 // 			})
 // 			.appendTo(task_container);
-		return taskTemplate;
+		return row;
 	},
 	filter:function(tag, find_filter) {
 		var tag_text = $(tag).text();
@@ -383,7 +383,6 @@ OC.Tasks = {
 $(document).ready(function(){
 	$(window).resize(function () {
 		fillHeight($('#tasks_lists'));
-		fillWindow($('#tasks_list'));
 	});
 	$(window).trigger('resize');
 
@@ -391,9 +390,9 @@ $(document).ready(function(){
 	 * Actions for startup
 	 *-----------------------------------------------------------------------*/
 	$.getJSON(OC.filePath('tasks', 'ajax', 'gettasks.php'), function(jsondata) {
-		var tasks = $('#tasks_list').empty().data('show_count', 0);
+// 		var tasks = $('#tasks_list').empty().data('show_count', 0);
 		$(jsondata).each(function(i, task) {
-			tasks.append(OC.Tasks.create_task_div(task));
+			$('#tasks_list > tbody:last').append(OC.Tasks.createTaskRow(task));
 		});
 		if( $('#tasks_list div').length > 0 ){
 			$('#tasks_list div').first().addClass('active');
