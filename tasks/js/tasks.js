@@ -513,14 +513,17 @@ $(document).ready(function(){
 
 	$('#tasks_addtask').click(function(){
 		var input = $('#tasks_newtask').val();
-		$.post(OC.filePath('tasks', 'ajax', 'addtask.php'),{text:input},function(jsondata){
-			if(jsondata.status == 'success'){
-				$('#tasks_list').append(OC.Tasks.create_task_div(jsondata.task));
-			}
-			else{
-				alert(jsondata.data.message);
-			}
-		});
+		if ($.trim(input) != '') {
+			$.post(OC.filePath('tasks', 'ajax', 'addtask.php'),{text:input},function(jsondata){
+				if(jsondata.status == 'success'){
+					$('#tasks_list').append(OC.Tasks.createTaskRow(jsondata.task));
+					$('#tasks_newtask').val('');
+				}
+				else{
+					alert(jsondata.data.message);
+				}
+			});
+		}
 		return false;
 	});
 
