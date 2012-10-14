@@ -10,11 +10,11 @@
 #tasks_list h1{background-color:#1D2D44;color:white;font-size:120%;padding:0 0.5em;}
 #task_template { display:none; }
 
-.task{border-radius:0.4em;position:relative;padding:0.4em 1em;}
+.task{border-radius:0.4em;position:relative;padding:0.4em 1em; width: 100%; word-break: break-all; box-sizing: border-box; -moz-box-sizing: border-box;}
 .task:nth-child(odd){background-color:#F4F4F4;}
-.task:hover {background-color:#DDDDDD;}
+.task:hover {background-color:#DDDDDD; padding-right: 8em;}
 
-.task_actions{display:none; margin: 0 0.4em; }
+.task_actions{display:none; margin: 0 0.4em; position: absolute; top: 0; right: 0; bottom: 0; padding-top: .4em; }
 .task:hover .task_actions {display:block}
 .task_actions img:hover {cursor:pointer;}
 
