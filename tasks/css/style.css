@@ -5,6 +5,7 @@
 #task_details td{padding:2px;text-align:left;vertical-align:top; }
 .error_msg{color:red;}
 .error{border-color:red;border-width:2px;}
+#sortby { position:absolute; right:15em; }
 #tasks_lists div{position:relative;padding:0.5em 1em;}
 #tasks_lists .active{font-weight:bold;}
 #tasks_list h1{background-color:#1D2D44;color:white;font-size:120%;padding:0 0.5em;}

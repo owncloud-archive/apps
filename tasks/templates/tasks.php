@@ -1,12 +1,14 @@
 <div id="controls">
-	<input type="text" id="tasks_newtask">
+	<input type="text" id="tasks_newtask" placeholder="<?php echo $l->t('Task'); ?>">
 	<input type="button" id="tasks_addtask" value="<?php echo $l->t('Add Task'); ?>">
-	<input type="button" id="tasks_order_due" value="<?php echo $l->t('Order Due'); ?>">
-	<input type="button" id="tasks_order_category" value="<?php echo $l->t('Order List'); ?>">
-	<input type="button" id="tasks_order_complete" value="<?php echo $l->t('Order Complete'); ?>">
-	<input type="button" id="tasks_order_location" value="<?php echo $l->t('Order Location'); ?>">
-	<input type="button" id="tasks_order_prio" value="<?php echo $l->t('Order Priority'); ?>">
-	<input type="button" id="tasks_order_label" value="<?php echo $l->t('Order Label'); ?>">
+	<span id="sortby">
+		<?php echo $l->t('Sort by'); ?>
+		<select id="tasks_sort">
+			<option value="dueDate"><?php echo $l->t('Due date'); ?></option>
+			<option value="dueDate"><?php echo $l->t('Priority'); ?></option>
+			<option value="dueDate"><?php echo $l->t('Name'); ?></option>
+		</select>
+	</span>
 </div>
 <div id="tasks_lists" class="leftcontent">
 	<div class="all">All</div>
