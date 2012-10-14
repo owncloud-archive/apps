@@ -27,6 +27,12 @@ if( !OCP\User::isLoggedIn()) {
 	exit();
 }
 
+$path = 'Horde/Translation/Handler.php';
+if(stream_resolve_include_path($path) === false) {
+	echo 'horde imap client not installed';
+	return;
+}
+
 // Add JavaScript and CSS files
 OCP\Util::addScript('mail','mail');
 OCP\Util::addScript('mail','jquery.endless-scroll');
