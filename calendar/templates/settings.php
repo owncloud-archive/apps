@@ -92,7 +92,7 @@
 		<dd><code><?php echo OCP\Util::linkToRemote('caldav'); ?>principals/<?php echo OCP\USER::getUser(); ?></code>/</dd>
 		<dt><?php echo $l->t('Read only iCalendar link(s)'); ?></dt>
 		<dd>
-			<?php foreach($_['calendars'] as $calendar) { 
+			<?php foreach($_['calendars'] as $calendar) {
 			if($calendar['userid'] == OCP\USER::getUser()){
 				$uri = rawurlencode(html_entity_decode($calendar['uri'], ENT_QUOTES, 'UTF-8'));
 			}else{

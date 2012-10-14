@@ -94,4 +94,3 @@ class Zend_Exception extends Exception
         return $this->_previous;
     }
 }
- 

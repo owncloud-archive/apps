@@ -8,17 +8,17 @@
 
 class Test_Provisioning_API extends UnitTestCase {
 	public function setUp(){
-		
+
 	}
-	
+
 	public function testAddUser(){
-		
+
 	}
-	
+
 	private function testAPIResponse($response){
 		$xml = new DOMDocument();
 		$xml->loadXML($reponse);
-		
+
 	}
 
 }

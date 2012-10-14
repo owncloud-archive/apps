@@ -13,8 +13,8 @@
         <input type="submit" name="admin_export" value="<?php echo $l->t('Export'); ?>" />
     </fieldset>
 </form>
-<?php 
-/* 
+<?php
+/*
  * EXPERIMENTAL
 ?>
 <form id="import" action="#" method="post" enctype="multipart/form-data">
@@ -27,5 +27,5 @@
         <input type="submit" name="admin_import" value="<?php echo $l->t('Import'); ?>" />
     </fieldset>
 </form>
-<?php 
-*/ 
+<?php
+*/

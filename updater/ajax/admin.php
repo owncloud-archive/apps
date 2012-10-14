@@ -2,10 +2,10 @@
 
 /**
  * ownCloud - Updater plugin
- * 
+ *
  * @author Victor Dubiniuk
  * @copyright 2012 Victor Dubiniuk victor.dubiniuk@gmail.com
- * 
+ *
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  */
@@ -19,7 +19,7 @@ namespace OCA_Updater;
 $packageUrl = 'https://download.owncloud.com/download/community/owncloud-latest.zip';
 
 
-//Package version e.g. 4.0.4	
+//Package version e.g. 4.0.4
 $packageVersion = '';
 $updateData = \OC_Updater::check();
 if (isset($updateData['version'])) {
