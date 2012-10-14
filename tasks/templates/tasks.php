@@ -15,20 +15,21 @@
 <div id="tasks_list" class="rightcontent">
 <p class="loading"><?php echo $l->t('Loading tasks...') ?></p>
 </div>
-<p id="task_actions_template" class="task_actions">
-	<!-- span class="task_star">
-		<img title="<?php echo $l->t('Important') ?>" src="<?php echo OCP\image_path('core', 'actions/add.svg') ?>" class="svg"><?php echo $l->t('Important') ?>
-	</span -->
-	<span class="task_more">
-		<img title="<?php echo $l->t('More') ?>" src="<?php echo OCP\image_path('core', 'actions/triangle-s.svg') ?>" class="svg"><?php echo $l->t('More') ?>
-	</span>
-	<span class="task_less">
-		<img title="<?php echo $l->t('Less') ?>" src="<?php echo OCP\image_path('core', 'actions/triangle-n.svg') ?>" class="svg"><?php echo $l->t('Less') ?>
-	</span>
-	<span class="task_delete">
-		<img title="<?php echo $l->t('Delete') ?>" src="<?php echo OCP\image_path('core', 'actions/delete.svg') ?>" class="svg"><?php echo $l->t('Delete') ?>
-	</span>
-</p>
+<div id="task_template" class="task">
+	<input type="checkbox" />
+	<span class="summary"></span>
+	<span class="description"></span>
+	<div class="categories"></div>
+	<span class="due"></span>
+	<div class="task_actions">
+		<span class="task_edit">
+			<img class="svg action" title="<?php echo $l->t('Edit');?>" src="<?php echo OCP\image_path("", "actions/rename.svg");?>" />
+		</span>
+		<span class="task_delete">
+			<img class="svg action" title="<?php echo $l->t('Delete') ?>" src="<?php echo OCP\image_path('core', 'actions/delete.svg') ?>" />
+		</span>
+	</div>
+	
 <script type='text/javascript'>
 var categories = <?php echo json_encode($_['categories']); ?>;
 </script>

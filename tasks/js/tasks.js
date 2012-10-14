@@ -12,134 +12,138 @@ OC.Tasks = {
 		return a.localeCompare(b);
 	},
 	create_task_div:function(task) {
-		var actions = $('#task_actions_template');
-		var summary_container = $('<p class="summary">')
-				.attr('title', task.description)
-				;
-		OC.Tasks.setSummary(summary_container, task);
-		var task_container = $('<div>')
-			.addClass('task')
-			.data('task', task)
-			.data('show_count', 0)
-			.attr('data-id', task.id)
-			.append(summary_container)
-			.append(actions.clone().removeAttr('id'))
-			;
-		task_container.find('.summary a').click(OC.Tasks.summaryClickHandler);
-		var checkbox = $('<input type="checkbox">')
-			.click(OC.Tasks.complete_task);
-		if (task.completed) {
-			checkbox.attr('checked', 'checked');
-			task_container.addClass('done');
-		}
-		$('<div>')
-			.addClass('completed')
-			.append(checkbox)
-			.prependTo(task_container);
-		var priority = task.priority;
-		$('<div>')
-			.addClass('tag')
-			.addClass('priority')
-			.addClass('priority-'+(priority?priority:'n'))
-			.text(priority)
-			.prependTo(task_container);
-		if (task.location) {
-			$('<div>')
-				.addClass('tag')
-				.addClass('location')
-				.text(task.location)
-				.appendTo(task_container);
-		}
-		var $categories = $('<div>')
-				.addClass('categories')
-				.appendTo(task_container);
-		$(task.categories).each(function(i, category){
-				$categories.append($('<a>')
-					.addClass('tag')
-					.text(category)
-				);
+		var taskTemplate = $('#task_template').clone();
+		$(taskTemplate).removeAttr('id');
+		$(taskTemplate).attr('data-id', task.id);
+		$(taskTemplate).data('task', task);
+		$(taskTemplate).find('.summary').text(task.summary);
+		$(taskTemplate).find('.description').text(task.description);
+		var categories = $(taskTemplate).find('.categories');
+		$(task.categories).each(function(i, category) {
+			$(categories).append($('<a>').addClass('tag').text(category));
 		});
-		task_container.find('.task_more').click(OC.Tasks.moreClickHandler);
-		task_container.find('.task_less').click(OC.Tasks.lessClickHandler);
-		var description = $('<textarea>')
-			.addClass('description')
-			.blur(function(){
-				var task = $(this).closest('.task').data('task');
-				var description = $(this).val();
-				$.post(OC.filePath('tasks', 'ajax', 'update_property.php'), {id:task.id, type:'description', description:description}, function(jsondata){
-					if(jsondata.status == 'success') {
-						task.description = description;
-					}
-				});
-			})
-			.text(task.description);
-		var due = $('<span>')
-			.addClass('due')
-			.append(t('tasks', 'Due'));
-		due
-			.append($('<input type="date">')
-					.addClass('date')
-					.datepicker({
-						dateFormat: 'dd-mm-yy',
-						onClose: OC.Tasks.dueUpdateHandler
-					}),
-				$('<input type="time">')
-					.addClass('time')
-					.timepicker({
-						showPeriodLabels:false,
-						onClose: OC.Tasks.dueUpdateHandler
-					})
-			);
-		if (task.due){
-			var date = new Date(parseInt(task.due)*1000);
-			due.find('.date').datepicker('setDate', date);
-			if (!task.due_date_only) {
-				due.find('.time').timepicker('setTime', date.getHours()+':'+date.getMinutes());
-			}
-		}
-		var delete_action = task_container.find('.task_delete').click(OC.Tasks.deleteClickHandler);
-		$('<div>')
-			.addClass('more')
-			.append(delete_action)
-			.append(description)
-			.append(due)
-			.appendTo(task_container);
-		$('<input placeholder="'+t('tasks', 'List')+'">')
-			.addClass('categories')
-			.multiple_autocomplete({source: categories})
-			.val(task.categories)
-			.blur(function(){
-				var task = $(this).closest('.task').data('task');
-				var categories = $(this).val();
-				$.post(OC.filePath('tasks', 'ajax', 'update_property.php'), {id:task.id, type:'categories', categories:categories}, function(jsondata){
-					if(jsondata.status == 'success') {
-						task.categories = categories.split(',');
-						$categories.empty();
-						$(task.categories).each(function(i, category){
-							$categories.append($('<a>')
-								.addClass('tag')
-								.text(category)
-								);
-							});
-					}
-				});
-			})
-			.appendTo(task_container);
-		$('<input placeholder="'+t('tasks', 'Location')+'">')
-			.addClass('location')
-			.val(task.location)
-			.blur(function(){
-				var task = $(this).closest('.task').data('task');
-				var location = $(this).val();
-				$.post(OC.filePath('tasks', 'ajax', 'update_property.php'), {id:task.id, type:'location', location:location}, function(jsondata){
-					if(jsondata.status == 'success') {
-						task.location = location;
-						task_container.find('.location').text(location);
-					}
-				});
-			})
-			.appendTo(task_container);
-		return task_container;
+		$(taskTemplate).find('input[type="checkbox"]').click(OC.Tasks.complete_task);
+		$(taskTemplate).find('.task_edit').click(OC.Tasks.editClickHandler);
+		$(taskTemplate).find('.task_delete').click(OC.Tasks.deleteClickHandler);
+// 		OC.Tasks.setSummary(summary_container, task);
+// 		var task_container = $('<div>')
+// 			.addClass('task')
+// 			.data('task', task)
+// 			.data('show_count', 0)
+// 			.attr('data-id', task.id)
+// 			.append(summary_container)
+// 			.append(taskTemplate.clone().removeAttr('id'))
+// 			;
+// 		task_container.find('.summary a').click(OC.Tasks.summaryClickHandler);
+// 		var checkbox = $('<input type="checkbox">')
+// 			.click(OC.Tasks.complete_task);
+// 		if (task.completed) {
+// 			checkbox.attr('checked', 'checked');
+// 			task_container.addClass('done');
+// 		}
+// 		$('<div>')
+// 			.addClass('completed')
+// 			.append(checkbox)
+// 			.prependTo(task_container);
+// 		var priority = task.priority;
+// 		$('<div>')
+// 			.addClass('tag')
+// 			.addClass('priority')
+// 			.addClass('priority-'+(priority?priority:'n'))
+// 			.text(priority)
+// 			.prependTo(task_container);
+// 		if (task.location) {
+// 			$('<div>')
+// 				.addClass('tag')
+// 				.addClass('location')
+// 				.text(task.location)
+// 				.appendTo(task_container);
+// 		}
+// 		var $categories = $('<div>')
+// 				.addClass('categories')
+// 				.appendTo(task_container);
+// 		
+// 		task_container.find('.task_more').click(OC.Tasks.moreClickHandler);
+// 		task_container.find('.task_less').click(OC.Tasks.lessClickHandler);
+// 		var description = $('<textarea>')
+// 			.addClass('description')
+// 			.blur(function(){
+// 				var task = $(this).closest('.task').data('task');
+// 				var description = $(this).val();
+// 				$.post(OC.filePath('tasks', 'ajax', 'update_property.php'), {id:task.id, type:'description', description:description}, function(jsondata){
+// 					if(jsondata.status == 'success') {
+// 						task.description = description;
+// 					}
+// 				});
+// 			})
+// 			.text(task.description);
+// 		var due = $('<span>')
+// 			.addClass('due')
+// 			.append(t('tasks', 'Due'));
+// 		due
+// 			.append($('<input type="date">')
+// 					.addClass('date')
+// 					.datepicker({
+// 						dateFormat: 'dd-mm-yy',
+// 						onClose: OC.Tasks.dueUpdateHandler
+// 					}),
+// 				$('<input type="time">')
+// 					.addClass('time')
+// 					.timepicker({
+// 						showPeriodLabels:false,
+// 						onClose: OC.Tasks.dueUpdateHandler
+// 					})
+// 			);
+// 		if (task.due){
+// 			var date = new Date(parseInt(task.due)*1000);
+// 			due.find('.date').datepicker('setDate', date);
+// 			if (!task.due_date_only) {
+// 				due.find('.time').timepicker('setTime', date.getHours()+':'+date.getMinutes());
+// 			}
+// 		}
+// 		var delete_action = task_container.find('.task_delete').click(OC.Tasks.deleteClickHandler);
+// 		$('<div>')
+// 			.addClass('more')
+// 			.append(delete_action)
+// 			.append(description)
+// 			.append(due)
+// 			.appendTo(task_container);
+// 		$('<input placeholder="'+t('tasks', 'List')+'">')
+// 			.addClass('categories')
+// 			.multiple_autocomplete({source: categories})
+// 			.val(task.categories)
+// 			.blur(function(){
+// 				var task = $(this).closest('.task').data('task');
+// 				var categories = $(this).val();
+// 				$.post(OC.filePath('tasks', 'ajax', 'update_property.php'), {id:task.id, type:'categories', categories:categories}, function(jsondata){
+// 					if(jsondata.status == 'success') {
+// 						task.categories = categories.split(',');
+// 						$categories.empty();
+// 						$(task.categories).each(function(i, category){
+// 							$categories.append($('<a>')
+// 								.addClass('tag')
+// 								.text(category)
+// 								);
+// 							});
+// 					}
+// 				});
+// 			})
+// 			.appendTo(task_container);
+// 		$('<input placeholder="'+t('tasks', 'Location')+'">')
+// 			.addClass('location')
+// 			.val(task.location)
+// 			.blur(function(){
+// 				var task = $(this).closest('.task').data('task');
+// 				var location = $(this).val();
+// 				$.post(OC.filePath('tasks', 'ajax', 'update_property.php'), {id:task.id, type:'location', location:location}, function(jsondata){
+// 					if(jsondata.status == 'success') {
+// 						task.location = location;
+// 						task_container.find('.location').text(location);
+// 					}
+// 				});
+// 			})
+// 			.appendTo(task_container);
+		return taskTemplate;
 	},
 	filter:function(tag, find_filter) {
 		var tag_text = $(tag).text();
@@ -252,6 +256,58 @@ OC.Tasks = {
 				task.due = old_due;
 			}
 		});
+	},
+	editClickHandler:function(event) {
+		var $task = $(this).closest('.task');
+		var task = $task.data('task');
+		$task.find('.summary').hide();
+		$task.append($('<input type="textbox">').val(task.summary));
+		$task.find('.description').hide();
+		$task.append($('<textarea>')
+			.addClass('description')
+			.blur(function(){
+				var task = $(this).closest('.task').data('task');
+				var description = $(this).val();
+				$.post(OC.filePath('tasks', 'ajax', 'update_property.php'), {id:task.id, type:'description', description:description}, function(jsondata){
+					if(jsondata.status == 'success') {
+						task.description = description;
+					}
+				});
+			})
+			.text(task.description));
+		$task.append($('<input placeholder="'+t('tasks', 'List')+'">')
+			.addClass('categories')
+			.multiple_autocomplete({source: categories})
+			.val(task.categories)
+			.blur(function(){
+				var task = $(this).closest('.task').data('task');
+				var categories = $(this).val();
+				$.post(OC.filePath('tasks', 'ajax', 'update_property.php'), {id:task.id, type:'categories', categories:categories}, function(jsondata){
+					if(jsondata.status == 'success') {
+						task.categories = categories.split(',');
+						$categories.empty();
+						$(task.categories).each(function(i, category){
+							$categories.append($('<a>')
+								.addClass('tag')
+								.text(category)
+								);
+							});
+					}
+				});
+			}));
+		$task.append($('<input type="date">')
+			.addClass('date')
+			.datepicker({
+				dateFormat: 'dd-mm-yy',
+				onClose: OC.Tasks.dueUpdateHandler
+			}),
+			$('<input type="time">')
+				.addClass('time')
+				.timepicker({
+					showPeriodLabels:false,
+					onClose: OC.Tasks.dueUpdateHandler
+				})
+		);
 	},
 	moreClickHandler:function(event){
 		var $task = $(this).closest('.task'),
