@@ -16,9 +16,10 @@
 .task:nth-child(odd){background-color:#F4F4F4;}
 .task:hover {background-color:#DDDDDD; padding-right: 8em;}
 
-.task_actions{ display:none; line-height: 3em;}
+.task_actions{ display:none; line-height: 3em; text-align: right; padding-right: 1em; }
 .task_edit { padding-right:1em; }
-.task:hover > .task_actions {display:block}
+.task:hover > .task_actions {display:block }
+.task_actions img{ vertical-align:middle; }
 .task_actions img:hover {cursor:pointer;}
 
 .task .priority{background-color:black;color:white;position:absolute;top:0.5em}
@@ -35,11 +36,12 @@
 
 .task .completed { width:1em; padding-left:0.5em; }
 
+.task .overview { width: auto; }
 .task .summary{ width:5%; padding-left:0.5em; height:2em; font-weight:bold; }
 .task .summary input{position:absolute;left:5em;top:0;}
 .task.done .summary{text-decoration:line-through;}
 
-.task .description { width: auto; } 
+.task .description { padding-left:0.5em; } 
 .task textarea.description{width:35em;height:4em;}
 
 .task .tag{border-radius:0.4em;display:inline-block;opacity:0.2;margin:0 0.2em;border:1px solid transparent;padding:0 0.4em;cursor:pointer;}

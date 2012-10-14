@@ -390,6 +390,7 @@ $(document).ready(function(){
 	 * Actions for startup
 	 *-----------------------------------------------------------------------*/
 	$.getJSON(OC.filePath('tasks', 'ajax', 'gettasks.php'), function(jsondata) {
+		$('p.loading').remove();
 // 		var tasks = $('#tasks_list').empty().data('show_count', 0);
 		$(jsondata).each(function(i, task) {
 			$('#tasks_list > tbody:last').append(OC.Tasks.createTaskRow(task));

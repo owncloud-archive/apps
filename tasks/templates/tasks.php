@@ -21,8 +21,10 @@
 		<tbody>
 			<tr id="task_template" class="task">
 				<td class="completed"><input type="checkbox" /></td>
-				<td class="summary"></td>
-				<td class="description"></td>
+				<td class="overview">
+					<span class="summary"></span>
+					<span class="description"></span>
+				</td>
 				<td class="categories"></td>
 				<td class="due"></td>
 				<td class="task_actions">
