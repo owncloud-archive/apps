@@ -10,7 +10,7 @@
  */
  
 var templatearray = [
-			"<html><head><title>Impressionist Previewer foe ownCloud</title>",
+			"<html><head><title>Impressionist Previewer for ownCloud</title>",
 			"<link href='../css/mappingstyle.css' rel='stylesheet' />",
 			"</head>",
 			"<body class='impress-not-supported'>",

@@ -503,7 +503,7 @@
 				} : 
 
 				function(node, property, value) {
-					console.log("NODE: "+node);
+					//console.log("NODE: "+node);
 					node.style.setProperty(property, value, PRIORITY);
 				},
 
@@ -532,7 +532,7 @@
 				cleaned[4] += 'px';
 				cleaned[5] += 'px';				
 				var moz = cleaned.join(',');
-				console.log("toCSS called ");
+				//console.log("toCSS called ");
 				var mat = $("#play").css("-webkit-transform");
 				if(mat == "matrix(1, 0, 0, 1, 0, 0)")
 				{
@@ -556,7 +556,7 @@
 				var angle =  Math.round(Math.atan2(b, a) * (180/Math.PI));
 				$(editedobject).attr("transform-data-rotate", angle)
 
-				console.log("editedobject" +$(editedobject).attr("transform-data-rotate"));
+				//console.log("editedobject" +$(editedobject).attr("transform-data-rotate"));
 
 				return 'matrix(' + css + ');'
 				/*return [
