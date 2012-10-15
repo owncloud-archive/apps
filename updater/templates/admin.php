@@ -2,10 +2,10 @@
 
 /**
  * ownCloud - Updater plugin
- * 
+ *
  * @author Victor Dubiniuk
  * @copyright 2012 Victor Dubiniuk victor.dubiniuk@gmail.com
- * 
+ *
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  */
@@ -20,7 +20,7 @@
 	<?php $data=OC_Updater::check();
 		if(isset($data['version']) && !empty($data['version'])) { ?>
 			<button id="updater_backup"><?php echo $l->t('Update') ?></button>
-			
+
 	<?php	}		?>
 </fieldset>
 <script type="text/javascript">
@@ -40,5 +40,5 @@
 			}
 		)
 		});
-    });    
+    });
 </script>

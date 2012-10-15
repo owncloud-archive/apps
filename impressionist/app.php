@@ -29,18 +29,18 @@ OCP\App::setActiveNavigationEntry( 'impressionist_index' );
 
 OCP\Util::addStyle('impressionist', 'mainstyle');
 OCP\Util::addStyle('impressionist', 'matrices');
-OCP\Util::addStyle('impressionist', 'layout');
 OCP\Util::addStyle('impressionist', 'colorpicker');
+OCP\Util::addStyle('impressionist', 'layout');
 OCP\Util::addStyle('impressionist', 'bootstrap');
 
-OCP\Util::addScript('impressionist', 'appui');
 OCP\Util::addScript('impressionist', 'keymaster');
 OCP\Util::addScript('impressionist', 'datastore');
-OCP\Util::addScript('impressionist', 'colorpicker');
+OCP\Util::addScript('impressionist', 'appui');
 OCP\Util::addScript('impressionist', 'fileops');
 OCP\Util::addScript('impressionist', 'templ');
 OCP\Util::addScript('impressionist', 'knobdial');
 OCP\Util::addScript('impressionist', 'main');
+OCP\Util::addScript('impressionist', 'colorpicker');
 OCP\Util::addScript('impressionist', 'matrices');
 OCP\Util::addScript('impressionist', 'raphael');
 OCP\Util::addScript('impressionist', 'freetransform');
@@ -48,7 +48,6 @@ OCP\Util::addScript('impressionist', 'jqueryui');
 OCP\Util::addScript('impressionist', 'bootstrap');
 OCP\Util::addScript('impressionist', 'advanced');
 OCP\Util::addScript('impressionist', 'wysihtml5-0.3.0');
-OCP\Util::addScript('impressionist', 'utilities');
 
 
 $tmpl = new OCP\Template('impressionist', 'app', 'user');

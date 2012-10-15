@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-10 02:05+0200\n"
-"PO-Revision-Date: 2012-10-09 13:22+0000\n"
+"POT-Creation-Date: 2012-10-12 02:04+0200\n"
+"PO-Revision-Date: 2012-10-11 08:33+0000\n"
 "Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -68,7 +68,7 @@ msgstr "При парсинге файла произошла ошибка."
 
 #: ajax/loadfeed.php:37 templates/part.feeds.php:50
 msgid "Starred"
-msgstr ""
+msgstr "Отмечено звездочкой"
 
 #: ajax/loadfeed.php:42 templates/part.feeds.php:44
 msgid "New articles"
@@ -397,7 +397,7 @@ msgstr "Загрузить OPML"
 
 #: templates/settings.php:15
 msgid "Subscribelet"
-msgstr ""
+msgstr "Subscribelet"
 
 #: templates/subscribelet.php:5
 msgid ""

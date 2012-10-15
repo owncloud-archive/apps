@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-10 02:06+0200\n"
-"PO-Revision-Date: 2012-10-09 13:24+0000\n"
+"POT-Creation-Date: 2012-10-12 02:04+0200\n"
+"PO-Revision-Date: 2012-10-11 10:51+0000\n"
 "Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Задачи"
 
 #: js/tasks.js:78
 msgid "Due"
-msgstr ""
+msgstr "Сборы"
 
 #: js/tasks.js:107
 msgid "List"
@@ -81,27 +81,27 @@ msgstr "Добавить задачу"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "Сборы по заказу"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr ""
+msgstr "Список заказов"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr ""
+msgstr "Выполненные заказы"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr ""
+msgstr "Расположение заказов"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr ""
+msgstr "Приоритет заказа"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr ""
+msgstr "Метка заказа"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."

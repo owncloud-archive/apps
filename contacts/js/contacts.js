@@ -156,8 +156,9 @@ OC.Contacts={
 			OC.Contacts.Card.deleteProperty(obj, 'single');
 		}
 		var goToUrl = function(obj) {
-		var url = OC.Contacts.propertyContainerFor(obj).find('#url').val();
-		if(url != '') {
+		var url = OC.Contacts.propertyContainerFor(obj).find('#url').val().toString();
+		// Check if the url is valid
+		if(new RegExp("[a-zA-Z0-9]+://([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(url)) {
 			var newWindow = window.open(url,'_blank');
 			newWindow.focus();
 			}

@@ -8,11 +8,11 @@
 
 class OC_User_IMAP extends OC_User_Backend{
 	private $mailbox;
-	
+
 	public function __construct($mailbox) {
 		$this->mailbox=$mailbox;
 	}
-	
+
 	/**
 	 * @brief Check if the password is correct
 	 * @param $uid The username

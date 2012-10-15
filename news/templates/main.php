@@ -4,9 +4,12 @@
 
 <?php
 
-$showAll = OCP\Config::getUserValue(OCP\USER::getUser(), 'news', 'showAll'); 
+$l = $_['trans'];
+$lastViewedFeedId = $_['lastViewedFeedId'];
+$lastViewedFeedType = $_['lastViewedFeedType'];
 
-if($showAll) {
+
+if($_['showAll']) {
 	$viewButtonImg = 'eye_all.svg';
 	$viewButtonTitle = $l->t('Show everything');
 	$viewButtonClass = 'show_all';
@@ -17,7 +20,6 @@ if($showAll) {
 }
 
 echo $this->inc("part.dialogues");
-
 ?>
 
 <div id="leftcontent_news" class="leftcontent_news">
@@ -57,4 +59,3 @@ echo $this->inc("part.dialogues");
 	<div id="appsettings" class="popup bottomleft hidden"></div>
 
 </div>
-

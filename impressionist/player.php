@@ -23,6 +23,7 @@
 
 require_once 'lib/impressionist.php';
 
+
 // Check if we are a user
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('impressionist');

@@ -49,7 +49,7 @@ class OC_USER_OPENID extends OC_User_Backend {
 		}
 		exit;
 	}
-	
+
 	/**
 	 * find the user that can be authenticated with an openid identity
 	 */

@@ -27,6 +27,9 @@ class OC_Bookmarks_Bookmarks{
 
 	/**
 	* @brief Finds all tags for bookmarks
+	* @param filterTags array of tag to look for if empty then every tag
+	* @param offset result offset
+	* @param limit number of item to return
 	*/
 	public static function findTags($filterTags = array(), $offset = 0, $limit = 10){
 		$params = array_merge($filterTags, $filterTags);
@@ -42,9 +45,9 @@ class OC_Bookmarks_Bookmarks{
 		$sql = 'SELECT tag, count(*) as nbr from *PREFIX*bookmarks_tags t '.
 			' WHERE EXISTS( SELECT 1 from *PREFIX*bookmarks bm where  t.bookmark_id  = bm.id and user_id = ?) '.
 			$not_in.
-			' group by tag Order by nbr DESC LIMIT '.$limit.' OFFSET  '.$offset;
+			' group by tag Order by nbr DESC ';
 
-		$query = OCP\DB::prepare($sql);
+		$query = OCP\DB::prepare($sql, $limit, $offset);
 		$tags = $query->execute($params)->fetchAll();
 		return $tags;
 	}
@@ -80,18 +83,21 @@ class OC_Bookmarks_Bookmarks{
 			$sql .= str_repeat($exist_clause, count($filters));
 			$params = array_merge($params, $filters);
 		} else {
+			if($CONFIG_DBTYPE == 'mysql') { //Dirty hack to allow usage of alias in where
+				$sql .= ' having true ';
+			}
 			foreach($filters as $filter) {
 				$sql .= ' AND lower(url || title || description || tags ) like ? ';
 				$params[] = '%' . strtolower($filter) . '%';
 			}
 		}
 		$sql .= " ORDER BY ".$sqlSortColumn." DESC ";
-		if($limit != -1 && $limit !== false) {
-			$sql .= " LIMIT $limit ";
-			$sql .= " OFFSET  $offset";
+		if($limit == -1 || $limit === false) {
+			$limit = null;
+			$offset = null;
 		}
 
-		$query = OCP\DB::prepare($sql);
+		$query = OCP\DB::prepare($sql, $limit, $offset);
 		$results = $query->execute($params)->fetchAll();
 		$bookmarks = array();
 		foreach($results as $result){

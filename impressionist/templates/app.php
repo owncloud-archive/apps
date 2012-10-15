@@ -26,7 +26,7 @@
          parserRules:  wysihtml5ParserRules
      });
       editor.setValue(ultemplate);
-      console.log(editor.getValue())
+      //console.log(editor.getValue())
     }
     </script>
 <body id="mybody">
@@ -370,5 +370,5 @@
 <div id="footerbar" class="navbar">
 
 </div>
-<script type="text/javascript" src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/utilities.js'); ?>"
+<script type="text/javascript" src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/utilities.js'); ?>"></script>
         </body>

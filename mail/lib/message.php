@@ -33,7 +33,7 @@ class Message {
 
 	// output all the following:
 	// the message may in $htmlmsg, $plainmsg, or both
-	public $header = NULL;
+	public $header = null;
 	public $htmlmsg = '';
 	public $plainmsg = '';
 	public $charset = '';
@@ -148,7 +148,7 @@ class Message {
 
 		return $params;
 	}
-	
+
 	function getpart($p,$partno) {
 
 		// $partno = '1', '2', '2.1', '2.1.3', etc if multipart, 0 if not multipart
@@ -168,7 +168,7 @@ class Message {
 		// no need to decode 7-bit, 8-bit, or binary
 
 		//
-		// convert the data  
+		// convert the data
 		//
 		if (isset( $params['charset'])) {
 			$data = mb_convert_encoding($data, "UTF-8", $params['charset']);

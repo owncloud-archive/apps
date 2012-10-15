@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:21+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-14 02:05+0200\n"
+"PO-Revision-Date: 2012-10-13 05:01+0000\n"
+"Last-Translator: Mariano <mstreet@kde.org.ar>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,15 +28,15 @@ msgstr "Taskoj"
 
 #: js/tasks.js:78
 msgid "Due"
-msgstr ""
+msgstr "Limdato"
 
 #: js/tasks.js:107
 msgid "List"
-msgstr ""
+msgstr "Listo"
 
 #: js/tasks.js:128
 msgid "Location"
-msgstr ""
+msgstr "Loko"
 
 #: js/tasks.js:415
 msgid "No category"

@@ -2,10 +2,10 @@
 
 /**
  * ownCloud - Updater plugin
- * 
+ *
  * @author Victor Dubiniuk
  * @copyright 2012 Victor Dubiniuk victor.dubiniuk@gmail.com
- * 
+ *
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  */
@@ -27,10 +27,10 @@ class App {
 	}
 
 	public static function getBackupBase() {
-		return \OC::$SERVERROOT . \DIRECTORY_SEPARATOR 
+		return \OC::$SERVERROOT . \DIRECTORY_SEPARATOR
 				. 'backup' . \DIRECTORY_SEPARATOR;
 	}
-	
+
 	public static function getDirectories() {
 		return array(
 			'3rdparty' => \OC::$THIRDPARTYROOT . DIRECTORY_SEPARATOR . '3rdparty',

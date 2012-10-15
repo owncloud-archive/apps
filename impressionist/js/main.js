@@ -546,7 +546,7 @@ function onSlideMouseUp(event)
 
 
 	var target = (event.target.id).split("____slide");
-	console.log("Mouse uping "+event.target.id);
+	//console.log("Mouse uping "+event.target.id);
 	if(target.length > 1)
 	{
 	
@@ -577,7 +577,7 @@ function onSlideMouseUp(event)
 		ismarkedforcut = false;
 	}
 	addObjectFlag = false;
-	console.log("Ammeda kindi: " +editor.getValue());
+	//console.log("Ammeda kindi: " +editor.getValue());
 }
 function calculateTextWidth()
 {
@@ -733,7 +733,7 @@ function triggerObjectAdd(event)
 				str = str.split("!OBJECT_SIZE!").join(fontStyle);
 				$(addTarget).append(str)	
 				objectmap.push({index:objectcounter});
-				console.log("Object id "+"#____object"+objectcounter)
+				//console.log("Object id "+"#____object"+objectcounter)
 				var obj = calculateOrchCoords(event.offsetX, event.offsetY);
 				var offsetx = event.offsetX;
 				var offsety = event.offsetY;
@@ -763,7 +763,7 @@ function triggerObjectAdd(event)
 				}
 				editedobject = ("#____object"+objectcounter);
 				$(editedobject).css("font-family", selectedFont);
-				console.log("Update previe call");
+				//console.log("Update previe call");
 				isMoving = false;
 				//updateSlidePreview();
 				//$(editedobject).css("-webkit-transform","matrix(1,0,0,1,0,0)");
@@ -1504,14 +1504,14 @@ function generatePreview(str)
 {
 	$.ajax({
 			type: 'POST',
-			 url: "server/generatePreview.php",
+			 url: 'apps/impressionist/lib/generatePreview.php',
 			 data: {generateddata:str},
 			 dataType: "html",
 			 success: function(msg)
 			 {
 			 	if(!markedfordownload)
 			 	{
-			 		window.open("server/viewer.php", "_blank");
+			 		window.open("apps/impressionist/lib/viewer.php", "_blank");
 			 	}
 			 }
 	});

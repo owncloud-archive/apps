@@ -7,8 +7,8 @@
  */
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('calendar');
-$cal = isset($_GET['calid']) ? $_GET['calid'] : NULL;
-$event = isset($_GET['eventid']) ? $_GET['eventid'] : NULL;
+$cal = isset($_GET['calid']) ? $_GET['calid'] : null;
+$event = isset($_GET['eventid']) ? $_GET['eventid'] : null;
 if(isset($cal)) {
 	$calendar = OC_Calendar_App::getCalendar($cal, true);
 	if(!$calendar) {

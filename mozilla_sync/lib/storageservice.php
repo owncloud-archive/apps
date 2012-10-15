@@ -16,7 +16,7 @@ namespace OCA_mozilla_sync;
  */
 class StorageService extends Service
 {
-  public function __construct($urlParser, $inputData = NULL) {
+  public function __construct($urlParser, $inputData = null) {
     $this->urlParser = $urlParser;
     $this->inputData = $inputData;
   }
@@ -157,7 +157,7 @@ class StorageService extends Service
     while (($row = $result->fetchRow())) {
 
       // Skip empty collections
-      if($row['modified'] == NULL) {
+      if($row['modified'] == null) {
         continue;
       }
 
