@@ -1,7 +1,7 @@
 OC.Contacts = OC.Contacts || {};
 
 
-(function( $ ) {
+(function($) {
 
 	/**
 	* An item which binds the appropriate html and event handlers
@@ -299,6 +299,7 @@ OC.Contacts = OC.Contacts || {};
 			.find('input').datepicker({
 				dateFormat : 'dd-mm-yy'
 		});
+		this.loadPhoto();
 		if(!this.data) {
 			// A new contact
 			this.setEnabled(true);
@@ -380,11 +381,20 @@ OC.Contacts = OC.Contacts || {};
 								$property.find('select.impp').val(property.parameters[param].toLowerCase());
 							}
 						}
-						$property.find('select.type[name="parameters[TYPE][]"]')
-							.combobox({
-								singleclick: true,
-								classes: ['propertytype', 'float', 'label'],
+						if(self.access.owner === OC.currentUser 
+								|| self.access.permissions & OC.PERMISSION_UPDATE
+								|| self.access.permissions & OC.PERMISSION_DELETE) {
+							$property.find('select.type[name="parameters[TYPE][]"]')
+								.combobox({
+									singleclick: true,
+									classes: ['propertytype', 'float', 'label'],
+								});
+							$property.on('mouseenter', function() {
+								$(this).find('.listactions').css('opacity', '1');
+							}).on('mouseleave', function() {
+								$(this).find('.listactions').css('opacity', '0');
 							});
+						}
 						$list.append($property);
 					}
 				}
@@ -400,6 +410,12 @@ OC.Contacts = OC.Contacts || {};
 		return this.$fullelem;
 	}
 
+	Contact.prototype.isEditable = function() {
+		return ((this.access.owner === OC.currentUser) 
+			|| (this.access.permissions & OC.PERMISSION_UPDATE
+				|| this.access.permissions & OC.PERMISSION_DELETE));
+	}
+	
 	/**
 	 * Render a simple property. Used for EMAIL and TEL.
 	 * @return A jquery object to be injected in the DOM
@@ -456,6 +472,77 @@ OC.Contacts = OC.Contacts || {};
 		$elem = this.detailTemplates['impp'].octemplate(values);
 		return $elem;
 	}
+	
+	/**
+	 * Render the PHOTO property.
+	 */
+	Contact.prototype.loadPhoto = function(dontloadhandlers) {
+		var self = this;
+		var refreshstr = '&refresh='+Math.random();
+		this.$photowrapper = this.$fullelem.find('#photowrapper');
+		this.$photowrapper.addClass('loading').addClass('wait');
+		var $phototools = this.$fullelem.find('#phototools');
+		console.log('photowrapper', this.$photowrapper.length);
+		delete this.photo;
+		this.photo = new Image();
+		$(this.photo).load(function () {
+			$('img.contactphoto').remove()
+			$(this).addClass('contactphoto');
+			self.$photowrapper.css('width', $(this).get(0).width + 10);
+			self.$photowrapper.removeClass('loading').removeClass('wait');
+			$(this).insertAfter($phototools).fadeIn();
+		}).error(function () {
+			OC.notify({message:t('contacts','Error loading profile picture.')});
+		}).attr('src', OC.linkTo('contacts', 'photo.php')+'?id='+self.id+refreshstr);
+		
+		if(!dontloadhandlers && this.isEditable()) {
+			this.$photowrapper.on('mouseenter', function() {
+				$phototools.slideDown(200);
+			}).on('mouseleave', function() {
+				$phototools.slideUp(200);
+			});
+			$phototools.hover( function () {
+				$(this).removeClass('transparent');
+			}, function () {
+				$(this).addClass('transparent');
+			});
+			$phototools.find('li a').tipsy();
+
+			$phototools.find('.edit').on('click', function() {
+				console.log('TODO: edit photo');
+				$(document).trigger('request.edit.contactphoto', {
+					id: self.id, 
+				});
+			});
+			$phototools.find('.cloud').on('click', function() {
+				console.log('select photo from cloud');
+				$(document).trigger('request.select.contactphoto.fromcloud', {
+					id: self.id, 
+				});
+			});
+			$phototools.find('.upload').on('click', function() {
+				console.log('select photo from local');
+				$(document).trigger('request.select.contactphoto.fromlocal', {
+					id: self.id, 
+				});
+			});
+			if(this.data.PHOTO) {
+				$phototools.find('.delete').show();
+				$phototools.find('.edit').show();
+			} else {
+				$phototools.find('.delete').hide();
+				$phototools.find('.edit').hide();
+			}
+			$(document).bind('status.contact.photoupdated', function(e, result) {
+				console.log('Contact - photoupdated')
+				self.loadPhoto(true);
+				var refreshstr = '&refresh='+Math.random();
+				self.getListItemElement().find('td.name')
+					.css('background', 'url(' + OC.linkTo('contacts', 'thumbnail.php')+'?id='+self.id+refreshstr + ')');
+			});
+		}
+	}
+
 	/**
 	 * Get the jquery element associated with this object
 	 */
