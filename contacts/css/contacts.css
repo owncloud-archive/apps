@@ -45,8 +45,6 @@ input:hover:not([type="checkbox"]), input:active:not([type="checkbox"]), textare
 dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: normal; }
 .form dt { display: table-cell; clear: left; float: left; width: 7em; margin: 0; padding: 0.8em 0.5em 0 0; text-align:right; text-overflow:ellipsis; o-text-overflow: ellipsis; vertical-align: text-bottom; color: #bbb;/* white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap;*/ }
 .form dd { display: table-cell; clear: right; float: left; margin: 0; padding: 0; white-space: nowrap; vertical-align: text-bottom; }
-.action { cursor: pointer; width: 20px; height: 20px; margin: 0; float: left; position:relative; opacity: 0.1; }
-.action:hover { opacity: 1.0 }
 .add { background:url('%webroot%/core/img/actions/add.svg') no-repeat center; clear: both; }
 .delete { background:url('%webroot%/core/img/actions/delete.svg') no-repeat center; }
 .edit { background:url('%webroot%/core/img/actions/rename.svg') no-repeat center; }
@@ -57,7 +55,8 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 .cloud { background:url('%webroot%/core/img/places/picture.svg') no-repeat center; }
 .globe { background:url('%webroot%/core/img/actions/public.svg') no-repeat center; }
 .transparent{ opacity: 0.6; }
-.float { float: left; display: inline-block; }
+.float { float: left; display: inline-block; width: auto; }
+.break { clear: both; }
 .loading { background: url('%webroot%/core/img/loading.gif') no-repeat center !important; /*cursor: progress; */ cursor: wait; }
 .control {
     border: 1px solid #DDDDDD;
@@ -87,11 +86,15 @@ dl.addresscard .action { float: right; }
 
 /* Properties */
 
-.fullname { font-weight:bold; font-size:1.5em; width: auto; }
+.fullname { font-weight:bold; font-size:1.5em; width: 18em; }
+.singleproperties{ display: inline-block; float: left; width: 20em;}
 
 .propertylist li.propertycontainer { white-space: nowrap; min-width: 38em; display: block; clear: both; }
+.propertylist li.propertycontainer > .listactions { display: inline-block; position: absolute; clear: none; opacity: 0; }
+.propertylist li.propertycontainer .listactions a { display: inline-block; float: left; clear: none; width: 20px; height: 20px; }
+
 .propertylist { float: left; }
-.propertylist li > a { display: block; }}
+/*.propertylist li > a { display: block; }}*/
 .propertylist li > input[type="checkbox"],input[type="radio"] { display: inline-block; }
 .propertylist li > input.value:not([type="checkbox"]) { min-width: 16em; display: inline-block; }
 .propertylist li > select { float: left; max-width: 8em; }
@@ -143,6 +146,13 @@ dl.addresscard .action { float: right; }
 input.propertytype { float: left; font-size: .8em; width: 8em !important; direction: rtl;}
 .contactphoto { float: left; display: inline-block; border-radius: 0.3em; border: thin solid #bbb; margin: 0.5em; background: url('%webroot%/core/img/loading.gif') no-repeat center center; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; opacity: 1; }
 .contactphoto:hover { background: #fff; cursor: default; }
+#photowrapper { display: inline-block; float: left; width: 150px; }
+#photowrapper.wait { opacity: 0.6; filter:alpha(opacity=0.6); z-index:1000; background: url('%webroot%/core/img/loading.gif') no-repeat center; cursor: wait; }
+#phototools { position:absolute; margin: 5px 0 0 10px; width:auto; height:22px; padding:0px; background-color:#fff; list-style-type:none; border-radius: 0.3em; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; }
+#phototools li { display: inline; }
+#phototools li a { float:left; cursor:pointer; width:22px; height:22px; opacity: 0.6; }
+#phototools li a:hover { opacity: 0.8; }
+#contactphoto_fileupload, #import_fileupload { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter:alpha(opacity=0); opacity:0; z-index:1001; width:0; height:0;}
 
 /* Header */
 
@@ -190,15 +200,14 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 #contactlist tr > td.name>input[type="checkbox"]:hover:first-child { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; filter:alpha(opacity=80); opacity:.8; }
 #contactlist tr > td.name>input[type="checkbox"]:checked:first-child { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter:alpha(opacity=100); opacity:1; }
 #contactlist tr > td.name { font-weight: bold; text-indent: 1.6em; -webkit-transition:background-image 500ms; -moz-transition:background-image 500ms; -o-transition:background-image 500ms;  transition:background-image 500ms; position:relative; background-position:1em .5em !important; background-repeat:no-repeat !important; }
-#contactlist tr > td.email span { float: left; clear: none; }
-#contactlist tr > td a.mailto { float: right; cursor:pointer; width:22px; height:22px; z-index: 200; opacity: 0.6; background:url('%webroot%/core/img/actions/mail.svg') no-repeat center; }
+#contactlist tr > td a.mailto { position: absolute; float: right;  clear: none; cursor:pointer; width:22px; height:22px; z-index: 200; opacity: 0.6; background:url('%webroot%/core/img/actions/mail.svg') no-repeat center; }
 #contactlist tr > td a.mailto:hover { opacity: 0.8; }
 
 #contact figure img { -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; border: thin solid #bbb; margin: 0.3em; background: url('%webroot%/core/img/loading.gif') no-repeat center center; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; opacity: 1; }
 
 
-#contact span.adr { float: left; width: 16em; overflow: hidden; text-overflow: ellipsis; text-align: bottom; white-space: nowrap; }
-#contact span.adr:hover { overflow: inherit; }
+#contact span.adr { float: left; width: 16em; padding-top: .5em; overflow: hidden; text-overflow: ellipsis; text-align: bottom; white-space: nowrap; }
+#contact span.adr:hover { /*overflow: inherit;*/ white-space: pre-wrap; }
 
 @media screen and (max-width: 1500px) {
 	#contactlist tr td.categories { display: none; }
