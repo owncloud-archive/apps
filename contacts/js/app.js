@@ -96,8 +96,10 @@ OC.notify = function(params) {
 	}
 }
 
-var GroupList = function(groupList) {
+var GroupList = function(groupList, listItemTmpl) {
 	this.$groupList = groupList;
+	this.$groupListItemTemplate = listItemTmpl;
+	this.categories = [];
 }
 
 GroupList.prototype.findById = function(id) {
@@ -181,6 +183,35 @@ GroupList.prototype.removeFromAll = function(contactid, alsospecial) {
 	});
 }
 
+GroupList.prototype.loadGroups = function(numcontacts, cb) {
+	var self = this;
+	var $groupList = this.$groupList;
+	var tmpl = this.$groupListItemTemplate;
+	
+	tmpl.octemplate({id: 'all', type: 'all', num: numcontacts, name: t('contacts', 'All')}).appendTo($groupList);
+	tmpl.octemplate({id: 'fav', type: 'fav', num: '', name: t('contacts', 'Favorites')}).appendTo($groupList);
+	$.getJSON(OC.filePath('contacts', 'ajax', 'categories/list.php'), {}, function(jsondata) {
+		if (jsondata && jsondata.status == 'success') {
+			$.each(jsondata.data.categories, function(c, category) {
+				var $elem = (tmpl).octemplate({
+					id: category.id, 
+					type: 'category', 
+					num: category.contacts.length,
+					name: category.name,
+				})
+				self.categories.push({id: category.id, name: category.name});
+				$elem.data('contacts', category.contacts)
+				$elem.data('name', category.name)
+				$elem.data('id', category.id)
+				$elem.appendTo($groupList);
+			});
+		}
+		if(typeof cb === 'function') {
+			cb();
+		}
+	});
+}
+
 OC.Contacts = OC.Contacts || {
 	init:function(id) {
 		if(id) {
@@ -188,7 +219,6 @@ OC.Contacts = OC.Contacts || {
 			console.log('init, id:', id);
 		}
 		// Holds an array of {id,name} maps
-		this.categories = [];
 		this.scrollTimeoutMiliSecs = 100;
 		this.isScrolling = false;
 		this.cacheElements();
@@ -198,7 +228,7 @@ OC.Contacts = OC.Contacts || {
 			this.$contactFullTemplate,
 			this.detailTemplates
 		);
-		this.Groups = new GroupList(this.$groupList);
+		this.Groups = new GroupList(this.$groupList, this.$groupListItemTemplate);
 		this.bindEvents();
 		this.$toggleAll.show();
 		this.showActions(['add', 'delete']);
@@ -253,12 +283,13 @@ OC.Contacts = OC.Contacts || {
 
 	},
 	// Build the select to add/remove from groups.
+	// TODO: Maybe move to Groups object.
 	buildGroupSelect: function() {
 		if(this.currentid) {
 			var contact = this.Contacts.contacts[this.currentid];
 			this.$groups.find('optgroup,option:not([value="-1"])').remove();
 			var addopts = '', rmopts = '';
-			$.each(this.categories, function(i, category) {
+			$.each(this.Groups.categories, function(i, category) {
 				if(contact.inGroup(category.name)) {
 					rmopts += '<option value="' + category.id + '">' + category.name + '</option>';
 				} else {
@@ -276,7 +307,7 @@ OC.Contacts = OC.Contacts || {
 		} else {
 			this.$groups.find('optgroup,option:not([value="-1"])').remove();
 			var addopts = '', rmopts = '';
-			$.each(this.categories, function(i, category) {
+			$.each(this.Groups.categories, function(i, category) {
 				rmopts += '<option value="' + category.id + '">' + category.name + '</option>';
 				addopts += '<option value="' + category.id + '">' + category.name + '</option>';
 			});
@@ -320,7 +351,7 @@ OC.Contacts = OC.Contacts || {
 // 				self.currentlistid = $firstelem.data('id');
 // 				console.log('first element', self.currentlistid, $firstelem);
 // 				$firstelem.addClass('active');
-				self.loadGroups(function() {
+				self.Groups.loadGroups(self.numcontacts, function() {
 					$('#leftcontent').removeClass('loading');
 					if(self.currentid) {
 						self.openContact(self.currentid);
@@ -373,6 +404,20 @@ OC.Contacts = OC.Contacts || {
 					});
 				}, 1000);
 			}
+		});
+		$(document).bind('request.select.contactphoto.fromlocal', function(e, result) {
+			console.log('request.select.contactphoto.fromlocal', result);
+			$('#contactphoto_fileupload').trigger('click');
+		});
+		$(document).bind('request.select.contactphoto.fromcloud', function(e, result) {
+			console.log('request.select.contactphoto.fromcloud', result);
+			OC.dialogs.filepicker(t('contacts', 'Select photo'), function(path) {
+				self.cloudPhotoSelected(self.currentid, path);
+			}, false, 'image', true);
+		});
+		$(document).bind('request.edit.contactphoto', function(e, result) {
+			console.log('request.edit.contactphoto', result);
+			self.editCurrentPhoto(result.id);
 		});
 		$(document).bind('request.addressbook.activate', function(e, result) {
 			console.log('request.addressbook.activate', result);
@@ -516,6 +561,7 @@ OC.Contacts = OC.Contacts || {
 			} else {
 				self.Contacts.showContacts($(this).data('id'));
 			}
+			self.$rightContent.scrollTop(0);
 		});
 		// Contact list. Either open a contact or perform an action (mailto etc.)
 		this.$contactList.on('click', 'tr', function(event) {
@@ -597,7 +643,7 @@ OC.Contacts = OC.Contacts || {
 		});
 		this.$contactList.on('mouseenter', 'td.email', function(event) {
 			if($(this).text().trim().length > 3) {
-				$(this).find('.mailto').fadeIn(100);
+				$(this).find('.mailto').css('display', 'inline-block'); //.fadeIn(100);
 			}
 		});
 		this.$contactList.on('mouseleave', 'td.email', function(event) {
@@ -708,31 +754,118 @@ OC.Contacts = OC.Contacts || {
 	update: function() {
 		console.log('update');
 	},
-	loadGroups: function(cb) {
+	cloudPhotoSelected:function(id, path) {
 		var self = this;
-		var $groupList = this.$groupList;
-		var tmpl = this.$groupListItemTemplate;
-
-		tmpl.octemplate({id: 'all', type: 'all', num: this.numcontacts, name: t('contacts', 'All')}).appendTo($groupList);
-		tmpl.octemplate({id: 'fav', type: 'fav', num: '', name: t('contacts', 'Favorites')}).appendTo($groupList);
-		$.getJSON(OC.filePath('contacts', 'ajax', 'categories/list.php'), {}, function(jsondata) {
-			if (jsondata && jsondata.status == 'success') {
-				$.each(jsondata.data.categories, function(c, category) {
-					var $elem = (tmpl).octemplate({
-						id: category.id, 
-						type: 'category', 
-						num: category.contacts.length,
-						name: category.name,
-					})
-					self.categories.push({id: category.id, name: category.name});
-					$elem.data('contacts', category.contacts)
-					$elem.data('name', category.name)
-					$elem.data('id', category.id)
-					$elem.appendTo($groupList);
-				});
+		console.log('cloudPhotoSelected, id', id)
+		$.getJSON(OC.filePath('contacts', 'ajax', 'oc_photo.php'), 
+				  {path: path, id: id},function(jsondata) {
+			if(jsondata.status == 'success') {
+				//alert(jsondata.data.page);
+				self.editPhoto(jsondata.data.id, jsondata.data.tmp)
+				$('#edit_photo_dialog_img').html(jsondata.data.page);
 			}
-			if(typeof cb === 'function') {
-				cb();
+			else{
+				OC.notify({message: jsondata.data.message});
+			}
+		});
+	},
+	editCurrentPhoto:function(id) {
+		var self = this;
+		$.getJSON(OC.filePath('contacts', 'ajax', 'currentphoto.php'),
+				  {id: id}, function(jsondata) {
+			if(jsondata.status == 'success') {
+				//alert(jsondata.data.page);
+				self.editPhoto(jsondata.data.id, jsondata.data.tmp)
+				$('#edit_photo_dialog_img').html(jsondata.data.page);
+			}
+			else{
+				OC.notify({message: jsondata.data.message});
+			}
+		});
+	},
+	editPhoto:function(id, tmpkey) {
+		console.log('editPhoto', id, tmpkey)
+		$('.tipsy').remove();
+		// Simple event handler, called from onChange and onSelect
+		// event handlers, as per the Jcrop invocation above
+		var showCoords = function(c) {
+			$('#x1').val(c.x);
+			$('#y1').val(c.y);
+			$('#x2').val(c.x2);
+			$('#y2').val(c.y2);
+			$('#w').val(c.w);
+			$('#h').val(c.h);
+		};
+
+		var clearCoords = function() {
+			$('#coords input').val('');
+		};
+		
+		var self = this;
+		if(!this.$cropBoxTmpl) {
+			this.$cropBoxTmpl = $('#cropBoxTemplate');
+		}
+		$('body').append('<div id="edit_photo_dialog"></div>');
+		var $dlg = this.$cropBoxTmpl.octemplate({id: id, tmpkey: tmpkey});
+
+		var cropphoto = new Image();
+		$(cropphoto).load(function () {
+			$(this).attr('id', 'cropbox');
+			$(this).prependTo($dlg).fadeIn();
+			$(this).Jcrop({
+				onChange:	showCoords,
+				onSelect:	showCoords,
+				onRelease:	clearCoords,
+				maxSize:	[399, 399],
+				bgColor:	'black',
+				bgOpacity:	.4,
+				boxWidth: 	400,
+				boxHeight:	400,
+				setSelect:	[ 100, 130, 50, 50 ]//,
+				//aspectRatio: 0.8
+			});
+			$('#edit_photo_dialog').html($dlg).dialog({
+							modal: true,
+							closeOnEscape: true,
+							title:  t('contacts', 'Edit profile picture'),
+							height: 'auto', width: 'auto',
+							buttons: {
+								'Ok':function() {
+									self.savePhoto($(this));
+									$(this).dialog('close');
+								},
+								'Cancel':function() { $(this).dialog('close'); }
+							},
+							close: function(event, ui) {
+								$(this).dialog('destroy').remove();
+								$('#name_dialog').remove();
+							},
+							open: function(event, ui) {
+								// Jcrop maybe?
+							}
+						});
+		}).error(function () {
+			OC.notify({message:t('contacts','Error loading profile picture.')});
+		}).attr('src', OC.linkTo('contacts', 'tmpphoto.php')+'?tmpkey='+tmpkey);
+	},
+	savePhoto:function($dlg) {
+		var form = $dlg.find('#cropform');
+		q = form.serialize();
+		console.log('savePhoto', q);
+		$.post(OC.filePath('contacts', 'ajax', 'savecrop.php'), q, function(response) {
+			var jsondata = $.parseJSON(response);
+			console.log('savePhoto, jsondata', typeof jsondata);
+			if(jsondata && jsondata.status === 'success') {
+				// load cropped photo.
+				$(document).trigger('status.contact.photoupdated', {
+					id: jsondata.data.id, 
+				});
+			} else {
+				if(!jsondata) {
+					OC.notify({message:t('contacts', 'Network or server error. Please inform administrator.')});
+				} else {
+					OC.notify({message: jsondata.data.message});
+				}
 			}
 		});
 	},

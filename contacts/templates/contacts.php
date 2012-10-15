@@ -6,6 +6,13 @@
 	var id = '<?php echo $_['id']; ?>';
 	var lang = '<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>';
 </script>
+<form class="float" id="file_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php'); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
+	<input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'] ?>">
+	<input type="hidden" name="id" value="<?php echo $_['id'] ?>">
+	<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
+	<input type="hidden" class="max_human_file_size" value="(max <?php echo $_['uploadMaxHumanFilesize']; ?>)">
+	<input id="contactphoto_fileupload" type="file" accept="image/*" name="imagefile" />
+</form>
 <div id="leftcontent" class="loading">
 	<div class="hidden" id="statusbar"></div>
 	<nav id="grouplist">
@@ -60,6 +67,26 @@
 	</div>
 </div>
 </div>
+<script id="cropBoxTemplate" type="text/template">
+	<form id="cropform"
+		class="coords"
+		method="post"
+		enctype="multipart/form-data"
+		target="crop_target"
+		action="<?php echo OCP\Util::linkToAbsolute('contacts', 'ajax/savecrop.php'); ?>">
+		<input type="hidden" id="id" name="id" value="{id}" />
+		<input type="hidden" id="tmpkey" name="tmpkey" value="{tmpkey}" />
+		<fieldset id="coords">
+		<input type="hidden" id="x1" name="x1" value="" />
+		<input type="hidden" id="y1" name="y1" value="" />
+		<input type="hidden" id="x2" name="x2" value="" />
+		<input type="hidden" id="y2" name="y2" value="" />
+		<input type="hidden" id="w" name="w" value="" />
+		<input type="hidden" id="h" name="h" value="" />
+		</fieldset>
+	</form>
+</script>
+
 <script id="contactListItemTemplate" type="text/template">
 	<tr class="contact" data-id="{id}">
 		<td class="name" 
@@ -67,7 +94,7 @@
 			<input type="checkbox" name="id" value="{id}" />{name}
 		</td>
 		<td class="email">
-			<span>{email}</span>
+			<a href="mailto:{email}">{email}</a>
 			<a class="mailto hidden" title="<?php echo $l->t('Compose mail'); ?>"></a>
 		</td>
 		<td class="tel">{tel}</td>
@@ -85,8 +112,15 @@
 	<section id="contact" data-id="{id}">
 	<ul>
 		<li>
-			<img class="contactphoto" src="<?php echo OCP\Util::linkTo('contacts', 'photo.php'); ?>?id={id}" />
-			<div>
+			<div id="photowrapper" class="propertycontainer" data-element="photo">
+				<ul id="phototools" class="transparent hidden">
+					<li><a class="svg delete" title="<?php echo $l->t('Delete current photo'); ?>"></a></li>
+					<li><a class="svg edit" title="<?php echo $l->t('Edit current photo'); ?>"></a></li>
+					<li><a class="svg upload" title="<?php echo $l->t('Upload new photo'); ?>"></a></li>
+					<li><a class="svg cloud" title="<?php echo $l->t('Select photo from ownCloud'); ?>"></a></li>
+				</ul>
+			</div>
+			<div class="singleproperties">
 			<input class="fullname value propertycontainer" data-element="fn" type="text" name="value" value="{name}" />
 			<dl class="form">
 				<dt data-element="nickname">
@@ -169,8 +203,10 @@
 			</select>
 			<input type="checkbox" class="value tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
 			<input type="email" required="required" class="nonempty value" name="value" value="{value}" x-moz-errormessage="<?php echo $l->t('Please specify a valid email address.'); ?>" placeholder="<?php echo $l->t('someone@example.com'); ?>" />
-			<span class="listactions"><a class="action mail" title="<?php echo $l->t('Mail to address'); ?>"></a>
-			<a role="button" class="action delete" title="<?php echo $l->t('Delete email address'); ?>"></a></span>
+			<span class="listactions">
+				<a class="action mail" title="<?php echo $l->t('Mail to address'); ?>"></a>
+				<a role="button" class="action delete" title="<?php echo $l->t('Delete email address'); ?>"></a>
+			</span>
 		</li>
 	</div>
 	<div class="tel">
@@ -181,7 +217,8 @@
 			<input type="checkbox" class="value tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
 			<input type="tel" required="required" class="nonempty value" name="value" value="{value}" placeholder="<?php echo $l->t('Enter phone number'); ?>" />
 			<span class="listactions">
-			<a role="button" class="action delete" title="<?php echo $l->t('Delete phone number'); ?>"></a></span>
+				<a role="button" class="action delete" title="<?php echo $l->t('Delete phone number'); ?>"></a>
+			</span>
 		</li>
 	</div>
 	<div class="url">
@@ -192,8 +229,9 @@
 			<input type="checkbox" class="value tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
 			<input type="url" required="required" class="nonempty value" name="value" value="{value}" placeholder="http://www.example.com/" />
 			<span class="listactions">
-			<a role="button" class="action globe" title="<?php echo $l->t('Go to web site'); ?>">
-			<a role="button" class="action delete" title="<?php echo $l->t('Delete URL'); ?>"></a></span>
+				<a role="button" class="action globe" title="<?php echo $l->t('Go to web site'); ?>">
+				<a role="button" class="action delete" title="<?php echo $l->t('Delete URL'); ?>"></a>
+			</span>
 		</li>
 	</div>
 	<div class="adr">
@@ -204,9 +242,10 @@
 			<input type="checkbox" class="value tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
 			<span class="float adr">{value}</span>
 			<span class="listactions">
-			<a class="action globe" title="<?php echo $l->t('View on map'); ?>"></a>
-			<a class="action edit" title="<?php echo $l->t('Edit address details'); ?>"></a>
-			<a class="action delete" title="<?php echo $l->t('Delete address'); ?>"></a></span>
+				<a class="action globe" title="<?php echo $l->t('View on map'); ?>"></a>
+				<a class="action edit" title="<?php echo $l->t('Edit address details'); ?>"></a>
+				<a class="action delete" title="<?php echo $l->t('Delete address'); ?>"></a>
+			</span>
 			<input type="hidden" id="adr_0" name="value[ADR][0]" value="{adr0}" />
 			<input type="hidden" id="adr_1" name="value[ADR][1]" value="{adr1}" />
 			<input type="hidden" id="adr_2" name="value[ADR][2]" value="{adr2}" />
@@ -228,7 +267,9 @@
 			</div>
 			<input type="text" required="required" class="nonempty value" name="value" value="{value}"
 					placeholder="<?php echo $l->t('Instant Messenger'); ?>" />
-			<a role="button" class="action delete" title="<?php echo $l->t('Delete IM'); ?>"></a>
+			<span class="listactions">
+				<a role="button" class="action delete" title="<?php echo $l->t('Delete IM'); ?>"></a>
+			</span>
 		</li>
 	</div>
 </script>
