@@ -16,7 +16,7 @@ namespace OCA_mozilla_sync;
  */
 class UserService extends Service
 {
-  public function __construct($urlParser, $inputData = NULL) {
+  public function __construct($urlParser, $inputData = null) {
     $this->urlParser = $urlParser;
     $this->inputData = $inputData;
   }

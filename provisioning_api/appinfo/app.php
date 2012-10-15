@@ -24,4 +24,3 @@
 OC::$CLASSPATH['OC_Provisioning_API_Users'] = 'apps/provisioning_api/lib/users.php';
 OC::$CLASSPATH['OC_Provisioning_API_Groups'] = 'apps/provisioning_api/lib/groups.php';
 OC::$CLASSPATH['OC_Provisioning_API_Apps'] = 'apps/provisioning_api/lib/apps.php';
-?>

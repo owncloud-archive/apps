@@ -33,7 +33,7 @@ require_once 'BearerAuth.php';
 require_once 'oauth_ro_auth.php';
 
 ini_set('default_charset', 'UTF-8');
-#ini_set('error_reporting', '');
+//ini_set('error_reporting', '');
 @ob_clean();
 
 //allow use as remote storage for other websites

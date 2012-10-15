@@ -21,7 +21,7 @@
  */
 
 // Init owncloud
- 
+
 
 
 // Check if we are a user
@@ -31,7 +31,7 @@ OCP\JSON::checkLoggedIn();
 $dir = isset($_GET['dir']) ? $_GET['dir'] : '';
 $filename = isset($_GET['file']) ? $_GET['file'] : '';
 if(!empty($filename))
-{	
+{
 	$path = $dir.'/'.$filename;
 	if(OC_Filesystem::is_writable($path))
 	{
@@ -45,8 +45,8 @@ if(!empty($filename))
 		$mtime = OC_Filesystem::filemtime($path);
 		$filecontents = OC_Filesystem::file_get_contents($path);
 		$filecontents = iconv(mb_detect_encoding($filecontents), "UTF-8", $filecontents);
-		OCP\JSON::success(array('data' => array('filecontents' => $filecontents, 'write' => 'false', 'mtime' => $mtime)));	
-	}	
+		OCP\JSON::success(array('data' => array('filecontents' => $filecontents, 'write' => 'false', 'mtime' => $mtime)));
+	}
 } else {
-	OCP\JSON::error(array('data' => array( 'message' => 'Invalid file path supplied.')));	
+	OCP\JSON::error(array('data' => array( 'message' => 'Invalid file path supplied.')));
 }

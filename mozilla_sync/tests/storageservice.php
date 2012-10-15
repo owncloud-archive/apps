@@ -460,7 +460,7 @@ class Test_StorageService extends UnitTestCase {
     OCA_mozilla_sync\Utils::$lastStatus = OCA_mozilla_sync\Utils::STATUS_OK;
   }
 
-  private function request($url, $inputData = NULL) {
+  private function request($url, $inputData = null) {
 
     $_SERVER['PHP_AUTH_USER'] = $this->userHash;
     $_SERVER['PHP_AUTH_PW'] = $this->password;

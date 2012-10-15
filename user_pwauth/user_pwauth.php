@@ -87,7 +87,7 @@ class OC_USER_PWAUTH extends OC_User_Backend {
                         return false;
                 }
  
-                # Is the password valid?
+                // Is the password valid?
 	        $result = pclose( $handle );
                 if ($result == 0) {
 			return $uid;

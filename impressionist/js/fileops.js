@@ -15,11 +15,11 @@ function createArchiveAndDownload()
 	var filename = currentSaveName+"_"+new Date().getTime();
 	$.ajax({
 			type: 'POST',
-			 url: "server/generateArchive.php",
+			 url: "../lib/generateArchive.php",
 			 data: {data:previewoutputstring, filename:filename},
 			 success: function(msg)
 			 {
-			 	window.open("server/download.php?filename="+filename, "_blank");
+			 	window.open("../lib/download.php?filename="+filename, "_blank");
 			 }
 	});
 }

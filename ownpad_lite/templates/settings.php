@@ -2,15 +2,15 @@
 
 /**
  * ownCloud - ownpad_lite plugin
- * 
+ *
  * @author Victor Dubiniuk
  * @copyright 2012 Victor Dubiniuk victor.dubiniuk@gmail.com
- * 
+ *
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  */
  ?>
- 
+
 <dl>
 	<dt><?php echo $l->t('Etherpad service URL'); ?></dt>
 	<dd>

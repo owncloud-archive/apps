@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2012.
+# Ole Holm Frandsen <froksen@gmail.com>, 2012.
 # Thomas Tanghus <thomas@tanghus.net>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:22+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-13 02:05+0200\n"
+"PO-Revision-Date: 2012-10-12 17:37+0000\n"
+"Last-Translator: Ole Holm Frandsen <froksen@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,15 +68,15 @@ msgstr "Der var ingen sti til filen i forespørgslen."
 msgid "An error occurred while parsing the file."
 msgstr "Der opstod en fejl under læsningen af filen."
 
-#: ajax/loadfeed.php:37 templates/part.feeds.php:50
+#: ajax/loadfeed.php:39 templates/part.feeds.php:50
 msgid "Starred"
 msgstr "Markéret"
 
-#: ajax/loadfeed.php:42 templates/part.feeds.php:44
+#: ajax/loadfeed.php:44 templates/part.feeds.php:44
 msgid "New articles"
 msgstr "Nye artikler"
 
-#: ajax/loadfeed.php:54
+#: ajax/loadfeed.php:56
 msgid "Feed loaded!"
 msgstr "Feeds indlæst!"
 
@@ -109,9 +110,9 @@ msgstr "Nyheder"
 
 #: js/items.js:118
 msgid "Error while loading the feed"
-msgstr ""
+msgstr "Fejl under indlæsning af nyhedskilde"
 
-#: js/items.js:118 js/items.js:560 js/items.js:665 js/main.js:121
+#: js/items.js:118 js/items.js:560 js/items.js:665 js/main.js:114
 #: js/menu.js:534 js/menu.js:595 js/menu.js:617 js/menu.js:644 js/menu.js:666
 #: js/menu.js:916 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
@@ -119,15 +120,15 @@ msgstr ""
 msgid "Error"
 msgstr "Fejl"
 
-#: js/main.js:40
+#: js/main.js:33
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
-#: js/main.js:108 templates/main.php:16
+#: js/main.js:101 templates/main.php:15
 msgid "Show only unread"
 msgstr "Vis kun ulæste"
 
-#: js/main.js:112 templates/main.php:12
+#: js/main.js:105 templates/main.php:11
 msgid "Show everything"
 msgstr "Vis alt"
 
@@ -168,7 +169,7 @@ msgstr "Omdøb mappe"
 msgid "URL cannot be empty."
 msgstr "URLen kan ikke være tom."
 
-#: js/news.js:120 js/news.js:127 templates/part.nofeeds.php:6
+#: js/news.js:120 js/news.js:127 templates/firstrun.php:5
 msgid "Add feed"
 msgstr "Tilføj feed"
 
@@ -212,7 +213,7 @@ msgstr "feeds succesfuldt importeret fra"
 msgid "Success"
 msgstr "Succes"
 
-#: js/settings.js:49 templates/part.nofeeds.php:19 templates/settings.php:9
+#: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
 msgid "Import"
 msgstr "Import"
 
@@ -256,23 +257,66 @@ msgstr "Godt! Du abonnerer nu på "
 msgid "You had already subcribed to this feed!"
 msgstr "Du abonnerer allerede på dette feed!"
 
-#: templates/main.php:32
+#: templates/firstrun.php:2
+msgid "You don't have any feed in your reader."
+msgstr "Du har ingen feeds i din nyhedslæser."
+
+#: templates/firstrun.php:6 templates/part.dialogues.php:28
+msgid "Address"
+msgstr "Adresse"
+
+#: templates/firstrun.php:7 templates/subscribelet.php:7
+msgid "Subscribe"
+msgstr "Abonner"
+
+#: templates/firstrun.php:11
+msgid "Import OPML"
+msgstr "Importer OPML"
+
+#: templates/firstrun.php:12 templates/settings.php:3
+msgid "Upload file from desktop"
+msgstr "Upload fil fra skrivebord"
+
+#: templates/firstrun.php:12 templates/settings.php:3
+msgid "Upload"
+msgstr "Upload"
+
+#: templates/firstrun.php:13 templates/settings.php:4
+msgid "Select file from ownCloud"
+msgstr "Vælg fil fra ownCloud"
+
+#: templates/firstrun.php:13 templates/settings.php:4
+msgid "Select"
+msgstr "Vælg"
+
+#: templates/firstrun.php:15 templates/settings.php:6
+msgid ""
+"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
+"filesystem</a> or <a href=\"#\" class=\"settings\" "
+"id=\"cloudlink\">cloud</a>"
+msgstr "Vælg fil fra <a href=\"#\" class=\"settings\" id=\"browselink\">det lokale filsystem</a> eller <a href=\"#\" class=\"settings\" id=\"cloudlink\">skyen</a>"
+
+#: templates/firstrun.php:24
+msgid "Or..."
+msgstr "Eller..."
+
+#: templates/main.php:33
 msgid "Add feed or folder"
 msgstr "Tilføj feed eller mappe"
 
-#: templates/main.php:33
+#: templates/main.php:34
 msgid "Add Feed/Folder"
 msgstr "Tilføj feed/mappe"
 
-#: templates/main.php:35
+#: templates/main.php:36
 msgid "Feed"
 msgstr "Feed"
 
-#: templates/main.php:36
+#: templates/main.php:37
 msgid "Folder"
 msgstr "Mappe"
 
-#: templates/main.php:43
+#: templates/main.php:44
 msgid "Settings"
 msgstr "Indstillinger"
 
@@ -299,10 +343,6 @@ msgstr "Tilføj nyt feed"
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
 msgstr "Vælg mappe"
-
-#: templates/part.dialogues.php:28 templates/part.nofeeds.php:7
-msgid "Address"
-msgstr "Adresse"
 
 #: templates/part.dialogues.php:29
 msgid "Add"
@@ -344,45 +384,6 @@ msgstr "Slet mappe"
 #: templates/part.listfolder.php:20
 msgid "Rename folder"
 msgstr "Omdøb mappe"
-
-#: templates/part.nofeeds.php:3
-msgid "You don't have any feed in your reader."
-msgstr "Du har ingen feeds i din nyhedslæser."
-
-#: templates/part.nofeeds.php:8 templates/subscribelet.php:7
-msgid "Subscribe"
-msgstr "Abonner"
-
-#: templates/part.nofeeds.php:12
-msgid "Import OPML"
-msgstr "Importer OPML"
-
-#: templates/part.nofeeds.php:13 templates/settings.php:3
-msgid "Upload file from desktop"
-msgstr "Upload fil fra skrivebord"
-
-#: templates/part.nofeeds.php:13 templates/settings.php:3
-msgid "Upload"
-msgstr "Upload"
-
-#: templates/part.nofeeds.php:14 templates/settings.php:4
-msgid "Select file from ownCloud"
-msgstr "Vælg fil fra ownCloud"
-
-#: templates/part.nofeeds.php:14 templates/settings.php:4
-msgid "Select"
-msgstr "Vælg"
-
-#: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid ""
-"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
-"filesystem</a> or <a href=\"#\" class=\"settings\" "
-"id=\"cloudlink\">cloud</a>"
-msgstr "Vælg fil fra <a href=\"#\" class=\"settings\" id=\"browselink\">det lokale filsystem</a> eller <a href=\"#\" class=\"settings\" id=\"cloudlink\">skyen</a>"
-
-#: templates/part.nofeeds.php:25
-msgid "Or..."
-msgstr "Eller..."
 
 #: templates/settings.php:2
 msgid "Import feeds"

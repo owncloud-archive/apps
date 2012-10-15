@@ -21,7 +21,7 @@
  */
 
 // Init owncloud
- 
+
 
 
 // Check if we are a user
@@ -41,9 +41,9 @@ if($path != '')
 	else
 	{
 		OCP\JSON::error();
-	}	
+	}
 }
 else
 {
-	OCP\JSON::error();	
+	OCP\JSON::error();
 }

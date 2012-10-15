@@ -11,11 +11,11 @@ class OC_User_SMB extends OC_User_Backend{
 
 	const smbclient='smbclient';
 	const loginError='NT_STATUS_LOGON_FAILURE';
-	
+
 	public function __construct($host) {
 		$this->host=$host;
 	}
-	
+
 	/**
 	 * @brief Check if the password is correct
 	 * @param $uid The username
@@ -36,7 +36,7 @@ class OC_User_SMB extends OC_User_Backend{
 			return $uid;
 		}
 	}
-	
+
 	public function userExists($uid) {
 		return true;
 	}
