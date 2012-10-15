@@ -690,7 +690,7 @@ class OC_Contacts_VCard {
 				}
 			}
 		} elseif($property->name == 'PHOTO') {
-			$property->value = true;
+			$value = true;
 		}
 		elseif($property->name == 'IMPP') {
 			if(strpos($value, ':') !== false) {
@@ -701,9 +701,6 @@ class OC_Contacts_VCard {
 				}
 				$value = implode('', $value);
 			}
-		}
-		elseif($property->name == 'PHOTO') {
-			$property->value = true;
 		}
 		if(is_string($value)) {
 			$value = strtr($value, array('\,' => ',', '\;' => ';'));
