@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-27 02:01+0200\n"
-"PO-Revision-Date: 2012-09-26 11:54+0000\n"
-"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
+"POT-Creation-Date: 2012-10-16 02:05+0200\n"
+"PO-Revision-Date: 2012-10-16 00:06+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,15 +67,7 @@ msgstr "Non è stato fornito alcun percorso al file."
 msgid "An error occurred while parsing the file."
 msgstr "Si è verificato un errore durante l'elaborazione del file."
 
-#: ajax/loadfeed.php:37 templates/part.feeds.php:50
-msgid "Starred"
-msgstr "Preferiti"
-
-#: ajax/loadfeed.php:42 templates/part.feeds.php:44
-msgid "New articles"
-msgstr "Nuovi articoli"
-
-#: ajax/loadfeed.php:54
+#: ajax/loadfeed.php:52
 msgid "Feed loaded!"
 msgstr "Fonte caricata!"
 
@@ -103,43 +95,43 @@ msgstr "Errore durante l'aggiornamento della fonte."
 msgid "Feed updated!"
 msgstr "La fonte è stata aggiornata!"
 
-#: appinfo/app.php:35
+#: appinfo/app.php:36
 msgid "News"
 msgstr "Notizie"
 
-#: js/items.js:118
+#: js/items.js:123
 msgid "Error while loading the feed"
 msgstr "Errore durante il caricamento della fonte"
 
-#: js/items.js:118 js/items.js:560 js/items.js:665 js/main.js:121
-#: js/menu.js:534 js/menu.js:595 js/menu.js:617 js/menu.js:644 js/menu.js:666
-#: js/menu.js:916 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
+#: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
+#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
 msgstr "Errore"
 
-#: js/main.js:40
+#: js/main.js:33
 msgid "None"
 msgstr "Nessuno"
 
-#: js/main.js:108 templates/main.php:16
+#: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
 msgstr "Mostra solo i non letti"
 
-#: js/main.js:112 templates/main.php:12
+#: js/main.js:105 templates/main.php:14
 msgid "Show everything"
 msgstr "Mostra tutto"
 
-#: js/menu.js:507
+#: js/menu.js:505
 msgid "Are you sure you want to delete this feed?"
 msgstr "Sei sicuro di voler eliminare questa fonte?"
 
-#: js/menu.js:515
+#: js/menu.js:513
 msgid "Are you sure you want to delete this folder and all its feeds?"
 msgstr "Sei sicuro di voler eliminare questa cartella e tutte le sue fonti?"
 
-#: js/menu.js:523
+#: js/menu.js:521
 msgid "Warning"
 msgstr "Avviso"
 
@@ -168,7 +160,7 @@ msgstr "Modica il nome della cartella"
 msgid "URL cannot be empty."
 msgstr "L'URL non può essere vuoto."
 
-#: js/news.js:120 js/news.js:127 templates/part.nofeeds.php:6
+#: js/news.js:120 js/news.js:127 templates/firstrun.php:5
 msgid "Add feed"
 msgstr "Aggiungi fonte"
 
@@ -212,7 +204,7 @@ msgstr "fonti importati correttamente da"
 msgid "Success"
 msgstr "Avvenuta"
 
-#: js/settings.js:49 templates/part.nofeeds.php:19 templates/settings.php:9
+#: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
 msgid "Import"
 msgstr "Importa"
 
@@ -228,15 +220,15 @@ msgstr "Scarica"
 msgid "Select file"
 msgstr "Seleziona file"
 
-#: lib/feedmapper.php:167 lib/itemmapper.php:201
+#: lib/feedmapper.php:180 lib/itemmapper.php:204
 msgid "no title"
 msgstr "nessun titolo"
 
-#: lib/foldermapper.php:119
+#: lib/foldermapper.php:127
 msgid "no name"
 msgstr "nessun nome"
 
-#: lib/itemmapper.php:206
+#: lib/itemmapper.php:209
 msgid "no body"
 msgstr "nessun corpo"
 
@@ -256,23 +248,66 @@ msgstr "Bene! Hai effettuato la sottoscrizione a"
 msgid "You had already subcribed to this feed!"
 msgstr "Hai già sottoscritto a questa fonte!"
 
-#: templates/main.php:32
+#: templates/firstrun.php:2
+msgid "You don't have any feed in your reader."
+msgstr "Non hai nessuna fonte nel lettore."
+
+#: templates/firstrun.php:6 templates/part.dialogues.php:28
+msgid "Address"
+msgstr "Indirizzo"
+
+#: templates/firstrun.php:7 templates/subscribelet.php:7
+msgid "Subscribe"
+msgstr "Sottoscrivi"
+
+#: templates/firstrun.php:11
+msgid "Import OPML"
+msgstr "Importa OPML"
+
+#: templates/firstrun.php:12 templates/settings.php:3
+msgid "Upload file from desktop"
+msgstr "Carica file dal desktop"
+
+#: templates/firstrun.php:12 templates/settings.php:3
+msgid "Upload"
+msgstr "Carica"
+
+#: templates/firstrun.php:13 templates/settings.php:4
+msgid "Select file from ownCloud"
+msgstr "Seleziona file da ownCloud"
+
+#: templates/firstrun.php:13 templates/settings.php:4
+msgid "Select"
+msgstr "Seleziona"
+
+#: templates/firstrun.php:15 templates/settings.php:6
+msgid ""
+"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
+"filesystem</a> or <a href=\"#\" class=\"settings\" "
+"id=\"cloudlink\">cloud</a>"
+msgstr "Seleziona file da <a href=\"#\" class=\"settings\" id=\"browselink\">filesystem locale</a> o <a href=\"#\" class=\"settings\" id=\"cloudlink\">nuvola</a>"
+
+#: templates/firstrun.php:24
+msgid "Or..."
+msgstr "O..."
+
+#: templates/main.php:35
 msgid "Add feed or folder"
 msgstr "Aggiungi fonte o cartella"
 
-#: templates/main.php:33
+#: templates/main.php:36
 msgid "Add Feed/Folder"
 msgstr "Aggiungi fonte/cartella"
 
-#: templates/main.php:35
+#: templates/main.php:38
 msgid "Feed"
 msgstr "Fonte"
 
-#: templates/main.php:36
+#: templates/main.php:39
 msgid "Folder"
 msgstr "Cartella"
 
-#: templates/main.php:43
+#: templates/main.php:46
 msgid "Settings"
 msgstr "Impostazioni"
 
@@ -300,89 +335,58 @@ msgstr "Aggiungi una nuova fonte"
 msgid "Choose folder"
 msgstr "Scegli la cartella"
 
-#: templates/part.dialogues.php:28 templates/part.nofeeds.php:7
-msgid "Address"
-msgstr "Indirizzo"
-
 #: templates/part.dialogues.php:29
 msgid "Add"
 msgstr "Aggiungi"
 
-#: templates/part.feeds.php:46 templates/part.listfeed.php:26
-#: templates/part.listfolder.php:21
+#: templates/part.feeds.php:47
+msgid "New articles"
+msgstr "Nuovi articoli"
+
+#: templates/part.feeds.php:49 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:34
 msgid "Mark all read"
 msgstr "Marca tutti come letti"
 
-#: templates/part.items.php:35
+#: templates/part.feeds.php:53
+msgid "Starred"
+msgstr "Preferiti"
+
+#: templates/part.items.php:17
 msgid "Mark as unimportant"
 msgstr "Marca come non importante"
 
-#: templates/part.items.php:38
+#: templates/part.items.php:20
 msgid "Mark as important"
 msgstr "Marca come importante"
 
-#: templates/part.items.php:55
+#: templates/part.items.php:37
+msgid "from"
+msgstr ""
+
+#: templates/part.items.php:43
 msgid "by"
 msgstr "di"
 
-#: templates/part.items.php:62
+#: templates/part.items.php:56
 msgid "Keep unread"
 msgstr "Mantieni non letto"
 
-#: templates/part.listfeed.php:25
+#: templates/part.listfeed.php:33
 msgid "Delete feed"
 msgstr "Elimina la fonte"
 
-#: templates/part.listfolder.php:16
+#: templates/part.listfolder.php:29
 msgid "Collapse"
 msgstr "Contrai"
 
-#: templates/part.listfolder.php:19
+#: templates/part.listfolder.php:32
 msgid "Delete folder"
 msgstr "Elimina la cartella"
 
-#: templates/part.listfolder.php:20
+#: templates/part.listfolder.php:33
 msgid "Rename folder"
 msgstr "Rinomina la cartella"
-
-#: templates/part.nofeeds.php:3
-msgid "You don't have any feed in your reader."
-msgstr "Non hai nessuna fonte nel lettore."
-
-#: templates/part.nofeeds.php:8 templates/subscribelet.php:7
-msgid "Subscribe"
-msgstr "Sottoscrivi"
-
-#: templates/part.nofeeds.php:12
-msgid "Import OPML"
-msgstr "Importa OPML"
-
-#: templates/part.nofeeds.php:13 templates/settings.php:3
-msgid "Upload file from desktop"
-msgstr "Carica file dal desktop"
-
-#: templates/part.nofeeds.php:13 templates/settings.php:3
-msgid "Upload"
-msgstr "Carica"
-
-#: templates/part.nofeeds.php:14 templates/settings.php:4
-msgid "Select file from ownCloud"
-msgstr "Seleziona file da ownCloud"
-
-#: templates/part.nofeeds.php:14 templates/settings.php:4
-msgid "Select"
-msgstr "Seleziona"
-
-#: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid ""
-"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
-"filesystem</a> or <a href=\"#\" class=\"settings\" "
-"id=\"cloudlink\">cloud</a>"
-msgstr "Seleziona file da <a href=\"#\" class=\"settings\" id=\"browselink\">filesystem locale</a> o <a href=\"#\" class=\"settings\" id=\"cloudlink\">nuvola</a>"
-
-#: templates/part.nofeeds.php:25
-msgid "Or..."
-msgstr "O..."
 
 #: templates/settings.php:2
 msgid "Import feeds"
