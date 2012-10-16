@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:05+0200\n"
-"PO-Revision-Date: 2012-10-16 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-16 23:32+0200\n"
+"PO-Revision-Date: 2012-10-16 09:50+0000\n"
+"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr "Ошибка при изменении имени папки"
 
 #: ajax/collapsefolder.php:36
 msgid "Error collapsing folder."
-msgstr ""
+msgstr "Ошибка при сворачивании папки"
 
 #: ajax/createfeed.php:52
 msgid "Feed already exists."
@@ -102,7 +102,7 @@ msgstr "Новости"
 msgid "Error while loading the feed"
 msgstr "Ошибка при загрузке потока"
 
-#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
+#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
@@ -112,7 +112,7 @@ msgstr "Ошибка"
 
 #: js/main.js:33
 msgid "None"
-msgstr ""
+msgstr "Нет"
 
 #: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
@@ -193,7 +193,7 @@ msgstr "Импортирование..."
 
 #: js/settings.js:43
 msgid " out of "
-msgstr ""
+msgstr "вне"
 
 #: js/settings.js:44
 msgid " feeds imported successfully from "
@@ -361,11 +361,11 @@ msgstr "Отметить как важное"
 
 #: templates/part.items.php:37
 msgid "from"
-msgstr ""
+msgstr "из"
 
 #: templates/part.items.php:43
 msgid "by"
-msgstr ""
+msgstr "к"
 
 #: templates/part.items.php:56
 msgid "Keep unread"
@@ -377,7 +377,7 @@ msgstr "Удалить поток"
 
 #: templates/part.listfolder.php:29
 msgid "Collapse"
-msgstr ""
+msgstr "Свернуть"
 
 #: templates/part.listfolder.php:32
 msgid "Delete folder"
