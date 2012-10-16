@@ -552,6 +552,8 @@ class OC_Contacts_VCard {
 			);
 		}
 
+		OCP\Share::unshareAll('contact', $id);
+
 		return true;
 	}
 
