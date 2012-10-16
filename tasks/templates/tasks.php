@@ -21,19 +21,24 @@
 		<tbody>
 			<tr id="task_template" class="task">
 				<td class="completed"><input type="checkbox" /></td>
+				<td><div class="priority priority-n tag"></div></td>
 				<td class="overview">
 					<span class="summary"></span>
 					<span class="description"></span>
+					<span class="task_actions task_edit_overview">
+						<img class="svg action" title="<?php echo $l->t('Edit');?>" src="<?php echo OCP\image_path('', 'actions/rename.svg');?>" />
+					</span>
 				</td>
 				<td class="categories"></td>
-				<td class="due"></td>
-				<td class="task_actions">
-					<span class="task_edit">
-						<img class="svg action" title="<?php echo $l->t('Edit');?>" src="<?php echo OCP\image_path("", "actions/rename.svg");?>" />
+				<td class="due">
+					<?php echo $l->t('No due date'); ?>
+					<span class="task_actions task_edit_due">
+						<img class="svg action" title="<?php echo $l->t('Edit due date');?>" src="<?php echo OCP\image_path('calendar', 'icon.svg');?>" />
 					</span>
-					<span class="task_delete">
-						<img class="svg action" title="<?php echo $l->t('Delete') ?>" src="<?php echo OCP\image_path('core', 'actions/delete.svg') ?>" />
-					</span>
+				
+				</td>
+				<td class="task_delete task_actions">
+					<img class="svg action" title="<?php echo $l->t('Delete') ?>" src="<?php echo OCP\image_path('core', 'actions/delete.svg') ?>" />
 				</td>
 			</tr>
 		</tbody>

@@ -16,13 +16,13 @@
 .task:nth-child(odd){background-color:#F4F4F4;}
 .task:hover {background-color:#DDDDDD; padding-right: 8em;}
 
-.task_actions{ display:none; line-height: 3em; text-align: right; padding-right: 1em; }
+.task_actions{ display:none; }
 .task_edit { padding-right:1em; }
-.task:hover > .task_actions {display:block }
+.task:hover .task_actions {display:block }
 .task_actions img{ vertical-align:middle; }
 .task_actions img:hover {cursor:pointer;}
 
-.task .priority{background-color:black;color:white;position:absolute;top:0.5em}
+.task .priority { background-color:black; color:white; }
 .task .priority-n{height:2.66ex;width:0.6em;}
 .task .priority-1{background:rgb(255,0,0);}
 .task .priority-2{background:rgb(200,0,0);}
@@ -36,8 +36,7 @@
 
 .task .completed { width:1em; padding-left:0.5em; }
 
-.task .overview { width: auto; }
-.task .summary{ width:5%; padding-left:0.5em; height:2em; font-weight:bold; }
+.task .summary{ width: auto; padding-left:0.0em; height:2em; font-weight:bold; }
 .task .summary input{position:absolute;left:5em;top:0;}
 .task.done .summary{text-decoration:line-through;}
 
@@ -50,7 +49,6 @@
 .task:hover .tag{opacity:0.5}
 .task:hover .tag:hover{opacity:0.8;}
 
-.task .categories { }
 .task .categories a{background-color:#1d2d44;color:white;}
 .task .categories .tag.active{display:none;}
 .task input.categories{display:none;top:0;text-align:left;}
@@ -58,8 +56,6 @@
 .task .location{background-color:#442d44;color:white;position:absolute;right:0.6em;width:9.2em;text-align:left;top:0.5em}
 .task input.location{display:none;top:0;text-align:left;right:0.3em;background-color:white;color:#333333;}
 
-
-.task .due{position:absolute;right:0.3em;}
 .task .due .date{width:6em;}
 .task .due .time{width:6em;}
 
