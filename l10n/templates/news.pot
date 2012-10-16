@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-15 02:05+0200\n"
+"POT-Creation-Date: 2012-10-16 02:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,15 +93,15 @@ msgstr ""
 msgid "Feed updated!"
 msgstr ""
 
-#: appinfo/app.php:35
+#: appinfo/app.php:36
 msgid "News"
 msgstr ""
 
-#: js/items.js:118
+#: js/items.js:123
 msgid "Error while loading the feed"
 msgstr ""
 
-#: js/items.js:118 js/items.js:565 js/items.js:670 js/main.js:114
+#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
@@ -218,7 +218,7 @@ msgstr ""
 msgid "Select file"
 msgstr ""
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:202
+#: lib/feedmapper.php:180 lib/itemmapper.php:204
 msgid "no title"
 msgstr ""
 
@@ -226,7 +226,7 @@ msgstr ""
 msgid "no name"
 msgstr ""
 
-#: lib/itemmapper.php:207
+#: lib/itemmapper.php:209
 msgid "no body"
 msgstr ""
 
@@ -349,19 +349,23 @@ msgstr ""
 msgid "Starred"
 msgstr ""
 
-#: templates/part.items.php:16
+#: templates/part.items.php:17
 msgid "Mark as unimportant"
 msgstr ""
 
-#: templates/part.items.php:19
+#: templates/part.items.php:20
 msgid "Mark as important"
 msgstr ""
 
-#: templates/part.items.php:36
-msgid "by"
+#: templates/part.items.php:37
+msgid "from"
 msgstr ""
 
 #: templates/part.items.php:43
+msgid "by"
+msgstr ""
+
+#: templates/part.items.php:56
 msgid "Keep unread"
 msgstr ""
 
