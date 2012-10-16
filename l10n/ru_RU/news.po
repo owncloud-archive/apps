@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-12 02:04+0200\n"
-"PO-Revision-Date: 2012-10-11 08:33+0000\n"
-"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
+"POT-Creation-Date: 2012-10-16 02:05+0200\n"
+"PO-Revision-Date: 2012-10-16 00:06+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,15 +66,7 @@ msgstr "Не был задан путь к файлу."
 msgid "An error occurred while parsing the file."
 msgstr "При парсинге файла произошла ошибка."
 
-#: ajax/loadfeed.php:37 templates/part.feeds.php:50
-msgid "Starred"
-msgstr "Отмечено звездочкой"
-
-#: ajax/loadfeed.php:42 templates/part.feeds.php:44
-msgid "New articles"
-msgstr "Новые статьи"
-
-#: ajax/loadfeed.php:54
+#: ajax/loadfeed.php:52
 msgid "Feed loaded!"
 msgstr "Поток загружен!"
 
@@ -102,43 +94,43 @@ msgstr "Ошибка при обновлении потока."
 msgid "Feed updated!"
 msgstr "Поток обновлен!"
 
-#: appinfo/app.php:35
+#: appinfo/app.php:36
 msgid "News"
 msgstr "Новости"
 
-#: js/items.js:118
+#: js/items.js:123
 msgid "Error while loading the feed"
 msgstr "Ошибка при загрузке потока"
 
-#: js/items.js:118 js/items.js:560 js/items.js:665 js/main.js:119
-#: js/menu.js:534 js/menu.js:595 js/menu.js:617 js/menu.js:644 js/menu.js:666
-#: js/menu.js:916 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
+#: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
+#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
 msgstr "Ошибка"
 
-#: js/main.js:38
+#: js/main.js:33
 msgid "None"
 msgstr ""
 
-#: js/main.js:106 templates/main.php:15
+#: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
 msgstr "Показать только непрочитанное"
 
-#: js/main.js:110 templates/main.php:11
+#: js/main.js:105 templates/main.php:14
 msgid "Show everything"
 msgstr "Показать все"
 
-#: js/menu.js:507
+#: js/menu.js:505
 msgid "Are you sure you want to delete this feed?"
 msgstr "Вы действительно хотите удалить этот поток?"
 
-#: js/menu.js:515
+#: js/menu.js:513
 msgid "Are you sure you want to delete this folder and all its feeds?"
 msgstr "Вы действительно хотите удалить эту папку и все ее потоки?"
 
-#: js/menu.js:523
+#: js/menu.js:521
 msgid "Warning"
 msgstr "Предупреждение"
 
@@ -167,7 +159,7 @@ msgstr "Изменить имя папки"
 msgid "URL cannot be empty."
 msgstr "URL не должен быть пустым."
 
-#: js/news.js:120 js/news.js:127 templates/firstrun.php:6
+#: js/news.js:120 js/news.js:127 templates/firstrun.php:5
 msgid "Add feed"
 msgstr "Добавить поток"
 
@@ -211,7 +203,7 @@ msgstr "потоки успешно импортированы из"
 msgid "Success"
 msgstr "Успех"
 
-#: js/settings.js:49 templates/firstrun.php:19 templates/settings.php:9
+#: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
 msgid "Import"
 msgstr "Импорт"
 
@@ -227,15 +219,15 @@ msgstr "Загрузка"
 msgid "Select file"
 msgstr "Выбрать файл"
 
-#: lib/feedmapper.php:167 lib/itemmapper.php:201
+#: lib/feedmapper.php:180 lib/itemmapper.php:204
 msgid "no title"
 msgstr "заголовок отсутствует"
 
-#: lib/foldermapper.php:119
+#: lib/foldermapper.php:127
 msgid "no name"
 msgstr "имя отсутствует"
 
-#: lib/itemmapper.php:206
+#: lib/itemmapper.php:209
 msgid "no body"
 msgstr "основной текст отсутствует"
 
@@ -255,66 +247,66 @@ msgstr "Прекрасно! Вы подписаны на"
 msgid "You had already subcribed to this feed!"
 msgstr "Вы уже подписаны на этот поток!"
 
-#: templates/firstrun.php:3
+#: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
 msgstr "У Вас нет потоков в Вашей ленте"
 
-#: templates/firstrun.php:7 templates/part.dialogues.php:28
+#: templates/firstrun.php:6 templates/part.dialogues.php:28
 msgid "Address"
 msgstr "Адрес"
 
-#: templates/firstrun.php:8 templates/subscribelet.php:7
+#: templates/firstrun.php:7 templates/subscribelet.php:7
 msgid "Subscribe"
 msgstr "Подписаться"
 
-#: templates/firstrun.php:12
+#: templates/firstrun.php:11
 msgid "Import OPML"
 msgstr "Импорт OPML"
 
-#: templates/firstrun.php:13 templates/settings.php:3
+#: templates/firstrun.php:12 templates/settings.php:3
 msgid "Upload file from desktop"
 msgstr "Загрузить файл с компьютера"
 
-#: templates/firstrun.php:13 templates/settings.php:3
+#: templates/firstrun.php:12 templates/settings.php:3
 msgid "Upload"
 msgstr "Загрузка"
 
-#: templates/firstrun.php:14 templates/settings.php:4
+#: templates/firstrun.php:13 templates/settings.php:4
 msgid "Select file from ownCloud"
 msgstr "Выбрать файл из ownCloud"
 
-#: templates/firstrun.php:14 templates/settings.php:4
+#: templates/firstrun.php:13 templates/settings.php:4
 msgid "Select"
 msgstr "Выбрать"
 
-#: templates/firstrun.php:16 templates/settings.php:6
+#: templates/firstrun.php:15 templates/settings.php:6
 msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
 msgstr "Выберите файл из <a href=\"#\" class=\"settings\" id=\"browselink\">локальная файловая система</a> или <a href=\"#\" class=\"settings\" id=\"cloudlink\">облако</a>"
 
-#: templates/firstrun.php:25
+#: templates/firstrun.php:24
 msgid "Or..."
 msgstr "Или..."
 
-#: templates/main.php:33
+#: templates/main.php:35
 msgid "Add feed or folder"
 msgstr "Добавить поток или папку"
 
-#: templates/main.php:34
+#: templates/main.php:36
 msgid "Add Feed/Folder"
 msgstr "Добавить Поток/Папку"
 
-#: templates/main.php:36
+#: templates/main.php:38
 msgid "Feed"
 msgstr "Поток"
 
-#: templates/main.php:37
+#: templates/main.php:39
 msgid "Folder"
 msgstr "Папка"
 
-#: templates/main.php:44
+#: templates/main.php:46
 msgid "Settings"
 msgstr "Настройки"
 
@@ -346,40 +338,52 @@ msgstr "Выбрать папку"
 msgid "Add"
 msgstr "Добавить"
 
-#: templates/part.feeds.php:46 templates/part.listfeed.php:26
-#: templates/part.listfolder.php:21
+#: templates/part.feeds.php:47
+msgid "New articles"
+msgstr "Новые статьи"
+
+#: templates/part.feeds.php:49 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:34
 msgid "Mark all read"
 msgstr "Отметить все прочитанным"
 
-#: templates/part.items.php:35
+#: templates/part.feeds.php:53
+msgid "Starred"
+msgstr "Отмечено звездочкой"
+
+#: templates/part.items.php:17
 msgid "Mark as unimportant"
 msgstr "Отметить как неважное"
 
-#: templates/part.items.php:38
+#: templates/part.items.php:20
 msgid "Mark as important"
 msgstr "Отметить как важное"
 
-#: templates/part.items.php:55
+#: templates/part.items.php:37
+msgid "from"
+msgstr ""
+
+#: templates/part.items.php:43
 msgid "by"
 msgstr ""
 
-#: templates/part.items.php:62
+#: templates/part.items.php:56
 msgid "Keep unread"
 msgstr "Оставить непрочитанным"
 
-#: templates/part.listfeed.php:25
+#: templates/part.listfeed.php:33
 msgid "Delete feed"
 msgstr "Удалить поток"
 
-#: templates/part.listfolder.php:16
+#: templates/part.listfolder.php:29
 msgid "Collapse"
 msgstr ""
 
-#: templates/part.listfolder.php:19
+#: templates/part.listfolder.php:32
 msgid "Delete folder"
 msgstr "Удалить папку"
 
-#: templates/part.listfolder.php:20
+#: templates/part.listfolder.php:33
 msgid "Rename folder"
 msgstr "Переименовать папку"
 

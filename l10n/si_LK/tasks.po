@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Chamara Disanayake <chamara@nic.lk>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2012-10-16 02:05+0200\n"
+"PO-Revision-Date: 2012-10-15 09:39+0000\n"
+"Last-Translator: Chamara Disanayake <chamara@nic.lk>\n"
+"Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: si_LK\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
+msgid "Invalid date/time"
+msgstr "දිනය/වේලාව වලංගු නොවේ"
+
+#: appinfo/app.php:10
+msgid "Tasks"
+msgstr "කාර්යය"
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr ""
+
+#: js/tasks.js:107
+msgid "List"
+msgstr ""
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr "ස්ථානය"
+
+#: js/tasks.js:415
+msgid "No category"
+msgstr "කාන්ඩයකට අයත් නැත"
+
+#: lib/app.php:33
+msgid "Unspecified"
+msgstr "අනිර්දිෂ්ට"
+
+#: lib/app.php:34
+msgid "1=highest"
+msgstr "ඉහලම=1"
+
+#: lib/app.php:38
+msgid "5=medium"
+msgstr "මධ්‍යම=5"
+
+#: lib/app.php:42
+msgid "9=lowest"
+msgstr "පහලම=9"
+
+#: lib/app.php:81
+msgid "Empty Summary"
+msgstr "හිස් සංශිප්තය"
+
+#: lib/app.php:93
+msgid "Invalid percent complete"
+msgstr ""
+
+#: lib/app.php:107
+msgid "Invalid priority"
+msgstr ""
+
+#: templates/no-calendar-app.php:9
+msgid ""
+"The calendar application also need to be enabled to use this application."
+msgstr "මෙම යෙදුම භාවිතය සඳහා දිනදසුන යෙදුම ද සක්‍රීය කළ යුතුය"
+
+#: templates/tasks.php:3
+msgid "Add Task"
+msgstr "කාර්යයක් එක් කරන්න"
+
+#: templates/tasks.php:4
+msgid "Order Due"
+msgstr ""
+
+#: templates/tasks.php:5
+msgid "Order List"
+msgstr ""
+
+#: templates/tasks.php:6
+msgid "Order Complete"
+msgstr ""
+
+#: templates/tasks.php:7
+msgid "Order Location"
+msgstr ""
+
+#: templates/tasks.php:8
+msgid "Order Priority"
+msgstr ""
+
+#: templates/tasks.php:9
+msgid "Order Label"
+msgstr ""
+
+#: templates/tasks.php:16
+msgid "Loading tasks..."
+msgstr ""
+
+#: templates/tasks.php:20
+msgid "Important"
+msgstr "වැදගත්"
+
+#: templates/tasks.php:23
+msgid "More"
+msgstr "වැඩි"
+
+#: templates/tasks.php:26
+msgid "Less"
+msgstr "අඩු"
+
+#: templates/tasks.php:29
+msgid "Delete"
+msgstr "මකන්න"

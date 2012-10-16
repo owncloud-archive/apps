@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-12 02:03+0200\n"
-"PO-Revision-Date: 2012-10-11 10:54+0000\n"
+"POT-Creation-Date: 2012-10-16 02:03+0200\n"
+"PO-Revision-Date: 2012-10-15 13:58+0000\n"
 "Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -28,15 +28,15 @@ msgstr "Теги"
 
 #: js/bookmarks.js:178
 msgid "Edit bookmark"
-msgstr ""
+msgstr "Редактировать закладку"
 
 #: js/bookmarks.js:410
 msgid "Are you sure you want to remove this tag from every entry?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить этот тег из каждой записи?"
 
 #: js/bookmarks.js:411
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -44,27 +44,27 @@ msgstr "Bookm."
 
 #: templates/addBm.php:11
 msgid "Add a bookmark"
-msgstr ""
+msgstr "Добавить закладку"
 
 #: templates/addBm.php:14
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: templates/addBm.php:22 templates/list.php:91
 msgid "The title of the page"
-msgstr ""
+msgstr "Заголовок страницы"
 
 #: templates/addBm.php:27 templates/list.php:95
 msgid "The address of the page"
-msgstr ""
+msgstr "Адрес страницы"
 
 #: templates/addBm.php:40 templates/list.php:104
 msgid "Description of the page"
-msgstr ""
+msgstr "Описание страницы"
 
 #: templates/addBm.php:44 templates/list.php:108
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: templates/bookmarklet.php:5
 msgid ""
@@ -82,27 +82,27 @@ msgstr "Адрес"
 
 #: templates/list.php:13
 msgid "Add bookmark"
-msgstr ""
+msgstr "Добавить закладку"
 
 #: templates/list.php:16
 msgid "List"
-msgstr ""
+msgstr "Список"
 
 #: templates/list.php:17
 msgid "Image"
-msgstr ""
+msgstr "Изображение"
 
 #: templates/list.php:22
 msgid "Hide"
-msgstr ""
+msgstr "Скрыть"
 
 #: templates/list.php:23
 msgid "Show"
-msgstr ""
+msgstr "Показать"
 
 #: templates/list.php:30
 msgid "Related Tags"
-msgstr ""
+msgstr "Связанные теги"
 
 #: templates/list.php:39
 msgid "You have no bookmarks"
@@ -110,15 +110,15 @@ msgstr "У Вас нет закладок"
 
 #: templates/list.php:64
 msgid "Edit"
-msgstr ""
+msgstr "Редактировать"
 
 #: templates/list.php:68
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: templates/list.php:107
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
@@ -126,20 +126,20 @@ msgstr "Bookmarklet <br />"
 
 #: templates/settings.php:26
 msgid "Import bookmarks"
-msgstr ""
+msgstr "Импорт закладок"
 
 #: templates/settings.php:28
 msgid "Bookmark html file"
-msgstr ""
+msgstr "Добавить html-файл в закладки "
 
 #: templates/settings.php:30
 msgid "Import"
-msgstr ""
+msgstr "Импортировать"
 
 #: templates/settings.php:33
 msgid "Export bookmarks"
-msgstr ""
+msgstr "Экспорт закладок"
 
 #: templates/settings.php:35
 msgid "Export"
-msgstr ""
+msgstr "Экспортировать"

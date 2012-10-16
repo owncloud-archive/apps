@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-13 02:05+0200\n"
-"PO-Revision-Date: 2012-10-12 19:40+0000\n"
-"Last-Translator: Richard Bos <radoeka@gmail.com>\n"
+"POT-Creation-Date: 2012-10-16 02:05+0200\n"
+"PO-Revision-Date: 2012-10-16 00:06+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,15 +67,7 @@ msgstr "Er werd geen bestandslocatie meegegeven."
 msgid "An error occurred while parsing the file."
 msgstr "Fout tijdens het valideren van bestand."
 
-#: ajax/loadfeed.php:39 templates/part.feeds.php:50
-msgid "Starred"
-msgstr "Ster gegeven"
-
-#: ajax/loadfeed.php:44 templates/part.feeds.php:44
-msgid "New articles"
-msgstr "Nieuwe artikelen"
-
-#: ajax/loadfeed.php:56
+#: ajax/loadfeed.php:52
 msgid "Feed loaded!"
 msgstr "Feed geladen!"
 
@@ -103,17 +95,17 @@ msgstr "Fout tijdens het updaten van feed."
 msgid "Feed updated!"
 msgstr "Feed geüpdate!"
 
-#: appinfo/app.php:35
+#: appinfo/app.php:36
 msgid "News"
 msgstr "Nieuws"
 
-#: js/items.js:118
+#: js/items.js:123
 msgid "Error while loading the feed"
 msgstr "Fout tijdens het laden van de feed"
 
-#: js/items.js:118 js/items.js:560 js/items.js:665 js/main.js:114
-#: js/menu.js:534 js/menu.js:595 js/menu.js:617 js/menu.js:644 js/menu.js:666
-#: js/menu.js:916 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
+#: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
+#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
@@ -123,23 +115,23 @@ msgstr "Fout"
 msgid "None"
 msgstr "Geen"
 
-#: js/main.js:101 templates/main.php:15
+#: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
 msgstr "Toon alleen ongelezen"
 
-#: js/main.js:105 templates/main.php:11
+#: js/main.js:105 templates/main.php:14
 msgid "Show everything"
 msgstr "Toon alles"
 
-#: js/menu.js:507
+#: js/menu.js:505
 msgid "Are you sure you want to delete this feed?"
 msgstr "Ben je zeker dat je deze feed wil verwijderen?"
 
-#: js/menu.js:515
+#: js/menu.js:513
 msgid "Are you sure you want to delete this folder and all its feeds?"
 msgstr "Ben je zeker dat je deze map en alle feeds erin wil verwijderen?"
 
-#: js/menu.js:523
+#: js/menu.js:521
 msgid "Warning"
 msgstr "Waarschuwing"
 
@@ -228,15 +220,15 @@ msgstr "Downloaden"
 msgid "Select file"
 msgstr "Selecteer bestand"
 
-#: lib/feedmapper.php:167 lib/itemmapper.php:201
+#: lib/feedmapper.php:180 lib/itemmapper.php:204
 msgid "no title"
 msgstr "geen titel"
 
-#: lib/foldermapper.php:119
+#: lib/foldermapper.php:127
 msgid "no name"
 msgstr "geen naam"
 
-#: lib/itemmapper.php:206
+#: lib/itemmapper.php:209
 msgid "no body"
 msgstr "geen inhoud"
 
@@ -299,23 +291,23 @@ msgstr "Selecteer bestand vanuit <a href=\"#\" class=\"settings\" id=\"browselin
 msgid "Or..."
 msgstr "Of..."
 
-#: templates/main.php:33
+#: templates/main.php:35
 msgid "Add feed or folder"
 msgstr "Voeg feed of map toe"
 
-#: templates/main.php:34
+#: templates/main.php:36
 msgid "Add Feed/Folder"
 msgstr "Voeg Feed/Map Toe"
 
-#: templates/main.php:36
+#: templates/main.php:38
 msgid "Feed"
 msgstr "Feed"
 
-#: templates/main.php:37
+#: templates/main.php:39
 msgid "Folder"
 msgstr "Map"
 
-#: templates/main.php:44
+#: templates/main.php:46
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -347,40 +339,52 @@ msgstr "Kies map"
 msgid "Add"
 msgstr "Toevoegen"
 
-#: templates/part.feeds.php:46 templates/part.listfeed.php:26
-#: templates/part.listfolder.php:21
+#: templates/part.feeds.php:47
+msgid "New articles"
+msgstr "Nieuwe artikelen"
+
+#: templates/part.feeds.php:49 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:34
 msgid "Mark all read"
 msgstr "Markeer alles als gelezen"
 
-#: templates/part.items.php:35
+#: templates/part.feeds.php:53
+msgid "Starred"
+msgstr "Ster gegeven"
+
+#: templates/part.items.php:17
 msgid "Mark as unimportant"
 msgstr "Markeer als onbelangrijk"
 
-#: templates/part.items.php:38
+#: templates/part.items.php:20
 msgid "Mark as important"
 msgstr "Markeer als belangrijk"
 
-#: templates/part.items.php:55
+#: templates/part.items.php:37
+msgid "from"
+msgstr ""
+
+#: templates/part.items.php:43
 msgid "by"
 msgstr "door "
 
-#: templates/part.items.php:62
+#: templates/part.items.php:56
 msgid "Keep unread"
 msgstr "Bewaar ongelezen"
 
-#: templates/part.listfeed.php:25
+#: templates/part.listfeed.php:33
 msgid "Delete feed"
 msgstr "Verwijder feed"
 
-#: templates/part.listfolder.php:16
+#: templates/part.listfolder.php:29
 msgid "Collapse"
 msgstr "Inklappen"
 
-#: templates/part.listfolder.php:19
+#: templates/part.listfolder.php:32
 msgid "Delete folder"
 msgstr "Verwijder map"
 
-#: templates/part.listfolder.php:20
+#: templates/part.listfolder.php:33
 msgid "Rename folder"
 msgstr "Hernoem map"
 

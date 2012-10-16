@@ -31,6 +31,7 @@ var News = News || {};
         this._$articleList.scrollTop(0);
         this._$articleList.children('ul').children('.feed_item:eq(0)').addClass('viewed');
         this._itemCache = new ItemCache();
+        this._loadRequest = null;
 
         this._setScrollBottom();
         $(window).resize(function(){
@@ -89,6 +90,10 @@ var News = News || {};
      * @param onSuccessCallback a callback that is executed when the loading succeeded
      */
     Items.prototype.load = function(type, id, onSuccessCallback) {
+        if(this._loadRequest !== null){
+            this._loadRequest.abort();
+        }
+
         this._lastActiveFeedId = id;
         this._lastActiveFeedType = type;
 
@@ -102,7 +107,7 @@ var News = News || {};
         this._$articleList.addClass('loading');
         this._$articleList.children('ul').hide();
 
-        $.post(OC.filePath('news', 'ajax', 'loadfeed.php'), data, function(jsonData) {
+        this._loadRequest = $.post(OC.filePath('news', 'ajax', 'loadfeed.php'), data, function(jsonData) {
             // prevent loading in selected feeds that are not active any more when
             // the post finishes later
             if(self._lastActiveFeedType === type && self._lastActiveFeedId === id){
@@ -396,12 +401,19 @@ var News = News || {};
             if(i === 0){
                 item.setViewed(true);
             }
+            // show items
             if(News.Objects.Menu.isShowAll() ||
                type === News.MenuNodeType.Starred ||
                !item.isRead()){
                 var $itemHtml = item.getHtml();
                 $itemHtml.removeClass('keep_unread');
                 $html.append($itemHtml);
+            }
+            // hide the additional feed anme if its just a normal feed
+            if(type === News.MenuNodeType.Feed){
+                item.showAdditionalFeedTitle(false);
+            } else {
+                item.showAdditionalFeedTitle(true);
             }
         }
         return $html;
@@ -489,6 +501,18 @@ var News = News || {};
             this._$html.addClass('viewed');
         } else {
             this._$html.removeClass('viewed');
+        }
+    };
+
+
+    /**
+     * @param show if true, show the feedtitle on the left side of the author
+     */
+    Item.prototype.showAdditionalFeedTitle = function(show) {
+        if(show){
+            this._$html.find('.from_feed').show();
+        } else {
+            this._$html.find('.from_feed').hide();
         }
     };
 
