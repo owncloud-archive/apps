@@ -24,7 +24,7 @@ The App is not complete yet...
 ##ToDo
 
 * Background Job to scan all files
-* Test uploading from Webdav and clients
+* Test uploading from clients
 * Configurations Tune-ups
 * Other OS Testing
 * Look for ideas :P
