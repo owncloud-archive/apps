@@ -45,11 +45,11 @@ function create_zip($files = array(),$destination = '',$overwrite = false) {
 }
 
 $files_to_zip = array(
-  __DIR__.'/css/mappingstyle.css' => '/css/mappingstyle.css',
-  __DIR__.'/css/style.css' => '/css/style.css',
-  __DIR__.OCP\Util::linkToAbsolute('', 'js/jquery-1.7.2.min.js') => '/js/jquery-1.7.2.min.js',
-  __DIR__.'../js/impress.js' => '/js/impress.js',
-  realpath(__DIR__.'/../output/'.$filename.'.html') => $filename.'.html'
+    OCP\Util::linkToAbsolute('impressionist', 'css/mappingstyle.css') => '/css/mappingstyle.css',
+    OCP\Util::linkToAbsolute('impressionist', 'css/player.css') => '/css/style.css',
+    OCP\Util::linkToAbsolute('', 'js/jquery-1.7.2.min.js') => '/js/jquery-1.7.2.min.js',
+    OCP\Util::linkToAbsolute('impressionist', 'js/impress.js') => '/js/impress.js',
+    OCP\Util::linkToAbsolute('impresionist', "output/'.$filename.'.html")=> $filename.'.html'
 );
 //if true, good; if false, zip creation failed
 $result = create_zip($files_to_zip, $filename.'.zip');
@@ -65,17 +65,15 @@ $result = create_zip($files_to_zip, $filename.'.zip');
 
  </head>
  <body>
- <div id="hero">
-  <div class="hero-unit" style="position:absolute; left: 25%;top:30%; font-family:'Open Sans', serif; border: 1px dotted #0ca4eb;">
-  <h1>Congrats! You are all set.</h1>
-  <p>Filename: <?php echo $filename.".zip"?> </p>
-  <p>
-    <a href='<?php echo $filename.".zip"?>' class="btn btn-info btn-large">
-      Download File
-    </a>
-  </p>
-</div>
-</div>
+    <div id="hero">
+       <div class="hero-unit" style="position:absolute; width:800px; text-align:center; left: 25%;top:30%; font-family:'Open Sans', serif; border: 1px dotted #0ca4eb;">
+           <h1>Congrats! You are all set.</h1>
+           <p>Filename: <?php echo $filename.".zip"?> </p>
+           <p>
+             <a href='<?php echo $filename.".zip"?>' class="btn btn-info btn-large">Download File</a>
+           </p>
+       </div>
+   </div>
 
 </body>
 

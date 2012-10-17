@@ -1430,8 +1430,8 @@ function createRevealJSMarkup()
 {
 	var s = $("#outputconsole").html();
 	var news = s.split("div").join("section");
-	console.log("+++++++++++++++++++++++++++++++++++++++++");
-	console.log(news)
+	//console.log("+++++++++++++++++++++++++++++++++++++++++");
+	//console.log(news)
 }
 function reAdjustChildCoords()
 {
