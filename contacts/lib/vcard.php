@@ -132,7 +132,7 @@ class OC_Contacts_VCard {
 		foreach($property->parameters as $key=>&$parameter) {
 			$types = OC_Contacts_App::getTypesOfProperty($property->name);
 			if(is_array($types) && in_array(strtoupper($parameter->name), array_keys($types)) || strtoupper($parameter->name) == 'PREF') {
-				$property->parameters[] = new Sabre_VObject_Parameter('TYPE', $parameter->name);
+				$property->parameters[] = new Sabre\VObject\Parameter('TYPE', $parameter->name);
 			}
 			unset($property->parameters[$key]);
 		}
