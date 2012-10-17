@@ -81,20 +81,34 @@ class OC_Files_Antivirus {
 	private static function _clamav_scan_via_daemon($filepath) {
 		$av_host = \OCP\Config::getAppValue('files_antivirus', 'av_host', '');
 		$av_port = \OCP\Config::getAppValue('files_antivirus', 'av_port', '');
+		$av_chunk_size = \OCP\Config::getAppValue('files_antivirus', 'av_chunk_size', '1024');
 		
 		// try to open a socket to clamav
-		$handler = ($av_host && $av_port) ? @fsockopen($av_host, $av_port) : false;
-
-		if(!$handler) {
+		$shandler = ($av_host && $av_port) ? @fsockopen($av_host, $av_port) : false;
+		if(!$shandler) {
 			\OCP\Util::writeLog('files_antivirus','The clamav module is not configured for daemon mode.', \OCP\Util::ERROR);
 		  return false;
 		}
-
+		
+		$fhandler = fopen($filepath, "r");
+		if(!$shandler) {
+			\OCP\Util::writeLog('files_antivirus','File could not be open.', \OCP\Util::ERROR);
+		  return false;
+		}
+		
 		// request scan from the daemon
 		// TODO: check for remote scanning!
-		fwrite($handler, "SCAN '{$filepath}'\n");
-		$response = fgets($handler);
-		fclose($handler);
+		fwrite($shandler, "zINSTREAM\0");
+		while (!feof($fhandler)) {
+			$chunk = fread($fhandler, $av_chunk_size);
+			\OCP\Util::writeLog('files_antivirus','fwrite :: len: '.strlen($chunk), \OCP\Util::WARN);
+			fwrite($shandler, strlen($chunk));
+			fwrite($shandler, "{$chunk}\0");
+		}
+		$response = fgets($shandler);
+		\OCP\Util::writeLog('files_antivirus','Response :: '.$response, \OCP\Util::WARN);
+		fclose($shandler);
+		fclose($fhandler);
 
 		// clamd returns a string response in the format:
 		// filename: OK
