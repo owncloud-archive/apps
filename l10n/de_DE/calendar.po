@@ -20,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 23:32+0200\n"
-"PO-Revision-Date: 2012-10-16 20:52+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-17 02:02+0200\n"
+"PO-Revision-Date: 2012-10-16 21:45+0000\n"
+"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,7 +66,7 @@ msgstr "Import fehlgeschlagen"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
-msgstr "Der Termin wurde in Deinem Kalender gespeichert."
+msgstr "Der Termin wurde in Ihrem Kalender gespeichert."
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
@@ -211,15 +211,15 @@ msgstr "unbenannt"
 
 #: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
-msgstr "Du besitzt nicht die Berechtigung, diesen Kalender zu aktualisieren."
+msgstr "Sie besitzen nicht die Berechtigung, diesen Kalender zu aktualisieren."
 
 #: lib/calendar.php:233
 msgid "You do not have the permissions to delete this calendar."
-msgstr "Du besitzt nicht die Berechtigung, diesen Kalender zu löschen."
+msgstr "Sie besitzen nicht die Berechtigung, diesen Kalender zu löschen."
 
 #: lib/calendar.php:267
 msgid "You do not have the permissions to add to this calendar."
-msgstr "Du besitzt nicht die Berechtigung, diesem Kalender etwas hinzuzufügen."
+msgstr "Sie besitzen nicht die Berechtigung, diesem Kalender etwas hinzuzufügen."
 
 #: lib/import.php:195 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
@@ -228,15 +228,15 @@ msgstr "Neuer Kalender"
 
 #: lib/object.php:122 lib/object.php:161 lib/object.php:307
 msgid "You do not have the permissions to add events to this calendar."
-msgstr "Du besitzt nicht die Berechtigung, diesem Kalender eine Veranstaltung hinzuzufügen."
+msgstr "Sie besitzen nicht die Berechtigung, diesem Kalender eine Veranstaltung hinzuzufügen."
 
 #: lib/object.php:193 lib/object.php:227
 msgid "You do not have the permissions to edit this event."
-msgstr "Du besitzt nicht die Berechtigung, diese Veranstaltung zu bearbeiten."
+msgstr "Sie besitzen nicht die Berechtigung, diese Veranstaltung zu bearbeiten."
 
 #: lib/object.php:257 lib/object.php:287
 msgid "You do not have the permissions to delete this event."
-msgstr "Du besitzt nicht die Berechtigung, diese Veranstaltung zu löschen."
+msgstr "Sie besitzen nicht die Berechtigung, diese Veranstaltung zu löschen."
 
 #: lib/object.php:452
 msgid "Does not repeat"
@@ -553,7 +553,7 @@ msgstr "Einstellungen"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
-msgstr "Deine Kalender"
+msgstr "Ihre Kalender"
 
 #: templates/part.choosecalendar.php:27
 #: templates/part.choosecalendar.rowfields.php:24
@@ -579,7 +579,7 @@ msgstr "Löschen"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
-msgstr "Für Dich freigegeben von"
+msgstr "Für Sie freigegeben von"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
@@ -749,7 +749,7 @@ msgstr "Kalenderdatei importieren"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr "Bitte wähle einen Kalender."
+msgstr "Bitte wählen Sie einen Kalender."
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
@@ -757,13 +757,13 @@ msgstr "Name des neuen Kalenders"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr "Bitte wähle einen verfügbaren Namen!"
+msgstr "Bitte wählen Sie einen verfügbaren Namen!"
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr "Ein Kalender mit diesem Namen existiert bereits. Solltest Du fortfahren, werden die beiden Kalender zusammengeführt."
+msgstr "Ein Kalender mit diesem Namen existiert bereits. Sollten Sie fortfahren, werden die beiden Kalender zusammengeführt."
 
 #: templates/part.import.php:47
 msgid "Import"
