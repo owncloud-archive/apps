@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2012-10-16 02:05+0200\n"
+"PO-Revision-Date: 2012-09-02 00:04+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: si_LK\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:58
+msgid "My pad"
+msgstr ""
+
+#: templates/index.php:14 templates/index.php:15
+msgid "Settings"
+msgstr ""
+
+#: templates/index.php:17
+msgid "Pad Title"
+msgstr ""
+
+#: templates/index.php:18
+msgid "Open"
+msgstr ""
+
+#: templates/settings.php:15
+msgid "Etherpad service URL"
+msgstr ""
+
+#: templates/settings.php:20
+msgid "Username"
+msgstr ""
+
+#: templates/settings.php:27
+msgid "Save"
+msgstr ""

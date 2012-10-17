@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-16 23:32+0200\n"
+"PO-Revision-Date: 2012-10-16 12:16+0000\n"
+"Last-Translator: marguerite su <i@marguerite.su>\n"
 "Language-Team: Chinese (China) (GB2312) (http://www.transifex.com/projects/p/owncloud/language/zh_CN.GB2312/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -223,159 +223,159 @@ msgstr "未实现"
 msgid "Couldn't get a valid address."
 msgstr "未能获取有效地址。"
 
-#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
-#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
-#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
-#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
-#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
-#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
-#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
-#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
-#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
-#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
-#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:364 js/contacts.js:436
+#: js/contacts.js:443 js/contacts.js:686 js/contacts.js:726 js/contacts.js:752
+#: js/contacts.js:763 js/contacts.js:777 js/contacts.js:797 js/contacts.js:884
+#: js/contacts.js:890 js/contacts.js:902 js/contacts.js:939
+#: js/contacts.js:1213 js/contacts.js:1221 js/contacts.js:1230
+#: js/contacts.js:1265 js/contacts.js:1301 js/contacts.js:1316
+#: js/contacts.js:1342 js/contacts.js:1575 js/contacts.js:1610
+#: js/contacts.js:1630 js/contacts.js:1688 js/contacts.js:1842
+#: js/contacts.js:1985 js/contacts.js:2011 js/contacts.js:2021
+#: js/contacts.js:2024 js/contacts.js:2175 js/contacts.js:2212
+#: js/contacts.js:2247 js/settings.js:26 js/settings.js:46 js/settings.js:76
 #: js/settings.js:113
 msgid "Error"
 msgstr "出错"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "请输入电子邮件地址。"
 
-#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+#: js/contacts.js:177 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr "输入名称"
 
-#: js/contacts.js:177 templates/part.contact.php:35
+#: js/contacts.js:178 templates/part.contact.php:35
 msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
 msgstr "格式自定义，短名称，全名，分隔或用逗号分隔"
 
-#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
-#: js/contacts.js:1482 js/contacts.js:1525
+#: js/contacts.js:184 js/contacts.js:1421 js/contacts.js:1464
+#: js/contacts.js:1483 js/contacts.js:1526
 msgid "Select type"
 msgstr "选择类型"
 
-#: js/contacts.js:214
+#: js/contacts.js:215
 msgid "Select photo"
-msgstr ""
+msgstr "选择相片"
 
-#: js/contacts.js:406
+#: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
 msgstr "您没有权限添加联系人到"
 
-#: js/contacts.js:407
+#: js/contacts.js:408
 msgid "Please select one of your own address books."
 msgstr "请选择一个您自己的地址薄。"
 
-#: js/contacts.js:407
+#: js/contacts.js:408
 msgid "Permission error"
 msgstr "权限错误"
 
-#: js/contacts.js:481
+#: js/contacts.js:482
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "点击以取消删除 \""
 
-#: js/contacts.js:495
+#: js/contacts.js:496
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "取消删除：\""
 
-#: js/contacts.js:725
+#: js/contacts.js:726
 msgid "This property has to be non-empty."
 msgstr "该属性不能为空。"
 
-#: js/contacts.js:751
+#: js/contacts.js:752
 msgid "Couldn't serialize elements."
 msgstr "不能序列化元素"
 
-#: js/contacts.js:762
+#: js/contacts.js:763
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "未知错误。请检查日志。"
 
-#: js/contacts.js:883 js/contacts.js:901
+#: js/contacts.js:884 js/contacts.js:902
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "'deleteProperty' 没有带类型参数调用。请到 bugs.owncloud.org 报告"
 
-#: js/contacts.js:920
+#: js/contacts.js:921
 msgid "Edit name"
 msgstr "编辑名称"
 
-#: js/contacts.js:1212
+#: js/contacts.js:1213
 msgid "No files selected for upload."
 msgstr "未选择要上传的文件。"
 
-#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
+#: js/contacts.js:1221 js/contacts.js:2001 js/contacts.js:2076
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "您试图上传的文件超出了此服务器允许的上传文件最大尺寸。"
 
-#: js/contacts.js:1284
+#: js/contacts.js:1285
 msgid "Error loading profile picture."
 msgstr "加载档案相片出错。"
 
-#: js/contacts.js:1543
+#: js/contacts.js:1544
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "一些联系人标记为删除，但尚未删除。请等待它们被删除。"
 
-#: js/contacts.js:1614
+#: js/contacts.js:1615
 msgid "Do you want to merge these address books?"
 msgstr "您想要合并这些地址薄吗？"
 
-#: js/contacts.js:1767
+#: js/contacts.js:1768
 msgid "Shared by "
-msgstr ""
+msgstr "分享自"
 
-#: js/contacts.js:2000 js/contacts.js:2075
+#: js/contacts.js:2001 js/contacts.js:2076
 msgid "Upload too large"
 msgstr "上传过大"
 
-#: js/contacts.js:2004
+#: js/contacts.js:2005
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "只有图片文件可用于资料相片。"
 
-#: js/contacts.js:2004
+#: js/contacts.js:2005
 msgid "Wrong file type"
-msgstr ""
+msgstr "错误文件格式"
 
-#: js/contacts.js:2010
+#: js/contacts.js:2011
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "您的浏览器不支持 AJAX 上传。请点击资料相片来选择要上传的相片。"
 
-#: js/contacts.js:2068
+#: js/contacts.js:2069
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "不能上传您的文件，由于它是文件夹或者为空文件"
 
-#: js/contacts.js:2068
+#: js/contacts.js:2069
 msgid "Upload Error"
 msgstr "上传错误"
 
-#: js/contacts.js:2123
+#: js/contacts.js:2124
 msgid "Pending"
 msgstr "等待中"
 
-#: js/contacts.js:2155
+#: js/contacts.js:2156
 msgid "Import done"
 msgstr "导入完成"
 
-#: js/contacts.js:2168
+#: js/contacts.js:2169
 msgid "Not all files uploaded. Retrying..."
 msgstr "有文件未上传。重试中..."
 
-#: js/contacts.js:2174
+#: js/contacts.js:2175
 msgid "Something went wrong with the upload, please retry."
 msgstr "上传出错，请重试。"
 
-#: js/contacts.js:2190
+#: js/contacts.js:2191
 msgid "Importing..."
 msgstr "导入中..."
 
-#: js/contacts.js:2211
+#: js/contacts.js:2212
 msgid "The address book name cannot be empty."
 msgstr "地址薄名称不能为空。"
 
@@ -422,13 +422,13 @@ msgstr "删除"
 msgid "Cancel"
 msgstr "取消"
 
-#: js/settings.js:157 templates/settings.php:66
+#: js/settings.js:161 templates/settings.php:66
 msgid "More..."
 msgstr "更多..."
 
-#: js/settings.js:161
+#: js/settings.js:165
 msgid "Less..."
-msgstr ""
+msgstr "更少..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
@@ -518,7 +518,7 @@ msgstr "单位"
 msgid "Home"
 msgstr "家庭"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:648
 msgid "Other"
 msgstr "其他"
 

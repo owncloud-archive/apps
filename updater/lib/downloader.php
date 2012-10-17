@@ -2,10 +2,10 @@
 
 /**
  * ownCloud - Updater plugin
- * 
+ *
  * @author Victor Dubiniuk
  * @copyright 2012 Victor Dubiniuk victor.dubiniuk@gmail.com
- * 
+ *
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  */
@@ -15,7 +15,7 @@ namespace OCA_Updater;
 class Downloader {
 
 	const PACKAGE_ROOT = 'owncloud';
-		
+
 	public static function getPackage($url, $version) {
 		$path = \OC_Helper::tmpFile();
 
@@ -56,12 +56,12 @@ class Downloader {
 			@unlink($path);
 			return false;
 		}
-		
+
 		return $extractDir. DIRECTORY_SEPARATOR . self::PACKAGE_ROOT;
 	}
 
 	public static function getPackageDir($version) {
 		return App::getBackupBase() . $version;
 	}
-	
+
 }

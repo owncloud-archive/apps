@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# I Robot <thomas.mueller@tmit.eu>, 2012.
+#   <niko@nik-o-mat.de>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2012-10-16 23:32+0200\n"
+"PO-Revision-Date: 2012-10-16 20:53+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:58
+msgid "My pad"
+msgstr "Mein Pad"
+
+#: templates/index.php:14 templates/index.php:15
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: templates/index.php:17
+msgid "Pad Title"
+msgstr "Titel des Pads"
+
+#: templates/index.php:18
+msgid "Open"
+msgstr "Öffnen"
+
+#: templates/settings.php:15
+msgid "Etherpad service URL"
+msgstr "URL des Etherpad-Service"
+
+#: templates/settings.php:20
+msgid "Username"
+msgstr "Benutzername"
+
+#: templates/settings.php:27
+msgid "Save"
+msgstr "Speichern"

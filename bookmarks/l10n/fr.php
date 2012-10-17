@@ -2,6 +2,7 @@
 "Bookmarks" => "Favoris",
 "Tags" => "Étiquettes",
 "Edit bookmark" => "Modifier le favori",
+"Are you sure you want to remove this tag from every entry?" => "Êtes-vous certain de vouloir retirer cette étiquette de chaque entrée ?",
 "Warning" => "Attention",
 "Bookm." => "Fav.",
 "Add a bookmark" => "Ajouter un favori",
@@ -9,6 +10,7 @@
 "The title of the page" => "Le titre de la page",
 "The address of the page" => "L'adresse de la page",
 "Description of the page" => "Description de la page",
+"Save" => "Sauvegarder",
 "Drag this to your browser bookmarks and click it, when you want to bookmark a webpage quickly:" => "Glissez ceci dans les favoris de votre navigateur, et cliquer dessus lorsque vous souhaitez ajouter la page en cours à vos marques-pages :",
 "Read later" => "Lire plus tard",
 "Address" => "Adresse",
@@ -17,12 +19,15 @@
 "Image" => "Image",
 "Hide" => "Masquer",
 "Show" => "Afficher",
+"Related Tags" => "Étiquettes similaires",
 "You have no bookmarks" => "Vous n'avez aucun favori",
 "Edit" => "Modifier",
 "Delete" => "Supprimer",
 "Cancel" => "Annuler",
 "Bookmarklet <br />" => "Gestionnaire de favoris <br />",
 "Import bookmarks" => "Importer des favoris",
+"Bookmark html file" => "Mettre en favoris un fichier HTML",
 "Import" => "Importer",
-"Export bookmarks" => "Exporter les favoris"
+"Export bookmarks" => "Exporter les favoris",
+"Export" => "Exporter"
 );

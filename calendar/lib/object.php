@@ -262,6 +262,9 @@ class OC_Calendar_Object{
 		$stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*calendar_objects` WHERE `id` = ?' );
 		$stmt->execute(array($id));
 		OC_Calendar_Calendar::touchCalendar($oldobject['calendarid']);
+
+		OCP\Share::unshareAll('event', $id);
+		
 		OCP\Util::emitHook('OC_Calendar', 'deleteEvent', $id);
 
 		return true;

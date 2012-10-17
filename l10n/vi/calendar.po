@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-16 23:32+0200\n"
+"PO-Revision-Date: 2012-10-16 06:58+0000\n"
+"Last-Translator: khanhnd <khanhnd@kenhgiaiphap.vn>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,15 +48,15 @@ msgstr ""
 
 #: ajax/import/dropimport.php:31 ajax/import/import.php:67
 msgid "events has been saved in the new calendar"
-msgstr ""
+msgstr "sự kiện đã được lưu vào lịch mới."
 
 #: ajax/import/import.php:56
 msgid "Import failed"
-msgstr ""
+msgstr "Nhập thất bại"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
-msgstr ""
+msgstr "sự kiện đã dược lưu vào lịch"
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
@@ -89,11 +89,11 @@ msgstr ""
 
 #: js/calendar.js:539
 msgid "user"
-msgstr ""
+msgstr "người dùng"
 
 #: js/calendar.js:539
 msgid "group"
-msgstr ""
+msgstr "nhóm"
 
 #: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
@@ -161,7 +161,7 @@ msgstr "Ý tưởng"
 
 #: lib/app.php:121
 msgid "Journey"
-msgstr ""
+msgstr "Cuộc hành trình"
 
 #: lib/app.php:122
 msgid "Jubilee"
@@ -201,22 +201,22 @@ msgstr ""
 
 #: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
-msgstr ""
+msgstr "Bạn không có quyền cập nhật lịch này"
 
 #: lib/calendar.php:233
 msgid "You do not have the permissions to delete this calendar."
-msgstr ""
+msgstr "Bạn không có quyền xóa lịch này"
 
-#: lib/calendar.php:265
+#: lib/calendar.php:267
 msgid "You do not have the permissions to add to this calendar."
-msgstr ""
+msgstr "Bạn không có quyền thêm lịch này"
 
-#: lib/import.php:186 templates/calendar.php:12
+#: lib/import.php:195 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Lịch mới"
 
-#: lib/object.php:122 lib/object.php:161 lib/object.php:304
+#: lib/object.php:122 lib/object.php:161 lib/object.php:307
 msgid "You do not have the permissions to add events to this calendar."
 msgstr ""
 
@@ -224,175 +224,175 @@ msgstr ""
 msgid "You do not have the permissions to edit this event."
 msgstr ""
 
-#: lib/object.php:257 lib/object.php:284
+#: lib/object.php:257 lib/object.php:287
 msgid "You do not have the permissions to delete this event."
 msgstr ""
 
-#: lib/object.php:449
+#: lib/object.php:452
 msgid "Does not repeat"
 msgstr "Không lặp lại"
 
-#: lib/object.php:450
+#: lib/object.php:453
 msgid "Daily"
 msgstr "Hàng ngày"
 
-#: lib/object.php:451
+#: lib/object.php:454
 msgid "Weekly"
 msgstr "Hàng tuần"
 
-#: lib/object.php:452
+#: lib/object.php:455
 msgid "Every Weekday"
 msgstr "Mỗi ngày trong tuần"
 
-#: lib/object.php:453
+#: lib/object.php:456
 msgid "Bi-Weekly"
 msgstr "Hai tuần một lần"
 
-#: lib/object.php:454
+#: lib/object.php:457
 msgid "Monthly"
 msgstr "Hàng tháng"
 
-#: lib/object.php:455
+#: lib/object.php:458
 msgid "Yearly"
 msgstr "Hàng năm"
 
-#: lib/object.php:465
+#: lib/object.php:468
 msgid "never"
 msgstr "không thay đổi"
 
-#: lib/object.php:466
+#: lib/object.php:469
 msgid "by occurrences"
 msgstr "bởi xuất hiện"
 
-#: lib/object.php:467
+#: lib/object.php:470
 msgid "by date"
 msgstr "bởi ngày"
 
-#: lib/object.php:477
+#: lib/object.php:480
 msgid "by monthday"
 msgstr "bởi ngày trong tháng"
 
-#: lib/object.php:478
+#: lib/object.php:481
 msgid "by weekday"
 msgstr "bởi ngày trong tuần"
 
-#: lib/object.php:488 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:491 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr "Thứ 2"
 
-#: lib/object.php:489 templates/calendar.php:5
+#: lib/object.php:492 templates/calendar.php:5
 msgid "Tuesday"
 msgstr "Thứ 3"
 
-#: lib/object.php:490 templates/calendar.php:5
+#: lib/object.php:493 templates/calendar.php:5
 msgid "Wednesday"
 msgstr "Thứ 4"
 
-#: lib/object.php:491 templates/calendar.php:5
+#: lib/object.php:494 templates/calendar.php:5
 msgid "Thursday"
 msgstr "Thứ 5"
 
-#: lib/object.php:492 templates/calendar.php:5
+#: lib/object.php:495 templates/calendar.php:5
 msgid "Friday"
 msgstr "Thứ "
 
-#: lib/object.php:493 templates/calendar.php:5
+#: lib/object.php:496 templates/calendar.php:5
 msgid "Saturday"
 msgstr "Thứ 7"
 
-#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:497 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr "Chủ nhật"
 
-#: lib/object.php:504
+#: lib/object.php:507
 msgid "events week of month"
 msgstr "sự kiện trong tuần của tháng"
 
-#: lib/object.php:505
+#: lib/object.php:508
 msgid "first"
 msgstr "đầu tiên"
 
-#: lib/object.php:506
+#: lib/object.php:509
 msgid "second"
 msgstr "Thứ hai"
 
-#: lib/object.php:507
+#: lib/object.php:510
 msgid "third"
 msgstr "Thứ ba"
 
-#: lib/object.php:508
+#: lib/object.php:511
 msgid "fourth"
 msgstr "Thứ tư"
 
-#: lib/object.php:509
+#: lib/object.php:512
 msgid "fifth"
 msgstr "Thứ năm"
 
-#: lib/object.php:510
+#: lib/object.php:513
 msgid "last"
 msgstr ""
 
-#: lib/object.php:544 templates/calendar.php:7
+#: lib/object.php:547 templates/calendar.php:7
 msgid "January"
 msgstr "Tháng 1"
 
-#: lib/object.php:545 templates/calendar.php:7
+#: lib/object.php:548 templates/calendar.php:7
 msgid "February"
 msgstr "Tháng 2"
 
-#: lib/object.php:546 templates/calendar.php:7
+#: lib/object.php:549 templates/calendar.php:7
 msgid "March"
 msgstr "Tháng 3"
 
-#: lib/object.php:547 templates/calendar.php:7
+#: lib/object.php:550 templates/calendar.php:7
 msgid "April"
 msgstr "Tháng 4"
 
-#: lib/object.php:548 templates/calendar.php:7
+#: lib/object.php:551 templates/calendar.php:7
 msgid "May"
 msgstr "Tháng 5"
 
-#: lib/object.php:549 templates/calendar.php:7
+#: lib/object.php:552 templates/calendar.php:7
 msgid "June"
 msgstr "Tháng 6"
 
-#: lib/object.php:550 templates/calendar.php:7
+#: lib/object.php:553 templates/calendar.php:7
 msgid "July"
 msgstr "Tháng 7"
 
-#: lib/object.php:551 templates/calendar.php:7
+#: lib/object.php:554 templates/calendar.php:7
 msgid "August"
 msgstr "Tháng 8"
 
-#: lib/object.php:552 templates/calendar.php:7
+#: lib/object.php:555 templates/calendar.php:7
 msgid "September"
 msgstr "Tháng 9"
 
-#: lib/object.php:553 templates/calendar.php:7
+#: lib/object.php:556 templates/calendar.php:7
 msgid "October"
 msgstr "Tháng 10"
 
-#: lib/object.php:554 templates/calendar.php:7
+#: lib/object.php:557 templates/calendar.php:7
 msgid "November"
 msgstr "Tháng 11"
 
-#: lib/object.php:555 templates/calendar.php:7
+#: lib/object.php:558 templates/calendar.php:7
 msgid "December"
 msgstr "Tháng 12"
 
-#: lib/object.php:565
+#: lib/object.php:568
 msgid "by events date"
 msgstr "Theo ngày tháng sự kiện"
 
-#: lib/object.php:566
+#: lib/object.php:569
 msgid "by yearday(s)"
 msgstr "theo năm"
 
-#: lib/object.php:567
+#: lib/object.php:570
 msgid "by weeknumber(s)"
 msgstr "số tuần"
 
-#: lib/object.php:568
+#: lib/object.php:571
 msgid "by day and month"
 msgstr "ngày, tháng"
 
@@ -406,79 +406,79 @@ msgstr "Cal."
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "Chủ nhật"
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "Thứ hai"
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "Thứ ba"
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "Thứ tư"
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "Thứ năm"
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "Thứ sáu"
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "Thứ bảy"
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "Tháng 1"
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "Tháng 2"
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "Tháng 3"
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "Tháng 4"
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "Tháng 5"
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "Tháng 6"
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "Tháng 7"
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "Tháng 8"
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "Tháng 9"
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "Tháng 10"
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "Tháng 11"
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "Tháng 12"
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -486,7 +486,7 @@ msgstr "Tất cả các ngày"
 
 #: templates/calendar.php:13
 msgid "Missing fields"
-msgstr ""
+msgstr "Trường bị thiếu"
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11
@@ -515,7 +515,7 @@ msgstr "Sự kiện này kết thúc trước khi nó bắt đầu"
 
 #: templates/calendar.php:21
 msgid "There was a database fail"
-msgstr ""
+msgstr "Lỗi truy xuất database"
 
 #: templates/calendar.php:39
 msgid "Week"
@@ -539,14 +539,14 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Tùy chỉnh"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
 msgstr "Lịch của bạn"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:17
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
 msgstr "Liên kết CalDav "
 
@@ -554,15 +554,15 @@ msgstr "Liên kết CalDav "
 msgid "Share Calendar"
 msgstr "Chia sẻ lịch"
 
-#: templates/part.choosecalendar.rowfields.php:20
+#: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
 msgstr "Tải về"
 
-#: templates/part.choosecalendar.rowfields.php:24
+#: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
-#: templates/part.choosecalendar.rowfields.php:29
+#: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "Xóa"
@@ -614,15 +614,15 @@ msgstr "Xuất"
 
 #: templates/part.eventform.php:8 templates/part.showevent.php:3
 msgid "Eventinfo"
-msgstr ""
+msgstr "Thông tin sự kiện"
 
 #: templates/part.eventform.php:9 templates/part.showevent.php:4
 msgid "Repeating"
-msgstr ""
+msgstr "Lặp"
 
 #: templates/part.eventform.php:10 templates/part.showevent.php:5
 msgid "Alarm"
-msgstr ""
+msgstr "Nhắc nhở"
 
 #: templates/part.eventform.php:11 templates/part.showevent.php:6
 msgid "Attendees"
@@ -642,11 +642,11 @@ msgstr "Danh mục"
 
 #: templates/part.eventform.php:29
 msgid "Separate categories with commas"
-msgstr ""
+msgstr "Phân cách bởi dấu phẩy"
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
-msgstr ""
+msgstr "Sửa chuyên mục"
 
 #: templates/part.eventform.php:56 templates/part.showevent.php:52
 msgid "All Day Event"
@@ -735,7 +735,7 @@ msgstr "Tạo lịch mới"
 
 #: templates/part.import.php:17
 msgid "Import a calendar file"
-msgstr ""
+msgstr "Nhập lịch từ tệp tin"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
@@ -769,15 +769,15 @@ msgstr "Tạo một sự kiện mới"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr ""
+msgstr "Chia sẻ với:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr ""
+msgstr "Đã chia sẻ với"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "Bỏ chia sẻ"
 
 #: templates/part.share.php:53
 msgid "Nobody"
@@ -823,7 +823,7 @@ msgstr ""
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "Định dạng thời gian"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -835,7 +835,7 @@ msgstr "12h"
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr ""
+msgstr "Ngày bắt đầu trong tuần"
 
 #: templates/settings.php:76
 msgid "Cache"
@@ -855,7 +855,7 @@ msgstr ""
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "thông tin thêm"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"

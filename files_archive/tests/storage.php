@@ -13,7 +13,7 @@ class Archive_Zip extends Storage {
 	 * @var string tmpDir
 	 */
 	private $tmpFile;
-	
+
 	public function setUp() {
 		$this->tmpFile=\OCP\Files::tmpFile('.zip');
 		$this->instance=new \OC\Files\Storage\Archive(array('archive'=>$this->tmpFile));

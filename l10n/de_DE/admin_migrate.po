@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <blobbyjj@ymail.com>, 2012.
+# I Robot <thomas.mueller@tmit.eu>, 2012.
+#   <niko@nik-o-mat.de>, 2012.
+#   <thomas.mueller@tmit.eu>, 2012.
+#   <transifex.3.mensaje@spamgourmet.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2012-10-16 23:32+0200\n"
+"PO-Revision-Date: 2012-10-16 20:52+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/settings.php:3
+msgid "Export this ownCloud instance"
+msgstr "Diese ownCloud-Instanz exportieren."
+
+#: templates/settings.php:5
+msgid ""
+"This will create a compressed file that contains the data of this owncloud "
+"instance."
+msgstr "Eine komprimierte Datei wird erstellt, welche die Daten dieser ownCloud-Instanz enthält."
+
+#: templates/settings.php:7
+msgid "Please choose the export type:"
+msgstr "Bitte wähle die Art des Exports:"
+
+#: templates/settings.php:10
+msgid "ownCloud instance (suitable for import)"
+msgstr "ownCloud-Instanz (geeignet für den Import)"
+
+#: templates/settings.php:11
+msgid "ownCloud system files"
+msgstr "ownCloud-Systemdateien"
+
+#: templates/settings.php:12
+msgid "Just user files"
+msgstr "Nur Benutzerdateien"
+
+#: templates/settings.php:13
+msgid "Export"
+msgstr "Exportieren"

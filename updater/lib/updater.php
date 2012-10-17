@@ -2,10 +2,10 @@
 
 /**
  * ownCloud - Updater plugin
- * 
+ *
  * @author Victor Dubiniuk
  * @copyright 2012 Victor Dubiniuk victor.dubiniuk@gmail.com
- * 
+ *
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  */
@@ -21,10 +21,10 @@ class Updater {
 		if (!is_dir($backupPath)) {
 			return self::error('Backup directory is not found');
 		}
-		
+
 		self::$_updateDirs = App::getDirectories();
 		self::$_skipDirs = App::getExcludeDirectories();
-		
+
 		set_include_path(
 				$backupPath . PATH_SEPARATOR .
 				$backupPath . DIRECTORY_SEPARATOR . 'lib' . PATH_SEPARATOR .
@@ -40,10 +40,10 @@ class Updater {
 		}
 
 		self::moveDirectories($sourcePath, $tempPath);
-		
+
 		$config = "/config/config.php";
 		copy($tempPath . $config, self::$_updateDirs['core'] . $config);
-		
+
 		return true;
 	}
 
@@ -81,11 +81,11 @@ class Updater {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Log error message
 	 * @param string $message
-	 * @return bool 
+	 * @return bool
 	 */
 	protected static function error($message) {
 		\OC_Log::write(App::APP_ID, $message, \OC_Log::ERROR);

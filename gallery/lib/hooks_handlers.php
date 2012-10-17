@@ -30,7 +30,7 @@ class OC_Gallery_Hooks_Handlers {
 			\OC\Pictures\ThumbnailsManager::getInstance()->getThumbnail($path);
 		}
 	}
-	
+
 	public static function removePhoto($params) {
 		\OC\Pictures\ThumbnailsManager::getInstance()->delete($params[\OC\Files\Filesystem::signal_param_path]);
 	}
@@ -40,7 +40,7 @@ class OC_Gallery_Hooks_Handlers {
 		$newpath = $params[\OC\Files\Filesystem::signal_param_newpath];
 		//TODO: implement this
 	}
-	
+
 	private static function isPhoto ($path) {
 		$ext = strtolower(substr($path, strrpos($path, '.')+1));
 		return $ext=='png' || $ext=='jpeg' || $ext=='jpg' || $ext=='gif';
