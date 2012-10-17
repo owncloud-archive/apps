@@ -6,13 +6,13 @@ v0.1
 
 ##Details
 
-The idea is to check for virus at upload-time, notifing the user (on screen and/or email) and
+The idea is to check for virus at upload-time, notifying the user (on screen and/or email) and
 remove the file if it's infected.
 
 ##Status
 
 The App is not complete yet...
-* It can be configured to work with the excecutable or the daemon (not testet) mode of ClamAV
+* It can be configured to work with the excecutable or the daemon (not tested) mode of ClamAV
 * When the user uploads a file, it's checked
 * If an uploaded file is infected, it's deleted and a notification is shown to the user on screen and an email is sent with details.
 * Tested in Linux only
@@ -25,7 +25,7 @@ The App is not complete yet...
 
 * Background Job to scan all files
 * Test uploading from clients
-* Configurations Tune-ups
+* Configurations Tuneups
 * Other OS Testing
 * Look for ideas :P
 
