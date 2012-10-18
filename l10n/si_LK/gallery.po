@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chamara Disanayake <chamara@nic.lk>, 2012.
 #   <thanojar@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:04+0200\n"
-"PO-Revision-Date: 2012-10-15 10:28+0000\n"
+"POT-Creation-Date: 2012-10-18 02:04+0200\n"
+"PO-Revision-Date: 2012-10-17 06:22+0000\n"
 "Last-Translator: Thanoja <thanojar@gmail.com>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: appinfo/app.php:45
 msgid "Pictures"
-msgstr "ඡායාරූප"
+msgstr "පින්තූර"
 
 #: appinfo/app.php:53
 msgid "Galleries"
@@ -28,7 +29,7 @@ msgstr "ඡායාරූප එකතු සමූහය"
 
 #: js/pictures.js:12
 msgid "Share gallery"
-msgstr "ඡායාරූප එකතුව බෙදා හැරීම"
+msgstr "පින්තූර එකතුව බෙදා හැරීම"
 
 #: js/pictures.js:32
 msgid "Error: "
@@ -46,4 +47,4 @@ msgstr "ස්ලයිඩ ප්‍රදර්ශනය"
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr ""
+msgstr "මෙම යෙදුම භාවිතය සඳහා \"රූප දසුන\" යෙදුම ද සක්‍රීය කළ යුතුය. "

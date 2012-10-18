@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:05+0200\n"
-"PO-Revision-Date: 2012-10-16 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-16 23:32+0200\n"
+"PO-Revision-Date: 2012-10-16 05:36+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,7 +103,7 @@ msgstr "Notizie"
 msgid "Error while loading the feed"
 msgstr "Errore durante il caricamento della fonte"
 
-#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
+#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
@@ -362,7 +362,7 @@ msgstr "Marca come importante"
 
 #: templates/part.items.php:37
 msgid "from"
-msgstr ""
+msgstr "da"
 
 #: templates/part.items.php:43
 msgid "by"

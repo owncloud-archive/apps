@@ -241,6 +241,8 @@ class OC_Calendar_Calendar{
 		$stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*calendar_objects` WHERE `calendarid` = ?' );
 		$stmt->execute(array($id));
 
+		OCP\Share::unshareAll('calendar', $id);
+
 		OCP\Util::emitHook('OC_Calendar', 'deleteCalendar', $id);
 		if(OCP\USER::isLoggedIn() and count(self::allCalendars(OCP\USER::getUser())) == 0) {
 			self::addCalendar(OCP\USER::getUser(),'Default calendar');

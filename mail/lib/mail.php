@@ -239,8 +239,8 @@ class App
 				foreach ($sec_modes as $sec_mode) {
 					$account['ssl_mode'] = $sec_mode;
 					try {
-						$account = new Account($account_info);
-						$client = $account->getImapConnection();
+						$test_account = new Account($account);
+						$client = $test_account->getImapConnection();
 						return App::addAccount($user_id, $h, $port, $user, $password, $sec_mode);
 					} catch (\Horde_Imap_Client_Exception $e) {
 						// nothing to do

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-12 02:04+0200\n"
-"PO-Revision-Date: 2012-10-11 08:59+0000\n"
+"POT-Creation-Date: 2012-10-16 23:32+0200\n"
+"PO-Revision-Date: 2012-10-16 11:21+0000\n"
 "Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr "Импортировать пользовательскую учетну
 
 #: templates/settings.php:15
 msgid "ownCloud User Zip"
-msgstr ""
+msgstr "ownCloud пользовательский Zip"
 
 #: templates/settings.php:17
 msgid "Import"

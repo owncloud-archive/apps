@@ -552,6 +552,9 @@ class OC_Contacts_VCard {
 			);
 		}
 		OC_Contacts_App::getVCategories()->purgeObject($id);
+
+		OCP\Share::unshareAll('contact', $id);
+
 		return true;
 	}
 
