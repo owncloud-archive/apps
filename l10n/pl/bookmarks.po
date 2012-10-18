@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Cyryl Sochacki <>, 2012.
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-11 02:03+0200\n"
-"PO-Revision-Date: 2012-10-11 00:05+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-18 02:03+0200\n"
+"PO-Revision-Date: 2012-10-17 10:15+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,15 +29,15 @@ msgstr "Tagi"
 
 #: js/bookmarks.js:178
 msgid "Edit bookmark"
-msgstr ""
-
-#: js/bookmarks.js:409
-msgid "Are you sure you want to remove this tag from every entry?"
-msgstr ""
+msgstr "Edytuj zakładkę"
 
 #: js/bookmarks.js:410
+msgid "Are you sure you want to remove this tag from every entry?"
+msgstr "Czy na pewno chcesz usunąć ten tag na każdym wejściu?"
+
+#: js/bookmarks.js:411
 msgid "Warning"
-msgstr ""
+msgstr "Ostrzeżenie"
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -44,27 +45,27 @@ msgstr "Zakładka"
 
 #: templates/addBm.php:11
 msgid "Add a bookmark"
-msgstr ""
+msgstr "Dodaj zakładkę"
 
 #: templates/addBm.php:14
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: templates/addBm.php:22 templates/list.php:91
 msgid "The title of the page"
-msgstr ""
+msgstr "Tytuł strony"
 
 #: templates/addBm.php:27 templates/list.php:95
 msgid "The address of the page"
-msgstr ""
+msgstr "Adres strony"
 
 #: templates/addBm.php:40 templates/list.php:104
 msgid "Description of the page"
-msgstr ""
+msgstr "Opis strony"
 
 #: templates/addBm.php:44 templates/list.php:108
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
 #: templates/bookmarklet.php:5
 msgid ""
@@ -82,27 +83,27 @@ msgstr "Adres"
 
 #: templates/list.php:13
 msgid "Add bookmark"
-msgstr ""
+msgstr "Dodaj zakładkę"
 
 #: templates/list.php:16
 msgid "List"
-msgstr ""
+msgstr "Lista"
 
 #: templates/list.php:17
 msgid "Image"
-msgstr ""
+msgstr "Obraz"
 
 #: templates/list.php:22
 msgid "Hide"
-msgstr ""
+msgstr "Schowaj"
 
 #: templates/list.php:23
 msgid "Show"
-msgstr ""
+msgstr "Pokaż"
 
 #: templates/list.php:30
 msgid "Related Tags"
-msgstr ""
+msgstr "Powiązane Tagi"
 
 #: templates/list.php:39
 msgid "You have no bookmarks"
@@ -110,15 +111,15 @@ msgstr "Nie masz żadnych zakładek"
 
 #: templates/list.php:64
 msgid "Edit"
-msgstr ""
+msgstr "Edytuj"
 
 #: templates/list.php:68
 msgid "Delete"
-msgstr ""
+msgstr "Usuń"
 
 #: templates/list.php:107
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
@@ -126,20 +127,20 @@ msgstr "Skryptozakładka <br />"
 
 #: templates/settings.php:26
 msgid "Import bookmarks"
-msgstr ""
+msgstr "Importuj zakładki"
 
 #: templates/settings.php:28
 msgid "Bookmark html file"
-msgstr ""
+msgstr "Plik HTML zakładek"
 
 #: templates/settings.php:30
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 #: templates/settings.php:33
 msgid "Export bookmarks"
-msgstr ""
+msgstr "Eksportuj zakładki"
 
 #: templates/settings.php:35
 msgid "Export"
-msgstr ""
+msgstr "Export"

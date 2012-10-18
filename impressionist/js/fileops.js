@@ -15,11 +15,11 @@ function createArchiveAndDownload()
 	var filename = currentSaveName+"_"+new Date().getTime();
 	$.ajax({
 			type: 'POST',
-			 url: "../lib/generateArchive.php",
+			 url: "apps/impressionist/lib/generateArchive.php",
 			 data: {data:previewoutputstring, filename:filename},
 			 success: function(msg)
 			 {
-			 	window.open("../lib/download.php?filename="+filename, "_blank");
+			 	window.open("apps/impressionist/lib/download.php?filename="+filename, "_blank");
 			 }
 	});
 }
