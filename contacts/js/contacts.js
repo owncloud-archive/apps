@@ -732,6 +732,9 @@ OC.Contacts={
 			var name = container.data('element');
 			var fields = container.find('input.contacts_property,select.contacts_property').serializeArray();
 			switch(name) {
+				case 'CATEGORIES':
+					OC.Contacts.Contacts.updateCategories(this.id, $('#categories').val());
+					break;
 				case 'FN':
 					var nempty = true;
 					for(var i in OC.Contacts.Card.data.N[0]['value']) {
@@ -1634,6 +1637,40 @@ OC.Contacts={
 				return false;
 			}
 		},
+		updateCategories:function(id, catstr) {
+			var categories = $.map(catstr.split(','), function(category) {return category.trim();});
+			console.log('updateCategories', id, categories);
+			
+			// Not pretty, but only proof of concept
+			$('#contacts ul.category').each(function() {
+				console.log('Updating category', $(this).prev('h3').text())
+				if(categories.indexOf($(this).prev('h3').text()) === -1) {
+					console.log($(this).prev('h3').text(), 'not in ', categories);
+					$(this).find('li[data-id="' + id + '"]').remove();
+				} else {
+					if($(this).find('li[data-id="' + id + '"]').length === 0) {
+						var contacts = $(this).children();
+						var contact =  $('<li data-id="'+id+'" data-categoryid="'+$(this).data('id')
+							+ '" role="button"><a href="'+OC.linkTo('contacts', 'index.php')+'&id='
+							+ id+'"  style="background: url('+OC.filePath('contacts', '', 'thumbnail.php')
+							+ '?id='+id+') no-repeat scroll 0% 0% transparent;">'
+							+ OC.Contacts.Card.fn+'</a></li>');
+
+						var added = false;
+						contacts.each(function() {
+							if($(this).text().toLowerCase().localeCompare(OC.Contacts.Card.fn.toLowerCase()) > 0) {
+								$(this).before(contact);
+								added = true;
+								return false; // break out of loop
+							}
+						});
+						if(!added || !contacts.length) {
+							$(this).append(contact);
+						}
+					}
+				}
+			});
+		},
 		/**
 		 * @params params An object with the properties 'contactlist':a jquery object of the ul to insert into,
 		 * 'contacts':a jquery object of all items in the list and either 'data': an object with the properties
@@ -1891,18 +1928,6 @@ OC.Contacts={
 										if(!added || !params.contacts) {
 											contactlist.append(contact);
 										}
-										/*var contact = OC.Contacts.Contacts.insertContact({contactlist:contactlist, contacts:contacts, data:categories.contacts[c]});
-										if(c == self.batchnum-10) {
-											contact.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
-												$(this).unbind(event);
-												var bookid = $(this).data('bookid');
-												var numsiblings = $('.contacts li[data-bookid="'+bookid+'"]').length;
-												if (isInView && numsiblings >= self.batchnum) {
-													console.log('This would be a good time to load more contacts.');
-													OC.Contacts.Contacts.update({cid:params.cid, aid:bookid, start:$('#contacts li[data-bookid="'+bookid+'"]').length});
-												}
-											});
-										}*/
 									}
 								}
 							}
