@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chamara Disanayake <chamara@nic.lk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:04+0200\n"
-"PO-Revision-Date: 2011-09-23 17:10+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-10-18 02:03+0200\n"
+"PO-Revision-Date: 2012-10-17 10:26+0000\n"
+"Last-Translator: Chamara Disanayake <chamara@nic.lk>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -511,19 +512,19 @@ msgstr ""
 
 #: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
 msgid "Work"
-msgstr ""
+msgstr "රාජකාරී"
 
 #: lib/app.php:195 lib/app.php:200 lib/app.php:214
 msgid "Home"
 msgstr ""
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:648
 msgid "Other"
 msgstr ""
 
 #: lib/app.php:201
 msgid "Mobile"
-msgstr ""
+msgstr "ජංගම"
 
 #: lib/app.php:203
 msgid "Text"
@@ -539,7 +540,7 @@ msgstr ""
 
 #: lib/app.php:206
 msgid "Fax"
-msgstr ""
+msgstr "ෆැක්ස්"
 
 #: lib/app.php:207
 msgid "Video"
@@ -556,7 +557,7 @@ msgstr ""
 #: lib/app.php:252 templates/part.contact.php:45
 #: templates/part.contact.php:128
 msgid "Birthday"
-msgstr ""
+msgstr "උපන් දිනය"
 
 #: lib/app.php:253
 msgid "Business"
@@ -909,7 +910,7 @@ msgstr ""
 #: templates/part.edit_address_dialog.php:54
 #: templates/part.edit_address_dialog.php:57
 msgid "Country"
-msgstr ""
+msgstr "රට"
 
 #: templates/part.edit_name_dialog.php:16
 msgid "Addressbook"
@@ -1070,4 +1071,4 @@ msgstr ""
 
 #: templates/settings.php:60
 msgid "Save"
-msgstr ""
+msgstr "සුරකින්න"

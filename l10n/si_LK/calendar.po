@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chamara Disanayake <chamara@nic.lk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:04+0200\n"
-"PO-Revision-Date: 2011-09-03 16:52+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-10-18 02:03+0200\n"
+"PO-Revision-Date: 2012-10-17 08:13+0000\n"
+"Last-Translator: Chamara Disanayake <chamara@nic.lk>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,7 +71,7 @@ msgstr ""
 #: appinfo/app.php:38 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
-msgstr ""
+msgstr "දිනදසුන"
 
 #: js/calendar.js:96
 msgid "Deletion failed"
@@ -130,11 +131,11 @@ msgstr ""
 
 #: lib/app.php:114
 msgid "Birthday"
-msgstr ""
+msgstr "උපන්දින"
 
 #: lib/app.php:115
 msgid "Business"
-msgstr ""
+msgstr "ව්‍යාපාරික"
 
 #: lib/app.php:116
 msgid "Call"
@@ -150,11 +151,11 @@ msgstr ""
 
 #: lib/app.php:119
 msgid "Holidays"
-msgstr ""
+msgstr "නිවාඩු දින"
 
 #: lib/app.php:120
 msgid "Ideas"
-msgstr ""
+msgstr "අදහස්"
 
 #: lib/app.php:121
 msgid "Journey"
@@ -166,23 +167,23 @@ msgstr ""
 
 #: lib/app.php:123
 msgid "Meeting"
-msgstr ""
+msgstr "රැස්වීම"
 
 #: lib/app.php:124
 msgid "Other"
-msgstr ""
+msgstr "වෙනත්"
 
 #: lib/app.php:125
 msgid "Personal"
-msgstr ""
+msgstr "පෞද්ගලික"
 
 #: lib/app.php:126
 msgid "Projects"
-msgstr ""
+msgstr "ව්‍යාපෘති"
 
 #: lib/app.php:127
 msgid "Questions"
-msgstr ""
+msgstr "ප්‍රශ්න"
 
 #: lib/app.php:128
 msgid "Work"
@@ -204,7 +205,7 @@ msgstr ""
 msgid "You do not have the permissions to delete this calendar."
 msgstr ""
 
-#: lib/calendar.php:265
+#: lib/calendar.php:267
 msgid "You do not have the permissions to add to this calendar."
 msgstr ""
 
@@ -213,7 +214,7 @@ msgstr ""
 msgid "New Calendar"
 msgstr ""
 
-#: lib/object.php:122 lib/object.php:161 lib/object.php:304
+#: lib/object.php:122 lib/object.php:161 lib/object.php:307
 msgid "You do not have the permissions to add events to this calendar."
 msgstr ""
 
@@ -221,175 +222,175 @@ msgstr ""
 msgid "You do not have the permissions to edit this event."
 msgstr ""
 
-#: lib/object.php:257 lib/object.php:284
+#: lib/object.php:257 lib/object.php:287
 msgid "You do not have the permissions to delete this event."
 msgstr ""
 
-#: lib/object.php:449
+#: lib/object.php:452
 msgid "Does not repeat"
 msgstr ""
 
-#: lib/object.php:450
-msgid "Daily"
-msgstr ""
-
-#: lib/object.php:451
-msgid "Weekly"
-msgstr ""
-
-#: lib/object.php:452
-msgid "Every Weekday"
-msgstr ""
-
 #: lib/object.php:453
-msgid "Bi-Weekly"
-msgstr ""
+msgid "Daily"
+msgstr "දිනපතා"
 
 #: lib/object.php:454
-msgid "Monthly"
-msgstr ""
+msgid "Weekly"
+msgstr "සතිපතා"
 
 #: lib/object.php:455
-msgid "Yearly"
-msgstr ""
+msgid "Every Weekday"
+msgstr "සෑම වඩකරන දිනකම"
 
-#: lib/object.php:465
+#: lib/object.php:456
+msgid "Bi-Weekly"
+msgstr "දෙසතියකට වරක්"
+
+#: lib/object.php:457
+msgid "Monthly"
+msgstr "මාසික"
+
+#: lib/object.php:458
+msgid "Yearly"
+msgstr "වාර්ෂික"
+
+#: lib/object.php:468
 msgid "never"
 msgstr ""
 
-#: lib/object.php:466
+#: lib/object.php:469
 msgid "by occurrences"
 msgstr ""
 
-#: lib/object.php:467
+#: lib/object.php:470
 msgid "by date"
 msgstr ""
 
-#: lib/object.php:477
+#: lib/object.php:480
 msgid "by monthday"
 msgstr ""
 
-#: lib/object.php:478
+#: lib/object.php:481
 msgid "by weekday"
 msgstr ""
 
-#: lib/object.php:488 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:491 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
-msgstr ""
-
-#: lib/object.php:489 templates/calendar.php:5
-msgid "Tuesday"
-msgstr ""
-
-#: lib/object.php:490 templates/calendar.php:5
-msgid "Wednesday"
-msgstr ""
-
-#: lib/object.php:491 templates/calendar.php:5
-msgid "Thursday"
-msgstr ""
+msgstr "සඳුදා"
 
 #: lib/object.php:492 templates/calendar.php:5
-msgid "Friday"
-msgstr ""
+msgid "Tuesday"
+msgstr "අඟහරුවාදා"
 
 #: lib/object.php:493 templates/calendar.php:5
+msgid "Wednesday"
+msgstr "බදාදා"
+
+#: lib/object.php:494 templates/calendar.php:5
+msgid "Thursday"
+msgstr "බ්‍රහස්පතින්දා"
+
+#: lib/object.php:495 templates/calendar.php:5
+msgid "Friday"
+msgstr "සිකුරාදා"
+
+#: lib/object.php:496 templates/calendar.php:5
 msgid "Saturday"
-msgstr ""
+msgstr "සෙනසුරාදා"
 
-#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:497 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
-msgstr ""
+msgstr "ඉරිදා"
 
-#: lib/object.php:504
+#: lib/object.php:507
 msgid "events week of month"
 msgstr ""
 
-#: lib/object.php:505
-msgid "first"
-msgstr ""
-
-#: lib/object.php:506
-msgid "second"
-msgstr ""
-
-#: lib/object.php:507
-msgid "third"
-msgstr ""
-
 #: lib/object.php:508
-msgid "fourth"
-msgstr ""
+msgid "first"
+msgstr "පළමු"
 
 #: lib/object.php:509
-msgid "fifth"
-msgstr ""
+msgid "second"
+msgstr "දෙවන "
 
 #: lib/object.php:510
+msgid "third"
+msgstr "තෙවන"
+
+#: lib/object.php:511
+msgid "fourth"
+msgstr "සිව්වන"
+
+#: lib/object.php:512
+msgid "fifth"
+msgstr "පස්වන"
+
+#: lib/object.php:513
 msgid "last"
-msgstr ""
-
-#: lib/object.php:544 templates/calendar.php:7
-msgid "January"
-msgstr ""
-
-#: lib/object.php:545 templates/calendar.php:7
-msgid "February"
-msgstr ""
-
-#: lib/object.php:546 templates/calendar.php:7
-msgid "March"
-msgstr ""
+msgstr "අවසාන"
 
 #: lib/object.php:547 templates/calendar.php:7
-msgid "April"
-msgstr ""
+msgid "January"
+msgstr "ජනවාරි"
 
 #: lib/object.php:548 templates/calendar.php:7
-msgid "May"
-msgstr ""
+msgid "February"
+msgstr "පෙබරවාරි"
 
 #: lib/object.php:549 templates/calendar.php:7
-msgid "June"
-msgstr ""
+msgid "March"
+msgstr "මාර්තු"
 
 #: lib/object.php:550 templates/calendar.php:7
-msgid "July"
-msgstr ""
+msgid "April"
+msgstr "අප්‍රේල්"
 
 #: lib/object.php:551 templates/calendar.php:7
-msgid "August"
-msgstr ""
+msgid "May"
+msgstr "මැයි"
 
 #: lib/object.php:552 templates/calendar.php:7
-msgid "September"
-msgstr ""
+msgid "June"
+msgstr "ජූනි"
 
 #: lib/object.php:553 templates/calendar.php:7
-msgid "October"
-msgstr ""
+msgid "July"
+msgstr "ජූලි"
 
 #: lib/object.php:554 templates/calendar.php:7
-msgid "November"
-msgstr ""
+msgid "August"
+msgstr "අගෝස්තු"
 
 #: lib/object.php:555 templates/calendar.php:7
-msgid "December"
-msgstr ""
+msgid "September"
+msgstr "සැප්තැම්බර්"
 
-#: lib/object.php:565
+#: lib/object.php:556 templates/calendar.php:7
+msgid "October"
+msgstr "ඔක්තෝබර"
+
+#: lib/object.php:557 templates/calendar.php:7
+msgid "November"
+msgstr "නොවැම්බර්"
+
+#: lib/object.php:558 templates/calendar.php:7
+msgid "December"
+msgstr "දෙසැම්බර්"
+
+#: lib/object.php:568
 msgid "by events date"
 msgstr ""
 
-#: lib/object.php:566
+#: lib/object.php:569
 msgid "by yearday(s)"
 msgstr ""
 
-#: lib/object.php:567
+#: lib/object.php:570
 msgid "by weeknumber(s)"
 msgstr ""
 
-#: lib/object.php:568
+#: lib/object.php:571
 msgid "by day and month"
 msgstr ""
 
@@ -403,43 +404,43 @@ msgstr ""
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "ඉරිදා"
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "සඳුදා"
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "අඟ."
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "බදාදා"
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "බ්‍රහස්."
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "සිකු."
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "සෙන."
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "ජන."
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "පෙබ."
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "මාර්තු"
 
 #: templates/calendar.php:8
 msgid "Apr."
@@ -479,7 +480,7 @@ msgstr ""
 
 #: templates/calendar.php:11
 msgid "All day"
-msgstr ""
+msgstr "සියළු දින"
 
 #: templates/calendar.php:13
 msgid "Missing fields"
@@ -488,11 +489,11 @@ msgstr ""
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11
 msgid "Title"
-msgstr ""
+msgstr "මාතෘකාව"
 
 #: templates/calendar.php:16
 msgid "From Date"
-msgstr ""
+msgstr "දින සිට"
 
 #: templates/calendar.php:17
 msgid "From Time"
@@ -500,7 +501,7 @@ msgstr ""
 
 #: templates/calendar.php:18
 msgid "To Date"
-msgstr ""
+msgstr "දින දක්වා"
 
 #: templates/calendar.php:19
 msgid "To Time"
@@ -516,11 +517,11 @@ msgstr ""
 
 #: templates/calendar.php:39
 msgid "Week"
-msgstr ""
+msgstr "සතිය"
 
 #: templates/calendar.php:40
 msgid "Month"
-msgstr ""
+msgstr "මාසය"
 
 #: templates/calendar.php:41
 msgid "List"
@@ -528,7 +529,7 @@ msgstr ""
 
 #: templates/calendar.php:45
 msgid "Today"
-msgstr ""
+msgstr "අද"
 
 #: templates/calendar.php:46
 msgid "Calendars"
@@ -553,16 +554,16 @@ msgstr ""
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
-msgstr ""
+msgstr "බාගත කිරීම"
 
 #: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
-msgstr ""
+msgstr "සැකසීම"
 
 #: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
-msgstr ""
+msgstr "මකන්න"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
@@ -574,32 +575,32 @@ msgstr ""
 
 #: templates/part.editcalendar.php:9
 msgid "Edit calendar"
-msgstr ""
+msgstr "දින දසුන සකසන්න"
 
 #: templates/part.editcalendar.php:12
 msgid "Displayname"
-msgstr ""
+msgstr "පෙන්වන නම"
 
 #: templates/part.editcalendar.php:23
 msgid "Active"
-msgstr ""
+msgstr "සක්‍රීය"
 
 #: templates/part.editcalendar.php:29
 msgid "Calendar color"
-msgstr ""
+msgstr "දිනදසුනේ පැහැය"
 
 #: templates/part.editcalendar.php:42
 msgid "Save"
-msgstr ""
+msgstr "සුරකින්න"
 
 #: templates/part.editcalendar.php:42 templates/part.editevent.php:8
 #: templates/part.newevent.php:6
 msgid "Submit"
-msgstr ""
+msgstr "යොමු කරන්න"
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"
-msgstr ""
+msgstr "එපා"
 
 #: templates/part.editevent.php:1
 msgid "Edit an event"
@@ -635,7 +636,7 @@ msgstr ""
 
 #: templates/part.eventform.php:27 templates/part.showevent.php:19
 msgid "Category"
-msgstr ""
+msgstr "වර්ගය"
 
 #: templates/part.eventform.php:29
 msgid "Separate categories with commas"
@@ -651,11 +652,11 @@ msgstr ""
 
 #: templates/part.eventform.php:60 templates/part.showevent.php:56
 msgid "From"
-msgstr ""
+msgstr "සිට"
 
 #: templates/part.eventform.php:68 templates/part.showevent.php:64
 msgid "To"
-msgstr ""
+msgstr "දකවා"
 
 #: templates/part.eventform.php:76 templates/part.showevent.php:72
 msgid "Advanced options"
@@ -663,7 +664,7 @@ msgstr ""
 
 #: templates/part.eventform.php:81 templates/part.showevent.php:77
 msgid "Location"
-msgstr ""
+msgstr "ස්ථානය"
 
 #: templates/part.eventform.php:83
 msgid "Location of the Event"
@@ -671,7 +672,7 @@ msgstr ""
 
 #: templates/part.eventform.php:89 templates/part.showevent.php:85
 msgid "Description"
-msgstr ""
+msgstr "විස්තර"
 
 #: templates/part.eventform.php:91
 msgid "Description of the Event"
@@ -824,11 +825,11 @@ msgstr ""
 
 #: templates/settings.php:57
 msgid "24h"
-msgstr ""
+msgstr "පැය 24"
 
 #: templates/settings.php:58
 msgid "12h"
-msgstr ""
+msgstr "පැය 12"
 
 #: templates/settings.php:64
 msgid "Start week on"
