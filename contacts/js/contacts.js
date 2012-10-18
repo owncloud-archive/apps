@@ -1955,6 +1955,7 @@ $(document).ready(function(){
 
 	OCCategories.changed = OC.Contacts.Card.categoriesChanged;
 	OCCategories.app = 'contacts';
+	OCCategories.type = 'contact';
 
 	var ninjahelp = $('#ninjahelp');
 
