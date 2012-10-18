@@ -21,7 +21,7 @@
  *
  */
 
-$params = array('av_mode', 'av_host', 'av_port', 'av_path',);
+$params = array('av_mode', 'av_host', 'av_port', 'av_chunk_size', 'av_path',);
 
 if($_POST){
 	foreach($params as $param){

@@ -2,7 +2,7 @@
 
 files_antivirus is an antivirus app for [Owncloud](https://github.com/owncloud) based on [ClamAV](http://www.clamav.net).
 
-v0.1
+v0.2
 
 ##Details
 
@@ -12,19 +12,19 @@ remove the file if it's infected.
 ##Status
 
 The App is not complete yet...
-* It can be configured to work with the excecutable or the daemon (not tested) mode of ClamAV
+* It can be configured to work with the excecutable or the daemon mode of ClamAV
+* In daemon mode, it sends files to a remote/local server using INSTREAM command
 * When the user uploads a file, it's checked
 * If an uploaded file is infected, it's deleted and a notification is shown to the user on screen and an email is sent with details.
 * Tested in Linux only
 
 ##In progress
 
-* Daemon Mode tests
+* Test uploading from clients
 
 ##ToDo
 
 * Background Job to scan all files
-* Test uploading from clients
 * Configurations Tuneups
 * Other OS Testing
 * Look for ideas :P

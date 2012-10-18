@@ -91,20 +91,19 @@ class OC_Files_Antivirus {
 		}
 		
 		$fhandler = fopen($filepath, "r");
-		if(!$shandler) {
+		if(!$fhandler) {
 			\OCP\Util::writeLog('files_antivirus','File could not be open.', \OCP\Util::ERROR);
 		  return false;
 		}
 		
 		// request scan from the daemon
-		// TODO: check for remote scanning!
-		fwrite($shandler, "zINSTREAM\0");
+		fwrite($shandler, "nINSTREAM\n");
 		while (!feof($fhandler)) {
 			$chunk = fread($fhandler, $av_chunk_size);
-			\OCP\Util::writeLog('files_antivirus','fwrite :: len: '.strlen($chunk), \OCP\Util::WARN);
-			fwrite($shandler, strlen($chunk));
-			fwrite($shandler, "{$chunk}\0");
+			$chunck_len = pack('N', strlen($chunk));
+			fwrite($shandler, $chunck_len.$chunk);
 		}
+		fwrite($shandler, pack('N', 0));
 		$response = fgets($shandler);
 		\OCP\Util::writeLog('files_antivirus','Response :: '.$response, \OCP\Util::WARN);
 		fclose($shandler);

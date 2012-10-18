@@ -6,6 +6,7 @@
 		</p>
 		<p class='av_host'><label for="av_host"><?php echo $l->t('Host');?></label><input type="text" id="av_host" name="av_host" value="<?php echo $_['av_host']; ?>" title="<?php echo $l->t('Address of Antivirus Host. Not required in Executable Mode.');?>"></p>
 		<p class='av_port'><label for="av_port"><?php echo $l->t('Port');?></label><input type="text" id="av_port" name="av_port" value="<?php echo $_['av_port']; ?>" title="<?php echo $l->t('Port number of Antivirus Host. Not required in Executable Mode.');?>"></p>
+		<p class='av_chunk_size'><label for="av_chunk_size"><?php echo $l->t('Stream Length');?></label><input type="text" id="av_chunk_size" name="av_chunk_size" value="<?php echo $_['av_chunk_size']; ?>" title="<?php echo $l->t('ClamAV StreamMaxLength value in bytes. Not required in Executable Mode.');?>"> bytes</p>
 		<p class='av_path'><label for="av_path"><?php echo $l->t('Path to clamscan');?></label><input type="text" id="av_path" name="av_path" value="<?php echo $_['av_path']; ?>" title="<?php echo $l->t('Path to clamscan executable. Not required in Daemon Mode.');?>"></p>
 		<input type="submit" value="<?php echo $l->t('Save');?>" />
 	</fieldset>
