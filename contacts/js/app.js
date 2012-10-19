@@ -102,6 +102,10 @@ var GroupList = function(groupList, listItemTmpl) {
 	this.categories = [];
 }
 
+GroupList.prototype.nameById = function(id) {
+	return this.findById(id).contents().filter(function(){ return(this.nodeType == 3); }).text().trim()
+}
+
 GroupList.prototype.findById = function(id) {
 	return this.$groupList.find('h3[data-id="' + id + '"]');
 }
@@ -119,7 +123,7 @@ GroupList.prototype.addTo = function(contactid, groupid, cb) {
 				return;
 			}
 			if(jsondata.status === 'success') {
-				contacts.push(String(contactid));
+				contacts.push(contactid);
 				$groupelem.data('contacts', contacts);
 				$groupelem.find('.numcontacts').text(contacts.length);
 				if(typeof cb === 'function') {
@@ -145,7 +149,7 @@ GroupList.prototype.removeFrom = function(contactid, groupid, cb) {
 	if(!contacts) {
 		return;
 	}
-	if(contacts.indexOf(String(contactid)) !== -1) {
+	if(contacts.indexOf(contactid) !== -1) {
 		$.post(OC.filePath('contacts', 'ajax', 'categories/removefrom.php'), {contactid: contactid, categoryid: groupid},function(jsondata) {
 			if(!jsondata) {
 				OC.notify({message:t('contacts', 'Network or server error.')});
@@ -155,7 +159,7 @@ GroupList.prototype.removeFrom = function(contactid, groupid, cb) {
 				return;
 			}
 			if(jsondata.status === 'success') {
-				contacts.splice(contacts.indexOf(String(contactid)), 1);
+				contacts.splice(contacts.indexOf(contactid), 1);
 				//console.log('contacts', contacts, contacts.indexOf(id), contacts.indexOf(String(id)));
 				$groupelem.data('contacts', contacts);
 				$groupelem.find('.numcontacts').text(contacts.length);
@@ -183,6 +187,61 @@ GroupList.prototype.removeFromAll = function(contactid, alsospecial) {
 	});
 }
 
+GroupList.prototype.categoriesChanged = function(newcategories) {
+	console.log('GroupList.categoriesChanged, I should do something');
+}
+
+GroupList.prototype.addGroup = function(name, contacts, cb) {
+	console.log('GroupList.addGroup', name);
+	contacts = $.map(contacts, function(c) {return parseInt(c)});
+	var self = this, exists = false;
+	self.$groupList.find('h3[data-type="category"]').each(function() {
+		if ($(this).data('name').toLowerCase() === name.toLowerCase()) {
+			exists = true;
+			return false; //break out of loop
+		}
+	});
+	if(exists) {
+		if(typeof cb === 'function') {
+			cb({result:'error', message:t('contacts', 'A group named {group} already exists', {group: name})});
+		}
+		return;
+	}
+	$.post(OC.filePath('contacts', 'ajax', 'categories/add.php'), {category: name}, function(jsondata) {
+		if (jsondata && jsondata.status == 'success') {
+			var tmpl = self.$groupListItemTemplate;
+			var $elem = (tmpl).octemplate({
+				id: jsondata.data.id, 
+				type: 'category', 
+				num: contacts.length,
+				name: name,
+			})
+			self.categories.push({id: jsondata.data.id, name: name});
+			$elem.data('contacts', contacts)
+			$elem.data('name', name)
+			$elem.data('id', jsondata.data.id)
+			var added = false;
+			self.$groupList.find('h3.group[data-type="category"]').each(function() {
+				if ($(this).data('name').toLowerCase().localeCompare(name.toLowerCase()) > 0) {
+					$(this).before($elem);
+					added = true;
+					return false;
+				}
+			});
+			if(!added) {
+				$elem.appendTo(self.$groupList);
+			}
+			if(typeof cb === 'function') {
+				cb({result:'success', id:jsondata.data.id, name:name});
+			}
+		} else {
+			if(typeof cb === 'function') {
+				cb({result:'error', message:jsondata.data.message});
+			}
+		}
+	});
+}
+
 GroupList.prototype.loadGroups = function(numcontacts, cb) {
 	var self = this;
 	var $groupList = this.$groupList;
@@ -193,19 +252,20 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 	$.getJSON(OC.filePath('contacts', 'ajax', 'categories/list.php'), {}, function(jsondata) {
 		if (jsondata && jsondata.status == 'success') {
 			$.each(jsondata.data.categories, function(c, category) {
+				var contacts = $.map(category.contacts, function(c) {return parseInt(c)});
 				var $elem = (tmpl).octemplate({
 					id: category.id, 
 					type: 'category', 
-					num: category.contacts.length,
+					num: contacts.length,
 					name: category.name,
 				})
 				self.categories.push({id: category.id, name: category.name});
-				$elem.data('contacts', category.contacts)
+				$elem.data('contacts', contacts)
 				$elem.data('name', category.name)
 				$elem.data('id', category.id)
 				$elem.appendTo($groupList);
 			});
-		}
+		} // TODO: else
 		if(typeof cb === 'function') {
 			cb();
 		}
@@ -229,6 +289,9 @@ OC.Contacts = OC.Contacts || {
 			this.detailTemplates
 		);
 		this.Groups = new GroupList(this.$groupList, this.$groupListItemTemplate);
+		OCCategories.changed = this.Groups.categoriesChanged;
+		OCCategories.app = 'contacts';
+		OCCategories.type = 'contact';
 		this.bindEvents();
 		this.$toggleAll.show();
 		this.showActions(['add', 'delete']);
@@ -475,6 +538,47 @@ OC.Contacts = OC.Contacts || {
 			if($opt.val() === 'add') {
 				console.log('add group...');
 				self.$groups.val(-1);
+				if(!this.$addGroupTmpl) {
+					this.$addGroupTmpl = $('#addGroupTemplate');
+				}
+				$('body').append('<div id="add_group_dialog"></div>');
+				var $dlg = this.$addGroupTmpl.octemplate();
+				$('#add_group_dialog').html($dlg).dialog({
+					modal: true,
+					closeOnEscape: true,
+					title:  t('contacts', 'Add group'),
+					height: 'auto', width: 'auto',
+					buttons: {
+						'Ok':function() {
+							var contacts = self.Contacts.getSelectedContacts();
+							self.Groups.addGroup(
+								$dlg.find('input:text').val(),
+								contacts, 
+								function(response) {
+									if(response.result === 'success') {
+										for(var id in contacts) {
+											if(typeof contacts[id] === 'number') {
+												console.log('add', contacts[id], 'to', response.name);
+												self.Contacts.contacts[contacts[id]].addToGroup(response.name);
+											}
+										}
+									} else {
+										OC.notify({message: response.message});
+									}
+								});
+							$(this).dialog('close');
+						},
+						'Cancel':function() { $(this).dialog('close'); }
+					},
+					close: function(event, ui) {
+						$(this).dialog('destroy').remove();
+						$('#add_group_dialog').remove();
+						$.each(self.$contactList.find('input:checkbox:checked'), function() {
+							console.log('unchecking', $(this));
+							$(this).prop('checked', false);
+						});
+					},
+				});
 				return;
 			}
 			
@@ -557,6 +661,7 @@ OC.Contacts = OC.Contacts || {
 			self.showActions(['add', 'delete']);
 			$(this).addClass('active');
 			if($(this).data('type') === 'category') {
+				console.log('contacts', $(this).data('contacts'));
 				self.Contacts.showContacts($(this).data('contacts'));
 			} else {
 				self.Contacts.showContacts($(this).data('id'));
@@ -838,7 +943,7 @@ OC.Contacts = OC.Contacts || {
 							},
 							close: function(event, ui) {
 								$(this).dialog('destroy').remove();
-								$('#name_dialog').remove();
+								$('#edit_photo_dialog').remove();
 							},
 							open: function(event, ui) {
 								// Jcrop maybe?
@@ -870,7 +975,6 @@ OC.Contacts = OC.Contacts || {
 		});
 	},
 };
-	
 
 (function( $ ) {
 

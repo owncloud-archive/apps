@@ -723,7 +723,7 @@ OC.Contacts = OC.Contacts || {};
 				this.contacts[contact].getListItemElement().show();
 			} else {
 				contact = parseInt(contact);
-				if(contacts.indexOf(String(contact)) === -1) {
+				if(contacts.indexOf(contact) === -1) {
 					this.contacts[contact].getListItemElement().hide();
 				} else {
 					this.contacts[contact].getListItemElement().show();
