@@ -484,9 +484,9 @@ OC.Contacts = OC.Contacts || {};
 		var $phototools = this.$fullelem.find('#phototools');
 		console.log('photowrapper', this.$photowrapper.length);
 		delete this.photo;
+		$('img.contactphoto').remove()
 		this.photo = new Image();
 		$(this.photo).load(function () {
-			$('img.contactphoto').remove()
 			$(this).addClass('contactphoto');
 			self.$photowrapper.css('width', $(this).get(0).width + 10);
 			self.$photowrapper.removeClass('loading').removeClass('wait');
