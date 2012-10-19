@@ -41,7 +41,7 @@ foreach($contacts as $contact) {
 
 debug('Before delete: '.print_r($categories, true));
 
-$catman = new OC_VCategories('contacts');
+$catman = new OC_VCategories('contact');
 $catman->delete($categories, $cards);
 debug('After delete: '.print_r($catman->categories(), true));
 OC_Contacts_VCard::updateDataByID($cards);
