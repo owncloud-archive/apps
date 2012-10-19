@@ -27,7 +27,7 @@ if(is_null($contactid)) {
 debug('id: ' . $contactid .', categoryid: ' . $categoryid);
 
 $catmgr = OC_Contacts_App::getVCategories();
-if(!$catmgr->removeRelation($contactid, $categoryid)) {
+if(!$catmgr->removeFromCategory($contactid, $categoryid)) {
 	bailOut(OC_Contacts_App::$l10n->t('Error removing contact from group.'));
 }
 
