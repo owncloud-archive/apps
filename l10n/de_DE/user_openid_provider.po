@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# I Robot <thomas.mueller@tmit.eu>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-18 22:56+0200\n"
-"PO-Revision-Date: 2012-10-18 20:57+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-10-19 02:03+0200\n"
+"PO-Revision-Date: 2012-10-18 21:02+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,16 +20,16 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "OpenID Provider remembered sites"
-msgstr ""
+msgstr "Vom OpenID-Provider gemerkte Seiten"
 
 #: templates/settings.php:8
 msgid "Trusted"
-msgstr ""
+msgstr "Vertraut"
 
 #: templates/settings.php:8
 msgid "Denied"
-msgstr ""
+msgstr "Verweigert"
 
 #: templates/settings.php:9
 msgid "Remove"
-msgstr ""
+msgstr "Entfernen"
