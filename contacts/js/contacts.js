@@ -676,12 +676,20 @@ OC.Contacts={
 		},
 		categoriesChanged:function(newcategories) { // Categories added/deleted.
 			categories = $.map(newcategories, function(v) {return v;});
+			$('#contacts h3.category').each(function() {
+				if(categories.indexOf($(this).text()) === -1) {
+					$(this).next('ul').remove();
+					$(this).remove();
+				}
+			});
 			$('#categories').multiple_autocomplete('option', 'source', categories);
 			var categorylist = $('#categories_value').find('input');
 			$.getJSON(OC.filePath('contacts', 'ajax', 'categories/categoriesfor.php'),{'id':OC.Contacts.Card.id},function(jsondata){
-				if(jsondata.status == 'success'){
-					$('#categories_value').data('checksum', jsondata.data.checksum);
-					categorylist.val(jsondata.data.value);
+				if(jsondata.status == 'success') {
+					if(jsondata.data) {
+						$('#categories_value').data('checksum', jsondata.data.checksum);
+						categorylist.val(jsondata.data.value);
+					}
 				} else {
 					OC.dialogs.alert(jsondata.data.message, t('contacts', 'Error'));
 				}
@@ -1639,13 +1647,10 @@ OC.Contacts={
 		},
 		updateCategories:function(id, catstr) {
 			var categories = $.map(catstr.split(','), function(category) {return category.trim();});
-			console.log('updateCategories', id, categories);
 			
 			// Not pretty, but only proof of concept
 			$('#contacts ul.category').each(function() {
-				console.log('Updating category', $(this).prev('h3').text())
 				if(categories.indexOf($(this).prev('h3').text()) === -1) {
-					console.log($(this).prev('h3').text(), 'not in ', categories);
 					$(this).find('li[data-id="' + id + '"]').remove();
 				} else {
 					if($(this).find('li[data-id="' + id + '"]').length === 0) {
