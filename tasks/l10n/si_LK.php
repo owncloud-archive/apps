@@ -1,6 +1,7 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "දිනය/වේලාව වලංගු නොවේ",
 "Tasks" => "කාර්යය",
+"List" => "ලැයිස්තුව",
 "Location" => "ස්ථානය",
 "No category" => "කාන්ඩයකට අයත් නැත",
 "Unspecified" => "අනිර්දිෂ්ට",
