@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <awantha14@gmail.com>, 2012.
 # Chamara Disanayake <chamara@nic.lk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-18 02:03+0200\n"
-"PO-Revision-Date: 2012-10-17 08:13+0000\n"
-"Last-Translator: Chamara Disanayake <chamara@nic.lk>\n"
+"POT-Creation-Date: 2012-10-20 02:02+0200\n"
+"PO-Revision-Date: 2012-10-19 10:15+0000\n"
+"Last-Translator: dinusha <awantha14@gmail.com>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,7 +76,7 @@ msgstr "දිනදසුන"
 
 #: js/calendar.js:96
 msgid "Deletion failed"
-msgstr ""
+msgstr "මකාදැමීම අසාර්ථකයි"
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
@@ -87,11 +88,11 @@ msgstr ""
 
 #: js/calendar.js:539
 msgid "user"
-msgstr ""
+msgstr "පරිශිලකයා"
 
 #: js/calendar.js:539
 msgid "group"
-msgstr ""
+msgstr "කණ්ඩායම"
 
 #: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
@@ -139,7 +140,7 @@ msgstr "ව්‍යාපාරික"
 
 #: lib/app.php:116
 msgid "Call"
-msgstr ""
+msgstr "ඇමතුම"
 
 #: lib/app.php:117
 msgid "Clients"
@@ -195,19 +196,19 @@ msgstr ""
 
 #: lib/app.php:385
 msgid "unnamed"
-msgstr ""
+msgstr "නිර්නාමික"
 
 #: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
-msgstr ""
+msgstr "මෙම දින දර්ශනය යාත්කාලීන කිරීම සදහා ඔබට අවසර නොමැත"
 
 #: lib/calendar.php:233
 msgid "You do not have the permissions to delete this calendar."
-msgstr ""
+msgstr "මෙම දින දර්ශනය මකාදැමිම සදහා ඔබට අවසර නොමැත"
 
 #: lib/calendar.php:267
 msgid "You do not have the permissions to add to this calendar."
-msgstr ""
+msgstr "මෙම දින දර්ශනය එකතු කිරීම සදහා ඔබට අවසර නොමැත"
 
 #: lib/import.php:195 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
@@ -216,15 +217,15 @@ msgstr ""
 
 #: lib/object.php:122 lib/object.php:161 lib/object.php:307
 msgid "You do not have the permissions to add events to this calendar."
-msgstr ""
+msgstr "මෙම දින දර්ශනයට සිදුවීම් එකතු කිරීම සදහා ඔබට අවසර නොමැත"
 
 #: lib/object.php:193 lib/object.php:227
 msgid "You do not have the permissions to edit this event."
-msgstr ""
+msgstr "මෙම සිදුවීම සංස්කරණය කිරීම සදහා ඔබට අවසර නොමැත."
 
 #: lib/object.php:257 lib/object.php:287
 msgid "You do not have the permissions to delete this event."
-msgstr ""
+msgstr "මෙම සිදුවීම මකාදැමීම සදහා ඔබට අවසර නොමැත."
 
 #: lib/object.php:452
 msgid "Does not repeat"
@@ -256,7 +257,7 @@ msgstr "වාර්ෂික"
 
 #: lib/object.php:468
 msgid "never"
-msgstr ""
+msgstr "කවදාවත්"
 
 #: lib/object.php:469
 msgid "by occurrences"
@@ -396,7 +397,7 @@ msgstr ""
 
 #: lib/search.php:35 lib/search.php:37 lib/search.php:40
 msgid "Date"
-msgstr ""
+msgstr "දිනය"
 
 #: lib/search.php:43
 msgid "Cal."
@@ -525,7 +526,7 @@ msgstr "මාසය"
 
 #: templates/calendar.php:41
 msgid "List"
-msgstr ""
+msgstr "ලැයිස්තුව"
 
 #: templates/calendar.php:45
 msgid "Today"
@@ -533,7 +534,7 @@ msgstr "අද"
 
 #: templates/calendar.php:46
 msgid "Calendars"
-msgstr ""
+msgstr "දින දර්ශන"
 
 #: templates/calendar.php:47
 msgid "Settings"
@@ -571,7 +572,7 @@ msgstr ""
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
-msgstr ""
+msgstr "නව දින දර්ශනය"
 
 #: templates/part.editcalendar.php:9
 msgid "Edit calendar"
@@ -620,7 +621,7 @@ msgstr ""
 
 #: templates/part.eventform.php:10 templates/part.showevent.php:5
 msgid "Alarm"
-msgstr ""
+msgstr "සීනුව"
 
 #: templates/part.eventform.php:11 templates/part.showevent.php:6
 msgid "Attendees"
@@ -688,12 +689,12 @@ msgstr ""
 
 #: templates/part.eventform.php:151 templates/part.showevent.php:146
 msgid "Select weekdays"
-msgstr ""
+msgstr "තෝරාගත් සතියේ දින"
 
 #: templates/part.eventform.php:164 templates/part.eventform.php:177
 #: templates/part.showevent.php:159 templates/part.showevent.php:172
 msgid "Select days"
-msgstr ""
+msgstr "තෝරාගත් දිනයන්"
 
 #: templates/part.eventform.php:169 templates/part.showevent.php:164
 msgid "and the events day of year."
@@ -705,11 +706,11 @@ msgstr ""
 
 #: templates/part.eventform.php:190 templates/part.showevent.php:185
 msgid "Select months"
-msgstr ""
+msgstr "තෝරාගත් මාස "
 
 #: templates/part.eventform.php:203 templates/part.showevent.php:198
 msgid "Select weeks"
-msgstr ""
+msgstr "තෝරාගත් සති"
 
 #: templates/part.eventform.php:208 templates/part.showevent.php:203
 msgid "and the events week of year."
@@ -717,11 +718,11 @@ msgstr ""
 
 #: templates/part.eventform.php:214 templates/part.showevent.php:209
 msgid "Interval"
-msgstr ""
+msgstr "විවේකය"
 
 #: templates/part.eventform.php:220 templates/part.showevent.php:215
 msgid "End"
-msgstr ""
+msgstr "අවසානය"
 
 #: templates/part.eventform.php:233 templates/part.showevent.php:228
 msgid "occurrences"
@@ -845,7 +846,7 @@ msgstr ""
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "URLs"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
