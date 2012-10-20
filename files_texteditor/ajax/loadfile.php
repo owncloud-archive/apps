@@ -33,7 +33,7 @@ $filename = isset($_GET['file']) ? $_GET['file'] : '';
 if(!empty($filename))
 {
 	$path = $dir.'/'.$filename;
-	if(\OC\Files\Filesystem::is_writable($path))
+	if(\OC\Files\Filesystem::isUpdatable($path))
 	{
 		$mtime = \OC\Files\Filesystem::filemtime($path);
 		$filecontents = \OC\Files\Filesystem::file_get_contents($path);

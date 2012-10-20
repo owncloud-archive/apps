@@ -47,7 +47,7 @@ if($path != '' && $mtime != '' && $filecontents)
 	{
 		// File same as when opened
 		// Save file
-		if(\OC\Files\Filesystem::is_writable($path))
+		if(\OC\Files\Filesystem::isUpdatable($path))
 		{
 			$filecontents = iconv(mb_detect_encoding($filecontents), "UTF-8", $filecontents);
 			\OC\Files\Filesystem::file_put_contents($path, $filecontents);

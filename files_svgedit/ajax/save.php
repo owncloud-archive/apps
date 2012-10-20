@@ -56,11 +56,8 @@ if($path != '' && $mtime != '') {
         }
     }
 	// file should be existing now
-	if(method_exists('OC_Filesystem', 'is_writable')) {
-		$writable = \OC\Files\Filesystem::is_writable($path);
-	} else {
-		$writable = \OC\Files\Filesystem::is_writeable($path);
-	}
+	$writable = \OC\Files\Filesystem::isUpdatable($path);
+
 	if($writable) {
 		if($b64encoded) {
 			$b64prefix = 'data:' . $b64type . ';base64,';
