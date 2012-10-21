@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-27 02:01+0200\n"
-"PO-Revision-Date: 2012-09-26 13:27+0000\n"
-"Last-Translator: g.ciprian <g.ciprian@osn.ro>\n"
+"POT-Creation-Date: 2012-10-21 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -83,12 +83,12 @@ msgid "Deletion failed"
 msgstr "Ștergerea a eșuat"
 
 #: js/calendar.js:185
-msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
-msgstr "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
+msgstr ""
 
 #: js/calendar.js:187
-msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
-msgstr "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
+msgstr ""
 
 #: js/calendar.js:539
 msgid "user"
@@ -210,16 +210,16 @@ msgstr "Nu ai permisiunile necesare pentru a actualiza acest calendar."
 msgid "You do not have the permissions to delete this calendar."
 msgstr "Nu ai permisiunile necesare pentru a așterge acest calendar."
 
-#: lib/calendar.php:265
+#: lib/calendar.php:267
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Nu ai permisiuni pentru a face adăugiri în acest calendar."
 
-#: lib/import.php:186 templates/calendar.php:12
+#: lib/import.php:195 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Calendar nou"
 
-#: lib/object.php:122 lib/object.php:161 lib/object.php:304
+#: lib/object.php:122 lib/object.php:161 lib/object.php:307
 msgid "You do not have the permissions to add events to this calendar."
 msgstr "Nu ai permisiunile necesare pentru a adăuga evenimente la acest calendar."
 
@@ -227,175 +227,175 @@ msgstr "Nu ai permisiunile necesare pentru a adăuga evenimente la acest calenda
 msgid "You do not have the permissions to edit this event."
 msgstr "Nu ai permisiunile necesare pentru a edita acest eveniment."
 
-#: lib/object.php:257 lib/object.php:284
+#: lib/object.php:257 lib/object.php:287
 msgid "You do not have the permissions to delete this event."
 msgstr "Nu ai permisiunile necesare pentru a șterge acest eveniment."
 
-#: lib/object.php:449
+#: lib/object.php:452
 msgid "Does not repeat"
 msgstr "Nerepetabil"
 
-#: lib/object.php:450
+#: lib/object.php:453
 msgid "Daily"
 msgstr "Zilnic"
 
-#: lib/object.php:451
+#: lib/object.php:454
 msgid "Weekly"
 msgstr "Săptămânal"
 
-#: lib/object.php:452
+#: lib/object.php:455
 msgid "Every Weekday"
 msgstr "În fiecare zii a săptămânii"
 
-#: lib/object.php:453
+#: lib/object.php:456
 msgid "Bi-Weekly"
 msgstr "La fiecare două săptămâni"
 
-#: lib/object.php:454
+#: lib/object.php:457
 msgid "Monthly"
 msgstr "Lunar"
 
-#: lib/object.php:455
+#: lib/object.php:458
 msgid "Yearly"
 msgstr "Anual"
 
-#: lib/object.php:465
+#: lib/object.php:468
 msgid "never"
 msgstr "niciodată"
 
-#: lib/object.php:466
+#: lib/object.php:469
 msgid "by occurrences"
 msgstr "după repetiție"
 
-#: lib/object.php:467
+#: lib/object.php:470
 msgid "by date"
 msgstr "după dată"
 
-#: lib/object.php:477
+#: lib/object.php:480
 msgid "by monthday"
 msgstr "după ziua lunii"
 
-#: lib/object.php:478
+#: lib/object.php:481
 msgid "by weekday"
 msgstr "după ziua săptămânii"
 
-#: lib/object.php:488 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:491 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr "Luni"
 
-#: lib/object.php:489 templates/calendar.php:5
+#: lib/object.php:492 templates/calendar.php:5
 msgid "Tuesday"
 msgstr "Marți"
 
-#: lib/object.php:490 templates/calendar.php:5
+#: lib/object.php:493 templates/calendar.php:5
 msgid "Wednesday"
 msgstr "Miercuri"
 
-#: lib/object.php:491 templates/calendar.php:5
+#: lib/object.php:494 templates/calendar.php:5
 msgid "Thursday"
 msgstr "Joi"
 
-#: lib/object.php:492 templates/calendar.php:5
+#: lib/object.php:495 templates/calendar.php:5
 msgid "Friday"
 msgstr "Vineri"
 
-#: lib/object.php:493 templates/calendar.php:5
+#: lib/object.php:496 templates/calendar.php:5
 msgid "Saturday"
 msgstr "Sâmbătă"
 
-#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:497 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr "Duminică"
 
-#: lib/object.php:504
+#: lib/object.php:507
 msgid "events week of month"
 msgstr "evenimentele săptămânii din luna"
 
-#: lib/object.php:505
+#: lib/object.php:508
 msgid "first"
 msgstr "primul"
 
-#: lib/object.php:506
+#: lib/object.php:509
 msgid "second"
 msgstr "al doilea"
 
-#: lib/object.php:507
+#: lib/object.php:510
 msgid "third"
 msgstr "al treilea"
 
-#: lib/object.php:508
+#: lib/object.php:511
 msgid "fourth"
 msgstr "al patrulea"
 
-#: lib/object.php:509
+#: lib/object.php:512
 msgid "fifth"
 msgstr "al cincilea"
 
-#: lib/object.php:510
+#: lib/object.php:513
 msgid "last"
 msgstr "ultimul"
 
-#: lib/object.php:544 templates/calendar.php:7
+#: lib/object.php:547 templates/calendar.php:7
 msgid "January"
 msgstr "Ianuarie"
 
-#: lib/object.php:545 templates/calendar.php:7
+#: lib/object.php:548 templates/calendar.php:7
 msgid "February"
 msgstr "Februarie"
 
-#: lib/object.php:546 templates/calendar.php:7
+#: lib/object.php:549 templates/calendar.php:7
 msgid "March"
 msgstr "Martie"
 
-#: lib/object.php:547 templates/calendar.php:7
+#: lib/object.php:550 templates/calendar.php:7
 msgid "April"
 msgstr "Aprilie"
 
-#: lib/object.php:548 templates/calendar.php:7
+#: lib/object.php:551 templates/calendar.php:7
 msgid "May"
 msgstr "Mai"
 
-#: lib/object.php:549 templates/calendar.php:7
+#: lib/object.php:552 templates/calendar.php:7
 msgid "June"
 msgstr "Iunie"
 
-#: lib/object.php:550 templates/calendar.php:7
+#: lib/object.php:553 templates/calendar.php:7
 msgid "July"
 msgstr "Iulie"
 
-#: lib/object.php:551 templates/calendar.php:7
+#: lib/object.php:554 templates/calendar.php:7
 msgid "August"
 msgstr "August"
 
-#: lib/object.php:552 templates/calendar.php:7
+#: lib/object.php:555 templates/calendar.php:7
 msgid "September"
 msgstr "Septembrie"
 
-#: lib/object.php:553 templates/calendar.php:7
+#: lib/object.php:556 templates/calendar.php:7
 msgid "October"
 msgstr "Octombrie"
 
-#: lib/object.php:554 templates/calendar.php:7
+#: lib/object.php:557 templates/calendar.php:7
 msgid "November"
 msgstr "Noiembrie"
 
-#: lib/object.php:555 templates/calendar.php:7
+#: lib/object.php:558 templates/calendar.php:7
 msgid "December"
 msgstr "Decembrie"
 
-#: lib/object.php:565
+#: lib/object.php:568
 msgid "by events date"
 msgstr "după data evenimentului"
 
-#: lib/object.php:566
+#: lib/object.php:569
 msgid "by yearday(s)"
 msgstr "după ziua(zilele) anului"
 
-#: lib/object.php:567
+#: lib/object.php:570
 msgid "by weeknumber(s)"
 msgstr "după numărul săptămânii"
 
-#: lib/object.php:568
+#: lib/object.php:571
 msgid "by day and month"
 msgstr "după zi și lună"
 
@@ -549,7 +549,7 @@ msgid "Your calendars"
 msgstr "Calendarele tale"
 
 #: templates/part.choosecalendar.php:27
-#: templates/part.choosecalendar.rowfields.php:17
+#: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
 msgstr "Legătură CalDav"
 
@@ -557,15 +557,15 @@ msgstr "Legătură CalDav"
 msgid "Share Calendar"
 msgstr "Partajați calendarul"
 
-#: templates/part.choosecalendar.rowfields.php:20
+#: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
 msgstr "Descarcă"
 
-#: templates/part.choosecalendar.rowfields.php:24
+#: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
 msgstr "Modifică"
 
-#: templates/part.choosecalendar.rowfields.php:29
+#: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "Șterge"

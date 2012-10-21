@@ -13,8 +13,6 @@
 "Invalid request" => "Neplatný požadavek",
 "Calendar" => "Kalendář",
 "Deletion failed" => "Mazání selhalo.",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "ddd d MMMM[ rrrr]{ -[ddd d] MMMM rrrr}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "ddd d MMMM[ rrrr] HH:mm{ -[ ddd d MMMM rrrr] HH:mm}",
 "user" => "uživatel",
 "group" => "skupina",
 "Editable" => "Upravitelné",

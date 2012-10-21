@@ -13,8 +13,6 @@
 "Invalid request" => "Неверный запрос",
 "Calendar" => "Календарь",
 "Deletion failed" => "Удаление не удалось",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "ддд д ММММ[ гггг]{ -[ддд д] ММММ гггг}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "ддд д ММММ[ гггг] чч:мм{ -[ ддд д ММММ гггг] чч:мм}",
 "user" => "пользователь",
 "group" => "группа",
 "Editable" => "Редактируемо",

@@ -13,8 +13,6 @@
 "Invalid request" => "非法请求",
 "Calendar" => "日历",
 "Deletion failed" => "删除失败",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}",
 "user" => "用户",
 "group" => "群组",
 "Editable" => "可编辑",

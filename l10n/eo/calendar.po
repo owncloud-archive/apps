@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-14 02:04+0200\n"
-"PO-Revision-Date: 2012-10-13 05:25+0000\n"
-"Last-Translator: Mariano <mstreet@kde.org.ar>\n"
+"POT-Creation-Date: 2012-10-21 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,12 +79,12 @@ msgid "Deletion failed"
 msgstr "Forigo malsukcesis"
 
 #: js/calendar.js:185
-msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
-msgstr "ddd, d-a de MMMM[ yyyy]{ &#8212;[ddd, d-a de] MMMM yyyy}"
+msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
+msgstr ""
 
 #: js/calendar.js:187
-msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
-msgstr "ddd, d-a de MMMM[ yyyy] HH:mm{ &#8212;[ ddd, d-a de MMMM yyyy] HH:mm}"
+msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
+msgstr ""
 
 #: js/calendar.js:539
 msgid "user"
@@ -206,7 +206,7 @@ msgstr "Vi ne havas la permeson ĝisdatigi ĉi tiun kalendaron."
 msgid "You do not have the permissions to delete this calendar."
 msgstr "Vi ne havas la permeson forigi ĉi tiun kalendaron."
 
-#: lib/calendar.php:265
+#: lib/calendar.php:267
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Vi ne havas la permeson aldoni al ĉi tiu kalendaro."
 
@@ -215,7 +215,7 @@ msgstr "Vi ne havas la permeson aldoni al ĉi tiu kalendaro."
 msgid "New Calendar"
 msgstr "Nova kalendaro"
 
-#: lib/object.php:122 lib/object.php:161 lib/object.php:304
+#: lib/object.php:122 lib/object.php:161 lib/object.php:307
 msgid "You do not have the permissions to add events to this calendar."
 msgstr "Vi ne havas la permeson aldoni okazaĵojn al ĉi tiu kalendaro."
 
@@ -223,175 +223,175 @@ msgstr "Vi ne havas la permeson aldoni okazaĵojn al ĉi tiu kalendaro."
 msgid "You do not have the permissions to edit this event."
 msgstr "Vi ne havas la permeson redakti ĉi tiun okazaĵon."
 
-#: lib/object.php:257 lib/object.php:284
+#: lib/object.php:257 lib/object.php:287
 msgid "You do not have the permissions to delete this event."
 msgstr "Vi ne havas la permeson forigi ĉi tiun okazaĵon."
 
-#: lib/object.php:449
+#: lib/object.php:452
 msgid "Does not repeat"
 msgstr "Ĉi tio ne ripetiĝas"
 
-#: lib/object.php:450
+#: lib/object.php:453
 msgid "Daily"
 msgstr "Tage"
 
-#: lib/object.php:451
+#: lib/object.php:454
 msgid "Weekly"
 msgstr "Semajne"
 
-#: lib/object.php:452
+#: lib/object.php:455
 msgid "Every Weekday"
 msgstr "Labortage"
 
-#: lib/object.php:453
+#: lib/object.php:456
 msgid "Bi-Weekly"
 msgstr "Semajnduope"
 
-#: lib/object.php:454
+#: lib/object.php:457
 msgid "Monthly"
 msgstr "Monate"
 
-#: lib/object.php:455
+#: lib/object.php:458
 msgid "Yearly"
 msgstr "Jare"
 
-#: lib/object.php:465
+#: lib/object.php:468
 msgid "never"
 msgstr "neniam"
 
-#: lib/object.php:466
+#: lib/object.php:469
 msgid "by occurrences"
 msgstr "laŭ aperoj"
 
-#: lib/object.php:467
+#: lib/object.php:470
 msgid "by date"
 msgstr "laŭ dato"
 
-#: lib/object.php:477
+#: lib/object.php:480
 msgid "by monthday"
 msgstr "laŭ monattago"
 
-#: lib/object.php:478
+#: lib/object.php:481
 msgid "by weekday"
 msgstr "laŭ semajntago"
 
-#: lib/object.php:488 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:491 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr "lundo"
 
-#: lib/object.php:489 templates/calendar.php:5
+#: lib/object.php:492 templates/calendar.php:5
 msgid "Tuesday"
 msgstr "mardo"
 
-#: lib/object.php:490 templates/calendar.php:5
+#: lib/object.php:493 templates/calendar.php:5
 msgid "Wednesday"
 msgstr "merkredo"
 
-#: lib/object.php:491 templates/calendar.php:5
+#: lib/object.php:494 templates/calendar.php:5
 msgid "Thursday"
 msgstr "ĵaŭdo"
 
-#: lib/object.php:492 templates/calendar.php:5
+#: lib/object.php:495 templates/calendar.php:5
 msgid "Friday"
 msgstr "vendredo"
 
-#: lib/object.php:493 templates/calendar.php:5
+#: lib/object.php:496 templates/calendar.php:5
 msgid "Saturday"
 msgstr "sabato"
 
-#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:497 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr "dimanĉo"
 
-#: lib/object.php:504
+#: lib/object.php:507
 msgid "events week of month"
 msgstr "la monatsemajno de la okazaĵo"
 
-#: lib/object.php:505
+#: lib/object.php:508
 msgid "first"
 msgstr "unua"
 
-#: lib/object.php:506
+#: lib/object.php:509
 msgid "second"
 msgstr "dua"
 
-#: lib/object.php:507
+#: lib/object.php:510
 msgid "third"
 msgstr "tria"
 
-#: lib/object.php:508
+#: lib/object.php:511
 msgid "fourth"
 msgstr "kvara"
 
-#: lib/object.php:509
+#: lib/object.php:512
 msgid "fifth"
 msgstr "kvina"
 
-#: lib/object.php:510
+#: lib/object.php:513
 msgid "last"
 msgstr "lasta"
 
-#: lib/object.php:544 templates/calendar.php:7
+#: lib/object.php:547 templates/calendar.php:7
 msgid "January"
 msgstr "Januaro"
 
-#: lib/object.php:545 templates/calendar.php:7
+#: lib/object.php:548 templates/calendar.php:7
 msgid "February"
 msgstr "Februaro"
 
-#: lib/object.php:546 templates/calendar.php:7
+#: lib/object.php:549 templates/calendar.php:7
 msgid "March"
 msgstr "Marto"
 
-#: lib/object.php:547 templates/calendar.php:7
+#: lib/object.php:550 templates/calendar.php:7
 msgid "April"
 msgstr "Aprilo"
 
-#: lib/object.php:548 templates/calendar.php:7
+#: lib/object.php:551 templates/calendar.php:7
 msgid "May"
 msgstr "Majo"
 
-#: lib/object.php:549 templates/calendar.php:7
+#: lib/object.php:552 templates/calendar.php:7
 msgid "June"
 msgstr "Junio"
 
-#: lib/object.php:550 templates/calendar.php:7
+#: lib/object.php:553 templates/calendar.php:7
 msgid "July"
 msgstr "Julio"
 
-#: lib/object.php:551 templates/calendar.php:7
+#: lib/object.php:554 templates/calendar.php:7
 msgid "August"
 msgstr "Aŭgusto"
 
-#: lib/object.php:552 templates/calendar.php:7
+#: lib/object.php:555 templates/calendar.php:7
 msgid "September"
 msgstr "Septembro"
 
-#: lib/object.php:553 templates/calendar.php:7
+#: lib/object.php:556 templates/calendar.php:7
 msgid "October"
 msgstr "Oktobro"
 
-#: lib/object.php:554 templates/calendar.php:7
+#: lib/object.php:557 templates/calendar.php:7
 msgid "November"
 msgstr "Novembro"
 
-#: lib/object.php:555 templates/calendar.php:7
+#: lib/object.php:558 templates/calendar.php:7
 msgid "December"
 msgstr "Decembro"
 
-#: lib/object.php:565
+#: lib/object.php:568
 msgid "by events date"
 msgstr "laŭ okazaĵdato"
 
-#: lib/object.php:566
+#: lib/object.php:569
 msgid "by yearday(s)"
 msgstr "laŭ jartago(j)"
 
-#: lib/object.php:567
+#: lib/object.php:570
 msgid "by weeknumber(s)"
 msgstr "laŭ semajnnumero(j)"
 
-#: lib/object.php:568
+#: lib/object.php:571
 msgid "by day and month"
 msgstr "laŭ tago kaj monato"
 

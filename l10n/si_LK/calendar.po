@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-20 02:02+0200\n"
-"PO-Revision-Date: 2012-10-19 10:15+0000\n"
-"Last-Translator: dinusha <awantha14@gmail.com>\n"
+"POT-Creation-Date: 2012-10-21 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: ajax/settings/settimezone.php:23
 msgid "Timezone changed"
-msgstr ""
+msgstr "වේලා කලාපය වෙනස් කරන ලදී."
 
 #: ajax/settings/settimezone.php:25
 msgid "Invalid request"
@@ -79,11 +79,11 @@ msgid "Deletion failed"
 msgstr "මකාදැමීම අසාර්ථකයි"
 
 #: js/calendar.js:185
-msgid "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}"
+msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 msgstr ""
 
 #: js/calendar.js:187
-msgid "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}"
+msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 msgstr ""
 
 #: js/calendar.js:539
@@ -96,39 +96,39 @@ msgstr "කණ්ඩායම"
 
 #: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
-msgstr ""
+msgstr "සැකසියහැකි"
 
 #: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
-msgstr ""
+msgstr "හවුල් කරගතහැකි"
 
 #: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
-msgstr ""
+msgstr "මකාදැමිය හැකි"
 
 #: js/calendar.js:811
 msgid "ddd"
-msgstr ""
+msgstr "දිදිදි"
 
 #: js/calendar.js:812
 msgid "ddd M/d"
-msgstr ""
+msgstr "දිදිදි මා/දි"
 
 #: js/calendar.js:813
 msgid "dddd M/d"
-msgstr ""
+msgstr "දිදිදිදි මා/දි"
 
 #: js/calendar.js:816
 msgid "MMMM yyyy"
-msgstr ""
+msgstr "මාමාමාමා වවවව"
 
 #: js/calendar.js:818
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
-msgstr ""
+msgstr "මමම දි[ වවවව]{ '&#8212;'[ මමම] දි වවවව}"
 
 #: js/calendar.js:820
 msgid "dddd, MMM d, yyyy"
-msgstr ""
+msgstr "දිදිදිදි, මමම දි, වවවව"
 
 #: lib/app.php:114
 msgid "Birthday"
@@ -144,11 +144,11 @@ msgstr "ඇමතුම"
 
 #: lib/app.php:117
 msgid "Clients"
-msgstr ""
+msgstr "සේවාලාභින්"
 
 #: lib/app.php:118
 msgid "Deliverer"
-msgstr ""
+msgstr "බාරදෙන්නා"
 
 #: lib/app.php:119
 msgid "Holidays"
@@ -265,7 +265,7 @@ msgstr ""
 
 #: lib/object.php:470
 msgid "by date"
-msgstr ""
+msgstr "නව දිනදසුන"
 
 #: lib/object.php:480
 msgid "by monthday"
@@ -794,35 +794,35 @@ msgstr ""
 
 #: templates/part.showevent.php:1
 msgid "View an event"
-msgstr ""
+msgstr "සිදුවීම දක්වන්න"
 
 #: templates/part.showevent.php:23
 msgid "No categories selected"
-msgstr ""
+msgstr "ප්‍රවර්ගයන් කිසිවක් තෝරනු ලැබුවේ නැත"
 
 #: templates/part.showevent.php:37
 msgid "of"
-msgstr ""
+msgstr "ගේ"
 
 #: templates/part.showevent.php:59 templates/part.showevent.php:67
 msgid "at"
-msgstr ""
+msgstr "දි"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "සාමාන්‍යයෙන්"
 
 #: templates/settings.php:15
 msgid "Timezone"
-msgstr ""
+msgstr "වේලා කලාපය"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr ""
+msgstr "ස්වයංක්‍රීයව වේලා කලාපය යාවත්කාලීන කිරිම."
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "කාල හැඩතලය"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -834,15 +834,15 @@ msgstr "පැය 12"
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr ""
+msgstr "ආරම්භකරන සතිය"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr ""
+msgstr "හැඹිලිය"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr ""
+msgstr "පුනරාවර්ථන සිදුවීම් සදහා හැඹිලිය හිස් කරන්න"
 
 #: templates/settings.php:85
 msgid "URLs"
@@ -850,20 +850,20 @@ msgstr "URLs"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
-msgstr ""
+msgstr "දිනදසුන CalDAV syncing ලිපිනය"
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "වැඩිදුරටත්"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "ප්‍රාථමික ලිපිනය(හැම විටම සම්බන්ධ කර ගත හැකි)"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr ""
+msgstr "iදින දසුන(න්) කියවීම සදහා පමණි "
