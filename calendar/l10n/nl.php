@@ -13,8 +13,6 @@
 "Invalid request" => "Ongeldige aanvraag",
 "Calendar" => "Agenda",
 "Deletion failed" => "Verwijdering faalde",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}",
 "user" => "gebruiker",
 "group" => "groep",
 "Editable" => "Te wijzigen",

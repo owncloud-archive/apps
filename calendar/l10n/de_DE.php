@@ -13,8 +13,6 @@
 "Invalid request" => "Fehlerhafte Anfrage",
 "Calendar" => "Kalender",
 "Deletion failed" => "Löschen fehlgeschlagen",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}",
 "user" => "Benutzer",
 "group" => "Gruppe",
 "Editable" => "editierbar",

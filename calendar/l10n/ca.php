@@ -13,8 +13,6 @@
 "Invalid request" => "Sol.licitud no vàlida",
 "Calendar" => "Calendari",
 "Deletion failed" => "Eliminació fallida",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}",
 "user" => "usuari",
 "group" => "grup",
 "Editable" => "Editable",
