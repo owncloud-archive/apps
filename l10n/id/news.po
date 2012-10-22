@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <putu.sutha@yahoo.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:05+0200\n"
-"PO-Revision-Date: 2012-10-16 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-20 02:03+0200\n"
+"PO-Revision-Date: 2012-10-19 09:13+0000\n"
+"Last-Translator: putu.sutha <putu.sutha@yahoo.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +44,7 @@ msgstr ""
 
 #: ajax/createfolder.php:47
 msgid "Folder added!"
-msgstr ""
+msgstr "Folder ditambah!"
 
 #: ajax/deletefeed.php:29
 msgid "Error removing feed."
@@ -93,7 +94,7 @@ msgstr ""
 msgid "Feed updated!"
 msgstr ""
 
-#: appinfo/app.php:36
+#: appinfo/app.php:36 lib/search.php:21
 msgid "News"
 msgstr ""
 
@@ -101,7 +102,7 @@ msgstr ""
 msgid "Error while loading the feed"
 msgstr ""
 
-#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
+#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22

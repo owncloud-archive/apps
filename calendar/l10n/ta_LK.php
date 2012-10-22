@@ -1,0 +1,22 @@
+<?php $TRANSLATIONS = array(
+"Personal" => "தனிப்பட்ட",
+"January" => "தை",
+"February" => "மாசி",
+"March" => "பங்குனி",
+"April" => "சித்திரை",
+"May" => "வைகாசி",
+"June" => "ஆனி",
+"July" => "ஆடி",
+"August" => "ஆவணி",
+"September" => "புரட்டாசி",
+"October" => "ஐப்பசி",
+"November" => "கார்த்திகை",
+"December" => "மார்கழி",
+"Settings" => "அமைப்புகள்",
+"Download" => "பதிவிறக்குக",
+"Delete" => "அழிக்க",
+"Cancel" => "இரத்து செய்க",
+"Share" => "பகிர்வு",
+"Edit categories" => "வகைகளை தொகுக்க",
+"Unshare" => "பகிரமுடியாது"
+);

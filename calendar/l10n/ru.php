@@ -12,6 +12,7 @@
 "Timezone changed" => "Часовой пояс изменён",
 "Invalid request" => "Неверный запрос",
 "Calendar" => "Календарь",
+"Deletion failed" => "Удаление не удалось",
 "user" => "пользователь",
 "group" => "группа",
 "Editable" => "Редактирование",

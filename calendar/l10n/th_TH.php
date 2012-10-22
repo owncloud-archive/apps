@@ -13,8 +13,6 @@
 "Invalid request" => "คำร้องขอไม่ถูกต้อง",
 "Calendar" => "ปฏิทิน",
 "Deletion failed" => "การลบทิ้งล้มเหลว",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}",
 "user" => "ผู้ใช้งาน",
 "group" => "กลุ่มผู้ใช้งาน",
 "Editable" => "สามารถแก้ไขได้",

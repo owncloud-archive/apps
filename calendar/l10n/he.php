@@ -13,8 +13,6 @@
 "Invalid request" => "בקשה לא חוקית",
 "Calendar" => "לוח שנה",
 "Deletion failed" => "מחיקה נכשלה",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}",
 "user" => "משתמש",
 "group" => "קבוצה",
 "Editable" => "ניתן לעריכה",

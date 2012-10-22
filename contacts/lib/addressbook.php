@@ -346,8 +346,7 @@ class OC_Contacts_Addressbook {
 			);
 		}
 
-		// TODO: Unshare all when that method is created
-		//OCP\Share::unshare('addressbook', $id);
+		OCP\Share::unshareAll('addressbook', $id);
 
 		if(count(self::all(OCP\User::getUser())) == 0) {
 			self::addDefault();

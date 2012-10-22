@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chamara Disanayake <chamara@nic.lk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:04+0200\n"
-"PO-Revision-Date: 2012-08-26 23:39+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-10-20 02:03+0200\n"
+"PO-Revision-Date: 2012-10-19 07:02+0000\n"
+"Last-Translator: Chamara Disanayake <chamara@nic.lk>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,20 +20,20 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "External Sites"
-msgstr ""
+msgstr "බාහිර වෙබ් අඩවි"
 
 #: templates/settings.php:9
 msgid "Name"
-msgstr ""
+msgstr "නම"
 
 #: templates/settings.php:10
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: templates/settings.php:11
 msgid "Remove site"
-msgstr ""
+msgstr "වෙබ් අඩවිය ඉවත් කරන්න"
 
 #: templates/settings.php:18
 msgid "Add"
-msgstr ""
+msgstr "එක් කරන්න"

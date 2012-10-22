@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-02 02:02+0200\n"
-"PO-Revision-Date: 2012-10-01 08:42+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 18:47+0000\n"
 "Last-Translator: martinb <martin.babik@gmail.com>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -31,15 +31,15 @@ msgstr ""
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr ""
+msgstr "Modul php-gd je potrebný k tvorbe náhľadových obrázkov"
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr ""
+msgstr "Modul php-ldap je potrebný pre podporu pripojenia k vášmu ldap serveru."
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr ""
+msgstr "Modul php-zip je potrebný pre podporu sťahovania viacerých súborov naraz."
 
 #: settings.php:63
 msgid ""
@@ -48,11 +48,11 @@ msgstr ""
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr ""
+msgstr "Modul php-ctype je potrebný k validácii dát"
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr ""
+msgstr "Modul php-xml je potrebný k podpore zdieľania súborov cez webdav"
 
 #: settings.php:81
 msgid ""
@@ -62,7 +62,7 @@ msgstr ""
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr ""
+msgstr "Modul php-pdo je potrebný k tomu, aby owncloud mohol ukladať data do databázy"
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."

@@ -13,8 +13,6 @@
 "Invalid request" => "Μη έγκυρο αίτημα",
 "Calendar" => "Ημερολόγιο",
 "Deletion failed" => "Η διαγραφή απέτυχε",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}",
 "user" => "χρήστης",
 "group" => "ομάδα",
 "Editable" => "Επεξεργάσιμο",

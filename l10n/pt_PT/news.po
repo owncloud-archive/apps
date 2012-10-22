@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Duarte Velez Grilo <duartegrilo@gmail.com>, 2012.
+# Nelson Rosado <nelsontrosado@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:05+0200\n"
-"PO-Revision-Date: 2012-10-16 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-18 22:56+0200\n"
+"PO-Revision-Date: 2012-10-18 11:03+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +21,11 @@ msgstr ""
 
 #: ajax/changefoldername.php:30
 msgid "Error changing name of folder "
-msgstr ""
+msgstr "Erro ao mudar nome da pasta"
 
 #: ajax/collapsefolder.php:36
 msgid "Error collapsing folder."
-msgstr ""
+msgstr "Erro ao expandir pasta."
 
 #: ajax/createfeed.php:52
 msgid "Feed already exists."
@@ -40,11 +41,11 @@ msgstr ""
 
 #: ajax/createfolder.php:37
 msgid "Error adding folder."
-msgstr ""
+msgstr "Erro ao adicionar pasta."
 
 #: ajax/createfolder.php:47
 msgid "Folder added!"
-msgstr ""
+msgstr "Pasta adicionada!"
 
 #: ajax/deletefeed.php:29
 msgid "Error removing feed."
@@ -52,7 +53,7 @@ msgstr ""
 
 #: ajax/deletefolder.php:27
 msgid "Error removing folder."
-msgstr ""
+msgstr "Erro a remover pasta."
 
 #: ajax/feedlist.php:28
 msgid "Error updating feeds."
@@ -60,11 +61,11 @@ msgstr ""
 
 #: ajax/importopml.php:28 ajax/selectfromcloud.php:31
 msgid "No file path was submitted."
-msgstr ""
+msgstr "Nenhum caminho de arquivo foi submetido."
 
 #: ajax/importopml.php:42
 msgid "An error occurred while parsing the file."
-msgstr ""
+msgstr "Ocorreu um erro ao analisar o ficheiro."
 
 #: ajax/loadfeed.php:52
 msgid "Feed loaded!"
@@ -80,11 +81,11 @@ msgstr "Ficheiro não existe:"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
-msgstr ""
+msgstr "Erro ao definir todos como lidos."
 
 #: ajax/setitemstatus.php:47
 msgid "Error marking item as read."
-msgstr ""
+msgstr "Erro ao definir item como lido."
 
 #: ajax/updatefeed.php:37
 msgid "Error updating feed."
@@ -94,7 +95,7 @@ msgstr ""
 msgid "Feed updated!"
 msgstr ""
 
-#: appinfo/app.php:36
+#: appinfo/app.php:36 lib/search.php:21
 msgid "News"
 msgstr "Noticias"
 
@@ -102,7 +103,7 @@ msgstr "Noticias"
 msgid "Error while loading the feed"
 msgstr ""
 
-#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
+#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
@@ -112,7 +113,7 @@ msgstr "Erro"
 
 #: js/main.js:33
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 #: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
@@ -132,11 +133,11 @@ msgstr ""
 
 #: js/menu.js:521
 msgid "Warning"
-msgstr ""
+msgstr "Aviso"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
-msgstr ""
+msgstr "Nome da pasta não pode estar vazio."
 
 #: js/news.js:33 js/news.js:95
 msgid "Adding..."
@@ -148,12 +149,12 @@ msgstr "Acrescentar pasta"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr ""
+msgstr "A mudar..."
 
 #: js/news.js:79 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
-msgstr ""
+msgstr "Mudar nome da pasta"
 
 #: js/news.js:90
 msgid "URL cannot be empty."
@@ -165,7 +166,7 @@ msgstr ""
 
 #: js/news.js:124
 msgid "Error while parsing the feed"
-msgstr ""
+msgstr "Ocorreu um erro ao analisar o ficheiro."
 
 #: js/news.js:124
 msgid "Fatal Error"
@@ -177,7 +178,7 @@ msgstr "Ficheiro"
 
 #: js/settings.js:11
 msgid " loaded from cloud."
-msgstr ""
+msgstr "carregado pela nuvem."
 
 #: js/settings.js:22
 msgid "No files selected."
@@ -185,7 +186,7 @@ msgstr "Nenhum ficheiro seleccionado."
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
-msgstr ""
+msgstr "carregado do sistema de ficheiros local."
 
 #: js/settings.js:32
 msgid "Importing..."
@@ -257,27 +258,27 @@ msgstr "Endereço"
 
 #: templates/firstrun.php:7 templates/subscribelet.php:7
 msgid "Subscribe"
-msgstr ""
+msgstr "Subscrever"
 
 #: templates/firstrun.php:11
 msgid "Import OPML"
-msgstr ""
+msgstr "Importar OPML"
 
 #: templates/firstrun.php:12 templates/settings.php:3
 msgid "Upload file from desktop"
-msgstr ""
+msgstr "Carregar ficheiro do desktop"
 
 #: templates/firstrun.php:12 templates/settings.php:3
 msgid "Upload"
-msgstr ""
+msgstr "Carregar"
 
 #: templates/firstrun.php:13 templates/settings.php:4
 msgid "Select file from ownCloud"
-msgstr ""
+msgstr "Selecionar ficheiro de ownCloud"
 
 #: templates/firstrun.php:13 templates/settings.php:4
 msgid "Select"
-msgstr ""
+msgstr "Selecionar"
 
 #: templates/firstrun.php:15 templates/settings.php:6
 msgid ""
@@ -288,7 +289,7 @@ msgstr ""
 
 #: templates/firstrun.php:24
 msgid "Or..."
-msgstr ""
+msgstr "Ou..."
 
 #: templates/main.php:35
 msgid "Add feed or folder"
@@ -316,7 +317,7 @@ msgstr "Acrescentar pasta"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
-msgstr ""
+msgstr "Adicionar nova pasta"
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
@@ -324,7 +325,7 @@ msgstr "Nome da pasta"
 
 #: templates/part.dialogues.php:14
 msgid "Add Subscription"
-msgstr ""
+msgstr "Adicionar Subscrição"
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
@@ -345,7 +346,7 @@ msgstr "Novos artigos"
 #: templates/part.feeds.php:49 templates/part.listfeed.php:34
 #: templates/part.listfolder.php:34
 msgid "Mark all read"
-msgstr ""
+msgstr "Marcar todos como lidos"
 
 #: templates/part.feeds.php:53
 msgid "Starred"
@@ -353,15 +354,15 @@ msgstr "Estrelado"
 
 #: templates/part.items.php:17
 msgid "Mark as unimportant"
-msgstr ""
+msgstr "Marcar como sem importância"
 
 #: templates/part.items.php:20
 msgid "Mark as important"
-msgstr ""
+msgstr "Marcar como importante"
 
 #: templates/part.items.php:37
 msgid "from"
-msgstr ""
+msgstr "de"
 
 #: templates/part.items.php:43
 msgid "by"
@@ -377,7 +378,7 @@ msgstr ""
 
 #: templates/part.listfolder.php:29
 msgid "Collapse"
-msgstr ""
+msgstr "Expandir"
 
 #: templates/part.listfolder.php:32
 msgid "Delete folder"
@@ -397,7 +398,7 @@ msgstr ""
 
 #: templates/settings.php:13
 msgid "Download OPML"
-msgstr ""
+msgstr "Descarregar OPML"
 
 #: templates/settings.php:15
 msgid "Subscribelet"
@@ -407,4 +408,4 @@ msgstr ""
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr ""
+msgstr "Arraste isto para os favoritos do seu navegador e clique sobre ele sempre que se quiser inscrever num site rapidamente:"

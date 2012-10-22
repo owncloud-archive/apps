@@ -13,8 +13,6 @@
 "Invalid request" => "無効なリクエストです",
 "Calendar" => "カレンダー",
 "Deletion failed" => "削除に失敗しました",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}",
 "user" => "ユーザ",
 "group" => "グループ",
 "Editable" => "編集可能",

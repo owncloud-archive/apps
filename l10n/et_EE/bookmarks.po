@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-11 02:03+0200\n"
-"PO-Revision-Date: 2012-10-11 00:05+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-21 02:02+0200\n"
+"PO-Revision-Date: 2012-10-20 20:11+0000\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,15 +28,15 @@ msgstr "Sildid"
 
 #: js/bookmarks.js:178
 msgid "Edit bookmark"
-msgstr ""
-
-#: js/bookmarks.js:409
-msgid "Are you sure you want to remove this tag from every entry?"
-msgstr ""
+msgstr "Muuda järjehoidjat"
 
 #: js/bookmarks.js:410
+msgid "Are you sure you want to remove this tag from every entry?"
+msgstr "Oled sa kindel, et sa soovid kõigilt sissekannetelt seda silti eemaldada?"
+
+#: js/bookmarks.js:411
 msgid "Warning"
-msgstr ""
+msgstr "Hoiatus"
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -44,27 +44,27 @@ msgstr "Järjeh."
 
 #: templates/addBm.php:11
 msgid "Add a bookmark"
-msgstr ""
+msgstr "Lisa järjehoidja"
 
 #: templates/addBm.php:14
 msgid "Close"
-msgstr ""
+msgstr "Sulge"
 
 #: templates/addBm.php:22 templates/list.php:91
 msgid "The title of the page"
-msgstr ""
+msgstr "Lehe pealkiri"
 
 #: templates/addBm.php:27 templates/list.php:95
 msgid "The address of the page"
-msgstr ""
+msgstr "Lehe aadress"
 
 #: templates/addBm.php:40 templates/list.php:104
 msgid "Description of the page"
-msgstr ""
+msgstr "Lehe kirjeldus"
 
 #: templates/addBm.php:44 templates/list.php:108
 msgid "Save"
-msgstr ""
+msgstr "Salvesta"
 
 #: templates/bookmarklet.php:5
 msgid ""
@@ -82,27 +82,27 @@ msgstr "Aadress"
 
 #: templates/list.php:13
 msgid "Add bookmark"
-msgstr ""
+msgstr "Lisa järjehoidja"
 
 #: templates/list.php:16
 msgid "List"
-msgstr ""
+msgstr "Nimekiri"
 
 #: templates/list.php:17
 msgid "Image"
-msgstr ""
+msgstr "Pilt"
 
 #: templates/list.php:22
 msgid "Hide"
-msgstr ""
+msgstr "Peida"
 
 #: templates/list.php:23
 msgid "Show"
-msgstr ""
+msgstr "Näita"
 
 #: templates/list.php:30
 msgid "Related Tags"
-msgstr ""
+msgstr "Seotud sildid"
 
 #: templates/list.php:39
 msgid "You have no bookmarks"
@@ -110,15 +110,15 @@ msgstr "Sul pole järjehoidjaid"
 
 #: templates/list.php:64
 msgid "Edit"
-msgstr ""
+msgstr "Muuda"
 
 #: templates/list.php:68
 msgid "Delete"
-msgstr ""
+msgstr "Kustuta"
 
 #: templates/list.php:107
 msgid "Cancel"
-msgstr ""
+msgstr "Loobu"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
@@ -126,20 +126,20 @@ msgstr "Järjehoidja vidin <br />"
 
 #: templates/settings.php:26
 msgid "Import bookmarks"
-msgstr ""
+msgstr "Impordi järjehoidjaid"
 
 #: templates/settings.php:28
 msgid "Bookmark html file"
-msgstr ""
+msgstr "Järjehoidjate HTML-fail"
 
 #: templates/settings.php:30
 msgid "Import"
-msgstr ""
+msgstr "Impordi"
 
 #: templates/settings.php:33
 msgid "Export bookmarks"
-msgstr ""
+msgstr "Ekspordi järjehoidjaid"
 
 #: templates/settings.php:35
 msgid "Export"
-msgstr ""
+msgstr "Ekspordi"

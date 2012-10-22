@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:05+0200\n"
-"PO-Revision-Date: 2012-10-16 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-18 02:04+0200\n"
+"PO-Revision-Date: 2012-10-17 13:57+0000\n"
+"Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,7 +103,7 @@ msgstr "Nyheter"
 msgid "Error while loading the feed"
 msgstr "Fel vid laddning av flöde"
 
-#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
+#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
@@ -362,7 +362,7 @@ msgstr "Markera som viktigt"
 
 #: templates/part.items.php:37
 msgid "from"
-msgstr ""
+msgstr "från"
 
 #: templates/part.items.php:43
 msgid "by"

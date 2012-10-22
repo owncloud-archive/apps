@@ -13,8 +13,6 @@
 "Invalid request" => "Baliogabeko eskaera",
 "Calendar" => "Egutegia",
 "Deletion failed" => "Ezabaketak huts egin du",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "[ yyyy]  MMMM ddd d{ - yyyy MMMM [ddd d] }",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "[ yyyy]  MMMM ddd d HH:mm{ - yyyy MMMM [ddd d] HH:mm}",
 "user" => "erabiltzailea",
 "group" => "taldea",
 "Editable" => "Editagarria",
