@@ -120,6 +120,7 @@
 					<li><a class="svg cloud" title="<?php echo $l->t('Select photo from ownCloud'); ?>"></a></li>
 				</ul>
 			</div>
+			<a class="favorite"></a>
 			<div class="singleproperties">
 			<input class="fullname value propertycontainer" data-element="fn" type="text" name="value" value="{name}" />
 			<dl class="form">

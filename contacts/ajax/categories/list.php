@@ -15,7 +15,7 @@ $categories = $catmgr->categories(OC_VCategories::FORMAT_MAP);
 foreach($categories as &$category) {
 	$ids = array();
 	$contacts = $catmgr->itemsForCategory(
-			$category['name'], 
+			$category['name'],
 			array(
 				'tablename' => '*PREFIX*contacts_cards',
 				'fields' => array('id',),
@@ -26,4 +26,12 @@ foreach($categories as &$category) {
 	$category['contacts'] = $ids;
 }
 
-OCP\JSON::success(array('data' => array('categories'=>$categories)));
+$favorites = $catmgr->getFavorites();
+
+OCP\JSON::success(array(
+	'data' => array(
+		'categories' => $categories,
+		'favorites' => $favorites,
+		)
+	)
+);

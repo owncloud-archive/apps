@@ -54,10 +54,12 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 .download { background:url('%webroot%/core/img/actions/download.svg') no-repeat center; }
 .cloud { background:url('%webroot%/core/img/places/picture.svg') no-repeat center; }
 .globe { background:url('%webroot%/core/img/actions/public.svg') no-repeat center; }
+.starred { display: inline-block; height: 22px; width: 22px; padding: 0; margin: 0; background:url('%appswebroot%/contacts/img/starred.png') no-repeat center; }
 .transparent{ opacity: 0.6; }
 .float { float: left; display: inline-block; width: auto; }
 .break { clear: both; }
 .loading { background: url('%webroot%/core/img/loading.gif') no-repeat center !important; /*cursor: progress; */ cursor: wait; }
+.wait { opacity: cursor: wait; }
 .control {
     border: 1px solid #DDDDDD;
     border-radius: 0.3em;
@@ -87,7 +89,7 @@ dl.addresscard .action { float: right; }
 /* Properties */
 
 .fullname { font-weight:bold; font-size:1.5em; width: 18em; }
-.singleproperties{ display: inline-block; float: left; width: 20em;}
+.singleproperties{ display: inline-block; float: left; width: 25em;}
 
 .propertylist li.propertycontainer { white-space: nowrap; min-width: 38em; display: block; clear: both; }
 .propertylist li.propertycontainer > .listactions { display: inline-block; position: absolute; clear: none; opacity: 0; }
@@ -153,7 +155,9 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 #phototools li a { float:left; cursor:pointer; width:22px; height:22px; opacity: 0.6; }
 #phototools li a:hover { opacity: 0.8; }
 #contactphoto_fileupload, #import_fileupload { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter:alpha(opacity=0); opacity:0; z-index:1001; width:0; height:0;}
-
+.favorite { display: inline-block; float: left; height: 20px; width: 20px; background:url('%appswebroot%/contacts/img/inactive_star.png') no-repeat center; }
+.favorite.active, .favorite:hover { background:url('%appswebroot%/contacts/img/active_star.png') no-repeat center; }
+.favorite.inactive { background:url('%appswebroot%/contacts/img/inactive_star.png') no-repeat center; }
 /* Header */
 
 #contactsheader { position: fixed; padding: 0; margin:0; top:3.5em; left: 32.5em; right: 0; height: 4em; border-bottom: 1px solid #DDDDDD; z-index: 50; }
@@ -174,8 +178,8 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 
 /* Contact layout */
 
-#contact > ul { 
-	font-size: 10px;  
+#contact > ul {
+	font-size: 10px;
 	/*display: table;
 	border-spacing: 1em;
 	border: thin solid black;*/
@@ -184,7 +188,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 	display: inline-block;
 	padding: 1em;
 	/*display: table-cell;*/
-}  
+}
 
 #rightcontent footer { padding: 1em; }
 
