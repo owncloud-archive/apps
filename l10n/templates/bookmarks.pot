@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,19 +21,19 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: js/addBm.js:42 js/bookmarks.js:243
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr ""
 
-#: js/bookmarks.js:178
+#: js/bookmarks.js:168
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:410
+#: js/bookmarks.js:385
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:411
+#: js/bookmarks.js:386
 msgid "Warning"
 msgstr ""
 
@@ -49,19 +49,19 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: templates/addBm.php:22 templates/list.php:91
+#: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
 msgstr ""
 
-#: templates/addBm.php:27 templates/list.php:95
+#: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
 msgstr ""
 
-#: templates/addBm.php:40 templates/list.php:104
+#: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
 msgstr ""
 
-#: templates/addBm.php:44 templates/list.php:108
+#: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
 msgstr ""
 
@@ -73,6 +73,18 @@ msgstr ""
 
 #: templates/bookmarklet.php:7
 msgid "Read later"
+msgstr ""
+
+#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
+msgid "Edit"
+msgstr ""
+
+#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+msgid "Delete"
+msgstr ""
+
+#: templates/js_tpl.php:49
+msgid "Cancel"
 msgstr ""
 
 #: templates/list.php:12
@@ -105,18 +117,6 @@ msgstr ""
 
 #: templates/list.php:39
 msgid "You have no bookmarks"
-msgstr ""
-
-#: templates/list.php:64
-msgid "Edit"
-msgstr ""
-
-#: templates/list.php:68
-msgid "Delete"
-msgstr ""
-
-#: templates/list.php:107
-msgid "Cancel"
 msgstr ""
 
 #: templates/settings.php:11

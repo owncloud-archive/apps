@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -404,79 +404,79 @@ msgstr "Кал."
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "Нед."
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "Пн."
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "Вт."
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "Ср."
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "Чт."
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "Пт."
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "Сб."
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "Січ."
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "Лют."
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "Бер."
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "Кв."
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "Тр."
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "Чер."
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "Лп."
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "Сер."
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "Вер."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "Жов."
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "Лис."
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "Гр."
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -537,7 +537,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -579,7 +579,7 @@ msgstr "Редагувати календар"
 
 #: templates/part.editcalendar.php:12
 msgid "Displayname"
-msgstr ""
+msgstr "Відображуване ім'я"
 
 #: templates/part.editcalendar.php:23
 msgid "Active"
@@ -628,7 +628,7 @@ msgstr ""
 
 #: templates/part.eventform.php:13
 msgid "Share"
-msgstr ""
+msgstr "Поділитися"
 
 #: templates/part.eventform.php:21
 msgid "Title of the Event"
@@ -775,7 +775,7 @@ msgstr ""
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "Заборонити доступ"
 
 #: templates/part.share.php:53
 msgid "Nobody"

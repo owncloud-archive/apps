@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/owncloud/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
@@ -75,7 +75,7 @@ msgstr "Kalendorius"
 
 #: js/calendar.js:96
 msgid "Deletion failed"
-msgstr ""
+msgstr "Ištrinti nepavyko"
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
@@ -404,79 +404,79 @@ msgstr "Kal."
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "Sek."
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "Pr."
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "An."
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "Tr."
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "Ket."
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "Pen."
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "Šešt."
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "Sau."
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "Vas."
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "Kov."
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "Bal."
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "Geg."
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "Bir."
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "Lie."
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "Rugp."
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "Rugs."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "Spa."
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "Lap."
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "Groud."
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -537,7 +537,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Nustatymai"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
@@ -404,79 +404,79 @@ msgstr "Cal."
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "So. "
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "Méin. "
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "Dën."
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "Mëtt."
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "Do."
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "Fr."
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "Sam."
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "Jan."
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "Feb."
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "Mär."
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "Abr."
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "Mäi."
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "Jun."
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "Jul."
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "Aug."
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "Sep."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "Okt."
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "Nov."
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "Dez."
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -537,7 +537,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Astellungen"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -628,7 +628,7 @@ msgstr ""
 
 #: templates/part.eventform.php:13
 msgid "Share"
-msgstr ""
+msgstr "Deelen"
 
 #: templates/part.eventform.php:21
 msgid "Title of the Event"
@@ -644,7 +644,7 @@ msgstr ""
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
-msgstr ""
+msgstr "Kategorien editéieren"
 
 #: templates/part.eventform.php:56 templates/part.showevent.php:52
 msgid "All Day Event"
@@ -861,7 +861,7 @@ msgstr ""
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"

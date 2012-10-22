@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -174,7 +174,7 @@ msgstr ""
 
 #: lib/app.php:125
 msgid "Personal"
-msgstr ""
+msgstr "தனிப்பட்ட"
 
 #: lib/app.php:126
 msgid "Projects"
@@ -331,51 +331,51 @@ msgstr ""
 
 #: lib/object.php:547 templates/calendar.php:7
 msgid "January"
-msgstr ""
+msgstr "தை"
 
 #: lib/object.php:548 templates/calendar.php:7
 msgid "February"
-msgstr ""
+msgstr "மாசி"
 
 #: lib/object.php:549 templates/calendar.php:7
 msgid "March"
-msgstr ""
+msgstr "பங்குனி"
 
 #: lib/object.php:550 templates/calendar.php:7
 msgid "April"
-msgstr ""
+msgstr "சித்திரை"
 
 #: lib/object.php:551 templates/calendar.php:7
 msgid "May"
-msgstr ""
+msgstr "வைகாசி"
 
 #: lib/object.php:552 templates/calendar.php:7
 msgid "June"
-msgstr ""
+msgstr "ஆனி"
 
 #: lib/object.php:553 templates/calendar.php:7
 msgid "July"
-msgstr ""
+msgstr "ஆடி"
 
 #: lib/object.php:554 templates/calendar.php:7
 msgid "August"
-msgstr ""
+msgstr "ஆவணி"
 
 #: lib/object.php:555 templates/calendar.php:7
 msgid "September"
-msgstr ""
+msgstr "புரட்டாசி"
 
 #: lib/object.php:556 templates/calendar.php:7
 msgid "October"
-msgstr ""
+msgstr "ஐப்பசி"
 
 #: lib/object.php:557 templates/calendar.php:7
 msgid "November"
-msgstr ""
+msgstr "கார்த்திகை"
 
 #: lib/object.php:558 templates/calendar.php:7
 msgid "December"
-msgstr ""
+msgstr "மார்கழி"
 
 #: lib/object.php:568
 msgid "by events date"
@@ -536,7 +536,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "அமைப்புகள்"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -553,7 +553,7 @@ msgstr ""
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
-msgstr ""
+msgstr "பதிவிறக்குக"
 
 #: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
@@ -562,7 +562,7 @@ msgstr ""
 #: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
-msgstr ""
+msgstr "அழிக்க"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
@@ -599,7 +599,7 @@ msgstr ""
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"
-msgstr ""
+msgstr "இரத்து செய்க"
 
 #: templates/part.editevent.php:1
 msgid "Edit an event"
@@ -627,7 +627,7 @@ msgstr ""
 
 #: templates/part.eventform.php:13
 msgid "Share"
-msgstr ""
+msgstr "பகிர்வு"
 
 #: templates/part.eventform.php:21
 msgid "Title of the Event"
@@ -643,7 +643,7 @@ msgstr ""
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
-msgstr ""
+msgstr "வகைகளை தொகுக்க"
 
 #: templates/part.eventform.php:56 templates/part.showevent.php:52
 msgid "All Day Event"
@@ -774,7 +774,7 @@ msgstr ""
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "பகிரமுடியாது"
 
 #: templates/part.share.php:53
 msgid "Nobody"

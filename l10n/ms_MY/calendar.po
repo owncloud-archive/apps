@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Malay (Malaysia) (http://www.transifex.com/projects/p/owncloud/language/ms_MY/)\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +79,7 @@ msgstr "Kalendar"
 
 #: js/calendar.js:96
 msgid "Deletion failed"
-msgstr ""
+msgstr "Pemadaman gagal"
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
@@ -408,79 +408,79 @@ msgstr "Kalendar"
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "Ahad"
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "Isnin"
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "Selasa"
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "Rabu "
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "Khamis"
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "Jumaat"
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "Sabtu"
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "Jan."
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "Feb."
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "Mac."
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "Apr."
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "May."
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "Jun."
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "Jul."
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "Ogos."
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "Sept."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "Okt."
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "Nov."
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "Dis."
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -541,7 +541,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Tetapan"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -813,7 +813,7 @@ msgstr "di"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "Umum"
 
 #: templates/settings.php:15
 msgid "Timezone"
@@ -857,15 +857,15 @@ msgstr ""
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "maklumat lanjut"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "Alamat utama"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"

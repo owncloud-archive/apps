@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/owncloud/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr "Календар"
 
 #: js/calendar.js:96
 msgid "Deletion failed"
-msgstr ""
+msgstr "Бришењето е неуспешно"
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
@@ -405,79 +405,79 @@ msgstr "Кал."
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "Нед."
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "Пон."
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "Вто."
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "Сре."
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "Чет."
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "Пет."
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "Саб."
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "Јан."
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "Фев."
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "Мар."
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "Апр."
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "Мај."
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "Јун."
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "Јул."
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "Авг."
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "Сеп."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "Окт."
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "Ное."
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "Дек."
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -538,7 +538,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Параметри"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -854,15 +854,15 @@ msgstr ""
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "повеќе информации"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "Примарна адреса"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"

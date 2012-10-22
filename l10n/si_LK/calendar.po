@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -188,7 +188,7 @@ msgstr "ප්‍රශ්න"
 
 #: lib/app.php:128
 msgid "Work"
-msgstr ""
+msgstr "රාජකාරී"
 
 #: lib/app.php:347 lib/share/event.php:27
 msgid "by"
@@ -538,7 +538,7 @@ msgstr "දින දර්ශන"
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "සිටුවම"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -609,7 +609,7 @@ msgstr ""
 
 #: templates/part.editevent.php:10
 msgid "Export"
-msgstr ""
+msgstr "නිර්යාත කරන්න"
 
 #: templates/part.eventform.php:8 templates/part.showevent.php:3
 msgid "Eventinfo"
@@ -756,7 +756,7 @@ msgstr ""
 
 #: templates/part.import.php:47
 msgid "Import"
-msgstr ""
+msgstr "ආයාත කරන්න"
 
 #: templates/part.import.php:56
 msgid "Close Dialog"

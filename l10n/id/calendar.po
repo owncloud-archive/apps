@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:39+0000\n"
+"Last-Translator: elmakong <mr.pige_ina@yahoo.co.id>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: ajax/import/import.php:56
 msgid "Import failed"
-msgstr ""
+msgstr "impor gagal"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
@@ -77,15 +77,15 @@ msgstr "Kalender"
 
 #: js/calendar.js:96
 msgid "Deletion failed"
-msgstr ""
+msgstr "penghapusan gagal"
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
 #: js/calendar.js:187
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:539
 msgid "user"
@@ -93,35 +93,35 @@ msgstr ""
 
 #: js/calendar.js:539
 msgid "group"
-msgstr ""
+msgstr "grup"
 
 #: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
-msgstr ""
+msgstr "dapat di ubah"
 
 #: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
-msgstr ""
+msgstr "dapat dibagikan"
 
 #: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
-msgstr ""
+msgstr "dapat dihapus"
 
 #: js/calendar.js:811
 msgid "ddd"
-msgstr ""
+msgstr "ddd"
 
 #: js/calendar.js:812
 msgid "ddd M/d"
-msgstr ""
+msgstr "ddd M/d"
 
 #: js/calendar.js:813
 msgid "dddd M/d"
-msgstr ""
+msgstr "dddd M/d"
 
 #: js/calendar.js:816
 msgid "MMMM yyyy"
-msgstr ""
+msgstr "MMMM yyyy"
 
 #: js/calendar.js:818
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
@@ -129,7 +129,7 @@ msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:820
 msgid "dddd, MMM d, yyyy"
-msgstr ""
+msgstr "dddd, MMM d, yyyy"
 
 #: lib/app.php:114
 msgid "Birthday"
@@ -201,15 +201,15 @@ msgstr "tidak diberi nama"
 
 #: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
-msgstr ""
+msgstr "anda tidak memiliki ijin untuk memperbaharui kalender ini"
 
 #: lib/calendar.php:233
 msgid "You do not have the permissions to delete this calendar."
-msgstr ""
+msgstr "anda tidak memiliki ijin untuk menghapus kalender ini"
 
 #: lib/calendar.php:267
 msgid "You do not have the permissions to add to this calendar."
-msgstr ""
+msgstr "anda tidak memiliki ijin untuk menambahkan ke kalender ini"
 
 #: lib/import.php:195 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
@@ -218,15 +218,15 @@ msgstr "kalender baru"
 
 #: lib/object.php:122 lib/object.php:161 lib/object.php:307
 msgid "You do not have the permissions to add events to this calendar."
-msgstr ""
+msgstr "anda tidak memiliki ijin untuk menambahkan kejadian ke kalender ini"
 
 #: lib/object.php:193 lib/object.php:227
 msgid "You do not have the permissions to edit this event."
-msgstr ""
+msgstr "anda tidak memiliki ijin untuk mengubah kejadian ini"
 
 #: lib/object.php:257 lib/object.php:287
 msgid "You do not have the permissions to delete this event."
-msgstr ""
+msgstr "anda tidak memiliki ijin untuk menghapus kejadian ini"
 
 #: lib/object.php:452
 msgid "Does not repeat"
@@ -406,79 +406,79 @@ msgstr ""
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "ming."
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "sen."
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "sel."
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "rab."
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "kam."
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "jum."
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "sab."
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "jan."
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "feb."
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "mar."
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "apr."
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "mei"
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "jun."
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "jul."
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "agst."
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "sept."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "okt."
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "nov."
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "des."
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -535,11 +535,11 @@ msgstr "Hari ini"
 
 #: templates/calendar.php:46
 msgid "Calendars"
-msgstr ""
+msgstr "kalender"
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Setting"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -630,7 +630,7 @@ msgstr ""
 
 #: templates/part.eventform.php:13
 msgid "Share"
-msgstr ""
+msgstr "berbagi"
 
 #: templates/part.eventform.php:21
 msgid "Title of the Event"
@@ -646,7 +646,7 @@ msgstr ""
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
-msgstr ""
+msgstr "Edit kategori"
 
 #: templates/part.eventform.php:56 templates/part.showevent.php:52
 msgid "All Day Event"
@@ -686,7 +686,7 @@ msgstr "Ulangi"
 
 #: templates/part.eventform.php:107 templates/part.showevent.php:102
 msgid "Advanced"
-msgstr ""
+msgstr "lanjutan"
 
 #: templates/part.eventform.php:151 templates/part.showevent.php:146
 msgid "Select weekdays"
@@ -711,7 +711,7 @@ msgstr "pilih bulan"
 
 #: templates/part.eventform.php:203 templates/part.showevent.php:198
 msgid "Select weeks"
-msgstr ""
+msgstr "pilih minggu"
 
 #: templates/part.eventform.php:208 templates/part.showevent.php:203
 msgid "and the events week of year."
@@ -719,11 +719,11 @@ msgstr ""
 
 #: templates/part.eventform.php:214 templates/part.showevent.php:209
 msgid "Interval"
-msgstr ""
+msgstr "jeda"
 
 #: templates/part.eventform.php:220 templates/part.showevent.php:215
 msgid "End"
-msgstr ""
+msgstr "akhir"
 
 #: templates/part.eventform.php:233 templates/part.showevent.php:228
 msgid "occurrences"
@@ -739,7 +739,7 @@ msgstr ""
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "silahkan pilih kalender"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
@@ -747,7 +747,7 @@ msgstr ""
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "pilih nama yang tersedia!"
 
 #: templates/part.import.php:45
 msgid ""
@@ -769,23 +769,23 @@ msgstr "Buat agenda baru"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr ""
+msgstr "bagikan dengan:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr ""
+msgstr "dibagikan dengan"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "batalkan berbagi"
 
 #: templates/part.share.php:53
 msgid "Nobody"
-msgstr ""
+msgstr "tidak seorangpun"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr ""
+msgstr "dibagikan melalui kalender"
 
 #: templates/part.share.php:79
 msgid ""
@@ -803,15 +803,15 @@ msgstr ""
 
 #: templates/part.showevent.php:37
 msgid "of"
-msgstr ""
+msgstr "dari"
 
 #: templates/part.showevent.php:59 templates/part.showevent.php:67
 msgid "at"
-msgstr ""
+msgstr "di"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "umum"
 
 #: templates/settings.php:15
 msgid "Timezone"
@@ -819,11 +819,11 @@ msgstr "Zonawaktu"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr ""
+msgstr "perbaharui zona waktu secara otomatis"
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "format waktu"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -835,19 +835,19 @@ msgstr "12 jam"
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr ""
+msgstr "mulai minggu dari"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr ""
+msgstr "cache"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr ""
+msgstr "bersihkan cache dari kejadian berulang"
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "tautan"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
@@ -855,7 +855,7 @@ msgstr ""
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "lebih lanjut"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
@@ -863,7 +863,7 @@ msgstr ""
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"

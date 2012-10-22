@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/owncloud/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -452,31 +452,31 @@ msgstr "أيا."
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "حزي."
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "تمو."
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "آب"
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "أيل."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "ت1"
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "ت2"
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "ك1"
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -537,7 +537,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "تعديلات"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"

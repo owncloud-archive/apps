@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <mr.pige_ina@yahoo.co.id>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-20 02:05+0200\n"
-"PO-Revision-Date: 2012-09-20 00:07+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 01:41+0000\n"
+"Last-Translator: elmakong <mr.pige_ina@yahoo.co.id>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr ""
+msgstr "modul php-json dibutuhkan oleh banyak aplikasi untuk berkomunikasi"
 
 #: settings.php:39
 msgid ""
@@ -30,47 +31,47 @@ msgstr ""
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr ""
+msgstr "modul php-gd dibutuhkan untuk membuat gambar kecil dari gambar anda"
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr ""
+msgstr "modul pgp-Idap dibutuhkan untuk menghubungkan dengan server Idap anda"
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr ""
+msgstr "modul php-zip dibutuhkan untuk mengunduh banyak file dalam satu waktu"
 
 #: settings.php:63
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
-msgstr ""
+msgstr "modul php-mb_multibyte dibutuhkan untuk mengelola pengkodean dengan benar"
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr ""
+msgstr "modul php-ctype dibutuhkan untuk memvalidasi data"
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr ""
+msgstr "modul php-xml dibutuhkan untuk berbagi file dengan webdav"
 
 #: settings.php:81
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr ""
+msgstr "Arahan allow_url_fopen dari php.ini harus di set ke 1 untuk mengambil basis pengetahuan dari OCS server"
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr ""
+msgstr "modul php-pdo dibutuhkan untuk menyimpan data owncloud ke dalam basis data"
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "modul iconv dibutuhkan untuk mengkonversi data ke set karakter yang benar"
 
 #: templates/settings.php:2
 msgid "Dependencies status"
-msgstr ""
+msgstr "status ketergantungan"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr ""
+msgstr "digunakan oleh :"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Armenian (http://www.transifex.com/projects/p/owncloud/language/hy/)\n"
 "MIME-Version: 1.0\n"
@@ -332,51 +332,51 @@ msgstr ""
 
 #: lib/object.php:547 templates/calendar.php:7
 msgid "January"
-msgstr ""
+msgstr "Հունվար"
 
 #: lib/object.php:548 templates/calendar.php:7
 msgid "February"
-msgstr ""
+msgstr "Փետրվար"
 
 #: lib/object.php:549 templates/calendar.php:7
 msgid "March"
-msgstr ""
+msgstr "Մարտ"
 
 #: lib/object.php:550 templates/calendar.php:7
 msgid "April"
-msgstr ""
+msgstr "Ապրիլ"
 
 #: lib/object.php:551 templates/calendar.php:7
 msgid "May"
-msgstr ""
+msgstr "Մայիս"
 
 #: lib/object.php:552 templates/calendar.php:7
 msgid "June"
-msgstr ""
+msgstr "Հունիս"
 
 #: lib/object.php:553 templates/calendar.php:7
 msgid "July"
-msgstr ""
+msgstr "Հուլիս"
 
 #: lib/object.php:554 templates/calendar.php:7
 msgid "August"
-msgstr ""
+msgstr "Օգոստոս"
 
 #: lib/object.php:555 templates/calendar.php:7
 msgid "September"
-msgstr ""
+msgstr "Սեպտեմբեր"
 
 #: lib/object.php:556 templates/calendar.php:7
 msgid "October"
-msgstr ""
+msgstr "Հոկտեմբեր"
 
 #: lib/object.php:557 templates/calendar.php:7
 msgid "November"
-msgstr ""
+msgstr "Նոյեմբեր"
 
 #: lib/object.php:558 templates/calendar.php:7
 msgid "December"
-msgstr ""
+msgstr "Դեկտեմբեր"
 
 #: lib/object.php:568
 msgid "by events date"
@@ -404,31 +404,31 @@ msgstr ""
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "Կիր."
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "Երկ."
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "Երք."
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "Չոր."
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "Հնգ."
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "Ուրբ."
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "Շաբ."
 
 #: templates/calendar.php:8
 msgid "Jan."

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -196,7 +196,7 @@ msgstr ""
 
 #: lib/app.php:385
 msgid "unnamed"
-msgstr ""
+msgstr "неозаглавено"
 
 #: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
@@ -333,51 +333,51 @@ msgstr ""
 
 #: lib/object.php:547 templates/calendar.php:7
 msgid "January"
-msgstr ""
+msgstr "Януари"
 
 #: lib/object.php:548 templates/calendar.php:7
 msgid "February"
-msgstr ""
+msgstr "Февруари"
 
 #: lib/object.php:549 templates/calendar.php:7
 msgid "March"
-msgstr ""
+msgstr "Март"
 
 #: lib/object.php:550 templates/calendar.php:7
 msgid "April"
-msgstr ""
+msgstr "Април"
 
 #: lib/object.php:551 templates/calendar.php:7
 msgid "May"
-msgstr ""
+msgstr "Май"
 
 #: lib/object.php:552 templates/calendar.php:7
 msgid "June"
-msgstr ""
+msgstr "Юни"
 
 #: lib/object.php:553 templates/calendar.php:7
 msgid "July"
-msgstr ""
+msgstr "Юли"
 
 #: lib/object.php:554 templates/calendar.php:7
 msgid "August"
-msgstr ""
+msgstr "Август"
 
 #: lib/object.php:555 templates/calendar.php:7
 msgid "September"
-msgstr ""
+msgstr "Септември"
 
 #: lib/object.php:556 templates/calendar.php:7
 msgid "October"
-msgstr ""
+msgstr "Октомври"
 
 #: lib/object.php:557 templates/calendar.php:7
 msgid "November"
-msgstr ""
+msgstr "Ноември"
 
 #: lib/object.php:558 templates/calendar.php:7
 msgid "December"
-msgstr ""
+msgstr "Декември"
 
 #: lib/object.php:568
 msgid "by events date"
