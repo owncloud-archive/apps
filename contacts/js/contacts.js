@@ -381,7 +381,7 @@ OC.Contacts = OC.Contacts || {};
 								$property.find('select.impp').val(property.parameters[param].toLowerCase());
 							}
 						}
-						if(self.access.owner === OC.currentUser 
+						if(self.access.owner === OC.currentUser
 								|| self.access.permissions & OC.PERMISSION_UPDATE
 								|| self.access.permissions & OC.PERMISSION_DELETE) {
 							$property.find('select.type[name="parameters[TYPE][]"]')
@@ -400,7 +400,7 @@ OC.Contacts = OC.Contacts || {};
 				}
 			}
 		});
-		if(this.access.owner !== OC.currentUser 
+		if(this.access.owner !== OC.currentUser
 			&& !(this.access.permissions & OC.PERMISSION_UPDATE
 				|| this.access.permissions & OC.PERMISSION_DELETE)) {
 			this.setEnabled(false);
@@ -411,11 +411,11 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	Contact.prototype.isEditable = function() {
-		return ((this.access.owner === OC.currentUser) 
+		return ((this.access.owner === OC.currentUser)
 			|| (this.access.permissions & OC.PERMISSION_UPDATE
 				|| this.access.permissions & OC.PERMISSION_DELETE));
 	}
-	
+
 	/**
 	 * Render a simple property. Used for EMAIL and TEL.
 	 * @return A jquery object to be injected in the DOM
@@ -425,7 +425,7 @@ OC.Contacts = OC.Contacts || {};
 			console.log('No template for', name);
 			return;
 		}
-		var values = property 
+		var values = property
 			? { value: property.value, checksum: property.checksum }
 			: { value: '', checksum: 'new' };
 		$elem = this.detailTemplates[name].octemplate(values);
@@ -441,8 +441,8 @@ OC.Contacts = OC.Contacts || {};
 			console.log('No template for adr', this.detailTemplates);
 			return;
 		}
-		var values = property ? { 
-				value: property.value.clean('').join(', '), 
+		var values = property ? {
+				value: property.value.clean('').join(', '),
 				checksum: property.checksum,
 				adr0: property.value[0] || '',
 				adr1: property.value[1] || '',
@@ -465,14 +465,14 @@ OC.Contacts = OC.Contacts || {};
 			console.log('No template for impp', this.detailTemplates);
 			return;
 		}
-		var values = property ? { 
+		var values = property ? {
 			value: property.value,
 			checksum: property.checksum,
 		} : {value: '', checksum: 'new'};
 		$elem = this.detailTemplates['impp'].octemplate(values);
 		return $elem;
 	}
-	
+
 	/**
 	 * Render the PHOTO property.
 	 */
@@ -494,7 +494,7 @@ OC.Contacts = OC.Contacts || {};
 		}).error(function () {
 			OC.notify({message:t('contacts','Error loading profile picture.')});
 		}).attr('src', OC.linkTo('contacts', 'photo.php')+'?id='+self.id+refreshstr);
-		
+
 		if(!dontloadhandlers && this.isEditable()) {
 			this.$photowrapper.on('mouseenter', function() {
 				$phototools.slideDown(200);
@@ -511,19 +511,19 @@ OC.Contacts = OC.Contacts || {};
 			$phototools.find('.edit').on('click', function() {
 				console.log('TODO: edit photo');
 				$(document).trigger('request.edit.contactphoto', {
-					id: self.id, 
+					id: self.id,
 				});
 			});
 			$phototools.find('.cloud').on('click', function() {
 				console.log('select photo from cloud');
 				$(document).trigger('request.select.contactphoto.fromcloud', {
-					id: self.id, 
+					id: self.id,
 				});
 			});
 			$phototools.find('.upload').on('click', function() {
 				console.log('select photo from local');
 				$(document).trigger('request.select.contactphoto.fromlocal', {
-					id: self.id, 
+					id: self.id,
 				});
 			});
 			if(this.data.PHOTO) {
@@ -552,7 +552,7 @@ OC.Contacts = OC.Contacts || {};
 		}
 		return this.$listelem;
 	}
-	
+
 	/**
 	 * Get the preferred value for a property.
 	 * If a preferred value is not found the first one will be returned.
@@ -582,7 +582,7 @@ OC.Contacts = OC.Contacts || {};
 		}
 		return pref;
 	}
-	
+
 	/**
 	 * Returns true/false depending on the contact being in the
 	 * specified group.
@@ -593,7 +593,7 @@ OC.Contacts = OC.Contacts || {};
 		if(!this.data.CATEGORIES) {
 			return false;
 		}
-		
+
 		categories = this.data.CATEGORIES[0].value;
 		for(var i in categories) {
 			if(typeof categories[i] === 'string' && (name.toLowerCase() === categories[i].toLowerCase())) {
@@ -691,7 +691,7 @@ OC.Contacts = OC.Contacts || {};
 		this.contactDetailTemplates = contactdetailtemplates;
 		this.$contactList.scrollTop(0);
 		this.loadContacts(0);
-		
+
 	}
 
 	/**
