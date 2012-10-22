@@ -27,6 +27,7 @@ if(is_null($contactid)) {
 debug('id: ' . $contactid .', categoryid: ' . $categoryid);
 
 $catmgr = OC_Contacts_App::getVCategories();
+
 if(!$catmgr->addToCategory($contactid, $categoryid)) {
 	bailOut(OC_Contacts_App::$l10n->t('Error adding contact to group.'));
 }
