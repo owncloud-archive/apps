@@ -712,7 +712,24 @@ OC.Contacts = OC.Contacts || {};
 			}
 		}
 	}
-	
+
+	/**
+	* Show/hide contacts belonging to shared addressbooks.
+	* @param boolean show. Whether to show or hide.
+	*/
+	ContactList.prototype.showSharedAddressbooks = function(show) {
+		console.log('ContactList.showSharedAddressbooks', show);
+		for(var contact in this.contacts) {
+			if(this.contacts[contact].access.owner !== OC.currentUser) {
+				if(show) {
+					this.contacts[contact].getListItemElement().show();
+				} else {
+					this.contacts[contact].getListItemElement().hide();
+				}
+			}
+		}
+	}
+
 	/**
 	* Show contacts in list
 	* @param Array contacts. A list of contact ids.
