@@ -15,17 +15,17 @@ OC.Contacts = OC.Contacts || {};
 	*/
 	var Contact = function(parent, id, access, data, listtemplate, fulltemplate, detailtemplates) {
 		//console.log('contact:', id, access); //parent, id, data, listtemplate, fulltemplate);
-		this.parent = parent, 
-			this.id = id, 
+		this.parent = parent,
+			this.id = id,
 			this.access = access,
-			this.data = data, 
+			this.data = data,
 			this.$listTemplate = listtemplate,
 			this.$fullTemplate = fulltemplate;
 			this.detailTemplates = detailtemplates;
 		var self = this;
 		this.multi_properties = ['EMAIL', 'TEL', 'IMPP', 'ADR', 'URL'];
 	}
-	
+
 	Contact.prototype.setAsSaving = function(obj, state) {
 		if(!obj) {
 			return;
@@ -41,7 +41,7 @@ OC.Contacts = OC.Contacts || {};
 	Contact.prototype.removeProperty = function(obj) {
 		console.log('Contact.removeProperty', name)
 	}
-	
+
 	Contact.prototype.addProperty = function($option, name) {
 		console.log('Contact.addProperty', name)
 		switch(name) {
@@ -74,7 +74,7 @@ OC.Contacts = OC.Contacts || {};
 				break;
 		}
 	}
-	
+
 	/**
 	 * @brief Act on change of a property.
 	 * If this is a new contact it will first be saved to the datastore and a
@@ -103,8 +103,8 @@ OC.Contacts = OC.Contacts || {};
 		$.post(OC.filePath('contacts', 'ajax', 'contact/saveproperty.php'), q, function(jsondata){
 			if(!jsondata) {
 				$(document).trigger('status.contact.error', {
-					status: 'error', 
-					message: t('contacts', 'Network or server error. Please inform administrator.'), 
+					status: 'error',
+					message: t('contacts', 'Network or server error. Please inform administrator.'),
 				});
 				self.setAsSaving(obj, false);
 				return false;
@@ -117,7 +117,7 @@ OC.Contacts = OC.Contacts || {};
 				return true;
 			} else {
 				$(document).trigger('status.contact.error', {
-					status: 'error', 
+					status: 'error',
 					message: jsondata.data.message,
 				});
 				self.setAsSaving(obj, false);
@@ -125,7 +125,7 @@ OC.Contacts = OC.Contacts || {};
 			}
 		},'json');
 	}
-	
+
 	/**
 	 * Remove any open contact from the DOM.
 	 */
@@ -135,7 +135,7 @@ OC.Contacts = OC.Contacts || {};
 			this.$fullelem.remove();
 		}
 	}
-	
+
 	/**
 	 * Remove any open contact from the DOM and detach it's list
 	 * element from the DOM.
@@ -149,7 +149,7 @@ OC.Contacts = OC.Contacts || {};
 			return this.$listelem.detach();
 		}
 	}
-	
+
 	/**
 	 * Set a contact to en/disabled depending on its permissions.
 	 * @param boolean enabled
@@ -167,16 +167,16 @@ OC.Contacts = OC.Contacts || {};
 		});
 		$(document).trigger('status.contact.enabled', enabled);
 	}
-		
+
 	/**
 	 * Delete contact from data store and remove it from the DOM
 	 * @param cb Optional callback function which
 	 * @returns An object with a variable 'status' of either success
-	 * 	or 'error' 
+	 * 	or 'error'
 	 */
 	Contact.prototype.destroy = function(cb) {
 		var self = this;
-		$.post(OC.filePath('contacts', 'ajax', 'contact/delete.php'), 
+		$.post(OC.filePath('contacts', 'ajax', 'contact/delete.php'),
 			   {id: this.id}, function(jsondata) {
 			if(jsondata && jsondata.status === 'success') {
 				if(self.$listelem) {
@@ -202,16 +202,16 @@ OC.Contacts = OC.Contacts || {};
 			}
 		});
 	}
-	
+
 	Contact.prototype.queryStringFor = function(obj) {
 		var q = 'id=' + this.id;
 		var ptype = this.propertyTypeFor(obj);
 		q += '&name=' + ptype;
-		
+
 		if(this.multi_properties.indexOf(ptype) !== -1) {
 			q += '&checksum=' + this.checksumFor(obj);
 		}
-		
+
 		if($(obj).hasClass('propertycontainer')) {
 			q += '&value=' + encodeURIComponent($(obj).val());
 		} else {
@@ -220,22 +220,22 @@ OC.Contacts = OC.Contacts || {};
 		}
 		return q;
 	}
-	
+
 	Contact.prototype.propertyContainerFor = function(obj) {
-		return $(obj).hasClass('.propertycontainer') 
-			? $(obj) 
+		return $(obj).hasClass('.propertycontainer')
+			? $(obj)
 			: $(obj).parents('.propertycontainer').first();
 	}
 
 	Contact.prototype.checksumFor = function(obj) {
 		return this.propertyContainerFor(obj).data('checksum');
 	}
-	
+
 	Contact.prototype.propertyTypeFor = function(obj) {
 		var ptype = this.propertyContainerFor(obj).data('element');
 		return ptype ? ptype.toUpperCase() : null;
 	}
-	
+
 	/**
 	 * Render the list item
 	 * @return A jquery object to be inserted in the DOM
@@ -250,7 +250,7 @@ OC.Contacts = OC.Contacts || {};
 			categories: this.getPreferredValue('CATEGORIES', [])
 				.clean('').join(' / '),
 		});
-		if(this.access.owner !== OC.currentUser 
+		if(this.access.owner !== OC.currentUser
 				&& !(this.access.permissions & OC.PERMISSION_UPDATE
 				|| this.access.permissions & OC.PERMISSION_DELETE)) {
 			this.$listelem.find('input:checkbox').prop('disabled', true).css('opacity', '0');
@@ -272,9 +272,9 @@ OC.Contacts = OC.Contacts || {};
 				nickname: this.getPreferredValue('NICKNAME', ''),
 				title: this.getPreferredValue('TITLE', ''),
 				org: this.getPreferredValue('ORG', []).clean('').join(', '), // TODO Add parts if more than one.
-				bday: this.getPreferredValue('BDAY', '').length >= 10 
-					? $.datepicker.formatDate('dd-mm-yy', 
-						$.datepicker.parseDate('yy-mm-dd', 
+				bday: this.getPreferredValue('BDAY', '').length >= 10
+					? $.datepicker.formatDate('dd-mm-yy',
+						$.datepicker.parseDate('yy-mm-dd',
 							this.getPreferredValue('BDAY', '').substring(0, 10)))
 					: '',
 				}
@@ -742,11 +742,11 @@ OC.Contacts = OC.Contacts || {};
 		console.log('pos', pos);
 		return pos;
 	}
-	
+
 	ContactList.prototype.closeContact = function(id) {
 		this.contacts[parseInt(id)].close();
 	}
-	
+
 	/**
 	* Jumps to an element in the contact list
 	* @param number the number of the item starting with 0
@@ -756,7 +756,7 @@ OC.Contacts = OC.Contacts || {};
 		console.log('scrollTop', pos);
 		this.$contactList.scrollTop(pos);
 	};
-	
+
 	/**
 	* Returns a Contact object by searching for its id
 	* @param id the id of the node
@@ -781,7 +781,7 @@ OC.Contacts = OC.Contacts || {};
 		}
 		return warn;
 	}
-		
+
 	ContactList.prototype.delayedDeleteContact = function(id) {
 		var self = this;
 		this.currentContact = null;
@@ -837,7 +837,7 @@ OC.Contacts = OC.Contacts || {};
 			updateQueue(id, removeFromQueue);
 			return;
 		}
-		
+
 		// Let contact remove itself.
 		this.contacts[id].destroy(function(response) {
 			console.log('deleteContact', response);
@@ -857,7 +857,7 @@ OC.Contacts = OC.Contacts || {};
 			}
 		});
 	}
-	
+
 	/**
 	* Opens the contact with this id in edit mode
 	* @param id the id of the contact
@@ -900,18 +900,18 @@ OC.Contacts = OC.Contacts || {};
 		}
 		return contact;
 	}
-	
+
 	/**
 	* Add contact
 	* @param int offset
 	*/
 	ContactList.prototype.addContact = function() {
 		var contact = new Contact(
-			this, 
+			this,
 			null,
 			null,
-			null, 
-			this.$contactListItemTemplate, 
+			null,
+			this.$contactListItemTemplate,
 			this.$contactFullTemplate,
 			this.contactDetailTemplates
 		);
@@ -920,16 +920,16 @@ OC.Contacts = OC.Contacts || {};
 		}
 		return contact.renderContact();
 	}
-	
+
 	ContactList.prototype.getSelectedContacts = function() {
 		var contacts = [];
-		
+
 		$.each(this.$contactList.find('tr > td > input:checkbox:visible:checked'), function(a, b) {
 			contacts.push(parseInt($(b).parents('tr').first().data('id')));
 		});
 		return contacts;
 	}
-	
+
 	ContactList.prototype.setCurrent = function(id, deselect_other) {
 		self = this;
 		if(deselect_other === true) {
@@ -939,7 +939,7 @@ OC.Contacts = OC.Contacts || {};
 		}
 		this.contacts[parseInt(id)].setCurrent(true);
 	}
-	
+
 	// Should only be neccesary with progressive loading, but it's damn fast, so... ;)
 	ContactList.prototype.doSort = function() {
 		var self = this;
@@ -948,12 +948,12 @@ OC.Contacts = OC.Contacts || {};
 		rows.sort(function(a, b) {
 			return keyA = $(a).find('td.name').text().toUpperCase().localeCompare($(b).find('td.name').text().toUpperCase());
 		});
-			
+
 		$.each(rows, function(index, row) {
 			self.$contactList.append(row);
 		});
 	}
-	
+
 	/**
 	* Load contacts
 	* @param int offset
@@ -967,19 +967,19 @@ OC.Contacts = OC.Contacts || {};
 				self.addressbooks = {};
 				$.each(jsondata.data.addressbooks, function(i, book) {
 					self.addressbooks[parseInt(book.id)] = {
-						owner: book.userid, 
+						owner: book.userid,
 						permissions: parseInt(book.permissions),
 						aid: parseInt(book.id),
 					};
 				});
 				$.each(jsondata.data.contacts, function(c, contact) {
-					self.contacts[parseInt(contact.id)] 
+					self.contacts[parseInt(contact.id)]
 						= new Contact(
-							self, 
+							self,
 							contact.id,
 							self.addressbooks[parseInt(contact.aid)],
-							contact.data, 
-							self.$contactListItemTemplate, 
+							contact.data,
+							self.$contactListItemTemplate,
 							self.$contactFullTemplate,
 							self.contactDetailTemplates
 						);
@@ -990,8 +990,8 @@ OC.Contacts = OC.Contacts || {};
 				});
 				self.doSort();
 				$(document).trigger('status.contacts.loaded', {
-					status: true, 
-					numcontacts: jsondata.data.contacts.length 
+					status: true,
+					numcontacts: jsondata.data.contacts.length
 				});
 				self.setCurrent(self.$contactList.find('tr:first-child').data('id'), false);
 			}
