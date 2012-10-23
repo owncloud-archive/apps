@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-20 02:02+0200\n"
-"PO-Revision-Date: 2012-10-19 13:08+0000\n"
+"POT-Creation-Date: 2012-10-23 02:04+0200\n"
+"PO-Revision-Date: 2012-10-22 10:22+0000\n"
 "Last-Translator: skoptev <skoptev@ukr.net>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -24,19 +24,19 @@ msgstr ""
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: js/addBm.js:42 js/bookmarks.js:243
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "Метки"
 
-#: js/bookmarks.js:178
+#: js/bookmarks.js:168
 msgid "Edit bookmark"
 msgstr "Редактировать закладку"
 
-#: js/bookmarks.js:410
+#: js/bookmarks.js:385
 msgid "Are you sure you want to remove this tag from every entry?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить этот тег из каждой записи?"
 
-#: js/bookmarks.js:411
+#: js/bookmarks.js:386
 msgid "Warning"
 msgstr "Предупреждение"
 
@@ -52,19 +52,19 @@ msgstr "Добавить закладку"
 msgid "Close"
 msgstr "Закрыть"
 
-#: templates/addBm.php:22 templates/list.php:91
+#: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
 msgstr "Заголовок страницы"
 
-#: templates/addBm.php:27 templates/list.php:95
+#: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
 msgstr "Адрес страницы"
 
-#: templates/addBm.php:40 templates/list.php:104
+#: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
 msgstr "Описание страницы"
 
-#: templates/addBm.php:44 templates/list.php:108
+#: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
 msgstr "Сохранить"
 
@@ -77,6 +77,18 @@ msgstr "Перетащите эту кнопку в закладки вашег�
 #: templates/bookmarklet.php:7
 msgid "Read later"
 msgstr "Прочитать позже"
+
+#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
+msgid "Edit"
+msgstr "Редактировать"
+
+#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/js_tpl.php:49
+msgid "Cancel"
+msgstr "Отменить"
 
 #: templates/list.php:12
 msgid "Address"
@@ -110,18 +122,6 @@ msgstr "Связанные теги"
 msgid "You have no bookmarks"
 msgstr "У вас нет закладок"
 
-#: templates/list.php:64
-msgid "Edit"
-msgstr "Редактировать"
-
-#: templates/list.php:68
-msgid "Delete"
-msgstr "Удалить"
-
-#: templates/list.php:107
-msgid "Cancel"
-msgstr "Отменить"
-
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
 msgstr "Быстрые закладки<br />"
@@ -132,7 +132,7 @@ msgstr "Импортировать закладки"
 
 #: templates/settings.php:28
 msgid "Bookmark html file"
-msgstr ""
+msgstr "Добавить html-файл в закладки"
 
 #: templates/settings.php:30
 msgid "Import"

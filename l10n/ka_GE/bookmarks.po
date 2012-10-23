@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <romeo@energo-pro.ge>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:02+0200\n"
-"PO-Revision-Date: 2012-07-27 22:17+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-10-23 02:04+0200\n"
+"PO-Revision-Date: 2012-10-22 10:21+0000\n"
+"Last-Translator: drlinux64 <romeo@energo-pro.ge>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,126 +20,126 @@ msgstr ""
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
-msgstr ""
+msgstr "ბუქმარკები"
 
 #: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
-msgstr ""
+msgstr "ტაგები"
 
 #: js/bookmarks.js:168
 msgid "Edit bookmark"
-msgstr ""
+msgstr "ბუქმარკების რედაქტირება"
 
 #: js/bookmarks.js:385
 msgid "Are you sure you want to remove this tag from every entry?"
-msgstr ""
+msgstr "დარწმუნებული ხართ რომ აღნიშნული ტაგის წაშლა გინდათ ყველა ჩანაწერიდა?"
 
 #: js/bookmarks.js:386
 msgid "Warning"
-msgstr ""
+msgstr "გაფრთხილება"
 
 #: lib/search.php:38
 msgid "Bookm."
-msgstr ""
+msgstr "Bookm."
 
 #: templates/addBm.php:11
 msgid "Add a bookmark"
-msgstr ""
+msgstr "ბუქმარქში დამატება"
 
 #: templates/addBm.php:14
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
 
 #: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
-msgstr ""
+msgstr "გვერდის სათაური"
 
 #: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
-msgstr ""
+msgstr "გვერდის მისამართი"
 
 #: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
-msgstr ""
+msgstr "გვერდის დახასიათება"
 
 #: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
-msgstr ""
+msgstr "შენახვა"
 
 #: templates/bookmarklet.php:5
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr ""
+msgstr "გადაათრიეთ ეს თქვენს ბუქმარკებში თუ გინდათ რომ საითი სწრაფად დაბუქმარკდეს"
 
 #: templates/bookmarklet.php:7
 msgid "Read later"
-msgstr ""
+msgstr "წაიკითხე მოგვიანებით"
 
 #: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
 msgid "Edit"
-msgstr ""
+msgstr "რედაქტირება"
 
 #: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
 msgid "Delete"
-msgstr ""
+msgstr "წაშლა"
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
-msgstr ""
+msgstr "უარყოფა"
 
 #: templates/list.php:12
 msgid "Address"
-msgstr ""
+msgstr "მისამართი"
 
 #: templates/list.php:13
 msgid "Add bookmark"
-msgstr ""
+msgstr "ბუქმარქის დამატება"
 
 #: templates/list.php:16
 msgid "List"
-msgstr ""
+msgstr "სია"
 
 #: templates/list.php:17
 msgid "Image"
-msgstr ""
+msgstr "სურათი"
 
 #: templates/list.php:22
 msgid "Hide"
-msgstr ""
+msgstr "დამალვა"
 
 #: templates/list.php:23
 msgid "Show"
-msgstr ""
+msgstr "გამოჩენა"
 
 #: templates/list.php:30
 msgid "Related Tags"
-msgstr ""
+msgstr "Related Tags"
 
 #: templates/list.php:39
 msgid "You have no bookmarks"
-msgstr ""
+msgstr "თქვენ არ გაქვთ ბუქმარკები"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
-msgstr ""
+msgstr "Bookmarklet <br />"
 
 #: templates/settings.php:26
 msgid "Import bookmarks"
-msgstr ""
+msgstr "ბუქმარქების იმპორტი"
 
 #: templates/settings.php:28
 msgid "Bookmark html file"
-msgstr ""
+msgstr "ბუქმარქ html ფაილი"
 
 #: templates/settings.php:30
 msgid "Import"
-msgstr ""
+msgstr "იმპორტი"
 
 #: templates/settings.php:33
 msgid "Export bookmarks"
-msgstr ""
+msgstr "ბუქმარქების ექსპორტი"
 
 #: templates/settings.php:35
 msgid "Export"
-msgstr ""
+msgstr "ექსპორტი"

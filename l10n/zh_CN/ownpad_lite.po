@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-18 22:56+0200\n"
-"PO-Revision-Date: 2012-10-18 17:47+0000\n"
+"POT-Creation-Date: 2012-10-23 02:05+0200\n"
+"PO-Revision-Date: 2012-10-22 15:42+0000\n"
 "Last-Translator: hanfeng <appweb.cn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: appinfo/app.php:58
 msgid "My pad"
-msgstr ""
+msgstr "我的Pad"
 
 #: templates/index.php:14 templates/index.php:15
 msgid "Settings"
@@ -28,7 +28,7 @@ msgstr "设置"
 
 #: templates/index.php:17
 msgid "Pad Title"
-msgstr ""
+msgstr "Pad名称"
 
 #: templates/index.php:18
 msgid "Open"
@@ -36,7 +36,7 @@ msgstr "打开"
 
 #: templates/settings.php:15
 msgid "Etherpad service URL"
-msgstr ""
+msgstr "Etherpad 服务地址"
 
 #: templates/settings.php:20
 msgid "Username"
