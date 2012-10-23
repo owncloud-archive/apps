@@ -231,6 +231,10 @@ OC.Contacts = OC.Contacts || {};
 		return this.propertyContainerFor(obj).data('checksum');
 	}
 
+	Contact.prototype.valueFor = function(obj) {
+		return this.propertyContainerFor(obj).find('input.value').val();
+	}
+
 	Contact.prototype.propertyTypeFor = function(obj) {
 		var ptype = this.propertyContainerFor(obj).data('element');
 		return ptype ? ptype.toUpperCase() : null;
