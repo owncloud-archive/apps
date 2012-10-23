@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <>, 2012.
 # Peter Peroša <peter.perosa@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:05+0200\n"
-"PO-Revision-Date: 2012-10-16 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-23 02:05+0200\n"
+"PO-Revision-Date: 2012-10-22 18:12+0000\n"
+"Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +21,11 @@ msgstr ""
 
 #: ajax/changefoldername.php:30
 msgid "Error changing name of folder "
-msgstr "Napaka pri spreminjanju imena mape"
+msgstr "Napaka med spreminjanjem imena mape"
 
 #: ajax/collapsefolder.php:36
 msgid "Error collapsing folder."
-msgstr "Napaka pri zapiranju mape."
+msgstr "Napaka med zlaganjem mape."
 
 #: ajax/createfeed.php:52
 msgid "Feed already exists."
@@ -32,47 +33,47 @@ msgstr "Vir že obstaja."
 
 #: ajax/createfeed.php:58
 msgid "Error adding feed."
-msgstr "Napaka pri dodajanju vira."
+msgstr "Napaka med dodajanjem vira."
 
 #: ajax/createfeed.php:71
 msgid "Feed added!"
-msgstr "Vir je bil dodan!"
+msgstr "Vir je dodan!"
 
 #: ajax/createfolder.php:37
 msgid "Error adding folder."
-msgstr "Napaka pri dodajanju mape."
+msgstr "Napaka med dodajanjem mape."
 
 #: ajax/createfolder.php:47
 msgid "Folder added!"
-msgstr "Mapa je bila dodana!"
+msgstr "Mapa je dodana!"
 
 #: ajax/deletefeed.php:29
 msgid "Error removing feed."
-msgstr "Napaka pri odstranjevanju vira."
+msgstr "Napaka med odstranjevanjem vira."
 
 #: ajax/deletefolder.php:27
 msgid "Error removing folder."
-msgstr "Napaka pri odstranjevanju mape."
+msgstr "Napaka med odstranjevanjem mape."
 
 #: ajax/feedlist.php:28
 msgid "Error updating feeds."
-msgstr "Napaka pri posodabljanju virov."
+msgstr "Napaka med posodabljanjem virov."
 
 #: ajax/importopml.php:28 ajax/selectfromcloud.php:31
 msgid "No file path was submitted."
-msgstr "Pot do datoteke ni bila poslana."
+msgstr "Pot do datoteke ni poslana."
 
 #: ajax/importopml.php:42
 msgid "An error occurred while parsing the file."
-msgstr "Pri razčlenjevanju datoteke je prišlo do napake."
+msgstr "Med razčlenjevanjem datoteke je prišlo do napake."
 
 #: ajax/loadfeed.php:52
 msgid "Feed loaded!"
-msgstr "Vir je bil naložen!"
+msgstr "Vir je naložen!"
 
 #: ajax/movefeedtofolder.php:37
 msgid "Error moving feed into folder."
-msgstr "Napaka pri premikanju vira v mapo."
+msgstr "Napaka med premikanjem vira v mapo."
 
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
@@ -80,21 +81,21 @@ msgstr "Datoteka ne obstaja:"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
-msgstr "Napaka pri označevanju vseh predmetov za prebrane."
+msgstr "Napaka med označevanjem vseh predmetov kot prebrane."
 
 #: ajax/setitemstatus.php:47
 msgid "Error marking item as read."
-msgstr "Napaka pri označevanju predmeta za prebranega."
+msgstr "Napaka med označevanjem predmeta kot prebranega."
 
 #: ajax/updatefeed.php:37
 msgid "Error updating feed."
-msgstr "Napaka pri posodabljanju vira."
+msgstr "Napaka med posodabljanjem vira."
 
 #: ajax/updatefeed.php:45
 msgid "Feed updated!"
-msgstr "Vir je bil posodobljen!"
+msgstr "Vir je posodobljen!"
 
-#: appinfo/app.php:36
+#: appinfo/app.php:36 lib/search.php:21
 msgid "News"
 msgstr "Novice"
 
@@ -102,7 +103,7 @@ msgstr "Novice"
 msgid "Error while loading the feed"
 msgstr "Napaka med nalaganjem vira"
 
-#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
+#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
@@ -112,7 +113,7 @@ msgstr "Napaka"
 
 #: js/main.js:33
 msgid "None"
-msgstr "Nič"
+msgstr "Brez"
 
 #: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
@@ -136,11 +137,11 @@ msgstr "Opozorilo"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
-msgstr "Mapa mora imeti ime."
+msgstr "Mapa mora biti poimenovana."
 
 #: js/news.js:33 js/news.js:95
 msgid "Adding..."
-msgstr "Dodajanje..."
+msgstr "Dodajanje ..."
 
 #: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
@@ -148,7 +149,7 @@ msgstr "Dodaj mapo"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr "Spreminjam..."
+msgstr "Poteka spreminjanje ..."
 
 #: js/news.js:79 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
@@ -157,7 +158,7 @@ msgstr "Spremeni ime mape"
 
 #: js/news.js:90
 msgid "URL cannot be empty."
-msgstr "URL ne more biti prazen."
+msgstr "Naslov URL ne sme biti prazen."
 
 #: js/news.js:120 js/news.js:127 templates/firstrun.php:5
 msgid "Add feed"
@@ -165,7 +166,7 @@ msgstr "Dodaj vir"
 
 #: js/news.js:124
 msgid "Error while parsing the feed"
-msgstr "Napaka pri razčlenjevanju vira"
+msgstr "Napaka med razčlenjevanjem vira"
 
 #: js/news.js:124
 msgid "Fatal Error"
@@ -185,11 +186,11 @@ msgstr "Datoteka ni izbrana."
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
-msgstr "naloženo iz lokalnega datotečnega sistema"
+msgstr "naloženo iz krajevnega datotečnega sistema."
 
 #: js/settings.js:32
 msgid "Importing..."
-msgstr "Uvažanje..."
+msgstr "Uvažanje ..."
 
 #: js/settings.js:43
 msgid " out of "
@@ -201,7 +202,7 @@ msgstr "viri uspešno uvoženi iz"
 
 #: js/settings.js:45
 msgid "Success"
-msgstr "Uspeh"
+msgstr "Uspešno končano."
 
 #: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
 msgid "Import"
@@ -209,15 +210,15 @@ msgstr "Uvozi"
 
 #: js/settings.js:55
 msgid "Downloading..."
-msgstr "Prenašam..."
+msgstr "Prejemanje ..."
 
 #: js/settings.js:57
 msgid "Download"
-msgstr "Prenesi"
+msgstr "Prejmi"
 
 #: js/settings.js:69
 msgid "Select file"
-msgstr "Izberi datoteko"
+msgstr "Izbor datoteke"
 
 #: lib/feedmapper.php:180 lib/itemmapper.php:204
 msgid "no title"
@@ -249,7 +250,7 @@ msgstr "Na ta vir ste že naročeni!"
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
-msgstr "V vašem bralniku ni virov."
+msgstr "V bralniku ni nobenega vira."
 
 #: templates/firstrun.php:6 templates/part.dialogues.php:28
 msgid "Address"
@@ -265,15 +266,15 @@ msgstr "Uvozi OPML"
 
 #: templates/firstrun.php:12 templates/settings.php:3
 msgid "Upload file from desktop"
-msgstr "Naloži datoteko iz namizja"
+msgstr "Pošlji datoteko iz namizja"
 
 #: templates/firstrun.php:12 templates/settings.php:3
 msgid "Upload"
-msgstr "Naloži"
+msgstr "Pošlji"
 
 #: templates/firstrun.php:13 templates/settings.php:4
 msgid "Select file from ownCloud"
-msgstr "Izberi datoteko iz ownCloud"
+msgstr "Izberi datoteko iz oblaka ownCloud"
 
 #: templates/firstrun.php:13 templates/settings.php:4
 msgid "Select"
@@ -284,11 +285,11 @@ msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
-msgstr "Izberite datoteko iz <a href=\"#\" class=\"settings\" id=\"browselink\">lokalnega datotečnega sistema</a> ali <a href=\"#\" class=\"settings\" id=\"cloudlink\">oblaka</a>"
+msgstr "Izberite datoteko iz <a href=\"#\" class=\"settings\" id=\"browselink\">krajevnega datotečnega sistema</a> ali <a href=\"#\" class=\"settings\" id=\"cloudlink\">oblaka</a>"
 
 #: templates/firstrun.php:24
 msgid "Or..."
-msgstr "Ali..."
+msgstr "Ali ..."
 
 #: templates/main.php:35
 msgid "Add feed or folder"
@@ -296,7 +297,7 @@ msgstr "Dodaj vir ali mapo"
 
 #: templates/main.php:36
 msgid "Add Feed/Folder"
-msgstr "Dodaj vit/mapo"
+msgstr "Dodaj vir ali mapo"
 
 #: templates/main.php:38
 msgid "Feed"
@@ -332,7 +333,7 @@ msgstr "Dodaj nov vir"
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
-msgstr "Izberite mapo"
+msgstr "Izberi mapo"
 
 #: templates/part.dialogues.php:29
 msgid "Add"
@@ -340,7 +341,7 @@ msgstr "Dodaj"
 
 #: templates/part.feeds.php:47
 msgid "New articles"
-msgstr "Novi članki"
+msgstr "Novi prispevki"
 
 #: templates/part.feeds.php:49 templates/part.listfeed.php:34
 #: templates/part.listfolder.php:34
@@ -361,7 +362,7 @@ msgstr "Označi kot pomembno"
 
 #: templates/part.items.php:37
 msgid "from"
-msgstr ""
+msgstr "od"
 
 #: templates/part.items.php:43
 msgid "by"

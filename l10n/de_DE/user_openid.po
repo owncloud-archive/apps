@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 23:32+0200\n"
-"PO-Revision-Date: 2012-10-16 20:52+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-20 02:03+0200\n"
+"PO-Revision-Date: 2012-10-19 21:42+0000\n"
+"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr "Dies ist ein OpenID-Server-Endpunkt. Weitere Informationen findest Du unter:"
+msgstr "Dies ist ein OpenID-Server-Endpunkt. Weitere Informationen finden Sie unter:"
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
@@ -48,7 +48,7 @@ msgstr "Fehler: <b> Kein Benutzer ausgewählt"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
-msgstr "Du kannst Dich auf anderen Seiten mit dieser Adresse authentifizieren."
+msgstr "Sie können sich auf anderen Seiten mit dieser Adresse authentifizieren."
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"
@@ -56,4 +56,4 @@ msgstr "Autorisierter OpenID-Anbieter"
 
 #: templates/settings.php:6
 msgid "Your address at Wordpress, Identi.ca, &hellip;"
-msgstr "Deine Adresse bei Wordpress, Identi.ca, &hellip;"
+msgstr "Ihre Adresse bei Wordpress, Identi.ca, &hellip;"

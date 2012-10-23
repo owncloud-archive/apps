@@ -13,8 +13,6 @@
 "Invalid request" => "Nevalida peto",
 "Calendar" => "Kalendaro",
 "Deletion failed" => "Forigo malsukcesis",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "ddd, d-a de MMMM[ yyyy]{ &#8212;[ddd, d-a de] MMMM yyyy}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "ddd, d-a de MMMM[ yyyy] HH:mm{ &#8212;[ ddd, d-a de MMMM yyyy] HH:mm}",
 "user" => "uzanto",
 "group" => "grupo",
 "Editable" => "Redaktebla",

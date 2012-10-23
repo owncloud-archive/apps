@@ -1,0 +1,409 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2012-10-22 02:04+0200\n"
+"PO-Revision-Date: 2012-08-26 23:39+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ka_GE\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ajax/changefoldername.php:30
+msgid "Error changing name of folder "
+msgstr ""
+
+#: ajax/collapsefolder.php:36
+msgid "Error collapsing folder."
+msgstr ""
+
+#: ajax/createfeed.php:52
+msgid "Feed already exists."
+msgstr ""
+
+#: ajax/createfeed.php:58
+msgid "Error adding feed."
+msgstr ""
+
+#: ajax/createfeed.php:71
+msgid "Feed added!"
+msgstr ""
+
+#: ajax/createfolder.php:37
+msgid "Error adding folder."
+msgstr ""
+
+#: ajax/createfolder.php:47
+msgid "Folder added!"
+msgstr ""
+
+#: ajax/deletefeed.php:29
+msgid "Error removing feed."
+msgstr ""
+
+#: ajax/deletefolder.php:27
+msgid "Error removing folder."
+msgstr ""
+
+#: ajax/feedlist.php:28
+msgid "Error updating feeds."
+msgstr ""
+
+#: ajax/importopml.php:28 ajax/selectfromcloud.php:31
+msgid "No file path was submitted."
+msgstr ""
+
+#: ajax/importopml.php:42
+msgid "An error occurred while parsing the file."
+msgstr ""
+
+#: ajax/loadfeed.php:52
+msgid "Feed loaded!"
+msgstr ""
+
+#: ajax/movefeedtofolder.php:37
+msgid "Error moving feed into folder."
+msgstr ""
+
+#: ajax/selectfromcloud.php:38
+msgid "File doesn't exist:"
+msgstr ""
+
+#: ajax/setallitemsread.php:63
+msgid "Error setting all items as read."
+msgstr ""
+
+#: ajax/setitemstatus.php:47
+msgid "Error marking item as read."
+msgstr ""
+
+#: ajax/updatefeed.php:37
+msgid "Error updating feed."
+msgstr ""
+
+#: ajax/updatefeed.php:45
+msgid "Feed updated!"
+msgstr ""
+
+#: appinfo/app.php:36 lib/search.php:21
+msgid "News"
+msgstr ""
+
+#: js/items.js:123
+msgid "Error while loading the feed"
+msgstr ""
+
+#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
+#: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
+#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
+#: js/settings.js:47
+msgid "Error"
+msgstr ""
+
+#: js/main.js:33
+msgid "None"
+msgstr ""
+
+#: js/main.js:101 templates/main.php:18
+msgid "Show only unread"
+msgstr ""
+
+#: js/main.js:105 templates/main.php:14
+msgid "Show everything"
+msgstr ""
+
+#: js/menu.js:505
+msgid "Are you sure you want to delete this feed?"
+msgstr ""
+
+#: js/menu.js:513
+msgid "Are you sure you want to delete this folder and all its feeds?"
+msgstr ""
+
+#: js/menu.js:521
+msgid "Warning"
+msgstr ""
+
+#: js/news.js:28 js/news.js:58
+msgid "Name of the folder cannot be empty."
+msgstr ""
+
+#: js/news.js:33 js/news.js:95
+msgid "Adding..."
+msgstr ""
+
+#: js/news.js:50 templates/part.dialogues.php:9
+msgid "Add folder"
+msgstr ""
+
+#: js/news.js:63
+msgid "Changing..."
+msgstr ""
+
+#: js/news.js:79 templates/part.dialogues.php:34
+#: templates/part.dialogues.php:38 templates/part.dialogues.php:43
+msgid "Change folder name"
+msgstr ""
+
+#: js/news.js:90
+msgid "URL cannot be empty."
+msgstr ""
+
+#: js/news.js:120 js/news.js:127 templates/firstrun.php:5
+msgid "Add feed"
+msgstr ""
+
+#: js/news.js:124
+msgid "Error while parsing the feed"
+msgstr ""
+
+#: js/news.js:124
+msgid "Fatal Error"
+msgstr ""
+
+#: js/settings.js:11 js/settings.js:27
+msgid "File "
+msgstr ""
+
+#: js/settings.js:11
+msgid " loaded from cloud."
+msgstr ""
+
+#: js/settings.js:22
+msgid "No files selected."
+msgstr ""
+
+#: js/settings.js:27
+msgid " loaded from local filesystem."
+msgstr ""
+
+#: js/settings.js:32
+msgid "Importing..."
+msgstr ""
+
+#: js/settings.js:43
+msgid " out of "
+msgstr ""
+
+#: js/settings.js:44
+msgid " feeds imported successfully from "
+msgstr ""
+
+#: js/settings.js:45
+msgid "Success"
+msgstr ""
+
+#: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
+msgid "Import"
+msgstr ""
+
+#: js/settings.js:55
+msgid "Downloading..."
+msgstr ""
+
+#: js/settings.js:57
+msgid "Download"
+msgstr ""
+
+#: js/settings.js:69
+msgid "Select file"
+msgstr ""
+
+#: lib/feedmapper.php:180 lib/itemmapper.php:204
+msgid "no title"
+msgstr ""
+
+#: lib/foldermapper.php:127
+msgid "no name"
+msgstr ""
+
+#: lib/itemmapper.php:209
+msgid "no body"
+msgstr ""
+
+#: opmlexporter.php:52
+msgid "subscriptions in ownCloud - News"
+msgstr ""
+
+#: subscribe.php:30
+msgid "An error occurred"
+msgstr ""
+
+#: subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr ""
+
+#: subscribe.php:36
+msgid "You had already subcribed to this feed!"
+msgstr ""
+
+#: templates/firstrun.php:2
+msgid "You don't have any feed in your reader."
+msgstr ""
+
+#: templates/firstrun.php:6 templates/part.dialogues.php:28
+msgid "Address"
+msgstr ""
+
+#: templates/firstrun.php:7 templates/subscribelet.php:7
+msgid "Subscribe"
+msgstr ""
+
+#: templates/firstrun.php:11
+msgid "Import OPML"
+msgstr ""
+
+#: templates/firstrun.php:12 templates/settings.php:3
+msgid "Upload file from desktop"
+msgstr ""
+
+#: templates/firstrun.php:12 templates/settings.php:3
+msgid "Upload"
+msgstr ""
+
+#: templates/firstrun.php:13 templates/settings.php:4
+msgid "Select file from ownCloud"
+msgstr ""
+
+#: templates/firstrun.php:13 templates/settings.php:4
+msgid "Select"
+msgstr ""
+
+#: templates/firstrun.php:15 templates/settings.php:6
+msgid ""
+"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
+"filesystem</a> or <a href=\"#\" class=\"settings\" "
+"id=\"cloudlink\">cloud</a>"
+msgstr ""
+
+#: templates/firstrun.php:24
+msgid "Or..."
+msgstr ""
+
+#: templates/main.php:35
+msgid "Add feed or folder"
+msgstr ""
+
+#: templates/main.php:36
+msgid "Add Feed/Folder"
+msgstr ""
+
+#: templates/main.php:38
+msgid "Feed"
+msgstr ""
+
+#: templates/main.php:39
+msgid "Folder"
+msgstr ""
+
+#: templates/main.php:46
+msgid "Settings"
+msgstr ""
+
+#: templates/part.dialogues.php:1
+msgid "Add Folder"
+msgstr ""
+
+#: templates/part.dialogues.php:4
+msgid "Add new folder"
+msgstr ""
+
+#: templates/part.dialogues.php:8 templates/part.dialogues.php:42
+msgid "Folder name"
+msgstr ""
+
+#: templates/part.dialogues.php:14
+msgid "Add Subscription"
+msgstr ""
+
+#: templates/part.dialogues.php:17
+msgid "Add new feed"
+msgstr ""
+
+#: templates/part.dialogues.php:20
+msgid "Choose folder"
+msgstr ""
+
+#: templates/part.dialogues.php:29
+msgid "Add"
+msgstr ""
+
+#: templates/part.feeds.php:47
+msgid "New articles"
+msgstr ""
+
+#: templates/part.feeds.php:49 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:34
+msgid "Mark all read"
+msgstr ""
+
+#: templates/part.feeds.php:53
+msgid "Starred"
+msgstr ""
+
+#: templates/part.items.php:17
+msgid "Mark as unimportant"
+msgstr ""
+
+#: templates/part.items.php:20
+msgid "Mark as important"
+msgstr ""
+
+#: templates/part.items.php:37
+msgid "from"
+msgstr ""
+
+#: templates/part.items.php:43
+msgid "by"
+msgstr ""
+
+#: templates/part.items.php:56
+msgid "Keep unread"
+msgstr ""
+
+#: templates/part.listfeed.php:33
+msgid "Delete feed"
+msgstr ""
+
+#: templates/part.listfolder.php:29
+msgid "Collapse"
+msgstr ""
+
+#: templates/part.listfolder.php:32
+msgid "Delete folder"
+msgstr ""
+
+#: templates/part.listfolder.php:33
+msgid "Rename folder"
+msgstr ""
+
+#: templates/settings.php:2
+msgid "Import feeds"
+msgstr ""
+
+#: templates/settings.php:11
+msgid "Export feeds"
+msgstr ""
+
+#: templates/settings.php:13
+msgid "Download OPML"
+msgstr ""
+
+#: templates/settings.php:15
+msgid "Subscribelet"
+msgstr ""
+
+#: templates/subscribelet.php:5
+msgid ""
+"Drag this to your browser bookmarks and click on it whenever you want to "
+"subscribe to a webpage quickly:"
+msgstr ""

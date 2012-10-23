@@ -40,7 +40,7 @@ function o(element) {
 
 <?php
 
-include('apps/gallery/lib/tiles.php');
+include 'apps/gallery/lib/tiles.php';
 $root = empty($_GET['root'])?'/':$_GET['root'];
 
 $images = \OC_FileCache::searchByMime('image', null, '/bartek/files'.$root);

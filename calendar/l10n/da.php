@@ -13,8 +13,6 @@
 "Invalid request" => "Ugyldig forespørgsel",
 "Calendar" => "Kalender",
 "Deletion failed" => "Fejl ved sletning",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}",
 "user" => "bruger",
 "group" => "gruppe",
 "Editable" => "Redigerbar",

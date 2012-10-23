@@ -1,5 +1,6 @@
 <?php $TRANSLATIONS = array(
 "The php-json module is needed by the many applications for inter communications" => "php-json moodul on vajalik paljude rakenduse poolt omvahelise suhtlemise jaoks",
+"The php-curl module is needed to fetch the page title when adding a bookmark" => "Järjehoidja lisamisel on lehe pealkirja tõmbamiseks vajalik php-curl moodul",
 "The php-gd module is needed to create thumbnails of your images" => "php-gd moodul on vajalik sinu piltidest pisipiltide loomiseks",
 "The php-ldap module is needed connect to your ldap server" => "php-ldap moodul on vajalik sinu ldap serveriga ühendumiseks",
 "The php-zip module is needed download multiple files at once" => "php-zip moodul on vajalik mitme faili korraga alla laadimiseks",
