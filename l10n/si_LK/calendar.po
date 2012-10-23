@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:17+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-23 02:04+0200\n"
+"PO-Revision-Date: 2012-10-22 07:20+0000\n"
+"Last-Translator: dinusha <awantha14@gmail.com>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,23 +21,23 @@ msgstr ""
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr ""
+msgstr "සියලු දිනදසුන් සම්පූර්ණයෙන් හැඹිලිගත නොකල යුතුයි"
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
-msgstr ""
+msgstr "දිස්වන සියල්ල සම්පූර්ණයෙන්ම හැඹිලිගත කරන්න"
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
-msgstr ""
+msgstr "දිනදසුන් හමුවී නැත."
 
 #: ajax/categories/rescan.php:37
 msgid "No events found."
-msgstr ""
+msgstr "සිදුවීම් හමුවී නැත."
 
 #: ajax/event/edit.form.php:20
 msgid "Wrong calendar"
-msgstr ""
+msgstr "වැරදි දින දසුනක්"
 
 #: ajax/import/dropimport.php:29 ajax/import/import.php:64
 msgid ""
@@ -51,7 +51,7 @@ msgstr ""
 
 #: ajax/import/import.php:56
 msgid "Import failed"
-msgstr ""
+msgstr "ආයත කිරීම අසාර්ථකයි"
 
 #: ajax/import/import.php:69
 msgid "events has been saved in your calendar"
@@ -59,15 +59,15 @@ msgstr ""
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
-msgstr ""
+msgstr "නව වේලා කලාපය:"
 
 #: ajax/settings/settimezone.php:23
 msgid "Timezone changed"
-msgstr "වේලා කලාපය වෙනස් කරන ලදී."
+msgstr "වේලා කලාපය වෙනස්කරන ලදී."
 
 #: ajax/settings/settimezone.php:25
 msgid "Invalid request"
-msgstr ""
+msgstr "අවලංගු අයැදුමක්"
 
 #: appinfo/app.php:38 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
@@ -160,11 +160,11 @@ msgstr "අදහස්"
 
 #: lib/app.php:121
 msgid "Journey"
-msgstr ""
+msgstr "සංචාරය"
 
 #: lib/app.php:122
 msgid "Jubilee"
-msgstr ""
+msgstr "උත්සවය/ජුබිලිය"
 
 #: lib/app.php:123
 msgid "Meeting"
@@ -188,11 +188,11 @@ msgstr "ප්‍රශ්න"
 
 #: lib/app.php:128
 msgid "Work"
-msgstr "රාජකාරී"
+msgstr "කාර්යය"
 
 #: lib/app.php:347 lib/share/event.php:27
 msgid "by"
-msgstr ""
+msgstr "විසින්"
 
 #: lib/app.php:385
 msgid "unnamed"
@@ -213,7 +213,7 @@ msgstr "මෙම දින දර්ශනය එකතු කිරීම ස�
 #: lib/import.php:195 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
-msgstr ""
+msgstr "නව දිනදසුන"
 
 #: lib/object.php:122 lib/object.php:161 lib/object.php:307
 msgid "You do not have the permissions to add events to this calendar."
@@ -229,7 +229,7 @@ msgstr "මෙම සිදුවීම මකාදැමීම සදහා �
 
 #: lib/object.php:452
 msgid "Does not repeat"
-msgstr ""
+msgstr "පුනරාවර්ථන ෙනාෙව්"
 
 #: lib/object.php:453
 msgid "Daily"

@@ -1,9 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "Slike",
 "Galleries" => "Galerije",
-"Share gallery" => "Daj galerijo v souporabo",
+"Share gallery" => "Souporaba galerije",
 "Error: " => "Napaka: ",
 "Internal error" => "Notranja napaka",
 "Slideshow" => "Predstavitev",
-"The \"Image Viewer\" application also need to be enabled to use this application." => "Za uporabo te aplikacije mora biti omogočena tudi aplikacija \"Pregledovalnik slik\"."
+"The \"Image Viewer\" application also need to be enabled to use this application." => "Za uporabo tega programa mora biti omogočen tudi program \"Pregledovalnik slik\"."
 );
