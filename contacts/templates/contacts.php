@@ -122,34 +122,34 @@
 			</div>
 			<a class="favorite"></a>
 			<div class="singleproperties">
-			<input class="fullname value propertycontainer" data-element="fn" type="text" name="value" value="{name}" />
+			<input class="fullname value propertycontainer" data-element="fn" type="text" name="value" value="{name}" required />
 			<dl class="form">
 				<dt data-element="nickname">
 					<?php echo $l->t('Nickname'); ?>
 				</dt>
 				<dd data-element="nickname" class="propertycontainer">
-					<input class="value" type="text" name="value" value="{nickname}" />
+					<input class="value" type="text" name="value" value="{nickname}" required />
 					<a role="button" class="action delete" title="<?php echo $l->t('Delete'); ?>"></a>
 				</dd>
 				<dt data-element="title">
 					<?php echo $l->t('Title'); ?>
 				</dt>
 				<dd data-element="title" class="propertycontainer">
-					<input class="value" type="text" name="value" value="{title}" />
+					<input class="value" type="text" name="value" value="{title}" required />
 					<a role="button" class="action delete" title="<?php echo $l->t('Delete'); ?>"></a>
 				</dd>
 				<dt data-element="org">
 					<?php echo $l->t('Organization'); ?>
 				</dt>
 				<dd data-element="org" class="propertycontainer">
-					<input class="value" type="text" name="value" value="{org}" />
+					<input class="value" type="text" name="value" value="{org}" required />
 					<a role="button" class="action delete" title="<?php echo $l->t('Delete'); ?>"></a>
 				</dd>
 				<dt data-element="bday">
 					<?php echo $l->t('Birthday'); ?>
 				</dt>
 				<dd data-element="bday" class="propertycontainer">
-					<input class="value" type="text" name="value" value="{bday}" />
+					<input class="value" type="text" name="value" value="{bday}" required />
 					<a role="button" class="action delete" title="<?php echo $l->t('Delete'); ?>"></a>
 				</dd>
 			</dl>
@@ -207,7 +207,7 @@
 				<?php echo OCP\html_select_options($_['email_types'], array()) ?>
 			</select>
 			<input type="checkbox" class="parameter tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
-			<input type="email" required="required" class="nonempty value" name="value" value="{value}" x-moz-errormessage="<?php echo $l->t('Please specify a valid email address.'); ?>" placeholder="<?php echo $l->t('someone@example.com'); ?>" />
+			<input type="email" class="nonempty value" name="value" value="{value}" x-moz-errormessage="<?php echo $l->t('Please specify a valid email address.'); ?>" placeholder="<?php echo $l->t('someone@example.com'); ?>" required />
 			<span class="listactions">
 				<a class="action mail" title="<?php echo $l->t('Mail to address'); ?>"></a>
 				<a role="button" class="action delete" title="<?php echo $l->t('Delete email address'); ?>"></a>
@@ -220,7 +220,7 @@
 				<?php echo OCP\html_select_options($_['phone_types'], array()) ?>
 			</select>
 			<input type="checkbox" class="parameter tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
-			<input type="tel" required="required" class="nonempty value" name="value" value="{value}" placeholder="<?php echo $l->t('Enter phone number'); ?>" />
+			<input type="tel" class="nonempty value" name="value" value="{value}" placeholder="<?php echo $l->t('Enter phone number'); ?>" required />
 			<span class="listactions">
 				<a role="button" class="action delete" title="<?php echo $l->t('Delete phone number'); ?>"></a>
 			</span>
@@ -232,7 +232,7 @@
 				<?php echo OCP\html_select_options($_['email_types'], array()) ?>
 			</select>
 			<input type="checkbox" class="parameter tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
-			<input type="url" required="required" class="nonempty value" name="value" value="{value}" placeholder="http://www.example.com/" />
+			<input type="url" class="nonempty value" name="value" value="{value}" placeholder="http://www.example.com/" required />
 			<span class="listactions">
 				<a role="button" class="action globe" title="<?php echo $l->t('Go to web site'); ?>">
 				<a role="button" class="action delete" title="<?php echo $l->t('Delete URL'); ?>"></a>
@@ -270,8 +270,8 @@
 				<?php echo OCP\html_select_options($_['im_protocols'], array()) ?>
 			</select>
 			</div>
-			<input type="text" required="required" class="nonempty value" name="value" value="{value}"
-					placeholder="<?php echo $l->t('Instant Messenger'); ?>" />
+			<input type="text" class="nonempty value" name="value" value="{value}"
+					placeholder="<?php echo $l->t('Instant Messenger'); ?>" required />
 			<span class="listactions">
 				<a role="button" class="action delete" title="<?php echo $l->t('Delete IM'); ?>"></a>
 			</span>
