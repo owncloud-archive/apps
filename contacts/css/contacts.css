@@ -196,7 +196,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 /* contact list */
 
 #contactlist { position: relative; top: 0; left: 0; right: 0; width: 100%; }
-#contactlist tr { height: 3em; }
+#contactlist tr { height: 3em; display: none; }
 #contactlist tr.active, #contactlist tr:hover { background-color: #eee; }
 #contactlist tr > td { border-bottom: 1px solid #DDDDDD; font-weight: normal; text-align: left; overflow: hidden; text-overflow: ellipsis; vertical-align: middle; white-space: nowrap; }
 #contactlist tr > td:hover { overflow: inherit; text-overflow: inherit; background-color: #fff; z-index: 200; }

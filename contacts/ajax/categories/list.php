@@ -32,6 +32,10 @@ OCP\JSON::success(array(
 	'data' => array(
 		'categories' => $categories,
 		'favorites' => $favorites,
+		'lastgroup' => OCP\Config::getUserValue(
+						OCP\User::getUser(),
+						'contacts',
+						'lastgroup', 'all'),
 		)
 	)
 );

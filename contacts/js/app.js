@@ -98,6 +98,20 @@ OC.notify = function(params) {
 
 var GroupList = function(groupList, listItemTmpl) {
 	this.$groupList = groupList;
+	var self = this;
+	this.$groupList.on('click', 'h3', function(event) {
+		if(wrongKey(event)) {
+			return;
+		}
+		self.$groupList.find('h3').removeClass('active');
+		$(this).addClass('active');
+		self.lastgroup = $(this).data('id');
+		$(document).trigger('status.group.selected', {
+			id: self.lastgroup,
+			type: $(this).data('type'),
+			contacts: $(this).data('contacts'),
+		});
+	});
 	this.$groupListItemTemplate = listItemTmpl;
 	this.categories = [];
 }
@@ -112,6 +126,10 @@ GroupList.prototype.findById = function(id) {
 
 GroupList.prototype.isFavorite = function(contactid) {
 	return this.inGroup(contactid, 'fav');
+}
+
+GroupList.prototype.selectGroup = function(groupid) {
+	console.log('selectGroup', groupid);
 }
 
 GroupList.prototype.inGroup = function(contactid, groupid) {
@@ -301,6 +319,7 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 	tmpl.octemplate({id: 'all', type: 'all', num: numcontacts, name: t('contacts', 'All')}).appendTo($groupList);
 	$.getJSON(OC.filePath('contacts', 'ajax', 'categories/list.php'), {}, function(jsondata) {
 		if (jsondata && jsondata.status == 'success') {
+			self.lastgroup = jsondata.data.lastgroup;
 			// Favorites
 			var contacts = $.map(jsondata.data.favorites, function(c) {return parseInt(c)});
 			var $elem = tmpl.octemplate({
@@ -328,6 +347,13 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 				$elem.data('name', category.name)
 				$elem.data('id', category.id)
 				$elem.appendTo($groupList);
+			});
+			var $elem = self.findById(self.lastgroup);
+			$elem.addClass('active');
+			$(document).trigger('status.group.selected', {
+				id: self.lastgroup,
+				type: $elem.data('type'),
+				contacts: $elem.data('contacts'),
 			});
 		} // TODO: else
 		if(typeof cb === 'function') {
@@ -568,6 +594,32 @@ OC.Contacts = OC.Contacts || {
 				}
 			});
 		});
+		// Group selected, only show contacts from that group
+		$(document).bind('status.group.selected', function(e, result) {
+			console.log('status.group.selected', result);
+			self.currentgroup = result.id;
+			// Close any open contact.
+			if(self.currentid) {
+				var id = self.currentid;
+				self.closeContact(id);
+				self.Contacts.jumpToContact(id);
+			}
+			self.$contactList.show();
+			self.$toggleAll.show();
+			self.showActions(['add', 'delete']);
+			if(result.type === 'category' ||  result.type === 'fav') {
+				console.log('contacts', $(this).data('contacts'));
+				self.Contacts.showContacts(result.contacts);
+			} else {
+				self.Contacts.showContacts(self.currentgroup);
+			}
+			$.post(OC.filePath('contacts', 'ajax', 'setpreference.php'), {'key':'lastgroup', 'value':self.currentgroup}, function(jsondata) {
+				if(jsondata.status !== 'success') {
+					OC.notify({message: jsondata.data.message});
+				}
+			});
+			self.$rightContent.scrollTop(0);
+		});
 		// mark items whose title was hid under the top edge as read
 		/*this.$rightContent.scroll(function() {
 			// prevent too many scroll requests;
@@ -726,36 +778,6 @@ OC.Contacts = OC.Contacts || {
 				$(this).prop('checked', false);
 			});
 			console.log('groups', $opt.parent().data('action'), $opt.val(), $opt.text());
-		});
-		// Group selected, only show contacts from that group
-		this.$groupList.on('click', 'h3', function() {
-			self.currentgroup = $(this).data('id');
-			console.log('Group click', $(this).data('id'), $(this).data('type'));
-			// Close any open contact.
-			if(self.currentid) {
-				var id = self.currentid;
-				self.closeContact(id);
-				self.Contacts.jumpToContact(id);
-			}
-			self.$groupList.find('h3').removeClass('active');
-			self.$contactList.show();
-			self.$toggleAll.show();
-			self.showActions(['add', 'delete']);
-			$(this).addClass('active');
-			var gtype = $(this).data('type');
-			var gid = $(this).data('id');
-			if(gtype === 'category' ||  gtype === 'fav') {
-				console.log('contacts', $(this).data('contacts'));
-				self.Contacts.showContacts($(this).data('contacts'));
-			} else {
-				self.Contacts.showContacts(gid);
-			}
-			$.post(OC.filePath('contacts', 'ajax', 'setpreference.php'), {'key':'lastgroup', 'value':gid}, function(jsondata) {
-				if(jsondata.status !== 'success') {
-					OC.notify({message: jsondata.data.message});
-				}
-			});
-			self.$rightContent.scrollTop(0);
 		});
 		// Contact list. Either open a contact or perform an action (mailto etc.)
 		this.$contactList.on('click', 'tr', function(event) {
