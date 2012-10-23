@@ -38,10 +38,6 @@ OC.Contacts = OC.Contacts || {};
 		}
 	}
 
-	Contact.prototype.removeProperty = function(obj) {
-		console.log('Contact.removeProperty', name)
-	}
-
 	Contact.prototype.addProperty = function($option, name) {
 		console.log('Contact.addProperty', name)
 		switch(name) {
@@ -75,6 +71,54 @@ OC.Contacts = OC.Contacts || {};
 		}
 	}
 
+	Contact.prototype.deleteProperty = function(params) {
+		var obj = params.obj;
+		if(!this.enabled) {
+			return;
+		}
+		var element = this.propertyTypeFor(obj);
+		var $container = this.propertyContainerFor(obj);
+		console.log('Contact.deleteProperty, element', element, $container);
+		var params = {
+			name: element,
+			id: this.id
+		};
+		if(this.multi_properties.indexOf(element) !== -1) {
+			params['checksum'] = this.checksumFor(obj);
+		}
+		this.setAsSaving(obj, true);
+		var self = this;
+		$.post(OC.filePath('contacts', 'ajax', 'contact/deleteproperty.php'), params, function(jsondata) {
+			if(!jsondata) {
+				$(document).trigger('status.contact.error', {
+					status: 'error',
+					message: t('contacts', 'Network or server error. Please inform administrator.'),
+				});
+				self.setAsSaving(obj, false);
+				return false;
+			}
+			if(jsondata.status == 'success') {
+				// TODO: Remove from internal data structure
+				if(self.multi_properties.indexOf(element) !== -1) {
+					$container.remove();
+				} else {
+					self.setAsSaving(obj, false);
+					self.$fullelem.find('[data-element="' + element.toLowerCase() + '"]').hide();
+					$container.find('input.value').val('');
+					self.$addMenu.find('option[value="' + element.toUpperCase() + '"]').prop('disabled', false);
+				}
+				return true;
+			} else {
+				$(document).trigger('status.contact.error', {
+					status: 'error',
+					message: jsondata.data.message,
+				});
+				self.setAsSaving(obj, false);
+				return false;
+			}
+		},'json');
+	}
+
 	/**
 	 * @brief Act on change of a property.
 	 * If this is a new contact it will first be saved to the datastore and a
@@ -93,6 +137,7 @@ OC.Contacts = OC.Contacts || {};
 		if(params.obj) {
 			obj = params.obj;
 			q = this.queryStringFor(obj);
+			element = this.propertyTypeFor(obj);
 		} else {
 			element = params.name;
 			q += 'value=' + encodeURIComponent(params.value) + '&name=' + element;
@@ -110,8 +155,15 @@ OC.Contacts = OC.Contacts || {};
 				return false;
 			}
 			if(jsondata.status == 'success') {
+				console.log(self.data[element]);
+				if(!self.data[element]) {
+					self.data[element] = [];
+				}
 				if(self.multi_properties.indexOf(element) !== -1) {
-					$container.data('checksum', jsondata.data.checksum);
+					self.propertyContainerFor(obj).data('checksum', jsondata.data.checksum);
+				} else {
+					// TODO: Save value and parameters internally
+					self.data[element][0] = {name: element};
 				}
 				self.setAsSaving(obj, false);
 				return true;
@@ -216,7 +268,7 @@ OC.Contacts = OC.Contacts || {};
 			q += '&value=' + encodeURIComponent($(obj).val());
 		} else {
 			q += '&' + this.propertyContainerFor(obj)
-				.find('input.value,select.value,textarea.value').serialize();
+				.find('input.value,select.value,textarea.value,.parameter').serialize();
 		}
 		return q;
 	}
@@ -291,7 +343,22 @@ OC.Contacts = OC.Contacts || {};
 			self.addProperty($opt, $(this).val());
 			$(this).val('');
 		});
-		this.$fullelem.on('change', '.value', function(event) {
+		var $singleelements = this.$fullelem.find('dd.propertycontainer');
+		$singleelements.find('.action').css('opacity', '0');
+		$singleelements.on('mouseenter', function() {
+			$(this).find('.action').css('opacity', '1');
+		}).on('mouseleave', function() {
+			$(this).find('.action').css('opacity', '0');
+		});
+		this.$fullelem.on('click keydown', '.delete', function(event) {
+			console.log('delete', event);
+			$('.tipsy').remove();
+			if(wrongKey(event)) {
+				return;
+			}
+			self.deleteProperty({obj:event.target});
+		});
+		this.$fullelem.on('change', '.value,.parameter', function(event) {
 			console.log('change', event);
 			self.saveProperty({obj:event.target});
 		});

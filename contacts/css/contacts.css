@@ -45,8 +45,9 @@ input:hover:not([type="checkbox"]), input:active:not([type="checkbox"]), textare
 dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: normal; }
 .form dt { display: table-cell; clear: left; float: left; width: 7em; margin: 0; padding: 0.8em 0.5em 0 0; text-align:right; text-overflow:ellipsis; o-text-overflow: ellipsis; vertical-align: text-bottom; color: #bbb;/* white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap;*/ }
 .form dd { display: table-cell; clear: right; float: left; margin: 0; padding: 0; white-space: nowrap; vertical-align: text-bottom; }
+.action { display: inline-block; }
 .add { background:url('%webroot%/core/img/actions/add.svg') no-repeat center; clear: both; }
-.delete { background:url('%webroot%/core/img/actions/delete.svg') no-repeat center; }
+.delete { background:url('%webroot%/core/img/actions/delete.png') no-repeat center; }
 .edit { background:url('%webroot%/core/img/actions/rename.svg') no-repeat center; }
 .share { background:url('%webroot%/core/img/actions/share.svg') no-repeat center; }
 .mail { background:url('%webroot%/core/img/actions/mail.svg') no-repeat center; }
