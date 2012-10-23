@@ -111,7 +111,11 @@ GroupList.prototype.findById = function(id) {
 }
 
 GroupList.prototype.isFavorite = function(contactid) {
-	var $groupelem = this.findById('fav');
+	return this.inGroup(contactid, 'fav');
+}
+
+GroupList.prototype.inGroup = function(contactid, groupid) {
+	var $groupelem = this.findById(groupid);
 	var contacts = $groupelem.data('contacts');
 	return (contacts.indexOf(contactid) !== -1);
 }
