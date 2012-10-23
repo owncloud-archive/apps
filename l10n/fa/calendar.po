@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -75,7 +75,7 @@ msgstr "تقویم"
 
 #: js/calendar.js:96
 msgid "Deletion failed"
-msgstr ""
+msgstr "حذف کردن انجام نشد"
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
@@ -537,7 +537,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "تنظیمات"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -809,7 +809,7 @@ msgstr "در"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "عمومی"
 
 #: templates/settings.php:15
 msgid "Timezone"
@@ -853,15 +853,15 @@ msgstr ""
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "اطلاعات بیشتر"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "نشانی اولیه"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X "
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"

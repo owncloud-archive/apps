@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/owncloud/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -488,7 +488,7 @@ msgstr ""
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11
 msgid "Title"
-msgstr ""
+msgstr "Tytuł"
 
 #: templates/calendar.php:16
 msgid "From Date"
@@ -536,7 +536,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -590,7 +590,7 @@ msgstr ""
 
 #: templates/part.editcalendar.php:42
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
 #: templates/part.editcalendar.php:42 templates/part.editevent.php:8
 #: templates/part.newevent.php:6

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +197,7 @@ msgstr ""
 
 #: lib/app.php:385
 msgid "unnamed"
-msgstr ""
+msgstr "Không tên"
 
 #: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
@@ -811,7 +811,7 @@ msgstr "tại"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "Tổng hợp"
 
 #: templates/settings.php:15
 msgid "Timezone"

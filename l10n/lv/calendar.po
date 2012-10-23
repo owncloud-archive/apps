@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -170,11 +170,11 @@ msgstr ""
 
 #: lib/app.php:124
 msgid "Other"
-msgstr ""
+msgstr "Cits"
 
 #: lib/app.php:125
 msgid "Personal"
-msgstr ""
+msgstr "Personīgi"
 
 #: lib/app.php:126
 msgid "Projects"
@@ -488,7 +488,7 @@ msgstr ""
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11
 msgid "Title"
-msgstr ""
+msgstr "Nosaukums"
 
 #: templates/calendar.php:16
 msgid "From Date"
@@ -536,7 +536,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Iestatījumi"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -553,7 +553,7 @@ msgstr ""
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
-msgstr ""
+msgstr "Lejuplādēt"
 
 #: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
@@ -562,7 +562,7 @@ msgstr ""
 #: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
-msgstr ""
+msgstr "Izdzēst"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
@@ -627,7 +627,7 @@ msgstr ""
 
 #: templates/part.eventform.php:13
 msgid "Share"
-msgstr ""
+msgstr "Līdzdalīt"
 
 #: templates/part.eventform.php:21
 msgid "Title of the Event"
@@ -774,7 +774,7 @@ msgstr ""
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "Pārtraukt līdzdalīšanu"
 
 #: templates/part.share.php:53
 msgid "Nobody"

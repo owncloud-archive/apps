@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/owncloud/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -539,7 +539,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Postavke"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -777,7 +777,7 @@ msgstr ""
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "Makni djeljenje"
 
 #: templates/part.share.php:53
 msgid "Nobody"
@@ -811,7 +811,7 @@ msgstr "na"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "Općenito"
 
 #: templates/settings.php:15
 msgid "Timezone"
@@ -855,7 +855,7 @@ msgstr ""
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "više informacija"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
@@ -863,7 +863,7 @@ msgstr ""
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"

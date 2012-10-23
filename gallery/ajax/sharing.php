@@ -25,93 +25,93 @@
 OCP\JSON::callCheck();
 
 if (!isset($_GET['token']) || !isset($_GET['operation'])) {
-  OCP\JSON::error(array('cause' => 'Not enought arguments'));
-  exit;
+	OCP\JSON::error(array('cause' => 'Not enought arguments'));
+	exit;
 }
 
 $operation = $_GET['operation'];
 $token = $_GET['token'];
 
 if (!OC_Gallery_Sharing::isTokenValid($token)) {
-  OCP\JSON::error(array('cause' => 'Given token is not valid'));
-  exit;
+	OCP\JSON::error(array('cause' => 'Given token is not valid'));
+	exit;
 }
 
 function handleGetGallery($token, $path) {
-  $owner = OC_Gallery_Sharing::getTokenOwner($token);
-  $apath = OC_Gallery_Sharing::getPath($token);
+	$owner = OC_Gallery_Sharing::getTokenOwner($token);
+	$apath = OC_Gallery_Sharing::getPath($token);
 
-  if ($path == false)
-    $root = $apath;
-  else
-    $root =  rtrim($apath,'/').$path;
+	if ($path == false)
+		$root = $apath;
+	else
+		$root =  rtrim($apath,'/').$path;
 
-  $r = OC_Gallery_Album::find($owner, null, $root);
-  $albums = array();
-  $photos = array();
-  $albumId = -1;
-  if ($row = $r->fetchRow()) {
-    $albumId = $row['album_id'];
-  }
-  if ($albumId != -1) {
+	$r = OC_Gallery_Album::find($owner, null, $root);
+	$albums = array();
+	$photos = array();
+	$albumId = -1;
+	if ($row = $r->fetchRow()) {
+		$albumId = $row['album_id'];
+	}
+	if ($albumId != -1) {
 
-    if (OC_Gallery_Sharing::isRecursive($token)) {
-      $r = OC_Gallery_Album::find($owner, null, null, $root);
-      while ($row = $r->fetchRow())
-        $albums[] = $row['album_name'];
-    }
+		if (OC_Gallery_Sharing::isRecursive($token)) {
+			$r = OC_Gallery_Album::find($owner, null, null, $root);
+			while ($row = $r->fetchRow())
+				$albums[] = $row['album_name'];
+		}
 
-    $r = OC_Gallery_Photo::find($albumId);
-    while ($row = $r->fetchRow())
-      $photos[] = $row['file_path'];
-  }
+		$r = OC_Gallery_Photo::find($albumId);
+		while ($row = $r->fetchRow())
+			$photos[] = $row['file_path'];
+	}
 
-  OCP\JSON::success(array('albums' => $albums, 'photos' => $photos));
+	OCP\JSON::success(array('albums' => $albums, 'photos' => $photos));
 }
 
 function handleGetThumbnail($token, $imgpath) {
-  $owner = OC_Gallery_Sharing::getTokenOwner($token);
-  $image = OC_Gallery_Photo::getThumbnail($imgpath, $owner);
-  if ($image) {
-    OCP\Response::enableCaching(3600 * 24); // 24 hour
-    $image->show();
-  }
+	$owner = OC_Gallery_Sharing::getTokenOwner($token);
+	$image = OC_Gallery_Photo::getThumbnail($imgpath, $owner);
+	if ($image) {
+		OCP\Response::enableCaching(3600 * 24); // 24 hour
+		$image->show();
+	}
 }
 
 function handleGetAlbumThumbnail($token, $albumname)
 {
-  $owner = OC_Gallery_Sharing::getTokenOwner($token);
-  $view = OCP\Files::getStorage('gallery');
-  $file = $view->fopen($albumname.'.png', 'r');
-  $image = new OC_Image($file);
-  if ($image->valid()) {
-    $image->centerCrop();
-    $image->resize(200);
-    $image->fixOrientation();
-    OCP\Response::enableCaching(3600 * 24); // 24 hour
-    $image->show();
-  }
+	$owner = OC_Gallery_Sharing::getTokenOwner($token);
+	$view = OCP\Files::getStorage('gallery');
+	$file = $view->fopen($albumname.'.png', 'r');
+	$image = new OC_Image($file);
+	if ($image->valid()) {
+		$image->centerCrop();
+		$image->resize(200);
+		$image->fixOrientation();
+		OCP\Response::enableCaching(3600 * 24); // 24 hour
+		$image->show();
+	}
 }
 
 function handleGetPhoto($token, $photo) {
-  $owner = OC_Gallery_Sharing::getTokenOwner($token);
-  $view = OCP\Files::getStorage('files');
-  $file = $view->fopen(urldecode($photo), 'r');
-  header('Content-Type: '.OC_Image::getMimeTypeForFile($file));
-  OCP\Response::sendFile($file);
+	$owner = OC_Gallery_Sharing::getTokenOwner($token);
+	$view = OCP\Files::getStorage('files');
+	$file = $view->fopen(urldecode($photo), 'r');
+	header('Content-Type: '.OC_Image::getMimeTypeForFile($file));
+	OCP\Response::sendFile($file);
 }
 
 switch ($operation) {
-  case 'get_gallery':
-    handleGetGallery($token, isset($_GET['path'])? $_GET['path'] : false);
-    break;
-  case 'get_thumbnail':
-    handleGetThumbnail($token, urldecode($_GET['img']));
-    break;
-  case 'get_album_thumbnail':
-    handleGetAlbumThumbnail($token, urldecode($_GET['albumname']));
-    break;
-  case 'get_photo':
-    handleGetPhoto($token, urldecode($_GET['photo']));
-    break;
+	case 'get_gallery':
+		handleGetGallery($token, isset($_GET['path'])? $_GET['path'] : false);
+		break;
+	case 'get_thumbnail':
+		handleGetThumbnail($token, urldecode($_GET['img']));
+		break;
+	case 'get_album_thumbnail':
+		handleGetAlbumThumbnail($token, urldecode($_GET['albumname']));
+		break;
+	case 'get_photo':
+		handleGetPhoto($token, urldecode($_GET['photo']));
+		break;
 }

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -405,79 +405,79 @@ msgstr "Kal."
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "Søn."
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "Mån."
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "Tys."
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "Ons."
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "Tor."
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "Fre."
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "Lau."
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "Jan."
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "Feb."
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "Mar,"
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "Apr."
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "Mai."
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "Jun."
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "Jul."
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "Aug."
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "Sep."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "Okt."
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "Nov."
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "Des."
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -538,7 +538,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Innstillingar"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"

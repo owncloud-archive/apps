@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:04+0000\n"
+"POT-Creation-Date: 2012-10-22 02:02+0200\n"
+"PO-Revision-Date: 2012-10-21 00:17+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/owncloud/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
@@ -332,51 +332,51 @@ msgstr ""
 
 #: lib/object.php:547 templates/calendar.php:7
 msgid "January"
-msgstr ""
+msgstr "Januar"
 
 #: lib/object.php:548 templates/calendar.php:7
 msgid "February"
-msgstr ""
+msgstr "Februar"
 
 #: lib/object.php:549 templates/calendar.php:7
 msgid "March"
-msgstr ""
+msgstr "Mart"
 
 #: lib/object.php:550 templates/calendar.php:7
 msgid "April"
-msgstr ""
+msgstr "April"
 
 #: lib/object.php:551 templates/calendar.php:7
 msgid "May"
-msgstr ""
+msgstr "Maj"
 
 #: lib/object.php:552 templates/calendar.php:7
 msgid "June"
-msgstr ""
+msgstr "Jun"
 
 #: lib/object.php:553 templates/calendar.php:7
 msgid "July"
-msgstr ""
+msgstr "Jul"
 
 #: lib/object.php:554 templates/calendar.php:7
 msgid "August"
-msgstr ""
+msgstr "Avgust"
 
 #: lib/object.php:555 templates/calendar.php:7
 msgid "September"
-msgstr ""
+msgstr "Septembar"
 
 #: lib/object.php:556 templates/calendar.php:7
 msgid "October"
-msgstr ""
+msgstr "Oktobar"
 
 #: lib/object.php:557 templates/calendar.php:7
 msgid "November"
-msgstr ""
+msgstr "Novembar"
 
 #: lib/object.php:558 templates/calendar.php:7
 msgid "December"
-msgstr ""
+msgstr "Decembar"
 
 #: lib/object.php:568
 msgid "by events date"
@@ -404,79 +404,79 @@ msgstr ""
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "Ned"
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "Pon"
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "Uto"
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "Sre"
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "Čet"
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "Pet"
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "Sub"
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "Jan"
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "Feb"
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "Mar"
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "Apr"
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "Maj."
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "Jun"
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "Jul"
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "Avg"
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "Sep"
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "Okt"
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "Nov"
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "Dec"
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -537,7 +537,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Podešavanja"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"

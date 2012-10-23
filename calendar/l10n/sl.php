@@ -13,6 +13,8 @@
 "Invalid request" => "Neveljaven zahtevek",
 "Calendar" => "Koledar",
 "Deletion failed" => "Brisanje je spodletelo.",
+"ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}" => "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}",
+"ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}" => "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}",
 "user" => "uporabnik",
 "group" => "skupina",
 "Editable" => "Možno urejanje",

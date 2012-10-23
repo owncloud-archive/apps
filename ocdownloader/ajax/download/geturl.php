@@ -33,7 +33,7 @@ $pr = $_POST['pr'];
 switch($pr) {
 	case 'web':
 		$k = OC_ocDownloaderFile::getHttpFile($_POST['url']);
-	break;
+		break;
 	default:
 		if(preg_match('/^pr_([0-9]{1,4})$/', $pr, $m)) {
 			$pr_name = OC_ocDownloader::getProvider($m[1]);

@@ -61,7 +61,8 @@ if($data) {
 			OCP\Util::DEBUG);
 		if($image->crop($x1, $y1, $w, $h)) {
 			if(($image->width() <= 200 && $image->height() <= 200)
-						|| $image->resize(200)) {
+				|| $image->resize(200)) {
+
 				$vcard = OC_Contacts_App::getContactVCard($id);
 				if(!$vcard) {
 					OC_Cache::remove($tmpkey);
