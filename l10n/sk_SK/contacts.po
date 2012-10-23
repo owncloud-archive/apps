@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 23:32+0200\n"
-"PO-Revision-Date: 2012-10-16 19:03+0000\n"
+"POT-Creation-Date: 2012-10-22 02:03+0200\n"
+"PO-Revision-Date: 2012-10-21 18:55+0000\n"
 "Last-Translator: martinb <martin.babik@gmail.com>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -439,11 +439,11 @@ msgstr ""
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "Nemáte oprávnenie k zmenám v tomto adresári."
 
 #: lib/addressbook.php:259
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "Nastala chyba pri pokuse o úpravy v adresári."
 
 #: lib/addressbook.php:315
 msgid "You do not have the permissions to delete this addressbook."
@@ -620,11 +620,11 @@ msgstr "Kontakt"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "Nemáte oprávnenie pridať kontakt do adresára."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "Nie je možné nájsť vCard s ID."
 
 #: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
@@ -632,11 +632,11 @@ msgstr "Nemáte oprávnenie pre úpravu tohto kontaktu."
 
 #: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "Nie je možné nájsť vCard s ID:"
 
 #: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "Nie je možné nájsť adresár s ID:"
 
 #: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."

@@ -3,46 +3,47 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <putu.sutha@yahoo.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:04+0200\n"
-"PO-Revision-Date: 2012-09-03 00:07+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-20 02:02+0200\n"
+"PO-Revision-Date: 2012-10-19 10:28+0000\n"
+"Last-Translator: putu.sutha <putu.sutha@yahoo.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: templates/settings.php:3
 msgid "Export this ownCloud instance"
-msgstr ""
+msgstr "Ekspor isi dari ownCloud ini "
 
 #: templates/settings.php:5
 msgid ""
 "This will create a compressed file that contains the data of this owncloud "
 "instance."
-msgstr ""
+msgstr "Akan membuat file terkompresi yang berisi data dari ownlcloud ini."
 
 #: templates/settings.php:7
 msgid "Please choose the export type:"
-msgstr ""
+msgstr "Silahkan pilih tipe ekspor:"
 
 #: templates/settings.php:10
 msgid "ownCloud instance (suitable for import)"
-msgstr ""
+msgstr "Data own cloud (cocok untuk impor)"
 
 #: templates/settings.php:11
 msgid "ownCloud system files"
-msgstr ""
+msgstr "Sitem file ownCloud"
 
 #: templates/settings.php:12
 msgid "Just user files"
-msgstr ""
+msgstr "Hanya file user saja"
 
 #: templates/settings.php:13
 msgid "Export"
-msgstr ""
+msgstr "Ekspor"

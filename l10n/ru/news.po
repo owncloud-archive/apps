@@ -5,14 +5,16 @@
 # Translators:
 # Denis  <reg.transifex.net@demitel.ru>, 2012.
 #   <iuranemo@gmail.com>, 2012.
+#   <seg@it4you.kiev.ua>, 2012.
+#   <skoptev@ukr.net>, 2012.
 #   <victor.dubiniuk@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:05+0200\n"
-"PO-Revision-Date: 2012-10-16 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-20 02:03+0200\n"
+"PO-Revision-Date: 2012-10-19 19:18+0000\n"
+"Last-Translator: EugeneSG <seg@it4you.kiev.ua>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,15 +98,15 @@ msgstr "Ошибка обновления ленты."
 msgid "Feed updated!"
 msgstr "Лента обновлена!"
 
-#: appinfo/app.php:36
+#: appinfo/app.php:36 lib/search.php:21
 msgid "News"
 msgstr "Новости"
 
 #: js/items.js:123
 msgid "Error while loading the feed"
-msgstr ""
+msgstr "Ошибка при загрузке канала"
 
-#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
+#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
@@ -114,7 +116,7 @@ msgstr "Ошибка"
 
 #: js/main.js:33
 msgid "None"
-msgstr ""
+msgstr "Нет новостей"
 
 #: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
@@ -126,15 +128,15 @@ msgstr "Показать всё"
 
 #: js/menu.js:505
 msgid "Are you sure you want to delete this feed?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить этот канал?"
 
 #: js/menu.js:513
 msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить эту папку и все её каналы?"
 
 #: js/menu.js:521
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
@@ -363,7 +365,7 @@ msgstr "Пометить как важное"
 
 #: templates/part.items.php:37
 msgid "from"
-msgstr ""
+msgstr "из"
 
 #: templates/part.items.php:43
 msgid "by"
