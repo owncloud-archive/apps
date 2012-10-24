@@ -42,9 +42,10 @@ class OC_Contacts_Addressbook {
 	 * @brief Returns the list of addressbooks for a specific user.
 	 * @param string $uid
 	 * @param boolean $active Only return addressbooks with this $active state, default(=false) is don't care
+	 * @param boolean $shared Whether to also return shared addressbook. Defaults to true.
 	 * @return array or false.
 	 */
-	public static function all($uid, $active=false) {
+	public static function all($uid, $active = false, $shared = true) {
 		$values = array($uid);
 		$active_where = '';
 		if ($active) {
@@ -67,7 +68,10 @@ class OC_Contacts_Addressbook {
 				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
 			$addressbooks[] = $row;
 		}
-		$addressbooks = array_merge($addressbooks, OCP\Share::getItemsSharedWith('addressbook', OC_Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS));
+
+		if($shared === true) {
+			$addressbooks = array_merge($addressbooks, OCP\Share::getItemsSharedWith('addressbook', OC_Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS));
+		}
 		if(!$active && !count($addressbooks)) {
 			$id = self::addDefault($uid);
 			return array(self::find($id),);
