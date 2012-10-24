@@ -2,54 +2,54 @@
 /* creates a compressed zip file */
 $filename = $_GET["filename"];
 function create_zip($files = array(),$destination = '',$overwrite = false) {
-  //if the zip file already exists and overwrite is false, return false
-  if(file_exists($destination) && !$overwrite) { return false; }
-  //vars
-  $valid_files = array();
-  //if files were passed in...
-  if(is_array($files)) {
-    //cycle through each file
-    foreach($files as $file => $local) {
-      //make sure the file exists
-      if(file_exists($file)) {
-        $valid_files[$file] = $local;
-      }
-    }
-  }
-  //if we have good files...
-  if(count($valid_files)) {
-    //create the archive
-    $zip = new ZipArchive();
-    if($zip->open($destination,$overwrite ? ZIPARCHIVE::OVERWRITE : ZIPARCHIVE::CREATE) !== true) {
-      return false;
-    }
+	//if the zip file already exists and overwrite is false, return false
+	if(file_exists($destination) && !$overwrite) { return false; }
+	//vars
+	$valid_files = array();
+	//if files were passed in...
+	if(is_array($files)) {
+		//cycle through each file
+		foreach($files as $file => $local) {
+			//make sure the file exists
+			if(file_exists($file)) {
+				$valid_files[$file] = $local;
+			}
+		}
+	}
+	//if we have good files...
+	if(count($valid_files)) {
+		//create the archive
+		$zip = new ZipArchive();
+		if($zip->open($destination,$overwrite ? ZIPARCHIVE::OVERWRITE : ZIPARCHIVE::CREATE) !== true) {
+			return false;
+		}
 
-    //add the files
-    foreach($valid_files as $file => $local) {
-      $zip->addFile($file, $local);
-    }
+		//add the files
+		foreach($valid_files as $file => $local) {
+			$zip->addFile($file, $local);
+		}
 
-    //debug
-    //echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status;
-    
-    //close the zip -- done!
-    $zip->close();
-    
-    //check to make sure the file exists
-    return file_exists($destination);
-  }
-  else
-  {
-    return false;
-  }
+		//debug
+		//echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status;
+
+		//close the zip -- done!
+		$zip->close();
+
+		//check to make sure the file exists
+		return file_exists($destination);
+	}
+	else
+	{
+		return false;
+	}
 }
 
 $files_to_zip = array(
-    OCP\Util::linkToAbsolute('impressionist', 'css/mappingstyle.css') => '/css/mappingstyle.css',
-    OCP\Util::linkToAbsolute('impressionist', 'css/player.css') => '/css/style.css',
-    OCP\Util::linkToAbsolute('', 'js/jquery-1.7.2.min.js') => '/js/jquery-1.7.2.min.js',
-    OCP\Util::linkToAbsolute('impressionist', 'js/impress.js') => '/js/impress.js',
-    OCP\Util::linkToAbsolute('impresionist', "output/'.$filename.'.html")=> $filename.'.html'
+	OCP\Util::linkToAbsolute('impressionist', 'css/mappingstyle.css') => '/css/mappingstyle.css',
+	OCP\Util::linkToAbsolute('impressionist', 'css/player.css') => '/css/style.css',
+	OCP\Util::linkToAbsolute('', 'js/jquery-1.7.2.min.js') => '/js/jquery-1.7.2.min.js',
+	OCP\Util::linkToAbsolute('impressionist', 'js/impress.js') => '/js/impress.js',
+	OCP\Util::linkToAbsolute('impresionist', "output/'.$filename.'.html")=> $filename.'.html'
 );
 //if true, good; if false, zip creation failed
 $result = create_zip($files_to_zip, $filename.'.zip');

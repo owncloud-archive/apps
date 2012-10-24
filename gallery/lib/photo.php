@@ -100,10 +100,7 @@ class OC_Gallery_Photo {
 
 	public static function getViewImage($image_name, $owner = null) {
 		if (!$owner) $owner = OCP\USER::getUser();
-		$save_dir = OCP\Config::getSystemValue("datadirectory") . '/' . $owner . '/gallery';
-		$save_dir .= dirname($image_name) . '/view/';
-		$image_path = $image_name;
-		$view_file = $save_dir . basename($image_name);
+		$view_file = OC_Filesystem::getLocalFile($image_name);
 		if (!is_dir($save_dir)) {
 			mkdir($save_dir, 0777, true);
 		}
