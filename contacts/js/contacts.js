@@ -31,11 +31,12 @@ OC.Contacts = OC.Contacts || {};
 			return;
 		}
 		$(obj).prop('disabled', state);
-		if(state) {
+		$(obj).toggleClass('loading', state);
+		/*if(state) {
 			$(obj).addClass('loading');
 		} else {
 			$(obj).removeClass('loading');
-		}
+		}*/
 	}
 
 	Contact.prototype.addProperty = function($option, name) {
@@ -98,8 +99,19 @@ OC.Contacts = OC.Contacts || {};
 				return false;
 			}
 			if(jsondata.status == 'success') {
-				// TODO: Remove from internal data structure
+				// TODO: Test if removing from internal data structure works
 				if(self.multi_properties.indexOf(element) !== -1) {
+					// First find out if an existing element by looking for checksum
+					var checksum = self.checksumFor(obj);
+					if(checksum) {
+						for(var i in self.data[element]) {
+							if(self.data[element][i].checksum === checksum) {
+								// Found it
+								delete self.data[element][i];
+								break;
+							}
+						}
+					}
 					$container.remove();
 				} else {
 					self.setAsSaving(obj, false);
@@ -160,10 +172,66 @@ OC.Contacts = OC.Contacts || {};
 					self.data[element] = [];
 				}
 				if(self.multi_properties.indexOf(element) !== -1) {
+					// First find out if an existing element by looking for checksum
+					var checksum = self.checksumFor(obj);
+					if(checksum) {
+						for(var i in self.data[element]) {
+							if(self.data[element][i].checksum === checksum) {
+								self.data[element][i] = {
+									name: element,
+									value: self.valueFor(obj),
+									parameters: self.parametersFor(obj),
+									checksum: jsondata.data.checksum,
+								}
+								break;
+							}
+						}
+					} else {
+						self.data[element].push({
+							name: element,
+							value: self.valueFor(obj),
+							parameters: self.parametersFor(obj),
+							checksum: jsondata.data.checksum,
+						});
+					}
 					self.propertyContainerFor(obj).data('checksum', jsondata.data.checksum);
 				} else {
-					// TODO: Save value and parameters internally
-					self.data[element][0] = {name: element};
+					// Save value and parameters internally
+					var value = self.valueFor(obj);
+					switch(element) {
+						case 'CATEGORIES': // We deal with this in addToGroup()
+							break;
+						case 'FN':
+							var nempty = true;
+							if(!self.data.N) {
+								self.data.N = [];
+							}
+							for(var i in self.data.N[0]['value']) {
+								if(self.data.N[0]['value'][i] != '') {
+									nempty = false;
+									break;
+								}
+							}
+							if(nempty) {
+								self.N[0]['value'] = [value, '', '', '', ''];
+								setTimeout(function() {
+									self.saveProperty({name:'N', value:this.data.N[0].value.join(';')})}
+								, 500);
+							}
+						case 'NICKNAME':
+						case 'BDAY':
+						case 'ORG':
+						case 'TITLE':
+							self.data[element][0] = {
+								name: element,
+								value: value,
+								parameters: self.parametersFor(obj),
+								checksum: jsondata.data.checksum,
+							};
+							break;
+						default:
+							break;
+					}
 				}
 				self.setAsSaving(obj, false);
 				return true;
@@ -182,7 +250,7 @@ OC.Contacts = OC.Contacts || {};
 	 * Remove any open contact from the DOM.
 	 */
 	Contact.prototype.close = function() {
-		console.log('Closing', this);
+		console.log('Contact.close', this);
 		if(this.$fullelem) {
 			this.$fullelem.remove();
 		}
@@ -287,6 +355,20 @@ OC.Contacts = OC.Contacts || {};
 		return this.propertyContainerFor(obj).find('input.value').val();
 	}
 
+	Contact.prototype.parametersFor = function(obj) {
+		var parameters = [];
+		$.each(this.propertyContainerFor(obj).find('select.parameter,input:checkbox:checked.parameter,textarea'), function(i, elem) {
+			var $elem = $(elem);
+			var paramname = $elem.data('parameter');
+			if(!parameters[paramname]) {
+				parameters[paramname] = [];
+			}
+			parameters[paramname].push($elem.val());
+		});
+		console.log('Contact.parametersFor', parameters);
+		return parameters;
+	}
+
 	Contact.prototype.propertyTypeFor = function(obj) {
 		var ptype = this.propertyContainerFor(obj).data('element');
 		return ptype ? ptype.toUpperCase() : null;
@@ -343,6 +425,19 @@ OC.Contacts = OC.Contacts || {};
 			self.addProperty($opt, $(this).val());
 			$(this).val('');
 		});
+		var $fullname = this.$fullelem.find('.fullname');
+		this.$fullelem.find('.singleproperties').on('mouseenter', function() {
+			$fullname.next('.edit').css('opacity', '1');
+		}).on('mouseleave', function() {
+			$fullname.next('.edit').css('opacity', '0');
+		});
+		$fullname.next('.edit').on('click keydown', function(event) {
+			console.log('edit name', event);
+			$('.tipsy').remove();
+			if(wrongKey(event)) {
+				return;
+			}
+		});
 		var $singleelements = this.$fullelem.find('dd.propertycontainer');
 		$singleelements.find('.action').css('opacity', '0');
 		$singleelements.on('mouseenter', function() {
@@ -384,11 +479,12 @@ OC.Contacts = OC.Contacts || {};
 			$favstar.removeClass('wait');
 			if(result.status === 'success') {
 				self.is_favorite = result.state;
-				if(result.state === true) {
+				$favstar.toggleClass('inactive', !result.state).toggleClass('active', result.state);
+				/*if(result.state === true) {
 					$favstar.removeClass('inactive').addClass('active');
 				} else {
 					$favstar.removeClass('active').addClass('inactive');
-				}
+				}*/
 			} else {
 				// TODO:...
 			}
@@ -800,17 +896,16 @@ OC.Contacts = OC.Contacts || {};
 	* Show/hide contacts belonging to an addressbook.
 	* @param int aid. Addressbook id.
 	* @param boolean show. Whether to show or hide.
+	* @param boolean hideothers. Used when showing shared addressbook as a group.
 	*/
-	ContactList.prototype.showFromAddressbook = function(aid, show) {
+	ContactList.prototype.showFromAddressbook = function(aid, show, hideothers) {
 		console.log('ContactList.showFromAddressbook', aid, show);
 		aid = parseInt(aid);
 		for(var contact in this.contacts) {
 			if(this.contacts[contact].access.aid === aid) {
-				if(show) {
-					this.contacts[contact].getListItemElement().show();
-				} else {
-					this.contacts[contact].getListItemElement().hide();
-				}
+				this.contacts[contact].getListItemElement().toggle(show);
+			} else if(hideothers) {
+				this.contacts[contact].getListItemElement().hide();
 			}
 		}
 	}
@@ -1082,7 +1177,7 @@ OC.Contacts = OC.Contacts || {};
 		// Should the actual ajax call be in the controller?
 		$.getJSON(OC.filePath('contacts', 'ajax', 'contact/list.php'), {offset: offset}, function(jsondata) {
 			if (jsondata && jsondata.status == 'success') {
-				console.log('addressbooks', jsondata.data.addressbooks);
+				console.log('ContactList.loadContacts', jsondata.data);
 				self.addressbooks = {};
 				$.each(jsondata.data.addressbooks, function(i, book) {
 					self.addressbooks[parseInt(book.id)] = {
@@ -1103,8 +1198,15 @@ OC.Contacts = OC.Contacts || {};
 							self.contactDetailTemplates
 						);
 					self.length +=1;
-					var item = self.contacts[parseInt(contact.id)].renderListItem()
-					self.$contactList.append(item);
+					var $item = self.contacts[parseInt(contact.id)].renderListItem();
+					$item.draggable({
+						distance: 10,
+						revert: 'invalid',
+						//containment: '#content',
+						opacity: 0.8, helper: 'clone',
+						zIndex: 1000,
+					});
+					self.$contactList.append($item);
 					//self.insertContact(item);
 				});
 				self.doSort();
