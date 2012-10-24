@@ -10,7 +10,7 @@
  * later.
  */
 
-namespace OCA_Updater;
+namespace OCA\Updater;
 
 \OCP\JSON::checkAdminUser();
 \OCP\JSON::callCheck();

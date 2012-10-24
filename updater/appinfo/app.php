@@ -10,7 +10,7 @@
  * later.
  */
 
-namespace OCA_Updater;
+namespace OCA\Updater;
 
 class App {
 
@@ -20,9 +20,9 @@ class App {
 
 	public static function init() {
 		//Allow config page
-		\OC::$CLASSPATH['OCA_Updater\Backup'] = self::APP_PATH . 'lib/backup.php';
-		\OC::$CLASSPATH['OCA_Updater\Downloader'] = self::APP_PATH . 'lib/downloader.php';
-		\OC::$CLASSPATH['OCA_Updater\Updater'] = self::APP_PATH . 'lib/updater.php';
+		\OC::$CLASSPATH['OCA\Updater\Backup'] = self::APP_PATH . 'lib/backup.php';
+		\OC::$CLASSPATH['OCA\Updater\Downloader'] = self::APP_PATH . 'lib/downloader.php';
+		\OC::$CLASSPATH['OCA\Updater\Updater'] = self::APP_PATH . 'lib/updater.php';
 		\OC_APP::registerAdmin(self::APP_ID, 'admin');
 	}
 
