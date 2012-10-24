@@ -116,4 +116,9 @@ if($contacts_alphabet) {
 //unset($contacts_alphabet);
 //uasort($contacts, 'cmp');
 
-OCP\JSON::success(array('data' => array('contacts' => $contacts, 'addressbooks' => $active_addressbooks)));
+OCP\JSON::success(array(
+	'data' => array(
+		'contacts' => $contacts,
+		'addressbooks' => $active_addressbooks,
+	)
+));
