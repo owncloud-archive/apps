@@ -46,6 +46,8 @@ class Updater {
 		$config = "/config/config.php";
 		copy($tempPath . $config, self::$_updateDirs['core'] . $config);
 
+		//TODO: Delete temp dir
+		
 		return true;
 	}
 
