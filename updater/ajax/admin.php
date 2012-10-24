@@ -28,15 +28,15 @@ if (isset($updateData['version'])) {
 if (isset($updateData['url']) && extension_loaded('bz2')) {
 	$packageUrl = $updateData['url'];
 }
-
 if (!$packageVersion) {
 	\OCP\JSON::error(array('msg' => 'Version not found'));
 	exit();
 }
 
-
-$sourcePath = Downloader::getPackage($packageUrl, $packageVersion);
-if (!$sourcePath) {
+try {
+	$sourcePath = Downloader::getPackage($packageUrl, $packageVersion);
+} catch (\Exception $e){
+	\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
 	\OCP\JSON::error(array('msg' => 'Unable to fetch package'));
 	exit();
 }
