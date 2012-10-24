@@ -87,6 +87,14 @@
 	</form>
 </script>
 
+<script id="addGroupTemplate" type="text/template">
+	<div id="dialog-form" title="<?php echo $l->t('Add group'); ?>">
+		<fieldset>
+			<input type="text" name="name" id="name" />
+		</fieldset>
+	</div>
+</script>
+
 <script id="contactListItemTemplate" type="text/template">
 	<tr class="contact" data-id="{id}">
 		<td class="name"
@@ -123,6 +131,7 @@
 			<a class="favorite"></a>
 			<div class="singleproperties">
 			<input class="fullname value propertycontainer" data-element="fn" type="text" name="value" value="{name}" required />
+			<a class="action edit"></a>
 			<dl class="form">
 				<dt data-element="nickname">
 					<?php echo $l->t('Nickname'); ?>
@@ -203,10 +212,10 @@
 <script id="contactDetailsTemplate" class="hidden" type="text/template">
 	<div class="email">
 		<li data-element="email" data-checksum="{checksum}" class="propertycontainer">
-			<select class="rtl type parameter" name="parameters[TYPE][]">
+			<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
 				<?php echo OCP\html_select_options($_['email_types'], array()) ?>
 			</select>
-			<input type="checkbox" class="parameter tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+			<input type="checkbox" class="parameter tip" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
 			<input type="email" class="nonempty value" name="value" value="{value}" x-moz-errormessage="<?php echo $l->t('Please specify a valid email address.'); ?>" placeholder="<?php echo $l->t('someone@example.com'); ?>" required />
 			<span class="listactions">
 				<a class="action mail" title="<?php echo $l->t('Mail to address'); ?>"></a>
@@ -216,10 +225,10 @@
 	</div>
 	<div class="tel">
 		<li data-element="tel" data-checksum="{checksum}" class="propertycontainer">
-			<select class="rtl type parameter" name="parameters[TYPE][]">
+			<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
 				<?php echo OCP\html_select_options($_['phone_types'], array()) ?>
 			</select>
-			<input type="checkbox" class="parameter tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+			<input type="checkbox" class="parameter tip" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
 			<input type="tel" class="nonempty value" name="value" value="{value}" placeholder="<?php echo $l->t('Enter phone number'); ?>" required />
 			<span class="listactions">
 				<a role="button" class="action delete" title="<?php echo $l->t('Delete phone number'); ?>"></a>
@@ -228,10 +237,10 @@
 	</div>
 	<div class="url">
 		<li data-element="url" data-checksum="{checksum}" class="propertycontainer">
-			<select class="rtl type parameter" name="parameters[TYPE][]">
+			<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
 				<?php echo OCP\html_select_options($_['email_types'], array()) ?>
 			</select>
-			<input type="checkbox" class="parameter tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+			<input type="checkbox" class="parameter tip" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
 			<input type="url" class="nonempty value" name="value" value="{value}" placeholder="http://www.example.com/" required />
 			<span class="listactions">
 				<a role="button" class="action globe" title="<?php echo $l->t('Go to web site'); ?>">
@@ -241,10 +250,10 @@
 	</div>
 	<div class="adr">
 		<li data-element="adr" data-checksum="{checksum}" class="propertycontainer">
-			<select class="rtl type parameter" name="parameters[TYPE][]">
+			<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
 				<?php echo OCP\html_select_options($_['adr_types'], array()) ?>
 			</select>
-			<input type="checkbox" class="parameter tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+			<input type="checkbox" class="parameter tip" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
 			<span class="float adr">{value}</span>
 			<span class="listactions">
 				<a class="action globe" title="<?php echo $l->t('View on map'); ?>"></a>
@@ -261,12 +270,12 @@
 	</div>
 	<div class="impp">
 		<li data-element="impp" data-checksum="{checksum}" class="propertycontainer">
-			<select class="type parameter" name="parameters[TYPE][]">
+			<select class="type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
 				<?php echo OCP\html_select_options($_['impp_types'], array()) ?>
 			</select>
 			<input type="checkbox" class="parameter impp tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
 			<div class="select_wrapper">
-			<select class="rtl parameter label impp" name="parameters[X-SERVICE-TYPE]">
+			<select class="rtl parameter label impp" data-parameter="X-SERVICE-TYPE" name="parameters[X-SERVICE-TYPE]">
 				<?php echo OCP\html_select_options($_['im_protocols'], array()) ?>
 			</select>
 			</div>
