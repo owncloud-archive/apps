@@ -19,7 +19,7 @@ class Updater {
 
 	public static function update($sourcePath, $backupPath) {
 		if (!is_dir($backupPath)) {
-			return self::error('Backup directory is not found');
+			throw new \Exception('Backup directory is not found');
 		}
 
 		self::$_updateDirs = App::getDirectories();
@@ -36,11 +36,13 @@ class Updater {
 
 		$tempPath = App::getBackupBase() . 'tmp';
 		if  (!@mkdir($tempPath, 0777, true)) {
-			return self::error('failed to create ' . $tempPath);
+			throw new \Exception('failed to create ' . $tempPath);
 		}
 
+		//TODO: Add Check/Rollback here
 		self::moveDirectories($sourcePath, $tempPath);
 
+		//TODO: Add Check/Rollback here
 		$config = "/config/config.php";
 		copy($tempPath . $config, self::$_updateDirs['core'] . $config);
 
@@ -80,16 +82,6 @@ class Updater {
 			rename($fullPath, $destination . DIRECTORY_SEPARATOR . $file);
 		}
 		return true;
-	}
-
-	/**
-	 * Log error message
-	 * @param string $message
-	 * @return bool
-	 */
-	protected static function error($message) {
-		\OC_Log::write(App::APP_ID, $message, \OC_Log::ERROR);
-		return false;
 	}
 
 }
