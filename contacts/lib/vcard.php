@@ -337,6 +337,7 @@ class OC_Contacts_VCard {
 		}
 		$newid = OCP\DB::insertid('*PREFIX*contacts_cards');
 		OC_Contacts_App::loadCategoriesFromVCard($newid, $card);
+		OC_Contacts_App::cacheThumbnail($newid);
 
 		OC_Contacts_Addressbook::touch($aid);
 		OC_Hook::emit('OC_Contacts_VCard', 'post_createVCard', $newid);
@@ -453,6 +454,7 @@ class OC_Contacts_VCard {
 			return false;
 		}
 
+		OC_Contacts_App::cacheThumbnail($oldcard['id']);
 		OC_Contacts_Addressbook::touch($oldcard['addressbookid']);
 		OC_Hook::emit('OC_Contacts_VCard', 'post_updateVCard', $id);
 		return true;

@@ -98,7 +98,7 @@
 <script id="contactListItemTemplate" type="text/template">
 	<tr class="contact" data-id="{id}">
 		<td class="name"
-			style="background: url('<?php echo OCP\Util::linkTo('contacts', 'thumbnail.php'); ?>?id={id}')">
+			style="background: url('<?php echo OC_Helper::linkToRemoteBase('contactthumbnail'); ?>?id={id}')">
 			<input type="checkbox" name="id" value="{id}" />{name}
 		</td>
 		<td class="email">

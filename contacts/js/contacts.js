@@ -736,7 +736,7 @@ OC.Contacts = OC.Contacts || {};
 				self.loadPhoto(true);
 				var refreshstr = '&refresh='+Math.random();
 				self.getListItemElement().find('td.name')
-					.css('background', 'url(' + OC.linkTo('contacts', 'thumbnail.php')+'?id='+self.id+refreshstr + ')');
+					.css('background', 'url(' + OC.filePath('', '', 'remote.php')+'/contactthumbnail?id='+self.id+refreshstr + ')');
 			});
 		}
 	}

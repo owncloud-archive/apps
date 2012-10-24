@@ -98,6 +98,7 @@ if($data) {
 				if(!OC_Contacts_VCard::edit($id, $vcard)) {
 					bailOut(OC_Contacts_App::$l10n->t('Error saving contact.'));
 				}
+				OC_Contacts_App::cacheThumbnail($id, $image);
 				OCP\JSON::success(array(
 					'data' => array(
 						'id' => $id,

@@ -21,6 +21,9 @@ class OC_Contacts_App {
 	 */
 	public static $categories = null;
 
+	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
+	const THUMBNAIL_SIZE = 28;
+
 	/**
 	 * @brief Gets the VCard as an OC_VObject
 	 * @returns The card or null if the card could not be parsed.
@@ -249,21 +252,59 @@ class OC_Contacts_App {
 
 	/**
 	 * @brief Get the last modification time.
-	 * @param $vcard OC_VObject
+	 * @param $contact OC_VObject|integer
 	 * $return DateTime | null
 	 */
-	public static function lastModified($vcard) {
-		$rev = $vcard->getAsString('REV');
-		if ($rev) {
-			return DateTime::createFromFormat(DateTime::W3C, $rev);
+	public static function lastModified($contact) {
+		if(is_numeric($contact)) {
+			$card = OC_Contacts_VCard::find($contact);
+			return ($card ? new DateTime('@' . $card['lastmodified']) : null);
+		} elseif($contact instanceof OC_VObject) {
+			$rev = $contact->getAsString('REV');
+			if ($rev) {
+				return DateTime::createFromFormat(DateTime::W3C, $rev);
+			}
 		}
 	}
 
-	public static function setLastModifiedHeader($contact) {
-		$rev = $contact->getAsString('REV');
-		if ($rev) {
-			$rev = DateTime::createFromFormat(DateTime::W3C, $rev);
-			OCP\Response::setLastModifiedHeader($rev);
+	public static function cacheThumbnail($id, OC_Image $image = null) {
+		if(OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id)) {
+			return OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 		}
+		if(is_null($image)) {
+			$vcard = self::getContactVCard($id);
+
+			// invalid vcard
+			if(is_null($vcard)) {
+				OCP\Util::writeLog('contacts',
+					__METHOD__.' The VCard for ID ' . $id . ' is not RFC compatible',
+					OCP\Util::ERROR);
+				return false;
+			}
+			$image = new OC_Image();
+			$photo = $vcard->getAsString('PHOTO');
+			if(!$photo) {
+				return false;
+			}
+			if(!$image->loadFromBase64($photo)) {
+				return false;
+			}
+		}
+		if(!$image->centerCrop()) {
+			OCP\Util::writeLog('contacts',
+				'thumbnail.php. Couldn\'t crop thumbnail for ID ' . $id,
+				OCP\Util::ERROR);
+			return false;
+		}
+		if(!$image->resize(self::THUMBNAIL_SIZE)) {
+			OCP\Util::writeLog('contacts',
+				'thumbnail.php. Couldn\'t resize thumbnail for ID ' . $id,
+				OCP\Util::ERROR);
+			return false;
+		}
+		 // Cache for around a month
+		OC_Cache::set(self::THUMBNAIL_PREFIX . $id, $image->data(), 3000000);
+		OCP\Util::writeLog('contacts', 'Caching ' . $id, OCP\Util::DEBUG);
+		return OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 	}
 }
