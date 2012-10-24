@@ -182,6 +182,7 @@ GroupList.prototype.addTo = function(contactid, groupid, cb) {
 	console.log('GroupList.addTo', contactid, groupid);
 	var $groupelem = this.findById(groupid);
 	var contacts = $groupelem.data('contacts');
+	var self = this;
 	if(contacts.indexOf(contactid) === -1) {
 		$.post(OC.filePath('contacts', 'ajax', 'categories/addto.php'), {contactid: contactid, categoryid: groupid},function(jsondata) {
 			if(!jsondata) {
@@ -197,6 +198,12 @@ GroupList.prototype.addTo = function(contactid, groupid, cb) {
 				$groupelem.find('.numcontacts').text(contacts.length);
 				if(typeof cb === 'function') {
 					cb('success');
+				} else {
+					$(document).trigger('status.group.contactadded', {
+						contactid: contactid,
+						groupid: groupid,
+						groupname: self.nameById(groupid),
+					});
 				}
 			} else {
 				OC.notify({message:jsondata.data.message});
@@ -260,6 +267,15 @@ GroupList.prototype.categoriesChanged = function(newcategories) {
 	console.log('GroupList.categoriesChanged, I should do something');
 }
 
+GroupList.prototype.contactDropped = function(event, ui) {
+	var dragitem = ui.draggable, droptarget = $(this);
+	console.log('dropped', dragitem);
+	if(dragitem.is('tr')) {
+		console.log('tr dropped', dragitem.data('id'), 'on', $(this).data('id'));
+		$(this).data('obj').addTo(dragitem.data('id'), $(this).data('id'));
+	}
+}
+
 GroupList.prototype.addGroup = function(name, contacts, cb) {
 	console.log('GroupList.addGroup', name);
 	contacts = $.map(contacts, function(c) {return parseInt(c)});
@@ -286,9 +302,10 @@ GroupList.prototype.addGroup = function(name, contacts, cb) {
 				name: name,
 			})
 			self.categories.push({id: jsondata.data.id, name: name});
-			$elem.data('contacts', contacts)
-			$elem.data('name', name)
-			$elem.data('id', jsondata.data.id)
+			$elem.data('obj', self);
+			$elem.data('contacts', contacts);
+			$elem.data('name', name);
+			$elem.data('id', jsondata.data.id);
 			var added = false;
 			self.$groupList.find('h3.group[data-type="category"]').each(function() {
 				if ($(this).data('name').toLowerCase().localeCompare(name.toLowerCase()) > 0) {
@@ -313,6 +330,7 @@ GroupList.prototype.addGroup = function(name, contacts, cb) {
 
 GroupList.prototype.loadGroups = function(numcontacts, cb) {
 	var self = this;
+	var acceptdrop = 'tr.contact';
 	var $groupList = this.$groupList;
 	var tmpl = this.$groupListItemTemplate;
 
@@ -328,7 +346,13 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 				num: contacts.length,
 				name: t('contacts', 'Favorites')
 			}).appendTo($groupList);
+			$elem.data('obj', self);
 			$elem.data('contacts', contacts).find('.numcontacts').before('<span class="starred" />');
+			$elem.droppable({
+						drop: self.contactDropped,
+						activeClass: 'ui-state-hover',
+						accept: acceptdrop
+					});
 			if(contacts.length === 0) {
 				$elem.hide();
 			}
@@ -343,9 +367,31 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 					name: category.name,
 				});
 				self.categories.push({id: category.id, name: category.name});
-				$elem.data('contacts', contacts)
-				$elem.data('name', category.name)
-				$elem.data('id', category.id)
+				$elem.data('obj', self);
+				$elem.data('contacts', contacts);
+				$elem.data('name', category.name);
+				$elem.data('id', category.id);
+				$elem.droppable({
+								drop: self.contactDropped,
+								activeClass: 'ui-state-hover',
+								accept: acceptdrop
+							});
+				$elem.appendTo($groupList);
+			});
+			// Shared addressbook
+			$.each(jsondata.data.shared, function(c, shared) {
+				var sharedindicator = '<img class="shared svg" src="' + OC.imagePath('core', 'actions/shared') + '"'
+					+ 'title="' + t('contacts', 'Shared by {owner}', {owner:shared.userid}) + '" />'
+				var $elem = (tmpl).octemplate({
+					id: shared.id,
+					type: 'shared',
+					num: '', //jsondata.data.shared.length,
+					name: shared.displayname,
+				});
+				$elem.find('.numcontacts').after(sharedindicator);
+				$elem.data('obj', self);
+				$elem.data('name', shared.displayname);
+				$elem.data('id', shared.id);
 				$elem.appendTo($groupList);
 			});
 			var $elem = self.findById(self.lastgroup);
@@ -387,11 +433,12 @@ OC.Contacts = OC.Contacts || {
 		this.showActions(['add', 'delete']);
 	},
 	loading:function(obj, state) {
-		if(state) {
+		$(obj).toggleClass('loading', state);
+		/*if(state) {
 			$(obj).addClass('loading');
 		} else {
 			$(obj).removeClass('loading');
-		}
+		}*/
 	},
 	/**
 	 * Show/hide elements in the header
@@ -402,11 +449,7 @@ OC.Contacts = OC.Contacts || {
 		this.$headeractions.children('.'+act.join(',.')).show();
 	},
 	showAction:function(act, show) {
-		if(show) {
-			this.$headeractions.find('.' + act).show();
-		} else {
-			this.$headeractions.find('.' + act).hide();
-		}
+		this.$headeractions.find('.' + act).toggle(show);
 	},
 	cacheElements: function() {
 		var self = this;
@@ -436,8 +479,8 @@ OC.Contacts = OC.Contacts || {
 
 	},
 	// Build the select to add/remove from groups.
-	// TODO: Maybe move to Groups object.
 	buildGroupSelect: function() {
+		// If a contact is open we know which categories it's in
 		if(this.currentid) {
 			var contact = this.Contacts.contacts[this.currentid];
 			this.$groups.find('optgroup,option:not([value="-1"])').remove();
@@ -457,7 +500,7 @@ OC.Contacts = OC.Contacts || {
 				$(rmopts).appendTo(this.$groups)
 				.wrapAll('<optgroup data-action="remove" label="' + t('contacts', 'Remove from...') + '"/>');
 			}
-		} else {
+		} else { // Otherwise add all categories to both add and remove
 			this.$groups.find('optgroup,option:not([value="-1"])').remove();
 			var addopts = '', rmopts = '';
 			$.each(this.Groups.categories, function(i, category) {
@@ -594,6 +637,11 @@ OC.Contacts = OC.Contacts || {
 				}
 			});
 		});
+		$(document).bind('status.group.contactadded', function(e, result) {
+			console.log('status.group.contactadded', result);
+			self.Contacts.contacts[parseInt(result.contactid)].addToGroup(result.groupname);
+		});
+
 		// Group selected, only show contacts from that group
 		$(document).bind('status.group.selected', function(e, result) {
 			console.log('status.group.selected', result);
@@ -608,8 +656,9 @@ OC.Contacts = OC.Contacts || {
 			self.$toggleAll.show();
 			self.showActions(['add', 'delete']);
 			if(result.type === 'category' ||  result.type === 'fav') {
-				console.log('contacts', $(this).data('contacts'));
 				self.Contacts.showContacts(result.contacts);
+			} else if(result.type === 'shared') {
+				self.Contacts.showFromAddressbook(self.currentgroup, true, true);
 			} else {
 				self.Contacts.showContacts(self.currentgroup);
 			}
@@ -712,6 +761,9 @@ OC.Contacts = OC.Contacts || {
 							$(this).prop('checked', false);
 						});
 					},
+					open: function(event, ui) {
+						$dlg.find('input').focus();
+					},
 				});
 				return;
 			}
@@ -736,6 +788,7 @@ OC.Contacts = OC.Contacts || {
 							if(buildnow) {
 								self.buildGroupSelect();
 							}
+							// I don't think this is used...
 							$(document).trigger('status.contact.addedtogroup', {
 								contactid: id,
 								groupid: $opt.val(),
@@ -951,11 +1004,11 @@ OC.Contacts = OC.Contacts || {
 		this.$rightContent.scrollTop(this.Contacts.contactPos(id));
 	},
 	closeContact: function(id) {
-		if(this.currentid) {
-			delete this.currentid;
+		if(typeof this.currentid === 'number') {
 			this.Contacts.findById(id).close();
 			this.$contactList.show();
 			this.jumpToContact(id);
+			delete this.currentid;
 		}
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
 	},

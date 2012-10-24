@@ -28,7 +28,10 @@ option:last-child { border-bottom: 1px solid silver; }
 #leftcontent a { padding: 0 0 0 25px; }
 #leftcontent h3 { cursor: pointer; -moz-transition: background 300ms ease 0s; background: none no-repeat scroll 1em center #eee; border-bottom: 1px solid #ddd; border-top: 1px solid #fff; display: block; max-width: 100%; padding: 0.5em 0.8em; color: #666; text-shadow: 0 1px 0 #f8f8f8; font-size: 1.2em; }
 #leftcontent h3:hover,#leftcontent h3:active,#leftcontent h3.active { background-color: #DBDBDB; border-bottom: 1px solid #CCCCCC; border-top: 1px solid #D4D4D4; color: #333333; font-weight: bold; }
+#leftcontent h3 img.shared { float: right; opacity: 0.4; margin: 0 .5em; }
+#leftcontent h3 img.shared:hover { opacity: 1; }
 
+#grouplist { z-index: 100; }
 /* First run */
 
 #firstrun { position: relative; top: 25%; left: 20%; right: 20%; width: 50%; font-weight:bold; text-align: center; color: #777; }
@@ -37,7 +40,7 @@ option:last-child { border-bottom: 1px solid silver; }
 #firstrun #selections { font-size:0.8em; margin: 2em auto auto auto; clear: both; }
 
 input:not([type="checkbox"]), select, textarea { background-color: #fefefe; border: 1px solid #fff !important; -moz-appearance:none  !important; -webkit-appearance: none !important; -webkit-box-sizing:none !important; -moz-box-sizing:none !important; box-sizing:none !important; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; float: left; }
-input:invalid,input:hover:not([type="checkbox"]), input:active:not([type="checkbox"]), textarea:focus, textarea:hover { border: 1px solid silver !important; -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; outline:none; float: left; }
+input:invalid,input:hover:not([type="checkbox"]), input:active:not([type="checkbox"]), input:focus:not([type="checkbox"]), textarea:focus, textarea:hover { border: 1px solid silver !important; -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; outline:none; float: left; }
 
 #contact textarea { width: 80%; min-height: 5em; min-width: 30em; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
 
@@ -71,6 +74,11 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 	width: auto;
 }
 .control > * { background: none repeat scroll 0 0 #F8F8F8; color: #555 !important; font-size: 100%; margin: 0px; }
+
+.ui-draggable { height: 3em; z-index: 1000; }
+.ui-draggable-dragging { width: 70%; cursor: move; }
+.ui-state-hover { border: 1px solid dashed; z-index: 1; }
+
 /* Address editor */
 #addressdisplay { padding: 0.5em; }
 dl.addresscard { background-color: #fff; float: left; width: auto; margin: 0 0.3em 0.3em 0.3em; padding: 0; border: 0; }
