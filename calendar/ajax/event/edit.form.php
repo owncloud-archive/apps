@@ -28,12 +28,12 @@ $dtstart = $vevent->DTSTART;
 $dtend = OC_Calendar_Object::getDTEndFromVEvent($vevent);
 switch($dtstart->getDateType()) {
 	case Sabre_VObject_Property_DateTime::UTC:
-		$timeOffset = $_SESSION['timezone']*60;
-		$newDT      = $dtstart->getDateTime();
-		$newDT->add(new DateInterval("PT" . $timeOffset . "M"));
+		$timezone = new DateTimeZone(OC_Calendar_App::getTimezone());
+		$newDT    = $dtstart->getDateTime();
+		$newDT->setTimezone($timezone);
 		$dtstart->setDateTime($newDT);
-		$newDT      = $dtend->getDateTime();
-		$newDT->add(new DateInterval("PT" . $timeOffset . "M"));
+		$newDT    = $dtend->getDateTime();
+		$newDT->setTimezone($timezone);
 		$dtend->setDateTime($newDT);
 	case Sabre_VObject_Property_DateTime::LOCALTZ:
 	case Sabre_VObject_Property_DateTime::LOCAL:
