@@ -32,6 +32,7 @@ OCP\JSON::success(array(
 	'data' => array(
 		'categories' => $categories,
 		'favorites' => $favorites,
+		'shared' => OCP\Share::getItemsSharedWith('addressbook', OC_Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS),
 		'lastgroup' => OCP\Config::getUserValue(
 						OCP\User::getUser(),
 						'contacts',
