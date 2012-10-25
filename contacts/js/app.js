@@ -560,7 +560,6 @@ OC.Contacts = OC.Contacts || {
 					}
 				});
 			}
-			self.selectAddressbook();
 		});
 		$(document).bind('status.contact.currentlistitem', function(e, result) {
 			//console.log('status.contact.currentlistitem', result, self.$rightContent.height());
@@ -1155,10 +1154,28 @@ OC.Contacts = OC.Contacts || {
 			}
 		});
 	},
+	addAddressbook:function(data, cb) {
+		$.post(OC.filePath('contacts', 'ajax', 'addressbook/add.php'), { name: data.name, description: data.description },
+			function(jsondata) {
+				if(jsondata.status == 'success') {
+					if(typeof cb === 'function') {
+						cb({
+							status:'success',
+							addressbook: jsondata.data.addressbook,
+						});
+					}
+				} else {
+					if(typeof cb === 'function') {
+						cb({status:'error'});
+					}
+				}
+		});
+	},
 	selectAddressbook:function(cb) {
 		var self = this;
 		var jqxhr = $.get(OC.filePath('contacts', 'templates', 'selectaddressbook.html'), function(data) {
-			var $dlg = $(data).octemplate({
+			$('body').append('<div id="addressbook_dialog"></div>');
+			var $dlg = $('#addressbook_dialog').html(data).octemplate({
 				nameplaceholder: t('contacts', 'Enter name'),
 				descplaceholder: t('contacts', 'Enter description'),
 			}).dialog({
@@ -1177,13 +1194,26 @@ OC.Contacts = OC.Contacts || {
 							console.log('ID, name and desc', aid, displayname, description);
 							if(typeof cb === 'function') {
 								// TODO: Create addressbook
-								cb({id:'new', displayname:displayname, description:description});
+								var data = {name:displayname, description:description};
+								self.addAddressbook(data, function(data) {
+									if(data.status === 'success') {
+										cb({
+											status:'success',
+											addressbook:data.addressbook,
+										});
+									} else {
+										cb({status:'error'});
+									}
+								});
 							}
 							$(this).dialog('close');
 						} else {
 							console.log('aid ' + aid);
 							if(typeof cb === 'function') {
-								cb({id:id});
+								cb({
+									status:'success',
+									addressbook:self.Contacts.addressbooks[parseInt(aid)],
+								});
 							}
 							$(this).dialog('close');
 						}
@@ -1194,29 +1224,31 @@ OC.Contacts = OC.Contacts || {
 				},
 				close: function(event, ui) {
 					$(this).dialog('destroy').remove();
+					$('#addressbook_dialog').remove();
 				},
 				open: function(event, ui) {
 					console.log('open', $(this));
 					var $lastrow = $(this).find('tr.new');
 					$.each(self.Contacts.addressbooks, function(i, book) {
-						console.log('book', book);
+						console.log('book', i, book);
 						if(book.owner === OC.currentUser
 								|| (book.permissions & OC.PERMISSION_UPDATE
 								|| book.permissions & OC.PERMISSION_CREATE
 								|| book.permissions & OC.PERMISSION_DELETE)) {
-							$row = $('<tr><td><input id="book_{id}" name="book" type="radio" value="{id}"</td>'
+							var row = '<tr><td><input id="book_{id}" name="book" type="radio" value="{id}"</td>'
 								+ '<td><label for="book_{id}">{displayname}</label></td>'
-								+ '<td>{description}</td></tr>')
-								.octemplate({
-									id:book.aid,
+								+ '<td>{description}</td></tr>'
+							var $row = $(row).octemplate({
+									id:book.id,
 									displayname:book.displayname,
 									description:book.description
 								});
 							$lastrow.before($row);
 						}
 					});
-					$(this).find('input.name,input.desc').on('focus', function(e) {
-						$('#book_new').prop('checked', true);
+					$(this).find('input[type="radio"]').first().prop('checked', true);
+					$lastrow.find('input.name,input.desc').on('focus', function(e) {
+						$lastrow.find('input[type="radio"]').prop('checked', true);
 					});
 				},
 			});
