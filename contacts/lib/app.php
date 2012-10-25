@@ -270,7 +270,7 @@ class App {
 		} elseif($contact instanceof \OC_VObject) {
 			$rev = $contact->getAsString('REV');
 			if ($rev) {
-				return \DateTime::createFromFormat(DateTime::W3C, $rev);
+				return \DateTime::createFromFormat(\DateTime::W3C, $rev);
 			}
 		}
 	}
