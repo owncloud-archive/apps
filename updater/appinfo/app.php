@@ -57,7 +57,15 @@ class App {
 			'relative' => array('.', '..')
 		);
 	}
+	
+	public static function getSourcePath($version, $url) {
+		return \OCP\Config::getAppValue(self::APP_ID, md5($version . $url), '');
+	}
 
+	public static function setSourcePath($version, $url, $path) {
+		\OCP\Config::setAppValue(self::APP_ID, md5($version . $url), $path);
+	}
+	
 	public static function getRecentBackupPath() {
 		return \OCP\Config::getAppValue(self::APP_ID, self::LAST_BACKUP_PATH, '');
 	}

@@ -35,14 +35,21 @@ if (!strlen($packageVersion) || !strlen($packageUrl)) {
 	exit();
 }
 
-try {
-	$sourcePath = Downloader::getPackage($packageUrl, $packageVersion);
-} catch (\Exception $e){
-	\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
-	\OCP\JSON::error(array('msg' => 'Unable to fetch package'));
+$sourcePath = App::getSourcePath($packageUrl, $packageVersion);
+//Step 1 - fetch & extract
+if (!$sourcePath){
+	try {
+		$sourcePath = Downloader::getPackage($packageUrl, $packageVersion);
+		App::setSourcePath($packageVersion, $packageUrl, $sourcePath);
+		\OCP\JSON::success(array());
+	} catch (\Exception $e){
+		\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
+		\OCP\JSON::error(array('msg' => 'Unable to fetch package'));
+	}
 	exit();
 }
 
+//Step 2 - backup & update
 try {
 	$backupPath = Backup::createBackup();
 	Updater::update($sourcePath, $backupPath);
@@ -51,4 +58,3 @@ try {
 	\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
 	\OCP\JSON::error(array('msg' => 'Failed to create backup'));	
 }
-
