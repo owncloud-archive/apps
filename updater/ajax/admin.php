@@ -35,7 +35,7 @@ if (!strlen($packageVersion) || !strlen($packageUrl)) {
 	exit();
 }
 
-$sourcePath = App::getSourcePath($packageUrl, $packageVersion);
+$sourcePath = App::getSourcePath($packageVersion, $packageUrl);
 //Step 1 - fetch & extract
 if (!$sourcePath){
 	try {
@@ -50,11 +50,14 @@ if (!$sourcePath){
 }
 
 //Step 2 - backup & update
+//TODO: CleanUp
 try {
 	$backupPath = Backup::createBackup();
+	App::setSourcePath($packageVersion, $packageUrl, '');
 	Updater::update($sourcePath, $backupPath);
 	\OCP\JSON::success(array());
 } catch (\Exception $e){
 	\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
+	App::setSourcePath($packageVersion, $packageUrl, '');
 	\OCP\JSON::error(array('msg' => 'Failed to create backup'));	
 }

@@ -36,8 +36,8 @@ class App {
 		$dirs['3rdparty'] = \OC::$THIRDPARTYROOT . DIRECTORY_SEPARATOR . '3rdparty';
 		
 		//Long, long ago we had single app location
-		if (isset(OC::$APPSROOTS)) {
-			foreach (OC::$APPSROOTS as $i => $approot){
+		if (isset(\OC::$APPSROOTS)) {
+			foreach (\OC::$APPSROOTS as $i => $approot){
 				$dir['apps' . $i] = $approot['path'];
 			}
 		} else {
