@@ -24,6 +24,11 @@ class App {
 	 */
 	public static $categories = null;
 
+	/**
+	 * Properties there can be more than one of.
+	 */
+	public static $multi_properties = array('EMAIL', 'TEL', 'IMPP', 'ADR', 'URL');
+
 	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
 	const THUMBNAIL_SIZE = 28;
 
