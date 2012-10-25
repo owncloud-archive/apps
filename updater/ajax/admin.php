@@ -22,14 +22,15 @@ $packageUrl = 'https://download.owncloud.com/download/community/owncloud-latest.
 //Package version e.g. 4.0.4
 $packageVersion = '';
 $updateData = \OC_Updater::check();
+
 if (isset($updateData['version'])) {
 	$packageVersion = $updateData['version'];
 }
 if (isset($updateData['url']) && extension_loaded('bz2')) {
 	$packageUrl = $updateData['url'];
 }
-if (!$packageVersion) {
-	\OC_Log::write(App::APP_ID, 'No OC version found in feed.', \OC_Log::ERROR);
+if (!strlen($packageVersion) || !strlen($packageUrl)) {
+	\OC_Log::write(App::APP_ID, 'Invalid response from update feed.', \OC_Log::ERROR);
 	\OCP\JSON::error(array('msg' => 'Version not found'));
 	exit();
 }
