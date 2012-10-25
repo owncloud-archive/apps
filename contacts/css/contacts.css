@@ -8,10 +8,19 @@
 :-ms-input-placeholder { color: #bbb; }*/
 li { cursor: default; }
 input[type=checkbox] { height: 14px; width: 14px; border: 1px solid #fff; -moz-appearance:none; -webkit-appearance: none; -moz-box-sizing:none; box-sizing:none; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
+input[type=radio] { width: 12px; height: 12px; }
 input[type=checkbox]:hover { border: 1px solid #D4D4D4 !important; }
 input[type=checkbox]:checked::after {
   content: url('%appswebroot%/contacts/img/checkmark.png');
   display: block;
+  position: relative;
+  top: -8px;
+  left: -6px;
+}
+input[type=radio]:checked::after {
+  content: url('%appswebroot%/contacts/img/checkmark.png');
+  margin: 0; padding: 0;
+  display: inline-block;
   position: relative;
   top: -8px;
   left: -6px;
@@ -39,8 +48,8 @@ option:last-child { border-bottom: 1px solid silver; }
 #firstrun p { font-size:1.2em; }
 #firstrun #selections { font-size:0.8em; margin: 2em auto auto auto; clear: both; }
 
-input:not([type="checkbox"],[type="radio"]), select, textarea { background-color: #fefefe; border: 1px solid #fff !important; -moz-appearance:none  !important; -webkit-appearance: none !important; -webkit-box-sizing:none !important; -moz-box-sizing:none !important; box-sizing:none !important; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; float: left; }
-input:invalid,input:hover:not([type="checkbox"],[type="radio"]), input:active:not([type="checkbox"],[type="radio"]), input:focus:not([type="checkbox"],[type="radio"]), textarea:focus, textarea:hover { border: 1px solid silver !important; -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; outline:none; float: left; }
+input:not([type="checkbox"]), select, textarea { background-color: #fefefe; border: 1px solid #fff !important; -moz-appearance:none  !important; -webkit-appearance: none !important; -webkit-box-sizing:none !important; -moz-box-sizing:none !important; box-sizing:none !important; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; float: left; }
+input:invalid,input:hover:not([type="checkbox"]), input:active:not([type="checkbox"]), input:focus:not([type="checkbox"]), textarea:focus, textarea:hover { border: 1px solid silver !important; -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; outline:none; float: left; }
 
 #contact textarea { width: 80%; min-height: 5em; min-width: 30em; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
 
