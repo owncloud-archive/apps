@@ -736,7 +736,7 @@ class VCard {
 
 		// This cuts around a 3rd off of the json response size.
 		if(in_array($property->name, App::$multi_properties)) {
-			$temp['checksum'] = md5($property->serialize());
+			$temp['checksum'] = substr(md5($property->serialize()), 0, 8);
 		}
 		foreach($property->parameters as $parameter) {
 			// Faulty entries by kaddressbook

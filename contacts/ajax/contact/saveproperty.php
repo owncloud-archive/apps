@@ -174,7 +174,7 @@ if(!$value) {
 	}
 	// Do checksum and be happy
 	if(in_array($name, $multi_properties)) {
-		$checksum = md5($property->serialize());
+		$checksum = substr(md5($property->serialize()), 0, 8);
 	}
 }
 //debug('New checksum: '.$checksum);

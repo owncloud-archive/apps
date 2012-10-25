@@ -55,7 +55,7 @@ class App {
 	public static function getPropertyLineByChecksum($vcard, $checksum) {
 		$line = null;
 		for($i=0;$i<count($vcard->children);$i++) {
-			if(md5($vcard->children[$i]->serialize()) == $checksum ) {
+			if(substr(md5($vcard->children[$i]->serialize()), 0, 8) == $checksum ) {
 				$line = $i;
 				break;
 			}

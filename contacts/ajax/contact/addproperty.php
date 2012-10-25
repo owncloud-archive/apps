@@ -152,7 +152,7 @@ foreach ($parameters as $key=>$element) {
 		}
 	}
 }
-$checksum = md5($vcard->children[$line]->serialize());
+$checksum = substr(md5($vcard->children[$line]->serialize()), 0, 8);
 
 try {
 	OCA\Contacts\VCard::edit($id, $vcard);
