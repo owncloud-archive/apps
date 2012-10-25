@@ -222,7 +222,9 @@ class VCard {
 			if($upgrade && in_array($property->name, $stringprops)) {
 				self::decodeProperty($property);
 			}
-			$property->value = str_replace("\r\n", "\n", iconv(mb_detect_encoding($property->value, 'UTF-8, ISO-8859-1'), 'utf-8', $property->value));
+			if(function_exists('iconv')) {
+				$property->value = str_replace("\r\n", "\n", iconv(mb_detect_encoding($property->value, 'UTF-8, ISO-8859-1'), 'utf-8', $property->value));
+			}
 			if(in_array($property->name, $stringprops)) {
 				$property->value = strip_tags($property->value);
 			}
