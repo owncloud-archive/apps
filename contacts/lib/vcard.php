@@ -731,8 +731,13 @@ class VCard {
 		$temp = array(
 			'name' => $property->name,
 			'value' => $value,
-			'parameters' => array(),
-			'checksum' => md5($property->serialize()));
+			'parameters' => array()
+		);
+
+		// This cuts around a 3rd off of the json response size.
+		if(in_array($property->name, App::$multi_properties)) {
+			$temp['checksum'] = md5($property->serialize());
+		}
 		foreach($property->parameters as $parameter) {
 			// Faulty entries by kaddressbook
 			// Actually TYPE=PREF is correct according to RFC 2426
