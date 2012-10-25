@@ -13,6 +13,8 @@
 "Invalid request" => "Ogiltig begäran",
 "Calendar" => "Kalender",
 "Deletion failed" => "Raderingen misslyckades",
+"ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}" => "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}",
+"ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}" => "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}",
 "user" => "Användare",
 "group" => "Grupp",
 "Editable" => "Redigerbar",

@@ -10,7 +10,7 @@
  * later.
  */
 
-namespace OCA_Updater;
+namespace OCA\Updater;
 
 \OCP\JSON::checkAdminUser();
 \OCP\JSON::callCheck();
@@ -28,23 +28,26 @@ if (isset($updateData['version'])) {
 if (isset($updateData['url']) && extension_loaded('bz2')) {
 	$packageUrl = $updateData['url'];
 }
-
 if (!$packageVersion) {
+	\OC_Log::write(App::APP_ID, 'No OC version found in feed.', \OC_Log::ERROR);
 	\OCP\JSON::error(array('msg' => 'Version not found'));
 	exit();
 }
 
-
-$sourcePath = Downloader::getPackage($packageUrl, $packageVersion);
-if (!$sourcePath) {
+try {
+	$sourcePath = Downloader::getPackage($packageUrl, $packageVersion);
+} catch (\Exception $e){
+	\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
 	\OCP\JSON::error(array('msg' => 'Unable to fetch package'));
 	exit();
 }
 
-$backupPath = Backup::createBackup();
-if ($backupPath) {
+try {
+	$backupPath = Backup::createBackup();
 	Updater::update($sourcePath, $backupPath);
 	\OCP\JSON::success(array());
-} else {
-	\OCP\JSON::error(array('msg' => 'Failed to create backup'));
+} catch (\Exception $e){
+	\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
+	\OCP\JSON::error(array('msg' => 'Failed to create backup'));	
 }
+
