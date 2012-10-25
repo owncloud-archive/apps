@@ -338,6 +338,8 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 	$.getJSON(OC.filePath('contacts', 'ajax', 'categories/list.php'), {}, function(jsondata) {
 		if (jsondata && jsondata.status == 'success') {
 			self.lastgroup = jsondata.data.lastgroup;
+			self.sortorder = $.map(jsondata.data.sortorder.split(','), function(c) {return parseInt(c)});
+			console.log('sortorder', self.sortorder);
 			// Favorites
 			var contacts = $.map(jsondata.data.favorites, function(c) {return parseInt(c)});
 			var $elem = tmpl.octemplate({
@@ -378,6 +380,17 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 							});
 				$elem.appendTo($groupList);
 			});
+
+			var elems = $groupList.find('h3[data-type="category"]').get();
+
+			elems.sort(function(a, b) {
+				return self.sortorder.indexOf(parseInt($(a).data('id'))) > self.sortorder.indexOf(parseInt($(b).data('id')));
+			});
+
+			$.each(elems, function(index, elem) {
+				$groupList.append(elem);
+			});
+
 			// Shared addressbook
 			$.each(jsondata.data.shared, function(c, shared) {
 				var sharedindicator = '<img class="shared svg" src="' + OC.imagePath('core', 'actions/shared') + '"'
@@ -393,6 +406,20 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 				$elem.data('name', shared.displayname);
 				$elem.data('id', shared.id);
 				$elem.appendTo($groupList);
+			});
+			$groupList.sortable({
+				items: 'h3[data-type="category"]',
+				stop: function() {
+					console.log('stop sorting', $(this));
+					var ids = [];
+					$.each($(this).children('h3[data-type="category"]'), function(i, elem) {
+						ids.push($(elem).data('id'))
+					})
+					self.sortorder = ids;
+					$(document).trigger('status.groups.sorted', {
+						sortorder: self.sortorder.join(','),
+					});
+				},
 			});
 			var $elem = self.findById(self.lastgroup);
 			$elem.addClass('active');
@@ -648,6 +675,15 @@ OC.Contacts = OC.Contacts || {
 			self.Contacts.contacts[parseInt(result.contactid)].addToGroup(result.groupname);
 		});
 
+		// Group sorted, save the sort order
+		$(document).bind('status.groups.sorted', function(e, result) {
+			console.log('status.groups.sorted', result);
+			$.post(OC.filePath('contacts', 'ajax', 'setpreference.php'), {'key':'groupsort', 'value':result.sortorder}, function(jsondata) {
+				if(jsondata.status !== 'success') {
+					OC.notify({message: jsondata ? jsondata.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
+				}
+			});
+		});
 		// Group selected, only show contacts from that group
 		$(document).bind('status.group.selected', function(e, result) {
 			console.log('status.group.selected', result);
@@ -669,7 +705,7 @@ OC.Contacts = OC.Contacts || {
 				self.Contacts.showContacts(self.currentgroup);
 			}
 			$.post(OC.filePath('contacts', 'ajax', 'setpreference.php'), {'key':'lastgroup', 'value':self.currentgroup}, function(jsondata) {
-				if(jsondata.status !== 'success') {
+				if(!jsondata || jsondata.status !== 'success') {
 					OC.notify({message: jsondata ? jsondata.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
 				}
 			});

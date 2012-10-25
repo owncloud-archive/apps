@@ -37,6 +37,10 @@ OCP\JSON::success(array(
 						OCP\User::getUser(),
 						'contacts',
 						'lastgroup', 'all'),
+		'sortorder' => OCP\Config::getUserValue(
+						OCP\User::getUser(),
+						'contacts',
+						'groupsort', ''),
 		)
 	)
 );
