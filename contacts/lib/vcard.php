@@ -224,6 +224,8 @@ class VCard {
 			}
 			if(function_exists('iconv')) {
 				$property->value = str_replace("\r\n", "\n", iconv(mb_detect_encoding($property->value, 'UTF-8, ISO-8859-1'), 'utf-8', $property->value));
+			} else {
+				$property->value = str_replace("\r\n", "\n", mb_convert_encoding($property->value, 'UTF-8', mb_detect_encoding($property->value, 'UTF-8, ISO-8859-1'), $property->value));
 			}
 			if(in_array($property->name, $stringprops)) {
 				$property->value = strip_tags($property->value);
