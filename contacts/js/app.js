@@ -670,7 +670,7 @@ OC.Contacts = OC.Contacts || {
 			}
 			$.post(OC.filePath('contacts', 'ajax', 'setpreference.php'), {'key':'lastgroup', 'value':self.currentgroup}, function(jsondata) {
 				if(jsondata.status !== 'success') {
-					OC.notify({message: jsondata.data.message});
+					OC.notify({message: jsondata ? jsondata.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
 				}
 			});
 			self.$rightContent.scrollTop(0);
