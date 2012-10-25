@@ -554,6 +554,7 @@ OC.Contacts = OC.Contacts || {
 					}
 				});
 			}
+			self.selectAddressbook();
 		});
 		$(document).bind('status.contact.currentlistitem', function(e, result) {
 			//console.log('status.contact.currentlistitem', result, self.$rightContent.height());
@@ -1146,6 +1147,75 @@ OC.Contacts = OC.Contacts || {
 					OC.notify({message: jsondata.data.message});
 				}
 			}
+		});
+	},
+	selectAddressbook:function(cb) {
+		var self = this;
+		var jqxhr = $.get(OC.filePath('contacts', 'templates', 'selectaddressbook.html'), function(data) {
+			var $dlg = $(data).octemplate({
+				nameplaceholder: t('contacts', 'Enter name'),
+				descplaceholder: t('contacts', 'Enter description'),
+			}).dialog({
+				modal: true, height: 'auto', width: 'auto',
+				title:  t('contacts', 'Select addressbook'),
+				buttons: {
+					'Ok':function() {
+						aid = $(this).find('input:checked').val();
+						if(aid == 'new') {
+							var displayname = $(this).find('input.name').val();
+							var description = $(this).find('input.desc').val();
+							if(!displayname.trim()) {
+								OC.dialogs.alert(t('contacts', 'The address book name cannot be empty.'), t('contacts', 'Error'));
+								return false;
+							}
+							console.log('ID, name and desc', aid, displayname, description);
+							if(typeof cb === 'function') {
+								// TODO: Create addressbook
+								cb({id:'new', displayname:displayname, description:description});
+							}
+							$(this).dialog('close');
+						} else {
+							console.log('aid ' + aid);
+							if(typeof cb === 'function') {
+								cb({id:id});
+							}
+							$(this).dialog('close');
+						}
+					},
+					'Cancel':function() {
+						$(this).dialog('close');
+					}
+				},
+				close: function(event, ui) {
+					$(this).dialog('destroy').remove();
+				},
+				open: function(event, ui) {
+					console.log('open', $(this));
+					var $lastrow = $(this).find('tr.new');
+					$.each(self.Contacts.addressbooks, function(i, book) {
+						console.log('book', book);
+						if(book.owner === OC.currentUser
+								|| (book.permissions & OC.PERMISSION_UPDATE
+								|| book.permissions & OC.PERMISSION_CREATE
+								|| book.permissions & OC.PERMISSION_DELETE)) {
+							$row = $('<tr><td><input id="book_{id}" name="book" type="radio" value="{id}"</td>'
+								+ '<td><label for="book_{id}">{displayname}</label></td>'
+								+ '<td>{description}</td></tr>')
+								.octemplate({
+									id:book.aid,
+									displayname:book.displayname,
+									description:book.description
+								});
+							$lastrow.before($row);
+						}
+					});
+					$(this).find('input.name,input.desc').on('focus', function(e) {
+						$('#book_new').prop('checked', true);
+					});
+				},
+			});
+		}).error(function() {
+			OC.notify({message: t('contacts', 'Network or server error. Please inform administrator.')});
 		});
 	},
 };

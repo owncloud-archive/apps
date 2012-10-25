@@ -29,7 +29,7 @@ require_once __DIR__.'/../loghandler.php';
 
 $aid = isset($_POST['aid'])?$_POST['aid']:null;
 if(!$aid) {
-	$aid = min(OC_Contacts_Addressbook::activeIds()); // first active addressbook.
+	$aid = min(OCA\Contacts\Addressbook::activeIds()); // first active addressbook.
 }
 
 $isnew = isset($_POST['isnew'])?$_POST['isnew']:false;
@@ -43,7 +43,7 @@ $vcard->setString('N', $n);
 
 $id = null;
 try {
-	$id = OC_Contacts_VCard::add($aid, $vcard, null, $isnew);
+	$id = OCA\Contacts\VCard::add($aid, $vcard, null, $isnew);
 } catch(Exception $e) {
 	bailOut($e->getMessage());
 }
@@ -52,7 +52,7 @@ if(!$id) {
 	bailOut('There was an error adding the contact.');
 }
 
-$lastmodified = OC_Contacts_App::lastModified($vcard);
+$lastmodified = OCA\Contacts\App::lastModified($vcard);
 if(!$lastmodified) {
 	$lastmodified = new DateTime();
 }
@@ -60,7 +60,7 @@ OCP\JSON::success(array(
 	'data' => array(
 		'id' => $id,
 		'aid' => $aid,
-		'details' => OC_Contacts_VCard::structureContact($vcard),
+		'details' => OCA\Contacts\VCard::structureContact($vcard),
 		'lastmodified' => $lastmodified->format('U')
 	)
 ));

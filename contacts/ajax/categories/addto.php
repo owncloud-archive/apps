@@ -17,19 +17,19 @@ $categoryid = isset($_POST['categoryid']) ? $_POST['categoryid'] : null;
 $contactid = isset($_POST['contactid']) ? $_POST['contactid'] : null;
 
 if(is_null($categoryid)) {
-	bailOut(OC_Contacts_App::$l10n->t('Group ID missing from request.'));
+	bailOut(OCA\Contacts\App::$l10n->t('Group ID missing from request.'));
 }
 
 if(is_null($contactid)) {
-	bailOut(OC_Contacts_App::$l10n->t('Contact ID missing from request.'));
+	bailOut(OCA\Contacts\App::$l10n->t('Contact ID missing from request.'));
 }
 
 debug('id: ' . $contactid .', categoryid: ' . $categoryid);
 
-$catmgr = OC_Contacts_App::getVCategories();
+$catmgr = OCA\Contacts\App::getVCategories();
 
 if(!$catmgr->addToCategory($contactid, $categoryid)) {
-	bailOut(OC_Contacts_App::$l10n->t('Error adding contact to group.'));
+	bailOut(OCA\Contacts\App::$l10n->t('Error adding contact to group.'));
 }
 
 OCP\JSON::success();

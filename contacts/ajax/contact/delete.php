@@ -29,11 +29,11 @@ require_once __DIR__.'/../loghandler.php';
 
 $id = isset($_POST['id']) ? $_POST['id'] : null;
 if(!$id) {
-	bailOut(OC_Contacts_App::$l10n->t('id is not set.'));
+	bailOut(OCA\Contacts\App::$l10n->t('id is not set.'));
 }
 
 try {
-	OC_Contacts_VCard::delete($id);
+	OCA\Contacts\VCard::delete($id);
 } catch(Exception $e) {
 	bailOut($e->getMessage());
 }

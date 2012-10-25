@@ -16,22 +16,22 @@ require_once __DIR__.'/../loghandler.php';
 $categories = isset($_POST['categories'])?$_POST['categories']:null;
 
 if(is_null($categories)) {
-	bailOut(OC_Contacts_App::$l10n->t('No categories selected for deletion.'));
+	bailOut(OCA\Contacts\App::$l10n->t('No categories selected for deletion.'));
 }
 
 debug(print_r($categories, true));
 
-$addressbooks = OC_Contacts_Addressbook::all(OCP\USER::getUser());
+$addressbooks = OCA\Contacts\Addressbook::all(OCP\USER::getUser());
 if(count($addressbooks) == 0) {
-	bailOut(OC_Contacts_App::$l10n->t('No address books found.'));
+	bailOut(OCA\Contacts\App::$l10n->t('No address books found.'));
 }
 $addressbookids = array();
 foreach($addressbooks as $addressbook) {
 	$addressbookids[] = $addressbook['id'];
 }
-$contacts = OC_Contacts_VCard::all($addressbookids);
+$contacts = OCA\Contacts\VCard::all($addressbookids);
 if(count($contacts) == 0) {
-	bailOut(OC_Contacts_App::$l10n->t('No contacts found.'));
+	bailOut(OCA\Contacts\App::$l10n->t('No contacts found.'));
 }
 
 $cards = array();
@@ -44,5 +44,5 @@ debug('Before delete: '.print_r($categories, true));
 $catman = new OC_VCategories('contacts');
 $catman->delete($categories, $cards);
 debug('After delete: '.print_r($catman->categories(), true));
-OC_Contacts_VCard::updateDataByID($cards);
+OCA\Contacts\VCard::updateDataByID($cards);
 OCP\JSON::success(array('data' => array('categories'=>$catman->categories())));

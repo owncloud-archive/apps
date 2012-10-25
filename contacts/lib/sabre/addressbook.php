@@ -68,7 +68,7 @@ class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
 
 		$readprincipal = $this->getOwner();
 		$writeprincipal = $this->getOwner();
-		$uid = OC_Contacts_Addressbook::extractUserID($this->getOwner());
+		$uid = OCA\Contacts\Addressbook::extractUserID($this->getOwner());
 
 		if($uid != OCP\USER::getUser()) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $this->addressBookInfo['id']);

@@ -33,7 +33,7 @@ if(!extension_loaded('gd') || !function_exists('gd_info')) {
 	getStandardImage();
 }
 
-$contact = OC_Contacts_App::getContactVCard($id);
+$contact = OCA\Contacts\App::getContactVCard($id);
 $image = new OC_Image();
 if (!$image) {
 	getStandardImage();
@@ -56,7 +56,7 @@ if (is_null($contact)) {
 		$etag = md5($contact->getAsString('LOGO'));
 	}
 	if ($image->valid()) {
-		$modified = OC_Contacts_App::lastModified($contact);
+		$modified = OCA\Contacts\App::lastModified($contact);
 		// Force refresh if modified within the last minute.
 		if(!is_null($modified)) {
 			$caching = (time() - $modified->format('U') > 60) ? null : 0;

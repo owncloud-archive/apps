@@ -35,13 +35,13 @@ $checksum = isset($_POST['checksum'])?$_POST['checksum']:null;
 $multi_properties = array('EMAIL', 'TEL', 'IMPP', 'ADR', 'URL');
 
 if(!$name) {
-	bailOut(OC_Contacts_App::$l10n->t('element name is not set.'));
+	bailOut(OCA\Contacts\App::$l10n->t('element name is not set.'));
 }
 if(!$id) {
-	bailOut(OC_Contacts_App::$l10n->t('id is not set.'));
+	bailOut(OCA\Contacts\App::$l10n->t('id is not set.'));
 }
 if(!$checksum && in_array($name, $multi_properties)) {
-	bailOut(OC_Contacts_App::$l10n->t('checksum is not set.'));
+	bailOut(OCA\Contacts\App::$l10n->t('checksum is not set.'));
 }
 if(is_array($value)) {
 	$value = array_map('strip_tags', $value);
@@ -49,22 +49,22 @@ if(is_array($value)) {
 	// set in the order the fields appear in the form!
 	ksort($value);
 	//if($name == 'CATEGORIES') {
-	//	$value = OC_Contacts_VCard::escapeDelimiters($value, ',');
+	//	$value = OCA\Contacts\VCard::escapeDelimiters($value, ',');
 	//} else {
-		$value = OC_Contacts_VCard::escapeDelimiters($value, ';');
+		$value = OCA\Contacts\VCard::escapeDelimiters($value, ';');
 	//}
 } else {
 	$value = trim(strip_tags($value));
 }
 
-$vcard = OC_Contacts_App::getContactVCard($id);
+$vcard = OCA\Contacts\App::getContactVCard($id);
 $property = null;
 
 if(in_array($name, $multi_properties)) {
 	if($checksum !== 'new') {
-		$line = OC_Contacts_App::getPropertyLineByChecksum($vcard, $checksum);
+		$line = OCA\Contacts\App::getPropertyLineByChecksum($vcard, $checksum);
 		if(is_null($line)) {
-			bailOut(OC_Contacts_App::$l10n->t(
+			bailOut(OCA\Contacts\App::$l10n->t(
 				'Information about vCard is incorrect. Please reload the page: ').$checksum
 			);
 		}
@@ -72,7 +72,7 @@ if(in_array($name, $multi_properties)) {
 		$element = $property->name;
 
 		if($element != $name) {
-			bailOut(OC_Contacts_App::$l10n->t(
+			bailOut(OCA\Contacts\App::$l10n->t(
 				'Something went FUBAR. ').$name.' != '.$element
 			);
 		}
@@ -104,11 +104,11 @@ switch($element) {
 		break;
 	case 'IMPP':
 		if(is_null($parameters) || !isset($parameters['X-SERVICE-TYPE'])) {
-			bailOut(OC_Contacts_App::$l10n->t('Missing IM parameter.'));
+			bailOut(OCA\Contacts\App::$l10n->t('Missing IM parameter.'));
 		}
-		$impp = OC_Contacts_App::getIMOptions($parameters['X-SERVICE-TYPE']);
+		$impp = OCA\Contacts\App::getIMOptions($parameters['X-SERVICE-TYPE']);
 		if(is_null($impp)) {
-			bailOut(OC_Contacts_App::$l10n->t('Unknown IM: '.$parameters['X-SERVICE-TYPE']));
+			bailOut(OCA\Contacts\App::$l10n->t('Unknown IM: '.$parameters['X-SERVICE-TYPE']));
 		}
 		$value = $impp['protocol'] . ':' . $value;
 		break;
@@ -127,7 +127,7 @@ if(!$value) {
 	switch($element) {
 		case 'BDAY':
 			$vcard->BDAY = $value;
-			
+
 			if(!isset($vcard->BDAY['VALUE'])) {
 				$vcard->BDAY->add('VALUE', 'DATE');
 			} else {
@@ -180,7 +180,7 @@ if(!$value) {
 //debug('New checksum: '.$checksum);
 //$vcard->children[$line] = $property; ???
 try {
-	OC_Contacts_VCard::edit($id, $vcard);
+	OCA\Contacts\VCard::edit($id, $vcard);
 } catch(Exception $e) {
 	bailOut($e->getMessage());
 }
@@ -190,10 +190,10 @@ if(in_array($name, $multi_properties)) {
 		'line' => $line,
 		'checksum' => $checksum,
 		'oldchecksum' => $_POST['checksum'],
-		'lastmodified' => OC_Contacts_App::lastModified($vcard)->format('U'),
+		'lastmodified' => OCA\Contacts\App::lastModified($vcard)->format('U'),
 	)));
 } else {
 	OCP\JSON::success(array('data' => array(
-		'lastmodified' => OC_Contacts_App::lastModified($vcard)->format('U'),
+		'lastmodified' => OCA\Contacts\App::lastModified($vcard)->format('U'),
 	)));
 }

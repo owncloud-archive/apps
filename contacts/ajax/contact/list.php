@@ -23,10 +23,10 @@ $aid = isset($_GET['aid'])?$_GET['aid']:null;
 $active_addressbooks = array();
 if(is_null($aid)) {
 	// Called initially to get the active addressbooks.
-	$active_addressbooks = OC_Contacts_Addressbook::active(OCP\USER::getUser());
+	$active_addressbooks = OCA\Contacts\Addressbook::active(OCP\USER::getUser());
 } else {
 	// called each time more contacts has to be shown.
-	$active_addressbooks = array(OC_Contacts_Addressbook::find($aid));
+	$active_addressbooks = array(OCA\Contacts\Addressbook::find($aid));
 }
 
 
@@ -56,13 +56,13 @@ $contacts_alphabet = array();
 // get next 50 for each addressbook.
 $contacts_alphabet = array_merge(
 	$contacts_alphabet,
-	OC_Contacts_VCard::all($ids)
+	OCA\Contacts\VCard::all($ids)
 );
 /*foreach($ids as $id) {
 	if($id) {
 		$contacts_alphabet = array_merge(
 				$contacts_alphabet,
-				OC_Contacts_VCard::all($id, $offset, 50)
+				OCA\Contacts\VCard::all($id, $offset, 50)
 		);
 	}
 }*/
@@ -79,7 +79,7 @@ if($contacts_alphabet) {
 		if(is_null($vcard)) {
 			continue;
 		}
-		$details = OC_Contacts_VCard::structureContact($vcard);
+		$details = OCA\Contacts\VCard::structureContact($vcard);
 		$contacts[] = array(
 				'id' => $contact['id'],
 				'aid' => $contact['addressbookid'],
@@ -93,9 +93,9 @@ if($contacts_alphabet) {
 		}
 		$display = trim($contact['fullname']);
 		if(!$display) {
-			$vcard = OC_Contacts_App::getContactVCard($contact['id']);
+			$vcard = OCA\Contacts\App::getContactVCard($contact['id']);
 			if(!is_null($vcard)) {
-				$struct = OC_Contacts_VCard::structureContact($vcard);
+				$struct = OCA\Contacts\VCard::structureContact($vcard);
 				$display = isset($struct['EMAIL'][0])
 					? $struct['EMAIL'][0]['value']
 					: '[UNKNOWN]';

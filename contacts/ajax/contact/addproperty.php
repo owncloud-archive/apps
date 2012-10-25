@@ -32,8 +32,8 @@ $name = isset($_POST['name'])?$_POST['name']:null;
 $value = isset($_POST['value'])?$_POST['value']:null;
 $parameters = isset($_POST['parameters'])?$_POST['parameters']:array();
 
-$vcard = OC_Contacts_App::getContactVCard($id);
-$l10n = OC_Contacts_App::$l10n;
+$vcard = OCA\Contacts\App::getContactVCard($id);
+$l10n = OCA\Contacts\App::$l10n;
 
 if(!$name) {
 	bailOut($l10n->t('element name is not set.'));
@@ -112,11 +112,11 @@ switch($name) {
 		break;
 	case 'IMPP':
 		if(is_null($parameters) || !isset($parameters['X-SERVICE-TYPE'])) {
-			bailOut(OC_Contacts_App::$l10n->t('Missing IM parameter.'));
+			bailOut(OCA\Contacts\App::$l10n->t('Missing IM parameter.'));
 		}
-		$impp = OC_Contacts_App::getIMOptions($parameters['X-SERVICE-TYPE']);
+		$impp = OCA\Contacts\App::getIMOptions($parameters['X-SERVICE-TYPE']);
 		if(is_null($impp)) {
-			bailOut(OC_Contacts_App::$l10n->t('Unknown IM: '.$parameters['X-SERVICE-TYPE']));
+			bailOut(OCA\Contacts\App::$l10n->t('Unknown IM: '.$parameters['X-SERVICE-TYPE']));
 		}
 		$value = $impp['protocol'] . ':' . $value;
 		break;
@@ -155,7 +155,7 @@ foreach ($parameters as $key=>$element) {
 $checksum = md5($vcard->children[$line]->serialize());
 
 try {
-	OC_Contacts_VCard::edit($id, $vcard);
+	OCA\Contacts\VCard::edit($id, $vcard);
 } catch(Exception $e) {
 	bailOut($e->getMessage());
 }
@@ -163,6 +163,6 @@ try {
 OCP\JSON::success(array(
 	'data' => array(
 		'checksum' => $checksum,
-		'lastmodified' => OC_Contacts_App::lastModified($vcard)->format('U'))
+		'lastmodified' => OCA\Contacts\App::lastModified($vcard)->format('U'))
 	)
 );

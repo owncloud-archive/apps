@@ -13,8 +13,8 @@ OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('contacts');
 
 // Get active address books. This creates a default one if none exists.
-$ids = OC_Contacts_Addressbook::activeIds(OCP\USER::getUser());
-$has_contacts = (count(OC_Contacts_VCard::all($ids, 0, 1)) > 0
+$ids = OCA\Contacts\Addressbook::activeIds(OCP\USER::getUser());
+$has_contacts = (count(OCA\Contacts\VCard::all($ids, 0, 1)) > 0
 	? true
 	: false); // just to check if there are any contacts.
 if($has_contacts === false) {
@@ -28,16 +28,16 @@ OCP\App::setActiveNavigationEntry('contacts_index');
 
 // Load a specific user?
 $id = isset( $_GET['id'] ) ? $_GET['id'] : null;
-$impp_types = OC_Contacts_App::getTypesOfProperty('IMPP');
-$adr_types = OC_Contacts_App::getTypesOfProperty('ADR');
-$phone_types = OC_Contacts_App::getTypesOfProperty('TEL');
-$email_types = OC_Contacts_App::getTypesOfProperty('EMAIL');
-$ims = OC_Contacts_App::getIMOptions();
+$impp_types = OCA\Contacts\App::getTypesOfProperty('IMPP');
+$adr_types = OCA\Contacts\App::getTypesOfProperty('ADR');
+$phone_types = OCA\Contacts\App::getTypesOfProperty('TEL');
+$email_types = OCA\Contacts\App::getTypesOfProperty('EMAIL');
+$ims = OCA\Contacts\App::getIMOptions();
 $im_protocols = array();
 foreach($ims as $name => $values) {
 	$im_protocols[$name] = $values['displayname'];
 }
-$categories = OC_Contacts_App::getCategories();
+$categories = OCA\Contacts\App::getCategories();
 
 $upload_max_filesize = OCP\Util::computerFileSize(ini_get('upload_max_filesize'));
 $post_max_size = OCP\Util::computerFileSize(ini_get('post_max_size'));

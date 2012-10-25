@@ -30,26 +30,26 @@ require_once __DIR__.'/../loghandler.php';
 $id = isset($_POST['id']) ? $_POST['id'] : null;
 $name = isset($_POST['name']) ? $_POST['name'] : null;
 $checksum = isset($_POST['checksum']) ? $_POST['checksum'] : null;
-$l10n = OC_Contacts_App::$l10n;
+$l10n = OCA\Contacts\App::$l10n;
 
 $multi_properties = array('EMAIL', 'TEL', 'IMPP', 'ADR', 'URL');
 
 if(!$id) {
-	bailOut(OC_Contacts_App::$l10n->t('id is not set.'));
+	bailOut(OCA\Contacts\App::$l10n->t('id is not set.'));
 }
 
 if(!$name) {
-	bailOut(OC_Contacts_App::$l10n->t('element name is not set.'));
+	bailOut(OCA\Contacts\App::$l10n->t('element name is not set.'));
 }
 
 if(!$checksum && in_array($name, $multi_properties)) {
-	bailOut(OC_Contacts_App::$l10n->t('checksum is not set.'));
+	bailOut(OCA\Contacts\App::$l10n->t('checksum is not set.'));
 }
 
-$vcard = OC_Contacts_App::getContactVCard( $id );
+$vcard = OCA\Contacts\App::getContactVCard( $id );
 
 if(!is_null($checksum)) {
-	$line = OC_Contacts_App::getPropertyLineByChecksum($vcard, $checksum);
+	$line = OCA\Contacts\App::getPropertyLineByChecksum($vcard, $checksum);
 	if(is_null($line)) {
 		bailOut($l10n->t('Information about vCard is incorrect. Please reload the page.'));
 		exit();
@@ -60,7 +60,7 @@ if(!is_null($checksum)) {
 }
 
 try {
-	OC_Contacts_VCard::edit($id, $vcard);
+	OCA\Contacts\VCard::edit($id, $vcard);
 } catch(Exception $e) {
 	bailOut($e->getMessage());
 }
@@ -68,6 +68,6 @@ try {
 OCP\JSON::success(array(
 	'data' => array(
 		'id' => $id,
-		'lastmodified' => OC_Contacts_App::lastModified($vcard)->format('U'),
+		'lastmodified' => OCA\Contacts\App::lastModified($vcard)->format('U'),
 	)
 ));

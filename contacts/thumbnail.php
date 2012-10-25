@@ -41,9 +41,9 @@ if(!extension_loaded('gd') || !function_exists('gd_info')) {
 $id = $_GET['id'];
 $caching = null;
 
-$image = OC_Contacts_App::cacheThumbnail($id);
+$image = OCA\Contacts\App::cacheThumbnail($id);
 if($image !== false) {
-	$modified = OC_Contacts_App::lastModified($id);
+	$modified = OCA\Contacts\App::lastModified($id);
 	// Force refresh if modified within the last minute.
 	if(!is_null($modified)) {
 		$caching = (time() - $modified->format('U') > 60) ? null : 0;

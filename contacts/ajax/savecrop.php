@@ -63,10 +63,10 @@ if($data) {
 			if(($image->width() <= 200 && $image->height() <= 200)
 				|| $image->resize(200)) {
 
-				$vcard = OC_Contacts_App::getContactVCard($id);
+				$vcard = OCA\Contacts\App::getContactVCard($id);
 				if(!$vcard) {
 					OC_Cache::remove($tmpkey);
-					bailOut(OC_Contacts_App::$l10n
+					bailOut(OCA\Contacts\App::$l10n
 						->t('Error getting contact object.'));
 				}
 				if($vcard->__isset('PHOTO')) {
@@ -76,7 +76,7 @@ if($data) {
 					$property = $vcard->__get('PHOTO');
 					if(!$property) {
 						OC_Cache::remove($tmpkey);
-						bailOut(OC_Contacts_App::$l10n
+						bailOut(OCA\Contacts\App::$l10n
 							->t('Error getting PHOTO property.'));
 					}
 					$property->setValue($image->__toString());
@@ -95,29 +95,29 @@ if($data) {
 				}
 				$now = new DateTime;
 				$vcard->setString('REV', $now->format(DateTime::W3C));
-				if(!OC_Contacts_VCard::edit($id, $vcard)) {
-					bailOut(OC_Contacts_App::$l10n->t('Error saving contact.'));
+				if(!OCA\Contacts\VCard::edit($id, $vcard)) {
+					bailOut(OCA\Contacts\App::$l10n->t('Error saving contact.'));
 				}
-				OC_Contacts_App::cacheThumbnail($id, $image);
+				OCA\Contacts\App::cacheThumbnail($id, $image);
 				OCP\JSON::success(array(
 					'data' => array(
 						'id' => $id,
 						'width' => $image->width(),
 						'height' => $image->height(),
-						'lastmodified' => OC_Contacts_App::lastModified($vcard)->format('U')
+						'lastmodified' => OCA\Contacts\App::lastModified($vcard)->format('U')
 					)
 				));
 			} else {
-				bailOut(OC_Contacts_App::$l10n->t('Error resizing image'));
+				bailOut(OCA\Contacts\App::$l10n->t('Error resizing image'));
 			}
 		} else {
-			bailOut(OC_Contacts_App::$l10n->t('Error cropping image'));
+			bailOut(OCA\Contacts\App::$l10n->t('Error cropping image'));
 		}
 	} else {
-		bailOut(OC_Contacts_App::$l10n->t('Error creating temporary image'));
+		bailOut(OCA\Contacts\App::$l10n->t('Error creating temporary image'));
 	}
 } else {
-	bailOut(OC_Contacts_App::$l10n->t('Error finding image: ').$tmpkey);
+	bailOut(OCA\Contacts\App::$l10n->t('Error finding image: ').$tmpkey);
 }
 
 OC_Cache::remove($tmpkey);

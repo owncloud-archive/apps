@@ -28,14 +28,14 @@ OCP\JSON::checkAppEnabled('contacts');
 
 $id = isset($_GET['id'])?$_GET['id']:null;
 if(is_null($id)) {
-	bailOut(OC_Contacts_App::$l10n->t('Missing ID'));
+	bailOut(OCA\Contacts\App::$l10n->t('Missing ID'));
 }
-$card = OC_Contacts_VCard::find($id);
+$card = OCA\Contacts\VCard::find($id);
 $vcard = OC_VObject::parse($card['carddata']);
 if(is_null($vcard)) {
-	bailOut(OC_Contacts_App::$l10n->t('Error parsing VCard for ID: "'.$id.'"'));
+	bailOut(OCA\Contacts\App::$l10n->t('Error parsing VCard for ID: "'.$id.'"'));
 }
-$details = OC_Contacts_VCard::structureContact($vcard);
+$details = OCA\Contacts\VCard::structureContact($vcard);
 
 // Make up for not supporting the 'N' field in earlier version.
 if(!isset($details['N'])) {
@@ -50,15 +50,15 @@ if(isset($details['PHOTO'])) {
 } else {
 	$details['PHOTO'] = false;
 }
-$lastmodified = OC_Contacts_App::lastModified($vcard);
+$lastmodified = OCA\Contacts\App::lastModified($vcard);
 if(!$lastmodified) {
 	$lastmodified = new DateTime();
 }
 
-$permissions = OCP\Share::PERMISSION_CREATE | OCP\Share::PERMISSION_READ 
-	| OCP\Share::PERMISSION_UPDATE | OCP\Share::PERMISSION_DELETE 
+$permissions = OCP\Share::PERMISSION_CREATE | OCP\Share::PERMISSION_READ
+	| OCP\Share::PERMISSION_UPDATE | OCP\Share::PERMISSION_DELETE
 	| OCP\Share::PERMISSION_SHARE;
-$addressbook = OC_Contacts_Addressbook::find($card['addressbookid']);
+$addressbook = OCA\Contacts\Addressbook::find($card['addressbookid']);
 if ($addressbook['userid'] != OCP\User::getUser()) {
 	$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $card['addressbookid']);
 	if($sharedAddressbook) {
@@ -72,5 +72,5 @@ $details['displayname'] = $card['fullname'];
 $details['addressbookid'] = $card['addressbookid'];
 $details['lastmodified'] = $lastmodified->format('U');
 $details['permissions'] = $permissions;
-OC_Contacts_App::setLastModifiedHeader($vcard);
+OCA\Contacts\App::setLastModifiedHeader($vcard);
 OCP\JSON::success(array('data' => $details));

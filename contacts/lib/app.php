@@ -6,11 +6,14 @@
  * See the COPYING-README file.
  */
 
+namespace OCA\Contacts;
+
 /**
  * This class manages our app actions
  */
-OC_Contacts_App::$l10n = OC_L10N::get('contacts');
-class OC_Contacts_App {
+App::$l10n = \OC_L10N::get('contacts');
+
+class App {
 	/*
 	 * @brief language object for calendar app
 	 */
@@ -31,14 +34,14 @@ class OC_Contacts_App {
 	public static function getContactVCard($id) {
 		$card = null;
 		try {
-			$card = OC_Contacts_VCard::find($id);
+			$card = VCard::find($id);
 		} catch(Exception $e) {
 			return null;
 		}
 
-		$vcard = OC_VObject::parse($card['carddata']);
+		$vcard = \OC_VObject::parse($card['carddata']);
 		if (!is_null($vcard) && !isset($vcard->REV)) {
-			$rev = new DateTime('@'.$card['lastmodified']);
+			$rev = new \DateTime('@'.$card['lastmodified']);
 			$vcard->setString('REV', $rev->format(DateTime::W3C));
 		}
 		return $vcard;
@@ -173,10 +176,10 @@ class OC_Contacts_App {
 	 */
 	public static function getVCategories() {
 		if (is_null(self::$categories)) {
-			if(OC_VCategories::isEmpty('contact')) {
+			if(\OC_VCategories::isEmpty('contact')) {
 				self::scanCategories();
 			}
-			self::$categories = new OC_VCategories('contact',
+			self::$categories = new \OC_VCategories('contact',
 				null,
 				self::getDefaultCategories());
 		}
@@ -211,7 +214,7 @@ class OC_Contacts_App {
 	 */
 	public static function scanCategories($vccontacts = null) {
 		if (is_null($vccontacts)) {
-			$vcaddressbooks = OC_Contacts_Addressbook::all(OCP\USER::getUser());
+			$vcaddressbooks = Addressbook::all(OCP\USER::getUser());
 			if(count($vcaddressbooks) > 0) {
 				$vcaddressbookids = array();
 				foreach($vcaddressbooks as $vcaddressbook) {
@@ -221,17 +224,17 @@ class OC_Contacts_App {
 				}
 				$start = 0;
 				$batchsize = 10;
-				$categories = new OC_VCategories('contact');
+				$categories = new \OC_VCategories('contact');
 				while($vccontacts =
-					OC_Contacts_VCard::all($vcaddressbookids, $start, $batchsize)) {
+					OCA\Contacts\VCard::all($vcaddressbookids, $start, $batchsize)) {
 					$cards = array();
 					foreach($vccontacts as $vccontact) {
 						$cards[] = array($vccontact['id'], $vccontact['carddata']);
 					}
-					OCP\Util::writeLog('contacts',
+					\OCP\Util::writeLog('contacts',
 						__CLASS__.'::'.__METHOD__
 							.', scanning: '.$batchsize.' starting from '.$start,
-						OCP\Util::DEBUG);
+						\OCP\Util::DEBUG);
 					// only reset on first batch.
 					$categories->rescan($cards,
 						true,
@@ -246,7 +249,7 @@ class OC_Contacts_App {
 	 * check VCard for new categories.
 	 * @see OC_VCategories::loadFromVObject
 	 */
-	public static function loadCategoriesFromVCard($id, OC_VObject $contact) {
+	public static function loadCategoriesFromVCard($id, \OC_VObject $contact) {
 		self::getVCategories()->loadFromVObject($id, $contact, true);
 	}
 
@@ -257,31 +260,31 @@ class OC_Contacts_App {
 	 */
 	public static function lastModified($contact) {
 		if(is_numeric($contact)) {
-			$card = OC_Contacts_VCard::find($contact);
-			return ($card ? new DateTime('@' . $card['lastmodified']) : null);
-		} elseif($contact instanceof OC_VObject) {
+			$card = VCard::find($contact);
+			return ($card ? new \DateTime('@' . $card['lastmodified']) : null);
+		} elseif($contact instanceof \OC_VObject) {
 			$rev = $contact->getAsString('REV');
 			if ($rev) {
-				return DateTime::createFromFormat(DateTime::W3C, $rev);
+				return \DateTime::createFromFormat(DateTime::W3C, $rev);
 			}
 		}
 	}
 
 	public static function cacheThumbnail($id, OC_Image $image = null) {
-		if(OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id)) {
-			return OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
+		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id)) {
+			return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 		}
 		if(is_null($image)) {
 			$vcard = self::getContactVCard($id);
 
 			// invalid vcard
 			if(is_null($vcard)) {
-				OCP\Util::writeLog('contacts',
+				\OCP\Util::writeLog('contacts',
 					__METHOD__.' The VCard for ID ' . $id . ' is not RFC compatible',
-					OCP\Util::ERROR);
+					\OCP\Util::ERROR);
 				return false;
 			}
-			$image = new OC_Image();
+			$image = new \OC_Image();
 			$photo = $vcard->getAsString('PHOTO');
 			if(!$photo) {
 				return false;
@@ -291,20 +294,20 @@ class OC_Contacts_App {
 			}
 		}
 		if(!$image->centerCrop()) {
-			OCP\Util::writeLog('contacts',
+			\OCP\Util::writeLog('contacts',
 				'thumbnail.php. Couldn\'t crop thumbnail for ID ' . $id,
-				OCP\Util::ERROR);
+				\OCP\Util::ERROR);
 			return false;
 		}
 		if(!$image->resize(self::THUMBNAIL_SIZE)) {
-			OCP\Util::writeLog('contacts',
+			\OCP\Util::writeLog('contacts',
 				'thumbnail.php. Couldn\'t resize thumbnail for ID ' . $id,
-				OCP\Util::ERROR);
+				\OCP\Util::ERROR);
 			return false;
 		}
 		 // Cache for around a month
-		OC_Cache::set(self::THUMBNAIL_PREFIX . $id, $image->data(), 3000000);
-		OCP\Util::writeLog('contacts', 'Caching ' . $id, OCP\Util::DEBUG);
-		return OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
+		\OC_Cache::set(self::THUMBNAIL_PREFIX . $id, $image->data(), 3000000);
+		\OCP\Util::writeLog('contacts', 'Caching ' . $id, OCP\Util::DEBUG);
+		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 	}
 }

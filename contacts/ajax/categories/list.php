@@ -10,7 +10,7 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('contacts');
 
-$catmgr = OC_Contacts_App::getVCategories();
+$catmgr = OCA\Contacts\App::getVCategories();
 $categories = $catmgr->categories(OC_VCategories::FORMAT_MAP);
 foreach($categories as &$category) {
 	$ids = array();
@@ -32,7 +32,7 @@ OCP\JSON::success(array(
 	'data' => array(
 		'categories' => $categories,
 		'favorites' => $favorites,
-		'shared' => OCP\Share::getItemsSharedWith('addressbook', OC_Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS),
+		'shared' => OCP\Share::getItemsSharedWith('addressbook', OCA\Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS),
 		'lastgroup' => OCP\Config::getUserValue(
 						OCP\User::getUser(),
 						'contacts',

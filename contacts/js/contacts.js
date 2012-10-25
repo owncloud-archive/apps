@@ -1184,6 +1184,9 @@ OC.Contacts = OC.Contacts || {};
 						owner: book.userid,
 						permissions: parseInt(book.permissions),
 						aid: parseInt(book.id),
+						displayname: book.displayname,
+						description: book.description,
+						active: Boolean(parseInt(book.active)),
 					};
 				});
 				$.each(jsondata.data.contacts, function(c, contact) {

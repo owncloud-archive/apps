@@ -18,7 +18,7 @@ $isaddressbook = isset($_POST['isaddressbook']) ? true: false;
 
 // Ownership checking
 try {
-	OC_Contacts_Addressbook::find($id); // is owner access check
+	OCA\Contacts\Addressbook::find($id); // is owner access check
 } catch(Exception $e) {
 	OCP\JSON::error(
 		array(
@@ -31,7 +31,7 @@ try {
 }
 
 try {
-	OC_Contacts_VCard::moveToAddressBook($aid, $id, $isaddressbook);
+	OCA\Contacts\VCard::moveToAddressBook($aid, $id, $isaddressbook);
 }  catch (Exception $e) {
 	$msg = $e->getMessage();
 	OCP\Util::writeLog('contacts', 'Error moving contacts "'.implode(',', $id).'" to addressbook "'.$aid.'"'.$msg, OCP\Util::ERROR);

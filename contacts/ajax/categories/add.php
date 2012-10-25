@@ -16,7 +16,7 @@ require_once __DIR__.'/../loghandler.php';
 $category = isset($_POST['category']) ? $_POST['category'] : null;
 
 if(is_null($category)) {
-	bailOut(OC_Contacts_App::$l10n->t('No category name given.'));
+	bailOut(OCA\Contacts\App::$l10n->t('No category name given.'));
 }
 
 $catman = new OC_VCategories('contact');
@@ -25,5 +25,5 @@ $id = $catman->add($category);
 if($id !== false) {
 	OCP\JSON::success(array('data' => array('id'=>$id)));
 } else {
-	bailOut(OC_Contacts_App::$l10n->t('Error adding group.'));
+	bailOut(OCA\Contacts\App::$l10n->t('Error adding group.'));
 }

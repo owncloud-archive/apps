@@ -34,11 +34,11 @@ require_once 'loghandler.php';
 $key = isset($_POST['key'])?$_POST['key']:null;
 $value = isset($_POST['value'])?$_POST['value']:null;
 if(is_null($key)) {
-	bailOut(OC_Contacts_App::$l10n->t('Key is not set for: '.$value));
+	bailOut(OCA\Contacts\App::$l10n->t('Key is not set for: '.$value));
 }
 
 if(is_null($value)) {
-	bailOut(OC_Contacts_App::$l10n->t('Value is not set for: '.$key));
+	bailOut(OCA\Contacts\App::$l10n->t('Value is not set for: '.$key));
 }
 
 if(OCP\Config::setUserValue(OCP\USER::getUser(), 'contacts', $key, $value)) {
@@ -49,7 +49,7 @@ if(OCP\Config::setUserValue(OCP\USER::getUser(), 'contacts', $key, $value)) {
 		)
 	);
 } else {
-	bailOut(OC_Contacts_App::$l10n->t(
+	bailOut(OCA\Contacts\App::$l10n->t(
 		'Could not set preference: ' . $key . ':' . $value)
 	);
 }

@@ -39,7 +39,7 @@ if(!$file) {
 	exit();
 }
 if(isset($_POST['method']) && $_POST['method'] == 'new') {
-	$id = OC_Contacts_Addressbook::add(OCP\USER::getUser(),
+	$id = OCA\Contacts\Addressbook::add(OCP\USER::getUser(),
 		$_POST['addressbookname']);
 	if(!$id) {
 		OCP\JSON::error(
@@ -49,7 +49,7 @@ if(isset($_POST['method']) && $_POST['method'] == 'new') {
 		);
 		exit();
 	}
-	OC_Contacts_Addressbook::setActive($id, 1);
+	OCA\Contacts\Addressbook::setActive($id, 1);
 }else{
 	$id = $_POST['id'];
 	if(!$id) {
@@ -64,7 +64,7 @@ if(isset($_POST['method']) && $_POST['method'] == 'new') {
 		exit();
 	}
 	try {
-		OC_Contacts_Addressbook::find($id); // is owner access check
+		OCA\Contacts\Addressbook::find($id); // is owner access check
 	} catch(Exception $e) {
 		OCP\JSON::error(
 			array(
@@ -131,7 +131,7 @@ foreach($parts as $part) {
 		continue; // Ditch cards that can't be parsed by Sabre.
 	}
 	try {
-		OC_Contacts_VCard::add($id, $card);
+		OCA\Contacts\VCard::add($id, $card);
 		$imported += 1;
 	} catch (Exception $e) {
 		OCP\Util::writeLog('contacts',
