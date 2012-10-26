@@ -42,7 +42,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/info/collections/');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === "[]\n");
 
     //
@@ -50,7 +50,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/history');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_NOT_FOUND);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_NOT_FOUND, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === '');
 
     //
@@ -80,7 +80,7 @@ class Test_StorageService extends UnitTestCase {
     $inputData = new OCA_mozilla_sync\InputData(json_encode($inputArray));
     $this->request('/1.1/' . $this->userHash . '/storage/history/', $inputData);
     $result = '{"modified":' . OCA_mozilla_sync\Utils::getMozillaTimestamp() . ',"success":["history1","history2","history3"],"failed":[]}'."\n";
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === $result);
 
     //
@@ -92,7 +92,7 @@ class Test_StorageService extends UnitTestCase {
     $result[] = '{"payload":"payload1","id":"history1","modified":"'.OCA_mozilla_sync\Utils::getMozillaTimestamp() .'","parentid":"3","predecessorid":"123","sortindex":"1","ttl":"5"}';
     $result[] = '{"payload":"payload2","id":"history2","modified":"'.OCA_mozilla_sync\Utils::getMozillaTimestamp() .'","parentid":"3","predecessorid":"123","sortindex":"2","ttl":"5"}';
     $result[] = '{"payload":"payload3","id":"history3","modified":"'.OCA_mozilla_sync\Utils::getMozillaTimestamp() .'","parentid":"3","predecessorid":"123","sortindex":"3","ttl":"5"}';
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue($this->outputContainInput($result, OCA_mozilla_sync\OutputData::$outputBuffer));
 
     //
@@ -101,7 +101,7 @@ class Test_StorageService extends UnitTestCase {
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/info/collections/');
     $result = '{"history":"'.OCA_mozilla_sync\Utils::getMozillaTimestamp().'"}'."\n";
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === $result);
 
     //
@@ -110,7 +110,7 @@ class Test_StorageService extends UnitTestCase {
     $this->clearRequest();
     OCA_mozilla_sync\Utils::$requestMethod = 'DELETE';
     $this->request('/1.1/' . $this->userHash . '/storage/history/history1');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === strval(OCA_mozilla_sync\Utils::getMozillaTimestamp()));
 
     //
@@ -121,7 +121,7 @@ class Test_StorageService extends UnitTestCase {
     $result = array();
     $result[] = '{"payload":"payload2","id":"history2","modified":"'.OCA_mozilla_sync\Utils::getMozillaTimestamp() .'","parentid":"3","predecessorid":"123","sortindex":"2","ttl":"5"}';
     $result[] = '{"payload":"payload3","id":"history3","modified":"'.OCA_mozilla_sync\Utils::getMozillaTimestamp() .'","parentid":"3","predecessorid":"123","sortindex":"3","ttl":"5"}';
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue($this->outputContainInput($result, OCA_mozilla_sync\OutputData::$outputBuffer));
 
     //
@@ -129,7 +129,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/bookmarks/bookmark1');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_NOT_FOUND);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_NOT_FOUND, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === '');
 
     //
@@ -138,7 +138,7 @@ class Test_StorageService extends UnitTestCase {
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/info/collections/');
     $result = '{"history":"'.OCA_mozilla_sync\Utils::getMozillaTimestamp().'"}'."\n";
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === $result);
 
     //
@@ -154,7 +154,7 @@ class Test_StorageService extends UnitTestCase {
                         'predecessorid' => '123');
     $inputData = new OCA_mozilla_sync\InputData(json_encode($inputArray));
     $this->request('/1.1/' . $this->userHash . '/storage/bookmarks/bookmark1', $inputData);
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === strval(OCA_mozilla_sync\Utils::getMozillaTimestamp()));
 
     //
@@ -165,7 +165,7 @@ class Test_StorageService extends UnitTestCase {
     $result = array();
     $result[] = '"history":"'.OCA_mozilla_sync\Utils::getMozillaTimestamp().'"';
     $result[] = '"bookmarks":"'.OCA_mozilla_sync\Utils::getMozillaTimestamp().'"';
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue($this->outputContainInput($result, OCA_mozilla_sync\OutputData::$outputBuffer));
 
     //
@@ -174,7 +174,7 @@ class Test_StorageService extends UnitTestCase {
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/bookmarks/bookmark1');
     $result = '{"sortindex":"1","payload":"bookmarkpayload","id":"bookmark1","modified":"'.OCA_mozilla_sync\Utils::getMozillaTimestamp().'"}'."\n";
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === $result);
 
     //
@@ -183,7 +183,7 @@ class Test_StorageService extends UnitTestCase {
     $this->clearRequest();
     OCA_mozilla_sync\Utils::$requestMethod = 'DELETE';
     $this->request('/1.1/' . $this->userHash . '/storage/bookmarks');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === strval(OCA_mozilla_sync\Utils::getMozillaTimestamp()));
 
     //
@@ -192,7 +192,7 @@ class Test_StorageService extends UnitTestCase {
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/info/collections/');
     $result = '{"history":"'.OCA_mozilla_sync\Utils::getMozillaTimestamp().'"}'."\n";
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === $result);
 
     //
@@ -202,7 +202,7 @@ class Test_StorageService extends UnitTestCase {
     $_SERVER['HTTP_X_CONFIRM_DELETE'] = '1';
     OCA_mozilla_sync\Utils::$requestMethod = 'DELETE';
     $this->request('/1.1/' . $this->userHash . '/storage/');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === strval(OCA_mozilla_sync\Utils::getMozillaTimestamp()));
 
     //
@@ -210,7 +210,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/info/collections/');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === '[]'."\n");
 
     //
@@ -218,7 +218,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/history?full=1');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_NOT_FOUND);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_NOT_FOUND, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === '');
 
     //
@@ -226,7 +226,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/bookmarks');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_NOT_FOUND);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_NOT_FOUND, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === '');
 
   }
@@ -243,7 +243,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/info/collections/');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === "[]\n");
 
     //
@@ -271,7 +271,7 @@ class Test_StorageService extends UnitTestCase {
       $inputData = new OCA_mozilla_sync\InputData(json_encode($inputArray));
       $this->request('/1.1/' . $this->userHash . '/storage/history/', $inputData);
       $result = '{"modified":' . OCA_mozilla_sync\Utils::getMozillaTimestamp() . ',"success":[' . $successString . '],"failed":[]}'."\n";
-      $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
       $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === $result);
     }
 
@@ -284,7 +284,7 @@ class Test_StorageService extends UnitTestCase {
     $this->request('/1.1/' . $this->userHash . '/info/collections/');
     $result = array();
     $result[] = '"history":"'.$testTime[0].'"';
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue($this->outputContainInput($result, OCA_mozilla_sync\OutputData::$outputBuffer));
 
     //
@@ -292,7 +292,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/history?ids=history0,history2,history19,history110');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $result = array();
     $result[] = '"history0"';
     $result[] = '"history2"';
@@ -306,7 +306,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/history?index_above=3&sort=index&limit=4&offset=2');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === '["history27","history26","history25","history24"]'. "\n");
 
     //
@@ -314,7 +314,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/history?index_above=3&sort=index&limit=4&offset=50');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_NOT_FOUND);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_NOT_FOUND, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === '');
 
     //
@@ -322,7 +322,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/history?index_below=1');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === '["history0"]' . "\n");
 
     //
@@ -330,7 +330,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/history?older='. $testTime[1] . '&sort=oldest');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $result = array();
     for($i = 10; $i < 20; $i++) {
       $result[] = '"history' . $i . '"';
@@ -351,7 +351,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/history?newer='. $testTime[2] . '&sort=newest');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
 
     $result = array();
     for($i = 0; $i < 10; $i++) {
@@ -373,7 +373,7 @@ class Test_StorageService extends UnitTestCase {
     $this->clearRequest();
     OCA_mozilla_sync\Utils::$requestMethod = 'DELETE';
     $this->request('/1.1/' . $this->userHash . '/storage/history?older='. $testTime[1]);
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === strval(OCA_mozilla_sync\Utils::getMozillaTimestamp()));
 
     //
@@ -381,7 +381,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/history?older='. $testTime[1]. '&sort=oldest');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_NOT_FOUND);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_NOT_FOUND, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === '');
 
     //
@@ -389,7 +389,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/storage/history?newer='. $testTime[2]. '&sort=newest');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
 
     $result = array();
     for($i = 0; $i < 10; $i++) {
@@ -417,7 +417,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/info/collections/');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === "[]\n");
 
     //
@@ -441,7 +441,7 @@ class Test_StorageService extends UnitTestCase {
     $inputData = new OCA_mozilla_sync\InputData(json_encode($inputArray));
     $this->request('/1.1/' . $this->userHash . '/storage/history/', $inputData);
     $result = '{"modified":' . OCA_mozilla_sync\Utils::getMozillaTimestamp() . ',"success":[' . $successString . '],"failed":[]}'."\n";
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === $result);
 
     OCA_mozilla_sync\Utils::$testTime = $currentTime;
@@ -451,7 +451,7 @@ class Test_StorageService extends UnitTestCase {
     //
     $this->clearRequest();
     $this->request('/1.1/' . $this->userHash . '/info/collections/');
-    $this->assertTrue(OCA_mozilla_sync\Utils::$lastStatus == OCA_mozilla_sync\Utils::STATUS_OK);
+    $this->assertEquals(OCA_mozilla_sync\Utils::STATUS_OK, OCA_mozilla_sync\Utils::$lastStatus);
     $this->assertTrue(OCA_mozilla_sync\OutputData::$outputBuffer === '[]' . "\n");
   }
 
