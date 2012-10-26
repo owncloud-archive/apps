@@ -29,7 +29,7 @@
 			<option value="-1" disabled="disabled" selected="selected"><?php echo $l->t('Groups'); ?></option>
 		</select>
 	</div>
-	<button class="settings control"></button>
+	<button class="settings control" title="<?php echo $l->t('Settings'); ?>"></button>
 </div>
 <div id="rightcontent" class="loading">
 	<table id="contactlist">
@@ -128,7 +128,7 @@
 					<li><a class="svg cloud" title="<?php echo $l->t('Select photo from ownCloud'); ?>"></a></li>
 				</ul>
 			</div>
-			<a class="favorite"></a>
+			<a class="favorite" title="<?php echo $l->t('Favorite'); ?>"></a>
 			<div class="singleproperties">
 			<input class="fullname value propertycontainer" data-element="fn" type="text" name="value" value="{name}" required />
 			<a class="action edit"></a>
