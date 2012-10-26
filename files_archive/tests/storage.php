@@ -6,6 +6,7 @@
  * See the COPYING-README file.
  */
 
+OC_App::loadApp('files_archive');
 class Test_Filestorage_Archive_Zip extends Test_FileStorage {
 	/**
 	 * @var string tmpDir
