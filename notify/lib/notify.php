@@ -82,7 +82,7 @@
  * 
  * Users can manually mark their notifications as read, but often the application
  * can know that the user has read a specific notification or doesn't need
- * it any more. In this case we can chose from those public methods inside OC_Notify:
+ * it any more. In this case we can chose from these public methods inside OC_Notify:
  *  - markReadByApp('myapp')
  *  - markReadByApp('myapp', 'mynotification')
  *  - markReadById(1337)
@@ -90,6 +90,10 @@
  *  - deleteByApp('myapp', 'mynotification')
  *  - deleteById(1337)
  */
+
+//\OC_Hook::connect('OC_User', 'post_deleteUser', 'OC_Notify', 'post_deleteUser');
+//\OC_Hook::connect('OCP\Share', 'post_shared', 'OC_Notify', 'post_shared');
+
 class OC_Notify {
 	// reusable prepared statements:
 	private static $classesStmt, $classIdStmt, $classIdsStmt, $classInsertStmt, $notifyStmt, $paramStmt, $readByIdStmt, $readByUserStmt, $readByClassIdStmt, $deleteByIdStmt, $deleteByUserStmt, $deleteByClassIdStmt, $deleteByReadStmt, $deleteParamsByIdStmt, $deleteParamsByUserStmt, $deleteParamsByClassIdStmt, $deleteParamsByReadStmt, $addToBlacklistStmt, $removeFromBlacklistStmt, $unreadNumStmt, $isBlockedStmt;
@@ -214,6 +218,11 @@ class OC_Notify {
             if(!isset(self::$notifyStmt)) {
 				self::$notifyStmt = OCP\DB::prepare("INSERT INTO *PREFIX*notifications (class, uid, moment) VALUES (?, ?, NOW())");
 			}
+			OC_Hook::emit("notify", "pre_sendUserNotification", array(
+				"classId" => $classId,
+				"uid" => $uid,
+				"params" => $params
+			));
             self::$notifyStmt->execute(array($classId, $uid));
             $id = OCP\DB::insertid("*PREFIX*notifications");
             if(count($params)) {
@@ -225,7 +234,13 @@ class OC_Notify {
                     OCP\DB::insertid("*PREFIX*notification_params");
                 }
             }
-            OCP\DB::commit();
+			OCP\DB::commit();
+			OC_Hook::emit("notify", "post_sendUserNotification", array(
+				"id" => $id,
+				"classId" => $classId,
+				"uid" => $uid,
+				"params" => $params
+			));
             return (int)$id;
         } catch(Exception $e) {
             OCP\Util::writeLog("notify", "Could not send notification: " . $e->getMessage(), OCP\Util::ERROR);
@@ -547,4 +562,33 @@ class OC_Notify {
 		}
 		return (bool)self::$isBlockedStmt->execute(array($uid, $class))->fetchOne();
     }
+
+	/**
+	 * Hook listeners
+	 */
+	public static function post_deleteUser($args) {
+		$uid = $args["uid"];
+		$stmt = OCP\DB::prepare("DELETE FROM *PREFIX*notification_blacklist WHERE uid = ?");
+		$stmt->execute(array($uid));
+		self::deleteByUser($uid);
+	}
+
+	public static function post_shared($args) {
+		//OCP\Util::writeLog("notify", "shared hook: " . print_r($args, true), OCP\Util::DEBUG);
+		switch($args["itemType"]) {
+		case "event":
+			self::sendUserNotification("notify", "sharedEvent", $args["shareWith"], array(
+				"user" => $args["uidOwner"],
+				"title" => $args["itemTarget"]
+			));
+			break;
+		case "calendar":
+			self::sendUserNotification("notify", "sharedCal", $args["shareWith"], array(
+				"user" => $args["uidOwner"],
+				"name" => $args["itemTarget"]
+			));
+			break;
+		default:
+		}
+	}
 }

@@ -39,4 +39,6 @@ if(OCP\User::isLoggedIn()) {
 		'href' => OCP\Util::linkToRemote('notify_feed') . 'feed.atom'
 	));
 	OCP\App::registerPersonal('notify', 'personal');
+	OCP\Util::connectHook('OC_User', 'post_deleteUser', 'OC_Notify', 'post_deleteUser');
+	OCP\Util::connectHook('OCP\Share', 'post_shared', 'OC_Notify', 'post_shared');
 }

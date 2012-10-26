@@ -5,11 +5,15 @@
 	<description>Lets other apps send notifications to ownCloud users.</description>
 	<licence>AGPL</licence>
 	<author>Florian Hülsmann</author>
-	<require>4</require>
+	<require>4.9</require>
 	<shipped>true</shipped>
 	<standalone/>
 	<default_enable/>
 	<remote>
 		<notify_feed>feed.php</notify_feed>
 	</remote>
+	<notifications>
+		<template id="sharedEvent" summary="Event shared">{user} shared an event with you: &lt;em&gt;{title}&lt;/em&gt;.</template>
+		<template id="sharedCal" summary="Calendar shared">{user} shared the calendar &lt;strong&gt;{name}&lt;/strong&gt; with you!</template>
+	</notifications>
 </info>
