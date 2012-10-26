@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <mr.pige_ina@yahoo.co.id>, 2012.
+#   <putu.sutha@yahoo.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:21+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-23 02:05+0200\n"
+"PO-Revision-Date: 2012-10-22 10:15+0000\n"
+"Last-Translator: elmakong <mr.pige_ina@yahoo.co.id>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +45,7 @@ msgstr ""
 
 #: ajax/createfolder.php:47
 msgid "Folder added!"
-msgstr ""
+msgstr "Folder ditambahkan!"
 
 #: ajax/deletefeed.php:29
 msgid "Error removing feed."
@@ -65,15 +67,7 @@ msgstr ""
 msgid "An error occurred while parsing the file."
 msgstr ""
 
-#: ajax/loadfeed.php:37 templates/part.feeds.php:50
-msgid "Starred"
-msgstr ""
-
-#: ajax/loadfeed.php:42 templates/part.feeds.php:44
-msgid "New articles"
-msgstr ""
-
-#: ajax/loadfeed.php:54
+#: ajax/loadfeed.php:52
 msgid "Feed loaded!"
 msgstr ""
 
@@ -83,15 +77,15 @@ msgstr ""
 
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "file tidak ditemukan:"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
-msgstr ""
+msgstr "kesalahan mengatur semua item sebagai terdibaca"
 
 #: ajax/setitemstatus.php:47
 msgid "Error marking item as read."
-msgstr ""
+msgstr "kesalahan menandai item sebagai terbaca"
 
 #: ajax/updatefeed.php:37
 msgid "Error updating feed."
@@ -101,43 +95,43 @@ msgstr ""
 msgid "Feed updated!"
 msgstr ""
 
-#: appinfo/app.php:35
+#: appinfo/app.php:36 lib/search.php:21
 msgid "News"
-msgstr ""
+msgstr "berita"
 
-#: js/items.js:118
+#: js/items.js:123
 msgid "Error while loading the feed"
 msgstr ""
 
-#: js/items.js:118 js/items.js:560 js/items.js:665 js/main.js:121
-#: js/menu.js:534 js/menu.js:595 js/menu.js:617 js/menu.js:644 js/menu.js:666
-#: js/menu.js:916 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
+#: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
+#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
-msgstr ""
+msgstr "kesalahan"
 
-#: js/main.js:40
+#: js/main.js:33
 msgid "None"
 msgstr ""
 
-#: js/main.js:108 templates/main.php:16
+#: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
-msgstr ""
+msgstr "tampilkan yang belum dibaca saja"
 
-#: js/main.js:112 templates/main.php:12
+#: js/main.js:105 templates/main.php:14
 msgid "Show everything"
-msgstr ""
+msgstr "tampilkan semua"
 
-#: js/menu.js:507
+#: js/menu.js:505
 msgid "Are you sure you want to delete this feed?"
 msgstr ""
 
-#: js/menu.js:515
+#: js/menu.js:513
 msgid "Are you sure you want to delete this folder and all its feeds?"
 msgstr ""
 
-#: js/menu.js:523
+#: js/menu.js:521
 msgid "Warning"
 msgstr ""
 
@@ -147,11 +141,11 @@ msgstr ""
 
 #: js/news.js:33 js/news.js:95
 msgid "Adding..."
-msgstr ""
+msgstr "menambahkan..."
 
 #: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
-msgstr ""
+msgstr "tambah berkas"
 
 #: js/news.js:63
 msgid "Changing..."
@@ -164,9 +158,9 @@ msgstr ""
 
 #: js/news.js:90
 msgid "URL cannot be empty."
-msgstr ""
+msgstr "tautan tidak boleh kosong"
 
-#: js/news.js:120 js/news.js:127 templates/part.nofeeds.php:6
+#: js/news.js:120 js/news.js:127 templates/firstrun.php:5
 msgid "Add feed"
 msgstr ""
 
@@ -180,7 +174,7 @@ msgstr ""
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
-msgstr ""
+msgstr "file"
 
 #: js/settings.js:11
 msgid " loaded from cloud."
@@ -188,7 +182,7 @@ msgstr ""
 
 #: js/settings.js:22
 msgid "No files selected."
-msgstr ""
+msgstr "tidak ada file terpilih"
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
@@ -196,7 +190,7 @@ msgstr ""
 
 #: js/settings.js:32
 msgid "Importing..."
-msgstr ""
+msgstr "mengimpor..."
 
 #: js/settings.js:43
 msgid " out of "
@@ -208,35 +202,35 @@ msgstr ""
 
 #: js/settings.js:45
 msgid "Success"
-msgstr ""
+msgstr "berhasil"
 
-#: js/settings.js:49 templates/part.nofeeds.php:19 templates/settings.php:9
+#: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
 msgid "Import"
-msgstr ""
+msgstr "impor"
 
 #: js/settings.js:55
 msgid "Downloading..."
-msgstr ""
+msgstr "mengunduh..."
 
 #: js/settings.js:57
 msgid "Download"
-msgstr ""
+msgstr "unduh"
 
 #: js/settings.js:69
 msgid "Select file"
-msgstr ""
+msgstr "pilih file"
 
-#: lib/feedmapper.php:167 lib/itemmapper.php:201
+#: lib/feedmapper.php:180 lib/itemmapper.php:204
 msgid "no title"
-msgstr ""
+msgstr "tidak ada judul"
 
-#: lib/foldermapper.php:119
+#: lib/foldermapper.php:127
 msgid "no name"
-msgstr ""
+msgstr "tidak bernama"
 
-#: lib/itemmapper.php:206
+#: lib/itemmapper.php:209
 msgid "no body"
-msgstr ""
+msgstr "tidak berisi"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
@@ -254,23 +248,66 @@ msgstr ""
 msgid "You had already subcribed to this feed!"
 msgstr ""
 
-#: templates/main.php:32
-msgid "Add feed or folder"
+#: templates/firstrun.php:2
+msgid "You don't have any feed in your reader."
 msgstr ""
 
-#: templates/main.php:33
-msgid "Add Feed/Folder"
+#: templates/firstrun.php:6 templates/part.dialogues.php:28
+msgid "Address"
+msgstr ""
+
+#: templates/firstrun.php:7 templates/subscribelet.php:7
+msgid "Subscribe"
+msgstr ""
+
+#: templates/firstrun.php:11
+msgid "Import OPML"
+msgstr ""
+
+#: templates/firstrun.php:12 templates/settings.php:3
+msgid "Upload file from desktop"
+msgstr ""
+
+#: templates/firstrun.php:12 templates/settings.php:3
+msgid "Upload"
+msgstr ""
+
+#: templates/firstrun.php:13 templates/settings.php:4
+msgid "Select file from ownCloud"
+msgstr ""
+
+#: templates/firstrun.php:13 templates/settings.php:4
+msgid "Select"
+msgstr ""
+
+#: templates/firstrun.php:15 templates/settings.php:6
+msgid ""
+"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
+"filesystem</a> or <a href=\"#\" class=\"settings\" "
+"id=\"cloudlink\">cloud</a>"
+msgstr ""
+
+#: templates/firstrun.php:24
+msgid "Or..."
 msgstr ""
 
 #: templates/main.php:35
-msgid "Feed"
+msgid "Add feed or folder"
 msgstr ""
 
 #: templates/main.php:36
+msgid "Add Feed/Folder"
+msgstr ""
+
+#: templates/main.php:38
+msgid "Feed"
+msgstr ""
+
+#: templates/main.php:39
 msgid "Folder"
 msgstr ""
 
-#: templates/main.php:43
+#: templates/main.php:46
 msgid "Settings"
 msgstr ""
 
@@ -298,88 +335,57 @@ msgstr ""
 msgid "Choose folder"
 msgstr ""
 
-#: templates/part.dialogues.php:28 templates/part.nofeeds.php:7
-msgid "Address"
-msgstr ""
-
 #: templates/part.dialogues.php:29
 msgid "Add"
 msgstr ""
 
-#: templates/part.feeds.php:46 templates/part.listfeed.php:26
-#: templates/part.listfolder.php:21
+#: templates/part.feeds.php:47
+msgid "New articles"
+msgstr "artikel baru"
+
+#: templates/part.feeds.php:49 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:34
 msgid "Mark all read"
 msgstr ""
 
-#: templates/part.items.php:35
+#: templates/part.feeds.php:53
+msgid "Starred"
+msgstr "dibintangi"
+
+#: templates/part.items.php:17
 msgid "Mark as unimportant"
 msgstr ""
 
-#: templates/part.items.php:38
+#: templates/part.items.php:20
 msgid "Mark as important"
 msgstr ""
 
-#: templates/part.items.php:55
+#: templates/part.items.php:37
+msgid "from"
+msgstr ""
+
+#: templates/part.items.php:43
 msgid "by"
 msgstr ""
 
-#: templates/part.items.php:62
+#: templates/part.items.php:56
 msgid "Keep unread"
 msgstr ""
 
-#: templates/part.listfeed.php:25
+#: templates/part.listfeed.php:33
 msgid "Delete feed"
 msgstr ""
 
-#: templates/part.listfolder.php:16
+#: templates/part.listfolder.php:29
 msgid "Collapse"
 msgstr ""
 
-#: templates/part.listfolder.php:19
+#: templates/part.listfolder.php:32
 msgid "Delete folder"
 msgstr ""
 
-#: templates/part.listfolder.php:20
+#: templates/part.listfolder.php:33
 msgid "Rename folder"
-msgstr ""
-
-#: templates/part.nofeeds.php:3
-msgid "You don't have any feed in your reader."
-msgstr ""
-
-#: templates/part.nofeeds.php:8 templates/subscribelet.php:7
-msgid "Subscribe"
-msgstr ""
-
-#: templates/part.nofeeds.php:12
-msgid "Import OPML"
-msgstr ""
-
-#: templates/part.nofeeds.php:13 templates/settings.php:3
-msgid "Upload file from desktop"
-msgstr ""
-
-#: templates/part.nofeeds.php:13 templates/settings.php:3
-msgid "Upload"
-msgstr ""
-
-#: templates/part.nofeeds.php:14 templates/settings.php:4
-msgid "Select file from ownCloud"
-msgstr ""
-
-#: templates/part.nofeeds.php:14 templates/settings.php:4
-msgid "Select"
-msgstr ""
-
-#: templates/part.nofeeds.php:16 templates/settings.php:6
-msgid ""
-"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
-"filesystem</a> or <a href=\"#\" class=\"settings\" "
-"id=\"cloudlink\">cloud</a>"
-msgstr ""
-
-#: templates/part.nofeeds.php:25
-msgid "Or..."
 msgstr ""
 
 #: templates/settings.php:2

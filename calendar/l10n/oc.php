@@ -13,8 +13,6 @@
 "Invalid request" => "Demanda invalida",
 "Calendar" => "Calendièr",
 "Deletion failed" => "Fracàs d'escafatge",
-"ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}" => "jjj j MMMM[ aaaa]{ -[jjj j] MMMM aaaa}",
-"ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}" => "jjj j MMMM[ aaaa] HH:mm{ -[ jjj j MMMM aaaa] HH:mm}",
 "user" => "usancièr",
 "group" => "grop",
 "Editable" => "Editable",

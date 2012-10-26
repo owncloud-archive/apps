@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-12 02:01+0200\n"
-"PO-Revision-Date: 2012-09-11 13:09+0000\n"
+"POT-Creation-Date: 2012-10-13 02:04+0200\n"
+"PO-Revision-Date: 2012-10-12 05:52+0000\n"
 "Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -19,17 +19,53 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:14
+#: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Bokmärken"
 
-#: bookmarksHelper.php:99
-msgid "unnamed"
-msgstr "namnlös"
+#: js/addBm.js:42 js/bookmarks.js:243
+msgid "Tags"
+msgstr "Taggar"
 
-#: lib/search.php:43
+#: js/bookmarks.js:178
+msgid "Edit bookmark"
+msgstr "Redigera bokmärke"
+
+#: js/bookmarks.js:410
+msgid "Are you sure you want to remove this tag from every entry?"
+msgstr "Är du säker på att du vill ta bort denna tagg från varje post?"
+
+#: js/bookmarks.js:411
+msgid "Warning"
+msgstr "Varning"
+
+#: lib/search.php:38
 msgid "Bookm."
 msgstr "Bokm."
+
+#: templates/addBm.php:11
+msgid "Add a bookmark"
+msgstr "Lägg till ett bokmärke"
+
+#: templates/addBm.php:14
+msgid "Close"
+msgstr "Stäng"
+
+#: templates/addBm.php:22 templates/list.php:91
+msgid "The title of the page"
+msgstr "Titel på sidan"
+
+#: templates/addBm.php:27 templates/list.php:95
+msgid "The address of the page"
+msgstr "Adress till sidan"
+
+#: templates/addBm.php:40 templates/list.php:104
+msgid "Description of the page"
+msgstr "Beskrivning av sidan"
+
+#: templates/addBm.php:44 templates/list.php:108
+msgid "Save"
+msgstr "Spara"
 
 #: templates/bookmarklet.php:5
 msgid ""
@@ -41,26 +77,70 @@ msgstr "Dra till din webbläsares bokmärken och klicka på det när du vill bok
 msgid "Read later"
 msgstr "Läs senare"
 
-#: templates/list.php:13
+#: templates/list.php:12
 msgid "Address"
 msgstr "Adress"
 
-#: templates/list.php:14
-msgid "Title"
-msgstr "Titel"
-
-#: templates/list.php:15
-msgid "Tags"
-msgstr "Taggar"
+#: templates/list.php:13
+msgid "Add bookmark"
+msgstr "Lägg till bokmärke"
 
 #: templates/list.php:16
-msgid "Save bookmark"
-msgstr "Spara bokmärke"
+msgid "List"
+msgstr "Lista"
+
+#: templates/list.php:17
+msgid "Image"
+msgstr "Bild"
 
 #: templates/list.php:22
+msgid "Hide"
+msgstr "Göm"
+
+#: templates/list.php:23
+msgid "Show"
+msgstr "Visa"
+
+#: templates/list.php:30
+msgid "Related Tags"
+msgstr "Relaterade taggar"
+
+#: templates/list.php:39
 msgid "You have no bookmarks"
 msgstr "Du har inga bokmärken"
+
+#: templates/list.php:64
+msgid "Edit"
+msgstr "Redigera"
+
+#: templates/list.php:68
+msgid "Delete"
+msgstr "Radera"
+
+#: templates/list.php:107
+msgid "Cancel"
+msgstr "Avbryt"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
 msgstr "Skriptbokmärke <br />"
+
+#: templates/settings.php:26
+msgid "Import bookmarks"
+msgstr "Importera bokmärken"
+
+#: templates/settings.php:28
+msgid "Bookmark html file"
+msgstr "Bokmärkets html-fil"
+
+#: templates/settings.php:30
+msgid "Import"
+msgstr "Importera"
+
+#: templates/settings.php:33
+msgid "Export bookmarks"
+msgstr "Exportera bokmärken"
+
+#: templates/settings.php:35
+msgid "Export"
+msgstr "Exportera"

@@ -220,7 +220,7 @@ class OC_Calendar_Object{
 
 		$calendar = OC_Calendar_Calendar::find($cid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $cid);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
 				throw new Sabre_DAV_Exception_Forbidden(
 					OC_Calendar_App::$l10n->t(
@@ -262,6 +262,9 @@ class OC_Calendar_Object{
 		$stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*calendar_objects` WHERE `id` = ?' );
 		$stmt->execute(array($id));
 		OC_Calendar_Calendar::touchCalendar($oldobject['calendarid']);
+
+		OCP\Share::unshareAll('event', $id);
+		
 		OCP\Util::emitHook('OC_Calendar', 'deleteEvent', $id);
 
 		return true;
@@ -277,7 +280,7 @@ class OC_Calendar_Object{
 		$oldobject = self::findWhereDAVDataIs($cid, $uri);
 		$calendar = OC_Calendar_Calendar::find($cid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $cid);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
 				throw new Sabre_DAV_Exception_Forbidden(
 					OC_Calendar_App::$l10n->t(
@@ -936,9 +939,11 @@ class OC_Calendar_Object{
 			$timezone = OC_Calendar_App::getTimezone();
 			$timezone = new DateTimeZone($timezone);
 			$start = new DateTime($from.' '.$fromtime, $timezone);
+			$start->setTimezone(new DateTimeZone('UTC'));
 			$end = new DateTime($to.' '.$totime, $timezone);
-			$vevent->setDateTime('DTSTART', $start, Sabre_VObject_Property_DateTime::LOCALTZ);
-			$vevent->setDateTime('DTEND', $end, Sabre_VObject_Property_DateTime::LOCALTZ);
+			$end->setTimezone(new DateTimeZone('UTC'));
+			$vevent->setDateTime('DTSTART', $start, Sabre_VObject_Property_DateTime::UTC);
+			$vevent->setDateTime('DTEND', $end, Sabre_VObject_Property_DateTime::UTC);
 		}
 		unset($vevent->DURATION);
 

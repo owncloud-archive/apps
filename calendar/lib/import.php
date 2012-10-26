@@ -45,6 +45,11 @@ class OC_Calendar_Import{
 	private $id;
 
 	/*
+	 * @brief overwrite flag
+	 */
+	private $overwrite;
+
+	/*
 	 * @brief var saves the percentage of the import's progress
 	 */
 	private $progress;
@@ -79,6 +84,15 @@ class OC_Calendar_Import{
 		$this->ical = $ical;
 		$this->abscount = 0;
 		$this->count = 0;
+		//fix for multiple subcalendars
+		if(substr_count($ical, 'BEGIN:VCALENDAR') > 1){
+			$ical = substr_replace($ical, '**##++FancyReplacementForFirstOccurrenceOfTheSearchPattern++##**', 0, 15);
+			$ical = str_replace('BEGIN:VCALENDAR', '', $ical);
+			$ical = str_replace('END:VCALENDAR', '', $ical);
+			$ical = substr_replace($ical, 'BEGIN:VCALENDAR', 0, 64);
+			$ical .= "\n" . 'END:VCALENDAR';
+			$this->ical = $ical;
+		}
 		try{
 			$this->calobject = OC_VObject::parse($this->ical);
 		}catch(Exception $e) {
@@ -98,6 +112,11 @@ class OC_Calendar_Import{
 			return false;
 		}
 		$numofcomponents = count($this->calobject->getComponents());
+		if($this->overwrite) {
+			foreach(OC_Calendar_Object::all($this->id) as $obj) {
+				OC_Calendar_Object::delete($obj['id']);
+			}
+		}
 		foreach($this->calobject->getComponents() as $object) {
 			if(!($object instanceof Sabre_VObject_Component_VEvent) && !($object instanceof Sabre_VObject_Component_VJournal) && !($object instanceof Sabre_VObject_Component_VTodo)) {
 				continue;
@@ -128,6 +147,15 @@ class OC_Calendar_Import{
 	 */
 	public function setTimeZone($tz) {
 		$this->tz = $tz;
+		return true;
+	}
+
+	/*
+	 * @brief sets the overwrite flag
+	 * @return boolean
+	 */
+	public function setOverwrite($overwrite) {
+		$this->overwrite = (bool) $overwrite;
 		return true;
 	}
 

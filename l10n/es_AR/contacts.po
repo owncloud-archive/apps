@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-29 02:03+0200\n"
-"PO-Revision-Date: 2012-09-28 09:35+0000\n"
+"POT-Creation-Date: 2012-10-02 02:03+0200\n"
+"PO-Revision-Date: 2012-10-01 15:26+0000\n"
 "Last-Translator: cjtess <claudio.tessone@gmail.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -74,11 +74,11 @@ msgstr "Estás intentando añadir una propiedad duplicada: "
 
 #: ajax/contact/addproperty.php:115 ajax/contact/saveproperty.php:93
 msgid "Missing IM parameter."
-msgstr ""
+msgstr "Falta un parámetro del MI."
 
 #: ajax/contact/addproperty.php:119 ajax/contact/saveproperty.php:97
 msgid "Unknown IM: "
-msgstr ""
+msgstr "MI desconocido:"
 
 #: ajax/contact/deleteproperty.php:37
 msgid "Information about vCard is incorrect. Please reload the page."
@@ -240,7 +240,7 @@ msgstr "Error"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "Por favor, escribí una dirección de e-mail"
 
 #: js/contacts.js:176 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -257,27 +257,27 @@ msgstr "Seleccionar el tipo"
 
 #: js/contacts.js:214
 msgid "Select photo"
-msgstr ""
+msgstr "Seleccionar una imagen"
 
 #: js/contacts.js:406
 msgid "You do not have permission to add contacts to "
-msgstr ""
+msgstr "No tenés permisos para añadir contactos a"
 
 #: js/contacts.js:407
 msgid "Please select one of your own address books."
-msgstr ""
+msgstr "Por favor, elegí una de tus agendas."
 
 #: js/contacts.js:407
 msgid "Permission error"
-msgstr ""
+msgstr "Error de permisos"
 
 #: js/contacts.js:481
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "Hacé click para deshacer el borrado de \""
 
 #: js/contacts.js:495
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "Se canceló el borrado de: \""
 
 #: js/contacts.js:725
 msgid "This property has to be non-empty."
@@ -289,7 +289,7 @@ msgstr "No fue posible transcribir los elementos"
 
 #: js/contacts.js:762
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "Error desconocido. Revisá el log."
 
 #: js/contacts.js:883 js/contacts.js:901
 msgid ""
@@ -313,7 +313,7 @@ msgstr "El archivo que querés subir supera el tamaño máximo permitido en este
 
 #: js/contacts.js:1284
 msgid "Error loading profile picture."
-msgstr ""
+msgstr "Error al cargar la imagen del perfil."
 
 #: js/contacts.js:1543
 msgid ""
@@ -323,61 +323,61 @@ msgstr "Algunos contactos fuero marcados para ser borrados, pero no fueron borra
 
 #: js/contacts.js:1614
 msgid "Do you want to merge these address books?"
-msgstr ""
+msgstr "¿Querés unir estas libretas de direcciones?"
 
 #: js/contacts.js:1767
 msgid "Shared by "
-msgstr ""
+msgstr "compartido por"
 
 #: js/contacts.js:2000 js/contacts.js:2075
 msgid "Upload too large"
-msgstr ""
+msgstr "El tamaño del archivo que querés subir es demasiado grande"
 
 #: js/contacts.js:2004
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "Solamente archivos de imagen pueden ser usados como imagen del perfil "
 
 #: js/contacts.js:2004
 msgid "Wrong file type"
-msgstr ""
+msgstr "Tipo de archivo incorrecto"
 
 #: js/contacts.js:2010
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "Tu navegador no soporta subidas AJAX. Por favor hacé click en la imagen del perfil para seleccionar una imagen que quieras subir."
 
 #: js/contacts.js:2068
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "No es posible subir tu archivo porque es un directorio o porque ocupa 0 bytes"
 
 #: js/contacts.js:2068
 msgid "Upload Error"
-msgstr ""
+msgstr "Error al subir"
 
 #: js/contacts.js:2123
 msgid "Pending"
-msgstr ""
+msgstr "Pendientes"
 
 #: js/contacts.js:2155
 msgid "Import done"
-msgstr ""
+msgstr "Importación completada"
 
 #: js/contacts.js:2168
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "No fue posible subir todos los archivos. Reintentando..."
 
 #: js/contacts.js:2174
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Algo salió mal durante la subida. Por favor, intentalo nuevamente."
 
 #: js/contacts.js:2190
 msgid "Importing..."
-msgstr ""
+msgstr "Importando..."
 
 #: js/contacts.js:2211
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "El nombre de la libreta de direcciones no puede estar vacío."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -428,27 +428,27 @@ msgstr "Más..."
 
 #: js/settings.js:161
 msgid "Less..."
-msgstr ""
+msgstr "Menos..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "No tenés permiso para leer esta agenda."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "No tenés permisos para actualizar esta agenda."
 
 #: lib/addressbook.php:259
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "Hubo un error mientras se actualizaba la agenda."
 
 #: lib/addressbook.php:315
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "No tenés permisos para borrar esta agenda."
 
 #: lib/addressbook.php:344
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "Hubo un error mientras se borraba esta agenda."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -464,51 +464,51 @@ msgstr "No fue posible encontrar el contacto."
 
 #: lib/app.php:116
 msgid "Jabber"
-msgstr ""
+msgstr "Jabber"
 
 #: lib/app.php:121
 msgid "AIM"
-msgstr ""
+msgstr "AIM"
 
 #: lib/app.php:126
 msgid "MSN"
-msgstr ""
+msgstr "MSN"
 
 #: lib/app.php:131
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: lib/app.php:136
 msgid "GoogleTalk"
-msgstr ""
+msgstr "GoogleTalk"
 
 #: lib/app.php:141
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: lib/app.php:146
 msgid "XMPP"
-msgstr ""
+msgstr "XMPP"
 
 #: lib/app.php:151
 msgid "ICQ"
-msgstr ""
+msgstr "ICQ"
 
 #: lib/app.php:156
 msgid "Yahoo"
-msgstr ""
+msgstr "Yahoo"
 
 #: lib/app.php:161
 msgid "Skype"
-msgstr ""
+msgstr "Skype"
 
 #: lib/app.php:166
 msgid "QQ"
-msgstr ""
+msgstr "QQ"
 
 #: lib/app.php:171
 msgid "GaduGadu"
-msgstr ""
+msgstr "GaduGadu"
 
 #: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
 msgid "Work"
@@ -617,31 +617,31 @@ msgstr "Contacto"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "No tenés permisos para agregar contactos a esta agenda."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "No fue posible encontrar la vCard con ID."
 
 #: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
-msgstr ""
+msgstr "No tenés permisos para editar este contacto."
 
 #: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "No fue posible encontrar la agenda con ID:"
 
 #: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "No fue posible encontrar la agenda con ID:"
 
 #: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
-msgstr ""
+msgstr "No tenés permisos para borrar este contacto."
 
 #: lib/vcard.php:550
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "Hubo un error mientras se borraba este contacto."
 
 #: templates/index.php:14
 msgid "Add Contact"
@@ -677,7 +677,7 @@ msgstr "Contacto anterior en la lista"
 
 #: templates/index.php:40
 msgid "Expand/collapse current addressbook"
-msgstr ""
+msgstr "Expandir/colapsar la agenda"
 
 #: templates/index.php:42
 msgid "Next addressbook"
@@ -693,7 +693,7 @@ msgstr "Acciones"
 
 #: templates/index.php:51
 msgid "Refresh contacts list"
-msgstr ""
+msgstr "Refrescar la lista de contactos"
 
 #: templates/index.php:53
 msgid "Add new contact"
@@ -803,11 +803,11 @@ msgstr "Eliminar número de teléfono"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
-msgstr ""
+msgstr "Mensajero instantáneo"
 
 #: templates/part.contact.php:101
 msgid "Delete IM"
-msgstr ""
+msgstr "Eliminar IM"
 
 #: templates/part.contact.php:110
 msgid "View on map"
@@ -835,7 +835,7 @@ msgstr "e-mail"
 
 #: templates/part.contact.php:131
 msgid "Instant Messaging"
-msgstr ""
+msgstr "Mensajería instantánea"
 
 #: templates/part.contact.php:132
 msgid "Address"
@@ -1019,7 +1019,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>No tenés contactos en tu agenda.</h3><p> Podés importar archivos VCF arrastrando los contactos a la agenda.<br />También podés realizar la importación haciendo click en el botón de Importar, en la parte inferior de la lista.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"
@@ -1055,7 +1055,7 @@ msgstr "Agendas"
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "Compartir"
 
 #: templates/settings.php:57
 msgid "New Address Book"

@@ -36,12 +36,13 @@ class OC_USER_OPENID extends OC_User_Backend {
 	 * Check if the password is correct without logging in the user
 	 */
 	public function checkPassword( $uid, $password ) {
+		$base_url = OCP\Util::getServerProtocol().'://' . OCP\Util::getServerHost();
 		// Get identity from user and redirect browser to OpenID Server
 		$openid = new SimpleOpenID();
 		$openid->SetIdentity($uid);
-		$openid->SetTrustRoot('http://' . OCP\Util::getServerHost());
+		$openid->SetTrustRoot($base_url);
 		if ($openid->GetOpenIDServer()) {
-			$openid->SetApprovedURL('http://' . OCP\Util::getServerHost() . OC::$WEBROOT);      // Send Response from OpenID server to this script
+			$openid->SetApprovedURL($base_url . OC::$WEBROOT);      // Send Response from OpenID server to this script
 			$openid->Redirect();     // This will redirect user to OpenID Server
 			exit;
 		}else{

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-19 02:02+0200\n"
-"PO-Revision-Date: 2012-09-18 11:37+0000\n"
-"Last-Translator: g.ciprian <g.ciprian@osn.ro>\n"
+"POT-Creation-Date: 2012-10-11 02:03+0200\n"
+"PO-Revision-Date: 2012-10-11 00:05+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,17 +18,53 @@ msgstr ""
 "Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
-#: appinfo/app.php:14
+#: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Semne de carte"
 
-#: bookmarksHelper.php:99
-msgid "unnamed"
-msgstr "fără denumire"
+#: js/addBm.js:42 js/bookmarks.js:243
+msgid "Tags"
+msgstr "Cuvinte cheie"
 
-#: lib/search.php:43
+#: js/bookmarks.js:178
+msgid "Edit bookmark"
+msgstr ""
+
+#: js/bookmarks.js:409
+msgid "Are you sure you want to remove this tag from every entry?"
+msgstr ""
+
+#: js/bookmarks.js:410
+msgid "Warning"
+msgstr ""
+
+#: lib/search.php:38
 msgid "Bookm."
 msgstr "Bookm."
+
+#: templates/addBm.php:11
+msgid "Add a bookmark"
+msgstr ""
+
+#: templates/addBm.php:14
+msgid "Close"
+msgstr ""
+
+#: templates/addBm.php:22 templates/list.php:91
+msgid "The title of the page"
+msgstr ""
+
+#: templates/addBm.php:27 templates/list.php:95
+msgid "The address of the page"
+msgstr ""
+
+#: templates/addBm.php:40 templates/list.php:104
+msgid "Description of the page"
+msgstr ""
+
+#: templates/addBm.php:44 templates/list.php:108
+msgid "Save"
+msgstr ""
 
 #: templates/bookmarklet.php:5
 msgid ""
@@ -40,26 +76,70 @@ msgstr "Trage acest semn în semnele de carte din navigatorul tău web când dor
 msgid "Read later"
 msgstr "Citește mai târziu"
 
-#: templates/list.php:13
+#: templates/list.php:12
 msgid "Address"
 msgstr "Adresă"
 
-#: templates/list.php:14
-msgid "Title"
-msgstr "Titlu"
-
-#: templates/list.php:15
-msgid "Tags"
-msgstr "Cuvinte cheie"
+#: templates/list.php:13
+msgid "Add bookmark"
+msgstr ""
 
 #: templates/list.php:16
-msgid "Save bookmark"
-msgstr "Salvare semne de carte"
+msgid "List"
+msgstr ""
+
+#: templates/list.php:17
+msgid "Image"
+msgstr ""
 
 #: templates/list.php:22
+msgid "Hide"
+msgstr ""
+
+#: templates/list.php:23
+msgid "Show"
+msgstr ""
+
+#: templates/list.php:30
+msgid "Related Tags"
+msgstr ""
+
+#: templates/list.php:39
 msgid "You have no bookmarks"
 msgstr "Nu ai nici un semn de carte"
+
+#: templates/list.php:64
+msgid "Edit"
+msgstr ""
+
+#: templates/list.php:68
+msgid "Delete"
+msgstr ""
+
+#: templates/list.php:107
+msgid "Cancel"
+msgstr ""
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
 msgstr "Bookmarklet <br />"
+
+#: templates/settings.php:26
+msgid "Import bookmarks"
+msgstr ""
+
+#: templates/settings.php:28
+msgid "Bookmark html file"
+msgstr ""
+
+#: templates/settings.php:30
+msgid "Import"
+msgstr ""
+
+#: templates/settings.php:33
+msgid "Export bookmarks"
+msgstr ""
+
+#: templates/settings.php:35
+msgid "Export"
+msgstr ""

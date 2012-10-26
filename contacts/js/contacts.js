@@ -156,8 +156,9 @@ OC.Contacts={
 			OC.Contacts.Card.deleteProperty(obj, 'single');
 		}
 		var goToUrl = function(obj) {
-		var url = OC.Contacts.propertyContainerFor(obj).find('#url').val();
-		if(url != '') {
+		var url = OC.Contacts.propertyContainerFor(obj).find('#url').val().toString();
+		// Check if the url is valid
+		if(new RegExp("[a-zA-Z0-9]+://([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(url)) {
 			var newWindow = window.open(url,'_blank');
 			newWindow.focus();
 			}
@@ -311,7 +312,7 @@ OC.Contacts={
 		update:function(params) { // params {cid:int, aid:int}
 			if(!params) { params = {}; }
 			$('#contacts li,#contacts h3').removeClass('active');
-			console.log('Card, cid: ' + params.cid + ' aid: ' + params.aid);
+			//console.log('Card, cid: ' + params.cid + ' aid: ' + params.aid);
 			var newid, bookid, firstitem;
 			if(!parseInt(params.cid) && !parseInt(params.aid)) {
 				firstitem = $('#contacts ul').find('li:first-child');
@@ -328,7 +329,7 @@ OC.Contacts={
 			} else if(parseInt(params.cid) && !parseInt(params.aid)) {
 				newid = parseInt(params.cid);
 				var listitem = OC.Contacts.Contacts.getContact(newid); //$('#contacts li[data-id="'+newid+'"]');
-				console.log('Is contact in list? ' + listitem.length);
+				//console.log('Is contact in list? ' + listitem.length);
 				if(listitem.length) {
 					//bookid = parseInt($('#contacts li[data-id="'+newid+'"]').data('bookid'));
 					bookid = parseInt(OC.Contacts.Contacts.getContact(newid).data('bookid'));
@@ -343,7 +344,7 @@ OC.Contacts={
 				bookid = parseInt($('#contacts h3').first().data('id'));
 				newid = parseInt($('#contacts').find('li[data-bookid="'+bookid+'"]').first().data('id'));
 			}
-			console.log('newid: ' + newid + ' bookid: ' +bookid);
+			//console.log('newid: ' + newid + ' bookid: ' +bookid);
 			var localLoadContact = function(newid, bookid) {
 				if($('.contacts li').length > 0) {
 					$.getJSON(OC.filePath('contacts', 'ajax', 'contact/details.php'),{'id':newid},function(jsondata){
@@ -368,12 +369,12 @@ OC.Contacts={
 
 			// Make sure proper DOM is loaded.
 			if(newid) {
-				console.log('Loading card DOM');
+				//console.log('Loading card DOM');
 				localLoadContact(newid, bookid);
 				$('#firstrun').hide();
 				$('#card').show();
 			} else if(!newid) {
-				console.log('Loading intro');
+				//console.log('Loading intro');
 				// show intro page
 				$('#firstrun').show();
 				$('#card').hide();
@@ -381,7 +382,7 @@ OC.Contacts={
 			$('#contacts h3[data-id="'+bookid+'"]').addClass('active');
 		},
 		setEnabled:function(enabled) {
-			console.log('setEnabled', enabled);
+			//console.log('setEnabled', enabled);
 			$('.contacts_property,.action').each(function () {
 				$(this).prop('disabled', !enabled);
 				OC.Contacts.Card.enabled = enabled;
@@ -409,7 +410,7 @@ OC.Contacts={
 			return false;
 		},
 		add:function(n, fn, aid, isnew) { // add a new contact
-			console.log('Adding ' + fn);
+			//console.log('Adding ' + fn);
 			$('#firstrun').hide();
 			$('#card').show();
 			aid = aid?aid:$('#contacts h3.active').first().data('id');
@@ -481,7 +482,7 @@ OC.Contacts={
 				message:t('contacts','Click to undo deletion of "') + curlistitem.find('a').text() + '"',
 				//timeout:5,
 				timeouthandler:function(contact) {
-					console.log('timeout');
+					//console.log('timeout');
 					OC.Contacts.Card.doDelete(contact.data('id'), true, function(res) {
 						if(!res) {
 							OC.Contacts.Contacts.insertContact({contact:contact});
@@ -508,7 +509,7 @@ OC.Contacts={
 			}
 
 			if(OC.Contacts.Contacts.deletionQueue.indexOf(parseInt(id)) == -1 && removeFromQueue) {
-				console.log('returning');
+				//console.log('returning');
 				updateQueue(id, removeFromQueue);
 				if(typeof cb == 'function') {
 					cb(true);
@@ -560,7 +561,7 @@ OC.Contacts={
 				$('#contacts_propertymenu_dropdown a[data-type="NOTE"]').parent().show();
 			}
 			var permissions = OC.Contacts.Card.permissions = parseInt(this.data.permissions);
-			console.log('permissions', permissions);
+			//console.log('permissions', permissions);
 			this.setEnabled(permissions == 0
 				|| permissions & OC.PERMISSION_UPDATE
 				|| permissions & OC.PERMISSION_DELETE);
@@ -755,7 +756,7 @@ OC.Contacts={
 			q = q + '&id=' + this.id + '&name=' + name;
 			if(checksum != undefined && checksum != '') { // save
 					q = q + '&checksum=' + checksum;
-					console.log('Saving: ' + q);
+					//console.log('Saving: ' + q);
 					$(obj).attr('disabled', 'disabled');
 					$.post(OC.filePath('contacts', 'ajax', 'contact/saveproperty.php'),q,function(jsondata){
 						if(!jsondata) {
@@ -781,7 +782,7 @@ OC.Contacts={
 						}
 					},'json');
 			} else { // add
-					console.log('Adding: ' + q);
+					//console.log('Adding: ' + q);
 					$(obj).attr('disabled', 'disabled');
 					$.post(OC.filePath('contacts', 'ajax', 'contact/addproperty.php'),q,function(jsondata){
 						if(jsondata.status == 'success'){
@@ -848,7 +849,7 @@ OC.Contacts={
 			}
 		},
 		deleteProperty:function(obj, type) {
-			console.log('deleteProperty');
+			//console.log('deleteProperty');
 			if(!this.enabled) {
 				return;
 			}
@@ -1716,7 +1717,7 @@ OC.Contacts={
 			this.next(true);
 		},
 		nextAddressbook:function(reverse) {
-			console.log('nextAddressbook', reverse);
+			//console.log('nextAddressbook', reverse);
 			var curlistitem = this.getContact(OC.Contacts.Card.id);
 			var parent = curlistitem.parent('ul');
 			var newparent = reverse
@@ -1736,7 +1737,7 @@ OC.Contacts={
 			}
 		},
 		previousAddressbook:function() {
-			console.log('previousAddressbook');
+			//console.log('previousAddressbook');
 			this.nextAddressbook(true);
 		},
 		// Reload the contacts list.
@@ -1750,7 +1751,7 @@ OC.Contacts={
 				}
 			}
 			self = this;
-			console.log('update: ' + params.cid + ' ' + params.aid + ' ' + params.start);
+			//console.log('update: ' + params.cid + ' ' + params.aid + ' ' + params.start);
 			var firstrun = false;
 			var opts = {};
 			opts['startat'] = (params.start?params.start:0);
@@ -1814,7 +1815,7 @@ OC.Contacts={
 										var bookid = $(this).data('bookid');
 										var numsiblings = $('.contacts li[data-bookid="'+bookid+'"]').length;
 										if (isInView && numsiblings >= self.batchnum) {
-											console.log('This would be a good time to load more contacts.');
+											//console.log('This would be a good time to load more contacts.');
 											OC.Contacts.Contacts.update({cid:params.cid, aid:bookid, start:$('#contacts li[data-bookid="'+bookid+'"]').length});
 										}
 									});
@@ -1850,7 +1851,7 @@ OC.Contacts={
 		scrollTo:function(id){
 			var item = $('#contacts li[data-id="'+id+'"]');
 			if(item && $.isNumeric(item.offset().top)) {
-				console.log('scrollTo ' + parseInt(item.offset().top));
+				//console.log('scrollTo ' + parseInt(item.offset().top));
 				$('#contacts').animate({
 					scrollTop: parseInt(item.offset()).top-40}, 'slow','swing');
 			}
@@ -2107,7 +2108,7 @@ $(document).ready(function(){
 									return false;
 								})
 								.error(function(jqXHR, textStatus, errorThrown) {
-									console.log(textStatus);
+									//console.log(textStatus);
 									OC.Contacts.notify({message:errorThrown + ': ' + textStatus,});
 								});
 							uploadingFiles[fileName] = jqXHR;
@@ -2132,7 +2133,7 @@ $(document).ready(function(){
 				}
 			},
 			fail: function(e, data) {
-				console.log('fail');
+				//console.log('fail');
 				OC.Contacts.notify({message:data.errorThrown + ': ' + data.textStatus});
 				// TODO: Remove file from upload queue.
 			},
@@ -2217,13 +2218,13 @@ $(document).ready(function(){
 														setTimeout(function() {
 															importFiles(aid, uploadingFiles);
 														}, 500);
-														console.log('aid ' + aid);
+														//console.log('aid ' + aid);
 													});
 												} else {
 													setTimeout(function() {
 														importFiles(aid, uploadingFiles);
 													}, 500);
-													console.log('aid ' + aid);
+													//console.log('aid ' + aid);
 													$(this).dialog('close');
 												}
 											},
