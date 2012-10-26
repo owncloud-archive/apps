@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-09 02:01+0200\n"
-"PO-Revision-Date: 2012-09-08 08:39+0000\n"
+"POT-Creation-Date: 2012-10-27 00:01+0200\n"
+"PO-Revision-Date: 2012-10-26 13:48+0000\n"
 "Last-Translator: mattheu_9x <mattheu_9x@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "Cài đặt"
 
 #: templates/index.php:17
 msgid "Pad Title"
-msgstr ""
+msgstr "Tiêu đề pad"
 
 #: templates/index.php:18
 msgid "Open"
@@ -37,7 +37,7 @@ msgstr "Mở"
 
 #: templates/settings.php:15
 msgid "Etherpad service URL"
-msgstr ""
+msgstr "Dịch vụ URL Etherpad "
 
 #: templates/settings.php:20
 msgid "Username"

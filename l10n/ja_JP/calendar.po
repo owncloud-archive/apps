@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 01:42+0000\n"
-"Last-Translator: ttyn <tetuyano+transi@gmail.com>\n"
+"POT-Creation-Date: 2012-10-27 00:01+0200\n"
+"PO-Revision-Date: 2012-10-26 22:01+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,21 +39,21 @@ msgstr "イベントが見つかりませんでした。"
 msgid "Wrong calendar"
 msgstr "誤ったカレンダーです"
 
-#: ajax/import/dropimport.php:29 ajax/import/import.php:64
+#: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
 msgstr "イベントの無いもしくはすべてのイベントを含むファイルは既にあなたのカレンダーに保存されています。"
 
-#: ajax/import/dropimport.php:31 ajax/import/import.php:67
+#: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
 msgstr "イベントは新しいカレンダーに保存されました"
 
-#: ajax/import/import.php:56
+#: ajax/import/import.php:57
 msgid "Import failed"
 msgstr "インポートに失敗"
 
-#: ajax/import/import.php:69
+#: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
 msgstr "イベントはあなたのカレンダーに保存されました"
 
@@ -210,7 +210,7 @@ msgstr "このカレンダーを削除する権限がありません。"
 msgid "You do not have the permissions to add to this calendar."
 msgstr "このカレンダーに追加する権限がありません。"
 
-#: lib/import.php:195 templates/calendar.php:12
+#: lib/import.php:214 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "新しくカレンダーを作成"
@@ -754,11 +754,15 @@ msgid ""
 "calendars will be merged."
 msgstr "このカレンダー名はすでに使われています。もし続行する場合は、これらのカレンダーはマージされます。"
 
-#: templates/part.import.php:47
+#: templates/part.import.php:48
+msgid "Remove all events from the selected calendar"
+msgstr ""
+
+#: templates/part.import.php:50
 msgid "Import"
 msgstr "インポート"
 
-#: templates/part.import.php:56
+#: templates/part.import.php:59
 msgid "Close Dialog"
 msgstr "ダイアログを閉じる"
 
