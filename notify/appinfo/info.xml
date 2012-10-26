@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<info>
+	<id>notify</id>
+	<name>User Notifications</name>
+	<description>Lets other apps send notifications to ownCloud users.</description>
+	<licence>AGPL</licence>
+	<author>Florian Hülsmann</author>
+	<require>4</require>
+	<shipped>true</shipped>
+	<standalone/>
+	<default_enable/>
+	<remote>
+		<notify_feed>feed.php</notify_feed>
+	</remote>
+</info>
