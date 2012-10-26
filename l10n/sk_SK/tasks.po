@@ -4,13 +4,14 @@
 # 
 # Translators:
 #   <martin.babik@gmail.com>, 2012.
+# Roman Priesol <roman@priesol.net>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:04+0200\n"
-"PO-Revision-Date: 2012-10-21 18:55+0000\n"
-"Last-Translator: martinb <martin.babik@gmail.com>\n"
+"POT-Creation-Date: 2012-10-26 02:02+0200\n"
+"PO-Revision-Date: 2012-10-25 12:22+0000\n"
+"Last-Translator: Roman Priesol <roman@priesol.net>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,7 +65,7 @@ msgstr "Prázdny sumár"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr ""
+msgstr "Neplatné percento dokončení"
 
 #: lib/app.php:107
 msgid "Invalid priority"

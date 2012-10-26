@@ -10,7 +10,7 @@
  * later.
  */
 
-namespace OCA_Updater;
+namespace OCA\Updater;
 
 class Downloader {
 
@@ -20,8 +20,7 @@ class Downloader {
 		$path = \OC_Helper::tmpFile();
 
 		if (!copy($url, $path)) {
-			\OC_Log::write(App::APP_ID, "Failed to download $url package to $path", \OC_Log::ERROR);
-			return false;
+			throw new \Exception("Failed to download $url package to $path");
 		}
 
 		//Mimetype bug workaround
@@ -37,24 +36,21 @@ class Downloader {
 			rename($path, $path . '.tar.bz2');
 			$path.='.tar.bz2';
 		} else {
-			\OC_Log::write(App::APP_ID, 'Archives of type ' . $mime . ' are not supported', \OC_Log::ERROR);
-			return false;
+			throw new \Exception('Unable to extract ' . $mime);
 		}
 
 		$extractDir = self::getPackageDir($version);
 		if (!mkdir($extractDir, 0777, true)) {
-			\OC_Log::write(App::APP_ID, 'Unable to create temporary directory', \OC_Log::ERROR);
-			return false;
+			throw new \Exception("Unable to create temporary directory");
 		}
 
 		$archive = \OC_Archive::open($path);
 		if ($archive) {
 			$archive->extract($extractDir);
 		} else {
-			\OC_Log::write(App::APP_ID, "Failed to open package $path", \OC_Log::ERROR);
 			\OC_Helper::rmdirr($extractDir);
 			@unlink($path);
-			return false;
+			throw new \Exception("$path extraction error");
 		}
 
 		return $extractDir. DIRECTORY_SEPARATOR . self::PACKAGE_ROOT;

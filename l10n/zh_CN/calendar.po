@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 15:40+0000\n"
+"POT-Creation-Date: 2012-10-25 09:34+0200\n"
+"PO-Revision-Date: 2012-10-25 03:40+0000\n"
 "Last-Translator: hanfeng <appweb.cn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr "不是所有的日历被完全缓存"
+msgstr "日程表未全部缓存完成"
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
@@ -152,7 +152,7 @@ msgstr "客户"
 
 #: lib/app.php:118
 msgid "Deliverer"
-msgstr "派送"
+msgstr "供应商"
 
 #: lib/app.php:119
 msgid "Holidays"
@@ -572,7 +572,7 @@ msgstr "删除"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
-msgstr "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               "
+msgstr "分享给您的日程表，由"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
@@ -588,7 +588,7 @@ msgstr "显示名称"
 
 #: templates/part.editcalendar.php:23
 msgid "Active"
-msgstr "激活"
+msgstr "活动"
 
 #: templates/part.editcalendar.php:29
 msgid "Calendar color"
@@ -776,7 +776,7 @@ msgstr "共享人"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr "已共享人"
+msgstr "已共享给"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
@@ -784,7 +784,7 @@ msgstr "取消共享"
 
 #: templates/part.share.php:53
 msgid "Nobody"
-msgstr "Nobody"
+msgstr "没有人"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
@@ -814,7 +814,7 @@ msgstr "在"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr "综合"
+msgstr "常规"
 
 #: templates/settings.php:15
 msgid "Timezone"
@@ -838,7 +838,7 @@ msgstr "12小时"
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr "开始星期"
+msgstr "一周开始于"
 
 #: templates/settings.php:76
 msgid "Cache"
@@ -850,7 +850,7 @@ msgstr "清理重复事件的缓存"
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr "连接"
+msgstr "网址"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
