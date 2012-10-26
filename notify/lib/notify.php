@@ -574,7 +574,7 @@ class OC_Notify {
 	}
 
 	public static function post_shared($args) {
-		//OCP\Util::writeLog("notify", "shared hook: " . print_r($args, true), OCP\Util::DEBUG);
+		OCP\Util::writeLog("notify", "shared hook: " . print_r($args, true), OCP\Util::DEBUG);
 		switch($args["itemType"]) {
 		case "event":
 			self::sendUserNotification("notify", "sharedEvent", $args["shareWith"], array(
@@ -586,6 +586,12 @@ class OC_Notify {
 			self::sendUserNotification("notify", "sharedCal", $args["shareWith"], array(
 				"user" => $args["uidOwner"],
 				"name" => $args["itemTarget"]
+			));
+			break;
+		case "file":
+			self::sendUserNotification("notify", "sharedFile", $args["shareWith"], array(
+				"user" => $args["uidOwner"],
+				"name" => $args["fileTarget"]
 			));
 			break;
 		default:
