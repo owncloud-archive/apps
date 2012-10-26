@@ -338,7 +338,9 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 	$.getJSON(OC.filePath('contacts', 'ajax', 'categories/list.php'), {}, function(jsondata) {
 		if (jsondata && jsondata.status == 'success') {
 			self.lastgroup = jsondata.data.lastgroup;
-			self.sortorder = $.map(jsondata.data.sortorder.split(','), function(c) {return parseInt(c)});
+			self.sortorder = jsondata.data.sortorder.length > 0
+				? $.map(jsondata.data.sortorder.split(','), function(c) {return parseInt(c)})
+				: [];
 			console.log('sortorder', self.sortorder);
 			// Favorites
 			var contacts = $.map(jsondata.data.favorites, function(c) {return parseInt(c)});
@@ -706,7 +708,7 @@ OC.Contacts = OC.Contacts || {
 			}
 			$.post(OC.filePath('contacts', 'ajax', 'setpreference.php'), {'key':'lastgroup', 'value':self.currentgroup}, function(jsondata) {
 				if(!jsondata || jsondata.status !== 'success') {
-					OC.notify({message: jsondata ? jsondata.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
+					OC.notify({message: (jsondata && jsondata.data) ? jsondata.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
 				}
 			});
 			self.$rightContent.scrollTop(0);
@@ -1034,13 +1036,13 @@ OC.Contacts = OC.Contacts || {
 					break;
 				case 171: // ? Danish
 				case 191: // ? Standard qwerty
-					self.$ninjahelp.toggle('fast');
+					self.$ninjahelp.toggle('fast').position({my: "center",at: "center",of: "#content"});
 					break;
 			}
 
 		});
 
-		$('[title]').tipsy(); // find all with a title attribute and tipsy them
+		$('#content > [title]').tipsy(); // find all with a title attribute and tipsy them
 	},
 	jumpToContact: function(id) {
 		this.$rightContent.scrollTop(this.Contacts.contactPos(id));
