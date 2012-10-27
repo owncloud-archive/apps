@@ -158,6 +158,8 @@ OC.notify = {
 					});
 					if(OC.notify.notifications.length == 0) {
 						OC.notify.dom.listContainer.slideUp();
+					} else {
+						OC.notify.dom.fitContainerSize();
 					}
 				}
 			}
@@ -231,7 +233,7 @@ $(document).ready(function() {
     OC.notify.dom.listContainer.find('#notify-readall').click(OC.notify.markAllRead);
     OC.notify.dom.listContainer.find('#notify-deleteread').click(OC.notify.deleteRead);
     OC.notify.dom.listContainer.find('.notify-autorefresh').click(OC.notify.toggleRefresh);
-    OC.notify.dom.icon.appendTo('#header').after(OC.notify.dom.listContainer);
+    OC.notify.dom.icon.appendTo('#body-user #header').after(OC.notify.dom.listContainer);
     OC.notify.setDocTitle();
     OC.notify.getCount();
     $.post(OC.filePath('notify', 'ajax', 'getAutoRefresh.php'), null, function(response) {
