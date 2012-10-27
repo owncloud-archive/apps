@@ -8,4 +8,7 @@
 	<author>Frank Karlitschek</author>
 	<require>4.9</require>
 	<shipped>true</shipped>
+	<remote>
+		<odav>webdav.php</odav>
+	</remote>
 </info>

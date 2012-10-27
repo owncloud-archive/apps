@@ -27,6 +27,8 @@
 $RUNTIME_APPTYPES=array('filesystem','authentication');
 require_once '../lib/base.php';
 
+require_once 'AbstractBearer.php';
+
 $tokenInfoEndpoint = \OC_Config::getValue( "tokenInfoEndpoint", "http://localhost/oauth/php-oauth/tokeninfo.php" );
 
 // Backends
