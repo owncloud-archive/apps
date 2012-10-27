@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-12 02:03+0200\n"
-"PO-Revision-Date: 2012-10-11 08:56+0000\n"
+"POT-Creation-Date: 2012-10-27 00:01+0200\n"
+"PO-Revision-Date: 2012-10-26 09:22+0000\n"
 "Last-Translator: cjtess <claudio.tessone@gmail.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -22,19 +22,19 @@ msgstr ""
 msgid "Bookmarks"
 msgstr "Marcadores"
 
-#: js/addBm.js:42 js/bookmarks.js:243
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "Etiquetas"
 
-#: js/bookmarks.js:178
+#: js/bookmarks.js:168
 msgid "Edit bookmark"
 msgstr "Editar marcadores"
 
-#: js/bookmarks.js:410
+#: js/bookmarks.js:385
 msgid "Are you sure you want to remove this tag from every entry?"
-msgstr "Estás seguro de que querés borrar esta etiqueta de todos los elementos?"
+msgstr "¿Estás seguro de que querés borrar esta etiqueta de todos los elementos?"
 
-#: js/bookmarks.js:411
+#: js/bookmarks.js:386
 msgid "Warning"
 msgstr "Atención"
 
@@ -50,19 +50,19 @@ msgstr "Agregar un marcador"
 msgid "Close"
 msgstr "Cerrar"
 
-#: templates/addBm.php:22 templates/list.php:91
+#: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
 msgstr "El título de la página"
 
-#: templates/addBm.php:27 templates/list.php:95
+#: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
 msgstr "La dirección de la página"
 
-#: templates/addBm.php:40 templates/list.php:104
+#: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
-msgstr "escripción de la página"
+msgstr "Descripción de la página"
 
-#: templates/addBm.php:44 templates/list.php:108
+#: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
 msgstr "Guardar"
 
@@ -75,6 +75,18 @@ msgstr "Arrastrá desde aquí a los marcadores de tu navegador, y hacé click cu
 #: templates/bookmarklet.php:7
 msgid "Read later"
 msgstr "Leer después"
+
+#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
+msgid "Edit"
+msgstr "Editar"
+
+#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+msgid "Delete"
+msgstr "Borrar"
+
+#: templates/js_tpl.php:49
+msgid "Cancel"
+msgstr "Cancelar"
 
 #: templates/list.php:12
 msgid "Address"
@@ -107,18 +119,6 @@ msgstr "Etiquetas relacionadas"
 #: templates/list.php:39
 msgid "You have no bookmarks"
 msgstr "No tenés marcadores"
-
-#: templates/list.php:64
-msgid "Edit"
-msgstr "Editar"
-
-#: templates/list.php:68
-msgid "Delete"
-msgstr "Borrar"
-
-#: templates/list.php:107
-msgid "Cancel"
-msgstr "Cancelar"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"

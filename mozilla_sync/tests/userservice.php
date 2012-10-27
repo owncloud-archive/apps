@@ -1,5 +1,6 @@
 <?php
 
+OC_App::loadApp('mozilla_sync');
 class Test_UserService extends UnitTestCase {
 
   private $userName = 'testUser';
