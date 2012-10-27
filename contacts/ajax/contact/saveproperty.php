@@ -118,6 +118,11 @@ if(!$value) {
 			break;
 		case 'CATEGORIES':
 			debug('Setting string:'.$name.' '.$value);
+			$catmgr = OC_Contacts_App::getVCategories();
+			$catmgr->purgeObject($id, 'contact');
+			foreach(array_map('trim', explode(',', $value)) as $category) {
+				$catmgr->addToCategory($id, $category);
+			}
 			$vcard->children[$line]->setValue($value);
 			break;
 		case 'EMAIL':

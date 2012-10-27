@@ -304,7 +304,6 @@ class OC_Contacts_VCard {
 			}
 		}
 		if(!$isChecked) {
-			OC_Contacts_App::loadCategoriesFromVCard($card);
 			self::updateValuesFromAdd($aid, $card);
 		}
 		$card->setString('VERSION', '3.0');
@@ -337,6 +336,7 @@ class OC_Contacts_VCard {
 			return false;
 		}
 		$newid = OCP\DB::insertid('*PREFIX*contacts_cards');
+		OC_Contacts_App::loadCategoriesFromVCard($newid, $card);
 
 		OC_Contacts_Addressbook::touch($aid);
 		OC_Hook::emit('OC_Contacts_VCard', 'post_createVCard', $newid);
@@ -432,7 +432,7 @@ class OC_Contacts_VCard {
 				);
 			}
 		}
-		OC_Contacts_App::loadCategoriesFromVCard($card);
+		OC_Contacts_App::loadCategoriesFromVCard($id, $card);
 
 		$fn = $card->getAsString('FN');
 		if (empty($fn)) {
@@ -551,6 +551,7 @@ class OC_Contacts_VCard {
 				)
 			);
 		}
+		OC_Contacts_App::getVCategories()->purgeObject($id);
 
 		OCP\Share::unshareAll('contact', $id);
 
