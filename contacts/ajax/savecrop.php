@@ -81,9 +81,9 @@ if($data) {
 					}
 					$property->setValue($image->__toString());
 					$property->parameters[]
-						= new Sabre_VObject_Parameter('ENCODING', 'b');
+						= new Sabre\VObject\Parameter('ENCODING', 'b');
 					$property->parameters[]
-						= new Sabre_VObject_Parameter('TYPE', $image->mimeType());
+						= new Sabre\VObject\Parameter('TYPE', $image->mimeType());
 					$vcard->__set('PHOTO', $property);
 				} else {
 					OCP\Util::writeLog('contacts',

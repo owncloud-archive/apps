@@ -1,0 +1,10 @@
+= DEV NOTES =
+We need to implement this interface for Bearer Auth
+    SabreDAV/lib/Sabre/DAV/Auth/IBackend.php
+
+lib/connector/sabre/auth.php
+
+extend some stuff there instead, should be doable!
+
+do something with webdav.php, like in the remoteStorage.php plugin, but then
+simple...

@@ -31,8 +31,8 @@ $end_type = $dtend->getDateType();
 $dtend->setDateTime($dtend->getDateTime()->add($delta), $end_type);
 unset($vevent->DURATION);
 
-$vevent->setDateTime('LAST-MODIFIED', 'now', Sabre_VObject_Property_DateTime::UTC);
-$vevent->setDateTime('DTSTAMP', 'now', Sabre_VObject_Property_DateTime::UTC);
+$vevent->setDateTime('LAST-MODIFIED', 'now', Sabre\VObject\Property\DateTime::UTC);
+$vevent->setDateTime('DTSTAMP', 'now', Sabre\VObject\Property\DateTime::UTC);
 
 OC_Calendar_Object::edit($id, $vcalendar->serialize());
 $lastmodified = $vevent->__get('LAST-MODIFIED')->getDateTime();
