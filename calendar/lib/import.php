@@ -20,7 +20,7 @@ class OC_Calendar_Import{
 	private $cacheprogress;
 
 	/*
-	 * @brief Sabre_VObject_Component_VCalendar object - for documentation see http://code.google.com/p/sabredav/wiki/Sabre_VObject_Component_VCalendar
+	 * @brief Sabre\VObject\Component\VCalendar object - for documentation see http://code.google.com/p/sabredav/wiki/Sabre_VObject_Component_VCalendar
 	 */
 	private $calobject;
 
@@ -118,7 +118,7 @@ class OC_Calendar_Import{
 			}
 		}
 		foreach($this->calobject->getComponents() as $object) {
-			if(!($object instanceof Sabre_VObject_Component_VEvent) && !($object instanceof Sabre_VObject_Component_VJournal) && !($object instanceof Sabre_VObject_Component_VTodo)) {
+			if(!($object instanceof Sabre\VObject\Component\VEvent) && !($object instanceof Sabre\VObject\Component\VJournal) && !($object instanceof Sabre\VObject\Component\VTodo)) {
 				continue;
 			}
 			$dtend = OC_Calendar_Object::getDTEndFromVEvent($object);

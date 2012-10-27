@@ -133,7 +133,7 @@ switch($name) {
 
 $line = count($vcard->children) - 1;
 
-// Apparently Sabre_VObject_Parameter doesn't do well with
+// Apparently Sabre\VObject\Parameter doesn't do well with
 // multiple values or I don't know how to do it. Tanghus.
 foreach ($parameters as $key=>$element) {
 	if(is_array($element) /*&& strtoupper($key) == 'TYPE'*/) {
@@ -142,13 +142,13 @@ foreach ($parameters as $key=>$element) {
 		foreach($element as $e) {
 			if($e != '' && !is_null($e)) {
 				if(trim($e)) {
-					$vcard->children[$line]->parameters[] = new Sabre_VObject_Parameter($key, $e);
+					$vcard->children[$line]->parameters[] = new Sabre\VObject\Parameter($key, $e);
 				}
 			}
 		}
 	} else {
 		if(trim($element)) {
-			$vcard->children[$line]->parameters[] = new Sabre_VObject_Parameter($key, $element);
+			$vcard->children[$line]->parameters[] = new Sabre\VObject\Parameter($key, $element);
 		}
 	}
 }
