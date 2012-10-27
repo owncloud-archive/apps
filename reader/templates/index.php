@@ -10,7 +10,8 @@
 	$dir = empty($_['dir'])?'/':$_['dir'];
 
 	// Search for pdf files in current directory.
-	$pdfs = \OC_FileCache::searchByMime('application', 'pdf', '/'.\OCP\USER::getUser().'/files'.$dir);
+	$view = new \OC\Files\View('/'.\OCP\USER::getUser().'/files'.$dir);
+	$pdfs = $view->searchByMime('application/pdf');
 	sort($pdfs);
 
 	// Construct an array, to store pdf files and directory names, in which pdf files reside.

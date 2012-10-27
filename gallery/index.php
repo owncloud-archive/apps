@@ -43,7 +43,7 @@ if (!OCP\App::isEnabled('files_imageviewer')) {
 }
 
 $root = !empty($_GET['root']) ? $_GET['root'] : '/';
-$files = \OC_Files::getDirectoryContent($root, 'image');
+$files = \OC\Files\Filesystem::getDirectoryContent($root, 'image');
 
 $tl = new \OC\Pictures\TilesLine();
 $ts = new \OC\Pictures\TileStack(array(), '');
@@ -64,7 +64,7 @@ foreach($files as $file) {
 		while (!empty($dirs_to_check)) {
 			// get next subdir to check
 			$subdir = array_pop($dirs_to_check);
-			$subdir_files = \OC_Files::getDirectoryContent($subdir, 'image');
+			$subdir_files = \OC\Files\Filesystem::getDirectoryContent($subdir, 'image');
 			foreach($subdir_files as $file) {
 				if ($file['type'] == 'file') {
 					$second_level_images[] = $subdir.'/'.$file['name'];
