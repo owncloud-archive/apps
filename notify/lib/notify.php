@@ -579,19 +579,29 @@ class OC_Notify {
 		case "event":
 			self::sendUserNotification("notify", "sharedEvent", $args["shareWith"], array(
 				"user" => $args["uidOwner"],
-				"title" => $args["itemTarget"]
+				"title" => $args["itemTarget"],
+				"href" => OCP\Util::linkTo("calendar", "index.php")
 			));
 			break;
 		case "calendar":
 			self::sendUserNotification("notify", "sharedCal", $args["shareWith"], array(
 				"user" => $args["uidOwner"],
-				"name" => $args["itemTarget"]
+				"name" => $args["itemTarget"],
+				"href" => OCP\Util::linkTo("calendar", "index.php")
 			));
 			break;
 		case "file":
 			self::sendUserNotification("notify", "sharedFile", $args["shareWith"], array(
 				"user" => $args["uidOwner"],
-				"name" => $args["fileTarget"]
+				"name" => $args["fileTarget"],
+				"href" => OCP\Util::linkTo("files", "index.php", array("dir" => "/Shared" . rtrim(dirname($args["fileTarget"]), "/")))
+			));
+			break;
+		case "folder":
+			self::sendUserNotification("notify", "sharedFolder", $args["shareWith"], array(
+				"user" => $args["uidOwner"],
+				"name" => $args["fileTarget"],
+				"href" => OCP\Util::linkTo("files", "index.php", array("dir" => "/Shared" . $args["fileTarget"]))
 			));
 			break;
 		default:
