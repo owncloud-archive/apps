@@ -24,7 +24,7 @@
 class OC_Gallery_Hooks_Handlers {
 
 	public static function writePhoto($params) {
-		$path = $params[OC_Filesystem::signal_param_path];
+		$path = $params[\OC\Files\Filesystem::signal_param_path];
 		if (self::isPhoto($path)) {
 			OCP\Util::writeLog('gallery', 'updating thumbnail for ' . $path, OCP\Util::DEBUG);
 			\OC\Pictures\ThumbnailsManager::getInstance()->getThumbnail($path);
