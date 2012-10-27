@@ -1,8 +1,8 @@
 <?php
 
-require_once 'lib/RemoteResourceServer.php';
+require_once '3rdparty/RemoteResourceServer.php';
 
-abstract class Sabre_DAV_Auth_Backend_AbstractBearer implements Sabre_DAV_Auth_IBackend {
+class OC_Connector_Sabre_Auth_Bearer implements Sabre_DAV_Auth_IBackend {
 
     protected $currentUser;
     protected $tokenInfoEndpoint;
@@ -26,6 +26,9 @@ abstract class Sabre_DAV_Auth_Backend_AbstractBearer implements Sabre_DAV_Auth_I
         $attributes = $rs->getAttributes();
 
         $this->currentUser = $attributes["uid"][0];
+        // maybe need to set that we are logged in...?
+        OC_Util::setupFS($this->currentUser);
+
         return true;
     }
 
