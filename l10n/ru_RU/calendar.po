@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 09:41+0000\n"
-"Last-Translator: skoptev <skoptev@ukr.net>\n"
+"POT-Creation-Date: 2012-10-27 00:01+0200\n"
+"PO-Revision-Date: 2012-10-26 22:01+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,21 +39,21 @@ msgstr "Не найдено событий"
 msgid "Wrong calendar"
 msgstr "Неверный календарь"
 
-#: ajax/import/dropimport.php:29 ajax/import/import.php:64
+#: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
 msgstr "Файл либо не содержит событий, либо все события уже сохранены в Вашем календаре."
 
-#: ajax/import/dropimport.php:31 ajax/import/import.php:67
+#: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
 msgstr "Событие было сохранено в новом календаре "
 
-#: ajax/import/import.php:56
+#: ajax/import/import.php:57
 msgid "Import failed"
 msgstr "Импортирование не удалось"
 
-#: ajax/import/import.php:69
+#: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
 msgstr "Событие было сохранено в Вашем календаре "
 
@@ -210,7 +210,7 @@ msgstr "У Вас нет прав доступа для удаления это�
 msgid "You do not have the permissions to add to this calendar."
 msgstr "У Вас нет прав доступа для добавления этого календаря."
 
-#: lib/import.php:195 templates/calendar.php:12
+#: lib/import.php:214 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Новый календарь"
@@ -754,11 +754,15 @@ msgid ""
 "calendars will be merged."
 msgstr "Календарь с таким именем  существует. Если вы будете продолжать так или иначе, эти календари будут объединены."
 
-#: templates/part.import.php:47
+#: templates/part.import.php:48
+msgid "Remove all events from the selected calendar"
+msgstr ""
+
+#: templates/part.import.php:50
 msgid "Import"
 msgstr "Импорт"
 
-#: templates/part.import.php:56
+#: templates/part.import.php:59
 msgid "Close Dialog"
 msgstr "Закрыть диалог"
 
