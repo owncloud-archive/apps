@@ -24,11 +24,3 @@
 */
 
 OCP\App::registerAdmin( 'user_oauth', 'settings' );
-
-OCP\App::addNavigationEntry( array(
-	'id' => 'user_oauthe',
-	'order' => 74,
-	'href' => OCP\Util::linkTo( 'user_oauth', 'index.php' ),
-	'icon' => OCP\Util::imagePath( 'user_oauth', 'example.png' ),
-	'name' => 'OAuth'
-));
