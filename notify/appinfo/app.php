@@ -24,9 +24,10 @@ $l = OC_L10N::get('notify');
 OC::$CLASSPATH['OC_Notify'] = 'apps/notify/lib/notify.php';
 if(OCP\User::isLoggedIn()) {
 	// this makes no sense for guests, so only for users
-	OCP\Util::addScript( 'notify', 'notifications' );
-	OCP\Util::addStyle( 'notify', 'notifications' );
-	OCP\Util::addHeader( 'link', array(
+	OCP\Util::addScript('notify', 'notifications');
+	OCP\Util::addStyle('notify', 'notifications');
+	OCP\Util::addStyle('notify', 'customNotifications');
+	OCP\Util::addHeader('link', array(
 		'rel' => 'alternate',
 		'type' => 'application/atom+xml',
 		'title' => $l->t('ownCloud notifications (%s)', 'Atom 1.0'),

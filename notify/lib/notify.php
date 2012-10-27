@@ -580,30 +580,56 @@ class OC_Notify {
 			self::sendUserNotification("notify", "sharedEvent", $args["shareWith"], array(
 				"user" => $args["uidOwner"],
 				"title" => $args["itemTarget"],
-				"href" => OCP\Util::linkTo("calendar", "index.php")
+				"href" => OCP\Util::linkTo("calendar", "index.php"),
+				"img" => OCP\Util::imagePath("calendar", "icon.svg")
 			));
 			break;
 		case "calendar":
 			self::sendUserNotification("notify", "sharedCal", $args["shareWith"], array(
 				"user" => $args["uidOwner"],
 				"name" => $args["itemTarget"],
-				"href" => OCP\Util::linkTo("calendar", "index.php")
+				"href" => OCP\Util::linkTo("calendar", "index.php"),
+				"img" => OCP\Util::imagePath("calendar", "icon.svg")
 			));
 			break;
 		case "file":
-			self::sendUserNotification("notify", "sharedFile", $args["shareWith"], array(
+			$params = array(
 				"user" => $args["uidOwner"],
 				"name" => $args["fileTarget"],
-				"href" => OCP\Util::linkTo("files", "index.php", array("dir" => "/Shared" . rtrim(dirname($args["fileTarget"]), "/")))
-			));
+				"href" => OCP\Util::linkTo("files", "index.php", array("dir" => "/Shared" . rtrim(dirname($args["fileTarget"]), "/"))),
+			);
+			// get the mime type icon:
+			$fileMimeStmt = OCP\DB::prepare("SELECT mimetype FROM *PREFIX*fscache WHERE id = ?");
+			$result = $fileMimeStmt->execute(array($args["fileSource"]));
+			if($result) {
+				$mime = $result->fetchColumn();
+				$mimeParts = explode("/", $mime);
+				if(strtolower($mimeParts[0]) == "image") {
+					$params["img"] = OCP\Util::linkTo("files", "ajax/download.php", array("files" => "/Shared" . $args["fileTarget"]));
+					$params["class"] = "notify_fullImg";
+				} else {
+					$params["img"] = OC_Helper::mimetypeIcon($mime);
+				}
+			} else {
+				$mimeImg = OCP\Util::imagePath("core", "filetypes/file.png");
+			}
+			self::sendUserNotification("notify", "sharedFile", $args["shareWith"], $params);
 			break;
 		case "folder":
 			self::sendUserNotification("notify", "sharedFolder", $args["shareWith"], array(
 				"user" => $args["uidOwner"],
 				"name" => $args["fileTarget"],
-				"href" => OCP\Util::linkTo("files", "index.php", array("dir" => "/Shared" . $args["fileTarget"]))
+				"href" => OCP\Util::linkTo("files", "index.php", array("dir" => "/Shared" . $args["fileTarget"])),
+				"img" => OCP\Util::imagePath("core", "filetypes/folder.png")
 			));
 			break;
+		case "addressbook":
+			self::sendUserNotification("notify", "sharedAbook", $args["shareWith"], array(
+				"user" => $args["uidOwner"],
+				"name" => $args["itemTarget"],
+				"href" => OCP\Util::linkTo("contacts", "index.php"),
+				"img" => OCP\Util::imagePath("settings", "users.svg")
+			));
 		default:
 		}
 	}

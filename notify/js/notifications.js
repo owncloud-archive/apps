@@ -33,7 +33,11 @@ OC.notify = {
 			content.prepend('<img class="notify-img" src="' + notification.img + '" />');
 		}
 		for(var param in notification.params) {
-			el.attr('data-' + param, notification.params[param]);
+			if(param == "class") {
+				el.addClass(notification.params[param]);
+			} else {
+				el.attr('data-' + param, notification.params[param]);
+			}
 		}
 		OC.notify.dom.fitContainerSize();
 	},
