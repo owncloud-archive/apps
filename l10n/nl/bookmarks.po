@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-14 02:04+0200\n"
-"PO-Revision-Date: 2012-10-13 09:04+0000\n"
+"POT-Creation-Date: 2012-10-28 00:01+0200\n"
+"PO-Revision-Date: 2012-10-27 08:44+0000\n"
 "Last-Translator: Richard Bos <radoeka@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -23,19 +23,19 @@ msgstr ""
 msgid "Bookmarks"
 msgstr "Bladwijzers"
 
-#: js/addBm.js:42 js/bookmarks.js:243
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "Tags"
 
-#: js/bookmarks.js:178
+#: js/bookmarks.js:168
 msgid "Edit bookmark"
 msgstr "Bewerk bladwijzer"
 
-#: js/bookmarks.js:410
+#: js/bookmarks.js:385
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Bent u zeker dat u deze tag van elk item wilt verwijderen."
 
-#: js/bookmarks.js:411
+#: js/bookmarks.js:386
 msgid "Warning"
 msgstr "Waarschuwing"
 
@@ -51,19 +51,19 @@ msgstr "Voeg een bladwijzer toe"
 msgid "Close"
 msgstr "Sluit"
 
-#: templates/addBm.php:22 templates/list.php:91
+#: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
 msgstr "De pagina titel"
 
-#: templates/addBm.php:27 templates/list.php:95
+#: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
 msgstr "Het pagina adres"
 
-#: templates/addBm.php:40 templates/list.php:104
+#: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
 msgstr "Pagina beschrijving"
 
-#: templates/addBm.php:44 templates/list.php:108
+#: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
 msgstr "Bewaar"
 
@@ -71,11 +71,23 @@ msgstr "Bewaar"
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr "Sleep dit naar uw browser bladwijzers en klik erop, wanneer u een webpagina snel wilt voorzien van een bladwijzer:"
+msgstr "Sleep dit naar uw browser bladwijzer menu en klik erop, wanneer u een webpagina snel wilt voorzien van een bladwijzer:"
 
 #: templates/bookmarklet.php:7
 msgid "Read later"
 msgstr "Lees later"
+
+#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
+msgid "Edit"
+msgstr "Bewerk"
+
+#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+msgid "Delete"
+msgstr "Verwijder"
+
+#: templates/js_tpl.php:49
+msgid "Cancel"
+msgstr "Annuleer"
 
 #: templates/list.php:12
 msgid "Address"
@@ -108,18 +120,6 @@ msgstr "Aanverwante tags"
 #: templates/list.php:39
 msgid "You have no bookmarks"
 msgstr "U heeft geen bladwijzers"
-
-#: templates/list.php:64
-msgid "Edit"
-msgstr "Bewerk"
-
-#: templates/list.php:68
-msgid "Delete"
-msgstr "Verwijder"
-
-#: templates/list.php:107
-msgid "Cancel"
-msgstr "Annuleer"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
