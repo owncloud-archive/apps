@@ -19,13 +19,15 @@
 #notify-deleteread { background-image:url('%webroot%/core/img/actions/delete.svg'); }
 #notify-list .notification { margin:0.25em; display:block; position:relative; }
 #notify-list .notification .content { display:inline-block; width:19em; padding:0.5em; line-height:1.8em; }
-#notify-list .notification div.actionicons { width:1.5em; height:3em; float:right; position:relative; padding:0; visibility:hidden; }
+#notify-list .notification div.actionicons { width:16px; height:16px; float:right; position:relative; padding:0; visibility:hidden; }
 #notify-list .notification:hover div.actionicons { visibility:visible; }
-#notify-list .notification div.actionicons span { width:1.5em; height:1.5em; background-size:cover; background-repeat:no-repeat; position:absolute; left:0; text-indent:-9000px; }
+#notify-list .notification div.actionicons span { width:16px; height:16px; background-size:cover; background-repeat:no-repeat; position:absolute; left:0; text-indent:-9000px; }
+#notify-list .notification span.deleteicon { top:0; background-image:url('%webroot%/core/img/actions/delete.svg'); }
+/*
 #notify-list .notification span.readicon { top:0; background-image:url('%appswebroot%/notify/img/readicons.svg'); }
-#notify-list .notification span.deleteicon { top:1.5em; background-image:url('%webroot%/core/img/actions/delete.svg'); }
 #notify-list .notification span.readicon.unread, #notify-list .notification span.readicon.read:hover { background-position:left 0; }
 #notify-list .notification span.readicon.read, #notify-list .notification span.readicon.unread:hover { background-position:right 0; }
+*/
 /* unread notifications: */
 #notify-list .notification[data-read="0"] { background: #7995BD; }
 #notify-list .notification[data-read="0"]:hover { background: #95A8C7; }

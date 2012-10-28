@@ -258,7 +258,7 @@ class OC_Notify {
      * @param $count limit for number of notifications
      * @return array with notifications
      */
-    public static function getNotifications($uid = null, $count = null, $lang = null) {
+    public static function getNotifications($uid = null, $count = null, $lang = null, $html = true) {
 		if(is_null($uid)) {
 			if(OCP\User::isLoggedIn()) {
 				$uid = OCP\User::getUser();
@@ -284,7 +284,11 @@ class OC_Notify {
 				if(in_array($param["key"], array('href', 'img'))) {
 					$notifications[$i][$param["key"]] = $param["value"];
 				} elseif(strpos($notifications[$i]["content"], "{{$param["key"]}}") !== false) {
-					$notifications[$i]["content"] = str_replace("{{$param["key"]}}", $param["value"], $notifications[$i]["content"]);
+					if($html) {
+						$notifications[$i]["content"] = str_replace("{{$param["key"]}}", sprintf('<span class="notify_param notify_param_%s">%s</span>', $param["key"], $param["value"]), $notifications[$i]["content"]);
+					} else {
+						$notifications[$i]["content"] = str_replace("{{$param["key"]}}", $param["value"], $notifications[$i]["content"]);
+					}
 				} elseif(in_array($param["key"], array('id', 'read'))) {
 					// these params aren't allowed
 					// FIXME check before writing to db??
@@ -297,6 +301,33 @@ class OC_Notify {
         return $notifications;
     }
 	
+    /**
+     * @brief get the notification with the given id
+     * @param $id notification id
+     * @return notification as an associative array
+     */
+    public static function getNotificationById($id) {
+		$stmt = OCP\DB::prepare("SELECT n.id, n.uid, n.read, n.moment, c.appid AS app, c.name AS class, c.summary, c.content FROM *PREFIX*notifications AS n INNER JOIN *PREFIX*notification_classes AS c ON n.class = c.id WHERE n.id = ?");
+		$result = $stmt->execute(array((int) $id));
+		$notification = $result->fetchRow();
+        $paramStmt = OCP\DB::prepare("SELECT key, value FROM *PREFIX*notification_params WHERE nid = ?");
+		$result = $paramStmt->execute(array((int) $id));
+		while($param = $result->fetchRow()) {
+			if(in_array($param["key"], array('href', 'img'))) {
+				$notification[$param["key"]] = $param["value"];
+			} elseif(strpos($notification["content"], "{{$param["key"]}}") !== false) {
+				$notification["content"] = str_replace("{{$param["key"]}}", sprintf('<span class="notify_param notify_param_%s">%s</span>', $param["key"], $param["value"]), $notification["content"]);
+			} elseif(in_array($param["key"], array('id', 'read'))) {
+				// these params aren't allowed
+				// FIXME check before writing to db??
+				continue;
+			} else {
+				$notification["params"][$param["key"]] = $param["value"];
+			}
+		}
+        return $notification;
+    }
+
 	/**
 	 * @brief mark all notifications of the given user as read
 	 * @param $uid
@@ -574,7 +605,8 @@ class OC_Notify {
 	}
 
 	public static function post_shared($args) {
-		OCP\Util::writeLog("notify", "shared hook: " . print_r($args, true), OCP\Util::DEBUG);
+		// use this to debug sharing hook emits:
+		//OCP\Util::writeLog("notify", "shared hook: " . print_r($args, true), OCP\Util::DEBUG);
 		switch($args["itemType"]) {
 		case "event":
 			self::sendUserNotification("notify", "sharedEvent", $args["shareWith"], array(

@@ -13,10 +13,10 @@
 		<notify_feed>feed.php</notify_feed>
 	</remote>
 	<notifications>
-		<template id="sharedEvent" summary="Event shared">{user} shared an event with you: &lt;em&gt;{title}&lt;/em&gt;.</template>
-		<template id="sharedCal" summary="Calendar shared">{user} shared the calendar &lt;strong&gt;{name}&lt;/strong&gt; with you!</template>
-		<template id="sharedFile" summary="File shared">{user} shared the file &lt;strong&gt;{name}&lt;/strong&gt; with you!</template>
-		<template id="sharedFolder" summary="Folder shared">{user} shared the folder &lt;strong&gt;{name}&lt;/strong&gt; with you!</template>
-		<template id="sharedAbook" summary="Address book shared">{user} shared the address book &lt;strong&gt;{name}&lt;/strong&gt; with you!</template>
+		<template id="sharedEvent" summary="Event shared">{user} shared an event with you: {title}.</template>
+		<template id="sharedCal" summary="Calendar shared">{user} shared the calendar {name} with you!</template>
+		<template id="sharedFile" summary="File shared">{user} shared the file {name} with you!</template>
+		<template id="sharedFolder" summary="Folder shared">{user} shared the folder {name} with you!</template>
+		<template id="sharedAbook" summary="Address book shared">{user} shared the address book {name} with you!</template>
 	</notifications>
 </info>

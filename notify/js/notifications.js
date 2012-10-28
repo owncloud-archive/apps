@@ -5,9 +5,9 @@ OC.notify = {
 	dom: {
 		icon: $('<a id="notify-icon" class="header-right header-action" href="#" title="' + t('notify', 'Notifications') + '"><img class="svg" alt="' + t('notify', 'Notifications') + '" src="' + OC.imagePath('notify', 'headerIcon.svg') + '" /></a>'),
 		counter: $('<span id="notify-counter" data-count="0">0</span>'),
-		listContainer: $('<div id="notify-list"><div id="notify-loading"></div><div id="notify-headline"><span id="notify-title">' + t('notify', 'Notifications') + '</span><div class="actionicons"><a href="' + OC.webroot + '/settings/personal.php#notify" id="notify-config" title="' + t('notify', 'Preferences') + '">' + t('notify', 'Preferences') + '</a><span class="notify-autorefresh start" title="' + t('notify', 'Start auto refresh') + '">' + t('notify', 'Start auto refresh') + '</span><span class="notify-autorefresh stop" title="' + t('notify', 'Stop auto refresh') + '">' + t('notify', 'Stop auto refresh') + '</span><span id="notify-refresh" title="' + t('notify', 'Refresh') + '">' + t('notify', 'Refresh') + '</span><span id="notify-readall" title="' + t('notify', 'Mark all as read') + '">' + t('notify', 'Mark all as read') + '</span><span id="notify-deleteread" title="' + t('notify', 'Delete all read notifications') + '">' + t('notify', 'Delete all read notifications') + '</span></div></div>'),
+		listContainer: $('<div id="notify-list"><div id="notify-loading"></div><div id="notify-headline"><span id="notify-title">' + t('notify', 'Notifications') + '</span><div class="actionicons"><a href="' + OC.webroot + '/settings/personal.php#notify" id="notify-config" title="' + t('notify', 'Preferences') + '">' + t('notify', 'Preferences') + '</a><span id="notify-readall" title="' + t('notify', 'Mark all as read') + '">' + t('notify', 'Mark all as read') + '</span><span id="notify-deleteread" title="' + t('notify', 'Delete all read notifications') + '">' + t('notify', 'Delete all read notifications') + '</span></div></div>'),
 		list: $('<ul></ul>'),
-		notificationTemplate: $('<li class="notification"><a class="content" href="#"></a><div class="actionicons"><span class="readicon read" title="' + t('notify', 'Mark as unread') + '">read</span><span class="readicon unread" title="' + t('notify', 'Mark as read') + '">unread</span><span class="deleteicon" title="' + t('notify', 'Delete this notification') + '">delete</span></div></li>'),
+		notificationTemplate: $('<li class="notification"><a class="content" href="#"></a><div class="actionicons"><span class="deleteicon" title="' + t('notify', 'Delete this notification') + '">delete</span></div></li>'),
 		fitContainerSize: function() {
 			if(OC.notify.dom.listContainer.is(':hidden')) {
 				return;
@@ -25,7 +25,7 @@ OC.notify = {
 			'title': notification.moment,
 			'data-read': notification.read
 		}).addClass(notification.app + '_' + notification.class).appendTo(OC.notify.dom.list);
-		var content = el.find('a.content').attr('href', notification.href).html(notification.content).click(function(e) {
+		var content = el.find('a.content').attr('href', OC.linkTo('notify', 'go.php') + '?id=' + notification.id).html(notification.content).click(function(e) {
 			//make the href actually work:
 			e.stopPropagation();
 		});

@@ -38,7 +38,8 @@ if(!isset($_SERVER["PHP_AUTH_USER"]) or !OCP\User::checkPassword($uid = $_SERVER
 }
 $lang = OC_Preferences::getValue($uid, 'core', 'lang', OC_L10N::findLanguage());
 $l = OC_L10N::get('notify', $lang);
-$notifications = OC_Notify::getNotifications($uid, 50, $lang);
+//TODO: use different feed creator library (like Zend_Feed) and switch html flag to true
+$notifications = OC_Notify::getNotifications($uid, 50, $lang, false);
 $baseAddress = (isset($_SERVER["HTTPS"]) ? 'https://' : 'http://') . $_SERVER["SERVER_NAME"];
 $rssURI = $baseAddress . $baseuri . 'feed.rss';
 $atomURI = $baseAddress . $baseuri . 'feed.atom';
@@ -58,14 +59,9 @@ foreach($notifications as $notification) {
 	$item = new FeedItem();
 	$item->title = strip_tags($notification["summary"]);
 	$item->date = strtotime($notification["moment"]);
-	if(preg_match('/^https?:\/\//', $notification["href"])) {
-		$item->link = $notification["href"];
-	} else if(strpos($notification["href"], "/") === 0) {
-		$item->link = $baseAddress . $notification["href"];
-	} else {
-		$item->link = $feed->link;
-	}
+	$item->link = OCP\Util::linkToAbsolute("notify", "go.php", array("id" => $notification["id"]));
 	$item->description = $notification["content"];
+	//TODO image
 	$item->author = "ownCloud (" . $notification["appid"] . " app)";
 	$feed->addItem($item);
 }
