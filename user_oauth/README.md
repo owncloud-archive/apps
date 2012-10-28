@@ -36,8 +36,10 @@ playground mentioned above that would mean using the following URLs:
 In the playground environment you can also register an OAuth client so you
 can actually use the client with the OAuth service.
 
-Template applications for both [Android]() and [iOS]() are available that 
+Template applications for both 
+[Android](https://github.com/OpenConextApps/android-oauth-app) and 
+[iOS](https://github.com/OpenConextApps/ios-oauth-app) are available that 
 implement OAuth 2.0 and can be used to modify the Owncloud Mobile Apps.
 
-So far, the Owncloud Mobie Apps have not been updated to support OAuth 2.0.
+So far, the Owncloud Mobile Apps have not been updated to support OAuth 2.0.
 
