@@ -206,23 +206,86 @@ class RemoteResourceServer
                 $responseCode = 400;
                 break;
         }
-        header("HTTP/1.1 " . $responseCode);
 
-        if (500 === $responseCode) {
-            echo json_encode(array("error" => $message, "error_description" => $description));
-        } else {
+        $resourceServerRealm = array_key_exists("resourceServerRealm", $this->_config) ? $this->_config["resourceServerRealm"] : "Resource Server";
+
+        $content = json_encode(array("error" => $message, "error_description" => $description));
+        $authenticateHeader = NULL;
+
+        if (500 !== $responseCode) {
             if ("no_token" === $message) {
                 // no authorization header is a special case, the client did not know
                 // authentication was required, so tell it now without giving error message
-                $hdr = 'Bearer realm="Resource Server"';
+                $authenticateHeader = 'Bearer realm="' . $resourceServerRealm . '"';
             } else {
-                $hdr = sprintf('Bearer realm="Resource Server",error="%s",error_description="%s"', $message, $description);
+                $authenticateHeader = sprintf('Bearer realm="' . $resourceServerRealm . '",error="%s",error_description="%s"', $message, $description);
             }
-            header("WWW-Authenticate: $hdr");
-            echo json_encode(array("error" => $message, "error_description" => $description));
         }
-        // stop executing everything, we are done here
-        die();
+
+        // we can either throw an exception in case a framework is used, or just
+        // directly handle the response to the client ourselves...
+        if (array_key_exists("throwException", $this->_config) && $this->_config["throwException"]) {
+            $e = new RemoteResourceServerException($message, $description);
+            $e->setResponseCode($responseCode);
+            $e->setAuthenticateHeader($authenticateHeader);
+            $e->setContent($content);
+            throw $e;
+        } else {
+            header("HTTP/1.1 " . $responseCode);
+            header("WWW-Authenticate: " . $authenticateHeader);
+            header("Content-Type: application/json");
+            die($content);
+        }
+    }
+
+}
+
+class RemoteResourceServerException extends Exception
+{
+    private $_description;
+    private $_responseCode;
+    private $_authenticateHeader;
+    private $_content;
+
+    public function __construct($message, $description, $code = 0, Exception $previous = null)
+    {
+        $this->_description = $description;
+        parent::__construct($message, $code, $previous);
+    }
+
+    public function getDescription()
+    {
+        return $this->_description;
+    }
+
+    public function setResponseCode($responseCode)
+    {
+        $this->_responseCode = $responseCode;
+    }
+
+    public function getResponseCode()
+    {
+        return $this->_responseCode;
+    }
+
+    public function setAuthenticateHeader($authenticateHeader)
+    {
+        $this->_authenticateHeader = $authenticateHeader;
+    }
+
+    public function getAutenticateHeader()
+    {
+        return $this->_authenticateHeader;
+    }
+
+    public function setContent($content)
+    {
+        $this->_content = $content;
+    }
+
+    public function getContent()
+    {
+        return $this->_content;
     }
 
 }
