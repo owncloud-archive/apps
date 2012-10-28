@@ -180,6 +180,7 @@
 "Name of new calendar" => "Nom del nou calendari",
 "Take an available name!" => "Escolliu un nom disponible!",
 "A Calendar with this name already exists. If you continue anyhow, these calendars will be merged." => "Ja hi ha un calendari amb aquest nom. Si continueu, els calendaris es combinaran.",
+"Remove all events from the selected calendar" => "Elimina tots els esdeveniments del calendaro seleccionat",
 "Import" => "Importa",
 "Close Dialog" => "Tanca el diàleg",
 "Create a new event" => "Crea un nou esdeveniment",

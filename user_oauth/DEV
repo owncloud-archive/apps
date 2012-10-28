@@ -2,6 +2,8 @@
 We need to implement this interface for Bearer Auth
     SabreDAV/lib/Sabre/DAV/Auth/IBackend.php
 
+use /Library/WebServer/Documents/owncloud/apps/files/appinfo/remote.php instead of files/webdav.php
+
 lib/connector/sabre/auth.php
 
 extend some stuff there instead, should be doable!
