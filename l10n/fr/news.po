@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 23:32+0200\n"
-"PO-Revision-Date: 2012-10-16 14:44+0000\n"
-"Last-Translator: fkhannouf <fkhannouf@me.com>\n"
+"POT-Creation-Date: 2012-10-29 00:01+0100\n"
+"PO-Revision-Date: 2012-10-28 23:02+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,15 +100,15 @@ msgstr "Erreur lors de la mise à jour du flux."
 msgid "Feed updated!"
 msgstr "Flux mis à jour !"
 
-#: appinfo/app.php:36
+#: appinfo/app.php:38 lib/search.php:21
 msgid "News"
 msgstr "Abonnements"
 
-#: js/items.js:123
+#: js/items.js:122
 msgid "Error while loading the feed"
 msgstr "Une erreur est survenue pendant le chargement du fil de nouvelles"
 
-#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
+#: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
@@ -344,36 +344,44 @@ msgstr "Choisir un dossier"
 msgid "Add"
 msgstr "Ajouter"
 
-#: templates/part.feeds.php:47
+#: templates/part.feeds.php:48
 msgid "New articles"
 msgstr "Nouveaux articles"
 
-#: templates/part.feeds.php:49 templates/part.listfeed.php:34
+#: templates/part.feeds.php:50 templates/part.listfeed.php:34
 #: templates/part.listfolder.php:34
 msgid "Mark all read"
 msgstr "Tout marquer comme lu"
 
-#: templates/part.feeds.php:53
+#: templates/part.feeds.php:54
 msgid "Starred"
 msgstr "Favoris"
 
-#: templates/part.items.php:17
+#: templates/part.feeds.php:59
+msgid "Shared"
+msgstr ""
+
+#: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr "Marquer comme pas important"
 
-#: templates/part.items.php:20
+#: templates/part.items.php:20 templates/part.shared.php:21
 msgid "Mark as important"
 msgstr "Marquer comme important"
 
-#: templates/part.items.php:37
+#: templates/part.items.php:37 templates/part.shared.php:38
 msgid "from"
 msgstr "de"
 
-#: templates/part.items.php:43
+#: templates/part.items.php:43 templates/part.shared.php:44
 msgid "by"
 msgstr "par"
 
-#: templates/part.items.php:56
+#: templates/part.items.php:54 templates/part.shared.php:55
+msgid "Share"
+msgstr ""
+
+#: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Garder non lu"
 
