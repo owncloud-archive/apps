@@ -9,6 +9,6 @@
 	<require>4.9</require>
 	<shipped>true</shipped>
 	<remote>
-		<odav>webdav.php</odav>
+		<odav>remote.php</odav>
 	</remote>
 </info>
