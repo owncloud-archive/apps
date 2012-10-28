@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# marguerite su <i@marguerite.su>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-17 16:59+0200\n"
-"PO-Revision-Date: 2012-09-17 10:15+0000\n"
-"Last-Translator: marguerite su <i@marguerite.su>\n"
+"POT-Creation-Date: 2012-09-11 02:01+0200\n"
+"PO-Revision-Date: 2012-09-11 00:03+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Chinese (China) (GB2312) (http://www.transifex.com/projects/p/owncloud/language/zh_CN.GB2312/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,46 +19,46 @@ msgstr ""
 
 #: appinfo/app.php:14
 msgid "Bookmarks"
-msgstr "书签"
+msgstr ""
 
 #: bookmarksHelper.php:99
 msgid "unnamed"
-msgstr "未命名"
+msgstr ""
 
 #: lib/search.php:43
 msgid "Bookm."
-msgstr "订阅它们。"
+msgstr ""
 
 #: templates/bookmarklet.php:5
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr "拖动此物到您的浏览器书签栏，在您想要快速订阅某网页时点击："
+msgstr ""
 
 #: templates/bookmarklet.php:7
 msgid "Read later"
-msgstr "稍后阅读"
+msgstr ""
 
 #: templates/list.php:13
 msgid "Address"
-msgstr "网址"
+msgstr ""
 
 #: templates/list.php:14
 msgid "Title"
-msgstr "标题"
+msgstr ""
 
 #: templates/list.php:15
 msgid "Tags"
-msgstr "标签"
+msgstr ""
 
 #: templates/list.php:16
 msgid "Save bookmark"
-msgstr "保存书签"
+msgstr ""
 
 #: templates/list.php:22
 msgid "You have no bookmarks"
-msgstr "您没有书签"
+msgstr ""
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
-msgstr "小书签 <br />"
+msgstr ""

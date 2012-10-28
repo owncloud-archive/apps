@@ -17,22 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/settings.php:3
-msgid "External Sites"
+#: js/viewer.js:23
+msgid "Previous"
 msgstr ""
 
-#: templates/settings.php:9
-msgid "Name"
+#: js/viewer.js:24
+msgid "Next"
 msgstr ""
 
-#: templates/settings.php:10
-msgid "URL"
+#: js/viewer.js:30
+msgid "Page Width"
 msgstr ""
 
-#: templates/settings.php:11
-msgid "Remove site"
+#: js/viewer.js:30
+msgid "Page Fit"
 msgstr ""
 
-#: templates/settings.php:18
-msgid "Add"
+#: js/viewer.js:31
+msgid "Print"
+msgstr ""
+
+#: js/viewer.js:33
+msgid "Download"
 msgstr ""
