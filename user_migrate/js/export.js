@@ -15,9 +15,9 @@ $(document).ready(function(){
 				} else {
 					// Cancel loading
 					$('#exportbtn').html('Failed');
-					// Show Dialog	
-					OC.dialogs.alert(t('user_migrate', 'Something went wrong while the export file was being generated'), t('user_migrate', 'An error has occurred'), function(){ 
-						$('#exportbtn').html(t('user_migrate', 'Export')+'<img style="display: none;" class="loading" src="'+OC.filePath('core','img','loading.gif')+'" />'); 
+					// Show Dialog
+					OC.dialogs.alert(t('user_migrate', 'Something went wrong while the export file was being generated'), t('user_migrate', 'An error has occurred'), function(){
+						$('#exportbtn').html(t('user_migrate', 'Export')+'<img style="display: none;" class="loading" src="'+OC.filePath('core','img','loading.gif')+'" />');
 					});
 				}
 			}

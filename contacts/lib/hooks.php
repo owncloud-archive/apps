@@ -92,7 +92,7 @@ class OC_Contacts_Hooks{
 				$vevent = new OC_VObject('VEVENT');
 				//$vevent->setDateTime('LAST-MODIFIED', new DateTime($vcard->REV));
 				$vevent->setDateTime('DTSTART', $date,
-					Sabre_VObject_Element_DateTime::DATE);
+					Sabre\VObject\Property\DateTime::DATE);
 				$vevent->setString('DURATION', 'P1D');
 				$vevent->setString('UID', substr(md5(rand().time()), 0, 10));
 				// DESCRIPTION?

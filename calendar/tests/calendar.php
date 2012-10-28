@@ -5,11 +5,10 @@
  * later.
  * See the COPYING-README file.
  */
-
+OC_App::loadApp('calendar');
 class Test_Calendar_Calendars extends UnitTestCase {
 	function testBasic() {
 		$uid=uniqid();
-
 		$this->assertEqual(OC_Calendar_Calendar::allCalendars($uid),array());
 		$calId1=OC_Calendar_Calendar::addCalendar($uid,'test');
 

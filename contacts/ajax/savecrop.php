@@ -61,7 +61,8 @@ if($data) {
 			OCP\Util::DEBUG);
 		if($image->crop($x1, $y1, $w, $h)) {
 			if(($image->width() <= 200 && $image->height() <= 200)
-						|| $image->resize(200)) {
+				|| $image->resize(200)) {
+
 				$vcard = OC_Contacts_App::getContactVCard($id);
 				if(!$vcard) {
 					OC_Cache::remove($tmpkey);
@@ -80,9 +81,9 @@ if($data) {
 					}
 					$property->setValue($image->__toString());
 					$property->parameters[]
-						= new Sabre_VObject_Parameter('ENCODING', 'b');
+						= new Sabre\VObject\Parameter('ENCODING', 'b');
 					$property->parameters[]
-						= new Sabre_VObject_Parameter('TYPE', $image->mimeType());
+						= new Sabre\VObject\Parameter('TYPE', $image->mimeType());
 					$vcard->__set('PHOTO', $property);
 				} else {
 					OCP\Util::writeLog('contacts',

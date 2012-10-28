@@ -12,6 +12,10 @@
 "The uploaded file was only partially uploaded" => "Failas buvo įkeltas tik dalinai",
 "No file was uploaded" => "Nebuvo įkeltas joks failas",
 "Contacts" => "Kontaktai",
+"Download" => "Atsisiųsti",
+"Edit" => "Keisti",
+"Delete" => "Trinti",
+"Cancel" => "Atšaukti",
 "This is not your addressbook." => "Tai ne jūsų adresų knygelė.",
 "Contact could not be found." => "Kontaktas nerastas",
 "Work" => "Darbo",
@@ -28,7 +32,6 @@
 "Contact" => "Kontaktas",
 "Add Contact" => "Pridėti kontaktą",
 "Organization" => "Organizacija",
-"Delete" => "Trinti",
 "Nickname" => "Slapyvardis",
 "Enter nickname" => "Įveskite slapyvardį",
 "Phone" => "Telefonas",
@@ -44,9 +47,6 @@
 "Country" => "Šalis",
 "Addressbook" => "Adresų knyga",
 "Addressbooks" => "Adresų knygos",
-"Download" => "Atsisiųsti",
-"Edit" => "Keisti",
 "New Address Book" => "Nauja adresų knyga",
-"Save" => "Išsaugoti",
-"Cancel" => "Atšaukti"
+"Save" => "Išsaugoti"
 );

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-09 02:01+0200\n"
-"PO-Revision-Date: 2012-09-08 21:45+0000\n"
+"POT-Creation-Date: 2012-10-14 02:04+0200\n"
+"PO-Revision-Date: 2012-10-13 04:51+0000\n"
 "Last-Translator: Mariano <mstreet@kde.org.ar>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
@@ -26,9 +26,8 @@ msgstr "La modulo php-json necesas por komuniko inter la multaj aplikaĵoj"
 
 #: settings.php:39
 msgid ""
-"The php-curl modude is needed to fetch the page title when adding a "
-"bookmarks"
-msgstr "La modulo php-curl necesas por venigi la paĝotitolon dum aldono de legosigno"
+"The php-curl module is needed to fetch the page title when adding a bookmark"
+msgstr "La modulo php-curl necesas por venigo de la paĝtitolo kiam aldoniĝas legosignoj"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"

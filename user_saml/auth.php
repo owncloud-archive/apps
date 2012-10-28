@@ -27,11 +27,13 @@
 	$spSource = OCP\Config::getAppValue('user_saml', 'saml_sp_source', '');
 	$autocreate = OCP\Config::getAppValue('user_saml', 'saml_autocreate', false);
 
-	include_once($sspPath."/lib/_autoload.php");
+	if (!empty($sspPath) && !empty($spSource)) {
+		include_once $sspPath."/lib/_autoload.php";
 		
-	$auth = new SimpleSAML_Auth_Simple($spSource);
+		$auth = new SimpleSAML_Auth_Simple($spSource);
 
-	$auth->requireAuth();
+		$auth->requireAuth();
+	}
 
 	if (!OC_User::login('', '')) {
 		$error = true;

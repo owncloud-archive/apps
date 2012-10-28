@@ -6,6 +6,7 @@
  * See the COPYING-README file.
  */
 
+OC_App::loadApp('user_external');
 return array(
 	'imap'=>array(
 		'run'=>false,

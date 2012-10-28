@@ -29,12 +29,6 @@ $folder_id = isset( $_GET['folder_id'] ) ? $_GET['folder_id'] : null;
 $from = isset( $_GET['from'] ) ? $_GET['from'] : null;
 $count = isset( $_GET['count'] ) ? $_GET['count'] : null;
 
-$messages = OCA_Mail\App::getMessages( OCP\User::getUser(), $account_id, $folder_id, $from, $count );
+$messages = OCA\Mail\App::getMessages( OCP\User::getUser(), $account_id, $folder_id, $from, $count );
 
-$tmpl = new OCP\Template('mail','part.message_list');
-$tmpl->assign('account_id', $messages['account_id'] );
-$tmpl->assign('folder_id', $messages['folder_id'] );
-$tmpl->assign('messages', $messages['messages'] );
-$page = $tmpl->fetchPage();
-
-OCP\JSON::success(array('data' => $page ));
+OCP\JSON::success(array('data' => $messages ));

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-12 02:01+0200\n"
-"PO-Revision-Date: 2012-09-11 05:18+0000\n"
+"POT-Creation-Date: 2012-10-12 02:03+0200\n"
+"PO-Revision-Date: 2012-10-11 05:43+0000\n"
 "Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -18,17 +18,53 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:14
+#: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Segnalibri"
 
-#: bookmarksHelper.php:99
-msgid "unnamed"
-msgstr "senza nome"
+#: js/addBm.js:42 js/bookmarks.js:243
+msgid "Tags"
+msgstr "Tag"
 
-#: lib/search.php:43
+#: js/bookmarks.js:178
+msgid "Edit bookmark"
+msgstr "Modifica segnalibro"
+
+#: js/bookmarks.js:410
+msgid "Are you sure you want to remove this tag from every entry?"
+msgstr "Sei sicuro di voler rimuovere questo tag da ogni voce?"
+
+#: js/bookmarks.js:411
+msgid "Warning"
+msgstr "Avviso"
+
+#: lib/search.php:38
 msgid "Bookm."
 msgstr "Segnal."
+
+#: templates/addBm.php:11
+msgid "Add a bookmark"
+msgstr "Aggiungi un segnalibro"
+
+#: templates/addBm.php:14
+msgid "Close"
+msgstr "Chiudi"
+
+#: templates/addBm.php:22 templates/list.php:91
+msgid "The title of the page"
+msgstr "Il titolo della pagina"
+
+#: templates/addBm.php:27 templates/list.php:95
+msgid "The address of the page"
+msgstr "L'indirizzo della pagina"
+
+#: templates/addBm.php:40 templates/list.php:104
+msgid "Description of the page"
+msgstr "Descrizione della pagina"
+
+#: templates/addBm.php:44 templates/list.php:108
+msgid "Save"
+msgstr "Salva"
 
 #: templates/bookmarklet.php:5
 msgid ""
@@ -40,26 +76,70 @@ msgstr "Quando vuoi creare rapidamente un segnalibro, trascinalo sui segnalibri 
 msgid "Read later"
 msgstr "Leggi dopo"
 
-#: templates/list.php:13
+#: templates/list.php:12
 msgid "Address"
 msgstr "Indirizzo"
 
-#: templates/list.php:14
-msgid "Title"
-msgstr "Titolo"
-
-#: templates/list.php:15
-msgid "Tags"
-msgstr "Tag"
+#: templates/list.php:13
+msgid "Add bookmark"
+msgstr "Aggiungi segnalibro"
 
 #: templates/list.php:16
-msgid "Save bookmark"
-msgstr "Salva segnalibro"
+msgid "List"
+msgstr "Elenco"
+
+#: templates/list.php:17
+msgid "Image"
+msgstr "Immagine"
 
 #: templates/list.php:22
+msgid "Hide"
+msgstr "Nascondi"
+
+#: templates/list.php:23
+msgid "Show"
+msgstr "Mostra"
+
+#: templates/list.php:30
+msgid "Related Tags"
+msgstr "Tag correlati"
+
+#: templates/list.php:39
 msgid "You have no bookmarks"
 msgstr "Non hai segnalibri"
+
+#: templates/list.php:64
+msgid "Edit"
+msgstr "Modifica"
+
+#: templates/list.php:68
+msgid "Delete"
+msgstr "Elimina"
+
+#: templates/list.php:107
+msgid "Cancel"
+msgstr "Annulla"
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
 msgstr "Bookmarklet <br />"
+
+#: templates/settings.php:26
+msgid "Import bookmarks"
+msgstr "Importa segnalibri"
+
+#: templates/settings.php:28
+msgid "Bookmark html file"
+msgstr "File html di segnalibri"
+
+#: templates/settings.php:30
+msgid "Import"
+msgstr "Importa"
+
+#: templates/settings.php:33
+msgid "Export bookmarks"
+msgstr "Esporta segnalibri"
+
+#: templates/settings.php:35
+msgid "Export"
+msgstr "Esporta"

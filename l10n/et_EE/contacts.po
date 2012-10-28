@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-10 02:02+0200\n"
-"PO-Revision-Date: 2012-09-09 19:20+0000\n"
+"POT-Creation-Date: 2012-10-21 02:03+0200\n"
+"PO-Revision-Date: 2012-10-20 20:14+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -223,109 +223,159 @@ msgstr "Pole implementeeritud"
 msgid "Couldn't get a valid address."
 msgstr "Kehtiva aadressi hankimine ebaõnnestus"
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
-#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
-#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
-#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
-#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
-#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:364 js/contacts.js:436
+#: js/contacts.js:443 js/contacts.js:686 js/contacts.js:726 js/contacts.js:752
+#: js/contacts.js:763 js/contacts.js:777 js/contacts.js:797 js/contacts.js:884
+#: js/contacts.js:890 js/contacts.js:902 js/contacts.js:939
+#: js/contacts.js:1213 js/contacts.js:1221 js/contacts.js:1230
+#: js/contacts.js:1265 js/contacts.js:1301 js/contacts.js:1316
+#: js/contacts.js:1342 js/contacts.js:1575 js/contacts.js:1610
+#: js/contacts.js:1630 js/contacts.js:1688 js/contacts.js:1842
+#: js/contacts.js:1985 js/contacts.js:2011 js/contacts.js:2021
+#: js/contacts.js:2024 js/contacts.js:2175 js/contacts.js:2212
+#: js/contacts.js:2247 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "Viga"
 
-#: js/contacts.js:408
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr ""
+
+#: js/contacts.js:177 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "Sisesta nimi"
+
+#: js/contacts.js:178 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "Kohandatud vorming, Lühike nimi, Täielik nimi, vastupidine või vastupidine komadega"
+
+#: js/contacts.js:184 js/contacts.js:1421 js/contacts.js:1464
+#: js/contacts.js:1483 js/contacts.js:1526
+msgid "Select type"
+msgstr "Vali tüüp"
+
+#: js/contacts.js:215
+msgid "Select photo"
+msgstr "Vali foto"
+
+#: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
 msgstr "Sul pole luba lisada kontakti aadressiraamatusse"
 
-#: js/contacts.js:409
+#: js/contacts.js:408
 msgid "Please select one of your own address books."
 msgstr "Palun vali üks oma aadressiraamatutest."
 
-#: js/contacts.js:409
+#: js/contacts.js:408
 msgid "Permission error"
 msgstr "Õiguse viga"
 
-#: js/contacts.js:725
+#: js/contacts.js:482
+msgid "Click to undo deletion of \""
+msgstr ""
+
+#: js/contacts.js:496
+msgid "Cancelled deletion of: \""
+msgstr ""
+
+#: js/contacts.js:726
 msgid "This property has to be non-empty."
 msgstr "See omadus ei tohi olla tühi."
 
-#: js/contacts.js:751
+#: js/contacts.js:752
 msgid "Couldn't serialize elements."
 msgstr ""
 
-#: js/contacts.js:883 js/contacts.js:901
+#: js/contacts.js:763
+msgid "Unknown error. Please check logs."
+msgstr ""
+
+#: js/contacts.js:884 js/contacts.js:902
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr ""
 
-#: js/contacts.js:920
+#: js/contacts.js:921
 msgid "Edit name"
 msgstr "Muuda nime"
 
-#: js/contacts.js:1212
+#: js/contacts.js:1213
 msgid "No files selected for upload."
 msgstr "Üleslaadimiseks pole faile valitud."
 
-#: js/contacts.js:1220 js/contacts.js:2072
+#: js/contacts.js:1221 js/contacts.js:2001 js/contacts.js:2076
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr ""
 
-#: js/contacts.js:1284
+#: js/contacts.js:1285
 msgid "Error loading profile picture."
 msgstr "Viga profiilipildi laadimisel"
 
-#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
-#: js/contacts.js:1522
-msgid "Select type"
-msgstr "Vali tüüp"
-
-#: js/contacts.js:1540
+#: js/contacts.js:1544
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Mõned kontaktid on märgitud kustutamiseks, aga pole veel kustutatud. Palun oota, kuni need kustutatakse."
 
-#: js/contacts.js:1611
+#: js/contacts.js:1615
 msgid "Do you want to merge these address books?"
 msgstr "Kas sa soovid liita neid aadressiraamatuid?"
 
-#: js/contacts.js:2065
-msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+#: js/contacts.js:1768
+msgid "Shared by "
+msgstr "Jagas"
 
-#: js/contacts.js:2065
-msgid "Upload Error"
-msgstr "Üleslaadimise viga"
-
-#: js/contacts.js:2072
+#: js/contacts.js:2001 js/contacts.js:2076
 msgid "Upload too large"
 msgstr "Üleslaadimine on liiga suur"
 
-#: js/contacts.js:2120
+#: js/contacts.js:2005
+msgid "Only image files can be used as profile picture."
+msgstr ""
+
+#: js/contacts.js:2005
+msgid "Wrong file type"
+msgstr "Vale failitüüp"
+
+#: js/contacts.js:2011
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr ""
+
+#: js/contacts.js:2069
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr ""
+
+#: js/contacts.js:2069
+msgid "Upload Error"
+msgstr "Üleslaadimise viga"
+
+#: js/contacts.js:2124
 msgid "Pending"
 msgstr "Ootel"
 
-#: js/contacts.js:2152
+#: js/contacts.js:2156
 msgid "Import done"
 msgstr "Importimine on tehtud"
 
-#: js/contacts.js:2165
+#: js/contacts.js:2169
 msgid "Not all files uploaded. Retrying..."
 msgstr "Kõiki faile ei laetud üles. Proovime uuesti..."
 
-#: js/contacts.js:2171
+#: js/contacts.js:2175
 msgid "Something went wrong with the upload, please retry."
 msgstr "Midagi läks üleslaadimisega valesti, palun proovi uuesti."
 
-#: js/contacts.js:2187
+#: js/contacts.js:2191
 msgid "Importing..."
 msgstr "Importimine..."
 
-#: js/contacts.js:2208
+#: js/contacts.js:2212
 msgid "The address book name cannot be empty."
 msgstr "Aadressiraamatu nimi ei saa olla tühi."
 
@@ -344,6 +394,41 @@ msgstr " ebaõnnestus."
 #: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "Näidatav nimi ei saa olla tühi."
+
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "Näita CardDav linki"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "Näita VCF linki (ainult lugemisõigusega)"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "Lae alla"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "Muuda"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "Kustuta"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "Loobu"
+
+#: js/settings.js:161 templates/settings.php:66
+msgid "More..."
+msgstr "Veel..."
+
+#: js/settings.js:165
+msgid "Less..."
+msgstr "Vähem..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
@@ -433,7 +518,7 @@ msgstr "Töö"
 msgid "Home"
 msgstr "Kodu"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
+#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:648
 msgid "Other"
 msgstr "Muu"
 
@@ -642,10 +727,6 @@ msgstr "Lae üles uus foto"
 msgid "Select photo from ownCloud"
 msgstr "Vali foto ownCloudist"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "Kohandatud vorming, Lühike nimi, Täielik nimi, vastupidine või vastupidine komadega"
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
 msgstr "Muuda nime üksikasju"
@@ -654,12 +735,6 @@ msgstr "Muuda nime üksikasju"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Organisatsioon"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:49
-msgid "Delete"
-msgstr "Kustuta"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -954,10 +1029,6 @@ msgstr "Lisa kontakt"
 msgid "Select Address Books"
 msgstr "Vali aadressiraamatud"
 
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "Sisesta nimi"
-
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "Sisesta kirjeldus"
@@ -982,25 +1053,9 @@ msgstr "iOS/OS X"
 msgid "Addressbooks"
 msgstr "Aadressiraamatud"
 
-#: templates/settings.php:25
-msgid "Show CardDav link"
-msgstr "Näita CardDav linki"
-
-#: templates/settings.php:28
-msgid "Show read-only VCF link"
-msgstr "Näita VCF linki (ainult lugemisõigusega)"
-
 #: templates/settings.php:35
 msgid "Share"
 msgstr "Jaga"
-
-#: templates/settings.php:39
-msgid "Download"
-msgstr "Lae alla"
-
-#: templates/settings.php:44
-msgid "Edit"
-msgstr "Muuda"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1017,11 +1072,3 @@ msgstr "Kirjeldus"
 #: templates/settings.php:60
 msgid "Save"
 msgstr "Salvesta"
-
-#: templates/settings.php:61
-msgid "Cancel"
-msgstr "Loobu"
-
-#: templates/settings.php:66
-msgid "More..."
-msgstr "Veel..."

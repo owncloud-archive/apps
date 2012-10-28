@@ -132,7 +132,7 @@ class OC_Contacts_VCard {
 		foreach($property->parameters as $key=>&$parameter) {
 			$types = OC_Contacts_App::getTypesOfProperty($property->name);
 			if(is_array($types) && in_array(strtoupper($parameter->name), array_keys($types)) || strtoupper($parameter->name) == 'PREF') {
-				$property->parameters[] = new Sabre_VObject_Parameter('TYPE', $parameter->name);
+				$property->parameters[] = new Sabre\VObject\Parameter('TYPE', $parameter->name);
 			}
 			unset($property->parameters[$key]);
 		}
@@ -512,7 +512,7 @@ class OC_Contacts_VCard {
 			);
 		}
 
-		if ($addressbook['userid'] != OCP\User::getUser()) {
+		if ($addressbook['userid'] != OCP\User::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			OCP\Util::writeLog('contacts', __METHOD__.', '
 				. $addressbook['userid'] . ' != ' . OCP\User::getUser(), OCP\Util::DEBUG);
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $card['addressbookid'], OCP\Share::FORMAT_NONE, null, true);
@@ -551,6 +551,8 @@ class OC_Contacts_VCard {
 				)
 			);
 		}
+
+		OCP\Share::unshareAll('contact', $id);
 
 		return true;
 	}
@@ -683,6 +685,8 @@ class OC_Contacts_VCard {
 					return null; // Badly malformed :-(
 				}
 			}
+		} elseif($property->name == 'PHOTO') {
+			$property->value = true;
 		}
 		if(is_string($value)) {
 			$value = strtr($value, array('\,' => ',', '\;' => ';'));

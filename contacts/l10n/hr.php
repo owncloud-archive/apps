@@ -33,6 +33,10 @@
 "No file was uploaded" => "Datoteka nije poslana",
 "Missing a temporary folder" => "Nedostaje privremeni direktorij",
 "Contacts" => "Kontakti",
+"Download" => "Preuzimanje",
+"Edit" => "Uredi",
+"Delete" => "Obriši",
+"Cancel" => "Prekini",
 "This is not your addressbook." => "Ovo nije vaš adresar.",
 "Contact could not be found." => "Kontakt ne postoji.",
 "Jabber" => "Jabber",
@@ -68,7 +72,6 @@
 "Upload new photo" => "Učitaj novu sliku",
 "Edit name details" => "Uredi detalje imena",
 "Organization" => "Organizacija",
-"Delete" => "Obriši",
 "Nickname" => "Nadimak",
 "Enter nickname" => "Unesi nadimank",
 "http://www.somesite.com" => "http://www.somesite.com",
@@ -108,9 +111,6 @@
 "more info" => "više informacija",
 "iOS/OS X" => "iOS/OS X",
 "Addressbooks" => "Adresari",
-"Download" => "Preuzimanje",
-"Edit" => "Uredi",
 "New Address Book" => "Novi adresar",
-"Save" => "Spremi",
-"Cancel" => "Prekini"
+"Save" => "Spremi"
 );

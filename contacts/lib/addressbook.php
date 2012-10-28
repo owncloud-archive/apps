@@ -130,7 +130,7 @@ class OC_Contacts_Addressbook {
 			return false;
 		}
 		$row = $result->fetchRow();
-		if($row['userid'] != OCP\USER::getUser()) {
+		if($row['userid'] != OCP\USER::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_READ)) {
 				throw new Exception(
@@ -231,7 +231,7 @@ class OC_Contacts_Addressbook {
 	public static function edit($id,$name,$description) {
 		// Need these ones for checking uri
 		$addressbook = self::find($id);
-		if ($addressbook['userid'] != OCP\User::getUser()) {
+		if ($addressbook['userid'] != OCP\User::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
 				throw new Exception(
@@ -307,7 +307,7 @@ class OC_Contacts_Addressbook {
 	 */
 	public static function delete($id) {
 		$addressbook = self::find($id);
-		if ($addressbook['userid'] != OCP\User::getUser()) {
+		if ($addressbook['userid'] != OCP\User::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_DELETE)) {
 				throw new Exception(
@@ -346,8 +346,7 @@ class OC_Contacts_Addressbook {
 			);
 		}
 
-		// TODO: Unshare all when that method is created
-		//OCP\Share::unshare('addressbook', $id);
+		OCP\Share::unshareAll('addressbook', $id);
 
 		if(count(self::all(OCP\User::getUser())) == 0) {
 			self::addDefault();

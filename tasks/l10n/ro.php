@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Data/timpul invalid",
 "Tasks" => "Sarcini",
+"Due" => "Până la",
+"List" => "Listă",
+"Location" => "Locație",
 "No category" => "Fără categorie",
 "Unspecified" => "Nespecificat",
 "1=highest" => "1=cel mai înalt",
@@ -9,6 +12,7 @@
 "Empty Summary" => "Rezumat gol",
 "Invalid percent complete" => "Completare procentuală greșită",
 "Invalid priority" => "Prioritare greșită",
+"The calendar application also need to be enabled to use this application." => "Aplicația calendar trebuie activată pentru a folosi această aplicație.",
 "Add Task" => "Adaugă sarcină",
 "Order Due" => "Comandă până la",
 "Order List" => "Lista de comenzi",

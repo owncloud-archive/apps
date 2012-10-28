@@ -1,5 +1,6 @@
 <?php
 
+OC_App::loadApp('mozilla_sync');
 class Test_UrlParser extends UnitTestCase {
 
   function testUserApi_1() {

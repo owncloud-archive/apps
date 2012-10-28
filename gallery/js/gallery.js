@@ -25,13 +25,13 @@ Gallery.fillAlbums = function() {
 	}
 };
 Gallery.getImage = function(image) {
-	return OC.filePath('files', 'ajax', 'download.php') + '&dir=' + OC.dirname(image) + '&files=' + OC.basename(image);
+	return OC.filePath('files', 'ajax', 'download.php') + '?dir=' + OC.dirname(image) + '&files=' + OC.basename(image);
 };
 Gallery.getThumbnail = function(image) {
-	return OC.filePath('gallery', 'ajax', 'thumbnail.php') + '&file=' + image;
+	return OC.filePath('gallery', 'ajax', 'thumbnail.php') + '?file=' + image;
 };
 Gallery.getAlbumThumbnail = function(image) {
-	return OC.filePath('gallery', 'ajax', 'albumthumbnail.php') + '&file=' + image;
+	return OC.filePath('gallery', 'ajax', 'albumthumbnail.php') + '?file=' + image;
 };
 Gallery.view = {};
 Gallery.view.element = null;

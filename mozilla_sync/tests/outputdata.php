@@ -1,5 +1,6 @@
 <?php
 
+OC_App::loadApp('mozilla_sync');
 class Test_OutputData extends UnitTestCase {
 
   function test_SimpleOutput() {

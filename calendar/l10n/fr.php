@@ -12,6 +12,7 @@
 "Timezone changed" => "Fuseau horaire modifié",
 "Invalid request" => "Requête invalide",
 "Calendar" => "Calendrier",
+"Deletion failed" => "La suppression a échoué",
 "user" => "utilisateur",
 "group" => "groupe",
 "Editable" => "Modifiable",

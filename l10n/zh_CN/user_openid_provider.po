@@ -1,0 +1,35 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <appweb.cn@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2012-10-23 02:05+0200\n"
+"PO-Revision-Date: 2012-10-22 15:42+0000\n"
+"Last-Translator: hanfeng <appweb.cn@gmail.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: templates/settings.php:3
+msgid "OpenID Provider remembered sites"
+msgstr ""
+
+#: templates/settings.php:8
+msgid "Trusted"
+msgstr "已信任"
+
+#: templates/settings.php:8
+msgid "Denied"
+msgstr "已禁止"
+
+#: templates/settings.php:9
+msgid "Remove"
+msgstr "移除"

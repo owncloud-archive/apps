@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-06 07:30+0000\n"
+"POT-Creation-Date: 2012-09-18 02:01+0200\n"
+"PO-Revision-Date: 2012-09-17 16:17+0000\n"
 "Last-Translator: hanfeng <appweb.cn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Identity: <b>"
 
 #: templates/nomode.php:15
 msgid "Realm: <b>"
-msgstr ""
+msgstr "范围: <b>"
 
 #: templates/nomode.php:16
 msgid "User: <b>"
@@ -36,20 +36,20 @@ msgstr "User: <b>"
 
 #: templates/nomode.php:17
 msgid "Login"
-msgstr ""
+msgstr "登录"
 
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"
-msgstr ""
+msgstr "错误： <b>未选择用户"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
-msgstr ""
+msgstr "您可以使用此地址验证其它网站"
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"
-msgstr ""
+msgstr "授权OpenID提供者"
 
 #: templates/settings.php:6
 msgid "Your address at Wordpress, Identi.ca, &hellip;"
-msgstr ""
+msgstr "您的地址属于wordpress，Identi.ca，&hellip;"

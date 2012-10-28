@@ -4,6 +4,10 @@
 "At least one of the address fields has to be filled out." => "يجب ملء على الاقل خانه واحده من العنوان.",
 "Information about vCard is incorrect. Please reload the page." => "المعلومات الموجودة في ال vCard غير صحيحة. الرجاء إعادة تحديث الصفحة.",
 "Contacts" => "المعارف",
+"Download" => "انزال",
+"Edit" => "تعديل",
+"Delete" => "حذف",
+"Cancel" => "الغاء",
 "This is not your addressbook." => "هذا ليس دفتر عناوينك.",
 "Contact could not be found." => "لم يتم العثور على الشخص.",
 "Work" => "الوظيفة",
@@ -18,7 +22,6 @@
 "Contact" => "معرفه",
 "Add Contact" => "أضف شخص ",
 "Organization" => "المؤسسة",
-"Delete" => "حذف",
 "Preferred" => "مفضل",
 "Phone" => "الهاتف",
 "Email" => "البريد الالكتروني",
@@ -34,9 +37,6 @@
 "Country" => "البلد",
 "Addressbook" => "كتاب العناوين",
 "Addressbooks" => "كتب العناوين",
-"Download" => "انزال",
-"Edit" => "تعديل",
 "New Address Book" => "كتاب عناوين جديد",
-"Save" => "حفظ",
-"Cancel" => "الغاء"
+"Save" => "حفظ"
 );

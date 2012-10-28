@@ -47,10 +47,11 @@ class OC_USER_SAML extends OC_User_Backend {
 		$this->mailMapping = OCP\Config::getAppValue('user_saml', 'saml_email_mapping', '');
 		$this->groupMapping = OCP\Config::getAppValue('user_saml', 'saml_group_mapping', '');
 
+		if (!empty($this->sspPath) && !empty($this->spSource)) {
+			include_once $this->sspPath."/lib/_autoload.php";
 
-		include_once($this->sspPath."/lib/_autoload.php");
-
-		$this->auth = new SimpleSAML_Auth_Simple($this->spSource);
+			$this->auth = new SimpleSAML_Auth_Simple($this->spSource);
+		}
 	}
 
 
