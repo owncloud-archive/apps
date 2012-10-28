@@ -62,7 +62,7 @@ foreach($notifications as $notification) {
 	$item->link = OCP\Util::linkToAbsolute("notify", "go.php", array("id" => $notification["id"]));
 	$item->description = $notification["content"];
 	//TODO image
-	$item->author = "ownCloud (" . $notification["appid"] . " app)";
+	$item->author = "ownCloud (" . $notification["app"] . " app)";
 	$feed->addItem($item);
 }
 $feed->outputFeed($type);
