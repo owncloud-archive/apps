@@ -6,9 +6,13 @@ class OC_Connector_Sabre_OAuth implements Sabre_DAV_Auth_IBackend {
 
     private $currentUser;
     private $tokenInfoEndpoint;
+    private $useResourceOwnerId;
+    private $userIdAttributeName;
 
-    public function __construct($tokenInfoEndpoint) {
+    public function __construct($tokenInfoEndpoint, $useResourceOwnerId = TRUE, $userIdAttributeName = "uid") {
         $this->tokenInfoEndpoint = $tokenInfoEndpoint;
+        $this->useResourceOwnerId = $useResourceOwnerId;
+        $this->userIdAttributeName = $userIdAttributeName;
     }
 
     public function getCurrentUser() {
@@ -34,9 +38,16 @@ class OC_Connector_Sabre_OAuth implements Sabre_DAV_Auth_IBackend {
             $resourceServer = new RemoteResourceServer($config);
 
             $resourceServer->verifyAuthorizationHeader($authorizationHeader);
-            $attributes = $resourceServer->getAttributes();
 
-            $this->currentUser = $attributes["uid"][0];
+            if($this->useResourceOwnerId) {
+                // when using the user_id
+                $this->currentUser = $resourceServer->getResourceOwnerId();
+            } else {
+                // when using a (SAML) attribute
+                $attributes = $resourceServer->getAttributes();
+                $this->currentUser = $attributes[$this->userIdAttributeName][0];
+            }
+
             OC_Util::setupFS($this->currentUser);
             return true;
 

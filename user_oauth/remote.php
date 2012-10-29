@@ -27,11 +27,13 @@ $RUNTIME_APPTYPES=array('filesystem','authentication');
 OC_App::loadApps($RUNTIME_APPTYPES);
 
 $tokenInfoEndpoint = \OC_Config::getValue( "tokenInfoEndpoint", "https://www.googleapis.com/oauth2/v1/tokeninfo" );
+$useResourceOwnerId = TRUE;     // FIXME: take this from configuration instead
+$userIdAttributeName = "uid";   // FIXME: take this from configuration instead
 
 require_once "oauth.php";
 
 // Backends
-$authBackend = new OC_Connector_Sabre_OAuth($tokenInfoEndpoint);
+$authBackend = new OC_Connector_Sabre_OAuth($tokenInfoEndpoint, $useResourceOwnerId, $userIdAttributeName);
 $lockBackend = new OC_Connector_Sabre_Locks();
 
 // Create ownCloud Dir
