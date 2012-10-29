@@ -21,7 +21,8 @@ For Google the Token Info Endpoint is:
 # Applications
 An application needs to use the OAuth service to retrieve an access token to
 use this with the OAuth enabled WebDAV endpoint. The endpoint, assuming you
-run the service on https://www.example.org/owncloud:
+run the service on https://www.example.org/owncloud, note `odav` instead of 
+`webdav`:
 
     https://www.example.org/owncloud/remote.php/odav/<FILE.EXT>
 
@@ -33,8 +34,9 @@ playground mentioned above that would mean using the following URLs:
 	https://frko.surfnetlabs.nl/workshop/php-oauth/authorize.php
 	https://frko.surfnetlabs.nl/workshop/php-oauth/token.php
 
-In the playground environment you can also register an OAuth client so you
-can actually use the client with the OAuth service.
+For Google this will probably be some Google URL. You also need to register the
+app at Google. In the playground environment you can also register an OAuth 
+client yourself.
 
 Template applications for both 
 [Android](https://github.com/OpenConextApps/android-oauth-app) and 
