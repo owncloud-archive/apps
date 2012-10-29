@@ -2,28 +2,32 @@ Install this unhosted app:
 <span id="launch_url"></span> with access to:<ul id="scopes"></ul><input type="submit" value="Install and launch" onclick="installAndLaunch();">
 <script>
   var manifest = {scopes:{r:[],w:[]}};
-  var params = location.href.split('?')[1].split('&');
-  for(var i=0; i<params.length; i++) {
-    var parts = params[i].split('=');
-    console.log(parts);
-    if(parts[0]=='redirect_uri') {
-      manifest.launch_url = decodeURIComponent(parts[1]);
+  var paramPairs = location.href.split('?')[1].split('&');
+  var params = {};
+  for(var i=0; i<paramPairs.length; i++) {
+    var parts = paramPairs[i].split('=');
+    params[decodeURIComponent(parts[0]).replace(/[^a-z0-9]/gi] = decodeURIComponent(parts[1]).replace(/[^a-z0-9]/gi;
+  }
+  for(var key in params) {
+    if(key=='redirect_uri') {
+      manifest.launch_url = decodeURIComponent(params[key]);
       document.getElementById('launch_url').innerHTML = manifest.launch_url;
-    } else if(parts[0] == 'client_id') {
-      manifest.name = decodeURIComponent(parts[1]);
-      manifest.slug = decodeURIComponent(parts[1]);
-    } else if(parts[0] == 'scope') {
-      var scopes = decodeURIComponent(parts[1]).split(' ');
+    } else if(key == 'client_id') {
+      manifest.name = params[key];
+      manifest.slug = params[key];
+    } else if(key == 'scope') {
+      var scopes = params[key].split(' ');
       var str = '';
       console.log(scopes);
       for(var j=0; j<scopes.length; j++) {
         var scopeParts = scopes[j].split(':');
         console.log(scopeParts);
-        str += '<li><input type="checkbox" checked id="'+scopeParts[0]+':r">read access to your '+scopeParts[0]+'</li>';
-        manifest.scopes.r.push(scopeParts[0]);
-        if(scopeParts[1] == 'rw') {
-          str += '<li><input type="checkbox" checked id="'+scopeParts[0]+':w">write access to your '+scopeParts[0]+'</li>';
-          manifest.scopes.w.push(scopeParts[0]);
+        manifest.scopes.r.push(scopeParts[0].replace(/[^a-z0-9]/gi,''));
+        if(scopeParts[1] == 'r') {
+          str += '<li>Read access to your '+scopeParts[0].replace(/[^a-z0-9]/gi,'')+'</li>';
+        } else {
+          manifest.scopes.w.push(scopeParts[0].replace(/[^a-z0-9]/gi,''));
+          str += '<li>Full access to your '+scopeParts[0].replace(/[^a-z0-9]/gi,'')+'</li>';
         }
       }
       document.getElementById('scopes').innerHTML = str;

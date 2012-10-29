@@ -17,6 +17,7 @@ function handle() {
   }
   OCP\JSON::checkLoggedIn();
   OCP\JSON::checkAppEnabled('unhosted_apps');
+  OCP\JSON::callCheck();
 
   $uid = OCP\USER::getUser();
   MyStorage::store($uid, $params['manifest_path'], 'application/json', json_encode(array(

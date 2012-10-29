@@ -9,6 +9,7 @@
 
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('unhosted_apps');
+OCP\JSON::callCheck();
 
 $uid = OCP\USER::getUser();
 try {
