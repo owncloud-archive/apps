@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-29 00:01+0100\n"
-"PO-Revision-Date: 2012-10-28 23:01+0000\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -223,7 +223,7 @@ msgstr "Скачать"
 msgid "Select file"
 msgstr "Выберите файл"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "без заголовка"
 
@@ -231,7 +231,7 @@ msgstr "без заголовка"
 msgid "no name"
 msgstr "без имени"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "без содержимого"
 
@@ -355,10 +355,6 @@ msgstr "Отметить все как прочитанные"
 msgid "Starred"
 msgstr "Отмеченный"
 
-#: templates/part.feeds.php:59
-msgid "Shared"
-msgstr ""
-
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr "Пометить как неважное"
@@ -377,7 +373,7 @@ msgstr "от"
 
 #: templates/part.items.php:54 templates/part.shared.php:55
 msgid "Share"
-msgstr ""
+msgstr "Открыть доступ"
 
 #: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"

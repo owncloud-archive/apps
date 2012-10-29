@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-29 00:01+0100\n"
-"PO-Revision-Date: 2012-10-28 23:02+0000\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -100,7 +100,7 @@ msgstr "Nyheter"
 
 #: js/items.js:122
 msgid "Error while loading the feed"
-msgstr ""
+msgstr "Kunne ikke laste nyhetskilden"
 
 #: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
@@ -112,7 +112,7 @@ msgstr "Feil"
 
 #: js/main.js:33
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
@@ -124,15 +124,15 @@ msgstr "Vis alt"
 
 #: js/menu.js:505
 msgid "Are you sure you want to delete this feed?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette denne nyhetskilden?"
 
 #: js/menu.js:513
 msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette mappen og alt dets innhold?"
 
 #: js/menu.js:521
 msgid "Warning"
-msgstr ""
+msgstr "Advarsel"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
@@ -219,7 +219,7 @@ msgstr "Last ned"
 msgid "Select file"
 msgstr "Velg fil"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "Ingen tittel"
 
@@ -227,7 +227,7 @@ msgstr "Ingen tittel"
 msgid "no name"
 msgstr "Ingen navn"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "Ingen body"
 
@@ -351,10 +351,6 @@ msgstr ""
 msgid "Starred"
 msgstr "Merket"
 
-#: templates/part.feeds.php:59
-msgid "Shared"
-msgstr ""
-
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr "Merk som uviktig"
@@ -365,7 +361,7 @@ msgstr "Merk som viktig"
 
 #: templates/part.items.php:37 templates/part.shared.php:38
 msgid "from"
-msgstr ""
+msgstr "fra"
 
 #: templates/part.items.php:43 templates/part.shared.php:44
 msgid "by"
@@ -373,7 +369,7 @@ msgstr "av"
 
 #: templates/part.items.php:54 templates/part.shared.php:55
 msgid "Share"
-msgstr ""
+msgstr "Del"
 
 #: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"

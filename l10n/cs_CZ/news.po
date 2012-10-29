@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-29 00:01+0100\n"
-"PO-Revision-Date: 2012-10-28 23:01+0000\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -220,7 +220,7 @@ msgstr "Stáhnout"
 msgid "Select file"
 msgstr "Vybrat soubor"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "bez názvu"
 
@@ -228,7 +228,7 @@ msgstr "bez názvu"
 msgid "no name"
 msgstr "bez názvu"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "bez těla"
 
@@ -352,10 +352,6 @@ msgstr "Označit vše jako přečtené"
 msgid "Starred"
 msgstr "S hvězdičkou"
 
-#: templates/part.feeds.php:59
-msgid "Shared"
-msgstr ""
-
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr "Označit jako nedůležité"
@@ -374,7 +370,7 @@ msgstr "od"
 
 #: templates/part.items.php:54 templates/part.shared.php:55
 msgid "Share"
-msgstr ""
+msgstr "Sdílet"
 
 #: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"

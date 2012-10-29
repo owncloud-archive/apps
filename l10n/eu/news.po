@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-29 00:01+0100\n"
-"PO-Revision-Date: 2012-10-28 23:01+0000\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -219,7 +219,7 @@ msgstr "Deskargatu"
 msgid "Select file"
 msgstr "Hautatu fitxategia"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "izenbururik gabe"
 
@@ -227,7 +227,7 @@ msgstr "izenbururik gabe"
 msgid "no name"
 msgstr "izenik gabe"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "gorputzik gabe"
 
@@ -351,10 +351,6 @@ msgstr "Markatu guztiak irakurrita"
 msgid "Starred"
 msgstr "Izardunak"
 
-#: templates/part.feeds.php:59
-msgid "Shared"
-msgstr ""
-
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr "Markatu garrantzigabekoa"
@@ -365,7 +361,7 @@ msgstr "Markatu garrantzitsua"
 
 #: templates/part.items.php:37 templates/part.shared.php:38
 msgid "from"
-msgstr ""
+msgstr "lekua"
 
 #: templates/part.items.php:43 templates/part.shared.php:44
 msgid "by"
@@ -373,7 +369,7 @@ msgstr "egilea"
 
 #: templates/part.items.php:54 templates/part.shared.php:55
 msgid "Share"
-msgstr ""
+msgstr "Elkarbanatu"
 
 #: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-29 00:01+0100\n"
-"PO-Revision-Date: 2012-10-28 23:02+0000\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
 "MIME-Version: 1.0\n"
@@ -219,7 +219,7 @@ msgstr "داگرتن"
 msgid "Select file"
 msgstr "دیاریکردنی په‌ڕگه"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "بێ ناونیشان"
 
@@ -227,7 +227,7 @@ msgstr "بێ ناونیشان"
 msgid "no name"
 msgstr "بێ ناو"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "بێ ناوه‌ڕۆك"
 
@@ -350,10 +350,6 @@ msgstr "نیشانیان بکه‌ سه‌رجه‌میان خوێندراوه�
 #: templates/part.feeds.php:54
 msgid "Starred"
 msgstr "گه‌شاوه"
-
-#: templates/part.feeds.php:59
-msgid "Shared"
-msgstr ""
 
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"

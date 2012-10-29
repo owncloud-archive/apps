@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-29 00:01+0100\n"
-"PO-Revision-Date: 2012-10-28 23:02+0000\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -221,7 +221,7 @@ msgstr "Download"
 msgid "Select file"
 msgstr "Vælg fil"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "ingen titel"
 
@@ -229,7 +229,7 @@ msgstr "ingen titel"
 msgid "no name"
 msgstr "intet navn"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "ingen brødtekst"
 
@@ -353,10 +353,6 @@ msgstr "Marker alle som læst"
 msgid "Starred"
 msgstr "Markéret"
 
-#: templates/part.feeds.php:59
-msgid "Shared"
-msgstr ""
-
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr "Markér som ikke-vigtig"
@@ -375,7 +371,7 @@ msgstr "af"
 
 #: templates/part.items.php:54 templates/part.shared.php:55
 msgid "Share"
-msgstr ""
+msgstr "Del"
 
 #: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"

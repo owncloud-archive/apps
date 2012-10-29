@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-29 00:01+0100\n"
-"PO-Revision-Date: 2012-10-28 23:01+0000\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -100,7 +100,7 @@ msgstr "Uudised"
 
 #: js/items.js:122
 msgid "Error while loading the feed"
-msgstr ""
+msgstr "Viga uudisvoo laadimisel"
 
 #: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
@@ -112,7 +112,7 @@ msgstr "Viga"
 
 #: js/main.js:33
 msgid "None"
-msgstr ""
+msgstr "Pole"
 
 #: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
@@ -132,7 +132,7 @@ msgstr ""
 
 #: js/menu.js:521
 msgid "Warning"
-msgstr ""
+msgstr "Hoiatus"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
@@ -219,7 +219,7 @@ msgstr "Laadi alla"
 msgid "Select file"
 msgstr "Vali fail"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "pealkirja pole"
 
@@ -227,7 +227,7 @@ msgstr "pealkirja pole"
 msgid "no name"
 msgstr "nime pole"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "sisu pole"
 
@@ -351,10 +351,6 @@ msgstr "Märgi loetuks"
 msgid "Starred"
 msgstr "Tärniga märgitud"
 
-#: templates/part.feeds.php:59
-msgid "Shared"
-msgstr ""
-
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr "Märgi mitteoluliseks"
@@ -373,7 +369,7 @@ msgstr "lisas"
 
 #: templates/part.items.php:54 templates/part.shared.php:55
 msgid "Share"
-msgstr ""
+msgstr "Jaga"
 
 #: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"

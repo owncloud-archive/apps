@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-29 00:01+0100\n"
-"PO-Revision-Date: 2012-10-28 23:01+0000\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -113,7 +113,7 @@ msgstr "kesalahan"
 
 #: js/main.js:33
 msgid "None"
-msgstr ""
+msgstr "tidak ada"
 
 #: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
@@ -133,7 +133,7 @@ msgstr ""
 
 #: js/menu.js:521
 msgid "Warning"
-msgstr ""
+msgstr "peringatan"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
@@ -220,7 +220,7 @@ msgstr "unduh"
 msgid "Select file"
 msgstr "pilih file"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "tidak ada judul"
 
@@ -228,7 +228,7 @@ msgstr "tidak ada judul"
 msgid "no name"
 msgstr "tidak bernama"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "tidak berisi"
 
@@ -254,7 +254,7 @@ msgstr ""
 
 #: templates/firstrun.php:6 templates/part.dialogues.php:28
 msgid "Address"
-msgstr ""
+msgstr "alamat"
 
 #: templates/firstrun.php:7 templates/subscribelet.php:7
 msgid "Subscribe"
@@ -305,11 +305,11 @@ msgstr ""
 
 #: templates/main.php:39
 msgid "Folder"
-msgstr ""
+msgstr "Folder"
 
 #: templates/main.php:46
 msgid "Settings"
-msgstr ""
+msgstr "pengaturan"
 
 #: templates/part.dialogues.php:1
 msgid "Add Folder"
@@ -337,7 +337,7 @@ msgstr ""
 
 #: templates/part.dialogues.php:29
 msgid "Add"
-msgstr ""
+msgstr "tambah"
 
 #: templates/part.feeds.php:48
 msgid "New articles"
@@ -351,10 +351,6 @@ msgstr ""
 #: templates/part.feeds.php:54
 msgid "Starred"
 msgstr "dibintangi"
-
-#: templates/part.feeds.php:59
-msgid "Shared"
-msgstr ""
 
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
@@ -374,7 +370,7 @@ msgstr ""
 
 #: templates/part.items.php:54 templates/part.shared.php:55
 msgid "Share"
-msgstr ""
+msgstr "berbagi"
 
 #: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"

@@ -5,6 +5,7 @@
 # Translators:
 # Cyryl Sochacki <>, 2012.
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012.
+#   <koalamis0@gmail.com>, 2012.
 # Marcin Małecki <gerber@tkdami.net>, 2012.
 #   <mplichta@gmail.com>, 2012.
 # Paweł Ciecierski <pciecierski@gmail.com>, 2012.
@@ -12,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-29 00:01+0100\n"
-"PO-Revision-Date: 2012-10-28 23:01+0000\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -223,7 +224,7 @@ msgstr "Pobierz"
 msgid "Select file"
 msgstr "Wybierz plik"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "brak tytułu"
 
@@ -231,7 +232,7 @@ msgstr "brak tytułu"
 msgid "no name"
 msgstr "brak nazwy"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "brak zawartości"
 
@@ -355,10 +356,6 @@ msgstr "Oznacz wszystkie jako przeczytane"
 msgid "Starred"
 msgstr "Oznaczone"
 
-#: templates/part.feeds.php:59
-msgid "Shared"
-msgstr ""
-
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr "Oznacz jako nieważne"
@@ -377,7 +374,7 @@ msgstr "przez"
 
 #: templates/part.items.php:54 templates/part.shared.php:55
 msgid "Share"
-msgstr ""
+msgstr "Udostępnij"
 
 #: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"

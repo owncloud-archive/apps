@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-29 00:01+0100\n"
-"PO-Revision-Date: 2012-10-28 23:01+0000\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -113,7 +113,7 @@ msgstr "Помилка"
 
 #: js/main.js:33
 msgid "None"
-msgstr ""
+msgstr "Жоден"
 
 #: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
@@ -220,7 +220,7 @@ msgstr "Завантажити"
 msgid "Select file"
 msgstr "Оберіть файл"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "без назви"
 
@@ -228,7 +228,7 @@ msgstr "без назви"
 msgid "no name"
 msgstr "без імені"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "без тіла"
 
@@ -254,7 +254,7 @@ msgstr ""
 
 #: templates/firstrun.php:6 templates/part.dialogues.php:28
 msgid "Address"
-msgstr ""
+msgstr "Адреса"
 
 #: templates/firstrun.php:7 templates/subscribelet.php:7
 msgid "Subscribe"
@@ -270,7 +270,7 @@ msgstr ""
 
 #: templates/firstrun.php:12 templates/settings.php:3
 msgid "Upload"
-msgstr ""
+msgstr "Відвантажити"
 
 #: templates/firstrun.php:13 templates/settings.php:4
 msgid "Select file from ownCloud"
@@ -305,7 +305,7 @@ msgstr ""
 
 #: templates/main.php:39
 msgid "Folder"
-msgstr ""
+msgstr "Папка"
 
 #: templates/main.php:46
 msgid "Settings"
@@ -352,10 +352,6 @@ msgstr ""
 msgid "Starred"
 msgstr "Помічені зірочко"
 
-#: templates/part.feeds.php:59
-msgid "Shared"
-msgstr ""
-
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr ""
@@ -374,7 +370,7 @@ msgstr ""
 
 #: templates/part.items.php:54 templates/part.shared.php:55
 msgid "Share"
-msgstr ""
+msgstr "Поділитися"
 
 #: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"

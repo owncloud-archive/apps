@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-29 00:01+0100\n"
-"PO-Revision-Date: 2012-10-28 23:02+0000\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/owncloud/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr ""
 
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "Failas neegzistuoja:"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -112,7 +112,7 @@ msgstr "Klaida"
 
 #: js/main.js:33
 msgid "None"
-msgstr ""
+msgstr "Nieko"
 
 #: js/main.js:101 templates/main.php:18
 msgid "Show only unread"
@@ -132,7 +132,7 @@ msgstr ""
 
 #: js/menu.js:521
 msgid "Warning"
-msgstr ""
+msgstr "Įspėjimas"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
@@ -205,7 +205,7 @@ msgstr ""
 
 #: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
 msgid "Import"
-msgstr ""
+msgstr "Importuoti"
 
 #: js/settings.js:55
 msgid "Downloading..."
@@ -219,7 +219,7 @@ msgstr "Atsisiųsti"
 msgid "Select file"
 msgstr ""
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr ""
 
@@ -227,7 +227,7 @@ msgstr ""
 msgid "no name"
 msgstr ""
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr ""
 
@@ -269,7 +269,7 @@ msgstr ""
 
 #: templates/firstrun.php:12 templates/settings.php:3
 msgid "Upload"
-msgstr ""
+msgstr "Įkelti"
 
 #: templates/firstrun.php:13 templates/settings.php:4
 msgid "Select file from ownCloud"
@@ -304,7 +304,7 @@ msgstr ""
 
 #: templates/main.php:39
 msgid "Folder"
-msgstr ""
+msgstr "Katalogas"
 
 #: templates/main.php:46
 msgid "Settings"
@@ -351,10 +351,6 @@ msgstr ""
 msgid "Starred"
 msgstr ""
 
-#: templates/part.feeds.php:59
-msgid "Shared"
-msgstr ""
-
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr ""
@@ -373,7 +369,7 @@ msgstr ""
 
 #: templates/part.items.php:54 templates/part.shared.php:55
 msgid "Share"
-msgstr ""
+msgstr "Dalintis"
 
 #: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
