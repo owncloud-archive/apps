@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-18 02:04+0200\n"
-"PO-Revision-Date: 2012-10-17 05:08+0000\n"
-"Last-Translator: hanfeng <appweb.cn@gmail.com>\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,15 +95,15 @@ msgstr "更新Feed时出错。"
 msgid "Feed updated!"
 msgstr "Feed已更新！"
 
-#: appinfo/app.php:36
+#: appinfo/app.php:38 lib/search.php:21
 msgid "News"
 msgstr "新闻"
 
-#: js/items.js:123
+#: js/items.js:122
 msgid "Error while loading the feed"
 msgstr "下载种子(feed)时错误"
 
-#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
+#: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
@@ -220,7 +220,7 @@ msgstr "下载"
 msgid "Select file"
 msgstr "选择文件"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "没有标题"
 
@@ -228,7 +228,7 @@ msgstr "没有标题"
 msgid "no name"
 msgstr "没有名称"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "没有正文"
 
@@ -339,36 +339,40 @@ msgstr "选择目录"
 msgid "Add"
 msgstr "添加"
 
-#: templates/part.feeds.php:47
+#: templates/part.feeds.php:48
 msgid "New articles"
 msgstr "新文章"
 
-#: templates/part.feeds.php:49 templates/part.listfeed.php:34
+#: templates/part.feeds.php:50 templates/part.listfeed.php:34
 #: templates/part.listfolder.php:34
 msgid "Mark all read"
 msgstr "设置所有为已读"
 
-#: templates/part.feeds.php:53
+#: templates/part.feeds.php:54
 msgid "Starred"
 msgstr "已加星标"
 
-#: templates/part.items.php:17
+#: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr "标志为不重要"
 
-#: templates/part.items.php:20
+#: templates/part.items.php:20 templates/part.shared.php:21
 msgid "Mark as important"
 msgstr "标志为重要"
 
-#: templates/part.items.php:37
+#: templates/part.items.php:37 templates/part.shared.php:38
 msgid "from"
 msgstr "自"
 
-#: templates/part.items.php:43
+#: templates/part.items.php:43 templates/part.shared.php:44
 msgid "by"
 msgstr "被"
 
-#: templates/part.items.php:56
+#: templates/part.items.php:54 templates/part.shared.php:55
+msgid "Share"
+msgstr "共享"
+
+#: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "保持未读"
 
