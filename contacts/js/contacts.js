@@ -134,7 +134,7 @@ OC.Contacts = OC.Contacts || {};
 	/**
 	 * @brief Act on change of a property.
 	 * If this is a new contact it will first be saved to the datastore and a
-	 * new datastructure will be added to the object.
+	 * new datastructure will be added to the object. FIXME: Not implemented yet.
 	 * If the obj argument is not provided 'name' and 'value' MUST be provided
 	 * and this is only allowed for single elements like N, FN, CATEGORIES.
 	 * @param obj. The form form field that has changed.
@@ -199,7 +199,8 @@ OC.Contacts = OC.Contacts || {};
 					// Save value and parameters internally
 					var value = self.valueFor(obj);
 					switch(element) {
-						case 'CATEGORIES': // We deal with this in addToGroup()
+						case 'CATEGORIES':
+							// We deal with this in addToGroup()
 							break;
 						case 'FN':
 							var nempty = true;
@@ -215,6 +216,7 @@ OC.Contacts = OC.Contacts || {};
 							if(nempty) {
 								self.N[0]['value'] = [value, '', '', '', ''];
 								setTimeout(function() {
+									// TODO: Hint to user to check if name is properly formatted
 									self.saveProperty({name:'N', value:this.data.N[0].value.join(';')})}
 								, 500);
 							}
@@ -1075,6 +1077,7 @@ OC.Contacts = OC.Contacts || {};
 	/**
 	* Opens the contact with this id in edit mode
 	* @param id the id of the contact
+	* @returns A jquery object to be inserted in the DOM.
 	*/
 	ContactList.prototype.showContact = function(id) {
 		this.currentContact = parseInt(id);
@@ -1105,7 +1108,6 @@ OC.Contacts = OC.Contacts || {};
 
 	/**
 	* Add contact
-	* @param int offset
 	*/
 	ContactList.prototype.addContact = function() {
 		var contact = new Contact(
@@ -1123,6 +1125,11 @@ OC.Contacts = OC.Contacts || {};
 		return contact.renderContact();
 	}
 
+	/**
+	 * Get contacts selected in list
+	 *
+	 * @returns array of integer contact ids.
+	 */
 	ContactList.prototype.getSelectedContacts = function() {
 		var contacts = [];
 
