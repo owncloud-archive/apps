@@ -182,13 +182,16 @@ GroupList.prototype.addTo = function(contactid, groupid, cb) {
 	console.log('GroupList.addTo', contactid, groupid);
 	var $groupelem = this.findById(groupid);
 	var contacts = $groupelem.data('contacts');
+	if(!contacts) {
+		console.log('Contacts not found, adding list!!!');
+		contacts = [];
+	}
 	var self = this;
 	if(contacts.indexOf(contactid) === -1) {
 		$.post(OC.filePath('contacts', 'ajax', 'categories/addto.php'), {contactid: contactid, categoryid: groupid},function(jsondata) {
 			if(!jsondata) {
-				OC.notify({message:t('contacts', 'Network or server error. Please inform administrator.')});
 				if(typeof cb === 'function') {
-					cb('error');
+					cb({status:'error', message:'Network or server error. Please inform administrator.'});
 				}
 				return;
 			}
@@ -197,7 +200,7 @@ GroupList.prototype.addTo = function(contactid, groupid, cb) {
 				$groupelem.data('contacts', contacts);
 				$groupelem.find('.numcontacts').text(contacts.length);
 				if(typeof cb === 'function') {
-					cb('success');
+					cb({status:'success'});
 				} else {
 					$(document).trigger('status.group.contactadded', {
 						contactid: contactid,
@@ -206,14 +209,15 @@ GroupList.prototype.addTo = function(contactid, groupid, cb) {
 					});
 				}
 			} else {
-				OC.notify({message:jsondata.data.message});
 				if(typeof cb == 'function') {
-					cb('error');
+					cb({status:'error', message:jsondata.data.message});
 				}
 			}
 		});
 	} else {
-		OC.notify({message:t('contacts', 'Contact is already in this group.')});
+		if(typeof cb == 'function') {
+			cb({status:'error', message:t('contacts', 'Contact is already in this group.')});
+		}
 	}
 }
 
@@ -223,14 +227,16 @@ GroupList.prototype.removeFrom = function(contactid, groupid, cb) {
 	var contacts = $groupelem.data('contacts');
 	// If the contact is in the category remove it from internal list.
 	if(!contacts) {
+		if(typeof cb === 'function') {
+			cb({status:'error', message:t('contacts', 'Couldn\'t get contact list.')});
+		}
 		return;
 	}
 	if(contacts.indexOf(contactid) !== -1) {
 		$.post(OC.filePath('contacts', 'ajax', 'categories/removefrom.php'), {contactid: contactid, categoryid: groupid},function(jsondata) {
 			if(!jsondata) {
-				OC.notify({message:t('contacts', 'Network or server error.')});
 				if(typeof cb === 'function') {
-					cb('error');
+					cb({status:'error', message:'Network or server error. Please inform administrator.'});
 				}
 				return;
 			}
@@ -240,18 +246,19 @@ GroupList.prototype.removeFrom = function(contactid, groupid, cb) {
 				$groupelem.data('contacts', contacts);
 				$groupelem.find('.numcontacts').text(contacts.length);
 				if(typeof cb === 'function') {
-					cb('success');
+					cb({status:'success'});
 				}
 			} else {
-				OC.notify({message:jsondata.data.message});
 				if(typeof cb == 'function') {
-					cb('error');
+					cb({status:'error', message:jsondata.data.message});
 				}
 			}
 		});
 	} else {
 		console.log('Contact not in this group.', $groupelem);
-		OC.notify({message:t('contacts', 'Contact not in this group.')});
+		if(typeof cb == 'function') {
+			cb({status:'error', message:t('contacts', 'Contact not in this group.')});
+		}
 	}
 }
 
@@ -469,11 +476,6 @@ OC.Contacts = OC.Contacts || {
 	},
 	loading:function(obj, state) {
 		$(obj).toggleClass('loading', state);
-		/*if(state) {
-			$(obj).addClass('loading');
-		} else {
-			$(obj).removeClass('loading');
-		}*/
 	},
 	/**
 	 * Show/hide elements in the header
@@ -547,6 +549,7 @@ OC.Contacts = OC.Contacts || {
 			$(rmopts).appendTo(this.$groups)
 				.wrapAll('<optgroup data-action="remove" label="' + t('contacts', 'Remove from...') + '"/>');
 		}
+		// TODO: 3rd option: No contact open, none checked, just show "Add group..."
 		$('<option value="add">' + t('contacts', 'Add group...') + '</option>').appendTo(this.$groups);
 		this.$groups.val(-1);
 	},
@@ -577,13 +580,9 @@ OC.Contacts = OC.Contacts || {
 				alert('Error loading contacts!');
 			} else {
 				self.numcontacts = result.numcontacts;
-				self.$rightContent.removeClass('loading');
-// 				var $firstelem = self.$contactList.find('tr:first-child');
-// 				self.currentlistid = $firstelem.data('id');
-// 				console.log('first element', self.currentlistid, $firstelem);
-// 				$firstelem.addClass('active');
+				self.loading(self.$rightContent, false);
 				self.Groups.loadGroups(self.numcontacts, function() {
-					$('#leftcontent').removeClass('loading');
+					self.loading($('#leftcontent'), false);
 					if(self.currentid) {
 						self.openContact(self.currentid);
 					}
@@ -741,7 +740,10 @@ OC.Contacts = OC.Contacts || {
 			self.$ninjahelp.hide();
 		});
 		this.$toggleAll.on('change', function() {
-			var isChecked = self.Contacts.toggleAll(this, self.$contactList.find('input:checkbox:visible'));
+			var isChecked = $(this).is(':checked');
+			$.each(self.$contactList.find('input:checkbox:visible'), function( i, item ) {
+				item.checked = isChecked;
+			});
 			if(self.$groups.find('option').length === 1) {
 				self.buildGroupSelect();
 			}
@@ -758,6 +760,7 @@ OC.Contacts = OC.Contacts || {
 			}
 		});
 		this.$groups.on('change', function() {
+			// TODO: This should go in separate method
 			var $opt = $(this).find('option:selected');
 			var action = $opt.parent().data('action');
 			var ids, buildnow = false;
@@ -850,7 +853,7 @@ OC.Contacts = OC.Contacts || {
 				$.each(ids, function(i, id) {
 					self.Groups.removeFrom(id, $opt.val(), function(result) {
 						console.log('after remove', result);
-						if(result === 'success') {
+						if(result.status === 'success') {
 							self.Contacts.contacts[id].removeFromGroup($opt.text());
 							if(buildnow) {
 								self.buildGroupSelect();
@@ -967,6 +970,7 @@ OC.Contacts = OC.Contacts || {
 			if(event.target.nodeName.toUpperCase() != 'BODY') {
 				return;
 			}
+			// TODO: This should go in separate method
 			console.log(event.which + ' ' + event.target.nodeName);
 			/**
 			* To add:
