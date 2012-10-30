@@ -1,13 +1,82 @@
-<h1 id="caption">Unhosted apps: <input type="submit" value="edit" onclick="editApps()"></h1>
-<div style="width:100%" id="icons"></div>
+<style> .square { border-style:solid; border-width:1px; float:left; width:200px; height:200px; display:block; overflow:hidden; } </style>
+<div style="width:100%" id="icons">
+</div>
+<input id="mainButton" type="submit" value="edit" onclick="changeMode()">
+<div id="updateDiv">
+  <input type="submit" value="install default apps" onclick="installDefaultApps();">
+  Source: <input id="appsource" value="https://apps.unhosted.org/default.json" style="width:20em">
+</div>
+<div id="addDiv">
+Install 
+<span id="launch_url"></span> with access to:<ul id="scopes"></ul><input type="submit" value="Install and launch" onclick="installAndLaunch();">
+</div>
 <script>
-function editApps() {
-  var elts = document.getElementsByClassName('remove_');
-  for(var i=0; i<elts.length; i++) {
-    elts[i].style.display='inline';
+  var parsedParams = { };
+  function addApp() {
+    installApp(parsedParams);
   }
-}
-  
+  function checkForAdd() {
+    var rawParams = location.search.substring(1).split('&');
+    for(var i=0; i<rawParams.length; i++) {
+      var parts = rawParams[i].split('=');
+      if(parts[0]=='response_type' && parts[1]=='token') {
+        parsedParams.addRequested = true;
+      } else if(parts[0]=='redirect_uri') {
+        var parser = document.createElement('a');
+        parser.href = decodeURIComponent(parts[1]);
+        parsedParams.name = parser.hostname;
+        parsedParams.launch_url = parser.protocol + '//' + parser.host + parser.pathname;
+      } else if(parts[0]=='scope') {
+        parsedParams.scopes = {};
+        var scopeParts = decodeURIComponent(parts[1]).split(' ');
+        for(var j=0; j<scopeParts.length; j++) {
+          var scopePartParts = scopeParts[j].split(':');
+          parsedParams.scopes[scopePartParts[0].replace(/[^a-z]/, '')] = (scopePartParts[1]=='r'?'r':'rw');
+        }
+      }
+    }  
+    if(parsedParams.addRequested) {
+      var str = 'Give '+parsedParams.name+' access to '
+      for(var i in parsedParams.scopes) {
+        if(i=='') {
+          str += 'everything';
+        } else {
+          str += i;
+        }
+        if(parsedParams.scopes[i]=='r') {
+          str += ' (read only)';
+        }
+        str += ', ';
+      }
+      str = str.substring(0, str.length -2)+'.';
+      document.getElementById('addDiv').innerHTML = str;
+      mode='add';
+      showMode();
+    }
+  }
+  function changeMode() {
+    if(mode=='main') {
+      mode = 'edit';
+    } else if(mode=='edit') {
+      mode = 'main';
+    } else {//mode=='add'
+      addApp();
+      mode = 'main';
+    }
+    showMode();
+  }
+  function showMode() {
+    document.getElementById('mainButton').value = (mode=='edit'?'done':(mode=='add'?'add':'edit'));
+    document.getElementById('addDiv').style.display = (mode=='add'?'block':'none');
+    document.getElementById('updateDiv').style.display = (mode=='edit'?'block':'none');
+    var elts = document.getElementsByClassName('remove_');
+    for(var i=0; i<elts.length; i++) {
+      elts[i].style.display = (mode=='edit'?'inline':'none');
+    }
+  }
+  var mode = 'main';
+  showMode();
+  checkForAdd(); 
 function ajax(endpoint, params, cb) {
   var xhr = new XMLHttpRequest();
   var path = '/?app=unhosted_apps&getfile=ajax/'+endpoint;
@@ -125,6 +194,7 @@ function installDefaultApps() {
   });
 }
 function installApp(manifestObj) {
+    manifestObj.slug = manifestObj.name.toLowerCase().replace(/[^a-z0-9\ ]/, '').replace(' ', '-');
     manifestObj.manifest_path = 'apps/'+manifestObj.slug+'/manifest.json';
     ajax('storemanifest.php', manifestObj, function(err1, data1) {
       if(err1) {
@@ -159,28 +229,41 @@ function remove(token) {
     render();
   });
 }
+var rendering=0;
 function showApp(masterToken, uid, appToken, manifestPath) {
+  rendering++;
   console.log('showApp('+masterToken+', '+uid+', '+appToken+', '+manifestPath+');');
   rsget(masterToken, uid, manifestPath, function(err, data) {
+    rendering--;
     try {
       manifest=JSON.parse(data.content);
     } catch(e) {
       console.log(e);
     }
      
-    document.getElementById('icons').innerHTML += '<div style="margin:0px auto;width:6em;border-style:solid;border-width:1px;border-radius:1em">'
+    document.getElementById('icons').innerHTML += '<div class="square" style="margin:1em;border-radius:1em">'
+      + '<a target="_blank" href="' + manifest.launch_url
+      + '#storage_root='+encodeURIComponent('https://' + remoteStorageOrigin
+        + '/?user=' + encodeURIComponent(uid) + '&path=')
+      + '&storage_api=2011.04&access_token=' + encodeURIComponent(appToken)+'">'
+      + '<img width="50px" height="50px" src="' + manifest.icon + '">'
+      + '</a>'
+      + '<span style="display:none" class="remove_" onclick="remove(\''+appToken+'\');">X</span>'
       + '<a style="margin:1em" target="_blank" href="' + manifest.launch_url
       + '#storage_root='+encodeURIComponent('https://' + remoteStorageOrigin
         + '/?user=' + encodeURIComponent(uid) + '&path=')
-      + '&storage_api=2011.04&access_token=' + encodeURIComponent(appToken)
-      + '"> <img width="50px" height="50px" src="' + manifest.icon + '">'
-      + '<span style="display:none" class="remove_" onclick="remove(\''+appToken+'\');">X</span>'
+      + '&storage_api=2011.04&access_token=' + encodeURIComponent(appToken)+'">'
       + '<br> &nbsp;&nbsp;' + manifest.name + ' </a> </div>';
   });
 }
 function render() {
+  if(rendering) {
+    return;
+  }
   var uid = 'admin';
+  rendering++;
   ajax('listapps.php', {}, function(err, data) {
+    rendering --;
     document.getElementById('icons').innerHTML = '';
     var content;
     try {
@@ -190,7 +273,6 @@ function render() {
     }
     console.log(content);
     var masterToken;
-    var haveApps=false;
     for(var i=0; i<content.apps.length; i++) {
       if(content.apps[i].manifest_path=='appsapp') {
         masterToken = content.apps[i].access_token;
@@ -198,15 +280,12 @@ function render() {
       }
     }
     console.log(masterToken);
+    document.getElementById('icons').innerHTML = '';
     for(var i=0; i<content.apps.length; i++) {
       if(content.apps[i].manifest_path!='appsapp') {
         console.log(content.apps[i]);
         showApp(masterToken, uid, content.apps[i].access_token, content.apps[i].manifest_path);
-        haveApps=true;
       }
-    }
-    if(!haveApps) {
-      document.getElementById('icons').innerHTML='<input type="submit" value="install default apps" onclick="installDefaultApps();"> Source: <input id="appsource" value="http://apps.unhosted.org/default.json">';
     }
   });
 }
