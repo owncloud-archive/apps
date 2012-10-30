@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2012 Thomas Tanghus <thomas@tanghus.net>
+ * Copyright (c) 2012 Michiel de Jong <michiel@unhosted.org>
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  * See the COPYING-README file.
