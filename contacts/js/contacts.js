@@ -1155,7 +1155,7 @@ OC.Contacts = OC.Contacts || {};
 		var rows = this.$contactList.find('tr').get();
 
 		rows.sort(function(a, b) {
-			return keyA = $(a).find('td.name').text().toUpperCase().localeCompare($(b).find('td.name').text().toUpperCase());
+			return $(a).find('td.name').text().toUpperCase().localeCompare($(b).find('td.name').text().toUpperCase());
 		});
 
 		$.each(rows, function(index, row) {
