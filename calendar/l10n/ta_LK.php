@@ -180,6 +180,7 @@
 "Name of new calendar" => "புதிய நாட்காட்டியின் பெயர்",
 "Take an available name!" => "கிடைக்கக்கூடிய பெயரொன்றை எடுக்க!",
 "A Calendar with this name already exists. If you continue anyhow, these calendars will be merged." => "இந்த பெயரைக்கொண்ட நாட்காட்டி ஏற்கனவே உள்ளது.  நீங்கள் இதனை தொடர்ந்தால், நாட்காட்டிகள் ஒன்றிணைக்கப்படலாம். ",
+"Remove all events from the selected calendar" => "தெரிவுசெய்யப்பட்ட நாட்காட்டியில் உள்ள எல்லா நிகழ்வுகளையும் அகற்றுக ",
 "Import" => "இறக்குமதி",
 "Close Dialog" => "Dialog மூடுக",
 "Create a new event" => "புதிய நிகழ்வை உருவாக்க",

@@ -4,12 +4,13 @@
 # 
 # Translators:
 #   <ajarmund@gmail.com>, 2012.
+#   <hdalgrav@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-30 00:01+0100\n"
-"PO-Revision-Date: 2012-10-29 23:01+0000\n"
+"POT-Creation-Date: 2012-10-31 00:01+0100\n"
+"PO-Revision-Date: 2012-10-30 23:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +21,11 @@ msgstr ""
 
 #: ajax/changefoldername.php:30
 msgid "Error changing name of folder "
-msgstr ""
+msgstr "Feil ved endring av navn på mappe"
 
 #: ajax/collapsefolder.php:36
 msgid "Error collapsing folder."
-msgstr ""
+msgstr "Feil ved skjuling av mappe"
 
 #: ajax/createfeed.php:52
 msgid "Feed already exists."
@@ -60,11 +61,11 @@ msgstr "Kunne ikke oppdatere nyhetskilde."
 
 #: ajax/importopml.php:28 ajax/selectfromcloud.php:31
 msgid "No file path was submitted."
-msgstr ""
+msgstr "Ingen filbane ble funnet"
 
 #: ajax/importopml.php:42
 msgid "An error occurred while parsing the file."
-msgstr ""
+msgstr "En feil oppstod under lesing av filen"
 
 #: ajax/loadfeed.php:52
 msgid "Feed loaded!"
@@ -80,7 +81,7 @@ msgstr "Filen eksisterer ikke:"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
-msgstr ""
+msgstr "Kunne ikke merke filene som lest"
 
 #: ajax/setitemstatus.php:47
 msgid "Error marking item as read."
@@ -148,12 +149,12 @@ msgstr "Legg til mappe"
 
 #: js/news.js:63
 msgid "Changing..."
-msgstr ""
+msgstr "Utfører endring..."
 
 #: js/news.js:79 templates/part.dialogues.php:34
 #: templates/part.dialogues.php:38 templates/part.dialogues.php:43
 msgid "Change folder name"
-msgstr ""
+msgstr "Endre mappe navn"
 
 #: js/news.js:90
 msgid "URL cannot be empty."
@@ -165,11 +166,11 @@ msgstr "Legg til nyhetskilde"
 
 #: js/news.js:124
 msgid "Error while parsing the feed"
-msgstr ""
+msgstr "Feil ved lesing av nyhetsfeed"
 
 #: js/news.js:124
 msgid "Fatal Error"
-msgstr ""
+msgstr "Kritisk feil"
 
 #: js/settings.js:11 js/settings.js:27
 msgid "File "
@@ -197,7 +198,7 @@ msgstr "av"
 
 #: js/settings.js:44
 msgid " feeds imported successfully from "
-msgstr ""
+msgstr "nyhetskilde lastet inn fra "
 
 #: js/settings.js:45
 msgid "Success"
@@ -207,15 +208,7 @@ msgstr "Suksess"
 msgid "Import"
 msgstr "Importer"
 
-#: js/settings.js:55
-msgid "Downloading..."
-msgstr "Laster ned..."
-
-#: js/settings.js:57
-msgid "Download"
-msgstr "Last ned"
-
-#: js/settings.js:69
+#: js/settings.js:66
 msgid "Select file"
 msgstr "Velg fil"
 
@@ -233,7 +226,7 @@ msgstr "Ingen body"
 
 #: opmlexporter.php:52
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "abbonementer i ownCloud - Nyheter"
 
 #: subscribe.php:30
 msgid "An error occurred"
@@ -249,7 +242,7 @@ msgstr "Du abonnerer allerede på denne nyhetskilden!"
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
-msgstr ""
+msgstr "Du har ingen nyhetskilder i leseren din."
 
 #: templates/firstrun.php:6 templates/part.dialogues.php:28
 msgid "Address"
@@ -261,7 +254,7 @@ msgstr "Abonner"
 
 #: templates/firstrun.php:11
 msgid "Import OPML"
-msgstr ""
+msgstr "Importer OPML"
 
 #: templates/firstrun.php:12 templates/settings.php:3
 msgid "Upload file from desktop"
@@ -284,7 +277,7 @@ msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
-msgstr ""
+msgstr "Velg fil fra <a href=\"#\" class=\"settings\" id=\"browselink\">lokalt system</a> eller <a href=\"#\" class=\"settings\" id=\"cloudlink\">skyen</a>"
 
 #: templates/firstrun.php:24
 msgid "Or..."
@@ -316,7 +309,7 @@ msgstr "Legg til mappe"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
-msgstr ""
+msgstr "Legg til ny mappe"
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
@@ -328,7 +321,7 @@ msgstr "Legg til abonnement"
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
-msgstr ""
+msgstr "Legg til ny strøm"
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
@@ -345,7 +338,7 @@ msgstr "Nye artikler"
 #: templates/part.feeds.php:50 templates/part.listfeed.php:34
 #: templates/part.listfolder.php:34
 msgid "Mark all read"
-msgstr ""
+msgstr "Marker alle som lest"
 
 #: templates/part.feeds.php:54
 msgid "Starred"
@@ -367,11 +360,12 @@ msgstr "fra"
 msgid "by"
 msgstr "av"
 
-#: templates/part.items.php:54 templates/part.shared.php:55
+#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.shared.php:55
 msgid "Share"
 msgstr "Del"
 
-#: templates/part.items.php:59 templates/part.shared.php:60
+#: templates/part.items.php:58 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Merk som ulest"
 
@@ -381,7 +375,7 @@ msgstr "Slett nyhetskilden"
 
 #: templates/part.listfolder.php:29
 msgid "Collapse"
-msgstr ""
+msgstr "Skjul"
 
 #: templates/part.listfolder.php:32
 msgid "Delete folder"
@@ -411,4 +405,4 @@ msgstr ""
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr ""
+msgstr "Dra denne til bokmerkelinjen din og trykk på den hver gang du ønsker å abonnere på en side"

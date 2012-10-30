@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-30 00:01+0100\n"
-"PO-Revision-Date: 2012-10-29 23:01+0000\n"
+"POT-Creation-Date: 2012-10-31 00:01+0100\n"
+"PO-Revision-Date: 2012-10-30 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -124,11 +124,11 @@ msgstr "Näita kõike"
 
 #: js/menu.js:505
 msgid "Are you sure you want to delete this feed?"
-msgstr ""
+msgstr "Oled sa kindel, et sa soovid seda uudisvoogu kustutada?"
 
 #: js/menu.js:513
 msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr ""
+msgstr "Oled sa kindel, et sa soovid seda kausta ja selle uudisvooge kustutada?"
 
 #: js/menu.js:521
 msgid "Warning"
@@ -207,15 +207,7 @@ msgstr "Korras"
 msgid "Import"
 msgstr "Impordi"
 
-#: js/settings.js:55
-msgid "Downloading..."
-msgstr "Allalaadimine..."
-
-#: js/settings.js:57
-msgid "Download"
-msgstr "Laadi alla"
-
-#: js/settings.js:69
+#: js/settings.js:66
 msgid "Select file"
 msgstr "Vali fail"
 
@@ -361,17 +353,18 @@ msgstr "Märgi oluliseks"
 
 #: templates/part.items.php:37 templates/part.shared.php:38
 msgid "from"
-msgstr ""
+msgstr "kust"
 
 #: templates/part.items.php:43 templates/part.shared.php:44
 msgid "by"
 msgstr "lisas"
 
-#: templates/part.items.php:54 templates/part.shared.php:55
+#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.shared.php:55
 msgid "Share"
 msgstr "Jaga"
 
-#: templates/part.items.php:59 templates/part.shared.php:60
+#: templates/part.items.php:58 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Hoia kui lugemata"
 
@@ -411,4 +404,4 @@ msgstr "Tellimuse vidin"
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr ""
+msgstr "Lohista see oma veebilehitseja järjehoidjatesse ja kliki sellel, kui sa soovid veebilehte kiiresti tellida:"
