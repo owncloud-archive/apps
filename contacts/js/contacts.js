@@ -1083,18 +1083,6 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	/**
-	* Toggle all checkboxes
-	*/
-	ContactList.prototype.toggleAll = function(toggler, togglees) {
-		var isChecked = $(toggler).is(':checked');
-		console.log('toggleAll', isChecked, self);
-		$.each(togglees, function( i, item ) {
-			item.checked = isChecked;
-		});
-		return isChecked;
-	};
-
-	/**
 	 * Insert a rendered contact list item into the list
 	 * @param contact jQuery object.
 	 */
