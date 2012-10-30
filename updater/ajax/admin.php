@@ -10,7 +10,7 @@
  * later.
  */
 
-namespace OCA_Updater;
+namespace OCA\Updater;
 
 \OCP\JSON::checkAdminUser();
 \OCP\JSON::callCheck();
@@ -22,29 +22,42 @@ $packageUrl = 'https://download.owncloud.com/download/community/owncloud-latest.
 //Package version e.g. 4.0.4
 $packageVersion = '';
 $updateData = \OC_Updater::check();
+
 if (isset($updateData['version'])) {
 	$packageVersion = $updateData['version'];
 }
 if (isset($updateData['url']) && extension_loaded('bz2')) {
 	$packageUrl = $updateData['url'];
 }
-
-if (!$packageVersion) {
+if (!strlen($packageVersion) || !strlen($packageUrl)) {
+	\OC_Log::write(App::APP_ID, 'Invalid response from update feed.', \OC_Log::ERROR);
 	\OCP\JSON::error(array('msg' => 'Version not found'));
 	exit();
 }
 
-
-$sourcePath = Downloader::getPackage($packageUrl, $packageVersion);
-if (!$sourcePath) {
-	\OCP\JSON::error(array('msg' => 'Unable to fetch package'));
+$sourcePath = App::getSourcePath($packageVersion, $packageUrl);
+//Step 1 - fetch & extract
+if (!$sourcePath){
+	try {
+		$sourcePath = Downloader::getPackage($packageUrl, $packageVersion);
+		App::setSourcePath($packageVersion, $packageUrl, $sourcePath);
+		\OCP\JSON::success(array());
+	} catch (\Exception $e){
+		\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
+		\OCP\JSON::error(array('msg' => 'Unable to fetch package'));
+	}
 	exit();
 }
 
-$backupPath = Backup::createBackup();
-if ($backupPath) {
+//Step 2 - backup & update
+//TODO: CleanUp
+try {
+	$backupPath = Backup::createBackup();
+	App::setSourcePath($packageVersion, $packageUrl, '');
 	Updater::update($sourcePath, $backupPath);
 	\OCP\JSON::success(array());
-} else {
-	\OCP\JSON::error(array('msg' => 'Failed to create backup'));
+} catch (\Exception $e){
+	\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
+	App::setSourcePath($packageVersion, $packageUrl, '');
+	\OCP\JSON::error(array('msg' => 'Failed to create backup'));	
 }

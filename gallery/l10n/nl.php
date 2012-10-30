@@ -1,5 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Pictures" => "Plaatjes",
+"Pictures" => "Afbeeldingen",
 "Galleries" => "Galerie",
 "Share gallery" => "Deel gallerie",
 "Error: " => "Fout:",

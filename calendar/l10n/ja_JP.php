@@ -180,6 +180,7 @@
 "Name of new calendar" => "新規カレンダーの名称",
 "Take an available name!" => "利用可能な名前を指定してください！",
 "A Calendar with this name already exists. If you continue anyhow, these calendars will be merged." => "このカレンダー名はすでに使われています。もし続行する場合は、これらのカレンダーはマージされます。",
+"Remove all events from the selected calendar" => "選択したカレンダーから全てのイベントを削除",
 "Import" => "インポート",
 "Close Dialog" => "ダイアログを閉じる",
 "Create a new event" => "新しいイベントを作成",

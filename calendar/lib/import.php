@@ -20,7 +20,7 @@ class OC_Calendar_Import{
 	private $cacheprogress;
 
 	/*
-	 * @brief Sabre_VObject_Component_VCalendar object - for documentation see http://code.google.com/p/sabredav/wiki/Sabre_VObject_Component_VCalendar
+	 * @brief Sabre\VObject\Component\VCalendar object - for documentation see http://code.google.com/p/sabredav/wiki/Sabre_VObject_Component_VCalendar
 	 */
 	private $calobject;
 
@@ -43,6 +43,11 @@ class OC_Calendar_Import{
 	 * @brief calendar id for import
 	 */
 	private $id;
+
+	/*
+	 * @brief overwrite flag
+	 */
+	private $overwrite;
 
 	/*
 	 * @brief var saves the percentage of the import's progress
@@ -107,8 +112,13 @@ class OC_Calendar_Import{
 			return false;
 		}
 		$numofcomponents = count($this->calobject->getComponents());
+		if($this->overwrite) {
+			foreach(OC_Calendar_Object::all($this->id) as $obj) {
+				OC_Calendar_Object::delete($obj['id']);
+			}
+		}
 		foreach($this->calobject->getComponents() as $object) {
-			if(!($object instanceof Sabre_VObject_Component_VEvent) && !($object instanceof Sabre_VObject_Component_VJournal) && !($object instanceof Sabre_VObject_Component_VTodo)) {
+			if(!($object instanceof Sabre\VObject\Component\VEvent) && !($object instanceof Sabre\VObject\Component\VJournal) && !($object instanceof Sabre\VObject\Component\VTodo)) {
 				continue;
 			}
 			$dtend = OC_Calendar_Object::getDTEndFromVEvent($object);
@@ -137,6 +147,15 @@ class OC_Calendar_Import{
 	 */
 	public function setTimeZone($tz) {
 		$this->tz = $tz;
+		return true;
+	}
+
+	/*
+	 * @brief sets the overwrite flag
+	 * @return boolean
+	 */
+	public function setOverwrite($overwrite) {
+		$this->overwrite = (bool) $overwrite;
 		return true;
 	}
 

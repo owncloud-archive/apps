@@ -10,6 +10,7 @@
 "5=medium" => "5=stredná",
 "9=lowest" => "9=najnižšia",
 "Empty Summary" => "Prázdny sumár",
+"Invalid percent complete" => "Neplatné percento dokončení",
 "Invalid priority" => "Nesprávna priorita",
 "The calendar application also need to be enabled to use this application." => "Táto aplikácia si vyžaduje aj aplikáciu kalendár.",
 "Add Task" => "Pridať úlohu",

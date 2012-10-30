@@ -48,6 +48,7 @@ if($_POST['method'] == 'new') {
 		exit();
 	}
 	$id = $_POST['id'];
+	$import->setOverwrite($_POST['overwrite']);
 }
 $import->setCalendarID($id);
 try{

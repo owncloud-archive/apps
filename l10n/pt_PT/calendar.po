@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:17+0000\n"
+"POT-Creation-Date: 2012-10-28 00:01+0200\n"
+"PO-Revision-Date: 2012-10-26 22:33+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -42,21 +42,21 @@ msgstr "Nenhum evento encontrado."
 msgid "Wrong calendar"
 msgstr "Calendário errado"
 
-#: ajax/import/dropimport.php:29 ajax/import/import.php:64
+#: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
 msgstr "O ficheiro não continha nenhuns eventos ou então todos os eventos já estavam carregados no seu calendário"
 
-#: ajax/import/dropimport.php:31 ajax/import/import.php:67
+#: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
 msgstr "Os eventos foram guardados no novo calendário"
 
-#: ajax/import/import.php:56
+#: ajax/import/import.php:57
 msgid "Import failed"
 msgstr "Falha na importação"
 
-#: ajax/import/import.php:69
+#: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
 msgstr "Os eventos foram guardados no seu calendário"
 
@@ -83,11 +83,11 @@ msgstr "Erro ao apagar"
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
 #: js/calendar.js:187
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:539
 msgid "user"
@@ -213,7 +213,7 @@ msgstr "Não tem permissões para apagar este calendário."
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Não tem permissões para acrescentar a este calendário."
 
-#: lib/import.php:195 templates/calendar.php:12
+#: lib/import.php:214 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Novo calendário"
@@ -757,11 +757,15 @@ msgid ""
 "calendars will be merged."
 msgstr "Já existe um Calendário com esse nome. Se mesmo assim continuar, esses calendários serão fundidos."
 
-#: templates/part.import.php:47
+#: templates/part.import.php:48
+msgid "Remove all events from the selected calendar"
+msgstr ""
+
+#: templates/part.import.php:50
 msgid "Import"
 msgstr "Importar"
 
-#: templates/part.import.php:56
+#: templates/part.import.php:59
 msgid "Close Dialog"
 msgstr "Fechar diálogo"
 

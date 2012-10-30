@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 01:42+0000\n"
+"POT-Creation-Date: 2012-10-29 00:01+0100\n"
+"PO-Revision-Date: 2012-10-28 14:48+0000\n"
 "Last-Translator: ttyn <tetuyano+transi@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -39,21 +39,21 @@ msgstr "イベントが見つかりませんでした。"
 msgid "Wrong calendar"
 msgstr "誤ったカレンダーです"
 
-#: ajax/import/dropimport.php:29 ajax/import/import.php:64
+#: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
 msgstr "イベントの無いもしくはすべてのイベントを含むファイルは既にあなたのカレンダーに保存されています。"
 
-#: ajax/import/dropimport.php:31 ajax/import/import.php:67
+#: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
 msgstr "イベントは新しいカレンダーに保存されました"
 
-#: ajax/import/import.php:56
+#: ajax/import/import.php:57
 msgid "Import failed"
 msgstr "インポートに失敗"
 
-#: ajax/import/import.php:69
+#: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
 msgstr "イベントはあなたのカレンダーに保存されました"
 
@@ -74,59 +74,59 @@ msgstr "無効なリクエストです"
 msgid "Calendar"
 msgstr "カレンダー"
 
-#: js/calendar.js:96
+#: js/calendar.js:154
 msgid "Deletion failed"
 msgstr "削除に失敗しました"
 
-#: js/calendar.js:185
+#: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
-#: js/calendar.js:187
+#: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "user"
 msgstr "ユーザ"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "group"
 msgstr "グループ"
 
-#: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
+#: js/calendar.js:598 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
 msgstr "編集可能"
 
-#: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
+#: js/calendar.js:599 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
 msgstr "共有可能"
 
-#: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
+#: js/calendar.js:600 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
 msgstr "削除可能"
 
-#: js/calendar.js:811
+#: js/calendar.js:869
 msgid "ddd"
 msgstr "dddd"
 
-#: js/calendar.js:812
+#: js/calendar.js:870
 msgid "ddd M/d"
 msgstr "M月d日 （dddd）"
 
-#: js/calendar.js:813
+#: js/calendar.js:871
 msgid "dddd M/d"
 msgstr "M月d日 （dddd）"
 
-#: js/calendar.js:816
+#: js/calendar.js:874
 msgid "MMMM yyyy"
 msgstr "yyyy年M月"
 
-#: js/calendar.js:818
+#: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 msgstr "yyyy年M月d日{ '～' [yyyy年][M月]d日}"
 
-#: js/calendar.js:820
+#: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
 msgstr "yyyy年M月d日 （dddd）"
 
@@ -210,7 +210,7 @@ msgstr "このカレンダーを削除する権限がありません。"
 msgid "You do not have the permissions to add to this calendar."
 msgstr "このカレンダーに追加する権限がありません。"
 
-#: lib/import.php:195 templates/calendar.php:12
+#: lib/import.php:214 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "新しくカレンダーを作成"
@@ -754,11 +754,15 @@ msgid ""
 "calendars will be merged."
 msgstr "このカレンダー名はすでに使われています。もし続行する場合は、これらのカレンダーはマージされます。"
 
-#: templates/part.import.php:47
+#: templates/part.import.php:48
+msgid "Remove all events from the selected calendar"
+msgstr "選択したカレンダーから全てのイベントを削除"
+
+#: templates/part.import.php:50
 msgid "Import"
 msgstr "インポート"
 
-#: templates/part.import.php:56
+#: templates/part.import.php:59
 msgid "Close Dialog"
 msgstr "ダイアログを閉じる"
 

@@ -10,7 +10,7 @@
  * later.
  */
 
-namespace OCA_Updater;
+namespace OCA\Updater;
 
 class App {
 
@@ -20,9 +20,9 @@ class App {
 
 	public static function init() {
 		//Allow config page
-		\OC::$CLASSPATH['OCA_Updater\Backup'] = self::APP_PATH . 'lib/backup.php';
-		\OC::$CLASSPATH['OCA_Updater\Downloader'] = self::APP_PATH . 'lib/downloader.php';
-		\OC::$CLASSPATH['OCA_Updater\Updater'] = self::APP_PATH . 'lib/updater.php';
+		\OC::$CLASSPATH['OCA\Updater\Backup'] = self::APP_PATH . 'lib/backup.php';
+		\OC::$CLASSPATH['OCA\Updater\Downloader'] = self::APP_PATH . 'lib/downloader.php';
+		\OC::$CLASSPATH['OCA\Updater\Updater'] = self::APP_PATH . 'lib/updater.php';
 		\OC_APP::registerAdmin(self::APP_ID, 'admin');
 	}
 
@@ -32,11 +32,20 @@ class App {
 	}
 
 	public static function getDirectories() {
-		return array(
-			'3rdparty' => \OC::$THIRDPARTYROOT . DIRECTORY_SEPARATOR . '3rdparty',
-			'apps' => \OC::$APPSROOT . DIRECTORY_SEPARATOR . 'apps',
-			'core' => \OC::$SERVERROOT
-		);
+		$dirs = array();
+		$dirs['3rdparty'] = \OC::$THIRDPARTYROOT . DIRECTORY_SEPARATOR . '3rdparty';
+		
+		//Long, long ago we had single app location
+		if (isset(\OC::$APPSROOTS)) {
+			foreach (\OC::$APPSROOTS as $i => $approot){
+				$dir['apps' . $i] = $approot['path'];
+			}
+		} else {
+			$dirs['apps'] = \OC::$APPSROOT . DIRECTORY_SEPARATOR . 'apps';
+		}
+		
+	    $dirs['core'] = \OC::$SERVERROOT;
+		return $dirs;
 	}
 
 	public static function getExcludeDirectories() {
@@ -48,7 +57,15 @@ class App {
 			'relative' => array('.', '..')
 		);
 	}
+	
+	public static function getSourcePath($version, $url) {
+		return \OCP\Config::getAppValue(self::APP_ID, md5($version . $url), '');
+	}
 
+	public static function setSourcePath($version, $url, $path) {
+		\OCP\Config::setAppValue(self::APP_ID, md5($version . $url), $path);
+	}
+	
 	public static function getRecentBackupPath() {
 		return \OCP\Config::getAppValue(self::APP_ID, self::LAST_BACKUP_PATH, '');
 	}

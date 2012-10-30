@@ -7,7 +7,7 @@
 "The php-mb_multibyte module is needed to manage correctly the encoding." => "El módulo php-mb_multibyte es necesario para gestionar correctamente la codificación.",
 "The php-ctype module is needed validate data." => "El módulo php-ctype es necesario para validar datos.",
 "The php-xml module is needed to share files with webdav." => "El módulo php-xml es necesario para compartir archivos con webdav.",
-"The allow_url_fopen directive of your php.ini should be set to 1 to retrieve knowledge base from OCS servers" => "La directiva allow_url_fopen del archivo php.ini debe ser puesta a 1 para recuperar la base de conocimiento desde servidores OCS",
+"The allow_url_fopen directive of your php.ini should be set to 1 to retrieve knowledge base from OCS servers" => "La directiva allow_url_fopen del archivo php.ini debe ser puesta a 1 para recuperar la base de conocimiento (knowledge base) desde servidores OCS",
 "The php-pdo module is needed to store owncloud data into a database." => "El módulo php-pdo es necesario para almacenar los datos de owncloud en una base de datos.",
 "The iconv module is needed to convert data into the correct charset." => "El módulo iconv es necesario para convertir los datos a la codificación de caracteres correcta.",
 "Dependencies status" => "Estado de las dependencias",

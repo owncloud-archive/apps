@@ -6,6 +6,7 @@
  * See the COPYING-README file.
  */
 
+OC_App::loadApp('provisioning_api');
 class Test_Provisioning_API extends UnitTestCase {
 	public function setUp(){
 

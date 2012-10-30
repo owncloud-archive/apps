@@ -151,7 +151,7 @@ if(!$value) {
 						foreach($parameter as $val) {
 							if(trim($val)) {
 								debug('Adding parameter: '.$key.'=>'.$val);
-								$property->add(new Sabre_VObject_Parameter(
+								$property->add(new Sabre\VObject\Parameter(
 									$key,
 									strtoupper(strip_tags($val)))
 								);
@@ -159,7 +159,7 @@ if(!$value) {
 						}
 					} else {
 						if(trim($parameter)) {
-							$property->add(new Sabre_VObject_Parameter(
+							$property->add(new Sabre\VObject\Parameter(
 								$key,
 								strtoupper(strip_tags($parameter)))
 							);

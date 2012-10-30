@@ -180,6 +180,7 @@
 "Name of new calendar" => "Naam van de nieuwe agenda",
 "Take an available name!" => "Kies een beschikbare naam!",
 "A Calendar with this name already exists. If you continue anyhow, these calendars will be merged." => "Een agenda met deze naam bestaat al.  Als u doorgaat, worden deze agenda's samengevoegd",
+"Remove all events from the selected calendar" => "Verwijder alle gebeurtenissen van de geselecteerde agenda",
 "Import" => "Importeer",
 "Close Dialog" => "Sluit venster",
 "Create a new event" => "Maak een nieuwe afspraak",

@@ -315,7 +315,7 @@ $(document).ready(function(){
 		FileActions.setDefault('application/xml','Edit');
 	}
 	OC.search.customResults.Text=function(row,item){
-		var text=item.link.substr(item.link.indexOf('&file=')+6);
+		var text=item.link.substr(item.link.indexOf('download')+8);
 		var a=row.find('a');
 		a.data('file',text);
 		a.attr('href','#');

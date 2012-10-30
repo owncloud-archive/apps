@@ -10,7 +10,7 @@
  * later.
  */
 
-namespace OCA_Updater;
+namespace OCA\Updater;
 
 class Backup {
 
@@ -27,14 +27,15 @@ class Backup {
 	public static function createBackup() {
 
 		if (!self::createBackupDirectory()) {
-			return self::error('Failed to create backup directory');
+			throw new \Exception('Failed to create backup directory');
 		}
 
 		$locations = App::getDirectories();
 		$exclusions = App::getExcludeDirectories();
 		foreach ($locations as $type => $path) {
 			if (!self::copyPath($path, $type, $exclusions)) {
-				return self::error('Failed to copy ' . $type);
+				//TODO: Rollback here
+				throw new \Exception('Failed to copy ' . $type);
 			}
 		}
 		return self::getBackupPath();
@@ -54,7 +55,8 @@ class Backup {
 		if ($type != 'core') {
 			$backupFullPath .= $type . DIRECTORY_SEPARATOR;
 			if (!@mkdir($backupFullPath, 0777, true)) {
-				return self::error('Unable to create ' . $backupFullPath);
+				\OC_Log::write(App::APP_ID, 'Unable to create ' . $backupFullPath, \OC_Log::ERROR);
+				return false;
 			}
 		}
 
@@ -105,16 +107,6 @@ class Backup {
 			self::$_backupPath = $backupPath . $salt;
 		}
 		return self::$_backupPath;
-	}
-
-	/**
-	 * Log error message
-	 * @param string $message
-	 * @return bool
-	 */
-	protected static function error($message) {
-		\OC_Log::write(App::APP_ID, $message, \OC_Log::ERROR);
-		return false;
 	}
 
 }
