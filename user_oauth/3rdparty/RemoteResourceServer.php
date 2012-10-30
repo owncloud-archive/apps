@@ -19,6 +19,14 @@ class RemoteResourceServer
         $this->_isVerified = FALSE;
     }
 
+    /**
+     * Verify the Authorization Bearer token.
+     *
+     * Note: this only works on Apache as the PHP function 
+     * "apache_request_headers" is used. On other web servers, or when using
+     * a framework, please use the verifyAuthorizationHeader function instead
+     * where you can directly specify the contents of the Authorization header.
+     */
     public function verifyRequest()
     {
         $apacheHeaders = apache_request_headers();
@@ -28,6 +36,12 @@ class RemoteResourceServer
         $this->verifyAuthorizationHeader($authorizationHeader);
     }
 
+    /**
+     * Verify the Authorization Bearer token.
+     *
+     * @param $authorizationHeader The actual content of the Authorization 
+     * header, e.g.: "Bearer abcdef"
+     */
     public function verifyAuthorizationHeader($authorizationHeader)
     {
         if (NULL === $authorizationHeader) {
@@ -273,7 +287,7 @@ class RemoteResourceServerException extends Exception
         $this->_authenticateHeader = $authenticateHeader;
     }
 
-    public function getAutenticateHeader()
+    public function getAuthenticateHeader()
     {
         return $this->_authenticateHeader;
     }

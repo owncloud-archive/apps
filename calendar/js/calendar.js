@@ -7,6 +7,62 @@
  */
 
 Calendar={
+	Util:{
+		dateTimeToTimestamp:function(dateString, timeString){
+			dateTuple = dateString.split('-');
+			timeTuple = timeString.split(':');
+			
+			var day, month, year, minute, hour;
+			day = parseInt(dateTuple[0], 10);
+			month = parseInt(dateTuple[1], 10);
+			year = parseInt(dateTuple[2], 10);
+			hour = parseInt(timeTuple[0], 10);
+			minute = parseInt(timeTuple[1], 10);
+			
+			var date = new Date(year, month-1, day, hour, minute);
+			
+			return parseInt(date.getTime(), 10);
+		},
+		formatDate:function(year, month, day){
+			if(day < 10){
+				day = '0' + day;
+			}
+			if(month < 10){
+				month = '0' + month;
+			}
+			return day + '-' + month + '-' + year;
+		},
+		formatTime:function(hour, minute){
+			if(hour < 10){
+				hour = '0' + hour;
+			}
+			if(minute < 10){
+				minute = '0' + minute;
+			}
+			return hour + ':' + minute;
+		}, 
+		adjustDate:function(){
+			var fromTime = $('#fromtime').val();
+			var fromDate = $('#from').val();
+			var fromTimestamp = Calendar.Util.dateTimeToTimestamp(fromDate, fromTime);
+
+			var toTime = $('#totime').val();
+			var toDate = $('#to').val();
+			var toTimestamp = Calendar.Util.dateTimeToTimestamp(toDate, toTime);
+
+			if(fromTimestamp >= toTimestamp){
+				fromTimestamp += 30*60*1000;
+				
+				var date = new Date(fromTimestamp);
+				movedTime = Calendar.Util.formatTime(date.getHours(), date.getMinutes());
+				movedDate = Calendar.Util.formatDate(date.getFullYear(),
+						date.getMonth()+1, date.getDate());
+
+				$('#to').val(movedDate);
+				$('#totime').val(movedTime);
+			}
+		}
+	},
 	UI:{
 		scrollcount: 0,
 		loading: function(isLoading){
@@ -22,16 +78,18 @@ Calendar={
 			$('#fullcalendar').fullCalendar('unselect');
 			Calendar.UI.lockTime();
 			$( "#from" ).datepicker({
-				dateFormat : 'dd-mm-yy'
+				dateFormat : 'dd-mm-yy',
+				onSelect: function(){ Calendar.Util.adjustDate(); }
 			});
 			$( "#to" ).datepicker({
 				dateFormat : 'dd-mm-yy'
 			});
 			$('#fromtime').timepicker({
-			    showPeriodLabels: false
+				showPeriodLabels: false,
+				onSelect: function(){ Calendar.Util.adjustDate(); }
 			});
 			$('#totime').timepicker({
-			    showPeriodLabels: false
+				showPeriodLabels: false
 			});
 			$('#category').multiple_autocomplete({source: categories});
 			Calendar.UI.repeat('init');

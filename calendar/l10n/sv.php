@@ -180,6 +180,7 @@
 "Name of new calendar" => "Namn på ny kalender",
 "Take an available name!" => "Ta ett ledigt namn!",
 "A Calendar with this name already exists. If you continue anyhow, these calendars will be merged." => "En kalender med detta namn finns redan. Om du fortsätter ändå så kommer dessa kalendrar att slås samman.",
+"Remove all events from the selected calendar" => "Ta bort alla händelser från den valda kalendern",
 "Import" => "Importera",
 "Close Dialog" => "Stäng ",
 "Create a new event" => "Skapa en ny händelse",

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-28 00:01+0200\n"
-"PO-Revision-Date: 2012-10-26 22:33+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-29 00:01+0100\n"
+"PO-Revision-Date: 2012-10-28 15:45+0000\n"
+"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -74,59 +74,59 @@ msgstr "คำร้องขอไม่ถูกต้อง"
 msgid "Calendar"
 msgstr "ปฏิทิน"
 
-#: js/calendar.js:96
+#: js/calendar.js:154
 msgid "Deletion failed"
 msgstr "การลบทิ้งล้มเหลว"
 
-#: js/calendar.js:185
+#: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
-#: js/calendar.js:187
+#: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "user"
 msgstr "ผู้ใช้งาน"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "group"
 msgstr "กลุ่มผู้ใช้งาน"
 
-#: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
+#: js/calendar.js:598 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
 msgstr "สามารถแก้ไขได้"
 
-#: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
+#: js/calendar.js:599 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
 msgstr "สามารถแชร์ข้อมูลได้"
 
-#: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
+#: js/calendar.js:600 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
 msgstr "สามารถลบทิ้งได้"
 
-#: js/calendar.js:811
+#: js/calendar.js:869
 msgid "ddd"
 msgstr "ddd"
 
-#: js/calendar.js:812
+#: js/calendar.js:870
 msgid "ddd M/d"
 msgstr "ddd M/d"
 
-#: js/calendar.js:813
+#: js/calendar.js:871
 msgid "dddd M/d"
 msgstr "dddd M/d"
 
-#: js/calendar.js:816
+#: js/calendar.js:874
 msgid "MMMM yyyy"
 msgstr "MMMM yyyy"
 
-#: js/calendar.js:818
+#: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
-#: js/calendar.js:820
+#: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
 msgstr "dddd, MMM d, yyyy"
 
@@ -756,7 +756,7 @@ msgstr "ปฏิทินชื่อดังกล่าวถูกใช้
 
 #: templates/part.import.php:48
 msgid "Remove all events from the selected calendar"
-msgstr ""
+msgstr "ลบกิจกรรมทั้งหมดออกจากปฏิทินที่เลือกไว้"
 
 #: templates/part.import.php:50
 msgid "Import"

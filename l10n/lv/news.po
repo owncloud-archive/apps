@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:05+0200\n"
-"PO-Revision-Date: 2012-10-16 00:06+0000\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -93,21 +93,21 @@ msgstr ""
 msgid "Feed updated!"
 msgstr ""
 
-#: appinfo/app.php:36
+#: appinfo/app.php:38 lib/search.php:21
 msgid "News"
 msgstr ""
 
-#: js/items.js:123
+#: js/items.js:122
 msgid "Error while loading the feed"
 msgstr ""
 
-#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
+#: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
-msgstr ""
+msgstr "Kļūme"
 
 #: js/main.js:33
 msgid "None"
@@ -212,13 +212,13 @@ msgstr ""
 
 #: js/settings.js:57
 msgid "Download"
-msgstr ""
+msgstr "Lejuplādēt"
 
 #: js/settings.js:69
 msgid "Select file"
 msgstr ""
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr ""
 
@@ -226,7 +226,7 @@ msgstr ""
 msgid "no name"
 msgstr ""
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr ""
 
@@ -268,7 +268,7 @@ msgstr ""
 
 #: templates/firstrun.php:12 templates/settings.php:3
 msgid "Upload"
-msgstr ""
+msgstr "Augšuplādet"
 
 #: templates/firstrun.php:13 templates/settings.php:4
 msgid "Select file from ownCloud"
@@ -303,11 +303,11 @@ msgstr ""
 
 #: templates/main.php:39
 msgid "Folder"
-msgstr ""
+msgstr "Mape"
 
 #: templates/main.php:46
 msgid "Settings"
-msgstr ""
+msgstr "Iestatījumi"
 
 #: templates/part.dialogues.php:1
 msgid "Add Folder"
@@ -337,36 +337,40 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: templates/part.feeds.php:47
+#: templates/part.feeds.php:48
 msgid "New articles"
 msgstr ""
 
-#: templates/part.feeds.php:49 templates/part.listfeed.php:34
+#: templates/part.feeds.php:50 templates/part.listfeed.php:34
 #: templates/part.listfolder.php:34
 msgid "Mark all read"
 msgstr ""
 
-#: templates/part.feeds.php:53
+#: templates/part.feeds.php:54
 msgid "Starred"
 msgstr ""
 
-#: templates/part.items.php:17
+#: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr ""
 
-#: templates/part.items.php:20
+#: templates/part.items.php:20 templates/part.shared.php:21
 msgid "Mark as important"
 msgstr ""
 
-#: templates/part.items.php:37
+#: templates/part.items.php:37 templates/part.shared.php:38
 msgid "from"
 msgstr ""
 
-#: templates/part.items.php:43
+#: templates/part.items.php:43 templates/part.shared.php:44
 msgid "by"
 msgstr ""
 
-#: templates/part.items.php:56
+#: templates/part.items.php:54 templates/part.shared.php:55
+msgid "Share"
+msgstr "Līdzdalīt"
+
+#: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr ""
 

@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-28 00:01+0200\n"
-"PO-Revision-Date: 2012-10-26 22:33+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-30 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 07:42+0000\n"
+"Last-Translator: skoptev <skoptev@ukr.net>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,59 +80,59 @@ msgstr "Неверный запрос"
 msgid "Calendar"
 msgstr "Календарь"
 
-#: js/calendar.js:96
+#: js/calendar.js:154
 msgid "Deletion failed"
 msgstr "Удаление не удалось"
 
-#: js/calendar.js:185
+#: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 msgstr "ддд д ММММ[ гггг]{ - [ddd d] MMMM yyyy}"
 
-#: js/calendar.js:187
+#: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 msgstr "ддд д ММММ[ гггг] ЧЧ:мм{ - [ ddd d MMMM yyyy] HH:mm}"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "user"
 msgstr "пользователь"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "group"
 msgstr "группа"
 
-#: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
+#: js/calendar.js:598 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
 msgstr "Редактирование"
 
-#: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
+#: js/calendar.js:599 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
 msgstr "Публикация"
 
-#: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
+#: js/calendar.js:600 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
 msgstr "Удаление"
 
-#: js/calendar.js:811
+#: js/calendar.js:869
 msgid "ddd"
 msgstr "ддд"
 
-#: js/calendar.js:812
+#: js/calendar.js:870
 msgid "ddd M/d"
 msgstr "ддд М/д"
 
-#: js/calendar.js:813
+#: js/calendar.js:871
 msgid "dddd M/d"
 msgstr "дддд М/д"
 
-#: js/calendar.js:816
+#: js/calendar.js:874
 msgid "MMMM yyyy"
 msgstr "ММММ гггг"
 
-#: js/calendar.js:818
+#: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
-#: js/calendar.js:820
+#: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
 msgstr "дддд, МММ д, гггг"
 
@@ -762,7 +762,7 @@ msgstr "Календарь с таким именем уже существуе�
 
 #: templates/part.import.php:48
 msgid "Remove all events from the selected calendar"
-msgstr ""
+msgstr "Удалить все события из выбранного календаря"
 
 #: templates/part.import.php:50
 msgid "Import"
