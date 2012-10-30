@@ -231,7 +231,7 @@ class App {
 				$batchsize = 10;
 				$categories = new \OC_VCategories('contact');
 				while($vccontacts =
-					OCA\Contacts\VCard::all($vcaddressbookids, $start, $batchsize)) {
+					VCard::all($vcaddressbookids, $start, $batchsize)) {
 					$cards = array();
 					foreach($vccontacts as $vccontact) {
 						$cards[] = array($vccontact['id'], $vccontact['carddata']);
