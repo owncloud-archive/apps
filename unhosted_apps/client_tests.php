@@ -1,5 +1,6 @@
 <input type="submit" value="test" onclick="test();">
 <ul id="result"></ul>
+<script src="/remote.php/core.js"> </script>
 <script>
   var remoteStorageOrigin = '<?php require_once 'public/config.php'; echo OCP\Config::getSystemValue('storage_origin'); ?>';
   if(window.location.host==remoteStorageOrigin) {
@@ -32,6 +33,7 @@
         }
       }
     };
+    xhr.setRequestHeader('requesttoken', OC.Request.Token);
     xhr.send(JSON.stringify(params));
   }
   function rsget(token, uid, path, cb) {

@@ -26,6 +26,7 @@ function ajax(endpoint, params, cb) {
       }
     }
   };
+  xhr.setRequestHeader('requesttoken', OC.Request.Token);
   xhr.send(JSON.stringify(params));
 }
 function rsget(token, uid, path, cb) {
@@ -130,7 +131,7 @@ function installApp(manifestObj) {
         console.log(err1, data1);
       } else {
         ajax('addapp.php', {
-          manifest_path: 'apps/litewrite/manifest.json',
+          manifest_path: 'apps/'+manifestObj.slug+'/manifest.json',
           scopes: JSON.stringify({r:['documents'], w:['documents']})
         }, function(err2, data2) {
           if(err2) {
