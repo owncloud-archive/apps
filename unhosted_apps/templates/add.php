@@ -233,7 +233,7 @@ function render() {
     }
     console.log(content);
     var masterToken;
-    var haveApps=false;
+    var haveThisApp=false;
     for(var i=0; i<content.apps.length; i++) {
       if(content.apps[i].manifest_path=='appsapp') {
         masterToken = content.apps[i].access_token;
@@ -242,10 +242,14 @@ function render() {
     }
     console.log(masterToken);
     for(var i=0; i<content.apps.length; i++) {
-      if(content.apps[i].manifest_path!='appsapp') {
+      if(
+         (content.apps[i].manifest_path==)
+         (content.apps[i].scopes==manifest.launch_url)
+         (content.apps[i].manifest_path==manifest.launch_url)
+         ) {
         console.log(content.apps[i]);
         showApp(masterToken, uid, content.apps[i].access_token, content.apps[i].manifest_path);
-        haveApps=true;
+        haveThisApp=true;
       }
     }
     if(!haveApps) {
