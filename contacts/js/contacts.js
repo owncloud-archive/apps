@@ -904,7 +904,7 @@ OC.Contacts = OC.Contacts || {};
 		console.log('ContactList.showFromAddressbook', aid, show);
 		aid = parseInt(aid);
 		for(var contact in this.contacts) {
-			if(this.contacts[contact].access.aid === aid) {
+			if(this.contacts[contact].access.id === aid) {
 				this.contacts[contact].getListItemElement().toggle(show);
 			} else if(hideothers) {
 				this.contacts[contact].getListItemElement().hide();
@@ -1178,7 +1178,7 @@ OC.Contacts = OC.Contacts || {};
 					self.addressbooks[parseInt(book.id)] = {
 						owner: book.userid,
 						permissions: parseInt(book.permissions),
-						aid: parseInt(book.id),
+						id: parseInt(book.id),
 						displayname: book.displayname,
 						description: book.description,
 						active: Boolean(parseInt(book.active)),
