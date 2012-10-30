@@ -6,7 +6,7 @@ Install this unhosted app:
   var params = {};
   for(var i=0; i<paramPairs.length; i++) {
     var parts = paramPairs[i].split('=');
-    params[decodeURIComponent(parts[0]).replace(/[^a-z0-9]/gi] = decodeURIComponent(parts[1]).replace(/[^a-z0-9]/gi;
+    params[decodeURIComponent(parts[0]).replace(/[^a-z0-9_]/gi, '')] = decodeURIComponent(parts[1]).replace(/[^a-z0-9:.]/gi, '');
   }
   for(var key in params) {
     if(key=='redirect_uri') {
@@ -69,6 +69,7 @@ function ajax(endpoint, params, cb) {
       }
     }
   };
+  xhr.setRequestHeader('requesttoken', OC.Request.Token);
   xhr.send(JSON.stringify(params));
 }
 function rsget(token, uid, path, cb) {
@@ -173,7 +174,7 @@ function installApp(manifestObj) {
         console.log(err1, data1);
       } else {
         ajax('addapp.php', {
-          manifest_path: 'apps/litewrite/manifest.json',
+          manifest_path: 'apps/'+manifestObj.slug+'/manifest.json',
           scopes: JSON.stringify({r:['documents'], w:['documents']})
         }, function(err2, data2) {
           if(err2) {
