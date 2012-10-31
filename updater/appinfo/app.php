@@ -15,14 +15,13 @@ namespace OCA\Updater;
 class App {
 
 	const APP_ID = 'updater';
-	const APP_PATH = 'updater/';
 	const LAST_BACKUP_PATH = 'last_backup_path';
 
 	public static function init() {
 		//Allow config page
-		\OC::$CLASSPATH['OCA\Updater\Backup'] = self::APP_PATH . 'lib/backup.php';
-		\OC::$CLASSPATH['OCA\Updater\Downloader'] = self::APP_PATH . 'lib/downloader.php';
-		\OC::$CLASSPATH['OCA\Updater\Updater'] = self::APP_PATH . 'lib/updater.php';
+		\OC::$CLASSPATH['OCA\Updater\Backup'] = self::APP_ID . '/lib/backup.php';
+		\OC::$CLASSPATH['OCA\Updater\Downloader'] = self::APP_ID . '/lib/downloader.php';
+		\OC::$CLASSPATH['OCA\Updater\Updater'] = self::APP_ID . '/lib/updater.php';
 		\OC_APP::registerAdmin(self::APP_ID, 'admin');
 	}
 
@@ -72,7 +71,6 @@ class App {
 	public static function setRecentBackupPath($path) {
 		\OCP\Config::setAppValue(self::APP_ID, self::LAST_BACKUP_PATH, $path);
 	}
-
 }
 
 //Startup
