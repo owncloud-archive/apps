@@ -18,17 +18,26 @@ class App {
 	const LAST_BACKUP_PATH = 'last_backup_path';
 
 	public static function init() {
-		//Allow config page
 		\OC::$CLASSPATH['OCA\Updater\Backup'] = self::APP_ID . '/lib/backup.php';
 		\OC::$CLASSPATH['OCA\Updater\Downloader'] = self::APP_ID . '/lib/downloader.php';
 		\OC::$CLASSPATH['OCA\Updater\Updater'] = self::APP_ID . '/lib/updater.php';
+		//Allow config page
 		\OC_APP::registerAdmin(self::APP_ID, 'admin');
 	}
 
+	/**
+	 * Get app working directory
+	 * @return string
+	 */
 	public static function getBackupBase() {
 		return \OC::$SERVERROOT . '/backup/';
 	}
 
+	/**
+	 * Get the list of directories to be replaced on update
+	 * @return array
+	 * 
+	 */
 	public static function getDirectories() {
 		$dirs = array();
 		$dirs['3rdparty'] = \OC::$THIRDPARTYROOT . '/3rdparty';
@@ -46,6 +55,10 @@ class App {
 		return $dirs;
 	}
 
+	/**
+	 * Get the list of directories that should NOT be replaced
+	 * @return array
+	 */
 	public static function getExcludeDirectories() {
 		return array(
 			'full' => array(
