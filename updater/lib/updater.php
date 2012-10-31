@@ -27,9 +27,9 @@ class Updater {
 
 		set_include_path(
 				$backupPath . PATH_SEPARATOR .
-				$backupPath . '/' . 'lib' . PATH_SEPARATOR .
-				$backupPath . '/' . 'config' . PATH_SEPARATOR .
-				$backupPath . '/' . '3rdparty' . PATH_SEPARATOR .
+				$backupPath . '/lib' . PATH_SEPARATOR .
+				$backupPath . '/config' . PATH_SEPARATOR .
+				$backupPath . '/3rdparty' . PATH_SEPARATOR .
 				$backupPath . '/apps' . PATH_SEPARATOR .
 				get_include_path()
 		);
