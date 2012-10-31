@@ -57,6 +57,10 @@ class VCard {
 			try {
 				$stmt = \OCP\DB::prepare($sql, $num, $start);
 				$result = $stmt->execute($id);
+				if (\OC_DB::isError($result)) {
+					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+					return false;
+				}
 			} catch(\Exception $e) {
 				\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
 				\OCP\Util::writeLog('contacts', __METHOD__.', ids: ' . join(',', $id), \OCP\Util::DEBUG);
@@ -68,6 +72,10 @@ class VCard {
 				$sql = 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? ORDER BY `fullname`';
 				$stmt = \OCP\DB::prepare($sql, $num, $start);
 				$result = $stmt->execute(array($id));
+				if (\OC_DB::isError($result)) {
+					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+					return false;
+				}
 			} catch(\Exception $e) {
 				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 				\OCP\Util::writeLog('contacts', __METHOD__.', ids: '. $id, \OCP\Util::DEBUG);
@@ -98,6 +106,10 @@ class VCard {
 		try {
 			$stmt = \OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `id` = ?' );
 			$result = $stmt->execute(array($id));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return false;
+			}
 		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', id: '. $id, \OCP\Util::DEBUG);
@@ -117,6 +129,10 @@ class VCard {
 		try {
 			$stmt = \OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
 			$result = $stmt->execute(array($aid,$uri));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return false;
+			}
 		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uri'.$uri, \OCP\Util::DEBUG);
@@ -179,6 +195,10 @@ class VCard {
 		$uri = $uid.'.vcf';
 		try {
 			$result = $stmt->execute(array($aid,$uri));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return false;
+			}
 		} catch(Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uid'.$uid, \OCP\Util::DEBUG);
@@ -337,7 +357,11 @@ class VCard {
 		$data = $card->serialize();
 		$stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards` (`addressbookid`,`fullname`,`carddata`,`uri`,`lastmodified`) VALUES(?,?,?,?,?)' );
 		try {
-			$result = $stmt->execute(array($aid,$fn,$data,$uri,time()));
+			$result = $stmt->execute(array($aid, $fn, $data, $uri, time()));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return false;
+			}
 		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uri'.$uri, \OCP\Util::DEBUG);
@@ -389,6 +413,9 @@ class VCard {
 				$data = $vcard->serialize();
 				try {
 					$result = $stmt->execute(array($data,time(),$object[0]));
+					if (\OC_DB::isError($result)) {
+						\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+					}
 					//OCP\Util::writeLog('contacts','OCA\Contacts\VCard::updateDataByID, id: '.$object[0].': '.$object[1],OCP\Util::DEBUG);
 				} catch(Exception $e) {
 					\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
@@ -457,7 +484,11 @@ class VCard {
 		$data = $card->serialize();
 		$stmt = \OCP\DB::prepare( 'UPDATE `*PREFIX*contacts_cards` SET `fullname` = ?,`carddata` = ?, `lastmodified` = ? WHERE `id` = ?' );
 		try {
-			$result = $stmt->execute(array($fn,$data,time(),$id));
+			$result = $stmt->execute(array($fn, $data, time(), $id));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return false;
+			}
 		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '
 				. $e->getMessage(), \OCP\Util::ERROR);
@@ -806,6 +837,10 @@ class VCard {
 				//$aid = array($aid);
 				$vals = array_merge((array)$aid, $id);
 				$result = $stmt->execute($vals);
+				if (\OC_DB::isError($result)) {
+					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+					return false;
+				}
 			} catch(\Exception $e) {
 				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 				\OCP\Util::writeLog('contacts', __METHOD__.', ids: '.join(',', $vals), \OCP\Util::DEBUG);
@@ -832,6 +867,10 @@ class VCard {
 			}
 			try {
 				$result = $stmt->execute(array($aid, $id));
+				if (\OC_DB::isError($result)) {
+					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+					return false;
+				}
 			} catch(\Exception $e) {
 				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::DEBUG);
 				\OCP\Util::writeLog('contacts', __METHOD__.' id: '.$id, \OCP\Util::DEBUG);

@@ -58,9 +58,13 @@ class Addressbook {
 		try {
 			$stmt = \OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_addressbooks` WHERE `userid` = ? ' . $active_where . ' ORDER BY `displayname`' );
 			$result = $stmt->execute($values);
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return false;
+			}
 		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.' exception: '.$e->getMessage(), \OCP\Util::ERROR);
-			\OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.' uid: '.$uid, \OCP\Util::DEBUG);
+			\OCP\Util::writeLog('contacts', __METHOD__.' exception: '.$e->getMessage(), \OCP\Util::ERROR);
+			\OCP\Util::writeLog('contacts', __METHOD__.' uid: '.$uid, \OCP\Util::DEBUG);
 			return false;
 		}
 
@@ -131,6 +135,10 @@ class Addressbook {
 		try {
 			$stmt = \OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_addressbooks` WHERE `id` = ?' );
 			$result = $stmt->execute(array($id));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return false;
+			}
 		} catch(Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', id: ' . $id, \OCP\Util::DEBUG);
@@ -181,6 +189,10 @@ class Addressbook {
 		try {
 			$stmt = \OCP\DB::prepare( 'SELECT `uri` FROM `*PREFIX*contacts_addressbooks` WHERE `userid` = ? ' );
 			$result = $stmt->execute(array($uid));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return false;
+			}
 		} catch(Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__ . ' exception: ' . $e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__ . ' uid: ' . $uid, \OCP\Util::DEBUG);
@@ -195,6 +207,10 @@ class Addressbook {
 		try {
 			$stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_addressbooks` (`userid`,`displayname`,`uri`,`description`,`ctag`) VALUES(?,?,?,?,?)' );
 			$result = $stmt->execute(array($uid,$name,$uri,$description,1));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return false;
+			}
 		} catch(Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', uid: '.$uid, \OCP\Util::DEBUG);
@@ -218,7 +234,11 @@ class Addressbook {
 		try {
 			$stmt = \OCP\DB::prepare('INSERT INTO `*PREFIX*contacts_addressbooks` '
 				. '(`userid`,`displayname`,`uri`,`description`,`ctag`) VALUES(?,?,?,?,?)');
-			$result = $stmt->execute(array($uid,$name,$uri,$description,1));
+			$result = $stmt->execute(array($uid, $name, $uri, $description, 1));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return false;
+			}
 		} catch(Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', uid: ' . $uid, \OCP\Util::DEBUG);
@@ -259,6 +279,14 @@ class Addressbook {
 		try {
 			$stmt = \OCP\DB::prepare('UPDATE `*PREFIX*contacts_addressbooks` SET `displayname`=?,`description`=?, `ctag`=`ctag`+1 WHERE `id`=?');
 			$result = $stmt->execute(array($name,$description,$id));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				throw new Exception(
+					App::$l10n->t(
+						'There was an error updating the addressbook.'
+					)
+				);
+			}
 		} catch(Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__ . ', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__ . ', id: ' . $id, \OCP\Util::DEBUG);
@@ -301,10 +329,15 @@ class Addressbook {
 		try {
 			$stmt = \OCP\DB::prepare( $sql );
 			$result = $stmt->execute(array($id));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return false;
+			}
 			$row = $result->fetchRow();
 			return (bool)$row['active'];
 		} catch(Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
+			return false;
 		}
 	}
 
