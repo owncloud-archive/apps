@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-30 00:01+0100\n"
-"PO-Revision-Date: 2012-10-29 23:01+0000\n"
+"POT-Creation-Date: 2012-10-31 00:01+0100\n"
+"PO-Revision-Date: 2012-10-30 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -206,15 +206,7 @@ msgstr ""
 msgid "Import"
 msgstr "Import"
 
-#: js/settings.js:55
-msgid "Downloading..."
-msgstr ""
-
-#: js/settings.js:57
-msgid "Download"
-msgstr "Letöltés"
-
-#: js/settings.js:69
+#: js/settings.js:66
 msgid "Select file"
 msgstr ""
 
@@ -366,11 +358,12 @@ msgstr ""
 msgid "by"
 msgstr ""
 
-#: templates/part.items.php:54 templates/part.shared.php:55
+#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.shared.php:55
 msgid "Share"
 msgstr "Megosztás"
 
-#: templates/part.items.php:59 templates/part.shared.php:60
+#: templates/part.items.php:58 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr ""
 
