@@ -45,7 +45,7 @@ class App {
 		//Long, long ago we had single app location
 		if (isset(\OC::$APPSROOTS)) {
 			foreach (\OC::$APPSROOTS as $i => $approot){
-				$dir['apps' . $i] = $approot['path'];
+				$dirs['apps' . $i] = $approot['path'];
 			}
 		} else {
 			$dirs['apps'] = \OC::$APPSROOT . '/apps';
