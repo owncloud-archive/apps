@@ -27,9 +27,9 @@ class Updater {
 
 		set_include_path(
 				$backupPath . PATH_SEPARATOR .
-				$backupPath . DIRECTORY_SEPARATOR . 'lib' . PATH_SEPARATOR .
-				$backupPath . DIRECTORY_SEPARATOR . 'config' . PATH_SEPARATOR .
-				$backupPath . DIRECTORY_SEPARATOR . '3rdparty' . PATH_SEPARATOR .
+				$backupPath . '/lib' . PATH_SEPARATOR .
+				$backupPath . '/config' . PATH_SEPARATOR .
+				$backupPath . '/3rdparty' . PATH_SEPARATOR .
 				$backupPath . '/apps' . PATH_SEPARATOR .
 				get_include_path()
 		);
@@ -60,8 +60,8 @@ class Updater {
 			$updateDir = $updatePath;
 			$tempDir = $tempPath;
 			if ($type != 'core') {
-				$updateDir .= DIRECTORY_SEPARATOR . $type;
-				$tempDir .= DIRECTORY_SEPARATOR . $type;
+				$updateDir .= '/' . $type;
+				$tempDir .= '/' . $type;
 				rename($currentDir, $tempDir);
 				rename($updateDir, $currentDir);
 			} else {
@@ -75,7 +75,7 @@ class Updater {
 	public static function moveDirectoryContent($source, $destination) {
 		$dh = opendir($source);
 		while (($file = readdir($dh)) !== false) {
-			$fullPath = $source . DIRECTORY_SEPARATOR . $file;
+			$fullPath = $source . '/' . $file;
 			if (is_dir($fullPath)) {
 				if (in_array($file, self::$_skipDirs['relative'])
 					|| in_array($fullPath, self::$_skipDirs['full'])
@@ -84,7 +84,7 @@ class Updater {
 				}
 			}
 
-			rename($fullPath, $destination . DIRECTORY_SEPARATOR . $file);
+			rename($fullPath, $destination . '/' . $file);
 		}
 		return true;
 	}
