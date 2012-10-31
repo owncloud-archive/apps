@@ -46,8 +46,11 @@ class Updater {
 		$config = "/config/config.php";
 		copy($tempPath . $config, self::$_updateDirs['core'] . $config);
 
-		//TODO: Delete temp dir
-		
+		//Delete temp dir
+		\OC_Helper::rmdirr($sourcePath);
+		\OC_Helper::rmdirr($tempPath);
+		@unlink($sourcePath);
+		@unlink($tempPath);
 		return true;
 	}
 
