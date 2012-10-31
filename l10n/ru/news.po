@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-31 00:01+0100\n"
-"PO-Revision-Date: 2012-10-30 23:01+0000\n"
+"POT-Creation-Date: 2012-11-01 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -102,13 +102,17 @@ msgstr "Лента обновлена!"
 msgid "News"
 msgstr "Новости"
 
+#: controllers/controller.php:207
+msgid "An error occured: "
+msgstr ""
+
 #: js/items.js:122
 msgid "Error while loading the feed"
 msgstr "Ошибка при загрузке канала"
 
 #: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
-#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
@@ -118,11 +122,11 @@ msgstr "Ошибка"
 msgid "None"
 msgstr "Нет новостей"
 
-#: js/main.js:101 templates/main.php:18
+#: js/main.js:101 templates/main.php:17
 msgid "Show only unread"
 msgstr "Показать только непрочитанные"
 
-#: js/main.js:105 templates/main.php:14
+#: js/main.js:105 templates/main.php:13
 msgid "Show everything"
 msgstr "Показать всё"
 
@@ -286,23 +290,23 @@ msgstr "Выберите <a href=\"#\" class=\"settings\" id=\"browselink\">ло
 msgid "Or..."
 msgstr "Или..."
 
-#: templates/main.php:35
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "Добавить ленту или папку"
 
-#: templates/main.php:36
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr "Добавить Ленту/Папку"
 
-#: templates/main.php:38
+#: templates/main.php:37
 msgid "Feed"
 msgstr "Новостная лента"
 
-#: templates/main.php:39
+#: templates/main.php:38
 msgid "Folder"
 msgstr "Папка"
 
-#: templates/main.php:46
+#: templates/main.php:45
 msgid "Settings"
 msgstr "Настройки"
 
@@ -338,12 +342,12 @@ msgstr "Добавить"
 msgid "New articles"
 msgstr "Новые статьи"
 
-#: templates/part.feeds.php:50 templates/part.listfeed.php:34
-#: templates/part.listfolder.php:34
+#: templates/part.feeds.php:51 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:35
 msgid "Mark all read"
 msgstr "Отметить все как прочитанные"
 
-#: templates/part.feeds.php:54
+#: templates/part.feeds.php:55
 msgid "Starred"
 msgstr "Отмеченный"
 
@@ -380,11 +384,11 @@ msgstr "Удалить ленту"
 msgid "Collapse"
 msgstr "Свернуть"
 
-#: templates/part.listfolder.php:32
+#: templates/part.listfolder.php:33
 msgid "Delete folder"
 msgstr "Удалить папку"
 
-#: templates/part.listfolder.php:33
+#: templates/part.listfolder.php:34
 msgid "Rename folder"
 msgstr "Переименовать папку"
 

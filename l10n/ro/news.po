@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-31 00:01+0100\n"
-"PO-Revision-Date: 2012-10-30 23:01+0000\n"
+"POT-Creation-Date: 2012-11-01 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -98,13 +98,17 @@ msgstr "Fluxul a fost actualizat!"
 msgid "News"
 msgstr "Noutăți"
 
+#: controllers/controller.php:207
+msgid "An error occured: "
+msgstr ""
+
 #: js/items.js:122
 msgid "Error while loading the feed"
 msgstr ""
 
 #: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
-#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
@@ -114,11 +118,11 @@ msgstr "Eroare"
 msgid "None"
 msgstr "Niciuna"
 
-#: js/main.js:101 templates/main.php:18
+#: js/main.js:101 templates/main.php:17
 msgid "Show only unread"
 msgstr "Arată doar necitite"
 
-#: js/main.js:105 templates/main.php:14
+#: js/main.js:105 templates/main.php:13
 msgid "Show everything"
 msgstr "Arată tot"
 
@@ -282,23 +286,23 @@ msgstr ""
 msgid "Or..."
 msgstr ""
 
-#: templates/main.php:35
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "Adaugă flux sau director"
 
-#: templates/main.php:36
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr "Adaugă flux/director"
 
-#: templates/main.php:38
+#: templates/main.php:37
 msgid "Feed"
 msgstr "Flux"
 
-#: templates/main.php:39
+#: templates/main.php:38
 msgid "Folder"
 msgstr "Director"
 
-#: templates/main.php:46
+#: templates/main.php:45
 msgid "Settings"
 msgstr "Setări"
 
@@ -334,12 +338,12 @@ msgstr "Adaugă"
 msgid "New articles"
 msgstr "Articole noi"
 
-#: templates/part.feeds.php:50 templates/part.listfeed.php:34
-#: templates/part.listfolder.php:34
+#: templates/part.feeds.php:51 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:35
 msgid "Mark all read"
 msgstr ""
 
-#: templates/part.feeds.php:54
+#: templates/part.feeds.php:55
 msgid "Starred"
 msgstr ""
 
@@ -376,11 +380,11 @@ msgstr "Șterge flux"
 msgid "Collapse"
 msgstr "Restrânge"
 
-#: templates/part.listfolder.php:32
+#: templates/part.listfolder.php:33
 msgid "Delete folder"
 msgstr "Șterge director"
 
-#: templates/part.listfolder.php:33
+#: templates/part.listfolder.php:34
 msgid "Rename folder"
 msgstr "Redenumește director"
 
