@@ -50,7 +50,7 @@ class Downloader {
 			throw new \Exception("$path extraction error");
 		}
 
-		return $extractDir. DIRECTORY_SEPARATOR . self::PACKAGE_ROOT;
+		return $extractDir. '/' . self::PACKAGE_ROOT;
 	}
 
 	public static function getPackageDir($version) {

@@ -49,11 +49,11 @@ class Backup {
 	 * @return bool
 	 */
 	public static function copyPath($path, $type, $exclusions) {
-		$backupFullPath = self::getBackupPath() . DIRECTORY_SEPARATOR;
+		$backupFullPath = self::getBackupPath() . '/';
 
 		// 3rd party and apps might have different location
 		if ($type != 'core') {
-			$backupFullPath .= $type . DIRECTORY_SEPARATOR;
+			$backupFullPath .= $type . '/';
 			if (!@mkdir($backupFullPath, 0777, true)) {
 				\OC_Log::write(App::APP_ID, 'Unable to create ' . $backupFullPath, \OC_Log::ERROR);
 				return false;
@@ -62,7 +62,7 @@ class Backup {
 
 		$dh = opendir($path);
 		while (($file = readdir($dh)) !== false) {
-			$fullPath = $path . DIRECTORY_SEPARATOR . $file;
+			$fullPath = $path . '/' . $file;
 			if (is_dir($fullPath)) {
 				if (in_array($file, $exclusions['relative'])
 					|| in_array($fullPath, $exclusions['full'])

@@ -27,13 +27,12 @@ class App {
 	}
 
 	public static function getBackupBase() {
-		return \OC::$SERVERROOT . \DIRECTORY_SEPARATOR
-				. 'backup' . \DIRECTORY_SEPARATOR;
+		return \OC::$SERVERROOT . '/backup/';
 	}
 
 	public static function getDirectories() {
 		$dirs = array();
-		$dirs['3rdparty'] = \OC::$THIRDPARTYROOT . DIRECTORY_SEPARATOR . '3rdparty';
+		$dirs['3rdparty'] = \OC::$THIRDPARTYROOT . '/3rdparty';
 		
 		//Long, long ago we had single app location
 		if (isset(\OC::$APPSROOTS)) {
@@ -41,7 +40,7 @@ class App {
 				$dir['apps' . $i] = $approot['path'];
 			}
 		} else {
-			$dirs['apps'] = \OC::$APPSROOT . DIRECTORY_SEPARATOR . 'apps';
+			$dirs['apps'] = \OC::$APPSROOT . '/apps';
 		}
 		
 	    $dirs['core'] = \OC::$SERVERROOT;
@@ -51,7 +50,7 @@ class App {
 	public static function getExcludeDirectories() {
 		return array(
 			'full' => array(
-				rtrim(self::getBackupBase(), DIRECTORY_SEPARATOR),
+				rtrim(self::getBackupBase(), '/'),
 				\OC_Config::getValue( "datadirectory", \OC::$SERVERROOT."/data" )
 				),
 			'relative' => array('.', '..')
