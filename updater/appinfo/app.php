@@ -15,7 +15,7 @@ namespace OCA\Updater;
 class App {
 
 	const APP_ID = 'updater';
-	const APP_PATH = 'apps/updater/';
+	const APP_PATH = 'updater/';
 	const LAST_BACKUP_PATH = 'last_backup_path';
 
 	public static function init() {
