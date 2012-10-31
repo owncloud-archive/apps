@@ -225,7 +225,7 @@ OC.Contacts={
 			OC.Contacts.Card.editCurrentPhoto();
 		});
 		phototools.find('li a').tipsy();
-		
+
 		/* Initialize the photo edit dialog */
 		$('#edit_photo_dialog').dialog({
 			autoOpen: false, modal: true, height: 'auto', width: 'auto'
@@ -1215,6 +1215,8 @@ OC.Contacts={
 				adrtxt = adrtxt + '<li>' + adr[6] + '</li>';
 			}
 			container.find('.addresslist').html(adrtxt);
+			$('#addresses').show();
+			container.show();
 		},
 		uploadPhoto:function(filelist) {
 			if(!this.enabled) {
