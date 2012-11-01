@@ -23,20 +23,17 @@ class Downloader {
 			throw new \Exception("Failed to download $url package to $path");
 		}
 
-		//Mimetype bug workaround
-		$mime = rtrim(\OC_Helper::getMimeType($path), ';');
-
-		if ($mime == 'application/zip') {
+		if (preg_match('/\.zip$/i', $url)) {
 			rename($path, $path . '.zip');
 			$path.='.zip';
-		} elseif ($mime == 'application/x-gzip') {
+		} elseif (preg_match('/(\.tgz|\.tar\.gz)$/i', $url)) {
 			rename($path, $path . '.tgz');
 			$path.='.tgz';
-		} elseif ($mime == 'application/x-bzip2') {
+		} elseif (preg_match('/\.tar\.bz2$/i', $url)) {
 			rename($path, $path . '.tar.bz2');
 			$path.='.tar.bz2';
 		} else {
-			throw new \Exception('Unable to extract ' . $mime);
+			throw new \Exception('Unable to extract package');
 		}
 
 		$extractDir = self::getPackageDir($version);
@@ -53,7 +50,7 @@ class Downloader {
 			throw new \Exception("$path extraction error");
 		}
 
-		return $extractDir. DIRECTORY_SEPARATOR . self::PACKAGE_ROOT;
+		return $extractDir. '/' . self::PACKAGE_ROOT;
 	}
 
 	public static function getPackageDir($version) {

@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Vigane kuupäev/kellaaeg",
 "Tasks" => "Ülesanded",
+"Due" => "Tähtaeg",
+"List" => "Nimekiri",
+"Location" => "Asukoht",
 "No category" => "Kategooriat pole",
 "Unspecified" => "Määramata",
 "1=highest" => "1=kõrgeim",

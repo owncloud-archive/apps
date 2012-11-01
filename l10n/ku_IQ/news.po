@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-30 00:01+0100\n"
-"PO-Revision-Date: 2012-10-29 23:01+0000\n"
+"POT-Creation-Date: 2012-11-01 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
 "MIME-Version: 1.0\n"
@@ -98,13 +98,17 @@ msgstr "خورد نوێکراوه."
 msgid "News"
 msgstr "هه‌واڵه‌کان"
 
+#: controllers/controller.php:207
+msgid "An error occured: "
+msgstr ""
+
 #: js/items.js:122
 msgid "Error while loading the feed"
 msgstr "هه‌ڵه‌ له‌کاتی داگرتنی خورد"
 
 #: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
-#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
@@ -114,11 +118,11 @@ msgstr "هه‌ڵه"
 msgid "None"
 msgstr "هیچ"
 
-#: js/main.js:101 templates/main.php:18
+#: js/main.js:101 templates/main.php:17
 msgid "Show only unread"
 msgstr "ته‌نها نه‌خوێنراوه‌ پێشان بده"
 
-#: js/main.js:105 templates/main.php:14
+#: js/main.js:105 templates/main.php:13
 msgid "Show everything"
 msgstr "هه‌موو شتێك پێشان بده"
 
@@ -207,15 +211,7 @@ msgstr "سه‌رکه‌وتن"
 msgid "Import"
 msgstr "هێنان"
 
-#: js/settings.js:55
-msgid "Downloading..."
-msgstr "داده‌گیرێت..."
-
-#: js/settings.js:57
-msgid "Download"
-msgstr "داگرتن"
-
-#: js/settings.js:69
+#: js/settings.js:66
 msgid "Select file"
 msgstr "دیاریکردنی په‌ڕگه"
 
@@ -290,23 +286,23 @@ msgstr "دیاریکردنی په‌ڕگه له‌ <a href=\"#\" class=\"setting
 msgid "Or..."
 msgstr "یان..."
 
-#: templates/main.php:35
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "زیادکردنی خورد یان بوخچه"
 
-#: templates/main.php:36
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr "زیادکردنی خورد/بوخچه"
 
-#: templates/main.php:38
+#: templates/main.php:37
 msgid "Feed"
 msgstr "خورد"
 
-#: templates/main.php:39
+#: templates/main.php:38
 msgid "Folder"
 msgstr "بوخچه"
 
-#: templates/main.php:46
+#: templates/main.php:45
 msgid "Settings"
 msgstr "ڕێکخستنه‌کان"
 
@@ -342,12 +338,12 @@ msgstr "زیادکردن"
 msgid "New articles"
 msgstr "وتارێكی نوێ"
 
-#: templates/part.feeds.php:50 templates/part.listfeed.php:34
-#: templates/part.listfolder.php:34
+#: templates/part.feeds.php:51 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:35
 msgid "Mark all read"
 msgstr "نیشانیان بکه‌ سه‌رجه‌میان خوێندراوه‌ته‌وه"
 
-#: templates/part.feeds.php:54
+#: templates/part.feeds.php:55
 msgid "Starred"
 msgstr "گه‌شاوه"
 
@@ -367,11 +363,12 @@ msgstr ""
 msgid "by"
 msgstr "له‌لایه‌ن"
 
-#: templates/part.items.php:54 templates/part.shared.php:55
+#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.shared.php:55
 msgid "Share"
 msgstr ""
 
-#: templates/part.items.php:59 templates/part.shared.php:60
+#: templates/part.items.php:58 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "هێشتنه‌وه‌ی وه‌ك نه‌خوێنراوه"
 
@@ -383,11 +380,11 @@ msgstr "سڕینه‌وه‌ی خورد"
 msgid "Collapse"
 msgstr "شکستهێنان"
 
-#: templates/part.listfolder.php:32
+#: templates/part.listfolder.php:33
 msgid "Delete folder"
 msgstr "سڕینه‌وه‌ی بوخچه"
 
-#: templates/part.listfolder.php:33
+#: templates/part.listfolder.php:34
 msgid "Rename folder"
 msgstr "گۆڕینی ناوی بوخچه"
 
