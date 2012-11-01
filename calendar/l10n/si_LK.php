@@ -180,6 +180,7 @@
 "Name of new calendar" => "නව  දිනදසුනේ නම ",
 "Take an available name!" => "තිබෙන නමක් ගැනීම!",
 "A Calendar with this name already exists. If you continue anyhow, these calendars will be merged." => "මෙම නමින් තිබෙන දිනදසුනක් දැනටම අඩංගුව පවතී. ඔබ මෙය දිගටම කරන්නේනම්, මෙම දිනදසුන ඉදිරියෙදි මුසුවේ.",
+"Remove all events from the selected calendar" => "තෝරාගත් දින දර්ශකයේ සඳහන් සියලු සිදුවීම් ඉවත් කරන්න",
 "Import" => "ආයාත කරන්න",
 "Close Dialog" => "සංවාදය නැවැත්වීම",
 "Create a new event" => "නව සිදුවීමක් නිර්මාණය කරන්න",

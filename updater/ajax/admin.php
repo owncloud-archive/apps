@@ -50,11 +50,12 @@ if (!$sourcePath){
 }
 
 //Step 2 - backup & update
-//TODO: CleanUp
 try {
 	$backupPath = Backup::createBackup();
 	App::setSourcePath($packageVersion, $packageUrl, '');
 	Updater::update($sourcePath, $backupPath);
+	//Cleanup
+	@unlink(Downloader::getPackageDir($packageVersion));
 	\OCP\JSON::success(array());
 } catch (\Exception $e){
 	\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);

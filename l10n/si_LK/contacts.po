@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-27 00:01+0200\n"
-"PO-Revision-Date: 2012-10-26 08:32+0000\n"
+"POT-Creation-Date: 2012-11-01 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 04:38+0000\n"
 "Last-Translator: Anushke Guneratne <anushke@gmail.com>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
-msgstr ""
+msgstr "ලිපි ලැයිස්තුව (අ)ක්‍රිය කිරීමේ දෝෂයක්"
 
 #: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
@@ -32,7 +32,7 @@ msgstr "අංකය සකසා නැත."
 
 #: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
-msgstr ""
+msgstr "නමක් නොමැතිව ලිපි ලැයිස්තුව යාවත්කාලීන කළ නොහැක"
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -169,15 +169,15 @@ msgstr ""
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
-msgstr ""
+msgstr "ගබඩාවට පුද්ගල විස්තර උඩුගත කිරීමේ දෝෂයක්"
 
 #: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
-msgstr ""
+msgstr "දෝෂයක් නොමැත. සාර්ථකව ගොනුව උඩුගත කෙරුණි"
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
+msgstr "php.ini හි upload_max_filesize නියමයට වඩා ගොනුව විශාලය"
 
 #: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
 msgid ""
@@ -187,15 +187,15 @@ msgstr ""
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "උඩුගත කළ ගොනුවේ කොටසක් පමණක් උඩුගත විය"
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
-msgstr ""
+msgstr "ගොනුවක් උඩුගත නොවුණි"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "තාවකාලික ෆොල්ඩරයක් අතුරුදහන්"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
@@ -209,7 +209,7 @@ msgstr ""
 msgid "No file was uploaded. Unknown error"
 msgstr ""
 
-#: appinfo/app.php:25
+#: appinfo/app.php:24
 msgid "Contacts"
 msgstr "සබඳතා"
 
@@ -715,15 +715,15 @@ msgstr "උඩුගත කිරීමට මෙතැනට දමන්න"
 
 #: templates/part.contact.php:19
 msgid "Delete current photo"
-msgstr ""
+msgstr "වර්තමාන ඡායාරූපය මකන්න"
 
 #: templates/part.contact.php:20
 msgid "Edit current photo"
-msgstr ""
+msgstr "වර්තමාන ඡායාරූපය සංස්කරණය කරන්න"
 
 #: templates/part.contact.php:21
 msgid "Upload new photo"
-msgstr ""
+msgstr "නව ඡායාරූපයක් උඩුගත කරන්න"
 
 #: templates/part.contact.php:22
 msgid "Select photo from ownCloud"
@@ -781,27 +781,27 @@ msgstr "රුචි"
 
 #: templates/part.contact.php:60
 msgid "Please specify a valid email address."
-msgstr ""
+msgstr "වලංගු විද්‍යුත් තැපැල් ලිපිනයක් ලබා දෙන්න"
 
 #: templates/part.contact.php:60
 msgid "Enter email address"
-msgstr ""
+msgstr "විද්‍යුත් තැපැල් ලිපිනයක් දෙන්න"
 
 #: templates/part.contact.php:64
 msgid "Mail to address"
-msgstr ""
+msgstr "තැපැල් එවිය යුතු ලිපිනය"
 
 #: templates/part.contact.php:65
 msgid "Delete email address"
-msgstr ""
+msgstr "විද්‍යුත් තැපැල් ලිපිනය මකන්න"
 
 #: templates/part.contact.php:75
 msgid "Enter phone number"
-msgstr ""
+msgstr "දුරකථන අංකයක් දෙන්න"
 
 #: templates/part.contact.php:79
 msgid "Delete phone number"
-msgstr ""
+msgstr "දුරකථන අංකය මකන්න"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
@@ -813,11 +813,11 @@ msgstr ""
 
 #: templates/part.contact.php:110
 msgid "View on map"
-msgstr ""
+msgstr "සිතියමේ පෙන්වන්න"
 
 #: templates/part.contact.php:110
 msgid "Edit address details"
-msgstr ""
+msgstr "ලිපින විස්තර සංස්කරණය කරන්න"
 
 #: templates/part.contact.php:116
 msgid "Add notes here."
@@ -861,7 +861,7 @@ msgstr ""
 
 #: templates/part.edit_address_dialog.php:6
 msgid "Edit address"
-msgstr ""
+msgstr "ලිපිනය සංස්කරණය කරන්න"
 
 #: templates/part.edit_address_dialog.php:10
 msgid "Type"
@@ -948,11 +948,11 @@ msgstr ""
 
 #: templates/part.edit_name_dialog.php:35
 msgid "Given name"
-msgstr ""
+msgstr "දී ඇති නම"
 
 #: templates/part.edit_name_dialog.php:37
 msgid "Additional names"
-msgstr ""
+msgstr "වෙනත් නම්"
 
 #: templates/part.edit_name_dialog.php:39
 msgid "Family name"
