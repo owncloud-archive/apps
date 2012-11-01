@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-31 00:01+0100\n"
-"PO-Revision-Date: 2012-10-30 23:02+0000\n"
+"POT-Creation-Date: 2012-11-01 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -103,13 +103,17 @@ msgstr "Fuentes actualizadas!"
 msgid "News"
 msgstr "Noticias"
 
+#: controllers/controller.php:207
+msgid "An error occured: "
+msgstr ""
+
 #: js/items.js:122
 msgid "Error while loading the feed"
 msgstr "Error cargando la fuente"
 
 #: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
-#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
@@ -119,11 +123,11 @@ msgstr "Error"
 msgid "None"
 msgstr "Ninguno"
 
-#: js/main.js:101 templates/main.php:18
+#: js/main.js:101 templates/main.php:17
 msgid "Show only unread"
 msgstr "Mostrar solo no leidos"
 
-#: js/main.js:105 templates/main.php:14
+#: js/main.js:105 templates/main.php:13
 msgid "Show everything"
 msgstr "Mostrar todo"
 
@@ -287,23 +291,23 @@ msgstr "Seleccionar archivo desde <a href=\"#\" class=\"settings\" id=\"browseli
 msgid "Or..."
 msgstr "O..."
 
-#: templates/main.php:35
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "Adicionar fuente o carpeta"
 
-#: templates/main.php:36
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr "Adicionar Fuente/Carpeta"
 
-#: templates/main.php:38
+#: templates/main.php:37
 msgid "Feed"
 msgstr "Fuente"
 
-#: templates/main.php:39
+#: templates/main.php:38
 msgid "Folder"
 msgstr "Carpeta"
 
-#: templates/main.php:46
+#: templates/main.php:45
 msgid "Settings"
 msgstr "Configuración"
 
@@ -339,12 +343,12 @@ msgstr "Adicionar"
 msgid "New articles"
 msgstr "Nuevo artículo"
 
-#: templates/part.feeds.php:50 templates/part.listfeed.php:34
-#: templates/part.listfolder.php:34
+#: templates/part.feeds.php:51 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:35
 msgid "Mark all read"
 msgstr "Marcar como leido"
 
-#: templates/part.feeds.php:54
+#: templates/part.feeds.php:55
 msgid "Starred"
 msgstr "Favoritos"
 
@@ -381,11 +385,11 @@ msgstr "Eliminar fuente"
 msgid "Collapse"
 msgstr "Colapsar"
 
-#: templates/part.listfolder.php:32
+#: templates/part.listfolder.php:33
 msgid "Delete folder"
 msgstr "Eliminar carpeta"
 
-#: templates/part.listfolder.php:33
+#: templates/part.listfolder.php:34
 msgid "Rename folder"
 msgstr "Renombrar carpeta"
 

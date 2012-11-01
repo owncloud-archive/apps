@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-11 02:03+0200\n"
-"PO-Revision-Date: 2012-10-11 00:05+0000\n"
+"POT-Creation-Date: 2012-11-01 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -18,24 +18,36 @@ msgstr ""
 "Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ajax/import.php:21
+msgid "Unsupported file type for import"
+msgstr ""
+
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "نشانک‌ها"
 
-#: js/addBm.js:42 js/bookmarks.js:243
+#: js/addBm.js:42 js/bookmarks.js:241
 msgid "Tags"
 msgstr "برچسب‌ها"
 
-#: js/bookmarks.js:178
+#: js/bookmarks.js:176
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:409
+#: js/bookmarks.js:393
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:410
+#: js/bookmarks.js:394
 msgid "Warning"
+msgstr ""
+
+#: js/settings.js:25
+msgid "Import completed successfully."
+msgstr ""
+
+#: js/settings.js:56
+msgid "Uploading..."
 msgstr ""
 
 #: lib/search.php:38
@@ -50,19 +62,19 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: templates/addBm.php:22 templates/list.php:91
+#: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
 msgstr ""
 
-#: templates/addBm.php:27 templates/list.php:95
+#: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
 msgstr ""
 
-#: templates/addBm.php:40 templates/list.php:104
+#: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
 msgstr ""
 
-#: templates/addBm.php:44 templates/list.php:108
+#: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
 msgstr ""
 
@@ -75,6 +87,18 @@ msgstr "هنگامی که می‌خواهید کی صفحه‌ی اینترنت�
 #: templates/bookmarklet.php:7
 msgid "Read later"
 msgstr "بعد خوانده‌شود"
+
+#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
+msgid "Edit"
+msgstr ""
+
+#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+msgid "Delete"
+msgstr ""
+
+#: templates/js_tpl.php:49
+msgid "Cancel"
+msgstr ""
 
 #: templates/list.php:12
 msgid "Address"
@@ -104,42 +128,34 @@ msgstr ""
 msgid "Related Tags"
 msgstr ""
 
-#: templates/list.php:39
+#: templates/list.php:38 templates/list.php:40
+msgid "Settings"
+msgstr ""
+
+#: templates/list.php:50
 msgid "You have no bookmarks"
 msgstr "شما هیچ نشانکی ندارید"
-
-#: templates/list.php:64
-msgid "Edit"
-msgstr ""
-
-#: templates/list.php:68
-msgid "Delete"
-msgstr ""
-
-#: templates/list.php:107
-msgid "Cancel"
-msgstr ""
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
 msgstr ""
 
-#: templates/settings.php:26
+#: templates/settings.php:25
 msgid "Import bookmarks"
 msgstr ""
 
-#: templates/settings.php:28
-msgid "Bookmark html file"
+#: templates/settings.php:27
+msgid "html bookmarks file"
 msgstr ""
 
-#: templates/settings.php:30
+#: templates/settings.php:29
 msgid "Import"
 msgstr ""
 
-#: templates/settings.php:33
+#: templates/settings.php:32
 msgid "Export bookmarks"
 msgstr ""
 
-#: templates/settings.php:35
+#: templates/settings.php:34
 msgid "Export"
 msgstr ""

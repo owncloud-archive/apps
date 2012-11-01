@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 10:21+0000\n"
-"Last-Translator: drlinux64 <romeo@energo-pro.ge>\n"
+"POT-Creation-Date: 2012-11-01 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:01+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,25 +18,37 @@ msgstr ""
 "Language: ka_GE\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ajax/import.php:21
+msgid "Unsupported file type for import"
+msgstr ""
+
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "ბუქმარკები"
 
-#: js/addBm.js:42 js/bookmarks.js:233
+#: js/addBm.js:42 js/bookmarks.js:241
 msgid "Tags"
 msgstr "ტაგები"
 
-#: js/bookmarks.js:168
+#: js/bookmarks.js:176
 msgid "Edit bookmark"
 msgstr "ბუქმარკების რედაქტირება"
 
-#: js/bookmarks.js:385
+#: js/bookmarks.js:393
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "დარწმუნებული ხართ რომ აღნიშნული ტაგის წაშლა გინდათ ყველა ჩანაწერიდა?"
 
-#: js/bookmarks.js:386
+#: js/bookmarks.js:394
 msgid "Warning"
 msgstr "გაფრთხილება"
+
+#: js/settings.js:25
+msgid "Import completed successfully."
+msgstr ""
+
+#: js/settings.js:56
+msgid "Uploading..."
+msgstr ""
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -116,7 +128,11 @@ msgstr "გამოჩენა"
 msgid "Related Tags"
 msgstr "Related Tags"
 
-#: templates/list.php:39
+#: templates/list.php:38 templates/list.php:40
+msgid "Settings"
+msgstr ""
+
+#: templates/list.php:50
 msgid "You have no bookmarks"
 msgstr "თქვენ არ გაქვთ ბუქმარკები"
 
@@ -124,22 +140,22 @@ msgstr "თქვენ არ გაქვთ ბუქმარკები"
 msgid "Bookmarklet <br />"
 msgstr "Bookmarklet <br />"
 
-#: templates/settings.php:26
+#: templates/settings.php:25
 msgid "Import bookmarks"
 msgstr "ბუქმარქების იმპორტი"
 
-#: templates/settings.php:28
-msgid "Bookmark html file"
-msgstr "ბუქმარქ html ფაილი"
+#: templates/settings.php:27
+msgid "html bookmarks file"
+msgstr ""
 
-#: templates/settings.php:30
+#: templates/settings.php:29
 msgid "Import"
 msgstr "იმპორტი"
 
-#: templates/settings.php:33
+#: templates/settings.php:32
 msgid "Export bookmarks"
 msgstr "ბუქმარქების ექსპორტი"
 
-#: templates/settings.php:35
+#: templates/settings.php:34
 msgid "Export"
 msgstr "ექსპორტი"
