@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-24 02:02+0200\n"
-"PO-Revision-Date: 2012-10-23 08:55+0000\n"
+"POT-Creation-Date: 2012-10-31 00:01+0100\n"
+"PO-Revision-Date: 2012-10-30 08:56+0000\n"
 "Last-Translator: suganthi <suganthi@nic.lk>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -38,21 +38,21 @@ msgstr "நிகழ்வுகள் எதுவும் கண்டறி�
 msgid "Wrong calendar"
 msgstr "பிழையான நாட்காட்டி"
 
-#: ajax/import/dropimport.php:29 ajax/import/import.php:64
+#: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
 msgstr "கோப்பு உங்களுடைய நாட்காட்டியில் ஒரு நிகழ்வும் இல்லாததையோ அல்லது ஏற்கனவே எல்லா நிகழ்வும் சேமித்ததையோ கொண்டுள்ளது. "
 
-#: ajax/import/dropimport.php:31 ajax/import/import.php:67
+#: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
 msgstr "புதிய நாட்காட்டியில் நிகழ்வுகள் சேமிக்கப்பட்டது"
 
-#: ajax/import/import.php:56
+#: ajax/import/import.php:57
 msgid "Import failed"
 msgstr "இறக்குமதி தோல்வியுற்றது"
 
-#: ajax/import/import.php:69
+#: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
 msgstr "உங்களுடைய நாட்காட்டியில் நிகழ்வுகள் சேமிக்கப்பட்டது"
 
@@ -73,59 +73,59 @@ msgstr "செல்லுபடியற்ற வேண்டுகோள்"
 msgid "Calendar"
 msgstr "நாட்காட்டி"
 
-#: js/calendar.js:96
+#: js/calendar.js:154
 msgid "Deletion failed"
 msgstr "நீக்கம் தோல்வியடைந்தது"
 
-#: js/calendar.js:185
+#: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
-#: js/calendar.js:187
+#: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "user"
 msgstr "பயனாளர்"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "group"
 msgstr "குழு"
 
-#: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
+#: js/calendar.js:598 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
 msgstr "தொகுக்கக்கூடியது"
 
-#: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
+#: js/calendar.js:599 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
 msgstr "பகிரக்கூடியது"
 
-#: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
+#: js/calendar.js:600 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
 msgstr "அழிக்கக்கூடியது"
 
-#: js/calendar.js:811
+#: js/calendar.js:869
 msgid "ddd"
 msgstr "ddd"
 
-#: js/calendar.js:812
+#: js/calendar.js:870
 msgid "ddd M/d"
 msgstr "ddd M/d"
 
-#: js/calendar.js:813
+#: js/calendar.js:871
 msgid "dddd M/d"
 msgstr "ddd M/d"
 
-#: js/calendar.js:816
+#: js/calendar.js:874
 msgid "MMMM yyyy"
 msgstr "MMMM yyyy"
 
-#: js/calendar.js:818
+#: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
-#: js/calendar.js:820
+#: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
 msgstr "dddd, MMM d, yyyy"
 
@@ -209,7 +209,7 @@ msgstr "இந்த நாட்காட்டியை நீக்குவ�
 msgid "You do not have the permissions to add to this calendar."
 msgstr "இந்த நாட்காட்டியை சேர்ப்பதற்கு உங்களுக்கு அனுமதி இல்லை"
 
-#: lib/import.php:195 templates/calendar.php:12
+#: lib/import.php:214 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "புதிய நாட்காட்டி"
@@ -753,11 +753,15 @@ msgid ""
 "calendars will be merged."
 msgstr "இந்த பெயரைக்கொண்ட நாட்காட்டி ஏற்கனவே உள்ளது.  நீங்கள் இதனை தொடர்ந்தால், நாட்காட்டிகள் ஒன்றிணைக்கப்படலாம். "
 
-#: templates/part.import.php:47
+#: templates/part.import.php:48
+msgid "Remove all events from the selected calendar"
+msgstr "தெரிவுசெய்யப்பட்ட நாட்காட்டியில் உள்ள எல்லா நிகழ்வுகளையும் அகற்றுக "
+
+#: templates/part.import.php:50
 msgid "Import"
 msgstr "இறக்குமதி"
 
-#: templates/part.import.php:56
+#: templates/part.import.php:59
 msgid "Close Dialog"
 msgstr "Dialog மூடுக"
 

@@ -137,6 +137,7 @@
 "Import" => "Importuoti",
 "Close Dialog" => "Uždaryti",
 "Create a new event" => "Sukurti naują įvykį",
+"Unshare" => "Nebesidalinti",
 "View an event" => "Peržiūrėti įvykį",
 "No categories selected" => "Nepasirinktos jokios katagorijos",
 "Timezone" => "Laiko juosta",

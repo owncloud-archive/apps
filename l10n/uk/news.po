@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:05+0200\n"
-"PO-Revision-Date: 2012-10-22 13:30+0000\n"
-"Last-Translator: skoptev <skoptev@ukr.net>\n"
+"POT-Creation-Date: 2012-11-01 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:02+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,17 +95,21 @@ msgstr "Помилка оновлення каналу."
 msgid "Feed updated!"
 msgstr "Канал оновлено!"
 
-#: appinfo/app.php:36 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21
 msgid "News"
 msgstr "Новини"
 
-#: js/items.js:123
+#: controllers/controller.php:207
+msgid "An error occured: "
+msgstr ""
+
+#: js/items.js:122
 msgid "Error while loading the feed"
 msgstr ""
 
-#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
+#: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
-#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
@@ -113,13 +117,13 @@ msgstr "Помилка"
 
 #: js/main.js:33
 msgid "None"
-msgstr ""
+msgstr "Жоден"
 
-#: js/main.js:101 templates/main.php:18
+#: js/main.js:101 templates/main.php:17
 msgid "Show only unread"
 msgstr "Показати тільки не прочитане"
 
-#: js/main.js:105 templates/main.php:14
+#: js/main.js:105 templates/main.php:13
 msgid "Show everything"
 msgstr "Показати все"
 
@@ -208,19 +212,11 @@ msgstr "Успіх"
 msgid "Import"
 msgstr "Імпорт"
 
-#: js/settings.js:55
-msgid "Downloading..."
-msgstr "Завантажується..."
-
-#: js/settings.js:57
-msgid "Download"
-msgstr "Завантажити"
-
-#: js/settings.js:69
+#: js/settings.js:66
 msgid "Select file"
 msgstr "Оберіть файл"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "без назви"
 
@@ -228,7 +224,7 @@ msgstr "без назви"
 msgid "no name"
 msgstr "без імені"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "без тіла"
 
@@ -254,7 +250,7 @@ msgstr ""
 
 #: templates/firstrun.php:6 templates/part.dialogues.php:28
 msgid "Address"
-msgstr ""
+msgstr "Адреса"
 
 #: templates/firstrun.php:7 templates/subscribelet.php:7
 msgid "Subscribe"
@@ -270,7 +266,7 @@ msgstr ""
 
 #: templates/firstrun.php:12 templates/settings.php:3
 msgid "Upload"
-msgstr ""
+msgstr "Відвантажити"
 
 #: templates/firstrun.php:13 templates/settings.php:4
 msgid "Select file from ownCloud"
@@ -291,23 +287,23 @@ msgstr ""
 msgid "Or..."
 msgstr ""
 
-#: templates/main.php:35
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "Додати канал в папку"
 
-#: templates/main.php:36
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr ""
 
-#: templates/main.php:38
+#: templates/main.php:37
 msgid "Feed"
 msgstr ""
 
-#: templates/main.php:39
+#: templates/main.php:38
 msgid "Folder"
-msgstr ""
+msgstr "Папка"
 
-#: templates/main.php:46
+#: templates/main.php:45
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -339,36 +335,41 @@ msgstr ""
 msgid "Add"
 msgstr "Додати"
 
-#: templates/part.feeds.php:47
+#: templates/part.feeds.php:48
 msgid "New articles"
 msgstr "Нові статті"
 
-#: templates/part.feeds.php:49 templates/part.listfeed.php:34
-#: templates/part.listfolder.php:34
+#: templates/part.feeds.php:51 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:35
 msgid "Mark all read"
 msgstr ""
 
-#: templates/part.feeds.php:53
+#: templates/part.feeds.php:55
 msgid "Starred"
 msgstr "Помічені зірочко"
 
-#: templates/part.items.php:17
+#: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr ""
 
-#: templates/part.items.php:20
+#: templates/part.items.php:20 templates/part.shared.php:21
 msgid "Mark as important"
 msgstr ""
 
-#: templates/part.items.php:37
+#: templates/part.items.php:37 templates/part.shared.php:38
 msgid "from"
 msgstr ""
 
-#: templates/part.items.php:43
+#: templates/part.items.php:43 templates/part.shared.php:44
 msgid "by"
 msgstr ""
 
-#: templates/part.items.php:56
+#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.shared.php:55
+msgid "Share"
+msgstr "Поділитися"
+
+#: templates/part.items.php:58 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr ""
 
@@ -380,11 +381,11 @@ msgstr ""
 msgid "Collapse"
 msgstr ""
 
-#: templates/part.listfolder.php:32
+#: templates/part.listfolder.php:33
 msgid "Delete folder"
 msgstr ""
 
-#: templates/part.listfolder.php:33
+#: templates/part.listfolder.php:34
 msgid "Rename folder"
 msgstr ""
 

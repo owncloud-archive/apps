@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Arvid Nornes <arvid.nornes@gmail.com>, 2012.
+#   <hdalgrav@gmail.com>, 2012.
 #   <runesudden@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-11 02:03+0200\n"
-"PO-Revision-Date: 2012-10-11 00:05+0000\n"
+"POT-Creation-Date: 2012-11-01 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -19,53 +20,65 @@ msgstr ""
 "Language: nb_NO\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ajax/import.php:21
+msgid "Unsupported file type for import"
+msgstr ""
+
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Bokmerker"
 
-#: js/addBm.js:42 js/bookmarks.js:243
+#: js/addBm.js:42 js/bookmarks.js:241
 msgid "Tags"
 msgstr "Etikett"
 
-#: js/bookmarks.js:178
+#: js/bookmarks.js:176
 msgid "Edit bookmark"
-msgstr ""
+msgstr "Endre bokmerke"
 
-#: js/bookmarks.js:409
+#: js/bookmarks.js:393
 msgid "Are you sure you want to remove this tag from every entry?"
+msgstr "Er du sikker på at du vil slette denne taggen fra alle oppføringene?"
+
+#: js/bookmarks.js:394
+msgid "Warning"
+msgstr "Advarsel"
+
+#: js/settings.js:25
+msgid "Import completed successfully."
 msgstr ""
 
-#: js/bookmarks.js:410
-msgid "Warning"
+#: js/settings.js:56
+msgid "Uploading..."
 msgstr ""
 
 #: lib/search.php:38
 msgid "Bookm."
-msgstr ""
+msgstr "Bokmrk."
 
 #: templates/addBm.php:11
 msgid "Add a bookmark"
-msgstr ""
+msgstr "Legg til et bokmerke"
 
 #: templates/addBm.php:14
 msgid "Close"
-msgstr ""
+msgstr "Lukk"
 
-#: templates/addBm.php:22 templates/list.php:91
+#: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
-msgstr ""
+msgstr "Tittel for siden"
 
-#: templates/addBm.php:27 templates/list.php:95
+#: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
-msgstr ""
+msgstr "Adressen til siden"
 
-#: templates/addBm.php:40 templates/list.php:104
+#: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
-msgstr ""
+msgstr "Beskrivelse av siden"
 
-#: templates/addBm.php:44 templates/list.php:108
+#: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
-msgstr ""
+msgstr "Lagre"
 
 #: templates/bookmarklet.php:5
 msgid ""
@@ -77,70 +90,74 @@ msgstr "Dra denne over din nettlesers bokmerker og klikk den, hvis du ønsker å
 msgid "Read later"
 msgstr "Les senere"
 
+#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
+msgid "Edit"
+msgstr "Endre"
+
+#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+msgid "Delete"
+msgstr "Slett"
+
+#: templates/js_tpl.php:49
+msgid "Cancel"
+msgstr "Avbryt"
+
 #: templates/list.php:12
 msgid "Address"
 msgstr "Adresse"
 
 #: templates/list.php:13
 msgid "Add bookmark"
-msgstr ""
+msgstr "Legg til bokmerke"
 
 #: templates/list.php:16
 msgid "List"
-msgstr ""
+msgstr "Liste"
 
 #: templates/list.php:17
 msgid "Image"
-msgstr ""
+msgstr "Bilde"
 
 #: templates/list.php:22
 msgid "Hide"
-msgstr ""
+msgstr "Skjul"
 
 #: templates/list.php:23
 msgid "Show"
-msgstr ""
+msgstr "Vis"
 
 #: templates/list.php:30
 msgid "Related Tags"
+msgstr "Relaterte tagger"
+
+#: templates/list.php:38 templates/list.php:40
+msgid "Settings"
 msgstr ""
 
-#: templates/list.php:39
+#: templates/list.php:50
 msgid "You have no bookmarks"
 msgstr "Du har ingen bokmerker"
-
-#: templates/list.php:64
-msgid "Edit"
-msgstr ""
-
-#: templates/list.php:68
-msgid "Delete"
-msgstr ""
-
-#: templates/list.php:107
-msgid "Cancel"
-msgstr ""
 
 #: templates/settings.php:11
 msgid "Bookmarklet <br />"
 msgstr "Bokmerke <br />"
 
-#: templates/settings.php:26
+#: templates/settings.php:25
 msgid "Import bookmarks"
+msgstr "Importer bokmerker"
+
+#: templates/settings.php:27
+msgid "html bookmarks file"
 msgstr ""
 
-#: templates/settings.php:28
-msgid "Bookmark html file"
-msgstr ""
-
-#: templates/settings.php:30
+#: templates/settings.php:29
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
-#: templates/settings.php:33
+#: templates/settings.php:32
 msgid "Export bookmarks"
-msgstr ""
+msgstr "Eksporter bokmerker"
 
-#: templates/settings.php:35
+#: templates/settings.php:34
 msgid "Export"
-msgstr ""
+msgstr "Eksporter"

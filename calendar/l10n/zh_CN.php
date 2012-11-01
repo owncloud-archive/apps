@@ -180,6 +180,7 @@
 "Name of new calendar" => "新日历名称",
 "Take an available name!" => "使用有效名称！",
 "A Calendar with this name already exists. If you continue anyhow, these calendars will be merged." => "已有日历使用此名称。如果您执意继续，这些日历将会合并。",
+"Remove all events from the selected calendar" => "从选定的日历中删除所有事件",
 "Import" => "导入",
 "Close Dialog" => "关闭对话框",
 "Create a new event" => "创建新事件",

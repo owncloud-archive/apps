@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:05+0200\n"
-"PO-Revision-Date: 2012-10-16 00:06+0000\n"
+"POT-Creation-Date: 2012-11-01 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:02+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -94,17 +94,21 @@ msgstr "Errorea iturburua eguneratzerakoan."
 msgid "Feed updated!"
 msgstr "Iturburua eguneratuta!"
 
-#: appinfo/app.php:36
+#: appinfo/app.php:38 lib/search.php:21
 msgid "News"
 msgstr "Berriak"
 
-#: js/items.js:123
+#: controllers/controller.php:207
+msgid "An error occured: "
+msgstr ""
+
+#: js/items.js:122
 msgid "Error while loading the feed"
 msgstr "Errorea  ituruburuak kargatzearkoan"
 
-#: js/items.js:123 js/items.js:589 js/items.js:694 js/main.js:114
+#: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
-#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
@@ -114,11 +118,11 @@ msgstr "Errorea"
 msgid "None"
 msgstr "Ezer"
 
-#: js/main.js:101 templates/main.php:18
+#: js/main.js:101 templates/main.php:17
 msgid "Show only unread"
 msgstr "Erakutsi bakarrik irakurri gabekoa"
 
-#: js/main.js:105 templates/main.php:14
+#: js/main.js:105 templates/main.php:13
 msgid "Show everything"
 msgstr "Erakutsi dena"
 
@@ -207,19 +211,11 @@ msgstr "Arrakasta"
 msgid "Import"
 msgstr "Inportatu"
 
-#: js/settings.js:55
-msgid "Downloading..."
-msgstr "Deskargatzen..."
-
-#: js/settings.js:57
-msgid "Download"
-msgstr "Deskargatu"
-
-#: js/settings.js:69
+#: js/settings.js:66
 msgid "Select file"
 msgstr "Hautatu fitxategia"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "izenbururik gabe"
 
@@ -227,7 +223,7 @@ msgstr "izenbururik gabe"
 msgid "no name"
 msgstr "izenik gabe"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "gorputzik gabe"
 
@@ -290,23 +286,23 @@ msgstr "Hautatu fitxategi bat <a href=\"#\" class=\"settings\" id=\"browselink\"
 msgid "Or..."
 msgstr "edo..."
 
-#: templates/main.php:35
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "Gehitu ituburu edo karpeta"
 
-#: templates/main.php:36
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr "Gehitu ituburu/karpeta"
 
-#: templates/main.php:38
+#: templates/main.php:37
 msgid "Feed"
 msgstr "Iturburua"
 
-#: templates/main.php:39
+#: templates/main.php:38
 msgid "Folder"
 msgstr "Karpeta"
 
-#: templates/main.php:46
+#: templates/main.php:45
 msgid "Settings"
 msgstr "Ezarpenak"
 
@@ -338,36 +334,41 @@ msgstr "Hautatu karpeta"
 msgid "Add"
 msgstr "Gehitu"
 
-#: templates/part.feeds.php:47
+#: templates/part.feeds.php:48
 msgid "New articles"
 msgstr "Artikulu berriak"
 
-#: templates/part.feeds.php:49 templates/part.listfeed.php:34
-#: templates/part.listfolder.php:34
+#: templates/part.feeds.php:51 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:35
 msgid "Mark all read"
 msgstr "Markatu guztiak irakurrita"
 
-#: templates/part.feeds.php:53
+#: templates/part.feeds.php:55
 msgid "Starred"
 msgstr "Izardunak"
 
-#: templates/part.items.php:17
+#: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr "Markatu garrantzigabekoa"
 
-#: templates/part.items.php:20
+#: templates/part.items.php:20 templates/part.shared.php:21
 msgid "Mark as important"
 msgstr "Markatu garrantzitsua"
 
-#: templates/part.items.php:37
+#: templates/part.items.php:37 templates/part.shared.php:38
 msgid "from"
-msgstr ""
+msgstr "lekua"
 
-#: templates/part.items.php:43
+#: templates/part.items.php:43 templates/part.shared.php:44
 msgid "by"
 msgstr "egilea"
 
-#: templates/part.items.php:56
+#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.shared.php:55
+msgid "Share"
+msgstr "Elkarbanatu"
+
+#: templates/part.items.php:58 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Mantendu irakurri gabea"
 
@@ -379,11 +380,11 @@ msgstr "Ezabatu iturburua"
 msgid "Collapse"
 msgstr "Tolestu"
 
-#: templates/part.listfolder.php:32
+#: templates/part.listfolder.php:33
 msgid "Delete folder"
 msgstr "Ezabatu karpeta"
 
-#: templates/part.listfolder.php:33
+#: templates/part.listfolder.php:34
 msgid "Rename folder"
 msgstr "Berrizendatu karpeta"
 

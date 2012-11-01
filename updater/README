@@ -10,9 +10,10 @@ Navigate to the 'Apps' page in Admin.
 Click the 'Updater' in the application list. Then click the 'Enable' button.
 
 Usage:
-- Navigate to the 'Admin' page.
-- Click 'Update'.
-- Refresh the page.
+- Backup your DB and user data;
+- Navigate to the 'Admin' page;
+- Click 'Update';
+- Refresh the page with Ctrl+F5.
 
 
 

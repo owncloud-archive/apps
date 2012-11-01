@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-18 02:04+0200\n"
-"PO-Revision-Date: 2012-10-17 09:47+0000\n"
-"Last-Translator: Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>\n"
+"POT-Creation-Date: 2012-11-01 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:02+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,17 +96,21 @@ msgstr "Der opstod en fejl under opdateringen af feedet."
 msgid "Feed updated!"
 msgstr "Feed opdateret."
 
-#: appinfo/app.php:36
+#: appinfo/app.php:38 lib/search.php:21
 msgid "News"
 msgstr "Nyheder"
 
-#: js/items.js:123
+#: controllers/controller.php:207
+msgid "An error occured: "
+msgstr ""
+
+#: js/items.js:122
 msgid "Error while loading the feed"
 msgstr "Fejl under indlæsning af nyhedskilde"
 
-#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
+#: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
-#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
 #: js/settings.js:47
 msgid "Error"
@@ -116,11 +120,11 @@ msgstr "Fejl"
 msgid "None"
 msgstr "Ingen"
 
-#: js/main.js:101 templates/main.php:18
+#: js/main.js:101 templates/main.php:17
 msgid "Show only unread"
 msgstr "Vis kun ulæste"
 
-#: js/main.js:105 templates/main.php:14
+#: js/main.js:105 templates/main.php:13
 msgid "Show everything"
 msgstr "Vis alt"
 
@@ -209,19 +213,11 @@ msgstr "Succes"
 msgid "Import"
 msgstr "Import"
 
-#: js/settings.js:55
-msgid "Downloading..."
-msgstr "Downloader..."
-
-#: js/settings.js:57
-msgid "Download"
-msgstr "Download"
-
-#: js/settings.js:69
+#: js/settings.js:66
 msgid "Select file"
 msgstr "Vælg fil"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "ingen titel"
 
@@ -229,7 +225,7 @@ msgstr "ingen titel"
 msgid "no name"
 msgstr "intet navn"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "ingen brødtekst"
 
@@ -292,23 +288,23 @@ msgstr "Vælg fil fra <a href=\"#\" class=\"settings\" id=\"browselink\">det lok
 msgid "Or..."
 msgstr "Eller..."
 
-#: templates/main.php:35
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "Tilføj feed eller mappe"
 
-#: templates/main.php:36
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr "Tilføj feed/mappe"
 
-#: templates/main.php:38
+#: templates/main.php:37
 msgid "Feed"
 msgstr "Feed"
 
-#: templates/main.php:39
+#: templates/main.php:38
 msgid "Folder"
 msgstr "Mappe"
 
-#: templates/main.php:46
+#: templates/main.php:45
 msgid "Settings"
 msgstr "Indstillinger"
 
@@ -340,36 +336,41 @@ msgstr "Vælg mappe"
 msgid "Add"
 msgstr "Tilføj"
 
-#: templates/part.feeds.php:47
+#: templates/part.feeds.php:48
 msgid "New articles"
 msgstr "Nye artikler"
 
-#: templates/part.feeds.php:49 templates/part.listfeed.php:34
-#: templates/part.listfolder.php:34
+#: templates/part.feeds.php:51 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:35
 msgid "Mark all read"
 msgstr "Marker alle som læst"
 
-#: templates/part.feeds.php:53
+#: templates/part.feeds.php:55
 msgid "Starred"
 msgstr "Markéret"
 
-#: templates/part.items.php:17
+#: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr "Markér som ikke-vigtig"
 
-#: templates/part.items.php:20
+#: templates/part.items.php:20 templates/part.shared.php:21
 msgid "Mark as important"
 msgstr "Markér som vigtig"
 
-#: templates/part.items.php:37
+#: templates/part.items.php:37 templates/part.shared.php:38
 msgid "from"
 msgstr "fra"
 
-#: templates/part.items.php:43
+#: templates/part.items.php:43 templates/part.shared.php:44
 msgid "by"
 msgstr "af"
 
-#: templates/part.items.php:56
+#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.shared.php:55
+msgid "Share"
+msgstr "Del"
+
+#: templates/part.items.php:58 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Behold ulæste"
 
@@ -381,11 +382,11 @@ msgstr "Slet feed"
 msgid "Collapse"
 msgstr "Sammenfold"
 
-#: templates/part.listfolder.php:32
+#: templates/part.listfolder.php:33
 msgid "Delete folder"
 msgstr "Slet mappe"
 
-#: templates/part.listfolder.php:33
+#: templates/part.listfolder.php:34
 msgid "Rename folder"
 msgstr "Omdøb mappe"
 

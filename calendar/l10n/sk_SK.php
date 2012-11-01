@@ -180,6 +180,7 @@
 "Name of new calendar" => "Meno nového kalendára",
 "Take an available name!" => "Vybrať existujúce meno",
 "A Calendar with this name already exists. If you continue anyhow, these calendars will be merged." => "Kalendár s rovnakým názvom už existuje. Pokračovaním kalendáre spojíte.",
+"Remove all events from the selected calendar" => "Odstrániť všetky udalosti z vybraného kalendára",
 "Import" => "Importovať",
 "Close Dialog" => "Zatvoriť dialóg",
 "Create a new event" => "Vytvoriť udalosť",

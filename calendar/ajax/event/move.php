@@ -24,19 +24,19 @@ $dtstart = $vevent->DTSTART;
 $dtend = OC_Calendar_Object::getDTEndFromVEvent($vevent);
 $start_type = $dtstart->getDateType();
 $end_type = $dtend->getDateType();
-if ($allday && $start_type != Sabre_VObject_Property_DateTime::DATE) {
-	$start_type = $end_type = Sabre_VObject_Property_DateTime::DATE;
+if ($allday && $start_type != Sabre\VObject\Property\DateTime::DATE) {
+	$start_type = $end_type = Sabre\VObject\Property\DateTime::DATE;
 	$dtend->setDateTime($dtend->getDateTime()->modify('+1 day'), $end_type);
 }
-if (!$allday && $start_type == Sabre_VObject_Property_DateTime::DATE) {
-	$start_type = $end_type = Sabre_VObject_Property_DateTime::LOCALTZ;
+if (!$allday && $start_type == Sabre\VObject\Property\DateTime::DATE) {
+	$start_type = $end_type = Sabre\VObject\Property\DateTime::LOCALTZ;
 }
 $dtstart->setDateTime($dtstart->getDateTime()->add($delta), $start_type);
 $dtend->setDateTime($dtend->getDateTime()->add($delta), $end_type);
 unset($vevent->DURATION);
 
-$vevent->setDateTime('LAST-MODIFIED', 'now', Sabre_VObject_Property_DateTime::UTC);
-$vevent->setDateTime('DTSTAMP', 'now', Sabre_VObject_Property_DateTime::UTC);
+$vevent->setDateTime('LAST-MODIFIED', 'now', Sabre\VObject\Property\DateTime::UTC);
+$vevent->setDateTime('DTSTAMP', 'now', Sabre\VObject\Property\DateTime::UTC);
 
 try {
 	OC_Calendar_Object::edit($id, $vcalendar->serialize());

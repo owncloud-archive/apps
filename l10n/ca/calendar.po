@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 07:24+0000\n"
+"POT-Creation-Date: 2012-10-28 00:01+0200\n"
+"PO-Revision-Date: 2012-10-27 19:29+0000\n"
 "Last-Translator: rogerc <rcalvoi@yahoo.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -40,21 +40,21 @@ msgstr "No s'han trobat events."
 msgid "Wrong calendar"
 msgstr "Calendari erroni"
 
-#: ajax/import/dropimport.php:29 ajax/import/import.php:64
+#: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
 msgstr "El fitxer no contenia esdeveniments o aquests ja estaven desats en el vostre caledari"
 
-#: ajax/import/dropimport.php:31 ajax/import/import.php:67
+#: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
 msgstr "els esdeveniments s'han desat en el calendari nou"
 
-#: ajax/import/import.php:56
+#: ajax/import/import.php:57
 msgid "Import failed"
 msgstr "Ha fallat la importació"
 
-#: ajax/import/import.php:69
+#: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
 msgstr "els esdveniments s'han desat en el calendari"
 
@@ -211,7 +211,7 @@ msgstr "No teniu permisos per eliminar aquest calendari."
 msgid "You do not have the permissions to add to this calendar."
 msgstr "No teniu permisos per afegir en aquest calendari."
 
-#: lib/import.php:195 templates/calendar.php:12
+#: lib/import.php:214 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Calendari nou"
@@ -755,11 +755,15 @@ msgid ""
 "calendars will be merged."
 msgstr "Ja hi ha un calendari amb aquest nom. Si continueu, els calendaris es combinaran."
 
-#: templates/part.import.php:47
+#: templates/part.import.php:48
+msgid "Remove all events from the selected calendar"
+msgstr "Elimina tots els esdeveniments del calendaro seleccionat"
+
+#: templates/part.import.php:50
 msgid "Import"
 msgstr "Importa"
 
-#: templates/part.import.php:56
+#: templates/part.import.php:59
 msgid "Close Dialog"
 msgstr "Tanca el diàleg"
 
