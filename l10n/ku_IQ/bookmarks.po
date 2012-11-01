@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
+"POT-Creation-Date: 2012-11-02 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:13+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr ""
 
 #: js/bookmarks.js:394
 msgid "Warning"
-msgstr ""
+msgstr "ئاگاداری"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
@@ -60,7 +60,7 @@ msgstr ""
 
 #: templates/addBm.php:14
 msgid "Close"
-msgstr ""
+msgstr "داخستن"
 
 #: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
@@ -76,7 +76,7 @@ msgstr ""
 
 #: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
-msgstr ""
+msgstr "پاشکه‌وتکردن"
 
 #: templates/bookmarklet.php:5
 msgid ""
@@ -130,7 +130,7 @@ msgstr ""
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "ده‌ستكاری"
 
 #: templates/list.php:50
 msgid "You have no bookmarks"
@@ -140,22 +140,22 @@ msgstr "تۆ دڵخوازت نیه"
 msgid "Bookmarklet <br />"
 msgstr "دڵخوازکرا <br />"
 
-#: templates/settings.php:25
+#: templates/settings.php:26
 msgid "Import bookmarks"
 msgstr ""
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "html bookmarks file"
 msgstr ""
 
-#: templates/settings.php:29
+#: templates/settings.php:30
 msgid "Import"
-msgstr ""
+msgstr "هێنان"
 
-#: templates/settings.php:32
+#: templates/settings.php:33
 msgid "Export bookmarks"
 msgstr ""
 
-#: templates/settings.php:34
+#: templates/settings.php:35
 msgid "Export"
-msgstr ""
+msgstr "هه‌ناردن"

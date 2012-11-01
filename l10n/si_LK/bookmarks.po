@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
+"POT-Creation-Date: 2012-11-02 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:13+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -131,7 +131,7 @@ msgstr "අදාළ ටැගයන්"
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "සිටුවම්"
 
 #: templates/list.php:50
 msgid "You have no bookmarks"
@@ -141,22 +141,22 @@ msgstr "පිටු සළකුනු නොමැත"
 msgid "Bookmarklet <br />"
 msgstr "පිටුසන<br />"
 
-#: templates/settings.php:25
+#: templates/settings.php:26
 msgid "Import bookmarks"
 msgstr "පිටුසනයන් ආයාත කරන්න"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "html bookmarks file"
 msgstr ""
 
-#: templates/settings.php:29
+#: templates/settings.php:30
 msgid "Import"
 msgstr "ආයාත කරන්න"
 
-#: templates/settings.php:32
+#: templates/settings.php:33
 msgid "Export bookmarks"
 msgstr "පිටුසනයන් නිර්යාත කරන්න"
 
-#: templates/settings.php:34
+#: templates/settings.php:35
 msgid "Export"
 msgstr "නිර්යාත කරන්න"
