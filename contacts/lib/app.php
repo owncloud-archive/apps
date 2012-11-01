@@ -312,7 +312,7 @@ class App {
 		}
 		 // Cache for around a month
 		\OC_Cache::set(self::THUMBNAIL_PREFIX . $id, $image->data(), 3000000);
-		\OCP\Util::writeLog('contacts', 'Caching ' . $id, OCP\Util::DEBUG);
+		\OCP\Util::writeLog('contacts', 'Caching ' . $id, \OCP\Util::DEBUG);
 		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 	}
 }
