@@ -13,6 +13,8 @@ Install
 <script>
   var parsedParams = { };
   function addApp() {
+    console.log('installing:');
+    console.log(parsedParams);
     installApp(parsedParams);
   }
   function checkForAdd() {
@@ -200,9 +202,16 @@ function installApp(manifestObj) {
       if(err1) {
         console.log(err1, data1);
       } else {
+        var scopesObj = {r:[], w:[]};
+        for(var i in manifestObj.scopes) {
+          scopesObj.r.push(i);
+          if(manifestObj.scopes[i]=='rw') {
+            scopesObj.w.push(i);
+          }
+        }
         ajax('addapp.php', {
           manifest_path: 'apps/'+manifestObj.slug+'/manifest.json',
-          scopes: JSON.stringify({r:['documents'], w:['documents']})
+          scopes: JSON.stringify(scopesObj)
         }, function(err2, data2) {
           if(err2) {
             console.log(err2, data2);
