@@ -255,6 +255,9 @@ OC.Contacts = OC.Contacts || {};
 		console.log('Contact.close', this);
 		if(this.$fullelem) {
 			this.$fullelem.remove();
+			return true;
+		} else {
+			return false;
 		}
 	}
 

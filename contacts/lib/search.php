@@ -9,12 +9,13 @@ class SearchProvider extends \OC_Search_Provider{
 			return array();
 		}
 		$results=array();
-		$l = new OC_l10n('contacts');
+		$l = new \OC_l10n('contacts');
 		foreach($addressbooks as $addressbook) {
 			$vcards = VCard::all($addressbook['id']);
 			foreach($vcards as $vcard) {
 				if(substr_count(strtolower($vcard['fullname']), strtolower($query)) > 0) {
-					$link = \OCP\Util::linkTo('contacts', 'index.php').'?id='.urlencode($vcard['id']);
+					//$link = \OCP\Util::linkTo('contacts', 'index.php').'?id='.urlencode($vcard['id']);
+					$link = 'javascript:openContact(' . $vcard['id'] . ')';
 					$results[]=new \OC_Search_Result($vcard['fullname'], '', $link, (string)$l->t('Contact'));//$name,$text,$link,$type
 				}
 			}

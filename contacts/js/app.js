@@ -452,10 +452,10 @@ OC.Contacts = OC.Contacts || {
 				message: 'error in: ' + settings.url + ', '+'error: ' + xhr.responseText,
 			});
 		});
-		if(id) {
+		//if(id) {
 			this.currentid = parseInt(id);
 			console.log('init, id:', id);
-		}
+		//}
 		// Holds an array of {id,name} maps
 		this.scrollTimeoutMiliSecs = 100;
 		this.isScrolling = false;
@@ -583,6 +583,7 @@ OC.Contacts = OC.Contacts || {
 				self.loading(self.$rightContent, false);
 				self.Groups.loadGroups(self.numcontacts, function() {
 					self.loading($('#leftcontent'), false);
+					console.log('Groups loaded, currentid', self.currentid);
 					if(self.currentid) {
 						self.openContact(self.currentid);
 					}
@@ -1053,14 +1054,19 @@ OC.Contacts = OC.Contacts || {
 	},
 	closeContact: function(id) {
 		if(typeof this.currentid === 'number') {
-			this.Contacts.findById(id).close();
-			this.$contactList.show();
-			this.jumpToContact(id);
-			delete this.currentid;
+			if(this.Contacts.findById(id).close()) {
+				this.$contactList.show();
+				this.jumpToContact(id);
+				delete this.currentid;
+			}
 		}
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
 	},
 	openContact: function(id) {
+		console.log('Contacts.openContact', id);
+		if(this.currentid) {
+			this.closeContact(this.currentid);
+		}
 		this.currentid = parseInt(id);
 		this.$contactList.hide();
 		this.$toggleAll.hide();
