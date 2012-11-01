@@ -219,11 +219,11 @@ class App {
 	 */
 	public static function scanCategories($vccontacts = null) {
 		if (is_null($vccontacts)) {
-			$vcaddressbooks = Addressbook::all(OCP\USER::getUser());
+			$vcaddressbooks = Addressbook::all(\OCP\USER::getUser());
 			if(count($vcaddressbooks) > 0) {
 				$vcaddressbookids = array();
 				foreach($vcaddressbooks as $vcaddressbook) {
-					if($vcaddressbook['userid'] === OCP\User::getUser()) {
+					if($vcaddressbook['userid'] === \OCP\User::getUser()) {
 						$vcaddressbookids[] = $vcaddressbook['id'];
 					}
 				}
