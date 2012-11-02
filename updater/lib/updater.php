@@ -35,6 +35,7 @@ class Updater {
 		
 		try {
 			$locations = Helper::getPreparedLocations();
+			//TODO: Straight update of 3rdparty/apps[]/core
 			foreach ($locations as $type => $dirs) {
 				$tempPath = $tempBase . '/';
 				$updatePath = $updateBase . '/';
@@ -45,7 +46,7 @@ class Updater {
 				}
 			
 				foreach ($dirs as $name => $path) {
-					//TODO: Add Check/Rollback here
+					//TODO: Add Rollback details here
 					self::moveTriple($path, $updatePath . $name, $tempPath . $name);
 				}
 			}
@@ -62,9 +63,10 @@ class Updater {
 	}
 
 	public static function moveTriple($old, $new, $temp) {
-		rename($old, $temp);
-		rename($new, $old);
-		return true;
+		@rename($old, $temp);
+		if (file_exists($new) && !@rename($new, $old)){
+			throw new \Exception("Unable to move $new to $old");
+		}
 	}
 	
 	public static function rollBack(){
