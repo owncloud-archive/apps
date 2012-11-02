@@ -50,6 +50,7 @@ class Updater {
 				}
 			}
 		} catch (\Exception $e){
+			self::rollBack();
 			self::cleanUp();
 			throw $e;
 		}
@@ -64,6 +65,12 @@ class Updater {
 		rename($old, $temp);
 		rename($new, $old);
 		return true;
+	}
+	
+	public static function rollBack(){
+		foreach (self::$processed as $item){
+			\OC_Helper::copyrr($item['src'], $item['dst']);
+		}
 	}
 
 	public static function cleanUp(){
