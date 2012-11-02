@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-02 00:01+0100\n"
+"PO-Revision-Date: 2012-11-01 13:37+0000\n"
+"Last-Translator: cjtess <claudio.tessone@gmail.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,7 +100,7 @@ msgstr "Noticias"
 
 #: controllers/controller.php:207
 msgid "An error occured: "
-msgstr ""
+msgstr "Ocurrió un error: "
 
 #: js/items.js:122
 msgid "Error while loading the feed"
@@ -189,7 +189,7 @@ msgstr "No hay archivos seleccionados."
 
 #: js/settings.js:27
 msgid " loaded from local filesystem."
-msgstr "cargado desde un sistema de archivos local."
+msgstr " cargado desde un sistema de archivos local."
 
 #: js/settings.js:32
 msgid "Importing..."
@@ -197,11 +197,11 @@ msgstr "Importando..."
 
 #: js/settings.js:43
 msgid " out of "
-msgstr "Fuera de"
+msgstr " de "
 
 #: js/settings.js:44
 msgid " feeds imported successfully from "
-msgstr "Fuente importada satisfactoriamente de"
+msgstr " fuentes importadas satisfactoriamente de "
 
 #: js/settings.js:45
 msgid "Success"

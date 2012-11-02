@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
+"POT-Creation-Date: 2012-11-02 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:13+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Occitan (post 1500) (http://www.transifex.com/projects/p/owncloud/language/oc/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcapaginas"
 
 #: js/addBm.js:42 js/bookmarks.js:241
 msgid "Tags"
@@ -75,7 +75,7 @@ msgstr ""
 
 #: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
-msgstr ""
+msgstr "Enregistra"
 
 #: templates/bookmarklet.php:5
 msgid ""
@@ -89,15 +89,15 @@ msgstr ""
 
 #: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
 msgid "Delete"
-msgstr ""
+msgstr "Escafa"
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
-msgstr ""
+msgstr "Annula"
 
 #: templates/list.php:12
 msgid "Address"
@@ -109,7 +109,7 @@ msgstr ""
 
 #: templates/list.php:16
 msgid "List"
-msgstr ""
+msgstr "Tièra"
 
 #: templates/list.php:17
 msgid "Image"
@@ -129,7 +129,7 @@ msgstr ""
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "Configuracion"
 
 #: templates/list.php:50
 msgid "You have no bookmarks"
@@ -139,22 +139,22 @@ msgstr ""
 msgid "Bookmarklet <br />"
 msgstr ""
 
-#: templates/settings.php:25
+#: templates/settings.php:26
 msgid "Import bookmarks"
 msgstr ""
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "html bookmarks file"
 msgstr ""
 
-#: templates/settings.php:29
+#: templates/settings.php:30
 msgid "Import"
-msgstr ""
+msgstr "Importa"
 
-#: templates/settings.php:32
+#: templates/settings.php:33
 msgid "Export bookmarks"
 msgstr ""
 
-#: templates/settings.php:34
+#: templates/settings.php:35
 msgid "Export"
-msgstr ""
+msgstr "Exporta"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
+"POT-Creation-Date: 2012-11-02 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:13+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
-msgstr ""
+msgstr "பக்க அடையாளங்கள்"
 
 #: js/addBm.js:42 js/bookmarks.js:241
 msgid "Tags"
@@ -39,7 +39,7 @@ msgstr ""
 
 #: js/bookmarks.js:394
 msgid "Warning"
-msgstr ""
+msgstr "எச்சரிக்கை"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
@@ -59,7 +59,7 @@ msgstr ""
 
 #: templates/addBm.php:14
 msgid "Close"
-msgstr ""
+msgstr "மூடுக"
 
 #: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
@@ -75,7 +75,7 @@ msgstr ""
 
 #: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
-msgstr ""
+msgstr "சேமிக்க"
 
 #: templates/bookmarklet.php:5
 msgid ""
@@ -89,15 +89,15 @@ msgstr ""
 
 #: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
 msgid "Edit"
-msgstr ""
+msgstr "தொகுக்க"
 
 #: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
 msgid "Delete"
-msgstr ""
+msgstr "அழிக்க"
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
-msgstr ""
+msgstr "இரத்து செய்க"
 
 #: templates/list.php:12
 msgid "Address"
@@ -109,7 +109,7 @@ msgstr ""
 
 #: templates/list.php:16
 msgid "List"
-msgstr ""
+msgstr "பட்டியல்"
 
 #: templates/list.php:17
 msgid "Image"
@@ -129,7 +129,7 @@ msgstr ""
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "அமைப்புகள்"
 
 #: templates/list.php:50
 msgid "You have no bookmarks"
@@ -139,22 +139,22 @@ msgstr ""
 msgid "Bookmarklet <br />"
 msgstr ""
 
-#: templates/settings.php:25
+#: templates/settings.php:26
 msgid "Import bookmarks"
 msgstr ""
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "html bookmarks file"
 msgstr ""
 
-#: templates/settings.php:29
+#: templates/settings.php:30
 msgid "Import"
-msgstr ""
+msgstr "இறக்குமதி"
 
-#: templates/settings.php:32
+#: templates/settings.php:33
 msgid "Export bookmarks"
 msgstr ""
 
-#: templates/settings.php:34
+#: templates/settings.php:35
 msgid "Export"
-msgstr ""
+msgstr "ஏற்றுமதி"

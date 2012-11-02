@@ -25,68 +25,28 @@ class Backup {
 	 * @return string
 	 */
 	public static function createBackup() {
+		try {
+			$locations = Helper::getPreparedLocations();
+			Helper::mkdir(self::getBackupPath(), true);
+			foreach ($locations as $type => $dirs) {
+				$backupFullPath = self::getBackupPath() . '/';
 
-		if (!self::createBackupDirectory()) {
-			throw new \Exception('Failed to create backup directory');
-		}
-
-		$locations = App::getDirectories();
-		$exclusions = App::getExcludeDirectories();
-		foreach ($locations as $type => $path) {
-			if (!self::copyPath($path, $type, $exclusions)) {
-				//TODO: Rollback here
-				throw new \Exception('Failed to copy ' . $type);
-			}
-		}
-		return self::getBackupPath();
-	}
-
-	/**
-	 * Copy directory content skipping certain items
-	 * @param string $path
-	 * @param string $type
-	 * @param array $exclusions
-	 * @return bool
-	 */
-	public static function copyPath($path, $type, $exclusions) {
-		$backupFullPath = self::getBackupPath() . '/';
-
-		// 3rd party and apps might have different location
-		if ($type != 'core') {
-			$backupFullPath .= $type . '/';
-			if (!@mkdir($backupFullPath, 0777, true)) {
-				\OC_Log::write(App::APP_ID, 'Unable to create ' . $backupFullPath, \OC_Log::ERROR);
-				return false;
-			}
-		}
-
-		$dh = opendir($path);
-		while (($file = readdir($dh)) !== false) {
-			$fullPath = $path . '/' . $file;
-			if (is_dir($fullPath)) {
-				if (in_array($file, $exclusions['relative'])
-					|| in_array($fullPath, $exclusions['full'])
-				) {
-					continue;
+				// 3rd party and apps might have different location
+				if ($type != 'core') {
+					$backupFullPath .= $type . '/';
+					Helper::mkdir($backupFullPath, true);
+				}
+				foreach ($dirs as $name => $path) {
+					//TODO: reimplement copy with Exception on error
+					\OC_Helper::copyr($path, $backupFullPath . $name);
 				}
 			}
-
-			\OC_Helper::copyr($fullPath, $backupFullPath . $file);
-		}
-		return true;
-	}
-
-	/**
-	 * Create directory to store backup
-	 * @return string Path to directory or false
-	 */
-	public static function createBackupDirectory() {
-		$backupPath = self::getBackupPath();
-		if (@mkdir($backupPath, 0777, true)) {
-			return $backupPath;
+		} catch (\Exception $e){
+			self::cleanUp();
+			throw $e;
 		}
 
-		return false;
+		return self::getBackupPath();
 	}
 
 	/**
@@ -107,6 +67,12 @@ class Backup {
 			self::$_backupPath = $backupPath . $salt;
 		}
 		return self::$_backupPath;
+	}
+
+	public static function cleanUp(){
+		if (self::$_backupPath){
+			Helper::removeIfExists(self::$_backupPath);
+		}
 	}
 
 }

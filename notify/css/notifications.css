@@ -33,6 +33,6 @@
 #notify-list .notification[data-read="0"]:hover { background: #95A8C7; }
 #notify-list .notification[data-read="0"] .readicon.read { display:none; }
 /* read notifications: */
-/*#notify-list .notification[data-read="1"] { background: #afa; }
-#notify-list .notification[data-read="1"]:hover { background: #5f5; }*/
+/*#notify-list .notification[data-read="1"] { background: #afa; }*/
+#notify-list .notification[data-read="1"]:hover { background: #ddd; }
 #notify-list .notification[data-read="1"] .readicon.unread { display:none; }
