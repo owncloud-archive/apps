@@ -14,72 +14,55 @@ namespace OCA\Updater;
 
 class Updater {
 
-	protected static $skipDirs = array();
-	protected static $updateDirs = array();
+	protected static $processed = array();
 
-	public static function update($sourcePath, $backupPath) {
-		if (!is_dir($backupPath)) {
+	public static function update($updateBase, $backupBase) {
+		if (!is_dir($backupBase)) {
 			throw new \Exception('Backup directory is not found');
 		}
 
-		self::$updateDirs = App::getDirectories();
-		ksort(self::$updateDirs);
-		self::$skipDirs = App::getExcludeDirectories();
-
 		set_include_path(
-				$backupPath . PATH_SEPARATOR .
-				$backupPath . '/lib' . PATH_SEPARATOR .
-				$backupPath . '/config' . PATH_SEPARATOR .
-				$backupPath . '/3rdparty' . PATH_SEPARATOR .
-				$backupPath . '/apps' . PATH_SEPARATOR .
+				$backupBase . PATH_SEPARATOR .
+				$backupBase . '/lib' . PATH_SEPARATOR .
+				$backupBase . '/config' . PATH_SEPARATOR .
+				$backupBase . '/3rdparty' . PATH_SEPARATOR .
+				$backupBase . '/apps' . PATH_SEPARATOR .
 				get_include_path()
 		);
 
-		$tempPath = self::getTempDir();
-		Helper::mkdir($tempPath, true);
-
-		//TODO: Add Check/Rollback here
-		self::moveDirectories($sourcePath, $tempPath);
-
-		//TODO: Add Check/Rollback here
-		$config = "/config/config.php";
-		copy($tempPath . $config, self::$updateDirs['core'] . $config);
-
-		return true;
-	}
-
-	public static function moveDirectories($updatePath, $tempPath) {
-		foreach (self::$updateDirs as $type => $path) {
-			$currentDir = $path;
-			$updateDir = $updatePath;
-			$tempDir = $tempPath;
-			if ($type != 'core') {
-				$updateDir .= '/' . $type;
-				$tempDir .= '/' . $type;
-				rename($currentDir, $tempDir);
-				rename($updateDir, $currentDir);
-			} else {
-				self::moveDirectoryContent($currentDir, $tempDir);
-				self::moveDirectoryContent($updateDir, $currentDir);
-			}
-		}
-		return true;
-	}
-
-	public static function moveDirectoryContent($source, $destination) {
-		$dh = opendir($source);
-		while (($file = readdir($dh)) !== false) {
-			$fullPath = $source . '/' . $file;
-			if (is_dir($fullPath)) {
-				if (in_array($file, self::$skipDirs['relative'])
-					|| in_array($fullPath, self::$skipDirs['full'])
-				) {
-					continue;
+		$tempBase = self::getTempDir();
+		Helper::mkdir($tempBase, true);
+		
+		try {
+			$locations = Helper::getPreparedLocations();
+			foreach ($locations as $type => $dirs) {
+				$tempPath = $tempBase . '/';
+				$updatePath = $updateBase . '/';
+			
+				if ($type != 'core') {
+					$tempPath .= $type . '/';
+					$updatePath .= $type . '/';
+				}
+			
+				foreach ($dirs as $name => $path) {
+					//TODO: Add Check/Rollback here
+					self::moveTriple($path, $updatePath . $name, $tempPath . $name);
 				}
 			}
-
-			rename($fullPath, $destination . '/' . $file);
+		} catch (\Exception $e){
+			self::cleanUp();
+			throw $e;
 		}
+
+		$config = "/config/config.php";
+		copy($tempBase . $config, \OC::$SERVERROOT . $config);
+
+		return true;
+	}
+
+	public static function moveTriple($old, $new, $temp) {
+		rename($old, $temp);
+		rename($new, $old);
 		return true;
 	}
 
