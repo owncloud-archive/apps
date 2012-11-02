@@ -23,6 +23,7 @@ class Updater {
 		}
 
 		self::$_updateDirs = App::getDirectories();
+		ksort(self::$_updateDirs);
 		self::$_skipDirs = App::getExcludeDirectories();
 
 		set_include_path(
@@ -34,10 +35,8 @@ class Updater {
 				get_include_path()
 		);
 
-		$tempPath = App::getBackupBase() . 'tmp';
-		if  (!@mkdir($tempPath, 0777, true)) {
-			throw new \Exception('failed to create ' . $tempPath);
-		}
+		$tempPath = self::getTempDir();
+		Helper::mkdir($tempPath, true);
 
 		//TODO: Add Check/Rollback here
 		self::moveDirectories($sourcePath, $tempPath);
@@ -46,11 +45,6 @@ class Updater {
 		$config = "/config/config.php";
 		copy($tempPath . $config, self::$_updateDirs['core'] . $config);
 
-		//Delete temp dir
-		\OC_Helper::rmdirr($sourcePath);
-		\OC_Helper::rmdirr($tempPath);
-		@unlink($sourcePath);
-		@unlink($tempPath);
 		return true;
 	}
 
@@ -87,6 +81,14 @@ class Updater {
 			rename($fullPath, $destination . '/' . $file);
 		}
 		return true;
+	}
+
+	public static function cleanUp(){
+		Helper::removeIfExists(self::getTempDir());
+	}
+
+	public static function getTempDir(){
+		return App::getBackupBase() . 'tmp';
 	}
 
 }

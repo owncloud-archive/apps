@@ -21,6 +21,7 @@ class App {
 		\OC::$CLASSPATH['OCA\Updater\Backup'] = self::APP_ID . '/lib/backup.php';
 		\OC::$CLASSPATH['OCA\Updater\Downloader'] = self::APP_ID . '/lib/downloader.php';
 		\OC::$CLASSPATH['OCA\Updater\Updater'] = self::APP_ID . '/lib/updater.php';
+		\OC::$CLASSPATH['OCA\Updater\Helper'] = self::APP_ID . '/lib/helper.php';
 		//Allow config page
 		\OC_APP::registerAdmin(self::APP_ID, 'admin');
 	}
@@ -45,7 +46,8 @@ class App {
 		//Long, long ago we had single app location
 		if (isset(\OC::$APPSROOTS)) {
 			foreach (\OC::$APPSROOTS as $i => $approot){
-				$dirs['apps' . $i] = $approot['path'];
+				$index = $i ? $i : '';
+				$dirs['apps' . $index] = $approot['path'];
 			}
 		} else {
 			$dirs['apps'] = \OC::$APPSROOT . '/apps';

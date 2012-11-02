@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
+"POT-Creation-Date: 2012-11-02 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,22 +139,22 @@ msgstr ""
 msgid "Bookmarklet <br />"
 msgstr ""
 
-#: templates/settings.php:25
+#: templates/settings.php:26
 msgid "Import bookmarks"
 msgstr ""
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "html bookmarks file"
 msgstr ""
 
-#: templates/settings.php:29
+#: templates/settings.php:30
 msgid "Import"
 msgstr ""
 
-#: templates/settings.php:32
+#: templates/settings.php:33
 msgid "Export bookmarks"
 msgstr ""
 
-#: templates/settings.php:34
+#: templates/settings.php:35
 msgid "Export"
 msgstr ""
