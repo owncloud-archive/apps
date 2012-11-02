@@ -22,7 +22,7 @@ class Downloader {
 		self::$package = \OC_Helper::tmpFile();
 		try {
 			if (!copy($url, self::$package)) {
-				throw new \Exception("Failed to download $url package to $path");
+				throw new \Exception("Failed to download $url package");
 			}
 
 			if (preg_match('/\.zip$/i', $url)) {
@@ -45,7 +45,7 @@ class Downloader {
 			if ($archive) {
 				$archive->extract($extractDir);
 			} else {
-				throw new \Exception("$path extraction error");
+				throw new \Exception(self::$package . " extraction error");
 			}
 		} catch (\Exception $e){
 			self::cleanUp($version);
