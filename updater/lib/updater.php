@@ -35,7 +35,7 @@ class Updater {
 		);
 
 		$tempPath = self::getTempDir();
-		if  (!@mkdir($tempPath, 0777, true)) {
+		if  (!@mkdir($tempPath, 0755, true)) {
 			throw new \Exception('failed to create ' . $tempPath);
 		}
 

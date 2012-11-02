@@ -37,7 +37,7 @@ class Downloader {
 		}
 
 		$extractDir = self::getPackageDir($version);
-		if (!mkdir($extractDir, 0777, true)) {
+		if (!mkdir($extractDir, 0755, true)) {
 			throw new \Exception("Unable to create temporary directory");
 		}
 

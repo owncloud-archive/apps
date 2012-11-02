@@ -54,7 +54,7 @@ class Backup {
 		// 3rd party and apps might have different location
 		if ($type != 'core') {
 			$backupFullPath .= $type . '/';
-			if (!@mkdir($backupFullPath, 0777, true)) {
+			if (!@mkdir($backupFullPath, 0755, true)) {
 				\OC_Log::write(App::APP_ID, 'Unable to create ' . $backupFullPath, \OC_Log::ERROR);
 				return false;
 			}
@@ -82,7 +82,7 @@ class Backup {
 	 */
 	public static function createBackupDirectory() {
 		$backupPath = self::getBackupPath();
-		if (@mkdir($backupPath, 0777, true)) {
+		if (@mkdir($backupPath, 0755, true)) {
 			return $backupPath;
 		}
 
