@@ -23,6 +23,7 @@ class Updater {
 		}
 
 		self::$_updateDirs = App::getDirectories();
+		ksort(self::$_updateDirs);
 		self::$_skipDirs = App::getExcludeDirectories();
 
 		set_include_path(
@@ -35,9 +36,7 @@ class Updater {
 		);
 
 		$tempPath = self::getTempDir();
-		if  (!@mkdir($tempPath, 0755, true)) {
-			throw new \Exception('failed to create ' . $tempPath);
-		}
+		Helper::mkdir($tempPath, true);
 
 		//TODO: Add Check/Rollback here
 		self::moveDirectories($sourcePath, $tempPath);
@@ -85,11 +84,7 @@ class Updater {
 	}
 
 	public static function cleanUp(){
-		$tempPath = self::getTempDir();
-		if (is_dir($tempPath)) {
-			\OC_Helper::rmdirr($tempPath);
-			@unlink($tempPath);
-		}
+		Helper::removeIfExists(self::getTempDir());
 	}
 
 	public static function getTempDir(){
