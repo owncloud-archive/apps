@@ -607,6 +607,9 @@ class OC_Notify {
 	public static function post_shared($args) {
 		// use this to debug sharing hook emits:
 		//OCP\Util::writeLog("notify", "shared hook: " . print_r($args, true), OCP\Util::DEBUG);
+		if(!$args["shareWith"]) {
+			return;
+		}
 		switch($args["itemType"]) {
 		case "event":
 			self::sendUserNotification("notify", "sharedEvent", $args["shareWith"], array(

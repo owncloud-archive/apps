@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
+"POT-Creation-Date: 2012-11-02 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:13+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
 msgid "Music"
-msgstr ""
+msgstr "இசை"
 
 #: js/collection.js:100 js/collection.js:210 js/collection.js:257
 msgid "songs"
@@ -75,4 +75,4 @@ msgstr ""
 
 #: templates/music.php:39
 msgid "Title"
-msgstr ""
+msgstr "தலைப்பு"
