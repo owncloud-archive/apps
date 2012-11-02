@@ -13,6 +13,24 @@
 namespace OCA\Updater;
 
 class Helper {
+	
+	static function copyr($src, $dest) {
+		if(is_dir($src)) {
+			if(!is_dir($dest)) {
+				self::mkdir($dest);
+			}
+			$files = scandir($src);
+			foreach ($files as $file) {
+				if ($file != "." && $file != "..") {
+					self::copyr("$src/$file", "$dest/$file");
+				}
+			}
+		}elseif(file_exists($src)) {
+			if (!@copy($src, $dest)){
+				throw new \Exception("Unable copy $src to $dest");
+			}
+		}
+	}
 
 	/**
 	 * Wrapper for mkdir

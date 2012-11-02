@@ -37,8 +37,8 @@ class Backup {
 					Helper::mkdir($backupFullPath, true);
 				}
 				foreach ($dirs as $name => $path) {
-					//TODO: reimplement copy with Exception on error
-					\OC_Helper::copyr($path, $backupFullPath . $name);
+					//copy with Exception on error
+					Helper::copyr($path, $backupFullPath . $name);
 				}
 			}
 		} catch (\Exception $e){
