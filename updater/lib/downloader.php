@@ -45,12 +45,19 @@ class Downloader {
 		if ($archive) {
 			$archive->extract($extractDir);
 		} else {
-			\OC_Helper::rmdirr($extractDir);
+			self::cleanUp($version);
 			@unlink($path);
 			throw new \Exception("$path extraction error");
 		}
 
 		return $extractDir. '/' . self::PACKAGE_ROOT;
+	}
+	
+	public static function cleanUp($version){
+		$location = self::getPackageDir($version);
+		if (is_dir($location)) {
+			\OC_Helper::rmdirr($location);
+		}
 	}
 
 	public static function getPackageDir($version) {

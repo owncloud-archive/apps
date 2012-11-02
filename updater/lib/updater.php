@@ -34,7 +34,7 @@ class Updater {
 				get_include_path()
 		);
 
-		$tempPath = App::getBackupBase() . 'tmp';
+		$tempPath = self::getTempDir();
 		if  (!@mkdir($tempPath, 0777, true)) {
 			throw new \Exception('failed to create ' . $tempPath);
 		}
@@ -46,11 +46,6 @@ class Updater {
 		$config = "/config/config.php";
 		copy($tempPath . $config, self::$_updateDirs['core'] . $config);
 
-		//Delete temp dir
-		\OC_Helper::rmdirr($sourcePath);
-		\OC_Helper::rmdirr($tempPath);
-		@unlink($sourcePath);
-		@unlink($tempPath);
 		return true;
 	}
 
@@ -87,6 +82,18 @@ class Updater {
 			rename($fullPath, $destination . '/' . $file);
 		}
 		return true;
+	}
+
+	public static function cleanUp(){
+		$tempPath = self::getTempDir();
+		if (is_dir($tempPath)) {
+			\OC_Helper::rmdirr($tempPath);
+			@unlink($tempPath);
+		}
+	}
+
+	public static function getTempDir(){
+		return App::getBackupBase() . 'tmp';
 	}
 
 }
