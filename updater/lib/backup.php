@@ -18,7 +18,7 @@ class Backup {
 	 * Path to the current Backup instance
 	 * @var string
 	 */
-	protected static $_backupPath = '';
+	protected static $backupPath = '';
 
 	/**
 	 * Perform backup
@@ -55,7 +55,7 @@ class Backup {
 	 * @return string
 	 */
 	public static function getBackupPath() {
-		if (!self::$_backupPath) {
+		if (!self::$backupPath) {
 			$backupBase = App::getBackupBase();
 			$currentVersion = \OC_Config::getValue('version', '0.0.0');
 			$backupPath = $backupBase . $currentVersion . '-';
@@ -64,14 +64,14 @@ class Backup {
 				$salt = substr(md5(time()), 0, 8);
 			} while (file_exists($backupPath . $salt));
 
-			self::$_backupPath = $backupPath . $salt;
+			self::$backupPath = $backupPath . $salt;
 		}
-		return self::$_backupPath;
+		return self::$backupPath;
 	}
 
 	public static function cleanUp(){
-		if (self::$_backupPath){
-			Helper::removeIfExists(self::$_backupPath);
+		if (self::$backupPath){
+			Helper::removeIfExists(self::$backupPath);
 		}
 	}
 

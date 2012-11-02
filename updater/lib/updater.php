@@ -14,17 +14,17 @@ namespace OCA\Updater;
 
 class Updater {
 
-	protected static $_skipDirs = array();
-	protected static $_updateDirs = array();
+	protected static $skipDirs = array();
+	protected static $updateDirs = array();
 
 	public static function update($sourcePath, $backupPath) {
 		if (!is_dir($backupPath)) {
 			throw new \Exception('Backup directory is not found');
 		}
 
-		self::$_updateDirs = App::getDirectories();
-		ksort(self::$_updateDirs);
-		self::$_skipDirs = App::getExcludeDirectories();
+		self::$updateDirs = App::getDirectories();
+		ksort(self::$updateDirs);
+		self::$skipDirs = App::getExcludeDirectories();
 
 		set_include_path(
 				$backupPath . PATH_SEPARATOR .
@@ -43,13 +43,13 @@ class Updater {
 
 		//TODO: Add Check/Rollback here
 		$config = "/config/config.php";
-		copy($tempPath . $config, self::$_updateDirs['core'] . $config);
+		copy($tempPath . $config, self::$updateDirs['core'] . $config);
 
 		return true;
 	}
 
 	public static function moveDirectories($updatePath, $tempPath) {
-		foreach (self::$_updateDirs as $type => $path) {
+		foreach (self::$updateDirs as $type => $path) {
 			$currentDir = $path;
 			$updateDir = $updatePath;
 			$tempDir = $tempPath;
@@ -71,8 +71,8 @@ class Updater {
 		while (($file = readdir($dh)) !== false) {
 			$fullPath = $source . '/' . $file;
 			if (is_dir($fullPath)) {
-				if (in_array($file, self::$_skipDirs['relative'])
-					|| in_array($fullPath, self::$_skipDirs['full'])
+				if (in_array($file, self::$skipDirs['relative'])
+					|| in_array($fullPath, self::$skipDirs['full'])
 				) {
 					continue;
 				}
