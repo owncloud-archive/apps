@@ -84,12 +84,12 @@ class Helper {
 		
 		foreach ($locations as $key => $location) {
 			$fullPath = $basePath . '/' .$location;
-			if (!is_dir($fullPath)){
+			if (!is_dir($fullPath)) {
 				continue;
 			}
 			if (in_array($fullPath, $exclusions['full'])
-				|| in_array($location, $exclusions['relative']) )
-				{
+				|| in_array($location, $exclusions['relative'])
+			) {
 				unset($locations[$key]);
 			}
 		}
