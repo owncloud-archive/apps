@@ -70,7 +70,7 @@ class Backup {
 	}
 
 	public static function cleanUp(){
-		if (self::$backupPath){
+		if (self::$backupPath) {
 			Helper::removeIfExists(self::$backupPath);
 		}
 	}

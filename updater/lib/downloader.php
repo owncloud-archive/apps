@@ -57,7 +57,7 @@ class Downloader {
 	}
 
 	public static function cleanUp($version){
-		if (self::$package){
+		if (self::$package) {
 			Helper::removeIfExists(self::$package);
 		}
 		Helper::removeIfExists(self::getPackageDir($version));

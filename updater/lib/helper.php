@@ -26,7 +26,7 @@ class Helper {
 				}
 			}
 		}elseif(file_exists($src)) {
-			if (!@copy($src, $dest)){
+			if (!@copy($src, $dest)) {
 				throw new \Exception("Unable copy $src to $dest");
 			}
 		}
@@ -50,7 +50,7 @@ class Helper {
 	 * @param string $path
 	 */
 	public static function removeIfExists($path) {
-		if (!file_exists($path)){
+		if (!file_exists($path)) {
 			return;
 		}
 
@@ -88,7 +88,8 @@ class Helper {
 				continue;
 			}
 			if (in_array($fullPath, $exclusions['full'])
-				|| in_array($location, $exclusions['relative']) ) {
+				|| in_array($location, $exclusions['relative']) )
+				{
 				unset($locations[$key]);
 			}
 		}

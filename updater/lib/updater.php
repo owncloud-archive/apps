@@ -64,7 +64,7 @@ class Updater {
 
 	public static function moveTriple($old, $new, $temp) {
 		@rename($old, $temp);
-		if (file_exists($new) && !@rename($new, $old)){
+		if (file_exists($new) && !@rename($new, $old)) {
 			throw new \Exception("Unable to move $new to $old");
 		}
 	}
