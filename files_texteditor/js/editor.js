@@ -29,7 +29,7 @@ function setSyntaxMode(ext){
 	filetype["jsm"] = "javascript";
 	filetype["json"] = "json";
 	filetype["latex"] = "latex";
-        filetype["less"] = "less";
+	filetype["less"] = "less";
 	filetype["ly"] = "latex";
 	filetype["ily"] = "latex";
 	filetype["lua"] = "lua";
@@ -48,7 +48,7 @@ function setSyntaxMode(ext){
 	filetype["scad"] = "scad"; // seems to be something like 3d model files printed with e.g. reprap
 	filetype["scala"] = "scala";
 	filetype["scss"] = "scss"; // "sassy css"
-        filetype["sh"] = "sh";
+	filetype["sh"] = "sh";
 	filetype["sql"] = "sql";
 	filetype["svg"] = "svg";
 	filetype["textile"] = "textile"; // related to markdown
@@ -313,6 +313,10 @@ $(document).ready(function(){
 			showFileEditor($('#dir').val(),filename);
 		});
 		FileActions.setDefault('application/xml','Edit');
+		FileActions.register('application/x-empty','Edit', OC.PERMISSION_READ, '',function(filename){
+			showFileEditor($('#dir').val(),filename);
+		});
+		FileActions.setDefault('application/x-empty','Edit');
 	}
 	OC.search.customResults.Text=function(row,item){
 		var text=item.link.substr(item.link.indexOf('&file=')+6);
