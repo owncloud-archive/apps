@@ -22,44 +22,7 @@
 
 namespace OCA\Mail;
 
-require_once 'Horde/Translation/Handler.php';
-require_once 'Horde/Translation/Handler/Gettext.php';
-require_once 'Horde/Translation.php';
-
-require_once 'Horde/Array.php';
-require_once 'Horde/Exception.php';
-require_once 'Horde/Exception/Wrapped.php';
-
-require_once 'Horde/Imap/Client/Auth/DigestMD5.php';
-require_once 'Horde/Imap/Client/Base.php';
-require_once 'Horde/Imap/Client/Cache.php';
-require_once 'Horde/Imap/Client/Data/AclCommon.php';
-require_once 'Horde/Imap/Client/Data/Acl.php';
-require_once 'Horde/Imap/Client/Data/AclNegative.php';
-require_once 'Horde/Imap/Client/Data/AclRights.php';
-require_once 'Horde/Imap/Client/Data/Envelope.php';
-require_once 'Horde/Imap/Client/Data/Fetch.php';
-require_once 'Horde/Imap/Client/Data/Thread.php';
-require_once 'Horde/Imap/Client/DateTime.php';
-require_once 'Horde/Imap/Client/Exception.php';
-require_once 'Horde/Imap/Client/Exception/NoSupportExtension.php';
-require_once 'Horde/Imap/Client/Fetch/Query.php';
-require_once 'Horde/Imap/Client/Ids.php';
-require_once 'Horde/Imap/Client/Mailbox.php';
-require_once 'Horde/Imap/Client/Search/Query.php';
-require_once 'Horde/Imap/Client/Socket.php';
-require_once 'Horde/Imap/Client/Sort.php';
-require_once 'Horde/Imap/Client/Translation.php';
-require_once 'Horde/Imap/Client/Utf7imap.php';
-require_once 'Horde/Imap/Client/Utils.php';
-require_once 'Horde/Imap/Client.php';
-
-require_once 'Horde/Util.php';
-require_once 'Horde/String.php';
-require_once 'Horde/Mime.php';
-require_once 'Horde/Mime/Headers.php';
-require_once 'Horde/Mail/Rfc822.php';
-
+require_once 'mail/3rdparty/Horde/Autoloader/Default.php';
 
 class App
 {

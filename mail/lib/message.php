@@ -61,19 +61,19 @@ class Message {
 
 	public function getFrom() {
 		$e = $this->getEnvelope();
-		$from = $e->from_decoded[0];
-		return $from['personal']; //."<".$from['mailbox']."@".$from['host'].">";
+		$from = $e->from[0];
+		return $from->personal; //."<".$from['mailbox']."@".$from['host'].">";
 	}
 
 	public function getTo() {
 		$e = $this->getEnvelope();
-		$to = $e->to_decoded[0];
-		return $to['personal']; //."<".$to['mailbox']."@".$to['host'].">";
+		$to = $e->to[0];
+		return $to->personal; //."<".$to['mailbox']."@".$to['host'].">";
 	}
 
 	public function getSubject() {
 		$e = $this->getEnvelope();
-		return $e->subject_decoded;
+		return $e->subject;
 	}
 
 	public function getSentDate() {
@@ -93,6 +93,8 @@ class Message {
 		$fetch_query->envelope();
 //		$fetch_query->fullText();
 		$fetch_query->bodyText();
+		//$fetch_query->bodyPart(1);
+		$fetch_query->structure();
 		$fetch_query->flags();
 		$fetch_query->seq();
 		$fetch_query->size();
@@ -116,6 +118,7 @@ class Message {
 		$headers = $this->conn->fetch($this->folder_id, $fetch_query, array('ids' => $ids));
 		$this->fetch = $headers[$this->message_id];
 
+		//$headers[$this->message_id]->get
 		$this->plainmsg = $headers[$this->message_id]->getBodyText();
 //
 //		// HEADER
