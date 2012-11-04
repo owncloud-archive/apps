@@ -45,24 +45,29 @@ function create_zip($files = array(),$destination = '',$overwrite = false) {
 }
 
 $files_to_zip = array(
-	OCP\Util::linkToAbsolute('impressionist', 'css/mappingstyle.css') => '/css/mappingstyle.css',
-	OCP\Util::linkToAbsolute('impressionist', 'css/player.css') => '/css/style.css',
-	OCP\Util::linkToAbsolute('', 'js/jquery-1.7.2.min.js') => '/js/jquery-1.7.2.min.js',
-	OCP\Util::linkToAbsolute('impressionist', 'js/impress.js') => '/js/impress.js',
-	OCP\Util::linkToAbsolute('impresionist', "output/'.$filename.'.html")=> $filename.'.html'
+	\OCP\Util::linkToAbsolute('impressionist', 'css/mappingstyle.css') => '/css/mappingstyle.css',
+	\OCP\Util::linkToAbsolute('impressionist', 'css/player.css') => '/css/style.css',
+	\OCP\Util::linkToAbsolute('', 'js/jquery-1.7.2.min.js') => '/js/jquery.js',
+	\OCP\Util::linkToAbsolute('impressionist', "output/'.$filename.'.html")=> $filename.'.html'
 );
 //if true, good; if false, zip creation failed
 $result = create_zip($files_to_zip, $filename.'.zip');
+    $save_file = OC_App::getStorage('impressionist');
+    $save_file ->file_put_contents($result.'.zip',$files_to_zip.'.zip');
 ?>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Impressionist for ownCloud</title>
-     <link rel="stylesheet" type="text/css" src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'css/bootstrap.css'); ?>"></script>
-     <link rel="stylesheet" type="text/css" href="<?php echo OCP\Util::linkToAbsolute('impressionist', 'css/mainstyle.css'); ?>" />
-     <script type="text/javascript" src="<?php echo OCP\Util::linkToAbsolute('', 'js/jquery-1.7.2.min.js'); ?>"></script>
-     <script type="text/javascript" src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/bootstrap.js'); ?>"></script>
-
+     <title>Impressionist for ownCloud</title>
+     <link rel="stylesheet" type="text/css" src="<?php echo \OCP\Util::linkToAbsolute('impressionist', 'css/bootstrap.css'); ?>"></script>
+     <link rel="stylesheet" type="text/css" href="<?php echo \OCP\Util::linkToAbsolute('impressionist', 'css/mainstyle.css'); ?>" />
+     <script type="text/javascript" src="<?php echo \OCP\Util::linkToAbsolute('', 'js/jquery-1.7.2.min.js'); ?>"></script>
+     <script type="text/javascript" src="<?php echo \OCP\Util::linkToAbsolute('impressionist', 'js/bootstrap.js'); ?>"></script>
+     <script>
+         function closewindow() {
+              close();
+         }
+     </script>
  </head>
  <body>
     <div id="hero">
@@ -70,7 +75,7 @@ $result = create_zip($files_to_zip, $filename.'.zip');
            <h1>Congrats! You are all set.</h1>
            <p>Filename: <?php echo $filename.".zip"?> </p>
            <p>
-             <a href='<?php echo $filename.".zip"?>' class="btn btn-info btn-large">Download File</a>
+             <button class="btn btn-info btn-large" onclick="closewindow()">Close this Window</button>
            </p>
        </div>
    </div>
