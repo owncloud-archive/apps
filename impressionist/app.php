@@ -33,6 +33,7 @@ OCP\Util::addStyle('impressionist', 'colorpicker');
 OCP\Util::addStyle('impressionist', 'layout');
 OCP\Util::addStyle('impressionist', 'bootstrap');
 
+
 OCP\Util::addScript('impressionist', 'keymaster');
 OCP\Util::addScript('impressionist', 'datastore');
 OCP\Util::addScript('impressionist', 'appui');

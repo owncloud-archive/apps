@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:02+0000\n"
+"POT-Creation-Date: 2012-11-03 00:00+0100\n"
+"PO-Revision-Date: 2012-11-02 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -59,11 +59,11 @@ msgstr "Chyba pri mazaní priečinka."
 msgid "Error updating feeds."
 msgstr "Chyba pri obnovení kanálov."
 
-#: ajax/importopml.php:28 ajax/selectfromcloud.php:31
-msgid "No file path was submitted."
-msgstr "Neuvedené cesta k súboru."
+#: ajax/importopml.php:34
+msgid "No file was submitted."
+msgstr ""
 
-#: ajax/importopml.php:42
+#: ajax/importopml.php:46
 msgid "An error occurred while parsing the file."
 msgstr "Nastala chyba počas spracovania súboru."
 
@@ -74,6 +74,10 @@ msgstr "Kanál nahraný!"
 #: ajax/movefeedtofolder.php:37
 msgid "Error moving feed into folder."
 msgstr "Chyba pri presune kanálu do priečinka."
+
+#: ajax/selectfromcloud.php:31
+msgid "No file path was submitted."
+msgstr "Neuvedené cesta k súboru."
 
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
@@ -99,10 +103,6 @@ msgstr "Kanál obnovený!"
 msgid "News"
 msgstr "Novinky"
 
-#: controllers/controller.php:207
-msgid "An error occured: "
-msgstr ""
-
 #: js/items.js:122
 msgid "Error while loading the feed"
 msgstr "Chyba počas nahrávania kanála"
@@ -110,8 +110,8 @@ msgstr "Chyba počas nahrávania kanála"
 #: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
-#: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
-#: js/settings.js:47
+#: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
+#: js/settings.js:38 js/settings.js:50
 msgid "Error"
 msgstr "Chyba"
 
@@ -176,41 +176,21 @@ msgstr "Chyba počas spracovania kanála."
 msgid "Fatal Error"
 msgstr "Kritická chyba"
 
-#: js/settings.js:11 js/settings.js:27
-msgid "File "
-msgstr "Súbor"
-
-#: js/settings.js:11
-msgid " loaded from cloud."
-msgstr "nahrané z cloudu."
-
-#: js/settings.js:22
+#: js/settings.js:17
 msgid "No files selected."
 msgstr "Nie sú označené súbory."
 
-#: js/settings.js:27
-msgid " loaded from local filesystem."
-msgstr "nahrané z lokálneho súborového systému."
-
-#: js/settings.js:32
-msgid "Importing..."
-msgstr "Importovanie..."
-
-#: js/settings.js:43
+#: js/settings.js:33 js/settings.js:46
 msgid " out of "
 msgstr " z celkom "
 
-#: js/settings.js:44
+#: js/settings.js:34 js/settings.js:47
 msgid " feeds imported successfully from "
 msgstr " kanály boli úspešne importované z "
 
-#: js/settings.js:45
+#: js/settings.js:35 js/settings.js:48
 msgid "Success"
 msgstr "Úspešné"
-
-#: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
-msgid "Import"
-msgstr "Import"
 
 #: js/settings.js:66
 msgid "Select file"
@@ -260,28 +240,32 @@ msgstr "Prihlásiť"
 msgid "Import OPML"
 msgstr "Import OPML"
 
-#: templates/firstrun.php:12 templates/settings.php:3
+#: templates/firstrun.php:12
 msgid "Upload file from desktop"
 msgstr "Odoslať súbor z vašej plochy"
 
-#: templates/firstrun.php:12 templates/settings.php:3
+#: templates/firstrun.php:12
 msgid "Upload"
 msgstr "Odoslať"
 
-#: templates/firstrun.php:13 templates/settings.php:4
+#: templates/firstrun.php:13
 msgid "Select file from ownCloud"
 msgstr "Vybrať súbor z ownCloud"
 
-#: templates/firstrun.php:13 templates/settings.php:4
+#: templates/firstrun.php:13
 msgid "Select"
 msgstr "Vybrať"
 
-#: templates/firstrun.php:15 templates/settings.php:6
+#: templates/firstrun.php:15 templates/settings.php:4
 msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
 msgstr "Vybrať súbor z <a href=\"#\" class=\"settings\" id=\"browselink\">miestného súborového systému</a> alebo <a href=\"#\" class=\"settings\" id=\"cloudlink\">cloudu</a>"
+
+#: templates/firstrun.php:18
+msgid "Import"
+msgstr "Import"
 
 #: templates/firstrun.php:24
 msgid "Or..."
@@ -393,15 +377,15 @@ msgstr "Premenovať priečinok"
 msgid "Import feeds"
 msgstr "Import kanálov"
 
-#: templates/settings.php:11
+#: templates/settings.php:8
 msgid "Export feeds"
 msgstr "Export kanálov"
 
-#: templates/settings.php:13
+#: templates/settings.php:10
 msgid "Download OPML"
 msgstr "Stiahnuť OPML"
 
-#: templates/settings.php:15
+#: templates/settings.php:12
 msgid "Subscribelet"
 msgstr "Subscribelet"
 
