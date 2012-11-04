@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-04 00:00+0100\n"
-"PO-Revision-Date: 2012-11-03 23:01+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-05 00:00+0100\n"
+"PO-Revision-Date: 2012-11-04 17:58+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,19 +26,19 @@ msgstr "Tipo di file non supportato per l'importazione"
 msgid "Bookmarks"
 msgstr "Segnalibri"
 
-#: js/addBm.js:42 js/bookmarks.js:241
+#: js/addBm.js:42 js/bookmarks.js:245
 msgid "Tags"
 msgstr "Tag"
 
-#: js/bookmarks.js:176
+#: js/bookmarks.js:179
 msgid "Edit bookmark"
 msgstr "Modifica segnalibro"
 
-#: js/bookmarks.js:393
+#: js/bookmarks.js:397
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Sei sicuro di voler rimuovere questo tag da ogni voce?"
 
-#: js/bookmarks.js:394
+#: js/bookmarks.js:398
 msgid "Warning"
 msgstr "Avviso"
 
@@ -128,7 +128,7 @@ msgstr "Non hai segnalibri"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
-msgstr ""
+msgstr "Bookmarklet"
 
 #: templates/settings.php:13
 msgid ""
@@ -142,7 +142,7 @@ msgstr "Leggi dopo"
 
 #: templates/settings.php:31
 msgid "Export & Import"
-msgstr ""
+msgstr "Esporta e importa"
 
 #: templates/settings.php:32
 msgid "Export"
