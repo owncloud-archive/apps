@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <devianpctek@gmail.com>, 2012.
 #   <juanma@kde.org.ar>, 2012.
 #   <pedro.navia@etecsa.cu>, 2012.
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-04 00:00+0100\n"
+"PO-Revision-Date: 2012-11-03 20:13+0000\n"
+"Last-Translator: Luis Medina <devianpctek@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,11 +64,11 @@ msgstr "Error al borrar la carpeta."
 msgid "Error updating feeds."
 msgstr "Error actualizando las fuentes"
 
-#: ajax/importopml.php:28 ajax/selectfromcloud.php:31
-msgid "No file path was submitted."
-msgstr "No se presentó la ruta del archivo."
+#: ajax/importopml.php:34
+msgid "No file was submitted."
+msgstr "No se envío ningún archivo"
 
-#: ajax/importopml.php:42
+#: ajax/importopml.php:46
 msgid "An error occurred while parsing the file."
 msgstr "Se produjo un error al analizar el archivo."
 
@@ -78,6 +79,10 @@ msgstr "Fuente cargada!"
 #: ajax/movefeedtofolder.php:37
 msgid "Error moving feed into folder."
 msgstr "Error al mover la fuente hacia la carpeta"
+
+#: ajax/selectfromcloud.php:31
+msgid "No file path was submitted."
+msgstr "No se presentó la ruta del archivo."
 
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
@@ -103,10 +108,6 @@ msgstr "Fuentes actualizadas!"
 msgid "News"
 msgstr "Noticias"
 
-#: controllers/controller.php:207
-msgid "An error occured: "
-msgstr ""
-
 #: js/items.js:122
 msgid "Error while loading the feed"
 msgstr "Error cargando la fuente"
@@ -114,8 +115,8 @@ msgstr "Error cargando la fuente"
 #: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
-#: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
-#: js/settings.js:47
+#: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
+#: js/settings.js:38 js/settings.js:50
 msgid "Error"
 msgstr "Error"
 
@@ -180,41 +181,21 @@ msgstr "Error mientras se analizaba la fuente"
 msgid "Fatal Error"
 msgstr "Error fatal."
 
-#: js/settings.js:11 js/settings.js:27
-msgid "File "
-msgstr "Fichero"
-
-#: js/settings.js:11
-msgid " loaded from cloud."
-msgstr "Leyendo desde la nube"
-
-#: js/settings.js:22
+#: js/settings.js:17
 msgid "No files selected."
 msgstr "No hay ficheros seleccionados."
 
-#: js/settings.js:27
-msgid " loaded from local filesystem."
-msgstr "cargado desde un sistema de archivos local."
-
-#: js/settings.js:32
-msgid "Importing..."
-msgstr "Importando..."
-
-#: js/settings.js:43
+#: js/settings.js:33 js/settings.js:46
 msgid " out of "
 msgstr "Fuera de"
 
-#: js/settings.js:44
+#: js/settings.js:34 js/settings.js:47
 msgid " feeds imported successfully from "
 msgstr "Fuente importada satisfactoriamente de"
 
-#: js/settings.js:45
+#: js/settings.js:35 js/settings.js:48
 msgid "Success"
 msgstr "Éxito"
-
-#: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
-msgid "Import"
-msgstr "Importar"
 
 #: js/settings.js:66
 msgid "Select file"
@@ -264,28 +245,32 @@ msgstr "Subscribirse"
 msgid "Import OPML"
 msgstr "Importar OPML"
 
-#: templates/firstrun.php:12 templates/settings.php:3
+#: templates/firstrun.php:12
 msgid "Upload file from desktop"
 msgstr "Subir fichero desde el escritorio"
 
-#: templates/firstrun.php:12 templates/settings.php:3
+#: templates/firstrun.php:12
 msgid "Upload"
 msgstr "Subir"
 
-#: templates/firstrun.php:13 templates/settings.php:4
+#: templates/firstrun.php:13
 msgid "Select file from ownCloud"
 msgstr "Seleccionar fichero desde ownCloud"
 
-#: templates/firstrun.php:13 templates/settings.php:4
+#: templates/firstrun.php:13
 msgid "Select"
 msgstr "Seleccionar"
 
-#: templates/firstrun.php:15 templates/settings.php:6
+#: templates/firstrun.php:15 templates/settings.php:4
 msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
 msgstr "Seleccionar archivo desde <a href=\"#\" class=\"settings\" id=\"browselink\">sistema de archivo local</a> o <a href=\"#\" class=\"settings\" id=\"cloudlink\">nube</a>"
+
+#: templates/firstrun.php:18
+msgid "Import"
+msgstr "Importar"
 
 #: templates/firstrun.php:24
 msgid "Or..."
@@ -397,15 +382,15 @@ msgstr "Renombrar carpeta"
 msgid "Import feeds"
 msgstr "Importar fuentes"
 
-#: templates/settings.php:11
+#: templates/settings.php:8
 msgid "Export feeds"
 msgstr "Exportar fuente"
 
-#: templates/settings.php:13
+#: templates/settings.php:10
 msgid "Download OPML"
 msgstr "Descargar OPML"
 
-#: templates/settings.php:15
+#: templates/settings.php:12
 msgid "Subscribelet"
 msgstr "Suscribirse"
 

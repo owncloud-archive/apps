@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-02 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:13+0000\n"
+"POT-Creation-Date: 2012-11-04 00:00+0100\n"
+"PO-Revision-Date: 2012-11-03 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -78,16 +78,6 @@ msgstr ""
 msgid "Save"
 msgstr "Зберегти"
 
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr ""
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr "Прочитати пізніше"
-
 #: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
 msgid "Edit"
 msgstr "Редагувати"
@@ -132,30 +122,32 @@ msgstr ""
 msgid "Settings"
 msgstr "Налаштування"
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "У вас нема закладок"
 
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
+msgid "Bookmarklet"
 msgstr ""
 
-#: templates/settings.php:26
-msgid "Import bookmarks"
+#: templates/settings.php:13
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
 msgstr ""
 
-#: templates/settings.php:28
-msgid "html bookmarks file"
+#: templates/settings.php:19
+msgid "Read later"
+msgstr "Прочитати пізніше"
+
+#: templates/settings.php:31
+msgid "Export & Import"
 msgstr ""
 
-#: templates/settings.php:30
-msgid "Import"
-msgstr "Імпорт"
-
-#: templates/settings.php:33
-msgid "Export bookmarks"
-msgstr ""
-
-#: templates/settings.php:35
+#: templates/settings.php:32
 msgid "Export"
 msgstr "Експорт"
+
+#: templates/settings.php:34
+msgid "Import"
+msgstr "Імпорт"

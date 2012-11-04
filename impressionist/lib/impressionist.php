@@ -44,7 +44,6 @@ class Storage {
 			$presentations[]=$entry;
 		}
 
-	
 		return $presentations;
 	}
  

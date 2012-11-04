@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-02 00:01+0100\n"
+"POT-Creation-Date: 2012-11-04 00:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,16 +77,6 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr ""
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr ""
-
 #: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
 msgid "Edit"
 msgstr ""
@@ -131,30 +121,32 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr ""
 
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
+msgid "Bookmarklet"
 msgstr ""
 
-#: templates/settings.php:26
-msgid "Import bookmarks"
+#: templates/settings.php:13
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
 msgstr ""
 
-#: templates/settings.php:28
-msgid "html bookmarks file"
+#: templates/settings.php:19
+msgid "Read later"
 msgstr ""
 
-#: templates/settings.php:30
-msgid "Import"
+#: templates/settings.php:31
+msgid "Export & Import"
 msgstr ""
 
-#: templates/settings.php:33
-msgid "Export bookmarks"
-msgstr ""
-
-#: templates/settings.php:35
+#: templates/settings.php:32
 msgid "Export"
+msgstr ""
+
+#: templates/settings.php:34
+msgid "Import"
 msgstr ""
