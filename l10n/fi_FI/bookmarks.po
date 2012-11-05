@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-05 00:00+0100\n"
+"PO-Revision-Date: 2012-11-04 16:14+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,35 +21,35 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "Tuonti ei tue kyseistä tiedostotyyppiä"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Kirjanmerkit"
 
-#: js/addBm.js:42 js/bookmarks.js:241
+#: js/addBm.js:42 js/bookmarks.js:245
 msgid "Tags"
 msgstr "Tunnisteet"
 
-#: js/bookmarks.js:176
+#: js/bookmarks.js:179
 msgid "Edit bookmark"
 msgstr "Muokkaa kirjanmerkkejä"
 
-#: js/bookmarks.js:393
+#: js/bookmarks.js:397
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Haluatko varmasti poistaa tämän tunnisteen jokaiselta kohteelta?"
 
-#: js/bookmarks.js:394
+#: js/bookmarks.js:398
 msgid "Warning"
 msgstr "Varoitus"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "Tuonti valmistui onnistuneesti."
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "Lähetetään..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -78,16 +78,6 @@ msgstr "Sivun kuvaus"
 #: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
 msgstr "Tallenna"
-
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr "Vedä tämä selaimesi kirjanmerkkipalkkiin ja napsauta sitä, kun haluat lisätä kirjanmerkin nopeasti:"
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr "Lue myöhemmin"
 
 #: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
 msgid "Edit"
@@ -131,32 +121,34 @@ msgstr "Vastaavanlaiset tunnisteet"
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "Asetukset"
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Sinulla ei ole kirjanmerkkejä"
 
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Kirjanmerkitsin <br />"
-
-#: templates/settings.php:25
-msgid "Import bookmarks"
-msgstr "Tuo kirjanmerkkejä"
-
-#: templates/settings.php:27
-msgid "html bookmarks file"
+msgid "Bookmarklet"
 msgstr ""
 
-#: templates/settings.php:29
-msgid "Import"
-msgstr "Tuo"
+#: templates/settings.php:13
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "Vedä tämä selaimesi kirjanmerkkipalkkiin ja napsauta sitä, kun haluat lisätä kirjanmerkin nopeasti:"
+
+#: templates/settings.php:19
+msgid "Read later"
+msgstr "Lue myöhemmin"
+
+#: templates/settings.php:31
+msgid "Export & Import"
+msgstr "Vienti ja tuonti"
 
 #: templates/settings.php:32
-msgid "Export bookmarks"
-msgstr "Vie kirjanmerkkejä"
-
-#: templates/settings.php:34
 msgid "Export"
 msgstr "Vie"
+
+#: templates/settings.php:34
+msgid "Import"
+msgstr "Tuo"

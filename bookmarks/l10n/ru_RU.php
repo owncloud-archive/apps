@@ -1,9 +1,12 @@
 <?php $TRANSLATIONS = array(
+"Unsupported file type for import" => "Неподдерживаемый тип файла для импорта",
 "Bookmarks" => "Закладки",
 "Tags" => "Теги",
 "Edit bookmark" => "Редактировать закладку",
 "Are you sure you want to remove this tag from every entry?" => "Вы уверены, что хотите удалить этот тег из каждой записи?",
 "Warning" => "Предупреждение",
+"Import completed successfully." => "Импортирование успешно завершено.",
+"Uploading..." => "Загрузка...",
 "Bookm." => "Bookm.",
 "Add a bookmark" => "Добавить закладку",
 "Close" => "Закрыть",
@@ -11,8 +14,6 @@
 "The address of the page" => "Адрес страницы",
 "Description of the page" => "Описание страницы",
 "Save" => "Сохранить",
-"Drag this to your browser bookmarks and click it, when you want to bookmark a webpage quickly:" => "Перетащите это в закладки Вашего браузера и кликните на него, когда захотите быстро добавить страницу в закладки:",
-"Read later" => "Прочитать позже",
 "Edit" => "Редактировать",
 "Delete" => "Удалить",
 "Cancel" => "Отмена",
@@ -23,10 +24,10 @@
 "Hide" => "Скрыть",
 "Show" => "Показать",
 "Related Tags" => "Связанные теги",
+"Settings" => "Настройки",
 "You have no bookmarks" => "У Вас нет закладок",
-"Bookmarklet <br />" => "Bookmarklet <br />",
-"Import bookmarks" => "Импорт закладок",
-"Import" => "Импортировать",
-"Export bookmarks" => "Экспорт закладок",
-"Export" => "Экспортировать"
+"Drag this to your browser bookmarks and click it, when you want to bookmark a webpage quickly:" => "Перетащите это в закладки Вашего браузера и кликните на него, когда захотите быстро добавить страницу в закладки:",
+"Read later" => "Прочитать позже",
+"Export" => "Экспортировать",
+"Import" => "Импортировать"
 );

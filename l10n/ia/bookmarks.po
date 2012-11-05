@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
+"POT-Creation-Date: 2012-11-04 00:00+0100\n"
+"PO-Revision-Date: 2012-11-03 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Interlingua (http://www.transifex.com/projects/p/owncloud/language/ia/)\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +59,7 @@ msgstr ""
 
 #: templates/addBm.php:14
 msgid "Close"
-msgstr ""
+msgstr "Clauder"
 
 #: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
@@ -75,33 +75,23 @@ msgstr ""
 
 #: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
-msgstr ""
-
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr ""
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr ""
+msgstr "Salveguardar"
 
 #: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
 msgid "Edit"
-msgstr ""
+msgstr "Modificar"
 
 #: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
 msgid "Delete"
-msgstr ""
+msgstr "Deler"
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
-msgstr ""
+msgstr "Cancellar"
 
 #: templates/list.php:12
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 #: templates/list.php:13
 msgid "Add bookmark"
@@ -109,7 +99,7 @@ msgstr ""
 
 #: templates/list.php:16
 msgid "List"
-msgstr ""
+msgstr "Lista"
 
 #: templates/list.php:17
 msgid "Image"
@@ -129,32 +119,34 @@ msgstr ""
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "Configurationes"
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr ""
 
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
+msgid "Bookmarklet"
 msgstr ""
 
-#: templates/settings.php:25
-msgid "Import bookmarks"
+#: templates/settings.php:13
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
 msgstr ""
 
-#: templates/settings.php:27
-msgid "html bookmarks file"
+#: templates/settings.php:19
+msgid "Read later"
 msgstr ""
 
-#: templates/settings.php:29
-msgid "Import"
+#: templates/settings.php:31
+msgid "Export & Import"
 msgstr ""
 
 #: templates/settings.php:32
-msgid "Export bookmarks"
-msgstr ""
+msgid "Export"
+msgstr "Exportar"
 
 #: templates/settings.php:34
-msgid "Export"
-msgstr ""
+msgid "Import"
+msgstr "Importar"

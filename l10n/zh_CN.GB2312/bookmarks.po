@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
+"POT-Creation-Date: 2012-11-04 00:00+0100\n"
+"PO-Revision-Date: 2012-11-03 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Chinese (China) (GB2312) (http://www.transifex.com/projects/p/owncloud/language/zh_CN.GB2312/)\n"
 "MIME-Version: 1.0\n"
@@ -78,16 +78,6 @@ msgstr "页面描述"
 msgid "Save"
 msgstr "保存"
 
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr "拖动此物到您的浏览器书签栏，在您想要快速订阅某网页时点击："
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr "稍后阅读"
-
 #: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
 msgid "Edit"
 msgstr "编辑"
@@ -130,32 +120,34 @@ msgstr "相关标签"
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "您没有书签"
 
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "小书签 <br />"
-
-#: templates/settings.php:25
-msgid "Import bookmarks"
-msgstr "导入书签"
-
-#: templates/settings.php:27
-msgid "html bookmarks file"
+msgid "Bookmarklet"
 msgstr ""
 
-#: templates/settings.php:29
-msgid "Import"
-msgstr "导入"
+#: templates/settings.php:13
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "拖动此物到您的浏览器书签栏，在您想要快速订阅某网页时点击："
+
+#: templates/settings.php:19
+msgid "Read later"
+msgstr "稍后阅读"
+
+#: templates/settings.php:31
+msgid "Export & Import"
+msgstr ""
 
 #: templates/settings.php:32
-msgid "Export bookmarks"
-msgstr "导出书签"
-
-#: templates/settings.php:34
 msgid "Export"
 msgstr "导出"
+
+#: templates/settings.php:34
+msgid "Import"
+msgstr "导入"

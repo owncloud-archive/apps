@@ -1,9 +1,12 @@
 <?php $TRANSLATIONS = array(
+"Unsupported file type for import" => "Tipo de archivo no soportado para importar",
 "Bookmarks" => "Marcadores",
 "Tags" => "Etiquetas",
 "Edit bookmark" => "Editar marcadores",
 "Are you sure you want to remove this tag from every entry?" => "¿Estás seguro de que querés borrar esta etiqueta de todos los elementos?",
 "Warning" => "Atención",
+"Import completed successfully." => "Importación completada con éxito.",
+"Uploading..." => "Subiendo...",
 "Bookm." => "Marc.",
 "Add a bookmark" => "Agregar un marcador",
 "Close" => "Cerrar",
@@ -11,8 +14,6 @@
 "The address of the page" => "La dirección de la página",
 "Description of the page" => "Descripción de la página",
 "Save" => "Guardar",
-"Drag this to your browser bookmarks and click it, when you want to bookmark a webpage quickly:" => "Arrastrá desde aquí a los marcadores de tu navegador, y hacé click cuando quieras marcar una página web:",
-"Read later" => "Leer después",
 "Edit" => "Editar",
 "Delete" => "Borrar",
 "Cancel" => "Cancelar",
@@ -23,10 +24,10 @@
 "Hide" => "Ocultar",
 "Show" => "Mostrar",
 "Related Tags" => "Etiquetas relacionadas",
+"Settings" => "Configuración",
 "You have no bookmarks" => "No tenés marcadores",
-"Bookmarklet <br />" => "Bookmarklet <br />",
-"Import bookmarks" => "Importar marcadores",
-"Import" => "Importar",
-"Export bookmarks" => "Exportar marcadores",
-"Export" => "Exportar"
+"Drag this to your browser bookmarks and click it, when you want to bookmark a webpage quickly:" => "Arrastrá desde aquí a los marcadores de tu navegador, y hacé click cuando quieras marcar una página web:",
+"Read later" => "Leer después",
+"Export" => "Exportar",
+"Import" => "Importar"
 );

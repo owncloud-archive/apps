@@ -24,13 +24,17 @@ function bailOut($msg) {
 	exit();
 }
 
-if(!isset($_POST['path'])) {
-	bailOut($l->t('No file path was submitted.'));
+if (isset($_POST['path'])) {
+	$raw = file_get_contents($_POST['path']);
 }
-
+elseif (isset($_FILES['file'])) {
+	$raw = file_get_contents($_FILES['file']['tmp_name']);
+}
+else {
+	bailOut($l->t('No file was submitted.'));
+}
+	
 require_once 'news/opmlparser.php';
-
-$raw = file_get_contents($_POST['path']);
 
 try {
 	$parsed = OPMLParser::parse($raw);
@@ -57,8 +61,8 @@ function importFeed($feedurl, $folderid) {
 		      $feedid = $feedmapper->save($feed, $folderid);
 		}
 	} else {
-		OCP\Util::writeLog('news','ajax/importopml.php: Error adding feed: '. $feedurl, OCP\Util::ERROR);
-		return false;
+		OCP\Util::writeLog('news','ajax/importopml.php: This feed is already here: '. $feedurl, OCP\Util::WARN);
+		return true;
 	}
 
 	if($feed === null || !$feedid) {

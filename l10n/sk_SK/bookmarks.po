@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
+"POT-Creation-Date: 2012-11-04 00:00+0100\n"
+"PO-Revision-Date: 2012-11-03 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "Nepodporovaný typ súboru pre import"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
@@ -45,11 +45,11 @@ msgstr "Varovanie"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "Import prebehol úspešne."
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "Odosielanie..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -78,16 +78,6 @@ msgstr "Popis stránky"
 #: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
 msgstr "Uložiť"
-
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr "Presuňte toto do vášho prehliadača a kliknite ak chcete aktuálnu stránku uložiť do záložiek."
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr "Prečítať neskôr"
 
 #: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
 msgid "Edit"
@@ -131,32 +121,34 @@ msgstr "Podobné značky"
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "Nastavenia"
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Nemáte záložky"
 
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Záložky <br />"
-
-#: templates/settings.php:25
-msgid "Import bookmarks"
-msgstr "Importovať záložky"
-
-#: templates/settings.php:27
-msgid "html bookmarks file"
+msgid "Bookmarklet"
 msgstr ""
 
-#: templates/settings.php:29
-msgid "Import"
-msgstr "Import"
+#: templates/settings.php:13
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "Presuňte toto do vášho prehliadača a kliknite ak chcete aktuálnu stránku uložiť do záložiek."
+
+#: templates/settings.php:19
+msgid "Read later"
+msgstr "Prečítať neskôr"
+
+#: templates/settings.php:31
+msgid "Export & Import"
+msgstr ""
 
 #: templates/settings.php:32
-msgid "Export bookmarks"
-msgstr "Export záložiek"
-
-#: templates/settings.php:34
 msgid "Export"
 msgstr "Export"
+
+#: templates/settings.php:34
+msgid "Import"
+msgstr "Import"

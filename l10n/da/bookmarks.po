@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
+"POT-Creation-Date: 2012-11-04 00:00+0100\n"
+"PO-Revision-Date: 2012-11-03 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -80,16 +80,6 @@ msgstr "Sidens beskrivelse"
 msgid "Save"
 msgstr "Gem"
 
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr "Træk denne til dine browserbogmærker pg klik på den, når du ønsker at lynoprette et bogmærke til hjemmesiden:"
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr "Læs senere"
-
 #: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
 msgid "Edit"
 msgstr "Rediger"
@@ -132,32 +122,34 @@ msgstr "Relaterede Tags"
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "Indstillinger"
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Du har ingen bogmærker"
 
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Bookmarklet <br />"
-
-#: templates/settings.php:25
-msgid "Import bookmarks"
-msgstr "Importer bogmærker"
-
-#: templates/settings.php:27
-msgid "html bookmarks file"
+msgid "Bookmarklet"
 msgstr ""
 
-#: templates/settings.php:29
-msgid "Import"
-msgstr "Importer"
+#: templates/settings.php:13
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "Træk denne til dine browserbogmærker pg klik på den, når du ønsker at lynoprette et bogmærke til hjemmesiden:"
+
+#: templates/settings.php:19
+msgid "Read later"
+msgstr "Læs senere"
+
+#: templates/settings.php:31
+msgid "Export & Import"
+msgstr ""
 
 #: templates/settings.php:32
-msgid "Export bookmarks"
-msgstr "Exporter bogmærker"
-
-#: templates/settings.php:34
 msgid "Export"
 msgstr "Exporter"
+
+#: templates/settings.php:34
+msgid "Import"
+msgstr "Importer"

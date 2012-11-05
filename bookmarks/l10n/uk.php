@@ -1,7 +1,16 @@
 <?php $TRANSLATIONS = array(
 "Bookmarks" => "Закладки",
 "Tags" => "Теги",
-"Read later" => "Прочитати пізніше",
+"Close" => "Закрити",
+"Save" => "Зберегти",
+"Edit" => "Редагувати",
+"Delete" => "Видалити",
+"Cancel" => "Відмінити",
 "Address" => "Адреса",
-"You have no bookmarks" => "У вас нема закладок"
+"List" => "Список",
+"Settings" => "Налаштування",
+"You have no bookmarks" => "У вас нема закладок",
+"Read later" => "Прочитати пізніше",
+"Export" => "Експорт",
+"Import" => "Імпорт"
 );

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
+"POT-Creation-Date: 2012-11-04 00:00+0100\n"
+"PO-Revision-Date: 2012-11-03 23:01+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -79,16 +79,6 @@ msgstr "Pagina beschrijving"
 msgid "Save"
 msgstr "Bewaar"
 
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr "Sleep dit naar uw browser bladwijzer menu en klik erop, wanneer u een webpagina snel wilt voorzien van een bladwijzer:"
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr "Lees later"
-
 #: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
 msgid "Edit"
 msgstr "Bewerk"
@@ -131,32 +121,34 @@ msgstr "Aanverwante tags"
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "Instellingen"
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "U heeft geen bladwijzers"
 
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Bookmarklet <br />"
-
-#: templates/settings.php:25
-msgid "Import bookmarks"
-msgstr "Importeer bladwijzers"
-
-#: templates/settings.php:27
-msgid "html bookmarks file"
+msgid "Bookmarklet"
 msgstr ""
 
-#: templates/settings.php:29
-msgid "Import"
-msgstr "Importeer"
+#: templates/settings.php:13
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "Sleep dit naar uw browser bladwijzer menu en klik erop, wanneer u een webpagina snel wilt voorzien van een bladwijzer:"
+
+#: templates/settings.php:19
+msgid "Read later"
+msgstr "Lees later"
+
+#: templates/settings.php:31
+msgid "Export & Import"
+msgstr ""
 
 #: templates/settings.php:32
-msgid "Export bookmarks"
-msgstr "Exporteer bladwijzers"
-
-#: templates/settings.php:34
 msgid "Export"
 msgstr "Exporteer"
+
+#: templates/settings.php:34
+msgid "Import"
+msgstr "Importeer"

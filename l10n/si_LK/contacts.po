@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 04:38+0000\n"
+"POT-Creation-Date: 2012-11-03 00:00+0100\n"
+"PO-Revision-Date: 2012-11-02 10:55+0000\n"
 "Last-Translator: Anushke Guneratne <anushke@gmail.com>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -56,7 +56,7 @@ msgstr "සබඳතා හමු නොවිනි"
 
 #: ajax/contact/addproperty.php:39 ajax/contact/saveproperty.php:36
 msgid "element name is not set."
-msgstr ""
+msgstr "අවයවය සඳහා නමක් දමා නැත"
 
 #: ajax/contact/addproperty.php:46
 msgid "Could not parse contact: "
@@ -104,7 +104,7 @@ msgstr ""
 
 #: ajax/contact/saveproperty.php:69
 msgid "Something went FUBAR. "
-msgstr ""
+msgstr "යම් කිසිවක් FUBAR විය"
 
 #: ajax/currentphoto.php:30 ajax/oc_photo.php:28 ajax/uploadphoto.php:36
 #: ajax/uploadphoto.php:68
@@ -121,7 +121,7 @@ msgstr "තාවකාලික ගොනුව සුරැකීම දෝෂ
 
 #: ajax/currentphoto.php:51
 msgid "The loading photo is not valid."
-msgstr ""
+msgstr "පූරණය වන රූපය වලංගු නැත"
 
 #: ajax/editname.php:31
 msgid "Contact ID is missing."
@@ -141,7 +141,7 @@ msgstr "රූපය පූරණය දෝෂ සහිතයි."
 
 #: ajax/savecrop.php:70
 msgid "Error getting contact object."
-msgstr ""
+msgstr "සම්බන්ධතා වස්තුව ගෙන ඒමේදී දෝෂයක්"
 
 #: ajax/savecrop.php:80
 msgid "Error getting PHOTO property."
@@ -149,7 +149,7 @@ msgstr ""
 
 #: ajax/savecrop.php:99
 msgid "Error saving contact."
-msgstr ""
+msgstr "සම්බන්ධතාව සුරැකිමේදී දෝෂයක්"
 
 #: ajax/savecrop.php:110
 msgid "Error resizing image"
@@ -161,11 +161,11 @@ msgstr ""
 
 #: ajax/savecrop.php:116
 msgid "Error creating temporary image"
-msgstr ""
+msgstr "තාවකාලික ඡායාරූපයක් තැනීමේ දෝෂයක්"
 
 #: ajax/savecrop.php:119
 msgid "Error finding image: "
-msgstr ""
+msgstr "ඡායාරූපය සොයාගැනීමේ දෝෂයක්"
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
@@ -183,7 +183,7 @@ msgstr "php.ini හි upload_max_filesize නියමයට වඩා ගො�
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
+msgstr "උඩුගත කළ ගොනුවේ විශාලත්වය HTML පෝරමයේ නියම කළ ඇති MAX_FILE_SIZE විශාලත්වයට වඩා වැඩිය"
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
@@ -199,7 +199,7 @@ msgstr "තාවකාලික ෆොල්ඩරයක් අතුරුද�
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
-msgstr ""
+msgstr "තාවකාලික රූපය සුරැකීමට නොහැකි විය"
 
 #: ajax/uploadphoto.php:62 ajax/uploadphoto.php:112
 msgid "Couldn't load temporary image: "
@@ -207,7 +207,7 @@ msgstr ""
 
 #: ajax/uploadphoto.php:71
 msgid "No file was uploaded. Unknown error"
-msgstr ""
+msgstr "ගොනුවක් උඩුගත නොවුනි. නොහැඳිනු දෝෂයක්"
 
 #: appinfo/app.php:24
 msgid "Contacts"
@@ -215,30 +215,30 @@ msgstr "සබඳතා"
 
 #: js/contacts.js:71
 msgid "Sorry, this functionality has not been implemented yet"
-msgstr ""
+msgstr "සමාවන්න, මෙම කාර්යය තවම සාදා එකතු කොට නැත"
 
 #: js/contacts.js:71
 msgid "Not implemented"
-msgstr ""
+msgstr "සාදා එකතු කොට නැත"
 
 #: js/contacts.js:76
 msgid "Couldn't get a valid address."
-msgstr ""
+msgstr "වලංගු ලිපිනයක් ලබාගැනීමට නොහැකි විය"
 
 #: js/contacts.js:76 js/contacts.js:105 js/contacts.js:364 js/contacts.js:436
 #: js/contacts.js:443 js/contacts.js:686 js/contacts.js:726 js/contacts.js:752
 #: js/contacts.js:763 js/contacts.js:777 js/contacts.js:797 js/contacts.js:884
 #: js/contacts.js:890 js/contacts.js:902 js/contacts.js:939
-#: js/contacts.js:1213 js/contacts.js:1221 js/contacts.js:1230
-#: js/contacts.js:1265 js/contacts.js:1301 js/contacts.js:1316
-#: js/contacts.js:1342 js/contacts.js:1575 js/contacts.js:1610
-#: js/contacts.js:1630 js/contacts.js:1688 js/contacts.js:1842
-#: js/contacts.js:1985 js/contacts.js:2011 js/contacts.js:2021
-#: js/contacts.js:2024 js/contacts.js:2175 js/contacts.js:2212
-#: js/contacts.js:2247 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/contacts.js:1215 js/contacts.js:1223 js/contacts.js:1232
+#: js/contacts.js:1267 js/contacts.js:1303 js/contacts.js:1318
+#: js/contacts.js:1344 js/contacts.js:1577 js/contacts.js:1612
+#: js/contacts.js:1632 js/contacts.js:1690 js/contacts.js:1844
+#: js/contacts.js:1987 js/contacts.js:2013 js/contacts.js:2023
+#: js/contacts.js:2026 js/contacts.js:2177 js/contacts.js:2214
+#: js/contacts.js:2249 js/settings.js:26 js/settings.js:46 js/settings.js:76
 #: js/settings.js:113
 msgid "Error"
-msgstr ""
+msgstr "දෝෂයක්"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
@@ -246,16 +246,16 @@ msgstr ""
 
 #: js/contacts.js:177 templates/part.selectaddressbook.php:27
 msgid "Enter name"
-msgstr ""
+msgstr "නම දෙන්න"
 
 #: js/contacts.js:178 templates/part.contact.php:35
 msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
 msgstr ""
 
-#: js/contacts.js:184 js/contacts.js:1421 js/contacts.js:1464
-#: js/contacts.js:1483 js/contacts.js:1526
+#: js/contacts.js:184 js/contacts.js:1423 js/contacts.js:1466
+#: js/contacts.js:1485 js/contacts.js:1528
 msgid "Select type"
-msgstr ""
+msgstr "වර්ගය තෝරන්න"
 
 #: js/contacts.js:215
 msgid "Select photo"
@@ -263,15 +263,15 @@ msgstr ""
 
 #: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
-msgstr ""
+msgstr "සම්බන්ධතා එකතු කිරීමට ඔබට අවසර නැත"
 
 #: js/contacts.js:408
 msgid "Please select one of your own address books."
-msgstr ""
+msgstr "කරුණාකර ඔබේම ලිපින පොතක් තෝරන්න"
 
 #: js/contacts.js:408
 msgid "Permission error"
-msgstr ""
+msgstr "අනුමැතියේ දෝෂයක්"
 
 #: js/contacts.js:482
 msgid "Click to undo deletion of \""
@@ -301,101 +301,101 @@ msgstr ""
 
 #: js/contacts.js:921
 msgid "Edit name"
-msgstr ""
+msgstr "නම සංස්කරණය කරන්න"
 
-#: js/contacts.js:1213
+#: js/contacts.js:1215
 msgid "No files selected for upload."
-msgstr ""
+msgstr "උඩුගත කිරීමට ගොනු තෝරා නැත"
 
-#: js/contacts.js:1221 js/contacts.js:2001 js/contacts.js:2076
+#: js/contacts.js:1223 js/contacts.js:2003 js/contacts.js:2078
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
-msgstr ""
+msgstr "ඔබ උඩුගත කිරීමට තැත් කරන ගොනුව, සේවාදායකයාට උඩුගත කළ හැකි උපරිම ගොනු විශාලත්වයට වඩා වැඩිය"
 
-#: js/contacts.js:1285
+#: js/contacts.js:1287
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/contacts.js:1544
+#: js/contacts.js:1546
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
-msgstr ""
+msgstr "සමහර සම්බන්ධතා මකන ලෙස ලකුණු කොට ඇත. කරුණාකර ඒවා මැකෙන තෙක් සිටින්න"
 
-#: js/contacts.js:1615
+#: js/contacts.js:1617
 msgid "Do you want to merge these address books?"
-msgstr ""
+msgstr "ඔබට මෙම ලිපින පොත් දෙක එකතු කිරීමට අවශ්‍යද?"
 
-#: js/contacts.js:1768
+#: js/contacts.js:1770
 msgid "Shared by "
 msgstr ""
 
-#: js/contacts.js:2001 js/contacts.js:2076
+#: js/contacts.js:2003 js/contacts.js:2078
 msgid "Upload too large"
-msgstr ""
+msgstr "උඩුගත කිරීම විශාල වැඩිය"
 
-#: js/contacts.js:2005
+#: js/contacts.js:2007
 msgid "Only image files can be used as profile picture."
 msgstr ""
 
-#: js/contacts.js:2005
+#: js/contacts.js:2007
 msgid "Wrong file type"
 msgstr ""
 
-#: js/contacts.js:2011
+#: js/contacts.js:2013
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
 msgstr ""
 
-#: js/contacts.js:2069
+#: js/contacts.js:2071
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr ""
 
-#: js/contacts.js:2069
+#: js/contacts.js:2071
 msgid "Upload Error"
-msgstr ""
+msgstr "උඩුගත කිරීමේ දෝෂයක්"
 
-#: js/contacts.js:2124
+#: js/contacts.js:2126
 msgid "Pending"
 msgstr ""
 
-#: js/contacts.js:2156
+#: js/contacts.js:2158
 msgid "Import done"
-msgstr ""
+msgstr "ආයාත කිරීම අවසන්"
 
-#: js/contacts.js:2169
+#: js/contacts.js:2171
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/contacts.js:2175
+#: js/contacts.js:2177
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/contacts.js:2191
+#: js/contacts.js:2193
 msgid "Importing..."
 msgstr ""
 
-#: js/contacts.js:2212
+#: js/contacts.js:2214
 msgid "The address book name cannot be empty."
 msgstr ""
 
 #: js/loader.js:49
 msgid "Result: "
-msgstr ""
+msgstr "ප්‍රතිඵලය:"
 
 #: js/loader.js:49
 msgid " imported, "
-msgstr ""
+msgstr "ආයාත කරන ලදී,"
 
 #: js/loader.js:49
 msgid " failed."
-msgstr ""
+msgstr "අසාර්ථකයි"
 
 #: js/settings.js:76
 msgid "Displayname cannot be empty."
-msgstr ""
+msgstr "පෙන්වන නම හිස්ව තිබිය නොහැක"
 
 #: js/settings.js:98 templates/settings.php:25
 msgid "Show CardDav link"
@@ -426,11 +426,11 @@ msgstr "එපා"
 
 #: js/settings.js:161 templates/settings.php:66
 msgid "More..."
-msgstr ""
+msgstr "තවත්..."
 
 #: js/settings.js:165
 msgid "Less..."
-msgstr ""
+msgstr "අඩුවෙන්..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
@@ -438,23 +438,23 @@ msgstr ""
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "මෙම ලිපින පොත යාවත්කාලීන කිරීමට ඔබට අවසර නැත"
 
 #: lib/addressbook.php:259
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "මෙම ලිපින පොත යාවත්කාලීන කිරීමේදී දෝෂයක් ඇති විය"
 
 #: lib/addressbook.php:315
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "මෙම ලිපින පොත මැකීමට ඔබට අවසර නැත"
 
 #: lib/addressbook.php:344
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "මෙම ලිපින පොත මැකීමේදී දෝෂයක් ඇති විය"
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
-msgstr ""
+msgstr "ලිපින පොත හමු නොවුනි"
 
 #: lib/app.php:52
 msgid "This is not your addressbook."
@@ -522,7 +522,7 @@ msgstr "නිවස"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:648
 msgid "Other"
-msgstr ""
+msgstr "වෙනත්"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -563,31 +563,31 @@ msgstr "උපන් දිනය"
 
 #: lib/app.php:253
 msgid "Business"
-msgstr ""
+msgstr "ව්‍යාපාරය"
 
 #: lib/app.php:254
 msgid "Call"
-msgstr ""
+msgstr "අමතන්න"
 
 #: lib/app.php:255
 msgid "Clients"
-msgstr ""
+msgstr "සේවාලාභීන්"
 
 #: lib/app.php:256
 msgid "Deliverer"
-msgstr ""
+msgstr "බාරදෙන්නා"
 
 #: lib/app.php:257
 msgid "Holidays"
-msgstr ""
+msgstr "නිවාඩු"
 
 #: lib/app.php:258
 msgid "Ideas"
-msgstr ""
+msgstr "අදහස්"
 
 #: lib/app.php:259
 msgid "Journey"
-msgstr ""
+msgstr "ගමන"
 
 #: lib/app.php:260
 msgid "Jubilee"
@@ -595,19 +595,19 @@ msgstr ""
 
 #: lib/app.php:261
 msgid "Meeting"
-msgstr ""
+msgstr "රැස්වීම"
 
 #: lib/app.php:263
 msgid "Personal"
-msgstr ""
+msgstr "පෞද්ගලික"
 
 #: lib/app.php:264
 msgid "Projects"
-msgstr ""
+msgstr "ව්‍යාපෘති"
 
 #: lib/app.php:265
 msgid "Questions"
-msgstr ""
+msgstr "ප්‍රශ්ණ"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
@@ -619,7 +619,7 @@ msgstr "සබඳතාව"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "මෙම ලිපින පොතට අලුත් සම්බන්ධතා එක් කිරීමට ඔබට අවසර නැත"
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
@@ -627,7 +627,7 @@ msgstr ""
 
 #: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
-msgstr ""
+msgstr "මෙම සම්බන්ධතාව සංස්කරණය කිරීමට ඔබට අවසර නැත"
 
 #: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
@@ -639,11 +639,11 @@ msgstr ""
 
 #: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
-msgstr ""
+msgstr "මෙම සම්බන්ධතාව මැකීමට ඔබට අවසර නැත"
 
 #: lib/vcard.php:550
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "මෙම සම්බන්ධතාව මැකීමේදී දෝෂයක් ඇති විය"
 
 #: templates/index.php:14
 msgid "Add Contact"
@@ -651,15 +651,15 @@ msgstr "සබඳතාවක් එක් කරන්න"
 
 #: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
-msgstr ""
+msgstr "ආයාත කරන්න"
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "සිටුවම්"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
-msgstr ""
+msgstr "වසන්න"
 
 #: templates/index.php:31
 msgid "Keyboard shortcuts"
@@ -683,11 +683,11 @@ msgstr ""
 
 #: templates/index.php:42
 msgid "Next addressbook"
-msgstr ""
+msgstr "මෙයට පසු ලිපින පොත"
 
 #: templates/index.php:44
 msgid "Previous addressbook"
-msgstr ""
+msgstr "මෙයට පෙර ලිපින පොත"
 
 #: templates/index.php:48
 msgid "Actions"
@@ -748,15 +748,15 @@ msgstr "පටබැඳි නම ඇතුලත් කරන්න"
 
 #: templates/part.contact.php:43 templates/part.contact.php:134
 msgid "Web site"
-msgstr ""
+msgstr "වෙබ් අඩවිය"
 
 #: templates/part.contact.php:44
 msgid "http://www.somesite.com"
-msgstr ""
+msgstr "http://www.somesite.com"
 
 #: templates/part.contact.php:44
 msgid "Go to web site"
-msgstr ""
+msgstr "වෙබ් අඩවියට යන්න"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"
@@ -821,11 +821,11 @@ msgstr "ලිපින විස්තර සංස්කරණය කරන්
 
 #: templates/part.contact.php:116
 msgid "Add notes here."
-msgstr ""
+msgstr "මෙතැන නෝට්ටුවක් තබන්න"
 
 #: templates/part.contact.php:124
 msgid "Add field"
-msgstr ""
+msgstr "ක්ෂේත්‍රයක් එකතු කරන්න"
 
 #: templates/part.contact.php:129
 msgid "Phone"
@@ -845,7 +845,7 @@ msgstr "ලිපිනය"
 
 #: templates/part.contact.php:133
 msgid "Note"
-msgstr ""
+msgstr "නෝට්ටුවක්"
 
 #: templates/part.contact.php:138
 msgid "Download contact"
@@ -920,7 +920,7 @@ msgstr "ලිපින පොත"
 
 #: templates/part.edit_name_dialog.php:23
 msgid "Hon. prefixes"
-msgstr ""
+msgstr "ගෞරවාන්විත නාම"
 
 #: templates/part.edit_name_dialog.php:27
 msgid "Miss"
@@ -956,7 +956,7 @@ msgstr "වෙනත් නම්"
 
 #: templates/part.edit_name_dialog.php:39
 msgid "Family name"
-msgstr ""
+msgstr "අවසන් නම"
 
 #: templates/part.edit_name_dialog.php:41
 msgid "Hon. suffixes"
@@ -996,23 +996,23 @@ msgstr ""
 
 #: templates/part.import.php:1
 msgid "Import a contacts file"
-msgstr ""
+msgstr "සම්බන්ධතා ඇති ගොනුවක් ආයාත කරන්න"
 
 #: templates/part.import.php:6
 msgid "Please choose the addressbook"
-msgstr ""
+msgstr "කරුණාකර ලිපින පොත තෝරන්න"
 
 #: templates/part.import.php:10
 msgid "create a new addressbook"
-msgstr ""
+msgstr "නව ලිපින පොතක් සාදන්න"
 
 #: templates/part.import.php:15
 msgid "Name of new addressbook"
-msgstr ""
+msgstr "නව ලිපින පොතේ නම"
 
 #: templates/part.import.php:20
 msgid "Importing contacts"
-msgstr ""
+msgstr "සම්බන්ධතා ආයාත කරමින් පවතී"
 
 #: templates/part.no_contacts.php:3
 msgid ""
@@ -1025,7 +1025,7 @@ msgstr ""
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"
-msgstr ""
+msgstr "සම්බන්ධතාවක් එකතු කරන්න"
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
@@ -1033,7 +1033,7 @@ msgstr ""
 
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
-msgstr ""
+msgstr "විස්තරය දෙන්න"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"
@@ -1041,7 +1041,7 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr ""
+msgstr "තව විස්තර"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
@@ -1049,7 +1049,7 @@ msgstr ""
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:9
 msgid "Addressbooks"
@@ -1057,7 +1057,7 @@ msgstr "ලිපින පොත්"
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "බෙදා හදා ගන්න"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1065,11 +1065,11 @@ msgstr "නව ලිපින පොතක් "
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "නම"
 
 #: templates/settings.php:59
 msgid "Description"
-msgstr ""
+msgstr "විස්තරය"
 
 #: templates/settings.php:60
 msgid "Save"

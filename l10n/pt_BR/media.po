@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <dudanogueira@gmail.com>, 2012.
 #   <duda.nogueira@metasys.com.br>, 2011.
 #   <philippi.sedir@gmail.com>, 2012.
 # Sandro Venezuela <sandrovenezuela@gmail.com>, 2012.
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-04 00:00+0100\n"
+"PO-Revision-Date: 2012-11-03 14:29+0000\n"
+"Last-Translator: dudanogueira <dudanogueira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +36,7 @@ msgstr "albuns"
 
 #: js/collection.js:282
 msgid "Add to playlist"
-msgstr ""
+msgstr "Adicionar à playlist"
 
 #: js/music.js:18
 msgid "Add album to playlist"

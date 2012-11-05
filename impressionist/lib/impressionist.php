@@ -34,7 +34,7 @@ class Storage {
 
 	public static function getPresentations() {
 		$presentations=array();
-		$list=\OC_FileCache::searchByMime('text', 'impress' ); 
+		$list=\OC_FileCache::searchByMime('application', 'zip'); 
 		foreach($list as $l) {
 			$info=pathinfo($l);
 			$size=\OC_Filesystem::filesize($l);
@@ -43,8 +43,7 @@ class Storage {
 			$entry=array('url'=>$l,'name'=>$info['filename'],'size'=>$size,'mtime'=>$mtime);
 			$presentations[]=$entry;
 		}
-
-	
+                
 		return $presentations;
 	}
  

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:01+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-05 00:00+0100\n"
+"PO-Revision-Date: 2012-11-04 17:58+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,35 +20,35 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "Tipo di file non supportato per l'importazione"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Segnalibri"
 
-#: js/addBm.js:42 js/bookmarks.js:241
+#: js/addBm.js:42 js/bookmarks.js:245
 msgid "Tags"
 msgstr "Tag"
 
-#: js/bookmarks.js:176
+#: js/bookmarks.js:179
 msgid "Edit bookmark"
 msgstr "Modifica segnalibro"
 
-#: js/bookmarks.js:393
+#: js/bookmarks.js:397
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Sei sicuro di voler rimuovere questo tag da ogni voce?"
 
-#: js/bookmarks.js:394
+#: js/bookmarks.js:398
 msgid "Warning"
 msgstr "Avviso"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "Importazione completata correttamente."
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "Caricamento in corso..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -77,16 +77,6 @@ msgstr "Descrizione della pagina"
 #: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
 msgstr "Salva"
-
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr "Quando vuoi creare rapidamente un segnalibro, trascinalo sui segnalibri del browser e fai clic su di esso:"
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr "Leggi dopo"
 
 #: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
 msgid "Edit"
@@ -130,32 +120,34 @@ msgstr "Tag correlati"
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Non hai segnalibri"
 
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Bookmarklet <br />"
+msgid "Bookmarklet"
+msgstr "Bookmarklet"
 
-#: templates/settings.php:25
-msgid "Import bookmarks"
-msgstr "Importa segnalibri"
+#: templates/settings.php:13
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "Quando vuoi creare rapidamente un segnalibro, trascinalo sui segnalibri del browser e fai clic su di esso:"
 
-#: templates/settings.php:27
-msgid "html bookmarks file"
-msgstr ""
+#: templates/settings.php:19
+msgid "Read later"
+msgstr "Leggi dopo"
 
-#: templates/settings.php:29
-msgid "Import"
-msgstr "Importa"
+#: templates/settings.php:31
+msgid "Export & Import"
+msgstr "Esporta e importa"
 
 #: templates/settings.php:32
-msgid "Export bookmarks"
-msgstr "Esporta segnalibri"
-
-#: templates/settings.php:34
 msgid "Export"
 msgstr "Esporta"
+
+#: templates/settings.php:34
+msgid "Import"
+msgstr "Importa"

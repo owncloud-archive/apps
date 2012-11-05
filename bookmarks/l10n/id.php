@@ -4,7 +4,6 @@
 "Close" => "tutup",
 "The title of the page" => "judul laman",
 "Save" => "simpan",
-"Read later" => "baca nanti",
 "Edit" => "ubah",
 "Delete" => "hapus",
 "Cancel" => "batal",
@@ -14,6 +13,8 @@
 "Hide" => "sembunyikan",
 "Show" => "tampilkan",
 "Related Tags" => "label terkait",
-"Import" => "mengimpor",
-"Export" => "mengekspor"
+"Settings" => "pengaturan",
+"Read later" => "baca nanti",
+"Export" => "mengekspor",
+"Import" => "mengimpor"
 );
