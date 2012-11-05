@@ -795,6 +795,11 @@ OC.Contacts={
 					},'json');
 			} else { // add
 					//console.log('Adding: ' + q);
+					// Don't sumbit type before the property value is saved.
+					if($(obj).is(':checkbox') || $(obj).is('select')) {
+						OC.Contacts.loading(obj, false);
+						return;
+					}
 					$(obj).attr('disabled', 'disabled');
 					$.post(OC.filePath('contacts', 'ajax', 'contact/addproperty.php'),q,function(jsondata){
 						if(jsondata.status == 'success'){
