@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-05 00:00+0100\n"
+"POT-Creation-Date: 2012-11-06 00:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,19 +25,19 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: js/addBm.js:42 js/bookmarks.js:245
+#: js/addBm.js:42 js/bookmarks.js:229
 msgid "Tags"
 msgstr ""
 
-#: js/bookmarks.js:179
+#: js/bookmarks.js:131
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:397
+#: js/bookmarks.js:368
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:398
+#: js/bookmarks.js:369
 msgid "Warning"
 msgstr ""
 
@@ -77,11 +77,11 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
+#: templates/js_tpl.php:6 templates/js_tpl.php:60
 msgid "Edit"
 msgstr ""
 
-#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+#: templates/js_tpl.php:10 templates/js_tpl.php:64
 msgid "Delete"
 msgstr ""
 
@@ -89,39 +89,23 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: templates/list.php:12
+#: templates/list.php:13
 msgid "Address"
 msgstr ""
 
-#: templates/list.php:13
+#: templates/list.php:14
 msgid "Add bookmark"
 msgstr ""
 
-#: templates/list.php:16
-msgid "List"
-msgstr ""
-
-#: templates/list.php:17
-msgid "Image"
-msgstr ""
-
-#: templates/list.php:22
-msgid "Hide"
-msgstr ""
-
 #: templates/list.php:23
-msgid "Show"
-msgstr ""
-
-#: templates/list.php:30
 msgid "Related Tags"
 msgstr ""
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:31 templates/list.php:33
 msgid "Settings"
 msgstr ""
 
-#: templates/list.php:53
+#: templates/list.php:46
 msgid "You have no bookmarks"
 msgstr ""
 
