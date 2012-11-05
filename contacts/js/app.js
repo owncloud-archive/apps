@@ -830,6 +830,10 @@ OC.Contacts = OC.Contacts || {
 				//console.log('scroll, unseen:', offset, self.$rightContent.height());
 			}
 		});*/
+		$('#contactphoto_fileupload').on('change', function() {
+			self.uploadPhoto(this.files);
+		});
+
 		this.$ninjahelp.find('.close').on('click keydown',function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -1192,6 +1196,37 @@ OC.Contacts = OC.Contacts || {
 	},
 	update: function() {
 		console.log('update');
+	},
+	uploadPhoto:function(filelist) {
+		var self = this;
+		if(!filelist) {
+			OC.notify({message:t('contacts','No files selected for upload.')});
+			return;
+		}
+		var file = filelist[0];
+		var target = $('#file_upload_target');
+		var form = $('#file_upload_form');
+		var totalSize=0;
+		if(file.size > $('#max_upload').val()){
+			OC.notify({
+				message:t(
+					'contacts',
+					'The file you are trying to upload exceed the maximum size for file uploads on this server.'),
+			});
+			return;
+		} else {
+			target.load(function() {
+				var response=jQuery.parseJSON(target.contents().text());
+				if(response != undefined && response.status == 'success') {
+					console.log('response', response);
+					self.editPhoto(self.currentid, response.data.tmp);
+					//alert('File: ' + file.tmp + ' ' + file.name + ' ' + file.mime);
+				} else {
+					OC.notify({message:response.data.message});
+				}
+			});
+			form.submit();
+		}
 	},
 	cloudPhotoSelected:function(id, path) {
 		var self = this;
