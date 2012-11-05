@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-03 00:00+0100\n"
-"PO-Revision-Date: 2012-11-02 23:01+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-06 00:00+0100\n"
+"PO-Revision-Date: 2012-11-05 23:01+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -110,7 +110,7 @@ msgstr "Errorea  ituruburuak kargatzearkoan"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:38 js/settings.js:50
+#: js/settings.js:55
 msgid "Error"
 msgstr "Errorea"
 
@@ -179,19 +179,19 @@ msgstr "Errore Larria"
 msgid "No files selected."
 msgstr "Ez da fitxategirik hautatu."
 
-#: js/settings.js:33 js/settings.js:46
-msgid " out of "
+#: js/settings.js:31
+msgid "Importing OPML file..."
 msgstr ""
 
-#: js/settings.js:34 js/settings.js:47
-msgid " feeds imported successfully from "
-msgstr "iturburuak ongi inportatu dira hemendik"
+#: js/settings.js:42
+msgid "Not a valid type"
+msgstr ""
 
-#: js/settings.js:35 js/settings.js:48
-msgid "Success"
-msgstr "Arrakasta"
+#: js/settings.js:51
+msgid "{n_success} out of {n_total} feeds imported successfully!"
+msgstr ""
 
-#: js/settings.js:66
+#: js/settings.js:75
 msgid "Select file"
 msgstr "Hautatu fitxategia"
 

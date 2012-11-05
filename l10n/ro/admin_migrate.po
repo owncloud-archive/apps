@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-19 02:02+0200\n"
-"PO-Revision-Date: 2012-09-18 12:31+0000\n"
-"Last-Translator: g.ciprian <g.ciprian@osn.ro>\n"
+"POT-Creation-Date: 2012-11-06 00:00+0100\n"
+"PO-Revision-Date: 2012-11-05 23:01+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,8 +33,8 @@ msgid "Please choose the export type:"
 msgstr "Te rugăm să alegi tipul de exportat:"
 
 #: templates/settings.php:10
-msgid "ownCloud instance (suitable for import)"
-msgstr "Instanță ownCloud (potrivită pentru importare)"
+msgid "ownCloud instance (user data and database"
+msgstr ""
 
 #: templates/settings.php:11
 msgid "ownCloud system files"
