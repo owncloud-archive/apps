@@ -654,6 +654,11 @@ OC.Contacts = OC.Contacts || {
 	bindEvents: function() {
 		var self = this;
 
+		// Should fix Opera check for delayed delete.
+		$(window).unload(function (){
+			$(window).trigger('beforeunload');
+		});
+
 		// App specific events
 		$(document).bind('status.contact.deleted', function(e, data) {
 			var id = parseInt(data.id);
