@@ -13,6 +13,7 @@
 	<input type="hidden" class="max_human_file_size" value="(max <?php echo $_['uploadMaxHumanFilesize']; ?>)">
 	<input id="contactphoto_fileupload" type="file" accept="image/*" name="imagefile" />
 </form>
+<iframe name="file_upload_target" id='file_upload_target' src=""></iframe>
 <div id="leftcontent" class="loading">
 	<div class="hidden" id="statusbar"></div>
 	<nav id="grouplist">
