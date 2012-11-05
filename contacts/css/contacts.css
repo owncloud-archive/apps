@@ -160,7 +160,7 @@ dl.addresscard .action { float: right; }
 .addressbooks-settings td.active, .addressbooks-settings td.action { width: 20px; }
 
 /* Single elements */
-
+#file_upload_target, #import_upload_target, #crop_target { display:none; }
 #toggle_all { position: absolute; bottom: .5em; left: .8em; }
 .numcontacts { float: right; }
 input.propertytype { float: left; font-size: .8em; width: 8em !important; direction: rtl;}
