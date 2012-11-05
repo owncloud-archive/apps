@@ -534,6 +534,9 @@ OC.Contacts = OC.Contacts || {};
 							case 'URL':
 							case 'EMAIL':
 								$property = self.renderStandardProperty(name.toLowerCase(), property);
+								if(self.data[name].length >= 1) {
+									$property.find('input:checkbox[value="PREF"]').hide();
+								}
 								break;
 							case 'ADR':
 								$property = self.renderAddressProperty(property);
