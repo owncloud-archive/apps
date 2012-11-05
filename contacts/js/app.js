@@ -633,7 +633,7 @@ OC.Contacts = OC.Contacts || {
 				$(rmopts).appendTo(this.$groups)
 				.wrapAll('<optgroup data-action="remove" label="' + t('contacts', 'Remove from...') + '"/>');
 			}
-		} else { // Otherwise add all categories to both add and remove
+		} else if(this.Contacts.getSelectedContacts().length > 0) { // Otherwise add all categories to both add and remove
 			this.$groups.find('optgroup,option:not([value="-1"])').remove();
 			var addopts = '', rmopts = '';
 			$.each(this.Groups.categories, function(i, category) {
@@ -644,8 +644,10 @@ OC.Contacts = OC.Contacts || {
 				.wrapAll('<optgroup data-action="add" label="' + t('contacts', 'Add to...') + '"/>');
 			$(rmopts).appendTo(this.$groups)
 				.wrapAll('<optgroup data-action="remove" label="' + t('contacts', 'Remove from...') + '"/>');
+		} else {
+			// 3rd option: No contact open, none checked, just show "Add group..."
+			this.$groups.find('optgroup,option:not([value="-1"])').remove();
 		}
-		// TODO: 3rd option: No contact open, none checked, just show "Add group..."
 		$('<option value="add">' + t('contacts', 'Add group...') + '</option>').appendTo(this.$groups);
 		this.$groups.val(-1);
 	},
@@ -941,6 +943,9 @@ OC.Contacts = OC.Contacts || {
 								console.log('adding', id, 'to', groupname);
 								self.Contacts.contacts[id].addToGroup(groupname);
 								// I don't think this is used...
+								if(buildnow) {
+									self.buildGroupSelect();
+								}
 								$(document).trigger('status.contact.addedtogroup', {
 									contactid: id,
 									groupid: groupid,
@@ -948,9 +953,6 @@ OC.Contacts = OC.Contacts || {
 								});
 							}, 1000);
 						});
-						if(buildnow) {
-							self.buildGroupSelect();
-						}
 					} else {
 						// TODO: Use message return from Groups object.
 						OC.notify({message:t('contacts', t('contacts', 'Error adding to group.'))});
@@ -966,6 +968,9 @@ OC.Contacts = OC.Contacts || {
 						var groupname = $opt.text(), groupid = $opt.val();
 						$.each(result.ids, function(idx, id) {
 							self.Contacts.contacts[id].removeFromGroup(groupname);
+							if(buildnow) {
+								self.buildGroupSelect();
+							}
 							// If a group is selected the contact has to be removed from the list
 							$(document).trigger('status.contact.removedfromgroup', {
 								contactid: id,
@@ -973,9 +978,6 @@ OC.Contacts = OC.Contacts || {
 								groupname: groupname,
 							});
 						});
-						if(buildnow) {
-							self.buildGroupSelect();
-						}
 					} else {
 						OC.notify({message:t('contacts', t('contacts', 'Error removing from group.'))});
 					}
