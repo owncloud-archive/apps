@@ -2,8 +2,8 @@
 <info>
 	<id>updater</id>
 	<name>Updater</name>
-	<description>Generic</description>
-	<version>0.1.2</version>
+	<description>ownCloud updater plugin. Check README for details.</description>
+	<version>0.2</version>
 	<licence>AGPL</licence>
 	<author>Victor Dubiniuk</author>
 	<shipped>true</shipped>

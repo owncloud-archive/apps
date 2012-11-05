@@ -18,7 +18,6 @@ namespace OCA\Updater;
 // Url to download package e.g. http://download.owncloud.org/releases/owncloud-4.0.5.tar.bz2
 $packageUrl = 'https://download.owncloud.com/download/community/owncloud-latest.zip';
 
-
 //Package version e.g. 4.0.4
 $packageVersion = '';
 $updateData = \OC_Updater::check();
@@ -39,6 +38,9 @@ $sourcePath = App::getSourcePath($packageVersion, $packageUrl);
 //Step 1 - fetch & extract
 if (!$sourcePath){
 	try {
+		//Do we have any remains of the previous update attempt?
+		Downloader::cleanUp($packageVersion);
+		
 		$sourcePath = Downloader::getPackage($packageUrl, $packageVersion);
 		App::setSourcePath($packageVersion, $packageUrl, $sourcePath);
 		\OCP\JSON::success(array());
@@ -50,14 +52,22 @@ if (!$sourcePath){
 }
 
 //Step 2 - backup & update
-//TODO: CleanUp
+
+//Do we have any remains of the previous update attempt?
+Updater::cleanUp();
+
 try {
 	$backupPath = Backup::createBackup();
 	App::setSourcePath($packageVersion, $packageUrl, '');
 	Updater::update($sourcePath, $backupPath);
+	//Cleanup
+	Downloader::cleanUp($packageVersion);
+	Updater::cleanUp();
 	\OCP\JSON::success(array());
 } catch (\Exception $e){
 	\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
 	App::setSourcePath($packageVersion, $packageUrl, '');
-	\OCP\JSON::error(array('msg' => 'Failed to create backup'));	
+	\OCP\JSON::error(array('msg' => 'Failed to create backup'));
 }
+
+exit();

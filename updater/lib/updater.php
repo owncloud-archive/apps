@@ -14,79 +14,73 @@ namespace OCA\Updater;
 
 class Updater {
 
-	protected static $_skipDirs = array();
-	protected static $_updateDirs = array();
+	protected static $processed = array();
 
-	public static function update($sourcePath, $backupPath) {
-		if (!is_dir($backupPath)) {
+	public static function update($updateBase, $backupBase) {
+		if (!is_dir($backupBase)) {
 			throw new \Exception('Backup directory is not found');
 		}
 
-		self::$_updateDirs = App::getDirectories();
-		self::$_skipDirs = App::getExcludeDirectories();
-
 		set_include_path(
-				$backupPath . PATH_SEPARATOR .
-				$backupPath . DIRECTORY_SEPARATOR . 'lib' . PATH_SEPARATOR .
-				$backupPath . DIRECTORY_SEPARATOR . 'config' . PATH_SEPARATOR .
-				$backupPath . DIRECTORY_SEPARATOR . '3rdparty' . PATH_SEPARATOR .
-				$backupPath . '/apps' . PATH_SEPARATOR .
+				$backupBase . PATH_SEPARATOR .
+				$backupBase . '/lib' . PATH_SEPARATOR .
+				$backupBase . '/config' . PATH_SEPARATOR .
+				$backupBase . '/3rdparty' . PATH_SEPARATOR .
+				$backupBase . '/apps' . PATH_SEPARATOR .
 				get_include_path()
 		);
 
-		$tempPath = App::getBackupBase() . 'tmp';
-		if  (!@mkdir($tempPath, 0777, true)) {
-			throw new \Exception('failed to create ' . $tempPath);
-		}
-
-		//TODO: Add Check/Rollback here
-		self::moveDirectories($sourcePath, $tempPath);
-
-		//TODO: Add Check/Rollback here
-		$config = "/config/config.php";
-		copy($tempPath . $config, self::$_updateDirs['core'] . $config);
-
-		//Delete temp dir
-		\OC_Helper::rmdirr($sourcePath);
-		\OC_Helper::rmdirr($tempPath);
-		@unlink($sourcePath);
-		@unlink($tempPath);
-		return true;
-	}
-
-	public static function moveDirectories($updatePath, $tempPath) {
-		foreach (self::$_updateDirs as $type => $path) {
-			$currentDir = $path;
-			$updateDir = $updatePath;
-			$tempDir = $tempPath;
-			if ($type != 'core') {
-				$updateDir .= DIRECTORY_SEPARATOR . $type;
-				$tempDir .= DIRECTORY_SEPARATOR . $type;
-				rename($currentDir, $tempDir);
-				rename($updateDir, $currentDir);
-			} else {
-				self::moveDirectoryContent($currentDir, $tempDir);
-				self::moveDirectoryContent($updateDir, $currentDir);
-			}
-		}
-		return true;
-	}
-
-	public static function moveDirectoryContent($source, $destination) {
-		$dh = opendir($source);
-		while (($file = readdir($dh)) !== false) {
-			$fullPath = $source . DIRECTORY_SEPARATOR . $file;
-			if (is_dir($fullPath)) {
-				if (in_array($file, self::$_skipDirs['relative'])
-					|| in_array($fullPath, self::$_skipDirs['full'])
-				) {
-					continue;
+		$tempBase = self::getTempDir();
+		Helper::mkdir($tempBase, true);
+		
+		try {
+			$locations = Helper::getPreparedLocations();
+			//TODO: Straight update of 3rdparty/apps[]/core
+			foreach ($locations as $type => $dirs) {
+				$tempPath = $tempBase . '/';
+				$updatePath = $updateBase . '/';
+			
+				if ($type != 'core') {
+					$tempPath .= $type . '/';
+					$updatePath .= $type . '/';
+				}
+			
+				foreach ($dirs as $name => $path) {
+					//TODO: Add Rollback details here
+					self::moveTriple($path, $updatePath . $name, $tempPath . $name);
 				}
 			}
-
-			rename($fullPath, $destination . DIRECTORY_SEPARATOR . $file);
+		} catch (\Exception $e){
+			self::rollBack();
+			self::cleanUp();
+			throw $e;
 		}
+
+		$config = "/config/config.php";
+		copy($tempBase . $config, \OC::$SERVERROOT . $config);
+
 		return true;
+	}
+
+	public static function moveTriple($old, $new, $temp) {
+		@rename($old, $temp);
+		if (file_exists($new) && !@rename($new, $old)) {
+			throw new \Exception("Unable to move $new to $old");
+		}
+	}
+	
+	public static function rollBack(){
+		foreach (self::$processed as $item){
+			\OC_Helper::copyrr($item['src'], $item['dst']);
+		}
+	}
+
+	public static function cleanUp(){
+		Helper::removeIfExists(self::getTempDir());
+	}
+
+	public static function getTempDir(){
+		return App::getBackupBase() . 'tmp';
 	}
 
 }
