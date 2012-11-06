@@ -259,16 +259,16 @@ class VCard {
 			if($property->name == 'FN') {
 				$fn = $property->value;
 			}
-			if($property->name == 'N') {
+			else if($property->name == 'N') {
 				$n = $property->value;
 			}
-			if($property->name == 'UID') {
+			else if($property->name == 'UID') {
 				$uid = $property->value;
 			}
-			if($property->name == 'ORG') {
+			else if($property->name == 'ORG') {
 				$org = $property->value;
 			}
-			if($property->name == 'EMAIL' && is_null($email)) { // only use the first email as substitute for missing N or FN.
+			else if($property->name == 'EMAIL' && is_null($email)) { // only use the first email as substitute for missing N or FN.
 				$email = $property->value;
 			}
 		}
