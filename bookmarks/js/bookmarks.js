@@ -266,9 +266,6 @@ function updateBookmarksList(bookmark, position) {
 		if(tags[i] != '')
 			taglist = taglist + '<a class="bookmark_tag" href="#">' + encodeEntities(tags[i]) + '</a> ';
 	}
-	if(!hasProtocol(bookmark.url)) {
-		bookmark.url = 'http://' + bookmark.url;
-	}
 	
 	if(bookmark.added) {
 		bookmark.added_date.setTime(parseInt(bookmark.added)*1000);
@@ -317,11 +314,6 @@ function encodeEntities(s){
 	} catch (ex) {
 		return "";
 	}
-}
-
-function hasProtocol(url) {
-    var regexp = /(ftp|http|https|sftp)/;
-    return regexp.test(url);
 }
 
 function renameTag(event) {
