@@ -317,6 +317,10 @@ $(document).ready(function(){
 			showFileEditor($('#dir').val(),filename);
 		});
 		FileActions.setDefault('application/x-empty','Edit');
+		FileActions.register('inode/x-empty','Edit', OC.PERMISSION_READ, '',function(filename){
+			showFileEditor($('#dir').val(),filename);
+		});
+		FileActions.setDefault('inode/x-empty','Edit');
 	}
 	OC.search.customResults.Text=function(row,item){
 		var text=item.link.substr(item.link.indexOf('&file=')+6);
