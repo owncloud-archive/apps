@@ -9,14 +9,15 @@
 #   <gp4004@arghh.org>, 2012.
 # Guillaume Paumier <guillom.pom@gmail.com>, 2012.
 #   <mathieu.payrol@gmail.com>, 2012.
+# Paul McFly <roipoussiere@gmail.com>, 2012.
 # Romain DEP. <rom1dep@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-07 00:01+0100\n"
+"PO-Revision-Date: 2012-11-06 16:08+0000\n"
+"Last-Translator: Paul McFly <roipoussiere@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -187,15 +188,15 @@ msgstr "Aucun fichier selectionné."
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "Importation du fichier OPML..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
-msgstr ""
+msgstr "Ce n'est pas un type valide"
 
 #: js/settings.js:51
 msgid "{n_success} out of {n_total} feeds imported successfully!"
-msgstr ""
+msgstr "{n_success} sur {n_total} flux importés avec succès !"
 
 #: js/settings.js:75
 msgid "Select file"
