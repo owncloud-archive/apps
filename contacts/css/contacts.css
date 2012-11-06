@@ -33,7 +33,7 @@ button.control { float: left; margin: 0.2em 0 0 1em; height: 2.4em; width: 2.4em
 #card { width: auto; font-size: 10px; /*max-width: 70em; border: thin solid lightgray; display: block;*/ }
 #firstrun { position: relative; top: 25%; left: 20%; right: 20%; width: 50%; font-weight:bold; text-align: center; color: #777; }
 #firstrun h3 { font-size:1.5em; text-align: center; margin-bottom: 1em; }
-#firstrun p { font-size:1.2em; text-align: }
+#firstrun p { font-size:1.2em; text-align:center; }
 #firstrun #selections { font-size:0.8em; margin: 2em auto auto auto; clear: both; }
 
 #card input[type="text"].contacts_property,input[type="email"].contacts_property,input[type="url"].contacts_property { width: 14em; float: left; font-weight: bold; }
