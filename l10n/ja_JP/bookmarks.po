@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:01+0000\n"
+"POT-Creation-Date: 2012-11-08 00:01+0100\n"
+"PO-Revision-Date: 2012-11-07 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -26,19 +26,23 @@ msgstr ""
 msgid "Bookmarks"
 msgstr "ブックマーク"
 
-#: js/addBm.js:42 js/bookmarks.js:229
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
 msgstr "タグ"
 
-#: js/bookmarks.js:131
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr ""
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
 msgstr "ブックマークを編集"
 
-#: js/bookmarks.js:368
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "すべてのエントリからこのタグを削除してもよろしいですか？"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr "警告"
 
@@ -78,60 +82,64 @@ msgstr "ページの説明"
 msgid "Save"
 msgstr "保存"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:60
-msgid "Edit"
-msgstr "編集"
-
-#: templates/js_tpl.php:10 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
 msgid "Delete"
 msgstr "削除"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "編集"
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: templates/list.php:13
-msgid "Address"
-msgstr "アドレス"
-
 #: templates/list.php:14
-msgid "Add bookmark"
-msgstr "ブックマークを追加"
-
-#: templates/list.php:23
-msgid "Related Tags"
-msgstr "関連タグ"
-
-#: templates/list.php:31 templates/list.php:33
-msgid "Settings"
-msgstr "設定"
-
-#: templates/list.php:46
-msgid "You have no bookmarks"
-msgstr "ブックマークがありません"
-
-#: templates/settings.php:11
-msgid "Bookmarklet"
-msgstr ""
-
-#: templates/settings.php:13
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
 msgstr "Webページをすぐにブックマークしたい場合は、これをブラウザのブックマークにドラッグし、クリックしてください:"
 
-#: templates/settings.php:19
+#: templates/list.php:15
 msgid "Read later"
 msgstr "後で確認"
 
-#: templates/settings.php:31
+#: templates/list.php:22
+msgid "Address"
+msgstr "アドレス"
+
+#: templates/list.php:23
+msgid "Add"
+msgstr ""
+
+#: templates/list.php:30
+msgid "Related Tags"
+msgstr "関連タグ"
+
+#: templates/list.php:38 templates/list.php:40
+msgid "Settings"
+msgstr "設定"
+
+#: templates/list.php:52
+msgid "You have no bookmarks"
+msgstr "ブックマークがありません"
+
+#: templates/list.php:57
+msgid "You can also try to import a bookmark file"
+msgstr ""
+
+#: templates/settings.php:11
+msgid "Bookmarklet"
+msgstr ""
+
+#: templates/settings.php:23
 msgid "Export & Import"
 msgstr ""
 
-#: templates/settings.php:32
+#: templates/settings.php:24
 msgid "Export"
 msgstr "エクスポート"
 
-#: templates/settings.php:34
+#: templates/settings.php:26
 msgid "Import"
 msgstr "インポート"
