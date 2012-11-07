@@ -75,7 +75,7 @@ input.disabled, input.disabled:hover {
 .bookmark_single {
 	position: relative;
 	padding: 0.5em 1em;
-        min-height: 3em;
+        min-height: 2em;
 	border-bottom: 1px solid #DDD;
 	-webkit-transition:background-color 500ms; -moz-transition:background-color 500ms; -o-transition:background-color 500ms; transition:background-color 500ms;
 }
@@ -92,6 +92,7 @@ input.disabled, input.disabled:hover {
 	font-weight: bold;
 	display: inline-block;
 	margin-right: 0.8em;
+	margin-top:0.2em;
 }
 
 .bm_view_list .bookmark_tags {
@@ -247,10 +248,12 @@ li:hover em { display : none; }
 	text-overflow:ellipsis;
 	overflow:hidden;
 	display:block;
+	float:right;
 }
 .bookmark_date, .bookmark_submit {
 	font-size:small;
 	position: absolute;
+	top:0.8em;
 	right: 6em;
 	color:gray;
 /* 	margin-top:2.5em; */
