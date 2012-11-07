@@ -1,5 +1,7 @@
 <?php
 
+namespace OAuth;
+
 class RemoteResourceServer
 {
     private $_config;
@@ -22,7 +24,7 @@ class RemoteResourceServer
     /**
      * Verify the Authorization Bearer token.
      *
-     * Note: this only works on Apache as the PHP function 
+     * Note: this only works on Apache as the PHP function
      * "apache_request_headers" is used. On other web servers, or when using
      * a framework, please use the verifyAuthorizationHeader function instead
      * where you can directly specify the contents of the Authorization header.
@@ -39,7 +41,7 @@ class RemoteResourceServer
     /**
      * Verify the Authorization Bearer token.
      *
-     * @param $authorizationHeader The actual content of the Authorization 
+     * @param $authorizationHeader The actual content of the Authorization
      * header, e.g.: "Bearer abcdef"
      */
     public function verifyAuthorizationHeader($authorizationHeader)
@@ -254,7 +256,7 @@ class RemoteResourceServer
 
 }
 
-class RemoteResourceServerException extends Exception
+class RemoteResourceServerException extends \Exception
 {
     private $_description;
     private $_responseCode;

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-04 00:00+0100\n"
-"PO-Revision-Date: 2012-11-03 23:01+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-06 00:00+0100\n"
+"PO-Revision-Date: 2012-11-05 23:01+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/owncloud/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,19 +26,19 @@ msgstr ""
 msgid "Bookmarks"
 msgstr "Žymekliai"
 
-#: js/addBm.js:42 js/bookmarks.js:241
+#: js/addBm.js:42 js/bookmarks.js:229
 msgid "Tags"
 msgstr ""
 
-#: js/bookmarks.js:176
+#: js/bookmarks.js:131
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:393
+#: js/bookmarks.js:368
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:394
+#: js/bookmarks.js:369
 msgid "Warning"
 msgstr "Įspėjimas"
 
@@ -78,11 +78,11 @@ msgstr ""
 msgid "Save"
 msgstr "Išsaugoti"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
+#: templates/js_tpl.php:6 templates/js_tpl.php:60
 msgid "Edit"
 msgstr "Redaguoti"
 
-#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+#: templates/js_tpl.php:10 templates/js_tpl.php:64
 msgid "Delete"
 msgstr "Ištrinti"
 
@@ -90,39 +90,23 @@ msgstr "Ištrinti"
 msgid "Cancel"
 msgstr "Atšaukti"
 
-#: templates/list.php:12
+#: templates/list.php:13
 msgid "Address"
 msgstr "Adresas"
 
-#: templates/list.php:13
+#: templates/list.php:14
 msgid "Add bookmark"
 msgstr ""
 
-#: templates/list.php:16
-msgid "List"
-msgstr "Sąrašas"
-
-#: templates/list.php:17
-msgid "Image"
-msgstr ""
-
-#: templates/list.php:22
-msgid "Hide"
-msgstr ""
-
 #: templates/list.php:23
-msgid "Show"
-msgstr ""
-
-#: templates/list.php:30
 msgid "Related Tags"
 msgstr ""
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:31 templates/list.php:33
 msgid "Settings"
 msgstr "Nustatymai"
 
-#: templates/list.php:53
+#: templates/list.php:46
 msgid "You have no bookmarks"
 msgstr ""
 

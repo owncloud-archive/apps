@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-04 00:00+0100\n"
-"PO-Revision-Date: 2012-11-03 23:01+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-07 00:01+0100\n"
+"PO-Revision-Date: 2012-11-06 07:12+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,35 +21,35 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "Tuonti ei tue kyseistä tiedostotyyppiä"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Kirjanmerkit"
 
-#: js/addBm.js:42 js/bookmarks.js:241
+#: js/addBm.js:42 js/bookmarks.js:226
 msgid "Tags"
 msgstr "Tunnisteet"
 
-#: js/bookmarks.js:176
+#: js/bookmarks.js:128
 msgid "Edit bookmark"
 msgstr "Muokkaa kirjanmerkkejä"
 
-#: js/bookmarks.js:393
+#: js/bookmarks.js:365
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Haluatko varmasti poistaa tämän tunnisteen jokaiselta kohteelta?"
 
-#: js/bookmarks.js:394
+#: js/bookmarks.js:366
 msgid "Warning"
 msgstr "Varoitus"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "Tuonti valmistui onnistuneesti."
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "Lähetetään..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -79,57 +79,41 @@ msgstr "Sivun kuvaus"
 msgid "Save"
 msgstr "Tallenna"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
-msgid "Edit"
-msgstr "Muokkaa"
-
-#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
 msgid "Delete"
 msgstr "Poista"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "Muokkaa"
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
 msgstr "Peru"
 
-#: templates/list.php:12
+#: templates/list.php:13
 msgid "Address"
 msgstr "Osoite"
 
-#: templates/list.php:13
+#: templates/list.php:14
 msgid "Add bookmark"
 msgstr "Lisää kirjanmerkki"
 
-#: templates/list.php:16
-msgid "List"
-msgstr "Lista"
-
-#: templates/list.php:17
-msgid "Image"
-msgstr "Kuva"
-
-#: templates/list.php:22
-msgid "Hide"
-msgstr "Piilota"
-
 #: templates/list.php:23
-msgid "Show"
-msgstr "Näytä"
-
-#: templates/list.php:30
 msgid "Related Tags"
 msgstr "Vastaavanlaiset tunnisteet"
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:31 templates/list.php:33
 msgid "Settings"
 msgstr "Asetukset"
 
-#: templates/list.php:53
+#: templates/list.php:46
 msgid "You have no bookmarks"
 msgstr "Sinulla ei ole kirjanmerkkejä"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
-msgstr ""
+msgstr "Kirjanmerkitsin"
 
 #: templates/settings.php:13
 msgid ""
@@ -143,7 +127,7 @@ msgstr "Lue myöhemmin"
 
 #: templates/settings.php:31
 msgid "Export & Import"
-msgstr ""
+msgstr "Vienti ja tuonti"
 
 #: templates/settings.php:32
 msgid "Export"

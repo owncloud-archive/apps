@@ -18,6 +18,7 @@ class Test_Calendar_Calendars extends UnitTestCase {
 		$this->assertEqual($all[0]['id'],$calId1);
 		$this->assertEqual($all[0]['displayname'],'test');
 		$this->assertEqual($all[0]['uri'],'test');
+		$this->assertEqual($uid, $all[0]['userid']);
 
 		$calId2=OC_Calendar_Calendar::addCalendar($uid,'test');
 		$this->assertNotEqual($calId1, $calId2);

@@ -180,6 +180,7 @@
 "Name of new calendar" => "Nome do novo calendário",
 "Take an available name!" => "Escolha um nome disponível!",
 "A Calendar with this name already exists. If you continue anyhow, these calendars will be merged." => "Já existe um Calendário com esse nome. Se mesmo assim continuar, esses calendários serão fundidos.",
+"Remove all events from the selected calendar" => "Remover todos os eventos do calendário seleccionado",
 "Import" => "Importar",
 "Close Dialog" => "Fechar diálogo",
 "Create a new event" => "Criar novo evento",
