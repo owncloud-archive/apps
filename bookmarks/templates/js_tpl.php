@@ -15,7 +15,11 @@
 					<a href="<%= encodeEntities(url) %>" target="_blank" class="bookmark_link">
 						<%= encodeEntities(title == '' ? '' : url) %>
 					</a>
+<<<<<<< HEAD
                                         <span class="bookmark_edit">
+=======
+					<span class="bookmark_edit">
+>>>>>>> d83016680f7fcaf24f5985084913ea3aca6bdb0c
 						<img class="svg" src="<?php echo OCP\image_path("", "actions/rename.svg");?>"
 							title="<?php echo $l->t('Edit');?>">
 					</span>

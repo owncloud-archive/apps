@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
+"POT-Creation-Date: 2012-11-07 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,19 +25,19 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: js/addBm.js:42 js/bookmarks.js:229
+#: js/addBm.js:42 js/bookmarks.js:226
 msgid "Tags"
 msgstr ""
 
-#: js/bookmarks.js:131
+#: js/bookmarks.js:128
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:368
+#: js/bookmarks.js:365
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:366
 msgid "Warning"
 msgstr ""
 
@@ -77,12 +77,12 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:60
-msgid "Edit"
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
+msgid "Delete"
 msgstr ""
 
-#: templates/js_tpl.php:10 templates/js_tpl.php:64
-msgid "Delete"
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
 msgstr ""
 
 #: templates/js_tpl.php:49

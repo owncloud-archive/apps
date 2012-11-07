@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-07 00:01+0100\n"
+"PO-Revision-Date: 2012-11-06 20:54+0000\n"
+"Last-Translator: a.tangemann <a.tangemann@web.de>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -187,15 +187,15 @@ msgstr "Keine Dateien ausgewählt."
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "OPML Datei wird importiert..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
-msgstr ""
+msgstr "Kein gültiger Typ."
 
 #: js/settings.js:51
 msgid "{n_success} out of {n_total} feeds imported successfully!"
-msgstr ""
+msgstr "{n_success} von {n_total} Feeds wurden erfolgreich importiert!"
 
 #: js/settings.js:75
 msgid "Select file"

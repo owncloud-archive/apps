@@ -9,16 +9,17 @@ $(document).ready(function() {
 	$('#add_url').on('keydown keyup change click', watchUrlField);
   $('#settingsbtn').on('click keydown', toggleSettings);
 	$('#bm_export').click(exportBm);
-
-	$(window).resize(function () {
-		fillWindow($('.bookmarks_list'));
+	$('#firstrun_setting').click(function(){
+		if(! $('#bookmark_settings').hasClass('open')){
+			$('#settingsbtn').click();
+		}
 	});
-	$(window).resize();
-	$('.bookmarks_list').scroll(updateOnBottom).empty().width($('#rightcontent').width());
+	$('.bookmarks_list').scroll(updateOnBottom).empty();
 	$('#tag_filter input').tagit({
 		allowSpaces: true,
 		availableTags: fullTags,
-		onTagFinishRemoved: filterTagsChanged
+		onTagFinishRemoved: filterTagsChanged,
+		placeholderText: t('bookmark', 'Filter by tag')
 	}).tagit('option', 'onTagAdded', filterTagsChanged);
 	getBookmarks();
 });
@@ -307,7 +308,7 @@ function recordClick(event) {
 	$.ajax({
 		type: 'POST',
 		url: OC.filePath('bookmarks', 'ajax', 'recordClick.php'),
-		data: 'url=' + encodeURIComponent($(this).attr('href')),
+		data: 'url=' + encodeURIComponent($(this).attr('href'))
 	});
 }
 
