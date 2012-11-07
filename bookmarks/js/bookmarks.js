@@ -171,7 +171,7 @@ function addBookmark(event) {
 	if(! acceptUrl(url) ) {
 		return;
 	}
-	
+
 	$('#add_url').val('');
 	bookmark = { url: url, description:'', title:'', from_own: '1'};
 	$.ajax({
@@ -220,7 +220,7 @@ function editBookmark(event) {
 	var record = $(this).parent().parent();
 	bookmark =  record.data('record');
 	html = tmpl("item_form_tmpl", bookmark);
-	
+
 	record.after(html);
 	record.hide();
 	rec_form = record.next().find('form');
@@ -270,11 +270,11 @@ function updateBookmarksList(bookmark, position) {
 	if(!hasProtocol(bookmark.url)) {
 		bookmark.url = 'http://' + bookmark.url;
 	}
-	
+
 	if(bookmark.added) {
 		bookmark.added_date.setTime(parseInt(bookmark.added)*1000);
 	}
-	
+
 	html = tmpl("item_tmpl", bookmark);
 	if(position == "prepend") {
 		$('.bookmarks_list').prepend(html);
@@ -290,7 +290,7 @@ function updateBookmarksList(bookmark, position) {
 	line.find('.bookmark_link').click(recordClick);
 	line.find('.bookmark_delete').click(delBookmark);
 	line.find('.bookmark_edit').click(editBookmark);
-	
+
 }
 
 function updateOnBottom() {
@@ -381,5 +381,4 @@ function deleteTag(event){
 			});
 		}
 	});
-}
 

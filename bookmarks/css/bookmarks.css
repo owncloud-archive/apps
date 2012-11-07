@@ -15,8 +15,8 @@ input.disabled, input.disabled:hover {
 }
 
 #rightcontent {
-    	padding-top: 5px;
-    	top: 1em !important;
+	padding-top: 5px;
+	top: 1em !important;
 }
 
 .bookmarks_headline {
@@ -75,7 +75,7 @@ input.disabled, input.disabled:hover {
 .bookmark_single {
 	position: relative;
 	padding: 0.5em 1em;
-        min-height: 3em;
+	min-height: 2em;
 	border-bottom: 1px solid #DDD;
 	-webkit-transition:background-color 500ms; -moz-transition:background-color 500ms; -o-transition:background-color 500ms; transition:background-color 500ms;
 }
@@ -92,6 +92,7 @@ input.disabled, input.disabled:hover {
 	font-weight: bold;
 	display: inline-block;
 	margin-right: 0.8em;
+	margin-top:0.2em;
 }
 
 .bm_view_list .bookmark_tags {
@@ -124,7 +125,6 @@ input.disabled, input.disabled:hover {
 	padding: 0.5em 1em;
 	text-shadow: 0 1px 0 #FFFFFF;
 	width: 500px;
-	
 }
 .bm_desc {
 	width:90%;
@@ -133,7 +133,6 @@ input.disabled, input.disabled:hover {
 	font-weight: bold;
 	border-bottom: 1px solid #BABABA;
 }
-
 
 .addBm fieldset > ul > li {
 	margin-top: 1em;
@@ -144,7 +143,6 @@ input.disabled, input.disabled:hover {
 }
 .addBm .is_public_label {
 	display: inline;
-	
 }
 .addBm fieldset input[type="text"], .addBm textarea {
 	width:100%;
@@ -234,8 +232,8 @@ li:hover em { display : none; }
 #tag_filter ul.tagit li.tagit-choice .close{
 	margin-top: -8px;
 	cursor: pointer;
-    	margin-top: -8px;
-    	position: absolute;
+    margin-top: -8px;
+    position: absolute;
 	right: 0.1em;
 	top: 50%;
 }
@@ -247,10 +245,12 @@ li:hover em { display : none; }
 	text-overflow:ellipsis;
 	overflow:hidden;
 	display:block;
+	float:right;
 }
 .bookmark_date, .bookmark_submit {
 	font-size:small;
 	position: absolute;
+	top:0.8em;
 	right: 6em;
 	color:gray;
 /* 	margin-top:2.5em; */
