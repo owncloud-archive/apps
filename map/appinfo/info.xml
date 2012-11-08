@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<info>
+	<id>map</id>
+	<name>Map</name>
+	<description>Display your favorite places, your devices and your friend on the map</description>
+	<version>0.1</version>
+	<licence>AGPL</licence>
+	<author>Brice Maron</author>
+	<require>4.5</require>
+	<standalone/>
+	<shipped>true</shipped>
+
+</info>

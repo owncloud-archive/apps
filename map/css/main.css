@@ -1,0 +1,44 @@
+#map { height: 100%; width: 100%; }
+#sidebar {
+	position: absolute;
+	width: 200px;
+	height: 300px;
+	top: 100px;
+	left: 50px;
+	background-color: white;
+	opacity: 0.85;
+	padding: 0.5em;
+}
+
+#search_field {
+	position: absolute;
+	top: 60px;
+/* 	left: 450px; */
+	width: 100%;
+	text-align: center;
+}
+#search_field > input {
+	margin:auto;
+	width: 400px;
+	background-color:white;
+}
+.star {
+	background-image: url('%appswebroot%/map/img/inactive_star.svg');
+	background-repeat: no-repeat;
+	background-size: 1.2em 1.2em;
+	width: 1.2em;
+	height: 1.2em;
+	cursor: pointer;
+	float: left;
+	
+}
+
+.star.important{
+	background-image: url('%appswebroot%/map/img/active_star.svg');
+}
+
+.cat_titles > li{
+	list-style:none;
+	font-weight: bold;
+}
+
