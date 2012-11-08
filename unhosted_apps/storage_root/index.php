@@ -29,7 +29,7 @@ require_once '../lib/rest.php';
 if(!$_SERVER['HTTPS']) {
   die('please use https');
 }
-$requiredOrigin = OCP\Config::getAppValue( "storage_origin", '' );//set the storage origin to something else than the owncloud admin interface origin to avoid xss vulnz.
+$requiredOrigin = OCP\Config::getAppValue('unhosted_apps',  "storage_origin", '' );//set the storage origin to something else than the owncloud admin interface origin to avoid xss vulnz.
 if($_SERVER['HTTP_HOST'] != $requiredOrigin) {
   die('please visit on https://'.$requiredOrigin.'/?app=unhosted_apps&getfile=remotestorage.php');
 }

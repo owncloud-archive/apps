@@ -2,7 +2,7 @@
 <ul id="result"></ul>
 <script src="/remote.php/core.js"> </script>
 <script>
-  var remoteStorageOrigin = '<?php require_once 'public/config.php'; echo OCP\Config::getAppValue('storage_origin'); ?>';
+  var remoteStorageOrigin = '<?php require_once 'public/config.php'; echo OCP\Config::getAppValue('unhosted_apps', 'storage_origin'); ?>';
   if(window.location.host==remoteStorageOrigin) {
     console.log('set the remoteStorage origin to something else than '+window.location.host+' please! Go to Settings->Admin->Unhosted apps');
   }
