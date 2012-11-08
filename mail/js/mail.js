@@ -67,6 +67,7 @@ Mail = {
                 clone.removeClass('template');
 
                 clone.data('message_id', message.id);
+                clone.attr('data-message-id', message.id);
                 if (message.flags['unseen']) {
                     clone.addClass('unseen');
                 }
@@ -112,7 +113,7 @@ Mail = {
                     Mail.UI.closeMessage();
 
                     // Find the correct message
-                    message = $('#mail_messages tr[data-message_id="' + message_id + '"]');
+                    message = $('#mail_messages tr[data-message-id="' + message_id + '"]');
                     message.after(jsondata.data);
 
                     // Set current Message as active
