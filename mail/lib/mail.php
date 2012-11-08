@@ -102,7 +102,7 @@ class App
             $m = $mailbox->getMessage($message_id);
             $message = $m->as_array();
 
-            return array('error' => $conn->error, 'message' => $message);
+            return array('error' => '', 'message' => $message);
         } catch (\Horde_Imap_Client_Exception $e) {
             return array('error' => $e->getMessage());
         }
@@ -201,7 +201,7 @@ class App
             return false;
         }
         if (stripos($host, 'gmail') !== false) {
-            return falase;
+            return false;
         }
 
         //
