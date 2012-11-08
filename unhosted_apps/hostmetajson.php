@@ -1,7 +1,7 @@
 <?php header('Access-Control-Allow-Origin', '*'); ?>
 {
   "links":[{
-    "href": "https://<?php require_once 'public/config.php'; echo OCP\Config::getSystemValue('storage_origin'); ?>/?user=admin&path=",
+    "href": "https://<?php require_once 'public/config.php'; echo OCP\Config::getAppValue('storage_origin'); ?>/?user=admin&path=",
     "rel": "remoteStorage",
     "type": "https://www.w3.org/community/rww/wiki/read-write-web-00#simple",
     "properties": {

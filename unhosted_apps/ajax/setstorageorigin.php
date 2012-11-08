@@ -9,6 +9,6 @@
 OCP\User::checkAdminUser();
 OCP\JSON::callCheck();
 
-OCP\Config::setSystemValue( 'storage_origin', $_POST['storage_origin'] );
+OCP\Config::setAppValue( 'storage_origin', $_POST['storage_origin'] );
 
 echo 'true';

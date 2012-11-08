@@ -26,7 +26,7 @@
 // Check if we are a user
 OCP\User::checkLoggedIn();
 
-$storage_origin = OCP\Config::getSystemValue( "storage_origin", '' );
+$storage_origin = OCP\Config::getAppValue( "storage_origin", '' );
 OCP\App::setActiveNavigationEntry( 'unhosted_apps' );
 //OCP\Util::addScript( "unhosted_apps", "helpers" );
 $tmpl = new OCP\Template( 'unhosted_apps', 'main', 'user' );

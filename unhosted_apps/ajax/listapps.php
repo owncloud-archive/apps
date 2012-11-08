@@ -21,8 +21,5 @@ try {
 	return false;
 }
 
-$apps = array();
-while( $row = $result->fetchRow()) {
-	$apps[] = $row;
-}
+$apps = $result->fetchAll();
 OCP\JSON::success(array('apps'=>$apps));

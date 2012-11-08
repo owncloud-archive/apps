@@ -36,7 +36,7 @@ class MyAuth {
         }
       }
     } else {
-      $token = 'asdf';
+      $token = OC_Util::generate_random_bytes(40);
       try {
         $stmt = OCP\DB::prepare( 'INSERT INTO `*PREFIX*unhosted_apps` (`manifest_path`, `access_token`, `scopes`, `uid_owner`) VALUES (?,?,?,?)' );
         $result = $stmt->execute(array($manifestPath, $token, $scopes, $uid));

@@ -6,7 +6,6 @@
   <public><remotestorage>remotestorage.php</remotestorage></public>
   <public><remotestorageauth>remotestorageauth.php</remotestorageauth></public>
   <public><host-meta-json>hostmetajson.php</host-meta-json></public>
-	<version>1.0</version>
 	<licence>AGPL</licence>
 	<author>Michiel de Jong</author>
 	<require>4</require>

@@ -26,14 +26,11 @@ function handle() {
     return false;
   }
 
-  $apps = array();
-  while( $row = $result->fetchRow()) {
-    $apps[] = $row;
-  }
+  $apps = $result->fetchAll();
   if(count($apps)) {
     $token = $apps[0]['access_token'];
   } else {
-    $token = base64_encode(openssl_random_pseudo_bytes(40));
+    $token = base64_encode(OC_Util::generate_random_bytes(40));
     //var_dump($params);
     try {
       $stmt = OCP\DB::prepare( 'INSERT INTO `*PREFIX*unhosted_apps` (`uid_owner`, `manifest_path`, `access_token`, `scopes`) VALUES (?, ?, ?, ?)' );
