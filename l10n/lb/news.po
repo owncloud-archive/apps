@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:01+0000\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 23:02+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
@@ -57,11 +57,19 @@ msgstr ""
 msgid "Error updating feeds."
 msgstr ""
 
-#: ajax/importopml.php:34
-msgid "No file was submitted."
+#: ajax/importopml.php:38
+msgid "Empty filename"
 msgstr ""
 
-#: ajax/importopml.php:46
+#: ajax/importopml.php:48
+msgid "No source argument passed"
+msgstr ""
+
+#: ajax/importopml.php:52
+msgid "Error while reading file"
+msgstr ""
+
+#: ajax/importopml.php:62
 msgid "An error occurred while parsing the file."
 msgstr ""
 
@@ -80,6 +88,10 @@ msgstr ""
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr "Fichier existéiert net:"
+
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr ""
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -109,7 +121,7 @@ msgstr ""
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:55
+#: js/settings.js:62 js/settings.js:66
 msgid "Error"
 msgstr "Fehler"
 
@@ -186,11 +198,7 @@ msgstr ""
 msgid "Not a valid type"
 msgstr ""
 
-#: js/settings.js:51
-msgid "{n_success} out of {n_total} feeds imported successfully!"
-msgstr ""
-
-#: js/settings.js:75
+#: js/settings.js:86
 msgid "Select file"
 msgstr ""
 

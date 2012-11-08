@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-07 00:01+0100\n"
-"PO-Revision-Date: 2012-11-06 05:21+0000\n"
-"Last-Translator: Anushke Guneratne <anushke@gmail.com>\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,11 +58,19 @@ msgstr "ෆොල්ඩරය ඉවත් කිරීමේදී දෝෂය
 msgid "Error updating feeds."
 msgstr "සංග්‍රහ යාවත්කාලීන කිරීමේදී දෝෂයක් සිදුවිය"
 
-#: ajax/importopml.php:34
-msgid "No file was submitted."
-msgstr "කිසිම ගොනුවක් යොමු කර නැත"
+#: ajax/importopml.php:38
+msgid "Empty filename"
+msgstr ""
 
-#: ajax/importopml.php:46
+#: ajax/importopml.php:48
+msgid "No source argument passed"
+msgstr ""
+
+#: ajax/importopml.php:52
+msgid "Error while reading file"
+msgstr ""
+
+#: ajax/importopml.php:62
 msgid "An error occurred while parsing the file."
 msgstr "ගොනුවේ ව්‍යාකරණ විග්‍රහ කිරීමේදී දෝෂයක් සිදුවිය"
 
@@ -81,6 +89,10 @@ msgstr "ගොනු පෙතක් ලබාදී නැත"
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr "ගොනුව නොපවතී"
+
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr ""
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -110,7 +122,7 @@ msgstr "සංග්‍රහය පූරණය කිරීමේදී දෝ
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:55
+#: js/settings.js:62 js/settings.js:66
 msgid "Error"
 msgstr "දෝෂයක්"
 
@@ -187,11 +199,7 @@ msgstr "OPML ගොනුවක් ආයාත කරනවා..."
 msgid "Not a valid type"
 msgstr "වලංගු වර්ගයක් නොවේ"
 
-#: js/settings.js:51
-msgid "{n_success} out of {n_total} feeds imported successfully!"
-msgstr "{n_total} වලින් {n_success} සංග්‍රහයන් ආයාත කරන ලදී!"
-
-#: js/settings.js:75
+#: js/settings.js:86
 msgid "Select file"
 msgstr "ගොනුව තෝරන්න"
 

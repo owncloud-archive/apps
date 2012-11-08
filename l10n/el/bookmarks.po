@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Dimitris M. <monopatis@gmail.com>, 2012.
 # Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-08 00:01+0100\n"
-"PO-Revision-Date: 2012-11-07 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 17:22+0000\n"
+"Last-Translator: Dimitris M. <monopatis@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +50,7 @@ msgstr "Προειδοποίηση"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "Η εισαγωγή ολοκληρώθηκε επιτυχώς."
 
 #: js/settings.js:56
 msgid "Uploading..."
@@ -111,21 +112,21 @@ msgstr "Διεύθυνση"
 
 #: templates/list.php:23
 msgid "Add"
-msgstr ""
+msgstr "Προσθήκη"
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr "Σχετικές ετικέτες"
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:39 templates/list.php:41
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#: templates/list.php:52
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Δεν έχετε σελιδοδείκτες"
 
-#: templates/list.php:57
+#: templates/list.php:58
 msgid "You can also try to import a bookmark file"
 msgstr ""
 
@@ -135,7 +136,7 @@ msgstr ""
 
 #: templates/settings.php:23
 msgid "Export & Import"
-msgstr ""
+msgstr "Εξαγωγή & Εισαγωγή"
 
 #: templates/settings.php:24
 msgid "Export"

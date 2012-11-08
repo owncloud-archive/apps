@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-08 00:01+0100\n"
-"PO-Revision-Date: 2012-11-07 23:01+0000\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 17:22+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -111,21 +111,21 @@ msgstr "Osoite"
 
 #: templates/list.php:23
 msgid "Add"
-msgstr ""
+msgstr "Lisää"
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr "Vastaavanlaiset tunnisteet"
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:39 templates/list.php:41
 msgid "Settings"
 msgstr "Asetukset"
 
-#: templates/list.php:52
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Sinulla ei ole kirjanmerkkejä"
 
-#: templates/list.php:57
+#: templates/list.php:58
 msgid "You can also try to import a bookmark file"
 msgstr ""
 
