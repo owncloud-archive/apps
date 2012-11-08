@@ -92,7 +92,7 @@ class Message {
 		$fetch_query = new \Horde_Imap_Client_Fetch_Query();
 		$fetch_query->envelope();
 //		$fetch_query->fullText();
-		$fetch_query->bodyText();
+//		$fetch_query->bodyText();
 		//$fetch_query->bodyPart(1);
 		$fetch_query->structure();
 		$fetch_query->flags();
@@ -118,8 +118,31 @@ class Message {
 		$headers = $this->conn->fetch($this->folder_id, $fetch_query, array('ids' => $ids));
 		$this->fetch = $headers[$this->message_id];
 
-		//$headers[$this->message_id]->get
-		$this->plainmsg = $headers[$this->message_id]->getBodyText();
+		// stupid: return all
+//		$this->plainmsg = $headers[$this->message_id]->getBodyText();
+
+		// analyse the body part
+		$structure = $this->fetch->getStructure();
+		//
+		// TODO: handle nulls
+		//
+		if ($structure->findBody() != null) {
+			// get the body from the server
+			$partId = $structure->findBody();
+			$fetch_query->bodyPart($partId);
+			$headers = $this->conn->fetch($this->folder_id, $fetch_query, array('ids' => $ids));
+			$this->fetch = $headers[$this->message_id];
+
+			$structure = $this->fetch->getStructure();
+			$this->plainmsg = $structure->getPart($structure->findBody())->getContents();
+			$this->plainmsg = $this->fetch->getBodyPart($partId);
+		}
+
+		// debugging below
+		$structure_type = $structure->getType();
+
+
+//		if ($structure->)
 //
 //		// HEADER
 //		$this->header = $this->conn->fetchHeader($this->folder_id, $this->message_id);
