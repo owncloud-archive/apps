@@ -4,6 +4,7 @@
 # 
 # Translators:
 #   <blobbyjj@ymail.com>, 2012.
+# I Robot <owncloud-bot@tmit.eu>, 2012.
 # I Robot <thomas.mueller@tmit.eu>, 2012.
 #   <mail@felixmoeller.de>, 2012.
 #   <martin@oemus.net>, 2012.
@@ -13,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 23:02+0000\n"
+"POT-Creation-Date: 2012-11-10 00:01+0100\n"
+"PO-Revision-Date: 2012-11-09 23:02+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -63,19 +64,19 @@ msgstr "Fehler beim Entfernen des Ordners."
 msgid "Error updating feeds."
 msgstr "Fehler bei der Aktualisierung der Feeds."
 
-#: ajax/importopml.php:38
+#: ajax/importopml.php:40
 msgid "Empty filename"
-msgstr ""
+msgstr "Leerer Dateiname"
 
-#: ajax/importopml.php:48
+#: ajax/importopml.php:50
 msgid "No source argument passed"
-msgstr ""
+msgstr "Es wurde kein Quell-Argument übergeben."
 
-#: ajax/importopml.php:52
+#: ajax/importopml.php:54
 msgid "Error while reading file"
-msgstr ""
+msgstr "Fehler beim Lesen der Datei"
 
-#: ajax/importopml.php:62
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "Es ist ein Fehler beim Einlesen der Datei aufgetreten."
 
@@ -97,7 +98,7 @@ msgstr "Die Datei existiert nicht:"
 
 #: ajax/selectfromcloud.php:44
 msgid "Couldn't save temporary image: "
-msgstr ""
+msgstr "Konnte das temporäre Bild nicht speichern:"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -127,7 +128,7 @@ msgstr "Fehler während des Ladens eines Feeds"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:62 js/settings.js:66
+#: js/settings.js:68
 msgid "Error"
 msgstr "Fehler"
 
@@ -204,7 +205,15 @@ msgstr "Importiere OPML-Datei ..."
 msgid "Not a valid type"
 msgstr "Kein gültiger Typ"
 
-#: js/settings.js:86
+#: js/settings.js:60
+msgid "Importing done"
+msgstr ""
+
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr ""
+
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Datei auswählen"
 

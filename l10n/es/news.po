@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Art O. Pal <artopal@fastmail.fm>, 2012.
 #   <devianpctek@gmail.com>, 2012.
 #   <juanma@kde.org.ar>, 2012.
 #   <pedro.navia@etecsa.cu>, 2012.
@@ -14,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 23:02+0000\n"
+"POT-Creation-Date: 2012-11-10 00:01+0100\n"
+"PO-Revision-Date: 2012-11-09 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -64,19 +65,19 @@ msgstr "Error al borrar la carpeta."
 msgid "Error updating feeds."
 msgstr "Error actualizando las fuentes"
 
-#: ajax/importopml.php:38
+#: ajax/importopml.php:40
 msgid "Empty filename"
-msgstr ""
+msgstr "Nombre de archivo vacío"
 
-#: ajax/importopml.php:48
+#: ajax/importopml.php:50
 msgid "No source argument passed"
 msgstr ""
 
-#: ajax/importopml.php:52
+#: ajax/importopml.php:54
 msgid "Error while reading file"
-msgstr ""
+msgstr "Error al leer el archivo"
 
-#: ajax/importopml.php:62
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "Se produjo un error al analizar el archivo."
 
@@ -98,7 +99,7 @@ msgstr "El fichero no existe."
 
 #: ajax/selectfromcloud.php:44
 msgid "Couldn't save temporary image: "
-msgstr ""
+msgstr "Fallo no pudo salvar a una imagen temporal"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -128,7 +129,7 @@ msgstr "Error cargando la fuente"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:62 js/settings.js:66
+#: js/settings.js:68
 msgid "Error"
 msgstr "Error"
 
@@ -199,13 +200,21 @@ msgstr "No hay ficheros seleccionados."
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "Importando archivo OPML..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
+msgstr "No es un tipo válido"
+
+#: js/settings.js:60
+msgid "Importing done"
 msgstr ""
 
-#: js/settings.js:86
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr ""
+
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Seleccionar archivo"
 

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 17:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-10 00:01+0100\n"
+"PO-Revision-Date: 2012-11-09 09:43+0000\n"
+"Last-Translator: Anushke Guneratne <anushke@gmail.com>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +33,7 @@ msgstr "ටැග"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr ""
+msgstr "ටැගය ආධාරයෙන් පෙරන්න"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
@@ -127,7 +127,7 @@ msgstr "පිටු සළකුනු නොමැත"
 
 #: templates/list.php:58
 msgid "You can also try to import a bookmark file"
-msgstr ""
+msgstr "පිටුසන අඩංගු ගොනුවක් ආයාත කිරීමට උත්සහ කළ හැක"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"

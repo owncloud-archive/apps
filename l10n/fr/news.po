@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 23:02+0000\n"
+"POT-Creation-Date: 2012-11-10 00:01+0100\n"
+"PO-Revision-Date: 2012-11-09 23:02+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -65,19 +65,19 @@ msgstr "Erreur lors de la suppression du répertoire."
 msgid "Error updating feeds."
 msgstr "Erreur lors de la mise à jour des flux."
 
-#: ajax/importopml.php:38
+#: ajax/importopml.php:40
 msgid "Empty filename"
 msgstr ""
 
-#: ajax/importopml.php:48
+#: ajax/importopml.php:50
 msgid "No source argument passed"
 msgstr ""
 
-#: ajax/importopml.php:52
+#: ajax/importopml.php:54
 msgid "Error while reading file"
 msgstr ""
 
-#: ajax/importopml.php:62
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "Une erreur est apparue lors de l'analyse du fichier."
 
@@ -99,7 +99,7 @@ msgstr "Ce fichier n'existe pas :"
 
 #: ajax/selectfromcloud.php:44
 msgid "Couldn't save temporary image: "
-msgstr ""
+msgstr "Impossible de sauvegarder l'image temporaire :"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -129,7 +129,7 @@ msgstr "Une erreur est survenue pendant le chargement du fil de nouvelles"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:62 js/settings.js:66
+#: js/settings.js:68
 msgid "Error"
 msgstr "Erreur"
 
@@ -206,7 +206,15 @@ msgstr "Importation du fichier OPML..."
 msgid "Not a valid type"
 msgstr "Ce n'est pas un type valide"
 
-#: js/settings.js:86
+#: js/settings.js:60
+msgid "Importing done"
+msgstr ""
+
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr ""
+
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Sélectionnez le fichier"
 

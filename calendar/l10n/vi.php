@@ -30,6 +30,7 @@
 "Business" => "Công việc",
 "Call" => "Số điện thoại",
 "Clients" => "Máy trạm",
+"Deliverer" => "Giao",
 "Holidays" => "Ngày lễ",
 "Ideas" => "Ý tưởng",
 "Journey" => "Cuộc hành trình",
@@ -179,6 +180,7 @@
 "Name of new calendar" => "Tên lịch mới",
 "Take an available name!" => "Chọn một tên tồn tại",
 "A Calendar with this name already exists. If you continue anyhow, these calendars will be merged." => "Đã tồn tại một lịch với tên này. Nếu bạn tiếp tục, những lịch này sẽ trộn với nhau.",
+"Remove all events from the selected calendar" => "Xóa tất cả những sự kiện đã chọn trong calendar",
 "Import" => "Nhập",
 "Close Dialog" => "Đóng hộp thoại",
 "Create a new event" => "Tạo một sự kiện mới",
@@ -194,6 +196,7 @@
 "at" => "tại",
 "General" => "Tổng hợp",
 "Timezone" => "Múi giờ",
+"Update timezone automatically" => "Tự động cập nhập múi giờ",
 "Time format" => "Định dạng thời gian",
 "24h" => "24h",
 "12h" => "12h",
@@ -201,7 +204,9 @@
 "Cache" => "Bộ nhớ cache",
 "Clear cache for repeating events" => "Xóa bộ nhớ cache cho các sự kiện lặp đi lặp lại",
 "URLs" => "URLs",
+"Calendar CalDAV syncing addresses" => "Calendar CallDAV  đồng bộ địa chỉ",
 "more info" => "thông tin thêm",
 "Primary address (Kontact et al)" => "Địa chỉ chính (Kontact et al) ",
-"iOS/OS X" => "iOS/OS X"
+"iOS/OS X" => "iOS/OS X",
+"Read only iCalendar link(s)" => "Chỉ đọc iCalendar link(s)"
 );

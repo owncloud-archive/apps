@@ -4,6 +4,7 @@
 # 
 # Translators:
 #   <blobbyjj@ymail.com>, 2012.
+# I Robot <owncloud-bot@tmit.eu>, 2012.
 # I Robot <thomas.mueller@tmit.eu>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
 # Phi Lieb <>, 2012.
@@ -13,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 17:22+0000\n"
+"POT-Creation-Date: 2012-11-10 00:01+0100\n"
+"PO-Revision-Date: 2012-11-09 07:45+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +38,7 @@ msgstr "Tags"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr ""
+msgstr "Nach Schlagworten filtern"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
@@ -131,7 +132,7 @@ msgstr "Du hast keine Lesezeichen"
 
 #: templates/list.php:58
 msgid "You can also try to import a bookmark file"
-msgstr ""
+msgstr "Du kannst auch versuchen eine Lesezeichendatei zu importieren."
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
