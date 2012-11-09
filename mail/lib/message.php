@@ -24,7 +24,11 @@ namespace OCA\Mail;
 
 class Message {
 
-	// input $mbox = IMAP conn, $mid = message id
+	/**
+	 * @param $conn
+	 * @param $folder_id
+	 * @param $message_id
+	 */
 	function __construct($conn, $folder_id, $message_id) {
 		$this->conn = $conn;
 		$this->folder_id = $folder_id;
@@ -85,15 +89,11 @@ class Message {
 		return $this->fetch->getSize();
 	}
 
-	private function getmsg() {
-
+	private function loadMessageBodies() {
 		$headers = array();
 
 		$fetch_query = new \Horde_Imap_Client_Fetch_Query();
 		$fetch_query->envelope();
-//		$fetch_query->fullText();
-//		$fetch_query->bodyText();
-		//$fetch_query->bodyPart(1);
 		$fetch_query->structure();
 		$fetch_query->flags();
 		$fetch_query->seq();
@@ -116,113 +116,92 @@ class Message {
 		// $list is an array of Horde_Imap_Client_Data_Fetch objects.
 		$ids = new \Horde_Imap_Client_Ids($this->message_id);
 		$headers = $this->conn->fetch($this->folder_id, $fetch_query, array('ids' => $ids));
-		$this->fetch = $headers[$this->message_id];
+		$fetch = $headers[$this->message_id];
 
-		// stupid: return all
-//		$this->plainmsg = $headers[$this->message_id]->getBodyText();
+		// set $this->fetch to get to, from ...
+		$this->fetch = $fetch;
 
 		// analyse the body part
-		$structure = $this->fetch->getStructure();
-		//
-		// TODO: handle nulls
-		//
-		if ($structure->findBody() != null) {
-			// get the body from the server
-			$partId = $structure->findBody();
-			$fetch_query->bodyPart($partId);
-			$headers = $this->conn->fetch($this->folder_id, $fetch_query, array('ids' => $ids));
-			$this->fetch = $headers[$this->message_id];
-
-			$structure = $this->fetch->getStructure();
-			$this->plainmsg = $structure->getPart($structure->findBody())->getContents();
-			$this->plainmsg = $this->fetch->getBodyPart($partId);
-		}
+		$structure = $fetch->getStructure();
 
 		// debugging below
-		$structure_type = $structure->getType();
-
-
-//		if ($structure->)
-//
-//		// HEADER
-//		$this->header = $this->conn->fetchHeader($this->folder_id, $this->message_id);
-//
-//		// BODY
-//		$bodystructure= $this->conn->getStructure($this->folder_id, $this->message_id);
-//		$a= \rcube_imap_generic::getStructurePartData($bodystructure, 0);
-//		if ($a['type'] == 'multipart') {
-//			for ($i=0; $i < count($bodystructure); $i++) {
-//				if (!is_array($bodystructure[$i]))
-//					break;
-//				$this->getpart($bodystructure[$i],$i+1);
-//			}
-//		} else {
-//			// get part no 1
-//			$this->getpart($bodystructure,1);
-//		}
-	}
-
-	function extract_params($p) {
-		// PARAMETERS
-		// get all parameters, like charset, filenames of attachments, etc.
-		$params = array();
-		for ($i=0; $i < count($p); $i++) {
-			if (!is_array($p[$i]))
-				continue;
-			$params[ strtolower( $p[$i][0] ) ] = $p[$i][1];
+		$structure_type = $structure->getPrimaryType();
+		if ($structure_type == 'multipart') {
+			$i = 1;
+			foreach($structure->getParts() as $p) {
+				$this->getpart($p, $i++);
+			}
+		} else {
+			if ($structure->findBody() != null) {
+				// get the body from the server
+				$partId = $structure->findBody();
+				$this->queryBodyPart($partId);
+			}
 		}
-
-		return $params;
 	}
 
-	function getpart($p,$partno) {
+	private function queryBodyPart($partId) {
+
+		$fetch_query = new \Horde_Imap_Client_Fetch_Query();
+		$ids = new \Horde_Imap_Client_Ids($this->message_id);
+
+		$bodypart_params = array('decode' => true);
+
+		$fetch_query->bodyPart($partId, $bodypart_params);
+		$headers = $this->conn->fetch($this->folder_id, $fetch_query, array('ids' => $ids));
+		$fetch = $headers[$this->message_id];
+
+		return $fetch->getBodyPart($partId);
+	}
+
+	private function getpart($p, $partno) {
 
 		// $partno = '1', '2', '2.1', '2.1.3', etc if multipart, 0 if not multipart
 
-		$params = $this->extract_params($p);
+		// ATTACHMENT
+		// Any part with a filename is an attachment,
+		// so an attached text file (type 0) is not mistaken as the message.
+		$filename = $p->getName();
+		if (isset($filename)) {
+			//
+			// TODO: decode necessary ???
+			//
+//			$filename = OC_SimpleMail_Helper::decode($filename);
+
+			// for now we just keep the size - we need a new function to download an attachment
+			$this->attachments[$filename] = $p->getSize();  // this is a problem if two files have same name
+			return;
+		}
 
 		// DECODE DATA
-		$data = $this->conn->handlePartBody($this->folder_id, $this->message_id, false, $partno);
+		$data = $this->queryBodyPart($partno);
 
 		// Any part may be encoded, even plain text messages, so check everything.
-		if (strtolower($p[5])=='quoted_printable') {
-			$data = quoted_printable_decode($data);
-		}
-		if (strtolower($p[5])=='base64') {
-			$data = base64_decode($data);
-		}
+//		if (strtolower($p)=='quoted_printable') {
+//			$data = quoted_printable_decode($data);
+//		}
+//		if (strtolower($p[5])=='base64') {
+//			$data = base64_decode($data);
+//		}
 		// no need to decode 7-bit, 8-bit, or binary
 
 		//
 		// convert the data
 		//
-		if (isset( $params['charset'])) {
-			$data = mb_convert_encoding($data, "UTF-8", $params['charset']);
-		}
-
-		// ATTACHMENT
-		// Any part with a filename is an attachment,
-		// so an attached text file (type 0) is not mistaken as the message.
-		if (isset($params['filename']) || isset($params['name'])) {
-			// filename may be given as 'Filename' or 'Name' or both
-			$filename = ($params['filename'])? $params['filename'] : $params['name'];
-			//
-			// TODO: decode necessary
-			//
-//			$filename = OC_SimpleMail_Helper::decode($filename);
-
-			$this->attachments[$filename] = $data;  // this is a problem if two files have same name
+		$charset = $p->getCharset();
+		if (isset( $charset)) {
+			$data = mb_convert_encoding($data, "UTF-8", $charset);
 		}
 
 		// TEXT
-		elseif ($p[0]=='text' && $data) {
+		if ($p->getPrimaryType() == 'text' && $data) {
 			// Messages may be split in different parts because of inline attachments,
 			// so append parts together with blank row.
-			if (strtolower($p[1])=='plain') {
+			if ($p->getSubType() == 'plain') {
 				$this->plainmsg .= trim($data) ."\n\n";
 			} else {
 				$this->htmlmsg .= $data ."<br><br>";
-				$this->charset = $params['charset'];  // assume all parts are same charset
+				$this->charset = $charset;  // assume all parts are same charset
 			}
 		}
 
@@ -257,7 +236,7 @@ class Message {
 	}
 
 	public function as_array() {
-		$this->getmsg();
+		$this->loadMessageBodies();
 		$mail_body = $this->plainmsg;
 		$mail_body = nl2br($mail_body);
 
@@ -265,31 +244,17 @@ class Message {
 			$mail_body = "<br/><h2>Only Html body available!</h2><br/>";
 		}
 
-		//
-		// TODO: where do I get these flags
-		//
-		$flags = array('SEEN' => True, 'ANSWERED' => False, 'FORWARDED' => False, 'DRAFT' => False, 'HAS_ATTACHMENTS' => True);
-
-		//
-		// TODO: decode header values
-		//
-		return array(
-			'from' => $this->header->from,
-			'to' => $this->header->to,
-			'subject' => $this->header->subject,
-			'date' => $this->header->timestamp,
-			'size' => $this->header->size,
-			'flags' => $flags,
-			'body' => $mail_body,
-			'attachments' => $this->get_attachment_info(),
-			'header' => 'TODO: add the header'
-		);
+		$data = $this->getListArray();
+		$data['body'] = $mail_body;
+		$data['attachments'] = $this->get_attachment_info();
+		return $data;
 	}
 
 	public function getListArray() {
 		$data = array();
 		$data['id'] = $this->getUid();
 		$data['from'] = $this->getFrom();
+		$data['to'] = $this->getTo();
 		$data['subject'] = $this->getSubject();
 		$data['date'] = $this->getSentDate()->format('U');
 		$data['size'] = $this->getSize();
