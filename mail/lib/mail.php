@@ -102,7 +102,7 @@ class App
             $m = $mailbox->getMessage($message_id);
             $message = $m->as_array();
 
-            return array('error' => '', 'message' => $message);
+            return array('message' => $message);
         } catch (\Horde_Imap_Client_Exception $e) {
             return array('error' => $e->getMessage());
         }

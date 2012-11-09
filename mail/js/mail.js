@@ -107,11 +107,11 @@ Mail = {
         openMessage:function (message_id) {
             var message;
 
+            // close email first
+            Mail.UI.closeMessage();
+
             $.getJSON(OC.filePath('mail', 'ajax', 'message.php'), {'account_id':Mail.State.current_account_id, 'folder_id':Mail.State.current_folder_id, 'message_id':message_id }, function (jsondata) {
                 if (jsondata.status == 'success') {
-                    // close email first
-                    Mail.UI.closeMessage();
-
                     // Find the correct message
                     message = $('#mail_messages tr[data-message-id="' + message_id + '"]');
                     message.after(jsondata.data);
