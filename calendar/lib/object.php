@@ -186,7 +186,7 @@ class OC_Calendar_Object{
 
 		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $oldobject['calendarid']);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
@@ -250,7 +250,7 @@ class OC_Calendar_Object{
 		$oldobject = self::find($id);
 		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $oldobject['calendarid']);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
@@ -264,7 +264,7 @@ class OC_Calendar_Object{
 		OC_Calendar_Calendar::touchCalendar($oldobject['calendarid']);
 
 		OCP\Share::unshareAll('event', $id);
-		
+
 		OCP\Util::emitHook('OC_Calendar', 'deleteEvent', $id);
 
 		return true;
