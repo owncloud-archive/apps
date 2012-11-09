@@ -35,14 +35,14 @@ if($errarr) {
 	try {
 		OC_Calendar_Object::edit($id, $vcalendar->serialize());
 	} catch(Exception $e) {
-		OCP\JSON::error(array('message'=>$e->getMessage()));
+		OCP\JSON::error(array('data' => array('message'=>$e->getMessage())));
 		exit;
 	}
 	if ($data['calendarid'] != $cal) {
 		try {
 			OC_Calendar_Object::moveToCalendar($id, $cal);
 		} catch(Exception $e) {
-			OCP\JSON::error(array('message'=>$e->getMessage()));
+			OCP\JSON::error(array('data' => array('message'=>$e->getMessage())));
 			exit;
 		}
 	}

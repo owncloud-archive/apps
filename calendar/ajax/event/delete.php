@@ -16,7 +16,7 @@ $id = $_POST['id'];
 try {
 	OC_Calendar_Object::delete($id);
 } catch(Exception $e) {
-	OCP\JSON::error(array('message'=>$e->getMessage()));
+	OCP\JSON::error(array('data' => array('message'=>$e->getMessage())));
 	exit;
 }
 

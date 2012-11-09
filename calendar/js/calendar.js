@@ -106,32 +106,36 @@ Calendar={
 				function(data){
 					Calendar.UI.loading(false);
 					if(data.status == "error"){
-						var output = missing_field + ": <br />";
-						if(data.title == "true"){
-							output = output + missing_field_title + "<br />";
+						if(data.data.message) {
+							$('#errorbox').html(data.data.message);
+						} else {
+							var output = missing_field + ": <br />";
+							if(data.title == "true"){
+								output = output + missing_field_title + "<br />";
+							}
+							if(data.cal == "true"){
+								output = output + missing_field_calendar + "<br />";
+							}
+							if(data.from == "true"){
+								output = output + missing_field_fromdate + "<br />";
+							}
+							if(data.fromtime == "true"){
+								output = output + missing_field_fromtime + "<br />";
+							}
+							if(data.to == "true"){
+								output = output + missing_field_todate + "<br />";
+							}
+							if(data.totime == "true"){
+								output = output + missing_field_totime + "<br />";
+							}
+							if(data.endbeforestart == "true"){
+								output = output + missing_field_startsbeforeends + "!<br/>";
+							}
+							if(data.dberror == "true"){
+								output = "There was a database fail!";
+							}
+							$('#errorbox').html(output);
 						}
-						if(data.cal == "true"){
-							output = output + missing_field_calendar + "<br />";
-						}
-						if(data.from == "true"){
-							output = output + missing_field_fromdate + "<br />";
-						}
-						if(data.fromtime == "true"){
-							output = output + missing_field_fromtime + "<br />";
-						}
-						if(data.to == "true"){
-							output = output + missing_field_todate + "<br />";
-						}
-						if(data.totime == "true"){
-							output = output + missing_field_totime + "<br />";
-						}
-						if(data.endbeforestart == "true"){
-							output = output + missing_field_startsbeforeends + "!<br/>";
-						}
-						if(data.dberror == "true"){
-							output = "There was a database fail!";
-						}
-						$("#errorbox").html(output);
 					} else
 					if(data.status == 'success'){
 						$('#event').dialog('destroy').remove();
