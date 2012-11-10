@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-10 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-11 00:01+0100\n"
+"PO-Revision-Date: 2012-11-10 10:46+0000\n"
+"Last-Translator: Richard Bos <radoeka@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -203,11 +203,11 @@ msgstr "Geen geldig type"
 
 #: js/settings.js:60
 msgid "Importing done"
-msgstr ""
+msgstr "Import uitgevoerd"
 
 #: js/settings.js:64
 msgid "Error while importing feeds."
-msgstr ""
+msgstr "Er ging iets fout tijdens het importeren van feeds."
 
 #: js/settings.js:88
 msgid "Select file"

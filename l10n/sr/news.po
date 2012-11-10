@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-10 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 23:01+0000\n"
+"POT-Creation-Date: 2012-11-11 00:01+0100\n"
+"PO-Revision-Date: 2012-11-09 23:13+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -123,7 +123,7 @@ msgstr ""
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
 #: js/settings.js:68
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 #: js/main.js:33
 msgid "None"
@@ -279,7 +279,7 @@ msgstr ""
 
 #: templates/firstrun.php:18
 msgid "Import"
-msgstr ""
+msgstr "Увези"
 
 #: templates/firstrun.php:24
 msgid "Or..."
@@ -365,7 +365,7 @@ msgstr ""
 #: templates/part.items.php:56 templates/part.items.php:57
 #: templates/part.shared.php:55
 msgid "Share"
-msgstr ""
+msgstr "Дељење"
 
 #: templates/part.items.php:58 templates/part.shared.php:60
 msgid "Keep unread"

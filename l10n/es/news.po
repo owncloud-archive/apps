@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-10 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-11 00:01+0100\n"
+"PO-Revision-Date: 2012-11-10 08:18+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -71,7 +71,7 @@ msgstr "Nombre de archivo vacío"
 
 #: ajax/importopml.php:50
 msgid "No source argument passed"
-msgstr ""
+msgstr "No se ha pasado argumentos"
 
 #: ajax/importopml.php:54
 msgid "Error while reading file"
@@ -99,7 +99,7 @@ msgstr "El fichero no existe."
 
 #: ajax/selectfromcloud.php:44
 msgid "Couldn't save temporary image: "
-msgstr "Fallo no pudo salvar a una imagen temporal"
+msgstr "No se pudo salvar una imagen temporal"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -163,7 +163,7 @@ msgstr "El nombre de la carpeta no puede estar vacio."
 
 #: js/news.js:33 js/news.js:95
 msgid "Adding..."
-msgstr "Adicionando..."
+msgstr "Añadiendo..."
 
 #: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
@@ -180,11 +180,11 @@ msgstr "Cambiar nombre de carpeta"
 
 #: js/news.js:90
 msgid "URL cannot be empty."
-msgstr "URL no puede estar vacio"
+msgstr "URL no puede estar vacia"
 
 #: js/news.js:120 js/news.js:127 templates/firstrun.php:5
 msgid "Add feed"
-msgstr "Adicionar fuente"
+msgstr "Añadir fuente"
 
 #: js/news.js:124
 msgid "Error while parsing the feed"
@@ -208,11 +208,11 @@ msgstr "No es un tipo válido"
 
 #: js/settings.js:60
 msgid "Importing done"
-msgstr ""
+msgstr "Importación realizada"
 
 #: js/settings.js:64
 msgid "Error while importing feeds."
-msgstr ""
+msgstr "Error importando las fuentes."
 
 #: js/settings.js:88
 msgid "Select file"
@@ -240,7 +240,7 @@ msgstr "Ocurrió un error"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr "¡Bien! Te has suscribido a"
+msgstr "¡Bien! Te has suscrito a"
 
 #: subscribe.php:36
 msgid "You had already subcribed to this feed!"
@@ -295,11 +295,11 @@ msgstr "O..."
 
 #: templates/main.php:34
 msgid "Add feed or folder"
-msgstr "Adicionar fuente o carpeta"
+msgstr "Añadir fuente o carpeta"
 
 #: templates/main.php:35
 msgid "Add Feed/Folder"
-msgstr "Adicionar Fuente/Carpeta"
+msgstr "Añadir Fuente/Carpeta"
 
 #: templates/main.php:37
 msgid "Feed"
@@ -315,7 +315,7 @@ msgstr "Configuración"
 
 #: templates/part.dialogues.php:1
 msgid "Add Folder"
-msgstr "Adicionar carpeta"
+msgstr "Añadir carpeta"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
@@ -327,7 +327,7 @@ msgstr "Nombre de la carpeta"
 
 #: templates/part.dialogues.php:14
 msgid "Add Subscription"
-msgstr "Adicionar subcripción"
+msgstr "Añadir subcripción"
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
@@ -339,7 +339,7 @@ msgstr "Seleccionar carpeta"
 
 #: templates/part.dialogues.php:29
 msgid "Add"
-msgstr "Adicionar"
+msgstr "Añadir"
 
 #: templates/part.feeds.php:48
 msgid "New articles"
