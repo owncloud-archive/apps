@@ -199,6 +199,12 @@ Mail = {
 $(document).ready(function () {
     Mail.UI.initializeInterface();
 
+    // new mail message button handling
+    $('#mail_new_message').button().click(function (){
+        $('#mail_editor').dialog("open");
+    });
+
+    // auto detect button handling
     $('#auto_detect_account').click(function () {
         var email_address, password;
         email_address = $('#email_address').val();
