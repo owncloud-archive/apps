@@ -12,5 +12,6 @@ OCP\Util::addStyle('map/3rdparty/leaflet', 'leaflet');
 
 OCP\Util::addStyle('map', 'main');
 OCP\Util::addscript('map', 'main');
-// $tmpl->assign( 'somesetting', $somesetting );
+$items = OC_Map::findAll();
+$tmpl->assign( 'map_item', $items );
 $tmpl->printPage();

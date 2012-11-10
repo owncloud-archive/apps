@@ -30,3 +30,6 @@ OCP\App::addNavigationEntry( array(
 	'icon' => OCP\Util::imagePath( 'map', 'example.png' ),
 	'name' => 'Map'
 ));
+
+OC::$CLASSPATH['OC_MapItem'] = 'map/lib/map_item.php';
+OC::$CLASSPATH['OC_Map'] = 'map/lib/map.php';
