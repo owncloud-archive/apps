@@ -14,5 +14,6 @@
 </div>
 
 <div id="search_field">
-	<input id="" class="svg" name="query" value="" placeholder="Search" autocomplete="off" type="search">
+	<input id="" class="svg" name="query" value="10 Downing Street, London" placeholder="Search" autocomplete="off" type="search">
+	<button id="search_launch">Search</button>
 </div>
