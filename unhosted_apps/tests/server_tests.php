@@ -20,44 +20,38 @@
 *
 */
 
-require_once 'lib/storage.php';
-require_once 'lib/auth.php';
-require_once 'lib/rest.php';
+require_once 'unhosted_apps/lib/storage.php';
+require_once 'unhosted_apps/lib/auth.php';
+require_once 'unhosted_apps/lib/rest.php';
 
 class Test_RemoteStorage extends UnitTestCase {
 	function setUp() {
     // Check if we are a user
-    OCP\User::checkLoggedIn();
+    //OCP\User::checkLoggedIn();
 	}
 
 	function testStorage() {
-    $timestamp = MyStorage::store('admin', 'zapps/todomvc/manifest.json', 'application/json', '{"url":"http://todomvc.michiel.5apps.com"}');
-    $dirList = MyStorage::getDir('admin', 'zapps/todomvc/');
+    $timestamp = MyStorage::store('dummy', 'zapps/todomvc/manifest.json', 'application/json', '{"url":"http://todomvc.michiel.5apps.com"}');
+    $dirList = MyStorage::getDir('dummy', 'zapps/todomvc/');
     $found = false;
     foreach($dirList as $k=>$v) {
-      if($k == 'manifest.json') {
-        if($v == $timestamp) {
-          $found = true;
-        } else {
-          return 'dir list does not have same timestamp';
-        }
-      } else {
-        return "foreign element in dir list: $k $v";
-      }
+      $this->assertEquals($k, 'manifest.json');
+      $this->assertEquals($v, $timestamp);
+      $found = true;
     }
-    $this->assertTrue(!$found);
-    $retrieved = MyStorage::get('admin', 'zapps/todomvc/manifest.json');
+    $this->assertTrue($found);
+    $retrieved = MyStorage::get('dummy', 'zapps/todomvc/manifest.json');
     $this->assertEquals($retrieved['mimeType'], 'application/json');
     $this->assertEquals($retrieved['content'], '{"url":"http://todomvc.michiel.5apps.com"}');
-    $timestamp = MyStorage::remove('admin', 'zapps/todomvc/manifest.json');
-    $dirList = MyStorage::getDir('admin', 'zapps/');
+    $timestamp = MyStorage::remove('dummy', 'zapps/todomvc/manifest.json');
+    $dirList = MyStorage::getDir('dummy', 'zapps/');
     $this->assertEquals($dirList, array());
 	}
 
   function testAuth() {
-    $token = MyAuth::addApp('admin', 'apps/todomvc/manifest.json', array('r' => array('tasks'), 'w' => array('tasks')));
+    $token = MyAuth::addApp('dummy', 'apps/todomvc/manifest.json', array('r' => array('tasks'), 'w' => array('tasks')));
 
-    $apps = MyAuth::getApps('admin');
+    $apps = MyAuth::getApps('dummy');
     $this->assertEquals(count($apps), 1);
     $this->assertTrue($apps[$token]);//true ~ non-empty
     $this->assertEquals($apps[$token]['manifestPath'], 'apps/todomvc/manifest.json');
@@ -66,56 +60,60 @@ class Test_RemoteStorage extends UnitTestCase {
     $this->assertEquals(count($apps[$token]['scopes']['w']), 1);
     $this->assertEquals($apps[$token]['scopes']['r'][0], 'tasks');
     $this->assertEquals($apps[$token]['scopes']['w'][0], 'tasks');
-    $token = MyAuth::addApp('admin', 'apps/todomvc/manifest.json', array('r' => array('tasks')));
-    $apps = MyAuth::getApps('admin');
+
+    //update perms of existing app to read-only: 
+    $newToken = MyAuth::addApp('dummy', 'apps/todomvc/manifest.json', array('r' => array('tasks')));
+    $this->assertEquals($token, $newToken);
+    $apps = MyAuth::getApps('dummy');
     $this->assertEquals(count($apps), 1);
     $this->assertTrue($apps[$token]);//true ~ non-empty
     $this->assertEquals($apps[$token]['manifestPath'], 'apps/todomvc/manifest.json');
     $this->assertEquals(count($apps[$token]['scopes']), 1);
     $this->assertEquals(count($apps[$token]['scopes']['r']), 1);
     $this->assertEquals($apps[$token]['scopes']['r'][0], 'tasks');
-    MyAuth::removeApp('admin', $token);
-    $apps = MyAuth::getApps('admin');
+    MyAuth::removeApp('dummy', $token);
+    $apps = MyAuth::getApps('dummy');
     $this->assertEquals(count($apps), 0);
   }
 
   function testRest() {
-    $a = MyRest::handleRequest('GET', 'admin', 'foo/bar', array(), '');
+    $a = MyRest::handleRequest('GET', 'dummy', 'foo/bar', array(), '');
     $this->assertEquals($a[0], 401);
-    $a = MyRest::handleRequest('GET', 'admin', 'public/foo/bar', array(), '');
+    $a = MyRest::handleRequest('GET', 'dummy', 'public/foo/bar', array(), '');
     $this->assertEquals($a[0], 404);
-    $token = MyAuth::addApp('admin', 'bla', array('r' => array('foo', 'bar'), 'w' => array('foo')));
-    $a = MyRest::handleRequest('GET', 'admin', 'foo/bar', array('Authorization' => 'Bearer '.$token), '');
+    $token = MyAuth::addApp('dummy', 'bla', array('r' => array('foo', 'bar'), 'w' => array('foo')));
+    $a = MyRest::handleRequest('GET', 'dummy', 'foo/bar', array('Authorization' => 'Bearer '.$token), '');
     $this->assertEquals($a[0], 404);
-    $a = MyRest::handleRequest('PUT', 'admin', 'foo/', array('Authorization' => 'Bearer '.$token), '');
+    $a = MyRest::handleRequest('PUT', 'dummy', 'foo/', array('Authorization' => 'Bearer '.$token), '');
     $this->assertEquals($a[0], 401);
-    $a = MyRest::handleRequest('PUT', 'admin', 'bar/foo', array('Authorization' => 'Bearer '.$token), '');
+    $a = MyRest::handleRequest('PUT', 'dummy', 'bar/foo', array('Authorization' => 'Bearer '.$token), '');
     $this->assertEquals($a[0], 401);
-    $a = MyRest::handleRequest('GET', 'admin', 'bar/', array('Authorization' => 'Bearer '.$token), '');
+    $a = MyRest::handleRequest('GET', 'dummy', 'bar/', array('Authorization' => 'Bearer '.$token), '');
     $this->assertEquals($a[0], 200);
     $this->assertEquals($a[1]['Content-Type'], 'application/json');
     $this->assertEquals($a[2], '[]');
-    $a = MyRest::handleRequest('PUT', 'admin', 'foo/bar', array('Authorization' => 'Bearer '.$token, 'Content-Type' => 'muddy/sludge'), 'vwavwavwa');
+    $a = MyRest::handleRequest('PUT', 'dummy', 'foo/bar', array('Authorization' => 'Bearer '.$token, 'Content-Type' => 'muddy/sludge'), 'vwavwavwa');
     $this->assertEquals($a[0], 200);
     $this->assertEquals(count($a[1]), 1);
     $this->assertEquals(!$a[1]['Last-Modified']);
     $timestamp = $a[1]['Last-Modified'];
-    $a = MyRest::handleRequest('GET', 'admin', 'foo/bar', array('Authorization' => 'Bearer '.$token), '');
+    $a = MyRest::handleRequest('GET', 'dummy', 'foo/bar', array('Authorization' => 'Bearer '.$token), '');
     $this->assertEquals($a[0], 200);
     $this->assertEquals(count($a[1]), 2);
     $this->assertEquals($a[1]['Last-Modified'], $timestamp);
     $this->assertEquals($a[1]['Content-Type'], 'muddy/sludge');
     $this->assertEquals($a[2], 'vwavwavwa');
-    $a = MyRest::handleRequest('DELETE', 'admin', 'foo/baz', array('Authorization' => 'Bearer '.$token), '');
+    $a = MyRest::handleRequest('DELETE', 'dummy', 'foo/baz', array('Authorization' => 'Bearer '.$token), '');
     $this->assertEquals($a[0], 404);
-    $a = MyRest::handleRequest('DELETE', 'admin', 'floo/baz', array('Authorization' => 'Bearer '.$token), '');
+    $a = MyRest::handleRequest('DELETE', 'dummy', 'floo/baz', array('Authorization' => 'Bearer '.$token), '');
     $this->assertEquals($a[0], 401);
-    $a = MyRest::handleRequest('DELETE', 'admin', 'foo/bar', array('Authorization' => 'Bearer '.$token), '');
+    $a = MyRest::handleRequest('DELETE', 'dummy', 'foo/bar', array('Authorization' => 'Bearer '.$token), '');
     $this->assertEquals($a[0], 200);
-    $a = MyRest::handleRequest('GET', 'admin', 'foo/bar', array('Authorization' => 'Bearer '.$token), '');
+    $a = MyRest::handleRequest('GET', 'dummy', 'foo/bar', array('Authorization' => 'Bearer '.$token), '');
     $this->assertEquals($a[0], 404);
-    $a = MyRest::handleRequest('GET', 'admin', 'foo/', array('Authorization' => 'Bearer '.$token), '');
+    $a = MyRest::handleRequest('GET', 'dummy', 'foo/', array('Authorization' => 'Bearer '.$token), '');
     $this->assertEquals($a[0], 200);
     $this->assertEquals($a[2], '[]');
+    MyAuth::removeApp('dummy', $token);
   }
 }
