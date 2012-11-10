@@ -8,7 +8,6 @@
   Source: <input id="appsource" value="https://apps.unhosted.org/default.json" style="width:20em">
 </div>
 <div id="addDiv"></div>
-<input id="addButton" type="submit" value="Install and launch" onclick="installAndLaunch();">
 <script>
   var parsedParams = { };
   function addApp() {
@@ -29,7 +28,7 @@
         parsedParams.origin = parser.protocol + '//' + parser.host;
         parsedParams.launch_path = parser.pathname;
       } else if(parts[0]=='scope') {
-        parsedParams.scopes = {};
+        parsedParams.permissions = {};
         var scopeParts = decodeURIComponent(parts[1]).split(' ');
         for(var j=0; j<scopeParts.length; j++) {
           var scopePartParts = scopeParts[j].split(':');
@@ -75,7 +74,6 @@
   function showMode() {
     document.getElementById('mainButton').value = (mode=='edit'?'done':(mode=='add'?'add':'edit'));
     document.getElementById('addDiv').style.display = (mode=='add'?'block':'none');
-    document.getElementById('addButton').style.display = (mode=='add'?'block':'none');
     document.getElementById('updateDiv').style.display = (mode=='edit'?'block':'none');
     document.getElementById('editMode').innerHTML='.remove_ {display:'+(mode=='edit'?'inline':'none')+';}';
   }
