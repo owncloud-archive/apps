@@ -21,9 +21,12 @@ function handle() {
 
   $uid = OCP\USER::getUser();
   MyStorage::store($uid, $params['manifest_path'], 'application/json', json_encode(array(
-    'launch_url' => $params['launch_url'],
+    'origin' => $params['origin'],
+    'launch_path' => $params['launch_path'],
     'name' => $params['name'],
-    'icon' => $params['icon']
+    'icons' => ($params['icons']?$params['icons']['128']?array(
+       128 => $params['icons']['128']
+    ):array():array())
   )));    
   OCP\JSON::success(array('token'=>$token));
 }

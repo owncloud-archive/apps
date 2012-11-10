@@ -1,4 +1,5 @@
 <style> .square { border-style:solid; border-width:1px; float:left; width:200px; height:200px; display:block; overflow:hidden; } </style>
+<style id="editMode"> .remove_ { display: inline; } </style>
 <div style="width:100%" id="icons">
 </div>
 <input id="mainButton" type="submit" value="edit" onclick="changeMode()">
@@ -6,10 +7,8 @@
   <input type="submit" value="install default apps" onclick="installDefaultApps();">
   Source: <input id="appsource" value="https://apps.unhosted.org/default.json" style="width:20em">
 </div>
-<div id="addDiv">
-Install 
-<span id="launch_url"></span> with access to:<ul id="scopes"></ul><input type="submit" value="Install and launch" onclick="installAndLaunch();">
-</div>
+<div id="addDiv"></div>
+<input id="addButton" type="submit" value="Install and launch" onclick="installAndLaunch();">
 <script>
   var parsedParams = { };
   function addApp() {
@@ -27,25 +26,31 @@ Install
         var parser = document.createElement('a');
         parser.href = decodeURIComponent(parts[1]);
         parsedParams.name = parser.hostname;
-        parsedParams.launch_url = parser.protocol + '//' + parser.host + parser.pathname;
+        parsedParams.origin = parser.protocol + '//' + parser.host;
+        parsedParams.launch_path = parser.pathname;
       } else if(parts[0]=='scope') {
         parsedParams.scopes = {};
         var scopeParts = decodeURIComponent(parts[1]).split(' ');
         for(var j=0; j<scopeParts.length; j++) {
           var scopePartParts = scopeParts[j].split(':');
-          parsedParams.scopes[scopePartParts[0].replace(/[^a-z]/, '')] = (scopePartParts[1]=='r'?'r':'rw');
+          parsedParams.permissions[scopePartParts[0].replace(/[^a-z]/, '')] = {
+            description: 'Requested by the app in the OAuth dialog',
+            access: (scopePartParts[1]=='r'?'readonly':'readwrite')
+          };
         }
       }
-    }  
+    }
     if(parsedParams.addRequested) {
       var str = 'Give '+parsedParams.name+' access to '
-      for(var i in parsedParams.scopes) {
-        if(i=='') {
+      for(var i in parsedParams.permissions) {
+        if(i=='root') {
           str += 'everything';
+        } else if(i=='apps') {
+          str += 'which apps you have installed';
         } else {
           str += i;
         }
-        if(parsedParams.scopes[i]=='r') {
+        if(parsedParams.permissions[i]=='readonly') {
           str += ' (read only)';
         }
         str += ', ';
@@ -70,11 +75,9 @@ Install
   function showMode() {
     document.getElementById('mainButton').value = (mode=='edit'?'done':(mode=='add'?'add':'edit'));
     document.getElementById('addDiv').style.display = (mode=='add'?'block':'none');
+    document.getElementById('addButton').style.display = (mode=='add'?'block':'none');
     document.getElementById('updateDiv').style.display = (mode=='edit'?'block':'none');
-    var elts = document.getElementsByClassName('remove_');
-    for(var i=0; i<elts.length; i++) {
-      elts[i].style.display = (mode=='edit'?'inline':'none');
-    }
+    document.getElementById('editMode').innerHTML='.remove_ {display:'+(mode=='edit'?'inline':'none')+';}';
   }
   var mode = 'main';
   showMode();
@@ -97,7 +100,7 @@ function ajax(endpoint, params, cb) {
       }
     }
   };
-  xhr.setRequestHeader('requesttoken', OC.Request.Token);
+  xhr.setRequestHeader('requesttoken', oc_requesttoken);
   xhr.send(JSON.stringify(params));
 }
 function rsget(token, uid, path, cb) {
@@ -203,9 +206,13 @@ function installApp(manifestObj) {
         console.log(err1, data1);
       } else {
         var scopesObj = {r:[], w:[]};
-        for(var i in manifestObj.scopes) {
-          scopesObj.r.push(i);
-          if(manifestObj.scopes[i]=='rw') {
+        for(var i in manifestObj.permissions) {
+          if(i=='root') {
+            scopesObj.r.push('');
+          } else {
+            scopesObj.r.push(i);
+          }
+          if(manifestObj.permissions[i]!='readonly') {
             scopesObj.w.push(i);
           }
         }
@@ -251,14 +258,14 @@ function showApp(masterToken, uid, appToken, manifestPath) {
     }
      
     document.getElementById('icons').innerHTML += '<div class="square" style="margin:1em;border-radius:1em">'
-      + '<a target="_blank" href="' + manifest.launch_url
+      + '<a target="_blank" href="' + manifest.orign + manifest.launch_path
       + '#storage_root='+encodeURIComponent('https://' + remoteStorageOrigin
         + '/?user=' + encodeURIComponent(uid) + '&path=')
       + '&storage_api=2011.04&access_token=' + encodeURIComponent(appToken)+'">'
-      + '<img width="50px" height="50px" src="' + manifest.icon + '">'
+      + '<img width="50px" height="50px" src="' + manifest.icons['128'] + '">'
       + '</a>'
-      + '<span style="display:none" class="remove_" onclick="remove(\''+appToken+'\');">X</span>'
-      + '<a style="margin:1em" target="_blank" href="' + manifest.launch_url
+      + '<span class="remove_" onclick="remove(\''+appToken+'\');">X</span>'
+      + '<a style="margin:1em" target="_blank" href="' + manifest.origin + manifest.launch_path
       + '#storage_root='+encodeURIComponent('https://' + remoteStorageOrigin
         + '/?user=' + encodeURIComponent(uid) + '&path=')
       + '&storage_api=2011.04&access_token=' + encodeURIComponent(appToken)+'">'
@@ -294,6 +301,8 @@ function render() {
       if(content.apps[i].manifest_path!='appsapp') {
         console.log(content.apps[i]);
         showApp(masterToken, uid, content.apps[i].access_token, content.apps[i].manifest_path);
+        console.log('added another app, showing mode '+mode);
+        showMode();
       }
     }
   });

@@ -33,7 +33,7 @@
         }
       }
     };
-    xhr.setRequestHeader('requesttoken', OC.Request.Token);
+    xhr.setRequestHeader('requesttoken', oc_requesttoken);
     xhr.send(JSON.stringify(params));
   }
   function rsget(token, uid, path, cb) {
@@ -107,7 +107,7 @@
         scopes: 'b'
       }, function(err1, data1) {
         if(err1) {
-          cb(err1+' while adding');
+          cb(JSON.stringify(err1)+' while adding');
         } else {
           ajax('listapps.php', {
           }, function(err2, data2) {
@@ -147,42 +147,46 @@
     },
     function(cb) {
       ajax('storemanifest.php', {
-        launch_url: 'http://litewrite.net',
-        icon: 'http://litewrite.net/img/litewrite-touch.png',
-        name: 'litewrite',
-        //requested_scopes: JSON.stringify({r:['documents'], w:['documents']}),
+        origin: 'http://litewrite.net',
+        launch_path: '/',
+        icons: {'128': 'http://litewrite.net/img/litewrite-touch.png'},
+        name: 'Litewrite',
+        permissions: { documents: {access: 'readwrite'}},
         manifest_path: 'apps/litewrite/manifest.json'
       }, function(err1, data1) {
         if(err1) {
-          cb(err1);
+          cb('fail 1'+JSON.stringify(err1));
         } else {
           ajax('addapp.php', {
             manifest_path: 'apps/litewrite/manifest.json',
-            scopes: JSON.stringify({r:['apps', 'documents'], w:['documents']})
+            scopes: JSON.stringify({r: ['apps', 'documents'], w: ['documents']}) 
           }, function(err2, data2) {
             if(err2) {
-              cb(err2);
+              cb('fail 2'+JSON.stringify(err2));
             } else {
               rsget(data2.token, 'admin', 'apps/litewrite/manifest.json', function(err3, data3) {
-                try {
-                  data3 = JSON.parse(data3.content);
-                } catch(e) {
-                  cb(data3);
-                }
                 if(err3) {
-                  cb(err3);
-                } else if(data3.icon != 'http://litewrite.net/img/litewrite-touch.png') {
-                  cb('wrong icon');
-                } else if(data3.name != 'Litewrite') {
-                  cb('wrong name'+JSON.stringify(data3));
-                } else if(data3.launch_url != 'http://litewrite.net/') {
-                  cb('wrong launch url');
+                  cb('fail 4'+JSON.stringify(err3));
                 } else {
-                  ajax('removeapp.php', {
-                    token: data2.token
-                  }, function(err4, data4) {
-                    cb(err4);
-                  });
+                  try {
+                    data3 = JSON.parse(data3.content);
+                  } catch(e) {
+                    cb('fail 3'+JSON.stringify(data3));
+                    cb(data3);
+                  }
+                  if(data3.icons['128'] != 'http://litewrite.net/img/litewrite-touch.png') {
+                    cb('wrong icon');
+                  } else if(data3.name != 'Litewrite') {
+                    cb('wrong name'+JSON.stringify(data3));
+                  } else if(data3.origin != 'http://litewrite.net') {
+                    cb('wrong launch url');
+                  } else {
+                    ajax('removeapp.php', {
+                      token: data2.token
+                    }, function(err4, data4) {
+                      cb((err4?'fail 5'+JSON.stringify(err4):err4));
+                    });
+                  }
                 }
               });
             }
