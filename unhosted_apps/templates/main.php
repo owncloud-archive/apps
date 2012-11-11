@@ -32,6 +32,9 @@
         var scopeParts = decodeURIComponent(parts[1]).split(' ');
         for(var j=0; j<scopeParts.length; j++) {
           var scopePartParts = scopeParts[j].split(':');
+          if(scopePartParts[0]=='') {
+            scopePartParts[0]='root';
+          }
           parsedParams.permissions[scopePartParts[0].replace(/[^a-z]/, '')] = {
             description: 'Requested by the app in the OAuth dialog',
             access: (scopePartParts[1]=='r'?'readonly':'readwrite')
@@ -205,11 +208,7 @@ function installApp(manifestObj) {
       } else {
         var scopesObj = {r:[], w:[]};
         for(var i in manifestObj.permissions) {
-          if(i=='root') {
-            scopesObj.r.push('');
-          } else {
-            scopesObj.r.push(i);
-          }
+          scopesObj.r.push(i);
           if(manifestObj.permissions[i]!='readonly') {
             scopesObj.w.push(i);
           }

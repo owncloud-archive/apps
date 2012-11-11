@@ -27,12 +27,15 @@ class MyRest {
       }
       $module = $pathParts[1];
     }
+    if(strlen($module)==0) {// access to '/' and 'public/'
+      $module = 'root';
+    }
     $apps = MyAuth::getApps($uid);
     $token = substr($headers['Authorization'], strlen('Bearer '));
     if((!$apps[$token]) || (!$apps[$token]['scopes']) || (!$apps[$token]['scopes'][$require_oncedPerms])) {
       return false;
     }
-    return (in_array($module, $apps[$token]['scopes'][$require_oncedPerms]));
+    return ((in_array($module, $apps[$token]['scopes'][$require_oncedPerms])) || (in_array('root', $apps[$token]['scopes'][$require_oncedPerms])));
   }
   private static function getMimeType($headers) {
     return $headers['Content-Type'];

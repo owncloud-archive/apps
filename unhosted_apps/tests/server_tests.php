@@ -76,6 +76,47 @@ class Test_RemoteStorage extends UnitTestCase {
     $this->assertEquals(count($apps), 0);
   }
 
+  function testRoot() {
+    $token = MyAuth::addApp('dummy', 'apps/rooter/manifest.json', array('r' => array('root'), 'w' => array('root')));
+    $a = MyRest::handleRequest('GET', 'dummy', 'foo/bar', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 404);
+    $a = MyRest::handleRequest('GET', 'dummy', 'foo/', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 200);
+    $a = MyRest::handleRequest('GET', 'dummy', 'public/foo/bar', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 404);
+    $a = MyRest::handleRequest('GET', 'dummy', 'public/foo/', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 200);
+    $a = MyRest::handleRequest('GET', 'dummy', 'public/', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 200);
+    $a = MyRest::handleRequest('GET', 'dummy', '/', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 200);
+    $a = MyRest::handleRequest('PUT', 'dummy', 'foo/bar', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 200);
+    $a = MyRest::handleRequest('PUT', 'dummy', 'foo/', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 401);
+    $a = MyRest::handleRequest('PUT', 'dummy', 'public/foo/bar', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 200);
+    $a = MyRest::handleRequest('PUT', 'dummy', 'public/foo/', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 401);
+    $a = MyRest::handleRequest('PUT', 'dummy', 'public/', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 401);
+    $a = MyRest::handleRequest('PUT', 'dummy', '/', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 401);
+    $a = MyRest::handleRequest('DELETE', 'dummy', 'foo/bar', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 200);
+    $a = MyRest::handleRequest('DELETE', 'dummy', 'foo/', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 401);
+    $a = MyRest::handleRequest('DELETE', 'dummy', 'public/foo/bar', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 200);
+    $a = MyRest::handleRequest('DELETE', 'dummy', 'public/foo/', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 401);
+    $a = MyRest::handleRequest('DELETE', 'dummy', 'public/', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 401);
+    $a = MyRest::handleRequest('DELETE', 'dummy', '/', array('Authorization' => 'Bearer '.$token), '');
+    $this->assertEquals($a[0], 401);
+    MyAuth::removeApp('dummy', $token);
+  }
+
   function testRest() {
     $a = MyRest::handleRequest('GET', 'dummy', 'foo/bar', array(), '');
     $this->assertEquals($a[0], 401);
