@@ -16,38 +16,53 @@ class Updater {
 
 	protected static $processed = array();
 
-	public static function update($updateBase, $backupBase) {
+	public static function update($version, $backupBase) {
 		if (!is_dir($backupBase)) {
 			throw new \Exception('Backup directory is not found');
 		}
 
 		set_include_path(
 				$backupBase . PATH_SEPARATOR .
-				$backupBase . '/lib' . PATH_SEPARATOR .
-				$backupBase . '/config' . PATH_SEPARATOR .
+				$backupBase . '/core/lib' . PATH_SEPARATOR .
+				$backupBase . '/core/config' . PATH_SEPARATOR .
 				$backupBase . '/3rdparty' . PATH_SEPARATOR .
 				$backupBase . '/apps' . PATH_SEPARATOR .
 				get_include_path()
 		);
 
-		$tempBase = self::getTempDir();
-		Helper::mkdir($tempBase, true);
+		$tempDir = self::getTempDir();
+		Helper::mkdir($tempDir, true);
+		
+		$sources = Helper::getSources($version);
+		$destinations = Helper::getDirectories();
 		
 		try {
 			$locations = Helper::getPreparedLocations();
-			//TODO: Straight update of 3rdparty/apps[]/core
 			foreach ($locations as $type => $dirs) {
-				$tempPath = $tempBase . '/';
-				$updatePath = $updateBase . '/';
-			
-				if ($type != 'core') {
-					$tempPath .= $type . '/';
-					$updatePath .= $type . '/';
+				if (isset($sources[$type])) {
+						$sourceBaseDir = $sources[$type];
+				} else {
+						//  Extra app directories
+						$sourceBaseDir  = false;
 				}
-			
+				
+				$tempBaseDir = $tempDir . '/' . $type;		
+				Helper::mkdir($tempBaseDir, true);
+				
+				// Purge old sources
 				foreach ($dirs as $name => $path) {
-					//TODO: Add Rollback details here
-					self::moveTriple($path, $updatePath . $name, $tempPath . $name);
+					Helper::move($path, $tempBaseDir . '/' . $name);
+					self::$processed[] = array (
+						'src' => $tempBaseDir . '/' . $name,
+						'dst' => $path
+					);
+				}
+				//Put new sources
+				if (!$sourceBaseDir){
+					continue;
+				}
+				foreach (Helper::getFilteredContent($sourceBaseDir) as $basename=>$path){
+					Helper::move($path, $destinations[$type] . '/' . $basename);
 				}
 			}
 		} catch (\Exception $e){
@@ -57,18 +72,13 @@ class Updater {
 		}
 
 		$config = "/config/config.php";
-		copy($tempBase . $config, \OC::$SERVERROOT . $config);
-
+		copy($backupBase . $config, \OC::$SERVERROOT . $config);
+		
+        //TODO: disable removed apps
+		
 		return true;
 	}
 
-	public static function moveTriple($old, $new, $temp) {
-		@rename($old, $temp);
-		if (file_exists($new) && !@rename($new, $old)) {
-			throw new \Exception("Unable to move $new to $old");
-		}
-	}
-	
 	public static function rollBack(){
 		foreach (self::$processed as $item){
 			\OC_Helper::copyrr($item['src'], $item['dst']);

@@ -3,10 +3,11 @@
 "Warning" => "Įspėjimas",
 "Close" => "Užverti",
 "Save" => "Išsaugoti",
-"Edit" => "Redaguoti",
 "Delete" => "Ištrinti",
+"Edit" => "Redaguoti",
 "Cancel" => "Atšaukti",
 "Address" => "Adresas",
+"Add" => "Pridėti",
 "Settings" => "Nustatymai",
 "Export" => "Eksportuoti",
 "Import" => "Importuoti"

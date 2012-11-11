@@ -26,6 +26,23 @@ require_once 'mail/3rdparty/Horde/Autoloader/Default.php';
 
 class App
 {
+	/**
+	 * Extracts all matching contacts with email address and name
+	 *
+	 * @param $user_id
+	 * @param $term
+	 * @return array
+	 */
+	public static function getMatchingRecipient($user_id, $term){
+		$result = \OC_Search::search($term);
+		$receivers = array();
+		foreach($result as $r) {
+			$name = $r->name;
+			$receivers[]= array('id'=>$name, 'label'=>$name, 'value'=>$name);
+		}
+
+		return $receivers;
+	}
     /**
      * Loads all user's accounts, connects to each server and queries all folders
      *
@@ -102,7 +119,7 @@ class App
             $m = $mailbox->getMessage($message_id);
             $message = $m->as_array();
 
-            return array('error' => $conn->error, 'message' => $message);
+            return array('message' => $message);
         } catch (\Horde_Imap_Client_Exception $e) {
             return array('error' => $e->getMessage());
         }
@@ -201,7 +218,7 @@ class App
             return false;
         }
         if (stripos($host, 'gmail') !== false) {
-            return falase;
+            return false;
         }
 
         //

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 17:22+0000\n"
+"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,19 +26,23 @@ msgstr "Неподдерживаемый тип файла для импорта
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: js/addBm.js:42 js/bookmarks.js:229
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
 msgstr "Теги"
 
-#: js/bookmarks.js:131
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr "Фильтрация по тегу"
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
 msgstr "Редактировать закладку"
 
-#: js/bookmarks.js:368
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Вы уверены, что хотите удалить этот тег из каждой записи?"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr "Предупреждение"
 
@@ -78,60 +82,64 @@ msgstr "Описание страницы"
 msgid "Save"
 msgstr "Сохранить"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:60
-msgid "Edit"
-msgstr "Редактировать"
-
-#: templates/js_tpl.php:10 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
 msgid "Delete"
 msgstr "Удалить"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "Редактировать"
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
 msgstr "Отмена"
 
-#: templates/list.php:13
-msgid "Address"
-msgstr "Адрес"
-
 #: templates/list.php:14
-msgid "Add bookmark"
-msgstr "Добавить закладку"
-
-#: templates/list.php:23
-msgid "Related Tags"
-msgstr "Связанные теги"
-
-#: templates/list.php:31 templates/list.php:33
-msgid "Settings"
-msgstr "Настройки"
-
-#: templates/list.php:46
-msgid "You have no bookmarks"
-msgstr "У Вас нет закладок"
-
-#: templates/settings.php:11
-msgid "Bookmarklet"
-msgstr ""
-
-#: templates/settings.php:13
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
 msgstr "Перетащите это в закладки Вашего браузера и кликните на него, когда захотите быстро добавить страницу в закладки:"
 
-#: templates/settings.php:19
+#: templates/list.php:15
 msgid "Read later"
 msgstr "Прочитать позже"
 
-#: templates/settings.php:31
-msgid "Export & Import"
-msgstr ""
+#: templates/list.php:22
+msgid "Address"
+msgstr "Адрес"
 
-#: templates/settings.php:32
+#: templates/list.php:23
+msgid "Add"
+msgstr "Добавить"
+
+#: templates/list.php:31
+msgid "Related Tags"
+msgstr "Связанные теги"
+
+#: templates/list.php:39 templates/list.php:41
+msgid "Settings"
+msgstr "Настройки"
+
+#: templates/list.php:53
+msgid "You have no bookmarks"
+msgstr "У Вас нет закладок"
+
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr "Вы также можете попытаться импортировать файл закладок"
+
+#: templates/settings.php:11
+msgid "Bookmarklet"
+msgstr "Bookmarklet"
+
+#: templates/settings.php:23
+msgid "Export & Import"
+msgstr "Экспорт & Импорт"
+
+#: templates/settings.php:24
 msgid "Export"
 msgstr "Экспортировать"
 
-#: templates/settings.php:34
+#: templates/settings.php:26
 msgid "Import"
 msgstr "Импортировать"

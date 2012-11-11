@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 06:09+0000\n"
-"Last-Translator: mattheu_9x <mattheu_9x@yahoo.com>\n"
+"POT-Creation-Date: 2012-11-10 00:01+0100\n"
+"PO-Revision-Date: 2012-11-09 14:34+0000\n"
+"Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,7 +60,7 @@ msgstr "tên phần tử không được thiết lập."
 
 #: ajax/contact/addproperty.php:46
 msgid "Could not parse contact: "
-msgstr ""
+msgstr "Không thể phân tích vui lòng liên hệ :"
 
 #: ajax/contact/addproperty.php:56
 msgid "Cannot add empty property."
@@ -92,7 +92,7 @@ msgstr "Missing ID"
 
 #: ajax/contact/details.php:36
 msgid "Error parsing VCard for ID: \""
-msgstr ""
+msgstr "Lỗi cú pháp VCard ID: \""
 
 #: ajax/contact/saveproperty.php:42
 msgid "checksum is not set."
@@ -104,7 +104,7 @@ msgstr "Thông tin về vCard không chính xác. Vui lòng tải lại trang:"
 
 #: ajax/contact/saveproperty.php:69
 msgid "Something went FUBAR. "
-msgstr ""
+msgstr "Có cái gì đó không được khắc phục."
 
 #: ajax/currentphoto.php:30 ajax/oc_photo.php:28 ajax/uploadphoto.php:36
 #: ajax/uploadphoto.php:68
@@ -242,7 +242,7 @@ msgstr "Lỗi"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "Vui lòng nhập địa chỉ email."
 
 #: js/contacts.js:177 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -259,7 +259,7 @@ msgstr "Chọn loại"
 
 #: js/contacts.js:215
 msgid "Select photo"
-msgstr ""
+msgstr "Chọn photo"
 
 #: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
@@ -275,29 +275,29 @@ msgstr "Lỗi quyền truy cập"
 
 #: js/contacts.js:482
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "Nhấn vào đây để hoàn tất xóa \""
 
 #: js/contacts.js:496
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "Hủy xóa :\""
 
 #: js/contacts.js:726
 msgid "This property has to be non-empty."
-msgstr ""
+msgstr "Thuộc tính này không được rỗng."
 
 #: js/contacts.js:752
 msgid "Couldn't serialize elements."
-msgstr ""
+msgstr "Không thể nối tiếp các yếu tố."
 
 #: js/contacts.js:763
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "Hệ thống báo lỗi .Vui lòng xem lại"
 
 #: js/contacts.js:884 js/contacts.js:902
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
-msgstr ""
+msgstr "'deleteProperty' kêu gọi mà không có đối số kiểu. Xin báo cáo tại bugs.owncloud.org"
 
 #: js/contacts.js:921
 msgid "Edit name"
@@ -321,7 +321,7 @@ msgstr "Lỗi khi tải lên hồ sơ hình ảnh."
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
-msgstr ""
+msgstr "Một số địa chỉ liên lạc được đánh dấu để xóa, nhưng chưa bị xóa . Hãy đợi đến khi họ xóa."
 
 #: js/contacts.js:1617
 msgid "Do you want to merge these address books?"
@@ -329,57 +329,57 @@ msgstr "Bạn có muốn kết hợp những cuốn sách địa chỉ?"
 
 #: js/contacts.js:1770
 msgid "Shared by "
-msgstr ""
+msgstr " Được chia sẻ bởi"
 
 #: js/contacts.js:2003 js/contacts.js:2078
 msgid "Upload too large"
-msgstr ""
+msgstr "Tải lên quá lớn"
 
 #: js/contacts.js:2007
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "Chỉ sử dụng các tập tin hình ảnh. "
 
 #: js/contacts.js:2007
 msgid "Wrong file type"
-msgstr ""
+msgstr "Sai kiểu tập tin"
 
 #: js/contacts.js:2013
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr " Trình duyệt của bạn không hỗ trợ AJAX upload .Xin vui lòng click vào hình ảnh hồ sơ cá nhân để lựa chọn một ảnh để tải lên."
 
 #: js/contacts.js:2071
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Không thể tải lên tập tin của bạn ,nó như là một thư mục hoặc có 0 byte"
 
 #: js/contacts.js:2071
 msgid "Upload Error"
-msgstr ""
+msgstr "Lỗi tải lên"
 
 #: js/contacts.js:2126
 msgid "Pending"
-msgstr ""
+msgstr "Đang chờ"
 
 #: js/contacts.js:2158
 msgid "Import done"
-msgstr ""
+msgstr "Thực hiện import"
 
 #: js/contacts.js:2171
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Tất cả các tập tin không được tải lên .Đang thử lại..."
 
 #: js/contacts.js:2177
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Một cái gì đó đã sai khi tải lên ,hãy thử lại."
 
 #: js/contacts.js:2193
 msgid "Importing..."
-msgstr ""
+msgstr "Importing..."
 
 #: js/contacts.js:2214
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "không thể để rỗng address book ."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -387,7 +387,7 @@ msgstr "Kết quả:"
 
 #: js/loader.js:49
 msgid " imported, "
-msgstr ""
+msgstr " imported, "
 
 #: js/loader.js:49
 msgid " failed."
@@ -395,15 +395,15 @@ msgstr "thất bại."
 
 #: js/settings.js:76
 msgid "Displayname cannot be empty."
-msgstr ""
+msgstr "Tên hiển thị không được để trống :"
 
 #: js/settings.js:98 templates/settings.php:25
 msgid "Show CardDav link"
-msgstr ""
+msgstr "Hiển thị CardDav "
 
 #: js/settings.js:99 templates/settings.php:28
 msgid "Show read-only VCF link"
-msgstr ""
+msgstr "Hiển thị liên kết VCF chỉ đọc"
 
 #: js/settings.js:100 templates/settings.php:39
 msgid "Download"
@@ -426,15 +426,15 @@ msgstr "Hủy"
 
 #: js/settings.js:161 templates/settings.php:66
 msgid "More..."
-msgstr ""
+msgstr "nhiều hơn..."
 
 #: js/settings.js:165
 msgid "Less..."
-msgstr ""
+msgstr " ít hơn..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr " Bạn không được quyền đọc addressbook. "
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -454,7 +454,7 @@ msgstr "Có một lỗi khi xóa danh bạ này."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
-msgstr ""
+msgstr "Không tìm thấy Addressbook :"
 
 #: lib/app.php:52
 msgid "This is not your addressbook."
@@ -522,7 +522,7 @@ msgstr "Nhà"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:648
 msgid "Other"
-msgstr ""
+msgstr "Khác"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -571,11 +571,11 @@ msgstr "Gọi"
 
 #: lib/app.php:255
 msgid "Clients"
-msgstr ""
+msgstr "Khách hàng"
 
 #: lib/app.php:256
 msgid "Deliverer"
-msgstr ""
+msgstr "Deliverer"
 
 #: lib/app.php:257
 msgid "Holidays"
@@ -587,7 +587,7 @@ msgstr "Ý tưởng"
 
 #: lib/app.php:259
 msgid "Journey"
-msgstr ""
+msgstr "Journey"
 
 #: lib/app.php:260
 msgid "Jubilee"
@@ -599,15 +599,15 @@ msgstr "Hội nghị"
 
 #: lib/app.php:263
 msgid "Personal"
-msgstr ""
+msgstr "Cá nhân"
 
 #: lib/app.php:264
 msgid "Projects"
-msgstr ""
+msgstr "Dự án"
 
 #: lib/app.php:265
 msgid "Questions"
-msgstr ""
+msgstr "Câu hỏi"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
@@ -619,7 +619,7 @@ msgstr "Danh sách"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "Bạn không có quyền thêm tới Addressbook."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
@@ -663,11 +663,11 @@ msgstr "Đóng"
 
 #: templates/index.php:31
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Phím tắt"
 
 #: templates/index.php:33
 msgid "Navigation"
-msgstr ""
+msgstr "Navigation"
 
 #: templates/index.php:36
 msgid "Next contact in list"
@@ -683,15 +683,15 @@ msgstr "Đóng/mở sổ địa chỉ"
 
 #: templates/index.php:42
 msgid "Next addressbook"
-msgstr ""
+msgstr "Next addressbook"
 
 #: templates/index.php:44
 msgid "Previous addressbook"
-msgstr ""
+msgstr "Previous addressbook"
 
 #: templates/index.php:48
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 #: templates/index.php:51
 msgid "Refresh contacts list"
@@ -1021,7 +1021,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3> Bạn không có địa chỉ liên lạc trong sổ địa chỉ của bạn </ h3> <p> Bạn có thể nhập các file VCF bằng cách kéo chúng vào danh sách liên lạc hoặc thả chúng vào một sổ địa chỉ để nhập vào nó, hoặc trên một khoảng trống để tạo ra mộtbsổ địa chỉ mới và nhập vào đó <br. /> Bạn cũng có thể nhập vào bằng cách nhấp vào nút nhập khẩu ở dưới cùng của danh sách. </ p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"
@@ -1065,11 +1065,11 @@ msgstr "Sổ địa chỉ mới"
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Tên"
 
 #: templates/settings.php:59
 msgid "Description"
-msgstr ""
+msgstr "Mô tả"
 
 #: templates/settings.php:60
 msgid "Save"

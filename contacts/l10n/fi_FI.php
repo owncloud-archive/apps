@@ -236,6 +236,7 @@
 "create a new addressbook" => "luo uusi osoitekirja",
 "Name of new addressbook" => "Uuden osoitekirjan nimi",
 "Importing contacts" => "Tuodaan yhteystietoja",
+"<h3>You have no contacts in your addressbook.</h3><p>You can import VCF files by dragging them to the contacts list and either drop them on an addressbook to import into it, or on an empty spot to create a new addressbook and import into that.<br />You can also import by clicking on the import button at the bottom of the list.</p>" => "<h3>Osoitekirjassasi ei ole yhteystietoja.</h3><p>Voit tuoda VCF-tiedostoja vetämällä ne yhteystietoluetteloon ja pudottamalla ne haluamaasi osoitekirjaan, tai lisätä yhteystiedon uuteen osoitekirjaan pudottamalla sen tyhjään tilaan.<br />Vaihtoehtoisesti voit myös napsauttaa Tuo-painiketta luettelon alaosassa.</p>",
 "Add contact" => "Lisää yhteystieto",
 "Select Address Books" => "Valitse osoitekirjat",
 "Enter description" => "Anna kuvaus",

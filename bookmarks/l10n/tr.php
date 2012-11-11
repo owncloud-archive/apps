@@ -4,12 +4,13 @@
 "Warning" => "Uyarı",
 "Close" => "Kapat",
 "Save" => "Kaydet",
-"Edit" => "Düzenle",
 "Delete" => "Sil",
+"Edit" => "Düzenle",
 "Cancel" => "İptal",
-"Address" => "Adres",
-"Settings" => "Ayarlar",
 "Read later" => "Sonra oku",
+"Address" => "Adres",
+"Add" => "Ekle",
+"Settings" => "Ayarlar",
 "Export" => "Dışa aktar",
 "Import" => "İçe aktar"
 );

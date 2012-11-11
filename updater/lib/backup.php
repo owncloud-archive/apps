@@ -18,26 +18,21 @@ class Backup {
 	 * Path to the current Backup instance
 	 * @var string
 	 */
-	protected static $backupPath = '';
+	protected static $path = '';
 
 	/**
 	 * Perform backup
 	 * @return string
 	 */
-	public static function createBackup() {
+	public static function create() {
 		try {
 			$locations = Helper::getPreparedLocations();
-			Helper::mkdir(self::getBackupPath(), true);
+			Helper::mkdir(self::getPath(), true);
 			foreach ($locations as $type => $dirs) {
-				$backupFullPath = self::getBackupPath() . '/';
-
-				// 3rd party and apps might have different location
-				if ($type != 'core') {
-					$backupFullPath .= $type . '/';
-					Helper::mkdir($backupFullPath, true);
-				}
+				$backupFullPath = self::getPath() . '/' . $type . '/';
+				Helper::mkdir($backupFullPath, true);
+				
 				foreach ($dirs as $name => $path) {
-					//copy with Exception on error
 					Helper::copyr($path, $backupFullPath . $name);
 				}
 			}
@@ -46,7 +41,7 @@ class Backup {
 			throw $e;
 		}
 
-		return self::getBackupPath();
+		return self::getPath();
 	}
 
 	/**
@@ -54,24 +49,24 @@ class Backup {
 	 * or return existing one
 	 * @return string
 	 */
-	public static function getBackupPath() {
-		if (!self::$backupPath) {
+	public static function getPath() {
+		if (!self::$path) {
 			$backupBase = App::getBackupBase();
 			$currentVersion = \OC_Config::getValue('version', '0.0.0');
-			$backupPath = $backupBase . $currentVersion . '-';
+			$path = $backupBase . $currentVersion . '-';
 
 			do {
 				$salt = substr(md5(time()), 0, 8);
-			} while (file_exists($backupPath . $salt));
+			} while (file_exists($path . $salt));
 
-			self::$backupPath = $backupPath . $salt;
+			self::$path = $path . $salt;
 		}
-		return self::$backupPath;
+		return self::$path;
 	}
 
 	public static function cleanUp(){
-		if (self::$backupPath) {
-			Helper::removeIfExists(self::$backupPath);
+		if (self::$path) {
+			Helper::removeIfExists(self::$path);
 		}
 	}
 

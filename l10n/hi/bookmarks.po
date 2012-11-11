@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:01+0000\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 17:22+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/owncloud/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -25,19 +25,23 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: js/addBm.js:42 js/bookmarks.js:229
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
 msgstr ""
 
-#: js/bookmarks.js:131
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr ""
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:368
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr ""
 
@@ -77,60 +81,64 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:60
-msgid "Edit"
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
+msgid "Delete"
 msgstr ""
 
-#: templates/js_tpl.php:10 templates/js_tpl.php:64
-msgid "Delete"
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
 msgstr ""
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
 msgstr ""
 
-#: templates/list.php:13
+#: templates/list.php:14
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr ""
+
+#: templates/list.php:15
+msgid "Read later"
+msgstr ""
+
+#: templates/list.php:22
 msgid "Address"
 msgstr ""
 
-#: templates/list.php:14
-msgid "Add bookmark"
+#: templates/list.php:23
+msgid "Add"
 msgstr ""
 
-#: templates/list.php:23
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr ""
 
-#: templates/list.php:31 templates/list.php:33
+#: templates/list.php:39 templates/list.php:41
 msgid "Settings"
 msgstr ""
 
-#: templates/list.php:46
+#: templates/list.php:53
 msgid "You have no bookmarks"
+msgstr ""
+
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
 msgstr ""
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
 msgstr ""
 
-#: templates/settings.php:13
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr ""
-
-#: templates/settings.php:19
-msgid "Read later"
-msgstr ""
-
-#: templates/settings.php:31
+#: templates/settings.php:23
 msgid "Export & Import"
 msgstr ""
 
-#: templates/settings.php:32
+#: templates/settings.php:24
 msgid "Export"
 msgstr ""
 
-#: templates/settings.php:34
+#: templates/settings.php:26
 msgid "Import"
 msgstr ""

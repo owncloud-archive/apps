@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:01+0000\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 17:22+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -26,19 +26,23 @@ msgstr ""
 msgid "Bookmarks"
 msgstr "書籤"
 
-#: js/addBm.js:42 js/bookmarks.js:229
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
 msgstr "標籤"
 
-#: js/bookmarks.js:131
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr ""
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:368
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr ""
 
@@ -78,60 +82,64 @@ msgstr ""
 msgid "Save"
 msgstr "儲存"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:60
-msgid "Edit"
-msgstr "編輯"
-
-#: templates/js_tpl.php:10 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
 msgid "Delete"
 msgstr "刪除"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "編輯"
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
 msgstr "取消"
 
-#: templates/list.php:13
-msgid "Address"
-msgstr "網址"
-
 #: templates/list.php:14
-msgid "Add bookmark"
-msgstr ""
-
-#: templates/list.php:23
-msgid "Related Tags"
-msgstr ""
-
-#: templates/list.php:31 templates/list.php:33
-msgid "Settings"
-msgstr "設定"
-
-#: templates/list.php:46
-msgid "You have no bookmarks"
-msgstr "你沒有書籤"
-
-#: templates/settings.php:11
-msgid "Bookmarklet"
-msgstr ""
-
-#: templates/settings.php:13
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
 msgstr "將此拖曳至您的瀏覽器書籤並點擊, 當你想要將網頁快速地加入書籤:"
 
-#: templates/settings.php:19
+#: templates/list.php:15
 msgid "Read later"
 msgstr "稍後閱讀"
 
-#: templates/settings.php:31
+#: templates/list.php:22
+msgid "Address"
+msgstr "網址"
+
+#: templates/list.php:23
+msgid "Add"
+msgstr "新增"
+
+#: templates/list.php:31
+msgid "Related Tags"
+msgstr ""
+
+#: templates/list.php:39 templates/list.php:41
+msgid "Settings"
+msgstr "設定"
+
+#: templates/list.php:53
+msgid "You have no bookmarks"
+msgstr "你沒有書籤"
+
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr ""
+
+#: templates/settings.php:11
+msgid "Bookmarklet"
+msgstr ""
+
+#: templates/settings.php:23
 msgid "Export & Import"
 msgstr ""
 
-#: templates/settings.php:32
+#: templates/settings.php:24
 msgid "Export"
 msgstr "匯出"
 
-#: templates/settings.php:34
+#: templates/settings.php:26
 msgid "Import"
 msgstr "匯入"

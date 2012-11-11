@@ -1,6 +1,7 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Không hợp lệ ngày/giờ",
 "Tasks" => "Nhiệm vụ",
+"Due" => "Do",
 "List" => "Danh sách",
 "Location" => "Vị trí",
 "No category" => "không có category",

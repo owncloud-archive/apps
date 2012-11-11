@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:01+0000\n"
+"POT-Creation-Date: 2012-11-11 00:01+0100\n"
+"PO-Revision-Date: 2012-11-09 23:13+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -59,11 +59,19 @@ msgstr "Erro ao remover pasta."
 msgid "Error updating feeds."
 msgstr "Erro ao atualizar feeds."
 
-#: ajax/importopml.php:34
-msgid "No file was submitted."
-msgstr "Nenhum arquivo foi enviado."
+#: ajax/importopml.php:40
+msgid "Empty filename"
+msgstr ""
 
-#: ajax/importopml.php:46
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr ""
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr ""
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "Um erro ocorreu ao analisar o arquivo."
 
@@ -82,6 +90,10 @@ msgstr "Nenhum caminho de arquivo foi submetido."
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr "Arquivo não existe:"
+
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "Não foi possível salvar a imagem temporária:"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -111,7 +123,7 @@ msgstr "Erro ao carregar feed"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:55
+#: js/settings.js:68
 msgid "Error"
 msgstr "Erro"
 
@@ -188,11 +200,15 @@ msgstr ""
 msgid "Not a valid type"
 msgstr ""
 
-#: js/settings.js:51
-msgid "{n_success} out of {n_total} feeds imported successfully!"
+#: js/settings.js:60
+msgid "Importing done"
 msgstr ""
 
-#: js/settings.js:75
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr ""
+
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Selecionar arquivo"
 

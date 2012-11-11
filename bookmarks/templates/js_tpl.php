@@ -1,10 +1,6 @@
 <script type="text/html" id="item_tmpl">
 		<div class="bookmark_single" data-id="<%= id %>">
 				<p class="bookmark_actions">
-					<span class="bookmark_edit">
-						<img class="svg" src="<?php echo OCP\image_path("", "actions/rename.svg");?>"
-							title="<?php echo $l->t('Edit');?>">
-					</span>
 					<span class="bookmark_delete">
 						<img class="svg" src="<?php echo OCP\image_path("", "actions/delete.svg");?>"
 							title="<?php echo $l->t('Delete');?>">
@@ -19,6 +15,10 @@
 					<a href="<%= encodeEntities(url) %>" target="_blank" class="bookmark_link">
 						<%= encodeEntities(title == '' ? '' : url) %>
 					</a>
+					<span class="bookmark_edit">
+						<img class="svg" src="<?php echo OCP\image_path("", "actions/rename.svg");?>"
+							title="<?php echo $l->t('Edit');?>">
+					</span>
 				</p>
 				<p class="bookmark_date"><%= formatDate(added_date) %></p>
 				<p class="bookmark_desc"><%= encodeEntities(description)%> </p>

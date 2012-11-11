@@ -43,9 +43,9 @@ switch($property) {
 				$timezone = new DateTimeZone($timezone);
 				$due = new DateTime('@'.$due);
 				$due->setTimezone($timezone);
-				$type = Sabre_VObject_Element_DateTime::LOCALTZ;
+				$type = Sabre\VObject\Property\DateTime::LOCALTZ;
 				if ($due_date_only) {
-					$type = Sabre_VObject_Element_DateTime::DATE;
+					$type = Sabre\VObject\Property\DateTime::DATE;
 				}
 			} catch (Exception $e) {
 				OCP\JSON::error(array('data'=>array('message'=>OC_Task_App::$l10n->t('Invalid date/time'))));
