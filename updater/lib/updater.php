@@ -38,13 +38,13 @@ class Updater {
 			$locations = Helper::getPreparedLocations();
 			foreach ($locations as $type => $dirs) {
 				switch ($type){
-					case 'core':
+					case Helper::CORE_DIRNAME:
 						$sourceBaseDir = Downloader::getCoreDir($version);
 						break;
-					case '3rdparty':
+					case Helper::THIRDPARTY_DIRNAME:
 						$sourceBaseDir = Downloader::getThirdPartyDir($version);
 						break;
-					case 'apps':
+					case Helper::APP_DIRNAME:
 						$sourceBaseDir = Downloader::getAppDir($version);
 						break;
 					default:

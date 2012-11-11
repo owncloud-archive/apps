@@ -15,9 +15,6 @@ namespace OCA\Updater;
 class Downloader {
 
 	const PACKAGE_ROOT = 'owncloud';
-	const APP_DIR = 'apps';
-	const THIRDPARTY_DIR = '3rdparty';
-	const CORE_DIR = 'core';
 
 	protected static $package = false;
 
@@ -59,8 +56,8 @@ class Downloader {
 		//  Prepare extracted data
 		//  to have '3rdparty', 'apps' and 'core' subdirectories
 		$baseDir = $extractDir. '/' . self::PACKAGE_ROOT;
-		@rename($baseDir . '/' . self::THIRDPARTY_DIR, self::getThirdPartyDir($version));
-		@rename($baseDir . '/' . self::APP_DIR, self::getAppDir($version));
+		@rename($baseDir . '/' . Helper::THIRDPARTY_DIRNAME, self::getThirdPartyDir($version));
+		@rename($baseDir . '/' . Helper::APP_DIRNAME, self::getAppDir($version));
 		@rename($baseDir, self::getCoreDir($version));
 		
 	}
@@ -73,15 +70,15 @@ class Downloader {
 	}
 	
 	public static function getAppDir($version){
-		return self::getPackageDir($version) . '/' . self::APP_DIR;
+		return self::getPackageDir($version) . '/' . Helper::APP_DIRNAME;
 	}
 
 	public static function getCoreDir($version){
-		return self::getPackageDir($version) . '/' . self::CORE_DIR;
+		return self::getPackageDir($version) . '/' . Helper::CORE_DIRNAME;
 	}
 	
 	public static function getThirdPartyDir($version){
-		return self::getPackageDir($version) . '/' . self::THIRDPARTY_DIR;
+		return self::getPackageDir($version) . '/' . Helper::THIRDPARTY_DIRNAME;
 	}
 	
 	public static function getPackageDir($version) {

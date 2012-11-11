@@ -13,13 +13,28 @@
 namespace OCA\Updater;
 
 class Helper {
-
+	const APP_DIRNAME = 'apps';
+	const THIRDPARTY_DIRNAME = '3rdparty';
+	const CORE_DIRNAME = 'core';
+	
+	/**
+	 * Moves file/directory
+	 * @param string $src  - source path
+	 * @param string $dest - destination path
+	 * @throws \Exception on error
+	 */
 	public static function move($src, $dest) {
 		if (!@rename($src, $dest)){
 			throw new \Exception("Unable copy $src to $dest");
 		}
 	}
 	
+	/**
+	 * Copy recoursive 
+	 * @param string $src  - source path
+	 * @param string $dest - destination path
+	 * @throws \Exception on error
+	 */
 	public static function copyr($src, $dest) {
 		if(is_dir($src)) {
 			if(!is_dir($dest)) {
@@ -48,6 +63,20 @@ class Helper {
 		if (!@mkdir($path, 0755, $isRecoursive)) {
 			throw new \Exception("Unable to create $path");
 		}
+	}
+	
+	/**
+	 * Get directory content as array
+	 * @param string $path
+	 * @return array 
+	 * @throws \Exception on error
+	 */
+	public static function scandir($path) {
+		$content = @scandir($path);
+		if (!is_array($content)) {
+			throw new \Exception("Unable to list $path content");
+		}
+		return $content;
 	}
 
 	/**
@@ -97,7 +126,14 @@ class Helper {
 	}
 
 	public static function filterLocations($locations, $basePath) {
-		$exclusions = self::getExcludeDirectories();
+		$fullPath = array_values(self::getDirectories());
+		$fullPath[] = rtrim(App::getBackupBase(), '/');
+		$fullPath[] = \OC_Config::getValue( "datadirectory", \OC::$SERVERROOT."/data" );
+		
+		$exclusions = array(
+			'full' => $fullPath,
+			'relative' => array('.', '..')
+		);
 		
 		foreach ($locations as $key => $location) {
 			$fullPath = $basePath . '/' .$location;
@@ -112,58 +148,26 @@ class Helper {
 		}
 		return $locations;
 	}
-
-	/**
-	 * Get directory content as array
-	 * @param string $path
-	 * @return array
-	 * @throws \Exception on error
-	 */
-	public static function scandir($path) {
-		$content = @scandir($path);
-		if (!is_array($content)) {
-			throw new \Exception("Unable to list $path content");
-		}
-		return $content;
-	}
 	
 	/**
 	 * Get the list of directories to be replaced on update
 	 * @return array
-	 * 
 	 */
 	public static function getDirectories() {
 		$dirs = array();
-		$dirs['3rdparty'] = \OC::$THIRDPARTYROOT . '/3rdparty';
+		$dirs[self::THIRDPARTY_DIRNAME] = \OC::$THIRDPARTYROOT . '/' . self::THIRDPARTY_DIRNAME;
 		
 		//Long, long ago we had single app location
 		if (isset(\OC::$APPSROOTS)) {
 			foreach (\OC::$APPSROOTS as $i => $approot){
 				$index = $i ? $i : '';
-				$dirs['apps' . $index] = $approot['path'];
+				$dirs[self::APP_DIRNAME . $index] = $approot['path'];
 			}
 		} else {
-			$dirs['apps'] = \OC::$APPSROOT . '/apps';
+			$dirs[self::APP_DIRNAME] = \OC::$APPSROOT . '/' . self::APP_DIRNAME;
 		}
 		
-	    $dirs['core'] = \OC::$SERVERROOT;
+	    $dirs[self::CORE_DIRNAME] = \OC::$SERVERROOT;
 		return $dirs;
 	}
-
-	/**
-	 * Get the list of directories that should NOT be replaced
-	 * @return array
-	 */
-	public static function getExcludeDirectories() {
-		$fullPath = array_values(self::getDirectories());
-		
-		$fullPath[] = rtrim(App::getBackupBase(), '/');
-		$fullPath[] = \OC_Config::getValue( "datadirectory", \OC::$SERVERROOT."/data" );
-		
-		return array(
-			'full' => $fullPath,
-			'relative' => array('.', '..')
-		);
-	}
-
 }

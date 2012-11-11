@@ -56,7 +56,7 @@ if (!App::getSource($packageUrl, $packageVersion)){
 Updater::cleanUp();
 
 try {
-	$backupPath = Backup::createBackup();
+	$backupPath = Backup::create();
 	App::setSource($packageUrl, $packageVersion, false);
 	Updater::update($packageVersion, $backupPath);
 	//Cleanup
