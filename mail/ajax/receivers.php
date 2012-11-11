@@ -2,8 +2,8 @@
 /**
  * ownCloud - Mail
  *
- * @author Thomas Tanghus
- * @copyright 2012 Jakob Sack <mail@jakobsack.de>
+ * @author Thomas Müller
+ * @copyright 2012 Thomas Müller <thomas.mueller@tmit.eu>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -24,13 +24,13 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('mail');
 
-$account_id = isset( $_GET['account_id'] ) ? $_GET['account_id'] : null;
-$folder_id = isset( $_GET['folder_id'] ) ? $_GET['folder_id'] : null;
+$term = isset( $_GET['term'] ) ? $_GET['term'] : null;
 
-$messages = OCA\Mail\App::getMessages( OCP\User::getUser(), $account_id, $folder_id );
-if( isset($messages['error']) ) {
-	OCP\JSON::error(array('data' => array('message' => $messages['error'] )));
+$receivers = OCA\Mail\App::getMatchingRecipient( OCP\User::getUser(), $term );
+
+if( isset($receivers['error']) ) {
+	OCP\JSON::error(array('data' => array('message' => $receivers['error'] )));
 	exit();
 }
 
-OCP\JSON::success(array('data' => $messages ));
+OCP\JSON::encodedPrint($receivers);

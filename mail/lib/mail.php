@@ -26,6 +26,23 @@ require_once 'mail/3rdparty/Horde/Autoloader/Default.php';
 
 class App
 {
+	/**
+	 * Extracts all matching contacts with email address and name
+	 *
+	 * @param $user_id
+	 * @param $term
+	 * @return array
+	 */
+	public static function getMatchingRecipient($user_id, $term){
+		$result = \OC_Search::search($term);
+		$receivers = array();
+		foreach($result as $r) {
+			$name = $r->name;
+			$receivers[]= array('id'=>$name, 'label'=>$name, 'value'=>$name);
+		}
+
+		return $receivers;
+	}
     /**
      * Loads all user's accounts, connects to each server and queries all folders
      *
