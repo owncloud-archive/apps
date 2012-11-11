@@ -13,8 +13,14 @@
 namespace OCA\Updater;
 
 class Helper {
+
+	public static function move($src, $dest) {
+		if (!@rename($src, $dest)){
+			throw new \Exception("Unable copy $src to $dest");
+		}
+	}
 	
-	static function copyr($src, $dest) {
+	public static function copyr($src, $dest) {
 		if(is_dir($src)) {
 			if(!is_dir($dest)) {
 				self::mkdir($dest);
@@ -67,16 +73,27 @@ class Helper {
 	 * @return array
 	 */
 	public static function getPreparedLocations() {
-		$locations = self::getDirectories();
 		$preparedLocations  = array();
-		foreach ($locations as $type => $path) {
-			$content = self::scandir($path);
-			$filtered = self::filterLocations($content, $path);
-			foreach ($filtered as $dirName){
-				$preparedLocations[$type][$dirName] = $path . '/' . $dirName;
-			}
+		foreach (self::getDirectories() as $type => $path) {
+			$preparedLocations[$type] = self::getFilteredContent($path);
 		}
 		return $preparedLocations;
+	}
+	
+	/**
+	 * Lists directory content as an array
+	 * ['basename']=>'full path' 
+	 * e.g.['lib'] = '/path/to/lib'
+	 * @param string $path
+	 * @return array
+	 */
+	public static function getFilteredContent($path){
+		$result = array();
+		$filtered =  self::filterLocations(self::scandir($path), $path);
+		foreach ($filtered as $dirName){
+			$result [$dirName] = $path . '/' . $dirName;
+		}
+		return $result;
 	}
 
 	public static function filterLocations($locations, $basePath) {
