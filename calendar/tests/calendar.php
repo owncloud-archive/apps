@@ -10,6 +10,7 @@ class Test_Calendar_Calendars extends UnitTestCase {
 	function testBasic() {
 		$uid=uniqid();
 		$this->assertEqual(OC_Calendar_Calendar::allCalendars($uid),array());
+		OC_User::setUserId($uid);
 		$calId1=OC_Calendar_Calendar::addCalendar($uid,'test');
 
 		$all=OC_Calendar_Calendar::allCalendars($uid);
