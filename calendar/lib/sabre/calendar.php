@@ -48,10 +48,10 @@ class OC_Connector_Sabre_CalDAV_Calendar extends Sabre_CalDAV_Calendar {
 
 		if($uid != OCP\USER::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $this->calendarInfo['id']);
-			if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_READ)) {
+			if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\PERMISSION_READ)) {
 				$readprincipal = 'principals/' . OCP\USER::getUser();
 			}
-			if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+			if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE)) {
 				$writeprincipal = 'principals/' . OCP\USER::getUser();
 			}
 		}

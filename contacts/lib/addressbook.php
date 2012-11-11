@@ -62,9 +62,7 @@ class OC_Contacts_Addressbook {
 
 		$addressbooks = array();
 		while( $row = $result->fetchRow()) {
-			$row['permissions'] = OCP\Share::PERMISSION_CREATE
-				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE
-				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
+			$row['permissions'] = OCP\PERMISSION_ALL;
 			$addressbooks[] = $row;
 		}
 		$addressbooks = array_merge($addressbooks, OCP\Share::getItemsSharedWith('addressbook', OC_Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS));
@@ -132,7 +130,7 @@ class OC_Contacts_Addressbook {
 		$row = $result->fetchRow();
 		if($row['userid'] != OCP\USER::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
-			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_READ)) {
+			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\PERMISSION_READ)) {
 				throw new Exception(
 					OC_Contacts_App::$l10n->t(
 						'You do not have the permissions to read this addressbook.'
@@ -141,9 +139,7 @@ class OC_Contacts_Addressbook {
 			}
 			$row['permissions'] = $sharedAddressbook['permissions'];
 		} else {
-			$row['permissions'] = OCP\Share::PERMISSION_CREATE
-				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE
-				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
+			$row['permissions'] = OCP\PERMISSION_ALL;
 		}
 		return $row;
 	}
@@ -233,7 +229,7 @@ class OC_Contacts_Addressbook {
 		$addressbook = self::find($id);
 		if ($addressbook['userid'] != OCP\User::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
-			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE)) {
 				throw new Exception(
 					OC_Contacts_App::$l10n->t(
 						'You do not have the permissions to update this addressbook.'
@@ -309,7 +305,7 @@ class OC_Contacts_Addressbook {
 		$addressbook = self::find($id);
 		if ($addressbook['userid'] != OCP\User::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
-			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\PERMISSION_DELETE)) {
 				throw new Exception(
 					OC_Contacts_App::$l10n->t(
 						'You do not have the permissions to delete this addressbook.'

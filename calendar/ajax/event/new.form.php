@@ -37,7 +37,7 @@ $calendar_options = array();
 foreach($calendars as $calendar) {
 	if($calendar['userid'] != OCP\User::getUser()) {
 		$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $calendar['id']);
-		if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+		if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE)) {
 			array_push($calendar_options, $calendar);
 		}
 	} else {

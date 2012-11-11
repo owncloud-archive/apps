@@ -209,9 +209,9 @@ $repeat_bymonth_options = OC_Calendar_App::getByMonthOptions();
 $repeat_byweekno_options = OC_Calendar_App::getByWeekNoOptions();
 $repeat_bymonthday_options = OC_Calendar_App::getByMonthDayOptions();
 
-if($permissions & OCP\Share::PERMISSION_UPDATE) {
+if($permissions & OCP\PERMISSION_UPDATE) {
 	$tmpl = new OCP\Template('calendar', 'part.editevent');
-} elseif($permissions & OCP\Share::PERMISSION_READ) {
+} elseif($permissions & OCP\PERMISSION_READ) {
 	$tmpl = new OCP\Template('calendar', 'part.showevent');
 }
 
