@@ -1,24 +1,3 @@
-/*$(document).ready(function() {
-var map = L.map('map').setView([51.505, -0.09], 13);
-
-L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
-  maxZoom: 18,
-  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
-}).addTo(map);
-
-L.circle([51.508, -0.11], 500, {
-  color: 'red',
-  fillColor: '#f03',
-  fillOpacity: 0.5
-}).addTo(map).bindPopup("I am a circle.");
-
-var popup = L.popup();
-
-
-
-map.on('click', onMapClick);
-});
-*/
 defaultZoom = 18
 
 
@@ -34,7 +13,7 @@ function geoCode(address, callback) {
 			format:'json',
 			q: address,
 		}
-	})
+	});
 }
 
 function displaySearchAddress(data) {
@@ -51,14 +30,62 @@ function setCenter(markerLocation) {
 }
 
 function onMapClick(e) {
+	text = "You clicked the map at " + e.latlng.toString();
+	text += '<br />';
+	text += '<a id="add_link">Add</a>';
+	point = e.latlng;
   popup
     .setLatLng(e.latlng)
-    .setContent("You clicked the map at " + e.latlng.toString())
+    .setContent(text)
     .openOn(map);
+	$('#add_link').click(addPoint);
 }
 
 function setUserLocation(position){
 	console.log("yyy");
+}
+
+function addPoint(e) {
+	$.ajax({
+		type: 'POST',
+		url: OC.filePath('map', 'ajax', 'item.php'),
+		data: {
+			action: 'add',
+			lat: point.lat,
+			lon: point.lng,
+			name: "Hello World",
+			type: "favorite"
+		},
+		success: function(msg) {
+			if (msg.status == 'success') {
+				//console.log('Add'+ point.toString());
+				map.closePopup();
+				addItemToMap(msg.data);
+			}
+		}
+
+	});
+	
+	
+}
+
+function loadItems(){
+	$.ajax({
+		url: OC.filePath('map', 'ajax', 'item.php'),
+		data: {	action: 'load' },
+		success: function(msg) {
+			if (msg.status == 'success') {
+					for ( var i=0, len=msg.data.length; i<len; ++i ) {
+						addItemToMap(msg.data[i]);
+					}
+			}
+		}
+	});
+}
+
+function addItemToMap(item) {
+	L.marker([item.lat, item.lon]).addTo(map)
+							.bindPopup('This is '+ item.type);
 }
 
 function loadMap() {
@@ -74,6 +101,7 @@ function loadMap() {
 		geoCode(address, displaySearchAddress);
 	})
 	map.on('click', onMapClick);
+	loadItems();
 }
 
 document.addEventListener('DOMContentLoaded', loadMap)
@@ -85,3 +113,4 @@ $(document).ready(function() {
 	}
 });
 var popup = L.popup();
+var point;
