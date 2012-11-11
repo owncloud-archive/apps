@@ -67,10 +67,10 @@ class OC_Connector_Sabre_CardDAV_Card extends Sabre_CardDAV_Card {
 
 		if($uid != OCP\USER::getUser()) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $this->addressBookInfo['id']);
-			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_READ)) {
+			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_READ)) {
 				$readprincipal = 'principals/' . OCP\USER::getUser();
 			}
-			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE)) {
 				$writeprincipal = 'principals/' . OCP\USER::getUser();
 			}
 		}
