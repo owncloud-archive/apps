@@ -29,15 +29,10 @@ class Backup {
 			$locations = Helper::getPreparedLocations();
 			Helper::mkdir(self::getPath(), true);
 			foreach ($locations as $type => $dirs) {
-				$backupFullPath = self::getPath() . '/';
-
-				// 3rd party and apps might have different location
-				if ($type != 'core') {
-					$backupFullPath .= $type . '/';
-					Helper::mkdir($backupFullPath, true);
-				}
+				$backupFullPath = self::getPath() . '/' . $type . '/';
+				Helper::mkdir($backupFullPath, true);
+				
 				foreach ($dirs as $name => $path) {
-					//copy with Exception on error
 					Helper::copyr($path, $backupFullPath . $name);
 				}
 			}
