@@ -313,9 +313,7 @@ class OC_Calendar_App{
 	 * @see OCP\Share
 	 */
 	public static function getPermissions($id, $type) {
-		 $permissions_all = OCP\Share::PERMISSION_CREATE
-				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE
-				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
+		 $permissions_all = OCP\PERMISSION_ALL;
 
 		if($type == self::CALENDAR) {
 			$calendar = self::getCalendar($id, false, false);

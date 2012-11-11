@@ -16,7 +16,7 @@
 				data-owner="<?php echo $addressbook['userid'] ?>"
 				>
 				<td class="active">
-					<?php if($addressbook['permissions'] & OCP\Share::PERMISSION_UPDATE) { ?>
+					<?php if($addressbook['permissions'] & OCP\PERMISSION_UPDATE) { ?>
 					<input type="checkbox" <?php echo (($addressbook['active']) == '1' ? ' checked="checked"' : ''); ?> />
 					<?php } ?>
 				</td>
@@ -29,7 +29,7 @@
 					<a class="svg action cloud" title="<?php echo $l->t('Show read-only VCF link'); ?>"></a>
 				</td>
 				<td class="action">
-					<?php if($addressbook['permissions'] & OCP\Share::PERMISSION_SHARE) { ?>
+					<?php if($addressbook['permissions'] & OCP\PERMISSION_SHARE) { ?>
 					<a class="svg action share" data-item-type="addressbook"
 						data-item="<?php echo $addressbook['id'] ?>"
 						data-possible-permissions="<?php echo $addressbook['permissions'] ?>"
@@ -41,12 +41,12 @@
 						href="<?php echo OCP\Util::linkToAbsolute('contacts', 'export.php'); ?>?bookid=<?php echo $addressbook['id'] ?>"></a>
 				</td>
 				<td class="action">
-					<?php if($addressbook['permissions'] & OCP\Share::PERMISSION_UPDATE) { ?>
+					<?php if($addressbook['permissions'] & OCP\PERMISSION_UPDATE) { ?>
 					<a class="svg action edit" title="<?php echo $l->t("Edit"); ?>"></a>
 					<?php } ?>
 				</td>
 				<td class="action">
-					<?php if($addressbook['permissions'] & OCP\Share::PERMISSION_DELETE) { ?>
+					<?php if($addressbook['permissions'] & OCP\PERMISSION_DELETE) { ?>
 					<a class="svg action delete" title="<?php echo $l->t("Delete"); ?>"></a>
 					<?php } ?>
 				</td>
