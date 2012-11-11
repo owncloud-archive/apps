@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 17:22+0000\n"
+"POT-Creation-Date: 2012-11-12 00:01+0100\n"
+"PO-Revision-Date: 2012-11-11 03:14+0000\n"
 "Last-Translator: Dimitris M. <monopatis@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "Δεν υποστηρίζεται o τύπος αρχείου για εισαγωγή"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
@@ -34,7 +34,7 @@ msgstr "Ετικέτες"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr ""
+msgstr "Φιλτράρισμα βάσει ετικέτας"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
@@ -54,7 +54,7 @@ msgstr "Η εισαγωγή ολοκληρώθηκε επιτυχώς."
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "Μεταφόρτωση..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -128,11 +128,11 @@ msgstr "Δεν έχετε σελιδοδείκτες"
 
 #: templates/list.php:58
 msgid "You can also try to import a bookmark file"
-msgstr ""
+msgstr "Μπορείτε να δοκιμάσετε να εισάγεται ένα αρχείο σελιδοδεικτών"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
-msgstr ""
+msgstr "Εφαρμογίδιο Σελιδοδεικτών"
 
 #: templates/settings.php:23
 msgid "Export & Import"

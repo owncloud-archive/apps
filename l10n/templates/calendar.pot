@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-11 00:01+0100\n"
+"POT-Creation-Date: 2012-11-12 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -188,23 +188,23 @@ msgstr ""
 msgid "Work"
 msgstr ""
 
-#: lib/app.php:347 lib/share/event.php:27
+#: lib/app.php:345 lib/share/event.php:27
 msgid "by"
 msgstr ""
 
-#: lib/app.php:385
+#: lib/app.php:383
 msgid "unnamed"
 msgstr ""
 
-#: lib/calendar.php:165 lib/calendar.php:198
+#: lib/calendar.php:163 lib/calendar.php:196
 msgid "You do not have the permissions to update this calendar."
 msgstr ""
 
-#: lib/calendar.php:233
+#: lib/calendar.php:231
 msgid "You do not have the permissions to delete this calendar."
 msgstr ""
 
-#: lib/calendar.php:267
+#: lib/calendar.php:265
 msgid "You do not have the permissions to add to this calendar."
 msgstr ""
 
