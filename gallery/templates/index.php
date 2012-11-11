@@ -1,6 +1,6 @@
 <script type="text/javascript">
 
-var root = "<?php echo OCP\Util::sanitizeHTML($_['root']); ?>";
+var root = "<?php echo urlencode($_['root']); ?>";
 
 $(document).ready(function() {
 		$("a[rel=images]").fancybox({

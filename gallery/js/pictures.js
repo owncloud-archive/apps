@@ -60,7 +60,7 @@ function deplode(element) {
 }
 
 function openNewGal(album_name) {
-	root = root + decodeURIComponent(album_name) + "/";
+	root = decodeURIComponent(root) + decodeURIComponent(album_name) + "/";
 	var url = OC.linkTo('gallery', 'index.php');
 	url = url + "&root="+encodeURIComponent(root);
 	//extract only the query part
