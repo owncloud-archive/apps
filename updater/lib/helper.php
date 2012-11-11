@@ -24,7 +24,7 @@ class Helper {
 	 * @throws \Exception on error
 	 */
 	public static function move($src, $dest) {
-		if (!@rename($src, $dest)){
+		if (!@rename($src, $dest)) {
 			throw new \Exception("Unable copy $src to $dest");
 		}
 	}

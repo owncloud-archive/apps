@@ -58,7 +58,7 @@ class Updater {
 					);
 				}
 				//Put new sources
-				if (!$sourceBaseDir){
+				if (!$sourceBaseDir) {
 					continue;
 				}
 				foreach (Helper::getFilteredContent($sourceBaseDir) as $basename=>$path){
