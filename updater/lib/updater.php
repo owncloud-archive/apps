@@ -33,25 +33,19 @@ class Updater {
 		$tempDir = self::getTempDir();
 		Helper::mkdir($tempDir, true);
 		
+		$sources = Helper::getSources($version);
 		$destinations = Helper::getDirectories();
+		
 		try {
 			$locations = Helper::getPreparedLocations();
 			foreach ($locations as $type => $dirs) {
-				switch ($type){
-					case Helper::CORE_DIRNAME:
-						$sourceBaseDir = Downloader::getCoreDir($version);
-						break;
-					case Helper::THIRDPARTY_DIRNAME:
-						$sourceBaseDir = Downloader::getThirdPartyDir($version);
-						break;
-					case Helper::APP_DIRNAME:
-						$sourceBaseDir = Downloader::getAppDir($version);
-						break;
-					default:
+				if (isset($sources[$type])) {
+						$sourceBaseDir = $sources[$type];
+				} else {
 						//  Extra app directories
 						$sourceBaseDir  = false;
-						break;
 				}
+				
 				$tempBaseDir = $tempDir . '/' . $type;		
 				Helper::mkdir($tempBaseDir, true);
 				

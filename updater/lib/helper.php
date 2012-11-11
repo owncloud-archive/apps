@@ -170,4 +170,13 @@ class Helper {
 	    $dirs[self::CORE_DIRNAME] = \OC::$SERVERROOT;
 		return $dirs;
 	}
+	
+	public static function getSources($version) {
+		$base = Downloader::getPackageDir($version);
+		return array (
+			self::APP_DIRNAME => $base . '/' . self::APP_DIRNAME,
+			self::THIRDPARTY_DIRNAME => $base . '/' . self::THIRDPARTY_DIRNAME,
+			self::CORE_DIRNAME => $base . '/' . self::CORE_DIRNAME,	
+		);
+	}
 }

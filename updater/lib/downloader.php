@@ -55,10 +55,11 @@ class Downloader {
 		
 		//  Prepare extracted data
 		//  to have '3rdparty', 'apps' and 'core' subdirectories
+		$sources = Helper::getSources($version);
 		$baseDir = $extractDir. '/' . self::PACKAGE_ROOT;
-		@rename($baseDir . '/' . Helper::THIRDPARTY_DIRNAME, self::getThirdPartyDir($version));
-		@rename($baseDir . '/' . Helper::APP_DIRNAME, self::getAppDir($version));
-		@rename($baseDir, self::getCoreDir($version));
+		@rename($baseDir . '/' . Helper::THIRDPARTY_DIRNAME, $sources[Helper::THIRDPARTY_DIRNAME]);
+		@rename($baseDir . '/' . Helper::APP_DIRNAME, $sources[Helper::APP_DIRNAME]);
+		@rename($baseDir, $sources[Helper::CORE_DIRNAME]);
 		
 	}
 
@@ -67,18 +68,6 @@ class Downloader {
 			Helper::removeIfExists(self::$package);
 		}
 		Helper::removeIfExists(self::getPackageDir($version));
-	}
-	
-	public static function getAppDir($version){
-		return self::getPackageDir($version) . '/' . Helper::APP_DIRNAME;
-	}
-
-	public static function getCoreDir($version){
-		return self::getPackageDir($version) . '/' . Helper::CORE_DIRNAME;
-	}
-	
-	public static function getThirdPartyDir($version){
-		return self::getPackageDir($version) . '/' . Helper::THIRDPARTY_DIRNAME;
 	}
 	
 	public static function getPackageDir($version) {
