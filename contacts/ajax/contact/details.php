@@ -55,9 +55,7 @@ if(!$lastmodified) {
 	$lastmodified = new DateTime();
 }
 
-$permissions = OCP\Share::PERMISSION_CREATE | OCP\Share::PERMISSION_READ 
-	| OCP\Share::PERMISSION_UPDATE | OCP\Share::PERMISSION_DELETE 
-	| OCP\Share::PERMISSION_SHARE;
+$permissions = OCP\PERMISSION_ALL;
 $addressbook = OC_Contacts_Addressbook::find($card['addressbookid']);
 if ($addressbook['userid'] != OCP\User::getUser()) {
 	$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $card['addressbookid']);
