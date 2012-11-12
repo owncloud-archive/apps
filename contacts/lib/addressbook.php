@@ -155,7 +155,7 @@ class Addressbook {
 			}
 			$row['permissions'] = $sharedAddressbook['permissions'];
 		} else {
-			$row['permissions'] = OCP\PERMISSION_ALL;
+			$row['permissions'] = \OCP\PERMISSION_ALL;
 		}
 		return $row;
 	}
