@@ -315,4 +315,47 @@ class App {
 		\OCP\Util::writeLog('contacts', 'Caching ' . $id, \OCP\Util::DEBUG);
 		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 	}
+
+	public static function updateDBProperties(integer $contactid, \OC_VObject $vcard = null) {
+		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_cards_properties` WHERE `contactid` = ?');
+		try {
+			$stmt->execute(array($contactid));
+		} catch(\Exception $e) {
+			\OCP\Util::writeLog('contacts', __METHOD__.
+				', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
+			\OCP\Util::writeLog('contacts', __METHOD__.', id: '
+				. $id, \OCP\Util::DEBUG);
+			throw new \Exception(
+				App::$l10n->t(
+					'There was an error deleting properties for this contact.'
+				)
+			);
+		}
+
+		if(is_null($vcard)) {
+			return;
+		}
+
+		$stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards_properties` (`contactid`,`name`,`value`,`preferred`) VALUES(?,?,?,?)' );
+		foreach($object->children as $property) {
+			$preferred = false;
+			foreach($property->parameters as $parameter) {
+				if($parameter->name == 'TYPE' && strtoupper($parameter->value) == 'PREF') {
+					$preferred = true;
+					break;
+				}
+			}
+			try {
+				$result = $stmt->execute(array($contactid, $property->name, $property->value, $preferred));
+				if (\OC_DB::isError($result)) {
+					\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+					return false;
+				}
+			} catch(\Exception $e) {
+				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
+				\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uri'.$uri, \OCP\Util::DEBUG);
+				return false;
+			}
+		}
+	}
 }

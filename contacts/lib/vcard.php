@@ -369,6 +369,7 @@ class VCard {
 		}
 		$newid = \OCP\DB::insertid('*PREFIX*contacts_cards');
 		App::loadCategoriesFromVCard($newid, $card);
+		App::updateDBProperties($id, $card);
 		App::cacheThumbnail($newid);
 
 		Addressbook::touch($aid);
@@ -422,6 +423,7 @@ class VCard {
 					\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 					\OCP\Util::writeLog('contacts', __METHOD__.', id: '.$object[0], \OCP\Util::DEBUG);
 				}
+				App::updateDBProperties($object[0], $vcard);
 			}
 		}
 	}
@@ -498,6 +500,7 @@ class VCard {
 		}
 
 		App::cacheThumbnail($oldcard['id']);
+		App::updateDBProperties($id, $card);
 		Addressbook::touch($oldcard['addressbookid']);
 		\OC_Hook::emit('\OCA\Contacts\VCard', 'post_updateVCard', $id);
 		return true;
@@ -604,6 +607,7 @@ class VCard {
 			);
 		}
 
+		App::updateDBProperties($id);
 		App::getVCategories()->purgeObject($id);
 
 		\OCP\Share::unshareAll('contact', $id);
@@ -617,7 +621,8 @@ class VCard {
 	 * @param string $uri the uri of the card
 	 * @return boolean
 	 */
-	public static function deleteFromDAVData($aid,$uri) {
+	public static function deleteFromDAVData($aid, $uri) {
+		$id = null;
 		$addressbook = Addressbook::find($aid);
 		if ($addressbook['userid'] != OCP\User::getUser()) {
 			$query = \OCP\DB::prepare( 'SELECT `id` FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
@@ -641,6 +646,12 @@ class VCard {
 			return false;
 		}
 		Addressbook::touch($aid);
+
+		if(!is_null($id) {
+			App::updateDBProperties($id);
+		} else {
+			\OCP\Util::writeLog('contacts', __METHOD__.', Could not find id for ' . $uri, \OCP\Util::DEBUG);
+		}
 
 		return true;
 	}
