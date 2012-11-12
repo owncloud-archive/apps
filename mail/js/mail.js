@@ -56,6 +56,14 @@ Mail = {
             }
         },
 
+        clearMessages: function() {
+            var table = $('#mail_messages'),
+                template = table.find('tr.template').clone()
+
+            table.empty();
+            table.append(template);
+        },
+
         addMessages:function (data) {
             var table = $('#mail_messages'),
                 template = table.find('tr.template').clone()
@@ -84,6 +92,7 @@ Mail = {
             // Set folder active
             Mail.UI.setFolderInactive(Mail.State.current_account_id, Mail.State.current_folder_id);
             Mail.UI.setFolderActive(account_id, folder_id);
+            Mail.UI.clearMessages();
 
             $.getJSON(OC.filePath('mail', 'ajax', 'messages.php'), {'account_id':account_id, 'folder_id':folder_id}, function (jsondata) {
                 if (jsondata.status == 'success') {
