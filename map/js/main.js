@@ -88,6 +88,26 @@ function addItemToMap(item) {
 							.bindPopup('This is '+ item.type);
 }
 
+function putMapPosition() {
+	center = map.getCenter();
+	document.cookie='lat='+center.lat;
+	document.cookie='lon='+center.lng;
+	document.cookie='z='+map.getZoom();
+}
+
+function readLastPosition() {
+	position = {lat: read_cookie('lat'), lon: read_cookie('lon'), zoom: read_cookie('z')};
+	if(position.lat && position.lon & position.zoom)
+		return position;
+	return false;
+}
+
+function read_cookie(key)
+{
+	var result;
+	return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? (result[1]) : null;
+}
+
 function loadMap() {
   map = new L.Map('map');
 	var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
@@ -95,7 +115,14 @@ function loadMap() {
 		maxZoom: 18
 	});
 
-	map.setView([51.505, -0.09], 13).addLayer(cloudmade);
+	var last_position= readLastPosition();
+	if(last_position) {
+		map.setView([last_position.lat, last_position.lon], last_position.zoom)
+	} else {
+		map.setView([51.505, -0.09], 13)
+	}
+
+	map.addLayer(cloudmade);
 	$("#search_launch").bind('click', function clickButt(){
 		var address = $("#search_field input").val();
 		geoCode(address, displaySearchAddress);
@@ -111,6 +138,7 @@ $(document).ready(function() {
 	if(navigator.geolocation){
 		navigator.geolocation.getCurrentPosition(setUserLocation);
 	}
+	window.onbeforeunload = putMapPosition;
 });
 var popup = L.popup();
 var point;
