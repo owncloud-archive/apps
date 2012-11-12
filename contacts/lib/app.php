@@ -261,7 +261,7 @@ class App {
 	/**
 	 * @brief Get the last modification time.
 	 * @param $contact OC_VObject|integer
-	 * $return DateTime | null
+	 * @returns DateTime | null
 	 */
 	public static function lastModified($contact) {
 		if(is_numeric($contact)) {
