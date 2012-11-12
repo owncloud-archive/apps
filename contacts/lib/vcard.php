@@ -647,7 +647,7 @@ class VCard {
 		}
 		Addressbook::touch($aid);
 
-		if(!is_null($id) {
+		if(!is_null($id)) {
 			App::updateDBProperties($id);
 		} else {
 			\OCP\Util::writeLog('contacts', __METHOD__.', Could not find id for ' . $uri, \OCP\Util::DEBUG);
