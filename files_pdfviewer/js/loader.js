@@ -13,7 +13,7 @@ function showPDFviewer(dir,filename){
 		$('#content table').hide();
 		$("#controls").hide();
 		var oldcontent = $("#content").html();
-        var viewer = OC.linkTo('files_pdfviewer','viewer.php')+'&dir='+dir+'&file='+filename;
+		var viewer = OC.linkTo('files_pdfviewer','viewer.php')+'?dir='+dir+'&file='+filename;
 		$("#content").html(oldcontent+'<iframe style="width:100%;height:100%;display:block;" src="'+viewer+'" />');
 		$("#pageWidthOption").attr("selected","selected");
 	}
