@@ -17,7 +17,7 @@
 	width: 100%;
 	text-align: center;
 }
-#search_field > input {
+#search_field input {
 	margin:auto;
 	width: 400px;
 	background-color:white;

@@ -14,6 +14,8 @@
 </div>
 
 <div id="search_field">
-	<input id="" class="svg" name="query" value="10 Downing Street, London" placeholder="Search" autocomplete="off" type="search">
-	<button id="search_launch">Search</button>
+	<form>
+		<input id="" class="svg" name="query" value="" placeholder="<?php echo $l->t('Search a place');?>" autocomplete="off" type="search">
+		<button id="search_launch"><?php echo $l->t('Search');?></button>
+	</form>
 </div>

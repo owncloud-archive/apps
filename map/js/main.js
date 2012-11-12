@@ -85,7 +85,7 @@ function loadItems(){
 
 function addItemToMap(item) {
 	L.marker([item.lat, item.lon]).addTo(map)
-							.bindPopup('This is '+ item.type);
+		.bindPopup('This is '+ item.type);
 }
 
 function putMapPosition() {
@@ -108,6 +108,13 @@ function read_cookie(key)
 	return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? (result[1]) : null;
 }
 
+function onSearch(e) {
+	e.preventDefault();
+	var address = $("#search_field input").val();
+	if(address != '')
+		geoCode(address, displaySearchAddress);
+}
+
 function loadMap() {
   map = new L.Map('map');
 	var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
@@ -123,10 +130,8 @@ function loadMap() {
 	}
 
 	map.addLayer(cloudmade);
-	$("#search_launch").bind('click', function clickButt(){
-		var address = $("#search_field input").val();
-		geoCode(address, displaySearchAddress);
-	})
+	$("#search_launch").bind('click',onSearch);
+	$("#search_field form").bind('submit',onSearch);
 	map.on('click', onMapClick);
 	loadItems();
 }
