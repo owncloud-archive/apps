@@ -16,21 +16,30 @@
 <iframe name="file_upload_target" id='file_upload_target' src=""></iframe>
 <div id="leftcontent" class="loading">
 	<div class="hidden" id="statusbar"></div>
+	<div id="groupactions">
+		<button class="addcontact"><?php echo $l->t('New Group'); ?></button>
+	</div>
 	<nav id="grouplist">
 	</nav>
+	<div id="contacts-settings">
+		<ul>
+			<li><button class="settings" title="<?php echo $l->t('Settings'); ?>"></button></li>
+			<li><button><?php echo $l->t('Import'); ?></button></li>
+			<li><button><?php echo $l->t('Export'); ?></button></li>
+		</ul>
+	</div>
 </div>
 <div id="contactsheader">
 	<input type="checkbox" id="toggle_all" title="<?php echo $l->t('(De-)select all'); ?>" />
 	<div class="actions">
+		<button class="addcontact"><?php echo $l->t('New Contact'); ?></button>
 		<button class="back control" title="<?php echo $l->t('Back'); ?>"><?php echo $l->t('Back'); ?></button>
-		<button class="add control" title="<?php echo $l->t('Add Contact'); ?>"></button>
 		<button class="download control" title="<?php echo $l->t('Download Contact'); ?>"></button>
 		<button class="delete control" title="<?php echo $l->t('Delete Contact'); ?>"></button>
 		<select class="groups control" name="groups">
 			<option value="-1" disabled="disabled" selected="selected"><?php echo $l->t('Groups'); ?></option>
 		</select>
 	</div>
-	<button class="settings control" title="<?php echo $l->t('Settings'); ?>"></button>
 </div>
 <div id="rightcontent" class="loading">
 	<table id="contactlist">

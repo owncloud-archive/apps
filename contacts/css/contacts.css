@@ -40,6 +40,23 @@ option:last-child { border-bottom: 1px solid silver; }
 #leftcontent h3 img.shared { float: right; opacity: 0.4; margin: 0 .5em; }
 #leftcontent h3 img.shared:hover { opacity: 1; }
 
+#groupactions { box-sizing: border-box; height: 4em; border-bottom: 1px solid #DDDDDD; }
+#addactions > button, .addcontact {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #51A351 #419341 #387038;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 1px #F8F8F8, 1px 1px 1px #AADDAA inset;
+    background-color: #5BB75B;
+	color: #fff;
+    border-right: medium none;
+    margin: .7em 2em;
+}
+
 #grouplist { z-index: 100; }
 /* First run */
 
@@ -159,6 +176,26 @@ dl.addresscard .action { float: right; }
 .addressbooks-settings a.action:hover { opacity: 1; }
 .addressbooks-settings td.active, .addressbooks-settings td.action { width: 20px; }
 
+#contacts-settings .settings { width: 20px; height: 20px; float: right; background:url('%webroot%/core/img/actions/settings.svg') no-repeat center; }
+#contacts-settings.open {
+    height: auto;
+}
+#contacts-settings {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-right: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    bottom: 0;
+    height: 2.8em;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    position: fixed;
+    width: 20em;
+    z-index: 2;
+}
+
 /* Single elements */
 #file_upload_target, #import_upload_target, #crop_target { display:none; }
 #toggle_all { position: absolute; bottom: .5em; left: .8em; }
@@ -178,16 +215,13 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 .favorite.inactive { background:url('%appswebroot%/contacts/img/inactive_star.png') no-repeat center; }
 /* Header */
 
-#contactsheader { position: fixed; padding: 0; margin:0; top:3.5em; left: 32.5em; right: 0; height: 4em; border-bottom: 1px solid #DDDDDD; z-index: 50; }
+#contactsheader { position: fixed; box-sizing: border-box; padding: 0; margin:0; top:3.5em; left: 32.5em; right: 0; height: 4em; border-bottom: 1px solid #DDDDDD; z-index: 50; }
 #contactsheader div.actions { padding: 0 0.5em; margin: 0 auto; height: 100%; width: 90%; }
 #contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: .7em; padding: .2em; clear: none; }
 #contactsheader .back {  }
 #contactsheader .import { background:url('%webroot%/core/img/actions/upload.svg') no-repeat center; }
-#contactsheader .newcontact { background:url('%appswebroot%/contacts/img/contact-new.svg') no-repeat center; }
 #contactsheader .delete { background:url('%webroot%/core/img/actions/delete.svg') no-repeat center; }
-#contactsheader .add { background:url('%webroot%/core/img/actions/add.svg') no-repeat center; }
 #contactsheader .list.add { margin-left: 5em; }
-#contactsheader .settings { background:url('%webroot%/core/img/actions/settings.svg') no-repeat center; position: absolute; top: .7em; right: 1em; margin: 0; }
 
 
 /* Right content layout */
