@@ -369,7 +369,7 @@ class VCard {
 		}
 		$newid = \OCP\DB::insertid('*PREFIX*contacts_cards');
 		App::loadCategoriesFromVCard($newid, $card);
-		App::updateDBProperties($id, $card);
+		App::updateDBProperties($newid, $card);
 		App::cacheThumbnail($newid);
 
 		Addressbook::touch($aid);

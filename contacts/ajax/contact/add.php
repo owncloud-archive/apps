@@ -27,19 +27,22 @@ OCP\JSON::callCheck();
 
 require_once __DIR__.'/../loghandler.php';
 
-$aid = isset($_POST['aid'])?$_POST['aid']:null;
+$aid = isset($_POST['aid']) ? $_POST['aid'] : null;
 if(!$aid) {
 	$aid = min(OCA\Contacts\Addressbook::activeIds()); // first active addressbook.
 }
 
-$isnew = isset($_POST['isnew'])?$_POST['isnew']:false;
+debug('Adding new contact to: ' . $aid);
+
+$isnew = isset($_POST['isnew']) ? $_POST['isnew'] : false;
 $fn = trim($_POST['fn']);
 $n = trim($_POST['n']);
 
-$vcard = new OC_VObject('VCARD');
+$vobject = Sabre\VObject\Component::create('VCARD');
+debug('vobject: ', print_r($vobject->serialize(), true));
+$vcard = new OC_VObject($vobject);
 $vcard->setUID();
 $vcard->setString('FN', $fn);
-$vcard->setString('N', $n);
 
 $id = null;
 try {

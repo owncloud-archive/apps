@@ -316,8 +316,8 @@ class App {
 		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 	}
 
-	public static function updateDBProperties(integer $contactid, \OC_VObject $vcard = null) {
-		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_cards_properties` WHERE `contactid` = ?');
+	public static function updateDBProperties($contactid, \OC_VObject $vcard = null) {
+		$stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_cards_properties` WHERE `contactid` = ?');
 		try {
 			$stmt->execute(array($contactid));
 		} catch(\Exception $e) {
@@ -337,7 +337,7 @@ class App {
 		}
 
 		$stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards_properties` (`contactid`,`name`,`value`,`preferred`) VALUES(?,?,?,?)' );
-		foreach($object->children as $property) {
+		foreach($vcard->children as $property) {
 			$preferred = false;
 			foreach($property->parameters as $parameter) {
 				if($parameter->name == 'TYPE' && strtoupper($parameter->value) == 'PREF') {

@@ -143,16 +143,28 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	Contact.prototype.saveProperty = function(params) {
 		console.log('Contact.saveProperty', params);
+		if(!this.id) {
+			var self = this;
+			this.add({}, function(response) {
+				if(!response || response.status === 'error') {
+					console.log('No response object');
+					return false;
+				}
+				console.log('Contact added.' + self.id);
+				self.saveProperty(params);
+			});
+			return;
+		}
 		var obj = null;
 		var element = null;
-		var q = 'id=' + this.id + '&';
+		var q = '';
 		if(params.obj) {
 			obj = params.obj;
 			q = this.queryStringFor(obj);
 			element = this.propertyTypeFor(obj);
 		} else {
 			element = params.name;
-			q += 'value=' + encodeURIComponent(params.value) + '&name=' + element;
+			q = 'id=' + this.id + '&value=' + encodeURIComponent(params.value) + '&name=' + element;
 		}
 		console.log('q', q);
 		var self = this;
@@ -203,6 +215,8 @@ OC.Contacts = OC.Contacts || {};
 							// We deal with this in addToGroup()
 							break;
 						case 'FN':
+							// Update the list element
+							self.$listelem.find('.nametext').text(value);
 							var nempty = true;
 							if(!self.data.N) {
 								self.data.N = [];
@@ -220,6 +234,10 @@ OC.Contacts = OC.Contacts || {};
 									self.saveProperty({name:'N', value:this.data.N[0].value.join(';')})}
 								, 500);
 							}
+							$(document).trigger('status.contact.renamed', {
+								id: self.id,
+								contact: self,
+							});
 						case 'NICKNAME':
 						case 'BDAY':
 						case 'ORG':
@@ -294,6 +312,41 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	/**
+	 * Add a contact from data store and remove it from the DOM
+	 * @params params. An object which can contain the optional properties:
+	 * 		aid: The id of the addressbook to add the contact to. Per default it will be added to the first.
+	 * 		fn: The formatted name of the contact.
+	 * @param cb Optional callback function which
+	 * @returns The callback gets an object as argument with a variable 'status' of either 'success'
+	 * or 'error'. On success the 'data' property of that object contains the contact id as 'id', the
+	 * addressbook id as 'aid' and the contact data structure as 'details'.
+	 */
+	Contact.prototype.add = function(params, cb) {
+		var self = this;
+		$.post(OC.filePath('contacts', 'ajax', 'contact/add.php'),
+			   params, function(jsondata) {
+			if(!jsondata) {
+				$(document).trigger('status.contact.error', {
+					status: 'error',
+					message: t('contacts', 'Network or server error. Please inform administrator.'),
+				});
+				return false;
+			}
+			if(jsondata.status === 'success') {
+				self.id = parseInt(jsondata.data.id);
+				self.access.id = parseInt(jsondata.data.aid);
+				self.data = jsondata.data.details;
+				$(document).trigger('status.contact.added', {
+					id: self.id,
+					contact: self,
+				});
+			}
+			if(typeof cb == 'function') {
+				cb(jsondata);
+			}
+		});
+	}
+	/**
 	 * Delete contact from data store and remove it from the DOM
 	 * @param cb Optional callback function which
 	 * @returns An object with a variable 'status' of either success
@@ -347,7 +400,7 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	Contact.prototype.propertyContainerFor = function(obj) {
-		return $(obj).hasClass('.propertycontainer')
+		return $(obj).hasClass('propertycontainer')
 			? $(obj)
 			: $(obj).parents('.propertycontainer').first();
 	}
@@ -357,7 +410,8 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	Contact.prototype.valueFor = function(obj) {
-		return this.propertyContainerFor(obj).find('input.value').val();
+		var $container = this.propertyContainerFor(obj);
+		return $container.is('input') ? $container.val() : $container.find('input.value').val();
 	}
 
 	Contact.prototype.parametersFor = function(obj) {
@@ -897,7 +951,14 @@ OC.Contacts = OC.Contacts || {};
 		this.contactDetailTemplates = contactdetailtemplates;
 		this.$contactList.scrollTop(0);
 		this.loadContacts(0);
+		$(document).bind('status.contact.added', function(e, data) {
+			self.contacts[parseInt(data.id)] = data.contact;
+			self.insertContact(data.contact.renderListItem());
+		});
 
+		$(document).bind('status.contact.renamed', function(e, data) {
+			self.insertContact(data.contact.$listelem.detach());
+		});
 	}
 
 	/**
@@ -1095,21 +1156,29 @@ OC.Contacts = OC.Contacts || {};
 	 * Insert a rendered contact list item into the list
 	 * @param contact jQuery object.
 	 */
-	ContactList.prototype.insertContact = function(contact) {
-		//console.log('insertContact', contact);
-		var name = contact.find('td.name').text().toLowerCase();
+	ContactList.prototype.insertContact = function($contact) {
+		console.log('insertContact', $contact);
+		$contact.draggable({
+			distance: 10,
+			revert: 'invalid',
+			//containment: '#content',
+			opacity: 0.8, helper: 'clone',
+			zIndex: 1000,
+		});
+		var name = $contact.find('.nametext').text().toLowerCase();
 		var added = false
 		this.$contactList.find('tr').each(function() {
-			if ($(this).find('td.name').text().toLowerCase().localeCompare(name) > 0) {
-				$(this).before(contact);
+			if ($(this).find('.nametext').text().toLowerCase().localeCompare(name) > 0) {
+				$(this).before($contact);
 				added = true;
 				return false;
 			}
 		});
 		if(!added) {
-			this.$contactList.append(contact);
+			this.$contactList.append($contact);
 		}
-		return contact;
+		$contact.show();
+		return $contact;
 	}
 
 	/**

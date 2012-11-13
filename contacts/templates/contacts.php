@@ -109,7 +109,7 @@
 	<tr class="contact" data-id="{id}">
 		<td class="name"
 			style="background: url('<?php echo OC_Helper::linkToRemoteBase('contactthumbnail'); ?>?id={id}')">
-			<input type="checkbox" name="id" value="{id}" />{name}
+			<input type="checkbox" name="id" value="{id}" /><span class="nametext">{name}</span>
 		</td>
 		<td class="email">
 			<a href="mailto:{email}">{email}</a>
@@ -140,7 +140,7 @@
 			</div>
 			<a class="favorite" title="<?php echo $l->t('Favorite'); ?>"></a>
 			<div class="singleproperties">
-			<input class="fullname value propertycontainer" data-element="fn" type="text" name="value" value="{name}" required />
+			<input data-element="fn" class="fullname value propertycontainer" type="text" name="value" value="{name}" required />
 			<a class="action edit"></a>
 			<dl class="form">
 				<dt data-element="nickname">

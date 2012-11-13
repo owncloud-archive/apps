@@ -672,9 +672,16 @@ OC.Contacts = OC.Contacts || {
 			// update counts on group lists
 			self.Groups.removeFromAll(data.id, true)
 		});
+
+		$(document).bind('status.contact.added', function(e, data) {
+			self.currentid = parseInt(data.id);
+			self.showActions(['back', 'download', 'delete', 'groups']);
+		});
+
 		$(document).bind('status.contact.error', function(e, data) {
 			OC.notify({message:data.message});
 		});
+
 		$(document).bind('status.contact.enabled', function(e, enabled) {
 			console.log('status.contact.enabled', enabled)
 			if(enabled) {
@@ -683,6 +690,7 @@ OC.Contacts = OC.Contacts || {
 				self.showActions(['back']);
 			}
 		});
+
 		$(document).bind('status.contacts.loaded', function(e, result) {
 			console.log('status.contacts.loaded', result);
 			if(result.status !== true) {
@@ -699,6 +707,7 @@ OC.Contacts = OC.Contacts || {
 				});
 			}
 		});
+
 		$(document).bind('status.contact.currentlistitem', function(e, result) {
 			//console.log('status.contact.currentlistitem', result, self.$rightContent.height());
 			if(self.dontScroll !== true) {
@@ -1076,6 +1085,8 @@ OC.Contacts = OC.Contacts || {
 				self.Contacts.delayedDeleteContact(self.currentid);
 				self.showActions(['addcontact']);
 			} else {
+				// TODO: Delete selected contacts
+				OC.notify({message:'Hold on, not implemented yet'});
 				console.log('currentid is not set');
 			}
 		});
