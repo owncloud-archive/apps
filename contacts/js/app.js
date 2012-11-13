@@ -856,15 +856,17 @@ OC.Contacts = OC.Contacts || {
 			if(wrongKey(event)) {
 				return;
 			}
-			self.$settings.toggleClass('open');
+			var bodyListener = function(e) {
+				if(self.$settings.find($(e.target)).length == 0) {
+					self.$settings.switchClass('open', '');
+				}
+			}
 			if(self.$settings.hasClass('open')) {
-				$('body').bind('click', function(e) {
-					if(self.$settings.find($(e.target)).length == 0) {
-						self.$settings.toggleClass('open');
-					}
-				});
+				self.$settings.switchClass('open', '');
+				$('body').unbind('click', bodyListener);
 			} else {
-				$('body').unbind('click');
+				self.$settings.switchClass('', 'open');
+				$('body').bind('click', bodyListener);
 			}
 		});
 		$('#contactphoto_fileupload').on('change', function() {

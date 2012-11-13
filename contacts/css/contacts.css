@@ -176,7 +176,11 @@ dl.addresscard .action { float: right; }
 .addressbooks-settings a.action:hover { opacity: 1; }
 .addressbooks-settings td.active, .addressbooks-settings td.action { width: 20px; }
 
-#contacts-settings .settings { width: 20px; height: 20px; float: right; background:url('%webroot%/core/img/actions/settings.svg') no-repeat center; }
+#contacts-settings .settings { 
+	width: 20px; height: 20px; 
+	float: right; 
+	background:url('%webroot%/core/img/actions/settings.svg') no-repeat center; 
+}
 #contacts-settings.open {
     height: auto;
 }
@@ -195,6 +199,7 @@ dl.addresscard .action { float: right; }
     width: 20em;
     z-index: 2;
 }
+#contacts-settings li,#contacts-settings li:hover { background-color: transparent; }
 
 /* Single elements */
 #file_upload_target, #import_upload_target, #crop_target { display:none; }
