@@ -1,5 +1,5 @@
 var defaultZoom = 18
-var points = [];
+var points = {};
 
 function geoCode(address, callback) {
 	var url = 'http://open.mapquestapi.com/nominatim/v1/search';
