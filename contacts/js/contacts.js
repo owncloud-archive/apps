@@ -732,7 +732,7 @@ OC.Contacts = OC.Contacts || {};
 					id: self.id,
 				});
 			});
-			if(this.data.PHOTO) {
+			if(this.data && this.data.PHOTO) {
 				$phototools.find('.delete').show();
 				$phototools.find('.edit').show();
 			} else {
@@ -1119,7 +1119,7 @@ OC.Contacts = OC.Contacts || {};
 		var contact = new Contact(
 			this,
 			null,
-			null,
+			{owner:OC.currentUser, permissions: 31},
 			null,
 			this.$contactListItemTemplate,
 			this.$contactFullTemplate,
