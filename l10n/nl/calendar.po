@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:17+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-28 00:01+0200\n"
+"PO-Revision-Date: 2012-10-27 08:44+0000\n"
+"Last-Translator: Richard Bos <radoeka@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,21 +45,21 @@ msgstr "Geen gebeurtenissen gevonden."
 msgid "Wrong calendar"
 msgstr "Verkeerde agenda"
 
-#: ajax/import/dropimport.php:29 ajax/import/import.php:64
+#: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
 msgstr "Het bestand bevat geen gebeurtenissen of alle gebeurtenissen worden al in uw agenda bewaard."
 
-#: ajax/import/dropimport.php:31 ajax/import/import.php:67
+#: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
 msgstr "De gebeurtenissen worden in de nieuwe agenda bewaard"
 
-#: ajax/import/import.php:56
+#: ajax/import/import.php:57
 msgid "Import failed"
 msgstr "import is gefaald"
 
-#: ajax/import/import.php:69
+#: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
 msgstr "de gebeurtenissen zijn in uw agenda opgeslagen "
 
@@ -86,11 +86,11 @@ msgstr "Verwijdering faalde"
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
 #: js/calendar.js:187
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:539
 msgid "user"
@@ -216,7 +216,7 @@ msgstr "U heeft geen permissie om deze agenda te verwijderen."
 msgid "You do not have the permissions to add to this calendar."
 msgstr "U heeft geen permissie om deze agenda toe te voegen."
 
-#: lib/import.php:195 templates/calendar.php:12
+#: lib/import.php:214 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Nieuwe agenda"
@@ -760,11 +760,15 @@ msgid ""
 "calendars will be merged."
 msgstr "Een agenda met deze naam bestaat al.  Als u doorgaat, worden deze agenda's samengevoegd"
 
-#: templates/part.import.php:47
+#: templates/part.import.php:48
+msgid "Remove all events from the selected calendar"
+msgstr "Verwijder alle gebeurtenissen van de geselecteerde agenda"
+
+#: templates/part.import.php:50
 msgid "Import"
 msgstr "Importeer"
 
-#: templates/part.import.php:56
+#: templates/part.import.php:59
 msgid "Close Dialog"
 msgstr "Sluit venster"
 

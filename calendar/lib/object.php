@@ -116,7 +116,7 @@ class OC_Calendar_Object{
 		$calendar = OC_Calendar_Calendar::find($id);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_CREATE)) {
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_CREATE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to add events to this calendar.'
@@ -155,7 +155,7 @@ class OC_Calendar_Object{
 		$calendar = OC_Calendar_Calendar::find($id);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_CREATE)) {
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_CREATE)) {
 				throw new Sabre_DAV_Exception_Forbidden(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to add events to this calendar.'
@@ -187,7 +187,7 @@ class OC_Calendar_Object{
 		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to edit this event.'
@@ -221,7 +221,7 @@ class OC_Calendar_Object{
 		$calendar = OC_Calendar_Calendar::find($cid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $cid);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE)) {
 				throw new Sabre_DAV_Exception_Forbidden(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to edit this event.'
@@ -251,7 +251,7 @@ class OC_Calendar_Object{
 		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_DELETE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to delete this event.'
@@ -264,7 +264,7 @@ class OC_Calendar_Object{
 		OC_Calendar_Calendar::touchCalendar($oldobject['calendarid']);
 
 		OCP\Share::unshareAll('event', $id);
-		
+
 		OCP\Util::emitHook('OC_Calendar', 'deleteEvent', $id);
 
 		OC_Calendar_App::getVCategories()->purgeObject($id);
@@ -283,7 +283,7 @@ class OC_Calendar_Object{
 		$calendar = OC_Calendar_Calendar::find($cid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $cid);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_DELETE)) {
 				throw new Sabre_DAV_Exception_Forbidden(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to delete this event.'
@@ -303,7 +303,7 @@ class OC_Calendar_Object{
 		$calendar = OC_Calendar_Calendar::find($calendarid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_DELETE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to add events to this calendar.'
@@ -759,7 +759,7 @@ class OC_Calendar_Object{
 		$vevent = new OC_VObject('VEVENT');
 		$vcalendar->add($vevent);
 
-		$vevent->setDateTime('CREATED', 'now', Sabre_VObject_Property_DateTime::UTC);
+		$vevent->setDateTime('CREATED', 'now', Sabre\VObject\Property\DateTime::UTC);
 
 		$vevent->setUID();
 		return self::updateVCalendarFromRequest($request, $vcalendar);
@@ -928,22 +928,24 @@ class OC_Calendar_Object{
 		}
 
 
-		$vevent->setDateTime('LAST-MODIFIED', 'now', Sabre_VObject_Property_DateTime::UTC);
-		$vevent->setDateTime('DTSTAMP', 'now', Sabre_VObject_Property_DateTime::UTC);
+		$vevent->setDateTime('LAST-MODIFIED', 'now', Sabre\VObject\Property\DateTime::UTC);
+		$vevent->setDateTime('DTSTAMP', 'now', Sabre\VObject\Property\DateTime::UTC);
 		$vevent->setString('SUMMARY', $title);
 
 		if($allday) {
 			$start = new DateTime($from);
 			$end = new DateTime($to.' +1 day');
-			$vevent->setDateTime('DTSTART', $start, Sabre_VObject_Property_DateTime::DATE);
-			$vevent->setDateTime('DTEND', $end, Sabre_VObject_Property_DateTime::DATE);
+			$vevent->setDateTime('DTSTART', $start, Sabre\VObject\Property\DateTime::DATE);
+			$vevent->setDateTime('DTEND', $end, Sabre\VObject\Property\DateTime::DATE);
 		}else{
 			$timezone = OC_Calendar_App::getTimezone();
 			$timezone = new DateTimeZone($timezone);
 			$start = new DateTime($from.' '.$fromtime, $timezone);
+			$start->setTimezone(new DateTimeZone('UTC'));
 			$end = new DateTime($to.' '.$totime, $timezone);
-			$vevent->setDateTime('DTSTART', $start, Sabre_VObject_Property_DateTime::LOCALTZ);
-			$vevent->setDateTime('DTEND', $end, Sabre_VObject_Property_DateTime::LOCALTZ);
+			$end->setTimezone(new DateTimeZone('UTC'));
+			$vevent->setDateTime('DTSTART', $start, Sabre\VObject\Property\DateTime::UTC);
+			$vevent->setDateTime('DTEND', $end, Sabre\VObject\Property\DateTime::UTC);
 		}
 		unset($vevent->DURATION);
 

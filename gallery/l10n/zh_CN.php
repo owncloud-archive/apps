@@ -5,5 +5,5 @@
 "Error: " => "错误：",
 "Internal error" => "内部错误",
 "Slideshow" => "幻灯片",
-"The \"Image Viewer\" application also need to be enabled to use this application." => "使用此工具也需要启用图片预览工具。"
+"The \"Image Viewer\" application also need to be enabled to use this application." => "使用此应用也需要启用“图片预览”应用。"
 );

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:17+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 00:39+0000\n"
+"Last-Translator: marguerite su <i@marguerite.su>\n"
 "Language-Team: Chinese (China) (GB2312) (http://www.transifex.com/projects/p/owncloud/language/zh_CN.GB2312/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,21 +39,21 @@ msgstr "未找到事件。"
 msgid "Wrong calendar"
 msgstr "错误的日历"
 
-#: ajax/import/dropimport.php:29 ajax/import/import.php:64
+#: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
 msgstr "文件没有包含事件，或者所有事件已经存储在您的日程表中了。"
 
-#: ajax/import/dropimport.php:31 ajax/import/import.php:67
+#: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
 msgstr "事件已保存到新日程表"
 
-#: ajax/import/import.php:56
+#: ajax/import/import.php:57
 msgid "Import failed"
 msgstr "导入失败"
 
-#: ajax/import/import.php:69
+#: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
 msgstr "事件已保存在您的日程表"
 
@@ -74,59 +74,59 @@ msgstr "非法请求"
 msgid "Calendar"
 msgstr "日历"
 
-#: js/calendar.js:96
+#: js/calendar.js:154
 msgid "Deletion failed"
 msgstr "删除失败"
 
-#: js/calendar.js:185
+#: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
-#: js/calendar.js:187
+#: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "user"
 msgstr "用户"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "group"
 msgstr "群组"
 
-#: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
+#: js/calendar.js:598 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
 msgstr "可编辑"
 
-#: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
+#: js/calendar.js:599 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
 msgstr "可分享"
 
-#: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
+#: js/calendar.js:600 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
 msgstr "可删除"
 
-#: js/calendar.js:811
+#: js/calendar.js:869
 msgid "ddd"
 msgstr "ddd"
 
-#: js/calendar.js:812
+#: js/calendar.js:870
 msgid "ddd M/d"
 msgstr "ddd M/d"
 
-#: js/calendar.js:813
+#: js/calendar.js:871
 msgid "dddd M/d"
 msgstr "dddd M/d"
 
-#: js/calendar.js:816
+#: js/calendar.js:874
 msgid "MMMM yyyy"
 msgstr "MMMM yyyy"
 
-#: js/calendar.js:818
+#: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
-#: js/calendar.js:820
+#: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
 msgstr "dddd, MMM d, yyyy"
 
@@ -210,7 +210,7 @@ msgstr "您没有权限删除此日程表。"
 msgid "You do not have the permissions to add to this calendar."
 msgstr "您没有权限添加到此日程表。"
 
-#: lib/import.php:195 templates/calendar.php:12
+#: lib/import.php:214 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "新的日历"
@@ -754,11 +754,15 @@ msgid ""
 "calendars will be merged."
 msgstr "同名日程表已存在。如果您强制继续，这些日程表将被合并。"
 
-#: templates/part.import.php:47
+#: templates/part.import.php:48
+msgid "Remove all events from the selected calendar"
+msgstr "从所选日程表移除所有事件"
+
+#: templates/part.import.php:50
 msgid "Import"
 msgstr "导入"
 
-#: templates/part.import.php:56
+#: templates/part.import.php:59
 msgid "Close Dialog"
 msgstr "关闭对话框"
 

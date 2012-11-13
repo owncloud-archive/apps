@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-13 02:04+0200\n"
-"PO-Revision-Date: 2012-10-12 19:54+0000\n"
+"POT-Creation-Date: 2012-11-10 00:01+0100\n"
+"PO-Revision-Date: 2012-11-09 09:24+0000\n"
 "Last-Translator: rogerc <rcalvoi@yahoo.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -19,25 +19,41 @@ msgstr ""
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ajax/import.php:21
+msgid "Unsupported file type for import"
+msgstr "Importació d'un tipus de fitxer no implementat"
+
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Adreces d'interès"
 
-#: js/addBm.js:42 js/bookmarks.js:243
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
 msgstr "Etiquetes"
 
-#: js/bookmarks.js:178
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr "Filtrat per etiqueta"
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
 msgstr "Edita l'adreça d'interès"
 
-#: js/bookmarks.js:410
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Segur que voleu eliminar aquesta etiqueta de cada entrada?"
 
-#: js/bookmarks.js:411
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr "Avís"
+
+#: js/settings.js:25
+msgid "Import completed successfully."
+msgstr "La importació ha acabat amb èxit"
+
+#: js/settings.js:56
+msgid "Uploading..."
+msgstr "Pujant..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -51,96 +67,80 @@ msgstr "Afegeix una adreça d'interès"
 msgid "Close"
 msgstr "Tanca"
 
-#: templates/addBm.php:22 templates/list.php:91
+#: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
 msgstr "El títol de la pàgina"
 
-#: templates/addBm.php:27 templates/list.php:95
+#: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
 msgstr "L'adreça de la pàgina"
 
-#: templates/addBm.php:40 templates/list.php:104
+#: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
 msgstr "Descripció de la pàgina"
 
-#: templates/addBm.php:44 templates/list.php:108
+#: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
 msgstr "Desa"
 
-#: templates/bookmarklet.php:5
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
+msgid "Delete"
+msgstr "Esborra"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "Edita"
+
+#: templates/js_tpl.php:49
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: templates/list.php:14
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
 msgstr "Arrossegueu-ho al navegador i feu-hi un clic quan volgueu marcar ràpidament una adreça d'interès:"
 
-#: templates/bookmarklet.php:7
+#: templates/list.php:15
 msgid "Read later"
 msgstr "Llegeix més tard"
 
-#: templates/list.php:12
+#: templates/list.php:22
 msgid "Address"
 msgstr "Adreça"
 
-#: templates/list.php:13
-msgid "Add bookmark"
-msgstr "Afegeix una adreça d'interès"
-
-#: templates/list.php:16
-msgid "List"
-msgstr "Llista"
-
-#: templates/list.php:17
-msgid "Image"
-msgstr "Imatge"
-
-#: templates/list.php:22
-msgid "Hide"
-msgstr "Amaga"
-
 #: templates/list.php:23
-msgid "Show"
-msgstr "Mostra"
+msgid "Add"
+msgstr "Afegeix"
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr "Etiquetes relacionades"
 
-#: templates/list.php:39
+#: templates/list.php:39 templates/list.php:41
+msgid "Settings"
+msgstr "Configuració"
+
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "No teniu adreces d'interès"
 
-#: templates/list.php:64
-msgid "Edit"
-msgstr "Edita"
-
-#: templates/list.php:68
-msgid "Delete"
-msgstr "Esborra"
-
-#: templates/list.php:107
-msgid "Cancel"
-msgstr "Cancel·la"
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr "També podeu intentar importar un fitxer d'adreces d'interès"
 
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Bookmarklet <br />"
+msgid "Bookmarklet"
+msgstr "Bookmarklet"
 
-#: templates/settings.php:26
-msgid "Import bookmarks"
-msgstr "Importa les adreces d'interès"
+#: templates/settings.php:23
+msgid "Export & Import"
+msgstr "Exporta i importa"
 
-#: templates/settings.php:28
-msgid "Bookmark html file"
-msgstr "Adreça d'interès en fitxer html"
-
-#: templates/settings.php:30
-msgid "Import"
-msgstr "Importa"
-
-#: templates/settings.php:33
-msgid "Export bookmarks"
-msgstr "Exporta adreces d'interès"
-
-#: templates/settings.php:35
+#: templates/settings.php:24
 msgid "Export"
 msgstr "Exporta"
+
+#: templates/settings.php:26
+msgid "Import"
+msgstr "Importa"

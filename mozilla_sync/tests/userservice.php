@@ -1,5 +1,6 @@
 <?php
 
+OC_App::loadApp('mozilla_sync');
 class Test_UserService extends UnitTestCase {
 
   private $userName = 'testUser';
@@ -14,6 +15,7 @@ class Test_UserService extends UnitTestCase {
 
     // Create ownCloud Test User
     OC_User::createUser($this->userName, $this->password);
+    OC_User::setUserId($this->userName);
     OC_Preferences::setValue($this->userName,'settings', 'email', $this->email);
 
     OCA_mozilla_sync\OutputData::$outputFlag = OCA_mozilla_sync\OutputData::ConstOutputBuffer;

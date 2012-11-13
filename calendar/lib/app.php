@@ -313,9 +313,7 @@ class OC_Calendar_App{
 	 * @see OCP\Share
 	 */
 	public static function getPermissions($id, $type) {
-		 $permissions_all = OCP\Share::PERMISSION_CREATE
-				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE
-				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
+		 $permissions_all = OCP\PERMISSION_ALL;
 
 		if($type == self::CALENDAR) {
 			$calendar = self::getCalendar($id, false, false);
@@ -395,7 +393,7 @@ class OC_Calendar_App{
 		$vevent = $object->VEVENT;
 		$return = array();
 		$id = $event['id'];
-		$allday = ($vevent->DTSTART->getDateType() == Sabre_VObject_Element_DateTime::DATE)?true:false;
+		$allday = ($vevent->DTSTART->getDateType() == Sabre\VObject\Property\DateTime::DATE)?true:false;
 		$last_modified = @$vevent->__get('LAST-MODIFIED');
 		$lastmodified = ($last_modified)?$last_modified->getDateTime()->format('U'):0;
 		$staticoutput = array('id'=>(int)$event['id'],
@@ -427,7 +425,7 @@ class OC_Calendar_App{
 				$object->expand($start, $end);
 			}
 			foreach($object->getComponents() as $singleevent) {
-				if(!($singleevent instanceof Sabre_VObject_Component_VEvent)) {
+				if(!($singleevent instanceof Sabre\VObject\Component\VEvent)) {
 					continue;
 				}
 				$dynamicoutput = OC_Calendar_Object::generateStartEndDate($singleevent->DTSTART, OC_Calendar_Object::getDTEndFromVEvent($singleevent), $allday, self::$tz);

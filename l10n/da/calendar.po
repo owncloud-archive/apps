@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Frederik Lassen <frederiklassen@gmail.com>, 2012.
 #   <mikkelbjerglarsen@gmail.com>, 2011.
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2011-2012.
 # Ole Holm Frandsen <froksen@gmail.com>, 2012.
@@ -16,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 00:17+0000\n"
+"POT-Creation-Date: 2012-10-28 00:01+0200\n"
+"PO-Revision-Date: 2012-10-26 22:33+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -46,21 +47,21 @@ msgstr "Der blev ikke fundet nogen begivenheder."
 msgid "Wrong calendar"
 msgstr "Forkert kalender"
 
-#: ajax/import/dropimport.php:29 ajax/import/import.php:64
+#: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
 msgstr "Enten indeholdt filen ingen begivenheder, eller også er alle begivenheder allerede gemt i din kalender."
 
-#: ajax/import/dropimport.php:31 ajax/import/import.php:67
+#: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
 msgstr "begivenheder er gemt i den nye kalender"
 
-#: ajax/import/import.php:56
+#: ajax/import/import.php:57
 msgid "Import failed"
 msgstr "Import mislykkedes"
 
-#: ajax/import/import.php:69
+#: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
 msgstr "begivenheder er gemt i din kalender"
 
@@ -87,11 +88,11 @@ msgstr "Fejl ved sletning"
 
 #: js/calendar.js:185
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
 #: js/calendar.js:187
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:539
 msgid "user"
@@ -217,7 +218,7 @@ msgstr "Du har ikke rettigheder til at slette denne kalender."
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Du har ikke rettigheder til at tilføje til denne kalender."
 
-#: lib/import.php:195 templates/calendar.php:12
+#: lib/import.php:214 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Ny kalender"
@@ -761,11 +762,15 @@ msgid ""
 "calendars will be merged."
 msgstr "En kalender med dette navn findes allerede. Hvis du fortsætter alligevel, vil disse kalendere blive sammenlagt."
 
-#: templates/part.import.php:47
+#: templates/part.import.php:48
+msgid "Remove all events from the selected calendar"
+msgstr ""
+
+#: templates/part.import.php:50
 msgid "Import"
 msgstr "Importer"
 
-#: templates/part.import.php:56
+#: templates/part.import.php:59
 msgid "Close Dialog"
 msgstr "Luk dialog"
 

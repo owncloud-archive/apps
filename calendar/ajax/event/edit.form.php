@@ -27,23 +27,23 @@ $vevent = $object->VEVENT;
 $dtstart = $vevent->DTSTART;
 $dtend = OC_Calendar_Object::getDTEndFromVEvent($vevent);
 switch($dtstart->getDateType()) {
-	case Sabre_VObject_Property_DateTime::UTC:
-		$timeOffset = $_SESSION['timezone']*60;
-		$newDT      = $dtstart->getDateTime();
-		$newDT->add(new DateInterval("PT" . $timeOffset . "M"));
+	case Sabre\VObject\Property\DateTime::UTC:
+		$timezone = new DateTimeZone(OC_Calendar_App::getTimezone());
+		$newDT    = $dtstart->getDateTime();
+		$newDT->setTimezone($timezone);
 		$dtstart->setDateTime($newDT);
-		$newDT      = $dtend->getDateTime();
-		$newDT->add(new DateInterval("PT" . $timeOffset . "M"));
+		$newDT    = $dtend->getDateTime();
+		$newDT->setTimezone($timezone);
 		$dtend->setDateTime($newDT);
-	case Sabre_VObject_Property_DateTime::LOCALTZ:
-	case Sabre_VObject_Property_DateTime::LOCAL:
+	case Sabre\VObject\Property\DateTime::LOCALTZ:
+	case Sabre\VObject\Property\DateTime::LOCAL:
 		$startdate = $dtstart->getDateTime()->format('d-m-Y');
 		$starttime = $dtstart->getDateTime()->format('H:i');
 		$enddate = $dtend->getDateTime()->format('d-m-Y');
 		$endtime = $dtend->getDateTime()->format('H:i');
 		$allday = false;
 		break;
-	case Sabre_VObject_Property_DateTime::DATE:
+	case Sabre\VObject\Property\DateTime::DATE:
 		$startdate = $dtstart->getDateTime()->format('d-m-Y');
 		$starttime = '';
 		$dtend->getDateTime()->modify('-1 day');
@@ -209,9 +209,9 @@ $repeat_bymonth_options = OC_Calendar_App::getByMonthOptions();
 $repeat_byweekno_options = OC_Calendar_App::getByWeekNoOptions();
 $repeat_bymonthday_options = OC_Calendar_App::getByMonthDayOptions();
 
-if($permissions & OCP\Share::PERMISSION_UPDATE) {
+if($permissions & OCP\PERMISSION_UPDATE) {
 	$tmpl = new OCP\Template('calendar', 'part.editevent');
-} elseif($permissions & OCP\Share::PERMISSION_READ) {
+} elseif($permissions & OCP\PERMISSION_READ) {
 	$tmpl = new OCP\Template('calendar', 'part.showevent');
 }
 

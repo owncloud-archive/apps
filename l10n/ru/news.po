@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-20 02:03+0200\n"
-"PO-Revision-Date: 2012-10-19 19:18+0000\n"
-"Last-Translator: EugeneSG <seg@it4you.kiev.ua>\n"
+"POT-Creation-Date: 2012-11-11 00:01+0100\n"
+"PO-Revision-Date: 2012-11-09 23:13+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,11 +62,19 @@ msgstr "Ошибка удаления ленты."
 msgid "Error updating feeds."
 msgstr "Ошибка обновления лент."
 
-#: ajax/importopml.php:28 ajax/selectfromcloud.php:31
-msgid "No file path was submitted."
-msgstr "Не было указано пути к файлу."
+#: ajax/importopml.php:40
+msgid "Empty filename"
+msgstr "Пустое имя файла"
 
-#: ajax/importopml.php:42
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr ""
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr "Ошибка при чтении файла"
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "При обработке файла возникла ошибка."
 
@@ -78,9 +86,17 @@ msgstr "Лента загружена!"
 msgid "Error moving feed into folder."
 msgstr "Ошибка перемещения ленты в папку."
 
+#: ajax/selectfromcloud.php:31
+msgid "No file path was submitted."
+msgstr "Не было указано пути к файлу."
+
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr "Файл не существует:"
+
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "Не удалось сохранить временное изображение:"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -98,19 +114,19 @@ msgstr "Ошибка обновления ленты."
 msgid "Feed updated!"
 msgstr "Лента обновлена!"
 
-#: appinfo/app.php:36 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21
 msgid "News"
 msgstr "Новости"
 
-#: js/items.js:123
+#: js/items.js:122
 msgid "Error while loading the feed"
 msgstr "Ошибка при загрузке канала"
 
-#: js/items.js:123 js/items.js:589 js/items.js:700 js/main.js:114
+#: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
-#: js/menu.js:913 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
-#: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
-#: js/settings.js:47
+#: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
+#: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
+#: js/settings.js:68
 msgid "Error"
 msgstr "Ошибка"
 
@@ -118,11 +134,11 @@ msgstr "Ошибка"
 msgid "None"
 msgstr "Нет новостей"
 
-#: js/main.js:101 templates/main.php:18
+#: js/main.js:101 templates/main.php:17
 msgid "Show only unread"
 msgstr "Показать только непрочитанные"
 
-#: js/main.js:105 templates/main.php:14
+#: js/main.js:105 templates/main.php:13
 msgid "Show everything"
 msgstr "Показать всё"
 
@@ -175,55 +191,31 @@ msgstr "Ошибка обработки ленты"
 msgid "Fatal Error"
 msgstr "Неисправимая ошибка"
 
-#: js/settings.js:11 js/settings.js:27
-msgid "File "
-msgstr "Файл"
-
-#: js/settings.js:11
-msgid " loaded from cloud."
-msgstr "загружен из облака."
-
-#: js/settings.js:22
+#: js/settings.js:17
 msgid "No files selected."
 msgstr "Нет выбранных файлов."
 
-#: js/settings.js:27
-msgid " loaded from local filesystem."
-msgstr "загружен с локального диска."
+#: js/settings.js:31
+msgid "Importing OPML file..."
+msgstr "Импортирование OPML файла..."
 
-#: js/settings.js:32
-msgid "Importing..."
-msgstr "Импорт..."
+#: js/settings.js:42
+msgid "Not a valid type"
+msgstr "Недопустимый тип"
 
-#: js/settings.js:43
-msgid " out of "
-msgstr " конец "
+#: js/settings.js:60
+msgid "Importing done"
+msgstr ""
 
-#: js/settings.js:44
-msgid " feeds imported successfully from "
-msgstr " ленты успешно импортированы из "
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr ""
 
-#: js/settings.js:45
-msgid "Success"
-msgstr "Успешно"
-
-#: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
-msgid "Import"
-msgstr "Импорт"
-
-#: js/settings.js:55
-msgid "Downloading..."
-msgstr "Скачивание..."
-
-#: js/settings.js:57
-msgid "Download"
-msgstr "Скачать"
-
-#: js/settings.js:69
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Выберите файл"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:204
+#: lib/feedmapper.php:180 lib/itemmapper.php:207
 msgid "no title"
 msgstr "без заголовка"
 
@@ -231,7 +223,7 @@ msgstr "без заголовка"
 msgid "no name"
 msgstr "без имени"
 
-#: lib/itemmapper.php:209
+#: lib/itemmapper.php:212
 msgid "no body"
 msgstr "без содержимого"
 
@@ -267,50 +259,54 @@ msgstr "Подписаться"
 msgid "Import OPML"
 msgstr "Импаортировать OPML"
 
-#: templates/firstrun.php:12 templates/settings.php:3
+#: templates/firstrun.php:12
 msgid "Upload file from desktop"
 msgstr "Загрузить файл с рабочего стола"
 
-#: templates/firstrun.php:12 templates/settings.php:3
+#: templates/firstrun.php:12
 msgid "Upload"
 msgstr "Загрузка"
 
-#: templates/firstrun.php:13 templates/settings.php:4
+#: templates/firstrun.php:13
 msgid "Select file from ownCloud"
 msgstr "Выбрать файл из ownCloud"
 
-#: templates/firstrun.php:13 templates/settings.php:4
+#: templates/firstrun.php:13
 msgid "Select"
 msgstr "Выбрать"
 
-#: templates/firstrun.php:15 templates/settings.php:6
+#: templates/firstrun.php:15 templates/settings.php:4
 msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
 msgstr "Выберите <a href=\"#\" class=\"settings\" id=\"browselink\">локальный файл</a> или <a href=\"#\" class=\"settings\" id=\"cloudlink\">файл из ownCloud</a>"
 
+#: templates/firstrun.php:18
+msgid "Import"
+msgstr "Импорт"
+
 #: templates/firstrun.php:24
 msgid "Or..."
 msgstr "Или..."
 
-#: templates/main.php:35
+#: templates/main.php:34
 msgid "Add feed or folder"
 msgstr "Добавить ленту или папку"
 
-#: templates/main.php:36
+#: templates/main.php:35
 msgid "Add Feed/Folder"
 msgstr "Добавить Ленту/Папку"
 
-#: templates/main.php:38
+#: templates/main.php:37
 msgid "Feed"
 msgstr "Новостная лента"
 
-#: templates/main.php:39
+#: templates/main.php:38
 msgid "Folder"
 msgstr "Папка"
 
-#: templates/main.php:46
+#: templates/main.php:45
 msgid "Settings"
 msgstr "Настройки"
 
@@ -342,36 +338,41 @@ msgstr "Выберите папку"
 msgid "Add"
 msgstr "Добавить"
 
-#: templates/part.feeds.php:47
+#: templates/part.feeds.php:48
 msgid "New articles"
 msgstr "Новые статьи"
 
-#: templates/part.feeds.php:49 templates/part.listfeed.php:34
-#: templates/part.listfolder.php:34
+#: templates/part.feeds.php:51 templates/part.listfeed.php:34
+#: templates/part.listfolder.php:35
 msgid "Mark all read"
 msgstr "Отметить все как прочитанные"
 
-#: templates/part.feeds.php:53
+#: templates/part.feeds.php:55
 msgid "Starred"
 msgstr "Отмеченный"
 
-#: templates/part.items.php:17
+#: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
 msgstr "Пометить как неважное"
 
-#: templates/part.items.php:20
+#: templates/part.items.php:20 templates/part.shared.php:21
 msgid "Mark as important"
 msgstr "Пометить как важное"
 
-#: templates/part.items.php:37
+#: templates/part.items.php:37 templates/part.shared.php:38
 msgid "from"
 msgstr "из"
 
-#: templates/part.items.php:43
+#: templates/part.items.php:43 templates/part.shared.php:44
 msgid "by"
 msgstr "от"
 
-#: templates/part.items.php:56
+#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.shared.php:55
+msgid "Share"
+msgstr "Открыть доступ"
+
+#: templates/part.items.php:58 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Оставить непрочитанным"
 
@@ -383,11 +384,11 @@ msgstr "Удалить ленту"
 msgid "Collapse"
 msgstr "Свернуть"
 
-#: templates/part.listfolder.php:32
+#: templates/part.listfolder.php:33
 msgid "Delete folder"
 msgstr "Удалить папку"
 
-#: templates/part.listfolder.php:33
+#: templates/part.listfolder.php:34
 msgid "Rename folder"
 msgstr "Переименовать папку"
 
@@ -395,15 +396,15 @@ msgstr "Переименовать папку"
 msgid "Import feeds"
 msgstr "Импортировать ленты"
 
-#: templates/settings.php:11
+#: templates/settings.php:8
 msgid "Export feeds"
 msgstr "Экспортировать ленты"
 
-#: templates/settings.php:13
+#: templates/settings.php:10
 msgid "Download OPML"
 msgstr "Скачать OPML"
 
-#: templates/settings.php:15
+#: templates/settings.php:12
 msgid "Subscribelet"
 msgstr "Быстрая подписка"
 

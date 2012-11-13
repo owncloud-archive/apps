@@ -52,7 +52,7 @@ class OC_Task_App {
 		$task['categories'] = $vtodo->getAsArray('CATEGORIES');
 		$due = $vtodo->DUE;
 		if ($due) {
-			$task['due_date_only'] = $due->getDateType() == Sabre_VObject_Element_DateTime::DATE;
+			$task['due_date_only'] = $due->getDateType() == Sabre\VObject\Property\DateTime::DATE;
 			$due = $due->getDateTime();
 			$due->setTimezone(new DateTimeZone($user_timezone));
 			$task['due'] = $due->format('U');
@@ -118,7 +118,7 @@ class OC_Task_App {
 		$vtodo = new OC_VObject('VTODO');
 		$vcalendar->add($vtodo);
 
-		$vtodo->setDateTime('CREATED', 'now', Sabre_VObject_Element_DateTime::UTC);
+		$vtodo->setDateTime('CREATED', 'now', Sabre\VObject\Property\DateTime::UTC);
 
 		$vtodo->setUID();
 		return self::updateVCalendarFromRequest($request, $vcalendar);
@@ -137,8 +137,8 @@ class OC_Task_App {
 
 		$vtodo = $vcalendar->VTODO;
 
-		$vtodo->setDateTime('LAST-MODIFIED', 'now', Sabre_VObject_Element_DateTime::UTC);
-		$vtodo->setDateTime('DTSTAMP', 'now', Sabre_VObject_Element_DateTime::UTC);
+		$vtodo->setDateTime('LAST-MODIFIED', 'now', Sabre\VObject\Property\DateTime::UTC);
+		$vtodo->setDateTime('DTSTAMP', 'now', Sabre\VObject\Property\DateTime::UTC);
 		$vtodo->setString('SUMMARY', $summary);
 
 		$vtodo->setString('LOCATION', $location);

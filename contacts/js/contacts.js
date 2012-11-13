@@ -1215,6 +1215,8 @@ OC.Contacts={
 				adrtxt = adrtxt + '<li>' + adr[6] + '</li>';
 			}
 			container.find('.addresslist').html(adrtxt);
+			$('#addresses').show();
+			container.show();
 		},
 		uploadPhoto:function(filelist) {
 			if(!this.enabled) {
@@ -1697,7 +1699,7 @@ OC.Contacts={
 			}
 			var contact = params.data
 					? $('<li data-id="'+params.data.id+'" data-bookid="'+params.data.addressbookid
-						+ '" role="button"><a href="'+OC.linkTo('contacts', 'index.php')+'&id='
+						+ '" role="button"><a href="'+OC.linkTo('contacts', 'index.php')+'?id='
 						+ params.data.id+'"  style="background: url('+OC.filePath('contacts', '', 'thumbnail.php')
 						+ '?id='+params.data.id+') no-repeat scroll 0% 0% transparent;">'
 						+ params.data.displayname+'</a></li>')

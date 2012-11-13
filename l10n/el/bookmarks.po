@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Dimitris M. <monopatis@gmail.com>, 2012.
 # Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-14 02:04+0200\n"
-"PO-Revision-Date: 2012-10-13 23:56+0000\n"
-"Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
+"POT-Creation-Date: 2012-11-12 00:01+0100\n"
+"PO-Revision-Date: 2012-11-11 03:14+0000\n"
+"Last-Translator: Dimitris M. <monopatis@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,25 +20,41 @@ msgstr ""
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ajax/import.php:21
+msgid "Unsupported file type for import"
+msgstr "Δεν υποστηρίζεται o τύπος αρχείου για εισαγωγή"
+
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Σελιδοδείκτες"
 
-#: js/addBm.js:42 js/bookmarks.js:243
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
 msgstr "Ετικέτες"
 
-#: js/bookmarks.js:178
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr "Φιλτράρισμα βάσει ετικέτας"
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
 msgstr "Επεξεργασία σελιδοδείκτη"
 
-#: js/bookmarks.js:410
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Είστε σίγουρος για την αφαίρεση αυτής της ετικέτας από κάθε καταχώρηση;"
 
-#: js/bookmarks.js:411
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr "Προειδοποίηση"
+
+#: js/settings.js:25
+msgid "Import completed successfully."
+msgstr "Η εισαγωγή ολοκληρώθηκε επιτυχώς."
+
+#: js/settings.js:56
+msgid "Uploading..."
+msgstr "Μεταφόρτωση..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -51,96 +68,80 @@ msgstr "Προσθήκη σελιδοδείκτη"
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: templates/addBm.php:22 templates/list.php:91
+#: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
 msgstr "Τίτλος της σελίδας"
 
-#: templates/addBm.php:27 templates/list.php:95
+#: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
 msgstr "Διεύθυνση της σελίδας"
 
-#: templates/addBm.php:40 templates/list.php:104
+#: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
 msgstr "Περιγραφή της σελίδας"
 
-#: templates/addBm.php:44 templates/list.php:108
+#: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: templates/bookmarklet.php:5
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: templates/js_tpl.php:49
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: templates/list.php:14
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
 msgstr "Σύρετε αυτό στους σελιδοδείκτες του περιηγητή σας και κάντε κλικ επάνω του, όταν θέλετε να προσθέσετε σύντομα μια ιστοσελίδα ως σελιδοδείκτη:"
 
-#: templates/bookmarklet.php:7
+#: templates/list.php:15
 msgid "Read later"
 msgstr "Ανάγνωση αργότερα"
 
-#: templates/list.php:12
+#: templates/list.php:22
 msgid "Address"
 msgstr "Διεύθυνση"
 
-#: templates/list.php:13
-msgid "Add bookmark"
-msgstr "Προσθήκη σελιδοδείκτη"
-
-#: templates/list.php:16
-msgid "List"
-msgstr "Λίστα"
-
-#: templates/list.php:17
-msgid "Image"
-msgstr "Εικόνα"
-
-#: templates/list.php:22
-msgid "Hide"
-msgstr "Απόκρυψη"
-
 #: templates/list.php:23
-msgid "Show"
-msgstr "Εμφάνιση"
+msgid "Add"
+msgstr "Προσθήκη"
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr "Σχετικές ετικέτες"
 
-#: templates/list.php:39
+#: templates/list.php:39 templates/list.php:41
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Δεν έχετε σελιδοδείκτες"
 
-#: templates/list.php:64
-msgid "Edit"
-msgstr "Επεξεργασία"
-
-#: templates/list.php:68
-msgid "Delete"
-msgstr "Διαγραφή"
-
-#: templates/list.php:107
-msgid "Cancel"
-msgstr "Ακύρωση"
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr "Μπορείτε να δοκιμάσετε να εισάγεται ένα αρχείο σελιδοδεικτών"
 
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Εφαρμογίδιο Σελιδοδεικτών <br />"
+msgid "Bookmarklet"
+msgstr "Εφαρμογίδιο Σελιδοδεικτών"
 
-#: templates/settings.php:26
-msgid "Import bookmarks"
-msgstr "Εισαγωγή σελιδοδεικτών"
+#: templates/settings.php:23
+msgid "Export & Import"
+msgstr "Εξαγωγή & Εισαγωγή"
 
-#: templates/settings.php:28
-msgid "Bookmark html file"
-msgstr "HTML αρχείο σελιδοδείκτη"
-
-#: templates/settings.php:30
-msgid "Import"
-msgstr "Εισαγωγή"
-
-#: templates/settings.php:33
-msgid "Export bookmarks"
-msgstr "Εξαγωγή σελιδοδεικτών"
-
-#: templates/settings.php:35
+#: templates/settings.php:24
 msgid "Export"
 msgstr "Εξαγωγή"
+
+#: templates/settings.php:26
+msgid "Import"
+msgstr "Εισαγωγή"

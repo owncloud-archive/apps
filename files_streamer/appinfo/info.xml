@@ -1,9 +1,0 @@
-<?xml version="1.0"?> 
-<info>
-	<id>files_streamer</id>
-	<name>Video Streamer</name>
-	<description>Simple video streamer based on JWPlayer.</description>
-	<licence>AGPL</licence>
-	<author>Dmitry Prichina</author>
-	<require>4</require>
-</info>

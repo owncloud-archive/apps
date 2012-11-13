@@ -180,6 +180,7 @@
 "Name of new calendar" => "Название нового календаря",
 "Take an available name!" => "Возьмите разрешенное имя!",
 "A Calendar with this name already exists. If you continue anyhow, these calendars will be merged." => "Календарь с таким именем уже существует. Если вы продолжите, одноименный календарь будет удален.",
+"Remove all events from the selected calendar" => "Удалить все события из выбранного календаря",
 "Import" => "Импортировать",
 "Close Dialog" => "Закрыть Сообщение",
 "Create a new event" => "Создать новое событие",

@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Anushke Guneratne <anushke@gmail.com>, 2012.
 #   <awantha14@gmail.com>, 2012.
 # Chamara Disanayake <chamara@nic.lk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 07:20+0000\n"
-"Last-Translator: dinusha <awantha14@gmail.com>\n"
+"POT-Creation-Date: 2012-10-31 00:01+0100\n"
+"PO-Revision-Date: 2012-10-30 08:52+0000\n"
+"Last-Translator: Anushke Guneratne <anushke@gmail.com>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,25 +38,25 @@ msgstr "සිදුවීම් හමුවී නැත."
 
 #: ajax/event/edit.form.php:20
 msgid "Wrong calendar"
-msgstr "වැරදි දින දසුනක්"
+msgstr "වැරදි දිනදසුනක්"
 
-#: ajax/import/dropimport.php:29 ajax/import/import.php:64
+#: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
-msgstr ""
+msgstr "ලිපිගොනුවේ තුල කිසිදු සිදුවීමක් නොමැත හෝ සියලු සිදුවීම් දැනටමත් ඔබගේ දිනදසුනේ සුරැකී පවතී."
 
-#: ajax/import/dropimport.php:31 ajax/import/import.php:67
+#: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
-msgstr ""
+msgstr "නව දිනදසුනක සිදුවීම් සුරකින ලදී"
 
-#: ajax/import/import.php:56
+#: ajax/import/import.php:57
 msgid "Import failed"
 msgstr "ආයත කිරීම අසාර්ථකයි"
 
-#: ajax/import/import.php:69
+#: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
-msgstr ""
+msgstr "ඔබේ දිනදසුනේ සිදුවීම් සුරකින ලදී"
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
@@ -74,61 +75,61 @@ msgstr "අවලංගු අයැදුමක්"
 msgid "Calendar"
 msgstr "දිනදසුන"
 
-#: js/calendar.js:96
+#: js/calendar.js:154
 msgid "Deletion failed"
 msgstr "මකාදැමීම අසාර්ථකයි"
 
-#: js/calendar.js:185
+#: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "දිදිදි දි මාමාමාමා [ වවවව]{ - [දිදිදි දි] මාමාමාමා වවවව}"
 
-#: js/calendar.js:187
+#: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "දිදිදි දි මාමාමාමා [ වවවව] පැපැ:මිමි{ - [ දිදිදි දි මාමාමාමා වවවව] පැපැ:මිමි}"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "user"
 msgstr "පරිශිලකයා"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "group"
 msgstr "කණ්ඩායම"
 
-#: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
+#: js/calendar.js:598 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
-msgstr "සැකසියහැකි"
+msgstr "සැකසිය හැක"
 
-#: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
+#: js/calendar.js:599 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
-msgstr "හවුල් කරගතහැකි"
+msgstr "හවුල් කරගතහැක"
 
-#: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
+#: js/calendar.js:600 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
-msgstr "මකාදැමිය හැකි"
+msgstr "මකාදැමිය හැක"
 
-#: js/calendar.js:811
+#: js/calendar.js:869
 msgid "ddd"
 msgstr "දිදිදි"
 
-#: js/calendar.js:812
+#: js/calendar.js:870
 msgid "ddd M/d"
 msgstr "දිදිදි මා/දි"
 
-#: js/calendar.js:813
+#: js/calendar.js:871
 msgid "dddd M/d"
 msgstr "දිදිදිදි මා/දි"
 
-#: js/calendar.js:816
+#: js/calendar.js:874
 msgid "MMMM yyyy"
 msgstr "මාමාමාමා වවවව"
 
-#: js/calendar.js:818
+#: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
-msgstr "මමම දි[ වවවව]{ '&#8212;'[ මමම] දි වවවව}"
+msgstr "මාමාමා දි[ වවවව]{ '&#8212;'[ මාමාමා] දි වවවව}"
 
-#: js/calendar.js:820
+#: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
-msgstr "දිදිදිදි, මමම දි, වවවව"
+msgstr "දිදිදිදි, මාමාමා දි, වවවව"
 
 #: lib/app.php:114
 msgid "Birthday"
@@ -200,24 +201,24 @@ msgstr "නිර්නාමික"
 
 #: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
-msgstr "මෙම දින දර්ශනය යාත්කාලීන කිරීම සදහා ඔබට අවසර නොමැත"
+msgstr "මෙම දින දසුන යාත්කාලීන කිරීම සදහා ඔබට අවසර නොමැත"
 
 #: lib/calendar.php:233
 msgid "You do not have the permissions to delete this calendar."
-msgstr "මෙම දින දර්ශනය මකාදැමිම සදහා ඔබට අවසර නොමැත"
+msgstr "මෙම දින දසුන මකාදැමිම සදහා ඔබට අවසර නොමැත"
 
 #: lib/calendar.php:267
 msgid "You do not have the permissions to add to this calendar."
-msgstr "මෙම දින දර්ශනය එකතු කිරීම සදහා ඔබට අවසර නොමැත"
+msgstr "මෙම දින දසුනට එකතු කිරීම සදහා ඔබට අවසර නොමැත"
 
-#: lib/import.php:195 templates/calendar.php:12
+#: lib/import.php:214 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "නව දිනදසුන"
 
 #: lib/object.php:122 lib/object.php:161 lib/object.php:307
 msgid "You do not have the permissions to add events to this calendar."
-msgstr "මෙම දින දර්ශනයට සිදුවීම් එකතු කිරීම සදහා ඔබට අවසර නොමැත"
+msgstr "මෙම දින දසුනට සිදුවීම් එකතු කිරීම සදහා ඔබට අවසර නොමැත"
 
 #: lib/object.php:193 lib/object.php:227
 msgid "You do not have the permissions to edit this event."
@@ -229,7 +230,7 @@ msgstr "මෙම සිදුවීම මකාදැමීම සදහා �
 
 #: lib/object.php:452
 msgid "Does not repeat"
-msgstr "පුනරාවර්ථන ෙනාෙව්"
+msgstr "පුනරාවර්ථන නොවේ"
 
 #: lib/object.php:453
 msgid "Daily"
@@ -241,7 +242,7 @@ msgstr "සතිපතා"
 
 #: lib/object.php:455
 msgid "Every Weekday"
-msgstr "සෑම වඩකරන දිනකම"
+msgstr "සෑම වැඩකරන දිනකම"
 
 #: lib/object.php:456
 msgid "Bi-Weekly"
@@ -261,7 +262,7 @@ msgstr "කවදාවත්"
 
 #: lib/object.php:469
 msgid "by occurrences"
-msgstr ""
+msgstr "සිදුවීම් අනුව"
 
 #: lib/object.php:470
 msgid "by date"
@@ -269,11 +270,11 @@ msgstr "නව දිනදසුන"
 
 #: lib/object.php:480
 msgid "by monthday"
-msgstr ""
+msgstr "මාසයේ දින අනුව"
 
 #: lib/object.php:481
 msgid "by weekday"
-msgstr ""
+msgstr "සතියේ දින අනුව"
 
 #: lib/object.php:491 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
@@ -305,7 +306,7 @@ msgstr "ඉරිදා"
 
 #: lib/object.php:507
 msgid "events week of month"
-msgstr ""
+msgstr "මාසයකදී සතියක තිබෙන සිදුවීම්"
 
 #: lib/object.php:508
 msgid "first"
@@ -381,19 +382,19 @@ msgstr "දෙසැම්බර්"
 
 #: lib/object.php:568
 msgid "by events date"
-msgstr ""
+msgstr "සිදුවීම් දිනය අනුව"
 
 #: lib/object.php:569
 msgid "by yearday(s)"
-msgstr ""
+msgstr "වර්ශයේ දිනයන් අනුව"
 
 #: lib/object.php:570
 msgid "by weeknumber(s)"
-msgstr ""
+msgstr "සතියේ අංකය අනුව"
 
 #: lib/object.php:571
 msgid "by day and month"
-msgstr ""
+msgstr "දිනය හා මාසය අනුව"
 
 #: lib/search.php:35 lib/search.php:37 lib/search.php:40
 msgid "Date"
@@ -401,7 +402,7 @@ msgstr "දිනය"
 
 #: lib/search.php:43
 msgid "Cal."
-msgstr ""
+msgstr "දිනද."
 
 #: templates/calendar.php:6
 msgid "Sun."
@@ -445,47 +446,47 @@ msgstr "මාර්තු"
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "අප්‍රේල්"
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "මැයි"
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "ජුනි"
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "ජුලි"
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "අගෝ."
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "සැප්."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "ඔක්."
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "නොවැ."
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "දෙසැ."
 
 #: templates/calendar.php:11
 msgid "All day"
-msgstr "සියළු දින"
+msgstr "සියලු දින"
 
 #: templates/calendar.php:13
 msgid "Missing fields"
-msgstr ""
+msgstr "අත්හැරුණු පේළි"
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11
@@ -498,7 +499,7 @@ msgstr "දින සිට"
 
 #: templates/calendar.php:17
 msgid "From Time"
-msgstr ""
+msgstr "වේලාවේ සිට"
 
 #: templates/calendar.php:18
 msgid "To Date"
@@ -506,15 +507,15 @@ msgstr "දින දක්වා"
 
 #: templates/calendar.php:19
 msgid "To Time"
-msgstr ""
+msgstr "වේලාව දක්වා"
 
 #: templates/calendar.php:20
 msgid "The event ends before it starts"
-msgstr ""
+msgstr "සිදුවීම ආරම්භකිරීමට පෙර අවසන්වුනි"
 
 #: templates/calendar.php:21
 msgid "There was a database fail"
-msgstr ""
+msgstr "දත්ත සමුදායේ දෝෂයක්"
 
 #: templates/calendar.php:39
 msgid "Week"
@@ -542,20 +543,20 @@ msgstr "සිටුවම"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
-msgstr ""
+msgstr "ඔබේ දිනදසුන"
 
 #: templates/part.choosecalendar.php:27
 #: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
-msgstr ""
+msgstr "CalDav සබැදිය"
 
 #: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
-msgstr ""
+msgstr "බෙදාහදාගත් දිනදසුන"
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
-msgstr "බාගත කිරීම"
+msgstr "බාන්න"
 
 #: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
@@ -568,7 +569,7 @@ msgstr "මකන්න"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
-msgstr ""
+msgstr "විසින් ඔබ සමග බෙදාහදාගන්නා ලදී"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
@@ -576,7 +577,7 @@ msgstr "නව දින දර්ශනය"
 
 #: templates/part.editcalendar.php:9
 msgid "Edit calendar"
-msgstr "දින දසුන සකසන්න"
+msgstr "දිනදසුන සකසන්න"
 
 #: templates/part.editcalendar.php:12
 msgid "Displayname"
@@ -605,7 +606,7 @@ msgstr "එපා"
 
 #: templates/part.editevent.php:1
 msgid "Edit an event"
-msgstr ""
+msgstr "සිදුවීම් සංස්කරණය"
 
 #: templates/part.editevent.php:10
 msgid "Export"
@@ -613,11 +614,11 @@ msgstr "නිර්යාත කරන්න"
 
 #: templates/part.eventform.php:8 templates/part.showevent.php:3
 msgid "Eventinfo"
-msgstr ""
+msgstr "සිදුවීම්විස්තරය"
 
 #: templates/part.eventform.php:9 templates/part.showevent.php:4
 msgid "Repeating"
-msgstr ""
+msgstr "පුනරාවර්ථනයන්"
 
 #: templates/part.eventform.php:10 templates/part.showevent.php:5
 msgid "Alarm"
@@ -625,31 +626,31 @@ msgstr "සීනුව"
 
 #: templates/part.eventform.php:11 templates/part.showevent.php:6
 msgid "Attendees"
-msgstr ""
+msgstr "කැටුව යන්නන්"
 
 #: templates/part.eventform.php:13
 msgid "Share"
-msgstr ""
+msgstr "අංශය/පංගුව"
 
 #: templates/part.eventform.php:21
 msgid "Title of the Event"
-msgstr ""
+msgstr "සිදුවීමේ මාතෘකාව"
 
 #: templates/part.eventform.php:27 templates/part.showevent.php:19
 msgid "Category"
-msgstr "වර්ගය"
+msgstr "ප්‍රභේද"
 
 #: templates/part.eventform.php:29
 msgid "Separate categories with commas"
-msgstr ""
+msgstr "ප්‍රභේදයන් කොමා වලින් වෙන්කරන්න"
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
-msgstr ""
+msgstr "ප්‍රභේදයන් සංස්කරණය"
 
 #: templates/part.eventform.php:56 templates/part.showevent.php:52
 msgid "All Day Event"
-msgstr ""
+msgstr "දිනයේ සියලු සිදුවීම්"
 
 #: templates/part.eventform.php:60 templates/part.showevent.php:56
 msgid "From"
@@ -661,7 +662,7 @@ msgstr "දකවා"
 
 #: templates/part.eventform.php:76 templates/part.showevent.php:72
 msgid "Advanced options"
-msgstr ""
+msgstr "ඉහල විකල්ප"
 
 #: templates/part.eventform.php:81 templates/part.showevent.php:77
 msgid "Location"
@@ -669,7 +670,7 @@ msgstr "ස්ථානය"
 
 #: templates/part.eventform.php:83
 msgid "Location of the Event"
-msgstr ""
+msgstr "සිදුවීම පිළිබද ස්ථානය"
 
 #: templates/part.eventform.php:89 templates/part.showevent.php:85
 msgid "Description"
@@ -677,15 +678,15 @@ msgstr "විස්තර"
 
 #: templates/part.eventform.php:91
 msgid "Description of the Event"
-msgstr ""
+msgstr "සිදුවීම පිළිබද විස්තරය"
 
 #: templates/part.eventform.php:100 templates/part.showevent.php:95
 msgid "Repeat"
-msgstr ""
+msgstr "පුනරාවර්ථන"
 
 #: templates/part.eventform.php:107 templates/part.showevent.php:102
 msgid "Advanced"
-msgstr ""
+msgstr "දියුණු/උසස්"
 
 #: templates/part.eventform.php:151 templates/part.showevent.php:146
 msgid "Select weekdays"
@@ -698,11 +699,11 @@ msgstr "තෝරාගත් දිනයන්"
 
 #: templates/part.eventform.php:169 templates/part.showevent.php:164
 msgid "and the events day of year."
-msgstr ""
+msgstr "සහ වසරේ සිදුවීම් සිදුවු දිනය."
 
 #: templates/part.eventform.php:182 templates/part.showevent.php:177
 msgid "and the events day of month."
-msgstr ""
+msgstr "සහ මාසයේ සිදුවීම් සිදුවු දිනය."
 
 #: templates/part.eventform.php:190 templates/part.showevent.php:185
 msgid "Select months"
@@ -714,7 +715,7 @@ msgstr "තෝරාගත් සති"
 
 #: templates/part.eventform.php:208 templates/part.showevent.php:203
 msgid "and the events week of year."
-msgstr ""
+msgstr "සහ වසරේ සිදුවීම් සිදුවු සතිය."
 
 #: templates/part.eventform.php:214 templates/part.showevent.php:209
 msgid "Interval"
@@ -726,71 +727,75 @@ msgstr "අවසානය"
 
 #: templates/part.eventform.php:233 templates/part.showevent.php:228
 msgid "occurrences"
-msgstr ""
+msgstr "සිදුවීම්"
 
 #: templates/part.import.php:14
 msgid "create a new calendar"
-msgstr ""
+msgstr "නව දිනදසුනක් නිර්මාණය කරන්න"
 
 #: templates/part.import.php:17
 msgid "Import a calendar file"
-msgstr ""
+msgstr "දිනදසුන් ගොනුවක් ආයත කරන්න"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "කරුණාකර දිනදසුනක් තෝරන්න"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
-msgstr ""
+msgstr "නව  දිනදසුනේ නම "
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "තිබෙන නමක් ගැනීම!"
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr ""
+msgstr "මෙම නමින් තිබෙන දිනදසුනක් දැනටම අඩංගුව පවතී. ඔබ මෙය දිගටම කරන්නේනම්, මෙම දිනදසුන ඉදිරියෙදි මුසුවේ."
 
-#: templates/part.import.php:47
+#: templates/part.import.php:48
+msgid "Remove all events from the selected calendar"
+msgstr "තෝරාගත් දින දර්ශකයේ සඳහන් සියලු සිදුවීම් ඉවත් කරන්න"
+
+#: templates/part.import.php:50
 msgid "Import"
 msgstr "ආයාත කරන්න"
 
-#: templates/part.import.php:56
+#: templates/part.import.php:59
 msgid "Close Dialog"
-msgstr ""
+msgstr "සංවාදය නැවැත්වීම"
 
 #: templates/part.newevent.php:1
 msgid "Create a new event"
-msgstr ""
+msgstr "නව සිදුවීමක් නිර්මාණය කරන්න"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr ""
+msgstr "සමග බෙදාහදාගැනීම:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr ""
+msgstr "සමග බෙදාහදාගත්"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "නොබෙදු"
 
 #: templates/part.share.php:53
 msgid "Nobody"
-msgstr ""
+msgstr "කවුරුවත් නෑ"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr ""
+msgstr "දිනදසුන හරහා බෙදාහදා ගැනීම්"
 
 #: templates/part.share.php:79
 msgid ""
 "NOTE: Actions on events shared via calendar will affect the entire calendar "
 "sharing."
-msgstr ""
+msgstr "සටහන: ඉදිරියේදී සිදුවීම් වල ක්‍රියාකාරකම්  දිනදසුන හරහා බෙදාහදා ගැනීම්, සම්පූර්ණ දිනදසුන බෙදාහදා ගැනීමේදි අවධානමකට ලක්විය හැක."
 
 #: templates/part.showevent.php:1
 msgid "View an event"
@@ -858,7 +863,7 @@ msgstr "වැඩිදුරටත්"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr "ප්‍රාථමික ලිපිනය(හැම විටම සම්බන්ධ කර ගත හැකි)"
+msgstr "ප්‍රාථමික ලිපිනය(හැම විටම සම්බන්ධ කරගත හැක)"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"

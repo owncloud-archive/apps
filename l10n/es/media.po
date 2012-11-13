@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <devianpctek@gmail.com>, 2012.
 # Javier Llorente <javier@opensuse.org>, 2012.
 #   <rodrigo.calvo@gmail.com>, 2012.
 #   <sergioballesterossolanas@gmail.com>, 2011.
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-29 02:03+0200\n"
-"PO-Revision-Date: 2012-09-28 18:13+0000\n"
-"Last-Translator: scambra <sergio@entrecables.com>\n"
+"POT-Creation-Date: 2012-11-04 00:00+0100\n"
+"PO-Revision-Date: 2012-11-03 20:13+0000\n"
+"Last-Translator: Luis Medina <devianpctek@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,6 +33,10 @@ msgstr "canciones"
 #: js/collection.js:101 js/collection.js:208
 msgid "albums"
 msgstr "álbumes"
+
+#: js/collection.js:282
+msgid "Add to playlist"
+msgstr "Agregar a la lista de reproducción"
 
 #: js/music.js:18
 msgid "Add album to playlist"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
+"POT-Creation-Date: 2012-11-13 00:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -206,7 +206,7 @@ msgstr ""
 msgid "No file was uploaded. Unknown error"
 msgstr ""
 
-#: appinfo/app.php:25
+#: appinfo/app.php:24
 msgid "Contacts"
 msgstr ""
 
@@ -226,13 +226,13 @@ msgstr ""
 #: js/contacts.js:443 js/contacts.js:686 js/contacts.js:726 js/contacts.js:752
 #: js/contacts.js:763 js/contacts.js:777 js/contacts.js:797 js/contacts.js:884
 #: js/contacts.js:890 js/contacts.js:902 js/contacts.js:939
-#: js/contacts.js:1213 js/contacts.js:1221 js/contacts.js:1230
-#: js/contacts.js:1265 js/contacts.js:1301 js/contacts.js:1316
-#: js/contacts.js:1342 js/contacts.js:1575 js/contacts.js:1610
-#: js/contacts.js:1630 js/contacts.js:1688 js/contacts.js:1842
-#: js/contacts.js:1985 js/contacts.js:2011 js/contacts.js:2021
-#: js/contacts.js:2024 js/contacts.js:2175 js/contacts.js:2212
-#: js/contacts.js:2247 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/contacts.js:1215 js/contacts.js:1223 js/contacts.js:1232
+#: js/contacts.js:1267 js/contacts.js:1303 js/contacts.js:1318
+#: js/contacts.js:1344 js/contacts.js:1577 js/contacts.js:1612
+#: js/contacts.js:1632 js/contacts.js:1690 js/contacts.js:1844
+#: js/contacts.js:1987 js/contacts.js:2013 js/contacts.js:2023
+#: js/contacts.js:2026 js/contacts.js:2177 js/contacts.js:2214
+#: js/contacts.js:2249 js/settings.js:26 js/settings.js:46 js/settings.js:76
 #: js/settings.js:113
 msgid "Error"
 msgstr ""
@@ -249,8 +249,8 @@ msgstr ""
 msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
 msgstr ""
 
-#: js/contacts.js:184 js/contacts.js:1421 js/contacts.js:1464
-#: js/contacts.js:1483 js/contacts.js:1526
+#: js/contacts.js:184 js/contacts.js:1423 js/contacts.js:1466
+#: js/contacts.js:1485 js/contacts.js:1528
 msgid "Select type"
 msgstr ""
 
@@ -300,81 +300,81 @@ msgstr ""
 msgid "Edit name"
 msgstr ""
 
-#: js/contacts.js:1213
+#: js/contacts.js:1215
 msgid "No files selected for upload."
 msgstr ""
 
-#: js/contacts.js:1221 js/contacts.js:2001 js/contacts.js:2076
+#: js/contacts.js:1223 js/contacts.js:2003 js/contacts.js:2078
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr ""
 
-#: js/contacts.js:1285
+#: js/contacts.js:1287
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/contacts.js:1544
+#: js/contacts.js:1546
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1615
+#: js/contacts.js:1617
 msgid "Do you want to merge these address books?"
 msgstr ""
 
-#: js/contacts.js:1768
+#: js/contacts.js:1770
 msgid "Shared by "
 msgstr ""
 
-#: js/contacts.js:2001 js/contacts.js:2076
+#: js/contacts.js:2003 js/contacts.js:2078
 msgid "Upload too large"
 msgstr ""
 
-#: js/contacts.js:2005
+#: js/contacts.js:2007
 msgid "Only image files can be used as profile picture."
 msgstr ""
 
-#: js/contacts.js:2005
+#: js/contacts.js:2007
 msgid "Wrong file type"
 msgstr ""
 
-#: js/contacts.js:2011
+#: js/contacts.js:2013
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
 msgstr ""
 
-#: js/contacts.js:2069
+#: js/contacts.js:2071
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr ""
 
-#: js/contacts.js:2069
+#: js/contacts.js:2071
 msgid "Upload Error"
 msgstr ""
 
-#: js/contacts.js:2124
+#: js/contacts.js:2126
 msgid "Pending"
 msgstr ""
 
-#: js/contacts.js:2156
+#: js/contacts.js:2158
 msgid "Import done"
 msgstr ""
 
-#: js/contacts.js:2169
+#: js/contacts.js:2171
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/contacts.js:2175
+#: js/contacts.js:2177
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/contacts.js:2191
+#: js/contacts.js:2193
 msgid "Importing..."
 msgstr ""
 
-#: js/contacts.js:2212
+#: js/contacts.js:2214
 msgid "The address book name cannot be empty."
 msgstr ""
 
@@ -429,23 +429,23 @@ msgstr ""
 msgid "Less..."
 msgstr ""
 
-#: lib/addressbook.php:138
+#: lib/addressbook.php:136
 msgid "You do not have the permissions to read this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:239
+#: lib/addressbook.php:235
 msgid "You do not have the permissions to update this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:259
+#: lib/addressbook.php:255
 msgid "There was an error updating the addressbook."
 msgstr ""
 
-#: lib/addressbook.php:315
+#: lib/addressbook.php:311
 msgid "You do not have the permissions to delete this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:344
+#: lib/addressbook.php:340
 msgid "There was an error deleting this addressbook."
 msgstr ""
 

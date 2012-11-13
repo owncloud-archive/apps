@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-14 02:04+0200\n"
-"PO-Revision-Date: 2012-10-13 09:04+0000\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 20:45+0000\n"
 "Last-Translator: Richard Bos <radoeka@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -19,25 +19,41 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ajax/import.php:21
+msgid "Unsupported file type for import"
+msgstr "Niet ondersteund bestandstype voor import"
+
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Bladwijzers"
 
-#: js/addBm.js:42 js/bookmarks.js:243
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
 msgstr "Tags"
 
-#: js/bookmarks.js:178
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr "Filter op tag"
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
 msgstr "Bewerk bladwijzer"
 
-#: js/bookmarks.js:410
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Bent u zeker dat u deze tag van elk item wilt verwijderen."
 
-#: js/bookmarks.js:411
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr "Waarschuwing"
+
+#: js/settings.js:25
+msgid "Import completed successfully."
+msgstr "Het importeren is helemaal geslaagd"
+
+#: js/settings.js:56
+msgid "Uploading..."
+msgstr "Uploading..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -51,96 +67,80 @@ msgstr "Voeg een bladwijzer toe"
 msgid "Close"
 msgstr "Sluit"
 
-#: templates/addBm.php:22 templates/list.php:91
+#: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
 msgstr "De pagina titel"
 
-#: templates/addBm.php:27 templates/list.php:95
+#: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
 msgstr "Het pagina adres"
 
-#: templates/addBm.php:40 templates/list.php:104
+#: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
 msgstr "Pagina beschrijving"
 
-#: templates/addBm.php:44 templates/list.php:108
+#: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
 msgstr "Bewaar"
 
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr "Sleep dit naar uw browser bladwijzers en klik erop, wanneer u een webpagina snel wilt voorzien van een bladwijzer:"
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr "Lees later"
-
-#: templates/list.php:12
-msgid "Address"
-msgstr "Adres"
-
-#: templates/list.php:13
-msgid "Add bookmark"
-msgstr "Bladwijzer toevoegen"
-
-#: templates/list.php:16
-msgid "List"
-msgstr "Lijst"
-
-#: templates/list.php:17
-msgid "Image"
-msgstr "Afbeelding"
-
-#: templates/list.php:22
-msgid "Hide"
-msgstr "Verbergen"
-
-#: templates/list.php:23
-msgid "Show"
-msgstr "Tonen"
-
-#: templates/list.php:30
-msgid "Related Tags"
-msgstr "Aanverwante tags"
-
-#: templates/list.php:39
-msgid "You have no bookmarks"
-msgstr "U heeft geen bladwijzers"
-
-#: templates/list.php:64
-msgid "Edit"
-msgstr "Bewerk"
-
-#: templates/list.php:68
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
 msgid "Delete"
 msgstr "Verwijder"
 
-#: templates/list.php:107
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "Bewerk"
+
+#: templates/js_tpl.php:49
 msgid "Cancel"
 msgstr "Annuleer"
 
+#: templates/list.php:14
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "Sleep dit naar uw browser bladwijzer menu en klik erop, wanneer u een webpagina snel wilt voorzien van een bladwijzer:"
+
+#: templates/list.php:15
+msgid "Read later"
+msgstr "Lees later"
+
+#: templates/list.php:22
+msgid "Address"
+msgstr "Adres"
+
+#: templates/list.php:23
+msgid "Add"
+msgstr "Toevoegen"
+
+#: templates/list.php:31
+msgid "Related Tags"
+msgstr "Aanverwante tags"
+
+#: templates/list.php:39 templates/list.php:41
+msgid "Settings"
+msgstr "Instellingen"
+
+#: templates/list.php:53
+msgid "You have no bookmarks"
+msgstr "U heeft geen bladwijzers"
+
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr "U kan ook een bladwijzer bestand proberen te importen"
+
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Bookmarklet <br />"
+msgid "Bookmarklet"
+msgstr "Bookmarklet"
 
-#: templates/settings.php:26
-msgid "Import bookmarks"
-msgstr "Importeer bladwijzers"
+#: templates/settings.php:23
+msgid "Export & Import"
+msgstr "Export & Import"
 
-#: templates/settings.php:28
-msgid "Bookmark html file"
-msgstr "Bladwijzer html bestand"
-
-#: templates/settings.php:30
-msgid "Import"
-msgstr "Importeer"
-
-#: templates/settings.php:33
-msgid "Export bookmarks"
-msgstr "Exporteer bladwijzers"
-
-#: templates/settings.php:35
+#: templates/settings.php:24
 msgid "Export"
 msgstr "Exporteer"
+
+#: templates/settings.php:26
+msgid "Import"
+msgstr "Importeer"

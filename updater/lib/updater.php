@@ -10,86 +10,87 @@
  * later.
  */
 
-namespace OCA_Updater;
+namespace OCA\Updater;
 
 class Updater {
 
-	protected static $_skipDirs = array();
-	protected static $_updateDirs = array();
+	protected static $processed = array();
 
-	public static function update($sourcePath, $backupPath) {
-		if (!is_dir($backupPath)) {
-			return self::error('Backup directory is not found');
+	public static function update($version, $backupBase) {
+		if (!is_dir($backupBase)) {
+			throw new \Exception('Backup directory is not found');
 		}
 
-		self::$_updateDirs = App::getDirectories();
-		self::$_skipDirs = App::getExcludeDirectories();
-
 		set_include_path(
-				$backupPath . PATH_SEPARATOR .
-				$backupPath . DIRECTORY_SEPARATOR . 'lib' . PATH_SEPARATOR .
-				$backupPath . DIRECTORY_SEPARATOR . 'config' . PATH_SEPARATOR .
-				$backupPath . DIRECTORY_SEPARATOR . '3rdparty' . PATH_SEPARATOR .
-				$backupPath . '/apps' . PATH_SEPARATOR .
+				$backupBase . PATH_SEPARATOR .
+				$backupBase . '/core/lib' . PATH_SEPARATOR .
+				$backupBase . '/core/config' . PATH_SEPARATOR .
+				$backupBase . '/3rdparty' . PATH_SEPARATOR .
+				$backupBase . '/apps' . PATH_SEPARATOR .
 				get_include_path()
 		);
 
-		$tempPath = App::getBackupBase() . 'tmp';
-		if  (!@mkdir($tempPath, 0777, true)) {
-			return self::error('failed to create ' . $tempPath);
-		}
-
-		self::moveDirectories($sourcePath, $tempPath);
-
-		$config = "/config/config.php";
-		copy($tempPath . $config, self::$_updateDirs['core'] . $config);
-
-		return true;
-	}
-
-	public static function moveDirectories($updatePath, $tempPath) {
-		foreach (self::$_updateDirs as $type => $path) {
-			$currentDir = $path;
-			$updateDir = $updatePath;
-			$tempDir = $tempPath;
-			if ($type != 'core') {
-				$updateDir .= DIRECTORY_SEPARATOR . $type;
-				$tempDir .= DIRECTORY_SEPARATOR . $type;
-				rename($currentDir, $tempDir);
-				rename($updateDir, $currentDir);
-			} else {
-				self::moveDirectoryContent($currentDir, $tempDir);
-				self::moveDirectoryContent($updateDir, $currentDir);
-			}
-		}
-		return true;
-	}
-
-	public static function moveDirectoryContent($source, $destination) {
-		$dh = opendir($source);
-		while (($file = readdir($dh)) !== false) {
-			$fullPath = $source . DIRECTORY_SEPARATOR . $file;
-			if (is_dir($fullPath)) {
-				if (in_array($file, self::$_skipDirs['relative'])
-					|| in_array($fullPath, self::$_skipDirs['full'])
-				) {
+		$tempDir = self::getTempDir();
+		Helper::mkdir($tempDir, true);
+		
+		$sources = Helper::getSources($version);
+		$destinations = Helper::getDirectories();
+		
+		try {
+			$locations = Helper::getPreparedLocations();
+			foreach ($locations as $type => $dirs) {
+				if (isset($sources[$type])) {
+						$sourceBaseDir = $sources[$type];
+				} else {
+						//  Extra app directories
+						$sourceBaseDir  = false;
+				}
+				
+				$tempBaseDir = $tempDir . '/' . $type;		
+				Helper::mkdir($tempBaseDir, true);
+				
+				// Purge old sources
+				foreach ($dirs as $name => $path) {
+					Helper::move($path, $tempBaseDir . '/' . $name);
+					self::$processed[] = array (
+						'src' => $tempBaseDir . '/' . $name,
+						'dst' => $path
+					);
+				}
+				//Put new sources
+				if (!$sourceBaseDir) {
 					continue;
 				}
+				foreach (Helper::getFilteredContent($sourceBaseDir) as $basename=>$path){
+					Helper::move($path, $destinations[$type] . '/' . $basename);
+				}
 			}
-
-			rename($fullPath, $destination . DIRECTORY_SEPARATOR . $file);
+		} catch (\Exception $e){
+			self::rollBack();
+			self::cleanUp();
+			throw $e;
 		}
+
+		$config = "/config/config.php";
+		copy($backupBase . $config, \OC::$SERVERROOT . $config);
+		
+        //TODO: disable removed apps
+		
 		return true;
 	}
 
-	/**
-	 * Log error message
-	 * @param string $message
-	 * @return bool
-	 */
-	protected static function error($message) {
-		\OC_Log::write(App::APP_ID, $message, \OC_Log::ERROR);
-		return false;
+	public static function rollBack(){
+		foreach (self::$processed as $item){
+			\OC_Helper::copyrr($item['src'], $item['dst']);
+		}
+	}
+
+	public static function cleanUp(){
+		Helper::removeIfExists(self::getTempDir());
+	}
+
+	public static function getTempDir(){
+		return App::getBackupBase() . 'tmp';
 	}
 
 }

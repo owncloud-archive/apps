@@ -4,16 +4,14 @@
 "Close" => "tutup",
 "The title of the page" => "judul laman",
 "Save" => "simpan",
+"Delete" => "hapus",
+"Edit" => "ubah",
+"Cancel" => "batal",
 "Read later" => "baca nanti",
 "Address" => "alamat",
-"List" => "daftar",
-"Image" => "gambar",
-"Hide" => "sembunyikan",
-"Show" => "tampilkan",
+"Add" => "tambah",
 "Related Tags" => "label terkait",
-"Edit" => "ubah",
-"Delete" => "hapus",
-"Cancel" => "batal",
-"Import" => "mengimpor",
-"Export" => "mengekspor"
+"Settings" => "pengaturan",
+"Export" => "mengekspor",
+"Import" => "mengimpor"
 );

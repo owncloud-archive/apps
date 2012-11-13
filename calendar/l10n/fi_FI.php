@@ -178,6 +178,7 @@
 "Name of new calendar" => "Uuden kalenterin nimi",
 "Take an available name!" => "Ota nimi, joka on käytettävissä!",
 "A Calendar with this name already exists. If you continue anyhow, these calendars will be merged." => "Samalla nimellä on jo olemassa kalenteri. Jos jatkat kaikesta huolimatta, kalenterit yhdistetään.",
+"Remove all events from the selected calendar" => "Poista kaikki tapahtumat valitusta kalenterista",
 "Import" => "Tuo",
 "Close Dialog" => "Sulje ikkuna",
 "Create a new event" => "Luo uusi tapahtuma",

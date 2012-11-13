@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:02+0200\n"
-"PO-Revision-Date: 2012-10-21 07:01+0000\n"
+"POT-Creation-Date: 2012-10-28 00:01+0200\n"
+"PO-Revision-Date: 2012-10-27 10:25+0000\n"
 "Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -41,21 +41,21 @@ msgstr "Žádné události nenalezeny."
 msgid "Wrong calendar"
 msgstr "Nesprávný kalendář"
 
-#: ajax/import/dropimport.php:29 ajax/import/import.php:64
+#: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
 msgstr "Soubor neobsahoval žádné události, nebo jsou všechny události již ve Vašem kalendáři."
 
-#: ajax/import/dropimport.php:31 ajax/import/import.php:67
+#: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
 msgstr "události byly uloženy v novém kalendáři"
 
-#: ajax/import/import.php:56
+#: ajax/import/import.php:57
 msgid "Import failed"
 msgstr "Import selhal"
 
-#: ajax/import/import.php:69
+#: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
 msgstr "událostí bylo uloženo ve Vašem kalendáři"
 
@@ -212,7 +212,7 @@ msgstr "Nemáte práva pro smazání tohoto kalendáře."
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Nemáte práva pro přidání tohoto kalendáře."
 
-#: lib/import.php:195 templates/calendar.php:12
+#: lib/import.php:214 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "Nový kalendář"
@@ -756,11 +756,15 @@ msgid ""
 "calendars will be merged."
 msgstr "Kalendář s tímto názvem již existuje. Pokud název použijete, budou tyto kalendáře sloučeny."
 
-#: templates/part.import.php:47
+#: templates/part.import.php:48
+msgid "Remove all events from the selected calendar"
+msgstr "Odebrat všechny události z vybraného kalendáře"
+
+#: templates/part.import.php:50
 msgid "Import"
 msgstr "Importovat"
 
-#: templates/part.import.php:56
+#: templates/part.import.php:59
 msgid "Close Dialog"
 msgstr "Zavřít dialog"
 

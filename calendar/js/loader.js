@@ -10,6 +10,7 @@ Calendar_Import={
 		path: '',
 		id: 0,
 		method: '',
+		overwrite: 0,
 		calname: '',
 		calcolor: '',
 		progresskey: '',
@@ -123,13 +124,14 @@ Calendar_Import={
 				$('#calendar_import_process').css('display', 'block');
 				$('#calendar_import_newcalendar').attr('readonly', 'readonly');
 				$('#calendar_import_calendar').attr('disabled', 'disabled');
+				$('#calendar_import_overwrite').attr('disabled', 'disabled');
 				Calendar_Import.Core.send();
 				window.setTimeout('Calendar_Import.Dialog.update()', 250);
 			}
 		},
 		send: function(){
 			$.post(OC.filePath('calendar', 'ajax/import', 'import.php'),
-			{progresskey: Calendar_Import.Store.progresskey, method: String (Calendar_Import.Store.method), calname: String (Calendar_Import.Store.calname), path: String (Calendar_Import.Store.path), file: String (Calendar_Import.Store.file), id: String (Calendar_Import.Store.id), calcolor: String (Calendar_Import.Store.calcolor)}, function(data){
+			{progresskey: Calendar_Import.Store.progresskey, method: String (Calendar_Import.Store.method), overwrite: String (Calendar_Import.Store.overwrite), calname: String (Calendar_Import.Store.calname), path: String (Calendar_Import.Store.path), file: String (Calendar_Import.Store.file), id: String (Calendar_Import.Store.id), calcolor: String (Calendar_Import.Store.calcolor)}, function(data){
 				if(data.status == 'success'){
 					$('#calendar_import_progressbar').progressbar('option', 'value', 100);
 					Calendar_Import.Store.percentage = 100;
@@ -157,6 +159,7 @@ Calendar_Import={
 				}
 			}else{
 				Calendar_Import.Store.method = 'old';
+				Calendar_Import.Store.overwrite = $('#calendar_import_overwrite').is(':checked') ? 1 : 0;
 			}
 			return true;
 		}
@@ -166,6 +169,7 @@ Calendar_Import={
 		Calendar_Import.Store.path = '';
 		Calendar_Import.Store.id = 0;
 		Calendar_Import.Store.method = '';
+		Calendar_Import.Store.overwrite = 0;
 		Calendar_Import.Store.calname = '';
 		Calendar_Import.Store.progresskey = '';
 		Calendar_Import.Store.percentage = 0;

@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:03+0200\n"
-"PO-Revision-Date: 2012-10-21 18:55+0000\n"
-"Last-Translator: martinb <martin.babik@gmail.com>\n"
+"POT-Creation-Date: 2012-10-26 02:01+0200\n"
+"PO-Revision-Date: 2012-10-25 13:21+0000\n"
+"Last-Translator: Roman Priesol <roman@priesol.net>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +61,7 @@ msgstr "meno elementu nie je nastavené."
 
 #: ajax/contact/addproperty.php:46
 msgid "Could not parse contact: "
-msgstr ""
+msgstr "Nedá sa spracovať kontakt:"
 
 #: ajax/contact/addproperty.php:56
 msgid "Cannot add empty property."
@@ -140,31 +140,31 @@ msgstr "Súbor neexistuje:"
 msgid "Error loading image."
 msgstr "Chyba pri nahrávaní obrázka."
 
-#: ajax/savecrop.php:69
+#: ajax/savecrop.php:70
 msgid "Error getting contact object."
 msgstr "Chyba počas prevzatia objektu kontakt."
 
-#: ajax/savecrop.php:79
+#: ajax/savecrop.php:80
 msgid "Error getting PHOTO property."
 msgstr "Chyba počas získavania fotky."
 
-#: ajax/savecrop.php:98
+#: ajax/savecrop.php:99
 msgid "Error saving contact."
 msgstr "Chyba počas ukladania kontaktu."
 
-#: ajax/savecrop.php:109
+#: ajax/savecrop.php:110
 msgid "Error resizing image"
 msgstr "Chyba počas zmeny obrázku."
 
-#: ajax/savecrop.php:112
+#: ajax/savecrop.php:113
 msgid "Error cropping image"
 msgstr "Chyba počas orezania obrázku."
 
-#: ajax/savecrop.php:115
+#: ajax/savecrop.php:116
 msgid "Error creating temporary image"
 msgstr "Chyba počas vytvárania dočasného obrázku."
 
-#: ajax/savecrop.php:118
+#: ajax/savecrop.php:119
 msgid "Error finding image: "
 msgstr "Chyba vyhľadania obrázku: "
 
@@ -276,11 +276,11 @@ msgstr "Porucha oprávnenia."
 
 #: js/contacts.js:482
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "Kliknite pre zrušenie zmazania \""
 
 #: js/contacts.js:496
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "Zrušené mazanie: \""
 
 #: js/contacts.js:726
 msgid "This property has to be non-empty."
@@ -292,7 +292,7 @@ msgstr "Nemôžem previesť prvky."
 
 #: js/contacts.js:763
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "Neznáma chyba. Prosím skontrolujte záznamy."
 
 #: js/contacts.js:884 js/contacts.js:902
 msgid ""
@@ -338,7 +338,7 @@ msgstr "Nahrávanie je príliš veľké"
 
 #: js/contacts.js:2005
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "Ako profilový obrázok sa dajú použiť len obrázkové súbory."
 
 #: js/contacts.js:2005
 msgid "Wrong file type"
@@ -348,11 +348,11 @@ msgstr "Nesprávny typ súboru"
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "Váš prehliadač nepodporuje odosielanie cez AJAX. Prosím kliknite na profilový obrázok pre výber fotografie na odoslanie."
 
 #: js/contacts.js:2069
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Nedá sa odoslať Váš súbor, pretože je to adresár, alebo je jeho veľkosť 0 bajtov"
 
 #: js/contacts.js:2069
 msgid "Upload Error"
@@ -368,11 +368,11 @@ msgstr "Import ukončený"
 
 #: js/contacts.js:2169
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Všetky súbory neboli odoslané. Opakujem..."
 
 #: js/contacts.js:2175
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Stalo sa niečo zlé s odosielaným súborom, skúste ho prosím odoslať znovu."
 
 #: js/contacts.js:2191
 msgid "Importing..."
@@ -435,7 +435,7 @@ msgstr "Menej..."
 
 #: lib/addressbook.php:138
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "Nemáte oprávnenie na čítanie tejto adresnej knihy."
 
 #: lib/addressbook.php:239
 msgid "You do not have the permissions to update this addressbook."
@@ -576,7 +576,7 @@ msgstr "Klienti"
 
 #: lib/app.php:256
 msgid "Deliverer"
-msgstr ""
+msgstr "Dodávateľ"
 
 #: lib/app.php:257
 msgid "Holidays"
@@ -1022,7 +1022,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>Vo vašej knihe adries nemáte kontakty.</h3><p>Môžete importovať súbory VCF pretiahnutím na zoznam kontaktov a pustením na knihu pre pridanie, alebo do prázdneho miesta pre vytvorenie novej knihy adries.<br />Tiež môžete importovať kliknutím na tlačidlo Importovať na konci zoznamu.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

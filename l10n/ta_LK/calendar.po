@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 11:22+0000\n"
+"POT-Creation-Date: 2012-10-31 00:01+0100\n"
+"PO-Revision-Date: 2012-10-30 08:56+0000\n"
 "Last-Translator: suganthi <suganthi@nic.lk>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -20,41 +20,41 @@ msgstr ""
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr ""
+msgstr "எல்லா நாட்காட்டிகளும் முற்றாக இடைமாற்றுநினைவகம் ஆகவில்லை"
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
-msgstr ""
+msgstr "எல்லாம் முற்றாக இடைமாற்றுநினைவகம் ஆகியதாக தென்படுகிறது"
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
-msgstr ""
+msgstr "நாட்காட்டிகள் எதுவும் கண்டறியப்படவில்லை"
 
 #: ajax/categories/rescan.php:37
 msgid "No events found."
-msgstr ""
+msgstr "நிகழ்வுகள் எதுவும் கண்டறியப்படவில்லை"
 
 #: ajax/event/edit.form.php:20
 msgid "Wrong calendar"
 msgstr "பிழையான நாட்காட்டி"
 
-#: ajax/import/dropimport.php:29 ajax/import/import.php:64
+#: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
-msgstr ""
+msgstr "கோப்பு உங்களுடைய நாட்காட்டியில் ஒரு நிகழ்வும் இல்லாததையோ அல்லது ஏற்கனவே எல்லா நிகழ்வும் சேமித்ததையோ கொண்டுள்ளது. "
 
-#: ajax/import/dropimport.php:31 ajax/import/import.php:67
+#: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
-msgstr ""
+msgstr "புதிய நாட்காட்டியில் நிகழ்வுகள் சேமிக்கப்பட்டது"
 
-#: ajax/import/import.php:56
+#: ajax/import/import.php:57
 msgid "Import failed"
-msgstr ""
+msgstr "இறக்குமதி தோல்வியுற்றது"
 
-#: ajax/import/import.php:69
+#: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
-msgstr ""
+msgstr "உங்களுடைய நாட்காட்டியில் நிகழ்வுகள் சேமிக்கப்பட்டது"
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
@@ -73,61 +73,61 @@ msgstr "செல்லுபடியற்ற வேண்டுகோள்"
 msgid "Calendar"
 msgstr "நாட்காட்டி"
 
-#: js/calendar.js:96
+#: js/calendar.js:154
 msgid "Deletion failed"
-msgstr ""
+msgstr "நீக்கம் தோல்வியடைந்தது"
 
-#: js/calendar.js:185
+#: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
-#: js/calendar.js:187
+#: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "user"
-msgstr ""
+msgstr "பயனாளர்"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "group"
-msgstr ""
+msgstr "குழு"
 
-#: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
+#: js/calendar.js:598 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
-msgstr ""
+msgstr "தொகுக்கக்கூடியது"
 
-#: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
+#: js/calendar.js:599 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
-msgstr ""
+msgstr "பகிரக்கூடியது"
 
-#: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
+#: js/calendar.js:600 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
-msgstr ""
+msgstr "அழிக்கக்கூடியது"
 
-#: js/calendar.js:811
+#: js/calendar.js:869
 msgid "ddd"
-msgstr ""
+msgstr "ddd"
 
-#: js/calendar.js:812
+#: js/calendar.js:870
 msgid "ddd M/d"
-msgstr ""
+msgstr "ddd M/d"
 
-#: js/calendar.js:813
+#: js/calendar.js:871
 msgid "dddd M/d"
-msgstr ""
+msgstr "ddd M/d"
 
-#: js/calendar.js:816
+#: js/calendar.js:874
 msgid "MMMM yyyy"
-msgstr ""
+msgstr "MMMM yyyy"
 
-#: js/calendar.js:818
+#: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
-msgstr ""
+msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
-#: js/calendar.js:820
+#: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
-msgstr ""
+msgstr "dddd, MMM d, yyyy"
 
 #: lib/app.php:114
 msgid "Birthday"
@@ -191,40 +191,40 @@ msgstr "வேலை"
 
 #: lib/app.php:347 lib/share/event.php:27
 msgid "by"
-msgstr ""
+msgstr "மூலம்"
 
 #: lib/app.php:385
 msgid "unnamed"
-msgstr ""
+msgstr "பெயரிடப்படவில்லை"
 
 #: lib/calendar.php:165 lib/calendar.php:198
 msgid "You do not have the permissions to update this calendar."
-msgstr ""
+msgstr "இந்த நாட்காட்டியை இற்​றைப்படுத்துவதற்கு உங்களுக்கு அனுமதி இல்லை "
 
 #: lib/calendar.php:233
 msgid "You do not have the permissions to delete this calendar."
-msgstr ""
+msgstr "இந்த நாட்காட்டியை நீக்குவதற்கு உங்களுக்கு அனுமதி இல்லை "
 
 #: lib/calendar.php:267
 msgid "You do not have the permissions to add to this calendar."
-msgstr ""
+msgstr "இந்த நாட்காட்டியை சேர்ப்பதற்கு உங்களுக்கு அனுமதி இல்லை"
 
-#: lib/import.php:195 templates/calendar.php:12
+#: lib/import.php:214 templates/calendar.php:12
 #: templates/part.choosecalendar.php:22
 msgid "New Calendar"
 msgstr "புதிய நாட்காட்டி"
 
 #: lib/object.php:122 lib/object.php:161 lib/object.php:307
 msgid "You do not have the permissions to add events to this calendar."
-msgstr ""
+msgstr "இந்த நாட்காட்டிக்கு நிகழ்வுகளை சேர்க்க உங்களுக்கு அனுமதி இல்லை"
 
 #: lib/object.php:193 lib/object.php:227
 msgid "You do not have the permissions to edit this event."
-msgstr ""
+msgstr "இந்த நிகழ்வை தொகுப்பதற்கு உங்களுக்கு அனுமதி இல்லை "
 
 #: lib/object.php:257 lib/object.php:287
 msgid "You do not have the permissions to delete this event."
-msgstr ""
+msgstr "இந்த நிகழ்வை அழிப்பதற்கு உங்களுக்கு அனுமதி இல்லை "
 
 #: lib/object.php:452
 msgid "Does not repeat"
@@ -380,103 +380,103 @@ msgstr "மார்கழி"
 
 #: lib/object.php:568
 msgid "by events date"
-msgstr ""
+msgstr "நிகழ்வை கொண்ட திகதி"
 
 #: lib/object.php:569
 msgid "by yearday(s)"
-msgstr ""
+msgstr "வருட நாள் (கள்) மூலம்"
 
 #: lib/object.php:570
 msgid "by weeknumber(s)"
-msgstr ""
+msgstr "வார எண்ணிக்கை (கள்) மூலம்"
 
 #: lib/object.php:571
 msgid "by day and month"
-msgstr ""
+msgstr "நாள் மற்றும் மாதம் மூலம்"
 
 #: lib/search.php:35 lib/search.php:37 lib/search.php:40
 msgid "Date"
-msgstr ""
+msgstr "திகதி"
 
 #: lib/search.php:43
 msgid "Cal."
-msgstr ""
+msgstr "Cal."
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "ஞாயிறு"
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "திங்கள்"
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "செவ்வாய்"
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "புதன்"
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "வியாழன்"
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "வெள்ளி"
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "சனி"
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "தை"
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "மாசி"
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "பங்குனி"
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "சித்திரை"
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "வைகாசி"
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "ஆனி"
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "ஆடி"
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "ஆவணி"
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "புரட்டாதி"
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "ஐப்பசி"
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "கார்த்திகை"
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "மார்கழி"
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -533,7 +533,7 @@ msgstr "இன்று"
 
 #: templates/calendar.php:46
 msgid "Calendars"
-msgstr ""
+msgstr "நாட்காட்டிகள்"
 
 #: templates/calendar.php:47
 msgid "Settings"
@@ -541,7 +541,7 @@ msgstr "அமைப்புகள்"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
-msgstr ""
+msgstr "உங்களுடைய நாட்காட்டிகள்"
 
 #: templates/part.choosecalendar.php:27
 #: templates/part.choosecalendar.rowfields.php:24
@@ -550,7 +550,7 @@ msgstr "CalDav இணைப்பு"
 
 #: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
-msgstr ""
+msgstr "நாட்காட்டியை பகிர்க"
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
@@ -567,7 +567,7 @@ msgstr "அழிக்க"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
-msgstr ""
+msgstr "உங்களுடன் பகிரப்பட்டது"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
@@ -612,19 +612,19 @@ msgstr "ஏற்றுமதி"
 
 #: templates/part.eventform.php:8 templates/part.showevent.php:3
 msgid "Eventinfo"
-msgstr ""
+msgstr "நிகழ்வு தகவல்"
 
 #: templates/part.eventform.php:9 templates/part.showevent.php:4
 msgid "Repeating"
-msgstr ""
+msgstr "மீண்டும்"
 
 #: templates/part.eventform.php:10 templates/part.showevent.php:5
 msgid "Alarm"
-msgstr ""
+msgstr "எச்சரிக்கை"
 
 #: templates/part.eventform.php:11 templates/part.showevent.php:6
 msgid "Attendees"
-msgstr ""
+msgstr "பங்கேற்பாளர்கள்"
 
 #: templates/part.eventform.php:13
 msgid "Share"
@@ -640,7 +640,7 @@ msgstr "வகை"
 
 #: templates/part.eventform.php:29
 msgid "Separate categories with commas"
-msgstr ""
+msgstr "வகைகளை காற்புள்ளியினால் வேறுப்படுத்துக"
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
@@ -684,82 +684,86 @@ msgstr "மீண்டும்"
 
 #: templates/part.eventform.php:107 templates/part.showevent.php:102
 msgid "Advanced"
-msgstr ""
+msgstr "உயர்ந்த"
 
 #: templates/part.eventform.php:151 templates/part.showevent.php:146
 msgid "Select weekdays"
-msgstr ""
+msgstr "வாரநாட்களை தெரிவுசெய்க"
 
 #: templates/part.eventform.php:164 templates/part.eventform.php:177
 #: templates/part.showevent.php:159 templates/part.showevent.php:172
 msgid "Select days"
-msgstr ""
+msgstr "நாட்களை தெரிவுசெய்க"
 
 #: templates/part.eventform.php:169 templates/part.showevent.php:164
 msgid "and the events day of year."
-msgstr ""
+msgstr "வருடத்தில் நிகழ்வை கொண்ட நாட்கள்"
 
 #: templates/part.eventform.php:182 templates/part.showevent.php:177
 msgid "and the events day of month."
-msgstr ""
+msgstr "மாதத்தில் நிகழ்வை கொண்ட நாட்கள்"
 
 #: templates/part.eventform.php:190 templates/part.showevent.php:185
 msgid "Select months"
-msgstr ""
+msgstr "மாதங்களை தெரிவுசெய்க"
 
 #: templates/part.eventform.php:203 templates/part.showevent.php:198
 msgid "Select weeks"
-msgstr ""
+msgstr "வாரங்களை தெரிவுசெய்க"
 
 #: templates/part.eventform.php:208 templates/part.showevent.php:203
 msgid "and the events week of year."
-msgstr ""
+msgstr "வருடத்தில் நிகழ்வை கொண்ட வாரங்கள்"
 
 #: templates/part.eventform.php:214 templates/part.showevent.php:209
 msgid "Interval"
-msgstr ""
+msgstr "இடைவேளை"
 
 #: templates/part.eventform.php:220 templates/part.showevent.php:215
 msgid "End"
-msgstr ""
+msgstr "இறுதி"
 
 #: templates/part.eventform.php:233 templates/part.showevent.php:228
 msgid "occurrences"
-msgstr ""
+msgstr "நிகழ்ச்சி"
 
 #: templates/part.import.php:14
 msgid "create a new calendar"
-msgstr ""
+msgstr "புதிய நாட்காட்டி ஒன்றை உருவாக்குக"
 
 #: templates/part.import.php:17
 msgid "Import a calendar file"
-msgstr ""
+msgstr "நாட்காட்டி கோப்பொன்றை இறக்குமதி செய்க"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "தயவுசெய்து ஒரு நாட்காட்டியை தெரிவுசெய்க"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
-msgstr ""
+msgstr "புதிய நாட்காட்டியின் பெயர்"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "கிடைக்கக்கூடிய பெயரொன்றை எடுக்க!"
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr ""
+msgstr "இந்த பெயரைக்கொண்ட நாட்காட்டி ஏற்கனவே உள்ளது.  நீங்கள் இதனை தொடர்ந்தால், நாட்காட்டிகள் ஒன்றிணைக்கப்படலாம். "
 
-#: templates/part.import.php:47
+#: templates/part.import.php:48
+msgid "Remove all events from the selected calendar"
+msgstr "தெரிவுசெய்யப்பட்ட நாட்காட்டியில் உள்ள எல்லா நிகழ்வுகளையும் அகற்றுக "
+
+#: templates/part.import.php:50
 msgid "Import"
 msgstr "இறக்குமதி"
 
-#: templates/part.import.php:56
+#: templates/part.import.php:59
 msgid "Close Dialog"
-msgstr ""
+msgstr "Dialog மூடுக"
 
 #: templates/part.newevent.php:1
 msgid "Create a new event"
@@ -767,11 +771,11 @@ msgstr "புதிய நிகழ்வை உருவாக்க"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr ""
+msgstr "இடையில் பகிர்க:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr ""
+msgstr "உடன் பகிர்க"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
@@ -779,37 +783,37 @@ msgstr "பகிரமுடியாது"
 
 #: templates/part.share.php:53
 msgid "Nobody"
-msgstr ""
+msgstr "ஒருவருமில்லை"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr ""
+msgstr "நாட்காட்டியினூடாக பகிர்க"
 
 #: templates/part.share.php:79
 msgid ""
 "NOTE: Actions on events shared via calendar will affect the entire calendar "
 "sharing."
-msgstr ""
+msgstr "குறிப்பு: நாட்காட்டியினூடாக பகிரப்பட்ட நிகழ்வுகளின் செயல்கள் முழு நாட்காட்டி பகிர்வையும் பாதிக்கும். "
 
 #: templates/part.showevent.php:1
 msgid "View an event"
-msgstr ""
+msgstr "ஒரு நிகழ்வை பார்வையிடவும்"
 
 #: templates/part.showevent.php:23
 msgid "No categories selected"
-msgstr ""
+msgstr "வகைகள் தெரிவுசெய்யப்படவில்லை"
 
 #: templates/part.showevent.php:37
 msgid "of"
-msgstr ""
+msgstr "உடைய"
 
 #: templates/part.showevent.php:59 templates/part.showevent.php:67
 msgid "at"
-msgstr ""
+msgstr "இல்"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "பொதுவானது"
 
 #: templates/settings.php:15
 msgid "Timezone"
@@ -817,11 +821,11 @@ msgstr "நேர மண்டலம்"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr ""
+msgstr "நேர மண்டலத்தை தன்னிச்சையாக இற்றைப்படுத்துக"
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "நேர வடிவமைப்பு"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -833,36 +837,36 @@ msgstr "12ஆம்"
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr ""
+msgstr "தொடங்கும் வாரம்"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr ""
+msgstr "இடைமாற்றுநினைவகம்"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr ""
+msgstr "மீள் நிகழ்ச்சிக்கான இடைமாற்றுநினைவகத்தை சுத்தப்படுத்துக"
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "URLs"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
-msgstr ""
+msgstr "CalDAV  நாட்காட்டியின் ஒத்திசை முகவரிகள்"
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "மேலதிக தகவல்"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "முதன்மை முகவரி (Kontact et al)"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr ""
+msgstr "வாசிக்க மட்டும் கூடிய iCalendar இணைப்பு (கள்)"

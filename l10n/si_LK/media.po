@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-20 02:03+0200\n"
-"PO-Revision-Date: 2012-10-19 10:19+0000\n"
+"POT-Creation-Date: 2012-11-03 00:00+0100\n"
+"PO-Revision-Date: 2012-11-02 10:30+0000\n"
 "Last-Translator: Anushke Guneratne <anushke@gmail.com>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,10 @@ msgstr "ගීත"
 #: js/collection.js:101 js/collection.js:208
 msgid "albums"
 msgstr "ගීත එකතු"
+
+#: js/collection.js:282
+msgid "Add to playlist"
+msgstr "ධාවන ලැයිස්තුවට එක් කරන්න"
 
 #: js/music.js:18
 msgid "Add album to playlist"

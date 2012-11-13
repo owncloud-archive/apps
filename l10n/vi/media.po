@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <mattheu_9x@yahoo.com>, 2012.
 # Sơn Nguyễn <sonnghit@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:21+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-10 00:01+0100\n"
+"PO-Revision-Date: 2012-11-09 11:29+0000\n"
+"Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,11 +25,15 @@ msgstr "Âm nhạc"
 
 #: js/collection.js:100 js/collection.js:210 js/collection.js:257
 msgid "songs"
-msgstr ""
+msgstr "Bài hát"
 
 #: js/collection.js:101 js/collection.js:208
 msgid "albums"
-msgstr ""
+msgstr "album"
+
+#: js/collection.js:282
+msgid "Add to playlist"
+msgstr "Thêm vào danh sách"
 
 #: js/music.js:18
 msgid "Add album to playlist"

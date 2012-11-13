@@ -10,7 +10,7 @@
  * later.
  */
 
-namespace OCA_Updater;
+namespace OCA\Updater;
 
 \OCP\User::checkAdminUser();
 $tmpl = new \OCP\Template(App::APP_ID, 'admin');

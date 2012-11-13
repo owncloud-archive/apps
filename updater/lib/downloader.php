@@ -10,56 +10,66 @@
  * later.
  */
 
-namespace OCA_Updater;
+namespace OCA\Updater;
 
 class Downloader {
 
 	const PACKAGE_ROOT = 'owncloud';
 
+	protected static $package = false;
+
 	public static function getPackage($url, $version) {
-		$path = \OC_Helper::tmpFile();
+		self::$package = \OC_Helper::tmpFile();
+		try {
+			if (!copy($url, self::$package)) {
+				throw new \Exception("Failed to download $url package");
+			}
 
-		if (!copy($url, $path)) {
-			\OC_Log::write(App::APP_ID, "Failed to download $url package to $path", \OC_Log::ERROR);
-			return false;
+			if (preg_match('/\.zip$/i', $url)) {
+				rename(self::$package, self::$package . '.zip');
+				self::$package .= '.zip';
+			} elseif (preg_match('/(\.tgz|\.tar\.gz)$/i', $url)) {
+				rename(self::$package, self::$package . '.tgz');
+				self::$package .= '.tgz';
+			} elseif (preg_match('/\.tar\.bz2$/i', $url)) {
+				rename(self::$package, self::$package . '.tar.bz2');
+				self::$package .= '.tar.bz2';
+			} else {
+				throw new \Exception('Unable to extract package');
+			}
+
+			$extractDir = self::getPackageDir($version);
+			Helper::mkdir($extractDir, true);
+
+			$archive = \OC_Archive::open(self::$package);
+			if ($archive) {
+				$archive->extract($extractDir);
+			} else {
+				throw new \Exception(self::$package . " extraction error");
+			}
+		} catch (\Exception $e){
+			self::cleanUp($version);
+			throw $e;
 		}
-
-		//Mimetype bug workaround
-		$mime = rtrim(\OC_Helper::getMimeType($path), ';');
-
-		if ($mime == 'application/zip') {
-			rename($path, $path . '.zip');
-			$path.='.zip';
-		} elseif ($mime == 'application/x-gzip') {
-			rename($path, $path . '.tgz');
-			$path.='.tgz';
-		} elseif ($mime == 'application/x-bzip2') {
-			rename($path, $path . '.tar.bz2');
-			$path.='.tar.bz2';
-		} else {
-			\OC_Log::write(App::APP_ID, 'Archives of type ' . $mime . ' are not supported', \OC_Log::ERROR);
-			return false;
-		}
-
-		$extractDir = self::getPackageDir($version);
-		if (!mkdir($extractDir, 0777, true)) {
-			\OC_Log::write(App::APP_ID, 'Unable to create temporary directory', \OC_Log::ERROR);
-			return false;
-		}
-
-		$archive = \OC_Archive::open($path);
-		if ($archive) {
-			$archive->extract($extractDir);
-		} else {
-			\OC_Log::write(App::APP_ID, "Failed to open package $path", \OC_Log::ERROR);
-			\OC_Helper::rmdirr($extractDir);
-			@unlink($path);
-			return false;
-		}
-
-		return $extractDir. DIRECTORY_SEPARATOR . self::PACKAGE_ROOT;
+		Helper::removeIfExists(self::$package);
+		
+		//  Prepare extracted data
+		//  to have '3rdparty', 'apps' and 'core' subdirectories
+		$sources = Helper::getSources($version);
+		$baseDir = $extractDir. '/' . self::PACKAGE_ROOT;
+		@rename($baseDir . '/' . Helper::THIRDPARTY_DIRNAME, $sources[Helper::THIRDPARTY_DIRNAME]);
+		@rename($baseDir . '/' . Helper::APP_DIRNAME, $sources[Helper::APP_DIRNAME]);
+		@rename($baseDir, $sources[Helper::CORE_DIRNAME]);
+		
 	}
 
+	public static function cleanUp($version){
+		if (self::$package) {
+			Helper::removeIfExists(self::$package);
+		}
+		Helper::removeIfExists(self::getPackageDir($version));
+	}
+	
 	public static function getPackageDir($version) {
 		return App::getBackupBase() . $version;
 	}

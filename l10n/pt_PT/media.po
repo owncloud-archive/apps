@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-27 02:01+0200\n"
-"PO-Revision-Date: 2012-09-26 13:22+0000\n"
+"POT-Creation-Date: 2012-11-06 00:00+0100\n"
+"PO-Revision-Date: 2012-11-05 13:52+0000\n"
 "Last-Translator: Duarte Velez Grilo <duartegrilo@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,10 @@ msgstr "músicas"
 #: js/collection.js:101 js/collection.js:208
 msgid "albums"
 msgstr "álbuns"
+
+#: js/collection.js:282
+msgid "Add to playlist"
+msgstr "Acrescentar à lista de reprodução"
 
 #: js/music.js:18
 msgid "Add album to playlist"

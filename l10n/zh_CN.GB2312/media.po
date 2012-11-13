@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 23:32+0200\n"
-"PO-Revision-Date: 2012-10-16 12:14+0000\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 00:33+0000\n"
 "Last-Translator: marguerite su <i@marguerite.su>\n"
 "Language-Team: Chinese (China) (GB2312) (http://www.transifex.com/projects/p/owncloud/language/zh_CN.GB2312/)\n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,10 @@ msgstr "歌曲"
 #: js/collection.js:101 js/collection.js:208
 msgid "albums"
 msgstr "专辑"
+
+#: js/collection.js:282
+msgid "Add to playlist"
+msgstr "添加到播放列表"
 
 #: js/music.js:18
 msgid "Add album to playlist"

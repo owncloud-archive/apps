@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <romeo@energo-pro.ge>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:03+0200\n"
-"PO-Revision-Date: 2011-09-23 17:10+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-10-24 02:02+0200\n"
+"PO-Revision-Date: 2012-10-23 13:39+0000\n"
+"Last-Translator: drlinux64 <romeo@energo-pro.ge>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -136,31 +137,31 @@ msgstr ""
 msgid "Error loading image."
 msgstr ""
 
-#: ajax/savecrop.php:69
+#: ajax/savecrop.php:70
 msgid "Error getting contact object."
 msgstr ""
 
-#: ajax/savecrop.php:79
+#: ajax/savecrop.php:80
 msgid "Error getting PHOTO property."
 msgstr ""
 
-#: ajax/savecrop.php:98
+#: ajax/savecrop.php:99
 msgid "Error saving contact."
 msgstr ""
 
-#: ajax/savecrop.php:109
+#: ajax/savecrop.php:110
 msgid "Error resizing image"
 msgstr ""
 
-#: ajax/savecrop.php:112
+#: ajax/savecrop.php:113
 msgid "Error cropping image"
 msgstr ""
 
-#: ajax/savecrop.php:115
+#: ajax/savecrop.php:116
 msgid "Error creating temporary image"
 msgstr ""
 
-#: ajax/savecrop.php:118
+#: ajax/savecrop.php:119
 msgid "Error finding image: "
 msgstr ""
 
@@ -208,7 +209,7 @@ msgstr ""
 
 #: appinfo/app.php:25
 msgid "Contacts"
-msgstr ""
+msgstr "კონტაქტები"
 
 #: js/contacts.js:71
 msgid "Sorry, this functionality has not been implemented yet"
@@ -404,22 +405,22 @@ msgstr ""
 
 #: js/settings.js:100 templates/settings.php:39
 msgid "Download"
-msgstr ""
+msgstr "ჩამოტვირთვა"
 
 #: js/settings.js:102 templates/settings.php:44
 msgid "Edit"
-msgstr ""
+msgstr "რედაქტირება"
 
 #: js/settings.js:103 templates/part.contact.php:40
 #: templates/part.contact.php:42 templates/part.contact.php:44
 #: templates/part.contact.php:46 templates/part.contact.php:50
 #: templates/settings.php:49
 msgid "Delete"
-msgstr ""
+msgstr "წაშლა"
 
 #: js/settings.js:121 templates/settings.php:61
 msgid "Cancel"
-msgstr ""
+msgstr "უარყოფა"
 
 #: js/settings.js:161 templates/settings.php:66
 msgid "More..."
@@ -511,11 +512,11 @@ msgstr ""
 
 #: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
 msgid "Work"
-msgstr ""
+msgstr "სამსახური"
 
 #: lib/app.php:195 lib/app.php:200 lib/app.php:214
 msgid "Home"
-msgstr ""
+msgstr "სახლი"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:648
 msgid "Other"
@@ -523,44 +524,44 @@ msgstr ""
 
 #: lib/app.php:201
 msgid "Mobile"
-msgstr ""
+msgstr "მობილური"
 
 #: lib/app.php:203
 msgid "Text"
-msgstr ""
+msgstr "ტექსტი"
 
 #: lib/app.php:204
 msgid "Voice"
-msgstr ""
+msgstr "ხმა"
 
 #: lib/app.php:205
 msgid "Message"
-msgstr ""
+msgstr "მესიჯი"
 
 #: lib/app.php:206
 msgid "Fax"
-msgstr ""
+msgstr "ფაქსი"
 
 #: lib/app.php:207
 msgid "Video"
-msgstr ""
+msgstr "ვიდეო"
 
 #: lib/app.php:208
 msgid "Pager"
-msgstr ""
+msgstr "პეიჯერი"
 
 #: lib/app.php:215
 msgid "Internet"
-msgstr ""
+msgstr "ინტერნეტი"
 
 #: lib/app.php:252 templates/part.contact.php:45
 #: templates/part.contact.php:128
 msgid "Birthday"
-msgstr ""
+msgstr "დაბადების დრე"
 
 #: lib/app.php:253
 msgid "Business"
-msgstr ""
+msgstr "ბიზნესი"
 
 #: lib/app.php:254
 msgid "Call"
@@ -568,7 +569,7 @@ msgstr ""
 
 #: lib/app.php:255
 msgid "Clients"
-msgstr ""
+msgstr "კლიენტები"
 
 #: lib/app.php:256
 msgid "Deliverer"
@@ -612,7 +613,7 @@ msgstr ""
 
 #: lib/search.php:15
 msgid "Contact"
-msgstr ""
+msgstr "კონტაქტი"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
@@ -644,11 +645,11 @@ msgstr ""
 
 #: templates/index.php:14
 msgid "Add Contact"
-msgstr ""
+msgstr "კონტაქტის დამატება"
 
 #: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
-msgstr ""
+msgstr "იმპორტი"
 
 #: templates/index.php:16
 msgid "Settings"
@@ -712,19 +713,19 @@ msgstr ""
 
 #: templates/part.contact.php:19
 msgid "Delete current photo"
-msgstr ""
+msgstr "მიმდინარე სურათის წაშლა"
 
 #: templates/part.contact.php:20
 msgid "Edit current photo"
-msgstr ""
+msgstr "მიმდინარე სურათის რედაქტირება"
 
 #: templates/part.contact.php:21
 msgid "Upload new photo"
-msgstr ""
+msgstr "ახალი სურათის ატვირთვა"
 
 #: templates/part.contact.php:22
 msgid "Select photo from ownCloud"
-msgstr ""
+msgstr "აირჩიე სურათი ownCloud –იდან"
 
 #: templates/part.contact.php:36
 msgid "Edit name details"
@@ -733,11 +734,11 @@ msgstr ""
 #: templates/part.contact.php:39 templates/part.contact.php:40
 #: templates/part.contact.php:126
 msgid "Organization"
-msgstr ""
+msgstr "ორგანიზაცია"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
-msgstr ""
+msgstr "ნიკნეიმი"
 
 #: templates/part.contact.php:42
 msgid "Enter nickname"
@@ -757,11 +758,11 @@ msgstr ""
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"
-msgstr ""
+msgstr "dd-mm-yyyy"
 
 #: templates/part.contact.php:47 templates/part.contact.php:135
 msgid "Groups"
-msgstr ""
+msgstr "ჯგუფები"
 
 #: templates/part.contact.php:49
 msgid "Separate groups with commas"
@@ -769,7 +770,7 @@ msgstr ""
 
 #: templates/part.contact.php:50
 msgid "Edit groups"
-msgstr ""
+msgstr "ჯგუფების რედაქტირება"
 
 #: templates/part.contact.php:59 templates/part.contact.php:73
 #: templates/part.contact.php:98
@@ -782,7 +783,7 @@ msgstr ""
 
 #: templates/part.contact.php:60
 msgid "Enter email address"
-msgstr ""
+msgstr "ჩაწერეთ იმეილ მისამართი"
 
 #: templates/part.contact.php:64
 msgid "Mail to address"
@@ -822,15 +823,15 @@ msgstr ""
 
 #: templates/part.contact.php:124
 msgid "Add field"
-msgstr ""
+msgstr "დაამატე ველი"
 
 #: templates/part.contact.php:129
 msgid "Phone"
-msgstr ""
+msgstr "ტელეფონი"
 
 #: templates/part.contact.php:130
 msgid "Email"
-msgstr ""
+msgstr "იმეილი"
 
 #: templates/part.contact.php:131
 msgid "Instant Messaging"
@@ -838,19 +839,19 @@ msgstr ""
 
 #: templates/part.contact.php:132
 msgid "Address"
-msgstr ""
+msgstr "მისამართი"
 
 #: templates/part.contact.php:133
 msgid "Note"
-msgstr ""
+msgstr "შენიშვნა"
 
 #: templates/part.contact.php:138
 msgid "Download contact"
-msgstr ""
+msgstr "კონტაქტის ჩამოტვირთვა"
 
 #: templates/part.contact.php:139
 msgid "Delete contact"
-msgstr ""
+msgstr "კონტაქტის წაშლა"
 
 #: templates/part.cropphoto.php:65
 msgid "The temporary image has been removed from cache."
@@ -858,16 +859,16 @@ msgstr ""
 
 #: templates/part.edit_address_dialog.php:6
 msgid "Edit address"
-msgstr ""
+msgstr "მისამართის რედაქტირება"
 
 #: templates/part.edit_address_dialog.php:10
 msgid "Type"
-msgstr ""
+msgstr "ტიპი"
 
 #: templates/part.edit_address_dialog.php:18
 #: templates/part.edit_address_dialog.php:21
 msgid "PO Box"
-msgstr ""
+msgstr "PO ყუთი"
 
 #: templates/part.edit_address_dialog.php:24
 msgid "Street address"
@@ -879,7 +880,7 @@ msgstr ""
 
 #: templates/part.edit_address_dialog.php:30
 msgid "Extended"
-msgstr ""
+msgstr "Extended"
 
 #: templates/part.edit_address_dialog.php:33
 msgid "Apartment number etc."
@@ -888,11 +889,11 @@ msgstr ""
 #: templates/part.edit_address_dialog.php:36
 #: templates/part.edit_address_dialog.php:39
 msgid "City"
-msgstr ""
+msgstr "ქალაქი"
 
 #: templates/part.edit_address_dialog.php:42
 msgid "Region"
-msgstr ""
+msgstr "რეგიონი"
 
 #: templates/part.edit_address_dialog.php:45
 msgid "E.g. state or province"
@@ -900,7 +901,7 @@ msgstr ""
 
 #: templates/part.edit_address_dialog.php:48
 msgid "Zipcode"
-msgstr ""
+msgstr "Zip კოდი"
 
 #: templates/part.edit_address_dialog.php:51
 msgid "Postal code"
@@ -909,11 +910,11 @@ msgstr ""
 #: templates/part.edit_address_dialog.php:54
 #: templates/part.edit_address_dialog.php:57
 msgid "Country"
-msgstr ""
+msgstr "ქვეყანა"
 
 #: templates/part.edit_name_dialog.php:16
 msgid "Addressbook"
-msgstr ""
+msgstr "მისამარტების ზიგნი"
 
 #: templates/part.edit_name_dialog.php:23
 msgid "Hon. prefixes"
@@ -921,19 +922,19 @@ msgstr ""
 
 #: templates/part.edit_name_dialog.php:27
 msgid "Miss"
-msgstr ""
+msgstr "მისის"
 
 #: templates/part.edit_name_dialog.php:28
 msgid "Ms"
-msgstr ""
+msgstr "მის"
 
 #: templates/part.edit_name_dialog.php:29
 msgid "Mr"
-msgstr ""
+msgstr "მისტერ"
 
 #: templates/part.edit_name_dialog.php:30
 msgid "Sir"
-msgstr ""
+msgstr "სერ"
 
 #: templates/part.edit_name_dialog.php:31
 msgid "Mrs"
@@ -1022,7 +1023,7 @@ msgstr ""
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"
-msgstr ""
+msgstr "კონტაქტის დამატება"
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
@@ -1038,7 +1039,7 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr ""
+msgstr "უფრო მეტი ინფორმაცია"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
@@ -1050,7 +1051,7 @@ msgstr ""
 
 #: templates/settings.php:9
 msgid "Addressbooks"
-msgstr ""
+msgstr "მისამართის წიგნები"
 
 #: templates/settings.php:35
 msgid "Share"
@@ -1058,7 +1059,7 @@ msgstr ""
 
 #: templates/settings.php:57
 msgid "New Address Book"
-msgstr ""
+msgstr "ახალი მისამართების წიგნი"
 
 #: templates/settings.php:58
 msgid "Name"
@@ -1070,4 +1071,4 @@ msgstr ""
 
 #: templates/settings.php:60
 msgid "Save"
-msgstr ""
+msgstr "შენახვა"
