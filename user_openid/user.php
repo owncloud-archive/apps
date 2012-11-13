@@ -43,7 +43,7 @@ $IDENTITY=OCP\Util::linkToAbsolute( "", "?" ).$USERNAME;
 
 global $known, $g, $p, $charset, $port, $proto, $profile;
 $profile=array('debug'=>true);
-$profile['idp_url']=OCP\Util::linkToAbsolute( "user_openid", "user.php" ).'&user='.$USERNAME;
+$profile['idp_url']=OCP\Util::linkToAbsolute( "user_openid", "user.php" ).'?user='.$USERNAME;
 if (!isset($_SESSION['openid_auth'])) {
 $_SESSION['openid_auth'] = false;
 $_SESSION['openid_user'] = false;

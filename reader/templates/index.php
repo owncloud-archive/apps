@@ -12,7 +12,7 @@
 	include('apps/reader/lib/thumbnail.php');
 	// Get the current directory.
 	$current_dir = empty($_['dir'])?'/':$_['dir'];
-	$base_url = OCP\Util::linkTo('reader', 'index.php').'&dir=';
+	$base_url = OCP\Util::linkTo('reader', 'index.php').'?dir=';
 	
 	$curr_path = '';
 	$path = explode( '/', trim($current_dir,'/')); 
@@ -104,7 +104,7 @@
 			<!-- Display folder name--> 
 				<tr id = "row" data-file="<?php echo $r[0];?>" data-type="dir">
 					<td class = "filename svg">
-						<a class = "dirs" id = "<?php echo $r[0];?>" href = "<?php echo OCP\Util::linkTo('reader', 'index.php').'&dir='.$current_dir.$r[0].'/';?>">
+						<a class = "dirs" id = "<?php echo $r[0];?>" href = "<?php echo OCP\Util::linkTo('reader', 'index.php').'?dir='.$current_dir.$r[0].'/';?>">
 							<center>
 								<span class = "nametext">
 									<?php echo htmlspecialchars($r[0]);?>

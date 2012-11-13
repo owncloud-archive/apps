@@ -58,7 +58,7 @@ function getAction(mime,type) {
 	}
 	else {
 		name = function (filename){
-			window.location=OC.linkTo('reader', 'index.php') + '&dir='+
+			window.location=OC.linkTo('reader', 'index.php') + '?dir='+
 			encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+
 			encodeURIComponent(filename) + '/';
 		}
