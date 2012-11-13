@@ -27,6 +27,9 @@ namespace {
 
 	// load Horde's auto loader
 	require_once 'Horde/Autoloader/Default.php';
+
+	// bypass Horde Translation system
+	Horde_Translation::setHandler('Horde_Imap_Client', new OC_Translation_Handler());
 }
 
 namespace OCA\Mail {
