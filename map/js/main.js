@@ -1,5 +1,5 @@
-defaultZoom = 18
-
+var defaultZoom = 18
+var points = [];
 
 function geoCode(address, callback) {
 	var url = 'http://open.mapquestapi.com/nominatim/v1/search';
@@ -30,15 +30,13 @@ function setCenter(markerLocation) {
 }
 
 function onMapClick(e) {
-	text = "You clicked the map at " + e.latlng.toString();
-	text += '<br />';
-	text += '<a id="add_link">Add</a>';
+	html = tmpl("new_point",e.latlng );
 	point = e.latlng;
   popup
     .setLatLng(e.latlng)
-    .setContent(text)
+    .setContent(html)
     .openOn(map);
-	$('#add_link').click(addPoint);
+	$('#new_pnt').submit(addPoint);
 }
 
 function setUserLocation(position){
@@ -46,6 +44,7 @@ function setUserLocation(position){
 }
 
 function addPoint(e) {
+	e.preventDefault();
 	$.ajax({
 		type: 'POST',
 		url: OC.filePath('map', 'ajax', 'item.php'),
@@ -53,8 +52,8 @@ function addPoint(e) {
 			action: 'add',
 			lat: point.lat,
 			lon: point.lng,
-			name: "Hello World",
-			type: "favorite"
+			name: $('input[name="pt_name"]').val(),
+			type: $('select[name="pt_type"]').val()
 		},
 		success: function(msg) {
 			if (msg.status == 'success') {
@@ -65,8 +64,27 @@ function addPoint(e) {
 		}
 
 	});
-	
-	
+}
+function getDistanceReadable(point){
+	pt2 = map.getCenter();
+	distance = pt2.distanceTo(point);
+	return meterToSize(distance);
+}
+
+function meterToSize(m) {
+	if(m <= 50) return m.toFixed(2) + 'm';
+	if(m <1000)
+		return m.toFixed(0) + 'm';
+	if(m < (100*1000) )
+		return 	(m/1000).toFixed(1) + 'km';
+	return (m/1000).toFixed(0) + 'km';
+
+}
+
+function onSidebarPointClick(e){
+	e.preventDefault();
+	item = points[$(this).data('id')];
+	map.setView([item['lat'],item['lon']], defaultZoom);
 }
 
 function loadItems(){
@@ -76,6 +94,7 @@ function loadItems(){
 		success: function(msg) {
 			if (msg.status == 'success') {
 					for ( var i=0, len=msg.data.length; i<len; ++i ) {
+						points[msg.data[i].id] = msg.data[i];
 						addItemToMap(msg.data[i]);
 					}
 			}
@@ -84,8 +103,15 @@ function loadItems(){
 }
 
 function addItemToMap(item) {
+	li_item = $('<li>')
+		.data('id',item.id)
+		.text(item.name)
+		.append('<span> ~ '+getDistanceReadable([item.lat,item.lon])+'</span>')
+		.click(onSidebarPointClick);
+	$('#pts_myplaces').append(li_item);
+	
 	L.marker([item.lat, item.lon]).addTo(map)
-		.bindPopup('This is '+ item.type);
+		.bindPopup('This is '+ item.type + " named "+ item.name);
 }
 
 function putMapPosition() {
@@ -97,7 +123,7 @@ function putMapPosition() {
 
 function readLastPosition() {
 	position = {lat: read_cookie('lat'), lon: read_cookie('lon'), zoom: read_cookie('z')};
-	if(position.lat && position.lon & position.zoom)
+	if(position.lat && position.lon && position.zoom)
 		return position;
 	return false;
 }
@@ -110,7 +136,9 @@ function read_cookie(key)
 
 function onSearch(e) {
 	e.preventDefault();
-	var address = $("#search_field input").val();
+	search_el = $("#search_field input");
+	var address = search_el.val();
+	//search_el.val('');
 	if(address != '')
 		geoCode(address, displaySearchAddress);
 }
@@ -126,6 +154,7 @@ function loadMap() {
 	if(last_position) {
 		map.setView([last_position.lat, last_position.lon], last_position.zoom)
 	} else {
+		console.log(last_position);
 		map.setView([51.505, -0.09], 13)
 	}
 

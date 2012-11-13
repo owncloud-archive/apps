@@ -42,3 +42,22 @@
 	font-weight: bold;
 }
 
+
+/***** TEEEEEMP -*****/
+
+#pts_myplaces
+{
+	height: 200px;
+	overflow-y: scroll;
+	font-size:small;
+	font-weight:normal;
+	padding-left: 0.5em;
+}
+
+#pts_myplaces li span
+{
+	color: gray;
+	font-size:x-small;
+	float:right;
+	padding-right: 0.5em;
+}
