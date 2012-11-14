@@ -949,6 +949,7 @@ $(document).ready(function(){
 	fillWindow($('#content'));
 	OCCategories.changed = Calendar.UI.categoriesChanged;
 	OCCategories.app = 'calendar';
+	OCCategories.type = 'event';
 	$('#oneweekview_radio').click(function(){
 		$('#fullcalendar').fullCalendar('changeView', 'agendaWeek');
 	});

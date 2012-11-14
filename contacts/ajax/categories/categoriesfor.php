@@ -18,17 +18,21 @@ if(is_null($id)) {
 	exit();
 }
 $vcard = OC_Contacts_App::getContactVCard( $id );
-foreach($vcard->children as $property) {
-	if($property->name == 'CATEGORIES') {
-		$checksum = md5($property->serialize());
-		OCP\JSON::success(array(
-			'data' => array(
-				'value' => $property->value,
-				'checksum' => $checksum,
-				)));
-		exit();
+if(isset($vcard->CATEGORIES)) {
+	foreach($vcard->children as $property) {
+		if($property->name == 'CATEGORIES') {
+			$checksum = md5($property->serialize());
+			OCP\JSON::success(array(
+				'data' => array(
+					'value' => $property->value,
+					'checksum' => $checksum,
+					)));
+			exit();
+		}
 	}
+	OCP\JSON::error(array(
+		'data' => array(
+			'message' => OC_Contacts_App::$l10n->t('Error setting checksum.'))));
+} else {
+	OCP\JSON::success();
 }
-OCP\JSON::error(array(
-	'data' => array(
-		'message' => OC_Contacts_App::$l10n->t('Error setting checksum.'))));

@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-11 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 23:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-14 00:02+0100\n"
+"PO-Revision-Date: 2012-11-13 18:12+0000\n"
+"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -98,7 +98,7 @@ msgstr "Die Datei existiert nicht:"
 
 #: ajax/selectfromcloud.php:44
 msgid "Couldn't save temporary image: "
-msgstr "Konnte das temporäre Bild nicht speichern:"
+msgstr "Das temporäre Bild konnte nicht gespeichert werden:"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -199,7 +199,7 @@ msgstr "Keine Dateien ausgewählt."
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr "Importiere OPML-Datei ..."
+msgstr "OPML Datei wird importiert..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
@@ -207,11 +207,11 @@ msgstr "Kein gültiger Typ"
 
 #: js/settings.js:60
 msgid "Importing done"
-msgstr ""
+msgstr "Import abgeschlossen"
 
 #: js/settings.js:64
 msgid "Error while importing feeds."
-msgstr ""
+msgstr "Fehler beim Importieren des Feeds"
 
 #: js/settings.js:88
 msgid "Select file"
@@ -361,20 +361,20 @@ msgstr "Als unwichtig kennzeichnen"
 msgid "Mark as important"
 msgstr "Als wichtig kennzeichnen"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "von"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "von"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:57 templates/part.items.php:58
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Freigeben"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Ungelesenes behalten"
 

@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2012.
+# <tetuyano+transi@gmail.com>, 2012.
 #   <tetuyano+transi@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-11 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 23:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-14 00:02+0100\n"
+"PO-Revision-Date: 2012-11-13 01:23+0000\n"
+"Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,15 +62,15 @@ msgstr "フィードの更新エラー"
 
 #: ajax/importopml.php:40
 msgid "Empty filename"
-msgstr ""
+msgstr "空のファイル名"
 
 #: ajax/importopml.php:50
 msgid "No source argument passed"
-msgstr ""
+msgstr "ソースの引数が入力されていません"
 
 #: ajax/importopml.php:54
 msgid "Error while reading file"
-msgstr ""
+msgstr "ファイルの読み込みエラー"
 
 #: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
@@ -194,19 +195,19 @@ msgstr "ファイルが選択されていません。"
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "OPML ファイルをインポート中..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
-msgstr ""
+msgstr "有効なタイプではありません"
 
 #: js/settings.js:60
 msgid "Importing done"
-msgstr ""
+msgstr "インポート完了"
 
 #: js/settings.js:64
 msgid "Error while importing feeds."
-msgstr ""
+msgstr "フィードのインポート時のエラー。"
 
 #: js/settings.js:88
 msgid "Select file"
@@ -356,20 +357,20 @@ msgstr "重要でないとしてマーク"
 msgid "Mark as important"
 msgstr "重要マークを付ける"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "送信元"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "により"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:57 templates/part.items.php:58
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "共有"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "未読のままにする"
 

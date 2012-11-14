@@ -5,14 +5,15 @@
 # Translators:
 #   <daniel@mouxy.net>, 2012.
 # Duarte Velez Grilo <duartegrilo@gmail.com>, 2012.
+# Helder Meneses <helder.meneses@gmail.com>, 2012.
 # Nelson Rosado <nelsontrosado@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-11 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 23:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-14 00:02+0100\n"
+"PO-Revision-Date: 2012-11-13 12:31+0000\n"
+"Last-Translator: Helder Meneses <helder.meneses@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,15 +63,15 @@ msgstr "Erro a actualizar o feed."
 
 #: ajax/importopml.php:40
 msgid "Empty filename"
-msgstr ""
+msgstr "Ficheiro vazio"
 
 #: ajax/importopml.php:50
 msgid "No source argument passed"
-msgstr ""
+msgstr "Nenhum argumento inicial passado"
 
 #: ajax/importopml.php:54
 msgid "Error while reading file"
-msgstr ""
+msgstr "Erro ao ler o ficheiro."
 
 #: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
@@ -203,11 +204,11 @@ msgstr "Tipo inválido!"
 
 #: js/settings.js:60
 msgid "Importing done"
-msgstr ""
+msgstr "Concluída a importação"
 
 #: js/settings.js:64
 msgid "Error while importing feeds."
-msgstr ""
+msgstr "Erro a importar feeds"
 
 #: js/settings.js:88
 msgid "Select file"
@@ -357,20 +358,20 @@ msgstr "Marcar como sem importância"
 msgid "Mark as important"
 msgstr "Marcar como importante"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "de"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "por"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:57 templates/part.items.php:58
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Partilhar"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Manter como não lido"
 
