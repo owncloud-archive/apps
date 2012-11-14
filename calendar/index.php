@@ -36,6 +36,11 @@ OCP\Util::emitHook('OC_Calendar', 'getSources', array('sources' => &$eventSource
 $categories = OC_Calendar_App::getCategoryOptions();
 
 //Fix currentview for fullcalendar
+
+if(OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'currentview', 'month') == "onedayview") {
+	OCP\Config::setUserValue(OCP\USER::getUser(), "calendar", "currentview", "agendaDay");
+}
+
 if(OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'currentview', 'month') == "oneweekview") {
 	OCP\Config::setUserValue(OCP\USER::getUser(), "calendar", "currentview", "agendaWeek");
 }

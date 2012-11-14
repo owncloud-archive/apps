@@ -420,7 +420,11 @@ Calendar={
 		setViewActive: function(view){
 			$('#view input[type="button"]').removeClass('active');
 			var id;
+				/*NEW DAYVIEW*/
 			switch (view) {
+				  case 'agendaDay':
+					id = 'onedayview_radio';
+					break;
 				case 'agendaWeek':
 					id = 'oneweekview_radio';
 					break;
@@ -553,9 +557,12 @@ Calendar={
 					colors[i].color = $(elm).val();
 					colors[i].label = $(elm).text();
 				});
-				for (var i in colors) {
-					picker.append('<span class="calendar-colorpicker-color ' + (colors[i].color == $(obj).children(":selected").val() ? ' active' : '') + '" rel="' + colors[i].label + '" style="background-color: ' + colors[i].color + ';"></span>');
-				}
+				
+				$.each(colors, function(index,value){
+					
+					picker.append('<span class="calendar-colorpicker-color ' + (value.color == $(obj).children(":selected").val() ? ' active' : '') + '" rel="' + value.label + '" style="background-color: ' + value.color + ';"></span>');
+				});
+				
 				picker.delegate(".calendar-colorpicker-color", "click", function() {
 					$(obj).val($(this).attr('rel'));
 					$(obj).change();
@@ -662,13 +669,13 @@ Calendar={
 					var file = files[i];
 					reader = new FileReader();
 					reader.onload = function(event){
-						Calendar.UI.Drop.import(event.target.result);
+						Calendar.UI.Drop.importing(event.target.result);
 						$('#fullcalendar').fullCalendar('refetchEvents');
 					}
 					reader.readAsDataURL(file);
 				}
 			},
-			import:function(data){
+			importing:function(data){
 				$.post(OC.filePath('calendar', 'ajax/import', 'dropimport.php'), {'data':data},function(result) {
 					if(result.status == 'success'){
 						$('#fullcalendar').fullCalendar('addEventSource', result.eventSource);
@@ -768,12 +775,14 @@ function ListView(element, calendar) {
 		var start = cloneDate(theDate, true);
 		var end = addDays(cloneDate(start), 1);
 		var retArr = new Array();
-		for (i in events) {
-			var event_end = t.eventEnd(events[i]);
-			if (events[i].start < end && event_end >= start) {
-				retArr.push(events[i]);
+		$.each(events, function(index, item){
+		//for (i in events) {
+			
+			var event_end = t.eventEnd(item);
+			if (item.start < end && event_end >= start) {
+				retArr.push(item);
 			}
-		}
+		});
 		return retArr;
 	}
 
@@ -816,10 +825,11 @@ function ListView(element, calendar) {
 			'</span>' +
 			'</td>' +
 			'</tr>');
-		for (i in events) {
-			var event = events[i];
-			var eventElement = $(renderEvent(event));
-			triggerRes = trigger('eventRender', event, event, eventElement);
+		$.each(events, function(index, item){
+		//for (i in events) {
+			var evt = item;
+			var eventElement = $(renderEvent(evt));
+			triggerRes = trigger('eventRender', evt, evt, eventElement);
 			if (triggerRes === false) {
 				eventElement.remove();
 			}else{
@@ -828,10 +838,10 @@ function ListView(element, calendar) {
 					eventElement = $(triggerRes);
 				}
 				$.merge(dayRows, eventElement);
-				eventElementHandlers(event, eventElement);
-				reportEventElement(event, eventElement);
+				eventElementHandlers(evt, eventElement);
+				reportEventElement(evt, eventElement);
 			}
-		}
+		});
 		return dayRows;
 	}
 
@@ -950,6 +960,11 @@ $(document).ready(function(){
 	OCCategories.changed = Calendar.UI.categoriesChanged;
 	OCCategories.app = 'calendar';
 	OCCategories.type = 'event';
+	/*NEW DAYVIEW*/
+	$('#onedayview_radio').click(function(){
+		$('#fullcalendar').fullCalendar('changeView', 'agendaDay');
+	});
+	
 	$('#oneweekview_radio').click(function(){
 		$('#fullcalendar').fullCalendar('changeView', 'agendaWeek');
 	});

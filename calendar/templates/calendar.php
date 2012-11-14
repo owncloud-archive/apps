@@ -36,6 +36,7 @@
 				<div id="notification" style="display:none;"></div>
 				<div id="controls">
 					<form id="view">
+						<input type="button" value="Tag" id="onedayview_radio" />
 						<input type="button" value="<?php echo $l->t('Week');?>" id="oneweekview_radio"/>
 						<input type="button" value="<?php echo $l->t('Month');?>" id="onemonthview_radio"/>
 						<input type="button" value="<?php echo $l->t('List');?>" id="listview_radio"/>&nbsp;&nbsp;
