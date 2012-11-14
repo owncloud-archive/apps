@@ -58,7 +58,7 @@ class VCard {
 				$stmt = \OCP\DB::prepare($sql, $num, $start);
 				$result = $stmt->execute($id);
 				if (\OC_DB::isError($result)) {
-					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 					return false;
 				}
 			} catch(\Exception $e) {
@@ -73,7 +73,7 @@ class VCard {
 				$stmt = \OCP\DB::prepare($sql, $num, $start);
 				$result = $stmt->execute(array($id));
 				if (\OC_DB::isError($result)) {
-					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 					return false;
 				}
 			} catch(\Exception $e) {
@@ -107,7 +107,7 @@ class VCard {
 			$stmt = \OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `id` = ?' );
 			$result = $stmt->execute(array($id));
 			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return false;
 			}
 		} catch(\Exception $e) {
@@ -130,7 +130,7 @@ class VCard {
 			$stmt = \OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
 			$result = $stmt->execute(array($aid,$uri));
 			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return false;
 			}
 		} catch(\Exception $e) {
@@ -196,7 +196,7 @@ class VCard {
 		try {
 			$result = $stmt->execute(array($aid,$uri));
 			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return false;
 			}
 		} catch(Exception $e) {
@@ -359,7 +359,7 @@ class VCard {
 		try {
 			$result = $stmt->execute(array($aid, $fn, $data, $uri, time()));
 			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return false;
 			}
 		} catch(\Exception $e) {
@@ -416,7 +416,7 @@ class VCard {
 				try {
 					$result = $stmt->execute(array($data,time(),$object[0]));
 					if (\OC_DB::isError($result)) {
-						\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+						\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 					}
 					//OCP\Util::writeLog('contacts','OCA\Contacts\VCard::updateDataByID, id: '.$object[0].': '.$object[1],OCP\Util::DEBUG);
 				} catch(Exception $e) {
@@ -489,7 +489,7 @@ class VCard {
 		try {
 			$result = $stmt->execute(array($fn, $data, time(), $id));
 			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return false;
 			}
 		} catch(\Exception $e) {
@@ -525,7 +525,7 @@ class VCard {
 			self::edit($oldcard['id'], $card);
 			return true;
 		} catch(\Exception $e) {
-			OCP\Util::writeLog('contacts', __METHOD__.', exception: '
+			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '
 				. $e->getMessage() . ', '
 				. \OCP\USER::getUser(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', uri'
@@ -561,7 +561,7 @@ class VCard {
 		}
 
 		if ($addressbook['userid'] != \OCP\User::getUser() && !\OC_Group::inGroup(\OCP\User::getUser(), 'admin')) {
-			OCP\Util::writeLog('contacts', __METHOD__.', '
+			\OCP\Util::writeLog('contacts', __METHOD__.', '
 				. $addressbook['userid'] . ' != ' . \OCP\User::getUser(), \OCP\Util::DEBUG);
 			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource(
 				'addressbook',
@@ -589,10 +589,10 @@ class VCard {
 				);
 			}
 		}
-		OC_Hook::emit('\OCA\Contacts\VCard', 'pre_deleteVCard',
+		\OC_Hook::emit('\OCA\Contacts\VCard', 'pre_deleteVCard',
 			array('aid' => null, 'id' => $id, 'uri' => null)
 		);
-		$stmt = OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_cards` WHERE `id` = ?');
+		$stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_cards` WHERE `id` = ?');
 		try {
 			$stmt->execute(array($id));
 		} catch(\Exception $e) {
@@ -606,7 +606,7 @@ class VCard {
 				)
 			);
 		}
-		OC_Contacts_App::getVCategories()->purgeObject($id);
+		App::getVCategories()->purgeObject($id);
 
 		App::updateDBProperties($id);
 		App::getVCategories()->purgeObject($id);
