@@ -70,12 +70,15 @@ class OC_Calendar_Calendar{
 	/**
 	 * @brief Gets the data of one calendar
 	 * @param integer $id
-	 * @return associative array
+	 * @return associative array or false if entry wasn't found
 	 */
 	public static function find($id) {
 		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*calendar_calendars` WHERE `id` = ?' );
 		$result = $stmt->execute(array($id));
 
+		if($result->numRows() == 0) {
+			return false;
+		}
 		$row = $result->fetchRow();
 		if($row['userid'] != OCP\USER::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);

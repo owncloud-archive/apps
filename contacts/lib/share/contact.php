@@ -43,6 +43,9 @@ class OC_Share_Backend_Contact implements OCP\Share_Backend {
 		if ($format == self::FORMAT_CONTACT) {
 			foreach ($items as $item) {
 				$contact = OC_Contacts_VCard::find($item['item_source']);
+				if(!$contact) {
+					continue;
+				}
 				$contact['fullname'] = $item['item_target'];
 				$contacts[] = $contact;
 			}

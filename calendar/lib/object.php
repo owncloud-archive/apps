@@ -84,11 +84,15 @@ class OC_Calendar_Object{
 	/**
 	 * @brief Returns an object
 	 * @param integer $id
-	 * @return associative array
+	 * @return associative array or false if entry isn't found.
 	 */
 	public static function find($id) {
 		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*calendar_objects` WHERE `id` = ?' );
 		$result = $stmt->execute(array($id));
+
+		if($result->numRows() == 0) {
+			return false;
+		}
 
 		return $result->fetchRow();
 	}

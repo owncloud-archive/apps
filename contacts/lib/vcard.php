@@ -94,6 +94,9 @@ class OC_Contacts_VCard {
 		try {
 			$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `id` = ?' );
 			$result = $stmt->execute(array($id));
+			if($result->numRows() == 0) {
+				return false;
+			}
 		} catch(Exception $e) {
 			OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), OCP\Util::ERROR);
 			OCP\Util::writeLog('contacts', __METHOD__.', id: '. $id, OCP\Util::DEBUG);

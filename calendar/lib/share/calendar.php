@@ -53,7 +53,7 @@ class OC_Share_Backend_Calendar implements OCP\Share_Backend_Collection {
 	* If it does generate a new name e.g. name_#
 	*/
 	public function generateTarget($itemSource, $shareWith, $exclude = null) {
-		$calendar = OC_Calendar_App::getCalendar( $itemSource );
+		$calendar = OC_Calendar_Calendar::find( $itemSource );
 		$user_calendars = array();
 		foreach(OC_Calendar_Calendar::allCalendars($shareWith) as $user_calendar) {
 			$user_calendars[] = $user_calendar['displayname'];
@@ -84,7 +84,7 @@ class OC_Share_Backend_Calendar implements OCP\Share_Backend_Collection {
 		$calendars = array();
 		if ($format == self::FORMAT_CALENDAR) {
 			foreach ($items as $item) {
-				$calendar = OC_Calendar_App::getCalendar($item['item_source'], false);
+				$calendar = OC_Calendar_Calendar::find($item['item_source']);
 				if(!$calendar) {
 					continue;
 				}

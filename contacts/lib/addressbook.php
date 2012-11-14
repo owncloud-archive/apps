@@ -118,17 +118,21 @@ class OC_Contacts_Addressbook {
 	/**
 	 * @brief Gets the data of one address book
 	 * @param integer $id
-	 * @return associative array or false.
+	 * @return associative array or false on error or not found.
 	 */
 	public static function find($id) {
 		try {
 			$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_addressbooks` WHERE `id` = ?' );
 			$result = $stmt->execute(array($id));
+			if($result->numRows() == 0) {
+				return false;
+			}
 		} catch(Exception $e) {
 			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', exception: '.$e->getMessage(), OCP\Util::ERROR);
 			OCP\Util::writeLog('contacts', __CLASS__.'::'.__METHOD__.', id: '.$id, OCP\Util::DEBUG);
 			return false;
 		}
+
 		$row = $result->fetchRow();
 		if($row['userid'] != OCP\USER::getUser() && !OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id);
