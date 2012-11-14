@@ -379,9 +379,9 @@ GroupList.prototype.contactDropped = function(event, ui) {
 	}
 }
 
-GroupList.prototype.addGroup = function(name, contacts, cb) {
+GroupList.prototype.addGroup = function(name, cb) {
 	console.log('GroupList.addGroup', name);
-	contacts = $.map(contacts, function(c) {return parseInt(c)});
+	contacts = []; // $.map(contacts, function(c) {return parseInt(c)});
 	var self = this, exists = false;
 	self.$groupList.find('h3[data-type="category"]').each(function() {
 		if ($(this).data('name').toLowerCase() === name.toLowerCase()) {
@@ -391,7 +391,7 @@ GroupList.prototype.addGroup = function(name, contacts, cb) {
 	});
 	if(exists) {
 		if(typeof cb === 'function') {
-			cb({result:'error', message:t('contacts', 'A group named {group} already exists', {group: name})});
+			cb({status:'error', message:t('contacts', 'A group named {group} already exists', {group: name})});
 		}
 		return;
 	}
@@ -418,14 +418,14 @@ GroupList.prototype.addGroup = function(name, contacts, cb) {
 				}
 			});
 			if(!added) {
-				$elem.appendTo(self.$groupList);
+				$elem.insertAfter(self.$groupList.find('h3.group[data-type="category"]').last());
 			}
 			if(typeof cb === 'function') {
-				cb({result:'success', id:jsondata.data.id, name:name});
+				cb({status:'success', id:parseInt(jsondata.data.id), name:name});
 			}
 		} else {
 			if(typeof cb === 'function') {
-				cb({result:'error', message:jsondata.data.message});
+				cb({status:'error', message:jsondata.data.message});
 			}
 		}
 	});
@@ -873,6 +873,13 @@ OC.Contacts = OC.Contacts || {
 			self.uploadPhoto(this.files);
 		});
 
+		$('#groupactions > .addgroup').on('click keydown',function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			self.addGroup();
+		});
+
 		this.$ninjahelp.find('.close').on('click keydown',function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -907,60 +914,9 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		this.$groups.on('change', function() {
-			// TODO: This should go in separate method
 			var $opt = $(this).find('option:selected');
 			var action = $opt.parent().data('action');
-			var ids, buildnow = false;
-
-			if($opt.val() === 'add') {
-				console.log('add group...');
-				self.$groups.val(-1);
-				if(!this.$addGroupTmpl) {
-					this.$addGroupTmpl = $('#addGroupTemplate');
-				}
-				$('body').append('<div id="add_group_dialog"></div>');
-				var $dlg = this.$addGroupTmpl.octemplate();
-				$('#add_group_dialog').html($dlg).dialog({
-					modal: true,
-					closeOnEscape: true,
-					title:  t('contacts', 'Add group'),
-					height: 'auto', width: 'auto',
-					buttons: {
-						'Ok':function() {
-							var contacts = self.Contacts.getSelectedContacts();
-							self.Groups.addGroup(
-								$dlg.find('input:text').val(),
-								contacts,
-								function(response) {
-									if(response.result === 'success') {
-										for(var id in contacts) {
-											if(typeof contacts[id] === 'number') {
-												console.log('add', contacts[id], 'to', response.name);
-												self.Contacts.contacts[contacts[id]].addToGroup(response.name);
-											}
-										}
-									} else {
-										OC.notify({message: response.message});
-									}
-								});
-							$(this).dialog('close');
-						},
-						'Cancel':function() { $(this).dialog('close'); }
-					},
-					close: function(event, ui) {
-						$(this).dialog('destroy').remove();
-						$('#add_group_dialog').remove();
-						$.each(self.$contactList.find('input:checkbox:checked'), function() {
-							console.log('unchecking', $(this));
-							$(this).prop('checked', false);
-						});
-					},
-					open: function(event, ui) {
-						$dlg.find('input').focus();
-					},
-				});
-				return;
-			}
+			var ids, groupName, groupId, buildnow = false;
 
 			// If a contact is open the action is only applied to that,
 			// otherwise on all selected items.
@@ -970,33 +926,76 @@ OC.Contacts = OC.Contacts || {
 			} else {
 				ids = self.Contacts.getSelectedContacts();
 			}
-			console.log('ids', ids);
+
+			$.each(self.$contactList.find('input:checkbox:checked'), function() {
+				$(this).prop('checked', false);
+			});
+			
+			if($opt.val() === 'add') { // Add new group
+				action = 'add';
+				console.log('add group...');
+				self.$groups.val(-1);
+				self.addGroup(function(response) {
+					if(response.status === 'success') {
+						groupId = response.id;
+						groupName = response.name;
+						self.Groups.addTo(ids, groupId, function(result) {
+							if(result.status === 'success') {
+								$.each(ids, function(idx, id) {
+									// Delay each contact to not trigger too many ajax calls
+									// at a time.
+									setTimeout(function() {
+										self.Contacts.contacts[id].addToGroup(groupName);
+										// I don't think this is used...
+										if(buildnow) {
+											self.buildGroupSelect();
+										}
+										$(document).trigger('status.contact.addedtogroup', {
+											contactid: id,
+											groupid: groupId,
+											groupname: groupName,
+										});
+									}, 1000);
+								});
+							} else {
+								// TODO: Use message return from Groups object.
+								OC.notify({message:t('contacts', t('contacts', 'Error adding to group.'))});
+							}
+						});
+					} else {
+						OC.notify({message: response.message});
+					}
+				});
+				return;
+			}
+			
+			groupName = $opt.text(), groupId = $opt.val();
+
+			console.log('trut', groupName, groupId);
 			if(action === 'add') {
 				self.Groups.addTo(ids, $opt.val(), function(result) {
 					console.log('after add', result);
 					if(result.status === 'success') {
-						//console.log('typeof', typeof parseInt(id), id);
-						var groupname = $opt.text(), groupid = $opt.val();
 						$.each(result.ids, function(idx, id) {
 							// Delay each contact to not trigger too many ajax calls
 							// at a time.
 							setTimeout(function() {
-								console.log('adding', id, 'to', groupname);
-								self.Contacts.contacts[id].addToGroup(groupname);
+								console.log('adding', id, 'to', groupName);
+								self.Contacts.contacts[id].addToGroup(groupName);
 								// I don't think this is used...
 								if(buildnow) {
 									self.buildGroupSelect();
 								}
 								$(document).trigger('status.contact.addedtogroup', {
 									contactid: id,
-									groupid: groupid,
-									groupname: groupname,
+									groupid: groupId,
+									groupname: groupName,
 								});
 							}, 1000);
 						});
 					} else {
-						// TODO: Use message return from Groups object.
-						OC.notify({message:t('contacts', t('contacts', 'Error adding to group.'))});
+						var msg = result.message ? result.message : t('contacts', 'Error adding to group.');
+						OC.notify({message:msg});
 					}
 				});
 				if(!buildnow) {
@@ -1015,12 +1014,13 @@ OC.Contacts = OC.Contacts || {
 							// If a group is selected the contact has to be removed from the list
 							$(document).trigger('status.contact.removedfromgroup', {
 								contactid: id,
-								groupid: groupid,
-								groupname: groupname,
+								groupid: groupId,
+								groupname: groupName,
 							});
 						});
 					} else {
-						OC.notify({message:t('contacts', t('contacts', 'Error removing from group.'))});
+						var msg = result.message ? result.message : t('contacts', 'Error removing from group.');
+						OC.notify({message:msg});
 					}
 				});
 				if(!buildnow) {
@@ -1204,6 +1204,47 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		$('#content > [title]').tipsy(); // find all with a title attribute and tipsy them
+	},
+	addGroup: function(cb) {
+		var self = this;
+		$('body').append('<div id="add_group_dialog"></div>');
+		if(!this.$addGroupTmpl) {
+			this.$addGroupTmpl = $('#addGroupTemplate');
+		}
+		var $dlg = this.$addGroupTmpl.octemplate();
+		$('#add_group_dialog').html($dlg).dialog({
+			modal: true,
+			closeOnEscape: true,
+			title:  t('contacts', 'Add group'),
+			height: 'auto', width: 'auto',
+			buttons: {
+				'Ok':function() {
+					self.Groups.addGroup(
+						$dlg.find('input:text').val(),
+						function(response) {
+							if(typeof cb === 'function') {
+								cb(response);
+							} else {
+								if(response.status !== 'success') {
+									OC.notify({message: response.message});
+								}
+							}
+						});
+					$(this).dialog('close');
+				},
+				'Cancel':function() { 
+					$(this).dialog('close'); 
+					return false;
+				}
+			},
+			close: function(event, ui) {
+				$(this).dialog('destroy').remove();
+				$('#add_group_dialog').remove();
+			},
+			open: function(event, ui) {
+				$dlg.find('input').focus();
+			},
+		});
 	},
 	jumpToContact: function(id) {
 		this.$rightContent.scrollTop(this.Contacts.contactPos(id));
