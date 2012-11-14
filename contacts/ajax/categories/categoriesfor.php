@@ -17,6 +17,7 @@ if(is_null($id)) {
 			'message' => OCA\Contacts\App::$l10n->t('No ID provided'))));
 	exit();
 }
+
 $vcard = OCA\Contacts\App::getContactVCard( $id );
 foreach($vcard->children as $property) {
 	if($property->name == 'CATEGORIES') {

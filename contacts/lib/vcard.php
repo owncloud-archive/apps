@@ -606,6 +606,7 @@ class VCard {
 				)
 			);
 		}
+		OC_Contacts_App::getVCategories()->purgeObject($id);
 
 		App::updateDBProperties($id);
 		App::getVCategories()->purgeObject($id);

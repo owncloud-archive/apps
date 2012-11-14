@@ -26,7 +26,7 @@ OCP\JSON::checkAppEnabled('mail');
 
 $term = isset( $_GET['term'] ) ? $_GET['term'] : null;
 
-$receivers = OCA\Mail\App::getMatchingRecipient( OCP\User::getUser(), $term );
+$receivers = OCA\Mail\App::getMatchingRecipient( $term );
 
 if( isset($receivers['error']) ) {
 	OCP\JSON::error(array('data' => array('message' => $receivers['error'] )));
