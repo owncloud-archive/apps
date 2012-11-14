@@ -20,239 +20,285 @@
  *
  */
 
-namespace OCA\Mail;
+namespace {
+	// add include path to this apps 3rdparty
+	$incPath = __DIR__."/../3rdparty";
+	set_include_path(get_include_path() . PATH_SEPARATOR . $incPath);
 
-require_once 'mail/3rdparty/Horde/Autoloader/Default.php';
+	// load Horde's auto loader
+	require_once 'Horde/Autoloader/Default.php';
 
-class App
-{
-    /**
-     * Loads all user's accounts, connects to each server and queries all folders
-     *
-     * @static
-     * @param $user_id
-     * @return array
-     */
-    public static function getFolders($user_id)
-    {
-        $response = array();
+	// bypass Horde Translation system
+	Horde_Translation::setHandler('Horde_Imap_Client', new OC_Translation_Handler());
+}
 
-        // get all account configured by the user
-        $accounts = App::getAccounts($user_id);
+namespace OCA\Mail {
 
-        // iterate ...
-        foreach ($accounts as $account) {
-            try {
-                $response[] = $account->getListArray();
-            } catch (\Horde_Imap_Client_Exception $e) {
-                $response[] = array('id' => $account->getId(), 'name' => $account->getName(), 'error' => $e->getMessage());
-            }
-        }
+	class App
+	{
+		/**
+		 * Extracts all matching contacts with email address and name
+		 *
+		 * @param $term
+		 * @return array
+		 */
+		public static function getMatchingRecipient($term) {
+			if (!\OCP\Contacts::isEnabled()) {
+				return array();
+			}
 
-        return $response;
-    }
+			$result = \OCP\Contacts::search($term, array('FN', 'EMAIL'));
+			$receivers = array();
+			foreach ($result as $r) {
+				$id = $r['id'];
+				$fn = $r['FN'];
+				$email = $r['EMAIL'];
+				if (!is_array($email)) {
+					$email = array($email);
+				}
 
-    /**
-     * @static
-     * @param $user_id
-     * @param $account_id
-     * @param $folder_id
-     * @param int $from
-     * @param int $count
-     * @return array
-     */
-    public static function getMessages($user_id, $account_id, $folder_id, $from = 0, $count = 20)
-    {
-        // get the account
-        $account = App::getAccount($user_id, $account_id);
-        if (!$account) {
-            //@TODO: i18n
-            return array('error' => 'unknown account');
-        }
+				// loop through all email addresses of this contact
+				foreach ($email as $e) {
+					$displayName = $fn . " <$e>";
+					$receivers[] = array('id'    => $id,
+					                     'label' => $displayName,
+					                     'value' => $displayName);
+				}
+			}
 
-        try {
-            $mailbox = $account->getMailbox($folder_id);
-            $messages = $mailbox->getMessages($from, $count);
+			return $receivers;
+		}
 
-            return array('account_id' => $account_id, 'folder_id' => $folder_id, 'messages' => $messages);
-        } catch (\Horde_Imap_Client_Exception $e) {
-            return array('error' => $e->getMessage());
-        }
-    }
+		/**
+		 * Loads all user's accounts, connects to each server and queries all folders
+		 *
+		 * @static
+		 * @param $user_id
+		 * @return array
+		 */
+		public static function getFolders($user_id) {
+			$response = array();
 
-    /**
-     * @static
-     * @param $user_id
-     * @param $account_id
-     * @param $folder_id
-     * @param $message_id
-     * @return array
-     */
-    public static function getMessage($user_id, $account_id, $folder_id, $message_id)
-    {
-        // get the account
-        $account = App::getAccount($user_id, $account_id);
-        if (!$account) {
-            //@TODO: i18n
-            return array('error' => 'unknown account');
-        }
+			// get all account configured by the user
+			$accounts = App::getAccounts($user_id);
 
-        try {
-            $mailbox = $account->getMailbox($folder_id);
-            $m = $mailbox->getMessage($message_id);
-            $message = $m->as_array();
+			// iterate ...
+			foreach ($accounts as $account) {
+				try {
+					$response[] = $account->getListArray();
+				} catch (\Horde_Imap_Client_Exception $e) {
+					$response[] = array('id' => $account->getId(), 'name' => $account->getName(), 'error' => $e->getMessage());
+				}
+			}
 
-            return array('error' => '', 'message' => $message);
-        } catch (\Horde_Imap_Client_Exception $e) {
-            return array('error' => $e->getMessage());
-        }
-    }
+			return $response;
+		}
 
-    private static function getAccounts($user_id)
-    {
-        $account_ids = \OCP\Config::getUserValue($user_id, 'mail', 'accounts', '');
-        if ($account_ids == "") {
-            return array();
-        }
+		/**
+		 * @static
+		 * @param $user_id
+		 * @param $account_id
+		 * @param $folder_id
+		 * @param int $from
+		 * @param int $count
+		 * @return array
+		 */
+		public static function getMessages($user_id, $account_id, $folder_id, $from = 0, $count = 20) {
+			// get the account
+			$account = App::getAccount($user_id, $account_id);
+			if (!$account) {
+				//@TODO: i18n
+				return array('error' => 'unknown account');
+			}
 
-        $account_ids = explode(',', $account_ids);
+			try {
+				$mailbox = $account->getMailbox($folder_id);
+				$messages = $mailbox->getMessages($from, $count);
 
-        $accounts = array();
-        foreach ($account_ids as $id) {
-            $account_string = 'account[' . $id . ']';
+				return array('account_id' => $account_id, 'folder_id' => $folder_id, 'messages' => $messages);
+			} catch (\Horde_Imap_Client_Exception $e) {
+				return array('error' => $e->getMessage());
+			}
+		}
 
-            $accounts[$id] = new Account(array(
-                'id' => $id,
-                'name' => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[name]'),
-                'host' => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[host]'),
-                'port' => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[port]'),
-                'user' => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[user]'),
-                'password' => base64_decode(\OCP\Config::getUserValue($user_id, 'mail', $account_string . '[password]')),
-                'ssl_mode' => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[ssl_mode]')
-            ));
-        }
+		/**
+		 * @static
+		 * @param $user_id
+		 * @param $account_id
+		 * @param $folder_id
+		 * @param $message_id
+		 * @return array
+		 */
+		public static function getMessage($user_id, $account_id, $folder_id, $message_id) {
+			// get the account
+			$account = App::getAccount($user_id, $account_id);
+			if (!$account) {
+				//@TODO: i18n
+				return array('error' => 'unknown account');
+			}
 
-        return $accounts;
-    }
+			try {
+				$mailbox = $account->getMailbox($folder_id);
+				$m = $mailbox->getMessage($message_id);
+				$message = $m->as_array();
 
-    private static function getAccount($user_id, $account_id)
-    {
-        $accounts = App::getAccounts($user_id);
+				return array('message' => $message);
+			} catch (\Horde_Imap_Client_Exception $e) {
+				return array('error' => $e->getMessage());
+			}
+		}
 
-        if (isset($accounts[$account_id])) {
-            return $accounts[$account_id];
-        }
+		/**
+		 * @param $user_id
+		 * @return Account[]
+		 */
+		private static function getAccounts($user_id) {
+			$account_ids = \OCP\Config::getUserValue($user_id, 'mail', 'accounts', '');
+			if ($account_ids == "") {
+				return array();
+			}
 
-        return false;
-    }
+			$account_ids = explode(',', $account_ids);
 
-    public static function addAccount($user_id, $host, $port, $user, $password, $ssl_mode)
-    {
-        $id = time();
-        $account_string = 'account[' . $id . ']';
-        \OCP\Config::setUserValue($user_id, 'mail', $account_string . '[name]', $user);
-        \OCP\Config::setUserValue($user_id, 'mail', $account_string . '[host]', $host);
-        \OCP\Config::setUserValue($user_id, 'mail', $account_string . '[port]', $port);
-        \OCP\Config::setUserValue($user_id, 'mail', $account_string . '[user]', $user);
-        \OCP\Config::setUserValue($user_id, 'mail', $account_string . '[password]', base64_encode($password));
-        \OCP\Config::setUserValue($user_id, 'mail', $account_string . '[ssl_mode]', $ssl_mode);
+			$accounts = array();
+			foreach ($account_ids as $id) {
+				$account_string = 'account[' . $id . ']';
 
-        $account_ids = \OCP\Config::getUserValue($user_id, 'mail', 'accounts', '');
-        if ($account_ids) {
-            $account_ids = explode(',', $account_ids);
-        } else {
-            $account_ids = array();
-        }
-        $account_ids[] = $id;
-        $account_ids = implode(",", $account_ids);
+				$accounts[$id] = new Account(array(
+					'id'       => $id,
+					'name'     => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[name]'),
+					'host'     => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[host]'),
+					'port'     => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[port]'),
+					'user'     => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[user]'),
+					'password' => base64_decode(\OCP\Config::getUserValue($user_id, 'mail', $account_string . '[password]')),
+					'ssl_mode' => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[ssl_mode]')
+				));
+			}
 
-        \OCP\Config::setUserValue($user_id, 'mail', 'accounts', $account_ids);
+			return $accounts;
+		}
 
-        return $id;
-    }
+		/**
+		 * @param $user_id
+		 * @param $account_id
+		 * @return Account|bool
+		 */
+		public static function getAccount($user_id, $account_id) {
+			$accounts = App::getAccounts($user_id);
 
-    public static function autoDetectAccount($user_id, $email, $password)
-    {
-        list($user, $host) = explode("@", $email);
+			if (isset($accounts[$account_id])) {
+				return $accounts[$account_id];
+			}
 
-        //
-        // google apps shortcut
-        //
-        if (self::isGoogleAppsAccount($host)) {
-            $new_account = self::testAccount($user_id, $email, "imap.gmail.com", $email, $password);
-            if ($new_account != null) {
-                return $new_account;
-            }
-        }
-        $new_account = self::testAccount($user_id, $email, $host, $user, $password);
+			return false;
+		}
 
-        // try full email address as user name now (e.g. gmail does so)
-        if ($new_account == null) {
-            $new_account = self::testAccount($user_id, $email, $host, $email, $password);
-        }
+		public static function addAccount($user_id, $host, $port, $user, $password, $ssl_mode) {
+			$id = time();
+			$account_string = 'account[' . $id . ']';
+			\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[name]', $user);
+			\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[host]', $host);
+			\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[port]', $port);
+			\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[user]', $user);
+			\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[password]', base64_encode($password));
+			\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[ssl_mode]', $ssl_mode);
 
-        return $new_account;
-    }
+			$account_ids = \OCP\Config::getUserValue($user_id, 'mail', 'accounts', '');
+			if ($account_ids) {
+				$account_ids = explode(',', $account_ids);
+			} else {
+				$account_ids = array();
+			}
+			$account_ids[] = $id;
+			$account_ids = implode(",", $account_ids);
 
-    private static function isGoogleAppsAccount($host)
-    {
-        // filter pure gmail accounts
-        if (stripos($host, 'google') !== false) {
-            return false;
-        }
-        if (stripos($host, 'gmail') !== false) {
-            return false;
-        }
+			\OCP\Config::setUserValue($user_id, 'mail', 'accounts', $account_ids);
 
-        //
-        // TODO: will not work on windows - ignore this for now
-        //
-        if (getmxrr($host, $mx_records, $mx_weight) == false)
-            return false;
+			return $id;
+		}
 
-        var_dump($mx_records);
-        if (stripos($mx_records[0], 'google') !== false) {
-            return true;
-        }
-        return false;
-    }
+		public static function autoDetectAccount($user_id, $email, $password) {
+			list($user, $host) = explode("@", $email);
 
-    private static function testAccount($user_id, $email, $host, $user, $password)
-    {
-        /*
-        IMAP - port 143
-        Secure IMAP (IMAP4-SSL) - port 585
-        IMAP4 over SSL (IMAPS) - port 993
-         */
-        $account = array(
-            'name' => $email,
-            'host' => $host,
-            'user' => $user,
-            'password' => $password,
-        );
+			//
+			// google apps shortcut
+			//
+			if (self::isGoogleAppsAccount($host)) {
+				$new_account = self::testAccount($user_id, $email, "imap.gmail.com", $email, $password);
+				if ($new_account != null) {
+					return $new_account;
+				}
+			}
+			$new_account = self::testAccount($user_id, $email, $host, $user, $password);
 
-        $ports = array(143, 585, 993);
-        $sec_modes = array('ssl', 'tls', null);
-        $host_prefixes = array('', 'imap.');
-        foreach ($host_prefixes as $host_prefix) {
-            $h = $host_prefix . $host;
-            $account['host'] = $h;
-            foreach ($ports as $port) {
-                $account['port'] = $port;
-                foreach ($sec_modes as $sec_mode) {
-                    $account['ssl_mode'] = $sec_mode;
-                    try {
-                        $test_account = new Account($account);
-                        $client = $test_account->getImapConnection();
-                        return App::addAccount($user_id, $h, $port, $user, $password, $sec_mode);
-                    } catch (\Horde_Imap_Client_Exception $e) {
-                        // nothing to do
-                        error_log("Failed: $user_id, $h, $port, $user, $sec_mode");
-                    }
-                }
-            }
-        }
+			// try full email address as user name now (e.g. gmail does so)
+			if ($new_account == null) {
+				$new_account = self::testAccount($user_id, $email, $host, $email, $password);
+			}
 
-        return null;
-    }
+			return $new_account;
+		}
+
+		private static function isGoogleAppsAccount($host) {
+			// filter pure gmail accounts
+			if (stripos($host, 'google') !== false) {
+				return false;
+			}
+			if (stripos($host, 'gmail') !== false) {
+				return false;
+			}
+
+			//
+			// TODO: will not work on windows - ignore this for now
+			//
+			if (getmxrr($host, $mx_records, $mx_weight) == false)
+					{
+						return false;
+					}
+
+			var_dump($mx_records);
+			if (stripos($mx_records[0], 'google') !== false) {
+				return true;
+			}
+			return false;
+		}
+
+		private static function testAccount($user_id, $email, $host, $user, $password) {
+			/*
+			IMAP - port 143
+			Secure IMAP (IMAP4-SSL) - port 585
+			IMAP4 over SSL (IMAPS) - port 993
+			 */
+			$account = array(
+				'name'     => $email,
+				'host'     => $host,
+				'user'     => $user,
+				'password' => $password,
+			);
+
+			$ports = array(143, 585, 993);
+			$sec_modes = array('ssl', 'tls', null);
+			$host_prefixes = array('', 'imap.');
+			foreach ($host_prefixes as $host_prefix) {
+				$h = $host_prefix . $host;
+				$account['host'] = $h;
+				foreach ($ports as $port) {
+					$account['port'] = $port;
+					foreach ($sec_modes as $sec_mode) {
+						$account['ssl_mode'] = $sec_mode;
+						try {
+							$test_account = new Account($account);
+							$client = $test_account->getImapConnection();
+							return App::addAccount($user_id, $h, $port, $user, $password, $sec_mode);
+						} catch (\Horde_Imap_Client_Exception $e) {
+							// nothing to do
+							error_log("Failed: $user_id, $h, $port, $user, $sec_mode");
+						}
+					}
+				}
+			}
+
+			return null;
+		}
+	}
 }

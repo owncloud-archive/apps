@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-08 00:01+0100\n"
+"POT-Creation-Date: 2012-11-15 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,11 +57,19 @@ msgstr ""
 msgid "Error updating feeds."
 msgstr ""
 
-#: ajax/importopml.php:34
-msgid "No file was submitted."
+#: ajax/importopml.php:40
+msgid "Empty filename"
 msgstr ""
 
-#: ajax/importopml.php:46
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr ""
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr ""
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr ""
 
@@ -79,6 +87,10 @@ msgstr ""
 
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
+msgstr ""
+
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
 msgstr ""
 
 #: ajax/setallitemsread.php:63
@@ -109,7 +121,7 @@ msgstr ""
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:55
+#: js/settings.js:68
 msgid "Error"
 msgstr ""
 
@@ -186,11 +198,15 @@ msgstr ""
 msgid "Not a valid type"
 msgstr ""
 
-#: js/settings.js:51
-msgid "{n_success} out of {n_total} feeds imported successfully!"
+#: js/settings.js:60
+msgid "Importing done"
 msgstr ""
 
-#: js/settings.js:75
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr ""
+
+#: js/settings.js:88
 msgid "Select file"
 msgstr ""
 
@@ -337,20 +353,20 @@ msgstr ""
 msgid "Mark as important"
 msgstr ""
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr ""
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr ""
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:57 templates/part.items.php:58
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr ""
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr ""
 

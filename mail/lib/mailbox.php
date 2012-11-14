@@ -9,7 +9,13 @@
 namespace OCA\Mail;
 
 class Mailbox {
-	private $conn, $folder_id;
+
+	/**
+	 * @var \Horde_Imap_Client_Socket
+	 */
+	private $conn;
+
+	private $folder_id;
 
 	// input $conn = IMAP conn, $folder_id = folder id
 	function __construct($conn, $folder_id) {
@@ -17,7 +23,7 @@ class Mailbox {
 		$this->folder_id = $folder_id;
 	}
 
-	public function getMessages($from = 0, $count = 20) {
+	public function getMessages($from = 0, $count = 2) {
 		$total = $this->getTotalMessages();
 		if (($from + $count) > $total) {
 			$count = $total - $from;
@@ -46,8 +52,9 @@ class Mailbox {
 		));
 
 		$opt = array('ids' => ($from + 1) . ':' . ($from + 1 + $count));
+		$opt = array();
 		// $list is an array of Horde_Imap_Client_Data_Fetch objects.
-		$headers = $this->conn->fetch($this->folder_id, $fetch_query);
+		$headers = $this->conn->fetch($this->folder_id, $fetch_query, $opt);
 
 		ob_start(); // fix for Horde warnings
 		$messages = array();

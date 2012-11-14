@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <sy6614@yahoo.com.hk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:21+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-12 00:01+0100\n"
+"PO-Revision-Date: 2012-11-11 15:00+0000\n"
+"Last-Translator: sy6614 <sy6614@yahoo.com.hk>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,11 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr ""
+msgstr "日期/時間錯誤"
 
 #: appinfo/app.php:10
 msgid "Tasks"
-msgstr ""
+msgstr "任務"
 
 #: js/tasks.js:78
 msgid "Due"
@@ -37,7 +38,7 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: js/tasks.js:415
+#: js/tasks.js:420
 msgid "No category"
 msgstr ""
 
@@ -47,15 +48,15 @@ msgstr ""
 
 #: lib/app.php:34
 msgid "1=highest"
-msgstr ""
+msgstr "1=最高"
 
 #: lib/app.php:38
 msgid "5=medium"
-msgstr ""
+msgstr "5=中等"
 
 #: lib/app.php:42
 msgid "9=lowest"
-msgstr ""
+msgstr "9=最低"
 
 #: lib/app.php:81
 msgid "Empty Summary"
@@ -76,7 +77,7 @@ msgstr ""
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr ""
+msgstr "增加任務"
 
 #: templates/tasks.php:4
 msgid "Order Due"
@@ -112,7 +113,7 @@ msgstr ""
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr ""
+msgstr "更多"
 
 #: templates/tasks.php:26
 msgid "Less"

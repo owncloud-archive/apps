@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-08 00:01+0100\n"
+"POT-Creation-Date: 2012-11-15 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,19 +111,19 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr ""
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:39 templates/list.php:41
 msgid "Settings"
 msgstr ""
 
-#: templates/list.php:52
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr ""
 
-#: templates/list.php:57
+#: templates/list.php:58
 msgid "You can also try to import a bookmark file"
 msgstr ""
 

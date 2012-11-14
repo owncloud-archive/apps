@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-08 00:01+0100\n"
-"PO-Revision-Date: 2012-11-07 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 20:45+0000\n"
+"Last-Translator: Richard Bos <radoeka@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "Niet ondersteund bestandstype voor import"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
@@ -33,7 +33,7 @@ msgstr "Tags"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr ""
+msgstr "Filter op tag"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
@@ -49,11 +49,11 @@ msgstr "Waarschuwing"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "Het importeren is helemaal geslaagd"
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "Uploading..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -111,31 +111,31 @@ msgstr "Adres"
 
 #: templates/list.php:23
 msgid "Add"
-msgstr ""
+msgstr "Toevoegen"
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr "Aanverwante tags"
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:39 templates/list.php:41
 msgid "Settings"
 msgstr "Instellingen"
 
-#: templates/list.php:52
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "U heeft geen bladwijzers"
 
-#: templates/list.php:57
+#: templates/list.php:58
 msgid "You can also try to import a bookmark file"
-msgstr ""
+msgstr "U kan ook een bladwijzer bestand proberen te importen"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
-msgstr ""
+msgstr "Bookmarklet"
 
 #: templates/settings.php:23
 msgid "Export & Import"
-msgstr ""
+msgstr "Export & Import"
 
 #: templates/settings.php:24
 msgid "Export"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-15 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgstr ""
 msgid "No ID provided"
 msgstr "Keng ID uginn"
 
-#: ajax/categories/categoriesfor.php:34
+#: ajax/categories/categoriesfor.php:35
 msgid "Error setting checksum."
 msgstr "Fehler beim setzen vun der Checksum."
 
@@ -137,31 +137,31 @@ msgstr "Fichier existéiert net:"
 msgid "Error loading image."
 msgstr "Fehler beim lueden vum Bild."
 
-#: ajax/savecrop.php:69
+#: ajax/savecrop.php:70
 msgid "Error getting contact object."
 msgstr ""
 
-#: ajax/savecrop.php:79
+#: ajax/savecrop.php:80
 msgid "Error getting PHOTO property."
 msgstr ""
 
-#: ajax/savecrop.php:98
+#: ajax/savecrop.php:99
 msgid "Error saving contact."
 msgstr ""
 
-#: ajax/savecrop.php:109
+#: ajax/savecrop.php:110
 msgid "Error resizing image"
 msgstr ""
 
-#: ajax/savecrop.php:112
+#: ajax/savecrop.php:113
 msgid "Error cropping image"
 msgstr ""
 
-#: ajax/savecrop.php:115
+#: ajax/savecrop.php:116
 msgid "Error creating temporary image"
 msgstr ""
 
-#: ajax/savecrop.php:118
+#: ajax/savecrop.php:119
 msgid "Error finding image: "
 msgstr ""
 
@@ -207,7 +207,7 @@ msgstr ""
 msgid "No file was uploaded. Unknown error"
 msgstr ""
 
-#: appinfo/app.php:25
+#: appinfo/app.php:24
 msgid "Contacts"
 msgstr "Kontakter"
 
@@ -223,17 +223,17 @@ msgstr ""
 msgid "Couldn't get a valid address."
 msgstr ""
 
-#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
-#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
-#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
-#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
-#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
-#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
-#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
-#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
-#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
-#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
-#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:364 js/contacts.js:436
+#: js/contacts.js:443 js/contacts.js:694 js/contacts.js:734 js/contacts.js:763
+#: js/contacts.js:774 js/contacts.js:788 js/contacts.js:808 js/contacts.js:895
+#: js/contacts.js:901 js/contacts.js:913 js/contacts.js:950
+#: js/contacts.js:1226 js/contacts.js:1234 js/contacts.js:1243
+#: js/contacts.js:1278 js/contacts.js:1314 js/contacts.js:1329
+#: js/contacts.js:1355 js/contacts.js:1588 js/contacts.js:1623
+#: js/contacts.js:1643 js/contacts.js:1732 js/contacts.js:1886
+#: js/contacts.js:2086 js/contacts.js:2112 js/contacts.js:2122
+#: js/contacts.js:2125 js/contacts.js:2276 js/contacts.js:2313
+#: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
 #: js/settings.js:113
 msgid "Error"
 msgstr "Fehler"
@@ -242,140 +242,140 @@ msgstr "Fehler"
 msgid "Please enter an email address."
 msgstr ""
 
-#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+#: js/contacts.js:177 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr ""
 
-#: js/contacts.js:177 templates/part.contact.php:35
+#: js/contacts.js:178 templates/part.contact.php:35
 msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
 msgstr ""
 
-#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
-#: js/contacts.js:1482 js/contacts.js:1525
+#: js/contacts.js:184 js/contacts.js:1434 js/contacts.js:1477
+#: js/contacts.js:1496 js/contacts.js:1539
 msgid "Select type"
 msgstr ""
 
-#: js/contacts.js:214
+#: js/contacts.js:215
 msgid "Select photo"
 msgstr ""
 
-#: js/contacts.js:406
+#: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
 msgstr ""
 
-#: js/contacts.js:407
+#: js/contacts.js:408
 msgid "Please select one of your own address books."
 msgstr ""
 
-#: js/contacts.js:407
+#: js/contacts.js:408
 msgid "Permission error"
 msgstr ""
 
-#: js/contacts.js:481
+#: js/contacts.js:482
 msgid "Click to undo deletion of \""
 msgstr ""
 
-#: js/contacts.js:495
+#: js/contacts.js:496
 msgid "Cancelled deletion of: \""
 msgstr ""
 
-#: js/contacts.js:725
+#: js/contacts.js:734
 msgid "This property has to be non-empty."
 msgstr ""
 
-#: js/contacts.js:751
+#: js/contacts.js:763
 msgid "Couldn't serialize elements."
 msgstr ""
 
-#: js/contacts.js:762
+#: js/contacts.js:774
 msgid "Unknown error. Please check logs."
 msgstr ""
 
-#: js/contacts.js:883 js/contacts.js:901
+#: js/contacts.js:895 js/contacts.js:913
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr ""
 
-#: js/contacts.js:920
+#: js/contacts.js:932
 msgid "Edit name"
 msgstr ""
 
-#: js/contacts.js:1212
+#: js/contacts.js:1226
 msgid "No files selected for upload."
 msgstr ""
 
-#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
+#: js/contacts.js:1234 js/contacts.js:2102 js/contacts.js:2177
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr ""
 
-#: js/contacts.js:1284
+#: js/contacts.js:1298
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/contacts.js:1543
+#: js/contacts.js:1557
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1614
+#: js/contacts.js:1628
 msgid "Do you want to merge these address books?"
 msgstr ""
 
-#: js/contacts.js:1767
+#: js/contacts.js:1812
 msgid "Shared by "
 msgstr ""
 
-#: js/contacts.js:2000 js/contacts.js:2075
+#: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
 msgstr ""
 
-#: js/contacts.js:2004
+#: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
 msgstr ""
 
-#: js/contacts.js:2004
+#: js/contacts.js:2106
 msgid "Wrong file type"
 msgstr ""
 
-#: js/contacts.js:2010
+#: js/contacts.js:2112
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
 msgstr ""
 
-#: js/contacts.js:2068
+#: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr ""
 
-#: js/contacts.js:2068
+#: js/contacts.js:2170
 msgid "Upload Error"
 msgstr ""
 
-#: js/contacts.js:2123
+#: js/contacts.js:2225
 msgid "Pending"
 msgstr ""
 
-#: js/contacts.js:2155
+#: js/contacts.js:2257
 msgid "Import done"
 msgstr ""
 
-#: js/contacts.js:2168
+#: js/contacts.js:2270
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/contacts.js:2174
+#: js/contacts.js:2276
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/contacts.js:2190
+#: js/contacts.js:2292
 msgid "Importing..."
 msgstr ""
 
-#: js/contacts.js:2211
+#: js/contacts.js:2313
 msgid "The address book name cannot be empty."
 msgstr ""
 
@@ -422,31 +422,31 @@ msgstr "Läschen"
 msgid "Cancel"
 msgstr "Ofbriechen"
 
-#: js/settings.js:157 templates/settings.php:66
+#: js/settings.js:161 templates/settings.php:66
 msgid "More..."
 msgstr ""
 
-#: js/settings.js:161
+#: js/settings.js:165
 msgid "Less..."
 msgstr ""
 
-#: lib/addressbook.php:138
+#: lib/addressbook.php:136
 msgid "You do not have the permissions to read this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:239
+#: lib/addressbook.php:235
 msgid "You do not have the permissions to update this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:259
+#: lib/addressbook.php:255
 msgid "There was an error updating the addressbook."
 msgstr ""
 
-#: lib/addressbook.php:315
+#: lib/addressbook.php:311
 msgid "You do not have the permissions to delete this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:344
+#: lib/addressbook.php:340
 msgid "There was an error deleting this addressbook."
 msgstr ""
 
@@ -510,7 +510,7 @@ msgstr ""
 msgid "GaduGadu"
 msgstr ""
 
-#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
+#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:253
 msgid "Work"
 msgstr "Aarbecht"
 
@@ -518,7 +518,7 @@ msgstr "Aarbecht"
 msgid "Home"
 msgstr "Doheem"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
+#: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
 msgstr ""
 
@@ -554,57 +554,12 @@ msgstr "Pager"
 msgid "Internet"
 msgstr "Internet"
 
-#: lib/app.php:252 templates/part.contact.php:45
-#: templates/part.contact.php:128
-msgid "Birthday"
-msgstr "Gebuertsdag"
-
-#: lib/app.php:253
-msgid "Business"
+#: lib/app.php:251
+msgid "Friends"
 msgstr ""
 
-#: lib/app.php:254
-msgid "Call"
-msgstr ""
-
-#: lib/app.php:255
-msgid "Clients"
-msgstr ""
-
-#: lib/app.php:256
-msgid "Deliverer"
-msgstr ""
-
-#: lib/app.php:257
-msgid "Holidays"
-msgstr ""
-
-#: lib/app.php:258
-msgid "Ideas"
-msgstr ""
-
-#: lib/app.php:259
-msgid "Journey"
-msgstr ""
-
-#: lib/app.php:260
-msgid "Jubilee"
-msgstr ""
-
-#: lib/app.php:261
-msgid "Meeting"
-msgstr ""
-
-#: lib/app.php:263
-msgid "Personal"
-msgstr ""
-
-#: lib/app.php:264
-msgid "Projects"
-msgstr ""
-
-#: lib/app.php:265
-msgid "Questions"
+#: lib/app.php:252
+msgid "Family"
 msgstr ""
 
 #: lib/hooks.php:102
@@ -755,6 +710,10 @@ msgstr ""
 #: templates/part.contact.php:44
 msgid "Go to web site"
 msgstr ""
+
+#: templates/part.contact.php:45 templates/part.contact.php:128
+msgid "Birthday"
+msgstr "Gebuertsdag"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"

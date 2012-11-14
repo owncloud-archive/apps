@@ -51,9 +51,16 @@ class Downloader {
 			self::cleanUp($version);
 			throw $e;
 		}
-
 		Helper::removeIfExists(self::$package);
-		return $extractDir. '/' . self::PACKAGE_ROOT;
+		
+		//  Prepare extracted data
+		//  to have '3rdparty', 'apps' and 'core' subdirectories
+		$sources = Helper::getSources($version);
+		$baseDir = $extractDir. '/' . self::PACKAGE_ROOT;
+		@rename($baseDir . '/' . Helper::THIRDPARTY_DIRNAME, $sources[Helper::THIRDPARTY_DIRNAME]);
+		@rename($baseDir . '/' . Helper::APP_DIRNAME, $sources[Helper::APP_DIRNAME]);
+		@rename($baseDir, $sources[Helper::CORE_DIRNAME]);
+		
 	}
 
 	public static function cleanUp($version){
@@ -62,7 +69,7 @@ class Downloader {
 		}
 		Helper::removeIfExists(self::getPackageDir($version));
 	}
-
+	
 	public static function getPackageDir($version) {
 		return App::getBackupBase() . $version;
 	}

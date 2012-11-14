@@ -295,7 +295,7 @@ class OC_Contacts_VCard {
 		$addressbook = OC_Contacts_Addressbook::find($aid);
 		if ($addressbook['userid'] != OCP\User::getUser()) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $aid);
-			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_CREATE)) {
+			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\PERMISSION_CREATE)) {
 				throw new Exception(
 					OC_Contacts_App::$l10n->t(
 						'You do not have the permissions to add contacts to this addressbook.'
@@ -304,7 +304,6 @@ class OC_Contacts_VCard {
 			}
 		}
 		if(!$isChecked) {
-			OC_Contacts_App::loadCategoriesFromVCard($card);
 			self::updateValuesFromAdd($aid, $card);
 		}
 		$card->setString('VERSION', '3.0');
@@ -337,6 +336,7 @@ class OC_Contacts_VCard {
 			return false;
 		}
 		$newid = OCP\DB::insertid('*PREFIX*contacts_cards');
+		OC_Contacts_App::loadCategoriesFromVCard($newid, $card);
 
 		OC_Contacts_Addressbook::touch($aid);
 		OC_Hook::emit('OC_Contacts_VCard', 'post_createVCard', $newid);
@@ -372,7 +372,7 @@ class OC_Contacts_VCard {
 				$addressbook = OC_Contacts_Addressbook::find($oldcard['addressbookid']);
 				if ($addressbook['userid'] != OCP\User::getUser()) {
 					$sharedContact = OCP\Share::getItemSharedWithBySource('contact', $object[0], OCP\Share::FORMAT_NONE, null, true);
-					if (!$sharedContact || !($sharedContact['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+					if (!$sharedContact || !($sharedContact['permissions'] & OCP\PERMISSION_UPDATE)) {
 						return false;
 					}
 				}
@@ -424,7 +424,7 @@ class OC_Contacts_VCard {
 				$contact_permissions = $sharedEvent['permissions'];
 			}
 			$permissions = max($addressbook_permissions, $contact_permissions);
-			if (!($permissions & OCP\Share::PERMISSION_UPDATE)) {
+			if (!($permissions & OCP\PERMISSION_UPDATE)) {
 				throw new Exception(
 					OC_Contacts_App::$l10n->t(
 						'You do not have the permissions to edit this contact.'
@@ -432,7 +432,7 @@ class OC_Contacts_VCard {
 				);
 			}
 		}
-		OC_Contacts_App::loadCategoriesFromVCard($card);
+		OC_Contacts_App::loadCategoriesFromVCard($id, $card);
 
 		$fn = $card->getAsString('FN');
 		if (empty($fn)) {
@@ -526,7 +526,7 @@ class OC_Contacts_VCard {
 				$contact_permissions = $sharedEvent['permissions'];
 			}
 			$permissions = max($addressbook_permissions, $contact_permissions);
-			if (!($permissions & OCP\Share::PERMISSION_DELETE)) {
+			if (!($permissions & OCP\PERMISSION_DELETE)) {
 				throw new Exception(
 					OC_Contacts_App::$l10n->t(
 						'You do not have the permissions to delete this contact.'
@@ -551,6 +551,7 @@ class OC_Contacts_VCard {
 				)
 			);
 		}
+		OC_Contacts_App::getVCategories()->purgeObject($id);
 
 		OCP\Share::unshareAll('contact', $id);
 
@@ -572,7 +573,7 @@ class OC_Contacts_VCard {
 				return false;
 			}
 			$sharedContact = OCP\Share::getItemSharedWithBySource('contact', $id, OCP\Share::FORMAT_NONE, null, true);
-			if (!$sharedContact || !($sharedContact['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+			if (!$sharedContact || !($sharedContact['permissions'] & OCP\PERMISSION_DELETE)) {
 				return false;
 			}
 		}
@@ -733,7 +734,7 @@ class OC_Contacts_VCard {
 		$addressbook = OC_Contacts_Addressbook::find($aid);
 		if ($addressbook['userid'] != OCP\User::getUser()) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $aid);
-			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\Share::PERMISSION_CREATE)) {
+			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & OCP\PERMISSION_CREATE)) {
 				return false;
 			}
 		}
@@ -746,7 +747,7 @@ class OC_Contacts_VCard {
 				$oldAddressbook = OC_Contacts_Addressbook::find($card['addressbookid']);
 				if ($oldAddressbook['userid'] != OCP\User::getUser()) {
 					$sharedContact = OCP\Share::getItemSharedWithBySource('contact', $cardId, OCP\Share::FORMAT_NONE, null, true);
-					if (!$sharedContact || !($sharedContact['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+					if (!$sharedContact || !($sharedContact['permissions'] & OCP\PERMISSION_DELETE)) {
 						unset($id[$index]);
 					}
 				}
@@ -776,7 +777,7 @@ class OC_Contacts_VCard {
 				$oldAddressbook = OC_Contacts_Addressbook::find($card['addressbookid']);
 				if ($oldAddressbook['userid'] != OCP\User::getUser()) {
 					$sharedContact = OCP\Share::getItemSharedWithBySource('contact', $id, OCP\Share::FORMAT_NONE, null, true);
-					if (!$sharedContact || !($sharedContact['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+					if (!$sharedContact || !($sharedContact['permissions'] & OCP\PERMISSION_DELETE)) {
 						return false;
 					}
 				}
