@@ -1060,18 +1060,26 @@ OC.Contacts = OC.Contacts || {};
 		if(OC.Contacts.Contacts.deletionQueue.length > 0) {
 			// This is run almost instantly. It's just to allow us to
 			// show the warning. Only shows in Chrome afaik...
-			setTimeout(OC.Contacts.Contacts.deleteFilesInQueue, 1);
+			setTimeout(function() {
+				this.deleteContacts();
+			}, 1);
 		}
 		return warn;
 	}
 
-	ContactList.prototype.delayedDeleteContact = function(id) {
-		var self = this;
-		this.currentContact = null;
-		var listelem = this.contacts[parseInt(id)].detach();
-		self.$contactList.show();
-		this.deletionQueue.push(parseInt(id));
-		console.log('deletionQueue', this.deletionQueue, listelem);
+	ContactList.prototype.delayedDelete = function(id) {
+		var self = this, $listelem;
+		if(utils.isUInt(id)) {
+			this.currentContact = null;
+			$listelem = this.contacts[id].detach();
+			self.$contactList.show();
+			this.deletionQueue.push(id);
+		} else if(utils.isArray(id)) {
+			$.extend(this.deletionQueue, id);
+		} else {
+			throw { name: 'WrongParameterType', message: 'ContactList.delayedDelete only accept integers or arrays.'}
+		}
+		console.log('deletionQueue', this.deletionQueue);
 		if(!window.onbeforeunload) {
 			window.onbeforeunload = this.warnNotDeleted;
 		}
@@ -1079,17 +1087,21 @@ OC.Contacts = OC.Contacts || {};
 			$(document).trigger('status.visiblecontacts');
 		}
 		OC.notify({
-			data:listelem,
-			message:t('contacts','Click to undo deletion of "') + listelem.find('td.name').text() + '"',
+			data: $listelem,
+			message:t('contacts','Click to undo deletion of {num} contacts', {num: self.deletionQueue.length}),
 			//timeout:5,
-			timeouthandler:function(listelem) {
-				console.log('timeout', listelem);
-				self.deleteContact(listelem.data('id'), true);
+			timeouthandler:function($listelem) {
+				console.log('timeout');
+				self.deleteContacts();
 			},
-			clickhandler:function(listelem) {
-				console.log('clickhandler', listelem);
-				self.insertContact(listelem);
-				OC.notify({message:t('contacts', 'Cancelled deletion of: "') + listelem.find('td.name').text() + '"'});
+			clickhandler:function($listelem) {
+				console.log('clickhandler');
+				if($listelem) {
+					self.insertContact($listelem);
+				}
+				OC.notify({cancel:true});
+				OC.notify({message:t('contacts', 'Cancelled deletion of {num}', {num: self.deletionQueue.length})});
+				self.deletionQueue = [];
 				window.onbeforeunload = null;
 			}
 		});
@@ -1099,45 +1111,46 @@ OC.Contacts = OC.Contacts || {};
 	* Delete a contact with this id
 	* @param id the id of the contact
 	*/
-	ContactList.prototype.deleteContact = function(id, removeFromQueue) {
+	ContactList.prototype.deleteContacts = function() {
 		var self = this;
-		var id = parseInt(id);
-		console.log('deletionQueue', this.deletionQueue);
+		console.log('ContactList.deleteContacts, deletionQueue', this.deletionQueue);
 		// Local function to update queue.
-		var updateQueue = function(id, remove) {
-			if(remove) {
-				console.log('Removing', id, 'from deletionQueue');
-				OC.Contacts.Contacts.deletionQueue.splice(OC.Contacts.Contacts.deletionQueue.indexOf(parseInt(id)), 1);
-			}
-			if(OC.Contacts.Contacts.deletionQueue.length == 0) {
+		var updateQueue = function(id) {
+			console.log('Removing', id, 'from deletionQueue');
+			OC.Contacts.Contacts.deletionQueue.splice(OC.Contacts.Contacts.deletionQueue.indexOf(parseInt(id)), 1);
+
+			if(OC.Contacts.Contacts.deletionQueue.length === 0) {
 				console.log('deletionQueue is empty');
 				window.onbeforeunload = null;
 			}
 		}
 
-		if(OC.Contacts.Contacts.deletionQueue.indexOf(parseInt(id)) == -1 && removeFromQueue) {
-			console.log('Already deleted, returning');
-			updateQueue(id, removeFromQueue);
-			return;
-		}
-
-		// Let contact remove itself.
-		this.contacts[id].destroy(function(response) {
-			console.log('deleteContact', response);
-			if(response.status === 'success') {
-				delete self.contacts[parseInt(id)];
-				updateQueue(id, removeFromQueue);
-				self.$contactList.show();
-				$(document).trigger('status.contact.deleted', {
-					id: id,
-				});
-				self.length -= 1;
-				if(self.length === 0) {
-					$(document).trigger('status.nomorecontacts');
-				}
-			} else {
-				OC.notify({message:response.message});
+		$.each(this.deletionQueue, function(idx, id) {
+			// Remind me why I do this?
+			if(OC.Contacts.Contacts.deletionQueue.indexOf(id) === -1) {
+				console.log('Already deleted, returning');
+				updateQueue(id);
+				return true; // continue
 			}
+
+			// Let contact remove itself.
+			self.contacts[id].destroy(function(response) {
+				console.log('deleteContact', response);
+				if(response.status === 'success') {
+					delete self.contacts[id];
+					updateQueue(id);
+					self.$contactList.show();
+					$(document).trigger('status.contact.deleted', {
+						id: id,
+					});
+					self.length -= 1;
+					if(self.length === 0) {
+						$(document).trigger('status.nomorecontacts');
+					}
+				} else {
+					OC.notify({message:response.message});
+				}
+			});
 		});
 	}
 
@@ -1147,7 +1160,8 @@ OC.Contacts = OC.Contacts || {};
 	* @returns A jquery object to be inserted in the DOM.
 	*/
 	ContactList.prototype.showContact = function(id) {
-		this.currentContact = parseInt(id);
+		console.assert(typeof id === 'number', 'ContactList.showContact called with a non-number');
+		this.currentContact = id;
 		console.log('Contacts.showContact', id, this.contacts[this.currentContact], this.contacts)
 		return this.contacts[this.currentContact].renderContact();
 	};
@@ -1195,6 +1209,7 @@ OC.Contacts = OC.Contacts || {};
 			this.contactDetailTemplates
 		);
 		if(this.currentContact) {
+			console.assert(typeof this.currentContact == 'number', 'this.currentContact is not a number');
 			this.contacts[this.currentContact].close();
 		}
 		return contact.renderContact();

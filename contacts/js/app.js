@@ -18,7 +18,15 @@ utils.isArray = function(obj) {
          return true;
      }
      return false;
- };
+};
+
+utils.isInt = function(s) {
+  return typeof s === 'number' && (s.toString().search(/^-?[0-9]+$/) === 0);
+}
+
+utils.isUInt = function(s) {
+  return typeof s === 'number' && (s.toString().search(/^[0-9]+$/) === 0);
+}
 
 /**
  * utils.type
@@ -1067,6 +1075,7 @@ OC.Contacts = OC.Contacts || {
 			self.$toggleAll.show();
 			self.showActions(['addcontact']);
 		});
+
 		this.$header.on('click keydown', '.addcontact', function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -1078,20 +1087,21 @@ OC.Contacts = OC.Contacts || {
 			self.$rightContent.prepend(self.Contacts.addContact());
 			self.showActions(['back']);
 		});
+
 		this.$header.on('click keydown', '.delete', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
 			console.log('delete');
 			if(self.currentid) {
-				self.Contacts.delayedDeleteContact(self.currentid);
+				console.assert(utils.isUInt(self.currentid), 'self.currentid is not an integer');
+				self.Contacts.delayedDelete(self.currentid);
 				self.showActions(['addcontact']);
 			} else {
-				// TODO: Delete selected contacts
-				OC.notify({message:'Hold on, not implemented yet'});
-				console.log('currentid is not set');
+				self.Contacts.delayedDelete(self.Contacts.getSelectedContacts());
 			}
 		});
+
 		this.$header.on('click keydown', '.download', function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -1103,6 +1113,7 @@ OC.Contacts = OC.Contacts || {
 				console.log('currentid is not set');
 			}
 		});
+
 		this.$header.on('click keydown', '.settings', function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -1114,6 +1125,7 @@ OC.Contacts = OC.Contacts || {
 				console.log('error:', e.message);
 			}
 		});
+
 		this.$contactList.on('mouseenter', 'td.email', function(event) {
 			if($(this).text().trim().length > 3) {
 				$(this).find('.mailto').css('display', 'inline-block'); //.fadeIn(100);
@@ -1151,7 +1163,7 @@ OC.Contacts = OC.Contacts || {
 					break;
 				case 46: // Delete
 					if(event.shiftKey) {
-						self.Contacts.delayedDeleteContact(self.currentid);
+						self.Contacts.delayedDelete(self.currentid);
 					}
 					break;
 				case 40: // down
