@@ -17,7 +17,7 @@
 <div id="leftcontent" class="loading">
 	<div class="hidden" id="statusbar"></div>
 	<div id="groupactions">
-		<button class="addcontact"><?php echo $l->t('New Group'); ?></button>
+		<button class="addgroup"><?php echo $l->t('New Group'); ?></button>
 	</div>
 	<nav id="grouplist">
 	</nav>

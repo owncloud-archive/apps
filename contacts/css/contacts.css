@@ -41,7 +41,7 @@ option:last-child { border-bottom: 1px solid silver; }
 #leftcontent h3 img.shared:hover { opacity: 1; }
 
 #groupactions { box-sizing: border-box; height: 4em; border-bottom: 1px solid #DDDDDD; }
-#addactions > button, .addcontact {
+#groupactions > button, .addcontact {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
