@@ -15,7 +15,53 @@ namespace OCA\Updater;
 class Updater {
 
 	protected static $processed = array();
+	protected static $locations = array();
 
+        public static function prepare($version) {
+		$tempDir = self::getTempDir();
+                
+ 		$sources = Helper::getSources($version);
+		$destinations = Helper::getDirectories();
+                
+		try {
+			$locations = Helper::getPreparedLocations();
+			foreach ($locations as $type => $dirs) {
+				if (isset($sources[$type])) {
+					$sourceBaseDir = $sources[$type];
+				} else {
+					//  Extra app directories
+					$sourceBaseDir  = false;
+				}
+                                
+                                $tempBaseDir = $tempDir . '/' . $type;
+				Helper::mkdir($tempBaseDir, true);
+                                
+                                // Collect old sources
+				foreach ($dirs as $name => $path) {
+					self::$locations[] = array (
+						'src' => $path,
+						'dst' => $tempBaseDir . '/' . $name
+					);
+				}
+				//Collect new sources
+				if (!$sourceBaseDir) {
+					continue;
+				}
+				foreach (Helper::getFilteredContent($sourceBaseDir) as $basename=>$path){
+					self::$locations[] = array (
+						'src' => $path,
+						'dst' => $destinations[$type] . '/' . $basename
+					);
+				}
+			}
+		} catch (\Exception $e){
+			throw $e;
+		}
+                
+                return self::$locations;
+                                
+        }
+        
 	public static function update($version, $backupBase) {
 		if (!is_dir($backupBase)) {
 			throw new \Exception('Backup directory is not found');
@@ -33,37 +79,13 @@ class Updater {
 		$tempDir = self::getTempDir();
 		Helper::mkdir($tempDir, true);
 		
-		$sources = Helper::getSources($version);
-		$destinations = Helper::getDirectories();
-		
 		try {
-			$locations = Helper::getPreparedLocations();
-			foreach ($locations as $type => $dirs) {
-				if (isset($sources[$type])) {
-						$sourceBaseDir = $sources[$type];
-				} else {
-						//  Extra app directories
-						$sourceBaseDir  = false;
-				}
-				
-				$tempBaseDir = $tempDir . '/' . $type;		
-				Helper::mkdir($tempBaseDir, true);
-				
-				// Purge old sources
-				foreach ($dirs as $name => $path) {
-					Helper::move($path, $tempBaseDir . '/' . $name);
-					self::$processed[] = array (
-						'src' => $tempBaseDir . '/' . $name,
-						'dst' => $path
-					);
-				}
-				//Put new sources
-				if (!$sourceBaseDir) {
-					continue;
-				}
-				foreach (Helper::getFilteredContent($sourceBaseDir) as $basename=>$path){
-					Helper::move($path, $destinations[$type] . '/' . $basename);
-				}
+			foreach (self::prepare($version) as $location) {
+				Helper::move($location['src'], $location['dst']);
+				self::$processed[] = array (
+					'src' => $location['dst'],
+					'dst' => $location['src']
+				);
 			}
 		} catch (\Exception $e){
 			self::rollBack();
