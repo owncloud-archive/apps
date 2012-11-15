@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-13 02:04+0200\n"
-"PO-Revision-Date: 2012-10-12 17:35+0000\n"
-"Last-Translator: Ole Holm Frandsen <froksen@gmail.com>\n"
+"POT-Creation-Date: 2012-11-15 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +43,7 @@ msgstr "Kan ikke opdatére adressebogen med et tomt navn."
 msgid "No ID provided"
 msgstr "Intet ID medsendt"
 
-#: ajax/categories/categoriesfor.php:34
+#: ajax/categories/categoriesfor.php:35
 msgid "Error setting checksum."
 msgstr "Kunne ikke sætte checksum."
 
@@ -144,31 +144,31 @@ msgstr "Filen eksisterer ikke:"
 msgid "Error loading image."
 msgstr "Kunne ikke indlæse billede."
 
-#: ajax/savecrop.php:69
+#: ajax/savecrop.php:70
 msgid "Error getting contact object."
 msgstr "Fejl ved indlæsning af kontaktpersonobjektet."
 
-#: ajax/savecrop.php:79
+#: ajax/savecrop.php:80
 msgid "Error getting PHOTO property."
 msgstr "Fejl ved indlæsning af PHOTO feltet."
 
-#: ajax/savecrop.php:98
+#: ajax/savecrop.php:99
 msgid "Error saving contact."
 msgstr "Kunne ikke gemme kontaktpersonen."
 
-#: ajax/savecrop.php:109
+#: ajax/savecrop.php:110
 msgid "Error resizing image"
 msgstr "Kunne ikke ændre billedets størrelse"
 
-#: ajax/savecrop.php:112
+#: ajax/savecrop.php:113
 msgid "Error cropping image"
 msgstr "Kunne ikke beskære billedet"
 
-#: ajax/savecrop.php:115
+#: ajax/savecrop.php:116
 msgid "Error creating temporary image"
 msgstr "Kunne ikke oprette midlertidigt billede"
 
-#: ajax/savecrop.php:118
+#: ajax/savecrop.php:119
 msgid "Error finding image: "
 msgstr "Kunne ikke finde billedet: "
 
@@ -214,7 +214,7 @@ msgstr "Kunne ikke indlæse midlertidigt billede"
 msgid "No file was uploaded. Unknown error"
 msgstr "Ingen fil blev uploadet. Ukendt fejl."
 
-#: appinfo/app.php:25
+#: appinfo/app.php:24
 msgid "Contacts"
 msgstr "Kontaktpersoner"
 
@@ -231,16 +231,16 @@ msgid "Couldn't get a valid address."
 msgstr "Kunne ikke finde en gyldig adresse."
 
 #: js/contacts.js:76 js/contacts.js:105 js/contacts.js:364 js/contacts.js:436
-#: js/contacts.js:443 js/contacts.js:686 js/contacts.js:726 js/contacts.js:752
-#: js/contacts.js:763 js/contacts.js:777 js/contacts.js:797 js/contacts.js:884
-#: js/contacts.js:890 js/contacts.js:902 js/contacts.js:939
-#: js/contacts.js:1213 js/contacts.js:1221 js/contacts.js:1230
-#: js/contacts.js:1265 js/contacts.js:1301 js/contacts.js:1316
-#: js/contacts.js:1342 js/contacts.js:1575 js/contacts.js:1610
-#: js/contacts.js:1630 js/contacts.js:1688 js/contacts.js:1842
-#: js/contacts.js:1985 js/contacts.js:2011 js/contacts.js:2021
-#: js/contacts.js:2024 js/contacts.js:2175 js/contacts.js:2212
-#: js/contacts.js:2247 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/contacts.js:443 js/contacts.js:694 js/contacts.js:734 js/contacts.js:763
+#: js/contacts.js:774 js/contacts.js:788 js/contacts.js:808 js/contacts.js:895
+#: js/contacts.js:901 js/contacts.js:913 js/contacts.js:950
+#: js/contacts.js:1226 js/contacts.js:1234 js/contacts.js:1243
+#: js/contacts.js:1278 js/contacts.js:1314 js/contacts.js:1329
+#: js/contacts.js:1355 js/contacts.js:1588 js/contacts.js:1623
+#: js/contacts.js:1643 js/contacts.js:1732 js/contacts.js:1886
+#: js/contacts.js:2086 js/contacts.js:2112 js/contacts.js:2122
+#: js/contacts.js:2125 js/contacts.js:2276 js/contacts.js:2313
+#: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
 #: js/settings.js:113
 msgid "Error"
 msgstr "Fejl"
@@ -257,8 +257,8 @@ msgstr "Indtast navn"
 msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
 msgstr "Formatter som valgfrit, fuldt navn, efternavn først eller efternavn først med komma"
 
-#: js/contacts.js:184 js/contacts.js:1421 js/contacts.js:1464
-#: js/contacts.js:1483 js/contacts.js:1526
+#: js/contacts.js:184 js/contacts.js:1434 js/contacts.js:1477
+#: js/contacts.js:1496 js/contacts.js:1539
 msgid "Select type"
 msgstr "Vælg type"
 
@@ -286,103 +286,103 @@ msgstr "Klik for at fortryde sletning af \""
 msgid "Cancelled deletion of: \""
 msgstr "Annullerede sletning af: \""
 
-#: js/contacts.js:726
+#: js/contacts.js:734
 msgid "This property has to be non-empty."
 msgstr "Dette felt må ikke være tomt."
 
-#: js/contacts.js:752
+#: js/contacts.js:763
 msgid "Couldn't serialize elements."
 msgstr "Kunne ikke serialisere elementerne."
 
-#: js/contacts.js:763
+#: js/contacts.js:774
 msgid "Unknown error. Please check logs."
 msgstr "Ukendt fejl. Tjek venligst log."
 
-#: js/contacts.js:884 js/contacts.js:902
+#: js/contacts.js:895 js/contacts.js:913
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "'deleteProperty' kaldet uden typeargument. Indrapporter fejl på bugs.owncloud.org"
 
-#: js/contacts.js:921
+#: js/contacts.js:932
 msgid "Edit name"
 msgstr "Rediger navn"
 
-#: js/contacts.js:1213
+#: js/contacts.js:1226
 msgid "No files selected for upload."
 msgstr "Der er ikke valgt nogen filer at uploade."
 
-#: js/contacts.js:1221 js/contacts.js:2001 js/contacts.js:2076
+#: js/contacts.js:1234 js/contacts.js:2102 js/contacts.js:2177
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Dr."
 
-#: js/contacts.js:1285
+#: js/contacts.js:1298
 msgid "Error loading profile picture."
 msgstr "Fejl ved indlæsning af profilbillede"
 
-#: js/contacts.js:1544
+#: js/contacts.js:1557
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Nogle kontakter er markeret til sletning, men er endnu ikke slettet. Vent venligst på, at de bliver slettet."
 
-#: js/contacts.js:1615
+#: js/contacts.js:1628
 msgid "Do you want to merge these address books?"
 msgstr "Vil du fusionere disse adressebøger?"
 
-#: js/contacts.js:1768
+#: js/contacts.js:1812
 msgid "Shared by "
 msgstr "Delt af"
 
-#: js/contacts.js:2001 js/contacts.js:2076
+#: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
 msgstr "Upload er for stor"
 
-#: js/contacts.js:2005
+#: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
 msgstr "Kun billedfiler kan bruges som profilbilleder"
 
-#: js/contacts.js:2005
+#: js/contacts.js:2106
 msgid "Wrong file type"
 msgstr "Forkert filtype"
 
-#: js/contacts.js:2011
+#: js/contacts.js:2112
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
 msgstr "Din browser understøtter ikke AJAX upload. Tryk venligst på profilbilledet for at vælge et billede som skal uploades."
 
-#: js/contacts.js:2069
+#: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Kan ikke uploade din fil - det er enten en mappe eller en fil med et indhold på 0 bytes."
 
-#: js/contacts.js:2069
+#: js/contacts.js:2170
 msgid "Upload Error"
 msgstr "Fejl i upload"
 
-#: js/contacts.js:2124
+#: js/contacts.js:2225
 msgid "Pending"
 msgstr "Afventer"
 
-#: js/contacts.js:2156
+#: js/contacts.js:2257
 msgid "Import done"
 msgstr "Import fuldført"
 
-#: js/contacts.js:2169
+#: js/contacts.js:2270
 msgid "Not all files uploaded. Retrying..."
 msgstr "Nogle filer blev ikke uploadet. Forsøger igen..."
 
-#: js/contacts.js:2175
+#: js/contacts.js:2276
 msgid "Something went wrong with the upload, please retry."
 msgstr "Der opstod en fejl under upload. Forsøg igen."
 
-#: js/contacts.js:2191
+#: js/contacts.js:2292
 msgid "Importing..."
 msgstr "Importerer..."
 
-#: js/contacts.js:2212
+#: js/contacts.js:2313
 msgid "The address book name cannot be empty."
 msgstr "Adressebogens navn kan ikke være tomt."
 
@@ -437,23 +437,23 @@ msgstr "Mere..."
 msgid "Less..."
 msgstr "Mindre..."
 
-#: lib/addressbook.php:138
+#: lib/addressbook.php:136
 msgid "You do not have the permissions to read this addressbook."
 msgstr "Du har ikke rettigheder til at se denne adressebog."
 
-#: lib/addressbook.php:239
+#: lib/addressbook.php:235
 msgid "You do not have the permissions to update this addressbook."
 msgstr "Du har ikke rettigheder til at opdatere denne adressebog"
 
-#: lib/addressbook.php:259
+#: lib/addressbook.php:255
 msgid "There was an error updating the addressbook."
 msgstr "Du har ikke rettigheder til at opdatere denne kontaktperson"
 
-#: lib/addressbook.php:315
+#: lib/addressbook.php:311
 msgid "You do not have the permissions to delete this addressbook."
 msgstr "Du har ikke rettigheder til at slette denne adressebog"
 
-#: lib/addressbook.php:344
+#: lib/addressbook.php:340
 msgid "There was an error deleting this addressbook."
 msgstr "Der opstod en fejl ved sletning af denne adressebog."
 
@@ -517,7 +517,7 @@ msgstr "QQ"
 msgid "GaduGadu"
 msgstr "GaduGadu"
 
-#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
+#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:253
 msgid "Work"
 msgstr "Arbejde"
 
@@ -525,7 +525,7 @@ msgstr "Arbejde"
 msgid "Home"
 msgstr "Hjemme"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
+#: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
 msgstr "Andet"
 
@@ -561,58 +561,13 @@ msgstr "Personsøger"
 msgid "Internet"
 msgstr "Internet"
 
-#: lib/app.php:252 templates/part.contact.php:45
-#: templates/part.contact.php:128
-msgid "Birthday"
-msgstr "Fødselsdag"
+#: lib/app.php:251
+msgid "Friends"
+msgstr ""
 
-#: lib/app.php:253
-msgid "Business"
-msgstr "Firma"
-
-#: lib/app.php:254
-msgid "Call"
-msgstr "Ring op"
-
-#: lib/app.php:255
-msgid "Clients"
-msgstr "Klienter"
-
-#: lib/app.php:256
-msgid "Deliverer"
-msgstr "Udbringer"
-
-#: lib/app.php:257
-msgid "Holidays"
-msgstr "Ferie"
-
-#: lib/app.php:258
-msgid "Ideas"
-msgstr "Ideer"
-
-#: lib/app.php:259
-msgid "Journey"
-msgstr "Rejse"
-
-#: lib/app.php:260
-msgid "Jubilee"
-msgstr "Jubilæum"
-
-#: lib/app.php:261
-msgid "Meeting"
-msgstr "Møde"
-
-#: lib/app.php:263
-msgid "Personal"
-msgstr "Personligt"
-
-#: lib/app.php:264
-msgid "Projects"
-msgstr "Projekter"
-
-#: lib/app.php:265
-msgid "Questions"
-msgstr "Spørgsmål"
+#: lib/app.php:252
+msgid "Family"
+msgstr ""
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
@@ -762,6 +717,10 @@ msgstr "http://www.somesite.com"
 #: templates/part.contact.php:44
 msgid "Go to web site"
 msgstr "Gå til web site"
+
+#: templates/part.contact.php:45 templates/part.contact.php:128
+msgid "Birthday"
+msgstr "Fødselsdag"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"

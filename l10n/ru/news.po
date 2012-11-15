@@ -8,13 +8,14 @@
 #   <seg@it4you.kiev.ua>, 2012.
 #   <skoptev@ukr.net>, 2012.
 #   <victor.dubiniuk@gmail.com>, 2012.
+#   <zaera.alex@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-11 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 23:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-15 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 09:09+0000\n"
+"Last-Translator: zaera <zaera.alex@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,7 +69,7 @@ msgstr "Пустое имя файла"
 
 #: ajax/importopml.php:50
 msgid "No source argument passed"
-msgstr ""
+msgstr "Нет исходного аргумента"
 
 #: ajax/importopml.php:54
 msgid "Error while reading file"
@@ -205,11 +206,11 @@ msgstr "Недопустимый тип"
 
 #: js/settings.js:60
 msgid "Importing done"
-msgstr ""
+msgstr "Импорт завершен"
 
 #: js/settings.js:64
 msgid "Error while importing feeds."
-msgstr ""
+msgstr "Возникла ошибка при импортировании данных"
 
 #: js/settings.js:88
 msgid "Select file"
@@ -359,20 +360,20 @@ msgstr "Пометить как неважное"
 msgid "Mark as important"
 msgstr "Пометить как важное"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "из"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "от"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:57 templates/part.items.php:58
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Открыть доступ"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Оставить непрочитанным"
 

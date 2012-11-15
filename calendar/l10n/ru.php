@@ -23,7 +23,7 @@
 "ddd" => "ддд",
 "ddd M/d" => "ддд М/д",
 "dddd M/d" => "дддд М/д",
-"MMMM yyyy" => "ММММ гггг",
+"MMMM yyyy" => "MMMM yyyy",
 "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}" => "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}",
 "dddd, MMM d, yyyy" => "дддд, МММ д, гггг",
 "Birthday" => "День рождения",
