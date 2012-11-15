@@ -68,6 +68,7 @@ $tmpl = new OCP\Template( "contacts", "contacts", "user" );
 $tmpl->assign('uploadMaxFilesize', $maxUploadFilesize, false);
 $tmpl->assign('uploadMaxHumanFilesize',
 	OCP\Util::humanFileSize($maxUploadFilesize), false);
+$tmpl->assign('addressbooks', OCA\Contacts\Addressbook::all(OCP\USER::getUser()), false);
 $tmpl->assign('phone_types', $phone_types, false);
 $tmpl->assign('email_types', $email_types, false);
 $tmpl->assign('adr_types', $adr_types, false);

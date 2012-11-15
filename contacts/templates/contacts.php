@@ -24,8 +24,18 @@
 	<div id="contacts-settings">
 		<ul>
 			<li><button class="settings" title="<?php echo $l->t('Settings'); ?>"></button></li>
-			<li><button class="import"><?php echo $l->t('Import'); ?></button></li>
-			<li><button class="export"><?php echo $l->t('Export'); ?></button></li>
+			<li><h3 class="import" role="button"><?php echo $l->t('Import'); ?></h3></li>
+			<li><h3 class="export"><?php echo $l->t('Export'); ?></h3>
+				<ul class="hidden">
+				<?php foreach($_['addressbooks'] as $addressbook): ?>
+					<li>
+					<a role="button" href="<?php echo OCP\Util::linkToAbsolute('contacts', 'export.php'); ?>?bookid=<?php echo $addressbook['id'] ?>">
+						<?php echo $addressbook['displayname'] ?>
+					</a>
+					</li>
+				<?php endforeach; ?>
+				</ul>
+			</li>
 		</ul>
 	</div>
 </div>

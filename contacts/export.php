@@ -12,9 +12,9 @@ OCP\App::checkAppEnabled('contacts');
 $bookid = isset($_GET['bookid']) ? $_GET['bookid'] : null;
 $contactid = isset($_GET['contactid']) ? $_GET['contactid'] : null;
 $nl = "\n";
-if(isset($bookid)) {
+if(!is_null($bookid)) {
 	try {
-		$addressbook = OCA\Contacts\Addressbook::find($id); // is owner access check
+		$addressbook = OCA\Contacts\Addressbook::find($bookid); // is owner access check
 	} catch(Exception $e) {
 		OCP\JSON::error(
 			array(
@@ -40,7 +40,7 @@ if(isset($bookid)) {
 		}
 		$start += $batchsize;
 	}
-}elseif(isset($contactid)) {
+} elseif(!is_null($contactid)) {
 	try {
 		$data = OCA\Contacts\VCard::find($contactid);
 	} catch(Exception $e) {
