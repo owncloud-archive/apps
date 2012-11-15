@@ -26,8 +26,10 @@ require_once 'unhosted_apps/lib/rest.php';
 
 class Test_RemoteStorage extends UnitTestCase {
 	function setUp() {
-    // Check if we are a user
-    //OCP\User::checkLoggedIn();
+    $backend=new OC_User_Dummy();
+    $backend->createUser('dummy','dummy');
+    OC_User::clearBackends();
+    OC_User::useBackend($backend);
 	}
 
 	function testStorage() {
