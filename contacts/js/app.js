@@ -899,9 +899,7 @@ OC.Contacts = OC.Contacts || {
 
 		this.$toggleAll.on('change', function() {
 			var isChecked = $(this).is(':checked');
-			$.each(self.$contactList.find('input:checkbox:visible'), function( i, item ) {
-				item.checked = isChecked;
-			});
+			self.setAllChecked(isChecked);
 			if(self.$groups.find('option').length === 1) {
 				self.buildGroupSelect();
 			}
@@ -937,9 +935,7 @@ OC.Contacts = OC.Contacts || {
 				ids = self.Contacts.getSelectedContacts();
 			}
 
-			$.each(self.$contactList.find('input:checkbox:checked'), function() {
-				$(this).prop('checked', false);
-			});
+			self.setAllChecked(false);
 			
 			if($opt.val() === 'add') { // Add new group
 				action = 'add';
@@ -1037,10 +1033,7 @@ OC.Contacts = OC.Contacts || {
 					self.$groups.val(-1).hide().find('optgroup,option:not([value="-1"])').remove();
 				}
 			} // else something's wrong ;)
-			$.each(self.$contactList.find('input:checkbox:checked'), function() {
-				console.log('unchecking', $(this));
-				$(this).prop('checked', false);
-			});
+			self.setAllChecked(false);
 		});
 
 		// Contact list. Either open a contact or perform an action (mailto etc.)
@@ -1260,6 +1253,13 @@ OC.Contacts = OC.Contacts || {
 			},
 		});
 	},
+	setAllChecked: function(checked) {
+		var selector = checked ? 'input:checkbox:visible:not(checked)' : 'input:checkbox:visible:checked';
+		$.each(self.$contactList.find(selector), function() {
+			console.log('(un)checking', $(this), checked);
+			$(this).prop('checked', checked);
+		});
+	},
 	jumpToContact: function(id) {
 		this.$rightContent.scrollTop(this.Contacts.contactPos(id));
 	},
@@ -1279,9 +1279,7 @@ OC.Contacts = OC.Contacts || {
 			this.closeContact(this.currentid);
 		}
 		this.currentid = parseInt(id);
-		$.each(this.$contactList.find('input:checkbox:visible'), function( i, item ) {
-			item.checked = false;
-		});
+		this.setAllChecked(false);
 		this.$contactList.hide();
 		this.$toggleAll.hide();
 		var $contactelem = this.Contacts.showContact(this.currentid);
