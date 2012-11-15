@@ -23,6 +23,16 @@ class Updater {
  		$sources = Helper::getSources($version);
 		$destinations = Helper::getDirectories();
                 
+                
+		if (preg_match('/^\d+\.\d+/', $version, $ver)) {
+		    $ver = $ver[0];
+                } else {
+                    $ver = $version;
+                }
+		//  read the list of shipped apps
+                $appLocation = $sources[Helper::APP_DIRNAME];
+                $shippedApps = array_keys(Helper::getFilteredContent($appLocation));
+
 		try {
 			$locations = Helper::getPreparedLocations();
 			foreach ($locations as $type => $dirs) {
@@ -36,8 +46,19 @@ class Updater {
                                 $tempBaseDir = $tempDir . '/' . $type;
 				Helper::mkdir($tempBaseDir, true);
                                 
+                                
                                 // Collect old sources
 				foreach ($dirs as $name => $path) {
+					//skip compatible, not shipped apps
+					if (strpos($type, Helper::APP_DIRNAME) ===0 
+						&& !in_array($name, $shippedApps)
+                                        ) {
+						//Read compatibility info
+						$info = \OC_App::getAppInfo($name);
+						if (isset($info['require']) && version_compare($ver, $info['require'])>=0){
+							continue;
+						}
+					}
 					self::$locations[] = array (
 						'src' => $path,
 						'dst' => $tempBaseDir . '/' . $name
@@ -93,7 +114,7 @@ class Updater {
 			throw $e;
 		}
 
-		$config = "/config/config.php";
+		$config = "/" . Helper::CORE_DIRNAME . "/config/config.php";
 		copy($backupBase . $config, \OC::$SERVERROOT . $config);
 		
         //TODO: disable removed apps
