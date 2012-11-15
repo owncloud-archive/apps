@@ -622,6 +622,7 @@ OC.Contacts = OC.Contacts || {
 		this.$toggleAll = $('#toggle_all');
 		this.$groups = this.$headeractions.find('.groups');
 		this.$ninjahelp = $('#ninjahelp');
+		this.$firstRun = $('#firstrun');
 		this.$settings = $('#contacts-settings');
 
 	},
@@ -740,7 +741,8 @@ OC.Contacts = OC.Contacts || {
 		});
 		$(document).bind('status.nomorecontacts', function(e, result) {
 			console.log('status.nomorecontacts', result);
-			self.$contactList = $('#contactlist').hide();
+			self.$contactList.hide();
+			self.$firstRun.show();
 			// TODO: Show a first-run page.
 		});
 		$(document).bind('status.visiblecontacts', function(e, result) {

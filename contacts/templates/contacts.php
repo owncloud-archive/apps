@@ -44,38 +44,46 @@
 <div id="rightcontent" class="loading">
 	<table id="contactlist">
 	</table>
-<div class="hidden popup" id="ninjahelp">
-	<a class="close" tabindex="0" role="button" title="<?php echo $l->t('Close'); ?>"></a>
-	<h2><?php echo $l->t('Keyboard shortcuts'); ?></h2>
-	<div class="help-section">
-		<h3><?php echo $l->t('Navigation'); ?></h3>
-		<dl>
-			<dt>j/Down</dt>
-			<dd><?php echo $l->t('Next contact in list'); ?></dd>
-			<dt>k/Up</dt>
-			<dd><?php echo $l->t('Previous contact in list'); ?></dd>
-			<dt>o</dt>
-			<dd><?php echo $l->t('Expand/collapse current addressbook'); ?></dd>
-			<dt>n/PageDown</dt>
-			<dd><?php echo $l->t('Next addressbook'); ?></dd>
-			<dt>p/PageUp</dt>
-			<dd><?php echo $l->t('Previous addressbook'); ?></dd>
-		</dl>
+	<div class="hidden popup" id="ninjahelp">
+		<a class="close" tabindex="0" role="button" title="<?php echo $l->t('Close'); ?>"></a>
+		<h2><?php echo $l->t('Keyboard shortcuts'); ?></h2>
+		<div class="help-section">
+			<h3><?php echo $l->t('Navigation'); ?></h3>
+			<dl>
+				<dt>j/Down</dt>
+				<dd><?php echo $l->t('Next contact in list'); ?></dd>
+				<dt>k/Up</dt>
+				<dd><?php echo $l->t('Previous contact in list'); ?></dd>
+				<dt>o</dt>
+				<dd><?php echo $l->t('Expand/collapse current addressbook'); ?></dd>
+				<dt>n/PageDown</dt>
+				<dd><?php echo $l->t('Next addressbook'); ?></dd>
+				<dt>p/PageUp</dt>
+				<dd><?php echo $l->t('Previous addressbook'); ?></dd>
+			</dl>
+		</div>
+		<div class="help-section">
+			<h3><?php echo $l->t('Actions'); ?></h3>
+			<dl>
+				<dt>r</dt>
+				<dd><?php echo $l->t('Refresh contacts list'); ?></dd>
+				<dt>a</dt>
+				<dd><?php echo $l->t('Add new contact'); ?></dd>
+				<!-- dt>Shift-a</dt>
+				<dd><?php echo $l->t('Add new addressbook'); ?></dd -->
+				<dt>Shift-Delete</dt>
+				<dd><?php echo $l->t('Delete current contact'); ?></dd>
+			</dl>
+		</div>
 	</div>
-	<div class="help-section">
-		<h3><?php echo $l->t('Actions'); ?></h3>
-		<dl>
-			<dt>r</dt>
-			<dd><?php echo $l->t('Refresh contacts list'); ?></dd>
-			<dt>a</dt>
-			<dd><?php echo $l->t('Add new contact'); ?></dd>
-			<!-- dt>Shift-a</dt>
-			<dd><?php echo $l->t('Add new addressbook'); ?></dd -->
-			<dt>Shift-Delete</dt>
-			<dd><?php echo $l->t('Delete current contact'); ?></dd>
-		</dl>
+	<div id="firstrun" class="hidden">
+		<?php echo $l->t('<h3>You have no contacts in your addressbook.</h3>'
+			. '<p>Add a new contact or import existing contacts from a VCF file.</p>') ?>
+		<div id="selections">
+			<button class="addcontact"><?php echo $l->t('Add contact') ?></button>
+			<button class="import"><?php echo $l->t('Import') ?></button>
+		</div>
 	</div>
-</div>
 </div>
 <script id="cropBoxTemplate" type="text/template">
 	<form id="cropform"
