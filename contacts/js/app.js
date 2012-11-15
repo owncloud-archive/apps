@@ -1087,7 +1087,7 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			console.log('export');
-			self.hideActions();
+			$(this).next('ul').toggle('slow');
 		});
 
 		this.$header.on('click keydown', '.back', function(event) {
@@ -1273,7 +1273,6 @@ OC.Contacts = OC.Contacts || {
 	setAllChecked: function(checked) {
 		var selector = checked ? 'input:checkbox:visible:not(checked)' : 'input:checkbox:visible:checked';
 		$.each(self.$contactList.find(selector), function() {
-			console.log('(un)checking', $(this), checked);
 			$(this).prop('checked', checked);
 		});
 	},
