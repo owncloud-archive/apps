@@ -304,8 +304,8 @@ class OC_Calendar_Object{
 	public static function moveToCalendar($id, $calendarid) {
 		$calendar = OC_Calendar_Calendar::find($calendarid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $calendarid);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_CREATE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to add events to this calendar.'
