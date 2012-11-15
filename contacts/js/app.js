@@ -680,6 +680,7 @@ OC.Contacts = OC.Contacts || {
 
 		$(document).bind('status.contact.added', function(e, data) {
 			self.currentid = parseInt(data.id);
+			self.buildGroupSelect();
 			self.showActions(['back', 'download', 'delete', 'groups']);
 		});
 
@@ -1066,7 +1067,9 @@ OC.Contacts = OC.Contacts || {
 			self.$contactList.hide();
 			self.$toggleAll.hide();
 			$(this).hide();
-			self.$rightContent.prepend(self.Contacts.addContact());
+			self.currentid = 'new';
+			self.tmpcontact = self.Contacts.addContact();
+			self.$rightContent.prepend(self.tmpcontact);
 			self.showActions(['back']);
 		});
 
@@ -1280,9 +1283,12 @@ OC.Contacts = OC.Contacts || {
 			if(this.Contacts.findById(id).close()) {
 				this.$contactList.show();
 				this.jumpToContact(id);
-				delete this.currentid;
 			}
+		} else if(this.currentid === 'new') {
+			this.tmpcontact.remove();
+			this.$contactList.show();
 		}
+		delete this.currentid;
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
 	},
 	openContact: function(id) {
