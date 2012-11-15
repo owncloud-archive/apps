@@ -1061,17 +1061,8 @@ OC.Contacts = OC.Contacts || {
 			}
 			self.openContact($(this).data('id'));
 		});
-		this.$header.on('click keydown', '.back', function(event) {
-			if(wrongKey(event)) {
-				return;
-			}
-			console.log('back');
-			self.closeContact(self.currentid);
-			self.$toggleAll.show();
-			self.showActions(['addcontact']);
-		});
-
-		this.$header.on('click keydown', '.addcontact', function(event) {
+		
+		$('.addcontact').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
@@ -1081,6 +1072,32 @@ OC.Contacts = OC.Contacts || {
 			$(this).hide();
 			self.$rightContent.prepend(self.Contacts.addContact());
 			self.showActions(['back']);
+		});
+
+		$('.import').on('click keydown', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			console.log('import');
+			self.hideActions();
+		});
+
+		$('.export').on('click keydown', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			console.log('export');
+			self.hideActions();
+		});
+
+		this.$header.on('click keydown', '.back', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			console.log('back');
+			self.closeContact(self.currentid);
+			self.$toggleAll.show();
+			self.showActions(['addcontact']);
 		});
 
 		this.$header.on('click keydown', '.delete', function(event) {

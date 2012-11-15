@@ -24,8 +24,8 @@
 	<div id="contacts-settings">
 		<ul>
 			<li><button class="settings" title="<?php echo $l->t('Settings'); ?>"></button></li>
-			<li><button><?php echo $l->t('Import'); ?></button></li>
-			<li><button><?php echo $l->t('Export'); ?></button></li>
+			<li><button class="import"><?php echo $l->t('Import'); ?></button></li>
+			<li><button class="export"><?php echo $l->t('Export'); ?></button></li>
 		</ul>
 	</div>
 </div>
