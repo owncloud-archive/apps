@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/owncloud/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr ""
 
 #: ajax/categories/delete.php:19
 msgid "No categories selected for deletion."
-msgstr ""
+msgstr "Trynimui nepasirinkta jokia kategorija."
 
 #: ajax/categories/delete.php:26
 msgid "No address books found."
@@ -193,7 +193,7 @@ msgstr "Nebuvo įkeltas joks failas"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "Nėra laikinojo katalogo"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
@@ -236,7 +236,7 @@ msgstr ""
 #: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
 #: js/settings.js:113
 msgid "Error"
-msgstr ""
+msgstr "Klaida"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
@@ -331,7 +331,7 @@ msgstr ""
 
 #: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr ""
+msgstr "Įkėlimui failas per didelis"
 
 #: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
@@ -349,15 +349,15 @@ msgstr ""
 
 #: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Neįmanoma įkelti failo - jo dydis gali būti 0 bitų arba tai katalogas"
 
 #: js/contacts.js:2170
 msgid "Upload Error"
-msgstr ""
+msgstr "Įkėlimo klaida"
 
 #: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "Laukiantis"
 
 #: js/contacts.js:2257
 msgid "Import done"
@@ -373,7 +373,7 @@ msgstr ""
 
 #: js/contacts.js:2292
 msgid "Importing..."
-msgstr ""
+msgstr "Importuojama..."
 
 #: js/contacts.js:2313
 msgid "The address book name cannot be empty."
@@ -520,7 +520,7 @@ msgstr "Namų"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
-msgstr ""
+msgstr "Kita"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -604,15 +604,15 @@ msgstr "Pridėti kontaktą"
 
 #: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
-msgstr ""
+msgstr "Importuoti"
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Nustatymai"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
-msgstr ""
+msgstr "Užverti"
 
 #: templates/index.php:31
 msgid "Keyboard shortcuts"
@@ -721,7 +721,7 @@ msgstr ""
 
 #: templates/part.contact.php:47 templates/part.contact.php:135
 msgid "Groups"
-msgstr ""
+msgstr "Grupės"
 
 #: templates/part.contact.php:49
 msgid "Separate groups with commas"
@@ -1014,7 +1014,7 @@ msgstr "Adresų knygos"
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "Dalintis"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1022,7 +1022,7 @@ msgstr "Nauja adresų knyga"
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Pavadinimas"
 
 #: templates/settings.php:59
 msgid "Description"

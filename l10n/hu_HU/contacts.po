@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -260,7 +260,7 @@ msgstr "Típus kiválasztása"
 
 #: js/contacts.js:215
 msgid "Select photo"
-msgstr ""
+msgstr "Fotó kiválasztása"
 
 #: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
@@ -334,33 +334,33 @@ msgstr ""
 
 #: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr ""
+msgstr "A feltöltési méret túl nagy"
 
 #: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "Csak képfájl használható profilképnek"
 
 #: js/contacts.js:2106
 msgid "Wrong file type"
-msgstr ""
+msgstr "Rossz fájltípus"
 
 #: js/contacts.js:2112
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "Az Ön böngészője nem támogatja az AJAX feltöltést. Kérjük, kattintson a profilképre, hogy kiválaszthassa a feltöltendő képet."
 
 #: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Nem tölthető fel, mert mappa volt, vagy 0 byte méretű"
 
 #: js/contacts.js:2170
 msgid "Upload Error"
-msgstr ""
+msgstr "Feltöltési hiba"
 
 #: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "Folyamatban"
 
 #: js/contacts.js:2257
 msgid "Import done"
@@ -396,7 +396,7 @@ msgstr "  sikertelen"
 
 #: js/settings.js:76
 msgid "Displayname cannot be empty."
-msgstr ""
+msgstr "Megjelenített név kitöltendő"
 
 #: js/settings.js:98 templates/settings.php:25
 msgid "Show CardDav link"
@@ -523,7 +523,7 @@ msgstr "Otthoni"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
-msgstr ""
+msgstr "Egyéb"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -611,7 +611,7 @@ msgstr "Import"
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Beállítások"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
@@ -1017,7 +1017,7 @@ msgstr "Címlisták"
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "Megosztás"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1025,7 +1025,7 @@ msgstr "Új címlista"
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 #: templates/settings.php:59
 msgid "Description"

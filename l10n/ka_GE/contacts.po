@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr ""
 
 #: ajax/categories/delete.php:19
 msgid "No categories selected for deletion."
-msgstr ""
+msgstr "სარედაქტირებელი კატეგორია არ არის არჩეული "
 
 #: ajax/categories/delete.php:26
 msgid "No address books found."
@@ -171,29 +171,29 @@ msgstr ""
 
 #: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
-msgstr ""
+msgstr "ჭოცდომა არ დაფიქსირდა, ფაილი წარმატებით აიტვირთა"
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
+msgstr "ატვირთული ფაილი აჭარბებს upload_max_filesize დირექტივას php.ini ფაილში"
 
 #: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
+msgstr "ატვირთული ფაილი აჭარბებს  MAX_FILE_SIZE დირექტივას, რომელიც მითითებულია HTML ფორმაში"
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "ატვირთული ფაილი მხოლოდ ნაწილობრივ აიტვირთა"
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
-msgstr ""
+msgstr "ფაილი არ აიტვირთა"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "დროებითი საქაღალდე არ არსებობს"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
@@ -236,7 +236,7 @@ msgstr ""
 #: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
 #: js/settings.js:113
 msgid "Error"
-msgstr ""
+msgstr "შეცდომა"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
@@ -331,7 +331,7 @@ msgstr ""
 
 #: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr ""
+msgstr "ასატვირთი ფაილი ძალიან დიდია"
 
 #: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
@@ -349,15 +349,15 @@ msgstr ""
 
 #: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "თქვენი ფაილის ატვირთვა ვერ მოხერხდა. ის არის საქაღალდე და შეიცავს 0 ბაიტს"
 
 #: js/contacts.js:2170
 msgid "Upload Error"
-msgstr ""
+msgstr "შეცდომა ატვირთვისას"
 
 #: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "მოცდის რეჟიმში"
 
 #: js/contacts.js:2257
 msgid "Import done"
@@ -520,7 +520,7 @@ msgstr "სახლი"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
-msgstr ""
+msgstr "სხვა"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -608,11 +608,11 @@ msgstr "იმპორტი"
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "პარამეტრები"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
 
 #: templates/index.php:31
 msgid "Keyboard shortcuts"
@@ -1002,11 +1002,11 @@ msgstr "უფრო მეტი ინფორმაცია"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "პირველადი მისამართი (Kontact et al)"
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:9
 msgid "Addressbooks"
@@ -1014,7 +1014,7 @@ msgstr "მისამართის წიგნები"
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "გაზიარება"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1022,7 +1022,7 @@ msgstr "ახალი მისამართების წიგნი"
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #: templates/settings.php:59
 msgid "Description"

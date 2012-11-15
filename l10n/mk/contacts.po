@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/owncloud/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -258,7 +258,7 @@ msgstr "Одбери тип"
 
 #: js/contacts.js:215
 msgid "Select photo"
-msgstr ""
+msgstr "Одбери фотографија"
 
 #: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
@@ -332,33 +332,33 @@ msgstr ""
 
 #: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr ""
+msgstr "Фајлот кој се вчитува е преголем"
 
 #: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "Само слики можат да бидат искористени како фотографија за профилот."
 
 #: js/contacts.js:2106
 msgid "Wrong file type"
-msgstr ""
+msgstr "Погрешен тип на фајл"
 
 #: js/contacts.js:2112
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "Вашиот прелистувач не подржува AJAX преземања. Ве молиме кликнете на сликата за профилот да ја изберете фотографијата за преземање."
 
 #: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Не може да се преземе вашата датотека бидејќи фолдерот во кој се наоѓа фајлот има големина од 0 бајти"
 
 #: js/contacts.js:2170
 msgid "Upload Error"
-msgstr ""
+msgstr "Грешка при преземање"
 
 #: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "Чека"
 
 #: js/contacts.js:2257
 msgid "Import done"
@@ -394,7 +394,7 @@ msgstr "неуспешно."
 
 #: js/settings.js:76
 msgid "Displayname cannot be empty."
-msgstr ""
+msgstr "Прикажаното име не може да биде празно."
 
 #: js/settings.js:98 templates/settings.php:25
 msgid "Show CardDav link"
@@ -521,7 +521,7 @@ msgstr "Дома"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
-msgstr ""
+msgstr "Останато"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -609,7 +609,7 @@ msgstr "Внеси"
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Параметри"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
@@ -1015,7 +1015,7 @@ msgstr "Адресари"
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "Сподели"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1023,7 +1023,7 @@ msgstr "Нов адресар"
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: templates/settings.php:59
 msgid "Description"

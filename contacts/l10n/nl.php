@@ -126,6 +126,8 @@
 "Video" => "Video",
 "Pager" => "Pieper",
 "Internet" => "Internet",
+"Friends" => "Vrienden",
+"Family" => "Familie",
 "{name}'s Birthday" => "{name}'s verjaardag",
 "Contact" => "Contact",
 "You do not have the permissions to add contacts to this addressbook." => "U kunt geen contact personen toevoegen aan dit adresboek.",

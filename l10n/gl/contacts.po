@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -258,7 +258,7 @@ msgstr "Seleccione tipo"
 
 #: js/contacts.js:215
 msgid "Select photo"
-msgstr ""
+msgstr "Seleccione fotografía"
 
 #: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
@@ -332,33 +332,33 @@ msgstr ""
 
 #: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr ""
+msgstr "Subida demasiado grande"
 
 #: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "Só se poden usar ficheiros de imaxe como foto de perfil."
 
 #: js/contacts.js:2106
 msgid "Wrong file type"
-msgstr ""
+msgstr "Tipo de ficheiro incorrecto"
 
 #: js/contacts.js:2112
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "O seu navegador non soporta a subida AJAX. Por favor pinche na foto de perfil para seleccionar unha foto para subir."
 
 #: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Non se puido subir o ficheiro pois ou é un directorio ou ten 0 bytes"
 
 #: js/contacts.js:2170
 msgid "Upload Error"
-msgstr ""
+msgstr "Erro na subida"
 
 #: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "Pendentes"
 
 #: js/contacts.js:2257
 msgid "Import done"
@@ -374,7 +374,7 @@ msgstr ""
 
 #: js/contacts.js:2292
 msgid "Importing..."
-msgstr ""
+msgstr "Importando..."
 
 #: js/contacts.js:2313
 msgid "The address book name cannot be empty."
@@ -394,7 +394,7 @@ msgstr " fallou."
 
 #: js/settings.js:76
 msgid "Displayname cannot be empty."
-msgstr ""
+msgstr "Displayname non pode estar baldeiro."
 
 #: js/settings.js:98 templates/settings.php:25
 msgid "Show CardDav link"
@@ -521,7 +521,7 @@ msgstr "Casa"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
-msgstr ""
+msgstr "Outro"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -609,7 +609,7 @@ msgstr "Importar"
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Preferencias"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
@@ -1015,7 +1015,7 @@ msgstr "Axendas"
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "Compartir"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1023,7 +1023,7 @@ msgstr "Nova axenda"
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: templates/settings.php:59
 msgid "Description"

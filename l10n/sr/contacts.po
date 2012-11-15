@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr ""
 
 #: ajax/categories/delete.php:19
 msgid "No categories selected for deletion."
-msgstr ""
+msgstr "Ни једна категорија није означена за брисање."
 
 #: ajax/categories/delete.php:26
 msgid "No address books found."
@@ -171,29 +171,29 @@ msgstr ""
 
 #: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
-msgstr ""
+msgstr "Нема грешке, фајл је успешно послат"
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
+msgstr "Послати фајл превазилази директиву upload_max_filesize из "
 
 #: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
+msgstr "Послати фајл превазилази директиву MAX_FILE_SIZE која је наведена у ХТМЛ форми"
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Послати фајл је само делимично отпремљен!"
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Ниједан фајл није послат"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "Недостаје привремена фасцикла"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
@@ -236,7 +236,7 @@ msgstr ""
 #: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
 #: js/settings.js:113
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
@@ -331,7 +331,7 @@ msgstr ""
 
 #: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr ""
+msgstr "Пошиљка је превелика"
 
 #: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
@@ -349,15 +349,15 @@ msgstr ""
 
 #: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Није могуће послати датотеку или зато што је директоријуму или јој је величина 0 бајта"
 
 #: js/contacts.js:2170
 msgid "Upload Error"
-msgstr ""
+msgstr "Грешка у слању"
 
 #: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "На чекању"
 
 #: js/contacts.js:2257
 msgid "Import done"
@@ -520,7 +520,7 @@ msgstr "Кућа"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
-msgstr ""
+msgstr "Друго"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -604,15 +604,15 @@ msgstr "Додај контакт"
 
 #: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
-msgstr ""
+msgstr "Увези"
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Подешавања"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
-msgstr ""
+msgstr "Затвори"
 
 #: templates/index.php:31
 msgid "Keyboard shortcuts"
@@ -721,7 +721,7 @@ msgstr ""
 
 #: templates/part.contact.php:47 templates/part.contact.php:135
 msgid "Groups"
-msgstr ""
+msgstr "Групе"
 
 #: templates/part.contact.php:49
 msgid "Separate groups with commas"
@@ -1014,7 +1014,7 @@ msgstr "Адресар"
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "Дељење"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1022,7 +1022,7 @@ msgstr "Нови адресар"
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: templates/settings.php:59
 msgid "Description"

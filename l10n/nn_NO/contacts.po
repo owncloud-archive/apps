@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -172,29 +172,29 @@ msgstr ""
 
 #: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
-msgstr ""
+msgstr "Ingen feil, fila vart lasta opp"
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
+msgstr "Den opplasta fila er større enn variabelen upload_max_filesize i php.ini"
 
 #: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
+msgstr "Den opplasta fila er større enn variabelen MAX_FILE_SIZE i HTML-skjemaet"
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Fila vart berre delvis lasta opp"
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Ingen filer vart lasta opp"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "Manglar ei mellombels mappe"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
@@ -237,7 +237,7 @@ msgstr ""
 #: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
 #: js/settings.js:113
 msgid "Error"
-msgstr ""
+msgstr "Feil"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
@@ -332,7 +332,7 @@ msgstr ""
 
 #: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr ""
+msgstr "For stor opplasting"
 
 #: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
@@ -521,7 +521,7 @@ msgstr "Heime"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
-msgstr ""
+msgstr "Anna"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -605,15 +605,15 @@ msgstr "Legg til kontakt"
 
 #: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Innstillingar"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
-msgstr ""
+msgstr "Lukk"
 
 #: templates/index.php:31
 msgid "Keyboard shortcuts"
@@ -722,7 +722,7 @@ msgstr ""
 
 #: templates/part.contact.php:47 templates/part.contact.php:135
 msgid "Groups"
-msgstr ""
+msgstr "Grupper"
 
 #: templates/part.contact.php:49
 msgid "Separate groups with commas"
@@ -1023,7 +1023,7 @@ msgstr "Ny adressebok"
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 #: templates/settings.php:59
 msgid "Description"

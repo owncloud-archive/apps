@@ -126,6 +126,8 @@
 "Video" => "Video",
 "Pager" => "Personsökare",
 "Internet" => "Internet",
+"Friends" => "Vänner",
+"Family" => "Familj",
 "{name}'s Birthday" => "{name}'s födelsedag",
 "Contact" => "Kontakt",
 "You do not have the permissions to add contacts to this addressbook." => "Du har inte behörighet att lägga till kontakter i denna adressbok.",
