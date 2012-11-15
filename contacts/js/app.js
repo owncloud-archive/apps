@@ -52,19 +52,6 @@ utils.moveCursorToEnd = function(el) {
 	}
 }
 
-function AssertException(message) { this.message = message; }
-AssertException.prototype.toString = function () {
-	return 'AssertException: ' + this.message;
-}
-
-// Usage: assert(obj != null, 'Object is null');
-function assert(exp, message) {
-	if (!exp) {
-		throw new AssertException(message);
-	}
-}
-
-
 if (typeof Object.create !== 'function') {
 	Object.create = function (o) {
 		function F() {}
