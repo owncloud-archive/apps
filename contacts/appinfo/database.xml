@@ -152,6 +152,14 @@
 		</field>
 
 		<field>
+			<name>userid</name>
+			<type>text</type>
+			<default></default>
+			<notnull>true</notnull>
+			<length>255</length>
+		</field>
+
+		<field>
 			<name>contactid</name>
 			<type>integer</type>
 			<default></default>
@@ -183,6 +191,22 @@
 			<notnull>true</notnull>
 			<length>4</length>
 		</field>
+
+		<index>
+			<name>name_index</name>
+			<field>
+				<name>name</name>
+				<sorting>ascending</sorting>
+			</field>
+		</index>
+
+		<index>
+			<name>value_index</name>
+			<field>
+				<name>value</name>
+				<sorting>ascending</sorting>
+			</field>
+		</index>
 
 		</declaration>
 	</table>
