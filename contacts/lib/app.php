@@ -29,6 +29,11 @@ class App {
 	 */
 	public static $multi_properties = array('EMAIL', 'TEL', 'IMPP', 'ADR', 'URL');
 
+	/**
+	 * Properties to index.
+	 */
+	public static $index_properties = array('FN', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL');
+
 	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
 	const THUMBNAIL_SIZE = 28;
 
@@ -336,8 +341,12 @@ class App {
 			return;
 		}
 
-		$stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards_properties` (`contactid`,`name`,`value`,`preferred`) VALUES(?,?,?,?)' );
+		$stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards_properties` '
+			. '(`userid`, `contactid`,`name`,`value`,`preferred`) VALUES(?,?,?,?,?)' );
 		foreach($vcard->children as $property) {
+			if(!in_array($property->name, self::$index_properties)) {
+				continue;
+			}
 			$preferred = false;
 			foreach($property->parameters as $parameter) {
 				if($parameter->name == 'TYPE' && strtoupper($parameter->value) == 'PREF') {
@@ -346,9 +355,18 @@ class App {
 				}
 			}
 			try {
-				$result = $stmt->execute(array($contactid, $property->name, $property->value, $preferred));
+				$result = $stmt->execute(
+					array(
+						\OCP\User::getUser(), 
+						$contactid, 
+						$property->name, 
+						$property->value, 
+						$preferred,
+					)
+				);
 				if (\OC_DB::isError($result)) {
-					\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+					\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: ' 
+						. \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 					return false;
 				}
 			} catch(\Exception $e) {

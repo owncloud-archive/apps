@@ -1,6 +1,7 @@
 <div id='notification'></div>
 <div id="appsettings" class="popup topright hidden"></div>
 <script type='text/javascript'>
+	var is_indexed = <?php echo $_['is_indexed'] == 'yes' ? 'true' : 'false'; ?>;
 	var totalurl = '<?php echo OCP\Util::linkToRemote('carddav'); ?>addressbooks';
 	var categories = <?php echo json_encode($_['categories']); ?>;
 	var id = '<?php echo $_['id']; ?>';

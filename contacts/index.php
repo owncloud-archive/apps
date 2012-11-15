@@ -77,4 +77,5 @@ $tmpl->assign('categories', $categories, false);
 $tmpl->assign('im_protocols', $im_protocols, false);
 $tmpl->assign('has_contacts', $has_contacts, false);
 $tmpl->assign('id', $id);
+$tmpl->assign('is_indexed', OCP\Config::getUserValue(OCP\User::getUser(), 'contacts', 'contacts_indexed', 'no'));
 $tmpl->printPage();
