@@ -1117,10 +1117,10 @@ OC.Contacts = OC.Contacts || {
 			if(self.currentid) {
 				console.assert(utils.isUInt(self.currentid), 'self.currentid is not an integer');
 				self.Contacts.delayedDelete(self.currentid);
-				self.showActions(['addcontact']);
 			} else {
 				self.Contacts.delayedDelete(self.Contacts.getSelectedContacts());
 			}
+			self.showActions(['addcontact']);
 		});
 
 		this.$header.on('click keydown', '.download', function(event) {
