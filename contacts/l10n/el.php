@@ -126,6 +126,8 @@
 "Video" => "Βίντεο",
 "Pager" => "Βομβητής",
 "Internet" => "Διαδίκτυο",
+"Friends" => "Φίλοι",
+"Family" => "Οικογένεια",
 "{name}'s Birthday" => "Τα Γεννέθλια του/της {name}",
 "Contact" => "Επαφή",
 "You do not have the permissions to add contacts to this addressbook." => "Δεν έχετε δικαιώματα να προσθέσετε επαφές σε αυτό το βιβλίο διευθύνσεων.",
