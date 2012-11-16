@@ -179,7 +179,6 @@ OC.Contacts = OC.Contacts || {};
 				return false;
 			}
 			if(jsondata.status == 'success') {
-				console.log(self.data[element]);
 				if(!self.data[element]) {
 					self.data[element] = [];
 				}
@@ -219,19 +218,26 @@ OC.Contacts = OC.Contacts || {};
 							self.$listelem.find('.nametext').text(value);
 							var nempty = true;
 							if(!self.data.N) {
-								self.data.N = [];
+								// TODO: Maybe add a method for constructing new elements?
+								self.data.N = [{name:'N',value:['', '', '', '', ''],parameters:[]}];
 							}
-							for(var i in self.data.N[0]['value']) {
-								if(self.data.N[0]['value'][i] != '') {
+							$.each(self.data.N[0]['value'], function(idx, val) {
+								if(val) {
 									nempty = false;
-									break;
+									return false;
 								}
-							}
+							});
 							if(nempty) {
-								self.N[0]['value'] = [value, '', '', '', ''];
+								self.data.N[0]['value'] = ['', '', '', '', ''];
+								value = value.split(' ');
+								// Very basic western style parsing. I'm not gonna implement
+								// https://github.com/android/platform_packages_providers_contactsprovider/blob/master/src/com/android/providers/contacts/NameSplitter.java ;)
+								self.data.N[0]['value'][0] = value.length > 2 && value.slice(value.length-1).toString() || value[1] || '';
+								self.data.N[0]['value'][1] = value[0] || '';
+								self.data.N[0]['value'][2] = value.length > 2 && value.slice(1, value.length-1).join(' ') || '';
 								setTimeout(function() {
 									// TODO: Hint to user to check if name is properly formatted
-									self.saveProperty({name:'N', value:this.data.N[0].value.join(';')})}
+									self.saveProperty({name:'N', value:self.data.N[0].value.join(';')})}
 								, 500);
 							}
 							$(document).trigger('status.contact.renamed', {
