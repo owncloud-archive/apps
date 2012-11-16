@@ -1069,22 +1069,6 @@ OC.Contacts = OC.Contacts || {};
 		return this.contacts[parseInt(id)];
 	};
 
-	ContactList.prototype.warnNotDeleted = function(e) {
-		e = e || window.event;
-		var warn = t('contacts', 'Some contacts are marked for deletion, but not deleted yet. Please wait for them to be deleted.');
-		if (e) {
-			e.returnValue = String(warn);
-		}
-		if(OC.Contacts.Contacts.deletionQueue.length > 0) {
-			// This is run almost instantly. It's just to allow us to
-			// show the warning. Only shows in Chrome afaik...
-			setTimeout(function() {
-				this.deleteContacts();
-			}, 1);
-		}
-		return warn;
-	}
-
 	ContactList.prototype.delayedDelete = function(id) {
 		var self = this;
 		if(utils.isUInt(id)) {
@@ -1101,7 +1085,14 @@ OC.Contacts = OC.Contacts || {};
 		});
 		console.log('deletionQueue', this.deletionQueue);
 		if(!window.onbeforeunload) {
-			window.onbeforeunload = this.warnNotDeleted;
+			window.onbeforeunload = function(e) {
+				e = e || window.event;
+				var warn = t('contacts', 'Some contacts are marked for deletion, but not deleted yet. Please wait for them to be deleted.');
+				if (e) {
+					e.returnValue = String(warn);
+				}
+				return warn;
+			}
 		}
 		if(this.$contactList.find('tr:visible').length === 0) {
 			$(document).trigger('status.visiblecontacts');
