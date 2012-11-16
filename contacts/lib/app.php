@@ -52,7 +52,7 @@ class App {
 		$vcard = \OC_VObject::parse($card['carddata']);
 		if (!is_null($vcard) && !isset($vcard->REV)) {
 			$rev = new \DateTime('@'.$card['lastmodified']);
-			$vcard->setString('REV', $rev->format(DateTime::W3C));
+			$vcard->setString('REV', $rev->format(\DateTime::W3C));
 		}
 		return $vcard;
 	}
