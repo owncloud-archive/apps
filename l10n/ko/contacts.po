@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -258,7 +258,7 @@ msgstr "유형 선택"
 
 #: js/contacts.js:215
 msgid "Select photo"
-msgstr ""
+msgstr "사진 선택"
 
 #: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
@@ -332,33 +332,33 @@ msgstr ""
 
 #: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr ""
+msgstr "업로드 용량 초과"
 
 #: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "이미지 파일만 프로필 사진으로 사용 될 수 있습니다."
 
 #: js/contacts.js:2106
 msgid "Wrong file type"
-msgstr ""
+msgstr "옳지 않은 파일 형식"
 
 #: js/contacts.js:2112
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "브라우저가 AJAX 업로드를 지원하지 않습니다. 업로드할 사진을 선택하려면 프로필 사진을 클릭하세요."
 
 #: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "이 파일은 디렉토리이거나 0 바이트이기 때문에 업로드 할 수 없습니다."
 
 #: js/contacts.js:2170
 msgid "Upload Error"
-msgstr ""
+msgstr "업로드 에러"
 
 #: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "보류 중"
 
 #: js/contacts.js:2257
 msgid "Import done"
