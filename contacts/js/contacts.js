@@ -145,7 +145,7 @@ OC.Contacts = OC.Contacts || {};
 		console.log('Contact.saveProperty', params);
 		if(!this.id) {
 			var self = this;
-			this.add({}, function(response) {
+			this.add({isnew:true}, function(response) {
 				if(!response || response.status === 'error') {
 					console.log('No response object');
 					return false;

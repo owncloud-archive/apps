@@ -35,14 +35,11 @@ if(!$aid) {
 debug('Adding new contact to: ' . $aid);
 
 $isnew = isset($_POST['isnew']) ? $_POST['isnew'] : false;
-$fn = trim($_POST['fn']);
-$n = trim($_POST['n']);
 
 $vobject = Sabre\VObject\Component::create('VCARD');
 debug('vobject: ', print_r($vobject->serialize(), true));
 $vcard = new OC_VObject($vobject);
 $vcard->setUID();
-$vcard->setString('FN', $fn);
 
 $id = null;
 try {
