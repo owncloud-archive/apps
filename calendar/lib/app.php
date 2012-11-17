@@ -61,7 +61,7 @@ class OC_Calendar_App{
 		$event = OC_Calendar_Object::find($id);
 		if($shared === true || $security === true) {
 			$permissions = self::getPermissions($id, self::EVENT);
-			OCP\Util::writeLog('contacts', __METHOD__.' id: '.$id.', permissions: '.$permissions, OCP\Util::DEBUG);
+			OCP\Util::writeLog('calendar', __METHOD__.' id: '.$id.', permissions: '.$permissions, OCP\Util::DEBUG);
 			if(self::getPermissions($id, self::EVENT)) {
 				return $event;
 			}
