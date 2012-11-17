@@ -126,6 +126,8 @@
 "Video" => "视频",
 "Pager" => "传呼机",
 "Internet" => "互联网",
+"Friends" => "朋友",
+"Family" => "家庭",
 "{name}'s Birthday" => "{name} 的生日",
 "Contact" => "联系人",
 "You do not have the permissions to add contacts to this addressbook." => "您没有权限增加联系人到此地址簿",
