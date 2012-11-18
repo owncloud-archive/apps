@@ -131,6 +131,11 @@ class Updater {
 			\OC_Helper::rmdirr($backupBase);
 		}
                 
+		// Disable removed apps
+		foreach (self::getAppsToRemove() as $appId) {
+			\OC_App::disable($appId);
+		}
+                
 		return true;
 	}
 
