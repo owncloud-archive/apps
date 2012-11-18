@@ -32,7 +32,7 @@ class Updater {
 		    $ver = $ver[0];
 		} else {
                     $ver = $version;
-                }
+		}
 		//  read the list of shipped apps
                 $appLocation = $sources[Helper::APP_DIRNAME];
                 $shippedApps = array_keys(Helper::getFilteredContent($appLocation));
@@ -87,7 +87,7 @@ class Updater {
                 
                 return self::$locations;
                                 
-        }
+	}
         
 	public static function update($version, $backupBase) {
 		if (!is_dir($backupBase)) {
@@ -125,7 +125,7 @@ class Updater {
 		
 		// zip backup 
 		$zip = new \ZipArchive();
-		if ($zip->open($backupBase . ".zip", \ZIPARCHIVE::CREATE)===TRUE) {
+		if ($zip->open($backupBase . ".zip", \ZIPARCHIVE::CREATE)===true) {
 			Helper::addDirectoryToZip($zip, $backupBase, $backupBase);
 			$zip->close();
 			\OC_Helper::rmdirr($backupBase);
