@@ -6,12 +6,15 @@
 
 <div id="sidebar">
 	<ul class="cat_titles">
-		<li><i class="star important"></i> Favorite</li>
-		<li>My Contacts</li>
-		<li>Events</li>
-		<li>My places
-			<ul id="pts_myplaces"></ul>
-		</li>
+		<?php foreach($_['category'] as $cat):?>
+			<li>
+				<?php if(isset($cat['icon'])):?>
+					<i class="<?php echo $cat['icon'];?>"></i>
+				<? endif;?>
+				<?php echo $cat['name'];?>
+				<ul id="pts_<?php echo $cat['id'];?>" class="sub_category"></ul>
+			</li>
+		<?php endforeach;?>
 	</ul>
 </div>
 
@@ -28,7 +31,7 @@
 	<form id="new_pnt">
 		<label for="pt_name"><?php echo $l->t('Name');?></label> <input name="pt_name" placeholder="<?php echo $l->t('Name');?>" /><br />
 		<label for="pt_type"><?php echo $l->t('Type');?></label> <select name="pt_type">
-			<option value="places"><?php echo $l->t('Places');?></option>
+			<option value="place"><?php echo $l->t('Places');?></option>
 			<option value="home"><?php echo $l->t('Home');?></option>
 		</select><br />
 		<input type="submit" value="<?php echo $l->t('Save');?>"/>

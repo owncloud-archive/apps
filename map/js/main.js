@@ -108,14 +108,15 @@ function addItemToMap(item) {
 		.text(item.name)
 		.append('<span> ~ '+getDistanceReadable([item.lat,item.lon])+'</span>')
 		.click(onSidebarPointClick);
-	$('#pts_myplaces').append(li_item);
+		console.log(li_item);
+	$('#pts_'+item.type).append(li_item);
 	
 	L.marker([item.lat, item.lon]).addTo(map)
 		.bindPopup('This is '+ item.type + " named "+ item.name);
 }
 
 function updateDistance() {
-	$('#pts_myplaces li').each(function () {
+	$('ul.sub_category li').each(function () {
 		var pt = points[$(this).data('id')];
 		$(this).find('span').text('~ ' + getDistanceReadable([pt.lat, pt.lon]));
 	});

@@ -47,16 +47,16 @@
 
 /***** TEEEEEMP -*****/
 
-#pts_myplaces
+ul.sub_category
 {
-	height: 200px;
-	overflow-y: scroll;
+	max-height: 200px;
+	overflow-y: auto;
 	font-size:small;
 	font-weight:normal;
 	padding-left: 0.5em;
 }
 
-#pts_myplaces li span
+ul.sub_category li span
 {
 	color: gray;
 	font-size:x-small;

@@ -16,4 +16,11 @@ OCP\Util::addStyle('map', 'main');
 OCP\Util::addscript('map', 'main');
 $items = OC_Map::findAll();
 $tmpl->assign( 'map_item', $items );
+$tmpl->assign( 'category', array(
+	array('name'=> 'Favorite', 'id' => 'fav', 'icon'=> 'star important'),
+	array('name'=> 'My Contacts', 'id' => 'contact'),
+	array('name'=> 'Events', 'id' => 'event'),
+	array('name'=> 'My places', 'id' => 'place'),
+)
+ );
 $tmpl->printPage();
