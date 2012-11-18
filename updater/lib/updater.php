@@ -127,7 +127,7 @@ class Updater {
 		$zip = new \ZipArchive();
 		if ($zip->open($backupBase . ".zip", \ZIPARCHIVE::CREATE)===TRUE) {
 			Helper::addDirectoryToZip($zip, $backupBase, $backupBase);
-			$zip->close;
+			$zip->close();
 			\OC_Helper::rmdirr($backupBase);
 		}
                 
