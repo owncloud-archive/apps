@@ -17,7 +17,7 @@ class Updater {
 	protected static $processed = array();
 	protected static $locations = array();
 
-        public static function prepare($version) {
+	public static function prepare($version) {
 		$tempDir = self::getTempDir();
                 
  		$sources = Helper::getSources($version);
@@ -26,7 +26,7 @@ class Updater {
                 
 		if (preg_match('/^\d+\.\d+/', $version, $ver)) {
 		    $ver = $ver[0];
-                } else {
+		} else {
                     $ver = $version;
                 }
 		//  read the list of shipped apps
@@ -52,10 +52,10 @@ class Updater {
 					//skip compatible, not shipped apps
 					if (strpos($type, Helper::APP_DIRNAME) ===0 
 						&& !in_array($name, $shippedApps)
-                                        ) {
+					) {
 						//Read compatibility info
 						$info = \OC_App::getAppInfo($name);
-						if (isset($info['require']) && version_compare($ver, $info['require'])>=0){
+						if (isset($info['require']) && version_compare($ver, $info['require'])>=0) {
 							continue;
 						}
 					}
