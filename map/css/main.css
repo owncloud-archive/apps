@@ -4,7 +4,9 @@
 	width: 200px;
 	height: 300px;
 	top: 100px;
-	left: 50px;
+/* 	left: 50px; */
+	border: 1px solid #CCCCCC;
+	box-shadow: -3px 0 7px #000000;
 	background-color: white;
 	opacity: 0.85;
 	padding: 0.5em;

@@ -17,7 +17,7 @@ function geoCode(address, callback) {
 }
 
 function displaySearchAddress(data) {
-	console.log(data[0]);
+	console.debug(data[0]);
 	var markerLocation = new L.LatLng(data[0].lat, data[0].lon);
 	setCenter(markerLocation);
 	var marker = new L.Marker(markerLocation);
@@ -114,6 +114,13 @@ function addItemToMap(item) {
 		.bindPopup('This is '+ item.type + " named "+ item.name);
 }
 
+function updateDistance() {
+	$('#pts_myplaces li').each(function () {
+		var pt = points[$(this).data('id')];
+		$(this).find('span').text('~ ' + getDistanceReadable([pt.lat, pt.lon]));
+	});
+}
+
 function putMapPosition() {
 	center = map.getCenter();
 	document.cookie='lat='+center.lat;
@@ -162,6 +169,7 @@ function loadMap() {
 	$("#search_launch").bind('click',onSearch);
 	$("#search_field form").bind('submit',onSearch);
 	map.on('click', onMapClick);
+	map.on('move', updateDistance);
 	loadItems();
 }
 
