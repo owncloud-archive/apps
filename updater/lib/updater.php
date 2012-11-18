@@ -16,13 +16,17 @@ class Updater {
 
 	protected static $processed = array();
 	protected static $locations = array();
+	protected static $appsToRemove = array();
 
+	public static function getAppsToRemove() {
+		return self::$appsToRemove;
+	}
+                
 	public static function prepare($version) {
 		$tempDir = self::getTempDir();
                 
  		$sources = Helper::getSources($version);
 		$destinations = Helper::getDirectories();
-                
                 
 		if (preg_match('/^\d+\.\d+/', $version, $ver)) {
 		    $ver = $ver[0];
@@ -33,6 +37,7 @@ class Updater {
                 $appLocation = $sources[Helper::APP_DIRNAME];
                 $shippedApps = array_keys(Helper::getFilteredContent($appLocation));
 
+                self::$appsToRemove = array();
 		try {
 			$locations = Helper::getPreparedLocations();
 			foreach ($locations as $type => $dirs) {
@@ -50,7 +55,7 @@ class Updater {
                                 // Collect old sources
 				foreach ($dirs as $name => $path) {
 					//skip compatible, not shipped apps
-					if (strpos($type, Helper::APP_DIRNAME) ===0 
+					if (strpos($type, Helper::APP_DIRNAME) === 0 
 						&& !in_array($name, $shippedApps)
 					) {
 						//Read compatibility info
@@ -58,6 +63,7 @@ class Updater {
 						if (isset($info['require']) && version_compare($ver, $info['require'])>=0) {
 							continue;
 						}
+						self::$appsToRemove[] = $name;
 					}
 					self::$locations[] = array (
 						'src' => $path,
