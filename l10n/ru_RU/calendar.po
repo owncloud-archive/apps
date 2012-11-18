@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-16 00:01+0100\n"
-"PO-Revision-Date: 2012-11-15 11:37+0000\n"
+"POT-Creation-Date: 2012-11-17 00:01+0100\n"
+"PO-Revision-Date: 2012-11-16 07:18+0000\n"
 "Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -597,7 +597,7 @@ msgstr "Сохранить"
 #: templates/part.editcalendar.php:42 templates/part.editevent.php:8
 #: templates/part.newevent.php:6
 msgid "Submit"
-msgstr "Отправить"
+msgstr "Принять"
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"

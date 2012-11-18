@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-16 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:15+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-18 00:01+0100\n"
+"PO-Revision-Date: 2012-11-17 09:09+0000\n"
+"Last-Translator: hanfeng <appweb.cn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -560,11 +560,11 @@ msgstr "互联网"
 
 #: lib/app.php:251
 msgid "Friends"
-msgstr ""
+msgstr "朋友"
 
 #: lib/app.php:252
 msgid "Family"
-msgstr ""
+msgstr "家庭"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
