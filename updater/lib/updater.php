@@ -117,8 +117,13 @@ class Updater {
 		$config = "/" . Helper::CORE_DIRNAME . "/config/config.php";
 		copy($backupBase . $config, \OC::$SERVERROOT . $config);
 		
-        //TODO: disable removed apps
-		
+		// zip backup 
+		$zip = new \ZipArchive();
+		if ($zip->open($backupBase . ".zip", \ZIPARCHIVE::CREATE)===TRUE) {
+			Helper::addDirectoryToZip($zip, $backupBase, $backupBase);
+			$zip->close;
+		}
+                
 		return true;
 	}
 
