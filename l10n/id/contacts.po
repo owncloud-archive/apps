@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr ""
 
 #: ajax/categories/delete.php:19
 msgid "No categories selected for deletion."
-msgstr ""
+msgstr "Tidak ada kategori terpilih untuk penghapusan."
 
 #: ajax/categories/delete.php:26
 msgid "No address books found."
@@ -131,7 +131,7 @@ msgstr ""
 
 #: ajax/oc_photo.php:39
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "file tidak ditemukan:"
 
 #: ajax/oc_photo.php:44 ajax/oc_photo.php:47
 msgid "Error loading image."
@@ -171,29 +171,29 @@ msgstr ""
 
 #: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
-msgstr ""
+msgstr "Tidak ada galat, berkas sukses diunggah"
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
+msgstr "File yang diunggah melampaui directive upload_max_filesize di php.ini"
 
 #: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
+msgstr "File yang diunggah melampaui directive MAX_FILE_SIZE yang disebutan dalam form HTML."
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Berkas hanya diunggah sebagian"
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Tidak ada berkas yang diunggah"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "Kehilangan folder temporer"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
@@ -236,7 +236,7 @@ msgstr ""
 #: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
 #: js/settings.js:113
 msgid "Error"
-msgstr ""
+msgstr "kesalahan"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
@@ -349,15 +349,15 @@ msgstr ""
 
 #: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Gagal mengunggah berkas anda karena berupa direktori atau mempunyai ukuran 0 byte"
 
 #: js/contacts.js:2170
 msgid "Upload Error"
-msgstr ""
+msgstr "Terjadi Galat Pengunggahan"
 
 #: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "Menunggu"
 
 #: js/contacts.js:2257
 msgid "Import done"
@@ -373,7 +373,7 @@ msgstr ""
 
 #: js/contacts.js:2292
 msgid "Importing..."
-msgstr ""
+msgstr "mengimpor..."
 
 #: js/contacts.js:2313
 msgid "The address book name cannot be empty."
@@ -520,7 +520,7 @@ msgstr "rumah"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
-msgstr ""
+msgstr "Lainnya"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -604,15 +604,15 @@ msgstr "tambah kontak"
 
 #: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
-msgstr ""
+msgstr "impor"
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "pengaturan"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
-msgstr ""
+msgstr "tutup"
 
 #: templates/index.php:31
 msgid "Keyboard shortcuts"
@@ -998,7 +998,7 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr ""
+msgstr "lebih lanjut"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
@@ -1006,7 +1006,7 @@ msgstr ""
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:9
 msgid "Addressbooks"
@@ -1014,7 +1014,7 @@ msgstr "buku alamat"
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "berbagi"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1022,7 +1022,7 @@ msgstr ""
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "nama"
 
 #: templates/settings.php:59
 msgid "Description"

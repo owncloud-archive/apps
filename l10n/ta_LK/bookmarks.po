@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <suganthi@nic.lk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 17:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-17 00:01+0100\n"
+"PO-Revision-Date: 2012-11-16 16:29+0000\n"
+"Last-Translator: suganthi <suganthi@nic.lk>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "இறக்குமதிக்கு ஆதரவளிக்காத கோப்பு வகை"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
@@ -27,19 +28,19 @@ msgstr "பக்க அடையாளங்கள்"
 
 #: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
-msgstr ""
+msgstr "சீட்டுகள்"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr ""
+msgstr "சீட்டுகளால் வடிகட்டுக"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
-msgstr ""
+msgstr "பக்க அடையாளத் தொகுக்க "
 
 #: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
-msgstr ""
+msgstr "ஒவ்வொரு நுழைவின் போதும் இந்த சீட்டை கட்டாயம் அகற்ற வேண்டுமா?"
 
 #: js/bookmarks.js:370
 msgid "Warning"
@@ -47,19 +48,19 @@ msgstr "எச்சரிக்கை"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "இறக்குமதி வெற்றிகரமாக நிறைவேற்றப்பட்டது."
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "பதிவேற்றல்..."
 
 #: lib/search.php:38
 msgid "Bookm."
-msgstr ""
+msgstr "பக்க அடையாளங்கள்"
 
 #: templates/addBm.php:11
 msgid "Add a bookmark"
-msgstr ""
+msgstr "பக்க அடையாளம் ஒன்றை சேர்க்க"
 
 #: templates/addBm.php:14
 msgid "Close"
@@ -67,15 +68,15 @@ msgstr "மூடுக"
 
 #: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
-msgstr ""
+msgstr "பக்கத்தி்ன் தலைப்பு"
 
 #: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
-msgstr ""
+msgstr "பக்கத்தின் முகவரி"
 
 #: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
-msgstr ""
+msgstr "பக்கத்தின் விவரிப்பு"
 
 #: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
@@ -97,15 +98,15 @@ msgstr "இரத்து செய்க"
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr ""
+msgstr "உங்களுக்கு ஒரு வலைய பக்கத்தை விரைவாக பக்க அடையாளப்படுத்துவதற்கு அதை உங்களுடைய உலாவியின் பக்க அடையாளங்களில் இழுத்து விட்டு சொடக்குக"
 
 #: templates/list.php:15
 msgid "Read later"
-msgstr ""
+msgstr "பிறகு வாசிக்க"
 
 #: templates/list.php:22
 msgid "Address"
-msgstr ""
+msgstr "முகவரி"
 
 #: templates/list.php:23
 msgid "Add"
@@ -113,7 +114,7 @@ msgstr "சேர்க்க"
 
 #: templates/list.php:31
 msgid "Related Tags"
-msgstr ""
+msgstr "தொடர்புபட்ட சீட்டுகள்"
 
 #: templates/list.php:39 templates/list.php:41
 msgid "Settings"
@@ -121,19 +122,19 @@ msgstr "அமைப்புகள்"
 
 #: templates/list.php:53
 msgid "You have no bookmarks"
-msgstr ""
+msgstr "உங்களிடம் பக்க அடையாளங்கள் இல்லை "
 
 #: templates/list.php:58
 msgid "You can also try to import a bookmark file"
-msgstr ""
+msgstr "நீங்களும் ஒரு பக்க அடையாள கோப்பை இறக்குமதி செய்ய முயற்சிக்கலாம்"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
-msgstr ""
+msgstr "பக்க அடையாளங்கள்"
 
 #: templates/settings.php:23
 msgid "Export & Import"
-msgstr ""
+msgstr "ஏற்றுமதி மற்றும் இறக்குமதி"
 
 #: templates/settings.php:24
 msgid "Export"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
@@ -171,21 +171,21 @@ msgstr ""
 
 #: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
-msgstr ""
+msgstr "Keen Feeler, Datei ass komplett ropgelueden ginn"
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
+msgstr "Déi ropgelueden Datei ass méi grouss wei d'upload_max_filesize Eegenschaft an der php.ini"
 
 #: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
+msgstr "Déi ropgelueden Datei ass méi grouss wei d'MAX_FILE_SIZE Eegenschaft déi an der HTML form uginn ass"
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Déi ropgelueden Datei ass nëmmen hallef ropgelueden ginn"
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
@@ -193,7 +193,7 @@ msgstr "Et ass kee Fichier ropgeluede ginn"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "Et feelt en temporären Dossier"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
@@ -349,11 +349,11 @@ msgstr ""
 
 #: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Kann deng Datei net eroplueden well et en Dossier ass oder 0 byte grouss ass."
 
 #: js/contacts.js:2170
 msgid "Upload Error"
-msgstr ""
+msgstr "Fehler beim eroplueden"
 
 #: js/contacts.js:2225
 msgid "Pending"
@@ -520,7 +520,7 @@ msgstr "Doheem"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
-msgstr ""
+msgstr "Aner"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -604,11 +604,11 @@ msgstr "Kontakt bäisetzen"
 
 #: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Astellungen"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
@@ -1014,7 +1014,7 @@ msgstr "Adressbicher "
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "Deelen"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1022,7 +1022,7 @@ msgstr "Neit Adressbuch"
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Numm"
 
 #: templates/settings.php:59
 msgid "Description"

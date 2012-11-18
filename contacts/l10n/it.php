@@ -126,6 +126,8 @@
 "Video" => "Video",
 "Pager" => "Cercapersone",
 "Internet" => "Internet",
+"Friends" => "Amici",
+"Family" => "Famiglia",
 "{name}'s Birthday" => "Data di nascita di {name}",
 "Contact" => "Contatto",
 "You do not have the permissions to add contacts to this addressbook." => "Non hai i permessi per aggiungere contatti a questa rubrica.",

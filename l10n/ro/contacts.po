@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -178,13 +178,13 @@ msgstr "Nu a apărut nici o eroare, fișierul a fost încărcat cu succes"
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
+msgstr "Fișierul are o dimensiune mai mare decât cea specificată în variabila upload_max_filesize din php.ini"
 
 #: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
+msgstr "Fișierul are o dimensiune mai mare decât variabile MAX_FILE_SIZE specificată în formularul HTML"
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
@@ -334,7 +334,7 @@ msgstr ""
 
 #: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr ""
+msgstr "Fișierul încărcat este prea mare"
 
 #: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
@@ -352,15 +352,15 @@ msgstr ""
 
 #: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Nu s-a putut încărca fișierul tău deoarece pare să fie un director sau are 0 bytes."
 
 #: js/contacts.js:2170
 msgid "Upload Error"
-msgstr ""
+msgstr "Eroare la încărcare"
 
 #: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "În așteptare"
 
 #: js/contacts.js:2257
 msgid "Import done"
@@ -376,7 +376,7 @@ msgstr ""
 
 #: js/contacts.js:2292
 msgid "Importing..."
-msgstr ""
+msgstr "Se importă..."
 
 #: js/contacts.js:2313
 msgid "The address book name cannot be empty."
@@ -1001,11 +1001,11 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr ""
+msgstr "mai multe informații"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "Adresa primară (Kontact et al)"
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
@@ -1017,7 +1017,7 @@ msgstr "Agende"
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "Partajează"
 
 #: templates/settings.php:57
 msgid "New Address Book"

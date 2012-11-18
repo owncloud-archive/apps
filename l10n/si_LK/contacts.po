@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -375,7 +375,7 @@ msgstr ""
 
 #: js/contacts.js:2292
 msgid "Importing..."
-msgstr ""
+msgstr "ආයාත කරමින් පවති..."
 
 #: js/contacts.js:2313
 msgid "The address book name cannot be empty."
@@ -1004,7 +1004,7 @@ msgstr "තව විස්තර"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "ප්‍රාථමික ලිපිනය(හැම විටම සම්බන්ධ කරගත හැක)"
 
 #: templates/settings.php:7
 msgid "iOS/OS X"

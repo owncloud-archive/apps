@@ -133,7 +133,7 @@ class OC_Calendar_App{
 	 * @brief returns the vcategories object of the user
 	 * @return (object) $vcategories
 	 */
-	protected static function getVCategories() {
+	public static function getVCategories() {
 		if (is_null(self::$categories)) {
 			if(OC_VCategories::isEmpty('event')) {
 				self::scanCategories();

@@ -126,6 +126,8 @@
 "Video" => "Video",
 "Pager" => "Pager",
 "Internet" => "Internet",
+"Friends" => "Přátelé",
+"Family" => "Rodina",
 "{name}'s Birthday" => "Narozeniny {name}",
 "Contact" => "Kontakt",
 "You do not have the permissions to add contacts to this addressbook." => "Nemáte práva pro přidání kontaktů do této knihy adres.",

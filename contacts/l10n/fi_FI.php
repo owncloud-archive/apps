@@ -123,6 +123,8 @@
 "Video" => "Video",
 "Pager" => "Hakulaite",
 "Internet" => "Internet",
+"Friends" => "Kaverit",
+"Family" => "Perhe",
 "{name}'s Birthday" => "Henkilön {name} syntymäpäivä",
 "Contact" => "Yhteystieto",
 "You do not have the permissions to add contacts to this addressbook." => "Sinulla ei ole oikeuksia lisätä yhteystietoja tähän osoitekirjaan.",

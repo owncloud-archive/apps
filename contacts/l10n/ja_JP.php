@@ -126,6 +126,8 @@
 "Video" => "テレビ電話",
 "Pager" => "ポケベル",
 "Internet" => "インターネット",
+"Friends" => "友達",
+"Family" => "家族",
 "{name}'s Birthday" => "{name}の誕生日",
 "Contact" => "連絡先",
 "You do not have the permissions to add contacts to this addressbook." => "アドレスブックに連絡先を追加する権限がありません",

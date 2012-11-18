@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -132,7 +132,7 @@ msgstr ""
 
 #: ajax/oc_photo.php:39
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "Файл не існує:"
 
 #: ajax/oc_photo.php:44 ajax/oc_photo.php:47
 msgid "Error loading image."
@@ -172,29 +172,29 @@ msgstr ""
 
 #: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
-msgstr ""
+msgstr "Файл успішно відвантажено без помилок."
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
+msgstr "Розмір відвантаженого файлу перевищує директиву upload_max_filesize в php.ini"
 
 #: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
+msgstr "Розмір відвантаженого файлу перевищує директиву MAX_FILE_SIZE вказану в HTML формі"
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Файл відвантажено лише частково"
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Не відвантажено жодного файлу"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "Відсутній тимчасовий каталог"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
@@ -332,7 +332,7 @@ msgstr ""
 
 #: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr ""
+msgstr "Файл занадто великий"
 
 #: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
@@ -350,15 +350,15 @@ msgstr ""
 
 #: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Неможливо завантажити ваш файл тому, що він тека або файл розміром 0 байт"
 
 #: js/contacts.js:2170
 msgid "Upload Error"
-msgstr ""
+msgstr "Помилка завантаження"
 
 #: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "Очікування"
 
 #: js/contacts.js:2257
 msgid "Import done"
@@ -374,7 +374,7 @@ msgstr ""
 
 #: js/contacts.js:2292
 msgid "Importing..."
-msgstr ""
+msgstr "Імпортування..."
 
 #: js/contacts.js:2313
 msgid "The address book name cannot be empty."
@@ -410,7 +410,7 @@ msgstr "Завантажити"
 
 #: js/settings.js:102 templates/settings.php:44
 msgid "Edit"
-msgstr ""
+msgstr "Редагувати"
 
 #: js/settings.js:103 templates/part.contact.php:40
 #: templates/part.contact.php:42 templates/part.contact.php:44
@@ -513,7 +513,7 @@ msgstr ""
 
 #: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:253
 msgid "Work"
-msgstr ""
+msgstr "Робота"
 
 #: lib/app.php:195 lib/app.php:200 lib/app.php:214
 msgid "Home"
@@ -521,7 +521,7 @@ msgstr ""
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
-msgstr ""
+msgstr "Інше"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -605,7 +605,7 @@ msgstr "Додати контакт"
 
 #: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
-msgstr ""
+msgstr "Імпорт"
 
 #: templates/index.php:16
 msgid "Settings"
@@ -613,7 +613,7 @@ msgstr "Налаштування"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
-msgstr ""
+msgstr "Закрити"
 
 #: templates/index.php:31
 msgid "Keyboard shortcuts"
@@ -722,7 +722,7 @@ msgstr ""
 
 #: templates/part.contact.php:47 templates/part.contact.php:135
 msgid "Groups"
-msgstr ""
+msgstr "Групи"
 
 #: templates/part.contact.php:49
 msgid "Separate groups with commas"
@@ -1015,7 +1015,7 @@ msgstr ""
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "Поділитися"
 
 #: templates/settings.php:57
 msgid "New Address Book"

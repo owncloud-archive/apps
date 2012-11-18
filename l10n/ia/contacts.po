@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:02+0000\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Interlingua (http://www.transifex.com/projects/p/owncloud/language/ia/)\n"
 "MIME-Version: 1.0\n"
@@ -186,7 +186,7 @@ msgstr ""
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Le file incargate solmente esseva incargate partialmente"
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
@@ -332,7 +332,7 @@ msgstr ""
 
 #: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr ""
+msgstr "Incargamento troppo longe"
 
 #: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
@@ -521,7 +521,7 @@ msgstr "Domo"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
-msgstr ""
+msgstr "Altere"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -609,11 +609,11 @@ msgstr "Importar"
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Configurationes"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
-msgstr ""
+msgstr "Clauder"
 
 #: templates/index.php:31
 msgid "Keyboard shortcuts"
@@ -1015,7 +1015,7 @@ msgstr "Adressarios"
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
+msgstr "Compartir"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1023,7 +1023,7 @@ msgstr "Nove adressario"
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Nomine"
 
 #: templates/settings.php:59
 msgid "Description"
