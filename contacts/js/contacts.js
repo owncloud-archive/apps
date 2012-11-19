@@ -1672,7 +1672,7 @@ OC.Contacts={
 					: params.contact;
 			var added = false;
 			var name = params.data ? params.data.displayname.toLowerCase() : contact.find('a').text().toLowerCase();
-			if(params.contacts) {
+			if(typeof params.contacts !== 'undefined') {
 				params.contacts.each(function() {
 					if ($(this).text().toLowerCase().localeCompare(name) > 0) {
 						$(this).before(contact);
@@ -1814,8 +1814,8 @@ OC.Contacts={
 							});
 						}
 						var contactlist = $('#contacts ul[data-id="'+b+'"]');
-						var contacts = $('#contacts ul[data-id="'+b+'"] li');
 						for(var c in book.contacts) {
+							var contacts = $('#contacts ul[data-id="'+b+'"] li');
 							if(book.contacts[c].id == undefined) { continue; }
 							if(!$('#contacts li[data-id="'+book.contacts[c]['id']+'"]').length) {
 								var contact = OC.Contacts.Contacts.insertContact({contactlist:contactlist, contacts:contacts, data:book.contacts[c]});
