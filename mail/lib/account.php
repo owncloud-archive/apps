@@ -24,6 +24,10 @@ class Account {
 		return $this->info['name'];
 	}
 
+	public function getEMailAddress() {
+		return $this->info['email'];
+	}
+
 	public function getImapConnection() {
 		//
 		// TODO: cache connections for / within accounts???
