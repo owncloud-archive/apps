@@ -1,27 +1,9 @@
 <div id="mail_editor" title="<?php p($l->t('New Message')); ?>">
     <form>
-        <table width="100%">
-            <tr>
-                <td>
-                    <input type="text" name="to" id="to" class="text ui-widget-content ui-corner-all"
-                           placeholder="<?php p($l->t('To')); ?>"/>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <input type="text" name="subject" id="subject" class="text ui-widget-content ui-corner-all"
-                           placeholder="<?php p($l->t('Subject')); ?>"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <textarea name="body" id="body" class="text ui-widget-content ui-corner-all"></textarea>
-                </td>
-            </tr>
-        </table>
+        <input type="text" name="to" id="to" placeholder="<?php p($l->t('To')); ?>"/>
+        <input type="text" name="subject" id="subject" placeholder="<?php p($l->t('Subject')); ?>"/>
+        <textarea name="body" id="body"></textarea>
     </form>
-
 </div>
 
 <script>
@@ -31,9 +13,29 @@
             height:420,
             width:640,
             modal:true,
+	        resizable:false,
+	        show : 'fade',
+	        hide : 'drop',
             buttons:{
                 "Send":function () {
-                    $(this).dialog("close");
+                    $.ajax({
+                        url:OC.filePath('mail', 'ajax', 'send_message.php'),
+                        beforeSend:function () {
+                            $('#wait').show();
+                        },
+                        complete:function () {
+                            $('#wait').hide();
+                        },
+                        data:{
+	                        'account_id': Mail.State.current_account_id,
+	                        'to':$('#to').val(),
+                            'subject':$('#subject').val(),
+                            'body':$('#body').val()},
+                        success:function () {
+                            $(this).dialog("close");
+                        }
+                    });
+                    return false;
                 }
             }});
 
