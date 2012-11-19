@@ -126,6 +126,8 @@
 "Video" => "Połączenie wideo",
 "Pager" => "Pager",
 "Internet" => "Internet",
+"Friends" => "Przyjaciele",
+"Family" => "Rodzina",
 "{name}'s Birthday" => "{name} Urodzony",
 "Contact" => "Kontakt",
 "You do not have the permissions to add contacts to this addressbook." => "Nie masz uprawnień do dodawania kontaktów do tej książki adresowej.",

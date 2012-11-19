@@ -114,7 +114,6 @@
 "Nov." => "Tháng 11",
 "Dec." => "Tháng 12",
 "All day" => "Tất cả các ngày",
-"Missing fields" => "Trường bị thiếu",
 "Title" => "Tiêu đề",
 "From Date" => "Từ ngày",
 "From Time" => "Từ thời gian",

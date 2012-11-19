@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <skoptev@ukr.net>, 2012.
 # Soul Kim <warlock.rf@gmail.com>, 2012.
 #   <victor.dubiniuk@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-16 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:15+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-20 00:00+0100\n"
+"PO-Revision-Date: 2012-11-19 15:40+0000\n"
+"Last-Translator: skoptev <skoptev@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -83,7 +84,7 @@ msgstr ""
 
 #: ajax/contact/deleteproperty.php:37
 msgid "Information about vCard is incorrect. Please reload the page."
-msgstr ""
+msgstr "Інформація про vCard помилкова. Будь ласка, перезавантажте сторінку."
 
 #: ajax/contact/details.php:31
 msgid "Missing ID"
@@ -461,7 +462,7 @@ msgstr "Це не ваша адресна книга."
 
 #: lib/app.php:71
 msgid "Contact could not be found."
-msgstr ""
+msgstr "Контакт не знайдено"
 
 #: lib/app.php:116
 msgid "Jabber"
@@ -517,7 +518,7 @@ msgstr "Робота"
 
 #: lib/app.php:195 lib/app.php:200 lib/app.php:214
 msgid "Home"
-msgstr ""
+msgstr "Домашня адреса"
 
 #: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
@@ -828,7 +829,7 @@ msgstr ""
 #: templates/part.edit_address_dialog.php:18
 #: templates/part.edit_address_dialog.php:21
 msgid "PO Box"
-msgstr ""
+msgstr "Поштова скринька"
 
 #: templates/part.edit_address_dialog.php:24
 msgid "Street address"
@@ -853,7 +854,7 @@ msgstr "Місто"
 
 #: templates/part.edit_address_dialog.php:42
 msgid "Region"
-msgstr ""
+msgstr "Регіон"
 
 #: templates/part.edit_address_dialog.php:45
 msgid "E.g. state or province"

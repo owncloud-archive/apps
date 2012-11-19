@@ -84,7 +84,6 @@
 "Nov." => "Nov.",
 "Dec." => "Des.",
 "All day" => "Heile dagen",
-"Missing fields" => "Manglande felt",
 "Title" => "Tittel",
 "From Date" => "Frå dato",
 "From Time" => "Frå tid",

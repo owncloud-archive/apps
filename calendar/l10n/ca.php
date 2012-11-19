@@ -114,7 +114,6 @@
 "Nov." => "Nov.",
 "Dec." => "Des.",
 "All day" => "Tot el dia",
-"Missing fields" => "Els camps que falten",
 "Title" => "Títol",
 "From Date" => "Des de la data",
 "From Time" => "Des de l'hora",

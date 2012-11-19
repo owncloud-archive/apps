@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-29 00:01+0100\n"
-"PO-Revision-Date: 2012-10-28 15:45+0000\n"
-"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
+"POT-Creation-Date: 2012-11-20 00:00+0100\n"
+"PO-Revision-Date: 2012-11-19 23:01+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,23 +190,23 @@ msgstr "คำถาม"
 msgid "Work"
 msgstr "งาน"
 
-#: lib/app.php:347 lib/share/event.php:27
+#: lib/app.php:362 lib/share/event.php:27
 msgid "by"
 msgstr "โดย"
 
-#: lib/app.php:385
+#: lib/app.php:400
 msgid "unnamed"
 msgstr "ไม่มีชื่อ"
 
-#: lib/calendar.php:165 lib/calendar.php:198
+#: lib/calendar.php:163 lib/calendar.php:196
 msgid "You do not have the permissions to update this calendar."
 msgstr "คุณไม่ได้รับสิทธิ์ให้อัพเดทปฏิทินนี้"
 
-#: lib/calendar.php:233
+#: lib/calendar.php:231
 msgid "You do not have the permissions to delete this calendar."
 msgstr "คุณไม่ได้รับสิทธิ์ให้ลบปฏิทินนี้ทิ้งไป"
 
-#: lib/calendar.php:267
+#: lib/calendar.php:265
 msgid "You do not have the permissions to add to this calendar."
 msgstr "คุณไม่ได้รับสิทธิ์ให้เพิ่มปฏิทินนี้"
 
@@ -215,183 +215,183 @@ msgstr "คุณไม่ได้รับสิทธิ์ให้เพิ
 msgid "New Calendar"
 msgstr "สร้างปฏิทินใหม่"
 
-#: lib/object.php:122 lib/object.php:161 lib/object.php:307
+#: lib/object.php:122 lib/object.php:162 lib/object.php:310
 msgid "You do not have the permissions to add events to this calendar."
 msgstr "คุณไม่ได้รับสิทธิ์ให้เพิ่มกิจกรรมเข้าไปในปฏิทินนี้"
 
-#: lib/object.php:193 lib/object.php:227
+#: lib/object.php:194 lib/object.php:228
 msgid "You do not have the permissions to edit this event."
 msgstr "คุณไม่ได้รับสิทธิ์ให้แก้ไขกิจกรรมนี้"
 
-#: lib/object.php:257 lib/object.php:287
+#: lib/object.php:258 lib/object.php:290
 msgid "You do not have the permissions to delete this event."
 msgstr "คุณไม่ได้รับสิทธิ์ให้ลบกิจกรรมนี้"
 
-#: lib/object.php:452
+#: lib/object.php:455
 msgid "Does not repeat"
 msgstr "ไม่ต้องทำซ้ำ"
 
-#: lib/object.php:453
+#: lib/object.php:456
 msgid "Daily"
 msgstr "รายวัน"
 
-#: lib/object.php:454
+#: lib/object.php:457
 msgid "Weekly"
 msgstr "รายสัปดาห์"
 
-#: lib/object.php:455
+#: lib/object.php:458
 msgid "Every Weekday"
 msgstr "ทุกวันหยุด"
 
-#: lib/object.php:456
+#: lib/object.php:459
 msgid "Bi-Weekly"
 msgstr "รายปักษ์"
 
-#: lib/object.php:457
+#: lib/object.php:460
 msgid "Monthly"
 msgstr "รายเดือน"
 
-#: lib/object.php:458
+#: lib/object.php:461
 msgid "Yearly"
 msgstr "รายปี"
 
-#: lib/object.php:468
+#: lib/object.php:471
 msgid "never"
 msgstr "ไม่ต้องเลย"
 
-#: lib/object.php:469
+#: lib/object.php:472
 msgid "by occurrences"
 msgstr "ตามจำนวนที่ปรากฏ"
 
-#: lib/object.php:470
+#: lib/object.php:473
 msgid "by date"
 msgstr "ตามวันที่"
 
-#: lib/object.php:480
+#: lib/object.php:483
 msgid "by monthday"
 msgstr "จากเดือน"
 
-#: lib/object.php:481
+#: lib/object.php:484
 msgid "by weekday"
 msgstr "จากสัปดาห์"
 
-#: lib/object.php:491 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr "วันจันทร์"
 
-#: lib/object.php:492 templates/calendar.php:5
+#: lib/object.php:495 templates/calendar.php:5
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
-#: lib/object.php:493 templates/calendar.php:5
+#: lib/object.php:496 templates/calendar.php:5
 msgid "Wednesday"
 msgstr "วันพุธ"
 
-#: lib/object.php:494 templates/calendar.php:5
+#: lib/object.php:497 templates/calendar.php:5
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
-#: lib/object.php:495 templates/calendar.php:5
+#: lib/object.php:498 templates/calendar.php:5
 msgid "Friday"
 msgstr "วันศุกร์"
 
-#: lib/object.php:496 templates/calendar.php:5
+#: lib/object.php:499 templates/calendar.php:5
 msgid "Saturday"
 msgstr "วันเสาร์"
 
-#: lib/object.php:497 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:500 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr "วันอาทิตย์"
 
-#: lib/object.php:507
+#: lib/object.php:510
 msgid "events week of month"
 msgstr "สัปดาห์ที่มีกิจกรรมของเดือน"
 
-#: lib/object.php:508
+#: lib/object.php:511
 msgid "first"
 msgstr "ลำดับแรก"
 
-#: lib/object.php:509
+#: lib/object.php:512
 msgid "second"
 msgstr "ลำดับที่สอง"
 
-#: lib/object.php:510
+#: lib/object.php:513
 msgid "third"
 msgstr "ลำดับที่สาม"
 
-#: lib/object.php:511
+#: lib/object.php:514
 msgid "fourth"
 msgstr "ลำดับที่สี่"
 
-#: lib/object.php:512
+#: lib/object.php:515
 msgid "fifth"
 msgstr "ลำดับที่ห้า"
 
-#: lib/object.php:513
+#: lib/object.php:516
 msgid "last"
 msgstr "ลำดับสุดท้าย"
 
-#: lib/object.php:547 templates/calendar.php:7
+#: lib/object.php:550 templates/calendar.php:7
 msgid "January"
 msgstr "มกราคม"
 
-#: lib/object.php:548 templates/calendar.php:7
+#: lib/object.php:551 templates/calendar.php:7
 msgid "February"
 msgstr "กุมภาพันธ์"
 
-#: lib/object.php:549 templates/calendar.php:7
+#: lib/object.php:552 templates/calendar.php:7
 msgid "March"
 msgstr "มีนาคม"
 
-#: lib/object.php:550 templates/calendar.php:7
+#: lib/object.php:553 templates/calendar.php:7
 msgid "April"
 msgstr "เมษายน"
 
-#: lib/object.php:551 templates/calendar.php:7
+#: lib/object.php:554 templates/calendar.php:7
 msgid "May"
 msgstr "พฤษภาคม"
 
-#: lib/object.php:552 templates/calendar.php:7
+#: lib/object.php:555 templates/calendar.php:7
 msgid "June"
 msgstr "มิถุนายน"
 
-#: lib/object.php:553 templates/calendar.php:7
+#: lib/object.php:556 templates/calendar.php:7
 msgid "July"
 msgstr "กรกฏาคม"
 
-#: lib/object.php:554 templates/calendar.php:7
+#: lib/object.php:557 templates/calendar.php:7
 msgid "August"
 msgstr "สิงหาคม"
 
-#: lib/object.php:555 templates/calendar.php:7
+#: lib/object.php:558 templates/calendar.php:7
 msgid "September"
 msgstr "กันยายน"
 
-#: lib/object.php:556 templates/calendar.php:7
+#: lib/object.php:559 templates/calendar.php:7
 msgid "October"
 msgstr "ตุลาคม"
 
-#: lib/object.php:557 templates/calendar.php:7
+#: lib/object.php:560 templates/calendar.php:7
 msgid "November"
 msgstr "พฤศจิกายน"
 
-#: lib/object.php:558 templates/calendar.php:7
+#: lib/object.php:561 templates/calendar.php:7
 msgid "December"
 msgstr "ธันวาคม"
 
-#: lib/object.php:568
+#: lib/object.php:571
 msgid "by events date"
 msgstr "ตามวันที่จัดกิจกรรม"
 
-#: lib/object.php:569
+#: lib/object.php:572
 msgid "by yearday(s)"
 msgstr "ของเมื่อวานนี้"
 
-#: lib/object.php:570
+#: lib/object.php:573
 msgid "by weeknumber(s)"
 msgstr "จากหมายเลขของสัปดาห์"
 
-#: lib/object.php:571
+#: lib/object.php:574
 msgid "by day and month"
 msgstr "ตามวันและเดือน"
 
@@ -484,8 +484,8 @@ msgid "All day"
 msgstr "ทั้งวัน"
 
 #: templates/calendar.php:13
-msgid "Missing fields"
-msgstr "ช่องฟิลด์เกิดการสูญหาย"
+msgid "Missing or invalid fields"
+msgstr ""
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <dagor.vint@hotmail.com>, 2012.
 # Rivo Zängov <eraser@eraser.ee>, 2011-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-16 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:15+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-20 00:00+0100\n"
+"PO-Revision-Date: 2012-11-19 21:07+0000\n"
+"Last-Translator: dagor <dagor.vint@hotmail.com>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -556,11 +557,11 @@ msgstr "Internet"
 
 #: lib/app.php:251
 msgid "Friends"
-msgstr ""
+msgstr "Sõbrad"
 
 #: lib/app.php:252
 msgid "Family"
-msgstr ""
+msgstr "Pereliikmed"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"

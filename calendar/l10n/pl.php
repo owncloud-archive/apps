@@ -114,7 +114,6 @@
 "Nov." => "Lis.",
 "Dec." => "Gru.",
 "All day" => "Cały dzień",
-"Missing fields" => "Brakujące pola",
 "Title" => "Nazwa",
 "From Date" => "Od daty",
 "From Time" => "Od czasu",

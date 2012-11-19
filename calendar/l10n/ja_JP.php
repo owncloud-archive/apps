@@ -114,7 +114,6 @@
 "Nov." => "11月",
 "Dec." => "12月",
 "All day" => "終日",
-"Missing fields" => "項目がありません",
 "Title" => "タイトル",
 "From Date" => "開始日",
 "From Time" => "開始時間",

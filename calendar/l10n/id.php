@@ -98,7 +98,6 @@
 "Nov." => "nov.",
 "Dec." => "des.",
 "All day" => "Semua Hari",
-"Missing fields" => "bagan yang tidak ditemukan",
 "Title" => "Judul",
 "From Date" => "dari tanggal",
 "From Time" => "dari waktu",

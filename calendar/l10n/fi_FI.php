@@ -112,7 +112,6 @@
 "Nov." => "Marras",
 "Dec." => "Joulu",
 "All day" => "Koko päivä",
-"Missing fields" => "Puuttuvat kentät",
 "Title" => "Otsikko",
 "From Date" => "Päivämäärästä",
 "From Time" => "Alkuaika",

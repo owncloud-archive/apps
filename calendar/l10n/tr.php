@@ -112,7 +112,6 @@
 "Nov." => "Kas.",
 "Dec." => "Ara.",
 "All day" => "Tüm gün",
-"Missing fields" => "Eksik alanlar",
 "Title" => "Başlık",
 "From Date" => "Bu Tarihten",
 "From Time" => "Bu Saatten",

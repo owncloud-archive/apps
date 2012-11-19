@@ -95,7 +95,6 @@
 "Nov." => "Nov.",
 "Dec." => "Dis.",
 "All day" => "Sepanjang hari",
-"Missing fields" => "Ruangan tertinggal",
 "Title" => "Tajuk",
 "From Date" => "Dari tarikh",
 "From Time" => "Masa Dari",

@@ -126,6 +126,8 @@
 "Video" => "Video",
 "Pager" => "Pozivnik",
 "Internet" => "Internet",
+"Friends" => "Prijatelji",
+"Family" => "Družina",
 "{name}'s Birthday" => "{name} - rojstni dan",
 "Contact" => "Stik",
 "You do not have the permissions to add contacts to this addressbook." => "Ni ustreznih dovoljenj za dodajanje stikov v ta imenik.",

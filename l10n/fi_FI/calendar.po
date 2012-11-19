@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-28 00:01+0200\n"
-"PO-Revision-Date: 2012-10-27 07:23+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"POT-Creation-Date: 2012-11-20 00:00+0100\n"
+"PO-Revision-Date: 2012-11-19 23:01+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,59 +76,59 @@ msgstr "Virheellinen pyyntö"
 msgid "Calendar"
 msgstr "Kalenteri"
 
-#: js/calendar.js:96
+#: js/calendar.js:154
 msgid "Deletion failed"
 msgstr "Poisto epäonnistui"
 
-#: js/calendar.js:185
+#: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 msgstr ""
 
-#: js/calendar.js:187
+#: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 msgstr ""
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "user"
 msgstr "käyttäjä"
 
-#: js/calendar.js:539
+#: js/calendar.js:597
 msgid "group"
 msgstr "ryhmä"
 
-#: js/calendar.js:540 templates/part.share.php:41 templates/part.share.php:67
+#: js/calendar.js:598 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
 msgstr "Muoktattava"
 
-#: js/calendar.js:541 templates/part.share.php:43 templates/part.share.php:69
+#: js/calendar.js:599 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
 msgstr "Jaettavissa"
 
-#: js/calendar.js:542 templates/part.share.php:45 templates/part.share.php:71
+#: js/calendar.js:600 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
 msgstr "Poistettavissa"
 
-#: js/calendar.js:811
+#: js/calendar.js:869
 msgid "ddd"
 msgstr "ddd"
 
-#: js/calendar.js:812
+#: js/calendar.js:870
 msgid "ddd M/d"
 msgstr "ddd M/d"
 
-#: js/calendar.js:813
+#: js/calendar.js:871
 msgid "dddd M/d"
 msgstr "dddd M/d"
 
-#: js/calendar.js:816
+#: js/calendar.js:874
 msgid "MMMM yyyy"
 msgstr "MMMM yyyy"
 
-#: js/calendar.js:818
+#: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
-#: js/calendar.js:820
+#: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
 msgstr "dddd, MMM d, yyyy"
 
@@ -192,23 +192,23 @@ msgstr "Kysymykset"
 msgid "Work"
 msgstr "Työ"
 
-#: lib/app.php:347 lib/share/event.php:27
+#: lib/app.php:362 lib/share/event.php:27
 msgid "by"
 msgstr "toimesta:"
 
-#: lib/app.php:385
+#: lib/app.php:400
 msgid "unnamed"
 msgstr "nimetön"
 
-#: lib/calendar.php:165 lib/calendar.php:198
+#: lib/calendar.php:163 lib/calendar.php:196
 msgid "You do not have the permissions to update this calendar."
 msgstr "Käyttöoikeutesi eivät riitä tämän kalenterin päivittämiseen."
 
-#: lib/calendar.php:233
+#: lib/calendar.php:231
 msgid "You do not have the permissions to delete this calendar."
 msgstr "Käyttöoikeutesi eivät riitä tämän kalenterin poistamiseen."
 
-#: lib/calendar.php:267
+#: lib/calendar.php:265
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Käyttöoikeutesi eivät riitä lisäämiseen tähän kalenteriin."
 
@@ -217,183 +217,183 @@ msgstr "Käyttöoikeutesi eivät riitä lisäämiseen tähän kalenteriin."
 msgid "New Calendar"
 msgstr "Uusi kalenteri"
 
-#: lib/object.php:122 lib/object.php:161 lib/object.php:307
+#: lib/object.php:122 lib/object.php:162 lib/object.php:310
 msgid "You do not have the permissions to add events to this calendar."
 msgstr "Käyttöoikeutesi eivät riitä tapahtumien lisäämiseen tähän kalenteriin."
 
-#: lib/object.php:193 lib/object.php:227
+#: lib/object.php:194 lib/object.php:228
 msgid "You do not have the permissions to edit this event."
 msgstr "Käyttöoikeutesi eivät riitä tämän tapahtuman muokkaukseen."
 
-#: lib/object.php:257 lib/object.php:287
+#: lib/object.php:258 lib/object.php:290
 msgid "You do not have the permissions to delete this event."
 msgstr "Käyttöoikeutesi eivät riitä tämän tapahtuman poistamiseen."
 
-#: lib/object.php:452
+#: lib/object.php:455
 msgid "Does not repeat"
 msgstr "Ei toistoa"
 
-#: lib/object.php:453
+#: lib/object.php:456
 msgid "Daily"
 msgstr "Päivittäin"
 
-#: lib/object.php:454
+#: lib/object.php:457
 msgid "Weekly"
 msgstr "Viikottain"
 
-#: lib/object.php:455
+#: lib/object.php:458
 msgid "Every Weekday"
 msgstr "Arkipäivisin"
 
-#: lib/object.php:456
+#: lib/object.php:459
 msgid "Bi-Weekly"
 msgstr "Joka toinen viikko"
 
-#: lib/object.php:457
+#: lib/object.php:460
 msgid "Monthly"
 msgstr "Kuukausittain"
 
-#: lib/object.php:458
+#: lib/object.php:461
 msgid "Yearly"
 msgstr "Vuosittain"
 
-#: lib/object.php:468
+#: lib/object.php:471
 msgid "never"
 msgstr "Ei koskaan"
 
-#: lib/object.php:469
+#: lib/object.php:472
 msgid "by occurrences"
 msgstr "esiintymisten mukaan"
 
-#: lib/object.php:470
+#: lib/object.php:473
 msgid "by date"
 msgstr "päivämäärän mukaan"
 
-#: lib/object.php:480
+#: lib/object.php:483
 msgid "by monthday"
 msgstr "kuukaudenpäivän mukaan"
 
-#: lib/object.php:481
+#: lib/object.php:484
 msgid "by weekday"
 msgstr "viikonpäivän mukaan"
 
-#: lib/object.php:491 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr "Maanantai"
 
-#: lib/object.php:492 templates/calendar.php:5
+#: lib/object.php:495 templates/calendar.php:5
 msgid "Tuesday"
 msgstr "Tiistai"
 
-#: lib/object.php:493 templates/calendar.php:5
+#: lib/object.php:496 templates/calendar.php:5
 msgid "Wednesday"
 msgstr "Keskiviikko"
 
-#: lib/object.php:494 templates/calendar.php:5
+#: lib/object.php:497 templates/calendar.php:5
 msgid "Thursday"
 msgstr "Torstai"
 
-#: lib/object.php:495 templates/calendar.php:5
+#: lib/object.php:498 templates/calendar.php:5
 msgid "Friday"
 msgstr "Perjantai"
 
-#: lib/object.php:496 templates/calendar.php:5
+#: lib/object.php:499 templates/calendar.php:5
 msgid "Saturday"
 msgstr "Lauantai"
 
-#: lib/object.php:497 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:500 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr "Sunnuntai"
 
-#: lib/object.php:507
+#: lib/object.php:510
 msgid "events week of month"
 msgstr "tapahtumat kuukauden viikolla"
 
-#: lib/object.php:508
+#: lib/object.php:511
 msgid "first"
 msgstr "ensimmäinen"
 
-#: lib/object.php:509
+#: lib/object.php:512
 msgid "second"
 msgstr "toinen"
 
-#: lib/object.php:510
+#: lib/object.php:513
 msgid "third"
 msgstr "kolmas"
 
-#: lib/object.php:511
+#: lib/object.php:514
 msgid "fourth"
 msgstr "neljäs"
 
-#: lib/object.php:512
+#: lib/object.php:515
 msgid "fifth"
 msgstr "viides"
 
-#: lib/object.php:513
+#: lib/object.php:516
 msgid "last"
 msgstr "viimeinen"
 
-#: lib/object.php:547 templates/calendar.php:7
+#: lib/object.php:550 templates/calendar.php:7
 msgid "January"
 msgstr "Tammikuu"
 
-#: lib/object.php:548 templates/calendar.php:7
+#: lib/object.php:551 templates/calendar.php:7
 msgid "February"
 msgstr "Helmikuu"
 
-#: lib/object.php:549 templates/calendar.php:7
+#: lib/object.php:552 templates/calendar.php:7
 msgid "March"
 msgstr "Maaliskuu"
 
-#: lib/object.php:550 templates/calendar.php:7
+#: lib/object.php:553 templates/calendar.php:7
 msgid "April"
 msgstr "Huhtikuu"
 
-#: lib/object.php:551 templates/calendar.php:7
+#: lib/object.php:554 templates/calendar.php:7
 msgid "May"
 msgstr "Toukokuu"
 
-#: lib/object.php:552 templates/calendar.php:7
+#: lib/object.php:555 templates/calendar.php:7
 msgid "June"
 msgstr "Kesäkuu"
 
-#: lib/object.php:553 templates/calendar.php:7
+#: lib/object.php:556 templates/calendar.php:7
 msgid "July"
 msgstr "Heinäkuu"
 
-#: lib/object.php:554 templates/calendar.php:7
+#: lib/object.php:557 templates/calendar.php:7
 msgid "August"
 msgstr "Elokuu"
 
-#: lib/object.php:555 templates/calendar.php:7
+#: lib/object.php:558 templates/calendar.php:7
 msgid "September"
 msgstr "Syyskuu"
 
-#: lib/object.php:556 templates/calendar.php:7
+#: lib/object.php:559 templates/calendar.php:7
 msgid "October"
 msgstr "Lokakuu"
 
-#: lib/object.php:557 templates/calendar.php:7
+#: lib/object.php:560 templates/calendar.php:7
 msgid "November"
 msgstr "Marraskuu"
 
-#: lib/object.php:558 templates/calendar.php:7
+#: lib/object.php:561 templates/calendar.php:7
 msgid "December"
 msgstr "Joulukuu"
 
-#: lib/object.php:568
+#: lib/object.php:571
 msgid "by events date"
 msgstr "tapahtumien päivämäärän mukaan"
 
-#: lib/object.php:569
+#: lib/object.php:572
 msgid "by yearday(s)"
 msgstr "vuoden päivän mukaan"
 
-#: lib/object.php:570
+#: lib/object.php:573
 msgid "by weeknumber(s)"
 msgstr "viikkonumero(ide)n mukaan"
 
-#: lib/object.php:571
+#: lib/object.php:574
 msgid "by day and month"
 msgstr "päivän ja kuukauden mukaan"
 
@@ -486,8 +486,8 @@ msgid "All day"
 msgstr "Koko päivä"
 
 #: templates/calendar.php:13
-msgid "Missing fields"
-msgstr "Puuttuvat kentät"
+msgid "Missing or invalid fields"
+msgstr ""
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11

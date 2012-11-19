@@ -114,7 +114,6 @@
 "Nov." => "Nov.",
 "Dec." => "Dec.",
 "All day" => "Hele dag",
-"Missing fields" => "Ontbrekende velden",
 "Title" => "Titel",
 "From Date" => "Begindatum",
 "From Time" => "Begintijd",

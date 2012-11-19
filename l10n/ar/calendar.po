@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-13 00:04+0100\n"
-"PO-Revision-Date: 2012-11-12 11:44+0000\n"
-"Last-Translator: TYMAH <hussein-atef@hotmail.com>\n"
+"POT-Creation-Date: 2012-11-20 00:00+0100\n"
+"PO-Revision-Date: 2012-11-19 23:01+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/owncloud/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,11 +190,11 @@ msgstr "اسئلة"
 msgid "Work"
 msgstr "العمل"
 
-#: lib/app.php:345 lib/share/event.php:27
+#: lib/app.php:362 lib/share/event.php:27
 msgid "by"
 msgstr "من قبل"
 
-#: lib/app.php:383
+#: lib/app.php:400
 msgid "unnamed"
 msgstr "غير مسمى"
 
@@ -215,183 +215,183 @@ msgstr "ليس لديك الصلاحية لإضافة هذا التقويم."
 msgid "New Calendar"
 msgstr "جدول زمني جديد"
 
-#: lib/object.php:122 lib/object.php:161 lib/object.php:307
+#: lib/object.php:122 lib/object.php:162 lib/object.php:310
 msgid "You do not have the permissions to add events to this calendar."
 msgstr "ليس لديك الصلاحية لإضافة أحداث لهذا التقويم."
 
-#: lib/object.php:193 lib/object.php:227
+#: lib/object.php:194 lib/object.php:228
 msgid "You do not have the permissions to edit this event."
 msgstr "ليس لديك الصلاحية لتعديل هذا التقويم."
 
-#: lib/object.php:257 lib/object.php:287
+#: lib/object.php:258 lib/object.php:290
 msgid "You do not have the permissions to delete this event."
 msgstr "ليس لديك الصلاحية لحذف هذا الحدث."
 
-#: lib/object.php:452
+#: lib/object.php:455
 msgid "Does not repeat"
 msgstr "لا يعاد"
 
-#: lib/object.php:453
+#: lib/object.php:456
 msgid "Daily"
 msgstr "يومي"
 
-#: lib/object.php:454
+#: lib/object.php:457
 msgid "Weekly"
 msgstr "أسبوعي"
 
-#: lib/object.php:455
+#: lib/object.php:458
 msgid "Every Weekday"
 msgstr "كل نهاية الأسبوع"
 
-#: lib/object.php:456
+#: lib/object.php:459
 msgid "Bi-Weekly"
 msgstr "كل اسبوعين"
 
-#: lib/object.php:457
+#: lib/object.php:460
 msgid "Monthly"
 msgstr "شهري"
 
-#: lib/object.php:458
+#: lib/object.php:461
 msgid "Yearly"
 msgstr "سنوي"
 
-#: lib/object.php:468
+#: lib/object.php:471
 msgid "never"
 msgstr "بتاتا"
 
-#: lib/object.php:469
+#: lib/object.php:472
 msgid "by occurrences"
 msgstr "حسب تسلسل الحدوث"
 
-#: lib/object.php:470
+#: lib/object.php:473
 msgid "by date"
 msgstr "حسب التاريخ"
 
-#: lib/object.php:480
+#: lib/object.php:483
 msgid "by monthday"
 msgstr "حسب يوم الشهر"
 
-#: lib/object.php:481
+#: lib/object.php:484
 msgid "by weekday"
 msgstr "حسب يوم الاسبوع"
 
-#: lib/object.php:491 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr "الأثنين"
 
-#: lib/object.php:492 templates/calendar.php:5
+#: lib/object.php:495 templates/calendar.php:5
 msgid "Tuesday"
 msgstr "الثلاثاء"
 
-#: lib/object.php:493 templates/calendar.php:5
+#: lib/object.php:496 templates/calendar.php:5
 msgid "Wednesday"
 msgstr "الاربعاء"
 
-#: lib/object.php:494 templates/calendar.php:5
+#: lib/object.php:497 templates/calendar.php:5
 msgid "Thursday"
 msgstr "الخميس"
 
-#: lib/object.php:495 templates/calendar.php:5
+#: lib/object.php:498 templates/calendar.php:5
 msgid "Friday"
 msgstr "الجمعه"
 
-#: lib/object.php:496 templates/calendar.php:5
+#: lib/object.php:499 templates/calendar.php:5
 msgid "Saturday"
 msgstr "السبت"
 
-#: lib/object.php:497 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:500 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr "الاحد"
 
-#: lib/object.php:507
+#: lib/object.php:510
 msgid "events week of month"
 msgstr "الاحداث باسبوع الشهر"
 
-#: lib/object.php:508
+#: lib/object.php:511
 msgid "first"
 msgstr "أول"
 
-#: lib/object.php:509
+#: lib/object.php:512
 msgid "second"
 msgstr "ثاني"
 
-#: lib/object.php:510
+#: lib/object.php:513
 msgid "third"
 msgstr "ثالث"
 
-#: lib/object.php:511
+#: lib/object.php:514
 msgid "fourth"
 msgstr "رابع"
 
-#: lib/object.php:512
+#: lib/object.php:515
 msgid "fifth"
 msgstr "خامس"
 
-#: lib/object.php:513
+#: lib/object.php:516
 msgid "last"
 msgstr "أخير"
 
-#: lib/object.php:547 templates/calendar.php:7
+#: lib/object.php:550 templates/calendar.php:7
 msgid "January"
 msgstr "كانون الثاني"
 
-#: lib/object.php:548 templates/calendar.php:7
+#: lib/object.php:551 templates/calendar.php:7
 msgid "February"
 msgstr "شباط"
 
-#: lib/object.php:549 templates/calendar.php:7
+#: lib/object.php:552 templates/calendar.php:7
 msgid "March"
 msgstr "آذار"
 
-#: lib/object.php:550 templates/calendar.php:7
+#: lib/object.php:553 templates/calendar.php:7
 msgid "April"
 msgstr "نيسان"
 
-#: lib/object.php:551 templates/calendar.php:7
+#: lib/object.php:554 templates/calendar.php:7
 msgid "May"
 msgstr "أيار"
 
-#: lib/object.php:552 templates/calendar.php:7
+#: lib/object.php:555 templates/calendar.php:7
 msgid "June"
 msgstr "حزيران"
 
-#: lib/object.php:553 templates/calendar.php:7
+#: lib/object.php:556 templates/calendar.php:7
 msgid "July"
 msgstr "تموز"
 
-#: lib/object.php:554 templates/calendar.php:7
+#: lib/object.php:557 templates/calendar.php:7
 msgid "August"
 msgstr "آب"
 
-#: lib/object.php:555 templates/calendar.php:7
+#: lib/object.php:558 templates/calendar.php:7
 msgid "September"
 msgstr "أيلول"
 
-#: lib/object.php:556 templates/calendar.php:7
+#: lib/object.php:559 templates/calendar.php:7
 msgid "October"
 msgstr "تشرين الاول"
 
-#: lib/object.php:557 templates/calendar.php:7
+#: lib/object.php:560 templates/calendar.php:7
 msgid "November"
 msgstr "تشرين الثاني"
 
-#: lib/object.php:558 templates/calendar.php:7
+#: lib/object.php:561 templates/calendar.php:7
 msgid "December"
 msgstr "كانون الاول"
 
-#: lib/object.php:568
+#: lib/object.php:571
 msgid "by events date"
 msgstr "حسب تاريخ الحدث"
 
-#: lib/object.php:569
+#: lib/object.php:572
 msgid "by yearday(s)"
 msgstr "حسب يوم السنه"
 
-#: lib/object.php:570
+#: lib/object.php:573
 msgid "by weeknumber(s)"
 msgstr "حسب رقم الاسبوع"
 
-#: lib/object.php:571
+#: lib/object.php:574
 msgid "by day and month"
 msgstr "حسب اليوم و الشهر"
 
@@ -484,8 +484,8 @@ msgid "All day"
 msgstr "كل النهار"
 
 #: templates/calendar.php:13
-msgid "Missing fields"
-msgstr "خانات خالية من المعلومات"
+msgid "Missing or invalid fields"
+msgstr ""
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11
