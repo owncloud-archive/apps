@@ -1,12 +1,10 @@
 <?php
 
 /**
-* ownCloud - App Template plugin
+* ownCloud - App Template Example
 *
-* @author Frank Karlitschek
-* @author Florian Hülsmann
-* @copyright 2011 Frank Karlitschek karlitschek@kde.org
-* @copyright 2012 Florian Hülsmann fh@cbix.de
+* @author Bernhard Posselt
+* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com 
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -23,16 +21,16 @@
 *
 */
 
+namespace OCA\AppTemplate;
+
 
 require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
 
+$container = createDIContainer();
 
-OCP\App::registerAdmin(APP_NAME, 'admin/settings');
+$security = $container['Security'];
+$security->setCSRFCheck(false);
+$security->runChecks();
 
-OCP\App::addNavigationEntry( array(
-	'id' => APP_NAME,
-	'order' => 74,
-	'href' => \OC_Helper::linkToRoute(APP_NAME . '_index'),
-	'icon' => OCP\Util::imagePath(APP_NAME, 'example.png' ),
-	'name' => \OC_L10N::get(APP_NAME)->t('App Template') 
-));
+$controller = $container['SettingsController'];
+return $controller->index()->fetchPage();
