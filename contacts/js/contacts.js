@@ -611,7 +611,7 @@ OC.Contacts={
 			}
 		},
 		populateNameFields:function() {
-			var props = ['FN', 'N'];
+			var props = ['FN', 'N'], narray;
 			// Clear all elements
 			$('#ident .propertycontainer').each(function(){
 				if(props.indexOf($(this).data('element')) > -1) {
