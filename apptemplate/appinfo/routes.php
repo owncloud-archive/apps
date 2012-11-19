@@ -33,6 +33,7 @@ require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
  * @param string $methodName: the method that you want to call
  * @param array $urlParams: an array with variables extracted from the routes
  * @param bool $disableCSRF: disables the csrf check, defaults to false
+ * @param bool $disableAdminCheck: disables the check for adminuser rights
  */
 function callController($controllerName, $methodName, $urlParams, 
 						$disableCSRF=false, $disableAdminCheck=true){

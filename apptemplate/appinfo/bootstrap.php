@@ -37,6 +37,7 @@ DEFINE('APP_NAME', 'apptemplate');
 \OC::$CLASSPATH['OCA\AppTemplate\Request'] = 'apps/apptemplate/lib/request.php';
 \OC::$CLASSPATH['OCA\AppTemplate\Security'] = 'apps/apptemplate/lib/security.php';
 \OC::$CLASSPATH['OCA\AppTemplate\Controller'] = 'apps/apptemplate/lib/controller.php';
+
 \OC::$CLASSPATH['OCA\AppTemplate\IndexController'] = 'apps/apptemplate/controllers/index.controller.php';
 \OC::$CLASSPATH['OCA\AppTemplate\SettingsController'] = 'apps/apptemplate/controllers/settings.controller.php';
 \OC::$CLASSPATH['OCA\AppTemplate\AjaxController'] = 'apps/apptemplate/controllers/ajax.controller.php';

@@ -5,6 +5,8 @@
 *
 * @author Frank Karlitschek
 * @author Florian Hülsmann
+* @author Bernhard Posselt
+* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com 
 * @copyright 2011 Frank Karlitschek karlitschek@kde.org
 * @copyright 2012 Florian Hülsmann fh@cbix.de
 *
