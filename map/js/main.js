@@ -174,6 +174,20 @@ function loadMap() {
 	loadItems();
 }
 
+function clickChangePanel(e) {
+	e.preventDefault();
+	panel_nr = $(this).data('toid');
+	$('.main_panel').animate({
+       marginLeft: '-' + (panel_size * panel_nr - panel_size)
+   }, 600);
+   
+}
+function adjustCatSize() {
+	$('.main_panel').css({
+		width: $('.main_panel .cat_panel').length*panel_size,
+	});
+}
+
 document.addEventListener('DOMContentLoaded', loadMap)
 
 $(document).ready(function() {
@@ -182,6 +196,10 @@ $(document).ready(function() {
 		navigator.geolocation.getCurrentPosition(setUserLocation);
 	}
 	window.onbeforeunload = putMapPosition;
+	adjustCatSize();
+	$('.panel_change').bind('click',clickChangePanel);
+	
 });
+var panel_size = 210;
 var popup = L.popup();
 var point;

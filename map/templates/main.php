@@ -5,17 +5,24 @@
 <div id="map"></div>
 
 <div id="sidebar">
-	<ul class="cat_titles">
-		<?php foreach($_['category'] as $cat):?>
-			<li>
-				<?php if(isset($cat['icon'])):?>
-					<i class="<?php echo $cat['icon'];?>"></i>
-				<? endif;?>
-				<?php echo $cat['name'];?>
-				<ul id="pts_<?php echo $cat['id'];?>" class="sub_category"></ul>
-			</li>
-		<?php endforeach;?>
-	</ul>
+	<div class="main_panel">
+	<div class="cat_panel">
+		<ul class="cat_titles">
+			<?php foreach($_['category'] as $cat):?>
+				<li data-id="<?php echo $cat['id'];?>">
+					<?php if(isset($cat['icon'])):?>
+						<i class="<?php echo $cat['icon'];?>"></i>
+					<? endif;?>
+					<a href="#" class="panel_change" data-toid="2"><?php echo $cat['name'];?> <?php if($cat['depth'] != 1) echo "&gt;";?></a>
+				</li>
+			<?php endforeach;?>
+		</ul>
+	</div>
+	<div class="cat_panel">
+	Yey Hello World 					<a href="#" class="panel_change" data-toid="1">\o/</a>
+
+	</div>
+	</div>
 </div>
 
 <div id="search_field">
