@@ -46,7 +46,7 @@ class Controller {
 	 *                     key, return the value in $_POST
 	 * @return: the content of the array
 	 */
-	protected function param($key){
+	protected function params($key){
 		$postValue = $this->request->getPOST($key);
 		$getValue = $this->request->getGET($key);
 		
