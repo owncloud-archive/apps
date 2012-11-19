@@ -243,18 +243,18 @@ $tmpl->assign('description', $description);
 
 $tmpl->assign('repeat', $repeat['repeat']);
 if($repeat['repeat'] != 'doesnotrepeat') {
-	$tmpl->assign('repeat_month', $repeat['month']);
-	$tmpl->assign('repeat_weekdays', $repeat['weekdays']);
-	$tmpl->assign('repeat_interval', $repeat['interval']);
-	$tmpl->assign('repeat_end', $repeat['end']);
-	$tmpl->assign('repeat_count', $repeat['count']);
+	$tmpl->assign('repeat_month', isset($repeat['month']) ? $repeat['month'] : 'monthday');
+	$tmpl->assign('repeat_weekdays', isset($repeat['weekdays']) ? $repeat['weekdays'] : array());
+	$tmpl->assign('repeat_interval', isset($repeat['interval']) ? $repeat['interval'] : '1');
+	$tmpl->assign('repeat_end', isset($repeat['end']) ? $repeat['end'] : 'never');
+	$tmpl->assign('repeat_count', isset($repeat['count']) ? $repeat['count'] : '10');
 	$tmpl->assign('repeat_weekofmonth', $repeat['weekofmonth']);
-	$tmpl->assign('repeat_date', $repeat['date']);
-	$tmpl->assign('repeat_year', $repeat['year']);
-	$tmpl->assign('repeat_byyearday', $repeat['byyearday']);
-	$tmpl->assign('repeat_bymonthday', $repeat['bymonthday']);
-	$tmpl->assign('repeat_bymonth', $repeat['bymonth']);
-	$tmpl->assign('repeat_byweekno', $repeat['byweekno']);
+	$tmpl->assign('repeat_date', isset($repeat['date']) ? $repeat['date'] : '');
+	$tmpl->assign('repeat_year', isset($repeat['year']) ? $repeat['year'] : array());
+	$tmpl->assign('repeat_byyearday', isset($repeat['byyearday']) ? $repeat['byyearday'] : array());
+	$tmpl->assign('repeat_bymonthday', isset($repeat['bymonthday']) ? $repeat['bymonthday'] : array());
+	$tmpl->assign('repeat_bymonth', isset($repeat['bymonth']) ? $repeat['bymonth'] : array());
+	$tmpl->assign('repeat_byweekno', isset($repeat['byweekno']) ? $repeat['byweekno'] : array());
 } else {
 	$tmpl->assign('repeat_month', 'monthday');
 	$tmpl->assign('repeat_weekdays', array());
