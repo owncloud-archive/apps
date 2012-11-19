@@ -106,7 +106,7 @@ Calendar={
 				function(data){
 					Calendar.UI.loading(false);
 					if(data.status == "error"){
-						if(data.data.message) {
+						if(data.message) {
 							$('#errorbox').html(data.data.message);
 						} else {
 							var output = missing_field + ": <br />";

@@ -743,6 +743,9 @@ class OC_Calendar_Object{
 	 * @return boolean
 	 */
 	protected static function checkTime($time) {
+		if(strpos($time, ':') === false ) {
+			return true;
+		}
 		list($hours, $minutes) = explode(':', $time);
 		return empty($time)
 			|| $hours < 0 || $hours > 24
