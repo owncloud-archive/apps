@@ -23,10 +23,6 @@
 
 namespace OCA\AppTemplate;
 
-/* Config */
-DEFINE('APP_NAME', 'apptemplate');
-
-
 /**
  * Declare your classes and their include path so that they'll be automatically
  * loaded once you instantiate them
@@ -53,7 +49,7 @@ function createDIContainer(){
 	 * BASE
 	 */
 	$container['API'] = $container->share(function($c){
-		return new API(APP_NAME);
+		return new API('apptemplate');
 	});
 
 	$container['Security'] = $container->share(function($c){

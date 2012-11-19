@@ -64,7 +64,7 @@ function callController($controllerName, $methodName, $urlParams,
 /**
  * Normal Routes
  */
-$this->create(APP_NAME. '_index', '/')->action(
+$this->create('apptemplate_index', '/')->action(
 	function($params){		
 		callController('IndexController', 'index', $params, true);
 	}
@@ -73,7 +73,7 @@ $this->create(APP_NAME. '_index', '/')->action(
 /**
  * Ajax Routes
  */
-$this->create(APP_NAME . '_ajax_setsystemvalue', '/setsystemvalue')->post()->action(
+$this->create('apptemplate_ajax_setsystemvalue', '/setsystemvalue')->post()->action(
 	function($params){		
 		$container = createDIContainer();
 

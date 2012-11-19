@@ -29,12 +29,12 @@
 require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
 
 
-OCP\App::registerAdmin(APP_NAME, 'admin/settings');
+OCP\App::registerAdmin('apptemplate', 'admin/settings');
 
 OCP\App::addNavigationEntry( array(
-	'id' => APP_NAME,
+	'id' => 'apptemplate',
 	'order' => 74,
-	'href' => \OC_Helper::linkToRoute(APP_NAME . '_index'),
-	'icon' => OCP\Util::imagePath(APP_NAME, 'example.png' ),
-	'name' => \OC_L10N::get(APP_NAME)->t('App Template') 
+	'href' => \OC_Helper::linkToRoute('apptemplate_index'),
+	'icon' => OCP\Util::imagePath('apptemplate', 'example.png' ),
+	'name' => \OC_L10N::get('apptemplate')->t('App Template') 
 ));
