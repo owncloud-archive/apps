@@ -85,7 +85,7 @@ class Updater {
         
 	public static function update($version, $backupBase) {
 		if (!is_dir($backupBase)) {
-			throw new \Exception('Backup directory $backupBase is not found');
+			throw new \Exception("Backup directory $backupBase is not found");
 		}
 
 		set_include_path(
