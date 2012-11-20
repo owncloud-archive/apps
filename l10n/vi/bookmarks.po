@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <mattheu.9x@gmail.com>, 2012.
 # Sơn Nguyễn <sonnghit@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-10 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 14:15+0000\n"
-"Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 06:07+0000\n"
+"Last-Translator: mattheu_9x <mattheu.9x@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +21,11 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr "Loại tập tin không được hỗ trợ để import"
+msgstr "Loại tập tin không được hỗ trợ để nhập vào"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
-msgstr "Đánh dấu"
+msgstr "Bookmarks"
 
 #: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
@@ -32,7 +33,7 @@ msgstr "Tags"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr "Filter by tag"
+msgstr "Lọc theo tag"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
@@ -48,7 +49,7 @@ msgstr "Cảnh báo"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr "import thành công"
+msgstr "Nhập vào thành công"
 
 #: js/settings.js:56
 msgid "Uploading..."
@@ -114,19 +115,19 @@ msgstr "Thêm"
 
 #: templates/list.php:31
 msgid "Related Tags"
-msgstr "Related Tags"
+msgstr "Những Tag có liên quan"
 
 #: templates/list.php:39 templates/list.php:41
 msgid "Settings"
-msgstr "Tùy chỉnh"
+msgstr "Cài đặt"
 
 #: templates/list.php:53
 msgid "You have no bookmarks"
-msgstr "Bạn chưa có đánh dấu nào"
+msgstr "Bạn chưa có bookmark nào"
 
 #: templates/list.php:58
 msgid "You can also try to import a bookmark file"
-msgstr "Bạn cũng có thể cố gắng để import một tập tin bookmark"
+msgstr "Bạn cũng có thể thử nhập vào một tập tin bookmark"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
@@ -134,12 +135,12 @@ msgstr "Bookmarklet"
 
 #: templates/settings.php:23
 msgid "Export & Import"
-msgstr "Export & Import"
+msgstr "Xuất ra & Nhập vào"
 
 #: templates/settings.php:24
 msgid "Export"
-msgstr "Xuất"
+msgstr "Xuất ra"
 
 #: templates/settings.php:26
 msgid "Import"
-msgstr "Nhập"
+msgstr "Nhập vào"

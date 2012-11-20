@@ -1,0 +1,23 @@
+<?php $TRANSLATIONS = array(
+"Tasks" => "작업",
+"List" => "리스트",
+"Location" => "장소",
+"No category" => "분류 없음",
+"1=highest" => "1=최대",
+"5=medium" => "2=중간",
+"9=lowest" => "9=최저",
+"Empty Summary" => "빈 요약",
+"The calendar application also need to be enabled to use this application." => "이 응용프로그램을 사용하기 위해 달력 응용프로그램이 사용가능해야 합니다.",
+"Add Task" => "작업 추가",
+"Order Due" => "주문 기한",
+"Order List" => "주문 리스트",
+"Order Complete" => "주문 완료",
+"Order Location" => "주문 장소",
+"Order Priority" => "주문 우선순위",
+"Order Label" => "주묵 라벨",
+"Loading tasks..." => "작업을 로딩중..",
+"Important" => "중요",
+"More" => "더 많은",
+"Less" => "그외",
+"Delete" => "삭제"
+);

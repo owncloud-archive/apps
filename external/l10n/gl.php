@@ -2,6 +2,6 @@
 "External Sites" => "Sitios externos",
 "Name" => "Nome",
 "URL" => "URL",
-"Remove site" => "Quitar sitio",
+"Remove site" => "Eliminar o sitio",
 "Add" => "Engadir"
 );

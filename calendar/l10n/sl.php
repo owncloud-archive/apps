@@ -114,6 +114,7 @@
 "Nov." => "nov.",
 "Dec." => "dec.",
 "All day" => "Cel dan",
+"Missing or invalid fields" => "Manjkajoča ali neveljavna polja",
 "Title" => "Naslov",
 "From Date" => "od Datum",
 "From Time" => "od Čas",

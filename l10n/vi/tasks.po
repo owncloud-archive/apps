@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-10 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 12:12+0000\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 04:07+0000\n"
 "Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "Không hợp lệ ngày/giờ"
 
 #: appinfo/app.php:10
 msgid "Tasks"
-msgstr "Nhiệm vụ"
+msgstr "Tasks"
 
 #: js/tasks.js:78
 msgid "Due"
@@ -78,15 +78,15 @@ msgstr "Các ứng dụng Lịch cũng cần phải được kích hoạt để 
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr "Thêm nhiệm vụ"
+msgstr "Thêm Task"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "Thứ tự Thời gian"
+msgstr "theo Thời gian"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr "Thứ tự Danh sách"
+msgstr "Theo Danh sách"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
@@ -94,7 +94,7 @@ msgstr "Thứ tự Hoàn thành"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr "Thứ tự Vị trí"
+msgstr "Theo Vị trí"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
@@ -102,7 +102,7 @@ msgstr "Thứ tự Ưu tiên"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr "Thứ tự Nhãn tên"
+msgstr "Theo Nhãn tên"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."

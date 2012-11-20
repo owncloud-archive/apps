@@ -180,5 +180,6 @@
 "Cache" => "Buffer",
 "URLs" => "URLs",
 "more info" => "mer info",
+"Primary address (Kontact et al)" => "Primær adresse (kontakt osv)",
 "iOS/OS X" => "iOS/OS X"
 );

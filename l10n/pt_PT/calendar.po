@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <daniel@mouxy.net>, 2012.
 # Duarte Velez Grilo <duartegrilo@gmail.com>, 2012.
 #   <geral@ricardolameiro.pt>, 2012.
 #   <helder.meneses@gmail.com>, 2011.
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-20 00:00+0100\n"
-"PO-Revision-Date: 2012-11-19 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 00:10+0000\n"
+"Last-Translator: Mouxy <daniel@mouxy.net>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -488,7 +489,7 @@ msgstr "Todo o dia"
 
 #: templates/calendar.php:13
 msgid "Missing or invalid fields"
-msgstr ""
+msgstr "Campos em falta, ou inválidos!"
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11

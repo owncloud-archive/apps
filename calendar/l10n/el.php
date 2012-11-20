@@ -114,6 +114,7 @@
 "Nov." => "Νοέ.",
 "Dec." => "Δεκ.",
 "All day" => "Ολοήμερο",
+"Missing or invalid fields" => "Κενά ή μη έγκυρα πεδία",
 "Title" => "Τίτλος",
 "From Date" => "Από Ημερομηνία",
 "From Time" => "Από Ώρα",

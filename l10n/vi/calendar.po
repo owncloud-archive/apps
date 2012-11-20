@@ -4,15 +4,16 @@
 # 
 # Translators:
 #   <khanhnd@kenhgiaiphap.vn>, 2012.
+#   <mattheu.9x@gmail.com>, 2012.
 #   <mattheu_9x@yahoo.com>, 2012.
 # Sơn Nguyễn <sonnghit@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-20 00:00+0100\n"
-"PO-Revision-Date: 2012-11-19 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 04:34+0000\n"
+"Last-Translator: mattheu_9x <mattheu.9x@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +53,7 @@ msgstr "sự kiện đã được lưu vào lịch mới."
 
 #: ajax/import/import.php:57
 msgid "Import failed"
-msgstr "Nhập thất bại"
+msgstr "Nhập vào thất bại"
 
 #: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
@@ -218,15 +219,15 @@ msgstr "Lịch mới"
 
 #: lib/object.php:122 lib/object.php:162 lib/object.php:310
 msgid "You do not have the permissions to add events to this calendar."
-msgstr "Bạn không có sự cho phép thêm các sự kiện vào lịch này."
+msgstr "Bạn không có quyền thêm các sự kiện vào lịch này."
 
 #: lib/object.php:194 lib/object.php:228
 msgid "You do not have the permissions to edit this event."
-msgstr "Bạn không có sự cho phép chỉnh sửa sự kiện này."
+msgstr "Bạn không có quyền chỉnh sửa sự kiện này."
 
 #: lib/object.php:258 lib/object.php:290
 msgid "You do not have the permissions to delete this event."
-msgstr "Bạn không có sự cho phép xóa sự kiện này."
+msgstr "Bạn không có quyền xóa sự kiện này."
 
 #: lib/object.php:455
 msgid "Does not repeat"
@@ -262,7 +263,7 @@ msgstr "không thay đổi"
 
 #: lib/object.php:472
 msgid "by occurrences"
-msgstr "bởi xuất hiện"
+msgstr "bởi sự kiện"
 
 #: lib/object.php:473
 msgid "by date"
@@ -386,15 +387,15 @@ msgstr "Theo ngày tháng sự kiện"
 
 #: lib/object.php:572
 msgid "by yearday(s)"
-msgstr "theo năm"
+msgstr "Theo ngày trong năm"
 
 #: lib/object.php:573
 msgid "by weeknumber(s)"
-msgstr "số tuần"
+msgstr "Theo số tuần"
 
 #: lib/object.php:574
 msgid "by day and month"
-msgstr "ngày, tháng"
+msgstr "Theo ngày, tháng"
 
 #: lib/search.php:35 lib/search.php:37 lib/search.php:40
 msgid "Date"
@@ -486,7 +487,7 @@ msgstr "Tất cả các ngày"
 
 #: templates/calendar.php:13
 msgid "Missing or invalid fields"
-msgstr ""
+msgstr "Thông tin thiếu hoặc không hợp lệ"
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11
@@ -515,7 +516,7 @@ msgstr "Sự kiện này kết thúc trước khi nó bắt đầu"
 
 #: templates/calendar.php:21
 msgid "There was a database fail"
-msgstr "Lỗi truy xuất database"
+msgstr "Lỗi truy xuất cơ sở dữ liệu"
 
 #: templates/calendar.php:39
 msgid "Week"
@@ -598,7 +599,7 @@ msgstr "Lưu"
 #: templates/part.editcalendar.php:42 templates/part.editevent.php:8
 #: templates/part.newevent.php:6
 msgid "Submit"
-msgstr "Submit"
+msgstr "Xác nhận"
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"
@@ -610,7 +611,7 @@ msgstr "Sửa sự kiện"
 
 #: templates/part.editevent.php:10
 msgid "Export"
-msgstr "Xuất"
+msgstr "Xuất ra"
 
 #: templates/part.eventform.php:8 templates/part.showevent.php:3
 msgid "Eventinfo"
@@ -719,11 +720,11 @@ msgstr "và sự kiện của tuần trong năm."
 
 #: templates/part.eventform.php:214 templates/part.showevent.php:209
 msgid "Interval"
-msgstr "Khoảng thời gian"
+msgstr "Khoảng từ"
 
 #: templates/part.eventform.php:220 templates/part.showevent.php:215
 msgid "End"
-msgstr "Cuối"
+msgstr "Kết thúc"
 
 #: templates/part.eventform.php:233 templates/part.showevent.php:228
 msgid "occurrences"
@@ -735,7 +736,7 @@ msgstr "Tạo lịch mới"
 
 #: templates/part.import.php:17
 msgid "Import a calendar file"
-msgstr "Nhập lịch từ tệp tin"
+msgstr "Nhập lịch từ tập tin"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
@@ -761,7 +762,7 @@ msgstr "Xóa tất cả những sự kiện đã chọn trong calendar"
 
 #: templates/part.import.php:50
 msgid "Import"
-msgstr "Nhập"
+msgstr "Nhập vào"
 
 #: templates/part.import.php:59
 msgid "Close Dialog"
@@ -843,11 +844,11 @@ msgstr "Ngày bắt đầu trong tuần"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr "Bộ nhớ cache"
+msgstr "Bộ nhớ đệm"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr "Xóa bộ nhớ cache cho các sự kiện lặp đi lặp lại"
+msgstr "Xóa bộ nhớ đệm cho các sự kiện lặp đi lặp lại"
 
 #: templates/settings.php:85
 msgid "URLs"
@@ -855,7 +856,7 @@ msgstr "URLs"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
-msgstr "Calendar CallDAV  đồng bộ địa chỉ"
+msgstr "Đồng bộ địa chỉ lịch CalDAV"
 
 #: templates/settings.php:87
 msgid "more info"

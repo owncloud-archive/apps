@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-20 00:00+0100\n"
-"PO-Revision-Date: 2012-11-19 23:01+0000\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-19 23:14+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -629,7 +629,7 @@ msgstr ""
 
 #: templates/part.eventform.php:13
 msgid "Share"
-msgstr ""
+msgstr "Дељење"
 
 #: templates/part.eventform.php:21
 msgid "Title of the Event"
@@ -645,7 +645,7 @@ msgstr ""
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
-msgstr ""
+msgstr "Измени категорије"
 
 #: templates/part.eventform.php:56 templates/part.showevent.php:52
 msgid "All Day Event"
@@ -780,7 +780,7 @@ msgstr ""
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "Укини дељење"
 
 #: templates/part.share.php:53
 msgid "Nobody"
