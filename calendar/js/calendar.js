@@ -192,10 +192,10 @@ Calendar={
 				// Tue 18 October 2011 08:00 - 16:00
 			}
 			var html =
-				'<div class="summary">' + event.title + '</div>' +
+				'<div class="summary">' + escapeHTML(event.title) + '</div>' +
 				'<div class="timespan">' + timespan + '</div>';
 			if (event.description){
-				html += '<div class="description">' + event.description + '</div>';
+				html += '<div class="description">' + escapeHTML(event.description) + '</div>';
 			}
 			return html;
 		},
@@ -746,7 +746,7 @@ function ListView(element, calendar) {
 			' class="' + classes.join(' ') + '"' +
 			'>' +
 			'<span class="fc-event-title">' +
-			event.title +
+			escapeHTML(event.title) +
 			'</span>' +
 			'</span>' +
 			'</td>' +
