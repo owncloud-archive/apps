@@ -2,7 +2,7 @@
 <info>
 	<id>mozilla_sync</id>
 	<name>Mozilla Sync Service</name>
-	<description>Service for synchronization firefox setings between devices</description>
+	<description>Service for synchronization firefox settings between devices</description>
 	<version>1.0</version>
 	<licence>AGPL</licence>
 	<author>Michal Jaskurzynski</author>
