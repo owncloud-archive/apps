@@ -2,6 +2,7 @@
     <form>
         <input type="text" name="to" id="to" placeholder="<?php p($l->t('To')); ?>"/>
         <input type="text" name="subject" id="subject" placeholder="<?php p($l->t('Subject')); ?>"/>
+<!--        <img style="display: none;" id="wait" src="--><?php //echo OCP\Util::imagePath('core', 'loading.gif'); ?><!--" />-->
         <textarea name="body" id="body"></textarea>
     </form>
 </div>
@@ -18,6 +19,7 @@
 	        hide : 'drop',
             buttons:{
                 "Send":function () {
+	                var dialog = $(this);
                     $.ajax({
                         url:OC.filePath('mail', 'ajax', 'send_message.php'),
                         beforeSend:function () {
@@ -32,7 +34,7 @@
                             'subject':$('#subject').val(),
                             'body':$('#body').val()},
                         success:function () {
-                            $(this).dialog("close");
+                            dialog.dialog("close");
                         }
                     });
                     return false;
@@ -47,6 +49,7 @@
             return split(term).pop();
         }
 
+	    <?php if (OCP\Contacts::isEnabled()) { ?>
         $("#to")
             // don't navigate away from the field on tab when selecting an item
                 .bind("keydown", function (event) {
@@ -86,6 +89,9 @@
                         return false;
                     }
                 });
+
+	<?php } ?>
+
     });
 
 </script>
