@@ -36,20 +36,19 @@ if (!$account) {
 	exit();
 }
 
-$tos = explode(',', $to);
+// get sender data
 $from = $account->getName();
 $from_address = $account->getEMailAddress();
 
+// parse receiver string
+$parser = new Horde_Mail_Rfc822();
+$tos = $parser->parseAddressList($to, array(
+	'validate' => true
+));
+
 foreach($tos as $t) {
-	//	$to_address = isset( $_GET['to_address'] ) ? $_GET['to_address'] : null;
-	//	$to_name = isset( $_GET['to_name'] ) ? $_GET['to_name'] : null;
-
-	//
-	// TODO: parse $t and extract display name
-	//
-
 	// sent mail
-	OCP\Util::sendMail($t, $t, $subject, $body, $from_address, $from);
+	OCP\Util::sendMail($t->bare_address, $t->label, $subject, $body, $from_address, $from);
 }
 
 //
