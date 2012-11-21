@@ -25,7 +25,24 @@
 	<div id="contacts-settings">
 		<ul>
 			<li><button class="settings" title="<?php echo $l->t('Settings'); ?>"></button></li>
-			<li><h3 class="import" role="button"><?php echo $l->t('Import'); ?></h3></li>
+			<li><h3 class="import" role="button"><?php echo $l->t('Import'); ?></h3>
+				<ul class="hidden">
+					<li>
+						<input type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" />
+						<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
+					</li>
+					<li><?php echo $l->t('Import into:'); ?></li>
+					<li>
+					<select>
+					<?php foreach($_['addressbooks'] as $addressbook) { 
+						if($addressbook['permissions']  & OCP\PERMISSION_CREATE) {
+						?>
+						<option value="<?php echo $addressbook['id'] ?>"><?php echo $addressbook['displayname'] ?></option>
+					<?php }} ?>
+					</select>
+					</li>
+				</ul>
+			</li>
 			<li><h3 class="export"><?php echo $l->t('Export'); ?></h3>
 				<ul class="hidden">
 				<?php foreach($_['addressbooks'] as $addressbook): ?>

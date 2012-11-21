@@ -1081,6 +1081,8 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		$('.import').on('click keydown', function(event) {
+			// NOTE: Test if document title changes. If so there's a fix in 
+			// https://github.com/owncloud/apps/pull/212#issuecomment-10516723
 			if(wrongKey(event)) {
 				return;
 			}
@@ -1088,7 +1090,7 @@ OC.Contacts = OC.Contacts || {
 			self.hideActions();
 		});
 
-		$('.export').on('click keydown', function(event) {
+		$('.export,.import').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
