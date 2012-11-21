@@ -555,12 +555,12 @@ class VCard {
 				)
 			);
 		}
-		$addressbook = Addressbook::find($card['addressbookid']);
+		$addressbook = Addressbook::find($vcard['addressbookid']);
 		if(!$addressbook) {
 			throw new \Exception(
 				App::$l10n->t(
 					'Could not find the Addressbook with ID: '
-					. $card['addressbookid']
+					. $vcard['addressbookid']
 				)
 			);
 		}
@@ -570,7 +570,7 @@ class VCard {
 				. $addressbook['userid'] . ' != ' . \OCP\User::getUser(), \OCP\Util::DEBUG);
 			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource(
 				'addressbook',
-				$card['addressbookid'],
+				$vcard['addressbookid'],
 				\OCP\Share::FORMAT_NONE, null, true);
 			$sharedContact = \OCP\Share::getItemSharedWithBySource(
 				'contact',
@@ -611,7 +611,6 @@ class VCard {
 				)
 			);
 		}
-		App::getVCategories()->purgeObject($id);
 
 		App::updateDBProperties($id);
 		App::getVCategories()->purgeObject($id);
@@ -630,7 +629,7 @@ class VCard {
 	public static function deleteFromDAVData($aid, $uri) {
 		$id = null;
 		$addressbook = Addressbook::find($aid);
-		if ($addressbook['userid'] != OCP\User::getUser()) {
+		if ($addressbook['userid'] != \OCP\User::getUser()) {
 			$query = \OCP\DB::prepare( 'SELECT `id` FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
 			$id = $query->execute(array($aid, $uri))->fetchOne();
 			if (!$id) {
@@ -654,7 +653,9 @@ class VCard {
 		Addressbook::touch($aid);
 
 		if(!is_null($id)) {
+			App::getVCategories()->purgeObject($id);
 			App::updateDBProperties($id);
+			\OCP\Share::unshareAll('contact', $id);
 		} else {
 			\OCP\Util::writeLog('contacts', __METHOD__.', Could not find id for ' . $uri, \OCP\Util::DEBUG);
 		}

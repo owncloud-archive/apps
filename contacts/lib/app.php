@@ -310,7 +310,7 @@ class App {
 			if(!isset($vcard->PHOTO)) {
 				return false;
 			}
-			if(!$image->loadFromBase64($vcard->PHOTO)) {
+			if(!$image->loadFromBase64((string)$vcard->PHOTO)) {
 				return false;
 			}
 		}

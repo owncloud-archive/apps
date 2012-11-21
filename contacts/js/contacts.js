@@ -22,7 +22,7 @@ OC.Contacts = OC.Contacts || {};
 			this.$listTemplate = listtemplate,
 			this.$fullTemplate = fulltemplate;
 			this.detailTemplates = detailtemplates;
-		var self = this;
+		this.self = this;
 		this.multi_properties = ['EMAIL', 'TEL', 'IMPP', 'ADR', 'URL'];
 	}
 
@@ -108,7 +108,9 @@ OC.Contacts = OC.Contacts || {};
 						for(var i in self.data[element]) {
 							if(self.data[element][i].checksum === checksum) {
 								// Found it
-								delete self.data[element][i];
+								var prop = self.data[element][i];
+								self.data[element].splice(self.data[element].indexOf(prop), 1);
+								delete prop;
 								break;
 							}
 						}
@@ -230,12 +232,12 @@ OC.Contacts = OC.Contacts || {};
 							});
 							if(nempty) {
 								self.data.N[0]['value'] = ['', '', '', '', ''];
-								value = value.split(' ');
+								nvalue = value.split(' ');
 								// Very basic western style parsing. I'm not gonna implement
 								// https://github.com/android/platform_packages_providers_contactsprovider/blob/master/src/com/android/providers/contacts/NameSplitter.java ;)
-								self.data.N[0]['value'][0] = value.length > 2 && value.slice(value.length-1).toString() || value[1] || '';
-								self.data.N[0]['value'][1] = value[0] || '';
-								self.data.N[0]['value'][2] = value.length > 2 && value.slice(1, value.length-1).join(' ') || '';
+								self.data.N[0]['value'][0] = nvalue.length > 2 && nvalue.slice(nvalue.length-1).toString() || nvalue[1] || '';
+								self.data.N[0]['value'][1] = nvalue[0] || '';
+								self.data.N[0]['value'][2] = nvalue.length > 2 && nvalue.slice(1, nvalue.length-1).join(' ') || '';
 								setTimeout(function() {
 									// TODO: Hint to user to check if name is properly formatted
 									self.saveProperty({name:'N', value:self.data.N[0].value.join(';')})}
@@ -430,7 +432,22 @@ OC.Contacts = OC.Contacts || {};
 
 	Contact.prototype.valueFor = function(obj) {
 		var $container = this.propertyContainerFor(obj);
-		return $container.is('input') ? $container.val() : $container.find('input.value').val();
+		console.assert($container.length > 0, 'Couldn\'t find container for ' + $(obj))
+		return $container.is('input') 
+			? $container.val() 
+			: (function() {
+				var $elem = $container.find('input.value:not(:checkbox)');
+				console.assert($elem.length > 0, 'Couldn\'t find value for ' + $container.data('element'));
+				if($elem.length === 1) {
+					return $elem.val;
+				} else if($elem.length > 1) {
+					var retval = [];
+					$.each($elem, function(idx, e) {
+						retval.push($(e).val());
+					});
+					return retval;
+				}
+			})();
 	}
 
 	Contact.prototype.parametersFor = function(obj) {
