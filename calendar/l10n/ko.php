@@ -114,6 +114,7 @@
 "Nov." => "11월",
 "Dec." => "12월",
 "All day" => "매일",
+"Missing or invalid fields" => "누락되었거나 잘못된 필드",
 "Title" => "제목",
 "From Date" => "시작날짜",
 "From Time" => "시작시간",

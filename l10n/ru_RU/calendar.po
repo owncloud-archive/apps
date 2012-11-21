@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-19 23:14+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-22 00:01+0100\n"
+"PO-Revision-Date: 2012-11-21 12:07+0000\n"
+"Last-Translator: Mihail Vasiliev <mickvav@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,7 +59,7 @@ msgstr "Событие было сохранено в Вашем календа�
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
-msgstr "Новый часовой пояс"
+msgstr "Новый часовой пояс:"
 
 #: ajax/settings/settimezone.php:23
 msgid "Timezone changed"
@@ -80,11 +80,11 @@ msgstr "Удаление не удалось"
 
 #: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr "ддд д ММММ[ гггг]{ - [ddd d] MMMM yyyy}"
+msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
 #: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr "ддд д ММММ[ гггг] ЧЧ:мм{ - [ ddd d MMMM yyyy] HH:mm}"
+msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:597
 msgid "user"
@@ -108,27 +108,27 @@ msgstr "Удаляемый"
 
 #: js/calendar.js:869
 msgid "ddd"
-msgstr "ддд"
+msgstr "ddd"
 
 #: js/calendar.js:870
 msgid "ddd M/d"
-msgstr "ддд М/д"
+msgstr "ddd M/d"
 
 #: js/calendar.js:871
 msgid "dddd M/d"
-msgstr "дддд М/д"
+msgstr "dddd M/d"
 
 #: js/calendar.js:874
 msgid "MMMM yyyy"
-msgstr "ММММ гггг"
+msgstr "MMMM yyyy"
 
 #: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
-msgstr "МММ д[ гггг]{ '&#8212;'[ МММ] д гггг}"
+msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
-msgstr "дд, МММ д, гггг"
+msgstr "dddd, MMM d, yyyy"
 
 #: lib/app.php:114
 msgid "Birthday"
@@ -273,7 +273,7 @@ msgstr "по дню месяца"
 
 #: lib/object.php:484
 msgid "by weekday"
-msgstr "по дню недели"
+msgstr "по будням"
 
 #: lib/object.php:494 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
@@ -485,7 +485,7 @@ msgstr "Весь день"
 
 #: templates/calendar.php:13
 msgid "Missing or invalid fields"
-msgstr ""
+msgstr "Пропущенные или недопустимые поля"
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11

@@ -114,6 +114,7 @@
 "Nov." => "Nov.",
 "Dec." => "Dec.",
 "All day" => "Hela dagen",
+"Missing or invalid fields" => "Saknade eller ogiltiga fält",
 "Title" => "Rubrik",
 "From Date" => "Från datum",
 "From Time" => "Från tid",

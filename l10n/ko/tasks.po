@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-20 09:41+0000\n"
+"POT-Creation-Date: 2012-11-22 00:01+0100\n"
+"PO-Revision-Date: 2012-11-21 06:56+0000\n"
 "Last-Translator: 남자사람 <cessnagi@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr ""
+msgstr "유효하지 않은 날짜/시간"
 
 #: appinfo/app.php:10
 msgid "Tasks"
@@ -28,7 +28,7 @@ msgstr "작업"
 
 #: js/tasks.js:78
 msgid "Due"
-msgstr ""
+msgstr "기한"
 
 #: js/tasks.js:107
 msgid "List"
@@ -44,7 +44,7 @@ msgstr "분류 없음"
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr ""
+msgstr "분류되지 않음"
 
 #: lib/app.php:34
 msgid "1=highest"
@@ -64,11 +64,11 @@ msgstr "빈 요약"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr ""
+msgstr "퍼센트 완료가 유효하지 않음"
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr ""
+msgstr "우선순위가 유효하지 않음"
 
 #: templates/no-calendar-app.php:9
 msgid ""
