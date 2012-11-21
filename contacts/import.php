@@ -122,20 +122,21 @@ if(!count($parts) > 0) {
 	exit();
 }
 foreach($parts as $part) {
-	$card = OC_VObject::parse($part);
-	if (!$card) {
+	try {
+		$vcard = Sabre\VObject\Reader::read($contact['carddata']);
+	} catch (Exception $e) {
 		$failed += 1;
 		OCP\Util::writeLog('contacts',
-			'Import: skipping card. Error parsing VCard: ' . $part,
+			'Import: skipping card. Error parsing VCard: ' . $e->getMessage(),
 				OCP\Util::ERROR);
 		continue; // Ditch cards that can't be parsed by Sabre.
 	}
 	try {
-		OCA\Contacts\VCard::add($id, $card);
+		OCA\Contacts\VCard::add($id, $vcard);
 		$imported += 1;
 	} catch (Exception $e) {
 		OCP\Util::writeLog('contacts',
-			'Error importing vcard: ' . $e->getMessage() . $nl . $card,
+			'Error importing vcard: ' . $e->getMessage() . $nl . $vcard,
 			OCP\Util::ERROR);
 		$failed += 1;
 	}

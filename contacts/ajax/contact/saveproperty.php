@@ -120,7 +120,7 @@ if(!$value) {
 		unset($vcard->children[$line]);
 		$checksum = '';
 	} else {
-		$vcard->setString($name, '');
+		unset($vcard->{$name});
 	}
 } else {
 	/* setting value */

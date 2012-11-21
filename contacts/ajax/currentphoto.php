@@ -36,11 +36,13 @@ if( is_null($contact)) {
 	bailOut(OCA\Contacts\App::$l10n->t('Error reading contact photo.'));
 } else {
 	$image = new OC_Image();
-	if(!$image->loadFromBase64($contact->getAsString('PHOTO'))) {
-		$image->loadFromBase64($contact->getAsString('LOGO'));
+	if(!isset($contact->PHOTO) || !$image->loadFromBase64((string)$contact->PHOTO)) {
+		if(isset($contact->LOGO)) {
+			$image->loadFromBase64((string)$contact->LOGO);
+		}
 	}
 	if($image->valid()) {
-		$tmpkey = 'contact-photo-'.$contact->getAsString('UID');
+		$tmpkey = 'contact-photo-'.$contact->UID;
 		if(OC_Cache::set($tmpkey, $image->data(), 600)) {
 			OCP\JSON::success(array('data' => array('id'=>$_GET['id'], 'tmp'=>$tmpkey)));
 			exit();

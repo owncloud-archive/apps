@@ -45,15 +45,15 @@ if (is_null($contact)) {
 		OCP\Util::ERROR);
 } else {
 	// Photo :-)
-	if ($image->loadFromBase64($contact->getAsString('PHOTO'))) {
+	if (isset($contact->PHOTO) && $image->loadFromBase64((string)$contact->PHOTO)) {
 		// OK
-		$etag = md5($contact->getAsString('PHOTO'));
+		$etag = md5($contact->PHOTO);
 	}
 	else
 	// Logo :-/
-	if ($image->loadFromBase64($contact->getAsString('LOGO'))) {
+	if (isset($contact->LOGO) && $image->loadFromBase64((string)$contact->LOGO)) {
 		// OK
-		$etag = md5($contact->getAsString('LOGO'));
+		$etag = md5($contact->LOGO);
 	}
 	if ($image->valid()) {
 		$modified = OCA\Contacts\App::lastModified($contact);

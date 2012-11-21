@@ -75,16 +75,17 @@ $contacts = array();
 // Our new array for the contacts sorted by addressbook
 if($contacts_alphabet) {
 	foreach($contacts_alphabet as $contact) {
-		$vcard = OC_VObject::parse($contact['carddata']);
-		if(is_null($vcard)) {
+		try {
+			$vcard = Sabre\VObject\Reader::read($contact['carddata']);
+			$details = OCA\Contacts\VCard::structureContact($vcard);
+			$contacts[] = array(
+					'id' => $contact['id'],
+					'aid' => $contact['addressbookid'],
+					'data' => $details,
+				);
+		} catch (Exception $e) {
 			continue;
 		}
-		$details = OCA\Contacts\VCard::structureContact($vcard);
-		$contacts[] = array(
-				'id' => $contact['id'],
-				'aid' => $contact['addressbookid'],
-				'data' => $details,
-			);
 		// This should never execute.
 		/*if(!isset($contacts_addressbook[$contact['addressbookid']])) {
 			$contacts_addressbook[$contact['addressbookid']] = array(

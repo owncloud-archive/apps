@@ -31,6 +31,8 @@
 
 namespace OCA\Contacts;
 
+use \Sabre\VObject;
+
 /**
  * This class contains all hooks.
  */
@@ -83,24 +85,26 @@ class Hooks{
 		$info = explode('_', $name);
 		$aid = $info[1];
 		Addressbook::find($aid);
-		foreach(VCard::all($aid) as $card) {
-			$vcard = \OC_VObject::parse($card['carddata']);
-			if (!$vcard) {
+		foreach(VCard::all($aid) as $contact) {
+			try {
+				$vcard = VObject\Reader::read($contact['carddata']);
+			} catch (Exception $e) {
 				continue;
 			}
 			$birthday = $vcard->BDAY;
 			if ($birthday) {
 				$date = new \DateTime($birthday);
-				$vevent = new \OC_VObject('VEVENT');
+				$vevent = VObject\Component::create('VEVENT');
 				//$vevent->setDateTime('LAST-MODIFIED', new DateTime($vcard->REV));
-				$vevent->setDateTime('DTSTART', $date,
-					\Sabre\VObject\Property\DateTime::DATE);
-				$vevent->setString('DURATION', 'P1D');
-				$vevent->setString('UID', substr(md5(rand().time()), 0, 10));
+				$vevent->add('DTSTART');
+				$vevent->DTSTART->setDateTime($date,
+					VObject\Property\DateTime::DATE);
+				$vevent->add('DURATION', 'P1D');
+				$vevent->{'UID'} = substr(md5(rand().time()), 0, 10);
 				// DESCRIPTION?
-				$vevent->setString('RRULE', 'FREQ=YEARLY');
+				$vevent->{'RRULE'} = 'FREQ=YEARLY';
 				$title = str_replace('{name}',
-					$vcard->getAsString('FN'),
+					$vcard->FN,
 					App::$l10n->t('{name}\'s Birthday'));
 				$parameters['events'][] = array(
 					'id' => 0,//$card['id'],

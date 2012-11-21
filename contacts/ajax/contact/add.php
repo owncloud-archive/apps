@@ -36,10 +36,10 @@ debug('Adding new contact to: ' . $aid);
 
 $isnew = isset($_POST['isnew']) ? $_POST['isnew'] : false;
 
-$vobject = Sabre\VObject\Component::create('VCARD');
-debug('vobject: ', print_r($vobject->serialize(), true));
-$vcard = new OC_VObject($vobject);
-$vcard->setUID();
+$vcard = Sabre\VObject\Component::create('VCARD');
+$uid = substr(md5(rand().time()), 0, 10);
+$vcard->add('UID', $uid);
+debug('vobject: ', print_r($vcard->serialize(), true));
 
 $id = null;
 try {

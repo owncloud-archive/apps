@@ -37,6 +37,8 @@
 
 namespace OCA\Contacts;
 
+use Sabre\VObject;
+
 /**
  * This class manages our vCards
  */
@@ -224,14 +226,14 @@ class VCard {
 	/**
 	* @brief Tries to update imported VCards to adhere to rfc2426 (VERSION: 3.0) and add mandatory fields if missing.
 	* @param aid Address book id.
-	* @param vcard An OC_VObject of type VCARD (passed by reference).
+	* @param vcard A Sabre\VObject\Component of type VCARD (passed by reference).
 	*/
 	protected static function updateValuesFromAdd($aid, &$vcard) { // any suggestions for a better method name? ;-)
 		$stringprops = array('N', 'FN', 'ORG', 'NICK', 'ADR', 'NOTE');
 		$typeprops = array('ADR', 'TEL', 'EMAIL');
 		$upgrade = false;
 		$fn = $n = $uid = $email = $org = null;
-		$version = $vcard->getAsString('VERSION');
+		$version = isset($vcard->VERSION) ? $vcard->VERSION : null;
 		// Add version if needed
 		if($version && $version < '3.0') {
 			$upgrade = true;
@@ -283,7 +285,7 @@ class VCard {
 			} else {
 				$fn = 'Unknown Name';
 			}
-			$vcard->setString('FN', $fn);
+			$vcard->FN = $fn;
 			//OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. Added missing \'FN\' field: '.$fn, OCP\Util::DEBUG);
 		}
 		if(!$n || $n == ';;;;') { // Fix missing 'N' field. Ugly hack ahead ;-)
@@ -292,30 +294,30 @@ class VCard {
 				$slice[] = "";
 			}
 			$n = implode(';', $slice).';;;';
-			$vcard->setString('N', $n);
+			$vcard->N = $n;
 			//OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. Added missing \'N\' field: '.$n, OCP\Util::DEBUG);
 		}
 		if(!$uid) {
-			$vcard->setUID();
-			$uid = $vcard->getAsString('UID');
+			$uid = substr(md5(rand().time()), 0, 10);
+			$vcard->add('UID', $uid);
 			//OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. Added missing \'UID\' field: '.$uid, OCP\Util::DEBUG);
 		}
 		if(self::trueUID($aid, $uid)) {
-			$vcard->setString('UID', $uid);
+			$vcard->{'UID'} = $uid;
 		}
 		$now = new \DateTime;
-		$vcard->setString('REV', $now->format(\DateTime::W3C));
+		$vcard->{'REV'} = $now->format(\DateTime::W3C);
 	}
 
 	/**
 	 * @brief Adds a card
 	 * @param $aid integer Addressbook id
-	 * @param $card OC_VObject  vCard file
+	 * @param $card Sabre\VObject\Component  vCard file
 	 * @param $uri string the uri of the card, default based on the UID
 	 * @param $isChecked boolean If the vCard should be checked for validity and version.
 	 * @return insertid on success or false.
 	 */
-	public static function add($aid, \OC_VObject $card, $uri=null, $isChecked=false) {
+	public static function add($aid, VObject\Component $card, $uri=null, $isChecked=false) {
 		if(is_null($card)) {
 			\OCP\Util::writeLog('contacts', __METHOD__ . ', No vCard supplied', \OCP\Util::ERROR);
 			return null;
@@ -334,25 +336,20 @@ class VCard {
 		if(!$isChecked) {
 			self::updateValuesFromAdd($aid, $card);
 		}
-		$card->setString('VERSION', '3.0');
+		$card->{'VERSION'} = '3.0';
 		// Add product ID is missing.
-		$prodid = trim($card->getAsString('PRODID'));
-		if(!$prodid) {
+		//$prodid = trim($card->getAsString('PRODID'));
+		//if(!$prodid) {
+		if(!isset($card->PRODID)) {
 			$appinfo = \OCP\App::getAppInfo('contacts');
 			$appversion = \OCP\App::getAppVersion('contacts');
 			$prodid = '-//ownCloud//NONSGML '.$appinfo['name'].' '.$appversion.'//EN';
-			$card->setString('PRODID', $prodid);
+			$card->add('PRODID', $prodid);
 		}
 
-		$fn = $card->getAsString('FN');
-		if (empty($fn)) {
-			$fn = '';
-		}
+		$fn = isset($card->FN) ? $card->FN : '';
 
-		if (!$uri) {
-			$uid = $card->getAsString('UID');
-			$uri = $uid.'.vcf';
-		}
+		$uri = isset($uri) ? $uri : $card->UID . '.vcf';
 
 		$data = $card->serialize();
 		$stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards` (`addressbookid`,`fullname`,`carddata`,`uri`,`lastmodified`) VALUES(?,?,?,?,?)' );
@@ -382,11 +379,16 @@ class VCard {
 	 * @param integer $id Addressbook id
 	 * @param string $uri   the uri the card will have
 	 * @param string $data  vCard file
-	 * @return insertid
+	 * @returns integer|false insertid or false on error
 	 */
 	public static function addFromDAVData($id, $uri, $data) {
-		$card = \OC_VObject::parse($data);
-		return self::add($id, $card, $uri);
+		try {
+			$vcard = Sabre\VObject\Reader::read($data);
+			return self::add($id, $vcard, $uri);
+		} catch(\Exception $e) {
+			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
+			return false;
+		}
 	}
 
 	/**
@@ -397,7 +399,12 @@ class VCard {
 		$stmt = \OCP\DB::prepare( 'UPDATE `*PREFIX*contacts_cards` SET `carddata` = ?, `lastmodified` = ? WHERE `id` = ?' );
 		$now = new \DateTime;
 		foreach($objects as $object) {
-			$vcard = \OC_VObject::parse($object[1]);
+			$vcard = null;
+			try {
+				$vcard = Sabre\VObject\Reader::read($contact['carddata']);
+			} catch(\Exception $e) {
+				\OC_Log::write('contacts', __METHOD__. $e->getMessage(), \OCP\Util::ERROR);
+			}
 			if(!is_null($vcard)) {
 				$oldcard = self::find($object[0]);
 				if (!$oldcard) {
@@ -411,7 +418,7 @@ class VCard {
 						return false;
 					}
 				}
-				$vcard->setString('REV', $now->format(\DateTime::W3C));
+				$vcard->{'REV'} = $now->format(\DateTime::W3C);
 				$data = $vcard->serialize();
 				try {
 					$result = $stmt->execute(array($data,time(),$object[0]));
@@ -431,10 +438,10 @@ class VCard {
 	/**
 	 * @brief edits a card
 	 * @param integer $id id of card
-	 * @param OC_VObject $card  vCard file
+	 * @param Sabre\VObject\Component $card  vCard file
 	 * @return boolean true on success, otherwise an exception will be thrown
 	 */
-	public static function edit($id, \OC_VObject $card) {
+	public static function edit($id, VObject\Component $card) {
 		$oldcard = self::find($id);
 		if (!$oldcard) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', id: '
@@ -476,13 +483,10 @@ class VCard {
 		}
 		App::loadCategoriesFromVCard($id, $card);
 
-		$fn = $card->getAsString('FN');
-		if (empty($fn)) {
-			$fn = null;
-		}
+		$fn = isset($card->FN) ? $card->FN : '';
 
 		$now = new \DateTime;
-		$card->setString('REV', $now->format(\DateTime::W3C));
+		$card->{'REV'} = $now->format(\DateTime::W3C);
 
 		$data = $card->serialize();
 		$stmt = \OCP\DB::prepare( 'UPDATE `*PREFIX*contacts_cards` SET `fullname` = ?,`carddata` = ?, `lastmodified` = ? WHERE `id` = ?' );
@@ -515,14 +519,15 @@ class VCard {
 	 */
 	public static function editFromDAVData($aid, $uri, $data) {
 		$oldcard = self::findWhereDAVDataIs($aid, $uri);
-		$card = \OC_VObject::parse($data);
-		if(!$card) {
+		try {
+			$vcard = Sabre\VObject\Reader::read($data);
+		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.
-				', Unable to parse VCARD, uri: '.$uri, \OCP\Util::ERROR);
+				', Unable to parse VCARD, : ' . $e->getMessage(), \OCP\Util::ERROR);
 			return false;
 		}
 		try {
-			self::edit($oldcard['id'], $card);
+			self::edit($oldcard['id'], $vcard);
 			return true;
 		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '
@@ -540,8 +545,8 @@ class VCard {
 	 * @return boolean true on success, otherwise an exception will be thrown
 	 */
 	public static function delete($id) {
-		$card = self::find($id);
-		if (!$card) {
+		$vcard = self::find($id);
+		if (!$vcard) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', id: '
 				. $id . ' not found.', \OCP\Util::DEBUG);
 			throw new \Exception(
@@ -658,59 +663,22 @@ class VCard {
 	}
 
 	/**
-	 * @brief Escapes delimiters from an array and returns a string.
-	 * @param array $value
-	 * @param char $delimiter
-	 * @return string
-	 */
-	public static function escapeDelimiters($value, $delimiter=';') {
-		foreach($value as &$i ) {
-			$i = implode("\\$delimiter", explode($delimiter, $i));
-		}
-		return implode($delimiter, $value);
-	}
-
-
-	/**
-	 * @brief Creates an array out of a multivalue property
-	 * @param string $value
-	 * @param char $delimiter
-	 * @return array
-	 */
-	public static function unescapeDelimiters($value, $delimiter=';') {
-		$array = explode($delimiter, $value);
-		for($i=0;$i<count($array);$i++) {
-			if(substr($array[$i], -1, 1)=="\\") {
-				if(isset($array[$i+1])) {
-					$array[$i] = substr($array[$i], 0, count($array[$i])-2).$delimiter.$array[$i+1];
-					unset($array[$i+1]);
-				} else {
-					$array[$i] = substr($array[$i], 0, count($array[$i])-2).$delimiter;
-				}
-				$i = $i - 1;
-			}
-		}
-		$array = array_map('trim', $array);
-		return $array;
-	}
-
-	/**
 	 * @brief Data structure of vCard
-	 * @param object $property
+	 * @param Sabre\VObject\Component $property
 	 * @return associative array
 	 *
 	 * look at code ...
 	 */
-	public static function structureContact($object) {
+	public static function structureContact($vcard) {
 		$details = array();
 
-		foreach($object->children as $property) {
+		foreach($vcard->children as $property) {
 			$pname = $property->name;
 			$temp = self::structureProperty($property);
 			if(!is_null($temp)) {
 				// Get Apple X-ABLabels
-				if(isset($object->{$property->group . '.X-ABLABEL'})) {
-					$temp['label'] = $object->{$property->group . '.X-ABLABEL'}->value;
+				if(isset($vcard->{$property->group . '.X-ABLABEL'})) {
+					$temp['label'] = $vcard->{$property->group . '.X-ABLABEL'}->value;
 					if($temp['label'] == '_$!<Other>!$_') {
 						$temp['label'] = App::$l10n->t('Other');
 					}
@@ -743,12 +711,12 @@ class VCard {
 	 * but we should look out for any problems.
 	 */
 	public static function structureProperty($property) {
+		if(!in_array($property->name, App::$index_properties)) {
+			return;
+		}
 		$value = $property->value;
-		//$value = htmlspecialchars($value);
-		if($property->name == 'ADR' || $property->name == 'N' || $property->name == 'ORG') {
-			$value = self::unescapeDelimiters($value);
-		} elseif($property->name == 'CATEGORIES') {
-			$value = self::unescapeDelimiters($value, ',');
+		if($property->name == 'ADR' || $property->name == 'N' || $property->name == 'ORG' || $property->name == 'CATEGORIES') {
+			$value = $property->getParts();
 		}
 		elseif($property->name == 'BDAY') {
 			if(strpos($value, '-') === false) {

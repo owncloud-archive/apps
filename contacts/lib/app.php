@@ -8,6 +8,8 @@
 
 namespace OCA\Contacts;
 
+use Sabre\VObject;
+
 /**
  * This class manages our app actions
  */
@@ -32,35 +34,43 @@ class App {
 	/**
 	 * Properties to index.
 	 */
-	public static $index_properties = array('FN', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO');
+	public static $index_properties = array('FN', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO', 'PHOTO');
 
 	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
 	const THUMBNAIL_SIZE = 28;
 
 	/**
-	 * @brief Gets the VCard as an OC_VObject
-	 * @returns The card or null if the card could not be parsed.
+	 * @brief Gets the VCard as a Sabre\VObject\Component
+	 * @returns Sabre\VObject\Component|null The card or null if the card could not be parsed.
 	 */
 	public static function getContactVCard($id) {
 		$card = null;
+		$vcard = null;
 		try {
 			$card = VCard::find($id);
 		} catch(Exception $e) {
 			return null;
 		}
 
-		$vcard = \OC_VObject::parse($card['carddata']);
+		try {
+			$vcard = \Sabre\VObject\Reader::read($card['carddata']);
+		} catch(Exception $e) {
+			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
+			\OCP\Util::writeLog('contacts', __METHOD__.', id: ' . $id, \OCP\Util::DEBUG);
+			return null;
+		}
+
 		if (!is_null($vcard) && !isset($vcard->REV)) {
 			$rev = new \DateTime('@'.$card['lastmodified']);
-			$vcard->setString('REV', $rev->format(\DateTime::W3C));
+			$vcard->REV = $rev->format(\DateTime::W3C);
 		}
 		return $vcard;
 	}
 
 	public static function getPropertyLineByChecksum($vcard, $checksum) {
 		$line = null;
-		for($i=0;$i<count($vcard->children);$i++) {
-			if(substr(md5($vcard->children[$i]->serialize()), 0, 8) == $checksum ) {
+		foreach($vcard->children as $i => $property) {
+			if(substr(md5($property->serialize()), 0, 8) == $checksum ) {
 				$line = $i;
 				break;
 			}
@@ -259,28 +269,30 @@ class App {
 	 * check VCard for new categories.
 	 * @see OC_VCategories::loadFromVObject
 	 */
-	public static function loadCategoriesFromVCard($id, \OC_VObject $contact) {
+	public static function loadCategoriesFromVCard($id, $contact) {
+		if(!$contact instanceof \OC_VObject) {
+			$contact = new \OC_VObject($contact);
+		}
 		self::getVCategories()->loadFromVObject($id, $contact, true);
 	}
 
 	/**
 	 * @brief Get the last modification time.
-	 * @param $contact OC_VObject|integer
+	 * @param OC_VObject|Sabre\VObject\Component|integer $contact
 	 * @returns DateTime | null
 	 */
 	public static function lastModified($contact) {
 		if(is_numeric($contact)) {
 			$card = VCard::find($contact);
 			return ($card ? new \DateTime('@' . $card['lastmodified']) : null);
-		} elseif($contact instanceof \OC_VObject) {
-			$rev = $contact->getAsString('REV');
-			if ($rev) {
-				return \DateTime::createFromFormat(\DateTime::W3C, $rev);
-			}
+		} elseif($contact instanceof \OC_VObject || $contact instanceof VObject\Component) {
+			return isset($contact->REV) 
+				? \DateTime::createFromFormat(\DateTime::W3C, $contact->REV)
+				: null;
 		}
 	}
 
-	public static function cacheThumbnail($id, OC_Image $image = null) {
+	public static function cacheThumbnail($id, \OC_Image $image = null) {
 		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id)) {
 			return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 		}
@@ -295,11 +307,10 @@ class App {
 				return false;
 			}
 			$image = new \OC_Image();
-			$photo = $vcard->getAsString('PHOTO');
-			if(!$photo) {
+			if(!isset($vcard->PHOTO)) {
 				return false;
 			}
-			if(!$image->loadFromBase64($photo)) {
+			if(!$image->loadFromBase64($vcard->PHOTO)) {
 				return false;
 			}
 		}
@@ -321,7 +332,7 @@ class App {
 		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 	}
 
-	public static function updateDBProperties($contactid, \OC_VObject $vcard = null) {
+	public static function updateDBProperties($contactid, $vcard = null) {
 		$stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_cards_properties` WHERE `contactid` = ?');
 		try {
 			$stmt->execute(array($contactid));
