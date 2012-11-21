@@ -542,12 +542,14 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 
 OC.Contacts = OC.Contacts || {
 	init:function(id) {
-		$(document).ajaxError(function(e, xhr, settings, exception) {
-			// Don't try to get translation because it's likely a network error.
-			OC.notify({
-				message: 'error in: ' + settings.url + ', '+'error: ' + xhr.responseText,
+		if(oc_debug === true) {
+			$(document).ajaxError(function(e, xhr, settings, exception) {
+				// Don't try to get translation because it's likely a network error.
+				OC.notify({
+					message: 'error in: ' + settings.url + ', '+'error: ' + xhr.responseText,
+				});
 			});
-		});
+		}
 		//if(id) {
 			this.currentid = parseInt(id);
 			console.log('init, id:', id);
