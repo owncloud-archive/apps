@@ -114,7 +114,6 @@
 "Nov." => "十一月",
 "Dec." => "十二月",
 "All day" => "全天",
-"Missing fields" => "缺少字段",
 "Title" => "标题",
 "From Date" => "从",
 "From Time" => "从",

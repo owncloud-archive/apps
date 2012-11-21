@@ -114,7 +114,6 @@
 "Nov." => "Nov.",
 "Dec." => "Dec.",
 "All day" => "Hele dagen",
-"Missing fields" => "Manglende felter",
 "Title" => "Titel",
 "From Date" => "Fra dato",
 "From Time" => "Fra tidspunkt",

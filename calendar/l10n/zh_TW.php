@@ -112,7 +112,6 @@
 "Nov." => "十一月",
 "Dec." => "十二月",
 "All day" => "整天",
-"Missing fields" => "遺失欄位",
 "Title" => "標題",
 "From Date" => "自日期",
 "From Time" => "至時間",

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Miguel Branco <mgl.branco@gmail.com>, 2012.
 # Xosé M. Lamas <correo.xmgz@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 17:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 22:28+0000\n"
+"Last-Translator: Miguel Branco <mgl.branco@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "Tipo de ficheiro sen soporte para a importación"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
@@ -32,15 +33,15 @@ msgstr "Etiquetas"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr ""
+msgstr "Filtrar segundo a etiqueta"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
-msgstr ""
+msgstr "Editar o marcador"
 
 #: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
-msgstr ""
+msgstr "Seguro que queres eliminar esta etiqueta de todas as entradas?"
 
 #: js/bookmarks.js:370
 msgid "Warning"
@@ -48,19 +49,19 @@ msgstr "Advertencia"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "Completouse a importación correctamente."
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "Enviando..."
 
 #: lib/search.php:38
 msgid "Bookm."
-msgstr "Marcad."
+msgstr "Marc."
 
 #: templates/addBm.php:11
 msgid "Add a bookmark"
-msgstr ""
+msgstr "Engadir un marcador"
 
 #: templates/addBm.php:14
 msgid "Close"
@@ -68,15 +69,15 @@ msgstr "Pechar"
 
 #: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
-msgstr ""
+msgstr "O título da páxina"
 
 #: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
-msgstr ""
+msgstr "A dirección desta páxina"
 
 #: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
-msgstr ""
+msgstr "Descrición da páxina"
 
 #: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
@@ -98,7 +99,7 @@ msgstr "Cancelar"
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr "Arrastre esto aos marcadores do seu navegador e pulse nel cando queira marcar unha páxina con rapidez:"
+msgstr "Arrastre isto aos marcadores do teu navegador e pulse nel cando queira marcar unha páxina con rapidez:"
 
 #: templates/list.php:15
 msgid "Read later"
@@ -114,7 +115,7 @@ msgstr "Engadir"
 
 #: templates/list.php:31
 msgid "Related Tags"
-msgstr ""
+msgstr "Etiquetas relacionadas"
 
 #: templates/list.php:39 templates/list.php:41
 msgid "Settings"
@@ -126,15 +127,15 @@ msgstr "Non ten marcadores"
 
 #: templates/list.php:58
 msgid "You can also try to import a bookmark file"
-msgstr ""
+msgstr "Tamén podes intentar importar un ficheiro de marcadores"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
-msgstr ""
+msgstr "Bookmarklet"
 
 #: templates/settings.php:23
 msgid "Export & Import"
-msgstr ""
+msgstr "Exportar e importar"
 
 #: templates/settings.php:24
 msgid "Export"

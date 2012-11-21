@@ -114,7 +114,6 @@
 "Nov." => "Nov.",
 "Dec." => "Dic.",
 "All day" => "Todo el día",
-"Missing fields" => "Los campos que faltan",
 "Title" => "Título",
 "From Date" => "Desde la fecha",
 "From Time" => "Desde la hora",

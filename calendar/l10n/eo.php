@@ -112,7 +112,6 @@
 "Nov." => "Nov.",
 "Dec." => "Dec.",
 "All day" => "La tuta tago",
-"Missing fields" => "Mankas iuj kampoj",
 "Title" => "Titolo",
 "From Date" => "ekde la dato",
 "From Time" => "ekde la horo",

@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 09:06+0000\n"
-"Last-Translator: zaera <zaera.alex@gmail.com>\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-19 23:14+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -222,183 +222,183 @@ msgstr "У вас нет права добавлять в этот календ�
 msgid "New Calendar"
 msgstr "Новый Календарь"
 
-#: lib/object.php:122 lib/object.php:161 lib/object.php:309
+#: lib/object.php:122 lib/object.php:162 lib/object.php:310
 msgid "You do not have the permissions to add events to this calendar."
 msgstr "У вас нет права создавать события в этом календаре."
 
-#: lib/object.php:193 lib/object.php:227
+#: lib/object.php:194 lib/object.php:228
 msgid "You do not have the permissions to edit this event."
 msgstr "У вас нет права редактировать это событие."
 
-#: lib/object.php:257 lib/object.php:289
+#: lib/object.php:258 lib/object.php:290
 msgid "You do not have the permissions to delete this event."
 msgstr "У вас нет права удалить это событие."
 
-#: lib/object.php:454
+#: lib/object.php:455
 msgid "Does not repeat"
 msgstr "Не повторяется"
 
-#: lib/object.php:455
+#: lib/object.php:456
 msgid "Daily"
 msgstr "Ежедневно"
 
-#: lib/object.php:456
+#: lib/object.php:457
 msgid "Weekly"
 msgstr "Еженедельно"
 
-#: lib/object.php:457
+#: lib/object.php:458
 msgid "Every Weekday"
 msgstr "По будням"
 
-#: lib/object.php:458
+#: lib/object.php:459
 msgid "Bi-Weekly"
 msgstr "Каждые две недели"
 
-#: lib/object.php:459
+#: lib/object.php:460
 msgid "Monthly"
 msgstr "Каждый месяц"
 
-#: lib/object.php:460
+#: lib/object.php:461
 msgid "Yearly"
 msgstr "Каждый год"
 
-#: lib/object.php:470
+#: lib/object.php:471
 msgid "never"
 msgstr "никогда"
 
-#: lib/object.php:471
+#: lib/object.php:472
 msgid "by occurrences"
 msgstr "по числу повторений"
 
-#: lib/object.php:472
+#: lib/object.php:473
 msgid "by date"
 msgstr "по дате"
 
-#: lib/object.php:482
+#: lib/object.php:483
 msgid "by monthday"
 msgstr "по дню месяца"
 
-#: lib/object.php:483
+#: lib/object.php:484
 msgid "by weekday"
 msgstr "по дню недели"
 
-#: lib/object.php:493 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr "Понедельник"
 
-#: lib/object.php:494 templates/calendar.php:5
+#: lib/object.php:495 templates/calendar.php:5
 msgid "Tuesday"
 msgstr "Вторник"
 
-#: lib/object.php:495 templates/calendar.php:5
+#: lib/object.php:496 templates/calendar.php:5
 msgid "Wednesday"
 msgstr "Среда"
 
-#: lib/object.php:496 templates/calendar.php:5
+#: lib/object.php:497 templates/calendar.php:5
 msgid "Thursday"
 msgstr "Четверг"
 
-#: lib/object.php:497 templates/calendar.php:5
+#: lib/object.php:498 templates/calendar.php:5
 msgid "Friday"
 msgstr "Пятница"
 
-#: lib/object.php:498 templates/calendar.php:5
+#: lib/object.php:499 templates/calendar.php:5
 msgid "Saturday"
 msgstr "Суббота"
 
-#: lib/object.php:499 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:500 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr "Воскресенье"
 
-#: lib/object.php:509
+#: lib/object.php:510
 msgid "events week of month"
 msgstr "неделя месяца"
 
-#: lib/object.php:510
+#: lib/object.php:511
 msgid "first"
 msgstr "первая"
 
-#: lib/object.php:511
+#: lib/object.php:512
 msgid "second"
 msgstr "вторая"
 
-#: lib/object.php:512
+#: lib/object.php:513
 msgid "third"
 msgstr "третья"
 
-#: lib/object.php:513
+#: lib/object.php:514
 msgid "fourth"
 msgstr "червётрая"
 
-#: lib/object.php:514
+#: lib/object.php:515
 msgid "fifth"
 msgstr "пятая"
 
-#: lib/object.php:515
+#: lib/object.php:516
 msgid "last"
 msgstr "последняя"
 
-#: lib/object.php:549 templates/calendar.php:7
+#: lib/object.php:550 templates/calendar.php:7
 msgid "January"
 msgstr "Январь"
 
-#: lib/object.php:550 templates/calendar.php:7
+#: lib/object.php:551 templates/calendar.php:7
 msgid "February"
 msgstr "Февраль"
 
-#: lib/object.php:551 templates/calendar.php:7
+#: lib/object.php:552 templates/calendar.php:7
 msgid "March"
 msgstr "Март"
 
-#: lib/object.php:552 templates/calendar.php:7
+#: lib/object.php:553 templates/calendar.php:7
 msgid "April"
 msgstr "Апрель"
 
-#: lib/object.php:553 templates/calendar.php:7
+#: lib/object.php:554 templates/calendar.php:7
 msgid "May"
 msgstr "Май"
 
-#: lib/object.php:554 templates/calendar.php:7
+#: lib/object.php:555 templates/calendar.php:7
 msgid "June"
 msgstr "Июнь"
 
-#: lib/object.php:555 templates/calendar.php:7
+#: lib/object.php:556 templates/calendar.php:7
 msgid "July"
 msgstr "Июль"
 
-#: lib/object.php:556 templates/calendar.php:7
+#: lib/object.php:557 templates/calendar.php:7
 msgid "August"
 msgstr "Август"
 
-#: lib/object.php:557 templates/calendar.php:7
+#: lib/object.php:558 templates/calendar.php:7
 msgid "September"
 msgstr "Сентябрь"
 
-#: lib/object.php:558 templates/calendar.php:7
+#: lib/object.php:559 templates/calendar.php:7
 msgid "October"
 msgstr "Октябрь"
 
-#: lib/object.php:559 templates/calendar.php:7
+#: lib/object.php:560 templates/calendar.php:7
 msgid "November"
 msgstr "Ноябрь"
 
-#: lib/object.php:560 templates/calendar.php:7
+#: lib/object.php:561 templates/calendar.php:7
 msgid "December"
 msgstr "Декабрь"
 
-#: lib/object.php:570
+#: lib/object.php:571
 msgid "by events date"
 msgstr "по дате событий"
 
-#: lib/object.php:571
+#: lib/object.php:572
 msgid "by yearday(s)"
 msgstr "по дням недели"
 
-#: lib/object.php:572
+#: lib/object.php:573
 msgid "by weeknumber(s)"
 msgstr "по номерам недели"
 
-#: lib/object.php:573
+#: lib/object.php:574
 msgid "by day and month"
 msgstr "по дню и месяцу"
 
@@ -491,8 +491,8 @@ msgid "All day"
 msgstr "Весь день"
 
 #: templates/calendar.php:13
-msgid "Missing fields"
-msgstr "Незаполненные поля"
+msgid "Missing or invalid fields"
+msgstr ""
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11

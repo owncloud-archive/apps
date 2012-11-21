@@ -114,7 +114,6 @@
 "Nov." => "Nov.",
 "Dec." => "Dets.",
 "All day" => "Kogu päev",
-"Missing fields" => "Puuduvad väljad",
 "Title" => "Pealkiri",
 "From Date" => "Alates kuupäevast",
 "From Time" => "Alates kellaajast",

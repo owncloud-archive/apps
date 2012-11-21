@@ -114,7 +114,6 @@
 "Nov." => "Nov.",
 "Dec." => "Dec.",
 "All day" => "Celý deň",
-"Missing fields" => "Nevyplnené položky",
 "Title" => "Nadpis",
 "From Date" => "Od dátumu",
 "From Time" => "Od času",

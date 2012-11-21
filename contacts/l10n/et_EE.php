@@ -126,6 +126,8 @@
 "Video" => "Video",
 "Pager" => "Piipar",
 "Internet" => "Internet",
+"Friends" => "Sõbrad",
+"Family" => "Pereliikmed",
 "{name}'s Birthday" => "{name} sünnipäev",
 "Contact" => "Kontakt",
 "You do not have the permissions to add contacts to this addressbook." => "Sul pole õigusi sellesse aadressiraamatusse kontaktide lisamiseks.",

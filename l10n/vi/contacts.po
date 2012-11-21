@@ -4,15 +4,16 @@
 # 
 # Translators:
 #   <khanhnd@kenhgiaiphap.vn>, 2012.
+#   <mattheu.9x@gmail.com>, 2012.
 #   <mattheu_9x@yahoo.com>, 2012.
 # Sơn Nguyễn <sonnghit@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-16 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:15+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 03:53+0000\n"
+"Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -325,7 +326,7 @@ msgstr "Một số địa chỉ liên lạc được đánh dấu để xóa, nh
 
 #: js/contacts.js:1628
 msgid "Do you want to merge these address books?"
-msgstr "Bạn có muốn kết hợp những cuốn sách địa chỉ?"
+msgstr "Bạn có muốn kết hợp những addressbook?"
 
 #: js/contacts.js:1812
 msgid "Shared by "
@@ -375,11 +376,11 @@ msgstr "Một cái gì đó đã sai khi tải lên ,hãy thử lại."
 
 #: js/contacts.js:2292
 msgid "Importing..."
-msgstr "Importing..."
+msgstr "Đang nhập vào..."
 
 #: js/contacts.js:2313
 msgid "The address book name cannot be empty."
-msgstr "không thể để rỗng address book ."
+msgstr "Tên Danh bạ không thể để trống ."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -387,7 +388,7 @@ msgstr "Kết quả:"
 
 #: js/loader.js:49
 msgid " imported, "
-msgstr " imported, "
+msgstr "Nhập vào,"
 
 #: js/loader.js:49
 msgid " failed."
@@ -434,7 +435,7 @@ msgstr " ít hơn..."
 
 #: lib/addressbook.php:136
 msgid "You do not have the permissions to read this addressbook."
-msgstr " Bạn không được quyền đọc addressbook. "
+msgstr " Bạn không được quyền đọc Danh bạ. "
 
 #: lib/addressbook.php:235
 msgid "You do not have the permissions to update this addressbook."
@@ -558,11 +559,11 @@ msgstr "Mạng internet"
 
 #: lib/app.php:251
 msgid "Friends"
-msgstr ""
+msgstr "Bạn bè"
 
 #: lib/app.php:252
 msgid "Family"
-msgstr ""
+msgstr "Gia đình"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
@@ -574,7 +575,7 @@ msgstr "Danh sách"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr "Bạn không có quyền thêm tới Addressbook."
+msgstr "Bạn không có quyền truy cập để thêm số liên lạc vào danh bạ này."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
@@ -590,7 +591,7 @@ msgstr "Không thể tìm thấy ID vCard: "
 
 #: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
-msgstr "Không thể tìm thấy ID danh bạ:"
+msgstr "Không thể tìm thấy danh bạ với ID:"
 
 #: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
@@ -638,11 +639,11 @@ msgstr "Đóng/mở sổ địa chỉ"
 
 #: templates/index.php:42
 msgid "Next addressbook"
-msgstr "Next addressbook"
+msgstr "Tới addressbook"
 
 #: templates/index.php:44
 msgid "Previous addressbook"
-msgstr "Previous addressbook"
+msgstr "Lùi lại addressbook"
 
 #: templates/index.php:48
 msgid "Actions"
@@ -879,7 +880,7 @@ msgstr "Sổ địa chỉ"
 
 #: templates/part.edit_name_dialog.php:23
 msgid "Hon. prefixes"
-msgstr "Tiền tốt Hon."
+msgstr "Tiền tố"
 
 #: templates/part.edit_name_dialog.php:27
 msgid "Miss"
@@ -891,19 +892,19 @@ msgstr "Ms"
 
 #: templates/part.edit_name_dialog.php:29
 msgid "Mr"
-msgstr "Mr"
+msgstr "Ông"
 
 #: templates/part.edit_name_dialog.php:30
 msgid "Sir"
-msgstr "Sir"
+msgstr "Ngài"
 
 #: templates/part.edit_name_dialog.php:31
 msgid "Mrs"
-msgstr "Sir"
+msgstr "Bà"
 
 #: templates/part.edit_name_dialog.php:32
 msgid "Dr"
-msgstr "Sir"
+msgstr "Dr"
 
 #: templates/part.edit_name_dialog.php:35
 msgid "Given name"
@@ -980,7 +981,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr "<h3> Bạn không có địa chỉ liên lạc trong sổ địa chỉ của bạn </ h3> <p> Bạn có thể nhập các file VCF bằng cách kéo chúng vào danh sách liên lạc hoặc thả chúng vào một sổ địa chỉ để nhập vào nó, hoặc trên một khoảng trống để tạo ra mộtbsổ địa chỉ mới và nhập vào đó <br. /> Bạn cũng có thể nhập vào bằng cách nhấp vào nút nhập khẩu ở dưới cùng của danh sách. </ p>"
+msgstr "<h3> Bạn không có địa chỉ liên lạc trong sổ Danh bạ của bạn </ h3> <p> Bạn có thể nhập các file VCF bằng cách kéo chúng vào danh sách liên lạc hoặc thả chúng vào một sổ địa chỉ để nhập vào nó, hoặc trên một khoảng trống để tạo ra mộtbsổ địa chỉ mới và nhập vào đó <br. /> Bạn cũng có thể nhập vào bằng cách nhấp vào nút nhập khẩu ở dưới cùng của danh sách. </ p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"
@@ -1016,7 +1017,7 @@ msgstr "Sổ địa chỉ"
 
 #: templates/settings.php:35
 msgid "Share"
-msgstr "Chia sẽ"
+msgstr "Chia sẻ"
 
 #: templates/settings.php:57
 msgid "New Address Book"

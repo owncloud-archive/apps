@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# 남자사람  <cessnagi@gmail.com>, 2012.
 #   <limonade83@gmail.com>, 2012.
 # Shinjo Park <kde@peremen.name>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-16 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:15+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-20 00:00+0100\n"
+"PO-Revision-Date: 2012-11-19 11:52+0000\n"
+"Last-Translator: 남자사람 <cessnagi@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -241,7 +242,7 @@ msgstr "오류"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "이메일 주소를 입력해 주세요."
 
 #: js/contacts.js:177 templates/part.selectaddressbook.php:27
 msgid "Enter name"
@@ -274,11 +275,11 @@ msgstr "권한 에러"
 
 #: js/contacts.js:482
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "삭제를 되돌리기 위한 클릭"
 
 #: js/contacts.js:496
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "삭제가 취소되었습니다."
 
 #: js/contacts.js:734
 msgid "This property has to be non-empty."
@@ -290,7 +291,7 @@ msgstr "요소를 직렬화 할 수 없습니다."
 
 #: js/contacts.js:774
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "알수없는 에러. 로그를 확인해주세요."
 
 #: js/contacts.js:895 js/contacts.js:913
 msgid ""
@@ -328,7 +329,7 @@ msgstr "이 주소록을 통합하고 싶으십니까?"
 
 #: js/contacts.js:1812
 msgid "Shared by "
-msgstr ""
+msgstr "Shared by"
 
 #: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
@@ -362,23 +363,23 @@ msgstr "보류 중"
 
 #: js/contacts.js:2257
 msgid "Import done"
-msgstr ""
+msgstr "가져오기 완료"
 
 #: js/contacts.js:2270
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "모든파일이 업로드되지 않았습니다. 재시도중..."
 
 #: js/contacts.js:2276
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "업로드 하는데 무언가 잘못되었습니다. 재시도 해주세요."
 
 #: js/contacts.js:2292
 msgid "Importing..."
-msgstr ""
+msgstr "가져오기중..."
 
 #: js/contacts.js:2313
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "주소록 이름은 비워둘 수 없습니다."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -429,27 +430,27 @@ msgstr "더..."
 
 #: js/settings.js:165
 msgid "Less..."
-msgstr ""
+msgstr "그외..."
 
 #: lib/addressbook.php:136
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "당신은 이 주소록을 읽기 위한 권한이 없습니다."
 
 #: lib/addressbook.php:235
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "당신은 이 주소록을 업데이트하기 위한 권한이 없습니다."
 
 #: lib/addressbook.php:255
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "주소록을 업데이트 하는중에 에러가 발생하였습니다."
 
 #: lib/addressbook.php:311
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "당신은 이 주소록을 삭제하기 위한 권한이 없습니다."
 
 #: lib/addressbook.php:340
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "이 주소록을 제거하는데 에러가 발생하였습니다."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -557,11 +558,11 @@ msgstr "인터넷"
 
 #: lib/app.php:251
 msgid "Friends"
-msgstr ""
+msgstr "친구들"
 
 #: lib/app.php:252
 msgid "Family"
-msgstr ""
+msgstr "가족"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
@@ -573,11 +574,11 @@ msgstr "연락처"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "당신은 이 주소록에 연락처를 추가하기 위한 권한이 없습니다."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "ID와 vCard를 찾을수 없습니다."
 
 #: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
@@ -585,11 +586,11 @@ msgstr "당신은 연락처를 수정할 권한이 없습니다. "
 
 #: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "ID와 vCard를 찾을수 없습니다."
 
 #: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "ID와 주소록을 찾을 수 없습니다."
 
 #: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
@@ -597,7 +598,7 @@ msgstr "당신은 연락처를 삭제할 권한이 없습니다. "
 
 #: lib/vcard.php:550
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "이 연락처를 삭제하는데 에러가 발생하였습니다."
 
 #: templates/index.php:14
 msgid "Add Contact"
@@ -979,7 +980,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>당신의 주소록에 연락처가 없습니다.</h3><p>연락처 리스트에 드래그앤 드롭 함으로써 주소록에 VCF 파일을 가져올 수 있습니다, or on an empty spot to create a new addressbook and import into that.<br />당신은 리스트 상단에 위치한 가져오기 버튼을 누름으로써 가져올수 있습니다.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

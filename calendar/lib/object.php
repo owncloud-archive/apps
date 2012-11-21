@@ -125,7 +125,6 @@ class OC_Calendar_Object{
 			}
 		}
 		$object = OC_VObject::parse($data);
-		OC_Calendar_App::loadCategoriesFromVCalendar($object);
 		list($type,$startdate,$enddate,$summary,$repeating,$uid) = self::extractData($object);
 
 		if(is_null($uid)) {
@@ -138,6 +137,8 @@ class OC_Calendar_Object{
 		$stmt = OCP\DB::prepare( 'INSERT INTO `*PREFIX*calendar_objects` (`calendarid`,`objecttype`,`startdate`,`enddate`,`repeating`,`summary`,`calendardata`,`uri`,`lastmodified`) VALUES(?,?,?,?,?,?,?,?,?)' );
 		$stmt->execute(array($id,$type,$startdate,$enddate,$repeating,$summary,$data,$uri,time()));
 		$object_id = OCP\DB::insertid('*PREFIX*calendar_objects');
+
+		OC_Calendar_App::loadCategoriesFromVCalendar($object_id, $object);
 
 		OC_Calendar_Calendar::touchCalendar($id);
 		OCP\Util::emitHook('OC_Calendar', 'addEvent', $object_id);
@@ -196,7 +197,7 @@ class OC_Calendar_Object{
 			}
 		}
 		$object = OC_VObject::parse($data);
-		OC_Calendar_App::loadCategoriesFromVCalendar($object);
+		OC_Calendar_App::loadCategoriesFromVCalendar($id, $object);
 		list($type,$startdate,$enddate,$summary,$repeating,$uid) = self::extractData($object);
 
 		$stmt = OCP\DB::prepare( 'UPDATE `*PREFIX*calendar_objects` SET `objecttype`=?,`startdate`=?,`enddate`=?,`repeating`=?,`summary`=?,`calendardata`=?,`lastmodified`= ? WHERE `id` = ?' );
@@ -741,6 +742,9 @@ class OC_Calendar_Object{
 	 * @return boolean
 	 */
 	protected static function checkTime($time) {
+		if(strpos($time, ':') === false ) {
+			return true;
+		}
 		list($hours, $minutes) = explode(':', $time);
 		return empty($time)
 			|| $hours < 0 || $hours > 24

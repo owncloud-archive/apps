@@ -16,23 +16,28 @@ class Updater {
 
 	protected static $processed = array();
 	protected static $locations = array();
+	protected static $appsToRemove = array();
 
-        public static function prepare($version) {
+	public static function getAppsToRemove() {
+		return self::$appsToRemove;
+	}
+                
+	public static function prepare($version) {
 		$tempDir = self::getTempDir();
                 
  		$sources = Helper::getSources($version);
 		$destinations = Helper::getDirectories();
                 
-                
 		if (preg_match('/^\d+\.\d+/', $version, $ver)) {
 		    $ver = $ver[0];
-                } else {
+		} else {
                     $ver = $version;
-                }
+		}
 		//  read the list of shipped apps
                 $appLocation = $sources[Helper::APP_DIRNAME];
                 $shippedApps = array_keys(Helper::getFilteredContent($appLocation));
 
+                self::$appsToRemove = array();
 		try {
 			$locations = Helper::getPreparedLocations();
 			foreach ($locations as $type => $dirs) {
@@ -50,14 +55,15 @@ class Updater {
                                 // Collect old sources
 				foreach ($dirs as $name => $path) {
 					//skip compatible, not shipped apps
-					if (strpos($type, Helper::APP_DIRNAME) ===0 
+					if (strpos($type, Helper::APP_DIRNAME) === 0 
 						&& !in_array($name, $shippedApps)
-                                        ) {
+					) {
 						//Read compatibility info
 						$info = \OC_App::getAppInfo($name);
-						if (isset($info['require']) && version_compare($ver, $info['require'])>=0){
+						if (isset($info['require']) && version_compare($ver, $info['require'])>=0) {
 							continue;
 						}
+						self::$appsToRemove[] = $name;
 					}
 					self::$locations[] = array (
 						'src' => $path,
@@ -81,11 +87,11 @@ class Updater {
                 
                 return self::$locations;
                                 
-        }
+	}
         
 	public static function update($version, $backupBase) {
 		if (!is_dir($backupBase)) {
-			throw new \Exception('Backup directory is not found');
+			throw new \Exception("Backup directory $backupBase is not found");
 		}
 
 		set_include_path(
@@ -117,8 +123,19 @@ class Updater {
 		$config = "/" . Helper::CORE_DIRNAME . "/config/config.php";
 		copy($backupBase . $config, \OC::$SERVERROOT . $config);
 		
-        //TODO: disable removed apps
-		
+		// zip backup 
+		$zip = new \ZipArchive();
+		if ($zip->open($backupBase . ".zip", \ZIPARCHIVE::CREATE)===true) {
+			Helper::addDirectoryToZip($zip, $backupBase, $backupBase);
+			$zip->close();
+			\OC_Helper::rmdirr($backupBase);
+		}
+                
+		// Disable removed apps
+		foreach (self::getAppsToRemove() as $appId) {
+			\OC_App::disable($appId);
+		}
+                
 		return true;
 	}
 

@@ -68,7 +68,6 @@
 "Aug." => "Aug.",
 "Dec." => "Dec.",
 "All day" => "Omne die",
-"Missing fields" => "Campos incomplete",
 "Title" => "Titulo",
 "From Date" => "Data de initio",
 "From Time" => "Hora de initio",
