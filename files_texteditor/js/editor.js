@@ -198,6 +198,7 @@ function showFileEditor(dir,filename){
 						// Show the control bar
 						showControls(filename,result.data.write);
 						// Update document title
+						$('body').attr('old_title', document.title);
 						document.title = filename+' - ownCloud';
 						$('#editor').text(result.data.filecontents);
 						$('#editor').attr('data-dir', dir);
@@ -259,7 +260,7 @@ function hideFileEditor(){
 		// Fade out editor
 		$('#editor').fadeOut('slow', function(){
 			// Reset document title
-			document.title = "ownCloud";
+			document.title = $('body').attr('old_title');
 			$('.actions,#file_access_panel').fadeIn('slow');
 			$('#content table').fadeIn('slow');
 		});
@@ -277,7 +278,7 @@ function hideFileEditor(){
 		$('#editor').fadeOut('slow', function(){
 			$(this).remove();
 			// Reset document title
-			document.title = "ownCloud";
+			document.title = $('body').attr('old_title');
 			$('.actions,#file_access_panel').fadeIn('slow');
 			$('#content table').fadeIn('slow');
 		});
