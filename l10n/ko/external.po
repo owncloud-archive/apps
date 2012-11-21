@@ -3,36 +3,37 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# 남자사람  <cessnagi@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-27 01:38+0200\n"
-"PO-Revision-Date: 2012-08-26 23:39+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 10:04+0000\n"
+"Last-Translator: 남자사람 <cessnagi@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: templates/settings.php:3
 msgid "External Sites"
-msgstr ""
+msgstr "외부 사이트"
 
 #: templates/settings.php:9
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 #: templates/settings.php:10
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: templates/settings.php:11
 msgid "Remove site"
-msgstr ""
+msgstr "사이트 제거"
 
 #: templates/settings.php:18
 msgid "Add"
-msgstr ""
+msgstr "추가"

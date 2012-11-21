@@ -118,19 +118,25 @@ button.control {
     padding-left: 5px;
 }
 
+.mail_message_loading {
+    display: none;
+}
+
 /* editor */
 .ui-autocomplete-loading {
     background: white url('%webroot%/core/img/loading.gif') right center no-repeat;
 }
 
 #to {
-    width: 95%
+    width: 95%;
 }
 
 #subject {
-    width: 95%
+    width: 95%;
 }
 
 #body {
-    width: 95%
+    width: 95%;
+    height: 209px;
+    resize: none;
 }

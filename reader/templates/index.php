@@ -2,7 +2,6 @@
 <META HTTP-EQUIV="Expires" CONTENT="-1">
 <script type="text/javascript">
     // Specify the main script used to create a new PDF.JS web worker.
-    // In production, change this to point to the combined `pdf.js` file.
     PDFJS.workerSrc = 'apps/reader/js/pdf.js';
 </script>
 
@@ -12,7 +11,7 @@
 	include('apps/reader/lib/thumbnail.php');
 	// Get the current directory.
 	$current_dir = empty($_['dir'])?'/':$_['dir'];
-	$base_url = OCP\Util::linkTo('reader', 'index.php').'?dir=';
+	$base_url = OCP\Util::linkTo('reader', 'index.php').'&dir=';
 	
 	$curr_path = '';
 	$path = explode( '/', trim($current_dir,'/')); 
@@ -52,7 +51,7 @@
 	}
 ?>
 
-<table>
+<table id = "readerContent">
 	<tbody id = "fileList">
 		<?php
 		
@@ -104,7 +103,7 @@
 			<!-- Display folder name--> 
 				<tr id = "row" data-file="<?php echo $r[0];?>" data-type="dir">
 					<td class = "filename svg">
-						<a class = "dirs" id = "<?php echo $r[0];?>" href = "<?php echo OCP\Util::linkTo('reader', 'index.php').'?dir='.$current_dir.$r[0].'/';?>">
+						<a class = "dirs" id = "<?php echo $r[0];?>" href = "<?php echo OCP\Util::linkTo('reader', 'index.php').'&dir='.$current_dir.$r[0].'/';?>">
 							<center>
 								<span class = "nametext">
 									<?php echo htmlspecialchars($r[0]);?>
@@ -120,7 +119,8 @@
 									$img = 1;
 									// Display thumbnails of 3 pdf pages to show a folder. 
 									foreach ($r[1] as $thumbs) {
-										echo '<img id = "img'.$img.'" src = "'.\OCP\Util::linkTo('reader', 'ajax/thumbnail.php').'&filepath='.urlencode($current_dir.$r[0].'/'.rtrim($thumbs,'pdf').'png').'" style = "position:absolute; top:20px; left:10px; margin-left:'.$margin.'px; z-index:'.(100-$margin).';">';
+										$path1 = \OCP\Util::linkTo('reader', 'ajax/thumbnail.php').'&filepath='.urlencode($current_dir.$r[0].'/'.rtrim($thumbs,'pdf').'png');
+										echo '<img id = "img'.$img.'" src = "'.$path1.'" style = "position:absolute; top:20px; left:10px; margin-left:'.$margin.'px; z-index:'.(50-$margin).';">';
 										$margin = $margin + 5;
 										$img = $img + 1;
 									}
@@ -131,7 +131,7 @@
 					</td>
 				</tr><?php
 			}
-		?>
+			?>
 	</tbody>
 </table>	
  

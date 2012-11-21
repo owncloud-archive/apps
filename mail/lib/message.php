@@ -66,13 +66,13 @@ class Message {
 	public function getFrom() {
 		$e = $this->getEnvelope();
 		$from = $e->from[0];
-		return $from->personal; //."<".$from['mailbox']."@".$from['host'].">";
+		return $from->label;
 	}
 
 	public function getTo() {
 		$e = $this->getEnvelope();
 		$to = $e->to[0];
-		return $to->personal; //."<".$to['mailbox']."@".$to['host'].">";
+		return $to->label;
 	}
 
 	public function getSubject() {

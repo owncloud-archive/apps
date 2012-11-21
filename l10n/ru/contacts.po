@@ -7,6 +7,7 @@
 #   <ideamk@gmail.com>, 2012.
 #   <jekader@gmail.com>, 2012.
 #   <lankme@gmail.com>, 2012.
+# Mihail Vasiliev <mickvav@gmail.com>, 2012.
 # Nick Remeslennikov <homolibere@gmail.com>, 2012.
 #   <skoptev@ukr.net>, 2012.
 #   <tony.mccourin@gmail.com>, 2011.
@@ -16,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-16 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:15+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-22 00:01+0100\n"
+"PO-Revision-Date: 2012-11-21 12:10+0000\n"
+"Last-Translator: Mihail Vasiliev <mickvav@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -564,11 +565,11 @@ msgstr "Интернет"
 
 #: lib/app.php:251
 msgid "Friends"
-msgstr ""
+msgstr "Друзья"
 
 #: lib/app.php:252
 msgid "Family"
-msgstr ""
+msgstr "Семья"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"

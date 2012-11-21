@@ -112,7 +112,6 @@
 "Nov." => "Nov.",
 "Dec." => "Dec.",
 "All day" => "Totes los jorns",
-"Missing fields" => "Camps que fan manca",
 "Title" => "Títol",
 "From Date" => "Dempuèi (data)",
 "From Time" => "Dempuèi (ora) ",

@@ -126,6 +126,8 @@
 "Video" => "Видео",
 "Pager" => "Пейджер",
 "Internet" => "Интернет",
+"Friends" => "Друзья",
+"Family" => "Семья",
 "{name}'s Birthday" => "День рождения {name}",
 "Contact" => "Контакт",
 "You do not have the permissions to add contacts to this addressbook." => "У вас нет права создавать контакты в этой адресной книге.",

@@ -100,7 +100,6 @@
 "Nov." => "Nov.",
 "Dec." => "Dec.",
 "All day" => "Egész nap",
-"Missing fields" => "Hiányzó mezők",
 "Title" => "Cím",
 "From Date" => "Napjától",
 "From Time" => "Időtől",

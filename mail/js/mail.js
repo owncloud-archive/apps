@@ -57,21 +57,25 @@ Mail = {
         },
 
         clearMessages: function() {
-            var table = $('#mail_messages'),
-                template = table.find('tr.template').clone()
+            var table = $('#mail_messages');
+            var template = table.find('tr.template').clone();
+            var template_loading = table.find('tr.template_loading').clone();
 
             table.empty();
             table.append(template);
+            table.append(template_loading);
         },
 
         addMessages:function (data) {
-            var table = $('#mail_messages'),
-                template = table.find('tr.template').clone()
+            var table = $('#mail_messages')
+            var template = table.find('tr.template').clone();
+            var template_loading = table.find('tr.template_loading').clone();
             messages = data.messages;
+
             //table.date('');
             for (var i in messages) {
-                var message = messages[i],
-                    clone = template.clone();
+                var message = messages[i];
+                var clone = template.clone();
                 clone.removeClass('template');
 
                 clone.data('message_id', message.id);
@@ -85,6 +89,12 @@ Mail = {
                 clone.find('.mail_message_summary_size').text(message.size);
 
                 table.append(clone);
+
+                // add loading row
+                var clone_loading = template_loading.clone();
+                clone_loading.removeClass('template_loading');
+                clone_loading.attr('data-message-id', message.id);
+                table.append(clone_loading);
             }
         },
 
@@ -118,12 +128,24 @@ Mail = {
 
             // close email first
             Mail.UI.closeMessage();
+            if (Mail.State.current_message_id === message_id) {
+                return;
+            }
+
+            var summary_row = $('#mail_messages tr.mail_message_summary[data-message-id="' + message_id + '"]');
+            var load_row = $('#mail_messages tr.mail_message_loading[data-message-id="' + message_id + '"]');
+            load_row.show();
 
             $.getJSON(OC.filePath('mail', 'ajax', 'message.php'), {'account_id':Mail.State.current_account_id, 'folder_id':Mail.State.current_folder_id, 'message_id':message_id }, function (jsondata) {
                 if (jsondata.status == 'success') {
+
+                    summary_row.hide();
+
+                    // hide loading
+                    load_row.hide();
+
                     // Find the correct message
-                    message = $('#mail_messages tr[data-message-id="' + message_id + '"]');
-                    message.after(jsondata.data);
+                    load_row.after(jsondata.data);
 
                     // Set current Message as active
                     Mail.State.current_message_id = message_id;
@@ -139,6 +161,10 @@ Mail = {
             var message, parent;
             if (Mail.State.current_message_id !== null) {
                 $('#mail_message').remove();
+                $('#mail_message_header').remove();
+
+                var summary_row = $('#mail_messages tr.mail_message_summary[data-message-id="' + Mail.State.current_message_id + '"]');
+                summary_row.show();
             }
         },
 
@@ -210,6 +236,9 @@ $(document).ready(function () {
 
     // new mail message button handling
     $('#mail_new_message').button().click(function (){
+        $('#to').val('');
+        $('#subject').val('');
+        $('#body').val('');
         $('#mail_editor').dialog("open");
     });
 

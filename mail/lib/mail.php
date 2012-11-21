@@ -167,6 +167,7 @@ namespace OCA\Mail {
 				$accounts[$id] = new Account(array(
 					'id'       => $id,
 					'name'     => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[name]'),
+					'email'    => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[email]'),
 					'host'     => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[host]'),
 					'port'     => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[port]'),
 					'user'     => \OCP\Config::getUserValue($user_id, 'mail', $account_string . '[user]'),
@@ -193,10 +194,11 @@ namespace OCA\Mail {
 			return false;
 		}
 
-		public static function addAccount($user_id, $host, $port, $user, $password, $ssl_mode) {
+		public static function addAccount($user_id, $email, $host, $port, $user, $password, $ssl_mode) {
 			$id = time();
 			$account_string = 'account[' . $id . ']';
 			\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[name]', $user);
+			\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[email]', $email);
 			\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[host]', $host);
 			\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[port]', $port);
 			\OCP\Config::setUserValue($user_id, 'mail', $account_string . '[user]', $user);
@@ -289,7 +291,7 @@ namespace OCA\Mail {
 						try {
 							$test_account = new Account($account);
 							$client = $test_account->getImapConnection();
-							return App::addAccount($user_id, $h, $port, $user, $password, $sec_mode);
+							return App::addAccount($user_id, $email, $h, $port, $user, $password, $sec_mode);
 						} catch (\Horde_Imap_Client_Exception $e) {
 							// nothing to do
 							error_log("Failed: $user_id, $h, $port, $user, $sec_mode");
