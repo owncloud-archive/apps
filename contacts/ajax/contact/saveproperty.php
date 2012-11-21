@@ -20,28 +20,64 @@
  *
  */
 
+namespace OCA\Contacts;
+use Sabre\VObject as VObject;
+
 require_once __DIR__.'/../loghandler.php';
 
+function setParameters($property, $parameters, $reset = false) {
+	if(!$parameters) {
+		return;
+	}
+	
+	if($reset) {
+		$property->parameters = array();
+	}
+	debug('Setting parameters: ' . print_r($parameters, true));
+	foreach($parameters as $key => $parameter) {
+		debug('Adding parameter: ' . $key);
+		if(is_array($parameter)) {
+			foreach($parameter as $val) {
+				if(is_array($val)) {
+					foreach($val as $val2) {
+						if(trim($key) && trim($val2)) {
+							debug('Adding parameter: '.$key.'=>'.print_r($val2, true));
+							$property->add($key, strip_tags($val2));
+						}
+					}
+				} else {
+					if(trim($key) && trim($val)) {
+						debug('Adding parameter: '.$key.'=>'.print_r($val, true));
+						$property->add($key, strip_tags($val));
+					}
+				}
+			}
+		}
+	}
+}
+
 // Check if we are a user
-OCP\JSON::checkLoggedIn();
-OCP\JSON::checkAppEnabled('contacts');
-OCP\JSON::callCheck();
+\OCP\JSON::checkLoggedIn();
+\OCP\JSON::checkAppEnabled('contacts');
+\OCP\JSON::callCheck();
 $id = isset($_POST['id'])?$_POST['id']:null;
 $name = isset($_POST['name'])?$_POST['name']:null;
 $value = isset($_POST['value'])?$_POST['value']:null;
 $parameters = isset($_POST['parameters'])?$_POST['parameters']:null;
 $checksum = isset($_POST['checksum'])?$_POST['checksum']:null;
 
+debug('value: ' . print_r($value, 1));
+
 $multi_properties = array('EMAIL', 'TEL', 'IMPP', 'ADR', 'URL');
 
 if(!$name) {
-	bailOut(OCA\Contacts\App::$l10n->t('element name is not set.'));
+	bailOut(App::$l10n->t('element name is not set.'));
 }
 if(!$id) {
-	bailOut(OCA\Contacts\App::$l10n->t('id is not set.'));
+	bailOut(App::$l10n->t('id is not set.'));
 }
 if(!$checksum && in_array($name, $multi_properties)) {
-	bailOut(OCA\Contacts\App::$l10n->t('checksum is not set.'));
+	bailOut(App::$l10n->t('checksum is not set.'));
 }
 if(is_array($value)) {
 	$value = array_map('strip_tags', $value);
@@ -49,22 +85,22 @@ if(is_array($value)) {
 	// set in the order the fields appear in the form!
 	ksort($value);
 	//if($name == 'CATEGORIES') {
-	//	$value = OCA\Contacts\VCard::escapeDelimiters($value, ',');
+	//	$value = VCard::escapeDelimiters($value, ',');
 	//} else {
-		$value = OCA\Contacts\VCard::escapeDelimiters($value, ';');
+	//	$value = VCard::escapeDelimiters($value, ';');
 	//}
 } else {
 	$value = trim(strip_tags($value));
 }
 
-$vcard = OCA\Contacts\App::getContactVCard($id);
+$vcard = App::getContactVCard($id);
 $property = null;
 
 if(in_array($name, $multi_properties)) {
 	if($checksum !== 'new') {
-		$line = OCA\Contacts\App::getPropertyLineByChecksum($vcard, $checksum);
+		$line = App::getPropertyLineByChecksum($vcard, $checksum);
 		if(is_null($line)) {
-			bailOut(OCA\Contacts\App::$l10n->t(
+			bailOut(App::$l10n->t(
 				'Information about vCard is incorrect. Please reload the page: ').$checksum
 			);
 		}
@@ -72,13 +108,38 @@ if(in_array($name, $multi_properties)) {
 		$element = $property->name;
 
 		if($element != $name) {
-			bailOut(OCA\Contacts\App::$l10n->t(
+			bailOut(App::$l10n->t(
 				'Something went FUBAR. ').$name.' != '.$element
 			);
 		}
 	} else {
+		// Add new property
 		$element = $name;
-		$property = $vcard->addProperty($name, $value);
+		if (!is_scalar($value)) {
+			$property = VObject\Property::create($name);
+			if(in_array($name, array('ADR', ))) {
+				$property->setParts($value);
+			} else {
+				bailOut(App::$l10n->t(
+					'Cannot save property of type "%s" as array', array($name,)
+				));
+			}
+		} else {
+			$property = VObject\Property::create($name, $value, $parameters);
+		}
+		setParameters($property, $parameters);
+		$vcard->add($property);
+		$checksum = substr(md5($property->serialize()), 0, 8);
+		try {
+			VCard::edit($id, $vcard);
+		} catch(Exception $e) {
+			bailOut($e->getMessage());
+		}
+		\OCP\JSON::success(array('data' => array(
+			'checksum' => $checksum,
+			'oldchecksum' => $_POST['checksum'],
+		)));
+		exit();
 	}
 } else {
 	$element = $name;
@@ -87,7 +148,7 @@ if(in_array($name, $multi_properties)) {
 /* preprocessing value */
 switch($element) {
 	case 'BDAY':
-		$date = New DateTime($value);
+		$date = New \DateTime($value);
 		$value = $date->format('Y-m-d');
 		break;
 	case 'FN':
@@ -104,11 +165,11 @@ switch($element) {
 		break;
 	case 'IMPP':
 		if(is_null($parameters) || !isset($parameters['X-SERVICE-TYPE'])) {
-			bailOut(OCA\Contacts\App::$l10n->t('Missing IM parameter.'));
+			bailOut(App::$l10n->t('Missing IM parameter.'));
 		}
-		$impp = OCA\Contacts\App::getIMOptions($parameters['X-SERVICE-TYPE']);
+		$impp = App::getIMOptions($parameters['X-SERVICE-TYPE']);
 		if(is_null($impp)) {
-			bailOut(OCA\Contacts\App::$l10n->t('Unknown IM: '.$parameters['X-SERVICE-TYPE']));
+			bailOut(App::$l10n->t('Unknown IM: '.$parameters['X-SERVICE-TYPE']));
 		}
 		$value = $impp['protocol'] . ':' . $value;
 		break;
@@ -134,44 +195,22 @@ if(!$value) {
 				$vcard->BDAY->VALUE = 'DATE';
 			}
 			break;
+		case 'ADR':
+			$property->setParts($value);
+			break;
 		case 'EMAIL':
 		case 'TEL':
-		case 'ADR':
 		case 'IMPP':
 		case 'URL':
 			debug('Setting element: (EMAIL/TEL/ADR)'.$element);
 			$property->setValue($value);
-			// FIXME: Don't replace parameters, but update instead.
-			$property->parameters = array();
-			if(!is_null($parameters)) {
-				debug('Setting parameters: '.$parameters);
-				foreach($parameters as $key => $parameter) {
-					debug('Adding parameter: '.$key);
-					if(is_array($parameter)) {
-						foreach($parameter as $val) {
-							if(trim($val)) {
-								debug('Adding parameter: '.$key.'=>'.$val);
-								$property->add(new Sabre\VObject\Parameter(
-									$key,
-									strtoupper(strip_tags($val)))
-								);
-							}
-						}
-					} else {
-						if(trim($parameter)) {
-							$property->add(new Sabre\VObject\Parameter(
-								$key,
-								strtoupper(strip_tags($parameter)))
-							);
-						}
-					}
-				}
-			}
 			break;
 		default:
-			$vcard->setString($name, $value);
+			$vcard->{$name} = $value;
 			break;
 	}
+	setParameters($property, $parameters, true);
+
 	// Do checksum and be happy
 	if(in_array($name, $multi_properties)) {
 		$checksum = substr(md5($property->serialize()), 0, 8);
@@ -180,20 +219,20 @@ if(!$value) {
 //debug('New checksum: '.$checksum);
 //$vcard->children[$line] = $property; ???
 try {
-	OCA\Contacts\VCard::edit($id, $vcard);
+	VCard::edit($id, $vcard);
 } catch(Exception $e) {
 	bailOut($e->getMessage());
 }
 
 if(in_array($name, $multi_properties)) {
-	OCP\JSON::success(array('data' => array(
+	\OCP\JSON::success(array('data' => array(
 		'line' => $line,
 		'checksum' => $checksum,
 		'oldchecksum' => $_POST['checksum'],
-		'lastmodified' => OCA\Contacts\App::lastModified($vcard)->format('U'),
+		'lastmodified' => App::lastModified($vcard)->format('U'),
 	)));
 } else {
-	OCP\JSON::success(array('data' => array(
-		'lastmodified' => OCA\Contacts\App::lastModified($vcard)->format('U'),
+	\OCP\JSON::success(array('data' => array(
+		'lastmodified' => App::lastModified($vcard)->format('U'),
 	)));
 }
