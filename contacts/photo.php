@@ -17,13 +17,14 @@ function getStandardImage() {
 	//OCP\Response::setExpiresHeader('P10D');
 	OCP\Response::enableCaching();
 	OCP\Response::redirect(OCP\Util::imagePath('contacts', 'person_large.png'));
+	exit;
 }
 
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 $etag = null;
 $caching = null;
 
-if(!$id) {
+if(!$id || $id === 'new') {
 	getStandardImage();
 }
 

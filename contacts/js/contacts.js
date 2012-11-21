@@ -792,6 +792,7 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	Contact.prototype.loadPhoto = function(dontloadhandlers) {
 		var self = this;
+		var id = this.id || 'new';
 		var refreshstr = '&refresh='+Math.random();
 		this.$photowrapper = this.$fullelem.find('#photowrapper');
 		this.$photowrapper.addClass('loading').addClass('wait');
@@ -807,7 +808,7 @@ OC.Contacts = OC.Contacts || {};
 			$(this).insertAfter($phototools).fadeIn();
 		}).error(function () {
 			OC.notify({message:t('contacts','Error loading profile picture.')});
-		}).attr('src', OC.linkTo('contacts', 'photo.php')+'?id='+self.id+refreshstr);
+		}).attr('src', OC.linkTo('contacts', 'photo.php')+'?id='+id+refreshstr);
 
 		if(!dontloadhandlers && this.isEditable()) {
 			this.$photowrapper.on('mouseenter', function() {
