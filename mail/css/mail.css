@@ -138,4 +138,5 @@ button.control {
 #body {
     width: 95%;
     height: 209px;
+    resize: none;
 }

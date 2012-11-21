@@ -132,11 +132,14 @@ Mail = {
                 return;
             }
 
+            var summary_row = $('#mail_messages tr.mail_message_summary[data-message-id="' + message_id + '"]');
             var load_row = $('#mail_messages tr.mail_message_loading[data-message-id="' + message_id + '"]');
             load_row.show();
 
             $.getJSON(OC.filePath('mail', 'ajax', 'message.php'), {'account_id':Mail.State.current_account_id, 'folder_id':Mail.State.current_folder_id, 'message_id':message_id }, function (jsondata) {
                 if (jsondata.status == 'success') {
+
+                    summary_row.hide();
 
                     // hide loading
                     load_row.hide();
@@ -158,6 +161,10 @@ Mail = {
             var message, parent;
             if (Mail.State.current_message_id !== null) {
                 $('#mail_message').remove();
+                $('#mail_message_header').remove();
+
+                var summary_row = $('#mail_messages tr.mail_message_summary[data-message-id="' + Mail.State.current_message_id + '"]');
+                summary_row.show();
             }
         },
 
@@ -229,6 +236,9 @@ $(document).ready(function () {
 
     // new mail message button handling
     $('#mail_new_message').button().click(function (){
+        $('#to').val('');
+        $('#subject').val('');
+        $('#body').val('');
         $('#mail_editor').dialog("open");
     });
 
