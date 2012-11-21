@@ -25,7 +25,8 @@
 		$path = OCP\Config::getSystemValue("datadirectory").'/'. $owner .'/reader';
 		$path .= $current_dir.$dir;
 		if (!is_dir($path)) {
-			return false;
+			mkdir($path, 0777, true);
+			return true;
 		}
 		else
 			return true;

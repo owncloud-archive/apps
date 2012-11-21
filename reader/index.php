@@ -21,4 +21,5 @@ $dir = empty($_GET['dir'])?'/':$_GET['dir'];
 $tmpl = new OCP\Template( 'reader', 'index', 'user' );
 $tmpl->assign('dir', $dir);
 $tmpl->printPage();
+
 ?>

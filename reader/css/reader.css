@@ -1,12 +1,13 @@
-div#controls{z-index:1000;}
-
+div#controls{z-index:60;}
 div.crumb { float:left; display:block; background:no-repeat right 0; padding:.75em 1.5em 0 1em; height:2.9em;}
 div.crumb:first-child { padding-left:1em; }
 div.crumb.last { font-weight:bold; }
 
-table { white-space:normal; position:absolute; top:40px; left:5px;font-family:Arial;}
+table#readerContent { white-space:normal; position:absolute; top:40px; left:5px;font-family:Arial;}
 
-tbody tr { background:white; float:left; height:150px;font-size:12px;}
+table { position:relative; top:7px; width:100%;}
+tbody tr { background-color:#fff; height:2.5em;}
+tbody#fileList tr { background:white; float:left; height:150px;font-size:12px;}
 tbody tr:hover, tbody tr:active, tbody tr.selected { background-color:#ffffff; }
 	
 .thumbnail:not([data-loaded]) { background-color: white; }
