@@ -33,3 +33,5 @@ OCP\App::addNavigationEntry( array(
 
 OC::$CLASSPATH['OC_MapItem'] = 'map/lib/map_item.php';
 OC::$CLASSPATH['OC_Map'] = 'map/lib/map.php';
+OC::$CLASSPATH['OC_Generic_Map_Loader'] = 'map/lib/generic_map_loader.php';
+OC::$CLASSPATH['OC_MyPlace_Loader'] = 'map/lib/generic_map_loader.php';

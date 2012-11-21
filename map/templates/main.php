@@ -19,7 +19,9 @@
 		</ul>
 	</div>
 	<div class="cat_panel">
-	Yey Hello World 					<a href="#" class="panel_change" data-toid="1">\o/</a>
+		<ul class="cat_points">
+		</ul>
+			<a href="#" class="panel_change" data-toid="1">back</a>
 
 	</div>
 	</div>

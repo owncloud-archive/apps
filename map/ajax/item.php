@@ -9,7 +9,9 @@ OCP\JSON::checkAppEnabled('map');
 if(! isset($_REQUEST['action'])) exit;
 
 if($_REQUEST['action'] == 'load') {
-	$items = OC_Map::findAll();
+	$items = array();
+	if($_REQUEST['category'] != '')
+		$items = OC_Generic_Map_Loader::findByType($_REQUEST['category']);
 	OCP\JSON::success(array('data' => $items));
 	exit();
 }

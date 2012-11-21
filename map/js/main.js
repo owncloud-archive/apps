@@ -1,6 +1,3 @@
-var defaultZoom = 18
-var points = {};
-
 function geoCode(address, callback) {
 	var url = 'http://open.mapquestapi.com/nominatim/v1/search';
 	$.ajax({
@@ -90,13 +87,16 @@ function onSidebarPointClick(e){
 function loadItems(){
 	$.ajax({
 		url: OC.filePath('map', 'ajax', 'item.php'),
-		data: {	action: 'load' },
+		data: {	action: 'load' , category: current_category, panel: current_panel},
 		success: function(msg) {
 			if (msg.status == 'success') {
+				if(msg.data) {
+					
 					for ( var i=0, len=msg.data.length; i<len; ++i ) {
 						points[msg.data[i].id] = msg.data[i];
 						addItemToMap(msg.data[i]);
 					}
+				}
 			}
 		}
 	});
@@ -108,11 +108,12 @@ function addItemToMap(item) {
 		.text(item.name)
 		.append('<span> ~ '+getDistanceReadable([item.lat,item.lon])+'</span>')
 		.click(onSidebarPointClick);
-		console.log(li_item);
-	$('#pts_'+item.type).append(li_item);
-	
-	L.marker([item.lat, item.lon]).addTo(map)
+	console.log(item.name);
+	$('.cat_points').append(li_item);
+
+	var marker = L.marker([item.lat, item.lon])//.addTo(map)
 		.bindPopup('This is '+ item.type + " named "+ item.name);
+	points_group.addLayer(marker);
 }
 
 function updateDistance() {
@@ -136,8 +137,7 @@ function readLastPosition() {
 	return false;
 }
 
-function read_cookie(key)
-{
+function read_cookie(key) {
 	var result;
 	return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? (result[1]) : null;
 }
@@ -171,18 +171,36 @@ function loadMap() {
 	$("#search_field form").bind('submit',onSearch);
 	map.on('click', onMapClick);
 	map.on('move', updateDistance);
+	points_group = L.layerGroup([]).addTo(map);
 	loadItems();
 }
 
 function clickChangePanel(e) {
 	e.preventDefault();
-	panel_nr = $(this).data('toid');
+	to_panel_nr = $(this).data('toid');
+	if(to_panel_nr == 1) {
+		current_category = ''; //Reset Category
+	} else if(current_category == '') {
+		current_category = $(this).parent().data('id');
+	}
+
+	current_panel = to_panel_nr;
+	loadPanel(current_category, to_panel_nr);
+	//Scroll Panel
 	$('.main_panel').animate({
-       marginLeft: '-' + (panel_size * panel_nr - panel_size)
+       marginLeft: '-' + (panel_size * to_panel_nr - panel_size)
    }, 600);
    
 }
-function adjustCatSize() {
+
+function loadPanel(category, panel_nr) {
+	points = {};
+	points_group.clearLayers();
+	$('.cat_points').empty();
+	loadItems();
+}
+
+function adjustCategoryPanelSize() {
 	$('.main_panel').css({
 		width: $('.main_panel .cat_panel').length*panel_size,
 	});
@@ -196,10 +214,15 @@ $(document).ready(function() {
 		navigator.geolocation.getCurrentPosition(setUserLocation);
 	}
 	window.onbeforeunload = putMapPosition;
-	adjustCatSize();
+	adjustCategoryPanelSize();
 	$('.panel_change').bind('click',clickChangePanel);
 	
 });
+var current_category = '';
+var current_panel = 1;
 var panel_size = 210;
 var popup = L.popup();
 var point;
+var points_group;
+var defaultZoom = 18
+var points = {};
