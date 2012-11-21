@@ -1,23 +1,24 @@
-/*dl > dt {
-	font-weight: bold;
-}*/
 
 /* General element settings */
-/*::-webkit-input-placeholder { color: #bbb; }
-:-moz-placeholder { color: #bbb; }
-:-ms-input-placeholder { color: #bbb; }*/
-li { cursor: default; }
-input[type=checkbox] { height: 14px; width: 14px; border: 1px solid #fff; -moz-appearance:none; -webkit-appearance: none; -moz-box-sizing:none; box-sizing:none; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
-input[type=radio] { width: 12px; height: 12px; }
-input[type=checkbox]:hover { border: 1px solid #D4D4D4 !important; }
-input[type=checkbox]:checked::after {
+#content li { cursor: default; }
+#content input[type=checkbox] { 
+	height: 14px; width: 14px; 
+	border: 1px solid #fff; 
+	-moz-appearance:none; -webkit-appearance: none; 
+	-moz-box-sizing:none; box-sizing:none; 
+	-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; 
+	-moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; 
+}
+#content input[type=radio] { width: 12px; height: 12px; }
+#content input[type=checkbox]:hover { border: 1px solid #D4D4D4 !important; }
+#content input[type=checkbox]:checked::after {
   content: url('%appswebroot%/contacts/img/checkmark.png');
   display: block;
   position: relative;
   top: -8px;
   left: -6px;
 }
-input[type=radio]:checked::after {
+#content input[type=radio]:checked::after {
   content: url('%appswebroot%/contacts/img/checkmark.png');
   margin: 0; padding: 0;
   display: inline-block;
@@ -25,11 +26,12 @@ input[type=radio]:checked::after {
   top: -8px;
   left: -6px;
 }
-textarea { font-family: inherit; }
-select { border: 1px solid silver; }
-option { border-left: 1px solid silver; border-right: 1px solid silver; }
-option:first-child { border-top: 1px solid silver; }
-option:last-child { border-bottom: 1px solid silver; }
+#content textarea { font-family: inherit; }
+
+#content input:-moz-placeholder { color: #aaa; }
+#content input::-webkit-input-placeholder { color: #aaa; }
+#content input:-ms-input-placeholder { color: #aaa; }
+#content input:placeholder { color: #aaa; }
 
 /* Left content */
 
@@ -65,10 +67,22 @@ option:last-child { border-bottom: 1px solid silver; }
 #firstrun p { font-size:1.2em; text-align:center; }
 #firstrun #selections { font-size:0.8em; margin: 2em auto auto auto; clear: both; }
 
-input:not([type="checkbox"]), select, textarea { background-color: #fefefe; border: 1px solid #fff !important; -moz-appearance:none  !important; -webkit-appearance: none !important; -webkit-box-sizing:none !important; -moz-box-sizing:none !important; box-sizing:none !important; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; float: left; }
-input:invalid,input:hover:not([type="checkbox"]), input:active:not([type="checkbox"]), input:focus:not([type="checkbox"]), textarea:focus, textarea:hover { border: 1px solid silver !important; -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; outline:none; float: left; }
+#content input:not([type="checkbox"]), #content select, #content textarea { 
+	background-color: #fefefe; border: 1px solid #fff !important; 
+	-moz-appearance:none  !important; -webkit-appearance: none !important; 
+	-webkit-box-sizing:none !important; -moz-box-sizing:none !important; box-sizing:none !important; 
+	-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; 
+	-moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; 
+	float: left;
+}
+#content input:invalid, #content input:hover:not([type="checkbox"]), #content input:active:not([type="checkbox"]), #content input:focus:not([type="checkbox"]), #content textarea:focus, #content textarea:hover { 
+	border: 1px solid silver !important; 
+	-moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; 
+	outline:none; float: left;
+}
 
-#contact textarea { width: 80%; min-height: 5em; min-width: 30em; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
+#contact { margin: 1em; }
+#contact textarea { min-height: 5em; min-width: 30em; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
 
 #contact input[type="checkbox"] { margin-top: 10px; vertical-align: bottom; float: left; }
 dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: normal; }
@@ -105,35 +119,20 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 .ui-draggable-dragging { width: 70%; cursor: move; }
 .ui-state-hover { border: 1px solid dashed; z-index: 1; }
 
-/* Address editor */
-#addressdisplay { padding: 0.5em; }
-dl.addresscard { background-color: #fff; float: left; width: auto; margin: 0 0.3em 0.3em 0.3em; padding: 0; border: 0; }
-dl.addresscard dd {}
-dl.addresscard dt { padding: 0.3em; font-weight: bold; clear: both; color: #aaa; }
-dl.addresscard dt:hover { color:#777; }
-dl.addresscard dd > ul { margin: 0.3em; padding: 0.3em; }
-dl.addresscard .action { float: right; }
-#address dt { width: 30%; white-space:nowrap; }
-#address dd { width: 66%; }
-#address input { width: 12em; padding: 0.6em 0.5em 0.4em; }
-#address input:-moz-placeholder { color: #aaa; }
-#address input::-webkit-input-placeholder { color: #aaa; }
-#address input:-ms-input-placeholder { color: #aaa; }
-#address input:placeholder { color: #aaa; }
-
 /* Properties */
 
-.fullname { font-weight:bold; font-size:1.5em; width: 18em; }
-.singleproperties{ display: inline-block; float: left; width: 25em;}
+.fullname { font-weight:bold; font-size:1.5em; width: 15em; }
+.singleproperties { display: inline-block; float: left; width: 25em;}
+.singleproperties input.value { font-weight: bold; }
 
 .propertylist li.propertycontainer { white-space: nowrap; min-width: 38em; display: block; clear: both; }
-.propertylist li.propertycontainer > .listactions { display: inline-block; position: absolute; clear: none; opacity: 0; }
+.propertylist li.propertycontainer > .listactions { display: inline-block; position: absolute; clear: none; opacity: 0; float: right; }
 .propertylist li.propertycontainer .listactions a { display: inline-block; float: left; clear: none; width: 20px; height: 20px; }
 
 .propertylist { float: left; }
 /*.propertylist li > a { display: block; }}*/
 .propertylist li > input[type="checkbox"],input[type="radio"] { display: inline-block; }
-.propertylist li > input.value:not([type="checkbox"]) { min-width: 16em; display: inline-block; }
+.propertylist input.value:not([type="checkbox"]) { width: 16em; display: inline-block; font-weight: bold; }
 .propertylist li > select { float: left; max-width: 8em; }
 .select_wrapper { float: left; overflow: hidden; color: #bbb; font-size: 0.8em; }
 .select_wrapper select { float: left; overflow: hidden; text-overflow: ellipsis; color: #bbb; width: 8em; }
