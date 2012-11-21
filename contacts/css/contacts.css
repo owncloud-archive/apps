@@ -235,20 +235,36 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 
 /* Contact layout */
 
-#contact > ul {
+#contact > ul.propertylist {
 	font-size: 10px;
 	/*display: table;
 	border-spacing: 1em;
 	border: thin solid black;*/
 }
-#contact > ul > li {
+#contact > ul.propertylist > li {
 	display: inline-block;
 	padding: 1em;
 	/*display: table-cell;*/
 }
 
-#rightcontent footer { padding: 1em; }
+.adr.edit {
+	width: 20em;
+	border: 1px solid silver; -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; outline:none; 
+}
+.adr.edit ul {
+	-moz-column-count: 1;
+	-webkit-columns: 1;
+	-o-columns: 1;
+	columns: 1;
+}
+.adr.edit input.value { border: none; }
+.adr.edit input.value:hover { border: none; }
+.adr.edit input.value.street, ul.adr.edit input.value.country, ul.adr.edit input.value.region { width: 19em;}
+.adr.edit input.value.zip { width: 5em; }
+.adr.edit input.value.city { width: 10em; }
 
+#rightcontent footer { padding: 1em; width: 100%; box-sizing: border-box; clear: both; }
+#rightcontent footer > { display: inline-block; }
 /* contact list */
 
 #contactlist { position: relative; top: 0; left: 0; right: 0; width: 100%; }
@@ -271,7 +287,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 #contact span.adr:hover { /*overflow: inherit;*/ white-space: pre-wrap; }
 
 @media screen and (min-width: 1400px) {
-	#contact > ul {
+	#contact > ul.propertylist {
 		-moz-column-count: 3;
 		-webkit-columns: 3;
 		-o-columns: 3;
@@ -280,7 +296,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 }
 @media screen and (min-width: 800px) and (max-width: 1400) {
 	#singlevalues { max-width: 50%; }
-	#contact > ul {
+	#contact > ul.propertylist {
 		-moz-column-count: 2;
 		-webkit-columns: 2;
 		-o-columns: 2;
@@ -288,7 +304,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 	}
 }
 @media screen and (max-width: 400px) {
-	#contact > ul {
+	#contact > ul.propertylist {
 		-moz-column-count: 1;
 		-webkit-columns: 1;
 		-o-columns: 1;

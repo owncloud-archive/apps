@@ -279,22 +279,37 @@
 	</div>
 	<div class="adr">
 		<li data-element="adr" data-checksum="{checksum}" class="propertycontainer">
-			<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
-				<?php echo OCP\html_select_options($_['adr_types'], array()) ?>
-			</select>
-			<input type="checkbox" class="parameter tip" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
-			<span class="float adr">{value}</span>
+			<span class="float adr display">{value}</span>
 			<span class="listactions">
 				<a class="action globe" title="<?php echo $l->t('View on map'); ?>"></a>
 				<a class="action edit" title="<?php echo $l->t('Edit address details'); ?>"></a>
 				<a class="action delete" title="<?php echo $l->t('Delete address'); ?>"></a>
 			</span>
-			<input type="hidden" id="adr_0" name="value[ADR][0]" value="{adr0}" />
-			<input type="hidden" id="adr_1" name="value[ADR][1]" value="{adr1}" />
-			<input type="hidden" id="adr_2" name="value[ADR][2]" value="{adr2}" />
-			<input type="hidden" id="adr_3" name="value[ADR][3]" value="{adr3}" />
-			<input type="hidden" id="adr_4" name="value[ADR][4]" value="{adr4}" />
-			<input type="hidden" id="adr_5" name="value[ADR][5]" value="{adr5}" />
+			<fieldset class="adr hidden edit ui-widget-content">
+				<ul>
+				<li>
+					<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
+						<?php echo OCP\html_select_options($_['adr_types'], array()) ?>
+					</select>
+					<input type="checkbox" id=="adr_pref_{idx}" class="parameter tip" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" /><label for="adr_pref_{idx}"><?php echo $l->t('Preferred'); ?></label>
+				</li>
+				<li>
+					<input class="value stradr" type="text" id="adr_2" name="value[2]" value="{adr2}" placeholder="<?php echo $l->t('1 Main Street'); ?>" />
+				</li>
+				<li>
+					<input class="value zip" type="text" id="adr_5" name="value[5]" value="{adr5}" placeholder="<?php echo $l->t('12345'); ?>" />
+					<input class="value city" type="text" id="adr_3" name="value[3]" value="{adr3}" placeholder="<?php echo $l->t('Your city'); ?>" />
+				</li>
+				<li>
+					<input class="value region" type="text" id="adr_4" name="value[4]" value="{adr4}" placeholder="<?php echo $l->t('Some region'); ?>" />
+				</li>
+				<li>
+					<input class="value country" type="text" id="adr_6" name="value[6]" value="{adr6}" placeholder="<?php echo $l->t('Your country'); ?>" />
+				</li>
+			</ul>
+			<input class="value pobox" type="hidden" id="adr_0" name="value[0]" value="{adr0}" />
+			<input class="value extadr" type="hidden" id="adr_1" name="value[1]" value="{adr1}" />
+			</fieldset>
 		</li>
 	</div>
 	<div class="impp">

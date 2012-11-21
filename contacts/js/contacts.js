@@ -62,6 +62,7 @@ OC.Contacts = OC.Contacts || {};
 				var $list = this.$fullelem.find('ul.' + name.toLowerCase());
 				$list.show();
 				$list.append($elem);
+				$elem.find('.adr.display').trigger('click');
 				break;
 			case 'IMPP':
 				$elem = this.renderIMProperty();
@@ -611,7 +612,7 @@ OC.Contacts = OC.Contacts || {};
 								}
 								break;
 							case 'ADR':
-								$property = self.renderAddressProperty(property);
+								$property = self.renderAddressProperty(idx, property);
 								break;
 							case 'IMPP':
 								$property = self.renderIMProperty(property);
@@ -714,10 +715,18 @@ OC.Contacts = OC.Contacts || {};
 	 * Render an ADR (address) property.
 	 * @return A jquery object to be injected in the DOM
 	 */
-	Contact.prototype.renderAddressProperty = function(property) {
+	Contact.prototype.renderAddressProperty = function(idx, property) {
+		console.log('Contact.renderAddressProperty', property)
 		if(!this.detailTemplates['adr']) {
 			console.log('No template for adr', this.detailTemplates);
 			return;
+		}
+		if(typeof idx === 'undefined') {
+			if(this.data && this.data.ADR && this.data.ADR.length > 0) {
+				idx = this.data.ADR.length - 1;
+			} else {
+				idx = 0;
+			}
 		}
 		var values = property ? {
 				value: property.value.clean('').join(', '),
@@ -728,9 +737,36 @@ OC.Contacts = OC.Contacts || {};
 				adr3: property.value[3] || '',
 				adr4: property.value[4] || '',
 				adr5: property.value[5] || '',
+				adr6: property.value[6] || '',
+				idx: idx,
 			}
-			: {value: '', checksum: 'new', adr0: '', adr1: '', adr2: '', adr3: '', adr4: '', adr5: ''};
-		$elem = this.detailTemplates['adr'].octemplate(values);
+			: {value:'', checksum:'new', adr0:'', adr1:'', adr2:'', adr3:'', adr4:'', adr5:'', adr6:'', idx: idx};
+		var $elem = this.detailTemplates['adr'].octemplate(values);
+		var self = this;
+		$elem.find('.adr.display').on('click', function() {
+			$(this).next('.listactions').hide();
+			var $editor = $(this).siblings('.adr.edit').first();
+			var $viewer = $(this);
+			var bodyListener = function(e) {
+				if($editor.find($(e.target)).length == 0) {
+					console.log('this', $(this));
+					$editor.toggle('blind');
+					$viewer.slideDown(400, function() {
+						var input = $editor.find('input').first();
+						console.log('input', input);
+						var val = self.valueFor(input);
+						console.log('val', val);
+						$(this).html(escapeHTML(self.valueFor($editor.find('input').first()).clean('').join(',')));
+						$(this).next('.listactions').css('display', 'inline-block');
+						$('body').unbind('click', bodyListener);
+					});
+				}
+			}
+			$viewer.slideUp();
+			$editor.toggle('blind', function() {
+				$('body').bind('click', bodyListener);
+			});
+		});
 		return $elem;
 	}
 
