@@ -21,8 +21,6 @@
  *
  */
 
-	require_once '../../lib/base.php';
-
 	$sspPath = OCP\Config::getAppValue('user_saml', 'saml_ssp_path', '');
 	$spSource = OCP\Config::getAppValue('user_saml', 'saml_sp_source', '');
 	$autocreate = OCP\Config::getAppValue('user_saml', 'saml_autocreate', false);
@@ -34,14 +32,3 @@
 
 		$auth->requireAuth();
 	}
-
-	if (!OC_User::login('', '')) {
-		$error = true;
-		OC_Log::write('saml','Error trying to authenticate the user',OC_Log::DEBUG);
-	}
-
-        if (isset($_SERVER["QUERY_STRING"]) && !empty($_SERVER["QUERY_STRING"])) {
-		header( 'Location: ' . OC::$WEBROOT . '/?' . $_SERVER["QUERY_STRING"]);
-		exit();
-	}
-	OC_Util::redirectToDefaultPage();
