@@ -48,6 +48,8 @@ if (OCP\App::isEnabled('user_saml')) {
 			header( 'Location: ' . OC::$WEBROOT . '/?' . $_SERVER["QUERY_STRING"]);
 			exit();
 		}
+
+        OC::$REQUESTEDAPP = '';
 		OC_Util::redirectToDefaultPage();
 	}
 
