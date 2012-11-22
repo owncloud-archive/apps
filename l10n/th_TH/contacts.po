@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-16 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 23:15+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-23 00:01+0100\n"
+"PO-Revision-Date: 2012-11-22 10:50+0000\n"
+"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -557,11 +557,11 @@ msgstr "อินเทอร์เน็ต"
 
 #: lib/app.php:251
 msgid "Friends"
-msgstr ""
+msgstr "เพื่อน"
 
 #: lib/app.php:252
 msgid "Family"
-msgstr ""
+msgstr "ครอบครัว"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"

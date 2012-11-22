@@ -126,6 +126,8 @@
 "Video" => "วีดีโอ",
 "Pager" => "เพจเจอร์",
 "Internet" => "อินเทอร์เน็ต",
+"Friends" => "เพื่อน",
+"Family" => "ครอบครัว",
 "{name}'s Birthday" => "วันเกิดของ {name}",
 "Contact" => "ข้อมูลการติดต่อ",
 "You do not have the permissions to add contacts to this addressbook." => "คุณไม่ได้รับสิทธิ์ให้เพิ่มข้อมูลผู้ติดต่อเข้าไปในสมุดบันทึกที่อยู่นี้",
