@@ -159,7 +159,11 @@
 </script>
 
 <script id="groupListItemTemplate" type="text/template">
-	<h3 class="group" data-type="{type}" data-id="{id}">{name} <span class="numcontacts">{num}<span></h3>
+	<h3 class="group" data-type="{type}" data-id="{id}">
+		{name}
+		<a class="action delete" title="<?php echo $l->t('Delete group'); ?>"></a>
+		<span class="action numcontacts">{num}</span>
+	</h3>
 </script>
 
 <script id="contactFullTemplate" type="text/template">

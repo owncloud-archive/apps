@@ -60,6 +60,11 @@
 }
 
 #grouplist { z-index: 100; }
+#grouplist h3 .action { float: right; display: none; }
+#grouplist h3:not([data-type="shared"]):hover .action.numcontacts { display: inline-block; }
+#grouplist h3[data-type="category"]:hover .action.delete { display: inline-block; }
+#grouplist h3 .action.delete { width: 20px; height: 20px; }
+
 /* First run */
 
 #firstrun { position: relative; top: 25%; left: 20%; right: 20%; width: 50%; font-weight:bold; text-align: center; color: #777; }
@@ -88,7 +93,7 @@
 dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: normal; }
 .form dt { display: table-cell; clear: left; float: left; width: 7em; margin: 0; padding: 0.8em 0.5em 0 0; text-align:right; text-overflow:ellipsis; o-text-overflow: ellipsis; vertical-align: text-bottom; color: #bbb;/* white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap;*/ }
 .form dd { display: table-cell; clear: right; float: left; margin: 0; padding: 0; white-space: nowrap; vertical-align: text-bottom; }
-.action { display: inline-block; }
+.action { display: inline-block; width: 20px; height: 20px; }
 .add { background:url('%webroot%/core/img/actions/add.svg') no-repeat center; clear: both; }
 .delete { background:url('%webroot%/core/img/actions/delete.png') no-repeat center; }
 .edit { background:url('%webroot%/core/img/actions/rename.svg') no-repeat center; }
@@ -206,7 +211,6 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 /* Single elements */
 #file_upload_target, #import_upload_target, #crop_target { display:none; }
 #toggle_all { position: absolute; bottom: .5em; left: .8em; }
-.numcontacts { float: right; }
 input.propertytype { float: left; font-size: .8em; width: 8em !important; direction: rtl;}
 .contactphoto { float: left; display: inline-block; border-radius: 0.3em; border: thin solid #bbb; margin: 0.5em; background: url('%webroot%/core/img/loading.gif') no-repeat center center; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; opacity: 1; }
 .contactphoto:hover { background: #fff; cursor: default; }

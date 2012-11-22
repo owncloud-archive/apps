@@ -145,19 +145,32 @@ OC.notify = function(params) {
 var GroupList = function(groupList, listItemTmpl) {
 	this.$groupList = groupList;
 	var self = this;
+	var numtypes = ['category', 'fav', 'all'];
 	this.$groupList.on('click', 'h3', function(event) {
+		$('.tipsy').remove();
 		if(wrongKey(event)) {
 			return;
 		}
-		self.$groupList.find('h3').removeClass('active');
-		$(this).addClass('active');
-		self.lastgroup = $(this).data('id');
-		$(document).trigger('status.group.selected', {
-			id: self.lastgroup,
-			type: $(this).data('type'),
-			contacts: $(this).data('contacts'),
-		});
+		console.log($(event.target));
+		if($(event.target).is('.action.delete')) {
+			var id = $(event.target).parents('h3').first().data('id');
+			self.deleteGroup(id, function(response) {
+				if(response.status !== 'success') {
+					OC.notify({message:response.data.message});
+				}
+			})
+		} else {
+			self.$groupList.find('h3').removeClass('active');
+			$(this).addClass('active');
+			self.lastgroup = $(this).data('id');
+			$(document).trigger('status.group.selected', {
+				id: self.lastgroup,
+				type: $(this).data('type'),
+				contacts: $(this).data('contacts'),
+			});
+		}
 	});
+
 	this.$groupListItemTemplate = listItemTmpl;
 	this.categories = [];
 }
@@ -375,8 +388,38 @@ GroupList.prototype.contactDropped = function(event, ui) {
 	console.log('dropped', dragitem);
 	if(dragitem.is('tr')) {
 		console.log('tr dropped', dragitem.data('id'), 'on', $(this).data('id'));
-		$(this).data('obj').addTo(dragitem.data('id'), $(this).data('id'));
+		if($(this).data('type') === 'fav') {
+			$(this).data('obj').setAsFavorite(dragitem.data('id'), true);
+		} else {
+			$(this).data('obj').addTo(dragitem.data('id'), $(this).data('id'));
+		}
 	}
+}
+
+GroupList.prototype.deleteGroup = function(groupid, cb) {
+	var $elem = this.findById(groupid);
+	var name = this.nameById(groupid);
+	var contacts = $elem.data('contacts');
+	var self = this;
+	console.log('delete group', groupid, contacts);
+	$.post(OC.filePath('contacts', 'ajax', 'categories/delete.php'), {categories: name}, function(jsondata) {
+		if (jsondata && jsondata.status == 'success') {
+			// TODO: Do a self.deletionTimer = setInterval(function() {}, 500);
+			// passing contacts and trigger removes delayed.
+			$.each(contacts, function(idx, contactid) {
+				$(document).trigger('status.group.contactremoved', {
+					contactid: contactid,
+					groupid: groupid,
+					groupname: self.nameById(groupid),
+				});
+			});
+			$elem.remove();
+		} else {
+		}
+		if(typeof cb === 'function') {
+			cb(jsondata);
+		}
+	});
 }
 
 GroupList.prototype.addGroup = function(name, cb) {
@@ -790,6 +833,11 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('request.addressbook.activate', function(e, result) {
 			console.log('request.addressbook.activate', result);
 			self.Contacts.showFromAddressbook(result.id, result.activate);
+		});
+
+		$(document).bind('status.group.contactremoved', function(e, result) {
+			console.log('status.group.contactremoved', result);
+			self.Contacts.contacts[parseInt(result.contactid)].removeFromGroup(result.groupname);
 		});
 
 		$(document).bind('status.group.contactadded', function(e, result) {
