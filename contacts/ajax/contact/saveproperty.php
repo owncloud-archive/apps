@@ -94,6 +94,10 @@ if(is_array($value)) {
 }
 
 $vcard = App::getContactVCard($id);
+if(!$vcard) {
+	bailOut(App::$l10n->t('Couldn\'t find vCard for %d.', array($id)));
+}
+
 $property = null;
 
 if(in_array($name, $multi_properties)) {
@@ -117,7 +121,7 @@ if(in_array($name, $multi_properties)) {
 		$element = $name;
 		if (!is_scalar($value)) {
 			$property = VObject\Property::create($name);
-			if(in_array($name, array('ADR', ))) {
+			if(in_array($name, array('ADR',))) {
 				$property->setParts($value);
 			} else {
 				bailOut(App::$l10n->t(
@@ -143,6 +147,14 @@ if(in_array($name, $multi_properties)) {
 	}
 } else {
 	$element = $name;
+	$property = $vcard->select($name);
+	debug('propertylist: ' . get_class($property));
+	if(count($property) === 0) {
+		$property = VObject\Property::create($name);
+		$vcard->add($property);
+	} else {
+		$property = array_shift($property);
+	}
 }
 
 /* preprocessing value */
@@ -196,7 +208,13 @@ if(!$value) {
 			}
 			break;
 		case 'ADR':
+		case 'N':
+			if(is_array($value)) {
 			$property->setParts($value);
+			} else {
+				debug('Saving N ' . $value);
+				$vcard->N = $value;
+			}
 			break;
 		case 'EMAIL':
 		case 'TEL':

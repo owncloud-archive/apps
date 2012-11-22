@@ -22,7 +22,7 @@ OC.Contacts = OC.Contacts || {};
 			this.$listTemplate = listtemplate,
 			this.$fullTemplate = fulltemplate;
 			this.detailTemplates = detailtemplates;
-		this.self = this;
+
 		this.multi_properties = ['EMAIL', 'TEL', 'IMPP', 'ADR', 'URL'];
 	}
 
@@ -167,7 +167,10 @@ OC.Contacts = OC.Contacts || {};
 			element = this.propertyTypeFor(obj);
 		} else {
 			element = params.name;
-			q = 'id=' + this.id + '&value=' + encodeURIComponent(params.value) + '&name=' + element;
+			var value = utils.isArray(params.value)
+				? $.param(params.value)
+				: encodeURIComponent(params.value);
+			q = 'id=' + this.id + '&value=' + value + '&name=' + element;
 		}
 		console.log('q', q);
 		var self = this;
@@ -211,11 +214,22 @@ OC.Contacts = OC.Contacts || {};
 					self.propertyContainerFor(obj).data('checksum', jsondata.data.checksum);
 				} else {
 					// Save value and parameters internally
-					var value = self.valueFor(obj);
+					var value = obj ? self.valueFor(obj) : params.value;
 					switch(element) {
 						case 'CATEGORIES':
 							// We deal with this in addToGroup()
 							break;
+						case 'N':
+							if(!utils.isArray(value)) {
+								value = value.split(';');
+								// Then it is auto-generated from FN.
+								var $nelems = self.$fullelem.find('.n.edit input');
+								console.log('nelems', $nelems);
+								$.each(value, function(idx, val) {
+									console.log('nval', val);
+									self.$fullelem.find('#n_' + idx).val(val);
+								});
+							}
 						case 'FN':
 							// Update the list element
 							self.$listelem.find('.nametext').text(value);
@@ -240,7 +254,14 @@ OC.Contacts = OC.Contacts || {};
 								self.data.N[0]['value'][2] = nvalue.length > 2 && nvalue.slice(1, nvalue.length-1).join(' ') || '';
 								setTimeout(function() {
 									// TODO: Hint to user to check if name is properly formatted
-									self.saveProperty({name:'N', value:self.data.N[0].value.join(';')})}
+									console.log('auto creating N', self.data.N[0].value)
+									self.saveProperty({name:'N', value:self.data.N[0].value.join(';')});
+									setTimeout(function() {
+										self.$fullelem.find('.fullname').next('.action.edit').trigger('click');
+										OC.notify({message:t('contacts', 'Is this correct?')});
+									}
+									, 1000);
+								}
 								, 500);
 							}
 							$(document).trigger('status.contact.renamed', {
@@ -497,11 +518,13 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	Contact.prototype.renderContact = function() {
 		var self = this;
+		var n = this.getPreferredValue('N', ['', '', '', '', '']);
 		console.log('renderContact', this.data);
 		var values = this.data
 			? {
 				id: this.id,
 				name: this.getPreferredValue('FN', ''),
+				n0: n[0], n1: n[1], n2: n[2], n3: n[3], n4: n[4],
 				nickname: this.getPreferredValue('NICKNAME', ''),
 				title: this.getPreferredValue('TITLE', ''),
 				org: this.getPreferredValue('ORG', []).clean('').join(', '), // TODO Add parts if more than one.
@@ -511,7 +534,7 @@ OC.Contacts = OC.Contacts || {};
 							this.getPreferredValue('BDAY', '').substring(0, 10)))
 					: '',
 				}
-			: {id: '', name: '', nickname: '', title: '', org: '', bday: ''};
+			: {id: '', name: '', nickname: '', title: '', org: '', bday: '', n0: '', n1: '', n2: '', n3: '', n4: ''};
 		this.$fullelem = this.$fullTemplate.octemplate(values).data('contactobject', this);
 		this.$addMenu = this.$fullelem.find('#addproperty');
 		this.$addMenu.on('change', function(event) {
@@ -532,6 +555,18 @@ OC.Contacts = OC.Contacts || {};
 			if(wrongKey(event)) {
 				return;
 			}
+			$(this).css('opacity', '0');
+			var $editor = $(this).next('.n.edit').first();
+			var bodyListener = function(e) {
+				if($editor.find($(e.target)).length == 0) {
+					console.log('this', $(this));
+					$editor.toggle('blind');
+					$('body').unbind('click', bodyListener);
+				}
+			}
+			$editor.toggle('blind', function() {
+				$('body').bind('click', bodyListener);
+			});
 		});
 		var $singleelements = this.$fullelem.find('dd.propertycontainer');
 		$singleelements.find('.action').css('opacity', '0');
@@ -893,7 +928,7 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	Contact.prototype.getPreferredValue = function(name, def) {
 		var pref = def, found = false;
-		if(this.data[name]) {
+		if(this.data && this.data[name]) {
 			var props = this.data[name];
 			//console.log('props', props);
 			$.each(props, function( i, prop ) {

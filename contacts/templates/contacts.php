@@ -178,6 +178,21 @@
 			<div class="singleproperties">
 			<input data-element="fn" class="fullname value propertycontainer" type="text" name="value" value="{name}" required />
 			<a class="action edit"></a>
+			<fieldset class="n hidden edit ui-widget-content propertycontainer" data-element="n">
+			<ul>
+				<li>
+					<input class="value" type="text" id="n_1" name="value[1]" value="{n1}" placeholder="<?php echo $l->t('First name'); ?>" title="<?php echo $l->t('First name'); ?>" />
+				</li>
+				<li>
+					<input class="value" type="text" id="n_2" name="value[2]" value="{n2}" placeholder="<?php echo $l->t('Additional names'); ?>" title="<?php echo $l->t('Additional names'); ?>" />
+				</li>
+				<li>
+					<input class="value" type="text" id="n_0" name="value[0]" value="{n0}" placeholder="<?php echo $l->t('Last name'); ?>" title="<?php echo $l->t('Last name'); ?>" />
+				</li>
+			</ul>
+			<input class="value" type="hidden" id="n_3" name="value[3]" value="{n3}" />
+			<input class="value" type="hidden" id="n_4" name="value[4]" value="{n4}" />
+			</fieldset>
 			<dl class="form">
 				<dt data-element="nickname">
 					<?php echo $l->t('Nickname'); ?>
