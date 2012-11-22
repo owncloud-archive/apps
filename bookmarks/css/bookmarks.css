@@ -63,7 +63,7 @@ input.disabled, input.disabled:hover, input.disabled:focus {
 .bookmark_actions {
 	position: absolute;
 	right: 1em;
-	bottom:0.3em;
+	bottom:1.3em;
 	display: none;
 }
 .bookmark_actions span { margin: 0 0.4em; }
@@ -88,10 +88,21 @@ input.disabled, input.disabled:hover, input.disabled:focus {
 	display: block;
 }
 
+.bookmark_edit_btn {
+        float: left;
+        position: absolute;
+        top: 0.6em;
+        left: 20%;
+}
+
 .bookmark_title {
-	font-weight: bold;
-	display: inline-block;
-	margin-right: 0.8em;
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 0.8em;
+        width: 20%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
 }
 
 .bm_view_list .bookmark_tags {
@@ -99,6 +110,11 @@ input.disabled, input.disabled:hover, input.disabled:focus {
 	top: 0.5em;
 	right: 6em;
 	text-align: right;
+}
+
+.bookmark_tags {
+        left:25%;
+        position: absolute;
 }
 .bookmark_tag {
 	display: inline-block;
@@ -247,6 +263,12 @@ li:hover em { display : none; }
 	text-overflow:ellipsis;
 	overflow:hidden;
 	display:block;
+        float:left;
+        position: absolute;
+        left: 25%;
+        width:40%;
+        top: 0.7em;
+        font-weight:500;
 }
 .bookmark_date, .bookmark_submit {
 	font-size:small;
@@ -255,6 +277,7 @@ li:hover em { display : none; }
 	color:gray;
 /* 	margin-top:2.5em; */
 	margin-right: 0.2em;
+        top:0.8em;
 }
 
 /*
