@@ -27,8 +27,6 @@
 
 	if (!empty($sspPath) && !empty($spSource)) {
 		include_once $sspPath."/lib/_autoload.php";
-		
 		$auth = new SimpleSAML_Auth_Simple($spSource);
-
 		$auth->requireAuth();
 	}
