@@ -114,6 +114,7 @@
 "Nov." => "listopad",
 "Dec." => "prosinec",
 "All day" => "Celý den",
+"Missing or invalid fields" => "Chybějící, nebo neplatná pole",
 "Title" => "Název",
 "From Date" => "Od data",
 "From Time" => "Od",

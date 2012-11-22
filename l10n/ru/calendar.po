@@ -4,7 +4,8 @@
 # 
 # Translators:
 # Denis  <reg.transifex.net@demitel.ru>, 2012.
-#   <jekader@gmail.com>, 2011, 2012.
+#   <jekader@gmail.com>, 2011-2012.
+# Mihail Vasiliev <mickvav@gmail.com>, 2012.
 # Nick Remeslennikov <homolibere@gmail.com>, 2012.
 #   <rasperepodvipodvert@gmail.com>, 2012.
 #   <skoptev@ukr.net>, 2012.
@@ -16,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-19 23:14+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-22 00:01+0100\n"
+"PO-Revision-Date: 2012-11-21 11:17+0000\n"
+"Last-Translator: Mihail Vasiliev <mickvav@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -87,11 +88,11 @@ msgstr "Удаление не удалось"
 
 #: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr "ддд д ММММ[ гггг]{ - [ddd d] MMMM yyyy}"
+msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
 #: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr "ддд д ММММ[ гггг] ЧЧ:мм{ - [ ddd d MMMM yyyy] HH:mm}"
+msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:597
 msgid "user"
@@ -115,15 +116,15 @@ msgstr "Удаление"
 
 #: js/calendar.js:869
 msgid "ddd"
-msgstr "ддд"
+msgstr "ddd"
 
 #: js/calendar.js:870
 msgid "ddd M/d"
-msgstr "ддд М/д"
+msgstr "ddd M/d"
 
 #: js/calendar.js:871
 msgid "dddd M/d"
-msgstr "дддд М/д"
+msgstr "dddd M/d"
 
 #: js/calendar.js:874
 msgid "MMMM yyyy"
@@ -135,7 +136,7 @@ msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
-msgstr "дддд, МММ д, гггг"
+msgstr "dddd, MMM d, yyyy"
 
 #: lib/app.php:114
 msgid "Birthday"
@@ -492,7 +493,7 @@ msgstr "Весь день"
 
 #: templates/calendar.php:13
 msgid "Missing or invalid fields"
-msgstr ""
+msgstr "Некоторые поля отсутствуют или некорректны"
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11

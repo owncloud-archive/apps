@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# 남자사람  <cessnagi@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 17:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-22 00:01+0100\n"
+"PO-Revision-Date: 2012-11-21 06:23+0000\n"
+"Last-Translator: 남자사람 <cessnagi@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,27 +20,27 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "가져오기가 지원되지 않는 파일타입 입니다."
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
-msgstr ""
+msgstr "즐겨찾기"
 
 #: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
-msgstr ""
+msgstr "태그"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr ""
+msgstr "태그로 필터링"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
-msgstr ""
+msgstr "북마크 편집"
 
 #: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
-msgstr ""
+msgstr "정말로 이 태그를 모든 엔트리에서 제거하기를 원하십니까?"
 
 #: js/bookmarks.js:370
 msgid "Warning"
@@ -47,19 +48,19 @@ msgstr "경고"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "가져오기가 성공적으로 끝났습니다."
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "업로드중..."
 
 #: lib/search.php:38
 msgid "Bookm."
-msgstr ""
+msgstr "Bookm."
 
 #: templates/addBm.php:11
 msgid "Add a bookmark"
-msgstr ""
+msgstr "북마크 추가"
 
 #: templates/addBm.php:14
 msgid "Close"
@@ -67,15 +68,15 @@ msgstr "닫기"
 
 #: templates/addBm.php:22 templates/js_tpl.php:33
 msgid "The title of the page"
-msgstr ""
+msgstr "페이지의 제목"
 
 #: templates/addBm.php:27 templates/js_tpl.php:37
 msgid "The address of the page"
-msgstr ""
+msgstr "페이지의 주소"
 
 #: templates/addBm.php:40 templates/js_tpl.php:46
 msgid "Description of the page"
-msgstr ""
+msgstr "페이지의 설명"
 
 #: templates/addBm.php:44 templates/js_tpl.php:50
 msgid "Save"
@@ -97,11 +98,11 @@ msgstr "취소"
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr ""
+msgstr "웹페이지를 빠르게 북마크하길 원한다면, 당신의 브라우저 북마크에 이것을 드래그 하고 클릭하세요."
 
 #: templates/list.php:15
 msgid "Read later"
-msgstr ""
+msgstr "나중에 읽기"
 
 #: templates/list.php:22
 msgid "Address"
@@ -113,7 +114,7 @@ msgstr "추가"
 
 #: templates/list.php:31
 msgid "Related Tags"
-msgstr ""
+msgstr "관련된 태그"
 
 #: templates/list.php:39 templates/list.php:41
 msgid "Settings"
@@ -121,19 +122,19 @@ msgstr "설정"
 
 #: templates/list.php:53
 msgid "You have no bookmarks"
-msgstr ""
+msgstr "북마크가 없습니다."
 
 #: templates/list.php:58
 msgid "You can also try to import a bookmark file"
-msgstr ""
+msgstr "당신은 즐겨 찾기 파일을 가져올 수 있습니다."
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
-msgstr ""
+msgstr "즐겨찾기 모음"
 
 #: templates/settings.php:23
 msgid "Export & Import"
-msgstr ""
+msgstr "내보내기 & 가져오기"
 
 #: templates/settings.php:24
 msgid "Export"

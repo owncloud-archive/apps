@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"POT-Creation-Date: 2012-11-23 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,10 +29,10 @@ msgstr ""
 msgid "Saving..."
 msgstr ""
 
-#: js/editor.js:239
+#: js/editor.js:240
 msgid "An error occurred!"
 msgstr ""
 
-#: js/editor.js:266
+#: js/editor.js:267
 msgid "There were unsaved changes, click here to go back"
 msgstr ""

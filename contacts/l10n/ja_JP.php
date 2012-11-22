@@ -75,7 +75,7 @@
 "Only image files can be used as profile picture." => "画像ファイルのみがプロファイル写真として使用することができます。",
 "Wrong file type" => "誤ったファイルタイプ",
 "Your browser doesn't support AJAX upload. Please click on the profile picture to select a photo to upload." => "あなたのブラウザはAJAXのアップロードをサポートしていません。プロファイル写真をクリックしてアップロードする写真を選択してください。",
-"Unable to upload your file as it is a directory or has 0 bytes" => "ディレクトリや0バイトのファイルはアップロードできません。",
+"Unable to upload your file as it is a directory or has 0 bytes" => "ディレクトリもしくは0バイトのファイルはアップロードできません",
 "Upload Error" => "アップロードエラー",
 "Pending" => "中断",
 "Import done" => "インポート完了",
