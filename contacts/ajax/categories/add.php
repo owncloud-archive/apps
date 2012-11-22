@@ -13,9 +13,9 @@ OCP\JSON::callCheck();
 
 require_once __DIR__.'/../loghandler.php';
 
-$category = isset($_POST['category']) ? $_POST['category'] : null;
+$category = isset($_POST['category']) ? trim(strip_tags($_POST['category'])) : null;
 
-if(is_null($category)) {
+if(is_null($category) || $category === "") {
 	bailOut(OCA\Contacts\App::$l10n->t('No category name given.'));
 }
 
