@@ -500,7 +500,8 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 			$elem.data('contacts', contacts).find('.numcontacts').before('<span class="starred" />');
 			$elem.droppable({
 						drop: self.contactDropped,
-						activeClass: 'ui-state-hover',
+						activeClass: 'ui-state-active',
+						hoverClass: 'ui-state-hover',
 						accept: acceptdrop
 					});
 			if(contacts.length === 0) {
