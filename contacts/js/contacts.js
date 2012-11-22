@@ -587,38 +587,7 @@ OC.Contacts = OC.Contacts || {};
 			console.log('change', event);
 			self.saveProperty({obj:event.target});
 		});
-		this.$fullelem.on('click', '.favorite', function(event) {
-			if(typeof self.is_favorite === 'undefined') {
-				console.log('Favorite state not set yet.');
-				self.is_favorite == false;
-			}
-			console.log('favorite', event);
-			$(this).addClass('wait');
-			$(document).trigger('request.setasfavorite', {
-				id: self.id,
-				state: !self.is_favorite,
-			});
-		});
-		$(document).bind('status.contact.favoritestate', function(e, result) {
-			console.log('status.contact.favoritestate', result);
-			if(parseInt(result.id) !== parseInt(self.id)) {
-				console.log(result.id, 'is not me:', self.id);
-				return;
-			}
-			var $favstar = self.$fullelem.find('.favorite');
-			$favstar.removeClass('wait');
-			if(result.status === 'success') {
-				self.is_favorite = result.state;
-				$favstar.toggleClass('inactive', !result.state).toggleClass('active', result.state);
-				/*if(result.state === true) {
-					$favstar.removeClass('inactive').addClass('active');
-				} else {
-					$favstar.removeClass('active').addClass('inactive');
-				}*/
-			} else {
-				// TODO:...
-			}
-		});
+
 		this.$fullelem.find('form').on('submit', function(event) {
 			console.log('submit', this, event);
 			return false;

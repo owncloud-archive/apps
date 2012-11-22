@@ -67,6 +67,7 @@
 		<select class="groups control" name="groups">
 			<option value="-1" disabled="disabled" selected="selected"><?php echo $l->t('Groups'); ?></option>
 		</select>
+		<button class="favorite inactive control" title="<?php echo $l->t('Favorite'); ?>"></button>
 	</div>
 </div>
 <div id="rightcontent" class="loading">
@@ -174,7 +175,6 @@
 					<li><a class="svg cloud" title="<?php echo $l->t('Select photo from ownCloud'); ?>"></a></li>
 				</ul>
 			</div>
-			<a class="favorite" title="<?php echo $l->t('Favorite'); ?>"></a>
 			<div class="singleproperties">
 			<input data-element="fn" class="fullname value propertycontainer" type="text" name="value" value="{name}" required />
 			<a class="action edit"></a>

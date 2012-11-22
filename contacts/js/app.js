@@ -688,7 +688,7 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('status.contact.added', function(e, data) {
 			self.currentid = parseInt(data.id);
 			self.buildGroupSelect();
-			self.showActions(['back', 'download', 'delete', 'groups']);
+			self.showActions(['back', 'download', 'delete', 'groups', 'favorite']);
 		});
 
 		$(document).bind('status.contact.error', function(e, data) {
@@ -698,9 +698,14 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('status.contact.enabled', function(e, enabled) {
 			console.log('status.contact.enabled', enabled)
 			if(enabled) {
-				self.showActions(['back', 'download', 'delete', 'groups']);
+				self.showActions(['back', 'download', 'delete', 'groups', 'favorite']);
 			} else {
 				self.showActions(['back']);
+			}
+			if(self.Groups.isFavorite(self.currentid)) {
+				self.$header.find('.favorite').switchClass('inactive', 'active');
+			} else {
+				self.$header.find('.favorite').switchClass('active', 'inactive');
 			}
 		});
 
@@ -787,23 +792,6 @@ OC.Contacts = OC.Contacts || {
 			self.Contacts.showFromAddressbook(result.id, result.activate);
 		});
 
-		$(document).bind('request.setasfavorite', function(e, result) {
-			console.log('request.setasfavorite', result);
-			self.Groups.setAsFavorite(result.id, result.state, function(jsondata) {
-				if(jsondata.status === 'success') {
-					$(document).trigger('status.contact.favoritestate', {
-						status: 'success',
-						id: result.id,
-						state: result.state,
-					});
-				} else {
-					OC.notify({message:t('contacts', jsondata.data.message)});
-					$(document).trigger('status.contact.favoritestate', {
-						status: 'error',
-					});
-				}
-			});
-		});
 		$(document).bind('status.group.contactadded', function(e, result) {
 			console.log('status.group.contactadded', result);
 			self.Contacts.contacts[parseInt(result.contactid)].addToGroup(result.groupname);
@@ -1134,16 +1122,26 @@ OC.Contacts = OC.Contacts || {
 			}
 		});
 
-		this.$header.on('click keydown', '.settings', function(event) {
+		this.$header.on('click keydown', '.favorite', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
-			try {
-				//ninjahelp.hide();
-				OC.appSettings({appid:'contacts', loadJS:true, cache:false});
-			} catch(e) {
-				console.log('error:', e.message);
+			if(!utils.isUInt(self.currentid)) {
+				return;
 			}
+			var state = self.Groups.isFavorite(self.currentid);
+			console.log('Favorite?', this, state);
+			self.Groups.setAsFavorite(self.currentid, !state, function(jsondata) {
+				if(jsondata.status === 'success') {
+					if(state) {
+						self.$header.find('.favorite').switchClass('active', 'inactive');
+					} else {
+						self.$header.find('.favorite').switchClass('inactive', 'active');
+					}
+				} else {
+					OC.notify({message:t('contacts', jsondata.data.message)});
+				}
+			});
 		});
 
 		this.$contactList.on('mouseenter', 'td.email', function(event) {
@@ -1310,16 +1308,6 @@ OC.Contacts = OC.Contacts || {
 		this.$contactList.hide();
 		this.$toggleAll.hide();
 		var $contactelem = this.Contacts.showContact(this.currentid);
-		var self = this;
-		// FIXME: This should (maybe) be an argument to the Contact
-		setTimeout(function() {
-			var state = self.Groups.isFavorite(self.currentid);
-			$(document).trigger('status.contact.favoritestate', {
-				status: 'success',
-				id: self.currentid,
-				state: state,
-			});
-		}, 2000);
 		this.$rightContent.prepend($contactelem);
 		this.buildGroupSelect();
 	},
