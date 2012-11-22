@@ -5,27 +5,27 @@
 *
 * @author Xavier Beurois
 * @copyright 2012 Xavier Beurois www.djazz-lab.net
-* 
+*
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
-* License as published by the Free Software Foundation; either 
+* License as published by the Free Software Foundation; either
 * version 3 of the License, or any later version.
-* 
+*
 * This library is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
-*  
-* You should have received a copy of the GNU Lesser General Public 
+*
+* You should have received a copy of the GNU Lesser General Public
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
-* 
+*
 */
 
 /**
- * This class manages ocDownloader with the database. 
+ * This class manages ocDownloader with the database.
  */
 class OC_ocDownloader {
-	
+
 	/**
 	 * Get user provider settings
 	 * @return Array
@@ -38,7 +38,7 @@ class OC_ocDownloader {
 		}
 		return Array();
 	}
-	
+
 	/**
 	 * Get provider info
 	 * @param $pr_id the provider id
@@ -52,7 +52,7 @@ class OC_ocDownloader {
 		}
 		return Array();
 	}
-	
+
 	/**
 	 * Add a provider (if not exists)
 	 * @param $name Name of the provider
@@ -66,7 +66,7 @@ class OC_ocDownloader {
 			$query->execute(Array($name, $logo));
 		}
 	}
-	
+
 	/**
 	 * Get User provider username and password
 	 * @param $pr_id Provider id
@@ -80,7 +80,7 @@ class OC_ocDownloader {
 		}
 		return Array();
 	}
-	
+
 	/**
 	 * Get a list of providers in the database
 	 * @return Array
@@ -93,7 +93,7 @@ class OC_ocDownloader {
 		}
 		return Array();
 	}
-	
+
 	/**
 	 * UPDATE user provider info
 	 * @param $pr The provider id
@@ -111,7 +111,7 @@ class OC_ocDownloader {
 			$query->execute(Array(OC_User::getUser(), $pr, $username, $password));
 		}
 	}
-	
+
 	/**
 	 * DELETE user provider info
 	 * @param $pr The provider id
@@ -124,7 +124,7 @@ class OC_ocDownloader {
 			$query->execute(Array($result[0]['us_id']));
 		}
 	}
-	
+
 	/**
 	 * Check app version. If version changes, add default records to table (Providers list)
 	 * @param $v App version
@@ -133,7 +133,7 @@ class OC_ocDownloader {
 	public static function isUpToDate($v) {
 		if(is_null($v))
 			return FALSE;
-			
+
 		$query = OC_DB::prepare("SELECT conf_id FROM *PREFIX*ocdownloader_config WHERE conf_version = ? AND conf_key = ?");
 		$result = $query->execute(Array((string)$v, 'init'))->fetchRow();
 		if($result) {
@@ -141,7 +141,7 @@ class OC_ocDownloader {
 		}
 		return TRUE;
 	}
-	
+
 	/**
 	 * Initialize providers list
 	 * @param $file Providers file list
@@ -149,19 +149,19 @@ class OC_ocDownloader {
 	public static function initProviders($file) {
 		$xml = new DOMDocument();
 		$xml->load($file);
-		
+
 		$providers = $xml->getElementsByTagName('provider');
 		foreach($providers as $provider) {
 			$name_key = $provider->getElementsByTagName('name');
 		  	$name_val = $name_key->item(0)->nodeValue;
 			$logo_key = $provider->getElementsByTagName('logo');
 		  	$logo_val = $logo_key->item(0)->nodeValue;
-		  
+
 		  	self::addProvider($name_val, $logo_val);
 		}
 		self::updateApplicationConfig('init', 'yes');
 	}
-	
+
 	/**
 	 * Insert or Update conf key for the actual version of the application
 	 */
@@ -176,5 +176,5 @@ class OC_ocDownloader {
 			$query->execute(Array((string)OC_Appconfig::getValue('ocdownloader', 'installed_version'), $key, $val));
 		}
 	}
-	
+
 }

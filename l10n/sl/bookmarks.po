@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <>, 2012.
 # Peter Peroša <peter.perosa@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-12 02:01+0200\n"
-"PO-Revision-Date: 2012-09-11 05:43+0000\n"
+"POT-Creation-Date: 2012-11-20 00:00+0100\n"
+"PO-Revision-Date: 2012-11-19 20:25+0000\n"
 "Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -18,48 +19,128 @@ msgstr ""
 "Language: sl\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
-#: appinfo/app.php:14
+#: ajax/import.php:21
+msgid "Unsupported file type for import"
+msgstr "Vrsta datoteke ni podprta za uvoz"
+
+#: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Zaznamki"
 
-#: bookmarksHelper.php:99
-msgid "unnamed"
-msgstr "neimenovano"
+#: js/addBm.js:42 js/bookmarks.js:230
+msgid "Tags"
+msgstr "Oznake"
 
-#: lib/search.php:43
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr "Razvrsti po značkah"
+
+#: js/bookmarks.js:132
+msgid "Edit bookmark"
+msgstr "Uredi zaznamke"
+
+#: js/bookmarks.js:369
+msgid "Are you sure you want to remove this tag from every entry?"
+msgstr "Ali res želite odstraniti te oznake iz vsakega vnosa?"
+
+#: js/bookmarks.js:370
+msgid "Warning"
+msgstr "Opozorilo"
+
+#: js/settings.js:25
+msgid "Import completed successfully."
+msgstr "Uvoz je uspešno zaključen."
+
+#: js/settings.js:56
+msgid "Uploading..."
+msgstr "Nalagam ..."
+
+#: lib/search.php:38
 msgid "Bookm."
 msgstr "Zaznam."
 
-#: templates/bookmarklet.php:5
+#: templates/addBm.php:11
+msgid "Add a bookmark"
+msgstr "Dodaj zaznamek"
+
+#: templates/addBm.php:14
+msgid "Close"
+msgstr "Zapri"
+
+#: templates/addBm.php:22 templates/js_tpl.php:33
+msgid "The title of the page"
+msgstr "Naziv strani"
+
+#: templates/addBm.php:27 templates/js_tpl.php:37
+msgid "The address of the page"
+msgstr "Naslov strani"
+
+#: templates/addBm.php:40 templates/js_tpl.php:46
+msgid "Description of the page"
+msgstr "Opis strani"
+
+#: templates/addBm.php:44 templates/js_tpl.php:50
+msgid "Save"
+msgstr "Shrani"
+
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
+msgid "Delete"
+msgstr "Izbriši"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "Uredi"
+
+#: templates/js_tpl.php:49
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: templates/list.php:14
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
 msgstr "Povlecite gumb med svoje zaznamke in kliknite nanj, ko želite obiskano spletno stran hitro dodati med svoje zaznamke:"
 
-#: templates/bookmarklet.php:7
+#: templates/list.php:15
 msgid "Read later"
 msgstr "Preberi kasneje"
 
-#: templates/list.php:13
+#: templates/list.php:22
 msgid "Address"
 msgstr "Naslov"
 
-#: templates/list.php:14
-msgid "Title"
-msgstr "Ime"
+#: templates/list.php:23
+msgid "Add"
+msgstr "Dodaj"
 
-#: templates/list.php:15
-msgid "Tags"
-msgstr "Oznake"
+#: templates/list.php:31
+msgid "Related Tags"
+msgstr "Sorodne oznake"
 
-#: templates/list.php:16
-msgid "Save bookmark"
-msgstr "Shrani zaznamek"
+#: templates/list.php:39 templates/list.php:41
+msgid "Settings"
+msgstr "Nastavitve"
 
-#: templates/list.php:22
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Nimate zaznamkov"
 
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr "Prav tako lahko poskusite uvoziti datoteko z zaznamki"
+
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Vstavek za zaznamke <br />"
+msgid "Bookmarklet"
+msgstr "Vstavek za zaznamke"
+
+#: templates/settings.php:23
+msgid "Export & Import"
+msgstr "Izvoz & uvoz"
+
+#: templates/settings.php:24
+msgid "Export"
+msgstr "Izvozi"
+
+#: templates/settings.php:26
+msgid "Import"
+msgstr "Uvozi"

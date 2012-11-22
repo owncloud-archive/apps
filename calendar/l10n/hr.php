@@ -69,7 +69,6 @@
 "Date" => "datum",
 "Cal." => "Kal.",
 "All day" => "Cijeli dan",
-"Missing fields" => "Nedostaju polja",
 "Title" => "Naslov",
 "From Date" => "Datum od",
 "From Time" => "Vrijeme od",
@@ -81,6 +80,7 @@
 "Month" => "Mjesec",
 "List" => "Lista",
 "Today" => "Danas",
+"Settings" => "Postavke",
 "Your calendars" => "Vaši kalendari",
 "CalDav Link" => "CalDav poveznica",
 "Share Calendar" => "Podjeli kalendar",
@@ -130,11 +130,15 @@
 "Import" => "Uvoz",
 "Close Dialog" => "Zatvori dijalog",
 "Create a new event" => "Unesi novi događaj",
+"Unshare" => "Makni djeljenje",
 "View an event" => "Vidjeti događaj",
 "No categories selected" => "Nema odabranih kategorija",
 "of" => "od",
 "at" => "na",
+"General" => "Općenito",
 "Timezone" => "Vremenska zona",
 "24h" => "24h",
-"12h" => "12h"
+"12h" => "12h",
+"more info" => "više informacija",
+"iOS/OS X" => "iOS/OS X"
 );

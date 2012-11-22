@@ -3,6 +3,8 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <blobbyjj@ymail.com>, 2012.
+#   <lukas@statuscode.ch>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
 #   <thomas.mueller@tmit.eu>, 2012.
 #   <transifex.3.mensaje@spamgourmet.com>, 2012.
@@ -10,19 +12,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-24 02:02+0200\n"
-"PO-Revision-Date: 2012-08-23 10:17+0000\n"
-"Last-Translator: traductor <transifex.3.mensaje@spamgourmet.com>\n"
+"POT-Creation-Date: 2012-10-03 02:04+0200\n"
+"PO-Revision-Date: 2012-10-02 09:15+0000\n"
+"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr "Dies ist ein OpenID-Server-Endpunkt. Weitere Informationen finden Sie unter:"
+msgstr "Dies ist ein OpenID-Server-Endpunkt. Weitere Informationen findest Du unter:"
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
@@ -46,12 +48,12 @@ msgstr "Fehler: <b> Kein Benutzer ausgewählt"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
-msgstr "Sie können sich auf anderen Seiten mit dieser Adresse authentifizieren."
+msgstr "Du kannst Dich auf anderen Seiten mit dieser Adresse authentifizieren."
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"
-msgstr "Authorisierter OpenID-Anbieter"
+msgstr "Autorisierter OpenID-Anbieter"
 
 #: templates/settings.php:6
 msgid "Your address at Wordpress, Identi.ca, &hellip;"
-msgstr "Ihre Adresse bei Wordpress, Identi.ca, &hellip;"
+msgstr "Deine Adresse bei Wordpress, Identi.ca, &hellip;"

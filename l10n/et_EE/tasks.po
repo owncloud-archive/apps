@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-10 02:02+0200\n"
-"PO-Revision-Date: 2012-09-09 19:22+0000\n"
+"POT-Creation-Date: 2012-10-31 00:01+0100\n"
+"PO-Revision-Date: 2012-10-29 23:03+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,18 @@ msgstr "Vigane kuupäev/kellaaeg"
 #: appinfo/app.php:10
 msgid "Tasks"
 msgstr "Ülesanded"
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr "Tähtaeg"
+
+#: js/tasks.js:107
+msgid "List"
+msgstr "Nimekiri"
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr "Asukoht"
 
 #: js/tasks.js:415
 msgid "No category"

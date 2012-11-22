@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-14 02:01+0200\n"
-"PO-Revision-Date: 2012-09-13 16:16+0000\n"
+"POT-Creation-Date: 2012-11-14 00:01+0100\n"
+"PO-Revision-Date: 2012-11-13 03:16+0000\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -18,48 +18,128 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:14
+#: ajax/import.php:21
+msgid "Unsupported file type for import"
+msgstr "インポートでは未サポートのファイルタイプ"
+
+#: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "ブックマーク"
 
-#: bookmarksHelper.php:99
-msgid "unnamed"
-msgstr "無名タイトル"
+#: js/addBm.js:42 js/bookmarks.js:230
+msgid "Tags"
+msgstr "タグ"
 
-#: lib/search.php:43
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr "タグによるフィルタ"
+
+#: js/bookmarks.js:132
+msgid "Edit bookmark"
+msgstr "ブックマークを編集"
+
+#: js/bookmarks.js:369
+msgid "Are you sure you want to remove this tag from every entry?"
+msgstr "すべてのエントリからこのタグを削除してもよろしいですか？"
+
+#: js/bookmarks.js:370
+msgid "Warning"
+msgstr "警告"
+
+#: js/settings.js:25
+msgid "Import completed successfully."
+msgstr "インポートは正常に完了しました。"
+
+#: js/settings.js:56
+msgid "Uploading..."
+msgstr "アップロード中..."
+
+#: lib/search.php:38
 msgid "Bookm."
 msgstr "ブックマーク"
 
-#: templates/bookmarklet.php:5
+#: templates/addBm.php:11
+msgid "Add a bookmark"
+msgstr "ブックマークを追加"
+
+#: templates/addBm.php:14
+msgid "Close"
+msgstr "閉じる"
+
+#: templates/addBm.php:22 templates/js_tpl.php:33
+msgid "The title of the page"
+msgstr "ページのタイトル"
+
+#: templates/addBm.php:27 templates/js_tpl.php:37
+msgid "The address of the page"
+msgstr "ページのアドレス"
+
+#: templates/addBm.php:40 templates/js_tpl.php:46
+msgid "Description of the page"
+msgstr "ページの説明"
+
+#: templates/addBm.php:44 templates/js_tpl.php:50
+msgid "Save"
+msgstr "保存"
+
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
+msgid "Delete"
+msgstr "削除"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "編集"
+
+#: templates/js_tpl.php:49
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: templates/list.php:14
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
 msgstr "Webページをすぐにブックマークしたい場合は、これをブラウザのブックマークにドラッグし、クリックしてください:"
 
-#: templates/bookmarklet.php:7
+#: templates/list.php:15
 msgid "Read later"
 msgstr "後で確認"
 
-#: templates/list.php:13
+#: templates/list.php:22
 msgid "Address"
 msgstr "アドレス"
 
-#: templates/list.php:14
-msgid "Title"
-msgstr "タイトル"
+#: templates/list.php:23
+msgid "Add"
+msgstr "追加"
 
-#: templates/list.php:15
-msgid "Tags"
-msgstr "タグ"
+#: templates/list.php:31
+msgid "Related Tags"
+msgstr "関連タグ"
 
-#: templates/list.php:16
-msgid "Save bookmark"
-msgstr "ブックマークを保存"
+#: templates/list.php:39 templates/list.php:41
+msgid "Settings"
+msgstr "設定"
 
-#: templates/list.php:22
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "ブックマークがありません"
 
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr "ブックマークファイルのインポートも可能です"
+
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "ブックマークレット <br />"
+msgid "Bookmarklet"
+msgstr "ブックマークレット"
+
+#: templates/settings.php:23
+msgid "Export & Import"
+msgstr "エクスポート＆インポート"
+
+#: templates/settings.php:24
+msgid "Export"
+msgstr "エクスポート"
+
+#: templates/settings.php:26
+msgid "Import"
+msgstr "インポート"

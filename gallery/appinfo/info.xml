@@ -4,11 +4,15 @@
 	<name>Pictures</name>
 	<licence>AGPL</licence>
 	<author>Bartek Przybylski</author>
-	<require>4</require>
+	<require>4.9</require>
 	<shipped>true</shipped>
 	<description>Dedicated pictures application</description>
 	<standalone/>
 	<default_enable/>
+	<types>
+		<!-- update thumbnails when saving file -->
+		<filesystem/>
+	</types>
 	<public>
 		<gallery>sharing.php</gallery>
 	</public>

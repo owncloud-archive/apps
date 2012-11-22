@@ -61,7 +61,7 @@ class ThumbnailsManager {
 
 	private static $instance = null;
 	const TAG = 'ThumbnailManager';
-        const THUMBNAIL_HEIGHT = 150;
+	const THUMBNAIL_HEIGHT = 150;
 
 	public static function getInstance() {
 		if (self::$instance === null)

@@ -1,0 +1,2 @@
+#user_openid_provider .trusted { color: green; }
+#user_openid_provider .denied { color: red; }

@@ -43,4 +43,3 @@ OCP\API::register('get', '/cloud/apps', array('OC_Provisioning_API_Apps', 'getAp
 OCP\API::register('get', '/cloud/apps/{appid}', array('OC_Provisioning_API_Apps', 'getAppInfo'), 'provisioning_api', OC_API::ADMIN_AUTH);
 OCP\API::register('post', '/cloud/apps/{appid}', array('OC_Provisioning_API_Apps', 'enable'), 'provisioning_api', OC_API::ADMIN_AUTH);
 OCP\API::register('delete', '/cloud/apps/{appid}', array('OC_Provisioning_API_Apps', 'disable'), 'provisioning_api', OC_API::ADMIN_AUTH);
-?>

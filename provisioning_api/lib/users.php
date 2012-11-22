@@ -22,14 +22,14 @@
 */
 
 class OC_Provisioning_API_Users {
-	
+
 	/**
 	 * returns a list of users
 	 */
 	public static function getUsers($parameters){
 		return OC_User::getUsers();
 	}
-	
+
 	public static function addUser(){
 		$userid = isset($_POST['userid']) ? $_POST['userid'] : null;
 		$password = isset($_POST['password']) ? $_POST['password'] : null;
@@ -52,7 +52,7 @@ class OC_Provisioning_API_Users {
 			}
 		}
 	}
-	
+
 	/**
 	 * gets user info
 	 */
@@ -64,38 +64,38 @@ class OC_Provisioning_API_Users {
 		$return['quota'] = OC_Preferences::getValue($userid, 'files', 'quota', $default);
 		return $return;
 	}
-	
+
 	public static function editUser($parameters){
-		
+
 	}
-	
+
 	public static function deleteUser($parameters){
-		
+
 	}
-	
+
 	public static function getSharedWithUser($parameters){
-		
+
 	}
-	
+
 	public static function getSharedByUser($parameters){
-		
+
 	}
-	
+
 	public static function deleteSharedByUser($parameters){
-		
+
 	}
-	
+
 	public static function getUsersGroups($parameters){
 		$userid = $parameters['userid'];
 		return array('groups' => OC_Group::getUserGroups($userid));
 	}
-	
+
 	public static function addToGroup($parameters){
-		
+
 	}
-	
+
 	public static function removeFromGroup($parameters){
-		
+
 	}
-	
+
 }

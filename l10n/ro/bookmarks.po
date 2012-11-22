@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-19 02:02+0200\n"
-"PO-Revision-Date: 2012-09-18 11:37+0000\n"
-"Last-Translator: g.ciprian <g.ciprian@osn.ro>\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 17:22+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,48 +18,128 @@ msgstr ""
 "Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
-#: appinfo/app.php:14
+#: ajax/import.php:21
+msgid "Unsupported file type for import"
+msgstr ""
+
+#: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Semne de carte"
 
-#: bookmarksHelper.php:99
-msgid "unnamed"
-msgstr "fără denumire"
+#: js/addBm.js:42 js/bookmarks.js:230
+msgid "Tags"
+msgstr "Cuvinte cheie"
 
-#: lib/search.php:43
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr ""
+
+#: js/bookmarks.js:132
+msgid "Edit bookmark"
+msgstr ""
+
+#: js/bookmarks.js:369
+msgid "Are you sure you want to remove this tag from every entry?"
+msgstr ""
+
+#: js/bookmarks.js:370
+msgid "Warning"
+msgstr "Atenție"
+
+#: js/settings.js:25
+msgid "Import completed successfully."
+msgstr ""
+
+#: js/settings.js:56
+msgid "Uploading..."
+msgstr ""
+
+#: lib/search.php:38
 msgid "Bookm."
 msgstr "Bookm."
 
-#: templates/bookmarklet.php:5
+#: templates/addBm.php:11
+msgid "Add a bookmark"
+msgstr ""
+
+#: templates/addBm.php:14
+msgid "Close"
+msgstr "Închide"
+
+#: templates/addBm.php:22 templates/js_tpl.php:33
+msgid "The title of the page"
+msgstr ""
+
+#: templates/addBm.php:27 templates/js_tpl.php:37
+msgid "The address of the page"
+msgstr ""
+
+#: templates/addBm.php:40 templates/js_tpl.php:46
+msgid "Description of the page"
+msgstr ""
+
+#: templates/addBm.php:44 templates/js_tpl.php:50
+msgid "Save"
+msgstr "Salvează"
+
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
+msgid "Delete"
+msgstr "Șterge"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "Editează"
+
+#: templates/js_tpl.php:49
+msgid "Cancel"
+msgstr "Anulare"
+
+#: templates/list.php:14
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
 msgstr "Trage acest semn în semnele de carte din navigatorul tău web când dorești să salvezi rapid un semn către o pagină web:"
 
-#: templates/bookmarklet.php:7
+#: templates/list.php:15
 msgid "Read later"
 msgstr "Citește mai târziu"
 
-#: templates/list.php:13
+#: templates/list.php:22
 msgid "Address"
 msgstr "Adresă"
 
-#: templates/list.php:14
-msgid "Title"
-msgstr "Titlu"
+#: templates/list.php:23
+msgid "Add"
+msgstr "Adaugă"
 
-#: templates/list.php:15
-msgid "Tags"
-msgstr "Cuvinte cheie"
+#: templates/list.php:31
+msgid "Related Tags"
+msgstr ""
 
-#: templates/list.php:16
-msgid "Save bookmark"
-msgstr "Salvare semne de carte"
+#: templates/list.php:39 templates/list.php:41
+msgid "Settings"
+msgstr "Setări"
 
-#: templates/list.php:22
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Nu ai nici un semn de carte"
 
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr ""
+
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Bookmarklet <br />"
+msgid "Bookmarklet"
+msgstr ""
+
+#: templates/settings.php:23
+msgid "Export & Import"
+msgstr ""
+
+#: templates/settings.php:24
+msgid "Export"
+msgstr "Exportă"
+
+#: templates/settings.php:26
+msgid "Import"
+msgstr "Importă"

@@ -29,7 +29,7 @@ function setSyntaxMode(ext){
 	filetype["jsm"] = "javascript";
 	filetype["json"] = "json";
 	filetype["latex"] = "latex";
-        filetype["less"] = "less";
+	filetype["less"] = "less";
 	filetype["ly"] = "latex";
 	filetype["ily"] = "latex";
 	filetype["lua"] = "lua";
@@ -48,7 +48,7 @@ function setSyntaxMode(ext){
 	filetype["scad"] = "scad"; // seems to be something like 3d model files printed with e.g. reprap
 	filetype["scala"] = "scala";
 	filetype["scss"] = "scss"; // "sassy css"
-        filetype["sh"] = "sh";
+	filetype["sh"] = "sh";
 	filetype["sql"] = "sql";
 	filetype["svg"] = "svg";
 	filetype["textile"] = "textile"; // related to markdown
@@ -194,10 +194,11 @@ function showFileEditor(dir,filename){
 					$('#editor').attr('data-mtime', result.data.mtime);
 					// Initialise the editor
 					$('.actions,#file_action_panel').fadeOut('slow');
-					$('table').fadeOut('slow', function() {
+					$('#content table').fadeOut('slow', function() {
 						// Show the control bar
 						showControls(filename,result.data.write);
 						// Update document title
+						$('body').attr('old_title', document.title);
 						document.title = filename+' - ownCloud';
 						$('#editor').text(result.data.filecontents);
 						$('#editor').attr('data-dir', dir);
@@ -259,9 +260,9 @@ function hideFileEditor(){
 		// Fade out editor
 		$('#editor').fadeOut('slow', function(){
 			// Reset document title
-			document.title = "ownCloud";
+			document.title = $('body').attr('old_title');
 			$('.actions,#file_access_panel').fadeIn('slow');
-			$('table').fadeIn('slow');
+			$('#content table').fadeIn('slow');
 		});
 		$('#notification').text(t('files_texteditor','There were unsaved changes, click here to go back'));
 		$('#notification').data('reopeneditor',true);
@@ -277,9 +278,9 @@ function hideFileEditor(){
 		$('#editor').fadeOut('slow', function(){
 			$(this).remove();
 			// Reset document title
-			document.title = "ownCloud";
+			document.title = $('body').attr('old_title');
 			$('.actions,#file_access_panel').fadeIn('slow');
-			$('table').fadeIn('slow');
+			$('#content table').fadeIn('slow');
 		});
 		is_editor_shown = false;
 	}
@@ -288,7 +289,7 @@ function hideFileEditor(){
 // Reopens the last document
 function reopenEditor(){
 	$('.actions,#file_action_panel').fadeOut('slow');
-	$('table').fadeOut('slow', function(){
+	$('#content table').fadeOut('slow', function(){
 		$('#controls .last').not('#breadcrumb_file').removeClass('last');
 		$('#editor').fadeIn('fast');
 		$('#editorcontrols').fadeIn('fast', function(){
@@ -313,14 +314,23 @@ $(document).ready(function(){
 			showFileEditor($('#dir').val(),filename);
 		});
 		FileActions.setDefault('application/xml','Edit');
+		FileActions.register('application/x-empty','Edit', OC.PERMISSION_READ, '',function(filename){
+			showFileEditor($('#dir').val(),filename);
+		});
+		FileActions.setDefault('application/x-empty','Edit');
+		FileActions.register('inode/x-empty','Edit', OC.PERMISSION_READ, '',function(filename){
+			showFileEditor($('#dir').val(),filename);
+		});
+		FileActions.setDefault('inode/x-empty','Edit');
 	}
 	OC.search.customResults.Text=function(row,item){
-		var text=item.link.substr(item.link.indexOf('?file=')+6);
+		var text=item.link.substr(item.link.indexOf('download')+8);
 		var a=row.find('a');
 		a.data('file',text);
 		a.attr('href','#');
 		a.click(function(){
-			var pos=text.lastIndexOf('/')
+			text = decodeURIComponent(text);
+			var pos=text.lastIndexOf('/');
 			var file=text.substr(pos + 1);
 			var dir=text.substr(0,pos);
 			showFileEditor(dir,file);

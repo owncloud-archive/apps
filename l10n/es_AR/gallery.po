@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <claudio.tessone@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2012-09-25 02:03+0200\n"
+"PO-Revision-Date: 2012-09-24 22:42+0000\n"
+"Last-Translator: cjtess <claudio.tessone@gmail.com>\n"
+"Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_AR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:45
+msgid "Pictures"
+msgstr "Imágenes"
+
+#: appinfo/app.php:53
+msgid "Galleries"
+msgstr "Galerías"
+
+#: js/pictures.js:12
+msgid "Share gallery"
+msgstr "Compartir galería"
+
+#: js/pictures.js:32
+msgid "Error: "
+msgstr "Error: "
+
+#: js/pictures.js:32
+msgid "Internal error"
+msgstr "Error interno"
+
+#: templates/index.php:27
+msgid "Slideshow"
+msgstr "Presentación"
+
+#: templates/no-image-app.php:9
+msgid ""
+"The \"Image Viewer\" application also need to be enabled to use this "
+"application."
+msgstr "La aplicación \"Visor de imágenes\" también debe ser activada para poder usar esta aplicación."

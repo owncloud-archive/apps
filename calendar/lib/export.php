@@ -65,18 +65,30 @@ class OC_Calendar_Export{
 	  * @return string
 	  */
 	 private static function generateEvent($event) {
-		$object = OC_VObject::parse($event['calendardata']);
-		$dtstart = $object->VEVENT->DTSTART;
-		$start_dt = $dtstart->getDateTime();
-		$dtend = OC_Calendar_Object::getDTEndFromVEvent($object->VEVENT);
-		$end_dt = $dtend->getDateTime();
-		if($dtstart->getDateType() !== Sabre_VObject_Element_DateTime::DATE) {
-			$start_dt->setTimezone(new DateTimeZone('UTC'));
-			$end_dt->setTimezone(new DateTimeZone('UTC'));
-			$object->VEVENT->setDateTime('DTSTART', $start_dt, Sabre_VObject_Property_DateTime::UTC);
-			$object->VEVENT->setDateTime('DTEND', $end_dt, Sabre_VObject_Property_DateTime::UTC);
+	 	$object = OC_VObject::parse($event['calendardata']);
+		if(!$object){
+			return false;
 		}
-		return $object->VEVENT->serialize();
+		if($object->VEVENT){
+			$dtstart = $object->VEVENT->DTSTART;
+			$start_dt = $dtstart->getDateTime();
+			$dtend = OC_Calendar_Object::getDTEndFromVEvent($object->VEVENT);
+			$end_dt = $dtend->getDateTime();
+			if($dtstart->getDateType() !== Sabre\VObject\Property\DateTime::DATE) {
+				$start_dt->setTimezone(new DateTimeZone('UTC'));
+				$end_dt->setTimezone(new DateTimeZone('UTC'));
+				$object->VEVENT->setDateTime('DTSTART', $start_dt, Sabre\VObject\Property\DateTime::UTC);
+				$object->VEVENT->setDateTime('DTEND', $end_dt, Sabre\VObject\Property\DateTime::UTC);
+			}
+			return $object->VEVENT->serialize();
+		}
+		if($object->VTODO){
+			return $object->VTODO->serialize();
+		}
+		if($object->VJOURNAL){
+			return $object->VJOURNAL->serialize();
+		}
+		return '';
 	}
 
 	/**

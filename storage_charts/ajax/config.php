@@ -29,7 +29,7 @@ OC_JSON::checkAppEnabled('storage_charts');
 if(in_array($_POST['k'], Array('hu_size','sc_sort','hu_size_hus'))) {
 	switch($_POST['o']) {
 		case 'set':
-			$i = NULL;
+			$i = null;
 			if(is_array($_POST['i'])) {
 				$i = serialize($_POST['i']);
 				
@@ -37,10 +37,10 @@ if(in_array($_POST['k'], Array('hu_size','sc_sort','hu_size_hus'))) {
 				$i = $_POST['i'];
 			}
 			OC_DLStCharts::setUConfValue($_POST['k'], $i);
-		break;
+			break;
 		case 'get':
 			$v = OC_DLStCharts::getUConfValue($_POST['k']);
 			OC_JSON::encodedPrint(Array('r' => $v['uc_val']));
-		break;
+			break;
 	}
 }

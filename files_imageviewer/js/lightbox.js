@@ -6,10 +6,11 @@ $(document).ready(function() {
 		FileActions.setDefault('image','View');
 	}
 	OC.search.customResults.Images=function(row,item){
-		var image=item.link.substr(item.link.indexOf('?file=')+6);
+		var image=item.link.substr(item.link.indexOf('download')+8);
 		var a=row.find('a');
 		a.attr('href','#');
 		a.click(function(){
+			image = decodeURIComponent(image);
 			var pos=image.lastIndexOf('/')
 			var file=image.substr(pos + 1);
 			var dir=image.substr(0,pos);

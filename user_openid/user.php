@@ -21,27 +21,31 @@
 *
 */
 
-$USERNAME=substr($_SERVER["REQUEST_URI"],strpos($_SERVER["REQUEST_URI"],'.php/')+5);
-if(strpos($USERNAME,'?')!==false) {
-	$USERNAME=substr($USERNAME,0,strpos($USERNAME,'?'));
-}
+OCP\App::checkAppEnabled('user_openid');
+
+global $USERNAME, $IDENTITY;
+
+$USERNAME=$_GET['user'];
 if(substr($USERNAME,-1,1)=='/') {//openid sometimes add slashes to the username
 	$USERNAME=substr($USERNAME,0,-1);
 }
-
 
 if($USERNAME=='' and isset($_SERVER['PHP_AUTH_USER'])) {
 	$USERNAME=$_SERVER['PHP_AUTH_USER'];
 }
 
-$RUNTIME_NOAPPS=true;
-$RUNTIME_NOAPPS=false;
-OCP\App::checkAppEnabled('user_openid');
-
 if(!OCP\User::userExists($USERNAME)) {
 	OCP\Util::writeLog('user_openid',$USERNAME.' doesn\'t exist',OCP\Util::WARN);
 	$USERNAME='';
 }
-$IDENTITY=OCP\Util::linkToAbsolute( "user_openid", "user.php" ).'/'.$USERNAME;
 
+$IDENTITY=OCP\Util::linkToAbsolute( "", "?" ).$USERNAME;
+
+global $known, $g, $p, $charset, $port, $proto, $profile;
+$profile=array('debug'=>true);
+$profile['idp_url']=OCP\Util::linkToAbsolute( "user_openid", "user.php" ).'?user='.$USERNAME;
+if (!isset($_SESSION['openid_auth'])) {
+$_SESSION['openid_auth'] = false;
+$_SESSION['openid_user'] = false;
+}
 require_once 'openid/phpmyid.php';

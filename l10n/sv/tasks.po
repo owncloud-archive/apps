@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-05 02:02+0200\n"
-"PO-Revision-Date: 2012-09-04 08:58+0000\n"
+"POT-Creation-Date: 2012-09-27 02:01+0200\n"
+"PO-Revision-Date: 2012-09-26 14:46+0000\n"
 "Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,18 @@ msgstr "Felaktigt datum/tid"
 #: appinfo/app.php:10
 msgid "Tasks"
 msgstr "Uppgifter"
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr "Förfaller"
+
+#: js/tasks.js:107
+msgid "List"
+msgstr "Lista"
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr "Plats"
 
 #: js/tasks.js:415
 msgid "No category"

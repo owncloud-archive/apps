@@ -1,5 +1,4 @@
 <?php $TRANSLATIONS = array(
-"regex" => "adierazpen erregularra",
 "Save" => "Gorde",
 "Close" => "Itxi",
 "Saving..." => "Gordetzen...",

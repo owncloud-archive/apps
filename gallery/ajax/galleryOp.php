@@ -162,26 +162,26 @@ if ($_GET['operation']) {
 	case 'rename':
 		handleRename($_GET['oldname'], $_GET['newname']);
 		OCP\JSON::success(array('newname' => $_GET['newname']));
-	break;
+		break;
 	case 'remove':
 		handleRemove($_GET['name']);
 		OCP\JSON::success();
-	break;
+		break;
 	case 'get_covers':
 		handleGetThumbnails(urldecode($_GET['albumname']));
-	break;
+		break;
 	case 'scan':
 		handleGalleryScanning();
-	break;
+		break;
 	case 'store_settings':
 		handleStoreSettings($_GET['root'], $_GET['order']);
-	break;
+		break;
 	case 'get_gallery':
 		handleGetGallery($_GET['path']);
-	break;
+		break;
 	case 'share':
 		handleShare($_GET['path'], $_GET['share'] == 'true' ? true : false, $_GET['recursive']);
-	break;
+		break;
 	default:
 		OCP\JSON::error(array('cause' => 'Unknown operation'));
 	}

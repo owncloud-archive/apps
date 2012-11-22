@@ -3,7 +3,7 @@
 "Settings" => "Ρυθμίσεις",
 "Pad Title" => "Τίτλος Pad",
 "Open" => "Άνοιγμα",
-"Etherpad service URL" => "UPR υπηρεσίας Etherpad",
+"Etherpad service URL" => "URL υπηρεσίας Etherpad",
 "Username" => "Όνομα χρήστη",
 "Save" => "Αποθήκευση"
 );

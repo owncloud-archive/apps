@@ -3,36 +3,37 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <mr.pige_ina@yahoo.co.id>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-27 01:38+0200\n"
-"PO-Revision-Date: 2012-08-26 23:39+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-10-22 02:03+0200\n"
+"PO-Revision-Date: 2012-10-21 01:51+0000\n"
+"Last-Translator: elmakong <mr.pige_ina@yahoo.co.id>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: id\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: templates/settings.php:3
 msgid "External Sites"
-msgstr ""
+msgstr "situs eksternal"
 
 #: templates/settings.php:9
 msgid "Name"
-msgstr ""
+msgstr "nama"
 
 #: templates/settings.php:10
 msgid "URL"
-msgstr ""
+msgstr "tautan"
 
 #: templates/settings.php:11
 msgid "Remove site"
-msgstr ""
+msgstr "hapus situs"
 
 #: templates/settings.php:18
 msgid "Add"
-msgstr ""
+msgstr "tambah"

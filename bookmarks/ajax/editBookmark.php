@@ -26,65 +26,28 @@ OCP\JSON::checkLoggedIn();
 OCP\JSON::callCheck();
 
 OCP\JSON::checkAppEnabled('bookmarks');
+require_once OC_App::getAppPath('bookmarks').'/bookmarksHelper.php';
 
-$CONFIG_DBTYPE = OCP\Config::getSystemValue( "dbtype", "sqlite" );
-if( $CONFIG_DBTYPE == 'sqlite' or $CONFIG_DBTYPE == 'sqlite3' ) {
-	$_ut = "strftime('%s','now')";
-} elseif($CONFIG_DBTYPE == 'pgsql') {
-	$_ut = 'date_part(\'epoch\',now())::integer';
-} elseif($CONFIG_DBTYPE == 'oci') {
-	$_ut = '(oracletime - to_date(\'19700101\',\'YYYYMMDD\')) * 86400';
-} else {
-	$_ut = "UNIX_TIMESTAMP()";
-}
+// If we go the dialog form submit
+if(isset($_POST['url'])) {
+	$title = '';
+	$tags = isset($_POST['item']['tags']) ? $_POST['item']['tags'] : array();
+	$pub = isset($_POST['is_public']) ? true : false;
 
-$bookmark_id = (int)$_POST["id"];
-$user_id = OCP\USER::getUser();
-
-//TODO check using CURRENT_TIMESTAMP? prepare already does magic when using now()
-$query = OCP\DB::prepare('
-	UPDATE `*PREFIX*bookmarks`
-	SET `url` = ?, `title` = ?, `lastmodified` = '.$_ut.'
-	WHERE `id` = ?
-	AND `user_id` = ?
-	');
-
-$params=array(
-	htmlspecialchars_decode($_POST["url"]),
-	htmlspecialchars_decode($_POST["title"]),
-	$bookmark_id,
-	$user_id,
-	);
-
-$result = $query->execute($params);
-
-# Abort the operation if bookmark couldn't be set (probably because the user is not allowed to edit this bookmark)
-if ($result->numRows() == 0) exit();
-
-# Remove old tags and insert new ones.
-$query = OCP\DB::prepare('
-	DELETE FROM `*PREFIX*bookmarks_tags`
-	WHERE `bookmark_id` = ?
-	');
-
-$params=array(
-	$bookmark_id
-	);
-
-$query->execute($params);
-
-$query = OCP\DB::prepare('
-	INSERT INTO `*PREFIX*bookmarks_tags`
-	(`bookmark_id`, `tag`)
-	VALUES (?, ?)
-	');
-
-$tags = explode(' ', urldecode($_POST["tags"]));
-foreach ($tags as $tag) {
-	if(empty($tag)) {
-		//avoid saving blankspaces
-		continue;
+	if(isset($_POST['record_id']) && is_numeric($_POST['record_id']) ) { //EDIT
+		$bm = $_POST['record_id'];
+		OC_Bookmarks_Bookmarks::editBookmark($bm, $_POST['url'], $_POST['title'], $tags, $_POST['description'], $pub);
+		$title = $_POST['title'];
 	}
-	$params = array($bookmark_id, trim($tag));
-	$query->execute($params);
+	else {
+		if(isset($_POST['from_own'])) {
+			$datas = getURLMetadata($_POST['url']);
+			if(isset($datas['title'])) $title = $datas['title'];
+		}
+		$bm = OC_Bookmarks_Bookmarks::addBookmark($_POST['url'], $title, $tags, $_POST['description'], $pub);
+	}
+	OCP\JSON::success(array('id'=>$bm,'title'=>$title));
+	exit();
 }
+OC_JSON::error();
+exit();

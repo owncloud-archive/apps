@@ -44,6 +44,9 @@ $defaultcolors = OC_Calendar_Calendar::getCalendarColorOptions();
 			<!--<input id="calendar_import_generatename" type="button" class="button" value="<?php echo $l->t('Take an available name!'); ?>"><br>-->
 			<div  id="calendar_import_mergewarning" class="hint"><?php echo $l->t('A Calendar with this name already exists. If you continue anyhow, these calendars will be merged.'); ?></div>
 		</div>
+		<input type="checkbox" id="calendar_import_overwrite" value="1">
+		<label for="calendar_import_overwrite"><?php echo $l->t('Remove all events from the selected calendar'); ?></label>
+		<br>
 		<input id="calendar_import_submit" type="button" class="button" value="&raquo; <?php echo $l->t('Import'); ?> &raquo;" id="startimport">
 	<form>
 </div>

@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "วันที่ / เวลา ไม่ถูกต้อง",
 "Tasks" => "งาน",
+"Due" => "วันที่ครบกำหนด",
+"List" => "รายการ",
+"Location" => "ตำแหน่งที่อยู่",
 "No category" => "ไม่มีหมวดหมู่",
 "Unspecified" => "ยังไม่ได้ระบุ",
 "1=highest" => "1=สูงสุด",

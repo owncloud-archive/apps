@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2012.
 #   <sr@ybnet.dk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-03 02:04+0200\n"
-"PO-Revision-Date: 2012-09-03 00:07+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-07 00:01+0100\n"
+"PO-Revision-Date: 2012-11-05 23:30+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/settings.php:3
 msgid "Export this ownCloud instance"
@@ -26,23 +27,23 @@ msgstr "Eksporter ownCloud instans"
 msgid ""
 "This will create a compressed file that contains the data of this owncloud "
 "instance."
-msgstr ""
+msgstr "Dette vil generere en pakket fil med dataene fra denne ownCloud-installation."
 
 #: templates/settings.php:7
 msgid "Please choose the export type:"
-msgstr ""
+msgstr "Vælg eksporttype:"
 
 #: templates/settings.php:10
-msgid "ownCloud instance (suitable for import)"
+msgid "ownCloud instance (user data and database"
 msgstr ""
 
 #: templates/settings.php:11
 msgid "ownCloud system files"
-msgstr ""
+msgstr "ownClouds systemfiler"
 
 #: templates/settings.php:12
 msgid "Just user files"
-msgstr ""
+msgstr "Kun brugeres filer"
 
 #: templates/settings.php:13
 msgid "Export"

@@ -6,14 +6,15 @@
 # Aranel Surion <aranel@aranelsurion.org>, 2011, 2012.
 # Caner Başaran <basaran.caner@gmail.com>, 2012.
 #   <mesutgungor@iyte.edu.tr>, 2012.
+# Murat Bişkin <mbiskin@gmail.com>, 2012.
 # Necdet Yücel <necdetyucel@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +40,7 @@ msgstr "Adres defterini boş bir isimle güncelleyemezsiniz."
 msgid "No ID provided"
 msgstr "ID verilmedi"
 
-#: ajax/categories/categoriesfor.php:34
+#: ajax/categories/categoriesfor.php:35
 msgid "Error setting checksum."
 msgstr "İmza oluşturulurken hata."
 
@@ -140,31 +141,31 @@ msgstr "Dosya mevcut değil:"
 msgid "Error loading image."
 msgstr "İmaj yükleme hatası."
 
-#: ajax/savecrop.php:69
+#: ajax/savecrop.php:70
 msgid "Error getting contact object."
 msgstr "Bağlantı nesnesini kaydederken hata."
 
-#: ajax/savecrop.php:79
+#: ajax/savecrop.php:80
 msgid "Error getting PHOTO property."
 msgstr "Resim özelleğini alırken hata oluştu."
 
-#: ajax/savecrop.php:98
+#: ajax/savecrop.php:99
 msgid "Error saving contact."
 msgstr "Bağlantıyı kaydederken hata"
 
-#: ajax/savecrop.php:109
+#: ajax/savecrop.php:110
 msgid "Error resizing image"
 msgstr "Görüntü yeniden boyutlandırılamadı."
 
-#: ajax/savecrop.php:112
+#: ajax/savecrop.php:113
 msgid "Error cropping image"
 msgstr "Görüntü kırpılamadı."
 
-#: ajax/savecrop.php:115
+#: ajax/savecrop.php:116
 msgid "Error creating temporary image"
 msgstr "Geçici resim oluştururken hata oluştu"
 
-#: ajax/savecrop.php:118
+#: ajax/savecrop.php:119
 msgid "Error finding image: "
 msgstr "Resim ararken hata oluştu:"
 
@@ -210,7 +211,7 @@ msgstr "Geçici resmi yükleyemedi :"
 msgid "No file was uploaded. Unknown error"
 msgstr "Dosya yüklenmedi. Bilinmeyen hata"
 
-#: appinfo/app.php:25
+#: appinfo/app.php:24
 msgid "Contacts"
 msgstr "Kişiler"
 
@@ -226,109 +227,159 @@ msgstr "Tamamlanmadı."
 msgid "Couldn't get a valid address."
 msgstr "Geçerli bir adres alınamadı."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
-#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
-#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
-#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
-#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
-#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:364 js/contacts.js:436
+#: js/contacts.js:443 js/contacts.js:694 js/contacts.js:734 js/contacts.js:763
+#: js/contacts.js:774 js/contacts.js:788 js/contacts.js:808 js/contacts.js:895
+#: js/contacts.js:901 js/contacts.js:913 js/contacts.js:950
+#: js/contacts.js:1226 js/contacts.js:1234 js/contacts.js:1243
+#: js/contacts.js:1278 js/contacts.js:1314 js/contacts.js:1329
+#: js/contacts.js:1355 js/contacts.js:1588 js/contacts.js:1623
+#: js/contacts.js:1643 js/contacts.js:1732 js/contacts.js:1886
+#: js/contacts.js:2086 js/contacts.js:2112 js/contacts.js:2122
+#: js/contacts.js:2125 js/contacts.js:2276 js/contacts.js:2313
+#: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "Hata"
 
-#: js/contacts.js:408
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr ""
+
+#: js/contacts.js:177 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "İsim giriniz"
+
+#: js/contacts.js:178 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "Biçin özel, Kısa isim, Tam isim, Ters veya noktalı ters"
+
+#: js/contacts.js:184 js/contacts.js:1434 js/contacts.js:1477
+#: js/contacts.js:1496 js/contacts.js:1539
+msgid "Select type"
+msgstr "Tür seç"
+
+#: js/contacts.js:215
+msgid "Select photo"
+msgstr "Fotograf seç"
+
+#: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
 msgstr "Yeni bir kişi eklemek için yetkiniz yok."
 
-#: js/contacts.js:409
+#: js/contacts.js:408
 msgid "Please select one of your own address books."
 msgstr "Adres defterlerinizden birini seçiniz."
 
-#: js/contacts.js:409
+#: js/contacts.js:408
 msgid "Permission error"
 msgstr "Yetki hatası"
 
-#: js/contacts.js:725
+#: js/contacts.js:482
+msgid "Click to undo deletion of \""
+msgstr ""
+
+#: js/contacts.js:496
+msgid "Cancelled deletion of: \""
+msgstr ""
+
+#: js/contacts.js:734
 msgid "This property has to be non-empty."
 msgstr "Bu özellik boş bırakılmamalı."
 
-#: js/contacts.js:751
+#: js/contacts.js:763
 msgid "Couldn't serialize elements."
 msgstr "Öğeler seri hale getiremedi"
 
-#: js/contacts.js:883 js/contacts.js:901
+#: js/contacts.js:774
+msgid "Unknown error. Please check logs."
+msgstr ""
+
+#: js/contacts.js:895 js/contacts.js:913
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "'deleteProperty' tip argümanı olmadan çağrıldı. Lütfen bugs.owncloud.org a rapor ediniz."
 
-#: js/contacts.js:920
+#: js/contacts.js:932
 msgid "Edit name"
 msgstr "İsmi düzenle"
 
-#: js/contacts.js:1212
+#: js/contacts.js:1226
 msgid "No files selected for upload."
 msgstr "Yükleme için dosya seçilmedi."
 
-#: js/contacts.js:1220 js/contacts.js:2072
+#: js/contacts.js:1234 js/contacts.js:2102 js/contacts.js:2177
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Yüklemeye çalıştığınız dosya sunucudaki dosya yükleme maksimum boyutunu aşmaktadır. "
 
-#: js/contacts.js:1284
+#: js/contacts.js:1298
 msgid "Error loading profile picture."
 msgstr "Profil resmi yüklenirken hata oluştu."
 
-#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
-#: js/contacts.js:1522
-msgid "Select type"
-msgstr "Tür seç"
-
-#: js/contacts.js:1540
+#: js/contacts.js:1557
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Bazı kişiler silinmek için işaretlendi, hala silinmedi. Silinmesi için bekleyin."
 
-#: js/contacts.js:1611
+#: js/contacts.js:1628
 msgid "Do you want to merge these address books?"
 msgstr "Bu adres defterlerini birleştirmek istiyor musunuz?"
 
-#: js/contacts.js:2065
-msgid "Unable to upload your file as it is a directory or has 0 bytes"
+#: js/contacts.js:1812
+msgid "Shared by "
 msgstr ""
 
-#: js/contacts.js:2065
-msgid "Upload Error"
-msgstr ""
-
-#: js/contacts.js:2072
+#: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
+msgstr "Yükleme çok büyük"
+
+#: js/contacts.js:2106
+msgid "Only image files can be used as profile picture."
 msgstr ""
 
-#: js/contacts.js:2120
+#: js/contacts.js:2106
+msgid "Wrong file type"
+msgstr "Yanlış dosya tipi"
+
+#: js/contacts.js:2112
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr ""
+
+#: js/contacts.js:2170
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr "Dosyanızın boyutu 0 byte olduğundan veya bir dizin olduğundan yüklenemedi"
+
+#: js/contacts.js:2170
+msgid "Upload Error"
+msgstr "Yükleme Hatası"
+
+#: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "Bekliyor"
 
-#: js/contacts.js:2152
+#: js/contacts.js:2257
 msgid "Import done"
 msgstr ""
 
-#: js/contacts.js:2165
+#: js/contacts.js:2270
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/contacts.js:2171
+#: js/contacts.js:2276
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/contacts.js:2187
+#: js/contacts.js:2292
 msgid "Importing..."
-msgstr ""
+msgstr "İçeri aktarılıyor..."
 
-#: js/contacts.js:2208
+#: js/contacts.js:2313
 msgid "The address book name cannot be empty."
 msgstr ""
 
@@ -344,27 +395,62 @@ msgstr " içe aktarıldı, "
 msgid " failed."
 msgstr " hatalı."
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr "GörünenAd boş olamaz."
 
-#: lib/addressbook.php:138
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "CardDav bağlantısı göster"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "Salt-okur VCF bağlantısı göster"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "İndir"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "Düzenle"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "Sil"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "İptal"
+
+#: js/settings.js:161 templates/settings.php:66
+msgid "More..."
+msgstr "Devamı..."
+
+#: js/settings.js:165
+msgid "Less..."
+msgstr ""
+
+#: lib/addressbook.php:136
 msgid "You do not have the permissions to read this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:239
+#: lib/addressbook.php:235
 msgid "You do not have the permissions to update this addressbook."
 msgstr "Bu adresdefterini güncellemek için yetkiniz yok."
 
-#: lib/addressbook.php:259
+#: lib/addressbook.php:255
 msgid "There was an error updating the addressbook."
 msgstr "Adresdefteri güncellenirken hata oluştu."
 
-#: lib/addressbook.php:315
+#: lib/addressbook.php:311
 msgid "You do not have the permissions to delete this addressbook."
 msgstr "Bu adresdefterini silmek için yetkiniz yok."
 
-#: lib/addressbook.php:344
+#: lib/addressbook.php:340
 msgid "There was an error deleting this addressbook."
 msgstr "Adresdefteri silinirken hata oluştu."
 
@@ -428,7 +514,7 @@ msgstr "QQ"
 msgid "GaduGadu"
 msgstr "GaduGadu"
 
-#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
+#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:253
 msgid "Work"
 msgstr "İş"
 
@@ -436,7 +522,7 @@ msgstr "İş"
 msgid "Home"
 msgstr "Ev"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
+#: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
 msgstr "Diğer"
 
@@ -472,58 +558,13 @@ msgstr "Sayfalayıcı"
 msgid "Internet"
 msgstr "İnternet"
 
-#: lib/app.php:252 templates/part.contact.php:45
-#: templates/part.contact.php:128
-msgid "Birthday"
-msgstr "Doğum günü"
+#: lib/app.php:251
+msgid "Friends"
+msgstr ""
 
-#: lib/app.php:253
-msgid "Business"
-msgstr "İş"
-
-#: lib/app.php:254
-msgid "Call"
-msgstr "Çağrı"
-
-#: lib/app.php:255
-msgid "Clients"
-msgstr "Müşteriler"
-
-#: lib/app.php:256
-msgid "Deliverer"
-msgstr "Dağıtıcı"
-
-#: lib/app.php:257
-msgid "Holidays"
-msgstr "Tatiller"
-
-#: lib/app.php:258
-msgid "Ideas"
-msgstr "Fikirler"
-
-#: lib/app.php:259
-msgid "Journey"
-msgstr "Seyahat"
-
-#: lib/app.php:260
-msgid "Jubilee"
-msgstr "Yıl Dönümü"
-
-#: lib/app.php:261
-msgid "Meeting"
-msgstr "Toplantı"
-
-#: lib/app.php:263
-msgid "Personal"
-msgstr "Kişisel"
-
-#: lib/app.php:264
-msgid "Projects"
-msgstr "Projeler"
-
-#: lib/app.php:265
-msgid "Questions"
-msgstr "Sorular"
+#: lib/app.php:252
+msgid "Family"
+msgstr ""
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
@@ -535,7 +576,7 @@ msgstr "Kişi"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "Bu adres defterine kişi eklemek için yetkiniz yok."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
@@ -645,10 +686,6 @@ msgstr "Yeni fotoğraf yükle"
 msgid "Select photo from ownCloud"
 msgstr "ownCloud'dan bir fotoğraf seç"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "Biçin özel, Kısa isim, Tam isim, Ters veya noktalı ters"
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
 msgstr "İsim detaylarını düzenle"
@@ -657,12 +694,6 @@ msgstr "İsim detaylarını düzenle"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Organizasyon"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:49
-msgid "Delete"
-msgstr "Sil"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -683,6 +714,10 @@ msgstr "http://www.somesite.com"
 #: templates/part.contact.php:44
 msgid "Go to web site"
 msgstr "Web sitesine git"
+
+#: templates/part.contact.php:45 templates/part.contact.php:128
+msgid "Birthday"
+msgstr "Doğum günü"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"
@@ -957,10 +992,6 @@ msgstr "Bağlatı ekle"
 msgid "Select Address Books"
 msgstr "Adres deftelerini seçiniz"
 
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "İsim giriniz"
-
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "Tanım giriniz"
@@ -985,25 +1016,9 @@ msgstr "iOS/OS X"
 msgid "Addressbooks"
 msgstr "Adres defterleri"
 
-#: templates/settings.php:25
-msgid "Show CardDav link"
-msgstr "CardDav bağlantısı göster"
-
-#: templates/settings.php:28
-msgid "Show read-only VCF link"
-msgstr "Salt-okur VCF bağlantısı göster"
-
 #: templates/settings.php:35
 msgid "Share"
 msgstr "Paylaş"
-
-#: templates/settings.php:39
-msgid "Download"
-msgstr "İndir"
-
-#: templates/settings.php:44
-msgid "Edit"
-msgstr "Düzenle"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1020,11 +1035,3 @@ msgstr "Tanımlama"
 #: templates/settings.php:60
 msgid "Save"
 msgstr "Kaydet"
-
-#: templates/settings.php:61
-msgid "Cancel"
-msgstr "İptal"
-
-#: templates/settings.php:66
-msgid "More..."
-msgstr "Devamı..."

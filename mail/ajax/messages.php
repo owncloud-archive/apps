@@ -1,6 +1,6 @@
 <?php
 /**
- * ownCloud - Addressbook
+ * ownCloud - Mail
  *
  * @author Thomas Tanghus
  * @copyright 2012 Jakob Sack <mail@jakobsack.de>
@@ -27,16 +27,10 @@ OCP\JSON::checkAppEnabled('mail');
 $account_id = isset( $_GET['account_id'] ) ? $_GET['account_id'] : null;
 $folder_id = isset( $_GET['folder_id'] ) ? $_GET['folder_id'] : null;
 
-$messages = OCA_Mail\App::getMessages( OCP\User::getUser(), $account_id, $folder_id );
-if( $messages['error'] ) {
+$messages = OCA\Mail\App::getMessages( OCP\User::getUser(), $account_id, $folder_id );
+if( isset($messages['error']) ) {
 	OCP\JSON::error(array('data' => array('message' => $messages['error'] )));
 	exit();
 }
 
-$tmpl = new OCP\Template('mail','part.messages');
-$tmpl->assign('account_id', $messages['account_id'] );
-$tmpl->assign('folder_id', $messages['folder_id'] );
-$tmpl->assign('messages', $messages['messages'] );
-$page = $tmpl->fetchPage();
-
-OCP\JSON::success(array('data' => $page ));
+OCP\JSON::success(array('data' => $messages ));

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<info>
+	<id>impressionist</id>
+	<name>Impressionist</name>
+	<description>An app for making Impress.js applications</description>
+	<version>1.0</version>
+	<licence>AGPL</licence>
+	<author>Raghu Nayyar</author>
+	<require>4</require>
+</info>

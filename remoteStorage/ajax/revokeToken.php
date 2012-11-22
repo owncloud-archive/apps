@@ -29,7 +29,7 @@ OCP\App::checkAppEnabled('remoteStorage');
 require_once 'remoteStorage/lib_remoteStorage.php';
 
 ini_set('default_charset', 'UTF-8');
-#ini_set('error_reporting', '');
+//ini_set('error_reporting', '');
 @ob_clean();
 
 echo OC_remoteStorage::deleteToken(file_get_contents("php://input"));

@@ -4,29 +4,31 @@
 if (!in_array ('curl', get_loaded_extensions())) {
 	return;
 }
-
+/*
 $userName='';
 if(strpos($_SERVER["REQUEST_URI"],'?') and !strpos($_SERVER["REQUEST_URI"],'=')) {
-	if(strpos($_SERVER["REQUEST_URI"],'/?')) {
+	if(strpos($_SERVER["REQUEST_URI"],'/?') !== false) {
 		$userName=substr($_SERVER["REQUEST_URI"],strpos($_SERVER["REQUEST_URI"],'/?')+2);
-	}elseif(strpos($_SERVER["REQUEST_URI"],'.php?')) {
+	}elseif(strpos($_SERVER["REQUEST_URI"],'.php?') !== false) {
 		$userName=substr($_SERVER["REQUEST_URI"],strpos($_SERVER["REQUEST_URI"],'.php?')+5);
 	}
 }
 
 OCP\Util::addHeader('link',array('rel'=>'openid.server', 'href'=>OCP\Util::linkToAbsolute( "user_openid", "user.php" ).'/'.$userName));
 OCP\Util::addHeader('link',array('rel'=>'openid.delegate', 'href'=>OCP\Util::linkToAbsolute( "user_openid", "user.php" ).'/'.$userName));
+ *
+ */
 
 OCP\App::registerPersonal('user_openid','settings');
 
-require_once 'apps/user_openid/user_openid.php';
+require_once 'user_openid/user_openid.php';
 
 //active the openid backend
 OC_User::useBackend('openid');
 
 //check for results from openid requests
 if(isset($_GET['openid_mode']) and $_GET['openid_mode'] == 'id_res') {
-	OCP\Util::writeLog('user_openid','openid retured',OCP\Util::DEBUG);
+	OCP\Util::writeLog('user_openid','openid returned',OCP\Util::DEBUG);
 	$openid = new SimpleOpenID();
 	$openid->SetIdentity($_GET['openid_identity']);
 	$openid_validation_result = $openid->ValidateWithServer();
@@ -35,9 +37,11 @@ if(isset($_GET['openid_mode']) and $_GET['openid_mode'] == 'id_res') {
 		$identity=$openid->GetIdentity();
 		OCP\Util::writeLog('user_openid','auth as '.$identity,OCP\Util::DEBUG);
 		$user=OC_USER_OPENID::findUserForIdentity($identity);
+		OCP\Util::writeLog('user_openid','user is '.$user,OCP\Util::DEBUG);
 		if($user) {
 			$_SESSION['user_id']=$user;
-			header("Location: ".OC::$WEBROOT);
+			header("Location: ".OCP\Util::linkToAbsolute('', 'index.php'));
+			exit();
 		}
 	}else if($openid->IsError() == true) {            // ON THE WAY, WE GOT SOME ERROR
 		$error = $openid->GetError();

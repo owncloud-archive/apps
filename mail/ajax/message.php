@@ -1,6 +1,6 @@
 <?php
 /**
- * ownCloud - Addressbook
+ * ownCloud - Mail
  *
  * @author Thomas Tanghus
  * @copyright 2012 Jakob Sack <mail@jakobsack.de>
@@ -28,7 +28,7 @@ $account_id = isset( $_GET['account_id'] ) ? $_GET['account_id'] : null;
 $folder_id = isset( $_GET['folder_id'] ) ? $_GET['folder_id'] : null;
 $message_id = isset( $_GET['message_id'] ) ? $_GET['message_id'] : null;
 
-$message = OCA_Mail\App::getMessage( OCP\User::getUser(), $account_id, $folder_id, $message_id );
+$message = OCA\Mail\App::getMessage( OCP\User::getUser(), $account_id, $folder_id, $message_id );
 
 if( $message['error'] ) {
 	OCP\JSON::error(array('data' => array('message' => $message['error'] )));

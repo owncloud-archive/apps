@@ -1,5 +1,4 @@
 <?php $TRANSLATIONS = array(
-"regex" => "正则表达式",
 "Save" => "保存",
 "Close" => "关闭",
 "Saving..." => "保存中...",

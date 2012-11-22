@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('#appsettings_popup').wrap('<div id="ownpad-appsettings"></div>');
-	
+
 	var ownPadSettings = {
 		getHost : function(){
 			var cleanUrl = $('#etherpad_url').val().match(/^http(s)?:\/\/[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(\/.*)?$/i);

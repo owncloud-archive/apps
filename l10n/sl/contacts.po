@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <>, 2012.
 #   <peter.perosa@gmail.com>, 2012.
 # Peter Peroša <peter.perosa@gmail.com>, 2012.
 #   <urossolar@hotmail.com>, 2011.
@@ -10,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-15 02:02+0200\n"
-"PO-Revision-Date: 2012-09-14 08:19+0000\n"
+"POT-Creation-Date: 2012-11-20 00:00+0100\n"
+"PO-Revision-Date: 2012-11-19 19:08+0000\n"
 "Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -22,61 +23,61 @@ msgstr ""
 
 #: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
-msgstr "Napaka med (de)aktivacijo adresarja."
+msgstr "Napaka med omogočanjem ali onemogočanjem imenika."
 
 #: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
 #: ajax/contact/saveproperty.php:39
 msgid "id is not set."
-msgstr "id ni nastavljen."
+msgstr "ID ni nastavljen."
 
 #: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
-msgstr "Adresarja ni mogoče posodobiti s praznim imenom."
+msgstr "Imenika s praznim imenom ni mogoče posodobiti."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
-msgstr "ID ni bil podan"
+msgstr "Vrednost ID ni podana"
 
-#: ajax/categories/categoriesfor.php:34
+#: ajax/categories/categoriesfor.php:35
 msgid "Error setting checksum."
-msgstr "Napaka pri nastavljanju nadzorne vsote."
+msgstr "Napaka med nastavljanjem nadzorne vsote."
 
 #: ajax/categories/delete.php:19
 msgid "No categories selected for deletion."
-msgstr "Nobena kategorija ni bila izbrana za izbris."
+msgstr "Ni izbrane kategorije za izbris."
 
 #: ajax/categories/delete.php:26
 msgid "No address books found."
-msgstr "Adresarjev ni bilo mogoče najti."
+msgstr "Ni mogoče najti nobenega imenika."
 
 #: ajax/categories/delete.php:34
 msgid "No contacts found."
-msgstr "Ni bilo najdenih stikov."
+msgstr "Ni najdenih stikov."
 
 #: ajax/contact/addproperty.php:39 ajax/contact/saveproperty.php:36
 msgid "element name is not set."
-msgstr "ime elementa ni nastavljeno."
+msgstr "ime predmeta ni nastavljeno."
 
 #: ajax/contact/addproperty.php:46
 msgid "Could not parse contact: "
-msgstr "Ne morem razčleniti stika:"
+msgstr "Stika ni mogoče razčleniti:"
 
 #: ajax/contact/addproperty.php:56
 msgid "Cannot add empty property."
-msgstr "Ne morem dodati prazne lastnosti."
+msgstr "Prazne lastnosti ni mogoče dodati."
 
 #: ajax/contact/addproperty.php:67
 msgid "At least one of the address fields has to be filled out."
-msgstr "Vsaj eno izmed polj je še potrebno izpolniti."
+msgstr "Izpolniti je treba vsak eno polje imenika."
 
 #: ajax/contact/addproperty.php:76
 msgid "Trying to add duplicate property: "
-msgstr "Poskušam dodati podvojeno lastnost:"
+msgstr "Izveden je poskus dodajanja podvojene lastnost:"
 
 #: ajax/contact/addproperty.php:115 ajax/contact/saveproperty.php:93
 msgid "Missing IM parameter."
-msgstr "Manjkajoč IM parameter."
+msgstr "Manjka parameter IM."
 
 #: ajax/contact/addproperty.php:119 ajax/contact/saveproperty.php:97
 msgid "Unknown IM: "
@@ -84,15 +85,15 @@ msgstr "Neznan IM:"
 
 #: ajax/contact/deleteproperty.php:37
 msgid "Information about vCard is incorrect. Please reload the page."
-msgstr "Informacije o vCard niso pravilne. Prosimo, če ponovno naložite stran."
+msgstr "Podrobnosti kartice vCard niso pravilne. Ponovno naložite stran."
 
 #: ajax/contact/details.php:31
 msgid "Missing ID"
-msgstr "Manjkajoč ID"
+msgstr "Manjka ID"
 
 #: ajax/contact/details.php:36
 msgid "Error parsing VCard for ID: \""
-msgstr "Napaka pri razčlenjevanju VCard za ID: \""
+msgstr "Napaka med razčlenjevanjem VCard za ID: \""
 
 #: ajax/contact/saveproperty.php:42
 msgid "checksum is not set."
@@ -100,7 +101,7 @@ msgstr "nadzorna vsota ni nastavljena."
 
 #: ajax/contact/saveproperty.php:62
 msgid "Information about vCard is incorrect. Please reload the page: "
-msgstr "Informacija o vCard je napačna. Prosimo, če ponovno naložite stran: "
+msgstr "Podrobnosti o vCard so napačne. Ponovno naložite stran: "
 
 #: ajax/contact/saveproperty.php:69
 msgid "Something went FUBAR. "
@@ -109,19 +110,19 @@ msgstr "Nekaj je šlo v franže. "
 #: ajax/currentphoto.php:30 ajax/oc_photo.php:28 ajax/uploadphoto.php:36
 #: ajax/uploadphoto.php:68
 msgid "No contact ID was submitted."
-msgstr "ID stika ni bil poslan."
+msgstr "ID stika ni poslan."
 
 #: ajax/currentphoto.php:36
 msgid "Error reading contact photo."
-msgstr "Napaka pri branju slike stika."
+msgstr "Napaka branja slike stika."
 
 #: ajax/currentphoto.php:48
 msgid "Error saving temporary file."
-msgstr "Napaka pri shranjevanju začasne datoteke."
+msgstr "Napaka shranjevanja začasne datoteke."
 
 #: ajax/currentphoto.php:51
 msgid "The loading photo is not valid."
-msgstr "Slika, ki se nalaga ni veljavna."
+msgstr "Slika, ki se nalaga, ni veljavna."
 
 #: ajax/editname.php:31
 msgid "Contact ID is missing."
@@ -129,7 +130,7 @@ msgstr "Manjka ID stika."
 
 #: ajax/oc_photo.php:32
 msgid "No photo path was submitted."
-msgstr "Pot slike ni bila poslana."
+msgstr "Pot slike ni poslana."
 
 #: ajax/oc_photo.php:39
 msgid "File doesn't exist:"
@@ -137,43 +138,43 @@ msgstr "Datoteka ne obstaja:"
 
 #: ajax/oc_photo.php:44 ajax/oc_photo.php:47
 msgid "Error loading image."
-msgstr "Napaka pri nalaganju slike."
+msgstr "Napaka med nalaganjem slike."
 
-#: ajax/savecrop.php:69
+#: ajax/savecrop.php:70
 msgid "Error getting contact object."
-msgstr "Napaka pri pridobivanju kontakta predmeta."
+msgstr "Napaka med pridobivanjem predmeta stika."
 
-#: ajax/savecrop.php:79
+#: ajax/savecrop.php:80
 msgid "Error getting PHOTO property."
-msgstr "Napaka pri pridobivanju lastnosti fotografije."
+msgstr "Napaka med pridobivanjem lastnosti fotografije."
 
-#: ajax/savecrop.php:98
+#: ajax/savecrop.php:99
 msgid "Error saving contact."
-msgstr "Napaka pri shranjevanju stika."
+msgstr "Napaka med shranjevanjem stika."
 
-#: ajax/savecrop.php:109
+#: ajax/savecrop.php:110
 msgid "Error resizing image"
-msgstr "Napaka pri spreminjanju velikosti slike"
+msgstr "Napaka med spreminjanjem velikosti slike"
 
-#: ajax/savecrop.php:112
+#: ajax/savecrop.php:113
 msgid "Error cropping image"
-msgstr "Napaka pri obrezovanju slike"
+msgstr "Napaka med obrezovanjem slike"
 
-#: ajax/savecrop.php:115
+#: ajax/savecrop.php:116
 msgid "Error creating temporary image"
-msgstr "Napaka pri ustvarjanju začasne slike"
+msgstr "Napaka med ustvarjanjem začasne slike"
 
-#: ajax/savecrop.php:118
+#: ajax/savecrop.php:119
 msgid "Error finding image: "
-msgstr "Napaka pri iskanju datoteke: "
+msgstr "Napaka med iskanjem datoteke: "
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
-msgstr "Napaka pri nalaganju stikov v hrambo."
+msgstr "Napaka med nalaganjem stikov v hrambo."
 
 #: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
-msgstr "Datoteka je bila uspešno naložena."
+msgstr "Datoteka je uspešno naložena brez napak."
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
@@ -187,11 +188,11 @@ msgstr "Naložena datoteka presega velikost, ki jo določa parameter MAX_FILE_SI
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
-msgstr "Datoteka je bila le delno naložena"
+msgstr "Datoteka je le delno naložena."
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
-msgstr "Nobena datoteka ni bila naložena"
+msgstr "Nobena datoteka ni naložena"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
@@ -199,23 +200,23 @@ msgstr "Manjka začasna mapa"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
-msgstr "Začasne slike ni bilo mogoče shraniti: "
+msgstr "Začasne slike ni mogoče shraniti: "
 
 #: ajax/uploadphoto.php:62 ajax/uploadphoto.php:112
 msgid "Couldn't load temporary image: "
-msgstr "Začasne slike ni bilo mogoče naložiti: "
+msgstr "Začasne slike ni mogoče naložiti: "
 
 #: ajax/uploadphoto.php:71
 msgid "No file was uploaded. Unknown error"
-msgstr "Nobena datoteka ni bila naložena. Neznana napaka"
+msgstr "Nobena datoteka ni naložena. Neznana napaka."
 
-#: appinfo/app.php:25
+#: appinfo/app.php:24
 msgid "Contacts"
 msgstr "Stiki"
 
 #: js/contacts.js:71
 msgid "Sorry, this functionality has not been implemented yet"
-msgstr "Žal ta funkcionalnost še ni podprta"
+msgstr "Žal ta zmožnost še ni podprta"
 
 #: js/contacts.js:71
 msgid "Not implemented"
@@ -223,113 +224,163 @@ msgstr "Ni podprto"
 
 #: js/contacts.js:76
 msgid "Couldn't get a valid address."
-msgstr "Ne morem dobiti veljavnega naslova."
+msgstr "Ni mogoče pridobiti veljavnega naslova."
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:687 js/contacts.js:727
-#: js/contacts.js:753 js/contacts.js:885 js/contacts.js:891 js/contacts.js:903
-#: js/contacts.js:940 js/contacts.js:1214 js/contacts.js:1222
-#: js/contacts.js:1231 js/contacts.js:1266 js/contacts.js:1302
-#: js/contacts.js:1317 js/contacts.js:1343 js/contacts.js:1573
-#: js/contacts.js:1608 js/contacts.js:1628 js/contacts.js:1840
-#: js/contacts.js:1983 js/contacts.js:2173 js/contacts.js:2210
-#: js/contacts.js:2245 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:364 js/contacts.js:436
+#: js/contacts.js:443 js/contacts.js:694 js/contacts.js:734 js/contacts.js:763
+#: js/contacts.js:774 js/contacts.js:788 js/contacts.js:808 js/contacts.js:895
+#: js/contacts.js:901 js/contacts.js:913 js/contacts.js:950
+#: js/contacts.js:1226 js/contacts.js:1234 js/contacts.js:1243
+#: js/contacts.js:1278 js/contacts.js:1314 js/contacts.js:1329
+#: js/contacts.js:1355 js/contacts.js:1588 js/contacts.js:1623
+#: js/contacts.js:1643 js/contacts.js:1732 js/contacts.js:1886
+#: js/contacts.js:2086 js/contacts.js:2112 js/contacts.js:2122
+#: js/contacts.js:2125 js/contacts.js:2276 js/contacts.js:2313
+#: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
 msgstr "Napaka"
 
-#: js/contacts.js:408
-msgid "You do not have permission to add contacts to "
-msgstr "Nimate dovoljenja za dodajanje stikov v"
+#: js/contacts.js:105
+msgid "Please enter an email address."
+msgstr "Vpišite elektronski poštni naslov."
 
-#: js/contacts.js:409
-msgid "Please select one of your own address books."
-msgstr "Prosimo, če izberete enega izmed vaših adresarjev."
+#: js/contacts.js:177 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "Vnesi ime"
 
-#: js/contacts.js:409
-msgid "Permission error"
-msgstr "Napaka dovoljenj"
+#: js/contacts.js:178 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "Format po meri, Kratko ime, Polno ime, Obratno ali Obratno z vejico"
 
-#: js/contacts.js:727
-msgid "This property has to be non-empty."
-msgstr "Ta lastnost ne sme biti prazna"
-
-#: js/contacts.js:753
-msgid "Couldn't serialize elements."
-msgstr "Predmetov ni bilo mogoče dati v zaporedje."
-
-#: js/contacts.js:885 js/contacts.js:903
-msgid ""
-"'deleteProperty' called without type argument. Please report at "
-"bugs.owncloud.org"
-msgstr "\"deleteProperty\" je bila klicana brez vrste argumenta. Prosimo, če oddate  poročilo o napaki na bugs.owncloud.org"
-
-#: js/contacts.js:922
-msgid "Edit name"
-msgstr "Uredi ime"
-
-#: js/contacts.js:1214
-msgid "No files selected for upload."
-msgstr "Nobena datoteka ni bila izbrana za nalaganje."
-
-#: js/contacts.js:1222 js/contacts.js:2074
-msgid ""
-"The file you are trying to upload exceed the maximum size for file uploads "
-"on this server."
-msgstr "Datoteka, ki jo poskušate naložiti, presega največjo dovoljeno velikost za nalaganje na tem strežniku."
-
-#: js/contacts.js:1286
-msgid "Error loading profile picture."
-msgstr "Napaka pri nalaganju slike profila."
-
-#: js/contacts.js:1421 js/contacts.js:1462 js/contacts.js:1481
-#: js/contacts.js:1524
+#: js/contacts.js:184 js/contacts.js:1434 js/contacts.js:1477
+#: js/contacts.js:1496 js/contacts.js:1539
 msgid "Select type"
 msgstr "Izberite vrsto"
 
-#: js/contacts.js:1542
+#: js/contacts.js:215
+msgid "Select photo"
+msgstr "Izbor slike"
+
+#: js/contacts.js:407
+msgid "You do not have permission to add contacts to "
+msgstr "Ni ustreznih dovoljenj za dodajanje stikov v"
+
+#: js/contacts.js:408
+msgid "Please select one of your own address books."
+msgstr "Izberite enega izmed imenikov."
+
+#: js/contacts.js:408
+msgid "Permission error"
+msgstr "Napaka dovoljenj"
+
+#: js/contacts.js:482
+msgid "Click to undo deletion of \""
+msgstr "Kliknite za preklic izbrisa \""
+
+#: js/contacts.js:496
+msgid "Cancelled deletion of: \""
+msgstr "Preklican izbris: \""
+
+#: js/contacts.js:734
+msgid "This property has to be non-empty."
+msgstr "Ta lastnost ne sme biti prazna"
+
+#: js/contacts.js:763
+msgid "Couldn't serialize elements."
+msgstr "Predmetov ni mogoče dati v zaporedje."
+
+#: js/contacts.js:774
+msgid "Unknown error. Please check logs."
+msgstr "Neznana napaka. Preverite dnevniški zapis za več podrobnosti."
+
+#: js/contacts.js:895 js/contacts.js:913
+msgid ""
+"'deleteProperty' called without type argument. Please report at "
+"bugs.owncloud.org"
+msgstr "Lastnost \"deleteProperty\" je bila klicana brez vrste argumenta. Oddajte poročilo o napaki na bugs.owncloud.org"
+
+#: js/contacts.js:932
+msgid "Edit name"
+msgstr "Uredi ime"
+
+#: js/contacts.js:1226
+msgid "No files selected for upload."
+msgstr "Ni izbrane datoteke za nalaganje."
+
+#: js/contacts.js:1234 js/contacts.js:2102 js/contacts.js:2177
+msgid ""
+"The file you are trying to upload exceed the maximum size for file uploads "
+"on this server."
+msgstr "Datoteka, ki jo poskušate naložiti, presega največjo dovoljeno velikost za pošiljanje na tem strežniku."
+
+#: js/contacts.js:1298
+msgid "Error loading profile picture."
+msgstr "Napaka med nalaganjem slike profila."
+
+#: js/contacts.js:1557
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
-msgstr "Nekateri stiki so označeni za izbris, vendar še niso izbrisani. Prosimo, če počakate na njihov izbris."
+msgstr "Nekateri stiki so označeni za izbris, vendar še niso izbrisani. Počakajte na izbris."
 
-#: js/contacts.js:1613
+#: js/contacts.js:1628
 msgid "Do you want to merge these address books?"
-msgstr "Ali želite združiti adresarje?"
+msgstr "Ali želite združiti imenike?"
 
-#: js/contacts.js:2067
-msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr "Datoteke ni mogoče naložiti, saj je v resnici mapa ali pa je velika 0 bajtov."
+#: js/contacts.js:1812
+msgid "Shared by "
+msgstr "V souporabi z"
 
-#: js/contacts.js:2067
-msgid "Upload Error"
-msgstr "Napaka pri nalaganju"
-
-#: js/contacts.js:2074
+#: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr "Datoteke za nalaganje so prevelike"
+msgstr "Datoteke za pošiljanje so prevelike"
 
-#: js/contacts.js:2122
+#: js/contacts.js:2106
+msgid "Only image files can be used as profile picture."
+msgstr "Kot slike profila so lahko uporabljene le slikovne datoteke."
+
+#: js/contacts.js:2106
+msgid "Wrong file type"
+msgstr "Napačna vrsta datoteke"
+
+#: js/contacts.js:2112
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr "Brskalnik ne podpira pošiljanja AJAX. Preverite sliko profila za izbor fotografije za pošiljanje."
+
+#: js/contacts.js:2170
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr "Datoteke ni mogoče naložiti, saj je mapa ali pa je velikosti 0 bajtov."
+
+#: js/contacts.js:2170
+msgid "Upload Error"
+msgstr "Napaka med pošiljanjem"
+
+#: js/contacts.js:2225
 msgid "Pending"
-msgstr "Na čakanju"
+msgstr "V čakanju"
 
-#: js/contacts.js:2154
+#: js/contacts.js:2257
 msgid "Import done"
 msgstr "Uvoz je končan"
 
-#: js/contacts.js:2167
+#: js/contacts.js:2270
 msgid "Not all files uploaded. Retrying..."
-msgstr "Vse datoteke niso bile naložene. Ponovni poskus..."
+msgstr "Vse datoteke niso bile poslane. Poskus bo ponovljen ..."
 
-#: js/contacts.js:2173
+#: js/contacts.js:2276
 msgid "Something went wrong with the upload, please retry."
-msgstr "Pri nalaganju je prišlo do napake. Prosimo, če poskusite znova."
+msgstr "Med nalaganjem je prišlo do napake. Poskusite znova."
 
-#: js/contacts.js:2189
+#: js/contacts.js:2292
 msgid "Importing..."
-msgstr "Uvažanje..."
+msgstr "Uvažanje ..."
 
-#: js/contacts.js:2210
+#: js/contacts.js:2313
 msgid "The address book name cannot be empty."
-msgstr "Adresar mora imeti ime."
+msgstr "Imenika mora imeti določeno ime."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -345,35 +396,70 @@ msgstr " je spodletelo."
 
 #: js/settings.js:76
 msgid "Displayname cannot be empty."
-msgstr "Ime za prikaz ne more biti prazno."
+msgstr "Prikazno ime ne sme biti prazno."
 
-#: lib/addressbook.php:138
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "Pokaži povezavo CardDav"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr "Pokaži povezavo VCF samo za branje"
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "Prejmi"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "Uredi"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "Izbriši"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: js/settings.js:161 templates/settings.php:66
+msgid "More..."
+msgstr "Več ..."
+
+#: js/settings.js:165
+msgid "Less..."
+msgstr "Manj ..."
+
+#: lib/addressbook.php:136
 msgid "You do not have the permissions to read this addressbook."
-msgstr "Nimate dovoljenj za branje tega adresarja."
+msgstr "Ni ustreznih dovoljenj za branje tega imenika."
 
-#: lib/addressbook.php:239
+#: lib/addressbook.php:235
 msgid "You do not have the permissions to update this addressbook."
-msgstr "Nimate dovoljenj za posodobitev tega adresarja."
+msgstr "Ni ustreznih dovoljenj za posodobitev tega imenika."
 
-#: lib/addressbook.php:259
+#: lib/addressbook.php:255
 msgid "There was an error updating the addressbook."
-msgstr "Med posodabljanjem adresarja je prišlo do napake."
+msgstr "Med posodabljanjem imenika je prišlo do napake."
 
-#: lib/addressbook.php:315
+#: lib/addressbook.php:311
 msgid "You do not have the permissions to delete this addressbook."
-msgstr "Nimate dovoljenj za izbris tega adresarja."
+msgstr "Ni ustreznih dovoljenj za izbris tega imenika."
 
-#: lib/addressbook.php:344
+#: lib/addressbook.php:340
 msgid "There was an error deleting this addressbook."
-msgstr "Med brisanjem adresarja je prišlo do napake."
+msgstr "Med brisanjem imenika je prišlo do napake."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
-msgstr "Adresar ni bil najden:"
+msgstr "Imenika ni mogoče najti:"
 
 #: lib/app.php:52
 msgid "This is not your addressbook."
-msgstr "To ni vaš adresar."
+msgstr "To ni vaš imenik."
 
 #: lib/app.php:71
 msgid "Contact could not be found."
@@ -427,7 +513,7 @@ msgstr "QQ"
 msgid "GaduGadu"
 msgstr "GaduGadu"
 
-#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
+#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:253
 msgid "Work"
 msgstr "Delo"
 
@@ -435,7 +521,7 @@ msgstr "Delo"
 msgid "Home"
 msgstr "Doma"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
+#: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
 msgstr "Drugo"
 
@@ -471,58 +557,13 @@ msgstr "Pozivnik"
 msgid "Internet"
 msgstr "Internet"
 
-#: lib/app.php:252 templates/part.contact.php:45
-#: templates/part.contact.php:128
-msgid "Birthday"
-msgstr "Rojstni dan"
+#: lib/app.php:251
+msgid "Friends"
+msgstr "Prijatelji"
 
-#: lib/app.php:253
-msgid "Business"
-msgstr "Poslovno"
-
-#: lib/app.php:254
-msgid "Call"
-msgstr "Klic"
-
-#: lib/app.php:255
-msgid "Clients"
-msgstr "Stranka"
-
-#: lib/app.php:256
-msgid "Deliverer"
-msgstr "Dostavljalec"
-
-#: lib/app.php:257
-msgid "Holidays"
-msgstr "Prazniki"
-
-#: lib/app.php:258
-msgid "Ideas"
-msgstr "Ideje"
-
-#: lib/app.php:259
-msgid "Journey"
-msgstr "Potovanje"
-
-#: lib/app.php:260
-msgid "Jubilee"
-msgstr "Jubilej"
-
-#: lib/app.php:261
-msgid "Meeting"
-msgstr "Sestanek"
-
-#: lib/app.php:263
-msgid "Personal"
-msgstr "Osebno"
-
-#: lib/app.php:264
-msgid "Projects"
-msgstr "Projekti"
-
-#: lib/app.php:265
-msgid "Questions"
-msgstr "Vprašanja"
+#: lib/app.php:252
+msgid "Family"
+msgstr "Družina"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
@@ -534,27 +575,27 @@ msgstr "Stik"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr "Nimate dovoljenj za dodajanje stikov v ta adresar."
+msgstr "Ni ustreznih dovoljenj za dodajanje stikov v ta imenik."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
-msgstr "Ni bilo mogoče najti vCard z ID:"
+msgstr "Ni mogoče najti vCard z ID:"
 
 #: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
-msgstr "Nimate dovoljenj za urejanje tega stika."
+msgstr "Ni ustreznih dovoljenj za urejanje tega stika."
 
 #: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
-msgstr "Ni bilo mogoče najti vCard z ID:"
+msgstr "Ni mogoče najti vCard z ID:"
 
 #: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
-msgstr "Ni bilo mogoče najti adresarja z ID:"
+msgstr "Ni mogoče najti imenika z ID:"
 
 #: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
-msgstr "Nimate dovoljenj za izbris tega stika."
+msgstr "Ni ustreznih dovoljenj za izbris tega stika."
 
 #: lib/vcard.php:550
 msgid "There was an error deleting this contact."
@@ -594,15 +635,15 @@ msgstr "Predhodni stik na seznamu"
 
 #: templates/index.php:40
 msgid "Expand/collapse current addressbook"
-msgstr "Razširi/skrči trenutni adresar"
+msgstr "Razširi/Skrči trenutni imenik"
 
 #: templates/index.php:42
 msgid "Next addressbook"
-msgstr "Naslednji adresar"
+msgstr "Naslednji imenik"
 
 #: templates/index.php:44
 msgid "Previous addressbook"
-msgstr "Predhodni adresar"
+msgstr "Predhodni imenik"
 
 #: templates/index.php:48
 msgid "Actions"
@@ -618,7 +659,7 @@ msgstr "Dodaj nov stik"
 
 #: templates/index.php:55
 msgid "Add new addressbook"
-msgstr "Dodaj nov adresar"
+msgstr "Dodaj nov imenik"
 
 #: templates/index.php:57
 msgid "Delete current contact"
@@ -626,7 +667,7 @@ msgstr "Izbriši trenutni stik"
 
 #: templates/part.contact.php:17
 msgid "Drop photo to upload"
-msgstr "Spustite sliko tukaj, da bi jo naložili"
+msgstr "Spustite sliko tukaj, da bi jo poslali na strežnik"
 
 #: templates/part.contact.php:19
 msgid "Delete current photo"
@@ -644,24 +685,14 @@ msgstr "Naloži novo sliko"
 msgid "Select photo from ownCloud"
 msgstr "Izberi sliko iz ownCloud"
 
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "Format po meri, Kratko ime, Polno ime, Obratno ali Obratno z vejico"
-
 #: templates/part.contact.php:36
 msgid "Edit name details"
-msgstr "Uredite podrobnosti imena"
+msgstr "Uredi podrobnosti imena"
 
 #: templates/part.contact.php:39 templates/part.contact.php:40
 #: templates/part.contact.php:126
 msgid "Organization"
-msgstr "Organizacija"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:49
-msgid "Delete"
-msgstr "Izbriši"
+msgstr "Ustanova"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -669,7 +700,7 @@ msgstr "Vzdevek"
 
 #: templates/part.contact.php:42
 msgid "Enter nickname"
-msgstr "Vnesite vzdevek"
+msgstr "Vnos vzdevka"
 
 #: templates/part.contact.php:43 templates/part.contact.php:134
 msgid "Web site"
@@ -677,11 +708,15 @@ msgstr "Spletna stran"
 
 #: templates/part.contact.php:44
 msgid "http://www.somesite.com"
-msgstr "http://www.nekastran.si"
+msgstr "http://www.spletnastran.si"
 
 #: templates/part.contact.php:44
 msgid "Go to web site"
 msgstr "Pojdi na spletno stran"
+
+#: templates/part.contact.php:45 templates/part.contact.php:128
+msgid "Birthday"
+msgstr "Rojstni dan"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"
@@ -702,27 +737,27 @@ msgstr "Uredi skupine"
 #: templates/part.contact.php:59 templates/part.contact.php:73
 #: templates/part.contact.php:98
 msgid "Preferred"
-msgstr "Prednosten"
+msgstr "Prednostno"
 
 #: templates/part.contact.php:60
 msgid "Please specify a valid email address."
-msgstr "Prosimo, če navedete veljaven e-poštni naslov."
+msgstr "Navesti je treba veljaven elektronski poštni naslov."
 
 #: templates/part.contact.php:60
 msgid "Enter email address"
-msgstr "Vnesite e-poštni naslov"
+msgstr "Vnesite elektronski poštni naslov"
 
 #: templates/part.contact.php:64
 msgid "Mail to address"
-msgstr "E-pošta naslovnika"
+msgstr "Elektronski naslov prejemnika"
 
 #: templates/part.contact.php:65
 msgid "Delete email address"
-msgstr "Izbriši e-poštni naslov"
+msgstr "Izbriši elektronski poštni naslov"
 
 #: templates/part.contact.php:75
 msgid "Enter phone number"
-msgstr "Vpišite telefonsko številko"
+msgstr "Vpiši telefonsko številko"
 
 #: templates/part.contact.php:79
 msgid "Delete phone number"
@@ -730,7 +765,7 @@ msgstr "Izbriši telefonsko številko"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
-msgstr "Takojšnji sporočilnik"
+msgstr "Hipni sporočilnik"
 
 #: templates/part.contact.php:101
 msgid "Delete IM"
@@ -738,7 +773,7 @@ msgstr "Izbriši IM"
 
 #: templates/part.contact.php:110
 msgid "View on map"
-msgstr "Prikaz na zemljevidu"
+msgstr "Pokaži na zemljevidu"
 
 #: templates/part.contact.php:110
 msgid "Edit address details"
@@ -758,11 +793,11 @@ msgstr "Telefon"
 
 #: templates/part.contact.php:130
 msgid "Email"
-msgstr "E-pošta"
+msgstr "Elektronska pošta"
 
 #: templates/part.contact.php:131
 msgid "Instant Messaging"
-msgstr "Neposredno sporočanje"
+msgstr "Hipno sporočanje"
 
 #: templates/part.contact.php:132
 msgid "Address"
@@ -774,7 +809,7 @@ msgstr "Opomba"
 
 #: templates/part.contact.php:138
 msgid "Download contact"
-msgstr "Prenesi stik"
+msgstr "Prejmi stik"
 
 #: templates/part.contact.php:139
 msgid "Delete contact"
@@ -782,7 +817,7 @@ msgstr "Izbriši stik"
 
 #: templates/part.cropphoto.php:65
 msgid "The temporary image has been removed from cache."
-msgstr "Začasna slika je bila odstranjena iz predpomnilnika."
+msgstr "Začasna slika je odstranjena iz predpomnilnika."
 
 #: templates/part.edit_address_dialog.php:6
 msgid "Edit address"
@@ -828,7 +863,7 @@ msgstr "Npr. dežela ali pokrajina"
 
 #: templates/part.edit_address_dialog.php:48
 msgid "Zipcode"
-msgstr "Poštna št."
+msgstr "Poštna številka"
 
 #: templates/part.edit_address_dialog.php:51
 msgid "Postal code"
@@ -837,11 +872,11 @@ msgstr "Poštna številka"
 #: templates/part.edit_address_dialog.php:54
 #: templates/part.edit_address_dialog.php:57
 msgid "Country"
-msgstr "Dežela"
+msgstr "Država"
 
 #: templates/part.edit_name_dialog.php:16
 msgid "Addressbook"
-msgstr "Adresar"
+msgstr "Imenik"
 
 #: templates/part.edit_name_dialog.php:23
 msgid "Hon. prefixes"
@@ -877,7 +912,7 @@ msgstr "Ime"
 
 #: templates/part.edit_name_dialog.php:37
 msgid "Additional names"
-msgstr "Dodatna imena"
+msgstr "Druga imena"
 
 #: templates/part.edit_name_dialog.php:39
 msgid "Family name"
@@ -913,11 +948,11 @@ msgstr "Esq."
 
 #: templates/part.edit_name_dialog.php:51
 msgid "Jr."
-msgstr "mlajši"
+msgstr "ml."
 
 #: templates/part.edit_name_dialog.php:52
 msgid "Sn."
-msgstr "starejši"
+msgstr "st."
 
 #: templates/part.import.php:1
 msgid "Import a contacts file"
@@ -925,19 +960,19 @@ msgstr "Uvozi datoteko s stiki"
 
 #: templates/part.import.php:6
 msgid "Please choose the addressbook"
-msgstr "Prosimo, če izberete adresar"
+msgstr "Izberite imenik"
 
 #: templates/part.import.php:10
 msgid "create a new addressbook"
-msgstr "Ustvari nov adresar"
+msgstr "ustvari nov imenik"
 
 #: templates/part.import.php:15
 msgid "Name of new addressbook"
-msgstr "Ime novega adresarja"
+msgstr "Ime novega imenika"
 
 #: templates/part.import.php:20
 msgid "Importing contacts"
-msgstr "Uvažam stike"
+msgstr "Poteka uvažanje stikov"
 
 #: templates/part.no_contacts.php:3
 msgid ""
@@ -946,7 +981,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr "<h3>V adresarju nimate stikov.</h3><p>VCF datoteke lahko uvozite tako, da jih povlečete na obstoječ seznam stikov ali na prazno mesto. Pri slednjem bo ustvarjen nov adresar in stiki bodo uvoženi vanj.<br />Stike lahko uvažate tudi s klikom na gumb uvozi, ki ga najdete na dnu seznama.</p>"
+msgstr "<h3>V imeniku ni stikov.</h3><p>Datoteke VCF je mogoče uvoziti tako, da jih povlečete na obstoječ seznam stikov ali na prazno mesto. Pri slednjem dejanju bo ustvarjen nov imenik s stiki.<br />Stike lahko uvažate tudi s klikom na gumb uvozi, ki je postavljen na dnu seznama.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"
@@ -954,27 +989,23 @@ msgstr "Dodaj stik"
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
-msgstr "Izberite adresarje"
-
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "Vnesite ime"
+msgstr "Izbor imenikov"
 
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
-msgstr "Vnesite opis"
+msgstr "Vnesi opis"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"
-msgstr "CardDAV naslovi za sinhronizacijo"
+msgstr "Naslovi CardDAV za usklajevanje"
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr "več informacij"
+msgstr "več podrobnosti"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
-msgstr "Primarni naslov (za kontakt et al)"
+msgstr "Osnovni naslov (za stik)"
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
@@ -982,31 +1013,15 @@ msgstr "iOS/OS X"
 
 #: templates/settings.php:9
 msgid "Addressbooks"
-msgstr "Adresarji"
-
-#: templates/settings.php:25
-msgid "Show CardDav link"
-msgstr "Pokaži CardDav povezavo"
-
-#: templates/settings.php:28
-msgid "Show read-only VCF link"
-msgstr "Pokaži VCF povezavo samo za branje"
+msgstr "Imeniki"
 
 #: templates/settings.php:35
 msgid "Share"
 msgstr "Souporaba"
 
-#: templates/settings.php:39
-msgid "Download"
-msgstr "Prenesi"
-
-#: templates/settings.php:44
-msgid "Edit"
-msgstr "Uredi"
-
 #: templates/settings.php:57
 msgid "New Address Book"
-msgstr "Nov adresar"
+msgstr "Nov imenik"
 
 #: templates/settings.php:58
 msgid "Name"
@@ -1019,11 +1034,3 @@ msgstr "Opis"
 #: templates/settings.php:60
 msgid "Save"
 msgstr "Shrani"
-
-#: templates/settings.php:61
-msgid "Cancel"
-msgstr "Prekliči"
-
-#: templates/settings.php:66
-msgid "More..."
-msgstr "Več..."

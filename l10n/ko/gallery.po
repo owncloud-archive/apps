@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# 남자사람  <cessnagi@gmail.com>, 2012.
 #   <limonade83@gmail.com>, 2012.
 # Shinjo Park <kde@peremen.name>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:02+0200\n"
-"PO-Revision-Date: 2012-09-11 00:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-20 00:01+0100\n"
+"PO-Revision-Date: 2012-11-19 12:00+0000\n"
+"Last-Translator: 남자사람 <cessnagi@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgstr "사진"
 
 #: appinfo/app.php:53
 msgid "Galleries"
-msgstr ""
+msgstr "사진"
 
 #: js/pictures.js:12
 msgid "Share gallery"
@@ -47,4 +48,4 @@ msgstr "슬라이드 쇼"
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr ""
+msgstr "이 응용프로그램을 사용하기 위한 \"이미지 뷰어\"가 필요합니다."

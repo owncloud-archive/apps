@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <blobbyjj@ymail.com>, 2012.
 # I Robot <thomas.mueller@tmit.eu>, 2012.
 # Maurice Preuß <>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-19 02:02+0200\n"
-"PO-Revision-Date: 2012-09-19 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-03 02:02+0200\n"
+"PO-Revision-Date: 2012-10-02 09:05+0000\n"
+"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,8 +31,8 @@ msgstr "Das Modul php-json wird von vielen Anwendungen zur internen Kommunikatio
 
 #: settings.php:39
 msgid ""
-"The php-curl modude is needed to fetch the page title when adding a bookmark"
-msgstr ""
+"The php-curl module is needed to fetch the page title when adding a bookmark"
+msgstr "Das Modul php-curl wird benötigt, um den Titel der Seite für die Lesezeichen hinzuzufügen."
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
@@ -56,13 +57,13 @@ msgstr "Das Modul php-ctype wird benötigt, um Daten zu prüfen."
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr "Das Modul php-xml wird benötigt, um Dateien über WebDAV zu teilen."
+msgstr "Das Modul php-xml wird benötigt, um Dateien über WebDAV freizugeben."
 
 #: settings.php:81
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr "Die Richtlinie allow_url_fopen in Ihrer php.ini sollte auf 1 gesetzt werden, um die Wissensbasis vom OCS-Server abrufen."
+msgstr "Die Richtlinie allow_url_fopen in Deiner php.ini sollte auf 1 gesetzt werden, um die Wissensbasis vom OCS-Server abrufen."
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
@@ -78,4 +79,4 @@ msgstr "Status der Abhängigkeiten"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr "Benutzt von:"
+msgstr "Verwendet von:"

@@ -22,25 +22,54 @@ if (version_compare($installedVersion, '0.5', '<')) {
 		OC_Calendar_Repeat::generateCalendar($calendar['id']);
 	}
 }
-if (version_compare($installedVersion, '0.6', '<=')) {
+if ($installedVersion == '0.6') {
+	// the update script in this version was not correct
+	// also sharing of calendars did not work
+	//$query = OCP\DB::prepare("DELETE FROM `*PREFIX*share` WHERE `item_type` IN ('calendar', 'event')");
+	//$query->execute();
+}
+if (version_compare($installedVersion, '0.6.1', '<=')) {
 	$calendar_stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_share_calendar`');
 	$calendar_result = $calendar_stmt->execute();
-	$calendar = array();
-	while( $row = $calendar_result->fetchRow()) {
-		$calendar[] = $row;
-	}
-	foreach($calendar as $cal) {
-		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*share` (`share_with`,`uid_owner`,`item_type`,`item_target`,`permissions`) VALUES(?,?,\'calendar\',?,?)' );
-		$result = $stmt->execute(array($cal['share'],$cal['owner'],$cal['calendarid'], ($cal['permissions'])?31:17));
+	while( $cal = $calendar_result->fetchRow()) {
+		$shareType = OCP\Share::SHARE_TYPE_USER;
+		if ($cal['sharetype'] == 'group') {
+			$shareType = OCP\Share::SHARE_TYPE_GROUP;
+		}
+		else if ($cal['sharetype'] == 'public') {
+			$shareType = OCP\Share::SHARE_TYPE_LINK;
+		}
+		OC_User::setUserId($cal['owner']);
+		try {
+			OCP\Share::shareItem('calendar', $cal['calendarid'], $shareType, $cal['share'], $cal['permissions']?31:17); // CRUDS:RS
+		}
+		catch (Exception $e) {
+			// nothing to do, the exception is already written to the log
+		}
 	}
 	$event_stmt = OCP\DB::prepare('SELECT * FROM `*PREFIX*calendar_share_event`');
 	$event_result = $event_stmt->execute();
-	$event = array();
-	while( $row = $event_result->fetchRow()) {
-		$event[] = $row;
+	while( $event = $event_result->fetchRow()) {
+		$shareType = OCP\Share::SHARE_TYPE_USER;
+		if ($event['sharetype'] == 'group') {
+			$shareType = OCP\Share::SHARE_TYPE_GROUP;
+		}
+		else if ($event['sharetype'] == 'public') {
+			$shareType = OCP\Share::SHARE_TYPE_LINK;
+		}
+		OC_User::setUserId($event['owner']);
+		try {
+			OCP\Share::shareItem('event', $event['eventid'], $shareType, $event['share'], $event['permissions']?31:17); // CRUDS:RS
+		}
+		catch (Exception $e) {
+			// nothing to do, the exception is already written to the log
+		}
 	}
-	foreach($event as $evnt) {
-		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*share` (`share_with`,`uid_owner`,`item_type`,`item_target`,`permissions`) VALUES(?,?,\'event\',?,?)' );
-		$result = $stmt->execute(array($evnt['share'],$evnt['owner'],$evnt['eventid'], ($evnt['permissions'])?31:17));
-	}
+	//logout and login - fix wrong calendar permissions from oc-1914
+	$user = OCP\User::getUser();
+	session_unset();
+	session_destroy();
+	OC_User::unsetMagicInCookie();
+	session_regenerate_id(true);
+	OC_User::setUserId($user);
 }

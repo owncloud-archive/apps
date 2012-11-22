@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-04 02:00+0200\n"
-"PO-Revision-Date: 2012-09-03 16:00+0000\n"
+"POT-Creation-Date: 2012-11-14 00:01+0100\n"
+"PO-Revision-Date: 2012-11-13 01:24+0000\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -33,8 +33,8 @@ msgid "Please choose the export type:"
 msgstr "エクスポートタイプを選択してください:"
 
 #: templates/settings.php:10
-msgid "ownCloud instance (suitable for import)"
-msgstr "ownCloud インスタンス（インポートに最適）"
+msgid "ownCloud instance (user data and database"
+msgstr "ownCloud インスタンス (ユーザデータとデータベース"
 
 #: templates/settings.php:11
 msgid "ownCloud system files"

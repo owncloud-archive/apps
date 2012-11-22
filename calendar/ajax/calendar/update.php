@@ -19,6 +19,9 @@ if(trim($_POST['name']) == '') {
 }
 $calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
 foreach($calendars as $cal) {
+	if($cal['userid'] != OCP\User::getUser()){
+		continue;
+	}
 	if($cal['displayname'] == $_POST['name'] && $cal['id'] != $_POST['id']) {
 		OCP\JSON::error(array('message'=>'namenotavailable'));
 		exit;
@@ -42,7 +45,7 @@ $tmpl->assign('calendar', $calendar);
 $shared = false;
 if ($calendar['userid'] != OCP\User::getUser()) {
 	$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $calendarid);
-	if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+	if ($sharedCalendar && ($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE)) {
 		$shared = true;
 	}
 }

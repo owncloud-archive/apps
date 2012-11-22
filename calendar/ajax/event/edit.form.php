@@ -27,23 +27,23 @@ $vevent = $object->VEVENT;
 $dtstart = $vevent->DTSTART;
 $dtend = OC_Calendar_Object::getDTEndFromVEvent($vevent);
 switch($dtstart->getDateType()) {
-	case Sabre_VObject_Property_DateTime::UTC:
-		$timeOffset = $_SESSION['timezone']*60;
-		$newDT      = $dtstart->getDateTime();
-		$newDT->add(new DateInterval("PT" . $timeOffset . "M"));
+	case Sabre\VObject\Property\DateTime::UTC:
+		$timezone = new DateTimeZone(OC_Calendar_App::getTimezone());
+		$newDT    = $dtstart->getDateTime();
+		$newDT->setTimezone($timezone);
 		$dtstart->setDateTime($newDT);
-		$newDT      = $dtend->getDateTime();
-		$newDT->add(new DateInterval("PT" . $timeOffset . "M"));
+		$newDT    = $dtend->getDateTime();
+		$newDT->setTimezone($timezone);
 		$dtend->setDateTime($newDT);
-	case Sabre_VObject_Property_DateTime::LOCALTZ:
-	case Sabre_VObject_Property_DateTime::LOCAL:
+	case Sabre\VObject\Property\DateTime::LOCALTZ:
+	case Sabre\VObject\Property\DateTime::LOCAL:
 		$startdate = $dtstart->getDateTime()->format('d-m-Y');
 		$starttime = $dtstart->getDateTime()->format('H:i');
 		$enddate = $dtend->getDateTime()->format('d-m-Y');
 		$endtime = $dtend->getDateTime()->format('H:i');
 		$allday = false;
 		break;
-	case Sabre_VObject_Property_DateTime::DATE:
+	case Sabre\VObject\Property\DateTime::DATE:
 		$startdate = $dtstart->getDateTime()->format('d-m-Y');
 		$starttime = '';
 		$dtend->getDateTime()->modify('-1 day');
@@ -209,9 +209,9 @@ $repeat_bymonth_options = OC_Calendar_App::getByMonthOptions();
 $repeat_byweekno_options = OC_Calendar_App::getByWeekNoOptions();
 $repeat_bymonthday_options = OC_Calendar_App::getByMonthDayOptions();
 
-if($permissions & OCP\Share::PERMISSION_UPDATE) {
+if($permissions & OCP\PERMISSION_UPDATE) {
 	$tmpl = new OCP\Template('calendar', 'part.editevent');
-} elseif($permissions & OCP\Share::PERMISSION_READ) {
+} elseif($permissions & OCP\PERMISSION_READ) {
 	$tmpl = new OCP\Template('calendar', 'part.showevent');
 }
 
@@ -243,18 +243,18 @@ $tmpl->assign('description', $description);
 
 $tmpl->assign('repeat', $repeat['repeat']);
 if($repeat['repeat'] != 'doesnotrepeat') {
-	$tmpl->assign('repeat_month', $repeat['month']);
-	$tmpl->assign('repeat_weekdays', $repeat['weekdays']);
-	$tmpl->assign('repeat_interval', $repeat['interval']);
-	$tmpl->assign('repeat_end', $repeat['end']);
-	$tmpl->assign('repeat_count', $repeat['count']);
+	$tmpl->assign('repeat_month', isset($repeat['month']) ? $repeat['month'] : 'monthday');
+	$tmpl->assign('repeat_weekdays', isset($repeat['weekdays']) ? $repeat['weekdays'] : array());
+	$tmpl->assign('repeat_interval', isset($repeat['interval']) ? $repeat['interval'] : '1');
+	$tmpl->assign('repeat_end', isset($repeat['end']) ? $repeat['end'] : 'never');
+	$tmpl->assign('repeat_count', isset($repeat['count']) ? $repeat['count'] : '10');
 	$tmpl->assign('repeat_weekofmonth', $repeat['weekofmonth']);
-	$tmpl->assign('repeat_date', $repeat['date']);
-	$tmpl->assign('repeat_year', $repeat['year']);
-	$tmpl->assign('repeat_byyearday', $repeat['byyearday']);
-	$tmpl->assign('repeat_bymonthday', $repeat['bymonthday']);
-	$tmpl->assign('repeat_bymonth', $repeat['bymonth']);
-	$tmpl->assign('repeat_byweekno', $repeat['byweekno']);
+	$tmpl->assign('repeat_date', isset($repeat['date']) ? $repeat['date'] : '');
+	$tmpl->assign('repeat_year', isset($repeat['year']) ? $repeat['year'] : array());
+	$tmpl->assign('repeat_byyearday', isset($repeat['byyearday']) ? $repeat['byyearday'] : array());
+	$tmpl->assign('repeat_bymonthday', isset($repeat['bymonthday']) ? $repeat['bymonthday'] : array());
+	$tmpl->assign('repeat_bymonth', isset($repeat['bymonth']) ? $repeat['bymonth'] : array());
+	$tmpl->assign('repeat_byweekno', isset($repeat['byweekno']) ? $repeat['byweekno'] : array());
 } else {
 	$tmpl->assign('repeat_month', 'monthday');
 	$tmpl->assign('repeat_weekdays', array());

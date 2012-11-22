@@ -120,7 +120,7 @@ class OC_DLStCharts {
 	 * @param $key The conf key
 	 * @return Array The conf value
 	 */
-	public static function getUConfValue($key, $default = NULL) {
+	public static function getUConfValue($key, $default = null) {
 		$query = OC_DB::prepare("SELECT uc_id,uc_val FROM *PREFIX*dlstcharts_uconf WHERE oc_uid = ? AND uc_key = ?");
 		$result = $query->execute(Array(OC_User::getUser(), $key))->fetchRow();
 		if($result) {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-19 02:02+0200\n"
+"POT-Creation-Date: 2012-11-22 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,18 @@ msgstr ""
 
 #: js/units.min.js:22 js/units.min.js:23
 msgid "Kilobytes (KB)"
+msgstr ""
+
+#: js/units.min.js:22 js/units.min.js:23
+msgid "Megabytes (MB)"
+msgstr ""
+
+#: js/units.min.js:22 js/units.min.js:23
+msgid "Gigabytes (GB)"
+msgstr ""
+
+#: js/units.min.js:22 js/units.min.js:23
+msgid "Terabytes (TB)"
 msgstr ""
 
 #: lib/db.class.php:166

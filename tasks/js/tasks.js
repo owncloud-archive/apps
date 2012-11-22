@@ -202,8 +202,13 @@ OC.Tasks = {
 		});
 	},
 	setSummary:function(summary_container, task){
+		var task_summary = task.summary ?
+			task.summary :
+			task.description ?
+				task.description.substr(0, 20) :
+				'<no title>';
 		var summary = $('<a href="index.php?id='+task.id+'">')
-			.text(task.summary)
+			.text(task_summary)
 			.click(OC.Tasks.summaryClickHandler);
 		summary_container.html(summary);
 	},

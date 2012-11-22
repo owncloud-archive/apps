@@ -7,14 +7,14 @@
             <?php echo $l->t('Please choose the export type:');?>
         </p>
         <p>
-        <input type="radio" name="export_type" value="instance" style="width:20px;" /><?php echo $l->t('ownCloud instance (suitable for import)');?><br />
-	<input type="radio" name="export_type" value="system" style="width:20px;" /><?php echo $l->t('ownCloud system files');?><br />
-	<input type="radio" name="export_type" value="userfiles" style="width:20px;" /><?php echo $l->t('Just user files');?><br />
+        <input type="radio" id="export_instance" name="export_type" value="instance" style="width:20px;" /><label for="export_instance"><?php echo $l->t('ownCloud instance (user data and database');?></label><br />
+        <input type="radio" id="export_system" name="export_type" value="system" style="width:20px;" /><label for="export_system"><?php echo $l->t('ownCloud system files');?></label><br />
+        <input type="radio" id="export_value" name="export_type" value="userfiles" style="width:20px;" /><label for="export_value"><?php echo $l->t('Just user files');?></label><br />
         <input type="submit" name="admin_export" value="<?php echo $l->t('Export'); ?>" />
     </fieldset>
 </form>
-<?php 
-/* 
+<?php
+/*
  * EXPERIMENTAL
 ?>
 <form id="import" action="#" method="post" enctype="multipart/form-data">
@@ -27,5 +27,5 @@
         <input type="submit" name="admin_import" value="<?php echo $l->t('Import'); ?>" />
     </fieldset>
 </form>
-<?php 
-*/ 
+<?php
+*/

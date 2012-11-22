@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-07 14:38+0000\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 04:42+0000\n"
 "Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr "Đây là một đầu cuối của OpenID .Để biết thêm thông ti
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
-msgstr "Tình trạng:<b>"
+msgstr "Tình trạng: <b>"
 
 #: templates/nomode.php:15
 msgid "Realm: <b>"
@@ -32,7 +32,7 @@ msgstr "Lĩnh vực:<b>"
 
 #: templates/nomode.php:16
 msgid "User: <b>"
-msgstr "Người dùng:<b>"
+msgstr "Người dùng: <b>"
 
 #: templates/nomode.php:17
 msgid "Login"
@@ -40,7 +40,7 @@ msgstr "Đăng nhập"
 
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"
-msgstr "Lỗi:<b>Không có người dùng được chọn"
+msgstr "Lỗi: <b> Không có người dùng được chọn"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"

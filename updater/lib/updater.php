@@ -2,94 +2,155 @@
 
 /**
  * ownCloud - Updater plugin
- * 
+ *
  * @author Victor Dubiniuk
  * @copyright 2012 Victor Dubiniuk victor.dubiniuk@gmail.com
- * 
+ *
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  */
 
-namespace OCA_Updater;
+namespace OCA\Updater;
 
 class Updater {
 
-	protected static $_skipDirs = array();
-	protected static $_updateDirs = array();
+	protected static $processed = array();
+	protected static $locations = array();
+	protected static $appsToRemove = array();
 
-	public static function update($sourcePath, $backupPath) {
-		if (!is_dir($backupPath)) {
-			return self::error('Backup directory is not found');
+	public static function getAppsToRemove() {
+		return self::$appsToRemove;
+	}
+                
+	public static function prepare($version) {
+		$tempDir = self::getTempDir();
+                
+ 		$sources = Helper::getSources($version);
+		$destinations = Helper::getDirectories();
+                
+		if (preg_match('/^\d+\.\d+/', $version, $ver)) {
+		    $ver = $ver[0];
+		} else {
+                    $ver = $version;
 		}
-		
-		self::$_updateDirs = App::getDirectories();
-		self::$_skipDirs = App::getExcludeDirectories();
-		
+		//  read the list of shipped apps
+                $appLocation = $sources[Helper::APP_DIRNAME];
+                $shippedApps = array_keys(Helper::getFilteredContent($appLocation));
+
+                self::$appsToRemove = array();
+		try {
+			$locations = Helper::getPreparedLocations();
+			foreach ($locations as $type => $dirs) {
+				if (isset($sources[$type])) {
+					$sourceBaseDir = $sources[$type];
+				} else {
+					//  Extra app directories
+					$sourceBaseDir  = false;
+				}
+                                
+                                $tempBaseDir = $tempDir . '/' . $type;
+				Helper::mkdir($tempBaseDir, true);
+                                
+                                
+                                // Collect old sources
+				foreach ($dirs as $name => $path) {
+					//skip compatible, not shipped apps
+					if (strpos($type, Helper::APP_DIRNAME) === 0 
+						&& !in_array($name, $shippedApps)
+					) {
+						//Read compatibility info
+						$info = \OC_App::getAppInfo($name);
+						if (isset($info['require']) && version_compare($ver, $info['require'])>=0) {
+							continue;
+						}
+						self::$appsToRemove[] = $name;
+					}
+					self::$locations[] = array (
+						'src' => $path,
+						'dst' => $tempBaseDir . '/' . $name
+					);
+				}
+				//Collect new sources
+				if (!$sourceBaseDir) {
+					continue;
+				}
+				foreach (Helper::getFilteredContent($sourceBaseDir) as $basename=>$path){
+					self::$locations[] = array (
+						'src' => $path,
+						'dst' => $destinations[$type] . '/' . $basename
+					);
+				}
+			}
+		} catch (\Exception $e){
+			throw $e;
+		}
+                
+                return self::$locations;
+                                
+	}
+        
+	public static function update($version, $backupBase) {
+		if (!is_dir($backupBase)) {
+			throw new \Exception("Backup directory $backupBase is not found");
+		}
+
 		set_include_path(
-				$backupPath . PATH_SEPARATOR .
-				$backupPath . DIRECTORY_SEPARATOR . 'lib' . PATH_SEPARATOR .
-				$backupPath . DIRECTORY_SEPARATOR . 'config' . PATH_SEPARATOR .
-				$backupPath . DIRECTORY_SEPARATOR . '3rdparty' . PATH_SEPARATOR .
-				$backupPath . '/apps' . PATH_SEPARATOR .
+				$backupBase . PATH_SEPARATOR .
+				$backupBase . '/core/lib' . PATH_SEPARATOR .
+				$backupBase . '/core/config' . PATH_SEPARATOR .
+				$backupBase . '/3rdparty' . PATH_SEPARATOR .
+				$backupBase . '/apps' . PATH_SEPARATOR .
 				get_include_path()
 		);
 
-		$tempPath = App::getBackupBase() . 'tmp';
-		if  (!@mkdir($tempPath, 0777, true)) {
-			return self::error('failed to create ' . $tempPath);
-		}
-
-		self::moveDirectories($sourcePath, $tempPath);
+		$tempDir = self::getTempDir();
+		Helper::mkdir($tempDir, true);
 		
-		$config = "/config/config.php";
-		copy($tempPath . $config, self::$_updateDirs['core'] . $config);
+		try {
+			foreach (self::prepare($version) as $location) {
+				Helper::move($location['src'], $location['dst']);
+				self::$processed[] = array (
+					'src' => $location['dst'],
+					'dst' => $location['src']
+				);
+			}
+		} catch (\Exception $e){
+			self::rollBack();
+			self::cleanUp();
+			throw $e;
+		}
+
+		$config = "/" . Helper::CORE_DIRNAME . "/config/config.php";
+		copy($backupBase . $config, \OC::$SERVERROOT . $config);
 		
-		return true;
-	}
-
-	public static function moveDirectories($updatePath, $tempPath) {
-		foreach (self::$_updateDirs as $type => $path) {
-			$currentDir = $path;
-			$updateDir = $updatePath;
-			$tempDir = $tempPath;
-			if ($type != 'core') {
-				$updateDir .= DIRECTORY_SEPARATOR . $type;
-				$tempDir .= DIRECTORY_SEPARATOR . $type;
-				rename($currentDir, $tempDir);
-				rename($updateDir, $currentDir);
-			} else {
-				self::moveDirectoryContent($currentDir, $tempDir);
-				self::moveDirectoryContent($updateDir, $currentDir);
-			}
+		// zip backup 
+		$zip = new \ZipArchive();
+		if ($zip->open($backupBase . ".zip", \ZIPARCHIVE::CREATE)===true) {
+			Helper::addDirectoryToZip($zip, $backupBase, $backupBase);
+			$zip->close();
+			\OC_Helper::rmdirr($backupBase);
 		}
-		return true;
-	}
-
-	public static function moveDirectoryContent($source, $destination) {
-		$dh = opendir($source);
-		while (($file = readdir($dh)) !== false) {
-			$fullPath = $source . DIRECTORY_SEPARATOR . $file;
-			if (is_dir($fullPath)) {
-				if (in_array($file, self::$_skipDirs['relative'])
-					|| in_array($fullPath, self::$_skipDirs['full'])
-				) {
-					continue;
-				}
-			}
-
-			rename($fullPath, $destination . DIRECTORY_SEPARATOR . $file);
+                
+		// Disable removed apps
+		foreach (self::getAppsToRemove() as $appId) {
+			\OC_App::disable($appId);
 		}
+                
 		return true;
 	}
-	
-	/**
-	 * Log error message
-	 * @param string $message
-	 * @return bool 
-	 */
-	protected static function error($message) {
-		\OC_Log::write(App::APP_ID, $message, \OC_Log::ERROR);
-		return false;
+
+	public static function rollBack(){
+		foreach (self::$processed as $item){
+			\OC_Helper::copyrr($item['src'], $item['dst']);
+		}
+	}
+
+	public static function cleanUp(){
+		Helper::removeIfExists(self::getTempDir());
+	}
+
+	public static function getTempDir(){
+		return App::getBackupBase() . 'tmp';
 	}
 
 }

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <skoptev@ukr.net>, 2012.
 #   <victor.dubiniuk@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:01+0200\n"
-"PO-Revision-Date: 2012-09-10 11:06+0000\n"
-"Last-Translator: VicDeo <victor.dubiniuk@gmail.com>\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 11:38+0000\n"
+"Last-Translator: skoptev <skoptev@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,29 +21,29 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "Export this ownCloud instance"
-msgstr ""
+msgstr "Експортувати цей примірник ownCloud"
 
 #: templates/settings.php:5
 msgid ""
 "This will create a compressed file that contains the data of this owncloud "
 "instance."
-msgstr ""
+msgstr "Буде створено стиснутий файл, що містить дані цього примірника ownCloud."
 
 #: templates/settings.php:7
 msgid "Please choose the export type:"
-msgstr ""
+msgstr "Будь ласка, оберіть тип для експорту:"
 
 #: templates/settings.php:10
-msgid "ownCloud instance (suitable for import)"
-msgstr ""
+msgid "ownCloud instance (user data and database"
+msgstr "ownCloud примірник (користувацькі дані та база даних"
 
 #: templates/settings.php:11
 msgid "ownCloud system files"
-msgstr ""
+msgstr "ownCloud системні файли"
 
 #: templates/settings.php:12
 msgid "Just user files"
-msgstr ""
+msgstr "Тільки файли користувачів"
 
 #: templates/settings.php:13
 msgid "Export"

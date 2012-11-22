@@ -40,7 +40,8 @@ $(document).ready(function(){
 				transition_speed    :   700,		// Speed of transition
 
 				// Components
-				slide_links         :   'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+				slide_links         :   false,	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+				new_window          :   false,
 				slides              :   images		// Slideshow Images
 
 			});

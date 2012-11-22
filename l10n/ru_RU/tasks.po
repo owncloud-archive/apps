@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <cdewqazxsqwe@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-04 02:01+0200\n"
-"PO-Revision-Date: 2012-09-04 00:01+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-10-12 02:04+0200\n"
+"PO-Revision-Date: 2012-10-11 10:51+0000\n"
+"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,93 +20,105 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr ""
+msgstr "Неверные дата/время"
 
 #: appinfo/app.php:10
 msgid "Tasks"
-msgstr ""
+msgstr "Задачи"
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr "Сборы"
+
+#: js/tasks.js:107
+msgid "List"
+msgstr "Список"
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr "Расположение"
 
 #: js/tasks.js:415
 msgid "No category"
-msgstr ""
+msgstr "Нет категории"
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr ""
+msgstr "Неспецифицировано"
 
 #: lib/app.php:34
 msgid "1=highest"
-msgstr ""
+msgstr "1=высший"
 
 #: lib/app.php:38
 msgid "5=medium"
-msgstr ""
+msgstr "5=средний"
 
 #: lib/app.php:42
 msgid "9=lowest"
-msgstr ""
+msgstr "9=низший"
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr ""
+msgstr "Пустая сводка"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr ""
+msgstr "Неверный процент выполнения"
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr ""
+msgstr "Недопустимый приотитет"
 
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr ""
+msgstr "Приложение Календарь также должно иметь возможность использовать это приложение."
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr ""
+msgstr "Добавить задачу"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "Сборы по заказу"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr ""
+msgstr "Список заказов"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr ""
+msgstr "Выполненные заказы"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr ""
+msgstr "Расположение заказов"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr ""
+msgstr "Приоритет заказа"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr ""
+msgstr "Метка заказа"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr ""
+msgstr "Загрузка задач..."
 
 #: templates/tasks.php:20
 msgid "Important"
-msgstr ""
+msgstr "Важно"
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr ""
+msgstr "Подробнее"
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr ""
+msgstr "Меньше"
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"

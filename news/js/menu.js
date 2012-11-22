@@ -19,7 +19,7 @@
 
 We create a new instance of the menu. Then we need to bind it on an ul which contains
 all the items:
-    
+
     var updateIntervalMiliseconds = 2000;
     var items = new News.Items('#feed_items');
     var menu = new News.Menu(updateIntervalMiliseconds, items);
@@ -44,7 +44,7 @@ Deleting nodes:
 
 
 Creating nodes:
-    
+
     var parentId = 0;
     var html = '<nodehtml>';
     menu.addNode(parentId, html);
@@ -135,11 +135,9 @@ var News = News || {};
      * @param html the html to add
      */
     Menu.prototype.addNode = function(parentId, html){
-        parentId = parseInt(parentId);
+        parentId = parseInt(parentId, 10);
         var $parentNode;
         var $html = $(html);
-
-        console.log($html);
 
         if(parentId === 0){
             $parentNode = this._$root;
@@ -172,8 +170,8 @@ var News = News || {};
      */
     Menu.prototype.updateNode = function(type, id, data){
         var $node = this._getNodeFromTypeAndId(type, id);
-        id = parseInt(id);
-        
+        id = parseInt(id, 10);
+
         if(data.title !== undefined){
             // prevent xss
             var title = $('<div>').text(data.title).html();
@@ -188,10 +186,10 @@ var News = News || {};
     /**
      * Removes a node and its subnodes from the menu
      * @param type the type (MenuNodeType)
-     * @param id the id     
+     * @param id the id
      */
     Menu.prototype.removeNode = function(type, id){
-        id = parseInt(id);
+        id = parseInt(id, 10);
         var $node = this._getNodeFromTypeAndId(type, id);
         $node.remove();
     };
@@ -276,9 +274,9 @@ var News = News || {};
      */
     Menu.prototype.getFeedIdsOfFolder = function(folderId) {
         $folder = this._getNodeFromTypeAndId(MenuNodeType.Folder, folderId);
-        var ids = new Array();
+        var ids = [];
         $folder.children('ul').children('li').each(function(){
-            ids.push(parseInt($(this).data('id')));
+            ids.push(parseInt($(this).data('id'), 10));
         });
         return ids;
     };
@@ -341,11 +339,11 @@ var News = News || {};
         this._$activeFeed = $('#feeds .active');
         this._activeFeedId = this._$activeFeed.data('id');
         this._activeFeedType = this._listItemToMenuNodeType(this._$activeFeed);
-        
+
         setTimeout(function(){
             self._updateUnreadCountAll();
         }, 3000);
-        
+
         setInterval(function(){
             self._updateUnreadCountAll();
         }, self._updateInterval);
@@ -428,7 +426,7 @@ var News = News || {};
         var self = this;
         var id = $listItem.data('id');
         this._setUnreadCount(MenuNodeType.Feed, id,
-            this._getAndRemoveUnreadCount($listItem));
+            this._getUnreadCount($listItem));
 
         $listItem.children('.title').click(function(){
             // prevent loading when dragging
@@ -466,7 +464,7 @@ var News = News || {};
     Menu.prototype._bindStarred = function($listItem){
         var self = this;
         this._setUnreadCount(MenuNodeType.Starred, 0,
-            this._getAndRemoveUnreadCount($listItem));
+            this._getUnreadCount($listItem));
 
         $listItem.children('.title').click(function(){
             self.load(MenuNodeType.Starred, -1);
@@ -546,7 +544,6 @@ var News = News || {};
     Menu.prototype._edit = function(type, id){
         var $node = this._getNodeFromTypeAndId(type, id);
         var name = $node.children('.title').html();
-        var id = $node.data('id');
         $('#changefolder_dialog').find('input[type=text]').val(name);
         $('#changefolder_dialog').find('input[type=hidden]').val(id);
         $('#changefolder_dialog').dialog('open');
@@ -590,12 +587,12 @@ var News = News || {};
 
                 $.post(OC.filePath('news', 'ajax', 'setallitemsread.php'), data, function(jsonData) {
                     if(jsonData.status == 'success'){
-                        self._updateUnreadCountAll();
+                        self._setUnreadCount(type, id, parseInt(jsonData.data.unreadCount, 10));
                     } else {
                         OC.dialogs.alert(jsonData.data.message, t('news', 'Error'));
                     }
                 });
-                
+
                 break;
         }
     };
@@ -654,13 +651,13 @@ var News = News || {};
      */
     Menu.prototype._toggleCollapse = function($listItem){
         $listItem.toggleClass('open');
-        
+
         var folderId = this._getIdAndTypeFromNode($listItem).id;
         var data = {
             'folderId': folderId,
             'opened': $listItem.hasClass('open')
         };
-        
+
         $.post(OC.filePath('news', 'ajax', 'collapsefolder.php'), data, function(jsondata){
             if(jsondata.status != 'success'){
                 OC.dialogs.alert(jsonData.data.message, t('news', 'Error'));
@@ -690,10 +687,9 @@ var News = News || {};
      * @param $listItem the jquery list element
      * @return the count of unread items
      */
-    Menu.prototype._getAndRemoveUnreadCount = function($listItem){
+    Menu.prototype._getUnreadCount = function($listItem){
         var $unreadCounter = $listItem.children('.unread_items_counter');
-        var unreadCount = parseInt($unreadCounter.html());
-        $unreadCounter.remove();
+        var unreadCount = parseInt($unreadCounter.html(), 10);
         return unreadCount;
     };
 
@@ -720,7 +716,7 @@ var News = News || {};
      */
     Menu.prototype._getIdAndTypeFromNode = function($listItem) {
         return {
-            id: parseInt($listItem.data('id')),
+            id: parseInt($listItem.data('id'), 10),
             type: this._listItemToMenuNodeType($listItem)
         };
     };
@@ -782,7 +778,7 @@ var News = News || {};
      * @param unreadCount the count of unread items
      */
     Menu.prototype._setUnreadCount = function(type, id, unreadCount){
-        unreadCount = parseInt(unreadCount);
+        unreadCount = parseInt(unreadCount, 10);
         if(unreadCount < 0){
             unreadCount = 0;
         }
@@ -796,7 +792,7 @@ var News = News || {};
                 break;
 
             case MenuNodeType.Starred:
-                this._unreadCount.Subscriptions = unreadCount;
+                this._unreadCount.Starred = unreadCount;
                 break;
 
             default:
@@ -844,6 +840,8 @@ var News = News || {};
      */
     Menu.prototype._applyUnreadCountStyle = function(type, id, unreadCount) {
         var $node = this._getNodeFromTypeAndId(type, id);
+        $node.children('.unread_items_counter').html(unreadCount);
+
         if(unreadCount === 0){
             $node.addClass('all_read');
         } else {
@@ -865,9 +863,9 @@ var News = News || {};
                 var $dropped = $(this);
                 var $dragged = $(ui.draggable);
 
-                var feedId = parseInt($dragged.data('id'));
-                var folderId = parseInt($dropped.data('id'));
-                var fromFolderId = parseInt($dragged.parent().data('id'));
+                var feedId = parseInt($dragged.data('id'), 10);
+                var folderId = parseInt($dropped.data('id'), 10);
+                var fromFolderId = parseInt($dragged.parent().data('id'), 10);
 
                 // ignore when dragged to the same folder
                 if(folderId === fromFolderId){

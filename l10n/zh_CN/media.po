@@ -3,28 +3,42 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <wengxt@gmail.com>, 2011.
+#   <appweb.cn@gmail.com>, 2012.
+#   <suiy02@gmail.com>, 2012.
+#   <wengxt@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-06-06 00:12+0200\n"
-"PO-Revision-Date: 2012-06-05 22:15+0000\n"
-"Last-Translator: icewind <icewind1991@gmail.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.net/projects/p/owncloud/language/zh_CN/)\n"
+"POT-Creation-Date: 2012-11-19 00:00+0100\n"
+"PO-Revision-Date: 2012-11-18 16:06+0000\n"
+"Last-Translator: hanfeng <appweb.cn@gmail.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:32 templates/player.php:8
+#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
 msgid "Music"
 msgstr "音乐"
 
+#: js/collection.js:100 js/collection.js:210 js/collection.js:257
+msgid "songs"
+msgstr "歌曲"
+
+#: js/collection.js:101 js/collection.js:208
+msgid "albums"
+msgstr "专辑"
+
+#: js/collection.js:282
+msgid "Add to playlist"
+msgstr "添加到播放列表"
+
 #: js/music.js:18
 msgid "Add album to playlist"
-msgstr ""
+msgstr "专辑加入到播放列表"
 
 #: templates/music.php:3 templates/player.php:12
 msgid "Play"

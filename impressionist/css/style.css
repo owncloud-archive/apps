@@ -1,0 +1,17 @@
+
+#emptyfolder { position:absolute; text-align: center; margin:10em 0 0 10em; font-size:1.5em; font-weight:bold; color:#888; text-shadow:#fff 0 1px 0; }
+
+.impresslist {  margin-top:40px; padding:5px; width:100%;}
+.impresslist tr:hover {  background-color:#ccc; }
+.impresslist tr td {  padding:5px; }
+
+.docu { position: absolute; right: 13.5em; top: 0em; }
+
+#documentation { margin: 20px; }
+#documentation h1 { font-size:1.8em; font-weight:bold; color:#888; }
+#documentation h2 { font-size:1.5em; font-weight:bold; color:#888; }
+#documentation h2 { font-size:1.2em; font-weight:bold; color:#888; }
+#documentation h3 { font-size:1em; font-weight: bold; color:#888; }
+.github-profiles { text-decoration: underline;}
+.examplecode { font-size:0.9em; font-family:"Courier New","Courier";  background-color:#eee; color:#333; width:90%; height:300px; padding:10px;}
+.credits { margin-top:20px;}

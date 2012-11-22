@@ -1,5 +1,5 @@
 function hidePDFviewer() {
-	$('table').show();
+	$('#content table').show();
     $("#controls").show();
     $("#editor").show();
 	$('iframe').remove();
@@ -10,10 +10,10 @@ function showPDFviewer(dir,filename){
 	if(!showPDFviewer.shown){
 		$("#editor").hide();
 		var url = fileDownloadPath(dir, filename);
-		$('table').hide();
+		$('#content table').hide();
 		$("#controls").hide();
 		var oldcontent = $("#content").html();
-        var viewer = OC.linkTo('files_pdfviewer','viewer.php')+'&dir='+dir+'&file='+filename;
+		var viewer = OC.linkTo('files_pdfviewer','viewer.php')+'?dir='+dir+'&file='+filename;
 		$("#content").html(oldcontent+'<iframe style="width:100%;height:100%;display:block;" src="'+viewer+'" />');
 		$("#pageWidthOption").attr("selected","selected");
 	}

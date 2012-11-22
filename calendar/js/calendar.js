@@ -7,6 +7,62 @@
  */
 
 Calendar={
+	Util:{
+		dateTimeToTimestamp:function(dateString, timeString){
+			dateTuple = dateString.split('-');
+			timeTuple = timeString.split(':');
+			
+			var day, month, year, minute, hour;
+			day = parseInt(dateTuple[0], 10);
+			month = parseInt(dateTuple[1], 10);
+			year = parseInt(dateTuple[2], 10);
+			hour = parseInt(timeTuple[0], 10);
+			minute = parseInt(timeTuple[1], 10);
+			
+			var date = new Date(year, month-1, day, hour, minute);
+			
+			return parseInt(date.getTime(), 10);
+		},
+		formatDate:function(year, month, day){
+			if(day < 10){
+				day = '0' + day;
+			}
+			if(month < 10){
+				month = '0' + month;
+			}
+			return day + '-' + month + '-' + year;
+		},
+		formatTime:function(hour, minute){
+			if(hour < 10){
+				hour = '0' + hour;
+			}
+			if(minute < 10){
+				minute = '0' + minute;
+			}
+			return hour + ':' + minute;
+		}, 
+		adjustDate:function(){
+			var fromTime = $('#fromtime').val();
+			var fromDate = $('#from').val();
+			var fromTimestamp = Calendar.Util.dateTimeToTimestamp(fromDate, fromTime);
+
+			var toTime = $('#totime').val();
+			var toDate = $('#to').val();
+			var toTimestamp = Calendar.Util.dateTimeToTimestamp(toDate, toTime);
+
+			if(fromTimestamp >= toTimestamp){
+				fromTimestamp += 30*60*1000;
+				
+				var date = new Date(fromTimestamp);
+				movedTime = Calendar.Util.formatTime(date.getHours(), date.getMinutes());
+				movedDate = Calendar.Util.formatDate(date.getFullYear(),
+						date.getMonth()+1, date.getDate());
+
+				$('#to').val(movedDate);
+				$('#totime').val(movedTime);
+			}
+		}
+	},
 	UI:{
 		scrollcount: 0,
 		loading: function(isLoading){
@@ -22,16 +78,18 @@ Calendar={
 			$('#fullcalendar').fullCalendar('unselect');
 			Calendar.UI.lockTime();
 			$( "#from" ).datepicker({
-				dateFormat : 'dd-mm-yy'
+				dateFormat : 'dd-mm-yy',
+				onSelect: function(){ Calendar.Util.adjustDate(); }
 			});
 			$( "#to" ).datepicker({
 				dateFormat : 'dd-mm-yy'
 			});
 			$('#fromtime').timepicker({
-			    showPeriodLabels: false
+				showPeriodLabels: false,
+				onSelect: function(){ Calendar.Util.adjustDate(); }
 			});
 			$('#totime').timepicker({
-			    showPeriodLabels: false
+				showPeriodLabels: false
 			});
 			$('#category').multiple_autocomplete({source: categories});
 			Calendar.UI.repeat('init');
@@ -182,16 +240,16 @@ Calendar={
 		},
 		getEventPopupText:function(event){
 			if (event.allDay){
-				var timespan = $.fullCalendar.formatDates(event.start, event.end, 'ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}', {monthNamesShort: monthNamesShort, monthNames: monthNames, dayNames: dayNames, dayNamesShort: dayNamesShort}); //t('calendar', "ddd d MMMM[ yyyy]{ -[ddd d] MMMM yyyy}")
+				var timespan = $.fullCalendar.formatDates(event.start, event.end, 'ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}', {monthNamesShort: monthNamesShort, monthNames: monthNames, dayNames: dayNames, dayNamesShort: dayNamesShort}); //t('calendar', "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}")
 			}else{
-				var timespan = $.fullCalendar.formatDates(event.start, event.end, 'ddd d MMMM[ yyyy] ' + defaulttime + '{ -[ ddd d MMMM yyyy]' + defaulttime + '}', {monthNamesShort: monthNamesShort, monthNames: monthNames, dayNames: dayNames, dayNamesShort: dayNamesShort}); //t('calendar', "ddd d MMMM[ yyyy] HH:mm{ -[ ddd d MMMM yyyy] HH:mm}")
+				var timespan = $.fullCalendar.formatDates(event.start, event.end, 'ddd d MMMM[ yyyy] ' + defaulttime + '{ - [ ddd d MMMM yyyy]' + defaulttime + '}', {monthNamesShort: monthNamesShort, monthNames: monthNames, dayNames: dayNames, dayNamesShort: dayNamesShort}); //t('calendar', "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}")
 				// Tue 18 October 2011 08:00 - 16:00
 			}
 			var html =
-				'<div class="summary">' + event.title + '</div>' +
+				'<div class="summary">' + escapeHTML(event.title) + '</div>' +
 				'<div class="timespan">' + timespan + '</div>';
 			if (event.description){
-				html += '<div class="description">' + event.description + '</div>';
+				html += '<div class="description">' + escapeHTML(event.description) + '</div>';
 			}
 			return html;
 		},
@@ -209,7 +267,7 @@ Calendar={
 			}
 		},
 		showCalDAVUrl:function(username, calname){
-			$('#caldav_url').val(totalurl + '/' + username + '/' + decodeURIComponent(calname));
+			$('#caldav_url').val(totalurl + '/' + username + '/' + calname);
 			$('#caldav_url').show();
 			$("#caldav_url_close").show();
 		},
@@ -742,7 +800,7 @@ function ListView(element, calendar) {
 			' class="' + classes.join(' ') + '"' +
 			'>' +
 			'<span class="fc-event-title">' +
-			event.title +
+			escapeHTML(event.title) +
 			'</span>' +
 			'</span>' +
 			'</td>' +
@@ -851,6 +909,7 @@ $(document).ready(function(){
 		eventDrop: Calendar.UI.moveEvent,
 		eventResize: Calendar.UI.resizeEvent,
 		eventRender: function(event, element) {
+			element.find('.fc-event-title').text($("<div/>").html(escapeHTML(event.title)).text())
 			element.tipsy({
 				className: 'tipsy-event',
 				opacity: 0.9,
@@ -890,6 +949,7 @@ $(document).ready(function(){
 	fillWindow($('#content'));
 	OCCategories.changed = Calendar.UI.categoriesChanged;
 	OCCategories.app = 'calendar';
+	OCCategories.type = 'event';
 	$('#oneweekview_radio').click(function(){
 		$('#fullcalendar').fullCalendar('changeView', 'agendaWeek');
 	});

@@ -3,7 +3,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 	init:function() {
 		this.Addressbook.adrsettings = $('.addressbooks-settings').first();
 		this.Addressbook.adractions = $('#contacts-settings').find('div.actions');
-		console.log('actions: ' + this.Addressbook.adractions.length);
+		//console.log('actions: ' + this.Addressbook.adractions.length);
 		OC.Share.loadIcons('addressbook');
 	},
 	Addressbook:{
@@ -13,7 +13,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 		},
 		doActivate:function(id, tgt) {
 			var active = tgt.is(':checked');
-			console.log('doActivate: ', id, active);
+			//console.log('doActivate: ', id, active);
 			$.post(OC.filePath('contacts', 'ajax', 'addressbook/activate.php'), {id: id, active: Number(active)}, function(jsondata) {
 				if (jsondata.status == 'success'){
 					if(!active) {
@@ -22,14 +22,14 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 						OC.Contacts.Contacts.update();
 					}
 				} else {
-					console.log('Error:', jsondata.data.message);
+					//console.log('Error:', jsondata.data.message);
 					OC.Contacts.notify(t('contacts', 'Error') + ': ' + jsondata.data.message);
 					tgt.checked = !active;
 				}
 			});
 		},
 		doDelete:function(id) {
-			console.log('doDelete: ', id);
+			//console.log('doDelete: ', id);
 			var check = confirm('Do you really want to delete this address book?');
 			if(check == false){
 				return false;
@@ -49,7 +49,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 			}
 		},
 		doEdit:function(id) {
-			console.log('doEdit: ', id);
+			//console.log('doEdit: ', id);
 			var owner = this.adrsettings.find('[data-id="'+id+'"]').data('owner');
 			var actions = ['description', 'save', 'cancel'];
 			if(owner == OC.currentUser || id === 'new') {
@@ -59,7 +59,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 			var name = this.adrsettings.find('[data-id="'+id+'"]').find('.name').text();
 			var description = this.adrsettings.find('[data-id="'+id+'"]').find('.description').text();
 			var active = this.adrsettings.find('[data-id="'+id+'"]').find(':checkbox').is(':checked');
-			console.log('name, desc', name, description);
+			//console.log('name, desc', name, description);
 			this.adractions.find('.active').prop('checked', active);
 			this.adractions.find('.name').val(name);
 			this.adractions.find('.description').val(description);
@@ -70,7 +70,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 			var description = this.adractions.find('.description').val();
 			var active = this.adractions.find('.active').is(':checked');
 			var id = this.adractions.data('id');
-			console.log('doSave:', id, name, description, active);
+			//console.log('doSave:', id, name, description, active);
 
 			if(name.length == 0) {
 				OC.dialogs.alert(t('contacts', 'Displayname cannot be empty.'), t('contacts', 'Error'));
@@ -115,7 +115,7 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 			});
 		},
 		showLink:function(id, row, link) {
-			console.log('row:', row.length);
+			//console.log('row:', row.length);
 			row.next('tr.link').remove();
 			var linkrow = $('<tr class="link"><td colspan="5"><input style="width: 95%;" type="text" value="'+link+'" /></td>'
 				+ '<td colspan="3"><button>'+t('contacts', 'Cancel')+'</button></td></tr>').insertAfter(row);
@@ -125,15 +125,19 @@ OC.Contacts.Settings = OC.Contacts.Settings || {
 			});
 		},
 		showCardDAV:function(id) {
-			console.log('showCardDAV: ', id);
+			//console.log('showCardDAV: ', id);
 			var row = this.adrsettings.find('tr[data-id="'+id+'"]');
-			this.showLink(id, row, totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(row.data('uri')));
+			var owner = row.data('owner');
+			var uri = (owner === oc_current_user ) ? row.data('uri') : row.data('uri') + '_shared_by_' + owner;
+			this.showLink(id, row, totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri));
 		},
 		showVCF:function(id) {
-			console.log('showVCF: ', id);
+			//console.log('showVCF: ', id);
 			var row = this.adrsettings.find('tr[data-id="'+id+'"]');
-			var link = totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(row.data('uri'))+'?export';
-			console.log(link);
+			var owner = row.data('owner');
+			var uri = (owner === oc_current_user ) ? row.data('uri') : row.data('uri') + '_shared_by_' + owner;
+			var link = totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri)+'?export';
+			//console.log(link);
 			this.showLink(id, row, link);
 		}
 	}

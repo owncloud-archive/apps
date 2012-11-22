@@ -12,8 +12,8 @@ This App require a simpleSAMLphp SP installed, configured and conected to an IdP
 STEPS
 -----
 
-1. Copy the folder inside the owncloud's apps folder.
-2. Access to Owncloud web with an user with admin privileges.
+1. Copy the folder inside the ownCloud's apps folder.
+2. Access to ownCloud web with an user with admin privileges.
 3. Access to the Appications pannel and enable the SAML app.
 4. Access to the Administration pannel and configure the SAML app.
 
@@ -21,7 +21,7 @@ STEPS
 EXTRA INFO
 ==========
 
-* If you enable the "Autocreate user after saml login" option, then if an user does not exist, will be created. If this option is disabled and the user does not existed then the user will be not allowed to log in Owncloud.
+* If you enable the "Autocreate user after saml login" option, then if an user does not exist, will be created. If this option is disabled and the user does not existed then the user will be not allowed to log in ownCloud.
 
 
 * If you enable the "Update user data" option, when an existed user enter, then his email and groups will be updated.

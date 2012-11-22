@@ -3,7 +3,7 @@
 "Settings" => "Nastavitve",
 "Pad Title" => "Naslov beležke",
 "Open" => "Odpri",
-"Etherpad service URL" => "URL Etherpad storitve",
+"Etherpad service URL" => "Naslov URL storitve Etherpad",
 "Username" => "Uporabniško ime",
 "Save" => "Shrani"
 );

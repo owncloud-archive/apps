@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <suganthi@nic.lk>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2012-11-18 00:01+0100\n"
+"PO-Revision-Date: 2012-11-17 05:18+0000\n"
+"Last-Translator: suganthi <suganthi@nic.lk>\n"
+"Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ta_LK\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/settings.php:3
+msgid "Export this ownCloud instance"
+msgstr "இந்த ownCloud உதாரணத்தை ஏற்றுமதி செய்க"
+
+#: templates/settings.php:5
+msgid ""
+"This will create a compressed file that contains the data of this owncloud "
+"instance."
+msgstr "இது ஒரு குறுகல் கோப்பை உருவாக்கும் அது இந்த ownCloud உதாரணத்தின் தரவுகளை கொண்டுள்ளது."
+
+#: templates/settings.php:7
+msgid "Please choose the export type:"
+msgstr "தயவுசெய்து ஏற்றுமதி வகையை தெரிவுசெய்க"
+
+#: templates/settings.php:10
+msgid "ownCloud instance (user data and database"
+msgstr "ownCloud உதாரணம் (பயனாளர் தரவு மற்றும் தரவுத்தளம்"
+
+#: templates/settings.php:11
+msgid "ownCloud system files"
+msgstr "ownCloud அமைப்பு கோப்புகள்"
+
+#: templates/settings.php:12
+msgid "Just user files"
+msgstr "பயனாளர் கோப்புகள்"
+
+#: templates/settings.php:13
+msgid "Export"
+msgstr "ஏற்றுமதி"

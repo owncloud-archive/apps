@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
 # Nisok Kosin <nikos.efthimiou@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-18 02:01+0200\n"
-"PO-Revision-Date: 2012-09-17 19:09+0000\n"
+"POT-Creation-Date: 2012-09-20 02:06+0200\n"
+"PO-Revision-Date: 2012-09-19 23:14+0000\n"
 "Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr ""
+msgstr "Αυτό είναι τελικό σημείο διακομιστή OpenID. Για περισσότερες πληροφορίες, δείτε "
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
@@ -45,7 +46,7 @@ msgstr "Σφάλμα: <b> Δεν έχει επιλεχθεί κάποιος χρ
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
-msgstr "μπορείτε να πιστοποιείστε σε άλλες ιστοσελίδες με αυτήν την διεύθυνση"
+msgstr "μπορείτε να πιστοποιηθείτε σε άλλες ιστοσελίδες με αυτήν την διεύθυνση"
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"

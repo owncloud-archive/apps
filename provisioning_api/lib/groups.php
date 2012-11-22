@@ -22,14 +22,14 @@
 */
 
 class OC_Provisioning_API_Groups{
-	
+
 	/**
 	 * returns a list of groups
 	 */
 	public static function getGroups($parameters){
 		return array('groups' => OC_Group::getGroups());
 	}
-	
+
 	/**
 	 * returns an array of users in the group specified
 	 */
@@ -40,7 +40,7 @@ class OC_Provisioning_API_Groups{
 		}
 		return array('users' => OC_Group::usersInGroup($parameters['groupid']));
 	}
-	
+
 	/**
 	 * creates a new group
 	 */
@@ -60,7 +60,7 @@ class OC_Provisioning_API_Groups{
 			return 103;
 		}
 	}
-	
+
 	public static function deleteGroup($parameters){
 		// Check it exists
 		if(!OC_Group::groupExists($parameters['groupid'])){
@@ -76,5 +76,5 @@ class OC_Provisioning_API_Groups{
 			}
 		}
 	}
-	
+
 }

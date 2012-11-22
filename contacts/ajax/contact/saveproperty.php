@@ -112,12 +112,17 @@ if(!$value) {
 			$vcard->children[$line]->setValue($value);
 			$vcard->children[$line]->parameters = array();
 			$vcard->children[$line]->add(
-				new Sabre_VObject_Parameter('VALUE', 'DATE')
+				new Sabre\VObject\Parameter('VALUE', 'DATE')
 			);
 			debug('Setting value:'.$name.' '.$vcard->children[$line]);
 			break;
 		case 'CATEGORIES':
 			debug('Setting string:'.$name.' '.$value);
+			$catmgr = OC_Contacts_App::getVCategories();
+			$catmgr->purgeObject($id, 'contact');
+			foreach(array_map('trim', explode(',', $value)) as $category) {
+				$catmgr->addToCategory($id, $category);
+			}
 			$vcard->children[$line]->setValue($value);
 			break;
 		case 'EMAIL':
@@ -135,7 +140,7 @@ if(!$value) {
 						foreach($parameter as $val) {
 							if(trim($val)) {
 								debug('Adding parameter: '.$key.'=>'.$val);
-								$vcard->children[$line]->add(new Sabre_VObject_Parameter(
+								$vcard->children[$line]->add(new Sabre\VObject\Parameter(
 									$key,
 									strtoupper(strip_tags($val)))
 								);
@@ -143,7 +148,7 @@ if(!$value) {
 						}
 					} else {
 						if(trim($parameter)) {
-							$vcard->children[$line]->add(new Sabre_VObject_Parameter(
+							$vcard->children[$line]->add(new Sabre\VObject\Parameter(
 								$key,
 								strtoupper(strip_tags($parameter)))
 							);

@@ -21,7 +21,7 @@
  *
  */
 
-require_once 'phpsec.crypt.php';
+require_once 'django_auth/3rdparty/phpsec.crypt.php';
 
 /**
 * @brief Class providing django users to ownCloud
@@ -140,7 +140,7 @@ class OC_USER_DJANGO extends OC_User_Backend {
 	*
 	* Get a list of all users.
 	*/
-	public function getUsers() {
+	public function getUsers($search = '', $limit = 10, $offset = 0) {
 		$query  = OC_DB::prepare( 'SELECT id, username, is_active FROM `auth_user` WHERE is_active=1 ORDER BY username' );
 		$result = $query->execute();
 		$users  = array();

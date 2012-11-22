@@ -20,21 +20,33 @@ class Utils {
 
 	/**
 	 * @brief Transform a date from UNIX timestamp format to MDB2 timestamp format
-	 * @param dbtimestamp
-	 * @returns
+	 * @param dbtimestamp a date in the UNIX timestamp format
+	 * @returns a date in the MDB2 timestamp format, or NULL if an error occurred
 	 */
 	public static function unixtimeToDbtimestamp($unixtime) {
+		if ($unixtime === null) {
+			return null;
+		}
 		$dt = \DateTime::createFromFormat('U', $unixtime);
+		if ($dt === false) {
+			return null;
+		}
 		return $dt->format('Y-m-d H:i:s');
 	}
 
 	/**
 	 * @brief Transform a date from MDB2 timestamp format to UNIX timestamp format
-	 * @param dbtimestamp
-	 * @returns
+	 * @param dbtimestamp a date in the MDB2 timestamp format
+	 * @returns a date in the UNIX timestamp format, or NULL if an error occurred
 	 */
 	public static function dbtimestampToUnixtime($dbtimestamp) {
+		if ($dbtimestamp === null) {
+			return null;
+		}
 		$dt = \DateTime::createFromFormat('Y-m-d H:i:s', $dbtimestamp);
+		if ($dt === false) {
+			return null;
+		}
 		return $dt->format('U');
 	}
 
@@ -52,57 +64,57 @@ class Utils {
 			return null;
 		}
 
-	   //temporary try-catch to bypass SimplePie bugs
-	   try {
-		$spfeed->handle_content_type();
-		$title = $spfeed->get_title();
+		//temporary try-catch to bypass SimplePie bugs
+		try {
+			$spfeed->handle_content_type();
+			$title = $spfeed->get_title();
 
-		$items = array();
-		if ($spitems = $spfeed->get_items()) {
-			foreach($spitems as $spitem) {
-				$itemUrl = $spitem->get_permalink();
-				$itemTitle = $spitem->get_title();
-				$itemGUID = $spitem->get_id();
-				$itemBody = $spitem->get_content();
-				$item = new Item($itemUrl, $itemTitle, $itemGUID, $itemBody);
+			$items = array();
+			if ($spitems = $spfeed->get_items()) {
+				foreach($spitems as $spitem) {
+					$itemUrl = $spitem->get_permalink();
+					$itemTitle = $spitem->get_title();
+					$itemGUID = $spitem->get_id();
+					$itemBody = $spitem->get_content();
+					$item = new Item($itemUrl, $itemTitle, $itemGUID, $itemBody);
 
-				$spAuthor = $spitem->get_author();
-				if ($spAuthor !== null) {
-					$item->setAuthor($spAuthor->get_name());
+					$spAuthor = $spitem->get_author();
+					if ($spAuthor !== null) {
+						$item->setAuthor($spAuthor->get_name());
+					}
+
+					//date in Item is stored in UNIX timestamp format
+					$itemDate = $spitem->get_date('U');
+					$item->setDate($itemDate);
+
+					$items[] = $item;
 				}
-
-				//date in Item is stored in UNIX timestamp format
-				$itemDate = $spitem->get_date('U');
-				$item->setDate($itemDate);
-
-				$items[] = $item;
 			}
-		}
 
-		$feed = new Feed($url, $title, $items);
+			$feed = new Feed($url, $title, $items);
 
-		$favicon = $spfeed->get_image_url();
+			$favicon = $spfeed->get_image_url();
 
-		if ($favicon !== null && self::checkFavicon($favicon)) { // use favicon from feed
-			$feed->setFavicon($favicon);
-		}
-		else { // try really hard to find a favicon
-			$webFavicon = self::discoverFavicon($url);
-			if ($webFavicon !== null) {
-				$feed->setFavicon($webFavicon);
+			if ($favicon !== null && self::checkFavicon($favicon)) { // use favicon from feed
+				$feed->setFavicon($favicon);
 			}
+			else { // try really hard to find a favicon
+				$webFavicon = self::discoverFavicon($url);
+				if ($webFavicon !== null) {
+					$feed->setFavicon($webFavicon);
+				}
+			}
+			return $feed;
 		}
-		return $feed;
-		}
-	   catch (Exception $e) {
-		return null;
-	   }
+	  catch (Exception $e) {
+			return null;
+	  }
 	}
 
 	/**
-	 * Perform a "slim" fetch of a feed from remote. 
+	 * Perform a "slim" fetch of a feed from remote.
 	 * Differently from Utils::fetch(), it doesn't retrieve items nor a favicon
-	 * 	
+	 *
 	 * @param url remote url of the feed
 	 * @returns an instance of OC_News_Feed
 	 */
@@ -121,7 +133,7 @@ class Utils {
 		$title = $spfeed->get_title();
 
 		$feed = new Feed($url, $title);
-		
+
 		return $feed;
 		}
 	   catch (Exception $e) {
@@ -130,7 +142,7 @@ class Utils {
 	}
 
 	public static function checkFavicon($favicon) {
-		if ($favicon === null || $favicon == false) 
+		if ($favicon === null || $favicon == false)
 			return false;
 
 		$file = new \SimplePie_File($favicon);
@@ -158,7 +170,7 @@ class Utils {
 
 		//try to extract favicon from web page
 		$absoluteUrl = \SimplePie_Misc::absolutize_url('/', $url);
-		
+
 		$handle = curl_init ( );
 		curl_setopt ( $handle, CURLOPT_URL, $absoluteUrl );
 		curl_setopt ( $handle, CURLOPT_RETURNTRANSFER, 1 );

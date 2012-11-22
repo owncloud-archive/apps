@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Felaktigt datum/tid",
 "Tasks" => "Uppgifter",
+"Due" => "Förfaller",
+"List" => "Lista",
+"Location" => "Plats",
 "No category" => "Ingen kategori",
 "Unspecified" => "Ospecificerad ",
 "1=highest" => "1=högsta",

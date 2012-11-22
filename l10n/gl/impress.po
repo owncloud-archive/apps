@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Miguel Branco <mgl.branco@gmail.com>, 2012.
 # Xosé M. Lamas <correo.xmgz@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-19 02:02+0200\n"
-"PO-Revision-Date: 2012-09-18 09:29+0000\n"
-"Last-Translator: Xosé M. Lamas <correo.xmgz@gmail.com>\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 22:15+0000\n"
+"Last-Translator: Miguel Branco <mgl.branco@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,4 +26,4 @@ msgstr "Documentación"
 #: templates/presentations.php:10
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
-msgstr "Non se atoparon ficheiros Impress no teu ownCloud. Suba un ficheiro .impress por favor."
+msgstr "Non se atoparon ficheiros Impress no teu ownCloud. Sube un ficheiro .impress."

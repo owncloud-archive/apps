@@ -1,5 +1,4 @@
 <?php $TRANSLATIONS = array(
-"regex" => "regex",
 "Save" => "Opslaan",
 "Close" => "Sluiten",
 "Saving..." => "Opslaan",

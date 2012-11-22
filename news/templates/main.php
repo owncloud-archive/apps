@@ -3,11 +3,12 @@
 <!-- End of Dialogs -->
 
 <?php
-if ($_['feedid']) {
 
-$showAll = OCP\Config::getUserValue(OCP\USER::getUser(), 'news', 'showAll'); 
+$lastViewedFeedId = $_['lastViewedFeedId'];
+$lastViewedFeedType = $_['lastViewedFeedType'];
 
-if($showAll) {
+
+if($_['showAll']) {
 	$viewButtonImg = 'eye_all.svg';
 	$viewButtonTitle = $l->t('Show everything');
 	$viewButtonClass = 'show_all';
@@ -17,6 +18,7 @@ if($showAll) {
 	$viewButtonClass = 'show_unread';
 }
 
+echo $this->inc("part.dialogues");
 ?>
 
 <div id="leftcontent_news" class="leftcontent_news">
@@ -49,6 +51,7 @@ if($showAll) {
 <div id="rightcontent" class="rightcontent">
 	<?php
 			echo '<div id="feed_items">';
+				//echo $this->inc("part.shared");
 				echo $this->inc("part.items");
 			echo '</div>';
 	?>
@@ -57,9 +60,4 @@ if($showAll) {
 
 </div>
 
-<?php
-	} else {
-		echo $this->inc("part.nofeeds");
-	}
-
-	echo $this->inc("part.dialogues");
+<div id='notification'></div>

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
-"PO-Revision-Date: 2012-09-05 09:32+0000\n"
+"POT-Creation-Date: 2012-11-02 00:01+0100\n"
+"PO-Revision-Date: 2012-11-01 17:56+0000\n"
 "Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -21,9 +21,21 @@ msgstr ""
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: appinfo/app.php:45 templates/player.php:8
+#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
 msgid "Music"
 msgstr "Hudba"
+
+#: js/collection.js:100 js/collection.js:210 js/collection.js:257
+msgid "songs"
+msgstr "skladby"
+
+#: js/collection.js:101 js/collection.js:208
+msgid "albums"
+msgstr "alba"
+
+#: js/collection.js:282
+msgid "Add to playlist"
+msgstr "Přidat do seznamu skladeb"
 
 #: js/music.js:18
 msgid "Add album to playlist"

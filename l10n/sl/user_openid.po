@@ -3,36 +3,37 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <>, 2012.
 # Peter Peroša <peter.perosa@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-16 02:04+0200\n"
-"PO-Revision-Date: 2012-08-15 00:29+0000\n"
-"Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
+"POT-Creation-Date: 2012-10-23 02:05+0200\n"
+"PO-Revision-Date: 2012-10-22 17:44+0000\n"
+"Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3)\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr "To je OpenID strežniška končna točka. Za več informacij si oglejte"
+msgstr "To je končna točka strežnika OpenID. Za več podrobnosti si oglejte"
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
-msgstr "Identiteta: <b>"
+msgstr "Istovetnost: <b>"
 
 #: templates/nomode.php:15
 msgid "Realm: <b>"
-msgstr "Področje: <b>"
+msgstr "Območje: <b>"
 
 #: templates/nomode.php:16
 msgid "User: <b>"
-msgstr "Uporabnik:"
+msgstr "Uporabnik:<b>"
 
 #: templates/nomode.php:17
 msgid "Login"
@@ -40,15 +41,15 @@ msgstr "Prijava"
 
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"
-msgstr "Napaka: <b>Uporabnik ni bil izbran"
+msgstr "Napaka: <b>uporabnik ni izbran"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
-msgstr "s tem naslovom se lahko overite tudi na drugih straneh"
+msgstr "s tem naslovom se je mogoče overiti tudi na drugih spletnih straneh"
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"
-msgstr "Odobren ponudnik OpenID"
+msgstr "Pooblaščen ponudnik OpenID"
 
 #: templates/settings.php:6
 msgid "Your address at Wordpress, Identi.ca, &hellip;"

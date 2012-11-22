@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-19 02:02+0200\n"
+"POT-Creation-Date: 2012-11-22 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 
 #: settings.php:39
 msgid ""
-"The php-curl modude is needed to fetch the page title when adding a bookmark"
+"The php-curl module is needed to fetch the page title when adding a bookmark"
 msgstr ""
 
 #: settings.php:45

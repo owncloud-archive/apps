@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-04 02:01+0200\n"
-"PO-Revision-Date: 2012-09-04 00:01+0000\n"
+"POT-Creation-Date: 2012-09-26 13:19+0200\n"
+"PO-Revision-Date: 2012-09-26 11:21+0000\n"
 "Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,18 @@ msgstr ""
 
 #: appinfo/app.php:10
 msgid "Tasks"
+msgstr ""
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr ""
+
+#: js/tasks.js:107
+msgid "List"
+msgstr ""
+
+#: js/tasks.js:128
+msgid "Location"
 msgstr ""
 
 #: js/tasks.js:415

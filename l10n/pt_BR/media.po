@@ -3,29 +3,44 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <dudanogueira@gmail.com>, 2012.
 #   <duda.nogueira@metasys.com.br>, 2011.
+#   <philippi.sedir@gmail.com>, 2012.
+# Sandro Venezuela <sandrovenezuela@gmail.com>, 2012.
 # Van Der Fran <transifex@vanderland.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-06-06 00:12+0200\n"
-"PO-Revision-Date: 2012-06-05 22:15+0000\n"
-"Last-Translator: icewind <icewind1991@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.net/projects/p/owncloud/language/pt_BR/)\n"
+"POT-Creation-Date: 2012-11-04 00:00+0100\n"
+"PO-Revision-Date: 2012-11-03 14:29+0000\n"
+"Last-Translator: dudanogueira <dudanogueira@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: appinfo/app.php:32 templates/player.php:8
+#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
 msgid "Music"
 msgstr "Música"
 
+#: js/collection.js:100 js/collection.js:210 js/collection.js:257
+msgid "songs"
+msgstr "músicas"
+
+#: js/collection.js:101 js/collection.js:208
+msgid "albums"
+msgstr "albuns"
+
+#: js/collection.js:282
+msgid "Add to playlist"
+msgstr "Adicionar à playlist"
+
 #: js/music.js:18
 msgid "Add album to playlist"
-msgstr ""
+msgstr "Adicionar álbum à lista"
 
 #: templates/music.php:3 templates/player.php:12
 msgid "Play"

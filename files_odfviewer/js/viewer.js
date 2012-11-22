@@ -1,28 +1,30 @@
 function viewOdf(dir, file) {
-	OC.addScript('files_odfviewer','webodf').done(function(){
-		var location = fileDownloadPath(dir, file);
+    OC.addStyle('files_odfviewer', 'webodf');
+    OC.addStyle('files_odfviewer', 'odfviewer');
+    OC.addScript('files_odfviewer','webodf').done(function(){
+        var location = fileDownloadPath(dir, file);
 
-		// fade out files menu and add odf menu
-		$('.actions,#file_action_panel').fadeOut('slow').promise().done(function() {
-			// odf action toolbar
-			var odfToolbarHtml =
-				'<div id="odf-toolbar">' +
-				'<input type="button" id="odf_close">'+t('files_odfviewer','Close')+
-				'</div>';
-			$('#controls').append(odfToolbarHtml);
+        // fade out files menu and add odf menu
+        $('.actions,#file_action_panel').fadeOut('slow').promise().done(function() {
+            // odf action toolbar
+            var odfToolbarHtml =
+                '<div id="odf-toolbar">' +
+                '<button id="odf_close">'+t('files_odfviewer','Close')+
+                '</button></div>';
+            $('#controls').append(odfToolbarHtml);
 
-		});
+        });
 
-		// fade out file list and show pdf canvas
-		$('table').fadeOut('slow').promise().done(function(){;
-			var canvashtml = '<div id="odf-canvas"></div>';
-			$('table').after(canvashtml);
+        // fade out file list and show pdf canvas
+        $('table').fadeOut('slow').promise().done(function(){;
+            var canvashtml = '<div id="odf-canvas"></div>';
+            $('table').after(canvashtml);
 
-			var odfelement = document.getElementById("odf-canvas");
-			var odfcanvas = new odf.OdfCanvas(odfelement);
-			odfcanvas.load(location);
-		});
-	});
+            var odfelement = document.getElementById("odf-canvas");
+            var odfcanvas = new odf.OdfCanvas(odfelement);
+            odfcanvas.load(location);
+        });
+    });
 }
 
 function closeOdfViewer(){

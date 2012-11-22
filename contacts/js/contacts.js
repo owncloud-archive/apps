@@ -156,8 +156,9 @@ OC.Contacts={
 			OC.Contacts.Card.deleteProperty(obj, 'single');
 		}
 		var goToUrl = function(obj) {
-		var url = OC.Contacts.propertyContainerFor(obj).find('#url').val();
-		if(url != '') {
+		var url = OC.Contacts.propertyContainerFor(obj).find('#url').val().toString();
+		// Check if the url is valid
+		if(new RegExp("[a-zA-Z0-9]+://([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(url)) {
 			var newWindow = window.open(url,'_blank');
 			newWindow.focus();
 			}
@@ -311,7 +312,7 @@ OC.Contacts={
 		update:function(params) { // params {cid:int, aid:int}
 			if(!params) { params = {}; }
 			$('#contacts li,#contacts h3').removeClass('active');
-			console.log('Card, cid: ' + params.cid + ' aid: ' + params.aid);
+			//console.log('Card, cid: ' + params.cid + ' aid: ' + params.aid);
 			var newid, bookid, firstitem;
 			if(!parseInt(params.cid) && !parseInt(params.aid)) {
 				firstitem = $('#contacts ul').find('li:first-child');
@@ -328,7 +329,7 @@ OC.Contacts={
 			} else if(parseInt(params.cid) && !parseInt(params.aid)) {
 				newid = parseInt(params.cid);
 				var listitem = OC.Contacts.Contacts.getContact(newid); //$('#contacts li[data-id="'+newid+'"]');
-				console.log('Is contact in list? ' + listitem.length);
+				//console.log('Is contact in list? ' + listitem.length);
 				if(listitem.length) {
 					//bookid = parseInt($('#contacts li[data-id="'+newid+'"]').data('bookid'));
 					bookid = parseInt(OC.Contacts.Contacts.getContact(newid).data('bookid'));
@@ -340,10 +341,10 @@ OC.Contacts={
 				bookid = parseInt(params.aid);
 			}
 			if(!bookid || !newid) {
-				bookid = parseInt($('#contacts h3').first().data('id'));
+				bookid = parseInt($('#contacts h3.addressbook').first().data('id'));
 				newid = parseInt($('#contacts').find('li[data-bookid="'+bookid+'"]').first().data('id'));
 			}
-			console.log('newid: ' + newid + ' bookid: ' +bookid);
+			//console.log('newid: ' + newid + ' bookid: ' +bookid);
 			var localLoadContact = function(newid, bookid) {
 				if($('.contacts li').length > 0) {
 					$.getJSON(OC.filePath('contacts', 'ajax', 'contact/details.php'),{'id':newid},function(jsondata){
@@ -355,7 +356,7 @@ OC.Contacts={
 									data:jsondata.data
 								});
 							}
-							$('#contacts li[data-id="'+newid+'"],#contacts h3[data-id="'+bookid+'"]').addClass('active');
+							$('#contacts li[data-id="'+newid+'"],#contacts h3.addressbook[data-id="'+bookid+'"]').addClass('active');
 							$('#contacts ul[data-id="'+bookid+'"]').slideDown(300);
 							OC.Contacts.Card.loadContact(jsondata.data, bookid);
 							OC.Contacts.Contacts.scrollTo(newid);
@@ -368,20 +369,20 @@ OC.Contacts={
 
 			// Make sure proper DOM is loaded.
 			if(newid) {
-				console.log('Loading card DOM');
+				//console.log('Loading card DOM');
 				localLoadContact(newid, bookid);
 				$('#firstrun').hide();
 				$('#card').show();
 			} else if(!newid) {
-				console.log('Loading intro');
+				//console.log('Loading intro');
 				// show intro page
 				$('#firstrun').show();
 				$('#card').hide();
 			}
-			$('#contacts h3[data-id="'+bookid+'"]').addClass('active');
+			$('#contacts h3.addressbook[data-id="'+bookid+'"]').addClass('active');
 		},
 		setEnabled:function(enabled) {
-			console.log('setEnabled', enabled);
+			//console.log('setEnabled', enabled);
 			$('.contacts_property,.action').each(function () {
 				$(this).prop('disabled', !enabled);
 				OC.Contacts.Card.enabled = enabled;
@@ -409,10 +410,10 @@ OC.Contacts={
 			return false;
 		},
 		add:function(n, fn, aid, isnew) { // add a new contact
-			console.log('Adding ' + fn);
+			//console.log('Adding ' + fn);
 			$('#firstrun').hide();
 			$('#card').show();
-			aid = aid?aid:$('#contacts h3.active').first().data('id');
+			aid = aid?aid:$('#contacts h3.addressbook.active').first().data('id');
 			$.post(OC.filePath('contacts', 'ajax', 'contact/add.php'), { n: n, fn: fn, aid: aid, isnew: isnew },
 				function(jsondata) {
 					if (jsondata.status == 'success'){
@@ -481,7 +482,7 @@ OC.Contacts={
 				message:t('contacts','Click to undo deletion of "') + curlistitem.find('a').text() + '"',
 				//timeout:5,
 				timeouthandler:function(contact) {
-					console.log('timeout');
+					//console.log('timeout');
 					OC.Contacts.Card.doDelete(contact.data('id'), true, function(res) {
 						if(!res) {
 							OC.Contacts.Contacts.insertContact({contact:contact});
@@ -508,7 +509,7 @@ OC.Contacts={
 			}
 
 			if(OC.Contacts.Contacts.deletionQueue.indexOf(parseInt(id)) == -1 && removeFromQueue) {
-				console.log('returning');
+				//console.log('returning');
 				updateQueue(id, removeFromQueue);
 				if(typeof cb == 'function') {
 					cb(true);
@@ -560,7 +561,7 @@ OC.Contacts={
 				$('#contacts_propertymenu_dropdown a[data-type="NOTE"]').parent().show();
 			}
 			var permissions = OC.Contacts.Card.permissions = parseInt(this.data.permissions);
-			console.log('permissions', permissions);
+			//console.log('permissions', permissions);
 			this.setEnabled(permissions == 0
 				|| permissions & OC.PERMISSION_UPDATE
 				|| permissions & OC.PERMISSION_DELETE);
@@ -647,19 +648,19 @@ OC.Contacts={
 			$('#fn_select option').remove();
 			var names = [this.fn, this.fullname, this.givname + ' ' + this.famname, this.famname + ' ' + this.givname, this.famname + ', ' + this.givname];
 			if(this.data.ORG) {
-				names[names.length]=this.data.ORG[0].value;
+				names.push(this.data.ORG[0].value);
 			}
-			$.each(names, function(key, value) {
+			$.each($.unique(names), function(key, value) {
 				$('#fn_select')
 				.append($('<option></option>')
 				.text(value));
 			});
-				$('#fn_select').combobox('value', this.fn);
-				$('#contact_identity').find('*[data-element="N"]').data('checksum', this.data.N[0]['checksum']);
-				if(this.data.FN) {
-					$('#contact_identity').find('*[data-element="FN"]').data('checksum', this.data.FN[0]['checksum']);
-				}
-				$('#contact_identity').show();
+			$('#fn_select').combobox('value', this.fn);
+			$('#contact_identity').find('*[data-element="N"]').data('checksum', this.data.N[0]['checksum']);
+			if(this.data.FN) {
+				$('#contact_identity').find('*[data-element="FN"]').data('checksum', this.data.FN[0]['checksum']);
+			}
+			$('#contact_identity').show();
 		},
 		hasCategory:function(category) {
 			if(this.data.CATEGORIES) {
@@ -675,12 +676,20 @@ OC.Contacts={
 		},
 		categoriesChanged:function(newcategories) { // Categories added/deleted.
 			categories = $.map(newcategories, function(v) {return v;});
+			$('#contacts h3.category').each(function() {
+				if(categories.indexOf($(this).text()) === -1) {
+					$(this).next('ul').remove();
+					$(this).remove();
+				}
+			});
 			$('#categories').multiple_autocomplete('option', 'source', categories);
 			var categorylist = $('#categories_value').find('input');
 			$.getJSON(OC.filePath('contacts', 'ajax', 'categories/categoriesfor.php'),{'id':OC.Contacts.Card.id},function(jsondata){
-				if(jsondata.status == 'success'){
-					$('#categories_value').data('checksum', jsondata.data.checksum);
-					categorylist.val(jsondata.data.value);
+				if(jsondata.status == 'success') {
+					if(jsondata.data) {
+						$('#categories_value').data('checksum', jsondata.data.checksum);
+						categorylist.val(jsondata.data.value);
+					}
 				} else {
 					OC.dialogs.alert(jsondata.data.message, t('contacts', 'Error'));
 				}
@@ -731,6 +740,9 @@ OC.Contacts={
 			var name = container.data('element');
 			var fields = container.find('input.contacts_property,select.contacts_property').serializeArray();
 			switch(name) {
+				case 'CATEGORIES':
+					OC.Contacts.Contacts.updateCategories(this.id, $('#categories').val());
+					break;
 				case 'FN':
 					var nempty = true;
 					for(var i in OC.Contacts.Card.data.N[0]['value']) {
@@ -755,7 +767,7 @@ OC.Contacts={
 			q = q + '&id=' + this.id + '&name=' + name;
 			if(checksum != undefined && checksum != '') { // save
 					q = q + '&checksum=' + checksum;
-					console.log('Saving: ' + q);
+					//console.log('Saving: ' + q);
 					$(obj).attr('disabled', 'disabled');
 					$.post(OC.filePath('contacts', 'ajax', 'contact/saveproperty.php'),q,function(jsondata){
 						if(!jsondata) {
@@ -781,7 +793,7 @@ OC.Contacts={
 						}
 					},'json');
 			} else { // add
-					console.log('Adding: ' + q);
+					//console.log('Adding: ' + q);
 					$(obj).attr('disabled', 'disabled');
 					$.post(OC.filePath('contacts', 'ajax', 'contact/addproperty.php'),q,function(jsondata){
 						if(jsondata.status == 'success'){
@@ -848,7 +860,7 @@ OC.Contacts={
 			}
 		},
 		deleteProperty:function(obj, type) {
-			console.log('deleteProperty');
+			//console.log('deleteProperty');
 			if(!this.enabled) {
 				return;
 			}
@@ -967,11 +979,11 @@ OC.Contacts={
 			var tmp = [this.fullname, this.givname + ' ' + this.famname, this.famname + ' ' + this.givname, this.famname + ', ' + this.givname];
 			var names = new Array();
 			for(var name in tmp) {
-				if(names.indexOf(tmp[name]) == -1) {
+				if(tmp[name] && names.indexOf(tmp[name]) == -1) {
 					names.push(tmp[name]);
 				}
 			}
-			$.each(names, function(key, value) {
+			$.each($.unique(names), function(key, value) {
 				$('#fn_select')
 				.append($('<option></option>')
 				.text(value));
@@ -1203,6 +1215,8 @@ OC.Contacts={
 				adrtxt = adrtxt + '<li>' + adr[6] + '</li>';
 			}
 			container.find('.addresslist').html(adrtxt);
+			$('#addresses').show();
+			container.show();
 		},
 		uploadPhoto:function(filelist) {
 			if(!this.enabled) {
@@ -1306,7 +1320,7 @@ OC.Contacts={
 				return;
 			}
 			//alert('editPhoto: ' + tmpkey);
-			$.getJSON(OC.filePath('contacts', 'ajax', 'cropphoto.php'),{'tmpkey':tmpkey,'id':this.id, 'requesttoken':requesttoken},function(jsondata){
+			$.getJSON(OC.filePath('contacts', 'ajax', 'cropphoto.php'),{'tmpkey':tmpkey,'id':this.id, 'requesttoken':oc_requesttoken},function(jsondata){
 				if(jsondata.status == 'success'){
 					//alert(jsondata.data.page);
 					$('#edit_photo_dialog_img').html(jsondata.data.page);
@@ -1633,6 +1647,37 @@ OC.Contacts={
 				return false;
 			}
 		},
+		updateCategories:function(id, catstr) {
+			var categories = $.map(catstr.split(','), function(category) {return category.trim();});
+			
+			// Not pretty, but only proof of concept
+			$('#contacts ul.category').each(function() {
+				if(categories.indexOf($(this).prev('h3').text()) === -1) {
+					$(this).find('li[data-id="' + id + '"]').remove();
+				} else {
+					if($(this).find('li[data-id="' + id + '"]').length === 0) {
+						var contacts = $(this).children();
+						var contact =  $('<li data-id="'+id+'" data-categoryid="'+$(this).data('id')
+							+ '" role="button"><a href="'+OC.linkTo('contacts', 'index.php')+'&id='
+							+ id+'"  style="background: url('+OC.filePath('contacts', '', 'thumbnail.php')
+							+ '?id='+id+') no-repeat scroll 0% 0% transparent;">'
+							+ OC.Contacts.Card.fn+'</a></li>');
+
+						var added = false;
+						contacts.each(function() {
+							if($(this).text().toLowerCase().localeCompare(OC.Contacts.Card.fn.toLowerCase()) > 0) {
+								$(this).before(contact);
+								added = true;
+								return false; // break out of loop
+							}
+						});
+						if(!added || !contacts.length) {
+							$(this).append(contact);
+						}
+					}
+				}
+			});
+		},
 		/**
 		 * @params params An object with the properties 'contactlist':a jquery object of the ul to insert into,
 		 * 'contacts':a jquery object of all items in the list and either 'data': an object with the properties
@@ -1654,7 +1699,7 @@ OC.Contacts={
 			}
 			var contact = params.data
 					? $('<li data-id="'+params.data.id+'" data-bookid="'+params.data.addressbookid
-						+ '" role="button"><a href="'+OC.linkTo('contacts', 'index.php')+'&id='
+						+ '" role="button"><a href="'+OC.linkTo('contacts', 'index.php')+'?id='
 						+ params.data.id+'"  style="background: url('+OC.filePath('contacts', '', 'thumbnail.php')
 						+ '?id='+params.data.id+') no-repeat scroll 0% 0% transparent;">'
 						+ params.data.displayname+'</a></li>')
@@ -1716,7 +1761,7 @@ OC.Contacts={
 			this.next(true);
 		},
 		nextAddressbook:function(reverse) {
-			console.log('nextAddressbook', reverse);
+			//console.log('nextAddressbook', reverse);
 			var curlistitem = this.getContact(OC.Contacts.Card.id);
 			var parent = curlistitem.parent('ul');
 			var newparent = reverse
@@ -1736,7 +1781,7 @@ OC.Contacts={
 			}
 		},
 		previousAddressbook:function() {
-			console.log('previousAddressbook');
+			//console.log('previousAddressbook');
 			this.nextAddressbook(true);
 		},
 		// Reload the contacts list.
@@ -1744,40 +1789,40 @@ OC.Contacts={
 			if(!params) { params = {}; }
 			if(!params.start) {
 				if(params.aid) {
-					$('#contacts h3[data-id="'+params.aid+'"],#contacts ul[data-id="'+params.aid+'"]').remove();
+					$('#contacts h3.addressbook[data-id="'+params.aid+'"],#contacts ul[data-id="'+params.aid+'"]').remove();
 				} else {
 					$('#contacts').empty();
 				}
 			}
 			self = this;
-			console.log('update: ' + params.cid + ' ' + params.aid + ' ' + params.start);
+			//console.log('update: ' + params.cid + ' ' + params.aid + ' ' + params.start);
 			var firstrun = false;
 			var opts = {};
 			opts['startat'] = (params.start?params.start:0);
 			if(params.aid) {
 				opts['aid'] = params.aid;
 			}
-			$.getJSON(OC.filePath('contacts', 'ajax', 'contact/list.php'),opts,function(jsondata){
+			$.getJSON(OC.filePath('contacts', 'ajax', 'contact/list.php'),opts,function(jsondata) {
 				if(jsondata.status == 'success'){
 					var books = jsondata.data.entries;
 					$.each(books, function(b, book) {
-						if($('#contacts h3[data-id="'+b+'"]').length == 0) {
+						if($('#contacts h3.addressbook[data-id="'+b+'"]').length == 0) {
 							firstrun = true;
 							var sharedindicator = book.owner == OC.currentUser ? ''
 								: '<img class="shared svg" src="'+OC.imagePath('core', 'actions/shared')+'" title="'+t('contacts', 'Shared by ')+book.owner+'" />'
-							if($('#contacts h3').length == 0) {
+							if($('#contacts h3.addressbook').length == 0) {
 								$('#contacts').html('<h3 class="addressbook" data-id="'
 									+ b + '" data-permissions="' + book.permissions + '">' + book.displayname
-									+ sharedindicator + '</h3><ul class="contacts hidden" data-id="'+b+'" data-permissions="'
+									+ sharedindicator + '</h3><ul class="contacts addressbook hidden" data-id="'+b+'" data-permissions="'
 									+ book.permissions + '"></ul>');
 							} else {
-								if(!$('#contacts h3[data-id="' + b + '"]').length) {
+								if(!$('#contacts h3.addressbook[data-id="' + b + '"]').length) {
 									var item = $('<h3 class="addressbook" data-id="'
 										+ b + '" data-permissions="' + book.permissions + '">'
-										+ book.displayname+sharedindicator+'</h3><ul class="contacts hidden" data-id="' + b
+										+ book.displayname+sharedindicator+'</h3><ul class="contacts addressbook hidden" data-id="' + b
 										+ '" data-permissions="' + book.permissions + '"></ul>');
 									var added = false;
-									$('#contacts h3').each(function(){
+									$('#contacts h3.addressbook').each(function(){
 										if ($(this).text().toLowerCase().localeCompare(book.displayname.toLowerCase()) > 0) {
 											$(this).before(item).fadeIn('fast');
 											added = true;
@@ -1789,14 +1834,14 @@ OC.Contacts={
 									}
 								}
 							}
-							$('#contacts h3[data-id="'+b+'"]').on('click', function(event) {
-								$('#contacts h3').removeClass('active');
+							$('#contacts h3.addressbook[data-id="'+b+'"]').on('click', function(event) {
+								$('#contacts h3.addressbook').removeClass('active');
 								$(this).addClass('active');
 								$('#contacts ul[data-id="'+b+'"]').slideToggle(300);
 								return false;
 							});
 							var accept = 'li:not([data-bookid="'+b+'"]),h3:not([data-id="'+b+'"])';
-							$('#contacts h3[data-id="'+b+'"],#contacts ul[data-id="'+b+'"]').droppable({
+							$('#contacts h3.addressbook[data-id="'+b+'"],#contacts ul[data-id="'+b+'"]').droppable({
 								drop: OC.Contacts.Contacts.drop,
 								activeClass: 'ui-state-hover',
 								accept: accept
@@ -1814,7 +1859,7 @@ OC.Contacts={
 										var bookid = $(this).data('bookid');
 										var numsiblings = $('.contacts li[data-bookid="'+bookid+'"]').length;
 										if (isInView && numsiblings >= self.batchnum) {
-											console.log('This would be a good time to load more contacts.');
+											//console.log('This would be a good time to load more contacts.');
 											OC.Contacts.Contacts.update({cid:params.cid, aid:bookid, start:$('#contacts li[data-bookid="'+bookid+'"]').length});
 										}
 									});
@@ -1840,6 +1885,62 @@ OC.Contacts={
 				} else {
 					OC.Contacts.notify({message:t('contacts', 'Error')+': '+jsondata.data.message});
 				}
+				$.getJSON(OC.filePath('contacts', 'ajax', 'contact/listbycategory.php'),opts,function(jsondata) {
+					if(jsondata.status == 'success') {
+						var categories = jsondata.data.categories;
+						$.each(categories, function(catid, category) {
+							console.log('category', catid, category.name);
+							if(!$('#contacts h3.category[data-id="' + catid + '"]').length) {
+								var item = $('<h3 class="category" data-id="' + catid + '">'
+									+ category.name + '</h3><ul class="contacts category hidden" data-id="' + catid + '"></ul>');
+								var added = false;
+								$('#contacts h3.category').each(function(){
+									if ($(this).text().toLowerCase().localeCompare(category.name.toLowerCase()) > 0) {
+										$(this).before(item).fadeIn('fast');
+										added = true;
+										return false;
+									}
+								});
+								if(!added) {
+									$('#contacts').append(item);
+								}
+								$('#contacts h3.category[data-id="'+catid+'"]').on('click', function(event) {
+									console.log('click');
+									$('#contacts h3.category').removeClass('active');
+									$(this).addClass('active');
+									$('#contacts ul.category[data-id="'+catid+'"]').slideToggle(300);
+									return false;
+								});
+								var contactlist = $('#contacts ul.category[data-id="'+catid+'"]');
+								var contacts = $('#contacts ul.category[data-id="'+catid+'"] li');
+								for(var c in category.contacts) {
+									if(category.contacts[c].id == undefined) { continue; }
+									if(!$('ul.category[data-id="'+catid+'"] li[data-id="'+category.contacts[c]['id']+'"]').length) {
+										var contact =  $('<li data-id="'+category.contacts[c].id+'" data-categoryid="'+catid
+													+ '" role="button"><a href="'+OC.linkTo('contacts', 'index.php')+'&id='
+													+ category.contacts[c].id+'"  style="background: url('+OC.filePath('contacts', '', 'thumbnail.php')
+													+ '?id='+category.contacts[c].id+') no-repeat scroll 0% 0% transparent;">'
+													+ category.contacts[c].fullname+'</a></li>');
+										var added = false;
+										var name = category.contacts[c].fullname.toLowerCase();
+										if(contacts.length) {
+											contacts.each(function() {
+												if ($(this).text().toLowerCase().localeCompare(name) > 0) {
+													$(this).before(contact);
+													added = true;
+													return false;
+												}
+											});
+										}
+										if(!added || !params.contacts) {
+											contactlist.append(contact);
+										}
+									}
+								}
+							}
+						});
+					}
+				});
 			});
 		},
 		refreshThumbnail:function(id){
@@ -1850,7 +1951,7 @@ OC.Contacts={
 		scrollTo:function(id){
 			var item = $('#contacts li[data-id="'+id+'"]');
 			if(item && $.isNumeric(item.offset().top)) {
-				console.log('scrollTo ' + parseInt(item.offset().top));
+				//console.log('scrollTo ' + parseInt(item.offset().top));
 				$('#contacts').animate({
 					scrollTop: parseInt(item.offset()).top-40}, 'slow','swing');
 			}
@@ -1861,6 +1962,7 @@ $(document).ready(function(){
 
 	OCCategories.changed = OC.Contacts.Card.categoriesChanged;
 	OCCategories.app = 'contacts';
+	OCCategories.type = 'contact';
 
 	var ninjahelp = $('#ninjahelp');
 
@@ -1925,7 +2027,7 @@ $(document).ready(function(){
 				OC.Contacts.Contacts.nextAddressbook();
 				break;
 			case 79: // o
-				var aid = $('#contacts h3.active').first().data('id');
+				var aid = $('#contacts h3.addressbook.active').first().data('id');
 				if(aid) {
 					$('#contacts ul[data-id="'+aid+'"]').slideToggle(300);
 				}
@@ -2032,7 +2134,7 @@ $(document).ready(function(){
 					//}
 				}
 			};
-			xhr.open('POST', OC.filePath('contacts', 'ajax', 'uploadphoto.php')+'?id='+OC.Contacts.Card.id+'&requesttoken='+requesttoken+'&imagefile='+encodeURIComponent(file.name), true);
+			xhr.open('POST', OC.filePath('contacts', 'ajax', 'uploadphoto.php')+'?id='+OC.Contacts.Card.id+'&requesttoken='+oc_requesttoken+'&imagefile='+encodeURIComponent(file.name), true);
 			xhr.setRequestHeader('Cache-Control', 'no-cache');
 			xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 			xhr.setRequestHeader('X_FILE_NAME', encodeURIComponent(file.name));
@@ -2107,7 +2209,7 @@ $(document).ready(function(){
 									return false;
 								})
 								.error(function(jqXHR, textStatus, errorThrown) {
-									console.log(textStatus);
+									//console.log(textStatus);
 									OC.Contacts.notify({message:errorThrown + ': ' + textStatus,});
 								});
 							uploadingFiles[fileName] = jqXHR;
@@ -2132,7 +2234,7 @@ $(document).ready(function(){
 				}
 			},
 			fail: function(e, data) {
-				console.log('fail');
+				//console.log('fail');
 				OC.Contacts.notify({message:data.errorThrown + ': ' + data.textStatus});
 				// TODO: Remove file from upload queue.
 			},
@@ -2217,13 +2319,13 @@ $(document).ready(function(){
 														setTimeout(function() {
 															importFiles(aid, uploadingFiles);
 														}, 500);
-														console.log('aid ' + aid);
+														//console.log('aid ' + aid);
 													});
 												} else {
 													setTimeout(function() {
 														importFiles(aid, uploadingFiles);
 													}, 500);
-													console.log('aid ' + aid);
+													//console.log('aid ' + aid);
 													$(this).dialog('close');
 												}
 											},

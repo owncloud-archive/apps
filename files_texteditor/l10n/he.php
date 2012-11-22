@@ -1,5 +1,4 @@
 <?php $TRANSLATIONS = array(
-"regex" => "ביטוי רגולרי",
 "Save" => "שמירה",
 "Close" => "סגירה",
 "Saving..." => "שמירה…",

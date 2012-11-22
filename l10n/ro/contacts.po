@@ -6,13 +6,14 @@
 # Claudiu  <claudiu@tanaselia.ro>, 2011, 2012.
 # Dimon Pockemon <>, 2012.
 # Eugen Mihalache <eugemjj@gmail.com>, 2012.
+#   <g.ciprian@osn.ro>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-07 02:04+0200\n"
-"PO-Revision-Date: 2012-09-07 00:06+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-16 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 23:15+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,7 +39,7 @@ msgstr ""
 msgid "No ID provided"
 msgstr "Nici un ID nu a fost furnizat"
 
-#: ajax/categories/categoriesfor.php:34
+#: ajax/categories/categoriesfor.php:35
 msgid "Error setting checksum."
 msgstr "Eroare la stabilirea sumei de control"
 
@@ -72,7 +73,7 @@ msgstr "Cel puțin unul din câmpurile adresei trebuie completat."
 
 #: ajax/contact/addproperty.php:76
 msgid "Trying to add duplicate property: "
-msgstr ""
+msgstr "Se încearcă adăugarea unei proprietăți duplicat:"
 
 #: ajax/contact/addproperty.php:115 ajax/contact/saveproperty.php:93
 msgid "Missing IM parameter."
@@ -100,7 +101,7 @@ msgstr "suma de control nu este stabilită."
 
 #: ajax/contact/saveproperty.php:62
 msgid "Information about vCard is incorrect. Please reload the page: "
-msgstr ""
+msgstr "Informația despre vCard este incorectă. Te rugăm să reîncarci pagina:"
 
 #: ajax/contact/saveproperty.php:69
 msgid "Something went FUBAR. "
@@ -139,63 +140,63 @@ msgstr "Fișierul nu există:"
 msgid "Error loading image."
 msgstr "Eroare la încărcarea imaginii."
 
-#: ajax/savecrop.php:69
+#: ajax/savecrop.php:70
 msgid "Error getting contact object."
 msgstr ""
 
-#: ajax/savecrop.php:79
+#: ajax/savecrop.php:80
 msgid "Error getting PHOTO property."
 msgstr ""
 
-#: ajax/savecrop.php:98
+#: ajax/savecrop.php:99
 msgid "Error saving contact."
 msgstr ""
 
-#: ajax/savecrop.php:109
+#: ajax/savecrop.php:110
 msgid "Error resizing image"
 msgstr ""
 
-#: ajax/savecrop.php:112
+#: ajax/savecrop.php:113
 msgid "Error cropping image"
 msgstr ""
 
-#: ajax/savecrop.php:115
+#: ajax/savecrop.php:116
 msgid "Error creating temporary image"
 msgstr ""
 
-#: ajax/savecrop.php:118
+#: ajax/savecrop.php:119
 msgid "Error finding image: "
 msgstr ""
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
-msgstr ""
+msgstr "Eroare la încărcarea contactelor."
 
 #: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
-msgstr ""
+msgstr "Nu a apărut nici o eroare, fișierul a fost încărcat cu succes"
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
+msgstr "Fișierul are o dimensiune mai mare decât cea specificată în variabila upload_max_filesize din php.ini"
 
 #: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
+msgstr "Fișierul are o dimensiune mai mare decât variabile MAX_FILE_SIZE specificată în formularul HTML"
 
 #: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Fișierul a fost încărcat doar parțial"
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Nu a fost încărcat nici un fișier"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "Lipsește un director temporar"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
@@ -207,9 +208,9 @@ msgstr ""
 
 #: ajax/uploadphoto.php:71
 msgid "No file was uploaded. Unknown error"
-msgstr ""
+msgstr "Nici un fișier nu a fost încărcat. Eroare necunoscută"
 
-#: appinfo/app.php:25
+#: appinfo/app.php:24
 msgid "Contacts"
 msgstr "Contacte"
 
@@ -225,145 +226,230 @@ msgstr ""
 msgid "Couldn't get a valid address."
 msgstr ""
 
-#: js/contacts.js:76 js/contacts.js:365 js/contacts.js:685 js/contacts.js:725
-#: js/contacts.js:751 js/contacts.js:883 js/contacts.js:889 js/contacts.js:901
-#: js/contacts.js:938 js/contacts.js:1212 js/contacts.js:1220
-#: js/contacts.js:1229 js/contacts.js:1264 js/contacts.js:1300
-#: js/contacts.js:1315 js/contacts.js:1341 js/contacts.js:1571
-#: js/contacts.js:1606 js/contacts.js:1626 js/contacts.js:1838
-#: js/contacts.js:1981 js/contacts.js:2171 js/contacts.js:2208
-#: js/contacts.js:2243 js/settings.js:26 js/settings.js:43 js/settings.js:73
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:364 js/contacts.js:436
+#: js/contacts.js:443 js/contacts.js:694 js/contacts.js:734 js/contacts.js:763
+#: js/contacts.js:774 js/contacts.js:788 js/contacts.js:808 js/contacts.js:895
+#: js/contacts.js:901 js/contacts.js:913 js/contacts.js:950
+#: js/contacts.js:1226 js/contacts.js:1234 js/contacts.js:1243
+#: js/contacts.js:1278 js/contacts.js:1314 js/contacts.js:1329
+#: js/contacts.js:1355 js/contacts.js:1588 js/contacts.js:1623
+#: js/contacts.js:1643 js/contacts.js:1732 js/contacts.js:1886
+#: js/contacts.js:2086 js/contacts.js:2112 js/contacts.js:2122
+#: js/contacts.js:2125 js/contacts.js:2276 js/contacts.js:2313
+#: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/settings.js:113
 msgid "Error"
+msgstr "Eroare"
+
+#: js/contacts.js:105
+msgid "Please enter an email address."
 msgstr ""
 
-#: js/contacts.js:408
+#: js/contacts.js:177 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "Specifică nume"
+
+#: js/contacts.js:178 templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr ""
+
+#: js/contacts.js:184 js/contacts.js:1434 js/contacts.js:1477
+#: js/contacts.js:1496 js/contacts.js:1539
+msgid "Select type"
+msgstr "Selectează tip"
+
+#: js/contacts.js:215
+msgid "Select photo"
+msgstr ""
+
+#: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
 msgstr ""
 
-#: js/contacts.js:409
+#: js/contacts.js:408
 msgid "Please select one of your own address books."
 msgstr ""
 
-#: js/contacts.js:409
+#: js/contacts.js:408
 msgid "Permission error"
 msgstr ""
 
-#: js/contacts.js:725
+#: js/contacts.js:482
+msgid "Click to undo deletion of \""
+msgstr ""
+
+#: js/contacts.js:496
+msgid "Cancelled deletion of: \""
+msgstr ""
+
+#: js/contacts.js:734
 msgid "This property has to be non-empty."
 msgstr ""
 
-#: js/contacts.js:751
+#: js/contacts.js:763
 msgid "Couldn't serialize elements."
 msgstr ""
 
-#: js/contacts.js:883 js/contacts.js:901
+#: js/contacts.js:774
+msgid "Unknown error. Please check logs."
+msgstr ""
+
+#: js/contacts.js:895 js/contacts.js:913
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr ""
 
-#: js/contacts.js:920
+#: js/contacts.js:932
 msgid "Edit name"
-msgstr ""
+msgstr "Editează nume"
 
-#: js/contacts.js:1212
+#: js/contacts.js:1226
 msgid "No files selected for upload."
 msgstr ""
 
-#: js/contacts.js:1220 js/contacts.js:2072
+#: js/contacts.js:1234 js/contacts.js:2102 js/contacts.js:2177
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr ""
 
-#: js/contacts.js:1284
+#: js/contacts.js:1298
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/contacts.js:1419 js/contacts.js:1460 js/contacts.js:1479
-#: js/contacts.js:1522
-msgid "Select type"
-msgstr ""
-
-#: js/contacts.js:1540
+#: js/contacts.js:1557
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1611
+#: js/contacts.js:1628
 msgid "Do you want to merge these address books?"
 msgstr ""
 
-#: js/contacts.js:2065
-msgid "Unable to upload your file as it is a directory or has 0 bytes"
+#: js/contacts.js:1812
+msgid "Shared by "
 msgstr ""
 
-#: js/contacts.js:2065
-msgid "Upload Error"
-msgstr ""
-
-#: js/contacts.js:2072
+#: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
+msgstr "Fișierul încărcat este prea mare"
+
+#: js/contacts.js:2106
+msgid "Only image files can be used as profile picture."
 msgstr ""
 
-#: js/contacts.js:2120
+#: js/contacts.js:2106
+msgid "Wrong file type"
+msgstr ""
+
+#: js/contacts.js:2112
+msgid ""
+"Your browser doesn't support AJAX upload. Please click on the profile "
+"picture to select a photo to upload."
+msgstr ""
+
+#: js/contacts.js:2170
+msgid "Unable to upload your file as it is a directory or has 0 bytes"
+msgstr "Nu s-a putut încărca fișierul tău deoarece pare să fie un director sau are 0 bytes."
+
+#: js/contacts.js:2170
+msgid "Upload Error"
+msgstr "Eroare la încărcare"
+
+#: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "În așteptare"
 
-#: js/contacts.js:2152
+#: js/contacts.js:2257
 msgid "Import done"
 msgstr ""
 
-#: js/contacts.js:2165
+#: js/contacts.js:2270
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/contacts.js:2171
+#: js/contacts.js:2276
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/contacts.js:2187
+#: js/contacts.js:2292
 msgid "Importing..."
-msgstr ""
+msgstr "Se importă..."
 
-#: js/contacts.js:2208
+#: js/contacts.js:2313
 msgid "The address book name cannot be empty."
 msgstr ""
 
 #: js/loader.js:49
 msgid "Result: "
-msgstr ""
+msgstr "Rezultat:"
 
 #: js/loader.js:49
 msgid " imported, "
-msgstr ""
+msgstr "importat,"
 
 #: js/loader.js:49
 msgid " failed."
 msgstr ""
 
-#: js/settings.js:73
+#: js/settings.js:76
 msgid "Displayname cannot be empty."
 msgstr ""
 
-#: lib/addressbook.php:138
+#: js/settings.js:98 templates/settings.php:25
+msgid "Show CardDav link"
+msgstr "Arată legătură CardDav"
+
+#: js/settings.js:99 templates/settings.php:28
+msgid "Show read-only VCF link"
+msgstr ""
+
+#: js/settings.js:100 templates/settings.php:39
+msgid "Download"
+msgstr "Descarcă"
+
+#: js/settings.js:102 templates/settings.php:44
+msgid "Edit"
+msgstr "Editează"
+
+#: js/settings.js:103 templates/part.contact.php:40
+#: templates/part.contact.php:42 templates/part.contact.php:44
+#: templates/part.contact.php:46 templates/part.contact.php:50
+#: templates/settings.php:49
+msgid "Delete"
+msgstr "Șterge"
+
+#: js/settings.js:121 templates/settings.php:61
+msgid "Cancel"
+msgstr "Anulează"
+
+#: js/settings.js:161 templates/settings.php:66
+msgid "More..."
+msgstr "Mai multe..."
+
+#: js/settings.js:165
+msgid "Less..."
+msgstr ""
+
+#: lib/addressbook.php:136
 msgid "You do not have the permissions to read this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:239
+#: lib/addressbook.php:235
 msgid "You do not have the permissions to update this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:259
+#: lib/addressbook.php:255
 msgid "There was an error updating the addressbook."
 msgstr ""
 
-#: lib/addressbook.php:315
+#: lib/addressbook.php:311
 msgid "You do not have the permissions to delete this addressbook."
 msgstr ""
 
-#: lib/addressbook.php:344
+#: lib/addressbook.php:340
 msgid "There was an error deleting this addressbook."
 msgstr ""
 
@@ -427,7 +513,7 @@ msgstr ""
 msgid "GaduGadu"
 msgstr ""
 
-#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
+#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:253
 msgid "Work"
 msgstr "Servicu"
 
@@ -435,9 +521,9 @@ msgstr "Servicu"
 msgid "Home"
 msgstr "Acasă"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
+#: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
-msgstr ""
+msgstr "Altele"
 
 #: lib/app.php:201
 msgid "Mobile"
@@ -471,57 +557,12 @@ msgstr "Pager"
 msgid "Internet"
 msgstr "Internet"
 
-#: lib/app.php:252 templates/part.contact.php:45
-#: templates/part.contact.php:128
-msgid "Birthday"
-msgstr "Zi de naștere"
-
-#: lib/app.php:253
-msgid "Business"
+#: lib/app.php:251
+msgid "Friends"
 msgstr ""
 
-#: lib/app.php:254
-msgid "Call"
-msgstr ""
-
-#: lib/app.php:255
-msgid "Clients"
-msgstr ""
-
-#: lib/app.php:256
-msgid "Deliverer"
-msgstr ""
-
-#: lib/app.php:257
-msgid "Holidays"
-msgstr ""
-
-#: lib/app.php:258
-msgid "Ideas"
-msgstr ""
-
-#: lib/app.php:259
-msgid "Journey"
-msgstr ""
-
-#: lib/app.php:260
-msgid "Jubilee"
-msgstr ""
-
-#: lib/app.php:261
-msgid "Meeting"
-msgstr ""
-
-#: lib/app.php:263
-msgid "Personal"
-msgstr ""
-
-#: lib/app.php:264
-msgid "Projects"
-msgstr ""
-
-#: lib/app.php:265
-msgid "Questions"
+#: lib/app.php:252
+msgid "Family"
 msgstr ""
 
 #: lib/hooks.php:102
@@ -566,31 +607,31 @@ msgstr "Adaugă contact"
 
 #: templates/index.php:15 templates/part.import.php:17
 msgid "Import"
-msgstr ""
+msgstr "Importă"
 
 #: templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Setări"
 
 #: templates/index.php:30 templates/part.import.php:24
 msgid "Close"
-msgstr ""
+msgstr "Închide"
 
 #: templates/index.php:31
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Scurtături din tastatură"
 
 #: templates/index.php:33
 msgid "Navigation"
-msgstr ""
+msgstr "Navigare"
 
 #: templates/index.php:36
 msgid "Next contact in list"
-msgstr ""
+msgstr "Următorul contact din listă"
 
 #: templates/index.php:38
 msgid "Previous contact in list"
-msgstr ""
+msgstr "Contactul anterior din listă"
 
 #: templates/index.php:40
 msgid "Expand/collapse current addressbook"
@@ -606,7 +647,7 @@ msgstr ""
 
 #: templates/index.php:48
 msgid "Actions"
-msgstr ""
+msgstr "Acțiuni"
 
 #: templates/index.php:51
 msgid "Refresh contacts list"
@@ -614,7 +655,7 @@ msgstr ""
 
 #: templates/index.php:53
 msgid "Add new contact"
-msgstr ""
+msgstr "Adaugă contact nou"
 
 #: templates/index.php:55
 msgid "Add new addressbook"
@@ -622,7 +663,7 @@ msgstr ""
 
 #: templates/index.php:57
 msgid "Delete current contact"
-msgstr ""
+msgstr "Șterge contactul curent"
 
 #: templates/part.contact.php:17
 msgid "Drop photo to upload"
@@ -630,23 +671,19 @@ msgstr ""
 
 #: templates/part.contact.php:19
 msgid "Delete current photo"
-msgstr ""
+msgstr "Șterge poza curentă"
 
 #: templates/part.contact.php:20
 msgid "Edit current photo"
-msgstr ""
+msgstr "Editează poza curentă"
 
 #: templates/part.contact.php:21
 msgid "Upload new photo"
-msgstr ""
+msgstr "Încarcă poză nouă"
 
 #: templates/part.contact.php:22
 msgid "Select photo from ownCloud"
-msgstr ""
-
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr ""
+msgstr "Selectează poză din ownCloud"
 
 #: templates/part.contact.php:36
 msgid "Edit name details"
@@ -656,12 +693,6 @@ msgstr "Introdu detalii despre nume"
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Organizație"
-
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:49
-msgid "Delete"
-msgstr "Șterge"
 
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
@@ -673,7 +704,7 @@ msgstr "Introdu pseudonim"
 
 #: templates/part.contact.php:43 templates/part.contact.php:134
 msgid "Web site"
-msgstr ""
+msgstr "Site web"
 
 #: templates/part.contact.php:44
 msgid "http://www.somesite.com"
@@ -681,7 +712,11 @@ msgstr ""
 
 #: templates/part.contact.php:44
 msgid "Go to web site"
-msgstr ""
+msgstr "Vizitează site-ul"
+
+#: templates/part.contact.php:45 templates/part.contact.php:128
+msgid "Birthday"
+msgstr "Zi de naștere"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"
@@ -722,11 +757,11 @@ msgstr "Șterge e-mail"
 
 #: templates/part.contact.php:75
 msgid "Enter phone number"
-msgstr ""
+msgstr "Specifică numărul de telefon"
 
 #: templates/part.contact.php:79
 msgid "Delete phone number"
-msgstr ""
+msgstr "Șterge numărul de telefon"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
@@ -738,19 +773,19 @@ msgstr ""
 
 #: templates/part.contact.php:110
 msgid "View on map"
-msgstr ""
+msgstr "Vezi pe hartă"
 
 #: templates/part.contact.php:110
 msgid "Edit address details"
-msgstr ""
+msgstr "Editează detaliile adresei"
 
 #: templates/part.contact.php:116
 msgid "Add notes here."
-msgstr ""
+msgstr "Adaugă note"
 
 #: templates/part.contact.php:124
 msgid "Add field"
-msgstr ""
+msgstr "Adaugă câmp"
 
 #: templates/part.contact.php:129
 msgid "Phone"
@@ -770,7 +805,7 @@ msgstr "Adresă"
 
 #: templates/part.contact.php:133
 msgid "Note"
-msgstr ""
+msgstr "Notă"
 
 #: templates/part.contact.php:138
 msgid "Download contact"
@@ -782,11 +817,11 @@ msgstr "Șterge contact"
 
 #: templates/part.cropphoto.php:65
 msgid "The temporary image has been removed from cache."
-msgstr ""
+msgstr "Imaginea temporară a fost eliminată din cache."
 
 #: templates/part.edit_address_dialog.php:6
 msgid "Edit address"
-msgstr ""
+msgstr "Editeză adresă"
 
 #: templates/part.edit_address_dialog.php:10
 msgid "Type"
@@ -799,11 +834,11 @@ msgstr "CP"
 
 #: templates/part.edit_address_dialog.php:24
 msgid "Street address"
-msgstr ""
+msgstr "Adresa"
 
 #: templates/part.edit_address_dialog.php:27
 msgid "Street and number"
-msgstr ""
+msgstr "Stradă și număr"
 
 #: templates/part.edit_address_dialog.php:30
 msgid "Extended"
@@ -811,7 +846,7 @@ msgstr "Extins"
 
 #: templates/part.edit_address_dialog.php:33
 msgid "Apartment number etc."
-msgstr ""
+msgstr "Apartament etc."
 
 #: templates/part.edit_address_dialog.php:36
 #: templates/part.edit_address_dialog.php:39
@@ -824,7 +859,7 @@ msgstr "Regiune"
 
 #: templates/part.edit_address_dialog.php:45
 msgid "E.g. state or province"
-msgstr ""
+msgstr "Ex. județ sau provincie"
 
 #: templates/part.edit_address_dialog.php:48
 msgid "Zipcode"
@@ -832,7 +867,7 @@ msgstr "Cod poștal"
 
 #: templates/part.edit_address_dialog.php:51
 msgid "Postal code"
-msgstr ""
+msgstr "Codul poștal"
 
 #: templates/part.edit_address_dialog.php:54
 #: templates/part.edit_address_dialog.php:57
@@ -853,11 +888,11 @@ msgstr ""
 
 #: templates/part.edit_name_dialog.php:28
 msgid "Ms"
-msgstr ""
+msgstr "Dna."
 
 #: templates/part.edit_name_dialog.php:29
 msgid "Mr"
-msgstr ""
+msgstr "Dl."
 
 #: templates/part.edit_name_dialog.php:30
 msgid "Sir"
@@ -873,7 +908,7 @@ msgstr ""
 
 #: templates/part.edit_name_dialog.php:35
 msgid "Given name"
-msgstr ""
+msgstr "Prenume"
 
 #: templates/part.edit_name_dialog.php:37
 msgid "Additional names"
@@ -881,7 +916,7 @@ msgstr ""
 
 #: templates/part.edit_name_dialog.php:39
 msgid "Family name"
-msgstr ""
+msgstr "Nume"
 
 #: templates/part.edit_name_dialog.php:41
 msgid "Hon. suffixes"
@@ -921,7 +956,7 @@ msgstr ""
 
 #: templates/part.import.php:1
 msgid "Import a contacts file"
-msgstr ""
+msgstr "Importă un fișier cu contacte"
 
 #: templates/part.import.php:6
 msgid "Please choose the addressbook"
@@ -937,7 +972,7 @@ msgstr ""
 
 #: templates/part.import.php:20
 msgid "Importing contacts"
-msgstr ""
+msgstr "Se importă contactele"
 
 #: templates/part.no_contacts.php:3
 msgid ""
@@ -950,19 +985,15 @@ msgstr ""
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"
-msgstr ""
+msgstr "Adaugă contact"
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
 msgstr ""
 
-#: templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr ""
-
 #: templates/part.selectaddressbook.php:29
 msgid "Enter description"
-msgstr ""
+msgstr "Specifică descriere"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"
@@ -970,39 +1001,23 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr ""
+msgstr "mai multe informații"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "Adresa primară (Kontact et al)"
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:9
 msgid "Addressbooks"
 msgstr "Agende"
 
-#: templates/settings.php:25
-msgid "Show CardDav link"
-msgstr ""
-
-#: templates/settings.php:28
-msgid "Show read-only VCF link"
-msgstr ""
-
 #: templates/settings.php:35
 msgid "Share"
-msgstr ""
-
-#: templates/settings.php:39
-msgid "Download"
-msgstr "Descarcă"
-
-#: templates/settings.php:44
-msgid "Edit"
-msgstr "Editează"
+msgstr "Partajează"
 
 #: templates/settings.php:57
 msgid "New Address Book"
@@ -1010,20 +1025,12 @@ msgstr "Agendă nouă"
 
 #: templates/settings.php:58
 msgid "Name"
-msgstr ""
+msgstr "Nume"
 
 #: templates/settings.php:59
 msgid "Description"
-msgstr ""
+msgstr "Descriere"
 
 #: templates/settings.php:60
 msgid "Save"
 msgstr "Salvează"
-
-#: templates/settings.php:61
-msgid "Cancel"
-msgstr "Anulează"
-
-#: templates/settings.php:66
-msgid "More..."
-msgstr ""

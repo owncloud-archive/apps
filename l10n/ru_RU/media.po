@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-17 16:59+0200\n"
-"PO-Revision-Date: 2012-09-17 11:51+0000\n"
+"POT-Creation-Date: 2012-11-02 00:01+0100\n"
+"PO-Revision-Date: 2012-11-01 06:59+0000\n"
 "Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,18 @@ msgstr ""
 #: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
 msgid "Music"
 msgstr "Музыка"
+
+#: js/collection.js:100 js/collection.js:210 js/collection.js:257
+msgid "songs"
+msgstr "песни"
+
+#: js/collection.js:101 js/collection.js:208
+msgid "albums"
+msgstr "альбомы"
+
+#: js/collection.js:282
+msgid "Add to playlist"
+msgstr "Добавить в плейлист"
 
 #: js/music.js:18
 msgid "Add album to playlist"

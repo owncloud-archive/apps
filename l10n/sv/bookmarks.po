@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-12 02:01+0200\n"
-"PO-Revision-Date: 2012-09-11 13:09+0000\n"
+"POT-Creation-Date: 2012-11-13 00:04+0100\n"
+"PO-Revision-Date: 2012-11-12 07:44+0000\n"
 "Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -19,48 +19,128 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:14
+#: ajax/import.php:21
+msgid "Unsupported file type for import"
+msgstr "Filtypen stöds ej för import"
+
+#: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Bokmärken"
 
-#: bookmarksHelper.php:99
-msgid "unnamed"
-msgstr "namnlös"
+#: js/addBm.js:42 js/bookmarks.js:230
+msgid "Tags"
+msgstr "Taggar"
 
-#: lib/search.php:43
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr "Filtrera på etikett"
+
+#: js/bookmarks.js:132
+msgid "Edit bookmark"
+msgstr "Redigera bokmärke"
+
+#: js/bookmarks.js:369
+msgid "Are you sure you want to remove this tag from every entry?"
+msgstr "Är du säker på att du vill ta bort denna tagg från varje post?"
+
+#: js/bookmarks.js:370
+msgid "Warning"
+msgstr "Varning"
+
+#: js/settings.js:25
+msgid "Import completed successfully."
+msgstr "Import slutförd."
+
+#: js/settings.js:56
+msgid "Uploading..."
+msgstr "Laddar upp..."
+
+#: lib/search.php:38
 msgid "Bookm."
 msgstr "Bokm."
 
-#: templates/bookmarklet.php:5
+#: templates/addBm.php:11
+msgid "Add a bookmark"
+msgstr "Lägg till ett bokmärke"
+
+#: templates/addBm.php:14
+msgid "Close"
+msgstr "Stäng"
+
+#: templates/addBm.php:22 templates/js_tpl.php:33
+msgid "The title of the page"
+msgstr "Titel på sidan"
+
+#: templates/addBm.php:27 templates/js_tpl.php:37
+msgid "The address of the page"
+msgstr "Adress till sidan"
+
+#: templates/addBm.php:40 templates/js_tpl.php:46
+msgid "Description of the page"
+msgstr "Beskrivning av sidan"
+
+#: templates/addBm.php:44 templates/js_tpl.php:50
+msgid "Save"
+msgstr "Spara"
+
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
+msgid "Delete"
+msgstr "Radera"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "Redigera"
+
+#: templates/js_tpl.php:49
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: templates/list.php:14
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
 msgstr "Dra till din webbläsares bokmärken och klicka på det när du vill bokmärka en webbsida snabbt:"
 
-#: templates/bookmarklet.php:7
+#: templates/list.php:15
 msgid "Read later"
 msgstr "Läs senare"
 
-#: templates/list.php:13
+#: templates/list.php:22
 msgid "Address"
 msgstr "Adress"
 
-#: templates/list.php:14
-msgid "Title"
-msgstr "Titel"
+#: templates/list.php:23
+msgid "Add"
+msgstr "Lägg till"
 
-#: templates/list.php:15
-msgid "Tags"
-msgstr "Taggar"
+#: templates/list.php:31
+msgid "Related Tags"
+msgstr "Relaterade taggar"
 
-#: templates/list.php:16
-msgid "Save bookmark"
-msgstr "Spara bokmärke"
+#: templates/list.php:39 templates/list.php:41
+msgid "Settings"
+msgstr "Inställningar"
 
-#: templates/list.php:22
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Du har inga bokmärken"
 
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr "Du kan också försöka att importera en bokmärkesfil"
+
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Skriptbokmärke <br />"
+msgid "Bookmarklet"
+msgstr "Bokmärke"
+
+#: templates/settings.php:23
+msgid "Export & Import"
+msgstr "Export & Import"
+
+#: templates/settings.php:24
+msgid "Export"
+msgstr "Exportera"
+
+#: templates/settings.php:26
+msgid "Import"
+msgstr "Importera"

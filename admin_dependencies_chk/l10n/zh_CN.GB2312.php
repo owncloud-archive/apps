@@ -1,5 +1,6 @@
 <?php $TRANSLATIONS = array(
 "The php-json module is needed by the many applications for inter communications" => "许多应用都需要 php-json 模块以进行内部通讯",
+"The php-curl module is needed to fetch the page title when adding a bookmark" => "需要 php-curl 模块以在添加书签时获取页面标题",
 "The php-gd module is needed to create thumbnails of your images" => "需要 php-gd 模块以生成您相片的缩略图",
 "The php-ldap module is needed connect to your ldap server" => "需要 php-ldap 模块以和您的 ldap 服务器连接",
 "The php-zip module is needed download multiple files at once" => "需要 php-zip 模块以同时下载多个文件",

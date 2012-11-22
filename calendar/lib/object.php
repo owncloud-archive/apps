@@ -116,7 +116,7 @@ class OC_Calendar_Object{
 		$calendar = OC_Calendar_Calendar::find($id);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_CREATE)) {
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_CREATE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to add events to this calendar.'
@@ -125,7 +125,6 @@ class OC_Calendar_Object{
 			}
 		}
 		$object = OC_VObject::parse($data);
-		OC_Calendar_App::loadCategoriesFromVCalendar($object);
 		list($type,$startdate,$enddate,$summary,$repeating,$uid) = self::extractData($object);
 
 		if(is_null($uid)) {
@@ -138,6 +137,8 @@ class OC_Calendar_Object{
 		$stmt = OCP\DB::prepare( 'INSERT INTO `*PREFIX*calendar_objects` (`calendarid`,`objecttype`,`startdate`,`enddate`,`repeating`,`summary`,`calendardata`,`uri`,`lastmodified`) VALUES(?,?,?,?,?,?,?,?,?)' );
 		$stmt->execute(array($id,$type,$startdate,$enddate,$repeating,$summary,$data,$uri,time()));
 		$object_id = OCP\DB::insertid('*PREFIX*calendar_objects');
+
+		OC_Calendar_App::loadCategoriesFromVCalendar($object_id, $object);
 
 		OC_Calendar_Calendar::touchCalendar($id);
 		OCP\Util::emitHook('OC_Calendar', 'addEvent', $object_id);
@@ -155,7 +156,7 @@ class OC_Calendar_Object{
 		$calendar = OC_Calendar_Calendar::find($id);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_CREATE)) {
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_CREATE)) {
 				throw new Sabre_DAV_Exception_Forbidden(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to add events to this calendar.'
@@ -187,7 +188,7 @@ class OC_Calendar_Object{
 		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to edit this event.'
@@ -196,7 +197,7 @@ class OC_Calendar_Object{
 			}
 		}
 		$object = OC_VObject::parse($data);
-		OC_Calendar_App::loadCategoriesFromVCalendar($object);
+		OC_Calendar_App::loadCategoriesFromVCalendar($id, $object);
 		list($type,$startdate,$enddate,$summary,$repeating,$uid) = self::extractData($object);
 
 		$stmt = OCP\DB::prepare( 'UPDATE `*PREFIX*calendar_objects` SET `objecttype`=?,`startdate`=?,`enddate`=?,`repeating`=?,`summary`=?,`calendardata`=?,`lastmodified`= ? WHERE `id` = ?' );
@@ -220,8 +221,8 @@ class OC_Calendar_Object{
 
 		$calendar = OC_Calendar_Calendar::find($cid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_UPDATE)) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $cid);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE)) {
 				throw new Sabre_DAV_Exception_Forbidden(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to edit this event.'
@@ -251,7 +252,7 @@ class OC_Calendar_Object{
 		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_DELETE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to delete this event.'
@@ -262,7 +263,12 @@ class OC_Calendar_Object{
 		$stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*calendar_objects` WHERE `id` = ?' );
 		$stmt->execute(array($id));
 		OC_Calendar_Calendar::touchCalendar($oldobject['calendarid']);
+
+		OCP\Share::unshareAll('event', $id);
+
 		OCP\Util::emitHook('OC_Calendar', 'deleteEvent', $id);
+
+		OC_Calendar_App::getVCategories()->purgeObject($id);
 
 		return true;
 	}
@@ -277,8 +283,8 @@ class OC_Calendar_Object{
 		$oldobject = self::findWhereDAVDataIs($cid, $uri);
 		$calendar = OC_Calendar_Calendar::find($cid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $cid);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_DELETE)) {
 				throw new Sabre_DAV_Exception_Forbidden(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to delete this event.'
@@ -298,7 +304,7 @@ class OC_Calendar_Object{
 		$calendar = OC_Calendar_Calendar::find($calendarid);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\Share::PERMISSION_DELETE)) {
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_DELETE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to add events to this calendar.'
@@ -446,13 +452,13 @@ class OC_Calendar_Object{
 	 */
 	public static function getRepeatOptions($l10n) {
 		return array(
-			'doesnotrepeat' => $l10n->t('Does not repeat'),
-			'daily'         => $l10n->t('Daily'),
-			'weekly'        => $l10n->t('Weekly'),
-			'weekday'       => $l10n->t('Every Weekday'),
-			'biweekly'      => $l10n->t('Bi-Weekly'),
-			'monthly'       => $l10n->t('Monthly'),
-			'yearly'        => $l10n->t('Yearly')
+			'doesnotrepeat' => (string)$l10n->t('Does not repeat'),
+			'daily'         => (string)$l10n->t('Daily'),
+			'weekly'        => (string)$l10n->t('Weekly'),
+			'weekday'       => (string)$l10n->t('Every Weekday'),
+			'biweekly'      => (string)$l10n->t('Bi-Weekly'),
+			'monthly'       => (string)$l10n->t('Monthly'),
+			'yearly'        => (string)$l10n->t('Yearly')
 		);
 	}
 
@@ -462,9 +468,9 @@ class OC_Calendar_Object{
 	 */
 	public static function getEndOptions($l10n) {
 		return array(
-			'never' => $l10n->t('never'),
-			'count' => $l10n->t('by occurrences'),
-			'date'  => $l10n->t('by date')
+			'never' => (string)$l10n->t('never'),
+			'count' => (string)$l10n->t('by occurrences'),
+			'date'  => (string)$l10n->t('by date')
 		);
 	}
 
@@ -474,8 +480,8 @@ class OC_Calendar_Object{
 	 */
 	public static function getMonthOptions($l10n) {
 		return array(
-			'monthday' => $l10n->t('by monthday'),
-			'weekday'  => $l10n->t('by weekday')
+			'monthday' => (string)$l10n->t('by monthday'),
+			'weekday'  => (string)$l10n->t('by weekday')
 		);
 	}
 
@@ -485,13 +491,13 @@ class OC_Calendar_Object{
 	 */
 	public static function getWeeklyOptions($l10n) {
 		return array(
-			'MO' => $l10n->t('Monday'),
-			'TU' => $l10n->t('Tuesday'),
-			'WE' => $l10n->t('Wednesday'),
-			'TH' => $l10n->t('Thursday'),
-			'FR' => $l10n->t('Friday'),
-			'SA' => $l10n->t('Saturday'),
-			'SU' => $l10n->t('Sunday')
+			'MO' => (string)$l10n->t('Monday'),
+			'TU' => (string)$l10n->t('Tuesday'),
+			'WE' => (string)$l10n->t('Wednesday'),
+			'TH' => (string)$l10n->t('Thursday'),
+			'FR' => (string)$l10n->t('Friday'),
+			'SA' => (string)$l10n->t('Saturday'),
+			'SU' => (string)$l10n->t('Sunday')
 		);
 	}
 
@@ -501,13 +507,13 @@ class OC_Calendar_Object{
 	 */
 	public static function getWeekofMonth($l10n) {
 		return array(
-			'auto' => $l10n->t('events week of month'),
-			'1' => $l10n->t('first'),
-			'2' => $l10n->t('second'),
-			'3' => $l10n->t('third'),
-			'4' => $l10n->t('fourth'),
-			'5' => $l10n->t('fifth'),
-			'-1' => $l10n->t('last')
+			'auto' => (string)$l10n->t('events week of month'),
+			'1' => (string)$l10n->t('first'),
+			'2' => (string)$l10n->t('second'),
+			'3' => (string)$l10n->t('third'),
+			'4' => (string)$l10n->t('fourth'),
+			'5' => (string)$l10n->t('fifth'),
+			'-1' => (string)$l10n->t('last')
 		);
 	}
 
@@ -541,18 +547,18 @@ class OC_Calendar_Object{
 	 */
 	public static function getByMonthOptions($l10n) {
 		return array(
-			'1'  => $l10n->t('January'),
-			'2'  => $l10n->t('February'),
-			'3'  => $l10n->t('March'),
-			'4'  => $l10n->t('April'),
-			'5'  => $l10n->t('May'),
-			'6'  => $l10n->t('June'),
-			'7'  => $l10n->t('July'),
-			'8'  => $l10n->t('August'),
-			'9'  => $l10n->t('September'),
-			'10' => $l10n->t('October'),
-			'11' => $l10n->t('November'),
-			'12' => $l10n->t('December')
+			'1'  => (string)$l10n->t('January'),
+			'2'  => (string)$l10n->t('February'),
+			'3'  => (string)$l10n->t('March'),
+			'4'  => (string)$l10n->t('April'),
+			'5'  => (string)$l10n->t('May'),
+			'6'  => (string)$l10n->t('June'),
+			'7'  => (string)$l10n->t('July'),
+			'8'  => (string)$l10n->t('August'),
+			'9'  => (string)$l10n->t('September'),
+			'10' => (string)$l10n->t('October'),
+			'11' => (string)$l10n->t('November'),
+			'12' => (string)$l10n->t('December')
 		);
 	}
 
@@ -562,10 +568,10 @@ class OC_Calendar_Object{
 	 */
 	public static function getYearOptions($l10n) {
 		return array(
-			'bydate' => $l10n->t('by events date'),
-			'byyearday' => $l10n->t('by yearday(s)'),
-			'byweekno'  => $l10n->t('by weeknumber(s)'),
-			'bydaymonth'  => $l10n->t('by day and month')
+			'bydate' => (string)$l10n->t('by events date'),
+			'byyearday' => (string)$l10n->t('by yearday(s)'),
+			'byweekno'  => (string)$l10n->t('by weeknumber(s)'),
+			'bydaymonth'  => (string)$l10n->t('by day and month')
 		);
 	}
 
@@ -736,6 +742,9 @@ class OC_Calendar_Object{
 	 * @return boolean
 	 */
 	protected static function checkTime($time) {
+		if(strpos($time, ':') === false ) {
+			return true;
+		}
 		list($hours, $minutes) = explode(':', $time);
 		return empty($time)
 			|| $hours < 0 || $hours > 24
@@ -754,7 +763,7 @@ class OC_Calendar_Object{
 		$vevent = new OC_VObject('VEVENT');
 		$vcalendar->add($vevent);
 
-		$vevent->setDateTime('CREATED', 'now', Sabre_VObject_Property_DateTime::UTC);
+		$vevent->setDateTime('CREATED', 'now', Sabre\VObject\Property\DateTime::UTC);
 
 		$vevent->setUID();
 		return self::updateVCalendarFromRequest($request, $vcalendar);
@@ -923,22 +932,24 @@ class OC_Calendar_Object{
 		}
 
 
-		$vevent->setDateTime('LAST-MODIFIED', 'now', Sabre_VObject_Property_DateTime::UTC);
-		$vevent->setDateTime('DTSTAMP', 'now', Sabre_VObject_Property_DateTime::UTC);
+		$vevent->setDateTime('LAST-MODIFIED', 'now', Sabre\VObject\Property\DateTime::UTC);
+		$vevent->setDateTime('DTSTAMP', 'now', Sabre\VObject\Property\DateTime::UTC);
 		$vevent->setString('SUMMARY', $title);
 
 		if($allday) {
 			$start = new DateTime($from);
 			$end = new DateTime($to.' +1 day');
-			$vevent->setDateTime('DTSTART', $start, Sabre_VObject_Property_DateTime::DATE);
-			$vevent->setDateTime('DTEND', $end, Sabre_VObject_Property_DateTime::DATE);
+			$vevent->setDateTime('DTSTART', $start, Sabre\VObject\Property\DateTime::DATE);
+			$vevent->setDateTime('DTEND', $end, Sabre\VObject\Property\DateTime::DATE);
 		}else{
 			$timezone = OC_Calendar_App::getTimezone();
 			$timezone = new DateTimeZone($timezone);
 			$start = new DateTime($from.' '.$fromtime, $timezone);
+			$start->setTimezone(new DateTimeZone('UTC'));
 			$end = new DateTime($to.' '.$totime, $timezone);
-			$vevent->setDateTime('DTSTART', $start, Sabre_VObject_Property_DateTime::LOCALTZ);
-			$vevent->setDateTime('DTEND', $end, Sabre_VObject_Property_DateTime::LOCALTZ);
+			$end->setTimezone(new DateTimeZone('UTC'));
+			$vevent->setDateTime('DTSTART', $start, Sabre\VObject\Property\DateTime::UTC);
+			$vevent->setDateTime('DTEND', $end, Sabre\VObject\Property\DateTime::UTC);
 		}
 		unset($vevent->DURATION);
 

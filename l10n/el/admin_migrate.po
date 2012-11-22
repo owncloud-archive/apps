@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-18 02:00+0200\n"
-"PO-Revision-Date: 2012-09-17 17:11+0000\n"
+"POT-Creation-Date: 2012-11-17 00:01+0100\n"
+"PO-Revision-Date: 2012-11-16 17:10+0000\n"
 "Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -20,21 +21,21 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "Export this ownCloud instance"
-msgstr ""
+msgstr "Εξαγωγή αυτού του αντιγράφου ownCloud"
 
 #: templates/settings.php:5
 msgid ""
 "This will create a compressed file that contains the data of this owncloud "
 "instance."
-msgstr ""
+msgstr "Αυτό θα δημιουργήσει ένα συμπιεσμένο αρχείο που περιέχει τα δεδομένα από αυτήν την εγκατάσταση ownCloud."
 
 #: templates/settings.php:7
 msgid "Please choose the export type:"
-msgstr ""
+msgstr "Παρακαλώ επιλέξτε τον τύπο εξαγωγής:"
 
 #: templates/settings.php:10
-msgid "ownCloud instance (suitable for import)"
-msgstr ""
+msgid "ownCloud instance (user data and database"
+msgstr "Αντίγραφο ownCloud (δεδομένα χρήστη και βάση δεδομένων"
 
 #: templates/settings.php:11
 msgid "ownCloud system files"
@@ -42,7 +43,7 @@ msgstr "Αρχεία συστήματος ownCloud"
 
 #: templates/settings.php:12
 msgid "Just user files"
-msgstr ""
+msgstr "Μόνο τα αρχεία χρήστη"
 
 #: templates/settings.php:13
 msgid "Export"
