@@ -312,7 +312,7 @@
 	<div class="adr">
 		<li data-element="adr" data-checksum="{checksum}" class="propertycontainer">
 			<span class="float display">
-				<label class="meta">{meta}</label>
+				<label class="meta"></label>
 				<span class="adr">{value}</span>
 			</span>
 			<span class="listactions">

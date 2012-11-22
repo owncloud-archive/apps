@@ -770,7 +770,6 @@ OC.Contacts = OC.Contacts || {};
 		}
 		var values = property ? {
 				value: property.value.clean('').join(', '),
-				meta: '',
 				checksum: property.checksum,
 				adr0: property.value[0] || '',
 				adr1: property.value[1] || '',
