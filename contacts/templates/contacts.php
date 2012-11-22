@@ -311,10 +311,12 @@
 	</div>
 	<div class="adr">
 		<li data-element="adr" data-checksum="{checksum}" class="propertycontainer">
-			<span class="float adr display">{value}</span>
+			<span class="float display">
+				<label class="meta">{meta}</label>
+				<span class="adr">{value}</span>
+			</span>
 			<span class="listactions">
 				<a class="action globe" title="<?php echo $l->t('View on map'); ?>"></a>
-				<a class="action edit" title="<?php echo $l->t('Edit address details'); ?>"></a>
 				<a class="action delete" title="<?php echo $l->t('Delete address'); ?>"></a>
 			</span>
 			<fieldset class="adr hidden edit ui-widget-content">

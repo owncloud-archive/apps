@@ -42,9 +42,9 @@ utils.type = function(obj) {
 };
 
 utils.moveCursorToEnd = function(el) {
-	if (typeof el.selectionStart == "number") {
+	if (typeof el.selectionStart === 'number') {
 		el.selectionStart = el.selectionEnd = el.value.length;
-	} else if (typeof el.createTextRange != "undefined") {
+	} else if (typeof el.createTextRange !== 'undefined') {
 		el.focus();
 		var range = el.createTextRange();
 		range.collapse(false);

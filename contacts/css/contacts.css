@@ -285,7 +285,13 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 #contact figure img { -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; border: thin solid #bbb; margin: 0.3em; background: url('%webroot%/core/img/loading.gif') no-repeat center center; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; opacity: 1; }
 
 
-#contact span.adr { float: left; width: 16em; padding-top: .5em; overflow: hidden; text-overflow: ellipsis; text-align: bottom; white-space: nowrap; }
+#contact span.adr { 
+	font-weight: bold;
+	float: left; 
+	width: 20em; 
+	padding-top: .5em; 
+	overflow: hidden; text-overflow: ellipsis; text-align: bottom; white-space: nowrap; 
+}
 #contact span.adr:hover { /*overflow: inherit;*/ white-space: pre-wrap; }
 
 @media screen and (min-width: 1400px) {

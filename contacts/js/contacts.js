@@ -471,7 +471,7 @@ OC.Contacts = OC.Contacts || {};
 			})();
 	}
 
-	Contact.prototype.parametersFor = function(obj) {
+	Contact.prototype.parametersFor = function(obj, asText) {
 		var parameters = [];
 		$.each(this.propertyContainerFor(obj).find('select.parameter,input:checkbox:checked.parameter,textarea'), function(i, elem) {
 			var $elem = $(elem);
@@ -479,7 +479,17 @@ OC.Contacts = OC.Contacts || {};
 			if(!parameters[paramname]) {
 				parameters[paramname] = [];
 			}
-			parameters[paramname].push($elem.val());
+			var val;
+			if(asText) {
+				if($elem.is(':checkbox')) {
+					val = $elem.attr('title');
+				} else if($elem.is('select')) {
+					val = $elem.find(':selected').text();
+				}
+			} else {
+				val = $elem.val();
+			}
+			parameters[paramname].push(val);
 		});
 		console.log('Contact.parametersFor', parameters);
 		return parameters;
@@ -643,16 +653,20 @@ OC.Contacts = OC.Contacts || {};
 							continue;
 						}
 						//console.log('$property', $property);
+						var meta = [];
 						if(property.label) {
 							if(!property.parameters['TYPE']) {
 								property.parameters['TYPE'] = [];
 							}
 							property.parameters['TYPE'].push(property.label);
+							meta.push(property.label);
 						}
 						for(var param in property.parameters) {
 							//console.log('param', param);
 							if(param.toUpperCase() == 'PREF') {
-								$property.find('input[type="checkbox"]').attr('checked', 'checked')
+								var $cb = $property.find('input[type="checkbox"]');
+								$cb.attr('checked', 'checked')
+								meta.push($cb.attr('title'));
 							}
 							else if(param.toUpperCase() == 'TYPE') {
 								for(etype in property.parameters[param]) {
@@ -668,6 +682,7 @@ OC.Contacts = OC.Contacts || {};
 									$property.find('select.type option').each(function() {
 										if($(this).val().toUpperCase() === et.toUpperCase()) {
 											$(this).attr('selected', 'selected');
+											meta.push($(this).text());
 											found = true;
 										}
 									});
@@ -680,6 +695,10 @@ OC.Contacts = OC.Contacts || {};
 								//console.log('setting', $property.find('select.impp'), 'to', property.parameters[param].toLowerCase());
 								$property.find('select.impp').val(property.parameters[param].toLowerCase());
 							}
+						}
+						var $meta = $property.find('.meta');
+						if($meta.length) {
+							$meta.html(meta.join('/'));
 						}
 						if(self.access.owner === OC.currentUser
 								|| self.access.permissions & OC.PERMISSION_UPDATE
@@ -751,6 +770,7 @@ OC.Contacts = OC.Contacts || {};
 		}
 		var values = property ? {
 				value: property.value.clean('').join(', '),
+				meta: '',
 				checksum: property.checksum,
 				adr0: property.value[0] || '',
 				adr1: property.value[1] || '',
@@ -764,7 +784,7 @@ OC.Contacts = OC.Contacts || {};
 			: {value:'', checksum:'new', adr0:'', adr1:'', adr2:'', adr3:'', adr4:'', adr5:'', adr6:'', idx: idx};
 		var $elem = this.detailTemplates['adr'].octemplate(values);
 		var self = this;
-		$elem.find('.adr.display').on('click', function() {
+		$elem.find('.display').on('click', function() {
 			$(this).next('.listactions').hide();
 			var $editor = $(this).siblings('.adr.edit').first();
 			var $viewer = $(this);
@@ -776,8 +796,10 @@ OC.Contacts = OC.Contacts || {};
 						var input = $editor.find('input').first();
 						console.log('input', input);
 						var val = self.valueFor(input);
-						console.log('val', val);
-						$(this).html(escapeHTML(self.valueFor($editor.find('input').first()).clean('').join(',')));
+						var params = self.parametersFor(input, true);
+						console.log('val', val, 'params', params);
+						$(this).find('.meta').html(params['TYPE'].join('/'));
+						$(this).find('.adr').html(escapeHTML(self.valueFor($editor.find('input').first()).clean('').join(', ')));
 						$(this).next('.listactions').css('display', 'inline-block');
 						$('body').unbind('click', bodyListener);
 					});
