@@ -120,8 +120,8 @@ class Updater {
 			throw $e;
 		}
 
-		$config = "/" . Helper::CORE_DIRNAME . "/config/config.php";
-		copy($backupBase . $config, \OC::$SERVERROOT . $config);
+		$config = "/config/config.php";
+		copy($backupBase . "/" . Helper::CORE_DIRNAME . $config, \OC::$SERVERROOT . $config);
 		
 		// zip backup 
 		$zip = new \ZipArchive();
