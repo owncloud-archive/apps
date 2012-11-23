@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-22 00:01+0100\n"
+"POT-Creation-Date: 2012-11-23 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,31 +65,31 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: templates/addBm.php:22 templates/js_tpl.php:33
+#: templates/addBm.php:22 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr ""
 
-#: templates/addBm.php:27 templates/js_tpl.php:37
+#: templates/addBm.php:27 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr ""
 
-#: templates/addBm.php:40 templates/js_tpl.php:46
+#: templates/addBm.php:40 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr ""
 
-#: templates/addBm.php:44 templates/js_tpl.php:50
+#: templates/addBm.php:44 templates/js_tpl.php:47
 msgid "Save"
 msgstr ""
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:61
 msgid "Delete"
 msgstr ""
 
-#: templates/js_tpl.php:20 templates/js_tpl.php:60
+#: templates/js_tpl.php:19 templates/js_tpl.php:57
 msgid "Edit"
 msgstr ""
 
-#: templates/js_tpl.php:49
+#: templates/js_tpl.php:46
 msgid "Cancel"
 msgstr ""
 
