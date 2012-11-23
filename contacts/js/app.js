@@ -1012,6 +1012,7 @@ OC.Contacts = OC.Contacts || {
 			}
 
 			self.setAllChecked(false);
+			self.$toggleAll.prop('checked', false);
 			
 			if($opt.val() === 'add') { // Add new group
 				action = 'add';
