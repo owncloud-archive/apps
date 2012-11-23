@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-20 13:55+0000\n"
+"POT-Creation-Date: 2012-11-24 00:00+0100\n"
+"PO-Revision-Date: 2012-11-23 14:33+0000\n"
 "Last-Translator: skoptev <skoptev@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -141,31 +141,31 @@ msgstr "Помилка завантаження зображення."
 
 #: ajax/savecrop.php:70
 msgid "Error getting contact object."
-msgstr ""
+msgstr "Помилка при отриманні об'єкту контакту."
 
 #: ajax/savecrop.php:80
 msgid "Error getting PHOTO property."
-msgstr ""
+msgstr "Помилка при отриманні ФОТО властивості."
 
 #: ajax/savecrop.php:99
 msgid "Error saving contact."
-msgstr ""
+msgstr "Помилка при збереженні контакту."
 
 #: ajax/savecrop.php:110
 msgid "Error resizing image"
-msgstr ""
+msgstr "Помилка при зміні розміру зображення"
 
 #: ajax/savecrop.php:113
 msgid "Error cropping image"
-msgstr ""
+msgstr "Помилка обрізки зображення"
 
 #: ajax/savecrop.php:116
 msgid "Error creating temporary image"
-msgstr ""
+msgstr "Помилка при створенні тимчасового зображення"
 
 #: ajax/savecrop.php:119
 msgid "Error finding image: "
-msgstr ""
+msgstr "Не знайдено зображення: "
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
@@ -199,15 +199,15 @@ msgstr "Відсутній тимчасовий каталог"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
-msgstr ""
+msgstr "Не вдалося зберегти тимчасове зображення: "
 
 #: ajax/uploadphoto.php:62 ajax/uploadphoto.php:112
 msgid "Couldn't load temporary image: "
-msgstr ""
+msgstr "Не вдалося завантажити тимчасове зображення: "
 
 #: ajax/uploadphoto.php:71
 msgid "No file was uploaded. Unknown error"
-msgstr ""
+msgstr "Не завантажено жодного файлу. Невідома помилка"
 
 #: appinfo/app.php:24
 msgid "Contacts"
@@ -215,15 +215,15 @@ msgstr "Контакти"
 
 #: js/contacts.js:71
 msgid "Sorry, this functionality has not been implemented yet"
-msgstr ""
+msgstr "На жаль, ця функція ще не була реалізована"
 
 #: js/contacts.js:71
 msgid "Not implemented"
-msgstr ""
+msgstr "Не реалізовано"
 
 #: js/contacts.js:76
 msgid "Couldn't get a valid address."
-msgstr ""
+msgstr "Не вдалося отримати правильну адресу."
 
 #: js/contacts.js:76 js/contacts.js:105 js/contacts.js:364 js/contacts.js:436
 #: js/contacts.js:443 js/contacts.js:694 js/contacts.js:734 js/contacts.js:763
@@ -263,15 +263,15 @@ msgstr ""
 
 #: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
-msgstr ""
+msgstr "Ви не маєте повноважень додавати контакти у"
 
 #: js/contacts.js:408
 msgid "Please select one of your own address books."
-msgstr ""
+msgstr "Будь ласка, оберіть одну з власних адресних книг."
 
 #: js/contacts.js:408
 msgid "Permission error"
-msgstr ""
+msgstr "Помилка доступу"
 
 #: js/contacts.js:482
 msgid "Click to undo deletion of \""
@@ -283,7 +283,7 @@ msgstr ""
 
 #: js/contacts.js:734
 msgid "This property has to be non-empty."
-msgstr ""
+msgstr "Властивість повинна бути заповнена."
 
 #: js/contacts.js:763
 msgid "Couldn't serialize elements."
@@ -363,11 +363,11 @@ msgstr "Очікування"
 
 #: js/contacts.js:2257
 msgid "Import done"
-msgstr ""
+msgstr "Імпортування виконано"
 
 #: js/contacts.js:2270
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Не всі файли завантажено. Повторна спроба..."
 
 #: js/contacts.js:2276
 msgid "Something went wrong with the upload, please retry."
@@ -438,19 +438,19 @@ msgstr ""
 
 #: lib/addressbook.php:235
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "Ви не маєте повноважень оновлювати цю адресну книгу."
 
 #: lib/addressbook.php:255
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "Виникла помилка при оновленні адресної книги."
 
 #: lib/addressbook.php:311
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "Ви не маєте повноважень видаляти цю адресну книгу."
 
 #: lib/addressbook.php:340
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "Виникла помилка при видаленні цієї адресної книги."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -482,35 +482,35 @@ msgstr ""
 
 #: lib/app.php:136
 msgid "GoogleTalk"
-msgstr ""
+msgstr "GoogleTalk"
 
 #: lib/app.php:141
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: lib/app.php:146
 msgid "XMPP"
-msgstr ""
+msgstr "XMPP"
 
 #: lib/app.php:151
 msgid "ICQ"
-msgstr ""
+msgstr "ICQ"
 
 #: lib/app.php:156
 msgid "Yahoo"
-msgstr ""
+msgstr "Yahoo"
 
 #: lib/app.php:161
 msgid "Skype"
-msgstr ""
+msgstr "Skype"
 
 #: lib/app.php:166
 msgid "QQ"
-msgstr ""
+msgstr "QQ"
 
 #: lib/app.php:171
 msgid "GaduGadu"
-msgstr ""
+msgstr "GaduGadu"
 
 #: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:253
 msgid "Work"
@@ -520,7 +520,7 @@ msgstr "Робота"
 msgid "Home"
 msgstr "Домашня адреса"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
+#: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:651
 msgid "Other"
 msgstr "Інше"
 
@@ -574,31 +574,31 @@ msgstr "Контакт"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "Ви не маєте повноважень додавати контакти в цю адресну книгу."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "Не вдалося знайти vCard за ID."
 
 #: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
-msgstr ""
+msgstr "Ви не маєте повноважень редагувати цей контакт."
 
 #: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "Не вдалося знайти vCard за ID: "
 
 #: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "Не вдалося знайти адресну книгу за ID: "
 
 #: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
-msgstr ""
+msgstr "Ви не маєте повноважень видаляти цей контакт."
 
-#: lib/vcard.php:550
+#: lib/vcard.php:551
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "Виникла помилка при видаленні цього контакту."
 
 #: templates/index.php:14
 msgid "Add Contact"
@@ -670,19 +670,19 @@ msgstr "Піднесіть фото для завантаження"
 
 #: templates/part.contact.php:19
 msgid "Delete current photo"
-msgstr ""
+msgstr "Видалити поточне фото"
 
 #: templates/part.contact.php:20
 msgid "Edit current photo"
-msgstr ""
+msgstr "Редагувати поточне фото"
 
 #: templates/part.contact.php:21
 msgid "Upload new photo"
-msgstr ""
+msgstr "Завантажити нове фото"
 
 #: templates/part.contact.php:22
 msgid "Select photo from ownCloud"
-msgstr ""
+msgstr "Обрати фото з ownCloud"
 
 #: templates/part.contact.php:36
 msgid "Edit name details"
@@ -764,11 +764,11 @@ msgstr "Видалити номер телефону"
 
 #: templates/part.contact.php:100
 msgid "Instant Messenger"
-msgstr ""
+msgstr "Instant Messenger"
 
 #: templates/part.contact.php:101
 msgid "Delete IM"
-msgstr ""
+msgstr "Видалити IM"
 
 #: templates/part.contact.php:110
 msgid "View on map"
@@ -780,7 +780,7 @@ msgstr "Редагувати деталі адреси"
 
 #: templates/part.contact.php:116
 msgid "Add notes here."
-msgstr ""
+msgstr "Додайте сюди примітки."
 
 #: templates/part.contact.php:124
 msgid "Add field"
@@ -804,7 +804,7 @@ msgstr "Адреса"
 
 #: templates/part.contact.php:133
 msgid "Note"
-msgstr ""
+msgstr "Примітка"
 
 #: templates/part.contact.php:138
 msgid "Download contact"
@@ -820,7 +820,7 @@ msgstr ""
 
 #: templates/part.edit_address_dialog.php:6
 msgid "Edit address"
-msgstr ""
+msgstr "Редагувати адреси"
 
 #: templates/part.edit_address_dialog.php:10
 msgid "Type"
@@ -879,31 +879,31 @@ msgstr "Адресна книга"
 
 #: templates/part.edit_name_dialog.php:23
 msgid "Hon. prefixes"
-msgstr ""
+msgstr "Високоповажні префікси"
 
 #: templates/part.edit_name_dialog.php:27
 msgid "Miss"
-msgstr ""
+msgstr "Miss"
 
 #: templates/part.edit_name_dialog.php:28
 msgid "Ms"
-msgstr ""
+msgstr "Пані"
 
 #: templates/part.edit_name_dialog.php:29
 msgid "Mr"
-msgstr ""
+msgstr "Пан"
 
 #: templates/part.edit_name_dialog.php:30
 msgid "Sir"
-msgstr ""
+msgstr "Sir"
 
 #: templates/part.edit_name_dialog.php:31
 msgid "Mrs"
-msgstr ""
+msgstr "Mrs"
 
 #: templates/part.edit_name_dialog.php:32
 msgid "Dr"
-msgstr ""
+msgstr "Доктор"
 
 #: templates/part.edit_name_dialog.php:35
 msgid "Given name"
@@ -911,67 +911,67 @@ msgstr "Ім'я"
 
 #: templates/part.edit_name_dialog.php:37
 msgid "Additional names"
-msgstr ""
+msgstr "Додаткові імена"
 
 #: templates/part.edit_name_dialog.php:39
 msgid "Family name"
-msgstr ""
+msgstr "Прізвище"
 
 #: templates/part.edit_name_dialog.php:41
 msgid "Hon. suffixes"
-msgstr ""
+msgstr "Високоповажні суфікси"
 
 #: templates/part.edit_name_dialog.php:45
 msgid "J.D."
-msgstr ""
+msgstr "J.D."
 
 #: templates/part.edit_name_dialog.php:46
 msgid "M.D."
-msgstr ""
+msgstr "M.D."
 
 #: templates/part.edit_name_dialog.php:47
 msgid "D.O."
-msgstr ""
+msgstr "D.O."
 
 #: templates/part.edit_name_dialog.php:48
 msgid "D.C."
-msgstr ""
+msgstr "D.C."
 
 #: templates/part.edit_name_dialog.php:49
 msgid "Ph.D."
-msgstr ""
+msgstr "Ph.D."
 
 #: templates/part.edit_name_dialog.php:50
 msgid "Esq."
-msgstr ""
+msgstr "Esq."
 
 #: templates/part.edit_name_dialog.php:51
 msgid "Jr."
-msgstr ""
+msgstr "Jr."
 
 #: templates/part.edit_name_dialog.php:52
 msgid "Sn."
-msgstr ""
+msgstr "Sn."
 
 #: templates/part.import.php:1
 msgid "Import a contacts file"
-msgstr ""
+msgstr "Імпортувати файл контактів"
 
 #: templates/part.import.php:6
 msgid "Please choose the addressbook"
-msgstr ""
+msgstr "Будь ласка, оберіть адресну книгу"
 
 #: templates/part.import.php:10
 msgid "create a new addressbook"
-msgstr ""
+msgstr "створити нову адресну книгу"
 
 #: templates/part.import.php:15
 msgid "Name of new addressbook"
-msgstr ""
+msgstr "Ім'я нової адресної книги"
 
 #: templates/part.import.php:20
 msgid "Importing contacts"
-msgstr ""
+msgstr "Імпортування контактів"
 
 #: templates/part.no_contacts.php:3
 msgid ""
@@ -996,19 +996,19 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"
-msgstr ""
+msgstr "CardDAV синхронізує адреси"
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr ""
+msgstr "більше інформації"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "Первинна адреса (Контакт та ін)"
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:9
 msgid "Addressbooks"

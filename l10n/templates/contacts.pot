@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-23 00:01+0100\n"
+"POT-Creation-Date: 2012-11-24 00:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -517,7 +517,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
+#: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:651
 msgid "Other"
 msgstr ""
 
@@ -593,7 +593,7 @@ msgstr ""
 msgid "You do not have the permissions to delete this contact."
 msgstr ""
 
-#: lib/vcard.php:550
+#: lib/vcard.php:551
 msgid "There was an error deleting this contact."
 msgstr ""
 
