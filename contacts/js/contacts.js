@@ -1008,9 +1008,9 @@ OC.Contacts = OC.Contacts || {};
 			var found = false;
 			var categories = [];
 			$.each(this.data.CATEGORIES[0].value, function(idx, category) {
-				if(name.toLowerCase() === category.toLowerCase()) {
+				// NOTE: Don't use === here.
+				if(name.toLowerCase() == category.toLowerCase(), '?') {
 					found = true;
-					// Not breaking out of loop 'cause there could be dupes.
 				} else {
 					categories.push(category);
 				}

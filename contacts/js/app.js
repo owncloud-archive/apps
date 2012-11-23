@@ -189,6 +189,10 @@ GroupList.prototype.selectGroup = function(params) {
 		id = params.element.data('id');
 		$elem = params.element;
 	}
+	if(!$elem) {
+		self.selectGroup('all');
+		return;
+	}
 	console.log('selectGroup', id, $elem);
 	this.$groupList.find('h3').removeClass('active');
 	$elem.addClass('active');
@@ -871,8 +875,10 @@ OC.Contacts = OC.Contacts || {
 				self.currentgroup = 'all';
 			}
 			$.each(result.contacts, function(idx, contactid) {
-				console.log('contactid', contactid);
-				self.Contacts.contacts[parseInt(result.contactid)].removeFromGroup(result.groupname);
+				var contact = self.Contacts.findById(contactid);
+				console.log('contactid', contactid, contact);
+				
+				self.Contacts.findById(contactid).removeFromGroup(result.groupname);
 			});
 		});
 
