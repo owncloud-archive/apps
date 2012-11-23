@@ -614,6 +614,7 @@ class VCard {
 
 		App::updateDBProperties($id);
 		App::getVCategories()->purgeObject($id);
+		Addressbook::touch($addressbook['userid']);
 
 		\OCP\Share::unshareAll('contact', $id);
 
