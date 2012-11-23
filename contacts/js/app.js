@@ -160,14 +160,7 @@ var GroupList = function(groupList, listItemTmpl) {
 				}
 			})
 		} else {
-			self.$groupList.find('h3').removeClass('active');
-			$(this).addClass('active');
-			self.lastgroup = $(this).data('id');
-			$(document).trigger('status.group.selected', {
-				id: self.lastgroup,
-				type: $(this).data('type'),
-				contacts: $(this).data('contacts'),
-			});
+			self.selectGroup({element:$(this)});
 		}
 	});
 
@@ -187,8 +180,24 @@ GroupList.prototype.isFavorite = function(contactid) {
 	return this.inGroup(contactid, 'fav');
 }
 
-GroupList.prototype.selectGroup = function(groupid) {
-	console.log('selectGroup', groupid);
+GroupList.prototype.selectGroup = function(params) {
+	var id, $elem;
+	if(typeof params.id !== 'undefined') {
+		id = params.id;
+		$elem = this.findById(id);
+	} else if(typeof params.element !== 'undefined') {
+		id = params.element.data('id');
+		$elem = params.element;
+	}
+	console.log('selectGroup', id, $elem);
+	this.$groupList.find('h3').removeClass('active');
+	$elem.addClass('active');
+	this.lastgroup = id;
+	$(document).trigger('status.group.selected', {
+		id: this.lastgroup,
+		type: $elem.data('type'),
+		contacts: $elem.data('contacts'),
+	});
 }
 
 GroupList.prototype.inGroup = function(contactid, groupid) {
@@ -406,23 +415,23 @@ GroupList.prototype.contactDropped = function(event, ui) {
 
 GroupList.prototype.deleteGroup = function(groupid, cb) {
 	var $elem = this.findById(groupid);
+	var $newelem = $elem.prev('h3');
 	var name = this.nameById(groupid);
 	var contacts = $elem.data('contacts');
 	var self = this;
 	console.log('delete group', groupid, contacts);
 	$.post(OC.filePath('contacts', 'ajax', 'categories/delete.php'), {categories: name}, function(jsondata) {
 		if (jsondata && jsondata.status == 'success') {
-			// TODO: Do a self.deletionTimer = setInterval(function() {}, 500);
-			// passing contacts and trigger removes delayed.
-			$.each(contacts, function(idx, contactid) {
-				$(document).trigger('status.group.contactremoved', {
-					contactid: contactid,
-					groupid: groupid,
-					groupname: self.nameById(groupid),
-				});
+			$(document).trigger('status.group.groupremoved', {
+				groupid: groupid,
+				newgroupid: parseInt($newelem.data('id')),
+				groupname: self.nameById(groupid),
+				contacts: contacts,
 			});
 			$elem.remove();
+			self.selectGroup({element:$newelem});
 		} else {
+			//
 		}
 		if(typeof cb === 'function') {
 			cb(jsondata);
