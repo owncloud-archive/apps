@@ -288,7 +288,11 @@ GroupList.prototype.addTo = function(contactid, groupid, cb) {
 			if(jsondata.status === 'success') {
 				contacts = contacts.concat(ids).sort();
 				$groupelem.data('contacts', contacts);
-				$groupelem.find('.numcontacts').text(contacts.length);
+				var $numelem = $groupelem.find('.numcontacts');
+				$numelem.text(contacts.length).switchClass('', 'active', 200);
+				setTimeout(function() {
+					$numelem.switchClass('active', '', 1000);
+				}, 2000);
 				if(typeof cb === 'function') {
 					cb({status:'success', ids:ids});
 				} else {
@@ -358,7 +362,11 @@ GroupList.prototype.removeFrom = function(contactid, groupid, cb) {
 				});
 				//console.log('contacts', contacts, contacts.indexOf(id), contacts.indexOf(String(id)));
 				$groupelem.data('contacts', contacts);
-				$groupelem.find('.numcontacts').text(contacts.length);
+				var $numelem = $groupelem.find('.numcontacts');
+				$numelem.text(contacts.length).switchClass('', 'active', 200);
+				setTimeout(function() {
+					$numelem.switchClass('active', '', 1000);
+				}, 2000);
 				if(typeof cb === 'function') {
 					cb({status:'success', ids:ids});
 				}
