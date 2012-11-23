@@ -1008,8 +1008,7 @@ OC.Contacts = OC.Contacts || {};
 			var found = false;
 			var categories = [];
 			$.each(this.data.CATEGORIES[0].value, function(idx, category) {
-				// NOTE: Don't use === here.
-				if(name.toLowerCase() == category.toLowerCase(), '?') {
+				if(name.toLowerCase() === category.toLowerCase()) {
 					found = true;
 				} else {
 					categories.push(category);
@@ -1022,7 +1021,7 @@ OC.Contacts = OC.Contacts || {};
 			//this.data.CATEGORIES[0].value.splice(this.data.CATEGORIES[0].value.indexOf(name), 1);
 			if(this.$listelem) {
 				this.$listelem.find('td.categories')
-					.text(this.getPreferredValue('CATEGORIES', []).clean('').join(' / '));
+					.text(categories.join(' / '));
 			}
 		}
 		this.saveProperty({name:'CATEGORIES', value:this.data.CATEGORIES[0].value.join(',') });
