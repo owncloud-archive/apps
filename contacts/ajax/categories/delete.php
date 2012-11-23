@@ -41,10 +41,11 @@ if($fromobjects) {
 		$cards[] = array($contact['id'], $contact['carddata']);
 	}
 }
-debug('Before delete: '.print_r($categories, true));
 
 $catman = new OC_VCategories('contact');
 $catman->delete($categories, $cards);
-debug('After delete: '.print_r($catman->categories(), true));
-OCA\Contacts\VCard::updateDataByID($cards);
+
+if($fromobjects) {
+	OCA\Contacts\VCard::updateDataByID($cards);
+}
 OCP\JSON::success();
