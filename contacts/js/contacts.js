@@ -969,6 +969,16 @@ OC.Contacts = OC.Contacts || {};
 		if(!this.data.CATEGORIES) {
 			this.data.CATEGORIES = [{value:[name]},];
 		} else {
+			var found = false;
+			$.each(this.data.CATEGORIES[0].value, function(idx, category) {
+				if(name.toLowerCase() === category.toLowerCase()) {
+					found = true;
+					return false;
+				}
+			});
+			if(found) {
+				return;
+			}
 			this.data.CATEGORIES[0].value.push(name);
 			console.log('listelem categories', this.getPreferredValue('CATEGORIES', []).clean('').join(' / '));
 			if(this.$listelem) {
@@ -988,7 +998,21 @@ OC.Contacts = OC.Contacts || {};
 		if(!this.data.CATEGORIES) {
 			return;
 		} else {
-			this.data.CATEGORIES[0].value.splice(this.data.CATEGORIES[0].value.indexOf(name), 1);
+			var found = false;
+			var categories = [];
+			$.each(this.data.CATEGORIES[0].value, function(idx, category) {
+				if(name.toLowerCase() === category.toLowerCase()) {
+					found = true;
+					// Not breaking out of loop 'cause there could be dupes.
+				} else {
+					categories.push(category);
+				}
+			});
+			if(!found) {
+				return;
+			}
+			this.data.CATEGORIES[0].value = categories;
+			//this.data.CATEGORIES[0].value.splice(this.data.CATEGORIES[0].value.indexOf(name), 1);
 			if(this.$listelem) {
 				this.$listelem.find('td.categories')
 					.text(this.getPreferredValue('CATEGORIES', []).clean('').join(' / '));

@@ -24,11 +24,10 @@ if(is_null($contactids)) {
 	bailOut(OCA\Contacts\App::$l10n->t('Contact ID missing from request.'));
 }
 
-debug('id: ' . $contactids .', categoryid: ' . $categoryids);
-
 $catmgr = OCA\Contacts\App::getVCategories();
 
 foreach($contactids as $contactid) {
+	debug('id: ' . $contactid .', categoryid: ' . $categoryid);
 	$catmgr->removeFromCategory($contactid, $categoryid);
 }
 

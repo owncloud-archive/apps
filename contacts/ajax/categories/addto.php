@@ -24,12 +24,11 @@ if(is_null($contactids)) {
 	bailOut(OCA\Contacts\App::$l10n->t('Contact ID missing from request.'));
 }
 
-debug('id: ' . print_r($contactids, true) .', categoryid: ' . $categoryid);
-
 $catmgr = OCA\Contacts\App::getVCategories();
 
 foreach($contactids as $contactid) {
-	$catmgr->addToCategory($contactids, $categoryid);
+	debug('contactid: ' . $contactid . ', categoryid: ' . $categoryid);
+	$catmgr->addToCategory($contactid, $categoryid);
 }
 
 OCP\JSON::success();

@@ -803,22 +803,19 @@ OC.Contacts = OC.Contacts || {
 			}
 			self.currentlistid = result.id
 		});
-		$(document).bind('status.contact.removedfromgroup', function(e, result) {
-			console.log('status.contact.removedfromgroup', result);
-			if(self.currentgroup == result.groupid) {
-				self.closeContact(result.contactid);
-			}
-		});
+
 		$(document).bind('status.nomorecontacts', function(e, result) {
 			console.log('status.nomorecontacts', result);
 			self.$contactList.hide();
 			self.$firstRun.show();
 			// TODO: Show a first-run page.
 		});
+
 		$(document).bind('status.visiblecontacts', function(e, result) {
 			console.log('status.visiblecontacts', result);
 			// TODO: To be decided.
 		});
+
 		// A contact id was in the request
 		$(document).bind('request.loadcontact', function(e, result) {
 			console.log('request.loadcontact', result);
@@ -834,28 +831,49 @@ OC.Contacts = OC.Contacts || {
 				}, 1000);
 			}
 		});
+
 		$(document).bind('request.select.contactphoto.fromlocal', function(e, result) {
 			console.log('request.select.contactphoto.fromlocal', result);
 			$('#contactphoto_fileupload').trigger('click');
 		});
+
 		$(document).bind('request.select.contactphoto.fromcloud', function(e, result) {
 			console.log('request.select.contactphoto.fromcloud', result);
 			OC.dialogs.filepicker(t('contacts', 'Select photo'), function(path) {
 				self.cloudPhotoSelected(self.currentid, path);
 			}, false, 'image', true);
 		});
+
 		$(document).bind('request.edit.contactphoto', function(e, result) {
 			console.log('request.edit.contactphoto', result);
 			self.editCurrentPhoto(result.id);
 		});
+
 		$(document).bind('request.addressbook.activate', function(e, result) {
 			console.log('request.addressbook.activate', result);
 			self.Contacts.showFromAddressbook(result.id, result.activate);
 		});
 
-		$(document).bind('status.group.contactremoved', function(e, result) {
-			console.log('status.group.contactremoved', result);
-			self.Contacts.contacts[parseInt(result.contactid)].removeFromGroup(result.groupname);
+		$(document).bind('status.contact.removedfromgroup', function(e, result) {
+			console.log('status.contact.removedfromgroup', result);
+			if(self.currentgroup == result.groupid) {
+				self.Contacts.hideContact(result.contactid);
+				self.closeContact(result.contactid);
+			}
+		});
+
+		$(document).bind('status.group.groupremoved', function(e, result) {
+			console.log('status.group.groupremoved', result);
+			if(parseInt(result.groupid) === parseInt(self.currentgroup)) {
+				console.time('hiding');
+				self.Contacts.showContacts([]);
+				console.timeEnd('hiding');
+				self.currentgroup = 'all';
+			}
+			$.each(result.contacts, function(idx, contactid) {
+				console.log('contactid', contactid);
+				self.Contacts.contacts[parseInt(result.contactid)].removeFromGroup(result.groupname);
+			});
 		});
 
 		$(document).bind('status.group.contactadded', function(e, result) {
