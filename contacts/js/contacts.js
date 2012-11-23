@@ -297,6 +297,13 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	/**
+	 * Hide contact list element.
+	 */
+	Contact.prototype.hide = function() {
+		this.getListItemElement().hide();
+	}
+	
+	/**
 	 * Remove any open contact from the DOM.
 	 */
 	Contact.prototype.close = function() {
@@ -1122,6 +1129,11 @@ OC.Contacts = OC.Contacts || {};
 	* @param Array contacts. A list of contact ids.
 	*/
 	ContactList.prototype.showContacts = function(contacts) {
+		if(contacts.length === 0) {
+			// ~5 times faster
+			$('tr:visible.contact').hide();
+			return;
+		}
 		for(var contact in this.contacts) {
 			if(contacts === 'all') {
 				this.contacts[contact].getListItemElement().show();
@@ -1147,6 +1159,10 @@ OC.Contacts = OC.Contacts || {};
 		return pos;
 	}
 
+	ContactList.prototype.hideContact = function(id) {
+		this.contacts[parseInt(id)].hide();
+	}
+
 	ContactList.prototype.closeContact = function(id) {
 		this.contacts[parseInt(id)].close();
 	}
@@ -1166,7 +1182,7 @@ OC.Contacts = OC.Contacts || {};
 	* @param id the id of the node
 	* @return the Contact object or undefined if not found.
 	* FIXME: If continious loading is reintroduced this will have
-	* to load the requested contact.
+	* to load the requested contact if not in list.
 	*/
 	ContactList.prototype.findById = function(id) {
 		return this.contacts[parseInt(id)];

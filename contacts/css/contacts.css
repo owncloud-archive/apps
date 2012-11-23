@@ -61,7 +61,7 @@
 
 #grouplist { z-index: 100; }
 #grouplist h3 .action { float: right; display: none; }
-#grouplist h3:not([data-type="shared"]):hover .action.numcontacts { display: inline-block; }
+#grouplist h3:not([data-type="shared"]):hover .action.numcontacts, #grouplist h3:not([data-type="shared"]) .active.action.numcontacts { display: inline-block; }
 #grouplist h3[data-type="category"]:hover .action.delete { display: inline-block; }
 #grouplist h3 .action.delete { width: 20px; height: 20px; }
 
