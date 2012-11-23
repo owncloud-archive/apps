@@ -123,7 +123,7 @@ if(!count($parts) > 0) {
 }
 foreach($parts as $part) {
 	try {
-		$vcard = Sabre\VObject\Reader::read($contact['carddata']);
+		$vcard = Sabre\VObject\Reader::read($part);
 	} catch (Exception $e) {
 		$failed += 1;
 		OCP\Util::writeLog('contacts',
