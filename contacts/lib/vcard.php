@@ -534,6 +534,7 @@ class OC_Contacts_VCard {
 				);
 			}
 		}
+    $aid = $card['addressbookid'];
 		OC_Hook::emit('OC_Contacts_VCard', 'pre_deleteVCard',
 			array('aid' => null, 'id' => $id, 'uri' => null)
 		);
@@ -554,6 +555,7 @@ class OC_Contacts_VCard {
 		OC_Contacts_App::getVCategories()->purgeObject($id);
 
 		OCP\Share::unshareAll('contact', $id);
+    OC_Contacts_Addressbook::touch($aid);
 
 		return true;
 	}
