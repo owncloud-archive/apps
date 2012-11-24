@@ -745,7 +745,7 @@ class VCard {
 			$value = strtr($value, array('\,' => ',', '\;' => ';'));
 		}
 		$temp = array(
-			'name' => $property->name,
+			//'name' => $property->name,
 			'value' => $value,
 			'parameters' => array()
 		);
