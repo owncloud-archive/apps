@@ -573,7 +573,7 @@ class OC_Contacts_VCard {
 			OCP\Util::writeLog('contacts', __METHOD__.', Not found: addressbookid: '.$aid.', uri: '.$uri, OCP\Util::DEBUG);
 			return false;
 		}
-		return OC_Contacts_VCard::delete($id);
+		return self::delete($id);
 	}
 
 	/**
