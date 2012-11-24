@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-24 02:02+0200\n"
-"PO-Revision-Date: 2012-10-23 12:02+0000\n"
-"Last-Translator: mateju <>\n"
+"POT-Creation-Date: 2012-11-20 00:00+0100\n"
+"PO-Revision-Date: 2012-11-19 19:08+0000\n"
+"Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +39,7 @@ msgstr "Imenika s praznim imenom ni mogoče posodobiti."
 msgid "No ID provided"
 msgstr "Vrednost ID ni podana"
 
-#: ajax/categories/categoriesfor.php:34
+#: ajax/categories/categoriesfor.php:35
 msgid "Error setting checksum."
 msgstr "Napaka med nastavljanjem nadzorne vsote."
 
@@ -210,7 +210,7 @@ msgstr "Začasne slike ni mogoče naložiti: "
 msgid "No file was uploaded. Unknown error"
 msgstr "Nobena datoteka ni naložena. Neznana napaka."
 
-#: appinfo/app.php:25
+#: appinfo/app.php:24
 msgid "Contacts"
 msgstr "Stiki"
 
@@ -227,16 +227,16 @@ msgid "Couldn't get a valid address."
 msgstr "Ni mogoče pridobiti veljavnega naslova."
 
 #: js/contacts.js:76 js/contacts.js:105 js/contacts.js:364 js/contacts.js:436
-#: js/contacts.js:443 js/contacts.js:686 js/contacts.js:726 js/contacts.js:752
-#: js/contacts.js:763 js/contacts.js:777 js/contacts.js:797 js/contacts.js:884
-#: js/contacts.js:890 js/contacts.js:902 js/contacts.js:939
-#: js/contacts.js:1213 js/contacts.js:1221 js/contacts.js:1230
-#: js/contacts.js:1265 js/contacts.js:1301 js/contacts.js:1316
-#: js/contacts.js:1342 js/contacts.js:1575 js/contacts.js:1610
-#: js/contacts.js:1630 js/contacts.js:1688 js/contacts.js:1842
-#: js/contacts.js:1985 js/contacts.js:2011 js/contacts.js:2021
-#: js/contacts.js:2024 js/contacts.js:2175 js/contacts.js:2212
-#: js/contacts.js:2247 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/contacts.js:443 js/contacts.js:694 js/contacts.js:734 js/contacts.js:763
+#: js/contacts.js:774 js/contacts.js:788 js/contacts.js:808 js/contacts.js:895
+#: js/contacts.js:901 js/contacts.js:913 js/contacts.js:950
+#: js/contacts.js:1226 js/contacts.js:1234 js/contacts.js:1243
+#: js/contacts.js:1278 js/contacts.js:1314 js/contacts.js:1329
+#: js/contacts.js:1355 js/contacts.js:1588 js/contacts.js:1623
+#: js/contacts.js:1643 js/contacts.js:1732 js/contacts.js:1886
+#: js/contacts.js:2086 js/contacts.js:2112 js/contacts.js:2122
+#: js/contacts.js:2125 js/contacts.js:2276 js/contacts.js:2313
+#: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
 #: js/settings.js:113
 msgid "Error"
 msgstr "Napaka"
@@ -253,8 +253,8 @@ msgstr "Vnesi ime"
 msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
 msgstr "Format po meri, Kratko ime, Polno ime, Obratno ali Obratno z vejico"
 
-#: js/contacts.js:184 js/contacts.js:1421 js/contacts.js:1464
-#: js/contacts.js:1483 js/contacts.js:1526
+#: js/contacts.js:184 js/contacts.js:1434 js/contacts.js:1477
+#: js/contacts.js:1496 js/contacts.js:1539
 msgid "Select type"
 msgstr "Izberite vrsto"
 
@@ -282,103 +282,103 @@ msgstr "Kliknite za preklic izbrisa \""
 msgid "Cancelled deletion of: \""
 msgstr "Preklican izbris: \""
 
-#: js/contacts.js:726
+#: js/contacts.js:734
 msgid "This property has to be non-empty."
 msgstr "Ta lastnost ne sme biti prazna"
 
-#: js/contacts.js:752
+#: js/contacts.js:763
 msgid "Couldn't serialize elements."
 msgstr "Predmetov ni mogoče dati v zaporedje."
 
-#: js/contacts.js:763
+#: js/contacts.js:774
 msgid "Unknown error. Please check logs."
 msgstr "Neznana napaka. Preverite dnevniški zapis za več podrobnosti."
 
-#: js/contacts.js:884 js/contacts.js:902
+#: js/contacts.js:895 js/contacts.js:913
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "Lastnost \"deleteProperty\" je bila klicana brez vrste argumenta. Oddajte poročilo o napaki na bugs.owncloud.org"
 
-#: js/contacts.js:921
+#: js/contacts.js:932
 msgid "Edit name"
 msgstr "Uredi ime"
 
-#: js/contacts.js:1213
+#: js/contacts.js:1226
 msgid "No files selected for upload."
 msgstr "Ni izbrane datoteke za nalaganje."
 
-#: js/contacts.js:1221 js/contacts.js:2001 js/contacts.js:2076
+#: js/contacts.js:1234 js/contacts.js:2102 js/contacts.js:2177
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Datoteka, ki jo poskušate naložiti, presega največjo dovoljeno velikost za pošiljanje na tem strežniku."
 
-#: js/contacts.js:1285
+#: js/contacts.js:1298
 msgid "Error loading profile picture."
 msgstr "Napaka med nalaganjem slike profila."
 
-#: js/contacts.js:1544
+#: js/contacts.js:1557
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Nekateri stiki so označeni za izbris, vendar še niso izbrisani. Počakajte na izbris."
 
-#: js/contacts.js:1615
+#: js/contacts.js:1628
 msgid "Do you want to merge these address books?"
 msgstr "Ali želite združiti imenike?"
 
-#: js/contacts.js:1768
+#: js/contacts.js:1812
 msgid "Shared by "
 msgstr "V souporabi z"
 
-#: js/contacts.js:2001 js/contacts.js:2076
+#: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
 msgstr "Datoteke za pošiljanje so prevelike"
 
-#: js/contacts.js:2005
+#: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
 msgstr "Kot slike profila so lahko uporabljene le slikovne datoteke."
 
-#: js/contacts.js:2005
+#: js/contacts.js:2106
 msgid "Wrong file type"
 msgstr "Napačna vrsta datoteke"
 
-#: js/contacts.js:2011
+#: js/contacts.js:2112
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
 msgstr "Brskalnik ne podpira pošiljanja AJAX. Preverite sliko profila za izbor fotografije za pošiljanje."
 
-#: js/contacts.js:2069
+#: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Datoteke ni mogoče naložiti, saj je mapa ali pa je velikosti 0 bajtov."
 
-#: js/contacts.js:2069
+#: js/contacts.js:2170
 msgid "Upload Error"
 msgstr "Napaka med pošiljanjem"
 
-#: js/contacts.js:2124
+#: js/contacts.js:2225
 msgid "Pending"
 msgstr "V čakanju"
 
-#: js/contacts.js:2156
+#: js/contacts.js:2257
 msgid "Import done"
 msgstr "Uvoz je končan"
 
-#: js/contacts.js:2169
+#: js/contacts.js:2270
 msgid "Not all files uploaded. Retrying..."
 msgstr "Vse datoteke niso bile poslane. Poskus bo ponovljen ..."
 
-#: js/contacts.js:2175
+#: js/contacts.js:2276
 msgid "Something went wrong with the upload, please retry."
 msgstr "Med nalaganjem je prišlo do napake. Poskusite znova."
 
-#: js/contacts.js:2191
+#: js/contacts.js:2292
 msgid "Importing..."
 msgstr "Uvažanje ..."
 
-#: js/contacts.js:2212
+#: js/contacts.js:2313
 msgid "The address book name cannot be empty."
 msgstr "Imenika mora imeti določeno ime."
 
@@ -433,23 +433,23 @@ msgstr "Več ..."
 msgid "Less..."
 msgstr "Manj ..."
 
-#: lib/addressbook.php:138
+#: lib/addressbook.php:136
 msgid "You do not have the permissions to read this addressbook."
 msgstr "Ni ustreznih dovoljenj za branje tega imenika."
 
-#: lib/addressbook.php:239
+#: lib/addressbook.php:235
 msgid "You do not have the permissions to update this addressbook."
 msgstr "Ni ustreznih dovoljenj za posodobitev tega imenika."
 
-#: lib/addressbook.php:259
+#: lib/addressbook.php:255
 msgid "There was an error updating the addressbook."
 msgstr "Med posodabljanjem imenika je prišlo do napake."
 
-#: lib/addressbook.php:315
+#: lib/addressbook.php:311
 msgid "You do not have the permissions to delete this addressbook."
 msgstr "Ni ustreznih dovoljenj za izbris tega imenika."
 
-#: lib/addressbook.php:344
+#: lib/addressbook.php:340
 msgid "There was an error deleting this addressbook."
 msgstr "Med brisanjem imenika je prišlo do napake."
 
@@ -513,7 +513,7 @@ msgstr "QQ"
 msgid "GaduGadu"
 msgstr "GaduGadu"
 
-#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
+#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:253
 msgid "Work"
 msgstr "Delo"
 
@@ -521,7 +521,7 @@ msgstr "Delo"
 msgid "Home"
 msgstr "Doma"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:648
+#: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
 msgstr "Drugo"
 
@@ -557,58 +557,13 @@ msgstr "Pozivnik"
 msgid "Internet"
 msgstr "Internet"
 
-#: lib/app.php:252 templates/part.contact.php:45
-#: templates/part.contact.php:128
-msgid "Birthday"
-msgstr "Rojstni dan"
+#: lib/app.php:251
+msgid "Friends"
+msgstr "Prijatelji"
 
-#: lib/app.php:253
-msgid "Business"
-msgstr "Poslovno"
-
-#: lib/app.php:254
-msgid "Call"
-msgstr "Klic"
-
-#: lib/app.php:255
-msgid "Clients"
-msgstr "Stranka"
-
-#: lib/app.php:256
-msgid "Deliverer"
-msgstr "Dostavljalec"
-
-#: lib/app.php:257
-msgid "Holidays"
-msgstr "Prazniki"
-
-#: lib/app.php:258
-msgid "Ideas"
-msgstr "Ideje"
-
-#: lib/app.php:259
-msgid "Journey"
-msgstr "Potovanje"
-
-#: lib/app.php:260
-msgid "Jubilee"
-msgstr "Obletnica"
-
-#: lib/app.php:261
-msgid "Meeting"
-msgstr "Srečanje"
-
-#: lib/app.php:263
-msgid "Personal"
-msgstr "Osebno"
-
-#: lib/app.php:264
-msgid "Projects"
-msgstr "Projekti"
-
-#: lib/app.php:265
-msgid "Questions"
-msgstr "Vprašanja"
+#: lib/app.php:252
+msgid "Family"
+msgstr "Družina"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
@@ -758,6 +713,10 @@ msgstr "http://www.spletnastran.si"
 #: templates/part.contact.php:44
 msgid "Go to web site"
 msgstr "Pojdi na spletno stran"
+
+#: templates/part.contact.php:45 templates/part.contact.php:128
+msgid "Birthday"
+msgstr "Rojstni dan"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"

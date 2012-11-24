@@ -8,13 +8,14 @@
 #   <seg@it4you.kiev.ua>, 2012.
 #   <skoptev@ukr.net>, 2012.
 #   <victor.dubiniuk@gmail.com>, 2012.
+#   <zaera.alex@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-15 00:01+0100\n"
+"PO-Revision-Date: 2012-11-14 09:09+0000\n"
+"Last-Translator: zaera <zaera.alex@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,11 +63,19 @@ msgstr "Ошибка удаления ленты."
 msgid "Error updating feeds."
 msgstr "Ошибка обновления лент."
 
-#: ajax/importopml.php:34
-msgid "No file was submitted."
-msgstr ""
+#: ajax/importopml.php:40
+msgid "Empty filename"
+msgstr "Пустое имя файла"
 
-#: ajax/importopml.php:46
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr "Нет исходного аргумента"
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr "Ошибка при чтении файла"
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "При обработке файла возникла ошибка."
 
@@ -85,6 +94,10 @@ msgstr "Не было указано пути к файлу."
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr "Файл не существует:"
+
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "Не удалось сохранить временное изображение:"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -114,7 +127,7 @@ msgstr "Ошибка при загрузке канала"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:55
+#: js/settings.js:68
 msgid "Error"
 msgstr "Ошибка"
 
@@ -185,17 +198,21 @@ msgstr "Нет выбранных файлов."
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "Импортирование OPML файла..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
-msgstr ""
+msgstr "Недопустимый тип"
 
-#: js/settings.js:51
-msgid "{n_success} out of {n_total} feeds imported successfully!"
-msgstr ""
+#: js/settings.js:60
+msgid "Importing done"
+msgstr "Импорт завершен"
 
-#: js/settings.js:75
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr "Возникла ошибка при импортировании данных"
+
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Выберите файл"
 
@@ -343,20 +360,20 @@ msgstr "Пометить как неважное"
 msgid "Mark as important"
 msgstr "Пометить как важное"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "из"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "от"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:57 templates/part.items.php:58
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Открыть доступ"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Оставить непрочитанным"
 

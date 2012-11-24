@@ -24,6 +24,10 @@ class Account {
 		return $this->info['name'];
 	}
 
+	public function getEMailAddress() {
+		return $this->info['email'];
+	}
+
 	public function getImapConnection() {
 		//
 		// TODO: cache connections for / within accounts???
@@ -40,6 +44,10 @@ class Account {
 		return $client;
 	}
 
+	/**
+	 * @param $pattern
+	 * @return Mailbox[]
+	 */
 	public function listMailboxes($pattern) {
 		// open the imap connection
 		$conn = $this->getImapConnection();
@@ -53,6 +61,10 @@ class Account {
 		return $mailboxes;
 	}
 
+	/**
+	 * @param $folder_id
+	 * @return Mailbox
+	 */
 	public function getMailbox($folder_id) {
 		$conn = $this->getImapConnection();
 		return new Mailbox($conn, $folder_id);

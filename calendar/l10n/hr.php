@@ -69,7 +69,6 @@
 "Date" => "datum",
 "Cal." => "Kal.",
 "All day" => "Cijeli dan",
-"Missing fields" => "Nedostaju polja",
 "Title" => "Naslov",
 "From Date" => "Datum od",
 "From Time" => "Vrijeme od",

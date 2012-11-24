@@ -5,14 +5,15 @@
 # Translators:
 #   <daniel@mouxy.net>, 2012.
 # Duarte Velez Grilo <duartegrilo@gmail.com>, 2012.
+# Helder Meneses <helder.meneses@gmail.com>, 2012.
 # Nelson Rosado <nelsontrosado@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-08 00:01+0100\n"
-"PO-Revision-Date: 2012-11-07 15:30+0000\n"
-"Last-Translator: Mouxy <daniel@mouxy.net>\n"
+"POT-Creation-Date: 2012-11-14 00:02+0100\n"
+"PO-Revision-Date: 2012-11-13 12:31+0000\n"
+"Last-Translator: Helder Meneses <helder.meneses@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,11 +61,19 @@ msgstr "Erro a remover pasta."
 msgid "Error updating feeds."
 msgstr "Erro a actualizar o feed."
 
-#: ajax/importopml.php:34
-msgid "No file was submitted."
-msgstr "Nenhum ficheiros foi submetido"
+#: ajax/importopml.php:40
+msgid "Empty filename"
+msgstr "Ficheiro vazio"
 
-#: ajax/importopml.php:46
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr "Nenhum argumento inicial passado"
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr "Erro ao ler o ficheiro."
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "Ocorreu um erro ao analisar o ficheiro."
 
@@ -83,6 +92,10 @@ msgstr "Nenhum caminho de arquivo foi submetido."
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr "Ficheiro não existe:"
+
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "Não foi possível guardar a imagem temporária: "
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -112,7 +125,7 @@ msgstr "Erro ao carregar feed"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:55
+#: js/settings.js:68
 msgid "Error"
 msgstr "Erro"
 
@@ -189,11 +202,15 @@ msgstr "A importar ficheiro OPML..."
 msgid "Not a valid type"
 msgstr "Tipo inválido!"
 
-#: js/settings.js:51
-msgid "{n_success} out of {n_total} feeds imported successfully!"
-msgstr "{n_success} de {n_total} feeds importados com sucesso!"
+#: js/settings.js:60
+msgid "Importing done"
+msgstr "Concluída a importação"
 
-#: js/settings.js:75
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr "Erro a importar feeds"
+
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Escolher ficheiro"
 
@@ -341,20 +358,20 @@ msgstr "Marcar como sem importância"
 msgid "Mark as important"
 msgstr "Marcar como importante"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "de"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "por"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:57 templates/part.items.php:58
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Partilhar"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Manter como não lido"
 

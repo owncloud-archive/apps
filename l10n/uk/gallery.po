@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <skoptev@ukr.net>, 2012.
 # Soul Kim <warlock.rf@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:02+0200\n"
-"PO-Revision-Date: 2012-09-11 00:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 13:58+0000\n"
+"Last-Translator: skoptev <skoptev@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgstr "Зображення"
 
 #: appinfo/app.php:53
 msgid "Galleries"
-msgstr ""
+msgstr "Галереї"
 
 #: js/pictures.js:12
 msgid "Share gallery"
@@ -46,4 +47,4 @@ msgstr "Слайдшоу"
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr ""
+msgstr "Для використання цього додатку, додаток \"Перегляд зображень\" також повинен бути активований."

@@ -63,6 +63,18 @@ class Thumbnail {
 			\OC_Response::setStatus(\OC_Response::STATUS_NOT_FOUND);
 		}
 	}
+
+	static public function removeHook($params) {
+		$path = $params['path'];
+		$user = \OCP\USER::getUser();
+		$galleryDir = \OC_User::getHome($user) . '/gallery/';
+		$thumbPath = $galleryDir . $path;
+		if (is_dir($thumbPath)) {
+			unlink($thumbPath . '.png');
+		} else {
+			unlink($thumbPath);
+		}
+	}
 }
 
 class AlbumThumbnail extends Thumbnail {
@@ -70,7 +82,7 @@ class AlbumThumbnail extends Thumbnail {
 	public function __construct($imagePath, $square = false) {
 		$user = \OCP\USER::getUser();
 		$galleryDir = \OC_User::getHome($user) . '/gallery/';
-		$this->path = $galleryDir . $imagePath . '.jpg';
+		$this->path = $galleryDir . $imagePath . '.png';
 		if (!file_exists($this->path)) {
 			self::create($imagePath, $square);
 		}

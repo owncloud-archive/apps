@@ -88,7 +88,6 @@
 "Nov." => "Nov.",
 "Dec." => "Dez.",
 "All day" => "All Dag",
-"Missing fields" => "Felder déi feelen",
 "Title" => "Titel",
 "From Date" => "Vun Datum",
 "From Time" => "Vun Zäit",

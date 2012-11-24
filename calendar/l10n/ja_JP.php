@@ -114,7 +114,7 @@
 "Nov." => "11月",
 "Dec." => "12月",
 "All day" => "終日",
-"Missing fields" => "項目がありません",
+"Missing or invalid fields" => "不明もしくは無効なフィールド",
 "Title" => "タイトル",
 "From Date" => "開始日",
 "From Time" => "開始時間",

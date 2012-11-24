@@ -15,40 +15,104 @@ namespace OCA\Updater;
 class Updater {
 
 	protected static $processed = array();
+	protected static $locations = array();
+	protected static $appsToRemove = array();
 
-	public static function update($updateBase, $backupBase) {
+	public static function getAppsToRemove() {
+		return self::$appsToRemove;
+	}
+                
+	public static function prepare($version) {
+		$tempDir = self::getTempDir();
+                
+ 		$sources = Helper::getSources($version);
+		$destinations = Helper::getDirectories();
+                
+		if (preg_match('/^\d+\.\d+/', $version, $ver)) {
+		    $ver = $ver[0];
+		} else {
+                    $ver = $version;
+		}
+		//  read the list of shipped apps
+                $appLocation = $sources[Helper::APP_DIRNAME];
+                $shippedApps = array_keys(Helper::getFilteredContent($appLocation));
+
+                self::$appsToRemove = array();
+		try {
+			$locations = Helper::getPreparedLocations();
+			foreach ($locations as $type => $dirs) {
+				if (isset($sources[$type])) {
+					$sourceBaseDir = $sources[$type];
+				} else {
+					//  Extra app directories
+					$sourceBaseDir  = false;
+				}
+                                
+                                $tempBaseDir = $tempDir . '/' . $type;
+				Helper::mkdir($tempBaseDir, true);
+                                
+                                
+                                // Collect old sources
+				foreach ($dirs as $name => $path) {
+					//skip compatible, not shipped apps
+					if (strpos($type, Helper::APP_DIRNAME) === 0 
+						&& !in_array($name, $shippedApps)
+					) {
+						//Read compatibility info
+						$info = \OC_App::getAppInfo($name);
+						if (isset($info['require']) && version_compare($ver, $info['require'])>=0) {
+							continue;
+						}
+						self::$appsToRemove[] = $name;
+					}
+					self::$locations[] = array (
+						'src' => $path,
+						'dst' => $tempBaseDir . '/' . $name
+					);
+				}
+				//Collect new sources
+				if (!$sourceBaseDir) {
+					continue;
+				}
+				foreach (Helper::getFilteredContent($sourceBaseDir) as $basename=>$path){
+					self::$locations[] = array (
+						'src' => $path,
+						'dst' => $destinations[$type] . '/' . $basename
+					);
+				}
+			}
+		} catch (\Exception $e){
+			throw $e;
+		}
+                
+                return self::$locations;
+                                
+	}
+        
+	public static function update($version, $backupBase) {
 		if (!is_dir($backupBase)) {
-			throw new \Exception('Backup directory is not found');
+			throw new \Exception("Backup directory $backupBase is not found");
 		}
 
 		set_include_path(
 				$backupBase . PATH_SEPARATOR .
-				$backupBase . '/lib' . PATH_SEPARATOR .
-				$backupBase . '/config' . PATH_SEPARATOR .
+				$backupBase . '/core/lib' . PATH_SEPARATOR .
+				$backupBase . '/core/config' . PATH_SEPARATOR .
 				$backupBase . '/3rdparty' . PATH_SEPARATOR .
 				$backupBase . '/apps' . PATH_SEPARATOR .
 				get_include_path()
 		);
 
-		$tempBase = self::getTempDir();
-		Helper::mkdir($tempBase, true);
+		$tempDir = self::getTempDir();
+		Helper::mkdir($tempDir, true);
 		
 		try {
-			$locations = Helper::getPreparedLocations();
-			//TODO: Straight update of 3rdparty/apps[]/core
-			foreach ($locations as $type => $dirs) {
-				$tempPath = $tempBase . '/';
-				$updatePath = $updateBase . '/';
-			
-				if ($type != 'core') {
-					$tempPath .= $type . '/';
-					$updatePath .= $type . '/';
-				}
-			
-				foreach ($dirs as $name => $path) {
-					//TODO: Add Rollback details here
-					self::moveTriple($path, $updatePath . $name, $tempPath . $name);
-				}
+			foreach (self::prepare($version) as $location) {
+				Helper::move($location['src'], $location['dst']);
+				self::$processed[] = array (
+					'src' => $location['dst'],
+					'dst' => $location['src']
+				);
 			}
 		} catch (\Exception $e){
 			self::rollBack();
@@ -57,18 +121,24 @@ class Updater {
 		}
 
 		$config = "/config/config.php";
-		copy($tempBase . $config, \OC::$SERVERROOT . $config);
-
+		copy($backupBase . "/" . Helper::CORE_DIRNAME . $config, \OC::$SERVERROOT . $config);
+		
+		// zip backup 
+		$zip = new \ZipArchive();
+		if ($zip->open($backupBase . ".zip", \ZIPARCHIVE::CREATE)===true) {
+			Helper::addDirectoryToZip($zip, $backupBase, $backupBase);
+			$zip->close();
+			\OC_Helper::rmdirr($backupBase);
+		}
+                
+		// Disable removed apps
+		foreach (self::getAppsToRemove() as $appId) {
+			\OC_App::disable($appId);
+		}
+                
 		return true;
 	}
 
-	public static function moveTriple($old, $new, $temp) {
-		@rename($old, $temp);
-		if (file_exists($new) && !@rename($new, $old)) {
-			throw new \Exception("Unable to move $new to $old");
-		}
-	}
-	
 	public static function rollBack(){
 		foreach (self::$processed as $item){
 			\OC_Helper::copyrr($item['src'], $item['dst']);

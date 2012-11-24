@@ -5,6 +5,8 @@
 *
 * @author Frank Karlitschek
 * @author Florian Hülsmann
+* @author Bernhard Posselt
+* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com 
 * @copyright 2011 Frank Karlitschek karlitschek@kde.org
 * @copyright 2012 Florian Hülsmann fh@cbix.de
 *
@@ -23,12 +25,16 @@
 *
 */
 
-OCP\App::registerAdmin( 'apptemplate', 'settings' );
+
+require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
+
+
+OCP\App::registerAdmin('apptemplate', 'admin/settings');
 
 OCP\App::addNavigationEntry( array(
 	'id' => 'apptemplate',
 	'order' => 74,
-	'href' => OCP\Util::linkTo( 'apptemplate', 'index.php' ),
-	'icon' => OCP\Util::imagePath( 'apptemplate', 'example.png' ),
-	'name' => 'App Template'
+	'href' => \OC_Helper::linkToRoute('apptemplate_index'),
+	'icon' => OCP\Util::imagePath('apptemplate', 'example.png' ),
+	'name' => \OC_L10N::get('apptemplate')->t('App Template') 
 ));

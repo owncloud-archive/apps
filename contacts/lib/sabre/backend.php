@@ -31,7 +31,7 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 	 * @return array
 	 */
 	public function getAddressBooksForUser($principaluri) {
-		$data = OC_Contacts_Addressbook::allWherePrincipalURIIs($principaluri);
+		$data = OCA\Contacts\Addressbook::allWherePrincipalURIIs($principaluri);
 		$addressbooks = array();
 
 		foreach($data as $i) {
@@ -84,7 +84,7 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 			}
 		}
 
-		OC_Contacts_Addressbook::edit($addressbookid, $name, $description);
+		OCA\Contacts\Addressbook::edit($addressbookid, $name, $description);
 
 		return true;
 
@@ -120,7 +120,7 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 
 		}
 
-		OC_Contacts_Addressbook::addFromDAVData(
+		OCA\Contacts\Addressbook::addFromDAVData(
 					$principaluri,
 					$url,
 					$name,
@@ -135,7 +135,7 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 	 * @return void
 	 */
 	public function deleteAddressBook($addressbookid) {
-		OC_Contacts_Addressbook::delete($addressbookid);
+		OCA\Contacts\Addressbook::delete($addressbookid);
 	}
 
 	/**
@@ -145,7 +145,7 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 	 * @return array
 	 */
 	public function getCards($addressbookid) {
-		$data = OC_Contacts_VCard::all($addressbookid);
+		$data = OCA\Contacts\VCard::all($addressbookid);
 		$cards = array();
 		foreach($data as $i) {
 			//OCP\Util::writeLog('contacts', __METHOD__.', uri: ' . $i['uri'], OCP\Util::DEBUG);
@@ -169,7 +169,7 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 	 * @return array
 	 */
 	public function getCard($addressbookid, $carduri) {
-		return OC_Contacts_VCard::findWhereDAVDataIs($addressbookid, $carduri);
+		return OCA\Contacts\VCard::findWhereDAVDataIs($addressbookid, $carduri);
 
 	}
 
@@ -182,7 +182,7 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 	 * @return bool
 	 */
 	public function createCard($addressbookid, $carduri, $carddata) {
-		OC_Contacts_VCard::addFromDAVData($addressbookid, $carduri, $carddata);
+		OCA\Contacts\VCard::addFromDAVData($addressbookid, $carduri, $carddata);
 		return true;
 	}
 
@@ -195,7 +195,7 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 	 * @return bool
 	 */
 	public function updateCard($addressbookid, $carduri, $carddata) {
-		return OC_Contacts_VCard::editFromDAVData(
+		return OCA\Contacts\VCard::editFromDAVData(
 			$addressbookid, $carduri, $carddata
 		);
 	}
@@ -208,6 +208,6 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 	 * @return bool
 	 */
 	public function deleteCard($addressbookid, $carduri) {
-		return OC_Contacts_VCard::deleteFromDAVData($addressbookid, $carduri);
+		return OCA\Contacts\VCard::deleteFromDAVData($addressbookid, $carduri);
 	}
 }

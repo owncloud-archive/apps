@@ -1,13 +1,14 @@
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
 <script type="text/javascript">
     // Specify the main script used to create a new PDF.JS web worker.
-    // In production, change this to point to the combined `pdf.js` file.
     PDFJS.workerSrc = 'apps/reader/js/pdf.js';
 </script>
-
 
 <div id = "controls">
 	<?php
 	include('apps/reader/lib/dir.php');
+	include('apps/reader/lib/thumbnail.php');
 	// Get the current directory.
 	$current_dir = empty($_['dir'])?'/':$_['dir'];
 	$base_url = OCP\Util::linkTo('reader', 'index.php').'&dir=';
@@ -50,9 +51,10 @@
 	}
 ?>
 
-<table>
+<table id = "readerContent">
 	<tbody id = "fileList">
 		<?php
+		
 		// Array to store directory entries, which contain pdfs.
 			$sub_dirs = array();
 			foreach ($files as $file) {
@@ -64,14 +66,16 @@
 				if ($file['dirname'] == '.') { 
 		?>			
 					<!-- Each tr displays a file -->	
-					<tr id = "row" data-file="<?php echo $name;?>" data-type="<?php echo 'file'?>" data-mime="<?php echo 'application/pdf'?>" data-size="3462755" data-write="true" >
+					<tr id = "row" data-file="<?php echo $name;?>" data-type="<?php echo 'file'?>" data-mime="<?php echo 'application/pdf'?>" data-size="3462755" data-write="true">
 						<td class="filename svg">
-							<a class="name" id = "http://localhost<?php echo \OCP\Util::linkTo('files', 'download.php').'?file='.$directory.$name; ?>" href="http://localhost<?php echo \OCP\Util::linkTo('files', 'download.php').'?file='.$directory.$name; ?>" title="">
+							<?php $check_thumb = check_thumb_exists($directory,$name);?>
+							<a class="name" href="http://localhost<?php echo \OCP\Util::linkTo('files', 'download.php').'?file='.$directory.$name; ?>" title="<?php echo urldecode($name);?>" dir ="<?php echo $directory.$name?>" value  = "<?php echo $check_thumb;?>">
 								<center>
 									<span class = "nametext">
 										<?php echo htmlspecialchars($file['basename']);?>
 									</span>
 								</center>
+								<img rel ="images" src = "<?php echo \OCP\Util::linkTo('reader', 'ajax/thumbnail.php').'&filepath='.urlencode($current_dir.rtrim($file['filename'],'pdf').'png');?>">	
 							</a>
 						</td>
 					</tr>
@@ -94,7 +98,8 @@
 			 * directory name to fetch any 3 pdf urls inside those directories.*/
 			$results = explore($current_dir,$sub_dirs);
 			
-			foreach ($results as $r) {?>
+			foreach ($results as $r) {
+			?>
 			<!-- Display folder name--> 
 				<tr id = "row" data-file="<?php echo $r[0];?>" data-type="dir">
 					<td class = "filename svg">
@@ -103,24 +108,30 @@
 								<span class = "nametext">
 									<?php echo htmlspecialchars($r[0]);?>
 								</span>
-							</center>
+							
 							<?php
-								$margin = 15;
-								// Display thumbnails of 3 pdf pages to show a folder. 
-								foreach ($r[1] as $thumbs) {
-									// Use directory name, pdf url, margin value to be sent to javascript to generate thumbnail. 
-									echo '<input type = "hidden" value = "'.$r[0].'" id = "http://localhost'.\OCP\Util::linkTo('files', 'download.php').'?file='.$directory.$r[0].'/'.$thumbs.'" name = "'.$margin.'">';
-									// Left Margin of each page should increase from the left to right.
-									$margin = $margin + 15;
+								// Check if sub-directory($r[0]) exists or not-->
+								$is_dir = check_dir_exists($current_dir,$r[0]);
+								if($is_dir == false)
+									echo '<img src= "">';
+								else {
+									$margin = 5;
+									$img = 1;
+									// Display thumbnails of 3 pdf pages to show a folder. 
+									foreach ($r[1] as $thumbs) {
+										$path1 = \OCP\Util::linkTo('reader', 'ajax/thumbnail.php').'&filepath='.urlencode($current_dir.$r[0].'/'.rtrim($thumbs,'pdf').'png');
+										echo '<img id = "img'.$img.'" src = "'.$path1.'" style = "position:absolute; top:20px; left:10px; margin-left:'.$margin.'px; z-index:'.(50-$margin).';">';
+										$margin = $margin + 5;
+										$img = $img + 1;
+									}
 								}
 							?>	
-							
+							</center>
 						</a>
 					</td>
 				</tr><?php
 			}
-		?>
+			?>
 	</tbody>
 </table>	
-
-
+ 

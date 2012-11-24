@@ -111,7 +111,6 @@
 "Nov." => "aza.",
 "Dec." => "abe.",
 "All day" => "Egun guztia",
-"Missing fields" => "Eremuak faltan",
 "Title" => "Izenburua",
 "From Date" => "Hasierako Data",
 "From Time" => "Hasierako Ordua",

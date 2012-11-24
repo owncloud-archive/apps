@@ -34,15 +34,14 @@ if (!strlen($packageVersion) || !strlen($packageUrl)) {
 	exit();
 }
 
-$sourcePath = App::getSourcePath($packageVersion, $packageUrl);
 //Step 1 - fetch & extract
-if (!$sourcePath){
+if (!App::getSource($packageUrl, $packageVersion)){
 	try {
 		//Do we have any remains of the previous update attempt?
 		Downloader::cleanUp($packageVersion);
 		
-		$sourcePath = Downloader::getPackage($packageUrl, $packageVersion);
-		App::setSourcePath($packageVersion, $packageUrl, $sourcePath);
+		Downloader::getPackage($packageUrl, $packageVersion);
+		App::setSource($packageUrl, $packageVersion, true);
 		\OCP\JSON::success(array());
 	} catch (\Exception $e){
 		\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
@@ -57,16 +56,16 @@ if (!$sourcePath){
 Updater::cleanUp();
 
 try {
-	$backupPath = Backup::createBackup();
-	App::setSourcePath($packageVersion, $packageUrl, '');
-	Updater::update($sourcePath, $backupPath);
+	$backupPath = Backup::create();
+	App::setSource($packageUrl, $packageVersion, false);
+	Updater::update($packageVersion, $backupPath);
 	//Cleanup
 	Downloader::cleanUp($packageVersion);
 	Updater::cleanUp();
 	\OCP\JSON::success(array());
 } catch (\Exception $e){
 	\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
-	App::setSourcePath($packageVersion, $packageUrl, '');
+	App::setSource($packageUrl, $packageVersion, false);
 	\OCP\JSON::error(array('msg' => 'Failed to create backup'));
 }
 

@@ -44,7 +44,7 @@ class OC_Migration_Provider_Contacts extends OC_Migration_Provider{
 					// Map the id
 					$idmap[$row['id']] = OCP\DB::insertid('*PREFIX*contacts_addressbooks');
 					// Make the addressbook active
-					OC_Contacts_Addressbook::setActive($idmap[$row['id']], true);
+					OCA\Contacts\Addressbook::setActive($idmap[$row['id']], true);
 				}
 				// Now tags
 				foreach($idmap as $oldid => $newid) {

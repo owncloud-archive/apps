@@ -6,11 +6,16 @@
  * See the COPYING-README file.
  */
 
+namespace OCA\Contacts;
+
+use Sabre\VObject;
+
 /**
  * This class manages our app actions
  */
-OC_Contacts_App::$l10n = OC_L10N::get('contacts');
-class OC_Contacts_App {
+App::$l10n = \OC_L10N::get('contacts');
+
+class App {
 	/*
 	 * @brief language object for calendar app
 	 */
@@ -21,84 +26,51 @@ class OC_Contacts_App {
 	 */
 	public static $categories = null;
 
-	public static function getAddressbook($id) {
-		// TODO: Throw an exception instead of returning json.
-		$addressbook = OC_Contacts_Addressbook::find( $id );
-		if($addressbook === false || $addressbook['userid'] != OCP\USER::getUser()) {
-			if ($addressbook === false) {
-				OCP\Util::writeLog('contacts',
-					'Addressbook not found: '. $id,
-					OCP\Util::ERROR);
-				//throw new Exception('Addressbook not found: '. $id);
-				OCP\JSON::error(
-					array(
-						'data' => array(
-							'message' => self::$l10n->t('Addressbook not found: ' . $id)
-						)
-					)
-				);
-			} else {
-				$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $id, OC_Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS);
-				if ($sharedAddressbook) {
-					return $sharedAddressbook[0];
-				} else {
-					OCP\Util::writeLog('contacts',
-						'Addressbook('.$id.') is not from '.OCP\USER::getUser(),
-						OCP\Util::ERROR);
-					//throw new Exception('This is not your addressbook.');
-					OCP\JSON::error(
-						array(
-							'data' => array(
-								'message' => self::$l10n->t('This is not your addressbook.')
-							)
-						)
-					);
-				}
-			}
-		}
-		return $addressbook;
-	}
-
-	public static function getContactObject($id) {
-		$card = OC_Contacts_VCard::find( $id );
-		if( $card === false ) {
-			OCP\Util::writeLog('contacts',
-				'Contact could not be found: '.$id,
-				OCP\Util::ERROR);
-			OCP\JSON::error(
-				array(
-					'data' => array(
-						'message' => self::$l10n->t('Contact could not be found.')
-							.' '.print_r($id, true)
-					)
-				)
-			);
-			exit();
-		}
-
-		self::getAddressbook( $card['addressbookid'] );//access check
-		return $card;
-	}
+	/**
+	 * Properties there can be more than one of.
+	 */
+	public static $multi_properties = array('EMAIL', 'TEL', 'IMPP', 'ADR', 'URL');
 
 	/**
-	 * @brief Gets the VCard as an OC_VObject
-	 * @returns The card or null if the card could not be parsed.
+	 * Properties to index.
+	 */
+	public static $index_properties = array('N', 'FN', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO', 'PHOTO');
+
+	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
+	const THUMBNAIL_SIZE = 28;
+
+	/**
+	 * @brief Gets the VCard as a Sabre\VObject\Component
+	 * @returns Sabre\VObject\Component|null The card or null if the card could not be parsed.
 	 */
 	public static function getContactVCard($id) {
-		$card = self::getContactObject( $id );
+		$card = null;
+		$vcard = null;
+		try {
+			$card = VCard::find($id);
+		} catch(Exception $e) {
+			return null;
+		}
 
-		$vcard = OC_VObject::parse($card['carddata']);
+		try {
+			$vcard = \Sabre\VObject\Reader::read($card['carddata']);
+		} catch(Exception $e) {
+			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
+			\OCP\Util::writeLog('contacts', __METHOD__.', id: ' . $id, \OCP\Util::DEBUG);
+			return null;
+		}
+
 		if (!is_null($vcard) && !isset($vcard->REV)) {
-			$rev = new DateTime('@'.$card['lastmodified']);
-			$vcard->setString('REV', $rev->format(DateTime::W3C));
+			$rev = new \DateTime('@'.$card['lastmodified']);
+			$vcard->REV = $rev->format(\DateTime::W3C);
 		}
 		return $vcard;
 	}
 
 	public static function getPropertyLineByChecksum($vcard, $checksum) {
 		$line = null;
-		for($i=0;$i<count($vcard->children);$i++) {
-			if(md5($vcard->children[$i]->serialize()) == $checksum ) {
+		foreach($vcard->children as $i => $property) {
+			if(substr(md5($property->serialize()), 0, 8) == $checksum ) {
 				$line = $i;
 				break;
 			}
@@ -213,6 +185,7 @@ class OC_Contacts_App {
 					'WORK' => $l->t('Work'),
 					'HOME' => $l->t('Home'),
 					'INTERNET' => $l->t('Internet'),
+					'OTHER' =>  $l->t('Other'),
 				);
 		}
 	}
@@ -221,9 +194,12 @@ class OC_Contacts_App {
 	 * @brief returns the vcategories object of the user
 	 * @return (object) $vcategories
 	 */
-	protected static function getVCategories() {
+	public static function getVCategories() {
 		if (is_null(self::$categories)) {
-			self::$categories = new OC_VCategories('contacts',
+			if(\OC_VCategories::isEmpty('contact')) {
+				self::scanCategories();
+			}
+			self::$categories = new \OC_VCategories('contact',
 				null,
 				self::getDefaultCategories());
 		}
@@ -234,12 +210,8 @@ class OC_Contacts_App {
 	 * @brief returns the categories for the user
 	 * @return (Array) $categories
 	 */
-	public static function getCategories() {
-		$categories = self::getVCategories()->categories();
-		if(count($categories) == 0) {
-			self::scanCategories();
-			$categories = self::$categories->categories();
-		}
+	public static function getCategories($format = null) {
+		$categories = self::getVCategories()->categories($format);
 		return ($categories ? $categories : self::getDefaultCategories());
 	}
 
@@ -249,21 +221,10 @@ class OC_Contacts_App {
 	 */
 	public static function getDefaultCategories() {
 		return array(
-			(string)self::$l10n->t('Birthday'),
-			(string)self::$l10n->t('Business'),
-			(string)self::$l10n->t('Call'),
-			(string)self::$l10n->t('Clients'),
-			(string)self::$l10n->t('Deliverer'),
-			(string)self::$l10n->t('Holidays'),
-			(string)self::$l10n->t('Ideas'),
-			(string)self::$l10n->t('Journey'),
-			(string)self::$l10n->t('Jubilee'),
-			(string)self::$l10n->t('Meeting'),
-			(string)self::$l10n->t('Other'),
-			(string)self::$l10n->t('Personal'),
-			(string)self::$l10n->t('Projects'),
-			(string)self::$l10n->t('Questions'),
+			(string)self::$l10n->t('Friends'),
+			(string)self::$l10n->t('Family'),
 			(string)self::$l10n->t('Work'),
+			(string)self::$l10n->t('Other'),
 		);
 	}
 
@@ -273,26 +234,29 @@ class OC_Contacts_App {
 	 */
 	public static function scanCategories($vccontacts = null) {
 		if (is_null($vccontacts)) {
-			$vcaddressbooks = OC_Contacts_Addressbook::all(OCP\USER::getUser());
+			$vcaddressbooks = Addressbook::all(\OCP\USER::getUser());
 			if(count($vcaddressbooks) > 0) {
 				$vcaddressbookids = array();
 				foreach($vcaddressbooks as $vcaddressbook) {
-					$vcaddressbookids[] = $vcaddressbook['id'];
+					if($vcaddressbook['userid'] === \OCP\User::getUser()) {
+						$vcaddressbookids[] = $vcaddressbook['id'];
+					}
 				}
 				$start = 0;
 				$batchsize = 10;
+				$categories = new \OC_VCategories('contact');
 				while($vccontacts =
-					OC_Contacts_VCard::all($vcaddressbookids, $start, $batchsize)) {
+					VCard::all($vcaddressbookids, $start, $batchsize)) {
 					$cards = array();
 					foreach($vccontacts as $vccontact) {
-						$cards[] = $vccontact['carddata'];
+						$cards[] = array($vccontact['id'], $vccontact['carddata']);
 					}
-					OCP\Util::writeLog('contacts',
+					\OCP\Util::writeLog('contacts',
 						__CLASS__.'::'.__METHOD__
 							.', scanning: '.$batchsize.' starting from '.$start,
-						OCP\Util::DEBUG);
+						\OCP\Util::DEBUG);
 					// only reset on first batch.
-					self::getVCategories()->rescan($cards,
+					$categories->rescan($cards,
 						true,
 						($start == 0 ? true : false));
 					$start += $batchsize;
@@ -305,27 +269,122 @@ class OC_Contacts_App {
 	 * check VCard for new categories.
 	 * @see OC_VCategories::loadFromVObject
 	 */
-	public static function loadCategoriesFromVCard(OC_VObject $contact) {
-		self::getVCategories()->loadFromVObject($contact, true);
+	public static function loadCategoriesFromVCard($id, $contact) {
+		if(!$contact instanceof \OC_VObject) {
+			$contact = new \OC_VObject($contact);
+		}
+		self::getVCategories()->loadFromVObject($id, $contact, true);
 	}
 
 	/**
 	 * @brief Get the last modification time.
-	 * @param $vcard OC_VObject
-	 * $return DateTime | null
+	 * @param OC_VObject|Sabre\VObject\Component|integer $contact
+	 * @returns DateTime | null
 	 */
-	public static function lastModified($vcard) {
-		$rev = $vcard->getAsString('REV');
-		if ($rev) {
-			return DateTime::createFromFormat(DateTime::W3C, $rev);
+	public static function lastModified($contact) {
+		if(is_numeric($contact)) {
+			$card = VCard::find($contact);
+			return ($card ? new \DateTime('@' . $card['lastmodified']) : null);
+		} elseif($contact instanceof \OC_VObject || $contact instanceof VObject\Component) {
+			return isset($contact->REV) 
+				? \DateTime::createFromFormat(\DateTime::W3C, $contact->REV)
+				: null;
 		}
 	}
 
-	public static function setLastModifiedHeader($contact) {
-		$rev = $contact->getAsString('REV');
-		if ($rev) {
-			$rev = DateTime::createFromFormat(DateTime::W3C, $rev);
-			OCP\Response::setLastModifiedHeader($rev);
+	public static function cacheThumbnail($id, \OC_Image $image = null) {
+		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id)) {
+			return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
+		}
+		if(is_null($image)) {
+			$vcard = self::getContactVCard($id);
+
+			// invalid vcard
+			if(is_null($vcard)) {
+				\OCP\Util::writeLog('contacts',
+					__METHOD__.' The VCard for ID ' . $id . ' is not RFC compatible',
+					\OCP\Util::ERROR);
+				return false;
+			}
+			$image = new \OC_Image();
+			if(!isset($vcard->PHOTO)) {
+				return false;
+			}
+			if(!$image->loadFromBase64((string)$vcard->PHOTO)) {
+				return false;
+			}
+		}
+		if(!$image->centerCrop()) {
+			\OCP\Util::writeLog('contacts',
+				'thumbnail.php. Couldn\'t crop thumbnail for ID ' . $id,
+				\OCP\Util::ERROR);
+			return false;
+		}
+		if(!$image->resize(self::THUMBNAIL_SIZE)) {
+			\OCP\Util::writeLog('contacts',
+				'thumbnail.php. Couldn\'t resize thumbnail for ID ' . $id,
+				\OCP\Util::ERROR);
+			return false;
+		}
+		 // Cache for around a month
+		\OC_Cache::set(self::THUMBNAIL_PREFIX . $id, $image->data(), 3000000);
+		\OCP\Util::writeLog('contacts', 'Caching ' . $id, \OCP\Util::DEBUG);
+		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
+	}
+
+	public static function updateDBProperties($contactid, $vcard = null) {
+		$stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_cards_properties` WHERE `contactid` = ?');
+		try {
+			$stmt->execute(array($contactid));
+		} catch(\Exception $e) {
+			\OCP\Util::writeLog('contacts', __METHOD__.
+				', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
+			\OCP\Util::writeLog('contacts', __METHOD__.', id: '
+				. $id, \OCP\Util::DEBUG);
+			throw new \Exception(
+				App::$l10n->t(
+					'There was an error deleting properties for this contact.'
+				)
+			);
+		}
+
+		if(is_null($vcard)) {
+			return;
+		}
+
+		$stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards_properties` '
+			. '(`userid`, `contactid`,`name`,`value`,`preferred`) VALUES(?,?,?,?,?)' );
+		foreach($vcard->children as $property) {
+			if(!in_array($property->name, self::$index_properties)) {
+				continue;
+			}
+			$preferred = false;
+			foreach($property->parameters as $parameter) {
+				if($parameter->name == 'TYPE' && strtoupper($parameter->value) == 'PREF') {
+					$preferred = true;
+					break;
+				}
+			}
+			try {
+				$result = $stmt->execute(
+					array(
+						\OCP\User::getUser(), 
+						$contactid, 
+						$property->name, 
+						$property->value, 
+						$preferred,
+					)
+				);
+				if (\OC_DB::isError($result)) {
+					\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: ' 
+						. \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+					return false;
+				}
+			} catch(\Exception $e) {
+				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
+				\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uri'.$uri, \OCP\Util::DEBUG);
+				return false;
+			}
 		}
 	}
 }

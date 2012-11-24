@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-20 02:05+0200\n"
-"PO-Revision-Date: 2012-09-20 00:07+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 19:38+0000\n"
+"Last-Translator: Miguel Branco <mgl.branco@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,19 +27,19 @@ msgstr "O módulo php-json precísase para a intercomunicación de varios aplica
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr ""
+msgstr "O módulo php-curl precísase para a busca de títulos de páxina cando se engaden marcadores"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr "O módulo php-gd precísase para crear iconas das súas imaxes"
+msgstr "O módulo php-gd precísase para crear as miniaturas das túas imaxes"
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr "O módulo php-ldap precísase para conectar co seu servidor ldap"
+msgstr "O módulo php-ldap precísase para conectar co teu servidor ldap"
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr "O módulo php-zip precísase para descargar varios ficheiros dunha vez"
+msgstr "O módulo php-zip precísase para descargar varios ficheiros ao mesmo tempo"
 
 #: settings.php:63
 msgid ""
@@ -70,8 +70,8 @@ msgstr "O módulo iconv é preciso para converter datos no conxunto de caractere
 
 #: templates/settings.php:2
 msgid "Dependencies status"
-msgstr "Estátus das dependencias"
+msgstr "Estado das dependencias"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr "Utilizador por:"
+msgstr "Empregado por:"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-19 02:02+0200\n"
-"PO-Revision-Date: 2012-09-18 07:51+0000\n"
-"Last-Translator: Xosé M. Lamas <correo.xmgz@gmail.com>\n"
+"POT-Creation-Date: 2012-11-21 00:01+0100\n"
+"PO-Revision-Date: 2012-11-20 22:13+0000\n"
+"Last-Translator: Miguel Branco <mgl.branco@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr "Servizo Mozilla Sync"
 
 #: templates/noemail.php:3
 msgid "Please set your email address in account settings"
-msgstr "Por favor, introduza o seu correo electrónico en preferencias da conta"
+msgstr "Introduce o teu correo electrónico nas configuracións da conta"
 
 #: templates/settings.php:5
 msgid "Email"
@@ -32,8 +32,8 @@ msgstr "Correo electrónico"
 
 #: templates/settings.php:9
 msgid "Password and Confirmation"
-msgstr "Contrasinal e Confirmación"
+msgstr "Contrasinal e confirmación"
 
 #: templates/settings.php:13
 msgid "Server address"
-msgstr "enderezo do servidor"
+msgstr "Enderezo do servidor"

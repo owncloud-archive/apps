@@ -114,7 +114,6 @@
 "Nov." => "Nov.",
 "Dec." => "Déc.",
 "All day" => "Journée entière",
-"Missing fields" => "Champs manquants",
 "Title" => "Titre",
 "From Date" => "De la date",
 "From Time" => "De l'heure",

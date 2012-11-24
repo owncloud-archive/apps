@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# 남자사람  <cessnagi@gmail.com>, 2012.
 #   <limonade83@gmail.com>, 2012.
 # Shinjo Park <kde@peremen.name>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:20+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-20 00:00+0100\n"
+"PO-Revision-Date: 2012-11-19 11:52+0000\n"
+"Last-Translator: 남자사람 <cessnagi@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +38,7 @@ msgstr "주소록에 이름란이 비어있으면 업데이트를 할 수 없습
 msgid "No ID provided"
 msgstr "제공되는 아이디 없음"
 
-#: ajax/categories/categoriesfor.php:34
+#: ajax/categories/categoriesfor.php:35
 msgid "Error setting checksum."
 msgstr "오류 검사합계 설정"
 
@@ -138,31 +139,31 @@ msgstr "파일이 존재하지 않습니다. "
 msgid "Error loading image."
 msgstr "로딩 이미지 오류입니다."
 
-#: ajax/savecrop.php:69
+#: ajax/savecrop.php:70
 msgid "Error getting contact object."
 msgstr "연락처 개체를 가져오는 중 오류가 발생했습니다. "
 
-#: ajax/savecrop.php:79
+#: ajax/savecrop.php:80
 msgid "Error getting PHOTO property."
 msgstr "사진 속성을 가져오는 중 오류가 발생했습니다. "
 
-#: ajax/savecrop.php:98
+#: ajax/savecrop.php:99
 msgid "Error saving contact."
 msgstr "연락처 저장 중 오류가 발생했습니다."
 
-#: ajax/savecrop.php:109
+#: ajax/savecrop.php:110
 msgid "Error resizing image"
 msgstr "이미지 크기 조정 중 오류가 발생했습니다."
 
-#: ajax/savecrop.php:112
+#: ajax/savecrop.php:113
 msgid "Error cropping image"
 msgstr "이미지를 자르던 중 오류가 발생했습니다."
 
-#: ajax/savecrop.php:115
+#: ajax/savecrop.php:116
 msgid "Error creating temporary image"
 msgstr "임시 이미지를 생성 중 오류가 발생했습니다."
 
-#: ajax/savecrop.php:118
+#: ajax/savecrop.php:119
 msgid "Error finding image: "
 msgstr "이미지를 찾던 중 오류가 발생했습니다:"
 
@@ -208,7 +209,7 @@ msgstr "임시 이미지를 불러올 수 없습니다. "
 msgid "No file was uploaded. Unknown error"
 msgstr "파일이 업로드 되지 않았습니다. 알 수 없는 오류."
 
-#: appinfo/app.php:25
+#: appinfo/app.php:24
 msgid "Contacts"
 msgstr "연락처"
 
@@ -224,161 +225,161 @@ msgstr "구현되지 않음"
 msgid "Couldn't get a valid address."
 msgstr "유효한 주소를 얻을 수 없습니다."
 
-#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:363 js/contacts.js:435
-#: js/contacts.js:442 js/contacts.js:685 js/contacts.js:725 js/contacts.js:751
-#: js/contacts.js:762 js/contacts.js:776 js/contacts.js:796 js/contacts.js:883
-#: js/contacts.js:889 js/contacts.js:901 js/contacts.js:938
-#: js/contacts.js:1212 js/contacts.js:1220 js/contacts.js:1229
-#: js/contacts.js:1264 js/contacts.js:1300 js/contacts.js:1315
-#: js/contacts.js:1341 js/contacts.js:1574 js/contacts.js:1609
-#: js/contacts.js:1629 js/contacts.js:1687 js/contacts.js:1841
-#: js/contacts.js:1984 js/contacts.js:2010 js/contacts.js:2020
-#: js/contacts.js:2023 js/contacts.js:2174 js/contacts.js:2211
-#: js/contacts.js:2246 js/settings.js:26 js/settings.js:46 js/settings.js:76
+#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:364 js/contacts.js:436
+#: js/contacts.js:443 js/contacts.js:694 js/contacts.js:734 js/contacts.js:763
+#: js/contacts.js:774 js/contacts.js:788 js/contacts.js:808 js/contacts.js:895
+#: js/contacts.js:901 js/contacts.js:913 js/contacts.js:950
+#: js/contacts.js:1226 js/contacts.js:1234 js/contacts.js:1243
+#: js/contacts.js:1278 js/contacts.js:1314 js/contacts.js:1329
+#: js/contacts.js:1355 js/contacts.js:1588 js/contacts.js:1623
+#: js/contacts.js:1643 js/contacts.js:1732 js/contacts.js:1886
+#: js/contacts.js:2086 js/contacts.js:2112 js/contacts.js:2122
+#: js/contacts.js:2125 js/contacts.js:2276 js/contacts.js:2313
+#: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
 #: js/settings.js:113
 msgid "Error"
 msgstr "오류"
 
 #: js/contacts.js:105
 msgid "Please enter an email address."
-msgstr ""
+msgstr "이메일 주소를 입력해 주세요."
 
-#: js/contacts.js:176 templates/part.selectaddressbook.php:27
+#: js/contacts.js:177 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr "이름을 입력"
 
-#: js/contacts.js:177 templates/part.contact.php:35
+#: js/contacts.js:178 templates/part.contact.php:35
 msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
 msgstr "Format custom, Short name, Full name, Reverse or Reverse with comma"
 
-#: js/contacts.js:183 js/contacts.js:1420 js/contacts.js:1463
-#: js/contacts.js:1482 js/contacts.js:1525
+#: js/contacts.js:184 js/contacts.js:1434 js/contacts.js:1477
+#: js/contacts.js:1496 js/contacts.js:1539
 msgid "Select type"
 msgstr "유형 선택"
 
-#: js/contacts.js:214
+#: js/contacts.js:215
 msgid "Select photo"
-msgstr ""
+msgstr "사진 선택"
 
-#: js/contacts.js:406
+#: js/contacts.js:407
 msgid "You do not have permission to add contacts to "
 msgstr "당신은 연락처를 추가 할 수 있는 권한이 없습니다. "
 
-#: js/contacts.js:407
+#: js/contacts.js:408
 msgid "Please select one of your own address books."
 msgstr "당신의 Own 주소록 중 하나만 선택 하세요."
 
-#: js/contacts.js:407
+#: js/contacts.js:408
 msgid "Permission error"
 msgstr "권한 에러"
 
-#: js/contacts.js:481
+#: js/contacts.js:482
 msgid "Click to undo deletion of \""
-msgstr ""
+msgstr "삭제를 되돌리기 위한 클릭"
 
-#: js/contacts.js:495
+#: js/contacts.js:496
 msgid "Cancelled deletion of: \""
-msgstr ""
+msgstr "삭제가 취소되었습니다."
 
-#: js/contacts.js:725
+#: js/contacts.js:734
 msgid "This property has to be non-empty."
 msgstr "이 속성은 비어있어서는 안됩니다."
 
-#: js/contacts.js:751
+#: js/contacts.js:763
 msgid "Couldn't serialize elements."
 msgstr "요소를 직렬화 할 수 없습니다."
 
-#: js/contacts.js:762
+#: js/contacts.js:774
 msgid "Unknown error. Please check logs."
-msgstr ""
+msgstr "알수없는 에러. 로그를 확인해주세요."
 
-#: js/contacts.js:883 js/contacts.js:901
+#: js/contacts.js:895 js/contacts.js:913
 msgid ""
 "'deleteProperty' called without type argument. Please report at "
 "bugs.owncloud.org"
 msgstr "'deleteProperty'가 문서형식이 없이 불려왔습니다. bugs.owncloud.org에 보고해주세요. "
 
-#: js/contacts.js:920
+#: js/contacts.js:932
 msgid "Edit name"
 msgstr "이름 편집"
 
-#: js/contacts.js:1212
+#: js/contacts.js:1226
 msgid "No files selected for upload."
 msgstr "업로드를 위한 파일이 선택되지 않았습니다. "
 
-#: js/contacts.js:1220 js/contacts.js:2000 js/contacts.js:2075
+#: js/contacts.js:1234 js/contacts.js:2102 js/contacts.js:2177
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "이 파일은 이 서버 파일 업로드 최대 용량을 초과 합니다. "
 
-#: js/contacts.js:1284
+#: js/contacts.js:1298
 msgid "Error loading profile picture."
 msgstr "프로필 사진 로딩 에러"
 
-#: js/contacts.js:1543
+#: js/contacts.js:1557
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "일부 연락처가 삭제 표시 되었으나 아직 삭제되지 않았습니다. 삭제가 끝날 때 까지 기다려 주세요."
 
-#: js/contacts.js:1614
+#: js/contacts.js:1628
 msgid "Do you want to merge these address books?"
 msgstr "이 주소록을 통합하고 싶으십니까?"
 
-#: js/contacts.js:1767
+#: js/contacts.js:1812
 msgid "Shared by "
-msgstr ""
+msgstr "Shared by"
 
-#: js/contacts.js:2000 js/contacts.js:2075
+#: js/contacts.js:2102 js/contacts.js:2177
 msgid "Upload too large"
-msgstr ""
+msgstr "업로드 용량 초과"
 
-#: js/contacts.js:2004
+#: js/contacts.js:2106
 msgid "Only image files can be used as profile picture."
-msgstr ""
+msgstr "이미지 파일만 프로필 사진으로 사용 될 수 있습니다."
 
-#: js/contacts.js:2004
+#: js/contacts.js:2106
 msgid "Wrong file type"
-msgstr ""
+msgstr "옳지 않은 파일 형식"
 
-#: js/contacts.js:2010
+#: js/contacts.js:2112
 msgid ""
 "Your browser doesn't support AJAX upload. Please click on the profile "
 "picture to select a photo to upload."
-msgstr ""
+msgstr "브라우저가 AJAX 업로드를 지원하지 않습니다. 업로드할 사진을 선택하려면 프로필 사진을 클릭하세요."
 
-#: js/contacts.js:2068
+#: js/contacts.js:2170
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "이 파일은 디렉토리이거나 0 바이트이기 때문에 업로드 할 수 없습니다."
 
-#: js/contacts.js:2068
+#: js/contacts.js:2170
 msgid "Upload Error"
-msgstr ""
+msgstr "업로드 에러"
 
-#: js/contacts.js:2123
+#: js/contacts.js:2225
 msgid "Pending"
-msgstr ""
+msgstr "보류 중"
 
-#: js/contacts.js:2155
+#: js/contacts.js:2257
 msgid "Import done"
-msgstr ""
+msgstr "가져오기 완료"
 
-#: js/contacts.js:2168
+#: js/contacts.js:2270
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "모든파일이 업로드되지 않았습니다. 재시도중..."
 
-#: js/contacts.js:2174
+#: js/contacts.js:2276
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "업로드 하는데 무언가 잘못되었습니다. 재시도 해주세요."
 
-#: js/contacts.js:2190
+#: js/contacts.js:2292
 msgid "Importing..."
-msgstr ""
+msgstr "가져오기중..."
 
-#: js/contacts.js:2211
+#: js/contacts.js:2313
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "주소록 이름은 비워둘 수 없습니다."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -423,33 +424,33 @@ msgstr "삭제"
 msgid "Cancel"
 msgstr "취소"
 
-#: js/settings.js:157 templates/settings.php:66
+#: js/settings.js:161 templates/settings.php:66
 msgid "More..."
 msgstr "더..."
 
-#: js/settings.js:161
+#: js/settings.js:165
 msgid "Less..."
-msgstr ""
+msgstr "그외..."
 
-#: lib/addressbook.php:138
+#: lib/addressbook.php:136
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "당신은 이 주소록을 읽기 위한 권한이 없습니다."
 
-#: lib/addressbook.php:239
+#: lib/addressbook.php:235
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "당신은 이 주소록을 업데이트하기 위한 권한이 없습니다."
 
-#: lib/addressbook.php:259
+#: lib/addressbook.php:255
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "주소록을 업데이트 하는중에 에러가 발생하였습니다."
 
-#: lib/addressbook.php:315
+#: lib/addressbook.php:311
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "당신은 이 주소록을 삭제하기 위한 권한이 없습니다."
 
-#: lib/addressbook.php:344
+#: lib/addressbook.php:340
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "이 주소록을 제거하는데 에러가 발생하였습니다."
 
 #: lib/app.php:36
 msgid "Addressbook not found: "
@@ -511,7 +512,7 @@ msgstr "QQ"
 msgid "GaduGadu"
 msgstr "GaduGadu"
 
-#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:266
+#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:253
 msgid "Work"
 msgstr "직장"
 
@@ -519,7 +520,7 @@ msgstr "직장"
 msgid "Home"
 msgstr "자택"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:262 lib/vcard.php:646
+#: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
 msgid "Other"
 msgstr "그 외"
 
@@ -555,58 +556,13 @@ msgstr "호출기"
 msgid "Internet"
 msgstr "인터넷"
 
-#: lib/app.php:252 templates/part.contact.php:45
-#: templates/part.contact.php:128
-msgid "Birthday"
-msgstr "생일"
+#: lib/app.php:251
+msgid "Friends"
+msgstr "친구들"
 
-#: lib/app.php:253
-msgid "Business"
-msgstr "비즈니스"
-
-#: lib/app.php:254
-msgid "Call"
-msgstr "전화"
-
-#: lib/app.php:255
-msgid "Clients"
-msgstr "고객"
-
-#: lib/app.php:256
-msgid "Deliverer"
-msgstr "운송자"
-
-#: lib/app.php:257
-msgid "Holidays"
-msgstr "휴가"
-
-#: lib/app.php:258
-msgid "Ideas"
-msgstr "아이디어"
-
-#: lib/app.php:259
-msgid "Journey"
-msgstr "여행"
-
-#: lib/app.php:260
-msgid "Jubilee"
-msgstr "축제"
-
-#: lib/app.php:261
-msgid "Meeting"
-msgstr "미팅"
-
-#: lib/app.php:263
-msgid "Personal"
-msgstr "개인의"
-
-#: lib/app.php:264
-msgid "Projects"
-msgstr "프로젝트"
-
-#: lib/app.php:265
-msgid "Questions"
-msgstr "질문"
+#: lib/app.php:252
+msgid "Family"
+msgstr "가족"
 
 #: lib/hooks.php:102
 msgid "{name}'s Birthday"
@@ -618,11 +574,11 @@ msgstr "연락처"
 
 #: lib/vcard.php:301
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "당신은 이 주소록에 연락처를 추가하기 위한 권한이 없습니다."
 
 #: lib/vcard.php:405
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "ID와 vCard를 찾을수 없습니다."
 
 #: lib/vcard.php:430
 msgid "You do not have the permissions to edit this contact."
@@ -630,11 +586,11 @@ msgstr "당신은 연락처를 수정할 권한이 없습니다. "
 
 #: lib/vcard.php:501
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "ID와 vCard를 찾을수 없습니다."
 
 #: lib/vcard.php:509
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "ID와 주소록을 찾을 수 없습니다."
 
 #: lib/vcard.php:532
 msgid "You do not have the permissions to delete this contact."
@@ -642,7 +598,7 @@ msgstr "당신은 연락처를 삭제할 권한이 없습니다. "
 
 #: lib/vcard.php:550
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "이 연락처를 삭제하는데 에러가 발생하였습니다."
 
 #: templates/index.php:14
 msgid "Add Contact"
@@ -756,6 +712,10 @@ msgstr "http://www.somesite.com"
 #: templates/part.contact.php:44
 msgid "Go to web site"
 msgstr "웹 사이트로 가기"
+
+#: templates/part.contact.php:45 templates/part.contact.php:128
+msgid "Birthday"
+msgstr "생일"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"
@@ -1020,7 +980,7 @@ msgid ""
 "addressbook to import into it, or on an empty spot to create a new "
 "addressbook and import into that.<br />You can also import by clicking on "
 "the import button at the bottom of the list.</p>"
-msgstr ""
+msgstr "<h3>당신의 주소록에 연락처가 없습니다.</h3><p>연락처 리스트에 드래그앤 드롭 함으로써 주소록에 VCF 파일을 가져올 수 있습니다, or on an empty spot to create a new addressbook and import into that.<br />당신은 리스트 상단에 위치한 가져오기 버튼을 누름으로써 가져올수 있습니다.</p>"
 
 #: templates/part.no_contacts.php:9
 msgid "Add contact"

@@ -19,14 +19,16 @@
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-class OC_Share_Backend_Contact implements OCP\Share_Backend {
+namespace OCA\Contacts;
+
+class Share_Backend_Contact implements \OCP\Share_Backend {
 
 	const FORMAT_CONTACT = 0;
 
 	private static $contact;
 
 	public function isValidSource($itemSource, $uidOwner) {
-		self::$contact = OC_Contacts_VCard::find($itemSource);
+		self::$contact = VCard::find($itemSource);
 		if (self::$contact) {
 			return true;
 		}
@@ -42,7 +44,7 @@ class OC_Share_Backend_Contact implements OCP\Share_Backend {
 		$contacts = array();
 		if ($format == self::FORMAT_CONTACT) {
 			foreach ($items as $item) {
-				$contact = OC_Contacts_VCard::find($item['item_source']);
+				$contact = VCard::find($item['item_source']);
 				$contact['fullname'] = $item['item_target'];
 				$contacts[] = $contact;
 			}

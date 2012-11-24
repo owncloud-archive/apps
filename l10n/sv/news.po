@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-12 00:01+0100\n"
+"PO-Revision-Date: 2012-11-11 13:11+0000\n"
+"Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,11 +59,19 @@ msgstr "Fel vid radering av mapp."
 msgid "Error updating feeds."
 msgstr "Fel vid uppdatering av flöden."
 
-#: ajax/importopml.php:34
-msgid "No file was submitted."
-msgstr "Ingen fil angavs."
+#: ajax/importopml.php:40
+msgid "Empty filename"
+msgstr "Tomt filnamn"
 
-#: ajax/importopml.php:46
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr "Inget argument för källa angavs"
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr "Fel vid läsning av fil"
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "Ett fel uppstod vid läsning av filen."
 
@@ -82,6 +90,10 @@ msgstr "Inga sökvägar angivna."
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr "Filen existerar inte:"
+
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "Kunde inte spara tillfällig bild:"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -111,7 +123,7 @@ msgstr "Fel vid laddning av flöde"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:55
+#: js/settings.js:68
 msgid "Error"
 msgstr "Fel"
 
@@ -182,17 +194,21 @@ msgstr "Inga filer valda."
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "Importerar OPML-fil..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
-msgstr ""
+msgstr "Inte en giltig typ"
 
-#: js/settings.js:51
-msgid "{n_success} out of {n_total} feeds imported successfully!"
-msgstr ""
+#: js/settings.js:60
+msgid "Importing done"
+msgstr "Import klar"
 
-#: js/settings.js:75
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr "Fel vid import av flöden."
+
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Välj fil"
 

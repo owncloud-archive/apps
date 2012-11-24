@@ -3,10 +3,8 @@
 /**
 * ownCloud - App Template Example
 *
-* @author Frank Karlitschek
-* @author Florian Hülsmann
-* @copyright 2011 Frank Karlitschek karlitschek@kde.org
-* @copyright 2012 Florian Hülsmann fh@cbix.de
+* @author Bernhard Posselt
+* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com 
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -23,11 +21,29 @@
 *
 */
 
-// Check if we are a user
-OCP\User::checkLoggedIn();
+namespace OCA\AppTemplate;
 
-$somesetting = OCP\Config::getSystemValue( "somesetting", '' );
-OCP\App::setActiveNavigationEntry( 'apptemplate' );
-$tmpl = new OCP\Template( 'apptemplate', 'main', 'user' );
-$tmpl->assign( 'somesetting', $somesetting );
-$tmpl->printPage();
+
+class AjaxController extends Controller {
+	
+
+	/**
+	 * @param Request $request: an instance of the request
+	 * @param API $api: an api wrapper instance
+	 */
+	public function __construct($api, $request){
+		parent::__construct($api, $request);
+	}
+
+
+	/**
+	 * @brief sets a global system value
+	 * @param array $urlParams: an array with the values, which were matched in 
+	 *                          the routes file
+	 */
+	public function setSystemValue($urlParams=array()){
+		$value = $this->params['somesetting'];
+		$this->api->setSystemValue('somesetting', $value);
+	}
+
+}

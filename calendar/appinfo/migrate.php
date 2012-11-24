@@ -43,7 +43,7 @@ class OC_Migration_Provider_Calendar extends OC_Migration_Provider{
 					$calendarquery = $stmt->execute(array( $this->uid, $row['displayname'], $row['uri'], $row['ctag'], $row['calendarorder'], $row['calendarcolor'], $row['timezone'], $row['components']));
 					// Map the id
 					$idmap[$row['id']] = OCP\DB::insertid('*PREFIX*calendar_calendars');
-					// Make the addressbook active
+					// Make the calendar active
 					OC_Calendar_Calendar::setCalendarActive($idmap[$row['id']], true);
 				}
 				// Now tags

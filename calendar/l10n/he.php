@@ -112,7 +112,6 @@
 "Nov." => "נוב׳",
 "Dec." => "דצמ׳",
 "All day" => "היום",
-"Missing fields" => "שדות חסרים",
 "Title" => "כותרת",
 "From Date" => "מתאריך",
 "From Time" => "משעה",

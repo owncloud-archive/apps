@@ -1,30 +1,24 @@
-div#controls{z-index:1000;}
-
+div#controls{z-index:60;}
 div.crumb { float:left; display:block; background:no-repeat right 0; padding:.75em 1.5em 0 1em; height:2.9em;}
 div.crumb:first-child { padding-left:1em; }
 div.crumb.last { font-weight:bold; }
 
-table { white-space:normal; position:absolute; top:40px; left:5px;font-family:Arial;}
+table#readerContent { white-space:normal; position:absolute; top:40px; left:5px;font-family:Arial;}
 
-tbody tr { background:white; float:left; height:200px; width:auto; font-size:12px;}
+table { position:relative; top:7px; width:100%;}
+tbody tr { background-color:#fff; height:2.5em;}
+tbody#fileList tr { background:white; float:left; height:150px;font-size:12px;}
 tbody tr:hover, tbody tr:active, tbody tr.selected { background-color:#ffffff; }
 	
 .thumbnail:not([data-loaded]) { background-color: white; }
 
-td.filename.svg{ background:no-repeat; vertical-align:text-bottom; height:200px; width:150px; white-space:normal; text-align:center;
-	 color:#888; text-shadow:#fff 0 1px 0; }
-
+td.filename.svg{ background:no-repeat; vertical-align:text-bottom; height:150px; width:150px; white-space:normal; text-align:center;
+	 color:#888; text-shadow:#fff 0 1px 0;}
 td.filename.svg:hover{ background-color:#ffffff; }
 
-div.thumbnail { box-shadow: 5px 5px 5px #888888; border:1px solid #888888; -webkit-border-radius: 3px; /* Safari 3-4, iOS 1-3.2, Android ≤1.6 */
-    border-radius: 3px; }
-	
-#dirsCanvas { border:1px solid #888888; position:absolute; margin-top:3px;box-shadow: 3px 3px 3px #888888;
-	-webkit-border-radius: 3px; /* Safari 3-4, iOS 1-3.2, Android ≤1.6 */ border-radius: 3px; }
+a.name img,a.dirs img { border: 1px solid #EEE; -webkit-box-shadow: 4px 4px 4px 0px grey; box-shadow: 4px 4px 4px 0px grey;}
+a.dirs{ position:relative; left:5px; margin-left:5px; }
 
-center { width:150px; overflow:hidden; text-overflow:ellipsis; }
-
+center { width:150px; overflow:hidden; text-overflow:ellipsis;}
 span.nametext{ font-family:Arial;font-size:15px;font-weight:normal;width:150px; white-space:nowrap; margin-left:5px; margin-right:5px; text-transform:capitalize; }
 
-div.title{ font-family:Arial;font-size:14px;font-weight:100;opacity:0;z-index:800;color:white;position:absolute;background-color:black;padding:5px; height:auto;-webkit-transition: opacity 0.5s;border:0;-webkit-border-radius: 3px;}
-div.visible{opacity:0.8;}

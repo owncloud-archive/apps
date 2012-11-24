@@ -114,7 +114,6 @@
 "Nov." => "Nov.",
 "Dec." => "Dez.",
 "All day" => "Ganztägig",
-"Missing fields" => "fehlende Felder",
 "Title" => "Titel",
 "From Date" => "Startdatum",
 "From Time" => "Startzeit",
