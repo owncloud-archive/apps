@@ -253,6 +253,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 	/*display: table-cell;*/
 }
 
+.display .adr { cursor: pointer; }
 .adr.edit {
 	width: 20em;
 	border: 1px solid silver; -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; outline:none; 
