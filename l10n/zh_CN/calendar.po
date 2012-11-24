@@ -4,6 +4,7 @@
 # 
 # Translators:
 #   <appweb.cn@gmail.com>, 2012.
+# Dianjin Wang <1132321739qq@gmail.com>, 2012.
 # Phoenix Nemo <>, 2012.
 #   <rainofchaos@gmail.com>, 2012.
 #   <suiy02@gmail.com>, 2012.
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-19 23:14+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-25 00:00+0100\n"
+"PO-Revision-Date: 2012-11-24 10:08+0000\n"
+"Last-Translator: Dianjin Wang <1132321739qq@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -194,7 +195,7 @@ msgstr "问题"
 msgid "Work"
 msgstr "工作"
 
-#: lib/app.php:362 lib/share/event.php:27
+#: lib/app.php:362
 msgid "by"
 msgstr "被"
 
@@ -489,7 +490,7 @@ msgstr "全天"
 
 #: templates/calendar.php:13
 msgid "Missing or invalid fields"
-msgstr ""
+msgstr "缺少或无效的字段"
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11

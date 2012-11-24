@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-20 03:53+0000\n"
-"Last-Translator: Sơn Nguyễn <sonnghit@gmail.com>\n"
+"POT-Creation-Date: 2012-11-25 00:00+0100\n"
+"PO-Revision-Date: 2012-11-24 23:01+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,19 +21,35 @@ msgstr ""
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ajax/addressbook/activate.php:24 ajax/addressbook/update.php:33
+#: ajax/addressbook/activate.php:37 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
 msgstr "Lỗi (tắt) kích hoạt sổ địa chỉ"
 
 #: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
-#: ajax/contact/addproperty.php:42 ajax/contact/delete.php:32
-#: ajax/contact/saveproperty.php:39
+#: ajax/contact/delete.php:32 ajax/contact/deleteproperty.php:38
+#: ajax/contact/saveproperty.php:77
 msgid "id is not set."
 msgstr "id không được thiết lập."
 
 #: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
 msgstr "Không thể cập nhật sổ liên lạc mà không có tên"
+
+#: ajax/categories/add.php:19
+msgid "No category name given."
+msgstr ""
+
+#: ajax/categories/add.php:28
+msgid "Error adding group."
+msgstr ""
+
+#: ajax/categories/addto.php:20 ajax/categories/removefrom.php:20
+msgid "Group ID missing from request."
+msgstr ""
+
+#: ajax/categories/addto.php:24 ajax/categories/removefrom.php:24
+msgid "Contact ID missing from request."
+msgstr ""
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -43,69 +59,55 @@ msgstr "Không có ID được cung cấp"
 msgid "Error setting checksum."
 msgstr "Lỗi thiết lập kiểm tra."
 
-#: ajax/categories/delete.php:19
+#: ajax/categories/delete.php:21
 msgid "No categories selected for deletion."
 msgstr "Bạn chưa chọn mục để xóa"
 
-#: ajax/categories/delete.php:26
+#: ajax/categories/delete.php:28
 msgid "No address books found."
 msgstr "Không tìm thấy sổ địa chỉ."
 
-#: ajax/categories/delete.php:34
+#: ajax/categories/delete.php:36
 msgid "No contacts found."
 msgstr "Không tìm thấy danh sách"
 
-#: ajax/contact/addproperty.php:39 ajax/contact/saveproperty.php:36
+#: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:74
 msgid "element name is not set."
 msgstr "tên phần tử không được thiết lập."
 
-#: ajax/contact/addproperty.php:46
-msgid "Could not parse contact: "
-msgstr "Không thể phân tích vui lòng liên hệ :"
-
-#: ajax/contact/addproperty.php:56
-msgid "Cannot add empty property."
-msgstr "Không thể thêm thuộc tính rỗng"
-
-#: ajax/contact/addproperty.php:67
-msgid "At least one of the address fields has to be filled out."
-msgstr "Ít nhất một địa chỉ phải được điền."
-
-#: ajax/contact/addproperty.php:76
-msgid "Trying to add duplicate property: "
-msgstr "Thêm hai thuộc tính trùng nhau"
-
-#: ajax/contact/addproperty.php:115 ajax/contact/saveproperty.php:93
-msgid "Missing IM parameter."
-msgstr "Thiếu tham số IM"
-
-#: ajax/contact/addproperty.php:119 ajax/contact/saveproperty.php:97
-msgid "Unknown IM: "
-msgstr "Không biết IM:"
-
-#: ajax/contact/deleteproperty.php:37
-msgid "Information about vCard is incorrect. Please reload the page."
-msgstr "Thông tin vCard không chính xác. Vui lòng tải lại trang."
-
-#: ajax/contact/details.php:31
-msgid "Missing ID"
-msgstr "Missing ID"
-
-#: ajax/contact/details.php:36
-msgid "Error parsing VCard for ID: \""
-msgstr "Lỗi cú pháp VCard ID: \""
-
-#: ajax/contact/saveproperty.php:42
+#: ajax/contact/deleteproperty.php:46 ajax/contact/saveproperty.php:80
 msgid "checksum is not set."
 msgstr "tổng kiểm tra không được thiết lập."
 
-#: ajax/contact/saveproperty.php:62
+#: ajax/contact/deleteproperty.php:54
+msgid "Information about vCard is incorrect. Please reload the page."
+msgstr "Thông tin vCard không chính xác. Vui lòng tải lại trang."
+
+#: ajax/contact/saveproperty.php:98
+#, php-format
+msgid "Couldn't find vCard for %d."
+msgstr ""
+
+#: ajax/contact/saveproperty.php:108
 msgid "Information about vCard is incorrect. Please reload the page: "
 msgstr "Thông tin về vCard không chính xác. Vui lòng tải lại trang:"
 
-#: ajax/contact/saveproperty.php:69
+#: ajax/contact/saveproperty.php:116
 msgid "Something went FUBAR. "
 msgstr "Có cái gì đó không được khắc phục."
+
+#: ajax/contact/saveproperty.php:128
+#, php-format
+msgid "Cannot save property of type \"%s\" as array"
+msgstr ""
+
+#: ajax/contact/saveproperty.php:180
+msgid "Missing IM parameter."
+msgstr "Thiếu tham số IM"
+
+#: ajax/contact/saveproperty.php:184
+msgid "Unknown IM: "
+msgstr "Không biết IM:"
 
 #: ajax/currentphoto.php:30 ajax/oc_photo.php:28 ajax/uploadphoto.php:36
 #: ajax/uploadphoto.php:68
@@ -116,11 +118,11 @@ msgstr "Không có ID của liên lạc được tìm thấy"
 msgid "Error reading contact photo."
 msgstr "Lỗi đọc liên lạc hình ảnh."
 
-#: ajax/currentphoto.php:48
+#: ajax/currentphoto.php:50
 msgid "Error saving temporary file."
 msgstr "Lỗi trong quá trình lưu file tạm"
 
-#: ajax/currentphoto.php:51
+#: ajax/currentphoto.php:53
 msgid "The loading photo is not valid."
 msgstr "Các hình ảnh tải không hợp lệ."
 
@@ -148,25 +150,37 @@ msgstr "Lỗi liên lạc đối tượng."
 msgid "Error getting PHOTO property."
 msgstr "Lỗi lấy thuộc tính ảnh"
 
-#: ajax/savecrop.php:99
+#: ajax/savecrop.php:105
 msgid "Error saving contact."
 msgstr "Lỗi khi lưu liên lạc"
 
-#: ajax/savecrop.php:110
+#: ajax/savecrop.php:117
 msgid "Error resizing image"
 msgstr "Lỗi khi chỉnh kích thước ảnh"
 
-#: ajax/savecrop.php:113
+#: ajax/savecrop.php:120
 msgid "Error cropping image"
 msgstr "Lỗi khi cắt ảnh"
 
-#: ajax/savecrop.php:116
+#: ajax/savecrop.php:123
 msgid "Error creating temporary image"
 msgstr "Lỗi khi tạo tệp tin tạm"
 
-#: ajax/savecrop.php:119
+#: ajax/savecrop.php:126
 msgid "Error finding image: "
 msgstr "Lỗi khi tìm hình ảnh:"
+
+#: ajax/setpreference.php:37
+msgid "Key is not set for: "
+msgstr ""
+
+#: ajax/setpreference.php:41
+msgid "Value is not set for: "
+msgstr ""
+
+#: ajax/setpreference.php:53
+msgid "Could not set preference: "
+msgstr ""
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
@@ -214,173 +228,143 @@ msgstr "Không có tập tin nào được tải lên. Lỗi không xác định
 msgid "Contacts"
 msgstr "Liên lạc"
 
-#: js/contacts.js:71
-msgid "Sorry, this functionality has not been implemented yet"
-msgstr "Rất tiếc, Chức năng này không thực hiện được"
+#: js/app.js:276
+msgid "Contact is already in this group."
+msgstr ""
 
-#: js/contacts.js:71
-msgid "Not implemented"
-msgstr "không thực hiện được"
+#: js/app.js:289
+msgid "Contacts are already in this group."
+msgstr ""
 
-#: js/contacts.js:76
-msgid "Couldn't get a valid address."
-msgstr "Không thể có được một địa chỉ hợp lệ."
+#: js/app.js:335
+msgid "Couldn't get contact list."
+msgstr ""
 
-#: js/contacts.js:76 js/contacts.js:105 js/contacts.js:364 js/contacts.js:436
-#: js/contacts.js:443 js/contacts.js:694 js/contacts.js:734 js/contacts.js:763
-#: js/contacts.js:774 js/contacts.js:788 js/contacts.js:808 js/contacts.js:895
-#: js/contacts.js:901 js/contacts.js:913 js/contacts.js:950
-#: js/contacts.js:1226 js/contacts.js:1234 js/contacts.js:1243
-#: js/contacts.js:1278 js/contacts.js:1314 js/contacts.js:1329
-#: js/contacts.js:1355 js/contacts.js:1588 js/contacts.js:1623
-#: js/contacts.js:1643 js/contacts.js:1732 js/contacts.js:1886
-#: js/contacts.js:2086 js/contacts.js:2112 js/contacts.js:2122
-#: js/contacts.js:2125 js/contacts.js:2276 js/contacts.js:2313
-#: js/contacts.js:2348 js/settings.js:26 js/settings.js:46 js/settings.js:76
-#: js/settings.js:113
-msgid "Error"
-msgstr "Lỗi"
+#: js/app.js:346
+msgid "Contact is not in this group."
+msgstr ""
 
-#: js/contacts.js:105
-msgid "Please enter an email address."
-msgstr "Vui lòng nhập địa chỉ email."
+#: js/app.js:360
+msgid "Contacts are not in this group."
+msgstr ""
 
-#: js/contacts.js:177 templates/part.selectaddressbook.php:27
-msgid "Enter name"
-msgstr "Nhập tên"
+#: js/app.js:458
+msgid "A group named {group} already exists"
+msgstr ""
 
-#: js/contacts.js:178 templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "Định dạng tùy chỉnh, Tên viết tắt, Tên đầy đủ, hoặc đảo ngược với dấu phẩy"
+#: js/app.js:504
+msgid "All"
+msgstr ""
 
-#: js/contacts.js:184 js/contacts.js:1434 js/contacts.js:1477
-#: js/contacts.js:1496 js/contacts.js:1539
-msgid "Select type"
-msgstr "Chọn loại"
+#: js/app.js:518
+msgid "Favorites"
+msgstr ""
 
-#: js/contacts.js:215
+#: js/app.js:567
+msgid "Shared by {owner}"
+msgstr ""
+
+#: js/app.js:642
+msgid "Indexing contacts"
+msgstr ""
+
+#: js/app.js:713 js/app.js:727
+msgid "Add to..."
+msgstr ""
+
+#: js/app.js:717 js/app.js:729
+msgid "Remove from..."
+msgstr ""
+
+#: js/app.js:734
+msgid "Add group..."
+msgstr ""
+
+#: js/app.js:846
 msgid "Select photo"
 msgstr "Chọn photo"
 
-#: js/contacts.js:407
-msgid "You do not have permission to add contacts to "
-msgstr "Bạn không có quyền để thêm địa chỉ liên lạc"
+#: js/app.js:895 js/app.js:921 js/app.js:1550 js/app.js:1656 js/contacts.js:97
+#: js/contacts.js:182 js/contacts.js:380
+msgid "Network or server error. Please inform administrator."
+msgstr ""
 
-#: js/contacts.js:408
-msgid "Please select one of your own address books."
-msgstr "Vui lòng chọn một trong những danh bạ địa chỉ của riêng bạn."
+#: js/app.js:1054 js/app.js:1089
+msgid "Error adding to group."
+msgstr ""
 
-#: js/contacts.js:408
-msgid "Permission error"
-msgstr "Lỗi quyền truy cập"
+#: js/app.js:1114
+msgid "Error removing from group."
+msgstr ""
 
-#: js/contacts.js:482
-msgid "Click to undo deletion of \""
-msgstr "Nhấn vào đây để hoàn tất xóa \""
+#: js/app.js:1144
+msgid "There was an error opening a mail composer."
+msgstr ""
 
-#: js/contacts.js:496
-msgid "Cancelled deletion of: \""
-msgstr "Hủy xóa :\""
+#: js/app.js:1342 templates/contacts.php:138
+msgid "Add group"
+msgstr ""
 
-#: js/contacts.js:734
-msgid "This property has to be non-empty."
-msgstr "Thuộc tính này không được rỗng."
-
-#: js/contacts.js:763
-msgid "Couldn't serialize elements."
-msgstr "Không thể nối tiếp các yếu tố."
-
-#: js/contacts.js:774
-msgid "Unknown error. Please check logs."
-msgstr "Hệ thống báo lỗi .Vui lòng xem lại"
-
-#: js/contacts.js:895 js/contacts.js:913
-msgid ""
-"'deleteProperty' called without type argument. Please report at "
-"bugs.owncloud.org"
-msgstr "'deleteProperty' kêu gọi mà không có đối số kiểu. Xin báo cáo tại bugs.owncloud.org"
-
-#: js/contacts.js:932
-msgid "Edit name"
-msgstr "Sửa tên"
-
-#: js/contacts.js:1226
+#: js/app.js:1414
 msgid "No files selected for upload."
 msgstr "Không có tập tin nào được chọn để tải lên."
 
-#: js/contacts.js:1234 js/contacts.js:2102 js/contacts.js:2177
+#: js/app.js:1425
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Các tập tin bạn đang cố gắng tải lên vượt quá kích thước tối đa cho tập tin tải lên trên máy chủ."
 
-#: js/contacts.js:1298
+#: js/app.js:1515
+msgid "Edit profile picture"
+msgstr ""
+
+#: js/app.js:1533 js/contacts.js:859
 msgid "Error loading profile picture."
 msgstr "Lỗi khi tải lên hồ sơ hình ảnh."
 
-#: js/contacts.js:1557
+#: js/app.js:1579 templates/part.selectaddressbook.php:27
+msgid "Enter name"
+msgstr "Nhập tên"
+
+#: js/app.js:1580 templates/part.selectaddressbook.php:29
+msgid "Enter description"
+msgstr "Nhập mô tả"
+
+#: js/app.js:1583
+msgid "Select addressbook"
+msgstr ""
+
+#: js/app.js:1591
+msgid "The address book name cannot be empty."
+msgstr "Tên Danh bạ không thể để trống ."
+
+#: js/app.js:1591 js/settings.js:25 js/settings.js:45 js/settings.js:75
+#: js/settings.js:112
+msgid "Error"
+msgstr "Lỗi"
+
+#: js/contacts.js:261
+msgid "Is this correct?"
+msgstr ""
+
+#: js/contacts.js:425
+msgid "There was an unknown error when trying to delete this contact"
+msgstr ""
+
+#: js/contacts.js:1208
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Một số địa chỉ liên lạc được đánh dấu để xóa, nhưng chưa bị xóa . Hãy đợi đến khi họ xóa."
 
-#: js/contacts.js:1628
-msgid "Do you want to merge these address books?"
-msgstr "Bạn có muốn kết hợp những addressbook?"
+#: js/contacts.js:1219
+msgid "Click to undo deletion of {num} contacts"
+msgstr ""
 
-#: js/contacts.js:1812
-msgid "Shared by "
-msgstr " Được chia sẻ bởi"
-
-#: js/contacts.js:2102 js/contacts.js:2177
-msgid "Upload too large"
-msgstr "Tải lên quá lớn"
-
-#: js/contacts.js:2106
-msgid "Only image files can be used as profile picture."
-msgstr "Chỉ sử dụng các tập tin hình ảnh. "
-
-#: js/contacts.js:2106
-msgid "Wrong file type"
-msgstr "Sai kiểu tập tin"
-
-#: js/contacts.js:2112
-msgid ""
-"Your browser doesn't support AJAX upload. Please click on the profile "
-"picture to select a photo to upload."
-msgstr " Trình duyệt của bạn không hỗ trợ AJAX upload .Xin vui lòng click vào hình ảnh hồ sơ cá nhân để lựa chọn một ảnh để tải lên."
-
-#: js/contacts.js:2170
-msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr "Không thể tải lên tập tin của bạn ,nó như là một thư mục hoặc có 0 byte"
-
-#: js/contacts.js:2170
-msgid "Upload Error"
-msgstr "Lỗi tải lên"
-
-#: js/contacts.js:2225
-msgid "Pending"
-msgstr "Đang chờ"
-
-#: js/contacts.js:2257
-msgid "Import done"
-msgstr "Thực hiện import"
-
-#: js/contacts.js:2270
-msgid "Not all files uploaded. Retrying..."
-msgstr "Tất cả các tập tin không được tải lên .Đang thử lại..."
-
-#: js/contacts.js:2276
-msgid "Something went wrong with the upload, please retry."
-msgstr "Một cái gì đó đã sai khi tải lên ,hãy thử lại."
-
-#: js/contacts.js:2292
-msgid "Importing..."
-msgstr "Đang nhập vào..."
-
-#: js/contacts.js:2313
-msgid "The address book name cannot be empty."
-msgstr "Tên Danh bạ không thể để trống ."
+#: js/contacts.js:1232
+msgid "Cancelled deletion of {num}"
+msgstr ""
 
 #: js/loader.js:49
 msgid "Result: "
@@ -394,337 +378,515 @@ msgstr "Nhập vào,"
 msgid " failed."
 msgstr "thất bại."
 
-#: js/settings.js:76
+#: js/settings.js:75
 msgid "Displayname cannot be empty."
 msgstr "Tên hiển thị không được để trống :"
 
-#: js/settings.js:98 templates/settings.php:25
+#: js/settings.js:97 templates/settings.php:26
 msgid "Show CardDav link"
 msgstr "Hiển thị CardDav "
 
-#: js/settings.js:99 templates/settings.php:28
+#: js/settings.js:98 templates/settings.php:29
 msgid "Show read-only VCF link"
 msgstr "Hiển thị liên kết VCF chỉ đọc"
 
-#: js/settings.js:100 templates/settings.php:39
+#: js/settings.js:99 templates/settings.php:40
 msgid "Download"
 msgstr "Tải về"
 
-#: js/settings.js:102 templates/settings.php:44
+#: js/settings.js:101 templates/settings.php:45
 msgid "Edit"
 msgstr "Sửa"
 
-#: js/settings.js:103 templates/part.contact.php:40
-#: templates/part.contact.php:42 templates/part.contact.php:44
-#: templates/part.contact.php:46 templates/part.contact.php:50
-#: templates/settings.php:49
+#: js/settings.js:102 templates/contacts.php:206 templates/contacts.php:213
+#: templates/contacts.php:220 templates/contacts.php:227
+#: templates/part.contact.php:40 templates/part.contact.php:42
+#: templates/part.contact.php:44 templates/part.contact.php:46
+#: templates/part.contact.php:50 templates/settings.php:50
 msgid "Delete"
 msgstr "Xóa"
 
-#: js/settings.js:121 templates/settings.php:61
+#: js/settings.js:120 templates/settings.php:62
 msgid "Cancel"
 msgstr "Hủy"
 
-#: js/settings.js:161 templates/settings.php:66
+#: js/settings.js:159 templates/settings.php:66
 msgid "More..."
 msgstr "nhiều hơn..."
 
-#: js/settings.js:165
+#: js/settings.js:162
 msgid "Less..."
 msgstr " ít hơn..."
 
-#: lib/addressbook.php:136
+#: lib/addressbook.php:152
 msgid "You do not have the permissions to read this addressbook."
 msgstr " Bạn không được quyền đọc Danh bạ. "
 
-#: lib/addressbook.php:235
+#: lib/addressbook.php:264
 msgid "You do not have the permissions to update this addressbook."
 msgstr "Bạn không có quyền truy cập để cập nhật danh bạ này."
 
-#: lib/addressbook.php:255
+#: lib/addressbook.php:283 lib/addressbook.php:292
 msgid "There was an error updating the addressbook."
 msgstr "Có một lỗi khi cập nhật danh bạ."
 
-#: lib/addressbook.php:311
+#: lib/addressbook.php:354
 msgid "You do not have the permissions to delete this addressbook."
 msgstr "Bạn không có quyền truy cập để xóa danh bạ này."
 
-#: lib/addressbook.php:340
+#: lib/addressbook.php:383
 msgid "There was an error deleting this addressbook."
 msgstr "Có một lỗi khi xóa danh bạ này."
 
-#: lib/app.php:36
-msgid "Addressbook not found: "
-msgstr "Không tìm thấy Addressbook :"
-
-#: lib/app.php:52
-msgid "This is not your addressbook."
-msgstr "Đây không phải là sổ địa chỉ của bạn."
-
-#: lib/app.php:71
-msgid "Contact could not be found."
-msgstr "Liên lạc không được tìm thấy"
-
-#: lib/app.php:116
+#: lib/app.php:88
 msgid "Jabber"
 msgstr "Jabber"
 
-#: lib/app.php:121
+#: lib/app.php:93
 msgid "AIM"
 msgstr "AIM"
 
-#: lib/app.php:126
+#: lib/app.php:98
 msgid "MSN"
 msgstr "MSN"
 
-#: lib/app.php:131
+#: lib/app.php:103
 msgid "Twitter"
 msgstr "Twitter"
 
-#: lib/app.php:136
+#: lib/app.php:108
 msgid "GoogleTalk"
 msgstr "GoogleTalk"
 
-#: lib/app.php:141
+#: lib/app.php:113
 msgid "Facebook"
 msgstr "Facebook"
 
-#: lib/app.php:146
+#: lib/app.php:118
 msgid "XMPP"
 msgstr "XMPP"
 
-#: lib/app.php:151
+#: lib/app.php:123
 msgid "ICQ"
 msgstr "ICQ"
 
-#: lib/app.php:156
+#: lib/app.php:128
 msgid "Yahoo"
 msgstr "Yahoo"
 
-#: lib/app.php:161
+#: lib/app.php:133
 msgid "Skype"
 msgstr "Skype"
 
-#: lib/app.php:166
+#: lib/app.php:138
 msgid "QQ"
 msgstr "QQ"
 
-#: lib/app.php:171
+#: lib/app.php:143
 msgid "GaduGadu"
 msgstr "GaduGadu"
 
-#: lib/app.php:194 lib/app.php:202 lib/app.php:213 lib/app.php:253
+#: lib/app.php:166 lib/app.php:174 lib/app.php:185 lib/app.php:226
 msgid "Work"
 msgstr "Công việc"
 
-#: lib/app.php:195 lib/app.php:200 lib/app.php:214
+#: lib/app.php:167 lib/app.php:172 lib/app.php:186
 msgid "Home"
 msgstr "Nhà"
 
-#: lib/app.php:196 lib/app.php:209 lib/app.php:254 lib/vcard.php:649
+#: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
+#: lib/vcard.php:685
 msgid "Other"
 msgstr "Khác"
 
-#: lib/app.php:201
+#: lib/app.php:173
 msgid "Mobile"
 msgstr "Di động"
 
-#: lib/app.php:203
+#: lib/app.php:175
 msgid "Text"
 msgstr "Văn bản"
 
-#: lib/app.php:204
+#: lib/app.php:176
 msgid "Voice"
 msgstr "Giọng nói"
 
-#: lib/app.php:205
+#: lib/app.php:177
 msgid "Message"
 msgstr "Tin nhắn"
 
-#: lib/app.php:206
+#: lib/app.php:178
 msgid "Fax"
 msgstr "Fax"
 
-#: lib/app.php:207
+#: lib/app.php:179
 msgid "Video"
 msgstr "Video"
 
-#: lib/app.php:208
+#: lib/app.php:180
 msgid "Pager"
 msgstr "số trang"
 
-#: lib/app.php:215
+#: lib/app.php:187
 msgid "Internet"
 msgstr "Mạng internet"
 
-#: lib/app.php:251
+#: lib/app.php:224
 msgid "Friends"
 msgstr "Bạn bè"
 
-#: lib/app.php:252
+#: lib/app.php:225
 msgid "Family"
 msgstr "Gia đình"
 
-#: lib/hooks.php:102
+#: lib/app.php:346
+msgid "There was an error deleting properties for this contact."
+msgstr ""
+
+#: lib/hooks.php:108
 msgid "{name}'s Birthday"
 msgstr "Sinh nhật của {name}"
 
-#: lib/search.php:15
+#: lib/search.php:19
 msgid "Contact"
 msgstr "Danh sách"
 
-#: lib/vcard.php:301
+#: lib/vcard.php:331
 msgid "You do not have the permissions to add contacts to this addressbook."
 msgstr "Bạn không có quyền truy cập để thêm số liên lạc vào danh bạ này."
 
-#: lib/vcard.php:405
+#: lib/vcard.php:451
 msgid "Could not find the vCard with ID."
 msgstr "Không thể tìm thấy ID vCard."
 
-#: lib/vcard.php:430
+#: lib/vcard.php:479
 msgid "You do not have the permissions to edit this contact."
 msgstr "Bạn không có quyền truy cập để chỉnh sửa địa chỉ liên hệ này."
 
-#: lib/vcard.php:501
+#: lib/vcard.php:554
 msgid "Could not find the vCard with ID: "
 msgstr "Không thể tìm thấy ID vCard: "
 
-#: lib/vcard.php:509
+#: lib/vcard.php:562
 msgid "Could not find the Addressbook with ID: "
 msgstr "Không thể tìm thấy danh bạ với ID:"
 
-#: lib/vcard.php:532
+#: lib/vcard.php:592
 msgid "You do not have the permissions to delete this contact."
 msgstr "Bạn không có quyền truy cập để xóa địa chỉ liên hệ này."
 
-#: lib/vcard.php:550
+#: lib/vcard.php:611
 msgid "There was an error deleting this contact."
 msgstr "Có một lỗi khi xóa địa chỉ liên lạc này."
 
-#: templates/index.php:14
-msgid "Add Contact"
-msgstr "Thêm liên lạc"
+#: lib/vcard.php:688
+msgid "HomePage"
+msgstr ""
 
-#: templates/index.php:15 templates/part.import.php:17
-msgid "Import"
-msgstr "Nhập"
+#: templates/contacts.php:21
+msgid "New Group"
+msgstr ""
 
-#: templates/index.php:16
+#: templates/contacts.php:27 templates/index.php:16
 msgid "Settings"
 msgstr "Tùy chỉnh"
 
-#: templates/index.php:30 templates/part.import.php:24
+#: templates/contacts.php:28 templates/contacts.php:113 templates/index.php:15
+#: templates/part.import.php:17
+msgid "Import"
+msgstr "Nhập"
+
+#: templates/contacts.php:34
+msgid "Import into:"
+msgstr ""
+
+#: templates/contacts.php:46
+msgid "Export"
+msgstr ""
+
+#: templates/contacts.php:61
+msgid "(De-)select all"
+msgstr ""
+
+#: templates/contacts.php:63
+msgid "New Contact"
+msgstr ""
+
+#: templates/contacts.php:64
+msgid "Back"
+msgstr ""
+
+#: templates/contacts.php:65
+msgid "Download Contact"
+msgstr ""
+
+#: templates/contacts.php:66
+msgid "Delete Contact"
+msgstr ""
+
+#: templates/contacts.php:68 templates/contacts.php:271
+#: templates/part.contact.php:47 templates/part.contact.php:135
+msgid "Groups"
+msgstr "Nhóm"
+
+#: templates/contacts.php:70
+msgid "Favorite"
+msgstr ""
+
+#: templates/contacts.php:77 templates/index.php:30
+#: templates/part.import.php:24
 msgid "Close"
 msgstr "Đóng"
 
-#: templates/index.php:31
+#: templates/contacts.php:78 templates/index.php:31
 msgid "Keyboard shortcuts"
 msgstr "Phím tắt"
 
-#: templates/index.php:33
+#: templates/contacts.php:80 templates/index.php:33
 msgid "Navigation"
 msgstr "Navigation"
 
-#: templates/index.php:36
+#: templates/contacts.php:83 templates/index.php:36
 msgid "Next contact in list"
 msgstr "Liên lạc tiếp theo"
 
-#: templates/index.php:38
+#: templates/contacts.php:85 templates/index.php:38
 msgid "Previous contact in list"
 msgstr "Liên lạc trước"
 
-#: templates/index.php:40
+#: templates/contacts.php:87 templates/index.php:40
 msgid "Expand/collapse current addressbook"
 msgstr "Đóng/mở sổ địa chỉ"
 
-#: templates/index.php:42
+#: templates/contacts.php:89 templates/index.php:42
 msgid "Next addressbook"
 msgstr "Tới addressbook"
 
-#: templates/index.php:44
+#: templates/contacts.php:91 templates/index.php:44
 msgid "Previous addressbook"
 msgstr "Lùi lại addressbook"
 
-#: templates/index.php:48
+#: templates/contacts.php:95 templates/index.php:48
 msgid "Actions"
 msgstr "Actions"
 
-#: templates/index.php:51
+#: templates/contacts.php:98 templates/index.php:51
 msgid "Refresh contacts list"
 msgstr "Làm mới danh sách liên lạc"
 
-#: templates/index.php:53
+#: templates/contacts.php:100 templates/index.php:53
 msgid "Add new contact"
 msgstr "Thêm liên lạc mới"
 
-#: templates/index.php:55
+#: templates/contacts.php:102 templates/index.php:55
 msgid "Add new addressbook"
 msgstr "Thêm sổ địa chỉ mới"
 
-#: templates/index.php:57
+#: templates/contacts.php:104 templates/index.php:57
 msgid "Delete current contact"
 msgstr "Xóa liên lạc hiện tại"
 
-#: templates/part.contact.php:17
-msgid "Drop photo to upload"
-msgstr "Kéo và thả hình ảnh để tải lên"
+#: templates/contacts.php:109
+msgid ""
+"<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
+"import existing contacts from a VCF file.</p>"
+msgstr ""
 
-#: templates/part.contact.php:19
+#: templates/contacts.php:112 templates/part.no_contacts.php:9
+msgid "Add contact"
+msgstr "Thêm liên lạc"
+
+#: templates/contacts.php:153
+msgid "Compose mail"
+msgstr ""
+
+#: templates/contacts.php:164
+msgid "Delete group"
+msgstr ""
+
+#: templates/contacts.php:176 templates/part.contact.php:19
 msgid "Delete current photo"
 msgstr "Xóa hình ảnh hiện tại"
 
-#: templates/part.contact.php:20
+#: templates/contacts.php:177 templates/part.contact.php:20
 msgid "Edit current photo"
 msgstr "Sửa hình ảnh hiện tại"
 
-#: templates/part.contact.php:21
+#: templates/contacts.php:178 templates/part.contact.php:21
 msgid "Upload new photo"
 msgstr "Tải hình ảnh mới"
 
-#: templates/part.contact.php:22
+#: templates/contacts.php:179 templates/part.contact.php:22
 msgid "Select photo from ownCloud"
 msgstr "Chọn hình đã tải lên Kcloud"
 
-#: templates/part.contact.php:36
-msgid "Edit name details"
-msgstr "Chỉnh sửa chi tiết tên"
+#: templates/contacts.php:188
+msgid "First name"
+msgstr ""
 
+#: templates/contacts.php:191 templates/part.edit_name_dialog.php:37
+msgid "Additional names"
+msgstr "Tên bổ sung"
+
+#: templates/contacts.php:194
+msgid "Last name"
+msgstr ""
+
+#: templates/contacts.php:202 templates/contacts.php:263
+#: templates/part.contact.php:41 templates/part.contact.php:127
+msgid "Nickname"
+msgstr "Biệt danh"
+
+#: templates/contacts.php:209
+msgid "Title"
+msgstr ""
+
+#: templates/contacts.php:216 templates/contacts.php:262
 #: templates/part.contact.php:39 templates/part.contact.php:40
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Tổ chức"
 
-#: templates/part.contact.php:41 templates/part.contact.php:127
-msgid "Nickname"
-msgstr "Biệt danh"
+#: templates/contacts.php:223 templates/contacts.php:264
+#: templates/part.contact.php:45 templates/part.contact.php:128
+msgid "Birthday"
+msgstr "Ngày sinh nhật"
+
+#: templates/contacts.php:254
+msgid "Notes go here..."
+msgstr ""
+
+#: templates/contacts.php:261
+msgid "Add"
+msgstr ""
+
+#: templates/contacts.php:265 templates/part.contact.php:129
+msgid "Phone"
+msgstr "Điện thoại"
+
+#: templates/contacts.php:266 templates/part.contact.php:130
+msgid "Email"
+msgstr "Email"
+
+#: templates/contacts.php:267 templates/part.contact.php:131
+msgid "Instant Messaging"
+msgstr "Hệ thống tin nhắn khẩn cấp"
+
+#: templates/contacts.php:268 templates/part.contact.php:132
+msgid "Address"
+msgstr "Địa chỉ"
+
+#: templates/contacts.php:269 templates/part.contact.php:133
+msgid "Note"
+msgstr "Chú thích"
+
+#: templates/contacts.php:270 templates/part.contact.php:43
+#: templates/part.contact.php:134
+msgid "Web site"
+msgstr "Web site"
+
+#: templates/contacts.php:283 templates/contacts.php:296
+#: templates/contacts.php:308 templates/contacts.php:332
+#: templates/contacts.php:358 templates/part.contact.php:59
+#: templates/part.contact.php:73 templates/part.contact.php:98
+msgid "Preferred"
+msgstr "Được ưu tiên"
+
+#: templates/contacts.php:284 templates/part.contact.php:60
+msgid "Please specify a valid email address."
+msgstr "Vui lòng nhập địa chỉ Email hợp lệ."
+
+#: templates/contacts.php:284
+msgid "someone@example.com"
+msgstr ""
+
+#: templates/contacts.php:286 templates/part.contact.php:64
+msgid "Mail to address"
+msgstr "Gửi email"
+
+#: templates/contacts.php:287 templates/part.contact.php:65
+msgid "Delete email address"
+msgstr "Xóa Email"
+
+#: templates/contacts.php:297 templates/part.contact.php:75
+msgid "Enter phone number"
+msgstr "Nhập số điện thoại"
+
+#: templates/contacts.php:299 templates/part.contact.php:79
+msgid "Delete phone number"
+msgstr "Xóa số điện thoại"
+
+#: templates/contacts.php:311 templates/part.contact.php:44
+msgid "Go to web site"
+msgstr "Đi tới website"
+
+#: templates/contacts.php:312
+msgid "Delete URL"
+msgstr ""
+
+#: templates/contacts.php:323 templates/part.contact.php:110
+msgid "View on map"
+msgstr "Xem trên bản đồ"
+
+#: templates/contacts.php:324
+msgid "Delete address"
+msgstr ""
+
+#: templates/contacts.php:335
+msgid "1 Main Street"
+msgstr ""
+
+#: templates/contacts.php:338
+msgid "12345"
+msgstr ""
+
+#: templates/contacts.php:339
+msgid "Your city"
+msgstr ""
+
+#: templates/contacts.php:342
+msgid "Some region"
+msgstr ""
+
+#: templates/contacts.php:345
+msgid "Your country"
+msgstr ""
+
+#: templates/contacts.php:365 templates/part.contact.php:100
+msgid "Instant Messenger"
+msgstr "Tin nhắn khẩn cấp"
+
+#: templates/contacts.php:367 templates/part.contact.php:101
+msgid "Delete IM"
+msgstr "Xóa IM"
+
+#: templates/index.php:14
+msgid "Add Contact"
+msgstr "Thêm liên lạc"
+
+#: templates/part.contact.php:17
+msgid "Drop photo to upload"
+msgstr "Kéo và thả hình ảnh để tải lên"
+
+#: templates/part.contact.php:35
+msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
+msgstr "Định dạng tùy chỉnh, Tên viết tắt, Tên đầy đủ, hoặc đảo ngược với dấu phẩy"
+
+#: templates/part.contact.php:36
+msgid "Edit name details"
+msgstr "Chỉnh sửa chi tiết tên"
 
 #: templates/part.contact.php:42
 msgid "Enter nickname"
 msgstr "Nhập nickname"
 
-#: templates/part.contact.php:43 templates/part.contact.php:134
-msgid "Web site"
-msgstr "Web site"
-
 #: templates/part.contact.php:44
 msgid "http://www.somesite.com"
 msgstr "http://www.somesite.com"
 
-#: templates/part.contact.php:44
-msgid "Go to web site"
-msgstr "Đi tới website"
-
-#: templates/part.contact.php:45 templates/part.contact.php:128
-msgid "Birthday"
-msgstr "Ngày sinh nhật"
-
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"
 msgstr "dd-mm-yyyy"
-
-#: templates/part.contact.php:47 templates/part.contact.php:135
-msgid "Groups"
-msgstr "Nhóm"
 
 #: templates/part.contact.php:49
 msgid "Separate groups with commas"
@@ -734,46 +896,9 @@ msgstr "Phân cách bởi dấu phẩy"
 msgid "Edit groups"
 msgstr "Sửa nhóm"
 
-#: templates/part.contact.php:59 templates/part.contact.php:73
-#: templates/part.contact.php:98
-msgid "Preferred"
-msgstr "Được ưu tiên"
-
-#: templates/part.contact.php:60
-msgid "Please specify a valid email address."
-msgstr "Vui lòng nhập địa chỉ Email hợp lệ."
-
 #: templates/part.contact.php:60
 msgid "Enter email address"
 msgstr "Nhập địa chỉ Email"
-
-#: templates/part.contact.php:64
-msgid "Mail to address"
-msgstr "Gửi email"
-
-#: templates/part.contact.php:65
-msgid "Delete email address"
-msgstr "Xóa Email"
-
-#: templates/part.contact.php:75
-msgid "Enter phone number"
-msgstr "Nhập số điện thoại"
-
-#: templates/part.contact.php:79
-msgid "Delete phone number"
-msgstr "Xóa số điện thoại"
-
-#: templates/part.contact.php:100
-msgid "Instant Messenger"
-msgstr "Tin nhắn khẩn cấp"
-
-#: templates/part.contact.php:101
-msgid "Delete IM"
-msgstr "Xóa IM"
-
-#: templates/part.contact.php:110
-msgid "View on map"
-msgstr "Xem trên bản đồ"
 
 #: templates/part.contact.php:110
 msgid "Edit address details"
@@ -786,26 +911,6 @@ msgstr "Thêm chú thích"
 #: templates/part.contact.php:124
 msgid "Add field"
 msgstr "Thêm trường mới"
-
-#: templates/part.contact.php:129
-msgid "Phone"
-msgstr "Điện thoại"
-
-#: templates/part.contact.php:130
-msgid "Email"
-msgstr "Email"
-
-#: templates/part.contact.php:131
-msgid "Instant Messaging"
-msgstr "Hệ thống tin nhắn khẩn cấp"
-
-#: templates/part.contact.php:132
-msgid "Address"
-msgstr "Địa chỉ"
-
-#: templates/part.contact.php:133
-msgid "Note"
-msgstr "Chú thích"
 
 #: templates/part.contact.php:138
 msgid "Download contact"
@@ -910,10 +1015,6 @@ msgstr "Dr"
 msgid "Given name"
 msgstr "Được đặt tên"
 
-#: templates/part.edit_name_dialog.php:37
-msgid "Additional names"
-msgstr "Tên bổ sung"
-
 #: templates/part.edit_name_dialog.php:39
 msgid "Family name"
 msgstr "Tên gia đình"
@@ -983,17 +1084,9 @@ msgid ""
 "the import button at the bottom of the list.</p>"
 msgstr "<h3> Bạn không có địa chỉ liên lạc trong sổ Danh bạ của bạn </ h3> <p> Bạn có thể nhập các file VCF bằng cách kéo chúng vào danh sách liên lạc hoặc thả chúng vào một sổ địa chỉ để nhập vào nó, hoặc trên một khoảng trống để tạo ra mộtbsổ địa chỉ mới và nhập vào đó <br. /> Bạn cũng có thể nhập vào bằng cách nhấp vào nút nhập khẩu ở dưới cùng của danh sách. </ p>"
 
-#: templates/part.no_contacts.php:9
-msgid "Add contact"
-msgstr "Thêm liên lạc"
-
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
 msgstr "Chọn sổ địa chỉ"
-
-#: templates/part.selectaddressbook.php:29
-msgid "Enter description"
-msgstr "Nhập mô tả"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"
@@ -1011,26 +1104,26 @@ msgstr "Địa chỉ chính (Kontact et al)"
 msgid "iOS/OS X"
 msgstr "iOS/OS X"
 
-#: templates/settings.php:9
+#: templates/settings.php:11
 msgid "Addressbooks"
 msgstr "Sổ địa chỉ"
 
-#: templates/settings.php:35
+#: templates/settings.php:36
 msgid "Share"
 msgstr "Chia sẻ"
 
-#: templates/settings.php:57
+#: templates/settings.php:58
 msgid "New Address Book"
 msgstr "Sổ địa chỉ mới"
 
-#: templates/settings.php:58
+#: templates/settings.php:59
 msgid "Name"
 msgstr "Tên"
 
-#: templates/settings.php:59
+#: templates/settings.php:60
 msgid "Description"
 msgstr "Mô tả"
 
-#: templates/settings.php:60
+#: templates/settings.php:61
 msgid "Save"
 msgstr "Lưu"
