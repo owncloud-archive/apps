@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-25 00:00+0100\n"
-"PO-Revision-Date: 2012-11-24 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-26 00:01+0100\n"
+"PO-Revision-Date: 2012-11-25 22:47+0000\n"
+"Last-Translator: mattheu_9x <mattheu.9x@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +37,11 @@ msgstr "Không thể cập nhật sổ liên lạc mà không có tên"
 
 #: ajax/categories/add.php:19
 msgid "No category name given."
-msgstr ""
+msgstr "Tên danh mục không tồn tại."
 
 #: ajax/categories/add.php:28
 msgid "Error adding group."
-msgstr ""
+msgstr "Lỗi thêm nhóm."
 
 #: ajax/categories/addto.php:20 ajax/categories/removefrom.php:20
 msgid "Group ID missing from request."
@@ -86,7 +86,7 @@ msgstr "Thông tin vCard không chính xác. Vui lòng tải lại trang."
 #: ajax/contact/saveproperty.php:98
 #, php-format
 msgid "Couldn't find vCard for %d."
-msgstr ""
+msgstr "Không tìm thấy vCard từ %d."
 
 #: ajax/contact/saveproperty.php:108
 msgid "Information about vCard is incorrect. Please reload the page: "
@@ -99,7 +99,7 @@ msgstr "Có cái gì đó không được khắc phục."
 #: ajax/contact/saveproperty.php:128
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
-msgstr ""
+msgstr "Không thể lưu kiểu của thuộc tính \"%s\" như một mảng"
 
 #: ajax/contact/saveproperty.php:180
 msgid "Missing IM parameter."
@@ -120,7 +120,7 @@ msgstr "Lỗi đọc liên lạc hình ảnh."
 
 #: ajax/currentphoto.php:50
 msgid "Error saving temporary file."
-msgstr "Lỗi trong quá trình lưu file tạm"
+msgstr "Lỗi trong quá trình lưu tập tin tạm"
 
 #: ajax/currentphoto.php:53
 msgid "The loading photo is not valid."
@@ -172,15 +172,15 @@ msgstr "Lỗi khi tìm hình ảnh:"
 
 #: ajax/setpreference.php:37
 msgid "Key is not set for: "
-msgstr ""
+msgstr "Khóa không được thiết lập:"
 
 #: ajax/setpreference.php:41
 msgid "Value is not set for: "
-msgstr ""
+msgstr "Giá trị không được thiết lập:"
 
 #: ajax/setpreference.php:53
 msgid "Could not set preference: "
-msgstr ""
+msgstr "Không thể thiết lập ưu tiên:"
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
@@ -192,7 +192,7 @@ msgstr "Không có lỗi, các tập tin tải lên thành công"
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr "Dung lượng file tải lên vượt quá giới hạn cho phép."
+msgstr "Dung lượng file tải lên vượt quá giới hạn upload_max_filesize cho phép."
 
 #: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
 msgid ""
@@ -238,11 +238,11 @@ msgstr ""
 
 #: js/app.js:335
 msgid "Couldn't get contact list."
-msgstr ""
+msgstr "Không thể nhận được danh dách liên hệ."
 
 #: js/app.js:346
 msgid "Contact is not in this group."
-msgstr ""
+msgstr "Không có Liên hệ trong nhóm này"
 
 #: js/app.js:360
 msgid "Contacts are not in this group."
@@ -250,19 +250,19 @@ msgstr ""
 
 #: js/app.js:458
 msgid "A group named {group} already exists"
-msgstr ""
+msgstr "Tên nhóm {group} đã tồn tại"
 
 #: js/app.js:504
 msgid "All"
-msgstr ""
+msgstr "Tất cả"
 
 #: js/app.js:518
 msgid "Favorites"
-msgstr ""
+msgstr "Ưa thích"
 
 #: js/app.js:567
 msgid "Shared by {owner}"
-msgstr ""
+msgstr "Được chia sẽ bởi {owner}"
 
 #: js/app.js:642
 msgid "Indexing contacts"
@@ -270,40 +270,40 @@ msgstr ""
 
 #: js/app.js:713 js/app.js:727
 msgid "Add to..."
-msgstr ""
+msgstr "Thêm đến..."
 
 #: js/app.js:717 js/app.js:729
 msgid "Remove from..."
-msgstr ""
+msgstr "Xóa từ..."
 
 #: js/app.js:734
 msgid "Add group..."
-msgstr ""
+msgstr "Thêm nhóm..."
 
 #: js/app.js:846
 msgid "Select photo"
-msgstr "Chọn photo"
+msgstr "Chọn ảnh"
 
 #: js/app.js:895 js/app.js:921 js/app.js:1550 js/app.js:1656 js/contacts.js:97
 #: js/contacts.js:182 js/contacts.js:380
 msgid "Network or server error. Please inform administrator."
-msgstr ""
+msgstr "Mạng hoặc máy chủ lỗi. Vui lòng liên hệ người quản trị."
 
 #: js/app.js:1054 js/app.js:1089
 msgid "Error adding to group."
-msgstr ""
+msgstr "Lỗi thêm vào nhóm."
 
 #: js/app.js:1114
 msgid "Error removing from group."
-msgstr ""
+msgstr "Lỗi xóa khỏi nhóm."
 
 #: js/app.js:1144
 msgid "There was an error opening a mail composer."
-msgstr ""
+msgstr "Lỗi mở phần soạn email."
 
 #: js/app.js:1342 templates/contacts.php:138
 msgid "Add group"
-msgstr ""
+msgstr "Thêm nhóm"
 
 #: js/app.js:1414
 msgid "No files selected for upload."
@@ -317,7 +317,7 @@ msgstr "Các tập tin bạn đang cố gắng tải lên vượt quá kích th�
 
 #: js/app.js:1515
 msgid "Edit profile picture"
-msgstr ""
+msgstr "Chỉnh sửa hồ sơ ảnh"
 
 #: js/app.js:1533 js/contacts.js:859
 msgid "Error loading profile picture."
@@ -333,7 +333,7 @@ msgstr "Nhập mô tả"
 
 #: js/app.js:1583
 msgid "Select addressbook"
-msgstr ""
+msgstr "Thêm danh bạ"
 
 #: js/app.js:1591
 msgid "The address book name cannot be empty."
@@ -549,7 +549,7 @@ msgstr "Sinh nhật của {name}"
 
 #: lib/search.php:19
 msgid "Contact"
-msgstr "Danh sách"
+msgstr "Liên lạc"
 
 #: lib/vcard.php:331
 msgid "You do not have the permissions to add contacts to this addressbook."
@@ -602,7 +602,7 @@ msgstr ""
 
 #: templates/contacts.php:46
 msgid "Export"
-msgstr ""
+msgstr "Xuất ra"
 
 #: templates/contacts.php:61
 msgid "(De-)select all"
@@ -614,7 +614,7 @@ msgstr ""
 
 #: templates/contacts.php:64
 msgid "Back"
-msgstr ""
+msgstr "Trở lại"
 
 #: templates/contacts.php:65
 msgid "Download Contact"
@@ -739,7 +739,7 @@ msgstr "Biệt danh"
 
 #: templates/contacts.php:209
 msgid "Title"
-msgstr ""
+msgstr "Tiêu đề"
 
 #: templates/contacts.php:216 templates/contacts.php:262
 #: templates/part.contact.php:39 templates/part.contact.php:40
@@ -758,7 +758,7 @@ msgstr ""
 
 #: templates/contacts.php:261
 msgid "Add"
-msgstr ""
+msgstr "Thêm"
 
 #: templates/contacts.php:265 templates/part.contact.php:129
 msgid "Phone"
@@ -989,11 +989,11 @@ msgstr "Tiền tố"
 
 #: templates/part.edit_name_dialog.php:27
 msgid "Miss"
-msgstr "Miss"
+msgstr "Cô"
 
 #: templates/part.edit_name_dialog.php:28
 msgid "Ms"
-msgstr "Ms"
+msgstr "Cô"
 
 #: templates/part.edit_name_dialog.php:29
 msgid "Mr"

@@ -22,6 +22,7 @@
 "Settings" => "Podešavanja",
 "Groups" => "Grupe",
 "Close" => "Zatvori",
+"Title" => "Naslov",
 "Organization" => "Organizacija",
 "Birthday" => "Rođendan",
 "Phone" => "Telefon",

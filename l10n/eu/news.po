@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-11 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 23:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-26 00:01+0100\n"
+"PO-Revision-Date: 2012-11-25 22:53+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,15 +60,15 @@ msgstr "Errorea iturburuak eguneratzen."
 
 #: ajax/importopml.php:40
 msgid "Empty filename"
-msgstr ""
+msgstr "Fitxategiaren izena hutsik dago"
 
 #: ajax/importopml.php:50
 msgid "No source argument passed"
-msgstr ""
+msgstr "Ez da iturri argumenturik pasa"
 
 #: ajax/importopml.php:54
 msgid "Error while reading file"
-msgstr ""
+msgstr "Errorea gertatu da fitxategia irakurtzerakoan"
 
 #: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
@@ -110,7 +110,7 @@ msgstr "Errorea iturburua eguneratzerakoan."
 msgid "Feed updated!"
 msgstr "Iturburua eguneratuta!"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Berriak"
 
@@ -193,19 +193,19 @@ msgstr "Ez da fitxategirik hautatu."
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "OPML fitxategia inportatzen..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
-msgstr ""
+msgstr "Ez da mota baliogarria"
 
 #: js/settings.js:60
 msgid "Importing done"
-msgstr ""
+msgstr "Inportazioa egin da"
 
 #: js/settings.js:64
 msgid "Error while importing feeds."
-msgstr ""
+msgstr "Errorea gertatu da iturburuak inportatzerakoan."
 
 #: js/settings.js:88
 msgid "Select file"
@@ -223,7 +223,7 @@ msgstr "izenik gabe"
 msgid "no body"
 msgstr "gorputzik gabe"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "ownCloud - News harpidetzak"
 
@@ -355,20 +355,20 @@ msgstr "Markatu garrantzigabekoa"
 msgid "Mark as important"
 msgstr "Markatu garrantzitsua"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "lekua"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "egilea"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:57 templates/part.items.php:58
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Elkarbanatu"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Mantendu irakurri gabea"
 

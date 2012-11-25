@@ -29,9 +29,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-25 00:00+0100\n"
-"PO-Revision-Date: 2012-11-24 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-26 00:01+0100\n"
+"PO-Revision-Date: 2012-11-25 13:34+0000\n"
+"Last-Translator: a.tangemann <a.tangemann@web.de>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -620,7 +620,7 @@ msgstr ""
 
 #: templates/contacts.php:46
 msgid "Export"
-msgstr ""
+msgstr "Exportieren"
 
 #: templates/contacts.php:61
 msgid "(De-)select all"
@@ -757,7 +757,7 @@ msgstr "Spitzname"
 
 #: templates/contacts.php:209
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: templates/contacts.php:216 templates/contacts.php:262
 #: templates/part.contact.php:39 templates/part.contact.php:40
@@ -776,7 +776,7 @@ msgstr ""
 
 #: templates/contacts.php:261
 msgid "Add"
-msgstr ""
+msgstr "Hinzufügen"
 
 #: templates/contacts.php:265 templates/part.contact.php:129
 msgid "Phone"
@@ -880,7 +880,7 @@ msgstr "IM löschen"
 
 #: templates/index.php:14
 msgid "Add Contact"
-msgstr "Kontakt hinzufügenff"
+msgstr "Kontakt hinzufügen"
 
 #: templates/part.contact.php:17
 msgid "Drop photo to upload"

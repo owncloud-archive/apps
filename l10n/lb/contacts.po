@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-25 00:00+0100\n"
-"PO-Revision-Date: 2012-11-24 23:01+0000\n"
+"POT-Creation-Date: 2012-11-26 00:01+0100\n"
+"PO-Revision-Date: 2012-11-24 23:14+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
@@ -599,7 +599,7 @@ msgstr ""
 
 #: templates/contacts.php:46
 msgid "Export"
-msgstr ""
+msgstr "Export"
 
 #: templates/contacts.php:61
 msgid "(De-)select all"
@@ -611,7 +611,7 @@ msgstr ""
 
 #: templates/contacts.php:64
 msgid "Back"
-msgstr ""
+msgstr "Zeréck"
 
 #: templates/contacts.php:65
 msgid "Download Contact"
@@ -736,7 +736,7 @@ msgstr "Spëtznumm"
 
 #: templates/contacts.php:209
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: templates/contacts.php:216 templates/contacts.php:262
 #: templates/part.contact.php:39 templates/part.contact.php:40
@@ -755,7 +755,7 @@ msgstr ""
 
 #: templates/contacts.php:261
 msgid "Add"
-msgstr ""
+msgstr "Dobäisetzen"
 
 #: templates/contacts.php:265 templates/part.contact.php:129
 msgid "Phone"
