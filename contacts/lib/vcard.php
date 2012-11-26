@@ -383,7 +383,7 @@ class VCard {
 	 */
 	public static function addFromDAVData($id, $uri, $data) {
 		try {
-			$vcard = Sabre\VObject\Reader::read($data);
+			$vcard = \Sabre\VObject\Reader::read($data);
 			return self::add($id, $vcard, $uri);
 		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
@@ -520,7 +520,7 @@ class VCard {
 	public static function editFromDAVData($aid, $uri, $data) {
 		$oldcard = self::findWhereDAVDataIs($aid, $uri);
 		try {
-			$vcard = Sabre\VObject\Reader::read($data);
+			$vcard = \Sabre\VObject\Reader::read($data);
 		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.
 				', Unable to parse VCARD, : ' . $e->getMessage(), \OCP\Util::ERROR);
