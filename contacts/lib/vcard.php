@@ -545,22 +545,22 @@ class VCard {
 	 * @return boolean true on success, otherwise an exception will be thrown
 	 */
 	public static function delete($id) {
-		$vcard = self::find($id);
-		if (!$vcard) {
+		$contact = self::find($id);
+		if (!$contact) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', id: '
 				. $id . ' not found.', \OCP\Util::DEBUG);
 			throw new \Exception(
 				App::$l10n->t(
-					'Could not find the vCard with ID: ' . $id
+					'Could not find the vCard with ID: ' . $id, 404
 				)
 			);
 		}
-		$addressbook = Addressbook::find($vcard['addressbookid']);
+		$addressbook = Addressbook::find($contact['addressbookid']);
 		if(!$addressbook) {
 			throw new \Exception(
 				App::$l10n->t(
 					'Could not find the Addressbook with ID: '
-					. $vcard['addressbookid']
+					. $contact['addressbookid'], 404
 				)
 			);
 		}
@@ -570,7 +570,7 @@ class VCard {
 				. $addressbook['userid'] . ' != ' . \OCP\User::getUser(), \OCP\Util::DEBUG);
 			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource(
 				'addressbook',
-				$vcard['addressbookid'],
+				$contact['addressbookid'],
 				\OCP\Share::FORMAT_NONE, null, true);
 			$sharedContact = \OCP\Share::getItemSharedWithBySource(
 				'contact',
@@ -589,12 +589,12 @@ class VCard {
 			if (!($permissions & \OCP\PERMISSION_DELETE)) {
 				throw new \Exception(
 					App::$l10n->t(
-						'You do not have the permissions to delete this contact.'
+						'You do not have the permissions to delete this contact.', 403
 					)
 				);
 			}
 		}
-		$aid = $card['addressbookid'];
+		$aid = $contact['addressbookid'];
 		\OC_Hook::emit('\OCA\Contacts\VCard', 'pre_deleteVCard',
 			array('aid' => null, 'id' => $id, 'uri' => null)
 		);
