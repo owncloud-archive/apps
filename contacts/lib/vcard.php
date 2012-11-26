@@ -127,7 +127,7 @@ class VCard {
 	 * @param string $uri the uri ('filename')
 	 * @return associative array or false.
 	 */
-	public static function findWhereDAVDataIs($aid,$uri) {
+	public static function findWhereDAVDataIs($aid, $uri) {
 		try {
 			$stmt = \OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
 			$result = $stmt->execute(array($aid,$uri));
