@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Agustin Ferrario <agustin.ferrario@hotmail.com.ar>, 2012.
 #   <bui@g.pl>, 2012.
 #   <davidlopez.david@gmail.com>, 2012.
 # Javier Llorente <javier@opensuse.org>, 2012.
@@ -16,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-26 00:01+0100\n"
-"PO-Revision-Date: 2012-11-24 23:14+0000\n"
+"POT-Creation-Date: 2012-11-27 00:07+0100\n"
+"PO-Revision-Date: 2012-11-26 23:07+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -46,15 +47,15 @@ msgstr ""
 
 #: ajax/categories/add.php:28
 msgid "Error adding group."
-msgstr ""
+msgstr "Error al añadir el grupo"
 
 #: ajax/categories/addto.php:20 ajax/categories/removefrom.php:20
 msgid "Group ID missing from request."
-msgstr ""
+msgstr "ID de grupo faltante en la solicitud"
 
 #: ajax/categories/addto.php:24 ajax/categories/removefrom.php:24
 msgid "Contact ID missing from request."
-msgstr ""
+msgstr "ID de contacto faltante en la solicitud"
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -91,7 +92,7 @@ msgstr "La información sobre el vCard es incorrecta. Por favor vuelve a cargar 
 #: ajax/contact/saveproperty.php:98
 #, php-format
 msgid "Couldn't find vCard for %d."
-msgstr ""
+msgstr "No se pudo encontra la vCard para %d"
 
 #: ajax/contact/saveproperty.php:108
 msgid "Information about vCard is incorrect. Please reload the page: "
@@ -104,7 +105,7 @@ msgstr "Plof. Algo ha fallado."
 #: ajax/contact/saveproperty.php:128
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
-msgstr ""
+msgstr "No se puede guardar la propiedad del tipo \"%s\" como un array"
 
 #: ajax/contact/saveproperty.php:180
 msgid "Missing IM parameter."
@@ -181,11 +182,11 @@ msgstr ""
 
 #: ajax/setpreference.php:41
 msgid "Value is not set for: "
-msgstr ""
+msgstr "Valor no establecido para:"
 
 #: ajax/setpreference.php:53
 msgid "Could not set preference: "
-msgstr ""
+msgstr "No se pudo establecer la preferencia:"
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
@@ -235,55 +236,55 @@ msgstr "Contactos"
 
 #: js/app.js:276
 msgid "Contact is already in this group."
-msgstr ""
+msgstr "El contacto ya se encuentra en este grupo."
 
 #: js/app.js:289
 msgid "Contacts are already in this group."
-msgstr ""
+msgstr "Los contactos ya se encuentran es este grupo."
 
 #: js/app.js:335
 msgid "Couldn't get contact list."
-msgstr ""
+msgstr "No se pudo obtener la lista de contactos."
 
 #: js/app.js:346
 msgid "Contact is not in this group."
-msgstr ""
+msgstr "El contacto no se encuentra en este grupo."
 
 #: js/app.js:360
 msgid "Contacts are not in this group."
-msgstr ""
+msgstr "Los contactos no se encuentran en este grupo."
 
 #: js/app.js:458
 msgid "A group named {group} already exists"
-msgstr ""
+msgstr "Un grupo llamado {group} ya existe."
 
 #: js/app.js:504
 msgid "All"
-msgstr ""
+msgstr "Todos"
 
 #: js/app.js:518
 msgid "Favorites"
-msgstr ""
+msgstr "Favoritos"
 
 #: js/app.js:567
 msgid "Shared by {owner}"
-msgstr ""
+msgstr "Compartido por {owner}"
 
 #: js/app.js:642
 msgid "Indexing contacts"
-msgstr ""
+msgstr "Indexando contactos"
 
 #: js/app.js:713 js/app.js:727
 msgid "Add to..."
-msgstr ""
+msgstr "Añadir a..."
 
 #: js/app.js:717 js/app.js:729
 msgid "Remove from..."
-msgstr ""
+msgstr "Remover de..."
 
 #: js/app.js:734
 msgid "Add group..."
-msgstr ""
+msgstr "Añadir grupo..."
 
 #: js/app.js:846
 msgid "Select photo"
@@ -292,15 +293,15 @@ msgstr "eccionar una foto"
 #: js/app.js:895 js/app.js:921 js/app.js:1550 js/app.js:1656 js/contacts.js:97
 #: js/contacts.js:182 js/contacts.js:380
 msgid "Network or server error. Please inform administrator."
-msgstr ""
+msgstr "Error en la red o en el servidor. Por favor informe al administrador."
 
 #: js/app.js:1054 js/app.js:1089
 msgid "Error adding to group."
-msgstr ""
+msgstr "Error al añadir al grupo."
 
 #: js/app.js:1114
 msgid "Error removing from group."
-msgstr ""
+msgstr "Error al remover del grupo."
 
 #: js/app.js:1144
 msgid "There was an error opening a mail composer."
@@ -308,7 +309,7 @@ msgstr ""
 
 #: js/app.js:1342 templates/contacts.php:138
 msgid "Add group"
-msgstr ""
+msgstr "Añadir grupo"
 
 #: js/app.js:1414
 msgid "No files selected for upload."
@@ -351,7 +352,7 @@ msgstr "Fallo"
 
 #: js/contacts.js:261
 msgid "Is this correct?"
-msgstr ""
+msgstr "¿Es esto correcto?"
 
 #: js/contacts.js:425
 msgid "There was an unknown error when trying to delete this contact"
@@ -500,7 +501,7 @@ msgid "Home"
 msgstr "Particular"
 
 #: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
-#: lib/vcard.php:685
+#: lib/vcard.php:690
 msgid "Other"
 msgstr "Otro"
 
@@ -584,7 +585,11 @@ msgstr "No tiene permisos para eliminar este contacto."
 msgid "There was an error deleting this contact."
 msgstr "Hubo un error eliminando este contacto."
 
-#: lib/vcard.php:688
+#: lib/vcard.php:637
+msgid "Contact not found."
+msgstr ""
+
+#: lib/vcard.php:693
 msgid "HomePage"
 msgstr ""
 
@@ -727,7 +732,7 @@ msgstr "Seleccionar fotografía desde ownCloud"
 
 #: templates/contacts.php:188
 msgid "First name"
-msgstr ""
+msgstr "Nombre"
 
 #: templates/contacts.php:191 templates/part.edit_name_dialog.php:37
 msgid "Additional names"
@@ -735,7 +740,7 @@ msgstr "Nombres adicionales"
 
 #: templates/contacts.php:194
 msgid "Last name"
-msgstr ""
+msgstr "Apellido"
 
 #: templates/contacts.php:202 templates/contacts.php:263
 #: templates/part.contact.php:41 templates/part.contact.php:127

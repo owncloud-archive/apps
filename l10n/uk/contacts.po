@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-26 00:01+0100\n"
-"PO-Revision-Date: 2012-11-24 23:14+0000\n"
+"POT-Creation-Date: 2012-11-27 00:07+0100\n"
+"PO-Revision-Date: 2012-11-26 23:07+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -306,13 +306,13 @@ msgstr ""
 
 #: js/app.js:1414
 msgid "No files selected for upload."
-msgstr ""
+msgstr "Не обрано файлів для завантаження."
 
 #: js/app.js:1425
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
-msgstr ""
+msgstr "Файл, який Ви намагаєтесь завантажити перевищує максимальний розмір файлу, що дозволено завантажувати на даний сервер."
 
 #: js/app.js:1515
 msgid "Edit profile picture"
@@ -324,11 +324,11 @@ msgstr ""
 
 #: js/app.js:1579 templates/part.selectaddressbook.php:27
 msgid "Enter name"
-msgstr ""
+msgstr "Введіть ім'я"
 
 #: js/app.js:1580 templates/part.selectaddressbook.php:29
 msgid "Enter description"
-msgstr ""
+msgstr "Введіть опис"
 
 #: js/app.js:1583
 msgid "Select addressbook"
@@ -355,7 +355,7 @@ msgstr ""
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
-msgstr ""
+msgstr "Деякі контакти помічено для видалення, але ще не видалені. Будь ласка, зачекайте, доки вони будуть видалені."
 
 #: js/contacts.js:1219
 msgid "Click to undo deletion of {num} contacts"
@@ -367,23 +367,23 @@ msgstr ""
 
 #: js/loader.js:49
 msgid "Result: "
-msgstr ""
+msgstr "Результат: "
 
 #: js/loader.js:49
 msgid " imported, "
-msgstr ""
+msgstr " імпортовано, "
 
 #: js/loader.js:49
 msgid " failed."
-msgstr ""
+msgstr " не вдалося."
 
 #: js/settings.js:75
 msgid "Displayname cannot be empty."
-msgstr ""
+msgstr "Ім'я для відображення не може бути порожнім."
 
 #: js/settings.js:97 templates/settings.php:26
 msgid "Show CardDav link"
-msgstr ""
+msgstr "Показати посилання CardDav"
 
 #: js/settings.js:98 templates/settings.php:29
 msgid "Show read-only VCF link"
@@ -494,7 +494,7 @@ msgid "Home"
 msgstr "Домашня адреса"
 
 #: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
-#: lib/vcard.php:685
+#: lib/vcard.php:690
 msgid "Other"
 msgstr "Інше"
 
@@ -578,7 +578,11 @@ msgstr "Ви не маєте повноважень видаляти цей ко
 msgid "There was an error deleting this contact."
 msgstr "Виникла помилка при видаленні цього контакту."
 
-#: lib/vcard.php:688
+#: lib/vcard.php:637
+msgid "Contact not found."
+msgstr ""
+
+#: lib/vcard.php:693
 msgid "HomePage"
 msgstr ""
 
@@ -639,19 +643,19 @@ msgstr "Закрити"
 
 #: templates/contacts.php:78 templates/index.php:31
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Сполучення клавіш"
 
 #: templates/contacts.php:80 templates/index.php:33
 msgid "Navigation"
-msgstr ""
+msgstr "Навігація"
 
 #: templates/contacts.php:83 templates/index.php:36
 msgid "Next contact in list"
-msgstr ""
+msgstr "Наступний контакт у списку"
 
 #: templates/contacts.php:85 templates/index.php:38
 msgid "Previous contact in list"
-msgstr ""
+msgstr "Попередній контакт у списку"
 
 #: templates/contacts.php:87 templates/index.php:40
 msgid "Expand/collapse current addressbook"
@@ -667,23 +671,23 @@ msgstr ""
 
 #: templates/contacts.php:95 templates/index.php:48
 msgid "Actions"
-msgstr ""
+msgstr "Дії"
 
 #: templates/contacts.php:98 templates/index.php:51
 msgid "Refresh contacts list"
-msgstr ""
+msgstr "Оновити список контактів"
 
 #: templates/contacts.php:100 templates/index.php:53
 msgid "Add new contact"
-msgstr ""
+msgstr "Додати новий контакт"
 
 #: templates/contacts.php:102 templates/index.php:55
 msgid "Add new addressbook"
-msgstr ""
+msgstr "Додати нову адресну книгу"
 
 #: templates/contacts.php:104 templates/index.php:57
 msgid "Delete current contact"
-msgstr ""
+msgstr "Видалити даний контакт"
 
 #: templates/contacts.php:109
 msgid ""
@@ -782,7 +786,7 @@ msgstr "Примітка"
 #: templates/contacts.php:270 templates/part.contact.php:43
 #: templates/part.contact.php:134
 msgid "Web site"
-msgstr ""
+msgstr "Веб-сайт"
 
 #: templates/contacts.php:283 templates/contacts.php:296
 #: templates/contacts.php:308 templates/contacts.php:332
@@ -817,7 +821,7 @@ msgstr "Видалити номер телефону"
 
 #: templates/contacts.php:311 templates/part.contact.php:44
 msgid "Go to web site"
-msgstr ""
+msgstr "Перейти на веб-сайт"
 
 #: templates/contacts.php:312
 msgid "Delete URL"
@@ -881,7 +885,7 @@ msgstr "Ввести прізвисько"
 
 #: templates/part.contact.php:44
 msgid "http://www.somesite.com"
-msgstr ""
+msgstr "http://www.somesite.com"
 
 #: templates/part.contact.php:46
 msgid "dd-mm-yyyy"
@@ -921,7 +925,7 @@ msgstr "Видалити контакт"
 
 #: templates/part.cropphoto.php:65
 msgid "The temporary image has been removed from cache."
-msgstr ""
+msgstr "Тимчасове зображення було видалене з кешу."
 
 #: templates/part.edit_address_dialog.php:6
 msgid "Edit address"
@@ -938,11 +942,11 @@ msgstr "Поштова скринька"
 
 #: templates/part.edit_address_dialog.php:24
 msgid "Street address"
-msgstr ""
+msgstr "Адреса"
 
 #: templates/part.edit_address_dialog.php:27
 msgid "Street and number"
-msgstr ""
+msgstr "Вулиця та номер будинку"
 
 #: templates/part.edit_address_dialog.php:30
 msgid "Extended"
@@ -950,7 +954,7 @@ msgstr "Розширено"
 
 #: templates/part.edit_address_dialog.php:33
 msgid "Apartment number etc."
-msgstr ""
+msgstr "Номер квартири та ін."
 
 #: templates/part.edit_address_dialog.php:36
 #: templates/part.edit_address_dialog.php:39
@@ -963,7 +967,7 @@ msgstr "Регіон"
 
 #: templates/part.edit_address_dialog.php:45
 msgid "E.g. state or province"
-msgstr ""
+msgstr "Область чи район"
 
 #: templates/part.edit_address_dialog.php:48
 msgid "Zipcode"
@@ -971,7 +975,7 @@ msgstr "Поштовий індекс"
 
 #: templates/part.edit_address_dialog.php:51
 msgid "Postal code"
-msgstr ""
+msgstr "Поштовий індекс"
 
 #: templates/part.edit_address_dialog.php:54
 #: templates/part.edit_address_dialog.php:57
@@ -1085,7 +1089,7 @@ msgstr ""
 
 #: templates/part.selectaddressbook.php:1
 msgid "Select Address Books"
-msgstr ""
+msgstr "Обрати адресні книги"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"

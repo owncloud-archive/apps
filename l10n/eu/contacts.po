@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-26 00:01+0100\n"
-"PO-Revision-Date: 2012-11-24 23:14+0000\n"
+"POT-Creation-Date: 2012-11-27 00:07+0100\n"
+"PO-Revision-Date: 2012-11-26 23:07+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -36,19 +36,19 @@ msgstr "Ezin da helbide liburua eguneratu izen huts batekin."
 
 #: ajax/categories/add.php:19
 msgid "No category name given."
-msgstr ""
+msgstr "Ez da kategoriaren izena eman."
 
 #: ajax/categories/add.php:28
 msgid "Error adding group."
-msgstr ""
+msgstr "Errore bat izan da taldea gehitzean."
 
 #: ajax/categories/addto.php:20 ajax/categories/removefrom.php:20
 msgid "Group ID missing from request."
-msgstr ""
+msgstr "Taldearen IDa falta da eskarian."
 
 #: ajax/categories/addto.php:24 ajax/categories/removefrom.php:24
 msgid "Contact ID missing from request."
-msgstr ""
+msgstr "Kontaktuaren IDa falta da eskarian."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -85,7 +85,7 @@ msgstr "vCard-aren inguruko informazioa okerra da. Mesedez birkargatu orrialdea.
 #: ajax/contact/saveproperty.php:98
 #, php-format
 msgid "Couldn't find vCard for %d."
-msgstr ""
+msgstr "Ezin izan da %drentzako vCarda aurkitu."
 
 #: ajax/contact/saveproperty.php:108
 msgid "Information about vCard is incorrect. Please reload the page: "
@@ -98,7 +98,7 @@ msgstr ""
 #: ajax/contact/saveproperty.php:128
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
-msgstr ""
+msgstr "Ezin da \"%s\" motako propietatea taula moduan gorde."
 
 #: ajax/contact/saveproperty.php:180
 msgid "Missing IM parameter."
@@ -171,15 +171,15 @@ msgstr "Ezin izan da irudia aurkitu:"
 
 #: ajax/setpreference.php:37
 msgid "Key is not set for: "
-msgstr ""
+msgstr "Gakoa ez da zehaztu hemen:"
 
 #: ajax/setpreference.php:41
 msgid "Value is not set for: "
-msgstr ""
+msgstr "Balioa ez da zehaztu hemen:"
 
 #: ajax/setpreference.php:53
 msgid "Could not set preference: "
-msgstr ""
+msgstr "Ezin izan da lehentasuna ezarri:"
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
@@ -229,55 +229,55 @@ msgstr "Kontaktuak"
 
 #: js/app.js:276
 msgid "Contact is already in this group."
-msgstr ""
+msgstr "Kontaktua dagoeneko talde honetan dago."
 
 #: js/app.js:289
 msgid "Contacts are already in this group."
-msgstr ""
+msgstr "Kontaktuak dagoeneko talde honetan daude."
 
 #: js/app.js:335
 msgid "Couldn't get contact list."
-msgstr ""
+msgstr "Ezin izan da kontaktuen zerrenda lortu."
 
 #: js/app.js:346
 msgid "Contact is not in this group."
-msgstr ""
+msgstr "Kontaktua ez dago talde honetan."
 
 #: js/app.js:360
 msgid "Contacts are not in this group."
-msgstr ""
+msgstr "Kontaktuak ez daude talde honetan."
 
 #: js/app.js:458
 msgid "A group named {group} already exists"
-msgstr ""
+msgstr "{group} izeneko taldea dagoeneko existitzen da"
 
 #: js/app.js:504
 msgid "All"
-msgstr ""
+msgstr "Denak"
 
 #: js/app.js:518
 msgid "Favorites"
-msgstr ""
+msgstr "Gogokoak"
 
 #: js/app.js:567
 msgid "Shared by {owner}"
-msgstr ""
+msgstr "{owner}-k partekatuta"
 
 #: js/app.js:642
 msgid "Indexing contacts"
-msgstr ""
+msgstr "Kontaktuak indexatzen"
 
 #: js/app.js:713 js/app.js:727
 msgid "Add to..."
-msgstr ""
+msgstr "Gehitu hemen..."
 
 #: js/app.js:717 js/app.js:729
 msgid "Remove from..."
-msgstr ""
+msgstr "Ezabatu hemendik..."
 
 #: js/app.js:734
 msgid "Add group..."
-msgstr ""
+msgstr "Gehitu taldea..."
 
 #: js/app.js:846
 msgid "Select photo"
@@ -286,23 +286,23 @@ msgstr "Hautatu argazkia"
 #: js/app.js:895 js/app.js:921 js/app.js:1550 js/app.js:1656 js/contacts.js:97
 #: js/contacts.js:182 js/contacts.js:380
 msgid "Network or server error. Please inform administrator."
-msgstr ""
+msgstr "Errore bat izan da sare edo zerbitzarian. Mesedez abisatu administradorea."
 
 #: js/app.js:1054 js/app.js:1089
 msgid "Error adding to group."
-msgstr ""
+msgstr "Errore bat izan da taldera gehitzean."
 
 #: js/app.js:1114
 msgid "Error removing from group."
-msgstr ""
+msgstr "Errore bat izan da taldetik kentzean."
 
 #: js/app.js:1144
 msgid "There was an error opening a mail composer."
-msgstr ""
+msgstr "Errore bat izan da posta editorea abiaraztean."
 
 #: js/app.js:1342 templates/contacts.php:138
 msgid "Add group"
-msgstr ""
+msgstr "Gehitu taldea"
 
 #: js/app.js:1414
 msgid "No files selected for upload."
@@ -316,7 +316,7 @@ msgstr "Igo nahi duzun fitxategia zerbitzariak onartzen duen tamaina baino handi
 
 #: js/app.js:1515
 msgid "Edit profile picture"
-msgstr ""
+msgstr "Editatu profilaren argazkia"
 
 #: js/app.js:1533 js/contacts.js:859
 msgid "Error loading profile picture."
@@ -332,7 +332,7 @@ msgstr "Sartu deskribapena"
 
 #: js/app.js:1583
 msgid "Select addressbook"
-msgstr ""
+msgstr "Hautatu helbide-liburua"
 
 #: js/app.js:1591
 msgid "The address book name cannot be empty."
@@ -345,11 +345,11 @@ msgstr "Errorea"
 
 #: js/contacts.js:261
 msgid "Is this correct?"
-msgstr ""
+msgstr "Hau zuzena al da?"
 
 #: js/contacts.js:425
 msgid "There was an unknown error when trying to delete this contact"
-msgstr ""
+msgstr "Errore ezezagun bat izan da kontaktu hau ezabatzeko orduan"
 
 #: js/contacts.js:1208
 msgid ""
@@ -359,11 +359,11 @@ msgstr "Kontaktu batzuk ezabatzeko markatuta daude, baina oraindik ez dira ezaba
 
 #: js/contacts.js:1219
 msgid "Click to undo deletion of {num} contacts"
-msgstr ""
+msgstr "Klikatu {num} kontaktuen ezabaketa desegiteko"
 
 #: js/contacts.js:1232
 msgid "Cancelled deletion of {num}"
-msgstr ""
+msgstr "{num}en ezabaketa ezeztatuta"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -494,7 +494,7 @@ msgid "Home"
 msgstr "Etxea"
 
 #: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
-#: lib/vcard.php:685
+#: lib/vcard.php:690
 msgid "Other"
 msgstr "Bestelakoa"
 
@@ -532,15 +532,15 @@ msgstr "Internet"
 
 #: lib/app.php:224
 msgid "Friends"
-msgstr ""
+msgstr "Lagunak"
 
 #: lib/app.php:225
 msgid "Family"
-msgstr ""
+msgstr "Familia"
 
 #: lib/app.php:346
 msgid "There was an error deleting properties for this contact."
-msgstr ""
+msgstr "Errore bat izan da kontaktu honen propietateak ezabatzerakoan."
 
 #: lib/hooks.php:108
 msgid "{name}'s Birthday"
@@ -578,13 +578,17 @@ msgstr "Ez duzu kontaktu hau ezabatzeko baimenik."
 msgid "There was an error deleting this contact."
 msgstr "Errore bat izan da kontaktua ezabatzean."
 
-#: lib/vcard.php:688
-msgid "HomePage"
+#: lib/vcard.php:637
+msgid "Contact not found."
 msgstr ""
+
+#: lib/vcard.php:693
+msgid "HomePage"
+msgstr "WebOrria"
 
 #: templates/contacts.php:21
 msgid "New Group"
-msgstr ""
+msgstr "Talde berria"
 
 #: templates/contacts.php:27 templates/index.php:16
 msgid "Settings"
@@ -597,7 +601,7 @@ msgstr "Inportatu"
 
 #: templates/contacts.php:34
 msgid "Import into:"
-msgstr ""
+msgstr "Inportatu hemen:"
 
 #: templates/contacts.php:46
 msgid "Export"
@@ -605,11 +609,11 @@ msgstr "Exportatu"
 
 #: templates/contacts.php:61
 msgid "(De-)select all"
-msgstr ""
+msgstr "(Ez-)Hautatu dena"
 
 #: templates/contacts.php:63
 msgid "New Contact"
-msgstr ""
+msgstr "Kontaktu berria"
 
 #: templates/contacts.php:64
 msgid "Back"
@@ -617,11 +621,11 @@ msgstr "Atzera"
 
 #: templates/contacts.php:65
 msgid "Download Contact"
-msgstr ""
+msgstr "Deskargatu kontaktua"
 
 #: templates/contacts.php:66
 msgid "Delete Contact"
-msgstr ""
+msgstr "Ezabatu kontaktua"
 
 #: templates/contacts.php:68 templates/contacts.php:271
 #: templates/part.contact.php:47 templates/part.contact.php:135
@@ -630,7 +634,7 @@ msgstr "Taldeak"
 
 #: templates/contacts.php:70
 msgid "Favorite"
-msgstr ""
+msgstr "Gogokoa"
 
 #: templates/contacts.php:77 templates/index.php:30
 #: templates/part.import.php:24
@@ -689,7 +693,7 @@ msgstr "Ezabatu uneko kontaktuak"
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
-msgstr ""
+msgstr "<h3>Ez duzu kontakturik helbide-liburuan.</h3><p>Gehitu kontaktu berri bat edo inportatu VCF fitxategi batetatik.</p>"
 
 #: templates/contacts.php:112 templates/part.no_contacts.php:9
 msgid "Add contact"
@@ -697,11 +701,11 @@ msgstr "Gehitu kontaktua"
 
 #: templates/contacts.php:153
 msgid "Compose mail"
-msgstr ""
+msgstr "Idatzi eposta"
 
 #: templates/contacts.php:164
 msgid "Delete group"
-msgstr ""
+msgstr "Ezabatu taldea"
 
 #: templates/contacts.php:176 templates/part.contact.php:19
 msgid "Delete current photo"
@@ -721,7 +725,7 @@ msgstr "Hautatu argazki bat ownCloudetik"
 
 #: templates/contacts.php:188
 msgid "First name"
-msgstr ""
+msgstr "Izena"
 
 #: templates/contacts.php:191 templates/part.edit_name_dialog.php:37
 msgid "Additional names"
@@ -729,7 +733,7 @@ msgstr "Tarteko izenak"
 
 #: templates/contacts.php:194
 msgid "Last name"
-msgstr ""
+msgstr "Abizena"
 
 #: templates/contacts.php:202 templates/contacts.php:263
 #: templates/part.contact.php:41 templates/part.contact.php:127
@@ -753,7 +757,7 @@ msgstr "Jaioteguna"
 
 #: templates/contacts.php:254
 msgid "Notes go here..."
-msgstr ""
+msgstr "Idatzi oharrak hemen..."
 
 #: templates/contacts.php:261
 msgid "Add"
@@ -821,7 +825,7 @@ msgstr "Web orrira joan"
 
 #: templates/contacts.php:312
 msgid "Delete URL"
-msgstr ""
+msgstr "Ezabatu URLa"
 
 #: templates/contacts.php:323 templates/part.contact.php:110
 msgid "View on map"
@@ -829,7 +833,7 @@ msgstr "Ikusi mapan"
 
 #: templates/contacts.php:324
 msgid "Delete address"
-msgstr ""
+msgstr "Ezabatu helbidea"
 
 #: templates/contacts.php:335
 msgid "1 Main Street"
@@ -837,11 +841,11 @@ msgstr ""
 
 #: templates/contacts.php:338
 msgid "12345"
-msgstr ""
+msgstr "12345"
 
 #: templates/contacts.php:339
 msgid "Your city"
-msgstr ""
+msgstr "Zure hiria"
 
 #: templates/contacts.php:342
 msgid "Some region"
@@ -849,7 +853,7 @@ msgstr ""
 
 #: templates/contacts.php:345
 msgid "Your country"
-msgstr ""
+msgstr "Zure herrialdea"
 
 #: templates/contacts.php:365 templates/part.contact.php:100
 msgid "Instant Messenger"

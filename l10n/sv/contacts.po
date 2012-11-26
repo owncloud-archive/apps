@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-26 00:01+0100\n"
-"PO-Revision-Date: 2012-11-24 23:14+0000\n"
+"POT-Creation-Date: 2012-11-27 00:07+0100\n"
+"PO-Revision-Date: 2012-11-26 23:07+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -39,11 +39,11 @@ msgstr "Kan inte uppdatera adressboken med ett tomt namn."
 
 #: ajax/categories/add.php:19
 msgid "No category name given."
-msgstr ""
+msgstr "Ingen kategori angiven."
 
 #: ajax/categories/add.php:28
 msgid "Error adding group."
-msgstr ""
+msgstr "Fel vid tillägg av grupp."
 
 #: ajax/categories/addto.php:20 ajax/categories/removefrom.php:20
 msgid "Group ID missing from request."
@@ -88,7 +88,7 @@ msgstr "Information om vCard är felaktigt. Vänligen ladda om sidan."
 #: ajax/contact/saveproperty.php:98
 #, php-format
 msgid "Couldn't find vCard for %d."
-msgstr ""
+msgstr "Kunde inte hitta vCard för %d."
 
 #: ajax/contact/saveproperty.php:108
 msgid "Information about vCard is incorrect. Please reload the page: "
@@ -178,7 +178,7 @@ msgstr ""
 
 #: ajax/setpreference.php:41
 msgid "Value is not set for: "
-msgstr ""
+msgstr "Värde är inte satt för:"
 
 #: ajax/setpreference.php:53
 msgid "Could not set preference: "
@@ -232,11 +232,11 @@ msgstr "Kontakter"
 
 #: js/app.js:276
 msgid "Contact is already in this group."
-msgstr ""
+msgstr "Kontakten finns redan i denna grupp."
 
 #: js/app.js:289
 msgid "Contacts are already in this group."
-msgstr ""
+msgstr "Kontakterna finns redan i denna grupp."
 
 #: js/app.js:335
 msgid "Couldn't get contact list."
@@ -244,43 +244,43 @@ msgstr ""
 
 #: js/app.js:346
 msgid "Contact is not in this group."
-msgstr ""
+msgstr "Kontakten är inte i denna grupp."
 
 #: js/app.js:360
 msgid "Contacts are not in this group."
-msgstr ""
+msgstr "Kontakterna är inte i denna grupp."
 
 #: js/app.js:458
 msgid "A group named {group} already exists"
-msgstr ""
+msgstr "En grupp men namnet {group} finns redan"
 
 #: js/app.js:504
 msgid "All"
-msgstr ""
+msgstr "Alla"
 
 #: js/app.js:518
 msgid "Favorites"
-msgstr ""
+msgstr "Favoriter"
 
 #: js/app.js:567
 msgid "Shared by {owner}"
-msgstr ""
+msgstr "Delad av {owner}"
 
 #: js/app.js:642
 msgid "Indexing contacts"
-msgstr ""
+msgstr "Indexerar kontakter"
 
 #: js/app.js:713 js/app.js:727
 msgid "Add to..."
-msgstr ""
+msgstr "Lägga till..."
 
 #: js/app.js:717 js/app.js:729
 msgid "Remove from..."
-msgstr ""
+msgstr "Ta bort från..."
 
 #: js/app.js:734
 msgid "Add group..."
-msgstr ""
+msgstr "Lägg till grupp..."
 
 #: js/app.js:846
 msgid "Select photo"
@@ -289,7 +289,7 @@ msgstr "Välj foto"
 #: js/app.js:895 js/app.js:921 js/app.js:1550 js/app.js:1656 js/contacts.js:97
 #: js/contacts.js:182 js/contacts.js:380
 msgid "Network or server error. Please inform administrator."
-msgstr ""
+msgstr "Nätverk eller serverfel. Informera administratören."
 
 #: js/app.js:1054 js/app.js:1089
 msgid "Error adding to group."
@@ -305,7 +305,7 @@ msgstr ""
 
 #: js/app.js:1342 templates/contacts.php:138
 msgid "Add group"
-msgstr ""
+msgstr "Lägg till grupp"
 
 #: js/app.js:1414
 msgid "No files selected for upload."
@@ -335,7 +335,7 @@ msgstr "Ange beskrivning"
 
 #: js/app.js:1583
 msgid "Select addressbook"
-msgstr ""
+msgstr "Välj adressbok"
 
 #: js/app.js:1591
 msgid "The address book name cannot be empty."
@@ -348,7 +348,7 @@ msgstr "Fel"
 
 #: js/contacts.js:261
 msgid "Is this correct?"
-msgstr ""
+msgstr "Är detta korrekt?"
 
 #: js/contacts.js:425
 msgid "There was an unknown error when trying to delete this contact"
@@ -497,7 +497,7 @@ msgid "Home"
 msgstr "Hem"
 
 #: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
-#: lib/vcard.php:685
+#: lib/vcard.php:690
 msgid "Other"
 msgstr "Annat"
 
@@ -581,13 +581,17 @@ msgstr "Du saknar behörighet för att radera denna kontakt."
 msgid "There was an error deleting this contact."
 msgstr "Fel uppstod vid radering av denna kontakt."
 
-#: lib/vcard.php:688
-msgid "HomePage"
+#: lib/vcard.php:637
+msgid "Contact not found."
 msgstr ""
+
+#: lib/vcard.php:693
+msgid "HomePage"
+msgstr "Hemsida"
 
 #: templates/contacts.php:21
 msgid "New Group"
-msgstr ""
+msgstr "Ny grupp"
 
 #: templates/contacts.php:27 templates/index.php:16
 msgid "Settings"
@@ -600,7 +604,7 @@ msgstr "Importera"
 
 #: templates/contacts.php:34
 msgid "Import into:"
-msgstr ""
+msgstr "Importera till:"
 
 #: templates/contacts.php:46
 msgid "Export"
@@ -620,11 +624,11 @@ msgstr "Tillbaka"
 
 #: templates/contacts.php:65
 msgid "Download Contact"
-msgstr ""
+msgstr "Ladda ner kontakt"
 
 #: templates/contacts.php:66
 msgid "Delete Contact"
-msgstr ""
+msgstr "Radera kontakt"
 
 #: templates/contacts.php:68 templates/contacts.php:271
 #: templates/part.contact.php:47 templates/part.contact.php:135
@@ -633,7 +637,7 @@ msgstr "Grupper"
 
 #: templates/contacts.php:70
 msgid "Favorite"
-msgstr ""
+msgstr "Favorit"
 
 #: templates/contacts.php:77 templates/index.php:30
 #: templates/part.import.php:24
@@ -704,7 +708,7 @@ msgstr ""
 
 #: templates/contacts.php:164
 msgid "Delete group"
-msgstr ""
+msgstr "Radera grupp"
 
 #: templates/contacts.php:176 templates/part.contact.php:19
 msgid "Delete current photo"
@@ -724,7 +728,7 @@ msgstr "Välj foto från ownCloud"
 
 #: templates/contacts.php:188
 msgid "First name"
-msgstr ""
+msgstr "Förnamn"
 
 #: templates/contacts.php:191 templates/part.edit_name_dialog.php:37
 msgid "Additional names"
@@ -732,7 +736,7 @@ msgstr "Mellannamn"
 
 #: templates/contacts.php:194
 msgid "Last name"
-msgstr ""
+msgstr "Efternamn"
 
 #: templates/contacts.php:202 templates/contacts.php:263
 #: templates/part.contact.php:41 templates/part.contact.php:127
@@ -800,7 +804,7 @@ msgstr "Vänligen ange en giltig e-postadress."
 
 #: templates/contacts.php:284
 msgid "someone@example.com"
-msgstr ""
+msgstr "någon@exempel.com"
 
 #: templates/contacts.php:286 templates/part.contact.php:64
 msgid "Mail to address"
@@ -824,7 +828,7 @@ msgstr "Gå till webbplats"
 
 #: templates/contacts.php:312
 msgid "Delete URL"
-msgstr ""
+msgstr "Radera URL"
 
 #: templates/contacts.php:323 templates/part.contact.php:110
 msgid "View on map"
@@ -832,7 +836,7 @@ msgstr "Visa på karta"
 
 #: templates/contacts.php:324
 msgid "Delete address"
-msgstr ""
+msgstr "Radera adress"
 
 #: templates/contacts.php:335
 msgid "1 Main Street"

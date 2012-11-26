@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-26 00:01+0100\n"
-"PO-Revision-Date: 2012-11-24 23:14+0000\n"
+"POT-Creation-Date: 2012-11-27 00:07+0100\n"
+"PO-Revision-Date: 2012-11-26 23:07+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -496,7 +496,7 @@ msgid "Home"
 msgstr "家庭"
 
 #: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
-#: lib/vcard.php:685
+#: lib/vcard.php:690
 msgid "Other"
 msgstr "其它"
 
@@ -580,7 +580,11 @@ msgstr "你没有权限删除此联系人"
 msgid "There was an error deleting this contact."
 msgstr "删除联系人时出错。"
 
-#: lib/vcard.php:688
+#: lib/vcard.php:637
+msgid "Contact not found."
+msgstr ""
+
+#: lib/vcard.php:693
 msgid "HomePage"
 msgstr ""
 

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-26 00:01+0100\n"
-"PO-Revision-Date: 2012-11-24 23:14+0000\n"
+"POT-Creation-Date: 2012-11-27 00:07+0100\n"
+"PO-Revision-Date: 2012-11-26 23:07+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -35,11 +35,11 @@ msgstr "空白の名前でアドレス帳を更新することはできません
 
 #: ajax/categories/add.php:19
 msgid "No category name given."
-msgstr ""
+msgstr "カテゴリ名が指定されていません。"
 
 #: ajax/categories/add.php:28
 msgid "Error adding group."
-msgstr ""
+msgstr "グループの追加エラー。"
 
 #: ajax/categories/addto.php:20 ajax/categories/removefrom.php:20
 msgid "Group ID missing from request."
@@ -252,15 +252,15 @@ msgstr ""
 
 #: js/app.js:504
 msgid "All"
-msgstr ""
+msgstr "すべて"
 
 #: js/app.js:518
 msgid "Favorites"
-msgstr ""
+msgstr "お気に入り"
 
 #: js/app.js:567
 msgid "Shared by {owner}"
-msgstr ""
+msgstr "{owner} と共有中"
 
 #: js/app.js:642
 msgid "Indexing contacts"
@@ -289,11 +289,11 @@ msgstr ""
 
 #: js/app.js:1054 js/app.js:1089
 msgid "Error adding to group."
-msgstr ""
+msgstr "グループに追加エラー。"
 
 #: js/app.js:1114
 msgid "Error removing from group."
-msgstr ""
+msgstr "グループから削除エラー。"
 
 #: js/app.js:1144
 msgid "There was an error opening a mail composer."
@@ -301,7 +301,7 @@ msgstr ""
 
 #: js/app.js:1342 templates/contacts.php:138
 msgid "Add group"
-msgstr ""
+msgstr "グループを追加"
 
 #: js/app.js:1414
 msgid "No files selected for upload."
@@ -344,7 +344,7 @@ msgstr "エラー"
 
 #: js/contacts.js:261
 msgid "Is this correct?"
-msgstr ""
+msgstr "これは正しいですか？"
 
 #: js/contacts.js:425
 msgid "There was an unknown error when trying to delete this contact"
@@ -493,7 +493,7 @@ msgid "Home"
 msgstr "住居"
 
 #: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
-#: lib/vcard.php:685
+#: lib/vcard.php:690
 msgid "Other"
 msgstr "その他"
 
@@ -577,13 +577,17 @@ msgstr "この連絡先を削除する権限がありません"
 msgid "There was an error deleting this contact."
 msgstr "連絡先を削除するときにエラーが発生しました。"
 
-#: lib/vcard.php:688
-msgid "HomePage"
+#: lib/vcard.php:637
+msgid "Contact not found."
 msgstr ""
+
+#: lib/vcard.php:693
+msgid "HomePage"
+msgstr "ホームページ"
 
 #: templates/contacts.php:21
 msgid "New Group"
-msgstr ""
+msgstr "新しいグループ"
 
 #: templates/contacts.php:27 templates/index.php:16
 msgid "Settings"
@@ -596,7 +600,7 @@ msgstr "インポート"
 
 #: templates/contacts.php:34
 msgid "Import into:"
-msgstr ""
+msgstr "インポート情報:"
 
 #: templates/contacts.php:46
 msgid "Export"
@@ -608,7 +612,7 @@ msgstr ""
 
 #: templates/contacts.php:63
 msgid "New Contact"
-msgstr ""
+msgstr "新しい連絡先"
 
 #: templates/contacts.php:64
 msgid "Back"
@@ -616,11 +620,11 @@ msgstr "戻る"
 
 #: templates/contacts.php:65
 msgid "Download Contact"
-msgstr ""
+msgstr "連絡先をダウンロード"
 
 #: templates/contacts.php:66
 msgid "Delete Contact"
-msgstr ""
+msgstr "連絡先を削除"
 
 #: templates/contacts.php:68 templates/contacts.php:271
 #: templates/part.contact.php:47 templates/part.contact.php:135
@@ -629,7 +633,7 @@ msgstr "グループ"
 
 #: templates/contacts.php:70
 msgid "Favorite"
-msgstr ""
+msgstr "お気に入り"
 
 #: templates/contacts.php:77 templates/index.php:30
 #: templates/part.import.php:24
@@ -700,7 +704,7 @@ msgstr ""
 
 #: templates/contacts.php:164
 msgid "Delete group"
-msgstr ""
+msgstr "グループを削除"
 
 #: templates/contacts.php:176 templates/part.contact.php:19
 msgid "Delete current photo"
@@ -720,7 +724,7 @@ msgstr "ownCloudから写真を選択"
 
 #: templates/contacts.php:188
 msgid "First name"
-msgstr ""
+msgstr "名"
 
 #: templates/contacts.php:191 templates/part.edit_name_dialog.php:37
 msgid "Additional names"
@@ -728,7 +732,7 @@ msgstr "ミドルネーム"
 
 #: templates/contacts.php:194
 msgid "Last name"
-msgstr ""
+msgstr "姓"
 
 #: templates/contacts.php:202 templates/contacts.php:263
 #: templates/part.contact.php:41 templates/part.contact.php:127
@@ -820,7 +824,7 @@ msgstr "Webサイトへ移動"
 
 #: templates/contacts.php:312
 msgid "Delete URL"
-msgstr ""
+msgstr "URLを削除"
 
 #: templates/contacts.php:323 templates/part.contact.php:110
 msgid "View on map"

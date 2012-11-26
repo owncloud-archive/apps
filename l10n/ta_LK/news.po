@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <suganthi@nic.lk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-11 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 23:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-27 00:07+0100\n"
+"PO-Revision-Date: 2012-11-26 17:00+0000\n"
+"Last-Translator: suganthi <suganthi@nic.lk>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,7 +110,7 @@ msgstr ""
 msgid "Feed updated!"
 msgstr ""
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr ""
 
@@ -222,7 +223,7 @@ msgstr ""
 msgid "no body"
 msgstr ""
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr ""
 
@@ -244,7 +245,7 @@ msgstr ""
 
 #: templates/firstrun.php:6 templates/part.dialogues.php:28
 msgid "Address"
-msgstr ""
+msgstr "முகவரி"
 
 #: templates/firstrun.php:7 templates/subscribelet.php:7
 msgid "Subscribe"
@@ -307,7 +308,7 @@ msgstr "அமைப்புகள்"
 
 #: templates/part.dialogues.php:1
 msgid "Add Folder"
-msgstr ""
+msgstr "கோப்புறையை சேர்க்க"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
@@ -315,7 +316,7 @@ msgstr ""
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
-msgstr ""
+msgstr "கோப்புறை பெயர்"
 
 #: templates/part.dialogues.php:14
 msgid "Add Subscription"
@@ -327,7 +328,7 @@ msgstr ""
 
 #: templates/part.dialogues.php:20
 msgid "Choose folder"
-msgstr ""
+msgstr "கோப்புறையை தெரிவுசெய்க"
 
 #: templates/part.dialogues.php:29
 msgid "Add"
@@ -348,28 +349,28 @@ msgstr ""
 
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
-msgstr ""
+msgstr "முக்கியமற்றதாக குறிப்பிடுக"
 
 #: templates/part.items.php:20 templates/part.shared.php:21
 msgid "Mark as important"
-msgstr ""
+msgstr "முக்கியமானதாக குறிப்பிடுக"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr ""
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
-msgstr ""
+msgstr "இனால்"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:57 templates/part.items.php:58
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "பகிர்வு"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:59 templates/part.shared.php:60
 msgid "Keep unread"
-msgstr ""
+msgstr "வாசிக்கப்படாததை வைக்க"
 
 #: templates/part.listfeed.php:33
 msgid "Delete feed"

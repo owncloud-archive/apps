@@ -8,6 +8,7 @@
 #   <jekader@gmail.com>, 2012.
 #   <lankme@gmail.com>, 2012.
 # Mihail Vasiliev <mickvav@gmail.com>, 2012.
+#   <mpolr21@gmail.com>, 2012.
 # Nick Remeslennikov <homolibere@gmail.com>, 2012.
 #   <skoptev@ukr.net>, 2012.
 #   <tony.mccourin@gmail.com>, 2011.
@@ -17,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-26 00:01+0100\n"
-"PO-Revision-Date: 2012-11-24 23:14+0000\n"
+"POT-Creation-Date: 2012-11-27 00:07+0100\n"
+"PO-Revision-Date: 2012-11-26 23:07+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -309,7 +310,7 @@ msgstr ""
 
 #: js/app.js:1342 templates/contacts.php:138
 msgid "Add group"
-msgstr ""
+msgstr "Добавить группу"
 
 #: js/app.js:1414
 msgid "No files selected for upload."
@@ -323,7 +324,7 @@ msgstr "Файл, который вы пытаетесь загрузить пр
 
 #: js/app.js:1515
 msgid "Edit profile picture"
-msgstr ""
+msgstr "Редактировать изображение профиля"
 
 #: js/app.js:1533 js/contacts.js:859
 msgid "Error loading profile picture."
@@ -501,7 +502,7 @@ msgid "Home"
 msgstr "Домашний"
 
 #: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
-#: lib/vcard.php:685
+#: lib/vcard.php:690
 msgid "Other"
 msgstr "Другое"
 
@@ -585,7 +586,11 @@ msgstr "У вас нет разрешений удалять этот конта
 msgid "There was an error deleting this contact."
 msgstr "Ошибка при удалении контакта."
 
-#: lib/vcard.php:688
+#: lib/vcard.php:637
+msgid "Contact not found."
+msgstr ""
+
+#: lib/vcard.php:693
 msgid "HomePage"
 msgstr ""
 
@@ -616,7 +621,7 @@ msgstr ""
 
 #: templates/contacts.php:63
 msgid "New Contact"
-msgstr ""
+msgstr "Новый контакт"
 
 #: templates/contacts.php:64
 msgid "Back"
@@ -628,7 +633,7 @@ msgstr ""
 
 #: templates/contacts.php:66
 msgid "Delete Contact"
-msgstr ""
+msgstr "Удалить контакт"
 
 #: templates/contacts.php:68 templates/contacts.php:271
 #: templates/part.contact.php:47 templates/part.contact.php:135
@@ -828,7 +833,7 @@ msgstr "Перейти на веб-сайт"
 
 #: templates/contacts.php:312
 msgid "Delete URL"
-msgstr ""
+msgstr "Удалить URL"
 
 #: templates/contacts.php:323 templates/part.contact.php:110
 msgid "View on map"

@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-26 00:01+0100\n"
-"PO-Revision-Date: 2012-11-25 14:49+0000\n"
-"Last-Translator: Mouxy <daniel@mouxy.net>\n"
+"POT-Creation-Date: 2012-11-27 00:07+0100\n"
+"PO-Revision-Date: 2012-11-26 23:07+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -497,7 +497,7 @@ msgid "Home"
 msgstr "Casa"
 
 #: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
-#: lib/vcard.php:685
+#: lib/vcard.php:690
 msgid "Other"
 msgstr "Outro"
 
@@ -581,7 +581,11 @@ msgstr "Não tem permissões para apagar este contacto."
 msgid "There was an error deleting this contact."
 msgstr "Ocorreu um erro ao apagar este contacto."
 
-#: lib/vcard.php:688
+#: lib/vcard.php:637
+msgid "Contact not found."
+msgstr ""
+
+#: lib/vcard.php:693
 msgid "HomePage"
 msgstr "Página Inicial"
 

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-26 00:01+0100\n"
-"PO-Revision-Date: 2012-11-24 23:14+0000\n"
+"POT-Creation-Date: 2012-11-27 00:07+0100\n"
+"PO-Revision-Date: 2012-11-26 23:07+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -251,11 +251,11 @@ msgstr ""
 
 #: js/app.js:458
 msgid "A group named {group} already exists"
-msgstr ""
+msgstr "Ryhmä nimeltä {group} on jo olemassa"
 
 #: js/app.js:504
 msgid "All"
-msgstr ""
+msgstr "Kaikki"
 
 #: js/app.js:518
 msgid "Favorites"
@@ -279,7 +279,7 @@ msgstr ""
 
 #: js/app.js:734
 msgid "Add group..."
-msgstr ""
+msgstr "Lisää ryhmä..."
 
 #: js/app.js:846
 msgid "Select photo"
@@ -304,7 +304,7 @@ msgstr ""
 
 #: js/app.js:1342 templates/contacts.php:138
 msgid "Add group"
-msgstr ""
+msgstr "Lisää ryhmä"
 
 #: js/app.js:1414
 msgid "No files selected for upload."
@@ -318,7 +318,7 @@ msgstr "Tiedosto, jota yrität ladata ylittää suurimman sallitun koon tällä 
 
 #: js/app.js:1515
 msgid "Edit profile picture"
-msgstr ""
+msgstr "Muokkaa profiilikuvaa"
 
 #: js/app.js:1533 js/contacts.js:859
 msgid "Error loading profile picture."
@@ -334,7 +334,7 @@ msgstr "Anna kuvaus"
 
 #: js/app.js:1583
 msgid "Select addressbook"
-msgstr ""
+msgstr "Valitse osoitekirja"
 
 #: js/app.js:1591
 msgid "The address book name cannot be empty."
@@ -496,7 +496,7 @@ msgid "Home"
 msgstr "Koti"
 
 #: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
-#: lib/vcard.php:685
+#: lib/vcard.php:690
 msgid "Other"
 msgstr "Muu"
 
@@ -580,13 +580,17 @@ msgstr "Käyttöoikeutesi eivät riitä tämän yhteystiedon poistamiseen."
 msgid "There was an error deleting this contact."
 msgstr "Tämän yhteystiedon poistamisessa tapahtui virhe"
 
-#: lib/vcard.php:688
+#: lib/vcard.php:637
+msgid "Contact not found."
+msgstr ""
+
+#: lib/vcard.php:693
 msgid "HomePage"
 msgstr ""
 
 #: templates/contacts.php:21
 msgid "New Group"
-msgstr ""
+msgstr "Uusi ryhmä"
 
 #: templates/contacts.php:27 templates/index.php:16
 msgid "Settings"
@@ -703,7 +707,7 @@ msgstr ""
 
 #: templates/contacts.php:164
 msgid "Delete group"
-msgstr ""
+msgstr "Poista ryhmä"
 
 #: templates/contacts.php:176 templates/part.contact.php:19
 msgid "Delete current photo"
@@ -723,7 +727,7 @@ msgstr "Valitse valokuva ownCloudista"
 
 #: templates/contacts.php:188
 msgid "First name"
-msgstr ""
+msgstr "Etunimi"
 
 #: templates/contacts.php:191 templates/part.edit_name_dialog.php:37
 msgid "Additional names"
@@ -731,7 +735,7 @@ msgstr "Lisänimet"
 
 #: templates/contacts.php:194
 msgid "Last name"
-msgstr ""
+msgstr "Sukunimi"
 
 #: templates/contacts.php:202 templates/contacts.php:263
 #: templates/part.contact.php:41 templates/part.contact.php:127
@@ -831,7 +835,7 @@ msgstr "Näytä kartalla"
 
 #: templates/contacts.php:324
 msgid "Delete address"
-msgstr ""
+msgstr "Poista osoite"
 
 #: templates/contacts.php:335
 msgid "1 Main Street"
@@ -839,7 +843,7 @@ msgstr ""
 
 #: templates/contacts.php:338
 msgid "12345"
-msgstr ""
+msgstr "12345"
 
 #: templates/contacts.php:339
 msgid "Your city"

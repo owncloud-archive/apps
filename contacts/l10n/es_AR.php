@@ -40,6 +40,7 @@
 "Couldn't load temporary image: " => "No se pudo cargar la imagen temporal",
 "No file was uploaded. Unknown error" => "El archivo no fue subido. Error desconocido",
 "Contacts" => "Contactos",
+"A group named {group} already exists" => "Un grupo llamado {grupo} ya existe",
 "Select photo" => "Seleccionar una imagen",
 "No files selected for upload." => "No hay archivos seleccionados para subir",
 "The file you are trying to upload exceed the maximum size for file uploads on this server." => "El archivo que querés subir supera el tamaño máximo permitido en este servidor.",
