@@ -628,39 +628,40 @@ class VCard {
 	 * @return boolean
 	 */
 	public static function deleteFromDAVData($aid, $uri) {
-		$id = null;
-		$addressbook = Addressbook::find($aid);
-		if ($addressbook['userid'] != \OCP\User::getUser()) {
-			$query = \OCP\DB::prepare( 'SELECT `id` FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
-			$id = $query->execute(array($aid, $uri))->fetchOne();
-			if (!$id) {
-				return false;
-			}
-
-			$sharedContact = \OCP\Share::getItemSharedWithBySource('contact', $id, \OCP\Share::FORMAT_NONE, null, true);
-			if (!$sharedContact || !($sharedContact['permissions'] & \OCP\PERMISSION_DELETE)) {
-				return false;
-			}
+		$contact = self::findWhereDAVDataIs($aid, $uri);
+		if(!$contact) {
+			\OCP\Util::writeLog('contacts', __METHOD__.', couldn\'t find contact'
+				. $uri, \OCP\Util::DEBUG);
+			throw new \Sabre_DAV_Exception_NotFound(
+				App::$l10n->t(
+					'Contact not found.'
+				)
+			);
 		}
-		\OC_Hook::emit('\OCA\Contacts\VCard', 'pre_deleteVCard', array('aid' => $aid, 'id' => null, 'uri' => $uri));
-		$stmt = \OCP\DB::prepare( 'DELETE FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri`=?' );
+		$id = $contact['id'];
 		try {
-			$stmt->execute(array($aid,$uri));
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
-			\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uri: '.$uri, \OCP\Util::DEBUG);
-			return false;
+			return self::delete($id);
+		} catch (Exception $e) {
+			switch($e->getCode()) {
+				case 403:
+					throw new \Sabre_DAV_Exception_Forbidden(
+						App::$l10n->t(
+							$e->getMessage()
+						)
+					);
+					break;
+				case 404:
+					throw new \Sabre_DAV_Exception_NotFound(
+						App::$l10n->t(
+							$e->getMessage()
+						)
+					);
+					break;
+				default:
+					throw $e;
+					break;
+			}
 		}
-		Addressbook::touch($aid);
-
-		if(!is_null($id)) {
-			App::getVCategories()->purgeObject($id);
-			App::updateDBProperties($id);
-			\OCP\Share::unshareAll('contact', $id);
-		} else {
-			\OCP\Util::writeLog('contacts', __METHOD__.', Could not find id for ' . $uri, \OCP\Util::DEBUG);
-		}
-
 		return true;
 	}
 
