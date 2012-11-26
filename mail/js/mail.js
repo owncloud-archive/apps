@@ -15,45 +15,42 @@ Mail = {
              * 5.   Display message list
              */
             $.ajax(OC.filePath('mail', 'ajax', 'folders.php'), {
-                async:false, // no async!
                 data:{},
                 type:'GET',
                 success:function (jsondata) {
                     if (jsondata.status == 'success') {
                         folders = jsondata.data;
-                    } else {
+                        $('#mail-folders').html(folders);
+
+                        first_folder = $('#leftcontent').find('.mail_folders li');
+
+                        if (first_folder.length > 0) {
+                            $('#leftcontent').fadeIn(800);
+                            first_folder = first_folder.first();
+                            folder_id = first_folder.data('folder_id');
+                            account_id = first_folder.parent().data('account_id');
+
+
+                            $.ajax(OC.filePath('mail', 'ajax', 'messages.php'), {
+                                data:{'account_id':account_id, 'folder_id':folder_id},
+                                type:'GET',
+                                success:function (jsondata) {
+                                    messages = jsondata.data;
+                                    Mail.UI.addMessages(messages);
+                                }
+                            });
+
+                            // Save current folder
+                            Mail.UI.setFolderActive(account_id, folder_id);
+                            Mail.State.current_account_id = account_id;
+                            Mail.State.current_folder_id = folder_id;
+                        } else {
+                            $('#leftcontent').fadeOut(800);
+                        }                    } else {
                         OC.dialogs.alert(jsondata.data.message, t('mail', 'Error'));
                     }
                 }
             });
-            $('#mail-folders').html(folders);
-
-            first_folder = $('#leftcontent').find('.mail_folders li');
-
-            if (first_folder.length > 0) {
-                $('#leftcontent').fadeIn(800);
-                first_folder = first_folder.first();
-                folder_id = first_folder.data('folder_id');
-                account_id = first_folder.parent().data('account_id');
-
-
-                $.ajax(OC.filePath('mail', 'ajax', 'messages.php'), {
-                    async:false, // no async!
-                    data:{'account_id':account_id, 'folder_id':folder_id},
-                    type:'GET',
-                    success:function (jsondata) {
-                        messages = jsondata.data;
-                    }
-                });
-                Mail.UI.addMessages(messages);
-
-                // Save current folder
-                Mail.UI.setFolderActive(account_id, folder_id);
-                Mail.State.current_account_id = account_id;
-                Mail.State.current_folder_id = folder_id;
-            } else {
-                $('#leftcontent').fadeOut(800);
-            }
         },
 
         clearMessages:function () {
@@ -286,5 +283,5 @@ $(document).ready(function () {
         Mail.UI.openMessage(message_id);
     });
 
-    Mail.UI.bindEndlessScrolling();
+//    Mail.UI.bindEndlessScrolling();
 });
