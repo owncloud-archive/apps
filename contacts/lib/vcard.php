@@ -630,7 +630,7 @@ class VCard {
 	public static function deleteFromDAVData($aid, $uri) {
 		$contact = self::findWhereDAVDataIs($aid, $uri);
 		if(!$contact) {
-			\OCP\Util::writeLog('contacts', __METHOD__.', couldn\'t find contact'
+			\OCP\Util::writeLog('contacts', __METHOD__.', contact not found: '
 				. $uri, \OCP\Util::DEBUG);
 			throw new \Sabre_DAV_Exception_NotFound(
 				App::$l10n->t(
@@ -644,6 +644,8 @@ class VCard {
 		} catch (Exception $e) {
 			switch($e->getCode()) {
 				case 403:
+					\OCP\Util::writeLog('contacts', __METHOD__.', forbidden: '
+						. $uri, \OCP\Util::DEBUG);
 					throw new \Sabre_DAV_Exception_Forbidden(
 						App::$l10n->t(
 							$e->getMessage()
@@ -651,6 +653,8 @@ class VCard {
 					);
 					break;
 				case 404:
+					\OCP\Util::writeLog('contacts', __METHOD__.', contact not found: '
+						. $uri, \OCP\Util::DEBUG);
 					throw new \Sabre_DAV_Exception_NotFound(
 						App::$l10n->t(
 							$e->getMessage()
