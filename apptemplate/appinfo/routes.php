@@ -32,23 +32,16 @@ require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
  *                                stored in the DI container
  * @param string $methodName: the method that you want to call
  * @param array $urlParams: an array with variables extracted from the routes
- * @param bool $disableCSRF: disables the csrf check, defaults to false
  * @param bool $disableAdminCheck: disables the check for adminuser rights
+ * @param bool $disableIsInAdminGroupCheck: disables the check for admin group member
  */
 function callController($controllerName, $methodName, $urlParams, 
-						$disableCSRF=false, $disableAdminCheck=true){
+						$disableAdminCheck=true, $disableIsInAdminGroupCheck=true){
 	$container = createDIContainer();
 	
 	// run security checks
 	$security = $container['Security'];
-	if($disableCSRF){
-		$security->setCSRFCheck(false);	
-	}
-	if($disableAdminCheck){
-		$security->setIsAdminCheck(false);	
-	}
-
-	$security->runChecks();
+	runSecurityChecks($security);
 
 	// call the controller and render the page
 	$controller = $container[$controllerName];
@@ -56,6 +49,31 @@ function callController($controllerName, $methodName, $urlParams,
 	$page->printPage();
 }
 
+
+/**
+ * Runs the security checks and exits on error
+ * @param Security $security: the security object
+ * @param bool $isAjax: if true, the ajax checks will be run, otherwise the normal
+ *                      checks
+ * @param bool $disableAdminCheck: disables the check for adminuser rights
+ * @param bool $disableIsInAdminGroupCheck: disables the check for admin group member
+ */
+function runSecurityChecks($security, $isAjax=false, $disableAdminCheck=true, 
+							$disableIsInAdminGroupCheck=true){
+	if($disableAdminCheck){
+		$security->setIsAdminCheck(false);	
+	}
+
+	if($disableIsInAdminGroupCheck){
+		$security->setIsInAdminGroupCheck(false);	
+	}
+
+	if($isAjax){
+		$security->runAJAXChecks();
+	} else {
+		$security->runChecks();
+	}
+}
 
 /*************************
  * Define your routes here
