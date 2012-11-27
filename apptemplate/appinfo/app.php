@@ -29,12 +29,26 @@
 require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
 
 
-OCP\App::registerAdmin('apptemplate', 'admin/settings');
+\OCP\App::registerAdmin('apptemplate', 'admin/settings');
 
-OCP\App::addNavigationEntry( array(
+\OCP\App::addNavigationEntry( array(
+	
+	// the string under which your app will be referenced
+	// in owncloud, for instance: \OC_App::getAppPath('APP_ID')
 	'id' => 'apptemplate',
+
+	// sorting weight for the navigation. The higher the number, the higher
+	// will it be listed in the navigation
 	'order' => 74,
+	
+	// the route that will be shown on startup
 	'href' => \OC_Helper::linkToRoute('apptemplate_index'),
-	'icon' => OCP\Util::imagePath('apptemplate', 'example.png' ),
+	
+	// the icon that will be shown in the navigation
+	'icon' => \OCP\Util::imagePath('apptemplate', 'example.png' ),
+	
+	// the title of your application. This will be used in the
+	// navigation or on the settings page of your app
 	'name' => \OC_L10N::get('apptemplate')->t('App Template') 
+	
 ));
