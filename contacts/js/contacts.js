@@ -1137,16 +1137,17 @@ OC.Contacts = OC.Contacts || {};
 			$('tr:visible.contact').hide();
 			return;
 		}
+		if(contacts === 'all') {
+			// ~2 times faster
+			$('tr.contact:not(:visible)').hide();
+			return;
+		}
 		for(var contact in this.contacts) {
-			if(contacts === 'all') {
-				this.contacts[contact].getListItemElement().show();
+			contact = parseInt(contact);
+			if(contacts.indexOf(contact) === -1) {
+				this.contacts[contact].getListItemElement().hide();
 			} else {
-				contact = parseInt(contact);
-				if(contacts.indexOf(contact) === -1) {
-					this.contacts[contact].getListItemElement().hide();
-				} else {
-					this.contacts[contact].getListItemElement().show();
-				}
+				this.contacts[contact].getListItemElement().show();
 			}
 		}
 	}
