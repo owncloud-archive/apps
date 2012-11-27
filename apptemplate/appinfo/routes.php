@@ -32,16 +32,17 @@ require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
  *                                stored in the DI container
  * @param string $methodName: the method that you want to call
  * @param array $urlParams: an array with variables extracted from the routes
+ * @param bool $isAjax: if the request is an ajax request
  * @param bool $disableAdminCheck: disables the check for adminuser rights
  * @param bool $disableIsInAdminGroupCheck: disables the check for admin group member
  */
-function callController($controllerName, $methodName, $urlParams, 
+function callController($controllerName, $methodName, $urlParams, $isAjax=false,
 						$disableAdminCheck=true, $disableIsInAdminGroupCheck=true){
 	$container = createDIContainer();
 	
 	// run security checks
 	$security = $container['Security'];
-	runSecurityChecks($security);
+	runSecurityChecks($security, $isAjax, $disableAdminCheck, $disableIsInAdminGroupCheck);
 
 	// call the controller and render the page
 	$controller = $container[$controllerName];
@@ -84,7 +85,7 @@ function runSecurityChecks($security, $isAjax=false, $disableAdminCheck=true,
  */
 $this->create('apptemplate_index', '/')->action(
 	function($params){		
-		callController('IndexController', 'index', $params, true);
+		callController('IndexController', 'index', $params);
 	}
 );
 
@@ -93,12 +94,6 @@ $this->create('apptemplate_index', '/')->action(
  */
 $this->create('apptemplate_ajax_setsystemvalue', '/setsystemvalue')->post()->action(
 	function($params){		
-		$container = createDIContainer();
-
-		$security = $container['Security'];
-		$security->runChecks();
-
-		$controller = $container[$controllerName];
-		$container->setsystemvalue($params);
+		callController('AjaxController', 'setSystemValue', $params, true);
 	}
 );
