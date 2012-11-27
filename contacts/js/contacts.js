@@ -219,17 +219,6 @@ OC.Contacts = OC.Contacts || {};
 						case 'CATEGORIES':
 							// We deal with this in addToGroup()
 							break;
-						case 'N':
-							if(!utils.isArray(value)) {
-								value = value.split(';');
-								// Then it is auto-generated from FN.
-								var $nelems = self.$fullelem.find('.n.edit input');
-								console.log('nelems', $nelems);
-								$.each(value, function(idx, val) {
-									console.log('nval', val);
-									self.$fullelem.find('#n_' + idx).val(val);
-								});
-							}
 						case 'FN':
 							// Update the list element
 							self.$listelem.find('.nametext').text(value);
@@ -268,6 +257,18 @@ OC.Contacts = OC.Contacts || {};
 								id: self.id,
 								contact: self,
 							});
+							break;
+						case 'N':
+							if(!utils.isArray(value)) {
+								value = value.split(';');
+								// Then it is auto-generated from FN.
+								var $nelems = self.$fullelem.find('.n.edit input');
+								console.log('nelems', $nelems);
+								$.each(value, function(idx, val) {
+									console.log('nval', val);
+									self.$fullelem.find('#n_' + idx).val(val);
+								});
+							}
 						case 'NICKNAME':
 						case 'BDAY':
 						case 'ORG':
