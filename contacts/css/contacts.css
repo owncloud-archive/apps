@@ -94,6 +94,9 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 .form dt { display: table-cell; clear: left; float: left; width: 7em; margin: 0; padding: 0.8em 0.5em 0 0; text-align:right; text-overflow:ellipsis; o-text-overflow: ellipsis; vertical-align: text-bottom; color: #bbb;/* white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap;*/ }
 .form dd { display: table-cell; clear: right; float: left; margin: 0; padding: 0; white-space: nowrap; vertical-align: text-bottom; }
 .action { display: inline-block; width: 20px; height: 20px; }
+.action.share { height: 20px !important; width: 20px; float: right !important; clear: right; }
+/* override the default margin on share dropdown */
+#dropdown { margin: 1.5em 0; -moz-box-sizing: border-box; box-sizing: border-box; width: 100%; }
 .add { background:url('%webroot%/core/img/actions/add.svg') no-repeat center; clear: both; }
 .delete { background:url('%webroot%/core/img/actions/delete.png') no-repeat center; }
 .edit { background:url('%webroot%/core/img/actions/rename.svg') no-repeat center; }
@@ -206,7 +209,7 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
     width: 20em;
     z-index: 2;
 }
-#contacts-settings li,#contacts-settings li:hover { background-color: transparent; }
+#contacts-settings li,#contacts-settings li:hover { background-color: transparent; white-space: nowrap; }
 
 /* Single elements */
 #file_upload_target, #import_upload_target, #crop_target { display:none; }
