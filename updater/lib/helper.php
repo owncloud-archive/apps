@@ -179,4 +179,18 @@ class Helper {
 			self::CORE_DIRNAME => $base . '/' . self::CORE_DIRNAME,	
 		);
 	}
+	
+	public static function addDirectoryToZip($zip, $dir, $base) {
+		$newFolder = str_replace($base, '', $dir);
+		$zip->addEmptyDir($newFolder);
+		foreach(glob($dir . '/*') as $file) {
+			if(is_dir($file)) {
+				$zip = self::addDirectoryToZip($zip, $file, $base);
+			} else {
+				$newFile = str_replace($base, '', $file);
+				$zip->addFile($file, $newFile);
+			}
+		}
+		return $zip;
+	}
 }
