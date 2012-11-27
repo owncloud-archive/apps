@@ -1139,7 +1139,7 @@ OC.Contacts = OC.Contacts || {};
 		}
 		if(contacts === 'all') {
 			// ~2 times faster
-			$('tr.contact:not(:visible)').hide();
+			$('tr.contact:not(:visible)').show();
 			return;
 		}
 		for(var contact in this.contacts) {
