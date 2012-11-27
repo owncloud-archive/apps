@@ -621,16 +621,20 @@ OC.Contacts = OC.Contacts || {};
 		}
 		// Loop thru all single occurrence values. If not set hide the
 		// element, if set disable the add menu entry.
-		for(var value in values) {
-			if(this.multi_properties.indexOf(value.toUpperCase()) === -1) {
-				if(!values[value].length) {
-					console.log('hiding', value);
-					this.$fullelem.find('[data-element="' + value + '"]').hide();
+		$.each(values, function(name, value) {
+			console.log('name', name, 'value', value);
+			if(typeof value === 'undefined') {
+				return true; //continue
+			}
+			if(self.multi_properties.indexOf(value.toUpperCase()) === -1) {
+				if(!value.length) {
+					console.log('hiding', name);
+					self.$fullelem.find('[data-element="' + name + '"]').hide();
 				} else {
-					this.$addMenu.find('option[value="' + value.toUpperCase() + '"]').prop('disabled', true);
+					self.$addMenu.find('option[value="' + name.toUpperCase() + '"]').prop('disabled', true);
 				}
 			}
-		}
+		});
 		$.each(this.multi_properties, function(idx, name) {
 			if(self.data[name]) {
 				var $list = self.$fullelem.find('ul.' + name.toLowerCase());
