@@ -42,15 +42,15 @@ class AjaxController extends Controller {
 	 *                          the routes file
 	 */
 	public function setSystemValue($urlParams=array()){
-                $value = $this->params('somesetting');
+				$value = $this->params('somesetting');
 		$this->api->setSystemValue('somesetting', $value);
 
-                $response = new JSONResponse($this->appName);
+		$response = new JSONResponse($this->appName);
 
-                $params = array('somesetting' => $value);
-                $response->setParams($params);
+		$params = array('somesetting' => $value);
+		$response->setParams($params);
 
-                return $response;
+		return $response;
 	}
 
 }

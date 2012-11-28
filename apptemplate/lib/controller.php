@@ -27,9 +27,9 @@ namespace OCA\AppTemplate;
 class Controller {
 
 	protected $api;
-        protected $appName;
+	protected $appName;
 
-        private $request;
+	private $request;
 
 	/**
 	 * @param API $api: an api wrapper instance
@@ -38,7 +38,7 @@ class Controller {
 	public function __construct($api, $request){
 		$this->api = $api;
 		$this->request = $request;
-                $this->appName = $api->getAppName();
+				$this->appName = $api->getAppName();
 	}
 
 
