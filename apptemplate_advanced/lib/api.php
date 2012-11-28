@@ -22,7 +22,7 @@
 */
 
 
-namespace OCA\AppTemplate;
+namespace OCA\AppTemplateAdvanced;
 
 /**
  * This is used to wrap the owncloud static api calls into an object to make the

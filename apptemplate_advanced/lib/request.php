@@ -22,7 +22,7 @@
 */
 
 
-namespace OCA\AppTemplate;
+namespace OCA\AppTemplateAdvanced;
 
 /**
  * Encapsulates $_GET and $_POST arrays for better testability

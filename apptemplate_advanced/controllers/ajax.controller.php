@@ -21,10 +21,10 @@
 *
 */
 
-namespace OCA\AppTemplate;
+namespace OCA\AppTemplateAdvanced;
 
 
-class IndexController extends Controller {
+class AjaxController extends Controller {
 	
 
 	/**
@@ -33,25 +33,21 @@ class IndexController extends Controller {
 	 */
 	public function __construct($api, $request){
 		parent::__construct($api, $request);
-
-		// this will set the current navigation entry of the app, use this only
-		// for normal HTML requests and not for AJAX requests
-		$this->api->activateNavigationEntry();
 	}
 
 
 	/**
-	 * @brief renders the index page
+	 * @brief sets a global system value
 	 * @param array $urlParams: an array with the values, which were matched in 
 	 *                          the routes file
-		 * @return an instance of a Response implementation
 	 */
-	public function index($urlParams=array()){
-		$response = new TemplateResponse($this->appName, 'main');
+	public function setSystemValue($urlParams=array()){
+				$value = $this->params('somesetting');
+		$this->api->setSystemValue('somesetting', $value);
 
-		$params = array(
-				'somesetting' => $this->api->getSystemValue('somesetting')
-		);
+		$response = new JSONResponse($this->appName);
+
+		$params = array('somesetting' => $value);
 		$response->setParams($params);
 
 		return $response;

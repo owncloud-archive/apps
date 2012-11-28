@@ -21,10 +21,10 @@
 *
 */
 
-namespace OCA\AppTemplate;
+namespace OCA\AppTemplateAdvanced;
 
 
-class SettingsController extends Controller {
+class IndexController extends Controller {
 	
 
 	/**
@@ -33,22 +33,24 @@ class SettingsController extends Controller {
 	 */
 	public function __construct($api, $request){
 		parent::__construct($api, $request);
+
+		// this will set the current navigation entry of the app, use this only
+		// for normal HTML requests and not for AJAX requests
+		$this->api->activateNavigationEntry();
 	}
 
 
 	/**
-	 * @brief renders the settings page
+	 * @brief renders the index page
 	 * @param array $urlParams: an array with the values, which were matched in 
 	 *                          the routes file
+		 * @return an instance of a Response implementation
 	 */
 	public function index($urlParams=array()){
-		$this->api->addScript('admin');
-		
-		$response = new TemplateResponse($this->appName, 'settings');
-		$response->renderAs('admin');
+		$response = new TemplateResponse($this->appName, 'main');
 
 		$params = array(
-				'url' => $this->api->getSystemValue('somesetting')
+				'somesetting' => $this->api->getSystemValue('somesetting')
 		);
 		$response->setParams($params);
 

@@ -21,10 +21,10 @@
 *
 */
 
-namespace OCA\AppTemplate;
+namespace OCA\AppTemplateAdvanced;
 
 
-class AjaxController extends Controller {
+class SettingsController extends Controller {
 	
 
 	/**
@@ -37,17 +37,19 @@ class AjaxController extends Controller {
 
 
 	/**
-	 * @brief sets a global system value
+	 * @brief renders the settings page
 	 * @param array $urlParams: an array with the values, which were matched in 
 	 *                          the routes file
 	 */
-	public function setSystemValue($urlParams=array()){
-				$value = $this->params('somesetting');
-		$this->api->setSystemValue('somesetting', $value);
+	public function index($urlParams=array()){
+		$this->api->addScript('admin');
+		
+		$response = new TemplateResponse($this->appName, 'settings');
+		$response->renderAs('admin');
 
-		$response = new JSONResponse($this->appName);
-
-		$params = array('somesetting' => $value);
+		$params = array(
+				'url' => $this->api->getSystemValue('somesetting')
+		);
 		$response->setParams($params);
 
 		return $response;

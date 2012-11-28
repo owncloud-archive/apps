@@ -1,7 +1,7 @@
 <?php
 
 /**
-* ownCloud - App Template plugin
+* ownCloud - App Template Example
 *
 * @author Frank Karlitschek
 * @author Florian Hülsmann
@@ -23,12 +23,11 @@
 * 
 */
 
-OCP\App::registerAdmin( 'apptemplate', 'settings' );
+// Check if we are a user
+OCP\User::checkLoggedIn();
 
-OCP\App::addNavigationEntry( array( 
-	'id' => 'apptemplate',
-	'order' => 74,
-	'href' => OCP\Util::linkTo( 'apptemplate', 'index.php' ),
-	'icon' => OCP\Util::imagePath( 'apptemplate', 'example.png' ),
-	'name' => 'App Template'
-));
+$somesetting = OCP\Config::getSystemValue( "somesetting", '' );
+OCP\App::setActiveNavigationEntry( 'apptemplate' );
+$tmpl = new OCP\Template( 'apptemplate', 'main', 'user' );
+$tmpl->assign( 'somesetting', $somesetting );
+$tmpl->printPage();

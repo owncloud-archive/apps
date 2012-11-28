@@ -21,10 +21,10 @@
 *
 */
 
-namespace OCA\AppTemplate;
+namespace OCA\AppTemplateAdvanced;
 
 
-require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
+require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/bootstrap.php';
 
 /**
  * Shortcut for calling a controller method and printing the result
@@ -89,7 +89,7 @@ function runSecurityChecks($security, $isAjax=false, $disableAdminCheck=true){
 /**
  * Normal Routes
  */
-$this->create('apptemplate_index', '/')->action(
+$this->create('apptemplate_advanced_index', '/')->action(
 	function($params){		
 		callController('IndexController', 'index', $params);
 	}
@@ -98,7 +98,7 @@ $this->create('apptemplate_index', '/')->action(
 /**
  * Ajax Routes
  */
-$this->create('apptemplate_ajax_setsystemvalue', '/setsystemvalue')->post()->action(
+$this->create('apptemplate_advanced_ajax_setsystemvalue', '/setsystemvalue')->post()->action(
 	function($params){		
 		callAjaxController('AjaxController', 'setSystemValue', $params);
 	}

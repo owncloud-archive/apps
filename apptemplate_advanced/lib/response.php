@@ -22,7 +22,7 @@
 */
 
 
-namespace OCA\AppTemplate;
+namespace OCA\AppTemplateAdvanced;
 
 interface Response {
 	function render();

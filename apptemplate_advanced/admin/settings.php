@@ -21,10 +21,10 @@
 *
 */
 
-namespace OCA\AppTemplate;
+namespace OCA\AppTemplateAdvanced;
 
 
-require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
+require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/bootstrap.php';
 
 $container = createDIContainer();
 

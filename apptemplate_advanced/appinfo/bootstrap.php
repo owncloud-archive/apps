@@ -21,24 +21,24 @@
 *
 */
 
-namespace OCA\AppTemplate;
+namespace OCA\AppTemplateAdvanced;
 
 /**
  * Declare your classes and their include path so that they'll be automatically
  * loaded once you instantiate them
  */
-\OC::$CLASSPATH['Pimple'] = 'apps/apptemplate/3rdparty/Pimple/Pimple.php';
+\OC::$CLASSPATH['Pimple'] = 'apps/apptemplate_advanced/3rdparty/Pimple/Pimple.php';
 
-\OC::$CLASSPATH['OCA\AppTemplate\API'] = 'apps/apptemplate/lib/api.php';
-\OC::$CLASSPATH['OCA\AppTemplate\Request'] = 'apps/apptemplate/lib/request.php';
-\OC::$CLASSPATH['OCA\AppTemplate\Security'] = 'apps/apptemplate/lib/security.php';
-\OC::$CLASSPATH['OCA\AppTemplate\Controller'] = 'apps/apptemplate/lib/controller.php';
-\OC::$CLASSPATH['OCA\AppTemplate\TemplateResponse'] = 'apps/apptemplate/lib/response.php';
-\OC::$CLASSPATH['OCA\AppTemplate\JSONResponse'] = 'apps/apptemplate/lib/response.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\API'] = 'apps/apptemplate_advanced/lib/api.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\Request'] = 'apps/apptemplate_advanced/lib/request.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\Security'] = 'apps/apptemplate_advanced/lib/security.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\Controller'] = 'apps/apptemplate_advanced/lib/controller.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\TemplateResponse'] = 'apps/apptemplate_advanced/lib/response.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\JSONResponse'] = 'apps/apptemplate_advanced/lib/response.php';
 
-\OC::$CLASSPATH['OCA\AppTemplate\IndexController'] = 'apps/apptemplate/controllers/index.controller.php';
-\OC::$CLASSPATH['OCA\AppTemplate\SettingsController'] = 'apps/apptemplate/controllers/settings.controller.php';
-\OC::$CLASSPATH['OCA\AppTemplate\AjaxController'] = 'apps/apptemplate/controllers/ajax.controller.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\IndexController'] = 'apps/apptemplate_advanced/controllers/index.controller.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\SettingsController'] = 'apps/apptemplate_advanced/controllers/settings.controller.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\AjaxController'] = 'apps/apptemplate_advanced/controllers/ajax.controller.php';
 
 
 /**
@@ -51,7 +51,7 @@ function createDIContainer(){
 	 * BASE
 	 */
 	$container['API'] = $container->share(function($c){
-		return new API('apptemplate');
+		return new API('apptemplate_advanced');
 	});
 
 	$container['Security'] = $container->share(function($c){
