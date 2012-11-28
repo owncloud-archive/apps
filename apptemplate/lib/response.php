@@ -25,7 +25,7 @@
 namespace OCA\AppTemplate;
 
 interface Response {
-        function render();
+	function render();
 }
 
 /**
@@ -33,62 +33,62 @@ interface Response {
  */
 class TemplateResponse implements Response {
 
-        private $templateName;
-        private $params;
-        private $appName;
-        private $renderAs;
+	private $templateName;
+	private $params;
+	private $appName;
+	private $renderAs;
 
-        /**
-         * @param string $appName: the name of your app
-         * @param string $templateName: the name of the template
-         */
-        public function __construct($appName, $templateName) {
-                $this->templateName = $templateName;
-                $this->appName = $appName;
-                $this->params = array();
-                $this->renderAs = 'user';
-        }
-
-
-        /**
-         * @brief sets template parameters
-         * @param array $params: an array with key => value structure which sets template
-         *                       variables
-         */
-        public function setParams($params){
-                $this->params = $params;
-        }
+	/**
+	 * @param string $appName: the name of your app
+	 * @param string $templateName: the name of the template
+	 */
+	public function __construct($appName, $templateName) {
+		$this->templateName = $templateName;
+		$this->appName = $appName;
+		$this->params = array();
+		$this->renderAs = 'user';
+	}
 
 
-        /**
-         * @brief sets the template page
-         * @param string $renderAs: admin, user or blank: admin renders the page on
-         *                          the admin settings page, user renders a normal
-         *                          owncloud page, blank renders the template alone
-         */
-        public function renderAs($renderAs='user'){
-                $this->renderAs = $renderAs;
-        }
+	/**
+	 * @brief sets template parameters
+	 * @param array $params: an array with key => value structure which sets template
+	 *                       variables
+	 */
+	public function setParams($params){
+		$this->params = $params;
+	}
 
 
-        /**
-         * Returns the rendered html
-         * @return the rendered html
-         */
-        public function render(){
-                if($this->renderAs === 'blank'){
-                        $template = new \OCP\Template($this->appName, $this->templateName);
-                } else {
-                        $template = new \OCP\Template($this->appName, $this->templateName,
-                                                                                        $this->renderAs);
-                }
+	/**
+	 * @brief sets the template page
+	 * @param string $renderAs: admin, user or blank: admin renders the page on
+	 *                          the admin settings page, user renders a normal
+	 *                          owncloud page, blank renders the template alone
+	 */
+	public function renderAs($renderAs='user'){
+		$this->renderAs = $renderAs;
+	}
 
-                foreach($this->params as $key => $value){
-                        $template->assign($key, $value, false);
-                }
 
-                return $template->fetchPage();
-        }
+	/**
+	 * Returns the rendered html
+	 * @return the rendered html
+	 */
+	public function render(){
+		if($this->renderAs === 'blank'){
+			$template = new \OCP\Template($this->appName, $this->templateName);
+		} else {
+			$template = new \OCP\Template($this->appName, $this->templateName,
+											$this->renderAs);
+		}
+
+		foreach($this->params as $key => $value){
+			$template->assign($key, $value, false);
+		}
+
+		return $template->fetchPage();
+	}
 
 }
 
@@ -98,61 +98,61 @@ class TemplateResponse implements Response {
  */
 class JSONResponse implements Response {
 
-        private $name;
-        private $data;
-        private $appName;
+	private $name;
+	private $data;
+	private $appName;
 
-        /**
-         * @param string $appName: the name of your app
-         */
-        public function __construct($appName) {
-                $this->appName = $appName;
-                $this->data = array();
-                $this->error = false;
-        }
+	/**
+	 * @param string $appName: the name of your app
+	 */
+	public function __construct($appName) {
+		$this->appName = $appName;
+		$this->data = array();
+		$this->error = false;
+	}
 
-        /**
-         * @brief sets values in the data json array
-         * @param array $params: an array with key => value structure which will be
-         *                       transformed to JSON
-         */
-        public function setParams($params){
-                $this->data['data'] = $params;
-        }
-
-
-        /**
-         * @brief in case we want to render an error message, also logs into the
-         *        owncloud log
-         * @param string $message: the error message
-         * @param string $file: the file where the error occured, use __FILE__ in
-         *                      the file where you call it
-         */
-        public function setErrorMessage($msg, $file){
-                $this->error = true;
-                $this->data['msg'] = $msg;
-                \OCP\Util::writeLog($this->appName, $file . ': ' . $msg, \OCP\Util::ERROR);
-        }
+	/**
+	 * @brief sets values in the data json array
+	 * @param array $params: an array with key => value structure which will be
+	 *                       transformed to JSON
+	 */
+	public function setParams($params){
+		$this->data['data'] = $params;
+	}
 
 
-        /**
-         * Returns the rendered json
-         * @return the rendered json
-         */
-        public function render(){
+	/**
+	 * @brief in case we want to render an error message, also logs into the
+	 *        owncloud log
+	 * @param string $message: the error message
+	 * @param string $file: the file where the error occured, use __FILE__ in
+	 *                      the file where you call it
+	 */
+	public function setErrorMessage($msg, $file){
+		$this->error = true;
+		$this->data['msg'] = $msg;
+		\OCP\Util::writeLog($this->appName, $file . ': ' . $msg, \OCP\Util::ERROR);
+	}
 
-                ob_start();
 
-                if($this->error){
-                \OCP\JSON::error($this->data);
-                } else {
-                \OCP\JSON::success($this->data);
-                }
+	/**
+	 * Returns the rendered json
+	 * @return the rendered json
+	 */
+	public function render(){
 
-                $result = ob_get_contents();
-                ob_end_clean();
+		ob_start();
 
-                return $result;
-        }
+		if($this->error){
+		\OCP\JSON::error($this->data);
+		} else {
+		\OCP\JSON::success($this->data);
+		}
+
+		$result = ob_get_contents();
+		ob_end_clean();
+
+		return $result;
+	}
 
 }
