@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-19 00:00+0100\n"
-"PO-Revision-Date: 2012-11-18 16:12+0000\n"
-"Last-Translator: hanfeng <appweb.cn@gmail.com>\n"
+"POT-Creation-Date: 2012-11-29 00:01+0100\n"
+"PO-Revision-Date: 2012-11-28 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -111,7 +111,7 @@ msgstr "更新Feed时出错。"
 msgid "Feed updated!"
 msgstr "Feed已更新！"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "新闻"
 
@@ -224,7 +224,7 @@ msgstr "没有名称"
 msgid "no body"
 msgstr "没有正文"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "在owncloud中订阅-新闻"
 
@@ -237,8 +237,8 @@ msgid "Nice! You have subscribed to "
 msgstr "不错！您已经订阅"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "已经订阅过此feed哟。"
+msgid "You had already subscribed to this feed!"
+msgstr ""
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."

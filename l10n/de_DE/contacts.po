@@ -29,9 +29,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-28 00:09+0100\n"
-"PO-Revision-Date: 2012-11-27 21:06+0000\n"
-"Last-Translator: Marcel Kühlhorn <susefan93@gmx.de>\n"
+"POT-Creation-Date: 2012-11-29 00:01+0100\n"
+"PO-Revision-Date: 2012-11-28 12:53+0000\n"
+"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -256,7 +256,7 @@ msgstr "Kontakte sind schon in der Gruppe."
 
 #: js/app.js:335
 msgid "Couldn't get contact list."
-msgstr "Konnte die Kontaktliste nicht bekommen."
+msgstr "Kontaktliste konnte nicht ermittelt werden."
 
 #: js/app.js:346
 msgid "Contact is not in this group."
@@ -321,7 +321,7 @@ msgstr "Fehler beim Öffnen des Mail-Editors"
 
 #: js/app.js:1344 templates/contacts.php:153
 msgid "Add group"
-msgstr "Füge Gruppe hinzu"
+msgstr "Fügen Sie eine Gruppe hinzu"
 
 #: js/app.js:1416
 msgid "No files selected for upload."
@@ -378,11 +378,11 @@ msgstr "Einige zum Löschen vorgemerkte Kontakte wurden noch nicht gelöscht. Bi
 
 #: js/contacts.js:1225
 msgid "Click to undo deletion of {num} contacts"
-msgstr "Klicken Sie hier um die Löschung von {num} Kontakten rückgängig zu machen"
+msgstr "Klicken Sie hier um das Löschen von {num} Kontakten rückgängig zu machen"
 
 #: js/contacts.js:1238
 msgid "Cancelled deletion of {num}"
-msgstr "Die Löschung von {num} wurde abgebrochen."
+msgstr "Das Löschen von {num} wurde abgebrochen."
 
 #: js/loader.js:49
 msgid "Result: "
@@ -559,7 +559,7 @@ msgstr "Familie"
 
 #: lib/app.php:346
 msgid "There was an error deleting properties for this contact."
-msgstr "Es gab einen Fehler bei der Löschung der Eigenschaften dieses Kontakts."
+msgstr "Es gab einen Fehler beim Löschen der Eigenschaften dieses Kontakts."
 
 #: lib/hooks.php:108
 msgid "{name}'s Birthday"
@@ -872,7 +872,7 @@ msgstr "Ihre Stadt"
 
 #: templates/contacts.php:357
 msgid "Some region"
-msgstr "Ihre Region"
+msgstr "Eine Region"
 
 #: templates/contacts.php:360
 msgid "Your country"

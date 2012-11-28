@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-20 19:33+0000\n"
-"Last-Translator: Miguel Branco <mgl.branco@gmail.com>\n"
+"POT-Creation-Date: 2012-11-29 00:01+0100\n"
+"PO-Revision-Date: 2012-11-28 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -110,7 +110,7 @@ msgstr "Erro actualizando a fonte."
 msgid "Feed updated!"
 msgstr "Actualizouse a fonte"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Novas"
 
@@ -223,7 +223,7 @@ msgstr "sen nome"
 msgid "no body"
 msgstr "sen contido"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "subscricións en ownCloud - Novas"
 
@@ -236,8 +236,8 @@ msgid "Nice! You have subscribed to "
 msgstr "Ben! Subscribiuse a "
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "Xa estás subscrito a esta fonte"
+msgid "You had already subscribed to this feed!"
+msgstr ""
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."

@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-14 00:02+0100\n"
-"PO-Revision-Date: 2012-11-13 18:12+0000\n"
-"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
+"POT-Creation-Date: 2012-11-29 00:01+0100\n"
+"PO-Revision-Date: 2012-11-28 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -117,7 +117,7 @@ msgstr "Fehler bei der Aktualisierung der Feeds."
 msgid "Feed updated!"
 msgstr "Feed aktualisiert!"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Nachrichten"
 
@@ -230,7 +230,7 @@ msgstr "kein Name"
 msgid "no body"
 msgstr "kein Nachrichtentext"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "Abonnements in ownCloud - Nachrichten"
 
@@ -243,8 +243,8 @@ msgid "Nice! You have subscribed to "
 msgstr "Gratulation! Sie haben Folgendes abonniert:"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "Sie haben diesen Feed bereits abonniert!"
+msgid "You had already subscribed to this feed!"
+msgstr ""
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."

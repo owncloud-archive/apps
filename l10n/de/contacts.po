@@ -29,9 +29,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-28 00:09+0100\n"
-"PO-Revision-Date: 2012-11-27 20:49+0000\n"
-"Last-Translator: Marcel Kühlhorn <susefan93@gmx.de>\n"
+"POT-Creation-Date: 2012-11-29 00:01+0100\n"
+"PO-Revision-Date: 2012-11-28 13:04+0000\n"
+"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -256,7 +256,7 @@ msgstr "Kontakte sind bereits in dieser Gruppe."
 
 #: js/app.js:335
 msgid "Couldn't get contact list."
-msgstr "Kontakt-Liste konnte nicht ermittelt werden."
+msgstr "Kontaktliste konnte nicht ermittelt werden."
 
 #: js/app.js:346
 msgid "Contact is not in this group."
@@ -780,7 +780,7 @@ msgstr "Geburtstag"
 
 #: templates/contacts.php:269
 msgid "Notes go here..."
-msgstr "Notizen ..."
+msgstr "Notizen hier hinein..."
 
 #: templates/contacts.php:276
 msgid "Add"
@@ -872,7 +872,7 @@ msgstr "Deine Stadt"
 
 #: templates/contacts.php:357
 msgid "Some region"
-msgstr "Irgendeine Region"
+msgstr "Eine Region"
 
 #: templates/contacts.php:360
 msgid "Your country"
@@ -888,7 +888,7 @@ msgstr "IM löschen"
 
 #: templates/index.php:14
 msgid "Add Contact"
-msgstr "Kontakt hinzufügenff"
+msgstr "Kontakt hinzufügen"
 
 #: templates/part.contact.php:17
 msgid "Drop photo to upload"

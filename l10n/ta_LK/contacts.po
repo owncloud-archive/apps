@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-27 00:07+0100\n"
-"PO-Revision-Date: 2012-11-26 23:08+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-29 00:01+0100\n"
+"PO-Revision-Date: 2012-11-28 04:42+0000\n"
+"Last-Translator: suganthi <suganthi@nic.lk>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -261,105 +261,105 @@ msgstr "விருப்பங்கள்"
 msgid "Shared by {owner}"
 msgstr "பகிரப்பட்டது {சொந்தகாரர்}"
 
-#: js/app.js:642
+#: js/app.js:644
 msgid "Indexing contacts"
 msgstr "தொடர்புகளை அட்டவணையிடுதல்"
 
-#: js/app.js:713 js/app.js:727
+#: js/app.js:715 js/app.js:729
 msgid "Add to..."
 msgstr "இற்கு சேர்க்கப்பட்டது..."
 
-#: js/app.js:717 js/app.js:729
+#: js/app.js:719 js/app.js:731
 msgid "Remove from..."
 msgstr "இலிருந்து அகற்றுக..."
 
-#: js/app.js:734
+#: js/app.js:736
 msgid "Add group..."
 msgstr "குழுவிற்கு சேர்க்க..."
 
-#: js/app.js:846
+#: js/app.js:848
 msgid "Select photo"
 msgstr "படத்தை தெரிக"
 
-#: js/app.js:895 js/app.js:921 js/app.js:1550 js/app.js:1656 js/contacts.js:97
-#: js/contacts.js:182 js/contacts.js:380
+#: js/app.js:897 js/app.js:923 js/app.js:1552 js/app.js:1658 js/contacts.js:97
+#: js/contacts.js:182 js/contacts.js:381
 msgid "Network or server error. Please inform administrator."
 msgstr "வ​லைய​மைப்பு அல்லது சேவையக வழு. தயவுசெய்து நிர்வாகிக்கு தெரியப்படுத்தவும்."
 
-#: js/app.js:1054 js/app.js:1089
+#: js/app.js:1056 js/app.js:1091
 msgid "Error adding to group."
 msgstr "குழுவில் சேர்ப்பதில் வழு."
 
-#: js/app.js:1114
+#: js/app.js:1116
 msgid "Error removing from group."
 msgstr "குழுவிலிருந்து அகற்றுவதிலிருந்து வழு."
 
-#: js/app.js:1144
+#: js/app.js:1146
 msgid "There was an error opening a mail composer."
 msgstr "மின்னஞ்சல் செய்தியாக்குகையை திறப்பதில் வழு."
 
-#: js/app.js:1342 templates/contacts.php:138
+#: js/app.js:1344 templates/contacts.php:153
 msgid "Add group"
 msgstr "குழுவில் சேர்க்க"
 
-#: js/app.js:1414
+#: js/app.js:1416
 msgid "No files selected for upload."
 msgstr "பதிவேற்றுவதற்கு கோப்புகள் தெரிவுசெய்யப்படவில்லை"
 
-#: js/app.js:1425
+#: js/app.js:1427
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "நீங்கள் பதிவேற்ற முயற்சிக்கும் கோப்பானது இந்த சேவையகத்தில் பதிவேற்றக்கூடிய கோப்பின் ஆகக்கூடிய அளவைவிட கூடியது. "
 
-#: js/app.js:1515
+#: js/app.js:1517
 msgid "Edit profile picture"
 msgstr "விபரக்கோவை படத்தை தொகுக்க "
 
-#: js/app.js:1533 js/contacts.js:859
+#: js/app.js:1535 js/contacts.js:864
 msgid "Error loading profile picture."
 msgstr "விபரக்கோவை படத்தை ஏற்றுவதில் வழு"
 
-#: js/app.js:1579 templates/part.selectaddressbook.php:27
+#: js/app.js:1581 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr "பெயரை நுழைக்க "
 
-#: js/app.js:1580 templates/part.selectaddressbook.php:29
+#: js/app.js:1582 templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "விபரிப்புக்களை நுழைக்க"
 
-#: js/app.js:1583
+#: js/app.js:1585
 msgid "Select addressbook"
 msgstr "முகவரி புத்தகத்தை தெரிவுசெய்க"
 
-#: js/app.js:1591
+#: js/app.js:1593
 msgid "The address book name cannot be empty."
 msgstr "முகவரிப் புத்தகத்தின் பெயர் வெறுமையாக இருக்கமுடியாது."
 
-#: js/app.js:1591 js/settings.js:25 js/settings.js:45 js/settings.js:75
+#: js/app.js:1593 js/settings.js:25 js/settings.js:45 js/settings.js:75
 #: js/settings.js:112
 msgid "Error"
 msgstr "வழு"
 
-#: js/contacts.js:261
+#: js/contacts.js:250
 msgid "Is this correct?"
 msgstr "இது சரியா?"
 
-#: js/contacts.js:425
+#: js/contacts.js:426
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "இந்த தொடர்பை நீக்கும் போது தெரியாத வழு ஏற்பட்டது"
 
-#: js/contacts.js:1208
+#: js/contacts.js:1214
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "சில தொடர்புகள் அழிப்பதற்காக அடையாளப்படுத்தப்பட்டுள்ளது, ஆனால் இன்னும் அழிக்கவில்லை. தயவுசெய்து அது அழியும் வரை காத்திருக்கவும்."
 
-#: js/contacts.js:1219
+#: js/contacts.js:1225
 msgid "Click to undo deletion of {num} contacts"
 msgstr "தொடர்புகள் நீக்கியதை முன் செயல் நீக்கம் {num} செய்வதற்கு சொடக்குக"
 
-#: js/contacts.js:1232
+#: js/contacts.js:1238
 msgid "Cancelled deletion of {num}"
 msgstr "{num} ஐ நீக்குவதை இரத்துசெய்க"
 
@@ -395,8 +395,8 @@ msgstr "பதிவிறக்குக"
 msgid "Edit"
 msgstr "தொகுக்க"
 
-#: js/settings.js:102 templates/contacts.php:206 templates/contacts.php:213
-#: templates/contacts.php:220 templates/contacts.php:227
+#: js/settings.js:102 templates/contacts.php:221 templates/contacts.php:228
+#: templates/contacts.php:235 templates/contacts.php:242
 #: templates/part.contact.php:40 templates/part.contact.php:42
 #: templates/part.contact.php:44 templates/part.contact.php:46
 #: templates/part.contact.php:50 templates/settings.php:50
@@ -578,7 +578,7 @@ msgstr "இந்த தொடர்பை நீக்குவதில் வ
 
 #: lib/vcard.php:637
 msgid "Contact not found."
-msgstr ""
+msgstr "​தொடர்பு கண்டுப்பிடிக்கப்படவில்லை"
 
 #: lib/vcard.php:693
 msgid "HomePage"
@@ -592,272 +592,276 @@ msgstr "புதிய குழு"
 msgid "Settings"
 msgstr "அமைப்புகள்"
 
-#: templates/contacts.php:28 templates/contacts.php:113 templates/index.php:15
+#: templates/contacts.php:28 templates/settings.php:36
+msgid "Share"
+msgstr "பகிர்வு"
+
+#: templates/contacts.php:43 templates/contacts.php:128 templates/index.php:15
 #: templates/part.import.php:17
 msgid "Import"
 msgstr "இறக்குமதி"
 
-#: templates/contacts.php:34
+#: templates/contacts.php:49
 msgid "Import into:"
 msgstr "இதற்கு இறக்குமதி செய்க:"
 
-#: templates/contacts.php:46
+#: templates/contacts.php:61
 msgid "Export"
 msgstr "ஏற்றுமதி"
 
-#: templates/contacts.php:61
+#: templates/contacts.php:76
 msgid "(De-)select all"
 msgstr "எல்லாவற்றையும் தெரிவுசெய்க (செய்யாதிக-)"
 
-#: templates/contacts.php:63
+#: templates/contacts.php:78
 msgid "New Contact"
 msgstr "புதிய தொடர்பு"
 
-#: templates/contacts.php:64
+#: templates/contacts.php:79
 msgid "Back"
 msgstr "பின்னுக்கு"
 
-#: templates/contacts.php:65
+#: templates/contacts.php:80
 msgid "Download Contact"
 msgstr "தொடர்பை பதிவிறக்குக"
 
-#: templates/contacts.php:66
+#: templates/contacts.php:81
 msgid "Delete Contact"
 msgstr "தொடர்பை நீக்குக"
 
-#: templates/contacts.php:68 templates/contacts.php:271
+#: templates/contacts.php:83 templates/contacts.php:286
 #: templates/part.contact.php:47 templates/part.contact.php:135
 msgid "Groups"
 msgstr "குழுக்கள்"
 
-#: templates/contacts.php:70
+#: templates/contacts.php:85
 msgid "Favorite"
 msgstr "விருப்பமான"
 
-#: templates/contacts.php:77 templates/index.php:30
+#: templates/contacts.php:92 templates/index.php:30
 #: templates/part.import.php:24
 msgid "Close"
 msgstr "மூடுக"
 
-#: templates/contacts.php:78 templates/index.php:31
+#: templates/contacts.php:93 templates/index.php:31
 msgid "Keyboard shortcuts"
 msgstr "விசைப்பலகை குறுக்குவழிகள்"
 
-#: templates/contacts.php:80 templates/index.php:33
+#: templates/contacts.php:95 templates/index.php:33
 msgid "Navigation"
 msgstr "வழிசெலுத்தல்"
 
-#: templates/contacts.php:83 templates/index.php:36
+#: templates/contacts.php:98 templates/index.php:36
 msgid "Next contact in list"
 msgstr "பட்டியலில் உள்ள அடுத்த தொடர்பு"
 
-#: templates/contacts.php:85 templates/index.php:38
+#: templates/contacts.php:100 templates/index.php:38
 msgid "Previous contact in list"
 msgstr "பட்டியலில் முந்தைய தொடர்பு"
 
-#: templates/contacts.php:87 templates/index.php:40
+#: templates/contacts.php:102 templates/index.php:40
 msgid "Expand/collapse current addressbook"
 msgstr "தற்போதைய முகவரி புத்தகத்தை விரிவாக்குக/தகர்த்துக"
 
-#: templates/contacts.php:89 templates/index.php:42
+#: templates/contacts.php:104 templates/index.php:42
 msgid "Next addressbook"
 msgstr "அடுத்த முகவரி புத்தகம்"
 
-#: templates/contacts.php:91 templates/index.php:44
+#: templates/contacts.php:106 templates/index.php:44
 msgid "Previous addressbook"
 msgstr "முந்தைய முகவரி புத்தகம்"
 
-#: templates/contacts.php:95 templates/index.php:48
+#: templates/contacts.php:110 templates/index.php:48
 msgid "Actions"
 msgstr "செயல்கள்"
 
-#: templates/contacts.php:98 templates/index.php:51
+#: templates/contacts.php:113 templates/index.php:51
 msgid "Refresh contacts list"
 msgstr "தொடர்பு பட்டியலை மீள் ஏற்றுக"
 
-#: templates/contacts.php:100 templates/index.php:53
+#: templates/contacts.php:115 templates/index.php:53
 msgid "Add new contact"
 msgstr "புதிய தொடர்பை சேர்க்க"
 
-#: templates/contacts.php:102 templates/index.php:55
+#: templates/contacts.php:117 templates/index.php:55
 msgid "Add new addressbook"
 msgstr "புதிய முகவரி புத்தகத்தை சேர்க்க"
 
-#: templates/contacts.php:104 templates/index.php:57
+#: templates/contacts.php:119 templates/index.php:57
 msgid "Delete current contact"
 msgstr "தற்போதைய தொடர்பை நீக்குக"
 
-#: templates/contacts.php:109
+#: templates/contacts.php:124
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
 msgstr "<h3>உங்களுடைய முகவரி புத்தகத்தில் ஒரு தொடர்பும் இல்லை.</h3><p>புதிய தொடர்பை சேர்க்க அல்லது ஏற்கனவே உள்ள தொடர்புகளை VCF கோப்பிலிருந்து இறக்குமதி செய்க.</p>"
 
-#: templates/contacts.php:112 templates/part.no_contacts.php:9
+#: templates/contacts.php:127 templates/part.no_contacts.php:9
 msgid "Add contact"
 msgstr "தொடர்பை சேர்க்க"
 
-#: templates/contacts.php:153
+#: templates/contacts.php:168
 msgid "Compose mail"
 msgstr "மின்னஞ்சல் செய்தியாக்குகை"
 
-#: templates/contacts.php:164
+#: templates/contacts.php:179
 msgid "Delete group"
 msgstr "குழுக்களை நீக்குக"
 
-#: templates/contacts.php:176 templates/part.contact.php:19
+#: templates/contacts.php:191 templates/part.contact.php:19
 msgid "Delete current photo"
 msgstr "தற்போதைய படத்தை நீக்குக"
 
-#: templates/contacts.php:177 templates/part.contact.php:20
+#: templates/contacts.php:192 templates/part.contact.php:20
 msgid "Edit current photo"
 msgstr "தற்போதைய படத்தை தொகுக்க"
 
-#: templates/contacts.php:178 templates/part.contact.php:21
+#: templates/contacts.php:193 templates/part.contact.php:21
 msgid "Upload new photo"
 msgstr "புதிய படத்தை பதிவேற்றுக"
 
-#: templates/contacts.php:179 templates/part.contact.php:22
+#: templates/contacts.php:194 templates/part.contact.php:22
 msgid "Select photo from ownCloud"
 msgstr "ownCloud இலிருந்து படத்தை தெரிவுசெய்க"
 
-#: templates/contacts.php:188
+#: templates/contacts.php:203
 msgid "First name"
 msgstr "முதல் பெயர்"
 
-#: templates/contacts.php:191 templates/part.edit_name_dialog.php:37
+#: templates/contacts.php:206 templates/part.edit_name_dialog.php:37
 msgid "Additional names"
 msgstr "மேலதிக பெயர்கள்"
 
-#: templates/contacts.php:194
+#: templates/contacts.php:209
 msgid "Last name"
 msgstr "கடைசிப் பெயர்"
 
-#: templates/contacts.php:202 templates/contacts.php:263
+#: templates/contacts.php:217 templates/contacts.php:278
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
 msgstr "பட்டப்பெயர்"
 
-#: templates/contacts.php:209
+#: templates/contacts.php:224
 msgid "Title"
 msgstr "தலைப்பு"
 
-#: templates/contacts.php:216 templates/contacts.php:262
+#: templates/contacts.php:231 templates/contacts.php:277
 #: templates/part.contact.php:39 templates/part.contact.php:40
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "நிறுவனம்"
 
-#: templates/contacts.php:223 templates/contacts.php:264
+#: templates/contacts.php:238 templates/contacts.php:279
 #: templates/part.contact.php:45 templates/part.contact.php:128
 msgid "Birthday"
 msgstr "பிறந்த நாள்"
 
-#: templates/contacts.php:254
+#: templates/contacts.php:269
 msgid "Notes go here..."
 msgstr "குறிப்புகள் இங்கே இருக்கின்றன..."
 
-#: templates/contacts.php:261
+#: templates/contacts.php:276
 msgid "Add"
 msgstr "சேர்க்க"
 
-#: templates/contacts.php:265 templates/part.contact.php:129
+#: templates/contacts.php:280 templates/part.contact.php:129
 msgid "Phone"
 msgstr "தொலைப்பேசி"
 
-#: templates/contacts.php:266 templates/part.contact.php:130
+#: templates/contacts.php:281 templates/part.contact.php:130
 msgid "Email"
 msgstr "மின்னஞ்சல்"
 
-#: templates/contacts.php:267 templates/part.contact.php:131
+#: templates/contacts.php:282 templates/part.contact.php:131
 msgid "Instant Messaging"
 msgstr "Instant Messaging"
 
-#: templates/contacts.php:268 templates/part.contact.php:132
+#: templates/contacts.php:283 templates/part.contact.php:132
 msgid "Address"
 msgstr "முகவரி"
 
-#: templates/contacts.php:269 templates/part.contact.php:133
+#: templates/contacts.php:284 templates/part.contact.php:133
 msgid "Note"
 msgstr "குறிப்பு"
 
-#: templates/contacts.php:270 templates/part.contact.php:43
+#: templates/contacts.php:285 templates/part.contact.php:43
 #: templates/part.contact.php:134
 msgid "Web site"
 msgstr "வலைய தளம்"
 
-#: templates/contacts.php:283 templates/contacts.php:296
-#: templates/contacts.php:308 templates/contacts.php:332
-#: templates/contacts.php:358 templates/part.contact.php:59
+#: templates/contacts.php:298 templates/contacts.php:311
+#: templates/contacts.php:323 templates/contacts.php:347
+#: templates/contacts.php:373 templates/part.contact.php:59
 #: templates/part.contact.php:73 templates/part.contact.php:98
 msgid "Preferred"
 msgstr "விரும்பிய"
 
-#: templates/contacts.php:284 templates/part.contact.php:60
+#: templates/contacts.php:299 templates/part.contact.php:60
 msgid "Please specify a valid email address."
 msgstr "தயவுசெய்து செல்லுபடியான மின்னஞ்சல் முகவரியை குறிப்பிடுக."
 
-#: templates/contacts.php:284
+#: templates/contacts.php:299
 msgid "someone@example.com"
 msgstr "someone@example.com"
 
-#: templates/contacts.php:286 templates/part.contact.php:64
+#: templates/contacts.php:301 templates/part.contact.php:64
 msgid "Mail to address"
 msgstr "மின்னஞ்சல் முகவரி"
 
-#: templates/contacts.php:287 templates/part.contact.php:65
+#: templates/contacts.php:302 templates/part.contact.php:65
 msgid "Delete email address"
 msgstr "மின்னஞ்சல் முகவரியை நீக்குக"
 
-#: templates/contacts.php:297 templates/part.contact.php:75
+#: templates/contacts.php:312 templates/part.contact.php:75
 msgid "Enter phone number"
 msgstr "தொலைப்பேசி இலக்கத்தை நுழைக்க"
 
-#: templates/contacts.php:299 templates/part.contact.php:79
+#: templates/contacts.php:314 templates/part.contact.php:79
 msgid "Delete phone number"
 msgstr "தொலைப்பேசி இலக்கத்தை நீக்குக"
 
-#: templates/contacts.php:311 templates/part.contact.php:44
+#: templates/contacts.php:326 templates/part.contact.php:44
 msgid "Go to web site"
 msgstr "வலைய தளத்திற்கு செல்க"
 
-#: templates/contacts.php:312
+#: templates/contacts.php:327
 msgid "Delete URL"
 msgstr "URL ஐ நீக்குக"
 
-#: templates/contacts.php:323 templates/part.contact.php:110
+#: templates/contacts.php:338 templates/part.contact.php:110
 msgid "View on map"
 msgstr "வரைப்படத்தில் காண்க"
 
-#: templates/contacts.php:324
+#: templates/contacts.php:339
 msgid "Delete address"
 msgstr "முகவரியை நீக்குக"
 
-#: templates/contacts.php:335
+#: templates/contacts.php:350
 msgid "1 Main Street"
 msgstr "1 பிரதான பாதை"
 
-#: templates/contacts.php:338
+#: templates/contacts.php:353
 msgid "12345"
 msgstr "12345"
 
-#: templates/contacts.php:339
+#: templates/contacts.php:354
 msgid "Your city"
 msgstr "உங்களுடைய நகரம்"
 
-#: templates/contacts.php:342
+#: templates/contacts.php:357
 msgid "Some region"
 msgstr "சில பிரதேசம்"
 
-#: templates/contacts.php:345
+#: templates/contacts.php:360
 msgid "Your country"
 msgstr "உங்களுடைய நாடு"
 
-#: templates/contacts.php:365 templates/part.contact.php:100
+#: templates/contacts.php:380 templates/part.contact.php:100
 msgid "Instant Messenger"
 msgstr "Instant Messenger"
 
-#: templates/contacts.php:367 templates/part.contact.php:101
+#: templates/contacts.php:382 templates/part.contact.php:101
 msgid "Delete IM"
 msgstr "IM ஐ நீக்குக"
 
@@ -1108,10 +1112,6 @@ msgstr "iOS/OS X"
 #: templates/settings.php:11
 msgid "Addressbooks"
 msgstr "முகவரி புத்தகங்கள்"
-
-#: templates/settings.php:36
-msgid "Share"
-msgstr "பகிர்வு"
 
 #: templates/settings.php:58
 msgid "New Address Book"
