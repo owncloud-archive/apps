@@ -29,8 +29,7 @@ require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
 $container = createDIContainer();
 
 $security = $container['Security'];
-$security->setCSRFCheck(false);
 $security->runChecks();
 
 $controller = $container['SettingsController'];
-return $controller->index()->fetchPage();
+return $controller->index()->render();

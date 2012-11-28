@@ -34,20 +34,19 @@ require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
  * @param array $urlParams: an array with variables extracted from the routes
  * @param bool $isAjax: if the request is an ajax request
  * @param bool $disableAdminCheck: disables the check for adminuser rights
- * @param bool $disableIsInAdminGroupCheck: disables the check for admin group member
  */
 function callController($controllerName, $methodName, $urlParams, $isAjax=false,
-						$disableAdminCheck=true, $disableIsInAdminGroupCheck=true){
+                                                $disableAdminCheck=true){
 	$container = createDIContainer();
 	
 	// run security checks
 	$security = $container['Security'];
-	runSecurityChecks($security, $isAjax, $disableAdminCheck, $disableIsInAdminGroupCheck);
+        runSecurityChecks($security, $isAjax, $disableAdminCheck);
 
 	// call the controller and render the page
 	$controller = $container[$controllerName];
-	$page = $controller->$methodName($urlParams);
-	$page->printPage();
+        $response = $controller->$methodName($urlParams);
+        echo $response->render();
 }
 
 
@@ -57,16 +56,10 @@ function callController($controllerName, $methodName, $urlParams, $isAjax=false,
  * @param bool $isAjax: if true, the ajax checks will be run, otherwise the normal
  *                      checks
  * @param bool $disableAdminCheck: disables the check for adminuser rights
- * @param bool $disableIsInAdminGroupCheck: disables the check for admin group member
  */
-function runSecurityChecks($security, $isAjax=false, $disableAdminCheck=true, 
-							$disableIsInAdminGroupCheck=true){
+function runSecurityChecks($security, $isAjax=false, $disableAdminCheck=true){
 	if($disableAdminCheck){
 		$security->setIsAdminCheck(false);	
-	}
-
-	if($disableIsInAdminGroupCheck){
-		$security->setIsInAdminGroupCheck(false);	
 	}
 
 	if($isAjax){

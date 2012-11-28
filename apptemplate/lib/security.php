@@ -35,7 +35,6 @@ class Security {
 	private $loggedInCheck;
 	private $appEnabledCheck;
 	private $isAdminCheck;
-	private $isInAdminGroupCheck;
 	private $appName;
 
 	/**
@@ -49,7 +48,6 @@ class Security {
 		$this->loggedInCheck = true;
 		$this->appEnabledCheck = true;
 		$this->isAdminCheck = true;
-		$this->isInAdminGroupCheck = true;
 	}
 
 
@@ -69,10 +67,6 @@ class Security {
 		$this->isAdminCheck = $isAdminCheck;
 	}
 
-	public function setIsInAdminGroupCheck($isInAdminGroupCheck){
-		$this->isInAdminGroupCheck = $isInAdminGroupCheck;
-	}
-
 
 	/**
 	 * Runs all security checks
@@ -89,10 +83,6 @@ class Security {
 
 		if($this->isAdminCheck){
 			\OCP\JSON::checkAdminUser();
-		}
-
-		if($this->isInAdminGroupCheck){
-			\OCP\JSON::checkSubAdminUser();
 		}
 
 	}
@@ -116,10 +106,6 @@ class Security {
 
 		if($this->isAdminCheck){
 			\OCP\JSON::checkAdminUser();
-		}
-
-		if($this->isInAdminGroupCheck){
-			\OCP\JSON::checkSubAdminUser();
 		}
 
 	}

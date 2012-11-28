@@ -43,10 +43,16 @@ class SettingsController extends Controller {
 	 */
 	public function index($urlParams=array()){
 		$this->api->addScript('admin');
-		$template = $this->getTemplate('settings', 'admin');
-		$template->assign('url', $this->api->getSystemValue('somesetting'));
 		
-		return $template;
+                $response = new TemplateResponse($this->appName, 'settings');
+                $response->renderAs('admin');
+
+                $params = array(
+                        'url' => $this->api->getSystemValue('somesetting')
+                );
+                $response->setParams($params);
+
+                return $response;
 	}
 
 }

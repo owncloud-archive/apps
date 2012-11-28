@@ -33,6 +33,8 @@ namespace OCA\AppTemplate;
 \OC::$CLASSPATH['OCA\AppTemplate\Request'] = 'apps/apptemplate/lib/request.php';
 \OC::$CLASSPATH['OCA\AppTemplate\Security'] = 'apps/apptemplate/lib/security.php';
 \OC::$CLASSPATH['OCA\AppTemplate\Controller'] = 'apps/apptemplate/lib/controller.php';
+\OC::$CLASSPATH['OCA\AppTemplate\TemplateResponse'] = 'apps/apptemplate/lib/response.php';
+\OC::$CLASSPATH['OCA\AppTemplate\JSONResponse'] = 'apps/apptemplate/lib/response.php';
 
 \OC::$CLASSPATH['OCA\AppTemplate\IndexController'] = 'apps/apptemplate/controllers/index.controller.php';
 \OC::$CLASSPATH['OCA\AppTemplate\SettingsController'] = 'apps/apptemplate/controllers/settings.controller.php';
@@ -57,7 +59,7 @@ function createDIContainer(){
 	});
 
 	$container['Request'] = $container->share(function($c){
-		return new Request($c['API']->getUserId(), $_GET, $_POST);
+                return new Request($_GET, $_POST);
 	});
 
 

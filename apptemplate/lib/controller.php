@@ -27,7 +27,9 @@ namespace OCA\AppTemplate;
 class Controller {
 
 	protected $api;
-	protected $request;
+        protected $appName;
+
+        private $request;
 
 	/**
 	 * @param API $api: an api wrapper instance
@@ -36,6 +38,7 @@ class Controller {
 	public function __construct($api, $request){
 		$this->api = $api;
 		$this->request = $request;
+                $this->appName = $api->getAppName();
 	}
 
 
@@ -57,18 +60,7 @@ class Controller {
 		if($getValue !== null){
 			return $getValue;
 		}
-	}
 
-
-	/**
-	 * @brief Shortcut for creating a template for the current app#
-	 * @param string $templateName: the name of the template in the templates
-	 *                              directory without the .php suffix
-	 * @param bool $userPage: 'user' renders are normal page, 'admin' an admin page
-	 * @return a new Template instance
-	 */
-	protected function getTemplate($templateName, $page='user'){
-		return new \OCP\Template($this->api->getAppName(), $templateName, $page);		
 	}
 
 }

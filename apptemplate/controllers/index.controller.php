@@ -44,13 +44,17 @@ class IndexController extends Controller {
 	 * @brief renders the index page
 	 * @param array $urlParams: an array with the values, which were matched in 
 	 *                          the routes file
+         * @return an instance of a Response implementation
 	 */
 	public function index($urlParams=array()){
-		$template = $this->getTemplate('main');
-		$templateVariable = $this->api->getSystemValue('somesetting');
-		$template->assign('somesetting', $templateVariable, false);
+                $response = new TemplateResponse($this->appName, 'main');
+
+                $params = array(
+                        'somesetting' => $this->api->getSystemValue('somesetting')
+                );
+                $response->setParams($params);
 		
-		return $template;
+                return $response;
 	}
 
 }
