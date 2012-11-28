@@ -32,21 +32,34 @@ require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
  *                                stored in the DI container
  * @param string $methodName: the method that you want to call
  * @param array $urlParams: an array with variables extracted from the routes
- * @param bool $isAjax: if the request is an ajax request
  * @param bool $disableAdminCheck: disables the check for adminuser rights
+ * @param bool $isAjax: if the request is an ajax request
  */
-function callController($controllerName, $methodName, $urlParams, $isAjax=false,
-                                                $disableAdminCheck=true){
+function callController($controllerName, $methodName, $urlParams, $disableAdminCheck=true,
+						$isAjax=false){
 	$container = createDIContainer();
 	
 	// run security checks
 	$security = $container['Security'];
-        runSecurityChecks($security, $isAjax, $disableAdminCheck);
+	runSecurityChecks($security, $isAjax, $disableAdminCheck);
 
 	// call the controller and render the page
 	$controller = $container[$controllerName];
-        $response = $controller->$methodName($urlParams);
-        echo $response->render();
+	$response = $controller->$methodName($urlParams);
+	echo $response->render();
+}
+
+
+/**
+ * Shortcut for calling an ajax controller method and printing the result
+ * @param string $controllerName: the name of the controller under which it is
+ *                                stored in the DI container
+ * @param string $methodName: the method that you want to call
+ * @param array $urlParams: an array with variables extracted from the routes
+ * @param bool $disableAdminCheck: disables the check for adminuser rights
+ */
+function callAjaxController($controllerName, $methodName, $urlParams, $disableAdminCheck=true){
+	callController($controllerName, $methodName, $urlParams, $disableAdminCheck, true);
 }
 
 
@@ -87,6 +100,6 @@ $this->create('apptemplate_index', '/')->action(
  */
 $this->create('apptemplate_ajax_setsystemvalue', '/setsystemvalue')->post()->action(
 	function($params){		
-		callController('AjaxController', 'setSystemValue', $params, true);
+		callAjaxController('AjaxController', 'setSystemValue', $params);
 	}
 );
