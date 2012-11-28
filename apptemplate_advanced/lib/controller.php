@@ -38,7 +38,7 @@ class Controller {
 	public function __construct($api, $request){
 		$this->api = $api;
 		$this->request = $request;
-				$this->appName = $api->getAppName();
+		$this->appName = $api->getAppName();
 	}
 
 
@@ -47,9 +47,10 @@ class Controller {
 	 * @param string $key: the key which you want to access in the $_POST or
 	 *                     $_GET array. If both arrays store things under the same
 	 *                     key, return the value in $_POST
+	 * @param $default: If the key is not found, this value will be returned
 	 * @return: the content of the array
 	 */
-	protected function params($key){
+	protected function params($key, $default=null){
 		$postValue = $this->request->getPOST($key);
 		$getValue = $this->request->getGET($key);
 		
@@ -60,6 +61,8 @@ class Controller {
 		if($getValue !== null){
 			return $getValue;
 		}
+
+		return $default;
 
 	}
 
