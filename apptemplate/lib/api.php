@@ -77,6 +77,33 @@ class API {
 
 
 	/**
+	 * Adds a new css file
+	 * @param string $styleName: the name of the css file in css/
+	 * without the suffix
+	 */
+	public function addStyle($styleName){
+		\OCP\Util::addStyle($this->appName, $styleName);
+	}
+
+
+	/**
+	 * @brief shorthand for addScript for files in the 3rdparty directory
+	 * @param string $name: the name of the file without the suffix
+	 */
+	public function add3rdPartyScript($name){
+		\OCP\Util::addScript($this->appName . '/3rdparty', $name);
+	}
+
+
+	/**
+	 * @brief shorthand for addStyle for files in the 3rdparty directory
+	 * @param string $name: the name of the file without the suffix
+	 */
+	public function add3rdPartyStyle($name){
+		\OCP\Util::addStyle($this->appName . '/3rdparty', $name);
+	}
+
+	/**
 	 * Looks up a systemwide defined value
 	 * @param string $key: the key of the value, under which it was saved
 	 * @return the saved value
@@ -84,7 +111,7 @@ class API {
 	public function getSystemValue($key){
 		return \OCP\Config::getSystemValue($key, '');
 	}
-	
+
 
 	/**
 	 * Sets a new systemwide value
@@ -94,6 +121,34 @@ class API {
 	public function setSystemValue($key, $value){
 		return \OCP\Config::setSystemValue($key, $value);
 	}
-	
+
+
+	/**
+	 * Shortcut for setting a user defined value
+	 * @param $key the key under which the value is being stored
+	 * @param $value the value that you want to store
+	 */
+	public function setUserValue($key, $value){
+		\OCP\Config::setUserValue($this->getUserId(), $this->appName, $key, $value);
+	}
+
+
+	/**
+	 * Shortcut for getting a user defined value
+	 * @param $key the key under which the value is being stored
+	 */
+	public function getUserValue($key){
+		return \OCP\Config::getUserValue($this->getUserId(), $this->appName, $key);
+	}
+
+
+	/**
+	 * Returns the translation object
+	 * @return the translation object
+	 */
+	public function getTrans(){
+		return \OC_L10N::get($this->appName);
+	}
+
 
 }
