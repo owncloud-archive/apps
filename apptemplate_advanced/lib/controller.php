@@ -28,8 +28,7 @@ class Controller {
 
 	protected $api;
 	protected $appName;
-
-	private $request;
+	protected $request;
 
 	/**
 	 * @param API $api: an api wrapper instance
@@ -63,7 +62,58 @@ class Controller {
 		}
 
 		return $default;
+	}
 
+
+	/**
+	 * Shortcut for accessing an uploaded file through the $_FILES array
+	 * @param string $key: the key that will be taken from the $_FILES array
+	 * @return the file in the $_FILES element
+	 */
+	protected function getUploadedFile($key){
+		return $this->request->getFILES($key);
+	}
+
+
+	/**
+	 * Shortcut for rendering a template
+	 * @param string $templateName: the name of the template
+	 * @param array $params: the template parameters in key => value structure
+	 * @param string $renderAs: user renders a full page, blank only your template
+	 *                          admin an entry in the admin settings
+	 * @param array $headers: set additional headers
+	 * @return a TemplateResponse
+	 */
+	protected function render($templateName, $params=array(), $renderAs='user',
+								$headers=array()){
+		$response = new TemplateResponse($this->appName, $templateName, $renderAs);
+		$response->setParams($paramas);
+		$response->renderAs($renderAs);
+
+		foreach($headers as $header){
+			$response->addHeader($header);
+		}
+
+		return $response;
+	}
+
+
+	/**
+	 * Shortcut for rendering a JSON response
+	 * @param array $data: the PHP array that will be put into the JSON data index
+	 * @param string $errorMsg: If you want to return an error message, pass one
+	 * @param string $file: the file where the error message happened
+	 * @return a JSONResponse
+	 */
+	protected function renderJSON($data=array(), $errorMsg=null, $file=''){
+		$response = new JSONResponse($this->appName);
+		$response->setParams($data);
+
+		if($errorMsg !== null){
+			$response->setErrorMessage($errorMsg, $file);
+		}
+
+		return $response;
 	}
 
 }

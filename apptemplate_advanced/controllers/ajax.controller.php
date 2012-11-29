@@ -45,12 +45,11 @@ class AjaxController extends Controller {
 		$value = $this->params('somesetting');
 		$this->api->setSystemValue('somesetting', $value);
 
-		$response = new JSONResponse($this->appName);
+		$params = array(
+			'somesetting' => $value
+		);
 
-		$params = array('somesetting' => $value);
-		$response->setParams($params);
-
-		return $response;
+		return $this->renderJSON($params);
 	}
 
 }

@@ -47,14 +47,11 @@ class IndexController extends Controller {
 		 * @return an instance of a Response implementation
 	 */
 	public function index($urlParams=array()){
-		$response = new TemplateResponse($this->appName, 'main');
-
+		$templateName = 'main';
 		$params = array(
-				'somesetting' => $this->api->getSystemValue('somesetting')
+			'somesetting' => $this->api->getSystemValue('somesetting')
 		);
-		$response->setParams($params);
-
-		return $response;
+		return $this->render($templateName, $params);
 	}
 
 }

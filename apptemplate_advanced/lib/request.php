@@ -31,12 +31,14 @@ class Request {
 
 	private $get;
 	private $post;
+	private $files;
 
 	/**
 	 * @param array $get: the $_GET array
 	 * @param array $post: the $_POST array
+	 * @param array $files: the $_FILES array
 	 */
-	public function __construct($get=array(), $post=array()) {
+	public function __construct($get=array(), $post=array(), $files=array()) {
 		$this->get = $get;
 		$this->post = $post;
 	}
@@ -68,6 +70,19 @@ class Request {
 			return $this->post[$key];
 		} else {
 			return $default;
+		}
+	}
+
+	/**
+	 * Returns the get value of the files array
+	 * @param string $key: the array key that should be looked up
+	 * @return the value of the stored array
+	 */
+	public function getFILES($key){
+		if(isset($this->files[$key])){
+			return $this->files[$key];
+		} else {
+			return null;
 		}
 	}
 

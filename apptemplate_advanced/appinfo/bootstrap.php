@@ -59,7 +59,7 @@ function createDIContainer(){
 	});
 
 	$container['Request'] = $container->share(function($c){
-                return new Request($_GET, $_POST);
+                return new Request($_GET, $_POST, $_FILES);
 	});
 
 
