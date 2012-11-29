@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-29 00:01+0100\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -280,7 +280,7 @@ msgstr ""
 msgid "Select photo"
 msgstr ""
 
-#: js/app.js:897 js/app.js:923 js/app.js:1552 js/app.js:1658 js/contacts.js:97
+#: js/app.js:897 js/app.js:923 js/app.js:1557 js/app.js:1663 js/contacts.js:97
 #: js/contacts.js:182 js/contacts.js:381
 msgid "Network or server error. Please inform administrator."
 msgstr ""
@@ -297,45 +297,45 @@ msgstr ""
 msgid "There was an error opening a mail composer."
 msgstr ""
 
-#: js/app.js:1344 templates/contacts.php:153
+#: js/app.js:1349 templates/contacts.php:153
 msgid "Add group"
 msgstr ""
 
-#: js/app.js:1416
+#: js/app.js:1421
 msgid "No files selected for upload."
 msgstr ""
 
-#: js/app.js:1427
+#: js/app.js:1432
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr ""
 
-#: js/app.js:1517
+#: js/app.js:1522
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1535 js/contacts.js:864
+#: js/app.js:1540 js/contacts.js:864
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/app.js:1581 templates/part.selectaddressbook.php:27
+#: js/app.js:1586 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr ""
 
-#: js/app.js:1582 templates/part.selectaddressbook.php:29
+#: js/app.js:1587 templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr ""
 
-#: js/app.js:1585
+#: js/app.js:1590
 msgid "Select addressbook"
 msgstr ""
 
-#: js/app.js:1593
+#: js/app.js:1598
 msgid "The address book name cannot be empty."
 msgstr ""
 
-#: js/app.js:1593 js/settings.js:25 js/settings.js:45 js/settings.js:75
+#: js/app.js:1598 js/settings.js:25 js/settings.js:45 js/settings.js:75
 #: js/settings.js:112
 msgid "Error"
 msgstr ""

@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-29 00:01+0100\n"
-"PO-Revision-Date: 2012-11-28 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
+"PO-Revision-Date: 2012-11-29 07:28+0000\n"
+"Last-Translator: Romain DEP. <rom1dep@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -219,7 +219,7 @@ msgstr "Erreur lors de l'importation des flux"
 msgid "Select file"
 msgstr "Sélectionnez le fichier"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "sans titre"
 
@@ -227,7 +227,7 @@ msgstr "sans titre"
 msgid "no name"
 msgstr "sans nom"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "sans contenu"
 
@@ -245,7 +245,7 @@ msgstr "Vous avez souscrit à"
 
 #: subscribe.php:36
 msgid "You had already subscribed to this feed!"
-msgstr ""
+msgstr "Vous avez déjà souscrit à ce flux !"
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -371,12 +371,12 @@ msgstr "de"
 msgid "by"
 msgstr "par"
 
-#: templates/part.items.php:57 templates/part.items.php:58
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Partager"
 
-#: templates/part.items.php:59 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Garder non lu"
 

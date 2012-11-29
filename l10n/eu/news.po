@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-29 00:01+0100\n"
-"PO-Revision-Date: 2012-11-28 23:02+0000\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
+"PO-Revision-Date: 2012-11-28 23:14+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -211,7 +211,7 @@ msgstr "Errorea gertatu da iturburuak inportatzerakoan."
 msgid "Select file"
 msgstr "Hautatu fitxategia"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "izenbururik gabe"
 
@@ -219,7 +219,7 @@ msgstr "izenbururik gabe"
 msgid "no name"
 msgstr "izenik gabe"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "gorputzik gabe"
 
@@ -363,12 +363,12 @@ msgstr "lekua"
 msgid "by"
 msgstr "egilea"
 
-#: templates/part.items.php:57 templates/part.items.php:58
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Elkarbanatu"
 
-#: templates/part.items.php:59 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Mantendu irakurri gabea"
 
