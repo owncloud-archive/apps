@@ -24,14 +24,80 @@
 
 namespace OCA\AppTemplateAdvanced;
 
-interface Response {
-	function render();
+abstract class Response {
+
+	private $headers;
+
+	protected function __construct(){
+		$this->headers = array();
+	}
+
+	/**
+	 * Adds a new header to the response that will be called before the render
+	 * function
+	 * @param string header: the string that will be used in the header() function
+	 */
+	public function addHeader($header){
+		array_push($this->headers, $header);
+	}
+
+
+	/**
+	 * Renders all headers
+	 */
+	public function render(){
+		foreach($this->headers as $value) {
+			header($value);
+		}
+	}
+
+
 }
+
+
+/**
+ * Prompts the user to download the a textfile
+ */
+class TextDownloadResponse extends Response {
+	
+	private $content;
+	private $filename;
+	private $contentType;
+
+	/**
+	 * Creates a response that prompts the user to download the file
+	 * @param string $content: the content that should be written into the file
+	 * @param string $filename: the name that the downloaded file should have
+	 * @param string $contentType: the mimetype that the downloaded file should have
+	 */
+	public function __construct($content, $filename, $contentType){
+		parent::__construct();
+		$this->content = $content;
+		$this->filename = $filename;
+		$this->contentType = $contentType;
+
+		$this->addHeader('Content-Disposition: attachment; filename="' . $filename . '"');
+		$this->addHeader('Content-Type: ' . $contentType);
+	}
+
+
+	/**
+	 * Simply sets the headers and returns the file contents
+	 * @return the file contents
+	 */
+	public function render(){
+		parent::render();
+		return $this->content;
+	}
+
+
+}
+
 
 /**
  * Response for a normal template
  */
-class TemplateResponse implements Response {
+class TemplateResponse extends Response {
 
 	private $templateName;
 	private $params;
@@ -43,6 +109,7 @@ class TemplateResponse implements Response {
 	 * @param string $templateName: the name of the template
 	 */
 	public function __construct($appName, $templateName) {
+		parent::__construct();
 		$this->templateName = $templateName;
 		$this->appName = $appName;
 		$this->params = array();
@@ -76,6 +143,8 @@ class TemplateResponse implements Response {
 	 * @return the rendered html
 	 */
 	public function render(){
+		parent::render();
+
 		if($this->renderAs === 'blank'){
 			$template = new \OCP\Template($this->appName, $this->templateName);
 		} else {
@@ -96,7 +165,7 @@ class TemplateResponse implements Response {
 /**
  * A renderer for JSON calls
  */
-class JSONResponse implements Response {
+class JSONResponse extends Response {
 
 	private $name;
 	private $data;
@@ -106,6 +175,7 @@ class JSONResponse implements Response {
 	 * @param string $appName: the name of your app
 	 */
 	public function __construct($appName) {
+		parent::__construct();
 		$this->appName = $appName;
 		$this->data = array();
 		$this->error = false;
@@ -140,6 +210,7 @@ class JSONResponse implements Response {
 	 * @return the rendered json
 	 */
 	public function render(){
+		parent::render();
 
 		ob_start();
 
