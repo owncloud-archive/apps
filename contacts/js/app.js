@@ -1174,11 +1174,16 @@ OC.Contacts = OC.Contacts || {
 			self.hideActions();
 		});
 
-		$('h3.export,h3.import,h3.share').on('click keydown', function(event) {
+		this.$settings.find('h3').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
+			if($(this).next('ul').is(':visible')) {
+				$(this).next('ul').slideUp();
+				return;
+			}
 			console.log('export');
+			$(this).parents('ul').first().find('ul:visible').slideUp();
 			$(this).next('ul').toggle('slow');
 		});
 
