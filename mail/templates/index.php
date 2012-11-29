@@ -6,7 +6,9 @@ if (count($accounts) == 0) {
 	?>
 
 <div id="leftcontent" class="leftcontent">
-    <div id="mail-folders"></div>
+    <div id="mail-folders">
+        <img src="<?php echo OCP\Util::imagePath('core', 'loading.gif'); ?>" />
+    </div>
     <div id="bottomcontrols">
         <button class="control settings" title="<?php echo $l->t('Settings'); ?>"></button>
     </div>

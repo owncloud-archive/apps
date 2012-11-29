@@ -101,9 +101,9 @@ class OC_Gallery_Photo {
 	public static function getViewImage($image_name, $owner = null) {
 		if (!$owner) $owner = OCP\USER::getUser();
 		$view_file = OC_Filesystem::getLocalFile($image_name);
-		if (!is_dir($save_dir)) {
+		/*if (!is_dir($save_dir)) {
 			mkdir($save_dir, 0777, true);
-		}
+		}*/
 		if (file_exists($view_file)) {
 			$image = new OC_Image($view_file);
 		} else {

@@ -25,26 +25,26 @@ OCP\JSON::checkAppEnabled('contacts');
 require_once 'loghandler.php';
 
 if(!isset($_GET['id'])) {
-	bailOut(OC_Contacts_App::$l10n->t('No contact ID was submitted.'));
+	bailOut(OCA\Contacts\App::$l10n->t('No contact ID was submitted.'));
 }
 
 if(!isset($_GET['path'])) {
-	bailOut(OC_Contacts_App::$l10n->t('No photo path was submitted.'));
+	bailOut(OCA\Contacts\App::$l10n->t('No photo path was submitted.'));
 }
 
 $localpath = \OC\Files\Filesystem::getLocalFile($_GET['path']);
 $tmpkey = 'contact-photo-'.$_GET['id'];
 
 if(!file_exists($localpath)) {
-	bailOut(OC_Contacts_App::$l10n->t('File doesn\'t exist:').$localpath);
+	bailOut(OCA\Contacts\App::$l10n->t('File doesn\'t exist:').$localpath);
 }
 
 $image = new OC_Image();
 if(!$image) {
-	bailOut(OC_Contacts_App::$l10n->t('Error loading image.'));
+	bailOut(OCA\Contacts\App::$l10n->t('Error loading image.'));
 }
 if(!$image->loadFromFile($localpath)) {
-	bailOut(OC_Contacts_App::$l10n->t('Error loading image.'));
+	bailOut(OCA\Contacts\App::$l10n->t('Error loading image.'));
 }
 if($image->width() > 400 || $image->height() > 400) {
 	$image->resize(400); // Prettier resizing than with browser and saves bandwidth.

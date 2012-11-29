@@ -9,7 +9,7 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('contacts');
 
-$books = OC_Contacts_Addressbook::all(OCP\USER::getUser());
+$books = OCA\Contacts\Addressbook::all(OCP\USER::getUser());
 $tmpl = new OCP\Template("contacts", "part.selectaddressbook");
 $tmpl->assign('addressbooks', $books);
 $page = $tmpl->fetchPage();

@@ -39,7 +39,7 @@ if(!$file) {
 	exit();
 }
 if(isset($_POST['method']) && $_POST['method'] == 'new') {
-	$id = OC_Contacts_Addressbook::add(OCP\USER::getUser(),
+	$id = OCA\Contacts\Addressbook::add(OCP\USER::getUser(),
 		$_POST['addressbookname']);
 	if(!$id) {
 		OCP\JSON::error(
@@ -49,7 +49,7 @@ if(isset($_POST['method']) && $_POST['method'] == 'new') {
 		);
 		exit();
 	}
-	OC_Contacts_Addressbook::setActive($id, 1);
+	OCA\Contacts\Addressbook::setActive($id, 1);
 }else{
 	$id = $_POST['id'];
 	if(!$id) {
@@ -63,7 +63,19 @@ if(isset($_POST['method']) && $_POST['method'] == 'new') {
 		);
 		exit();
 	}
-	OC_Contacts_App::getAddressbook($id); // is owner access check
+	try {
+		OCA\Contacts\Addressbook::find($id); // is owner access check
+	} catch(Exception $e) {
+		OCP\JSON::error(
+			array(
+				'data' => array(
+					'message' => $e->getMessage(),
+					'file'=>$_POST['file']
+				)
+			)
+		);
+		exit();
+	}
 }
 //analyse the contacts file
 writeProgress('40');
@@ -110,20 +122,21 @@ if(!count($parts) > 0) {
 	exit();
 }
 foreach($parts as $part) {
-	$card = OC_VObject::parse($part);
-	if (!$card) {
+	try {
+		$vcard = Sabre\VObject\Reader::read($part);
+	} catch (Exception $e) {
 		$failed += 1;
 		OCP\Util::writeLog('contacts',
-			'Import: skipping card. Error parsing VCard: ' . $part,
+			'Import: skipping card. Error parsing VCard: ' . $e->getMessage(),
 				OCP\Util::ERROR);
 		continue; // Ditch cards that can't be parsed by Sabre.
 	}
 	try {
-		OC_Contacts_VCard::add($id, $card);
+		OCA\Contacts\VCard::add($id, $vcard);
 		$imported += 1;
 	} catch (Exception $e) {
 		OCP\Util::writeLog('contacts',
-			'Error importing vcard: ' . $e->getMessage() . $nl . $card,
+			'Error importing vcard: ' . $e->getMessage() . $nl . $vcard,
 			OCP\Util::ERROR);
 		$failed += 1;
 	}
