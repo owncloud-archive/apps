@@ -28,215 +28,215 @@
  */
 (function(window, $, angular, OC, CSRFToken){
 
-        'use strict';
+	'use strict';
 
-        /**
-         * With this block you define your app. This has to be at the top the js,
-         * the following things are not needed to in order. Make sure to mind this
-         * when you use a custom compile script
-         */
-        var app = angular.module('AppTemplateAdvanced', [])
-                .config(['$provide', function($provide){
+	/**
+	 * With this block you define your app. This has to be at the top the js,
+	 * the following things are not needed to in order. Make sure to mind this
+	 * when you use a custom compile script
+	 */
+	var app = angular.module('AppTemplateAdvanced', [])
+		.config(['$provide', function($provide){
 
-                        // Use this for configuration values
-                        var Config = {
-                                routes: {}
-                        };
+			// Use this for configuration values
+			var Config = {
+				routes: {}
+			};
 
-                        Config.routes.saveNameRoute = 'apptemplate_advanced_ajax_setsystemvalue';
+			Config.routes.saveNameRoute = 'apptemplate_advanced_ajax_setsystemvalue';
 
-                        return $provide.value('Config', Config);
-                }
-        ]);
+			return $provide.value('Config', Config);
+		}
+	]);
 
-        /**
-         * This function is run once angular is set up. That doesnt mean though that
-         * the document is ready
-         */
-        angular.module('AppTemplateAdvanced').
-                run(['$rootScope', function($rootScope){
+	/**
+	 * This function is run once angular is set up. That doesnt mean though that
+	 * the document is ready
+	 */
+	angular.module('AppTemplateAdvanced').
+		run(['$rootScope', function($rootScope){
 
-                        var init = function(){
-                                $rootScope.$broadcast('routesLoaded');
-                        };
+			var init = function(){
+				$rootScope.$broadcast('routesLoaded');
+			};
 
-                        // this registers a callback that is executed once the routes have
-                        // finished loading. Before this you cant really do request
-                        OC.Router.registerLoadedCallback(init);
-                }
-        ]);
-
-
-        /**
-         * Instantiate your controllers in a seperate function to stay flexible and
-         * be able to test them later on
-         */
-        angular.module('AppTemplateAdvanced').
-                controller('ExampleController', ['$scope', 'Config', 'Request', '_ExampleController',
-                function($scope, Config, Request, _ExampleController){
-                        return new _ExampleController($scope, Config, Request);
-                }
-        ]);
+			// this registers a callback that is executed once the routes have
+			// finished loading. Before this you cant really do request
+			OC.Router.registerLoadedCallback(init);
+		}
+	]);
 
 
-        /**
-         * This is an example of a controller. We pass in the Config via Dependency
-         * Injection. A factory creates a shared instance. You can also share objects
-         * across controllers this way
-         */
-        angular.module('AppTemplateAdvanced').
-                factory('_ExampleController', [function(){
-
-                        // use prototyping to stay flexible. If you use coffeescript,
-                        var Controller = function($scope, Config, Request){
-                                var self = this;
-
-                                this.$scope = $scope;
-                                this.config = Config;
-                                this.request = Request;
-
-                                // bind methods on the scope so that you can access them in the
-                                // controllers child HTML
-                                this.$scope.saveName = function(name){
-                                        self.saveName(name);
-                                };
-                        };
+	/**
+	 * Instantiate your controllers in a seperate function to stay flexible and
+	 * be able to test them later on
+	 */
+	angular.module('AppTemplateAdvanced').
+		controller('ExampleController', ['$scope', 'Config', 'Request', '_ExampleController',
+		function($scope, Config, Request, _ExampleController){
+			return new _ExampleController($scope, Config, Request);
+		}
+	]);
 
 
-                        /**
-                         * Makes an ajax query to save the name
-                         */
-                        Controller.prototype.saveName = function(name){
-                                this.request.saveName(this.config.routes.saveNameRoute, name);
-                        };
+	/**
+	 * This is an example of a controller. We pass in the Config via Dependency
+	 * Injection. A factory creates a shared instance. You can also share objects
+	 * across controllers this way
+	 */
+	angular.module('AppTemplateAdvanced').
+		factory('_ExampleController', [function(){
 
-                        return Controller;
-                }
-        ]);
+			// use prototyping to stay flexible. If you use coffeescript,
+			var Controller = function($scope, Config, Request){
+				var self = this;
 
+				this.$scope = $scope;
+				this.config = Config;
+				this.request = Request;
 
-        /**
-         * Its always good to put the object that does routes request into a seperate
-         * object to be able to adjust it easily
-         */
-        angular.module('AppTemplateAdvanced').
-                factory('Request', ['$http', '$rootScope', 'Config', function($http, $rootScope, Config){
-
-                        var Request = function($http, $rootScope, Config){
-                                var self = this;
-
-                                this.$http = $http;
-                                this.$rootScope = $rootScope;
-                                this.config = Config;
-
-                                // if the routes are not yet initialized we dont want to lose
-                                // requests. Save all requests and run them when the routes are
-                                // ready
-                                this.initialized = false;
-                                this.shelvedRequests = [];
-
-                                this.$rootScope.$on('routesLoaded', function(){
-                                        for(var i=0; i<self.shelvedRequests.length; i++){
-                                                var req = self.shelvedRequests[i];
-                                                self.post(req.route, req.routeParams, req.data,
-                                                                req.onSuccess, req.onFailure);
-                                        }
-
-                                        self.initialized = true;
-                                });
+				// bind methods on the scope so that you can access them in the
+				// controllers child HTML
+				this.$scope.saveName = function(name){
+					self.saveName(name);
+				};
+			};
 
 
-                        };
+			/**
+			 * Makes an ajax query to save the name
+			 */
+			Controller.prototype.saveName = function(name){
+				this.request.saveName(this.config.routes.saveNameRoute, name);
+			};
 
-                        /**
-                         * Do the actual post request
-                         * @param string route: the url which we want to request
-                         * @param object routeParams: Parameters that are needed to generate
-                         *                            the route
-                         * @param object data: the post params that we want to pass
-                         * @param function onSuccess: the function that will be called if
-                         *                            the request was successful
-                         * @param function onFailure: the function that will be called if the
-                         *                          request failed
-                         */
-                        Request.prototype.post = function(route, routeParams, data, onSuccess, onFailure){
-
-                                // if routes are not ready, save the request
-                                if(!this.initialized){
-                                        var request = {
-                                                route: route,
-                                                routeParams: routeParams,
-                                                data: data,
-                                                onSuccess: onSuccess,
-                                                onFailure: onFailure
-                                        };
-                                        this.shelvedRequests.push(request);
-                                        return;
-                                }
+			return Controller;
+		}
+	]);
 
 
-                                var url;
-                                if(routeParams){
-                                        url = OC.Router.generate(route, routeParams);
-                                } else {
-                                        url = OC.Router.generate(route);
-                                }
+	/**
+	 * Its always good to put the object that does routes request into a seperate
+	 * object to be able to adjust it easily
+	 */
+	angular.module('AppTemplateAdvanced').
+		factory('Request', ['$http', '$rootScope', 'Config', function($http, $rootScope, Config){
 
-                                // encode data object for post
-                                var postData = data || {};
-                                postData = $.param(data);
+			var Request = function($http, $rootScope, Config){
+				var self = this;
 
-                                // pass the CSRF token as header
-                                var headers = {
-                                        requesttoken: CSRFToken,
-                                        'Content-Type': 'application/x-www-form-urlencoded'
-                                };
+				this.$http = $http;
+				this.$rootScope = $rootScope;
+				this.config = Config;
 
-                                // do the actual request
-                                this.$http.post(url, postData, {headers: headers}).
-                                        success(function(data, status, headers, config){
+				// if the routes are not yet initialized we dont want to lose
+				// requests. Save all requests and run them when the routes are
+				// ready
+				this.initialized = false;
+				this.shelvedRequests = [];
 
-                                                if(onSuccess){
-                                                        onSuccess(data);
-                                                }
-                                        }).
-                                        error(function(data, status, headers, config){
+				this.$rootScope.$on('routesLoaded', function(){
+					for(var i=0; i<self.shelvedRequests.length; i++){
+						var req = self.shelvedRequests[i];
+						self.post(req.route, req.routeParams, req.data,
+								req.onSuccess, req.onFailure);
+					}
 
-                                                if(onFailure){
-                                                        onFailure();
-                                                }
-                                        });
-                        };
+					self.initialized = true;
+				});
 
 
-                        /**
-                         * Save the name to the server
-                         * @param string route: the route for the server
-                         * @param string name: the new name
-                         */
-                        Request.prototype.saveName = function(route, name) {
-                                this.post(route, {}, {somesetting: name});
-                        };
+			};
 
-                        return new Request($http, $rootScope, Config);
-                }
-        ]);
+			/**
+			 * Do the actual post request
+			 * @param string route: the url which we want to request
+			 * @param object routeParams: Parameters that are needed to generate
+			 *                            the route
+			 * @param object data: the post params that we want to pass
+			 * @param function onSuccess: the function that will be called if
+			 *                            the request was successful
+			 * @param function onFailure: the function that will be called if the
+			 *                          request failed
+			 */
+			Request.prototype.post = function(route, routeParams, data, onSuccess, onFailure){
+
+				// if routes are not ready, save the request
+				if(!this.initialized){
+					var request = {
+						route: route,
+						routeParams: routeParams,
+						data: data,
+						onSuccess: onSuccess,
+						onFailure: onFailure
+					};
+					this.shelvedRequests.push(request);
+					return;
+				}
 
 
-        /**
-         * Use filters to perform tasks that need to be done when rendering
-         * This
-         */
-        angular.module('AppTemplateAdvanced').
-                filter('leetIt', function(){
+				var url;
+				if(routeParams){
+					url = OC.Router.generate(route, routeParams);
+				} else {
+					url = OC.Router.generate(route);
+				}
 
-                        var leetIt = function(leetThis){
-                                return leetThis.replace('e', '3').replace('i', '1');
-                        };
+				// encode data object for post
+				var postData = data || {};
+				postData = $.param(data);
 
-                        return leetIt;
-                }
-        );
+				// pass the CSRF token as header
+				var headers = {
+					requesttoken: CSRFToken,
+					'Content-Type': 'application/x-www-form-urlencoded'
+				};
+
+				// do the actual request
+				this.$http.post(url, postData, {headers: headers}).
+					success(function(data, status, headers, config){
+
+						if(onSuccess){
+							onSuccess(data);
+						}
+					}).
+					error(function(data, status, headers, config){
+
+						if(onFailure){
+							onFailure();
+						}
+					});
+			};
+
+
+			/**
+			 * Save the name to the server
+			 * @param string route: the route for the server
+			 * @param string name: the new name
+			 */
+			Request.prototype.saveName = function(route, name) {
+				this.post(route, {}, {somesetting: name});
+			};
+
+			return new Request($http, $rootScope, Config);
+		}
+	]);
+
+
+	/**
+	 * Use filters to perform tasks that need to be done when rendering
+	 * This
+	 */
+	angular.module('AppTemplateAdvanced').
+		filter('leetIt', function(){
+
+			var leetIt = function(leetThis){
+				return leetThis.replace('e', '3').replace('i', '1');
+			};
+
+			return leetIt;
+		}
+	);
 
 
 })(window, jQuery, angular, OC, oc_requesttoken);
