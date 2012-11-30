@@ -87,7 +87,7 @@ class Controller {
 	protected function render($templateName, $params=array(), $renderAs='user',
 								$headers=array()){
 		$response = new TemplateResponse($this->appName, $templateName, $renderAs);
-		$response->setParams($paramas);
+		$response->setParams($params);
 		$response->renderAs($renderAs);
 
 		foreach($headers as $header){
