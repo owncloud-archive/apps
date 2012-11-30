@@ -112,7 +112,7 @@ function runSecurityChecks($security, $isAjax=false, $disableAdminCheck=true){
  * Normal Routes
  */
 $this->create('apptemplate_advanced_index', '/')->action(
-	function($params){		
+	function($params){
 		callController('IndexController', 'index', $params);
 	}
 );
@@ -121,7 +121,11 @@ $this->create('apptemplate_advanced_index', '/')->action(
  * Ajax Routes
  */
 $this->create('apptemplate_advanced_ajax_setsystemvalue', '/setsystemvalue')->post()->action(
-	function($params){		
-		callAjaxController('AjaxController', 'setSystemValue', $params);
+	function($params){
+		// only an admin is allowed to save the new systemvalue
+		$container = createDIContainer();
+		$container['Security']->setIsAdminCheck(true);
+		$container['Security']->setCSRFCheck(true);
+		callAjaxController('AjaxController', 'setSystemValue', $params, $container);
 	}
 );
