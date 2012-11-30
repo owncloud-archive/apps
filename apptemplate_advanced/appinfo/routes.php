@@ -40,15 +40,15 @@ require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/bootstrap.p
  */
 function callController($controllerName, $methodName, $urlParams, $container=null){
 	
-        // assume a normal request and disable admin and csrf checks. To specifically
-        // enable them, pass a container with changed security object
-        if($container === null){
-                $container = createDIContainer();
-                $container['Security']->setIsAdminCheck(false);
-                $container['Security']->setCSRFCheck(false);
-        }
+	// assume a normal request and disable admin and csrf checks. To specifically
+	// enable them, pass a container with changed security object
+	if($container === null){
+		$container = createDIContainer();
+		$container['Security']->setIsAdminCheck(false);
+		$container['Security']->setCSRFCheck(false);
+	}
 
-        runSecurityChecks($container['Security']);
+	runSecurityChecks($container['Security']);
 
 	// call the controller and render the page
 	$controller = $container[$controllerName];
@@ -70,16 +70,16 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
  */
 function callAjaxController($controllerName, $methodName, $urlParams, $container=null){
 
-        // ajax requests come with csrf checks enabled. If you pass your own container
-        // dont forget to enable the csrf check though if you need it. When in doubt
-        // enable the csrf check
-        if($container === null){
-                $container = createDIContainer();
-                $container['Security']->setCSRFCheck(true);
-                $container['Security']->setIsAdminCheck(false);
-        }
+	// ajax requests come with csrf checks enabled. If you pass your own container
+	// dont forget to enable the csrf check though if you need it. When in doubt
+	// enable the csrf check
+	if($container === null){
+		$container = createDIContainer();
+		$container['Security']->setCSRFCheck(true);
+		$container['Security']->setIsAdminCheck(false);
+	}
 
-        callController($controllerName, $methodName, $urlParams, $container);
+	callController($controllerName, $methodName, $urlParams, $container);
 }
 
 
