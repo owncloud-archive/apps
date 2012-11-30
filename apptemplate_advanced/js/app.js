@@ -23,7 +23,7 @@
  * README:
  *
  * This is only a small example. If you're going to use angularjs in your project,
- * split your javascript into multiple files and compile it a buildscript.
+ * split your javascript into multiple files and compile it via buildscript.
  * You could also use coffeescript and a cakefile for this task
  *
  * When you create this with coffeescript or a javascript tool, create four folders
