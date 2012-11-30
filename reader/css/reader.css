@@ -1,24 +1,44 @@
-div#controls{z-index:60;}
+div#controls{z-index:65;}
 div.crumb { float:left; display:block; background:no-repeat right 0; padding:.75em 1.5em 0 1em; height:2.9em;}
 div.crumb:first-child { padding-left:1em; }
 div.crumb.last { font-weight:bold; }
 
-table#readerContent { white-space:normal; position:absolute; top:40px; left:5px;font-family:Arial;}
+table#readerContent { white-space:normal; position:absolute; top:37px;font-family:Arial;}
 
-table { position:relative; top:7px; width:100%;}
-tbody tr { background-color:#fff; height:2.5em;}
-tbody#fileList tr { background:white; float:left; height:150px;font-size:12px;}
-tbody tr:hover, tbody tr:active, tbody tr.selected { background-color:#ffffff; }
+/*table { position:relative; top:7px; width:100%;}*/
+/*tbody tr { background-color:#fff; height:2.5em;}*/
+tbody#fileList tr { background:white; /*float:left;*/ height:150px;font-size:12px;}
+tbody tr:hover, tbody tr:active, tbody tr.selected {background-color: white:# }
 	
 .thumbnail:not([data-loaded]) { background-color: white; }
 
-td.filename.svg{ background:no-repeat; vertical-align:text-bottom; height:150px; width:150px; white-space:normal; text-align:center;
-	 color:#888; text-shadow:#fff 0 1px 0;}
-td.filename.svg:hover{ background-color:#ffffff; }
+td.filename.svg{ background:no-repeat; /*vertical-align:text-bottom;*/ height:150px; white-space:normal;
+	 color:#888; text-shadow:#fff 0 1px 0; border:1px solid #EEE;  background-color: #f8f8f8;}
 
-a.name img,a.dirs img { border: 1px solid #EEE; -webkit-box-shadow: 4px 4px 4px 0px grey; box-shadow: 4px 4px 4px 0px grey;}
-a.dirs{ position:relative; left:5px; margin-left:5px; }
+td#info{vertical-align: top;}
 
-center { width:150px; overflow:hidden; text-overflow:ellipsis;}
-span.nametext{ font-family:Arial;font-size:15px;font-weight:normal;width:150px; white-space:nowrap; margin-left:5px; margin-right:5px; text-transform:capitalize; }
+a.name img,a.dirs img { border: 1px solid #EEE; -webkit-box-shadow: 4px 4px 4px 0px grey; box-shadow: 4px 4px 4px 0px grey; position:absolute; left:25px; top: 20px;}
+span.nametext{ position: relative;
+top: 4px; padding-left:5px;font-family:Arial;font-size:16px;font-weight:normal;white-space:nowrap;/* margin-left:5px; margin-right:5px;*/ text-transform:capitalize; }
+#contentbox{
+display:none;
+border:1px solid #DDD;
+width:150px;
+height:20px;
+margin-left:5px;
+margin-top:5px;
+-webkit-box-shadow: 2px 2px 2px 0px grey; box-shadow: 2px 2px 2px 0px grey;
+}
 
+#displaybox {
+margin-top:8px;
+margin-left:5px;
+font-size:14px;
+color:grey;
+width:200px; 
+height:30px;
+}
+
+#displaybox a{
+color:grey;
+}

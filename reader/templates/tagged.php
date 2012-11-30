@@ -1,9 +1,3 @@
-<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-<META HTTP-EQUIV="Expires" CONTENT="-1">
-<script type="text/javascript">
-    PDFJS.workerSrc = 'apps/reader/js/pdf.js';
-</script>
-
 <div id = "controls">
 	<?php
 	$current_dir = empty($_['path'])?'/':$_['path'];
@@ -27,18 +21,23 @@
 
 <div class="actions"></div>
 
+<?php
+	include('apps/reader/lib/dir.php');
+	include('apps/reader/lib/thumbnail.php');
+	include('apps/reader/lib/library_display.php');
+	include('apps/reader/lib/tag_utils.php');
+	$tag = "%".$_['tag']."%";
+	$res = find_results_with_tag_like($tag);
+?>
 <table id = "readerContent">
 	<tbody id = "fileList">
 		<?php
-		
-			include('apps/reader/lib/thumbnail.php');
-			include('apps/reader/lib/library_display.php');
-			include('apps/reader/lib/tag_utils.php');
-			$file = $_['file'];
-			$path = $_['path'];
-			$filename = $_['filename']; 
-			display_ebooks($filename,$path.'/');
+			while($r = $res->fetchRow()) {
+				$dirname = dirname($r['filepath']);
+				if ($dirname != '/') {
+					$dirname = $dirname.'/'; }
+				display_ebooks(basename($r['filepath']),$dirname);
+			}
 		?>
-	</tbody>
+</tbody>
 </table>
-
