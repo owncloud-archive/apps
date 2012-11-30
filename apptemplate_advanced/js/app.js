@@ -175,7 +175,7 @@
 			 */
 			Request.prototype.post = function(route, routeParams, data, onSuccess, onFailure){
 
-				// if routes are not ready, save the request
+				// if routes are not ready yet, save the request
 				if(!this.initialized){
 					var request = {
 						route: route,
@@ -187,7 +187,6 @@
 					this.shelvedRequests.push(request);
 					return;
 				}
-
 
 				var url;
 				if(routeParams){
@@ -217,7 +216,7 @@
 					error(function(data, status, headers, config){
 
 						if(onFailure){
-							onFailure();
+							onFailure(data);
 						}
 					});
 			};
@@ -239,7 +238,7 @@
 
 	/**
 	 * Use filters to perform tasks that need to be done when rendering
-	 * This
+	 * This simply turns some letters into numbers
 	 */
 	angular.module('AppTemplateAdvanced').
 		filter('leetIt', function(){
