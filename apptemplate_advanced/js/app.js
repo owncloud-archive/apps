@@ -143,10 +143,11 @@
 					}
 
 					self.initialized = true;
+					self.shelvedRequests = [];
 				});
 
-
 			};
+
 
 			/**
 			 * Do the actual post request
