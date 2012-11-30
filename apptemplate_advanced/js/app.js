@@ -25,6 +25,11 @@
  * This is only a small example. If you're going to use angularjs in your project,
  * split your javascript into multiple files and compile it a buildscript.
  * You could also use coffeescript and a cakefile for this task
+ *
+ * When you create this with coffeescript or a javascript tool, create four folders
+ * for your angular files: controllers/ filters/ services/ and directives/
+ * The main file should be named app.js
+ *
  */
 (function(window, $, angular, OC, CSRFToken){
 
@@ -40,14 +45,22 @@
 
 			// Use this for configuration values
 			var Config = {
-				routes: {}
+				// your config values here
 			};
 
-			Config.routes.saveNameRoute = 'apptemplate_advanced_ajax_setsystemvalue';
-
+			// declare your routes here
+			// Hint: angularjs comes with an own route system with which you can
+			// build HTML5 apps with enabled history access, meaning: you can go
+			// forward and backward and change the state of your app
+			// http://docs.angularjs.org/api/ng.$route
+			Config.routes = {
+				saveNameRoute: 'apptemplate_advanced_ajax_setsystemvalue'
+			};
+			
 			return $provide.value('Config', Config);
 		}
 	]);
+
 
 	/**
 	 * This function is run once angular is set up. That doesnt mean though that
