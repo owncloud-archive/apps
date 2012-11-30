@@ -48,14 +48,14 @@ class IndexController extends Controller {
 	 */
 	public function index($urlParams=array()){
 
-                // thirdparty stuff
-                $this->api->add3rdPartyScript('angular/angular.min');
+		// thirdparty stuff
+		$this->api->add3rdPartyScript('angular/angular.min');
 
-                // your own stuff
-                $this->api->addStyle('style');
-                $this->api->addStyle('animation');
+		// your own stuff
+		$this->api->addStyle('style');
+		$this->api->addStyle('animation');
 
-                $this->api->addScript('app');
+		$this->api->addScript('app');
 
 
 		$templateName = 'main';
