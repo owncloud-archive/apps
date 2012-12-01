@@ -258,13 +258,18 @@
 			AppTemplateAdvancedRequest.prototype = Object.create(_Request.prototype);
 
 			/**
-			 * Save the name to the server. You may want to put all the specific
+			 * Save the name to the server.
 			 * @param string route: the route for the server
 			 * @param string name: the new name
 			 */
 			AppTemplateAdvancedRequest.prototype.saveName = function(route, name) {
 				this.post(route, {}, {somesetting: name});
 			};
+
+			/**
+			 * Create your local request methods in here
+			 */
+			//AppTemplateAdvancedRequest.prototype.myReqest = function(route, ...)
 
 			return AppTemplateAdvancedRequest;
 		}
