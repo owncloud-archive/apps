@@ -35,12 +35,16 @@
 
 	'use strict';
 
+	// change this to match your app
+	var appName = 'AppTemplateAdvanced';
+
+
 	/**
 	 * With this block you define your app. This has to be at the top the js,
 	 * the following things are not needed to in order. Make sure to mind this
 	 * when you use a custom compile script
 	 */
-	var app = angular.module('AppTemplateAdvanced', []).
+	var app = angular.module(appName, []).
 		config(['$provide', function($provide){
 
 			// Use this for configuration values
@@ -66,7 +70,7 @@
 	 * This function is run once angular is set up. That doesnt mean though that
 	 * the document is ready
 	 */
-	angular.module('AppTemplateAdvanced').
+	angular.module(appName).
 		run(['$rootScope', function($rootScope){
 
 			var init = function(){
@@ -91,7 +95,7 @@
 	 * Keep controller instantiations in coffee/controllers/controllers.coffee or
 	 * js/controllers/controllers.js
 	 */
-	angular.module('AppTemplateAdvanced').
+	angular.module(appName).
 		controller('ExampleController', ['$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController',
 		function($scope, Config, AppTemplateAdvancedRequest, _ExampleController){
 			return new _ExampleController($scope, Config, AppTemplateAdvancedRequest);
@@ -102,7 +106,7 @@
 	 * Keep service instantiations in coffee/services/services.coffee or
 	 * js/services/services.js
 	 */
-	angular.module('AppTemplateAdvanced').
+	angular.module(appName).
 		factory('AppTemplateAdvancedRequest', ['$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest',
 		function($http, $rootScope, Config, _AppTemplateAdvancedRequest){
 			return new _AppTemplateAdvancedRequest($http, $rootScope, Config);
@@ -115,7 +119,7 @@
 	 * Injection. A factory creates a shared instance. You can also share objects
 	 * across controllers this way
 	 */
-	angular.module('AppTemplateAdvanced').
+	angular.module(appName).
 		factory('_ExampleController', [function(){
 
 			// use prototyping to stay flexible. If you use coffeescript,
@@ -150,7 +154,7 @@
 	 * Its always good to put the object that does routes request into a seperate
 	 * object to be able to adjust it easily
 	 */
-	angular.module('AppTemplateAdvanced').
+	angular.module(appName).
 		factory('_Request', function(){
 
 			var Request = function($http, $rootScope, Config){
@@ -248,7 +252,7 @@
 	 * Define your local request functions in an object that inherits from the
 	 * Request object
 	 */
-	angular.module('AppTemplateAdvanced').
+	angular.module(appName).
 		factory('_AppTemplateAdvancedRequest', ['_Request', function(_Request){
 
 			var AppTemplateAdvancedRequest = function($http, $rootScope, Config){
@@ -280,7 +284,7 @@
 	 * Use filters to perform tasks that need to be done when rendering
 	 * This simply turns some letters into numbers
 	 */
-	angular.module('AppTemplateAdvanced').
+	angular.module(appName).
 		filter('leetIt', function(){
 
 			var leetIt = function(leetThis){
