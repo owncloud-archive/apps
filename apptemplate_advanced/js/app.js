@@ -40,8 +40,8 @@
 	 * the following things are not needed to in order. Make sure to mind this
 	 * when you use a custom compile script
 	 */
-	var app = angular.module('AppTemplateAdvanced', [])
-		.config(['$provide', function($provide){
+	var app = angular.module('AppTemplateAdvanced', []).
+		config(['$provide', function($provide){
 
 			// Use this for configuration values
 			var Config = {
@@ -81,13 +81,31 @@
 
 
 	/**
-	 * Instantiate your controllers in a seperate function to stay flexible and
-	 * be able to test them later on
+	 * Tipp:
+	 *
+	 * Instantiate your objects in a seperate function to stay flexible,
+	 * inherit objects and be able to test them better
+	 */
+
+	/**
+	 * Keep controller instantiations in coffee/controllers/controllers.coffee or
+	 * js/controllers/controllers.js
 	 */
 	angular.module('AppTemplateAdvanced').
-		controller('ExampleController', ['$scope', 'Config', 'Request', '_ExampleController',
-		function($scope, Config, Request, _ExampleController){
-			return new _ExampleController($scope, Config, Request);
+		controller('ExampleController', ['$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController',
+		function($scope, Config, AppTemplateAdvancedRequest, _ExampleController){
+			return new _ExampleController($scope, Config, AppTemplateAdvancedRequest);
+		}
+	]);
+
+	/**
+	 * Keep service instantiations in coffee/services/services.coffee or
+	 * js/services/services.js
+	 */
+	angular.module('AppTemplateAdvanced').
+		factory('AppTemplateAdvancedRequest', ['$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest',
+		function($http, $rootScope, Config, _AppTemplateAdvancedRequest){
+			return new _AppTemplateAdvancedRequest($http, $rootScope, Config);
 		}
 	]);
 
@@ -133,7 +151,7 @@
 	 * object to be able to adjust it easily
 	 */
 	angular.module('AppTemplateAdvanced').
-		factory('Request', ['$http', '$rootScope', 'Config', function($http, $rootScope, Config){
+		factory('_Request', function(){
 
 			var Request = function($http, $rootScope, Config){
 				var self = this;
@@ -221,17 +239,34 @@
 					});
 			};
 
+			return Request;
+		}
+	);
+
+
+	/**
+	 * Define your local request functions in an object that inherits from the
+	 * Request object
+	 */
+	angular.module('AppTemplateAdvanced').
+		factory('_AppTemplateAdvancedRequest', ['_Request', function(_Request){
+
+			var AppTemplateAdvancedRequest = function($http, $rootScope, Config){
+				_Request.call(this, $http, $rootScope, Config);
+			};
+
+			AppTemplateAdvancedRequest.prototype = Object.create(_Request.prototype);
 
 			/**
-			 * Save the name to the server
+			 * Save the name to the server. You may want to put all the specific
 			 * @param string route: the route for the server
 			 * @param string name: the new name
 			 */
-			Request.prototype.saveName = function(route, name) {
+			AppTemplateAdvancedRequest.prototype.saveName = function(route, name) {
 				this.post(route, {}, {somesetting: name});
 			};
 
-			return new Request($http, $rootScope, Config);
+			return AppTemplateAdvancedRequest;
 		}
 	]);
 
