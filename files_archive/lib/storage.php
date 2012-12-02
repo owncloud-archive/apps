@@ -192,6 +192,6 @@ class Archive extends Common {
 	}
 
 	public function getId() {
-		return 'archive::' . $this->path;
+		return 'archive::' . md5($this->path);
 	}
 }
