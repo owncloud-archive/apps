@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-17 00:01+0100\n"
-"PO-Revision-Date: 2012-11-16 06:52+0000\n"
-"Last-Translator: Anushke Guneratne <anushke@gmail.com>\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
+"PO-Revision-Date: 2012-11-28 23:14+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -110,7 +110,7 @@ msgstr "සංග්‍රහය යාවත්කාලීන කිරීම�
 msgid "Feed updated!"
 msgstr "සංග්‍රහය යාවත්කාලීන කරන ලදී!"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "ප්‍රවෘත්ති"
 
@@ -211,7 +211,7 @@ msgstr "සංග්‍රහ ආයාත කිරීමේ දෝෂයක්
 msgid "Select file"
 msgstr "ගොනුව තෝරන්න"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "මාතෘකාවක් නැත"
 
@@ -219,11 +219,11 @@ msgstr "මාතෘකාවක් නැත"
 msgid "no name"
 msgstr "නමක් නැත"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "සිරුරක් නැත"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "ownCloudහි දායකවුවන් - ප්‍රවෘත්ති"
 
@@ -236,8 +236,8 @@ msgid "Nice! You have subscribed to "
 msgstr "විශිෂ්ඨයි! ඔබ දැන් දායකවී ඇත්තේ"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "ඔබ දැනටමත් මෙම සංග්‍රහයට දායකවී ඇත!"
+msgid "You had already subscribed to this feed!"
+msgstr ""
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -363,12 +363,12 @@ msgstr "වෙතින්"
 msgid "by"
 msgstr "විසින්"
 
-#: templates/part.items.php:57 templates/part.items.php:58
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "බෙදා හදාගන්න"
 
-#: templates/part.items.php:59 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "නොකියවුදේ තබාගන්න"
 

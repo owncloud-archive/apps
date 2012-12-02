@@ -127,7 +127,7 @@ class VCard {
 	 * @param string $uri the uri ('filename')
 	 * @return associative array or false.
 	 */
-	public static function findWhereDAVDataIs($aid,$uri) {
+	public static function findWhereDAVDataIs($aid, $uri) {
 		try {
 			$stmt = \OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
 			$result = $stmt->execute(array($aid,$uri));
@@ -383,7 +383,7 @@ class VCard {
 	 */
 	public static function addFromDAVData($id, $uri, $data) {
 		try {
-			$vcard = Sabre\VObject\Reader::read($data);
+			$vcard = \Sabre\VObject\Reader::read($data);
 			return self::add($id, $vcard, $uri);
 		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
@@ -520,7 +520,7 @@ class VCard {
 	public static function editFromDAVData($aid, $uri, $data) {
 		$oldcard = self::findWhereDAVDataIs($aid, $uri);
 		try {
-			$vcard = Sabre\VObject\Reader::read($data);
+			$vcard = \Sabre\VObject\Reader::read($data);
 		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.
 				', Unable to parse VCARD, : ' . $e->getMessage(), \OCP\Util::ERROR);
@@ -545,22 +545,22 @@ class VCard {
 	 * @return boolean true on success, otherwise an exception will be thrown
 	 */
 	public static function delete($id) {
-		$vcard = self::find($id);
-		if (!$vcard) {
+		$contact = self::find($id);
+		if (!$contact) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', id: '
 				. $id . ' not found.', \OCP\Util::DEBUG);
 			throw new \Exception(
 				App::$l10n->t(
-					'Could not find the vCard with ID: ' . $id
+					'Could not find the vCard with ID: ' . $id, 404
 				)
 			);
 		}
-		$addressbook = Addressbook::find($vcard['addressbookid']);
+		$addressbook = Addressbook::find($contact['addressbookid']);
 		if(!$addressbook) {
 			throw new \Exception(
 				App::$l10n->t(
 					'Could not find the Addressbook with ID: '
-					. $vcard['addressbookid']
+					. $contact['addressbookid'], 404
 				)
 			);
 		}
@@ -570,7 +570,7 @@ class VCard {
 				. $addressbook['userid'] . ' != ' . \OCP\User::getUser(), \OCP\Util::DEBUG);
 			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource(
 				'addressbook',
-				$vcard['addressbookid'],
+				$contact['addressbookid'],
 				\OCP\Share::FORMAT_NONE, null, true);
 			$sharedContact = \OCP\Share::getItemSharedWithBySource(
 				'contact',
@@ -589,12 +589,12 @@ class VCard {
 			if (!($permissions & \OCP\PERMISSION_DELETE)) {
 				throw new \Exception(
 					App::$l10n->t(
-						'You do not have the permissions to delete this contact.'
+						'You do not have the permissions to delete this contact.', 403
 					)
 				);
 			}
 		}
-		$aid = $card['addressbookid'];
+		$aid = $contact['addressbookid'];
 		\OC_Hook::emit('\OCA\Contacts\VCard', 'pre_deleteVCard',
 			array('aid' => null, 'id' => $id, 'uri' => null)
 		);
@@ -615,7 +615,7 @@ class VCard {
 
 		App::updateDBProperties($id);
 		App::getVCategories()->purgeObject($id);
-		Addressbook::touch($addressbook['userid']);
+		Addressbook::touch($addressbook['id']);
 
 		\OCP\Share::unshareAll('contact', $id);
 		return true;
@@ -628,39 +628,44 @@ class VCard {
 	 * @return boolean
 	 */
 	public static function deleteFromDAVData($aid, $uri) {
-		$id = null;
-		$addressbook = Addressbook::find($aid);
-		if ($addressbook['userid'] != \OCP\User::getUser()) {
-			$query = \OCP\DB::prepare( 'SELECT `id` FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
-			$id = $query->execute(array($aid, $uri))->fetchOne();
-			if (!$id) {
-				return false;
-			}
-
-			$sharedContact = \OCP\Share::getItemSharedWithBySource('contact', $id, \OCP\Share::FORMAT_NONE, null, true);
-			if (!$sharedContact || !($sharedContact['permissions'] & \OCP\PERMISSION_DELETE)) {
-				return false;
-			}
+		$contact = self::findWhereDAVDataIs($aid, $uri);
+		if(!$contact) {
+			\OCP\Util::writeLog('contacts', __METHOD__.', contact not found: '
+				. $uri, \OCP\Util::DEBUG);
+			throw new \Sabre_DAV_Exception_NotFound(
+				App::$l10n->t(
+					'Contact not found.'
+				)
+			);
 		}
-		\OC_Hook::emit('\OCA\Contacts\VCard', 'pre_deleteVCard', array('aid' => $aid, 'id' => null, 'uri' => $uri));
-		$stmt = \OCP\DB::prepare( 'DELETE FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri`=?' );
+		$id = $contact['id'];
 		try {
-			$stmt->execute(array($aid,$uri));
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
-			\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uri: '.$uri, \OCP\Util::DEBUG);
-			return false;
+			return self::delete($id);
+		} catch (Exception $e) {
+			switch($e->getCode()) {
+				case 403:
+					\OCP\Util::writeLog('contacts', __METHOD__.', forbidden: '
+						. $uri, \OCP\Util::DEBUG);
+					throw new \Sabre_DAV_Exception_Forbidden(
+						App::$l10n->t(
+							$e->getMessage()
+						)
+					);
+					break;
+				case 404:
+					\OCP\Util::writeLog('contacts', __METHOD__.', contact not found: '
+						. $uri, \OCP\Util::DEBUG);
+					throw new \Sabre_DAV_Exception_NotFound(
+						App::$l10n->t(
+							$e->getMessage()
+						)
+					);
+					break;
+				default:
+					throw $e;
+					break;
+			}
 		}
-		Addressbook::touch($aid);
-
-		if(!is_null($id)) {
-			App::getVCategories()->purgeObject($id);
-			App::updateDBProperties($id);
-			\OCP\Share::unshareAll('contact', $id);
-		} else {
-			\OCP\Util::writeLog('contacts', __METHOD__.', Could not find id for ' . $uri, \OCP\Util::DEBUG);
-		}
-
 		return true;
 	}
 

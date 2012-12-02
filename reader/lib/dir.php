@@ -1,23 +1,19 @@
 <?php
-	function explore($current_dir,$sub_dirs) {
+	function explore($current_dir,$sub_dirs,$num_of_results) {
 		$return = array();
 		// Search for pdfs in sub directories.
 		foreach ($sub_dirs as $dir) {
 			$pdfs = \OC_FileCache::searchByMime('application', 'pdf', '/'.\OCP\USER::getUser().'/files'.$current_dir.$dir.'/');
 			sort($pdfs);
+			$max_count = min(count($pdfs),$num_of_results);
 			$thumbs = array();
-			$count = 1;
-			foreach ($pdfs as $pdf) {
-				// We need only 3 pdf pages to create thumbnails for folders. 
-				if ($count <= 3) {
-					// Store the urls in an array.
-					$thumbs[] = $pdf;
-					$count++;
-				} 
+			for ($i = $max_count - 1; $i >= 0; $i--) {
+				if (!in_array($pdfs[$i],$thumbs)) 
+					$thumbs[] = $pdfs[$i];
 			}
-			// Return the directory and contained pdfs(any 3).
 			$return[] = array($dir,$thumbs); 
 		}
 		return $return; 
 	}
+	
 ?>

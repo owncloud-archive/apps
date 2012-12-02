@@ -636,6 +636,8 @@ OC.Contacts = OC.Contacts || {
 		this.bindEvents();
 		this.$toggleAll.show();
 		this.showActions(['addcontact']);
+		OC.Share.loadIcons('addressbook');
+
 		// Wait 2 mins then check if contacts are indexed.
 		setTimeout(function() {
 			if(!is_indexed) {
@@ -1172,11 +1174,16 @@ OC.Contacts = OC.Contacts || {
 			self.hideActions();
 		});
 
-		$('.export,.import').on('click keydown', function(event) {
+		this.$settings.find('h3').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
+			if($(this).next('ul').is(':visible')) {
+				$(this).next('ul').slideUp();
+				return;
+			}
 			console.log('export');
+			$(this).parents('ul').first().find('ul:visible').slideUp();
 			$(this).next('ul').toggle('slow');
 		});
 

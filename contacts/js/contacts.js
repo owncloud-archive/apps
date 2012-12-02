@@ -219,17 +219,6 @@ OC.Contacts = OC.Contacts || {};
 						case 'CATEGORIES':
 							// We deal with this in addToGroup()
 							break;
-						case 'N':
-							if(!utils.isArray(value)) {
-								value = value.split(';');
-								// Then it is auto-generated from FN.
-								var $nelems = self.$fullelem.find('.n.edit input');
-								console.log('nelems', $nelems);
-								$.each(value, function(idx, val) {
-									console.log('nval', val);
-									self.$fullelem.find('#n_' + idx).val(val);
-								});
-							}
 						case 'FN':
 							// Update the list element
 							self.$listelem.find('.nametext').text(value);
@@ -268,6 +257,18 @@ OC.Contacts = OC.Contacts || {};
 								id: self.id,
 								contact: self,
 							});
+							break;
+						case 'N':
+							if(!utils.isArray(value)) {
+								value = value.split(';');
+								// Then it is auto-generated from FN.
+								var $nelems = self.$fullelem.find('.n.edit input');
+								console.log('nelems', $nelems);
+								$.each(value, function(idx, val) {
+									console.log('nval', val);
+									self.$fullelem.find('#n_' + idx).val(val);
+								});
+							}
 						case 'NICKNAME':
 						case 'BDAY':
 						case 'ORG':
@@ -621,16 +622,20 @@ OC.Contacts = OC.Contacts || {};
 		}
 		// Loop thru all single occurrence values. If not set hide the
 		// element, if set disable the add menu entry.
-		for(var value in values) {
-			if(this.multi_properties.indexOf(value.toUpperCase()) === -1) {
-				if(!values[value].length) {
-					console.log('hiding', value);
-					this.$fullelem.find('[data-element="' + value + '"]').hide();
+		$.each(values, function(name, value) {
+			console.log('name', name, 'value', value);
+			if(typeof value === 'undefined') {
+				return true; //continue
+			}
+			if(self.multi_properties.indexOf(value.toUpperCase()) === -1) {
+				if(!value.length) {
+					console.log('hiding', name);
+					self.$fullelem.find('[data-element="' + name + '"]').hide();
 				} else {
-					this.$addMenu.find('option[value="' + value.toUpperCase() + '"]').prop('disabled', true);
+					self.$addMenu.find('option[value="' + name.toUpperCase() + '"]').prop('disabled', true);
 				}
 			}
-		}
+		});
 		$.each(this.multi_properties, function(idx, name) {
 			if(self.data[name]) {
 				var $list = self.$fullelem.find('ul.' + name.toLowerCase());
@@ -1133,16 +1138,17 @@ OC.Contacts = OC.Contacts || {};
 			$('tr:visible.contact').hide();
 			return;
 		}
+		if(contacts === 'all') {
+			// ~2 times faster
+			$('tr.contact:not(:visible)').show();
+			return;
+		}
 		for(var contact in this.contacts) {
-			if(contacts === 'all') {
-				this.contacts[contact].getListItemElement().show();
+			contact = parseInt(contact);
+			if(contacts.indexOf(contact) === -1) {
+				this.contacts[contact].getListItemElement().hide();
 			} else {
-				contact = parseInt(contact);
-				if(contacts.indexOf(contact) === -1) {
-					this.contacts[contact].getListItemElement().hide();
-				} else {
-					this.contacts[contact].getListItemElement().show();
-				}
+				this.contacts[contact].getListItemElement().show();
 			}
 		}
 	}

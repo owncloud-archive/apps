@@ -8,14 +8,14 @@
 #   <nurielmeni@gmail.com>, 2012.
 # Tomer Cohen <tomerc+transifex.net@gmail.com>, 2012.
 #   <tomerc+transifex.net@gmail.com>, 2011.
-# Yaron Shahrabani <sh.yaron@gmail.com>, 2011, 2012.
+# Yaron Shahrabani <sh.yaron@gmail.com>, 2011-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-19 23:14+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-02 00:01+0100\n"
+"PO-Revision-Date: 2012-12-01 06:27+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/owncloud/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,11 +84,11 @@ msgstr "מחיקה נכשלה"
 
 #: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
 #: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:597
 msgid "user"
@@ -194,7 +194,7 @@ msgstr "שאלות"
 msgid "Work"
 msgstr "עבודה"
 
-#: lib/app.php:362 lib/share/event.php:27
+#: lib/app.php:362
 msgid "by"
 msgstr "מאת"
 
@@ -489,7 +489,7 @@ msgstr "היום"
 
 #: templates/calendar.php:13
 msgid "Missing or invalid fields"
-msgstr ""
+msgstr "שדות שגויים או חסרים"
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11
@@ -760,7 +760,7 @@ msgstr "לוח שנה בשם הזה כבר קיים. אם תמשיך בכל זא
 
 #: templates/part.import.php:48
 msgid "Remove all events from the selected calendar"
-msgstr ""
+msgstr "הסרת כל האירועים מהיומן הנבחר"
 
 #: templates/part.import.php:50
 msgid "Import"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-11 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 23:13+0000\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
+"PO-Revision-Date: 2012-11-28 23:14+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -111,7 +111,7 @@ msgstr "Kunne ikke oppdatere nyhetskilde."
 msgid "Feed updated!"
 msgstr "Nyhetskilde oppdatert!"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Nyheter"
 
@@ -212,7 +212,7 @@ msgstr ""
 msgid "Select file"
 msgstr "Velg fil"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "Ingen tittel"
 
@@ -220,11 +220,11 @@ msgstr "Ingen tittel"
 msgid "no name"
 msgstr "Ingen navn"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "Ingen body"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "abbonementer i ownCloud - Nyheter"
 
@@ -237,8 +237,8 @@ msgid "Nice! You have subscribed to "
 msgstr "Flott! Du abonnerer på"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "Du abonnerer allerede på denne nyhetskilden!"
+msgid "You had already subscribed to this feed!"
+msgstr ""
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -356,20 +356,20 @@ msgstr "Merk som uviktig"
 msgid "Mark as important"
 msgstr "Merk som viktig"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "fra"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "av"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Del"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Merk som ulest"
 

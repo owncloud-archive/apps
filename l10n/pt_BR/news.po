@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-12 00:01+0100\n"
-"PO-Revision-Date: 2012-11-11 13:38+0000\n"
-"Last-Translator: thoriumbr <thoriumbr@gmail.com>\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
+"PO-Revision-Date: 2012-11-28 23:14+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -112,7 +112,7 @@ msgstr "Erro ao atualizar feed."
 msgid "Feed updated!"
 msgstr "Feed atualizado!"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Notícias"
 
@@ -213,7 +213,7 @@ msgstr "Erro durante importação de feeds."
 msgid "Select file"
 msgstr "Selecionar arquivo"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "sem título"
 
@@ -221,11 +221,11 @@ msgstr "sem título"
 msgid "no name"
 msgstr "sem nome"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "sem corpo"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "assinaturas em ownCloud - Notícias"
 
@@ -238,8 +238,8 @@ msgid "Nice! You have subscribed to "
 msgstr "Legal! Você se inscreveu em"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "Você já tinha se inscrito nesse feee!"
+msgid "You had already subscribed to this feed!"
+msgstr ""
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -357,20 +357,20 @@ msgstr "Marcar como não importante"
 msgid "Mark as important"
 msgstr "Marcar como importante"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "de"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "por"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Compartilhar"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Manter não lido"
 

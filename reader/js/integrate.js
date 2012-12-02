@@ -22,6 +22,22 @@ $(document).ready(function() {
 			left: '-=120'}, 50, function(){
 			});
 	});
+	$('.start').click(function(){
+		var pr = $(this).parent().children('div#contentbox');
+		var path = $(this).parent().parent().children('td.filename.svg').children('a.name').attr('dir');
+		pr.show(100);
+		pr.keypress(function(e) {
+			if(e.which == 13) {
+				var tag = pr.text();
+				pr.text('');
+				pr.hide();
+				var db = $(this).parent().children('div#displaybox');
+				db.append('<a href = "apps/reader/fetch_tags.php?tag='+tag+'">'+tag+'</a>');
+				db.append(' ');
+				$.post('apps/reader/ajax/tags.php', {tag:tag, path:path});
+			}
+		});
+	});
 });	
 
 $(function() {
@@ -117,6 +133,11 @@ function create_thumbnails() {
 						pageRendering = page.render(renderContext);
 						pageRendering.onData(function(){
 							canvasSaver(canvas,title,location);
+							var imageElement = document.getElementById(location);
+							imageElement.src = canvas.toDataURL();
+							imageElement.style.height = '100px';
+							imageElement.style.width = '100px';
+							
 						});
 					});
 				});

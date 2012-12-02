@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <mbouzada@gmail.com>, 2012.
 # Xosé M. Lamas <correo.xmgz@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-20 19:38+0000\n"
-"Last-Translator: Miguel Branco <mgl.branco@gmail.com>\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
+"PO-Revision-Date: 2012-11-29 16:03+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,11 +32,11 @@ msgstr "O módulo php-curl precísase para a busca de títulos de páxina cando 
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr "O módulo php-gd precísase para crear as miniaturas das túas imaxes"
+msgstr "O módulo php-gd precísase para crear as miniaturas das súas imaxes"
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr "O módulo php-ldap precísase para conectar co teu servidor ldap"
+msgstr "O módulo php-ldap precísase para conectar co seu servidor ldap"
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
@@ -58,7 +59,7 @@ msgstr "O módulo php-xml precísase para compartir ficheiros con webdav."
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr "A directiva allow_url_fopen do seu php.ini debe establecerse a 1 para obter coñecemento básico desde servidores OCS"
+msgstr "A directiva allow_url_fopen do seu php.ini debe estabelecerse a 1 para obter coñecemento básico desde servidores OCS"
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."

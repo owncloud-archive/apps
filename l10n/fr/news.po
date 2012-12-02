@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-12 00:01+0100\n"
-"PO-Revision-Date: 2012-11-11 09:40+0000\n"
-"Last-Translator: Robert Di Rosa <>\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
+"PO-Revision-Date: 2012-11-29 07:28+0000\n"
+"Last-Translator: Romain DEP. <rom1dep@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,7 +72,7 @@ msgstr "Nom de fichier manquant"
 
 #: ajax/importopml.php:50
 msgid "No source argument passed"
-msgstr ""
+msgstr "Aucun argument concernant la source n'a été passé"
 
 #: ajax/importopml.php:54
 msgid "Error while reading file"
@@ -118,7 +118,7 @@ msgstr "Erreur lors de la mise à jour du flux."
 msgid "Feed updated!"
 msgstr "Flux mis à jour !"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Abonnements"
 
@@ -219,7 +219,7 @@ msgstr "Erreur lors de l'importation des flux"
 msgid "Select file"
 msgstr "Sélectionnez le fichier"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "sans titre"
 
@@ -227,11 +227,11 @@ msgstr "sans titre"
 msgid "no name"
 msgstr "sans nom"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "sans contenu"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "Flux d'actualités dans ownCloud - Abonnements"
 
@@ -244,8 +244,8 @@ msgid "Nice! You have subscribed to "
 msgstr "Vous avez souscrit à"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "Vous avez déjà souscrit à ce flux!"
+msgid "You had already subscribed to this feed!"
+msgstr "Vous avez déjà souscrit à ce flux !"
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -363,20 +363,20 @@ msgstr "Marquer comme pas important"
 msgid "Mark as important"
 msgstr "Marquer comme important"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "de"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "par"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Partager"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Garder non lu"
 
