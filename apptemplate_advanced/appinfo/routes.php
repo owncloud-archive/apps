@@ -26,22 +26,29 @@ namespace OCA\AppTemplateAdvanced;
 
 require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/bootstrap.php';
 
+
 /**
  * Shortcut for calling a controller method and printing the result
  * @param string $controllerName: the name of the controller under which it is
  *                                stored in the DI container
  * @param string $methodName: the method that you want to call
  * @param array $urlParams: an array with variables extracted from the routes
- * @param bool $disableAdminCheck: disables the check for adminuser rights
- * @param bool $isAjax: if the request is an ajax request
+ * @param Pimple $container: an instance of a pimple container. if not passed, a
+ *                           new one will be instantiated. This can be used to
+ *                           set different security values prehand or simply
+ *                           swap or overwrite objects in the container.
  */
-function callController($controllerName, $methodName, $urlParams, $disableAdminCheck=true,
-						$isAjax=false){
-	$container = createDIContainer();
+function callController($controllerName, $methodName, $urlParams, $container=null){
 	
-	// run security checks
-	$security = $container['Security'];
-	runSecurityChecks($security, $isAjax, $disableAdminCheck);
+	// assume a normal request and disable admin and csrf checks. To specifically
+	// enable them, pass a container with changed security object
+	if($container === null){
+		$container = createDIContainer();
+		$container['Security']->setIsAdminCheck(false);
+		$container['Security']->setCSRFCheck(false);
+	}
+
+	runSecurityChecks($container['Security']);
 
 	// call the controller and render the page
 	$controller = $container[$controllerName];
@@ -56,10 +63,23 @@ function callController($controllerName, $methodName, $urlParams, $disableAdminC
  *                                stored in the DI container
  * @param string $methodName: the method that you want to call
  * @param array $urlParams: an array with variables extracted from the routes
- * @param bool $disableAdminCheck: disables the check for adminuser rights
+ * @param Pimple $container: an instance of a pimple container. if not passed, a
+ *                           new one will be instantiated. This can be used to
+ *                           set different security values prehand or simply
+ *                           swap or overwrite objects in the container.
  */
-function callAjaxController($controllerName, $methodName, $urlParams, $disableAdminCheck=true){
-	callController($controllerName, $methodName, $urlParams, $disableAdminCheck, true);
+function callAjaxController($controllerName, $methodName, $urlParams, $container=null){
+
+	// ajax requests come with csrf checks enabled. If you pass your own container
+	// dont forget to enable the csrf check though if you need it. When in doubt
+	// enable the csrf check
+	if($container === null){
+		$container = createDIContainer();
+		$container['Security']->setCSRFCheck(true);
+		$container['Security']->setIsAdminCheck(false);
+	}
+
+	callController($controllerName, $methodName, $urlParams, $container);
 }
 
 
@@ -82,6 +102,8 @@ function runSecurityChecks($security, $isAjax=false, $disableAdminCheck=true){
 	}
 }
 
+
+
 /*************************
  * Define your routes here
  ************************/
@@ -90,7 +112,7 @@ function runSecurityChecks($security, $isAjax=false, $disableAdminCheck=true){
  * Normal Routes
  */
 $this->create('apptemplate_advanced_index', '/')->action(
-	function($params){		
+	function($params){
 		callController('IndexController', 'index', $params);
 	}
 );
@@ -99,7 +121,11 @@ $this->create('apptemplate_advanced_index', '/')->action(
  * Ajax Routes
  */
 $this->create('apptemplate_advanced_ajax_setsystemvalue', '/setsystemvalue')->post()->action(
-	function($params){		
-		callAjaxController('AjaxController', 'setSystemValue', $params);
+	function($params){
+		// only an admin is allowed to save the new systemvalue
+		$container = createDIContainer();
+		$container['Security']->setIsAdminCheck(true);
+		$container['Security']->setCSRFCheck(true);
+		callAjaxController('AjaxController', 'setSystemValue', $params, $container);
 	}
 );

@@ -14,6 +14,7 @@ OCP\App::setActiveNavigationEntry( 'reader_index' );
 OCP\Util::addscript( 'reader', 'integrate' );
 OCP\Util::addscript( 'reader', 'pdf' );
 OCP\Util::addStyle('reader','reader');
+OCP\Util::addStyle('files','files');
 
 // Get the current directory from window url.
 $dir = empty($_GET['dir'])?'/':$_GET['dir'];
