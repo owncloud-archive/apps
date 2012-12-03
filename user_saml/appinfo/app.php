@@ -26,7 +26,7 @@ if (OCP\App::isEnabled('user_saml')) {
 
 	require_once 'apps/user_saml/user_saml.php';
 
-	OC_APP::registerAdmin('user_saml', 'settings');
+	OCP\App::registerAdmin('user_saml', 'settings');
 
 	// register user backend
 	OC_User::useBackend( 'SAML' );
@@ -35,19 +35,28 @@ if (OCP\App::isEnabled('user_saml')) {
 	OCP\Util::connectHook('OC_User', 'post_login', 'OC_USER_SAML_Hooks', 'post_login');
 	OCP\Util::connectHook('OC_User', 'logout', 'OC_USER_SAML_Hooks', 'logout');
 
-	// add settings page to navigation
-	$entry = array(
-		'id' => 'user_saml_settings',
-		'order'=>1,
-		'href' => OCP\Util::linkTo( 'user_saml', 'settings.php' ),
-		'name' => 'SAML'
-	);
+	if( isset($_GET['app']) && $_GET['app'] == 'user_saml' ) {
+
+		require_once 'apps/user_saml/auth.php';
+
+		if (!OC_User::login('', '')) {
+			$error = true;
+			OC_Log::write('saml','Error trying to authenticate the user', OC_Log::DEBUG);
+		}
+		
+		if (isset($_SERVER["QUERY_STRING"]) && !empty($_SERVER["QUERY_STRING"]) && $_SERVER["QUERY_STRING"] != 'app=user_saml') {
+			header( 'Location: ' . OC::$WEBROOT . '/?' . $_SERVER["QUERY_STRING"]);
+			exit();
+		}
+
+        OC::$REQUESTEDAPP = '';
+		OC_Util::redirectToDefaultPage();
+	}
 
 
 	if (!OCP\User::isLoggedIn()) {
 
-		// Aqui tengo que hacer que se imprima el formulario de log, lo intento por javascript
-
+		// Load js code in order to render the SAML link and to hide parts of the normal login form
 		OCP\Util::addScript('user_saml', 'utils');
 	}
 }

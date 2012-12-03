@@ -43,9 +43,9 @@ class OC_USER_SAML_Hooks {
 				if (array_key_exists($samlBackend->groupMapping, $attributes)) {
 					$saml_groups = $attributes[$samlBackend->groupMapping];
 				}
-				else if (!empty($samlBackend->$defaultGroup)) {
-					$saml_groups = array($samlBackend->$defaultGroup);
-					OC_Log::write('saml','Using default group "'.$samlBackend->$defaultGroup.'" for the user: '.$uid, OC_Log::DEBUG);
+				else if (!empty($samlBackend->defaultGroup)) {
+					$saml_groups = array($samlBackend->defaultGroup);
+					OC_Log::write('saml','Using default group "'.$samlBackend->defaultGroup.'" for the user: '.$uid, OC_Log::DEBUG);
 				}
 
 				if (!OC_User::userExists($uid)) {
