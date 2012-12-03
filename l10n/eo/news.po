@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-30 00:01+0100\n"
-"PO-Revision-Date: 2012-11-28 23:14+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-03 00:01+0100\n"
+"PO-Revision-Date: 2012-12-02 21:57+0000\n"
+"Last-Translator: Mariano <mstreet@kde.org.ar>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,15 +60,15 @@ msgstr "Eraro dum ĝisdatigo de fluoj."
 
 #: ajax/importopml.php:40
 msgid "Empty filename"
-msgstr ""
+msgstr "Malplena dosiernomo"
 
 #: ajax/importopml.php:50
 msgid "No source argument passed"
-msgstr ""
+msgstr "Neniu fonta argumento doniĝis"
 
 #: ajax/importopml.php:54
 msgid "Error while reading file"
-msgstr ""
+msgstr "Eraro dum lego de dosiero"
 
 #: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
@@ -193,19 +193,19 @@ msgstr "Neniu dosiero elektita."
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "Enportante OMPL-dosieron..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
-msgstr ""
+msgstr "Nevalida tipo"
 
 #: js/settings.js:60
 msgid "Importing done"
-msgstr ""
+msgstr "Enporto plenumiĝis"
 
 #: js/settings.js:64
 msgid "Error while importing feeds."
-msgstr ""
+msgstr "Eraro dum enporto de fluoj."
 
 #: js/settings.js:88
 msgid "Select file"
@@ -237,7 +237,7 @@ msgstr "Bone! Vi estas aboninta"
 
 #: subscribe.php:36
 msgid "You had already subscribed to this feed!"
-msgstr ""
+msgstr "Vi jam estas aboninta ĉi tiun fluon!"
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -276,7 +276,7 @@ msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
-msgstr ""
+msgstr "Elekti dosieron el <a href=\"#\" class=\"settings\" id=\"browselink\">loka dosiersistemo</a> aŭ <a href=\"#\" class=\"settings\" id=\"cloudlink\">nubo</a>"
 
 #: templates/firstrun.php:18
 msgid "Import"
@@ -345,7 +345,7 @@ msgstr "Marki ĉion kiel legita"
 
 #: templates/part.feeds.php:55
 msgid "Starred"
-msgstr ""
+msgstr "Markita"
 
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
