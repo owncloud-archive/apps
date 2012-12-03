@@ -9,7 +9,10 @@
 	-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; 
 	-moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; 
 }
-#content input[type=radio] { width: 12px; height: 12px; }
+#content input[type=radio] { 
+	width: 12px; height: 12px; 
+	-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; 
+}
 #content input[type=checkbox]:hover { border: 1px solid #D4D4D4 !important; }
 #content input[type=checkbox]:checked::after {
   content: url('%appswebroot%/contacts/img/checkmark.png');
@@ -210,6 +213,7 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
     z-index: 2;
 }
 #contacts-settings li,#contacts-settings li:hover { background-color: transparent; white-space: nowrap; }
+.multiselectoptions label { display: block; }
 
 /* Single elements */
 #file_upload_target, #import_upload_target, #crop_target { display:none; }

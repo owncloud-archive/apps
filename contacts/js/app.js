@@ -694,7 +694,8 @@ OC.Contacts = OC.Contacts || {
 		this.$ninjahelp = $('#ninjahelp');
 		this.$firstRun = $('#firstrun');
 		this.$settings = $('#contacts-settings');
-
+		this.$importFileInput = $('#import_fileupload');
+		this.$importIntoSelect = $('#import_into');
 	},
 	// Build the select to add/remove from groups.
 	buildGroupSelect: function() {
@@ -1182,7 +1183,7 @@ OC.Contacts = OC.Contacts || {
 				$(this).next('ul').slideUp();
 				return;
 			}
-			console.log('export');
+			console.log('settings');
 			$(this).parents('ul').first().find('ul:visible').slideUp();
 			$(this).next('ul').toggle('slow');
 		});
@@ -1194,7 +1195,6 @@ OC.Contacts = OC.Contacts || {
 			console.log('back');
 			self.closeContact(self.currentid);
 			self.$toggleAll.show();
-			self.showActions(['addcontact']);
 		});
 
 		this.$header.on('click keydown', '.delete', function(event) {
@@ -1254,19 +1254,40 @@ OC.Contacts = OC.Contacts || {
 			$(this).find('.mailto').fadeOut(100);
 		});
 
-		$(document).on('keyup', function(event) {
+		var addAddressbookCallback = function(name) {
+			return;
+			self.addAddressbook({name:name}, function(response) {
+				console.log('addAddressbookCallback', response);
+				if(response.status === 'success') {
+				} else {
+				}
+			});
+		}
+		
+		this.$importIntoSelect.multiSelect({
+				createCallback:addAddressbookCallback,
+				singleSelect: true,
+				createText:String(t('contacts', 'Add group')),
+				checked:[],
+				oncheck:function() {},
+				onuncheck:function() {},
+				minWidth: 150,
+			});
+
+		$(document).on('keypress', function(event) {
 			if(event.target.nodeName.toUpperCase() != 'BODY') {
 				return;
 			}
+			var keyCode = Math.max(event.keyCode, event.which);
 			// TODO: This should go in separate method
-			console.log(event.which + ' ' + event.target.nodeName);
+			console.log(event, keyCode + ' ' + event.target.nodeName);
 			/**
 			* To add:
 			* Shift-a: add addressbook
 			* u (85): hide/show leftcontent
 			* f (70): add field
 			*/
-			switch(event.which) {
+			switch(keyCode) {
 				case 13: // Enter?
 					console.log('Enter?');
 					if(!self.currentid && self.currentlistid) {
@@ -1397,6 +1418,7 @@ OC.Contacts = OC.Contacts || {
 			this.$contactList.show();
 		}
 		delete this.currentid;
+		this.showActions(['addcontact']);
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
 	},
 	openContact: function(id) {

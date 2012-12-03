@@ -43,12 +43,15 @@
 			<li><h3 class="import" role="button"><?php echo $l->t('Import'); ?></h3>
 				<ul class="hidden">
 					<li>
-						<input type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" />
+						<form id="import_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadimport.php'); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
+						<input id="import_fileupload" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" />
 						<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
+						</form>
+						<iframe name="import_upload_target" id='import_upload_target' src=""></iframe>
 					</li>
 					<li><?php echo $l->t('Import into:'); ?></li>
 					<li>
-					<select>
+					<select id="import_into" title="<?php echo $l->t('Import into:'); ?>">
 					<?php foreach($_['addressbooks'] as $addressbook) { 
 						if($addressbook['permissions']  & OCP\PERMISSION_CREATE) {
 						?>

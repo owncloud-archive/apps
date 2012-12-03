@@ -47,7 +47,7 @@ $freeSpace=OC_Filesystem::free_space('/');
 $freeSpace=max($freeSpace, 0);
 $maxUploadFilesize = min($maxUploadFilesize, $freeSpace);
 
-OCP\Util::addscript('', 'jquery.multiselect');
+OCP\Util::addscript('', 'multiselect');
 OCP\Util::addscript('', 'oc-vcategories');
 OCP\Util::addscript('contacts', 'app');
 OCP\Util::addscript('contacts', 'contacts');
