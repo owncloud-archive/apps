@@ -42,22 +42,27 @@
 			</li>
 			<li><h3 class="import" role="button"><?php echo $l->t('Import'); ?></h3>
 				<ul class="hidden">
-					<li>
+					<li class="import-upload">
 						<form id="import_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadimport.php'); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
-						<input id="import_fileupload" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" />
+						<input id="import_fileupload" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" name="importfile" />
+						<label><?php echo $l->t('Select files to import'); ?></label>
 						<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
+						<button class="import-upload-button" title="<?php echo $l->t('Select files'); ?>"></button>
 						</form>
 						<iframe name="import_upload_target" id='import_upload_target' src=""></iframe>
 					</li>
-					<li><?php echo $l->t('Import into:'); ?></li>
-					<li>
-					<select id="import_into" title="<?php echo $l->t('Import into:'); ?>">
+					<li class="import-select hidden"><label><?php echo $l->t('Import into:'); ?></label></li>
+					<li class="import-select hidden"><select id="import_into" title="<?php echo $l->t('Import into:'); ?>">
 					<?php foreach($_['addressbooks'] as $addressbook) { 
 						if($addressbook['permissions']  & OCP\PERMISSION_CREATE) {
 						?>
 						<option value="<?php echo $addressbook['id'] ?>"><?php echo $addressbook['displayname'] ?></option>
 					<?php }} ?>
 					</select>
+					<button class="doImport"><?php echo $l->t('OK'); ?></button>
+					</li>
+					<li>
+						<div id="import-progress"></div>
 					</li>
 				</ul>
 			</li>

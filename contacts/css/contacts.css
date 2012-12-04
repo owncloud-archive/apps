@@ -46,7 +46,7 @@
 #leftcontent h3 img.shared:hover { opacity: 1; }
 
 #groupactions { box-sizing: border-box; height: 4em; border-bottom: 1px solid #DDDDDD; }
-#groupactions > button, .addcontact {
+#groupactions > button, .addcontact, .import-upload-button {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -217,6 +217,26 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 
 /* Single elements */
 #file_upload_target, #import_upload_target, #crop_target { display:none; }
+#import_fileupload {
+    height: 2.29em;
+    width: 2.5em;
+	margin-right: -2.5em;
+	cursor: pointer;
+	z-index: 1001;
+}
+.import-upload-button {
+	background-image: url("%webroot%/core/img/actions/upload-white.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 2.29em;
+    width: 2.5em;
+    z-index: 100;
+	margin: 0;
+	cursor: pointer;
+}
+
+
 #toggle_all { position: absolute; bottom: .5em; left: .8em; }
 input.propertytype { float: left; font-size: .8em; width: 8em !important; direction: rtl;}
 .contactphoto { float: left; display: inline-block; border-radius: 0.3em; border: thin solid #bbb; margin: 0.5em; background: url('%webroot%/core/img/loading.gif') no-repeat center center; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; opacity: 1; }
@@ -227,7 +247,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 #phototools li { display: inline; }
 #phototools li a { float:left; cursor:pointer; width:22px; height:22px; opacity: 0.6; }
 #phototools li a:hover { opacity: 0.8; }
-#contactphoto_fileupload, #import_fileupload { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter:alpha(opacity=0); opacity:0; z-index:1001; width:0; height:0;}
+#contactphoto_fileupload, #import_fileupload { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter:alpha(opacity=0); opacity:0; z-index:1001; }
 .favorite { display: inline-block; float: left; height: 20px; width: 20px; background:url('%appswebroot%/contacts/img/inactive_star.png') no-repeat center; }
 .favorite.active, .favorite:hover { background:url('%appswebroot%/contacts/img/active_star.png') no-repeat center; }
 .favorite.inactive { background:url('%appswebroot%/contacts/img/inactive_star.png') no-repeat center; }

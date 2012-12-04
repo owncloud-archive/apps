@@ -1254,26 +1254,207 @@ OC.Contacts = OC.Contacts || {
 			$(this).find('.mailto').fadeOut(100);
 		});
 
-		var addAddressbookCallback = function(name) {
-			return;
-			self.addAddressbook({name:name}, function(response) {
-				console.log('addAddressbookCallback', response);
-				if(response.status === 'success') {
-				} else {
-				}
+		var addAddressbookCallback = function(select, name) {
+			var id;
+			$.ajax({
+				type:'POST',
+				async:false,
+				url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'), 
+				data:{ name: name },
+				success:function(jsondata) {
+					console.log(jsondata);
+					if(jsondata.status == 'success') {
+						id = jsondata.data.addressbook.id
+					} else {
+						OC.notify({message:jsondata.data.message});
+					}
+				},
+				error:function(jqXHR, textStatus, errorThrown) {
+					OC.notify({message:textStatus + ': ' + errorThrown});
+					id = false;
+				},
 			});
+			return id;
 		}
 		
 		this.$importIntoSelect.multiSelect({
-				createCallback:addAddressbookCallback,
-				singleSelect: true,
-				createText:String(t('contacts', 'Add group')),
-				checked:[],
-				oncheck:function() {},
-				onuncheck:function() {},
-				minWidth: 150,
+			createCallback:addAddressbookCallback,
+			singleSelect: true,
+			createText:String(t('contacts', 'Add address book')),
+			minWidth: 120,
+		});
+
+		// Import using jquery.fileupload
+		$(function() {
+			var uploadingFiles = {}, numfiles = 0, uploadedfiles = 0, retries = 0;
+			var aid, importError = false;
+			var $progressbar = $('#import-progress');
+
+			var waitForImport = function() {
+				if(numfiles == 0 && uploadedfiles == 0) {
+					$progressbar.progressbar('value',100);
+					if(!importError) {
+						OC.notify({message:t('contacts', 'Import done')});
+					}
+					//OC.Contacts.Contacts.update({aid:aid});
+					retries = aid = 0;
+					$progressbar.fadeOut();
+					$('.import-upload').show();
+				} else {
+					setTimeout(function() { //
+						waitForImport();
+					}, 1000);
+				}
+			};
+			var doImport = function(file, aid, cb) {
+				$.post(OC.filePath('contacts', '', 'import.php'), { id: aid, file: file, fstype: 'OC_FilesystemView' },
+					function(jsondata) {
+						if(jsondata.status != 'success') {
+							importError = true;
+							OC.notify({message:jsondata.data.message});
+						}
+						if(typeof cb == 'function') {
+							cb();
+						}
+				});
+				return false;
+			};
+
+			var importFiles = function(aid, uploadingFiles) {
+				console.log('importFiles', this, aid, uploadingFiles);
+				if(numfiles != uploadedfiles) {
+					OC.notify({message:t('contacts', 'Not all files uploaded. Retrying...')});
+					retries += 1;
+					if(retries > 3) {
+						numfiles = uploadedfiles = retries = aid = 0;
+						uploadingFiles = {};
+						$progressbar.fadeOut();
+						OC.dialogs.alert(t('contacts', 'Something went wrong with the upload, please retry.'), t('contacts', 'Error'));
+						return;
+					}
+					setTimeout(function() { // Just to let any uploads finish
+						importFiles(aid, uploadingFiles);
+					}, 1000);
+				}
+				$progressbar.progressbar('value',50);
+				var todo = uploadedfiles;
+				$.each(uploadingFiles, function(fileName, data) {
+					doImport(fileName, aid, function() {
+						delete uploadingFiles[fileName];
+						numfiles -= 1; uploadedfiles -= 1;
+						$progressbar.progressbar('value',50+(50/(todo-uploadedfiles)));
+					});
+				})
+				OC.notify({message:t('contacts', 'Importing...'), timeout:20});
+				waitForImport();
+			};
+
+			$('.doImport').on('click keypress', function(event) { // Just to let any uploads finish
+				if(wrongKey(event)) {
+					return;
+				}
+				aid = $(this).prev('select').val();
+				$('.import-select').hide();
+				importFiles(aid, uploadingFiles);
 			});
 
+			$('#import_fileupload').fileupload({
+				dropZone: $('#contacts'), // restrict dropZone to contacts list.
+				acceptFileTypes:  /^text\/(directory|vcard|x-vcard)$/i,
+				add: function(e, data) {
+					var files = data.files;
+					var totalSize=0;
+					if(files) {
+						numfiles += files.length; uploadedfiles = 0;
+						for(var i=0;i<files.length;i++) {
+							if(files[i].size ==0 && files[i].type== '') {
+								OC.dialogs.alert(t('files', 'Unable to upload your file as it is a directory or has 0 bytes'), t('files', 'Upload Error'));
+								return;
+							}
+							totalSize+=files[i].size;
+						}
+					}
+					if(totalSize>$('#max_upload').val()) {
+						OC.dialogs.alert(t('contacts','The file you are trying to upload exceed the maximum size for file uploads on this server.'), t('contacts','Upload too large'));
+						numfiles = uploadedfiles = retries = aid = 0;
+						uploadingFiles = {};
+						return;
+					} else {
+						if($.support.xhrFileUpload) {
+							$.each(files, function(i, file) {
+								var fileName = file.name;
+								console.log('file.name', file.name);
+								var jqXHR =  $('#import_fileupload').fileupload('send', 
+									{
+									files: file,
+									formData: function(form) {
+										var formArray = form.serializeArray();
+										formArray['aid'] = aid;
+										return formArray;
+									}})
+									.success(function(response, textStatus, jqXHR) {
+										if(response.status == 'success') {
+											// import the file
+											uploadedfiles += 1;
+										} else {
+											OC.notify({message:response.data.message});
+										}
+										return false;
+									})
+									.error(function(jqXHR, textStatus, errorThrown) {
+										console.log(textStatus);
+										OC.notify({message:errorThrown + ': ' + textStatus,});
+									});
+								uploadingFiles[fileName] = jqXHR;
+							});
+						} else {
+							data.submit().success(function(data, status) {
+								response = jQuery.parseJSON(data[0].body.innerText);
+								if(response[0] != undefined && response[0].status == 'success') {
+									var file=response[0];
+									delete uploadingFiles[file.name];
+									$('tr').filterAttr('data-file',file.name).data('mime',file.mime);
+									var size = $('tr').filterAttr('data-file',file.name).find('td.filesize').text();
+									if(size==t('files','Pending')){
+										$('tr').filterAttr('data-file',file.name).find('td.filesize').text(file.size);
+									}
+									FileList.loadingDone(file.name);
+								} else {
+									OC.notify({message:response.data.message});
+								}
+							});
+						}
+					}
+				},
+				fail: function(e, data) {
+					console.log('fail');
+					OC.notify({message:data.errorThrown + ': ' + data.textStatus});
+					// TODO: Remove file from upload queue.
+				},
+				progressall: function(e, data) {
+					var progress = (data.loaded/data.total)*50;
+					$progressbar.progressbar('value',progress);
+				},
+				start: function(e, data) {
+					$progressbar.progressbar({value:0});
+					$progressbar.fadeIn();
+					if(data.dataType != 'iframe ') {
+						$('#upload input.stop').show();
+					}
+				},
+				stop: function(e, data) {
+					console.log('stop, data', data);
+					// stop only gets fired once so we collect uploaded items here.
+					$('.import-upload').hide();
+					$('.import-select').show();
+
+					if(data.dataType != 'iframe ') {
+						$('#upload input.stop').hide();
+					}
+				}
+			})
+		});
+		
 		$(document).on('keypress', function(event) {
 			if(event.target.nodeName.toUpperCase() != 'BODY') {
 				return;
@@ -1583,9 +1764,14 @@ OC.Contacts = OC.Contacts || {
 			}
 		});
 	},
+	// NOTE: Deprecated
 	addAddressbook:function(data, cb) {
-		$.post(OC.filePath('contacts', 'ajax', 'addressbook/add.php'), { name: data.name, description: data.description },
-			function(jsondata) {
+		$.ajax({
+			type:'POST',
+			async:false,
+			url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'), 
+			data:{ name: data.name, description: data.description },
+			success:function(jsondata) {
 				if(jsondata.status == 'success') {
 					if(typeof cb === 'function') {
 						cb({
@@ -1595,11 +1781,12 @@ OC.Contacts = OC.Contacts || {
 					}
 				} else {
 					if(typeof cb === 'function') {
-						cb({status:'error'});
+						cb({status:'error', message:jsondata.data.message});
 					}
 				}
-		});
+		}});
 	},
+	// NOTE: Deprecated
 	selectAddressbook:function(cb) {
 		var self = this;
 		var jqxhr = $.get(OC.filePath('contacts', 'templates', 'selectaddressbook.html'), function(data) {
