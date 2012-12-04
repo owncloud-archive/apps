@@ -21,6 +21,9 @@
 *
 */
 
+namespace OCA\AppTemplateAdvanced;
+
+
 class APIMock {
 
 	public $setSystemValueData;
