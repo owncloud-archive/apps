@@ -6,14 +6,15 @@
 #   <ahmet_kaplan@hotmail.com>, 2012.
 # Aranel Surion <aranel@aranelsurion.org>, 2012.
 # Emre  <emresaracoglu@live.com>, 2012.
+#   <info@beyboo.de>, 2012.
 # Necdet Yücel <necdetyucel@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:02+0200\n"
-"PO-Revision-Date: 2012-09-11 00:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-05 00:01+0100\n"
+"PO-Revision-Date: 2012-12-04 11:46+0000\n"
+"Last-Translator: alpere <info@beyboo.de>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +28,7 @@ msgstr "Resimler"
 
 #: appinfo/app.php:53
 msgid "Galleries"
-msgstr ""
+msgstr "Galeriler"
 
 #: js/pictures.js:12
 msgid "Share gallery"
@@ -49,4 +50,4 @@ msgstr "Slide Gösterim"
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr ""
+msgstr "\"Resim Görüntüleyici\" uygulamasını kullanmak için bu uygulamada etkin olması gerekir."
