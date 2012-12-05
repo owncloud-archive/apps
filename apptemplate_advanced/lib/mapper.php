@@ -36,6 +36,8 @@ abstract class Mapper {
 
 	/**
 	 * Returns an entity by id
+	 * @param string $tableName: the name of the table to query
+	 * @param int $id: the id of the item
 	 * @throws DoesNotExistException: if the item does not exist
 	 * @return the result
 	 */
@@ -61,6 +63,18 @@ abstract class Mapper {
 	protected function findAllQuery($tableName){
 		$sql = 'SELECT * FROM ' . $tableName;
 		return $this->execute($sql);
+	}
+
+
+	/**
+	 * Returns all entries of an entity
+	 * @param string $tableName: the name of the table to query
+	 * @param int $id: the id of the item
+	 */
+	protected function deleteQuery($tableName, $id){
+		$sql = 'DELETE FROM ' . $tableName . ' WHERE id = ?';
+		$params = array($id);
+		$this->execute($sql, $params);
 	}
 
 

@@ -30,7 +30,7 @@ class Item {
 	private $path;
 	private $user;
 
-	public function __construct($fro°mRow=null){
+	public function __construct($fromRow=null){
 		if($fromRow){
 			$this->fromRow($fromRow);
 		}

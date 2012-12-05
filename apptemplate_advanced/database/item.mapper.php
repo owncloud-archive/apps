@@ -127,4 +127,14 @@ class ItemMapper extends Mapper {
 		$this->execute($sql, $params);
 	}
 
+
+	/**
+	 * Deletes an item
+	 * @param int $id: the id of the item
+	 */
+	public function delete($id){
+		$this->deleteQuery($this->tableName, $id);
+	}
+
+
 }
