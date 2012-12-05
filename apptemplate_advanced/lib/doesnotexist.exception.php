@@ -4,7 +4,7 @@
 * ownCloud - App Template Example
 *
 * @author Bernhard Posselt
-* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com 
+* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -24,32 +24,10 @@
 namespace OCA\AppTemplateAdvanced;
 
 
-class SettingsController extends Controller {
-	
+class DoesNotExistException extends \Exception {
 
-	/**
-	 * @param Request $request: an instance of the request
-	 * @param API $api: an api wrapper instance
-	 */
-	public function __construct($api, $request){
-		parent::__construct($api, $request);
-	}
-
-
-	/**
-	 * @brief renders the settings page
-	 * @param array $urlParams: an array with the values, which were matched in 
-	 *                          the routes file
-	 */
-        public function index($urlParams=array(), $container=null){
-		$this->api->addScript('admin');
-		
-		$templateName = 'settings';
-		$params = array(
-			'url' => $this->api->getSystemValue('somesetting')
-		);
-
-		return $this->render($templateName, $params, 'admin');
-	}
+        public function __construct($msg){
+                parent::__construct($msg);
+        }
 
 }

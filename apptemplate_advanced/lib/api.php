@@ -128,8 +128,11 @@ class API {
 	 * @param $key the key under which the value is being stored
 	 * @param $value the value that you want to store
 	 */
-	public function setUserValue($key, $value){
-		\OCP\Config::setUserValue($this->getUserId(), $this->appName, $key, $value);
+        public function setUserValue($key, $value, $user=null){
+                if($user === null){
+                        $user = $this->getUserId();
+                }
+                \OCP\Config::setUserValue($user, $this->appName, $key, $value);
 	}
 
 
@@ -137,8 +140,11 @@ class API {
 	 * Shortcut for getting a user defined value
 	 * @param $key the key under which the value is being stored
 	 */
-	public function getUserValue($key){
-		return \OCP\Config::getUserValue($this->getUserId(), $this->appName, $key);
+        public function getUserValue($key, $user=null){
+                if($user === null){
+                        $user = $this->getUserId();
+                }
+                return \OCP\Config::getUserValue($user, $this->appName, $key);
 	}
 
 
@@ -149,6 +155,25 @@ class API {
 	public function getTrans(){
 		return \OC_L10N::get($this->appName);
 	}
+
+
+        /**
+         * Used to abstract the owncloud database access away
+         * @return a query object
+         */
+        public function prepareQuery($sql, $limit=null, $offset=null){
+                return \OCP\DB::prepare($sql, $limit, $offset);
+        }
+
+
+        /**
+         * Used to get the id of the just inserted element
+         * @param string $tableName: the name of the table where we inserted the item
+         * @return the id of the inserted element
+         */
+        public function getInsertId($tableName){
+                return \OCP\DB::insertid($tableName);
+        }
 
 
 }

@@ -35,6 +35,11 @@ namespace OCA\AppTemplateAdvanced;
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\Controller'] = 'apps/apptemplate_advanced/lib/controller.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\TemplateResponse'] = 'apps/apptemplate_advanced/lib/response.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\JSONResponse'] = 'apps/apptemplate_advanced/lib/response.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\Mapper'] = 'apps/apptemplate_advanced/lib/mapper.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\DoesNotExistException'] = 'apps/apptemplate_advanced/lib/doesnotexist.exception.php';
+
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\ItemMapper'] = 'apps/apptemplate_advanced/database/item.mapper.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\Item'] = 'apps/apptemplate_advanced/database/item.php';
 
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\IndexController'] = 'apps/apptemplate_advanced/controllers/index.controller.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\SettingsController'] = 'apps/apptemplate_advanced/controllers/settings.controller.php';
@@ -59,7 +64,7 @@ function createDIContainer(){
 	});
 
 	$container['Request'] = $container->share(function($c){
-                return new Request($_GET, $_POST, $_FILES);
+	return new Request($_GET, $_POST, $_FILES);
 	});
 
 
@@ -67,7 +72,7 @@ function createDIContainer(){
 	 * CONTROLLERS
 	 */
 	$container['IndexController'] = function($c){
-		return new IndexController($c['API'], $c['Request']);
+                return new IndexController($c['API'], $c['Request'], $c['ItemMapper']);
 	};
 
 	$container['SettingsController'] = function($c){
@@ -78,6 +83,14 @@ function createDIContainer(){
 	$container['AjaxController'] = function($c){
 		return new AjaxController($c['API'], $c['Request']);
 	};
+
+
+        /**
+         * MAPPERS
+         */
+        $container['ItemMapper'] = $container->share(function($c){
+                return new ItemMapper($c['API']);
+        });
 
 
 	return $container;

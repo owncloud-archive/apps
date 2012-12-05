@@ -40,8 +40,9 @@ class AjaxController extends Controller {
 	 * @brief sets a global system value
 	 * @param array $urlParams: an array with the values, which were matched in 
 	 *                          the routes file
+         * @param Pimple $container: the pimple container for dependency injection
 	 */
-	public function setSystemValue($urlParams=array()){
+        public function setSystemValue($urlParams=array(), $container=null){
 		$value = $this->params('somesetting');
 		$this->api->setSystemValue('somesetting', $value);
 

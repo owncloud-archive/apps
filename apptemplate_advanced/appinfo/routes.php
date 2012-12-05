@@ -52,7 +52,7 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
 
 	// call the controller and render the page
 	$controller = $container[$controllerName];
-	$response = $controller->$methodName($urlParams);
+        $response = $controller->$methodName($urlParams, $container);
 	echo $response->render();
 }
 
