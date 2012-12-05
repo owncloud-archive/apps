@@ -30,16 +30,16 @@ class IndexController extends Controller {
 	/**
 	 * @param Request $request: an instance of the request
 	 * @param API $api: an api wrapper instance
-         * @param ItemMapper $itemMapper: an itemwrapper instance
+	 * @param ItemMapper $itemMapper: an itemwrapper instance
 	 */
-        public function __construct($api, $request, $itemMapper){
+	public function __construct($api, $request, $itemMapper){
 		parent::__construct($api, $request);
 
 		// this will set the current navigation entry of the app, use this only
 		// for normal HTML requests and not for AJAX requests
 		$this->api->activateNavigationEntry();
 
-                $this->itemMapper = $itemMapper;
+		$this->itemMapper = $itemMapper;
 	}
 
 
@@ -47,9 +47,9 @@ class IndexController extends Controller {
 	 * @brief renders the index page
 	 * @param array $urlParams: an array with the values, which were matched in 
 	 *                          the routes file
-		 * @return an instance of a Response implementation
+	 * @return an instance of a Response implementation
 	 */
-        public function index($urlParams=array(), $container=null){
+	public function index($urlParams=array(), $container=null){
 
 		// thirdparty stuff
 		$this->api->add3rdPartyScript('angular/angular.min');
@@ -60,23 +60,23 @@ class IndexController extends Controller {
 
 		$this->api->addScript('app');
 
-                // example database access
-                // check if an entry with the current user is in the database, if not
-                // create a new entry
-                try {
-                        $item = $this->itemMapper->findByUserId($this->api->getUserId());
-                } catch (DoesNotExistException $e) {
-                        $item = new Item();
-                        $item->setUser($this->api->getUserId());
-                        $item->setPath('/home/path');
-                        $item->setName('john');
-                        $item = $this->itemMapper->save($item);
-                }
+		// example database access
+		// check if an entry with the current user is in the database, if not
+		// create a new entry
+		try {
+			$item = $this->itemMapper->findByUserId($this->api->getUserId());
+		} catch (DoesNotExistException $e) {
+			$item = new Item();
+			$item->setUser($this->api->getUserId());
+			$item->setPath('/home/path');
+			$item->setName('john');
+			$item = $this->itemMapper->save($item);
+		}
 
 		$templateName = 'main';
 		$params = array(
-                        'somesetting' => $this->api->getSystemValue('somesetting'),
-                        'item' => $item
+			'somesetting' => $this->api->getSystemValue('somesetting'),
+			'item' => $item
 		);
 		return $this->render($templateName, $params);
 	}

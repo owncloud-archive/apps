@@ -128,11 +128,11 @@ class API {
 	 * @param $key the key under which the value is being stored
 	 * @param $value the value that you want to store
 	 */
-		public function setUserValue($key, $value, $user=null){
-				if($user === null){
-						$user = $this->getUserId();
-				}
-				\OCP\Config::setUserValue($user, $this->appName, $key, $value);
+	public function setUserValue($key, $value, $user=null){
+		if($user === null){
+				$user = $this->getUserId();
+		}
+		\OCP\Config::setUserValue($user, $this->appName, $key, $value);
 	}
 
 
@@ -140,11 +140,11 @@ class API {
 	 * Shortcut for getting a user defined value
 	 * @param $key the key under which the value is being stored
 	 */
-		public function getUserValue($key, $user=null){
-				if($user === null){
-						$user = $this->getUserId();
-				}
-				return \OCP\Config::getUserValue($user, $this->appName, $key);
+	public function getUserValue($key, $user=null){
+		if($user === null){
+				$user = $this->getUserId();
+		}
+		return \OCP\Config::getUserValue($user, $this->appName, $key);
 	}
 
 
