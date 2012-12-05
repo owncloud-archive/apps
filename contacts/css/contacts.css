@@ -46,7 +46,7 @@
 #leftcontent h3 img.shared:hover { opacity: 1; }
 
 #groupactions { box-sizing: border-box; height: 4em; border-bottom: 1px solid #DDDDDD; }
-#groupactions > button, .addcontact, .import-upload-button {
+#groupactions > button, .addcontact, .import-upload-button, .doImport {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -219,8 +219,11 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 #file_upload_target, #import_upload_target, #crop_target { display:none; }
 #import_fileupload {
     height: 2.29em;
-    width: 2.5em;
-	margin-right: -2.5em;
+    /*width: 2.5em;*/
+	width: 95%;
+	margin-top: -2.5em;
+	display:block;
+	clear: right;
 	cursor: pointer;
 	z-index: 1001;
 }
@@ -236,6 +239,7 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 	cursor: pointer;
 }
 
+.doImport{ margin: auto; }
 
 #toggle_all { position: absolute; bottom: .5em; left: .8em; }
 input.propertytype { float: left; font-size: .8em; width: 8em !important; direction: rtl;}

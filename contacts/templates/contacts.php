@@ -44,10 +44,11 @@
 				<ul class="hidden">
 					<li class="import-upload">
 						<form id="import_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadimport.php'); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
-						<input id="import_fileupload" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" name="importfile" />
-						<label><?php echo $l->t('Select files to import'); ?></label>
 						<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
-						<button class="import-upload-button" title="<?php echo $l->t('Select files'); ?>"></button>
+						<label for="import_fileupload"><?php echo $l->t('Select files to import'); ?>
+							<button class="import-upload-button" title="<?php echo $l->t('Select files'); ?>"></button>
+						</label>
+						<input id="import_fileupload" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" name="importfile" />
 						</form>
 						<iframe name="import_upload_target" id='import_upload_target' src=""></iframe>
 					</li>
@@ -62,6 +63,7 @@
 					<button class="doImport"><?php echo $l->t('OK'); ?></button>
 					</li>
 					<li>
+						<label id="import-status-text"></label>
 						<div id="import-progress"></div>
 					</li>
 				</ul>

@@ -1289,19 +1289,33 @@ OC.Contacts = OC.Contacts || {
 			var uploadingFiles = {}, numfiles = 0, uploadedfiles = 0, retries = 0;
 			var aid, importError = false;
 			var $progressbar = $('#import-progress');
+			var $status = $('#import-status-text');
 
 			var waitForImport = function() {
 				if(numfiles == 0 && uploadedfiles == 0) {
 					$progressbar.progressbar('value',100);
 					if(!importError) {
-						OC.notify({message:t('contacts', 'Import done')});
+						OC.notify({
+							message:t('contacts','Import done. Click here to cancel reloading.'),
+							//timeout:5,
+							timeouthandler:function() {
+								console.log('reloading');
+								window.location.href = OC.linkTo('contacts', 'index.php');
+							},
+							clickhandler:function() {
+								console.log('reloading cancelled');
+								OC.notify({cancel:true});
+							}
+						});
 					}
-					//OC.Contacts.Contacts.update({aid:aid});
 					retries = aid = 0;
 					$progressbar.fadeOut();
-					$('.import-upload').show();
+					setTimeout(function() {
+						$status.fadeOut('slow');
+						$('.import-upload').show();
+					}, 3000);
 				} else {
-					setTimeout(function() { //
+					setTimeout(function() {
 						waitForImport();
 					}, 1000);
 				}
@@ -1314,14 +1328,14 @@ OC.Contacts = OC.Contacts || {
 							OC.notify({message:jsondata.data.message});
 						}
 						if(typeof cb == 'function') {
-							cb();
+							cb(jsondata);
 						}
 				});
 				return false;
 			};
 
 			var importFiles = function(aid, uploadingFiles) {
-				console.log('importFiles', this, aid, uploadingFiles);
+				console.log('importFiles', aid, uploadingFiles);
 				if(numfiles != uploadedfiles) {
 					OC.notify({message:t('contacts', 'Not all files uploaded. Retrying...')});
 					retries += 1;
@@ -1336,20 +1350,26 @@ OC.Contacts = OC.Contacts || {
 						importFiles(aid, uploadingFiles);
 					}, 1000);
 				}
-				$progressbar.progressbar('value',50);
+				$progressbar.progressbar('value', 50);
 				var todo = uploadedfiles;
 				$.each(uploadingFiles, function(fileName, data) {
-					doImport(fileName, aid, function() {
+					$status.text(t('contacts', 'Importing from {filename}...', {filename:fileName})).fadeIn();
+					doImport(fileName, aid, function(response) {
+						if(response.status === 'success') {
+							$status.text(t('contacts', '{success} imported, {failed} failed.', 
+								{success:response.data.imported, failed:response.data.failed})).fadeIn();
+						}
 						delete uploadingFiles[fileName];
 						numfiles -= 1; uploadedfiles -= 1;
 						$progressbar.progressbar('value',50+(50/(todo-uploadedfiles)));
 					});
 				})
-				OC.notify({message:t('contacts', 'Importing...'), timeout:20});
+				//$status.text(t('contacts', 'Importing...')).fadeIn();
 				waitForImport();
 			};
 
-			$('.doImport').on('click keypress', function(event) { // Just to let any uploads finish
+			// Start the actual import.
+			$('.doImport').on('click keypress', function(event) {
 				if(wrongKey(event)) {
 					return;
 				}
@@ -1359,7 +1379,6 @@ OC.Contacts = OC.Contacts || {
 			});
 
 			$('#import_fileupload').fileupload({
-				dropZone: $('#contacts'), // restrict dropZone to contacts list.
 				acceptFileTypes:  /^text\/(directory|vcard|x-vcard)$/i,
 				add: function(e, data) {
 					var files = data.files;
