@@ -32,8 +32,6 @@ require_once($path . "../../lib/responses/json.response.php");
 require_once($path . "../../lib/controller.php");
 require_once($path . "../../controllers/ajax.controller.php");
 
-require_once($path . "../mocks/api.mock.php");
-
 
 class AjaxControllerTest extends \PHPUnit_Framework_TestCase {
 
@@ -41,12 +39,27 @@ class AjaxControllerTest extends \PHPUnit_Framework_TestCase {
         public function testSetSystemValue(){
                 $post = array('somesetting' => 'this is a test');
                 $request = new Request(null, $post);
-                $api = new APIMock();
+
+                // create an api mock object
+                $api = $this->getMock('API', array('setSystemValue', 'getAppName'));
+
+                // expects to be called once with the method
+                // setSystemValue('somesetting', 'this is a test')
+                $api->expects($this->once())
+                                        ->method('setSystemValue')
+                                        ->with(	$this->equalTo('somesetting'),
+                                                        $this->equalTo('this is a test'));
+
+                // we want to return the appname apptemplate_advanced when this method
+                // is being called
+                $api->expects($this->any())
+                                        ->method('getAppName')
+                                        ->will($this->returnValue('apptemplate_advanced'));
 
                 $controller = new AjaxController($api, $request);
-                $controller->setSystemValue();
+                $controller->setSystemValue(null);
 
-                $this->assertEquals($post['somesetting'], $api->setSystemValueData['somesetting']);
+
         }
 
 
