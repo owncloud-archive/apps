@@ -27,7 +27,8 @@ namespace OCA\AppTemplateAdvanced;
 $path = realpath( dirname( __FILE__ ) ) . '/';
 
 require_once($path . "../../lib/request.php");
-require_once($path . "../../lib/response.php");
+require_once($path . "../../lib/responses/response.php");
+require_once($path . "../../lib/responses/json.response.php");
 require_once($path . "../../lib/controller.php");
 require_once($path . "../../controllers/ajax.controller.php");
 
