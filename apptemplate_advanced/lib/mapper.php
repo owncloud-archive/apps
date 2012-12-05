@@ -26,53 +26,55 @@ namespace OCA\AppTemplateAdvanced;
 
 abstract class Mapper {
 
-        /**
-         * @param API $api: Instance of the API abstraction layer
-         */
-        public function __construct($api){
-                $this->api = $api;
-        }
+	/**
+	 * @param API $api: Instance of the API abstraction layer
+	 */
+	public function __construct($api){
+		$this->api = $api;
+	}
 
 
-        /**
-         * Returns an entity by id
-         * @throws DoesNotExistException: if the item does not exist
-         * @return the result
-         */
-        protected function findQuery($tableName, $id){
-                $sql = 'SELECT * FROM ' . $tableName . ' WHERE id = ?';
-                $params = array($id);
+	/**
+	 * Returns an entity by id
+	 * @throws DoesNotExistException: if the item does not exist
+	 * @return the result
+	 */
+	protected function findQuery($tableName, $id){
+		$sql = 'SELECT * FROM ' . $tableName . ' WHERE id = ?';
+		$params = array($id);
 
-                $result = $this->execute($sql, $params)->fetchRow();
-                if($result){
-                        return $result;
-                } else {
-                        throw new DoesNotExistException('Item with id ' . $id . ' does not exist!');
-                }
+		$result = $this->execute($sql, $params)->fetchRow();
+		if($result){
+			return $result;
+		} else {
+			throw new DoesNotExistException('Item with id ' . $id . ' does not exist!');
+		}
 
-        }
-
-
-        /**
-         * Returns all entries of an entity
-         * @param string $tableName: the name of the table to query
-         * @return the result
-         */
-        protected function findAllQuery($tableName){
-                $sql = 'SELECT * FROM ' . $tableName;
-                return $this->execute($sql);
-        }
+	}
 
 
-        /**
-         * Runs an sql query
-         * @param string $sql: the prepare string
-         * @param array $params: the params which should replace the ? in the sql query
-         * @return the database query result
-         */
-        protected function execute($sql, $params=array()){
-                $query = $this->api->prepareQuery($sql);
-                return $query->execute($params);
-        }
+	/**
+	 * Returns all entries of an entity
+	 * @param string $tableName: the name of the table to query
+	 * @return the result
+	 */
+	protected function findAllQuery($tableName){
+		$sql = 'SELECT * FROM ' . $tableName;
+		return $this->execute($sql);
+	}
+
+
+	/**
+	 * Runs an sql query
+	 * @param string $sql: the prepare string
+	 * @param array $params: the params which should replace the ? in the sql query
+	 * @param int $limit: the maximum number of rows
+	 * @param int $offset: from which row we want to start
+	 * @return the database query result
+	 */
+	protected function execute($sql, $params=array(), $limit=null, $offset=null){
+		$query = $this->api->prepareQuery($sql);
+		return $query->execute($params);
+	}
 
 }
