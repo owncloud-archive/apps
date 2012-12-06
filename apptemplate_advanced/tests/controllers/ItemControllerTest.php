@@ -30,10 +30,10 @@ require_once($path . "../../lib/request.php");
 require_once($path . "../../lib/responses/response.php");
 require_once($path . "../../lib/responses/json.response.php");
 require_once($path . "../../lib/controller.php");
-require_once($path . "../../controllers/ajax.controller.php");
+require_once($path . "../../controllers/item.controller.php");
 
 
-class AjaxControllerTest extends \PHPUnit_Framework_TestCase {
+class ItemControllerTest extends \PHPUnit_Framework_TestCase {
 
 
         public function testSetSystemValue(){
@@ -56,7 +56,7 @@ class AjaxControllerTest extends \PHPUnit_Framework_TestCase {
                                         ->method('getAppName')
                                         ->will($this->returnValue('apptemplate_advanced'));
 
-                $controller = new AjaxController($api, $request);
+                $controller = new ItemController($api, $request, null);
                 $controller->setSystemValue(null);
 
 

@@ -39,13 +39,13 @@ namespace OCA\AppTemplateAdvanced;
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\TextDownloadResponse'] = 'apps/apptemplate_advanced/lib/responses/textdownload.response.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\Mapper'] = 'apps/apptemplate_advanced/lib/mapper.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\DoesNotExistException'] = 'apps/apptemplate_advanced/lib/doesnotexist.exception.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\MethodAnnotationReader'] = 'apps/apptemplate_advanced/lib/methodannotationreader.php';
 
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\ItemMapper'] = 'apps/apptemplate_advanced/database/item.mapper.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\Item'] = 'apps/apptemplate_advanced/database/item.php';
 
-\OC::$CLASSPATH['OCA\AppTemplateAdvanced\IndexController'] = 'apps/apptemplate_advanced/controllers/index.controller.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\ItemController'] = 'apps/apptemplate_advanced/controllers/item.controller.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\SettingsController'] = 'apps/apptemplate_advanced/controllers/settings.controller.php';
-\OC::$CLASSPATH['OCA\AppTemplateAdvanced\AjaxController'] = 'apps/apptemplate_advanced/controllers/ajax.controller.php';
 
 
 /**
@@ -73,8 +73,8 @@ function createDIContainer(){
 	/** 
 	 * CONTROLLERS
 	 */
-	$container['IndexController'] = function($c){
-                return new IndexController($c['API'], $c['Request'], $c['ItemMapper']);
+        $container['ItemController'] = function($c){
+                return new ItemController($c['API'], $c['Request'], $c['ItemMapper']);
 	};
 
 	$container['SettingsController'] = function($c){
@@ -82,16 +82,11 @@ function createDIContainer(){
 	};
 
 
-	$container['AjaxController'] = function($c){
-		return new AjaxController($c['API'], $c['Request']);
-	};
-
-
         /**
          * MAPPERS
          */
         $container['ItemMapper'] = $container->share(function($c){
-                return new ItemMapper($c['API']);
+                        return new ItemMapper($c['API']);
         });
 
 
