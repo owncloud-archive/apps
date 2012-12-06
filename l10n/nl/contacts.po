@@ -10,6 +10,7 @@
 #   <gertvdw@gmail.com>, 2012.
 #   <icewind1991@gmail.com>, 2012.
 #   <koen@vervloesem.eu>, 2012.
+#   <lenny@weijl.org>, 2012.
 # Richard Bos <radoeka@gmail.com>, 2012.
 #   <transifex@thisnet.nl>, 2012.
 #   <translator@it-dept.eu>, 2012.
@@ -17,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-30 00:01+0100\n"
-"PO-Revision-Date: 2012-11-29 08:44+0000\n"
-"Last-Translator: gertvdw <gertvdw@gmail.com>\n"
+"POT-Creation-Date: 2012-12-04 00:04+0100\n"
+"PO-Revision-Date: 2012-12-03 09:22+0000\n"
+"Last-Translator: Len <lenny@weijl.org>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -305,7 +306,7 @@ msgstr "Fout bij het verwijderen uit de groep."
 
 #: js/app.js:1146
 msgid "There was an error opening a mail composer."
-msgstr ""
+msgstr "Er is iets misgegaan tijdens het openen van een email programma."
 
 #: js/app.js:1349 templates/contacts.php:153
 msgid "Add group"
@@ -547,7 +548,7 @@ msgstr "Familie"
 
 #: lib/app.php:346
 msgid "There was an error deleting properties for this contact."
-msgstr ""
+msgstr "Er is iets misgegaan tijdens het verwijderen van de eigenschappen van dit contact."
 
 #: lib/hooks.php:108
 msgid "{name}'s Birthday"
@@ -587,15 +588,15 @@ msgstr "Er is een fout opgetreden bij het verwijderen van dit contact persoon."
 
 #: lib/vcard.php:637
 msgid "Contact not found."
-msgstr ""
+msgstr "Contact niet gevonden."
 
 #: lib/vcard.php:693
 msgid "HomePage"
-msgstr ""
+msgstr "HomePage"
 
 #: templates/contacts.php:21
 msgid "New Group"
-msgstr ""
+msgstr "Nieuwe Groep"
 
 #: templates/contacts.php:27 templates/index.php:16
 msgid "Settings"
@@ -612,7 +613,7 @@ msgstr "Importeer"
 
 #: templates/contacts.php:49
 msgid "Import into:"
-msgstr ""
+msgstr "Importeer naar:"
 
 #: templates/contacts.php:61
 msgid "Export"
@@ -620,11 +621,11 @@ msgstr "Exporteer"
 
 #: templates/contacts.php:76
 msgid "(De-)select all"
-msgstr ""
+msgstr "(De-)selecteer alle"
 
 #: templates/contacts.php:78
 msgid "New Contact"
-msgstr ""
+msgstr "Nieuw Contact"
 
 #: templates/contacts.php:79
 msgid "Back"
@@ -632,11 +633,11 @@ msgstr "Terug"
 
 #: templates/contacts.php:80
 msgid "Download Contact"
-msgstr ""
+msgstr "Download Contact"
 
 #: templates/contacts.php:81
 msgid "Delete Contact"
-msgstr ""
+msgstr "Verwijder Contact"
 
 #: templates/contacts.php:83 templates/contacts.php:286
 #: templates/part.contact.php:47 templates/part.contact.php:135
@@ -645,7 +646,7 @@ msgstr "Groepen"
 
 #: templates/contacts.php:85
 msgid "Favorite"
-msgstr ""
+msgstr "Favoriet"
 
 #: templates/contacts.php:92 templates/index.php:30
 #: templates/part.import.php:24
@@ -704,7 +705,7 @@ msgstr "Verwijder huidig contact"
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
-msgstr ""
+msgstr "<h3>Je hebt geen contacten in je addresboek.</h3><p>Voeg een nieuw contact toe of importeer bestaande contacten met een VCF bestand.</p>"
 
 #: templates/contacts.php:127 templates/part.no_contacts.php:9
 msgid "Add contact"
@@ -712,11 +713,11 @@ msgstr "Contactpersoon toevoegen"
 
 #: templates/contacts.php:168
 msgid "Compose mail"
-msgstr ""
+msgstr "Schrijf email"
 
 #: templates/contacts.php:179
 msgid "Delete group"
-msgstr ""
+msgstr "Verwijder groep"
 
 #: templates/contacts.php:191 templates/part.contact.php:19
 msgid "Delete current photo"
@@ -736,7 +737,7 @@ msgstr "Selecteer foto uit ownCloud"
 
 #: templates/contacts.php:203
 msgid "First name"
-msgstr ""
+msgstr "Voornaam"
 
 #: templates/contacts.php:206 templates/part.edit_name_dialog.php:37
 msgid "Additional names"
@@ -744,7 +745,7 @@ msgstr "Extra namen"
 
 #: templates/contacts.php:209
 msgid "Last name"
-msgstr ""
+msgstr "Achternaam"
 
 #: templates/contacts.php:217 templates/contacts.php:278
 #: templates/part.contact.php:41 templates/part.contact.php:127
@@ -768,7 +769,7 @@ msgstr "Verjaardag"
 
 #: templates/contacts.php:269
 msgid "Notes go here..."
-msgstr ""
+msgstr "Hier de notities..."
 
 #: templates/contacts.php:276
 msgid "Add"
@@ -812,7 +813,7 @@ msgstr "Geef een geldig email adres op."
 
 #: templates/contacts.php:299
 msgid "someone@example.com"
-msgstr ""
+msgstr "iemand@voorbeeld.nl"
 
 #: templates/contacts.php:301 templates/part.contact.php:64
 msgid "Mail to address"
@@ -836,7 +837,7 @@ msgstr "Ga naar website"
 
 #: templates/contacts.php:327
 msgid "Delete URL"
-msgstr ""
+msgstr "Verwijder URL"
 
 #: templates/contacts.php:338 templates/part.contact.php:110
 msgid "View on map"
@@ -844,7 +845,7 @@ msgstr "Bekijk op een kaart"
 
 #: templates/contacts.php:339
 msgid "Delete address"
-msgstr ""
+msgstr "Verwijder adres"
 
 #: templates/contacts.php:350
 msgid "1 Main Street"
@@ -852,7 +853,7 @@ msgstr ""
 
 #: templates/contacts.php:353
 msgid "12345"
-msgstr ""
+msgstr "12345"
 
 #: templates/contacts.php:354
 msgid "Your city"

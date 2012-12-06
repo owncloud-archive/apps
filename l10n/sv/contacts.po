@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-28 00:09+0100\n"
-"PO-Revision-Date: 2012-11-27 14:51+0000\n"
+"POT-Creation-Date: 2012-12-04 00:04+0100\n"
+"PO-Revision-Date: 2012-12-03 20:18+0000\n"
 "Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -47,11 +47,11 @@ msgstr "Fel vid tillägg av grupp."
 
 #: ajax/categories/addto.php:20 ajax/categories/removefrom.php:20
 msgid "Group ID missing from request."
-msgstr ""
+msgstr "Grupp-ID fattas från anrop."
 
 #: ajax/categories/addto.php:24 ajax/categories/removefrom.php:24
 msgid "Contact ID missing from request."
-msgstr ""
+msgstr "Kontakt-ID fattas från anrop."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -101,7 +101,7 @@ msgstr "Något gick fel."
 #: ajax/contact/saveproperty.php:128
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
-msgstr ""
+msgstr "Kan inte spara egenskap av typen \"%s\" som en lista"
 
 #: ajax/contact/saveproperty.php:180
 msgid "Missing IM parameter."
@@ -174,7 +174,7 @@ msgstr "Kunde inte hitta bild:"
 
 #: ajax/setpreference.php:37
 msgid "Key is not set for: "
-msgstr ""
+msgstr "Nyckel är inte angiven för:"
 
 #: ajax/setpreference.php:41
 msgid "Value is not set for: "
@@ -182,7 +182,7 @@ msgstr "Värde är inte satt för:"
 
 #: ajax/setpreference.php:53
 msgid "Could not set preference: "
-msgstr ""
+msgstr "Kunde inte sätta inställning:"
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
@@ -240,7 +240,7 @@ msgstr "Kontakterna finns redan i denna grupp."
 
 #: js/app.js:335
 msgid "Couldn't get contact list."
-msgstr ""
+msgstr "Kunde inte hämta kontaktlista."
 
 #: js/app.js:346
 msgid "Contact is not in this group."
@@ -286,62 +286,62 @@ msgstr "Lägg till grupp..."
 msgid "Select photo"
 msgstr "Välj foto"
 
-#: js/app.js:897 js/app.js:923 js/app.js:1552 js/app.js:1658 js/contacts.js:97
+#: js/app.js:897 js/app.js:923 js/app.js:1557 js/app.js:1663 js/contacts.js:97
 #: js/contacts.js:182 js/contacts.js:381
 msgid "Network or server error. Please inform administrator."
 msgstr "Nätverk eller serverfel. Informera administratören."
 
 #: js/app.js:1056 js/app.js:1091
 msgid "Error adding to group."
-msgstr ""
+msgstr "Fel vid tillägg i grupp."
 
 #: js/app.js:1116
 msgid "Error removing from group."
-msgstr ""
+msgstr "Fel vid radering från grupp."
 
 #: js/app.js:1146
 msgid "There was an error opening a mail composer."
-msgstr ""
+msgstr "Fel uppstod när e-postklient skulle öppnas."
 
-#: js/app.js:1344 templates/contacts.php:153
+#: js/app.js:1349 templates/contacts.php:153
 msgid "Add group"
 msgstr "Lägg till grupp"
 
-#: js/app.js:1416
+#: js/app.js:1421
 msgid "No files selected for upload."
 msgstr "Inga filer valda för uppladdning"
 
-#: js/app.js:1427
+#: js/app.js:1432
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Filen du försöker ladda upp är större än den maximala storleken för filuppladdning på denna server."
 
-#: js/app.js:1517
+#: js/app.js:1522
 msgid "Edit profile picture"
 msgstr "Anpassa profilbild"
 
-#: js/app.js:1535 js/contacts.js:864
+#: js/app.js:1540 js/contacts.js:864
 msgid "Error loading profile picture."
 msgstr "Fel vid hämtning av profilbild."
 
-#: js/app.js:1581 templates/part.selectaddressbook.php:27
+#: js/app.js:1586 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr "Ange namn"
 
-#: js/app.js:1582 templates/part.selectaddressbook.php:29
+#: js/app.js:1587 templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "Ange beskrivning"
 
-#: js/app.js:1585
+#: js/app.js:1590
 msgid "Select addressbook"
 msgstr "Välj adressbok"
 
-#: js/app.js:1593
+#: js/app.js:1598
 msgid "The address book name cannot be empty."
 msgstr "Adressbokens namn kan inte vara tomt."
 
-#: js/app.js:1593 js/settings.js:25 js/settings.js:45 js/settings.js:75
+#: js/app.js:1598 js/settings.js:25 js/settings.js:45 js/settings.js:75
 #: js/settings.js:112
 msgid "Error"
 msgstr "Fel"
@@ -352,7 +352,7 @@ msgstr "Är detta korrekt?"
 
 #: js/contacts.js:426
 msgid "There was an unknown error when trying to delete this contact"
-msgstr ""
+msgstr "Okänt fel uppstod när denna kontakt skulle raderas"
 
 #: js/contacts.js:1214
 msgid ""
@@ -362,11 +362,11 @@ msgstr "Vissa kontakter är markerade för radering, men är inte raderade än. 
 
 #: js/contacts.js:1225
 msgid "Click to undo deletion of {num} contacts"
-msgstr ""
+msgstr "Klicka för att ångra radering av {num} kontakter"
 
 #: js/contacts.js:1238
 msgid "Cancelled deletion of {num}"
-msgstr ""
+msgstr "Avbruten radering av {num}"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -543,7 +543,7 @@ msgstr "Familj"
 
 #: lib/app.php:346
 msgid "There was an error deleting properties for this contact."
-msgstr ""
+msgstr "Ett fel uppstod vid radering av egenskaper för denna kontakt."
 
 #: lib/hooks.php:108
 msgid "{name}'s Birthday"
@@ -616,7 +616,7 @@ msgstr "Exportera"
 
 #: templates/contacts.php:76
 msgid "(De-)select all"
-msgstr ""
+msgstr "(Av-)markera alla"
 
 #: templates/contacts.php:78
 msgid "New Contact"
@@ -700,7 +700,7 @@ msgstr "Radera denna kontakt"
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
-msgstr ""
+msgstr "<h3>Du har inga kontakter i din adressbok.</h3><p>Lägg till en ny kontakt eller importera från en VCF-fil.</p>"
 
 #: templates/contacts.php:127 templates/part.no_contacts.php:9
 msgid "Add contact"
@@ -844,7 +844,7 @@ msgstr "Radera adress"
 
 #: templates/contacts.php:350
 msgid "1 Main Street"
-msgstr ""
+msgstr "1 Main Street"
 
 #: templates/contacts.php:353
 msgid "12345"
