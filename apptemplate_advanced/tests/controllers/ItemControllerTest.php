@@ -51,6 +51,31 @@ class ItemControllerTest extends ControllerTest {
 	}
 
 
+	public function testIndexGetSystemValue(){
+		// create mocks
+		$apiMethods = array(
+			'getUserId', 
+			'getSystemValue',
+			'add3rdPartyScript',
+			'addStyle',
+			'addScript'
+		);
+		$api = $this->getAPIMock($apiMethods);
+		$api->expects($this->any())
+					->method('getSystemValue')
+					->with($this->equalTo('somesetting'))
+					->will($this->returnValue('systemvalue'));
+
+		$itemMapperMock = $this->getMock('ItemMapper', array('findByUserId'));
+
+		$controller = new ItemController($api, null, $itemMapperMock);
+
+		$response = $controller->index();
+		$params = $response->getParams();
+		$this->assertEquals('systemvalue', $params['somesetting']);
+	}
+
+
 	public function testIndexItemExists(){
 		// create mocks
 		$apiMethods = array(
@@ -64,10 +89,6 @@ class ItemControllerTest extends ControllerTest {
 		$api->expects($this->any())
 					->method('getUserId')
 					->will($this->returnValue('richard'));
-		$api->expects($this->any())
-					->method('getSystemValue')
-					->with($this->equalTo('somesetting'))
-					->will($this->returnValue('systemvalue'));
 
 		$item = new Item();
 		$item->setUser('user');
@@ -84,7 +105,6 @@ class ItemControllerTest extends ControllerTest {
 
 		$response = $controller->index();
 		$params = $response->getParams();
-		$this->assertEquals('systemvalue', $params['somesetting']);
 		$this->assertEquals($item, $params['item']);
 	}
 
@@ -102,10 +122,6 @@ class ItemControllerTest extends ControllerTest {
 		$api->expects($this->any())
 					->method('getUserId')
 					->will($this->returnValue('richard'));
-		$api->expects($this->any())
-					->method('getSystemValue')
-					->with($this->equalTo('somesetting'))
-					->will($this->returnValue('systemvalue'));
 
 		$itemMapperMock = $this->getMock('ItemMapper', array('findByUserId', 'save'));
 		$itemMapperMock->expects($this->any())
@@ -117,7 +133,6 @@ class ItemControllerTest extends ControllerTest {
 		$response = $controller->index();
 		$params = $response->getParams();
 
-		$this->assertEquals('systemvalue', $params['somesetting']);
 		$this->assertEquals('richard', $params['item']->getUser());
 		$this->assertEquals('/home/path', $params['item']->getPath());
 		$this->assertEquals('john', $params['item']->getName());
