@@ -69,7 +69,7 @@ class ItemController extends Controller {
 			$item->setUser($this->api->getUserId());
 			$item->setPath('/home/path');
 			$item->setName('john');
-			$item = $this->itemMapper->save($item);
+			$this->itemMapper->save($item);
 		}
 
 		$templateName = 'main';

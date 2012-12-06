@@ -60,10 +60,9 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
 
 /**
  * Runs the security checks and exits on error
- * @param Security $security: the security object
- * @param bool $isAjax: if true, the ajax checks will be run, otherwise the normal
- *                      checks
- * @param bool $disableAdminCheck: disables the check for adminuser rights
+ * @param Controller $controller: an instance of the controller to be checked
+ * @param string $methodName: the name of the controller method that will be called
+ * @param Pimple $container: an instance of the container for the security object
  */
 function handleAnnotations($controller, $methodName, $container){
 	// get annotations from comments

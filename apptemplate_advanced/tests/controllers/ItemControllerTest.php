@@ -26,14 +26,112 @@ namespace OCA\AppTemplateAdvanced;
 // get abspath of file directory
 $path = realpath( dirname( __FILE__ ) ) . '/';
 
+require_once($path . "../../database/item.php");
 require_once($path . "../../lib/request.php");
+require_once($path . "../../lib/doesnotexist.exception.php");
 require_once($path . "../../lib/responses/response.php");
 require_once($path . "../../lib/responses/json.response.php");
+require_once($path . "../../lib/responses/template.response.php");
 require_once($path . "../../lib/controller.php");
 require_once($path . "../../controllers/item.controller.php");
 
+require_once($path . "ControllerTest.php");
 
-class ItemControllerTest extends \PHPUnit_Framework_TestCase {
+
+class ItemControllerTest extends ControllerTest {
+
+
+	public function testIndexAnnotations(){
+		$api = $this->getAPIMock();
+		$controller = new ItemController($api, null, null);
+		$methodName = 'index';
+		$annotations = array('CSRFExcemption', 'IsAdminExcemption', 'IsSubAdminExcemption');
+
+		$this->assertAnnotations($controller, $methodName, $annotations);
+	}
+
+
+	public function testIndexItemExists(){
+		// create mocks
+		$apiMethods = array(
+			'getUserId', 
+			'getSystemValue',
+			'add3rdPartyScript',
+			'addStyle',
+			'addScript'
+		);
+		$api = $this->getAPIMock($apiMethods);
+		$api->expects($this->any())
+					->method('getUserId')
+					->will($this->returnValue('richard'));
+		$api->expects($this->any())
+					->method('getSystemValue')
+					->with($this->equalTo('somesetting'))
+					->will($this->returnValue('systemvalue'));
+
+		$item = new Item();
+		$item->setUser('user');
+		$item->setPath('/path');
+		$item->setId(3);
+		$item->setName('name');
+
+		$itemMapperMock = $this->getMock('ItemMapper', array('findByUserId'));
+		$itemMapperMock->expects($this->any())
+					->method('findByUserId')
+					->will($this->returnValue($item));
+		
+		$controller = new ItemController($api, null, $itemMapperMock);
+
+		$response = $controller->index();
+		$params = $response->getParams();
+		$this->assertEquals('systemvalue', $params['somesetting']);
+		$this->assertEquals($item, $params['item']);
+	}
+
+
+	public function testIndexItemDoesNotExist(){
+		// create mocks
+		$apiMethods = array(
+			'getUserId', 
+			'getSystemValue',
+			'add3rdPartyScript',
+			'addStyle',
+			'addScript'
+		);
+		$api = $this->getAPIMock($apiMethods);
+		$api->expects($this->any())
+					->method('getUserId')
+					->will($this->returnValue('richard'));
+		$api->expects($this->any())
+					->method('getSystemValue')
+					->with($this->equalTo('somesetting'))
+					->will($this->returnValue('systemvalue'));
+
+		$itemMapperMock = $this->getMock('ItemMapper', array('findByUserId', 'save'));
+		$itemMapperMock->expects($this->any())
+					->method('findByUserId')
+					->will($this->throwException(new DoesNotExistException('')));
+
+		$controller = new ItemController($api, null, $itemMapperMock);
+
+		$response = $controller->index();
+		$params = $response->getParams();
+
+		$this->assertEquals('systemvalue', $params['somesetting']);
+		$this->assertEquals('richard', $params['item']->getUser());
+		$this->assertEquals('/home/path', $params['item']->getPath());
+		$this->assertEquals('john', $params['item']->getName());
+	}
+
+
+	public function testSetSystemValueAnnotations(){
+		$api = $this->getAPIMock();
+		$controller = new ItemController($api, null, null);	
+		$methodName = 'setSystemValue';
+		$annotations = array('Ajax');
+
+		$this->assertAnnotations($controller, $methodName, $annotations);
+	}
 
 
 	public function testSetSystemValue(){
@@ -41,7 +139,7 @@ class ItemControllerTest extends \PHPUnit_Framework_TestCase {
 		$request = new Request(null, $post);
 
 		// create an api mock object
-		$api = $this->getMock('API', array('setSystemValue', 'getAppName'));
+		$api = $this->getAPIMock(array('setSystemValue'));
 
 		// expects to be called once with the method
 		// setSystemValue('somesetting', 'this is a test')
@@ -57,9 +155,10 @@ class ItemControllerTest extends \PHPUnit_Framework_TestCase {
 					->will($this->returnValue('apptemplate_advanced'));
 
 		$controller = new ItemController($api, $request, null);
-		$controller->setSystemValue(null);
+		$response = $controller->setSystemValue(null);
 
-
+		// check if the correct parameters of the json response are set
+		$this->assertEquals($post, $response->getParams());
 	}
 
 
