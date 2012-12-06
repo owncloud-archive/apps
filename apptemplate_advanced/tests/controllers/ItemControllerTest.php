@@ -36,31 +36,31 @@ require_once($path . "../../controllers/item.controller.php");
 class ItemControllerTest extends \PHPUnit_Framework_TestCase {
 
 
-        public function testSetSystemValue(){
-                $post = array('somesetting' => 'this is a test');
-                $request = new Request(null, $post);
+	public function testSetSystemValue(){
+		$post = array('somesetting' => 'this is a test');
+		$request = new Request(null, $post);
 
-                // create an api mock object
-                $api = $this->getMock('API', array('setSystemValue', 'getAppName'));
+		// create an api mock object
+		$api = $this->getMock('API', array('setSystemValue', 'getAppName'));
 
-                // expects to be called once with the method
-                // setSystemValue('somesetting', 'this is a test')
-                $api->expects($this->once())
-                                        ->method('setSystemValue')
-                                        ->with(	$this->equalTo('somesetting'),
-                                                        $this->equalTo('this is a test'));
+		// expects to be called once with the method
+		// setSystemValue('somesetting', 'this is a test')
+		$api->expects($this->once())
+					->method('setSystemValue')
+					->with(	$this->equalTo('somesetting'),
+							$this->equalTo('this is a test'));
 
-                // we want to return the appname apptemplate_advanced when this method
-                // is being called
-                $api->expects($this->any())
-                                        ->method('getAppName')
-                                        ->will($this->returnValue('apptemplate_advanced'));
+		// we want to return the appname apptemplate_advanced when this method
+		// is being called
+		$api->expects($this->any())
+					->method('getAppName')
+					->will($this->returnValue('apptemplate_advanced'));
 
-                $controller = new ItemController($api, $request, null);
-                $controller->setSystemValue(null);
+		$controller = new ItemController($api, $request, null);
+		$controller->setSystemValue(null);
 
 
-        }
+	}
 
 
 }
