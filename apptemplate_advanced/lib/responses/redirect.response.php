@@ -30,15 +30,26 @@ namespace OCA\AppTemplateAdvanced;
  */
 class RedirectResponse extends Response {
 
+	private $redirectURL;
+
 	/**
 	 * Creates a response that redirects to a url
 	 * @param string $redirectURL: the url to redirect to
 	 */
 	public function __construct($redirectURL){
 		parent::__construct();
+		$this->redirectURL = $redirectURL;
 		$this->addHeader('Location: ' . $redirectURL);
 	}
 
+
+	/**
+	 * @return: the url to redirect
+	 */
+	public function getRedirectURL(){
+		return $this->redirectURL;
+	}
+	
 
 	/**
 	 * Simply sets the headers and returns the file contents

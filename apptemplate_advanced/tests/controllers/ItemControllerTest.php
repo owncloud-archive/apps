@@ -41,6 +41,16 @@ require_once($path . "ControllerTest.php");
 class ItemControllerTest extends ControllerTest {
 
 
+	public function testRedirectToIndexAnnotations(){
+		$api = $this->getAPIMock();
+		$controller = new ItemController($api, null, null);
+		$methodName = 'redirectToIndex';
+		$annotations = array('CSRFExcemption', 'IsAdminExcemption', 'IsSubAdminExcemption');
+
+		$this->assertAnnotations($controller, $methodName, $annotations);
+	}
+
+
 	public function testIndexAnnotations(){
 		$api = $this->getAPIMock();
 		$controller = new ItemController($api, null, null);
