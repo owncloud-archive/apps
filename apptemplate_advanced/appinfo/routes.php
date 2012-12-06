@@ -115,6 +115,12 @@ $this->create('apptemplate_advanced_index', '/')->action(
 	}
 );
 
+$this->create('apptemplate_advanced_index_redirect', '/redirect')->action(
+	function($params){
+		callController('ItemController', 'redirectToIndex', $params);
+	}
+);
+
 /**
  * Ajax Routes
  */

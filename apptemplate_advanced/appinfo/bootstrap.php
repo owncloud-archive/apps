@@ -36,6 +36,7 @@ namespace OCA\AppTemplateAdvanced;
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\Response'] = 'apps/apptemplate_advanced/lib/responses/response.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\TemplateResponse'] = 'apps/apptemplate_advanced/lib/responses/template.response.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\JSONResponse'] = 'apps/apptemplate_advanced/lib/responses/json.response.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\RedirectResponse'] = 'apps/apptemplate_advanced/lib/responses/redirect.response.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\TextDownloadResponse'] = 'apps/apptemplate_advanced/lib/responses/textdownload.response.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\Mapper'] = 'apps/apptemplate_advanced/lib/mapper.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\DoesNotExistException'] = 'apps/apptemplate_advanced/lib/doesnotexist.exception.php';
