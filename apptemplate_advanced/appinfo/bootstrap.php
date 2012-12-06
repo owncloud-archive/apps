@@ -73,8 +73,8 @@ function createDIContainer(){
 	/** 
 	 * CONTROLLERS
 	 */
-        $container['ItemController'] = function($c){
-                return new ItemController($c['API'], $c['Request'], $c['ItemMapper']);
+	$container['ItemController'] = function($c){
+		return new ItemController($c['API'], $c['Request'], $c['ItemMapper']);
 	};
 
 	$container['SettingsController'] = function($c){
@@ -82,12 +82,12 @@ function createDIContainer(){
 	};
 
 
-        /**
-         * MAPPERS
-         */
-        $container['ItemMapper'] = $container->share(function($c){
-                        return new ItemMapper($c['API']);
-        });
+	/**
+	 * MAPPERS
+	 */
+	$container['ItemMapper'] = $container->share(function($c){
+					return new ItemMapper($c['API']);
+	});
 
 
 	return $container;

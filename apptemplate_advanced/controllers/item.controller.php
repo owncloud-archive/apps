@@ -4,7 +4,7 @@
 * ownCloud - App Template Example
 *
 * @author Bernhard Posselt
-* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com
+* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com 
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -25,78 +25,78 @@ namespace OCA\AppTemplateAdvanced;
 
 
 class ItemController extends Controller {
+	
+
+	/**
+	 * @param Request $request: an instance of the request
+	 * @param API $api: an api wrapper instance
+	 * @param ItemMapper $itemMapper: an itemwrapper instance
+	 */
+	public function __construct($api, $request, $itemMapper){
+		parent::__construct($api, $request);
+		$this->itemMapper = $itemMapper;
+	}
 
 
-        /**
-         * @param Request $request: an instance of the request
-         * @param API $api: an api wrapper instance
-         * @param ItemMapper $itemMapper: an itemwrapper instance
-         */
-        public function __construct($api, $request, $itemMapper){
-                parent::__construct($api, $request);
-                $this->itemMapper = $itemMapper;
-        }
+	/**
+	 * @CSRFExcemption
+	 * @IsAdminExcemption
+	 * @IsSubAdminExcemption
+	 *
+	 * @brief renders the index page
+	 * @param array $urlParams: an array with the values, which were matched in 
+	 *                          the routes file
+	 * @return an instance of a Response implementation
+	 */
+	public function index($urlParams=array()){
 
+		// thirdparty stuff
+		$this->api->add3rdPartyScript('angular/angular.min');
 
-        /**
-         * @CSRFExcemption
-         * @IsAdminExcemption
-         * @IsSubAdminExcemption
-         *
-         * @brief renders the index page
-         * @param array $urlParams: an array with the values, which were matched in
-         *                          the routes file
-         * @return an instance of a Response implementation
-         */
-        public function index($urlParams=array()){
+		// your own stuff
+		$this->api->addStyle('style');
+		$this->api->addStyle('animation');
 
-                // thirdparty stuff
-                $this->api->add3rdPartyScript('angular/angular.min');
+		$this->api->addScript('app');
 
-                // your own stuff
-                $this->api->addStyle('style');
-                $this->api->addStyle('animation');
+		// example database access
+		// check if an entry with the current user is in the database, if not
+		// create a new entry
+		try {
+			$item = $this->itemMapper->findByUserId($this->api->getUserId());
+		} catch (DoesNotExistException $e) {
+			$item = new Item();
+			$item->setUser($this->api->getUserId());
+			$item->setPath('/home/path');
+			$item->setName('john');
+			$item = $this->itemMapper->save($item);
+		}
 
-                $this->api->addScript('app');
-
-                // example database access
-                // check if an entry with the current user is in the database, if not
-                // create a new entry
-                try {
-                        $item = $this->itemMapper->findByUserId($this->api->getUserId());
-                } catch (DoesNotExistException $e) {
-                        $item = new Item();
-                        $item->setUser($this->api->getUserId());
-                        $item->setPath('/home/path');
-                        $item->setName('john');
-                        $item = $this->itemMapper->save($item);
-                }
-
-                $templateName = 'main';
-                $params = array(
-                        'somesetting' => $this->api->getSystemValue('somesetting'),
-                        'item' => $item
-                );
-                return $this->render($templateName, $params);
-        }
+		$templateName = 'main';
+		$params = array(
+			'somesetting' => $this->api->getSystemValue('somesetting'),
+			'item' => $item
+		);
+		return $this->render($templateName, $params);
+	}
 
 
 
-        /**
-         * @Ajax
-         *
-         * @brief sets a global system value
-         * @param array $urlParams: an array with the values, which were matched in
-         *                          the routes file
-         */
-        public function setSystemValue($urlParams=array()){
-                $value = $this->params('somesetting');
-                $this->api->setSystemValue('somesetting', $value);
+	/**
+	 * @Ajax
+	 *
+	 * @brief sets a global system value
+	 * @param array $urlParams: an array with the values, which were matched in 
+	 *                          the routes file
+	 */
+	public function setSystemValue($urlParams=array()){
+		$value = $this->params('somesetting');
+		$this->api->setSystemValue('somesetting', $value);
 
-                $params = array(
-                        'somesetting' => $value
-                );
+		$params = array(
+			'somesetting' => $value
+		);
 
-                return $this->renderJSON($params);
-        }
+		return $this->renderJSON($params);
+	}
 }

@@ -46,15 +46,15 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
 		$container = createDIContainer();
 	}
 
-        // call the controller
+	// call the controller
 	$controller = $container[$controllerName];
 
-        // run security checks other annotation specific stuff
-        handleAnnotations($controller, $methodName, $container);
+	// run security checks other annotation specific stuff
+	handleAnnotations($controller, $methodName, $container);
 
-        // render page
+	// render page
     $response = $controller->$methodName($urlParams);
-        echo $response->render();
+	echo $response->render();
 }
 
 
@@ -66,38 +66,38 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
  * @param bool $disableAdminCheck: disables the check for adminuser rights
  */
 function handleAnnotations($controller, $methodName, $container){
-        // get annotations from comments
-        $annotationReader = new MethodAnnotationReader($controller, $methodName);
+	// get annotations from comments
+	$annotationReader = new MethodAnnotationReader($controller, $methodName);
+	
+	// this will set the current navigation entry of the app, use this only
+	// for normal HTML requests and not for AJAX requests
+	if(!$annotationReader->hasAnnotation('Ajax')){
+		$container['API']->activateNavigationEntry();
+	}
 
-        // this will set the current navigation entry of the app, use this only
-        // for normal HTML requests and not for AJAX requests
-        if(!$annotationReader->hasAnnotation('Ajax')){
-                $container['API']->activateNavigationEntry();
-        }
+	// security checks
+	$security = $container['Security'];
+	if($annotationReader->hasAnnotation('CSRFExcemption')){
+		$security->setCSRFCheck(false);
+	}
 
-        // security checks
-        $security = $container['Security'];
-        if($annotationReader->hasAnnotation('CSRFExcemption')){
-                $security->setCSRFCheck(false);
-        }
-
-        if($annotationReader->hasAnnotation('IsAdminExcemption')){
+	if($annotationReader->hasAnnotation('IsAdminExcemption')){
 		$security->setIsAdminCheck(false);	
 	}
 
-        if($annotationReader->hasAnnotation('AppEnabledExcemption')){
-                $security->setAppEnabledCheck(false);
+	if($annotationReader->hasAnnotation('AppEnabledExcemption')){
+		$security->setAppEnabledCheck(false);	
 	}
 
-        if($annotationReader->hasAnnotation('IsLoggedInExcemption')){
-                $security->setLoggedInCheck(false);
-        }
+	if($annotationReader->hasAnnotation('IsLoggedInExcemption')){
+		$security->setLoggedInCheck(false);
+	}
 
-        if($annotationReader->hasAnnotation('IsSubAdminExcemption')){
-                $security->setIsSubAdminCheck(false);
-        }
+	if($annotationReader->hasAnnotation('IsSubAdminExcemption')){
+		$security->setIsSubAdminCheck(false);
+	}
 
-        $security->runChecks();
+	$security->runChecks();
 
 }
 
@@ -112,7 +112,7 @@ function handleAnnotations($controller, $methodName, $container){
  */
 $this->create('apptemplate_advanced_index', '/')->action(
 	function($params){
-                callController('ItemController', 'index', $params);
+		callController('ItemController', 'index', $params);
 	}
 );
 
@@ -121,6 +121,6 @@ $this->create('apptemplate_advanced_index', '/')->action(
  */
 $this->create('apptemplate_advanced_ajax_setsystemvalue', '/setsystemvalue')->post()->action(
 	function($params){
-                callController('ItemController', 'setSystemValue', $params);
+		callController('ItemController', 'setSystemValue', $params);
 	}
 );
