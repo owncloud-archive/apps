@@ -486,7 +486,7 @@ class VCard {
 		$fn = isset($card->FN) ? $card->FN : '';
 
 		$now = new \DateTime;
-		$card->{'REV'} = $now->format(\DateTime::W3C);
+		$card->REV = $now->format(\DateTime::W3C);
 
 		$data = $card->serialize();
 		$stmt = \OCP\DB::prepare( 'UPDATE `*PREFIX*contacts_cards` SET `fullname` = ?,`carddata` = ?, `lastmodified` = ? WHERE `id` = ?' );
