@@ -42,13 +42,9 @@
 						<iframe name="import_upload_target" id='import_upload_target' src=""></iframe>
 					</li>
 					<li class="import-select hidden"><label><?php echo $l->t('Import into:'); ?></label></li>
-					<li class="import-select hidden"><select id="import_into" title="<?php echo $l->t('Import into:'); ?>">
-					<?php foreach($_['addressbooks'] as $addressbook) { 
-						if($addressbook['permissions']  & OCP\PERMISSION_CREATE) {
-						?>
-						<option value="<?php echo $addressbook['id'] ?>"><?php echo $addressbook['displayname'] ?></option>
-					<?php }} ?>
-					</select>
+					<li class="import-select hidden">
+						<select id="import_into" title="<?php echo $l->t('Import into:'); ?>">
+						</select>
 					<button class="doImport"><?php echo $l->t('OK'); ?></button>
 					</li>
 					<li>
