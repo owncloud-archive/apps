@@ -66,11 +66,11 @@
 	width: 100%;
 	font-size: .8em;
 	float: left;
-	-moz-box-sizing: border-box; box-sizing: border-box;
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
 	margin: auto 0 auto .3em;
 }
 
-#groupactions { -moz-box-sizing: border-box; box-sizing: border-box; height: 4em; border-bottom: 1px solid #DDDDDD; }
+#groupactions { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; height: 4em; border-bottom: 1px solid #DDDDDD; }
 #groupactions > button, .addcontact, .import-upload-button, .doImport {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
