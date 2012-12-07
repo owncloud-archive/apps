@@ -24,6 +24,9 @@
 
 Changelog: 
 
+* Fri Dec 07 2012 Christian Reiner: version 1.0.5
+Fixed usage for non-admin users.
+Simplyfied initialization without explicit ajax call.
 * Sun Aug 12 2012 Christian Reiner: version 1.0.4
 Small additional usage hint in the configuration.
 * Sat Aug 11 2012 Christian Reiner: version 1.0.3
