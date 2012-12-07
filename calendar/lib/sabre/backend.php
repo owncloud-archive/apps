@@ -247,9 +247,6 @@ class OC_Connector_Sabre_CalDAV extends Sabre_CalDAV_Backend_Abstract {
 	public function getCalendarObjects($calendarId) {
 		$data = array();
 		foreach(OC_Calendar_Object::all($calendarId) as $row) {
-			$object = OC_VObject::parse($row['calendardata']);
-			$object = OC_Calendar_Object::cleanByAccessClass($calendarId, $object);
-			$row['calendardata'] = $object->serialize();
 			$data[] = $this->OCAddETag($row);
 		}
 		return $data;
