@@ -1173,16 +1173,6 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	/**
-	* Jumps to an element in the contact list
-	* @param number the number of the item starting with 0
-	*/
-	ContactList.prototype.jumpToContact = function(id) {
-		var pos = this.contactPos(id);
-		console.log('scrollTop', pos);
-		this.$contactList.scrollTop(pos);
-	};
-
-	/**
 	* Returns a Contact object by searching for its id
 	* @param id the id of the node
 	* @return the Contact object or undefined if not found.
