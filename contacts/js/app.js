@@ -490,9 +490,12 @@ GroupList.prototype.editGroup = function(id) {
 				$(this).next('.checked').addClass('disabled');
 			}
 		});
-		$input.on('keypress', function(event) {
-			if(event.keyCode === 13) {
+		$input.on('keyup', function(event) {
+			var keyCode = Math.max(event.keyCode, event.which);
+			if(keyCode === 13) {
 				saveChanges($elem, $(this));
+			} else if(keyCode === 27) {
+				$elem.remove();
 			}
 		});
 		$input.next('.checked').on('click keydown', function(event) {
