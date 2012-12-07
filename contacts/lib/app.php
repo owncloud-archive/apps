@@ -278,7 +278,7 @@ class App {
 
 	/**
 	 * @brief Get the last modification time.
-	 * @param OC_VObject|Sabre\VObject\Component|integer $contact
+	 * @param OC_VObject|Sabre\VObject\Component|integer|null $contact
 	 * @returns DateTime | null
 	 */
 	public static function lastModified($contact) {
@@ -289,6 +289,21 @@ class App {
 			return isset($contact->REV) 
 				? \DateTime::createFromFormat(\DateTime::W3C, $contact->REV)
 				: null;
+		} elseif(is_null($contact)) {
+			// FIXME: This doesn't take shared address books into account.
+			$sql = 'SELECT MAX(`lastmodified`) FROM `oc_contacts_cards`, `oc_contacts_addressbooks` ' . 
+				'WHERE  `oc_contacts_cards`.`addressbookid` = `oc_contacts_addressbooks`.`id` AND ' .
+				'`oc_contacts_addressbooks`.`userid` = ?';
+			$stmt = \OCP\DB::prepare($sql);
+			$result = $stmt->execute(array(\OCP\USER::getUser()));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return null;
+			}
+			$lastModified = $result->fetchOne();
+			if(!is_null($lastModified)) {
+				return new \DateTime('@' . $lastModified);
+			}
 		}
 	}
 
