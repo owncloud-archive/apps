@@ -1381,6 +1381,29 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	/**
+	* Save addressbook data
+	* @param int id
+	*/
+	ContactList.prototype.unsetAddressbook = function(id) {
+		delete this.addressbooks[id];
+	}
+	
+	/**
+	* Save addressbook data
+	* @param object book
+	*/
+	ContactList.prototype.setAddressbook = function(book) {
+		this.addressbooks[parseInt(book.id)] = {
+			owner: book.userid,
+			uri: book.uri,
+			permissions: parseInt(book.permissions),
+			id: parseInt(book.id),
+			displayname: book.displayname,
+			description: book.description,
+			active: Boolean(parseInt(book.active)),
+		};
+	}
+	/**
 	* Load contacts
 	* @param int offset
 	*/
@@ -1392,14 +1415,7 @@ OC.Contacts = OC.Contacts || {};
 				console.log('ContactList.loadContacts', jsondata.data);
 				self.addressbooks = {};
 				$.each(jsondata.data.addressbooks, function(i, book) {
-					self.addressbooks[parseInt(book.id)] = {
-						owner: book.userid,
-						permissions: parseInt(book.permissions),
-						id: parseInt(book.id),
-						displayname: book.displayname,
-						description: book.description,
-						active: Boolean(parseInt(book.active)),
-					};
+					self.setAddressbook(book);
 				});
 				$.each(jsondata.data.contacts, function(c, contact) {
 					self.contacts[parseInt(contact.id)]
