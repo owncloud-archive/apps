@@ -1165,16 +1165,6 @@ OC.Contacts = OC.Contacts || {
 			self.showActions(['back']);
 		});
 
-		$('.import').on('click keydown', function(event) {
-			// NOTE: Test if document title changes. If so there's a fix in 
-			// https://github.com/owncloud/apps/pull/212#issuecomment-10516723
-			if(wrongKey(event)) {
-				return;
-			}
-			console.log('import');
-			self.hideActions();
-		});
-
 		this.$settings.find('h3').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -1184,8 +1174,120 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			console.log('settings');
+			var $list = $(this).next('ul');
+			if($(this).data('id') === 'addressbooks') {
+				console.log('addressbooks');
+				
+				if(!self.$addressbookTmpl) {
+					self.$addressbookTmpl = $('#addressbookTemplate');
+				}
+
+				$list.empty();
+				$.each(self.Contacts.addressbooks, function(id, book) {
+					var $li = self.$addressbookTmpl.octemplate({
+						id: id, 
+						permissions: book.permissions,
+						displayname: book.displayname,
+					});
+
+					$list.append($li);
+				});
+				$list.find('a.action').tipsy();
+				$list.find('a.action.delete').on('click keypress', function() {
+					$('.tipsy').remove();
+					var id = parseInt($(this).parents('li').first().data('id'));
+					console.log('delete', id);
+					var $li = $(this).parents('li').first();
+					$.ajax({
+						type:'POST',
+						url:OC.filePath('contacts', 'ajax', 'addressbook/delete.php'), 
+						data:{ id: id },
+						success:function(jsondata) {
+							console.log(jsondata);
+							if(jsondata.status == 'success') {
+								self.Contacts.unsetAddressbook(id);
+								$li.remove();
+								OC.notify({
+									message:t('contacts','Deleting done. Click here to cancel reloading.'),
+									timeout:5,
+									timeouthandler:function() {
+										console.log('reloading');
+										window.location.href = OC.linkTo('contacts', 'index.php');
+									},
+									clickhandler:function() {
+										console.log('reloading cancelled');
+										OC.notify({cancel:true});
+									}
+								});
+							} else {
+								OC.notify({message:jsondata.data.message});
+							}
+						},
+						error:function(jqXHR, textStatus, errorThrown) {
+							OC.notify({message:textStatus + ': ' + errorThrown});
+							id = false;
+						},
+					});
+				});
+				$list.find('a.action.globe').on('click keypress', function() {
+					var id = parseInt($(this).parents('li').first().data('id'));
+					var book = self.Contacts.addressbooks[id];
+					var uri = (book.owner === oc_current_user ) ? book.uri : book.uri + '_shared_by_' + book.owner;
+					var link = totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
+					var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" /></div>');
+					$dropdown.appendTo($(this).parents('li').first());
+					var $input = $dropdown.find('input');
+					$input.focus().get(0).select();
+					$input.on('blur', function() {
+						$dropdown.hide('blind', function() {
+							$dropdown.remove();
+						});
+					});
+				});
+				OC.Share.loadIcons('addressbook');
+			} else if($(this).data('id') === 'import') {
+				console.log('import');
+				$('.import-upload').show();
+				$('.import-select').hide();
+
+				var addAddressbookCallback = function(select, name) {
+					var id;
+					$.ajax({
+						type:'POST',
+						async:false,
+						url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'), 
+						data:{ name: name },
+						success:function(jsondata) {
+							console.log(jsondata);
+							if(jsondata.status == 'success') {
+								self.Contacts.setAddressbook(jsondata.data.addressbook);
+								id = jsondata.data.addressbook.id
+							} else {
+								OC.notify({message:jsondata.data.message});
+							}
+						},
+						error:function(jqXHR, textStatus, errorThrown) {
+							OC.notify({message:textStatus + ': ' + errorThrown});
+							id = false;
+						},
+					});
+					return id;
+				}
+
+				self.$importIntoSelect.empty();
+				$.each(self.Contacts.addressbooks, function(id, book) {
+					self.$importIntoSelect.append('<option value="' + id + '">' + book.displayname + '</option>');
+				});
+				self.$importIntoSelect.multiSelect({
+					createCallback:addAddressbookCallback,
+					singleSelect: true,
+					createText:String(t('contacts', 'Add address book')),
+					minWidth: 120,
+				});
+
+			}
 			$(this).parents('ul').first().find('ul:visible').slideUp();
-			$(this).next('ul').toggle('slow');
+			$list.toggle('slow');
 		});
 
 		this.$header.on('click keydown', '.back', function(event) {
@@ -1252,36 +1354,6 @@ OC.Contacts = OC.Contacts || {
 		});
 		this.$contactList.on('mouseleave', 'td.email', function(event) {
 			$(this).find('.mailto').fadeOut(100);
-		});
-
-		var addAddressbookCallback = function(select, name) {
-			var id;
-			$.ajax({
-				type:'POST',
-				async:false,
-				url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'), 
-				data:{ name: name },
-				success:function(jsondata) {
-					console.log(jsondata);
-					if(jsondata.status == 'success') {
-						id = jsondata.data.addressbook.id
-					} else {
-						OC.notify({message:jsondata.data.message});
-					}
-				},
-				error:function(jqXHR, textStatus, errorThrown) {
-					OC.notify({message:textStatus + ': ' + errorThrown});
-					id = false;
-				},
-			});
-			return id;
-		}
-		
-		this.$importIntoSelect.multiSelect({
-			createCallback:addAddressbookCallback,
-			singleSelect: true,
-			createText:String(t('contacts', 'Add address book')),
-			minWidth: 120,
 		});
 
 		// Import using jquery.fileupload

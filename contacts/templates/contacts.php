@@ -25,22 +25,11 @@
 	<div id="contacts-settings">
 		<ul>
 			<li><button class="settings" title="<?php echo $l->t('Settings'); ?>"></button></li>
-			<li><h3 class="share"><?php echo $l->t('Share'); ?></h3>
+			<li><h3 data-id="addressbooks"><?php echo $l->t('Address books'); ?></h3>
 				<ul class="hidden">
-					<?php foreach($_['addressbooks'] as $addressbook) { 
-						if($addressbook['permissions']  & OCP\PERMISSION_SHARE) {
-						?>
-						<li value="<?php echo $addressbook['id'] ?>">
-							<span class="float"><?php echo $addressbook['displayname'] ?></span>
-							<span><a class="share action" data-item-type="addressbook"
-								data-item="<?php echo $addressbook['id'] ?>"
-								data-possible-permissions="<?php echo $addressbook['permissions'] ?>">
-							</a></span> <!-- To place the share dropdown correctly -->
-						</li>
-					<?php }} ?>
 				</ul>
 			</li>
-			<li><h3 class="import" role="button"><?php echo $l->t('Import'); ?></h3>
+			<li><h3 data-id="import" role="button"><?php echo $l->t('Import'); ?></h3>
 				<ul class="hidden">
 					<li class="import-upload">
 						<form id="import_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadimport.php'); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
