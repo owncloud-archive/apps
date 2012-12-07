@@ -285,12 +285,22 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 .favorite.inactive { background:url('%appswebroot%/contacts/img/inactive_star.png') no-repeat center; }
 /* Header */
 
-#contactsheader { position: fixed; box-sizing: border-box; padding: 0; margin:0; top:3.5em; left: 32.5em; right: 0; height: 4em; border-bottom: 1px solid #DDDDDD; z-index: 50; }
-#contactsheader div.actions { padding: 0 0.5em; margin: 0 auto; height: 100%; width: 90%; }
+#contactsheader { 
+	position: fixed; 
+	-webkit-box-sizing: border-box;  -moz-box-sizing: border-box; box-sizing: border-box; 
+	padding: 0; margin:0; 
+	top:3.5em; left: 32.5em; right: 0; height: 4em; 
+	border-bottom: 1px solid #DDDDDD; z-index: 50;
+}
+#contactsheader div.actions { 
+	-webkit-box-sizing: border-box;  -moz-box-sizing: border-box; box-sizing: border-box; 
+	padding: 0 .5em 0 4em; margin: 0 auto; 
+	height: 100%; width: 100%;
+}
 #contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: .7em; padding: .2em; clear: none; }
 #contactsheader .back {  }
 #contactsheader .import { background:url('%webroot%/core/img/actions/upload.svg') no-repeat center; }
-#contactsheader .delete { background:url('%webroot%/core/img/actions/delete.svg') no-repeat center; }
+#contactsheader .delete { background:url('%webroot%/core/img/actions/delete.svg') no-repeat center; float: right;}
 #contactsheader .list.add { margin-left: 5em; }
 
 

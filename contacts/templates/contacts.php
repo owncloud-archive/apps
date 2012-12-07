@@ -62,11 +62,11 @@
 		<button class="addcontact"><?php echo $l->t('New Contact'); ?></button>
 		<button class="back control" title="<?php echo $l->t('Back'); ?>"><?php echo $l->t('Back'); ?></button>
 		<button class="download control" title="<?php echo $l->t('Download Contact'); ?>"></button>
-		<button class="delete control" title="<?php echo $l->t('Delete Contact'); ?>"></button>
 		<select class="groups control" name="groups">
 			<option value="-1" disabled="disabled" selected="selected"><?php echo $l->t('Groups'); ?></option>
 		</select>
 		<button class="favorite inactive control" title="<?php echo $l->t('Favorite'); ?>"></button>
+		<button class="delete control" title="<?php echo $l->t('Delete Contact'); ?>"></button>
 	</div>
 </div>
 <div id="rightcontent" class="loading">
