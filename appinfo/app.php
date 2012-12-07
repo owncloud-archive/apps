@@ -34,15 +34,30 @@ $l = new OC_L10n('imprint');
 
 // there are three configuration options
 OCP\App::registerAdmin ( 'imprint', 'settings' );
-// small js sniplet required to insert imprint link into OC framework
-OCP\Util::addScript ( 'imprint', 'init' );
 OCP\Util::addStyle  ( 'imprint', 'imprint' );
 // add navigation entry in case it is enabled in the apps options
-if ( 'standalone'==OCP\Config::getAppValue( 'imprint', 'position', 'standalone' ) )
-	OCP\App::addNavigationEntry ( array (
-		'id' => 'imprint',
-		'order' => 99999,
-		'href' => OCP\Util::linkTo   ( 'imprint', 'index.php' ),
-		'icon' => OCP\Util::imagePath( 'imprint', 'imprint.png' ),
-		'name' => $l->t("Legal notice") ) );
+switch ( OCP\Config::getAppValue( 'imprint', 'position', 'standalone' ) )
+{
+	case 'header-left':
+		OCP\Util::addScript ( 'imprint', 'imprint_header_left' );
+		break;
+	case 'header-right':
+		OCP\Util::addScript ( 'imprint', 'imprint_header_right' );
+		break;
+	case 'navigation-top':
+		OCP\Util::addScript ( 'imprint', 'imprint_navigation_top' );
+		break;
+	case 'navigation-bottom':
+		OCP\Util::addScript ( 'imprint', 'imprint_navigation_bottom' );
+		break;
+	default:
+	case 'standalone':
+		// no js required, we add the imprint as a normal app to the navigation
+		OCP\App::addNavigationEntry ( array (
+			'id' => 'imprint',
+			'order' => 99999,
+			'href' => OCP\Util::linkTo   ( 'imprint', 'index.php' ),
+			'icon' => OCP\Util::imagePath( 'imprint', 'imprint.png' ),
+			'name' => $l->t("Legal notice") ) );
+	} // switch
 ?>

@@ -29,22 +29,33 @@
  * @author Christian Reiner
  */
 
-/* some general rules for the reference */
-.imprint-anchor{
-	margin:0 1em;
-	padding:0;
+/* some rules for the reference itself */
+a.imprint-anchor{
+	margin:0;
+	padding:0 2em;
 	position:relative;
 	font-size:1.2em;
 	font-weight:inherit;
 }
-#header .imprint-anchor{
+#header a.imprint-anchor.header-left{
 	line-height:2.5em;
 	color:#BFBFBF;
+	float: left;
 }
-#navigation .imprint-anchor{
-	padding:0.1em 0;
+#header a.imprint-anchor.header-right{
+	line-height:2.5em;
+	color:#BFBFBF;
+	float: right;
+}
+#navigation a.imprint-anchor.navigation-top{
 	border:none;
 	color:666;
+}
+#navigation a.imprint-anchor.navigation-bottom{
+	border:none;
+	color:666;
+	padding-left: 1em;
+	border: 0;
 }
 
 /* some rules for the settings */
