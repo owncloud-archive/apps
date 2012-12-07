@@ -717,7 +717,6 @@ OC.Contacts = OC.Contacts || {
 		this.bindEvents();
 		this.$toggleAll.show();
 		this.showActions(['addcontact']);
-		OC.Share.loadIcons('addressbook');
 
 		// Wait 2 mins then check if contacts are indexed.
 		setTimeout(function() {
