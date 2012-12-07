@@ -599,7 +599,7 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 				name: t('contacts', 'Favorites')
 			}).appendTo($groupList);
 			$elem.data('obj', self);
-			$elem.data('contacts', contacts).find('.numcontacts').before('<span class="starred" />');
+			$elem.data('contacts', contacts).find('.numcontacts').before('<span class="starred action" />');
 			$elem.droppable({
 						drop: self.contactDropped,
 						activeClass: 'ui-state-active',
@@ -987,7 +987,7 @@ OC.Contacts = OC.Contacts || {
 			if(self.currentid) {
 				var id = self.currentid;
 				self.closeContact(id);
-				self.Contacts.jumpToContact(id);
+				self.jumpToContact(id);
 			}
 			self.$contactList.show();
 			self.$toggleAll.show();
@@ -1758,7 +1758,7 @@ OC.Contacts = OC.Contacts || {
 		});
 	},
 	jumpToContact: function(id) {
-		this.$rightContent.scrollTop(this.Contacts.contactPos(id));
+		this.$rightContent.scrollTop(this.Contacts.contactPos(id)+10);
 	},
 	closeContact: function(id) {
 		if(typeof this.currentid === 'number') {
