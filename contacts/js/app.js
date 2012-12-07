@@ -196,6 +196,9 @@ GroupList.prototype.selectGroup = function(params) {
 	console.log('selectGroup', id, $elem);
 	this.$groupList.find('h3').removeClass('active');
 	$elem.addClass('active');
+	if(id === 'new') {
+		return;
+	}
 	this.lastgroup = id;
 	$(document).trigger('status.group.selected', {
 		id: this.lastgroup,
@@ -443,8 +446,81 @@ GroupList.prototype.deleteGroup = function(groupid, cb) {
 	});
 }
 
-GroupList.prototype.addGroup = function(name, cb) {
-	console.log('GroupList.addGroup', name);
+GroupList.prototype.editGroup = function(id) {
+	var self = this;
+	// NOTE: Currently this only works for adding, not renaming
+	var saveChanges = function($elem, $input) {
+		console.log('saveChanges', $input.val());
+		var name = $input.val().trim();
+		if(name.length === 0) {
+			return false;
+		}
+		$input.prop('disabled', true);
+		$elem.data('name', '');
+		self.addGroup({name:name, element:$elem}, function(response) {
+			if(response.status === 'success') {
+				$elem.prepend(name).removeClass('editing').attr('data-id', response.id);
+				$input.next('.checked').remove()
+				$input.remove()
+			} else {
+				$input.prop('disabled', false);
+				OC.notify({message:response.message});
+			}
+		});
+	}
+	
+	if(typeof id === 'undefined') {
+		// Add new group
+		var tmpl = this.$groupListItemTemplate;
+		var $elem = (tmpl).octemplate({
+			id: 'new',
+			type: 'category',
+			num: 0,
+			name: '',
+		});
+		var $input = $('<input type="text" class="active" /><a class="action checked disabled" />');
+		$elem.prepend($input).addClass('editing');
+		$elem.data('contacts', []);
+		this.$groupList.find('h3.group[data-type="category"]').first().before($elem);
+		this.selectGroup({element:$elem});
+		$input.on('input', function(event) {
+			if($(this).val().length > 0) {
+				$(this).next('.checked').removeClass('disabled');
+			} else {
+				$(this).next('.checked').addClass('disabled');
+			}
+		});
+		$input.on('keypress', function(event) {
+			if(event.keyCode === 13) {
+				saveChanges($elem, $(this));
+			}
+		});
+		$input.next('.checked').on('click keydown', function(event) {
+			console.log('clicked', event);
+			if(wrongKey(event)) {
+				return;
+			}
+			saveChanges($elem, $input);
+		});
+		$input.focus();
+	} else if(utils.isUInt(id)) {
+		var $elem = this.findById(id);
+		var $text = $elem.contents().filter(function(){ return(this.nodeType == 3); });
+		var name = $text.text();
+		console.log('Group name', $text, name);
+		$text.remove();
+		var $input = $('<input type="text" class="active" value="' + name + '" /><a class="action checked disabled />');
+		$elem.prepend($input).addClass('editing');
+		$input.focus();
+		
+	} else {
+		throw { name: 'WrongParameterType', message: 'GroupList.editGroup only accept integers.'}
+	}
+}
+
+GroupList.prototype.addGroup = function(params, cb) {
+	console.log('GroupList.addGroup', params.name);
+	var name = params.name;
 	contacts = []; // $.map(contacts, function(c) {return parseInt(c)});
 	var self = this, exists = false;
 	self.$groupList.find('h3[data-type="category"]').each(function() {
@@ -462,12 +538,14 @@ GroupList.prototype.addGroup = function(name, cb) {
 	$.post(OC.filePath('contacts', 'ajax', 'categories/add.php'), {category: name}, function(jsondata) {
 		if (jsondata && jsondata.status == 'success') {
 			var tmpl = self.$groupListItemTemplate;
-			var $elem = (tmpl).octemplate({
-				id: jsondata.data.id,
-				type: 'category',
-				num: contacts.length,
-				name: name,
-			})
+			var $elem = params.element
+				? params.element
+				: (tmpl).octemplate({
+					id: jsondata.data.id,
+					type: 'category',
+					num: contacts.length,
+					name: name,
+				})
 			self.categories.push({id: jsondata.data.id, name: name});
 			$elem.data('obj', self);
 			$elem.data('contacts', contacts);
@@ -484,6 +562,9 @@ GroupList.prototype.addGroup = function(name, cb) {
 			if(!added) {
 				$elem.insertAfter(self.$groupList.find('h3.group[data-type="category"]').last());
 			}
+			self.selectGroup({element:$elem});
+			$elem.tipsy({trigger:'manual', gravity:'w', fallback: t('contacts', 'You can drag groups to\narrange them as you like.')});
+			$elem.tipsy('show');
 			if(typeof cb === 'function') {
 				cb({status:'success', id:parseInt(jsondata.data.id), name:name});
 			}
@@ -972,7 +1053,8 @@ OC.Contacts = OC.Contacts || {
 			if(wrongKey(event)) {
 				return;
 			}
-			self.addGroup();
+			self.Groups.editGroup();
+			//self.addGroup();
 		});
 
 		this.$ninjahelp.find('.close').on('click keydown',function(event) {
@@ -1644,7 +1726,7 @@ OC.Contacts = OC.Contacts || {
 			buttons: {
 				'Ok':function() {
 					self.Groups.addGroup(
-						$dlg.find('input:text').val(),
+						{name:$dlg.find('input:text').val()},
 						function(response) {
 							if(typeof cb === 'function') {
 								cb(response);
