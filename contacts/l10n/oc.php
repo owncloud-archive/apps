@@ -16,16 +16,16 @@
 "Other" => "Autres",
 "Settings" => "Configuracion",
 "Import" => "Importa",
-"Export" => "Exporta",
 "Groups" => "Grops",
 "Title" => "Títol",
 "Birthday" => "Anniversari",
 "Add" => "Ajusta",
 "Email" => "Corrièl",
+"Share" => "Parteja",
+"Export" => "Exporta",
 "more info" => "mai d'entresenhes",
 "Primary address (Kontact et al)" => "Adreiças primarias (Kontact et al)",
 "iOS/OS X" => "iOS/OS X",
-"Share" => "Parteja",
 "Name" => "Nom",
 "Save" => "Enregistra"
 );

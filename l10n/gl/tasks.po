@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-30 00:01+0100\n"
-"PO-Revision-Date: 2012-11-29 16:10+0000\n"
+"POT-Creation-Date: 2012-12-08 00:03+0100\n"
+"PO-Revision-Date: 2012-12-06 11:38+0000\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "Tarefas"
 
 #: js/tasks.js:78
 msgid "Due"
-msgstr "Vencemento"
+msgstr "Caducidade"
 
 #: js/tasks.js:107
 msgid "List"
@@ -82,7 +82,7 @@ msgstr "Engadir unha tarefa"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "Ordenar os vencementos"
+msgstr "Ordenar as caducidades"
 
 #: templates/tasks.php:5
 msgid "Order List"

@@ -29,7 +29,6 @@
 "Contact" => "kontak",
 "Settings" => "pengaturan",
 "Import" => "impor",
-"Export" => "ekspor",
 "Back" => "Kembali",
 "Groups" => "grup",
 "Close" => "tutup",
@@ -41,6 +40,8 @@
 "Email" => "surel",
 "Address" => "alamat",
 "Preferred" => "disarankan",
+"Share" => "berbagi",
+"Export" => "ekspor",
 "Add Contact" => "tambah kontak",
 "Edit name details" => "ubah detail nama",
 "Enter nickname" => "masukkan nama panggilan",
@@ -58,7 +59,6 @@
 "more info" => "lebih lanjut",
 "iOS/OS X" => "iOS/OS X",
 "Addressbooks" => "buku alamat",
-"Share" => "berbagi",
 "Name" => "nama",
 "Save" => "simpan"
 );
