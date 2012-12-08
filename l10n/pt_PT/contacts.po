@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-08 00:02+0100\n"
-"PO-Revision-Date: 2012-12-07 23:03+0000\n"
+"POT-Creation-Date: 2012-12-09 00:02+0100\n"
+"PO-Revision-Date: 2012-12-07 23:26+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -323,11 +323,11 @@ msgstr ""
 
 #: js/app.js:1496
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Nem todos os ficheiros foram enviados. A tentar de novo..."
 
 #: js/app.js:1502
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Algo correu mal ao enviar, por favor tente de novo."
 
 #: js/app.js:1502 js/app.js:1982 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
@@ -344,15 +344,15 @@ msgstr ""
 
 #: js/app.js:1523
 msgid "Importing..."
-msgstr ""
+msgstr "A importar..."
 
 #: js/app.js:1546
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Não é possível fazer o envio do ficheiro devido a ser uma pasta ou ter 0 bytes"
 
 #: js/app.js:1546
 msgid "Upload Error"
-msgstr ""
+msgstr "Erro no envio"
 
 #: js/app.js:1553 js/app.js:1810
 msgid ""
@@ -362,11 +362,11 @@ msgstr "O tamanho do ficheiro que está a tentar carregar ultrapassa o limite m�
 
 #: js/app.js:1553
 msgid "Upload too large"
-msgstr ""
+msgstr "Upload muito grande"
 
 #: js/app.js:1593
 msgid "Pending"
-msgstr ""
+msgstr "Pendente"
 
 #: js/app.js:1726 templates/contacts.php:137
 msgid "Add group"
@@ -675,7 +675,7 @@ msgstr "Importar para:"
 
 #: templates/contacts.php:48
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: templates/contacts.php:60
 msgid "(De-)select all"

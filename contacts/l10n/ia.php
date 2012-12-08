@@ -7,6 +7,7 @@
 "No file was uploaded" => "Nulle file esseva incargate.",
 "Missing a temporary folder" => "Manca un dossier temporari",
 "Contacts" => "Contactos",
+"Upload too large" => "Incargamento troppo longe",
 "Download" => "Discargar",
 "Edit" => "Modificar",
 "Delete" => "Deler",

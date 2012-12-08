@@ -7,6 +7,7 @@
 "No file was uploaded" => "Фахлът не бе качен",
 "Missing a temporary folder" => "Липсва временната папка",
 "Error" => "Грешка",
+"Upload Error" => "Грешка при качване",
 "Download" => "Изтегляне",
 "Delete" => "Изтриване",
 "Cancel" => "Отказ",

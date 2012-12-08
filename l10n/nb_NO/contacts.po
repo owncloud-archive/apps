@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-08 00:02+0100\n"
-"PO-Revision-Date: 2012-12-07 23:03+0000\n"
+"POT-Creation-Date: 2012-12-09 00:02+0100\n"
+"PO-Revision-Date: 2012-12-07 23:26+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -343,15 +343,15 @@ msgstr ""
 
 #: js/app.js:1523
 msgid "Importing..."
-msgstr ""
+msgstr "Importerer..."
 
 #: js/app.js:1546
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Kan ikke laste opp filen din siden det er en mappe eller den har 0 bytes"
 
 #: js/app.js:1546
 msgid "Upload Error"
-msgstr ""
+msgstr "Opplasting feilet"
 
 #: js/app.js:1553 js/app.js:1810
 msgid ""
@@ -361,11 +361,11 @@ msgstr "Filen du prøver å laste opp er for stor."
 
 #: js/app.js:1553
 msgid "Upload too large"
-msgstr ""
+msgstr "Filen er for stor"
 
 #: js/app.js:1593
 msgid "Pending"
-msgstr ""
+msgstr "Ventende"
 
 #: js/app.js:1726 templates/contacts.php:137
 msgid "Add group"
@@ -674,7 +674,7 @@ msgstr ""
 
 #: templates/contacts.php:48
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: templates/contacts.php:60
 msgid "(De-)select all"

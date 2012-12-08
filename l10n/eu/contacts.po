@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-08 00:02+0100\n"
-"PO-Revision-Date: 2012-12-07 23:03+0000\n"
+"POT-Creation-Date: 2012-12-09 00:02+0100\n"
+"PO-Revision-Date: 2012-12-07 23:26+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -320,11 +320,11 @@ msgstr ""
 
 #: js/app.js:1496
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Fitxategi guztiak ez dira igo. Berriz saiatzen..."
 
 #: js/app.js:1502
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Zerbait gaizki joan da igotzean, mesedez saiatu berriz."
 
 #: js/app.js:1502 js/app.js:1982 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
@@ -341,15 +341,15 @@ msgstr ""
 
 #: js/app.js:1523
 msgid "Importing..."
-msgstr ""
+msgstr "Inportatzen"
 
 #: js/app.js:1546
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Ezin izan da zure fitxategia igo karpeta bat delako edo 0 byte dituelako"
 
 #: js/app.js:1546
 msgid "Upload Error"
-msgstr ""
+msgstr "Igotzeak huts egin du"
 
 #: js/app.js:1553 js/app.js:1810
 msgid ""
@@ -359,11 +359,11 @@ msgstr "Igo nahi duzun fitxategia zerbitzariak onartzen duen tamaina baino handi
 
 #: js/app.js:1553
 msgid "Upload too large"
-msgstr ""
+msgstr "Igoera handiegia da"
 
 #: js/app.js:1593
 msgid "Pending"
-msgstr ""
+msgstr "Zain"
 
 #: js/app.js:1726 templates/contacts.php:137
 msgid "Add group"
@@ -672,7 +672,7 @@ msgstr "Inportatu hemen:"
 
 #: templates/contacts.php:48
 msgid "OK"
-msgstr ""
+msgstr "Ados"
 
 #: templates/contacts.php:60
 msgid "(De-)select all"

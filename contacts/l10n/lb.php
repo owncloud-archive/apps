@@ -22,6 +22,8 @@
 "Missing a temporary folder" => "Et feelt en temporären Dossier",
 "Contacts" => "Kontakter",
 "Error" => "Fehler",
+"Unable to upload your file as it is a directory or has 0 bytes" => "Kann deng Datei net eroplueden well et en Dossier ass oder 0 byte grouss ass.",
+"Upload Error" => "Fehler beim eroplueden",
 "Result: " => "Resultat: ",
 " imported, " => " importéiert, ",
 "Download" => "Download",
