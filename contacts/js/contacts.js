@@ -150,10 +150,9 @@ OC.Contacts = OC.Contacts || {};
 			var self = this;
 			this.add({isnew:true}, function(response) {
 				if(!response || response.status === 'error') {
-					console.log('No response object');
+					console.warn('No response object');
 					return false;
 				}
-				console.log('Contact added.' + self.id);
 				self.saveProperty(params);
 			});
 			return;
@@ -243,7 +242,7 @@ OC.Contacts = OC.Contacts || {};
 								self.data.N[0]['value'][2] = nvalue.length > 2 && nvalue.slice(1, nvalue.length-1).join(' ') || '';
 								setTimeout(function() {
 									// TODO: Hint to user to check if name is properly formatted
-									console.log('auto creating N', self.data.N[0].value)
+									//console.log('auto creating N', self.data.N[0].value)
 									self.saveProperty({name:'N', value:self.data.N[0].value.join(';')});
 									setTimeout(function() {
 										self.$fullelem.find('.fullname').next('.action.edit').trigger('click');
@@ -263,9 +262,7 @@ OC.Contacts = OC.Contacts || {};
 								value = value.split(';');
 								// Then it is auto-generated from FN.
 								var $nelems = self.$fullelem.find('.n.edit input');
-								console.log('nelems', $nelems);
 								$.each(value, function(idx, val) {
-									console.log('nval', val);
 									self.$fullelem.find('#n_' + idx).val(val);
 								});
 							}
@@ -348,7 +345,6 @@ OC.Contacts = OC.Contacts || {};
 	 * @param boolean enabled
 	 */
 	Contact.prototype.setEnabled = function(enabled) {
-		console.log('setEnabled', enabled);
 		if(enabled) {
 			this.$fullelem.find('#addproperty').show();
 		} else {
@@ -499,7 +495,6 @@ OC.Contacts = OC.Contacts || {};
 			}
 			parameters[paramname].push(val);
 		});
-		console.log('Contact.parametersFor', parameters);
 		return parameters;
 	}
 
@@ -568,7 +563,7 @@ OC.Contacts = OC.Contacts || {};
 			$fullname.next('.edit').css('opacity', '0');
 		});
 		$fullname.next('.edit').on('click keydown', function(event) {
-			console.log('edit name', event);
+			//console.log('edit name', event);
 			$('.tipsy').remove();
 			if(wrongKey(event)) {
 				return;
@@ -577,7 +572,6 @@ OC.Contacts = OC.Contacts || {};
 			var $editor = $(this).next('.n.edit').first();
 			var bodyListener = function(e) {
 				if($editor.find($(e.target)).length == 0) {
-					console.log('this', $(this));
 					$editor.toggle('blind');
 					$('body').unbind('click', bodyListener);
 				}
@@ -623,13 +617,11 @@ OC.Contacts = OC.Contacts || {};
 		// Loop thru all single occurrence values. If not set hide the
 		// element, if set disable the add menu entry.
 		$.each(values, function(name, value) {
-			console.log('name', name, 'value', value);
 			if(typeof value === 'undefined') {
 				return true; //continue
 			}
 			if(self.multi_properties.indexOf(value.toUpperCase()) === -1) {
 				if(!value.length) {
-					console.log('hiding', name);
 					self.$fullelem.find('[data-element="' + name + '"]').hide();
 				} else {
 					self.$addMenu.find('option[value="' + name.toUpperCase() + '"]').prop('disabled', true);
@@ -768,9 +760,8 @@ OC.Contacts = OC.Contacts || {};
 	 * @return A jquery object to be injected in the DOM
 	 */
 	Contact.prototype.renderAddressProperty = function(idx, property) {
-		console.log('Contact.renderAddressProperty', property)
 		if(!this.detailTemplates['adr']) {
-			console.log('No template for adr', this.detailTemplates);
+			console.warn('No template for adr', this.detailTemplates);
 			return;
 		}
 		if(typeof idx === 'undefined') {
@@ -801,14 +792,11 @@ OC.Contacts = OC.Contacts || {};
 			var $viewer = $(this);
 			var bodyListener = function(e) {
 				if($editor.find($(e.target)).length == 0) {
-					console.log('this', $(this));
 					$editor.toggle('blind');
 					$viewer.slideDown(400, function() {
 						var input = $editor.find('input').first();
-						console.log('input', input);
 						var val = self.valueFor(input);
 						var params = self.parametersFor(input, true);
-						console.log('val', val, 'params', params);
 						$(this).find('.meta').html(params['TYPE'].join('/'));
 						$(this).find('.adr').html(escapeHTML(self.valueFor($editor.find('input').first()).clean('').join(', ')));
 						$(this).next('.listactions').css('display', 'inline-block');
@@ -830,7 +818,7 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	Contact.prototype.renderIMProperty = function(property) {
 		if(!this.detailTemplates['impp']) {
-			console.log('No template for impp', this.detailTemplates);
+			console.warn('No template for impp', this.detailTemplates);
 			return;
 		}
 		var values = property ? {
@@ -851,7 +839,6 @@ OC.Contacts = OC.Contacts || {};
 		this.$photowrapper = this.$fullelem.find('#photowrapper');
 		this.$photowrapper.addClass('loading').addClass('wait');
 		var $phototools = this.$fullelem.find('#phototools');
-		console.log('photowrapper', this.$photowrapper.length);
 		delete this.photo;
 		$('img.contactphoto').remove()
 		this.photo = new Image();
@@ -878,19 +865,16 @@ OC.Contacts = OC.Contacts || {};
 			$phototools.find('li a').tipsy();
 
 			$phototools.find('.edit').on('click', function() {
-				console.log('TODO: edit photo');
 				$(document).trigger('request.edit.contactphoto', {
 					id: self.id,
 				});
 			});
 			$phototools.find('.cloud').on('click', function() {
-				console.log('select photo from cloud');
 				$(document).trigger('request.select.contactphoto.fromcloud', {
 					id: self.id,
 				});
 			});
 			$phototools.find('.upload').on('click', function() {
-				console.log('select photo from local');
 				$(document).trigger('request.select.contactphoto.fromlocal', {
 					id: self.id,
 				});
@@ -903,7 +887,6 @@ OC.Contacts = OC.Contacts || {};
 				$phototools.find('.edit').hide();
 			}
 			$(document).bind('status.contact.photoupdated', function(e, result) {
-				console.log('Contact - photoupdated')
 				self.loadPhoto(true);
 				var refreshstr = '&refresh='+Math.random();
 				self.getListItemElement().find('td.name')
@@ -992,7 +975,6 @@ OC.Contacts = OC.Contacts || {};
 				return;
 			}
 			this.data.CATEGORIES[0].value.push(name);
-			console.log('listelem categories', this.getPreferredValue('CATEGORIES', []).clean('').join(' / '));
 			if(this.$listelem) {
 				this.$listelem.find('td.categories')
 					.text(this.getPreferredValue('CATEGORIES', []).clean('').join(' / '));
@@ -1154,13 +1136,14 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	ContactList.prototype.contactPos = function(id) {
+		console.log('ContactList.contactPos, id', id);
+		console.trace()
 		if(!id) {
-			console.log('id missing');
+			console.warn('id missing');
 			return false;
 		}
 		var $elem = this.contacts[parseInt(id)].getListItemElement();
 		var pos = $elem.offset().top - this.$contactList.offset().top + this.$contactList.scrollTop();
-		console.log('pos', pos);
 		return pos;
 	}
 
@@ -1288,7 +1271,6 @@ OC.Contacts = OC.Contacts || {};
 	 * @param contact jQuery object.
 	 */
 	ContactList.prototype.insertContact = function($contact) {
-		console.log('insertContact', $contact);
 		$contact.draggable({
 			distance: 10,
 			revert: 'invalid',
@@ -1402,7 +1384,7 @@ OC.Contacts = OC.Contacts || {};
 		// Should the actual ajax call be in the controller?
 		$.getJSON(OC.filePath('contacts', 'ajax', 'contact/list.php'), {offset: offset}, function(jsondata) {
 			if (jsondata && jsondata.status == 'success') {
-				console.log('ContactList.loadContacts', jsondata.data);
+				//console.log('ContactList.loadContacts', jsondata.data);
 				self.addressbooks = {};
 				$.each(jsondata.data.addressbooks, function(i, book) {
 					self.setAddressbook(book);
