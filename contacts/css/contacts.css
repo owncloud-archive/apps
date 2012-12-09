@@ -288,7 +288,22 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 input.propertytype { float: left; font-size: .8em; width: 8em !important; direction: rtl;}
 .contactphoto { float: left; display: inline-block; border-radius: 0.3em; border: thin solid #bbb; margin: 0.5em; background: url('%webroot%/core/img/loading.gif') no-repeat center center; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; opacity: 1; }
 .contactphoto:hover { background: #fff; cursor: default; }
-#photowrapper { display: inline-block; float: left; width: 150px; }
+#photowrapper { 
+	display: inline-block; 
+	position: relative;
+	float: left; 
+	width: 150px; 
+	margin: 10px;
+}
+
+#photowrapper .favorite {
+	display: inline-block;
+	float: right;
+	position: absolute;
+	right: -8px;
+	top: -8px;
+	width: 25px; height: 25px;
+}
 #photowrapper.wait { opacity: 0.6; filter:alpha(opacity=0.6); z-index:1000; background: url('%webroot%/core/img/loading.gif') no-repeat center; cursor: wait; }
 #phototools { position:absolute; margin: 5px 0 0 10px; width:auto; height:22px; padding:0px; background-color:#fff; list-style-type:none; border-radius: 0.3em; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; }
 #phototools li { display: inline; }
@@ -370,6 +385,29 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 #contactlist tr > td.name { font-weight: bold; text-indent: 1.6em; -webkit-transition:background-image 500ms; -moz-transition:background-image 500ms; -o-transition:background-image 500ms;  transition:background-image 500ms; position:relative; background-position:1em .5em !important; background-repeat:no-repeat !important; }
 #contactlist tr > td a.mailto { position: absolute; float: right;  clear: none; cursor:pointer; width:22px; height:22px; z-index: 200; opacity: 0.6; background:url('%webroot%/core/img/actions/mail.svg') no-repeat center; }
 #contactlist tr > td a.mailto:hover { opacity: 0.8; }
+#contactlist.dim { background: #ddd; opacity: .50;filter:Alpha(Opacity=50); }
+
+#contact { 
+	background-color: white; color: #333333;
+	border-radius: 3px; box-shadow: 0 0 10px #888888; 
+	padding: 10px; 
+	position: fixed !important; 
+	z-index: 200; 
+	top: 8em; left: 35em;
+}
+#contact .arrow { 
+	border-bottom: 20px solid white; 
+	border-left: 20px solid transparent; 
+	border-right: 20px solid transparent; 
+	display: block; 
+	height: 0;
+	position: absolute; 
+	left: -28px; top: 2em;
+	width: 0;
+	z-index: 201;
+	-webkit-transform: rotate(270deg); -moz-transform: rotate(270deg); -o-transform: rotate(270deg); 
+	-ms-transform: rotate(270deg); transform: rotate(270deg);
+}
 
 #contact figure img { -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; border: thin solid #bbb; margin: 0.3em; background: url('%webroot%/core/img/loading.gif') no-repeat center center; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; opacity: 1; }
 

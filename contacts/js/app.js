@@ -849,14 +849,9 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('status.contact.enabled', function(e, enabled) {
 			console.log('status.contact.enabled', enabled)
 			if(enabled) {
-				self.showActions(['back', 'download', 'delete', 'groups', 'favorite']);
+				self.showActions(['back', 'download', 'delete', 'groups']);
 			} else {
 				self.showActions(['back']);
-			}
-			if(self.Groups.isFavorite(self.currentid)) {
-				self.$header.find('.favorite').switchClass('inactive', 'active');
-			} else {
-				self.$header.find('.favorite').switchClass('active', 'inactive');
 			}
 		});
 
@@ -920,6 +915,18 @@ OC.Contacts = OC.Contacts || {
 					});
 				}, 1000);
 			}
+		});
+
+		$(document).bind('request.contact.setasfavorite', function(e, data) {
+			var id = parseInt(data.id);
+			console.log('contact', data.id, 'request.contact.setasfavorite');
+			self.Groups.setAsFavorite(data.id, data.state);
+		});
+
+		$(document).bind('request.contact.close', function(e, data) {
+			var id = parseInt(data.id);
+			console.log('contact', data.id, 'request.contact.close');
+			self.closeContact(id);
 		});
 
 		$(document).bind('request.select.contactphoto.fromlocal', function(e, result) {
@@ -1416,14 +1423,15 @@ OC.Contacts = OC.Contacts || {
 			if(!utils.isUInt(self.currentid)) {
 				return;
 			}
+			// FIXME: This should only apply for contacts list.
 			var state = self.Groups.isFavorite(self.currentid);
 			console.log('Favorite?', this, state);
 			self.Groups.setAsFavorite(self.currentid, !state, function(jsondata) {
 				if(jsondata.status === 'success') {
 					if(state) {
-						self.$header.find('.favorite').switchClass('active', 'inactive');
+						self.$header.find('.favorite').switchClass('active', '');
 					} else {
-						self.$header.find('.favorite').switchClass('inactive', 'active');
+						self.$header.find('.favorite').switchClass('', 'active');
 					}
 				} else {
 					OC.notify({message:t('contacts', jsondata.data.message)});
@@ -1773,6 +1781,7 @@ OC.Contacts = OC.Contacts || {
 			this.tmpcontact.remove();
 			this.$contactList.show();
 		}
+		this.$contactList.removeClass('dim');
 		delete this.currentid;
 		this.showActions(['addcontact']);
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
@@ -1783,12 +1792,28 @@ OC.Contacts = OC.Contacts || {
 			this.closeContact(this.currentid);
 		}
 		this.currentid = parseInt(id);
+		console.log('Contacts.openContact, Favorite', this.currentid, this.Groups.isFavorite(this.currentid), this.Groups);
 		this.setAllChecked(false);
-		this.$contactList.hide();
+		//this.$contactList.hide();
+		this.$contactList.addClass('dim');
 		this.$toggleAll.hide();
-		var $contactelem = this.Contacts.showContact(this.currentid);
+		this.jumpToContact(this.currentid);
+		var props = {
+			favorite: this.Groups.isFavorite(this.currentid),
+			groups: this.Groups.categories,
+		};
+		var $contactelem = this.Contacts.showContact(this.currentid, props);
+		var self = this;
+		var $contact = $contactelem.find('#contact');
+		var adjustElems = function() {
+			var maxheight = document.documentElement.clientHeight - 200; // - ($contactelem.offset().top+70);
+			console.log('contact maxheight', maxheight);
+			$contactelem.find('ul').first().css({'max-height': maxheight, 'overflow-y': 'auto', 'overflow-x': 'hidden'});
+		};
+		$(window).resize(adjustElems);
+		//$contact.resizable({ minWidth: 400, minHeight: 400, maxHeight: maxheight});
 		this.$rightContent.prepend($contactelem);
-		this.buildGroupSelect();
+		adjustElems();
 	},
 	update: function() {
 		console.log('update');

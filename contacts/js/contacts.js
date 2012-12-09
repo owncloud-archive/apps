@@ -529,13 +529,14 @@ OC.Contacts = OC.Contacts || {};
 	 * Render the full contact
 	 * @return A jquery object to be inserted in the DOM
 	 */
-	Contact.prototype.renderContact = function() {
+	Contact.prototype.renderContact = function(props) {
 		var self = this;
 		var n = this.getPreferredValue('N', ['', '', '', '', '']);
-		console.log('renderContact', this.data);
+		//console.log('Contact.renderContact', this.data);
 		var values = this.data
 			? {
 				id: this.id,
+				favorite:props.favorite ? 'active' : '',
 				name: this.getPreferredValue('FN', ''),
 				n0: n[0], n1: n[1], n2: n[2], n3: n[3], n4: n[4],
 				nickname: this.getPreferredValue('NICKNAME', ''),
@@ -547,11 +548,14 @@ OC.Contacts = OC.Contacts || {};
 							this.getPreferredValue('BDAY', '').substring(0, 10)))
 					: '',
 				}
-			: {id: '', name: '', nickname: '', title: '', org: '', bday: '', n0: '', n1: '', n2: '', n3: '', n4: ''};
+			: {id: '', favorite: '', name: '', nickname: '', title: '', org: '', bday: '', n0: '', n1: '', n2: '', n3: '', n4: ''};
 		this.$fullelem = this.$fullTemplate.octemplate(values).data('contactobject', this);
+		this.$fullelem.on('submit', function() {
+			return false;
+		});
 		this.$addMenu = this.$fullelem.find('#addproperty');
 		this.$addMenu.on('change', function(event) {
-			console.log('add', $(this).val());
+			//console.log('add', $(this).val());
 			var $opt = $(this).find('option:selected');
 			self.addProperty($opt, $(this).val());
 			$(this).val('');
@@ -580,33 +584,56 @@ OC.Contacts = OC.Contacts || {};
 				$('body').bind('click', bodyListener);
 			});
 		});
-		var $singleelements = this.$fullelem.find('dd.propertycontainer');
-		$singleelements.find('.action').css('opacity', '0');
-		$singleelements.on('mouseenter', function() {
-			$(this).find('.action').css('opacity', '1');
-		}).on('mouseleave', function() {
-			$(this).find('.action').css('opacity', '0');
-		});
+		
 		this.$fullelem.on('click keydown', '.delete', function(event) {
-			console.log('delete', event);
 			$('.tipsy').remove();
 			if(wrongKey(event)) {
 				return;
 			}
 			self.deleteProperty({obj:event.target});
 		});
+
+		this.$fullelem.on('click keydown', '.close', function(event) {
+			$('.tipsy').remove();
+			if(wrongKey(event)) {
+				return;
+			}
+			$(document).trigger('request.contact.close', {
+				id: self.id,
+			});
+			return false;
+		});
+		this.$fullelem.on('keypress', '.value,.parameter', function(event) {
+			if(event.keyCode === 13 && $(this).is('input')) {
+				console.log('Enter');
+				$(this).trigger('change');
+				return false;
+			} else if(event.keyCode === 27) {
+				$(document).trigger('request.contact.close', {
+					id: self.id,
+				});
+			}
+		});
+		
 		this.$fullelem.on('change', '.value,.parameter', function(event) {
-			console.log('change', event);
 			self.saveProperty({obj:event.target});
 		});
 
-		this.$fullelem.find('form').on('submit', function(event) {
-			console.log('submit', this, event);
-			return false;
-		});
 		this.$fullelem.find('[data-element="bday"]')
 			.find('input').datepicker({
 				dateFormat : 'dd-mm-yy'
+		});
+		this.$fullelem.find('.favorite').on('click', function () {
+			var state = $(this).hasClass('active');
+			if(state) {
+				$(this).switchClass('active', 'inactive');
+			} else {
+				$(this).switchClass('inactive', 'active');
+			}
+			$(document).trigger('request.contact.setasfavorite', {
+				id: self.id,
+				state: !state,
+			});
 		});
 		this.loadPhoto();
 		if(!this.data) {
@@ -847,7 +874,10 @@ OC.Contacts = OC.Contacts || {};
 		}).attr('src', OC.linkTo('contacts', 'photo.php')+'?id='+id+refreshstr);
 
 		if(!dontloadhandlers && this.isEditable()) {
-			this.$photowrapper.on('mouseenter', function() {
+			this.$photowrapper.on('mouseenter', function(event) {
+				if($(event.target).is('.favorite')) {
+					return;
+				}
 				$phototools.slideDown(200);
 			}).on('mouseleave', function() {
 				$phototools.slideUp(200);
@@ -1254,11 +1284,11 @@ OC.Contacts = OC.Contacts || {};
 	* @param id the id of the contact
 	* @returns A jquery object to be inserted in the DOM.
 	*/
-	ContactList.prototype.showContact = function(id) {
+	ContactList.prototype.showContact = function(id, props) {
 		console.assert(typeof id === 'number', 'ContactList.showContact called with a non-number');
 		this.currentContact = id;
 		console.log('Contacts.showContact', id, this.contacts[this.currentContact], this.contacts)
-		return this.contacts[this.currentContact].renderContact();
+		return this.contacts[this.currentContact].renderContact(props);
 	};
 
 	/**
