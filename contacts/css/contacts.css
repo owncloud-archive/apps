@@ -88,7 +88,7 @@
 }
 
 #grouplist { z-index: 100; }
-#grouplist h3 .action:not(.starred):not(.checked) { float: right; display: none; padding: 0; margin: auto; }
+#grouplist h3 .action:not(.starred):not(.checked):not(.favorite) { float: right; display: none; padding: 0; margin: auto; }
 #grouplist h3:not([data-type="shared"]):not(.editing):hover .action.numcontacts, #grouplist h3:not([data-type="shared"]):not(.editing) .active.action.numcontacts { display: inline-block; }
 #grouplist h3[data-type="category"]:not(.editing):hover .action.delete { display: inline-block; }
 #grouplist h3:not(.editing) .action.delete { width: 20px; height: 20px; }
