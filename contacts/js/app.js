@@ -1214,7 +1214,7 @@ OC.Contacts = OC.Contacts || {
 			if($(event.target).is('input')) {
 				return;
 			}
-			if(event.ctrlKey) {
+			if(event.ctrlKey || event.metaKey) {
 				event.stopPropagation();
 				event.preventDefault();
 				console.log('select', event);
