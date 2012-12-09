@@ -712,11 +712,6 @@ OC.Contacts = OC.Contacts || {};
 									singleclick: true,
 									classes: ['propertytype', 'float', 'label'],
 								});
-							$property.on('mouseenter', function() {
-								$(this).find('.listactions').css('opacity', '1');
-							}).on('mouseleave', function() {
-								$(this).find('.listactions').css('opacity', '0');
-							});
 						}
 						$list.append($property);
 					}

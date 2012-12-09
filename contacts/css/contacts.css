@@ -159,14 +159,29 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 
 .fullname { font-weight:bold; font-size:1.5em; width: 17em; }
 .singleproperties { display: inline-block; float: left; width: 30em;}
-.singleproperties input.value { font-weight: bold; }
-.singleproperties .action { float: left; width: 20px; height: 20px; }
+.singleproperties .propertycontainer input.value { font-weight: bold; }
+.singleproperties .propertycontainer .action { 
+	float: left; 
+	width: 20px; height: 20px;
+	opacity: 0;
+}
+.singleproperties .propertycontainer:hover .action { opacity: 1; }
 .singleproperties .n input { width: 17em}
 .singleproperties dl { min-width: 24em; }
 
 .propertylist li.propertycontainer { white-space: nowrap; min-width: 38em; display: block; clear: both; }
-.propertylist li.propertycontainer > .listactions { display: inline-block; position: absolute; clear: none; opacity: 0; float: right; }
-.propertylist li.propertycontainer .listactions a { display: inline-block; float: left; clear: none; width: 20px; height: 20px; }
+.propertylist li.propertycontainer > .listactions { 
+	display: inline-block; 
+	position: absolute; 
+	clear: none; opacity: 0; 
+	float: right; 
+}
+.propertylist li.propertycontainer:hover > .listactions { opacity: 1; }
+.propertylist li.propertycontainer .listactions a { 
+	display: inline-block; 
+	float: left; clear: none; 
+	width: 20px; height: 20px; 
+}
 
 .propertylist { float: left; }
 /*.propertylist li > a { display: block; }}*/
