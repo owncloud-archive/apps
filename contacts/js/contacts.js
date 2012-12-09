@@ -1321,8 +1321,9 @@ OC.Contacts = OC.Contacts || {};
 
 	/**
 	* Add contact
+	* @param object props
 	*/
-	ContactList.prototype.addContact = function() {
+	ContactList.prototype.addContact = function(props) {
 		var contact = new Contact(
 			this,
 			null,
@@ -1336,7 +1337,7 @@ OC.Contacts = OC.Contacts || {};
 			console.assert(typeof this.currentContact == 'number', 'this.currentContact is not a number');
 			this.contacts[this.currentContact].close();
 		}
-		return contact.renderContact();
+		return contact.renderContact(props);
 	}
 
 	/**

@@ -1251,6 +1251,10 @@ OC.Contacts = OC.Contacts || {
 			self.$toggleAll.hide();
 			$(this).hide();
 			self.currentid = 'new';
+			var props = {
+				favorite: false,
+				groups: self.Groups.categories,
+			};
 			self.tmpcontact = self.Contacts.addContact();
 			self.$rightContent.prepend(self.tmpcontact);
 			self.showActions(['back']);
