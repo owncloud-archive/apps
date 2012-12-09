@@ -281,15 +281,8 @@ class App {
 	 * @param OC_VObject|Sabre\VObject\Component|integer|null $contact
 	 * @returns DateTime | null
 	 */
-	public static function lastModified($contact) {
-		if(is_numeric($contact)) {
-			$card = VCard::find($contact);
-			return ($card ? new \DateTime('@' . $card['lastmodified']) : null);
-		} elseif($contact instanceof \OC_VObject || $contact instanceof VObject\Component) {
-			return isset($contact->REV) 
-				? \DateTime::createFromFormat(\DateTime::W3C, $contact->REV)
-				: null;
-		} elseif(is_null($contact)) {
+	public static function lastModified($contact = null) {
+		if(is_null($contact)) {
 			// FIXME: This doesn't take shared address books into account.
 			$sql = 'SELECT MAX(`lastmodified`) FROM `oc_contacts_cards`, `oc_contacts_addressbooks` ' . 
 				'WHERE  `oc_contacts_cards`.`addressbookid` = `oc_contacts_addressbooks`.`id` AND ' .
@@ -304,6 +297,13 @@ class App {
 			if(!is_null($lastModified)) {
 				return new \DateTime('@' . $lastModified);
 			}
+		} else if(is_numeric($contact)) {
+			$card = VCard::find($contact);
+			return ($card ? new \DateTime('@' . $card['lastmodified']) : null);
+		} elseif($contact instanceof \OC_VObject || $contact instanceof VObject\Component) {
+			return isset($contact->REV) 
+				? \DateTime::createFromFormat(\DateTime::W3C, $contact->REV)
+				: null;
 		}
 	}
 
