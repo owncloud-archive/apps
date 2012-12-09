@@ -60,7 +60,6 @@
 	<input type="checkbox" id="toggle_all" title="<?php echo $l->t('(De-)select all'); ?>" />
 	<div class="actions">
 		<button class="addcontact"><?php echo $l->t('New Contact'); ?></button>
-		<button class="back control" title="<?php echo $l->t('Back'); ?>"><?php echo $l->t('Back'); ?></button>
 		<button class="download control" title="<?php echo $l->t('Download Contact'); ?>"></button>
 		<select class="groups control" name="groups">
 			<option value="-1" disabled="disabled" selected="selected"><?php echo $l->t('Groups'); ?></option>
@@ -168,6 +167,7 @@
 <script id="contactFullTemplate" type="text/template">
 <form action="<?php echo OCP\Util::linkTo('contacts', 'index.php'); ?>" method="post" enctype="multipart/form-data">
 	<section id="contact" data-id="{id}">
+	<span class="arrow"></span>
 	<ul>
 		<li>
 			<div id="photowrapper" class="propertycontainer" data-element="photo">
@@ -177,6 +177,20 @@
 					<li><a class="svg upload" title="<?php echo $l->t('Upload new photo'); ?>"></a></li>
 					<li><a class="svg cloud" title="<?php echo $l->t('Select photo from ownCloud'); ?>"></a></li>
 				</ul>
+				<a class="favorite action {favorite}"></a>
+			<select id="addproperty">
+				<option value=""><?php echo $l->t('Add'); ?></option>
+				<option value="ORG"><?php echo $l->t('Organization'); ?></option>
+				<option value="NICKNAME"><?php echo $l->t('Nickname'); ?></option>
+				<option value="BDAY"><?php echo $l->t('Birthday'); ?></option>
+				<option value="TEL"><?php echo $l->t('Phone'); ?></option>
+				<option value="EMAIL"><?php echo $l->t('Email'); ?></option>
+				<option value="IMPP"><?php echo $l->t('Instant Messaging'); ?></option>
+				<option value="ADR"><?php echo $l->t('Address'); ?></option>
+				<option value="NOTE"><?php echo $l->t('Note'); ?></option>
+				<option value="URL"><?php echo $l->t('Web site'); ?></option>
+				<option value="CATEGORIES"><?php echo $l->t('Groups'); ?></option>
+			</select>
 			</div>
 			<div class="singleproperties">
 			<input data-element="fn" class="fullname value propertycontainer" type="text" name="value" value="{name}" required />
@@ -249,27 +263,15 @@
 			</ul>
 		</li>
 		<li>
-			<section class="note" data-element="note">
+			<section class="note propertycontainer" data-element="note">
 				<textarea class="value" placeholder="<?php echo $l->t('Notes go here...'); ?>"></textarea>
 			</section>
 		</li>
 	</ul>
-	</section>
 	<footer>
-		<select id="addproperty">
-			<option value=""><?php echo $l->t('Add'); ?></option>
-			<option value="ORG"><?php echo $l->t('Organization'); ?></option>
-			<option value="NICKNAME"><?php echo $l->t('Nickname'); ?></option>
-			<option value="BDAY"><?php echo $l->t('Birthday'); ?></option>
-			<option value="TEL"><?php echo $l->t('Phone'); ?></option>
-			<option value="EMAIL"><?php echo $l->t('Email'); ?></option>
-			<option value="IMPP"><?php echo $l->t('Instant Messaging'); ?></option>
-			<option value="ADR"><?php echo $l->t('Address'); ?></option>
-			<option value="NOTE"><?php echo $l->t('Note'); ?></option>
-			<option value="URL"><?php echo $l->t('Web site'); ?></option>
-			<option value="CATEGORIES"><?php echo $l->t('Groups'); ?></option>
-		</select>
+		<button class="close" title="<?php echo $l->t('Close'); ?>"><?php echo $l->t('Close'); ?></button>
 	</footer>
+	</section>
 </form>
 </script>
 
