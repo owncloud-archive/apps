@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-09 00:02+0100\n"
-"PO-Revision-Date: 2012-12-08 16:31+0000\n"
+"POT-Creation-Date: 2012-12-10 00:02+0100\n"
+"PO-Revision-Date: 2012-12-09 15:56+0000\n"
 "Last-Translator: Agustin Ferrario <agustin.ferrario@hotmail.com.ar>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -106,7 +106,7 @@ msgstr "Plof. Algo ha fallado."
 #: ajax/contact/saveproperty.php:128
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
-msgstr "No se puede guardar la propiedad del tipo \"%s\" como un array"
+msgstr "No se puede guardar la propiedad del tipo \"%s\" como un arreglo"
 
 #: ajax/contact/saveproperty.php:180
 msgid "Missing IM parameter."

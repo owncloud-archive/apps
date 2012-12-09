@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-20 00:01+0100\n"
-"PO-Revision-Date: 2012-11-19 11:53+0000\n"
-"Last-Translator: 남자사람 <cessnagi@gmail.com>\n"
+"POT-Creation-Date: 2012-12-10 00:03+0100\n"
+"PO-Revision-Date: 2012-12-09 05:40+0000\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,11 +34,11 @@ msgstr "앨범"
 
 #: js/collection.js:282
 msgid "Add to playlist"
-msgstr "플레이리스트에 추가"
+msgstr "재생 목록에 추가"
 
 #: js/music.js:18
 msgid "Add album to playlist"
-msgstr "재생 목록에 앨범을 추가"
+msgstr "재생 목록에 앨범 추가"
 
 #: templates/music.php:3 templates/player.php:12
 msgid "Play"

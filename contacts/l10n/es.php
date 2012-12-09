@@ -17,7 +17,7 @@
 "Couldn't find vCard for %d." => "No se pudo encontra la vCard para %d",
 "Information about vCard is incorrect. Please reload the page: " => "La información sobre la vCard es incorrecta. Por favor, recarga la página:",
 "Something went FUBAR. " => "Plof. Algo ha fallado.",
-"Cannot save property of type \"%s\" as array" => "No se puede guardar la propiedad del tipo \"%s\" como un array",
+"Cannot save property of type \"%s\" as array" => "No se puede guardar la propiedad del tipo \"%s\" como un arreglo",
 "Missing IM parameter." => "Falta un parámetro del MI.",
 "Unknown IM: " => "MI desconocido:",
 "No contact ID was submitted." => "No se ha mandado ninguna ID de contacto.",

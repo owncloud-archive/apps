@@ -4,13 +4,14 @@
 # 
 # Translators:
 # 남자사람  <cessnagi@gmail.com>, 2012.
+# Shinjo Park <kde@peremen.name>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-22 00:01+0100\n"
-"PO-Revision-Date: 2012-11-21 06:56+0000\n"
-"Last-Translator: 남자사람 <cessnagi@gmail.com>\n"
+"POT-Creation-Date: 2012-12-10 00:03+0100\n"
+"PO-Revision-Date: 2012-12-09 06:11+0000\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr "기한"
 
 #: js/tasks.js:107
 msgid "List"
-msgstr "리스트"
+msgstr "목록"
 
 #: js/tasks.js:128
 msgid "Location"
@@ -52,7 +53,7 @@ msgstr "1=최대"
 
 #: lib/app.php:38
 msgid "5=medium"
-msgstr "2=중간"
+msgstr "5=중간"
 
 #: lib/app.php:42
 msgid "9=lowest"
@@ -64,16 +65,16 @@ msgstr "빈 요약"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr "퍼센트 완료가 유효하지 않음"
+msgstr "완료된 정도가 잘못됨"
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr "우선순위가 유효하지 않음"
+msgstr "우선 순위가 잘못됨"
 
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr "이 응용프로그램을 사용하기 위해 달력 응용프로그램이 사용가능해야 합니다."
+msgstr "이 앱을 사용하려면 달력 앱을 활성화해야 합니다."
 
 #: templates/tasks.php:3
 msgid "Add Task"
@@ -81,31 +82,31 @@ msgstr "작업 추가"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr "주문 기한"
+msgstr "기한순 정렬"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr "주문 리스트"
+msgstr "목록순 정렬"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr "주문 완료"
+msgstr "완료순 정렬"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr "주문 장소"
+msgstr "장소순 정렬"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr "주문 우선순위"
+msgstr "우선 순위순 정렬"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr "주묵 라벨"
+msgstr "라벨순 정렬"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr "작업을 로딩중.."
+msgstr "작업 불러오는 중..."
 
 #: templates/tasks.php:20
 msgid "Important"
@@ -113,11 +114,11 @@ msgstr "중요"
 
 #: templates/tasks.php:23
 msgid "More"
-msgstr "더 많은"
+msgstr "더 중요함"
 
 #: templates/tasks.php:26
 msgid "Less"
-msgstr "그외"
+msgstr "덜 중요함"
 
 #: templates/tasks.php:29
 msgid "Delete"

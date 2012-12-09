@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-09 00:02+0100\n"
-"PO-Revision-Date: 2012-12-07 23:26+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-10 00:02+0100\n"
+"PO-Revision-Date: 2012-12-09 12:06+0000\n"
+"Last-Translator: martin <zatroch.martin@gmail.com>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -257,7 +257,7 @@ msgstr "Skupina pomenovaná ako {group} už existuje."
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
-msgstr ""
+msgstr "Potiahnutím a pustením môžete \nusporiadať skupiny podľa ľúbosti."
 
 #: js/app.js:588
 msgid "All"
@@ -310,15 +310,15 @@ msgstr "Vyskytla sa chyba pri otváraní nástroja na tvorbu pošty."
 
 #: js/app.js:1295
 msgid "Deleting done. Click here to cancel reloading."
-msgstr ""
+msgstr "Odstraňovanie dokončené. Kliknite sem pre zrušenie obnovenia."
 
 #: js/app.js:1368
 msgid "Add address book"
-msgstr ""
+msgstr "Pridať adresár kontaktov"
 
 #: js/app.js:1455
 msgid "Import done. Click here to cancel reloading."
-msgstr ""
+msgstr "Importovanie dokončené. Kliknite sem pre zrušenie obnovenia."
 
 #: js/app.js:1496
 msgid "Not all files uploaded. Retrying..."
@@ -335,11 +335,11 @@ msgstr "Chyba"
 
 #: js/app.js:1512
 msgid "Importing from {filename}..."
-msgstr ""
+msgstr "Importujem z {filename}..."
 
 #: js/app.js:1515
 msgid "{success} imported, {failed} failed."
-msgstr ""
+msgstr "{success} importované, {failed} zlyhané."
 
 #: js/app.js:1523
 msgid "Importing..."
@@ -653,7 +653,7 @@ msgstr "Nastavenia"
 
 #: templates/contacts.php:28
 msgid "Address books"
-msgstr ""
+msgstr "Adresáre kontaktov"
 
 #: templates/contacts.php:32 templates/contacts.php:112 templates/index.php:15
 #: templates/part.import.php:17
@@ -662,11 +662,11 @@ msgstr "Importovať"
 
 #: templates/contacts.php:37
 msgid "Select files to import"
-msgstr ""
+msgstr "Vybrať súbory pre import"
 
 #: templates/contacts.php:38
 msgid "Select files"
-msgstr ""
+msgstr "Vybrať súbory"
 
 #: templates/contacts.php:44 templates/contacts.php:46
 msgid "Import into:"
@@ -942,7 +942,7 @@ msgstr "Export"
 
 #: templates/contacts.php:378
 msgid "CardDAV link"
-msgstr ""
+msgstr "CardDAV odkaz"
 
 #: templates/index.php:14
 msgid "Add Contact"
