@@ -23,6 +23,7 @@ function getStandardImage() {
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 $etag = null;
 $caching = null;
+$max_size = 170;
 
 if(!$id || $id === 'new') {
 	getStandardImage();
@@ -69,7 +70,6 @@ if (is_null($contact)) {
 		if($etag) {
 			OCP\Response::setETagHeader($etag);
 		}
-		$max_size = 200;
 		if ($image->width() > $max_size || $image->height() > $max_size) {
 			$image->resize($max_size);
 		}
