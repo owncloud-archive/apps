@@ -18,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-08 00:02+0100\n"
-"PO-Revision-Date: 2012-12-07 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-09 00:02+0100\n"
+"PO-Revision-Date: 2012-12-08 16:31+0000\n"
+"Last-Translator: Agustin Ferrario <agustin.ferrario@hotmail.com.ar>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -179,7 +179,7 @@ msgstr "Fallo al encontrar la imagen"
 
 #: ajax/setpreference.php:37
 msgid "Key is not set for: "
-msgstr ""
+msgstr "Clave no establecida para:"
 
 #: ajax/setpreference.php:41
 msgid "Value is not set for: "
@@ -263,7 +263,7 @@ msgstr "Un grupo llamado {group} ya existe."
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
-msgstr ""
+msgstr "Puede arrastrar grupos para\narreglarlos como usted quiera."
 
 #: js/app.js:588
 msgid "All"
@@ -328,11 +328,11 @@ msgstr ""
 
 #: js/app.js:1496
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "No se han podido subir todos los archivos. Reintentando..."
 
 #: js/app.js:1502
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Algo ha ido mal con la subida, por favor, reintentelo."
 
 #: js/app.js:1502 js/app.js:1982 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
@@ -349,15 +349,15 @@ msgstr ""
 
 #: js/app.js:1523
 msgid "Importing..."
-msgstr ""
+msgstr "Importando..."
 
 #: js/app.js:1546
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Imposible subir su archivo, es un directorio o tiene 0 bytes"
 
 #: js/app.js:1546
 msgid "Upload Error"
-msgstr ""
+msgstr "Error de subida"
 
 #: js/app.js:1553 js/app.js:1810
 msgid ""
@@ -367,11 +367,11 @@ msgstr "El fichero que quieres subir excede el tamaño máximo permitido en este
 
 #: js/app.js:1553
 msgid "Upload too large"
-msgstr ""
+msgstr "bida demasido grande"
 
 #: js/app.js:1593
 msgid "Pending"
-msgstr ""
+msgstr "Pendientes"
 
 #: js/app.js:1726 templates/contacts.php:137
 msgid "Add group"
@@ -680,7 +680,7 @@ msgstr "Importar hacia:"
 
 #: templates/contacts.php:48
 msgid "OK"
-msgstr ""
+msgstr "Aceptar"
 
 #: templates/contacts.php:60
 msgid "(De-)select all"

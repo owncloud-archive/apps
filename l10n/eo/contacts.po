@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-08 00:02+0100\n"
-"PO-Revision-Date: 2012-12-07 23:03+0000\n"
+"POT-Creation-Date: 2012-12-09 00:02+0100\n"
+"PO-Revision-Date: 2012-12-07 23:26+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
@@ -319,11 +319,11 @@ msgstr ""
 
 #: js/app.js:1496
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Ne ĉiuj dosieroj alŝutiĝis. Reprovante..."
 
 #: js/app.js:1502
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Io malsukcesis dum alŝuto, bonvolu reprovi."
 
 #: js/app.js:1502 js/app.js:1982 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
@@ -340,15 +340,15 @@ msgstr ""
 
 #: js/app.js:1523
 msgid "Importing..."
-msgstr ""
+msgstr "Enportante..."
 
 #: js/app.js:1546
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Ne eblis alŝuti vian dosieron ĉar ĝi estas dosierujo aŭ havas 0 duumokojn"
 
 #: js/app.js:1546
 msgid "Upload Error"
-msgstr ""
+msgstr "Eraro dum alŝuto"
 
 #: js/app.js:1553 js/app.js:1810
 msgid ""
@@ -358,11 +358,11 @@ msgstr "La dosiero, kiun vi provas alŝuti, transpasas la maksimuman grandon por
 
 #: js/app.js:1553
 msgid "Upload too large"
-msgstr ""
+msgstr "Alŝuto tro larĝa"
 
 #: js/app.js:1593
 msgid "Pending"
-msgstr ""
+msgstr "Traktotaj"
 
 #: js/app.js:1726 templates/contacts.php:137
 msgid "Add group"
@@ -671,7 +671,7 @@ msgstr "Enporti en:"
 
 #: templates/contacts.php:48
 msgid "OK"
-msgstr ""
+msgstr "Akcepti"
 
 #: templates/contacts.php:60
 msgid "(De-)select all"

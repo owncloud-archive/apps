@@ -9,6 +9,7 @@
 "Missing a temporary folder" => "Manglar ei mellombels mappe",
 "Contacts" => "Kotaktar",
 "Error" => "Feil",
+"Upload too large" => "For stor opplasting",
 "Download" => "Last ned",
 "Edit" => "Endra",
 "Delete" => "Slett",

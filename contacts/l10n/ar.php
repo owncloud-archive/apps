@@ -8,6 +8,7 @@
 "No file was uploaded" => "لم يتم ترفيع أي من الملفات",
 "Missing a temporary folder" => "المجلد المؤقت غير موجود",
 "Contacts" => "المعارف",
+"Upload too large" => "حجم الترفيع أعلى من المسموح",
 "Download" => "انزال",
 "Edit" => "تعديل",
 "Delete" => "حذف",

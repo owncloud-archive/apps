@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-08 00:02+0100\n"
-"PO-Revision-Date: 2012-12-07 23:04+0000\n"
+"POT-Creation-Date: 2012-12-09 00:02+0100\n"
+"PO-Revision-Date: 2012-12-07 23:26+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Occitan (post 1500) (http://www.transifex.com/projects/p/owncloud/language/oc/)\n"
 "MIME-Version: 1.0\n"
@@ -342,11 +342,11 @@ msgstr ""
 
 #: js/app.js:1546
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Impossible d'amontcargar lo teu fichièr qu'es un repertòri o que ten pas que 0 octet."
 
 #: js/app.js:1546
 msgid "Upload Error"
-msgstr ""
+msgstr "Error d'amontcargar"
 
 #: js/app.js:1553 js/app.js:1810
 msgid ""
@@ -356,11 +356,11 @@ msgstr ""
 
 #: js/app.js:1553
 msgid "Upload too large"
-msgstr ""
+msgstr "Amontcargament tròp gròs"
 
 #: js/app.js:1593
 msgid "Pending"
-msgstr ""
+msgstr "Al esperar"
 
 #: js/app.js:1726 templates/contacts.php:137
 msgid "Add group"
@@ -669,7 +669,7 @@ msgstr ""
 
 #: templates/contacts.php:48
 msgid "OK"
-msgstr ""
+msgstr "D'accòrdi"
 
 #: templates/contacts.php:60
 msgid "(De-)select all"

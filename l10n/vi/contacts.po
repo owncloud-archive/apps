@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-08 00:02+0100\n"
-"PO-Revision-Date: 2012-12-07 23:03+0000\n"
+"POT-Creation-Date: 2012-12-09 00:02+0100\n"
+"PO-Revision-Date: 2012-12-07 23:26+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -321,11 +321,11 @@ msgstr ""
 
 #: js/app.js:1496
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Tất cả các tập tin không được tải lên .Đang thử lại..."
 
 #: js/app.js:1502
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Một cái gì đó đã sai khi tải lên ,hãy thử lại."
 
 #: js/app.js:1502 js/app.js:1982 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
@@ -342,15 +342,15 @@ msgstr ""
 
 #: js/app.js:1523
 msgid "Importing..."
-msgstr ""
+msgstr "Đang nhập vào..."
 
 #: js/app.js:1546
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Không thể tải lên tập tin của bạn ,nó như là một thư mục hoặc có 0 byte"
 
 #: js/app.js:1546
 msgid "Upload Error"
-msgstr ""
+msgstr "Lỗi tải lên"
 
 #: js/app.js:1553 js/app.js:1810
 msgid ""
@@ -360,11 +360,11 @@ msgstr "Các tập tin bạn đang cố gắng tải lên vượt quá kích th�
 
 #: js/app.js:1553
 msgid "Upload too large"
-msgstr ""
+msgstr "Tập tin tải lên quá lớn"
 
 #: js/app.js:1593
 msgid "Pending"
-msgstr ""
+msgstr "Đang chờ"
 
 #: js/app.js:1726 templates/contacts.php:137
 msgid "Add group"
@@ -673,7 +673,7 @@ msgstr "Nhập vào :"
 
 #: templates/contacts.php:48
 msgid "OK"
-msgstr ""
+msgstr "Chấp nhận"
 
 #: templates/contacts.php:60
 msgid "(De-)select all"

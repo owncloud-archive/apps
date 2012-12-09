@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-08 00:02+0100\n"
-"PO-Revision-Date: 2012-12-07 23:03+0000\n"
+"POT-Creation-Date: 2012-12-09 00:02+0100\n"
+"PO-Revision-Date: 2012-12-07 23:26+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -343,11 +343,11 @@ msgstr ""
 
 #: js/app.js:1546
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "ناتوان در بارگذاری یا فایل یک پوشه است یا 0بایت دارد"
 
 #: js/app.js:1546
 msgid "Upload Error"
-msgstr ""
+msgstr "خطا در بار گذاری"
 
 #: js/app.js:1553 js/app.js:1810
 msgid ""
@@ -357,11 +357,11 @@ msgstr "حجم فایل بسیار بیشتر از حجم تنظیم شده در
 
 #: js/app.js:1553
 msgid "Upload too large"
-msgstr ""
+msgstr "سایز فایل برای آپلود زیاد است(م.تنظیمات در php.ini)"
 
 #: js/app.js:1593
 msgid "Pending"
-msgstr ""
+msgstr "در انتظار"
 
 #: js/app.js:1726 templates/contacts.php:137
 msgid "Add group"
@@ -670,7 +670,7 @@ msgstr ""
 
 #: templates/contacts.php:48
 msgid "OK"
-msgstr ""
+msgstr "باشه"
 
 #: templates/contacts.php:60
 msgid "(De-)select all"

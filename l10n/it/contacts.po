@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-08 00:02+0100\n"
-"PO-Revision-Date: 2012-12-07 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-09 00:02+0100\n"
+"PO-Revision-Date: 2012-12-07 23:27+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -256,7 +256,7 @@ msgstr "Un gruppo con nome {group} esiste già"
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
-msgstr ""
+msgstr "Puoi trascinare i gruppi per\norganizzarli come preferisci."
 
 #: js/app.js:588
 msgid "All"
@@ -309,23 +309,23 @@ msgstr "Si è verificato un errore durante l'apertura del compositore."
 
 #: js/app.js:1295
 msgid "Deleting done. Click here to cancel reloading."
-msgstr ""
+msgstr "Eliminazione completata. Fai clic qui per annullare il ricaricamento."
 
 #: js/app.js:1368
 msgid "Add address book"
-msgstr ""
+msgstr "Aggiungi rubrica"
 
 #: js/app.js:1455
 msgid "Import done. Click here to cancel reloading."
-msgstr ""
+msgstr "Importazione completata. Fai clic qui per annullare il ricaricamento."
 
 #: js/app.js:1496
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Non tutti i file sono stati caricati. Riprovo..."
 
 #: js/app.js:1502
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Qualcosa non ha funzionato durante il caricamento. Prova ancora."
 
 #: js/app.js:1502 js/app.js:1982 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
@@ -334,23 +334,23 @@ msgstr "Errore"
 
 #: js/app.js:1512
 msgid "Importing from {filename}..."
-msgstr ""
+msgstr "Importazione da {filename} in corso..."
 
 #: js/app.js:1515
 msgid "{success} imported, {failed} failed."
-msgstr ""
+msgstr "{success} importati, {failed} non riusciti."
 
 #: js/app.js:1523
 msgid "Importing..."
-msgstr ""
+msgstr "Importazione in corso..."
 
 #: js/app.js:1546
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Impossibile caricare il file poiché è una cartella o ha una dimensione di 0 byte"
 
 #: js/app.js:1546
 msgid "Upload Error"
-msgstr ""
+msgstr "Errore di caricamento"
 
 #: js/app.js:1553 js/app.js:1810
 msgid ""
@@ -360,11 +360,11 @@ msgstr "Il file che stai cercando di inviare supera la dimensione massima per l'
 
 #: js/app.js:1553
 msgid "Upload too large"
-msgstr ""
+msgstr "Caricamento troppo grande"
 
 #: js/app.js:1593
 msgid "Pending"
-msgstr ""
+msgstr "In corso"
 
 #: js/app.js:1726 templates/contacts.php:137
 msgid "Add group"
@@ -652,7 +652,7 @@ msgstr "Impostazioni"
 
 #: templates/contacts.php:28
 msgid "Address books"
-msgstr ""
+msgstr "Rubriche"
 
 #: templates/contacts.php:32 templates/contacts.php:112 templates/index.php:15
 #: templates/part.import.php:17
@@ -661,11 +661,11 @@ msgstr "Importa"
 
 #: templates/contacts.php:37
 msgid "Select files to import"
-msgstr ""
+msgstr "Seleziona i file da importare"
 
 #: templates/contacts.php:38
 msgid "Select files"
-msgstr ""
+msgstr "Seleziona i file"
 
 #: templates/contacts.php:44 templates/contacts.php:46
 msgid "Import into:"
@@ -673,7 +673,7 @@ msgstr "Importa in:"
 
 #: templates/contacts.php:48
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: templates/contacts.php:60
 msgid "(De-)select all"
@@ -941,7 +941,7 @@ msgstr "Esporta"
 
 #: templates/contacts.php:378
 msgid "CardDAV link"
-msgstr ""
+msgstr "Collegamento CardDav"
 
 #: templates/index.php:14
 msgid "Add Contact"
