@@ -1461,7 +1461,7 @@ OC.Contacts = OC.Contacts || {
 					if(!importError) {
 						OC.notify({
 							message:t('contacts','Import done. Click here to cancel reloading.'),
-							//timeout:5,
+							timeout:5,
 							timeouthandler:function() {
 								console.log('reloading');
 								window.location.href = OC.linkTo('contacts', 'index.php');
