@@ -1,5 +1,7 @@
 <?php
 
+// load user backends
+OC_App::loadApps($RUNTIME_APPTYPES);
 
 $url = OCA_mozilla_sync\Utils::getSyncUrl();
 if( $url === false ) {
