@@ -187,6 +187,8 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 /*.propertylist li > a { display: block; }}*/
 .propertylist li > input[type="checkbox"],input[type="radio"] { display: inline-block; }
 .propertylist input.value:not([type="checkbox"]) { width: 16em; display: inline-block; font-weight: bold; }
+.propertylist input.value:not([type="checkbox"]).new { border: 3px solid #1d2d44;}
+.propertylist input.value:not([type="checkbox"]).error { border: 3px solid #1d2d44;}
 .propertylist li > select { float: left; max-width: 8em; }
 .select_wrapper { float: left; overflow: hidden; color: #bbb; font-size: 0.8em; }
 .select_wrapper select { float: left; overflow: hidden; text-overflow: ellipsis; color: #bbb; width: 8em; }

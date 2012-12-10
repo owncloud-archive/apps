@@ -46,7 +46,7 @@ OC.Contacts = OC.Contacts || {};
 			case 'TITLE':
 			case 'ORG':
 			case 'BDAY':
-				this.$fullelem.find('[data-element="' + name.toLowerCase() + '"]').show();
+				this.$fullelem.find('[data-element="' + name.toLowerCase() + '"]').addClass('new').show();
 				$option.prop('disabled', true);
 				break;
 			case 'TEL':
@@ -56,6 +56,7 @@ OC.Contacts = OC.Contacts || {};
 				var $list = this.$fullelem.find('ul.' + name.toLowerCase());
 				$list.show();
 				$list.append($elem);
+				$elem.find('input.value').addClass('new');
 				break;
 			case 'ADR':
 				$elem = this.renderAddressProperty();
@@ -63,12 +64,14 @@ OC.Contacts = OC.Contacts || {};
 				$list.show();
 				$list.append($elem);
 				$elem.find('.adr.display').trigger('click');
+				$elem.find('input.value').addClass('new');
 				break;
 			case 'IMPP':
 				$elem = this.renderIMProperty();
 				var $list = this.$fullelem.find('ul.' + name.toLowerCase());
 				$list.show();
 				$list.append($elem);
+				$elem.find('input.value').addClass('new');
 				break;
 		}
 	}
@@ -207,6 +210,7 @@ OC.Contacts = OC.Contacts || {};
 							}
 						}
 					} else {
+						$(obj).removeClass('new');
 						self.data[element].push({
 							name: element,
 							value: self.valueFor(obj),
