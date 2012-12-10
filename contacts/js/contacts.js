@@ -270,7 +270,7 @@ OC.Contacts = OC.Contacts || {};
 							if(!utils.isArray(value)) {
 								value = value.split(';');
 								// Then it is auto-generated from FN.
-								var $nelems = self.$fullelem.find('.n.edit input');
+								var $nelems = self.$fullelem.find('.n.editor input');
 								$.each(value, function(idx, val) {
 									self.$fullelem.find('#n_' + idx).val(val);
 								});
@@ -559,6 +559,7 @@ OC.Contacts = OC.Contacts || {};
 				}
 			: {id: '', favorite: '', name: '', nickname: '', title: '', org: '', bday: '', n0: '', n1: '', n2: '', n3: '', n4: ''};
 		this.$fullelem = this.$fullTemplate.octemplate(values).data('contactobject', this);
+		this.$fullelem.find('.tooltipped.rightwards.onfocus').tipsy({trigger: 'focus', gravity: 'w'});
 		this.$fullelem.on('submit', function() {
 			return false;
 		});
@@ -582,7 +583,7 @@ OC.Contacts = OC.Contacts || {};
 				return;
 			}
 			$(this).css('opacity', '0');
-			var $editor = $(this).next('.n.edit').first();
+			var $editor = $(this).next('.n.editor').first();
 			var bodyListener = function(e) {
 				if($editor.find($(e.target)).length == 0) {
 					$editor.toggle('blind');
@@ -817,9 +818,11 @@ OC.Contacts = OC.Contacts || {};
 			: {value:'', checksum:'new', adr0:'', adr1:'', adr2:'', adr3:'', adr4:'', adr5:'', adr6:'', idx: idx};
 		var $elem = this.detailTemplates['adr'].octemplate(values);
 		var self = this;
+		$elem.find('.tooltipped.downwards:not(.onfocus)').tipsy({gravity: 'n'});
+		$elem.find('.tooltipped.rightwards.onfocus').tipsy({trigger: 'focus', gravity: 'w'});
 		$elem.find('.display').on('click', function() {
 			$(this).next('.listactions').hide();
-			var $editor = $(this).siblings('.adr.edit').first();
+			var $editor = $(this).siblings('.adr.editor').first();
 			var $viewer = $(this);
 			var bodyListener = function(e) {
 				if($editor.find($(e.target)).length == 0) {

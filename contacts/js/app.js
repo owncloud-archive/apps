@@ -1298,7 +1298,7 @@ OC.Contacts = OC.Contacts || {
 
 					$list.append($li);
 				});
-				$list.find('a.action').tipsy();
+				$list.find('a.action').tipsy({gravity: 'w'});
 				$list.find('a.action.delete').on('click keypress', function() {
 					$('.tipsy').remove();
 					var id = parseInt($(this).parents('li').first().data('id'));
@@ -1734,7 +1734,13 @@ OC.Contacts = OC.Contacts || {
 
 		});
 
-		$('#content > [title]').tipsy(); // find all with a title attribute and tipsy them
+		 // find all with a title attribute and tipsy them
+		$('.tooltipped.downwards:not(.onfocus)').tipsy({gravity: 'n'});
+		$('.tooltipped.upwards:not(.onfocus)').tipsy({gravity: 's'});
+		$('.tooltipped.rightwards:not(.onfocus)').tipsy({gravity: 'w'});
+		$('.tooltipped.leftwards:not(.onfocus)').tipsy({gravity: 'e'});
+		$('.tooltipped.downwards.onfocus').tipsy({trigger: 'focus', gravity: 'n'});
+		$('.tooltipped.rightwards.onfocus').tipsy({trigger: 'focus', gravity: 'w'});
 	},
 	addGroup: function(cb) {
 		var self = this;
