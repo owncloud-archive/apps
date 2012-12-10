@@ -1259,7 +1259,6 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			console.log('add');
-			self.$contactList.hide();
 			self.$toggleAll.hide();
 			$(this).hide();
 			self.currentid = 'new';
