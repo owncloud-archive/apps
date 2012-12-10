@@ -332,6 +332,18 @@ GroupList.prototype.removeFrom = function(contactid, groupid, cb) {
 	var $groupelem = this.findById(groupid);
 	var contacts = $groupelem.data('contacts');
 	var ids = [];
+	
+	// If it's the 'all' group simply decrement the number
+	if(groupid === 'all') {
+		var $numelem = $groupelem.find('.numcontacts');
+		$numelem.text(parseInt($numelem.text()-1)).switchClass('', 'active', 200);
+		setTimeout(function() {
+			$numelem.switchClass('active', '', 1000);
+		}, 2000);
+		if(typeof cb === 'function') {
+			cb({status:'success', ids:[id]});
+		}
+	}
 	// If the contact is in the category remove it from internal list.
 	if(!contacts) {
 		if(typeof cb === 'function') {
