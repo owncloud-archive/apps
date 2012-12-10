@@ -29,13 +29,13 @@
 "Phone" => "Telefon",
 "Email" => "E-mail",
 "Address" => "Adresa",
+"City" => "Grad",
+"Country" => "Zemlja",
 "Add Contact" => "Dodaj kontakt",
 "PO Box" => "Poštanski broj",
 "Extended" => "Proširi",
-"City" => "Grad",
 "Region" => "Regija",
 "Zipcode" => "Zip kod",
-"Country" => "Zemlja",
 "Name" => "Ime",
 "Save" => "Snimi"
 );
