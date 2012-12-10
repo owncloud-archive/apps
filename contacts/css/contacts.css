@@ -105,7 +105,15 @@
 	-moz-appearance:none  !important; -webkit-appearance: none !important; 
 	-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; 
 	-moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; 
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
 	float: left;
+}
+#content fieldset {
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
+}
+#content fieldset.editor { 
+	border: 1px solid #1d2d44; 
+	-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; outline:none; 
 }
 #content input:invalid, #content input:hover:not([type="checkbox"]), #content input:active:not([type="checkbox"]), #content input:focus:not([type="checkbox"]), #content input.active, #content textarea:focus, #content textarea:hover { 
 	border: 1px solid silver !important; 
@@ -157,8 +165,10 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 
 /* Properties */
 
-.singleproperties { display: inline-block; float: left; width: 280px;}
-.singleproperties .fullname { font-weight:bold; font-size:1.5em; max-width: 225px; }
+.singleproperties { display: inline-block; float: left; width: 320px;}
+.singleproperties .fullname { font-weight:bold; font-size:1.5em; width: 255px; }
+.singleproperties .n.editor { width: 270px; padding: 3px; }
+.singleproperties .n.editor input { width: 95%; }
 .singleproperties .propertycontainer input.value { font-weight: bold; }
 .singleproperties .propertycontainer input.value.new { border: 3px solid #1d2d44;}
 .singleproperties .propertycontainer input.value.error { border: 3px solid red;}
@@ -210,7 +220,14 @@ ul.propertylist { width: 450px; }
 .propertylist li > input[type="checkbox"].impp { clear: none; }
 .propertylist li > label.xab { display: block; color: #bbb; float:left; clear: both; padding: 0.5em 0 0 2.5em; }
 .propertylist li > label.xab:hover { color: #777; }
-#rightcontent label, #rightcontent dt, #rightcontent th, #rightcontent .label { float: left; font-size: 0.7em; font-weight: bold; color: #bbb !important; max-width: 7em !important; border: 0; }
+#rightcontent label, #rightcontent dt, #rightcontent th, #rightcontent .label { 
+	float: left; 
+	font-size: 0.7em; font-weight: bold; 
+	color: #bbb !important; 
+	border: 0; 
+	display: inline-block;
+	box-sizing: border-box;
+}
 #rightcontent label:hover, .form dt:hover, #rightcontent input.label:hover { color: #777 !important; }
 #rightcontent input.label:hover, #rightcontent input.label:active { border: 0 none !important; border-radius: 0; cursor: pointer; }
 .typelist[type="button"] { float: left; max-width: 8em; border: 0; background-color: #fff; color: #bbb; box-shadow: none; } /* for multiselect */
@@ -297,7 +314,7 @@ ul.propertylist { width: 450px; }
 .doImport{ margin: auto; }
 
 #toggle_all { position: absolute; bottom: .5em; left: .8em; }
-input.propertytype { float: left; font-size: .8em; width: 8em !important; direction: rtl;}
+input.propertytype { float: left; font-size: .8em; width: 8em !important; text-align: right; }
 .contactphoto { float: left; display: inline-block; border-radius: 0.3em; border: thin solid #bbb; margin: 0.5em; background: url('%webroot%/core/img/loading.gif') no-repeat center center; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; opacity: 1; }
 .contactphoto:hover { background: #fff; cursor: default; }
 #photowrapper { 
@@ -364,22 +381,23 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 	/*display: table-cell;*/
 }
 
+.display .meta { text-align: right; }
 .display .adr { cursor: pointer; }
-.adr.edit {
+.adr.editor {
 	width: 20em;
-	border: 1px solid silver; -moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; outline:none; 
+	margin-left: 120px;
 }
-.adr.edit ul {
+.adr.editor ul {
 	-moz-column-count: 1;
 	-webkit-columns: 1;
 	-o-columns: 1;
 	columns: 1;
 }
-.adr.edit input.value { border: none; }
-.adr.edit input.value:hover { border: none; }
-.adr.edit input.value.street, ul.adr.edit input.value.country, ul.adr.edit input.value.region { width: 19em;}
-.adr.edit input.value.zip { width: 5em; }
-.adr.edit input.value.city { width: 10em; }
+.adr.editor input.value { border: none; }
+.adr.editor input.value:hover { border: none; }
+.adr.editor input.value.street, ul.adr.edit input.value.country, ul.adr.edit input.value.region { width: 19em;}
+.adr.editor input.value.zip { width: 5em; }
+.adr.editor input.value.city { width: 10em; }
 
 #rightcontent footer { padding: 1em; width: 100%; -moz-box-sizing: border-box; box-sizing: border-box; clear: both; }
 #rightcontent footer > { display: inline-block; }
@@ -406,6 +424,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; direct
 	position: fixed !important; 
 	z-index: 200; 
 	top: 8em; left: 35em;
+	width: 480px;
 }
 #contact .arrow { 
 	border-bottom: 20px solid white; 
