@@ -298,7 +298,7 @@ class App {
 				return new \DateTime('@' . $lastModified);
 			}
 		} else if(is_numeric($contact)) {
-			$card = VCard::find($contact);
+			$card = VCard::find($contact, array('lastmodified'));
 			return ($card ? new \DateTime('@' . $card['lastmodified']) : null);
 		} elseif($contact instanceof \OC_VObject || $contact instanceof VObject\Component) {
 			return isset($contact->REV) 
