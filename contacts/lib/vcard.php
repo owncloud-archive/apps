@@ -46,18 +46,25 @@ class VCard {
 	/**
 	 * @brief Returns all cards of an address book
 	 * @param integer $id
+	 * @param integer $offset
+	 * @param integer $limit
+	 * @param array $fields An array of the fields to return. Defaults to all.
 	 * @return array|false
 	 *
 	 * The cards are associative arrays. You'll find the original vCard in
 	 * ['carddata']
 	 */
-	public static function all($id, $start=null, $num=null) {
+	public static function all($id, $offset=null, $limit=null, $fields = array()) {
 		$result = null;
+		\OCP\Util::writeLog('contacts', __METHOD__.'count fields:' . count($fields), \OCP\Util::DEBUG);
+		$qfields = count($fields) > 0
+			? '`' . implode('`,`', $fields) . '`'
+			: '*';
 		if(is_array($id) && count($id)) {
 			$id_sql = join(',', array_fill(0, count($id), '?'));
-			$sql = 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` IN ('.$id_sql.') ORDER BY `fullname`';
+			$sql = 'SELECT ' . $qfields . ' FROM `*PREFIX*contacts_cards` WHERE `addressbookid` IN ('.$id_sql.') ORDER BY `fullname`';
 			try {
-				$stmt = \OCP\DB::prepare($sql, $num, $start);
+				$stmt = \OCP\DB::prepare($sql, $limit, $offset);
 				$result = $stmt->execute($id);
 				if (\OC_DB::isError($result)) {
 					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
@@ -71,8 +78,8 @@ class VCard {
 			}
 		} elseif(is_int($id) || is_string($id)) {
 			try {
-				$sql = 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? ORDER BY `fullname`';
-				$stmt = \OCP\DB::prepare($sql, $num, $start);
+				$sql = 'SELECT ' . $qfields . ' FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? ORDER BY `fullname`';
+				$stmt = \OCP\DB::prepare($sql, $limit, $limit);
 				$result = $stmt->execute(array($id));
 				if (\OC_DB::isError($result)) {
 					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
@@ -102,11 +109,15 @@ class VCard {
 	/**
 	 * @brief Returns a card
 	 * @param integer $id
+	 * @param array $fields An array of the fields to return. Defaults to all.
 	 * @return associative array or false.
 	 */
-	public static function find($id) {
+	public static function find($id, $fields = array() ) {
 		try {
-			$stmt = \OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `id` = ?' );
+			$qfields = count($fields) > 0
+				? '`' . implode('`,`', $fields) . '`'
+				: '*';
+			$stmt = \OCP\DB::prepare( 'SELECT ' . $qfields . ' FROM `*PREFIX*contacts_cards` WHERE `id` = ?' );
 			$result = $stmt->execute(array($id));
 			if (\OC_DB::isError($result)) {
 				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
