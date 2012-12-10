@@ -87,6 +87,10 @@ OC.Contacts = OC.Contacts || {};
 		};
 		if(this.multi_properties.indexOf(element) !== -1) {
 			params['checksum'] = this.checksumFor(obj);
+			if(params['checksum'] === 'new' && this.valueFor(obj).trim() === '') {
+				$container.remove();
+				return;
+			}
 		}
 		this.setAsSaving(obj, true);
 		var self = this;
@@ -464,7 +468,7 @@ OC.Contacts = OC.Contacts || {};
 				var $elem = $container.find('input.value:not(:checkbox)');
 				console.assert($elem.length > 0, 'Couldn\'t find value for ' + $container.data('element'));
 				if($elem.length === 1) {
-					return $elem.val;
+					return $elem.val();
 				} else if($elem.length > 1) {
 					var retval = [];
 					$.each($elem, function(idx, e) {
