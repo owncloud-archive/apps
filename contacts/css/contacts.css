@@ -157,18 +157,28 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 
 /* Properties */
 
-.fullname { font-weight:bold; font-size:1.5em; width: 17em; }
-.singleproperties { display: inline-block; float: left; width: 30em;}
+.singleproperties { display: inline-block; float: left; width: 280px;}
+.singleproperties .fullname { font-weight:bold; font-size:1.5em; max-width: 225px; }
 .singleproperties .propertycontainer input.value { font-weight: bold; }
+.singleproperties .propertycontainer input.value.new { border: 3px solid #1d2d44;}
+.singleproperties .propertycontainer input.value.error { border: 3px solid red;}
 .singleproperties .propertycontainer .action { 
 	float: left; 
 	width: 20px; height: 20px;
 	opacity: 0;
 }
 .singleproperties .propertycontainer:hover .action { opacity: 1; }
-.singleproperties .n input { width: 17em}
-.singleproperties dl { min-width: 24em; }
+.singleproperties dl { width: 270px; }
 
+.parameters { 
+	width: 120px; 
+	float: left; 
+	text-align: right; 
+	box-sizing: border-box;
+	display: inline-block;
+}
+
+ul.propertylist { width: 450px; }
 .propertylist li.propertycontainer { white-space: nowrap; min-width: 38em; display: block; clear: both; }
 .propertylist li.propertycontainer > .listactions { 
 	display: inline-block; 
@@ -188,7 +198,7 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 .propertylist li > input[type="checkbox"],input[type="radio"] { display: inline-block; }
 .propertylist input.value:not([type="checkbox"]) { width: 16em; display: inline-block; font-weight: bold; }
 .propertylist input.value:not([type="checkbox"]).new { border: 3px solid #1d2d44;}
-.propertylist input.value:not([type="checkbox"]).error { border: 3px solid #1d2d44;}
+.propertylist input.value:not([type="checkbox"]).error { border: 3px solid red;}
 .propertylist li > select { float: left; max-width: 8em; }
 .select_wrapper { float: left; overflow: hidden; color: #bbb; font-size: 0.8em; }
 .select_wrapper select { float: left; overflow: hidden; text-overflow: ellipsis; color: #bbb; width: 8em; }

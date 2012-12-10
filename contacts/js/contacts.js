@@ -187,6 +187,7 @@ OC.Contacts = OC.Contacts || {};
 					status: 'error',
 					message: t('contacts', 'Network or server error. Please inform administrator.'),
 				});
+				$(obj).addClass('error');
 				self.setAsSaving(obj, false);
 				return false;
 			}
