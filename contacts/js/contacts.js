@@ -360,7 +360,7 @@ OC.Contacts = OC.Contacts || {};
 			this.$fullelem.find('#addproperty').hide();
 		}
 		this.enabled = enabled;
-		this.$fullelem.find('.value,.action').each(function () {
+		this.$fullelem.find('.value,.action,.parameter').each(function () {
 			$(this).prop('disabled', !enabled);
 		});
 		$(document).trigger('status.contact.enabled', enabled);
