@@ -6,34 +6,19 @@ $(document).ready(function() {
 	
 	$('#file_action_panel').attr('activeAction', false);
 
-	$('td.filename.svg a.dirs').hover(function(){
-		$(this).children().children('img#img2').animate({
-			left: '-=60'}, 50, function(){
-			});
-		$(this).children().children('img#img3').animate({
-			left: '+=60'}, 50, function(){
-			});
-	});
-	$('td.filename.svg a.dirs').mouseleave(function(){
-		$(this).children().children('img#img2').animate({
-			left: '+=120'}, 50, function(){
-			});
-		$(this).children().children('img#img3').animate({
-			left: '-=120'}, 50, function(){
-			});
-	});
 	$('.start').click(function(){
-		var pr = $(this).parent().children('div#contentbox');
-		var path = $(this).parent().parent().children('td.filename.svg').children('a.name').attr('dir');
-		pr.show(100);
-		pr.keypress(function(e) {
+		var contentbox = $(this).parent().children('div#contentbox');
+		var path = $(this).parent().children('a.name').attr('dir');
+		alert(path);
+		contentbox.show(100);
+		contentbox.keypress(function(e) {
 			if(e.which == 13) {
-				var tag = pr.text();
-				pr.text('');
-				pr.hide();
-				var db = $(this).parent().children('div#displaybox');
-				db.append('<a href = "apps/reader/fetch_tags.php?tag='+tag+'">'+tag+'</a>');
-				db.append(' ');
+				var tag = contentbox.text();
+				contentbox.text('');
+				contentbox.hide();
+				var displaybox = $(this).parent().children('div#displaybox');
+				displaybox.append('<a href = "apps/reader/fetch_tags.php?tag='+tag+'">'+tag+'</a>');
+				displaybox.append(' ');
 				$.post('apps/reader/ajax/tags.php', {tag:tag, path:path});
 			}
 		});
@@ -48,7 +33,7 @@ $(function() {
 		create_thumbnails();
 
 		// Render pdf view on every click of a thumbnail, now and in future.
-		$('td.filename a').live('click',function(event) {
+		$('td.filename a.name').live('click',function(event) {
 			event.preventDefault();
 			var filename=$(this).parent().parent().attr('data-file');
 			var tr=$('tr').filterAttr('data-file',filename);

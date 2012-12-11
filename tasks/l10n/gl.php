@@ -1,7 +1,7 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Data/hora incorrecta",
 "Tasks" => "Tarefas",
-"Due" => "Vencemento",
+"Due" => "Caducidade",
 "List" => "Lista",
 "Location" => "Lugar",
 "No category" => "Sen categoría",
@@ -14,7 +14,7 @@
 "Invalid priority" => "Prioridade incorrecta",
 "The calendar application also need to be enabled to use this application." => "O calendario do aplicativo tamén precisa ser activado para usar este aplicativo.",
 "Add Task" => "Engadir unha tarefa",
-"Order Due" => "Ordenar os vencementos",
+"Order Due" => "Ordenar as caducidades",
 "Order List" => "Ordenar a lista",
 "Order Complete" => "Ordenar os completados",
 "Order Location" => "Ordenar os lugares",

@@ -34,7 +34,7 @@ class App {
 	/**
 	 * Properties to index.
 	 */
-	public static $index_properties = array('N', 'FN', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO', 'PHOTO');
+	public static $index_properties = array('N', 'FN', 'NOTE', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO', 'PHOTO');
 
 	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
 	const THUMBNAIL_SIZE = 28;
@@ -278,12 +278,27 @@ class App {
 
 	/**
 	 * @brief Get the last modification time.
-	 * @param OC_VObject|Sabre\VObject\Component|integer $contact
+	 * @param OC_VObject|Sabre\VObject\Component|integer|null $contact
 	 * @returns DateTime | null
 	 */
-	public static function lastModified($contact) {
-		if(is_numeric($contact)) {
-			$card = VCard::find($contact);
+	public static function lastModified($contact = null) {
+		if(is_null($contact)) {
+			// FIXME: This doesn't take shared address books into account.
+			$sql = 'SELECT MAX(`lastmodified`) FROM `oc_contacts_cards`, `oc_contacts_addressbooks` ' . 
+				'WHERE  `oc_contacts_cards`.`addressbookid` = `oc_contacts_addressbooks`.`id` AND ' .
+				'`oc_contacts_addressbooks`.`userid` = ?';
+			$stmt = \OCP\DB::prepare($sql);
+			$result = $stmt->execute(array(\OCP\USER::getUser()));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return null;
+			}
+			$lastModified = $result->fetchOne();
+			if(!is_null($lastModified)) {
+				return new \DateTime('@' . $lastModified);
+			}
+		} else if(is_numeric($contact)) {
+			$card = VCard::find($contact, array('lastmodified'));
 			return ($card ? new \DateTime('@' . $card['lastmodified']) : null);
 		} elseif($contact instanceof \OC_VObject || $contact instanceof VObject\Component) {
 			return isset($contact->REV) 

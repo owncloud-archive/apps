@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <marko@evizo.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:21+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-05 00:01+0100\n"
+"PO-Revision-Date: 2012-12-04 15:39+0000\n"
+"Last-Translator: Kostic <marko@evizo.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,11 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr ""
+msgstr "Неисправан датум или време"
 
 #: appinfo/app.php:10
 msgid "Tasks"
-msgstr ""
+msgstr "Задаци"
 
 #: js/tasks.js:78
 msgid "Due"
@@ -37,9 +38,9 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: js/tasks.js:415
+#: js/tasks.js:420
 msgid "No category"
-msgstr ""
+msgstr "Ниједна категорија"
 
 #: lib/app.php:33
 msgid "Unspecified"

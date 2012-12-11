@@ -14,5 +14,4 @@ $tmpl = new OCP\Template( 'reader', 'tagged', 'user' );
 $tmpl->assign('tag', $tag);
 $tmpl->printPage();
 
-
 ?>

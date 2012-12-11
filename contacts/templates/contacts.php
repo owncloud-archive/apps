@@ -25,48 +25,32 @@
 	<div id="contacts-settings">
 		<ul>
 			<li><button class="settings" title="<?php echo $l->t('Settings'); ?>"></button></li>
-			<li><h3 class="share"><?php echo $l->t('Share'); ?></h3>
+			<li><h3 data-id="addressbooks"><?php echo $l->t('Address books'); ?></h3>
 				<ul class="hidden">
-					<?php foreach($_['addressbooks'] as $addressbook) { 
-						if($addressbook['permissions']  & OCP\PERMISSION_SHARE) {
-						?>
-						<li value="<?php echo $addressbook['id'] ?>">
-							<span class="float"><?php echo $addressbook['displayname'] ?></span>
-							<span><a class="share action" data-item-type="addressbook"
-								data-item="<?php echo $addressbook['id'] ?>"
-								data-possible-permissions="<?php echo $addressbook['permissions'] ?>">
-							</a></span> <!-- To place the share dropdown correctly -->
-						</li>
-					<?php }} ?>
 				</ul>
 			</li>
-			<li><h3 class="import" role="button"><?php echo $l->t('Import'); ?></h3>
+			<li><h3 data-id="import" role="button"><?php echo $l->t('Import'); ?></h3>
 				<ul class="hidden">
-					<li>
-						<input type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" />
+					<li class="import-upload">
+						<form id="import_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadimport.php'); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
 						<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
+						<label for="import_fileupload"><?php echo $l->t('Select files to import'); ?>
+							<button class="import-upload-button" title="<?php echo $l->t('Select files'); ?>"></button>
+						</label>
+						<input id="import_fileupload" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" name="importfile" />
+						</form>
+						<iframe name="import_upload_target" id='import_upload_target' src=""></iframe>
 					</li>
-					<li><?php echo $l->t('Import into:'); ?></li>
+					<li class="import-select hidden"><label><?php echo $l->t('Import into:'); ?></label></li>
+					<li class="import-select hidden">
+						<select id="import_into" title="<?php echo $l->t('Import into:'); ?>">
+						</select>
+					<button class="doImport"><?php echo $l->t('OK'); ?></button>
+					</li>
 					<li>
-					<select>
-					<?php foreach($_['addressbooks'] as $addressbook) { 
-						if($addressbook['permissions']  & OCP\PERMISSION_CREATE) {
-						?>
-						<option value="<?php echo $addressbook['id'] ?>"><?php echo $addressbook['displayname'] ?></option>
-					<?php }} ?>
-					</select>
+						<label id="import-status-text"></label>
+						<div id="import-progress"></div>
 					</li>
-				</ul>
-			</li>
-			<li><h3 class="export"><?php echo $l->t('Export'); ?></h3>
-				<ul class="hidden">
-				<?php foreach($_['addressbooks'] as $addressbook): ?>
-					<li>
-					<a role="button" href="<?php echo OCP\Util::linkToAbsolute('contacts', 'export.php'); ?>?bookid=<?php echo $addressbook['id'] ?>">
-						<?php echo $addressbook['displayname'] ?>
-					</a>
-					</li>
-				<?php endforeach; ?>
 				</ul>
 			</li>
 		</ul>
@@ -76,13 +60,12 @@
 	<input type="checkbox" id="toggle_all" title="<?php echo $l->t('(De-)select all'); ?>" />
 	<div class="actions">
 		<button class="addcontact"><?php echo $l->t('New Contact'); ?></button>
-		<button class="back control" title="<?php echo $l->t('Back'); ?>"><?php echo $l->t('Back'); ?></button>
 		<button class="download control" title="<?php echo $l->t('Download Contact'); ?>"></button>
-		<button class="delete control" title="<?php echo $l->t('Delete Contact'); ?>"></button>
 		<select class="groups control" name="groups">
 			<option value="-1" disabled="disabled" selected="selected"><?php echo $l->t('Groups'); ?></option>
 		</select>
 		<button class="favorite inactive control" title="<?php echo $l->t('Favorite'); ?>"></button>
+		<button class="delete control" title="<?php echo $l->t('Delete Contact'); ?>"></button>
 	</div>
 </div>
 <div id="rightcontent" class="loading">
@@ -176,7 +159,7 @@
 <script id="groupListItemTemplate" type="text/template">
 	<h3 class="group" data-type="{type}" data-id="{id}">
 		{name}
-		<a class="action delete" title="<?php echo $l->t('Delete group'); ?>"></a>
+		<a class="action delete tooltipped rightwards" title="<?php echo $l->t('Delete group'); ?>"></a>
 		<span class="action numcontacts">{num}</span>
 	</h3>
 </script>
@@ -184,6 +167,7 @@
 <script id="contactFullTemplate" type="text/template">
 <form action="<?php echo OCP\Util::linkTo('contacts', 'index.php'); ?>" method="post" enctype="multipart/form-data">
 	<section id="contact" data-id="{id}">
+	<span class="arrow"></span>
 	<ul>
 		<li>
 			<div id="photowrapper" class="propertycontainer" data-element="photo">
@@ -193,20 +177,27 @@
 					<li><a class="svg upload" title="<?php echo $l->t('Upload new photo'); ?>"></a></li>
 					<li><a class="svg cloud" title="<?php echo $l->t('Select photo from ownCloud'); ?>"></a></li>
 				</ul>
+				<a class="favorite action {favorite}"></a>
 			</div>
 			<div class="singleproperties">
 			<input data-element="fn" class="fullname value propertycontainer" type="text" name="value" value="{name}" required />
 			<a class="action edit"></a>
-			<fieldset class="n hidden edit ui-widget-content propertycontainer" data-element="n">
+			<fieldset class="n hidden editor propertycontainer" data-element="n">
 			<ul>
 				<li>
-					<input class="value" type="text" id="n_1" name="value[1]" value="{n1}" placeholder="<?php echo $l->t('First name'); ?>" title="<?php echo $l->t('First name'); ?>" />
+					<input class="value tooltipped rightwards onfocus" type="text" id="n_1" name="value[1]" value="{n1}" 
+						placeholder="<?php echo $l->t('First name'); ?>" 
+						title="<?php echo $l->t('First name'); ?>" />
 				</li>
 				<li>
-					<input class="value" type="text" id="n_2" name="value[2]" value="{n2}" placeholder="<?php echo $l->t('Additional names'); ?>" title="<?php echo $l->t('Additional names'); ?>" />
+					<input class="value tooltipped rightwards onfocus" type="text" id="n_2" name="value[2]" value="{n2}" 
+						placeholder="<?php echo $l->t('Additional names'); ?>" 
+						title="<?php echo $l->t('Additional names'); ?>" />
 				</li>
 				<li>
-					<input class="value" type="text" id="n_0" name="value[0]" value="{n0}" placeholder="<?php echo $l->t('Last name'); ?>" title="<?php echo $l->t('Last name'); ?>" />
+					<input class="value tooltipped rightwards onfocus" type="text" id="n_0" name="value[0]" value="{n0}" 
+						placeholder="<?php echo $l->t('Last name'); ?>" 
+						title="<?php echo $l->t('Last name'); ?>" />
 				</li>
 			</ul>
 			<input class="value" type="hidden" id="n_3" name="value[3]" value="{n3}" />
@@ -217,28 +208,28 @@
 					<?php echo $l->t('Nickname'); ?>
 				</dt>
 				<dd data-element="nickname" class="propertycontainer">
-					<input class="value" type="text" name="value" value="{nickname}" required />
+					<input class="value tooltipped rightwards onfocus" type="text" name="value" value="{nickname}" title="<?php echo $l->t('Enter nickname'); ?>" required />
 					<a role="button" class="action delete" title="<?php echo $l->t('Delete'); ?>"></a>
 				</dd>
 				<dt data-element="title">
 					<?php echo $l->t('Title'); ?>
 				</dt>
 				<dd data-element="title" class="propertycontainer">
-					<input class="value" type="text" name="value" value="{title}" required />
+					<input class="value tooltipped rightwards onfocus" type="text" name="value" value="{title}" title="<?php echo $l->t('Enter title'); ?>" required />
 					<a role="button" class="action delete" title="<?php echo $l->t('Delete'); ?>"></a>
 				</dd>
 				<dt data-element="org">
 					<?php echo $l->t('Organization'); ?>
 				</dt>
 				<dd data-element="org" class="propertycontainer">
-					<input class="value" type="text" name="value" value="{org}" required />
+					<input class="value tooltipped rightwards onfocus" type="text" name="value" value="{org}" title="<?php echo $l->t('Enter organization'); ?>" required />
 					<a role="button" class="action delete" title="<?php echo $l->t('Delete'); ?>"></a>
 				</dd>
 				<dt data-element="bday">
 					<?php echo $l->t('Birthday'); ?>
 				</dt>
 				<dd data-element="bday" class="propertycontainer">
-					<input class="value" type="text" name="value" value="{bday}" required />
+					<input class="value tooltipped rightwards onfocus" type="text" name="value" value="{bday}" required />
 					<a role="button" class="action delete" title="<?php echo $l->t('Delete'); ?>"></a>
 				</dd>
 			</dl>
@@ -265,13 +256,14 @@
 			</ul>
 		</li>
 		<li>
-			<section class="note" data-element="note">
-				<textarea class="value" placeholder="<?php echo $l->t('Notes go here...'); ?>"></textarea>
+			<section class="note propertycontainer" data-element="note">
+				<textarea class="value" placeholder="<?php echo $l->t('Notes go here...'); ?>">{note}</textarea>
 			</section>
 		</li>
 	</ul>
-	</section>
 	<footer>
+		<button class="close float tooltipped downwards" title="<?php echo $l->t('Close'); ?>"><?php echo $l->t('Close'); ?></button>
+		<button class="export float tooltipped downwards" title="<?php echo $l->t('Export as VCF'); ?>"><?php echo $l->t('Download'); ?></button>
 		<select id="addproperty">
 			<option value=""><?php echo $l->t('Add'); ?></option>
 			<option value="ORG"><?php echo $l->t('Organization'); ?></option>
@@ -285,79 +277,97 @@
 			<option value="URL"><?php echo $l->t('Web site'); ?></option>
 			<option value="CATEGORIES"><?php echo $l->t('Groups'); ?></option>
 		</select>
+		<button class="deletecontact float right tooltipped downwards" title="<?php echo $l->t('Delete contact'); ?>"><?php echo $l->t('Delete'); ?></button>
 	</footer>
+	</section>
 </form>
 </script>
 
 <script id="contactDetailsTemplate" class="hidden" type="text/template">
 	<div class="email">
 		<li data-element="email" data-checksum="{checksum}" class="propertycontainer">
-			<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
-				<?php echo OCP\html_select_options($_['email_types'], array()) ?>
-			</select>
-			<input type="checkbox" class="parameter tip" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+			<span class="parameters">
+				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
+					<?php echo OCP\html_select_options($_['email_types'], array()) ?>
+				</select>
+				<input type="checkbox" class="parameter tooltipped rightwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+			</span>
 			<input type="email" class="nonempty value" name="value" value="{value}" x-moz-errormessage="<?php echo $l->t('Please specify a valid email address.'); ?>" placeholder="<?php echo $l->t('someone@example.com'); ?>" required />
 			<span class="listactions">
-				<a class="action mail" title="<?php echo $l->t('Mail to address'); ?>"></a>
-				<a role="button" class="action delete" title="<?php echo $l->t('Delete email address'); ?>"></a>
+				<a class="action mail tooltipped leftwards" title="<?php echo $l->t('Mail to address'); ?>"></a>
+				<a role="button" class="action delete tooltipped leftwards" title="<?php echo $l->t('Delete email address'); ?>"></a>
 			</span>
 		</li>
 	</div>
 	<div class="tel">
 		<li data-element="tel" data-checksum="{checksum}" class="propertycontainer">
-			<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
-				<?php echo OCP\html_select_options($_['phone_types'], array()) ?>
-			</select>
-			<input type="checkbox" class="parameter tip" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+			<span class="parameters">
+				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
+					<?php echo OCP\html_select_options($_['phone_types'], array()) ?>
+				</select>
+				<input type="checkbox" class="parameter tooltipped rightwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+			</span>
 			<input type="tel" class="nonempty value" name="value" value="{value}" placeholder="<?php echo $l->t('Enter phone number'); ?>" required />
 			<span class="listactions">
-				<a role="button" class="action delete" title="<?php echo $l->t('Delete phone number'); ?>"></a>
+				<a role="button" class="action delete tooltipped leftwards" title="<?php echo $l->t('Delete phone number'); ?>"></a>
 			</span>
 		</li>
 	</div>
 	<div class="url">
 		<li data-element="url" data-checksum="{checksum}" class="propertycontainer">
-			<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
-				<?php echo OCP\html_select_options($_['email_types'], array()) ?>
-			</select>
-			<input type="checkbox" class="parameter tip" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+			<span class="parameters">
+				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
+					<?php echo OCP\html_select_options($_['email_types'], array()) ?>
+				</select>
+				<input type="checkbox" class="parameter tooltipped rightwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+			</span>
 			<input type="url" class="nonempty value" name="value" value="{value}" placeholder="http://www.example.com/" required />
 			<span class="listactions">
-				<a role="button" class="action globe" title="<?php echo $l->t('Go to web site'); ?>">
-				<a role="button" class="action delete" title="<?php echo $l->t('Delete URL'); ?>"></a>
+				<a role="button" class="action globe tooltipped leftwards" title="<?php echo $l->t('Go to web site'); ?>">
+				<a role="button" class="action delete tooltipped leftwards" title="<?php echo $l->t('Delete URL'); ?>"></a>
 			</span>
 		</li>
 	</div>
 	<div class="adr">
 		<li data-element="adr" data-checksum="{checksum}" class="propertycontainer">
 			<span class="float display">
-				<label class="meta"></label>
+				<label class="meta parameters"></label>
 				<span class="adr">{value}</span>
 			</span>
 			<span class="listactions">
-				<a class="action globe" title="<?php echo $l->t('View on map'); ?>"></a>
-				<a class="action delete" title="<?php echo $l->t('Delete address'); ?>"></a>
+				<a class="action globe tooltipped leftwards" title="<?php echo $l->t('View on map'); ?>"></a>
+				<a class="action delete tooltipped leftwards" title="<?php echo $l->t('Delete address'); ?>"></a>
 			</span>
-			<fieldset class="adr hidden edit ui-widget-content">
+			<fieldset class="adr hidden editor">
 				<ul>
 				<li>
 					<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
 						<?php echo OCP\html_select_options($_['adr_types'], array()) ?>
 					</select>
-					<input type="checkbox" id=="adr_pref_{idx}" class="parameter tip" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" /><label for="adr_pref_{idx}"><?php echo $l->t('Preferred'); ?></label>
+					<input type="checkbox" id="adr_pref_{idx}" class="parameter tooltipped downwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" /><label for="adr_pref_{idx}"><?php echo $l->t('Preferred'); ?></label>
 				</li>
 				<li>
-					<input class="value stradr" type="text" id="adr_2" name="value[2]" value="{adr2}" placeholder="<?php echo $l->t('1 Main Street'); ?>" />
+					<input class="value stradr tooltipped rightwards onfocus" type="text" id="adr_2" name="value[2]" value="{adr2}" 
+					placeholder="<?php echo $l->t('1 Main Street'); ?>"
+					title="<?php echo $l->t('Street address'); ?>" />
 				</li>
 				<li>
-					<input class="value zip" type="text" id="adr_5" name="value[5]" value="{adr5}" placeholder="<?php echo $l->t('12345'); ?>" />
-					<input class="value city" type="text" id="adr_3" name="value[3]" value="{adr3}" placeholder="<?php echo $l->t('Your city'); ?>" />
+					<input class="value zip tooltipped rightwards onfocus" type="text" id="adr_5" name="value[5]" value="{adr5}" 
+						placeholder="<?php echo $l->t('12345'); ?>"
+						title="<?php echo $l->t('Postal code'); ?>" />
+					<input class="value city tooltipped rightwards onfocus" type="text" id="adr_3" name="value[3]" value="{adr3}" 
+						placeholder="<?php echo $l->t('Your city'); ?>"
+						title="<?php echo $l->t('City'); ?>" />
 				</li>
 				<li>
-					<input class="value region" type="text" id="adr_4" name="value[4]" value="{adr4}" placeholder="<?php echo $l->t('Some region'); ?>" />
+					<input class="value region tooltipped rightwards onfocus" type="text" id="adr_4" name="value[4]" value="{adr4}" 
+						placeholder="<?php echo $l->t('Some region'); ?>"
+						title="<?php echo $l->t('State or province'); ?>" />
 				</li>
 				<li>
-					<input class="value country" type="text" id="adr_6" name="value[6]" value="{adr6}" placeholder="<?php echo $l->t('Your country'); ?>" />
+					<input class="value country tooltipped rightwards onfocus" type="text" id="adr_6" name="value[6]" value="{adr6}" 
+						placeholder="<?php echo $l->t('Your country'); ?>"
+						title="<?php echo $l->t('Country'); ?>" />
 				</li>
 			</ul>
 			<input class="value pobox" type="hidden" id="adr_0" name="value[0]" value="{adr0}" />
@@ -367,20 +377,33 @@
 	</div>
 	<div class="impp">
 		<li data-element="impp" data-checksum="{checksum}" class="propertycontainer">
-			<select class="type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
-				<?php echo OCP\html_select_options($_['impp_types'], array()) ?>
-			</select>
-			<input type="checkbox" class="parameter impp tip" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
-			<div class="select_wrapper">
-			<select class="rtl parameter label impp" data-parameter="X-SERVICE-TYPE" name="parameters[X-SERVICE-TYPE]">
-				<?php echo OCP\html_select_options($_['im_protocols'], array()) ?>
-			</select>
-			</div>
+			<span class="parameters">
+				<select class="type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
+					<?php echo OCP\html_select_options($_['impp_types'], array()) ?>
+				</select>
+				<input type="checkbox" class="parameter impp tooltipped downwards" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+				<div class="select_wrapper">
+				<select class="rtl parameter label impp" data-parameter="X-SERVICE-TYPE" name="parameters[X-SERVICE-TYPE]">
+					<?php echo OCP\html_select_options($_['im_protocols'], array()) ?>
+				</select>
+				</div>
+			</span>
 			<input type="text" class="nonempty value" name="value" value="{value}"
 					placeholder="<?php echo $l->t('Instant Messenger'); ?>" required />
 			<span class="listactions">
-				<a role="button" class="action delete" title="<?php echo $l->t('Delete IM'); ?>"></a>
+				<a role="button" class="action delete tooltipped leftwards" title="<?php echo $l->t('Delete IM'); ?>"></a>
 			</span>
 		</li>
 	</div>
+</script>
+
+<script id="addressbookTemplate" class="hidden" type="text/template">
+<li data-id="{id}">
+	<label class="float">{displayname}</label>
+	<span class="actions">
+	<a title="<?php echo $l->t('Share'); ?>" class="share action" data-possible-permissions="{permissions}" data-item="{id}" data-item-type="addressbook"></a>
+	<a title="<?php echo $l->t('Export'); ?>" class="download action" href="<?php echo OCP\Util::linkTo('contacts', 'export.php'); ?>?bookid=' + {id}"></a>
+	<a  title="<?php echo $l->t('CardDAV link'); ?>" class="globe action"></a>
+	<a  title="<?php echo $l->t('Delete'); ?>" class="delete action"></a>
+</span></li>
 </script>

@@ -5,16 +5,22 @@ div.crumb.last { font-weight:bold; }
 
 table#readerContent { white-space:normal; position:absolute; top:37px;font-family:Arial;}
 tbody#fileList tr { background:white; height:150px;font-size:12px;}
-tbody tr:hover, tbody tr:active, tbody tr.selected {background-color: white:# }
+tbody tr:hover, tbody tr:active, tbody tr.selected { background-color: white:# }
 	
 .thumbnail:not([data-loaded]) { background-color: white; }
+td#thumbnail_container { border:1px solid #EEE;  background-color: #f8f8f8;}
+td#thumbnail_container img {border:1px solid #EEE; -webkit-box-shadow: 4px 4px 4px 0px grey; box-shadow: 4px 4px 4px 0px grey; position:relative; left:25px; top: 3px;}
 
-td.filename.svg{ background:no-repeat; height:150px; white-space:normal; color:#888; text-shadow:#fff 0 1px 0; border:1px solid #EEE;  background-color: #f8f8f8;}
-td#info{vertical-align: top;}
+td.filename.svg { background:no-repeat; height:150px; white-space:normal; color:#888; text-shadow:#fff 0 1px 0; vertical-align:top;}
+td.filename a.name { position:relative;}
 
-a.name img,a.dirs img { border:1px solid #EEE; -webkit-box-shadow: 4px 4px 4px 0px grey; box-shadow: 4px 4px 4px 0px grey; position:absolute; left:25px; top: 20px;}
-span.nametext{ position:relative; top: 4px; padding-left:5px; font-family:Arial; font-size:16px; font-weight:normal; white-space:nowrap; text-transform:capitalize; }
+a.name span.nametext { position:relative; top: 4px; left:-25px; }
+span.nametext { padding-left:1px; font-family:Arial; font-size:16px; font-weight:normal; white-space:nowrap; text-transform:capitalize; }
+a.dirs span.nametext { margin-left:10px;}
+div#thumbs { position:relative;}
+div#thumbs img { border:1px solid #EEE; -webkit-box-shadow: 4px 4px 4px 0px grey; box-shadow: 4px 4px 4px 0px grey; /*position:absolute; left:25px; top: 20px;*/}
 
-#contentbox{ display:none; border:1px solid #DDD; width:150px; height:20px; margin-left:5px; margin-top:5px; -webkit-box-shadow: 2px 2px 2px 0px grey; box-shadow: 2px 2px 2px 0px grey; }
-#displaybox { margin-top:8px; margin-left:5px; font-size:14px; color:grey; width:200px; height:30px; }
-#displaybox a{ color:grey; }
+#contentbox{ display:none; border:1px solid #DDD; width:150px; height:20px; margin-left:12px; margin-top:5px; -webkit-box-shadow: 2px 2px 2px 0px grey; box-shadow: 2px 2px 2px 0px grey; }
+#displaybox { margin-top:8px; margin-left:12px; font-size:14px; color:grey; width:200px; height:30px; }
+#displaybox a { color:grey; }
+input.start { margin-left:12px;}

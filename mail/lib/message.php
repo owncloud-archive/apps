@@ -257,8 +257,8 @@ class Message {
 		$data['from'] = $this->getFrom();
 		$data['to'] = $this->getTo();
 		$data['subject'] = $this->getSubject();
-		$data['date'] = $this->getSentDate()->format('U');
-		$data['size'] = $this->getSize();
+		$data['date'] = \OCP\Util::formatDate($this->getSentDate()->format('U'));
+		$data['size'] = \OCP\Util::humanFileSize($this->getSize());
 		$data['flags'] = $this->getFlags();
 		return $data;
 	}

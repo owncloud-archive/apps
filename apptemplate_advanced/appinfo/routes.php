@@ -44,62 +44,60 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
 	// enable them, pass a container with changed security object
 	if($container === null){
 		$container = createDIContainer();
-		$container['Security']->setIsAdminCheck(false);
-		$container['Security']->setCSRFCheck(false);
 	}
 
-	runSecurityChecks($container['Security']);
-
-	// call the controller and render the page
+	// call the controller
 	$controller = $container[$controllerName];
-	$response = $controller->$methodName($urlParams);
+
+	// run security checks other annotation specific stuff
+	handleAnnotations($controller, $methodName, $container);
+
+	// render page
+    $response = $controller->$methodName($urlParams);
 	echo $response->render();
 }
 
 
 /**
- * Shortcut for calling an ajax controller method and printing the result
- * @param string $controllerName: the name of the controller under which it is
- *                                stored in the DI container
- * @param string $methodName: the method that you want to call
- * @param array $urlParams: an array with variables extracted from the routes
- * @param Pimple $container: an instance of a pimple container. if not passed, a
- *                           new one will be instantiated. This can be used to
- *                           set different security values prehand or simply
- *                           swap or overwrite objects in the container.
+ * Runs the security checks and exits on error
+ * @param Controller $controller: an instance of the controller to be checked
+ * @param string $methodName: the name of the controller method that will be called
+ * @param Pimple $container: an instance of the container for the security object
  */
-function callAjaxController($controllerName, $methodName, $urlParams, $container=null){
-
-	// ajax requests come with csrf checks enabled. If you pass your own container
-	// dont forget to enable the csrf check though if you need it. When in doubt
-	// enable the csrf check
-	if($container === null){
-		$container = createDIContainer();
-		$container['Security']->setCSRFCheck(true);
-		$container['Security']->setIsAdminCheck(false);
+function handleAnnotations($controller, $methodName, $container){
+	// get annotations from comments
+	$annotationReader = new MethodAnnotationReader($controller, $methodName);
+	
+	// this will set the current navigation entry of the app, use this only
+	// for normal HTML requests and not for AJAX requests
+	if(!$annotationReader->hasAnnotation('Ajax')){
+		$container['API']->activateNavigationEntry();
 	}
 
-	callController($controllerName, $methodName, $urlParams, $container);
-}
+	// security checks
+	$security = $container['Security'];
+	if($annotationReader->hasAnnotation('CSRFExcemption')){
+		$security->setCSRFCheck(false);
+	}
 
-
-/**
- * Runs the security checks and exits on error
- * @param Security $security: the security object
- * @param bool $isAjax: if true, the ajax checks will be run, otherwise the normal
- *                      checks
- * @param bool $disableAdminCheck: disables the check for adminuser rights
- */
-function runSecurityChecks($security, $isAjax=false, $disableAdminCheck=true){
-	if($disableAdminCheck){
+	if($annotationReader->hasAnnotation('IsAdminExcemption')){
 		$security->setIsAdminCheck(false);	
 	}
 
-	if($isAjax){
-		$security->runAJAXChecks();
-	} else {
-		$security->runChecks();
+	if($annotationReader->hasAnnotation('AppEnabledExcemption')){
+		$security->setAppEnabledCheck(false);	
 	}
+
+	if($annotationReader->hasAnnotation('IsLoggedInExcemption')){
+		$security->setLoggedInCheck(false);
+	}
+
+	if($annotationReader->hasAnnotation('IsSubAdminExcemption')){
+		$security->setIsSubAdminCheck(false);
+	}
+
+	$security->runChecks();
+
 }
 
 
@@ -113,7 +111,13 @@ function runSecurityChecks($security, $isAjax=false, $disableAdminCheck=true){
  */
 $this->create('apptemplate_advanced_index', '/')->action(
 	function($params){
-		callController('IndexController', 'index', $params);
+		callController('ItemController', 'index', $params);
+	}
+);
+
+$this->create('apptemplate_advanced_index_redirect', '/redirect')->action(
+	function($params){
+		callController('ItemController', 'redirectToIndex', $params);
 	}
 );
 
@@ -122,10 +126,6 @@ $this->create('apptemplate_advanced_index', '/')->action(
  */
 $this->create('apptemplate_advanced_ajax_setsystemvalue', '/setsystemvalue')->post()->action(
 	function($params){
-		// only an admin is allowed to save the new systemvalue
-		$container = createDIContainer();
-		$container['Security']->setIsAdminCheck(true);
-		$container['Security']->setCSRFCheck(true);
-		callAjaxController('AjaxController', 'setSystemValue', $params, $container);
+		callController('ItemController', 'setSystemValue', $params);
 	}
 );

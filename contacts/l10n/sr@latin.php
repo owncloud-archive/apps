@@ -6,6 +6,7 @@
 "The uploaded file was only partially uploaded" => "Poslati fajl je samo delimično otpremljen!",
 "No file was uploaded" => "Nijedan fajl nije poslat",
 "Missing a temporary folder" => "Nedostaje privremena fascikla",
+"Upload too large" => "Pošiljka je prevelika",
 "Download" => "Preuzmi",
 "Edit" => "Uredi",
 "Delete" => "Obriši",
@@ -28,13 +29,13 @@
 "Phone" => "Telefon",
 "Email" => "E-mail",
 "Address" => "Adresa",
+"City" => "Grad",
+"Country" => "Zemlja",
 "Add Contact" => "Dodaj kontakt",
 "PO Box" => "Poštanski broj",
 "Extended" => "Proširi",
-"City" => "Grad",
 "Region" => "Regija",
 "Zipcode" => "Zip kod",
-"Country" => "Zemlja",
 "Name" => "Ime",
 "Save" => "Snimi"
 );

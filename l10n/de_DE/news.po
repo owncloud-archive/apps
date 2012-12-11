@@ -10,14 +10,15 @@
 # Marcel Kühlhorn <susefan93@gmx.de>, 2012.
 #   <martin@oemus.net>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
+#   <seeed@freenet.de>, 2012.
 #   <transifex.3.mensaje@spamgourmet.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-30 00:01+0100\n"
-"PO-Revision-Date: 2012-11-28 23:14+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-04 00:04+0100\n"
+"PO-Revision-Date: 2012-12-03 21:38+0000\n"
+"Last-Translator: seeed <seeed@freenet.de>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -244,7 +245,7 @@ msgstr "Gratulation! Sie haben Folgendes abonniert:"
 
 #: subscribe.php:36
 msgid "You had already subscribed to this feed!"
-msgstr ""
+msgstr "Sie haben diesen Feed bereits abonniert!"
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."

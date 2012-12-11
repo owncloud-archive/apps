@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Ivan Petrović <ivan@ipplusstudio.com>, 2012.
+#   <marko@evizo.com>, 2012.
 # Slobodan Terzić <githzerai06@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-19 23:14+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-05 00:01+0100\n"
+"PO-Revision-Date: 2012-12-04 15:09+0000\n"
+"Last-Translator: Kostic <marko@evizo.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,7 +97,7 @@ msgstr ""
 
 #: js/calendar.js:598 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
-msgstr ""
+msgstr "Променљиво"
 
 #: js/calendar.js:599 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
@@ -190,7 +191,7 @@ msgstr "Питања"
 msgid "Work"
 msgstr "Посао"
 
-#: lib/app.php:362 lib/share/event.php:27
+#: lib/app.php:362
 msgid "by"
 msgstr ""
 
@@ -261,19 +262,19 @@ msgstr "никада"
 
 #: lib/object.php:472
 msgid "by occurrences"
-msgstr ""
+msgstr "по учестаности појављивања"
 
 #: lib/object.php:473
 msgid "by date"
-msgstr ""
+msgstr "по датуму"
 
 #: lib/object.php:483
 msgid "by monthday"
-msgstr ""
+msgstr "по месецу"
 
 #: lib/object.php:484
 msgid "by weekday"
-msgstr ""
+msgstr "по викенду"
 
 #: lib/object.php:494 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
@@ -401,7 +402,7 @@ msgstr "Датум"
 
 #: lib/search.php:43
 msgid "Cal."
-msgstr ""
+msgstr "Кал."
 
 #: templates/calendar.php:6
 msgid "Sun."
@@ -542,7 +543,7 @@ msgstr "Подешавања"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
-msgstr ""
+msgstr "Ваши календари"
 
 #: templates/part.choosecalendar.php:27
 #: templates/part.choosecalendar.rowfields.php:24
@@ -551,7 +552,7 @@ msgstr "КалДав веза"
 
 #: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
-msgstr ""
+msgstr "Подели календар"
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
@@ -568,7 +569,7 @@ msgstr "Обриши"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
-msgstr ""
+msgstr "подељено са вама од"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
@@ -613,19 +614,19 @@ msgstr "Извези"
 
 #: templates/part.eventform.php:8 templates/part.showevent.php:3
 msgid "Eventinfo"
-msgstr ""
+msgstr "Опис догађаја"
 
 #: templates/part.eventform.php:9 templates/part.showevent.php:4
 msgid "Repeating"
-msgstr ""
+msgstr "Понављање"
 
 #: templates/part.eventform.php:10 templates/part.showevent.php:5
 msgid "Alarm"
-msgstr ""
+msgstr "Аларм"
 
 #: templates/part.eventform.php:11 templates/part.showevent.php:6
 msgid "Attendees"
-msgstr ""
+msgstr "Гости"
 
 #: templates/part.eventform.php:13
 msgid "Share"
@@ -641,7 +642,7 @@ msgstr "Категорија"
 
 #: templates/part.eventform.php:29
 msgid "Separate categories with commas"
-msgstr ""
+msgstr "Одвоји категорије са запетама"
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
@@ -798,19 +799,19 @@ msgstr ""
 
 #: templates/part.showevent.php:1
 msgid "View an event"
-msgstr ""
+msgstr "Погледај догађај"
 
 #: templates/part.showevent.php:23
 msgid "No categories selected"
-msgstr ""
+msgstr "Ниједна категорија није изабрана"
 
 #: templates/part.showevent.php:37
 msgid "of"
-msgstr ""
+msgstr "од"
 
 #: templates/part.showevent.php:59 templates/part.showevent.php:67
 msgid "at"
-msgstr ""
+msgstr "на"
 
 #: templates/settings.php:10
 msgid "General"

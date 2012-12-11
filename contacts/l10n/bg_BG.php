@@ -7,13 +7,13 @@
 "No file was uploaded" => "Фахлът не бе качен",
 "Missing a temporary folder" => "Липсва временната папка",
 "Error" => "Грешка",
+"Upload Error" => "Грешка при качване",
 "Download" => "Изтегляне",
 "Delete" => "Изтриване",
 "Cancel" => "Отказ",
 "Work" => "Работа",
 "Other" => "Друго",
 "Import" => "Внасяне",
-"Export" => "Изнасяне",
 "Groups" => "Групи",
 "Title" => "Заглавие",
 "Birthday" => "Роджен ден",
@@ -21,5 +21,6 @@
 "Email" => "Е-поща",
 "Address" => "Адрес",
 "Share" => "Споделяне",
+"Export" => "Изнасяне",
 "Save" => "Запис"
 );

@@ -71,7 +71,7 @@ function showControls(filename,writeperms){
 	if(writeperms=="true"){
 		editorbarhtml += '<button id="editor_save">'+t('files_texteditor','Save')+'</button><div class="separator"></div>';
 	}
-	editorbarhtml += '<label for="editorseachval">Search:</label><input type="text" name="editorsearchval" id="editorsearchval"><div class="separator"></div><button id="editor_close">'+t('files_texteditor','Close')+'</button></div>';
+	editorbarhtml += '<label for="editorseachval">'+t('files_texteditor','Search:')+'</label><input type="text" name="editorsearchval" id="editorsearchval"><div class="separator"></div><button id="editor_close">'+t('files_texteditor','Close')+'</button></div>';
 	// Change breadcrumb classes
 	$('#controls .last').removeClass('last');
 	$('#controls').append(editorbarhtml);
@@ -127,8 +127,8 @@ function doSearch(){
 		// Show next and clear buttons
 		// check if already there
 		if($('#nextsearchbtn').length==0){
-			var nextbtnhtml = '<button id="nextsearchbtn">Next</button>';
-			var clearbtnhtml = '<button id="clearsearchbtn">Clear</button>';
+			var nextbtnhtml = '<button id="nextsearchbtn">'+t('files_texteditor','Next')+'</button>';
+			var clearbtnhtml = '<button id="clearsearchbtn">'+t('files_texteditor','Clear')+'</button>';
 			$('#editorsearchval').after(nextbtnhtml).after(clearbtnhtml);
 		}
 	}
