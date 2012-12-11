@@ -227,6 +227,10 @@ OC.Contacts = OC.Contacts || {};
 							// We deal with this in addToGroup()
 							break;
 						case 'FN':
+							if(!self.data.FN || !self.data.FN.length) {
+								self.data.FN = [{name:'FN', value:'', parameters:[]}]
+							}
+							self.data.FN[0]['value'] = value;
 							// Update the list element
 							self.$listelem.find('.nametext').text(value);
 							var nempty = true;
@@ -242,7 +246,7 @@ OC.Contacts = OC.Contacts || {};
 							});
 							if(nempty) {
 								self.data.N[0]['value'] = ['', '', '', '', ''];
-								nvalue = value.split(' ');
+								var nvalue = value.split(' ');
 								// Very basic western style parsing. I'm not gonna implement
 								// https://github.com/android/platform_packages_providers_contactsprovider/blob/master/src/com/android/providers/contacts/NameSplitter.java ;)
 								self.data.N[0]['value'][0] = nvalue.length > 2 && nvalue.slice(nvalue.length-1).toString() || nvalue[1] || '';
@@ -675,6 +679,7 @@ OC.Contacts = OC.Contacts || {};
 			if(typeof value === 'undefined') {
 				return true; //continue
 			}
+			value = value.toString();
 			if(self.multi_properties.indexOf(value.toUpperCase()) === -1) {
 				if(!value.length) {
 					self.$fullelem.find('[data-element="' + name + '"]').hide();
