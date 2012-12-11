@@ -1,8 +1,8 @@
 OC.Contacts = OC.Contacts || {};
 
 
-(function($) {
-
+(function(window, $, OC) {
+	'use strict';
 	/**
 	* An item which binds the appropriate html and event handlers
 	* @param parent the parent ContactList
@@ -68,7 +68,7 @@ OC.Contacts = OC.Contacts || {};
 				$elem.find('input.value').addClass('new');
 				break;
 			case 'IMPP':
-				$elem = this.renderIMProperty();
+				var $elem = this.renderIMProperty();
 				var $list = this.$fullelem.find('ul.' + name.toLowerCase());
 				$list.show();
 				$list.append($elem);
@@ -116,9 +116,7 @@ OC.Contacts = OC.Contacts || {};
 						for(var i in self.data[element]) {
 							if(self.data[element][i].checksum === checksum) {
 								// Found it
-								var prop = self.data[element][i];
-								self.data[element].splice(self.data[element].indexOf(prop), 1);
-								delete prop;
+								self.data[element].splice(self.data[element].indexOf(self.data[element][i]), 1);
 								break;
 							}
 						}
@@ -477,7 +475,7 @@ OC.Contacts = OC.Contacts || {};
 		return $container.is('input') 
 			? $container.val() 
 			: (function() {
-				var $elem = $container.find('input.value:not(:checkbox)');
+				var $elem = $container.find('textarea.value,input.value:not(:checkbox)');
 				console.assert($elem.length > 0, 'Couldn\'t find value for ' + $container.data('element'));
 				if($elem.length === 1) {
 					return $elem.val();
@@ -681,7 +679,7 @@ OC.Contacts = OC.Contacts || {};
 					if(typeof self.data[name][p] === 'object') {
 						var property = self.data[name][p];
 						//console.log(name, p, property);
-						$property = null;
+						var $property = null;
 						switch(name) {
 							case 'TEL':
 							case 'URL':
@@ -718,7 +716,7 @@ OC.Contacts = OC.Contacts || {};
 								meta.push($cb.attr('title'));
 							}
 							else if(param.toUpperCase() == 'TYPE') {
-								for(etype in property.parameters[param]) {
+								for(var etype in property.parameters[param]) {
 									var found = false;
 									var et = property.parameters[param][etype];
 									if(typeof et !== 'string') {
@@ -791,8 +789,7 @@ OC.Contacts = OC.Contacts || {};
 		var values = property
 			? { value: property.value, checksum: property.checksum }
 			: { value: '', checksum: 'new' };
-		$elem = this.detailTemplates[name].octemplate(values);
-		return $elem;
+		return this.detailTemplates[name].octemplate(values);
 	}
 
 	/**
@@ -895,7 +892,7 @@ OC.Contacts = OC.Contacts || {};
 
 		if(!dontloadhandlers && this.isEditable()) {
 			this.$photowrapper.on('mouseenter', function(event) {
-				if($(event.target).is('.favorite')) {
+				if(event.target !== this) {
 					return;
 				}
 				$phototools.slideDown(200);
@@ -1472,4 +1469,4 @@ OC.Contacts = OC.Contacts || {};
 	}
 	OC.Contacts.ContactList = ContactList;
 
-})( jQuery );
+})(window, jQuery, OC);
