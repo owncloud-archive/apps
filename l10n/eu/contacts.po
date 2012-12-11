@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-11 00:01+0100\n"
-"PO-Revision-Date: 2012-12-10 23:02+0000\n"
+"POT-Creation-Date: 2012-12-12 00:03+0100\n"
+"PO-Revision-Date: 2012-12-11 23:05+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -285,137 +285,137 @@ msgstr "Ezabatu hemendik..."
 msgid "Add group..."
 msgstr "Gehitu taldea..."
 
-#: js/app.js:951
+#: js/app.js:965
 msgid "Select photo"
 msgstr "Hautatu argazkia"
 
-#: js/app.js:1000 js/app.js:1026 js/app.js:1981 js/app.js:2093
-#: js/contacts.js:104 js/contacts.js:188 js/contacts.js:386
+#: js/app.js:1014 js/app.js:1040 js/app.js:1999 js/app.js:2111
+#: js/contacts.js:105 js/contacts.js:187 js/contacts.js:390
 msgid "Network or server error. Please inform administrator."
 msgstr "Errore bat izan da sare edo zerbitzarian. Mesedez abisatu administradorea."
 
-#: js/app.js:1160 js/app.js:1195
+#: js/app.js:1174 js/app.js:1209
 msgid "Error adding to group."
 msgstr "Errore bat izan da taldera gehitzean."
 
-#: js/app.js:1220
+#: js/app.js:1234
 msgid "Error removing from group."
 msgstr "Errore bat izan da taldetik kentzean."
 
-#: js/app.js:1250
+#: js/app.js:1264
 msgid "There was an error opening a mail composer."
 msgstr "Errore bat izan da posta editorea abiaraztean."
 
-#: js/app.js:1317
+#: js/app.js:1331
 msgid "Deleting done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:1390
+#: js/app.js:1408
 msgid "Add address book"
 msgstr ""
 
-#: js/app.js:1478
+#: js/app.js:1496
 msgid "Import done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:1519
+#: js/app.js:1537
 msgid "Not all files uploaded. Retrying..."
 msgstr "Fitxategi guztiak ez dira igo. Berriz saiatzen..."
 
-#: js/app.js:1525
+#: js/app.js:1543
 msgid "Something went wrong with the upload, please retry."
 msgstr "Zerbait gaizki joan da igotzean, mesedez saiatu berriz."
 
-#: js/app.js:1525 js/app.js:2028 js/settings.js:25 js/settings.js:45
+#: js/app.js:1543 js/app.js:2046 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Errorea"
 
-#: js/app.js:1535
+#: js/app.js:1553
 msgid "Importing from {filename}..."
 msgstr ""
 
-#: js/app.js:1538
+#: js/app.js:1556
 msgid "{success} imported, {failed} failed."
 msgstr ""
 
-#: js/app.js:1546
+#: js/app.js:1564
 msgid "Importing..."
 msgstr "Inportatzen"
 
-#: js/app.js:1569
+#: js/app.js:1587
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Ezin izan da zure fitxategia igo karpeta bat delako edo 0 byte dituelako"
 
-#: js/app.js:1569
+#: js/app.js:1587
 msgid "Upload Error"
 msgstr "Igotzeak huts egin du"
 
-#: js/app.js:1576 js/app.js:1856
+#: js/app.js:1594 js/app.js:1874
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Igo nahi duzun fitxategia zerbitzariak onartzen duen tamaina baino handiagoa da."
 
-#: js/app.js:1576
+#: js/app.js:1594
 msgid "Upload too large"
 msgstr "Igoera handiegia da"
 
-#: js/app.js:1616
+#: js/app.js:1634
 msgid "Pending"
 msgstr "Zain"
 
-#: js/app.js:1755 templates/contacts.php:136
+#: js/app.js:1773 templates/contacts.php:135
 msgid "Add group"
 msgstr "Gehitu taldea"
 
-#: js/app.js:1845
+#: js/app.js:1863
 msgid "No files selected for upload."
 msgstr "Ez duzu igotzeko fitxategirik hautatu."
 
-#: js/app.js:1946
+#: js/app.js:1964
 msgid "Edit profile picture"
 msgstr "Editatu profilaren argazkia"
 
-#: js/app.js:1964 js/contacts.js:885
+#: js/app.js:1982 js/contacts.js:964
 msgid "Error loading profile picture."
 msgstr "Errorea profilaren irudia kargatzean."
 
-#: js/app.js:2016 templates/part.selectaddressbook.php:27
+#: js/app.js:2034 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr "Sartu izena"
 
-#: js/app.js:2017 templates/part.selectaddressbook.php:29
+#: js/app.js:2035 templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "Sartu deskribapena"
 
-#: js/app.js:2020
+#: js/app.js:2038
 msgid "Select addressbook"
 msgstr "Hautatu helbide-liburua"
 
-#: js/app.js:2028
+#: js/app.js:2046
 msgid "The address book name cannot be empty."
 msgstr "Helbide-liburuaren izena ezin da hutsik egon."
 
-#: js/contacts.js:258
+#: js/contacts.js:261
 msgid "Is this correct?"
 msgstr "Hau zuzena al da?"
 
-#: js/contacts.js:431
+#: js/contacts.js:435
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Errore ezezagun bat izan da kontaktu hau ezabatzeko orduan"
 
-#: js/contacts.js:1224
+#: js/contacts.js:1296
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Kontaktu batzuk ezabatzeko markatuta daude, baina oraindik ez dira ezabatu. Mesedez itxoin ezabatu arte."
 
-#: js/contacts.js:1235
+#: js/contacts.js:1307
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Klikatu {num} kontaktuen ezabaketa desegiteko"
 
-#: js/contacts.js:1248
+#: js/contacts.js:1320
 msgid "Cancelled deletion of {num}"
 msgstr "{num}en ezabaketa ezeztatuta"
 
@@ -443,7 +443,7 @@ msgstr "Erakutsi CardDav lotura"
 msgid "Show read-only VCF link"
 msgstr "Erakutsi bakarrik irakurtzeko VCF lotura"
 
-#: js/settings.js:99 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:265 templates/settings.php:40
 msgid "Download"
 msgstr "Deskargatu"
 
@@ -451,12 +451,12 @@ msgstr "Deskargatu"
 msgid "Edit"
 msgstr "Editatu"
 
-#: js/settings.js:102 templates/contacts.php:212 templates/contacts.php:219
-#: templates/contacts.php:226 templates/contacts.php:233
-#: templates/contacts.php:405 templates/part.contact.php:40
-#: templates/part.contact.php:42 templates/part.contact.php:44
-#: templates/part.contact.php:46 templates/part.contact.php:50
-#: templates/settings.php:50
+#: js/settings.js:102 templates/contacts.php:211 templates/contacts.php:218
+#: templates/contacts.php:225 templates/contacts.php:232
+#: templates/contacts.php:279 templates/contacts.php:406
+#: templates/part.contact.php:40 templates/part.contact.php:42
+#: templates/part.contact.php:44 templates/part.contact.php:46
+#: templates/part.contact.php:50 templates/settings.php:50
 msgid "Delete"
 msgstr "Ezabatu"
 
@@ -641,199 +641,203 @@ msgstr ""
 msgid "HomePage"
 msgstr "WebOrria"
 
-#: templates/contacts.php:21
+#: templates/contacts.php:20
 msgid "New Group"
 msgstr "Talde berria"
 
-#: templates/contacts.php:27 templates/index.php:16
+#: templates/contacts.php:26 templates/index.php:16
 msgid "Settings"
 msgstr "Ezarpenak"
 
-#: templates/contacts.php:28
+#: templates/contacts.php:27
 msgid "Address books"
 msgstr ""
 
-#: templates/contacts.php:32 templates/contacts.php:111 templates/index.php:15
+#: templates/contacts.php:31 templates/contacts.php:110 templates/index.php:15
 #: templates/part.import.php:17
 msgid "Import"
 msgstr "Inportatu"
 
-#: templates/contacts.php:37
+#: templates/contacts.php:36
 msgid "Select files to import"
 msgstr ""
 
-#: templates/contacts.php:38
+#: templates/contacts.php:37
 msgid "Select files"
 msgstr ""
 
-#: templates/contacts.php:44 templates/contacts.php:46
+#: templates/contacts.php:43 templates/contacts.php:45
 msgid "Import into:"
 msgstr "Inportatu hemen:"
 
-#: templates/contacts.php:48
+#: templates/contacts.php:47
 msgid "OK"
 msgstr "Ados"
 
-#: templates/contacts.php:60
+#: templates/contacts.php:59
 msgid "(De-)select all"
 msgstr "(Ez-)Hautatu dena"
 
-#: templates/contacts.php:62
+#: templates/contacts.php:61
 msgid "New Contact"
 msgstr "Kontaktu berria"
 
-#: templates/contacts.php:63
+#: templates/contacts.php:62
 msgid "Download Contact"
 msgstr "Deskargatu kontaktua"
 
-#: templates/contacts.php:65 templates/contacts.php:277
+#: templates/contacts.php:64 templates/contacts.php:277
 #: templates/part.contact.php:47 templates/part.contact.php:135
 msgid "Groups"
 msgstr "Taldeak"
 
-#: templates/contacts.php:67
+#: templates/contacts.php:66
 msgid "Favorite"
 msgstr "Gogokoa"
 
-#: templates/contacts.php:68
+#: templates/contacts.php:67
 msgid "Delete Contact"
 msgstr "Ezabatu kontaktua"
 
-#: templates/contacts.php:75 templates/contacts.php:265 templates/index.php:30
+#: templates/contacts.php:74 templates/contacts.php:264 templates/index.php:30
 #: templates/part.import.php:24
 msgid "Close"
 msgstr "Itxi"
 
-#: templates/contacts.php:76 templates/index.php:31
+#: templates/contacts.php:75 templates/index.php:31
 msgid "Keyboard shortcuts"
 msgstr "Teklatuaren lasterbideak"
 
-#: templates/contacts.php:78 templates/index.php:33
+#: templates/contacts.php:77 templates/index.php:33
 msgid "Navigation"
 msgstr "Nabigazioa"
 
-#: templates/contacts.php:81 templates/index.php:36
+#: templates/contacts.php:80 templates/index.php:36
 msgid "Next contact in list"
 msgstr "Hurrengoa kontaktua zerrendan"
 
-#: templates/contacts.php:83 templates/index.php:38
+#: templates/contacts.php:82 templates/index.php:38
 msgid "Previous contact in list"
 msgstr "Aurreko kontaktua zerrendan"
 
-#: templates/contacts.php:85 templates/index.php:40
+#: templates/contacts.php:84 templates/index.php:40
 msgid "Expand/collapse current addressbook"
 msgstr "Zabaldu/tolestu uneko helbide-liburua"
 
-#: templates/contacts.php:87 templates/index.php:42
+#: templates/contacts.php:86 templates/index.php:42
 msgid "Next addressbook"
 msgstr "Hurrengo helbide-liburua"
 
-#: templates/contacts.php:89 templates/index.php:44
+#: templates/contacts.php:88 templates/index.php:44
 msgid "Previous addressbook"
 msgstr "Aurreko helbide-liburua"
 
-#: templates/contacts.php:93 templates/index.php:48
+#: templates/contacts.php:92 templates/index.php:48
 msgid "Actions"
 msgstr "Ekintzak"
 
-#: templates/contacts.php:96 templates/index.php:51
+#: templates/contacts.php:95 templates/index.php:51
 msgid "Refresh contacts list"
 msgstr "Gaurkotu kontaktuen zerrenda"
 
-#: templates/contacts.php:98 templates/index.php:53
+#: templates/contacts.php:97 templates/index.php:53
 msgid "Add new contact"
 msgstr "Gehitu kontaktu berria"
 
-#: templates/contacts.php:100 templates/index.php:55
+#: templates/contacts.php:99 templates/index.php:55
 msgid "Add new addressbook"
 msgstr "Gehitu helbide-liburu berria"
 
-#: templates/contacts.php:102 templates/index.php:57
+#: templates/contacts.php:101 templates/index.php:57
 msgid "Delete current contact"
 msgstr "Ezabatu uneko kontaktuak"
 
-#: templates/contacts.php:107
+#: templates/contacts.php:106
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
 msgstr "<h3>Ez duzu kontakturik helbide-liburuan.</h3><p>Gehitu kontaktu berri bat edo inportatu VCF fitxategi batetatik.</p>"
 
-#: templates/contacts.php:110 templates/part.no_contacts.php:9
+#: templates/contacts.php:109 templates/part.no_contacts.php:9
 msgid "Add contact"
 msgstr "Gehitu kontaktua"
 
-#: templates/contacts.php:151
+#: templates/contacts.php:150
 msgid "Compose mail"
 msgstr "Idatzi eposta"
 
-#: templates/contacts.php:162
+#: templates/contacts.php:161
 msgid "Delete group"
 msgstr "Ezabatu taldea"
 
-#: templates/contacts.php:175 templates/part.contact.php:19
+#: templates/contacts.php:174 templates/part.contact.php:19
 msgid "Delete current photo"
 msgstr "Ezabatu oraingo argazkia"
 
-#: templates/contacts.php:176 templates/part.contact.php:20
+#: templates/contacts.php:175 templates/part.contact.php:20
 msgid "Edit current photo"
 msgstr "Editatu oraingo argazkia"
 
-#: templates/contacts.php:177 templates/part.contact.php:21
+#: templates/contacts.php:176 templates/part.contact.php:21
 msgid "Upload new photo"
 msgstr "Igo argazki berria"
 
-#: templates/contacts.php:178 templates/part.contact.php:22
+#: templates/contacts.php:177 templates/part.contact.php:22
 msgid "Select photo from ownCloud"
 msgstr "Hautatu argazki bat ownCloudetik"
 
-#: templates/contacts.php:189 templates/contacts.php:190
+#: templates/contacts.php:188 templates/contacts.php:189
 msgid "First name"
 msgstr "Izena"
 
-#: templates/contacts.php:194 templates/contacts.php:195
+#: templates/contacts.php:193 templates/contacts.php:194
 #: templates/part.edit_name_dialog.php:37
 msgid "Additional names"
 msgstr "Tarteko izenak"
 
-#: templates/contacts.php:199 templates/contacts.php:200
+#: templates/contacts.php:198 templates/contacts.php:199
 msgid "Last name"
 msgstr "Abizena"
 
-#: templates/contacts.php:208 templates/contacts.php:269
+#: templates/contacts.php:207 templates/contacts.php:269
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
 msgstr "Ezizena"
 
-#: templates/contacts.php:211 templates/part.contact.php:42
+#: templates/contacts.php:210 templates/part.contact.php:42
 msgid "Enter nickname"
 msgstr "Sartu ezizena"
 
-#: templates/contacts.php:215
+#: templates/contacts.php:214
 msgid "Title"
 msgstr "Izenburua"
 
-#: templates/contacts.php:218
+#: templates/contacts.php:217
 msgid "Enter title"
 msgstr ""
 
-#: templates/contacts.php:222 templates/contacts.php:268
+#: templates/contacts.php:221 templates/contacts.php:268
 #: templates/part.contact.php:39 templates/part.contact.php:40
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Erakundea"
 
-#: templates/contacts.php:225
+#: templates/contacts.php:224
 msgid "Enter organization"
 msgstr ""
 
-#: templates/contacts.php:229 templates/contacts.php:270
+#: templates/contacts.php:228 templates/contacts.php:270
 #: templates/part.contact.php:45 templates/part.contact.php:128
 msgid "Birthday"
 msgstr "Jaioteguna"
 
-#: templates/contacts.php:260
+#: templates/contacts.php:259
 msgid "Notes go here..."
 msgstr "Idatzi oharrak hemen..."
+
+#: templates/contacts.php:265
+msgid "Export as VCF"
+msgstr ""
 
 #: templates/contacts.php:267
 msgid "Add"
@@ -864,112 +868,116 @@ msgstr "Oharra"
 msgid "Web site"
 msgstr "Web orria"
 
-#: templates/contacts.php:291 templates/contacts.php:306
-#: templates/contacts.php:320 templates/contacts.php:345
-#: templates/contacts.php:382 templates/part.contact.php:59
+#: templates/contacts.php:279 templates/part.contact.php:139
+msgid "Delete contact"
+msgstr "Ezabatu kontaktua"
+
+#: templates/contacts.php:292 templates/contacts.php:307
+#: templates/contacts.php:321 templates/contacts.php:346
+#: templates/contacts.php:383 templates/part.contact.php:59
 #: templates/part.contact.php:73 templates/part.contact.php:98
 msgid "Preferred"
 msgstr "Hobetsia"
 
-#: templates/contacts.php:293 templates/part.contact.php:60
+#: templates/contacts.php:294 templates/part.contact.php:60
 msgid "Please specify a valid email address."
 msgstr "Mesedez sartu eposta helbide egoki bat"
 
-#: templates/contacts.php:293
+#: templates/contacts.php:294
 msgid "someone@example.com"
 msgstr ""
 
-#: templates/contacts.php:295 templates/part.contact.php:64
+#: templates/contacts.php:296 templates/part.contact.php:64
 msgid "Mail to address"
 msgstr "Bidali helbidera"
 
-#: templates/contacts.php:296 templates/part.contact.php:65
+#: templates/contacts.php:297 templates/part.contact.php:65
 msgid "Delete email address"
 msgstr "Ezabatu eposta helbidea"
 
-#: templates/contacts.php:308 templates/part.contact.php:75
+#: templates/contacts.php:309 templates/part.contact.php:75
 msgid "Enter phone number"
 msgstr "Sartu telefono zenbakia"
 
-#: templates/contacts.php:310 templates/part.contact.php:79
+#: templates/contacts.php:311 templates/part.contact.php:79
 msgid "Delete phone number"
 msgstr "Ezabatu telefono zenbakia"
 
-#: templates/contacts.php:324 templates/part.contact.php:44
+#: templates/contacts.php:325 templates/part.contact.php:44
 msgid "Go to web site"
 msgstr "Web orrira joan"
 
-#: templates/contacts.php:325
+#: templates/contacts.php:326
 msgid "Delete URL"
 msgstr "Ezabatu URLa"
 
-#: templates/contacts.php:336 templates/part.contact.php:110
+#: templates/contacts.php:337 templates/part.contact.php:110
 msgid "View on map"
 msgstr "Ikusi mapan"
 
-#: templates/contacts.php:337
+#: templates/contacts.php:338
 msgid "Delete address"
 msgstr "Ezabatu helbidea"
 
-#: templates/contacts.php:349
+#: templates/contacts.php:350
 msgid "1 Main Street"
 msgstr ""
 
-#: templates/contacts.php:350 templates/part.edit_address_dialog.php:24
+#: templates/contacts.php:351 templates/part.edit_address_dialog.php:24
 msgid "Street address"
 msgstr "Kalearen helbidea"
 
-#: templates/contacts.php:354
+#: templates/contacts.php:355
 msgid "12345"
 msgstr "12345"
 
-#: templates/contacts.php:355 templates/part.edit_address_dialog.php:51
+#: templates/contacts.php:356 templates/part.edit_address_dialog.php:51
 msgid "Postal code"
 msgstr "Posta kodea"
 
-#: templates/contacts.php:357
+#: templates/contacts.php:358
 msgid "Your city"
 msgstr "Zure hiria"
 
-#: templates/contacts.php:358 templates/part.edit_address_dialog.php:36
+#: templates/contacts.php:359 templates/part.edit_address_dialog.php:36
 #: templates/part.edit_address_dialog.php:39
 msgid "City"
 msgstr "Hiria"
 
-#: templates/contacts.php:362
+#: templates/contacts.php:363
 msgid "Some region"
 msgstr ""
 
-#: templates/contacts.php:363
+#: templates/contacts.php:364
 msgid "State or province"
 msgstr ""
 
-#: templates/contacts.php:367
+#: templates/contacts.php:368
 msgid "Your country"
 msgstr "Zure herrialdea"
 
-#: templates/contacts.php:368 templates/part.edit_address_dialog.php:54
+#: templates/contacts.php:369 templates/part.edit_address_dialog.php:54
 #: templates/part.edit_address_dialog.php:57
 msgid "Country"
 msgstr "Herrialdea"
 
-#: templates/contacts.php:390 templates/part.contact.php:100
+#: templates/contacts.php:391 templates/part.contact.php:100
 msgid "Instant Messenger"
 msgstr "Instant Messenger"
 
-#: templates/contacts.php:392 templates/part.contact.php:101
+#: templates/contacts.php:393 templates/part.contact.php:101
 msgid "Delete IM"
 msgstr "Ezabatu BM"
 
-#: templates/contacts.php:402 templates/settings.php:36
+#: templates/contacts.php:403 templates/settings.php:36
 msgid "Share"
 msgstr "Partekatu"
 
-#: templates/contacts.php:403
+#: templates/contacts.php:404
 msgid "Export"
 msgstr "Exportatu"
 
-#: templates/contacts.php:404
+#: templates/contacts.php:405
 msgid "CardDAV link"
 msgstr ""
 
@@ -1024,10 +1032,6 @@ msgstr "Gehitu eremua"
 #: templates/part.contact.php:138
 msgid "Download contact"
 msgstr "Deskargatu kontaktua"
-
-#: templates/part.contact.php:139
-msgid "Delete contact"
-msgstr "Ezabatu kontaktua"
 
 #: templates/part.cropphoto.php:65
 msgid "The temporary image has been removed from cache."

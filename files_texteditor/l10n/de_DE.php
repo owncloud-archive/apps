@@ -2,7 +2,7 @@
 "Save" => "Speichern",
 "Search:" => "Suche:",
 "Close" => "Schließen",
-"Next" => "Nächstes",
+"Next" => "Weiter",
 "Clear" => "Leeren",
 "Saving..." => "Speichern...",
 "An error occurred!" => "Ein Fehler ist aufgetreten!",
