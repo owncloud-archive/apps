@@ -1023,14 +1023,7 @@ OC.Contacts = OC.Contacts || {};
 		if(!this.data.CATEGORIES) {
 			this.data.CATEGORIES = [{value:[name]},];
 		} else {
-			var found = false;
-			$.each(this.data.CATEGORIES[0].value, function(idx, category) {
-				if(name.toLowerCase() === category.toLowerCase()) {
-					found = true;
-					return false;
-				}
-			});
-			if(found) {
+			if(this.inGroup(name)) {
 				return;
 			}
 			this.data.CATEGORIES[0].value.push(name);
