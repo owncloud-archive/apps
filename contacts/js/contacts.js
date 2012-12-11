@@ -957,7 +957,7 @@ OC.Contacts = OC.Contacts || {};
 		this.photo = new Image();
 		$(this.photo).load(function () {
 			$(this).addClass('contactphoto');
-			self.$photowrapper.css('width', $(this).get(0).width + 10);
+			self.$photowrapper.css({width: $(this).get(0).width + 10, height: $(this).get(0).height + 10});
 			self.$photowrapper.removeClass('loading').removeClass('wait');
 			$(this).insertAfter($phototools).fadeIn();
 		}).error(function () {
