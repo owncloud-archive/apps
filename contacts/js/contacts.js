@@ -939,8 +939,7 @@ OC.Contacts = OC.Contacts || {};
 			value: property.value,
 			checksum: property.checksum,
 		} : {value: '', checksum: 'new'};
-		$elem = this.detailTemplates['impp'].octemplate(values);
-		return $elem;
+		return this.detailTemplates['impp'].octemplate(values);
 	}
 
 	/**
