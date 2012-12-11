@@ -23,7 +23,7 @@
 
 class OC_Gallery_Album {
 	public static function create($owner, $name, $path) {
-		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*gallery_albums` (`uid_owner`, `album_name`, `album_path`, `parent_path`) ALUES (?, ?, ?, ?)');
+		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*gallery_albums` (`uid_owner`, `album_name`, `album_path`, `parent_path`) VALUES (?, ?, ?, ?)');
 		$stmt->execute(array($owner, $name, $path, self::getParentPath($path)));
 	}
 
