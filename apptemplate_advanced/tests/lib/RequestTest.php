@@ -33,52 +33,52 @@ require_once($path . "../../lib/request.php");
 class RequestTest extends \PHPUnit_Framework_TestCase {
 
 
-        public function testGetPOST(){
-                $post = array('test' => 'somevalue');
-                $request = new Request(null, $post);
+	public function testGetPOST(){
+		$post = array('test' => 'somevalue');
+		$request = new Request(null, $post);
 
-                $this->assertEquals('somevalue', $request->getPOST('test'));
-        }
-
-
-        public function testGetPOSTEmpty(){
-                $post = array();
-                $request = new Request(null, $post);
-
-                $this->assertEquals('', $request->getPOST('test'));
-        }
+		$this->assertEquals('somevalue', $request->getPOST('test'));
+	}
 
 
-        public function testGetPOSTDefault(){
-                $post = array();
-                $request = new Request(null, $post);
+	public function testGetPOSTEmpty(){
+		$post = array();
+		$request = new Request(null, $post);
 
-                $this->assertEquals('default', $request->getPOST('test', 'default'));
-        }
-
-
-        public function testGetGET(){
-                $get = array('test' => 'somevalue');
-                $request = new Request($get, null);
-
-                $this->assertEquals('somevalue', $request->getGET('test'));
-        }
+		$this->assertEquals('', $request->getPOST('test'));
+	}
 
 
-        public function testGetGETEmpty(){
-                $get = array();
-                $request = new Request($get, null);
+	public function testGetPOSTDefault(){
+		$post = array();
+		$request = new Request(null, $post);
 
-                $this->assertEquals('', $request->getGET('test'));
-        }
+		$this->assertEquals('default', $request->getPOST('test', 'default'));
+	}
 
 
-        public function testGetGETDefault(){
-                $get = array();
-                $request = new Request($get, null);
+	public function testGetGET(){
+		$get = array('test' => 'somevalue');
+		$request = new Request($get, null);
 
-                $this->assertEquals('default', $request->getGET('test', 'default'));
-        }
+		$this->assertEquals('somevalue', $request->getGET('test'));
+	}
+
+
+	public function testGetGETEmpty(){
+		$get = array();
+		$request = new Request($get, null);
+
+		$this->assertEquals('', $request->getGET('test'));
+	}
+
+
+	public function testGetGETDefault(){
+		$get = array();
+		$request = new Request($get, null);
+
+		$this->assertEquals('default', $request->getGET('test', 'default'));
+	}
 
 
 }

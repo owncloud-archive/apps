@@ -178,5 +178,12 @@ class API {
 		return \OCP\DB::insertid($tableName);
 	}
 
+	/**
+	 * Returns the URL for a route
+	 * @return the url
+	 */
+	public function linkToRoute($routeName){
+		return \OC_Helper::linkToRoute($routeName);
+	}
 
 }

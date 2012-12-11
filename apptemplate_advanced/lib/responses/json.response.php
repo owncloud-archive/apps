@@ -54,6 +54,14 @@ class JSONResponse extends Response {
 
 
 	/**
+	 * @return the params
+	 */
+	public function getParams(){
+		return $this->data['data'];
+	}
+
+
+	/**
 	 * @brief in case we want to render an error message, also logs into the
 	 *        owncloud log
 	 * @param string $message: the error message

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-06 00:09+0100\n"
+"POT-Creation-Date: 2012-12-11 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,19 @@ msgid "Save"
 msgstr ""
 
 #: js/editor.js:74
+msgid "Search:"
+msgstr ""
+
+#: js/editor.js:74
 msgid "Close"
+msgstr ""
+
+#: js/editor.js:130
+msgid "Next"
+msgstr ""
+
+#: js/editor.js:131
+msgid "Clear"
 msgstr ""
 
 #: js/editor.js:149

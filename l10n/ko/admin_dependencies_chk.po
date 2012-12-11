@@ -4,13 +4,14 @@
 # 
 # Translators:
 # 남자사람  <cessnagi@gmail.com>, 2012.
+# Shinjo Park <kde@peremen.name>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-20 10:00+0000\n"
-"Last-Translator: 남자사람 <cessnagi@gmail.com>\n"
+"POT-Creation-Date: 2012-12-10 00:02+0100\n"
+"PO-Revision-Date: 2012-12-09 06:07+0000\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,56 +23,56 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr "모듈간 통신을 위해 많은 응용프로그램에서 php-json 모듈을 필요로 합니다."
+msgstr "내부 통신을 위하여 많은 프로그램에서 php-json 모듈을 필요합니다"
 
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr "php-curl 모듈은 북마크를 추가 할 때 페이지 제목을 가져오기 위해 필요합니다."
+msgstr "php-curl 모듈은 책갈피를 추가할 때 페이지 제목을 가져올 때 필요합니다"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr "php-gd 모듈은 이미지 썸네일을 만들기위해서 필요합니다."
+msgstr "php-gd 모듈은 미리 보기 그림을 만드는 데 필요합니다"
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr "php-ladp 모듈은 ladp 서버에 접속하기위해서 필요합니다."
+msgstr "php-ladp 모듈은 LDAP 서버에 접속하는 데 필요합니다"
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr "php-zip 모듈은 다수의 파일을 한번에 다운로드 하기위해서 필요합니다."
+msgstr "php-zip 모듈은 여러 개의 파일을 한번에 다운로드하는 데 필요합니다"
 
 #: settings.php:63
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
-msgstr "php-mb_multibyte 모듈은 인코딩을 올바르게 관리하기위해서 필요합니다."
+msgstr "php-mb_multibyte 모듈은 인코딩을 올바르게 관리하는 데 필요합니다"
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr "php-ctype 모듈은 데이터 유효성 검사하기위해서 필요합니다."
+msgstr "php-ctype 모듈은 데이터 유효성을 검사하는 데 필요합니다"
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr "php-xml 모듈은 webdav와 파일을 공유하기위해서 필요합니다."
+msgstr "php-xml 모듈은 WebDAV로 파일을 공유하는 데 필요합니다"
 
 #: settings.php:81
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr "php.ini 파일의 allow_url_fopen 지시자는 OCS 서버에서 지식 기반을 검색을 하기 위해 1로 설정해야합니다."
+msgstr "OCS 서버에서 도움말 항목을 가져오려면 php.ini 파일의 allow_url_fopen 지시자를 1로 설정해야 합니다"
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr "PHP-pdo 모듈은 데이터베이스에 owncloud 데이터를 저장하기 위해 필요합니다."
+msgstr "php-pdo 모듈은 ownCloud 데이터를 데이터베이스에 저장하는 데 필요합니다"
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr "iconv 모듈은 올바른 문자 집합에 데이터를 변환 하기위해서 필요합니다."
+msgstr "iconv 모듈은 데이터를 올바른 문자 인코딩으로 변환하는 데 필요합니다."
 
 #: templates/settings.php:2
 msgid "Dependencies status"
-msgstr "종속성 상태"
+msgstr "의존성 상태"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr "Used by :"
+msgstr "다음에서 사용함:"

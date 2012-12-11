@@ -196,6 +196,9 @@ GroupList.prototype.selectGroup = function(params) {
 	console.log('selectGroup', id, $elem);
 	this.$groupList.find('h3').removeClass('active');
 	$elem.addClass('active');
+	if(id === 'new') {
+		return;
+	}
 	this.lastgroup = id;
 	$(document).trigger('status.group.selected', {
 		id: this.lastgroup,
@@ -329,6 +332,18 @@ GroupList.prototype.removeFrom = function(contactid, groupid, cb) {
 	var $groupelem = this.findById(groupid);
 	var contacts = $groupelem.data('contacts');
 	var ids = [];
+	
+	// If it's the 'all' group simply decrement the number
+	if(groupid === 'all') {
+		var $numelem = $groupelem.find('.numcontacts');
+		$numelem.text(parseInt($numelem.text()-1)).switchClass('', 'active', 200);
+		setTimeout(function() {
+			$numelem.switchClass('active', '', 1000);
+		}, 2000);
+		if(typeof cb === 'function') {
+			cb({status:'success', ids:[id]});
+		}
+	}
 	// If the contact is in the category remove it from internal list.
 	if(!contacts) {
 		if(typeof cb === 'function') {
@@ -443,8 +458,84 @@ GroupList.prototype.deleteGroup = function(groupid, cb) {
 	});
 }
 
-GroupList.prototype.addGroup = function(name, cb) {
-	console.log('GroupList.addGroup', name);
+GroupList.prototype.editGroup = function(id) {
+	var self = this;
+	// NOTE: Currently this only works for adding, not renaming
+	var saveChanges = function($elem, $input) {
+		console.log('saveChanges', $input.val());
+		var name = $input.val().trim();
+		if(name.length === 0) {
+			return false;
+		}
+		$input.prop('disabled', true);
+		$elem.data('name', '');
+		self.addGroup({name:name, element:$elem}, function(response) {
+			if(response.status === 'success') {
+				$elem.prepend(name).removeClass('editing').attr('data-id', response.id);
+				$input.next('.checked').remove()
+				$input.remove()
+			} else {
+				$input.prop('disabled', false);
+				OC.notify({message:response.message});
+			}
+		});
+	}
+	
+	if(typeof id === 'undefined') {
+		// Add new group
+		var tmpl = this.$groupListItemTemplate;
+		var $elem = (tmpl).octemplate({
+			id: 'new',
+			type: 'category',
+			num: 0,
+			name: '',
+		});
+		var $input = $('<input type="text" class="active" /><a class="action checked disabled" />');
+		$elem.prepend($input).addClass('editing');
+		$elem.data('contacts', []);
+		this.$groupList.find('h3.group[data-type="category"]').first().before($elem);
+		this.selectGroup({element:$elem});
+		$input.on('input', function(event) {
+			if($(this).val().length > 0) {
+				$(this).next('.checked').removeClass('disabled');
+			} else {
+				$(this).next('.checked').addClass('disabled');
+			}
+		});
+		$input.on('keyup', function(event) {
+			var keyCode = Math.max(event.keyCode, event.which);
+			if(keyCode === 13) {
+				saveChanges($elem, $(this));
+			} else if(keyCode === 27) {
+				$elem.remove();
+			}
+		});
+		$input.next('.checked').on('click keydown', function(event) {
+			console.log('clicked', event);
+			if(wrongKey(event)) {
+				return;
+			}
+			saveChanges($elem, $input);
+		});
+		$input.focus();
+	} else if(utils.isUInt(id)) {
+		var $elem = this.findById(id);
+		var $text = $elem.contents().filter(function(){ return(this.nodeType == 3); });
+		var name = $text.text();
+		console.log('Group name', $text, name);
+		$text.remove();
+		var $input = $('<input type="text" class="active" value="' + name + '" /><a class="action checked disabled />');
+		$elem.prepend($input).addClass('editing');
+		$input.focus();
+		
+	} else {
+		throw { name: 'WrongParameterType', message: 'GroupList.editGroup only accept integers.'}
+	}
+}
+
+GroupList.prototype.addGroup = function(params, cb) {
+	console.log('GroupList.addGroup', params.name);
+	var name = params.name;
 	contacts = []; // $.map(contacts, function(c) {return parseInt(c)});
 	var self = this, exists = false;
 	self.$groupList.find('h3[data-type="category"]').each(function() {
@@ -462,12 +553,14 @@ GroupList.prototype.addGroup = function(name, cb) {
 	$.post(OC.filePath('contacts', 'ajax', 'categories/add.php'), {category: name}, function(jsondata) {
 		if (jsondata && jsondata.status == 'success') {
 			var tmpl = self.$groupListItemTemplate;
-			var $elem = (tmpl).octemplate({
-				id: jsondata.data.id,
-				type: 'category',
-				num: contacts.length,
-				name: name,
-			})
+			var $elem = params.element
+				? params.element
+				: (tmpl).octemplate({
+					id: jsondata.data.id,
+					type: 'category',
+					num: contacts.length,
+					name: name,
+				})
 			self.categories.push({id: jsondata.data.id, name: name});
 			$elem.data('obj', self);
 			$elem.data('contacts', contacts);
@@ -484,6 +577,9 @@ GroupList.prototype.addGroup = function(name, cb) {
 			if(!added) {
 				$elem.insertAfter(self.$groupList.find('h3.group[data-type="category"]').last());
 			}
+			self.selectGroup({element:$elem});
+			$elem.tipsy({trigger:'manual', gravity:'w', fallback: t('contacts', 'You can drag groups to\narrange them as you like.')});
+			$elem.tipsy('show');
 			if(typeof cb === 'function') {
 				cb({status:'success', id:parseInt(jsondata.data.id), name:name});
 			}
@@ -518,7 +614,7 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 				name: t('contacts', 'Favorites')
 			}).appendTo($groupList);
 			$elem.data('obj', self);
-			$elem.data('contacts', contacts).find('.numcontacts').before('<span class="starred" />');
+			$elem.data('contacts', contacts).find('.numcontacts').before('<span class="starred action" />');
 			$elem.droppable({
 						drop: self.contactDropped,
 						activeClass: 'ui-state-active',
@@ -636,7 +732,6 @@ OC.Contacts = OC.Contacts || {
 		this.bindEvents();
 		this.$toggleAll.show();
 		this.showActions(['addcontact']);
-		OC.Share.loadIcons('addressbook');
 
 		// Wait 2 mins then check if contacts are indexed.
 		setTimeout(function() {
@@ -694,7 +789,8 @@ OC.Contacts = OC.Contacts || {
 		this.$ninjahelp = $('#ninjahelp');
 		this.$firstRun = $('#firstrun');
 		this.$settings = $('#contacts-settings');
-
+		this.$importFileInput = $('#import_fileupload');
+		this.$importIntoSelect = $('#import_into');
 	},
 	// Build the select to add/remove from groups.
 	buildGroupSelect: function() {
@@ -755,7 +851,7 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('status.contact.added', function(e, data) {
 			self.currentid = parseInt(data.id);
 			self.buildGroupSelect();
-			self.showActions(['back', 'download', 'delete', 'groups', 'favorite']);
+			self.hideActions();
 		});
 
 		$(document).bind('status.contact.error', function(e, data) {
@@ -764,16 +860,11 @@ OC.Contacts = OC.Contacts || {
 
 		$(document).bind('status.contact.enabled', function(e, enabled) {
 			console.log('status.contact.enabled', enabled)
-			if(enabled) {
-				self.showActions(['back', 'download', 'delete', 'groups', 'favorite']);
+			/*if(enabled) {
+				self.showActions(['back', 'download', 'delete', 'groups']);
 			} else {
 				self.showActions(['back']);
-			}
-			if(self.Groups.isFavorite(self.currentid)) {
-				self.$header.find('.favorite').switchClass('inactive', 'active');
-			} else {
-				self.$header.find('.favorite').switchClass('active', 'inactive');
-			}
+			}*/
 		});
 
 		$(document).bind('status.contacts.loaded', function(e, result) {
@@ -836,6 +927,32 @@ OC.Contacts = OC.Contacts || {
 					});
 				}, 1000);
 			}
+		});
+
+		$(document).bind('request.contact.setasfavorite', function(e, data) {
+			var id = parseInt(data.id);
+			console.log('contact', data.id, 'request.contact.setasfavorite');
+			self.Groups.setAsFavorite(data.id, data.state);
+		});
+
+		$(document).bind('request.contact.export', function(e, data) {
+			var id = parseInt(data.id);
+			console.log('contact', data.id, 'request.contact.export');
+			document.location.href = OC.linkTo('contacts', 'export.php') + '?contactid=' + self.currentid;
+		});
+
+		$(document).bind('request.contact.close', function(e, data) {
+			var id = parseInt(data.id);
+			console.log('contact', data.id, 'request.contact.close');
+			self.closeContact(id);
+		});
+
+		$(document).bind('request.contact.delete', function(e, data) {
+			var id = parseInt(data.id);
+			console.log('contact', data.id, 'request.contact.delete');
+			self.Contacts.delayedDelete(id);
+			self.$contactList.removeClass('dim');
+			self.showActions(['add']);
 		});
 
 		$(document).bind('request.select.contactphoto.fromlocal', function(e, result) {
@@ -906,7 +1023,7 @@ OC.Contacts = OC.Contacts || {
 			if(self.currentid) {
 				var id = self.currentid;
 				self.closeContact(id);
-				self.Contacts.jumpToContact(id);
+				self.jumpToContact(id);
 			}
 			self.$contactList.show();
 			self.$toggleAll.show();
@@ -971,7 +1088,8 @@ OC.Contacts = OC.Contacts || {
 			if(wrongKey(event)) {
 				return;
 			}
-			self.addGroup();
+			self.Groups.editGroup();
+			//self.addGroup();
 		});
 
 		this.$ninjahelp.find('.close').on('click keydown',function(event) {
@@ -988,7 +1106,7 @@ OC.Contacts = OC.Contacts || {
 				self.buildGroupSelect();
 			}
 			if(isChecked) {
-				self.showActions(['addcontact', 'groups', 'delete']);
+				self.showActions(['addcontact', 'groups', 'delete', 'favorite']);
 			} else {
 				self.showActions(['addcontact']);
 			}
@@ -999,7 +1117,7 @@ OC.Contacts = OC.Contacts || {
 				if(self.$groups.find('option').length === 1) {
 					self.buildGroupSelect();
 				}
-				self.showActions(['addcontact', 'groups', 'delete']);
+				self.showActions(['addcontact', 'groups', 'delete', 'favorite']);
 			} else if(self.Contacts.getSelectedContacts().length === 0) {
 				self.showActions(['addcontact']);
 			}
@@ -1129,7 +1247,7 @@ OC.Contacts = OC.Contacts || {
 			if($(event.target).is('input')) {
 				return;
 			}
-			if(event.ctrlKey) {
+			if(event.ctrlKey || event.metaKey) {
 				event.stopPropagation();
 				event.preventDefault();
 				console.log('select', event);
@@ -1155,22 +1273,15 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			console.log('add');
-			self.$contactList.hide();
 			self.$toggleAll.hide();
 			$(this).hide();
 			self.currentid = 'new';
+			var props = {
+				favorite: false,
+				groups: self.Groups.categories,
+			};
 			self.tmpcontact = self.Contacts.addContact();
 			self.$rightContent.prepend(self.tmpcontact);
-			self.showActions(['back']);
-		});
-
-		$('.import').on('click keydown', function(event) {
-			// NOTE: Test if document title changes. If so there's a fix in 
-			// https://github.com/owncloud/apps/pull/212#issuecomment-10516723
-			if(wrongKey(event)) {
-				return;
-			}
-			console.log('import');
 			self.hideActions();
 		});
 
@@ -1182,9 +1293,125 @@ OC.Contacts = OC.Contacts || {
 				$(this).next('ul').slideUp();
 				return;
 			}
-			console.log('export');
+			console.log('settings');
+			var $list = $(this).next('ul');
+			if($(this).data('id') === 'addressbooks') {
+				console.log('addressbooks');
+				
+				if(!self.$addressbookTmpl) {
+					self.$addressbookTmpl = $('#addressbookTemplate');
+				}
+
+				$list.empty();
+				$.each(self.Contacts.addressbooks, function(id, book) {
+					var $li = self.$addressbookTmpl.octemplate({
+						id: id, 
+						permissions: book.permissions,
+						displayname: book.displayname,
+					});
+
+					$list.append($li);
+				});
+				$list.find('a.action').tipsy({gravity: 'w'});
+				$list.find('a.action.delete').on('click keypress', function() {
+					$('.tipsy').remove();
+					var id = parseInt($(this).parents('li').first().data('id'));
+					console.log('delete', id);
+					var $li = $(this).parents('li').first();
+					$.ajax({
+						type:'POST',
+						url:OC.filePath('contacts', 'ajax', 'addressbook/delete.php'), 
+						data:{ id: id },
+						success:function(jsondata) {
+							console.log(jsondata);
+							if(jsondata.status == 'success') {
+								self.Contacts.unsetAddressbook(id);
+								$li.remove();
+								OC.notify({
+									message:t('contacts','Deleting done. Click here to cancel reloading.'),
+									timeout:5,
+									timeouthandler:function() {
+										console.log('reloading');
+										window.location.href = OC.linkTo('contacts', 'index.php');
+									},
+									clickhandler:function() {
+										console.log('reloading cancelled');
+										OC.notify({cancel:true});
+									}
+								});
+							} else {
+								OC.notify({message:jsondata.data.message});
+							}
+						},
+						error:function(jqXHR, textStatus, errorThrown) {
+							OC.notify({message:textStatus + ': ' + errorThrown});
+							id = false;
+						},
+					});
+				});
+				$list.find('a.action.globe').on('click keypress', function() {
+					var id = parseInt($(this).parents('li').first().data('id'));
+					var book = self.Contacts.addressbooks[id];
+					var uri = (book.owner === oc_current_user ) ? book.uri : book.uri + '_shared_by_' + book.owner;
+					var link = totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
+					var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" /></div>');
+					$dropdown.appendTo($(this).parents('li').first());
+					var $input = $dropdown.find('input');
+					$input.focus().get(0).select();
+					$input.on('blur', function() {
+						$dropdown.hide('blind', function() {
+							$dropdown.remove();
+						});
+					});
+				});
+				if(typeof OC.Share !== 'undefined') {
+					OC.Share.loadIcons('addressbook');
+				} else {
+					$list.find('a.action.share').css('display', 'none');
+				}
+			} else if($(this).data('id') === 'import') {
+				console.log('import');
+				$('.import-upload').show();
+				$('.import-select').hide();
+
+				var addAddressbookCallback = function(select, name) {
+					var id;
+					$.ajax({
+						type:'POST',
+						async:false,
+						url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'), 
+						data:{ name: name },
+						success:function(jsondata) {
+							console.log(jsondata);
+							if(jsondata.status == 'success') {
+								self.Contacts.setAddressbook(jsondata.data.addressbook);
+								id = jsondata.data.addressbook.id
+							} else {
+								OC.notify({message:jsondata.data.message});
+							}
+						},
+						error:function(jqXHR, textStatus, errorThrown) {
+							OC.notify({message:textStatus + ': ' + errorThrown});
+							id = false;
+						},
+					});
+					return id;
+				}
+
+				self.$importIntoSelect.empty();
+				$.each(self.Contacts.addressbooks, function(id, book) {
+					self.$importIntoSelect.append('<option value="' + id + '">' + book.displayname + '</option>');
+				});
+				self.$importIntoSelect.multiSelect({
+					createCallback:addAddressbookCallback,
+					singleSelect: true,
+					createText:String(t('contacts', 'Add address book')),
+					minWidth: 120,
+				});
+
+			}
 			$(this).parents('ul').first().find('ul:visible').slideUp();
-			$(this).next('ul').toggle('slow');
+			$list.toggle('slow');
 		});
 
 		this.$header.on('click keydown', '.back', function(event) {
@@ -1194,7 +1421,6 @@ OC.Contacts = OC.Contacts || {
 			console.log('back');
 			self.closeContact(self.currentid);
 			self.$toggleAll.show();
-			self.showActions(['addcontact']);
 		});
 
 		this.$header.on('click keydown', '.delete', function(event) {
@@ -1230,14 +1456,15 @@ OC.Contacts = OC.Contacts || {
 			if(!utils.isUInt(self.currentid)) {
 				return;
 			}
+			// FIXME: This should only apply for contacts list.
 			var state = self.Groups.isFavorite(self.currentid);
 			console.log('Favorite?', this, state);
 			self.Groups.setAsFavorite(self.currentid, !state, function(jsondata) {
 				if(jsondata.status === 'success') {
 					if(state) {
-						self.$header.find('.favorite').switchClass('active', 'inactive');
+						self.$header.find('.favorite').switchClass('active', '');
 					} else {
-						self.$header.find('.favorite').switchClass('inactive', 'active');
+						self.$header.find('.favorite').switchClass('', 'active');
 					}
 				} else {
 					OC.notify({message:t('contacts', jsondata.data.message)});
@@ -1254,19 +1481,210 @@ OC.Contacts = OC.Contacts || {
 			$(this).find('.mailto').fadeOut(100);
 		});
 
-		$(document).on('keyup', function(event) {
+		// Import using jquery.fileupload
+		$(function() {
+			var uploadingFiles = {}, numfiles = 0, uploadedfiles = 0, retries = 0;
+			var aid, importError = false;
+			var $progressbar = $('#import-progress');
+			var $status = $('#import-status-text');
+
+			var waitForImport = function() {
+				if(numfiles == 0 && uploadedfiles == 0) {
+					$progressbar.progressbar('value',100);
+					if(!importError) {
+						OC.notify({
+							message:t('contacts','Import done. Click here to cancel reloading.'),
+							timeout:5,
+							timeouthandler:function() {
+								console.log('reloading');
+								window.location.href = OC.linkTo('contacts', 'index.php');
+							},
+							clickhandler:function() {
+								console.log('reloading cancelled');
+								OC.notify({cancel:true});
+							}
+						});
+					}
+					retries = aid = 0;
+					$progressbar.fadeOut();
+					setTimeout(function() {
+						$status.fadeOut('slow');
+						$('.import-upload').show();
+					}, 3000);
+				} else {
+					setTimeout(function() {
+						waitForImport();
+					}, 1000);
+				}
+			};
+			var doImport = function(file, aid, cb) {
+				$.post(OC.filePath('contacts', '', 'import.php'), { id: aid, file: file, fstype: 'OC_FilesystemView' },
+					function(jsondata) {
+						if(jsondata.status != 'success') {
+							importError = true;
+							OC.notify({message:jsondata.data.message});
+						}
+						if(typeof cb == 'function') {
+							cb(jsondata);
+						}
+				});
+				return false;
+			};
+
+			var importFiles = function(aid, uploadingFiles) {
+				console.log('importFiles', aid, uploadingFiles);
+				if(numfiles != uploadedfiles) {
+					OC.notify({message:t('contacts', 'Not all files uploaded. Retrying...')});
+					retries += 1;
+					if(retries > 3) {
+						numfiles = uploadedfiles = retries = aid = 0;
+						uploadingFiles = {};
+						$progressbar.fadeOut();
+						OC.dialogs.alert(t('contacts', 'Something went wrong with the upload, please retry.'), t('contacts', 'Error'));
+						return;
+					}
+					setTimeout(function() { // Just to let any uploads finish
+						importFiles(aid, uploadingFiles);
+					}, 1000);
+				}
+				$progressbar.progressbar('value', 50);
+				var todo = uploadedfiles;
+				$.each(uploadingFiles, function(fileName, data) {
+					$status.text(t('contacts', 'Importing from {filename}...', {filename:fileName})).fadeIn();
+					doImport(fileName, aid, function(response) {
+						if(response.status === 'success') {
+							$status.text(t('contacts', '{success} imported, {failed} failed.', 
+								{success:response.data.imported, failed:response.data.failed})).fadeIn();
+						}
+						delete uploadingFiles[fileName];
+						numfiles -= 1; uploadedfiles -= 1;
+						$progressbar.progressbar('value',50+(50/(todo-uploadedfiles)));
+					});
+				})
+				//$status.text(t('contacts', 'Importing...')).fadeIn();
+				waitForImport();
+			};
+
+			// Start the actual import.
+			$('.doImport').on('click keypress', function(event) {
+				if(wrongKey(event)) {
+					return;
+				}
+				aid = $(this).prev('select').val();
+				$('.import-select').hide();
+				importFiles(aid, uploadingFiles);
+			});
+
+			$('#import_fileupload').fileupload({
+				acceptFileTypes:  /^text\/(directory|vcard|x-vcard)$/i,
+				add: function(e, data) {
+					var files = data.files;
+					var totalSize=0;
+					if(files) {
+						numfiles += files.length; uploadedfiles = 0;
+						for(var i=0;i<files.length;i++) {
+							if(files[i].size ==0 && files[i].type== '') {
+								OC.dialogs.alert(t('files', 'Unable to upload your file as it is a directory or has 0 bytes'), t('files', 'Upload Error'));
+								return;
+							}
+							totalSize+=files[i].size;
+						}
+					}
+					if(totalSize>$('#max_upload').val()) {
+						OC.dialogs.alert(t('contacts','The file you are trying to upload exceed the maximum size for file uploads on this server.'), t('contacts','Upload too large'));
+						numfiles = uploadedfiles = retries = aid = 0;
+						uploadingFiles = {};
+						return;
+					} else {
+						if($.support.xhrFileUpload) {
+							$.each(files, function(i, file) {
+								var fileName = file.name;
+								console.log('file.name', file.name);
+								var jqXHR =  $('#import_fileupload').fileupload('send', 
+									{
+									files: file,
+									formData: function(form) {
+										var formArray = form.serializeArray();
+										formArray['aid'] = aid;
+										return formArray;
+									}})
+									.success(function(response, textStatus, jqXHR) {
+										if(response.status == 'success') {
+											// import the file
+											uploadedfiles += 1;
+										} else {
+											OC.notify({message:response.data.message});
+										}
+										return false;
+									})
+									.error(function(jqXHR, textStatus, errorThrown) {
+										console.log(textStatus);
+										OC.notify({message:errorThrown + ': ' + textStatus,});
+									});
+								uploadingFiles[fileName] = jqXHR;
+							});
+						} else {
+							data.submit().success(function(data, status) {
+								response = jQuery.parseJSON(data[0].body.innerText);
+								if(response[0] != undefined && response[0].status == 'success') {
+									var file=response[0];
+									delete uploadingFiles[file.name];
+									$('tr').filterAttr('data-file',file.name).data('mime',file.mime);
+									var size = $('tr').filterAttr('data-file',file.name).find('td.filesize').text();
+									if(size==t('files','Pending')){
+										$('tr').filterAttr('data-file',file.name).find('td.filesize').text(file.size);
+									}
+									FileList.loadingDone(file.name);
+								} else {
+									OC.notify({message:response.data.message});
+								}
+							});
+						}
+					}
+				},
+				fail: function(e, data) {
+					console.log('fail');
+					OC.notify({message:data.errorThrown + ': ' + data.textStatus});
+					// TODO: Remove file from upload queue.
+				},
+				progressall: function(e, data) {
+					var progress = (data.loaded/data.total)*50;
+					$progressbar.progressbar('value',progress);
+				},
+				start: function(e, data) {
+					$progressbar.progressbar({value:0});
+					$progressbar.fadeIn();
+					if(data.dataType != 'iframe ') {
+						$('#upload input.stop').show();
+					}
+				},
+				stop: function(e, data) {
+					console.log('stop, data', data);
+					// stop only gets fired once so we collect uploaded items here.
+					$('.import-upload').hide();
+					$('.import-select').show();
+
+					if(data.dataType != 'iframe ') {
+						$('#upload input.stop').hide();
+					}
+				}
+			})
+		});
+		
+		$(document).on('keypress', function(event) {
 			if(event.target.nodeName.toUpperCase() != 'BODY') {
 				return;
 			}
+			var keyCode = Math.max(event.keyCode, event.which);
 			// TODO: This should go in separate method
-			console.log(event.which + ' ' + event.target.nodeName);
+			console.log(event, keyCode + ' ' + event.target.nodeName);
 			/**
 			* To add:
 			* Shift-a: add addressbook
 			* u (85): hide/show leftcontent
 			* f (70): add field
 			*/
-			switch(event.which) {
+			switch(keyCode) {
 				case 13: // Enter?
 					console.log('Enter?');
 					if(!self.currentid && self.currentlistid) {
@@ -1334,7 +1752,13 @@ OC.Contacts = OC.Contacts || {
 
 		});
 
-		$('#content > [title]').tipsy(); // find all with a title attribute and tipsy them
+		 // find all with a title attribute and tipsy them
+		$('.tooltipped.downwards:not(.onfocus)').tipsy({gravity: 'n'});
+		$('.tooltipped.upwards:not(.onfocus)').tipsy({gravity: 's'});
+		$('.tooltipped.rightwards:not(.onfocus)').tipsy({gravity: 'w'});
+		$('.tooltipped.leftwards:not(.onfocus)').tipsy({gravity: 'e'});
+		$('.tooltipped.downwards.onfocus').tipsy({trigger: 'focus', gravity: 'n'});
+		$('.tooltipped.rightwards.onfocus').tipsy({trigger: 'focus', gravity: 'w'});
 	},
 	addGroup: function(cb) {
 		var self = this;
@@ -1351,7 +1775,7 @@ OC.Contacts = OC.Contacts || {
 			buttons: {
 				'Ok':function() {
 					self.Groups.addGroup(
-						$dlg.find('input:text').val(),
+						{name:$dlg.find('input:text').val()},
 						function(response) {
 							if(typeof cb === 'function') {
 								cb(response);
@@ -1384,7 +1808,7 @@ OC.Contacts = OC.Contacts || {
 		});
 	},
 	jumpToContact: function(id) {
-		this.$rightContent.scrollTop(this.Contacts.contactPos(id));
+		this.$rightContent.scrollTop(this.Contacts.contactPos(id)+10);
 	},
 	closeContact: function(id) {
 		if(typeof this.currentid === 'number') {
@@ -1396,7 +1820,9 @@ OC.Contacts = OC.Contacts || {
 			this.tmpcontact.remove();
 			this.$contactList.show();
 		}
+		this.$contactList.removeClass('dim');
 		delete this.currentid;
+		this.showActions(['addcontact']);
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
 	},
 	openContact: function(id) {
@@ -1405,12 +1831,28 @@ OC.Contacts = OC.Contacts || {
 			this.closeContact(this.currentid);
 		}
 		this.currentid = parseInt(id);
+		console.log('Contacts.openContact, Favorite', this.currentid, this.Groups.isFavorite(this.currentid), this.Groups);
 		this.setAllChecked(false);
-		this.$contactList.hide();
+		//this.$contactList.hide();
+		this.$contactList.addClass('dim');
 		this.$toggleAll.hide();
-		var $contactelem = this.Contacts.showContact(this.currentid);
+		this.jumpToContact(this.currentid);
+		var props = {
+			favorite: this.Groups.isFavorite(this.currentid),
+			groups: this.Groups.categories,
+		};
+		var $contactelem = this.Contacts.showContact(this.currentid, props);
+		var self = this;
+		var $contact = $contactelem.find('#contact');
+		var adjustElems = function() {
+			var maxheight = document.documentElement.clientHeight - 200; // - ($contactelem.offset().top+70);
+			console.log('contact maxheight', maxheight);
+			$contactelem.find('ul').first().css({'max-height': maxheight, 'overflow-y': 'auto', 'overflow-x': 'hidden'});
+		};
+		$(window).resize(adjustElems);
+		//$contact.resizable({ minWidth: 400, minHeight: 400, maxHeight: maxheight});
 		this.$rightContent.prepend($contactelem);
-		this.buildGroupSelect();
+		adjustElems();
 	},
 	update: function() {
 		console.log('update');
@@ -1561,9 +2003,14 @@ OC.Contacts = OC.Contacts || {
 			}
 		});
 	},
+	// NOTE: Deprecated
 	addAddressbook:function(data, cb) {
-		$.post(OC.filePath('contacts', 'ajax', 'addressbook/add.php'), { name: data.name, description: data.description },
-			function(jsondata) {
+		$.ajax({
+			type:'POST',
+			async:false,
+			url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'), 
+			data:{ name: data.name, description: data.description },
+			success:function(jsondata) {
 				if(jsondata.status == 'success') {
 					if(typeof cb === 'function') {
 						cb({
@@ -1573,11 +2020,12 @@ OC.Contacts = OC.Contacts || {
 					}
 				} else {
 					if(typeof cb === 'function') {
-						cb({status:'error'});
+						cb({status:'error', message:jsondata.data.message});
 					}
 				}
-		});
+		}});
 	},
+	// NOTE: Deprecated
 	selectAddressbook:function(cb) {
 		var self = this;
 		var jqxhr = $.get(OC.filePath('contacts', 'templates', 'selectaddressbook.html'), function(data) {

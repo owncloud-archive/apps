@@ -59,6 +59,22 @@ class TemplateResponse extends Response {
 
 
 	/**
+	 * @return the params
+	 */
+	public function getParams(){
+		return $this->params;
+	}
+
+
+	/**
+	 * @return the name of the used template
+	 */
+	public function getTemplateName(){
+		return $this->templateName;
+	}
+
+
+	/**
 	 * @brief sets the template page
 	 * @param string $renderAs: admin, user or blank: admin renders the page on
 	 *                          the admin settings page, user renders a normal

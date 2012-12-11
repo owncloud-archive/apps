@@ -29,7 +29,12 @@ if(is_null($aid)) {
 	$active_addressbooks = array(OCA\Contacts\Addressbook::find($aid));
 }
 
-
+$lastModified = OCA\Contacts\App::lastModified();
+if(!is_null($lastModified)) {
+	OCP\Response::enableCaching();
+	OCP\Response::setLastModifiedHeader($lastModified);
+	OCP\Response::setETagHeader(md5($lastModified->format('U')));
+}
 session_write_close();
 
 // create the addressbook associate array

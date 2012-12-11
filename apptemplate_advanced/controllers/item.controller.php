@@ -43,6 +43,19 @@ class ItemController extends Controller {
 	 * @IsAdminExcemption
 	 * @IsSubAdminExcemption
 	 *
+	 * Redirects to the index page
+	 */
+	public function redirectToIndex($urlParams=array()){
+		$url = $this->api->linkToRoute('apptemplate_advanced_index');
+		return new RedirectResponse($url);
+	}
+
+
+	/**
+	 * @CSRFExcemption
+	 * @IsAdminExcemption
+	 * @IsSubAdminExcemption
+	 *
 	 * @brief renders the index page
 	 * @param array $urlParams: an array with the values, which were matched in 
 	 *                          the routes file
@@ -69,7 +82,7 @@ class ItemController extends Controller {
 			$item->setUser($this->api->getUserId());
 			$item->setPath('/home/path');
 			$item->setName('john');
-			$item = $this->itemMapper->save($item);
+			$this->itemMapper->save($item);
 		}
 
 		$templateName = 'main';

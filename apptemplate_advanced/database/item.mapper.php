@@ -102,7 +102,6 @@ class ItemMapper extends Mapper {
 		$this->execute($sql, $params);
 
 		$item->setId($this->api->getInsertId());
-		return $item;
 	}
 
 
