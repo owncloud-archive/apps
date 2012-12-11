@@ -1363,7 +1363,11 @@ OC.Contacts = OC.Contacts || {
 						});
 					});
 				});
-				OC.Share.loadIcons('addressbook');
+				if(typeof OC.Share !== 'undefined') {
+					OC.Share.loadIcons('addressbook');
+				} else {
+					$list.find('a.action.share').css('display', 'none');
+				}
 			} else if($(this).data('id') === 'import') {
 				console.log('import');
 				$('.import-upload').show();
