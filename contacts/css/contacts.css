@@ -35,6 +35,27 @@
 #content input:-ms-input-placeholder { color: #aaa; }
 #content input:placeholder { color: #aaa; }
 
+#content input:not([type="checkbox"]), #content select, #content textarea { 
+	background-color: #fefefe; border: 1px solid #fff !important; 
+	-moz-appearance:none  !important; -webkit-appearance: none !important; 
+	-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; 
+	-moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; 
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
+	float: left;
+}
+#content fieldset, #content div, #content span, #content section {
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
+}
+#content fieldset.editor { 
+	border: 1px solid #1d2d44; 
+	-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; outline:none; 
+}
+#content input:invalid, #content input:hover:not([type="checkbox"]), #content input:active:not([type="checkbox"]), #content input:focus:not([type="checkbox"]), #content input.active, #content textarea:focus, #content textarea:hover { 
+	border: 1px solid silver !important; 
+	-moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; 
+	outline:none; float: left;
+}
+
 /* Left content */
 
 #leftcontent { top: 3.5em !important; padding: 0; margin: 0; }
@@ -100,27 +121,6 @@
 #firstrun p { font-size:1.2em; text-align:center; }
 #firstrun #selections { font-size:0.8em; margin: 2em auto auto auto; clear: both; }
 
-#content input:not([type="checkbox"]), #content select, #content textarea { 
-	background-color: #fefefe; border: 1px solid #fff !important; 
-	-moz-appearance:none  !important; -webkit-appearance: none !important; 
-	-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; 
-	-moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; 
-	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
-	float: left;
-}
-#content fieldset {
-	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
-}
-#content fieldset.editor { 
-	border: 1px solid #1d2d44; 
-	-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; outline:none; 
-}
-#content input:invalid, #content input:hover:not([type="checkbox"]), #content input:active:not([type="checkbox"]), #content input:focus:not([type="checkbox"]), #content input.active, #content textarea:focus, #content textarea:hover { 
-	border: 1px solid silver !important; 
-	-moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; 
-	outline:none; float: left;
-}
-
 #contact { margin: 1em; }
 #contact textarea { min-height: 5em; min-width: 30em; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
 
@@ -165,8 +165,8 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 
 /* Properties */
 
-.singleproperties { display: inline-block; float: left; width: 320px;}
-.singleproperties .fullname { font-weight:bold; font-size:1.5em; width: 255px; }
+.singleproperties { display: inline-block; float: left; width: 280px;}
+.singleproperties .fullname { font-weight:bold; font-size:1.5em; width: 250px; margin: 5px 0; }
 .singleproperties .n.editor { width: 270px; padding: 3px; }
 .singleproperties .n.editor input { width: 95%; }
 .singleproperties .propertycontainer input.value { font-weight: bold; }
@@ -322,7 +322,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; text-a
 	position: relative;
 	float: left; 
 	width: 150px; 
-	margin: 10px;
+	margin: 5px;
 }
 
 #photowrapper .favorite {
@@ -369,6 +369,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; text-a
 
 /* Contact layout */
 
+#contact > ul > li { white-space: nowrap; }
 #contact > ul.propertylist {
 	font-size: 10px;
 	/*display: table;
@@ -426,7 +427,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; text-a
 	position: fixed !important; 
 	z-index: 200; 
 	top: 8em; left: 35em;
-	width: 480px;
+	width: 500px;
 }
 #contact .arrow { 
 	border-bottom: 20px solid white; 
