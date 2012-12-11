@@ -935,10 +935,23 @@ OC.Contacts = OC.Contacts || {
 			self.Groups.setAsFavorite(data.id, data.state);
 		});
 
+		$(document).bind('request.contact.export', function(e, data) {
+			var id = parseInt(data.id);
+			console.log('contact', data.id, 'request.contact.export');
+			document.location.href = OC.linkTo('contacts', 'export.php') + '?contactid=' + self.currentid;
+		});
+
 		$(document).bind('request.contact.close', function(e, data) {
 			var id = parseInt(data.id);
 			console.log('contact', data.id, 'request.contact.close');
 			self.closeContact(id);
+		});
+
+		$(document).bind('request.contact.delete', function(e, data) {
+			var id = parseInt(data.id);
+			console.log('contact', data.id, 'request.contact.delete');
+			self.Contacts.delayedDelete(id);
+			self.$contactList.removeClass('dim');
 		});
 
 		$(document).bind('request.select.contactphoto.fromlocal', function(e, result) {

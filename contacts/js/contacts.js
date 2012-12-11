@@ -609,14 +609,26 @@ OC.Contacts = OC.Contacts || {};
 			self.deleteProperty({obj:event.target});
 		});
 
-		this.$fullelem.on('click keydown', '.close', function(event) {
+		var $footer = this.$fullelem.find('footer');
+		
+		$footer.on('click keydown', 'button', function(event) {
 			$('.tipsy').remove();
 			if(wrongKey(event)) {
 				return;
 			}
-			$(document).trigger('request.contact.close', {
-				id: self.id,
-			});
+			if($(this).is('.close')) {
+				$(document).trigger('request.contact.close', {
+					id: self.id,
+				});
+			} else if($(this).is('.export')) {
+				$(document).trigger('request.contact.export', {
+					id: self.id,
+				});
+			} else if($(this).is('.deletecontact')) {
+				$(document).trigger('request.contact.delete', {
+					id: self.id,
+				});
+			}
 			return false;
 		});
 		this.$fullelem.on('keypress', '.value,.parameter', function(event) {
