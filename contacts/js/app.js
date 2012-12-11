@@ -1672,7 +1672,7 @@ OC.Contacts = OC.Contacts || {
 		});
 		
 		$(document).on('keypress', function(event) {
-			if(event.target.nodeName.toUpperCase() != 'BODY') {
+			if(!$(event.target).is('body')) {
 				return;
 			}
 			var keyCode = Math.max(event.keyCode, event.which);
