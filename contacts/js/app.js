@@ -851,7 +851,7 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('status.contact.added', function(e, data) {
 			self.currentid = parseInt(data.id);
 			self.buildGroupSelect();
-			self.showActions(['back', 'download', 'delete', 'groups', 'favorite']);
+			self.hideActions();
 		});
 
 		$(document).bind('status.contact.error', function(e, data) {
@@ -860,11 +860,11 @@ OC.Contacts = OC.Contacts || {
 
 		$(document).bind('status.contact.enabled', function(e, enabled) {
 			console.log('status.contact.enabled', enabled)
-			if(enabled) {
+			/*if(enabled) {
 				self.showActions(['back', 'download', 'delete', 'groups']);
 			} else {
 				self.showActions(['back']);
-			}
+			}*/
 		});
 
 		$(document).bind('status.contacts.loaded', function(e, result) {
@@ -952,6 +952,7 @@ OC.Contacts = OC.Contacts || {
 			console.log('contact', data.id, 'request.contact.delete');
 			self.Contacts.delayedDelete(id);
 			self.$contactList.removeClass('dim');
+			self.showActions(['add']);
 		});
 
 		$(document).bind('request.select.contactphoto.fromlocal', function(e, result) {
@@ -1105,7 +1106,7 @@ OC.Contacts = OC.Contacts || {
 				self.buildGroupSelect();
 			}
 			if(isChecked) {
-				self.showActions(['addcontact', 'groups', 'delete']);
+				self.showActions(['addcontact', 'groups', 'delete', 'favorite']);
 			} else {
 				self.showActions(['addcontact']);
 			}
@@ -1116,7 +1117,7 @@ OC.Contacts = OC.Contacts || {
 				if(self.$groups.find('option').length === 1) {
 					self.buildGroupSelect();
 				}
-				self.showActions(['addcontact', 'groups', 'delete']);
+				self.showActions(['addcontact', 'groups', 'delete', 'favorite']);
 			} else if(self.Contacts.getSelectedContacts().length === 0) {
 				self.showActions(['addcontact']);
 			}
@@ -1281,7 +1282,7 @@ OC.Contacts = OC.Contacts || {
 			};
 			self.tmpcontact = self.Contacts.addContact();
 			self.$rightContent.prepend(self.tmpcontact);
-			self.showActions(['back']);
+			self.hideActions();
 		});
 
 		this.$settings.find('h3').on('click keydown', function(event) {
