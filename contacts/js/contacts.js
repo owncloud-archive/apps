@@ -552,7 +552,7 @@ OC.Contacts = OC.Contacts || {};
 				id: this.id,
 				favorite:props.favorite ? 'active' : '',
 				name: this.getPreferredValue('FN', ''),
-				n0: n[0], n1: n[1], n2: n[2], n3: n[3], n4: n[4],
+				n0: n[0]||'', n1: n[1]||'', n2: n[2]||'', n3: n[3]||'', n4: n[4]||'',
 				nickname: this.getPreferredValue('NICKNAME', ''),
 				title: this.getPreferredValue('TITLE', ''),
 				org: this.getPreferredValue('ORG', []).clean('').join(', '), // TODO Add parts if more than one.
