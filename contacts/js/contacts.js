@@ -46,20 +46,21 @@ OC.Contacts = OC.Contacts || {};
 			case 'TITLE':
 			case 'ORG':
 			case 'BDAY':
+			case 'NOTE':
 				this.$fullelem.find('[data-element="' + name.toLowerCase() + '"]').addClass('new').show();
 				$option.prop('disabled', true);
 				break;
 			case 'TEL':
 			case 'URL':
 			case 'EMAIL':
-				$elem = this.renderStandardProperty(name.toLowerCase());
+				var $elem = this.renderStandardProperty(name.toLowerCase());
 				var $list = this.$fullelem.find('ul.' + name.toLowerCase());
 				$list.show();
 				$list.append($elem);
 				$elem.find('input.value').addClass('new');
 				break;
 			case 'ADR':
-				$elem = this.renderAddressProperty();
+				var $elem = this.renderAddressProperty();
 				var $list = this.$fullelem.find('ul.' + name.toLowerCase());
 				$list.show();
 				$list.append($elem);
@@ -279,6 +280,7 @@ OC.Contacts = OC.Contacts || {};
 						case 'BDAY':
 						case 'ORG':
 						case 'TITLE':
+						case 'NOTE':
 							self.data[element][0] = {
 								name: element,
 								value: value,
@@ -448,8 +450,13 @@ OC.Contacts = OC.Contacts || {};
 		if($(obj).hasClass('propertycontainer')) {
 			q += '&value=' + encodeURIComponent($(obj).val());
 		} else {
-			q += '&' + this.propertyContainerFor(obj)
-				.find('input.value,select.value,textarea.value,.parameter').serialize();
+			var $elements = this.propertyContainerFor(obj)
+				.find('input.value,select.value,textarea.value,.parameter');
+			if($elements.length > 1) {
+				q += '&' + $elements.serialize();
+			} else {
+				q += '&value=' + encodeURIComponent($elements.val());
+			}
 		}
 		return q;
 	}
@@ -556,8 +563,9 @@ OC.Contacts = OC.Contacts || {};
 						$.datepicker.parseDate('yy-mm-dd',
 							this.getPreferredValue('BDAY', '').substring(0, 10)))
 					: '',
+				note: this.getPreferredValue('NOTE', ''),
 				}
-			: {id: '', favorite: '', name: '', nickname: '', title: '', org: '', bday: '', n0: '', n1: '', n2: '', n3: '', n4: ''};
+			: {id:'', favorite:'', name:'', nickname:'', title:'', org:'', bday:'', note:'', n0:'', n1:'', n2:'', n3:'', n4:''};
 		this.$fullelem = this.$fullTemplate.octemplate(values).data('contactobject', this);
 		this.$fullelem.find('.tooltipped.rightwards.onfocus').tipsy({trigger: 'focus', gravity: 'w'});
 		this.$fullelem.on('submit', function() {

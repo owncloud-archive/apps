@@ -257,7 +257,7 @@
 		</li>
 		<li>
 			<section class="note propertycontainer" data-element="note">
-				<textarea class="value" placeholder="<?php echo $l->t('Notes go here...'); ?>"></textarea>
+				<textarea class="value" placeholder="<?php echo $l->t('Notes go here...'); ?>">{note}</textarea>
 			</section>
 		</li>
 	</ul>

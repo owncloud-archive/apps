@@ -399,6 +399,8 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; text-a
 .adr.editor input.value.zip { width: 5em; }
 .adr.editor input.value.city { width: 10em; }
 
+.note { margin-left: 120px; }
+
 #rightcontent footer { padding: 1em; width: 100%; -moz-box-sizing: border-box; box-sizing: border-box; clear: both; }
 #rightcontent footer > { display: inline-block; }
 /* contact list */
