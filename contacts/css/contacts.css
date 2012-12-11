@@ -125,7 +125,7 @@
 #contact textarea { min-height: 5em; min-width: 30em; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
 
 #contact input[type="checkbox"] { margin-top: 10px; vertical-align: bottom; float: left; }
-dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: normal; }
+dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }
 .form dt { display: table-cell; clear: left; float: left; width: 7em; margin: 0; padding: 0.8em 0.5em 0 0; text-align:right; text-overflow:ellipsis; o-text-overflow: ellipsis; vertical-align: text-bottom; color: #bbb;/* white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap;*/ }
 .form dd { display: table-cell; clear: right; float: left; margin: 0; padding: 0; white-space: nowrap; vertical-align: text-bottom; }
 .action { display: inline-block; width: 22px; height: 22px; padding: 0; margin: 0; cursor: pointer; }
@@ -145,6 +145,7 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 .checked.disabled { background:url('%appswebroot%/contacts/img/checkmark-gray.png') no-repeat center; cursor: default; }
 .transparent{ opacity: 0.6; }
 .float { float: left; display: inline-block; width: auto; }
+.float.right { float: right; }
 .break { clear: both; }
 .loading { background: url('%webroot%/core/img/loading.gif') no-repeat center !important; /*cursor: progress; */ cursor: wait; }
 .wait { opacity: cursor: wait; }
@@ -165,7 +166,7 @@ dl.form { display: inline-block; width: auto; margin: 0; padding: 0; cursor: nor
 
 /* Properties */
 
-.singleproperties { display: inline-block; float: left; width: 280px;}
+.singleproperties { display: inline-block; float: left; width: 270px; }
 .singleproperties .fullname { font-weight:bold; font-size:1.5em; width: 250px; margin: 5px 0; }
 .singleproperties .n.editor { width: 270px; padding: 3px; }
 .singleproperties .n.editor input { width: 95%; }
@@ -321,7 +322,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; text-a
 	display: inline-block; 
 	position: relative;
 	float: left; 
-	width: 150px; 
+	width: 170px; height: 200px;
 	margin: 5px;
 }
 
@@ -329,8 +330,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; text-a
 	display: inline-block;
 	float: right;
 	position: absolute;
-	right: -8px;
-	top: -8px;
+	right: -8px; top: -8px;
 	width: 25px; height: 25px;
 }
 #photowrapper.wait { opacity: 0.6; filter:alpha(opacity=0.6); z-index:1000; background: url('%webroot%/core/img/loading.gif') no-repeat center; cursor: wait; }
@@ -427,7 +427,7 @@ input.propertytype { float: left; font-size: .8em; width: 8em !important; text-a
 	position: fixed !important; 
 	z-index: 200; 
 	top: 8em; left: 35em;
-	width: 500px;
+	width: 490px;
 }
 #contact .arrow { 
 	border-bottom: 20px solid white; 
