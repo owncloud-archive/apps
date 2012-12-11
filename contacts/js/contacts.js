@@ -895,12 +895,6 @@ OC.Contacts = OC.Contacts || {};
 						$elem.find('.value.country').val(ui.item.country);
 					}
 				},
-				/*open: function() {
-					$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
-				},
-				close: function() {
-					$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
-				}*/
 			});
 		$elem.find('.value.country')
 			.autocomplete({
@@ -928,12 +922,6 @@ OC.Contacts = OC.Contacts || {};
 					});
 				},
 				minLength: 2,
-				/*open: function() {
-					$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
-				},
-				close: function() {
-					$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
-				}*/
 			});
 		return $elem;
 	}
