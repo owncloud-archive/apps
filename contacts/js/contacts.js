@@ -64,7 +64,7 @@ OC.Contacts = OC.Contacts || {};
 				var $list = this.$fullelem.find('ul.' + name.toLowerCase());
 				$list.show();
 				$list.append($elem);
-				$elem.find('.adr.display').trigger('click');
+				$elem.find('.display').trigger('click');
 				$elem.find('input.value').addClass('new');
 				break;
 			case 'IMPP':
@@ -865,6 +865,76 @@ OC.Contacts = OC.Contacts || {};
 				$('body').bind('click', bodyListener);
 			});
 		});
+		$elem.find('.value.city')
+			.autocomplete({
+				source: function( request, response ) {
+					$.ajax({
+						url: "http://ws.geonames.org/searchJSON",
+						dataType: "jsonp",
+						data: {
+							featureClass: "P",
+							style: "full",
+							maxRows: 12,
+							lang: lang,
+							name_startsWith: request.term
+						},
+						success: function( data ) {
+							response( $.map( data.geonames, function( item ) {
+								return {
+									label: item.name + (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
+									value: item.name,
+									country: item.countryName
+								}
+							}));
+						}
+					});
+				},
+				minLength: 2,
+				select: function( event, ui ) {
+					if(ui.item && $elem.find('.value.country').val().trim().length == 0) {
+						$elem.find('.value.country').val(ui.item.country);
+					}
+				},
+				/*open: function() {
+					$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+				},
+				close: function() {
+					$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+				}*/
+			});
+		$elem.find('.value.country')
+			.autocomplete({
+				source: function( request, response ) {
+					$.ajax({
+						url: "http://ws.geonames.org/searchJSON",
+						dataType: "jsonp",
+						data: {
+							/*featureClass: "A",*/
+							featureCode: "PCLI",
+							/*countryBias: "true",*/
+							/*style: "full",*/
+							lang: lang,
+							maxRows: 12,
+							name_startsWith: request.term
+						},
+						success: function( data ) {
+							response( $.map( data.geonames, function( item ) {
+								return {
+									label: item.name,
+									value: item.name
+								}
+							}));
+						}
+					});
+				},
+				minLength: 2,
+				/*open: function() {
+					$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+				},
+				close: function() {
+					$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+				}*/
+			});
 		return $elem;
 	}
 
