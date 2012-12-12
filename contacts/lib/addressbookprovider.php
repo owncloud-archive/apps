@@ -62,7 +62,8 @@ class AddressbookProvider implements \OCP\IAddressBook {
 	* @return string defining the technical unique key
 	*/
 	public function getKey() {
-		return $this->getAddressbook()['uri'];
+		$book = $this->getAddressbook();
+		return $book['uri'];
 	}
 
 	/**
@@ -70,14 +71,16 @@ class AddressbookProvider implements \OCP\IAddressBook {
 	* @return mixed
 	*/
 	public function getDisplayName() {
-		return $this->getAddressbook()['displayname'];
+		$book = $this->getAddressbook();
+		return $book['displayname'];
 	}
 
 	/**
 	* @return mixed
 	*/
 	public function getPermissions() {
-		return $this->getAddressbook()['permissions'];
+		$book = $this->getAddressbook();
+		return $book['permissions'];
 	}
 
 	private function getProperty(&$results, $row) {
