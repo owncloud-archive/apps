@@ -141,7 +141,7 @@ class Updater {
 
 	public static function rollBack(){
 		foreach (self::$processed as $item){
-			\OC_Helper::copyrr($item['src'], $item['dst']);
+			Helper::copyr($item['src'], $item['dst'], false);
 		}
 	}
 
