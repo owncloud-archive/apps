@@ -67,14 +67,26 @@ class OC_Provisioning_API_Users {
 		$userid = $parameters['userid'];
 		$return = array();
 		$return['email'] = OC_Preferences::getValue($userid, 'settings', 'email', '');
-		$default = OC_Appconfig::getValue('files', 'default_quota', 0);
-		$return['quota'] = OC_Preferences::getValue($userid, 'files', 'quota', $default);
+		// Calcuate quota values
+		$user_dir = '/'.$user.'/files';
+		OC_Filesystem::init($user_dir);
+		$rootInfo=OC_FileCache::get('');
+		$sharedInfo=OC_FileCache::get('/Shared');
+		$used=$rootInfo['size']-$sharedInfo['size'];
+		$free=OC_Filesystem::free_space();
+		$total=$free+$used;
+		if($total==0) $total=1;  // prevent division by zero
+		$relative=round(($used/$total)*10000)/100;
+		$return['quota']=$total;
+		$return['freespace']=$free;
+		$return['usedspace']=$used;
+		$return['relativespaceused']=$relative;
 		$return['enabled'] = OC_Preferences::getValue($userid, 'core', 'enabled', 'true');
 		return new OC_OCS_Result($return);
 	}
 
 	public static function editUser($parameters){
-
+		// TODO
 	}
 
 	public static function deleteUser($parameters){
