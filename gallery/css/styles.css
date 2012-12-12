@@ -5,9 +5,10 @@
 
 #gallery > a.album {
     width: 200px;
-    background-color: #ddd;
+    background-color: #e8e8e8;
     border-radius: 10px;
-    box-shadow: 0 1px 0 white, inset 0 1px 0 #777;
+    box-shadow: 0 1px 0 white,inset 0 1px 1px #bbb;
+    border:1px solid #eee;
 }
 
 #gallery > a {
