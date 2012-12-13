@@ -2,10 +2,10 @@
 function display_each_ebook($directory,$name) {
 	$check_thumb = check_thumb_exists(urldecode($directory.$name));
 	echo '<td id = "thumbnail_container" width = "14%">
-			<img rel ="images" id = "'.$directory.$name.'" src = "'.\OCP\Util::linkTo('reader', 'ajax/thumbnail.php').'&filepath='.$directory.rtrim($name,'pdf').'png'.'">	
+			<img rel ="images" id = "'.$directory.$name.'" src = "'.\OCP\Util::linkTo('reader', 'ajax/thumbnail.php').'&filepath='.$directory.rtrim($name,'pdf').'png'.'" value = "'.$check_thumb.'">	
 		</td>';
 	echo '<td class = "filename svg" width = "86%">
-			<a class="name" href="http://localhost'.\OCP\Util::linkTo('files', 'download.php').'?file='.$directory.$name.'" title="'.urldecode($name).'" dir ="'.$directory.$name.'" value  = "'.$check_thumb.'">
+			<a class="name" href="http://localhost'.\OCP\Util::linkTo('files', 'download.php').'?file='.$directory.$name.'" title="'.urldecode($name).'">
 				<span class = "nametext">'.
 					htmlspecialchars(urldecode($name)).
 				'</span>
@@ -35,33 +35,18 @@ function display_sub_dirs($current_dir,$sub_dirs) {
 		echo '<tr id = "row" data-file="'.$r[0].'" data-type="dir">
 				<td id = "thumbnail_container" width = "14%"><div id = "thumbs">';
 					$is_dir = check_dir_exists($current_dir,$r[0]);
-					if($is_dir == false)
-						echo '<img src= "'.OCP\image_path('reader','download.jpg').'" style = "width:100px; height:100px;">';
-					else {
-						$margin = 10;
-						$img_id = 1;
-						foreach ($r[1] as $thumbs) {
-							$thumb_exists = false;
-							$thumb_exists = check_thumb_exists($current_dir.$r[0].'/'.$thumbs);
-							if ($thumb_exists != 'true') {
-								$img_path = "/owncloud/apps/reader/img/images.jpg";
-								echo '<div style =';
-								echo 'background-image:url("';
-								echo OCP\image_path('reader','images.jpg');
-								echo '");width:100px;height:100px;';
-								echo "></div>";
-							}
-							else if($thumb_exists == 'true') {
-								$img_path = \OCP\Util::linkTo('reader', 'ajax/thumbnail.php').'&filepath='.urlencode($current_dir.$r[0].'/'.rtrim($thumbs,'pdf').'png');
-								$counter = 3;
-							}
-							if ($thumb_exists != 'false') {
-								for ($i = 1; $i <= $counter; $i++) {
-									echo '<img class = "thumb" id = "img'.$img_id.'" src = "'.$img_path.'" style = "position:absolute;top:-55px;left:10px;margin-left:'.$margin.'px; z-index:'.(50-$margin).';"/>';
-									$margin = $margin + 5;
-									$img_id = $img_id + 1;
-								}
-							}
+					$margin = 10;
+					$img_id = 1;
+					foreach ($r[1] as $thumbs) {
+						$thumb_exists = false;
+						$thumb_exists = check_thumb_exists($current_dir.$r[0].'/'.$thumbs);
+			
+						$img_path = \OCP\Util::linkTo('reader', 'ajax/thumbnail.php').'&filepath='.urlencode($current_dir.$r[0].'/'.rtrim($thumbs,'pdf').'png');
+						$counter = 3;						
+						for ($i = 1; $i <= $counter; $i++) {
+							echo '<img id = "'.$current_dir.$r[0].'/'.$thumbs.'" src = "'.$img_path.'" value = "'.$thumb_exists.'" style = "position:absolute;top:-55px;left:10px;margin-left:'.$margin.'px; z-index:'.(50-$margin).';"/>';
+							$margin = $margin + 5;
+							$img_id = $img_id + 1;
 						}
 					}
 				

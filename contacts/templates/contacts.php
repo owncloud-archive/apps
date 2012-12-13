@@ -1,5 +1,4 @@
 <div id='notification'></div>
-<div id="appsettings" class="popup topright hidden"></div>
 <script type='text/javascript'>
 	var is_indexed = <?php echo $_['is_indexed'] == 'yes' ? 'true' : 'false'; ?>;
 	var totalurl = '<?php echo OCP\Util::linkToRemote('carddav'); ?>addressbooks';
@@ -60,12 +59,12 @@
 	<input type="checkbox" id="toggle_all" title="<?php echo $l->t('(De-)select all'); ?>" />
 	<div class="actions">
 		<button class="addcontact"><?php echo $l->t('New Contact'); ?></button>
-		<button class="download control" title="<?php echo $l->t('Download Contact'); ?>"></button>
+		<button class="download action text"><?php echo $l->t('Download Contact(s)'); ?></button>
 		<select class="groups control" name="groups">
 			<option value="-1" disabled="disabled" selected="selected"><?php echo $l->t('Groups'); ?></option>
 		</select>
-		<button class="favorite inactive control" title="<?php echo $l->t('Favorite'); ?>"></button>
-		<button class="delete control" title="<?php echo $l->t('Delete Contact'); ?>"></button>
+		<button class="favorite action inactive control" title="<?php echo $l->t('Favorite'); ?>"></button>
+		<a class="delete action" title="<?php echo $l->t('Delete Contact'); ?>"></a>
 	</div>
 </div>
 <div id="rightcontent" class="loading">
@@ -148,7 +147,7 @@
 		</td>
 		<td class="email">
 			<a href="mailto:{email}">{email}</a>
-			<a class="mailto hidden" title="<?php echo $l->t('Compose mail'); ?>"></a>
+			<a class="svg mailto hidden" title="<?php echo $l->t('Compose mail'); ?>"></a>
 		</td>
 		<td class="tel">{tel}</td>
 		<td class="adr">{adr}</td>
@@ -172,10 +171,10 @@
 		<li>
 			<div id="photowrapper" class="propertycontainer" data-element="photo">
 				<ul id="phototools" class="transparent hidden">
-					<li><a class="svg delete" title="<?php echo $l->t('Delete current photo'); ?>"></a></li>
-					<li><a class="svg edit" title="<?php echo $l->t('Edit current photo'); ?>"></a></li>
-					<li><a class="svg upload" title="<?php echo $l->t('Upload new photo'); ?>"></a></li>
-					<li><a class="svg cloud" title="<?php echo $l->t('Select photo from ownCloud'); ?>"></a></li>
+					<li><a class="action delete" title="<?php echo $l->t('Delete current photo'); ?>"></a></li>
+					<li><a class="action edit" title="<?php echo $l->t('Edit current photo'); ?>"></a></li>
+					<li><a class="action upload" title="<?php echo $l->t('Upload new photo'); ?>"></a></li>
+					<li><a class="action cloud" title="<?php echo $l->t('Select photo from ownCloud'); ?>"></a></li>
 				</ul>
 				<a class="favorite action {favorite}"></a>
 			</div>
@@ -262,9 +261,10 @@
 		</li>
 	</ul>
 	<footer>
-		<button class="close float tooltipped downwards" title="<?php echo $l->t('Close'); ?>"><?php echo $l->t('Close'); ?></button>
-		<button class="export float tooltipped downwards" title="<?php echo $l->t('Export as VCF'); ?>"><?php echo $l->t('Download'); ?></button>
-		<select id="addproperty">
+		<button class="cancel action text tooltipped downwards" title="<?php echo $l->t('Cancel'); ?>"><?php echo $l->t('Cancel'); ?></button>
+		<button class="close text tooltipped downwards" title="<?php echo $l->t('Close'); ?>"><?php echo $l->t('Close'); ?></button>
+		<button class="export action text tooltipped downwards" title="<?php echo $l->t('Export as VCF'); ?>"><?php echo $l->t('Download'); ?></button>
+		<select class="add text button" id="addproperty">
 			<option value=""><?php echo $l->t('Add'); ?></option>
 			<option value="ORG"><?php echo $l->t('Organization'); ?></option>
 			<option value="NICKNAME"><?php echo $l->t('Nickname'); ?></option>
@@ -277,7 +277,7 @@
 			<option value="URL"><?php echo $l->t('Web site'); ?></option>
 			<option value="CATEGORIES"><?php echo $l->t('Groups'); ?></option>
 		</select>
-		<button class="deletecontact float right tooltipped downwards" title="<?php echo $l->t('Delete contact'); ?>"><?php echo $l->t('Delete'); ?></button>
+		<button class="delete action text float right tooltipped downwards" title="<?php echo $l->t('Delete contact'); ?>"><?php echo $l->t('Delete'); ?></button>
 	</footer>
 	</section>
 </form>
@@ -382,12 +382,12 @@
 					<?php echo OCP\html_select_options($_['impp_types'], array()) ?>
 				</select>
 				<input type="checkbox" class="parameter impp tooltipped downwards" name="parameters[TYPE][]" value="PREF" title="<?php echo $l->t('Preferred'); ?>" />
+			</span>
 				<div class="select_wrapper">
-				<select class="rtl parameter label impp" data-parameter="X-SERVICE-TYPE" name="parameters[X-SERVICE-TYPE]">
+				<select class="ltr parameter label impp" data-parameter="X-SERVICE-TYPE" name="parameters[X-SERVICE-TYPE]">
 					<?php echo OCP\html_select_options($_['im_protocols'], array()) ?>
 				</select>
 				</div>
-			</span>
 			<input type="text" class="nonempty value" name="value" value="{value}"
 					placeholder="<?php echo $l->t('Instant Messenger'); ?>" required />
 			<span class="listactions">

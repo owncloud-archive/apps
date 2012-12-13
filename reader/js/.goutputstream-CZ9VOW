@@ -69,13 +69,12 @@ function getAction(mime,type) {
 
 function create_thumbnails() {
 	PDFJS.disableWorker = true;
-		$('td#thumbnail_container > img').each(function() {
+		$('td#thumbnail_container img').each(function() {
 			// Get url and title of each pdf file from image tags.
 			var title = $(this).parent().parent().attr('data-file');
 			var location = $(this).attr('id');
 			var url = OC.linkTo('files', 'download.php')+'?file=' + location;
 			var thumbnail_exists = $(this).attr('value');
-			alert(url);
 			if (thumbnail_exists == "false") {
 			if (url.indexOf('pdf') != -1) {
 				render_thumbnail(url,location,title);
