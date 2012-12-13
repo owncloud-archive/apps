@@ -754,6 +754,8 @@ OC.Contacts = OC.Contacts || {
 		this.showActions(false);
 	},
 	showActions:function(act) {
+		console.log('showActions', act);
+		//console.trace();
 		this.$headeractions.children().hide();
 		if(act && act.length > 0) {
 			this.$headeractions.children('.'+act.join(',.')).show();
@@ -1117,12 +1119,14 @@ OC.Contacts = OC.Contacts || {
 				if(self.$groups.find('option').length === 1) {
 					self.buildGroupSelect();
 				}
-				self.showActions(['addcontact', 'groups', 'delete', 'favorite']);
-			} else if(self.Contacts.getSelectedContacts().length === 0) {
+				self.showActions(['addcontact', 'download', 'groups', 'delete', 'favorite']);
+			} else if(self.contacts.getSelectedContacts().length === 0) {
 				self.showActions(['addcontact']);
 			}
 		});
 
+		// Add to/remove from group multiple contacts.
+		// FIXME: Refactor this to be usable for favoriting also.
 		this.$groups.on('change', function() {
 			var $opt = $(this).find('option:selected');
 			var action = $opt.parent().data('action');
