@@ -3,7 +3,8 @@
 #content li { cursor: default; }
 #content input[type=checkbox] { 
 	height: 14px; width: 14px; 
-	border: 1px solid #fff; 
+	border: 0px solid #fff; 
+	background-color: white;
 	-moz-appearance:none; -webkit-appearance: none; 
 	-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; 
 	-moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; 
@@ -17,8 +18,8 @@
   content: url('%appswebroot%/contacts/img/checkmark.png');
   display: block;
   position: relative;
-  top: -8px;
-  left: -6px;
+  top: -2px;
+  left: -1px;
 }
 #content input[type=radio]:checked::after {
   content: url('%appswebroot%/contacts/img/checkmark.png');
@@ -35,7 +36,7 @@
 #content input:-ms-input-placeholder { color: #aaa; }
 #content input:placeholder { color: #aaa; }
 
-#content input:not([type="checkbox"]), #content button, #content select, #content textarea { 
+#content input:not([type="checkbox"]), #content select:not(.button), #content textarea { 
 	background-color: #fefefe; border: 1px solid #fff !important; 
 	-moz-appearance:none  !important; -webkit-appearance: none !important; 
 	-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; 
@@ -133,31 +134,57 @@ dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }
 /* override the default margin on share dropdown */
 #dropdown { margin: 1.5em 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 100%; }
 
-.action, .icon { 
+.action, .icon {
 	display: inline-block; 
-	width: 16px; height: 16px; 
-	padding: 0; margin: 0; 
 	cursor: pointer; 
-}
-.no-svg .action, .no-svg .icon, .no-svg .svg { 
-	background-position: center;
 	background-repeat: no-repeat;
 }
-.svg .action, .svg .icon,  .svg .svg{ 
+.action:not(.text), .icon:not(.text) { 
+	width: 16px; height: 16px; 
+	padding: 0; margin: 0; 
+	background-position: center;
+}
+
+.action.text, .icon.text { 
+	background-position: left; 
+	text-indent: 18px;
+}
+
+/* TODO: Use @import url('%appswebroot%/contacts/css/[no-]svg.css); instead. */
+
+.no-svg .add { background-image:url('%webroot%/core/img/actions/add.png'); }
+.no-svg .delete { background-image:url('%webroot%/core/img/actions/delete.png'); }
+.no-svg .edit { background-image:url('%webroot%/core/img/actions/rename.png'); }
+.no-svg .share { background-image:url('%webroot%/core/img/actions/share.png'); }
+.no-svg .mail { background-image:url('%webroot%/core/img/actions/mail.png'); }
+.no-svg .upload { background-image:url('%webroot%/core/img/actions/upload.png'); }
+.no-svg .export, .no-svg .download { background-image:url('%webroot%/core/img/actions/download.png'); }
+.no-svg .cloud:not { background-image:url('%webroot%/core/img/places/picture.png'); }
+.no-svg .globe:not { background-image:url('%webroot%/core/img/actions/public.png'); }
+.no-svg .starred { background-image:url('%appswebroot%/contacts/img/starred.png'); background-size: contain; }
+.no-svg .checked { background-image:url('%appswebroot%/contacts/img/checkmark-green.png'); }
+.no-svg .checked.disabled { background-image:url('%appswebroot%/contacts/img/checkmark-gray.png'); cursor: default; }
+
+.svg .action:not(.text), .svg .icon:not(.text), .svg .svg:not(.text) {
 	background-size: contain;
 }
-.svg .add { background-image:url('%webroot%/core/img/actions/add.svg'); clear: both; }
+.svg .action.text, .svg .icon.text, .svg .svg.text {
+	background-size: 16px 16px;
+	background-origin: content-box;
+}
+.svg .add:not(.text) { background-image:url('%webroot%/core/img/actions/add.svg'); }
 .svg .delete { background-image:url('%webroot%/core/img/actions/delete.svg'); }
 .svg .edit { background-image:url('%webroot%/core/img/actions/rename.svg'); }
 .svg .share { background-image:url('%webroot%/core/img/actions/share.svg'); }
 .svg .mail { background-image:url('%webroot%/core/img/actions/mail.svg'); }
-.svg .upload { background-image:url('%webroot%/core/img/actions/upload.svg'); }
-.svg .download { background-image:url('%webroot%/core/img/actions/download.svg'); }
+.svg .import { background-image:url('%webroot%/core/img/actions/upload.svg'); }
+.svg .export,.svg .download { background-image:url('%webroot%/core/img/actions/download.svg'); }
 .svg .cloud { background-image:url('%webroot%/core/img/places/picture.svg'); }
 .svg .globe { background-image:url('%webroot%/core/img/actions/public.svg'); }
 .svg .starred { background-image:url('%appswebroot%/contacts/img/starred.svg'); background-size: contain; }
 .svg .checked { background-image:url('%appswebroot%/contacts/img/checkmark-green.svg'); }
 .svg .checked.disabled { background-image:url('%appswebroot%/contacts/img/checkmark-gray.svg'); cursor: default; }
+
 .transparent{ opacity: 0.6; }
 .float { float: left; display: inline-block; width: auto; }
 .float.right { float: right; }
@@ -337,7 +364,12 @@ input:not([type="checkbox"]).propertytype {
 	margin: 0;
 }
 input[type="checkbox"].propertytype { width: 10px; }
-.contactphoto { float: left; display: inline-block; border-radius: 0.3em; border: thin solid #bbb; margin: 0.5em; background-image: url('%webroot%/core/img/loading.gif'); -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; opacity: 1; }
+.contactphoto { 
+	float: left; display: inline-block; 
+	border-radius: 0.3em; border: thin solid #bbb; 
+	margin: 0.5em; -moz-box-shadow: 0 1px 3px #777; -webkit-box-shadow: 0 1px 3px #777; box-shadow: 0 1px 3px #777; 
+	opacity: 1; 
+}
 .contactphoto:hover { background: #fff; cursor: default; }
 #photowrapper { 
 	display: inline-block; 
@@ -351,7 +383,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	display: inline-block;
 	float: right;
 	position: absolute;
-	right: -8px; top: -8px;
+	right: -6px; top: -6px;
 	width: 25px; height: 25px;
 }
 #photowrapper.wait { opacity: 0.6; filter:alpha(opacity=0.6); z-index:1000; background-image: url('%webroot%/core/img/loading.gif'); cursor: wait; }
@@ -384,7 +416,12 @@ input[type="checkbox"].propertytype { width: 10px; }
 	height: 100%; width: 100%;
 }
 #contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: .7em; padding: .2em; clear: none; }
-#contactsheader .delete { background-image:url('%webroot%/core/img/actions/delete.svg'); float: right;}
+#contactsheader .delete { 
+	bottom: 0.5em;
+	right: 1em;
+	position: absolute;
+	background-image:url('%webroot%/core/img/actions/delete.svg');
+}
 .no-svg #contactsheader .delete { background-image:url('%webroot%/core/img/actions/delete.vg'); float: right;}
 #contactsheader .list.add { margin-left: 5em; }
 

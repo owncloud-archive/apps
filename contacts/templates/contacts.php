@@ -261,9 +261,10 @@
 		</li>
 	</ul>
 	<footer>
-		<button class="close float tooltipped downwards" title="<?php echo $l->t('Close'); ?>"><?php echo $l->t('Close'); ?></button>
-		<button class="export float tooltipped downwards" title="<?php echo $l->t('Export as VCF'); ?>"><?php echo $l->t('Download'); ?></button>
-		<select id="addproperty">
+		<button class="cancel action text tooltipped downwards" title="<?php echo $l->t('Cancel'); ?>"><?php echo $l->t('Cancel'); ?></button>
+		<button class="close text tooltipped downwards" title="<?php echo $l->t('Close'); ?>"><?php echo $l->t('Close'); ?></button>
+		<button class="export action text tooltipped downwards" title="<?php echo $l->t('Export as VCF'); ?>"><?php echo $l->t('Download'); ?></button>
+		<select class="add text button" id="addproperty">
 			<option value=""><?php echo $l->t('Add'); ?></option>
 			<option value="ORG"><?php echo $l->t('Organization'); ?></option>
 			<option value="NICKNAME"><?php echo $l->t('Nickname'); ?></option>
@@ -276,7 +277,7 @@
 			<option value="URL"><?php echo $l->t('Web site'); ?></option>
 			<option value="CATEGORIES"><?php echo $l->t('Groups'); ?></option>
 		</select>
-		<button class="deletecontact float right tooltipped downwards" title="<?php echo $l->t('Delete contact'); ?>"><?php echo $l->t('Delete'); ?></button>
+		<button class="delete action text float right tooltipped downwards" title="<?php echo $l->t('Delete contact'); ?>"><?php echo $l->t('Delete'); ?></button>
 	</footer>
 	</section>
 </form>
