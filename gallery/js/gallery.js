@@ -3,7 +3,7 @@ Gallery.albums = {};
 Gallery.currentAlbum = '';
 Gallery.subAlbums = {};
 // fill the albums from Gallery.images
-Gallery.fillAlbums = function() {
+Gallery.fillAlbums = function () {
 	var albumPath, i, imagePath, parent;
 	for (i = 0; i < Gallery.images.length; i++) {
 		imagePath = Gallery.images[i];
@@ -24,22 +24,22 @@ Gallery.fillAlbums = function() {
 		}
 	}
 };
-Gallery.getImage = function(image) {
+Gallery.getImage = function (image) {
 	return OC.filePath('files', 'ajax', 'download.php') + '?dir=' + OC.dirname(image) + '&files=' + OC.basename(image);
 };
-Gallery.getThumbnail = function(image) {
+Gallery.getThumbnail = function (image) {
 	return OC.filePath('gallery', 'ajax', 'thumbnail.php') + '?file=' + image;
 };
-Gallery.getAlbumThumbnail = function(image) {
+Gallery.getAlbumThumbnail = function (image) {
 	return OC.filePath('gallery', 'ajax', 'albumthumbnail.php') + '?file=' + image;
 };
 Gallery.view = {};
 Gallery.view.element = null;
-Gallery.view.clear = function() {
+Gallery.view.clear = function () {
 	Gallery.view.element.empty();
 };
 
-Gallery.view.addImage = function(image) {
+Gallery.view.addImage = function (image) {
 	var link = $('<a/>'), thumb = $('<img/>');
 	link.addClass('image');
 	link.attr('href', Gallery.getImage(image)).attr('rel', 'album').attr('alt', OC.basename(image)).attr('title', OC.basename(image));
@@ -50,7 +50,7 @@ Gallery.view.addImage = function(image) {
 	Gallery.view.element.append(link);
 };
 
-Gallery.view.addAlbum = function(path) {
+Gallery.view.addAlbum = function (path) {
 	var link = $('<a/>');
 	link.addClass('album');
 	link.attr('href', '#' + path);
@@ -59,7 +59,7 @@ Gallery.view.addAlbum = function(path) {
 	link.data('offset', 0);
 	link.attr('style', 'background-image:url("' + Gallery.getAlbumThumbnail(path) + '")').attr('title', OC.basename(path));
 
-	link.mousemove(function(event) {
+	link.mousemove(function (event) {
 		var mousePos = event.pageX - $(this).offset().left,
 			path = $(this).data('path'),
 			album = Gallery.albums[path],
@@ -75,7 +75,7 @@ Gallery.view.addAlbum = function(path) {
 	Gallery.view.element.append(link);
 };
 
-Gallery.view.viewAlbum = function(albumPath) {
+Gallery.view.viewAlbum = function (albumPath) {
 	Gallery.view.clear();
 	Gallery.currentAlbum = albumPath;
 
@@ -110,13 +110,13 @@ Gallery.view.viewAlbum = function(albumPath) {
 
 Gallery.slideshow = {
 	supersized: {},
-	init: function() {
+	init: function () {
 		$('#slideshow-content').append("<div id='supersized-holder'></div>");
 		$('#supersized-loader').remove();
 		$('#supersized').remove();
 		$('#supersized-holder').append("<div id='supersized-loader'></div><ul id='supersized'></ul>");
 	},
-	start: function() {
+	start: function () {
 		var i,
 			album = Gallery.albums[Gallery.currentAlbum],
 			images = [];
@@ -161,7 +161,7 @@ Gallery.slideshow = {
 
 		$('html').css('overflow', 'hidden');//hide scrollbar during the slideshow
 	},
-	end: function() {
+	end: function () {
 		BigScreen.exit();
 		if (!$.supersized.vars.is_paused && Gallery.slideshow.supersized.playToggle) {
 			Gallery.slideshow.supersized.playToggle();
@@ -180,7 +180,7 @@ Gallery.slideshow = {
 	}
 };
 
-$(document).ready(function() {
+$(document).ready(function () {
 	Gallery.fillAlbums();
 	Gallery.view.element = $('#gallery');
 	OC.Breadcrumb.container = $('#breadcrumbs');
@@ -188,12 +188,12 @@ $(document).ready(function() {
 	Gallery.view.viewAlbum(album);
 
 	//close slideshow on esc and remove holder
-	$(document).keyup(function(e) {
+	$(document).keyup(function (e) {
 		if (e.keyCode === 27) { // esc
 			Gallery.slideshow.end();
 		}
 	});
-	$('#slideshow-start').click(function() {
+	$('#slideshow-start').click(function () {
 		Gallery.slideshow.start();
 	});
 });
