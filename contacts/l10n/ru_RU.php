@@ -150,7 +150,6 @@
 "OK" => "OK",
 "(De-)select all" => "Отметить(снять отметку) все",
 "New Contact" => "Новый контакт",
-"Download Contact" => "Загрузить контакт",
 "Groups" => "Группы",
 "Favorite" => "Избранный",
 "Delete Contact" => "Удалить контакт",

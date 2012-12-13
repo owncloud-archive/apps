@@ -159,7 +159,6 @@
 "OK" => "OK",
 "(De-)select all" => "(Des)seleccionar todos",
 "New Contact" => "Novo Contacto",
-"Download Contact" => "Transferir o contacto",
 "Groups" => "Grupos",
 "Favorite" => "Favorito",
 "Delete Contact" => "Eliminar o Contacto",

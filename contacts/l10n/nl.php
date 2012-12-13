@@ -149,7 +149,6 @@
 "OK" => "OK",
 "(De-)select all" => "(De-)selecteer alle",
 "New Contact" => "Nieuw Contact",
-"Download Contact" => "Download Contact",
 "Groups" => "Groepen",
 "Favorite" => "Favoriet",
 "Delete Contact" => "Verwijder Contact",

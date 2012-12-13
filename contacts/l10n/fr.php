@@ -150,7 +150,6 @@
 "OK" => "OK",
 "(De-)select all" => "(Dé-)sélectionner tout",
 "New Contact" => "Nouveau Contact",
-"Download Contact" => "Télécharger le Contact",
 "Groups" => "Groupes",
 "Favorite" => "Favoris",
 "Delete Contact" => "Supprimer le Contact",

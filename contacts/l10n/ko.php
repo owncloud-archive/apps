@@ -159,7 +159,6 @@
 "OK" => "확인",
 "(De-)select all" => "전체 선택(해제)",
 "New Contact" => "새 연락처",
-"Download Contact" => "연락처 다운로드",
 "Groups" => "그룹",
 "Favorite" => "즐겨찾기",
 "Delete Contact" => "연락처 삭제",

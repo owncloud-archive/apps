@@ -159,7 +159,6 @@
 "OK" => "OK",
 "(De-)select all" => "(Ne-)vybrať všetky",
 "New Contact" => "Nový kontakt",
-"Download Contact" => "Stiahnuť kontakt",
 "Groups" => "Skupiny",
 "Favorite" => "Obľúbené",
 "Delete Contact" => "Odstrániť kontakt",

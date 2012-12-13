@@ -149,7 +149,6 @@
 "OK" => "OK",
 "(De-)select all" => "(Ära) vali kõik",
 "New Contact" => "Uus kontakt",
-"Download Contact" => "Lae kontakt alla",
 "Groups" => "Grupid",
 "Favorite" => "Lemmik",
 "Delete Contact" => "Kustuta kontakt",

@@ -129,7 +129,6 @@
 "OK" => "OK",
 "(De-)select all" => "反选全部",
 "New Contact" => "新建联系人",
-"Download Contact" => "下载联系人",
 "Groups" => "分组",
 "Favorite" => "最爱",
 "Delete Contact" => "删除联系人",

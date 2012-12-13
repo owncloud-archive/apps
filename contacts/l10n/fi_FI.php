@@ -136,7 +136,6 @@
 "OK" => "OK",
 "(De-)select all" => "Valitse kaikki tai poista kaikki valinnat",
 "New Contact" => "Uusi yhteystieto",
-"Download Contact" => "Lataa yhteystieto",
 "Groups" => "Ryhmät",
 "Favorite" => "Suosikki",
 "Delete Contact" => "Poista yhteystieto",

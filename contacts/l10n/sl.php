@@ -159,7 +159,6 @@
 "OK" => "V redu",
 "(De-)select all" => "(Od-)izberi vse",
 "New Contact" => "Nov stik",
-"Download Contact" => "Prenesi stik",
 "Groups" => "Skupine",
 "Favorite" => "Priljubljen",
 "Delete Contact" => "Izbriši stik",

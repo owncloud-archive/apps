@@ -59,6 +59,8 @@
 "Region" => "Регија",
 "Zipcode" => "Зип код",
 "Addressbook" => "Адресар",
+"more info" => "више информација",
+"iOS/OS X" => "iOS/OS X",
 "Addressbooks" => "Адресар",
 "New Address Book" => "Нови адресар",
 "Name" => "Име",

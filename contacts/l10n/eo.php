@@ -150,7 +150,6 @@
 "OK" => "Akcepti",
 "(De-)select all" => "(Mal)elekti ĉion",
 "New Contact" => "Nova kontakto",
-"Download Contact" => "Elŝuti kontakton",
 "Groups" => "Grupoj",
 "Favorite" => "Favorato",
 "Delete Contact" => "Forigi kontakton",

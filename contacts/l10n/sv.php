@@ -159,7 +159,6 @@
 "OK" => "OK",
 "(De-)select all" => "(Av-)markera alla",
 "New Contact" => "Ny kontakt",
-"Download Contact" => "Ladda ner kontakt",
 "Groups" => "Grupper",
 "Favorite" => "Favorit",
 "Delete Contact" => "Radera kontakt",

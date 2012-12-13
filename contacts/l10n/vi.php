@@ -150,7 +150,6 @@
 "OK" => "Chấp nhận",
 "(De-)select all" => "(Hủy) chọn tất cả",
 "New Contact" => "Liên lạc mới",
-"Download Contact" => "Tải liên lạc",
 "Groups" => "Nhóm",
 "Favorite" => "Ưu thích",
 "Delete Contact" => "Xóa liên lạc",
