@@ -719,14 +719,14 @@ OC.Contacts = OC.Contacts || {
 		this.scrollTimeoutMiliSecs = 100;
 		this.isScrolling = false;
 		this.cacheElements();
-		this.Contacts = new OC.Contacts.ContactList(
+		this.contacts = new OC.Contacts.ContactList(
 			this.$contactList,
 			this.$contactListItemTemplate,
 			this.$contactFullTemplate,
 			this.detailTemplates
 		);
-		this.Groups = new GroupList(this.$groupList, this.$groupListItemTemplate);
-		OCCategories.changed = this.Groups.categoriesChanged;
+		this.groups = new GroupList(this.$groupList, this.$groupListItemTemplate);
+		OCCategories.changed = this.groups.categoriesChanged;
 		OCCategories.app = 'contacts';
 		OCCategories.type = 'contact';
 		this.bindEvents();
@@ -796,10 +796,10 @@ OC.Contacts = OC.Contacts || {
 	buildGroupSelect: function() {
 		// If a contact is open we know which categories it's in
 		if(this.currentid) {
-			var contact = this.Contacts.contacts[this.currentid];
+			var contact = this.contacts.contacts[this.currentid];
 			this.$groups.find('optgroup,option:not([value="-1"])').remove();
 			var addopts = '', rmopts = '';
-			$.each(this.Groups.categories, function(i, category) {
+			$.each(this.groups.categories, function(i, category) {
 				if(contact.inGroup(category.name)) {
 					rmopts += '<option value="' + category.id + '">' + category.name + '</option>';
 				} else {
@@ -814,10 +814,10 @@ OC.Contacts = OC.Contacts || {
 				$(rmopts).appendTo(this.$groups)
 				.wrapAll('<optgroup data-action="remove" label="' + t('contacts', 'Remove from...') + '"/>');
 			}
-		} else if(this.Contacts.getSelectedContacts().length > 0) { // Otherwise add all categories to both add and remove
+		} else if(this.contacts.getSelectedContacts().length > 0) { // Otherwise add all categories to both add and remove
 			this.$groups.find('optgroup,option:not([value="-1"])').remove();
 			var addopts = '', rmopts = '';
-			$.each(this.Groups.categories, function(i, category) {
+			$.each(this.groups.categories, function(i, category) {
 				rmopts += '<option value="' + category.id + '">' + category.name + '</option>';
 				addopts += '<option value="' + category.id + '">' + category.name + '</option>';
 			});
@@ -845,7 +845,7 @@ OC.Contacts = OC.Contacts || {
 			var id = parseInt(data.id);
 			console.log('contact', data.id, 'deleted');
 			// update counts on group lists
-			self.Groups.removeFromAll(data.id, true)
+			self.groups.removeFromAll(data.id, true)
 		});
 
 		$(document).bind('status.contact.added', function(e, data) {
@@ -874,7 +874,7 @@ OC.Contacts = OC.Contacts || {
 			} else {
 				self.numcontacts = result.numcontacts;
 				self.loading(self.$rightContent, false);
-				self.Groups.loadGroups(self.numcontacts, function() {
+				self.groups.loadGroups(self.numcontacts, function() {
 					self.loading($('#leftcontent'), false);
 					console.log('Groups loaded, currentid', self.currentid);
 					if(self.currentid) {
@@ -932,7 +932,7 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('request.contact.setasfavorite', function(e, data) {
 			var id = parseInt(data.id);
 			console.log('contact', data.id, 'request.contact.setasfavorite');
-			self.Groups.setAsFavorite(data.id, data.state);
+			self.groups.setAsFavorite(data.id, data.state);
 		});
 
 		$(document).bind('request.contact.export', function(e, data) {
@@ -950,7 +950,7 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('request.contact.delete', function(e, data) {
 			var id = parseInt(data.id);
 			console.log('contact', data.id, 'request.contact.delete');
-			self.Contacts.delayedDelete(id);
+			self.contacts.delayedDelete(id);
 			self.$contactList.removeClass('dim');
 			self.showActions(['add']);
 		});
@@ -974,13 +974,13 @@ OC.Contacts = OC.Contacts || {
 
 		$(document).bind('request.addressbook.activate', function(e, result) {
 			console.log('request.addressbook.activate', result);
-			self.Contacts.showFromAddressbook(result.id, result.activate);
+			self.contacts.showFromAddressbook(result.id, result.activate);
 		});
 
 		$(document).bind('status.contact.removedfromgroup', function(e, result) {
 			console.log('status.contact.removedfromgroup', result);
 			if(self.currentgroup == result.groupid) {
-				self.Contacts.hideContact(result.contactid);
+				self.contacts.hideContact(result.contactid);
 				self.closeContact(result.contactid);
 			}
 		});
@@ -989,21 +989,21 @@ OC.Contacts = OC.Contacts || {
 			console.log('status.group.groupremoved', result);
 			if(parseInt(result.groupid) === parseInt(self.currentgroup)) {
 				console.time('hiding');
-				self.Contacts.showContacts([]);
+				self.contacts.showContacts([]);
 				console.timeEnd('hiding');
 				self.currentgroup = 'all';
 			}
 			$.each(result.contacts, function(idx, contactid) {
-				var contact = self.Contacts.findById(contactid);
+				var contact = self.contacts.findById(contactid);
 				console.log('contactid', contactid, contact);
 				
-				self.Contacts.findById(contactid).removeFromGroup(result.groupname);
+				self.contacts.findById(contactid).removeFromGroup(result.groupname);
 			});
 		});
 
 		$(document).bind('status.group.contactadded', function(e, result) {
 			console.log('status.group.contactadded', result);
-			self.Contacts.contacts[parseInt(result.contactid)].addToGroup(result.groupname);
+			self.contacts.contacts[parseInt(result.contactid)].addToGroup(result.groupname);
 		});
 
 		// Group sorted, save the sort order
@@ -1029,11 +1029,11 @@ OC.Contacts = OC.Contacts || {
 			self.$toggleAll.show();
 			self.showActions(['addcontact']);
 			if(result.type === 'category' ||  result.type === 'fav') {
-				self.Contacts.showContacts(result.contacts);
+				self.contacts.showContacts(result.contacts);
 			} else if(result.type === 'shared') {
-				self.Contacts.showFromAddressbook(self.currentgroup, true, true);
+				self.contacts.showFromAddressbook(self.currentgroup, true, true);
 			} else {
-				self.Contacts.showContacts(self.currentgroup);
+				self.contacts.showContacts(self.currentgroup);
 			}
 			$.post(OC.filePath('contacts', 'ajax', 'setpreference.php'), {'key':'lastgroup', 'value':self.currentgroup}, function(jsondata) {
 				if(!jsondata || jsondata.status !== 'success') {
@@ -1052,7 +1052,7 @@ OC.Contacts = OC.Contacts || {
 				var offset = self.$contactList.find('tr:eq(' + (num-20) + ')').offset().top;
 				if(offset < self.$rightContent.height()) {
 					console.log('load more');
-					self.Contacts.loadContacts(num, function() {
+					self.contacts.loadContacts(num, function() {
 						self.isScrolling = false;
 					});
 				} else {
@@ -1088,7 +1088,7 @@ OC.Contacts = OC.Contacts || {
 			if(wrongKey(event)) {
 				return;
 			}
-			self.Groups.editGroup();
+			self.groups.editGroup();
 			//self.addGroup();
 		});
 
@@ -1134,7 +1134,7 @@ OC.Contacts = OC.Contacts || {
 				ids = [self.currentid,];
 				buildnow = true
 			} else {
-				ids = self.Contacts.getSelectedContacts();
+				ids = self.contacts.getSelectedContacts();
 			}
 
 			self.setAllChecked(false);
@@ -1151,13 +1151,13 @@ OC.Contacts = OC.Contacts || {
 					if(response.status === 'success') {
 						groupId = response.id;
 						groupName = response.name;
-						self.Groups.addTo(ids, groupId, function(result) {
+						self.groups.addTo(ids, groupId, function(result) {
 							if(result.status === 'success') {
 								$.each(ids, function(idx, id) {
 									// Delay each contact to not trigger too many ajax calls
 									// at a time.
 									setTimeout(function() {
-										self.Contacts.contacts[id].addToGroup(groupName);
+										self.contacts.contacts[id].addToGroup(groupName);
 										// I don't think this is used...
 										if(buildnow) {
 											self.buildGroupSelect();
@@ -1170,7 +1170,7 @@ OC.Contacts = OC.Contacts || {
 									}, 1000);
 								});
 							} else {
-								// TODO: Use message return from Groups object.
+								// TODO: Use message returned from groups object.
 								OC.notify({message:t('contacts', t('contacts', 'Error adding to group.'))});
 							}
 						});
@@ -1185,7 +1185,7 @@ OC.Contacts = OC.Contacts || {
 
 			console.log('trut', groupName, groupId);
 			if(action === 'add') {
-				self.Groups.addTo(ids, $opt.val(), function(result) {
+				self.groups.addTo(ids, $opt.val(), function(result) {
 					console.log('after add', result);
 					if(result.status === 'success') {
 						$.each(result.ids, function(idx, id) {
@@ -1193,7 +1193,7 @@ OC.Contacts = OC.Contacts || {
 							// at a time.
 							setTimeout(function() {
 								console.log('adding', id, 'to', groupName);
-								self.Contacts.contacts[id].addToGroup(groupName);
+								self.contacts.contacts[id].addToGroup(groupName);
 								// I don't think this is used...
 								if(buildnow) {
 									self.buildGroupSelect();
@@ -1214,12 +1214,12 @@ OC.Contacts = OC.Contacts || {
 					self.$groups.val(-1).hide().find('optgroup,option:not([value="-1"])').remove();
 				}
 			} else if(action === 'remove') {
-				self.Groups.removeFrom(ids, $opt.val(), function(result) {
+				self.groups.removeFrom(ids, $opt.val(), function(result) {
 					console.log('after remove', result);
 					if(result.status === 'success') {
 						var groupname = $opt.text(), groupid = $opt.val();
 						$.each(result.ids, function(idx, id) {
-							self.Contacts.contacts[id].removeFromGroup(groupname);
+							self.contacts.contacts[id].removeFromGroup(groupname);
 							if(buildnow) {
 								self.buildGroupSelect();
 							}
@@ -1252,7 +1252,7 @@ OC.Contacts = OC.Contacts || {
 				event.preventDefault();
 				console.log('select', event);
 				self.dontScroll = true;
-				self.Contacts.select($(this).data('id'), true);
+				self.contacts.select($(this).data('id'), true);
 				return;
 			}
 			if($(event.target).is('a.mailto')) {
@@ -1278,9 +1278,9 @@ OC.Contacts = OC.Contacts || {
 			self.currentid = 'new';
 			var props = {
 				favorite: false,
-				groups: self.Groups.categories,
+				groups: self.groups.categories,
 			};
-			self.tmpcontact = self.Contacts.addContact();
+			self.tmpcontact = self.contacts.addContact();
 			self.$rightContent.prepend(self.tmpcontact);
 			self.hideActions();
 		});
@@ -1303,7 +1303,7 @@ OC.Contacts = OC.Contacts || {
 				}
 
 				$list.empty();
-				$.each(self.Contacts.addressbooks, function(id, book) {
+				$.each(self.contacts.addressbooks, function(id, book) {
 					var $li = self.$addressbookTmpl.octemplate({
 						id: id, 
 						permissions: book.permissions,
@@ -1325,7 +1325,7 @@ OC.Contacts = OC.Contacts || {
 						success:function(jsondata) {
 							console.log(jsondata);
 							if(jsondata.status == 'success') {
-								self.Contacts.unsetAddressbook(id);
+								self.contacts.unsetAddressbook(id);
 								$li.remove();
 								OC.notify({
 									message:t('contacts','Deleting done. Click here to cancel reloading.'),
@@ -1351,7 +1351,7 @@ OC.Contacts = OC.Contacts || {
 				});
 				$list.find('a.action.globe').on('click keypress', function() {
 					var id = parseInt($(this).parents('li').first().data('id'));
-					var book = self.Contacts.addressbooks[id];
+					var book = self.contacts.addressbooks[id];
 					var uri = (book.owner === oc_current_user ) ? book.uri : book.uri + '_shared_by_' + book.owner;
 					var link = totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
 					var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" /></div>');
@@ -1384,7 +1384,7 @@ OC.Contacts = OC.Contacts || {
 						success:function(jsondata) {
 							console.log(jsondata);
 							if(jsondata.status == 'success') {
-								self.Contacts.setAddressbook(jsondata.data.addressbook);
+								self.contacts.setAddressbook(jsondata.data.addressbook);
 								id = jsondata.data.addressbook.id
 							} else {
 								OC.notify({message:jsondata.data.message});
@@ -1399,7 +1399,7 @@ OC.Contacts = OC.Contacts || {
 				}
 
 				self.$importIntoSelect.empty();
-				$.each(self.Contacts.addressbooks, function(id, book) {
+				$.each(self.contacts.addressbooks, function(id, book) {
 					self.$importIntoSelect.append('<option value="' + id + '">' + book.displayname + '</option>');
 				});
 				self.$importIntoSelect.multiSelect({
@@ -1430,9 +1430,9 @@ OC.Contacts = OC.Contacts || {
 			console.log('delete');
 			if(self.currentid) {
 				console.assert(utils.isUInt(self.currentid), 'self.currentid is not an integer');
-				self.Contacts.delayedDelete(self.currentid);
+				self.contacts.delayedDelete(self.currentid);
 			} else {
-				self.Contacts.delayedDelete(self.Contacts.getSelectedContacts());
+				self.contacts.delayedDelete(self.contacts.getSelectedContacts());
 			}
 			self.showActions(['addcontact']);
 		});
@@ -1457,9 +1457,9 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			// FIXME: This should only apply for contacts list.
-			var state = self.Groups.isFavorite(self.currentid);
+			var state = self.groups.isFavorite(self.currentid);
 			console.log('Favorite?', this, state);
-			self.Groups.setAsFavorite(self.currentid, !state, function(jsondata) {
+			self.groups.setAsFavorite(self.currentid, !state, function(jsondata) {
 				if(jsondata.status === 'success') {
 					if(state) {
 						self.$header.find('.favorite').switchClass('active', '');
@@ -1700,14 +1700,14 @@ OC.Contacts = OC.Contacts || {
 					break;
 				case 46: // Delete
 					if(event.shiftKey) {
-						self.Contacts.delayedDelete(self.currentid);
+						self.contacts.delayedDelete(self.currentid);
 					}
 					break;
 				case 40: // down
 				case 74: // j
 					console.log('next');
 					if(!self.currentid && self.currentlistid) {
-						self.Contacts.contacts[self.currentlistid].next();
+						self.contacts.contacts[self.currentlistid].next();
 					}
 					break;
 				case 65: // a
@@ -1721,7 +1721,7 @@ OC.Contacts = OC.Contacts || {
 				case 75: // k
 					console.log('previous');
 					if(!self.currentid && self.currentlistid) {
-						self.Contacts.contacts[self.currentlistid].prev();
+						self.contacts.contacts[self.currentlistid].prev();
 					}
 					break;
 				case 34: // PageDown
@@ -1734,7 +1734,7 @@ OC.Contacts = OC.Contacts || {
 				case 33: // PageUp
 				case 80: // p
 					// prev addressbook
-					//OC.Contacts.Contacts.previousAddressbook();
+					//OC.contacts.contacts.previousAddressbook();
 					break;
 				case 82: // r
 					console.log('refresh - what?');
@@ -1774,7 +1774,7 @@ OC.Contacts = OC.Contacts || {
 			height: 'auto', width: 'auto',
 			buttons: {
 				'Ok':function() {
-					self.Groups.addGroup(
+					self.groups.addGroup(
 						{name:$dlg.find('input:text').val()},
 						function(response) {
 							if(typeof cb === 'function') {
@@ -1808,11 +1808,12 @@ OC.Contacts = OC.Contacts || {
 		});
 	},
 	jumpToContact: function(id) {
-		this.$rightContent.scrollTop(this.Contacts.contactPos(id)+10);
+		this.$rightContent.scrollTop(this.contacts.contactPos(id)+10);
 	},
 	closeContact: function(id) {
 		if(typeof this.currentid === 'number') {
-			if(this.Contacts.findById(id).close()) {
+			var contact = this.contacts.findById(id);
+			if(contact && contact.close()) {
 				this.$contactList.show();
 				this.jumpToContact(id);
 			}
@@ -1831,17 +1832,17 @@ OC.Contacts = OC.Contacts || {
 			this.closeContact(this.currentid);
 		}
 		this.currentid = parseInt(id);
-		console.log('Contacts.openContact, Favorite', this.currentid, this.Groups.isFavorite(this.currentid), this.Groups);
+		console.log('Contacts.openContact, Favorite', this.currentid, this.groups.isFavorite(this.currentid), this.groups);
 		this.setAllChecked(false);
 		//this.$contactList.hide();
 		this.$contactList.addClass('dim');
 		this.$toggleAll.hide();
 		this.jumpToContact(this.currentid);
 		var props = {
-			favorite: this.Groups.isFavorite(this.currentid),
-			groups: this.Groups.categories,
+			favorite: this.groups.isFavorite(this.currentid),
+			groups: this.groups.categories,
 		};
-		var $contactelem = this.Contacts.showContact(this.currentid, props);
+		var $contactelem = this.contacts.showContact(this.currentid, props);
 		var self = this;
 		var $contact = $contactelem.find('#contact');
 		var adjustElems = function() {
@@ -2067,7 +2068,7 @@ OC.Contacts = OC.Contacts || {
 							if(typeof cb === 'function') {
 								cb({
 									status:'success',
-									addressbook:self.Contacts.addressbooks[parseInt(aid)],
+									addressbook:self.contacts.addressbooks[parseInt(aid)],
 								});
 							}
 							$(this).dialog('close');
@@ -2084,7 +2085,7 @@ OC.Contacts = OC.Contacts || {
 				open: function(event, ui) {
 					console.log('open', $(this));
 					var $lastrow = $(this).find('tr.new');
-					$.each(self.Contacts.addressbooks, function(i, book) {
+					$.each(self.contacts.addressbooks, function(i, book) {
 						console.log('book', i, book);
 						if(book.owner === OC.currentUser
 								|| (book.permissions & OC.PERMISSION_UPDATE
