@@ -11,6 +11,11 @@ Gallery.fillAlbums = function () {
 		if (!Gallery.albums[albumPath]) {
 			Gallery.albums[albumPath] = [];
 		}
+		parent = OC.dirname(albumPath);
+		while (parent && !Gallery.albums[parent]) {
+			Gallery.albums[parent] = [];
+			parent = OC.dirname(parent);
+		}
 		Gallery.albums[albumPath].push(imagePath);
 	}
 
