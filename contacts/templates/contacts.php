@@ -59,12 +59,12 @@
 	<input type="checkbox" id="toggle_all" title="<?php echo $l->t('(De-)select all'); ?>" />
 	<div class="actions">
 		<button class="addcontact"><?php echo $l->t('New Contact'); ?></button>
-		<button class="download control" title="<?php echo $l->t('Download Contact'); ?>"></button>
+		<button class="download action text"><?php echo $l->t('Download Contact(s)'); ?></button>
 		<select class="groups control" name="groups">
 			<option value="-1" disabled="disabled" selected="selected"><?php echo $l->t('Groups'); ?></option>
 		</select>
 		<button class="favorite action inactive control" title="<?php echo $l->t('Favorite'); ?>"></button>
-		<button class="delete control" title="<?php echo $l->t('Delete Contact'); ?>"></button>
+		<a class="delete action" title="<?php echo $l->t('Delete Contact'); ?>"></a>
 	</div>
 </div>
 <div id="rightcontent" class="loading">

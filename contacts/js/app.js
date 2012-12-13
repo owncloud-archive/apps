@@ -1106,7 +1106,7 @@ OC.Contacts = OC.Contacts || {
 				self.buildGroupSelect();
 			}
 			if(isChecked) {
-				self.showActions(['addcontact', 'groups', 'delete', 'favorite']);
+				self.showActions(['addcontact', 'download', 'groups', 'delete', 'favorite']);
 			} else {
 				self.showActions(['addcontact']);
 			}
@@ -1442,11 +1442,8 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			console.log('download');
-			if(self.currentid) {
-				document.location.href = OC.linkTo('contacts', 'export.php') + '?contactid=' + self.currentid;
-			} else {
-				console.log('currentid is not set');
-			}
+			document.location.href = OC.linkTo('contacts', 'export.php') 
+				+ '?selectedids=' + self.contacts.getSelectedContacts().join(',');
 		});
 
 		this.$header.on('click keydown', '.favorite', function(event) {
