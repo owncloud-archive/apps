@@ -26,6 +26,13 @@ OC.Contacts = OC.Contacts || {};
 		this.multi_properties = ['EMAIL', 'TEL', 'IMPP', 'ADR', 'URL'];
 	}
 
+	Contact.prototype.showActions = function(act) {
+		this.$footer.children().hide();
+		if(act && act.length > 0) {
+			this.$footer.children('.'+act.join(',.')).show();
+		}
+	}
+
 	Contact.prototype.setAsSaving = function(obj, state) {
 		if(!obj) {
 			return;
@@ -160,6 +167,7 @@ OC.Contacts = OC.Contacts || {};
 					return false;
 				}
 				self.saveProperty(params);
+				self.showActions(['close', 'add', 'export', 'delete']);
 			});
 			return;
 		}
@@ -569,6 +577,9 @@ OC.Contacts = OC.Contacts || {};
 				}
 			: {id:'', favorite:'', name:'', nickname:'', title:'', org:'', bday:'', note:'', n0:'', n1:'', n2:'', n3:'', n4:''};
 		this.$fullelem = this.$fullTemplate.octemplate(values).data('contactobject', this);
+
+		this.$footer = this.$fullelem.find('footer');
+		
 		this.$fullelem.find('.tooltipped.rightwards.onfocus').tipsy({trigger: 'focus', gravity: 'w'});
 		this.$fullelem.on('submit', function() {
 			return false;
@@ -613,14 +624,12 @@ OC.Contacts = OC.Contacts || {};
 			self.deleteProperty({obj:event.target});
 		});
 
-		var $footer = this.$fullelem.find('footer');
-		
-		$footer.on('click keydown', 'button', function(event) {
+		this.$footer.on('click keydown', 'button', function(event) {
 			$('.tipsy').remove();
 			if(wrongKey(event)) {
 				return;
 			}
-			if($(this).is('.close')) {
+			if($(this).is('.close') || $(this).is('.cancel')) {
 				$(document).trigger('request.contact.close', {
 					id: self.id,
 				});
@@ -628,7 +637,7 @@ OC.Contacts = OC.Contacts || {};
 				$(document).trigger('request.contact.export', {
 					id: self.id,
 				});
-			} else if($(this).is('.deletecontact')) {
+			} else if($(this).is('.delete')) {
 				$(document).trigger('request.contact.delete', {
 					id: self.id,
 				});
@@ -671,6 +680,7 @@ OC.Contacts = OC.Contacts || {};
 		if(!this.data) {
 			// A new contact
 			this.setEnabled(true);
+			this.showActions(['cancel']);
 			return this.$fullelem;
 		}
 		// Loop thru all single occurrence values. If not set hide the
@@ -782,8 +792,10 @@ OC.Contacts = OC.Contacts || {};
 			&& !(this.access.permissions & OC.PERMISSION_UPDATE
 				|| this.access.permissions & OC.PERMISSION_DELETE)) {
 			this.setEnabled(false);
+			this.showActions(['close']);
 		} else {
 			this.setEnabled(true);
+			this.showActions(['close', 'add', 'export', 'delete']);
 		}
 		return this.$fullelem;
 	}
@@ -966,7 +978,7 @@ OC.Contacts = OC.Contacts || {};
 
 		if(!dontloadhandlers && this.isEditable()) {
 			this.$photowrapper.on('mouseenter', function(event) {
-				if(event.target !== this) {
+				if($(event.target).is('.favorite')) {
 					return;
 				}
 				$phototools.slideDown(200);
@@ -1245,8 +1257,6 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	ContactList.prototype.contactPos = function(id) {
-		console.log('ContactList.contactPos, id', id);
-		console.trace()
 		if(!id) {
 			console.warn('id missing');
 			return false;
