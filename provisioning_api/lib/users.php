@@ -108,7 +108,7 @@ class OC_Provisioning_API_Users {
 	}
 
 	public static function addToGroup($parameters){
-		$group = !empty($_GET['groupid']) ? $_GET['groupid'] : null;
+		$group = !empty($_POST['groupid']) ? $_POST['groupid'] : null;
 		if(is_null($group)){
 			return new OC_OCS_Result(null, 101);
 		}
@@ -120,8 +120,13 @@ class OC_Provisioning_API_Users {
 		if(!OC_User::userExists($parameters['userid'])){
 			return new OC_OCS_Result(null, 103);
 		}
+		// Check they are a subadmin, if not an admin
+		if(!OC_Group::inGroup(OC_User::getUser(), 'admin') && !OC_SubAdmin::isSubAdminofGroup(OC_User::getUser(), $group)){
+			// This subadmin doesn't have rights to add a user to this group
+			return new OC_OCS_Result(null, 104);
+		}
 		// Add user to group
-		return OC_Group::addToGroup($parameters['userid'], $group) ? new OC_OCS_Result(null, 100) : new OC_OCS_Result(null, 104);
+		return OC_Group::addToGroup($parameters['userid'], $group) ? new OC_OCS_Result(null, 100) : new OC_OCS_Result(null, 105);
 	}
 
 	public static function removeFromGroup($parameters){
