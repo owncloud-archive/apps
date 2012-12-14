@@ -25,11 +25,3 @@ OC::$CLASSPATH['OC_Files_Antivirus'] = OC_App::getAppPath('files_antivirus').'/l
 
 OC_APP::registerAdmin('files_antivirus','settings');
 OC_Hook::connect('OC_Filesystem','post_write', 'OC_Files_Antivirus', 'av_scan');
-
-// add settings page to navigation
-$entry = array(
-	'id' => "files_antivirus_settings",
-	'order'=>1,
-	'href' => OC_Helper::linkTo( "files_antivirus", "settings.php" ),
-	'name' => 'ANTIVIRUS'
-);
