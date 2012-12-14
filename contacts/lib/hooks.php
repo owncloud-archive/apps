@@ -87,7 +87,7 @@ class OC_Contacts_Hooks{
 				continue;
 			}
 			$birthday = $vcard->BDAY;
-			if ($birthday) {
+			if ((string)$birthday) {
 				$date = new DateTime($birthday);
 				$vevent = new OC_VObject('VEVENT');
 				//$vevent->setDateTime('LAST-MODIFIED', new DateTime($vcard->REV));
