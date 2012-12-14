@@ -11,13 +11,19 @@ namespace OCA\Gallery;
 class Thumbnail {
 	protected $image;
 	protected $path;
+	protected $useOriginal = false;
 
 	public function __construct($imagePath, $square = false) {
-		$user = \OCP\USER::getUser();
-		$galleryDir = \OC_User::getHome($user) . '/gallery/';
-		$this->path = $galleryDir . $imagePath;
-		if (!file_exists($this->path)) {
-			self::create($imagePath, $square);
+		$this->useOriginal = (substr($imagePath, -4) === '.svg' or substr($imagePath, -5) === '.svgz');
+		if ($this->useOriginal) {
+			$this->path = $imagePath;
+		} else {
+			$user = \OCP\USER::getUser();
+			$galleryDir = \OC_User::getHome($user) . '/gallery/';
+			$this->path = $galleryDir . $imagePath;
+			if (!file_exists($this->path)) {
+				self::create($imagePath, $square);
+			}
 		}
 	}
 
@@ -51,12 +57,22 @@ class Thumbnail {
 	}
 
 	public function show() {
-		$fp = @fopen($this->path, 'rb');
+		if ($this->useOriginal) {
+			$fp = @\OC_Filesystem::fopen($this->path, 'rb');
+			$mtime = \OC_Filesystem::filemtime($this->path);
+			$size = \OC_Filesystem::filesize($this->path);
+			$mime = \OC_Filesystem::getMimetype($this->path);
+		} else {
+			$fp = @fopen($this->path, 'rb');
+			$mtime = filemtime($this->path);
+			$size = filesize($this->path);
+			$mime = \OC_Helper::getMimetype($this->path);
+		}
 		if ($fp) {
 			\OC_Response::enableCaching();
-			\OC_Response::setLastModifiedHeader(filemtime($this->path));
-			header('Content-Length: ' . filesize($this->path));
-			header('Content-Type: ' . \OC_Helper::getMimetype($this->path));
+			\OC_Response::setLastModifiedHeader($mtime);
+			header('Content-Length: ' . $size);
+			header('Content-Type: ' . $mime);
 
 			fpassthru($fp);
 		} else {
