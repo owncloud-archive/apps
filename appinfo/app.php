@@ -23,5 +23,5 @@
 
 OC::$CLASSPATH['OC_Files_Antivirus'] = OC_App::getAppPath('files_antivirus').'/lib/clamav.php';
 
-OC_APP::registerAdmin('files_antivirus','settings');
-OC_Hook::connect('OC_Filesystem','post_write', 'OC_Files_Antivirus', 'av_scan');
+OC_APP::registerAdmin('files_antivirus', 'settings');
+OC_Hook::connect('OC_Filesystem', 'post_write', 'OC_Files_Antivirus', 'av_scan');
