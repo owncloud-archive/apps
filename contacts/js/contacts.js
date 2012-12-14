@@ -681,6 +681,9 @@ OC.Contacts = OC.Contacts || {};
 		});
 		this.$fullelem.find('.favorite').on('click', function () {
 			var state = $(this).hasClass('active');
+			if(!this.data) {
+				return;
+			}
 			if(state) {
 				$(this).switchClass('active', 'inactive');
 			} else {
@@ -993,7 +996,7 @@ OC.Contacts = OC.Contacts || {};
 
 		if(!dontloadhandlers && this.isEditable()) {
 			this.$photowrapper.on('mouseenter', function(event) {
-				if($(event.target).is('.favorite')) {
+				if($(event.target).is('.favorite') || !self.data) {
 					return;
 				}
 				$phototools.slideDown(200);
