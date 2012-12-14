@@ -56,7 +56,7 @@ class Account {
 		$mboxes = $conn->listMailboxes($pattern);
 		$mailboxes = array();
 		foreach ($mboxes as $mailbox) {
-			$mailboxes[] = new Mailbox($conn, $mailbox['mailbox']);
+			$mailboxes[] = new Mailbox($conn, $mailbox['mailbox']->utf7imap);
 		}
 		return $mailboxes;
 	}

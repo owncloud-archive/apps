@@ -9,7 +9,6 @@ $(document).ready(function() {
 	$('.start').click(function(){
 		var contentbox = $(this).parent().children('div#contentbox');
 		var path = $(this).parent().children('a.name').attr('dir');
-		alert(path);
 		contentbox.show(100);
 		contentbox.keypress(function(e) {
 			if(e.which == 13) {
@@ -75,7 +74,6 @@ function create_thumbnails() {
 			var location = $(this).attr('id');
 			var url = OC.linkTo('files', 'download.php')+'?file=' + location;
 			var thumbnail_exists = $(this).attr('value');
-			alert(url);
 			if (thumbnail_exists == "false") {
 			if (url.indexOf('pdf') != -1) {
 				render_thumbnail(url,location,title);
