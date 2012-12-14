@@ -830,7 +830,7 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	Contact.prototype.renderStandardProperty = function(name, property) {
 		if(!this.detailTemplates[name]) {
-			console.log('No template for', name);
+			console.error('No template for', name);
 			return;
 		}
 		var values = property

@@ -58,12 +58,12 @@
 <div id="contactsheader">
 	<input type="checkbox" id="toggle_all" title="<?php echo $l->t('(De-)select all'); ?>" />
 	<div class="actions">
-		<button class="add action text"><?php echo $l->t('New Contact'); ?></button>
-		<button class="download action text"><?php echo $l->t('Download Contact(s)'); ?></button>
-		<select class="groups action text button" name="groups">
+		<button class="add svg action text"><?php echo $l->t('New Contact'); ?></button>
+		<button class="download svg action text"><?php echo $l->t('Download Contact(s)'); ?></button>
+		<select class="groups svg action text button" name="groups">
 			<option value="-1" disabled="disabled" selected="selected"><?php echo $l->t('Groups'); ?></option>
 		</select>
-		<button class="favorite action inactive control" title="<?php echo $l->t('Favorite'); ?>"></button>
+		<button class="favorite action svg inactive control" title="<?php echo $l->t('Favorite'); ?>"></button>
 		<a class="delete action" title="<?php echo $l->t('Delete Contact'); ?>"></a>
 	</div>
 </div>
