@@ -569,14 +569,15 @@ OC.Contacts = OC.Contacts || {};
 	 * Render the full contact
 	 * @return A jquery object to be inserted in the DOM
 	 */
-	Contact.prototype.renderContact = function(props) {
+	Contact.prototype.renderContact = function(groupprops) {
+		this.groupprops = groupprops;
 		var self = this;
 		var n = this.getPreferredValue('N', ['', '', '', '', '']);
 		//console.log('Contact.renderContact', this.data);
 		var values = this.data
 			? {
 				id: this.id,
-				favorite:props.favorite ? 'active' : '',
+				favorite:groupprops.favorite ? 'active' : '',
 				name: this.getPreferredValue('FN', ''),
 				n0: n[0]||'', n1: n[1]||'', n2: n[2]||'', n3: n[3]||'', n4: n[4]||'',
 				nickname: this.getPreferredValue('NICKNAME', ''),
