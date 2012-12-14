@@ -158,6 +158,7 @@ dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }
 .no-svg .delete { background-image:url('%webroot%/core/img/actions/delete.png'); }
 .no-svg .edit { background-image:url('%webroot%/core/img/actions/rename.png'); }
 .no-svg .share { background-image:url('%webroot%/core/img/actions/share.png'); }
+.no-svg .groups { background-image:url('%webroot%/core/img/actions/shared.png'); }
 .no-svg .mail { background-image:url('%webroot%/core/img/actions/mail.png'); }
 .no-svg .import, .no-svg .upload { background-image:url('%webroot%/core/img/actions/upload.png'); }
 .no-svg .export, .no-svg .download { background-image:url('%webroot%/core/img/actions/download.png'); }
@@ -179,6 +180,7 @@ dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }
 .svg .delete { background-image:url('%webroot%/core/img/actions/delete.svg'); }
 .svg .edit { background-image:url('%webroot%/core/img/actions/rename.svg'); }
 .svg .share { background-image:url('%webroot%/core/img/actions/share.svg'); }
+.svg .groups { background-image:url('%webroot%/core/img/actions/shared.svg'); }
 .svg .mail { background-image:url('%webroot%/core/img/actions/mail.svg'); }
 .svg .import,.svg .upload { background-image:url('%webroot%/core/img/actions/upload.svg'); }
 .svg .export,.svg .download { background-image:url('%webroot%/core/img/actions/download.svg'); }
