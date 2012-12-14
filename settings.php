@@ -21,10 +21,16 @@
  *
  */
 
-$params = array('av_mode', 'av_host', 'av_port', 'av_chunk_size', 'av_path',);
+$params = array(
+	'av_mode' => 'executable',
+	'av_host' => '',
+	'av_port' => '',
+	'av_chunk_size' => '1024',
+	'av_path' => '/usr/bin/clamscan',
+	);
 
 if($_POST){
-	foreach($params as $param){
+	foreach($params as $param => $default){
 		if(isset($_POST[$param])){
 			OCP\Config::setAppValue('files_antivirus', $param, $_POST[$param]);
 		}
@@ -34,12 +40,9 @@ if($_POST){
 // fill template
 $tmpl = new OC_Template( 'files_antivirus', 'settings');
 OCP\Util::addScript('files_antivirus', 'settings');
-foreach($params as $param){
-		$value = OCP\Config::getAppValue('files_antivirus', $param,'');
+foreach($params as $param => $default){
+		$value = OCP\Config::getAppValue('files_antivirus', $param, $default);
 		$tmpl->assign($param, $value);
 }
-//Default
-$tmpl->assign( 'av_path', OCP\Config::getAppValue('files_antivirus', 'av_mode', 'executable'));
-$tmpl->assign( 'av_path', OCP\Config::getAppValue('files_antivirus', 'av_path', '/usr/bin/clamscan'));
 
 return $tmpl->fetchPage();
