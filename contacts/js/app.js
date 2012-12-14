@@ -773,7 +773,7 @@ OC.Contacts = OC.Contacts || {
 		$.each($($('#contactDetailsTemplate').html()), function(idx, node) {
 			if(node.nodeType === Node.ELEMENT_NODE && node.nodeName === 'DIV') {
 				var $tmpl = $(node.innerHTML);
-				self.detailTemplates[$tmpl.data('element')] = $(node.outerHTML);
+				self.detailTemplates[$tmpl.data('element')] = $(node);
 			}
 		});
 		this.$groupListItemTemplate = $('#groupListItemTemplate');
@@ -2116,7 +2116,12 @@ OC.Contacts = OC.Contacts || {
 };
 
 (function( $ ) {
-
+	// Support older browsers. From http://www.yelotofu.com/2008/08/jquery-outerhtml/
+	jQuery.fn.outerHTML = function(s) {
+		return s
+			? this.before(s).remove()
+			: jQuery('<p>').append(this.eq(0).clone()).html();
+	};
 	/**
 	* Object Template
 	* Inspired by micro templating done by e.g. underscore.js
@@ -2138,7 +2143,7 @@ OC.Contacts = OC.Contacts || {
 		// From stackoverflow.com/questions/1408289/best-way-to-do-variable-interpolation-in-javascript
 		_build: function(o){
 			var data = this.$elem.attr('type') === 'text/template'
-				? this.$elem.html() : this.$elem.get(0).outerHTML;
+				? this.$elem.html() : this.$elem.outerHTML();
 			return data.replace(/{([^{}]*)}/g,
 				function (a, b) {
 					var r = o[b];
