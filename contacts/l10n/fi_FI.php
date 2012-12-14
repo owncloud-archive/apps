@@ -168,6 +168,7 @@
 "Organization" => "Organisaatio",
 "Birthday" => "Syntymäpäivä",
 "Notes go here..." => "Muistiinpanot kuuluvat tähän...",
+"Export as VCF" => "Vie VCF-muodossa",
 "Add" => "Lisää",
 "Phone" => "Puhelin",
 "Email" => "Sähköposti",
