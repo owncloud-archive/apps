@@ -5,7 +5,7 @@ function display_each_ebook($directory,$name) {
 			<img rel ="images" id = "'.$directory.$name.'" src = "'.\OCP\Util::linkTo('reader', 'ajax/thumbnail.php').'&filepath='.$directory.rtrim($name,'pdf').'png'.'" value = "'.$check_thumb.'">	
 		</td>';
 	echo '<td class = "filename svg" width = "86%">
-			<a class="name" href="http://localhost'.\OCP\Util::linkTo('files', 'download.php').'?file='.$directory.$name.'" title="'.urldecode($name).'">
+			<a class="name" href="http://localhost'.\OCP\Util::linkTo('files', 'download.php').'?file='.$directory.$name.'" title="'.urldecode($name).'" dir = "'.urldecode($directory.$name).'">
 				<span class = "nametext">'.
 					htmlspecialchars(urldecode($name)).
 				'</span>
@@ -49,9 +49,7 @@ function display_sub_dirs($current_dir,$sub_dirs) {
 							$img_id = $img_id + 1;
 						}
 					}
-				
 				echo '</div></td>';
-				
 				echo '<td class = "filename svg" width = "86%">
 					<a class = "dirs" id = "'.$r[0].'" href = "'.OCP\Util::linkTo('reader', 'index.php').'&dir='.$current_dir.$r[0].'/'.'">
 						<span class = "nametext">'

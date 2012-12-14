@@ -731,7 +731,7 @@ OC.Contacts = OC.Contacts || {
 		OCCategories.type = 'contact';
 		this.bindEvents();
 		this.$toggleAll.show();
-		this.showActions(['addcontact']);
+		this.showActions(['add']);
 
 		// Wait 2 mins then check if contacts are indexed.
 		setTimeout(function() {
@@ -773,7 +773,7 @@ OC.Contacts = OC.Contacts || {
 		$.each($($('#contactDetailsTemplate').html()), function(idx, node) {
 			if(node.nodeType === Node.ELEMENT_NODE && node.nodeName === 'DIV') {
 				var $tmpl = $(node.innerHTML);
-				self.detailTemplates[$tmpl.data('element')] = $(node.outerHTML);
+				self.detailTemplates[$tmpl.data('element')] = $(node);
 			}
 		});
 		this.$groupListItemTemplate = $('#groupListItemTemplate');
@@ -932,9 +932,13 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		$(document).bind('request.contact.setasfavorite', function(e, data) {
-			var id = parseInt(data.id);
 			console.log('contact', data.id, 'request.contact.setasfavorite');
 			self.groups.setAsFavorite(data.id, data.state);
+		});
+
+		$(document).bind('request.contact.addtogroup', function(e, data) {
+			console.log('contact', data.id, 'request.contact.addtogroup');
+			self.groups.addTo(data.id, data.groupid);
 		});
 
 		$(document).bind('request.contact.export', function(e, data) {
@@ -1029,7 +1033,7 @@ OC.Contacts = OC.Contacts || {
 			}
 			self.$contactList.show();
 			self.$toggleAll.show();
-			self.showActions(['addcontact']);
+			self.showActions(['add']);
 			if(result.type === 'category' ||  result.type === 'fav') {
 				self.contacts.showContacts(result.contacts);
 			} else if(result.type === 'shared') {
@@ -1108,9 +1112,9 @@ OC.Contacts = OC.Contacts || {
 				self.buildGroupSelect();
 			}
 			if(isChecked) {
-				self.showActions(['addcontact', 'download', 'groups', 'delete', 'favorite']);
+				self.showActions(['add', 'download', 'groups', 'delete', 'favorite']);
 			} else {
-				self.showActions(['addcontact']);
+				self.showActions(['add']);
 			}
 		});
 
@@ -1119,9 +1123,9 @@ OC.Contacts = OC.Contacts || {
 				if(self.$groups.find('option').length === 1) {
 					self.buildGroupSelect();
 				}
-				self.showActions(['addcontact', 'download', 'groups', 'delete', 'favorite']);
+				self.showActions(['add', 'download', 'groups', 'delete', 'favorite']);
 			} else if(self.contacts.getSelectedContacts().length === 0) {
-				self.showActions(['addcontact']);
+				self.showActions(['add']);
 			}
 		});
 
@@ -1144,7 +1148,7 @@ OC.Contacts = OC.Contacts || {
 			self.setAllChecked(false);
 			self.$toggleAll.prop('checked', false);
 			if(!self.currentid) {
-				self.showActions(['addcontact']);
+				self.showActions(['add']);
 			}
 			
 			if($opt.val() === 'add') { // Add new group
@@ -1272,23 +1276,6 @@ OC.Contacts = OC.Contacts || {
 			self.openContact($(this).data('id'));
 		});
 		
-		$('.addcontact').on('click keydown', function(event) {
-			if(wrongKey(event)) {
-				return;
-			}
-			console.log('add');
-			self.$toggleAll.hide();
-			$(this).hide();
-			self.currentid = 'new';
-			var props = {
-				favorite: false,
-				groups: self.groups.categories,
-			};
-			self.tmpcontact = self.contacts.addContact();
-			self.$rightContent.prepend(self.tmpcontact);
-			self.hideActions();
-		});
-
 		this.$settings.find('h3').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -1418,13 +1405,24 @@ OC.Contacts = OC.Contacts || {
 			$list.toggle('slow');
 		});
 
-		this.$header.on('click keydown', '.back', function(event) {
+		this.$header.on('click keydown', '.add', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
-			console.log('back');
-			self.closeContact(self.currentid);
-			self.$toggleAll.show();
+			console.log('add');
+			self.$toggleAll.hide();
+			$(this).hide();
+			self.currentid = 'new';
+			// Properties that the contact doesn't know
+			console.log('addContact, groupid', self.currentgroup)
+			var groupprops = {
+				favorite: false,
+				groups: self.groups.categories,
+				currentgroup: {id:self.currentgroup, name:self.groups.nameById(self.currentgroup)},
+			};
+			self.tmpcontact = self.contacts.addContact(groupprops);
+			self.$rightContent.prepend(self.tmpcontact);
+			self.hideActions();
 		});
 
 		this.$header.on('click keydown', '.delete', function(event) {
@@ -1438,7 +1436,7 @@ OC.Contacts = OC.Contacts || {
 			} else {
 				self.contacts.delayedDelete(self.contacts.getSelectedContacts());
 			}
-			self.showActions(['addcontact']);
+			self.showActions(['add']);
 		});
 
 		this.$header.on('click keydown', '.download', function(event) {
@@ -1824,7 +1822,7 @@ OC.Contacts = OC.Contacts || {
 		}
 		this.$contactList.removeClass('dim');
 		delete this.currentid;
-		this.showActions(['addcontact']);
+		this.showActions(['add']);
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
 	},
 	openContact: function(id) {
@@ -1839,11 +1837,13 @@ OC.Contacts = OC.Contacts || {
 		this.$contactList.addClass('dim');
 		this.$toggleAll.hide();
 		this.jumpToContact(this.currentid);
-		var props = {
+		// Properties that the contact doesn't know
+		var groupprops = {
 			favorite: this.groups.isFavorite(this.currentid),
 			groups: this.groups.categories,
+			currentgroup: {id:this.currentgroup, name:this.groups.nameById(this.currentgroup)},
 		};
-		var $contactelem = this.contacts.showContact(this.currentid, props);
+		var $contactelem = this.contacts.showContact(this.currentid, groupprops);
 		var self = this;
 		var $contact = $contactelem.find('#contact');
 		var adjustElems = function() {
@@ -2116,7 +2116,12 @@ OC.Contacts = OC.Contacts || {
 };
 
 (function( $ ) {
-
+	// Support older browsers. From http://www.yelotofu.com/2008/08/jquery-outerhtml/
+	jQuery.fn.outerHTML = function(s) {
+		return s
+			? this.before(s).remove()
+			: jQuery('<p>').append(this.eq(0).clone()).html();
+	};
 	/**
 	* Object Template
 	* Inspired by micro templating done by e.g. underscore.js
@@ -2138,7 +2143,7 @@ OC.Contacts = OC.Contacts || {
 		// From stackoverflow.com/questions/1408289/best-way-to-do-variable-interpolation-in-javascript
 		_build: function(o){
 			var data = this.$elem.attr('type') === 'text/template'
-				? this.$elem.html() : this.$elem.get(0).outerHTML;
+				? this.$elem.html() : this.$elem.outerHTML();
 			return data.replace(/{([^{}]*)}/g,
 				function (a, b) {
 					var r = o[b];

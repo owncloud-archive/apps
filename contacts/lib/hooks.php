@@ -92,7 +92,7 @@ class Hooks{
 				continue;
 			}
 			$birthday = $vcard->BDAY;
-			if ($birthday) {
+			if ((string)$birthday) {
 				$date = new \DateTime($birthday);
 				$vevent = VObject\Component::create('VEVENT');
 				//$vevent->setDateTime('LAST-MODIFIED', new DateTime($vcard->REV));

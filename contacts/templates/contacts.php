@@ -58,12 +58,12 @@
 <div id="contactsheader">
 	<input type="checkbox" id="toggle_all" title="<?php echo $l->t('(De-)select all'); ?>" />
 	<div class="actions">
-		<button class="addcontact"><?php echo $l->t('New Contact'); ?></button>
-		<button class="download action text"><?php echo $l->t('Download Contact(s)'); ?></button>
-		<select class="groups control" name="groups">
+		<button class="add svg action text"><?php echo $l->t('New Contact'); ?></button>
+		<button class="download svg action text"><?php echo $l->t('Download Contact(s)'); ?></button>
+		<select class="groups svg action text button" name="groups">
 			<option value="-1" disabled="disabled" selected="selected"><?php echo $l->t('Groups'); ?></option>
 		</select>
-		<button class="favorite action inactive control" title="<?php echo $l->t('Favorite'); ?>"></button>
+		<button class="favorite action svg inactive control" title="<?php echo $l->t('Favorite'); ?>"></button>
 		<a class="delete action" title="<?php echo $l->t('Delete Contact'); ?>"></a>
 	</div>
 </div>
@@ -264,7 +264,7 @@
 		<button class="cancel action text tooltipped downwards" title="<?php echo $l->t('Cancel'); ?>"><?php echo $l->t('Cancel'); ?></button>
 		<button class="close text tooltipped downwards" title="<?php echo $l->t('Close'); ?>"><?php echo $l->t('Close'); ?></button>
 		<button class="export action text tooltipped downwards" title="<?php echo $l->t('Export as VCF'); ?>"><?php echo $l->t('Download'); ?></button>
-		<select class="add text button" id="addproperty">
+		<select class="add action text button" id="addproperty">
 			<option value=""><?php echo $l->t('Add'); ?></option>
 			<option value="ORG"><?php echo $l->t('Organization'); ?></option>
 			<option value="NICKNAME"><?php echo $l->t('Nickname'); ?></option>

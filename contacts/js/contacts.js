@@ -403,6 +403,20 @@ OC.Contacts = OC.Contacts || {};
 				self.id = parseInt(jsondata.data.id);
 				self.access.id = parseInt(jsondata.data.aid);
 				self.data = jsondata.data.details;
+				// Add contact to current group
+				if(self.groupprops && self.groupprops.currentgroup.name !== 'all' 
+					&& self.groupprops.currentgroup.name !== 'fav') {
+					if(!self.data.CATEGORIES) {
+						self.data.CATEGORIES = [{value:[self.groupprops.currentgroup.name], parameters:[]}];
+						// Save to vCard
+						self.saveProperty({name:'CATEGORIES', value:self.data.CATEGORIES[0].value.join(',') });
+						// Tell OC.Contacts to save in backend
+						$(document).trigger('request.contact.addtogroup', {
+							id: self.id,
+							groupid: self.groupprops.currentgroup.id,
+						});
+					}
+				}
 				$(document).trigger('status.contact.added', {
 					id: self.id,
 					contact: self,
@@ -555,14 +569,15 @@ OC.Contacts = OC.Contacts || {};
 	 * Render the full contact
 	 * @return A jquery object to be inserted in the DOM
 	 */
-	Contact.prototype.renderContact = function(props) {
+	Contact.prototype.renderContact = function(groupprops) {
+		this.groupprops = groupprops;
 		var self = this;
 		var n = this.getPreferredValue('N', ['', '', '', '', '']);
 		//console.log('Contact.renderContact', this.data);
 		var values = this.data
 			? {
 				id: this.id,
-				favorite:props.favorite ? 'active' : '',
+				favorite:groupprops.favorite ? 'active' : '',
 				name: this.getPreferredValue('FN', ''),
 				n0: n[0]||'', n1: n[1]||'', n2: n[2]||'', n3: n[3]||'', n4: n[4]||'',
 				nickname: this.getPreferredValue('NICKNAME', ''),
@@ -666,6 +681,9 @@ OC.Contacts = OC.Contacts || {};
 		});
 		this.$fullelem.find('.favorite').on('click', function () {
 			var state = $(this).hasClass('active');
+			if(!this.data) {
+				return;
+			}
 			if(state) {
 				$(this).switchClass('active', 'inactive');
 			} else {
@@ -812,7 +830,7 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	Contact.prototype.renderStandardProperty = function(name, property) {
 		if(!this.detailTemplates[name]) {
-			console.log('No template for', name);
+			console.error('No template for', name);
 			return;
 		}
 		var values = property
@@ -978,7 +996,7 @@ OC.Contacts = OC.Contacts || {};
 
 		if(!dontloadhandlers && this.isEditable()) {
 			this.$photowrapper.on('mouseenter', function(event) {
-				if($(event.target).is('.favorite')) {
+				if($(event.target).is('.favorite') || !self.data) {
 					return;
 				}
 				$phototools.slideDown(200);

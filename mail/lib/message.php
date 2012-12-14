@@ -72,7 +72,7 @@ class Message {
 	public function getTo() {
 		$e = $this->getEnvelope();
 		$to = $e->to[0];
-		return $to->label;
+		return $to ? $to->label : null;
 	}
 
 	public function getSubject() {
