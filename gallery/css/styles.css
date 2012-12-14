@@ -1,23 +1,27 @@
 #gallery {
-    margin-top: 2.8em;
-    overflow: auto;
+	margin-top: 2.8em;
+	overflow: auto;
 }
 
 #gallery > a.album {
-    display: inline-block;
-    width: 200px;
-    background-color: #e8e8e8;
-    border-radius: 10px;
-    box-shadow: 0 1px 0 white,inset 0 1px 1px #bbb;
-    border:1px solid #eee;
+	display: inline-block;
+	width: 200px;
+	background-color: #e8e8e8;
+	border-radius: 10px;
+	box-shadow: 0 1px 0 white, inset 0 1px 1px #bbb;
+	border: 1px solid #eee;
 }
 
 #gallery > a {
-    height: 200px;
-    margin: 1em;
+	height: 200px;
+	margin: 1em;
 }
 
 #slideshow-start {
-    position: absolute;
-    right: 13.5em;
+	position: absolute;
+	right: 13.5em;
+}
+
+#gallery > a.image >img {
+	max-height: 200px;
 }
