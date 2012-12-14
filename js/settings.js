@@ -12,12 +12,9 @@ function av_mode_show_options(str){
 	}
 }
 $(document).ready(function() {
-	var str = $("#av_mode").val();
-	av_mode_show_options(str);
-});
-$(document).ready(function() {
 	$("#av_mode").change(function () {
 		var str = $("#av_mode").val();
 		av_mode_show_options(str);
 	});   
+	$("#av_mode").change();
 });
