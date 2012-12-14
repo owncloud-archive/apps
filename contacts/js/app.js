@@ -932,9 +932,13 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		$(document).bind('request.contact.setasfavorite', function(e, data) {
-			var id = parseInt(data.id);
 			console.log('contact', data.id, 'request.contact.setasfavorite');
 			self.groups.setAsFavorite(data.id, data.state);
+		});
+
+		$(document).bind('request.contact.addtogroup', function(e, data) {
+			console.log('contact', data.id, 'request.contact.addtogroup');
+			self.groups.addTo(data.id, data.groupid);
 		});
 
 		$(document).bind('request.contact.export', function(e, data) {
@@ -1272,23 +1276,6 @@ OC.Contacts = OC.Contacts || {
 			self.openContact($(this).data('id'));
 		});
 		
-		$('.addcontact').on('click keydown', function(event) {
-			if(wrongKey(event)) {
-				return;
-			}
-			console.log('add');
-			self.$toggleAll.hide();
-			$(this).hide();
-			self.currentid = 'new';
-			var props = {
-				favorite: false,
-				groups: self.groups.categories,
-			};
-			self.tmpcontact = self.contacts.addContact();
-			self.$rightContent.prepend(self.tmpcontact);
-			self.hideActions();
-		});
-
 		this.$settings.find('h3').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -1418,13 +1405,24 @@ OC.Contacts = OC.Contacts || {
 			$list.toggle('slow');
 		});
 
-		this.$header.on('click keydown', '.back', function(event) {
+		this.$header.on('click keydown', '.add', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
-			console.log('back');
-			self.closeContact(self.currentid);
-			self.$toggleAll.show();
+			console.log('add');
+			self.$toggleAll.hide();
+			$(this).hide();
+			self.currentid = 'new';
+			// Properties that the contact doesn't know
+			console.log('addContact, groupid', self.currentgroup)
+			var groupprops = {
+				favorite: false,
+				groups: self.groups.categories,
+				currentgroup: {id:self.currentgroup, name:self.groups.nameById(self.currentgroup)},
+			};
+			self.tmpcontact = self.contacts.addContact(groupprops);
+			self.$rightContent.prepend(self.tmpcontact);
+			self.hideActions();
 		});
 
 		this.$header.on('click keydown', '.delete', function(event) {
@@ -1839,11 +1837,13 @@ OC.Contacts = OC.Contacts || {
 		this.$contactList.addClass('dim');
 		this.$toggleAll.hide();
 		this.jumpToContact(this.currentid);
-		var props = {
+		// Properties that the contact doesn't know
+		var groupprops = {
 			favorite: this.groups.isFavorite(this.currentid),
 			groups: this.groups.categories,
+			currentgroup: {id:this.currentgroup, name:this.groups.nameById(this.currentgroup)},
 		};
-		var $contactelem = this.contacts.showContact(this.currentid, props);
+		var $contactelem = this.contacts.showContact(this.currentid, groupprops);
 		var self = this;
 		var $contact = $contactelem.find('#contact');
 		var adjustElems = function() {
