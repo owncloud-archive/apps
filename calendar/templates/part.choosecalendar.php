@@ -9,6 +9,7 @@
 		$tmpl->assign('calendar', $option_calendars[$i]);
 		if ($option_calendars[$i]['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $option_calendars[$i]['id']);
+			$shared = true;
 		} else {
 			$shared = false;
 		}
