@@ -731,7 +731,7 @@ OC.Contacts = OC.Contacts || {
 		OCCategories.type = 'contact';
 		this.bindEvents();
 		this.$toggleAll.show();
-		this.showActions(['addcontact']);
+		this.showActions(['add']);
 
 		// Wait 2 mins then check if contacts are indexed.
 		setTimeout(function() {
@@ -1029,7 +1029,7 @@ OC.Contacts = OC.Contacts || {
 			}
 			self.$contactList.show();
 			self.$toggleAll.show();
-			self.showActions(['addcontact']);
+			self.showActions(['add']);
 			if(result.type === 'category' ||  result.type === 'fav') {
 				self.contacts.showContacts(result.contacts);
 			} else if(result.type === 'shared') {
@@ -1108,9 +1108,9 @@ OC.Contacts = OC.Contacts || {
 				self.buildGroupSelect();
 			}
 			if(isChecked) {
-				self.showActions(['addcontact', 'download', 'groups', 'delete', 'favorite']);
+				self.showActions(['add', 'download', 'groups', 'delete', 'favorite']);
 			} else {
-				self.showActions(['addcontact']);
+				self.showActions(['add']);
 			}
 		});
 
@@ -1119,9 +1119,9 @@ OC.Contacts = OC.Contacts || {
 				if(self.$groups.find('option').length === 1) {
 					self.buildGroupSelect();
 				}
-				self.showActions(['addcontact', 'download', 'groups', 'delete', 'favorite']);
+				self.showActions(['add', 'download', 'groups', 'delete', 'favorite']);
 			} else if(self.contacts.getSelectedContacts().length === 0) {
-				self.showActions(['addcontact']);
+				self.showActions(['add']);
 			}
 		});
 
@@ -1144,7 +1144,7 @@ OC.Contacts = OC.Contacts || {
 			self.setAllChecked(false);
 			self.$toggleAll.prop('checked', false);
 			if(!self.currentid) {
-				self.showActions(['addcontact']);
+				self.showActions(['add']);
 			}
 			
 			if($opt.val() === 'add') { // Add new group
@@ -1438,7 +1438,7 @@ OC.Contacts = OC.Contacts || {
 			} else {
 				self.contacts.delayedDelete(self.contacts.getSelectedContacts());
 			}
-			self.showActions(['addcontact']);
+			self.showActions(['add']);
 		});
 
 		this.$header.on('click keydown', '.download', function(event) {
@@ -1824,7 +1824,7 @@ OC.Contacts = OC.Contacts || {
 		}
 		this.$contactList.removeClass('dim');
 		delete this.currentid;
-		this.showActions(['addcontact']);
+		this.showActions(['add']);
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
 	},
 	openContact: function(id) {
