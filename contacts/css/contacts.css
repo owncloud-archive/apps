@@ -45,6 +45,8 @@
 	float: left;
 	width: auto;
 }
+#content input[type="button"]:hover, #content select:hover, #content select:focus, #content select:active, #content input[type="button"]:focus, #content .button:hover, button:hover { background-color:#fff; color:#333; }
+
 #content fieldset, #content div, #content span, #content section {
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
 }
@@ -94,7 +96,7 @@
 }
 
 #groupactions { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; height: 4em; border-bottom: 1px solid #DDDDDD; }
-#groupactions > button, .addcontact, .import-upload-button, .doImport {
+/*#groupactions > button, .addcontact, .import-upload-button, .doImport {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -108,7 +110,7 @@
 	color: #fff;
     border-right: medium none;
     margin: .7em 2em;
-}
+}*/
 
 #grouplist { z-index: 100; }
 #grouplist h3 .action:not(.starred):not(.checked):not(.favorite) { float: right; display: none; padding: 0; margin: auto; }
@@ -136,7 +138,7 @@ dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }
 
 .action, .icon {
 	display: inline-block; 
-	cursor: pointer; 
+	cursor: pointer;
 	background-repeat: no-repeat;
 }
 .action:not(.text), .icon:not(.text) { 
@@ -157,7 +159,7 @@ dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }
 .no-svg .edit { background-image:url('%webroot%/core/img/actions/rename.png'); }
 .no-svg .share { background-image:url('%webroot%/core/img/actions/share.png'); }
 .no-svg .mail { background-image:url('%webroot%/core/img/actions/mail.png'); }
-.no-svg .upload { background-image:url('%webroot%/core/img/actions/upload.png'); }
+.no-svg .import, .no-svg .upload { background-image:url('%webroot%/core/img/actions/upload.png'); }
 .no-svg .export, .no-svg .download { background-image:url('%webroot%/core/img/actions/download.png'); }
 .no-svg .cloud:not { background-image:url('%webroot%/core/img/places/picture.png'); }
 .no-svg .globe:not { background-image:url('%webroot%/core/img/actions/public.png'); }
@@ -171,13 +173,14 @@ dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }
 .svg .action.text, .svg .icon.text, .svg .svg.text {
 	background-size: 16px 16px;
 	background-origin: content-box;
+	background-repeat: no-repeat;
 }
-.svg .add:not(.text) { background-image:url('%webroot%/core/img/actions/add.svg'); }
+.svg .add { background-image:url('%webroot%/core/img/actions/add.svg'); }
 .svg .delete { background-image:url('%webroot%/core/img/actions/delete.svg'); }
 .svg .edit { background-image:url('%webroot%/core/img/actions/rename.svg'); }
 .svg .share { background-image:url('%webroot%/core/img/actions/share.svg'); }
 .svg .mail { background-image:url('%webroot%/core/img/actions/mail.svg'); }
-.svg .import { background-image:url('%webroot%/core/img/actions/upload.svg'); }
+.svg .import,.svg .upload { background-image:url('%webroot%/core/img/actions/upload.svg'); }
 .svg .export,.svg .download { background-image:url('%webroot%/core/img/actions/download.svg'); }
 .svg .cloud { background-image:url('%webroot%/core/img/places/picture.svg'); }
 .svg .globe { background-image:url('%webroot%/core/img/actions/public.svg'); }
