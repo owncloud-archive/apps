@@ -9,7 +9,6 @@ $(document).ready(function() {
 	$('.start').click(function(){
 		var contentbox = $(this).parent().children('div#contentbox');
 		var path = $(this).parent().children('a.name').attr('dir');
-		alert(path);
 		contentbox.show(100);
 		contentbox.keypress(function(e) {
 			if(e.which == 13) {
@@ -31,7 +30,7 @@ $(function() {
 		'use strict';
 		// create thumbnails for pdfs inside current directory.
 		create_thumbnails();
-
+		create_thumbnails_for_directories();
 		// Render pdf view on every click of a thumbnail, now and in future.
 		$('td.filename a.name').live('click',function(event) {
 			event.preventDefault();
@@ -69,15 +68,43 @@ function getAction(mime,type) {
 
 function create_thumbnails() {
 	PDFJS.disableWorker = true;
-		$('td.filename a.name').each(function() {
-			// Get url and title of each pdf file from anchor tags.
-			var url = $(this).attr('href');
+		$('td#thumbnail_container > img').each(function() {
+			// Get url and title of each pdf file from image tags.
 			var title = $(this).parent().parent().attr('data-file');
-			var location = $(this).attr('dir');
+			var location = $(this).attr('id');
+			var url = OC.linkTo('files', 'download.php')+'?file=' + location;
 			var thumbnail_exists = $(this).attr('value');
 			if (thumbnail_exists == "false") {
 			if (url.indexOf('pdf') != -1) {
-				PDFJS.getDocument(url).then(function(pdf) {
+				render_thumbnail(url,location,title);
+			}
+		}
+	});
+}
+
+function create_thumbnails_for_directories() {
+	$('div#thumbs img').each(function(){
+		var thumb_exists = $(this).attr('value');
+		if (thumb_exists == "false") {
+			var location = $(this).attr('id');
+			var url = OC.linkTo('files', 'download.php')+'?file=' + location;
+			var title = location.replace(/\\/g,'/').replace( /.*\//, '' );
+			if (url.indexOf('pdf') != -1) {
+				render_thumbnail(url,location,title);
+			}
+		}
+	});
+}
+
+function canvasSaver(canvas,title,location) {
+	var canvas_data = canvas.toDataURL('image/png');
+	$.post("apps/reader/ajax/canvas_saver.php", {canv_data:canvas_data,title:title,location:location});
+}
+
+
+function render_thumbnail(url,location,title) {
+	
+	PDFJS.getDocument(url).then(function(pdf) {
 				// Using promise to fetch the page
 					pdf.getPage(1).then(function(page) {
 						var scale = 0.2;
@@ -126,14 +153,4 @@ function create_thumbnails() {
 						});
 					});
 				});
-			}
-		}
-	});
 }
-
-function canvasSaver(canvas,title,location) {
-	var canvas_data = canvas.toDataURL('image/png');
-	$.post("apps/reader/ajax/canvas_saver.php", {canv_data:canvas_data,title:title,location:location});
-}
-
-

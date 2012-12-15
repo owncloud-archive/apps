@@ -26,4 +26,24 @@ function find_results_with_tag_like($tag) {
 	$res =  $stmt->execute(array($tag));
 	return $res;
 }
+
+function check_consistency_with_database($root,$pdfs) {
+	$new_array_pdfs = array();
+	foreach ($pdfs as $pdf) {
+		$new_array_pdfs[] = $root.$pdf;
+	}
+	$sql = 'SELECT filepath from *PREFIX*ebook_library';
+	$stmt = OCP\DB::prepare($sql);
+	$res =  $stmt->execute();
+	while ($r = $res->fetchRow()) {
+		if (!in_array($r['filepath'],$new_array_pdfs))
+			delete_entry($r['filepath']);
+	}
+}
+
+function delete_entry($filepath) {
+	$sql = 'DELETE FROM *PREFIX*eBook_library WHERE filepath = ?';
+	$stmt = OCP\DB::prepare($sql);
+	$res =  $stmt->execute(array($filepath));
+}
 ?>

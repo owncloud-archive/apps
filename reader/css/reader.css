@@ -5,7 +5,7 @@ div.crumb.last { font-weight:bold; }
 
 table#readerContent { white-space:normal; position:absolute; top:37px;font-family:Arial;}
 tbody#fileList tr { background:white; height:150px;font-size:12px;}
-tbody tr:hover, tbody tr:active, tbody tr.selected { background-color: white:# }
+tbody tr:hover, tbody tr:active, tbody tr.selected { background-color: white }
 	
 .thumbnail:not([data-loaded]) { background-color: white; }
 td#thumbnail_container { border:1px solid #EEE;  background-color: #f8f8f8;}

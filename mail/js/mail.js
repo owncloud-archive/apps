@@ -231,14 +231,6 @@ Mail = {
 $(document).ready(function () {
     Mail.UI.initializeInterface();
 
-    // new mail message button handling
-    $('#mail_new_message').button().click(function () {
-        $('#to').val('');
-        $('#subject').val('');
-        $('#body').val('');
-        $('#mail_editor').dialog("open");
-    });
-
     // auto detect button handling
     $('#auto_detect_account').click(function () {
         $('#auto_detect_account').attr('disabled', "disabled");
@@ -267,20 +259,6 @@ $(document).ready(function () {
                 }
             }
         });
-    });
-    // Clicking on a folder loads the message list
-    $('ul.mail_folders li').live('click', function () {
-        var account_id, folder_id;
-        account_id = $(this).parent().data('account_id');
-        folder_id = $(this).data('folder_id');
-
-        Mail.UI.loadMessages(account_id, folder_id);
-    });
-
-    // Clicking on a message loads the entire message
-    $('#mail_messages').find('.mail_message_summary').live('click', function () {
-        var message_id = $(this).data('message_id');
-        Mail.UI.openMessage(message_id);
     });
 
 //    Mail.UI.bindEndlessScrolling();

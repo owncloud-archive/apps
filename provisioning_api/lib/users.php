@@ -27,7 +27,10 @@ class OC_Provisioning_API_Users {
 	 * returns a list of users
 	 */
 	public static function getUsers($parameters){
-		return OC_User::getUsers();
+		$search = !empty($_GET['search']) ? $_GET['search'] : '';
+		$limit = !empty($_GET['limit']) ? $_GET['limit'] : null;
+		$offset = !empty($_GET['offset']) ? $_GET['offset'] : null;
+		return new OC_OCS_Result(array('users' => OC_User::getUsers($search, $limit, $offset)));
 	}
 
 	public static function addUser(){
@@ -35,19 +38,19 @@ class OC_Provisioning_API_Users {
 		$password = isset($_POST['password']) ? $_POST['password'] : null;
 		try {
 			OC_User::createUser($userid, $password);
-			return 100;
+			return new OC_OCS_Result(null, 100);
 		} catch (Exception $e) {
 			switch($e->getMessage()){
 				case 'Only the following characters are allowed in a username: "a-z", "A-Z", "0-9", and "_.@-"':
 				case 'A valid username must be provided':
 				case 'A valid password must be provided':
-					return 101;
+					return new OC_OCS_Result(null, 101);
 					break;
 				case 'The username is already being used';
-					return 102;
+					return new OC_OCS_Result(null, 102);
 					break;
 				default:
-					return 103;
+					return new OC_OCS_Result(null, 103);
 					break;
 			}
 		}
@@ -57,45 +60,94 @@ class OC_Provisioning_API_Users {
 	 * gets user info
 	 */
 	public static function getUser($parameters){
+		// Check the user exists
+		if(!OC_User::userExists($parameters['userid'])){
+			return new OC_OCS_Result(null, 101);
+		}
 		$userid = $parameters['userid'];
 		$return = array();
 		$return['email'] = OC_Preferences::getValue($userid, 'settings', 'email', '');
-		$default = OC_Appconfig::getValue('files', 'default_quota', 0);
-		$return['quota'] = OC_Preferences::getValue($userid, 'files', 'quota', $default);
-		return $return;
+		// Calcuate quota values
+		$user_dir = '/'.$user.'/files';
+		OC_Filesystem::init($user_dir);
+		$rootInfo=OC_FileCache::get('');
+		$sharedInfo=OC_FileCache::get('/Shared');
+		$used=$rootInfo['size']-$sharedInfo['size'];
+		$free=OC_Filesystem::free_space();
+		$total=$free+$used;
+		if($total==0) $total=1;  // prevent division by zero
+		$relative=round(($used/$total)*10000)/100;
+		$return['quota']=$total;
+		$return['freespace']=$free;
+		$return['usedspace']=$used;
+		$return['relativespaceused']=$relative;
+		$return['enabled'] = OC_Preferences::getValue($userid, 'core', 'enabled', 'true');
+		return new OC_OCS_Result($return);
 	}
 
 	public static function editUser($parameters){
-
+		// TODO
 	}
 
 	public static function deleteUser($parameters){
-
-	}
-
-	public static function getSharedWithUser($parameters){
-
-	}
-
-	public static function getSharedByUser($parameters){
-
-	}
-
-	public static function deleteSharedByUser($parameters){
-
+		// Do they exist?
+		if(!OC_User::userExists($parameters['userid'])){
+			return new OC_OCS_Result(null, 101);
+		}
+		// Can't delete yourself.
+		if($parameters['userid'] === OC_User::getUser() || !OC_User::deleteUser($parameters['userid'])){
+			return new OC_OCS_Result(null, 102);
+		} else {
+			return new OC_OCS_Result(null, 100);
+		}
 	}
 
 	public static function getUsersGroups($parameters){
 		$userid = $parameters['userid'];
-		return array('groups' => OC_Group::getUserGroups($userid));
+		return new OC_OCS_Result(array('groups' => OC_Group::getUserGroups($userid)));
 	}
 
 	public static function addToGroup($parameters){
-
+		$group = !empty($_POST['groupid']) ? $_POST['groupid'] : null;
+		if(is_null($group)){
+			return new OC_OCS_Result(null, 101);
+		}
+		// Check they are a subadmin, if not an admin
+		if(!OC_Group::inGroup(OC_User::getUser(), 'admin') && !OC_SubAdmin::isSubAdminofGroup(OC_User::getUser(), $group)){
+			// This subadmin doesn't have rights to add a user to this group
+			return new OC_OCS_Result(null, 104);
+		}
+		// Check if the group exists
+		if(!OC_Group::groupExists($group)){
+			return new OC_OCS_Result(null, 102);
+		}
+		// Check if the user exists
+		if(!OC_User::userExists($parameters['userid'])){
+			return new OC_OCS_Result(null, 103);
+		}
+		// Add user to group
+		return OC_Group::addToGroup($parameters['userid'], $group) ? new OC_OCS_Result(null, 100) : new OC_OCS_Result(null, 105);
 	}
 
 	public static function removeFromGroup($parameters){
-
+		$group = !empty($_GET['groupid']) ? $_GET['groupid'] : null;
+		if(is_null($group)){
+			return new OC_OCS_Result(null, 101);
+		}
+		// If they're not an adamin, check they are a subadmin of the group in question
+		if(!OC_Group::inGroup(OC_User::getUser(), 'admin') && !OC_SubAdmin::isSubAdminofGroup(OC_User::getUser(), $group)){
+			return new OC_OCS_Result(null, 104);
+		}
+		// Check if the group exists
+		if(!OC_Group::groupExists($group)){
+			return new OC_OCS_Result(null, 102);
+		}
+		// Check if the user exists
+		if(!OC_User::userExists($parameters['userid'])){
+			return new OC_OCS_Result(null, 103);
+		}
+		// Add user to group
+		return OC_Group::removeFromGroup($parameters['userid'], $group) ? new OC_OCS_Result(null, 100) : new OC_OCS_Result(null, 105);
 	}
 
 }

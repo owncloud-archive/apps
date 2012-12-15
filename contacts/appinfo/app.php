@@ -5,6 +5,7 @@ OC::$CLASSPATH['OCA\Contacts\VCard'] = 'contacts/lib/vcard.php';
 OC::$CLASSPATH['OCA\Contacts\Hooks'] = 'contacts/lib/hooks.php';
 OC::$CLASSPATH['OCA\Contacts\Share_Backend_Contact'] = 'contacts/lib/share/contact.php';
 OC::$CLASSPATH['OCA\Contacts\Share_Backend_Addressbook'] = 'contacts/lib/share/addressbook.php';
+OC::$CLASSPATH['OCA\Contacts\AddressbookProvider'] = 'contacts/lib/addressbookprovider.php';
 OC::$CLASSPATH['OC_Connector_Sabre_CardDAV'] = 'contacts/lib/sabre/backend.php';
 OC::$CLASSPATH['OC_Connector_Sabre_CardDAV_AddressBookRoot'] = 'contacts/lib/sabre/addressbookroot.php';
 OC::$CLASSPATH['OC_Connector_Sabre_CardDAV_UserAddressBooks'] = 'contacts/lib/sabre/useraddressbooks.php';
@@ -27,3 +28,7 @@ OCP\Util::addscript('contacts', 'loader');
 OC_Search::registerProvider('OCA\Contacts\SearchProvider');
 OCP\Share::registerBackend('contact', 'OCA\Contacts\Share_Backend_Contact');
 OCP\Share::registerBackend('addressbook', 'OCA\Contacts\Share_Backend_Addressbook', 'contact');
+
+foreach(OCA\Contacts\Addressbook::all(OCP\USER::getUser()) as $addressbook)  {
+	OCP\Contacts::registerAddressBook(new OCA\Contacts\AddressbookProvider($addressbook['id']));
+}

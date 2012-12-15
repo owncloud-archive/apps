@@ -44,6 +44,10 @@
 	$pdfs = $view->searchByMime('application/pdf');
 	sort($pdfs);
 
+	// Cleans the eBooks table of files that have been deleted from the files app.
+	if ($current_dir == '/')
+		check_consistency_with_database($current_dir,$pdfs);
+	
 	// Construct an array, to store pdf files and directory names, in which pdf files reside.
 	$files = array();
 	

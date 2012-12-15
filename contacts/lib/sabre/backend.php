@@ -153,7 +153,7 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 				'id' => $i['id'],
 				//'carddata' => $i['carddata'],
 				'size' => strlen($i['carddata']),
-				'etag' => md5($i['carddata']),
+				'etag' => '"' . md5($i['carddata']) . '"',
 				'uri' => $i['uri'],
 				'lastmodified' => $i['lastmodified'] );
 		}

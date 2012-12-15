@@ -133,7 +133,7 @@
 "Share Calendar" => "Współdziel kalendarz",
 "Download" => "Pobiera kalendarz",
 "Edit" => "Edytuje kalendarz",
-"Delete" => "Usuwa kalendarz",
+"Delete" => "Usuń",
 "shared with you by" => "współdzielisz z",
 "New calendar" => "Nowy kalendarz",
 "Edit calendar" => "Edytowanie kalendarza",
