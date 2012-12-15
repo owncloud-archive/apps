@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * ownCloud - user_cas
+ *
+ * @author Sixto Martin <sixto.martin.garcia@gmail.com>
+ * @copyright Sixto Martin Garcia. 2012
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+class OC_USER_CAS extends OC_User_Backend {
+
+	// cached settings
+	public $autocreate;
+	public $updateUserData;
+	public $protectedGroups;
+	public $defaultGroup;
+	public $usernameMapping;
+	public $mailMapping;
+	public $groupMapping;
+
+	public function __construct() {
+		
+		$this->autocreate = OCP\Config::getAppValue('user_cas', 'cas_autocreate', false);
+		$this->updateUserData = OCP\Config::getAppValue('user_cas', 'cas_update_user_data', false);
+		$this->defaultGroup = OCP\Config::getAppValue('user_cas', 'cas_default_group', '');
+		$this->protectedGroups = explode (',', str_replace(' ', '', OCP\Config::getAppValue('user_cas', 'cas_protected_groups', '')));
+		$this->usernameMapping = OCP\Config::getAppValue('user_cas', 'cas_username_mapping', '');
+		$this->mailMapping = OCP\Config::getAppValue('user_cas', 'cas_email_mapping', '');
+		$this->groupMapping = OCP\Config::getAppValue('user_cas', 'cas_group_mapping', '');
+	}
+
+
+	public function checkPassword($uid, $password) {
+
+		if(!phpCAS::isAuthenticated()) {
+			return false;
+		}
+
+		$attributes = phpCAS::getAttributes();
+
+		if (array_key_exists($this->usernameMapping, $attributes)) {
+			$uid = $attributes[$this->usernameMapping][0];
+			OC_Log::write('cas','Authenticated user '.$uid,OC_Log::DEBUG);
+		}
+		else {
+			OC_Log::write('cas','Not found attribute used to get the username ("'.$this->usernameMapping.'") at the requested cas xml response',OC_Log::DEBUG);
+		}
+
+		return $uid;
+	}
+}
