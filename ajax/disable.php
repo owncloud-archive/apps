@@ -24,7 +24,6 @@
 \OCP\User::checkLoggedIn();
 \OCP\App::checkAppEnabled('firstrunwizard');
 
-\OCA_FirstRunWizard\Config::hide();
-//\OCA_FirstRunWizard\Config::disable();
+\OCA_FirstRunWizard\Config::disable();
 
 
