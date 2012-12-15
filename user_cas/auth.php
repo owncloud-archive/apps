@@ -21,28 +21,31 @@
  *
  */
 
+	global $initialized_cas;
+
 	$casVersion = OCP\Config::getAppValue('user_cas', 'cas_server_version', '1.0');
 	$casHostname = OCP\Config::getAppValue('user_cas', 'cas_server_hostname', '');
 	$casPort = OCP\Config::getAppValue('user_cas', 'cas_server_port', '443');
 	$casPath = OCP\Config::getAppValue('user_cas', 'cas_server_path', '/cas');
-        $casCertPath = OCP\Config::getAppValue('user_cas', 'cas_cert_path', '');
+	$casCertPath = OCP\Config::getAppValue('user_cas', 'cas_cert_path', '');
+
+
 
 	if (!empty($casHostname)) {
 
-		include_once('CAS.php');
+		if(!$initialized_cas) {
 
-		# phpCAS::setDebug();
+			# phpCAS::setDebug();
 
-		phpCAS::client($casVersion,$casHostname,(int)$casPort,$casPath);
+			phpCAS::client($casVersion,$casHostname,(int)$casPort,$casPath);
 
-		if(!empty($casCertPath)) {
-			phpCAS::setCasServerCACert($casCertPath);
+			if(!empty($casCertPath)) {
+				phpCAS::setCasServerCACert($casCertPath);
+			}
+			else {
+				phpCAS::setNoCasServerValidation();
+			}
+			$initialized_cas = true;			
 		}
-		else {
-			phpCAS::setNoCasServerValidation();
-		}
-
-		phpCAS::setNoClearTicketsFromUrl();
-
 		phpCAS::forceAuthentication();
 	}

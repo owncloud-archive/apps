@@ -24,6 +24,8 @@
 
 if (OCP\App::isEnabled('user_cas')) {
 
+	include_once('CAS.php');
+
 	require_once 'apps/user_cas/user_cas.php';
 
 	OCP\App::registerAdmin('user_cas', 'settings');

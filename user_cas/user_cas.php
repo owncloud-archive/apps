@@ -41,6 +41,31 @@ class OC_USER_CAS extends OC_User_Backend {
 		$this->usernameMapping = OCP\Config::getAppValue('user_cas', 'cas_username_mapping', '');
 		$this->mailMapping = OCP\Config::getAppValue('user_cas', 'cas_email_mapping', '');
 		$this->groupMapping = OCP\Config::getAppValue('user_cas', 'cas_group_mapping', '');
+
+	        $casVersion = OCP\Config::getAppValue('user_cas', 'cas_server_version', '1.0');
+	        $casHostname = OCP\Config::getAppValue('user_cas', 'cas_server_hostname', '');
+	        $casPort = OCP\Config::getAppValue('user_cas', 'cas_server_port', '443');
+	        $casPath = OCP\Config::getAppValue('user_cas', 'cas_server_path', '/cas');
+	        $casCertPath = OCP\Config::getAppValue('user_cas', 'cas_cert_path', '');
+	
+	        if (!empty($casHostname)) {
+			global $initialized_cas;
+
+			if(!$initialized_cas) {
+
+				# phpCAS::setDebug();
+
+				phpCAS::client($casVersion,$casHostname,(int)$casPort,$casPath);
+
+				if(!empty($casCertPath)) {
+					phpCAS::setCasServerCACert($casCertPath);
+				}
+				else {
+					phpCAS::setNoCasServerValidation();
+				}
+				$initialized_cas = true;
+			}
+		}
 	}
 
 
