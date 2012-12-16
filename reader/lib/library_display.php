@@ -10,39 +10,21 @@ function display_each_ebook($directory,$name) {
 					htmlspecialchars(urldecode($name)).
 				'</span>
 			</a>';
-			//<div id = "displaybox">';
-			/*	$each_row = find_tags_for_ebook(urldecode($directory).urldecode($name));
-				$tags = explode(",",$each_row);
-				$tag_count = 1;
-				foreach ($tags as $tag) {	
-					echo '<a href = "'.\OCP\Util::linkTo('reader', 'fetch_tags.php').'?tag='.$tag.'">'
-							.ucwords($tag).
-						'</a>';
-				} 			
-			echo '</div>';
-			if (count($tags) < 5 ) {
-				echo count($tags);
-				echo '<input type="button" class="start" value="Add Tag">';
-			}echo '<div id="contentbox" contenteditable="true"></div>*/
-		
-			/*echo '<form action="/" id="TagForm">
-			<input type="text" name="s" placeholder="Add Tag..." />
-			<input type="submit" value="add tag" />
-			</form>
-			<!-- the result of the search will be rendered inside this div -->
-			<div id="result">';
 			$each_row = find_tags_for_ebook(urldecode($directory).urldecode($name));
-				$tags = explode(",",$each_row);
-				foreach ($tags as $tag) {	
-					echo '<a href = "'.\OCP\Util::linkTo('reader', 'fetch_tags.php').'?tag='.$tag.'">'
-							.ucwords($tag).
-						'</a>';
-				} 			
+			$tags = explode(",",$each_row);
+			if (count($tags) < 5) {
+				echo '<form action="/" id="TagForm">
+				<input type="text" name="tag" placeholder="Add Tag..." />
+				<input type="submit" value="add tag" />
+				</form>';
+			}
+			echo '<div id="result">';
+			foreach ($tags as $tag) {	
+				echo '<a href = "'.\OCP\Util::linkTo('reader', 'fetch_tags.php').'?tag='.$tag.'">'
+				.ucwords($tag).
+				'</a>';
+			} 			
 			echo '</div>';
-
-		*/
-		
-		
 		echo '</td>';	
 }
 

@@ -1,9 +1,7 @@
 <?php
 include('apps/reader/lib/tag_utils.php');
-	$new_tag = $_POST['s'];
+	$new_tag = $_POST['tag'];
 	$path_of_ebook = $_POST['path'];
-	//$new_tag = $_POST['tag'];
-	//$path_of_ebook = urldecode($path_of_ebook);
 	$tags = find_tags_for_ebook($path_of_ebook);
 	if ($tags != NULL) {
 		echo $new_tag;

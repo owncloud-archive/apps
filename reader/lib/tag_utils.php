@@ -11,8 +11,14 @@ function find_tags_for_ebook($path_of_ebook) {
 }
 
 function update_tag_for_ebook($new_tag,$path_of_ebook) {
-	$stmt = OCP\DB::prepare("UPDATE *PREFIX*eBook_library SET tags = ? WHERE filepath = ?");
-	$stmt->execute(array($new_tag,$path_of_ebook));
+	$tags = find_tags_for_ebook($path_of_ebook);
+	$each_tag = explode(",",$tags);
+	if (count($each_tag) < 5) {
+		$stmt = OCP\DB::prepare("UPDATE *PREFIX*eBook_library SET tags = ? WHERE filepath = ?");
+		$stmt->execute(array($new_tag,$path_of_ebook));
+	}
+	else
+		return;
 }
 
 function insert_new_tag($new_tag,$path_of_ebook) {
