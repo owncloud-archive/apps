@@ -15,7 +15,7 @@ td.filename.svg { background:no-repeat; height:150px; white-space:normal; color:
 td.filename a.name { position:relative;}
 
 a.name span.nametext { position:relative; top: 4px; left:-25px; }
-span.nametext { padding-left:1px; font-family:Arial; font-size:16px; font-weight:normal; white-space:nowrap; text-transform:capitalize; }
+span.nametext { padding-left:1px; font-family:Arial; font-size:16px; font-weight:normal; white-space:nowrap;}
 a.dirs span.nametext { margin-left:10px;}
 div#thumbs { position:relative;}
 div#thumbs img { border:1px solid #EEE; -webkit-box-shadow: 4px 4px 4px 0px grey; box-shadow: 4px 4px 4px 0px grey; /*position:absolute; left:25px; top: 20px;*/}

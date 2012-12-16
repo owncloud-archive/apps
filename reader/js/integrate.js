@@ -6,7 +6,7 @@ $(document).ready(function() {
 	
 	$('#file_action_panel').attr('activeAction', false);
 
-	$('.start').click(function(){
+	/*$('.start').click(function(){
 		var contentbox = $(this).parent().children('div#contentbox');
 		var path = $(this).parent().children('a.name').attr('dir');
 		contentbox.show(100);
@@ -17,11 +17,27 @@ $(document).ready(function() {
 				contentbox.hide();
 				var displaybox = $(this).parent().children('div#displaybox');
 				displaybox.append('<a href = "apps/reader/fetch_tags.php?tag='+tag+'">'+tag+'</a>');
-				displaybox.append(' ');
+				//location.reload();
+				tag = tag + ',';
 				$.post('apps/reader/ajax/tags.php', {tag:tag, path:path});
+				
 			}
 		});
-	});
+	});*/
+	
+	/*$("#searchForm").submit(function(event) {
+    event.preventDefault(); 
+    var $form = $( this ),
+        term = $form.find( 'input[name="s"]' ).val(),
+       url = 'apps/reader/ajax/tags.php';
+		var path = $(this).parent().children('a.name').attr('dir');
+    $.post( url, { s: term,path:path },
+      function( data ) {
+         $( "#result" ).empty().append(data);
+      }
+    );
+  });*/
+	
 });	
 
 $(function() {

@@ -9,24 +9,41 @@ function display_each_ebook($directory,$name) {
 				<span class = "nametext">'.
 					htmlspecialchars(urldecode($name)).
 				'</span>
-			</a>
-			<div id = "displaybox">';
-				$each_row = find_tags_for_ebook(urldecode($directory).urldecode($name));
+			</a>';
+			//<div id = "displaybox">';
+			/*	$each_row = find_tags_for_ebook(urldecode($directory).urldecode($name));
 				$tags = explode(",",$each_row);
 				$tag_count = 1;
 				foreach ($tags as $tag) {	
-					if ($tag_count == 2) {
-						echo ", ";
-					}
 					echo '<a href = "'.\OCP\Util::linkTo('reader', 'fetch_tags.php').'?tag='.$tag.'">'
 							.ucwords($tag).
 						'</a>';
-					$tag_count+= 1;
 				} 			
-			echo '</div>
-			<input type="button" class="start" value="Add Tag">
-			<div id="contentbox" contenteditable="true"></div>
-		</td>';	
+			echo '</div>';
+			if (count($tags) < 5 ) {
+				echo count($tags);
+				echo '<input type="button" class="start" value="Add Tag">';
+			}echo '<div id="contentbox" contenteditable="true"></div>*/
+		
+			/*echo '<form action="/" id="TagForm">
+			<input type="text" name="s" placeholder="Add Tag..." />
+			<input type="submit" value="add tag" />
+			</form>
+			<!-- the result of the search will be rendered inside this div -->
+			<div id="result">';
+			$each_row = find_tags_for_ebook(urldecode($directory).urldecode($name));
+				$tags = explode(",",$each_row);
+				foreach ($tags as $tag) {	
+					echo '<a href = "'.\OCP\Util::linkTo('reader', 'fetch_tags.php').'?tag='.$tag.'">'
+							.ucwords($tag).
+						'</a>';
+				} 			
+			echo '</div>';
+
+		*/
+		
+		
+		echo '</td>';	
 }
 
 function display_sub_dirs($current_dir,$sub_dirs) {

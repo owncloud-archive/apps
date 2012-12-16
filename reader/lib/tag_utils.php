@@ -46,4 +46,5 @@ function delete_entry($filepath) {
 	$stmt = OCP\DB::prepare($sql);
 	$res =  $stmt->execute(array($filepath));
 }
+
 ?>
