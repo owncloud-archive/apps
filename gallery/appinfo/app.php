@@ -49,4 +49,5 @@ OCP\App::addNavigationEntry( array(
 
 //OC_Search::registerProvider('OC_GallerySearchProvider');
 
-OCP\Util::connectHook('OC_Filesystem', 'post_write', "OCA\Gallery\Thumbnail", "removeHook");
+OCP\Util::connectHook('OC_Filesystem', 'post_write', "OCA\Gallery\Thumbnail", "writeHook");
+OCP\Util::connectHook('OC_Filesystem', 'post_delete', "OCA\Gallery\Thumbnail", "removeHook");

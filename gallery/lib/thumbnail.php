@@ -9,6 +9,8 @@
 namespace OCA\Gallery;
 
 class Thumbnail {
+	static private $writeHookCount;
+
 	protected $image;
 	protected $path;
 	protected $useOriginal = false;
@@ -89,6 +91,19 @@ class Thumbnail {
 			unlink($thumbPath . '.png');
 		} else {
 			unlink($thumbPath);
+		}
+	}
+
+	static public function writeHook($params) {
+		self::removeHook($params);
+		//only create 5 thumbnails max in one request to prevent locking up the request
+		if (self::$writeHookCount < 5) {
+			$path = $params['path'];
+			$mime = \OC_Filesystem::getMimetype($path);
+			if (substr($mime, 0, 6) === 'image/') {
+				self::$writeHookCount++;
+				new Thumbnail($path);
+			}
 		}
 	}
 }
