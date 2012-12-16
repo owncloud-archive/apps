@@ -1,19 +1,15 @@
-<fieldset class="personalblock">
-	<legend><strong><?php echo $l->t('Export your user account');?></strong></legend>
-	<p><?php echo $l->t('This will create a compressed file that contains your ownCloud account.');?>
+<fieldset class="personalblock" id="migration-settings-block">
+	<legend><strong><?php echo $l->t('User Account Migration');?></strong></legend>
+	<p><?php echo $l->t('Export and import ownCloud user accounts.');?>
 	</p>
-	<button id="exportbtn">Export<img style="display: none;" class="loading" src="<?php echo OCP\Util::imagePath('core', 'loading.gif'); ?>" /></button>
-</fieldset>
-<form id="import" action="#" method="post" enctype="multipart/form-data">
-    <fieldset class="personalblock">
-		<?php if(isset($_['error'])) { ?>
+	<?php if(isset($_['error'])) { ?>
 		<h3><?php echo $_['error']['error']; ?></h3>
 		<p><?php echo $_['error']['hint']; ?></p>
 		<?php } ?>
-        <legend><strong><?php echo $l->t('Import user account');?></strong></legend>
-        </p>
-        <p><input type="file" id="owncloud_import" name="owncloud_import" style="width:280px;"><label for="owncloud_import"> <?php echo $l->t('ownCloud User Zip');?></label>
-        </p>
-        <input type="submit" name="user_import" value="<?php echo $l->t('Import'); ?>" />
-    </fieldset>
-</form>
+	<button id="exportbtn">Export<img class="loadingexport" src="<?php echo OCP\Util::imagePath('core', 'loading.gif'); ?>" /></button>
+	<form id="import" action="#" method="post" enctype="multipart/form-data">
+		<input type="file" id="import_input" name="owncloud_import">
+	</form>
+	<button id="importbtn">Import<img class="loadingimport" src="<?php echo OCP\Util::imagePath('core', 'loading.gif'); ?>" /></button>
+</fieldset>
+
