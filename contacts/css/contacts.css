@@ -348,7 +348,7 @@ ul.propertylist { width: 450px; }
 	z-index: 1001;
 }
 .import-upload-button {
-	background-image: url("%webroot%/core/img/actions/upload-white.svg");
+	background-image: url("%webroot%/core/img/actions/upload.svg");
     background-position: center center;
     background-repeat: no-repeat;
     cursor: pointer;

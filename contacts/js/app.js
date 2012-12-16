@@ -460,6 +460,10 @@ GroupList.prototype.deleteGroup = function(groupid, cb) {
 
 GroupList.prototype.editGroup = function(id) {
 	var self = this;
+	if(this.$editelem) {
+		console.log('Already editing, returning');
+		return;
+	}
 	// NOTE: Currently this only works for adding, not renaming
 	var saveChanges = function($elem, $input) {
 		console.log('saveChanges', $input.val());
@@ -474,6 +478,7 @@ GroupList.prototype.editGroup = function(id) {
 				$elem.prepend(name).removeClass('editing').attr('data-id', response.id);
 				$input.next('.checked').remove()
 				$input.remove()
+				self.$editelem = null;
 			} else {
 				$input.prop('disabled', false);
 				OC.notify({message:response.message});
@@ -484,17 +489,17 @@ GroupList.prototype.editGroup = function(id) {
 	if(typeof id === 'undefined') {
 		// Add new group
 		var tmpl = this.$groupListItemTemplate;
-		var $elem = (tmpl).octemplate({
+		self.$editelem = (tmpl).octemplate({
 			id: 'new',
 			type: 'category',
 			num: 0,
 			name: '',
 		});
 		var $input = $('<input type="text" class="active" /><a class="action checked disabled" />');
-		$elem.prepend($input).addClass('editing');
-		$elem.data('contacts', []);
-		this.$groupList.find('h3.group[data-type="category"]').first().before($elem);
-		this.selectGroup({element:$elem});
+		self.$editelem.prepend($input).addClass('editing');
+		self.$editelem.data('contacts', []);
+		this.$groupList.find('h3.group[data-type="category"]').first().before(self.$editelem);
+		this.selectGroup({element:self.$editelem});
 		$input.on('input', function(event) {
 			if($(this).val().length > 0) {
 				$(this).next('.checked').removeClass('disabled');
@@ -505,9 +510,10 @@ GroupList.prototype.editGroup = function(id) {
 		$input.on('keyup', function(event) {
 			var keyCode = Math.max(event.keyCode, event.which);
 			if(keyCode === 13) {
-				saveChanges($elem, $(this));
+				saveChanges(self.$editelem, $(this));
 			} else if(keyCode === 27) {
-				$elem.remove();
+				self.$editelem.remove();
+				self.$editelem = null;
 			}
 		});
 		$input.next('.checked').on('click keydown', function(event) {
@@ -515,7 +521,7 @@ GroupList.prototype.editGroup = function(id) {
 			if(wrongKey(event)) {
 				return;
 			}
-			saveChanges($elem, $input);
+			saveChanges(self.$editelem, $input);
 		});
 		$input.focus();
 	} else if(utils.isUInt(id)) {

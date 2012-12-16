@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-14 00:13+0100\n"
-"PO-Revision-Date: 2012-12-13 23:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-15 00:07+0100\n"
+"PO-Revision-Date: 2012-12-14 12:01+0000\n"
+"Last-Translator: Daisuke Deguchi <ddeguchi@nagoya-u.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -230,7 +230,7 @@ msgstr "連絡先"
 #: export.php:66
 #, php-format
 msgid "%d_selected_contacts"
-msgstr ""
+msgstr "%d個の選択された連絡先"
 
 #: js/app.js:279
 msgid "Contact is already in this group."
@@ -252,153 +252,153 @@ msgstr "連絡先はこのグループに存在しません。"
 msgid "Contacts are not in this group."
 msgstr "連絡先はこのグループに存在しません。"
 
-#: js/app.js:549
+#: js/app.js:555
 msgid "A group named {group} already exists"
 msgstr "{group} のグループはすでに存在します"
 
-#: js/app.js:581
+#: js/app.js:587
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "グループをドラックすることで好きな\nように並べ替えることができます。"
 
-#: js/app.js:600
+#: js/app.js:606
 msgid "All"
 msgstr "すべて"
 
-#: js/app.js:614
+#: js/app.js:620
 msgid "Favorites"
 msgstr "お気に入り"
 
-#: js/app.js:663
+#: js/app.js:669
 msgid "Shared by {owner}"
 msgstr "{owner} と共有中"
 
-#: js/app.js:739
+#: js/app.js:745
 msgid "Indexing contacts"
 msgstr "連絡先のインデックスを作成中"
 
-#: js/app.js:813 js/app.js:827
+#: js/app.js:819 js/app.js:833
 msgid "Add to..."
 msgstr "追加..."
 
-#: js/app.js:817 js/app.js:829
+#: js/app.js:823 js/app.js:835
 msgid "Remove from..."
 msgstr "削除..."
 
-#: js/app.js:834
+#: js/app.js:840
 msgid "Add group..."
 msgstr "グループを追加..."
 
-#: js/app.js:967
+#: js/app.js:977
 msgid "Select photo"
 msgstr "写真を選択"
 
-#: js/app.js:1016 js/app.js:1042 js/app.js:2001 js/app.js:2113
+#: js/app.js:1026 js/app.js:1052 js/app.js:2007 js/app.js:2119
 #: js/contacts.js:112 js/contacts.js:195 js/contacts.js:398
 msgid "Network or server error. Please inform administrator."
 msgstr "ネットワークもしくはサーバエラーです。管理者に連絡してください。"
 
-#: js/app.js:1178 js/app.js:1213
+#: js/app.js:1188 js/app.js:1223
 msgid "Error adding to group."
 msgstr "グループに追加エラー。"
 
-#: js/app.js:1238
+#: js/app.js:1248
 msgid "Error removing from group."
 msgstr "グループから削除エラー。"
 
-#: js/app.js:1268
+#: js/app.js:1278
 msgid "There was an error opening a mail composer."
 msgstr "メールコンポーザの起動エラーが発生しました。"
 
-#: js/app.js:1335
+#: js/app.js:1328
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "削除完了。再読込みをキャンセルする場合はここをクリック。"
 
-#: js/app.js:1412
+#: js/app.js:1405
 msgid "Add address book"
 msgstr "アドレスブックを追加"
 
-#: js/app.js:1497
+#: js/app.js:1501
 msgid "Import done. Click here to cancel reloading."
 msgstr "インポート完了。再読込みをキャンセルする場合はここをクリック。"
 
-#: js/app.js:1538
+#: js/app.js:1542
 msgid "Not all files uploaded. Retrying..."
 msgstr "ファイルがアップロード出来ませんでした。再実行中...。"
 
-#: js/app.js:1544
+#: js/app.js:1548
 msgid "Something went wrong with the upload, please retry."
 msgstr "アップロード中に不具合が発生しました、再実行してください。"
 
-#: js/app.js:1544 js/app.js:2048 js/settings.js:25 js/settings.js:45
+#: js/app.js:1548 js/app.js:2054 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "エラー"
 
-#: js/app.js:1554
+#: js/app.js:1558
 msgid "Importing from {filename}..."
 msgstr "{filename} からインポート中..."
 
-#: js/app.js:1557
+#: js/app.js:1561
 msgid "{success} imported, {failed} failed."
 msgstr "{success} をインポート､{failed} は失敗しました。"
 
-#: js/app.js:1565
+#: js/app.js:1569
 msgid "Importing..."
 msgstr "インポート中..."
 
-#: js/app.js:1588
+#: js/app.js:1592
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "ディレクトリもしくは0バイトのファイルはアップロードできません"
 
-#: js/app.js:1588
+#: js/app.js:1592
 msgid "Upload Error"
 msgstr "アップロードエラー"
 
-#: js/app.js:1595 js/app.js:1876
+#: js/app.js:1599 js/app.js:1882
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "アップロードしようとしているファイルは、このサーバの最大ファイルアップロードサイズを超えています。"
 
-#: js/app.js:1595
+#: js/app.js:1599
 msgid "Upload too large"
 msgstr "アップロードには大きすぎます。"
 
-#: js/app.js:1635
+#: js/app.js:1639
 msgid "Pending"
 msgstr "中断"
 
-#: js/app.js:1774 templates/contacts.php:135
+#: js/app.js:1778 templates/contacts.php:135
 msgid "Add group"
 msgstr "グループを追加"
 
-#: js/app.js:1865
+#: js/app.js:1871
 msgid "No files selected for upload."
 msgstr "アップロードするファイルが選択されていません。"
 
-#: js/app.js:1966
+#: js/app.js:1972
 msgid "Edit profile picture"
 msgstr "プロフィール写真を編集"
 
-#: js/app.js:1984 js/contacts.js:976
+#: js/app.js:1990 js/contacts.js:994
 msgid "Error loading profile picture."
 msgstr "プロファイルの画像の読み込みエラー"
 
-#: js/app.js:2036 templates/part.selectaddressbook.php:27
+#: js/app.js:2042 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr "名前を入力"
 
-#: js/app.js:2037 templates/part.selectaddressbook.php:29
+#: js/app.js:2043 templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "説明を入力してください"
 
-#: js/app.js:2040
+#: js/app.js:2046
 msgid "Select addressbook"
 msgstr "アドレスブックを選択"
 
-#: js/app.js:2048
+#: js/app.js:2054
 msgid "The address book name cannot be empty."
 msgstr "アドレス帳名は空に出来ません。"
 
@@ -406,21 +406,21 @@ msgstr "アドレス帳名は空に出来ません。"
 msgid "Is this correct?"
 msgstr "これは正しいですか？"
 
-#: js/contacts.js:443
+#: js/contacts.js:457
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "この連絡先の削除時に不明なエラーが発生しました"
 
-#: js/contacts.js:1306
+#: js/contacts.js:1324
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "いくつかの連絡先が削除対象としてマークされていますが、まだ削除されていません。削除するまでお待ちください。"
 
-#: js/contacts.js:1317
+#: js/contacts.js:1335
 msgid "Click to undo deletion of {num} contacts"
 msgstr "{num} 個の連絡先の削除を元に戻す"
 
-#: js/contacts.js:1330
+#: js/contacts.js:1348
 msgid "Cancelled deletion of {num}"
 msgstr "{num} 個の削除をキャンセルしました"
 
@@ -689,7 +689,7 @@ msgstr "新しい連絡先"
 
 #: templates/contacts.php:62
 msgid "Download Contact(s)"
-msgstr ""
+msgstr "連絡先をダウンロード"
 
 #: templates/contacts.php:64 templates/contacts.php:278
 #: templates/part.contact.php:47 templates/part.contact.php:135

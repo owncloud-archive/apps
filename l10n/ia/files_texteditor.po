@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-09 00:03+0100\n"
-"PO-Revision-Date: 2012-12-07 23:26+0000\n"
+"POT-Creation-Date: 2012-12-15 00:07+0100\n"
+"PO-Revision-Date: 2012-12-14 23:07+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Interlingua (http://www.transifex.com/projects/p/owncloud/language/ia/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: ia\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/editor.js:72 js/editor.js:156 js/editor.js:163
+#: js/editor.js:72 js/editor.js:177 js/editor.js:185
 msgid "Save"
 msgstr "Salveguardar"
 
@@ -29,22 +29,26 @@ msgstr ""
 msgid "Close"
 msgstr "Clauder"
 
-#: js/editor.js:130
+#: js/editor.js:151
 msgid "Next"
 msgstr "Proxime"
 
-#: js/editor.js:131
+#: js/editor.js:152
 msgid "Clear"
 msgstr ""
 
-#: js/editor.js:149
+#: js/editor.js:170
 msgid "Saving..."
 msgstr ""
 
-#: js/editor.js:240
+#: js/editor.js:178
+msgid "Failed to save file"
+msgstr ""
+
+#: js/editor.js:262
 msgid "An error occurred!"
 msgstr ""
 
-#: js/editor.js:267
+#: js/editor.js:297
 msgid "There were unsaved changes, click here to go back"
 msgstr ""

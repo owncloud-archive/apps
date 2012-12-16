@@ -7,6 +7,7 @@
 #   <a.tangemann@web.de>, 2012.
 #   <blobbyjj@ymail.com>, 2012.
 #   <chris.schuette86@googlemail.com>, 2012.
+#   <deh3nne@deviantdev.com>, 2012.
 #   <driz@i2pmail.org>, 2012.
 #   <fh@cbix.de>, 2012.
 #   <florian.ruechel+owncloud@gmail.com>, 2012.
@@ -30,9 +31,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-14 00:13+0100\n"
-"PO-Revision-Date: 2012-12-13 23:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-15 00:07+0100\n"
+"PO-Revision-Date: 2012-12-14 12:12+0000\n"
+"Last-Translator: deh3nne <deh3nne@deviantdev.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -272,153 +273,153 @@ msgstr "Kontakt ist nicht in der Gruppe."
 msgid "Contacts are not in this group."
 msgstr "Kontakte sind nicht in der Gruppe."
 
-#: js/app.js:549
+#: js/app.js:555
 msgid "A group named {group} already exists"
 msgstr "Eine Gruppe mit dem Namen {group} ist schon vorhanden."
 
-#: js/app.js:581
+#: js/app.js:587
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Per \"Drag & Drop\" können Sie Gruppen nach Ihren Wünschen anordnen."
 
-#: js/app.js:600
+#: js/app.js:606
 msgid "All"
 msgstr "Alle"
 
-#: js/app.js:614
+#: js/app.js:620
 msgid "Favorites"
 msgstr "Favoriten"
 
-#: js/app.js:663
+#: js/app.js:669
 msgid "Shared by {owner}"
 msgstr "Geteilt von {owner}"
 
-#: js/app.js:739
+#: js/app.js:745
 msgid "Indexing contacts"
 msgstr "Indiziere Kontakte"
 
-#: js/app.js:813 js/app.js:827
+#: js/app.js:819 js/app.js:833
 msgid "Add to..."
 msgstr "Füge hinzu..."
 
-#: js/app.js:817 js/app.js:829
+#: js/app.js:823 js/app.js:835
 msgid "Remove from..."
 msgstr "Entferne von..."
 
-#: js/app.js:834
+#: js/app.js:840
 msgid "Add group..."
 msgstr "Füge Gruppe hinzu..."
 
-#: js/app.js:967
+#: js/app.js:977
 msgid "Select photo"
 msgstr "Wählen Sie ein Foto"
 
-#: js/app.js:1016 js/app.js:1042 js/app.js:2001 js/app.js:2113
+#: js/app.js:1026 js/app.js:1052 js/app.js:2007 js/app.js:2119
 #: js/contacts.js:112 js/contacts.js:195 js/contacts.js:398
 msgid "Network or server error. Please inform administrator."
 msgstr "Netzwerk- oder Serverfehler. Bitte informieren Sie den Administrator."
 
-#: js/app.js:1178 js/app.js:1213
+#: js/app.js:1188 js/app.js:1223
 msgid "Error adding to group."
 msgstr "Fehler beim Hinzufügen zur Gruppe."
 
-#: js/app.js:1238
+#: js/app.js:1248
 msgid "Error removing from group."
 msgstr "Fehler beim Löschen aus der Gruppe."
 
-#: js/app.js:1268
+#: js/app.js:1278
 msgid "There was an error opening a mail composer."
 msgstr "Fehler beim Öffnen des Mail-Editors"
 
-#: js/app.js:1335
+#: js/app.js:1328
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Gelöscht. Klicken Sie hier, um das Neuladen abzubrechen"
 
-#: js/app.js:1412
+#: js/app.js:1405
 msgid "Add address book"
 msgstr "Adressbuch hinzufügen"
 
-#: js/app.js:1497
+#: js/app.js:1501
 msgid "Import done. Click here to cancel reloading."
 msgstr "Import abgeschlossen. Klicke hier, um das Neuladen abzubrechen"
 
-#: js/app.js:1538
+#: js/app.js:1542
 msgid "Not all files uploaded. Retrying..."
 msgstr "Es wurden nicht alle Dateien hochgeladen. Versuche erneut..."
 
-#: js/app.js:1544
+#: js/app.js:1548
 msgid "Something went wrong with the upload, please retry."
 msgstr "Beim Hochladen ist etwas schiefgegangen. Bitte versuchen Sie es erneut."
 
-#: js/app.js:1544 js/app.js:2048 js/settings.js:25 js/settings.js:45
+#: js/app.js:1548 js/app.js:2054 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Fehler"
 
-#: js/app.js:1554
+#: js/app.js:1558
 msgid "Importing from {filename}..."
 msgstr "Importiere von {filename}"
 
-#: js/app.js:1557
+#: js/app.js:1561
 msgid "{success} imported, {failed} failed."
 msgstr "{success} importiert, {failed} fehlgeschlagen."
 
-#: js/app.js:1565
+#: js/app.js:1569
 msgid "Importing..."
 msgstr "Importiere..."
 
-#: js/app.js:1588
+#: js/app.js:1592
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Ihre Datei kann nicht hochgeladen werden, weil es sich um einen Ordner handelt oder 0 Bytes groß ist."
 
-#: js/app.js:1588
+#: js/app.js:1592
 msgid "Upload Error"
 msgstr "Fehler beim Hochladen"
 
-#: js/app.js:1595 js/app.js:1876
+#: js/app.js:1599 js/app.js:1882
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Die Datei, die Sie hochladen möchten, überschreitet die maximale Größe für Datei-Uploads auf diesem Server."
 
-#: js/app.js:1595
+#: js/app.js:1599
 msgid "Upload too large"
 msgstr "Der Upload ist zu groß"
 
-#: js/app.js:1635
+#: js/app.js:1639
 msgid "Pending"
 msgstr "Ausstehend"
 
-#: js/app.js:1774 templates/contacts.php:135
+#: js/app.js:1778 templates/contacts.php:135
 msgid "Add group"
 msgstr "Fügen Sie eine Gruppe hinzu"
 
-#: js/app.js:1865
+#: js/app.js:1871
 msgid "No files selected for upload."
 msgstr "Keine Datei(en) zum Hochladen ausgewählt."
 
-#: js/app.js:1966
+#: js/app.js:1972
 msgid "Edit profile picture"
 msgstr "Profilbild bearbeiten"
 
-#: js/app.js:1984 js/contacts.js:976
+#: js/app.js:1990 js/contacts.js:994
 msgid "Error loading profile picture."
 msgstr "Fehler beim Laden des Profilbildes."
 
-#: js/app.js:2036 templates/part.selectaddressbook.php:27
+#: js/app.js:2042 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr "Name eingeben"
 
-#: js/app.js:2037 templates/part.selectaddressbook.php:29
+#: js/app.js:2043 templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "Beschreibung eingeben"
 
-#: js/app.js:2040
+#: js/app.js:2046
 msgid "Select addressbook"
 msgstr "Adressbuch wählen"
 
-#: js/app.js:2048
+#: js/app.js:2054
 msgid "The address book name cannot be empty."
 msgstr "Der Name des Adressbuches darf nicht leer sein."
 
@@ -426,21 +427,21 @@ msgstr "Der Name des Adressbuches darf nicht leer sein."
 msgid "Is this correct?"
 msgstr "Ist das richtig?"
 
-#: js/contacts.js:443
+#: js/contacts.js:457
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Beim Löschen des Kontakts trat ein unbekannten Fehler auf."
 
-#: js/contacts.js:1306
+#: js/contacts.js:1324
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Einige zum Löschen vorgemerkte Kontakte wurden noch nicht gelöscht. Bitte warten."
 
-#: js/contacts.js:1317
+#: js/contacts.js:1335
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Klicken Sie hier um das Löschen von {num} Kontakten rückgängig zu machen"
 
-#: js/contacts.js:1330
+#: js/contacts.js:1348
 msgid "Cancelled deletion of {num}"
 msgstr "Das Löschen von {num} wurde abgebrochen."
 
@@ -709,7 +710,7 @@ msgstr "Neuer Kontakt"
 
 #: templates/contacts.php:62
 msgid "Download Contact(s)"
-msgstr ""
+msgstr "Kontakte herunterladen"
 
 #: templates/contacts.php:64 templates/contacts.php:278
 #: templates/part.contact.php:47 templates/part.contact.php:135
@@ -862,7 +863,7 @@ msgstr "Notizen hier hinein..."
 
 #: templates/contacts.php:266
 msgid "Export as VCF"
-msgstr ""
+msgstr "Als VCF exportieren"
 
 #: templates/contacts.php:268
 msgid "Add"
