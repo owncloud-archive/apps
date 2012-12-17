@@ -252,7 +252,7 @@ OC.Contacts = OC.Contacts || {};
 					var checksum = self.checksumFor(obj);
 					var value = self.valueFor(obj);
 					var parameters = self.parametersFor(obj);
-					if(checksum) {
+					if(checksum && checksum !== 'new') {
 						self.pushToUndo({
 							action:'save', 
 							name: element,
@@ -261,17 +261,17 @@ OC.Contacts = OC.Contacts || {};
 							newvalue: value,
 							oldvalue: obj.defaultValue
 						});
-						for(var i in self.data[element]) {
-							if(self.data[element][i].checksum === checksum) {
+						$.each(self.data[element], function(i, el) {
+							if(el.checksum === checksum) {
 								self.data[element][i] = {
 									name: element,
 									value: value,
 									parameters: parameters,
-									checksum: jsondata.data.checksum,
+									checksum: jsondata.data.checksum
 								};
-								break;
+								return false;
 							}
-						}
+						});
 					} else {
 						$(obj).removeClass('new');
 						self.pushToUndo({
