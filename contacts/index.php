@@ -49,9 +49,9 @@ $maxUploadFilesize = min($maxUploadFilesize, $freeSpace);
 
 OCP\Util::addscript('contacts', 'multiselect');
 OCP\Util::addscript('', 'oc-vcategories');
+OCP\Util::addscript('contacts', 'modernizr');
 OCP\Util::addscript('contacts', 'app');
 OCP\Util::addscript('contacts', 'contacts');
-OCP\Util::addscript('contacts', 'modernizr');
 OCP\Util::addscript('contacts', 'placeholder.polyfill.jquery');
 OCP\Util::addscript('contacts', 'expanding');
 OCP\Util::addscript('contacts', 'jquery.combobox');
