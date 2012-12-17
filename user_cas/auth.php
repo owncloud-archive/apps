@@ -37,7 +37,7 @@
 
 			# phpCAS::setDebug();
 
-			phpCAS::client($casVersion,$casHostname,(int)$casPort,$casPath);
+			phpCAS::client($casVersion,$casHostname,(int)$casPort,$casPath,false);
 
 			if(!empty($casCertPath)) {
 				phpCAS::setCasServerCACert($casCertPath);
