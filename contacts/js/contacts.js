@@ -661,8 +661,9 @@ OC.Contacts = OC.Contacts || {};
 		});
 		this.$fullelem.on('keypress', '.value,.parameter', function(event) {
 			if(event.keyCode === 13 && $(this).is('input')) {
-				console.log('Enter');
 				$(this).trigger('change');
+				// Prevent a second save on blur.
+				this.defaultValue = this.value;
 				return false;
 			} else if(event.keyCode === 27) {
 				$(document).trigger('request.contact.close', {
@@ -672,6 +673,9 @@ OC.Contacts = OC.Contacts || {};
 		});
 		
 		this.$fullelem.on('change', '.value,.parameter', function(event) {
+			if(this.value === this.defaultValue) {
+				return;
+			}
 			self.saveProperty({obj:event.target});
 		});
 
