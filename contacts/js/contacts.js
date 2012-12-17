@@ -23,6 +23,7 @@ OC.Contacts = OC.Contacts || {};
 			this.$fullTemplate = fulltemplate;
 			this.detailTemplates = detailtemplates;
 
+		this.undoQueue = [];
 		this.multi_properties = ['EMAIL', 'TEL', 'IMPP', 'ADR', 'URL'];
 	}
 
@@ -46,8 +47,33 @@ OC.Contacts = OC.Contacts || {};
 		}*/
 	}
 
+	Contact.prototype.pushToUndo = function(params) {
+		// Check if the same property has been changed before
+		// and update it's checksum if so.
+		if(typeof params.oldchecksum !== 'undefined') {
+			$.each(this.undoQueue, function(idx, item) {
+				if(item.checksum === params.oldchecksum) {
+					item.checksum = params.newchecksum;
+					if(params.action === 'delete') {
+						item.action = 'delete';
+					}
+					return false; // Break loop
+				}
+			});
+		}
+		this.undoQueue.push({
+			action:params.action, 
+			name: params.name,
+			checksum: params.newchecksum,
+			newvalue: params.newvalue,
+			oldvalue: params.oldvalue
+		});
+		console.log('undoQueue', this.undoQueue);
+	}
+	
 	Contact.prototype.addProperty = function($option, name) {
 		console.log('Contact.addProperty', name)
+		var $elem;
 		switch(name) {
 			case 'NICKNAME':
 			case 'TITLE':
@@ -82,11 +108,13 @@ OC.Contacts = OC.Contacts || {};
 				$elem.find('input.value').addClass('new');
 				break;
 		}
-		$elem.find('select.type[name="parameters[TYPE][]"]')
-			.combobox({
-				singleclick: true,
-				classes: ['propertytype', 'float', 'label'],
-			});
+		if($elem) {
+			$elem.find('select.type[name="parameters[TYPE][]"]')
+				.combobox({
+					singleclick: true,
+					classes: ['propertytype', 'float', 'label'],
+				});
+		}
 	}
 
 	Contact.prototype.deleteProperty = function(params) {
@@ -124,6 +152,12 @@ OC.Contacts = OC.Contacts || {};
 				if(self.multi_properties.indexOf(element) !== -1) {
 					// First find out if an existing element by looking for checksum
 					var checksum = self.checksumFor(obj);
+					self.pushToUndo({
+						action:'delete', 
+						name: element,
+						oldchecksum: self.checksumFor(obj),
+						newvalue: self.valueFor(obj)
+					});
 					if(checksum) {
 						for(var i in self.data[element]) {
 							if(self.data[element][i].checksum === checksum) {
@@ -135,6 +169,11 @@ OC.Contacts = OC.Contacts || {};
 					}
 					$container.remove();
 				} else {
+					self.pushToUndo({
+						action:'delete', 
+						name: element,
+						newvalue: $container.find('input.value').val()
+					});
 					self.setAsSaving(obj, false);
 					self.$fullelem.find('[data-element="' + element.toLowerCase() + '"]').hide();
 					$container.find('input.value').val('');
@@ -210,13 +249,25 @@ OC.Contacts = OC.Contacts || {};
 				if(self.multi_properties.indexOf(element) !== -1) {
 					// First find out if an existing element by looking for checksum
 					var checksum = self.checksumFor(obj);
+					var value = self.valueFor(obj);
+					var parameters = self.parametersFor(obj);
 					if(checksum) {
+						// TODO: Add method for this 'cause we need to check if
+						// push the same element so the checksum won't be outdated.
+						self.pushToUndo({
+							action:'save', 
+							name: element,
+							newchecksum: jsondata.data.checksum,
+							oldchecksum: checksum,
+							newvalue: value,
+							oldvalue: obj.defaultValue
+						});
 						for(var i in self.data[element]) {
 							if(self.data[element][i].checksum === checksum) {
 								self.data[element][i] = {
 									name: element,
-									value: self.valueFor(obj),
-									parameters: self.parametersFor(obj),
+									value: value,
+									parameters: parameters,
 									checksum: jsondata.data.checksum,
 								}
 								break;
@@ -224,10 +275,16 @@ OC.Contacts = OC.Contacts || {};
 						}
 					} else {
 						$(obj).removeClass('new');
+						self.pushToUndo({
+							action:'add', 
+							name: element,
+							newchecksum: jsondata.data.checksum,
+							newvalue: value,
+						});
 						self.data[element].push({
 							name: element,
-							value: self.valueFor(obj),
-							parameters: self.parametersFor(obj),
+							value: value,
+							parameters: parameters,
 							checksum: jsondata.data.checksum,
 						});
 					}
@@ -235,6 +292,11 @@ OC.Contacts = OC.Contacts || {};
 				} else {
 					// Save value and parameters internally
 					var value = obj ? self.valueFor(obj) : params.value;
+					self.pushToUndo({
+						action: ((obj && obj.defaultValue) || self.data[element].length) ? 'save' : 'add', // FIXME
+						name: element,
+						newvalue: value,
+					});
 					switch(element) {
 						case 'CATEGORIES':
 							// We deal with this in addToGroup()
