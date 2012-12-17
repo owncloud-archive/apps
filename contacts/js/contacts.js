@@ -180,6 +180,10 @@ OC.Contacts = OC.Contacts || {};
 					$container.find('input.value').val('');
 					self.$addMenu.find('option[value="' + element.toUpperCase() + '"]').prop('disabled', false);
 				}
+				$(document).trigger('status.contact.updated', {
+					id: self.id,
+					contact: self
+				});
 				return true;
 			} else {
 				$(document).trigger('status.contact.error', {
@@ -288,6 +292,10 @@ OC.Contacts = OC.Contacts || {};
 						});
 					}
 					self.propertyContainerFor(obj).data('checksum', jsondata.data.checksum);
+					$(document).trigger('status.contact.updated', {
+						id: self.id,
+						contact: self
+					});
 				} else {
 					// Save value and parameters internally
 					var value = obj ? self.valueFor(obj) : params.value;
@@ -338,7 +346,7 @@ OC.Contacts = OC.Contacts || {};
 								}
 								, 500);
 							}
-							$(document).trigger('status.contact.renamed', {
+							$(document).trigger('status.contact.updated', {
 								id: self.id,
 								contact: self
 							});
@@ -1279,8 +1287,9 @@ OC.Contacts = OC.Contacts || {};
 			self.insertContact(data.contact.renderListItem());
 		});
 
-		$(document).bind('status.contact.renamed', function(e, data) {
-			self.insertContact(data.contact.getListItemElement().detach());
+		$(document).bind('status.contact.updated', function(e, data) {
+			data.contact.getListItemElement().detach();
+			self.insertContact(self.contacts[parseInt(data.contact.id)].renderListItem());
 		});
 	};
 
