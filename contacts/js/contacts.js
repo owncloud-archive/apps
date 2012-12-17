@@ -751,7 +751,7 @@ OC.Contacts = OC.Contacts || {};
 		});
 		this.$fullelem.find('.favorite').on('click', function () {
 			var state = $(this).hasClass('active');
-			if(!this.data) {
+			if(!self.data) {
 				return;
 			}
 			if(state) {
