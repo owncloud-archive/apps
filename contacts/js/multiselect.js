@@ -1,14 +1,14 @@
 /**
  * @param 'createCallback' A function to be called when a new entry is created. Two arguments are supplied to this function:
  *	The select element used and the value of the option. If the function returns false addition will be cancelled. If it returns
- * 	anything else it will be used as the value of the newly added option.
+ *	anything else it will be used as the value of the newly added option.
  * @param 'createText' The placeholder text for the create action.
  * @param 'title' The title to show if no options are selected.
  * @param 'checked' An array containing values for options that should be checked. Any options which are already selected will be added to this array.
  * @param 'labels' The corresponding labels to show for the checked items.
  * @param 'oncheck' Callback function which will be called when a checkbox/radiobutton is selected. If the function returns false the input will be unchecked.
  * @param 'onuncheck' @see 'oncheck'.
- * @param 'singleSelect' If true radiobuttons will be used instead of checkboxes. 
+ * @param 'singleSelect' If true radiobuttons will be used instead of checkboxes.
  */
 (function( $ ){
 	var multiSelectId=-1;
@@ -23,7 +23,7 @@
 			'labels':[],
 			'oncheck':false,
 			'onuncheck':false,
-			'minWidth': 'default;',
+			'minWidth': 'default;'
 		};
 		$(this).attr('data-msid', multiSelectId);
 		$.extend(settings,options);
@@ -62,7 +62,7 @@
 		var self = this;
 		self.menuDirection = 'down';
 		button.click(function(event){
-			
+
 			var button=$(this);
 			if(button.parent().children('ul').length>0) {
 				if(self.menuDirection === 'down') {
@@ -146,7 +146,7 @@
 						settings.labels.splice(index,1);
 					}
 					var oldWidth=button.width();
-					button.children('span').first().text(settings.labels.length > 0 
+					button.children('span').first().text(settings.labels.length > 0
 						? settings.labels.join(', ')
 						: settings.title);
 					var newOuterWidth=Math.max((button.outerWidth()-2),settings.minOuterWidth)+'px';
@@ -193,7 +193,7 @@
 								return false;
 							}
 							var li=$(this).parent();
-							var val = $(this).val()
+							var val = $(this).val();
 							var select=button.parent().next();
 							if(typeof settings.createCallback === 'function') {
 								var response = settings.createCallback(select, val);
@@ -217,7 +217,7 @@
 							select.append(option);
 							li.prev().children('input').prop('checked', true).trigger('change');
 							button.parent().data('preventHide',false);
-							button.children('span').first().text(settings.labels.length > 0 
+							button.children('span').first().text(settings.labels.length > 0
 								? settings.labels.join(', ')
 								: settings.title);
 							if(self.menuDirection === 'up') {
@@ -276,7 +276,7 @@
 				}
 			}
 		});
-		
+
 		return span;
 	};
 })( jQuery );
