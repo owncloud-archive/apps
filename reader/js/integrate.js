@@ -5,22 +5,18 @@ $(document).ready(function() {
 	});
 	
 	$('#file_action_panel').attr('activeAction', false);
-
-	$('.start').click(function(){
-		var contentbox = $(this).parent().children('div#contentbox');
+	
+	$("#TagForm").submit(function(event) {
+		event.preventDefault(); 
+		var $form = $( this ),
+		tag = $form.find( 'input[name="tag"]' ).val(),
+		url = 'apps/reader/ajax/tags.php';
 		var path = $(this).parent().children('a.name').attr('dir');
-		contentbox.show(100);
-		contentbox.keypress(function(e) {
-			if(e.which == 13) {
-				var tag = contentbox.text();
-				contentbox.text('');
-				contentbox.hide();
-				var displaybox = $(this).parent().children('div#displaybox');
-				displaybox.append('<a href = "apps/reader/fetch_tags.php?tag='+tag+'">'+tag+'</a>');
-				displaybox.append(' ');
-				$.post('apps/reader/ajax/tags.php', {tag:tag, path:path});
+		$.post( url, {tag:tag,path:path},
+			function( data ) {
+				$("#result").append('<a href = "apps/reader/fetch_tags.php?tag='+data+'">'+data+'</a>');
 			}
-		});
+		);
 	});
 });	
 

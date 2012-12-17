@@ -112,6 +112,11 @@ class OC_Provisioning_API_Users {
 		if(is_null($group)){
 			return new OC_OCS_Result(null, 101);
 		}
+		// Check they are a subadmin, if not an admin
+		if(!OC_Group::inGroup(OC_User::getUser(), 'admin') && !OC_SubAdmin::isSubAdminofGroup(OC_User::getUser(), $group)){
+			// This subadmin doesn't have rights to add a user to this group
+			return new OC_OCS_Result(null, 104);
+		}
 		// Check if the group exists
 		if(!OC_Group::groupExists($group)){
 			return new OC_OCS_Result(null, 102);
@@ -119,20 +124,32 @@ class OC_Provisioning_API_Users {
 		// Check if the user exists
 		if(!OC_User::userExists($parameters['userid'])){
 			return new OC_OCS_Result(null, 103);
-		}
-		// Check they are a subadmin, if not an admin
-		if(!OC_Group::inGroup(OC_User::getUser(), 'admin') && !OC_SubAdmin::isSubAdminofGroup(OC_User::getUser(), $group)){
-			// This subadmin doesn't have rights to add a user to this group
-			return new OC_OCS_Result(null, 104);
 		}
 		// Add user to group
 		return OC_Group::addToGroup($parameters['userid'], $group) ? new OC_OCS_Result(null, 100) : new OC_OCS_Result(null, 105);
 	}
 
 	public static function removeFromGroup($parameters){
-		$group = !empty($_GET['groupid']) ? $_GET['groupid'] : null;
+		$group = !empty($parameters['_delete']['groupid']) ? $parameters['_delete']['groupid'] : null;
 		if(is_null($group)){
 			return new OC_OCS_Result(null, 101);
+		}
+		// If they're not an adamin, check they are a subadmin of the group in question
+		if(!OC_Group::inGroup(OC_User::getUser(), 'admin') && !OC_SubAdmin::isSubAdminofGroup(OC_User::getUser(), $group)){
+			return new OC_OCS_Result(null, 104);
+		}
+		// Check they aren't removing themselves from 'admin' or their 'subadmin; group
+		if($parameters['userid'] === OC_User::getUser()){
+			if(OC_Group::inGroup(OC_User::getUser(), 'admin')){
+				if($group === 'admin'){
+					return new OC_OCS_Result(null, 105, 'Cannot remove yourself from the admin group');
+				}
+			} else {
+				// Not an admin, check they are not removing themself from their subadmin group
+				if(in_array($group, OC_SubAdmin::getSubAdminsGroups(OC_User::getUser()))){
+					return new OC_OCS_Result(null, 105, 'Cannot remove yourself from this group as you are a SubAdmin');
+				}
+			}
 		}
 		// Check if the group exists
 		if(!OC_Group::groupExists($group)){
@@ -143,7 +160,7 @@ class OC_Provisioning_API_Users {
 			return new OC_OCS_Result(null, 103);
 		}
 		// Add user to group
-		return OC_Group::removeFromGroup($parameters['userid'], $group) ? new OC_OCS_Result(null, 100) : new OC_OCS_Result(null, 104);
+		return OC_Group::removeFromGroup($parameters['userid'], $group) ? new OC_OCS_Result(null, 100) : new OC_OCS_Result(null, 105);
 	}
 
 }
