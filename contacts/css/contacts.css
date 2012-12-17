@@ -62,7 +62,7 @@
 
 /* Left content */
 
-#leftcontent { top: 3.5em !important; padding: 0; margin: 0; }
+#leftcontent { position: absolute; top: 4em; padding: 0; margin: 0; }
 #leftcontent a { display: inline-block; padding: 0; margin: 0; }
 #leftcontent h3 { 
 	cursor: pointer; 
@@ -95,7 +95,16 @@
 	margin: auto 0 auto .3em;
 }
 
-#groupactions { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; height: 4em; border-bottom: 1px solid #DDDDDD; }
+#groupsheader { 
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; 
+	position: fixed;
+	padding: 0; margin:0; 
+	top:3.5em; left: 12.5em;
+	height: 4em; width: 20em;
+	border-bottom: 1px solid #DDDDDD;
+	border-right: 1px solid #DDDDDD;
+    background: none repeat scroll 0 0 #F8F8F8;
+}
 /*#groupactions > button, .addcontact, .import-upload-button, .doImport {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
@@ -443,7 +452,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 
 /* Right content layout */
 
-#rightcontent, .rightcontent { position:fixed; top: 7.5em; left: 32.5em; overflow-x:hidden; overflow-y: auto; }
+#rightcontent, .rightcontent { position:absolute; top: 4em; left: 20em; overflow-x:hidden; overflow-y: auto; }
 
 /* Contact layout */
 

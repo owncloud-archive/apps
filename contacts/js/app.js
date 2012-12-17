@@ -1097,7 +1097,7 @@ OC.Contacts = OC.Contacts || {
 			self.uploadPhoto(this.files);
 		});
 
-		$('#groupactions > .addgroup').on('click keydown',function(event) {
+		$('#groupsheader > .addgroup').on('click keydown',function(event) {
 			if(wrongKey(event)) {
 				return;
 			}

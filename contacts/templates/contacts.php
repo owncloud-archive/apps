@@ -14,11 +14,10 @@
 	<input id="contactphoto_fileupload" type="file" accept="image/*" name="imagefile" />
 </form>
 <iframe name="file_upload_target" id='file_upload_target' src=""></iframe>
+<div id="groupsheader">
+	<button class="addgroup"><?php echo $l->t('New Group'); ?></button>
+</div>
 <div id="leftcontent" class="loading">
-	<div class="hidden" id="statusbar"></div>
-	<div id="groupactions">
-		<button class="addgroup"><?php echo $l->t('New Group'); ?></button>
-	</div>
 	<nav id="grouplist">
 	</nav>
 	<div id="contacts-settings">
