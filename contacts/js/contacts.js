@@ -253,8 +253,6 @@ OC.Contacts = OC.Contacts || {};
 					var value = self.valueFor(obj);
 					var parameters = self.parametersFor(obj);
 					if(checksum) {
-						// TODO: Add method for this 'cause we need to check if
-						// push the same element so the checksum won't be outdated.
 						self.pushToUndo({
 							action:'save', 
 							name: element,
