@@ -22,11 +22,11 @@ utils.isArray = function(obj) {
 
 utils.isInt = function(s) {
   return typeof s === 'number' && (s.toString().search(/^-?[0-9]+$/) === 0);
-}
+};
 
 utils.isUInt = function(s) {
   return typeof s === 'number' && (s.toString().search(/^[0-9]+$/) === 0);
-}
+};
 
 /**
  * utils.type
@@ -50,7 +50,7 @@ utils.moveCursorToEnd = function(el) {
 		range.collapse(false);
 		range.select();
 	}
-}
+};
 
 if (typeof Object.create !== 'function') {
 	Object.create = function (o) {
@@ -78,7 +78,7 @@ Array.prototype.clean = function(deleteValue) {
 // Keep it DRY ;)
 var wrongKey = function(event) {
 	return (event.type === 'keydown' && (event.keyCode !== 32 && event.keyCode !== 13));
-}
+};
 
 /**
  * Simply notifier
@@ -140,7 +140,7 @@ OC.notify = function(params) {
 			self.notifier.removeData(dataid);
 		});
 	}
-}
+};
 
 var GroupList = function(groupList, listItemTmpl) {
 	this.$groupList = groupList;
@@ -158,7 +158,7 @@ var GroupList = function(groupList, listItemTmpl) {
 				if(response.status !== 'success') {
 					OC.notify({message:response.data.message});
 				}
-			})
+			});
 		} else {
 			self.selectGroup({element:$(this)});
 		}
@@ -166,19 +166,19 @@ var GroupList = function(groupList, listItemTmpl) {
 
 	this.$groupListItemTemplate = listItemTmpl;
 	this.categories = [];
-}
+};
 
 GroupList.prototype.nameById = function(id) {
-	return this.findById(id).contents().filter(function(){ return(this.nodeType == 3); }).text().trim()
-}
+	return this.findById(id).contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
+};
 
 GroupList.prototype.findById = function(id) {
 	return this.$groupList.find('h3[data-id="' + id + '"]');
-}
+};
 
 GroupList.prototype.isFavorite = function(contactid) {
 	return this.inGroup(contactid, 'fav');
-}
+};
 
 GroupList.prototype.selectGroup = function(params) {
 	var id, $elem;
@@ -203,15 +203,15 @@ GroupList.prototype.selectGroup = function(params) {
 	$(document).trigger('status.group.selected', {
 		id: this.lastgroup,
 		type: $elem.data('type'),
-		contacts: $elem.data('contacts'),
+		contacts: $elem.data('contacts')
 	});
-}
+};
 
 GroupList.prototype.inGroup = function(contactid, groupid) {
 	var $groupelem = this.findById(groupid);
 	var contacts = $groupelem.data('contacts');
 	return (contacts.indexOf(contactid) !== -1);
-}
+};
 
 GroupList.prototype.setAsFavorite = function(contactid, state, cb) {
 	contactid = parseInt(contactid);
@@ -251,7 +251,7 @@ GroupList.prototype.setAsFavorite = function(contactid, state, cb) {
 			}
 		});
 	}
-}
+};
 
 /**
  * Add one or more contact ids to a group
@@ -315,7 +315,7 @@ GroupList.prototype.addTo = function(contactid, groupid, cb) {
 					$(document).trigger('status.group.contactadded', {
 						contactid: contactid,
 						groupid: groupid,
-						groupname: self.nameById(groupid),
+						groupname: self.nameById(groupid)
 					});
 				}
 			} else {
@@ -325,14 +325,14 @@ GroupList.prototype.addTo = function(contactid, groupid, cb) {
 			}
 		});
 	}
-}
+};
 
 GroupList.prototype.removeFrom = function(contactid, groupid, cb) {
 	console.log('GroupList.removeFrom', contactid, groupid);
 	var $groupelem = this.findById(groupid);
 	var contacts = $groupelem.data('contacts');
 	var ids = [];
-	
+
 	// If it's the 'all' group simply decrement the number
 	if(groupid === 'all') {
 		var $numelem = $groupelem.find('.numcontacts');
@@ -405,7 +405,7 @@ GroupList.prototype.removeFrom = function(contactid, groupid, cb) {
 			}
 		});
 	}
-}
+};
 
 GroupList.prototype.removeFromAll = function(contactid, alsospecial) {
 	var self = this;
@@ -413,11 +413,11 @@ GroupList.prototype.removeFromAll = function(contactid, alsospecial) {
 	$.each(this.$groupList.find(selector), function(i, group) {
 		self.removeFrom(contactid, $(this).data('id'));
 	});
-}
+};
 
 GroupList.prototype.categoriesChanged = function(newcategories) {
 	console.log('GroupList.categoriesChanged, I should do something');
-}
+};
 
 GroupList.prototype.contactDropped = function(event, ui) {
 	var dragitem = ui.draggable, droptarget = $(this);
@@ -430,7 +430,7 @@ GroupList.prototype.contactDropped = function(event, ui) {
 			$(this).data('obj').addTo(dragitem.data('id'), $(this).data('id'));
 		}
 	}
-}
+};
 
 GroupList.prototype.deleteGroup = function(groupid, cb) {
 	var $elem = this.findById(groupid);
@@ -445,7 +445,7 @@ GroupList.prototype.deleteGroup = function(groupid, cb) {
 				groupid: groupid,
 				newgroupid: parseInt($newelem.data('id')),
 				groupname: self.nameById(groupid),
-				contacts: contacts,
+				contacts: contacts
 			});
 			$elem.remove();
 			self.selectGroup({element:$newelem});
@@ -456,7 +456,7 @@ GroupList.prototype.deleteGroup = function(groupid, cb) {
 			cb(jsondata);
 		}
 	});
-}
+};
 
 GroupList.prototype.editGroup = function(id) {
 	var self = this;
@@ -476,16 +476,16 @@ GroupList.prototype.editGroup = function(id) {
 		self.addGroup({name:name, element:$elem}, function(response) {
 			if(response.status === 'success') {
 				$elem.prepend(name).removeClass('editing').attr('data-id', response.id);
-				$input.next('.checked').remove()
-				$input.remove()
+				$input.next('.checked').remove();
+				$input.remove();
 				self.$editelem = null;
 			} else {
 				$input.prop('disabled', false);
 				OC.notify({message:response.message});
 			}
 		});
-	}
-	
+	};
+
 	if(typeof id === 'undefined') {
 		// Add new group
 		var tmpl = this.$groupListItemTemplate;
@@ -493,7 +493,7 @@ GroupList.prototype.editGroup = function(id) {
 			id: 'new',
 			type: 'category',
 			num: 0,
-			name: '',
+			name: ''
 		});
 		var $input = $('<input type="text" class="active" /><a class="action checked disabled" />');
 		self.$editelem.prepend($input).addClass('editing');
@@ -533,11 +533,11 @@ GroupList.prototype.editGroup = function(id) {
 		var $input = $('<input type="text" class="active" value="' + name + '" /><a class="action checked disabled />');
 		$elem.prepend($input).addClass('editing');
 		$input.focus();
-		
+
 	} else {
-		throw { name: 'WrongParameterType', message: 'GroupList.editGroup only accept integers.'}
+		throw { name: 'WrongParameterType', message: 'GroupList.editGroup only accept integers.'};
 	}
-}
+};
 
 GroupList.prototype.addGroup = function(params, cb) {
 	console.log('GroupList.addGroup', params.name);
@@ -565,8 +565,8 @@ GroupList.prototype.addGroup = function(params, cb) {
 					id: jsondata.data.id,
 					type: 'category',
 					num: contacts.length,
-					name: name,
-				})
+					name: name
+				});
 			self.categories.push({id: jsondata.data.id, name: name});
 			$elem.data('obj', self);
 			$elem.data('contacts', contacts);
@@ -595,7 +595,7 @@ GroupList.prototype.addGroup = function(params, cb) {
 			}
 		}
 	});
-}
+};
 
 GroupList.prototype.loadGroups = function(numcontacts, cb) {
 	var self = this;
@@ -608,11 +608,11 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 		if (jsondata && jsondata.status == 'success') {
 			self.lastgroup = jsondata.data.lastgroup;
 			self.sortorder = jsondata.data.sortorder.length > 0
-				? $.map(jsondata.data.sortorder.split(','), function(c) {return parseInt(c)})
+				? $.map(jsondata.data.sortorder.split(','), function(c) {return parseInt(c);})
 				: [];
 			console.log('sortorder', self.sortorder);
 			// Favorites
-			var contacts = $.map(jsondata.data.favorites, function(c) {return parseInt(c)});
+			var contacts = $.map(jsondata.data.favorites, function(c) {return parseInt(c);});
 			var $elem = tmpl.octemplate({
 				id: 'fav',
 				type: 'fav',
@@ -633,12 +633,12 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 			console.log('favorites', $elem.data('contacts'));
 			// Normal groups
 			$.each(jsondata.data.categories, function(c, category) {
-				var contacts = $.map(category.contacts, function(c) {return parseInt(c)});
+				var contacts = $.map(category.contacts, function(c) {return parseInt(c);});
 				var $elem = (tmpl).octemplate({
 					id: category.id,
 					type: 'category',
 					num: contacts.length,
-					name: category.name,
+					name: category.name
 				});
 				self.categories.push({id: category.id, name: category.name});
 				$elem.data('obj', self);
@@ -666,12 +666,12 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 			// Shared addressbook
 			$.each(jsondata.data.shared, function(c, shared) {
 				var sharedindicator = '<img class="shared svg" src="' + OC.imagePath('core', 'actions/shared') + '"'
-					+ 'title="' + t('contacts', 'Shared by {owner}', {owner:shared.userid}) + '" />'
+					+ 'title="' + t('contacts', 'Shared by {owner}', {owner:shared.userid}) + '" />';
 				var $elem = (tmpl).octemplate({
 					id: shared.id,
 					type: 'shared',
 					num: '', //jsondata.data.shared.length,
-					name: shared.displayname,
+					name: shared.displayname
 				});
 				$elem.find('.numcontacts').after(sharedindicator);
 				$elem.data('obj', self);
@@ -685,27 +685,27 @@ GroupList.prototype.loadGroups = function(numcontacts, cb) {
 					console.log('stop sorting', $(this));
 					var ids = [];
 					$.each($(this).children('h3[data-type="category"]'), function(i, elem) {
-						ids.push($(elem).data('id'))
-					})
+						ids.push($(elem).data('id'));
+					});
 					self.sortorder = ids;
 					$(document).trigger('status.groups.sorted', {
-						sortorder: self.sortorder.join(','),
+						sortorder: self.sortorder.join(',')
 					});
-				},
+				}
 			});
 			var $elem = self.findById(self.lastgroup);
 			$elem.addClass('active');
 			$(document).trigger('status.group.selected', {
 				id: self.lastgroup,
 				type: $elem.data('type'),
-				contacts: $elem.data('contacts'),
+				contacts: $elem.data('contacts')
 			});
 		} // TODO: else
 		if(typeof cb === 'function') {
 			cb();
 		}
 	});
-}
+};
 
 OC.Contacts = OC.Contacts || {
 	init:function(id) {
@@ -713,7 +713,7 @@ OC.Contacts = OC.Contacts || {
 			$(document).ajaxError(function(e, xhr, settings, exception) {
 				// Don't try to get translation because it's likely a network error.
 				OC.notify({
-					message: 'error in: ' + settings.url + ', '+'error: ' + xhr.responseText,
+					message: 'error in: ' + settings.url + ', '+'error: ' + xhr.responseText
 				});
 			});
 		}
@@ -853,7 +853,7 @@ OC.Contacts = OC.Contacts || {
 			var id = parseInt(data.id);
 			console.log('contact', data.id, 'deleted');
 			// update counts on group lists
-			self.groups.removeFromAll(data.id, true)
+			self.groups.removeFromAll(data.id, true);
 		});
 
 		$(document).bind('status.contact.added', function(e, data) {
@@ -867,7 +867,7 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		$(document).bind('status.contact.enabled', function(e, enabled) {
-			console.log('status.contact.enabled', enabled)
+			console.log('status.contact.enabled', enabled);
 			/*if(enabled) {
 				self.showActions(['back', 'download', 'delete', 'groups']);
 			} else {
@@ -906,7 +906,7 @@ OC.Contacts = OC.Contacts || {
 					self.dontScroll = false;
 				}, 100);
 			}
-			self.currentlistid = result.id
+			self.currentlistid = result.id;
 		});
 
 		$(document).bind('status.nomorecontacts', function(e, result) {
@@ -931,7 +931,7 @@ OC.Contacts = OC.Contacts || {
 				console.log('waiting for contacts to load');
 				setTimeout(function() {
 					$(document).trigger('request.loadcontact', {
-						id: result.id,
+						id: result.id
 					});
 				}, 1000);
 			}
@@ -1008,7 +1008,7 @@ OC.Contacts = OC.Contacts || {
 			$.each(result.contacts, function(idx, contactid) {
 				var contact = self.contacts.findById(contactid);
 				console.log('contactid', contactid, contact);
-				
+
 				self.contacts.findById(contactid).removeFromGroup(result.groupname);
 			});
 		});
@@ -1083,7 +1083,7 @@ OC.Contacts = OC.Contacts || {
 				if(self.$settings.find($(e.target)).length == 0) {
 					self.$settings.switchClass('open', '');
 				}
-			}
+			};
 			if(self.$settings.hasClass('open')) {
 				self.$settings.switchClass('open', '');
 				$('body').unbind('click', bodyListener);
@@ -1145,8 +1145,8 @@ OC.Contacts = OC.Contacts || {
 			// If a contact is open the action is only applied to that,
 			// otherwise on all selected items.
 			if(self.currentid) {
-				ids = [self.currentid,];
-				buildnow = true
+				ids = [self.currentid];
+				buildnow = true;
 			} else {
 				ids = self.contacts.getSelectedContacts();
 			}
@@ -1156,7 +1156,7 @@ OC.Contacts = OC.Contacts || {
 			if(!self.currentid) {
 				self.showActions(['add']);
 			}
-			
+
 			if($opt.val() === 'add') { // Add new group
 				action = 'add';
 				console.log('add group...');
@@ -1179,7 +1179,7 @@ OC.Contacts = OC.Contacts || {
 										$(document).trigger('status.contact.addedtogroup', {
 											contactid: id,
 											groupid: groupId,
-											groupname: groupName,
+											groupname: groupName
 										});
 									}, 1000);
 								});
@@ -1194,7 +1194,7 @@ OC.Contacts = OC.Contacts || {
 				});
 				return;
 			}
-			
+
 			groupName = $opt.text(), groupId = $opt.val();
 
 			console.log('trut', groupName, groupId);
@@ -1215,7 +1215,7 @@ OC.Contacts = OC.Contacts || {
 								$(document).trigger('status.contact.addedtogroup', {
 									contactid: id,
 									groupid: groupId,
-									groupname: groupName,
+									groupname: groupName
 								});
 							}, 1000);
 						});
@@ -1241,7 +1241,7 @@ OC.Contacts = OC.Contacts || {
 							$(document).trigger('status.contact.removedfromgroup', {
 								contactid: id,
 								groupid: groupId,
-								groupname: groupName,
+								groupname: groupName
 							});
 						});
 					} else {
@@ -1281,7 +1281,7 @@ OC.Contacts = OC.Contacts || {
 			}
 			self.openContact($(this).data('id'));
 		});
-		
+
 		this.$settings.find('h3').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -1294,7 +1294,7 @@ OC.Contacts = OC.Contacts || {
 			var $list = $(this).next('ul');
 			if($(this).data('id') === 'addressbooks') {
 				console.log('addressbooks');
-				
+
 				if(!self.$addressbookTmpl) {
 					self.$addressbookTmpl = $('#addressbookTemplate');
 				}
@@ -1302,9 +1302,9 @@ OC.Contacts = OC.Contacts || {
 				$list.empty();
 				$.each(self.contacts.addressbooks, function(id, book) {
 					var $li = self.$addressbookTmpl.octemplate({
-						id: id, 
+						id: id,
 						permissions: book.permissions,
-						displayname: book.displayname,
+						displayname: book.displayname
 					});
 
 					$list.append($li);
@@ -1317,7 +1317,7 @@ OC.Contacts = OC.Contacts || {
 					var $li = $(this).parents('li').first();
 					$.ajax({
 						type:'POST',
-						url:OC.filePath('contacts', 'ajax', 'addressbook/delete.php'), 
+						url:OC.filePath('contacts', 'ajax', 'addressbook/delete.php'),
 						data:{ id: id },
 						success:function(jsondata) {
 							console.log(jsondata);
@@ -1343,7 +1343,7 @@ OC.Contacts = OC.Contacts || {
 						error:function(jqXHR, textStatus, errorThrown) {
 							OC.notify({message:textStatus + ': ' + errorThrown});
 							id = false;
-						},
+						}
 					});
 				});
 				$list.find('a.action.globe').on('click keypress', function() {
@@ -1376,13 +1376,13 @@ OC.Contacts = OC.Contacts || {
 					$.ajax({
 						type:'POST',
 						async:false,
-						url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'), 
+						url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'),
 						data:{ name: name },
 						success:function(jsondata) {
 							console.log(jsondata);
 							if(jsondata.status == 'success') {
 								self.contacts.setAddressbook(jsondata.data.addressbook);
-								id = jsondata.data.addressbook.id
+								id = jsondata.data.addressbook.id;
 							} else {
 								OC.notify({message:jsondata.data.message});
 							}
@@ -1390,10 +1390,10 @@ OC.Contacts = OC.Contacts || {
 						error:function(jqXHR, textStatus, errorThrown) {
 							OC.notify({message:textStatus + ': ' + errorThrown});
 							id = false;
-						},
+						}
 					});
 					return id;
-				}
+				};
 
 				self.$importIntoSelect.empty();
 				$.each(self.contacts.addressbooks, function(id, book) {
@@ -1403,7 +1403,7 @@ OC.Contacts = OC.Contacts || {
 					createCallback:addAddressbookCallback,
 					singleSelect: true,
 					createText:String(t('contacts', 'Add address book')),
-					minWidth: 120,
+					minWidth: 120
 				});
 
 			}
@@ -1420,11 +1420,11 @@ OC.Contacts = OC.Contacts || {
 			$(this).hide();
 			self.currentid = 'new';
 			// Properties that the contact doesn't know
-			console.log('addContact, groupid', self.currentgroup)
+			console.log('addContact, groupid', self.currentgroup);
 			var groupprops = {
 				favorite: false,
 				groups: self.groups.categories,
-				currentgroup: {id:self.currentgroup, name:self.groups.nameById(self.currentgroup)},
+				currentgroup: {id:self.currentgroup, name:self.groups.nameById(self.currentgroup)}
 			};
 			self.tmpcontact = self.contacts.addContact(groupprops);
 			self.$rightContent.prepend(self.tmpcontact);
@@ -1450,7 +1450,7 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			console.log('download');
-			document.location.href = OC.linkTo('contacts', 'export.php') 
+			document.location.href = OC.linkTo('contacts', 'export.php')
 				+ '?selectedids=' + self.contacts.getSelectedContacts().join(',');
 		});
 
@@ -1558,14 +1558,14 @@ OC.Contacts = OC.Contacts || {
 					$status.text(t('contacts', 'Importing from {filename}...', {filename:fileName})).fadeIn();
 					doImport(fileName, aid, function(response) {
 						if(response.status === 'success') {
-							$status.text(t('contacts', '{success} imported, {failed} failed.', 
+							$status.text(t('contacts', '{success} imported, {failed} failed.',
 								{success:response.data.imported, failed:response.data.failed})).fadeIn();
 						}
 						delete uploadingFiles[fileName];
 						numfiles -= 1; uploadedfiles -= 1;
 						$progressbar.progressbar('value',50+(50/(todo-uploadedfiles)));
 					});
-				})
+				});
 				//$status.text(t('contacts', 'Importing...')).fadeIn();
 				waitForImport();
 			};
@@ -1605,7 +1605,7 @@ OC.Contacts = OC.Contacts || {
 							$.each(files, function(i, file) {
 								var fileName = file.name;
 								console.log('file.name', file.name);
-								var jqXHR =  $('#import_fileupload').fileupload('send', 
+								var jqXHR = $('#import_fileupload').fileupload('send',
 									{
 									files: file,
 									formData: function(form) {
@@ -1624,7 +1624,7 @@ OC.Contacts = OC.Contacts || {
 									})
 									.error(function(jqXHR, textStatus, errorThrown) {
 										console.log(textStatus);
-										OC.notify({message:errorThrown + ': ' + textStatus,});
+										OC.notify({message:errorThrown + ': ' + textStatus});
 									});
 								uploadingFiles[fileName] = jqXHR;
 							});
@@ -1673,9 +1673,9 @@ OC.Contacts = OC.Contacts || {
 						$('#upload input.stop').hide();
 					}
 				}
-			})
+			});
 		});
-		
+
 		$(document).on('keypress', function(event) {
 			if(!$(event.target).is('body')) {
 				return;
@@ -1731,7 +1731,7 @@ OC.Contacts = OC.Contacts || {
 					break;
 				case 34: // PageDown
 				case 78: // n
-					console.log('page down')
+					console.log('page down');
 					break;
 				case 79: // o
 					console.log('open contact?');
@@ -1757,7 +1757,7 @@ OC.Contacts = OC.Contacts || {
 
 		});
 
-		 // find all with a title attribute and tipsy them
+		// find all with a title attribute and tipsy them
 		$('.tooltipped.downwards:not(.onfocus)').tipsy({gravity: 'n'});
 		$('.tooltipped.upwards:not(.onfocus)').tipsy({gravity: 's'});
 		$('.tooltipped.rightwards:not(.onfocus)').tipsy({gravity: 'w'});
@@ -1792,8 +1792,8 @@ OC.Contacts = OC.Contacts || {
 						});
 					$(this).dialog('close');
 				},
-				'Cancel':function() { 
-					$(this).dialog('close'); 
+				'Cancel':function() {
+					$(this).dialog('close');
 					return false;
 				}
 			},
@@ -1803,7 +1803,7 @@ OC.Contacts = OC.Contacts || {
 			},
 			open: function(event, ui) {
 				$dlg.find('input').focus();
-			},
+			}
 		});
 	},
 	setAllChecked: function(checked) {
@@ -1847,7 +1847,7 @@ OC.Contacts = OC.Contacts || {
 		var groupprops = {
 			favorite: this.groups.isFavorite(this.currentid),
 			groups: this.groups.categories,
-			currentgroup: {id:this.currentgroup, name:this.groups.nameById(this.currentgroup)},
+			currentgroup: {id:this.currentgroup, name:this.groups.nameById(this.currentgroup)}
 		};
 		var $contactelem = this.contacts.showContact(this.currentid, groupprops);
 		var self = this;
@@ -1879,7 +1879,7 @@ OC.Contacts = OC.Contacts || {
 			OC.notify({
 				message:t(
 					'contacts',
-					'The file you are trying to upload exceed the maximum size for file uploads on this server.'),
+					'The file you are trying to upload exceed the maximum size for file uploads on this server.')
 			});
 			return;
 		} else {
@@ -1898,12 +1898,12 @@ OC.Contacts = OC.Contacts || {
 	},
 	cloudPhotoSelected:function(id, path) {
 		var self = this;
-		console.log('cloudPhotoSelected, id', id)
+		console.log('cloudPhotoSelected, id', id);
 		$.getJSON(OC.filePath('contacts', 'ajax', 'oc_photo.php'),
 				  {path: path, id: id},function(jsondata) {
 			if(jsondata.status == 'success') {
 				//alert(jsondata.data.page);
-				self.editPhoto(jsondata.data.id, jsondata.data.tmp)
+				self.editPhoto(jsondata.data.id, jsondata.data.tmp);
 				$('#edit_photo_dialog_img').html(jsondata.data.page);
 			}
 			else{
@@ -1917,7 +1917,7 @@ OC.Contacts = OC.Contacts || {
 				  {id: id}, function(jsondata) {
 			if(jsondata.status == 'success') {
 				//alert(jsondata.data.page);
-				self.editPhoto(jsondata.data.id, jsondata.data.tmp)
+				self.editPhoto(jsondata.data.id, jsondata.data.tmp);
 				$('#edit_photo_dialog_img').html(jsondata.data.page);
 			}
 			else{
@@ -1926,7 +1926,7 @@ OC.Contacts = OC.Contacts || {
 		});
 	},
 	editPhoto:function(id, tmpkey) {
-		console.log('editPhoto', id, tmpkey)
+		console.log('editPhoto', id, tmpkey);
 		$('.tipsy').remove();
 		// Simple event handler, called from onChange and onSelect
 		// event handlers, as per the Jcrop invocation above
@@ -1961,7 +1961,7 @@ OC.Contacts = OC.Contacts || {
 				maxSize:	[399, 399],
 				bgColor:	'black',
 				bgOpacity:	.4,
-				boxWidth: 	400,
+				boxWidth:	400,
 				boxHeight:	400,
 				setSelect:	[ 100, 130, 50, 50 ]//,
 				//aspectRatio: 0.8
@@ -2000,7 +2000,7 @@ OC.Contacts = OC.Contacts || {
 			if(jsondata && jsondata.status === 'success') {
 				// load cropped photo.
 				$(document).trigger('status.contact.photoupdated', {
-					id: jsondata.data.id,
+					id: jsondata.data.id
 				});
 			} else {
 				if(!jsondata) {
@@ -2016,14 +2016,14 @@ OC.Contacts = OC.Contacts || {
 		$.ajax({
 			type:'POST',
 			async:false,
-			url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'), 
+			url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'),
 			data:{ name: data.name, description: data.description },
 			success:function(jsondata) {
 				if(jsondata.status == 'success') {
 					if(typeof cb === 'function') {
 						cb({
 							status:'success',
-							addressbook: jsondata.data.addressbook,
+							addressbook: jsondata.data.addressbook
 						});
 					}
 				} else {
@@ -2040,7 +2040,7 @@ OC.Contacts = OC.Contacts || {
 			$('body').append('<div id="addressbook_dialog"></div>');
 			var $dlg = $('#addressbook_dialog').html(data).octemplate({
 				nameplaceholder: t('contacts', 'Enter name'),
-				descplaceholder: t('contacts', 'Enter description'),
+				descplaceholder: t('contacts', 'Enter description')
 			}).dialog({
 				modal: true, height: 'auto', width: 'auto',
 				title:  t('contacts', 'Select addressbook'),
@@ -2062,7 +2062,7 @@ OC.Contacts = OC.Contacts || {
 									if(data.status === 'success') {
 										cb({
 											status:'success',
-											addressbook:data.addressbook,
+											addressbook:data.addressbook
 										});
 									} else {
 										cb({status:'error'});
@@ -2075,7 +2075,7 @@ OC.Contacts = OC.Contacts || {
 							if(typeof cb === 'function') {
 								cb({
 									status:'success',
-									addressbook:self.contacts.addressbooks[parseInt(aid)],
+									addressbook:self.contacts.addressbooks[parseInt(aid)]
 								});
 							}
 							$(this).dialog('close');
@@ -2100,7 +2100,7 @@ OC.Contacts = OC.Contacts || {
 								|| book.permissions & OC.PERMISSION_DELETE)) {
 							var row = '<tr><td><input id="book_{id}" name="book" type="radio" value="{id}"</td>'
 								+ '<td><label for="book_{id}">{displayname}</label></td>'
-								+ '<td>{description}</td></tr>'
+								+ '<td>{description}</td></tr>';
 							var $row = $(row).octemplate({
 									id:book.id,
 									displayname:book.displayname,
@@ -2113,12 +2113,12 @@ OC.Contacts = OC.Contacts || {
 					$lastrow.find('input.name,input.desc').on('focus', function(e) {
 						$lastrow.find('input[type="radio"]').prop('checked', true);
 					});
-				},
+				}
 			});
 		}).error(function() {
 			OC.notify({message: t('contacts', 'Network or server error. Please inform administrator.')});
 		});
-	},
+	}
 };
 
 (function( $ ) {
