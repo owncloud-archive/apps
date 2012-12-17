@@ -819,7 +819,7 @@ OC.Contacts = OC.Contacts || {};
 			&& !(this.access.permissions & OC.PERMISSION_UPDATE
 				|| this.access.permissions & OC.PERMISSION_DELETE)) {
 			this.setEnabled(false);
-			this.showActions(['close']);
+			this.showActions(['close', 'export']);
 		} else {
 			this.setEnabled(true);
 			this.showActions(['close', 'add', 'export', 'delete']);
