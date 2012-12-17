@@ -1,3 +1,11 @@
+Modernizr.load({
+    test: Modernizr.input.placeholder,
+    nope: [
+            OC.filePath('contacts', 'css', 'placeholder_polyfill.min.css'),
+            OC.filePath('contacts', 'js', 'placeholder_polyfill.jquery.min.combo.js')
+          ]
+});
+
 var utils = {};
 
 /**
