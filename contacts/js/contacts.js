@@ -82,6 +82,11 @@ OC.Contacts = OC.Contacts || {};
 				$elem.find('input.value').addClass('new');
 				break;
 		}
+		$elem.find('select.type[name="parameters[TYPE][]"]')
+			.combobox({
+				singleclick: true,
+				classes: ['propertytype', 'float', 'label'],
+			});
 	}
 
 	Contact.prototype.deleteProperty = function(params) {
