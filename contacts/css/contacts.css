@@ -162,8 +162,9 @@ dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }
 .no-svg .mail { background-image:url('%webroot%/core/img/actions/mail.png'); }
 .no-svg .import, .no-svg .upload { background-image:url('%webroot%/core/img/actions/upload.png'); }
 .no-svg .export, .no-svg .download { background-image:url('%webroot%/core/img/actions/download.png'); }
-.no-svg .cloud:not { background-image:url('%webroot%/core/img/places/picture.png'); }
-.no-svg .globe:not { background-image:url('%webroot%/core/img/actions/public.png'); }
+.no-svg .cloud { background-image:url('%webroot%/core/img/places/picture.png'); }
+.no-svg .globe { background-image:url('%webroot%/core/img/actions/public.png'); }
+.no-svg .settings { background-image:url('%webroot%/core/img/actions/settings.svg'); }
 .no-svg .starred { background-image:url('%appswebroot%/contacts/img/starred.png'); background-size: contain; }
 .no-svg .checked { background-image:url('%appswebroot%/contacts/img/checkmark-green.png'); }
 .no-svg .checked.disabled { background-image:url('%appswebroot%/contacts/img/checkmark-gray.png'); cursor: default; }
@@ -186,6 +187,7 @@ dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }
 .svg .export,.svg .download { background-image:url('%webroot%/core/img/actions/download.svg'); }
 .svg .cloud { background-image:url('%webroot%/core/img/places/picture.svg'); }
 .svg .globe { background-image:url('%webroot%/core/img/actions/public.svg'); }
+.svg .settings { background-image:url('%webroot%/core/img/actions/settings.svg'); }
 .svg .starred { background-image:url('%appswebroot%/contacts/img/starred.svg'); background-size: contain; }
 .svg .checked { background-image:url('%appswebroot%/contacts/img/checkmark-green.svg'); }
 .svg .checked.disabled { background-image:url('%appswebroot%/contacts/img/checkmark-gray.svg'); cursor: default; }
@@ -307,9 +309,17 @@ ul.propertylist { width: 450px; }
 .addressbooks-settings td.active, .addressbooks-settings td.action { width: 20px; }
 
 #contacts-settings .settings { 
-	width: 20px; height: 20px; 
-	float: left; 
+	/*width: 20px; height: 20px; 
+	float: left;*/
+	color: transparent;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-origin: content-box;
 	background-image:url('%webroot%/core/img/actions/settings.svg'); 
+}
+#contacts-settings .settings:hover { 
+	font-weight: normal;
+	color: #666666;
 }
 #contacts-settings.open {
     height: auto;
@@ -331,7 +341,7 @@ ul.propertylist { width: 450px; }
     z-index: 2;
 }
 #contacts-settings li,#contacts-settings li:hover { background-color: transparent; white-space: nowrap; }
-#contacts-settings a.action { width: 20px; height: 20px; }
+#contacts-settings a.action:not(.settings) { width: 16px; height: 16px; }
 #contacts-settings .actions { float: right; }
 .multiselectoptions label { display: block; }
 
