@@ -77,7 +77,8 @@ Array.prototype.clean = function(deleteValue) {
 
 // Keep it DRY ;)
 var wrongKey = function(event) {
-	return (event.type === 'keydown' && (event.keyCode !== 32 && event.keyCode !== 13));
+	return ((event.type === 'keydown' || event.type === 'keypress') 
+		&& (event.keyCode !== 32 && event.keyCode !== 13));
 };
 
 /**
