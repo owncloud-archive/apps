@@ -210,18 +210,18 @@ OC.Contacts = OC.Contacts || {};
 				if(self.multi_properties.indexOf(element) !== -1) {
 					// First find out if an existing element by looking for checksum
 					var checksum = self.checksumFor(obj);
-					if(checksum) {
-						for(var i in self.data[element]) {
-							if(self.data[element][i].checksum === checksum) {
+					if(checksum && checksum !== 'new') {
+						$.each(self.data[element], function(i, el) {
+							if(el.checksum === checksum) {
 								self.data[element][i] = {
 									name: element,
 									value: self.valueFor(obj),
 									parameters: self.parametersFor(obj),
-									checksum: jsondata.data.checksum,
-								}
-								break;
+									checksum: jsondata.data.checksum
+								};
+								return false;
 							}
-						}
+						});
 					} else {
 						$(obj).removeClass('new');
 						self.data[element].push({
