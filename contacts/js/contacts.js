@@ -313,8 +313,6 @@ OC.Contacts = OC.Contacts || {};
 								self.data.FN = [{name:'FN', value:'', parameters:[]}];
 							}
 							self.data.FN[0]['value'] = value;
-							// Update the list element
-							self.$listelem.find('.nametext').text(value);
 							var nempty = true;
 							if(!self.data.N) {
 								// TODO: Maybe add a method for constructing new elements?
