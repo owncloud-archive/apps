@@ -1286,7 +1286,7 @@ OC.Contacts = OC.Contacts || {};
 		});
 
 		$(document).bind('status.contact.updated', function(e, data) {
-			data.contact.getListItemElement().detach();
+			data.contact.getListItemElement().remove();
 			self.insertContact(self.contacts[parseInt(data.contact.id)].renderListItem());
 		});
 	};
