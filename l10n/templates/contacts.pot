@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-18 00:01+0100\n"
+"POT-Creation-Date: 2012-12-19 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -292,7 +292,7 @@ msgid "Select photo"
 msgstr ""
 
 #: js/app.js:1027 js/app.js:1053 js/app.js:2008 js/app.js:2120
-#: js/contacts.js:146 js/contacts.js:240 js/contacts.js:464
+#: js/contacts.js:146 js/contacts.js:244 js/contacts.js:470
 msgid "Network or server error. Please inform administrator."
 msgstr ""
 
@@ -379,7 +379,7 @@ msgstr ""
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1991 js/contacts.js:1064
+#: js/app.js:1991 js/contacts.js:1070
 msgid "Error loading profile picture."
 msgstr ""
 
@@ -399,25 +399,25 @@ msgstr ""
 msgid "The address book name cannot be empty."
 msgstr ""
 
-#: js/contacts.js:335
+#: js/contacts.js:341
 msgid "Is this correct?"
 msgstr ""
 
-#: js/contacts.js:523
+#: js/contacts.js:529
 msgid "There was an unknown error when trying to delete this contact"
 msgstr ""
 
-#: js/contacts.js:1394
+#: js/contacts.js:1401
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1405
+#: js/contacts.js:1412
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1418
+#: js/contacts.js:1425
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
