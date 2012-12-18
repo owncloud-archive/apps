@@ -109,7 +109,7 @@ class OC_Calendar_App{
 	 * @brief returns the default categories of ownCloud
 	 * @return (array) $categories
 	 */
-	protected static function getDefaultCategories() {
+	public static function getDefaultCategories() {
 		return array(
 			(string)self::$l10n->t('Birthday'),
 			(string)self::$l10n->t('Business'),
@@ -133,9 +133,12 @@ class OC_Calendar_App{
 	 * @brief returns the vcategories object of the user
 	 * @return (object) $vcategories
 	 */
-	protected static function getVCategories() {
+	public static function getVCategories() {
 		if (is_null(self::$categories)) {
-			self::$categories = new OC_VCategories('calendar',
+			if(OC_VCategories::isEmpty('event')) {
+				self::scanCategories();
+			}
+			self::$categories = new OC_VCategories('event',
 				null,
 				self::getDefaultCategories());
 		}
@@ -161,18 +164,32 @@ class OC_Calendar_App{
 			if(count($calendars) > 0) {
 				$events = array();
 				foreach($calendars as $calendar) {
-					$calendar_events = OC_Calendar_Object::all($calendar['id']);
-					$events = $events + $calendar_events;
+					if($calendar['userid'] === OCP\User::getUser()) {
+						$calendar_events = OC_Calendar_Object::all($calendar['id']);
+						$events = $events + $calendar_events;
+					}
 				}
 			}
 		}
 		if(is_array($events) && count($events) > 0) {
-			$vcategories = self::getVCategories();
+			$vcategories = new OC_VCategories('event');
 			$vcategories->delete($vcategories->categories());
 			foreach($events as $event) {
 				$vobject = OC_VObject::parse($event['calendardata']);
 				if(!is_null($vobject)) {
-					self::loadCategoriesFromVCalendar($vobject);
+					$object = null;
+					if (isset($calendar->VEVENT)) {
+						$object = $calendar->VEVENT;
+					} else
+					if (isset($calendar->VTODO)) {
+						$object = $calendar->VTODO;
+					} else
+					if (isset($calendar->VJOURNAL)) {
+						$object = $calendar->VJOURNAL;
+					}
+					if ($object) {
+						$vcategories->loadFromVObject($event['id'], $vobject, true);
+					}
 				}
 			}
 		}
@@ -182,7 +199,7 @@ class OC_Calendar_App{
 	 * check VEvent for new categories.
 	 * @see OC_VCategories::loadFromVObject
 	 */
-	public static function loadCategoriesFromVCalendar(OC_VObject $calendar) {
+	public static function loadCategoriesFromVCalendar($id, OC_VObject $calendar) {
 		$object = null;
 		if (isset($calendar->VEVENT)) {
 			$object = $calendar->VEVENT;
@@ -194,7 +211,7 @@ class OC_Calendar_App{
 			$object = $calendar->VJOURNAL;
 		}
 		if ($object) {
-			self::getVCategories()->loadFromVObject($object, true);
+			self::getVCategories()->loadFromVObject($id, $object, true);
 		}
 	}
 
@@ -296,9 +313,7 @@ class OC_Calendar_App{
 	 * @see OCP\Share
 	 */
 	public static function getPermissions($id, $type) {
-		 $permissions_all = OCP\Share::PERMISSION_CREATE
-				| OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE
-				| OCP\Share::PERMISSION_DELETE | OCP\Share::PERMISSION_SHARE;
+		 $permissions_all = OCP\PERMISSION_ALL;
 
 		if($type == self::CALENDAR) {
 			$calendar = self::getCalendar($id, false, false);

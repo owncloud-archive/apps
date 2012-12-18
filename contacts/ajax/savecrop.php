@@ -63,10 +63,10 @@ if($data) {
 			if(($image->width() <= 200 && $image->height() <= 200)
 				|| $image->resize(200)) {
 
-				$vcard = OC_Contacts_App::getContactVCard($id);
+				$vcard = OCA\Contacts\App::getContactVCard($id);
 				if(!$vcard) {
 					OC_Cache::remove($tmpkey);
-					bailOut(OC_Contacts_App::$l10n
+					bailOut(OCA\Contacts\App::$l10n
 						->t('Error getting contact object.'));
 				}
 				if($vcard->__isset('PHOTO')) {
@@ -76,7 +76,7 @@ if($data) {
 					$property = $vcard->__get('PHOTO');
 					if(!$property) {
 						OC_Cache::remove($tmpkey);
-						bailOut(OC_Contacts_App::$l10n
+						bailOut(OCA\Contacts\App::$l10n
 							->t('Error getting PHOTO property.'));
 					}
 					$property->setValue($image->__toString());
@@ -89,34 +89,41 @@ if($data) {
 					OCP\Util::writeLog('contacts',
 						'savecrop.php: files: Adding PHOTO property.',
 						OCP\Util::DEBUG);
-					$vcard->addProperty('PHOTO',
+					// For vCard 3.0 the type must be e.g. JPEG or PNG
+					// For version 4.0 the full mimetype should be used.
+					// https://tools.ietf.org/html/rfc2426#section-3.1.4
+					$type = $vcard->VERSION == '4.0' 
+						? $image->mimeType() 
+						: strtoupper(array_pop(explode('/', $image->mimeType())));
+					$vcard->add('PHOTO',
 						$image->__toString(), array('ENCODING' => 'b',
-						'TYPE' => $image->mimeType()));
+						'TYPE' => $type));
 				}
 				$now = new DateTime;
-				$vcard->setString('REV', $now->format(DateTime::W3C));
-				if(!OC_Contacts_VCard::edit($id, $vcard)) {
-					bailOut(OC_Contacts_App::$l10n->t('Error saving contact.'));
+				$vcard->{'REV'} = $now->format(DateTime::W3C);
+				if(!OCA\Contacts\VCard::edit($id, $vcard)) {
+					bailOut(OCA\Contacts\App::$l10n->t('Error saving contact.'));
 				}
+				OCA\Contacts\App::cacheThumbnail($id, $image);
 				OCP\JSON::success(array(
 					'data' => array(
 						'id' => $id,
 						'width' => $image->width(),
 						'height' => $image->height(),
-						'lastmodified' => OC_Contacts_App::lastModified($vcard)->format('U')
+						'lastmodified' => OCA\Contacts\App::lastModified($vcard)->format('U')
 					)
 				));
 			} else {
-				bailOut(OC_Contacts_App::$l10n->t('Error resizing image'));
+				bailOut(OCA\Contacts\App::$l10n->t('Error resizing image'));
 			}
 		} else {
-			bailOut(OC_Contacts_App::$l10n->t('Error cropping image'));
+			bailOut(OCA\Contacts\App::$l10n->t('Error cropping image'));
 		}
 	} else {
-		bailOut(OC_Contacts_App::$l10n->t('Error creating temporary image'));
+		bailOut(OCA\Contacts\App::$l10n->t('Error creating temporary image'));
 	}
 } else {
-	bailOut(OC_Contacts_App::$l10n->t('Error finding image: ').$tmpkey);
+	bailOut(OCA\Contacts\App::$l10n->t('Error finding image: ').$tmpkey);
 }
 
 OC_Cache::remove($tmpkey);

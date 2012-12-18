@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# 남자사람  <cessnagi@gmail.com>, 2012.
+# Shinjo Park <kde@peremen.name>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-02 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:13+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-10 00:02+0100\n"
+"PO-Revision-Date: 2012-12-09 06:06+0000\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,142 +21,126 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "가져올 수 없는 파일 형식임"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
-msgstr ""
+msgstr "책갈피"
 
-#: js/addBm.js:42 js/bookmarks.js:241
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
-msgstr ""
+msgstr "태그"
 
-#: js/bookmarks.js:176
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr "태그로 필터링"
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
-msgstr ""
+msgstr "책갈피 편집"
 
-#: js/bookmarks.js:393
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
-msgstr ""
+msgstr "모든 항목에서 이 태그를 삭제하시겠습니까?"
 
-#: js/bookmarks.js:394
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr "경고"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "성공적으로 가져왔습니다."
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "업로드 중..."
 
 #: lib/search.php:38
 msgid "Bookm."
-msgstr ""
+msgstr "책갈피"
 
 #: templates/addBm.php:11
 msgid "Add a bookmark"
-msgstr ""
+msgstr "책갈피 추가"
 
 #: templates/addBm.php:14
 msgid "Close"
 msgstr "닫기"
 
-#: templates/addBm.php:22 templates/js_tpl.php:33
+#: templates/addBm.php:22 templates/js_tpl.php:30
 msgid "The title of the page"
-msgstr ""
+msgstr "페이지 제목"
 
-#: templates/addBm.php:27 templates/js_tpl.php:37
+#: templates/addBm.php:27 templates/js_tpl.php:34
 msgid "The address of the page"
-msgstr ""
+msgstr "페이지 주소"
 
-#: templates/addBm.php:40 templates/js_tpl.php:46
+#: templates/addBm.php:40 templates/js_tpl.php:43
 msgid "Description of the page"
-msgstr ""
+msgstr "페이지 설명"
 
-#: templates/addBm.php:44 templates/js_tpl.php:50
+#: templates/addBm.php:44 templates/js_tpl.php:47
 msgid "Save"
 msgstr "저장"
 
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr ""
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr ""
-
-#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
-msgid "Edit"
-msgstr "편집"
-
-#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+#: templates/js_tpl.php:6 templates/js_tpl.php:61
 msgid "Delete"
 msgstr "삭제"
 
-#: templates/js_tpl.php:49
+#: templates/js_tpl.php:19 templates/js_tpl.php:57
+msgid "Edit"
+msgstr "편집"
+
+#: templates/js_tpl.php:46
 msgid "Cancel"
 msgstr "취소"
 
-#: templates/list.php:12
+#: templates/list.php:14
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "웹 브라우저 책갈피 항목에 다음 링크를 끌어다 놓으면 나중에 볼 웹 페이지를 빠르게 구독할 때 사용할 수 있습니다:"
+
+#: templates/list.php:15
+msgid "Read later"
+msgstr "나중에 읽기"
+
+#: templates/list.php:22
 msgid "Address"
 msgstr "주소"
 
-#: templates/list.php:13
-msgid "Add bookmark"
-msgstr ""
-
-#: templates/list.php:16
-msgid "List"
-msgstr "목록"
-
-#: templates/list.php:17
-msgid "Image"
-msgstr ""
-
-#: templates/list.php:22
-msgid "Hide"
-msgstr ""
-
 #: templates/list.php:23
-msgid "Show"
-msgstr ""
+msgid "Add"
+msgstr "추가"
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
-msgstr ""
+msgstr "관련된 태그"
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:39 templates/list.php:41
 msgid "Settings"
 msgstr "설정"
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
-msgstr ""
+msgstr "책갈피가 없습니다"
+
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr "책갈피 파일을 가져올 수 있습니다"
 
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr ""
+msgid "Bookmarklet"
+msgstr "북마크릿"
 
-#: templates/settings.php:26
-msgid "Import bookmarks"
-msgstr ""
+#: templates/settings.php:23
+msgid "Export & Import"
+msgstr "내보내기 & 가져오기"
 
-#: templates/settings.php:28
-msgid "html bookmarks file"
-msgstr ""
-
-#: templates/settings.php:30
-msgid "Import"
-msgstr "가져오기"
-
-#: templates/settings.php:33
-msgid "Export bookmarks"
-msgstr ""
-
-#: templates/settings.php:35
+#: templates/settings.php:24
 msgid "Export"
 msgstr "내보내기"
+
+#: templates/settings.php:26
+msgid "Import"
+msgstr "가져오기"

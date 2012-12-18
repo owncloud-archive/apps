@@ -3,19 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Art O. Pal <artopal@fastmail.fm>, 2012.
+#   <devianpctek@gmail.com>, 2012.
 #   <juanma@kde.org.ar>, 2012.
 #   <pedro.navia@etecsa.cu>, 2012.
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
 # Rubén Trujillo <rubentrf@gmail.com>, 2012.
+#   <sergioballesterossolanas@gmail.com>, 2012.
 #   <sergio@entrecables.com>, 2012.
 #   <zebrastorm@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-02 00:01+0100\n"
+"PO-Revision-Date: 2012-12-01 20:48+0000\n"
+"Last-Translator: xsergiolpx <sergioballesterossolanas@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,11 +66,19 @@ msgstr "Error al borrar la carpeta."
 msgid "Error updating feeds."
 msgstr "Error actualizando las fuentes"
 
-#: ajax/importopml.php:28 ajax/selectfromcloud.php:31
-msgid "No file path was submitted."
-msgstr "No se presentó la ruta del archivo."
+#: ajax/importopml.php:40
+msgid "Empty filename"
+msgstr "Nombre de archivo vacío"
 
-#: ajax/importopml.php:42
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr "No se ha pasado argumentos"
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr "Error al leer el archivo"
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "Se produjo un error al analizar el archivo."
 
@@ -79,9 +90,17 @@ msgstr "Fuente cargada!"
 msgid "Error moving feed into folder."
 msgstr "Error al mover la fuente hacia la carpeta"
 
+#: ajax/selectfromcloud.php:31
+msgid "No file path was submitted."
+msgstr "No se presentó la ruta del archivo."
+
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr "El fichero no existe."
+
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "No se pudo salvar una imagen temporal"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -99,13 +118,9 @@ msgstr "Error actualizando la fuente."
 msgid "Feed updated!"
 msgstr "Fuentes actualizadas!"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Noticias"
-
-#: controllers/controller.php:207
-msgid "An error occured: "
-msgstr ""
 
 #: js/items.js:122
 msgid "Error while loading the feed"
@@ -114,8 +129,8 @@ msgstr "Error cargando la fuente"
 #: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
-#: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
-#: js/settings.js:47
+#: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
+#: js/settings.js:68
 msgid "Error"
 msgstr "Error"
 
@@ -149,7 +164,7 @@ msgstr "El nombre de la carpeta no puede estar vacio."
 
 #: js/news.js:33 js/news.js:95
 msgid "Adding..."
-msgstr "Adicionando..."
+msgstr "Añadiendo..."
 
 #: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
@@ -166,11 +181,11 @@ msgstr "Cambiar nombre de carpeta"
 
 #: js/news.js:90
 msgid "URL cannot be empty."
-msgstr "URL no puede estar vacio"
+msgstr "URL no puede estar vacia"
 
 #: js/news.js:120 js/news.js:127 templates/firstrun.php:5
 msgid "Add feed"
-msgstr "Adicionar fuente"
+msgstr "Añadir fuente"
 
 #: js/news.js:124
 msgid "Error while parsing the feed"
@@ -180,47 +195,31 @@ msgstr "Error mientras se analizaba la fuente"
 msgid "Fatal Error"
 msgstr "Error fatal."
 
-#: js/settings.js:11 js/settings.js:27
-msgid "File "
-msgstr "Fichero"
-
-#: js/settings.js:11
-msgid " loaded from cloud."
-msgstr "Leyendo desde la nube"
-
-#: js/settings.js:22
+#: js/settings.js:17
 msgid "No files selected."
 msgstr "No hay ficheros seleccionados."
 
-#: js/settings.js:27
-msgid " loaded from local filesystem."
-msgstr "cargado desde un sistema de archivos local."
+#: js/settings.js:31
+msgid "Importing OPML file..."
+msgstr "Importando archivo OPML..."
 
-#: js/settings.js:32
-msgid "Importing..."
-msgstr "Importando..."
+#: js/settings.js:42
+msgid "Not a valid type"
+msgstr "No es un tipo válido"
 
-#: js/settings.js:43
-msgid " out of "
-msgstr "Fuera de"
+#: js/settings.js:60
+msgid "Importing done"
+msgstr "Importación realizada"
 
-#: js/settings.js:44
-msgid " feeds imported successfully from "
-msgstr "Fuente importada satisfactoriamente de"
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr "Error importando las fuentes."
 
-#: js/settings.js:45
-msgid "Success"
-msgstr "Éxito"
-
-#: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
-msgid "Import"
-msgstr "Importar"
-
-#: js/settings.js:66
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Seleccionar archivo"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "sin título"
 
@@ -228,11 +227,11 @@ msgstr "sin título"
 msgid "no name"
 msgstr "sin nombre"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "sin cuerpo"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "suscripciones en ownCloud - Noticias"
 
@@ -242,11 +241,11 @@ msgstr "Ocurrió un error"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr "¡Bien! Te has suscribido a"
+msgstr "¡Bien! Te has suscrito a"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "Ya está subscrito a esta fuente!"
+msgid "You had already subscribed to this feed!"
+msgstr "¡Ya te has suscrito a esta fuente!"
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -264,28 +263,32 @@ msgstr "Subscribirse"
 msgid "Import OPML"
 msgstr "Importar OPML"
 
-#: templates/firstrun.php:12 templates/settings.php:3
+#: templates/firstrun.php:12
 msgid "Upload file from desktop"
 msgstr "Subir fichero desde el escritorio"
 
-#: templates/firstrun.php:12 templates/settings.php:3
+#: templates/firstrun.php:12
 msgid "Upload"
 msgstr "Subir"
 
-#: templates/firstrun.php:13 templates/settings.php:4
+#: templates/firstrun.php:13
 msgid "Select file from ownCloud"
 msgstr "Seleccionar fichero desde ownCloud"
 
-#: templates/firstrun.php:13 templates/settings.php:4
+#: templates/firstrun.php:13
 msgid "Select"
 msgstr "Seleccionar"
 
-#: templates/firstrun.php:15 templates/settings.php:6
+#: templates/firstrun.php:15 templates/settings.php:4
 msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
 msgstr "Seleccionar archivo desde <a href=\"#\" class=\"settings\" id=\"browselink\">sistema de archivo local</a> o <a href=\"#\" class=\"settings\" id=\"cloudlink\">nube</a>"
+
+#: templates/firstrun.php:18
+msgid "Import"
+msgstr "Importar"
 
 #: templates/firstrun.php:24
 msgid "Or..."
@@ -293,11 +296,11 @@ msgstr "O..."
 
 #: templates/main.php:34
 msgid "Add feed or folder"
-msgstr "Adicionar fuente o carpeta"
+msgstr "Añadir fuente o carpeta"
 
 #: templates/main.php:35
 msgid "Add Feed/Folder"
-msgstr "Adicionar Fuente/Carpeta"
+msgstr "Añadir Fuente/Carpeta"
 
 #: templates/main.php:37
 msgid "Feed"
@@ -313,7 +316,7 @@ msgstr "Configuración"
 
 #: templates/part.dialogues.php:1
 msgid "Add Folder"
-msgstr "Adicionar carpeta"
+msgstr "Añadir carpeta"
 
 #: templates/part.dialogues.php:4
 msgid "Add new folder"
@@ -325,7 +328,7 @@ msgstr "Nombre de la carpeta"
 
 #: templates/part.dialogues.php:14
 msgid "Add Subscription"
-msgstr "Adicionar subcripción"
+msgstr "Añadir subcripción"
 
 #: templates/part.dialogues.php:17
 msgid "Add new feed"
@@ -337,7 +340,7 @@ msgstr "Seleccionar carpeta"
 
 #: templates/part.dialogues.php:29
 msgid "Add"
-msgstr "Adicionar"
+msgstr "Añadir"
 
 #: templates/part.feeds.php:48
 msgid "New articles"
@@ -360,20 +363,20 @@ msgstr "Marcar como no importante"
 msgid "Mark as important"
 msgstr "Marcar como importante"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "desde"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "por"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Compartir"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Dejar como no leido"
 
@@ -397,15 +400,15 @@ msgstr "Renombrar carpeta"
 msgid "Import feeds"
 msgstr "Importar fuentes"
 
-#: templates/settings.php:11
+#: templates/settings.php:8
 msgid "Export feeds"
 msgstr "Exportar fuente"
 
-#: templates/settings.php:13
+#: templates/settings.php:10
 msgid "Download OPML"
 msgstr "Descargar OPML"
 
-#: templates/settings.php:15
+#: templates/settings.php:12
 msgid "Subscribelet"
 msgstr "Suscribirse"
 

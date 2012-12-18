@@ -10,7 +10,7 @@
 				var defaulttime = '<?php echo ((int) OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'timeformat', '24') == 24 ? 'HH:mm' : 'hh:mm tt'); ?>';
 				var allDayText = '<?php echo addslashes($l->t('All day')) ?>';
 				var newcalendar = '<?php echo addslashes($l->t('New Calendar')) ?>';
-				var missing_field = '<?php echo addslashes($l->t('Missing fields')) ?>';
+				var missing_field = '<?php echo addslashes($l->t('Missing or invalid fields')) ?>';
 				var missing_field_title = '<?php echo addslashes($l->t('Title')) ?>';
 				var missing_field_calendar = '<?php echo addslashes($l->t('Calendar')) ?>';
 				var missing_field_fromdate = '<?php echo addslashes($l->t('From Date')) ?>';

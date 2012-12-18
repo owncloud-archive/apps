@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-31 00:01+0100\n"
-"PO-Revision-Date: 2012-10-30 08:56+0000\n"
+"POT-Creation-Date: 2012-11-26 00:01+0100\n"
+"PO-Revision-Date: 2012-11-25 14:25+0000\n"
 "Last-Translator: suganthi <suganthi@nic.lk>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -189,23 +189,23 @@ msgstr "கேள்விகள்"
 msgid "Work"
 msgstr "வேலை"
 
-#: lib/app.php:347 lib/share/event.php:27
+#: lib/app.php:362
 msgid "by"
 msgstr "மூலம்"
 
-#: lib/app.php:385
+#: lib/app.php:400
 msgid "unnamed"
 msgstr "பெயரிடப்படவில்லை"
 
-#: lib/calendar.php:165 lib/calendar.php:198
+#: lib/calendar.php:163 lib/calendar.php:196
 msgid "You do not have the permissions to update this calendar."
 msgstr "இந்த நாட்காட்டியை இற்​றைப்படுத்துவதற்கு உங்களுக்கு அனுமதி இல்லை "
 
-#: lib/calendar.php:233
+#: lib/calendar.php:231
 msgid "You do not have the permissions to delete this calendar."
 msgstr "இந்த நாட்காட்டியை நீக்குவதற்கு உங்களுக்கு அனுமதி இல்லை "
 
-#: lib/calendar.php:267
+#: lib/calendar.php:265
 msgid "You do not have the permissions to add to this calendar."
 msgstr "இந்த நாட்காட்டியை சேர்ப்பதற்கு உங்களுக்கு அனுமதி இல்லை"
 
@@ -214,183 +214,183 @@ msgstr "இந்த நாட்காட்டியை சேர்ப்ப�
 msgid "New Calendar"
 msgstr "புதிய நாட்காட்டி"
 
-#: lib/object.php:122 lib/object.php:161 lib/object.php:307
+#: lib/object.php:122 lib/object.php:162 lib/object.php:310
 msgid "You do not have the permissions to add events to this calendar."
 msgstr "இந்த நாட்காட்டிக்கு நிகழ்வுகளை சேர்க்க உங்களுக்கு அனுமதி இல்லை"
 
-#: lib/object.php:193 lib/object.php:227
+#: lib/object.php:194 lib/object.php:228
 msgid "You do not have the permissions to edit this event."
 msgstr "இந்த நிகழ்வை தொகுப்பதற்கு உங்களுக்கு அனுமதி இல்லை "
 
-#: lib/object.php:257 lib/object.php:287
+#: lib/object.php:258 lib/object.php:290
 msgid "You do not have the permissions to delete this event."
 msgstr "இந்த நிகழ்வை அழிப்பதற்கு உங்களுக்கு அனுமதி இல்லை "
 
-#: lib/object.php:452
+#: lib/object.php:455
 msgid "Does not repeat"
 msgstr "மீண்டும் இல்லாமல்"
 
-#: lib/object.php:453
+#: lib/object.php:456
 msgid "Daily"
 msgstr "ஒவ்வொரு நாளும்"
 
-#: lib/object.php:454
+#: lib/object.php:457
 msgid "Weekly"
 msgstr "வாரந்தோறும்"
 
-#: lib/object.php:455
+#: lib/object.php:458
 msgid "Every Weekday"
 msgstr "ஒவ்வொரு வாரநாளும்"
 
-#: lib/object.php:456
+#: lib/object.php:459
 msgid "Bi-Weekly"
 msgstr "இரு வாரத்திற்கு ஒரு முறை"
 
-#: lib/object.php:457
+#: lib/object.php:460
 msgid "Monthly"
 msgstr "மாதந்தோரும்"
 
-#: lib/object.php:458
+#: lib/object.php:461
 msgid "Yearly"
 msgstr "வருடந்தோறும்"
 
-#: lib/object.php:468
+#: lib/object.php:471
 msgid "never"
 msgstr "ஒருபோதும்"
 
-#: lib/object.php:469
+#: lib/object.php:472
 msgid "by occurrences"
 msgstr "நிகழ்வுகள் மூலம்"
 
-#: lib/object.php:470
+#: lib/object.php:473
 msgid "by date"
 msgstr "திகதியினால்"
 
-#: lib/object.php:480
+#: lib/object.php:483
 msgid "by monthday"
 msgstr "மாதநாளில்"
 
-#: lib/object.php:481
+#: lib/object.php:484
 msgid "by weekday"
 msgstr "வாரநாளில்"
 
-#: lib/object.php:491 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr "திங்கட்கிழமை"
 
-#: lib/object.php:492 templates/calendar.php:5
+#: lib/object.php:495 templates/calendar.php:5
 msgid "Tuesday"
 msgstr "செவ்வாய்க்கிழமை"
 
-#: lib/object.php:493 templates/calendar.php:5
+#: lib/object.php:496 templates/calendar.php:5
 msgid "Wednesday"
 msgstr "புதன்கிழமை"
 
-#: lib/object.php:494 templates/calendar.php:5
+#: lib/object.php:497 templates/calendar.php:5
 msgid "Thursday"
 msgstr "வியாழக்கிழமை"
 
-#: lib/object.php:495 templates/calendar.php:5
+#: lib/object.php:498 templates/calendar.php:5
 msgid "Friday"
 msgstr "வெள்ளிக்கிழமை"
 
-#: lib/object.php:496 templates/calendar.php:5
+#: lib/object.php:499 templates/calendar.php:5
 msgid "Saturday"
 msgstr "சனிக்கிழமை"
 
-#: lib/object.php:497 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:500 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr "ஞாயிற்றுக்கிழமை"
 
-#: lib/object.php:507
+#: lib/object.php:510
 msgid "events week of month"
 msgstr "மாதத்தின் நிகழ்வு வாரங்கள்"
 
-#: lib/object.php:508
+#: lib/object.php:511
 msgid "first"
 msgstr "முதலாவது"
 
-#: lib/object.php:509
+#: lib/object.php:512
 msgid "second"
 msgstr "இரண்டாவது"
 
-#: lib/object.php:510
+#: lib/object.php:513
 msgid "third"
 msgstr "மூன்றாவது"
 
-#: lib/object.php:511
+#: lib/object.php:514
 msgid "fourth"
 msgstr "நான்காவது"
 
-#: lib/object.php:512
+#: lib/object.php:515
 msgid "fifth"
 msgstr "ஐந்தாவது"
 
-#: lib/object.php:513
+#: lib/object.php:516
 msgid "last"
 msgstr "இறுதி"
 
-#: lib/object.php:547 templates/calendar.php:7
+#: lib/object.php:550 templates/calendar.php:7
 msgid "January"
 msgstr "தை"
 
-#: lib/object.php:548 templates/calendar.php:7
+#: lib/object.php:551 templates/calendar.php:7
 msgid "February"
 msgstr "மாசி"
 
-#: lib/object.php:549 templates/calendar.php:7
+#: lib/object.php:552 templates/calendar.php:7
 msgid "March"
 msgstr "பங்குனி"
 
-#: lib/object.php:550 templates/calendar.php:7
+#: lib/object.php:553 templates/calendar.php:7
 msgid "April"
 msgstr "சித்திரை"
 
-#: lib/object.php:551 templates/calendar.php:7
+#: lib/object.php:554 templates/calendar.php:7
 msgid "May"
 msgstr "வைகாசி"
 
-#: lib/object.php:552 templates/calendar.php:7
+#: lib/object.php:555 templates/calendar.php:7
 msgid "June"
 msgstr "ஆனி"
 
-#: lib/object.php:553 templates/calendar.php:7
+#: lib/object.php:556 templates/calendar.php:7
 msgid "July"
 msgstr "ஆடி"
 
-#: lib/object.php:554 templates/calendar.php:7
+#: lib/object.php:557 templates/calendar.php:7
 msgid "August"
 msgstr "ஆவணி"
 
-#: lib/object.php:555 templates/calendar.php:7
+#: lib/object.php:558 templates/calendar.php:7
 msgid "September"
 msgstr "புரட்டாசி"
 
-#: lib/object.php:556 templates/calendar.php:7
+#: lib/object.php:559 templates/calendar.php:7
 msgid "October"
 msgstr "ஐப்பசி"
 
-#: lib/object.php:557 templates/calendar.php:7
+#: lib/object.php:560 templates/calendar.php:7
 msgid "November"
 msgstr "கார்த்திகை"
 
-#: lib/object.php:558 templates/calendar.php:7
+#: lib/object.php:561 templates/calendar.php:7
 msgid "December"
 msgstr "மார்கழி"
 
-#: lib/object.php:568
+#: lib/object.php:571
 msgid "by events date"
 msgstr "நிகழ்வை கொண்ட திகதி"
 
-#: lib/object.php:569
+#: lib/object.php:572
 msgid "by yearday(s)"
 msgstr "வருட நாள் (கள்) மூலம்"
 
-#: lib/object.php:570
+#: lib/object.php:573
 msgid "by weeknumber(s)"
 msgstr "வார எண்ணிக்கை (கள்) மூலம்"
 
-#: lib/object.php:571
+#: lib/object.php:574
 msgid "by day and month"
 msgstr "நாள் மற்றும் மாதம் மூலம்"
 
@@ -483,8 +483,8 @@ msgid "All day"
 msgstr "அனைத்து நாட்களும்"
 
 #: templates/calendar.php:13
-msgid "Missing fields"
-msgstr "விடுபட்ட இடைவெளி"
+msgid "Missing or invalid fields"
+msgstr "விடுபட்ட அல்லது செல்லுபடியற்ற புலங்கள்"
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11

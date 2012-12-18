@@ -78,7 +78,6 @@
 "Nov." => "Lap.",
 "Dec." => "Groud.",
 "All day" => "Visa diena",
-"Missing fields" => "Trūkstami laukai",
 "Title" => "Pavadinimas",
 "From Date" => "Nuo datos",
 "From Time" => "Nuo laiko",

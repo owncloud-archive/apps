@@ -5,13 +5,14 @@
 # Translators:
 #   <martin.babik@gmail.com>, 2012.
 # Roman Priesol <roman@priesol.net>, 2012.
+#   <zatroch.martin@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-01 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-02 00:01+0100\n"
+"PO-Revision-Date: 2012-12-01 16:20+0000\n"
+"Last-Translator: martin <zatroch.martin@gmail.com>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,11 +60,19 @@ msgstr "Chyba pri mazaní priečinka."
 msgid "Error updating feeds."
 msgstr "Chyba pri obnovení kanálov."
 
-#: ajax/importopml.php:28 ajax/selectfromcloud.php:31
-msgid "No file path was submitted."
-msgstr "Neuvedené cesta k súboru."
+#: ajax/importopml.php:40
+msgid "Empty filename"
+msgstr "Prázdny názov"
 
-#: ajax/importopml.php:42
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr "Neuvedený argument k zdroju"
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr "Chyba pri čítaní súboru"
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "Nastala chyba počas spracovania súboru."
 
@@ -75,9 +84,17 @@ msgstr "Kanál nahraný!"
 msgid "Error moving feed into folder."
 msgstr "Chyba pri presune kanálu do priečinka."
 
+#: ajax/selectfromcloud.php:31
+msgid "No file path was submitted."
+msgstr "Neuvedené cesta k súboru."
+
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr "Súbor neexistuje."
+
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "Nemôžem uložiť dočasný obrázok: "
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -95,13 +112,9 @@ msgstr "Chyba pri aktualizácií kanála."
 msgid "Feed updated!"
 msgstr "Kanál obnovený!"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Novinky"
-
-#: controllers/controller.php:207
-msgid "An error occured: "
-msgstr ""
 
 #: js/items.js:122
 msgid "Error while loading the feed"
@@ -110,8 +123,8 @@ msgstr "Chyba počas nahrávania kanála"
 #: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
-#: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
-#: js/settings.js:47
+#: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
+#: js/settings.js:68
 msgid "Error"
 msgstr "Chyba"
 
@@ -176,47 +189,31 @@ msgstr "Chyba počas spracovania kanála."
 msgid "Fatal Error"
 msgstr "Kritická chyba"
 
-#: js/settings.js:11 js/settings.js:27
-msgid "File "
-msgstr "Súbor"
-
-#: js/settings.js:11
-msgid " loaded from cloud."
-msgstr "nahrané z cloudu."
-
-#: js/settings.js:22
+#: js/settings.js:17
 msgid "No files selected."
 msgstr "Nie sú označené súbory."
 
-#: js/settings.js:27
-msgid " loaded from local filesystem."
-msgstr "nahrané z lokálneho súborového systému."
+#: js/settings.js:31
+msgid "Importing OPML file..."
+msgstr "Importovanie OPML súboru..."
 
-#: js/settings.js:32
-msgid "Importing..."
-msgstr "Importovanie..."
+#: js/settings.js:42
+msgid "Not a valid type"
+msgstr "Nesprávny typ"
 
-#: js/settings.js:43
-msgid " out of "
-msgstr " z celkom "
+#: js/settings.js:60
+msgid "Importing done"
+msgstr "Importovanie úspešné"
 
-#: js/settings.js:44
-msgid " feeds imported successfully from "
-msgstr " kanály boli úspešne importované z "
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr "Chyba pri importe kanálov (RSS)."
 
-#: js/settings.js:45
-msgid "Success"
-msgstr "Úspešné"
-
-#: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
-msgid "Import"
-msgstr "Import"
-
-#: js/settings.js:66
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Označiť súbor"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "bez nadpisu"
 
@@ -224,11 +221,11 @@ msgstr "bez nadpisu"
 msgid "no name"
 msgstr "bez názvu"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "bez obsahu"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "odbery v ownCloud - Novinky"
 
@@ -241,8 +238,8 @@ msgid "Nice! You have subscribed to "
 msgstr "Dobre. Ste prihlásený k "
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "Už ste prihlásený k tomuto kanálu!"
+msgid "You had already subscribed to this feed!"
+msgstr "Už ste odberateľmi tohto kanálu (RSS)!"
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -260,28 +257,32 @@ msgstr "Prihlásiť"
 msgid "Import OPML"
 msgstr "Import OPML"
 
-#: templates/firstrun.php:12 templates/settings.php:3
+#: templates/firstrun.php:12
 msgid "Upload file from desktop"
 msgstr "Odoslať súbor z vašej plochy"
 
-#: templates/firstrun.php:12 templates/settings.php:3
+#: templates/firstrun.php:12
 msgid "Upload"
 msgstr "Odoslať"
 
-#: templates/firstrun.php:13 templates/settings.php:4
+#: templates/firstrun.php:13
 msgid "Select file from ownCloud"
 msgstr "Vybrať súbor z ownCloud"
 
-#: templates/firstrun.php:13 templates/settings.php:4
+#: templates/firstrun.php:13
 msgid "Select"
 msgstr "Vybrať"
 
-#: templates/firstrun.php:15 templates/settings.php:6
+#: templates/firstrun.php:15 templates/settings.php:4
 msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
 msgstr "Vybrať súbor z <a href=\"#\" class=\"settings\" id=\"browselink\">miestného súborového systému</a> alebo <a href=\"#\" class=\"settings\" id=\"cloudlink\">cloudu</a>"
+
+#: templates/firstrun.php:18
+msgid "Import"
+msgstr "Import"
 
 #: templates/firstrun.php:24
 msgid "Or..."
@@ -356,20 +357,20 @@ msgstr "Označiť ako nedôležité"
 msgid "Mark as important"
 msgstr "Označiť ako dôležté"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "od"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "od"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Zdieľaj"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Ponechať neprečítané"
 
@@ -393,15 +394,15 @@ msgstr "Premenovať priečinok"
 msgid "Import feeds"
 msgstr "Import kanálov"
 
-#: templates/settings.php:11
+#: templates/settings.php:8
 msgid "Export feeds"
 msgstr "Export kanálov"
 
-#: templates/settings.php:13
+#: templates/settings.php:10
 msgid "Download OPML"
 msgstr "Stiahnuť OPML"
 
-#: templates/settings.php:15
+#: templates/settings.php:12
 msgid "Subscribelet"
 msgstr "Subscribelet"
 

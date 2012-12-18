@@ -10,6 +10,7 @@
 "5=medium" => "5=médio",
 "9=lowest" => "9=mais baixo",
 "Empty Summary" => "Sumário vazio",
+"Invalid percent complete" => "Percentagem inválida completa",
 "Invalid priority" => "Prioridade inválida",
 "The calendar application also need to be enabled to use this application." => "A aplicação calendário também precisa de ser activada para usar esta aplicação.",
 "Add Task" => "Acrescentar tarefa",

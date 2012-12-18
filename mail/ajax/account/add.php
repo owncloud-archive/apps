@@ -26,10 +26,11 @@ OCP\JSON::checkAppEnabled('mail');
 
 $host = isset( $_GET['host'] ) ? $_GET['host'] : null;
 $user = isset( $_GET['user'] ) ? $_GET['user'] : null;
+$email = isset( $_GET['email'] ) ? $_GET['email'] : null;
 $password = isset( $_GET['password'] ) ? $_GET['password'] : null;
 $port = isset( $_GET['port'] ) ? $_GET['port'] : null;
 $ssl_mode = isset( $_GET['ssl_mode'] ) ? $_GET['ssl_mode'] : null;
 
-$id = OCA\Mail\App::addAccount( OCP\User::getUser(), $host, $port, $user, $password, $ssl_mode );
+$id = OCA\Mail\App::addAccount( OCP\User::getUser(), $email, $host, $port, $user, $password, $ssl_mode );
 
 OCP\JSON::success(array('data' => array( 'id' => $id )));

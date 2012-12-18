@@ -27,27 +27,29 @@ OCP\JSON::checkAppEnabled('contacts');
 require_once 'loghandler.php';
 
 if (!isset($_GET['id'])) {
-	bailOut(OC_Contacts_App::$l10n->t('No contact ID was submitted.'));
+	bailOut(OCA\Contacts\App::$l10n->t('No contact ID was submitted.'));
 }
 
-$contact = OC_Contacts_App::getContactVCard($_GET['id']);
+$contact = OCA\Contacts\App::getContactVCard($_GET['id']);
 // invalid vcard
 if( is_null($contact)) {
-	bailOut(OC_Contacts_App::$l10n->t('Error reading contact photo.'));
+	bailOut(OCA\Contacts\App::$l10n->t('Error reading contact photo.'));
 } else {
 	$image = new OC_Image();
-	if(!$image->loadFromBase64($contact->getAsString('PHOTO'))) {
-		$image->loadFromBase64($contact->getAsString('LOGO'));
+	if(!isset($contact->PHOTO) || !$image->loadFromBase64((string)$contact->PHOTO)) {
+		if(isset($contact->LOGO)) {
+			$image->loadFromBase64((string)$contact->LOGO);
+		}
 	}
 	if($image->valid()) {
-		$tmpkey = 'contact-photo-'.$contact->getAsString('UID');
+		$tmpkey = 'contact-photo-'.$contact->UID;
 		if(OC_Cache::set($tmpkey, $image->data(), 600)) {
 			OCP\JSON::success(array('data' => array('id'=>$_GET['id'], 'tmp'=>$tmpkey)));
 			exit();
 		} else {
-			bailOut(OC_Contacts_App::$l10n->t('Error saving temporary file.'));
+			bailOut(OCA\Contacts\App::$l10n->t('Error saving temporary file.'));
 		}
 	} else {
-		bailOut(OC_Contacts_App::$l10n->t('The loading photo is not valid.'));
+		bailOut(OCA\Contacts\App::$l10n->t('The loading photo is not valid.'));
 	}
 }

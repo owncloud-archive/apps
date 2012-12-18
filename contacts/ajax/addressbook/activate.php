@@ -13,20 +13,33 @@ OCP\JSON::checkAppEnabled('contacts');
 OCP\JSON::callCheck();
 
 $id = $_POST['id'];
-$book = OC_Contacts_App::getAddressbook($id);// is owner access check
 
-if(!OC_Contacts_Addressbook::setActive($id, $_POST['active'])) {
+try {
+	$book = OCA\Contacts\Addressbook::find($id); // is owner access check
+} catch(Exception $e) {
+	OCP\JSON::error(
+		array(
+			'data' => array(
+				'message' => $e->getMessage(),
+				'file'=>$_POST['file']
+			)
+		)
+	);
+	exit();
+}
+
+if(!OCA\Contacts\Addressbook::setActive($id, $_POST['active'])) {
 	OCP\Util::writeLog('contacts',
 		'ajax/activation.php: Error activating addressbook: '. $id,
 		OCP\Util::ERROR);
 	OCP\JSON::error(array(
 		'data' => array(
-			'message' => OC_Contacts_App::$l10n->t('Error (de)activating addressbook.'))));
+			'message' => OCA\Contacts\App::$l10n->t('Error (de)activating addressbook.'))));
 	exit();
 }
 
 OCP\JSON::success(array(
-	'active' => OC_Contacts_Addressbook::isActive($id),
+	'active' => OCA\Contacts\Addressbook::isActive($id),
 	'id' => $id,
 	'addressbook'   => $book,
 ));

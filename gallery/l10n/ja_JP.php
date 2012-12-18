@@ -1,5 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Pictures" => "写真",
+"Pictures" => "ピクチャ",
 "Galleries" => "ギャラリー",
 "Share gallery" => "ギャラリーを共有",
 "Error: " => "エラー: ",

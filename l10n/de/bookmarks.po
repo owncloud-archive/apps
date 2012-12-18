@@ -4,6 +4,7 @@
 # 
 # Translators:
 #   <blobbyjj@ymail.com>, 2012.
+# I Robot <owncloud-bot@tmit.eu>, 2012.
 # I Robot <thomas.mueller@tmit.eu>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
 # Phi Lieb <>, 2012.
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-02 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:13+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-14 00:01+0100\n"
+"PO-Revision-Date: 2012-11-13 18:02+0000\n"
+"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,35 +26,39 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "Dateityp wird für den Import nicht unterstützt"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Lesezeichen"
 
-#: js/addBm.js:42 js/bookmarks.js:241
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
 msgstr "Tags"
 
-#: js/bookmarks.js:176
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr "Filtern nach Schlagwort"
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
 msgstr "Lesezeichen bearbeiten"
 
-#: js/bookmarks.js:393
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Soll dieses Schlagwort wirklich von allen Einträgen entfernt werden?"
 
-#: js/bookmarks.js:394
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr "Warnung"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "Der Import wurde erfolgreich abgeschlossen."
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "Lade hoch ..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -83,84 +88,64 @@ msgstr "Die Beschreibung der Seite"
 msgid "Save"
 msgstr "Speichern"
 
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr "Ziehe dies zu Deinen Browser-Lesezeichen und klicke darauf, wenn Du eine Website schnell den Lesezeichen hinzufügen willst."
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr "Später lesen"
-
-#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
-msgid "Edit"
-msgstr "Bearbeiten"
-
-#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
 msgid "Delete"
 msgstr "Löschen"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "Bearbeiten"
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: templates/list.php:12
+#: templates/list.php:14
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "Ziehe dies zu Deinen Browser-Lesezeichen und klicke darauf, wenn Du eine Website schnell den Lesezeichen hinzufügen willst."
+
+#: templates/list.php:15
+msgid "Read later"
+msgstr "Später lesen"
+
+#: templates/list.php:22
 msgid "Address"
 msgstr "Adresse"
 
-#: templates/list.php:13
-msgid "Add bookmark"
-msgstr "Lesezeichen hinzufügen"
-
-#: templates/list.php:16
-msgid "List"
-msgstr "Liste"
-
-#: templates/list.php:17
-msgid "Image"
-msgstr "Bild"
-
-#: templates/list.php:22
-msgid "Hide"
-msgstr "Ausblenden"
-
 #: templates/list.php:23
-msgid "Show"
-msgstr "Anzeigen"
+msgid "Add"
+msgstr "Hinzufügen"
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr "Verwandte Schlagworte"
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:39 templates/list.php:41
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Du hast keine Lesezeichen"
 
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr "Du kannst auch versuchen eine Lesezeichendatei zu importieren."
+
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Bookmarklet <br />"
+msgid "Bookmarklet"
+msgstr "Bookmarklet"
 
-#: templates/settings.php:26
-msgid "Import bookmarks"
-msgstr "Lesezeichen importieren"
+#: templates/settings.php:23
+msgid "Export & Import"
+msgstr "Export & Import"
 
-#: templates/settings.php:28
-msgid "html bookmarks file"
-msgstr ""
-
-#: templates/settings.php:30
-msgid "Import"
-msgstr "Importieren"
-
-#: templates/settings.php:33
-msgid "Export bookmarks"
-msgstr "Lesezeichen exportieren"
-
-#: templates/settings.php:35
+#: templates/settings.php:24
 msgid "Export"
 msgstr "Exportieren"
+
+#: templates/settings.php:26
+msgid "Import"
+msgstr "Importieren"

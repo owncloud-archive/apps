@@ -4,12 +4,13 @@
 # 
 # Translators:
 #   <cdewqazxsqwe@gmail.com>, 2012.
+#   <skoptev@ukr.net>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-02 00:01+0100\n"
-"PO-Revision-Date: 2012-11-01 06:58+0000\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
+"PO-Revision-Date: 2012-11-29 10:10+0000\n"
 "Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -58,11 +59,19 @@ msgstr "Ошибка при удалении папки."
 msgid "Error updating feeds."
 msgstr "Ошибка обновления потоков."
 
-#: ajax/importopml.php:28 ajax/selectfromcloud.php:31
-msgid "No file path was submitted."
-msgstr "Не был задан путь к файлу."
+#: ajax/importopml.php:40
+msgid "Empty filename"
+msgstr "Пустое имя файла"
 
-#: ajax/importopml.php:42
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr "Нет годного параметра источника"
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr "Ошибка при чтении файла"
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "При парсинге файла произошла ошибка."
 
@@ -74,9 +83,17 @@ msgstr "Поток загружен!"
 msgid "Error moving feed into folder."
 msgstr "Ошибка при перемещении потока в папку. "
 
+#: ajax/selectfromcloud.php:31
+msgid "No file path was submitted."
+msgstr "Не был задан путь к файлу."
+
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
 msgstr "Файл не существует:"
+
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "Не удалось сохранить временное изображение:"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -94,13 +111,9 @@ msgstr "Ошибка при обновлении потока."
 msgid "Feed updated!"
 msgstr "Поток обновлен!"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Новости"
-
-#: controllers/controller.php:207
-msgid "An error occured: "
-msgstr "Произошла ошибка:"
 
 #: js/items.js:122
 msgid "Error while loading the feed"
@@ -109,8 +122,8 @@ msgstr "Ошибка при загрузке потока"
 #: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
-#: js/news.js:90 js/news.js:116 js/settings.js:16 js/settings.js:22
-#: js/settings.js:47
+#: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
+#: js/settings.js:68
 msgid "Error"
 msgstr "Ошибка"
 
@@ -175,47 +188,31 @@ msgstr "Ошибка при парсинге потока"
 msgid "Fatal Error"
 msgstr "Критическая ошибка"
 
-#: js/settings.js:11 js/settings.js:27
-msgid "File "
-msgstr "Файл"
-
-#: js/settings.js:11
-msgid " loaded from cloud."
-msgstr "загружается из облака."
-
-#: js/settings.js:22
+#: js/settings.js:17
 msgid "No files selected."
 msgstr "Не выбран файл."
 
-#: js/settings.js:27
-msgid " loaded from local filesystem."
-msgstr "загружено из локальной файловой системы."
+#: js/settings.js:31
+msgid "Importing OPML file..."
+msgstr "Импортирование OPML-файла..."
 
-#: js/settings.js:32
-msgid "Importing..."
-msgstr "Импортирование..."
+#: js/settings.js:42
+msgid "Not a valid type"
+msgstr "Недопустимый тип"
 
-#: js/settings.js:43
-msgid " out of "
-msgstr "вне"
+#: js/settings.js:60
+msgid "Importing done"
+msgstr "Импортирование выполнено"
 
-#: js/settings.js:44
-msgid " feeds imported successfully from "
-msgstr "потоки успешно импортированы из"
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr "Ошибка при импортировании потоков."
 
-#: js/settings.js:45
-msgid "Success"
-msgstr "Успех"
-
-#: js/settings.js:49 templates/firstrun.php:18 templates/settings.php:9
-msgid "Import"
-msgstr "Импорт"
-
-#: js/settings.js:66
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Выбрать файл"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "заголовок отсутствует"
 
@@ -223,11 +220,11 @@ msgstr "заголовок отсутствует"
 msgid "no name"
 msgstr "имя отсутствует"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "основной текст отсутствует"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "подписки на ownCloud - News"
 
@@ -240,7 +237,7 @@ msgid "Nice! You have subscribed to "
 msgstr "Прекрасно! Вы подписаны на"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
+msgid "You had already subscribed to this feed!"
 msgstr "Вы уже подписаны на этот поток!"
 
 #: templates/firstrun.php:2
@@ -259,28 +256,32 @@ msgstr "Подписаться"
 msgid "Import OPML"
 msgstr "Импорт OPML"
 
-#: templates/firstrun.php:12 templates/settings.php:3
+#: templates/firstrun.php:12
 msgid "Upload file from desktop"
 msgstr "Загрузить файл с компьютера"
 
-#: templates/firstrun.php:12 templates/settings.php:3
+#: templates/firstrun.php:12
 msgid "Upload"
 msgstr "Загрузка"
 
-#: templates/firstrun.php:13 templates/settings.php:4
+#: templates/firstrun.php:13
 msgid "Select file from ownCloud"
 msgstr "Выбрать файл из ownCloud"
 
-#: templates/firstrun.php:13 templates/settings.php:4
+#: templates/firstrun.php:13
 msgid "Select"
 msgstr "Выбрать"
 
-#: templates/firstrun.php:15 templates/settings.php:6
+#: templates/firstrun.php:15 templates/settings.php:4
 msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
 msgstr "Выберите файл из <a href=\"#\" class=\"settings\" id=\"browselink\">локальная файловая система</a> или <a href=\"#\" class=\"settings\" id=\"cloudlink\">облако</a>"
+
+#: templates/firstrun.php:18
+msgid "Import"
+msgstr "Импорт"
 
 #: templates/firstrun.php:24
 msgid "Or..."
@@ -355,20 +356,20 @@ msgstr "Отметить как неважное"
 msgid "Mark as important"
 msgstr "Отметить как важное"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "из"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "к"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Сделать общим"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Оставить непрочитанным"
 
@@ -392,15 +393,15 @@ msgstr "Переименовать папку"
 msgid "Import feeds"
 msgstr "Импортировать поток"
 
-#: templates/settings.php:11
+#: templates/settings.php:8
 msgid "Export feeds"
 msgstr "Экспортировать потоки"
 
-#: templates/settings.php:13
+#: templates/settings.php:10
 msgid "Download OPML"
 msgstr "Загрузить OPML"
 
-#: templates/settings.php:15
+#: templates/settings.php:12
 msgid "Subscribelet"
 msgstr "Subscribelet"
 

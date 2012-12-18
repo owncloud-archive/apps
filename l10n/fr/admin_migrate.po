@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-05 02:02+0200\n"
-"PO-Revision-Date: 2012-09-04 11:43+0000\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 08:01+0000\n"
 "Last-Translator: Romain DEP. <rom1dep@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -33,8 +33,8 @@ msgid "Please choose the export type:"
 msgstr "Veuillez choisir le type d'export :"
 
 #: templates/settings.php:10
-msgid "ownCloud instance (suitable for import)"
-msgstr "Instance ownCloud (adéquate pour import)"
+msgid "ownCloud instance (user data and database"
+msgstr "instance ownCloud (données utilisateurs et base de données"
 
 #: templates/settings.php:11
 msgid "ownCloud system files"

@@ -112,7 +112,6 @@
 "Nov." => "Noi.",
 "Dec." => "Dec.",
 "All day" => "Toată ziua",
-"Missing fields" => "Câmpuri lipsă",
 "Title" => "Titlu",
 "From Date" => "Începând cu",
 "From Time" => "De la",

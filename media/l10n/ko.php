@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Music" => "음악",
-"Add album to playlist" => "재생 목록에 앨범을 추가",
+"songs" => "노래",
+"albums" => "앨범",
+"Add to playlist" => "재생 목록에 추가",
+"Add album to playlist" => "재생 목록에 앨범 추가",
 "Play" => "재생",
 "Pause" => "일시 정지",
 "Previous" => "이전",

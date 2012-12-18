@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <suganthi@nic.lk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:03+0200\n"
-"PO-Revision-Date: 2012-08-12 22:33+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-11-26 00:01+0100\n"
+"PO-Revision-Date: 2012-11-25 14:13+0000\n"
+"Last-Translator: suganthi <suganthi@nic.lk>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,37 +22,37 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr ""
+msgstr "நிறைய செயலிகளில் உள்ளக தொடர்பை ஏற்படுத்துவதற்கு php-json கூறு  தேவைப்படுகிறது"
 
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr ""
+msgstr "பக்க அடையாளங்களை சேர்க்கும் போது பக்கத்தின் தலைப்பை கொணர்வதற்கு php-curl கூறு தேவைப்படுகிறது"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr ""
+msgstr "உங்களுடைய படத்தின்  thumbnails ஐ உருவாக்குவதற்கு  php-gd கூறு தேவைப்படுகிறது "
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr ""
+msgstr "உங்களுடைய ldap சேவையகத்தை இணைப்பதற்கு php-ldap கூறு தேவைப்படுகிறது "
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr ""
+msgstr "பன் கோப்புகளை ஒரே தடவையில் தரையிறக்குவதற்கு php-zip கூறு தேவைப்படுகிறது"
 
 #: settings.php:63
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
-msgstr ""
+msgstr "குறியீட்டாக்கத்தை சரியாக நிர்வகிக்க  php-mb_multibyte கூறு தேவைப்படுகிறது."
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr ""
+msgstr "தரவை செல்லுபடியாக்குவதற்கு  php-ctype  கூறு தேவைப்படுகிறது."
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr ""
+msgstr " webdav இடையில் கோப்புக்களை பகிர்வதற்கு php-xml கூறு தேவைப்படுகிறது"
 
 #: settings.php:81
 msgid ""
@@ -61,16 +62,16 @@ msgstr ""
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr ""
+msgstr "தரவுத்தளத்தில்  owncloud தரவுகளை சேமிப்பதற்கு  php-pdo கூறு தேவைப்படுகிறது."
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "தரவுகளை சரியான charset இற்கு மாற்றுவதற்கு  iconv கூறு தேவைப்படுகிறது."
 
 #: templates/settings.php:2
 msgid "Dependencies status"
-msgstr ""
+msgstr "சார்பு நிலை"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr ""
+msgstr "பயன்படுத்தப்பட்டது :"

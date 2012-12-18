@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-02 00:01+0100\n"
-"PO-Revision-Date: 2012-11-01 17:57+0000\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 17:22+0000\n"
 "Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -27,19 +27,23 @@ msgstr "Nepodporovaný typ souboru pro import"
 msgid "Bookmarks"
 msgstr "Záložky"
 
-#: js/addBm.js:42 js/bookmarks.js:241
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
 msgstr "Značky"
 
-#: js/bookmarks.js:176
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr "Filtrovat podle značky"
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
 msgstr "Upravit záložku"
 
-#: js/bookmarks.js:393
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Opravdu jste si jisti, že si přejete odstranit tuto značku z každého záznamu?"
 
-#: js/bookmarks.js:394
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr "Varování"
 
@@ -79,84 +83,64 @@ msgstr "Popis stránky"
 msgid "Save"
 msgstr "Uložit"
 
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr "Přetáhněte do Vašeho prohlížeče a klikněte, pokud si přejete rychle uložit stránku do záložek:"
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr "Přečíst později"
-
-#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
-msgid "Edit"
-msgstr "Upravit"
-
-#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
 msgid "Delete"
 msgstr "Smazat"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "Upravit"
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: templates/list.php:12
+#: templates/list.php:14
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "Přetáhněte do Vašeho prohlížeče a klikněte, pokud si přejete rychle uložit stránku do záložek:"
+
+#: templates/list.php:15
+msgid "Read later"
+msgstr "Přečíst později"
+
+#: templates/list.php:22
 msgid "Address"
 msgstr "Adresa"
 
-#: templates/list.php:13
-msgid "Add bookmark"
-msgstr "Přidat záložku"
-
-#: templates/list.php:16
-msgid "List"
-msgstr "Seznam"
-
-#: templates/list.php:17
-msgid "Image"
-msgstr "Obrázek"
-
-#: templates/list.php:22
-msgid "Hide"
-msgstr "Skrýt"
-
 #: templates/list.php:23
-msgid "Show"
-msgstr "Zobrazit"
+msgid "Add"
+msgstr "Přidat"
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr "Podobné značky"
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:39 templates/list.php:41
 msgid "Settings"
 msgstr "Nastavení"
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Nemáte žádné záložky"
 
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr "Můžete také zkusit importovat soubor záložek"
+
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Záložky <br />"
+msgid "Bookmarklet"
+msgstr "Rutina pro záložky"
 
-#: templates/settings.php:26
-msgid "Import bookmarks"
-msgstr "Importovat záložky"
+#: templates/settings.php:23
+msgid "Export & Import"
+msgstr "Import a export"
 
-#: templates/settings.php:28
-msgid "html bookmarks file"
-msgstr "soubor záložek html"
-
-#: templates/settings.php:30
-msgid "Import"
-msgstr "Importovat"
-
-#: templates/settings.php:33
-msgid "Export bookmarks"
-msgstr "Exportovat záložky"
-
-#: templates/settings.php:35
+#: templates/settings.php:24
 msgid "Export"
 msgstr "Exportovat"
+
+#: templates/settings.php:26
+msgid "Import"
+msgstr "Importovat"

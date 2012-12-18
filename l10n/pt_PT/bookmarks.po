@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <daniel@mouxy.net>, 2012.
 # Duarte Velez Grilo <duartegrilo@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-02 00:01+0100\n"
-"PO-Revision-Date: 2012-10-31 23:13+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 17:22+0000\n"
+"Last-Translator: Mouxy <daniel@mouxy.net>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,35 +21,39 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "Tipo de ficheiro não suportado para importação"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Marcadores"
 
-#: js/addBm.js:42 js/bookmarks.js:241
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
 msgstr "Etiquetas"
 
-#: js/bookmarks.js:176
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr "Filtrar por tag"
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
 msgstr "Editar marcador"
 
-#: js/bookmarks.js:393
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Tem a certeza de que quer remover esta etiqueta de cada registo?"
 
-#: js/bookmarks.js:394
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr "Aviso"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "Importação bem sucedida."
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "A enviar..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -78,84 +83,64 @@ msgstr "Descrição da página"
 msgid "Save"
 msgstr "Guardar"
 
-#: templates/bookmarklet.php:5
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr "Arraste isto para o seu navegador, e click nele quando quiser guardar a página rapidamente com um marcador."
-
-#: templates/bookmarklet.php:7
-msgid "Read later"
-msgstr "Ler mais tarde"
-
-#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
-msgid "Edit"
-msgstr "Editar"
-
-#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
 msgid "Delete"
 msgstr "Apagar"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "Editar"
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: templates/list.php:12
+#: templates/list.php:14
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "Arraste isto para o seu navegador, e click nele quando quiser guardar a página rapidamente com um marcador."
+
+#: templates/list.php:15
+msgid "Read later"
+msgstr "Ler mais tarde"
+
+#: templates/list.php:22
 msgid "Address"
 msgstr "Endereço"
 
-#: templates/list.php:13
-msgid "Add bookmark"
-msgstr "Acrescentar marcador"
-
-#: templates/list.php:16
-msgid "List"
-msgstr "Lista"
-
-#: templates/list.php:17
-msgid "Image"
-msgstr "Imagem"
-
-#: templates/list.php:22
-msgid "Hide"
-msgstr "Esconder"
-
 #: templates/list.php:23
-msgid "Show"
-msgstr "Mostrar"
+msgid "Add"
+msgstr "Adicionar"
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr "Etiquetas relacionadas"
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:39 templates/list.php:41
 msgid "Settings"
 msgstr "Configurações"
 
-#: templates/list.php:50
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "Não tem marcadores"
 
+#: templates/list.php:58
+msgid "You can also try to import a bookmark file"
+msgstr "Também pode tentar importar o ficheiro de favoritos"
+
 #: templates/settings.php:11
-msgid "Bookmarklet <br />"
-msgstr "Marcador"
+msgid "Bookmarklet"
+msgstr "Marcadorzinho"
 
-#: templates/settings.php:26
-msgid "Import bookmarks"
-msgstr "Importar marcadores"
+#: templates/settings.php:23
+msgid "Export & Import"
+msgstr "Exportar & Importar"
 
-#: templates/settings.php:28
-msgid "html bookmarks file"
-msgstr ""
-
-#: templates/settings.php:30
-msgid "Import"
-msgstr "Importar"
-
-#: templates/settings.php:33
-msgid "Export bookmarks"
-msgstr "Exportar marcadores"
-
-#: templates/settings.php:35
+#: templates/settings.php:24
 msgid "Export"
 msgstr "Exportar"
+
+#: templates/settings.php:26
+msgid "Import"
+msgstr "Importar"

@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <a.tangemann@web.de>, 2012.
 #   <blobbyjj@ymail.com>, 2012.
 # I Robot <thomas.mueller@tmit.eu>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
@@ -12,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-20 02:02+0200\n"
-"PO-Revision-Date: 2012-10-19 21:32+0000\n"
+"POT-Creation-Date: 2012-11-14 00:01+0100\n"
+"PO-Revision-Date: 2012-11-13 18:00+0000\n"
 "Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
@@ -37,8 +38,8 @@ msgid "Please choose the export type:"
 msgstr "Bitte wählen Sie die Art des Exports:"
 
 #: templates/settings.php:10
-msgid "ownCloud instance (suitable for import)"
-msgstr "ownCloud-Instanz (geeignet für den Import)"
+msgid "ownCloud instance (user data and database"
+msgstr "ownCloud-Instanz (Benutzerdaten und Datenbank)"
 
 #: templates/settings.php:11
 msgid "ownCloud system files"
