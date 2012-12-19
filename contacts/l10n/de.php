@@ -148,7 +148,7 @@
 "Could not find the Addressbook with ID: " => "Konnte das Adressbuch mit der folgenden ID nicht finden:",
 "You do not have the permissions to delete this contact." => "Du besitzt nicht die erforderlichen Rechte, um diesen Kontakte zu löschen.",
 "There was an error deleting this contact." => "Beim Löschen des Kontaktes ist ein Fehler aufgetreten.",
-"Add Contact" => "Kontakt hinzufügenff",
+"Add Contact" => "Kontakt hinzufügen",
 "Import" => "Importieren",
 "Settings" => "Einstellungen",
 "Close" => "Schließen",
