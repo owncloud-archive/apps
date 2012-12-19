@@ -29,8 +29,8 @@ define('CLAMAV_SCANRESULT_CLEAN', 0);
 define('CLAMAV_SCANRESULT_INFECTED', 1);
 
 class OC_Files_Antivirus {
-	
-	public static function av_scan($path) {		
+
+	public static function av_scan($path) {
 		$path=$path[\OC_Filesystem::signal_param_path];
 		if ($path != '') {
 			$files_view = \OCP\Files::getStorage("files");
@@ -57,17 +57,17 @@ class OC_Files_Antivirus {
 							$from = 'security-noreply@' . OCP\Util::getServerHost();
 							\OC_MAIL::send($email, OC_User::getUser(), 'Malware detected', $msg, $from, 'ownCloud', 1);
 						}
-						exit();						
+						exit();
 						break;
-						
+
 					case CLAMAV_SCANRESULT_CLEAN:
 						//do nothing
 						break;
 				}
 			}
-		}		
+		}
 	}
-	
+
 	private static function clamav_scan($filepath) {
 		$av_mode = \OCP\Config::getAppValue('files_antivirus', 'av_mode', 'executable');
 		switch($av_mode) {
@@ -77,25 +77,25 @@ class OC_Files_Antivirus {
 				return self::_clamav_scan_via_exec($filepath);
 		}
 	}
-  
+
 	private static function _clamav_scan_via_daemon($filepath) {
 		$av_host = \OCP\Config::getAppValue('files_antivirus', 'av_host', '');
 		$av_port = \OCP\Config::getAppValue('files_antivirus', 'av_port', '');
 		$av_chunk_size = \OCP\Config::getAppValue('files_antivirus', 'av_chunk_size', '1024');
-		
+
 		// try to open a socket to clamav
 		$shandler = ($av_host && $av_port) ? @fsockopen($av_host, $av_port) : false;
 		if(!$shandler) {
 			\OCP\Util::writeLog('files_antivirus', 'The clamav module is not configured for daemon mode.', \OCP\Util::ERROR);
 			return false;
 		}
-		
+
 		$fhandler = fopen($filepath, "r");
 		if(!$fhandler) {
 			\OCP\Util::writeLog('files_antivirus', 'File could not be open.', \OCP\Util::ERROR);
 			return false;
 		}
-		
+
 		// request scan from the daemon
 		fwrite($shandler, "nINSTREAM\n");
 		while (!feof($fhandler)) {
@@ -130,8 +130,7 @@ class OC_Files_Antivirus {
 			return CLAMAV_SCANRESULT_UNCHECKED;
 		}
 	}
-	
-	
+
 	private static function _clamav_scan_via_exec($filepath) {
 		\OCP\Util::writeLog('files_antivirus', 'Exec scan: '.$filepath, \OCP\Util::DEBUG);
 		// get the path to the executable
@@ -163,7 +162,7 @@ class OC_Files_Antivirus {
 			case 1:
 				$line = 0;
 				$report = array();
-				while ( strpos($output[$line], "--- SCAN SUMMARY ---") === FALSE ) {	  	
+				while ( strpos($output[$line], "--- SCAN SUMMARY ---") === FALSE ) {
 					if (preg_match('/.*: (.*) FOUND$/', $output[$line], $matches)) {
 						$report[] = $matches[1];
 					}
