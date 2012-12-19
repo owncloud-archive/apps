@@ -5,6 +5,7 @@
 "User: <b>" => "Uzanto: <b>",
 "Login" => "Ensaluti",
 "Error: <b>No user Selected" => "Eraro: <b>neniu uzanto estas elektita",
+"OpenID" => "OpenID",
 "you can authenticate to other sites with this address" => "Vi povas ensaluti en aliaj ejoj per tiu ĉi adreso",
 "Authorized OpenID provider" => "Rajtigita OpenID-provizanto",
 "Your address at Wordpress, Identi.ca, &hellip;" => "Via adreso ĉe Wordpress, Identi.ca&hellip;"
