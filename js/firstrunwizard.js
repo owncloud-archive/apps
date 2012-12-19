@@ -5,7 +5,7 @@ function showfirstrunwizard(){
 		speed:100, 
 		width:"70%", 
 		height:"70%", 
-		href: OC.filePath('firstrunwizard', 'templates', 'wizard.php'), 
+		href: OC.filePath('firstrunwizard', '', 'wizard.php'), 
 		onClosed : function(){
 
 			$.ajax({
