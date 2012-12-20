@@ -1818,7 +1818,7 @@ OC.Contacts = OC.Contacts || {
 	},
 	setAllChecked: function(checked) {
 		var selector = checked ? 'input:checkbox:visible:not(checked)' : 'input:checkbox:visible:checked';
-		$.each(self.$contactList.find(selector), function() {
+		$.each(this.$contactList.find(selector), function() {
 			$(this).prop('checked', checked);
 		});
 	},
