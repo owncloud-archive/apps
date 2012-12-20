@@ -31,10 +31,10 @@
 }
 #content textarea { font-family: inherit; }
 
-#content input:-moz-placeholder { color: #aaa; }
-#content input::-webkit-input-placeholder { color: #aaa; }
-#content input:-ms-input-placeholder { color: #aaa; }
-#content input:placeholder { color: #aaa; }
+#content input:-moz-placeholder #content ::-moz-placeholder, #content input[placeholder], #content input:placeholder, #content input:-ms-input-placeholder, #content input::-webkit-input-placeholder, #content input:-moz-placeholder { 
+	color: #aaa; 
+	text-overflow: ellipsis;
+}
 
 #content input:not([type="checkbox"]), #content select:not(.button), #content textarea { 
 	background-color: #fefefe; border: 1px solid #fff !important; 
