@@ -13,19 +13,26 @@ function display_each_ebook($directory,$name) {
 			$each_row = find_tags_for_ebook(urldecode($directory).urldecode($name));
 			$tags = explode(",",$each_row);
 			if (count($tags) < 5) {
-				echo '<form action="/" id="TagForm">
+				echo '<form action = "apps/reader/ajax/tags.php" id="TagForm">
 				<input type="text" name="tag" placeholder="Add Tag..." />
-				<input type="submit" value="add tag" />
+				<input type="submit" value="Add Tag" />
 				</form>';
 			}
-			echo '<div id="result">';
-			foreach ($tags as $tag) {	
-				echo '<a href = "'.\OCP\Util::linkTo('reader', 'fetch_tags.php').'?tag='.$tag.'">'
-				.ucwords($tag).
-				'</a>';
-			} 			
-			echo '</div>';
-		echo '</td>';	
+
+			if (count($tags) >= 1) {
+				echo '<div id="result">';
+				foreach ($tags as $tag) {	
+					if ($tag != '' ) {
+						echo '<div class = "each_result">';
+						echo '<a id = "each_tag" href = "'.\OCP\Util::linkTo('reader', 'fetch_tags.php').'?tag='.$tag.'">'
+						.ucwords($tag).
+						'</a>';
+						echo '<a id = "close" value = "'.$tag.'">x</a></div>';
+					}
+				} 			
+				echo '</div>';
+			}
+			echo '</td>';	
 }
 
 function display_sub_dirs($current_dir,$sub_dirs) {

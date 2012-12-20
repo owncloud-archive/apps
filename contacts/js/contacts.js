@@ -180,6 +180,10 @@ OC.Contacts = OC.Contacts || {};
 					$container.find('input.value').val('');
 					self.$addMenu.find('option[value="' + element.toUpperCase() + '"]').prop('disabled', false);
 				}
+				$(document).trigger('status.contact.updated', {
+					id: self.id,
+					contact: self
+				});
 				return true;
 			} else {
 				$(document).trigger('status.contact.error', {
@@ -252,7 +256,7 @@ OC.Contacts = OC.Contacts || {};
 					var checksum = self.checksumFor(obj);
 					var value = self.valueFor(obj);
 					var parameters = self.parametersFor(obj);
-					if(checksum) {
+					if(checksum && checksum !== 'new') {
 						self.pushToUndo({
 							action:'save', 
 							name: element,
@@ -261,17 +265,17 @@ OC.Contacts = OC.Contacts || {};
 							newvalue: value,
 							oldvalue: obj.defaultValue
 						});
-						for(var i in self.data[element]) {
-							if(self.data[element][i].checksum === checksum) {
+						$.each(self.data[element], function(i, el) {
+							if(el.checksum === checksum) {
 								self.data[element][i] = {
 									name: element,
 									value: value,
 									parameters: parameters,
-									checksum: jsondata.data.checksum,
+									checksum: jsondata.data.checksum
 								};
-								break;
+								return false;
 							}
-						}
+						});
 					} else {
 						$(obj).removeClass('new');
 						self.pushToUndo({
@@ -288,6 +292,10 @@ OC.Contacts = OC.Contacts || {};
 						});
 					}
 					self.propertyContainerFor(obj).data('checksum', jsondata.data.checksum);
+					$(document).trigger('status.contact.updated', {
+						id: self.id,
+						contact: self
+					});
 				} else {
 					// Save value and parameters internally
 					var value = obj ? self.valueFor(obj) : params.value;
@@ -305,8 +313,6 @@ OC.Contacts = OC.Contacts || {};
 								self.data.FN = [{name:'FN', value:'', parameters:[]}];
 							}
 							self.data.FN[0]['value'] = value;
-							// Update the list element
-							self.$listelem.find('.nametext').text(value);
 							var nempty = true;
 							if(!self.data.N) {
 								// TODO: Maybe add a method for constructing new elements?
@@ -338,7 +344,7 @@ OC.Contacts = OC.Contacts || {};
 								}
 								, 500);
 							}
-							$(document).trigger('status.contact.renamed', {
+							$(document).trigger('status.contact.updated', {
 								id: self.id,
 								contact: self
 							});
@@ -1279,8 +1285,9 @@ OC.Contacts = OC.Contacts || {};
 			self.insertContact(data.contact.renderListItem());
 		});
 
-		$(document).bind('status.contact.renamed', function(e, data) {
-			self.insertContact(data.contact.getListItemElement().detach());
+		$(document).bind('status.contact.updated', function(e, data) {
+			data.contact.getListItemElement().remove();
+			self.insertContact(self.contacts[parseInt(data.contact.id)].renderListItem());
 		});
 	};
 
