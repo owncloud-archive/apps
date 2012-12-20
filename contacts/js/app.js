@@ -786,9 +786,10 @@ OC.Contacts = OC.Contacts || {
 		// The weird double loading is because jquery apparently doesn't
 		// create a searchable object from a script element.
 		$.each($($('#contactDetailsTemplate').html()), function(idx, node) {
-			if(node.nodeType === Node.ELEMENT_NODE && node.nodeName === 'DIV') {
+			var $node = $(node);
+			if($node.is('div')) {
 				var $tmpl = $(node.innerHTML);
-				self.detailTemplates[$tmpl.data('element')] = $(node);
+				self.detailTemplates[$tmpl.data('element')] = $node;
 			}
 		});
 		this.$groupListItemTemplate = $('#groupListItemTemplate');
