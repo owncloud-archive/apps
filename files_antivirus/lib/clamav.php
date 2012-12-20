@@ -68,7 +68,7 @@ class OC_Files_Antivirus {
 		}
 	}
 
-	private static function clamav_scan($filepath) {
+	public static function clamav_scan($filepath) {
 		$av_mode = \OCP\Config::getAppValue('files_antivirus', 'av_mode', 'executable');
 		switch($av_mode) {
 			case 'daemon':
