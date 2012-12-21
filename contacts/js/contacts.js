@@ -181,7 +181,7 @@ OC.Contacts = OC.Contacts || {};
 					self.$addMenu.find('option[value="' + element.toUpperCase() + '"]').prop('disabled', false);
 				}
 				$(document).trigger('status.contact.updated', {
-					id: self.id,
+					property: element,
 					contact: self
 				});
 				return true;
@@ -292,10 +292,6 @@ OC.Contacts = OC.Contacts || {};
 						});
 					}
 					self.propertyContainerFor(obj).data('checksum', jsondata.data.checksum);
-					$(document).trigger('status.contact.updated', {
-						id: self.id,
-						contact: self
-					});
 				} else {
 					// Save value and parameters internally
 					var value = obj ? self.valueFor(obj) : params.value;
@@ -344,10 +340,6 @@ OC.Contacts = OC.Contacts || {};
 								}
 								, 500);
 							}
-							$(document).trigger('status.contact.updated', {
-								id: self.id,
-								contact: self
-							});
 							break;
 						case 'N':
 							if(!utils.isArray(value)) {
@@ -375,6 +367,10 @@ OC.Contacts = OC.Contacts || {};
 					}
 				}
 				self.setAsSaving(obj, false);
+				$(document).trigger('status.contact.updated', {
+					property: element,
+					contact: self
+				});
 				return true;
 			} else {
 				$(document).trigger('status.contact.error', {
@@ -1286,8 +1282,10 @@ OC.Contacts = OC.Contacts || {};
 		});
 
 		$(document).bind('status.contact.updated', function(e, data) {
-			data.contact.getListItemElement().remove();
-			self.insertContact(self.contacts[parseInt(data.contact.id)].renderListItem());
+			if(['FN', 'EMAIL', 'TEL', 'ADR', 'CATEGORIES'].indexOf(data.property) !== -1) {
+				data.contact.getListItemElement().remove();
+				self.insertContact(self.contacts[parseInt(data.contact.id)].renderListItem());
+			}
 		});
 	};
 
