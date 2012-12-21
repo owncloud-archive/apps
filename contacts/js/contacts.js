@@ -1562,9 +1562,17 @@ OC.Contacts = OC.Contacts || {};
 			return $(a).find('td.name').text().toUpperCase().localeCompare($(b).find('td.name').text().toUpperCase());
 		});
 
+		var items = [];
 		$.each(rows, function(index, row) {
-			self.$contactList.append(row);
+			items.push(row);
+			if(items.length === 100) {
+				self.$contactList.append(items);
+				items = [];
+			}
 		});
+		if(items.length > 0) {
+			self.$contactList.append(items);
+		}
 	};
 
 	/**
@@ -1604,6 +1612,7 @@ OC.Contacts = OC.Contacts || {};
 				$.each(jsondata.data.addressbooks, function(i, book) {
 					self.setAddressbook(book);
 				});
+				var items = [];
 				$.each(jsondata.data.contacts, function(c, contact) {
 					self.contacts[parseInt(contact.id)]
 						= new Contact(
@@ -1617,6 +1626,7 @@ OC.Contacts = OC.Contacts || {};
 						);
 					self.length +=1;
 					var $item = self.contacts[parseInt(contact.id)].renderListItem();
+					items.push($item.get(0));
 					$item.draggable({
 						distance: 10,
 						revert: 'invalid',
@@ -1624,10 +1634,18 @@ OC.Contacts = OC.Contacts || {};
 						opacity: 0.8, helper: 'clone',
 						zIndex: 1000,
 					});
-					self.$contactList.append($item);
-					//self.insertContact(item);
+					if(items.length === 100) {
+						self.$contactList.append(items);
+						items = [];
+					}
 				});
-				self.doSort();
+				if(items.length > 0) {
+					self.$contactList.append(items);
+				}
+				setTimeout(function() {
+					self.doSort();
+				}
+				, 2000);
 				$(document).trigger('status.contacts.loaded', {
 					status: true,
 					numcontacts: jsondata.data.contacts.length
