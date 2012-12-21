@@ -6,6 +6,7 @@
 <td id="<?php echo OCP\USER::getUser() ?>_<?php echo $_['calendar']['id'] ?>">
   <label for="active_<?php echo $_['calendar']['id'] ?>"><?php echo $_['calendar']['displayname'] ?></label>
 </td>
+<?php if(OCP\Share::isEnabled()) { ?>
 <td width="20px">
   <?php if($_['calendar']['permissions'] & OCP\Share::PERMISSION_SHARE) { ?>
   <a href="#" class="share" data-item-type="calendar" data-item="<?php echo $_['calendar']['id']; ?>"
@@ -13,6 +14,7 @@
 	title="<?php echo $l->t('Share Calendar') ?>" class="action"><img class="svg action" src="<?php echo (!$_['shared']) ? OCP\Util::imagePath('core', 'actions/share.svg') : OCP\Util::imagePath('core', 'actions/shared.svg') ?>"></a>
   <?php } ?>
 </td>
+<?php } ?>
 <td width="20px">
 <?php
 if($_['calendar']['userid'] == OCP\USER::getUser()){

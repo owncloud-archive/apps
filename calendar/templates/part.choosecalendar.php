@@ -8,6 +8,9 @@
 		$tmpl = new OCP\Template('calendar', 'part.choosecalendar.rowfields');
 		$tmpl->assign('calendar', $option_calendars[$i]);
 		if ($option_calendars[$i]['userid'] != OCP\User::getUser()) {
+			if(!OCP\Share::isEnabled()) {
+				continue;
+			}
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $option_calendars[$i]['id']);
 			$shared = true;
 		} else {

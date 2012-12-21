@@ -64,4 +64,6 @@ function calendarcachecheck(){
 		}
 	});
 }
-OC.Share.loadIcons('calendar');
+if(OC.Share) {
+	OC.Share.loadIcons('calendar');
+}
