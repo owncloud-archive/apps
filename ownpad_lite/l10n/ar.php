@@ -1,9 +1,9 @@
 <?php $TRANSLATIONS = array(
-"My pad" => "دفترى",
-"Settings" => "اعدادات",
+"My pad" => "دفتري",
+"Settings" => "إعدادات",
 "Pad Title" => "عنوان الدفتر",
-"Open" => "افتح",
+"Open" => "إفتح",
 "Etherpad service URL" => "وصلة خدمة تنسيق الدفتر",
-"Username" => "مستخدم",
+"Username" => "إسم المستخدم",
 "Save" => "حفظ"
 );

@@ -196,7 +196,7 @@
 "Enter organization" => "Organisation eingeben",
 "Birthday" => "Geburtstag",
 "Notes go here..." => "Notizen hier hinein...",
-"Export as VCF" => "als VCF exportieren",
+"Export as VCF" => "Als VCF exportieren",
 "Add" => "Hinzufügen",
 "Phone" => "Telefon",
 "Email" => "E-Mail",
