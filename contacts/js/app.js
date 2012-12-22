@@ -1010,9 +1010,7 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('status.group.groupremoved', function(e, result) {
 			console.log('status.group.groupremoved', result);
 			if(parseInt(result.groupid) === parseInt(self.currentgroup)) {
-				console.time('hiding');
 				self.contacts.showContacts([]);
-				console.timeEnd('hiding');
 				self.currentgroup = 'all';
 			}
 			$.each(result.contacts, function(idx, contactid) {
