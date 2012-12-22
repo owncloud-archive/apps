@@ -1412,7 +1412,9 @@ OC.Contacts = OC.Contacts || {};
 			timeouthandler:function() {
 				console.log('timeout');
 				// Don't fire all deletes at once
-				self.deletionTimer = setInterval('self.deleteContacts()', 500);
+				self.deletionTimer = setInterval(function() {
+					self.deleteContacts();
+				}, 500);
 			},
 			clickhandler:function() {
 				console.log('clickhandler');
