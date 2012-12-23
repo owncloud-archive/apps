@@ -1,5 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Error (de)activating addressbook." => "خطء خلال توقيف كتاب العناوين.",
+"No categories selected for deletion." => "لم يتم اختيار فئة للحذف",
 "Information about vCard is incorrect. Please reload the page." => "المعلومات الموجودة في ال vCard غير صحيحة. الرجاء إعادة تحديث الصفحة.",
 "There is no error, the file uploaded with success" => "تم ترفيع الملفات بنجاح.",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "حجم الملف الذي تريد ترفيعه أعلى مما upload_max_filesize يسمح به في ملف php.ini",
@@ -8,6 +9,7 @@
 "No file was uploaded" => "لم يتم ترفيع أي من الملفات",
 "Missing a temporary folder" => "المجلد المؤقت غير موجود",
 "Contacts" => "المعارف",
+"Error" => "خطأ",
 "Upload too large" => "حجم الترفيع أعلى من المسموح",
 "Download" => "انزال",
 "Edit" => "تعديل",

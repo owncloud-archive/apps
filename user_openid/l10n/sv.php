@@ -5,6 +5,7 @@
 "User: <b>" => "Användare: <b>",
 "Login" => "Logga in",
 "Error: <b>No user Selected" => "Fel: <b>Ingen användare vald",
+"OpenID" => "OpenID",
 "you can authenticate to other sites with this address" => "du kan autentisera till andra webbplatser med denna adress",
 "Authorized OpenID provider" => "Godkänd openID leverantör",
 "Your address at Wordpress, Identi.ca, &hellip;" => "Din adress på Wordpress, Identi.ca, &hellip;"
