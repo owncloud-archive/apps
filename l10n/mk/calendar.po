@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-18 00:01+0100\n"
-"PO-Revision-Date: 2012-12-17 13:13+0000\n"
+"POT-Creation-Date: 2012-12-25 00:02+0100\n"
+"PO-Revision-Date: 2012-12-24 08:59+0000\n"
 "Last-Translator: Georgi Stanojevski <glisha@gmail.com>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/owncloud/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -121,7 +121,7 @@ msgstr "dddd M/d"
 
 #: js/calendar.js:874
 msgid "MMMM yyyy"
-msgstr "ММММ гггг"
+msgstr "MMMM yyyy"
 
 #: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
