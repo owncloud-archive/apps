@@ -324,7 +324,7 @@ function encodeEntities(s){
 
 function hasProtocol(url) {
     var regexp = /(ftp|http|https|sftp)/;
-	 return regexp.test(url);
+	return regexp.test(url);
 }
 
 function renameTag(event) {
