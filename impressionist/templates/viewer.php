@@ -7,7 +7,7 @@ echo('<div id="controls">
     
         if(empty($_['list'])) {
 
-            echo('<div id="emptyfolder">'.$l->t('No Impress files were created using Impressionist in your ownCloud, <br />please create a file first.').'</div>');
+            echo('<div id="emptyfolder">'.$l->t('No Impress files were created using Impressionist in your ownCloud, <br />Please create a file first. <br />Supports Webkit Browsers only.').'</div>');
         }
         //The files come from the impressionist way of saving things. Check.
         else {

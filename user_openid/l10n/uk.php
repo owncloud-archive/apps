@@ -5,6 +5,7 @@
 "User: <b>" => "Користувач: <b>",
 "Login" => "Логін",
 "Error: <b>No user Selected" => "Помилка: <b>Не обрано користувача",
+"OpenID" => "OpenID",
 "you can authenticate to other sites with this address" => "Ви можете аутентифікуватись на інших сайтах за допомогою цих адрес",
 "Authorized OpenID provider" => "Уповноважений OpenID провайдер",
 "Your address at Wordpress, Identi.ca, &hellip;" => "Ваші адреси на Wordpress, Identi.ca, &hellip;"

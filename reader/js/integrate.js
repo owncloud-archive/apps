@@ -5,24 +5,9 @@ $(document).ready(function() {
 	});
 	
 	$('#file_action_panel').attr('activeAction', false);
-
-	$('.start').click(function(){
-		var contentbox = $(this).parent().children('div#contentbox');
-		var path = $(this).parent().children('a.name').attr('dir');
-		contentbox.show(100);
-		contentbox.keypress(function(e) {
-			if(e.which == 13) {
-				var tag = contentbox.text();
-				contentbox.text('');
-				contentbox.hide();
-				var displaybox = $(this).parent().children('div#displaybox');
-				displaybox.append('<a href = "apps/reader/fetch_tags.php?tag='+tag+'">'+tag+'</a>');
-				displaybox.append(' ');
-				$.post('apps/reader/ajax/tags.php', {tag:tag, path:path});
-			}
-		});
-	});
+	
 });	
+
 
 $(function() {
 	// See if url conatins the index 'reader'
@@ -45,6 +30,31 @@ $(function() {
 			}
 		});
 	}
+	
+	$('form#TagForm').submit(function(event) {
+		event.preventDefault(); 
+		var path = $(this).parent().children('a.name').attr('dir');
+		var result = $(this).parent().children('div#result');
+		var $form = $(this),
+			tag = $form.find( 'input[name="tag"]' ).val(),
+			url = $form.attr('action');
+		$.post( url, {tag:tag,path:path},
+			function(data) {
+				result.append('<div class = "each_result"><a id = "each_tag" "href = "apps/reader/fetch_tags.php?tag='+data+'">'+data+'</a><a id = "close" value = "'+data+'">x</a></div></div>');
+			}
+		);
+	});
+	
+	$('a#close').click(function(){
+		event.preventDefault(); 
+		var elem = $(this).parent();
+		var filepath = $(this).parent().parent().parent().children('a.name').attr('dir');
+		var url = 'apps/reader/ajax/remove_tags.php';
+		var tag = $(this).attr('value');
+		elem.hide();
+		$.post(url, {tag:tag, filepath:filepath});
+	});
+	
 });
 
 /* Function that returns suitable function definition to be executed on 

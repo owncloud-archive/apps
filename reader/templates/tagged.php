@@ -17,7 +17,8 @@
 			while($r = $res->fetchRow()) {
 				$dirname = dirname($r['filepath']);
 				if ($dirname != '/') {
-					$dirname = $dirname.'/'; }
+					$dirname = $dirname.'/'; 
+				}
 				display_ebooks(basename($r['filepath']),$dirname);
 			}
 		?>

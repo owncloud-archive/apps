@@ -23,6 +23,7 @@
 
 OCP\App::registerPersonal( 'user_migrate', 'settings' );
 OCP\Util::addscript( 'user_migrate', 'export');
+OCP\Util::addstyle('user_migrate', 'style');
 
 // add settings page to navigation
 $entry = array(

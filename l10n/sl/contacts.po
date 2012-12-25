@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-14 00:13+0100\n"
-"PO-Revision-Date: 2012-12-13 23:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-16 00:05+0100\n"
+"PO-Revision-Date: 2012-12-15 16:39+0000\n"
+"Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -231,7 +231,7 @@ msgstr "Stiki"
 #: export.php:66
 #, php-format
 msgid "%d_selected_contacts"
-msgstr ""
+msgstr "%d_selected_contacts"
 
 #: js/app.js:279
 msgid "Contact is already in this group."
@@ -253,153 +253,153 @@ msgstr "Stik ni v tej skupini"
 msgid "Contacts are not in this group."
 msgstr "Stiki niso v tej skupini."
 
-#: js/app.js:549
+#: js/app.js:555
 msgid "A group named {group} already exists"
 msgstr "Skupina z imenom {group} že obstaja."
 
-#: js/app.js:581
+#: js/app.js:587
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Skupine lahko z vlečenjem\nrazporedite po vaših željah."
 
-#: js/app.js:600
+#: js/app.js:606
 msgid "All"
 msgstr "Vsi"
 
-#: js/app.js:614
+#: js/app.js:620
 msgid "Favorites"
 msgstr "Priljubljene"
 
-#: js/app.js:663
+#: js/app.js:669
 msgid "Shared by {owner}"
 msgstr "V souporabo dal {owner}"
 
-#: js/app.js:739
+#: js/app.js:745
 msgid "Indexing contacts"
 msgstr "Ustvarjanje kazala stikov"
 
-#: js/app.js:813 js/app.js:827
+#: js/app.js:819 js/app.js:833
 msgid "Add to..."
 msgstr "Dodaj v ..."
 
-#: js/app.js:817 js/app.js:829
+#: js/app.js:823 js/app.js:835
 msgid "Remove from..."
 msgstr "Odstrani iz ..."
 
-#: js/app.js:834
+#: js/app.js:840
 msgid "Add group..."
 msgstr "Dodaj skupino ..."
 
-#: js/app.js:967
+#: js/app.js:977
 msgid "Select photo"
 msgstr "Izbor slike"
 
-#: js/app.js:1016 js/app.js:1042 js/app.js:2001 js/app.js:2113
+#: js/app.js:1026 js/app.js:1052 js/app.js:2007 js/app.js:2119
 #: js/contacts.js:112 js/contacts.js:195 js/contacts.js:398
 msgid "Network or server error. Please inform administrator."
 msgstr "Napaka omrežja ali strežnika. Prosimo, če o tem obvestite administratorja."
 
-#: js/app.js:1178 js/app.js:1213
+#: js/app.js:1188 js/app.js:1223
 msgid "Error adding to group."
 msgstr "Napaka pri dodajanju v skupino."
 
-#: js/app.js:1238
+#: js/app.js:1248
 msgid "Error removing from group."
 msgstr "Napaka pri odstranjevanju iz skupine."
 
-#: js/app.js:1268
+#: js/app.js:1278
 msgid "There was an error opening a mail composer."
 msgstr "Med odpiranjem sestavljalnika pošte je prišlo do napake."
 
-#: js/app.js:1335
+#: js/app.js:1328
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Izbris je končan. Če želite preklicati ponovno nalaganje, kliknite sem."
 
-#: js/app.js:1412
+#: js/app.js:1405
 msgid "Add address book"
 msgstr "Dodaj imenik"
 
-#: js/app.js:1497
+#: js/app.js:1501
 msgid "Import done. Click here to cancel reloading."
 msgstr "Uvoz je končan. Če želite preklicati ponovno nalaganje, kliknite sem."
 
-#: js/app.js:1538
+#: js/app.js:1542
 msgid "Not all files uploaded. Retrying..."
 msgstr "Vse datoteke niso bile poslane. Poskus bo ponovljen ..."
 
-#: js/app.js:1544
+#: js/app.js:1548
 msgid "Something went wrong with the upload, please retry."
 msgstr "Med nalaganjem je prišlo do napake. Poskusite znova."
 
-#: js/app.js:1544 js/app.js:2048 js/settings.js:25 js/settings.js:45
+#: js/app.js:1548 js/app.js:2054 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Napaka"
 
-#: js/app.js:1554
+#: js/app.js:1558
 msgid "Importing from {filename}..."
 msgstr "Uvažam iz {filename}..."
 
-#: js/app.js:1557
+#: js/app.js:1561
 msgid "{success} imported, {failed} failed."
 msgstr "{success} uvoženih, {failed} spodletelih."
 
-#: js/app.js:1565
+#: js/app.js:1569
 msgid "Importing..."
 msgstr "Uvažanje ..."
 
-#: js/app.js:1588
+#: js/app.js:1592
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Pošiljanje ni mogoče, saj gre za mapo, ali pa je datoteka velikosti 0 bajtov."
 
-#: js/app.js:1588
+#: js/app.js:1592
 msgid "Upload Error"
 msgstr "Napaka med nalaganjem"
 
-#: js/app.js:1595 js/app.js:1876
+#: js/app.js:1599 js/app.js:1882
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Datoteka, ki jo poskušate naložiti, presega največjo dovoljeno velikost za pošiljanje na tem strežniku."
 
-#: js/app.js:1595
+#: js/app.js:1599
 msgid "Upload too large"
 msgstr "Datoteke za pošiljanje so prevelike"
 
-#: js/app.js:1635
+#: js/app.js:1639
 msgid "Pending"
 msgstr "V čakanju ..."
 
-#: js/app.js:1774 templates/contacts.php:135
+#: js/app.js:1778 templates/contacts.php:135
 msgid "Add group"
 msgstr "Dodaj skupino"
 
-#: js/app.js:1865
+#: js/app.js:1871
 msgid "No files selected for upload."
 msgstr "Ni izbrane datoteke za nalaganje."
 
-#: js/app.js:1966
+#: js/app.js:1972
 msgid "Edit profile picture"
 msgstr "Uredi fotografijo profila"
 
-#: js/app.js:1984 js/contacts.js:976
+#: js/app.js:1990 js/contacts.js:994
 msgid "Error loading profile picture."
 msgstr "Napaka med nalaganjem slike profila."
 
-#: js/app.js:2036 templates/part.selectaddressbook.php:27
+#: js/app.js:2042 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr "Vnesi ime"
 
-#: js/app.js:2037 templates/part.selectaddressbook.php:29
+#: js/app.js:2043 templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "Vnesi opis"
 
-#: js/app.js:2040
+#: js/app.js:2046
 msgid "Select addressbook"
 msgstr "Izberite imenik"
 
-#: js/app.js:2048
+#: js/app.js:2054
 msgid "The address book name cannot be empty."
 msgstr "Imenika mora imeti določeno ime."
 
@@ -407,21 +407,21 @@ msgstr "Imenika mora imeti določeno ime."
 msgid "Is this correct?"
 msgstr "Ali je to pravilno?"
 
-#: js/contacts.js:443
+#: js/contacts.js:457
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Med poskusom izbrisa tega stika je prišlo do neznane napake."
 
-#: js/contacts.js:1306
+#: js/contacts.js:1324
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Nekateri stiki so označeni za izbris, vendar še niso izbrisani. Počakajte na izbris."
 
-#: js/contacts.js:1317
+#: js/contacts.js:1335
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Klikni za preklic izbrisa {num} stikov"
 
-#: js/contacts.js:1330
+#: js/contacts.js:1348
 msgid "Cancelled deletion of {num}"
 msgstr "Preklican izbris {num} stikov"
 
@@ -690,7 +690,7 @@ msgstr "Nov stik"
 
 #: templates/contacts.php:62
 msgid "Download Contact(s)"
-msgstr ""
+msgstr "Prenesi stike"
 
 #: templates/contacts.php:64 templates/contacts.php:278
 #: templates/part.contact.php:47 templates/part.contact.php:135
@@ -820,7 +820,7 @@ msgstr "Ime"
 
 #: templates/contacts.php:217
 msgid "Enter title"
-msgstr ""
+msgstr "Vnesite naziv"
 
 #: templates/contacts.php:221 templates/contacts.php:269
 #: templates/part.contact.php:39 templates/part.contact.php:40
@@ -830,7 +830,7 @@ msgstr "Ustanova"
 
 #: templates/contacts.php:224
 msgid "Enter organization"
-msgstr ""
+msgstr "Vnesite organizacijo"
 
 #: templates/contacts.php:228 templates/contacts.php:271
 #: templates/part.contact.php:45 templates/part.contact.php:128
@@ -843,7 +843,7 @@ msgstr "Prostor za opombe ..."
 
 #: templates/contacts.php:266
 msgid "Export as VCF"
-msgstr ""
+msgstr "Izvozi kot VCF"
 
 #: templates/contacts.php:268
 msgid "Add"
@@ -956,7 +956,7 @@ msgstr "Neka regija"
 
 #: templates/contacts.php:365
 msgid "State or province"
-msgstr ""
+msgstr "Zvezna država ali provinca"
 
 #: templates/contacts.php:369
 msgid "Your country"

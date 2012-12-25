@@ -9,24 +9,30 @@ function display_each_ebook($directory,$name) {
 				<span class = "nametext">'.
 					htmlspecialchars(urldecode($name)).
 				'</span>
-			</a>
-			<div id = "displaybox">';
-				$each_row = find_tags_for_ebook(urldecode($directory).urldecode($name));
-				$tags = explode(",",$each_row);
-				$tag_count = 1;
+			</a>';
+			$each_row = find_tags_for_ebook(urldecode($directory).urldecode($name));
+			$tags = explode(",",$each_row);
+			if (count($tags) < 5) {
+				echo '<form action = "apps/reader/ajax/tags.php" id="TagForm">
+				<input type="text" name="tag" placeholder="Add Tag..." />
+				<input type="submit" value="Add Tag" />
+				</form>';
+			}
+
+			if (count($tags) >= 1) {
+				echo '<div id="result">';
 				foreach ($tags as $tag) {	
-					if ($tag_count == 2) {
-						echo ", ";
-					}
-					echo '<a href = "'.\OCP\Util::linkTo('reader', 'fetch_tags.php').'?tag='.$tag.'">'
-							.ucwords($tag).
+					if ($tag != '' ) {
+						echo '<div class = "each_result">';
+						echo '<a id = "each_tag" href = "'.\OCP\Util::linkTo('reader', 'fetch_tags.php').'?tag='.$tag.'">'
+						.ucwords($tag).
 						'</a>';
-					$tag_count+= 1;
+						echo '<a id = "close" value = "'.$tag.'">x</a></div>';
+					}
 				} 			
-			echo '</div>
-			<input type="button" class="start" value="Add Tag">
-			<div id="contentbox" contenteditable="true"></div>
-		</td>';	
+				echo '</div>';
+			}
+			echo '</td>';	
 }
 
 function display_sub_dirs($current_dir,$sub_dirs) {

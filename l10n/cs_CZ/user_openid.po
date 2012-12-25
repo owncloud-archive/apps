@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-06 02:02+0200\n"
-"PO-Revision-Date: 2012-09-05 09:39+0000\n"
+"POT-Creation-Date: 2012-12-17 00:01+0100\n"
+"PO-Revision-Date: 2012-12-16 10:07+0000\n"
 "Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -42,6 +42,10 @@ msgstr "Přihlášení"
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"
 msgstr "Chyba: <b>Není vybrán žádný uživatel"
+
+#: templates/settings.php:3
+msgid "OpenID"
+msgstr "OpenID"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"

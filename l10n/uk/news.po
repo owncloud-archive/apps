@@ -5,12 +5,13 @@
 # Translators:
 #   <skoptev@ukr.net>, 2012.
 #   <victor.dubiniuk@gmail.com>, 2012.
+#   <volodya327@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-02 00:01+0100\n"
-"PO-Revision-Date: 2012-11-30 09:51+0000\n"
+"POT-Creation-Date: 2012-12-19 00:01+0100\n"
+"PO-Revision-Date: 2012-12-18 13:02+0000\n"
 "Last-Translator: volodya327 <volodya327@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -153,7 +154,7 @@ msgstr "Попередження"
 
 #: js/news.js:28 js/news.js:58
 msgid "Name of the folder cannot be empty."
-msgstr "Ім'я папки не може бути пустим."
+msgstr "Ім'я теки не може бути пустим."
 
 #: js/news.js:33 js/news.js:95
 msgid "Adding..."
@@ -161,7 +162,7 @@ msgstr "Додавання..."
 
 #: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
-msgstr "Додати папку"
+msgstr "Додати теку"
 
 #: js/news.js:63
 msgid "Changing..."
@@ -226,7 +227,7 @@ msgstr "без тіла"
 
 #: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
-msgstr "підписки на ownCloud - News"
+msgstr "підписки на ownCloud - Новини"
 
 #: subscribe.php:30
 msgid "An error occurred"
