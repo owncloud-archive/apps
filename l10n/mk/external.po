@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-08-27 01:38+0200\n"
+"POT-Creation-Date: 2012-12-22 00:19+0100\n"
 "PO-Revision-Date: 2012-08-26 23:39+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/owncloud/language/mk/)\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: mk\n"
-"Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1\n"
+"Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
 
 #: templates/settings.php:3
 msgid "External Sites"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: templates/settings.php:10
 msgid "URL"
-msgstr ""
+msgstr "Адреса"
 
 #: templates/settings.php:11
 msgid "Remove site"

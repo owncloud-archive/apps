@@ -5,6 +5,7 @@
 "User: <b>" => "Χρήστης: <b>",
 "Login" => "Σύνδεση",
 "Error: <b>No user Selected" => "Σφάλμα: <b> Δεν έχει επιλεχθεί κάποιος χρήστης",
+"OpenID" => "OpenID",
 "you can authenticate to other sites with this address" => "μπορείτε να πιστοποιηθείτε σε άλλες ιστοσελίδες με αυτήν την διεύθυνση",
 "Authorized OpenID provider" => "Εξουσιοδοτημένος παροχέας OpenID",
 "Your address at Wordpress, Identi.ca, &hellip;" => "Η διευθυνσή σας σε Wordpress, Identi.ca, &hellip;"

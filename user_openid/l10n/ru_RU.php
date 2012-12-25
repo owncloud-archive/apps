@@ -5,6 +5,7 @@
 "User: <b>" => "Пользователь: <b>",
 "Login" => "Вход",
 "Error: <b>No user Selected" => "Ошибка: <b>Пользователь не выбран",
+"OpenID" => "OpenID",
 "you can authenticate to other sites with this address" => "Вы можете аутентифицироваться на других сайтах с этого адреса",
 "Authorized OpenID provider" => "Авторизованный OpenID провайдер",
 "Your address at Wordpress, Identi.ca, &hellip;" => "Ваш адрес в Wordpress, Identi.ca, &hellip;"

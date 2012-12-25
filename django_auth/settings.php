@@ -20,6 +20,8 @@
  *
  */
 
+OC_Util::checkAdminUser();
+
 $params = array('staff_is_admin', 'superuser_is_admin');
 
 if ($_POST) {
