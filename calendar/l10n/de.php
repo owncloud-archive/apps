@@ -208,5 +208,10 @@
 "more info" => "weitere Informationen",
 "Primary address (Kontact et al)" => "Primäre Adresse (Kontakt u.a.)",
 "iOS/OS X" => "iOS/OS X",
-"Read only iCalendar link(s)" => "Nur lesende(r) iCalender-Link(s)"
+"Read only iCalendar link(s)" => "Nur lesende(r) iCalender-Link(s)",
+"Access Class" => "Zugriffsklasse",
+"Public" => "öffentlich",
+"Private" => "privat",
+"Confidential" => "vertraulich",
+"Busy" => "Belegt"
 );

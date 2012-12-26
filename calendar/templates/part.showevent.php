@@ -42,6 +42,16 @@
 				<input type="hidden" name="calendar" value="<?php echo $_['calendar_options'][0]['id'] ?>">
 			</td>
 		</tr>
+		<tr>
+			<th width="75px"><?php echo $l->t("Access Class");?>:</th>
+			<td>
+			<select id="accessclass" name="accessclass">
+				<?php
+				echo OCP\html_select_options(array($_['access_class_options'][$_['accessclass']]), $_['accessclass']);
+				?>
+			</select>
+			</td>
+		</tr>
 	</table>
 	<hr>
 	<table width="100%">

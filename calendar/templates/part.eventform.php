@@ -46,6 +46,17 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 			</td>
 			<?php } ?>
 		</tr>
+		<tr>
+			<th width="75px"><?php echo $l->t("Access Class");?>:</th>
+			<td>
+				<select style="width:140px;" name="accessclass">
+					<?php
+					if (!isset($_['calendar'])) {$_['calendar'] = false;}
+					echo OCP\html_select_options($_['access_class_options'], $_['accessclass']);
+					?>
+				</select>
+			</td>
+		</tr>
 	</table>
 	<hr>
 	<table width="100%">
