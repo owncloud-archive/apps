@@ -1,6 +1,7 @@
 <?php $TRANSLATIONS = array(
 "No events found." => "tidak ada kejadian ditemukan",
 "Wrong calendar" => "Kalender salah",
+"You do not have the permissions to edit this event." => "anda tidak memiliki ijin untuk mengubah kejadian ini",
 "Import failed" => "impor gagal",
 "New Timezone:" => "zona waktu baru",
 "Timezone changed" => "Zona waktu telah diubah",
@@ -40,7 +41,6 @@
 "You do not have the permissions to add to this calendar." => "anda tidak memiliki ijin untuk menambahkan ke kalender ini",
 "New Calendar" => "kalender baru",
 "You do not have the permissions to add events to this calendar." => "anda tidak memiliki ijin untuk menambahkan kejadian ke kalender ini",
-"You do not have the permissions to edit this event." => "anda tidak memiliki ijin untuk mengubah kejadian ini",
 "You do not have the permissions to delete this event." => "anda tidak memiliki ijin untuk menghapus kejadian ini",
 "Does not repeat" => "Tidak akan mengulangi",
 "Daily" => "Harian",
