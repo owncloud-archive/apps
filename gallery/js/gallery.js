@@ -18,6 +18,7 @@ Gallery.fillAlbums = function () {
 		}
 		Gallery.albums[albumPath].push(imagePath);
 	}
+	Gallery.albums[albumPath].sort();
 
 	for (albumPath in Gallery.albums) {
 		if (albumPath !== '') {
@@ -27,6 +28,10 @@ Gallery.fillAlbums = function () {
 			}
 			Gallery.subAlbums[parent].push(albumPath);
 		}
+	}
+
+	for(path in Gallery.subAlbums){
+		Gallery.subAlbums[path].sort();
 	}
 };
 Gallery.getImage = function (image) {
