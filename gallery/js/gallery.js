@@ -2,6 +2,11 @@ var Gallery = {};
 Gallery.albums = {};
 Gallery.currentAlbum = '';
 Gallery.subAlbums = {};
+
+Gallery.sortFunction = function (a, b) {
+	return a.toLowerCase().localeCompare(b.toLowerCase());
+};
+
 // fill the albums from Gallery.images
 Gallery.fillAlbums = function () {
 	var albumPath, i, imagePath, parent;
@@ -18,7 +23,7 @@ Gallery.fillAlbums = function () {
 		}
 		Gallery.albums[albumPath].push(imagePath);
 	}
-	Gallery.albums[albumPath].sort();
+	Gallery.albums[albumPath].sort(Gallery.sortFunction);
 
 	for (albumPath in Gallery.albums) {
 		if (albumPath !== '') {
@@ -30,8 +35,8 @@ Gallery.fillAlbums = function () {
 		}
 	}
 
-	for(path in Gallery.subAlbums){
-		Gallery.subAlbums[path].sort();
+	for (path in Gallery.subAlbums) {
+		Gallery.subAlbums[path].sort(Gallery.sortFunction);
 	}
 };
 Gallery.getImage = function (image) {
