@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-27 00:01+0100\n"
-"PO-Revision-Date: 2012-12-26 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-28 00:18+0100\n"
+"PO-Revision-Date: 2012-12-27 00:04+0000\n"
+"Last-Translator: laurentiucristescu <laur.cristescu@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -219,7 +219,7 @@ msgstr "Nu ai permisiunile necesare pentru a așterge acest calendar."
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Nu ai permisiuni pentru a face adăugiri în acest calendar."
 
-#: lib/import.php:214 templates/calendar.php:12
+#: lib/import.php:216 templates/calendar.php:12
 #: templates/part.choosecalendar.php:23
 msgid "New Calendar"
 msgstr "Calendar nou"
@@ -234,19 +234,19 @@ msgstr "Nu ai permisiunile necesare pentru a șterge acest eveniment."
 
 #: lib/object.php:481
 msgid "Busy"
-msgstr ""
+msgstr "Ocupat"
 
 #: lib/object.php:498
 msgid "Public"
-msgstr ""
+msgstr "Public"
 
 #: lib/object.php:499
 msgid "Private"
-msgstr ""
+msgstr "Privat"
 
 #: lib/object.php:500
 msgid "Confidential"
-msgstr ""
+msgstr "Confidential"
 
 #: lib/object.php:510
 msgid "Does not repeat"
@@ -670,7 +670,7 @@ msgstr "Editează categorii"
 
 #: templates/part.eventform.php:50 templates/part.showevent.php:46
 msgid "Access Class"
-msgstr ""
+msgstr "Clasa de Acces"
 
 #: templates/part.eventform.php:67 templates/part.showevent.php:62
 msgid "All Day Event"
