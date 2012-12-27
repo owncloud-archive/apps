@@ -11,17 +11,17 @@
 
 angular.module('AppTemplateAdvanced', ['OC']).config ['$provide', ($provide) ->
 
-        # Use this for configuration values
-        Config =
-                myParam: 'test'
+	# Use this for configuration values
+	Config =
+		myParam: 'test'
 
-        # declare your routes here
-        # Hint: angularjs comes with an own route system with which you can
-        # build HTML5 apps with enabled history access, meaning: you can go
-        # forward and backward and change the state of your app
-        # http:#docs.angularjs.org/api/ng.$route
-        Config.routes =
-                saveNameRoute: 'apptemplate_advanced_ajax_setsystemvalue'
+	# declare your routes here
+	# Hint: angularjs comes with an own route system with which you can
+	# build HTML5 apps with enabled history access, meaning: you can go
+	# forward and backward and change the state of your app
+	# http:#docs.angularjs.org/api/ng.$route
+	Config.routes =
+		saveNameRoute: 'apptemplate_advanced_ajax_setsystemvalue'
 
-        return $provide.value('Config', Config)
+	return $provide.value('Config', Config)
 ]
