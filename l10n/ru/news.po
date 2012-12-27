@@ -6,6 +6,7 @@
 # Denis  <reg.transifex.net@demitel.ru>, 2012.
 #   <iuranemo@gmail.com>, 2012.
 #   <seg@it4you.kiev.ua>, 2012.
+#   <semen@sam002.net>, 2012.
 #   <skoptev@ukr.net>, 2012.
 #   <victor.dubiniuk@gmail.com>, 2012.
 #   <zaera.alex@gmail.com>, 2012.
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 09:09+0000\n"
-"Last-Translator: zaera <zaera.alex@gmail.com>\n"
+"POT-Creation-Date: 2012-12-14 00:13+0100\n"
+"PO-Revision-Date: 2012-12-13 16:06+0000\n"
+"Last-Translator: sam002 <semen@sam002.net>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -115,7 +116,7 @@ msgstr "Ошибка обновления ленты."
 msgid "Feed updated!"
 msgstr "Лента обновлена!"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Новости"
 
@@ -216,7 +217,7 @@ msgstr "Возникла ошибка при импортировании дан
 msgid "Select file"
 msgstr "Выберите файл"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "без заголовка"
 
@@ -224,11 +225,11 @@ msgstr "без заголовка"
 msgid "no name"
 msgstr "без имени"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "без содержимого"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "подписки в ownCloud - Новости"
 
@@ -241,7 +242,7 @@ msgid "Nice! You have subscribed to "
 msgstr "Ура! Вы подписаны на "
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
+msgid "You had already subscribed to this feed!"
 msgstr "Вы уже подписаны на эту ленту!"
 
 #: templates/firstrun.php:2
@@ -368,12 +369,12 @@ msgstr "из"
 msgid "by"
 msgstr "от"
 
-#: templates/part.items.php:57 templates/part.items.php:58
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Открыть доступ"
 
-#: templates/part.items.php:59 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Оставить непрочитанным"
 

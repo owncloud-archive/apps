@@ -5,13 +5,14 @@
 # Translators:
 #   <martin.babik@gmail.com>, 2012.
 # Roman Priesol <roman@priesol.net>, 2012.
+#   <zatroch.martin@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 17:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-02 00:01+0100\n"
+"PO-Revision-Date: 2012-12-01 16:26+0000\n"
+"Last-Translator: martin <zatroch.martin@gmail.com>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +34,7 @@ msgstr "Značky"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr ""
+msgstr "Filtrovať podľa značky"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
@@ -67,31 +68,31 @@ msgstr "Pridať záložku"
 msgid "Close"
 msgstr "Zavrieť"
 
-#: templates/addBm.php:22 templates/js_tpl.php:33
+#: templates/addBm.php:22 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr "Názov stránky"
 
-#: templates/addBm.php:27 templates/js_tpl.php:37
+#: templates/addBm.php:27 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr "Adresa stránky"
 
-#: templates/addBm.php:40 templates/js_tpl.php:46
+#: templates/addBm.php:40 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr "Popis stránky"
 
-#: templates/addBm.php:44 templates/js_tpl.php:50
+#: templates/addBm.php:44 templates/js_tpl.php:47
 msgid "Save"
 msgstr "Uložiť"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:61
 msgid "Delete"
 msgstr "Zmazať"
 
-#: templates/js_tpl.php:20 templates/js_tpl.php:60
+#: templates/js_tpl.php:19 templates/js_tpl.php:57
 msgid "Edit"
 msgstr "Upraviť"
 
-#: templates/js_tpl.php:49
+#: templates/js_tpl.php:46
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -127,15 +128,15 @@ msgstr "Nemáte záložky"
 
 #: templates/list.php:58
 msgid "You can also try to import a bookmark file"
-msgstr ""
+msgstr "Môžte tiež skúsiť import súboru zo záložkami."
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
-msgstr ""
+msgstr "Bookmarklet"
 
 #: templates/settings.php:23
 msgid "Export & Import"
-msgstr ""
+msgstr "Export & Import"
 
 #: templates/settings.php:24
 msgid "Export"

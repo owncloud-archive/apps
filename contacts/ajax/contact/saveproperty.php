@@ -20,26 +20,64 @@
  *
  */
 
+namespace OCA\Contacts;
+use Sabre\VObject as VObject;
+
 require_once __DIR__.'/../loghandler.php';
 
+function setParameters($property, $parameters, $reset = false) {
+	if(!$parameters) {
+		return;
+	}
+	
+	if($reset) {
+		$property->parameters = array();
+	}
+	debug('Setting parameters: ' . print_r($parameters, true));
+	foreach($parameters as $key => $parameter) {
+		debug('Adding parameter: ' . $key);
+		if(is_array($parameter)) {
+			foreach($parameter as $val) {
+				if(is_array($val)) {
+					foreach($val as $val2) {
+						if(trim($key) && trim($val2)) {
+							debug('Adding parameter: '.$key.'=>'.print_r($val2, true));
+							$property->add($key, strip_tags($val2));
+						}
+					}
+				} else {
+					if(trim($key) && trim($val)) {
+						debug('Adding parameter: '.$key.'=>'.print_r($val, true));
+						$property->add($key, strip_tags($val));
+					}
+				}
+			}
+		}
+	}
+}
+
 // Check if we are a user
-OCP\JSON::checkLoggedIn();
-OCP\JSON::checkAppEnabled('contacts');
-OCP\JSON::callCheck();
+\OCP\JSON::checkLoggedIn();
+\OCP\JSON::checkAppEnabled('contacts');
+\OCP\JSON::callCheck();
 $id = isset($_POST['id'])?$_POST['id']:null;
 $name = isset($_POST['name'])?$_POST['name']:null;
 $value = isset($_POST['value'])?$_POST['value']:null;
 $parameters = isset($_POST['parameters'])?$_POST['parameters']:null;
 $checksum = isset($_POST['checksum'])?$_POST['checksum']:null;
 
+debug('value: ' . print_r($value, 1));
+
+$multi_properties = array('EMAIL', 'TEL', 'IMPP', 'ADR', 'URL');
+
 if(!$name) {
-	bailOut(OC_Contacts_App::$l10n->t('element name is not set.'));
+	bailOut(App::$l10n->t('element name is not set.'));
 }
 if(!$id) {
-	bailOut(OC_Contacts_App::$l10n->t('id is not set.'));
+	bailOut(App::$l10n->t('id is not set.'));
 }
-if(!$checksum) {
-	bailOut(OC_Contacts_App::$l10n->t('checksum is not set.'));
+if(!$checksum && in_array($name, $multi_properties)) {
+	bailOut(App::$l10n->t('checksum is not set.'));
 }
 if(is_array($value)) {
 	$value = array_map('strip_tags', $value);
@@ -47,33 +85,82 @@ if(is_array($value)) {
 	// set in the order the fields appear in the form!
 	ksort($value);
 	//if($name == 'CATEGORIES') {
-	//	$value = OC_Contacts_VCard::escapeDelimiters($value, ',');
+	//	$value = VCard::escapeDelimiters($value, ',');
 	//} else {
-		$value = OC_Contacts_VCard::escapeDelimiters($value, ';');
+	//	$value = VCard::escapeDelimiters($value, ';');
 	//}
 } else {
 	$value = trim(strip_tags($value));
 }
 
-$vcard = OC_Contacts_App::getContactVCard( $id );
-$line = OC_Contacts_App::getPropertyLineByChecksum($vcard, $checksum);
-if(is_null($line)) {
-	bailOut(OC_Contacts_App::$l10n->t(
-		'Information about vCard is incorrect. Please reload the page: ').$checksum
-	);
+$vcard = App::getContactVCard($id);
+if(!$vcard) {
+	bailOut(App::$l10n->t('Couldn\'t find vCard for %d.', array($id)));
 }
-$element = $vcard->children[$line]->name;
 
-if($element != $name) {
-	bailOut(OC_Contacts_App::$l10n->t(
-		'Something went FUBAR. ').$name.' != '.$element
-	);
+$property = null;
+
+if(in_array($name, $multi_properties)) {
+	if($checksum !== 'new') {
+		$line = App::getPropertyLineByChecksum($vcard, $checksum);
+		if(is_null($line)) {
+			bailOut(App::$l10n->t(
+				'Information about vCard is incorrect. Please reload the page: ').$checksum
+			);
+		}
+		$property = $vcard->children[$line];
+		$element = $property->name;
+
+		if($element != $name) {
+			bailOut(App::$l10n->t(
+				'Something went FUBAR. ').$name.' != '.$element
+			);
+		}
+	} else {
+		// Add new property
+		$element = $name;
+		if (!is_scalar($value)) {
+			$property = VObject\Property::create($name);
+			if(in_array($name, array('ADR',))) {
+				$property->setParts($value);
+			} else {
+				bailOut(App::$l10n->t(
+					'Cannot save property of type "%s" as array', array($name,)
+				));
+			}
+		} else {
+			$property = VObject\Property::create($name, $value, $parameters);
+		}
+		setParameters($property, $parameters);
+		$vcard->add($property);
+		$checksum = substr(md5($property->serialize()), 0, 8);
+		try {
+			VCard::edit($id, $vcard);
+		} catch(Exception $e) {
+			bailOut($e->getMessage());
+		}
+		\OCP\JSON::success(array('data' => array(
+			'checksum' => $checksum,
+			'oldchecksum' => $_POST['checksum'],
+		)));
+		exit();
+	}
+} else {
+	$element = $name;
+	$property = $vcard->select($name);
+	debug('propertylist: ' . get_class($property));
+	if(count($property) === 0) {
+		$property = VObject\Property::create($name);
+		$vcard->add($property);
+	} else {
+		$property = array_shift($property);
+	}
 }
 
 /* preprocessing value */
 switch($element) {
 	case 'BDAY':
-		$date = New DateTime($value);
+		$date = New \DateTime($value);
 		$value = $date->format('Y-m-d');
 		break;
 	case 'FN':
@@ -90,91 +177,80 @@ switch($element) {
 		break;
 	case 'IMPP':
 		if(is_null($parameters) || !isset($parameters['X-SERVICE-TYPE'])) {
-			bailOut(OC_Contacts_App::$l10n->t('Missing IM parameter.'));
+			bailOut(App::$l10n->t('Missing IM parameter.'));
 		}
-		$impp = OC_Contacts_App::getIMOptions($parameters['X-SERVICE-TYPE']);
+		$impp = App::getIMOptions($parameters['X-SERVICE-TYPE']);
 		if(is_null($impp)) {
-			bailOut(OC_Contacts_App::$l10n->t('Unknown IM: '.$parameters['X-SERVICE-TYPE']));
+			bailOut(App::$l10n->t('Unknown IM: '.$parameters['X-SERVICE-TYPE']));
 		}
 		$value = $impp['protocol'] . ':' . $value;
 		break;
 }
 
+// If empty remove the property
 if(!$value) {
-	unset($vcard->children[$line]);
-	$checksum = '';
+	if(in_array($name, $multi_properties)) {
+		unset($vcard->children[$line]);
+		$checksum = '';
+	} else {
+		unset($vcard->{$name});
+	}
 } else {
 	/* setting value */
 	switch($element) {
 		case 'BDAY':
-			// I don't use setDateTime() because that formats it as YYYYMMDD instead
-			// of YYYY-MM-DD which is what the RFC recommends.
-			$vcard->children[$line]->setValue($value);
-			$vcard->children[$line]->parameters = array();
-			$vcard->children[$line]->add(
-				new Sabre\VObject\Parameter('VALUE', 'DATE')
-			);
-			debug('Setting value:'.$name.' '.$vcard->children[$line]);
-			break;
-		case 'CATEGORIES':
-			debug('Setting string:'.$name.' '.$value);
-			$catmgr = OC_Contacts_App::getVCategories();
-			$catmgr->purgeObject($id, 'contact');
-			foreach(array_map('trim', explode(',', $value)) as $category) {
-				$catmgr->addToCategory($id, $category);
+			$vcard->BDAY = $value;
+
+			if(!isset($vcard->BDAY['VALUE'])) {
+				$vcard->BDAY->add('VALUE', 'DATE');
+			} else {
+				$vcard->BDAY->VALUE = 'DATE';
 			}
-			$vcard->children[$line]->setValue($value);
+			break;
+		case 'ADR':
+		case 'N':
+			if(is_array($value)) {
+			$property->setParts($value);
+			} else {
+				debug('Saving N ' . $value);
+				$vcard->N = $value;
+			}
 			break;
 		case 'EMAIL':
 		case 'TEL':
-		case 'ADR':
 		case 'IMPP':
+		case 'URL':
 			debug('Setting element: (EMAIL/TEL/ADR)'.$element);
-			$vcard->children[$line]->setValue($value);
-			$vcard->children[$line]->parameters = array();
-			if(!is_null($parameters)) {
-				debug('Setting parameters: '.$parameters);
-				foreach($parameters as $key => $parameter) {
-					debug('Adding parameter: '.$key);
-					if(is_array($parameter)) {
-						foreach($parameter as $val) {
-							if(trim($val)) {
-								debug('Adding parameter: '.$key.'=>'.$val);
-								$vcard->children[$line]->add(new Sabre\VObject\Parameter(
-									$key,
-									strtoupper(strip_tags($val)))
-								);
-							}
-						}
-					} else {
-						if(trim($parameter)) {
-							$vcard->children[$line]->add(new Sabre\VObject\Parameter(
-								$key,
-								strtoupper(strip_tags($parameter)))
-							);
-						}
-					}
-				}
-			}
+			$property->setValue($value);
 			break;
 		default:
-			$vcard->setString($name, $value);
+			$vcard->{$name} = $value;
 			break;
 	}
+	setParameters($property, $parameters, true);
+
 	// Do checksum and be happy
-	$checksum = md5($vcard->children[$line]->serialize());
+	if(in_array($name, $multi_properties)) {
+		$checksum = substr(md5($property->serialize()), 0, 8);
+	}
 }
 //debug('New checksum: '.$checksum);
-
+//$vcard->children[$line] = $property; ???
 try {
-	OC_Contacts_VCard::edit($id, $vcard);
+	VCard::edit($id, $vcard);
 } catch(Exception $e) {
 	bailOut($e->getMessage());
 }
 
-OCP\JSON::success(array('data' => array(
-	'line' => $line,
-	'checksum' => $checksum,
-	'oldchecksum' => $_POST['checksum'],
-	'lastmodified' => OC_Contacts_App::lastModified($vcard)->format('U'),
-)));
+if(in_array($name, $multi_properties)) {
+	\OCP\JSON::success(array('data' => array(
+		'line' => $line,
+		'checksum' => $checksum,
+		'oldchecksum' => $_POST['checksum'],
+		'lastmodified' => App::lastModified($vcard)->format('U'),
+	)));
+} else {
+	\OCP\JSON::success(array('data' => array(
+		'lastmodified' => App::lastModified($vcard)->format('U'),
+	)));
+}

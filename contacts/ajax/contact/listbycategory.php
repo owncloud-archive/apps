@@ -25,7 +25,7 @@ function cmpcontacts($a, $b)
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('contacts');
 
-$offset = isset($_GET['startat']) ? $_GET['startat'] : null;
+$offset = isset($_GET['offset']) ? $_GET['offset'] : null;
 $category = isset($_GET['category']) ? $_GET['category'] : null;
 
 $list = array();
@@ -36,19 +36,17 @@ if(is_null($category)) {
 	$categories = $catmgr->categories(OC_VCategories::FORMAT_MAP);
 	uasort($categories, 'cmpcategories');
 	foreach($categories as $category) {
-		$list[$category['id']] = array(
+		$list[] = array(
 			'name' => $category['name'],
 			'contacts' => $catmgr->itemsForCategory(
 				$category['name'], 
 				array(
 					'tablename' => '*PREFIX*contacts_cards',
-					'fields' => array('id', 'addressbookid', 'fullname'),
-				),
-				50, 
-				$offset)
+					'fields' => array('id',),
+				))
 		);
-		uasort($list[$category['id']]['contacts'], 'cmpcontacts');
 	}
+	uasort($list['contacts'], 'cmpcontacts');
 } else {
 	$list[$category] = $catmgr->itemsForCategory(
 		$category, 

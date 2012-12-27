@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-11 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 23:13+0000\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
+"PO-Revision-Date: 2012-11-28 23:14+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
 "MIME-Version: 1.0\n"
@@ -110,7 +110,7 @@ msgstr "هه‌ڵه‌ له‌نوێکردنه‌وه‌ی خورد."
 msgid "Feed updated!"
 msgstr "خورد نوێکراوه."
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "هه‌واڵه‌کان"
 
@@ -211,7 +211,7 @@ msgstr ""
 msgid "Select file"
 msgstr "دیاریکردنی په‌ڕگه"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "بێ ناونیشان"
 
@@ -219,11 +219,11 @@ msgstr "بێ ناونیشان"
 msgid "no name"
 msgstr "بێ ناو"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "بێ ناوه‌ڕۆك"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "به‌شداربوون له‌ هه‌واڵه‌کانی ownCloud"
 
@@ -236,8 +236,8 @@ msgid "Nice! You have subscribed to "
 msgstr "جوانه! تۆ به‌شداربووی له"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "تۆ به‌ته‌واوی به‌شداری له‌م خورده!"
+msgid "You had already subscribed to this feed!"
+msgstr ""
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -355,20 +355,20 @@ msgstr "وه‌ك نه‌گرنگ نیشانی بکه"
 msgid "Mark as important"
 msgstr "وه‌ك گرنگ نیشانی بکه"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr ""
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "له‌لایه‌ن"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr ""
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "هێشتنه‌وه‌ی وه‌ك نه‌خوێنراوه"
 

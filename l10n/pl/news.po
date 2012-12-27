@@ -9,13 +9,14 @@
 # Marcin Małecki <gerber@tkdami.net>, 2012.
 #   <mplichta@gmail.com>, 2012.
 # Paweł Ciecierski <pciecierski@gmail.com>, 2012.
+#   <szporwolik@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-20 00:01+0100\n"
-"PO-Revision-Date: 2012-11-19 18:13+0000\n"
-"Last-Translator: Marcin Małecki <gerber@tkdami.net>\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
+"PO-Revision-Date: 2012-11-29 12:37+0000\n"
+"Last-Translator: szporwolik <szporwolik@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +50,7 @@ msgstr "Błąd dodawania folderu."
 
 #: ajax/createfolder.php:47
 msgid "Folder added!"
-msgstr "Dodano Folder!"
+msgstr "Dodano folder!"
 
 #: ajax/deletefeed.php:29
 msgid "Error removing feed."
@@ -69,7 +70,7 @@ msgstr "Pusta nazwa pliku"
 
 #: ajax/importopml.php:50
 msgid "No source argument passed"
-msgstr ""
+msgstr "Bak zródła"
 
 #: ajax/importopml.php:54
 msgid "Error while reading file"
@@ -115,7 +116,7 @@ msgstr "Błąd aktualizacji kanału"
 msgid "Feed updated!"
 msgstr "Plik zaktualizowany!"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Nowości"
 
@@ -210,13 +211,13 @@ msgstr "Zaimportowano"
 
 #: js/settings.js:64
 msgid "Error while importing feeds."
-msgstr ""
+msgstr "Wystąpił błąd podczas importowania kanałów."
 
 #: js/settings.js:88
 msgid "Select file"
 msgstr "Wybierz plik"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "brak tytułu"
 
@@ -224,11 +225,11 @@ msgstr "brak tytułu"
 msgid "no name"
 msgstr "brak nazwy"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "brak zawartości"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "Subskrypcje w ownCloud - Wiadomości"
 
@@ -241,7 +242,7 @@ msgid "Nice! You have subscribed to "
 msgstr "Super! Subskrybujesz"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
+msgid "You had already subscribed to this feed!"
 msgstr "Już subskrybujesz ten kanał!"
 
 #: templates/firstrun.php:2
@@ -297,7 +298,7 @@ msgstr "Dodaj feed do folderu"
 
 #: templates/main.php:35
 msgid "Add Feed/Folder"
-msgstr "Dodaj kanał/Folder"
+msgstr "Dodaj kanał/folder"
 
 #: templates/main.php:37
 msgid "Feed"
@@ -368,12 +369,12 @@ msgstr "z"
 msgid "by"
 msgstr "przez"
 
-#: templates/part.items.php:57 templates/part.items.php:58
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Udostępnij"
 
-#: templates/part.items.php:59 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Pozostaw nieprzeczytane"
 

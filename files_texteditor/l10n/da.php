@@ -1,6 +1,7 @@
 <?php $TRANSLATIONS = array(
 "Save" => "Gem",
 "Close" => "Luk",
+"Next" => "Næste",
 "Saving..." => "Gemmer...",
 "An error occurred!" => "Der opstod en fejl!",
 "There were unsaved changes, click here to go back" => "Ændringer blev ikke gemt - klik her for at gå tilbage"

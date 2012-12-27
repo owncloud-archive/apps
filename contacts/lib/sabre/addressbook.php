@@ -68,15 +68,23 @@ class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
 
 		$readprincipal = $this->getOwner();
 		$writeprincipal = $this->getOwner();
-		$uid = OC_Contacts_Addressbook::extractUserID($this->getOwner());
+		$createprincipal = $this->getOwner();
+		$deleteprincipal = $this->getOwner();
+		$uid = OCA\Contacts\Addressbook::extractUserID($this->getOwner());
 
 		if($uid != OCP\USER::getUser()) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $this->addressBookInfo['id']);
+			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_CREATE)) {
+				$createprincipal = 'principals/' . OCP\USER::getUser();
+			}
 			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_READ)) {
 				$readprincipal = 'principals/' . OCP\USER::getUser();
 			}
 			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE)) {
 				$writeprincipal = 'principals/' . OCP\USER::getUser();
+			}
+			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_DELETE)) {
+				$deleteprincipal = 'principals/' . OCP\USER::getUser();
 			}
 		}
 
@@ -87,12 +95,74 @@ class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
 				'protected' => true,
 			),
 			array(
-				'privilege' => '{DAV:}write',
+				'privilege' => '{DAV:}write-content',
 				'principal' => $writeprincipal,
 				'protected' => true,
 			),
-
+			array(
+				'privilege' => '{DAV:}bind',
+				'principal' => $createprincipal,
+				'protected' => true,
+			),
+			array(
+				'privilege' => '{DAV:}unbind',
+				'principal' => $deleteprincipal,
+				'protected' => true,
+			),
 		);
+
+	}
+
+	function getSupportedPrivilegeSet() {
+
+		return array(
+			'privilege'  => '{DAV:}all',
+			'abstract'   => true,
+			'aggregates' => array(
+				array(
+					'privilege'  => '{DAV:}read',
+					'aggregates' => array(
+						array(
+							'privilege' => '{DAV:}read-acl',
+							'abstract'  => true,
+						),
+						array(
+							'privilege' => '{DAV:}read-current-user-privilege-set',
+							'abstract'  => true,
+						),
+					),
+				), // {DAV:}read
+				array(
+					'privilege'  => '{DAV:}write',
+					'aggregates' => array(
+						array(
+							'privilege' => '{DAV:}write-acl',
+							'abstract'  => true,
+						),
+						array(
+							'privilege' => '{DAV:}write-properties',
+							'abstract'  => true,
+						),
+						array(
+							'privilege' => '{DAV:}write-content',
+							'abstract'  => false,
+						),
+						array(
+							'privilege' => '{DAV:}bind',
+							'abstract'  => false,
+						),
+						array(
+							'privilege' => '{DAV:}unbind',
+							'abstract'  => false,
+						),
+						array(
+							'privilege' => '{DAV:}unlock',
+							'abstract'  => true,
+						),
+					),
+				), // {DAV:}write
+			),
+		); // {DAV:}all
 
 	}
 
@@ -125,4 +195,5 @@ class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
 		return $children;
 
 	}
+
 }

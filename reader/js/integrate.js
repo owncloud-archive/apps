@@ -5,22 +5,18 @@ $(document).ready(function() {
 	});
 	
 	$('#file_action_panel').attr('activeAction', false);
-
-	$('td.filename.svg a.dirs').hover(function(){
-		$(this).children().children('img#img2').animate({
-			left: '-=60'}, 50, function(){
-			});
-		$(this).children().children('img#img3').animate({
-			left: '+=60'}, 50, function(){
-			});
-	});
-	$('td.filename.svg a.dirs').mouseleave(function(){
-		$(this).children().children('img#img2').animate({
-			left: '+=120'}, 50, function(){
-			});
-		$(this).children().children('img#img3').animate({
-			left: '-=120'}, 50, function(){
-			});
+	
+	$("#TagForm").submit(function(event) {
+		event.preventDefault(); 
+		var $form = $( this ),
+		tag = $form.find( 'input[name="tag"]' ).val(),
+		url = 'apps/reader/ajax/tags.php';
+		var path = $(this).parent().children('a.name').attr('dir');
+		$.post( url, {tag:tag,path:path},
+			function( data ) {
+				$("#result").append('<a href = "apps/reader/fetch_tags.php?tag='+data+'">'+data+'</a>');
+			}
+		);
 	});
 });	
 
@@ -30,9 +26,9 @@ $(function() {
 		'use strict';
 		// create thumbnails for pdfs inside current directory.
 		create_thumbnails();
-
+		create_thumbnails_for_directories();
 		// Render pdf view on every click of a thumbnail, now and in future.
-		$('td.filename a').live('click',function(event) {
+		$('td.filename a.name').live('click',function(event) {
 			event.preventDefault();
 			var filename=$(this).parent().parent().attr('data-file');
 			var tr=$('tr').filterAttr('data-file',filename);
@@ -68,15 +64,43 @@ function getAction(mime,type) {
 
 function create_thumbnails() {
 	PDFJS.disableWorker = true;
-		$('td.filename a.name').each(function() {
-			// Get url and title of each pdf file from anchor tags.
-			var url = $(this).attr('href');
+		$('td#thumbnail_container > img').each(function() {
+			// Get url and title of each pdf file from image tags.
 			var title = $(this).parent().parent().attr('data-file');
-			var location = $(this).attr('dir');
+			var location = $(this).attr('id');
+			var url = OC.linkTo('files', 'download.php')+'?file=' + location;
 			var thumbnail_exists = $(this).attr('value');
 			if (thumbnail_exists == "false") {
 			if (url.indexOf('pdf') != -1) {
-				PDFJS.getDocument(url).then(function(pdf) {
+				render_thumbnail(url,location,title);
+			}
+		}
+	});
+}
+
+function create_thumbnails_for_directories() {
+	$('div#thumbs img').each(function(){
+		var thumb_exists = $(this).attr('value');
+		if (thumb_exists == "false") {
+			var location = $(this).attr('id');
+			var url = OC.linkTo('files', 'download.php')+'?file=' + location;
+			var title = location.replace(/\\/g,'/').replace( /.*\//, '' );
+			if (url.indexOf('pdf') != -1) {
+				render_thumbnail(url,location,title);
+			}
+		}
+	});
+}
+
+function canvasSaver(canvas,title,location) {
+	var canvas_data = canvas.toDataURL('image/png');
+	$.post("apps/reader/ajax/canvas_saver.php", {canv_data:canvas_data,title:title,location:location});
+}
+
+
+function render_thumbnail(url,location,title) {
+	
+	PDFJS.getDocument(url).then(function(pdf) {
 				// Using promise to fetch the page
 					pdf.getPage(1).then(function(page) {
 						var scale = 0.2;
@@ -117,17 +141,12 @@ function create_thumbnails() {
 						pageRendering = page.render(renderContext);
 						pageRendering.onData(function(){
 							canvasSaver(canvas,title,location);
+							var imageElement = document.getElementById(location);
+							imageElement.src = canvas.toDataURL();
+							imageElement.style.height = '100px';
+							imageElement.style.width = '100px';
+							
 						});
 					});
 				});
-			}
-		}
-	});
 }
-
-function canvasSaver(canvas,title,location) {
-	var canvas_data = canvas.toDataURL('image/png');
-	$.post("apps/reader/ajax/canvas_saver.php", {canv_data:canvas_data,title:title,location:location});
-}
-
-

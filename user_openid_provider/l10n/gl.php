@@ -1,6 +1,6 @@
 <?php $TRANSLATIONS = array(
-"OpenID Provider remembered sites" => "Sitios recordados polo fornecedor de OpenID",
+"OpenID Provider remembered sites" => "Sitios lembrados polo fornecedor de OpenID",
 "Trusted" => "Autenticado",
 "Denied" => "Denegada",
-"Remove" => "Eliminar"
+"Remove" => "Retirar"
 );

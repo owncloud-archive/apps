@@ -6,8 +6,9 @@
 		<dd><code><?php echo OCP\Util::linkToRemote('carddav'); ?></code></dd>
 		<dt><?php echo $l->t('iOS/OS X'); ?></dt>
 		<dd><code><?php echo OCP\Util::linkToRemote('carddav'); ?>principals/<?php echo OCP\USER::getUser(); ?></code>/</dd>
-		<dt class="hidden"><?php echo $l->t('Addressbooks'); ?></dt>
-		<dd class="addressbooks-settings hidden">
+		</dl>
+		<div class="addressbooks-settings hidden">
+			<?php echo $l->t('Addressbooks'); ?>
 			<table>
 			<?php foreach($_['addressbooks'] as $addressbook) { ?>
 			<tr class="addressbook" data-id="<?php echo $addressbook['id'] ?>"
@@ -60,8 +61,7 @@
 				<button class="save hidden"><?php echo $l->t('Save') ?></button>
 				<button class="cancel hidden"><?php echo $l->t('Cancel') ?></button>
 			</div>
-		</dd>
-		</dl>
+		</div>
 		<div style="width: 100%; clear: both;">
 			<button class="moreless"><?php echo $l->t('More...') ?></button>
 		</div>

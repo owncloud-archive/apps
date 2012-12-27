@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-22 00:01+0100\n"
+"POT-Creation-Date: 2012-12-17 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -188,7 +188,7 @@ msgstr ""
 msgid "Work"
 msgstr ""
 
-#: lib/app.php:362 lib/share/event.php:27
+#: lib/app.php:362
 msgid "by"
 msgstr ""
 
@@ -209,7 +209,7 @@ msgid "You do not have the permissions to add to this calendar."
 msgstr ""
 
 #: lib/import.php:214 templates/calendar.php:12
-#: templates/part.choosecalendar.php:22
+#: templates/part.choosecalendar.php:23
 msgid "New Calendar"
 msgstr ""
 
@@ -542,7 +542,7 @@ msgstr ""
 msgid "Your calendars"
 msgstr ""
 
-#: templates/part.choosecalendar.php:27
+#: templates/part.choosecalendar.php:28
 #: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
 msgstr ""

@@ -1,7 +1,10 @@
 <?php $TRANSLATIONS = array(
 "Save" => "저장",
+"Search:" => "검색:",
 "Close" => "닫기",
-"Saving..." => "저장중...",
-"An error occurred!" => "에러발생!",
-"There were unsaved changes, click here to go back" => "저장되지 않은 변경 사항이 있습니다 돌아가려면 여기를 클릭하세요"
+"Next" => "다음",
+"Clear" => "지우기",
+"Saving..." => "저장하는 중...",
+"An error occurred!" => "오류가 발생하였습니다!",
+"There were unsaved changes, click here to go back" => "저장되지 않은 변경 사항이 있습니다. 여기를 누르면 돌아갑니다"
 );
