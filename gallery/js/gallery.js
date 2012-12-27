@@ -56,20 +56,21 @@ Gallery.view.addImage = function (image) {
 };
 
 Gallery.view.addAlbum = function (path) {
-	var link = $('<a/>');
+	var link = $('<a/>'), image;
 	link.addClass('album');
 	link.attr('href', '#' + path);
 	link.click(Gallery.view.viewAlbum.bind(null, path));
 	link.data('path', path);
 	link.data('offset', 0);
 	link.attr('style', 'background-image:url("' + Gallery.getAlbumThumbnail(path) + '")').attr('title', OC.basename(path));
+	image = new Image();
+	image.src = Gallery.getAlbumThumbnail(path);
 
 	link.mousemove(function (event) {
 		var mousePos = event.pageX - $(this).offset().left,
 			path = $(this).data('path'),
 			album = Gallery.albums[path],
-			thumbCount = Math.min(album.length, 10),
-			offset = Math.floor(mousePos / 200 * thumbCount),
+			offset = Math.floor((mousePos / 200) * (image.width / 200)),
 			oldOffset = $(this).data('offset');
 		if (offset !== oldOffset) {
 			$(this).css('background-position', offset * 200 + 'px 0px');
