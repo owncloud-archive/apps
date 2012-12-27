@@ -5,6 +5,7 @@
 "User: <b>" => "Utilizator: <b>",
 "Login" => "Autentificare",
 "Error: <b>No user Selected" => "Eroare:: <b>Nici un utilizator selectat",
+"OpenID" => "OpenID",
 "you can authenticate to other sites with this address" => "nu te poți autentifica în alte site-uri cu această adresă",
 "Authorized OpenID provider" => "Ofertant autorizat OpenID",
 "Your address at Wordpress, Identi.ca, &hellip;" => "Adresa ta la Wordpress, Identi.ca &hellip;"

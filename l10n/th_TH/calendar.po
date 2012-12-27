@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-23 00:01+0100\n"
-"PO-Revision-Date: 2012-11-22 10:48+0000\n"
-"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
+"POT-Creation-Date: 2012-12-27 00:01+0100\n"
+"PO-Revision-Date: 2012-12-26 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,6 +38,10 @@ msgstr "ไม่พบกิจกรรมที่ต้องการ"
 #: ajax/event/edit.form.php:20
 msgid "Wrong calendar"
 msgstr "ปฏิทินไม่ถูกต้อง"
+
+#: ajax/event/edit.form.php:220 lib/object.php:196 lib/object.php:232
+msgid "You do not have the permissions to edit this event."
+msgstr "คุณไม่ได้รับสิทธิ์ให้แก้ไขกิจกรรมนี้"
 
 #: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
@@ -190,11 +194,11 @@ msgstr "คำถาม"
 msgid "Work"
 msgstr "งาน"
 
-#: lib/app.php:362
+#: lib/app.php:396
 msgid "by"
 msgstr "โดย"
 
-#: lib/app.php:400
+#: lib/app.php:444
 msgid "unnamed"
 msgstr "ไม่มีชื่อ"
 
@@ -211,187 +215,199 @@ msgid "You do not have the permissions to add to this calendar."
 msgstr "คุณไม่ได้รับสิทธิ์ให้เพิ่มปฏิทินนี้"
 
 #: lib/import.php:214 templates/calendar.php:12
-#: templates/part.choosecalendar.php:22
+#: templates/part.choosecalendar.php:23
 msgid "New Calendar"
 msgstr "สร้างปฏิทินใหม่"
 
-#: lib/object.php:122 lib/object.php:162 lib/object.php:310
+#: lib/object.php:122 lib/object.php:162 lib/object.php:316
 msgid "You do not have the permissions to add events to this calendar."
 msgstr "คุณไม่ได้รับสิทธิ์ให้เพิ่มกิจกรรมเข้าไปในปฏิทินนี้"
 
-#: lib/object.php:194 lib/object.php:228
-msgid "You do not have the permissions to edit this event."
-msgstr "คุณไม่ได้รับสิทธิ์ให้แก้ไขกิจกรรมนี้"
-
-#: lib/object.php:258 lib/object.php:290
+#: lib/object.php:264 lib/object.php:296
 msgid "You do not have the permissions to delete this event."
 msgstr "คุณไม่ได้รับสิทธิ์ให้ลบกิจกรรมนี้"
 
-#: lib/object.php:455
+#: lib/object.php:481
+msgid "Busy"
+msgstr ""
+
+#: lib/object.php:498
+msgid "Public"
+msgstr ""
+
+#: lib/object.php:499
+msgid "Private"
+msgstr ""
+
+#: lib/object.php:500
+msgid "Confidential"
+msgstr ""
+
+#: lib/object.php:510
 msgid "Does not repeat"
 msgstr "ไม่ต้องทำซ้ำ"
 
-#: lib/object.php:456
+#: lib/object.php:511
 msgid "Daily"
 msgstr "รายวัน"
 
-#: lib/object.php:457
+#: lib/object.php:512
 msgid "Weekly"
 msgstr "รายสัปดาห์"
 
-#: lib/object.php:458
+#: lib/object.php:513
 msgid "Every Weekday"
 msgstr "ทุกวันหยุด"
 
-#: lib/object.php:459
+#: lib/object.php:514
 msgid "Bi-Weekly"
 msgstr "รายปักษ์"
 
-#: lib/object.php:460
+#: lib/object.php:515
 msgid "Monthly"
 msgstr "รายเดือน"
 
-#: lib/object.php:461
+#: lib/object.php:516
 msgid "Yearly"
 msgstr "รายปี"
 
-#: lib/object.php:471
+#: lib/object.php:526
 msgid "never"
 msgstr "ไม่ต้องเลย"
 
-#: lib/object.php:472
+#: lib/object.php:527
 msgid "by occurrences"
 msgstr "ตามจำนวนที่ปรากฏ"
 
-#: lib/object.php:473
+#: lib/object.php:528
 msgid "by date"
 msgstr "ตามวันที่"
 
-#: lib/object.php:483
+#: lib/object.php:538
 msgid "by monthday"
 msgstr "จากเดือน"
 
-#: lib/object.php:484
+#: lib/object.php:539
 msgid "by weekday"
 msgstr "จากสัปดาห์"
 
-#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:69
+#: lib/object.php:549 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
 msgstr "วันจันทร์"
 
-#: lib/object.php:495 templates/calendar.php:5
+#: lib/object.php:550 templates/calendar.php:5
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
-#: lib/object.php:496 templates/calendar.php:5
+#: lib/object.php:551 templates/calendar.php:5
 msgid "Wednesday"
 msgstr "วันพุธ"
 
-#: lib/object.php:497 templates/calendar.php:5
+#: lib/object.php:552 templates/calendar.php:5
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
-#: lib/object.php:498 templates/calendar.php:5
+#: lib/object.php:553 templates/calendar.php:5
 msgid "Friday"
 msgstr "วันศุกร์"
 
-#: lib/object.php:499 templates/calendar.php:5
+#: lib/object.php:554 templates/calendar.php:5
 msgid "Saturday"
 msgstr "วันเสาร์"
 
-#: lib/object.php:500 templates/calendar.php:5 templates/settings.php:70
+#: lib/object.php:555 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
 msgstr "วันอาทิตย์"
 
-#: lib/object.php:510
+#: lib/object.php:565
 msgid "events week of month"
 msgstr "สัปดาห์ที่มีกิจกรรมของเดือน"
 
-#: lib/object.php:511
+#: lib/object.php:566
 msgid "first"
 msgstr "ลำดับแรก"
 
-#: lib/object.php:512
+#: lib/object.php:567
 msgid "second"
 msgstr "ลำดับที่สอง"
 
-#: lib/object.php:513
+#: lib/object.php:568
 msgid "third"
 msgstr "ลำดับที่สาม"
 
-#: lib/object.php:514
+#: lib/object.php:569
 msgid "fourth"
 msgstr "ลำดับที่สี่"
 
-#: lib/object.php:515
+#: lib/object.php:570
 msgid "fifth"
 msgstr "ลำดับที่ห้า"
 
-#: lib/object.php:516
+#: lib/object.php:571
 msgid "last"
 msgstr "ลำดับสุดท้าย"
 
-#: lib/object.php:550 templates/calendar.php:7
+#: lib/object.php:605 templates/calendar.php:7
 msgid "January"
 msgstr "มกราคม"
 
-#: lib/object.php:551 templates/calendar.php:7
+#: lib/object.php:606 templates/calendar.php:7
 msgid "February"
 msgstr "กุมภาพันธ์"
 
-#: lib/object.php:552 templates/calendar.php:7
+#: lib/object.php:607 templates/calendar.php:7
 msgid "March"
 msgstr "มีนาคม"
 
-#: lib/object.php:553 templates/calendar.php:7
+#: lib/object.php:608 templates/calendar.php:7
 msgid "April"
 msgstr "เมษายน"
 
-#: lib/object.php:554 templates/calendar.php:7
+#: lib/object.php:609 templates/calendar.php:7
 msgid "May"
 msgstr "พฤษภาคม"
 
-#: lib/object.php:555 templates/calendar.php:7
+#: lib/object.php:610 templates/calendar.php:7
 msgid "June"
 msgstr "มิถุนายน"
 
-#: lib/object.php:556 templates/calendar.php:7
+#: lib/object.php:611 templates/calendar.php:7
 msgid "July"
 msgstr "กรกฏาคม"
 
-#: lib/object.php:557 templates/calendar.php:7
+#: lib/object.php:612 templates/calendar.php:7
 msgid "August"
 msgstr "สิงหาคม"
 
-#: lib/object.php:558 templates/calendar.php:7
+#: lib/object.php:613 templates/calendar.php:7
 msgid "September"
 msgstr "กันยายน"
 
-#: lib/object.php:559 templates/calendar.php:7
+#: lib/object.php:614 templates/calendar.php:7
 msgid "October"
 msgstr "ตุลาคม"
 
-#: lib/object.php:560 templates/calendar.php:7
+#: lib/object.php:615 templates/calendar.php:7
 msgid "November"
 msgstr "พฤศจิกายน"
 
-#: lib/object.php:561 templates/calendar.php:7
+#: lib/object.php:616 templates/calendar.php:7
 msgid "December"
 msgstr "ธันวาคม"
 
-#: lib/object.php:571
+#: lib/object.php:626
 msgid "by events date"
 msgstr "ตามวันที่จัดกิจกรรม"
 
-#: lib/object.php:572
+#: lib/object.php:627
 msgid "by yearday(s)"
 msgstr "ของเมื่อวานนี้"
 
-#: lib/object.php:573
+#: lib/object.php:628
 msgid "by weeknumber(s)"
 msgstr "จากหมายเลขของสัปดาห์"
 
-#: lib/object.php:574
+#: lib/object.php:629
 msgid "by day and month"
 msgstr "ตามวันและเดือน"
 
@@ -544,7 +560,7 @@ msgstr "ตั้งค่า"
 msgid "Your calendars"
 msgstr "ปฏิทินของคุณ"
 
-#: templates/part.choosecalendar.php:27
+#: templates/part.choosecalendar.php:28
 #: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
 msgstr "ลิงค์ CalDav"
@@ -647,84 +663,88 @@ msgstr "คั่นระหว่างรายการหมวดหมู
 msgid "Edit categories"
 msgstr "แก้ไขหมวดหมู่"
 
-#: templates/part.eventform.php:56 templates/part.showevent.php:52
+#: templates/part.eventform.php:50 templates/part.showevent.php:46
+msgid "Access Class"
+msgstr ""
+
+#: templates/part.eventform.php:67 templates/part.showevent.php:62
 msgid "All Day Event"
 msgstr "เป็นกิจกรรมตลอดทั้งวัน"
 
-#: templates/part.eventform.php:60 templates/part.showevent.php:56
+#: templates/part.eventform.php:71 templates/part.showevent.php:66
 msgid "From"
 msgstr "จาก"
 
-#: templates/part.eventform.php:68 templates/part.showevent.php:64
+#: templates/part.eventform.php:79 templates/part.showevent.php:74
 msgid "To"
 msgstr "ถึง"
 
-#: templates/part.eventform.php:76 templates/part.showevent.php:72
+#: templates/part.eventform.php:87 templates/part.showevent.php:82
 msgid "Advanced options"
 msgstr "ตัวเลือกขั้นสูง"
 
-#: templates/part.eventform.php:81 templates/part.showevent.php:77
+#: templates/part.eventform.php:92 templates/part.showevent.php:87
 msgid "Location"
 msgstr "สถานที่"
 
-#: templates/part.eventform.php:83
+#: templates/part.eventform.php:94
 msgid "Location of the Event"
 msgstr "สถานที่จัดกิจกรรม"
 
-#: templates/part.eventform.php:89 templates/part.showevent.php:85
+#: templates/part.eventform.php:100 templates/part.showevent.php:95
 msgid "Description"
 msgstr "คำอธิบาย"
 
-#: templates/part.eventform.php:91
+#: templates/part.eventform.php:102
 msgid "Description of the Event"
 msgstr "คำอธิบายเกี่ยวกับกิจกรรม"
 
-#: templates/part.eventform.php:100 templates/part.showevent.php:95
+#: templates/part.eventform.php:111 templates/part.showevent.php:105
 msgid "Repeat"
 msgstr "ทำซ้ำ"
 
-#: templates/part.eventform.php:107 templates/part.showevent.php:102
+#: templates/part.eventform.php:118 templates/part.showevent.php:112
 msgid "Advanced"
 msgstr "ขั้นสูง"
 
-#: templates/part.eventform.php:151 templates/part.showevent.php:146
+#: templates/part.eventform.php:162 templates/part.showevent.php:156
 msgid "Select weekdays"
 msgstr "เลือกสัปดาห์"
 
-#: templates/part.eventform.php:164 templates/part.eventform.php:177
-#: templates/part.showevent.php:159 templates/part.showevent.php:172
+#: templates/part.eventform.php:175 templates/part.eventform.php:188
+#: templates/part.showevent.php:169 templates/part.showevent.php:182
 msgid "Select days"
 msgstr "เลือกวัน"
 
-#: templates/part.eventform.php:169 templates/part.showevent.php:164
+#: templates/part.eventform.php:180 templates/part.showevent.php:174
 msgid "and the events day of year."
 msgstr "และวันที่มีเหตุการณ์เกิดขึ้นในปี"
 
-#: templates/part.eventform.php:182 templates/part.showevent.php:177
+#: templates/part.eventform.php:193 templates/part.showevent.php:187
 msgid "and the events day of month."
 msgstr "และวันที่มีเหตุการณ์เกิดขึ้นในเดือน"
 
-#: templates/part.eventform.php:190 templates/part.showevent.php:185
+#: templates/part.eventform.php:201 templates/part.showevent.php:195
 msgid "Select months"
 msgstr "เลือกเดือน"
 
-#: templates/part.eventform.php:203 templates/part.showevent.php:198
+#: templates/part.eventform.php:214 templates/part.showevent.php:208
 msgid "Select weeks"
 msgstr "เลือกสัปดาห์"
 
-#: templates/part.eventform.php:208 templates/part.showevent.php:203
+#: templates/part.eventform.php:219 templates/part.showevent.php:213
 msgid "and the events week of year."
 msgstr "และสัปดาห์ที่มีเหตุการณ์เกิดขึ้นในปี"
 
-#: templates/part.eventform.php:214 templates/part.showevent.php:209
+#: templates/part.eventform.php:225 templates/part.showevent.php:219
 msgid "Interval"
 msgstr "ช่วงเวลา"
 
-#: templates/part.eventform.php:220 templates/part.showevent.php:215
+#: templates/part.eventform.php:231 templates/part.showevent.php:225
 msgid "End"
 msgstr "สิ้นสุด"
 
-#: templates/part.eventform.php:233 templates/part.showevent.php:228
+#: templates/part.eventform.php:244 templates/part.showevent.php:238
 msgid "occurrences"
 msgstr "จำนวนที่ปรากฏ"
 
@@ -808,7 +828,7 @@ msgstr "ยังไม่ได้เลือกหมวดหมู่"
 msgid "of"
 msgstr "ของ"
 
-#: templates/part.showevent.php:59 templates/part.showevent.php:67
+#: templates/part.showevent.php:69 templates/part.showevent.php:77
 msgid "at"
 msgstr "ที่"
 
