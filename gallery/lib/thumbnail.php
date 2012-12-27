@@ -124,20 +124,12 @@ class AlbumThumbnail extends Thumbnail {
 		$images = \OC_Filecache::searchByMime('image', null, '/' . $user . '/files' . $albumPath);
 
 		$count = min(count($images), 10);
-		$thumbnail = imagecreatetruecolor(200, 200);
-		imagesavealpha($thumbnail, true);
-		imagefill($thumbnail, 0, 0, 0x7fff0000);
-		imagealphablending($thumbnail, true);
+		$thumbnail = imagecreatetruecolor($count * 200, 200);
 		for ($i = 0; $i < $count; $i++) {
-			$thumb = new Thumbnail($albumPath . '/' . $images[$i]);
+			$thumb = new Thumbnail($albumPath . '/' . $images[$i], true);
 			$image = $thumb->get();
-			$image->fitIn(80, 80);
 			if ($image && $image->valid()) {
-				$h = $image->height();
-				$w = $image->width();
-				$x = (($i % 2) * 100) + (100 - $w) / 2;
-				$y = (floor($i / 2) * 100) + (100 - $h) / 2;
-				imagecopy($thumbnail, $image->resource(), $x, $y, 0, 0, $w, $h);
+				imagecopy($thumbnail, $image->resource(), $i * 200, 0, 0, 0, 200, 200);
 				$image->destroy();
 			}
 		}
