@@ -63,7 +63,7 @@ input.disabled, input.disabled:hover, input.disabled:focus {
 .bookmark_actions {
 	position: absolute;
 	right: 1em;
-	bottom:1.3em;
+	bottom:0.8em;
 	display: none;
 }
 .bookmark_actions span { margin: 0 0.4em; }
@@ -94,14 +94,21 @@ input.disabled, input.disabled:hover, input.disabled:focus {
         left: 21%;
 }
 
+.bookmark_favicon_img {
+	width:20px;
+	height:20px;
+	float:left;
+	margin:8px;	
+}
 .bookmark_title {
         font-weight: bold;
         display: inline-block;
         margin-right: 0.8em;
-        width: 20%;
+        width: 15%;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
+		margin-top:0.8em;
 }
 
 .bm_view_list .bookmark_tags {
