@@ -97,7 +97,9 @@ compile = (content, toFile) ->
 
 # register a callback on an array of files and remove already bound ones
 watchFiles = (files, callback) ->
-	for file in files
+	files = {}
+	getCoffeeFiles(sourceDirectory, files)
+	for file, exists of files
 		fs.unwatchFile(file)
 		fs.watchFile(file, callback)
 
