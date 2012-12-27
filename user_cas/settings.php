@@ -21,6 +21,8 @@
  *
  */
 
+OC_Util::checkAdminUser();
+
 $params = array('cas_server_version', 'cas_server_hostname', 'cas_server_port', 'cas_server_path', 'cas_autocreate', 'cas_update_user_data', 'cas_protected_groups', 'cas_default_group', 'cas_username_mapping', 'cas_email_mapping', 'cas_group_mapping');
 
 OCP\Util::addscript('user_cas', 'settings');
