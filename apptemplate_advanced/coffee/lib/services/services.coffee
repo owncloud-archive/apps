@@ -1,5 +1,5 @@
 ###
-# ownCloud - News app
+# ownCloud
 #
 # @author Bernhard Posselt
 # Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>

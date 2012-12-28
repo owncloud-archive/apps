@@ -1,5 +1,5 @@
 ###
-# ownCloud - News app
+# ownCloud
 #
 # @author Bernhard Posselt
 # Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
@@ -17,7 +17,7 @@ angular.module('OC').factory '_ModelPublisher', ->
 
         class ModelPublisher
 
-                constructor: () ->
+                constructor: ->
                         @subscriptions = {}
 
 

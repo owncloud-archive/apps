@@ -14,14 +14,20 @@ fs = require 'fs'
 util = require 'util'
 {exec} = require 'child_process'
 
+try
+        coffee = require 'coffee-script'
+catch err
+	util.log 'Please export your node path by entering: export NODE_PATH=/usr/lib/node_modules'
+	process.exit(1)
+
 
 ### Configuration ###
 
 # path that contains your coffee files relative to this script
 sourceDirectory = __dirname
 
-# path and name of the compiled js file relative to this script without .js suffix
-compileToFile = '../js/app'
+# path and name of the compiled js file relative to this script
+compileToFile = '../js/app.js'
 
 # These files will be compiled in order before any other files
 compileFirst = [
@@ -78,21 +84,14 @@ getOrderedCoffeeFiles = (directory) ->
 
 # compiles an array with file content to a js file
 compile = (content, toFile) ->
-	toFile += '.coffee'
+        compiled = []
+        for code in content
+                util.log 'Compiling ' + code[0]
+                compiled.push(coffee.compile(code[1]))
 
-	fs.writeFile toFile, content.join('\n\n'), 'utf8', (error) ->
+        fs.writeFile toFile, compiled.join('\n\n'), 'utf8', (error) ->
 		if error
 			throw error
-
-		exec 'coffee --compile ' + toFile, (error, stdout, stderr) ->
-			if error
-				util.log 'Error compiling coffee file.'
-				util.error error
-			else
-				fs.unlink toFile, (error) ->
-					if error
-						util.log 'Couldn\'t delete the compile cache file ' + toFile
-					util.log 'Finished building coffee file.'
 
 
 # register a callback on an array of files and remove already bound ones
@@ -124,13 +123,13 @@ task 'build', 'Build and compress CoffeeScript into single JavaScript file', ->
 	remaining = files.length
 
 	# read out content of files and compile them afterwards
-	for file, index in files then do (file, index) ->
+        for file in files then do (file) ->
 		fs.readFile file, 'utf8', (error, fileContent) ->
 			if error
 				throw error
 
-			content[index] = fileContent
-			remaining -= 1
+                        content.push([file, fileContent])
 
+                        remaining -= 1
 			if remaining <= 0
 				compile(content, compileToFile)
