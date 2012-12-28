@@ -33,30 +33,6 @@
 
 (function() {
 
-  angular.module('AppTemplateAdvanced').controller('ExampleController', [
-    '$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController', function($scope, Config, AppTemplateAdvancedRequest, _ExampleController) {
-      return new _ExampleController($scope, Config, AppTemplateAdvancedRequest);
-    }
-  ]);
-
-}).call(this);
-
-
-
-/*
-# ownCloud
-#
-# @author Bernhard Posselt
-# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
-#
-# This file is licensed under the Affero General Public License version 3 or later.
-# See the COPYING-README file
-#
-*/
-
-
-(function() {
-
   angular.module('AppTemplateAdvanced', ['OC']).config([
     '$provide', function($provide) {
       var Config;
@@ -98,11 +74,11 @@
 
 (function() {
 
-  angular.module('AppTemplateAdvanced').filter('leetIt', function() {
-    return function(leetThis) {
-      return leetThis.replace('e', '3').replace('i', '1');
-    };
-  });
+  angular.module('AppTemplateAdvanced').controller('ExampleController', [
+    '$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController', function($scope, Config, AppTemplateAdvancedRequest, _ExampleController) {
+      return new _ExampleController($scope, Config, AppTemplateAdvancedRequest);
+    }
+  ]);
 
 }).call(this);
 
@@ -144,6 +120,30 @@
 
     })();
     return ExampleController;
+  });
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+(function() {
+
+  angular.module('AppTemplateAdvanced').filter('leetIt', function() {
+    return function(leetThis) {
+      return leetThis.replace('e', '3').replace('i', '1');
+    };
   });
 
 }).call(this);
