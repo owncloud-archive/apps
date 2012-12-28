@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<database>
+	<name>*dbname*</name>
+	<create>true</create>
+	<overwrite>true</overwrite>
+	<charset>latin1</charset>
+	<table>
+		<name>*dbprefix*xmpp</name>
+		<declaration>
+			<field>
+				<name>ocUser</name>
+				<type>text</type>
+				<default></default>
+				<notnull>true</notnull>
+				<length>4096</length>
+			</field>
+			<field>
+				<name>jid</name>
+				<type>text</type>
+				<default></default>
+				<notnull>true</notnull>
+				<length>4096</length>
+			</field>
+			<field>
+				<name>rid</name>
+				<type>text</type>
+				<default></default>
+				<notnull>true</notnull>
+				<length>4096</length>
+			</field>
+			<field>
+				<name>sid</name>
+				<type>text</type>
+				<default></default>
+				<notnull>true</notnull>
+				<length>4096</length>
+			</field>
+		</declaration>
+	</table>
+</database>
+
