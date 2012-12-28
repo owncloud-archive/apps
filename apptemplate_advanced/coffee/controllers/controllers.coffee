@@ -10,8 +10,7 @@
 ###
 
 angular.module('AppTemplateAdvanced').controller 'ExampleController',
-['$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController',
-($scope, Config, AppTemplateAdvancedRequest, _ExampleController) ->
-
-	return new _ExampleController($scope, Config, AppTemplateAdvancedRequest)
+['$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController', 'ItemModel',
+($scope, Config, AppTemplateAdvancedRequest, _ExampleController, ItemModel) ->
+	return new _ExampleController($scope, Config, AppTemplateAdvancedRequest, ItemModel)
 ]

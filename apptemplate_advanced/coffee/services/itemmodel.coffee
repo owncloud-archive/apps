@@ -9,12 +9,16 @@
 #
 ###
 
-###
-# This file creates instances of classes
-###
+angular.module('AppTemplateAdvanced').factory '_ItemModel',
+['_Model',
+(_Model) ->
 
-angular.module('OC').factory 'Publisher',
-['_Publisher',
-(_Publisher) ->
-	return new _Publisher()
+	class ItemModel extends _Model
+
+		constructor: ->
+			super()
+			#@hasForeignKey('user')
+
+
+	return ItemModel
 ]

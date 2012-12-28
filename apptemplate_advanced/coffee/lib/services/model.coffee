@@ -20,6 +20,20 @@ angular.module('OC').factory '_Model', ->
 			@ids = {}
 
 
+		handle: (data) ->
+			if data['create'] != undefined
+				for item in data['create']
+					@create(item)
+
+			if data['update'] != undefined
+				for item in data['update']
+					@update(item)
+
+			if data['delete'] != undefined
+				for item in data['delete']
+					@delete(item)
+
+
 		# @brief add a new foreign key name which caches data by foreign key
 		# @param string name: the name of the foreign key property on the object
 		# Foreign keys are caching items in a structure like
@@ -30,7 +44,7 @@ angular.module('OC').factory '_Model', ->
 
 		# @brief adds a new object to the dataset
 		# @param object data: the data that we want to store
-		add: (data) ->
+		create: (data) ->
 			if @ids[data.id] != undefined
 				@update(data)
 			else
@@ -52,20 +66,25 @@ angular.module('OC').factory '_Model', ->
 				# if the foreignkey changed, we need to update the cache
 				if @foreignKeys[key] != undefined
 					if value != currentItem[key]
-						@updateForeignKeyCache(key, currentItem, item)
+						@_updateForeignKeyCache(key, currentItem, item)
 				if key != 'id'
 					currentItem[key] = value
 
 
-		updateForeignKeyCache: (name, currentItem, toItem) ->
+		delete: (item) ->
+			if @getById(item.id) != undefined
+				@removeById(item.id)
+
+
+		_updateForeignKeyCache: (name, currentItem, toItem) ->
 			fromValue = currentItem[name]
 			toValue = toItem[name]
 			foreignKeyItems = @foreignKeys[name][fromValue]
-			@removeForeignKeyCacheItem(foreignKeyItems, currentItem)
+			@_removeForeignKeyCacheItem(foreignKeyItems, currentItem)
 			@foreignKeys[name][toValue].push(item)
 
 
-		removeForeignKeyCacheItem: (foreignKeyItems, item) ->
+		_removeForeignKeyCacheItem: (foreignKeyItems, item) ->
 			for fkItem, index in foreignKeyItems
 				if fkItem.id == id
 					@foreignKeys[key][item[key]].splice(index, 1)
@@ -79,7 +98,7 @@ angular.module('OC').factory '_Model', ->
 			# remove from foreign key cache
 			for key, ids of @foreignKeys
 				foreignKeyItems = ids[item[key]]
-				@removeForeignKeyCacheItem(foreignKeyItems, item)
+				@_removeForeignKeyCacheItem(foreignKeyItems, item)
 
 			# remove from array
 			for item, index in @data

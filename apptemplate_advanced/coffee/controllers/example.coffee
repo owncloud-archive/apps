@@ -17,7 +17,7 @@ angular.module('AppTemplateAdvanced').factory '_ExampleController', ->
 
 	class ExampleController
 
-		constructor: (@$scope, @config, @request) ->
+		constructor: (@$scope, @config, @request, @itemModel) ->
 
 			# bind methods on the scope so that you can access them in the
 			# controllers child HTML

@@ -13,7 +13,7 @@ angular.module('OC').factory '_Request', ->
 
 	class Request
 
-		constructor: (@$http, @$rootScope, @Config) ->
+		constructor: (@$http, @$rootScope, @Config, @publisher) ->
 
 			# if the routes are not yet initialized we dont want to lose
 			# requests. Save all requests and run them when the routes are
@@ -64,14 +64,17 @@ angular.module('OC').factory '_Request', ->
 			# pass the CSRF token as header
 			headers =
 				headers:
-					'requesttoken': oc_requesttoken
+					'requesttoken': requesttoken
 					'Content-Type': 'application/x-www-form-urlencoded'
 
 			# do the actual request
 			@$http.post(url, postData, headers)
-				.success (data, status, headers, config) ->
+				.success (data, status, headers, config) =>
 					if onSuccess
 						onSuccess(data)
+					# publish data to models
+					for name, value of data.data
+						@publisher.publishDataTo(name, value)
 
 				.error (data, status, headers, config) ->
 					if onFailure

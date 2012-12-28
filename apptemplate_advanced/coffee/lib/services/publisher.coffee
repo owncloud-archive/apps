@@ -12,10 +12,10 @@
 ###
 # Used for properly distributing received model data from the server
 ###
-angular.module('OC').factory '_ModelPublisher', ->
+angular.module('OC').factory '_Publisher', ->
 
 
-	class ModelPublisher
+	class Publisher
 
 		constructor: ->
 			@subscriptions = {}
@@ -27,13 +27,17 @@ angular.module('OC').factory '_ModelPublisher', ->
 		#
 		# 	{
 		#		data: {
-		#			something: ['one', 'two']
+		#			modelName: {
+		#				create: [{id: 1, name: 'john'}, {id: 2, name: 'ron'}],
+		#               update: [],
+		#               delete: []
+		#           }
 		#		}
 		# 	}
 		#
 		# To get the array ['one', 'two'] passed to your model, just subscribe
 		# to the key:
-		#	ModelPublisher.subscribeModelTo('something', myModelInstance)
+		#	Publisher.subscribeModelTo('modelName', myModelInstance)
 		#
 		subscribeModelTo: (model, name) ->
 			@subscriptions[name] or= []
@@ -47,4 +51,4 @@ angular.module('OC').factory '_ModelPublisher', ->
 				subscriber.handle(data)
 
 
-	return ModelPublisher
+	return Publisher

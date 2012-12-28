@@ -75,8 +75,8 @@
 (function() {
 
   angular.module('AppTemplateAdvanced').controller('ExampleController', [
-    '$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController', function($scope, Config, AppTemplateAdvancedRequest, _ExampleController) {
-      return new _ExampleController($scope, Config, AppTemplateAdvancedRequest);
+    '$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController', 'ItemModel', function($scope, Config, AppTemplateAdvancedRequest, _ExampleController, ItemModel) {
+      return new _ExampleController($scope, Config, AppTemplateAdvancedRequest, ItemModel);
     }
   ]);
 
@@ -102,11 +102,12 @@
     var ExampleController;
     ExampleController = (function() {
 
-      function ExampleController($scope, config, request) {
+      function ExampleController($scope, config, request, itemModel) {
         var _this = this;
         this.$scope = $scope;
         this.config = config;
         this.request = request;
+        this.itemModel = itemModel;
         this.$scope.saveName = function(name) {
           return _this.saveName(name);
         };
@@ -166,6 +167,44 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
+  angular.module('AppTemplateAdvanced').factory('_ItemModel', [
+    '_Model', function(_Model) {
+      var ItemModel;
+      ItemModel = (function(_super) {
+
+        __extends(ItemModel, _super);
+
+        function ItemModel() {
+          ItemModel.__super__.constructor.call(this);
+        }
+
+        return ItemModel;
+
+      })(_Model);
+      return ItemModel;
+    }
+  ]);
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
   angular.module('AppTemplateAdvanced').factory('_AppTemplateAdvancedRequest', [
     '_Request', function(_Request) {
       var AppTemplateAdvancedRequest;
@@ -173,8 +212,8 @@
 
         __extends(AppTemplateAdvancedRequest, _super);
 
-        function AppTemplateAdvancedRequest($http, $rootScope, Config) {
-          AppTemplateAdvancedRequest.__super__.constructor.call(this, $http, $rootScope, Config);
+        function AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher) {
+          AppTemplateAdvancedRequest.__super__.constructor.call(this, $http, $rootScope, Config, Publisher);
         }
 
         AppTemplateAdvancedRequest.prototype.saveName = function(route, name) {
@@ -211,8 +250,17 @@
 (function() {
 
   angular.module('AppTemplateAdvanced').factory('AppTemplateAdvancedRequest', [
-    '$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', function($http, $rootScope, Config, _AppTemplateAdvancedRequest) {
-      return new _AppTemplateAdvancedRequest($http, $rootScope, Config);
+    '$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher', function($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher) {
+      return new _AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher);
+    }
+  ]);
+
+  angular.module('AppTemplateAdvanced').factory('ItemModel', [
+    '_ItemModel', 'Publisher', function(_ItemModel, Publisher) {
+      var model;
+      model = new _ItemModel();
+      Publisher.subscribeModelTo(model, 'items');
+      return model;
     }
   ]);
 
@@ -238,11 +286,12 @@
     var Request;
     Request = (function() {
 
-      function Request($http, $rootScope, Config) {
+      function Request($http, $rootScope, Config, publisher) {
         var _this = this;
         this.$http = $http;
         this.$rootScope = $rootScope;
         this.Config = Config;
+        this.publisher = publisher;
         this.initialized = false;
         this.shelvedRequests = [];
         this.$rootScope.$on('routesLoaded', function() {
@@ -258,7 +307,8 @@
       }
 
       Request.prototype.post = function(route, routeParams, data, onSuccess, onFailure) {
-        var headers, postData, request, url;
+        var headers, postData, request, url,
+          _this = this;
         if (!this.initialized) {
           request = {
             route: route,
@@ -279,14 +329,22 @@
         postData = $.param(data);
         headers = {
           headers: {
-            'requesttoken': oc_requesttoken,
+            'requesttoken': requesttoken,
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         };
         return this.$http.post(url, postData, headers).success(function(data, status, headers, config) {
+          var name, value, _ref, _results;
           if (onSuccess) {
-            return onSuccess(data);
+            onSuccess(data);
           }
+          _ref = data.data;
+          _results = [];
+          for (name in _ref) {
+            value = _ref[name];
+            _results.push(_this.publisher.publishDataTo(name, value));
+          }
+          return _results;
         }).error(function(data, status, headers, config) {
           if (onFailure) {
             return onFailure(data);
@@ -323,9 +381,9 @@
 
 (function() {
 
-  angular.module('OC').factory('ModelPublisher', [
-    '_ModelPublisher', function(_ModelPublisher) {
-      return new _ModelPublisher();
+  angular.module('OC').factory('Publisher', [
+    '_Publisher', function(_Publisher) {
+      return new _Publisher();
     }
   ]);
 
@@ -357,11 +415,38 @@
         this.ids = {};
       }
 
+      Model.prototype.handle = function(data) {
+        var item, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2, _results;
+        if (data['create'] !== void 0) {
+          _ref = data['create'];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            item = _ref[_i];
+            this.create(item);
+          }
+        }
+        if (data['update'] !== void 0) {
+          _ref1 = data['update'];
+          for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+            item = _ref1[_j];
+            this.update(item);
+          }
+        }
+        if (data['delete'] !== void 0) {
+          _ref2 = data['delete'];
+          _results = [];
+          for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
+            item = _ref2[_k];
+            _results.push(this["delete"](item));
+          }
+          return _results;
+        }
+      };
+
       Model.prototype.hasForeignKey = function(name) {
         return this.foreignKeys[name] = {};
       };
 
-      Model.prototype.add = function(data) {
+      Model.prototype.create = function(data) {
         var id, ids, name, _base, _ref, _results;
         if (this.ids[data.id] !== void 0) {
           return this.update(data);
@@ -388,7 +473,7 @@
           value = item[key];
           if (this.foreignKeys[key] !== void 0) {
             if (value !== currentItem[key]) {
-              this.updateForeignKeyCache(key, currentItem, item);
+              this._updateForeignKeyCache(key, currentItem, item);
             }
           }
           if (key !== 'id') {
@@ -400,16 +485,22 @@
         return _results;
       };
 
-      Model.prototype.updateForeignKeyCache = function(name, currentItem, toItem) {
+      Model.prototype["delete"] = function(item) {
+        if (this.getById(item.id) !== void 0) {
+          return this.removeById(item.id);
+        }
+      };
+
+      Model.prototype._updateForeignKeyCache = function(name, currentItem, toItem) {
         var foreignKeyItems, fromValue, toValue;
         fromValue = currentItem[name];
         toValue = toItem[name];
         foreignKeyItems = this.foreignKeys[name][fromValue];
-        this.removeForeignKeyCacheItem(foreignKeyItems, currentItem);
+        this._removeForeignKeyCacheItem(foreignKeyItems, currentItem);
         return this.foreignKeys[name][toValue].push(item);
       };
 
-      Model.prototype.removeForeignKeyCacheItem = function(foreignKeyItems, item) {
+      Model.prototype._removeForeignKeyCacheItem = function(foreignKeyItems, item) {
         var fkItem, index, _i, _len, _results;
         _results = [];
         for (index = _i = 0, _len = foreignKeyItems.length; _i < _len; index = ++_i) {
@@ -430,7 +521,7 @@
         for (key in _ref) {
           ids = _ref[key];
           foreignKeyItems = ids[item[key]];
-          this.removeForeignKeyCacheItem(foreignKeyItems, item);
+          this._removeForeignKeyCacheItem(foreignKeyItems, item);
         }
         _ref1 = this.data;
         for (index = _i = 0, _len = _ref1.length; _i < _len; index = ++_i) {
@@ -483,21 +574,21 @@
 
 (function() {
 
-  angular.module('OC').factory('_ModelPublisher', function() {
-    var ModelPublisher;
-    ModelPublisher = (function() {
+  angular.module('OC').factory('_Publisher', function() {
+    var Publisher;
+    Publisher = (function() {
 
-      function ModelPublisher() {
+      function Publisher() {
         this.subscriptions = {};
       }
 
-      ModelPublisher.prototype.subscribeModelTo = function(model, name) {
+      Publisher.prototype.subscribeModelTo = function(model, name) {
         var _base;
         (_base = this.subscriptions)[name] || (_base[name] = []);
         return this.subscriptions[name].push(model);
       };
 
-      ModelPublisher.prototype.publishDataTo = function(data, name) {
+      Publisher.prototype.publishDataTo = function(data, name) {
         var subscriber, _i, _len, _ref, _results;
         _ref = this.subscriptions[name] || [];
         _results = [];
@@ -508,10 +599,10 @@
         return _results;
       };
 
-      return ModelPublisher;
+      return Publisher;
 
     })();
-    return ModelPublisher;
+    return Publisher;
   });
 
 }).call(this);
