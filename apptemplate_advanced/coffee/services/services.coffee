@@ -13,5 +13,5 @@ angular.module('AppTemplateAdvanced').factory 'AppTemplateAdvancedRequest',
 ['$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest',
 ($http, $rootScope, Config, _AppTemplateAdvancedRequest) ->
 
-        return new _AppTemplateAdvancedRequest($http, $rootScope, Config)
+	return new _AppTemplateAdvancedRequest($http, $rootScope, Config)
 ]

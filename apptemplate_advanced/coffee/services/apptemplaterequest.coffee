@@ -15,24 +15,24 @@ angular.module('AppTemplateAdvanced').factory '_AppTemplateAdvancedRequest',
 ['_Request',
 (_Request) ->
 
-        class AppTemplateAdvancedRequest extends _Request
+	class AppTemplateAdvancedRequest extends _Request
 
 
-                constructor: ($http, $rootScope, Config) ->
-                        super($http, $rootScope, Config)
+		constructor: ($http, $rootScope, Config) ->
+			super($http, $rootScope, Config)
 
 
-                saveName: (route, name) ->
-                        data =
-                                somesetting: name
+		saveName: (route, name) ->
+			data =
+				somesetting: name
 
-                        @post(route, {}, data)
-
-
-                # Create your local request methods in here
-                #
-                # myReqest: (route, ...) ->
+			@post(route, {}, data)
 
 
-        return AppTemplateAdvancedRequest
+		# Create your local request methods in here
+		#
+		# myReqest: (route, ...) ->
+
+
+	return AppTemplateAdvancedRequest
 ]

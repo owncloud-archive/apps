@@ -15,7 +15,7 @@ util = require 'util'
 {exec} = require 'child_process'
 
 try
-        coffee = require 'coffee-script'
+	coffee = require 'coffee-script'
 catch err
 	util.log 'Please export your node path by entering: export NODE_PATH=/usr/lib/node_modules'
 	process.exit(1)
@@ -84,14 +84,21 @@ getOrderedCoffeeFiles = (directory) ->
 
 # compiles an array with file content to a js file
 compile = (content, toFile) ->
-        compiled = []
-        for code in content
-                util.log 'Compiling ' + code[0]
-                compiled.push(coffee.compile(code[1]))
+	compiled = []
+	compileError = false
+	for code in content
+		util.log 'Compiling ' + code[0]
+		try
+			compiled.push(coffee.compile(code[1]))
+		catch error
+			util.log error
+			compileError = true
+			break
 
-        fs.writeFile toFile, compiled.join('\n\n'), 'utf8', (error) ->
-		if error
-			throw error
+	if not compileError
+		fs.writeFile toFile, compiled.join('\n\n'), 'utf8', (error) ->
+			if error
+				throw error
 
 
 # register a callback on an array of files and remove already bound ones
@@ -123,13 +130,13 @@ task 'build', 'Build and compress CoffeeScript into single JavaScript file', ->
 	remaining = files.length
 
 	# read out content of files and compile them afterwards
-        for file in files then do (file) ->
+	for file in files then do (file) ->
 		fs.readFile file, 'utf8', (error, fileContent) ->
 			if error
 				throw error
 
-                        content.push([file, fileContent])
+			content.push([file, fileContent])
 
-                        remaining -= 1
+			remaining -= 1
 			if remaining <= 0
 				compile(content, compileToFile)

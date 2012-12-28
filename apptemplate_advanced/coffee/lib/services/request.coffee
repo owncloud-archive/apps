@@ -11,70 +11,70 @@
 
 angular.module('OC').factory '_Request', ->
 
-        class Request
+	class Request
 
-                constructor: (@$http, @$rootScope, @Config) ->
+		constructor: (@$http, @$rootScope, @Config) ->
 
-                        # if the routes are not yet initialized we dont want to lose
-                        # requests. Save all requests and run them when the routes are
-                        # ready
-                        @initialized = false
-                        @shelvedRequests = []
+			# if the routes are not yet initialized we dont want to lose
+			# requests. Save all requests and run them when the routes are
+			# ready
+			@initialized = false
+			@shelvedRequests = []
 
-                        @$rootScope.$on 'routesLoaded', =>
-                                for req in @shelvedRequests
-                                        @post(req.route, req.routeParams, req.data,
-                                                        req.onSuccess, req.onFailure)
+			@$rootScope.$on 'routesLoaded', =>
+				for req in @shelvedRequests
+					@post(req.route, req.routeParams, req.data,
+							req.onSuccess, req.onFailure)
 
-                                @initialized = true
-                                @shelvedRequests = []
+				@initialized = true
+				@shelvedRequests = []
 
 
-                # Do the actual post request
-                # @param string route: the url which we want to request
-                # @param object routeParams: Parameters that are needed to generate
-                #                            the route
-                # @param object data: the post params that we want to pass
-                # @param function onSuccess: the function that will be called if
-                #                            the request was successful
-                # @param function onFailure: the function that will be called if the
-                #                          request failed
-                post: (route, routeParams, data, onSuccess, onFailure) ->
-                        # if routes are not ready yet, save the request
-                        if not @initialized
-                                request =
-                                        route: route
-                                        routeParams: routeParams
-                                        data: data
-                                        onSuccess: onSuccess
-                                        onFailure: onFailure
+		# Do the actual post request
+		# @param string route: the url which we want to request
+		# @param object routeParams: Parameters that are needed to generate
+		#                            the route
+		# @param object data: the post params that we want to pass
+		# @param function onSuccess: the function that will be called if
+		#                            the request was successful
+		# @param function onFailure: the function that will be called if the
+		#                          request failed
+		post: (route, routeParams, data, onSuccess, onFailure) ->
+			# if routes are not ready yet, save the request
+			if not @initialized
+				request =
+					route: route
+					routeParams: routeParams
+					data: data
+					onSuccess: onSuccess
+					onFailure: onFailure
 
-                                @shelvedRequests.push(request)
-                                return
+				@shelvedRequests.push(request)
+				return
 
-                        if routeParams
-                                url = OC.Router.generate(route, routeParams)
-                        else
-                                url = OC.Router.generate(route)
+			if routeParams
+				url = OC.Router.generate(route, routeParams)
+			else
+				url = OC.Router.generate(route)
 
-                        # encode data object for post
-                        data or= {}
-                        postData = $.param(data)
+			# encode data object for post
+			data or= {}
+			postData = $.param(data)
 
-                        # pass the CSRF token as header
-                        headers =
-                                headers:
-                                        'requesttoken': oc_requesttoken
-                                        'Content-Type': 'application/x-www-form-urlencoded'
+			# pass the CSRF token as header
+			headers =
+				headers:
+					'requesttoken': oc_requesttoken
+					'Content-Type': 'application/x-www-form-urlencoded'
 
-                        # do the actual request
-                        @$http.post(url, postData, headers)
-                                .success (data, status, headers, config) ->
-                                        if onSuccess
-                                                onSuccess(data)
+			# do the actual request
+			@$http.post(url, postData, headers)
+				.success (data, status, headers, config) ->
+					if onSuccess
+						onSuccess(data)
 
-                                .error (data, status, headers, config) ->
-                                        if onFailure
-                                                onFailure(data)
+				.error (data, status, headers, config) ->
+					if onFailure
+						onFailure(data)
 
-        return Request
+	return Request

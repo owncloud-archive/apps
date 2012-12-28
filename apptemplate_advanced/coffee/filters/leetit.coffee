@@ -13,5 +13,5 @@
 # This simply turns some letters into numbers
 angular.module('AppTemplateAdvanced').filter 'leetIt', ->
 
-        return (leetThis) ->
-                return leetThis.replace('e', '3').replace('i', '1')
+	return (leetThis) ->
+		return leetThis.replace('e', '3').replace('i', '1')

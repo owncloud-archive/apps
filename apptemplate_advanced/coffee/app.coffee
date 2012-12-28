@@ -31,10 +31,10 @@ angular.module('AppTemplateAdvanced', ['OC']).config ['$provide', ($provide) ->
 # the document is ready
 angular.module('AppTemplateAdvanced').run ['$rootScope', ($rootScope) ->
 
-        init = ->
-                $rootScope.$broadcast('routesLoaded')
+	init = ->
+		$rootScope.$broadcast('routesLoaded')
 
-        # this registers a callback that is executed once the routes have
-        # finished loading. Before this you cant really do request
-        OC.Router.registerLoadedCallback(init)
+	# this registers a callback that is executed once the routes have
+	# finished loading. Before this you cant really do request
+	OC.Router.registerLoadedCallback(init)
 ]

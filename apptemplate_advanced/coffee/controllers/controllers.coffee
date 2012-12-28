@@ -13,5 +13,5 @@ angular.module('AppTemplateAdvanced').controller 'ExampleController',
 ['$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController',
 ($scope, Config, AppTemplateAdvancedRequest, _ExampleController) ->
 
-        return new _ExampleController($scope, Config, AppTemplateAdvancedRequest)
+	return new _ExampleController($scope, Config, AppTemplateAdvancedRequest)
 ]

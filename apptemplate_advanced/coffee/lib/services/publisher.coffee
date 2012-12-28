@@ -15,36 +15,36 @@
 angular.module('OC').factory '_ModelPublisher', ->
 
 
-        class ModelPublisher
+	class ModelPublisher
 
-                constructor: ->
-                        @subscriptions = {}
-
-
-                # Use this to subscribe to a certain hashkey in the returned json data
-                # dictionary.
-                # If you send JSON from the server, you'll receive something like this
-                #
-                # 	{
-                #		data: {
-                #			something: ['one', 'two']
-                #		}
-                # 	}
-                #
-                # To get the array ['one', 'two'] passed to your model, just subscribe
-                # to the key:
-                #	ModelPublisher.subscribeModelTo('something', myModelInstance)
-                #
-                subscribeModelTo: (model, name) ->
-                        @subscriptions[name] or= []
-                        @subscriptions[name].push(model)
+		constructor: ->
+			@subscriptions = {}
 
 
-                # This will publish data from the server to all registered subscribers
-                # The parameter 'name' is the name under which subscribers have registered
-                publishDataTo: (data, name) ->
-                        for subscriber in @subscriptions[name] || []
-                                subscriber.handle(data)
+		# Use this to subscribe to a certain hashkey in the returned json data
+		# dictionary.
+		# If you send JSON from the server, you'll receive something like this
+		#
+		# 	{
+		#		data: {
+		#			something: ['one', 'two']
+		#		}
+		# 	}
+		#
+		# To get the array ['one', 'two'] passed to your model, just subscribe
+		# to the key:
+		#	ModelPublisher.subscribeModelTo('something', myModelInstance)
+		#
+		subscribeModelTo: (model, name) ->
+			@subscriptions[name] or= []
+			@subscriptions[name].push(model)
 
 
-        return ModelPublisher
+		# This will publish data from the server to all registered subscribers
+		# The parameter 'name' is the name under which subscribers have registered
+		publishDataTo: (data, name) ->
+			for subscriber in @subscriptions[name] || []
+				subscriber.handle(data)
+
+
+	return ModelPublisher

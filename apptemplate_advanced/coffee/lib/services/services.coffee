@@ -16,5 +16,5 @@
 angular.module('OC').factory 'ModelPublisher',
 ['_ModelPublisher',
 (_ModelPublisher) ->
-        return new _ModelPublisher()
+	return new _ModelPublisher()
 ]

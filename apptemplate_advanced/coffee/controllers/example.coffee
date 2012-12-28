@@ -15,18 +15,18 @@
 # across controllers this way
 angular.module('AppTemplateAdvanced').factory '_ExampleController', ->
 
-        class ExampleController
+	class ExampleController
 
-                constructor: (@$scope, @config, @request) ->
+		constructor: (@$scope, @config, @request) ->
 
-                        # bind methods on the scope so that you can access them in the
-                        # controllers child HTML
-                        @$scope.saveName = (name) =>
-                                @saveName(name)
-
-
-                saveName: (name) ->
-                        @request.saveName(@config.routes.saveNameRoute, name)
+			# bind methods on the scope so that you can access them in the
+			# controllers child HTML
+			@$scope.saveName = (name) =>
+				@saveName(name)
 
 
-        return ExampleController
+		saveName: (name) ->
+			@request.saveName(@config.routes.saveNameRoute, name)
+
+
+	return ExampleController
