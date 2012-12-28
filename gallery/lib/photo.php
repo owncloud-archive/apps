@@ -106,6 +106,7 @@ class OC_Gallery_Photo {
 		}*/
 		if (file_exists($view_file)) {
 			$image = new OC_Image($view_file);
+            $image->fixOrientation();
 		} else {
 			$image_path = OC_Filesystem::getLocalFile($image_path);
 			if (!file_exists($image_path)) {
