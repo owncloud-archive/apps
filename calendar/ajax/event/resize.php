@@ -11,14 +11,14 @@ OCP\JSON::callCheck();
 
 $id = $_POST['id'];
 
-$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT);
+$vcalendar = OC_Calendar_App::getVCalendar($id, false, false);
+$vevent = $vcalendar->VEVENT;
+
+$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT, $vevent->CLASS->value);
 if(!$permissions & OCP\PERMISSION_UPDATE) {
 	OCP\JSON::error(array('message'=>'permission denied'));
 	exit;
 }
-
-$vcalendar = OC_Calendar_App::getVCalendar($id, false, false);
-$vevent = $vcalendar->VEVENT;
 
 $delta = new DateInterval('P0D');
 $delta->d = $_POST['dayDelta'];
