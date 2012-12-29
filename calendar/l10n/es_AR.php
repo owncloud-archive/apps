@@ -50,6 +50,7 @@
 "New Calendar" => "Calendario nuevo",
 "You do not have the permissions to add events to this calendar." => "No tenés permisos suficientes para añadir eventos a este calendario.",
 "You do not have the permissions to delete this event." => "No tenés permisos suficientes para eliminar este evento.",
+"Busy" => "Ocupado",
 "Does not repeat" => "No se repite",
 "Daily" => "Diariamente",
 "Weekly" => "Semanalmente",
