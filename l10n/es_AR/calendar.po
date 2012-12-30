@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-30 00:01+0100\n"
-"PO-Revision-Date: 2012-12-29 22:58+0000\n"
+"POT-Creation-Date: 2012-12-31 00:01+0100\n"
+"PO-Revision-Date: 2012-12-30 00:29+0000\n"
 "Last-Translator: Agustin Ferrario <agustin.ferrario@hotmail.com.ar>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -234,15 +234,15 @@ msgstr "Ocupado"
 
 #: lib/object.php:498
 msgid "Public"
-msgstr ""
+msgstr "Publico"
 
 #: lib/object.php:499
 msgid "Private"
-msgstr ""
+msgstr "Privado"
 
 #: lib/object.php:500
 msgid "Confidential"
-msgstr ""
+msgstr "Confidencial"
 
 #: lib/object.php:510
 msgid "Does not repeat"
@@ -666,7 +666,7 @@ msgstr "Editar categorías"
 
 #: templates/part.eventform.php:50 templates/part.showevent.php:46
 msgid "Access Class"
-msgstr ""
+msgstr "Clase de acceso"
 
 #: templates/part.eventform.php:67 templates/part.showevent.php:62
 msgid "All Day Event"

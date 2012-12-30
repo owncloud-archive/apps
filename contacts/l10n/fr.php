@@ -56,7 +56,7 @@
 "Contact is not in this group." => "Ce contact n'est pas présent dans le groupe.",
 "Contacts are not in this group." => "Ces contacts ne sont pas présents dans le groupe.",
 "A group named {group} already exists" => "Un groupe nommé {group} existe déjà",
-"You can drag groups to\narrange them as you like." => "Vous pouvez déplacer les dossiers pour les organiser comme bon vous semble.",
+"You can drag groups to\narrange them as you like." => "Vous pouvez faire glisser les dossiers pour les réorganiser comme bon vous semble.",
 "All" => "Tous",
 "Favorites" => "Favoris",
 "Shared by {owner}" => "Partagé par {owner}",
