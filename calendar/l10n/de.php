@@ -158,6 +158,7 @@
 "Category" => "Kategorie",
 "Separate categories with commas" => "Kategorien mit Kommata trennen",
 "Edit categories" => "Kategorien ändern",
+"Access Class" => "Zugriffsklasse",
 "All Day Event" => "Ganztägiges Ereignis",
 "From" => "von",
 "To" => "bis",
