@@ -215,6 +215,14 @@ class OC_Calendar_App{
 		}
 	}
 
+ 	/**
+	 * @brief returns the options for the access class of an event
+	 * @return array - valid inputs for the access class of an event
+	 */
+	public static function getAccessClassOptions() {
+		return OC_Calendar_Object::getAccessClassOptions(self::$l10n);
+	}
+
 	/**
 	 * @brief returns the options for the repeat rule of an repeating event
 	 * @return array - valid inputs for the repeat rule of an repeating event
@@ -310,9 +318,10 @@ class OC_Calendar_App{
 	 * @param (int) $id - id of the calendar / event
 	 * @param (string) $type - type of the id (calendar/event)
 	 * @return (int) $permissions - CRUDS permissions
+	 * @param (string) $accessclass - access class (rfc5545, section 3.8.1.3)
 	 * @see OCP\Share
 	 */
-	public static function getPermissions($id, $type) {
+	public static function getPermissions($id, $type, $accessclass = '') {
 		 $permissions_all = OCP\PERMISSION_ALL;
 
 		if($type == self::CALENDAR) {
@@ -341,10 +350,35 @@ class OC_Calendar_App{
 				if ($sharedEvent) {
 					$event_permissions = $sharedEvent['permissions'];
 				}
-				return max($calendar_permissions, $event_permissions);
+				if ($accessclass === 'PRIVATE') {
+					return 0;
+				} elseif ($accessclass === 'CONFIDENTIAL') {
+					return OCP\Share::PERMISSION_READ;
+				} else {
+					return max($calendar_permissions, $event_permissions);
+				}
 			}
 		}
 		return 0;
+	}
+
+	/*
+	 * @brief Get the permissions for an access class 
+	 * @param (string) $accessclass - access class (rfc5545, section 3.8.1.3)
+	 * @return (int) $permissions - CRUDS permissions
+	 * @see OCP\Share
+	 */
+	public static function getAccessClassPermissions($accessclass = '') {
+
+		switch($accessclass) {
+			case 'CONFIDENTIAL':
+				return OCP\Share::PERMISSION_READ;
+			case 'PUBLIC':
+			case '':
+				return (OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE | OCP\Share::PERMISSION_DELETE);
+			default:
+				return 0;
+		}
 	}
 
 	/**
@@ -367,7 +401,7 @@ class OC_Calendar_App{
 				$calendar = self::getCalendar($calendarid);
 				OCP\Response::enableCaching(0);
 				OCP\Response::setETagHeader($calendar['ctag']);
-				$events = OC_Calendar_Object::allInPeriod($calendarid, $start, $end);
+				$events = OC_Calendar_Object::allInPeriod($calendarid, $start, $end, $calendar['userid'] !== OCP\User::getUser());
 			} else {
 				OCP\Util::emitHook('OC_Calendar', 'getEvents', array('calendar_id' => $calendarid, 'events' => &$events));
 			}
@@ -393,11 +427,21 @@ class OC_Calendar_App{
 		$vevent = $object->VEVENT;
 		$return = array();
 		$id = $event['id'];
+		if(OC_Calendar_Object::getowner($id) !== OCP\USER::getUser()) {
+			// do not show events with private or unknown access class
+			if ($vevent->CLASS->value !== 'CONFIDENTIAL' 
+				&& $vevent->CLASS->value !== 'PUBLIC' 
+				&& $vevent->CLASS->value !== '')
+			{
+				return $return;
+			}
+			$object = OC_Calendar_Object::cleanByAccessClass($id, $object);
+		}
 		$allday = ($vevent->DTSTART->getDateType() == Sabre\VObject\Property\DateTime::DATE)?true:false;
 		$last_modified = @$vevent->__get('LAST-MODIFIED');
 		$lastmodified = ($last_modified)?$last_modified->getDateTime()->format('U'):0;
 		$staticoutput = array('id'=>(int)$event['id'],
-						'title' => ($event['summary']!=null || $event['summary'] != '')?$event['summary']: self::$l10n->t('unnamed'),
+						'title' => ($vevent->SUMMARY->value != '')?$vevent->SUMMARY->value: self::$l10n->t('unnamed'),
 						'description' => isset($vevent->DESCRIPTION)?$vevent->DESCRIPTION->value:'',
 						'lastmodified'=>$lastmodified,
 						'allDay'=>$allday);

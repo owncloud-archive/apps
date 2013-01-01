@@ -20,6 +20,9 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+
+OC_Util::checkAdminUser();
+
 $params = array('uid_list', 'pwauth_path');
 
 if ($_POST) {

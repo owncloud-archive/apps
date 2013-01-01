@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-08 00:03+0100\n"
-"PO-Revision-Date: 2012-12-06 11:46+0000\n"
+"POT-Creation-Date: 2013-01-01 00:01+0100\n"
+"PO-Revision-Date: 2012-12-31 08:24+0000\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -33,22 +33,9 @@ msgid "An error has occurred"
 msgstr "Produciuse un erro"
 
 #: templates/settings.php:2
-msgid "Export your user account"
-msgstr "Exportar a súa conta de usuario"
+msgid "User Account Migration"
+msgstr "Migración de contas de usuario"
 
 #: templates/settings.php:3
-msgid ""
-"This will create a compressed file that contains your ownCloud account."
-msgstr "Isto creará un ficheiro comprimido que conterá a súa conta ownCloud"
-
-#: templates/settings.php:13
-msgid "Import user account"
-msgstr "Importar a conta de usuario"
-
-#: templates/settings.php:15
-msgid "ownCloud User Zip"
-msgstr "ZIP de usuario ownCloud"
-
-#: templates/settings.php:17
-msgid "Import"
-msgstr "Importar"
+msgid "Export and import ownCloud user accounts."
+msgstr "Exportar e importar contas de usuario ownCloud."

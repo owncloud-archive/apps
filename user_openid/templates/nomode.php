@@ -13,7 +13,7 @@ global $profile;
 				<?php if($_['user']):?>
 					<p><?php echo($l->t('Identity: <b>').$profile['idp_url']); ?></b></p>
 					<p><?php echo($l->t('Realm: <b>').$profile['php_realm']); ?></b></p>
-					<p><?php echo($l->t('User: <b>').$_['user']); ?></b>
+					<p><?php echo($l->t('User: <b>').$_['user']); ?></b></p>
 					<p><a href="<?php echo($profile['idp_url']); ?>?openid.mode=login"><?php echo($l->t('Login')); ?></a>
 					<?php if($profile['allow_test'] === true): ?>
 						<a href="<?php echo($profile['idp_url']); ?>?openid.mode=test">Test</a>

@@ -52,8 +52,6 @@ $files_to_zip = array(
 );
 //if true, good; if false, zip creation failed
 $result = create_zip($files_to_zip, $filename.'.zip');
-    $save_file = OC_App::getStorage('impressionist');
-    $save_file ->file_put_contents($result.'.zip',$files_to_zip.'.zip');
 ?>
 <html lang="en">
 <head>

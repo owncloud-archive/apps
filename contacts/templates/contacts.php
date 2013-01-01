@@ -14,21 +14,18 @@
 	<input id="contactphoto_fileupload" type="file" accept="image/*" name="imagefile" />
 </form>
 <iframe name="file_upload_target" id='file_upload_target' src=""></iframe>
+<div id="groupsheader">
+	<button class="addgroup"><?php echo $l->t('New Group'); ?></button>
+</div>
 <div id="leftcontent" class="loading">
-	<div class="hidden" id="statusbar"></div>
-	<div id="groupactions">
-		<button class="addgroup"><?php echo $l->t('New Group'); ?></button>
-	</div>
 	<nav id="grouplist">
 	</nav>
 	<div id="contacts-settings">
-		<ul>
-			<li><button class="settings" title="<?php echo $l->t('Settings'); ?>"></button></li>
-			<li><h3 data-id="addressbooks"><?php echo $l->t('Address books'); ?></h3>
+			<h3 class="settings action text" tabindex="0" role="button"><?php echo $l->t('Settings'); ?></h3>
+			<h3 data-id="addressbooks" tabindex="0" role="button"><?php echo $l->t('Address books'); ?></h3>
 				<ul class="hidden">
 				</ul>
-			</li>
-			<li><h3 data-id="import" role="button"><?php echo $l->t('Import'); ?></h3>
+			<h3 data-id="import" tabindex="0" role="button"><?php echo $l->t('Import'); ?></h3>
 				<ul class="hidden">
 					<li class="import-upload">
 						<form id="import_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadimport.php'); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
@@ -51,8 +48,6 @@
 						<div id="import-progress"></div>
 					</li>
 				</ul>
-			</li>
-		</ul>
 	</div>
 </div>
 <div id="contactsheader">
@@ -178,6 +173,7 @@
 				</ul>
 				<a class="favorite action {favorite}"></a>
 			</div>
+			<select id="contactgroups" multiple></select>
 			<div class="singleproperties">
 			<input data-element="fn" class="fullname value propertycontainer" type="text" name="value" value="{name}" required />
 			<a class="action edit"></a>

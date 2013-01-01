@@ -7,7 +7,7 @@
 $result = $_POST["data"];
 $filename = stripslashes($_POST["filename"]);
 //echo $_SESSION['htmldata'];
-$fp = fopen('apps/impressionist/output/'.$filename.".html", 'w');
+$fp = fopen('output/'.$filename.".html", 'w');
 fwrite($fp, stripslashes($result));
 fclose($fp);
 echo "success".$_POST["filename"].$_POST["data"];

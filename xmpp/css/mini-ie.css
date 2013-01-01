@@ -1,0 +1,84 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ *
+ * This compound file may be composed of several subfiles by different authors.
+ * The particular authors, copyright information, disclaimers and alternative
+ * licenses for the subfiles are indicated in separate headers.
+ *
+ */
+/*
+
+Jappix - An open social platform
+This is the Jappix Mini legacy IE CSS stylesheet
+
+-------------------------------------------------
+
+License: dual-licensed under AGPL and MPLv2
+Author: Vanaryon
+Last revision: 22/08/12
+
+*/
+
+#jappix_mini {
+	width: expression(document.documentElement.clientWidth - 150 + 'px') !important;
+	position: absolute !important;
+	bottom: auto !important;
+	right: auto !important;
+	top: expression(((document.documentElement.clientHeight - this.offsetHeight) + (ignoreMiniTop = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop)) + 'px') !important;
+	left: expression((150 + this.offsetWidth - (document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth) + (ignoreMiniLeft = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft)) + 'px') !important;
+}
+
+#jappix_mini .jm_images {
+	background-image: url(../img/sprites/mini.gif) !important;
+}
+
+#jappix_mini .jm_images_animate {
+	background-image: url(../img/sprites/animate.gif) !important;
+}
+
+#jappix_mini a.jm_button {
+	width: 1px !important;
+}
+
+#jappix_mini div.jm_roster {
+	right: -1px !important;
+	bottom: 23px !important;
+}
+
+#jappix_mini div.jm_roster div.jm_buddies {
+	height: expression(this.scrollHeight > (document.documentElement.clientHeight - 70) ? (document.documentElement.clientHeight - 70) + 'px' : 'auto') !important;
+}
+
+#jappix_mini a.jm_pane {
+	height: 12px !important;
+	overflow-y: hidden !important;
+}
+
+#jappix_mini a.jm_button.jm_clicked {
+	background-image: none !important;
+}
+
+#jappix_mini div.jm_conversations a.jm_clicked {
+	border-right: none !important;
+	padding: 7px 6px 6px 6px !important;
+}
+
+#jappix_mini div.jm_chat-content {
+	bottom: 23px !important;
+	right: -2px !important;
+}
+
+#jappix_popup {
+	height: expression(document.documentElement.clientHeight + 'px') !important;
+	width: expression(document.documentElement.clientWidth + 'px') !important;
+	position: absolute !important;
+	top: expression(((ignorePopupTop = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop)) + 'px') !important;
+	left: expression(((ignorePopupLeft = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft)) + 'px') !important;
+}
+
+#jappix_popup div.jm_prompt {
+	position: absolute !important;
+}
