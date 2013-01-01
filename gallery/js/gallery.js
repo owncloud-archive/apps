@@ -66,13 +66,15 @@ Gallery.view.addImage = function (image) {
 };
 
 Gallery.view.addAlbum = function (path) {
-	var link = $('<a/>'), image;
+	var link = $('<a/>'), image, label = $('<label/>');
 	link.addClass('album');
 	link.attr('href', '#' + path);
 	link.click(Gallery.view.viewAlbum.bind(null, path));
 	link.data('path', path);
 	link.data('offset', 0);
 	link.attr('style', 'background-image:url("' + Gallery.getAlbumThumbnail(path) + '")').attr('title', OC.basename(path));
+	label.text(OC.basename(path));
+	link.append(label);
 	image = new Image();
 	image.src = Gallery.getAlbumThumbnail(path);
 

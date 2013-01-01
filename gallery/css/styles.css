@@ -12,9 +12,18 @@
 	border: 1px solid #eee;
 }
 
+#gallery > a.album>label {
+	color: white;
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+	text-align: center;
+}
+
 #gallery > a {
 	height: 200px;
 	margin: 1em;
+	position: relative;
 }
 
 #slideshow-start {
