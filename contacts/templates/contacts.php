@@ -173,6 +173,7 @@
 				</ul>
 				<a class="favorite action {favorite}"></a>
 			</div>
+			<select id="contactgroups" multiple></select>
 			<div class="singleproperties">
 			<input data-element="fn" class="fullname value propertycontainer" type="text" name="value" value="{name}" required />
 			<a class="action edit"></a>

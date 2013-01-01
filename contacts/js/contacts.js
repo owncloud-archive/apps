@@ -638,8 +638,19 @@ OC.Contacts = OC.Contacts || {};
 	 * @return A jquery object to be inserted in the DOM
 	 */
 	Contact.prototype.renderContact = function(groupprops) {
-		this.groupprops = groupprops;
 		var self = this;
+		this.groupprops = groupprops;
+		
+		var buildGroupSelect = function($groupSelect, availableGroups) {
+			$.each(availableGroups, function(idx, group) {
+				var $option = $('<option value="' + group.id + '">' + group.name + '</option>');
+				if(self.inGroup(group.name)) {
+					$option.attr('selected', 'selected');
+				}
+				$groupSelect.append($option);
+			});
+		};
+		
 		var n = this.getPreferredValue('N', ['', '', '', '', '']);
 		//console.log('Contact.renderContact', this.data);
 		var values = this.data
@@ -667,6 +678,11 @@ OC.Contacts = OC.Contacts || {};
 		this.$fullelem.on('submit', function() {
 			return false;
 		});
+		
+		this.$groupSelect = this.$fullelem.find('#contactgroups');
+		buildGroupSelect(this.$groupSelect, groupprops.groups);
+		this.$groupSelect.multiSelect();
+		
 		this.$addMenu = this.$fullelem.find('#addproperty');
 		this.$addMenu.on('change', function(event) {
 			//console.log('add', $(this).val());
@@ -1412,7 +1428,9 @@ OC.Contacts = OC.Contacts || {};
 			timeouthandler:function() {
 				console.log('timeout');
 				// Don't fire all deletes at once
-				self.deletionTimer = setInterval('self.deleteContacts()', 500);
+				self.deletionTimer = setInterval(function() {
+					self.deleteContacts();
+				}, 500);
 			},
 			clickhandler:function() {
 				console.log('clickhandler');
