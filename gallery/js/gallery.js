@@ -53,45 +53,66 @@ Gallery.view.element = null;
 Gallery.view.clear = function () {
 	Gallery.view.element.empty();
 };
+Gallery.view.cache = {};
 
 Gallery.view.addImage = function (image) {
-	var link = $('<a/>'), thumb = $('<img/>');
-	link.addClass('image');
-	link.attr('href', Gallery.getImage(image)).attr('rel', 'album').attr('alt', OC.basename(image)).attr('title', OC.basename(image));
+	var link , thumb;
+	if (Gallery.view.cache[image]) {
+		Gallery.view.element.append(Gallery.view.cache[image]);
+	} else {
+		link = $('<a/>');
+		thumb = $('<img/>');
+		link.addClass('image');
+		link.attr('href', Gallery.getImage(image)).attr('rel', 'album').attr('alt', OC.basename(image)).attr('title', OC.basename(image));
 
-	thumb.attr('src', Gallery.getThumbnail(image));
-	link.append(thumb);
+		thumb.attr('src', Gallery.getThumbnail(image));
+		link.append(thumb);
 
-	Gallery.view.element.append(link);
+		Gallery.view.element.append(link);
+		Gallery.view.cache[image] = link;
+	}
 };
 
 Gallery.view.addAlbum = function (path) {
-	var link = $('<a/>'), image, label = $('<label/>');
-	link.addClass('album');
-	link.attr('href', '#' + path);
-	link.click(Gallery.view.viewAlbum.bind(null, path));
-	link.data('path', path);
-	link.data('offset', 0);
-	link.attr('style', 'background-image:url("' + Gallery.getAlbumThumbnail(path) + '")').attr('title', OC.basename(path));
-	label.text(OC.basename(path));
-	link.append(label);
-	image = new Image();
-	image.src = Gallery.getAlbumThumbnail(path);
+	var link, image, label;
+	if (Gallery.view.cache[path]) {
+		Gallery.view.element.append(Gallery.view.cache[path]);
+		//event handlers are removed when using clear()
+		Gallery.view.cache[path].click(Gallery.view.viewAlbum.bind(null, path));
+		Gallery.view.cache[path].mousemove(Gallery.view.addAlbum.mouseEvent.bind(Gallery.view.cache[path], Gallery.view.addAlbum.thumbs[path]));
+	} else {
+		link = $('<a/>');
+		label = $('<label/>');
+		link.attr('href', '#' + path);
+		link.addClass('album');
+		link.click(Gallery.view.viewAlbum.bind(null, path));
+		link.data('path', path);
+		link.data('offset', 0);
+		link.attr('style', 'background-image:url("' + Gallery.getAlbumThumbnail(path) + '")').attr('title', OC.basename(path));
+		label.text(OC.basename(path));
+		link.append(label);
+		image = new Image();
+		image.src = Gallery.getAlbumThumbnail(path);
+		Gallery.view.addAlbum.thumbs[path] = image;
 
-	link.mousemove(function (event) {
-		var mousePos = event.pageX - $(this).offset().left,
-			path = $(this).data('path'),
-			album = Gallery.albums[path],
-			offset = Math.floor((mousePos / 200) * (image.width / 200)),
-			oldOffset = $(this).data('offset');
-		if (offset !== oldOffset) {
-			$(this).css('background-position', offset * 200 + 'px 0px');
-			$(this).data('offset', offset);
-		}
-	});
+		link.mousemove(Gallery.view.addAlbum.mouseEvent.bind(link, image));
 
-	Gallery.view.element.append(link);
+		Gallery.view.element.append(link);
+		Gallery.view.cache[path] = link;
+	}
 };
+Gallery.view.addAlbum.mouseEvent = function (image, event) {
+	var mousePos = event.pageX - $(this).offset().left,
+		path = $(this).data('path'),
+		album = Gallery.albums[path],
+		offset = Math.floor((mousePos / 200) * (image.width / 200)),
+		oldOffset = $(this).data('offset');
+	if (offset !== oldOffset) {
+		$(this).css('background-position', offset * 200 + 'px 0px');
+		$(this).data('offset', offset);
+	}
+};
+Gallery.view.addAlbum.thumbs = {};
 
 Gallery.view.viewAlbum = function (albumPath) {
 	Gallery.view.clear();
