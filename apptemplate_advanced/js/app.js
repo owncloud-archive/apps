@@ -1,299 +1,608 @@
-/**
-* ownCloud - App Template Example
-*
-* @author Bernhard Posselt
-* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com
-*
-* This library is free software; you can redistribute it and/or
-* modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
-* License as published by the Free Software Foundation; either
-* version 3 of the License, or any later version.
-*
-* This library is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU AFFERO GENERAL PUBLIC LICENSE for more details.
-*
-* You should have received a copy of the GNU Affero General Public
-* License along with this library.  If not, see <http://www.gnu.org/licenses/>.
-*
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
 */
 
-/**
- * README:
- *
- * This is only a small example. If you're going to use angularjs in your project,
- * split your javascript into multiple files and compile it via buildscript.
- * You could also use coffeescript and a cakefile for this task
- *
- * When you create this with coffeescript or a javascript tool, create four folders
- * for your angular files: controllers/ filters/ services/ and directives/
- * The main file should be named app.js
- *
- */
-(function(window, $, angular, OC, CSRFToken){
 
-	'use strict';
+(function() {
 
-	// change this to match your app
-	var appName = 'AppTemplateAdvanced';
+  angular.module('OC', []);
+
+}).call(this);
 
 
-	/**
-	 * With this block you define your app. This has to be at the top the js,
-	 * the following things are not needed to in order. Make sure to mind this
-	 * when you use a custom compile script
-	 */
-	var app = angular.module(appName, []).
-		config(['$provide', function($provide){
 
-			// Use this for configuration values
-			var Config = {
-				// your config values here
-			};
-
-			// declare your routes here
-			// Hint: angularjs comes with an own route system with which you can
-			// build HTML5 apps with enabled history access, meaning: you can go
-			// forward and backward and change the state of your app
-			// http://docs.angularjs.org/api/ng.$route
-			Config.routes = {
-				saveNameRoute: 'apptemplate_advanced_ajax_setsystemvalue'
-			};
-			
-			return $provide.value('Config', Config);
-		}
-	]);
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
 
 
-	/**
-	 * This function is run once angular is set up. That doesnt mean though that
-	 * the document is ready
-	 */
-	angular.module(appName).
-		run(['$rootScope', function($rootScope){
+(function() {
 
-			var init = function(){
-				$rootScope.$broadcast('routesLoaded');
-			};
+  angular.module('AppTemplateAdvanced', ['OC']).config([
+    '$provide', function($provide) {
+      var Config;
+      Config = {
+        myParam: 'test'
+      };
+      Config.routes = {
+        saveNameRoute: 'apptemplate_advanced_ajax_setsystemvalue'
+      };
+      return $provide.value('Config', Config);
+    }
+  ]);
 
-			// this registers a callback that is executed once the routes have
-			// finished loading. Before this you cant really do request
-			OC.Router.registerLoadedCallback(init);
-		}
-	]);
+  angular.module('AppTemplateAdvanced').run([
+    '$rootScope', function($rootScope) {
+      var init;
+      init = function() {
+        return $rootScope.$broadcast('routesLoaded');
+      };
+      return OC.Router.registerLoadedCallback(init);
+    }
+  ]);
 
-
-	/**
-	 * Tipp:
-	 *
-	 * Instantiate your objects in a seperate function to stay flexible,
-	 * inherit objects and be able to test them better
-	 */
-
-	/**
-	 * Keep controller instantiations in coffee/controllers/controllers.coffee or
-	 * js/controllers/controllers.js
-	 */
-	angular.module(appName).
-		controller('ExampleController', ['$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController',
-		function($scope, Config, AppTemplateAdvancedRequest, _ExampleController){
-			return new _ExampleController($scope, Config, AppTemplateAdvancedRequest);
-		}
-	]);
-
-	/**
-	 * Keep service instantiations in coffee/services/services.coffee or
-	 * js/services/services.js
-	 */
-	angular.module(appName).
-		factory('AppTemplateAdvancedRequest', ['$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest',
-		function($http, $rootScope, Config, _AppTemplateAdvancedRequest){
-			return new _AppTemplateAdvancedRequest($http, $rootScope, Config);
-		}
-	]);
+}).call(this);
 
 
-	/**
-	 * This is an example of a controller. We pass in the Config via Dependency
-	 * Injection. A factory creates a shared instance. You can also share objects
-	 * across controllers this way
-	 */
-	angular.module(appName).
-		factory('_ExampleController', [function(){
 
-			// use prototyping to stay flexible. If you use coffeescript,
-			var Controller = function($scope, Config, Request){
-				var self = this;
-
-				this.$scope = $scope;
-				this.config = Config;
-				this.request = Request;
-
-				// bind methods on the scope so that you can access them in the
-				// controllers child HTML
-				this.$scope.saveName = function(name){
-					self.saveName(name);
-				};
-			};
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
 
 
-			/**
-			 * Makes an ajax query to save the name
-			 */
-			Controller.prototype.saveName = function(name){
-				this.request.saveName(this.config.routes.saveNameRoute, name);
-			};
+(function() {
 
-			return Controller;
-		}
-	]);
+  angular.module('AppTemplateAdvanced').controller('ExampleController', [
+    '$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController', 'ItemModel', function($scope, Config, AppTemplateAdvancedRequest, _ExampleController, ItemModel) {
+      return new _ExampleController($scope, Config, AppTemplateAdvancedRequest, ItemModel);
+    }
+  ]);
 
-
-	/**
-	 * Its always good to put the object that does routes request into a seperate
-	 * object to be able to adjust it easily
-	 */
-	angular.module(appName).
-		factory('_Request', function(){
-
-			var Request = function($http, $rootScope, Config){
-				var self = this;
-
-				this.$http = $http;
-				this.$rootScope = $rootScope;
-				this.config = Config;
-
-				// if the routes are not yet initialized we dont want to lose
-				// requests. Save all requests and run them when the routes are
-				// ready
-				this.initialized = false;
-				this.shelvedRequests = [];
-
-				this.$rootScope.$on('routesLoaded', function(){
-					for(var i=0; i<self.shelvedRequests.length; i++){
-						var req = self.shelvedRequests[i];
-						self.post(req.route, req.routeParams, req.data,
-								req.onSuccess, req.onFailure);
-					}
-
-					self.initialized = true;
-					self.shelvedRequests = [];
-				});
-
-			};
+}).call(this);
 
 
-			/**
-			 * Do the actual post request
-			 * @param string route: the url which we want to request
-			 * @param object routeParams: Parameters that are needed to generate
-			 *                            the route
-			 * @param object data: the post params that we want to pass
-			 * @param function onSuccess: the function that will be called if
-			 *                            the request was successful
-			 * @param function onFailure: the function that will be called if the
-			 *                          request failed
-			 */
-			Request.prototype.post = function(route, routeParams, data, onSuccess, onFailure){
 
-				// if routes are not ready yet, save the request
-				if(!this.initialized){
-					var request = {
-						route: route,
-						routeParams: routeParams,
-						data: data,
-						onSuccess: onSuccess,
-						onFailure: onFailure
-					};
-					this.shelvedRequests.push(request);
-					return;
-				}
-
-				var url;
-				if(routeParams){
-					url = OC.Router.generate(route, routeParams);
-				} else {
-					url = OC.Router.generate(route);
-				}
-
-				// encode data object for post
-				var postData = data || {};
-				postData = $.param(data);
-
-				// pass the CSRF token as header
-				var headers = {
-					requesttoken: CSRFToken,
-					'Content-Type': 'application/x-www-form-urlencoded'
-				};
-
-				// do the actual request
-				this.$http.post(url, postData, {headers: headers}).
-					success(function(data, status, headers, config){
-
-						if(onSuccess){
-							onSuccess(data);
-						}
-					}).
-					error(function(data, status, headers, config){
-
-						if(onFailure){
-							onFailure(data);
-						}
-					});
-			};
-
-			return Request;
-		}
-	);
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
 
 
-	/**
-	 * Define your local request functions in an object that inherits from the
-	 * Request object
-	 */
-	angular.module(appName).
-		factory('_AppTemplateAdvancedRequest', ['_Request', function(_Request){
+(function() {
 
-			var AppTemplateAdvancedRequest = function($http, $rootScope, Config){
-				_Request.call(this, $http, $rootScope, Config);
-			};
+  angular.module('AppTemplateAdvanced').factory('_ExampleController', function() {
+    var ExampleController;
+    ExampleController = (function() {
 
-			AppTemplateAdvancedRequest.prototype = Object.create(_Request.prototype);
+      function ExampleController($scope, config, request, itemModel) {
+        var _this = this;
+        this.$scope = $scope;
+        this.config = config;
+        this.request = request;
+        this.itemModel = itemModel;
+        this.$scope.saveName = function(name) {
+          return _this.saveName(name);
+        };
+      }
 
-			/**
-			 * Save the name to the server.
-			 * @param string route: the route for the server
-			 * @param string name: the new name
-			 */
-			AppTemplateAdvancedRequest.prototype.saveName = function(route, name) {
-				this.post(route, {}, {somesetting: name});
-			};
+      ExampleController.prototype.saveName = function(name) {
+        return this.request.saveName(this.config.routes.saveNameRoute, name);
+      };
 
-			/**
-			 * Create your local request methods in here
-			 */
-			//AppTemplateAdvancedRequest.prototype.myReqest = function(route, ...)
+      return ExampleController;
 
-			return AppTemplateAdvancedRequest;
-		}
-	]);
+    })();
+    return ExampleController;
+  });
+
+}).call(this);
 
 
-	/**
-	 * Use filters to perform tasks that need to be done when rendering
-	 * This simply turns some letters into numbers
-	 */
-	angular.module(appName).
-		filter('leetIt', function(){
 
-			var leetIt = function(leetThis){
-				return leetThis.replace('e', '3').replace('i', '1');
-			};
-
-			return leetIt;
-		}
-	);
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
 
 
-})(window, jQuery, angular, OC, oc_requesttoken);
+(function() {
+
+  angular.module('AppTemplateAdvanced').filter('leetIt', function() {
+    return function(leetThis) {
+      return leetThis.replace('e', '3').replace('i', '1');
+    };
+  });
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  angular.module('AppTemplateAdvanced').factory('_ItemModel', [
+    '_Model', function(_Model) {
+      var ItemModel;
+      ItemModel = (function(_super) {
+
+        __extends(ItemModel, _super);
+
+        function ItemModel() {
+          ItemModel.__super__.constructor.call(this);
+        }
+
+        return ItemModel;
+
+      })(_Model);
+      return ItemModel;
+    }
+  ]);
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  angular.module('AppTemplateAdvanced').factory('_AppTemplateAdvancedRequest', [
+    '_Request', function(_Request) {
+      var AppTemplateAdvancedRequest;
+      AppTemplateAdvancedRequest = (function(_super) {
+
+        __extends(AppTemplateAdvancedRequest, _super);
+
+        function AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher) {
+          AppTemplateAdvancedRequest.__super__.constructor.call(this, $http, $rootScope, Config, Publisher);
+        }
+
+        AppTemplateAdvancedRequest.prototype.saveName = function(route, name) {
+          var data;
+          data = {
+            somesetting: name
+          };
+          return this.post(route, {}, data);
+        };
+
+        return AppTemplateAdvancedRequest;
+
+      })(_Request);
+      return AppTemplateAdvancedRequest;
+    }
+  ]);
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+(function() {
+
+  angular.module('AppTemplateAdvanced').factory('AppTemplateAdvancedRequest', [
+    '$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher', function($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher) {
+      return new _AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher);
+    }
+  ]);
+
+  angular.module('AppTemplateAdvanced').factory('ItemModel', [
+    '_ItemModel', 'Publisher', function(_ItemModel, Publisher) {
+      var model;
+      model = new _ItemModel();
+      Publisher.subscribeModelTo(model, 'items');
+      return model;
+    }
+  ]);
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+(function() {
+
+  angular.module('OC').factory('_Request', function() {
+    var Request;
+    Request = (function() {
+
+      function Request($http, $rootScope, Config, publisher) {
+        var _this = this;
+        this.$http = $http;
+        this.$rootScope = $rootScope;
+        this.Config = Config;
+        this.publisher = publisher;
+        this.initialized = false;
+        this.shelvedRequests = [];
+        this.$rootScope.$on('routesLoaded', function() {
+          var req, _i, _len, _ref;
+          _ref = _this.shelvedRequests;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            req = _ref[_i];
+            _this.post(req.route, req.routeParams, req.data, req.onSuccess, req.onFailure);
+          }
+          _this.initialized = true;
+          return _this.shelvedRequests = [];
+        });
+      }
+
+      Request.prototype.post = function(route, routeParams, data, onSuccess, onFailure) {
+        var headers, postData, request, url,
+          _this = this;
+        if (!this.initialized) {
+          request = {
+            route: route,
+            routeParams: routeParams,
+            data: data,
+            onSuccess: onSuccess,
+            onFailure: onFailure
+          };
+          this.shelvedRequests.push(request);
+          return;
+        }
+        if (routeParams) {
+          url = OC.Router.generate(route, routeParams);
+        } else {
+          url = OC.Router.generate(route);
+        }
+        data || (data = {});
+        postData = $.param(data);
+        headers = {
+          headers: {
+            'requesttoken': requesttoken,
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        };
+        return this.$http.post(url, postData, headers).success(function(data, status, headers, config) {
+          var name, value, _ref, _results;
+          if (onSuccess) {
+            onSuccess(data);
+          }
+          _ref = data.data;
+          _results = [];
+          for (name in _ref) {
+            value = _ref[name];
+            _results.push(_this.publisher.publishDataTo(name, value));
+          }
+          return _results;
+        }).error(function(data, status, headers, config) {
+          if (onFailure) {
+            return onFailure(data);
+          }
+        });
+      };
+
+      return Request;
+
+    })();
+    return Request;
+  });
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+/*
+# This file creates instances of classes
+*/
+
+
+(function() {
+
+  angular.module('OC').factory('Publisher', [
+    '_Publisher', function(_Publisher) {
+      return new _Publisher();
+    }
+  ]);
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+(function() {
+
+  angular.module('OC').factory('_Model', function() {
+    var Model;
+    Model = (function() {
+
+      function Model() {
+        this.foreignKeys = {};
+        this.data = [];
+        this.ids = {};
+      }
+
+      Model.prototype.handle = function(data) {
+        var item, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2, _results;
+        if (data['create'] !== void 0) {
+          _ref = data['create'];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            item = _ref[_i];
+            this.create(item);
+          }
+        }
+        if (data['update'] !== void 0) {
+          _ref1 = data['update'];
+          for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+            item = _ref1[_j];
+            this.update(item);
+          }
+        }
+        if (data['delete'] !== void 0) {
+          _ref2 = data['delete'];
+          _results = [];
+          for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
+            item = _ref2[_k];
+            _results.push(this["delete"](item));
+          }
+          return _results;
+        }
+      };
+
+      Model.prototype.hasForeignKey = function(name) {
+        return this.foreignKeys[name] = {};
+      };
+
+      Model.prototype.create = function(data) {
+        var id, ids, name, _base, _ref, _results;
+        if (this.ids[data.id] !== void 0) {
+          return this.update(data);
+        } else {
+          this.data.push(data);
+          this.ids[data.id] = data;
+          _ref = this.foreignKeys;
+          _results = [];
+          for (name in _ref) {
+            ids = _ref[name];
+            id = data[name];
+            (_base = this.foreignKeys[name])[id] || (_base[id] = []);
+            _results.push(this.foreignKeys[name][id].push(data));
+          }
+          return _results;
+        }
+      };
+
+      Model.prototype.update = function(item) {
+        var currentItem, key, value, _results;
+        currentItem = this.ids[item.id];
+        _results = [];
+        for (key in item) {
+          value = item[key];
+          if (this.foreignKeys[key] !== void 0) {
+            if (value !== currentItem[key]) {
+              this._updateForeignKeyCache(key, currentItem, item);
+            }
+          }
+          if (key !== 'id') {
+            _results.push(currentItem[key] = value);
+          } else {
+            _results.push(void 0);
+          }
+        }
+        return _results;
+      };
+
+      Model.prototype["delete"] = function(item) {
+        if (this.getById(item.id) !== void 0) {
+          return this.removeById(item.id);
+        }
+      };
+
+      Model.prototype._updateForeignKeyCache = function(name, currentItem, toItem) {
+        var foreignKeyItems, fromValue, toValue;
+        fromValue = currentItem[name];
+        toValue = toItem[name];
+        foreignKeyItems = this.foreignKeys[name][fromValue];
+        this._removeForeignKeyCacheItem(foreignKeyItems, currentItem);
+        return this.foreignKeys[name][toValue].push(item);
+      };
+
+      Model.prototype._removeForeignKeyCacheItem = function(foreignKeyItems, item) {
+        var fkItem, index, _i, _len, _results;
+        _results = [];
+        for (index = _i = 0, _len = foreignKeyItems.length; _i < _len; index = ++_i) {
+          fkItem = foreignKeyItems[index];
+          if (fkItem.id === id) {
+            _results.push(this.foreignKeys[key][item[key]].splice(index, 1));
+          } else {
+            _results.push(void 0);
+          }
+        }
+        return _results;
+      };
+
+      Model.prototype.removeById = function(id) {
+        var foreignKeyItems, ids, index, item, key, _i, _len, _ref, _ref1;
+        item = this.getById(id);
+        _ref = this.foreignKeys;
+        for (key in _ref) {
+          ids = _ref[key];
+          foreignKeyItems = ids[item[key]];
+          this._removeForeignKeyCacheItem(foreignKeyItems, item);
+        }
+        _ref1 = this.data;
+        for (index = _i = 0, _len = _ref1.length; _i < _len; index = ++_i) {
+          item = _ref1[index];
+          if (item.id === id) {
+            this.data.splice(index, 1);
+          }
+        }
+        return delete this.ids[id];
+      };
+
+      Model.prototype.getById = function(id) {
+        return this.ids[id];
+      };
+
+      Model.prototype.getAll = function() {
+        return this.data;
+      };
+
+      Model.prototype.getAllOfForeignKeyWithId = function(foreignKeyName, foreignKeyId) {
+        return this.foreignKeys[foreignKeyName][foreignKeyId];
+      };
+
+      return Model;
+
+    })();
+    return Model;
+  });
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+/*
+# Used for properly distributing received model data from the server
+*/
+
+
+(function() {
+
+  angular.module('OC').factory('_Publisher', function() {
+    var Publisher;
+    Publisher = (function() {
+
+      function Publisher() {
+        this.subscriptions = {};
+      }
+
+      Publisher.prototype.subscribeModelTo = function(model, name) {
+        var _base;
+        (_base = this.subscriptions)[name] || (_base[name] = []);
+        return this.subscriptions[name].push(model);
+      };
+
+      Publisher.prototype.publishDataTo = function(data, name) {
+        var subscriber, _i, _len, _ref, _results;
+        _ref = this.subscriptions[name] || [];
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          subscriber = _ref[_i];
+          _results.push(subscriber.handle(data));
+        }
+        return _results;
+      };
+
+      return Publisher;
+
+    })();
+    return Publisher;
+  });
+
+}).call(this);

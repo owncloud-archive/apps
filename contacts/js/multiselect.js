@@ -1,14 +1,14 @@
 /**
  * @param 'createCallback' A function to be called when a new entry is created. Two arguments are supplied to this function:
  *	The select element used and the value of the option. If the function returns false addition will be cancelled. If it returns
- *	anything else it will be used as the value of the newly added option.
+ * 	anything else it will be used as the value of the newly added option.
  * @param 'createText' The placeholder text for the create action.
  * @param 'title' The title to show if no options are selected.
  * @param 'checked' An array containing values for options that should be checked. Any options which are already selected will be added to this array.
  * @param 'labels' The corresponding labels to show for the checked items.
  * @param 'oncheck' Callback function which will be called when a checkbox/radiobutton is selected. If the function returns false the input will be unchecked.
  * @param 'onuncheck' @see 'oncheck'.
- * @param 'singleSelect' If true radiobuttons will be used instead of checkboxes.
+ * @param 'singleSelect' If true radiobuttons will be used instead of checkboxes. 
  */
 (function( $ ){
 	var multiSelectId=-1;
@@ -18,12 +18,14 @@
 			'createCallback':false,
 			'createText':false,
 			'singleSelect':false,
+			'selectedFirst':false,
+			'sort':true,
 			'title':this.attr('title'),
 			'checked':[],
 			'labels':[],
 			'oncheck':false,
 			'onuncheck':false,
-			'minWidth': 'default;'
+			'minWidth': 'default;',
 		};
 		$(this).attr('data-msid', multiSelectId);
 		$.extend(settings,options);
@@ -62,18 +64,18 @@
 		var self = this;
 		self.menuDirection = 'down';
 		button.click(function(event){
-
+			
 			var button=$(this);
 			if(button.parent().children('ul').length>0) {
 				if(self.menuDirection === 'down') {
 					button.parent().children('ul').slideUp(400,function() {
 						button.parent().children('ul').remove();
-						button.removeClass('active');
+						button.removeClass('active down');
 					});
 				} else {
 					button.parent().children('ul').fadeOut(400,function() {
 						button.parent().children('ul').remove();
-						button.removeClass('active').removeClass('up');
+						button.removeClass('active up');
 					});
 				}
 				return;
@@ -133,6 +135,7 @@
 						}
 						settings.checked.push(value);
 						settings.labels.push(label);
+						$(this).parent().addClass('checked');
 					} else {
 						var index=settings.checked.indexOf(value);
 						element.attr('selected',null);
@@ -142,11 +145,12 @@
 								return;
 							}
 						}
+						$(this).parent().removeClass('checked');
 						settings.checked.splice(index,1);
 						settings.labels.splice(index,1);
 					}
 					var oldWidth=button.width();
-					button.children('span').first().text(settings.labels.length > 0
+					button.children('span').first().text(settings.labels.length > 0 
 						? settings.labels.join(', ')
 						: settings.title);
 					var newOuterWidth=Math.max((button.outerWidth()-2),settings.minOuterWidth)+'px';
@@ -162,6 +166,9 @@
 				});
 				var li=$('<li></li>');
 				li.append(input).append(label);
+				if(input.is(':checked')) {
+					li.addClass('checked');
+				}
 				return li;
 			}
 			$.each(options,function(index,item){
@@ -169,7 +176,7 @@
 			});
 			button.parent().data('preventHide',false);
 			if(settings.createText){
-				var li=$('<li>+ <em>'+settings.createText+'<em></li>');
+				var li=$('<li class="creator">+ <em>'+settings.createText+'<em></li>');
 				li.click(function(event){
 					li.empty();
 					var input=$('<input class="new">');
@@ -193,11 +200,10 @@
 								return false;
 							}
 							var li=$(this).parent();
-							var val = $(this).val();
+							var val = $(this).val()
 							var select=button.parent().next();
 							if(typeof settings.createCallback === 'function') {
 								var response = settings.createCallback(select, val);
-								console.log('response', response);
 								if(response === false) {
 									return false;
 								} else if(typeof response !== 'undefined') {
@@ -217,7 +223,7 @@
 							select.append(option);
 							li.prev().children('input').prop('checked', true).trigger('change');
 							button.parent().data('preventHide',false);
-							button.children('span').first().text(settings.labels.length > 0
+							button.children('span').first().text(settings.labels.length > 0 
 								? settings.labels.join(', ')
 								: settings.title);
 							if(self.menuDirection === 'up') {
@@ -238,18 +244,48 @@
 				});
 				list.append(li);
 			}
+			
+			var doSort = function(list, selector) {
+				var rows = list.find('li'+selector).get();
+
+				if(settings.sort) {
+					rows.sort(function(a, b) {
+						return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+					});
+				}
+
+				$.each(rows, function(index, row) {
+					list.append(row);
+				});
+			};
+			if(settings.sort && settings.selectedFirst) {
+				doSort(list, '.checked');
+				doSort(list, ':not(.checked)');
+			} else if(settings.sort && !settings.selectedFirst) {
+				doSort(list, '');
+			}
+			list.append(list.find('li.creator'));
 			var pos=button.position();
-			if($(document).height() > button.offset().top+button.outerHeight() + list.children().length * button.height()) {
-				list.css('top',pos.top+button.outerHeight()-5);
-				list.css('left',pos.left+3);
-				list.css('width',(button.outerWidth()-2)+'px');
+			if($(document).height() > (button.offset().top+button.outerHeight() + list.children().length * button.height())
+				|| $(document).height()/2 > pos.top
+			) {
+				list.css({
+					top:pos.top+button.outerHeight()-5,
+					left:pos.left+3,
+					width:(button.outerWidth()-2)+'px',
+					'max-height':($(document).height()-(button.offset().top+button.outerHeight()+10))+'px'
+				});
 				list.addClass('down');
 				button.addClass('down');
 				list.slideDown();
 			} else {
-				list.css('top', pos.top - list.height());
-				list.css('left', pos.left+3);
-				list.css('width',(button.outerWidth()-2)+'px');
+				list.css('max-height', $(document).height()-($(document).height()-(pos.top)+50)+'px');
+				list.css({
+					top:pos.top - list.height(),
+					left:pos.left+3,
+					width:(button.outerWidth()-2)+'px'
+					
+				});
 				list.detach().insertBefore($(this));
 				list.addClass('up');
 				button.addClass('up');
@@ -266,17 +302,17 @@
 				if(self.menuDirection === 'down') {
 					button.parent().children('ul').slideUp(400,function() {
 						button.parent().children('ul').remove();
-						button.removeClass('active').removeClass('down');
+						button.removeClass('active down');
 					});
 				} else {
 					button.parent().children('ul').fadeOut(400,function() {
 						button.parent().children('ul').remove();
-						button.removeClass('active').removeClass('up');
+						button.removeClass('active up');
 					});
 				}
 			}
 		});
-
+		
 		return span;
 	};
 })( jQuery );

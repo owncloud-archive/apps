@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <anastasia2501@hotmail.com>, 2012.
 #   <christosvas@in.gr>, 2011.
 # Dimitris M. <monopatis@gmail.com>, 2012.
 # Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-22 00:19+0100\n"
-"PO-Revision-Date: 2012-12-21 13:32+0000\n"
-"Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
+"POT-Creation-Date: 2012-12-27 00:01+0100\n"
+"PO-Revision-Date: 2012-12-26 16:50+0000\n"
+"Last-Translator: AnAstAsiA <anastasia2501@hotmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +42,7 @@ msgstr "Δε μπορεί να γίνει αλλαγή βιβλίου διευθ
 
 #: ajax/categories/add.php:19
 msgid "No category name given."
-msgstr ""
+msgstr "Δεν δόθηκε όνομα κατηγορίας."
 
 #: ajax/categories/add.php:28
 msgid "Error adding group."
@@ -49,11 +50,11 @@ msgstr "Σφάλμα κατά την προσθήκη ομάδας."
 
 #: ajax/categories/addto.php:20 ajax/categories/removefrom.php:20
 msgid "Group ID missing from request."
-msgstr ""
+msgstr "Το ID ομάδας λείπει από το αίτημα."
 
 #: ajax/categories/addto.php:24 ajax/categories/removefrom.php:24
 msgid "Contact ID missing from request."
-msgstr ""
+msgstr "Το ID επαφής λείπει από το αίτημα."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -90,7 +91,7 @@ msgstr "Οι πληροφορίες σχετικά με vCard είναι εσφ�
 #: ajax/contact/saveproperty.php:98
 #, php-format
 msgid "Couldn't find vCard for %d."
-msgstr ""
+msgstr "Δεν βρέθηκε vCard για %d."
 
 #: ajax/contact/saveproperty.php:108
 msgid "Information about vCard is incorrect. Please reload the page: "
@@ -103,7 +104,7 @@ msgstr "Κάτι χάθηκε στο άγνωστο. "
 #: ajax/contact/saveproperty.php:128
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
-msgstr ""
+msgstr "Αδυναμία αποθήκευσης  ιδιότητας του τύπου \"%s\" ως σειρά"
 
 #: ajax/contact/saveproperty.php:180
 msgid "Missing IM parameter."
@@ -176,15 +177,15 @@ msgstr "Σφάλμα κατά την εύρεση της εικόνας: "
 
 #: ajax/setpreference.php:37
 msgid "Key is not set for: "
-msgstr ""
+msgstr "Δεν έχει ορισθεί πλήκτρο για το:"
 
 #: ajax/setpreference.php:41
 msgid "Value is not set for: "
-msgstr ""
+msgstr "Δεν έχει ορισθεί τιμή για το:"
 
 #: ajax/setpreference.php:53
 msgid "Could not set preference: "
-msgstr ""
+msgstr "Αδυναμία ορισμού προτίμησης:"
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
@@ -235,7 +236,7 @@ msgstr "Επαφές"
 #: export.php:66
 #, php-format
 msgid "%d_selected_contacts"
-msgstr ""
+msgstr "%d_επιλεγμένες_επαφές"
 
 #: js/app.js:288
 msgid "Contact is already in this group."
@@ -265,7 +266,7 @@ msgstr "Υπάρχει ήδη μια ομάδα με όνομα {group}"
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
-msgstr ""
+msgstr "Μπορείτε να σύρετε τις ομάδες για να⏎τις τακτοποιήσετε όπως θέλετε."
 
 #: js/app.js:615
 msgid "All"
@@ -281,7 +282,7 @@ msgstr "Διαμοιράστηκε από τον {owner}"
 
 #: js/app.js:754
 msgid "Indexing contacts"
-msgstr ""
+msgstr "Εύρεση επαφών "
 
 #: js/app.js:829 js/app.js:843
 msgid "Add to..."
@@ -300,7 +301,7 @@ msgid "Select photo"
 msgstr "Επέλεξε φωτογραφία"
 
 #: js/app.js:1036 js/app.js:1062 js/app.js:2017 js/app.js:2129
-#: js/contacts.js:146 js/contacts.js:244 js/contacts.js:470
+#: js/contacts.js:146 js/contacts.js:244 js/contacts.js:466
 msgid "Network or server error. Please inform administrator."
 msgstr "Σφάλμα δικτύου ή διακομιστή. Παρακαλώ ενημερώστε το διαχειριστή."
 
@@ -318,15 +319,15 @@ msgstr "Υπήρχε ένα σφάλμα στο άνοιγμα μίας σύνθ
 
 #: js/app.js:1338
 msgid "Deleting done. Click here to cancel reloading."
-msgstr ""
+msgstr "Η διαγραφή ολοκληρώθηκε. Κλικ εδώ για να ακυρώσετε την επαναφόρτωση."
 
 #: js/app.js:1415
 msgid "Add address book"
-msgstr ""
+msgstr "Προσθήκη βιβλίου διευθύνσεων"
 
 #: js/app.js:1511
 msgid "Import done. Click here to cancel reloading."
-msgstr ""
+msgstr "Η εισαγωγή ολοκληρώθηκε. Κλικ εδώ για να ακυρώσετε την επαναφόρτωση."
 
 #: js/app.js:1552
 msgid "Not all files uploaded. Retrying..."
@@ -343,11 +344,11 @@ msgstr "Σφάλμα"
 
 #: js/app.js:1568
 msgid "Importing from {filename}..."
-msgstr ""
+msgstr "Εισαγωγή από {filename}..."
 
 #: js/app.js:1571
 msgid "{success} imported, {failed} failed."
-msgstr ""
+msgstr "{success} έγινε εισαγωγή, {failed} απέτυχε."
 
 #: js/app.js:1579
 msgid "Importing..."
@@ -387,7 +388,7 @@ msgstr "Δεν επιλέχτηκαν αρχεία για μεταφόρτωση
 msgid "Edit profile picture"
 msgstr "Επεξεργασία εικόνας προφίλ"
 
-#: js/app.js:2000 js/contacts.js:1070
+#: js/app.js:2000 js/contacts.js:1066
 msgid "Error loading profile picture."
 msgstr "Σφάλμα στην φόρτωση εικόνας προφίλ."
 
@@ -407,27 +408,27 @@ msgstr "Επιλογή βιβλίου επαφών"
 msgid "The address book name cannot be empty."
 msgstr "Το όνομα του βιβλίου διευθύνσεων δεν πρέπει να είναι κενό."
 
-#: js/contacts.js:341
+#: js/contacts.js:337
 msgid "Is this correct?"
 msgstr "Είναι σωστό;"
 
-#: js/contacts.js:529
+#: js/contacts.js:525
 msgid "There was an unknown error when trying to delete this contact"
-msgstr ""
+msgstr "Παρουσιάστηκε άγνωστο σφάλμα κατά τη διαγραφή αυτής της επαφής"
 
-#: js/contacts.js:1401
+#: js/contacts.js:1399
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Κάποιες επαφές σημειώθηκαν προς διαγραφή,δεν έχουν διαγραφεί ακόμα. Παρακαλώ περιμένετε μέχρι να διαγραφούν."
 
-#: js/contacts.js:1412
+#: js/contacts.js:1410
 msgid "Click to undo deletion of {num} contacts"
-msgstr ""
+msgstr "Κλικ για να αναιρέσετε τη διαγραφή {num} επαφών"
 
-#: js/contacts.js:1425
+#: js/contacts.js:1423
 msgid "Cancelled deletion of {num}"
-msgstr ""
+msgstr "Αναιρέθηκε η διαγραφή {num}"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -605,7 +606,7 @@ msgstr "Οικογένεια"
 
 #: lib/app.php:361
 msgid "There was an error deleting properties for this contact."
-msgstr ""
+msgstr "Παρουσιάστηκε σφάλμα κατά τη διαγραφή των ιδιοτήτων αυτής της επαφής."
 
 #: lib/hooks.php:108
 msgid "{name}'s Birthday"
@@ -649,7 +650,7 @@ msgstr "Δεν βρέθηκε επαφή."
 
 #: lib/vcard.php:704
 msgid "HomePage"
-msgstr ""
+msgstr "Αρχική Σελίδα"
 
 #: templates/contacts.php:18
 msgid "New Group"
@@ -661,7 +662,7 @@ msgstr "Ρυθμίσεις"
 
 #: templates/contacts.php:25
 msgid "Address books"
-msgstr ""
+msgstr "Βιβλία διευθύνσεων"
 
 #: templates/contacts.php:28 templates/contacts.php:105 templates/index.php:15
 #: templates/part.import.php:17
@@ -670,7 +671,7 @@ msgstr "Εισαγωγή"
 
 #: templates/contacts.php:33
 msgid "Select files to import"
-msgstr ""
+msgstr "Επιλογή αρχείων για εισαγωγή"
 
 #: templates/contacts.php:34
 msgid "Select files"
@@ -686,7 +687,7 @@ msgstr "ΟΚ"
 
 #: templates/contacts.php:54
 msgid "(De-)select all"
-msgstr ""
+msgstr "(Απο-)επιλογή όλων"
 
 #: templates/contacts.php:56
 msgid "New Contact"
@@ -703,7 +704,7 @@ msgstr "Ομάδες"
 
 #: templates/contacts.php:61
 msgid "Favorite"
-msgstr ""
+msgstr "Αγαπημένο"
 
 #: templates/contacts.php:62
 msgid "Delete Contact"
@@ -766,7 +767,7 @@ msgstr "Διαγραφή τρέχουσας επαφής"
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
-msgstr ""
+msgstr "<h3>Δεν έχετε επαφές στο βιβλίο διευθύνσεων.</h3><p>Προσθέστε μία νέα επαφή ή εισάγετε τις υπάρχουσες επαφές σας από ένα αρχείο VCF.</p>"
 
 #: templates/contacts.php:104 templates/part.no_contacts.php:9
 msgid "Add contact"
@@ -824,7 +825,7 @@ msgstr "Τίτλος"
 
 #: templates/contacts.php:212
 msgid "Enter title"
-msgstr ""
+msgstr "Εισάγετε τίτλο"
 
 #: templates/contacts.php:216 templates/contacts.php:264
 #: templates/part.contact.php:39 templates/part.contact.php:40
@@ -834,7 +835,7 @@ msgstr "Οργανισμός"
 
 #: templates/contacts.php:219
 msgid "Enter organization"
-msgstr ""
+msgstr "Εισάγετε οργάνωση"
 
 #: templates/contacts.php:223 templates/contacts.php:266
 #: templates/part.contact.php:45 templates/part.contact.php:128
@@ -931,7 +932,7 @@ msgstr "Διαγραφή διεύθυνσης"
 
 #: templates/contacts.php:346
 msgid "1 Main Street"
-msgstr ""
+msgstr "Κεντρική Οδός  αρ.1"
 
 #: templates/contacts.php:347 templates/part.edit_address_dialog.php:24
 msgid "Street address"
@@ -956,11 +957,11 @@ msgstr "Πόλη"
 
 #: templates/contacts.php:359
 msgid "Some region"
-msgstr ""
+msgstr "Κάποια περιοχή"
 
 #: templates/contacts.php:360
 msgid "State or province"
-msgstr ""
+msgstr "Πολιτεία ή επαρχία"
 
 #: templates/contacts.php:364
 msgid "Your country"
