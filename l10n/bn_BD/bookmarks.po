@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-02 00:01+0100\n"
+"POT-Creation-Date: 2013-01-03 00:01+0100\n"
 "PO-Revision-Date: 2012-07-27 22:17+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
@@ -79,11 +79,11 @@ msgstr ""
 
 #: templates/addBm.php:44 templates/js_tpl.php:47
 msgid "Save"
-msgstr ""
+msgstr "সংরক্ষণ কর"
 
 #: templates/js_tpl.php:6 templates/js_tpl.php:61
 msgid "Delete"
-msgstr ""
+msgstr "মুছে ফেল"
 
 #: templates/js_tpl.php:19 templates/js_tpl.php:57
 msgid "Edit"
@@ -91,7 +91,7 @@ msgstr ""
 
 #: templates/js_tpl.php:46
 msgid "Cancel"
-msgstr ""
+msgstr "বাতিল"
 
 #: templates/list.php:14
 msgid ""
@@ -109,7 +109,7 @@ msgstr ""
 
 #: templates/list.php:23
 msgid "Add"
-msgstr ""
+msgstr "যোগ কর"
 
 #: templates/list.php:31
 msgid "Related Tags"
@@ -117,7 +117,7 @@ msgstr ""
 
 #: templates/list.php:39 templates/list.php:41
 msgid "Settings"
-msgstr ""
+msgstr "নিয়ামকসমূহ"
 
 #: templates/list.php:53
 msgid "You have no bookmarks"

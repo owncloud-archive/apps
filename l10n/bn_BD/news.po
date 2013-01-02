@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-02 00:01+0100\n"
+"POT-Creation-Date: 2013-01-03 00:01+0100\n"
 "PO-Revision-Date: 2012-08-26 23:39+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
@@ -123,7 +123,7 @@ msgstr ""
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
 #: js/settings.js:68
 msgid "Error"
-msgstr ""
+msgstr "সমস্যা"
 
 #: js/main.js:33
 msgid "None"
@@ -260,7 +260,7 @@ msgstr ""
 
 #: templates/firstrun.php:12
 msgid "Upload"
-msgstr ""
+msgstr "আপলোড"
 
 #: templates/firstrun.php:13
 msgid "Select file from ownCloud"
@@ -299,11 +299,11 @@ msgstr ""
 
 #: templates/main.php:38
 msgid "Folder"
-msgstr ""
+msgstr "ফোল্ডার"
 
 #: templates/main.php:45
 msgid "Settings"
-msgstr ""
+msgstr "নিয়ামকসমূহ"
 
 #: templates/part.dialogues.php:1
 msgid "Add Folder"
@@ -331,7 +331,7 @@ msgstr ""
 
 #: templates/part.dialogues.php:29
 msgid "Add"
-msgstr ""
+msgstr "যোগ কর"
 
 #: templates/part.feeds.php:48
 msgid "New articles"

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-02 00:01+0100\n"
-"PO-Revision-Date: 2011-09-03 16:52+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-03 00:01+0100\n"
+"PO-Revision-Date: 2013-01-02 10:10+0000\n"
+"Last-Translator: Shubhra Paul <paul_shubhra@yahoo.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,7 +69,7 @@ msgstr ""
 
 #: ajax/settings/settimezone.php:25
 msgid "Invalid request"
-msgstr ""
+msgstr "অননুমোদিত অনুরোধ"
 
 #: appinfo/app.php:38 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
@@ -146,7 +146,7 @@ msgstr ""
 
 #: lib/app.php:117
 msgid "Clients"
-msgstr ""
+msgstr "ক্লায়েন্ট"
 
 #: lib/app.php:118
 msgid "Deliverer"
@@ -174,11 +174,11 @@ msgstr ""
 
 #: lib/app.php:124
 msgid "Other"
-msgstr ""
+msgstr "অন্যান্য"
 
 #: lib/app.php:125
 msgid "Personal"
-msgstr ""
+msgstr "ব্যক্তিগত"
 
 #: lib/app.php:126
 msgid "Projects"
@@ -291,31 +291,31 @@ msgstr ""
 
 #: lib/object.php:549 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
-msgstr ""
+msgstr "সোমবার"
 
 #: lib/object.php:550 templates/calendar.php:5
 msgid "Tuesday"
-msgstr ""
+msgstr "মঙ্গলবার"
 
 #: lib/object.php:551 templates/calendar.php:5
 msgid "Wednesday"
-msgstr ""
+msgstr "বুধবার"
 
 #: lib/object.php:552 templates/calendar.php:5
 msgid "Thursday"
-msgstr ""
+msgstr "বৃহষ্পতিবার"
 
 #: lib/object.php:553 templates/calendar.php:5
 msgid "Friday"
-msgstr ""
+msgstr "শুক্রবার"
 
 #: lib/object.php:554 templates/calendar.php:5
 msgid "Saturday"
-msgstr ""
+msgstr "শনিবার"
 
 #: lib/object.php:555 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
-msgstr ""
+msgstr "রবিবার"
 
 #: lib/object.php:565
 msgid "events week of month"
@@ -347,51 +347,51 @@ msgstr ""
 
 #: lib/object.php:605 templates/calendar.php:7
 msgid "January"
-msgstr ""
+msgstr "জানুয়ারি"
 
 #: lib/object.php:606 templates/calendar.php:7
 msgid "February"
-msgstr ""
+msgstr "ফেব্রুয়ারি"
 
 #: lib/object.php:607 templates/calendar.php:7
 msgid "March"
-msgstr ""
+msgstr "মার্চ"
 
 #: lib/object.php:608 templates/calendar.php:7
 msgid "April"
-msgstr ""
+msgstr "এপ্রিল"
 
 #: lib/object.php:609 templates/calendar.php:7
 msgid "May"
-msgstr ""
+msgstr "মে"
 
 #: lib/object.php:610 templates/calendar.php:7
 msgid "June"
-msgstr ""
+msgstr "জুন"
 
 #: lib/object.php:611 templates/calendar.php:7
 msgid "July"
-msgstr ""
+msgstr "জুলাই"
 
 #: lib/object.php:612 templates/calendar.php:7
 msgid "August"
-msgstr ""
+msgstr "অগাস্ট"
 
 #: lib/object.php:613 templates/calendar.php:7
 msgid "September"
-msgstr ""
+msgstr "সেপ্টেম্বর"
 
 #: lib/object.php:614 templates/calendar.php:7
 msgid "October"
-msgstr ""
+msgstr "অক্টোবর"
 
 #: lib/object.php:615 templates/calendar.php:7
 msgid "November"
-msgstr ""
+msgstr "নভেম্বর"
 
 #: lib/object.php:616 templates/calendar.php:7
 msgid "December"
-msgstr ""
+msgstr "ডিসেম্বর"
 
 #: lib/object.php:626
 msgid "by events date"
@@ -552,7 +552,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "নিয়ামকসমূহ"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -569,7 +569,7 @@ msgstr ""
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
-msgstr ""
+msgstr "ডাউনলোড"
 
 #: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
@@ -578,7 +578,7 @@ msgstr ""
 #: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
-msgstr ""
+msgstr "মুছে ফেল"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
@@ -606,16 +606,16 @@ msgstr ""
 
 #: templates/part.editcalendar.php:42
 msgid "Save"
-msgstr ""
+msgstr "সংরক্ষণ কর"
 
 #: templates/part.editcalendar.php:42 templates/part.editevent.php:8
 #: templates/part.newevent.php:6
 msgid "Submit"
-msgstr ""
+msgstr "পাঠাও"
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"
-msgstr ""
+msgstr "বাতিল"
 
 #: templates/part.editevent.php:1
 msgid "Edit an event"
@@ -659,7 +659,7 @@ msgstr ""
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
-msgstr ""
+msgstr "ক্যাটেগরি সম্পাদনা"
 
 #: templates/part.eventform.php:50 templates/part.showevent.php:46
 msgid "Access Class"
@@ -703,7 +703,7 @@ msgstr ""
 
 #: templates/part.eventform.php:118 templates/part.showevent.php:112
 msgid "Advanced"
-msgstr ""
+msgstr "সুচারু"
 
 #: templates/part.eventform.php:162 templates/part.showevent.php:156
 msgid "Select weekdays"
@@ -798,7 +798,7 @@ msgstr ""
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "ভাগাভাগি বাতিল"
 
 #: templates/part.share.php:53
 msgid "Nobody"
