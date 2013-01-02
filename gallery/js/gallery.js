@@ -123,12 +123,14 @@ Gallery.view.viewAlbum = function (albumPath) {
 	if (subAlbums) {
 		for (i = 0; i < subAlbums.length; i++) {
 			Gallery.view.addAlbum(subAlbums[i]);
+			Gallery.view.element.append(' '); //add a space for justify
 		}
 	}
 
 	album = Gallery.albums[albumPath];
 	for (i = 0; i < album.length; i++) {
 		Gallery.view.addImage(album[i]);
+		Gallery.view.element.append(' '); //add a space for justify
 	}
 
 	OC.Breadcrumb.clear();

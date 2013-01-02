@@ -1,10 +1,10 @@
 #gallery {
 	margin-top: 2.8em;
 	overflow: auto;
+	text-align: justify;
 }
 
 #gallery > a.album {
-	display: inline-block;
 	width: 200px;
 	background-color: #e8e8e8;
 	border-radius: 10px;
@@ -21,9 +21,13 @@
 }
 
 #gallery > a {
+	display: inline-block;
 	height: 200px;
 	margin: 1em;
 	position: relative;
+	vertical-align: top;
+	*display: inline;
+	zoom: 1;
 }
 
 #slideshow-start {
