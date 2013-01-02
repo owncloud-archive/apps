@@ -146,8 +146,8 @@ dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }
 #dropdown { margin: 1.5em 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 100%; }
 
 /* reset box-sizing for multiSelect */
-.multiselect, .multiselect * { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
-.multiselectoptions > li > * { 
+#content div.multiselect, #content div.multiselect > * { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+#content .multiselectoptions > li > * { 
 	-webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; 
 	color: #888888; 
 	display: block;
