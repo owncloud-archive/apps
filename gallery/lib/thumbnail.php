@@ -22,7 +22,17 @@ class Thumbnail {
 		} else {
 			$user = \OCP\USER::getUser();
 			$galleryDir = \OC_User::getHome($user) . '/gallery/';
-			$this->path = $galleryDir . $imagePath;
+			if (strrpos($imagePath, '.')) {
+				$extension = substr($imagePath, strrpos($imagePath, '.') + 1);
+				$image = substr($imagePath, 0, strrpos($imagePath, '.'));
+			} else {
+				$extension = '';
+				$image = $imagePath;
+			}
+			if ($square) {
+				$extension = 'square.' . $extension;
+			}
+			$this->path = $galleryDir . $image . '.' . $extension;
 			if (!file_exists($this->path)) {
 				self::create($imagePath, $square);
 			}
@@ -46,8 +56,8 @@ class Thumbnail {
 				$this->image->centerCrop(200);
 			} else {
 				$this->image->fitIn(400, 200);
-				$this->image->save($this->path);
 			}
+			$this->image->save($this->path);
 		}
 	}
 
@@ -88,9 +98,25 @@ class Thumbnail {
 		$galleryDir = \OC_User::getHome($user) . '/gallery/';
 		$thumbPath = $galleryDir . $path;
 		if (is_dir($thumbPath)) {
-			unlink($thumbPath . '.png');
+			if (file_exists($thumbPath . '.png')) {
+				unlink($thumbPath . '.png');
+			}
 		} else {
-			unlink($thumbPath);
+			if (file_exists($thumbPath)) {
+				unlink($thumbPath);
+			}
+
+			if (strrpos($path, '.')) {
+				$extension = substr($path, strrpos($path, '.') + 1);
+				$image = substr($path, 0, strrpos($path, '.'));
+			} else {
+				$extension = '';
+				$image = $path;
+			}
+			$squareThumbPath = $galleryDir . $image . '.square.' . $extension;
+			if (file_exists($squareThumbPath)) {
+				unlink($squareThumbPath);
+			}
 		}
 
 		$parent = dirname($path);
