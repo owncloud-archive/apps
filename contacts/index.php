@@ -52,6 +52,7 @@ OCP\Util::addscript('', 'oc-vcategories');
 OCP\Util::addscript('contacts', 'modernizr.custom');
 OCP\Util::addscript('contacts', 'app');
 OCP\Util::addscript('contacts', 'contacts');
+OCP\Util::addscript('contacts', 'groups');
 OCP\Util::addscript('contacts', 'expanding');
 OCP\Util::addscript('contacts', 'jquery.combobox');
 OCP\Util::addscript('files', 'jquery.fileupload');

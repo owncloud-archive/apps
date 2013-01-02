@@ -163,6 +163,7 @@
 						button.css('width','');
 					});
 					list.animate({'width':newOuterWidth,'left':pos.left+3});
+					$(self).trigger('change');
 				});
 				var li=$('<li></li>');
 				li.append(input).append(label);
@@ -222,6 +223,7 @@
 							option.text($(this).val()).val(val).attr('selected', 'selected');
 							select.append(option);
 							li.prev().children('input').prop('checked', true).trigger('change');
+							$(self).trigger('change');
 							button.parent().data('preventHide',false);
 							button.children('span').first().text(settings.labels.length > 0 
 								? settings.labels.join(', ')
