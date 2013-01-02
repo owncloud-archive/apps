@@ -92,6 +92,11 @@ class Thumbnail {
 		} else {
 			unlink($thumbPath);
 		}
+
+		$parent = dirname($path);
+		if ($parent !== '/') {
+			self::removeHook(array('path' => $parent));
+		}
 	}
 
 	static public function writeHook($params) {
