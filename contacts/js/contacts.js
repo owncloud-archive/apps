@@ -1560,6 +1560,9 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	ContactList.prototype.setCurrent = function(id, deselect_other) {
+		if(!id) {
+			return;
+		}
 		var self = this;
 		if(deselect_other === true) {
 			$.each(this.contacts, function(contact) {
