@@ -4,6 +4,18 @@ OC.Contacts = OC.Contacts || {};
 (function(window, $, OC) {
 	'use strict';
 
+	/**
+	 * GroupList object
+	 * Currently all data but the categories array is saved in the jquery DOM elements.
+	 * This may change in the future.
+	 * Each group element has a data-id and a data-type attribute. data-type can be
+	 * 'fav' for favorites, 'all' for all elements, 'category' for group and 'shared' for
+	 * a shared addressbook.
+	 * data-id can be 'fav', 'all' or a numeric group or addressbook id.
+	 * In addition each elements holds data entries for:
+	 *   'contacts': An array of contact ids belonging to that group
+	 *   'obj': A reference to the groupList object.
+	 */
 	var GroupList = function(groupList, listItemTmpl) {
 		this.$groupList = groupList;
 		var self = this;
@@ -30,18 +42,14 @@ OC.Contacts = OC.Contacts || {};
 		this.categories = [];
 	};
 
-	GroupList.prototype.nameById = function(id) {
-		return this.findById(id).contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
-	};
-
-	GroupList.prototype.findById = function(id) {
-		return this.$groupList.find('h3[data-id="' + id + '"]');
-	};
-
-	GroupList.prototype.isFavorite = function(contactid) {
-		return this.inGroup(contactid, 'fav');
-	};
-
+	/**
+	 * Set a group as being currently selected
+	 * 
+	 * @param object params. A map containing either a group id
+	 * or a jQuery group element.
+	 * This triggers a 'status.group.selected' event unless if
+	 * the group hasn't been saved/created yet.
+	 */
 	GroupList.prototype.selectGroup = function(params) {
 		var id, $elem;
 		if(typeof params.id !== 'undefined') {
@@ -69,12 +77,54 @@ OC.Contacts = OC.Contacts || {};
 		});
 	};
 
+	/**
+	 * Get the group name by id.
+	 * 
+	 * @param integer id. The numeric group or addressbook id.
+	 * @returns string The name of the group.
+	 * FIXME: Not sure this works in IE8 and maybe others.
+	 */
+	GroupList.prototype.nameById = function(id) {
+		return this.findById(id).contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
+	};
+
+	/** Get the group element by id.
+	 * 
+	 * @param integer id. The numeric group or addressbook id.
+	 * @returns object The jQuery object.
+	 */
+	GroupList.prototype.findById = function(id) {
+		return this.$groupList.find('h3[data-id="' + id + '"]');
+	};
+
+	/**
+	 * Check if a contact is favorited.
+	 * @param integer contactid.
+	 * @returns boolean.
+	 */
+	GroupList.prototype.isFavorite = function(contactid) {
+		return this.inGroup(contactid, 'fav');
+	};
+
+	/**
+	 * Check if a contact is in a specfic group.
+	 * @param integer contactid.
+	 * @param integer groupid.
+	 * @returns boolean.
+	 */
 	GroupList.prototype.inGroup = function(contactid, groupid) {
 		var $groupelem = this.findById(groupid);
 		var contacts = $groupelem.data('contacts');
 		return (contacts.indexOf(contactid) !== -1);
 	};
 
+	/**
+	 * Mark/unmark a contact as favorite.
+	 * 
+	 * @param integer contactid.
+	 * @param boolean state.
+	 * @param function cb. Optional callback function.
+	 */
 	GroupList.prototype.setAsFavorite = function(contactid, state, cb) {
 		contactid = parseInt(contactid);
 		var $groupelem = this.findById('fav');
@@ -117,9 +167,9 @@ OC.Contacts = OC.Contacts || {};
 
 	/**
 	* Add one or more contact ids to a group
-	* @param contactid An integer id or an array of integer ids.
-	* @param groupid The integer id of the group
-	* @param cb Optional call-back function
+	* @param integer|array contactid. An integer id or an array of integer ids.
+	* @param integer groupid. The integer id of the group
+	* @param function cb. Optional call-back function
 	*/
 	GroupList.prototype.addTo = function(contactid, groupid, cb) {
 		console.log('GroupList.addTo', contactid, groupid);
@@ -189,6 +239,12 @@ OC.Contacts = OC.Contacts || {};
 		}
 	};
 
+	/**
+	* Removes one or more contact ids from a group
+	* @param integer|array contactid. An integer id or an array of integer ids.
+	* @param integer groupid. The integer id of the group
+	* @param function cb. Optional call-back function
+	*/
 	GroupList.prototype.removeFrom = function(contactid, groupid, cb) {
 		console.log('GroupList.removeFrom', contactid, groupid);
 		var $groupelem = this.findById(groupid);
@@ -269,6 +325,13 @@ OC.Contacts = OC.Contacts || {};
 		}
 	};
 
+	/**
+	 * Remove a contact from all groups. Used on contact deletion.
+	 * 
+	 * @param integer contactid.
+	 * @param boolean alsospecial. Whether the contact should also be
+	 *    removed from non 'category' groups.
+	 */
 	GroupList.prototype.removeFromAll = function(contactid, alsospecial) {
 		var self = this;
 		var selector = alsospecial ? 'h3' : 'h3[data-type="category"]';
@@ -277,10 +340,20 @@ OC.Contacts = OC.Contacts || {};
 		});
 	};
 
+	/**
+	 * Handler that will be called by OCCategories if any groups have changed.
+	 * This is called when categories are edited by the generic categories edit
+	 * dialog, and will probably not be used in this app.
+	 */
 	GroupList.prototype.categoriesChanged = function(newcategories) {
 		console.log('GroupList.categoriesChanged, I should do something');
 	};
 
+	/**
+	 * Drop handler for for adding contact to group/favorites.
+	 * FIXME: The drag helper object goes below the group elements
+	 * during drag, and the drop target is hard to hit.
+	 */
 	GroupList.prototype.contactDropped = function(event, ui) {
 		var dragitem = ui.draggable, droptarget = $(this);
 		console.log('dropped', dragitem);
@@ -294,6 +367,23 @@ OC.Contacts = OC.Contacts || {};
 		}
 	};
 
+	/**
+	 * Remove a group from backend.
+	 * 
+	 * On success this triggers a 'status.group.groupremoved' event with an object
+	 * containing the properties:
+	 * 
+	 *   groupid: The numeric id of the removed group
+	 *   groupname: The string value of the group.
+	 *   newgroupid: The id of the group that is selected after deletion.
+	 *   contacts: An array of integer ids of contacts that must updated.
+	 * 
+	 * The handler for that event must take care of updating all contact objects
+	 * internal CATEGORIES value and saving them to backend.
+	 * 
+	 * @param integer groupid.
+	 * @param function cb. Optional callback function.
+	 */
 	GroupList.prototype.deleteGroup = function(groupid, cb) {
 		var $elem = this.findById(groupid);
 		var $newelem = $elem.prev('h3');
@@ -320,6 +410,15 @@ OC.Contacts = OC.Contacts || {};
 		});
 	};
 
+	/**
+	 * Edit a groups name.
+	 * Currently only used for adding, as renaming a group also
+	 * requires updating all contacts in that group.
+	 * 
+	 * @param integer id. Group id NOTE: Not used yet.
+	 * FIXME: This works fine for adding, but will need refactoring
+	 * if used for renaming.
+	 */
 	GroupList.prototype.editGroup = function(id) {
 		var self = this;
 		if(this.$editelem) {
@@ -387,6 +486,8 @@ OC.Contacts = OC.Contacts || {};
 			});
 			$input.focus();
 		} else if(utils.isUInt(id)) {
+			alert('Renaming groups is not implemented!');
+			return;
 			var $elem = this.findById(id);
 			var $text = $elem.contents().filter(function(){ return(this.nodeType == 3); });
 			var name = $text.text();
@@ -401,6 +502,25 @@ OC.Contacts = OC.Contacts || {};
 		}
 	};
 
+	/**
+	 * Add a new group.
+	 * 
+	 * After the addition a group element will be inserted in the list of group
+	 * elements with data-type="category".
+	 * NOTE: The element is inserted (semi) alphabetically, but since group elements
+	 * can now be rearranged by dragging them it should probably be dropped.
+	 * 
+	 * @param object params. Map that can have the following properties:
+	 *   'name': Mandatory. If a group with the same name already exists
+	 *       (not case sensitive) the callback will be called with its 'status'
+	 *       set to 'error' and the function returns.
+	 *   'element': A jQuery group element. If this property isn't present
+	 *       a new element will be created.
+	 * @param function cb. On success the only parameter is an object with
+	 *    'status': 'success', id: new id from the backend and 'name' the group name.
+	 *     On error 'status' will be 'error' and 'message' will hold any error message
+	 *     from the backend.
+	 */
 	GroupList.prototype.addGroup = function(params, cb) {
 		console.log('GroupList.addGroup', params.name);
 		var name = params.name;
