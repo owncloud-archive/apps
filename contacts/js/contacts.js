@@ -1176,7 +1176,7 @@ OC.Contacts = OC.Contacts || {};
 	 * @returns Boolean
 	 */
 	Contact.prototype.inGroup = function(name) {
-		if(!this.data.CATEGORIES) {
+		if(!this.data || this.data.CATEGORIES) {
 			return false;
 		}
 
