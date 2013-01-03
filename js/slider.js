@@ -33,8 +33,8 @@
 $(document).ready(function(){
 	// construct slider object
 	var slider=$('<span id="navigation-slider" class="navigation-slider-shown">');
-	var img   =$('<img  id="navigation-slider" draggable="false">');
-	img.attr('src',OC.filePath('navigation_slider','img','actions/slide-left.png'));
+	var img   =$('<img  id="navigation-slider" class="svg" draggable="false">');
+	img.attr('src',OC.filePath('navigation_slider','img','actions/slide-left.svg'));
 	slider.append(img);
 	// inject slider object into navigation areaa
 	$('#navigation').append(slider);
@@ -47,7 +47,7 @@ $(document).ready(function(){
 	$('#navigation-slider').css('left',$('#navigation').css('width'));
 	// position slider object vertically
 	// for this we consider a default value, an optional stored value and min and max values
-	var topMin=36;
+	var topMin=37;
 	var topMax=$('#navigation').height()-$('#navigation').position().top-37;
 	OC.AppConfig.getValue('navigation-slider','navigation-slider-position',topMax,function(top){
 		top=(top>topMax)?topMax:((top<topMin)?topMin:top);
@@ -161,7 +161,7 @@ OC.NavigationSlider={
 			).done(function(){
 				dfd.resolve();
 				OC.NavigationSlider.Handle.find('img')
-					.attr('src',OC.filePath('navigation_slider','img','actions/slide-right.png'));
+					.attr('src',OC.filePath('navigation_slider','img','actions/slide-right.svg'));
 				// store current slider status inside user preferences
 				OC.AppConfig.setValue('navigation-slider','navigation-slider-status','hidden');
 			}).fail(dfd.reject)}
@@ -184,7 +184,7 @@ OC.NavigationSlider={
 			).done(function(){
 				dfd.resolve();
 				OC.NavigationSlider.Handle.find('img')
-					.attr('src',OC.filePath('navigation_slider','img','actions/slide-left.png'));
+					.attr('src',OC.filePath('navigation_slider','img','actions/slide-left.svg'));
 				// store current slider status inside user preferences
 				OC.AppConfig.setValue('navigation-slider','navigation-slider-status','shown');
 			}).fail(dfd.reject)}
