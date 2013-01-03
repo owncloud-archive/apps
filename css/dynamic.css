@@ -25,7 +25,7 @@
 
 /**
  * @file css/dynamic.css
- * @brief Style definitions of the apps view
+ * @brief Dynamic style definitions modifying the apps builtin styles
  * @author Christian Reiner
  */
 
@@ -40,6 +40,8 @@ html.ns-state-shown{
 }
 
 /* some specific app dependent settings */
+html.ns-modeless{}
+
 html.ns-mode-files_index{}
 
 html.ns-mode-contacts_index #content #contacts{left:0;}

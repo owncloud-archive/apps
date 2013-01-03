@@ -202,23 +202,26 @@ OC.NavigationSlider={
 		OC.addStyle('navigation_slider','dynamic');
 		// mark slider-mode and active app as class of the html tag
 		// this acts like a 'switch' command inside the dynamically loaded css
-		var mode=$('#navigation #apps .active').parents('li').attr('data-id');
-		if (mode)
-			$('html').addClass('ns-mode-'+mode);
+		var mode={
+			files_index:	'files',
+			media_index:	'media',
+			calendar_index:	'calendar',
+			contacts_index:	'contacts',
+			gallery_index:	'gallery',
+			shorty_index:	'shorty'
+		};
+		var index=$('#navigation #apps .active').parents('li').attr('data-id');
+		// mark current mode (active app) as class of the html element
+		if (index && mode[index])
+			$('html').addClass('ns-mode-'+mode[index]);
+		else
+			$('html').addClass('ns-modeless');
+		// mark the current state (hidden or shown) as class of the html element
 		if (hidden){
 			$('html').removeClass('ns-state-shown').addClass('ns-state-hidden');
 		}else{
 			$('html').removeClass('ns-state-hidden').addClass('s-state-shown');
 		}
-// 		// and some more specialized changes that depend on which app is loaded
-// 		switch($('#navigation #apps .active').parents('li').attr('data-id')){
-// 			case 'shorty_index':
-// 				$('#content #desktop').css({top:0});
-// 				break;
-// 			case 'contacts_index':
-// 				$('#content #contacts').css({left:0});
-// 				break;
-// 		} // switch
 	}, // OC.NavigationSlider.stylish
 	/**
 	* @method OC.NavigationSlider.toggle
