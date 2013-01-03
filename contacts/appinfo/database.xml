@@ -193,7 +193,7 @@
 		</field>
 
 		<index>
-			<name>name_index</name>
+			<name>cp_name_index</name>
 			<field>
 				<name>name</name>
 				<sorting>ascending</sorting>
@@ -201,7 +201,7 @@
 		</index>
 
 		<index>
-			<name>value_index</name>
+			<name>cp_value_index</name>
 			<field>
 				<name>value</name>
 				<sorting>ascending</sorting>
