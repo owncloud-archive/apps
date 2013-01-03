@@ -55,8 +55,6 @@ $(document).ready(function(){
 		// visualize handle by allowing overflow of the navigation area
 		$('#navigation').css('overflow','visible');
 	});
-	// a few corrections to general style defintions
-	$('#controls').css({position:'relative',top:0});
 	// hide or show the navigation in a persistent manner
 	OC.AppConfig.getValue('navigation-slider','navigation-slider-status','shown',function(status){
 		if ('hidden'==status)
@@ -155,6 +153,7 @@ OC.NavigationSlider={
 		var dfd = new $.Deferred();
 		if (OC.NavigationSlider.Handle.hasClass('navigation-slider-shown')){
 			$.when(
+				OC.NavigationSlider.stylish(true),
 				OC.NavigationSlider.Handle.addClass('navigation-slider-hidden'),
 				OC.NavigationSlider.Handle.removeClass('navigation-slider-shown'),
 				OC.NavigationSlider.Zoom.animate({width:"+="+OC.NavigationSlider.Offset},'fast'),
@@ -178,6 +177,7 @@ OC.NavigationSlider={
 		var dfd = new $.Deferred();
 		if (OC.NavigationSlider.Handle.hasClass('navigation-slider-hidden')){
 			$.when(
+				OC.NavigationSlider.stylish(false),
 				OC.NavigationSlider.Handle.addClass('navigation-slider-shown'),
 				OC.NavigationSlider.Handle.removeClass('navigation-slider-hidden'),
 				OC.NavigationSlider.Zoom.animate({width:"-="+OC.NavigationSlider.Offset},'fast'),
@@ -192,6 +192,34 @@ OC.NavigationSlider={
 		else dfd.resolve();
 		return dfd.promise();
 	}, // OC.NavigationSlider.show
+	/**
+	* @method OC.NavigationSlider.stylish
+	* @brief Hide the navigation area if visible
+	* @author Christian Reiner
+	*/
+	stylish:function(hidden){
+		// dynamically load stylesheet to make sure it is loaded LAST
+		OC.addStyle('navigation_slider','dynamic');
+		// mark slider-mode and active app as class of the html tag
+		// this acts like a 'switch' command inside the dynamically loaded css
+		var mode=$('#navigation #apps .active').parents('li').attr('data-id');
+		if (mode)
+			$('html').addClass('ns-mode-'+mode);
+		if (hidden){
+			$('html').removeClass('ns-state-shown').addClass('ns-state-hidden');
+		}else{
+			$('html').removeClass('ns-state-hidden').addClass('s-state-shown');
+		}
+// 		// and some more specialized changes that depend on which app is loaded
+// 		switch($('#navigation #apps .active').parents('li').attr('data-id')){
+// 			case 'shorty_index':
+// 				$('#content #desktop').css({top:0});
+// 				break;
+// 			case 'contacts_index':
+// 				$('#content #contacts').css({left:0});
+// 				break;
+// 		} // switch
+	}, // OC.NavigationSlider.stylish
 	/**
 	* @method OC.NavigationSlider.toggle
 	* @brief Toggles the visibility of the navigation area
