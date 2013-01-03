@@ -4,7 +4,7 @@
 # 
 # Translators:
 #   <daniel@mouxy.net>, 2012.
-# Duarte Velez Grilo <duartegrilo@gmail.com>, 2012.
+# Duarte Velez Grilo <duartegrilo@gmail.com>, 2012-2013.
 #   <geral@ricardolameiro.pt>, 2012.
 #   <helder.meneses@gmail.com>, 2011.
 # Helder Meneses <helder.meneses@gmail.com>, 2012.
@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-30 00:01+0100\n"
-"PO-Revision-Date: 2012-12-28 00:07+0000\n"
-"Last-Translator: Mouxy <daniel@mouxy.net>\n"
+"POT-Creation-Date: 2013-01-03 00:01+0100\n"
+"PO-Revision-Date: 2013-01-02 14:06+0000\n"
+"Last-Translator: Duarte Velez Grilo <duartegrilo@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -104,7 +104,7 @@ msgstr "grupo"
 
 #: js/calendar.js:598 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
-msgstr "Editavel"
+msgstr "Editável"
 
 #: js/calendar.js:599 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
@@ -188,7 +188,7 @@ msgstr "Pessoal"
 
 #: lib/app.php:126
 msgid "Projects"
-msgstr "Projetos"
+msgstr "Projectos"
 
 #: lib/app.php:127
 msgid "Questions"
@@ -221,7 +221,7 @@ msgstr "Não tem permissões para acrescentar a este calendário."
 #: lib/import.php:216 templates/calendar.php:12
 #: templates/part.choosecalendar.php:23
 msgid "New Calendar"
-msgstr "Novo calendário"
+msgstr "Novo Calendário"
 
 #: lib/object.php:122 lib/object.php:162 lib/object.php:316
 msgid "You do not have the permissions to add events to this calendar."
@@ -514,19 +514,19 @@ msgstr "Título"
 
 #: templates/calendar.php:16
 msgid "From Date"
-msgstr "Da data"
+msgstr "Da Data"
 
 #: templates/calendar.php:17
 msgid "From Time"
-msgstr "Da hora"
+msgstr "Da Hora"
 
 #: templates/calendar.php:18
 msgid "To Date"
-msgstr "Para data"
+msgstr "Para Data"
 
 #: templates/calendar.php:19
 msgid "To Time"
-msgstr "Para hora"
+msgstr "Para Hora"
 
 #: templates/calendar.php:20
 msgid "The event ends before it starts"
@@ -730,11 +730,11 @@ msgstr "e o dia de eventos do mês."
 
 #: templates/part.eventform.php:201 templates/part.showevent.php:195
 msgid "Select months"
-msgstr "Seleciona os meses"
+msgstr "Selecciona os meses"
 
 #: templates/part.eventform.php:214 templates/part.showevent.php:208
 msgid "Select weeks"
-msgstr "Seleciona as semanas"
+msgstr "Selecciona as semanas"
 
 #: templates/part.eventform.php:219 templates/part.showevent.php:213
 msgid "and the events week of year."
@@ -776,7 +776,7 @@ msgstr "Escolha um nome disponível!"
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr "Já existe um Calendário com esse nome. Se mesmo assim continuar, esses calendários serão fundidos."
+msgstr "Já existe um Calendário com esse nome. Se mesmo assim continuar, estes calendários serão fundidos."
 
 #: templates/part.import.php:48
 msgid "Remove all events from the selected calendar"
@@ -886,7 +886,7 @@ msgstr "mais informação"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr "Endereço principal (contactos et al.)"
+msgstr "Endereço principal (Kontact et al.)"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
