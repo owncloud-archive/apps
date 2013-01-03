@@ -23,4 +23,5 @@
 *****
 
 Future versions might implement additional features and services.
+But for now focus is on fixing compatibility problems with apps using unclean style definitions.
 If you have a suggestion of requirement, drop me a note :-)

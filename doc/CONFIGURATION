@@ -23,5 +23,5 @@
 *****
 
 No explicit configuration is required by this app.
-The current state of the slider (in or out of view) is persistent.
-The certical position of the handle can be adjusted by simply dragging the handle.
+The current state of the navigation area (shown or hidden) is persistent.
+The vertical position of the handle can be adjusted by simply dragging the handle.
