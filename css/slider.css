@@ -39,7 +39,7 @@
 	border-left: 0;
 	border-top-right-radius: 1em;
 	border-bottom-right-radius: 1em;
-	box-shadow: 1px 1px 0 #bbb;
+	box-shadow: 1px 0 4px #bbb;
 	cursor: pointer;
 }
 
