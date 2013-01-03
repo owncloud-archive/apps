@@ -151,9 +151,9 @@ OC.NavigationSlider={
 	*/
 	hide:function(){
 		var dfd = new $.Deferred();
+		OC.NavigationSlider.stylish(false);
 		if (OC.NavigationSlider.Handle.hasClass('navigation-slider-shown')){
 			$.when(
-				OC.NavigationSlider.stylish(true),
 				OC.NavigationSlider.Handle.addClass('navigation-slider-hidden'),
 				OC.NavigationSlider.Handle.removeClass('navigation-slider-shown'),
 				OC.NavigationSlider.Zoom.animate({width:"+="+OC.NavigationSlider.Offset},'fast'),
@@ -175,9 +175,9 @@ OC.NavigationSlider={
 	*/
 	show:function(){
 		var dfd = new $.Deferred();
+		OC.NavigationSlider.stylish(true);
 		if (OC.NavigationSlider.Handle.hasClass('navigation-slider-hidden')){
 			$.when(
-				OC.NavigationSlider.stylish(false),
 				OC.NavigationSlider.Handle.addClass('navigation-slider-shown'),
 				OC.NavigationSlider.Handle.removeClass('navigation-slider-hidden'),
 				OC.NavigationSlider.Zoom.animate({width:"-="+OC.NavigationSlider.Offset},'fast'),
@@ -197,7 +197,7 @@ OC.NavigationSlider={
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	stylish:function(hidden){
+	stylish:function(shown){
 		// dynamically load stylesheet to make sure it is loaded LAST
 		OC.addStyle('navigation_slider','dynamic');
 		// mark slider-mode and active app as class of the html tag
@@ -212,15 +212,16 @@ OC.NavigationSlider={
 		};
 		var index=$('#navigation #apps .active').parents('li').attr('data-id');
 		// mark current mode (active app) as class of the html element
-		if (index && mode[index])
+		if (index && mode[index]){
 			$('html').addClass('ns-mode-'+mode[index]);
-		else
-			$('html').addClass('ns-modeless');
-		// mark the current state (hidden or shown) as class of the html element
-		if (hidden){
-			$('html').removeClass('ns-state-shown').addClass('ns-state-hidden');
 		}else{
-			$('html').removeClass('ns-state-hidden').addClass('s-state-shown');
+			$('html').addClass('ns-modeless');
+		}
+		// mark the current state (hidden or shown) as class of the html element
+		if (shown){
+			$('html').removeClass('ns-state-hidden').addClass('ns-state-shown');
+		}else{
+			$('html').removeClass('ns-state-shown').addClass('ns-state-hidden');
 		}
 	}, // OC.NavigationSlider.stylish
 	/**
