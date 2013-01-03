@@ -112,6 +112,7 @@ $(document).ready(function(){
 			// remove _above_ handler
 			OC.NavigationSlider.Handle.off('mouseup');
 		});
+		return false;
 	});
 })
 
