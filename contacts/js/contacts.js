@@ -225,6 +225,10 @@ OC.Contacts = OC.Contacts || {};
 		var q = '';
 		if(params.obj) {
 			obj = params.obj;
+			if($(obj).is('select')) {
+				console.warn('Group adding will have to be refactored.');
+				return;
+			}
 			q = this.queryStringFor(obj);
 			element = this.propertyTypeFor(obj);
 		} else {
@@ -569,16 +573,20 @@ OC.Contacts = OC.Contacts || {};
 		return $container.is('input')
 			? $container.val()
 			: (function() {
-				var $elem = $container.find('textarea.value,input.value:not(:checkbox)');
-				console.assert($elem.length > 0, 'Couldn\'t find value for ' + $container.data('element'));
-				if($elem.length === 1) {
-					return $elem.val();
-				} else if($elem.length > 1) {
-					var retval = [];
-					$.each($elem, function(idx, e) {
-						retval.push($(e).val());
-					});
-					return retval;
+				if($container.is('select')) {
+					console.warn('Group adding will have to be refactored.');
+				} else {
+					var $elem = $container.find('textarea.value,input.value:not(:checkbox)');
+					console.assert($elem.length > 0, 'Couldn\'t find value for ' + $container.data('element'));
+					if($elem.length === 1) {
+						return $elem.val();
+					} else if($elem.length > 1) {
+						var retval = [];
+						$.each($elem, function(idx, e) {
+							retval.push($(e).val());
+						});
+						return retval;
+					}
 				}
 			})();
 	};
@@ -760,6 +768,7 @@ OC.Contacts = OC.Contacts || {};
 			if(this.value === this.defaultValue) {
 				return;
 			}
+			console.log('change', this.defaultValue, this.value);
 			self.saveProperty({obj:event.target});
 		});
 
@@ -1176,7 +1185,7 @@ OC.Contacts = OC.Contacts || {};
 	 * @returns Boolean
 	 */
 	Contact.prototype.inGroup = function(name) {
-		if(!this.data.CATEGORIES) {
+		if(!this.data || this.data.CATEGORIES) {
 			return false;
 		}
 
@@ -1560,6 +1569,9 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	ContactList.prototype.setCurrent = function(id, deselect_other) {
+		if(!id) {
+			return;
+		}
 		var self = this;
 		if(deselect_other === true) {
 			$.each(this.contacts, function(contact) {
