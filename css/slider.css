@@ -39,8 +39,13 @@
 	border-left: 0;
 	border-top-right-radius: 1em;
 	border-bottom-right-radius: 1em;
-	box-shadow: 1px 0 4px #bbb;
+	box-shadow: 1px 0 1px #bbb;
 	cursor: pointer;
+	user-select: none;
+	-o-user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 
 #navigation-slider img {
