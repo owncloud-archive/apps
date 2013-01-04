@@ -5,14 +5,14 @@
 # Translators:
 #   <joan@montane.cat>, 2012.
 # Josep Tomàs <jtomas.binsoft@gmail.com>, 2012.
-#   <rcalvoi@yahoo.com>, 2011-2012.
+#   <rcalvoi@yahoo.com>, 2011-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-03 00:01+0100\n"
-"PO-Revision-Date: 2013-01-02 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-04 13:23+0100\n"
+"PO-Revision-Date: 2013-01-03 15:34+0000\n"
+"Last-Translator: rogerc <rcalvoi@yahoo.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -340,7 +340,7 @@ msgstr "No s'han seleccionat fitxers per a la pujada."
 msgid "Edit profile picture"
 msgstr "Edita la fotografia de perfil"
 
-#: js/app.js:1434 js/contacts.js:1091
+#: js/app.js:1434 js/contacts.js:1102
 msgid "Error loading profile picture."
 msgstr "Error en carregar la imatge de perfil."
 
@@ -368,59 +368,59 @@ msgstr "És correcte?"
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "S'ha produït un error en intentar esborrat aquest contacte"
 
-#: js/contacts.js:1424
+#: js/contacts.js:1435
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Heu marcat eliminar alguns contactes, però encara no s'han eliminat. Espereu mentre s'esborren."
 
-#: js/contacts.js:1435
+#: js/contacts.js:1446
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Feu clic a desfés eliminació de {num} contactes"
 
-#: js/contacts.js:1450
+#: js/contacts.js:1461
 msgid "Cancelled deletion of {num}"
 msgstr "S'ha cancel·lat l'eliminació de {num}"
 
-#: js/groups.js:191
+#: js/groups.js:193
 msgid "Contact is already in this group."
 msgstr "El contacte ja és en aquest grup."
 
-#: js/groups.js:204
+#: js/groups.js:206
 msgid "Contacts are already in this group."
 msgstr "Els contactes ja són en aquest grup"
 
-#: js/groups.js:268
+#: js/groups.js:270
 msgid "Couldn't get contact list."
 msgstr "No s'ha pogut obtenir la llista de contactes."
 
-#: js/groups.js:279
+#: js/groups.js:281
 msgid "Contact is not in this group."
 msgstr "El contacte no és en aquest grup."
 
-#: js/groups.js:293
+#: js/groups.js:295
 msgid "Contacts are not in this group."
 msgstr "Els contactes no són en aquest grup."
 
-#: js/groups.js:537
+#: js/groups.js:539
 msgid "A group named {group} already exists"
 msgstr "Un grup anomenat {group} ja existeix"
 
-#: js/groups.js:569
+#: js/groups.js:571
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Podeu arrossegar grups per\norganitzar-los com volgueu."
 
-#: js/groups.js:588
+#: js/groups.js:590
 msgid "All"
 msgstr "Tots"
 
-#: js/groups.js:602
+#: js/groups.js:604
 msgid "Favorites"
 msgstr "Preferits"
 
-#: js/groups.js:651
+#: js/groups.js:653
 msgid "Shared by {owner}"
 msgstr "Compartits per {owner}"
 
@@ -793,7 +793,7 @@ msgstr "Selecciona una foto de ownCloud"
 
 #: templates/contacts.php:175
 msgid "Select groups"
-msgstr ""
+msgstr "Selecciona grups"
 
 #: templates/contacts.php:183 templates/contacts.php:184
 msgid "First name"
