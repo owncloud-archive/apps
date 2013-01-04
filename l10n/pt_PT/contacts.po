@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <daniel@mouxy.net>, 2012.
+#   <daniel@mouxy.net>, 2012-2013.
 # Duarte Velez Grilo <duartegrilo@gmail.com>, 2012.
 #   <geral@ricardolameiro.pt>, 2012.
 #   <helder.meneses@gmail.com>, 2011.
@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-03 00:01+0100\n"
-"PO-Revision-Date: 2013-01-02 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-05 00:01+0100\n"
+"PO-Revision-Date: 2013-01-04 15:33+0000\n"
+"Last-Translator: Mouxy <daniel@mouxy.net>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -343,7 +343,7 @@ msgstr "Nenhum ficheiro seleccionado para enviar."
 msgid "Edit profile picture"
 msgstr "Editar a fotografia de perfil."
 
-#: js/app.js:1434 js/contacts.js:1091
+#: js/app.js:1434 js/contacts.js:1102
 msgid "Error loading profile picture."
 msgstr "Erro ao carregar imagem de perfil."
 
@@ -371,59 +371,59 @@ msgstr "Isto está correcto?"
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Houve um erro desconhecido enquanto tentava eliminar este contacto."
 
-#: js/contacts.js:1424
+#: js/contacts.js:1435
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Alguns contactos forma marcados para apagar, mas ainda não foram apagados. Por favor espere que ele sejam apagados."
 
-#: js/contacts.js:1435
+#: js/contacts.js:1446
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Clique para desfazer a eliminar de {num} contactos"
 
-#: js/contacts.js:1450
+#: js/contacts.js:1461
 msgid "Cancelled deletion of {num}"
 msgstr "Cancelada a eliminação de {num} contactos"
 
-#: js/groups.js:191
+#: js/groups.js:193
 msgid "Contact is already in this group."
 msgstr "O contacto já está neste grupo."
 
-#: js/groups.js:204
+#: js/groups.js:206
 msgid "Contacts are already in this group."
 msgstr "Os contactos já estão neste grupo"
 
-#: js/groups.js:268
+#: js/groups.js:270
 msgid "Couldn't get contact list."
 msgstr "Não foi possível ler a lista de contactos"
 
-#: js/groups.js:279
+#: js/groups.js:281
 msgid "Contact is not in this group."
 msgstr "O contacto não está neste grupo"
 
-#: js/groups.js:293
+#: js/groups.js:295
 msgid "Contacts are not in this group."
 msgstr "Os contactos não estão neste grupo"
 
-#: js/groups.js:537
+#: js/groups.js:539
 msgid "A group named {group} already exists"
 msgstr "Um grupo com o nome {group} já existe"
 
-#: js/groups.js:569
+#: js/groups.js:571
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Pode arrastar grupos para\ncolocá-los como desejar."
 
-#: js/groups.js:588
+#: js/groups.js:590
 msgid "All"
 msgstr "Todos"
 
-#: js/groups.js:602
+#: js/groups.js:604
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: js/groups.js:651
+#: js/groups.js:653
 msgid "Shared by {owner}"
 msgstr "Partilhado por {owner}"
 
@@ -796,7 +796,7 @@ msgstr "Selecionar uma foto da ownCloud"
 
 #: templates/contacts.php:175
 msgid "Select groups"
-msgstr ""
+msgstr "Seleccionar Grupos"
 
 #: templates/contacts.php:183 templates/contacts.php:184
 msgid "First name"
