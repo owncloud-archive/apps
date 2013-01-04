@@ -3,18 +3,24 @@ function getRosterList(){
 		url: OC.linkTo('xmpp','ajax/getRoster.php'),
 		success: function(jids){
 			var jids=jQuery.parseJSON(jids)
+			$('rosterList').html('');
 			for(var i=0;i<jids.length;i++){
 				$('#rosterList').append('<li>'+jids[i]+'</li>');
 			}
 		}
 	});
 }
-function rosterAdd(){
-	rosterName=$('#rosterName').val()
-	roserJid=$('#rosterJid').val()
-	alert('Afegir '+rosterJid+' amb nom '+rosterName);
+function rosterAddForm(){
+	rosterName=$('#rosterNameInput').val()
+	rosterJid=$('#rosterJidInput').val()
+	$.ajax({
+		type: 'POST',
+		url: OC.linkTo('xmpp','ajax/addRoster.php'),
+		data: "name="+rosterName+"&"+"jid="+rosterJid,
+		success: getRosterList()
+	});
 }
 $(document).ready(function(){
 	getRosterList();
-	$('#rosterSubmit').click(function(){rosterAdd()})
+	$('#rosterSubmitForm').click(function(){rosterAddForm()})
 });
