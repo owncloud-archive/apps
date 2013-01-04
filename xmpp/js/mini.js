@@ -113,6 +113,9 @@ function onMessage(msg){
 function jidtodiv(jid){
 	return jid.replace('@','AT').replace('.','DOT');
 }
+function divtojid(jid){
+	return jid.replace('AT','@').replace('DOT','.');
+}
 
 function requestPresence(jid){
 	connection.send($pres({'type':'probe','from':connection.jid,'to':jid}));

@@ -150,6 +150,15 @@ class OC_xmpp_login{
 
 	}
 
+	public function deleteRoster($jid){
+		$xml=$this->newBody();
+		$xml->addChild('presence');
+		$xml->presence->addAttribute('from',$this->username.'@'.$this->domain);
+		$xml->presence->addAttribute('to',$jid);
+		$xml->presence->addAttribute('type','unsubscribe');
+		$this->send_xml($xml->asXML());
+	}
+
 	public function addUser($jid,$passwd,$passwdverify){
 		$xml=$this->iq('set','add-user-1',$this->domain,$this->jid);
 		$xml->iq->addChild('command','','http://jabber.org/protocol/commands');
