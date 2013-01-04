@@ -27,7 +27,7 @@ class OC_xmpp_login{
 		if($jidas!=''){
 			$jide=explode('@',$jidas);
 			$passwd=$this->getUserPasswd($jidas);
-			$newx=$this->__construct($jide[0],$jide[1],$passwd,$this->bosh_url);
+			$newx=new OC_xmpp_login($jide[0],$jide[1],$passwd,$this->bosh_url);
 			$newx->doLogin();
 			return $newx;
 		}
@@ -118,6 +118,13 @@ class OC_xmpp_login{
 		$sess2=$this->iq('set','_session_auth_2');
 		$sess2->iq->addChild('session','','urn:ietf:params:xml:ns:xmpp-session');
 		$res=$this->send_xml($sess2->asXML());
+	}
+
+	public function getRoster(){
+		$xml=$this->iq('get');
+		$xml->iq->addChild('query','','jabber:iq:roster');
+		$ret=$this->send_xml($xml->asXML());
+		return $ret;
 	}
 	
 	public function addRoster($jid,$name=null){

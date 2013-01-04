@@ -100,10 +100,10 @@ function onMessage(msg){
 	var type = msg.getAttribute('type');
 	var elems = msg.getElementsByTagName('body');
 
-	if($("#chatbox\\_"+chatboxtitle).length!=1){
-		createChatBox(chatboxtitle)
-	}
 	if(elems[0]!=null){
+		if($("#chatbox\\_"+chatboxtitle).length!=1){
+			createChatBox(chatboxtitle)
+		}
 		$("#chatbox\\_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+from+':&nbsp;&nbsp;<br/></span><span class="chatboxmessagecontent">'+Strophe.getText(elems[0])+'</span></div>');
 		$("#chatbox\\_"+chatboxtitle+" .chatboxcontent").scrollTop($("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);
 	}
