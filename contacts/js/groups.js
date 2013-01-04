@@ -80,12 +80,14 @@ OC.Contacts = OC.Contacts || {};
 	/**
 	 * Get the group name by id.
 	 * 
+	 * Kind of a hack. Need to get the immidiate text without the enclosed spans with number etc.
+	 * Not sure this works in IE8 and maybe others.
+	 * 
 	 * @param integer id. The numeric group or addressbook id.
 	 * @returns string The name of the group.
-	 * FIXME: Not sure this works in IE8 and maybe others.
 	 */
 	GroupList.prototype.nameById = function(id) {
-		return this.findById(id).contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
+		return this.findById(id).clone().find("*").remove().end().text(); //.contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
 	};
 
 	/** Get the group element by id.
