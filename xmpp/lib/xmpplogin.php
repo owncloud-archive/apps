@@ -157,6 +157,19 @@ class OC_xmpp_login{
 		$xml->presence->addAttribute('to',$jid);
 		$xml->presence->addAttribute('type','unsubscribe');
 		$this->send_xml($xml->asXML());
+
+		$xml=$this->newBody();
+		$xml->addChild('presence');
+		$xml->presence->addAttribute('from',$this->username.'@'.$this->domain);
+		$xml->presence->addAttribute('to',$jid);
+		$xml->presence->addAttribute('type','unsubscribed');
+		$this->send_xml($xml->asXML());
+
+		$xml=$this->iq('set',null,$jid,$this->jid);
+		$xml->iq->addChild('query','','jabber:iq:roster');
+		$xml->iq->query->addAttribute('jid',$jid);
+		$xml->iq->query->addAttribute('subscription','remove');
+		$this->send_xml($xml->asXML());
 	}
 
 	public function addUser($jid,$passwd,$passwdverify){
