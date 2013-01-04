@@ -3,7 +3,7 @@
 	<id>gallery</id>
 	<name>Pictures</name>
 	<licence>AGPL</licence>
-	<author>Bartek Przybylski</author>
+	<author>Robin Appelman</author>
 	<require>4.9</require>
 	<shipped>true</shipped>
 	<description>Dedicated pictures application</description>
