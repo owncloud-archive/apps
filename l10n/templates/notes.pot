@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-04 13:23+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: appinfo/app.php:9
+msgid "Notes"
+msgstr ""
+
+#: templates/categories.php:10 templates/help.php:5
+msgid "Back to Notes"
+msgstr ""
+
+#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
+msgid "Help"
+msgstr ""
+
+#: templates/categories.php:99
+msgid "Categories"
+msgstr ""
+
+#: templates/categories.php:116 templates/notes.php:345
+#: templates/notes.php:388
+msgid "Delete"
+msgstr ""
+
+#: templates/categories.php:117 templates/notes.php:390
+msgid "Save"
+msgstr ""
+
+#: templates/categories.php:129
+msgid "No categories available yet"
+msgstr ""
+
+#: templates/categories.php:137
+msgid "New category"
+msgstr ""
+
+#: templates/categories.php:141
+msgid "Add"
+msgstr ""
+
+#: templates/categories.php:144
+msgid "Note"
+msgstr ""
+
+#: templates/categories.php:145
+msgid ""
+"If you delete a category, all containing notes get moved to the following "
+"category"
+msgstr ""
+
+#: templates/categories.php:145 templates/notes.php:61
+msgid "General"
+msgstr ""
+
+#: templates/notes.php:81
+msgid "Add Note"
+msgstr ""
+
+#: templates/notes.php:87
+msgid "Edit Categories"
+msgstr ""
+
+#: templates/notes.php:291
+msgid "No note available in this category"
+msgstr ""
+
+#: templates/notes.php:335
+msgid "Edit"
+msgstr ""
+
+#: templates/notes.php:363
+msgid "Category"
+msgstr ""
+
+#: templates/notes.php:381
+msgid "Title"
+msgstr ""
+
+#: templates/notes.php:382
+msgid "Content"
+msgstr ""
+
+#: templates/notes.php:413
+msgid "Restore content"
+msgstr ""
+
+#: templates/notes.php:421
+msgid "Restore"
+msgstr ""
+
+#: templates/notes.php:455
+msgid "The title can not be empty"
+msgstr ""
+
+#: templates/notes.php:462
+msgid "Invalid title"
+msgstr ""
+
+#: templates/notes.php:462
+msgid "The following characters are not allowed"
+msgstr ""

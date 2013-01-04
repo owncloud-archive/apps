@@ -185,6 +185,7 @@
 "Edit current photo" => "Modifica la foto corrente",
 "Upload new photo" => "Invia una nuova foto",
 "Select photo from ownCloud" => "Seleziona la foto da ownCloud",
+"Select groups" => "Seleziona gruppi",
 "First name" => "Nome",
 "Additional names" => "Nomi aggiuntivi",
 "Last name" => "Cognome",

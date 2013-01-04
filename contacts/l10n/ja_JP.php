@@ -185,6 +185,7 @@
 "Edit current photo" => "現在の写真を編集",
 "Upload new photo" => "新しい写真をアップロード",
 "Select photo from ownCloud" => "ownCloudから写真を選択",
+"Select groups" => "グループを選択",
 "First name" => "名",
 "Additional names" => "ミドルネーム",
 "Last name" => "姓",
