@@ -7,10 +7,18 @@
         	</label>
         	<label for="usermail"><?php echo $l->t('Password');?>
         		<input type="password" id="xmppAdminPasswd" name="xmppAdminPasswd" value="<?php echo $_['xmppAdminPasswd'];?>">
-        	</label></p>
+        	</label>
+	</p>
+	<p>
         	<label for="usermail"><?php echo $l->t('BOSH URL');?>
         		<input type="text" id="xmppBOSHURL" name="xmppBOSHURL" value="<?php echo $_['xmppBOSHURL'];?>">
-        	</label></p>
+        	</label>
+	</p>
+	<p>
+		<label for="usermail"><?php echo $l->t('Default XMPP Domain');?>
+			<input type="text" id="xmppDefaultDomain" name="xmppDefaultDomain" value="<?php echo $_['xmppDefaultDomain'];?>">
+		</label>
+	</p>
         <input type="submit" value="Save" />
 	</fieldset>
 </form>

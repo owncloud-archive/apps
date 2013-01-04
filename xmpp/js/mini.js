@@ -82,7 +82,7 @@ function onRoster(msg) {
 			rosterAdd(jid,name,content)
 		}
 	}else if(type=='set'){
-		connection.sendIQ($iq({'from':connection.jid,'to':'acs.li','type':'result','id':msg.getAttribute('id')}));
+		connection.sendIQ($iq({'from':connection.jid,'to':Strophe.getDomainFromJid(connection.jid),'type':'result','id':msg.getAttribute('id')}));
 		xmlroster=msg.firstchild;
 		items=xmlroster.getElementsByTagName('item');
 		item=items[0];
