@@ -544,7 +544,13 @@ OC.Contacts = OC.Contacts || {};
 		}
 
 		if($(obj).hasClass('propertycontainer')) {
-			q += '&value=' + encodeURIComponent($(obj).val());
+			if($(obj).is('select[data-element="categories"]')) {
+				$.each($(obj).find(':selected'), function(idx, e) {
+					q += '&value=' + encodeURIComponent($(e).text());
+				});
+			} else {
+				q += '&value=' + encodeURIComponent($(obj).val());
+			}
 		} else {
 			var $elements = this.propertyContainerFor(obj)
 				.find('input.value,select.value,textarea.value,.parameter');
@@ -573,8 +579,13 @@ OC.Contacts = OC.Contacts || {};
 		return $container.is('input')
 			? $container.val()
 			: (function() {
-				if($container.is('select')) {
+				if($container.is('select[data-element="categories"]')) {
 					console.warn('Group adding will have to be refactored.');
+					retval = {};
+					$.each($container.find(':selected'), function(idx, e) {
+						retval[$(e).val()] = $(e).text();
+					});
+					return retval;
 				} else {
 					var $elem = $container.find('textarea.value,input.value:not(:checkbox)');
 					console.assert($elem.length > 0, 'Couldn\'t find value for ' + $container.data('element'));
