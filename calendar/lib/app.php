@@ -353,7 +353,7 @@ class OC_Calendar_App{
 				if ($accessclass === 'PRIVATE') {
 					return 0;
 				} elseif ($accessclass === 'CONFIDENTIAL') {
-					return OCP\Share::PERMISSION_READ;
+					return OCP\PERMISSION_READ;
 				} else {
 					return max($calendar_permissions, $event_permissions);
 				}
@@ -372,10 +372,10 @@ class OC_Calendar_App{
 
 		switch($accessclass) {
 			case 'CONFIDENTIAL':
-				return OCP\Share::PERMISSION_READ;
+				return OCP\PERMISSION_READ;
 			case 'PUBLIC':
 			case '':
-				return (OCP\Share::PERMISSION_READ | OCP\Share::PERMISSION_UPDATE | OCP\Share::PERMISSION_DELETE);
+				return (OCP\PERMISSION_READ | OCP\PERMISSION_UPDATE | OCP\PERMISSION_DELETE);
 			default:
 				return 0;
 		}
