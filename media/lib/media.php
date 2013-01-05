@@ -20,10 +20,15 @@ class Media {
 			$name = $params['uid'];
 			$query = \OCP\DB::prepare("SELECT `user_id` from `*PREFIX*media_users` WHERE `user_id` LIKE ?");
 			$uid = $query->execute(array($name))->fetchAll();
+			$password = hash('sha256',$_POST['password']);
 			if (count($uid) == 0) {
-				$password = hash('sha256', $_POST['password']);
 				$query = \OCP\DB::prepare("INSERT INTO `*PREFIX*media_users` (`user_id`, `user_password_sha256`) VALUES (?, ?);");
 				$query->execute(array($name, $password));
+				\OC_Log::write('OC_MEDIA', 'Adding new user '.$name.' to media_users', \OC_Log::DEBUG);
+			} else {
+				$query=\OCP\DB::prepare("UPDATE `*PREFIX*media_users` SET `user_password_sha256`=? WHERE `user_id`=?;");
+				$query->execute(array($password, $name));
+				\OC_Log::write('OC_MEDIA', 'Updating password of existing user '.$name.' in media_users', \OC_Log::DEBUG);
 			}
 		}
 	}
