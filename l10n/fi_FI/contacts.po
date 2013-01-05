@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Jesse Jaara <jesse.jaara@gmail.com>, 2012.
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2012.
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2012-2013.
 # Johannes Korpela <>, 2012.
 #   <tehoratopato@gmail.com>, 2012.
 #   <tscooter@hotmail.com>, 2012.
@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-03 00:01+0100\n"
-"PO-Revision-Date: 2013-01-02 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-05 00:01+0100\n"
+"PO-Revision-Date: 2013-01-04 17:37+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -298,7 +298,7 @@ msgstr "Virhe"
 
 #: js/app.js:1002
 msgid "Importing from {filename}..."
-msgstr ""
+msgstr "Tuodaan tiedostosta {filename}..."
 
 #: js/app.js:1005
 msgid "{success} imported, {failed} failed."
@@ -342,7 +342,7 @@ msgstr "Tiedostoja ei ole valittu lähetettäväksi."
 msgid "Edit profile picture"
 msgstr "Muokkaa profiilikuvaa"
 
-#: js/app.js:1434 js/contacts.js:1091
+#: js/app.js:1434 js/contacts.js:1102
 msgid "Error loading profile picture."
 msgstr "Virhe profiilikuvaa ladatessa."
 
@@ -370,59 +370,59 @@ msgstr "Onko tämä oikein?"
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Tätä yhteystietoa poistaessa tapahtui tuntematon virhe"
 
-#: js/contacts.js:1424
+#: js/contacts.js:1435
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Jotkin yhteystiedot on merkitty poistettaviksi, mutta niitä ei ole vielä poistettu. Odota hetki, että kyseiset yhteystiedot poistetaan."
 
-#: js/contacts.js:1435
+#: js/contacts.js:1446
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1450
+#: js/contacts.js:1461
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
-#: js/groups.js:191
+#: js/groups.js:193
 msgid "Contact is already in this group."
 msgstr "Yhteystieto kuuluu jo tähän ryhmään."
 
-#: js/groups.js:204
+#: js/groups.js:206
 msgid "Contacts are already in this group."
 msgstr "Yhteystiedot kuuluvat jo tähän ryhmään."
 
-#: js/groups.js:268
+#: js/groups.js:270
 msgid "Couldn't get contact list."
 msgstr ""
 
-#: js/groups.js:279
+#: js/groups.js:281
 msgid "Contact is not in this group."
 msgstr "Yhteystieto ei ole tässä ryhmässä."
 
-#: js/groups.js:293
+#: js/groups.js:295
 msgid "Contacts are not in this group."
 msgstr "Yhteystiedot eivät ole tässä ryhmässä."
 
-#: js/groups.js:537
+#: js/groups.js:539
 msgid "A group named {group} already exists"
 msgstr "Ryhmä nimeltä {group} on jo olemassa"
 
-#: js/groups.js:569
+#: js/groups.js:571
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
-msgstr ""
+msgstr "Voit järjestää ryhmät vetämällä\nne haluamaasi järjestykseen."
 
-#: js/groups.js:588
+#: js/groups.js:590
 msgid "All"
 msgstr "Kaikki"
 
-#: js/groups.js:602
+#: js/groups.js:604
 msgid "Favorites"
 msgstr "Suosikit"
 
-#: js/groups.js:651
+#: js/groups.js:653
 msgid "Shared by {owner}"
 msgstr ""
 
@@ -795,7 +795,7 @@ msgstr "Valitse valokuva ownCloudista"
 
 #: templates/contacts.php:175
 msgid "Select groups"
-msgstr ""
+msgstr "Valitse ryhmät"
 
 #: templates/contacts.php:183 templates/contacts.php:184
 msgid "First name"

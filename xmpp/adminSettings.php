@@ -1,5 +1,5 @@
 <?php
-$params = array('xmppAdminUser', 'xmppAdminPasswd', 'xmppBOSHURL');
+$params = array('xmppAdminUser', 'xmppAdminPasswd', 'xmppBOSHURL', 'xmppDefaultDomain');
 
 if ($_POST) {
 	foreach ($params as $param) {

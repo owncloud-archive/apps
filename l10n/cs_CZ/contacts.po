@@ -6,14 +6,14 @@
 # Jan Krejci <krejca85@gmail.com>, 2011-2012.
 # Martin  <fireball@atlas.cz>, 2011-2012.
 # Michal Hrušecký <Michal@hrusecky.net>, 2012.
-# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-03 00:01+0100\n"
-"PO-Revision-Date: 2013-01-02 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-04 13:23+0100\n"
+"PO-Revision-Date: 2013-01-03 09:09+0000\n"
+"Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -341,7 +341,7 @@ msgstr "Žádné soubory nebyly vybrány k nahrání."
 msgid "Edit profile picture"
 msgstr "Upravit obrázek profilu"
 
-#: js/app.js:1434 js/contacts.js:1091
+#: js/app.js:1434 js/contacts.js:1102
 msgid "Error loading profile picture."
 msgstr "Chyba při načítání obrázku profilu."
 
@@ -369,59 +369,59 @@ msgstr "Je to správně?"
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Nastala neznámá chyba při mazání tohoto kontaktu"
 
-#: js/contacts.js:1424
+#: js/contacts.js:1435
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Některé kontakty jsou označeny ke smazání, ale nejsou smazány. Počkejte, prosím, na dokončení operace."
 
-#: js/contacts.js:1435
+#: js/contacts.js:1446
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Klikněte pro navrácení mazání {num} kontaktů"
 
-#: js/contacts.js:1450
+#: js/contacts.js:1461
 msgid "Cancelled deletion of {num}"
 msgstr "Mazání {num} položek zrušeno"
 
-#: js/groups.js:191
+#: js/groups.js:193
 msgid "Contact is already in this group."
 msgstr "Kontakt je již v této skupině."
 
-#: js/groups.js:204
+#: js/groups.js:206
 msgid "Contacts are already in this group."
 msgstr "Kontakty jsou již v této skupině."
 
-#: js/groups.js:268
+#: js/groups.js:270
 msgid "Couldn't get contact list."
 msgstr "Nelze získat seznam kontaktů."
 
-#: js/groups.js:279
+#: js/groups.js:281
 msgid "Contact is not in this group."
 msgstr "Kontakt není v této skupině."
 
-#: js/groups.js:293
+#: js/groups.js:295
 msgid "Contacts are not in this group."
 msgstr "Kontakty nejsou v této skupině."
 
-#: js/groups.js:537
+#: js/groups.js:539
 msgid "A group named {group} already exists"
 msgstr "Skupina s názvem {group} již existuje"
 
-#: js/groups.js:569
+#: js/groups.js:571
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Můžete přesouvat skupiny, pro\nsnadné seřazení dle vašich potřeb."
 
-#: js/groups.js:588
+#: js/groups.js:590
 msgid "All"
 msgstr "Vše"
 
-#: js/groups.js:602
+#: js/groups.js:604
 msgid "Favorites"
 msgstr "Oblíbené"
 
-#: js/groups.js:651
+#: js/groups.js:653
 msgid "Shared by {owner}"
 msgstr "Sdílí {owner}"
 
@@ -794,7 +794,7 @@ msgstr "Vybrat fotku z ownCloudu"
 
 #: templates/contacts.php:175
 msgid "Select groups"
-msgstr ""
+msgstr "Vybrat skupiny"
 
 #: templates/contacts.php:183 templates/contacts.php:184
 msgid "First name"
