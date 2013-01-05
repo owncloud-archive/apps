@@ -5,9 +5,12 @@ var xcd='xmpp-chat-dom';
 
 function onConnect(status){
 	console.log('Connection status '+ status)
-	if (status == Strophe.Status.ATTACHED || status == Strophe.Status.CONNECTED ) {
+	if (status == Strophe.Status.ATTACHED) {
 		updatePresence('online');
+		sessionAttached=true;
+		createDomChat()
 		console.log('Connection attached');
+		if(connection.paused){connection.resume()}
 	}else if (status == Strophe.Status.DISCONNECTED ){
 		var connection=null;
 		attachNew();
@@ -79,7 +82,7 @@ function onRoster(msg) {
 			rosterAdd(jid,name,content)
 		}
 	}else if(type=='set'){
-		connection.sendIQ($iq({'from':connection.jid,'to':'acs.li','type':'result','id':msg.getAttribute('id')}));
+		connection.sendIQ($iq({'from':connection.jid,'to':Strophe.getDomainFromJid(connection.jid),'type':'result','id':msg.getAttribute('id')}));
 		xmlroster=msg.firstchild;
 		items=xmlroster.getElementsByTagName('item');
 		item=items[0];
@@ -97,10 +100,10 @@ function onMessage(msg){
 	var type = msg.getAttribute('type');
 	var elems = msg.getElementsByTagName('body');
 
-	if($("#chatbox\\_"+chatboxtitle).length!=1){
-		createChatBox(chatboxtitle)
-	}
 	if(elems[0]!=null){
+		if($("#chatbox\\_"+chatboxtitle).length!=1){
+			createChatBox(chatboxtitle)
+		}
 		$("#chatbox\\_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+from+':&nbsp;&nbsp;<br/></span><span class="chatboxmessagecontent">'+Strophe.getText(elems[0])+'</span></div>');
 		$("#chatbox\\_"+chatboxtitle+" .chatboxcontent").scrollTop($("#chatbox_"+chatboxtitle+" .chatboxcontent")[0].scrollHeight);
 	}
@@ -109,6 +112,9 @@ function onMessage(msg){
 
 function jidtodiv(jid){
 	return jid.replace('@','AT').replace('.','DOT');
+}
+function divtojid(jid){
+	return jid.replace('AT','@').replace('DOT','.');
 }
 
 function requestPresence(jid){
@@ -156,9 +162,6 @@ function attachSession(){
                         var j=jQuery.parseJSON(xmppsess)
                         connection.rid=j.rid;
                         connection.attach(j.jid,j.sid,j.rid,onConnect);
-                        if(connection.paused){connection.resume()}
-			sessionAttached=true;
-			createDomChat()
                 }
         });
 }
@@ -187,25 +190,32 @@ function initConnection(bosh){
 }
 
 function createDomChat(){
+	console.log('Creating dom chat');
         $('<div/>').attr('id','xmpp-chat-dom').appendTo($('body'))
-	xmppdom=getVar(xcd)
-        if(xmppdom==null){
-                $(" <div />" ).attr("id","chatbox_roster")
-                .addClass("chatbox")
-                .html('<div class="chatboxhead"><div class="chatboxtitle">Contacts</div><div class="chatboxoptions"><a href="javascript:void(0)" onclick="javascript:toggleChatBoxGrowth(\'roster\')">-</a> </div><br clear="all"/></div><div id="roster_content" class="chatboxcontent"></div>')
-                .appendTo($( "#xmpp-chat-dom" ));
-                $("#chatbox_roster").css('display','block');
-                $("#chatbox_roster").css('right','10px');
-        }else{
-                $('#xmpp-chat-dom').html(xmppdom);
-                rmVar(xcd);
-        }
+        if(xmppdom=getVar(xcd)){
+		$('#xmpp-chat-dom').html(xmppdom);
+		rmVar(xcd);
+	}else{
+		$(" <div />" ).attr("id","chatbox_roster")
+		.addClass("chatbox")
+		.html('<div class="chatboxhead"><div class="chatboxtitle">Contacts</div><div class="chatboxoptions"><a href="javascript:void(0)" onclick="javascript:toggleChatBoxGrowth(\'roster\')">-</a> </div><br clear="all"/></div><div id="roster_content" class="chatboxcontent"></div>')
+		.appendTo($( "#xmpp-chat-dom" ));
+		$("#chatbox_roster").css('display','block');
+		$("#chatbox_roster").css('right','10px');
+	}
+
 	getRoster();
+	return true;
 }
 function unloadChat(){
 	connection.pause();
 	saveRID();
-	if(savedomchat==true){setVar(xcd,$('#xmpp-chat-dom').html())};
+	if(savedomchat==true){
+		xmppdom=$('#xmpp-chat-dom').html();
+		if(xmppdom!=null){
+			setVar(xcd,xmppdom)
+		}
+	};
 }
 
 function rmVar(name){

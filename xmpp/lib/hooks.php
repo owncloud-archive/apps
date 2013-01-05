@@ -2,7 +2,7 @@
 
 class OC_User_xmpp_Hooks {
 	static public function createXmppSession($params){
-		$xmpplogin=new OC_xmpp_login($params['uid'],'acs.li',$params['password'],OCP\Config::getAppValue('xmpp', 'xmppBOSHURL',''));
+		$xmpplogin=new OC_xmpp_login($params['uid'],OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''),$params['password'],OCP\Config::getAppValue('xmpp', 'xmppBOSHURL',''));
 		$xmpplogin->doLogin();
                 
 		$stmt = OCP\DB::prepare('SELECT ocUser FROM *PREFIX*xmpp WHERE ocUser = "'.$params['uid'].'"');
@@ -21,11 +21,11 @@ class OC_User_xmpp_Hooks {
 	}
 
 	static public function createXmppUser($info){
-		system('sudo /usr/sbin/ejabberdctl register '.$info['uid'].' acs.li '.$info['password']);
+		system('sudo /usr/sbin/ejabberdctl register '.$info['uid'].' '.OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain','').' '.$info['password']);
 	}
 
 	static public function updateXmppUserPassword($info){
-		system('sudo /usr/sbin/ejabberdctl change_password '.$info['uid'].' acs.li '.$info['password']);
+		system('sudo /usr/sbin/ejabberdctl change_password '.$info['uid'].' '.OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain','').' '.$info['password']);
 	}
 
 	static public function post_updateVCard($id){
@@ -42,11 +42,11 @@ class OC_User_xmpp_Hooks {
 			}
 		}
 		if($email!=''){
-			$xmpplogin=new OC_xmpp_login(OCP\Config::getAppValue('xmpp', 'xmppAdminUser',''),'acs.li',OCP\Config::getAppValue('xmpp', 'xmppAdminPasswd',''),OCP\Config::getAppValue('xmpp', 'xmppBOSHURL',''));	
+			$xmpplogin=new OC_xmpp_login(OCP\Config::getAppValue('xmpp', 'xmppAdminUser',''),OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''),OCP\Config::getAppValue('xmpp', 'xmppAdminPasswd',''),OCP\Config::getAppValue('xmpp', 'xmppBOSHURL',''));	
 			$xmpplogin->doLogin();
-			$passwd=$xmpplogin->getUserPasswd(OCP\User::getUser().'@acs.li');
+			$passwd=$xmpplogin->getUserPasswd(OCP\User::getUser().'@'.OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''));
 
-			$xuser=new OC_xmpp_login(OCP\User::getUser(),'acs.li',$passwd,OCP\Config::getAppValue('xmpp', 'xmppBOSHURL',''));
+			$xuser=new OC_xmpp_login(OCP\User::getUser(),OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''),$passwd,OCP\Config::getAppValue('xmpp', 'xmppBOSHURL',''));
 			$xuser->doLogin();
 			$xuser->addRoster($email,$name);
 

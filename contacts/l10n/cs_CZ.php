@@ -185,6 +185,7 @@
 "Edit current photo" => "Upravit současnou fotku",
 "Upload new photo" => "Nahrát novou fotku",
 "Select photo from ownCloud" => "Vybrat fotku z ownCloudu",
+"Select groups" => "Vybrat skupiny",
 "First name" => "Křestní jméno",
 "Additional names" => "Další jména",
 "Last name" => "Příjmení",

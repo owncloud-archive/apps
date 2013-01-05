@@ -172,7 +172,7 @@
 				</ul>
 				<a class="favorite action {favorite}"></a>
 			</div>
-			<select id="contactgroups" class="value propertycontainer" data-element="categories" title="<?php echo $l->t('Select groups'); ?>" multiple></select>
+			<select id="contactgroups" class="value propertycontainer" data-element="categories" title="<?php echo $l->t('Select groups'); ?>" name="value" multiple></select>
 			<div class="singleproperties">
 			<input data-element="fn" class="fullname value propertycontainer" type="text" name="value" value="{name}" required />
 			<a class="action edit"></a>
