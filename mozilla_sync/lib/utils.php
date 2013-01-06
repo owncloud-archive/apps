@@ -205,7 +205,7 @@ class Utils
 	}
 
 	private static function getUrl() {
-		$url = $_SERVER['REQUEST_URI'];
+		$url = \OCP\Util::getRequestUri();
 		$url = str_replace('//','/',$url);
 
 		$pos = strpos($url, 'mozilla_sync');
