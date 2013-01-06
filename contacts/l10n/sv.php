@@ -185,6 +185,7 @@
 "Edit current photo" => "Redigera aktuellt foto",
 "Upload new photo" => "Ladda upp ett nytt foto",
 "Select photo from ownCloud" => "Välj foto från ownCloud",
+"Select groups" => "Välj grupper",
 "First name" => "Förnamn",
 "Additional names" => "Mellannamn",
 "Last name" => "Efternamn",
