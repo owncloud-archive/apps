@@ -5,7 +5,7 @@
 # Translators:
 # Art O. Pal <artopal@fastmail.fm>, 2012.
 #   <devianpctek@gmail.com>, 2012.
-#   <juanma@kde.org.ar>, 2012.
+#   <juanma@kde.org.ar>, 2012-2013.
 #   <pedro.navia@etecsa.cu>, 2012.
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
 # Rubén Trujillo <rubentrf@gmail.com>, 2012.
@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-02 00:01+0100\n"
-"PO-Revision-Date: 2012-12-01 20:48+0000\n"
-"Last-Translator: xsergiolpx <sergioballesterossolanas@gmail.com>\n"
+"POT-Creation-Date: 2013-01-08 00:26+0100\n"
+"PO-Revision-Date: 2013-01-07 14:16+0000\n"
+"Last-Translator: juanman <juanma@kde.org.ar>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,11 +84,11 @@ msgstr "Se produjo un error al analizar el archivo."
 
 #: ajax/loadfeed.php:52
 msgid "Feed loaded!"
-msgstr "Fuente cargada!"
+msgstr "¡Fuente cargada!"
 
 #: ajax/movefeedtofolder.php:37
 msgid "Error moving feed into folder."
-msgstr "Error al mover la fuente hacia la carpeta"
+msgstr "Error al mover la fuente hacia la carpeta."
 
 #: ajax/selectfromcloud.php:31
 msgid "No file path was submitted."
@@ -96,7 +96,7 @@ msgstr "No se presentó la ruta del archivo."
 
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
-msgstr "El fichero no existe."
+msgstr "El archivo no existe:"
 
 #: ajax/selectfromcloud.php:44
 msgid "Couldn't save temporary image: "
@@ -116,7 +116,7 @@ msgstr "Error actualizando la fuente."
 
 #: ajax/updatefeed.php:45
 msgid "Feed updated!"
-msgstr "Fuentes actualizadas!"
+msgstr "¡Fuentes actualizadas!"
 
 #: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
@@ -140,7 +140,7 @@ msgstr "Ninguno"
 
 #: js/main.js:101 templates/main.php:17
 msgid "Show only unread"
-msgstr "Mostrar solo no leidos"
+msgstr "Mostrar solo no leídos"
 
 #: js/main.js:105 templates/main.php:13
 msgid "Show everything"
@@ -181,7 +181,7 @@ msgstr "Cambiar nombre de carpeta"
 
 #: js/news.js:90
 msgid "URL cannot be empty."
-msgstr "URL no puede estar vacia"
+msgstr "La URL no puede estar vacía."
 
 #: js/news.js:120 js/news.js:127 templates/firstrun.php:5
 msgid "Add feed"
@@ -197,7 +197,7 @@ msgstr "Error fatal."
 
 #: js/settings.js:17
 msgid "No files selected."
-msgstr "No hay ficheros seleccionados."
+msgstr "No hay archivos seleccionados."
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
@@ -241,7 +241,7 @@ msgstr "Ocurrió un error"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr "¡Bien! Te has suscrito a"
+msgstr "¡Bien! Te has suscrito a "
 
 #: subscribe.php:36
 msgid "You had already subscribed to this feed!"
@@ -273,7 +273,7 @@ msgstr "Subir"
 
 #: templates/firstrun.php:13
 msgid "Select file from ownCloud"
-msgstr "Seleccionar fichero desde ownCloud"
+msgstr "Seleccionar archivo desde ownCloud"
 
 #: templates/firstrun.php:13
 msgid "Select"
@@ -344,12 +344,12 @@ msgstr "Añadir"
 
 #: templates/part.feeds.php:48
 msgid "New articles"
-msgstr "Nuevo artículo"
+msgstr "Nuevos artículos"
 
 #: templates/part.feeds.php:51 templates/part.listfeed.php:34
 #: templates/part.listfolder.php:35
 msgid "Mark all read"
-msgstr "Marcar como leido"
+msgstr "Marcar como leído"
 
 #: templates/part.feeds.php:55
 msgid "Starred"
@@ -416,4 +416,4 @@ msgstr "Suscribirse"
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr "Arrastra hacia los favoritos de tu navegador y has clic en él siempre que quiera suscribirse a una página web con rapidez:"
+msgstr "Arrastra hacia los favoritos de tu navegador y haz clic en él siempre que quiera suscribirse a una página web con rapidez:"
