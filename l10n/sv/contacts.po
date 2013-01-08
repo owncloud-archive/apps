@@ -5,7 +5,7 @@
 # Translators:
 # Christer Eriksson <post@hc3web.com>, 2012.
 # Daniel Sandman <revoltism@gmail.com>, 2012.
-# Magnus Höglund <magnus@linux.com>, 2012.
+# Magnus Höglund <magnus@linux.com>, 2012-2013.
 #   <magnus@linux.com>, 2012.
 #   <revoltism@gmail.com>, 2011, 2012.
 #   <tscooter@hotmail.com>, 2012.
@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-03 00:01+0100\n"
-"PO-Revision-Date: 2013-01-02 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-07 00:01+0100\n"
+"PO-Revision-Date: 2013-01-05 13:10+0000\n"
+"Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -343,7 +343,7 @@ msgstr "Inga filer valda för uppladdning"
 msgid "Edit profile picture"
 msgstr "Anpassa profilbild"
 
-#: js/app.js:1434 js/contacts.js:1091
+#: js/app.js:1434 js/contacts.js:1102
 msgid "Error loading profile picture."
 msgstr "Fel vid hämtning av profilbild."
 
@@ -371,59 +371,59 @@ msgstr "Är detta korrekt?"
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Okänt fel uppstod när denna kontakt skulle raderas"
 
-#: js/contacts.js:1424
+#: js/contacts.js:1435
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Vissa kontakter är markerade för radering, men är inte raderade än. Vänta tills dom är raderade."
 
-#: js/contacts.js:1435
+#: js/contacts.js:1446
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Klicka för att ångra radering av {num} kontakter"
 
-#: js/contacts.js:1450
+#: js/contacts.js:1461
 msgid "Cancelled deletion of {num}"
 msgstr "Avbruten radering av {num}"
 
-#: js/groups.js:191
+#: js/groups.js:193
 msgid "Contact is already in this group."
 msgstr "Kontakten finns redan i denna grupp."
 
-#: js/groups.js:204
+#: js/groups.js:206
 msgid "Contacts are already in this group."
 msgstr "Kontakterna finns redan i denna grupp."
 
-#: js/groups.js:268
+#: js/groups.js:270
 msgid "Couldn't get contact list."
 msgstr "Kunde inte hämta kontaktlista."
 
-#: js/groups.js:279
+#: js/groups.js:281
 msgid "Contact is not in this group."
 msgstr "Kontakten är inte i denna grupp."
 
-#: js/groups.js:293
+#: js/groups.js:295
 msgid "Contacts are not in this group."
 msgstr "Kontakterna är inte i denna grupp."
 
-#: js/groups.js:537
+#: js/groups.js:539
 msgid "A group named {group} already exists"
 msgstr "En grupp men namnet {group} finns redan"
 
-#: js/groups.js:569
+#: js/groups.js:571
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Du kan dra grupper för att\nordna dem som du vill."
 
-#: js/groups.js:588
+#: js/groups.js:590
 msgid "All"
 msgstr "Alla"
 
-#: js/groups.js:602
+#: js/groups.js:604
 msgid "Favorites"
 msgstr "Favoriter"
 
-#: js/groups.js:651
+#: js/groups.js:653
 msgid "Shared by {owner}"
 msgstr "Delad av {owner}"
 
@@ -796,7 +796,7 @@ msgstr "Välj foto från ownCloud"
 
 #: templates/contacts.php:175
 msgid "Select groups"
-msgstr ""
+msgstr "Välj grupper"
 
 #: templates/contacts.php:183 templates/contacts.php:184
 msgid "First name"
