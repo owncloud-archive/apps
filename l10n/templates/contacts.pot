@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-08 00:26+0100\n"
+"POT-Creation-Date: 2013-01-09 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -494,108 +494,108 @@ msgstr ""
 msgid "There was an error deleting this addressbook."
 msgstr ""
 
-#: lib/app.php:88
+#: lib/app.php:89
 msgid "Jabber"
 msgstr ""
 
-#: lib/app.php:93
+#: lib/app.php:94
 msgid "AIM"
 msgstr ""
 
-#: lib/app.php:98
+#: lib/app.php:99
 msgid "MSN"
 msgstr ""
 
-#: lib/app.php:103
+#: lib/app.php:104
 msgid "Twitter"
 msgstr ""
 
-#: lib/app.php:108
+#: lib/app.php:109
 msgid "GoogleTalk"
 msgstr ""
 
-#: lib/app.php:113
+#: lib/app.php:114
 msgid "Facebook"
 msgstr ""
 
-#: lib/app.php:118
+#: lib/app.php:119
 msgid "XMPP"
 msgstr ""
 
-#: lib/app.php:123
+#: lib/app.php:124
 msgid "ICQ"
 msgstr ""
 
-#: lib/app.php:128
+#: lib/app.php:129
 msgid "Yahoo"
 msgstr ""
 
-#: lib/app.php:133
+#: lib/app.php:134
 msgid "Skype"
 msgstr ""
 
-#: lib/app.php:138
+#: lib/app.php:139
 msgid "QQ"
 msgstr ""
 
-#: lib/app.php:143
+#: lib/app.php:144
 msgid "GaduGadu"
 msgstr ""
 
-#: lib/app.php:166 lib/app.php:174 lib/app.php:185 lib/app.php:226
+#: lib/app.php:167 lib/app.php:175 lib/app.php:186 lib/app.php:227
 msgid "Work"
 msgstr ""
 
-#: lib/app.php:167 lib/app.php:172 lib/app.php:186
+#: lib/app.php:168 lib/app.php:173 lib/app.php:187
 msgid "Home"
 msgstr ""
 
-#: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
+#: lib/app.php:169 lib/app.php:182 lib/app.php:189 lib/app.php:228
 #: lib/vcard.php:701
 msgid "Other"
 msgstr ""
 
-#: lib/app.php:173
+#: lib/app.php:174
 msgid "Mobile"
 msgstr ""
 
-#: lib/app.php:175
+#: lib/app.php:176
 msgid "Text"
 msgstr ""
 
-#: lib/app.php:176
+#: lib/app.php:177
 msgid "Voice"
 msgstr ""
 
-#: lib/app.php:177
+#: lib/app.php:178
 msgid "Message"
 msgstr ""
 
-#: lib/app.php:178
+#: lib/app.php:179
 msgid "Fax"
 msgstr ""
 
-#: lib/app.php:179
+#: lib/app.php:180
 msgid "Video"
 msgstr ""
 
-#: lib/app.php:180
+#: lib/app.php:181
 msgid "Pager"
 msgstr ""
 
-#: lib/app.php:187
+#: lib/app.php:188
 msgid "Internet"
 msgstr ""
 
-#: lib/app.php:224
+#: lib/app.php:225
 msgid "Friends"
 msgstr ""
 
-#: lib/app.php:225
+#: lib/app.php:226
 msgid "Family"
 msgstr ""
 
-#: lib/app.php:361
+#: lib/app.php:362
 msgid "There was an error deleting properties for this contact."
 msgstr ""
 

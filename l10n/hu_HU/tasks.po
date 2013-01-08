@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-08 00:26+0100\n"
-"PO-Revision-Date: 2013-01-07 10:37+0000\n"
+"POT-Creation-Date: 2013-01-09 00:01+0100\n"
+"PO-Revision-Date: 2013-01-08 21:38+0000\n"
 "Last-Translator: gyeben <gyonkibendeguz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -40,11 +40,11 @@ msgstr "Hely"
 
 #: js/tasks.js:420
 msgid "No category"
-msgstr ""
+msgstr "Nincs kategória megadva"
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr ""
+msgstr "Meghatározatlan"
 
 #: lib/app.php:34
 msgid "1=highest"
@@ -60,15 +60,15 @@ msgstr "9=legalacsonyabb"
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr ""
+msgstr "Üres összegzés"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr ""
+msgstr "A megadott teljesítési százalék érvénytelen"
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr ""
+msgstr "Érvénytelen prioritás"
 
 #: templates/no-calendar-app.php:9
 msgid ""
