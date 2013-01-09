@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-09 00:01+0100\n"
+"POT-Creation-Date: 2013-01-10 00:01+0100\n"
 "PO-Revision-Date: 2011-09-03 16:52+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
@@ -76,7 +76,7 @@ msgstr ""
 #: appinfo/app.php:38 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
-msgstr ""
+msgstr "Календар"
 
 #: js/calendar.js:154
 msgid "Deletion failed"
@@ -180,7 +180,7 @@ msgstr ""
 
 #: lib/app.php:125
 msgid "Personal"
-msgstr ""
+msgstr "Лични"
 
 #: lib/app.php:126
 msgid "Projects"
@@ -554,7 +554,7 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -571,7 +571,7 @@ msgstr ""
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
-msgstr ""
+msgstr "Изтегляне"
 
 #: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
@@ -580,7 +580,7 @@ msgstr ""
 #: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
-msgstr ""
+msgstr "Изтриване"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
@@ -608,12 +608,12 @@ msgstr ""
 
 #: templates/part.editcalendar.php:42
 msgid "Save"
-msgstr ""
+msgstr "Запис"
 
 #: templates/part.editcalendar.php:42 templates/part.editevent.php:8
 #: templates/part.newevent.php:6
 msgid "Submit"
-msgstr ""
+msgstr "Потвърждение"
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"
@@ -870,7 +870,7 @@ msgstr ""
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "Уеб адрес"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-09 00:01+0100\n"
+"POT-Creation-Date: 2013-01-10 00:01+0100\n"
 "PO-Revision-Date: 2011-08-13 02:19+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
 msgid "Music"
-msgstr ""
+msgstr "Музика"
 
 #: js/collection.js:100 js/collection.js:210 js/collection.js:257
 msgid "songs"

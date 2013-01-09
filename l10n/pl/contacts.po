@@ -5,7 +5,7 @@
 # Translators:
 # Bartek  <bart.p.pl@gmail.com>, 2012.
 # Cyryl Sochacki <>, 2012.
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012.
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2013.
 #   <czarnystokrotek@mailoo.org>, 2012.
 # Marcin Małecki <gerber@tkdami.net>, 2011-2012.
 #   <mplichta@gmail.com>, 2012.
@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-03 00:01+0100\n"
-"PO-Revision-Date: 2013-01-02 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-10 00:01+0100\n"
+"PO-Revision-Date: 2013-01-09 08:43+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -346,7 +346,7 @@ msgstr "Żadne pliki nie zostały zaznaczone do wysłania."
 msgid "Edit profile picture"
 msgstr "Edytuj zdjęcie profilu"
 
-#: js/app.js:1434 js/contacts.js:1091
+#: js/app.js:1434 js/contacts.js:1102
 msgid "Error loading profile picture."
 msgstr "Błąd wczytywania zdjęcia profilu."
 
@@ -374,59 +374,59 @@ msgstr "Jest to prawidłowe?"
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Wystąpił nieznany błąd podczas próby usunięcia tego kontaktu"
 
-#: js/contacts.js:1424
+#: js/contacts.js:1435
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Niektóre kontakty są zaznaczone do usunięcia, ale nie są usunięte jeszcze. Proszę czekać na ich usunięcie."
 
-#: js/contacts.js:1435
+#: js/contacts.js:1446
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Kliknij aby cofnąć usunięcie {num} kontaktów"
 
-#: js/contacts.js:1450
+#: js/contacts.js:1461
 msgid "Cancelled deletion of {num}"
 msgstr "Usunięcie Anulowane {num}"
 
-#: js/groups.js:191
+#: js/groups.js:193
 msgid "Contact is already in this group."
 msgstr "Kontakt jest już w tej grupie."
 
-#: js/groups.js:204
+#: js/groups.js:206
 msgid "Contacts are already in this group."
 msgstr "Kontakty są już w tej grupie."
 
-#: js/groups.js:268
+#: js/groups.js:270
 msgid "Couldn't get contact list."
 msgstr "Nie można pobrać listy kontaktów."
 
-#: js/groups.js:279
+#: js/groups.js:281
 msgid "Contact is not in this group."
 msgstr "Kontakt nie jest w tej grupie."
 
-#: js/groups.js:293
+#: js/groups.js:295
 msgid "Contacts are not in this group."
 msgstr "Kontakty nie sa w tej grupie."
 
-#: js/groups.js:537
+#: js/groups.js:539
 msgid "A group named {group} already exists"
 msgstr "Nazwa grupy {group} już istnieje"
 
-#: js/groups.js:569
+#: js/groups.js:571
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Można przeciągnąć grupy do\naby podzielić je jak chcesz."
 
-#: js/groups.js:588
+#: js/groups.js:590
 msgid "All"
 msgstr "Wszystkie"
 
-#: js/groups.js:602
+#: js/groups.js:604
 msgid "Favorites"
 msgstr "Ulubione"
 
-#: js/groups.js:651
+#: js/groups.js:653
 msgid "Shared by {owner}"
 msgstr "Udostępnione przez {owner}"
 
@@ -503,108 +503,108 @@ msgstr "Nie masz uprawnień do usunięcia tej książki adresowej."
 msgid "There was an error deleting this addressbook."
 msgstr "Wystąpił błąd podczas usuwania tej książki adresowej"
 
-#: lib/app.php:88
+#: lib/app.php:89
 msgid "Jabber"
 msgstr "Jabber"
 
-#: lib/app.php:93
+#: lib/app.php:94
 msgid "AIM"
 msgstr "AIM"
 
-#: lib/app.php:98
+#: lib/app.php:99
 msgid "MSN"
 msgstr "MSN"
 
-#: lib/app.php:103
+#: lib/app.php:104
 msgid "Twitter"
 msgstr "Twitter"
 
-#: lib/app.php:108
+#: lib/app.php:109
 msgid "GoogleTalk"
 msgstr "GoogleTalk"
 
-#: lib/app.php:113
+#: lib/app.php:114
 msgid "Facebook"
 msgstr "Facebook"
 
-#: lib/app.php:118
+#: lib/app.php:119
 msgid "XMPP"
 msgstr "XMPP"
 
-#: lib/app.php:123
+#: lib/app.php:124
 msgid "ICQ"
 msgstr "ICQ"
 
-#: lib/app.php:128
+#: lib/app.php:129
 msgid "Yahoo"
 msgstr "Yahoo"
 
-#: lib/app.php:133
+#: lib/app.php:134
 msgid "Skype"
 msgstr "Skype"
 
-#: lib/app.php:138
+#: lib/app.php:139
 msgid "QQ"
 msgstr "QQ"
 
-#: lib/app.php:143
+#: lib/app.php:144
 msgid "GaduGadu"
 msgstr "GG"
 
-#: lib/app.php:166 lib/app.php:174 lib/app.php:185 lib/app.php:226
+#: lib/app.php:167 lib/app.php:175 lib/app.php:186 lib/app.php:227
 msgid "Work"
 msgstr "Praca"
 
-#: lib/app.php:167 lib/app.php:172 lib/app.php:186
+#: lib/app.php:168 lib/app.php:173 lib/app.php:187
 msgid "Home"
 msgstr "Dom"
 
-#: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
+#: lib/app.php:169 lib/app.php:182 lib/app.php:189 lib/app.php:228
 #: lib/vcard.php:701
 msgid "Other"
 msgstr "Inne"
 
-#: lib/app.php:173
+#: lib/app.php:174
 msgid "Mobile"
 msgstr "Komórka"
 
-#: lib/app.php:175
+#: lib/app.php:176
 msgid "Text"
 msgstr "Połączenie tekstowe"
 
-#: lib/app.php:176
+#: lib/app.php:177
 msgid "Voice"
 msgstr "Połączenie głosowe"
 
-#: lib/app.php:177
+#: lib/app.php:178
 msgid "Message"
 msgstr "Wiadomość"
 
-#: lib/app.php:178
+#: lib/app.php:179
 msgid "Fax"
 msgstr "Faks"
 
-#: lib/app.php:179
+#: lib/app.php:180
 msgid "Video"
 msgstr "Połączenie wideo"
 
-#: lib/app.php:180
+#: lib/app.php:181
 msgid "Pager"
 msgstr "Pager"
 
-#: lib/app.php:187
+#: lib/app.php:188
 msgid "Internet"
 msgstr "Internet"
 
-#: lib/app.php:224
+#: lib/app.php:225
 msgid "Friends"
 msgstr "Przyjaciele"
 
-#: lib/app.php:225
+#: lib/app.php:226
 msgid "Family"
 msgstr "Rodzina"
 
-#: lib/app.php:361
+#: lib/app.php:362
 msgid "There was an error deleting properties for this contact."
 msgstr "Wystąpił błąd podczas usuwania właściwości dla tego kontaktu."
 
@@ -799,7 +799,7 @@ msgstr "Wybierz zdjęcie z ownCloud"
 
 #: templates/contacts.php:175
 msgid "Select groups"
-msgstr ""
+msgstr "Wybierz grupy"
 
 #: templates/contacts.php:183 templates/contacts.php:184
 msgid "First name"

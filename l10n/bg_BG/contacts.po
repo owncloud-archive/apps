@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-09 00:01+0100\n"
+"POT-Creation-Date: 2013-01-10 00:01+0100\n"
 "PO-Revision-Date: 2011-09-23 17:10+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
@@ -206,7 +206,7 @@ msgstr ""
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "Липсва временна папка"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
@@ -222,7 +222,7 @@ msgstr ""
 
 #: appinfo/app.php:25
 msgid "Contacts"
-msgstr ""
+msgstr "Контакти"
 
 #: export.php:66
 #, php-format
@@ -319,7 +319,7 @@ msgstr ""
 
 #: js/app.js:1043
 msgid "Upload too large"
-msgstr ""
+msgstr "Файлът който сте избрали за качване е прекалено голям"
 
 #: js/app.js:1083
 msgid "Pending"
@@ -447,7 +447,7 @@ msgstr ""
 
 #: js/settings.js:99 templates/contacts.php:261 templates/settings.php:40
 msgid "Download"
-msgstr ""
+msgstr "Изтегляне"
 
 #: js/settings.js:101 templates/settings.php:45
 msgid "Edit"
@@ -460,7 +460,7 @@ msgstr ""
 #: templates/part.contact.php:44 templates/part.contact.php:46
 #: templates/part.contact.php:50 templates/settings.php:50
 msgid "Delete"
-msgstr ""
+msgstr "Изтриване"
 
 #: js/settings.js:120 templates/contacts.php:259 templates/settings.php:62
 msgid "Cancel"
@@ -561,7 +561,7 @@ msgstr ""
 
 #: lib/app.php:176
 msgid "Text"
-msgstr ""
+msgstr "Текст"
 
 #: lib/app.php:177
 msgid "Voice"
@@ -649,7 +649,7 @@ msgstr ""
 
 #: templates/contacts.php:23 templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: templates/contacts.php:24
 msgid "Address books"
@@ -691,7 +691,7 @@ msgstr ""
 #: templates/contacts.php:58 templates/contacts.php:273
 #: templates/part.contact.php:47 templates/part.contact.php:135
 msgid "Groups"
-msgstr ""
+msgstr "Групи"
 
 #: templates/contacts.php:60
 msgid "Favorite"
@@ -847,7 +847,7 @@ msgstr ""
 
 #: templates/contacts.php:263
 msgid "Add"
-msgstr ""
+msgstr "Добавяне"
 
 #: templates/contacts.php:267 templates/part.contact.php:129
 msgid "Phone"
@@ -855,7 +855,7 @@ msgstr ""
 
 #: templates/contacts.php:268 templates/part.contact.php:130
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: templates/contacts.php:269 templates/part.contact.php:131
 msgid "Instant Messaging"
@@ -1215,7 +1215,7 @@ msgstr ""
 
 #: templates/settings.php:59
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: templates/settings.php:60
 msgid "Description"
@@ -1223,4 +1223,4 @@ msgstr ""
 
 #: templates/settings.php:61
 msgid "Save"
-msgstr ""
+msgstr "Запис"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-09 00:01+0100\n"
+"POT-Creation-Date: 2013-01-10 00:01+0100\n"
 "PO-Revision-Date: 2012-08-26 23:39+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
@@ -127,7 +127,7 @@ msgstr ""
 
 #: js/main.js:33
 msgid "None"
-msgstr ""
+msgstr "Няма"
 
 #: js/main.js:101 templates/main.php:17
 msgid "Show only unread"
@@ -260,7 +260,7 @@ msgstr ""
 
 #: templates/firstrun.php:12
 msgid "Upload"
-msgstr ""
+msgstr "Качване"
 
 #: templates/firstrun.php:13
 msgid "Select file from ownCloud"
@@ -299,11 +299,11 @@ msgstr ""
 
 #: templates/main.php:38
 msgid "Folder"
-msgstr ""
+msgstr "Папка"
 
 #: templates/main.php:45
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: templates/part.dialogues.php:1
 msgid "Add Folder"
@@ -331,7 +331,7 @@ msgstr ""
 
 #: templates/part.dialogues.php:29
 msgid "Add"
-msgstr ""
+msgstr "Добавяне"
 
 #: templates/part.feeds.php:48
 msgid "New articles"

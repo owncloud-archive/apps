@@ -1,3 +1,3 @@
 <?php $TRANSLATIONS = array(
-"Music" => "Музика"
+"Login" => "Вход"
 );
