@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!--
-* @package navigation-slider an ownCloud app
+* @package flux-compensator an ownCloud app
 * @category base
 * @author Christian Reiner
 * @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information 
-* @link repository https://svn.christian-reiner.info/svn/app/oc/navigation-slider
+* @link repository https://svn.christian-reiner.info/svn/app/oc/flux-compensator
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -33,12 +33,14 @@
  -->
 
 <info>
-	<id>navigation_slider</id>
-	<name>Navigation Slider</name>
+	<id>flux_compensator</id>
+	<name>Flux Compensator</name>
 	<description>
-		This simple app adds a slider to the navigation area.
-		That slider allows to slide the navigation in and out of view.
-		This helps to gain valuable space on small displays. 
+		This simple app offers control over the navigation panel and compensates effects on the main content area, thus the name 'Flux Compensator'.
+		It adds a handler to the left navigation panel that allows to slide the navigation panel in and out of view.
+		Due to the architecture of ownCloud this action has unwanted side effects to the layout of the main content area.
+		The Flux Compensator compensates these effects to restore a usable system. This helps to gain valuable space on small displays.
+		Simply click the handler to hide/show the navigation panel. To place the handler where you want it to be, just hold the handler and drag it.
 	</description>
 	<version>0.1.0</version>
 	<licence>AGPL</licence>

@@ -1,11 +1,11 @@
 /**
-* @package navigation-slider an ownCloud app
+* @package flux-compensator an ownCloud app
 * @category base
 * @author Christian Reiner
 * @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information
-* @link repository https://svn.christian-reiner.info/svn/app/oc/navigation-slider
+* @link repository https://svn.christian-reiner.info/svn/app/oc/flux-compensator
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -32,31 +32,31 @@
 // add slider to navigation area
 $(document).ready(function(){
 	// construct slider object
-	var slider=$('<span id="navigation-slider" class="navigation-slider-shown">');
-	var img   =$('<img  id="navigation-slider" class="svg" draggable="false">');
-	img.attr('src',OC.filePath('navigation_slider','img','actions/slide-left.svg'));
+	var slider=$('<span id="flux-compensator" class="flux-compensator-shown">');
+	var img   =$('<img  id="flux-compensator" class="svg" draggable="false">');
+	img.attr('src',OC.filePath('flux_compensator','img','actions/slide-left.svg'));
 	slider.append(img);
 	// inject slider object into navigation areaa
 	$('#navigation').append(slider);
 	// store some references to slider and moved objects
-	OC.NavigationSlider.Handle=$('#navigation-slider');
+	OC.NavigationSlider.Handle=$('#flux-compensator');
 	OC.NavigationSlider.Offset=$('#navigation').css('width');
 	OC.NavigationSlider.Move=$('#navigation,#content');
 	OC.NavigationSlider.Zoom=$('#content');
 	// position slider object horizontally
-	$('#navigation-slider').css('left',$('#navigation').css('width'));
+	$('#flux-compensator').css('left',$('#navigation').css('width'));
 	// position slider object vertically
 	// for this we consider a default value, an optional stored value and min and max values
 	var topMin=37;
 	var topMax=$('#navigation').height()-$('#navigation').position().top-37;
-	OC.AppConfig.getValue('navigation-slider','navigation-slider-position',topMax,function(top){
+	OC.AppConfig.getValue('flux-compensator','flux-compensator-position',topMax,function(top){
 		top=(top>topMax)?topMax:((top<topMin)?topMin:top);
-		$('#navigation-slider').css('top',top+'px');
+		$('#flux-compensator').css('top',top+'px');
 		// visualize handle by allowing overflow of the navigation area
 		$('#navigation').css('overflow','visible');
 	});
 	// hide or show the navigation in a persistent manner
-	OC.AppConfig.getValue('navigation-slider','navigation-slider-status','shown',function(status){
+	OC.AppConfig.getValue('flux-compensator','flux-compensator-status','shown',function(status){
 		if ('hidden'==status)
 			OC.NavigationSlider.hide();
 		else
@@ -69,7 +69,7 @@ $(document).ready(function(){
 		// only enter move mdoe after holding mouse down 1 second
 		var timer=setTimeout(function(){
 			// enable cursor move mode
-			$('html').addClass('navigation-slider-handle-move');
+			$('html').addClass('flux-compensator-handle-move');
 			OC.NavigationSlider.Handle.effect('highlight',{color:'#FFF'},300);
 			// remove _outer_ reactions (2!) on mouseup
 			$(document).off('mouseup');
@@ -81,11 +81,11 @@ $(document).ready(function(){
 				// remove reaction on mouse movements
 				$(document).off('mousemove');
 				// disable cursor move mode
-				$('html').removeClass('navigation-slider-handle-move');
+				$('html').removeClass('flux-compensator-handle-move');
 				OC.NavigationSlider.Handle.css('cursor','pointer');
 				OC.NavigationSlider.Handle.find('img').css('cursor','inherit');
 				// store final handle position
-				OC.AppConfig.setValue('navigation-slider','navigation-slider-position',OC.NavigationSlider.Handle.position().top);
+				OC.AppConfig.setValue('flux-compensator','flux-compensator-position',OC.NavigationSlider.Handle.position().top);
 			});
 			// reaction on mouse move: position handle
 			$(document).on('mousemove',function(event){
@@ -93,7 +93,7 @@ $(document).ready(function(){
 				top=(top>topMax)?topMax:((top<topMin)?topMin:top);
 				OC.NavigationSlider.Handle.css('top',top+'px');
 			});
-		},1000);
+		},500);
 		// raise normal click handling
 		OC.NavigationSlider.Handle.on('mouseup',function(){
 			// remove _this_ handler
@@ -152,18 +152,18 @@ OC.NavigationSlider={
 	hide:function(){
 		var dfd = new $.Deferred();
 		OC.NavigationSlider.stylish(false);
-		if (OC.NavigationSlider.Handle.hasClass('navigation-slider-shown')){
+		if (OC.NavigationSlider.Handle.hasClass('flux-compensator-shown')){
 			$.when(
-				OC.NavigationSlider.Handle.addClass('navigation-slider-hidden'),
-				OC.NavigationSlider.Handle.removeClass('navigation-slider-shown'),
+				OC.NavigationSlider.Handle.addClass('flux-compensator-hidden'),
+				OC.NavigationSlider.Handle.removeClass('flux-compensator-shown'),
 				OC.NavigationSlider.Zoom.animate({width:"+="+OC.NavigationSlider.Offset},'fast'),
 				OC.NavigationSlider.Move.animate({left: "-="+OC.NavigationSlider.Offset},'fast')
 			).done(function(){
 				dfd.resolve();
 				OC.NavigationSlider.Handle.find('img')
-					.attr('src',OC.filePath('navigation_slider','img','actions/slide-right.svg'));
+					.attr('src',OC.filePath('flux_compensator','img','actions/slide-right.svg'));
 				// store current slider status inside user preferences
-				OC.AppConfig.setValue('navigation-slider','navigation-slider-status','hidden');
+				OC.AppConfig.setValue('flux-compensator','flux-compensator-status','hidden');
 			}).fail(dfd.reject)}
 		else dfd.resolve();
 		return dfd.promise();
@@ -176,18 +176,18 @@ OC.NavigationSlider={
 	show:function(){
 		var dfd = new $.Deferred();
 		OC.NavigationSlider.stylish(true);
-		if (OC.NavigationSlider.Handle.hasClass('navigation-slider-hidden')){
+		if (OC.NavigationSlider.Handle.hasClass('flux-compensator-hidden')){
 			$.when(
-				OC.NavigationSlider.Handle.addClass('navigation-slider-shown'),
-				OC.NavigationSlider.Handle.removeClass('navigation-slider-hidden'),
+				OC.NavigationSlider.Handle.addClass('flux-compensator-shown'),
+				OC.NavigationSlider.Handle.removeClass('flux-compensator-hidden'),
 				OC.NavigationSlider.Zoom.animate({width:"-="+OC.NavigationSlider.Offset},'fast'),
 				OC.NavigationSlider.Move.animate({left: "+="+OC.NavigationSlider.Offset},'fast')
 			).done(function(){
 				dfd.resolve();
 				OC.NavigationSlider.Handle.find('img')
-					.attr('src',OC.filePath('navigation_slider','img','actions/slide-left.svg'));
+					.attr('src',OC.filePath('flux_compensator','img','actions/slide-left.svg'));
 				// store current slider status inside user preferences
-				OC.AppConfig.setValue('navigation-slider','navigation-slider-status','shown');
+				OC.AppConfig.setValue('flux-compensator','flux-compensator-status','shown');
 			}).fail(dfd.reject)}
 		else dfd.resolve();
 		return dfd.promise();
@@ -199,7 +199,7 @@ OC.NavigationSlider={
 	*/
 	stylish:function(shown){
 		// dynamically load stylesheet to make sure it is loaded LAST
-		OC.addStyle('navigation_slider','dynamic');
+		OC.addStyle('flux_compensator','dynamic');
 		// mark slider-mode and active app as class of the html tag
 		// this acts like a 'switch' command inside the dynamically loaded css
 		var mode={
@@ -231,7 +231,7 @@ OC.NavigationSlider={
 	*/
 	toggle: function(){
 		var dfd = new $.Deferred();
-		if (OC.NavigationSlider.Handle.hasClass('navigation-slider-shown')){
+		if (OC.NavigationSlider.Handle.hasClass('flux-compensator-shown')){
 			$.when(
 				OC.NavigationSlider.hide()
 			).done(dfd.resolve)}

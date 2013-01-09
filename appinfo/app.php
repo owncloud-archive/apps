@@ -1,12 +1,12 @@
 <?php
 /**
-* @package navigation-slider an ownCloud app
+* @package flux-compensator an ownCloud app
 * @category base
 * @author Christian Reiner
 * @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information 
-* @link repository https://svn.christian-reiner.info/svn/app/oc/navigation-slider
+* @link repository https://svn.christian-reiner.info/svn/app/oc/flux-compensator
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -31,7 +31,7 @@
  */
 
 // small js sniplet required to insert imprint link into OC framework
-OCP\Util::addScript ( 'navigation_slider', 'slider' );
-OCP\Util::addStyle  ( 'navigation_slider', 'slider' );
+OCP\Util::addScript ( 'flux_compensator', 'script' );
+OCP\Util::addStyle  ( 'flux_compensator', 'style'  );
 
 ?>

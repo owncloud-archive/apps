@@ -1,11 +1,11 @@
 *****
-* @package navigation-slider an ownCloud app
+* @package flux-compensator an ownCloud app
 * @category base
 * @author Christian Reiner
 * @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information
-* @link repository https://svn.christian-reiner.info/svn/app/oc/navigation-slider
+* @link repository https://svn.christian-reiner.info/svn/app/oc/flux-compensator
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -33,8 +33,8 @@ and enable it.
 
 * Manual installation:
 Download the package from apps.owncloud.com. 
-Create a folder 'navigation_slider' in the "apps" folder of your ownCloud root.
-Unpack the contents of the package into the new folder 'navigation_slider'.
+Create a folder 'flux_compensator' in the "apps" folder of your ownCloud root.
+Unpack the contents of the package into the new folder 'flux_compensator'.
 Load ownCloud in your web browser and login with an administrative account.
 Enable the plugin in the "Apps" section of the configuration ("*") inside
 ownClouds web gui (requires admin rights).
