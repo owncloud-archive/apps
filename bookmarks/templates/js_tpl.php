@@ -6,6 +6,9 @@
 							title="<?php echo $l->t('Delete');?>">
 					</span>&nbsp;
 				</p>
+				<p class="bookmark_favicon">
+					<img src="<%= add_favicon(url) %>" class="bookmark_favicon_img" />
+				</p>
 				<p class="bookmark_title">
 					<a href="<%= encodeEntities(url) %>" target="_blank" class="bookmark_link">
 						<%= encodeEntities(title == '' ? url : title ) %>

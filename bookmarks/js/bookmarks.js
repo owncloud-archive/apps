@@ -258,6 +258,13 @@ function submitBookmark(event) {
 	});
 }
 
+function add_favicon(url) {
+	if (url != "NULL"){
+		url = 'http://g.etfv.co/' + url;
+	}
+	return(url);
+}
+
 function updateBookmarksList(bookmark, position) {
 	position = typeof position !== 'undefined' ? position : 'append';
 	bookmark = $.extend({title:'', description:'', added_date: new Date('now'), tags:[] }, bookmark);
