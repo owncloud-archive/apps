@@ -34,13 +34,14 @@
 
 <info>
 	<id>flux_compensator</id>
-	<name>Flux Compensator</name>
+	<name>Flux Compensator (Y)</name>
 	<description>
-		This simple app offers control over the navigation panel and compensates effects on the main content area, thus the name 'Flux Compensator'.
+		This simple app offers control over the navigation panel and compensates effects on the main content area, thus the name 'Flux Compensator (Y)'.
 		It adds a handler to the left navigation panel that allows to slide the navigation panel in and out of view.
 		Due to the architecture of ownCloud this action has unwanted side effects to the layout of the main content area.
-		The Flux Compensator compensates these effects to restore a usable system. This helps to gain valuable space on small displays.
+		The Flux Compensator (Y) compensates these effects to restore a usable system. This helps to gain valuable space on small displays.
 		Simply click the handler to hide/show the navigation panel. To place the handler where you want it to be, just hold the handler and drag it.
+		The older amongst us will know where the name 'Flux Compensator (Y)' comes from... ;-)
 	</description>
 	<version>0.1.0</version>
 	<licence>AGPL</licence>
