@@ -62,11 +62,53 @@ $(document).ready(function(){
 		else
 			OC.NavigationSlider.show();
 	});
-	// mouse reactions:
+	// handle mouse reactions
 	// 1.) click => toggle navigation hidden or shown
 	// 2.) hold => enter vertical handle move mode
 	OC.NavigationSlider.Handle.on('mousedown',function(){
-		// only enter move mdoe after holding mouse down 1 second
+		OC.NavigationSlider.click(topMin,topMax);
+	});
+})
+
+/**
+ * @class OC.NavigationSlider
+ * @brief Activity implementation library
+ * @author Christian Reiner
+ */
+OC.NavigationSlider={
+	/**
+	* @object OC.NavigationSlider.Handle
+	* @brief Static reference to the slider object inside the DOM
+	* @author Christian Reiner
+	*/
+	Handle:{},
+	/**
+	* @object OC.NavigationSlider.Move
+	* @brief Static reference to the objects inside the DOM that must be moved
+	* @author Christian Reiner
+	*/
+	Move:{},
+	/**
+	* @object OC.NavigationSlider.Offset
+	* @brief Offset value the pages content gets moved by (width of navigation area)
+	* @author Christian Reiner
+	*/
+	Offset:{},
+	/**
+	* @object OC.NavigationSlider.Zoom
+	* @brief Static reference to the objects inside the DOM that must be scaled
+	* @author Christian Reiner
+	*/
+	Zoom:{},
+	/**
+	* @method OC.NavigationSlider.click
+	* @brief Hide the navigation area if visible
+	* @author Christian Reiner
+	*/
+	click:function(topMin,topMax){
+		// 1.) click => toggle navigation hidden or shown
+		// 2.) hold => enter vertical handle move mode
+		// so only enter move mode after holding mouse down for an amount of time
 		var timer=setTimeout(function(){
 			// enable cursor move mode
 			$('html').addClass('flux-compensator-handle-move');
@@ -111,39 +153,7 @@ $(document).ready(function(){
 			OC.NavigationSlider.Handle.off('mouseup');
 		});
 		return false;
-	});
-})
-
-/**
- * @class OC.NavigationSlider
- * @brief Activity implementation library
- * @author Christian Reiner
- */
-OC.NavigationSlider={
-	/**
-	* @object OC.NavigationSlider.Handle
-	* @brief Static reference to the slider object inside the DOM
-	* @author Christian Reiner
-	*/
-	Handle:{},
-	/**
-	* @object OC.NavigationSlider.Move
-	* @brief Static reference to the objects inside the DOM that must be moved
-	* @author Christian Reiner
-	*/
-	Move:{},
-	/**
-	* @object OC.NavigationSlider.Offset
-	* @brief Offset value the pages content gets moved by (width of navigation area)
-	* @author Christian Reiner
-	*/
-	Offset:{},
-	/**
-	* @object OC.NavigationSlider.Zoom
-	* @brief Static reference to the objects inside the DOM that must be scaled
-	* @author Christian Reiner
-	*/
-	Zoom:{},
+	}, // OC.NavigationSlider.click
 	/**
 	* @method OC.NavigationSlider.hide
 	* @brief Hide the navigation area if visible
