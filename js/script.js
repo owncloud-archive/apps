@@ -110,31 +110,7 @@ OC.Flux={
 		// 2.) hold => enter vertical handle move mode
 		// so only enter move mode after holding mouse down for an amount of time
 		var timer=setTimeout(function(){
-			// enable cursor move mode
-			$('html').addClass('flux-compensator-handle-move');
-			OC.Flux.Handle.effect('highlight',{color:'#FFF'},300);
-			// remove _outer_ reactions (2!) on mouseup
-			$(document).off('mouseup');
-			OC.Flux.Handle.off('mouseup');
-			// react on mouseup
-			$(document).on('mouseup',function(){
-				// remove _this_ handler
-				$(document).off('mouseup');
-				// remove reaction on mouse movements
-				$(document).off('mousemove');
-				// disable cursor move mode
-				$('html').removeClass('flux-compensator-handle-move');
-				OC.Flux.Handle.css('cursor','pointer');
-				OC.Flux.Handle.find('img').css('cursor','inherit');
-				// store final handle position
-				OC.AppConfig.setValue('flux-compensator','flux-compensator-position',OC.Flux.Handle.position().top);
-			});
-			// reaction on mouse move: position handle
-			$(document).on('mousemove',function(event){
-				var top=event.pageY-60;
-				top=(top>topMax)?topMax:((top<topMin)?topMin:top);
-				OC.Flux.Handle.css('top',top+'px');
-			});
+			OC.Flux.move(topMin,topMax);
 		},500);
 		// raise normal click handling
 		OC.Flux.Handle.on('mouseup',function(){
@@ -178,6 +154,38 @@ OC.Flux={
 		else dfd.resolve();
 		return dfd.promise();
 	}, // OC.Flux.hide
+	/**
+	* @method OC.Flux.move
+	* @brief Hide the navigation area if visible
+	* @author Christian Reiner
+	*/
+	move:function(topMin,topMax){
+		// enable cursor move mode
+		$('html').addClass('flux-compensator-handle-move');
+		OC.Flux.Handle.effect('highlight',{color:'#FFF'},300);
+		// remove _outer_ reactions (2!) on mouseup
+		$(document).off('mouseup');
+		OC.Flux.Handle.off('mouseup');
+		// react on mouseup
+		$(document).on('mouseup',function(){
+			// remove _this_ handler
+			$(document).off('mouseup');
+			// remove reaction on mouse movements
+			$(document).off('mousemove');
+			// disable cursor move mode
+			$('html').removeClass('flux-compensator-handle-move');
+			OC.Flux.Handle.css('cursor','pointer');
+			OC.Flux.Handle.find('img').css('cursor','inherit');
+			// store final handle position
+			OC.AppConfig.setValue('flux-compensator','flux-compensator-position',OC.Flux.Handle.position().top);
+		});
+		// reaction on mouse move: position handle
+		$(document).on('mousemove',function(event){
+			var top=event.pageY-60;
+			top=(top>topMax)?topMax:((top<topMin)?topMin:top);
+			OC.Flux.Handle.css('top',top+'px');
+		});
+	}, // OC.Flux.move
 	/**
 	* @method OC.Flux.show
 	* @brief Hide the navigation area if visible
