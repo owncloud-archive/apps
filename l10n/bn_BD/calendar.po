@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-03 00:01+0100\n"
-"PO-Revision-Date: 2013-01-02 10:10+0000\n"
+"POT-Creation-Date: 2013-01-11 00:02+0100\n"
+"PO-Revision-Date: 2013-01-10 10:16+0000\n"
 "Last-Translator: Shubhra Paul <paul_shubhra@yahoo.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -19,23 +19,23 @@ msgstr ""
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr ""
+msgstr "সমস্ত দিনপঞ্জী সম্পূর্ণভাবে ক্যাসে রাখা নেই"
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
-msgstr ""
+msgstr "মনে হচ্ছে সমস্ত কিছুই সম্পূর্ণবাবে ক্যাসে করা আছে"
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
-msgstr ""
+msgstr "কোন দিনপঞ্জী খুঁজে পাওয়া গেল না।"
 
 #: ajax/categories/rescan.php:37
 msgid "No events found."
-msgstr ""
+msgstr "কোন ইভেন্ট খুঁজে পাওয়া গেল না।"
 
 #: ajax/event/edit.form.php:20
 msgid "Wrong calendar"
-msgstr ""
+msgstr "ভুল দিনপঞ্জী"
 
 #: ajax/event/edit.form.php:220 lib/object.php:196 lib/object.php:232
 msgid "You do not have the permissions to edit this event."
@@ -45,36 +45,36 @@ msgstr ""
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
-msgstr ""
+msgstr "The file contained either no events or all events are already saved in your calendar."
 
 #: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
-msgstr ""
+msgstr "নতুন দিনপঞ্জীতে ইভেন্টগুলো সংরক্ষণ করা হয়েছে "
 
 #: ajax/import/import.php:57
 msgid "Import failed"
-msgstr ""
+msgstr "আমদানি ব্যর্থ"
 
 #: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
-msgstr ""
+msgstr "আপনার দিনপঞ্জীতে ইভেন্টগুলো সংরক্ষণ করা হয়েছে"
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
-msgstr ""
+msgstr "নতুন সময় এলাকাঃ"
 
 #: ajax/settings/settimezone.php:23
 msgid "Timezone changed"
-msgstr ""
+msgstr "সময় এলাকা পরিবর্তিত হয়েছে"
 
 #: ajax/settings/settimezone.php:25
 msgid "Invalid request"
-msgstr "অননুমোদিত অনুরোধ"
+msgstr "অনুরোধটি সঠিক নয়"
 
 #: appinfo/app.php:38 templates/calendar.php:15
 #: templates/part.eventform.php:33 templates/part.showevent.php:33
 msgid "Calendar"
-msgstr ""
+msgstr "দিনপঞ্জী"
 
 #: js/calendar.js:154
 msgid "Deletion failed"
@@ -98,7 +98,7 @@ msgstr ""
 
 #: js/calendar.js:598 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
-msgstr ""
+msgstr "সম্পাদযোগ্য"
 
 #: js/calendar.js:599 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
@@ -110,39 +110,39 @@ msgstr ""
 
 #: js/calendar.js:869
 msgid "ddd"
-msgstr ""
+msgstr "দিদিদি"
 
 #: js/calendar.js:870
 msgid "ddd M/d"
-msgstr ""
+msgstr "দিদিদি মা/দি"
 
 #: js/calendar.js:871
 msgid "dddd M/d"
-msgstr ""
+msgstr "দিদিদিদি মা/দি"
 
 #: js/calendar.js:874
 msgid "MMMM yyyy"
-msgstr ""
+msgstr "মামামামা বববব"
 
 #: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
-msgstr ""
+msgstr "মামামা দি[বববব]{ '&#8212;'[মামামা] দি বববব}"
 
 #: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
-msgstr ""
+msgstr "দিদিদিদি, মামামা দি, বববব"
 
 #: lib/app.php:114
 msgid "Birthday"
-msgstr ""
+msgstr "জন্মদিন"
 
 #: lib/app.php:115
 msgid "Business"
-msgstr ""
+msgstr "ব্যবসা"
 
 #: lib/app.php:116
 msgid "Call"
-msgstr ""
+msgstr "কল"
 
 #: lib/app.php:117
 msgid "Clients"
@@ -150,27 +150,27 @@ msgstr "ক্লায়েন্ট"
 
 #: lib/app.php:118
 msgid "Deliverer"
-msgstr ""
+msgstr "বিতরণকারী"
 
 #: lib/app.php:119
 msgid "Holidays"
-msgstr ""
+msgstr "ছুটিরদিন"
 
 #: lib/app.php:120
 msgid "Ideas"
-msgstr ""
+msgstr "প্রস্তাবনা"
 
 #: lib/app.php:121
 msgid "Journey"
-msgstr ""
+msgstr "ভ্রমণ"
 
 #: lib/app.php:122
 msgid "Jubilee"
-msgstr ""
+msgstr "জয়ন্তী"
 
 #: lib/app.php:123
 msgid "Meeting"
-msgstr ""
+msgstr "সভা"
 
 #: lib/app.php:124
 msgid "Other"
@@ -182,23 +182,23 @@ msgstr "ব্যক্তিগত"
 
 #: lib/app.php:126
 msgid "Projects"
-msgstr ""
+msgstr "প্রকল্পসমূহ"
 
 #: lib/app.php:127
 msgid "Questions"
-msgstr ""
+msgstr "প্রশ্ন"
 
 #: lib/app.php:128
 msgid "Work"
-msgstr ""
+msgstr "কর্মস্থল"
 
 #: lib/app.php:396
 msgid "by"
-msgstr ""
+msgstr "কর্তৃক"
 
 #: lib/app.php:444
 msgid "unnamed"
-msgstr ""
+msgstr "অজ্ঞাতনামা"
 
 #: lib/calendar.php:163 lib/calendar.php:196
 msgid "You do not have the permissions to update this calendar."
@@ -215,7 +215,7 @@ msgstr ""
 #: lib/import.php:216 templates/calendar.php:12
 #: templates/part.choosecalendar.php:23
 msgid "New Calendar"
-msgstr ""
+msgstr "নতুন দিনপঞ্জী"
 
 #: lib/object.php:122 lib/object.php:162 lib/object.php:316
 msgid "You do not have the permissions to add events to this calendar."
@@ -243,51 +243,51 @@ msgstr ""
 
 #: lib/object.php:510
 msgid "Does not repeat"
-msgstr ""
+msgstr "পূনঃপূন সংঘটিত নয়"
 
 #: lib/object.php:511
 msgid "Daily"
-msgstr ""
+msgstr "দৈনিক"
 
 #: lib/object.php:512
 msgid "Weekly"
-msgstr ""
+msgstr "সাপ্তাহিক"
 
 #: lib/object.php:513
 msgid "Every Weekday"
-msgstr ""
+msgstr "প্রতি কর্মদিবসে"
 
 #: lib/object.php:514
 msgid "Bi-Weekly"
-msgstr ""
+msgstr "পাক্ষিক"
 
 #: lib/object.php:515
 msgid "Monthly"
-msgstr ""
+msgstr "মমাসিক"
 
 #: lib/object.php:516
 msgid "Yearly"
-msgstr ""
+msgstr "বাৎসরিক"
 
 #: lib/object.php:526
 msgid "never"
-msgstr ""
+msgstr "কখনোই নয়"
 
 #: lib/object.php:527
 msgid "by occurrences"
-msgstr ""
+msgstr "সংঘটন অনুসারে"
 
 #: lib/object.php:528
 msgid "by date"
-msgstr ""
+msgstr "তারিখ অনুসারে"
 
 #: lib/object.php:538
 msgid "by monthday"
-msgstr ""
+msgstr "মাসিক দিন অনুসারে"
 
 #: lib/object.php:539
 msgid "by weekday"
-msgstr ""
+msgstr "সপ্তাহ দিন অনুসারে"
 
 #: lib/object.php:549 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
@@ -303,7 +303,7 @@ msgstr "বুধবার"
 
 #: lib/object.php:552 templates/calendar.php:5
 msgid "Thursday"
-msgstr "বৃহষ্পতিবার"
+msgstr "বৃহস্পতিবার"
 
 #: lib/object.php:553 templates/calendar.php:5
 msgid "Friday"
@@ -319,31 +319,31 @@ msgstr "রবিবার"
 
 #: lib/object.php:565
 msgid "events week of month"
-msgstr ""
+msgstr "মাসের মধ্যে ইভেন্ট সপ্তাহ"
 
 #: lib/object.php:566
 msgid "first"
-msgstr ""
+msgstr "প্রখম"
 
 #: lib/object.php:567
 msgid "second"
-msgstr ""
+msgstr "দ্বিতীয়"
 
 #: lib/object.php:568
 msgid "third"
-msgstr ""
+msgstr "তৃতীয়"
 
 #: lib/object.php:569
 msgid "fourth"
-msgstr ""
+msgstr "চতুর্থ"
 
 #: lib/object.php:570
 msgid "fifth"
-msgstr ""
+msgstr "পঞ্চম"
 
 #: lib/object.php:571
 msgid "last"
-msgstr ""
+msgstr "সর্বশেষ"
 
 #: lib/object.php:605 templates/calendar.php:7
 msgid "January"
@@ -375,7 +375,7 @@ msgstr "জুলাই"
 
 #: lib/object.php:612 templates/calendar.php:7
 msgid "August"
-msgstr "অগাস্ট"
+msgstr "অগাষ্ট"
 
 #: lib/object.php:613 templates/calendar.php:7
 msgid "September"
@@ -395,107 +395,107 @@ msgstr "ডিসেম্বর"
 
 #: lib/object.php:626
 msgid "by events date"
-msgstr ""
+msgstr "ইভেন্টের দিন অনুসারে"
 
 #: lib/object.php:627
 msgid "by yearday(s)"
-msgstr ""
+msgstr "বাৎসরিক দিন অনুযায়ী"
 
 #: lib/object.php:628
 msgid "by weeknumber(s)"
-msgstr ""
+msgstr "সপ্তাহসংখ্যা অনুযায়ী"
 
 #: lib/object.php:629
 msgid "by day and month"
-msgstr ""
+msgstr "দিন এবং মাস অনুসারে"
 
 #: lib/search.php:35 lib/search.php:37 lib/search.php:40
 msgid "Date"
-msgstr ""
+msgstr "তারিখ"
 
 #: lib/search.php:43
 msgid "Cal."
-msgstr ""
+msgstr "দিনপঞ্জী"
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "রবি."
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "সোম."
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "মঙ্গল."
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "বুধ."
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "বৃহঃ."
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "শুক্র."
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "শনি."
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "জানু."
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "ফেব্রু."
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "মার্চ."
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "এপ্রিল."
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "মে."
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "জুন."
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "জুলাই."
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "অগাস্ট."
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "সেপ্টে."
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "অক্টো."
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "নভে."
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "ডিসে."
 
 #: templates/calendar.php:11
 msgid "All day"
-msgstr ""
+msgstr "সমস্ত দিন"
 
 #: templates/calendar.php:13
 msgid "Missing or invalid fields"
@@ -504,47 +504,47 @@ msgstr ""
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11
 msgid "Title"
-msgstr ""
+msgstr "শিরোনাম"
 
 #: templates/calendar.php:16
 msgid "From Date"
-msgstr ""
+msgstr "শুরুর তারিখ"
 
 #: templates/calendar.php:17
 msgid "From Time"
-msgstr ""
+msgstr "শুরুর সময়"
 
 #: templates/calendar.php:18
 msgid "To Date"
-msgstr ""
+msgstr "সমাপ্তির তারিখ"
 
 #: templates/calendar.php:19
 msgid "To Time"
-msgstr ""
+msgstr "সমাপ্তির সময়"
 
 #: templates/calendar.php:20
 msgid "The event ends before it starts"
-msgstr ""
+msgstr "শুরু হওয়ার পূর্বেই ইভেন্ট টি শেষ হচ্ছে"
 
 #: templates/calendar.php:21
 msgid "There was a database fail"
-msgstr ""
+msgstr "মনে হচ্ছে ডাটাবেজে সমস্যা আছে"
 
 #: templates/calendar.php:39
 msgid "Week"
-msgstr ""
+msgstr "সপ্তাহ"
 
 #: templates/calendar.php:40
 msgid "Month"
-msgstr ""
+msgstr "মাস"
 
 #: templates/calendar.php:41
 msgid "List"
-msgstr ""
+msgstr "তালিকা"
 
 #: templates/calendar.php:45
 msgid "Today"
-msgstr ""
+msgstr "আজ"
 
 #: templates/calendar.php:46
 msgid "Calendars"
@@ -556,16 +556,16 @@ msgstr "নিয়ামকসমূহ"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
-msgstr ""
+msgstr "আপনার দিনপঞ্জীসমূহ"
 
 #: templates/part.choosecalendar.php:28
 #: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
-msgstr ""
+msgstr "CalDav লিংক"
 
 #: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
-msgstr ""
+msgstr "দিনপঞ্জী ভাগাভাগি করুন"
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
@@ -573,7 +573,7 @@ msgstr "ডাউনলোড"
 
 #: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
-msgstr ""
+msgstr "সম্পাদনা"
 
 #: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
@@ -582,36 +582,36 @@ msgstr "মুছে ফেল"
 
 #: templates/part.choosecalendar.rowfields.shared.php:4
 msgid "shared with you by"
-msgstr ""
+msgstr "আপনার সাথে ভাগাভাগি করেছেন"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
-msgstr ""
+msgstr "নতুন দিনপঞ্জী"
 
 #: templates/part.editcalendar.php:9
 msgid "Edit calendar"
-msgstr ""
+msgstr "দিনপঞ্জী সম্পাদনা"
 
 #: templates/part.editcalendar.php:12
 msgid "Displayname"
-msgstr ""
+msgstr "প্রদর্শিতব্য নাম"
 
 #: templates/part.editcalendar.php:23
 msgid "Active"
-msgstr ""
+msgstr "সক্রিয়"
 
 #: templates/part.editcalendar.php:29
 msgid "Calendar color"
-msgstr ""
+msgstr "দিনপঞ্জী রং"
 
 #: templates/part.editcalendar.php:42
 msgid "Save"
-msgstr "সংরক্ষণ কর"
+msgstr "সংরক্ষণ "
 
 #: templates/part.editcalendar.php:42 templates/part.editevent.php:8
 #: templates/part.newevent.php:6
 msgid "Submit"
-msgstr "পাঠাও"
+msgstr "জমা দিন"
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"
@@ -619,43 +619,43 @@ msgstr "বাতিল"
 
 #: templates/part.editevent.php:1
 msgid "Edit an event"
-msgstr ""
+msgstr "ইভেন্ট সম্পাদনা কর"
 
 #: templates/part.editevent.php:10
 msgid "Export"
-msgstr ""
+msgstr "রপ্তানী কর"
 
 #: templates/part.eventform.php:8 templates/part.showevent.php:3
 msgid "Eventinfo"
-msgstr ""
+msgstr "ইভেন্টের তথ্য"
 
 #: templates/part.eventform.php:9 templates/part.showevent.php:4
 msgid "Repeating"
-msgstr ""
+msgstr "পূনঃসঘটিত হবে"
 
 #: templates/part.eventform.php:10 templates/part.showevent.php:5
 msgid "Alarm"
-msgstr ""
+msgstr "সতর্কবাণী"
 
 #: templates/part.eventform.php:11 templates/part.showevent.php:6
 msgid "Attendees"
-msgstr ""
+msgstr "অংশগ্রহণকারীবৃন্দ"
 
 #: templates/part.eventform.php:13
 msgid "Share"
-msgstr ""
+msgstr "ভাগাভাগি"
 
 #: templates/part.eventform.php:21
 msgid "Title of the Event"
-msgstr ""
+msgstr "ইভেন্টের শিরোনাম"
 
 #: templates/part.eventform.php:27 templates/part.showevent.php:19
 msgid "Category"
-msgstr ""
+msgstr "ক্যাটেগরি"
 
 #: templates/part.eventform.php:29
 msgid "Separate categories with commas"
-msgstr ""
+msgstr "ক্যাটগরি গুলো কমা দিয়ে পৃথক করুন"
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
@@ -667,39 +667,39 @@ msgstr ""
 
 #: templates/part.eventform.php:67 templates/part.showevent.php:62
 msgid "All Day Event"
-msgstr ""
+msgstr "দিনব্যাপী ইভেন্ট"
 
 #: templates/part.eventform.php:71 templates/part.showevent.php:66
 msgid "From"
-msgstr ""
+msgstr "শুরুর সময়"
 
 #: templates/part.eventform.php:79 templates/part.showevent.php:74
 msgid "To"
-msgstr ""
+msgstr "শেষের সময়"
 
 #: templates/part.eventform.php:87 templates/part.showevent.php:82
 msgid "Advanced options"
-msgstr ""
+msgstr "সুচারু বিকল্পসমূহ"
 
 #: templates/part.eventform.php:92 templates/part.showevent.php:87
 msgid "Location"
-msgstr ""
+msgstr "াবস্থান"
 
 #: templates/part.eventform.php:94
 msgid "Location of the Event"
-msgstr ""
+msgstr "ইভেন্টের অবস্থান"
 
 #: templates/part.eventform.php:100 templates/part.showevent.php:95
 msgid "Description"
-msgstr ""
+msgstr "বিবরণ"
 
 #: templates/part.eventform.php:102
 msgid "Description of the Event"
-msgstr ""
+msgstr "ইভেন্টের বিবরণ"
 
 #: templates/part.eventform.php:111 templates/part.showevent.php:105
 msgid "Repeat"
-msgstr ""
+msgstr "পূনঃসংঘটন"
 
 #: templates/part.eventform.php:118 templates/part.showevent.php:112
 msgid "Advanced"
@@ -707,70 +707,70 @@ msgstr "সুচারু"
 
 #: templates/part.eventform.php:162 templates/part.showevent.php:156
 msgid "Select weekdays"
-msgstr ""
+msgstr "সপ্তাহদিন নির্বাচন করুন"
 
 #: templates/part.eventform.php:175 templates/part.eventform.php:188
 #: templates/part.showevent.php:169 templates/part.showevent.php:182
 msgid "Select days"
-msgstr ""
+msgstr "দিন নির্বাচন"
 
 #: templates/part.eventform.php:180 templates/part.showevent.php:174
 msgid "and the events day of year."
-msgstr ""
+msgstr "এবং বছরের ইভেন্ট দিবস ।"
 
 #: templates/part.eventform.php:193 templates/part.showevent.php:187
 msgid "and the events day of month."
-msgstr ""
+msgstr "এবং মাসের ইভেন্ট দিবস।"
 
 #: templates/part.eventform.php:201 templates/part.showevent.php:195
 msgid "Select months"
-msgstr ""
+msgstr "মাস নির্বাচন"
 
 #: templates/part.eventform.php:214 templates/part.showevent.php:208
 msgid "Select weeks"
-msgstr ""
+msgstr "সপ্তাহ নির্বাচন"
 
 #: templates/part.eventform.php:219 templates/part.showevent.php:213
 msgid "and the events week of year."
-msgstr ""
+msgstr "এবং বছরের  ইভেন্ট সপ্তাহ।"
 
 #: templates/part.eventform.php:225 templates/part.showevent.php:219
 msgid "Interval"
-msgstr ""
+msgstr "মধ্যবিরতি"
 
 #: templates/part.eventform.php:231 templates/part.showevent.php:225
 msgid "End"
-msgstr ""
+msgstr "সমাপ্ত"
 
 #: templates/part.eventform.php:244 templates/part.showevent.php:238
 msgid "occurrences"
-msgstr ""
+msgstr "সংঘটন"
 
 #: templates/part.import.php:14
 msgid "create a new calendar"
-msgstr ""
+msgstr "নতুন দিনপঞ্জী তৈরী কর"
 
 #: templates/part.import.php:17
 msgid "Import a calendar file"
-msgstr ""
+msgstr "দিনপঞ্জী ফাইল আমদানি কর"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "দয়া করে একটি দিনপঞ্জী নির্বাচন করুন"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
-msgstr ""
+msgstr "নতুন দিনপঞ্জীটির নাম "
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "সুলভ কোন একটি নাম নিন !"
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr ""
+msgstr "এই একই নামের একটি দিনপঞ্জী বিদ্যমান। যদি আপনি কোন প্রকারে অগ্রসর হতে চান, তবে এই গিনপঞ্জীগুলো একত্রিত করা হবে।"
 
 #: templates/part.import.php:48
 msgid "Remove all events from the selected calendar"
@@ -778,15 +778,15 @@ msgstr ""
 
 #: templates/part.import.php:50
 msgid "Import"
-msgstr ""
+msgstr "আমদানি"
 
 #: templates/part.import.php:59
 msgid "Close Dialog"
-msgstr ""
+msgstr "সংলাপ বন্ধ"
 
 #: templates/part.newevent.php:1
 msgid "Create a new event"
-msgstr ""
+msgstr "নতুন ইভেন্ট তৈরী কর"
 
 #: templates/part.share.php:27
 msgid "Share with:"
@@ -816,76 +816,76 @@ msgstr ""
 
 #: templates/part.showevent.php:1
 msgid "View an event"
-msgstr ""
+msgstr "ইভেন্ট দর্শন "
 
 #: templates/part.showevent.php:23
 msgid "No categories selected"
-msgstr ""
+msgstr "কোন ক্যাটেগরি নির্বাচন করা হয় নি"
 
 #: templates/part.showevent.php:37
 msgid "of"
-msgstr ""
+msgstr "এর"
 
 #: templates/part.showevent.php:69 templates/part.showevent.php:77
 msgid "at"
-msgstr ""
+msgstr "at"
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "সাধারণ"
 
 #: templates/settings.php:15
 msgid "Timezone"
-msgstr ""
+msgstr "সময় এলাকা"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr ""
+msgstr "সময়এলাকা স্বয়ংক্রিয়ভাবে পরিবর্ধন কর"
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "সময় ফর্ম্যাট"
 
 #: templates/settings.php:57
 msgid "24h"
-msgstr ""
+msgstr "২৪ ঘ."
 
 #: templates/settings.php:58
 msgid "12h"
-msgstr ""
+msgstr "১২ ঘ."
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr ""
+msgstr "সপ্তাহ শুরু হয়"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr ""
+msgstr "ক্যাসে"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr ""
+msgstr "পূনঃপূন সংঘটিত ইভেন্টের জন্য ক্যাসে পরিষ্কার কর"
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "URL গুলো"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
-msgstr ""
+msgstr "দিনপঞ্জী CalDAV  সমলয় ঠিকানাসমূহ"
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "আরও তথ্য"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "প্রাথমিক ঠিকানা (Kontact et al)"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr ""
+msgstr "শুধুমাত্র পঠনযোগ্য iCalendar লিংক"

@@ -1,5 +1,9 @@
 <?php $TRANSLATIONS = array(
+"My pad" => "আমার প্যাড",
 "Settings" => "নিয়ামকসমূহ",
+"Pad Title" => "প্যাড শিরোনাম",
+"Open" => "খোল",
+"Etherpad service URL" => "Etherpad সেবার URL",
 "Username" => "ব্যবহারকারি",
 "Save" => "সংরক্ষণ কর"
 );
