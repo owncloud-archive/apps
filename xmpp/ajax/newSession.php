@@ -5,6 +5,7 @@ $xmpplogin->doLogin();
 $jid=OCP\User::getUser().OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain','');
 $passwd=$xmpplogin->getUserPasswd($jid);
 $params=array('uid'=>OCP\User::getUser(),'password'=>$passwd);
+$xmpplogin->logout();
 
 OC_User_xmpp_Hooks::createXmppSession($params);
 

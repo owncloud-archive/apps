@@ -33,6 +33,12 @@ class OC_xmpp_login{
 		}
 	}
 
+	public function logout(){
+		$xml=$this->newBody();
+		$xml->addAttribute('type','terminate');
+		$this->send_xml($xml->asXML());
+	}
+
 	public function nrid(){
 		if($this->rid==0){ $this->rid=rand() * 10000;}
 		else{ $this->rid=$this->rid+1;}
