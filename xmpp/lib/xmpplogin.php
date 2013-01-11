@@ -171,7 +171,7 @@ class OC_xmpp_login{
 		$xml->presence->addAttribute('type','unsubscribed');
 		$this->send_xml($xml->asXML());
 
-		$xml=$this->iq('set',null,$jid,$this->jid);
+		$xml=$this->iq('set',null,null,$this->username.'@'.$this->domain);
 		$xml->iq->addChild('query','','jabber:iq:roster');
 		$xml->iq->query->addAttribute('jid',$jid);
 		$xml->iq->query->addAttribute('subscription','remove');
