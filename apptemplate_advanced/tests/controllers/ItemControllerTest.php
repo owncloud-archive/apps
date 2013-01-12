@@ -45,7 +45,7 @@ class ItemControllerTest extends ControllerTest {
 		$api = $this->getAPIMock();
 		$controller = new ItemController($api, null, null);
 		$methodName = 'redirectToIndex';
-		$annotations = array('CSRFExcemption', 'IsAdminExcemption', 'IsSubAdminExcemption');
+		$annotations = array('CSRFExemption', 'IsAdminExemption', 'IsSubAdminExemption');
 
 		$this->assertAnnotations($controller, $methodName, $annotations);
 	}
@@ -55,7 +55,7 @@ class ItemControllerTest extends ControllerTest {
 		$api = $this->getAPIMock();
 		$controller = new ItemController($api, null, null);
 		$methodName = 'index';
-		$annotations = array('CSRFExcemption', 'IsAdminExcemption', 'IsSubAdminExcemption');
+		$annotations = array('CSRFExemption', 'IsAdminExemption', 'IsSubAdminExemption');
 
 		$this->assertAnnotations($controller, $methodName, $annotations);
 	}

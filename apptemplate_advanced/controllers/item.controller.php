@@ -39,9 +39,9 @@ class ItemController extends Controller {
 
 
 	/**
-	 * @CSRFExcemption
-	 * @IsAdminExcemption
-	 * @IsSubAdminExcemption
+	 * @CSRFExemption
+	 * @IsAdminExemption
+	 * @IsSubAdminExemption
 	 *
 	 * Redirects to the index page
 	 */
@@ -52,9 +52,9 @@ class ItemController extends Controller {
 
 
 	/**
-	 * @CSRFExcemption
-	 * @IsAdminExcemption
-	 * @IsSubAdminExcemption
+	 * @CSRFExemption
+	 * @IsAdminExemption
+	 * @IsSubAdminExemption
 	 *
 	 * @brief renders the index page
 	 * @param array $urlParams: an array with the values, which were matched in 

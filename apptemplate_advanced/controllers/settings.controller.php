@@ -41,7 +41,7 @@ class SettingsController extends Controller {
 	 * @param array $urlParams: an array with the values, which were matched in 
 	 *                          the routes file
 	 */
-        public function index($urlParams=array(), $container=null){
+	public function index($urlParams=array(), $container=null){
 		$this->api->addScript('admin');
 		
 		$templateName = 'settings';

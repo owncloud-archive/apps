@@ -61,10 +61,10 @@ abstract class ControllerTest extends \PHPUnit_Framework_TestCase {
 
 		$possibleAnnotations = array(
 			'Ajax', 
-			'CSRFExcemption', 
-			'IsAdminExcemption', 
-			'IsSubAdminExcemption',
-			'IsLoggedInExcemption'
+			'CSRFExemption', 
+			'IsAdminExemption', 
+			'IsSubAdminExemption',
+			'IsLoggedInExemption'
 		);
 
 		// check for valid annotations parameters

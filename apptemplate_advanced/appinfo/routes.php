@@ -76,23 +76,23 @@ function handleAnnotations($controller, $methodName, $container){
 
 	// security checks
 	$security = $container['Security'];
-	if($annotationReader->hasAnnotation('CSRFExcemption')){
+	if($annotationReader->hasAnnotation('CSRFExemption')){
 		$security->setCSRFCheck(false);
 	}
 
-	if($annotationReader->hasAnnotation('IsAdminExcemption')){
+	if($annotationReader->hasAnnotation('IsAdminExemption')){
 		$security->setIsAdminCheck(false);	
 	}
 
-	if($annotationReader->hasAnnotation('AppEnabledExcemption')){
+	if($annotationReader->hasAnnotation('AppEnabledExemption')){
 		$security->setAppEnabledCheck(false);	
 	}
 
-	if($annotationReader->hasAnnotation('IsLoggedInExcemption')){
+	if($annotationReader->hasAnnotation('IsLoggedInExemption')){
 		$security->setLoggedInCheck(false);
 	}
 
-	if($annotationReader->hasAnnotation('IsSubAdminExcemption')){
+	if($annotationReader->hasAnnotation('IsSubAdminExemption')){
 		$security->setIsSubAdminCheck(false);
 	}
 
