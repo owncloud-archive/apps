@@ -17,6 +17,9 @@ if( count($calendars) == 0) {
 
 $eventSources = array();
 foreach($calendars as $calendar) {
+	if(!array_key_exists('active', $calendar)){
+		$calendar['active'] = 1;
+	}
 	if($calendar['active'] == 1) {
 		$eventSources[] = OC_Calendar_Calendar::getEventSourceInfo($calendar);
 	}

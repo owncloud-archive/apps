@@ -4,14 +4,16 @@
 # 
 # Translators:
 #   <dudanogueira@gmail.com>, 2012.
+#   <fred.maranhao@gmail.com>, 2012.
 #   <philippi.sedir@gmail.com>, 2012.
+#   <thoriumbr@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-03 00:01+0100\n"
+"PO-Revision-Date: 2012-12-01 23:15+0000\n"
+"Last-Translator: FredMaranhao <fred.maranhao@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,11 +61,19 @@ msgstr "Erro ao remover pasta."
 msgid "Error updating feeds."
 msgstr "Erro ao atualizar feeds."
 
-#: ajax/importopml.php:34
-msgid "No file was submitted."
-msgstr "Nenhum arquivo foi enviado."
+#: ajax/importopml.php:40
+msgid "Empty filename"
+msgstr "Nome de arquivo vazio"
 
-#: ajax/importopml.php:46
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr "Nenhum argumento fonte foi passado"
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr "Erro durante leitura do arquivo"
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "Um erro ocorreu ao analisar o arquivo."
 
@@ -83,6 +93,10 @@ msgstr "Nenhum caminho de arquivo foi submetido."
 msgid "File doesn't exist:"
 msgstr "Arquivo não existe:"
 
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "Não foi possível salvar a imagem temporária:"
+
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
 msgstr "Erro ao marcar todos os itens como lidos."
@@ -99,7 +113,7 @@ msgstr "Erro ao atualizar feed."
 msgid "Feed updated!"
 msgstr "Feed atualizado!"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Notícias"
 
@@ -111,7 +125,7 @@ msgstr "Erro ao carregar feed"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:55
+#: js/settings.js:68
 msgid "Error"
 msgstr "Erro"
 
@@ -182,21 +196,25 @@ msgstr "Nenhum arquivo selecionado."
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "Importando arquivo OPML..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
-msgstr ""
+msgstr "Tipo inválido"
 
-#: js/settings.js:51
-msgid "{n_success} out of {n_total} feeds imported successfully!"
-msgstr ""
+#: js/settings.js:60
+msgid "Importing done"
+msgstr "Importação concluída"
 
-#: js/settings.js:75
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr "Erro durante importação de feeds."
+
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Selecionar arquivo"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "sem título"
 
@@ -204,11 +222,11 @@ msgstr "sem título"
 msgid "no name"
 msgstr "sem nome"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "sem corpo"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "assinaturas em ownCloud - Notícias"
 
@@ -221,8 +239,8 @@ msgid "Nice! You have subscribed to "
 msgstr "Legal! Você se inscreveu em"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "Você já tinha se inscrito nesse feee!"
+msgid "You had already subscribed to this feed!"
+msgstr "Você já se inscreveu neste feed!"
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -340,20 +358,20 @@ msgstr "Marcar como não importante"
 msgid "Mark as important"
 msgstr "Marcar como importante"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "de"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "por"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Compartilhar"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Manter não lido"
 

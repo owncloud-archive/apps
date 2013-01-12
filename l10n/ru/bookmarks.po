@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-08 00:01+0100\n"
-"PO-Revision-Date: 2012-11-07 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-10 00:01+0100\n"
+"PO-Revision-Date: 2012-11-09 12:26+0000\n"
+"Last-Translator: skoptev <skoptev@ukr.net>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "Не подходящий тип файла для импорта"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
@@ -34,7 +34,7 @@ msgstr "Метки"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr ""
+msgstr "Фильтр по тегу"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
@@ -50,11 +50,11 @@ msgstr "Предупреждение"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "Импортирование завершилось успешно."
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "Загрузка..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -112,31 +112,31 @@ msgstr "Адрес"
 
 #: templates/list.php:23
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr "Связанные теги"
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:39 templates/list.php:41
 msgid "Settings"
 msgstr "Конфигурация"
 
-#: templates/list.php:52
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "У вас нет закладок"
 
-#: templates/list.php:57
+#: templates/list.php:58
 msgid "You can also try to import a bookmark file"
-msgstr ""
+msgstr "Вы также можете попробовать импортировать файл закладки"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
-msgstr ""
+msgstr "Bookmarklet"
 
 #: templates/settings.php:23
 msgid "Export & Import"
-msgstr ""
+msgstr "Экспорт & Импорт"
 
 #: templates/settings.php:24
 msgid "Export"

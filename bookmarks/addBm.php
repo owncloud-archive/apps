@@ -27,15 +27,13 @@
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('bookmarks');
 
-require_once 'bookmarksHelper.php';
-
 // Prep screen if we come from the bookmarklet
 $url ='';
 if(isset($_GET['url'])) {
 	$url = $_GET['url'];
 }
 if(!isset($_GET['title']) || trim($_GET['title']) == '') {
-	$datas = getURLMetadata($url);
+	$datas = OC_Bookmarks_Bookmarks::getURLMetadata($url);
 	$title = isset($datas['title']) ? $datas['title'] : '';
 }
 else{
@@ -58,7 +56,7 @@ $bm = array('title'=> $title,
 );
 
 //Find All Tags
-$qtags = OC_Bookmarks_Bookmarks::findTags();
+$qtags = OC_Bookmarks_Bookmarks::findTags(array(), 0, 400);
 $tags = array();
 foreach($qtags as $tag) {
 	$tags[] = $tag['tag'];

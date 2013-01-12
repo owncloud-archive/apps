@@ -6,7 +6,9 @@
  * See the COPYING-README file.
  */
 
-class OC_Share_Backend_Addressbook implements OCP\Share_Backend_Collection {
+namespace OCA\Contacts;
+
+class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 	const FORMAT_ADDRESSBOOKS = 1;
 
 	/**
@@ -21,7 +23,7 @@ class OC_Share_Backend_Addressbook implements OCP\Share_Backend_Collection {
 	* The formatItems() function will translate the source returned back into the item
 	*/
 	public function isValidSource($itemSource, $uidOwner) {
-		$addressbook = OC_Contacts_Addressbook::find( $itemSource );
+		$addressbook = Addressbook::find( $itemSource );
 		if( $addressbook === false || $addressbook['userid'] != $uidOwner) {
 			return false;
 		}
@@ -39,9 +41,9 @@ class OC_Share_Backend_Addressbook implements OCP\Share_Backend_Collection {
 	* If it does generate a new name e.g. name_#
 	*/
 	public function generateTarget($itemSource, $shareWith, $exclude = null) {
-		$addressbook = OC_Contacts_Addressbook::find( $itemSource );
+		$addressbook = Addressbook::find( $itemSource );
 		$user_addressbooks = array();
-		foreach(OC_Contacts_Addressbook::all($shareWith) as $user_addressbook) {
+		foreach(Addressbook::all($shareWith) as $user_addressbook) {
 			$user_addressbooks[] = $user_addressbook['displayname'];
 		}
 		$name = $addressbook['displayname'];
@@ -70,7 +72,7 @@ class OC_Share_Backend_Addressbook implements OCP\Share_Backend_Collection {
 		$addressbooks = array();
 		if ($format == self::FORMAT_ADDRESSBOOKS) {
 			foreach ($items as $item) {
-				$addressbook = OC_Contacts_Addressbook::find($item['item_source']);
+				$addressbook = Addressbook::find($item['item_source']);
 				if ($addressbook) {
 					$addressbook['displayname'] = $item['item_target'];
 					$addressbook['permissions'] = $item['permissions'];
@@ -82,7 +84,7 @@ class OC_Share_Backend_Addressbook implements OCP\Share_Backend_Collection {
 	}
 
 	public function getChildren($itemSource) {
-		$query = OCP\DB::prepare('SELECT `id`, `fullname` FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ?');
+		$query = \OCP\DB::prepare('SELECT `id`, `fullname` FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ?');
 		$result = $query->execute(array($itemSource));
 		$children = array();
 		while ($contact = $result->fetchRow()) {

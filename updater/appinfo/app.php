@@ -34,12 +34,12 @@ class App {
 		return \OC::$SERVERROOT . '/backup/';
 	}
 
-	public static function getSourcePath($version, $url) {
-		return \OCP\Config::getAppValue(self::APP_ID, md5($version . $url), '');
+	public static function getSource($url, $version) {
+		return \OCP\Config::getAppValue(self::APP_ID, md5($version . $url), false);
 	}
 
-	public static function setSourcePath($version, $url, $path) {
-		\OCP\Config::setAppValue(self::APP_ID, md5($version . $url), $path);
+	public static function setSource($url, $version, $isDownloaded) {
+		\OCP\Config::setAppValue(self::APP_ID, md5($version . $url), $isDownloaded);
 	}
 	
 	public static function getRecentBackupPath() {

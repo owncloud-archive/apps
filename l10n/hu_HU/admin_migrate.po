@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Csaba Orban <vicsabi@gmail.com>, 2012.
+#   <gyonkibendeguz@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-07 00:01+0100\n"
-"PO-Revision-Date: 2012-11-05 23:30+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-08 00:26+0100\n"
+"PO-Revision-Date: 2013-01-07 21:18+0000\n"
+"Last-Translator: gyeben <gyonkibendeguz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,23 +27,23 @@ msgstr "Az ownCloud példány exportálása"
 msgid ""
 "This will create a compressed file that contains the data of this owncloud "
 "instance."
-msgstr ""
+msgstr "Ez egy tömörített fájlt fog létrehozni, ami tartalmazza ennek az ownCloud példánynak az adatait."
 
 #: templates/settings.php:7
 msgid "Please choose the export type:"
-msgstr ""
+msgstr "Kérlek, válaszd ki az exportálás típusát:"
 
 #: templates/settings.php:10
 msgid "ownCloud instance (user data and database"
-msgstr ""
+msgstr "ownCloud példány (felhasználói adatok és adatbázis)"
 
 #: templates/settings.php:11
 msgid "ownCloud system files"
-msgstr ""
+msgstr "ownCloud rendszerfájlok"
 
 #: templates/settings.php:12
 msgid "Just user files"
-msgstr ""
+msgstr "Csak felhasználói fájlok"
 
 #: templates/settings.php:13
 msgid "Export"

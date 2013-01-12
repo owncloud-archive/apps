@@ -246,10 +246,10 @@ Calendar={
 				// Tue 18 October 2011 08:00 - 16:00
 			}
 			var html =
-				'<div class="summary">' + event.title + '</div>' +
+				'<div class="summary">' + escapeHTML(event.title) + '</div>' +
 				'<div class="timespan">' + timespan + '</div>';
 			if (event.description){
-				html += '<div class="description">' + event.description + '</div>';
+				html += '<div class="description">' + escapeHTML(event.description) + '</div>';
 			}
 			return html;
 		},
@@ -660,15 +660,15 @@ Calendar={
 				var files = e.dataTransfer.files;
 				for(var i = 0;i < files.length;i++){
 					var file = files[i];
-					reader = new FileReader();
+					var reader = new FileReader();
 					reader.onload = function(event){
-						Calendar.UI.Drop.import(event.target.result);
+						Calendar.UI.Drop.doImport(event.target.result);
 						$('#fullcalendar').fullCalendar('refetchEvents');
 					}
 					reader.readAsDataURL(file);
 				}
 			},
-			import:function(data){
+			doImport:function(data){
 				$.post(OC.filePath('calendar', 'ajax/import', 'dropimport.php'), {'data':data},function(result) {
 					if(result.status == 'success'){
 						$('#fullcalendar').fullCalendar('addEventSource', result.eventSource);
@@ -800,7 +800,7 @@ function ListView(element, calendar) {
 			' class="' + classes.join(' ') + '"' +
 			'>' +
 			'<span class="fc-event-title">' +
-			event.title +
+			escapeHTML(event.title) +
 			'</span>' +
 			'</span>' +
 			'</td>' +
@@ -909,7 +909,7 @@ $(document).ready(function(){
 		eventDrop: Calendar.UI.moveEvent,
 		eventResize: Calendar.UI.resizeEvent,
 		eventRender: function(event, element) {
-			element.find('.fc-event-title').text($("<div/>").html(event.title).text())
+			element.find('.fc-event-title').text($("<div/>").html(escapeHTML(event.title)).text())
 			element.tipsy({
 				className: 'tipsy-event',
 				opacity: 0.9,
@@ -949,6 +949,7 @@ $(document).ready(function(){
 	fillWindow($('#content'));
 	OCCategories.changed = Calendar.UI.categoriesChanged;
 	OCCategories.app = 'calendar';
+	OCCategories.type = 'event';
 	$('#oneweekview_radio').click(function(){
 		$('#fullcalendar').fullCalendar('changeView', 'agendaWeek');
 	});

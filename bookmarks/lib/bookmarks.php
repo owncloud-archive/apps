@@ -375,4 +375,35 @@ class OC_Bookmarks_Bookmarks{
 		OCP\DB::commit();
 		return array();
 	}
+
+  public static function getURLMetadata($url) {
+		//allow only http(s) and (s)ftp
+		$protocols = '/^[hs]{0,1}[tf]{0,1}tp[s]{0,1}\:\/\//i';
+		//if not (allowed) protocol is given, assume http
+		if(preg_match($protocols, $url) == 0) {
+			$url = 'http://' . $url;
+		}
+		$metadata['url'] = $url;
+		$page  = OC_Util::getUrlContent($url);
+		if($page) {
+			if(preg_match( "/<title>(.*)<\/title>/sUi", $page, $match ) !== false)
+				$metadata['title'] =  html_entity_decode($match[1], ENT_NOQUOTES , 'UTF-8');
+				//Not the best solution but....
+				$metadata['title'] = str_replace('&trade;', chr(153), $metadata['title']);
+				$metadata['title'] = str_replace('&dash;', '‐', $metadata['title']);
+				$metadata['title'] = str_replace('&ndash;', '–', $metadata['title']);
+		}
+		return $metadata;
+	}
+
+	public static function analyzeTagRequest($line) {
+		$tags = explode(',', $line);
+		$filterTag = array();
+		foreach($tags as $tag){
+			if(trim($tag) != '')
+				$filterTag[] = trim($tag);
+		}
+		return $filterTag;
+	}
 }
+

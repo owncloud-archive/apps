@@ -9,13 +9,14 @@
 # Marcin Małecki <gerber@tkdami.net>, 2012.
 #   <mplichta@gmail.com>, 2012.
 # Paweł Ciecierski <pciecierski@gmail.com>, 2012.
+#   <szporwolik@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
+"PO-Revision-Date: 2012-11-29 12:37+0000\n"
+"Last-Translator: szporwolik <szporwolik@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +50,7 @@ msgstr "Błąd dodawania folderu."
 
 #: ajax/createfolder.php:47
 msgid "Folder added!"
-msgstr "Dodano Folder!"
+msgstr "Dodano folder!"
 
 #: ajax/deletefeed.php:29
 msgid "Error removing feed."
@@ -63,11 +64,19 @@ msgstr "Nie wprowadzono ścieżki do pliku"
 msgid "Error updating feeds."
 msgstr "Błąd aktualizacji kanałów."
 
-#: ajax/importopml.php:34
-msgid "No file was submitted."
-msgstr ""
+#: ajax/importopml.php:40
+msgid "Empty filename"
+msgstr "Pusta nazwa pliku"
 
-#: ajax/importopml.php:46
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr "Bak zródła"
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr "Błąd przy odczycie pliku"
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "Wystąpił błąd podczas analizowania pliku."
 
@@ -87,6 +96,10 @@ msgstr "Ścieżka do pliku nie została podana."
 msgid "File doesn't exist:"
 msgstr "Plik nie istnieje:"
 
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "Nie można zapisać obrazu tymczasowego: "
+
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
 msgstr "Błąd podczas ustawiania wszystkich elementów jako przeczytanych."
@@ -103,7 +116,7 @@ msgstr "Błąd aktualizacji kanału"
 msgid "Feed updated!"
 msgstr "Plik zaktualizowany!"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Nowości"
 
@@ -115,7 +128,7 @@ msgstr "Błąd podczas wczytywania wątku"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:55
+#: js/settings.js:68
 msgid "Error"
 msgstr "Błąd"
 
@@ -186,21 +199,25 @@ msgstr "Nie wybrano plików"
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "Importuje plik OPML..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
-msgstr ""
+msgstr "Niepoprawny typ"
 
-#: js/settings.js:51
-msgid "{n_success} out of {n_total} feeds imported successfully!"
-msgstr ""
+#: js/settings.js:60
+msgid "Importing done"
+msgstr "Zaimportowano"
 
-#: js/settings.js:75
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr "Wystąpił błąd podczas importowania kanałów."
+
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Wybierz plik"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "brak tytułu"
 
@@ -208,11 +225,11 @@ msgstr "brak tytułu"
 msgid "no name"
 msgstr "brak nazwy"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "brak zawartości"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "Subskrypcje w ownCloud - Wiadomości"
 
@@ -225,7 +242,7 @@ msgid "Nice! You have subscribed to "
 msgstr "Super! Subskrybujesz"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
+msgid "You had already subscribed to this feed!"
 msgstr "Już subskrybujesz ten kanał!"
 
 #: templates/firstrun.php:2
@@ -281,7 +298,7 @@ msgstr "Dodaj feed do folderu"
 
 #: templates/main.php:35
 msgid "Add Feed/Folder"
-msgstr "Dodaj kanał/Folder"
+msgstr "Dodaj kanał/folder"
 
 #: templates/main.php:37
 msgid "Feed"
@@ -344,20 +361,20 @@ msgstr "Oznacz jako nieważne"
 msgid "Mark as important"
 msgstr "Oznacz jako ważne"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "z"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "przez"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Udostępnij"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Pozostaw nieprzeczytane"
 

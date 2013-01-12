@@ -20,11 +20,13 @@ class Downloader {
 
 	public static function getPackage($url, $version) {
 		self::$package = \OC_Helper::tmpFile();
+		if (!self::$package){
+			throw new \Exception('Unable to create a temporary file');
+		}
 		try {
-			if (!copy($url, self::$package)) {
-				throw new \Exception("Failed to download $url package");
+			if (file_put_contents(self::$package, self::fetch($url))===false) {
+				throw new \Exception("Error storing package content");
 			}
-
 			if (preg_match('/\.zip$/i', $url)) {
 				rename(self::$package, self::$package . '.zip');
 				self::$package .= '.zip';
@@ -51,9 +53,38 @@ class Downloader {
 			self::cleanUp($version);
 			throw $e;
 		}
-
 		Helper::removeIfExists(self::$package);
-		return $extractDir. '/' . self::PACKAGE_ROOT;
+		
+		//  Prepare extracted data
+		//  to have '3rdparty', 'apps' and 'core' subdirectories
+		$sources = Helper::getSources($version);
+		$baseDir = $extractDir. '/' . self::PACKAGE_ROOT;
+		@rename($baseDir . '/' . Helper::THIRDPARTY_DIRNAME, $sources[Helper::THIRDPARTY_DIRNAME]);
+		@rename($baseDir . '/' . Helper::APP_DIRNAME, $sources[Helper::APP_DIRNAME]);
+		@rename($baseDir, $sources[Helper::CORE_DIRNAME]);
+	}
+	
+	/* To be replaced with OC_Util::getUrlContent for 5.x */
+	public static function fetch($url){
+		if  (function_exists('curl_init')) {
+			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_HEADER, 0);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 0);
+			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
+			curl_setopt($curl, CURLOPT_URL, $url);
+			curl_setopt($curl, CURLOPT_USERAGENT, "ownCloud Server Crawler");
+			$data = curl_exec($curl);
+			curl_close($curl);
+		} else {
+			$ctx = stream_context_create(
+				array(
+					'http' => array('timeout' => 32000)
+				     )
+				);
+			$data = @file_get_contents($url, 0, $ctx);
+		}
+		return $data;
 	}
 
 	public static function cleanUp($version){
@@ -62,9 +93,8 @@ class Downloader {
 		}
 		Helper::removeIfExists(self::getPackageDir($version));
 	}
-
+	
 	public static function getPackageDir($version) {
 		return App::getBackupBase() . $version;
 	}
-
 }

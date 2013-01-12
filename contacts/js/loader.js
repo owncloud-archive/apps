@@ -75,12 +75,21 @@ Contacts_Import={
 			}
 		});
 	}
-}
+};
+
+var openContact = function(id) {
+	if(typeof OC.Contacts !== 'undefined') {
+		OC.Contacts.openContact(id);
+	} else {
+		window.location.href = OC.linkTo('contacts', 'index.php') + '?id=' + id;
+	}
+};
+
 $(document).ready(function(){
 	if(typeof FileActions !== 'undefined'){
 		FileActions.register('text/vcard','importaddressbook', OC.PERMISSION_READ, '', Contacts_Import.importdialog);
 		FileActions.setDefault('text/vcard','importaddressbook');
 		FileActions.register('text/x-vcard','importaddressbook', OC.PERMISSION_READ, '', Contacts_Import.importdialog);
 		FileActions.setDefault('text/x-vcard','importaddressbook');
-	};
+	}
 });

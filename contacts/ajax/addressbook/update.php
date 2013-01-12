@@ -16,24 +16,24 @@ $name = trim(strip_tags($_POST['name']));
 $description = trim(strip_tags($_POST['description']));
 
 if(!$id) {
-	bailOut(OC_Contacts_App::$l10n->t('id is not set.'));
+	bailOut(OCA\Contacts\App::$l10n->t('id is not set.'));
 }
 
 if(!$name) {
-	bailOut(OC_Contacts_App::$l10n->t('Cannot update addressbook with an empty name.'));
+	bailOut(OCA\Contacts\App::$l10n->t('Cannot update addressbook with an empty name.'));
 }
 
 try {
-	OC_Contacts_Addressbook::edit($id, $name, $description);
+	OCA\Contacts\Addressbook::edit($id, $name, $description);
 } catch(Exception $e) {
 	bailOut($e->getMessage());
 }
 
-if(!OC_Contacts_Addressbook::setActive($id, $_POST['active'])) {
-	bailOut(OC_Contacts_App::$l10n->t('Error (de)activating addressbook.'));
+if(!OCA\Contacts\Addressbook::setActive($id, $_POST['active'])) {
+	bailOut(OCA\Contacts\App::$l10n->t('Error (de)activating addressbook.'));
 }
 
-$addressbook = OC_Contacts_App::getAddressbook($id);
+$addressbook = OCA\Contacts\Addressbook::find($id);
 OCP\JSON::success(array(
 	'data' => array('addressbook' => $addressbook),
 ));

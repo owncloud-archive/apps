@@ -4,6 +4,23 @@ against an external authorization server. It aims at supporting both
 the [php-oauth](https://github.com/fkooman/php-oauth) service and the 
 [Google](https://developers.google.com/accounts/docs/OAuth2Login#validatingtoken) service.
 
+# Installation
+Install this code in the directory `user_oauth` in the `apps` directory of
+your Owncloud installation.
+
+This module needs an external dependency to verify the OAuth tokens at the
+OAuth authorization server. A script can be used to install this dependency:
+
+    $ cd /path/to/owncloud/apps/user_oauth
+    $ cd 3rdparty
+    $ sh fetch_3rdparty_libs.sh
+
+You need Git installed on your server to fetch the 3rd party dependency.
+
+You can enable the `user_oauth` app after login with the `admin` account. Go
+to `Settings`, then `Apps` and finally select the `OAuth` module from the list
+of modules, select it and press the `Enable` button.
+
 # Configuration
 There currently is only one configuration parameter: the Token Info Endpoint.
 For quick tests, one can use the playground environment, installed using
@@ -17,6 +34,9 @@ For the "workshop" installation the Token Info Endpoint would be
 For Google the Token Info Endpoint is:
 
     https://www.googleapis.com/oauth2/v1/tokeninfo
+
+You can set this endpoint by going to `Settings`, then `Admin` and then under
+the section head `OAuth` configure the URL.
 
 # Applications
 An application needs to use the OAuth service to retrieve an access token to
@@ -45,3 +65,5 @@ implement OAuth 2.0 and can be used to modify the Owncloud Mobile Apps.
 
 So far, the Owncloud Mobile Apps have not been updated to support OAuth 2.0.
 
+# Compatibilty
+The app was tested with version 4.5.4 of Owncloud.

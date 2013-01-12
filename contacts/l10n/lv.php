@@ -1,0 +1,20 @@
+<?php $TRANSLATIONS = array(
+"There is no error, the file uploaded with success" => "Viss kārtībā, augšupielāde veiksmīga",
+"No file was uploaded" => "Neviens fails netika augšuplādēts",
+"Missing a temporary folder" => "Trūkst pagaidu mapes",
+"Error" => "Kļūme",
+"Unable to upload your file as it is a directory or has 0 bytes" => "Nav iespējams augšuplādēt jūsu failu, jo tāds jau eksistē vai arī failam nav izmēra (0 baiti)",
+"Upload Error" => "Augšuplādēšanas laikā radās kļūda",
+"Upload too large" => "Fails ir par lielu lai to augšuplādetu",
+"Pending" => "Gaida savu kārtu",
+"Download" => "Lejuplādēt",
+"Delete" => "Izdzēst",
+"Other" => "Cits",
+"Settings" => "Iestatījumi",
+"Groups" => "Grupas",
+"Title" => "Nosaukums",
+"Email" => "Epasts",
+"Share" => "Līdzdalīt",
+"Name" => "Nosaukums",
+"Save" => "Saglabāt"
+);

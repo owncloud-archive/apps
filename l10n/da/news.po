@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <cronner@gmail.com>, 2012.
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2012.
 # Ole Holm Frandsen <froksen@gmail.com>, 2012.
 # Thomas Tanghus <thomas@tanghus.net>, 2012.
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-24 00:02+0100\n"
+"PO-Revision-Date: 2012-12-23 21:50+0000\n"
+"Last-Translator: cronner <cronner@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,11 +61,19 @@ msgstr "Der opstod en fejl under fjernelsen af mappen."
 msgid "Error updating feeds."
 msgstr "Der opstod en fejl under opdateringen af feedene."
 
-#: ajax/importopml.php:34
-msgid "No file was submitted."
-msgstr ""
+#: ajax/importopml.php:40
+msgid "Empty filename"
+msgstr "Tomt filnavn"
 
-#: ajax/importopml.php:46
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr "Ingen kilde argument sendt"
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr "Fejl under læsning af fil"
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "Der opstod en fejl under læsningen af filen."
 
@@ -84,6 +93,10 @@ msgstr "Der var ingen sti til filen i forespørgslen."
 msgid "File doesn't exist:"
 msgstr "Filen eksisterer ikke:"
 
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "Kunne ikke gemme midlertidigt billede: "
+
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
 msgstr "Kunne ikke markére alle artikler som læst."
@@ -100,7 +113,7 @@ msgstr "Der opstod en fejl under opdateringen af feedet."
 msgid "Feed updated!"
 msgstr "Feed opdateret."
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "Nyheder"
 
@@ -112,7 +125,7 @@ msgstr "Fejl under indlæsning af nyhedskilde"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:55
+#: js/settings.js:68
 msgid "Error"
 msgstr "Fejl"
 
@@ -183,21 +196,25 @@ msgstr "Ingen filer valgt."
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "Importerer OPML-fil..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
-msgstr ""
+msgstr "Ikke en gyldig type"
 
-#: js/settings.js:51
-msgid "{n_success} out of {n_total} feeds imported successfully!"
-msgstr ""
+#: js/settings.js:60
+msgid "Importing done"
+msgstr "Import udført"
 
-#: js/settings.js:75
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr "Fejl under import af feeds."
+
+#: js/settings.js:88
 msgid "Select file"
 msgstr "Vælg fil"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "ingen titel"
 
@@ -205,11 +222,11 @@ msgstr "ingen titel"
 msgid "no name"
 msgstr "intet navn"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "ingen brødtekst"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "Abonnementer i ownCloud - Nyheder"
 
@@ -222,8 +239,8 @@ msgid "Nice! You have subscribed to "
 msgstr "Godt! Du abonnerer nu på "
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "Du abonnerer allerede på dette feed!"
+msgid "You had already subscribed to this feed!"
+msgstr "Du havde allerede abonnerer på dette feed!"
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -341,20 +358,20 @@ msgstr "Markér som ikke-vigtig"
 msgid "Mark as important"
 msgstr "Markér som vigtig"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "fra"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "af"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "Del"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "Behold ulæste"
 

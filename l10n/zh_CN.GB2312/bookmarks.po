@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-08 00:01+0100\n"
-"PO-Revision-Date: 2012-11-07 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-09 00:01+0100\n"
+"PO-Revision-Date: 2012-11-08 17:22+0000\n"
+"Last-Translator: marguerite su <i@marguerite.su>\n"
 "Language-Team: Chinese (China) (GB2312) (http://www.transifex.com/projects/p/owncloud/language/zh_CN.GB2312/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "不支持导入的文件类型"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
@@ -32,7 +32,7 @@ msgstr "标签"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr ""
+msgstr "按标签过滤"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
@@ -48,11 +48,11 @@ msgstr "警告"
 
 #: js/settings.js:25
 msgid "Import completed successfully."
-msgstr ""
+msgstr "导入完全成功。"
 
 #: js/settings.js:56
 msgid "Uploading..."
-msgstr ""
+msgstr "上传中..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -110,31 +110,31 @@ msgstr "网址"
 
 #: templates/list.php:23
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr "相关标签"
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:39 templates/list.php:41
 msgid "Settings"
 msgstr "设置"
 
-#: templates/list.php:52
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "您没有书签"
 
-#: templates/list.php:57
+#: templates/list.php:58
 msgid "You can also try to import a bookmark file"
-msgstr ""
+msgstr "您也可以尝试导入一个书签文件"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
-msgstr ""
+msgstr "书签"
 
 #: templates/settings.php:23
 msgid "Export & Import"
-msgstr ""
+msgstr "导出 & 导入"
 
 #: templates/settings.php:24
 msgid "Export"

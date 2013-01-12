@@ -2,6 +2,7 @@
 "No calendars found." => "Ingen kalendere funnet",
 "No events found." => "Ingen hendelser funnet",
 "Wrong calendar" => "Feil kalender",
+"You do not have the permissions to edit this event." => "Du har ikke tilgang til å endre dette eventet",
 "New Timezone:" => "Ny tidssone:",
 "Timezone changed" => "Tidssone endret",
 "Invalid request" => "Ugyldig forespørsel",
@@ -29,7 +30,6 @@
 "You do not have the permissions to delete this calendar." => "Du har ikke tilgang til å slette denne kalenderen",
 "You do not have the permissions to add to this calendar." => "Du har ikke tilgang til å legge til noe i denne kalenderen",
 "New Calendar" => "Ny kalender",
-"You do not have the permissions to edit this event." => "Du har ikke tilgang til å endre dette eventet",
 "You do not have the permissions to delete this event." => "Du har ikke tilgang til å slette dette eventet",
 "Does not repeat" => "Gjentas ikke",
 "Daily" => "Daglig",
@@ -95,7 +95,6 @@
 "Nov." => "Nov.",
 "Dec." => "Des.",
 "All day" => "Hele dagen ",
-"Missing fields" => "Manglende felt",
 "Title" => "Tittel",
 "From Date" => "Fra dato",
 "From Time" => "Fra tidspunkt",
@@ -181,5 +180,6 @@
 "Cache" => "Buffer",
 "URLs" => "URLs",
 "more info" => "mer info",
+"Primary address (Kontact et al)" => "Primær adresse (kontakt osv)",
 "iOS/OS X" => "iOS/OS X"
 );

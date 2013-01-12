@@ -25,13 +25,13 @@ $description = isset($_POST['description'])
 if(is_null($name)) {
 	bailOut('Cannot add addressbook with an empty name.');
 }
-$bookid = OC_Contacts_Addressbook::add($userid, $name, $description);
+$bookid = OCA\Contacts\Addressbook::add($userid, $name, $description);
 if(!$bookid) {
 	bailOut('Error adding addressbook: '.$name);
 }
 
-if(!OC_Contacts_Addressbook::setActive($bookid, 1)) {
+if(!OCA\Contacts\Addressbook::setActive($bookid, 1)) {
 	bailOut('Error activating addressbook.');
 }
-$addressbook = OC_Contacts_App::getAddressbook($bookid);
+$addressbook = OCA\Contacts\Addressbook::find($bookid);
 OCP\JSON::success(array('data' => array('addressbook' => $addressbook)));

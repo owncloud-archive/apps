@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-15 00:07+0100\n"
+"PO-Revision-Date: 2012-12-14 17:26+0000\n"
+"Last-Translator: hanfeng <appweb.cn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,11 +59,19 @@ msgstr "移除文件夹错误"
 msgid "Error updating feeds."
 msgstr "更新Feed时错误"
 
-#: ajax/importopml.php:34
-msgid "No file was submitted."
-msgstr ""
+#: ajax/importopml.php:40
+msgid "Empty filename"
+msgstr "文件名为空"
 
-#: ajax/importopml.php:46
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr "源参数未传递"
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr "读取文件时出错"
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "解析文件时发生错误。"
 
@@ -83,6 +91,10 @@ msgstr "没有提交文件路径。"
 msgid "File doesn't exist:"
 msgstr "文件不存在"
 
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "无法保存临时图像: "
+
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
 msgstr "标识所有已读时出错。"
@@ -99,7 +111,7 @@ msgstr "更新Feed时出错。"
 msgid "Feed updated!"
 msgstr "Feed已更新！"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "新闻"
 
@@ -111,7 +123,7 @@ msgstr "下载种子(feed)时错误"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:55
+#: js/settings.js:68
 msgid "Error"
 msgstr "错误"
 
@@ -182,21 +194,25 @@ msgstr "没有选择文件。"
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "导入OPML文件…"
 
 #: js/settings.js:42
 msgid "Not a valid type"
-msgstr ""
+msgstr "格式无效"
 
-#: js/settings.js:51
-msgid "{n_success} out of {n_total} feeds imported successfully!"
-msgstr ""
+#: js/settings.js:60
+msgid "Importing done"
+msgstr "导入完成"
 
-#: js/settings.js:75
+#: js/settings.js:64
+msgid "Error while importing feeds."
+msgstr "导入Feed时出错。"
+
+#: js/settings.js:88
 msgid "Select file"
 msgstr "选择文件"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "没有标题"
 
@@ -204,11 +220,11 @@ msgstr "没有标题"
 msgid "no name"
 msgstr "没有名称"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "没有正文"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "在owncloud中订阅-新闻"
 
@@ -221,8 +237,8 @@ msgid "Nice! You have subscribed to "
 msgstr "不错！您已经订阅"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "已经订阅过此feed哟。"
+msgid "You had already subscribed to this feed!"
+msgstr "您已经订阅过此feed哟。"
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -340,20 +356,20 @@ msgstr "标志为不重要"
 msgid "Mark as important"
 msgstr "标志为重要"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "自"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "被"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "共享"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "保持未读"
 

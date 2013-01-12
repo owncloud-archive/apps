@@ -2,11 +2,11 @@
 <info>
 	<id>mozilla_sync</id>
 	<name>Mozilla Sync Service</name>
-	<description>Service for synchronization firefox setings between devices</description>
+	<description>Service for synchronization firefox settings between devices</description>
 	<version>1.0</version>
 	<licence>AGPL</licence>
 	<author>Michal Jaskurzynski</author>
-	<require>4</require>
+	<require>4.9</require>
 	<remote>
 	   <mozilla_sync>appinfo/remote.php</mozilla_sync>
 	</remote>

@@ -56,7 +56,7 @@
  * if(class_exists('OC_Notify')) {
  *     $notification_id = OC_Notify::sendUserNotification('files_sharing', 'sharedFile', $target_user, array(
  *         'user_from' => $source_user,
- *         'href' => OCP\Util::linkTo('files', 'index.php') . '&dir=/Shared',
+ *         'href' => OCP\Util::linkTo('files', 'index.php', array('dir' => '/Shared')),
  *         'img' => OCP\Util::imagePath('core', 'actions/share.svg')
  *     ));
  * }

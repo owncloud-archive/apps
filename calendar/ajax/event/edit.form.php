@@ -20,9 +20,10 @@ if(!$data) {
 	OCP\JSON::error(array('data' => array('message' => OC_Calendar_App::$l10n->t('Wrong calendar'))));
 	exit;
 }
-$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT);
 $object = OC_VObject::parse($data['calendardata']);
 $vevent = $object->VEVENT;
+$object = OC_Calendar_Object::cleanByAccessClass($id, $object);
+$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT, $vevent->CLASS->value);
 
 $dtstart = $vevent->DTSTART;
 $dtend = OC_Calendar_Object::getDTEndFromVEvent($vevent);
@@ -53,6 +54,7 @@ switch($dtstart->getDateType()) {
 		break;
 }
 
+$accessclass = $vevent->getAsString('CLASS');
 $summary = $vevent->getAsString('SUMMARY');
 $location = $vevent->getAsString('LOCATION');
 $categories = $vevent->getAsString('CATEGORIES');
@@ -198,6 +200,7 @@ if($data['repeating'] == 1) {
 }
 $calendar_options = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
 $category_options = OC_Calendar_App::getCategoryOptions();
++$access_class_options = OC_Calendar_App::getAccessClassOptions();
 $repeat_options = OC_Calendar_App::getRepeatOptions();
 $repeat_end_options = OC_Calendar_App::getEndOptions();
 $repeat_month_options = OC_Calendar_App::getMonthOptions();
@@ -209,16 +212,20 @@ $repeat_bymonth_options = OC_Calendar_App::getByMonthOptions();
 $repeat_byweekno_options = OC_Calendar_App::getByWeekNoOptions();
 $repeat_bymonthday_options = OC_Calendar_App::getByMonthDayOptions();
 
-if($permissions & OCP\Share::PERMISSION_UPDATE) {
+if($permissions & OCP\PERMISSION_UPDATE) {
 	$tmpl = new OCP\Template('calendar', 'part.editevent');
-} elseif($permissions & OCP\Share::PERMISSION_READ) {
+} elseif($permissions & OCP\PERMISSION_READ) {
 	$tmpl = new OCP\Template('calendar', 'part.showevent');
+} elseif($permissions === 0) {
+	OCP\JSON::error(array('data' => array('message' => OC_Calendar_App::$l10n->t('You do not have the permissions to edit this event.'))));
+	exit;
 }
 
 $tmpl->assign('eventid', $id);
 $tmpl->assign('permissions', $permissions);
 $tmpl->assign('lastmodified', $lastmodified);
 $tmpl->assign('calendar_options', $calendar_options);
+$tmpl->assign('access_class_options', $access_class_options);
 $tmpl->assign('repeat_options', $repeat_options);
 $tmpl->assign('repeat_month_options', $repeat_month_options);
 $tmpl->assign('repeat_weekly_options', $repeat_weekly_options);
@@ -231,6 +238,7 @@ $tmpl->assign('repeat_bymonthday_options', $repeat_bymonthday_options);
 $tmpl->assign('repeat_weekofmonth_options', $repeat_weekofmonth_options);
 
 $tmpl->assign('title', $summary);
+$tmpl->assign('accessclass', $accessclass);
 $tmpl->assign('location', $location);
 $tmpl->assign('categories', $categories);
 $tmpl->assign('calendar', $data['calendarid']);
@@ -243,18 +251,18 @@ $tmpl->assign('description', $description);
 
 $tmpl->assign('repeat', $repeat['repeat']);
 if($repeat['repeat'] != 'doesnotrepeat') {
-	$tmpl->assign('repeat_month', $repeat['month']);
-	$tmpl->assign('repeat_weekdays', $repeat['weekdays']);
-	$tmpl->assign('repeat_interval', $repeat['interval']);
-	$tmpl->assign('repeat_end', $repeat['end']);
-	$tmpl->assign('repeat_count', $repeat['count']);
+	$tmpl->assign('repeat_month', isset($repeat['month']) ? $repeat['month'] : 'monthday');
+	$tmpl->assign('repeat_weekdays', isset($repeat['weekdays']) ? $repeat['weekdays'] : array());
+	$tmpl->assign('repeat_interval', isset($repeat['interval']) ? $repeat['interval'] : '1');
+	$tmpl->assign('repeat_end', isset($repeat['end']) ? $repeat['end'] : 'never');
+	$tmpl->assign('repeat_count', isset($repeat['count']) ? $repeat['count'] : '10');
 	$tmpl->assign('repeat_weekofmonth', $repeat['weekofmonth']);
-	$tmpl->assign('repeat_date', $repeat['date']);
-	$tmpl->assign('repeat_year', $repeat['year']);
-	$tmpl->assign('repeat_byyearday', $repeat['byyearday']);
-	$tmpl->assign('repeat_bymonthday', $repeat['bymonthday']);
-	$tmpl->assign('repeat_bymonth', $repeat['bymonth']);
-	$tmpl->assign('repeat_byweekno', $repeat['byweekno']);
+	$tmpl->assign('repeat_date', isset($repeat['date']) ? $repeat['date'] : '');
+	$tmpl->assign('repeat_year', isset($repeat['year']) ? $repeat['year'] : array());
+	$tmpl->assign('repeat_byyearday', isset($repeat['byyearday']) ? $repeat['byyearday'] : array());
+	$tmpl->assign('repeat_bymonthday', isset($repeat['bymonthday']) ? $repeat['bymonthday'] : array());
+	$tmpl->assign('repeat_bymonth', isset($repeat['bymonth']) ? $repeat['bymonth'] : array());
+	$tmpl->assign('repeat_byweekno', isset($repeat['byweekno']) ? $repeat['byweekno'] : array());
 } else {
 	$tmpl->assign('repeat_month', 'monthday');
 	$tmpl->assign('repeat_weekdays', array());

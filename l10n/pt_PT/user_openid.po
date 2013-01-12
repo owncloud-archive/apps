@@ -3,20 +3,29 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <daniel@mouxy.net>, 2012.
 # Duarte Velez Grilo <duartegrilo@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-01 02:06+0200\n"
-"PO-Revision-Date: 2012-09-30 22:33+0000\n"
-"Last-Translator: Duarte Velez Grilo <duartegrilo@gmail.com>\n"
+"POT-Creation-Date: 2013-01-12 00:07+0100\n"
+"PO-Revision-Date: 2013-01-11 23:07+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/openid.php:13
+msgid "OpenID Changed"
+msgstr ""
+
+#: ajax/openid.php:15
+msgid "Invalid request"
+msgstr ""
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
@@ -41,6 +50,10 @@ msgstr "Login"
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"
 msgstr "Erro: <b>Não foi seleccionado nenhum Utilizador"
+
+#: templates/settings.php:3
+msgid "OpenID"
+msgstr "OpenID"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"

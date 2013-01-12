@@ -69,12 +69,19 @@ class OC_Calendar_Export{
 		if(!$object){
 			return false;
 		}
+
+		$sharedAccessClassPermissions = OC_Calendar_App::getAccessClassPermissions($object->VEVENT->CLASS->value);
+		if (!($sharedAccessClassPermissions & OCP\PERMISSION_READ)) {
+			return '';
+		}
+		$object = OC_Calendar_Object::cleanByAccessClass($event['calendarid'], $object);
+
 		if($object->VEVENT){
 			$dtstart = $object->VEVENT->DTSTART;
 			$start_dt = $dtstart->getDateTime();
 			$dtend = OC_Calendar_Object::getDTEndFromVEvent($object->VEVENT);
 			$end_dt = $dtend->getDateTime();
-			if($dtstart->getDateType() !== Sabre\VObject\Element\DateTime::DATE) {
+			if($dtstart->getDateType() !== Sabre\VObject\Property\DateTime::DATE) {
 				$start_dt->setTimezone(new DateTimeZone('UTC'));
 				$end_dt->setTimezone(new DateTimeZone('UTC'));
 				$object->VEVENT->setDateTime('DTSTART', $start_dt, Sabre\VObject\Property\DateTime::UTC);

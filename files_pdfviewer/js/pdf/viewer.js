@@ -1846,7 +1846,7 @@ document.addEventListener('DOMContentLoaded', function webViewerLoad(evt) {
     });
 
 
-    PDFView.open(oc_webroot+"/?app=files&getfile=download.php?file="+window.dir+"/"+window.file, 1.0);
+    PDFView.open(oc_webroot+"/?app=files&getfile=download.php?file="+encodeURIComponent(window.dir)+"/"+encodeURIComponent(window.file), 1.0);
 }, true);
 
 function updateViewarea() {

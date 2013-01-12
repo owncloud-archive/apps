@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 11:57+0000\n"
+"POT-Creation-Date: 2012-11-27 00:07+0100\n"
+"PO-Revision-Date: 2012-11-26 15:38+0000\n"
 "Last-Translator: skoptev <skoptev@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -44,11 +44,11 @@ msgstr "Php-zip модуль необхідний для завантаженн�
 #: settings.php:63
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
-msgstr ""
+msgstr "Модуль php-mb_multibyte необхідний для правильного управління кодуванням."
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr ""
+msgstr "Моудль php-ctype необхідний для перевірки даних."
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
@@ -58,7 +58,7 @@ msgstr "Php-xml модуль необхідний для спільного до
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr ""
+msgstr "Директива allow_url_fopen Вашого php.ini повинна бути встановлена в 1 для відстежування бази знань OCS серверів"
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."

@@ -9,7 +9,7 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 	<li><a href="#tabs-2"><?php echo $l->t('Repeating'); ?></a></li>
 	<!--<li><a href="#tabs-3"><?php echo $l->t('Alarm'); ?></a></li>
 	<li><a href="#tabs-4"><?php echo $l->t('Attendees'); ?></a></li>-->
-	<?php if($_['eventid'] != 'new' && $_['permissions'] & OCP\Share::PERMISSION_SHARE) { ?>
+	<?php if($_['eventid'] != 'new' && $_['permissions'] & OCP\PERMISSION_SHARE) { ?>
 	<li><a href="#tabs-5"><?php echo $l->t('Share'); ?></a></li>
 	<?php } ?>
 </ul>
@@ -45,6 +45,17 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 				<input type="hidden" name="calendar" value="<?php echo $_['calendar_options'][0]['id']; ?>">
 			</td>
 			<?php } ?>
+		</tr>
+		<tr>
+			<th width="75px"><?php echo $l->t("Access Class");?>:</th>
+			<td>
+				<select style="width:140px;" name="accessclass">
+					<?php
+					if (!isset($_['calendar'])) {$_['calendar'] = false;}
+					echo OCP\html_select_options($_['access_class_options'], $_['accessclass']);
+					?>
+				</select>
+			</td>
 		</tr>
 	</table>
 	<hr>
@@ -244,7 +255,7 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 </div>
 <!--<div id="tabs-3">//Alarm</div>
 <div id="tabs-4">//Attendees</div>-->
-<?php if($_['eventid'] != 'new' && $_['permissions'] & OCP\Share::PERMISSION_SHARE) { ?>
+<?php if($_['eventid'] != 'new' && $_['permissions'] & OCP\PERMISSION_SHARE) { ?>
 <div id="tabs-5">
 	<?php if($_['eventid'] != 'new') { echo $this->inc('part.share'); } ?>
 </div>

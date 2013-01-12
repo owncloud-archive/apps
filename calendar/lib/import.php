@@ -121,11 +121,13 @@ class OC_Calendar_Import{
 			if(!($object instanceof Sabre\VObject\Component\VEvent) && !($object instanceof Sabre\VObject\Component\VJournal) && !($object instanceof Sabre\VObject\Component\VTodo)) {
 				continue;
 			}
-			$dtend = OC_Calendar_Object::getDTEndFromVEvent($object);
-			$object->DTSTART->getDateTime()->setTimezone(new DateTimeZone($this->tz));
-			if($object->DTEND) {
-				$object->DTEND->setDateTime($dtend->getDateTime(), $object->DTSTART->getDateType());
-				$object->DTEND->getDateTime()->setTimezone(new DateTimeZone($this->tz));
+			if(!is_null($object->DTSTART)){
+				$dtend = OC_Calendar_Object::getDTEndFromVEvent($object);
+				$object->DTSTART->getDateTime()->setTimezone(new DateTimeZone($this->tz));
+				if($object->DTEND) {
+					$object->DTEND->setDateTime($dtend->getDateTime(), $object->DTSTART->getDateType());
+					$object->DTEND->getDateTime()->setTimezone(new DateTimeZone($this->tz));
+				}
 			}
 			$vcalendar = $this->createVCalendar($object->serialize());
 			$insertid = OC_Calendar_Object::add($this->id, $vcalendar);

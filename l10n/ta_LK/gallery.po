@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <suganthi@nic.lk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 02:04+0200\n"
-"PO-Revision-Date: 2012-01-15 13:48+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-11-20 00:01+0100\n"
+"PO-Revision-Date: 2012-11-19 08:54+0000\n"
+"Last-Translator: suganthi <suganthi@nic.lk>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,30 +20,30 @@ msgstr ""
 
 #: appinfo/app.php:45
 msgid "Pictures"
-msgstr ""
+msgstr "படங்கள்"
 
 #: appinfo/app.php:53
 msgid "Galleries"
-msgstr ""
+msgstr "தொகுப்புகள்"
 
 #: js/pictures.js:12
 msgid "Share gallery"
-msgstr ""
+msgstr "தொகுப்பை பகிர்க"
 
 #: js/pictures.js:32
 msgid "Error: "
-msgstr ""
+msgstr "வழு:"
 
 #: js/pictures.js:32
 msgid "Internal error"
-msgstr ""
+msgstr "உள்ளக வழு"
 
 #: templates/index.php:27
 msgid "Slideshow"
-msgstr ""
+msgstr "படவில்லைக்காட்சி"
 
 #: templates/no-image-app.php:9
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr ""
+msgstr "இந்த செயலியை பயன்படுத்துவதற்கு \"Image viewer\" செயலியையும் இயலுமைப்படுத்த வேண்டும்."

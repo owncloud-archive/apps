@@ -6,7 +6,7 @@
 		<p class="bold" style="text-align:center;"><?php echo $l->t('Please choose the addressbook'); ?></p>
 		<select style="width:100%;" id="contacts" name="contacts">
 		<?php
-		$contacts_options = OC_Contacts_Addressbook::all(OCP\USER::getUser());
+		$contacts_options = OCA\Contacts\Addressbook::all(OCP\USER::getUser());
 		$contacts_options[] = array('id'=>'newaddressbook', 'displayname'=>$l->t('create a new addressbook'));
 		echo OCP\html_select_options($contacts_options, $contacts_options[0]['id'], array('value'=>'id', 'label'=>'displayname'));
 		?>

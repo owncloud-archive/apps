@@ -35,6 +35,7 @@ OCP\Util::addStyle('impressionist', 'bootstrap');
 
 
 OCP\Util::addScript('impressionist', 'keymaster');
+OCP\Util::addScript('impressionist', 'impress');
 OCP\Util::addScript('impressionist', 'datastore');
 OCP\Util::addScript('impressionist', 'appui');
 OCP\Util::addScript('impressionist', 'fileops');

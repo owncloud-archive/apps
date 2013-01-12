@@ -27,7 +27,10 @@ class OC_Provisioning_API_Groups{
 	 * returns a list of groups
 	 */
 	public static function getGroups($parameters){
-		return array('groups' => OC_Group::getGroups());
+		$search = !empty($_GET['search']) ? $_GET['search'] : '';
+		$limit = !empty($_GET['limit']) ? $_GET['limit'] : -1;
+		$offset = !empty($_GET['offset']) ? $_GET['offset'] : 0;
+		return array('groups' => OC_Group::getGroups($search, $limit, $offset));
 	}
 
 	/**
@@ -65,15 +68,11 @@ class OC_Provisioning_API_Groups{
 		// Check it exists
 		if(!OC_Group::groupExists($parameters['groupid'])){
 			return 101;
-		} else if($parameters['groupid'] == 'admin'){
+		} else if($parameters['groupid'] == 'admin' || !OC_Group::deleteGroup($parameters['groupid'])){
 			// Cannot delete admin group
 			return 102;
 		} else {
-			if(OC_Group::deleteGroup($parameters['groupid'])){
-				return 100;
-			} else {
-				return 103;
-			}
+			return 100;
 		}
 	}
 

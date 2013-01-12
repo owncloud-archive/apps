@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 23:01+0000\n"
+"POT-Creation-Date: 2012-11-30 00:01+0100\n"
+"PO-Revision-Date: 2012-11-28 23:14+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (China) (GB2312) (http://www.transifex.com/projects/p/owncloud/language/zh_CN.GB2312/)\n"
 "MIME-Version: 1.0\n"
@@ -58,11 +58,19 @@ msgstr "移除文件夹出错。"
 msgid "Error updating feeds."
 msgstr "更新种子出错。"
 
-#: ajax/importopml.php:34
-msgid "No file was submitted."
+#: ajax/importopml.php:40
+msgid "Empty filename"
 msgstr ""
 
-#: ajax/importopml.php:46
+#: ajax/importopml.php:50
+msgid "No source argument passed"
+msgstr ""
+
+#: ajax/importopml.php:54
+msgid "Error while reading file"
+msgstr ""
+
+#: ajax/importopml.php:64
 msgid "An error occurred while parsing the file."
 msgstr "解析文件出错。"
 
@@ -82,6 +90,10 @@ msgstr "没有提交文件路径。"
 msgid "File doesn't exist:"
 msgstr "文件不存在。"
 
+#: ajax/selectfromcloud.php:44
+msgid "Couldn't save temporary image: "
+msgstr "不能保存临时相片："
+
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
 msgstr "全部标记为已读出错。"
@@ -98,7 +110,7 @@ msgstr "更新种子出错。"
 msgid "Feed updated!"
 msgstr "种子已更新！"
 
-#: appinfo/app.php:38 lib/search.php:21
+#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
 msgstr "新闻"
 
@@ -110,7 +122,7 @@ msgstr "加载种子出错"
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
 #: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:55
+#: js/settings.js:68
 msgid "Error"
 msgstr "出错"
 
@@ -181,21 +193,25 @@ msgstr "没有选择文件。"
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
-msgstr ""
+msgstr "正在导入 OPML 文件..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
+msgstr "不是一个有效的类型"
+
+#: js/settings.js:60
+msgid "Importing done"
 msgstr ""
 
-#: js/settings.js:51
-msgid "{n_success} out of {n_total} feeds imported successfully!"
+#: js/settings.js:64
+msgid "Error while importing feeds."
 msgstr ""
 
-#: js/settings.js:75
+#: js/settings.js:88
 msgid "Select file"
 msgstr "选择文件"
 
-#: lib/feedmapper.php:180 lib/itemmapper.php:207
+#: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
 msgstr "无主题"
 
@@ -203,11 +219,11 @@ msgstr "无主题"
 msgid "no name"
 msgstr "无名称"
 
-#: lib/itemmapper.php:212
+#: lib/itemmapper.php:226
 msgid "no body"
 msgstr "无内容"
 
-#: opmlexporter.php:52
+#: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
 msgstr "在 ownCloud 中的订阅 - 新闻"
 
@@ -220,8 +236,8 @@ msgid "Nice! You have subscribed to "
 msgstr "好的！您已经订阅了"
 
 #: subscribe.php:36
-msgid "You had already subcribed to this feed!"
-msgstr "您已经订阅过了该种子！"
+msgid "You had already subscribed to this feed!"
+msgstr ""
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -339,20 +355,20 @@ msgstr "标记为重要"
 msgid "Mark as important"
 msgstr "标记为重要"
 
-#: templates/part.items.php:37 templates/part.shared.php:38
+#: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
 msgstr "从"
 
-#: templates/part.items.php:43 templates/part.shared.php:44
+#: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
 msgstr "由"
 
-#: templates/part.items.php:56 templates/part.items.php:57
+#: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
 msgstr "分享"
 
-#: templates/part.items.php:58 templates/part.shared.php:60
+#: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"
 msgstr "保持未读"
 

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<info>
+	<id>xmpp</id>
+	<name>xmpp</name>
+	<description>create mini chat</description>
+	<version>0.8</version>
+	<licence>GPL</licence>
+	<author>ZUNbado</author>
+	<require>4.5</require>
+</info>

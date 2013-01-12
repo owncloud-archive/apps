@@ -1,6 +1,15 @@
 CHANGELOG
 =========
 
+Version 0.3 (Tested with OwnCloud 4.5.2)
+----------------------------------------
+
+* Fix login Issue: Javascript features + 
+* RewriteRule of the .httaccess avoid to redirect to apps/user_saml/auth.php.  Now appinfo/ap.php do all the work and load the logic
+  of the auth.php
+
+
+
 Version 0.2
 -----------
 

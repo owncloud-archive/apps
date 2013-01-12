@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
+"Error" => "خطأ",
+"None" => "لا شيء",
 "Address" => "عنوان",
 "Upload" => "إرفع",
 "Import" => "إدخال",

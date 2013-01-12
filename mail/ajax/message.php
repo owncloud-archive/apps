@@ -1,6 +1,6 @@
 <?php
 /**
- * ownCloud - Addressbook
+ * ownCloud - Mail
  *
  * @author Thomas Tanghus
  * @copyright 2012 Jakob Sack <mail@jakobsack.de>

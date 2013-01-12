@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# André Koot <meneer@tken.net>, 2012.
 # Richard Bos <radoeka@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-26 13:19+0200\n"
-"PO-Revision-Date: 2012-09-26 11:21+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-12-21 00:02+0100\n"
+"PO-Revision-Date: 2012-12-20 17:37+0000\n"
+"Last-Translator: André Koot <meneer@tken.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,22 +19,38 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/editor.js:72 js/editor.js:156 js/editor.js:163
+#: js/editor.js:72 js/editor.js:177 js/editor.js:185
 msgid "Save"
 msgstr "Opslaan"
+
+#: js/editor.js:74
+msgid "Search:"
+msgstr "Zoeken:"
 
 #: js/editor.js:74
 msgid "Close"
 msgstr "Sluiten"
 
-#: js/editor.js:149
+#: js/editor.js:151
+msgid "Next"
+msgstr "Volgende"
+
+#: js/editor.js:152
+msgid "Clear"
+msgstr "Opschonen"
+
+#: js/editor.js:170
 msgid "Saving..."
 msgstr "Opslaan"
 
-#: js/editor.js:239
+#: js/editor.js:178
+msgid "Failed to save file"
+msgstr "Bewaren mislukt"
+
+#: js/editor.js:262
 msgid "An error occurred!"
 msgstr "Er is iets fout gegaan!"
 
-#: js/editor.js:266
+#: js/editor.js:297
 msgid "There were unsaved changes, click here to go back"
 msgstr "Er zijn niet opgeslagen veranderingen, klik hier of ga terug"

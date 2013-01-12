@@ -64,16 +64,37 @@ function setSyntaxMode(ext){
 	}
 }
 
-function showControls(filename,writeperms){
+function showControls(dir,filename,writeperms){
 	// Loads the control bar at the top.
 	// Load the new toolbar.
 	var editorbarhtml = '<div id="editorcontrols" style="display: none;"><div class="crumb svg last" id="breadcrumb_file" style="background-image:url(&quot;'+OC.imagePath('core','breadcrumb.png')+'&quot;)"><p>'+filename.replace(/</, "&lt;").replace(/>/, "&gt;")+'</p></div>';
 	if(writeperms=="true"){
 		editorbarhtml += '<button id="editor_save">'+t('files_texteditor','Save')+'</button><div class="separator"></div>';
 	}
-	editorbarhtml += '<label for="editorseachval">Search:</label><input type="text" name="editorsearchval" id="editorsearchval"><div class="separator"></div><button id="editor_close">'+t('files_texteditor','Close')+'</button></div>';
+	editorbarhtml += '<label for="editorseachval">'+t('files_texteditor','Search:')+'</label><input type="text" name="editorsearchval" id="editorsearchval"><div class="separator"></div><button id="editor_close">'+t('files_texteditor','Close')+'</button></div>';
+	// update breadcrumbs to dir, but remember to restore old breadcrumbs on close
+	//var olddir = $('#dir').value; // we want to be compatible with an optional 'home' breadcrumb, so well go through the breadcrumbs manually
+	
+	$('#controls .crumb').hide();
+	var dirs = dir.split('/');
+	$(dirs).each(function(i,d){
+		if (d=='') {
+			//if sth like a 'Home' breadcrumb exists show it
+			if ($('#controls .crumb:first').data('dir') =='') {
+				$('#controls .crumb:first').show();
+			}
+			return;
+		}
+		var pathToDir = encodeURIComponent(dirs.slice(0,i+1).join('/')).replace(/%2F/g, '/');
+		
+		var editorcrumb = '<div class="crumb svg"\n\
+								style="background-image:url(\''+OC.imagePath('core','breadcrumb')+'\')">\n\
+								<a href="'+OC.linkTo('files', 'index.php')+'?dir='+pathToDir+'">'+d+'</a>\n\
+							</div>';
+		$('#controls').append(editorcrumb);
+	});
+	
 	// Change breadcrumb classes
-	$('#controls .last').removeClass('last');
 	$('#controls').append(editorbarhtml);
 	$('#editorcontrols').fadeIn('slow');
 }
@@ -127,8 +148,8 @@ function doSearch(){
 		// Show next and clear buttons
 		// check if already there
 		if($('#nextsearchbtn').length==0){
-			var nextbtnhtml = '<button id="nextsearchbtn">Next</button>';
-			var clearbtnhtml = '<button id="clearsearchbtn">Clear</button>';
+			var nextbtnhtml = '<button id="nextsearchbtn">'+t('files_texteditor','Next')+'</button>';
+			var clearbtnhtml = '<button id="clearsearchbtn">'+t('files_texteditor','Clear')+'</button>';
 			$('#editorsearchval').after(nextbtnhtml).after(clearbtnhtml);
 		}
 	}
@@ -154,8 +175,9 @@ function doFileSave(){
 				if(jsondata.status!='success'){
 					// Save failed
 					$('#editor_save').text(t('files_texteditor','Save'));
-					$('#editor_save').after('<p id="save_result" style="float: left">Failed to save file</p>');
-					$("#editor_save").live('click',doFileSave);
+					$('#notification').html(t('files_texteditor','Failed to save file'));
+					$('#notification').fadeIn();
+					$('#editor_save').live('click',doFileSave);
 				} else {
 					// Save OK
 					// Update mtime
@@ -196,8 +218,9 @@ function showFileEditor(dir,filename){
 					$('.actions,#file_action_panel').fadeOut('slow');
 					$('#content table').fadeOut('slow', function() {
 						// Show the control bar
-						showControls(filename,result.data.write);
+						showControls(dir,filename,result.data.write);
 						// Update document title
+						$('body').attr('old_title', document.title);
 						document.title = filename+' - ownCloud';
 						$('#editor').text(result.data.filecontents);
 						$('#editor').attr('data-dir', dir);
@@ -248,6 +271,14 @@ function showFileEditor(dir,filename){
 
 // Fades out the editor.
 function hideFileEditor(){
+	//if sth like a 'Home' breadcrumb exists hide it
+	if ($('#controls .crumb:first').data('dir') =='') {
+		$('#controls .crumb:first').hide();
+	}
+	//remove editor specific breadcrumbs
+	$('#controls .crumb:visible').remove();
+	//show all breadcrumbs again
+	$('#controls .crumb').show();
 	if($('#editor').attr('data-edited') == 'true'){
 		// Hide, not remove
 		$('#editorcontrols').fadeOut('slow',function(){
@@ -259,7 +290,7 @@ function hideFileEditor(){
 		// Fade out editor
 		$('#editor').fadeOut('slow', function(){
 			// Reset document title
-			document.title = "ownCloud";
+			document.title = $('body').attr('old_title');
 			$('.actions,#file_access_panel').fadeIn('slow');
 			$('#content table').fadeIn('slow');
 		});
@@ -277,7 +308,7 @@ function hideFileEditor(){
 		$('#editor').fadeOut('slow', function(){
 			$(this).remove();
 			// Reset document title
-			document.title = "ownCloud";
+			document.title = $('body').attr('old_title');
 			$('.actions,#file_access_panel').fadeIn('slow');
 			$('#content table').fadeIn('slow');
 		});

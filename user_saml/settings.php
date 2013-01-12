@@ -21,6 +21,8 @@
  *
  */
 
+OC_Util::checkAdminUser();
+
 $params = array('saml_ssp_path', 'saml_sp_source', 'saml_autocreate', 'saml_update_user_data', 'saml_protected_groups', 'saml_default_group', 'saml_username_mapping', 'saml_email_mapping', 'saml_group_mapping');
 
 OCP\Util::addscript('user_saml', 'settings');
@@ -31,12 +33,12 @@ if ($_POST) {
 			OCP\Config::setAppValue('user_saml', $param, $_POST[$param]);
 		}  
 		elseif ('saml_autocreate' == $param) {
-                        // unchecked checkboxes are not included in the post paramters
-                                OCP\Config::setAppValue('user_saml', $param, 0);
-                }
-                elseif ('saml_update_user_data' == $param) {
-                        OCP\Config::setAppValue('user_saml', $param, 0);
-                }
+			// unchecked checkboxes are not included in the post paramters
+			OCP\Config::setAppValue('user_saml', $param, 0);
+		}
+		elseif ('saml_update_user_data' == $param) {
+			OCP\Config::setAppValue('user_saml', $param, 0);
+		}
 	}
 }
 

@@ -19,7 +19,7 @@ function createArchiveAndDownload()
 			 data: {data:previewoutputstring, filename:filename},
 			 success: function(msg)
 			 {
-			 	window.open("apps/impressionist/lib/download.php?filename="+filename, "_blank");
+			 	window.open("lib/download.php?filename="+filename, "_blank");
 			 }
 	});
 }

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-08 00:01+0100\n"
-"PO-Revision-Date: 2012-11-07 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-13 00:04+0100\n"
+"PO-Revision-Date: 2012-11-12 10:48+0000\n"
+"Last-Translator: cjtess <claudio.tessone@gmail.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +32,7 @@ msgstr "Etiquetas"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr ""
+msgstr "Filtrar por etiquetas"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
@@ -110,31 +110,31 @@ msgstr "Dirección"
 
 #: templates/list.php:23
 msgid "Add"
-msgstr ""
+msgstr "Agregar"
 
-#: templates/list.php:30
+#: templates/list.php:31
 msgid "Related Tags"
 msgstr "Etiquetas relacionadas"
 
-#: templates/list.php:38 templates/list.php:40
+#: templates/list.php:39 templates/list.php:41
 msgid "Settings"
 msgstr "Configuración"
 
-#: templates/list.php:52
+#: templates/list.php:53
 msgid "You have no bookmarks"
 msgstr "No tenés marcadores"
 
-#: templates/list.php:57
+#: templates/list.php:58
 msgid "You can also try to import a bookmark file"
-msgstr ""
+msgstr "También podés intentar importar un archivo de marcadores"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
-msgstr ""
+msgstr "Marcadores"
 
 #: templates/settings.php:23
 msgid "Export & Import"
-msgstr ""
+msgstr "Exportar e importar"
 
 #: templates/settings.php:24
 msgid "Export"
