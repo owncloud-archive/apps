@@ -45,7 +45,7 @@ class ItemController extends Controller {
 	 *
 	 * Redirects to the index page
 	 */
-	public function redirectToIndex($urlParams=array()){
+	public function redirectToIndex(){
 		$url = $this->api->linkToRoute('apptemplate_advanced_index');
 		return new RedirectResponse($url);
 	}
@@ -57,11 +57,9 @@ class ItemController extends Controller {
 	 * @IsSubAdminExemption
 	 *
 	 * @brief renders the index page
-	 * @param array $urlParams: an array with the values, which were matched in 
-	 *                          the routes file
 	 * @return an instance of a Response implementation
 	 */
-	public function index($urlParams=array()){
+	public function index(){
 
 		// thirdparty stuff
 		$this->api->add3rdPartyScript('angular/angular.min');
@@ -88,7 +86,8 @@ class ItemController extends Controller {
 		$templateName = 'main';
 		$params = array(
 			'somesetting' => $this->api->getSystemValue('somesetting'),
-			'item' => $item
+			'item' => $item,
+			'test' => $this->params('test')
 		);
 		return $this->render($templateName, $params);
 	}
@@ -102,7 +101,7 @@ class ItemController extends Controller {
 	 * @param array $urlParams: an array with the values, which were matched in 
 	 *                          the routes file
 	 */
-	public function setSystemValue($urlParams=array()){
+	public function setSystemValue(){
 		$value = $this->params('somesetting');
 		$this->api->setSystemValue('somesetting', $value);
 

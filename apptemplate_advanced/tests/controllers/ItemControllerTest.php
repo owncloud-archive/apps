@@ -43,7 +43,7 @@ class ItemControllerTest extends ControllerTest {
 
 	public function testRedirectToIndexAnnotations(){
 		$api = $this->getAPIMock();
-		$controller = new ItemController($api, null, null);
+		$controller = new ItemController($api, new Request(), null);
 		$methodName = 'redirectToIndex';
 		$annotations = array('CSRFExemption', 'IsAdminExemption', 'IsSubAdminExemption');
 
@@ -53,7 +53,7 @@ class ItemControllerTest extends ControllerTest {
 
 	public function testIndexAnnotations(){
 		$api = $this->getAPIMock();
-		$controller = new ItemController($api, null, null);
+		$controller = new ItemController($api, new Request(), null);
 		$methodName = 'index';
 		$annotations = array('CSRFExemption', 'IsAdminExemption', 'IsSubAdminExemption');
 
@@ -78,7 +78,7 @@ class ItemControllerTest extends ControllerTest {
 
 		$itemMapperMock = $this->getMock('ItemMapper', array('findByUserId'));
 
-		$controller = new ItemController($api, null, $itemMapperMock);
+		$controller = new ItemController($api, new Request(), $itemMapperMock);
 
 		$response = $controller->index();
 		$params = $response->getParams();
@@ -111,7 +111,7 @@ class ItemControllerTest extends ControllerTest {
 					->method('findByUserId')
 					->will($this->returnValue($item));
 		
-		$controller = new ItemController($api, null, $itemMapperMock);
+		$controller = new ItemController($api, new Request(), $itemMapperMock);
 
 		$response = $controller->index();
 		$params = $response->getParams();
@@ -138,7 +138,7 @@ class ItemControllerTest extends ControllerTest {
 					->method('findByUserId')
 					->will($this->throwException(new DoesNotExistException('')));
 
-		$controller = new ItemController($api, null, $itemMapperMock);
+		$controller = new ItemController($api, new Request(), $itemMapperMock);
 
 		$response = $controller->index();
 		$params = $response->getParams();
@@ -151,7 +151,7 @@ class ItemControllerTest extends ControllerTest {
 
 	public function testSetSystemValueAnnotations(){
 		$api = $this->getAPIMock();
-		$controller = new ItemController($api, null, null);	
+		$controller = new ItemController($api, new Request(), null);	
 		$methodName = 'setSystemValue';
 		$annotations = array('Ajax');
 
@@ -161,7 +161,7 @@ class ItemControllerTest extends ControllerTest {
 
 	public function testSetSystemValue(){
 		$post = array('somesetting' => 'this is a test');
-		$request = new Request(null, $post);
+		$request = new Request(array(), $post);
 
 		// create an api mock object
 		$api = $this->getAPIMock(array('setSystemValue'));

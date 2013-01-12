@@ -52,7 +52,8 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
 	handleAnnotations($controller, $methodName, $container);
 
 	// render page
-    $response = $controller->$methodName($urlParams);
+	$controller->setURLParams($urlParams);
+    $response = $controller->$methodName();
 	echo $response->render();
 }
 
@@ -109,6 +110,12 @@ function handleAnnotations($controller, $methodName, $container){
  * Normal Routes
  */
 $this->create('apptemplate_advanced_index', '/')->action(
+	function($params){
+		callController('ItemController', 'index', $params);
+	}
+);
+
+$this->create('apptemplate_advanced_index_param', '/{test}')->action(
 	function($params){
 		callController('ItemController', 'index', $params);
 	}

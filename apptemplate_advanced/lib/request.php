@@ -25,7 +25,7 @@
 namespace OCA\AppTemplateAdvanced;
 
 /**
- * Encapsulates $_GET and $_POST arrays for better testability
+ * Encapsulates $_GET, $_FILES and $_POST arrays for better testability
  */
 class Request {
 
@@ -51,7 +51,7 @@ class Request {
 	 * @return the value of the stored array
 	 */
 	public function getGET($key, $default=null){
-		if(isset($this->get[$key])){
+		if(array_key_exists($key, $this->get)){
 			return $this->get[$key];
 		} else {
 			return $default;
@@ -66,7 +66,7 @@ class Request {
 	 * @return the value of the stored array
 	 */
 	public function getPOST($key, $default=null){
-		if(isset($this->post[$key])){
+		if(array_key_exists($key, $this->post)){
 			return $this->post[$key];
 		} else {
 			return $default;
@@ -79,7 +79,7 @@ class Request {
 	 * @return the value of the stored array
 	 */
 	public function getFILES($key){
-		if(isset($this->files[$key])){
+		if(array_key_exists($key, $this->files)){
 			return $this->files[$key];
 		} else {
 			return null;

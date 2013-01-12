@@ -30,6 +30,8 @@ class Controller {
 	protected $appName;
 	protected $request;
 
+	private $urlParams;
+
 	/**
 	 * @param API $api: an api wrapper instance
 	 * @param Request $request: an instance of the request
@@ -38,21 +40,39 @@ class Controller {
 		$this->api = $api;
 		$this->request = $request;
 		$this->appName = $api->getAppName();
+		$this->urlParams = array();
+	}
+
+
+	/**
+	 * @brief URL params are passed to this method from the routes dispatcher to
+	 * be available via the $this->params
+	 * @param array $urlParams: the array with the params from the URL
+	 */
+	public function setURLParams($urlParams=array()){
+		$this->urlParams = $urlParams;
 	}
 
 
 	/**
 	 * @brief lets you access post and get parameters by the index
-	 * @param string $key: the key which you want to access in the $_POST or
-	 *                     $_GET array. If both arrays store things under the same
-	 *                     key, return the value in $_POST
+	 * @param string $key: the key which you want to access in the URL Parameter
+	 *                     placeholder, $_POST or $_GET array. 
+	 *                     The priority how they're returned is the following:
+	 *                     1. URL parameters
+	 *                     2. POST parameters
+	 *                     3. GET parameters
 	 * @param $default: If the key is not found, this value will be returned
 	 * @return: the content of the array
 	 */
 	protected function params($key, $default=null){
 		$postValue = $this->request->getPOST($key);
 		$getValue = $this->request->getGET($key);
-		
+
+		if(array_key_exists($key, $this->urlParams)){
+			return $this->urlParams[$key];
+		}
+
 		if($postValue !== null){
 			return $postValue;
 		}
