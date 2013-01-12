@@ -35,7 +35,6 @@ require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/bootstrap.p
  * @param array $urlParams: an array with variables extracted from the routes
  * @param Pimple $container: an instance of a pimple container. if not passed, a
  *                           new one will be instantiated. This can be used to
- *                           set different security values prehand or simply
  *                           swap or overwrite objects in the container.
  */
 function callController($controllerName, $methodName, $urlParams, $container=null){
@@ -62,7 +61,7 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
  * Runs the security checks and exits on error
  * @param Controller $controller: an instance of the controller to be checked
  * @param string $methodName: the name of the controller method that will be called
- * @param Pimple $container: an instance of the container for the security object
+ * @param Pimple $container: an instance of the DI container
  */
 function handleAnnotations($controller, $methodName, $container){
 	// get annotations from comments
