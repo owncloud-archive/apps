@@ -1,7 +1,7 @@
 <?php
 
 /**
-* ownCloud - Unhosted apps plugin
+* ownCloud - open web apps plugin
 *
 * @author Frank Karlitschek
 * @author Florian Hülsmann

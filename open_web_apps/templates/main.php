@@ -333,7 +333,7 @@ function render() {
 var remoteStorageOrigin = '<?php require_once 'public/config.php'; echo OCP\Config::getAppValue('open_web_apps', 'storage_origin'); ?>';
 
 if((remoteStorageOrigin == '') || (window.location == remoteStorageOrigin)) {
-  document.getElementById('icons').innerHTML = 'You need to point a second origin to your server, so a subdomain, or a port other than '+window.location+'. Then go to Setting -> Admin -> Unhosted apps and set the storage origin.';
+  document.getElementById('icons').innerHTML = 'You need to point a second origin to your server, so a subdomain, or a port other than '+window.location+'. Then go to Setting -> Admin -> open web apps and set the storage origin.';
 } else {
   render();
 }

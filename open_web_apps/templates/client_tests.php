@@ -4,7 +4,7 @@
 <script>
   var remoteStorageOrigin = '<?php require_once 'public/config.php'; echo OCP\Config::getAppValue('open_web_apps', 'storage_origin'); ?>';
   if(window.location.host==remoteStorageOrigin) {
-    console.log('set the remoteStorage origin to something else than '+window.location.host+' please! Go to Settings->Admin->Unhosted apps');
+    console.log('set the remoteStorage origin to something else than '+window.location.host+' please! Go to Settings->Admin->open web apps');
   }
   function ajax(endpoint, params, cb) {
     var xhr = new XMLHttpRequest();
