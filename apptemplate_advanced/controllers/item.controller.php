@@ -24,6 +24,7 @@
 namespace OCA\AppTemplateAdvanced;
 
 use OCA\AppFramework\DoesNotExistException as DoesNotExistException;
+use OCA\AppFramework\RedirectResponse as RedirectResponse;
 
 
 class ItemController extends \OCA\AppFramework\Controller {
