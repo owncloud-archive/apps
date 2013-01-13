@@ -23,8 +23,7 @@
 
 namespace OCA\AppTemplateAdvanced;
 
-
-class SettingsController extends \OCA\AppFramework\Mapper {
+class SettingsController extends \OCA\AppFramework\Controller {
 	
 
 	/**
@@ -37,6 +36,8 @@ class SettingsController extends \OCA\AppFramework\Mapper {
 
 
 	/**
+	 * @CSRFExemption 
+	 *
 	 * @brief renders the settings page
 	 * @param array $urlParams: an array with the values, which were matched in 
 	 *                          the routes file
