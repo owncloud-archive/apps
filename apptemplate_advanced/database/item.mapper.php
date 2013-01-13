@@ -62,7 +62,7 @@ class ItemMapper extends \OCA\AppFramework\Mapper {
 		if($result){
 			return new Item($result);
 		} else {
-			throw new DoesNotExistException('Item with user id ' . $userId . ' does not exist!');
+			throw new \OCA\AppFramework\DoesNotExistException('Item with user id ' . $userId . ' does not exist!');
 		}
 	}
 
