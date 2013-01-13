@@ -44,6 +44,7 @@ namespace OCA\AppTemplateAdvanced;
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\Middleware'] = 'apps/apptemplate_advanced/lib/middleware/middleware.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\SecurityMiddleware'] = 'apps/apptemplate_advanced/lib/middleware/security.middleware.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\MiddlewareDispatcher'] = 'apps/apptemplate_advanced/lib/middleware/middlewaredispatcher.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\App'] = 'apps/apptemplate_advanced/lib/app.php';
 
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\ItemMapper'] = 'apps/apptemplate_advanced/database/item.mapper.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\Item'] = 'apps/apptemplate_advanced/database/item.php';
@@ -77,7 +78,7 @@ function createDIContainer(){
 	 * Middleware
 	 */
 	$container['SecurityMiddleware'] = function($c){
-		return new SecurityMiddleware();
+		return new SecurityMiddleware($c['API'], $c['Security']);
 	};
 
 	$container['MiddlewareDispatcher'] = function($c){

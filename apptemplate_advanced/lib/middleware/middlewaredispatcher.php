@@ -45,15 +45,13 @@ class MiddlewareDispatcher {
 	 * @brief This is being run in normal order before the controller is being
 	 * called which allows several modifications and checks
 	 *
-	 * @param string $controllerName: the name of the controller in the DI containre
-	 *                                which will be called
+	 * @param Controller $controller: the controller that is being called
 	 * @param string $methodName: the name of the method that will be called on
 	 *                            the controller
-	 * @param Pimple $container: the instantiated DI container
 	 */
-	public function beforeController($controllerName, $methodName, \Pimple $container){
+	public function beforeController($controller, $methodName){
 		foreach($this->middlewares as $middleware){
-			$middleware->beforeController($controllerName, $methodName, $container);
+			$middleware->beforeController($controller, $methodName);
 		}
 	}
 
@@ -65,20 +63,18 @@ class MiddlewareDispatcher {
 	 * If the response is null, it is assumed that the exception could not be
 	 * handled and the error will be thrown again
 	 *
-	 * @param string $controllerName: the name of the controller in the DI containre
-	 *                                which will be called
+	 * @param Controller $controller: the controller that is being called
 	 * @param string $methodName: the name of the method that will be called on
 	 *                            the controller
-	 * @param Pimple $container: the instantiated DI container
 	 * @param Exception $exception: the thrown exception
 	 * @return a Response object or null in case that the exception could not be
 	 * handled
 	 */
-	public function afterException($controllerName, $methodName, \Pimple $container, Exception $exception){
+	public function afterException($controller, $methodName, Exception $exception){
 		$response = null;
 		for($i=count($this->middlewares)-1; $i>0; $i--){
 			$middleware = $this->middlewares[$i];
-			$response = $middleware->afterException($controllerName, $methodName, $container, $exception, $response);
+			$response = $middleware->afterException($controller, $methodName, $exception, $response);
 		}
 		return $response;
 	}
@@ -88,18 +84,16 @@ class MiddlewareDispatcher {
 	 * @brief This is being run after a successful controllermethod call and allows
 	 * the manipulation of a Response object. The middleware is run in reverse order
 	 *
-	 * @param string $controllerName: the name of the controller in the DI containre
-	 *                                which will be called
+	 * @param Controller $controller: the controller that is being called
 	 * @param string $methodName: the name of the method that will be called on
 	 *                            the controller
-	 * @param Pimple $container: the instantiated DI container
 	 * @param Response $response: the generated response from the controller
 	 * @return a Response object
 	 */
-	public function afterController($controllerName, $methodName, \Pimple $container, Response $response){
+	public function afterController($controller, $methodName, Response $response){
 		for($i=count($this->middlewares)-1; $i>0; $i--){
 			$middleware = $this->middlewares[$i];
-			$response = $middleware->afterController($controllerName, $methodName, $container, $response);
+			$response = $middleware->afterController($controller, $methodName, $response);
 		}
 		return $response;
 	}
@@ -109,18 +103,16 @@ class MiddlewareDispatcher {
 	 * @brief This is being run after the response object has been rendered and
 	 * allows the manipulation of the output. The middleware is run in reverse order
 	 *
-	 * @param string $controllerName: the name of the controller in the DI containre
-	 *                                which will be called
+	 * @param Controller $controller: the controller that is being called
 	 * @param string $methodName: the name of the method that will be called on
 	 *                            the controller
-	 * @param Pimple $container: the instantiated DI container
 	 * @param string $output: the generated output from a response
 	 * @return the output that should be printed
 	 */
-	public function beforeOutput($controllerName, $methodName, \Pimple $container, $output){
+	public function beforeOutput($controller, $methodName, $output){
 		for($i=count($this->middlewares)-1; $i>0; $i--){
 			$middleware = $this->middlewares[$i];
-			$output = $middleware->beforeOutput($controllerName, $methodName, $container, $output);
+			$output = $middleware->beforeOutput($controller, $methodName, $output);
 		}
 		return $output;
 	}

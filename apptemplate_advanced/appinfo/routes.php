@@ -27,56 +27,6 @@ namespace OCA\AppTemplateAdvanced;
 require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/bootstrap.php';
 
 
-/**
- * Shortcut for calling a controller method and printing the result
- * @param string $controllerName: the name of the controller under which it is
- *                                stored in the DI container
- * @param string $methodName: the method that you want to call
- * @param array $urlParams: an array with variables extracted from the routes
- * @param Pimple $container: an instance of a pimple container. if not passed, a
- *                           new one will be instantiated. This can be used to
- *                           swap or overwrite objects in the container.
- */
-function callController($controllerName, $methodName, $urlParams, $container=null){
-	
-	// assume a normal request and disable admin and csrf checks. To specifically
-	// enable them, pass a container with changed security object
-	if($container === null){
-		$container = createDIContainer();
-	}
-
-	
-	// initialize the dispatcher and run all the middleware before the controller
-	$middlewareDispatcher = $container['MiddlewareDispatcher'];
-
-	// create response and run middleware that receives the response
-	// if an exception appears, the middleware is checked to handle the exception
-	// and to create a response. If no response is created, it is assumed that
-	// theres no middleware to handle it and the error is thrown again
-	try {
-		$middlewareDispatcher->beforeController($controllerName, $methodName, $container);
-		$controller = $container[$controllerName];
-		$controller->setURLParams($urlParams);
-		$response = $controller->$methodName();
-	} catch(Exception $exception){
-		$response = $middlewareDispatcher->afterException($controllerName, $methodName, $container, $exception);
-		if($response === null){
-			throw $exception;
-		}
-	}
-
-	// this can be used to modify or exchange a response object
-	$reponse = $middlewareDispatcher->afterController($controllerName, $methodName, $container, $response);
-
-	// get the output which should be printed and run the after output middleware
-	// to modify the response
-	$output = $response->render();
-	$output = $middlewareDispatcher->beforeOutput($controllerName, $methodName, $container, $output);
-
-	echo $output;
-}
-
-
 /*************************
  * Define your routes here
  ************************/
@@ -86,19 +36,19 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
  */
 $this->create('apptemplate_advanced_index', '/')->action(
 	function($params){
-		callController('ItemController', 'index', $params);
+		App::main('ItemController', 'index', $params);
 	}
 );
 
 $this->create('apptemplate_advanced_index_param', '/test/{test}')->action(
 	function($params){
-		callController('ItemController', 'index', $params);
+		App::main('ItemController', 'index', $params);
 	}
 );
 
 $this->create('apptemplate_advanced_index_redirect', '/redirect')->action(
 	function($params){
-		callController('ItemController', 'redirectToIndex', $params);
+		App::main('ItemController', 'redirectToIndex', $params);
 	}
 );
 
@@ -107,6 +57,6 @@ $this->create('apptemplate_advanced_index_redirect', '/redirect')->action(
  */
 $this->create('apptemplate_advanced_ajax_setsystemvalue', '/setsystemvalue')->post()->action(
 	function($params){
-		callController('ItemController', 'setSystemValue', $params);
+		App::main('ItemController', 'setSystemValue', $params);
 	}
 );

@@ -27,15 +27,25 @@ namespace OCA\AppTemplateAdvanced;
 
 class SecurityMiddleware extends Middleware {
 
+	private $security;
+	private $api;
+
+	/**
+	 * @param API $api: an instance of the api
+	 * @param Security $security: an instance of the security check object
+	 */
+	public function __construct(API $api, Security $security){
+		$this->api = $api;
+		$this->security = $security;
+	}
+
 
 	/**
 	 * @brief this runs all the security checks before a method call. The
 	 * security checks are determined by inspecting the controller method
 	 * annotations
 	 */
-	public function beforeController($controllerName, $methodName, \Pimple $container){
-
-		$controller = $container[$controllerName];
+	public function beforeController($controller, $methodName){
 
 		// get annotations from comments
 		$annotationReader = new MethodAnnotationReader($controller, $methodName);
@@ -43,32 +53,31 @@ class SecurityMiddleware extends Middleware {
 		// this will set the current navigation entry of the app, use this only
 		// for normal HTML requests and not for AJAX requests
 		if(!$annotationReader->hasAnnotation('Ajax')){
-			$container['API']->activateNavigationEntry();
+			$this->api->activateNavigationEntry();
 		}
 
 		// security checks
-		$security = $container['Security'];
 		if($annotationReader->hasAnnotation('CSRFExemption')){
-			$security->setCSRFCheck(false);
+			$this->security->setCSRFCheck(false);
 		}
 
 		if($annotationReader->hasAnnotation('IsAdminExemption')){
-			$security->setIsAdminCheck(false);
+			$this->security->setIsAdminCheck(false);
 		}
 
 		if($annotationReader->hasAnnotation('AppEnabledExemption')){
-			$security->setAppEnabledCheck(false);
+			$this->security->setAppEnabledCheck(false);
 		}
 
 		if($annotationReader->hasAnnotation('IsLoggedInExemption')){
-			$security->setLoggedInCheck(false);
+			$this->security->setLoggedInCheck(false);
 		}
 
 		if($annotationReader->hasAnnotation('IsSubAdminExemption')){
-			$security->setIsSubAdminCheck(false);
+			$this->security->setIsSubAdminCheck(false);
 		}
 
-		$security->runChecks();
+		$this->security->runChecks();
 
 	}
 
