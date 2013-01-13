@@ -120,8 +120,14 @@ class Updater {
 			throw $e;
 		}
 
-		$config = "/config/config.php";
-		copy($backupBase . "/" . Helper::CORE_DIRNAME . $config, \OC::$SERVERROOT . $config);
+		// move old config files
+		$backupConfigPath = $backupBase . "/" . Helper::CORE_DIRNAME . "/config/";
+		foreach (glob($backupConfigPath . "*.php") as $configFile) {
+			$target = \OC::$SERVERROOT . "/config/" . basename($configFile);
+			if (!file_exists($target)){
+				copy($configFile, $target);
+			}
+		}
 		
 		// zip backup 
 		$zip = new \ZipArchive();
