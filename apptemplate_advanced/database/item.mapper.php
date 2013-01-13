@@ -23,7 +23,7 @@
 namespace OCA\AppTemplateAdvanced;
 
 
-class ItemMapper extends Mapper {
+class ItemMapper extends \OCA\AppFramework\Mapper {
 
 
 	private $tableName;

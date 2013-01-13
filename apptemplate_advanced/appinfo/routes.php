@@ -23,6 +23,8 @@
 
 namespace OCA\AppTemplateAdvanced;
 
+use \OCA\AppFramework\App as App;
+
 
 require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/classpath.php';
 
@@ -36,19 +38,19 @@ require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/classpath.p
  */
 $this->create('apptemplate_advanced_index', '/')->action(
 	function($params){
-		App::main('ItemController', 'index', $params);
+		App::main('ItemController', 'index', $params, new DIContainer());
 	}
 );
 
 $this->create('apptemplate_advanced_index_param', '/test/{test}')->action(
 	function($params){
-		App::main('ItemController', 'index', $params);
+		App::main('ItemController', 'index', $params, new DIContainer());
 	}
 );
 
 $this->create('apptemplate_advanced_index_redirect', '/redirect')->action(
 	function($params){
-		App::main('ItemController', 'redirectToIndex', $params);
+		App::main('ItemController', 'redirectToIndex', $params, new DIContainer());
 	}
 );
 
@@ -57,6 +59,6 @@ $this->create('apptemplate_advanced_index_redirect', '/redirect')->action(
  */
 $this->create('apptemplate_advanced_ajax_setsystemvalue', '/setsystemvalue')->post()->action(
 	function($params){
-		App::main('ItemController', 'setSystemValue', $params);
+		App::main('ItemController', 'setSystemValue', $params, new DIContainer());
 	}
 );

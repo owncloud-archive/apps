@@ -23,8 +23,10 @@
 
 namespace OCA\AppTemplateAdvanced;
 
+use OCA\AppFramework\DoesNotExistException as DoesNotExistException;
 
-class ItemController extends Controller {
+
+class ItemController extends \OCA\AppFramework\Controller {
 	
 
 	/**

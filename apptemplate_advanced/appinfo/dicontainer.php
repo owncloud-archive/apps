@@ -24,42 +24,15 @@
 namespace OCA\AppTemplateAdvanced;
 
 
-class DIContainer extends \Pimple {
+class DIContainer extends \OCA\AppFramework\DIContainer {
 
 
 	/**
 	 * Define your dependencies in here
 	 */
 	public function __construct(){
-
-		/** 
-		 * BASE
-		 */
-		$this['API'] = $this->share(function($c){
-			return new API('apptemplate_advanced');
-		});
-
-		$this['Security'] = $this->share(function($c){
-			return new Security($c['API']->getAppName());
-		});
-
-		$this['Request'] = $this->share(function($c){
-			return new Request($_GET, $_POST, $_FILES);
-		});
-
-		/**
-		 * Middleware
-		 */
-		$this['SecurityMiddleware'] = function($c){
-			return new SecurityMiddleware($c['API'], $c['Security']);
-		};
-
-		$this['MiddlewareDispatcher'] = function($c){
-			$dispatcher = new MiddlewareDispatcher();
-			$dispatcher->registerMiddleware($c['SecurityMiddleware']);
-			return $dispatcher;
-		};
-
+		// tell parent container about the app name
+		parent::__construct('apptemplate_advanced');
 
 		/** 
 		 * CONTROLLERS

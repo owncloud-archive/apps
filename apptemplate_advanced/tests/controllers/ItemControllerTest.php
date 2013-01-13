@@ -23,16 +23,20 @@
 
 namespace OCA\AppTemplateAdvanced;
 
+use OCA\AppFramework\Request as Request;
+use OCA\AppFramework\DoesNotExistException as DoesNotExistException;
+
 // get abspath of file directory
 $path = realpath( dirname( __FILE__ ) ) . '/';
 
+require_once($path . "../../../appframework/lib/request.php");
+require_once($path . "../../../appframework/lib/doesnotexist.exception.php");
+require_once($path . "../../../appframework/lib/responses/response.php");
+require_once($path . "../../../appframework/lib/responses/json.response.php");
+require_once($path . "../../../appframework/lib/responses/template.response.php");
+require_once($path . "../../../appframework/lib/controller.php");
+
 require_once($path . "../../database/item.php");
-require_once($path . "../../lib/request.php");
-require_once($path . "../../lib/doesnotexist.exception.php");
-require_once($path . "../../lib/responses/response.php");
-require_once($path . "../../lib/responses/json.response.php");
-require_once($path . "../../lib/responses/template.response.php");
-require_once($path . "../../lib/controller.php");
 require_once($path . "../../controllers/item.controller.php");
 
 require_once($path . "ControllerTest.php");

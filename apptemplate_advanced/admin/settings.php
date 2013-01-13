@@ -24,9 +24,9 @@
 namespace OCA\AppTemplateAdvanced;
 
 
-require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/bootstrap.php';
+require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/classpath.php';
 
-$container = createDIContainer();
+$container = new DIContainer();
 
 $security = $container['Security'];
 $security->setCSRFCheck(false);

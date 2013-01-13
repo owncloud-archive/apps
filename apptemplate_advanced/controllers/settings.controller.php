@@ -24,7 +24,7 @@
 namespace OCA\AppTemplateAdvanced;
 
 
-class SettingsController extends Controller {
+class SettingsController extends \OCA\AppFramework\Mapper {
 	
 
 	/**
