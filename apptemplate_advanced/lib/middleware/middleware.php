@@ -27,23 +27,23 @@ namespace OCA\AppTemplateAdvanced;
 abstract class Middleware {
 
 
-        public function beforeController($controllerName, $methodName, \Pimple $container){
+	public function beforeController($controllerName, $methodName, \Pimple $container){
 
-        }
-
-
-        public function afterController($controllerName, $methodName, \Pimple $container, Response $response){
-                return $response;
-        }
+	}
 
 
-        public function beforeOutput($controllerName, $methodName, \Pimple $container, $output){
-                return $output;
-        }
+	public function afterController($controllerName, $methodName, \Pimple $container, Response $response){
+		return $response;
+	}
 
 
-        public function afterException($controllerName, $methodName, \Pimple $container, $exception, $response){
-                return $response;
-        }
+	public function beforeOutput($controllerName, $methodName, \Pimple $container, $output){
+		return $output;
+	}
+
+
+	public function afterException($controllerName, $methodName, \Pimple $container, $exception, $response){
+		return $response;
+	}
 
 }

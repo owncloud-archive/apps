@@ -49,32 +49,32 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
 	$controller = $container[$controllerName];
 	$controller->setURLParams($urlParams);
 
-        // initialize the dispatcher and run all the middleware before the controller
-        $middlewareDispatcher = $container['MiddlewareDispatcher'];
-	
-        // create response and run middleware that receives the response
-        // if an exception appears, the middleware is checked to handle the exception
-        // and to create a response. If no response is created, it is assumed that
-        // theres no middleware to handle it and the error is thrown again
-        try {
-                $middlewareDispatcher->beforeController($controllerName, $methodName, $container);
-                $response = $controller->$methodName();
-        } catch(Exception $exception){
-                $response = $middlewareDispatcher->afterException($controllerName, $methodName, $container, $exception);
-                if($response === null){
-                        throw $exception;
-                }
+	// initialize the dispatcher and run all the middleware before the controller
+	$middlewareDispatcher = $container['MiddlewareDispatcher'];
+
+	// create response and run middleware that receives the response
+	// if an exception appears, the middleware is checked to handle the exception
+	// and to create a response. If no response is created, it is assumed that
+	// theres no middleware to handle it and the error is thrown again
+	try {
+		$middlewareDispatcher->beforeController($controllerName, $methodName, $container);
+		$response = $controller->$methodName();
+	} catch(Exception $exception){
+		$response = $middlewareDispatcher->afterException($controllerName, $methodName, $container, $exception);
+		if($response === null){
+			throw $exception;
+		}
 	}
 
-        // this can be used to modify or exchange a response object
-        $reponse = $middlewareDispatcher->afterController($controllerName, $methodName, $container, $response);
+	// this can be used to modify or exchange a response object
+	$reponse = $middlewareDispatcher->afterController($controllerName, $methodName, $container, $response);
 
-        // get the output which should be printed and run the after output middleware
-        // to modify the response
-        $output = $response->render();
-        $output = $middlewareDispatcher->beforeOutput($controllerName, $methodName, $container, $output);
+	// get the output which should be printed and run the after output middleware
+	// to modify the response
+	$output = $response->render();
+	$output = $middlewareDispatcher->beforeOutput($controllerName, $methodName, $container, $output);
 
-        echo $output;
+	echo $output;
 }
 
 

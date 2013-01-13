@@ -28,48 +28,48 @@ namespace OCA\AppTemplateAdvanced;
 class SecurityMiddleware extends Middleware {
 
 
-        /**
-         * @brief this runs all the security checks before a method call. The
-         * security checks are determined by inspecting the controller method
-         * annotations
-         */
-        public function beforeController($controllerName, $methodName, \Pimple $container){
+	/**
+	 * @brief this runs all the security checks before a method call. The
+	 * security checks are determined by inspecting the controller method
+	 * annotations
+	 */
+	public function beforeController($controllerName, $methodName, \Pimple $container){
 
-                $controller = $container[$controllerName];
+		$controller = $container[$controllerName];
 
-                // get annotations from comments
-                $annotationReader = new MethodAnnotationReader($controller, $methodName);
+		// get annotations from comments
+		$annotationReader = new MethodAnnotationReader($controller, $methodName);
 
-                // this will set the current navigation entry of the app, use this only
-                // for normal HTML requests and not for AJAX requests
-                if(!$annotationReader->hasAnnotation('Ajax')){
-                        $container['API']->activateNavigationEntry();
-                }
+		// this will set the current navigation entry of the app, use this only
+		// for normal HTML requests and not for AJAX requests
+		if(!$annotationReader->hasAnnotation('Ajax')){
+			$container['API']->activateNavigationEntry();
+		}
 
-                // security checks
-                $security = $container['Security'];
-                if($annotationReader->hasAnnotation('CSRFExemption')){
-                        $security->setCSRFCheck(false);
-                }
+		// security checks
+		$security = $container['Security'];
+		if($annotationReader->hasAnnotation('CSRFExemption')){
+			$security->setCSRFCheck(false);
+		}
 
-                if($annotationReader->hasAnnotation('IsAdminExemption')){
-                        $security->setIsAdminCheck(false);
-                }
+		if($annotationReader->hasAnnotation('IsAdminExemption')){
+			$security->setIsAdminCheck(false);
+		}
 
-                if($annotationReader->hasAnnotation('AppEnabledExemption')){
-                        $security->setAppEnabledCheck(false);
-                }
+		if($annotationReader->hasAnnotation('AppEnabledExemption')){
+			$security->setAppEnabledCheck(false);
+		}
 
-                if($annotationReader->hasAnnotation('IsLoggedInExemption')){
-                        $security->setLoggedInCheck(false);
-                }
+		if($annotationReader->hasAnnotation('IsLoggedInExemption')){
+			$security->setLoggedInCheck(false);
+		}
 
-                if($annotationReader->hasAnnotation('IsSubAdminExemption')){
-                        $security->setIsSubAdminCheck(false);
-                }
+		if($annotationReader->hasAnnotation('IsSubAdminExemption')){
+			$security->setIsSubAdminCheck(false);
+		}
 
-                $security->runChecks();
+		$security->runChecks();
 
-        }
+	}
 
 }

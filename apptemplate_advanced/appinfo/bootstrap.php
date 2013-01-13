@@ -73,18 +73,18 @@ function createDIContainer(){
 		return new Request($_GET, $_POST, $_FILES);
 	});
 
-        /**
-         * Middleware
-         */
-        $container['SecurityMiddleware'] = function($c){
-                return new SecurityMiddleware();
-        };
+	/**
+	 * Middleware
+	 */
+	$container['SecurityMiddleware'] = function($c){
+		return new SecurityMiddleware();
+	};
 
-        $container['MiddlewareDispatcher'] = function($c){
-                $dispatcher = new MiddlewareDispatcher();
-                $dispatcher->registerMiddleware($c['SecurityMiddleware']);
-                return $dispatcher;
-        };
+	$container['MiddlewareDispatcher'] = function($c){
+		$dispatcher = new MiddlewareDispatcher();
+		$dispatcher->registerMiddleware($c['SecurityMiddleware']);
+		return $dispatcher;
+	};
 
 
 	/** 
