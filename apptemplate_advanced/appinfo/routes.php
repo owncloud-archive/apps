@@ -47,59 +47,35 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
 
 	// call the controller
 	$controller = $container[$controllerName];
-
-	// run security checks other annotation specific stuff
-	handleAnnotations($controller, $methodName, $container);
-
-	// render page
 	$controller->setURLParams($urlParams);
-    $response = $controller->$methodName();
-	echo $response->render();
-}
 
-
-/**
- * Runs the security checks and exits on error
- * @param Controller $controller: an instance of the controller to be checked
- * @param string $methodName: the name of the controller method that will be called
- * @param Pimple $container: an instance of the DI container
- */
-function handleAnnotations($controller, $methodName, $container){
-	// get annotations from comments
-	$annotationReader = new MethodAnnotationReader($controller, $methodName);
+        // initialize the dispatcher and run all the middleware before the controller
+        $middlewareDispatcher = $container['MiddlewareDispatcher'];
 	
-	// this will set the current navigation entry of the app, use this only
-	// for normal HTML requests and not for AJAX requests
-	if(!$annotationReader->hasAnnotation('Ajax')){
-		$container['API']->activateNavigationEntry();
+        // create response and run middleware that receives the response
+        // if an exception appears, the middleware is checked to handle the exception
+        // and to create a response. If no response is created, it is assumed that
+        // theres no middleware to handle it and the error is thrown again
+        try {
+                $middlewareDispatcher->beforeController($controllerName, $methodName, $container);
+                $response = $controller->$methodName();
+        } catch(Exception $exception){
+                $response = $middlewareDispatcher->afterException($controllerName, $methodName, $container, $exception);
+                if($response === null){
+                        throw $exception;
+                }
 	}
 
-	// security checks
-	$security = $container['Security'];
-	if($annotationReader->hasAnnotation('CSRFExemption')){
-		$security->setCSRFCheck(false);
-	}
+        // this can be used to modify or exchange a response object
+        $reponse = $middlewareDispatcher->afterController($controllerName, $methodName, $container, $response);
 
-	if($annotationReader->hasAnnotation('IsAdminExemption')){
-		$security->setIsAdminCheck(false);	
-	}
+        // get the output which should be printed and run the after output middleware
+        // to modify the response
+        $output = $response->render();
+        $output = $middlewareDispatcher->beforeOutput($controllerName, $methodName, $container, $output);
 
-	if($annotationReader->hasAnnotation('AppEnabledExemption')){
-		$security->setAppEnabledCheck(false);	
-	}
-
-	if($annotationReader->hasAnnotation('IsLoggedInExemption')){
-		$security->setLoggedInCheck(false);
-	}
-
-	if($annotationReader->hasAnnotation('IsSubAdminExemption')){
-		$security->setIsSubAdminCheck(false);
-	}
-
-	$security->runChecks();
-
+        echo $output;
 }
-
 
 
 /*************************
@@ -115,7 +91,7 @@ $this->create('apptemplate_advanced_index', '/')->action(
 	}
 );
 
-$this->create('apptemplate_advanced_index_param', '/{test}')->action(
+$this->create('apptemplate_advanced_index_param', '/test/{test}')->action(
 	function($params){
 		callController('ItemController', 'index', $params);
 	}

@@ -41,6 +41,9 @@ namespace OCA\AppTemplateAdvanced;
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\Mapper'] = 'apps/apptemplate_advanced/lib/mapper.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\DoesNotExistException'] = 'apps/apptemplate_advanced/lib/doesnotexist.exception.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\MethodAnnotationReader'] = 'apps/apptemplate_advanced/lib/methodannotationreader.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\Middleware'] = 'apps/apptemplate_advanced/lib/middleware/middleware.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\SecurityMiddleware'] = 'apps/apptemplate_advanced/lib/middleware/security.middleware.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\MiddlewareDispatcher'] = 'apps/apptemplate_advanced/lib/middleware/middlewaredispatcher.php';
 
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\ItemMapper'] = 'apps/apptemplate_advanced/database/item.mapper.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\Item'] = 'apps/apptemplate_advanced/database/item.php';
@@ -69,6 +72,19 @@ function createDIContainer(){
 	$container['Request'] = $container->share(function($c){
 		return new Request($_GET, $_POST, $_FILES);
 	});
+
+        /**
+         * Middleware
+         */
+        $container['SecurityMiddleware'] = function($c){
+                return new SecurityMiddleware();
+        };
+
+        $container['MiddlewareDispatcher'] = function($c){
+                $dispatcher = new MiddlewareDispatcher();
+                $dispatcher->registerMiddleware($c['SecurityMiddleware']);
+                return $dispatcher;
+        };
 
 
 	/** 
