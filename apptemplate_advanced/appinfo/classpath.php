@@ -45,6 +45,7 @@ namespace OCA\AppTemplateAdvanced;
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\SecurityMiddleware'] = 'apps/apptemplate_advanced/lib/middleware/security.middleware.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\MiddlewareDispatcher'] = 'apps/apptemplate_advanced/lib/middleware/middlewaredispatcher.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\App'] = 'apps/apptemplate_advanced/lib/app.php';
+\OC::$CLASSPATH['OCA\AppTemplateAdvanced\DIContainer'] = 'apps/apptemplate_advanced/appinfo/dicontainer.php';
 
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\ItemMapper'] = 'apps/apptemplate_advanced/database/item.mapper.php';
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\Item'] = 'apps/apptemplate_advanced/database/item.php';
@@ -53,60 +54,3 @@ namespace OCA\AppTemplateAdvanced;
 \OC::$CLASSPATH['OCA\AppTemplateAdvanced\SettingsController'] = 'apps/apptemplate_advanced/controllers/settings.controller.php';
 
 
-/**
- * @return a new DI container with prefilled values for the news app
- */
-function createDIContainer(){
-	$container = new \Pimple();
-
-	/** 
-	 * BASE
-	 */
-	$container['API'] = $container->share(function($c){
-		return new API('apptemplate_advanced');
-	});
-
-	$container['Security'] = $container->share(function($c){
-		return new Security($c['API']->getAppName());
-	});
-
-	$container['Request'] = $container->share(function($c){
-		return new Request($_GET, $_POST, $_FILES);
-	});
-
-	/**
-	 * Middleware
-	 */
-	$container['SecurityMiddleware'] = function($c){
-		return new SecurityMiddleware($c['API'], $c['Security']);
-	};
-
-	$container['MiddlewareDispatcher'] = function($c){
-		$dispatcher = new MiddlewareDispatcher();
-		$dispatcher->registerMiddleware($c['SecurityMiddleware']);
-		return $dispatcher;
-	};
-
-
-	/** 
-	 * CONTROLLERS
-	 */
-	$container['ItemController'] = $container->share(function($c){
-		return new ItemController($c['API'], $c['Request'], $c['ItemMapper']);
-	});
-
-	$container['SettingsController'] = $container->share(function($c){
-		return new SettingsController($c['API'], $c['Request']);
-	});
-
-
-	/**
-	 * MAPPERS
-	 */
-	$container['ItemMapper'] = $container->share(function($c){
-		return new ItemMapper($c['API']);
-	});
-
-
-	return $container;
-}

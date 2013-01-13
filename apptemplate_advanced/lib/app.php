@@ -47,7 +47,7 @@ class App {
 		// assume a normal request and disable admin and csrf checks. To specifically
 		// enable them, pass a container with changed security object
 		if($container === null){
-			$container = createDIContainer();
+			$container = new DIContainer();
 		}
 
 		$controller = $container[$controllerName];
