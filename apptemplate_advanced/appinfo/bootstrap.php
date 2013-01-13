@@ -90,13 +90,13 @@ function createDIContainer(){
 	/** 
 	 * CONTROLLERS
 	 */
-	$container['ItemController'] = function($c){
+	$container['ItemController'] = $container->share(function($c){
 		return new ItemController($c['API'], $c['Request'], $c['ItemMapper']);
-	};
+	});
 
-	$container['SettingsController'] = function($c){
+	$container['SettingsController'] = $container->share(function($c){
 		return new SettingsController($c['API'], $c['Request']);
-	};
+	});
 
 
 	/**

@@ -45,10 +45,7 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
 		$container = createDIContainer();
 	}
 
-	// call the controller
-	$controller = $container[$controllerName];
-	$controller->setURLParams($urlParams);
-
+	
 	// initialize the dispatcher and run all the middleware before the controller
 	$middlewareDispatcher = $container['MiddlewareDispatcher'];
 
@@ -58,6 +55,8 @@ function callController($controllerName, $methodName, $urlParams, $container=nul
 	// theres no middleware to handle it and the error is thrown again
 	try {
 		$middlewareDispatcher->beforeController($controllerName, $methodName, $container);
+		$controller = $container[$controllerName];
+		$controller->setURLParams($urlParams);
 		$response = $controller->$methodName();
 	} catch(Exception $exception){
 		$response = $middlewareDispatcher->afterException($controllerName, $methodName, $container, $exception);
