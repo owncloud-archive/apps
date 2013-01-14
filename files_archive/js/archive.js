@@ -6,22 +6,24 @@
  */
 
 $(document).ready(function() {
-	if(typeof FileActions!=='undefined'){
-		FileActions.register('application/zip','Open', OC.PERMISSION_READ, '',function(filename){
-			window.location=OC.linkTo('files', 'index.php')+'&dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
-		});
-		FileActions.setDefault('application/zip','Open');
-		FileActions.register('application/x-gzip','Open', OC.PERMISSION_READ, '',function(filename){
-			window.location=OC.linkTo('files', 'index.php')+'&dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
-		});
-		FileActions.setDefault('application/x-compressed','Open');
-		FileActions.register('application/x-compressed','Open', OC.PERMISSION_READ, '',function(filename){
-			window.location=OC.linkTo('files', 'index.php')+'&dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
-		});
-		FileActions.setDefault('application/x-compressed','Open');
-		FileActions.register('application/x-tar','Open', OC.PERMISSION_READ, '',function(filename){
-			window.location=OC.linkTo('files', 'index.php')+'&dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
-		});
-		FileActions.setDefault('application/x-tar','Open');
+	if(OC.currentUser) {
+		if(typeof FileActions!=='undefined'){
+			FileActions.register('application/zip','Open', OC.PERMISSION_READ, '',function(filename){
+				window.location=OC.linkTo('files', 'index.php')+'&dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
+			});
+			FileActions.setDefault('application/zip','Open');
+			FileActions.register('application/x-gzip','Open', OC.PERMISSION_READ, '',function(filename){
+				window.location=OC.linkTo('files', 'index.php')+'&dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
+			});
+			FileActions.setDefault('application/x-compressed','Open');
+			FileActions.register('application/x-compressed','Open', OC.PERMISSION_READ, '',function(filename){
+				window.location=OC.linkTo('files', 'index.php')+'&dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
+			});
+			FileActions.setDefault('application/x-compressed','Open');
+			FileActions.register('application/x-tar','Open', OC.PERMISSION_READ, '',function(filename){
+				window.location=OC.linkTo('files', 'index.php')+'&dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'/'+encodeURIComponent(filename);
+			});
+			FileActions.setDefault('application/x-tar','Open');
+		}
 	}
 });
