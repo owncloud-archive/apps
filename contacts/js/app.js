@@ -1120,6 +1120,10 @@ OC.Contacts = OC.Contacts || {
 			});
 		});
 
+		$('body').on('touchmove', function(event) {
+			event.preventDefault();
+		});
+		
 		$(document).on('keypress', function(event) {
 			if(!$(event.target).is('body')) {
 				return;
