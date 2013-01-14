@@ -162,7 +162,7 @@ OC.Flux={
 	move:function(topMin,topMax){
 		// enable cursor move mode
 		$('html').addClass('flux-compensator-handle-move');
-		OC.Flux.Handle.effect('highlight',{color:'#FFF'},300);
+		OC.Flux.Handle.effect('highlight',{color:'#FFF'},800);
 		// remove _outer_ reactions (2!) on mouseup
 		$(document).off('mouseup');
 		OC.Flux.Handle.off('mouseup');
