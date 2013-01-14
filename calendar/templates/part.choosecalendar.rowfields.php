@@ -1,7 +1,5 @@
 <td width="20px">
-  <?php if($_['calendar']['userid'] == OCP\USER::getUser()) { ?>
   <input type="checkbox" id="active_<?php echo $_['calendar']['id'] ?>" onclick="Calendar.UI.Calendar.activation(this,<?php echo $_['calendar']['id'] ?>)"<?php echo $_['calendar']['active'] ? ' checked="checked"' : '' ?>>
-  <?php } ?>
 </td>
 <td id="<?php echo OCP\USER::getUser() ?>_<?php echo $_['calendar']['id'] ?>">
   <label for="active_<?php echo $_['calendar']['id'] ?>"><?php echo $_['calendar']['displayname'] ?></label>
