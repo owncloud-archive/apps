@@ -35,7 +35,7 @@ abstract class Middleware {
 	 * @param string $methodName: the name of the method that will be called on
 	 *                            the controller
 	 */
-	public function beforeController($controller, $methodName){
+	public function beforeController(Controller $controller, $methodName){
 
 	}
 
@@ -54,8 +54,8 @@ abstract class Middleware {
 	 * @return a Response object or null in case that the exception could not be
 	 * handled
 	 */
-	public function afterException($controller, $methodName, $exception, $response){
-		return $response;
+	public function afterException(Controller $controller, $methodName, \Exception $exception){
+		return null;
 	}
 
 
@@ -69,7 +69,7 @@ abstract class Middleware {
 	 * @param Response $response: the generated response from the controller
 	 * @return a Response object
 	 */
-	public function afterController($controller, $methodName, Response $response){
+	public function afterController(Controller $controller, $methodName, Response $response){
 		return $response;
 	}
 
@@ -84,7 +84,7 @@ abstract class Middleware {
 	 * @param string $output: the generated output from a response
 	 * @return the output that should be printed
 	 */
-	public function beforeOutput($controller, $methodName, $output){
+	public function beforeOutput(Controller $controller, $methodName, $output){
 		return $output;
 	}
 

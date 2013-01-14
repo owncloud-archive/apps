@@ -28,22 +28,25 @@ namespace OCA\AppFramework;
 /**
  * Prompts the user to download the a textfile
  */
-class TextDownloadResponse extends DownloadResponse {
+class DownloadResponse extends Response {
 	
 	private $content;
 	private $filename;
 	private $contentType;
 
 	/**
-	 * @brief Creates a response that prompts the user to download a file which 
-	 * contains the passed string
-	 * @param string $content: the content that should be written into the file
+	 * Creates a response that prompts the user to download the file
 	 * @param string $filename: the name that the downloaded file should have
 	 * @param string $contentType: the mimetype that the downloaded file should have
 	 */
-	public function __construct($content, $filename, $contentType){
-		parent::__construct($filename, $contentType);
-		$this->content = $content;
+	public function __construct($filename, $contentType){
+		parent::__construct();
+		
+		$this->filename = $filename;
+		$this->contentType = $contentType;
+
+		$this->addHeader('Content-Disposition: attachment; filename="' . $filename . '"');
+		$this->addHeader('Content-Type: ' . $contentType);
 	}
 
 
@@ -53,7 +56,6 @@ class TextDownloadResponse extends DownloadResponse {
 	 */
 	public function render(){
 		parent::render();
-		return $this->content;
 	}
 
 

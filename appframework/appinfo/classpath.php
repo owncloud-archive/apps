@@ -31,7 +31,6 @@ namespace OCA\AppFramework;
 
 \OC::$CLASSPATH['OCA\AppFramework\API'] = 'apps/appframework/lib/api.php';
 \OC::$CLASSPATH['OCA\AppFramework\Request'] = 'apps/appframework/lib/request.php';
-\OC::$CLASSPATH['OCA\AppFramework\Security'] = 'apps/appframework/lib/security.php';
 \OC::$CLASSPATH['OCA\AppFramework\Controller'] = 'apps/appframework/lib/controller.php';
 \OC::$CLASSPATH['OCA\AppFramework\Response'] = 'apps/appframework/lib/responses/response.php';
 \OC::$CLASSPATH['OCA\AppFramework\TemplateResponse'] = 'apps/appframework/lib/responses/template.response.php';
@@ -42,7 +41,8 @@ namespace OCA\AppFramework;
 \OC::$CLASSPATH['OCA\AppFramework\DoesNotExistException'] = 'apps/appframework/lib/doesnotexist.exception.php';
 \OC::$CLASSPATH['OCA\AppFramework\MethodAnnotationReader'] = 'apps/appframework/lib/methodannotationreader.php';
 \OC::$CLASSPATH['OCA\AppFramework\Middleware'] = 'apps/appframework/lib/middleware/middleware.php';
-\OC::$CLASSPATH['OCA\AppFramework\SecurityMiddleware'] = 'apps/appframework/lib/middleware/security.middleware.php';
+\OC::$CLASSPATH['OCA\AppFramework\SecurityMiddleware'] = 'apps/appframework/lib/middleware/security/security.middleware.php';
+\OC::$CLASSPATH['OCA\AppFramework\SecurityException'] = 'apps/appframework/lib/middleware/security/security.exception.php';
 \OC::$CLASSPATH['OCA\AppFramework\MiddlewareDispatcher'] = 'apps/appframework/lib/middleware/middlewaredispatcher.php';
 \OC::$CLASSPATH['OCA\AppFramework\App'] = 'apps/appframework/lib/app.php';
 \OC::$CLASSPATH['OCA\AppFramework\DIContainer'] = 'apps/appframework/appinfo/dicontainer.php';

@@ -4,7 +4,7 @@
 * ownCloud - App Template Example
 *
 * @author Bernhard Posselt
-* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com 
+* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -21,40 +21,30 @@
 *
 */
 
+
 namespace OCA\AppFramework;
 
 
-class DIContainer extends \Pimple {
+class SecurityException extends \Exception {
+
+    private $ajax;
+
+    /**
+     * @param string $msg: the security error message
+     * @param bool $ajax: true if it resulted because of an ajax request
+     */
+    public function __construct($msg, $ajax){
+        parent::__construct($msg);
+        $this->ajax = $ajax;
+    }
 
 
-	public function __construct($appName){
-		
-		$this['AppName'] = $appName;
-
-		$this['API'] = $this->share(function($c){
-			return new API($c['AppName']);
-		});
-
-		$this['Request'] = $this->share(function($c){
-			return new Request($_GET, $_POST, $_FILES);
-		});
+    /**
+     * @return true if exception resulted because of an ajax request
+     */
+    public function isAjax(){
+        return $this->ajax;
+    }
 
 
-		/**
-		 * Middleware
-		 */
-		$this['SecurityMiddleware'] = function($c){
-			return new SecurityMiddleware($c['API']);
-		};
-
-		$this['MiddlewareDispatcher'] = function($c){
-			$dispatcher = new MiddlewareDispatcher();
-			$dispatcher->registerMiddleware($c['SecurityMiddleware']);
-			return $dispatcher;
-		};
-
-	}
-
-	
 }
-

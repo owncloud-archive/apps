@@ -178,6 +178,7 @@ class API {
 		return \OCP\DB::insertid($tableName);
 	}
 
+
 	/**
 	 * Returns the URL for a route
 	 * @return the url
@@ -185,5 +186,66 @@ class API {
 	public function linkToRoute($routeName){
 		return \OC_Helper::linkToRoute($routeName);
 	}
+
+
+	/**
+	 * @brief links to a file
+	 * @deprecated
+	 */
+	public function linkToAbsolute($file, $appName=null){
+		if($appName === null){
+			$appName = $this->appName;
+		}
+		return \OC_Helper::linkToAbsolute($appName, $file);
+	}
+
+
+	/**
+	 * Checks if the current user is logged in
+	 * @return bool
+	 */
+	public function isLoggedIn(){
+		return \OC_User::isLoggedIn();
+	}
+
+
+	/**
+	 * Checks if a user is an admin
+	 * @param string $userId: the id of the user
+	 * @return bool
+	 */
+	public function isAdminUser($userId){
+		return \OC_User::isAdminUser($userId);
+	}
+
+
+	/**
+	 * Checks if a user is an subadmin
+	 * @param string $userId: the id of the user
+	 * @return bool
+	 */
+	public function isSubAdminUser($userId){
+		return \OC_SubAdmin::isSubAdmin($userId);
+	}
+
+
+	/**
+	 * Checks if the CSRF check was correct
+	 * @return bool
+	 */
+	public function passesCSRFCheck(){
+		return \OC_Util::isCallRegistered();
+	}
+
+
+	/**
+	 * Checks if an app is enabled
+	 * @param string $appName: the name of an app
+	 * @return bool
+	 */
+	public function isAppEnabled($appName){
+		\OC_App::isEnabled($appName);
+	}
+
 
 }

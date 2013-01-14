@@ -57,7 +57,7 @@ class App {
 		try {
 			$middlewareDispatcher->beforeController($controller, $methodName);
 			$response = $controller->$methodName();
-		} catch(Exception $exception){
+		} catch(\Exception $exception){
 			$response = $middlewareDispatcher->afterException($controller, $methodName, $exception);
 			if($response === null){
 				throw $exception;

@@ -27,6 +27,7 @@ namespace OCA\AppFramework;
 class MiddlewareDispatcher {
 
 	private $middlewares;
+	private $middlewareCounter;
 
 	public function __construct(){
 		$this->middlewares = array();
@@ -38,6 +39,7 @@ class MiddlewareDispatcher {
 	 */
 	public function registerMiddleware(Middleware $middleware){
 		array_push($this->middlewares, $middleware);
+		$this->middlewareCounter = 0;
 	}
 
 
@@ -49,8 +51,11 @@ class MiddlewareDispatcher {
 	 * @param string $methodName: the name of the method that will be called on
 	 *                            the controller
 	 */
-	public function beforeController($controller, $methodName){
-		foreach($this->middlewares as $middleware){
+	public function beforeController(Controller $controller, $methodName){
+		// we need to count so that we know which middlewares we have to ask in
+		// case theres an exception
+		for($i=0; $i<count($this->middlewares); $i++, $this->middlewareCounter++){
+			$middleware = $this->middlewares[$i];
 			$middleware->beforeController($controller, $methodName);
 		}
 	}
@@ -70,13 +75,15 @@ class MiddlewareDispatcher {
 	 * @return a Response object or null in case that the exception could not be
 	 * handled
 	 */
-	public function afterException($controller, $methodName, Exception $exception){
-		$response = null;
-		for($i=count($this->middlewares)-1; $i>0; $i--){
+	public function afterException(Controller $controller, $methodName, \Exception $exception){
+		for($i=$this->middlewareCounter; $i>=0; $i--){
 			$middleware = $this->middlewares[$i];
-			$response = $middleware->afterException($controller, $methodName, $exception, $response);
+			$response = $middleware->afterException($controller, $methodName, $exception);
+			if($response !== null){
+				return $response;
+			}
 		}
-		return $response;
+		return null;
 	}
 
 
@@ -91,7 +98,7 @@ class MiddlewareDispatcher {
 	 * @return a Response object
 	 */
 	public function afterController($controller, $methodName, Response $response){
-		for($i=count($this->middlewares)-1; $i>0; $i--){
+		for($i=count($this->middlewares)-1; $i>=0; $i--){
 			$middleware = $this->middlewares[$i];
 			$response = $middleware->afterController($controller, $methodName, $response);
 		}
@@ -110,7 +117,7 @@ class MiddlewareDispatcher {
 	 * @return the output that should be printed
 	 */
 	public function beforeOutput($controller, $methodName, $output){
-		for($i=count($this->middlewares)-1; $i>0; $i--){
+		for($i=count($this->middlewares)-1; $i>=0; $i--){
 			$middleware = $this->middlewares[$i];
 			$output = $middleware->beforeOutput($controller, $methodName, $output);
 		}
