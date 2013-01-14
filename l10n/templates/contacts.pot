@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-14 00:15+0100\n"
+"POT-Creation-Date: 2013-01-15 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Select photo"
 msgstr ""
 
-#: js/app.js:470 js/app.js:496 js/app.js:1451 js/app.js:1563
+#: js/app.js:470 js/app.js:496 js/app.js:1455 js/app.js:1567
 #: js/contacts.js:146 js/contacts.js:248 js/contacts.js:470
 msgid "Network or server error. Please inform administrator."
 msgstr ""
@@ -286,7 +286,7 @@ msgstr ""
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/app.js:992 js/app.js:1498 js/settings.js:25 js/settings.js:45
+#: js/app.js:992 js/app.js:1502 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr ""
@@ -311,7 +311,7 @@ msgstr ""
 msgid "Upload Error"
 msgstr ""
 
-#: js/app.js:1043 js/app.js:1326
+#: js/app.js:1043 js/app.js:1330
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -325,35 +325,35 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
-#: js/app.js:1222 templates/contacts.php:129
+#: js/app.js:1226 templates/contacts.php:129
 msgid "Add group"
 msgstr ""
 
-#: js/app.js:1315
+#: js/app.js:1319
 msgid "No files selected for upload."
 msgstr ""
 
-#: js/app.js:1416
+#: js/app.js:1420
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1434 js/contacts.js:1102
+#: js/app.js:1438 js/contacts.js:1102
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/app.js:1486 templates/part.selectaddressbook.php:27
+#: js/app.js:1490 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr ""
 
-#: js/app.js:1487 templates/part.selectaddressbook.php:29
+#: js/app.js:1491 templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr ""
 
-#: js/app.js:1490
+#: js/app.js:1494
 msgid "Select addressbook"
 msgstr ""
 
-#: js/app.js:1498
+#: js/app.js:1502
 msgid "The address book name cannot be empty."
 msgstr ""
 

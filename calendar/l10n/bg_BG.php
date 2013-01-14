@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
+"Invalid request" => "Невалидна заявка",
 "Calendar" => "Календар",
 "Personal" => "Лични",
 "Settings" => "Настройки",

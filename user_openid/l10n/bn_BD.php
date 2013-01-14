@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
+"OpenID Changed" => "OpenID পরিবর্তন করা হয়েছে",
+"Invalid request" => "অনুরোধটি সঠিক নয়",
 "This is an OpenID server endpoint. For more information, see " => "এটি একটি OpenID সার্ভার এর শেষ সীমা। আরও তথ্য জানতে, দেখুন",
 "Identity: <b>" => "পরিচিতিঃ <b>",
 "Realm: <b>" => "রাজ্যপাটঃ <b>",

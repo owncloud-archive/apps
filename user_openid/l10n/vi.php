@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
+"OpenID Changed" => "Đổi OpenID",
+"Invalid request" => "Yêu cầu không hợp lệ",
 "This is an OpenID server endpoint. For more information, see " => "Đây là một đầu cuối của OpenID .Để biết thêm thông tin, xem",
 "Identity: <b>" => "Tình trạng: <b>",
 "Realm: <b>" => "Lĩnh vực:<b>",

@@ -178,6 +178,7 @@
 "Edit current photo" => "编辑当前照片",
 "Upload new photo" => "上传新照片",
 "Select photo from ownCloud" => "从 ownCloud 选择照片",
+"Select groups" => "选择分组",
 "First name" => "名",
 "Additional names" => "其他名称",
 "Last name" => "姓",
