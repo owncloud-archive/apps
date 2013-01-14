@@ -29,6 +29,7 @@
  * @author Christian Reiner
  */
 
+/* style the 'handle' itself used to switch the navigation */
 #flux-compensator {
 	position: absolute;
 	background: #eee;
@@ -42,7 +43,6 @@
 	box-shadow: 1px 0 1px #bbb;
 	cursor: pointer;
 }
-
 #flux-compensator img {
 	margin: 5px 2px;
 	padding: 0;
@@ -60,6 +60,7 @@
 	-webkit-user-select: none;
 }
 
+/* switch cursor to a 'move' indication during move mode */
 html.flux-compensator-handle-move, html.flux-compensator-handle-move * {
-  cursor: row-resize !important;
+	cursor: row-resize !important;
 }

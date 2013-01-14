@@ -231,15 +231,15 @@ OC.Flux={
 		var index=$('#navigation #apps .active').parents('li').attr('data-id');
 		// mark current mode (active app) as class of the html element
 		if (index && mode[index]){
-			$('html').addClass('ns-mode-'+mode[index]);
+			$('html').addClass('flux-mode-'+mode[index]);
 		}else{
-			$('html').addClass('ns-modeless');
+			$('html').addClass('flux-modeless');
 		}
 		// mark the current state (hidden or shown) as class of the html element
 		if (shown){
-			$('html').removeClass('ns-state-hidden').addClass('ns-state-shown');
+			$('html').removeClass('flux-state-hidden').addClass('flux-state-shown');
 		}else{
-			$('html').removeClass('ns-state-shown').addClass('ns-state-hidden');
+			$('html').removeClass('flux-state-shown').addClass('flux-state-hidden');
 		}
 	}, // OC.Flux.stylish
 	/**

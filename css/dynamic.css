@@ -33,18 +33,18 @@
 html #content #controls{position:relative;top:0;}
 
 /* some general mode specific modifications */
-html.ns-state-hidden{
+html.flux-state-hidden{
 }
 
-html.ns-state-shown{
+html.flux-state-shown{
 }
 
 /* some specific app dependent settings */
-html.ns-modeless{}
+html.flux-modeless{}
 
-html.ns-mode-files_index{}
+html.flux-mode-files_index{}
 
-html.ns-mode-contacts_index #content #contacts{left:0;}
+html.flux-mode-contacts_index #content #contacts{left:0;}
 
-html.ns-mode-shorty_index #content #desktop{top:0;}
+html.flux-mode-shorty_index #content #desktop{top:0;}
 
