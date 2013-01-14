@@ -1606,7 +1606,7 @@ OC.Contacts = OC.Contacts || {
 			);
 		},
 		options: {
-		},
+		}
 	};
 
 	$.fn.octemplate = function(options) {

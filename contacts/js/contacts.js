@@ -1671,7 +1671,7 @@ OC.Contacts = OC.Contacts || {};
 						revert: 'invalid',
 						//containment: '#content',
 						opacity: 0.8, helper: 'clone',
-						zIndex: 1000,
+						zIndex: 1000
 					});
 					if(items.length === 100) {
 						self.$contactList.append(items);
