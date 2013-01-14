@@ -65,7 +65,7 @@ class ItemController extends \OCA\AppFramework\Controller {
 	public function index(){
 
 		// thirdparty stuff
-		$this->api->add3rdPartyScript('angular/angular.min');
+		$this->api->add3rdPartyScript('angular/angular');
 
 		// your own stuff
 		$this->api->addStyle('style');
