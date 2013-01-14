@@ -50,7 +50,7 @@ class SettingsController extends \OCA\AppFramework\Controller {
 			'url' => $this->api->getSystemValue('somesetting')
 		);
 
-		return $this->render($templateName, $params, 'admin');
+		return $this->render($templateName, $params, 'blank');
 	}
 
 }
