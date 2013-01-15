@@ -30,7 +30,7 @@
  */
 
 /* style the 'handle' itself used to switch the navigation */
-#flux-compensator {
+#flux {
 	position: absolute;
 	background: #eee;
 	z-index: 100;
@@ -43,7 +43,7 @@
 	box-shadow: 1px 0 1px #bbb;
 	cursor: pointer;
 }
-#flux-compensator img {
+#flux img {
 	margin: 5px 2px;
 	padding: 0;
 	opacity: 0.6;
@@ -61,6 +61,6 @@
 }
 
 /* switch cursor to a 'move' indication during move mode */
-html.flux-compensator-handle-move, html.flux-compensator-handle-move * {
+html.flux-handle-move, html.flux-handle-move * {
 	cursor: row-resize !important;
 }

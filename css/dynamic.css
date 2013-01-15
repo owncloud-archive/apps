@@ -30,21 +30,34 @@
  */
 
 /* some general static modifications required due to strange OC base definitions */
-html #content #controls{position:relative;top:0;}
+/* html #content #controls { position:relative; top:0; } */
 
 /* some general mode specific modifications */
-html.flux-state-hidden{
+html.flux-state-hidden #navigation {
+	left: -12.5em;
+	transition:left 1s;-o-transition:left 1s;-ms-transition:left 1s;-moz-transition:left 1s;-khtml-transition:left 1s;-webkit-transition:left 1s;
+}
+html.flux-state-hidden #content {
+	width: 100% important!;
+	left: 0;
+	transition:left 1s;-o-transition:left 1s;-ms-transition:left 1s;-moz-transition:left 1s;-khtml-transition:left 1s;-webkit-transition:left 1s;
 }
 
-html.flux-state-shown{
+html.flux-state-shown #navigation {
+	left: 0;
+	transition:left 1s;-o-transition:left 1s;-ms-transition:left 1s;-moz-transition:left 1s;-khtml-transition:left 1s;-webkit-transition:left 1s;
+}
+html.flux-state-shown #content {
+	left: 12.5em;
+	transition:left 1s;-o-transition:left 1s;-ms-transition:left 1s;-moz-transition:left 1s;-khtml-transition:left 1s;-webkit-transition:left 1s;
 }
 
 /* some specific app dependent settings */
-html.flux-modeless{}
+html.flux-modeless { }
 
-html.flux-mode-files_index{}
+html.flux-mode-files_index { }
 
-html.flux-mode-contacts_index #content #contacts{left:0;}
+html.flux-mode-contacts_index #content #contacts {left:0; }
 
-html.flux-mode-shorty_index #content #desktop{top:0;}
+html.flux-mode-shorty_index #content #desktop {top:0; }
 

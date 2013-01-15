@@ -32,31 +32,30 @@
 // add slider to navigation area
 $(document).ready(function(){
 	// construct slider object
-	var slider=$('<span id="flux-compensator" class="flux-compensator-shown">');
-	var img   =$('<img  id="flux-compensator" class="svg" draggable="false">');
+	var slider=$('<span id="flux" class="flux-shown" />');
+	var img   =$('<img  id="flux" class="svg" draggable="false">');
 	img.attr('src',OC.filePath('flux_compensator','img','actions/slide-left.svg'));
 	slider.append(img);
 	// inject slider object into navigation areaa
-	$('#navigation').append(slider);
+	$('body > nav > #navigation').append(slider);
 	// store some references to slider and moved objects
-	OC.Flux.Handle=$('#flux-compensator');
+	OC.Flux.Handle=$('#flux');
 	OC.Flux.Offset=$('#navigation').css('width');
-	OC.Flux.Move=$('#navigation,#content');
 	OC.Flux.Zoom=$('#content');
 	// position slider object horizontally
-	$('#flux-compensator').css('left',$('#navigation').css('width'));
+	$('#flux').css('left',$('body > nav > #navigation').css('width'));
 	// position slider object vertically
 	// for this we consider a default value, an optional stored value and min and max values
 	var topMin=37;
-	var topMax=$('#navigation').height()-$('#navigation').position().top-37;
-	OC.AppConfig.getValue('flux-compensator','flux-compensator-position',topMax,function(top){
+	var topMax=$('body > nav > #navigation').height()-$('body > nav > #navigation').position().top-37;
+	OC.AppConfig.getValue('flux_compensator','flux-position',topMax,function(top){
 		top=(top>topMax)?topMax:((top<topMin)?topMin:top);
-		$('#flux-compensator').css('top',top+'px');
+		$('#flux').css('top',top+'px');
 		// visualize handle by allowing overflow of the navigation area
-		$('#navigation').css('overflow','visible');
+		$('body > nav > #navigation').css('overflow','visible');
 	});
 	// hide or show the navigation in a persistent manner
-	OC.AppConfig.getValue('flux-compensator','flux-compensator-status','shown',function(status){
+	OC.AppConfig.getValue('flux_compensator','flux-status','shown',function(status){
 		if ('hidden'==status)
 			OC.Flux.hide();
 		else
@@ -82,12 +81,6 @@ OC.Flux={
 	* @author Christian Reiner
 	*/
 	Handle:{},
-	/**
-	* @object OC.Flux.Move
-	* @brief Static reference to the objects inside the DOM that must be moved
-	* @author Christian Reiner
-	*/
-	Move:{},
 	/**
 	* @object OC.Flux.Offset
 	* @brief Offset value the pages content gets moved by (width of navigation area)
@@ -138,18 +131,17 @@ OC.Flux={
 	hide:function(){
 		var dfd = new $.Deferred();
 		OC.Flux.stylish(false);
-		if (OC.Flux.Handle.hasClass('flux-compensator-shown')){
+		if (OC.Flux.Handle.hasClass('flux-shown')){
 			$.when(
-				OC.Flux.Handle.addClass('flux-compensator-hidden'),
-				OC.Flux.Handle.removeClass('flux-compensator-shown'),
-				OC.Flux.Zoom.animate({width:"+="+OC.Flux.Offset},'fast'),
-				OC.Flux.Move.animate({left: "-="+OC.Flux.Offset},'fast')
+				OC.Flux.Handle.addClass('flux-hidden'),
+				OC.Flux.Handle.removeClass('flux-shown'),
+				OC.Flux.Zoom.animate({width:"+="+OC.Flux.Offset},'fast')
 			).done(function(){
 				dfd.resolve();
 				OC.Flux.Handle.find('img')
 					.attr('src',OC.filePath('flux_compensator','img','actions/slide-right.svg'));
 				// store current slider status inside user preferences
-				OC.AppConfig.setValue('flux-compensator','flux-compensator-status','hidden');
+				OC.AppConfig.setValue('flux_compensator','flux-status','hidden');
 			}).fail(dfd.reject)}
 		else dfd.resolve();
 		return dfd.promise();
@@ -161,7 +153,7 @@ OC.Flux={
 	*/
 	move:function(topMin,topMax){
 		// enable cursor move mode
-		$('html').addClass('flux-compensator-handle-move');
+		$('html').addClass('flux-handle-move');
 		OC.Flux.Handle.effect('highlight',{color:'#FFF'},800);
 		// remove _outer_ reactions (2!) on mouseup
 		$(document).off('mouseup');
@@ -173,11 +165,11 @@ OC.Flux={
 			// remove reaction on mouse movements
 			$(document).off('mousemove');
 			// disable cursor move mode
-			$('html').removeClass('flux-compensator-handle-move');
+			$('html').removeClass('flux-handle-move');
 			OC.Flux.Handle.css('cursor','pointer');
 			OC.Flux.Handle.find('img').css('cursor','inherit');
 			// store final handle position
-			OC.AppConfig.setValue('flux-compensator','flux-compensator-position',OC.Flux.Handle.position().top);
+			OC.AppConfig.setValue('flux_compensator','flux-position',OC.Flux.Handle.position().top);
 		});
 		// reaction on mouse move: position handle
 		$(document).on('mousemove',function(event){
@@ -194,18 +186,17 @@ OC.Flux={
 	show:function(){
 		var dfd = new $.Deferred();
 		OC.Flux.stylish(true);
-		if (OC.Flux.Handle.hasClass('flux-compensator-hidden')){
+		if (OC.Flux.Handle.hasClass('flux-hidden')){
 			$.when(
-				OC.Flux.Handle.addClass('flux-compensator-shown'),
-				OC.Flux.Handle.removeClass('flux-compensator-hidden'),
-				OC.Flux.Zoom.animate({width:"-="+OC.Flux.Offset},'fast'),
-				OC.Flux.Move.animate({left: "+="+OC.Flux.Offset},'fast')
+				OC.Flux.Handle.addClass('flux-shown'),
+				OC.Flux.Handle.removeClass('flux-hidden'),
+				OC.Flux.Zoom.animate({width:"-="+OC.Flux.Offset},'fast')
 			).done(function(){
 				dfd.resolve();
 				OC.Flux.Handle.find('img')
 					.attr('src',OC.filePath('flux_compensator','img','actions/slide-left.svg'));
 				// store current slider status inside user preferences
-				OC.AppConfig.setValue('flux-compensator','flux-compensator-status','shown');
+				OC.AppConfig.setValue('flux_compensator','flux-status','shown');
 			}).fail(dfd.reject)}
 		else dfd.resolve();
 		return dfd.promise();
@@ -228,7 +219,7 @@ OC.Flux={
 			gallery_index:	'gallery',
 			shorty_index:	'shorty'
 		};
-		var index=$('#navigation #apps .active').parents('li').attr('data-id');
+		var index=$('body > nav > #navigation #apps .active').parents('li').attr('data-id');
 		// mark current mode (active app) as class of the html element
 		if (index && mode[index]){
 			$('html').addClass('flux-mode-'+mode[index]);
@@ -249,7 +240,7 @@ OC.Flux={
 	*/
 	toggle: function(){
 		var dfd = new $.Deferred();
-		if (OC.Flux.Handle.hasClass('flux-compensator-shown')){
+		if (OC.Flux.Handle.hasClass('flux-shown')){
 			$.when(
 				OC.Flux.hide()
 			).done(dfd.resolve)}
