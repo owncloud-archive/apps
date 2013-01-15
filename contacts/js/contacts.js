@@ -1196,17 +1196,17 @@ OC.Contacts = OC.Contacts || {};
 	 * @returns Boolean
 	 */
 	Contact.prototype.inGroup = function(name) {
-		if(!this.data || this.data.CATEGORIES) {
-			return false;
-		}
+		var categories = this.getPreferredValue('CATEGORIES', []);
+		var found = false;
 
-		categories = this.data.CATEGORIES[0].value;
-		for(var i in categories) {
-			if(typeof categories[i] === 'string' && (name.toLowerCase() === categories[i].toLowerCase())) {
-				return true;
+		$.each(categories, function(idx, category) {
+			if(name.toLowerCase() == category.trim().toLowerCase()) {
+				found = true
+				return false;
 			}
-		}
-		return false;
+		});
+
+		return found;
 	};
 
 	/**
@@ -1671,7 +1671,7 @@ OC.Contacts = OC.Contacts || {};
 						revert: 'invalid',
 						//containment: '#content',
 						opacity: 0.8, helper: 'clone',
-						zIndex: 1000,
+						zIndex: 1000
 					});
 					if(items.length === 100) {
 						self.$contactList.append(items);

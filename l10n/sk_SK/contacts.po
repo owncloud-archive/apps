@@ -6,15 +6,15 @@
 #   <intense.feel@gmail.com>, 2012.
 #   <martin.babik@gmail.com>, 2012.
 # Roman Priesol <roman@priesol.net>, 2012.
-#   <zatroch.martin@gmail.com>, 2012.
+#   <zatroch.martin@gmail.com>, 2012-2013.
 #   <zixo@zixo.sk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-03 00:01+0100\n"
-"PO-Revision-Date: 2013-01-02 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-12 00:07+0100\n"
+"PO-Revision-Date: 2013-01-11 22:33+0000\n"
+"Last-Translator: martin <zatroch.martin@gmail.com>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -232,7 +232,7 @@ msgstr "Kontakty"
 #: export.php:66
 #, php-format
 msgid "%d_selected_contacts"
-msgstr ""
+msgstr "%d_selected_contacts"
 
 #: js/app.js:190
 msgid "Indexing contacts"
@@ -342,7 +342,7 @@ msgstr "Žiadne súbory neboli vybrané k nahratiu"
 msgid "Edit profile picture"
 msgstr "Upraviť profilový avatar"
 
-#: js/app.js:1434 js/contacts.js:1091
+#: js/app.js:1434 js/contacts.js:1102
 msgid "Error loading profile picture."
 msgstr "Chyba pri nahrávaní profilového obrázku."
 
@@ -370,59 +370,59 @@ msgstr "Je to správne?"
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Vyskytla sa neznáma chyba pri odstraňovaní daného kontaktu."
 
-#: js/contacts.js:1424
+#: js/contacts.js:1435
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Počkajte prosím do skončenia mazania kontaktov označených na mazanie."
 
-#: js/contacts.js:1435
+#: js/contacts.js:1446
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Kliknite pre odvrátenie operácie zmazania {num} kontaktov."
 
-#: js/contacts.js:1450
+#: js/contacts.js:1461
 msgid "Cancelled deletion of {num}"
 msgstr "Zrušené odstraňovanie {num} kontaktov."
 
-#: js/groups.js:191
+#: js/groups.js:193
 msgid "Contact is already in this group."
 msgstr "Kontakt sa už nachádza v danej skupine."
 
-#: js/groups.js:204
+#: js/groups.js:206
 msgid "Contacts are already in this group."
 msgstr "Kontakty sa už nachádzajú v danej skupine."
 
-#: js/groups.js:268
+#: js/groups.js:270
 msgid "Couldn't get contact list."
 msgstr "Nemožno získať kontaktný list."
 
-#: js/groups.js:279
+#: js/groups.js:281
 msgid "Contact is not in this group."
 msgstr "Kontakt nie je v danej skupine."
 
-#: js/groups.js:293
+#: js/groups.js:295
 msgid "Contacts are not in this group."
 msgstr "Kontakty nie sú v danej skupine."
 
-#: js/groups.js:537
+#: js/groups.js:539
 msgid "A group named {group} already exists"
 msgstr "Skupina pomenovaná ako {group} už existuje."
 
-#: js/groups.js:569
+#: js/groups.js:571
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Potiahnutím a pustením môžete \nusporiadať skupiny podľa ľúbosti."
 
-#: js/groups.js:588
+#: js/groups.js:590
 msgid "All"
 msgstr "Všetky"
 
-#: js/groups.js:602
+#: js/groups.js:604
 msgid "Favorites"
 msgstr "Obľúbené"
 
-#: js/groups.js:651
+#: js/groups.js:653
 msgid "Shared by {owner}"
 msgstr "Zdieľané cez {owner}"
 
@@ -499,108 +499,108 @@ msgstr "Nemáte oprávnenie pre zmazanie tohto adresára."
 msgid "There was an error deleting this addressbook."
 msgstr "Vyskytla sa chyba pri mazaní tohto adresára."
 
-#: lib/app.php:88
+#: lib/app.php:89
 msgid "Jabber"
 msgstr "Jabber"
 
-#: lib/app.php:93
+#: lib/app.php:94
 msgid "AIM"
 msgstr "AIM"
 
-#: lib/app.php:98
+#: lib/app.php:99
 msgid "MSN"
 msgstr "MSN"
 
-#: lib/app.php:103
+#: lib/app.php:104
 msgid "Twitter"
 msgstr "Twitter"
 
-#: lib/app.php:108
+#: lib/app.php:109
 msgid "GoogleTalk"
 msgstr "GoogleTalk"
 
-#: lib/app.php:113
+#: lib/app.php:114
 msgid "Facebook"
 msgstr "Facebook"
 
-#: lib/app.php:118
+#: lib/app.php:119
 msgid "XMPP"
 msgstr "XMPP"
 
-#: lib/app.php:123
+#: lib/app.php:124
 msgid "ICQ"
 msgstr "ICQ"
 
-#: lib/app.php:128
+#: lib/app.php:129
 msgid "Yahoo"
 msgstr "Yahoo"
 
-#: lib/app.php:133
+#: lib/app.php:134
 msgid "Skype"
 msgstr "Skype"
 
-#: lib/app.php:138
+#: lib/app.php:139
 msgid "QQ"
 msgstr "QQ"
 
-#: lib/app.php:143
+#: lib/app.php:144
 msgid "GaduGadu"
 msgstr "GaduGadu"
 
-#: lib/app.php:166 lib/app.php:174 lib/app.php:185 lib/app.php:226
+#: lib/app.php:167 lib/app.php:175 lib/app.php:186 lib/app.php:227
 msgid "Work"
 msgstr "Práca"
 
-#: lib/app.php:167 lib/app.php:172 lib/app.php:186
+#: lib/app.php:168 lib/app.php:173 lib/app.php:187
 msgid "Home"
 msgstr "Domov"
 
-#: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
+#: lib/app.php:169 lib/app.php:182 lib/app.php:189 lib/app.php:228
 #: lib/vcard.php:701
 msgid "Other"
 msgstr "Iné"
 
-#: lib/app.php:173
+#: lib/app.php:174
 msgid "Mobile"
 msgstr "Mobil"
 
-#: lib/app.php:175
+#: lib/app.php:176
 msgid "Text"
 msgstr "SMS"
 
-#: lib/app.php:176
+#: lib/app.php:177
 msgid "Voice"
 msgstr "Odkazová schránka"
 
-#: lib/app.php:177
+#: lib/app.php:178
 msgid "Message"
 msgstr "Správa"
 
-#: lib/app.php:178
+#: lib/app.php:179
 msgid "Fax"
 msgstr "Fax"
 
-#: lib/app.php:179
+#: lib/app.php:180
 msgid "Video"
 msgstr "Video"
 
-#: lib/app.php:180
+#: lib/app.php:181
 msgid "Pager"
 msgstr "Pager"
 
-#: lib/app.php:187
+#: lib/app.php:188
 msgid "Internet"
 msgstr "Internet"
 
-#: lib/app.php:224
+#: lib/app.php:225
 msgid "Friends"
 msgstr "Priatelia"
 
-#: lib/app.php:225
+#: lib/app.php:226
 msgid "Family"
 msgstr "Rodina"
 
-#: lib/app.php:361
+#: lib/app.php:362
 msgid "There was an error deleting properties for this contact."
 msgstr "Vyskytla sa chyba pri odstraňovaní charakteristík pre daný kontakt."
 
@@ -691,7 +691,7 @@ msgstr "Nový kontakt"
 
 #: templates/contacts.php:56
 msgid "Download Contact(s)"
-msgstr ""
+msgstr "Stiahnuť Kontakt(y)"
 
 #: templates/contacts.php:58 templates/contacts.php:273
 #: templates/part.contact.php:47 templates/part.contact.php:135
@@ -795,7 +795,7 @@ msgstr "Vybrať fotku z ownCloud"
 
 #: templates/contacts.php:175
 msgid "Select groups"
-msgstr ""
+msgstr "Vyber skupiny"
 
 #: templates/contacts.php:183 templates/contacts.php:184
 msgid "First name"
@@ -825,7 +825,7 @@ msgstr "Nadpis"
 
 #: templates/contacts.php:212
 msgid "Enter title"
-msgstr ""
+msgstr "Vlož nadpis"
 
 #: templates/contacts.php:216 templates/contacts.php:264
 #: templates/part.contact.php:39 templates/part.contact.php:40
@@ -835,7 +835,7 @@ msgstr "Organizácia"
 
 #: templates/contacts.php:219
 msgid "Enter organization"
-msgstr ""
+msgstr "Vlož organizáciu"
 
 #: templates/contacts.php:223 templates/contacts.php:266
 #: templates/part.contact.php:45 templates/part.contact.php:128
@@ -848,7 +848,7 @@ msgstr "Poznámky idú sem..."
 
 #: templates/contacts.php:261
 msgid "Export as VCF"
-msgstr ""
+msgstr "Exportovať ako VCF"
 
 #: templates/contacts.php:263
 msgid "Add"
@@ -961,7 +961,7 @@ msgstr "Nejaký región"
 
 #: templates/contacts.php:360
 msgid "State or province"
-msgstr ""
+msgstr "Štát alebo oblasť"
 
 #: templates/contacts.php:364
 msgid "Your country"

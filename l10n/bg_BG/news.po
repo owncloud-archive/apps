@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-30 00:01+0100\n"
-"PO-Revision-Date: 2012-11-28 23:14+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-10 00:01+0100\n"
+"PO-Revision-Date: 2012-08-26 23:39+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,11 +123,11 @@ msgstr ""
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
 #: js/settings.js:68
 msgid "Error"
-msgstr "Грешка"
+msgstr ""
 
 #: js/main.js:33
 msgid "None"
-msgstr ""
+msgstr "Няма"
 
 #: js/main.js:101 templates/main.php:17
 msgid "Show only unread"
@@ -244,7 +244,7 @@ msgstr ""
 
 #: templates/firstrun.php:6 templates/part.dialogues.php:28
 msgid "Address"
-msgstr "Адрес"
+msgstr ""
 
 #: templates/firstrun.php:7 templates/subscribelet.php:7
 msgid "Subscribe"
@@ -260,7 +260,7 @@ msgstr ""
 
 #: templates/firstrun.php:12
 msgid "Upload"
-msgstr ""
+msgstr "Качване"
 
 #: templates/firstrun.php:13
 msgid "Select file from ownCloud"
@@ -279,7 +279,7 @@ msgstr ""
 
 #: templates/firstrun.php:18
 msgid "Import"
-msgstr "Внасяне"
+msgstr ""
 
 #: templates/firstrun.php:24
 msgid "Or..."
@@ -303,7 +303,7 @@ msgstr "Папка"
 
 #: templates/main.php:45
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: templates/part.dialogues.php:1
 msgid "Add Folder"
@@ -365,7 +365,7 @@ msgstr ""
 #: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55
 msgid "Share"
-msgstr "Споделяне"
+msgstr ""
 
 #: templates/part.items.php:72 templates/part.shared.php:60
 msgid "Keep unread"

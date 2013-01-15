@@ -6,6 +6,8 @@ $roster=$nx->getRoster();
 foreach($roster->iq->query->item as $item){
         $ret[]=(string)$item->attributes()->jid;
 }
+$x->logout();
+$nx->logout();
 
 echo json_encode($ret);
 ?>

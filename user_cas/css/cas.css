@@ -1,0 +1,13 @@
+
+#casSettings fieldset{
+
+    border-bottom: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    margin-bottom: 10px;
+}
+
+#casSettings input[type="text"] {
+    margin-left: 15px;
+    width: 15em;
+}

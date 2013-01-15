@@ -22,7 +22,7 @@
 */
 
 
-require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/bootstrap.php';
+require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/classpath.php';
 
 
 \OCP\App::registerAdmin('apptemplate_advanced', 'admin/settings');

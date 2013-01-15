@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-16 00:06+0100\n"
-"PO-Revision-Date: 2012-12-15 23:06+0000\n"
+"POT-Creation-Date: 2013-01-15 00:01+0100\n"
+"PO-Revision-Date: 2013-01-14 17:58+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fi_FI\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/openid.php:13
+msgid "OpenID Changed"
+msgstr "OpenID on vaihdettu"
+
+#: ajax/openid.php:15
+msgid "Invalid request"
+msgstr "Virheellinen pyyntö"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "

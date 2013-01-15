@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
+"OpenID Changed" => "OpenID je bil spremenjen",
+"Invalid request" => "Neveljavna zahteva",
 "This is an OpenID server endpoint. For more information, see " => "To je končna točka strežnika OpenID. Za več podrobnosti si oglejte",
 "Identity: <b>" => "Istovetnost: <b>",
 "Realm: <b>" => "Območje: <b>",

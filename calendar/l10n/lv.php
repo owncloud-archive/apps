@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
+"Invalid request" => "Nepareizs vaicājums",
 "Other" => "Cits",
 "Personal" => "Personīgi",
 "Title" => "Nosaukums",

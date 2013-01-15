@@ -185,6 +185,7 @@
 "Edit current photo" => "Редактировать текущую фотографию",
 "Upload new photo" => "Загрузить новую фотографию",
 "Select photo from ownCloud" => "Выбрать фотографию из ownCloud",
+"Select groups" => "Выбрать группу",
 "First name" => "Имя",
 "Additional names" => "Отчество",
 "Last name" => "Фамилия",

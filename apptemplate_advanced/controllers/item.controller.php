@@ -23,8 +23,11 @@
 
 namespace OCA\AppTemplateAdvanced;
 
+use OCA\AppFramework\DoesNotExistException as DoesNotExistException;
+use OCA\AppFramework\RedirectResponse as RedirectResponse;
 
-class ItemController extends Controller {
+
+class ItemController extends \OCA\AppFramework\Controller {
 	
 
 	/**
@@ -39,32 +42,30 @@ class ItemController extends Controller {
 
 
 	/**
-	 * @CSRFExcemption
-	 * @IsAdminExcemption
-	 * @IsSubAdminExcemption
+	 * @CSRFExemption
+	 * @IsAdminExemption
+	 * @IsSubAdminExemption
 	 *
 	 * Redirects to the index page
 	 */
-	public function redirectToIndex($urlParams=array()){
+	public function redirectToIndex(){
 		$url = $this->api->linkToRoute('apptemplate_advanced_index');
 		return new RedirectResponse($url);
 	}
 
 
 	/**
-	 * @CSRFExcemption
-	 * @IsAdminExcemption
-	 * @IsSubAdminExcemption
+	 * @CSRFExemption
+	 * @IsAdminExemption
+	 * @IsSubAdminExemption
 	 *
 	 * @brief renders the index page
-	 * @param array $urlParams: an array with the values, which were matched in 
-	 *                          the routes file
 	 * @return an instance of a Response implementation
 	 */
-	public function index($urlParams=array()){
+	public function index(){
 
 		// thirdparty stuff
-		$this->api->add3rdPartyScript('angular/angular.min');
+		$this->api->add3rdPartyScript('angular/angular');
 
 		// your own stuff
 		$this->api->addStyle('style');
@@ -88,7 +89,8 @@ class ItemController extends Controller {
 		$templateName = 'main';
 		$params = array(
 			'somesetting' => $this->api->getSystemValue('somesetting'),
-			'item' => $item
+			'item' => $item,
+			'test' => $this->params('test')
 		);
 		return $this->render($templateName, $params);
 	}
@@ -102,7 +104,7 @@ class ItemController extends Controller {
 	 * @param array $urlParams: an array with the values, which were matched in 
 	 *                          the routes file
 	 */
-	public function setSystemValue($urlParams=array()){
+	public function setSystemValue(){
 		$value = $this->params('somesetting');
 		$this->api->setSystemValue('somesetting', $value);
 

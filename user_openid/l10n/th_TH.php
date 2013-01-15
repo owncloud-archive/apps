@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
+"OpenID Changed" => "เปลี่ยนชื่อบัญชี OpenID แล้ว",
+"Invalid request" => "คำร้องขอไม่ถูกต้อง",
 "This is an OpenID server endpoint. For more information, see " => "นี่คือปลายทางของเซิร์ฟเวอร์ OpenID สำหรับรายละเอียดเพิ่มเติม, กรุณาดูที่",
 "Identity: <b>" => "ข้อมูลประจำตัว <b>",
 "Realm: <b>" => "ขอบเขตพื้นที่ <b>",
