@@ -172,11 +172,13 @@
 				</ul>
 				<a class="favorite action {favorite}"></a>
 			</div>
-			<select id="contactgroups" class="value propertycontainer" data-element="categories" title="<?php echo $l->t('Select groups'); ?>" name="value" multiple></select>
 			<div class="singleproperties">
 			<input data-element="fn" class="fullname value propertycontainer" type="text" name="value" value="{name}" required />
 			<a class="action edit"></a>
-			<fieldset class="n hidden editor propertycontainer" data-element="n">
+			<div class="groupscontainer propertycontainer" data-element="categories">
+				<select id="contactgroups" class="value" title="<?php echo $l->t('Select groups'); ?>" name="value" multiple></select>
+			</div>
+ 			<fieldset class="n hidden editor propertycontainer" data-element="n">
 			<ul>
 				<li>
 					<input class="value tooltipped rightwards onfocus" type="text" id="n_1" name="value[1]" value="{n1}" 
