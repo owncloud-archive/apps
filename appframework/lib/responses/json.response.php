@@ -34,11 +34,13 @@ class JSONResponse extends Response {
 	private $data;
 
 
-        public function __construct() {
+	public function __construct() {
 		parent::__construct();
 		$this->data = array();
 		$this->error = false;
+		$this->data['status'] = 'success';
 	}
+
 
 	/**
 	 * @brief sets values in the data json array
@@ -63,9 +65,10 @@ class JSONResponse extends Response {
 	 *        owncloud log
 	 * @param string $message: the error message
 	 */
-        public function setErrorMessage($msg){
+	public function setErrorMessage($msg){
 		$this->error = true;
 		$this->data['msg'] = $msg;
+		$this->data['status'] = 'error';
 	}
 
 
@@ -74,7 +77,7 @@ class JSONResponse extends Response {
 	 * @return the rendered json
 	 */
 	public function render(){
-                return json_encode($this->data);
+		return json_encode($this->data);
 	}
 
 }

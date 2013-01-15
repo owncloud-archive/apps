@@ -31,43 +31,46 @@ require_once(__DIR__ . "/../../../classloader.php");
 
 class SecurityMiddlewareTest extends \PHPUnit_Framework_TestCase {
 
-        private $middleware;
-        private $controller;
-        private $secException;
-        private $secAjaxException;
+	private $middleware;
+	private $controller;
+	private $secException;
+	private $secAjaxException;
 
-        public function setUp() {
-                $api = $this->getMock('OCA\AppFramework\API', array(), array('test'));
-                $this->controller = $this->getMock('OCA\AppFramework\Controller',
-                                array(), array($api, new Request()));
+	public function setUp() {
+		$api = $this->getMock('OCA\AppFramework\API', array(), array('test'));
+		$this->controller = $this->getMock('OCA\AppFramework\Controller',
+				array(), array($api, new Request()));
 
-                $this->middleware = new SecurityMiddleware($api);
-                $this->secException = new SecurityException('hey', false);
-                $this->secAjaxException = new SecurityException('hey', true);
-        }
-
-
-        public function testAfterExceptionNotCaughtReturnsNull(){
-                $ex = new \Exception();
-
-                $this->assertEquals(null,
-                                $this->middleware->afterException($this->controller, 'test', $ex));
-        }
+		$this->middleware = new SecurityMiddleware($api);
+		$this->secException = new SecurityException('hey', false);
+		$this->secAjaxException = new SecurityException('hey', true);
+	}
 
 
-        public function testAfterExceptionReturnsRedirect(){
-                $response = $this->middleware->afterException($this->controller, 'test',
-                                $this->secException);
+	// TODO: do security tests
 
-                $this->assertTrue($response instanceof RedirectResponse);
-        }
+	public function testAfterExceptionNotCaughtReturnsNull(){
+		$ex = new \Exception();
 
-        public function testAfterAjaxExceptionReturnsJSONError(){
-                $response = $this->middleware->afterException($this->controller, 'test',
-                                $this->secAjaxException);
+		$this->assertEquals(null,
+				$this->middleware->afterException($this->controller, 'test', $ex));
+	}
 
-                $this->assertTrue($response instanceof JSONResponse);
-        }
+
+	public function testAfterExceptionReturnsRedirect(){
+		$response = $this->middleware->afterException($this->controller, 'test',
+				$this->secException);
+
+		$this->assertTrue($response instanceof RedirectResponse);
+	}
+
+
+	public function testAfterAjaxExceptionReturnsJSONError(){
+		$response = $this->middleware->afterException($this->controller, 'test',
+				$this->secAjaxException);
+
+		$this->assertTrue($response instanceof JSONResponse);
+	}
 
 
 }

@@ -249,15 +249,15 @@ class API {
 	}
 
 
-        /**
-         * Writes a function into the error log
-         */
-        public function log($msg, $level=null){
-                if($level === null){
-                        $level = \OCP\Util::ERROR;
-                }
-                \OCP\Util::writeLog($this->appName, $msg, $level);
-        }
+	/**
+	 * Writes a function into the error log
+	 */
+	public function log($msg, $level=null){
+		if($level === null){
+			$level = \OCP\Util::ERROR;
+		}
+		\OCP\Util::writeLog($this->appName, $msg, $level);
+	}
 
 
 }

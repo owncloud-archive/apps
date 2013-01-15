@@ -31,10 +31,40 @@ require_once(__DIR__ . "/../../classloader.php");
 
 class JSONResponseTest extends \PHPUnit_Framework_TestCase {
 
+	private $json;
 
-    public function testStub() {
+	protected function setUp() {
+		$this->json = new JSONResponse();
+	}
 
-    }
+
+	public function testSetParams(){
+		$params = array('hi', 'yo');
+		$this->json->setParams($params);
+
+		$this->assertEquals(array('hi', 'yo'), $this->json->getParams());
+	}
+
+
+	public function testRender(){
+		$params = array('test' => 'hi');
+		$this->json->setParams($params);
+
+		$expected = '{"status":"success","data":{"test":"hi"}}';
+
+		$this->assertEquals($expected, $this->json->render());
+	}
+
+
+	public function testRenderError(){
+		$params = array('test' => 'hi');
+		$this->json->setParams($params);
+		$this->json->setErrorMessage('kaputt');
+
+		$expected = '{"status":"error","data":{"test":"hi"},"msg":"kaputt"}';
+
+		$this->assertEquals($expected, $this->json->render());
+	}
 
 
 }

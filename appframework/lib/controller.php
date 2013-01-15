@@ -36,7 +36,7 @@ class Controller {
 	 * @param API $api: an api wrapper instance
 	 * @param Request $request: an instance of the request
 	 */
-		public function __construct(API $api, Request $request){
+	public function __construct(API $api, Request $request){
 		$this->api = $api;
 		$this->request = $request;
 		$this->urlParams = array();
@@ -48,7 +48,7 @@ class Controller {
 	 * be available via the $this->params
 	 * @param array $urlParams: the array with the params from the URL
 	 */
-		public function setURLParams(array $urlParams=array()){
+	public function setURLParams(array $urlParams=array()){
 		$this->urlParams = $urlParams;
 	}
 
@@ -103,9 +103,9 @@ class Controller {
 	 * @param array $headers: set additional headers
 	 * @return a TemplateResponse
 	 */
-		protected function render($templateName, array $params=array(),
+	protected function render($templateName, array $params=array(),
 									$renderAs='user', array $headers=array()){
-                $response = new TemplateResponse($this->api, $templateName);
+		$response = new TemplateResponse($this->api, $templateName);
 		$response->setParams($params);
 		$response->renderAs($renderAs);
 
@@ -123,12 +123,12 @@ class Controller {
 	 * @param string $errorMsg: If you want to return an error message, pass one
 	 * @return a JSONResponse
 	 */
-                protected function renderJSON(array $data=array(), $errorMsg=null){
-                $response = new JSONResponse();
+	protected function renderJSON(array $data=array(), $errorMsg=null){
+		$response = new JSONResponse();
 		$response->setParams($data);
 
 		if($errorMsg !== null){
-                        $response->setErrorMessage($errorMsg);
+			$response->setErrorMessage($errorMsg);
 		}
 
 		return $response;
