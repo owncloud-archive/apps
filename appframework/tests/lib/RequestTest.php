@@ -34,7 +34,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetPOST(){
 		$post = array('test' => 'somevalue');
-		$request = new Request(null, $post);
+		$request = new Request(array(), $post);
 
 		$this->assertEquals('somevalue', $request->getPOST('test'));
 	}
@@ -42,7 +42,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetPOSTEmpty(){
 		$post = array();
-		$request = new Request(null, $post);
+		$request = new Request(array(), $post);
 
 		$this->assertEquals('', $request->getPOST('test'));
 	}
@@ -50,7 +50,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetPOSTDefault(){
 		$post = array();
-		$request = new Request(null, $post);
+		$request = new Request(array(), $post);
 
 		$this->assertEquals('default', $request->getPOST('test', 'default'));
 	}
@@ -58,7 +58,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetGET(){
 		$get = array('test' => 'somevalue');
-		$request = new Request($get, null);
+		$request = new Request($get);
 
 		$this->assertEquals('somevalue', $request->getGET('test'));
 	}
@@ -66,7 +66,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetGETEmpty(){
 		$get = array();
-		$request = new Request($get, null);
+		$request = new Request($get);
 
 		$this->assertEquals('', $request->getGET('test'));
 	}
@@ -74,7 +74,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetGETDefault(){
 		$get = array();
-		$request = new Request($get, null);
+		$request = new Request($get);
 
 		$this->assertEquals('default', $request->getGET('test', 'default'));
 	}

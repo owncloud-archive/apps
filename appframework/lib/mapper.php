@@ -30,7 +30,7 @@ abstract class Mapper {
 	/**
 	 * @param API $api: Instance of the API abstraction layer
 	 */
-	public function __construct($api){
+	public function __construct(API $api){
 		$this->api = $api;
 	}
 
@@ -87,7 +87,7 @@ abstract class Mapper {
 	 * @param int $offset: from which row we want to start
 	 * @return the database query result
 	 */
-	protected function execute($sql, $params=array(), $limit=null, $offset=null){
+	protected function execute($sql, array $params=array(), $limit=null, $offset=null){
 		$query = $this->api->prepareQuery($sql);
 		return $query->execute($params);
 	}

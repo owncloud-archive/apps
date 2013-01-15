@@ -33,48 +33,48 @@ class ChildMiddleware extends Middleware {};
 
 class MiddlewareTest extends \PHPUnit_Framework_TestCase {
 
-        private $middleware;
-        private $controller;
-        private $exception;
-        private $api;
+	private $middleware;
+	private $controller;
+	private $exception;
+	private $api;
 
-        protected function setUp(){
-                $this->middleware = new ChildMiddleware();
+	protected function setUp(){
+		$this->middleware = new ChildMiddleware();
 
-                $this->api = $this->getMock('OCA\AppFramework\API',
-                                        array(), array('test'));
+		$this->api = $this->getMock('OCA\AppFramework\API',
+					array(), array('test'));
 
-                $this->controller = $this->getMock('OCA\AppFramework\Controller',
-                                array(), array($this->api, new Request()));
-                $this->exception = $this->getMock('Exception');
-                $this->response = $this->getMock('OCA\AppFramework\Response');
-        }
-
-
-        public function testBeforeController() {
-                $this->middleware->beforeController($this->controller, null, $this->exception);
-        }
+		$this->controller = $this->getMock('OCA\AppFramework\Controller',
+				array(), array($this->api, new Request()));
+		$this->exception = $this->getMock('Exception');
+		$this->response = $this->getMock('OCA\AppFramework\Response');
+	}
 
 
-        public function testAfterExceptionReturnNullWhenUnhandled() {
-                $afterEx = $this->middleware->afterException($this->controller, null, $this->exception);
-
-                $this->assertEquals(null, $afterEx);
-        }
+	public function testBeforeController() {
+		$this->middleware->beforeController($this->controller, null, $this->exception);
+	}
 
 
-        public function testAfterControllerReturnResponseWhenUnhandled() {
-                $response = $this->middleware->afterController($this->controller, null, $this->response);
+	public function testAfterExceptionReturnNullWhenUnhandled() {
+		$afterEx = $this->middleware->afterException($this->controller, null, $this->exception);
 
-                $this->assertEquals($this->response, $response);
-        }
+		$this->assertEquals(null, $afterEx);
+	}
 
 
-        public function testBeforeOutputReturnOutputhenUnhandled() {
-                $output = $this->middleware->beforeOutput($this->controller, null, 'test');
+	public function testAfterControllerReturnResponseWhenUnhandled() {
+		$response = $this->middleware->afterController($this->controller, null, $this->response);
 
-                $this->assertEquals('test', $output);
-        }
+		$this->assertEquals($this->response, $response);
+	}
+
+
+	public function testBeforeOutputReturnOutputhenUnhandled() {
+		$output = $this->middleware->beforeOutput($this->controller, null, 'test');
+
+		$this->assertEquals('test', $output);
+	}
 
 
 }

@@ -49,7 +49,7 @@ class JSONResponse extends Response {
 	 * @param array $params: an array with key => value structure which will be
 	 *                       transformed to JSON
 	 */
-	public function setParams($params){
+	public function setParams(array $params){
 		$this->data['data'] = $params;
 	}
 

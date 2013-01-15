@@ -39,7 +39,8 @@ class Request {
 	 * @param array $post: the $_POST array
 	 * @param array $files: the $_FILES array
 	 */
-	public function __construct($get=array(), $post=array(), $files=array()) {
+	public function __construct(array $get=array(), array $post=array(), 
+								array $files=array()) {
 		$this->get = $get;
 		$this->post = $post;
 	}

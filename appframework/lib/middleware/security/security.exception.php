@@ -31,24 +31,24 @@ namespace OCA\AppFramework;
  */
 class SecurityException extends \Exception {
 
-    private $ajax;
+	private $ajax;
 
-    /**
-     * @param string $msg: the security error message
-     * @param bool $ajax: true if it resulted because of an ajax request
-     */
-    public function __construct($msg, $ajax){
-        parent::__construct($msg);
-        $this->ajax = $ajax;
-    }
+	/**
+	 * @param string $msg: the security error message
+	 * @param bool $ajax: true if it resulted because of an ajax request
+	 */
+	public function __construct($msg, $ajax){
+		parent::__construct($msg);
+		$this->ajax = $ajax;
+	}
 
 
-    /**
-     * @return true if exception resulted because of an ajax request
-     */
-    public function isAjax(){
-        return $this->ajax;
-    }
+	/**
+	 * @return true if exception resulted because of an ajax request
+	 */
+	public function isAjax(){
+		return $this->ajax;
+	}
 
 
 }

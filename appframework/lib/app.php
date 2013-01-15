@@ -44,7 +44,7 @@ class App {
 	 *                           new one will be instantiated. This can be used to
 	 *                           swap or overwrite objects in the container.
 	 */
-	public static function main($controllerName, $methodName, $urlParams, $container){
+	public static function main($controllerName, $methodName, array $urlParams, \Pimple $container){
 
 		$controller = $container[$controllerName];
 		$controller->setURLParams($urlParams);

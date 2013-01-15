@@ -98,7 +98,7 @@ class MiddlewareDispatcher {
 	 * @param Response $response: the generated response from the controller
 	 * @return a Response object
 	 */
-	public function afterController($controller, $methodName, Response $response){
+	public function afterController(Controller $controller, $methodName, Response $response){
 		for($i=count($this->middlewares)-1; $i>=0; $i--){
 			$middleware = $this->middlewares[$i];
 			$response = $middleware->afterController($controller, $methodName, $response);
@@ -117,7 +117,7 @@ class MiddlewareDispatcher {
 	 * @param string $output: the generated output from a response
 	 * @return the output that should be printed
 	 */
-	public function beforeOutput($controller, $methodName, $output){
+	public function beforeOutput(Controller $controller, $methodName, $output){
 		for($i=count($this->middlewares)-1; $i>=0; $i--){
 			$middleware = $this->middlewares[$i];
 			$output = $middleware->beforeOutput($controller, $methodName, $output);

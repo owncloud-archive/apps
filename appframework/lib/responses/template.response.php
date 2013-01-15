@@ -53,7 +53,7 @@ class TemplateResponse extends Response {
 	 * @param array $params: an array with key => value structure which sets template
 	 *                       variables
 	 */
-	public function setParams($params){
+	public function setParams(array $params){
 		$this->params = $params;
 	}
 
