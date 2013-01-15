@@ -608,15 +608,15 @@ Calendar={
 				var files = e.dataTransfer.files;
 				for(var i = 0;i < files.length;i++){
 					var file = files[i];
-					reader = new FileReader();
+					var reader = new FileReader();
 					reader.onload = function(event){
-						Calendar.UI.Drop.import(event.target.result);
+						Calendar.UI.Drop.doImport(event.target.result);
 						$('#fullcalendar').fullCalendar('refetchEvents');
 					}
 					reader.readAsDataURL(file);
 				}
 			},
-			import:function(data){
+			doImport:function(data){
 				$.post(OC.filePath('calendar', 'ajax/import', 'dropimport.php'), {'data':data},function(result) {
 					if(result.status == 'success'){
 						$('#fullcalendar').fullCalendar('addEventSource', result.eventSource);
