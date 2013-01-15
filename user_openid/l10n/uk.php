@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
+"OpenID Changed" => "OpenID змінено",
+"Invalid request" => "Некоректний запит",
 "This is an OpenID server endpoint. For more information, see " => "Це клієнт OpenID-серверу. Для отримання додаткової інформації, дивіться",
 "Identity: <b>" => "Ідентифікатор: <b>",
 "Realm: <b>" => "Сфера: <b>",

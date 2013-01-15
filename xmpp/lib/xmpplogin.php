@@ -27,10 +27,16 @@ class OC_xmpp_login{
 		if($jidas!=''){
 			$jide=explode('@',$jidas);
 			$passwd=$this->getUserPasswd($jidas);
-			$newx=$this->__construct($jide[0],$jide[1],$passwd,$this->bosh_url);
+			$newx=new OC_xmpp_login($jide[0],$jide[1],$passwd,$this->bosh_url);
 			$newx->doLogin();
 			return $newx;
 		}
+	}
+
+	public function logout(){
+		$xml=$this->newBody();
+		$xml->addAttribute('type','terminate');
+		$this->send_xml($xml->asXML());
 	}
 
 	public function nrid(){
@@ -119,6 +125,13 @@ class OC_xmpp_login{
 		$sess2->iq->addChild('session','','urn:ietf:params:xml:ns:xmpp-session');
 		$res=$this->send_xml($sess2->asXML());
 	}
+
+	public function getRoster(){
+		$xml=$this->iq('get');
+		$xml->iq->addChild('query','','jabber:iq:roster');
+		$ret=$this->send_xml($xml->asXML());
+		return $ret;
+	}
 	
 	public function addRoster($jid,$name=null){
 		// Afegir al roster
@@ -141,6 +154,28 @@ class OC_xmpp_login{
 		$xml->presence->addAttribute('type','subscribe');
 		$this->send_xml($xml->asXML());
 
+	}
+
+	public function deleteRoster($jid){
+		$xml=$this->newBody();
+		$xml->addChild('presence');
+		$xml->presence->addAttribute('from',$this->username.'@'.$this->domain);
+		$xml->presence->addAttribute('to',$jid);
+		$xml->presence->addAttribute('type','unsubscribe');
+		$this->send_xml($xml->asXML());
+
+		$xml=$this->newBody();
+		$xml->addChild('presence');
+		$xml->presence->addAttribute('from',$this->username.'@'.$this->domain);
+		$xml->presence->addAttribute('to',$jid);
+		$xml->presence->addAttribute('type','unsubscribed');
+		$this->send_xml($xml->asXML());
+
+		$xml=$this->iq('set',null,null,$this->username.'@'.$this->domain);
+		$xml->iq->addChild('query','','jabber:iq:roster');
+		$xml->iq->query->addAttribute('jid',$jid);
+		$xml->iq->query->addAttribute('subscription','remove');
+		$this->send_xml($xml->asXML());
 	}
 
 	public function addUser($jid,$passwd,$passwdverify){

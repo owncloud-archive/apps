@@ -24,7 +24,11 @@ STEPS
 2. Access to ownCloud web with an user with admin privileges.
 3. Access to the Appications pannel and enable the SAML app.
 4. Access to the Administration pannel and configure the SAML app.
+5. Take care of session issue. ownCloud 4.5.5 and after version set for ownCloud its own session cookiename and that makes conflicts with simpleSAMLphp. There are 2 solutions for this problem:
+ 
+* Set the same cookiename to simpleSAMLphp and ownCloud. Check the value of the 'instanceid' at config/config.php in ownCloud, and set the same value to the 'session.phpsession.cookiename' var of the config/config.php of simpleSAMLphp
 
+* Use different session handler for ownCloud and simpleSAMLphp, Use memcache or SQL backend in simpleSAMLphp (http://simplesamlphp.org/docs/stable/simplesamlphp-maintenance#section_2)
 
 EXTRA INFO
 ==========

@@ -2,7 +2,6 @@
 <script type='text/javascript'>
 	var is_indexed = <?php echo $_['is_indexed'] == 'yes' ? 'true' : 'false'; ?>;
 	var totalurl = '<?php echo OCP\Util::linkToRemote('carddav'); ?>addressbooks';
-	var categories = <?php echo json_encode($_['categories']); ?>;
 	var id = '<?php echo $_['id']; ?>';
 	var lang = '<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>';
 </script>
@@ -173,7 +172,7 @@
 				</ul>
 				<a class="favorite action {favorite}"></a>
 			</div>
-			<select id="contactgroups" multiple></select>
+			<select id="contactgroups" class="value propertycontainer" data-element="categories" title="<?php echo $l->t('Select groups'); ?>" name="value" multiple></select>
 			<div class="singleproperties">
 			<input data-element="fn" class="fullname value propertycontainer" type="text" name="value" value="{name}" required />
 			<a class="action edit"></a>

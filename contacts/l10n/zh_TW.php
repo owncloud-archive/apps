@@ -33,6 +33,7 @@
 "Unable to upload your file as it is a directory or has 0 bytes" => "無法上傳您的檔案因為它可能是一個目錄或檔案大小為0",
 "Upload Error" => "上傳發生錯誤",
 "Upload too large" => "上傳過大",
+"Pending" => "等候中",
 "Add group" => "新增群組",
 "Enter name" => "輸入姓名",
 "Enter description" => "輸入描述",

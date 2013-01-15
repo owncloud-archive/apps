@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# André Koot <meneer@tken.net>, 2012.
+# André Koot <meneer@tken.net>, 2012-2013.
 #   <bart.formosus@gmail.com>, 2011.
 #   <bartv@thisnet.nl>, 2011.
 #   <didi.debian@cknow.org>, 2012.
@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-21 00:02+0100\n"
-"PO-Revision-Date: 2012-12-20 17:41+0000\n"
+"POT-Creation-Date: 2013-01-08 00:26+0100\n"
+"PO-Revision-Date: 2013-01-07 20:50+0000\n"
 "Last-Translator: André Koot <meneer@tken.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -241,173 +241,131 @@ msgstr "Contacten"
 msgid "%d_selected_contacts"
 msgstr "%d_selected_contacts"
 
-#: js/app.js:288
-msgid "Contact is already in this group."
-msgstr "De contactpersoon bevindt zich al in deze groep."
-
-#: js/app.js:301
-msgid "Contacts are already in this group."
-msgstr "De contactpersonen bevinden zich al in deze groep."
-
-#: js/app.js:359
-msgid "Couldn't get contact list."
-msgstr "Kan de contactenlijst niet ophalen."
-
-#: js/app.js:370
-msgid "Contact is not in this group."
-msgstr "De contactpersoon bevindt zich niet in deze groep"
-
-#: js/app.js:384
-msgid "Contacts are not in this group."
-msgstr "De contactpersonen bevinden zich niet in deze groep"
-
-#: js/app.js:564
-msgid "A group named {group} already exists"
-msgstr "Er bestaat al een groep {group}"
-
-#: js/app.js:596
-msgid ""
-"You can drag groups to\n"
-"arrange them as you like."
-msgstr "U kunt groepen slepen\nom ze naar wens te rangschikken."
-
-#: js/app.js:615
-msgid "All"
-msgstr "Alle"
-
-#: js/app.js:629
-msgid "Favorites"
-msgstr "Favorieten"
-
-#: js/app.js:678
-msgid "Shared by {owner}"
-msgstr "Gedeeld door {owner}"
-
-#: js/app.js:754
+#: js/app.js:190
 msgid "Indexing contacts"
 msgstr "Bezig met indexeren van contactpersonen"
 
-#: js/app.js:829 js/app.js:843
+#: js/app.js:265 js/app.js:279
 msgid "Add to..."
 msgstr "Toevoegen aan..."
 
-#: js/app.js:833 js/app.js:845
+#: js/app.js:269 js/app.js:281
 msgid "Remove from..."
 msgstr "Verwijderen uit..."
 
-#: js/app.js:850
+#: js/app.js:286
 msgid "Add group..."
 msgstr "Nieuwe groep..."
 
-#: js/app.js:987
+#: js/app.js:423
 msgid "Select photo"
 msgstr "Selecteer een foto"
 
-#: js/app.js:1036 js/app.js:1062 js/app.js:2017 js/app.js:2129
-#: js/contacts.js:146 js/contacts.js:244 js/contacts.js:470
+#: js/app.js:470 js/app.js:496 js/app.js:1451 js/app.js:1563
+#: js/contacts.js:146 js/contacts.js:248 js/contacts.js:470
 msgid "Network or server error. Please inform administrator."
 msgstr "Netwerk- of serverfout. Neem contact op met de beheerder."
 
-#: js/app.js:1198 js/app.js:1233
+#: js/app.js:632 js/app.js:667
 msgid "Error adding to group."
 msgstr "Fout bij het toevoegen aan de groep."
 
-#: js/app.js:1258
+#: js/app.js:692
 msgid "Error removing from group."
 msgstr "Fout bij het verwijderen uit de groep."
 
-#: js/app.js:1288
+#: js/app.js:722
 msgid "There was an error opening a mail composer."
 msgstr "Er is iets misgegaan tijdens het openen van een email programma."
 
-#: js/app.js:1338
+#: js/app.js:772
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Verwijderen gereed. Klik hier om herladen te annuleren."
 
-#: js/app.js:1415
+#: js/app.js:849
 msgid "Add address book"
 msgstr "Toevoegen adresboek"
 
-#: js/app.js:1511
+#: js/app.js:945
 msgid "Import done. Click here to cancel reloading."
 msgstr "Import gereed. Klik hier om herladen te annuleren."
 
-#: js/app.js:1552
+#: js/app.js:986
 msgid "Not all files uploaded. Retrying..."
 msgstr "Nog niet alle bestanden zijn ge-upload.  Nogmaals proberen..."
 
-#: js/app.js:1558
+#: js/app.js:992
 msgid "Something went wrong with the upload, please retry."
 msgstr "Er is iets fout gegaan met het uploaden.  Probeer het nog eens."
 
-#: js/app.js:1558 js/app.js:2064 js/settings.js:25 js/settings.js:45
+#: js/app.js:992 js/app.js:1498 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Fout"
 
-#: js/app.js:1568
+#: js/app.js:1002
 msgid "Importing from {filename}..."
 msgstr "Importeren van {filename}..."
 
-#: js/app.js:1571
+#: js/app.js:1005
 msgid "{success} imported, {failed} failed."
 msgstr "{success} geïmporteerd, {failed} mislukt."
 
-#: js/app.js:1579
+#: js/app.js:1013
 msgid "Importing..."
 msgstr "Importeren..."
 
-#: js/app.js:1602
+#: js/app.js:1036
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Het lukt niet om uw bestand te uploaded, omdat het een folder of 0 bytes is"
 
-#: js/app.js:1602
+#: js/app.js:1036
 msgid "Upload Error"
 msgstr "Upload fout"
 
-#: js/app.js:1609 js/app.js:1892
+#: js/app.js:1043 js/app.js:1326
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Het bestand dat u probeert te uploaden overschrijdt de maximale bestand grootte voor bestand uploads voor deze server."
 
-#: js/app.js:1609
+#: js/app.js:1043
 msgid "Upload too large"
 msgstr "Upload is te groot"
 
-#: js/app.js:1649
+#: js/app.js:1083
 msgid "Pending"
 msgstr "In behandeling"
 
-#: js/app.js:1788 templates/contacts.php:130
+#: js/app.js:1222 templates/contacts.php:129
 msgid "Add group"
 msgstr "Toevoegen groep"
 
-#: js/app.js:1881
+#: js/app.js:1315
 msgid "No files selected for upload."
 msgstr "Geen bestanden geselecteerd voor upload."
 
-#: js/app.js:1982
+#: js/app.js:1416
 msgid "Edit profile picture"
 msgstr "Bewerk profielafbeelding"
 
-#: js/app.js:2000 js/contacts.js:1070
+#: js/app.js:1434 js/contacts.js:1102
 msgid "Error loading profile picture."
 msgstr "Fout profiel plaatje kan niet worden geladen."
 
-#: js/app.js:2052 templates/part.selectaddressbook.php:27
+#: js/app.js:1486 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr "Naam"
 
-#: js/app.js:2053 templates/part.selectaddressbook.php:29
+#: js/app.js:1487 templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "Beschrijving"
 
-#: js/app.js:2056
+#: js/app.js:1490
 msgid "Select addressbook"
 msgstr "Kies een adresboek"
 
-#: js/app.js:2064
+#: js/app.js:1498
 msgid "The address book name cannot be empty."
 msgstr "De naam van het adresboek mag niet leeg zijn."
 
@@ -419,19 +377,61 @@ msgstr "Is dit correct?"
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Er is een onbekende fout opgetreden bij het verwijderen van deze contactpersoon"
 
-#: js/contacts.js:1401
+#: js/contacts.js:1435
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Enkele contacten zijn gemarkeerd om verwijderd te worden, maar zijn nog niet verwijderd.  Wacht totdat ze zijn verwijderd."
 
-#: js/contacts.js:1412
+#: js/contacts.js:1446
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Klik om het verwijderen van {num} contactpersonen ongedaan te maken."
 
-#: js/contacts.js:1425
+#: js/contacts.js:1461
 msgid "Cancelled deletion of {num}"
 msgstr "Verwijderen geannuleerd van {num}"
+
+#: js/groups.js:193
+msgid "Contact is already in this group."
+msgstr "De contactpersoon bevindt zich al in deze groep."
+
+#: js/groups.js:206
+msgid "Contacts are already in this group."
+msgstr "De contactpersonen bevinden zich al in deze groep."
+
+#: js/groups.js:270
+msgid "Couldn't get contact list."
+msgstr "Kan de contactenlijst niet ophalen."
+
+#: js/groups.js:281
+msgid "Contact is not in this group."
+msgstr "De contactpersoon bevindt zich niet in deze groep"
+
+#: js/groups.js:295
+msgid "Contacts are not in this group."
+msgstr "De contactpersonen bevinden zich niet in deze groep"
+
+#: js/groups.js:539
+msgid "A group named {group} already exists"
+msgstr "Er bestaat al een groep {group}"
+
+#: js/groups.js:571
+msgid ""
+"You can drag groups to\n"
+"arrange them as you like."
+msgstr "U kunt groepen slepen\nom ze naar wens te rangschikken."
+
+#: js/groups.js:590
+msgid "All"
+msgstr "Alle"
+
+#: js/groups.js:604
+msgid "Favorites"
+msgstr "Favorieten"
+
+#: js/groups.js:653
+msgid "Shared by {owner}"
+msgstr "Gedeeld door {owner}"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -655,150 +655,154 @@ msgstr "Contact niet gevonden."
 msgid "HomePage"
 msgstr "HomePage"
 
-#: templates/contacts.php:18
+#: templates/contacts.php:17
 msgid "New Group"
 msgstr "Nieuwe Groep"
 
-#: templates/contacts.php:24 templates/index.php:16
+#: templates/contacts.php:23 templates/index.php:16
 msgid "Settings"
 msgstr "Instellingen"
 
-#: templates/contacts.php:25
+#: templates/contacts.php:24
 msgid "Address books"
 msgstr "Adresboeken"
 
-#: templates/contacts.php:28 templates/contacts.php:105 templates/index.php:15
+#: templates/contacts.php:27 templates/contacts.php:104 templates/index.php:15
 #: templates/part.import.php:17
 msgid "Import"
 msgstr "Importeer"
 
-#: templates/contacts.php:33
+#: templates/contacts.php:32
 msgid "Select files to import"
 msgstr "Selecteer de te importeren bestanden"
 
-#: templates/contacts.php:34
+#: templates/contacts.php:33
 msgid "Select files"
 msgstr "Selecteer bestanden"
 
-#: templates/contacts.php:40 templates/contacts.php:42
+#: templates/contacts.php:39 templates/contacts.php:41
 msgid "Import into:"
 msgstr "Importeer naar:"
 
-#: templates/contacts.php:44
+#: templates/contacts.php:43
 msgid "OK"
 msgstr "OK"
 
-#: templates/contacts.php:54
+#: templates/contacts.php:53
 msgid "(De-)select all"
 msgstr "(De-)selecteer alle"
 
-#: templates/contacts.php:56
+#: templates/contacts.php:55
 msgid "New Contact"
 msgstr "Nieuw Contact"
 
-#: templates/contacts.php:57
+#: templates/contacts.php:56
 msgid "Download Contact(s)"
 msgstr "Downloaden Contactperso(o)n(en)"
 
-#: templates/contacts.php:59 templates/contacts.php:273
+#: templates/contacts.php:58 templates/contacts.php:273
 #: templates/part.contact.php:47 templates/part.contact.php:135
 msgid "Groups"
 msgstr "Groepen"
 
-#: templates/contacts.php:61
+#: templates/contacts.php:60
 msgid "Favorite"
 msgstr "Favoriet"
 
-#: templates/contacts.php:62
+#: templates/contacts.php:61
 msgid "Delete Contact"
 msgstr "Verwijder Contact"
 
-#: templates/contacts.php:69 templates/contacts.php:260 templates/index.php:30
+#: templates/contacts.php:68 templates/contacts.php:260 templates/index.php:30
 #: templates/part.import.php:24
 msgid "Close"
 msgstr "Sluiten"
 
-#: templates/contacts.php:70 templates/index.php:31
+#: templates/contacts.php:69 templates/index.php:31
 msgid "Keyboard shortcuts"
 msgstr "Sneltoetsen"
 
-#: templates/contacts.php:72 templates/index.php:33
+#: templates/contacts.php:71 templates/index.php:33
 msgid "Navigation"
 msgstr "Navigatie"
 
-#: templates/contacts.php:75 templates/index.php:36
+#: templates/contacts.php:74 templates/index.php:36
 msgid "Next contact in list"
 msgstr "Volgende contact in de lijst"
 
-#: templates/contacts.php:77 templates/index.php:38
+#: templates/contacts.php:76 templates/index.php:38
 msgid "Previous contact in list"
 msgstr "Vorige contact in de lijst"
 
-#: templates/contacts.php:79 templates/index.php:40
+#: templates/contacts.php:78 templates/index.php:40
 msgid "Expand/collapse current addressbook"
 msgstr "Uitklappen / inklappen huidig adresboek"
 
-#: templates/contacts.php:81 templates/index.php:42
+#: templates/contacts.php:80 templates/index.php:42
 msgid "Next addressbook"
 msgstr "Volgende adresboek"
 
-#: templates/contacts.php:83 templates/index.php:44
+#: templates/contacts.php:82 templates/index.php:44
 msgid "Previous addressbook"
 msgstr "Vorige adresboek"
 
-#: templates/contacts.php:87 templates/index.php:48
+#: templates/contacts.php:86 templates/index.php:48
 msgid "Actions"
 msgstr "Acties"
 
-#: templates/contacts.php:90 templates/index.php:51
+#: templates/contacts.php:89 templates/index.php:51
 msgid "Refresh contacts list"
 msgstr "Vernieuw contact lijst"
 
-#: templates/contacts.php:92 templates/index.php:53
+#: templates/contacts.php:91 templates/index.php:53
 msgid "Add new contact"
 msgstr "Voeg nieuw contact toe"
 
-#: templates/contacts.php:94 templates/index.php:55
+#: templates/contacts.php:93 templates/index.php:55
 msgid "Add new addressbook"
 msgstr "Voeg nieuw adresboek toe"
 
-#: templates/contacts.php:96 templates/index.php:57
+#: templates/contacts.php:95 templates/index.php:57
 msgid "Delete current contact"
 msgstr "Verwijder huidig contact"
 
-#: templates/contacts.php:101
+#: templates/contacts.php:100
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
 msgstr "<h3>Je hebt geen contacten in je addresboek.</h3><p>Voeg een nieuw contact toe of importeer bestaande contacten met een VCF bestand.</p>"
 
-#: templates/contacts.php:104 templates/part.no_contacts.php:9
+#: templates/contacts.php:103 templates/part.no_contacts.php:9
 msgid "Add contact"
 msgstr "Contactpersoon toevoegen"
 
-#: templates/contacts.php:145
+#: templates/contacts.php:144
 msgid "Compose mail"
 msgstr "Schrijf email"
 
-#: templates/contacts.php:156
+#: templates/contacts.php:155
 msgid "Delete group"
 msgstr "Verwijder groep"
 
-#: templates/contacts.php:169 templates/part.contact.php:19
+#: templates/contacts.php:168 templates/part.contact.php:19
 msgid "Delete current photo"
 msgstr "Verwijdere huidige foto"
 
-#: templates/contacts.php:170 templates/part.contact.php:20
+#: templates/contacts.php:169 templates/part.contact.php:20
 msgid "Edit current photo"
 msgstr "Wijzig huidige foto"
 
-#: templates/contacts.php:171 templates/part.contact.php:21
+#: templates/contacts.php:170 templates/part.contact.php:21
 msgid "Upload new photo"
 msgstr "Upload nieuwe foto"
 
-#: templates/contacts.php:172 templates/part.contact.php:22
+#: templates/contacts.php:171 templates/part.contact.php:22
 msgid "Select photo from ownCloud"
 msgstr "Selecteer foto uit ownCloud"
+
+#: templates/contacts.php:175
+msgid "Select groups"
+msgstr "Selecteer groepen"
 
 #: templates/contacts.php:183 templates/contacts.php:184
 msgid "First name"

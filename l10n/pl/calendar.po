@@ -4,18 +4,18 @@
 # 
 # Translators:
 # Cyryl Sochacki <>, 2012.
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012.
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2013.
 #   <koalamis0@gmail.com>, 2012.
-# Marcin Małecki <gerber@tkdami.net>, 2011-2012.
+# Marcin Małecki <gerber@tkdami.net>, 2011-2013.
 #   <mplichta@gmail.com>, 2012.
 # Piotr Sokół <psokol@jabster.pl>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-27 00:01+0100\n"
-"PO-Revision-Date: 2012-12-26 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-10 00:01+0100\n"
+"PO-Revision-Date: 2013-01-09 08:52+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -128,7 +128,7 @@ msgstr "dddd M/d"
 
 #: js/calendar.js:874
 msgid "MMMM yyyy"
-msgstr "MMMM rrrr"
+msgstr "MMMM yyyy"
 
 #: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
@@ -136,7 +136,7 @@ msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
-msgstr "dddd, MMM d, rrrr"
+msgstr "dddd, MMM d, yyyy"
 
 #: lib/app.php:114
 msgid "Birthday"
@@ -218,7 +218,7 @@ msgstr "Nie masz uprawnień, aby usunąć ten kalendarz."
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Nie masz uprawnień, aby dodawać do tego kalendarza."
 
-#: lib/import.php:214 templates/calendar.php:12
+#: lib/import.php:216 templates/calendar.php:12
 #: templates/part.choosecalendar.php:23
 msgid "New Calendar"
 msgstr "Nowy kalendarz"
@@ -233,19 +233,19 @@ msgstr "Nie masz uprawnień, aby skasować to wydarzenie."
 
 #: lib/object.php:481
 msgid "Busy"
-msgstr ""
+msgstr "Zajęty"
 
 #: lib/object.php:498
 msgid "Public"
-msgstr ""
+msgstr "Publiczne"
 
 #: lib/object.php:499
 msgid "Private"
-msgstr ""
+msgstr "Prywatne"
 
 #: lib/object.php:500
 msgid "Confidential"
-msgstr ""
+msgstr "Poufne"
 
 #: lib/object.php:510
 msgid "Does not repeat"
@@ -669,7 +669,7 @@ msgstr "Edytuj kategorie"
 
 #: templates/part.eventform.php:50 templates/part.showevent.php:46
 msgid "Access Class"
-msgstr ""
+msgstr "Klasa dostępu"
 
 #: templates/part.eventform.php:67 templates/part.showevent.php:62
 msgid "All Day Event"

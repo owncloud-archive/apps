@@ -735,6 +735,7 @@ class VCard {
 		$value = $property->value;
 		if($property->name == 'ADR' || $property->name == 'N' || $property->name == 'ORG' || $property->name == 'CATEGORIES') {
 			$value = $property->getParts();
+			$value = array_map('trim', $value);
 		}
 		elseif($property->name == 'BDAY') {
 			if(strpos($value, '-') === false) {

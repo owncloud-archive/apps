@@ -27,3 +27,13 @@ OCP\App::register(Array(
 OCP\Util::addScript('xmpp', 'mini');
 OCP\Util::addScript('xmpp', 'strophe');
 OCP\Util::addStyle('xmpp', 'mini');
+
+OCP\App::addNavigationEntry(
+        array(
+                'id' => 'xmpp_roster',
+                'order' => 10,
+                'href' => OCP\Util::linkTo('xmpp', 'manageRoster.php'),
+                'icon' => OCP\Util::imagePath('xmpp', 'icon-jabber.png'),
+                'name' => 'XMPP'
+        )
+);

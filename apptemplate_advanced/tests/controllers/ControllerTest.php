@@ -23,11 +23,13 @@
 
 namespace OCA\AppTemplateAdvanced;
 
+use OCA\AppFramework\MethodAnnotationReader as MethodAnnotationReader;
+
 
 // get abspath of file directory
 $path = realpath( dirname( __FILE__ ) ) . '/';
 
-require_once($path . "../../lib/methodannotationreader.php");
+require_once($path . "../../../appframework/lib/methodannotationreader.php");
 
 
 abstract class ControllerTest extends \PHPUnit_Framework_TestCase {
@@ -61,10 +63,10 @@ abstract class ControllerTest extends \PHPUnit_Framework_TestCase {
 
 		$possibleAnnotations = array(
 			'Ajax', 
-			'CSRFExcemption', 
-			'IsAdminExcemption', 
-			'IsSubAdminExcemption',
-			'IsLoggedInExcemption'
+			'CSRFExemption', 
+			'IsAdminExemption', 
+			'IsSubAdminExemption',
+			'IsLoggedInExemption'
 		);
 
 		// check for valid annotations parameters

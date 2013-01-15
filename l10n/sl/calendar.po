@@ -6,15 +6,15 @@
 #   <>, 2012.
 #   <blaz.lapanja@gmail.com>, 2012.
 #   <peter.perosa@gmail.com>, 2012.
-# Peter Peroša <peter.perosa@gmail.com>, 2012.
+# Peter Peroša <peter.perosa@gmail.com>, 2012-2013.
 #   <urossolar@hotmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-27 00:01+0100\n"
-"PO-Revision-Date: 2012-12-26 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-02 00:01+0100\n"
+"PO-Revision-Date: 2013-01-01 14:32+0000\n"
+"Last-Translator: Peter Peroša <peter.perosa@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -217,7 +217,7 @@ msgstr "Nimate dovoljenj za izbris tega koledarja."
 msgid "You do not have the permissions to add to this calendar."
 msgstr "Nimate dovoljenj za dodajanje tega koledarja."
 
-#: lib/import.php:214 templates/calendar.php:12
+#: lib/import.php:216 templates/calendar.php:12
 #: templates/part.choosecalendar.php:23
 msgid "New Calendar"
 msgstr "Nov koledar"
@@ -232,19 +232,19 @@ msgstr "Nimate dovoljenj za izbris tega dogodka."
 
 #: lib/object.php:481
 msgid "Busy"
-msgstr ""
+msgstr "Zaseden"
 
 #: lib/object.php:498
 msgid "Public"
-msgstr ""
+msgstr "Javno"
 
 #: lib/object.php:499
 msgid "Private"
-msgstr ""
+msgstr "Zasebno"
 
 #: lib/object.php:500
 msgid "Confidential"
-msgstr ""
+msgstr "Zaupno"
 
 #: lib/object.php:510
 msgid "Does not repeat"
