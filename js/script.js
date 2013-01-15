@@ -213,6 +213,7 @@ OC.Flux={
 		// this acts like a 'switch' command inside the dynamically loaded css
 		var mode={
 			files_index:	'files',
+			notes_index:	'notes',
 			media_index:	'media',
 			calendar_index:	'calendar',
 			contacts_index:	'contacts',

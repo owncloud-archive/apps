@@ -55,9 +55,32 @@ html.flux-state-shown #content {
 /* some specific app dependent settings */
 html.flux-modeless { }
 
-html.flux-mode-files_index { }
+/* 'files' app */
+html.flux-mode-files { }
 
-html.flux-mode-contacts_index #content #contacts {left:0; }
+/* 'notes' app */
+html.flux-mode-notes.flux-state-hidden #entries
+{
+	left:0;
+	transition:left 1s;-o-transition:left 1s;-ms-transition:left 1s;-moz-transition:left 1s;-khtml-transition:left 1s;-webkit-transition:left 1s;
+}
+html.flux-mode-notes.flux-state-shown #entries
+{
+	left:12.5em;
+	transition:left 1s;-o-transition:left 1s;-ms-transition:left 1s;-moz-transition:left 1s;-khtml-transition:left 1s;-webkit-transition:left 1s;
+}
 
-html.flux-mode-shorty_index #content #desktop {top:0; }
+/* 'media' app */
+html.flux-mode-media { }
 
+/* 'calendar' app */
+html.flux-mode-calendar { }
+
+/* 'contacts' app */
+html.flux-mode-contacts #content #contacts { left:0; }
+
+/* 'gallery' app */
+html.flux-mode-gallery { }
+
+/* 'shorty' app */
+html.flux-mode-shorty { }
