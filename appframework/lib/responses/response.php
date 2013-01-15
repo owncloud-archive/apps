@@ -29,7 +29,7 @@ abstract class Response {
 
 	private $headers;
 
-        public function __construct(){
+		public function __construct(){
 		$this->headers = array();
 	}
 
@@ -43,11 +43,13 @@ abstract class Response {
 	}
 
 
-        public abstract function render();
+	public function render(){
+		return null;
+	}
 
 
-        public function getHeaders(){
-                return $this->headers;
-        }
+	public function getHeaders(){
+		return $this->headers;
+	}
 
 }

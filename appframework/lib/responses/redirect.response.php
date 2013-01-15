@@ -51,13 +51,4 @@ class RedirectResponse extends Response {
 	}
 	
 
-	/**
-	 * Simply sets the headers and returns the file contents
-	 * @return the file contents
-	 */
-	public function render(){
-		parent::render();
-	}
-
-
 }

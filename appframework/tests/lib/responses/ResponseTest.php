@@ -28,20 +28,28 @@ namespace OCA\AppFramework;
 require_once(__DIR__ . "/../../classloader.php");
 
 
-class ChildResponse extends Response {
-    public function render(){return;}
-};
+class ChildResponse extends Response {};
 
 
 class ResponseTest extends \PHPUnit_Framework_TestCase {
 
 
-    public function testAddHeader(){
-        $childResponse = new ChildResponse();
-        $childResponse->addHeader('test');
+    private $childResponse;
 
-        $this->assertEquals('test', $childResponse->getHeaders()[0]);
+    protected function setUp(){
+        $this->childResponse = new ChildResponse();
     }
 
+
+    public function testAddHeader(){
+        $this->childResponse->addHeader('test');
+
+        $this->assertEquals('test', $this->childResponse->getHeaders()[0]);
+    }
+
+
+    public function testRenderReturnNullByDefault(){
+        $this->assertEquals(null, $this->childResponse->render());
+    }
 
 }

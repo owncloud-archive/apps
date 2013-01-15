@@ -55,7 +55,7 @@ class App {
 		// create response and run middleware that receives the response
 		// if an exception appears, the middleware is checked to handle the exception
 		// and to create a response. If no response is created, it is assumed that
-                // theres no middleware who can handle it and the error is thrown again
+				// theres no middleware who can handle it and the error is thrown again
 		try {
 			$middlewareDispatcher->beforeController($controller, $methodName);
 			$response = $controller->$methodName();
@@ -74,11 +74,15 @@ class App {
 		$output = $response->render();
 		$output = $middlewareDispatcher->beforeOutput($controller, $methodName, $output);
 
-                // output headers and echo content
-                foreach($response->getHeaders() as $header){
-                        header($header);
-                }
-		echo $output;
+		// output headers and echo content
+		foreach($response->getHeaders() as $header){
+			header($header);
+		}
+		
+		if($output !== null){
+			echo $output;	
+		}
+		
 	}
 
 

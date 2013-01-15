@@ -50,11 +50,4 @@ abstract class DownloadResponse extends Response {
 	}
 
 
-	/**
-	 * Simply sets the headers and returns the file contents
-	 * @return the file contents
-	 */
-        public abstract function render();
-
-
 }
