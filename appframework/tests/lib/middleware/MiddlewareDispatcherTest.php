@@ -31,17 +31,17 @@ require_once(__DIR__ . "/../../classloader.php");
 
 class MiddlewareDispatcherTest extends \PHPUnit_Framework_TestCase {
 
-    private $dispatcher;
+        private $dispatcher;
 
 
-    public function setUp() {
-        $this->dispatcher = new MiddlewareDispatcher();
-    }
+        public function setUp() {
+                $this->dispatcher = new MiddlewareDispatcher();
+        }
 
 
-    public function testBeforeController(){
+        public function testBeforeController(){
 
-    }
+        }
 
 
 }

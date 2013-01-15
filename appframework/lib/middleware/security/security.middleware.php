@@ -99,14 +99,20 @@ class SecurityMiddleware extends Middleware {
 		if($exception instanceof SecurityException){
 
 			if($exception->isAjax()){
-			
-				$response = new JSONResponse($this->api->getAppName());
+
+                                // ajax responses get an ajax error message
+                                $response = new JSONResponse();
 				$response->setErrorMessage($exception->getMessage(), 
 						get_class($controller) . '->' . $methodName);
+                                $this->api->log($exception->getMessage());
 				return $response;
+
 			} else {
+
+                                // normal error messages link to the index page
 				//$url = $this->api->linkToRoute('index')
 				$url = $this->api->linkToAbsolute('index.php', ''); // TODO: replace with link to route
+                                $this->api->log($exception->getMessage());
 				return new RedirectResponse($url);
 			}
 		} else  {

@@ -105,7 +105,7 @@ class Controller {
 	 */
 		protected function render($templateName, array $params=array(),
 									$renderAs='user', array $headers=array()){
-		$response = new TemplateResponse($this->api->getAppName(), $templateName, $renderAs);
+                $response = new TemplateResponse($this->api, $templateName);
 		$response->setParams($params);
 		$response->renderAs($renderAs);
 
@@ -121,15 +121,14 @@ class Controller {
 	 * Shortcut for rendering a JSON response
 	 * @param array $data: the PHP array that will be put into the JSON data index
 	 * @param string $errorMsg: If you want to return an error message, pass one
-	 * @param string $file: the file where the error message happened
 	 * @return a JSONResponse
 	 */
-		protected function renderJSON(array $data=array(), $errorMsg=null, $file=''){
-		$response = new JSONResponse($this->api->getAppName());
+                protected function renderJSON(array $data=array(), $errorMsg=null){
+                $response = new JSONResponse();
 		$response->setParams($data);
 
 		if($errorMsg !== null){
-			$response->setErrorMessage($errorMsg, $file);
+                        $response->setErrorMessage($errorMsg);
 		}
 
 		return $response;

@@ -32,17 +32,21 @@ class TemplateResponse extends Response {
 
 	private $templateName;
 	private $params;
-	private $appName;
+        private $api;
 	private $renderAs;
+        private $appName;
 
 	/**
-	 * @param string $appName: the name of your app
+         * @param string $api: an API instance
 	 * @param string $templateName: the name of the template
+         * @param string $appName: optional if you want to include a template from
+         *                         a different app
 	 */
-	public function __construct($appName, $templateName) {
+        public function __construct(API $api, $templateName, $appName=null) {
 		parent::__construct();
 		$this->templateName = $templateName;
 		$this->appName = $appName;
+                $this->api = $api;
 		$this->params = array();
 		$this->renderAs = 'user';
 	}
@@ -91,10 +95,16 @@ class TemplateResponse extends Response {
 	 */
 	public function render(){
 
+                if($this->appName !== null){
+                        $appName = $this->appName;
+                } else {
+                        $appName = $this->api->getAppName();
+                }
+
 		if($this->renderAs === 'blank'){
-			$template = new \OCP\Template($this->appName, $this->templateName);
+                        $template = new \OCP\Template($appName, $this->templateName);
 		} else {
-			$template = new \OCP\Template($this->appName, $this->templateName,
+                        $template = new \OCP\Template($appName, $this->templateName,
 											$this->renderAs);
 		}
 
