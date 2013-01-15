@@ -43,7 +43,7 @@ class ControllerTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$this->api = $this->getMock('OCA\AppFramework\API',
-								array('getAppName'), array('test'));
+									array('getAppName'), array('test'));
 		$this->api->expects($this->any())
 				->method('getAppName')
 				->will($this->returnValue('apptemplate_advanced'));
@@ -94,13 +94,65 @@ class ControllerTest extends \PHPUnit_Framework_TestCase {
 
 
 	public function testRender(){
-		// TODO
+		$this->assertTrue($this->controller->render('') instanceof TemplateResponse);
+	}
+
+
+	public function testSetParams(){
+		$params = array('john' => 'foo');
+		$response = $this->controller->render('home', $params);
+
+		$this->assertEquals($params, $response->getParams());
+	}
+
+
+	public function testRenderRenderAs(){
+		$ocTpl = $this->getMock('Template', array('fetchPage'));
+		$ocTpl->expects($this->once())
+				->method('fetchPage');
+
+		$api = $this->getMock('OCA\AppFramework\API',
+					array('getAppName', 'getTemplate'), array('app'));
+		$api->expects($this->any())
+				->method('getAppName')
+				->will($this->returnValue('app'));
+		$api->expects($this->once())
+				->method('getTemplate')
+				->with($this->equalTo('home'), $this->equalTo('admin'), $this->equalTo('app'))
+				->will($this->returnValue($ocTpl));
+
+		$this->controller = new Controller($api, new Request());
+		$this->controller->render('home', array(), 'admin')->render();
+	}
+
+
+	public function testRenderHeaders(){
+		$headers = array('one', 'two');
+		$response = $this->controller->render('', array(), '', $headers);
+
+		$this->assertTrue(in_array($headers[0], $response->getHeaders()));
+		$this->assertTrue(in_array($headers[1], $response->getHeaders()));
 	}
 
 
 	public function testRenderJSON() {
-		// TODO
+		$params = array('hi' => 'ho');
+		$json = new JSONResponse();
+		$json->setParams($params);
+
+		$this->assertEquals($json->render(), 
+				$this->controller->renderJSON($params)->render());
 	}
 
+	public function testRenderJSONError() {
+		$params = array('hi' => 'ho');
+		$error = 'not good';
+		$json = new JSONResponse();
+		$json->setParams($params);
+		$json->setErrorMessage($error);
+
+		$this->assertEquals($json->render(), 
+				$this->controller->renderJSON($params, $error)->render());	
+	}
 
 }

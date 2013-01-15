@@ -103,8 +103,8 @@ class Controller {
 	 * @param array $headers: set additional headers
 	 * @return a TemplateResponse
 	 */
-	protected function render($templateName, array $params=array(),
-									$renderAs='user', array $headers=array()){
+	public function render($templateName, array $params=array(),
+							$renderAs='user', array $headers=array()){
 		$response = new TemplateResponse($this->api, $templateName);
 		$response->setParams($params);
 		$response->renderAs($renderAs);
@@ -123,7 +123,7 @@ class Controller {
 	 * @param string $errorMsg: If you want to return an error message, pass one
 	 * @return a JSONResponse
 	 */
-	protected function renderJSON(array $data=array(), $errorMsg=null){
+	public function renderJSON(array $data, $errorMsg=null){
 		$response = new JSONResponse();
 		$response->setParams($data);
 

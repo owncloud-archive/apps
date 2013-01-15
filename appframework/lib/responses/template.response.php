@@ -84,7 +84,7 @@ class TemplateResponse extends Response {
 	 *                          the admin settings page, user renders a normal
 	 *                          owncloud page, blank renders the template alone
 	 */
-	public function renderAs($renderAs='user'){
+	public function renderAs($renderAs){
 		$this->renderAs = $renderAs;
 	}
 
