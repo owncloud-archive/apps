@@ -28,24 +28,16 @@ namespace OCA\AppFramework;
 require_once(__DIR__ . "/../../classloader.php");
 
 
-class ChildDownloadResponse extends DownloadResponse {};
+class TextResponseTest extends \PHPUnit_Framework_TestCase {
 
 
-class DownloadResponseTest extends \PHPUnit_Framework_TestCase {
-
-    protected $response;
-
-    protected function setUp(){
-        $this->response = new ChildDownloadResponse('file', 'content');
+    protected function setUp() {
+        $this->response = new TextResponse('sometext');
     }
 
 
-    public function testHeaders() {
-        $headers = $this->response->getHeaders();
-
-        $this->assertTrue(in_array('Content-Disposition: attachment; filename="file"', $headers));
-        $this->assertTrue(in_array('Content-Type: content', $headers));
+    public function testRender() {
+        $this->assertEquals('sometext', $this->response->render());
     }
-
 
 }

@@ -33,6 +33,7 @@ class ChildController extends Controller {};
 class ControllerTest extends \PHPUnit_Framework_TestCase {
 
 	private $controller;
+        private $api;
 
 	protected function setUp(){
 		$request = new Request(
@@ -41,12 +42,14 @@ class ControllerTest extends \PHPUnit_Framework_TestCase {
 			array('file'=>'filevalue')
 		);
 
-		$api = $this->getMock('API', array('getAppName'));
-		$api->expects($this->any())
+                $this->api = $this->getMock('OCA\AppFramework\API',
+                                        array('getAppName'), array('test'));
+                $this->api->expects($this->any())
 			->method('getAppName')
 			->will($this->returnValue('apptemplate_advanced'));
+
 			  
-		$this->controller = new ChildController($api, $request);
+                $this->controller = new ChildController($this->api, $request);
 	}
 
 
@@ -60,7 +63,7 @@ class ControllerTest extends \PHPUnit_Framework_TestCase {
 
 	public function testParamsPreferPostOverGet(){
 		$request = new Request(array('post'=>'getvalue'), array('post'=>'postvalue'));
-		$this->controller = new ChildController(null, $request);
+                $this->controller = new ChildController($this->api, $request);
 
 		$this->assertEquals('postvalue', $this->controller->params('post'));
 	}

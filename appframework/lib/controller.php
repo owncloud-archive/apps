@@ -36,7 +36,7 @@ class Controller {
 	 * @param API $api: an api wrapper instance
 	 * @param Request $request: an instance of the request
 	 */
-	public function __construct($api, $request){
+        public function __construct(API $api, Request $request){
 		$this->api = $api;
 		$this->request = $request;
 		$this->urlParams = array();
@@ -48,7 +48,7 @@ class Controller {
 	 * be available via the $this->params
 	 * @param array $urlParams: the array with the params from the URL
 	 */
-	public function setURLParams($urlParams=array()){
+        public function setURLParams(array $urlParams=array()){
 		$this->urlParams = $urlParams;
 	}
 
@@ -103,8 +103,8 @@ class Controller {
 	 * @param array $headers: set additional headers
 	 * @return a TemplateResponse
 	 */
-	protected function render($templateName, $params=array(), $renderAs='user',
-								$headers=array()){
+        protected function render($templateName, array $params=array(),
+                                                                $renderAs='user', array $headers=array()){
 		$response = new TemplateResponse($this->api->getAppName(), $templateName, $renderAs);
 		$response->setParams($params);
 		$response->renderAs($renderAs);
@@ -124,7 +124,7 @@ class Controller {
 	 * @param string $file: the file where the error message happened
 	 * @return a JSONResponse
 	 */
-	protected function renderJSON($data=array(), $errorMsg=null, $file=''){
+        protected function renderJSON(array $data=array(), $errorMsg=null, $file=''){
 		$response = new JSONResponse($this->api->getAppName());
 		$response->setParams($data);
 

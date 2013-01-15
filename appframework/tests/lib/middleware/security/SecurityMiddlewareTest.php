@@ -31,9 +31,35 @@ require_once(__DIR__ . "/../../../classloader.php");
 
 class SecurityMiddlewareTest extends \PHPUnit_Framework_TestCase {
 
+    private $middleware;
+    private $controller;
+    private $secException;
+    private $secAjaxException;
 
-    public function testStub() {
+    public function setUp() {
+        $api = $this->getMock('OCA\AppFramework\API', array(), array('test'));
+        $this->controller = $this->getMock('OCA\AppFramework\Controller',
+                array(), array($api, new Request()));
 
+        $this->middleware = new SecurityMiddleware($api);
+        $this->secException = new SecurityException('hey', false);
+        $this->secAjaxException = new SecurityException('hey', true);
+    }
+
+
+    public function testAfterExceptionNotCaughtReturnsNull(){
+        $ex = new \Exception();
+
+        $this->assertEquals(null,
+                $this->middleware->afterException($this->controller, 'test', $ex));
+    }
+
+
+    public function testAfterExceptionReturnsRedirect(){
+        $response = $this->middleware->afterException($this->controller, 'test',
+                $this->secException);
+
+        $this->assertTrue($response instanceof RedirectResponse);
     }
 
 

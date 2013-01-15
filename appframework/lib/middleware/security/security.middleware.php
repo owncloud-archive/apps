@@ -110,7 +110,7 @@ class SecurityMiddleware extends Middleware {
 				return new RedirectResponse($url);
 			}
 		} else  {
-			return $response;
+                        return null;
 		}
 	}
 

@@ -42,7 +42,7 @@ class RedirectResponseTest extends \PHPUnit_Framework_TestCase {
     public function testHeaders() {
         $headers = $this->response->getHeaders();
 
-        $this->assertEquals('Location: /url', $headers[0]);
+        $this->assertTrue(in_array('Location: /url', $headers));
     }
 
 

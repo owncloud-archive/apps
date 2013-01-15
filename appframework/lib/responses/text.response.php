@@ -25,26 +25,29 @@
 namespace OCA\AppFramework;
 
 
-require_once(__DIR__ . "/../../classloader.php");
+/**
+ * Prompts the user to download the a textfile
+ */
+class TextResponse extends Response {
 
+    private $content;
 
-class ChildDownloadResponse extends DownloadResponse {};
-
-
-class DownloadResponseTest extends \PHPUnit_Framework_TestCase {
-
-    protected $response;
-
-    protected function setUp(){
-        $this->response = new ChildDownloadResponse('file', 'content');
+    /**
+     * @brief Creates a response that just outputs text
+     * @param string $content: the content that should be written into the file
+     */
+    public function __construct($content){
+        parent::__construct();
+        $this->content = $content;
     }
 
 
-    public function testHeaders() {
-        $headers = $this->response->getHeaders();
-
-        $this->assertTrue(in_array('Content-Disposition: attachment; filename="file"', $headers));
-        $this->assertTrue(in_array('Content-Type: content', $headers));
+    /**
+     * Simply sets the headers and returns the file contents
+     * @return the file contents
+     */
+    public function render(){
+        return $this->content;
     }
 
 

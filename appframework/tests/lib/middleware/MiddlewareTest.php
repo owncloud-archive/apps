@@ -36,10 +36,16 @@ class MiddlewareTest extends \PHPUnit_Framework_TestCase {
         private $middleware;
         private $controller;
         private $exception;
+        private $api;
 
         protected function setUp(){
                 $this->middleware = new ChildMiddleware();
-                $this->controller = $this->getMock('OCA\AppFramework\Controller', array(), array(null, null));
+
+                $this->api = $this->getMock('OCA\AppFramework\API',
+                                        array(), array('test'));
+
+                $this->controller = $this->getMock('OCA\AppFramework\Controller',
+                                array(), array($this->api, new Request()));
                 $this->exception = $this->getMock('Exception');
                 $this->response = $this->getMock('OCA\AppFramework\Response');
         }

@@ -37,6 +37,7 @@ namespace OCA\AppFramework;
 \OC::$CLASSPATH['OCA\AppFramework\JSONResponse'] = 'apps/appframework/lib/responses/json.response.php';
 \OC::$CLASSPATH['OCA\AppFramework\RedirectResponse'] = 'apps/appframework/lib/responses/redirect.response.php';
 \OC::$CLASSPATH['OCA\AppFramework\DownloadResponse'] = 'apps/appframework/lib/responses/download.response.php';
+\OC::$CLASSPATH['OCA\AppFramework\TextResponse'] = 'apps/appframework/lib/responses/text.response.php';
 \OC::$CLASSPATH['OCA\AppFramework\TextDownloadResponse'] = 'apps/appframework/lib/responses/textdownload.response.php';
 \OC::$CLASSPATH['OCA\AppFramework\Mapper'] = 'apps/appframework/lib/mapper.php';
 \OC::$CLASSPATH['OCA\AppFramework\DoesNotExistException'] = 'apps/appframework/lib/doesnotexist.exception.php';
