@@ -1,25 +1,26 @@
 <?php
 
 /**
-* ownCloud - App Template Example
-*
-* @author Bernhard Posselt
-* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com 
-*
-* This library is free software; you can redistribute it and/or
-* modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
-* License as published by the Free Software Foundation; either
-* version 3 of the License, or any later version.
-*
-* This library is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU AFFERO GENERAL PUBLIC LICENSE for more details.
-*
-* You should have received a copy of the GNU Affero General Public
-* License along with this library.  If not, see <http://www.gnu.org/licenses/>.
-*
-*/
+ * ownCloud - App Framework
+ *
+ * @author Bernhard Posselt
+ * @copyright 2012 Bernhard Posselt nukeawhale@gmail.com
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 
 namespace OCA\AppFramework;
 
@@ -27,7 +28,6 @@ namespace OCA\AppFramework;
 class Controller {
 
 	protected $api;
-	protected $appName;
 	protected $request;
 
 	private $urlParams;
@@ -39,7 +39,6 @@ class Controller {
 	public function __construct($api, $request){
 		$this->api = $api;
 		$this->request = $request;
-		$this->appName = $api->getAppName();
 		$this->urlParams = array();
 	}
 
@@ -106,7 +105,7 @@ class Controller {
 	 */
 	protected function render($templateName, $params=array(), $renderAs='user',
 								$headers=array()){
-		$response = new TemplateResponse($this->appName, $templateName, $renderAs);
+                $response = new TemplateResponse($this->api->getAppName(), $templateName, $renderAs);
 		$response->setParams($params);
 		$response->renderAs($renderAs);
 
@@ -126,7 +125,7 @@ class Controller {
 	 * @return a JSONResponse
 	 */
 	protected function renderJSON($data=array(), $errorMsg=null, $file=''){
-		$response = new JSONResponse($this->appName);
+                $response = new JSONResponse($this->api->getAppName());
 		$response->setParams($data);
 
 		if($errorMsg !== null){

@@ -25,5 +25,16 @@
 namespace OCA\AppFramework;
 
 
-require_once \OC_App::getAppPath('appframework') . '/appinfo/classpath.php';
+require_once(__DIR__ . "/../../classloader.php");
 
+
+
+class JSONResponseTest extends \PHPUnit_Framework_TestCase {
+
+
+    public function testStub() {
+
+    }
+
+
+}

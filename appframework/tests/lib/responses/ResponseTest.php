@@ -25,5 +25,23 @@
 namespace OCA\AppFramework;
 
 
-require_once \OC_App::getAppPath('appframework') . '/appinfo/classpath.php';
+require_once(__DIR__ . "/../../classloader.php");
 
+
+class ChildResponse extends Response {
+    public function render(){return;}
+};
+
+
+class ResponseTest extends \PHPUnit_Framework_TestCase {
+
+
+    public function testAddHeader(){
+        $childResponse = new ChildResponse();
+        $childResponse->addHeader('test');
+
+        $this->assertEquals('test', $childResponse->getHeaders()[0]);
+    }
+
+
+}
