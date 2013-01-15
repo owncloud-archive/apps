@@ -43,8 +43,8 @@ class MethodAnnotationReader {
 		$reflection = new \ReflectionMethod($object, $method);
 		$docs = $reflection->getDocComment();
 
-		// extract everythin prefixed by @
-		preg_match_all('/@(\w+)/', $docs, $matches);
+                // extract everythin prefixed by @ and first letter uppercase
+                preg_match_all('/@([A-Z]\w+)/', $docs, $matches);
 		$this->annotations = $matches[1];
 	}
 
