@@ -10,9 +10,8 @@ class OC_USER_VD extends OC_User_Backend{
 		if($this->userExists($uid)){
 			return false;
 		}else{
-			list($partName,$partDomain)=explode('@',$uid);
-			$query=OC_DB::prepare('INSERT INTO *PREFIX*users_vd (uid,password,partName,partDomain) VALUES (?,?,?,?)');
-			$result=$query->execute(array($uid,$password,$partName,$partDomain));
+			$query=OC_DB::prepare('INSERT INTO *PREFIX*users_vd (uid,password) VALUES (?,?,?,?)');
+			$result=$query->execute(array($uid,$password));
 			return $result ? true : false;
 		}
 	}
