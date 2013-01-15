@@ -29,20 +29,11 @@ require_once(__DIR__ . "/../../classloader.php");
 
 
 
-class RedirectResponseTest extends \PHPUnit_Framework_TestCase {
+class TemplateResponseTest extends \PHPUnit_Framework_TestCase {
 
 
-    protected $response;
+    public function testStub() {
 
-    protected function setUp(){
-        $this->response = new RedirectResponse('/url');
-    }
-
-
-    public function testHeaders() {
-        $headers = $this->response->getHeaders();
-
-        $this->assertEquals('Location: /url', $headers[0]);
     }
 
 

@@ -28,13 +28,77 @@ namespace OCA\AppFramework;
 require_once(__DIR__ . "/../classloader.php");
 
 
+class ChildController extends Controller {};
 
 class ControllerTest extends \PHPUnit_Framework_TestCase {
 
+	private $controller;
 
-    public function testStub() {
+	protected function setUp(){
+		$request = new Request(
+			array('get'=>'getvalue'), 
+			array('post'=>'postvalue'), 
+			array('file'=>'filevalue')
+		);
 
-    }
+		$api = $this->getMock('API', array('getAppName'));
+		$api->expects($this->any())
+			->method('getAppName')
+			->will($this->returnValue('apptemplate_advanced'));
+			  
+		$this->controller = new ChildController($api, $request);
+	}
+
+
+	public function testSetURLParams() {
+		$urlParams = array('post' => 'something');
+		$this->controller->setURLParams($urlParams);
+
+		$this->assertEquals($urlParams['post'], $this->controller->params('post'));
+	}
+
+
+	public function testParamsPreferPostOverGet(){
+		$request = new Request(array('post'=>'getvalue'), array('post'=>'postvalue'));
+		$this->controller = new ChildController(null, $request);
+
+		$this->assertEquals('postvalue', $this->controller->params('post'));
+	}
+
+
+	public function testParamsPostDefault(){
+		$this->assertEquals('default', $this->controller->params('posts', 'default'));
+	}
+
+
+	public function testParamsGet(){
+		$this->assertEquals('getvalue', $this->controller->params('get', 'getvalue'));
+	}
+
+
+	public function testParamsGetDefault(){
+		$this->assertEquals('default', $this->controller->params('gets', 'default'));
+	}
+
+
+	public function testGetUploadedFile(){
+		$this->assertEquals('filevalue', $this->controller->params('file', 'filevalue'));
+	}
+
+
+	public function testGetUploadedFileDefault(){
+		$this->assertEquals('default', $this->controller->params('files', 'default'));
+	}
+
+
+	public function testRender(){
+		// TODO
+	}
+
+
+	public function testRenderJSON() {
+		// TODO
+	}
 
 
 }

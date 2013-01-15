@@ -64,7 +64,7 @@ class Controller {
 	 * @param $default: If the key is not found, this value will be returned
 	 * @return: the content of the array
 	 */
-	protected function params($key, $default=null){
+	public function params($key, $default=null){
 		$postValue = $this->request->getPOST($key);
 		$getValue = $this->request->getGET($key);
 
@@ -89,7 +89,7 @@ class Controller {
 	 * @param string $key: the key that will be taken from the $_FILES array
 	 * @return the file in the $_FILES element
 	 */
-	protected function getUploadedFile($key){
+	public function getUploadedFile($key){
 		return $this->request->getFILES($key);
 	}
 
@@ -105,7 +105,7 @@ class Controller {
 	 */
 	protected function render($templateName, $params=array(), $renderAs='user',
 								$headers=array()){
-                $response = new TemplateResponse($this->api->getAppName(), $templateName, $renderAs);
+		$response = new TemplateResponse($this->api->getAppName(), $templateName, $renderAs);
 		$response->setParams($params);
 		$response->renderAs($renderAs);
 
@@ -125,7 +125,7 @@ class Controller {
 	 * @return a JSONResponse
 	 */
 	protected function renderJSON($data=array(), $errorMsg=null, $file=''){
-                $response = new JSONResponse($this->api->getAppName());
+		$response = new JSONResponse($this->api->getAppName());
 		$response->setParams($data);
 
 		if($errorMsg !== null){
