@@ -35,19 +35,25 @@ class Helper {
 	 * @param string $dest - destination path
 	 * @throws \Exception on error
 	 */
-	public static function copyr($src, $dest) {
+	public static function copyr($src, $dest, $stopOnError = true) {
 		if(is_dir($src)) {
 			if(!is_dir($dest)) {
-				self::mkdir($dest);
+				try {
+					self::mkdir($dest);
+				} catch (\Exception $e){
+					if ($stopOnError){
+						throw $e;
+					}
+				}
 			}
 			$files = scandir($src);
 			foreach ($files as $file) {
 				if ($file != "." && $file != "..") {
-					self::copyr("$src/$file", "$dest/$file");
+					self::copyr("$src/$file", "$dest/$file", $stopOnError);
 				}
 			}
 		}elseif(file_exists($src)) {
-			if (!@copy($src, $dest)) {
+			if (!@copy($src, $dest) && $stopOnError) {
 				throw new \Exception("Unable copy $src to $dest");
 			}
 		}
