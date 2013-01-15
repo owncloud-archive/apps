@@ -27,19 +27,19 @@ DEFINE('CLASSPATH_DIR', '../appinfo/classpath.php');
 
 // mock class so we can load the defintions in the app directory
 class OC {
-    public static $CLASSPATH = array();
+        public static $CLASSPATH = array();
 }
 
 
 // to execute without owncloud, we need to create our own classloader
 spl_autoload_register(function ($className){
 
-    // load existing defintions
-    $classPath = __DIR__ . '/' . CLASSPATH_DIR;
-    require_once($classPath);
+        // load existing defintions
+        $classPath = __DIR__ . '/' . CLASSPATH_DIR;
+        require_once($classPath);
 
-    if(array_key_exists($className, OC::$CLASSPATH)){
-        require_once(__DIR__ . '/../../../' . OC::$CLASSPATH[$className]);
-    }
+        if(array_key_exists($className, OC::$CLASSPATH)){
+                require_once(__DIR__ . '/../../../' . OC::$CLASSPATH[$className]);
+        }
 
 });

@@ -33,19 +33,19 @@ class ChildDownloadResponse extends DownloadResponse {};
 
 class DownloadResponseTest extends \PHPUnit_Framework_TestCase {
 
-    protected $response;
+        protected $response;
 
-    protected function setUp(){
-        $this->response = new ChildDownloadResponse('file', 'content');
-    }
+        protected function setUp(){
+                $this->response = new ChildDownloadResponse('file', 'content');
+        }
 
 
-    public function testHeaders() {
-        $headers = $this->response->getHeaders();
+        public function testHeaders() {
+                $headers = $this->response->getHeaders();
 
-        $this->assertTrue(in_array('Content-Disposition: attachment; filename="file"', $headers));
-        $this->assertTrue(in_array('Content-Type: content', $headers));
-    }
+                $this->assertTrue(in_array('Content-Disposition: attachment; filename="file"', $headers));
+                $this->assertTrue(in_array('Content-Type: content', $headers));
+        }
 
 
 }

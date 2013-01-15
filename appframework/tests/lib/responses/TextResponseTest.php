@@ -31,13 +31,13 @@ require_once(__DIR__ . "/../../classloader.php");
 class TextResponseTest extends \PHPUnit_Framework_TestCase {
 
 
-    protected function setUp() {
-        $this->response = new TextResponse('sometext');
-    }
+        protected function setUp() {
+                $this->response = new TextResponse('sometext');
+        }
 
 
-    public function testRender() {
-        $this->assertEquals('sometext', $this->response->render());
-    }
+        public function testRender() {
+                $this->assertEquals('sometext', $this->response->render());
+        }
 
 }

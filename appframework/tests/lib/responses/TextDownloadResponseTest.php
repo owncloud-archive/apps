@@ -32,13 +32,13 @@ require_once(__DIR__ . "/DownloadResponseTest.php");
 class TextDownloadResponseTest extends DownloadResponseTest {
 
 
-    protected function setUp() {
-        $this->response = new TextDownloadResponse('sometext', 'file', 'content');
-    }
+        protected function setUp() {
+                $this->response = new TextDownloadResponse('sometext', 'file', 'content');
+        }
 
 
-    public function testRender() {
-        $this->assertEquals('sometext', $this->response->render());   
-    }
+        public function testRender() {
+                $this->assertEquals('sometext', $this->response->render());
+        }
 
 }

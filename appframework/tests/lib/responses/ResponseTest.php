@@ -34,22 +34,22 @@ class ChildResponse extends Response {};
 class ResponseTest extends \PHPUnit_Framework_TestCase {
 
 
-    private $childResponse;
+        private $childResponse;
 
-    protected function setUp(){
-        $this->childResponse = new ChildResponse();
-    }
-
-
-    public function testAddHeader(){
-        $this->childResponse->addHeader('test');
-
-        $this->assertEquals('test', $this->childResponse->getHeaders()[0]);
-    }
+        protected function setUp(){
+                $this->childResponse = new ChildResponse();
+        }
 
 
-    public function testRenderReturnNullByDefault(){
-        $this->assertEquals(null, $this->childResponse->render());
-    }
+        public function testAddHeader(){
+                $this->childResponse->addHeader('test');
+
+                $this->assertEquals('test', $this->childResponse->getHeaders()[0]);
+        }
+
+
+        public function testRenderReturnNullByDefault(){
+                $this->assertEquals(null, $this->childResponse->render());
+        }
 
 }

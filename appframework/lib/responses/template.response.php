@@ -101,12 +101,7 @@ class TemplateResponse extends Response {
 			$appName = $this->api->getAppName();
 		}
 
-		if($this->renderAs === 'blank'){
-			$template = new \OCP\Template($appName, $this->templateName);
-		} else {
-			$template = new \OCP\Template($appName, $this->templateName,
-											$this->renderAs);
-		}
+                $template = $this->api->getTemplate($this->templateName, $this->renderAs, $appName);
 
 		foreach($this->params as $key => $value){
 			$template->assign($key, $value, false);

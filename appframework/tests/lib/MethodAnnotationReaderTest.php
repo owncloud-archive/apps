@@ -32,9 +32,9 @@ require_once(__DIR__ . "/../classloader.php");
 class MethodAnnotationReaderTest extends \PHPUnit_Framework_TestCase {
 
 
-    public function testStub() {
+        public function testStub() {
 
-    }
+        }
 
 
 }
