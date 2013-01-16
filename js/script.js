@@ -251,8 +251,8 @@ OC.Flux={
 				OC.Flux.show()
 			).done(dfd.resolve)}
 		// make sure temporary transition style rules are removed, preferably upon event, time based as catchall
-		var timer=setTimeout(function(){$('head link#flux-transitions').remove();},5000);
-		$('body > nav > #navigation').on('webkitTransitionEnd MSTransitionEnd oTransitionEnd transitionEnd transitionend',function(){
+		var timer=setTimeout(function(){$('head link#flux-transitions').remove();},10000);
+		$('body > nav > #navigation').on('webkitTransitionEnd oTransitionEnd transitionEnd',function(){
 			clearTimeout(timer);
 			$('head link#flux-transitions').remove();
 		});
