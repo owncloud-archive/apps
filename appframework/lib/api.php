@@ -251,8 +251,8 @@ class API {
 
 	/**
 	 * Writes a function into the error log
-         * @param string $msg: the error message to be logged
-         * @param int $level: the error level
+	 * @param string $msg: the error message to be logged
+	 * @param int $level: the error level
 	 */
 	public function log($msg, $level=null){
 		if($level === null){
@@ -262,22 +262,22 @@ class API {
 	}
 
 
-        /**
-         * Returns a template
-         * @param string $templateName: the name of the template
-         * @param string $renderAs: how it should be rendered
-         * @param string $appName: the name of the app
-         */
-        public function getTemplate($templateName, $renderAs='user', $appName=null){
-                if($appName === null){
-                        $appName = $this->appName;
-                }
+	/**
+	 * Returns a template
+	 * @param string $templateName: the name of the template
+	 * @param string $renderAs: how it should be rendered
+	 * @param string $appName: the name of the app
+	 */
+	public function getTemplate($templateName, $renderAs='user', $appName=null){
+		if($appName === null){
+			$appName = $this->appName;
+		}
 
-                if($renderAs === 'blank'){
-                        return new \OCP\Template($appName, $templateName);
-                } else {
-                        return new \OCP\Template($appName, $templateName, $renderAs);
-                }
-        }
+		if($renderAs === 'blank'){
+			return new \OCP\Template($appName, $templateName);
+		} else {
+			return new \OCP\Template($appName, $templateName, $renderAs);
+		}
+	}
 
 }

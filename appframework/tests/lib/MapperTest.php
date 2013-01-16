@@ -28,13 +28,103 @@ namespace OCA\AppFramework;
 require_once(__DIR__ . "/../classloader.php");
 
 
+class ExampleMapper extends Mapper {
+	public function __construct(API $api){ parent::__construct($api); }
+	public function find($table, $id){ return $this->findQuery($table, $id); }
+	public function findAll($table){ return $this->findAllQuery($table); }
+	public function delete($table, $id){ $this->deleteQuery($table, $id); }
+}
+
 
 class MapperTest extends \PHPUnit_Framework_TestCase {
 
+	private $api;
 
-        public function testStub() {
+	public function setUp(){
+		$this->api = $this->getMock('OCA\AppFramework\API',
+									array('getAppName', 'prepareQuery'), 
+									array('test'));
+	}
 
-        }
 
+
+	private function find($doesNotExist=false){
+		$sql = 'SELECT * FROM hihi WHERE id = ?';
+		$params = array(1);
+
+		$cursor = $this->getMock('cursor', array('fetchRow'));
+		$cursor->expects($this->once())
+				->method('fetchRow')
+				->will($this->returnValue(!$doesNotExist));
+
+		$query = $this->getMock('query', array('execute'));
+		$query->expects($this->once())
+				->method('execute')
+				->with($this->equalTo($params))
+				->will($this->returnValue($cursor));
+
+		$this->api->expects($this->once())
+				->method('prepareQuery')
+				->with($this->equalTo($sql))
+				->will($this->returnValue($query));
+
+		$mapper = new ExampleMapper($this->api);
+
+		if($doesNotExist){
+			$this->setExpectedException('\OCA\AppFramework\DoesNotExistException');
+		}
+
+		$result = $mapper->find('hihi', $params[0]);
+
+		if($doesNotExist){
+			$this->assertFalse($result);
+		} else {
+			$this->assertTrue($result);
+		}
+		
+	}
+
+
+	public function testFind(){
+		$this->find();
+	}
+
+
+	public function testFindDoesNotExist(){
+		$this->find(false);
+	}
+
+
+	private function query($method, $sql, $params=array()){
+
+		$query = $this->getMock('query', array('execute'));
+		
+		$query->expects($this->once())
+				->method('execute')
+				->with($this->equalTo($params));
+
+		$this->api->expects($this->once())
+				->method('prepareQuery')
+				->with($this->equalTo($sql))
+				->will($this->returnValue($query));
+
+		$mapper = new ExampleMapper($this->api);
+
+		if(count($params) > 0){
+			$mapper->$method('hihi', $params[0]);
+		} else {
+			$mapper->$method('hihi');
+		}
+	}
+
+
+	public function testFindAll(){
+		$this->query('findAll', 'SELECT * FROM hihi');
+	}
+
+
+	public function testDelete(){
+		$this->query('delete', 'DELETE FROM hihi WHERE id = ?', array(1));
+	}
 
 }
