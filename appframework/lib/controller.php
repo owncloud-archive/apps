@@ -28,8 +28,8 @@ namespace OCA\AppFramework;
 class Controller {
 
 	protected $api;
-	protected $request;
-
+	
+	private $request;
 	private $urlParams;
 
 	/**

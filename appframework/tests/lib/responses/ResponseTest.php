@@ -32,22 +32,22 @@ require_once(__DIR__ . "/../../classloader.php");
 class ResponseTest extends \PHPUnit_Framework_TestCase {
 
 
-        private $childResponse;
+	private $childResponse;
 
-        protected function setUp(){
-                $this->childResponse = new Response();
-        }
-
-
-        public function testAddHeader(){
-                $this->childResponse->addHeader('test');
-                $headers = $this->childResponse->getHeaders();
-                $this->assertEquals('test', $headers[0]);
-        }
+	protected function setUp(){
+		$this->childResponse = new Response();
+	}
 
 
-        public function testRenderReturnNullByDefault(){
-                $this->assertEquals(null, $this->childResponse->render());
-        }
+	public function testAddHeader(){
+		$this->childResponse->addHeader('test');
+		$headers = $this->childResponse->getHeaders();
+		$this->assertEquals('test', $headers[0]);
+	}
+
+
+	public function testRenderReturnNullByDefault(){
+		$this->assertEquals(null, $this->childResponse->render());
+	}
 
 }
