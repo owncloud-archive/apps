@@ -30,8 +30,7 @@
  * @author Christian Reiner
  */
 
-// small js sniplet required to insert imprint link into OC framework
-OCP\Util::addScript ( 'fluxx_compensator', 'script' );
-OCP\Util::addStyle  ( 'fluxx_compensator', 'style'  );
+OCP\Util::addScript ( 'fluxx_compensator', 'fluxx' );
+OCP\Util::addStyle  ( 'fluxx_compensator', 'fluxx' );
 
 ?>

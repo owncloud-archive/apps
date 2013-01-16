@@ -24,7 +24,7 @@
 */
 
 /**
- * @file js/slider.js
+ * @file js/fluxx.js
  * @brief Client side activity library
  * @author Christian Reiner
  */
