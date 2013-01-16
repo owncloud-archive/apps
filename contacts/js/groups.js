@@ -206,6 +206,8 @@ OC.Contacts = OC.Contacts || {};
 					cb({status:'error', message:t('contacts', 'Contacts are already in this group.')});
 				}
 			}
+		} else {
+			console.warn('Invalid data type: ' + typeof contactid);
 		}
 		if(doPost) {
 			$.post(OC.filePath('contacts', 'ajax', 'categories/addto.php'), {contactids: ids, categoryid: groupid},function(jsondata) {

@@ -389,8 +389,14 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		$(document).bind('request.contact.addtogroup', function(e, data) {
-			console.log('contact', data.id, 'request.contact.addtogroup');
-			self.groups.addTo(data.id, data.groupid);
+			self.groups.addTo(data.id, data.groupid, function(response) {
+				console.log('contact', data.id, 'request.contact.addtogroup', response);
+			});
+		});
+
+		$(document).bind('request.contact.removefromgroup', function(e, data) {
+			console.log('contact', data.id, 'request.contact.removefromgroup');
+			self.groups.removeFrom(data.id, data.groupid);
 		});
 
 		$(document).bind('request.contact.export', function(e, data) {

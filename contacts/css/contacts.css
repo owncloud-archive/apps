@@ -31,8 +31,8 @@
 }
 #content textarea { font-family: inherit; }
 
-#content input:-moz-placeholder #content ::-moz-placeholder, #content input[placeholder], #content input:placeholder, #content input:-ms-input-placeholder, #content input::-webkit-input-placeholder, #content input:-moz-placeholder { 
-	color: #aaa; 
+#content ::-moz-placeholder, #content input:-moz-placeholder, #content input[placeholder], #content input:placeholder, #content input:-ms-input-placeholder, #content input::-webkit-input-placeholder, #content input:-moz-placeholder { 
+	color: #bbb; 
 	text-overflow: ellipsis;
 }
 
@@ -146,6 +146,11 @@
 
 /* reset box-sizing for multiSelect */
 #content div.multiselect, #content div.multiselect > * { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+
+/* Reset values for jquery.multiselect */
+.ui-multiselect-checkboxes label { width: 100%; color: #333; font-size: 1em !important; }
+.ui-multiselect-checkboxes input[type="checkbox"] { margin: 3px !important; }
+
 #content .multiselectoptions > li > * { 
 	-webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; 
 	color: #888888; 
