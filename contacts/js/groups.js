@@ -87,7 +87,7 @@ OC.Contacts = OC.Contacts || {};
 	 * @returns string The name of the group.
 	 */
 	GroupList.prototype.nameById = function(id) {
-		return this.findById(id).clone().find("*").remove().end().text(); //.contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
+		return this.findById(id).clone().find("*").remove().end().text().trim(); //.contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
 	};
 
 	/** Get the group element by id.
