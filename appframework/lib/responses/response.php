@@ -25,7 +25,7 @@
 namespace OCA\AppFramework;
 
 
-abstract class Response {
+class Response {
 
 	private $headers;
 

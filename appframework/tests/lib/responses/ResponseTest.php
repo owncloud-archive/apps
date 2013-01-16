@@ -28,8 +28,6 @@ namespace OCA\AppFramework;
 require_once(__DIR__ . "/../../classloader.php");
 
 
-class ChildResponse extends Response {};
-
 
 class ResponseTest extends \PHPUnit_Framework_TestCase {
 
@@ -37,7 +35,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase {
         private $childResponse;
 
         protected function setUp(){
-                $this->childResponse = new ChildResponse();
+                $this->childResponse = new Response();
         }
 
 
