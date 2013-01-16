@@ -24,28 +24,24 @@
 */
 
 /**
- * @file css/dynamic.css
- * @brief Dynamic style definitions modifying the apps builtin styles
+ * @file css/transition.css
+ * @brief Style ransition definitions to control the dynamic of the flux mode change
  * @author Christian Reiner
  */
 
-/* some general static modifications required due to strange OC base definitions */
-/* html #content #controls { position:relative; top:0; } */
-
 /* some general mode specific modifications */
 html.flux-state-hidden #navigation {
-	left: -12.5em;
+	transition:left 1s;-o-transition:left 1s;-ms-transition:left 1s;-moz-transition:left 1s;-khtml-transition:left 1s;-webkit-transition:left 1s;
 }
 html.flux-state-hidden #content {
-	left: 0;
-/* 	width: calc(attr(width)+attr()); */
+	transition:left 1s;-o-transition:left 1s;-ms-transition:left 1s;-moz-transition:left 1s;-khtml-transition:left 1s;-webkit-transition:left 1s;
 }
 
 html.flux-state-shown #navigation {
-	left: 0;
+	transition:left 1s;-o-transition:left 1s;-ms-transition:left 1s;-moz-transition:left 1s;-khtml-transition:left 1s;-webkit-transition:left 1s;
 }
 html.flux-state-shown #content {
-	left: 12.5em;
+	transition:left 1s;-o-transition:left 1s;-ms-transition:left 1s;-moz-transition:left 1s;-khtml-transition:left 1s;-webkit-transition:left 1s;
 }
 
 /* some specific app dependent settings */
@@ -57,11 +53,11 @@ html.flux-mode-files { }
 /* 'notes' app */
 html.flux-mode-notes.flux-state-hidden #entries
 {
-	left:0;
+	transition:left 1s;-o-transition:left 1s;-ms-transition:left 1s;-moz-transition:left 1s;-khtml-transition:left 1s;-webkit-transition:left 1s;
 }
 html.flux-mode-notes.flux-state-shown #entries
 {
-	left:12.5em;
+	transition:left 1s;-o-transition:left 1s;-ms-transition:left 1s;-moz-transition:left 1s;-khtml-transition:left 1s;-webkit-transition:left 1s;
 }
 
 /* 'media' app */

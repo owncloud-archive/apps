@@ -235,12 +235,13 @@ OC.Flux={
 		}
 	}, // OC.Flux.stylish
 	/**
-	* @method OC.Flux.toggle
-	* @brief Toggles the visibility of the navigation area
+	* @method OC.Flux.swap
+	* @brief Swaps the mode of the app between hidden and shown
 	* @author Christian Reiner
 	*/
-	toggle: function(){
+	swap: function(){
 		var dfd = new $.Deferred();
+		// call action depending on the current mode
 		if (OC.Flux.Handle.hasClass('flux-shown')){
 			$.when(
 				OC.Flux.hide()
@@ -249,6 +250,32 @@ OC.Flux={
 			$.when(
 				OC.Flux.show()
 			).done(dfd.resolve)}
+		// make sure temporary transition style rules are removed, preferably upon event, time based as catchall
+		var timer=setTimeout(function(){$('head link#flux-transitions').remove();},5000);
+		$('body > nav > #navigation').on('webkitTransitionEnd MSTransitionEnd oTransitionEnd transitionEnd transitionend',function(){
+			clearTimeout(timer);
+			$('head link#flux-transitions').remove();
+		});
+		return dfd.promise();
+	}, // OC.Flux.swap
+	/**
+	* @method OC.Flux.toggle
+	* @brief Toggles the visibility of the navigation area
+	* @author Christian Reiner
+	*/
+	toggle: function(){
+		var dfd = new $.Deferred();
+		// temporarily include transition style rules if not yet present (should not be!)
+		if ($('head link#flux-transitions').length)
+			OC.Flux.swap();
+		else
+			$('<link/>',{
+				id:'flux-transitions',
+				rel:'stylesheet',
+				type:'text/css',
+				href:OC.filePath('flux_compensator','css','transitions.css'),
+				onLoad:'OC.Flux.swap()'
+			}).appendTo('head');
 		return dfd.promise();
 	} // OC.Flux.toggle
 }
