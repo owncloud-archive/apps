@@ -49,7 +49,7 @@ class SecurityMiddleware extends Middleware {
 	 * security checks are determined by inspecting the controller method
 	 * annotations
 	 */
-	public function beforeController(Controller $controller, $methodName){
+        public function beforeController($controller, $methodName){
 
 		// get annotations from comments
 		$annotationReader = new MethodAnnotationReader($controller, $methodName);
@@ -63,30 +63,36 @@ class SecurityMiddleware extends Middleware {
 			$ajax = true;
 		}
 
+                $exceptionMessage = null;
+
 		// security checks
 		if(!$annotationReader->hasAnnotation('IsLoggedInExemption')){
 			if(!$this->api->isLoggedIn()){
-				throw new SecurityException('Current user is not logged in', $ajax);
+                                $exceptionMessage = 'Current user is not logged in';
 			}
 		}
 
 		if(!$annotationReader->hasAnnotation('CSRFExemption')){
 			if(!$this->api->passesCSRFCheck()){
-				throw new SecurityException('CSRF check failed', $ajax);
+                                $exceptionMessage = 'CSRF check failed';
 			}
 		}
 
 		if(!$annotationReader->hasAnnotation('IsAdminExemption')){
 			if(!$this->api->isAdminUser($this->api->getUserId())){
-				throw new SecurityException('Logged in user must be an admin', $ajax);
+                                $exceptionMessage = 'Logged in user must be an admin';
 			}
 		}
 
 		if(!$annotationReader->hasAnnotation('IsSubAdminExemption')){
 			if(!$this->api->isSubAdminUser($this->api->getUserId())){
-				throw new SecurityException('Logged in user must be a subadmin', $ajax);
+                                $exceptionMessage = 'Logged in user must be a subadmin';
 			}
 		}
+
+                if($exceptionMessage !== null){
+                        throw new SecurityException($exceptionMessage, $ajax);
+                }
 
 	}
 
