@@ -1,12 +1,12 @@
 <?php
 /**
-* @package flux-compensator an ownCloud app
+* @package fluxx-compensator an ownCloud app
 * @category base
 * @author Christian Reiner
 * @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information 
-* @link repository https://svn.christian-reiner.info/svn/app/oc/flux-compensator
+* @link repository https://svn.christian-reiner.info/svn/app/oc/fluxx-compensator
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -31,7 +31,7 @@
  */
 
 // small js sniplet required to insert imprint link into OC framework
-OCP\Util::addScript ( 'flux_compensator', 'script' );
-OCP\Util::addStyle  ( 'flux_compensator', 'style'  );
+OCP\Util::addScript ( 'fluxx_compensator', 'script' );
+OCP\Util::addStyle  ( 'fluxx_compensator', 'style'  );
 
 ?>

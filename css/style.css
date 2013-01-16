@@ -1,11 +1,11 @@
 /**
-* @package flux-compensator an ownCloud app
+* @package fluxx-compensator an ownCloud app
 * @category base
 * @author Christian Reiner
 * @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information 
-* @link repository https://svn.christian-reiner.info/svn/app/oc/flux-compensator
+* @link repository https://svn.christian-reiner.info/svn/app/oc/fluxx-compensator
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -30,7 +30,7 @@
  */
 
 /* style the 'handle' itself used to switch the navigation */
-#flux {
+#fluxx {
 	position: absolute;
 	background: #eee;
 	z-index: 100;
@@ -43,7 +43,7 @@
 	box-shadow: 1px 0 1px #bbb;
 	cursor: pointer;
 }
-#flux img {
+#fluxx img {
 	margin: 5px 2px;
 	padding: 0;
 	opacity: 0.6;
@@ -61,6 +61,6 @@
 }
 
 /* switch cursor to a 'move' indication during move mode */
-html.flux-handle-move, html.flux-handle-move * {
+html.fluxx-handle-move, html.fluxx-handle-move * {
 	cursor: row-resize !important;
 }
