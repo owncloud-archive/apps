@@ -31,29 +31,11 @@
 
 // add slider to navigation area
 $(document).ready(function(){
-	// construct slider object
-	var slider=$('<span id="flux" class="flux-shown" />');
-	var img   =$('<img  id="flux" class="svg" draggable="false">');
-	img.attr('src',OC.filePath('flux_compensator','img','actions/slide-left.svg'));
-	slider.append(img);
-	// inject slider object into navigation areaa
-	$('body > nav > #navigation').append(slider);
-	// store some references to slider and moved objects
-	OC.Flux.Handle=$('#flux');
-	OC.Flux.Offset=$('#navigation').css('width');
-	OC.Flux.Zoom=$('#content');
-	// position slider object horizontally
-	$('#flux').css('left',$('body > nav > #navigation').css('width'));
-	// position slider object vertically
-	// for this we consider a default value, an optional stored value and min and max values
+	// setup limits for the handles position
 	var topMin=37;
 	var topMax=$('body > nav > #navigation').height()-$('body > nav > #navigation').position().top-37;
-	OC.AppConfig.getValue('flux_compensator','flux-position',topMax,function(top){
-		top=(top>topMax)?topMax:((top<topMin)?topMin:top);
-		$('#flux').css('top',top+'px');
-		// visualize handle by allowing overflow of the navigation area
-		$('body > nav > #navigation').css('overflow','visible');
-	});
+	// setup handle object
+	OC.Flux.create(topMin,topMax);
 	// hide or show the navigation in a persistent manner
 	OC.AppConfig.getValue('flux_compensator','flux-status','shown',function(status){
 		if ('hidden'==status)
@@ -123,6 +105,31 @@ OC.Flux={
 		});
 		return false;
 	}, // OC.Flux.click
+	/**
+	* @method OC.Flux.create
+	* @brief Hide the navigation area if visible
+	* @author Christian Reiner
+	*/
+	create:function(topMin,topMax){
+		// construct slider object
+		var slider=$('<span id="flux" class="flux-shown" />');
+		var img   =$('<img  id="flux" class="svg" draggable="false">');
+		img.attr('src',OC.filePath('flux_compensator','img','actions/slide-left.svg'));
+		slider.append(img);
+		// inject slider object into navigation areaa
+		$('body > nav > #navigation').append(slider);
+		// store some references to slider and moved objects
+		OC.Flux.Handle=$('#flux');
+		// position slider object horizontally
+		$('#flux').css('left',$('body > nav > #navigation').css('width'));
+		// position slider object vertically
+		OC.AppConfig.getValue('flux_compensator','flux-position',topMax,function(top){
+			top=(top>topMax)?topMax:((top<topMin)?topMin:top);
+			$('#flux').css('top',top+'px');
+			// visualize handle by allowing overflow of the navigation area
+			$('body > nav > #navigation').css('overflow','visible');
+		});
+	}, // OC.Flux.create
 	/**
 	* @method OC.Flux.hide
 	* @brief Hide the navigation area if visible
