@@ -36,6 +36,10 @@ $(document).ready(function(){
 	var topMax=$('body > nav > #navigation').height()-$('body > nav > #navigation').position().top-37;
 	// setup handle object
 	OC.FluXX.create(topMin,topMax);
+	// store some references to slider and moved objects
+	OC.FluXX.Handle=$('#fluxx');
+	OC.FluXX.Offset=$('#navigation').css('width');
+	OC.FluXX.Zoom=$('#content');
 	// hide or show the navigation in a persistent manner
 	OC.AppConfig.getValue('fluxx_compensator','fluxx-status','shown',function(status){
 		if ('hidden'==status)
@@ -118,8 +122,6 @@ OC.FluXX={
 		slider.append(img);
 		// inject slider object into navigation areaa
 		$('body > nav > #navigation').append(slider);
-		// store some references to slider and moved objects
-		OC.FluXX.Handle=$('#fluxx');
 		// position slider object horizontally
 		$('#fluxx').css('left',$('body > nav > #navigation').css('width'));
 		// position slider object vertically
