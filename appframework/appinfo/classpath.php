@@ -47,6 +47,7 @@ namespace OCA\AppFramework;
 \OC::$CLASSPATH['OCA\AppFramework\SecurityException'] = 'apps/appframework/lib/middleware/security/security.exception.php';
 \OC::$CLASSPATH['OCA\AppFramework\MiddlewareDispatcher'] = 'apps/appframework/lib/middleware/middlewaredispatcher.php';
 \OC::$CLASSPATH['OCA\AppFramework\App'] = 'apps/appframework/lib/app.php';
+\OC::$CLASSPATH['OCA\AppFramework\ControllerTestUtility'] = 'apps/appframework/lib/testutilities/controller.test.utility.php';
 \OC::$CLASSPATH['OCA\AppFramework\DIContainer'] = 'apps/appframework/appinfo/dicontainer.php';
 
 
