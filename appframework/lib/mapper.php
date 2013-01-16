@@ -36,7 +36,7 @@ abstract class Mapper {
 
 
 	/**
-	 * Returns an entity by id
+	 * Returns an db result by id
 	 * @param string $tableName: the name of the table to query
 	 * @param int $id: the id of the item
 	 * @throws DoesNotExistException: if the item does not exist
@@ -57,7 +57,7 @@ abstract class Mapper {
 
 
 	/**
-	 * Returns all entries of an entity
+	 * Returns all entries of a table
 	 * @param string $tableName: the name of the table to query
 	 * @return the result
 	 */
@@ -68,7 +68,7 @@ abstract class Mapper {
 
 
 	/**
-	 * Returns all entries of an entity
+	 * Deletes a row in a table by id
 	 * @param string $tableName: the name of the table to query
 	 * @param int $id: the id of the item
 	 */
