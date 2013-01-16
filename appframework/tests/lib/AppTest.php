@@ -34,5 +34,5 @@ class AppTest extends \PHPUnit_Framework_TestCase {
         public function testStub() {
 
         }
-
+//http://stackoverflow.com/questions/9127252/phpunit-test-for-expected-headers
 }

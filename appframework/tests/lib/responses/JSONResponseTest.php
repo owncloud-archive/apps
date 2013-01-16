@@ -38,6 +38,12 @@ class JSONResponseTest extends \PHPUnit_Framework_TestCase {
 	}
 
 
+	public function testHeader(){
+		$headers = $this->json->getHeaders();
+		$this->assertTrue(in_array('Content-type: application/json', $headers));
+	}
+
+
 	public function testSetParams(){
 		$params = array('hi', 'yo');
 		$this->json->setParams($params);

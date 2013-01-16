@@ -39,6 +39,7 @@ class JSONResponse extends Response {
 		$this->data = array();
 		$this->error = false;
 		$this->data['status'] = 'success';
+		$this->addHeader('Content-type: application/json');
 	}
 
 

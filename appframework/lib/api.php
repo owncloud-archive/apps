@@ -131,7 +131,7 @@ class API {
 	 */
 	public function setUserValue($key, $value, $user=null){
 		if($user === null){
-				$user = $this->getUserId();
+			$user = $this->getUserId();
 		}
 		\OCP\Config::setUserValue($user, $this->appName, $key, $value);
 	}
@@ -143,7 +143,7 @@ class API {
 	 */
 	public function getUserValue($key, $user=null){
 		if($user === null){
-				$user = $this->getUserId();
+			$user = $this->getUserId();
 		}
 		return \OCP\Config::getUserValue($user, $this->appName, $key);
 	}
