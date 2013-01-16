@@ -264,6 +264,7 @@
 		<select class="add action text button" id="addproperty">
 			<option value=""><?php echo $l->t('Add'); ?></option>
 			<option value="ORG"><?php echo $l->t('Organization'); ?></option>
+			<option value="TITLE"><?php echo $l->t('Title'); ?></option>
 			<option value="NICKNAME"><?php echo $l->t('Nickname'); ?></option>
 			<option value="BDAY"><?php echo $l->t('Birthday'); ?></option>
 			<option value="TEL"><?php echo $l->t('Phone'); ?></option>
@@ -272,7 +273,6 @@
 			<option value="ADR"><?php echo $l->t('Address'); ?></option>
 			<option value="NOTE"><?php echo $l->t('Note'); ?></option>
 			<option value="URL"><?php echo $l->t('Web site'); ?></option>
-			<option value="CATEGORIES"><?php echo $l->t('Groups'); ?></option>
 		</select>
 		<button class="delete action text float right tooltipped downwards" title="<?php echo $l->t('Delete contact'); ?>"><?php echo $l->t('Delete'); ?></button>
 	</footer>
