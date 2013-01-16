@@ -43,7 +43,7 @@ abstract class Mapper {
 	 * @return the result
 	 */
 	protected function findQuery($tableName, $id){
-		$sql = 'SELECT * FROM ' . $tableName . ' WHERE id = ?';
+		$sql = 'SELECT * FROM `' . $tableName . '` WHERE `id` = ?';
 		$params = array($id);
 
 		$result = $this->execute($sql, $params)->fetchRow();
@@ -62,7 +62,7 @@ abstract class Mapper {
 	 * @return the result
 	 */
 	protected function findAllQuery($tableName){
-		$sql = 'SELECT * FROM ' . $tableName;
+		$sql = 'SELECT * FROM `' . $tableName . '`';
 		return $this->execute($sql);
 	}
 
@@ -73,7 +73,7 @@ abstract class Mapper {
 	 * @param int $id: the id of the item
 	 */
 	protected function deleteQuery($tableName, $id){
-		$sql = 'DELETE FROM ' . $tableName . ' WHERE id = ?';
+		$sql = 'DELETE FROM `' . $tableName . '` WHERE `id` = ?';
 		$params = array($id);
 		$this->execute($sql, $params);
 	}

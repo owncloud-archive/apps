@@ -49,7 +49,7 @@ class MapperTest extends \PHPUnit_Framework_TestCase {
 
 
 	private function find($doesNotExist=false){
-		$sql = 'SELECT * FROM hihi WHERE id = ?';
+		$sql = 'SELECT * FROM `hihi` WHERE `id` = ?';
 		$params = array(1);
 
 		$cursor = $this->getMock('cursor', array('fetchRow'));
@@ -119,12 +119,12 @@ class MapperTest extends \PHPUnit_Framework_TestCase {
 
 
 	public function testFindAll(){
-		$this->query('findAll', 'SELECT * FROM hihi');
+		$this->query('findAll', 'SELECT * FROM `hihi`');
 	}
 
 
 	public function testDelete(){
-		$this->query('delete', 'DELETE FROM hihi WHERE id = ?', array(1));
+		$this->query('delete', 'DELETE FROM `hihi` WHERE `id` = ?', array(1));
 	}
 
 }
