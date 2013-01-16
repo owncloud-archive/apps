@@ -45,6 +45,36 @@ abstract class ControllerTestUtility extends \PHPUnit_Framework_TestCase {
 
 
 	/**
+	 * Checks if a controllermethod has the expected annotations
+	 * @param Controller/string $controller: name or instance of the controller
+	 * @param array $expected: an array containing the expected annotations
+	 * @param array $valid: if you define your own annotations, pass them here
+	 */
+	protected function assertAnnotations($controller, $method, array $expected,
+										array $valid=array()){
+		$standard = array(
+			'Ajax', 
+			'CSRFExemption', 
+			'IsAdminExemption', 
+			'IsSubAdminExemption',
+			'IsLoggedInExemption'
+		);
+
+		$possible = array_merge($standard, $valid);
+
+		// check if expected annotations are valid
+		foreach($expected as $annotation){
+			$this->assertTrue(in_array($annotation, $possible));
+		}
+
+		$reader = new MethodAnnotationReader($controller, $method);
+		foreach($expected as $annotation){
+			$this->assertTrue($reader->hasAnnotation($annotation));
+		}
+	}
+
+
+	/**
 	 * @brief Shortcut for testing expected headers of a response
 	 * @param array $expected: an array with the expected headers
 	 * @param Response $response: the response which we want to test for headers
@@ -56,5 +86,5 @@ abstract class ControllerTestUtility extends \PHPUnit_Framework_TestCase {
 		}
 	}
 	
-	
+
 }
