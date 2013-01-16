@@ -43,8 +43,8 @@ class ResponseTest extends \PHPUnit_Framework_TestCase {
 
         public function testAddHeader(){
                 $this->childResponse->addHeader('test');
-
-                $this->assertEquals('test', $this->childResponse->getHeaders()[0]);
+                $headers = $this->childResponse->getHeaders();
+                $this->assertEquals('test', $headers[0]);
         }
 
 
