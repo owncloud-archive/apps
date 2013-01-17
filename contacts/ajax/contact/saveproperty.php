@@ -128,10 +128,10 @@ if(in_array($name, $multi_properties)) {
 					'Cannot save property of type "%s" as array', array($name,)
 				));
 			}
+			setParameters($property, $parameters);
 		} else {
 			$property = VObject\Property::create($name, $value, $parameters);
 		}
-		setParameters($property, $parameters);
 		$vcard->add($property);
 		$checksum = substr(md5($property->serialize()), 0, 8);
 		try {
