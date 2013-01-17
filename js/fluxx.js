@@ -32,10 +32,9 @@
 // add slider to navigation area
 $(document).ready(function(){
 	// setup limits for the handles position
-	var topMin=37;
-	var topMax=$('body > nav > #navigation').height()-$('body > nav > #navigation').position().top-37;
+	OC.FluXX.limit();
 	// setup handle object
-	OC.FluXX.create(topMin,topMax);
+	OC.FluXX.create();
 	// store some references to slider and moved objects
 	OC.FluXX.Handle=$('#fluxx');
 	OC.FluXX.Offset=$('#navigation').css('width');
@@ -46,11 +45,16 @@ $(document).ready(function(){
 		else
 			OC.FluXX.show();
 	});
+	// reposition the handle upon resize of the window
+	$(window).on('resize',function(){
+		OC.FluXX.limit();
+		OC.FluXX.position(OC.FluXX.Position.Y);
+	});
 	// handle mouse reactions
 	// 1.) click => toggle navigation hidden or shown
 	// 2.) hold => enter vertical handle move mode
 	OC.FluXX.Handle.on('mousedown',function(){
-		OC.FluXX.click(topMin,topMax);
+		OC.FluXX.click();
 	});
 })
 
@@ -73,16 +77,26 @@ OC.FluXX={
 	*/
 	Offset:{},
 	/**
+	* @object OC.FluXX.Position
+	* @brief A set of limits controling the position of the handle
+	* @author Christian Reiner
+	*/
+	Position:{
+		Y:0,
+		Ymin:0,
+		Ymax:0
+	},
+	/**
 	* @method OC.FluXX.click
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	click:function(topMin,topMax){
+	click:function(){
 		// 1.) click => toggle navigation hidden or shown
 		// 2.) hold => enter vertical handle move mode
 		// so only enter move mode after holding mouse down for an amount of time
 		var timer=setTimeout(function(){
-			OC.FluXX.move(topMin,topMax);
+			OC.FluXX.move();
 		},500);
 		// raise normal click handling
 		OC.FluXX.Handle.on('mouseup',function(){
@@ -107,7 +121,7 @@ OC.FluXX={
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	create:function(topMin,topMax){
+	create:function(){
 		// construct slider object
 		var slider=$('<span id="fluxx" class="fluxx-shown" />');
 		var img   =$('<img  id="fluxx" class="svg" draggable="false">');
@@ -118,11 +132,8 @@ OC.FluXX={
 		// position slider object horizontally
 		$('#fluxx').css('left',$('body > nav > #navigation').css('width'));
 		// position slider object vertically
-		OC.AppConfig.getValue('fluxx_compensator','fluxx-position',topMax,function(top){
-			top=(top>topMax)?topMax:((top<topMin)?topMin:top);
-			$('#fluxx').css('top',top+'px');
-			// visualize handle by allowing overflow of the navigation area
-			$('body > nav > #navigation').css('overflow','visible');
+		OC.AppConfig.getValue('fluxx_compensator','fluxx-position',OC.FluXX.Position.Ymax,function(y){
+			OC.FluXX.position(y);
 		});
 	}, // OC.FluXX.create
 	/**
@@ -148,11 +159,20 @@ OC.FluXX={
 		return dfd.promise();
 	}, // OC.FluXX.hide
 	/**
+	* @method OC.FluXX.limit
+	* @brief Hide the navigation area if visible
+	* @author Christian Reiner
+	*/
+	limit:function(){
+		OC.FluXX.Position.Ymin=37;
+		OC.FluXX.Position.Ymax=$('body > nav > #navigation').height()-$('body > nav > #navigation').position().top-37;
+	}, // OC.FluXX.limit
+	/**
 	* @method OC.FluXX.move
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	move:function(topMin,topMax){
+	move:function(){
 		// enable cursor move mode
 		$('html').addClass('fluxx-handle-move');
 		OC.FluXX.Handle.effect('highlight',{color:'#FFF'},800);
@@ -174,11 +194,22 @@ OC.FluXX={
 		});
 		// reaction on mouse move: position handle
 		$(document).on('mousemove',function(event){
-			var top=event.pageY-60;
-			top=(top>topMax)?topMax:((top<topMin)?topMin:top);
-			OC.FluXX.Handle.css('top',top+'px');
+			OC.FluXX.position(event.pageY-60);
 		});
 	}, // OC.FluXX.move
+	/**
+	* @method OC.FluXX.position
+	* @brief Hide the navigation area if visible
+	* @author Christian Reiner
+	*/
+	position:function(y){
+		// hide handle whilst being repositioned
+		$('body > nav > #navigation').css('overflow','hidden !important');
+		OC.FluXX.Position.Y=(y>OC.FluXX.Position.Ymax)?OC.FluXX.Position.Ymax:((y<OC.FluXX.Position.Ymin)?OC.FluXX.Position.Ymin:y);
+		$('#fluxx').css('top',OC.FluXX.Position.Y+'px');
+		// show handle after having been repositioned
+		$('body > nav > #navigation').css('overflow','visible');
+	}, // OC.FluXX.position
 	/**
 	* @method OC.FluXX.show
 	* @brief Hide the navigation area if visible
