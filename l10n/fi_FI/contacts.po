@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-17 00:22+0100\n"
-"PO-Revision-Date: 2013-01-16 23:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-17 22:32+0100\n"
+"PO-Revision-Date: 2013-01-17 08:42+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,7 +42,7 @@ msgstr ""
 
 #: ajax/categories/add.php:28
 msgid "Error adding group."
-msgstr ""
+msgstr "Virhe ryhmää lisättäessä."
 
 #: ajax/categories/addto.php:20 ajax/categories/removefrom.php:20
 msgid "Group ID missing from request."
@@ -87,7 +87,7 @@ msgstr "vCardin tiedot eivät kelpaa. Lataa sivu uudelleen."
 #: ajax/contact/saveproperty.php:98
 #, php-format
 msgid "Couldn't find vCard for %d."
-msgstr ""
+msgstr "Kohteelle %d ei löytynyt vCardia."
 
 #: ajax/contact/saveproperty.php:108
 msgid "Information about vCard is incorrect. Please reload the page: "
@@ -255,7 +255,7 @@ msgid "Select photo"
 msgstr "Valitse valokuva"
 
 #: js/app.js:476 js/app.js:502 js/app.js:1461 js/app.js:1573
-#: js/contacts.js:146 js/contacts.js:244 js/contacts.js:466
+#: js/contacts.js:156 js/contacts.js:254 js/contacts.js:476
 msgid "Network or server error. Please inform administrator."
 msgstr "Verkko- tai palvelinvirhe. Ilmoita asiasta ylläpitäjälle."
 
@@ -342,7 +342,7 @@ msgstr "Tiedostoja ei ole valittu lähetettäväksi."
 msgid "Edit profile picture"
 msgstr "Muokkaa profiilikuvaa"
 
-#: js/app.js:1444 js/contacts.js:1108
+#: js/app.js:1444 js/contacts.js:1121
 msgid "Error loading profile picture."
 msgstr "Virhe profiilikuvaa ladatessa."
 
@@ -362,29 +362,29 @@ msgstr "Valitse osoitekirja"
 msgid "The address book name cannot be empty."
 msgstr "Osoitekirjan nimi ei voi olla tyhjä"
 
-#: js/contacts.js:337
+#: js/contacts.js:347
 msgid "Is this correct?"
 msgstr "Onko tämä oikein?"
 
-#: js/contacts.js:525
+#: js/contacts.js:535
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Tätä yhteystietoa poistaessa tapahtui tuntematon virhe"
 
-#: js/contacts.js:663
+#: js/contacts.js:673
 msgid "# groups"
 msgstr ""
 
-#: js/contacts.js:1441
+#: js/contacts.js:1454
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Jotkin yhteystiedot on merkitty poistettaviksi, mutta niitä ei ole vielä poistettu. Odota hetki, että kyseiset yhteystiedot poistetaan."
 
-#: js/contacts.js:1452
+#: js/contacts.js:1465
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1467
+#: js/contacts.js:1480
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
@@ -697,8 +697,8 @@ msgstr "Uusi yhteystieto"
 msgid "Download Contact(s)"
 msgstr ""
 
-#: templates/contacts.php:58 templates/contacts.php:275
-#: templates/part.contact.php:47 templates/part.contact.php:135
+#: templates/contacts.php:58 templates/part.contact.php:47
+#: templates/part.contact.php:135
 msgid "Groups"
 msgstr "Ryhmät"
 
@@ -767,7 +767,7 @@ msgstr "Poista nykyinen yhteystieto"
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
-msgstr ""
+msgstr "<h3>Osoitekirjassasi ei ole yhteystietoja.</h3><p>Lisää uusi yhteystieto tai tuo olemassa olevia yhteystietoja VCF-tiedostosta.</p>"
 
 #: templates/contacts.php:103 templates/part.no_contacts.php:9
 msgid "Add contact"
@@ -814,7 +814,7 @@ msgstr "Sukunimi"
 msgid "Select groups"
 msgstr "Valitse ryhmät"
 
-#: templates/contacts.php:204 templates/contacts.php:267
+#: templates/contacts.php:204 templates/contacts.php:268
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
 msgstr "Kutsumanimi"
@@ -823,7 +823,7 @@ msgstr "Kutsumanimi"
 msgid "Enter nickname"
 msgstr "Anna kutsumanimi"
 
-#: templates/contacts.php:211
+#: templates/contacts.php:211 templates/contacts.php:267
 msgid "Title"
 msgstr "Otsikko"
 
@@ -841,7 +841,7 @@ msgstr "Organisaatio"
 msgid "Enter organization"
 msgstr ""
 
-#: templates/contacts.php:225 templates/contacts.php:268
+#: templates/contacts.php:225 templates/contacts.php:269
 #: templates/part.contact.php:45 templates/part.contact.php:128
 msgid "Birthday"
 msgstr "Syntymäpäivä"
@@ -858,27 +858,27 @@ msgstr "Vie VCF-muodossa"
 msgid "Add"
 msgstr "Lisää"
 
-#: templates/contacts.php:269 templates/part.contact.php:129
+#: templates/contacts.php:270 templates/part.contact.php:129
 msgid "Phone"
 msgstr "Puhelin"
 
-#: templates/contacts.php:270 templates/part.contact.php:130
+#: templates/contacts.php:271 templates/part.contact.php:130
 msgid "Email"
 msgstr "Sähköposti"
 
-#: templates/contacts.php:271 templates/part.contact.php:131
+#: templates/contacts.php:272 templates/part.contact.php:131
 msgid "Instant Messaging"
 msgstr "Pikaviestintä"
 
-#: templates/contacts.php:272 templates/part.contact.php:132
+#: templates/contacts.php:273 templates/part.contact.php:132
 msgid "Address"
 msgstr "Osoite"
 
-#: templates/contacts.php:273 templates/part.contact.php:133
+#: templates/contacts.php:274 templates/part.contact.php:133
 msgid "Note"
 msgstr "Huomio"
 
-#: templates/contacts.php:274 templates/part.contact.php:43
+#: templates/contacts.php:275 templates/part.contact.php:43
 #: templates/part.contact.php:134
 msgid "Web site"
 msgstr "Verkkosivu"

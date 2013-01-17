@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-17 00:22+0100\n"
-"PO-Revision-Date: 2013-01-16 23:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-17 22:32+0100\n"
+"PO-Revision-Date: 2013-01-17 09:23+0000\n"
+"Last-Translator: rogerc <rcalvoi@yahoo.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -253,7 +253,7 @@ msgid "Select photo"
 msgstr "Selecciona una foto"
 
 #: js/app.js:476 js/app.js:502 js/app.js:1461 js/app.js:1573
-#: js/contacts.js:146 js/contacts.js:244 js/contacts.js:466
+#: js/contacts.js:156 js/contacts.js:254 js/contacts.js:476
 msgid "Network or server error. Please inform administrator."
 msgstr "Error de xarxa o del servidor. Informeu a l'administrador."
 
@@ -340,7 +340,7 @@ msgstr "No s'han seleccionat fitxers per a la pujada."
 msgid "Edit profile picture"
 msgstr "Edita la fotografia de perfil"
 
-#: js/app.js:1444 js/contacts.js:1108
+#: js/app.js:1444 js/contacts.js:1121
 msgid "Error loading profile picture."
 msgstr "Error en carregar la imatge de perfil."
 
@@ -360,29 +360,29 @@ msgstr "Selecciona la llibreta d'adreces"
 msgid "The address book name cannot be empty."
 msgstr "El nom de la llibreta d'adreces no pot ser buit."
 
-#: js/contacts.js:337
+#: js/contacts.js:347
 msgid "Is this correct?"
 msgstr "És correcte?"
 
-#: js/contacts.js:525
+#: js/contacts.js:535
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "S'ha produït un error en intentar esborrat aquest contacte"
 
-#: js/contacts.js:663
+#: js/contacts.js:673
 msgid "# groups"
-msgstr ""
+msgstr "# grups"
 
-#: js/contacts.js:1441
+#: js/contacts.js:1454
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Heu marcat eliminar alguns contactes, però encara no s'han eliminat. Espereu mentre s'esborren."
 
-#: js/contacts.js:1452
+#: js/contacts.js:1465
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Feu clic a desfés eliminació de {num} contactes"
 
-#: js/contacts.js:1467
+#: js/contacts.js:1480
 msgid "Cancelled deletion of {num}"
 msgstr "S'ha cancel·lat l'eliminació de {num}"
 
@@ -695,8 +695,8 @@ msgstr "Contate nou"
 msgid "Download Contact(s)"
 msgstr "Baixa contacte(s)"
 
-#: templates/contacts.php:58 templates/contacts.php:275
-#: templates/part.contact.php:47 templates/part.contact.php:135
+#: templates/contacts.php:58 templates/part.contact.php:47
+#: templates/part.contact.php:135
 msgid "Groups"
 msgstr "Grups"
 
@@ -812,7 +812,7 @@ msgstr "Cognom"
 msgid "Select groups"
 msgstr "Selecciona grups"
 
-#: templates/contacts.php:204 templates/contacts.php:267
+#: templates/contacts.php:204 templates/contacts.php:268
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
 msgstr "Sobrenom"
@@ -821,7 +821,7 @@ msgstr "Sobrenom"
 msgid "Enter nickname"
 msgstr "Escriviu el sobrenom"
 
-#: templates/contacts.php:211
+#: templates/contacts.php:211 templates/contacts.php:267
 msgid "Title"
 msgstr "Títol"
 
@@ -839,7 +839,7 @@ msgstr "Organització"
 msgid "Enter organization"
 msgstr "Escriviu l'organització"
 
-#: templates/contacts.php:225 templates/contacts.php:268
+#: templates/contacts.php:225 templates/contacts.php:269
 #: templates/part.contact.php:45 templates/part.contact.php:128
 msgid "Birthday"
 msgstr "Aniversari"
@@ -856,27 +856,27 @@ msgstr "Exporta com a VCF"
 msgid "Add"
 msgstr "Afegeix"
 
-#: templates/contacts.php:269 templates/part.contact.php:129
+#: templates/contacts.php:270 templates/part.contact.php:129
 msgid "Phone"
 msgstr "Telèfon"
 
-#: templates/contacts.php:270 templates/part.contact.php:130
+#: templates/contacts.php:271 templates/part.contact.php:130
 msgid "Email"
 msgstr "Correu electrònic"
 
-#: templates/contacts.php:271 templates/part.contact.php:131
+#: templates/contacts.php:272 templates/part.contact.php:131
 msgid "Instant Messaging"
 msgstr "Missatgeria instantània"
 
-#: templates/contacts.php:272 templates/part.contact.php:132
+#: templates/contacts.php:273 templates/part.contact.php:132
 msgid "Address"
 msgstr "Adreça"
 
-#: templates/contacts.php:273 templates/part.contact.php:133
+#: templates/contacts.php:274 templates/part.contact.php:133
 msgid "Note"
 msgstr "Nota"
 
-#: templates/contacts.php:274 templates/part.contact.php:43
+#: templates/contacts.php:275 templates/part.contact.php:43
 #: templates/part.contact.php:134
 msgid "Web site"
 msgstr "Adreça web"

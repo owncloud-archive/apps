@@ -11,14 +11,15 @@
 # Marios Bekatoros <>, 2012.
 # Nisok Kosin <nikos.efthimiou@gmail.com>, 2012.
 # Petros Kyladitis <petros.kyladitis@gmail.com>, 2011-2012.
+#  <vagelis@cyberdest.com>, 2013.
 #   <vagelis@cyberdest.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-17 00:22+0100\n"
-"PO-Revision-Date: 2013-01-16 23:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-17 22:32+0100\n"
+"PO-Revision-Date: 2013-01-17 20:35+0000\n"
+"Last-Translator: xneo1 <vagelis@cyberdest.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -259,7 +260,7 @@ msgid "Select photo"
 msgstr "Επέλεξε φωτογραφία"
 
 #: js/app.js:476 js/app.js:502 js/app.js:1461 js/app.js:1573
-#: js/contacts.js:146 js/contacts.js:244 js/contacts.js:466
+#: js/contacts.js:156 js/contacts.js:254 js/contacts.js:476
 msgid "Network or server error. Please inform administrator."
 msgstr "Σφάλμα δικτύου ή διακομιστή. Παρακαλώ ενημερώστε το διαχειριστή."
 
@@ -346,7 +347,7 @@ msgstr "Δεν επιλέχτηκαν αρχεία για μεταφόρτωση
 msgid "Edit profile picture"
 msgstr "Επεξεργασία εικόνας προφίλ"
 
-#: js/app.js:1444 js/contacts.js:1108
+#: js/app.js:1444 js/contacts.js:1121
 msgid "Error loading profile picture."
 msgstr "Σφάλμα στην φόρτωση εικόνας προφίλ."
 
@@ -366,29 +367,29 @@ msgstr "Επιλογή βιβλίου επαφών"
 msgid "The address book name cannot be empty."
 msgstr "Το όνομα του βιβλίου διευθύνσεων δεν πρέπει να είναι κενό."
 
-#: js/contacts.js:337
+#: js/contacts.js:347
 msgid "Is this correct?"
 msgstr "Είναι σωστό;"
 
-#: js/contacts.js:525
+#: js/contacts.js:535
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Παρουσιάστηκε άγνωστο σφάλμα κατά τη διαγραφή αυτής της επαφής"
 
-#: js/contacts.js:663
+#: js/contacts.js:673
 msgid "# groups"
-msgstr ""
+msgstr "# ομάδες"
 
-#: js/contacts.js:1441
+#: js/contacts.js:1454
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Κάποιες επαφές σημειώθηκαν προς διαγραφή,δεν έχουν διαγραφεί ακόμα. Παρακαλώ περιμένετε μέχρι να διαγραφούν."
 
-#: js/contacts.js:1452
+#: js/contacts.js:1465
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Κλικ για να αναιρέσετε τη διαγραφή {num} επαφών"
 
-#: js/contacts.js:1467
+#: js/contacts.js:1480
 msgid "Cancelled deletion of {num}"
 msgstr "Αναιρέθηκε η διαγραφή {num}"
 
@@ -701,8 +702,8 @@ msgstr "Νέα επαφή"
 msgid "Download Contact(s)"
 msgstr "Λήψη Επαφής(-ών)"
 
-#: templates/contacts.php:58 templates/contacts.php:275
-#: templates/part.contact.php:47 templates/part.contact.php:135
+#: templates/contacts.php:58 templates/part.contact.php:47
+#: templates/part.contact.php:135
 msgid "Groups"
 msgstr "Ομάδες"
 
@@ -816,9 +817,9 @@ msgstr "Επώνυμο"
 
 #: templates/contacts.php:200
 msgid "Select groups"
-msgstr ""
+msgstr "Επιλέξτε ομάδες"
 
-#: templates/contacts.php:204 templates/contacts.php:267
+#: templates/contacts.php:204 templates/contacts.php:268
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
 msgstr "Παρατσούκλι"
@@ -827,7 +828,7 @@ msgstr "Παρατσούκλι"
 msgid "Enter nickname"
 msgstr "Εισάγετε παρατσούκλι"
 
-#: templates/contacts.php:211
+#: templates/contacts.php:211 templates/contacts.php:267
 msgid "Title"
 msgstr "Τίτλος"
 
@@ -845,7 +846,7 @@ msgstr "Οργανισμός"
 msgid "Enter organization"
 msgstr "Εισάγετε οργάνωση"
 
-#: templates/contacts.php:225 templates/contacts.php:268
+#: templates/contacts.php:225 templates/contacts.php:269
 #: templates/part.contact.php:45 templates/part.contact.php:128
 msgid "Birthday"
 msgstr "Γενέθλια"
@@ -862,27 +863,27 @@ msgstr "Εξαγωγή ως VCF"
 msgid "Add"
 msgstr "Προσθήκη"
 
-#: templates/contacts.php:269 templates/part.contact.php:129
+#: templates/contacts.php:270 templates/part.contact.php:129
 msgid "Phone"
 msgstr "Τηλέφωνο"
 
-#: templates/contacts.php:270 templates/part.contact.php:130
+#: templates/contacts.php:271 templates/part.contact.php:130
 msgid "Email"
 msgstr "Email"
 
-#: templates/contacts.php:271 templates/part.contact.php:131
+#: templates/contacts.php:272 templates/part.contact.php:131
 msgid "Instant Messaging"
 msgstr "Άμεσα μυνήματα"
 
-#: templates/contacts.php:272 templates/part.contact.php:132
+#: templates/contacts.php:273 templates/part.contact.php:132
 msgid "Address"
 msgstr "Διεύθυνση"
 
-#: templates/contacts.php:273 templates/part.contact.php:133
+#: templates/contacts.php:274 templates/part.contact.php:133
 msgid "Note"
 msgstr "Σημείωση"
 
-#: templates/contacts.php:274 templates/part.contact.php:43
+#: templates/contacts.php:275 templates/part.contact.php:43
 #: templates/part.contact.php:134
 msgid "Web site"
 msgstr "Ιστότοπος"
