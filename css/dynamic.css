@@ -42,6 +42,10 @@ html.fluxx-state-hidden #content {
 	width: 100% !important;
 }
 
+html.fluxx-state-hidden #controls {
+	width: 100% !important;
+}
+
 /* some specific app dependent settings */
 
 /* no _known_ mode detected, so _guess_ */
@@ -51,14 +55,7 @@ html.fluxx-modeless { }
 html.fluxx-mode-files { }
 
 /* 'notes' app */
-html.fluxx-mode-notes.fluxx-state-hidden #entries
-{
-	left:0;
-}
-html.fluxx-mode-notes.fluxx-state-shown #entries
-{
-	left:12.5em;
-}
+html.fluxx-mode-notes.fluxx-state-hidden #entries { left:0; }
 
 /* 'media' app */
 html.fluxx-mode-media { }
@@ -67,7 +64,7 @@ html.fluxx-mode-media { }
 html.fluxx-mode-calendar { }
 
 /* 'contacts' app */
-html.fluxx-mode-contacts #content #contacts { left:0; }
+html.fluxx-mode-contacts.fluxx-state-hidden #content > * { left:0; }
 
 /* 'gallery' app */
 html.fluxx-mode-gallery { }
