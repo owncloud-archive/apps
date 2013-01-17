@@ -128,7 +128,6 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.deleteProperty = function(params) {
-		// TODO: Disable PREF if less than 2 multi_properties.
 		var obj = params.obj;
 		if(!this.enabled) {
 			return;
@@ -143,6 +142,11 @@ OC.Contacts = OC.Contacts || {};
 		if(this.multi_properties.indexOf(element) !== -1) {
 			params['checksum'] = this.checksumFor(obj);
 			if(params['checksum'] === 'new' && this.valueFor(obj).trim() === '') {
+				// If there's only one property of this type enable setting as preferred.
+				if(this.data[element].length === 1) {
+					var selector = 'li[data-element="' + element.toLowerCase() + '"]';
+					this.$fullelem.find(selector).find('input.parameter[value="PREF"]').hide();
+				}
 				$container.remove();
 				return;
 			}
@@ -177,6 +181,11 @@ OC.Contacts = OC.Contacts || {};
 								break;
 							}
 						}
+					}
+					// If there's only one property of this type enable setting as preferred.
+					if(self.data[element].length === 1) {
+						var selector = 'li[data-element="' + element.toLowerCase() + '"]';
+						self.$fullelem.find(selector).find('input.parameter[value="PREF"]').hide();
 					}
 					$container.remove();
 				} else {
