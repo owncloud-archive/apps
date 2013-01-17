@@ -29,13 +29,13 @@
  * @author Christian Reiner
  */
 
-// add slider to navigation area
+// add handle to navigation area
 $(document).ready(function(){
 	// setup limits for the handles position
 	OC.FluXX.limit();
 	// setup handle object
 	OC.FluXX.create();
-	// store some references to slider and moved objects
+	// store some references to handle and moved objects
 	OC.FluXX.Handle=$('#fluxx');
 	OC.FluXX.Offset=$('#navigation').css('width');
 	// hide or show the navigation in a persistent manner
@@ -66,7 +66,7 @@ $(document).ready(function(){
 OC.FluXX={
 	/**
 	* @object OC.FluXX.Handle
-	* @brief Static reference to the slider object inside the DOM
+	* @brief Static reference to the handle object inside the DOM
 	* @author Christian Reiner
 	*/
 	Handle:{},
@@ -122,16 +122,16 @@ OC.FluXX={
 	* @author Christian Reiner
 	*/
 	create:function(){
-		// construct slider object
-		var slider=$('<span id="fluxx" class="fluxx-shown" />');
+		// construct handle object
+		var handle=$('<span id="fluxx" class="fluxx-shown" />');
 		var img   =$('<img  id="fluxx" class="svg" draggable="false">');
 		img.attr('src',OC.filePath('fluxx_compensator','img','actions/slide-left.svg'));
-		slider.append(img);
-		// inject slider object into navigation areaa
-		$('body > nav > #navigation').append(slider);
-		// position slider object horizontally
+		handle.append(img);
+		// inject handle object into navigation areaa
+		$('body > nav > #navigation').append(handle);
+		// position handle object horizontally
 		$('#fluxx').css('left',$('body > nav > #navigation').css('width'));
-		// position slider object vertically
+		// position handle object vertically
 		OC.AppConfig.getValue('fluxx_compensator','fluxx-position',OC.FluXX.Position.Ymax,function(y){
 			OC.FluXX.position(y);
 		});
@@ -152,7 +152,7 @@ OC.FluXX={
 				dfd.resolve();
 				OC.FluXX.Handle.find('img')
 					.attr('src',OC.filePath('fluxx_compensator','img','actions/slide-right.svg'));
-				// store current slider status inside user preferences
+				// store current handle status inside user preferences
 				OC.AppConfig.setValue('fluxx_compensator','fluxx-status','hidden');
 			}).fail(dfd.reject)}
 		else dfd.resolve();
@@ -226,7 +226,7 @@ OC.FluXX={
 				dfd.resolve();
 				OC.FluXX.Handle.find('img')
 					.attr('src',OC.filePath('fluxx_compensator','img','actions/slide-left.svg'));
-				// store current slider status inside user preferences
+				// store current handle status inside user preferences
 				OC.AppConfig.setValue('fluxx_compensator','fluxx-status','shown');
 			}).fail(dfd.reject)}
 		else dfd.resolve();
@@ -240,7 +240,7 @@ OC.FluXX={
 	stylish:function(shown){
 		// dynamically load stylesheet to make sure it is loaded LAST
 		OC.addStyle('fluxx_compensator','dynamic');
-		// mark slider-mode and active app as class of the html tag
+		// mark mode and active app as class of the html tag
 		// this acts like a 'switch' command inside the dynamically loaded css
 		var mode={
 			files_index:	'files',
