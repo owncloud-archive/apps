@@ -457,7 +457,7 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	/**
-	 * Add a contact from data store and remove it from the DOM
+	 * Add a contact to data store.
 	 * @params params. An object which can contain the optional properties:
 	 *		aid: The id of the addressbook to add the contact to. Per default it will be added to the first.
 	 *		fn: The formatted name of the contact.
