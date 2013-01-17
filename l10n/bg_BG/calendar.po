@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-15 00:01+0100\n"
+"POT-Creation-Date: 2013-01-18 00:01+0100\n"
 "PO-Revision-Date: 2011-09-03 16:52+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
@@ -506,7 +506,7 @@ msgstr ""
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11
 msgid "Title"
-msgstr ""
+msgstr "Заглавие"
 
 #: templates/calendar.php:16
 msgid "From Date"
@@ -575,7 +575,7 @@ msgstr "Изтегляне"
 
 #: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
-msgstr ""
+msgstr "Промяна"
 
 #: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
@@ -653,7 +653,7 @@ msgstr ""
 
 #: templates/part.eventform.php:27 templates/part.showevent.php:19
 msgid "Category"
-msgstr ""
+msgstr "Категория"
 
 #: templates/part.eventform.php:29
 msgid "Separate categories with commas"

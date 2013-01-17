@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-17 00:22+0100\n"
-"PO-Revision-Date: 2013-01-16 23:23+0000\n"
+"POT-Creation-Date: 2013-01-18 00:01+0100\n"
+"PO-Revision-Date: 2013-01-17 21:57+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -250,7 +250,7 @@ msgid "Select photo"
 msgstr ""
 
 #: js/app.js:476 js/app.js:502 js/app.js:1461 js/app.js:1573
-#: js/contacts.js:146 js/contacts.js:244 js/contacts.js:466
+#: js/contacts.js:156 js/contacts.js:254 js/contacts.js:476
 msgid "Network or server error. Please inform administrator."
 msgstr ""
 
@@ -337,7 +337,7 @@ msgstr "আপলোড করার জন্য কোন ফাইল নি�
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1444 js/contacts.js:1108
+#: js/app.js:1444 js/contacts.js:1121
 msgid "Error loading profile picture."
 msgstr "বৃত্তান্তের ছবি লোড করতে সমস্যা দেখা দিয়েছে।"
 
@@ -357,29 +357,29 @@ msgstr ""
 msgid "The address book name cannot be empty."
 msgstr ""
 
-#: js/contacts.js:337
+#: js/contacts.js:347
 msgid "Is this correct?"
 msgstr ""
 
-#: js/contacts.js:525
+#: js/contacts.js:535
 msgid "There was an unknown error when trying to delete this contact"
 msgstr ""
 
-#: js/contacts.js:663
+#: js/contacts.js:673
 msgid "# groups"
 msgstr ""
 
-#: js/contacts.js:1441
+#: js/contacts.js:1454
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "কিছু ঠিকানা মুছে ফেলার জন্য চিহ্নিত করা হয়েছে কিন্তু এখনও মুছে ফেলা হয় নি। মুছে ফেলার জন্য দয়া করে অপেক্ষা করুন।"
 
-#: js/contacts.js:1452
+#: js/contacts.js:1465
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1467
+#: js/contacts.js:1480
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
@@ -692,8 +692,8 @@ msgstr ""
 msgid "Download Contact(s)"
 msgstr ""
 
-#: templates/contacts.php:58 templates/contacts.php:275
-#: templates/part.contact.php:47 templates/part.contact.php:135
+#: templates/contacts.php:58 templates/part.contact.php:47
+#: templates/part.contact.php:135
 msgid "Groups"
 msgstr "গোষ্ঠীসমূহ"
 
@@ -809,7 +809,7 @@ msgstr ""
 msgid "Select groups"
 msgstr ""
 
-#: templates/contacts.php:204 templates/contacts.php:267
+#: templates/contacts.php:204 templates/contacts.php:268
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
 msgstr "ছদ্মনাম"
@@ -818,9 +818,9 @@ msgstr "ছদ্মনাম"
 msgid "Enter nickname"
 msgstr "ছদ্মনাম প্রবেশ করান"
 
-#: templates/contacts.php:211
+#: templates/contacts.php:211 templates/contacts.php:267
 msgid "Title"
-msgstr ""
+msgstr "শিরোনাম"
 
 #: templates/contacts.php:214
 msgid "Enter title"
@@ -836,7 +836,7 @@ msgstr "প্রতিস্ঠান"
 msgid "Enter organization"
 msgstr ""
 
-#: templates/contacts.php:225 templates/contacts.php:268
+#: templates/contacts.php:225 templates/contacts.php:269
 #: templates/part.contact.php:45 templates/part.contact.php:128
 msgid "Birthday"
 msgstr "জন্মদিন"
@@ -853,27 +853,27 @@ msgstr ""
 msgid "Add"
 msgstr "যোগ কর"
 
-#: templates/contacts.php:269 templates/part.contact.php:129
+#: templates/contacts.php:270 templates/part.contact.php:129
 msgid "Phone"
 msgstr "ফোন"
 
-#: templates/contacts.php:270 templates/part.contact.php:130
+#: templates/contacts.php:271 templates/part.contact.php:130
 msgid "Email"
 msgstr "ইমেইল"
 
-#: templates/contacts.php:271 templates/part.contact.php:131
+#: templates/contacts.php:272 templates/part.contact.php:131
 msgid "Instant Messaging"
 msgstr "তাৎক্ষণিক বার্তা আদানপ্রদান"
 
-#: templates/contacts.php:272 templates/part.contact.php:132
+#: templates/contacts.php:273 templates/part.contact.php:132
 msgid "Address"
 msgstr "ঠিকানা"
 
-#: templates/contacts.php:273 templates/part.contact.php:133
+#: templates/contacts.php:274 templates/part.contact.php:133
 msgid "Note"
 msgstr "দ্রষ্টব্য"
 
-#: templates/contacts.php:274 templates/part.contact.php:43
+#: templates/contacts.php:275 templates/part.contact.php:43
 #: templates/part.contact.php:134
 msgid "Web site"
 msgstr "ওয়েবসাইট"

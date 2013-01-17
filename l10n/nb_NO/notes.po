@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-17 22:32+0100\n"
+"POT-Creation-Date: 2013-01-18 00:01+0100\n"
 "PO-Revision-Date: 2013-01-17 21:33+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
 msgid "Help"
-msgstr ""
+msgstr "Hjelp"
 
 #: templates/categories.php:99
 msgid "Categories"
@@ -36,11 +36,11 @@ msgstr ""
 #: templates/categories.php:116 templates/notes.php:345
 #: templates/notes.php:388
 msgid "Delete"
-msgstr ""
+msgstr "Slett"
 
 #: templates/categories.php:117 templates/notes.php:390
 msgid "Save"
-msgstr ""
+msgstr "Lagre"
 
 #: templates/categories.php:129
 msgid "No categories available yet"
@@ -52,11 +52,11 @@ msgstr ""
 
 #: templates/categories.php:141
 msgid "Add"
-msgstr ""
+msgstr "Legg til"
 
 #: templates/categories.php:144
 msgid "Note"
-msgstr ""
+msgstr "Notat"
 
 #: templates/categories.php:145
 msgid ""
@@ -66,7 +66,7 @@ msgstr ""
 
 #: templates/categories.php:145 templates/notes.php:61
 msgid "General"
-msgstr ""
+msgstr "Generellt"
 
 #: templates/notes.php:81
 msgid "Add Note"
@@ -82,15 +82,15 @@ msgstr ""
 
 #: templates/notes.php:335
 msgid "Edit"
-msgstr ""
+msgstr "Endre"
 
 #: templates/notes.php:363
 msgid "Category"
-msgstr ""
+msgstr "Kategori"
 
 #: templates/notes.php:381
 msgid "Title"
-msgstr ""
+msgstr "Tittel"
 
 #: templates/notes.php:382
 msgid "Content"

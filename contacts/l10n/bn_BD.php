@@ -112,6 +112,7 @@
 "Additional names" => "অতিরিক্ত নামসমূহ",
 "Nickname" => "ছদ্মনাম",
 "Enter nickname" => "ছদ্মনাম প্রবেশ করান",
+"Title" => "শিরোনাম",
 "Organization" => "প্রতিস্ঠান",
 "Birthday" => "জন্মদিন",
 "Add" => "যোগ কর",

@@ -6,6 +6,7 @@
 "Settings" => "Iestatījumi",
 "Download" => "Lejuplādēt",
 "Delete" => "Izdzēst",
+"Save" => "Saglabāt",
 "Share" => "Līdzdalīt",
 "Unshare" => "Pārtraukt līdzdalīšanu"
 );
