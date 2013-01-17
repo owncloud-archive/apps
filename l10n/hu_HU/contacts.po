@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-09 00:01+0100\n"
-"PO-Revision-Date: 2013-01-08 21:48+0000\n"
-"Last-Translator: gyeben <gyonkibendeguz@gmail.com>\n"
+"POT-Creation-Date: 2013-01-17 00:22+0100\n"
+"PO-Revision-Date: 2013-01-16 23:22+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -250,137 +250,141 @@ msgstr "Eltávolítás innen..."
 msgid "Add group..."
 msgstr "Csoport hozzáadása..."
 
-#: js/app.js:423
+#: js/app.js:429
 msgid "Select photo"
 msgstr "Fotó kiválasztása"
 
-#: js/app.js:470 js/app.js:496 js/app.js:1451 js/app.js:1563
-#: js/contacts.js:146 js/contacts.js:248 js/contacts.js:470
+#: js/app.js:476 js/app.js:502 js/app.js:1461 js/app.js:1573
+#: js/contacts.js:146 js/contacts.js:244 js/contacts.js:466
 msgid "Network or server error. Please inform administrator."
 msgstr ""
 
-#: js/app.js:632 js/app.js:667
+#: js/app.js:638 js/app.js:673
 msgid "Error adding to group."
 msgstr ""
 
-#: js/app.js:692
+#: js/app.js:698
 msgid "Error removing from group."
 msgstr ""
 
-#: js/app.js:722
+#: js/app.js:728
 msgid "There was an error opening a mail composer."
 msgstr ""
 
-#: js/app.js:772
+#: js/app.js:778
 msgid "Deleting done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:849
+#: js/app.js:855
 msgid "Add address book"
 msgstr ""
 
-#: js/app.js:945
+#: js/app.js:951
 msgid "Import done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:986
+#: js/app.js:992
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/app.js:992
+#: js/app.js:998
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/app.js:992 js/app.js:1498 js/settings.js:25 js/settings.js:45
+#: js/app.js:998 js/app.js:1508 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Hiba"
 
-#: js/app.js:1002
+#: js/app.js:1008
 msgid "Importing from {filename}..."
 msgstr "Importálás ebből: {filename}..."
 
-#: js/app.js:1005
+#: js/app.js:1011
 msgid "{success} imported, {failed} failed."
 msgstr ""
 
-#: js/app.js:1013
+#: js/app.js:1019
 msgid "Importing..."
 msgstr "Importálás..."
 
-#: js/app.js:1036
+#: js/app.js:1042
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Nem tölthető fel, mert mappa volt, vagy 0 byte méretű"
 
-#: js/app.js:1036
+#: js/app.js:1042
 msgid "Upload Error"
 msgstr "Feltöltési hiba"
 
-#: js/app.js:1043 js/app.js:1326
+#: js/app.js:1049 js/app.js:1336
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "A feltöltendő fájl mérete meghaladja a megengedett mértéket"
 
-#: js/app.js:1043
+#: js/app.js:1049
 msgid "Upload too large"
 msgstr "A feltöltési méret túl nagy"
 
-#: js/app.js:1083
+#: js/app.js:1089
 msgid "Pending"
 msgstr "Folyamatban"
 
-#: js/app.js:1222 templates/contacts.php:129
+#: js/app.js:1232 templates/contacts.php:129
 msgid "Add group"
 msgstr "Csoport hozzáadása"
 
-#: js/app.js:1315
+#: js/app.js:1325
 msgid "No files selected for upload."
 msgstr "Nincs kiválasztva feltöltendő fájl"
 
-#: js/app.js:1416
+#: js/app.js:1426
 msgid "Edit profile picture"
 msgstr "Profilkép szerkesztése"
 
-#: js/app.js:1434 js/contacts.js:1102
+#: js/app.js:1444 js/contacts.js:1108
 msgid "Error loading profile picture."
 msgstr "Hiba a profilkép betöltése közben."
 
-#: js/app.js:1486 templates/part.selectaddressbook.php:27
+#: js/app.js:1496 templates/part.selectaddressbook.php:27
 msgid "Enter name"
 msgstr "Név megadása"
 
-#: js/app.js:1487 templates/part.selectaddressbook.php:29
+#: js/app.js:1497 templates/part.selectaddressbook.php:29
 msgid "Enter description"
 msgstr "Leírás megadása"
 
-#: js/app.js:1490
+#: js/app.js:1500
 msgid "Select addressbook"
 msgstr ""
 
-#: js/app.js:1498
+#: js/app.js:1508
 msgid "The address book name cannot be empty."
 msgstr ""
 
-#: js/contacts.js:341
+#: js/contacts.js:337
 msgid "Is this correct?"
 msgstr "Helyes ez?"
 
-#: js/contacts.js:529
+#: js/contacts.js:525
 msgid "There was an unknown error when trying to delete this contact"
 msgstr ""
 
-#: js/contacts.js:1435
+#: js/contacts.js:663
+msgid "# groups"
+msgstr ""
+
+#: js/contacts.js:1441
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1446
+#: js/contacts.js:1452
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1461
+#: js/contacts.js:1467
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
@@ -392,37 +396,37 @@ msgstr ""
 msgid "Contacts are already in this group."
 msgstr ""
 
-#: js/groups.js:270
+#: js/groups.js:272
 msgid "Couldn't get contact list."
 msgstr ""
 
-#: js/groups.js:281
+#: js/groups.js:283
 msgid "Contact is not in this group."
 msgstr ""
 
-#: js/groups.js:295
+#: js/groups.js:297
 msgid "Contacts are not in this group."
 msgstr ""
 
-#: js/groups.js:539
+#: js/groups.js:541
 msgid "A group named {group} already exists"
 msgstr ""
 
-#: js/groups.js:571
+#: js/groups.js:573
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr ""
 
-#: js/groups.js:590
+#: js/groups.js:592
 msgid "All"
 msgstr "Összes"
 
-#: js/groups.js:604
+#: js/groups.js:606
 msgid "Favorites"
 msgstr "Kedvencek"
 
-#: js/groups.js:653
+#: js/groups.js:655
 msgid "Shared by {owner}"
 msgstr "Megosztva {owner} által"
 
@@ -450,7 +454,7 @@ msgstr "CardDav link megjelenítése"
 msgid "Show read-only VCF link"
 msgstr "Csak olvasható VCF link megjelenítése"
 
-#: js/settings.js:99 templates/contacts.php:261 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:263 templates/settings.php:40
 msgid "Download"
 msgstr "Letöltés"
 
@@ -458,16 +462,16 @@ msgstr "Letöltés"
 msgid "Edit"
 msgstr "Szerkesztés"
 
-#: js/settings.js:102 templates/contacts.php:206 templates/contacts.php:213
-#: templates/contacts.php:220 templates/contacts.php:227
-#: templates/contacts.php:275 templates/contacts.php:402
+#: js/settings.js:102 templates/contacts.php:208 templates/contacts.php:215
+#: templates/contacts.php:222 templates/contacts.php:229
+#: templates/contacts.php:277 templates/contacts.php:404
 #: templates/part.contact.php:40 templates/part.contact.php:42
 #: templates/part.contact.php:44 templates/part.contact.php:46
 #: templates/part.contact.php:50 templates/settings.php:50
 msgid "Delete"
 msgstr "Törlés"
 
-#: js/settings.js:120 templates/contacts.php:259 templates/settings.php:62
+#: js/settings.js:120 templates/contacts.php:261 templates/settings.php:62
 msgid "Cancel"
 msgstr "Mégsem"
 
@@ -693,7 +697,7 @@ msgstr "Új kapcsolat"
 msgid "Download Contact(s)"
 msgstr "Kapcsolat(ok) letöltése"
 
-#: templates/contacts.php:58 templates/contacts.php:273
+#: templates/contacts.php:58 templates/contacts.php:275
 #: templates/part.contact.php:47 templates/part.contact.php:135
 msgid "Groups"
 msgstr "Csoportok"
@@ -706,7 +710,7 @@ msgstr "Kedvenc"
 msgid "Delete Contact"
 msgstr "Kapcsolat törlése"
 
-#: templates/contacts.php:68 templates/contacts.php:260 templates/index.php:30
+#: templates/contacts.php:68 templates/contacts.php:262 templates/index.php:30
 #: templates/part.import.php:24
 msgid "Close"
 msgstr "Bezár"
@@ -793,202 +797,202 @@ msgstr "Új kép feltöltése"
 msgid "Select photo from ownCloud"
 msgstr "Kép kiválasztása ownCloud-ból"
 
-#: templates/contacts.php:175
-msgid "Select groups"
-msgstr "Csoportok kiválasztása"
-
-#: templates/contacts.php:183 templates/contacts.php:184
+#: templates/contacts.php:182 templates/contacts.php:183
 msgid "First name"
 msgstr "Keresztnév"
 
-#: templates/contacts.php:188 templates/contacts.php:189
+#: templates/contacts.php:187 templates/contacts.php:188
 #: templates/part.edit_name_dialog.php:37
 msgid "Additional names"
 msgstr "További nevek"
 
-#: templates/contacts.php:193 templates/contacts.php:194
+#: templates/contacts.php:192 templates/contacts.php:193
 msgid "Last name"
 msgstr "Vezetéknév"
 
-#: templates/contacts.php:202 templates/contacts.php:265
+#: templates/contacts.php:200
+msgid "Select groups"
+msgstr "Csoportok kiválasztása"
+
+#: templates/contacts.php:204 templates/contacts.php:267
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
 msgstr "Becenév"
 
-#: templates/contacts.php:205 templates/part.contact.php:42
+#: templates/contacts.php:207 templates/part.contact.php:42
 msgid "Enter nickname"
 msgstr "Becenév megadása"
 
-#: templates/contacts.php:209
+#: templates/contacts.php:211
 msgid "Title"
 msgstr "Felirat"
 
-#: templates/contacts.php:212
+#: templates/contacts.php:214
 msgid "Enter title"
 msgstr "Cím megadása"
 
-#: templates/contacts.php:216 templates/contacts.php:264
+#: templates/contacts.php:218 templates/contacts.php:266
 #: templates/part.contact.php:39 templates/part.contact.php:40
 #: templates/part.contact.php:126
 msgid "Organization"
 msgstr "Szervezet"
 
-#: templates/contacts.php:219
+#: templates/contacts.php:221
 msgid "Enter organization"
 msgstr "Szervezet megadása"
 
-#: templates/contacts.php:223 templates/contacts.php:266
+#: templates/contacts.php:225 templates/contacts.php:268
 #: templates/part.contact.php:45 templates/part.contact.php:128
 msgid "Birthday"
 msgstr "Születésnap"
 
-#: templates/contacts.php:254
+#: templates/contacts.php:256
 msgid "Notes go here..."
 msgstr "Ide jönnek a jegyzetek..."
 
-#: templates/contacts.php:261
+#: templates/contacts.php:263
 msgid "Export as VCF"
 msgstr "Exportálás VCF-ként"
 
-#: templates/contacts.php:263
+#: templates/contacts.php:265
 msgid "Add"
 msgstr "Hozzáad"
 
-#: templates/contacts.php:267 templates/part.contact.php:129
+#: templates/contacts.php:269 templates/part.contact.php:129
 msgid "Phone"
 msgstr "Telefonszám"
 
-#: templates/contacts.php:268 templates/part.contact.php:130
+#: templates/contacts.php:270 templates/part.contact.php:130
 msgid "Email"
 msgstr "E-mail"
 
-#: templates/contacts.php:269 templates/part.contact.php:131
+#: templates/contacts.php:271 templates/part.contact.php:131
 msgid "Instant Messaging"
 msgstr "Azonnali üzenetküldés"
 
-#: templates/contacts.php:270 templates/part.contact.php:132
+#: templates/contacts.php:272 templates/part.contact.php:132
 msgid "Address"
 msgstr "Cím"
 
-#: templates/contacts.php:271 templates/part.contact.php:133
+#: templates/contacts.php:273 templates/part.contact.php:133
 msgid "Note"
 msgstr "Jegyzet"
 
-#: templates/contacts.php:272 templates/part.contact.php:43
+#: templates/contacts.php:274 templates/part.contact.php:43
 #: templates/part.contact.php:134
 msgid "Web site"
 msgstr "Weboldal"
 
-#: templates/contacts.php:275 templates/part.contact.php:139
+#: templates/contacts.php:277 templates/part.contact.php:139
 msgid "Delete contact"
 msgstr "Kapcsolat törlése"
 
-#: templates/contacts.php:288 templates/contacts.php:303
-#: templates/contacts.php:317 templates/contacts.php:342
-#: templates/contacts.php:379 templates/part.contact.php:59
+#: templates/contacts.php:290 templates/contacts.php:305
+#: templates/contacts.php:319 templates/contacts.php:344
+#: templates/contacts.php:381 templates/part.contact.php:59
 #: templates/part.contact.php:73 templates/part.contact.php:98
 msgid "Preferred"
 msgstr "Előnyben részesített"
 
-#: templates/contacts.php:290 templates/part.contact.php:60
+#: templates/contacts.php:292 templates/part.contact.php:60
 msgid "Please specify a valid email address."
 msgstr "Adjon meg érvényes email címet"
 
-#: templates/contacts.php:290
+#: templates/contacts.php:292
 msgid "someone@example.com"
 msgstr ""
 
-#: templates/contacts.php:292 templates/part.contact.php:64
+#: templates/contacts.php:294 templates/part.contact.php:64
 msgid "Mail to address"
 msgstr "Postai cím"
 
-#: templates/contacts.php:293 templates/part.contact.php:65
+#: templates/contacts.php:295 templates/part.contact.php:65
 msgid "Delete email address"
 msgstr "Email cím törlése"
 
-#: templates/contacts.php:305 templates/part.contact.php:75
+#: templates/contacts.php:307 templates/part.contact.php:75
 msgid "Enter phone number"
 msgstr "Adja meg a telefonszámot"
 
-#: templates/contacts.php:307 templates/part.contact.php:79
+#: templates/contacts.php:309 templates/part.contact.php:79
 msgid "Delete phone number"
 msgstr "Telefonszám törlése"
 
-#: templates/contacts.php:321 templates/part.contact.php:44
+#: templates/contacts.php:323 templates/part.contact.php:44
 msgid "Go to web site"
 msgstr "Ugrás a weboldalra"
 
-#: templates/contacts.php:322
+#: templates/contacts.php:324
 msgid "Delete URL"
 msgstr "URL törlése"
 
-#: templates/contacts.php:333 templates/part.contact.php:110
+#: templates/contacts.php:335 templates/part.contact.php:110
 msgid "View on map"
 msgstr "Megtekintés a térképen"
 
-#: templates/contacts.php:334
+#: templates/contacts.php:336
 msgid "Delete address"
 msgstr "Cím törlése"
 
-#: templates/contacts.php:346
+#: templates/contacts.php:348
 msgid "1 Main Street"
 msgstr "Fő utca 1."
 
-#: templates/contacts.php:347 templates/part.edit_address_dialog.php:24
+#: templates/contacts.php:349 templates/part.edit_address_dialog.php:24
 msgid "Street address"
 msgstr "Utcacím"
 
-#: templates/contacts.php:351
+#: templates/contacts.php:353
 msgid "12345"
 msgstr "12345"
 
-#: templates/contacts.php:352 templates/part.edit_address_dialog.php:51
+#: templates/contacts.php:354 templates/part.edit_address_dialog.php:51
 msgid "Postal code"
 msgstr "Irányítószám"
 
-#: templates/contacts.php:354
+#: templates/contacts.php:356
 msgid "Your city"
 msgstr "A te városod"
 
-#: templates/contacts.php:355 templates/part.edit_address_dialog.php:36
+#: templates/contacts.php:357 templates/part.edit_address_dialog.php:36
 #: templates/part.edit_address_dialog.php:39
 msgid "City"
 msgstr "Város"
 
-#: templates/contacts.php:359
+#: templates/contacts.php:361
 msgid "Some region"
 msgstr "Egy régió"
 
-#: templates/contacts.php:360
+#: templates/contacts.php:362
 msgid "State or province"
 msgstr "Állam vagy tartomány"
 
-#: templates/contacts.php:364
+#: templates/contacts.php:366
 msgid "Your country"
 msgstr "A te országod"
 
-#: templates/contacts.php:365 templates/part.edit_address_dialog.php:54
+#: templates/contacts.php:367 templates/part.edit_address_dialog.php:54
 #: templates/part.edit_address_dialog.php:57
 msgid "Country"
 msgstr "Ország"
 
-#: templates/contacts.php:387 templates/part.contact.php:100
+#: templates/contacts.php:389 templates/part.contact.php:100
 msgid "Instant Messenger"
 msgstr "Azonnali üzenetküldő"
 
-#: templates/contacts.php:389 templates/part.contact.php:101
+#: templates/contacts.php:391 templates/part.contact.php:101
 msgid "Delete IM"
 msgstr "IM törlése"
 
-#: templates/contacts.php:399 templates/settings.php:36
+#: templates/contacts.php:401 templates/settings.php:36
 msgid "Share"
 msgstr "Megosztás"
 
-#: templates/contacts.php:400
+#: templates/contacts.php:402
 msgid "Export"
 msgstr "Exportálás"
 
-#: templates/contacts.php:401
+#: templates/contacts.php:403
 msgid "CardDAV link"
 msgstr "CardDav link"
 

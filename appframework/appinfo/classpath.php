@@ -36,6 +36,8 @@ namespace OCA\AppFramework;
 \OC::$CLASSPATH['OCA\AppFramework\TemplateResponse'] = 'apps/appframework/lib/responses/template.response.php';
 \OC::$CLASSPATH['OCA\AppFramework\JSONResponse'] = 'apps/appframework/lib/responses/json.response.php';
 \OC::$CLASSPATH['OCA\AppFramework\RedirectResponse'] = 'apps/appframework/lib/responses/redirect.response.php';
+\OC::$CLASSPATH['OCA\AppFramework\DownloadResponse'] = 'apps/appframework/lib/responses/download.response.php';
+\OC::$CLASSPATH['OCA\AppFramework\TextResponse'] = 'apps/appframework/lib/responses/text.response.php';
 \OC::$CLASSPATH['OCA\AppFramework\TextDownloadResponse'] = 'apps/appframework/lib/responses/textdownload.response.php';
 \OC::$CLASSPATH['OCA\AppFramework\Mapper'] = 'apps/appframework/lib/mapper.php';
 \OC::$CLASSPATH['OCA\AppFramework\DoesNotExistException'] = 'apps/appframework/lib/doesnotexist.exception.php';
@@ -45,6 +47,7 @@ namespace OCA\AppFramework;
 \OC::$CLASSPATH['OCA\AppFramework\SecurityException'] = 'apps/appframework/lib/middleware/security/security.exception.php';
 \OC::$CLASSPATH['OCA\AppFramework\MiddlewareDispatcher'] = 'apps/appframework/lib/middleware/middlewaredispatcher.php';
 \OC::$CLASSPATH['OCA\AppFramework\App'] = 'apps/appframework/lib/app.php';
+\OC::$CLASSPATH['OCA\AppFramework\ControllerTestUtility'] = 'apps/appframework/lib/testutilities/controller.test.utility.php';
 \OC::$CLASSPATH['OCA\AppFramework\DIContainer'] = 'apps/appframework/appinfo/dicontainer.php';
 
 

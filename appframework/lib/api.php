@@ -1,28 +1,29 @@
 <?php
 
 /**
-* ownCloud - App Template Example
-*
-* @author Bernhard Posselt
-* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com 
-*
-* This library is free software; you can redistribute it and/or
-* modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
-* License as published by the Free Software Foundation; either
-* version 3 of the License, or any later version.
-*
-* This library is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU AFFERO GENERAL PUBLIC LICENSE for more details.
-*
-* You should have received a copy of the GNU Affero General Public
-* License along with this library.  If not, see <http://www.gnu.org/licenses/>.
-*
-*/
+ * ownCloud - App Framework
+ *
+ * @author Bernhard Posselt
+ * @copyright 2012 Bernhard Posselt nukeawhale@gmail.com
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 
 
 namespace OCA\AppFramework;
+
 
 /**
  * This is used to wrap the owncloud static api calls into an object to make the
@@ -130,7 +131,7 @@ class API {
 	 */
 	public function setUserValue($key, $value, $user=null){
 		if($user === null){
-				$user = $this->getUserId();
+			$user = $this->getUserId();
 		}
 		\OCP\Config::setUserValue($user, $this->appName, $key, $value);
 	}
@@ -142,7 +143,7 @@ class API {
 	 */
 	public function getUserValue($key, $user=null){
 		if($user === null){
-				$user = $this->getUserId();
+			$user = $this->getUserId();
 		}
 		return \OCP\Config::getUserValue($user, $this->appName, $key);
 	}
@@ -246,6 +247,55 @@ class API {
 	public function isAppEnabled($appName){
 		\OC_App::isEnabled($appName);
 	}
+
+
+	/**
+	 * Writes a function into the error log
+	 * @param string $msg: the error message to be logged
+	 * @param int $level: the error level
+	 */
+	public function log($msg, $level=null){
+		if($level === null){
+			$level = \OCP\Util::ERROR;
+		}
+		\OCP\Util::writeLog($this->appName, $msg, $level);
+	}
+
+
+	/**
+	 * Returns a template
+	 * @param string $templateName: the name of the template
+	 * @param string $renderAs: how it should be rendered
+	 * @param string $appName: the name of the app
+	 */
+	public function getTemplate($templateName, $renderAs='user', $appName=null){
+		if($appName === null){
+			$appName = $this->appName;
+		}
+
+		if($renderAs === 'blank'){
+			return new \OCP\Template($appName, $templateName);
+		} else {
+			return new \OCP\Template($appName, $templateName, $renderAs);
+		}
+	}
+
+
+        /**
+         * @param string path: the path to the file on the oc filesystem
+         * @return the filepath in the filesystem
+         */
+        public function getLocalFilePath($path){
+                return \OC_Filesystem::getLocalFile($path);
+        }
+
+
+        /**
+         * @return returns a new open EventSource class
+         */
+        public function openEventSource(){
+                return new \OC_EventSource();
+        }
 
 
 }

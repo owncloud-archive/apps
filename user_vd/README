@@ -1,0 +1,5 @@
+This functionality adds pluguin enable autocomplete as the domain user that was used to access ownCloud.
+
+For example, the domain test.com can be accessed from cloud.test.com own.test.com and, in that case, the user "user@test.com" can put only "user" and password and system will validate the domain from which you are accessing.
+
+To use this pluguin, you must first check the option "Force user_vd backend to create new users", then create a user and assign to the group "admin", and then you can check the "Disable other backends" and disable all other authentication backends. This will disable users created previously, it is not recommended for production installations.

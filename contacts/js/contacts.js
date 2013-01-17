@@ -225,10 +225,6 @@ OC.Contacts = OC.Contacts || {};
 		var q = '';
 		if(params.obj) {
 			obj = params.obj;
-			if($(obj).is('select')) {
-				console.warn('Group adding will have to be refactored.');
-				return;
-			}
 			q = this.queryStringFor(obj);
 			element = this.propertyTypeFor(obj);
 		} else {
@@ -476,17 +472,17 @@ OC.Contacts = OC.Contacts || {};
 				self.access.id = parseInt(jsondata.data.aid);
 				self.data = jsondata.data.details;
 				// Add contact to current group
-				if(self.groupprops && self.groupprops.currentgroup.name !== 'all'
-					&& self.groupprops.currentgroup.name !== 'fav') {
+				if(self.groupprops && self.groupprops.currentgroup.id !== 'all'
+					&& self.groupprops.currentgroup.id !== 'fav') {
 					if(!self.data.CATEGORIES) {
-						self.data.CATEGORIES = [{value:[self.groupprops.currentgroup.name], parameters:[]}];
-						// Save to vCard
-						self.saveProperty({name:'CATEGORIES', value:self.data.CATEGORIES[0].value.join(',') });
-						// Tell OC.Contacts to save in backend
+						self.addToGroup(self.groupprops.currentgroup.name);
 						$(document).trigger('request.contact.addtogroup', {
 							id: self.id,
 							groupid: self.groupprops.currentgroup.id
 						});
+						self.$groupSelect.find('option[value="' + self.groupprops.currentgroup.id + '"]')
+							.attr('selected', 'selected');
+						self.$groupSelect.multiselect('refresh');
 					}
 				}
 				$(document).trigger('status.contact.added', {
@@ -579,25 +575,16 @@ OC.Contacts = OC.Contacts || {};
 		return $container.is('input')
 			? $container.val()
 			: (function() {
-				if($container.is('select[data-element="categories"]')) {
-					console.warn('Group adding will have to be refactored.');
-					retval = {};
-					$.each($container.find(':selected'), function(idx, e) {
-						retval[$(e).val()] = $(e).text();
+				var $elem = $container.find('textarea.value,input.value:not(:checkbox)');
+				console.assert($elem.length > 0, 'Couldn\'t find value for ' + $container.data('element'));
+				if($elem.length === 1) {
+					return $elem.val();
+				} else if($elem.length > 1) {
+					var retval = [];
+					$.each($elem, function(idx, e) {
+						retval.push($(e).val());
 					});
 					return retval;
-				} else {
-					var $elem = $container.find('textarea.value,input.value:not(:checkbox)');
-					console.assert($elem.length > 0, 'Couldn\'t find value for ' + $container.data('element'));
-					if($elem.length === 1) {
-						return $elem.val();
-					} else if($elem.length > 1) {
-						var retval = [];
-						$.each($elem, function(idx, e) {
-							retval.push($(e).val());
-						});
-						return retval;
-					}
 				}
 			})();
 	};
@@ -660,13 +647,33 @@ OC.Contacts = OC.Contacts || {};
 		var self = this;
 		this.groupprops = groupprops;
 		
-		var buildGroupSelect = function($groupSelect, availableGroups) {
+		var buildGroupSelect = function(availableGroups) {
+			//this.$groupSelect.find('option').remove();
 			$.each(availableGroups, function(idx, group) {
 				var $option = $('<option value="' + group.id + '">' + group.name + '</option>');
 				if(self.inGroup(group.name)) {
 					$option.attr('selected', 'selected');
 				}
-				$groupSelect.append($option);
+				self.$groupSelect.append($option);
+			});
+			self.$groupSelect.multiselect({
+				header: false,
+				selectedList: 3,
+				noneSelectedText: self.$groupSelect.attr('title'),
+				selectedText: t('contacts', '# groups')
+			});
+			self.$groupSelect.bind('multiselectclick', function(event, ui) {
+				var action = ui.checked ? 'addtogroup' : 'removefromgroup';
+				console.assert(typeof self.id === 'number', 'ID is not a number')
+				$(document).trigger('request.contact.' + action, {
+					id: self.id,
+					groupid: parseInt(ui.value)
+				});
+				if(ui.checked) {
+					self.addToGroup(ui.text);
+				} else {
+					self.removeFromGroup(ui.text);
+				}
 			});
 		};
 		
@@ -699,8 +706,7 @@ OC.Contacts = OC.Contacts || {};
 		});
 		
 		this.$groupSelect = this.$fullelem.find('#contactgroups');
-		buildGroupSelect(this.$groupSelect, groupprops.groups);
-		this.$groupSelect.multiSelect();
+		buildGroupSelect(groupprops.groups);
 		
 		this.$addMenu = this.$fullelem.find('#addproperty');
 		this.$addMenu.on('change', function(event) {
@@ -1656,7 +1662,7 @@ OC.Contacts = OC.Contacts || {};
 					self.contacts[parseInt(contact.id)]
 						= new Contact(
 							self,
-							contact.id,
+							parseInt(contact.id),
 							self.addressbooks[parseInt(contact.aid)],
 							contact.data,
 							self.$contactListItemTemplate,

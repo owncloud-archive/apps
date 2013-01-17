@@ -1,25 +1,25 @@
 <?php
 
 /**
-* ownCloud - App Template Example
-*
-* @author Bernhard Posselt
-* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com
-*
-* This library is free software; you can redistribute it and/or
-* modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
-* License as published by the Free Software Foundation; either
-* version 3 of the License, or any later version.
-*
-* This library is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU AFFERO GENERAL PUBLIC LICENSE for more details.
-*
-* You should have received a copy of the GNU Affero General Public
-* License along with this library.  If not, see <http://www.gnu.org/licenses/>.
-*
-*/
+ * ownCloud - App Framework
+ *
+ * @author Bernhard Posselt
+ * @copyright 2012 Bernhard Posselt nukeawhale@gmail.com
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 
 
 namespace OCA\AppFramework;
@@ -32,17 +32,21 @@ class TemplateResponse extends Response {
 
 	private $templateName;
 	private $params;
-	private $appName;
+	private $api;
 	private $renderAs;
+	private $appName;
 
 	/**
-	 * @param string $appName: the name of your app
+	 * @param string $api: an API instance
 	 * @param string $templateName: the name of the template
+	 * @param string $appName: optional if you want to include a template from
+	 *                         a different app
 	 */
-	public function __construct($appName, $templateName) {
+	public function __construct(API $api, $templateName, $appName=null) {
 		parent::__construct();
 		$this->templateName = $templateName;
 		$this->appName = $appName;
+		$this->api = $api;
 		$this->params = array();
 		$this->renderAs = 'user';
 	}
@@ -53,7 +57,7 @@ class TemplateResponse extends Response {
 	 * @param array $params: an array with key => value structure which sets template
 	 *                       variables
 	 */
-	public function setParams($params){
+	public function setParams(array $params){
 		$this->params = $params;
 	}
 
@@ -80,7 +84,7 @@ class TemplateResponse extends Response {
 	 *                          the admin settings page, user renders a normal
 	 *                          owncloud page, blank renders the template alone
 	 */
-	public function renderAs($renderAs='user'){
+	public function renderAs($renderAs){
 		$this->renderAs = $renderAs;
 	}
 
@@ -90,14 +94,14 @@ class TemplateResponse extends Response {
 	 * @return the rendered html
 	 */
 	public function render(){
-		parent::render();
 
-		if($this->renderAs === 'blank'){
-			$template = new \OCP\Template($this->appName, $this->templateName);
+		if($this->appName !== null){
+			$appName = $this->appName;
 		} else {
-			$template = new \OCP\Template($this->appName, $this->templateName,
-											$this->renderAs);
+			$appName = $this->api->getAppName();
 		}
+
+                $template = $this->api->getTemplate($this->templateName, $this->renderAs, $appName);
 
 		foreach($this->params as $key => $value){
 			$template->assign($key, $value, false);
