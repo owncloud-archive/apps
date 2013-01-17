@@ -39,7 +39,6 @@ $(document).ready(function(){
 	// store some references to slider and moved objects
 	OC.FluXX.Handle=$('#fluxx');
 	OC.FluXX.Offset=$('#navigation').css('width');
-	OC.FluXX.Zoom=$('#content');
 	// hide or show the navigation in a persistent manner
 	OC.AppConfig.getValue('fluxx_compensator','fluxx-status','shown',function(status){
 		if ('hidden'==status)
@@ -73,12 +72,6 @@ OC.FluXX={
 	* @author Christian Reiner
 	*/
 	Offset:{},
-	/**
-	* @object OC.FluXX.Zoom
-	* @brief Static reference to the objects inside the DOM that must be scaled
-	* @author Christian Reiner
-	*/
-	Zoom:{},
 	/**
 	* @method OC.FluXX.click
 	* @brief Hide the navigation area if visible
@@ -143,8 +136,7 @@ OC.FluXX={
 		if (OC.FluXX.Handle.hasClass('fluxx-shown')){
 			$.when(
 				OC.FluXX.Handle.addClass('fluxx-hidden'),
-				OC.FluXX.Handle.removeClass('fluxx-shown'),
-				OC.FluXX.Zoom.animate({width:"+="+OC.FluXX.Offset},'fast')
+				OC.FluXX.Handle.removeClass('fluxx-shown')
 			).done(function(){
 				dfd.resolve();
 				OC.FluXX.Handle.find('img')
@@ -198,8 +190,7 @@ OC.FluXX={
 		if (OC.FluXX.Handle.hasClass('fluxx-hidden')){
 			$.when(
 				OC.FluXX.Handle.addClass('fluxx-shown'),
-				OC.FluXX.Handle.removeClass('fluxx-hidden'),
-				OC.FluXX.Zoom.animate({width:"-="+OC.FluXX.Offset},'fast')
+				OC.FluXX.Handle.removeClass('fluxx-hidden')
 			).done(function(){
 				dfd.resolve();
 				OC.FluXX.Handle.find('img')

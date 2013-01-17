@@ -30,7 +30,8 @@
  */
 
 /* some general static modifications required due to strange OC base definitions */
-/* html #content #controls { position:relative; top:0; } */
+html.fluxx-state-hidden {}
+html.fluxx-state-shown {}
 
 /* some general mode specific modifications */
 html.fluxx-state-hidden #navigation {
@@ -38,17 +39,12 @@ html.fluxx-state-hidden #navigation {
 }
 html.fluxx-state-hidden #content {
 	left: 0;
-/* 	width: calc(attr(width)+attr()); */
-}
-
-html.fluxx-state-shown #navigation {
-	left: 0;
-}
-html.fluxx-state-shown #content {
-	left: 12.5em;
+	width: 100% !important;
 }
 
 /* some specific app dependent settings */
+
+/* no _known_ mode detected, so _guess_ */
 html.fluxx-modeless { }
 
 /* 'files' app */
