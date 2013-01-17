@@ -27,6 +27,7 @@ $params = array(
 	'av_port' => '',
 	'av_chunk_size' => '1024',
 	'av_path' => '/usr/bin/clamscan',
+	'infected_action' => 'only_log',
 	);
 
 if($_POST){
