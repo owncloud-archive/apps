@@ -32,6 +32,7 @@ class MiddlewareDispatcher {
 
 	public function __construct(){
 		$this->middlewares = array();
+                $this->middlewareCounter = 0;
 	}
 
 	/**
@@ -40,7 +41,6 @@ class MiddlewareDispatcher {
 	 */
 	public function registerMiddleware(Middleware $middleware){
 		array_push($this->middlewares, $middleware);
-		$this->middlewareCounter = 0;
 	}
 
 

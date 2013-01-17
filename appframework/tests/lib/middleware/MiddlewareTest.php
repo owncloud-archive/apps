@@ -46,7 +46,7 @@ class MiddlewareTest extends \PHPUnit_Framework_TestCase {
 
 		$this->controller = $this->getMock('OCA\AppFramework\Controller',
 				array(), array($this->api, new Request()));
-		$this->exception = $this->getMock('Exception');
+                $this->exception = new \Exception();
 		$this->response = $this->getMock('OCA\AppFramework\Response');
 	}
 
@@ -56,10 +56,9 @@ class MiddlewareTest extends \PHPUnit_Framework_TestCase {
 	}
 
 
-	public function testAfterExceptionReturnNullWhenUnhandled() {
+        public function testAfterExceptionRaiseAgainWhenUnhandled() {
+                $this->setExpectedException('Exception');
 		$afterEx = $this->middleware->afterException($this->controller, null, $this->exception);
-
-		$this->assertEquals(null, $afterEx);
 	}
 
 

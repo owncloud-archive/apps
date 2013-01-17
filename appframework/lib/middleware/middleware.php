@@ -63,7 +63,7 @@ abstract class Middleware {
 	 * handled
 	 */
 	public function afterException(Controller $controller, $methodName, \Exception $exception){
-		return null;
+                throw $exception;
 	}
 
 
