@@ -134,7 +134,7 @@
 #firstrun #selections { font-size:0.8em; margin: 2em auto auto auto; clear: both; }
 
 #contact { margin: 1em; }
-#contact textarea { min-height: 5em; min-width: 30em; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
+#contact textarea { min-height: 5em; width: 100%; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
 
 #contact input[type="checkbox"] { margin-top: 10px; vertical-align: bottom; float: left; }
 /*dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }*/
