@@ -110,6 +110,15 @@ OC.Contacts = OC.Contacts || {};
 		}
 
 		if($elem) {
+			// If there's already a property of this type enable setting as preferred.
+			if(this.multi_properties.indexOf(name) !== -1 && this.data[name] && this.data[name].length > 0) {
+				var selector = 'li[data-element="' + name.toLowerCase() + '"]';
+				$.each(this.$fullelem.find(selector), function(idx, elem) {
+					$(elem).find('input.parameter[value="PREF"]').show();
+				});
+			} else if(this.multi_properties.indexOf(name) !== -1) {
+				$elem.find('input.parameter[value="PREF"]').hide();
+			}
 			$elem.find('select.type[name="parameters[TYPE][]"]')
 				.combobox({
 					singleclick: true,
@@ -119,6 +128,7 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.deleteProperty = function(params) {
+		// TODO: Disable PREF if less than 2 multi_properties.
 		var obj = params.obj;
 		if(!this.enabled) {
 			return;
@@ -782,7 +792,7 @@ OC.Contacts = OC.Contacts || {};
 		});
 
 		this.$fullelem.on('change', '.value,.parameter', function(event) {
-			if(this.value === this.defaultValue) {
+			if($(this).hasClass('value') && this.value === this.defaultValue) {
 				return;
 			}
 			console.log('change', this.defaultValue, this.value);
@@ -844,7 +854,7 @@ OC.Contacts = OC.Contacts || {};
 							case 'URL':
 							case 'EMAIL':
 								$property = self.renderStandardProperty(name.toLowerCase(), property);
-								if(self.data[name].length >= 1) {
+								if(self.data[name].length === 1) {
 									$property.find('input:checkbox[value="PREF"]').hide();
 								}
 								break;
@@ -853,6 +863,9 @@ OC.Contacts = OC.Contacts || {};
 								break;
 							case 'IMPP':
 								$property = self.renderIMProperty(property);
+								if(self.data[name].length === 1) {
+									$property.find('input:checkbox[value="PREF"]').hide();
+								}
 								break;
 						}
 						if(!$property) {
