@@ -80,4 +80,19 @@ class RequestTest extends \PHPUnit_Framework_TestCase {
 	}
 
 
+	public function testGetFILE(){
+		$files = array('test' => 'somevalue');
+		$request = new Request(array(), array(), $files);
+
+		$this->assertEquals('somevalue', $request->getFILES('test'));
+	}
+
+
+	public function testGetFILEEmpty(){
+		$request = new Request();
+
+		$this->assertNull($request->getFILES('test'));
+	}
+
+
 }

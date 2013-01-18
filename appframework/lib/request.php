@@ -43,6 +43,7 @@ class Request {
 								array $files=array()) {
 		$this->get = $get;
 		$this->post = $post;
+		$this->files = $files;
 	}
 
 
