@@ -125,7 +125,7 @@ OC.FluXX={
 		// construct handle object
 		var handle=$('<span id="fluxx" class="fluxx-shown" />');
 		var img   =$('<img  id="fluxx" class="svg" draggable="false">');
-		img.attr('src',OC.filePath('fluxx_compensator','img','actions/slide-left.svg'));
+		img.attr('src',OC.filePath('fluxx_compensator','img','actions/left.svg'));
 		handle.append(img);
 		// inject handle object into navigation areaa
 		$('body > nav > #navigation').append(handle);
@@ -151,7 +151,7 @@ OC.FluXX={
 			).done(function(){
 				dfd.resolve();
 				OC.FluXX.Handle.find('img')
-					.attr('src',OC.filePath('fluxx_compensator','img','actions/slide-right.svg'));
+					.attr('src',OC.filePath('fluxx_compensator','img','actions/right.svg'));
 				// store current handle status inside user preferences
 				OC.AppConfig.setValue('fluxx_compensator','fluxx-status','hidden');
 			}).fail(dfd.reject)}
@@ -225,7 +225,7 @@ OC.FluXX={
 			).done(function(){
 				dfd.resolve();
 				OC.FluXX.Handle.find('img')
-					.attr('src',OC.filePath('fluxx_compensator','img','actions/slide-left.svg'));
+					.attr('src',OC.filePath('fluxx_compensator','img','actions/left.svg'));
 				// store current handle status inside user preferences
 				OC.AppConfig.setValue('fluxx_compensator','fluxx-status','shown');
 			}).fail(dfd.reject)}
