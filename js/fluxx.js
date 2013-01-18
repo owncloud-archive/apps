@@ -150,8 +150,6 @@ OC.FluXX={
 				OC.FluXX.Handle.removeClass('fluxx-shown')
 			).done(function(){
 				dfd.resolve();
-				OC.FluXX.Handle.find('img')
-					.attr('src',OC.filePath('fluxx_compensator','img','actions/right.svg'));
 				// store current handle status inside user preferences
 				OC.AppConfig.setValue('fluxx_compensator','fluxx-status','hidden');
 			}).fail(dfd.reject)}
@@ -224,8 +222,6 @@ OC.FluXX={
 				OC.FluXX.Handle.removeClass('fluxx-hidden')
 			).done(function(){
 				dfd.resolve();
-				OC.FluXX.Handle.find('img')
-					.attr('src',OC.filePath('fluxx_compensator','img','actions/left.svg'));
 				// store current handle status inside user preferences
 				OC.AppConfig.setValue('fluxx_compensator','fluxx-status','shown');
 			}).fail(dfd.reject)}
@@ -286,6 +282,13 @@ OC.FluXX={
 		$('body > nav > #navigation').on('webkitTransitionEnd oTransitionEnd transitionEnd',function(){
 			clearTimeout(timer);
 			$('head link#fluxx-transitions').remove();
+			// switch icon
+			if (OC.FluXX.Handle.hasClass('fluxx-shown')){
+				OC.FluXX.Handle.find('img')
+					.attr('src',OC.filePath('fluxx_compensator','img','actions/left.svg'));}
+			else{
+				OC.FluXX.Handle.find('img')
+					.attr('src',OC.filePath('fluxx_compensator','img','actions/right.svg'));}
 		});
 		return dfd.promise();
 	}, // OC.FluXX.swap
