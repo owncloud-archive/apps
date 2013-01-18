@@ -2,7 +2,7 @@
 * @package imprint an ownCloud app
 * @category base
 * @author Christian Reiner
-* @copyright 2012 Christian Reiner <foss@christian-reiner.info>
+* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information http://apps.owncloud.com/content/show.php?content=153220
 * @link repository https://svn.christian-reiner.info/svn/app/oc/imprint
@@ -24,7 +24,7 @@
 */
 
 /**
- * @file js/init.js
+ * @file js/imprint_navigation_bottom.js
  * @brief Client side activity library
  * @author Christian Reiner
  */
@@ -32,30 +32,6 @@ $(document).ready(function(){
 	var anchor=$('<a />');
 	anchor.attr('href',OC.linkTo('imprint','index.php'));
 	anchor.text(t("imprint","Legal notice"));
-	anchor.addClass('imprint-anchor');
-	OC.AppConfig.getValue('imprint','position',null,function(value){
-		switch (value) {
-			default:
-			case 'standalone':
-				// handled in appinfo/app.php
-				break;
-			case 'header-left':
-				anchor.css('float','left');
-				$('#header #owncloud').after(anchor);
-				break;
-			case 'header-right':
-				anchor.css('float','right');
-// 				the 2 following lines are a workaround for chaotic header layout definitions in OC4
-				if ('right'!=$('#header .searchbox').css('float'))
-					anchor.css('right','250px');
-				$('#header').append(anchor);
-				break;
-			case 'navigation-top':
-				$('#navigation #apps').before(anchor);
-				break;
-			case 'navigation-bottom':
-				$('#navigation #settings').append(anchor);
-				break;
-		} // switch
-	});
+	anchor.addClass('imprint-anchor').addClass('navigation-bottom');
+	$('#navigation #settings').append(anchor);
 })

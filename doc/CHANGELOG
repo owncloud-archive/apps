@@ -2,7 +2,7 @@
 * @package imprint an ownCloud app
 * @category base
 * @author Christian Reiner
-* @copyright 2011-2012 Christian Reiner <foss@christian-reiner.info>
+* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information http://apps.owncloud.com/content/show.php?content=153220
 * @link repository https://svn.christian-reiner.info/svn/app/oc/imprint
@@ -24,13 +24,18 @@
 
 Changelog: 
 
-* Sun Aug 12 2012 Christian Reiner: version 1.0.4
+* Fri Jan 18 2013 Christian Reiner: version 0.1.6
+Convert plain text content to simple markup to preserve linebreaks.
+* Fri Dec 07 2012 Christian Reiner: version 0.1.5
+Fixed usage for non-admin users.
+Simplyfied initialization without explicit ajax call.
+* Sun Aug 12 2012 Christian Reiner: version 0.1.4
 Small additional usage hint in the configuration.
-* Sat Aug 11 2012 Christian Reiner: version 1.0.3
+* Sat Aug 11 2012 Christian Reiner: version 0.1.3
 Fixed reference url to use propper syntax in all cases.
-* Fri Aug 10 2012 Christian Reiner: version 1.0.2
+* Fri Aug 10 2012 Christian Reiner: version 0.1.2
 Fixed reference url to use propper syntax in a special case.
-* Thu Aug 09 2012 Christian Reiner: version 1.0.1
+* Thu Aug 09 2012 Christian Reiner: version 0.1.1
 Fixed german translation.
-* Wed Aug 08 2012 Christian Reiner: version 1.0.0
+* Wed Aug 08 2012 Christian Reiner: version 0.1.0
 Initial release.

@@ -1,4 +1,3 @@
-<?php
 /**
 * @package imprint an ownCloud app
 * @category base
@@ -23,25 +22,16 @@
 * If not, see <http://www.gnu.org/licenses/>.
 *
 */
-?>
 
-<?php
 /**
- * @file templates/tmpl_dummy.php
- * Fallback imprint content guiding towards the required settings.
- * @access public
+ * @file js/imprint_navigation_top.js
+ * @brief Client side activity library
  * @author Christian Reiner
  */
-?>
-
-<div class="imprint-dummy">
-	<div class="imprint-factoid">    <?php echo $l->t("Nothing here yet")."!";?></div>
-	<div class="imprint-suggestion"> <?php echo $l->t("The content of the legal notice has to be configured first").".";?></div>
-	<div class="imprint-explanation">
-		<?php echo $l->t("The configuration is done here").":";?>
-		<a	class="imprint-reference"
-			href="<?php echo OCP\Util::linkTo('settings','admin.php');?>">
-			<?php echo $l->t("Admin");?>
-		</a>
-	</div>
-</div>
+$(document).ready(function(){
+	var anchor=$('<a />');
+	anchor.attr('href',OC.linkTo('imprint','index.php'));
+	anchor.text(t("imprint","Legal notice"));
+	anchor.addClass('imprint-anchor').addClass('navigation-top');
+	$('#navigation #apps').before(anchor);
+})

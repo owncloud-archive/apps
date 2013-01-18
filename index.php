@@ -3,7 +3,7 @@
 * @package imprint an ownCloud app
 * @category base
 * @author Christian Reiner
-* @copyright 2012 Christian Reiner <foss@christian-reiner.info>
+* @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
 * @link information http://apps.owncloud.com/content/show.php?content=153220
 * @link repository https://svn.christian-reiner.info/svn/app/oc/imprint
@@ -35,7 +35,6 @@ OCP\App::setActiveNavigationEntry ( 'imprint' );
 
 OCP\Util::addStyle  ( 'imprint','imprint' );
 
-
 // prepare content
 if ( FALSE === ($content=OCP\Config::getAppValue('imprint','content',FALSE)) )
 {
@@ -44,10 +43,8 @@ if ( FALSE === ($content=OCP\Config::getAppValue('imprint','content',FALSE)) )
 }
 else
 {
-	// fetch 'real' template
+	// fetch 'real' template, will pull content itself
 	$tmpl = new OCP\Template( 'imprint', 'tmpl_content', 'user' );
-	// assign imprint content
-	$tmpl->assign ( 'imprint', $content );
 }
 // render template
 $tmpl->printPage ( );
