@@ -83,6 +83,7 @@
 "The address book name cannot be empty." => "アドレス帳名は空に出来ません。",
 "Is this correct?" => "これは正しいですか？",
 "There was an unknown error when trying to delete this contact" => "この連絡先の削除時に不明なエラーが発生しました",
+"# groups" => "グループ数",
 "Some contacts are marked for deletion, but not deleted yet. Please wait for them to be deleted." => "いくつかの連絡先が削除対象としてマークされていますが、まだ削除されていません。削除するまでお待ちください。",
 "Click to undo deletion of {num} contacts" => "{num} 個の連絡先の削除を元に戻す",
 "Cancelled deletion of {num}" => "{num} 個の削除をキャンセルしました",

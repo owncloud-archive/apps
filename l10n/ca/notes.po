@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <rcalvoi@yahoo.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-18 00:01+0100\n"
-"PO-Revision-Date: 2013-01-17 21:33+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-19 00:01+0100\n"
+"PO-Revision-Date: 2013-01-18 08:32+0000\n"
+"Last-Translator: rogerc <rcalvoi@yahoo.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,11 @@ msgstr ""
 
 #: appinfo/app.php:9
 msgid "Notes"
-msgstr ""
+msgstr "Anotacions"
 
 #: templates/categories.php:10 templates/help.php:5
 msgid "Back to Notes"
-msgstr ""
+msgstr "Torna a anotacions"
 
 #: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
 msgid "Help"
@@ -31,7 +32,7 @@ msgstr "Ajuda"
 
 #: templates/categories.php:99
 msgid "Categories"
-msgstr ""
+msgstr "Categories"
 
 #: templates/categories.php:116 templates/notes.php:345
 #: templates/notes.php:388
@@ -44,11 +45,11 @@ msgstr "Desa"
 
 #: templates/categories.php:129
 msgid "No categories available yet"
-msgstr ""
+msgstr "Encara no hi ha categories disponibles"
 
 #: templates/categories.php:137
 msgid "New category"
-msgstr ""
+msgstr "Nova categoria"
 
 #: templates/categories.php:141
 msgid "Add"
@@ -62,7 +63,7 @@ msgstr "Nota"
 msgid ""
 "If you delete a category, all containing notes get moved to the following "
 "category"
-msgstr ""
+msgstr "Si esborreu una categoria, totes les anotacions que conté es mouràn a la categoria següent"
 
 #: templates/categories.php:145 templates/notes.php:61
 msgid "General"
@@ -70,15 +71,15 @@ msgstr "General"
 
 #: templates/notes.php:81
 msgid "Add Note"
-msgstr ""
+msgstr "Afegeix anotació"
 
 #: templates/notes.php:87
 msgid "Edit Categories"
-msgstr ""
+msgstr "Edita categories"
 
 #: templates/notes.php:291
 msgid "No note available in this category"
-msgstr ""
+msgstr "No hia ha anotacions disponibles en aquesta categoria"
 
 #: templates/notes.php:335
 msgid "Edit"
@@ -94,24 +95,24 @@ msgstr "Títol"
 
 #: templates/notes.php:382
 msgid "Content"
-msgstr ""
+msgstr "Contingut"
 
 #: templates/notes.php:413
 msgid "Restore content"
-msgstr ""
+msgstr "Recupera el contingut"
 
 #: templates/notes.php:421
 msgid "Restore"
-msgstr ""
+msgstr "Recupera"
 
 #: templates/notes.php:455
 msgid "The title can not be empty"
-msgstr ""
+msgstr "El títol no pot ser buit"
 
 #: templates/notes.php:462
 msgid "Invalid title"
-msgstr ""
+msgstr "Títol no vàlid"
 
 #: templates/notes.php:462
 msgid "The following characters are not allowed"
-msgstr ""
+msgstr "Els caràcters següents no són permesos"

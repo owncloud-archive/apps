@@ -19,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-17 00:22+0100\n"
-"PO-Revision-Date: 2013-01-16 23:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-19 00:01+0100\n"
+"PO-Revision-Date: 2013-01-18 09:03+0000\n"
+"Last-Translator: André Koot <meneer@tken.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -262,7 +262,7 @@ msgid "Select photo"
 msgstr "Selecteer een foto"
 
 #: js/app.js:476 js/app.js:502 js/app.js:1461 js/app.js:1573
-#: js/contacts.js:146 js/contacts.js:244 js/contacts.js:466
+#: js/contacts.js:156 js/contacts.js:254 js/contacts.js:476
 msgid "Network or server error. Please inform administrator."
 msgstr "Netwerk- of serverfout. Neem contact op met de beheerder."
 
@@ -349,7 +349,7 @@ msgstr "Geen bestanden geselecteerd voor upload."
 msgid "Edit profile picture"
 msgstr "Bewerk profielafbeelding"
 
-#: js/app.js:1444 js/contacts.js:1108
+#: js/app.js:1444 js/contacts.js:1121
 msgid "Error loading profile picture."
 msgstr "Fout profiel plaatje kan niet worden geladen."
 
@@ -369,29 +369,29 @@ msgstr "Kies een adresboek"
 msgid "The address book name cannot be empty."
 msgstr "De naam van het adresboek mag niet leeg zijn."
 
-#: js/contacts.js:337
+#: js/contacts.js:347
 msgid "Is this correct?"
 msgstr "Is dit correct?"
 
-#: js/contacts.js:525
+#: js/contacts.js:535
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Er is een onbekende fout opgetreden bij het verwijderen van deze contactpersoon"
 
-#: js/contacts.js:663
+#: js/contacts.js:673
 msgid "# groups"
-msgstr ""
+msgstr "# groepen"
 
-#: js/contacts.js:1441
+#: js/contacts.js:1454
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Enkele contacten zijn gemarkeerd om verwijderd te worden, maar zijn nog niet verwijderd.  Wacht totdat ze zijn verwijderd."
 
-#: js/contacts.js:1452
+#: js/contacts.js:1465
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Klik om het verwijderen van {num} contactpersonen ongedaan te maken."
 
-#: js/contacts.js:1467
+#: js/contacts.js:1480
 msgid "Cancelled deletion of {num}"
 msgstr "Verwijderen geannuleerd van {num}"
 
@@ -704,8 +704,8 @@ msgstr "Nieuw Contact"
 msgid "Download Contact(s)"
 msgstr "Downloaden Contactperso(o)n(en)"
 
-#: templates/contacts.php:58 templates/contacts.php:275
-#: templates/part.contact.php:47 templates/part.contact.php:135
+#: templates/contacts.php:58 templates/part.contact.php:47
+#: templates/part.contact.php:135
 msgid "Groups"
 msgstr "Groepen"
 
@@ -821,7 +821,7 @@ msgstr "Achternaam"
 msgid "Select groups"
 msgstr "Selecteer groepen"
 
-#: templates/contacts.php:204 templates/contacts.php:267
+#: templates/contacts.php:204 templates/contacts.php:268
 #: templates/part.contact.php:41 templates/part.contact.php:127
 msgid "Nickname"
 msgstr "Roepnaam"
@@ -830,7 +830,7 @@ msgstr "Roepnaam"
 msgid "Enter nickname"
 msgstr "Voer roepnaam in"
 
-#: templates/contacts.php:211
+#: templates/contacts.php:211 templates/contacts.php:267
 msgid "Title"
 msgstr "Titel"
 
@@ -848,7 +848,7 @@ msgstr "Organisatie"
 msgid "Enter organization"
 msgstr "Invoeren organisatie"
 
-#: templates/contacts.php:225 templates/contacts.php:268
+#: templates/contacts.php:225 templates/contacts.php:269
 #: templates/part.contact.php:45 templates/part.contact.php:128
 msgid "Birthday"
 msgstr "Verjaardag"
@@ -865,27 +865,27 @@ msgstr "Exporteren als VCF"
 msgid "Add"
 msgstr "Toevoegen"
 
-#: templates/contacts.php:269 templates/part.contact.php:129
+#: templates/contacts.php:270 templates/part.contact.php:129
 msgid "Phone"
 msgstr "Telefoon"
 
-#: templates/contacts.php:270 templates/part.contact.php:130
+#: templates/contacts.php:271 templates/part.contact.php:130
 msgid "Email"
 msgstr "E-mail"
 
-#: templates/contacts.php:271 templates/part.contact.php:131
+#: templates/contacts.php:272 templates/part.contact.php:131
 msgid "Instant Messaging"
 msgstr "Instant Messaging"
 
-#: templates/contacts.php:272 templates/part.contact.php:132
+#: templates/contacts.php:273 templates/part.contact.php:132
 msgid "Address"
 msgstr "Adres"
 
-#: templates/contacts.php:273 templates/part.contact.php:133
+#: templates/contacts.php:274 templates/part.contact.php:133
 msgid "Note"
 msgstr "Notitie"
 
-#: templates/contacts.php:274 templates/part.contact.php:43
+#: templates/contacts.php:275 templates/part.contact.php:43
 #: templates/part.contact.php:134
 msgid "Web site"
 msgstr "Website"
