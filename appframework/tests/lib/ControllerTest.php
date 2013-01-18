@@ -83,9 +83,15 @@ class ControllerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 
-	public function testGetUploadedFile(){
+	public function testParamsFile(){
 		$this->assertEquals('filevalue', $this->controller->params('file', 'filevalue'));
 	}
+
+
+	public function testGetUploadedFile(){
+		$this->assertEquals('filevalue', $this->controller->getUploadedFile('file'));
+	}
+
 
 
 	public function testGetUploadedFileDefault(){
@@ -154,5 +160,6 @@ class ControllerTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals($json->render(), 
 				$this->controller->renderJSON($params, $error)->render());	
 	}
+
 
 }

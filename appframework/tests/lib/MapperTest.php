@@ -91,7 +91,7 @@ class MapperTest extends \PHPUnit_Framework_TestCase {
 
 
 	public function testFindDoesNotExist(){
-		$this->find(false);
+		$this->find(true);
 	}
 
 
