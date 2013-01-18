@@ -51,15 +51,15 @@ class DIContainer extends \Pimple {
 		/**
 		 * Middleware
 		 */
-		$this['SecurityMiddleware'] = function($c){
+		$this['SecurityMiddleware'] = $this->share(function($c){
 			return new SecurityMiddleware($c['API']);
-		};
+		});
 
-		$this['MiddlewareDispatcher'] = function($c){
+		$this['MiddlewareDispatcher'] = $this->share(function($c){
 			$dispatcher = new MiddlewareDispatcher();
 			$dispatcher->registerMiddleware($c['SecurityMiddleware']);
 			return $dispatcher;
-		};
+		});
 
 	}
 
