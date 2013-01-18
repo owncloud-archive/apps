@@ -79,6 +79,31 @@ class TemplateResponseTest extends \PHPUnit_Framework_TestCase {
 	}
 
 
+	public function testRenderAssignsParams(){
+		$params = array('john' => 'doe');
+
+		$ocTpl = $this->getMock('Template', array('assign', 'fetchPage'));
+		$ocTpl->expects($this->once())
+				->method('assign')
+				->with($this->equalTo('john'), $this->equalTo('doe'));
+
+		$api = $this->getMock('OCA\AppFramework\API',
+					array('getAppName', 'getTemplate'), array('app'));
+		$api->expects($this->any())
+				->method('getAppName')
+				->will($this->returnValue('app'));
+		$api->expects($this->once())
+				->method('getTemplate')
+				->with($this->equalTo('home'), $this->equalTo('user'), $this->equalTo('app'))
+				->will($this->returnValue($ocTpl));
+
+		$tpl = new TemplateResponse($api, 'home');
+		$tpl->setParams($params);
+
+		$tpl->render();
+	}
+
+
 	public function testRenderDifferentApp(){
 		$ocTpl = $this->getMock('Template', array('fetchPage'));
 		$ocTpl->expects($this->once())
