@@ -64,7 +64,9 @@ html.fluxx-mode-media { }
 html.fluxx-mode-calendar { }
 
 /* 'contacts' app */
-html.fluxx-mode-contacts.fluxx-state-hidden #content > * { left:0; }
+html.fluxx-mode-contacts.fluxx-state-hidden #content > #leftcontent,
+html.fluxx-mode-contacts.fluxx-state-hidden #content > #leftcontent > #contacts { left:0; }
+html.fluxx-mode-contacts.fluxx-state-hidden #content > #rightcontent { left:256px; }
 
 /* 'gallery' app */
 html.fluxx-mode-gallery { }

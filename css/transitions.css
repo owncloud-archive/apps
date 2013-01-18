@@ -59,6 +59,7 @@ html.fluxx-mode-calendar { }
 
 /* 'contacts' app */
 html.fluxx-mode-contacts #content > #leftcontent,
+html.fluxx-mode-contacts #content > #leftcontent > #contacts,
 html.fluxx-mode-contacts #content > #rightcontent {
 	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
 }
