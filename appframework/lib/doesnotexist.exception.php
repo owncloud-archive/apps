@@ -27,8 +27,8 @@ namespace OCA\AppFramework;
 
 class DoesNotExistException extends \Exception {
 
-        public function __construct($msg){
-                parent::__construct($msg);
-        }
+	public function __construct($msg){
+		parent::__construct($msg);
+	}
 
 }

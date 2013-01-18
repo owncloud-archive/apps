@@ -32,9 +32,9 @@ namespace OCA\AppFramework;
 class DIContainer extends \Pimple {
 
 
-        /**
-         * @param string $appName: the name of the app
-         */
+	/**
+	 * @param string $appName: the name of the app
+	 */
 	public function __construct($appName){
 		
 		$this['AppName'] = $appName;

@@ -36,10 +36,7 @@ abstract class ControllerTestUtility extends \PHPUnit_Framework_TestCase {
 	 */
 	protected function getAPIMock($apiClass='OCA\AppFramework\API', 
 									array $constructor=array('appname')){
-		if($methods === null){
-			$methods = get_class_methods($apiClass);
-		}
-
+		$methods = get_class_methods($apiClass);
 		return $this->getMock($apiClass, $methods, $constructor);
 	}
 
@@ -79,7 +76,7 @@ abstract class ControllerTestUtility extends \PHPUnit_Framework_TestCase {
 	 * @param array $expected: an array with the expected headers
 	 * @param Response $response: the response which we want to test for headers
 	 */
-	protected function testHeaders(array $expected=array(), Response $response){
+	protected function assertHeaders(array $expected=array(), Response $response){
 		$headers = $reponse->getHeaders();
 		foreach($expected as $header){
 			$this->assertTrue(in_array($header, $headers));

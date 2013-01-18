@@ -63,7 +63,7 @@ class SecurityMiddleware extends Middleware {
 			$ajax = true;
 		}
 
-                $exceptionMessage = null;
+		$exceptionMessage = null;
 
 		// security checks
 		if(!$annotationReader->hasAnnotation('IsLoggedInExemption')){
@@ -90,9 +90,9 @@ class SecurityMiddleware extends Middleware {
 			}
 		}
 
-                if($exceptionMessage !== null){
-                        throw new SecurityException($exceptionMessage, $ajax);
-                }
+		if($exceptionMessage !== null){
+			throw new SecurityException($exceptionMessage, $ajax);
+		}
 
 	}
 

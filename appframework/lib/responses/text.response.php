@@ -30,25 +30,25 @@ namespace OCA\AppFramework;
  */
 class TextResponse extends Response {
 
-    private $content;
+	private $content;
 
-    /**
-     * @brief Creates a response that just outputs text
-     * @param string $content: the content that should be written into the file
-     */
-    public function __construct($content){
-        parent::__construct();
-        $this->content = $content;
-    }
+	/**
+	 * @brief Creates a response that just outputs text
+	 * @param string $content: the content that should be written into the file
+	 */
+	public function __construct($content){
+		parent::__construct();
+		$this->content = $content;
+	}
 
 
-    /**
-     * Simply sets the headers and returns the file contents
-     * @return the file contents
-     */
-    public function render(){
-        return $this->content;
-    }
+	/**
+	 * Simply sets the headers and returns the file contents
+	 * @return the file contents
+	 */
+	public function render(){
+		return $this->content;
+	}
 
 
 }

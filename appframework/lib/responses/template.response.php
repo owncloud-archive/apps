@@ -101,7 +101,7 @@ class TemplateResponse extends Response {
 			$appName = $this->api->getAppName();
 		}
 
-                $template = $this->api->getTemplate($this->templateName, $this->renderAs, $appName);
+		$template = $this->api->getTemplate($this->templateName, $this->renderAs, $appName);
 
 		foreach($this->params as $key => $value){
 			$template->assign($key, $value, false);

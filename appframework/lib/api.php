@@ -281,21 +281,21 @@ class API {
 	}
 
 
-        /**
-         * @param string path: the path to the file on the oc filesystem
-         * @return the filepath in the filesystem
-         */
-        public function getLocalFilePath($path){
-                return \OC_Filesystem::getLocalFile($path);
-        }
+	/**
+	 * @param string path: the path to the file on the oc filesystem
+	 * @return the filepath in the filesystem
+	 */
+	public function getLocalFilePath($path){
+		return \OC_Filesystem::getLocalFile($path);
+	}
 
 
-        /**
-         * @return returns a new open EventSource class
-         */
-        public function openEventSource(){
-                return new \OC_EventSource();
-        }
+	/**
+	 * @return returns a new open EventSource class
+	 */
+	public function openEventSource(){
+		return new \OC_EventSource();
+	}
 
 
 }

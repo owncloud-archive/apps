@@ -42,8 +42,8 @@ class MapperTest extends \PHPUnit_Framework_TestCase {
 
 	public function setUp(){
 		$this->api = $this->getMock('OCA\AppFramework\API',
-									array('getAppName', 'prepareQuery'), 
-									array('test'));
+							array('getAppName', 'prepareQuery'), 
+							array('test'));
 	}
 
 

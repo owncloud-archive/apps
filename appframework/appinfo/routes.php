@@ -28,4 +28,5 @@ namespace OCA\AppFramework;
 // load the classpath in the routes file so that the classes are available for
 // apps that use the framework. This hast to be done here and does not work in
 // the app.php
+// file can be removed after merge of https://github.com/owncloud/core/pull/1214
 require_once \OC_App::getAppPath('appframework') . '/appinfo/classpath.php';
