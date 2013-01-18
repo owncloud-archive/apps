@@ -125,7 +125,7 @@ OC.FluXX={
 		// construct handle object
 		var handle=$('<span id="fluxx" class="fluxx-shown" />');
 		var img   =$('<img  id="fluxx" class="svg" draggable="false">');
-		img.attr('src',OC.filePath('fluxx_compensator','img','actions/left.svg'));
+		img.attr('src',OC.filePath('fluxx_compensator','img','actions/fluxx.svg'));
 		handle.append(img);
 		// inject handle object into navigation areaa
 		$('body > nav > #navigation').append(handle);
@@ -282,13 +282,6 @@ OC.FluXX={
 		$('body > nav > #navigation').on('webkitTransitionEnd oTransitionEnd transitionEnd',function(){
 			clearTimeout(timer);
 			$('head link#fluxx-transitions').remove();
-			// switch icon
-			if (OC.FluXX.Handle.hasClass('fluxx-shown')){
-				OC.FluXX.Handle.find('img')
-					.attr('src',OC.filePath('fluxx_compensator','img','actions/left.svg'));}
-			else{
-				OC.FluXX.Handle.find('img')
-					.attr('src',OC.filePath('fluxx_compensator','img','actions/right.svg'));}
 		});
 		return dfd.promise();
 	}, // OC.FluXX.swap

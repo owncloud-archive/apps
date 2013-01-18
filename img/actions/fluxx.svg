@@ -14,7 +14,9 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="slide-right.svg">
+   sodipodi:docname="shade.svg">
+  <title
+     id="title3265">shade</title>
   <metadata
      id="metadata11">
     <rdf:RDF>
@@ -23,8 +25,48 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title>shade</dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/" />
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Copyright 2012, Christian Reiner, Hamburg, Germany</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>shade</rdf:li>
+            <rdf:li>action</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Christian Reiner</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>Christian Reiner</dc:title>
+          </cc:Agent>
+        </dc:publisher>
       </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:prohibits
+           rdf:resource="http://creativecommons.org/ns#CommercialUse" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
     </rdf:RDF>
   </metadata>
   <sodipodi:namedview
@@ -45,7 +87,7 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="41.955556"
-     inkscape:cx="9.9428315"
+     inkscape:cx="-4.1792552"
      inkscape:cy="5.8623748"
      inkscape:window-x="-4"
      inkscape:window-y="-4"
@@ -55,7 +97,7 @@
      id="defs4" />
   <g
      id="layer1"
-     transform="matrix(0,-0.16959381,0.16947897,0,-20.525596,33.544559)"
+     transform="matrix(0.16959381,0,0,0.16947897,-17.540231,-20.519211)"
      inkscape:export-xdpi="76.870003"
      inkscape:export-ydpi="76.870003">
     <path

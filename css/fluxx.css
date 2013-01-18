@@ -59,6 +59,20 @@
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 }
+html.fluxx-state-shown #fluxx img {
+	-webkit-transform: rotate(-90deg);
+	-khtml-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+}
+html.fluxx-state-hidden #fluxx img {
+	-webkit-transform: rotate(90deg);
+	-khtml-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+}
 
 /* switch cursor to a 'move' indication during move mode */
 html.fluxx-handle-move, html.fluxx-handle-move * {
