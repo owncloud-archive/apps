@@ -35,7 +35,6 @@ OCP\App::setActiveNavigationEntry ( 'imprint' );
 
 OCP\Util::addStyle  ( 'imprint','imprint' );
 
-
 // prepare content
 if ( FALSE === ($content=OCP\Config::getAppValue('imprint','content',FALSE)) )
 {
@@ -44,10 +43,8 @@ if ( FALSE === ($content=OCP\Config::getAppValue('imprint','content',FALSE)) )
 }
 else
 {
-	// fetch 'real' template
+	// fetch 'real' template, will pull content itself
 	$tmpl = new OCP\Template( 'imprint', 'tmpl_content', 'user' );
-	// assign imprint content
-	$tmpl->assign ( 'imprint', $content );
 }
 // render template
 $tmpl->printPage ( );

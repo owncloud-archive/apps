@@ -37,7 +37,12 @@
 <!-- an iframe holding the imprints content (safety reasons...) -->
 <iframe id="imprint-content" width="100%" height="100%"></iframe>
 <!-- imprint template content to be processed by the small script below -->
-<script id="imprint-template" type="text/template"><?php echo OCP\Config::getAppValue('imprint','content',FALSE);?></script>
+<script id="imprint-template" type="text/template">
+<?php
+	$content = OCP\Config::getAppValue('imprint','content',FALSE);
+	echo (strlen($content)!=strlen(strip_tags($content))) ? $content : nl2br($content);
+?>
+</script>
 <!-- small script to transfer template content from above into the iframe document object -->
 <script type="text/javascript">
 	$(document).ready(function(){
