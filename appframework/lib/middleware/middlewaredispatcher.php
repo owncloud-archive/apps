@@ -85,7 +85,7 @@ class MiddlewareDispatcher {
 	 * handled
 	 */
 	public function afterException(Controller $controller, $methodName, \Exception $exception){
-		for($i=$this->middlewareCounter; $i>=0; $i--){
+		for($i=$this->middlewareCounter-1; $i>=0; $i--){
 			$middleware = $this->middlewares[$i];
 			$response = $middleware->afterException($controller, $methodName, $exception);
 			if($response !== null){
