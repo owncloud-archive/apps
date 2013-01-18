@@ -27,6 +27,6 @@ It provides a very simply means to add a legal notice, an imprint to the
 framework. Such notice is required in some countries when offering a service
 on the internet.
 The app is kept extremely simple. No fancy configuration options, no complex
-setup. just activate it, configure the notices content and where to place the
+setup. Just activate it, configure the notices content and where to place the
 reference, that's all.
-You can use plain text for content or add simple html layout description.
+You can use plain text for content or use simple html layout.
