@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
+"OpenID Changed" => "OpenID endret",
+"Invalid request" => "Ugyldig forespørsel",
 "Identity: <b>" => "Identitet: <b>",
 "User: <b>" => "Bruker: <b>",
 "Login" => "Logg inn",

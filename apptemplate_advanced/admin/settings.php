@@ -23,14 +23,17 @@
 
 namespace OCA\AppTemplateAdvanced;
 
+use OCA\AppFramework\App as App;
 
-require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/bootstrap.php';
 
-$container = createDIContainer();
+require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/classpath.php';
 
-$security = $container['Security'];
-$security->setCSRFCheck(false);
-$security->runChecks();
+// we need to fetch the output and return it for the admin page. Dont ask why
+ob_start();
 
-$controller = $container['SettingsController'];
-return $controller->index()->render();
+App::main('SettingsController', 'index', array(), new DIContainer());
+
+$content = ob_get_contents();
+ob_clean();
+
+return $content; 

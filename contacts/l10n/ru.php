@@ -188,6 +188,7 @@
 "First name" => "Имя",
 "Additional names" => "Отчество",
 "Last name" => "Фамилия",
+"Select groups" => "Выбрать группу",
 "Nickname" => "Псевдоним",
 "Enter nickname" => "Введите псевдоним",
 "Title" => "Заголовок",

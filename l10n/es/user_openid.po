@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-12 00:07+0100\n"
-"PO-Revision-Date: 2013-01-11 23:07+0000\n"
+"POT-Creation-Date: 2013-01-15 00:01+0100\n"
+"PO-Revision-Date: 2013-01-14 17:58+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -22,11 +22,11 @@ msgstr ""
 
 #: ajax/openid.php:13
 msgid "OpenID Changed"
-msgstr ""
+msgstr "OpenID cambiado"
 
 #: ajax/openid.php:15
 msgid "Invalid request"
-msgstr ""
+msgstr "Petición no válida"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "

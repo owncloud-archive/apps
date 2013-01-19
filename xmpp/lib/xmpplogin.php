@@ -260,7 +260,11 @@ class OC_xmpp_login{
 				$password=$field->value;
 			}
 		}
-		return $password;
+		if(isset($password)&&$password!=''){
+			return $password;
+		}else{
+			return false;
+		}
 	}
 }
 ?>

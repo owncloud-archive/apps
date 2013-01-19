@@ -23,7 +23,7 @@
 namespace OCA\AppTemplateAdvanced;
 
 
-class ItemMapper extends Mapper {
+class ItemMapper extends \OCA\AppFramework\Mapper {
 
 
 	private $tableName;
@@ -62,7 +62,7 @@ class ItemMapper extends Mapper {
 		if($result){
 			return new Item($result);
 		} else {
-			throw new DoesNotExistException('Item with user id ' . $userId . ' does not exist!');
+			throw new \OCA\AppFramework\DoesNotExistException('Item with user id ' . $userId . ' does not exist!');
 		}
 	}
 
