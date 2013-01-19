@@ -25,9 +25,6 @@ namespace OCA\AppTemplateAdvanced;
 
 use OCA\AppFramework\App as App;
 
-
-require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/classpath.php';
-
 // we need to fetch the output and return it for the admin page. Dont ask why
 ob_start();
 

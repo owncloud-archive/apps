@@ -26,9 +26,6 @@ namespace OCA\AppTemplateAdvanced;
 use \OCA\AppFramework\App as App;
 
 
-require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/classpath.php';
-
-
 /*************************
  * Define your routes here
  ************************/
