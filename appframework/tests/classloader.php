@@ -26,9 +26,12 @@ DEFINE('CLASSPATH_DIR', '../appinfo/classpath.php');
 
 
 // mock class so we can load the defintions in the app directory
-class OC {
-        public static $CLASSPATH = array();
+if(!class_exists('OC')){
+        class OC {
+                public static $CLASSPATH = array();
+        }
 }
+
 
 
 // to execute without owncloud, we need to create our own classloader
