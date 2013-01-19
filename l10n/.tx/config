@@ -117,5 +117,11 @@ source_file = templates/notes.pot
 source_lang = en
 type = PO
 
+[owncloud.files_antivirus]
+file_filter = <lang>/files_antivirus.po
+source_file = templates/files_antivirus.pot
+source_lang = en
+type = PO
+
 
 
