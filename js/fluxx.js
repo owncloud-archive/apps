@@ -40,10 +40,12 @@ $(document).ready(function(){
 	OC.FluXX.Offset=$('#navigation').css('width');
 	// hide or show the navigation in a persistent manner
 	OC.AppConfig.getValue('fluxx_compensator','fluxx-status','shown',function(status){
-		if ('hidden'==status)
+		if ('hidden'==status){
 			OC.FluXX.hide();
-		else
+			OC.FluXX.state(false);}
+		else{
 			OC.FluXX.show();
+			OC.FluXX.state(true);}
 	});
 	// reposition the handle upon resize of the window
 	$(window).on('resize',function(){
@@ -143,7 +145,7 @@ OC.FluXX={
 	*/
 	hide:function(){
 		var dfd = new $.Deferred();
-		OC.FluXX.stylish(false);
+		OC.FluXX.stylish();
 		if (OC.FluXX.Handle.hasClass('fluxx-shown')){
 			$.when(
 				OC.FluXX.Handle.addClass('fluxx-hidden'),
@@ -215,7 +217,7 @@ OC.FluXX={
 	*/
 	show:function(){
 		var dfd = new $.Deferred();
-		OC.FluXX.stylish(true);
+		OC.FluXX.stylish();
 		if (OC.FluXX.Handle.hasClass('fluxx-hidden')){
 			$.when(
 				OC.FluXX.Handle.addClass('fluxx-shown'),
@@ -229,11 +231,24 @@ OC.FluXX={
 		return dfd.promise();
 	}, // OC.FluXX.show
 	/**
+	* @method OC.FluXX.state
+	* @brief mark current state of the compensator
+	* @author Christian Reiner
+	*/
+	state:function(shown){
+		// mark the current state (hidden or shown) as class of the html element
+		if (shown){
+			$('html').removeClass('fluxx-state-x-hidden').addClass('fluxx-state-x-shown');
+		}else{
+			$('html').removeClass('fluxx-state-x-shown').addClass('fluxx-state-x-hidden');
+		}
+	}, // OC.FluXX.state
+	/**
 	* @method OC.FluXX.stylish
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	stylish:function(shown){
+	stylish:function(){
 		// dynamically load stylesheet to make sure it is loaded LAST
 		OC.addStyle('fluxx_compensator','dynamic');
 		// mark mode and active app as class of the html tag
@@ -254,12 +269,6 @@ OC.FluXX={
 		}else{
 			$('html').addClass('fluxx-modeless');
 		}
-		// mark the current state (hidden or shown) as class of the html element
-		if (shown){
-			$('html').removeClass('fluxx-state-x-hidden').addClass('fluxx-state-x-shown');
-		}else{
-			$('html').removeClass('fluxx-state-x-shown').addClass('fluxx-state-x-hidden');
-		}
 	}, // OC.FluXX.stylish
 	/**
 	* @method OC.FluXX.swap
@@ -271,11 +280,13 @@ OC.FluXX={
 		// call action depending on the current mode
 		if (OC.FluXX.Handle.hasClass('fluxx-shown')){
 			$.when(
-				OC.FluXX.hide()
+				OC.FluXX.hide(),
+				OC.FluXX.state(false)
 			).done(dfd.resolve)}
 		else{
 			$.when(
-				OC.FluXX.show()
+				OC.FluXX.show(),
+				OC.FluXX.state(true)
 			).done(dfd.resolve)}
 		// make sure temporary transition style rules are removed, preferably upon event, time based as catchall
 		var timer=setTimeout(function(){$('head link#fluxx-transitions').remove();},10000);
