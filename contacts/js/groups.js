@@ -87,7 +87,7 @@ OC.Contacts = OC.Contacts || {};
 	 * @returns string The name of the group.
 	 */
 	GroupList.prototype.nameById = function(id) {
-		return this.findById(id).clone().find("*").remove().end().text(); //.contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
+		return this.findById(id).clone().find("*").remove().end().text().trim(); //.contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
 	};
 
 	/** Get the group element by id.
@@ -206,6 +206,8 @@ OC.Contacts = OC.Contacts || {};
 					cb({status:'error', message:t('contacts', 'Contacts are already in this group.')});
 				}
 			}
+		} else {
+			console.warn('Invalid data type: ' + typeof contactid);
 		}
 		if(doPost) {
 			$.post(OC.filePath('contacts', 'ajax', 'categories/addto.php'), {contactids: ids, categoryid: groupid},function(jsondata) {

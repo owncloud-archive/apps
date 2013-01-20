@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
+"OpenID Changed" => "OpenID geändert",
+"Invalid request" => "Fehlerhafte Anfrage",
 "This is an OpenID server endpoint. For more information, see " => "Dies ist ein OpenID-Server-Endpunkt. Weitere Informationen findest Du unter:",
 "Identity: <b>" => "Identität: <b>",
 "Realm: <b>" => "Bereich: <b>",

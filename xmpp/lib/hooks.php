@@ -43,12 +43,11 @@ class OC_User_xmpp_Hooks {
 		}
 		if($email!=''){
 			$xmpplogin=new OC_xmpp_login(OCP\Config::getAppValue('xmpp', 'xmppAdminUser',''),OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''),OCP\Config::getAppValue('xmpp', 'xmppAdminPasswd',''),OCP\Config::getAppValue('xmpp', 'xmppBOSHURL',''));	
-			$xmpplogin->doLogin();
-			$passwd=$xmpplogin->getUserPasswd(OCP\User::getUser().'@'.OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''));
+			$xuser=$xmpplogin->doLogin(OC_USER::getUser().'@'.OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''));
 
-			$xuser=new OC_xmpp_login(OCP\User::getUser(),OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''),$passwd,OCP\Config::getAppValue('xmpp', 'xmppBOSHURL',''));
-			$xuser->doLogin();
 			$xuser->addRoster($email,$name);
+			$xmpplogin->logout();
+			$xuser->logout();
 
 		}
 	}

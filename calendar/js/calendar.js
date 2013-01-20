@@ -897,7 +897,6 @@ $(document).ready(function(){
 			else {
 				$('#fullcalendar').fullCalendar('option', 'aspectRatio', 1.35);
 			}
-			$('#fullcalendar').fullCalendar('rerenderEvents');
 		},
 		columnFormat: {
 		    week: 'ddd d. MMM'
@@ -921,11 +920,6 @@ $(document).ready(function(){
 					return Calendar.UI.getEventPopupText(event);
 				}
 			});
-		},
-		eventAfterRender: function(event, element, view) {
-			if(view.name == 'agendaWeek'){
-				element.find('.fc-event-title').html(element.find('.fc-event-title').text());
-			}
 		},
 		loading: Calendar.UI.loading,
 		eventSources: eventSources

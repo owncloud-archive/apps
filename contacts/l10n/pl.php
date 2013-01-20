@@ -188,6 +188,7 @@
 "First name" => "Imię",
 "Additional names" => "Dodatkowe nazwy",
 "Last name" => "Nazwisko",
+"Select groups" => "Wybierz grupy",
 "Nickname" => "Nazwa",
 "Enter nickname" => "Wpisz nazwę",
 "Title" => "Tytuł",

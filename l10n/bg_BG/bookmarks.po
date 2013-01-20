@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 17:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-18 00:01+0100\n"
+"PO-Revision-Date: 2012-07-27 22:17+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,11 +24,11 @@ msgstr ""
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
-msgstr "Отметки"
+msgstr "Предпочитани"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:231
 msgid "Tags"
-msgstr "Етикети"
+msgstr ""
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
@@ -38,11 +38,11 @@ msgstr ""
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:362
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:363
 msgid "Warning"
 msgstr ""
 
@@ -66,47 +66,47 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: templates/addBm.php:22 templates/js_tpl.php:33
+#: templates/addBm.php:22 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr ""
 
-#: templates/addBm.php:27 templates/js_tpl.php:37
+#: templates/addBm.php:27 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr ""
 
-#: templates/addBm.php:40 templates/js_tpl.php:46
+#: templates/addBm.php:40 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr ""
 
-#: templates/addBm.php:44 templates/js_tpl.php:50
+#: templates/addBm.php:44 templates/js_tpl.php:47
 msgid "Save"
 msgstr "Запис"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:61
 msgid "Delete"
 msgstr "Изтриване"
 
-#: templates/js_tpl.php:20 templates/js_tpl.php:60
+#: templates/js_tpl.php:19 templates/js_tpl.php:57
 msgid "Edit"
-msgstr ""
+msgstr "Промяна"
 
-#: templates/js_tpl.php:49
+#: templates/js_tpl.php:46
 msgid "Cancel"
-msgstr "Отказ"
+msgstr ""
 
 #: templates/list.php:14
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr "Завлачете това в лентата с отметки на браузъра си и го натискайте, когато искате да отметнете бързо някоя страница:"
+msgstr ""
 
 #: templates/list.php:15
 msgid "Read later"
-msgstr "Отмятане"
+msgstr ""
 
 #: templates/list.php:22
 msgid "Address"
-msgstr "Адрес"
+msgstr ""
 
 #: templates/list.php:23
 msgid "Add"
@@ -118,11 +118,11 @@ msgstr ""
 
 #: templates/list.php:39 templates/list.php:41
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: templates/list.php:53
 msgid "You have no bookmarks"
-msgstr "Нямате отметки"
+msgstr ""
 
 #: templates/list.php:58
 msgid "You can also try to import a bookmark file"
@@ -138,8 +138,8 @@ msgstr ""
 
 #: templates/settings.php:24
 msgid "Export"
-msgstr "Изнасяне"
+msgstr ""
 
 #: templates/settings.php:26
 msgid "Import"
-msgstr "Внасяне"
+msgstr ""

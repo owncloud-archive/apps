@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Stefan Ilivanov <ilivanov@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:02+0200\n"
-"PO-Revision-Date: 2012-09-11 00:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-10 00:01+0100\n"
+"PO-Revision-Date: 2013-01-09 20:48+0000\n"
+"Last-Translator: Stefan Ilivanov <ilivanov@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,23 +20,23 @@ msgstr ""
 
 #: appinfo/app.php:45
 msgid "Pictures"
-msgstr ""
+msgstr "Снимки"
 
 #: appinfo/app.php:53
 msgid "Galleries"
-msgstr ""
+msgstr "Галерии"
 
 #: js/pictures.js:12
 msgid "Share gallery"
-msgstr ""
+msgstr "Споделете галерия"
 
 #: js/pictures.js:32
 msgid "Error: "
-msgstr ""
+msgstr "Грешка:"
 
 #: js/pictures.js:32
 msgid "Internal error"
-msgstr ""
+msgstr "Вътрешна грешка"
 
 #: templates/index.php:27
 msgid "Slideshow"
@@ -45,4 +46,4 @@ msgstr ""
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr ""
+msgstr "Приложението \"Преглед на снимки\" трябва да бъде включено, за да можете да го ползвате."

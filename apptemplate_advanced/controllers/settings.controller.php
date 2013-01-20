@@ -23,8 +23,7 @@
 
 namespace OCA\AppTemplateAdvanced;
 
-
-class SettingsController extends Controller {
+class SettingsController extends \OCA\AppFramework\Controller {
 	
 
 	/**
@@ -37,11 +36,13 @@ class SettingsController extends Controller {
 
 
 	/**
+	 * @CSRFExemption 
+	 *
 	 * @brief renders the settings page
 	 * @param array $urlParams: an array with the values, which were matched in 
 	 *                          the routes file
 	 */
-        public function index($urlParams=array(), $container=null){
+	public function index(){
 		$this->api->addScript('admin');
 		
 		$templateName = 'settings';
@@ -49,7 +50,7 @@ class SettingsController extends Controller {
 			'url' => $this->api->getSystemValue('somesetting')
 		);
 
-		return $this->render($templateName, $params, 'admin');
+		return $this->render($templateName, $params, 'blank');
 	}
 
 }

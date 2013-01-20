@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
+"OpenID Changed" => "Το OpenID άλλαξε",
+"Invalid request" => "Μη έγκυρο αίτημα",
 "This is an OpenID server endpoint. For more information, see " => "Αυτό είναι τελικό σημείο διακομιστή OpenID. Για περισσότερες πληροφορίες, δείτε ",
 "Identity: <b>" => "Ταυτότητα: <b>",
 "Realm: <b>" => "Περιοχή: <b>",

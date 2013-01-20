@@ -31,8 +31,8 @@
 }
 #content textarea { font-family: inherit; }
 
-#content input:-moz-placeholder #content ::-moz-placeholder, #content input[placeholder], #content input:placeholder, #content input:-ms-input-placeholder, #content input::-webkit-input-placeholder, #content input:-moz-placeholder { 
-	color: #aaa; 
+#content ::-moz-placeholder, #content input:-moz-placeholder, #content input[placeholder], #content input:placeholder, #content input:-ms-input-placeholder, #content input::-webkit-input-placeholder, #content input:-moz-placeholder { 
+	color: #bbb; 
 	text-overflow: ellipsis;
 }
 
@@ -43,7 +43,6 @@
 	-moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; 
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
 	float: left;
-	width: auto;
 }
 #content input[type="button"]:hover, #content select:hover, #content select:focus, #content select:active, #content input[type="button"]:focus, #content .button:hover, button:hover { background-color:#fff; color:#333; }
 
@@ -135,18 +134,23 @@
 #firstrun #selections { font-size:0.8em; margin: 2em auto auto auto; clear: both; }
 
 #contact { margin: 1em; }
-#contact textarea { min-height: 5em; min-width: 30em; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
+#contact textarea { min-height: 5em; width: 100%; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
 
 #contact input[type="checkbox"] { margin-top: 10px; vertical-align: bottom; float: left; }
-dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }
-.form dt { display: table-cell; clear: left; float: left; width: 7em; margin: 0; padding: 0.8em 0.5em 0 0; text-align:right; text-overflow:ellipsis; o-text-overflow: ellipsis; vertical-align: text-bottom; color: #bbb;/* white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap;*/ }
-.form dd { display: table-cell; clear: right; float: left; margin: 0; padding: 0; white-space: nowrap; vertical-align: text-bottom; }
+/*dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }*/
+.form dt { display: inline-block; clear: left; float: left; width: 7em; margin: 0; padding: 0.8em 0.5em 0 0; text-align:right; text-overflow:ellipsis; o-text-overflow: ellipsis; vertical-align: text-bottom; color: #bbb;/* white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap;*/ }
+.form dd { display: inline-block; clear: right; float: left; margin: 0; padding: 0; white-space: nowrap; vertical-align: text-bottom; }
 
 /* override the default margin on share dropdown */
 #dropdown { margin: 1.5em 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 100%; }
 
 /* reset box-sizing for multiSelect */
 #content div.multiselect, #content div.multiselect > * { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+
+/* Reset values for jquery.multiselect */
+.ui-multiselect-checkboxes label { width: 100%; color: #333; font-size: 1em !important; }
+.ui-multiselect-checkboxes input[type="checkbox"] { margin: 3px !important; }
+
 #content .multiselectoptions > li > * { 
 	-webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; 
 	color: #888888; 
@@ -245,8 +249,9 @@ dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }
 	width: 20px; height: 20px;
 	opacity: 0;
 }
+.singleproperties .groupscontainer { display: block; clear: left; }
 .singleproperties .propertycontainer:hover .action { opacity: 1; }
-.singleproperties dl { width: 270px; }
+.singleproperties dl { width: 280px;}
 
 .parameters { 
 	width: 120px; 
@@ -296,7 +301,7 @@ ul.propertylist { width: 450px; }
 	display: inline-block;
 	box-sizing: border-box;
 }
-#rightcontent label:hover, .form dt:hover, #rightcontent input.label:hover { color: #777 !important; }
+#rightcontent label:hover, #rightcontent dt:hover, #rightcontent input.label:hover { color: #777 !important; }
 #rightcontent input.label:hover, #rightcontent input.label:active { border: 0 none !important; border-radius: 0; cursor: pointer; }
 .typelist[type="button"] { float: left; max-width: 8em; border: 0; background-color: #fff; color: #bbb; box-shadow: none; } /* for multiselect */
 .typelist[type="button"]:hover { color: #777; } /* for multiselect */

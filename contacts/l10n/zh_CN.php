@@ -181,6 +181,7 @@
 "First name" => "名",
 "Additional names" => "其他名称",
 "Last name" => "姓",
+"Select groups" => "选择分组",
 "Nickname" => "昵称",
 "Enter nickname" => "输入昵称",
 "Title" => "标题",

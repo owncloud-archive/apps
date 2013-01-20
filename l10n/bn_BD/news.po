@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Shubhra Paul <paul_shubhra@yahoo.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-03 00:01+0100\n"
-"PO-Revision-Date: 2012-08-26 23:39+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-11 00:02+0100\n"
+"PO-Revision-Date: 2013-01-10 10:21+0000\n"
+"Last-Translator: Shubhra Paul <paul_shubhra@yahoo.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,35 +28,35 @@ msgstr ""
 
 #: ajax/createfeed.php:52
 msgid "Feed already exists."
-msgstr ""
+msgstr "ফিড পূর্বে থেকেই বিদ্যমান"
 
 #: ajax/createfeed.php:58
 msgid "Error adding feed."
-msgstr ""
+msgstr "ফিড যোগ করতে সমস্যা"
 
 #: ajax/createfeed.php:71
 msgid "Feed added!"
-msgstr ""
+msgstr "ফিড যোগ করা হয়েছে !"
 
 #: ajax/createfolder.php:37
 msgid "Error adding folder."
-msgstr ""
+msgstr "ফোল্ডার যোগ করতে সমস্যা।"
 
 #: ajax/createfolder.php:47
 msgid "Folder added!"
-msgstr ""
+msgstr "ফোল্ডার যোগ করা হয়েছে!"
 
 #: ajax/deletefeed.php:29
 msgid "Error removing feed."
-msgstr ""
+msgstr "ফিড অপসারণ করতে সমস্যা ।"
 
 #: ajax/deletefolder.php:27
 msgid "Error removing folder."
-msgstr ""
+msgstr "ফোল্ডার অপসারণ করতে সমস্যা।"
 
 #: ajax/feedlist.php:28
 msgid "Error updating feeds."
-msgstr ""
+msgstr "ফিড পরিবর্ধন করতে সমস্যা ।"
 
 #: ajax/importopml.php:40
 msgid "Empty filename"
@@ -75,7 +76,7 @@ msgstr ""
 
 #: ajax/loadfeed.php:52
 msgid "Feed loaded!"
-msgstr ""
+msgstr "ফিড লোড করা হয়েছে!"
 
 #: ajax/movefeedtofolder.php:37
 msgid "Error moving feed into folder."
@@ -83,11 +84,11 @@ msgstr ""
 
 #: ajax/selectfromcloud.php:31
 msgid "No file path was submitted."
-msgstr ""
+msgstr "ফাইলের কোন পথ নির্দেশ করা হয় নি।"
 
 #: ajax/selectfromcloud.php:38
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "ফাইলটি অস্তিত্বহীনঃ"
 
 #: ajax/selectfromcloud.php:44
 msgid "Couldn't save temporary image: "
@@ -111,7 +112,7 @@ msgstr ""
 
 #: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
-msgstr ""
+msgstr "সংবাদ"
 
 #: js/items.js:122
 msgid "Error while loading the feed"
@@ -155,11 +156,11 @@ msgstr ""
 
 #: js/news.js:33 js/news.js:95
 msgid "Adding..."
-msgstr ""
+msgstr "যোগ করা হচ্ছে................"
 
 #: js/news.js:50 templates/part.dialogues.php:9
 msgid "Add folder"
-msgstr ""
+msgstr "ফোল্ডার যোগ কর"
 
 #: js/news.js:63
 msgid "Changing..."
@@ -176,7 +177,7 @@ msgstr ""
 
 #: js/news.js:120 js/news.js:127 templates/firstrun.php:5
 msgid "Add feed"
-msgstr ""
+msgstr "ফিড যোগ কর"
 
 #: js/news.js:124
 msgid "Error while parsing the feed"
@@ -184,11 +185,11 @@ msgstr ""
 
 #: js/news.js:124
 msgid "Fatal Error"
-msgstr ""
+msgstr "জটিল সমস্যা"
 
 #: js/settings.js:17
 msgid "No files selected."
-msgstr ""
+msgstr "কোন ফাইল নির্বাচন করা হয় নি।"
 
 #: js/settings.js:31
 msgid "Importing OPML file..."
@@ -335,7 +336,7 @@ msgstr "যোগ কর"
 
 #: templates/part.feeds.php:48
 msgid "New articles"
-msgstr ""
+msgstr "নতুন লেখা"
 
 #: templates/part.feeds.php:51 templates/part.listfeed.php:34
 #: templates/part.listfolder.php:35
@@ -344,7 +345,7 @@ msgstr ""
 
 #: templates/part.feeds.php:55
 msgid "Starred"
-msgstr ""
+msgstr "তারা চিহ্নিত"
 
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"

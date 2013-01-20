@@ -34,14 +34,15 @@ class App {
 	/**
 	 * Properties to index.
 	 */
-	public static $index_properties = array('N', 'FN', 'NOTE', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO', 'PHOTO');
+	public static $index_properties = array('UID', 'N', 'FN', 'NOTE', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO', 'PHOTO');
 
 	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
 	const THUMBNAIL_SIZE = 28;
 
 	/**
-	 * @brief Gets the VCard as a Sabre\VObject\Component
-	 * @returns Sabre\VObject\Component|null The card or null if the card could not be parsed.
+	 * @brief Gets the VCard as a \Sabre\VObject\Component
+	 * @param integer $id
+	 * @returns \Sabre\VObject\Component|null The card or null if the card could not be parsed.
 	 */
 	public static function getContactVCard($id) {
 		$card = null;

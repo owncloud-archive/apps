@@ -33,6 +33,12 @@ class OC_xmpp_login{
 		}
 	}
 
+	public function logout(){
+		$xml=$this->newBody();
+		$xml->addAttribute('type','terminate');
+		$this->send_xml($xml->asXML());
+	}
+
 	public function nrid(){
 		if($this->rid==0){ $this->rid=rand() * 10000;}
 		else{ $this->rid=$this->rid+1;}
@@ -165,7 +171,7 @@ class OC_xmpp_login{
 		$xml->presence->addAttribute('type','unsubscribed');
 		$this->send_xml($xml->asXML());
 
-		$xml=$this->iq('set',null,$jid,$this->jid);
+		$xml=$this->iq('set',null,null,$this->username.'@'.$this->domain);
 		$xml->iq->addChild('query','','jabber:iq:roster');
 		$xml->iq->query->addAttribute('jid',$jid);
 		$xml->iq->query->addAttribute('subscription','remove');
@@ -254,7 +260,11 @@ class OC_xmpp_login{
 				$password=$field->value;
 			}
 		}
-		return $password;
+		if(isset($password)&&$password!=''){
+			return $password;
+		}else{
+			return false;
+		}
 	}
 }
 ?>

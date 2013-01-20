@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-27 00:01+0100\n"
-"PO-Revision-Date: 2012-12-26 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-18 00:01+0100\n"
+"PO-Revision-Date: 2011-09-03 16:52+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,11 +29,11 @@ msgstr ""
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
-msgstr "Не са открити календари."
+msgstr ""
 
 #: ajax/categories/rescan.php:37
 msgid "No events found."
-msgstr "Не са открити събития."
+msgstr ""
 
 #: ajax/event/edit.form.php:20
 msgid "Wrong calendar"
@@ -55,7 +55,7 @@ msgstr ""
 
 #: ajax/import/import.php:57
 msgid "Import failed"
-msgstr "Грешка при внасяне"
+msgstr ""
 
 #: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
@@ -63,11 +63,11 @@ msgstr ""
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
-msgstr "Нов часови пояс:"
+msgstr ""
 
 #: ajax/settings/settimezone.php:23
 msgid "Timezone changed"
-msgstr "Часовата зона е сменена"
+msgstr ""
 
 #: ajax/settings/settimezone.php:25
 msgid "Invalid request"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: lib/app.php:114
 msgid "Birthday"
-msgstr "Роджен ден"
+msgstr ""
 
 #: lib/app.php:115
 msgid "Business"
@@ -148,7 +148,7 @@ msgstr ""
 
 #: lib/app.php:117
 msgid "Clients"
-msgstr "Клиенти"
+msgstr ""
 
 #: lib/app.php:118
 msgid "Deliverer"
@@ -156,15 +156,15 @@ msgstr ""
 
 #: lib/app.php:119
 msgid "Holidays"
-msgstr "Празници"
+msgstr ""
 
 #: lib/app.php:120
 msgid "Ideas"
-msgstr "Идеи"
+msgstr ""
 
 #: lib/app.php:121
 msgid "Journey"
-msgstr "Пътуване"
+msgstr ""
 
 #: lib/app.php:122
 msgid "Jubilee"
@@ -172,27 +172,27 @@ msgstr ""
 
 #: lib/app.php:123
 msgid "Meeting"
-msgstr "Среща"
+msgstr ""
 
 #: lib/app.php:124
 msgid "Other"
-msgstr "Друго"
+msgstr ""
 
 #: lib/app.php:125
 msgid "Personal"
-msgstr "Лично"
+msgstr "Лични"
 
 #: lib/app.php:126
 msgid "Projects"
-msgstr "Проекти"
+msgstr ""
 
 #: lib/app.php:127
 msgid "Questions"
-msgstr "Въпроси"
+msgstr ""
 
 #: lib/app.php:128
 msgid "Work"
-msgstr "Работа"
+msgstr ""
 
 #: lib/app.php:396
 msgid "by"
@@ -200,7 +200,7 @@ msgstr ""
 
 #: lib/app.php:444
 msgid "unnamed"
-msgstr "неозаглавено"
+msgstr ""
 
 #: lib/calendar.php:163 lib/calendar.php:196
 msgid "You do not have the permissions to update this calendar."
@@ -214,10 +214,10 @@ msgstr ""
 msgid "You do not have the permissions to add to this calendar."
 msgstr ""
 
-#: lib/import.php:214 templates/calendar.php:12
+#: lib/import.php:216 templates/calendar.php:12
 #: templates/part.choosecalendar.php:23
 msgid "New Calendar"
-msgstr "Нов календар"
+msgstr ""
 
 #: lib/object.php:122 lib/object.php:162 lib/object.php:316
 msgid "You do not have the permissions to add events to this calendar."
@@ -245,35 +245,35 @@ msgstr ""
 
 #: lib/object.php:510
 msgid "Does not repeat"
-msgstr "Не се повтаря"
+msgstr ""
 
 #: lib/object.php:511
 msgid "Daily"
-msgstr "Дневно"
+msgstr ""
 
 #: lib/object.php:512
 msgid "Weekly"
-msgstr "Седмично"
+msgstr ""
 
 #: lib/object.php:513
 msgid "Every Weekday"
-msgstr "Всеки делничен ден"
+msgstr ""
 
 #: lib/object.php:514
 msgid "Bi-Weekly"
-msgstr "Двуседмично"
+msgstr ""
 
 #: lib/object.php:515
 msgid "Monthly"
-msgstr "Месечно"
+msgstr ""
 
 #: lib/object.php:516
 msgid "Yearly"
-msgstr "Годишно"
+msgstr ""
 
 #: lib/object.php:526
 msgid "never"
-msgstr "никога"
+msgstr ""
 
 #: lib/object.php:527
 msgid "by occurrences"
@@ -293,31 +293,31 @@ msgstr ""
 
 #: lib/object.php:549 templates/calendar.php:5 templates/settings.php:69
 msgid "Monday"
-msgstr "Понеделник"
+msgstr ""
 
 #: lib/object.php:550 templates/calendar.php:5
 msgid "Tuesday"
-msgstr "Вторник"
+msgstr ""
 
 #: lib/object.php:551 templates/calendar.php:5
 msgid "Wednesday"
-msgstr "Сряда"
+msgstr ""
 
 #: lib/object.php:552 templates/calendar.php:5
 msgid "Thursday"
-msgstr "Четвъртък"
+msgstr ""
 
 #: lib/object.php:553 templates/calendar.php:5
 msgid "Friday"
-msgstr "Петък"
+msgstr ""
 
 #: lib/object.php:554 templates/calendar.php:5
 msgid "Saturday"
-msgstr "Събота"
+msgstr ""
 
 #: lib/object.php:555 templates/calendar.php:5 templates/settings.php:70
 msgid "Sunday"
-msgstr "Неделя"
+msgstr ""
 
 #: lib/object.php:565
 msgid "events week of month"
@@ -349,51 +349,51 @@ msgstr ""
 
 #: lib/object.php:605 templates/calendar.php:7
 msgid "January"
-msgstr "Януари"
+msgstr ""
 
 #: lib/object.php:606 templates/calendar.php:7
 msgid "February"
-msgstr "Февруари"
+msgstr ""
 
 #: lib/object.php:607 templates/calendar.php:7
 msgid "March"
-msgstr "Март"
+msgstr ""
 
 #: lib/object.php:608 templates/calendar.php:7
 msgid "April"
-msgstr "Април"
+msgstr ""
 
 #: lib/object.php:609 templates/calendar.php:7
 msgid "May"
-msgstr "Май"
+msgstr ""
 
 #: lib/object.php:610 templates/calendar.php:7
 msgid "June"
-msgstr "Юни"
+msgstr ""
 
 #: lib/object.php:611 templates/calendar.php:7
 msgid "July"
-msgstr "Юли"
+msgstr ""
 
 #: lib/object.php:612 templates/calendar.php:7
 msgid "August"
-msgstr "Август"
+msgstr ""
 
 #: lib/object.php:613 templates/calendar.php:7
 msgid "September"
-msgstr "Септември"
+msgstr ""
 
 #: lib/object.php:614 templates/calendar.php:7
 msgid "October"
-msgstr "Октомври"
+msgstr ""
 
 #: lib/object.php:615 templates/calendar.php:7
 msgid "November"
-msgstr "Ноември"
+msgstr ""
 
 #: lib/object.php:616 templates/calendar.php:7
 msgid "December"
-msgstr "Декември"
+msgstr ""
 
 #: lib/object.php:626
 msgid "by events date"
@@ -497,7 +497,7 @@ msgstr ""
 
 #: templates/calendar.php:11
 msgid "All day"
-msgstr "Всички дни"
+msgstr ""
 
 #: templates/calendar.php:13
 msgid "Missing or invalid fields"
@@ -534,19 +534,19 @@ msgstr ""
 
 #: templates/calendar.php:39
 msgid "Week"
-msgstr "Седмица"
+msgstr ""
 
 #: templates/calendar.php:40
 msgid "Month"
-msgstr "Месец"
+msgstr ""
 
 #: templates/calendar.php:41
 msgid "List"
-msgstr "Списък"
+msgstr ""
 
 #: templates/calendar.php:45
 msgid "Today"
-msgstr "Днес"
+msgstr ""
 
 #: templates/calendar.php:46
 msgid "Calendars"
@@ -554,11 +554,11 @@ msgstr ""
 
 #: templates/calendar.php:47
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
-msgstr "Вашите календари"
+msgstr ""
 
 #: templates/part.choosecalendar.php:28
 #: templates/part.choosecalendar.rowfields.php:24
@@ -567,7 +567,7 @@ msgstr ""
 
 #: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
-msgstr "Споделяне на календар"
+msgstr ""
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
@@ -588,23 +588,23 @@ msgstr ""
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
-msgstr "Нов календар"
+msgstr ""
 
 #: templates/part.editcalendar.php:9
 msgid "Edit calendar"
-msgstr "Промени календар"
+msgstr ""
 
 #: templates/part.editcalendar.php:12
 msgid "Displayname"
-msgstr "Екранно име"
+msgstr ""
 
 #: templates/part.editcalendar.php:23
 msgid "Active"
-msgstr "Активен"
+msgstr ""
 
 #: templates/part.editcalendar.php:29
 msgid "Calendar color"
-msgstr "Цвят на календара"
+msgstr ""
 
 #: templates/part.editcalendar.php:42
 msgid "Save"
@@ -613,19 +613,19 @@ msgstr "Запис"
 #: templates/part.editcalendar.php:42 templates/part.editevent.php:8
 #: templates/part.newevent.php:6
 msgid "Submit"
-msgstr "Продължи"
+msgstr "Потвърждение"
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"
-msgstr "Отказ"
+msgstr ""
 
 #: templates/part.editevent.php:1
 msgid "Edit an event"
-msgstr "Промяна на събитие"
+msgstr ""
 
 #: templates/part.editevent.php:10
 msgid "Export"
-msgstr "Изнасяне"
+msgstr ""
 
 #: templates/part.eventform.php:8 templates/part.showevent.php:3
 msgid "Eventinfo"
@@ -645,11 +645,11 @@ msgstr ""
 
 #: templates/part.eventform.php:13
 msgid "Share"
-msgstr "Споделяне"
+msgstr ""
 
 #: templates/part.eventform.php:21
 msgid "Title of the Event"
-msgstr "Наименование"
+msgstr ""
 
 #: templates/part.eventform.php:27 templates/part.showevent.php:19
 msgid "Category"
@@ -657,11 +657,11 @@ msgstr "Категория"
 
 #: templates/part.eventform.php:29
 msgid "Separate categories with commas"
-msgstr "Отделете категориите със запетаи"
+msgstr ""
 
 #: templates/part.eventform.php:30
 msgid "Edit categories"
-msgstr "Редактиране на категориите"
+msgstr ""
 
 #: templates/part.eventform.php:50 templates/part.showevent.php:46
 msgid "Access Class"
@@ -669,39 +669,39 @@ msgstr ""
 
 #: templates/part.eventform.php:67 templates/part.showevent.php:62
 msgid "All Day Event"
-msgstr "Целодневно събитие"
+msgstr ""
 
 #: templates/part.eventform.php:71 templates/part.showevent.php:66
 msgid "From"
-msgstr "От"
+msgstr ""
 
 #: templates/part.eventform.php:79 templates/part.showevent.php:74
 msgid "To"
-msgstr "До"
+msgstr ""
 
 #: templates/part.eventform.php:87 templates/part.showevent.php:82
 msgid "Advanced options"
-msgstr "Разширени настройки"
+msgstr ""
 
 #: templates/part.eventform.php:92 templates/part.showevent.php:87
 msgid "Location"
-msgstr "Локация"
+msgstr ""
 
 #: templates/part.eventform.php:94
 msgid "Location of the Event"
-msgstr "Локация"
+msgstr ""
 
 #: templates/part.eventform.php:100 templates/part.showevent.php:95
 msgid "Description"
-msgstr "Описание"
+msgstr ""
 
 #: templates/part.eventform.php:102
 msgid "Description of the Event"
-msgstr "Описание"
+msgstr ""
 
 #: templates/part.eventform.php:111 templates/part.showevent.php:105
 msgid "Repeat"
-msgstr "Повтори"
+msgstr ""
 
 #: templates/part.eventform.php:118 templates/part.showevent.php:112
 msgid "Advanced"
@@ -750,7 +750,7 @@ msgstr ""
 
 #: templates/part.import.php:14
 msgid "create a new calendar"
-msgstr "създаване на нов календар"
+msgstr ""
 
 #: templates/part.import.php:17
 msgid "Import a calendar file"
@@ -758,11 +758,11 @@ msgstr ""
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr "Изберете календар"
+msgstr ""
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
-msgstr "Име на новия календар"
+msgstr ""
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
@@ -780,15 +780,15 @@ msgstr ""
 
 #: templates/part.import.php:50
 msgid "Import"
-msgstr "Внасяне"
+msgstr ""
 
 #: templates/part.import.php:59
 msgid "Close Dialog"
-msgstr "Затваряне на прозореца"
+msgstr ""
 
 #: templates/part.newevent.php:1
 msgid "Create a new event"
-msgstr "Ново събитие"
+msgstr ""
 
 #: templates/part.share.php:27
 msgid "Share with:"
@@ -818,11 +818,11 @@ msgstr ""
 
 #: templates/part.showevent.php:1
 msgid "View an event"
-msgstr "Преглед на събитие"
+msgstr ""
 
 #: templates/part.showevent.php:23
 msgid "No categories selected"
-msgstr "Няма избрани категории"
+msgstr ""
 
 #: templates/part.showevent.php:37
 msgid "of"
@@ -838,7 +838,7 @@ msgstr ""
 
 #: templates/settings.php:15
 msgid "Timezone"
-msgstr "Часова зона"
+msgstr ""
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
@@ -870,7 +870,7 @@ msgstr ""
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "Уеб адрес"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"

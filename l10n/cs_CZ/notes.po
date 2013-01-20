@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-01-19 00:01+0100\n"
+"PO-Revision-Date: 2013-01-18 06:55+0000\n"
+"Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: appinfo/app.php:9
+msgid "Notes"
+msgstr "Poznámky"
+
+#: templates/categories.php:10 templates/help.php:5
+msgid "Back to Notes"
+msgstr "Zpět na poznámky"
+
+#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
+msgid "Help"
+msgstr "Nápověda"
+
+#: templates/categories.php:99
+msgid "Categories"
+msgstr "Kategorie"
+
+#: templates/categories.php:116 templates/notes.php:345
+#: templates/notes.php:388
+msgid "Delete"
+msgstr "Smazat"
+
+#: templates/categories.php:117 templates/notes.php:390
+msgid "Save"
+msgstr "Uložit"
+
+#: templates/categories.php:129
+msgid "No categories available yet"
+msgstr "Zatím nejsou dostupné žádné kategorie"
+
+#: templates/categories.php:137
+msgid "New category"
+msgstr "Nová kategorie"
+
+#: templates/categories.php:141
+msgid "Add"
+msgstr "Přidat"
+
+#: templates/categories.php:144
+msgid "Note"
+msgstr "Poznámka"
+
+#: templates/categories.php:145
+msgid ""
+"If you delete a category, all containing notes get moved to the following "
+"category"
+msgstr "Pokud smažete kategorii, všechny poznámky, které obsahovala, budou přesunuty do následující kategorie"
+
+#: templates/categories.php:145 templates/notes.php:61
+msgid "General"
+msgstr "Hlavní"
+
+#: templates/notes.php:81
+msgid "Add Note"
+msgstr "Přidat poznámku"
+
+#: templates/notes.php:87
+msgid "Edit Categories"
+msgstr "Upravit kategorie"
+
+#: templates/notes.php:291
+msgid "No note available in this category"
+msgstr "V kategorii nejsou dostupné žádné poznámky"
+
+#: templates/notes.php:335
+msgid "Edit"
+msgstr "Upravit"
+
+#: templates/notes.php:363
+msgid "Category"
+msgstr "Kategorie"
+
+#: templates/notes.php:381
+msgid "Title"
+msgstr "Název"
+
+#: templates/notes.php:382
+msgid "Content"
+msgstr "Obsah"
+
+#: templates/notes.php:413
+msgid "Restore content"
+msgstr "Obnovit obsah"
+
+#: templates/notes.php:421
+msgid "Restore"
+msgstr "Obnovit"
+
+#: templates/notes.php:455
+msgid "The title can not be empty"
+msgstr "Název nemůže být prázdný"
+
+#: templates/notes.php:462
+msgid "Invalid title"
+msgstr "Neplatný název"
+
+#: templates/notes.php:462
+msgid "The following characters are not allowed"
+msgstr "Následující znaky nejsou povoleny"

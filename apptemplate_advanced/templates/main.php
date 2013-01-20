@@ -5,6 +5,8 @@
 
 	<h1 class="heading">This is an advanced app template</h1>
 
+	<p>The URL Parameter for the index page is: <?php p($_['test']) ?></p>
+
 	<p ng-show="name">Welcome home {{name | leetIt}}!</p>
 
 	<form class="centered">
