@@ -30,7 +30,7 @@
  */
 
 /* some app internal transitions */
-html body #fluxx * {
+html body .fluxx-handle * {
 	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
 }
 

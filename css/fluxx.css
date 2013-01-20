@@ -30,21 +30,22 @@
  */
 
 /* style the 'handle' itself used to switch the navigation */
-#fluxx {
+.fluxx-handle {
 	position: absolute;
-	background: #eee;
-	z-index: 100;
-	border: 1px solid #bbb;
 	width: 20px;
-	height: 22px;
+	height: 20px;
+	background: #eee;
+	border: 0.5px solid #bbb;
+	cursor: pointer;
+}
+#fluxx-x.fluxx-handle {
 	border-left: 0;
 	border-top-right-radius: 1em;
 	border-bottom-right-radius: 1em;
-	box-shadow: 1px 0 1px #bbb;
-	cursor: pointer;
+	box-shadow: 1px 0px 1px #888;
 }
-#fluxx img {
-	margin: 3px 1px;
+.fluxx-handle img {
+	margin: 2px 1px;
 	padding: 1px ;
 	opacity: 0.6;
 	width: 14px;
@@ -59,14 +60,14 @@
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 }
-html.fluxx-state-x-shown #fluxx img {
+html.fluxx-state-x-shown .fluxx-handle img {
 	-webkit-transform: rotate(-90deg);
 	-khtml-transform: rotate(-90deg);
 	-moz-transform: rotate(-90deg);
 	-ms-transform: rotate(-90deg);
 	-o-transform: rotate(-90deg);
 }
-html.fluxx-state-x-hidden #fluxx img {
+html.fluxx-state-x-hidden .fluxx-handle img {
 	-webkit-transform: rotate(90deg);
 	-khtml-transform: rotate(90deg);
 	-moz-transform: rotate(90deg);
