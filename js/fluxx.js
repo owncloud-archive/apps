@@ -36,7 +36,7 @@ $(document).ready(function(){
 	// setup handle object
 	OC.FluXX.create();
 	// store some references to handle and moved objects
-	OC.FluXX.Handle=$('#fluxx');
+	OC.FluXX.Handle.X=$('body #fluxx-x');
 	// hide or show the navigation in a persistent manner
 	OC.AppConfig.getValue('fluxx_compensator','fluxx-status','shown',function(status){
 		if ('hidden'==status){
@@ -49,12 +49,12 @@ $(document).ready(function(){
 	// reposition the handle upon resize of the window
 	$(window).on('resize',function(){
 		OC.FluXX.limit();
-		OC.FluXX.position(OC.FluXX.Position.Y);
+		OC.FluXX.position(OC.FluXX.Position.X);
 	});
 	// handle mouse reactions
 	// 1.) click => toggle navigation hidden or shown
 	// 2.) hold => enter vertical handle move mode
-	OC.FluXX.Handle.on('mousedown',function(){
+	OC.FluXX.Handle.X.on('mousedown',function(){
 		OC.FluXX.click();
 	});
 })
@@ -70,16 +70,18 @@ OC.FluXX={
 	* @brief Static reference to the handle object inside the DOM
 	* @author Christian Reiner
 	*/
-	Handle:{},
+	Handle:{
+		X:false
+	},
 	/**
 	* @object OC.FluXX.Position
 	* @brief A set of limits controling the position of the handle
 	* @author Christian Reiner
 	*/
 	Position:{
-		Y:0,
-		Ymin:0,
-		Ymax:0
+		X:0,
+		Xmin:0,
+		Xmax:0
 	},
 	/**
 	* @method OC.FluXX.click
@@ -94,9 +96,9 @@ OC.FluXX={
 			OC.FluXX.move();
 		},500);
 		// raise normal click handling
-		OC.FluXX.Handle.on('mouseup',function(){
+		OC.FluXX.Handle.X.on('mouseup',function(){
 			// remove _this_ handler
-			OC.FluXX.Handle.off('mouseup');
+			OC.FluXX.Handle.X.off('mouseup');
 			// start click reaction
 			OC.FluXX.toggle();
 		});
@@ -107,7 +109,7 @@ OC.FluXX={
 			// remove _this_ handler
 			$(document).off('mouseup');
 			// remove _above_ handler
-			OC.FluXX.Handle.off('mouseup');
+			OC.FluXX.Handle.X.off('mouseup');
 		});
 		return false;
 	}, // OC.FluXX.click
@@ -118,17 +120,18 @@ OC.FluXX={
 	*/
 	create:function(){
 		// construct handle object
-		var handle=$('<span id="fluxx" class="fluxx-shown" />');
-		var img   =$('<img  id="fluxx" class="svg" draggable="false">');
+		var handle=$('<span id="fluxx-x" class="fluxx-handle fluxx-shown" />');
+		var img=$('<img class="svg" draggable="false">');
 		img.attr('src',OC.filePath('fluxx_compensator','img','actions/fluxx.svg'));
 		handle.append(img);
 		// inject handle object into navigation areaa
-		$('body > nav > #navigation').append(handle);
+		var navigation=$('body > nav > #navigation').first();
+		navigation.append(handle);
 		// position handle object horizontally
-		$('#fluxx').css('left',$('body > nav > #navigation').css('width'));
+		$('#fluxx-x').css('left',(navigation.width()-1)+'px');
 		// position handle object vertically
-		OC.AppConfig.getValue('fluxx_compensator','fluxx-position',OC.FluXX.Position.Ymax,function(y){
-			OC.FluXX.position(y);
+		OC.AppConfig.getValue('fluxx_compensator','fluxx-position',OC.FluXX.Position.Xmax,function(x){
+			OC.FluXX.position(x);
 		});
 	}, // OC.FluXX.create
 	/**
@@ -139,10 +142,10 @@ OC.FluXX={
 	hide:function(){
 		var dfd = new $.Deferred();
 		OC.FluXX.stylish();
-		if (OC.FluXX.Handle.hasClass('fluxx-shown')){
+		if (OC.FluXX.Handle.X.hasClass('fluxx-shown')){
 			$.when(
-				OC.FluXX.Handle.addClass('fluxx-hidden'),
-				OC.FluXX.Handle.removeClass('fluxx-shown')
+				OC.FluXX.Handle.X.addClass('fluxx-hidden'),
+				OC.FluXX.Handle.X.removeClass('fluxx-shown')
 			).done(function(){
 				dfd.resolve();
 				// store current handle status inside user preferences
@@ -157,8 +160,8 @@ OC.FluXX={
 	* @author Christian Reiner
 	*/
 	limit:function(){
-		OC.FluXX.Position.Ymin=37;
-		OC.FluXX.Position.Ymax=$('body > nav > #navigation').height()-$('body > nav > #navigation').position().top-37;
+		OC.FluXX.Position.Xmin=37;
+		OC.FluXX.Position.Xmax=$('body > nav > #navigation').height()-$('body > nav > #navigation').position().top-37;
 	}, // OC.FluXX.limit
 	/**
 	* @method OC.FluXX.move
@@ -168,10 +171,10 @@ OC.FluXX={
 	move:function(){
 		// enable cursor move mode
 		$('html').addClass('fluxx-handle-move');
-		OC.FluXX.Handle.effect('highlight',{color:'#FFF'},800);
+		OC.FluXX.Handle.X.effect('highlight',{color:'#FFF'},400);
 		// remove _outer_ reactions (2!) on mouseup
 		$(document).off('mouseup');
-		OC.FluXX.Handle.off('mouseup');
+		OC.FluXX.Handle.X.off('mouseup');
 		// react on mouseup
 		$(document).on('mouseup',function(){
 			// remove _this_ handler
@@ -180,10 +183,10 @@ OC.FluXX={
 			$(document).off('mousemove');
 			// disable cursor move mode
 			$('html').removeClass('fluxx-handle-move');
-			OC.FluXX.Handle.css('cursor','pointer');
-			OC.FluXX.Handle.find('img').css('cursor','inherit');
+			OC.FluXX.Handle.X.css('cursor','pointer');
+			OC.FluXX.Handle.X.find('img').css('cursor','inherit');
 			// store final handle position
-			OC.AppConfig.setValue('fluxx_compensator','fluxx-position',OC.FluXX.Handle.position().top);
+			OC.AppConfig.setValue('fluxx_compensator','fluxx-position',OC.FluXX.Handle.X.position().top);
 		});
 		// reaction on mouse move: position handle
 		$(document).on('mousemove',function(event){
@@ -195,11 +198,11 @@ OC.FluXX={
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	position:function(y){
+	position:function(x){
 		// hide handle whilst being repositioned
 		$('body > nav > #navigation').css('overflow','hidden !important');
-		OC.FluXX.Position.Y=(y>OC.FluXX.Position.Ymax)?OC.FluXX.Position.Ymax:((y<OC.FluXX.Position.Ymin)?OC.FluXX.Position.Ymin:y);
-		$('#fluxx').css('top',OC.FluXX.Position.Y+'px');
+		OC.FluXX.Position.X=(x>OC.FluXX.Position.Xmax)?OC.FluXX.Position.Xmax:((x<OC.FluXX.Position.Xmin)?OC.FluXX.Position.Xmin:x);
+		$('#fluxx-x').css('top',OC.FluXX.Position.X+'px');
 		// show handle after having been repositioned
 		$('body > nav > #navigation').css('overflow','visible');
 	}, // OC.FluXX.position
@@ -211,10 +214,10 @@ OC.FluXX={
 	show:function(){
 		var dfd = new $.Deferred();
 		OC.FluXX.stylish();
-		if (OC.FluXX.Handle.hasClass('fluxx-hidden')){
+		if (OC.FluXX.Handle.X.hasClass('fluxx-hidden')){
 			$.when(
-				OC.FluXX.Handle.addClass('fluxx-shown'),
-				OC.FluXX.Handle.removeClass('fluxx-hidden')
+				OC.FluXX.Handle.X.addClass('fluxx-shown'),
+				OC.FluXX.Handle.X.removeClass('fluxx-hidden')
 			).done(function(){
 				dfd.resolve();
 				// store current handle status inside user preferences
@@ -271,7 +274,7 @@ OC.FluXX={
 	swap: function(){
 		var dfd = new $.Deferred();
 		// call action depending on the current mode
-		if (OC.FluXX.Handle.hasClass('fluxx-shown')){
+		if (OC.FluXX.Handle.X.hasClass('fluxx-shown')){
 			$.when(
 				OC.FluXX.hide(),
 				OC.FluXX.state(false)
