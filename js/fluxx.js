@@ -37,7 +37,6 @@ $(document).ready(function(){
 	OC.FluXX.create();
 	// store some references to handle and moved objects
 	OC.FluXX.Handle=$('#fluxx');
-	OC.FluXX.Offset=$('#navigation').css('width');
 	// hide or show the navigation in a persistent manner
 	OC.AppConfig.getValue('fluxx_compensator','fluxx-status','shown',function(status){
 		if ('hidden'==status){
@@ -72,12 +71,6 @@ OC.FluXX={
 	* @author Christian Reiner
 	*/
 	Handle:{},
-	/**
-	* @object OC.FluXX.Offset
-	* @brief Offset value the pages content gets moved by (width of navigation area)
-	* @author Christian Reiner
-	*/
-	Offset:{},
 	/**
 	* @object OC.FluXX.Position
 	* @brief A set of limits controling the position of the handle

@@ -36,7 +36,7 @@
 	z-index: 100;
 	border: 1px solid #bbb;
 	width: 20px;
-	height: 24px;
+	height: 22px;
 	border-left: 0;
 	border-top-right-radius: 1em;
 	border-bottom-right-radius: 1em;
@@ -44,8 +44,8 @@
 	cursor: pointer;
 }
 #fluxx img {
-	margin: 5px 2px;
-	padding: 0;
+	margin: 3px 1px;
+	padding: 1px ;
 	opacity: 0.6;
 	width: 14px;
 	height: 14px;
