@@ -49,7 +49,7 @@ $(document).ready(function(){
 	// reposition the handle upon resize of the window
 	$(window).on('resize',function(){
 		OC.FluXX.limit();
-		OC.FluXX.position(OC.FluXX.Position.X);
+		OC.FluXX.position(OC.FluXX.Position.Val);
 	});
 	// handle mouse reactions
 	// 1.) click => toggle navigation hidden or shown
@@ -79,9 +79,9 @@ OC.FluXX={
 	* @author Christian Reiner
 	*/
 	Position:{
-		X:0,
-		Xmin:0,
-		Xmax:0
+		Val:0,
+		Min:0,
+		Max:0
 	},
 	/**
 	* @method OC.FluXX.click
@@ -130,7 +130,7 @@ OC.FluXX={
 		// position handle object horizontally
 		$('#fluxx-x').css('left',(navigation.width()-1)+'px');
 		// position handle object vertically
-		OC.AppConfig.getValue('fluxx_compensator','fluxx-position',OC.FluXX.Position.Xmax,function(x){
+		OC.AppConfig.getValue('fluxx_compensator','fluxx-position',OC.FluXX.Position.Max,function(x){
 			OC.FluXX.position(x);
 		});
 	}, // OC.FluXX.create
@@ -160,8 +160,8 @@ OC.FluXX={
 	* @author Christian Reiner
 	*/
 	limit:function(){
-		OC.FluXX.Position.Xmin=37;
-		OC.FluXX.Position.Xmax=$('body > nav > #navigation').height()-$('body > nav > #navigation').position().top-37;
+		OC.FluXX.Position.Min=37;
+		OC.FluXX.Position.Max=$('body > nav > #navigation').height()-$('body > nav > #navigation').position().top-37;
 	}, // OC.FluXX.limit
 	/**
 	* @method OC.FluXX.move
@@ -201,8 +201,8 @@ OC.FluXX={
 	position:function(x){
 		// hide handle whilst being repositioned
 		$('body > nav > #navigation').css('overflow','hidden !important');
-		OC.FluXX.Position.X=(x>OC.FluXX.Position.Xmax)?OC.FluXX.Position.Xmax:((x<OC.FluXX.Position.Xmin)?OC.FluXX.Position.Xmin:x);
-		$('#fluxx-x').css('top',OC.FluXX.Position.X+'px');
+		OC.FluXX.Position.Val=(x>OC.FluXX.Position.Max)?OC.FluXX.Position.Max:((x<OC.FluXX.Position.Min)?OC.FluXX.Position.Min:x);
+		$('#fluxx-x').css('top',OC.FluXX.Position.Val+'px');
 		// show handle after having been repositioned
 		$('body > nav > #navigation').css('overflow','visible');
 	}, // OC.FluXX.position
