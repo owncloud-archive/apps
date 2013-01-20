@@ -30,19 +30,19 @@
  */
 
 /* some general static modifications required due to strange OC base definitions */
-html.fluxx-state-hidden {}
-html.fluxx-state-shown {}
+html.fluxx-state-x-hidden {}
+html.fluxx-state-x-shown {}
 
 /* some general mode specific modifications */
-html.fluxx-state-hidden #navigation {
+html.fluxx-state-x-hidden #navigation {
 	left: -12.5em;
 }
-html.fluxx-state-hidden #content {
+html.fluxx-state-x-hidden #content {
 	left: 0;
 	width: 100% !important;
 }
 
-html.fluxx-state-hidden #controls {
+html.fluxx-state-x-hidden #controls {
 	width: 100% !important;
 }
 
@@ -55,7 +55,7 @@ html.fluxx-modeless { }
 html.fluxx-mode-files { }
 
 /* 'notes' app */
-html.fluxx-mode-notes.fluxx-state-hidden #entries { left:0; }
+html.fluxx-mode-notes.fluxx-state-x-hidden #entries { left:0; }
 
 /* 'media' app */
 html.fluxx-mode-media { }
@@ -64,9 +64,9 @@ html.fluxx-mode-media { }
 html.fluxx-mode-calendar { }
 
 /* 'contacts' app */
-html.fluxx-mode-contacts.fluxx-state-hidden #content > #leftcontent,
-html.fluxx-mode-contacts.fluxx-state-hidden #content > #leftcontent > #contacts { left:0; }
-html.fluxx-mode-contacts.fluxx-state-hidden #content > #rightcontent { left:256px; }
+html.fluxx-mode-contacts.fluxx-state-x-hidden #content > #leftcontent,
+html.fluxx-mode-contacts.fluxx-state-x-hidden #content > #leftcontent > #contacts { left:0; }
+html.fluxx-mode-contacts.fluxx-state-x-hidden #content > #rightcontent { left:256px; }
 
 /* 'gallery' app */
 html.fluxx-mode-gallery { }

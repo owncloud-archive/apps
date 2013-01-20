@@ -256,9 +256,9 @@ OC.FluXX={
 		}
 		// mark the current state (hidden or shown) as class of the html element
 		if (shown){
-			$('html').removeClass('fluxx-state-hidden').addClass('fluxx-state-shown');
+			$('html').removeClass('fluxx-state-x-hidden').addClass('fluxx-state-x-shown');
 		}else{
-			$('html').removeClass('fluxx-state-shown').addClass('fluxx-state-hidden');
+			$('html').removeClass('fluxx-state-x-shown').addClass('fluxx-state-x-hidden');
 		}
 	}, // OC.FluXX.stylish
 	/**
