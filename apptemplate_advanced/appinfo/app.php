@@ -21,8 +21,7 @@
 *
 */
 
-
-require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/classpath.php';
+namespace OCA\AppTemplateAdvanced;
 
 
 \OCP\App::registerAdmin('apptemplate_advanced', 'admin/settings');

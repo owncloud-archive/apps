@@ -5,14 +5,16 @@
 # Translators:
 # Adam Toth <adazlord@gmail.com>, 2012.
 # Csaba Orban <vicsabi@gmail.com>, 2012.
+#  <gyonkibendeguz@gmail.com>, 2013.
 #   <gyonkibendeguz@gmail.com>, 2013.
 # Peter Borsa <peter.borsa@gmail.com>, 2011.
+# Tamas Nagy <mail@tamas-nagy.net>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-09 00:01+0100\n"
-"PO-Revision-Date: 2013-01-08 16:40+0000\n"
+"POT-Creation-Date: 2013-01-20 00:01+0100\n"
+"PO-Revision-Date: 2013-01-19 11:47+0000\n"
 "Last-Translator: gyeben <gyonkibendeguz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +29,7 @@ msgstr "Nem minden naptár van a gyorsítótárban"
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
-msgstr ""
+msgstr "Úgy tűnik, hogy minden gyorsítótárazva van"
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
@@ -49,7 +51,7 @@ msgstr "Nincs jogod ahhoz, hogy módosítsd ezt az eseményt."
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
-msgstr ""
+msgstr "A fájl nem tartalmazott eseményeket, vagy pedig az események már el vannak mentve a naptárban."
 
 #: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
@@ -778,7 +780,7 @@ msgstr "A naptár ezen a néven már létezik. Ha folytatja, akkor a naptárak �
 
 #: templates/part.import.php:48
 msgid "Remove all events from the selected calendar"
-msgstr ""
+msgstr "Összes esemény eltávolítása a kiválasztott naptárból"
 
 #: templates/part.import.php:50
 msgid "Import"

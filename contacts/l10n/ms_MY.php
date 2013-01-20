@@ -85,6 +85,7 @@
 "Additional names" => "Nama tambahan",
 "Nickname" => "Nama Samaran",
 "Enter nickname" => "Masukkan nama samaran",
+"Title" => "Judul",
 "Organization" => "Organisasi",
 "Birthday" => "Hari lahir",
 "Add" => "Tambah",

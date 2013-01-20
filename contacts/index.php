@@ -48,6 +48,7 @@ $freeSpace=max($freeSpace, 0);
 $maxUploadFilesize = min($maxUploadFilesize, $freeSpace);
 
 OCP\Util::addscript('contacts', 'multiselect');
+OCP\Util::addscript('', 'jquery.multiselect');
 OCP\Util::addscript('', 'oc-vcategories');
 OCP\Util::addscript('contacts', 'modernizr.custom');
 OCP\Util::addscript('contacts', 'app');
@@ -58,6 +59,7 @@ OCP\Util::addscript('contacts', 'jquery.combobox');
 OCP\Util::addscript('files', 'jquery.fileupload');
 OCP\Util::addscript('contacts', 'jquery.Jcrop');
 OCP\Util::addStyle('contacts', 'multiselect');
+OCP\Util::addStyle('', 'jquery.multiselect');
 OCP\Util::addStyle('contacts', 'jquery.combobox');
 OCP\Util::addStyle('contacts', 'jquery.Jcrop');
 OCP\Util::addStyle('contacts', 'contacts');

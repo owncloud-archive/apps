@@ -37,6 +37,7 @@
 "Close" => "tutup",
 "Nickname" => "nama panggilan",
 "Enter nickname" => "masukkan nama panggilan",
+"Title" => "Judul",
 "Organization" => "organisasi",
 "Birthday" => "tanggal lahir",
 "Add" => "tambah",

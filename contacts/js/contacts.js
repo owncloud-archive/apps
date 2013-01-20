@@ -110,6 +110,15 @@ OC.Contacts = OC.Contacts || {};
 		}
 
 		if($elem) {
+			// If there's already a property of this type enable setting as preferred.
+			if(this.multi_properties.indexOf(name) !== -1 && this.data[name] && this.data[name].length > 0) {
+				var selector = 'li[data-element="' + name.toLowerCase() + '"]';
+				$.each(this.$fullelem.find(selector), function(idx, elem) {
+					$(elem).find('input.parameter[value="PREF"]').show();
+				});
+			} else if(this.multi_properties.indexOf(name) !== -1) {
+				$elem.find('input.parameter[value="PREF"]').hide();
+			}
 			$elem.find('select.type[name="parameters[TYPE][]"]')
 				.combobox({
 					singleclick: true,
@@ -119,6 +128,7 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.deleteProperty = function(params) {
+		// TODO: Disable PREF if less than 2 multi_properties.
 		var obj = params.obj;
 		if(!this.enabled) {
 			return;
@@ -225,10 +235,6 @@ OC.Contacts = OC.Contacts || {};
 		var q = '';
 		if(params.obj) {
 			obj = params.obj;
-			if($(obj).is('select')) {
-				console.warn('Group adding will have to be refactored.');
-				return;
-			}
 			q = this.queryStringFor(obj);
 			element = this.propertyTypeFor(obj);
 		} else {
@@ -476,17 +482,17 @@ OC.Contacts = OC.Contacts || {};
 				self.access.id = parseInt(jsondata.data.aid);
 				self.data = jsondata.data.details;
 				// Add contact to current group
-				if(self.groupprops && self.groupprops.currentgroup.name !== 'all'
-					&& self.groupprops.currentgroup.name !== 'fav') {
+				if(self.groupprops && self.groupprops.currentgroup.id !== 'all'
+					&& self.groupprops.currentgroup.id !== 'fav') {
 					if(!self.data.CATEGORIES) {
-						self.data.CATEGORIES = [{value:[self.groupprops.currentgroup.name], parameters:[]}];
-						// Save to vCard
-						self.saveProperty({name:'CATEGORIES', value:self.data.CATEGORIES[0].value.join(',') });
-						// Tell OC.Contacts to save in backend
+						self.addToGroup(self.groupprops.currentgroup.name);
 						$(document).trigger('request.contact.addtogroup', {
 							id: self.id,
 							groupid: self.groupprops.currentgroup.id
 						});
+						self.$groupSelect.find('option[value="' + self.groupprops.currentgroup.id + '"]')
+							.attr('selected', 'selected');
+						self.$groupSelect.multiselect('refresh');
 					}
 				}
 				$(document).trigger('status.contact.added', {
@@ -579,25 +585,16 @@ OC.Contacts = OC.Contacts || {};
 		return $container.is('input')
 			? $container.val()
 			: (function() {
-				if($container.is('select[data-element="categories"]')) {
-					console.warn('Group adding will have to be refactored.');
-					retval = {};
-					$.each($container.find(':selected'), function(idx, e) {
-						retval[$(e).val()] = $(e).text();
+				var $elem = $container.find('textarea.value,input.value:not(:checkbox)');
+				console.assert($elem.length > 0, 'Couldn\'t find value for ' + $container.data('element'));
+				if($elem.length === 1) {
+					return $elem.val();
+				} else if($elem.length > 1) {
+					var retval = [];
+					$.each($elem, function(idx, e) {
+						retval.push($(e).val());
 					});
 					return retval;
-				} else {
-					var $elem = $container.find('textarea.value,input.value:not(:checkbox)');
-					console.assert($elem.length > 0, 'Couldn\'t find value for ' + $container.data('element'));
-					if($elem.length === 1) {
-						return $elem.val();
-					} else if($elem.length > 1) {
-						var retval = [];
-						$.each($elem, function(idx, e) {
-							retval.push($(e).val());
-						});
-						return retval;
-					}
 				}
 			})();
 	};
@@ -660,13 +657,33 @@ OC.Contacts = OC.Contacts || {};
 		var self = this;
 		this.groupprops = groupprops;
 		
-		var buildGroupSelect = function($groupSelect, availableGroups) {
+		var buildGroupSelect = function(availableGroups) {
+			//this.$groupSelect.find('option').remove();
 			$.each(availableGroups, function(idx, group) {
 				var $option = $('<option value="' + group.id + '">' + group.name + '</option>');
 				if(self.inGroup(group.name)) {
 					$option.attr('selected', 'selected');
 				}
-				$groupSelect.append($option);
+				self.$groupSelect.append($option);
+			});
+			self.$groupSelect.multiselect({
+				header: false,
+				selectedList: 3,
+				noneSelectedText: self.$groupSelect.attr('title'),
+				selectedText: t('contacts', '# groups')
+			});
+			self.$groupSelect.bind('multiselectclick', function(event, ui) {
+				var action = ui.checked ? 'addtogroup' : 'removefromgroup';
+				console.assert(typeof self.id === 'number', 'ID is not a number')
+				$(document).trigger('request.contact.' + action, {
+					id: self.id,
+					groupid: parseInt(ui.value)
+				});
+				if(ui.checked) {
+					self.addToGroup(ui.text);
+				} else {
+					self.removeFromGroup(ui.text);
+				}
 			});
 		};
 		
@@ -699,8 +716,7 @@ OC.Contacts = OC.Contacts || {};
 		});
 		
 		this.$groupSelect = this.$fullelem.find('#contactgroups');
-		buildGroupSelect(this.$groupSelect, groupprops.groups);
-		this.$groupSelect.multiSelect();
+		buildGroupSelect(groupprops.groups);
 		
 		this.$addMenu = this.$fullelem.find('#addproperty');
 		this.$addMenu.on('change', function(event) {
@@ -776,7 +792,7 @@ OC.Contacts = OC.Contacts || {};
 		});
 
 		this.$fullelem.on('change', '.value,.parameter', function(event) {
-			if(this.value === this.defaultValue) {
+			if($(this).hasClass('value') && this.value === this.defaultValue) {
 				return;
 			}
 			console.log('change', this.defaultValue, this.value);
@@ -838,7 +854,7 @@ OC.Contacts = OC.Contacts || {};
 							case 'URL':
 							case 'EMAIL':
 								$property = self.renderStandardProperty(name.toLowerCase(), property);
-								if(self.data[name].length >= 1) {
+								if(self.data[name].length === 1) {
 									$property.find('input:checkbox[value="PREF"]').hide();
 								}
 								break;
@@ -847,6 +863,9 @@ OC.Contacts = OC.Contacts || {};
 								break;
 							case 'IMPP':
 								$property = self.renderIMProperty(property);
+								if(self.data[name].length === 1) {
+									$property.find('input:checkbox[value="PREF"]').hide();
+								}
 								break;
 						}
 						if(!$property) {
@@ -1656,7 +1675,7 @@ OC.Contacts = OC.Contacts || {};
 					self.contacts[parseInt(contact.id)]
 						= new Contact(
 							self,
-							contact.id,
+							parseInt(contact.id),
 							self.addressbooks[parseInt(contact.aid)],
 							contact.data,
 							self.$contactListItemTemplate,

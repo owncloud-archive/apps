@@ -172,11 +172,10 @@
 				</ul>
 				<a class="favorite action {favorite}"></a>
 			</div>
-			<select id="contactgroups" class="value propertycontainer" data-element="categories" title="<?php echo $l->t('Select groups'); ?>" name="value" multiple></select>
 			<div class="singleproperties">
 			<input data-element="fn" class="fullname value propertycontainer" type="text" name="value" value="{name}" required />
 			<a class="action edit"></a>
-			<fieldset class="n hidden editor propertycontainer" data-element="n">
+ 			<fieldset class="n hidden editor propertycontainer" data-element="n">
 			<ul>
 				<li>
 					<input class="value tooltipped rightwards onfocus" type="text" id="n_1" name="value[1]" value="{n1}" 
@@ -197,6 +196,9 @@
 			<input class="value" type="hidden" id="n_3" name="value[3]" value="{n3}" />
 			<input class="value" type="hidden" id="n_4" name="value[4]" value="{n4}" />
 			</fieldset>
+			<div class="groupscontainer propertycontainer" data-element="categories">
+				<select id="contactgroups" title="<?php echo $l->t('Select groups'); ?>" name="value" multiple></select>
+			</div>
 			<dl class="form">
 				<dt data-element="nickname">
 					<?php echo $l->t('Nickname'); ?>
@@ -262,6 +264,7 @@
 		<select class="add action text button" id="addproperty">
 			<option value=""><?php echo $l->t('Add'); ?></option>
 			<option value="ORG"><?php echo $l->t('Organization'); ?></option>
+			<option value="TITLE"><?php echo $l->t('Title'); ?></option>
 			<option value="NICKNAME"><?php echo $l->t('Nickname'); ?></option>
 			<option value="BDAY"><?php echo $l->t('Birthday'); ?></option>
 			<option value="TEL"><?php echo $l->t('Phone'); ?></option>
@@ -270,7 +273,6 @@
 			<option value="ADR"><?php echo $l->t('Address'); ?></option>
 			<option value="NOTE"><?php echo $l->t('Note'); ?></option>
 			<option value="URL"><?php echo $l->t('Web site'); ?></option>
-			<option value="CATEGORIES"><?php echo $l->t('Groups'); ?></option>
 		</select>
 		<button class="delete action text float right tooltipped downwards" title="<?php echo $l->t('Delete contact'); ?>"><?php echo $l->t('Delete'); ?></button>
 	</footer>

@@ -1,28 +1,29 @@
 <?php
 
 /**
-* ownCloud - App Template Example
-*
-* @author Bernhard Posselt
-* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com 
-*
-* This library is free software; you can redistribute it and/or
-* modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
-* License as published by the Free Software Foundation; either
-* version 3 of the License, or any later version.
-*
-* This library is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU AFFERO GENERAL PUBLIC LICENSE for more details.
-*
-* You should have received a copy of the GNU Affero General Public
-* License along with this library.  If not, see <http://www.gnu.org/licenses/>.
-*
-*/
+ * ownCloud - App Framework
+ *
+ * @author Bernhard Posselt
+ * @copyright 2012 Bernhard Posselt nukeawhale@gmail.com
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 
 
 namespace OCA\AppFramework;
+
 
 /**
  * Encapsulates $_GET, $_FILES and $_POST arrays for better testability
@@ -38,9 +39,11 @@ class Request {
 	 * @param array $post: the $_POST array
 	 * @param array $files: the $_FILES array
 	 */
-	public function __construct($get=array(), $post=array(), $files=array()) {
+	public function __construct(array $get=array(), array $post=array(), 
+								array $files=array()) {
 		$this->get = $get;
 		$this->post = $post;
+		$this->files = $files;
 	}
 
 
