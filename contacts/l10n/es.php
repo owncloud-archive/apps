@@ -83,6 +83,7 @@
 "The address book name cannot be empty." => "El nombre de la libreta de direcciones no puede estar vacio.",
 "Is this correct?" => "¿Es esto correcto?",
 "There was an unknown error when trying to delete this contact" => "Hubo un error desconocido al tratar de eliminar este contacto",
+"# groups" => "# grupos",
 "Some contacts are marked for deletion, but not deleted yet. Please wait for them to be deleted." => "Algunos contactos están marcados para su eliminación, pero no eliminados todavía. Por favor, espere a que sean eliminados.",
 "Click to undo deletion of {num} contacts" => "Pulse para deshacer la eliminación de {num} contactos",
 "Cancelled deletion of {num}" => "La eliminación de {num} fue cancelada",
