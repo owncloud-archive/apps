@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Wilfred Dijksman <info@wdijksman.nl>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-20 00:01+0100\n"
-"PO-Revision-Date: 2013-01-19 23:02+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-21 00:01+0100\n"
+"PO-Revision-Date: 2013-01-20 18:19+0000\n"
+"Last-Translator: Wilfred Dijksman <info@wdijksman.nl>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,33 +20,33 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr ""
+msgstr "Hallo {user},"
 
 #: templates/notification.php:2
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "Sorry, maar in een bestand dat je probeerde te uploaden is malware gedetecteerd en om die reden verwijderd."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "Deze e-mail is een notificatie van {host}. Gelieve niet te antwoorden."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "Geüpload bestand: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "Antivirus Instellingen"
 
 #: templates/settings.php:4
 msgid "Mode"
-msgstr ""
+msgstr "Mode"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr ""
+msgstr "Uitvoerbaar"
 
 #: templates/settings.php:5
 msgid "Daemon"
@@ -53,23 +54,23 @@ msgstr ""
 
 #: templates/settings.php:7
 msgid "Host"
-msgstr ""
+msgstr "Host"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "Adres van Antivirus Host."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
-msgstr ""
+msgstr "Niet vereist in Uitvoerbare Mode."
 
 #: templates/settings.php:8
 msgid "Port"
-msgstr ""
+msgstr "Poort"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "Poortnummer van Antivirus Host."
 
 #: templates/settings.php:9
 msgid "Stream Length"
@@ -93,16 +94,16 @@ msgstr ""
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "Actie voor gevonden besmette bestanden tijdens scannen"
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "Alleen loggen"
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr ""
+msgstr "Verwijder bestand"
 
 #: templates/settings.php:14
 msgid "Save"
-msgstr ""
+msgstr "Bewaar"
