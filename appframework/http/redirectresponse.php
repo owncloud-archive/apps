@@ -21,15 +21,34 @@
  *
  */
 
-// to execute without owncloud, we need to create our own classloader
-spl_autoload_register(function ($className){
-	if (strpos($className, 'OCA\\') === 0) {
-		
-		$path = strtolower(str_replace('\\', '/', substr($className, 3)) . '.php');
-		$relPath = __DIR__ . '/../..' . $path;
-		
-		if(file_exists($relPath)){
-			require_once $relPath;
-		}
+
+namespace OCA\AppFramework\Http;
+
+
+/**
+ * Prompts the user to download the a textfile
+ */
+class RedirectResponse extends Response {
+
+	private $redirectURL;
+
+	/**
+	 * Creates a response that redirects to a url
+	 * @param string $redirectURL: the url to redirect to
+	 */
+	public function __construct($redirectURL){
+		parent::__construct();
+		$this->redirectURL = $redirectURL;
+		$this->addHeader('Location: ' . $redirectURL);
 	}
-});
+
+
+	/**
+	 * @return: the url to redirect
+	 */
+	public function getRedirectURL(){
+		return $this->redirectURL;
+	}
+	
+
+}

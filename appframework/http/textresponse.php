@@ -21,15 +21,34 @@
  *
  */
 
-// to execute without owncloud, we need to create our own classloader
-spl_autoload_register(function ($className){
-	if (strpos($className, 'OCA\\') === 0) {
-		
-		$path = strtolower(str_replace('\\', '/', substr($className, 3)) . '.php');
-		$relPath = __DIR__ . '/../..' . $path;
-		
-		if(file_exists($relPath)){
-			require_once $relPath;
-		}
+
+namespace OCA\AppFramework\Http;
+
+
+/**
+ * Prompts the user to download the a textfile
+ */
+class TextResponse extends Response {
+
+	private $content;
+
+	/**
+	 * @brief Creates a response that just outputs text
+	 * @param string $content: the content that should be written into the file
+	 */
+	public function __construct($content){
+		parent::__construct();
+		$this->content = $content;
 	}
-});
+
+
+	/**
+	 * Simply sets the headers and returns the file contents
+	 * @return the file contents
+	 */
+	public function render(){
+		return $this->content;
+	}
+
+
+}

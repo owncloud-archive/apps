@@ -21,15 +21,33 @@
  *
  */
 
-// to execute without owncloud, we need to create our own classloader
-spl_autoload_register(function ($className){
-	if (strpos($className, 'OCA\\') === 0) {
-		
-		$path = strtolower(str_replace('\\', '/', substr($className, 3)) . '.php');
-		$relPath = __DIR__ . '/../..' . $path;
-		
-		if(file_exists($relPath)){
-			require_once $relPath;
-		}
+
+namespace OCA\AppFramework\Middleware\Security;
+
+
+/**
+ * Thrown when the security middleware encounters a security problem
+ */
+class SecurityException extends \Exception {
+
+	private $ajax;
+
+	/**
+	 * @param string $msg: the security error message
+	 * @param bool $ajax: true if it resulted because of an ajax request
+	 */
+	public function __construct($msg, $ajax){
+		parent::__construct($msg);
+		$this->ajax = $ajax;
 	}
-});
+
+
+	/**
+	 * @return true if exception resulted because of an ajax request
+	 */
+	public function isAjax(){
+		return $this->ajax;
+	}
+
+
+}

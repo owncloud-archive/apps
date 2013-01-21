@@ -21,15 +21,35 @@
  *
  */
 
-// to execute without owncloud, we need to create our own classloader
-spl_autoload_register(function ($className){
-	if (strpos($className, 'OCA\\') === 0) {
-		
-		$path = strtolower(str_replace('\\', '/', substr($className, 3)) . '.php');
-		$relPath = __DIR__ . '/../..' . $path;
-		
-		if(file_exists($relPath)){
-			require_once $relPath;
-		}
+
+namespace OCA\AppFramework\Http;
+
+
+class Response {
+
+	private $headers;
+
+		public function __construct(){
+		$this->headers = array();
 	}
-});
+
+	/**
+	 * Adds a new header to the response that will be called before the render
+	 * function
+	 * @param string header: the string that will be used in the header() function
+	 */
+	public function addHeader($header){
+		array_push($this->headers, $header);
+	}
+
+
+	public function render(){
+		return null;
+	}
+
+
+	public function getHeaders(){
+		return $this->headers;
+	}
+
+}

@@ -21,15 +21,38 @@
  *
  */
 
-// to execute without owncloud, we need to create our own classloader
-spl_autoload_register(function ($className){
-	if (strpos($className, 'OCA\\') === 0) {
-		
-		$path = strtolower(str_replace('\\', '/', substr($className, 3)) . '.php');
-		$relPath = __DIR__ . '/../..' . $path;
-		
-		if(file_exists($relPath)){
-			require_once $relPath;
-		}
+
+namespace OCA\AppFramework\Utility;
+
+
+require_once(__DIR__ . "/../classloader.php");
+
+
+class MethodAnnotationReaderTest extends \PHPUnit_Framework_TestCase {
+
+
+	/**
+	 * @Annotation
+	 */
+	public function testReadAnnotation(){
+		$reader = new MethodAnnotationReader('\OCA\AppFramework\Utility\MethodAnnotationReaderTest',
+				'testReadAnnotation');
+
+		$this->assertTrue($reader->hasAnnotation('Annotation'));
 	}
-});
+
+
+	/**
+	 * @Annotation
+	 * @param test
+	 */
+	public function testReadAnnotationNoLowercase(){
+		$reader = new MethodAnnotationReader('\OCA\AppFramework\Utility\MethodAnnotationReaderTest',
+				'testReadAnnotationNoLowercase');
+
+		$this->assertTrue($reader->hasAnnotation('Annotation'));
+		$this->assertFalse($reader->hasAnnotation('param'));
+	}
+
+
+}
