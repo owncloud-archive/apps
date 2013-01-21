@@ -21,9 +21,12 @@
 *
 */
 
-namespace OCA\AppTemplateAdvanced;
+namespace OCA\AppTemplateAdvanced\Controller;
 
-class SettingsController extends \OCA\AppFramework\Controller {
+use OCA\AppFramework\Controller\Controller as Controller;
+
+
+class SettingsController extends Controller {
 	
 
 	/**

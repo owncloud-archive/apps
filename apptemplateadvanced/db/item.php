@@ -20,7 +20,7 @@
 *
 */
 
-namespace OCA\AppTemplateAdvanced;
+namespace OCA\AppTemplateAdvanced\Db;
 
 
 class Item {

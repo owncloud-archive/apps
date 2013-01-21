@@ -25,6 +25,8 @@ namespace OCA\AppTemplateAdvanced;
 
 use \OCA\AppFramework\App as App;
 
+use \OCA\AppTemplateAdvanced\DependencyInjection\DIContainer as DIContainer;
+
 
 /*************************
  * Define your routes here

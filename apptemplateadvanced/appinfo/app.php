@@ -24,13 +24,13 @@
 namespace OCA\AppTemplateAdvanced;
 
 
-\OCP\App::registerAdmin('apptemplate_advanced', 'admin/settings');
+\OCP\App::registerAdmin('apptemplateadvanced', 'admin/settings');
 
 \OCP\App::addNavigationEntry( array(
 	
 	// the string under which your app will be referenced
 	// in owncloud, for instance: \OC_App::getAppPath('APP_ID')
-	'id' => 'apptemplate_advanced',
+	'id' => 'apptemplateadvanced',
 
 	// sorting weight for the navigation. The higher the number, the higher
 	// will it be listed in the navigation
@@ -40,10 +40,10 @@ namespace OCA\AppTemplateAdvanced;
 	'href' => \OC_Helper::linkToRoute('apptemplate_advanced_index'),
 	
 	// the icon that will be shown in the navigation
-	'icon' => \OCP\Util::imagePath('apptemplate_advanced', 'example.png' ),
+	'icon' => \OCP\Util::imagePath('apptemplateadvanced', 'example.png' ),
 	
 	// the title of your application. This will be used in the
 	// navigation or on the settings page of your app
-	'name' => \OC_L10N::get('apptemplate_advanced')->t('Advanced App Template') 
+	'name' => \OC_L10N::get('apptemplateadvanced')->t('Advanced App Template') 
 	
 ));

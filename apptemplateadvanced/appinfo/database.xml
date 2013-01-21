@@ -5,7 +5,7 @@
 	 <overwrite>false</overwrite>
 	 <charset>utf8</charset>
 	 <table>
-		<name>*dbprefix*apptemplate_advanced_items</name>
+		<name>*dbprefix*apptemplateadvanced_items</name>
 		<declaration>
 			<field>				
 				<name>id</name>

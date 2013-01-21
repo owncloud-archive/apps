@@ -21,34 +21,15 @@
  *
  */
 
-// file that holds the classpath defintions
-DEFINE('CLASSPATH_DIR', '../appinfo/classpath.php');
-DEFINE('APPFRAMEWORK_CLASSPATH_DIR', '../../appframework/appinfo/classpath.php');
-
-
-// mock class so we can load the defintions in the app directory
-if(!class_exists('OC')){
-        class OC {
-                public static $CLASSPATH = array();
-        }
-}
-
-
 // to execute without owncloud, we need to create our own classloader
 spl_autoload_register(function ($className){
-	if(!loadClassPathsFrom(CLASSPATH_DIR, $className)){
-		loadClassPathsFrom(APPFRAMEWORK_CLASSPATH_DIR, $className);	
+	if (strpos($className, 'OCA\\') === 0) {
+		
+		$path = strtolower(str_replace('\\', '/', substr($className, 3)) . '.php');
+		$relPath = __DIR__ . '/../..' . $path;
+		
+		if(file_exists($relPath)){
+			require_once $relPath;
+		}
 	}
 });
-
-
-function loadClassPathsFrom($path, $className){
-	$classPath = __DIR__ . '/' . $path;
-	require_once($classPath);
-
-	if(array_key_exists($className, OC::$CLASSPATH)){
-		require_once(__DIR__ . '/../../../' . OC::$CLASSPATH[$className]);
-		return true;
-	}
-	return false;
-}

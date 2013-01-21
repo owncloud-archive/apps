@@ -20,10 +20,14 @@
 *
 */
 
-namespace OCA\AppTemplateAdvanced;
+namespace OCA\AppTemplateAdvanced\Db;
+
+use \OCA\AppFramework\Core\API as API;
+use \OCA\AppFramework\Db\Mapper as Mapper;
+use \OCA\AppFramework\Db\DoesNotExistException as DoesNotExistException;
 
 
-class ItemMapper extends \OCA\AppFramework\Mapper {
+class ItemMapper extends Mapper {
 
 
 	private $tableName;
@@ -33,7 +37,7 @@ class ItemMapper extends \OCA\AppFramework\Mapper {
 	 */
 	public function __construct($api){
 		parent::__construct($api);
-		$this->tableName = '*PREFIX*apptemplate_advanced_items';
+		$this->tableName = '*PREFIX*apptemplateadvanced_items';
 	}
 
 
@@ -62,7 +66,7 @@ class ItemMapper extends \OCA\AppFramework\Mapper {
 		if($result){
 			return new Item($result);
 		} else {
-			throw new \OCA\AppFramework\DoesNotExistException('Item with user id ' . $userId . ' does not exist!');
+			throw new DoesNotExistException('Item with user id ' . $userId . ' does not exist!');
 		}
 	}
 
