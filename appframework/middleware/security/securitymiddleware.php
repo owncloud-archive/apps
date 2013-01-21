@@ -57,7 +57,7 @@ class SecurityMiddleware extends Middleware {
 	 * security checks are determined by inspecting the controller method
 	 * annotations
 	 */
-		public function beforeController($controller, $methodName){
+		public function beforeController(Controller $controller, $methodName){
 
 		// get annotations from comments
 		$annotationReader = new MethodAnnotationReader($controller, $methodName);
