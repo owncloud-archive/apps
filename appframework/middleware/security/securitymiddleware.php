@@ -57,7 +57,7 @@ class SecurityMiddleware extends Middleware {
 	 * security checks are determined by inspecting the controller method
 	 * annotations
 	 */
-		public function beforeController(Controller $controller, $methodName){
+	public function beforeController($controller, $methodName){
 
 		// get annotations from comments
 		$annotationReader = new MethodAnnotationReader($controller, $methodName);
@@ -109,7 +109,7 @@ class SecurityMiddleware extends Middleware {
 	 * If an SecurityException is being caught, ajax requests return a JSON error
 	 * response and non ajax requests redirect to the index
 	 */
-	public function afterException(Controller $controller, $methodName, \Exception $exception){
+	public function afterException($controller, $methodName, \Exception $exception){
 		if($exception instanceof SecurityException){
 
 			if($exception->isAjax()){
