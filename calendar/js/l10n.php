@@ -38,7 +38,7 @@ $eventSources[] = array('url' => $events_baseURL.'?calendar_id=shared_events',
 OCP\Util::emitHook('OC_Calendar', 'getSources', array('sources' => &$eventSources));
 
 $array = array(
-	"defaultView" => OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'currentview', 'month') ,
+	"defaultView" => "\"".OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'currentview', 'month')."\"",
 	"eventSources" => json_encode($eventSources),
 	"categories" => json_encode(OC_Calendar_App::getCategoryOptions()),
 	"dayNames" =>  json_encode(array((string)$l->t('Sunday'), (string)$l->t('Monday'), (string)$l->t('Tuesday'), (string)$l->t('Wednesday'), (string)$l->t('Thursday'), (string)$l->t('Friday'), (string)$l->t('Saturday'))),
