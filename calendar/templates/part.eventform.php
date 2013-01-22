@@ -1,8 +1,5 @@
-<script type="text/javascript">
-<?php
-echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid = "' . $_['eventid'] . '";';
-?>
-</script>
+<script type="text/javascript" src="<?php echo OC_Helper::linkTo('calendar/js', 'idtype.php');?>?id=<?php echo $_['eventid']; ?>"></script>
+
 
 <ul>
 	<li><a href="#tabs-1"><?php echo $l->t('Eventinfo'); ?></a></li>
