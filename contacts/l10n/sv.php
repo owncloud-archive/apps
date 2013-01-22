@@ -83,6 +83,7 @@
 "The address book name cannot be empty." => "Adressbokens namn kan inte vara tomt.",
 "Is this correct?" => "Är detta korrekt?",
 "There was an unknown error when trying to delete this contact" => "Okänt fel uppstod när denna kontakt skulle raderas",
+"# groups" => "# grupper",
 "Some contacts are marked for deletion, but not deleted yet. Please wait for them to be deleted." => "Vissa kontakter är markerade för radering, men är inte raderade än. Vänta tills dom är raderade.",
 "Click to undo deletion of {num} contacts" => "Klicka för att ångra radering av {num} kontakter",
 "Cancelled deletion of {num}" => "Avbruten radering av {num}",

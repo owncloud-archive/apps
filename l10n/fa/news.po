@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-30 00:01+0100\n"
-"PO-Revision-Date: 2012-11-28 23:14+0000\n"
+"POT-Creation-Date: 2013-01-23 00:02+0100\n"
+"PO-Revision-Date: 2013-01-21 08:11+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -360,7 +360,7 @@ msgstr ""
 
 #: templates/part.items.php:44 templates/part.shared.php:44
 msgid "by"
-msgstr ""
+msgstr "با"
 
 #: templates/part.items.php:70 templates/part.items.php:71
 #: templates/part.shared.php:55

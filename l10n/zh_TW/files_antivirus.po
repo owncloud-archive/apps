@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Pellaeon Lin <nfsmwlin@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-21 00:01+0100\n"
-"PO-Revision-Date: 2013-01-19 23:02+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-23 00:01+0100\n"
+"PO-Revision-Date: 2013-01-21 13:11+0000\n"
+"Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,37 +20,37 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr ""
+msgstr "{user} 您好，"
 
 #: templates/notification.php:2
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "抱歉，我們在您上傳的檔案當中偵測到惡意軟體，必須將其刪除。"
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "這是一封來自 {host} 的通知信，請不要回覆本郵件。"
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "已上傳檔案： {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "防毒設定"
 
 #: templates/settings.php:4
 msgid "Mode"
-msgstr ""
+msgstr "模式"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr ""
+msgstr "可執行"
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr ""
+msgstr "常駐程式"
 
 #: templates/settings.php:7
 msgid "Host"
@@ -57,11 +58,11 @@ msgstr "主機"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "防毒軟體主機的 IP 位址。"
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
-msgstr ""
+msgstr "在可執行模式中不需要"
 
 #: templates/settings.php:8
 msgid "Port"
@@ -69,39 +70,39 @@ msgstr "連接阜"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "防毒軟體主機的埠號 (port) 。"
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "串流長度"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "ClamAV StreamMaxLength 設定值 (bytes) 。"
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "到 clamscan 的路徑"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "到 clamscan 執行檔的路徑。"
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "在常駐模式下不需要。"
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "掃描時找到被感染的檔案所採取的動作"
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "僅做記錄"
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr ""
+msgstr "刪除檔案"
 
 #: templates/settings.php:14
 msgid "Save"

@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Hossein nag <h.sname@yahoo.com>, 2012.
+# mahdi Kereshteh <miki_mika1362@yahoo.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-27 00:01+0100\n"
-"PO-Revision-Date: 2012-12-26 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-23 00:01+0100\n"
+"PO-Revision-Date: 2013-01-21 08:26+0000\n"
+"Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +21,11 @@ msgstr ""
 
 #: ajax/cache/status.php:19
 msgid "Not all calendars are completely cached"
-msgstr ""
+msgstr "تمامی تقویم ها ذخیره ی موقتی نشده اند"
 
 #: ajax/cache/status.php:21
 msgid "Everything seems to be completely cached"
-msgstr ""
+msgstr "همه چیز ذخیره ی موقتی شد."
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
@@ -40,25 +41,25 @@ msgstr "تقویم اشتباه"
 
 #: ajax/event/edit.form.php:220 lib/object.php:196 lib/object.php:232
 msgid "You do not have the permissions to edit this event."
-msgstr ""
+msgstr "شما دسترسی مجاز برای اصلاح این رویداد را ندارید."
 
 #: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
 "The file contained either no events or all events are already saved in your "
 "calendar."
-msgstr ""
+msgstr "فایل شامل همه یا هیچ یک از رویدادها هم اکنون در تقویم شما ذخیره شده است."
 
 #: ajax/import/dropimport.php:31 ajax/import/import.php:68
 msgid "events has been saved in the new calendar"
-msgstr ""
+msgstr "رویدادها در تقویم جدید ذخیره شد."
 
 #: ajax/import/import.php:57
 msgid "Import failed"
-msgstr ""
+msgstr "خطای وارد کردن"
 
 #: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
-msgstr ""
+msgstr "رویدادها در تقویم شما ذخیره شده است"
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
@@ -83,19 +84,19 @@ msgstr "حذف کردن انجام نشد"
 
 #: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
 #: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:597
 msgid "user"
-msgstr ""
+msgstr "کاربر"
 
 #: js/calendar.js:597
 msgid "group"
-msgstr ""
+msgstr "گروه"
 
 #: js/calendar.js:598 templates/part.share.php:41 templates/part.share.php:67
 msgid "Editable"
@@ -103,11 +104,11 @@ msgstr "قابل ویرایش"
 
 #: js/calendar.js:599 templates/part.share.php:43 templates/part.share.php:69
 msgid "Shareable"
-msgstr ""
+msgstr "قابل به اشتراک گذاری"
 
 #: js/calendar.js:600 templates/part.share.php:45 templates/part.share.php:71
 msgid "Deletable"
-msgstr ""
+msgstr "قابل حذف"
 
 #: js/calendar.js:869
 msgid "ddd"
@@ -195,7 +196,7 @@ msgstr "کار"
 
 #: lib/app.php:396
 msgid "by"
-msgstr ""
+msgstr "با"
 
 #: lib/app.php:444
 msgid "unnamed"
@@ -203,44 +204,44 @@ msgstr "نام گذاری نشده"
 
 #: lib/calendar.php:163 lib/calendar.php:196
 msgid "You do not have the permissions to update this calendar."
-msgstr ""
+msgstr "شما دسترسی مجاز برای به روزرسانی این تقویم را ندارید."
 
 #: lib/calendar.php:231
 msgid "You do not have the permissions to delete this calendar."
-msgstr ""
+msgstr "شما دسترسی مجاز برای حذف این تقویم را ندارید."
 
 #: lib/calendar.php:265
 msgid "You do not have the permissions to add to this calendar."
-msgstr ""
+msgstr "شما دسترسی مجاز برای ایجاد این تقویم را ندارید."
 
-#: lib/import.php:214 templates/calendar.php:12
+#: lib/import.php:216 templates/calendar.php:12
 #: templates/part.choosecalendar.php:23
 msgid "New Calendar"
 msgstr "تقویم جدید"
 
 #: lib/object.php:122 lib/object.php:162 lib/object.php:316
 msgid "You do not have the permissions to add events to this calendar."
-msgstr ""
+msgstr "شما دسترسی مجاز برای افزودن رویداد به این تقویم را ندارید."
 
 #: lib/object.php:264 lib/object.php:296
 msgid "You do not have the permissions to delete this event."
-msgstr ""
+msgstr "شما دسترسی مجاز برای حذف این رویداد را ندارید."
 
 #: lib/object.php:481
 msgid "Busy"
-msgstr ""
+msgstr "درحال کار"
 
 #: lib/object.php:498
 msgid "Public"
-msgstr ""
+msgstr "عمومی"
 
 #: lib/object.php:499
 msgid "Private"
-msgstr ""
+msgstr "خصوصی"
 
 #: lib/object.php:500
 msgid "Confidential"
-msgstr ""
+msgstr "محرمانه"
 
 #: lib/object.php:510
 msgid "Does not repeat"
@@ -420,79 +421,79 @@ msgstr "تقویم."
 
 #: templates/calendar.php:6
 msgid "Sun."
-msgstr ""
+msgstr "یکشنبه"
 
 #: templates/calendar.php:6
 msgid "Mon."
-msgstr ""
+msgstr "دوشنبه"
 
 #: templates/calendar.php:6
 msgid "Tue."
-msgstr ""
+msgstr "سه شنبه"
 
 #: templates/calendar.php:6
 msgid "Wed."
-msgstr ""
+msgstr "چهارشنبه"
 
 #: templates/calendar.php:6
 msgid "Thu."
-msgstr ""
+msgstr "پنج شنبه"
 
 #: templates/calendar.php:6
 msgid "Fri."
-msgstr ""
+msgstr "جمعه"
 
 #: templates/calendar.php:6
 msgid "Sat."
-msgstr ""
+msgstr "شنبه"
 
 #: templates/calendar.php:8
 msgid "Jan."
-msgstr ""
+msgstr "ژانویه"
 
 #: templates/calendar.php:8
 msgid "Feb."
-msgstr ""
+msgstr "فوریه"
 
 #: templates/calendar.php:8
 msgid "Mar."
-msgstr ""
+msgstr "مارچ"
 
 #: templates/calendar.php:8
 msgid "Apr."
-msgstr ""
+msgstr "آوریل"
 
 #: templates/calendar.php:8
 msgid "May."
-msgstr ""
+msgstr "می"
 
 #: templates/calendar.php:8
 msgid "Jun."
-msgstr ""
+msgstr "ژوئن"
 
 #: templates/calendar.php:8
 msgid "Jul."
-msgstr ""
+msgstr "جولای"
 
 #: templates/calendar.php:8
 msgid "Aug."
-msgstr ""
+msgstr "آگوست"
 
 #: templates/calendar.php:8
 msgid "Sep."
-msgstr ""
+msgstr "سپتامبر"
 
 #: templates/calendar.php:8
 msgid "Oct."
-msgstr ""
+msgstr "اکتبر"
 
 #: templates/calendar.php:8
 msgid "Nov."
-msgstr ""
+msgstr "نوامبر"
 
 #: templates/calendar.php:8
 msgid "Dec."
-msgstr ""
+msgstr "دسامبر"
 
 #: templates/calendar.php:11
 msgid "All day"
@@ -500,7 +501,7 @@ msgstr "هرروز"
 
 #: templates/calendar.php:13
 msgid "Missing or invalid fields"
-msgstr ""
+msgstr "فیلدهای گم شده یا نامعتبر"
 
 #: templates/calendar.php:14 templates/part.eventform.php:19
 #: templates/part.showevent.php:11
@@ -549,7 +550,7 @@ msgstr "امروز"
 
 #: templates/calendar.php:46
 msgid "Calendars"
-msgstr ""
+msgstr "تقویم ها"
 
 #: templates/calendar.php:47
 msgid "Settings"
@@ -664,7 +665,7 @@ msgstr "ویرایش گروه"
 
 #: templates/part.eventform.php:50 templates/part.showevent.php:46
 msgid "Access Class"
-msgstr ""
+msgstr "کلاس دسترسی"
 
 #: templates/part.eventform.php:67 templates/part.showevent.php:62
 msgid "All Day Event"
@@ -757,7 +758,7 @@ msgstr "یک پرونده حاوی تقویم وارد کنید"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr ""
+msgstr "لطفا تقویم را انتخاب کنید"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
@@ -765,17 +766,17 @@ msgstr "نام تقویم جدید"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr ""
+msgstr "یک نام موجود را برگزینید."
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr ""
+msgstr "تقویمی با این نام هم اکنون وجود دارد. اگر ادامه دهید، این تقویم ها ادغام خواهند شد."
 
 #: templates/part.import.php:48
 msgid "Remove all events from the selected calendar"
-msgstr ""
+msgstr "حذف تمامی رویدادها از تقویم انتخاب شده"
 
 #: templates/part.import.php:50
 msgid "Import"
@@ -791,29 +792,29 @@ msgstr "یک رویداد ایجاد کنید"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr ""
+msgstr "به اشتراک گذاری با:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr ""
+msgstr "به اشتراک گذاشته شده با"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr ""
+msgstr "لغو اشتراک"
 
 #: templates/part.share.php:53
 msgid "Nobody"
-msgstr ""
+msgstr "هیچ کس"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr ""
+msgstr "به اشتراک گذاشته شده از طریق تقویم"
 
 #: templates/part.share.php:79
 msgid ""
 "NOTE: Actions on events shared via calendar will affect the entire calendar "
 "sharing."
-msgstr ""
+msgstr "توجه: عملیات روی رویدادهای به اشتراک گذاشته شده از طریق تقویم، بر اشتراک گذاری تقویم موثر است."
 
 #: templates/part.showevent.php:1
 msgid "View an event"
@@ -841,11 +842,11 @@ msgstr "زمان محلی"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr ""
+msgstr "به روز رسانی خودکار ساعت محلی"
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr ""
+msgstr "قالب زمان"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -857,23 +858,23 @@ msgstr "12 ساعت"
 
 #: templates/settings.php:64
 msgid "Start week on"
-msgstr ""
+msgstr "شروع هفته از"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr ""
+msgstr "ذخیره ی موقتی"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr ""
+msgstr "ذخیره ی موقتی برای رویدادهای تکراری پاک شود"
 
 #: templates/settings.php:85
 msgid "URLs"
-msgstr ""
+msgstr "آدرس ها"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
-msgstr ""
+msgstr "آدرس های همگام سازی تقویم CalDAV"
 
 #: templates/settings.php:87
 msgid "more info"
@@ -889,4 +890,4 @@ msgstr "iOS/OS X "
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr ""
+msgstr "اتصالات فقط خواندنی iCalendar"
