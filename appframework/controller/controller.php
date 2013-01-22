@@ -30,8 +30,14 @@ use OCA\AppFramework\Http\Request as Request;
 use OCA\AppFramework\Core\API as API;
 
 
+/**
+ * Baseclass to inherit your controllers from
+ */
 class Controller {
 
+	/**
+ 	 * Instance of the API Layer
+ 	 */
 	protected $api;
 	
 	private $request;

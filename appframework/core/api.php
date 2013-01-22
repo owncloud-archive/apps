@@ -36,7 +36,7 @@ class API {
 	private $appName;
 
 	/**
-	 * @param string $appName: the name of your application
+	 * @param string $appName the name of your application
 	 */
 	public function __construct($appName){
 		$this->appName = $appName;
@@ -44,7 +44,7 @@ class API {
 
 
 	/**
-	 * @return the name of your application
+	 * @return string the name of your application
 	 */
 	public function getAppName(){
 		return $this->appName;
@@ -52,7 +52,7 @@ class API {
 
 
 	/**
-	 * @return: the user id of the current user
+	 * @return string the user id of the current user
 	 */
 	public function getUserId(){
 		return \OCP\USER::getUser();
@@ -69,8 +69,7 @@ class API {
 
 	/**
 	 * Adds a new javascript file
-	 * @param string $scriptName: the name of the javascript in js/ 
-	 *                            without the suffix
+	 * @param string $scriptName the name of the javascript in js/ without the suffix
 	 */
 	public function addScript($scriptName){
 		\OCP\Util::addScript($this->appName, $scriptName);
@@ -79,7 +78,7 @@ class API {
 
 	/**
 	 * Adds a new css file
-	 * @param string $styleName: the name of the css file in css/
+	 * @param string $styleName the name of the css file in css/
 	 * without the suffix
 	 */
 	public function addStyle($styleName){
@@ -89,7 +88,7 @@ class API {
 
 	/**
 	 * @brief shorthand for addScript for files in the 3rdparty directory
-	 * @param string $name: the name of the file without the suffix
+	 * @param string $name the name of the file without the suffix
 	 */
 	public function add3rdPartyScript($name){
 		\OCP\Util::addScript($this->appName . '/3rdparty', $name);
@@ -98,7 +97,7 @@ class API {
 
 	/**
 	 * @brief shorthand for addStyle for files in the 3rdparty directory
-	 * @param string $name: the name of the file without the suffix
+	 * @param string $name the name of the file without the suffix
 	 */
 	public function add3rdPartyStyle($name){
 		\OCP\Util::addStyle($this->appName . '/3rdparty', $name);
@@ -106,7 +105,7 @@ class API {
 
 	/**
 	 * Looks up a systemwide defined value
-	 * @param string $key: the key of the value, under which it was saved
+	 * @param string $key the key of the value, under which it was saved
 	 * @return the saved value
 	 */
 	public function getSystemValue($key){
@@ -116,8 +115,8 @@ class API {
 
 	/**
 	 * Sets a new systemwide value
-	 * @param string $key: the key of the value, under which will be saved
-	 * @param $value: the value that should be stored
+	 * @param string $key the key of the value, under which will be saved
+	 * @param $value the value that should be stored
 	 */
 	public function setSystemValue($key, $value){
 		return \OCP\Config::setSystemValue($key, $value);
@@ -160,9 +159,9 @@ class API {
 
 	/**
 	 * Used to abstract the owncloud database access away
-	 * @param string $sql: the sql query with ? placeholder for params
-	 * @param int $limit: the maximum number of rows
-	 * @param int $offset: from which row we want to start
+	 * @param string $sql the sql query with ? placeholder for params
+	 * @param int $limit the maximum number of rows
+	 * @param int $offset from which row we want to start
 	 * @return a query object
 	 */
 	public function prepareQuery($sql, $limit=null, $offset=null){
@@ -172,7 +171,7 @@ class API {
 
 	/**
 	 * Used to get the id of the just inserted element
-	 * @param string $tableName: the name of the table where we inserted the item
+	 * @param string $tableName the name of the table where we inserted the item
 	 * @return the id of the inserted element
 	 */
 	public function getInsertId($tableName){
@@ -182,10 +181,12 @@ class API {
 
 	/**
 	 * Returns the URL for a route
+	 * @param string $routeName the name of the route
+	 * @param array $arguments an array with arguments which will be filled into the url
 	 * @return the url
 	 */
-	public function linkToRoute($routeName){
-		return \OC_Helper::linkToRoute($routeName);
+	public function linkToRoute($routeName, $arguments=array()){
+		return \OC_Helper::linkToRoute($routeName, $arguments);
 	}
 
 
@@ -212,7 +213,7 @@ class API {
 
 	/**
 	 * Checks if a user is an admin
-	 * @param string $userId: the id of the user
+	 * @param string $userId the id of the user
 	 * @return bool
 	 */
 	public function isAdminUser($userId){
@@ -222,7 +223,7 @@ class API {
 
 	/**
 	 * Checks if a user is an subadmin
-	 * @param string $userId: the id of the user
+	 * @param string $userId the id of the user
 	 * @return bool
 	 */
 	public function isSubAdminUser($userId){
@@ -241,7 +242,7 @@ class API {
 
 	/**
 	 * Checks if an app is enabled
-	 * @param string $appName: the name of an app
+	 * @param string $appName the name of an app
 	 * @return bool
 	 */
 	public function isAppEnabled($appName){
@@ -251,8 +252,8 @@ class API {
 
 	/**
 	 * Writes a function into the error log
-	 * @param string $msg: the error message to be logged
-	 * @param int $level: the error level
+	 * @param string $msg the error message to be logged
+	 * @param int $level the error level
 	 */
 	public function log($msg, $level=null){
 		if($level === null){
@@ -264,9 +265,9 @@ class API {
 
 	/**
 	 * Returns a template
-	 * @param string $templateName: the name of the template
-	 * @param string $renderAs: how it should be rendered
-	 * @param string $appName: the name of the app
+	 * @param string $templateName the name of the template
+	 * @param string $renderAs how it should be rendered
+	 * @param string $appName the name of the app
 	 */
 	public function getTemplate($templateName, $renderAs='user', $appName=null){
 		if($appName === null){
@@ -282,7 +283,7 @@ class API {
 
 
 	/**
-	 * @param string path: the path to the file on the oc filesystem
+	 * @param string path the path to the file on the oc filesystem
 	 * @return the filepath in the filesystem
 	 */
 	public function getLocalFilePath($path){
