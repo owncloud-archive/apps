@@ -31,21 +31,14 @@ limitations under the License.
     <script type="text/javascript"
             src="<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/pdf/l10n.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/pdf/pdf.js'); ?>"></script>
-    <script type="text/javascript">
-        // This specifies the location of the pdf.js file.
-        PDFJS.workerSrc = "<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/pdf/pdf.js'); ?>";
-    </script>
-
 
     <script type="text/javascript"
             src="<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/pdf/viewer.js'); ?>"></script>
+
+    <script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/files.php'); ?>?file=<?php echo urlencode($_['file']); ?>&amp;dir=<?php echo urlencode($_['dir']); ?>"></script>
+
 </head>
 
-<script type="text/javascript">
-    var oc_webroot = '<?php echo OC::$WEBROOT; ?>';
-    window.dir = "<?php echo $_['dir']; ?>";
-    window.file = "<?php echo $_['file']; ?>";
-</script>
 
 <body>
 
