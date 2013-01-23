@@ -7,15 +7,16 @@
 # Csaba Orban <vicsabi@gmail.com>, 2012.
 #  <gyonkibendeguz@gmail.com>, 2013.
 #   <gyonkibendeguz@gmail.com>, 2013.
+# Laszlo Tornoci <torlasz@gmail.com>, 2013.
 # Peter Borsa <peter.borsa@gmail.com>, 2011.
 # Tamas Nagy <mail@tamas-nagy.net>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-20 00:01+0100\n"
-"PO-Revision-Date: 2013-01-19 11:47+0000\n"
-"Last-Translator: gyeben <gyonkibendeguz@gmail.com>\n"
+"POT-Creation-Date: 2013-01-24 00:02+0100\n"
+"PO-Revision-Date: 2013-01-23 21:22+0000\n"
+"Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -116,19 +117,19 @@ msgstr "Törölhető"
 
 #: js/calendar.js:869
 msgid "ddd"
-msgstr "nnn"
+msgstr "ddd"
 
 #: js/calendar.js:870
 msgid "ddd M/d"
-msgstr "nnn H/n"
+msgstr "ddd M.d."
 
 #: js/calendar.js:871
 msgid "dddd M/d"
-msgstr "nnnn H/n"
+msgstr "dddd M.d."
 
 #: js/calendar.js:874
 msgid "MMMM yyyy"
-msgstr "HHHH éééé"
+msgstr "yyyy MMMM"
 
 #: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
@@ -136,7 +137,7 @@ msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
-msgstr "nnnn, HHH n, éééé"
+msgstr "dddd, MMM d, yyyy"
 
 #: lib/app.php:114
 msgid "Birthday"
@@ -241,7 +242,7 @@ msgstr "Publikus"
 
 #: lib/object.php:499
 msgid "Private"
-msgstr "Privát"
+msgstr "Személyes"
 
 #: lib/object.php:500
 msgid "Confidential"
@@ -804,7 +805,7 @@ msgstr "Megosztva:"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr "Nem oszt meg"
+msgstr "Megosztás visszavonása"
 
 #: templates/part.share.php:53
 msgid "Nobody"
@@ -830,7 +831,7 @@ msgstr "Nincs kiválasztott kategória"
 
 #: templates/part.showevent.php:37
 msgid "of"
-msgstr ", tulaj "
+msgstr ", tulajdonos"
 
 #: templates/part.showevent.php:69 templates/part.showevent.php:77
 msgid "at"
