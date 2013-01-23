@@ -1,10 +1,5 @@
 <div id='notification'></div>
-<script type='text/javascript'>
-	var totalurl = '<?php echo OCP\Util::linkToRemote('carddav'); ?>addressbooks';
-	var categories = <?php echo json_encode($_['categories']); ?>;
-	var id = '<?php echo $_['id']; ?>';
-	var lang = '<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>';
-</script>
+<script type="text/javascript" src="<?php echo OC_Helper::linkTo('contacts/js', 'js-index.php');?>?id=<?php echo $_['id']; ?>"></script>
 <div id="leftcontent">
 	<div class="hidden" id="statusbar"></div>
 	<div id="contacts">

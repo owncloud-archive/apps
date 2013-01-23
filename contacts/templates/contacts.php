@@ -1,10 +1,5 @@
 <div id='notification'></div>
-<script type='text/javascript'>
-	var is_indexed = <?php echo $_['is_indexed'] == 'yes' ? 'true' : 'false'; ?>;
-	var totalurl = '<?php echo OCP\Util::linkToRemote('carddav'); ?>addressbooks';
-	var id = '<?php echo $_['id']; ?>';
-	var lang = '<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>';
-</script>
+<script type="text/javascript" src="<?php echo OC_Helper::linkTo('contacts/js', 'js-contacts.php');?>?id=<?php echo $_['id']; ?>"></script>
 <form class="float" id="file_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php'); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
 	<input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'] ?>">
 	<input type="hidden" name="id" value="<?php echo $_['id'] ?>">
