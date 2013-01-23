@@ -27,8 +27,10 @@ namespace OCA\AppFramework\Core;
 
 /**
  * This is used to wrap the owncloud static api calls into an object to make the
- * code better abstractable for use in the dependency injection container;
- * Extend this to your needs
+ * code better abstractable for use in the dependency injection container
+ *
+ * Should you find yourself in need for more methods, simply inherit from this
+ * class and add your methods
  */
 class API {
 
@@ -36,7 +38,6 @@ class API {
 
 	/**
          * constructor
-         *
 	 * @param string $appName the name of your application
 	 */
 	public function __construct($appName){
@@ -55,7 +56,6 @@ class API {
 
 	/**
          * Gets the userid of the current user
-         *
 	 * @return string the user id of the current user
 	 */
 	public function getUserId(){
@@ -73,7 +73,6 @@ class API {
 
 	/**
 	 * Adds a new javascript file
-         *
 	 * @param string $scriptName the name of the javascript in js/ without the suffix
 	 */
 	public function addScript($scriptName){
@@ -156,7 +155,7 @@ class API {
 
 	/**
 	 * Returns the translation object
-         * @return \\OC_L10N the translation object
+         * @return \OC_L10N the translation object
 	 */
 	public function getTrans(){
 		return \OC_L10N::get($this->appName);
@@ -168,7 +167,7 @@ class API {
 	 * @param string $sql the sql query with ? placeholder for params
 	 * @param int $limit the maximum number of rows
 	 * @param int $offset from which row we want to start
-         * @return \\OCP\\DB a query object
+         * @return \OCP\DB a query object
 	 */
 	public function prepareQuery($sql, $limit=null, $offset=null){
 		return \OCP\DB::prepare($sql, $limit, $offset);
@@ -277,7 +276,7 @@ class API {
 	 * @param string $templateName the name of the template
 	 * @param string $renderAs how it should be rendered
 	 * @param string $appName the name of the app
-         * @return \\OCP\\Template a new template
+         * @return \OCP\Template a new template
 	 */
 	public function getTemplate($templateName, $renderAs='user', $appName=null){
 		if($appName === null){
@@ -304,7 +303,7 @@ class API {
 
 	/**
          * used to return and open a new eventsource
-         * @return \\OC_EventSource a new open EventSource class
+         * @return \OC_EventSource a new open EventSource class
 	 */
 	public function openEventSource(){
 		return new \OC_EventSource();

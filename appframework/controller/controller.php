@@ -36,8 +36,8 @@ use OCA\AppFramework\Core\API as API;
 abstract class Controller {
 
 	/**
- 	 * Instance of the API Layer
- 	 */
+         * @var API instance of the api layer
+         */
 	protected $api;
 	
 	private $request;
@@ -111,7 +111,7 @@ abstract class Controller {
          * @param string $renderAs user renders a full page, blank only your template
 	 *                          admin an entry in the admin settings
          * @param array $headers set additional headers
-         * @return \\OCA\\AppFramework\\Http\\TemplateResponse containing the page
+         * @return \OCA\AppFramework\Http\TemplateResponse containing the page
 	 */
 	public function render($templateName, array $params=array(),
 							$renderAs='user', array $headers=array()){
@@ -131,7 +131,7 @@ abstract class Controller {
 	 * Shortcut for rendering a JSON response
          * @param array $data the PHP array that will be put into the JSON data index
          * @param string $errorMsg If you want to return an error message, pass one
-         * @return \\OCA\\AppFramework\\Http\\JSONResponse containing the values
+         * @return \OCA\AppFramework\Http\JSONResponse containing the values
 	 */
 	public function renderJSON(array $data, $errorMsg=null){
 		$response = new JSONResponse();

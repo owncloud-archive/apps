@@ -36,8 +36,8 @@ abstract class DownloadResponse extends Response {
 
 	/**
 	 * Creates a response that prompts the user to download the file
-	 * @param string $filename: the name that the downloaded file should have
-	 * @param string $contentType: the mimetype that the downloaded file should have
+         * @param string $filename the name that the downloaded file should have
+         * @param string $contentType the mimetype that the downloaded file should have
 	 */
 	public function __construct($filename, $contentType){
 		parent::__construct();

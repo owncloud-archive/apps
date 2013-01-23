@@ -39,10 +39,10 @@ class TemplateResponse extends Response {
 	private $appName;
 
 	/**
-	 * @param string $api: an API instance
-	 * @param string $templateName: the name of the template
-	 * @param string $appName: optional if you want to include a template from
-	 *                         a different app
+         * @param API $api an API instance
+         * @param string $templateName the name of the template
+         * @param string $appName optional if you want to include a template from
+         *                        a different app
 	 */
 	public function __construct(API $api, $templateName, $appName=null) {
 		parent::__construct();
@@ -55,9 +55,9 @@ class TemplateResponse extends Response {
 
 
 	/**
-	 * @brief sets template parameters
-	 * @param array $params: an array with key => value structure which sets template
-	 *                       variables
+         * Sets template parameters
+         * @param array $params an array with key => value structure which sets template
+         *                      variables
 	 */
 	public function setParams(array $params){
 		$this->params = $params;
@@ -65,7 +65,8 @@ class TemplateResponse extends Response {
 
 
 	/**
-	 * @return the params
+         * Used for accessing the set parameters
+         * @return array the params
 	 */
 	public function getParams(){
 		return $this->params;
@@ -73,7 +74,8 @@ class TemplateResponse extends Response {
 
 
 	/**
-	 * @return the name of the used template
+         * Used for accessing the name of the set template
+         * @return string the name of the used template
 	 */
 	public function getTemplateName(){
 		return $this->templateName;
@@ -81,10 +83,11 @@ class TemplateResponse extends Response {
 
 
 	/**
-	 * @brief sets the template page
-	 * @param string $renderAs: admin, user or blank: admin renders the page on
-	 *                          the admin settings page, user renders a normal
-	 *                          owncloud page, blank renders the template alone
+         * Sets the template page
+         * @param string $renderAs admin, user or blank. Admin also prints the admin
+         *                         settings header and footer, user renders the normal
+         *                         normal page including footer and header and blank
+         *                         just renders the plain template
 	 */
 	public function renderAs($renderAs){
 		$this->renderAs = $renderAs;
@@ -93,7 +96,7 @@ class TemplateResponse extends Response {
 
 	/**
 	 * Returns the rendered html
-	 * @return the rendered html
+         * @return string the rendered html
 	 */
 	public function render(){
 

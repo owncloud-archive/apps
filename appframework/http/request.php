@@ -35,9 +35,9 @@ class Request {
 	private $files;
 
 	/**
-	 * @param array $get: the $_GET array
-	 * @param array $post: the $_POST array
-	 * @param array $files: the $_FILES array
+         * @param array $get the $_GET array
+         * @param array $post the $_POST array
+         * @param array $files the $_FILES array
 	 */
 	public function __construct(array $get=array(), array $post=array(), 
 								array $files=array()) {
@@ -49,9 +49,9 @@ class Request {
 
 	/**
 	 * Returns the get value or the default if not found
-	 * @param string $key: the array key that should be looked up
-	 * @param string $default: if the key is not found, return this value
-	 * @return the value of the stored array
+         * @param string $key the array key that should be looked up
+         * @param string $default if the key is not found, return this value
+         * @return mixed the value of the stored array or the default
 	 */
 	public function getGET($key, $default=null){
 		if(array_key_exists($key, $this->get)){
@@ -64,9 +64,9 @@ class Request {
 
 	/**
 	 * Returns the get value or the default if not found
-	 * @param string $key: the array key that should be looked up
-	 * @param string $default: if the key is not found, return this value
-	 * @return the value of the stored array
+         * @param string $key the array key that should be looked up
+         * @param string $default if the key is not found, return this value
+         * @return mixed the value of the stored array or the default
 	 */
 	public function getPOST($key, $default=null){
 		if(array_key_exists($key, $this->post)){
@@ -78,8 +78,8 @@ class Request {
 
 	/**
 	 * Returns the get value of the files array
-	 * @param string $key: the array key that should be looked up
-	 * @return the value of the stored array
+         * @param string $key the array key that should be looked up
+         * @return mixed the value of the stored array or the default
 	 */
 	public function getFILES($key){
 		if(array_key_exists($key, $this->files)){

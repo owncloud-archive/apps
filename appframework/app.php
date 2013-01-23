@@ -36,13 +36,13 @@ class App {
 
 	/**
 	 * Shortcut for calling a controller method and printing the result
-	 * @param string $controllerName: the name of the controller under which it is
-	 *                                stored in the DI container
-	 * @param string $methodName: the method that you want to call
-	 * @param array $urlParams: an array with variables extracted from the routes
-	 * @param Pimple $container: an instance of a pimple container. if not passed, a
-	 *                           new one will be instantiated. This can be used to
-	 *                           swap or overwrite objects in the container.
+         * @param string $controllerName the name of the controller under which it is
+         *                               stored in the DI container
+         * @param string $methodName the method that you want to call
+         * @param array $urlParams an array with variables extracted from the routes
+         * @param Pimple $container an instance of a pimple container. if not passed, a
+         *                          new one will be instantiated. This can be used to
+         *                          swap or overwrite objects in the container.
 	 */
 	public static function main($controllerName, $methodName, array $urlParams, \Pimple $container){
 

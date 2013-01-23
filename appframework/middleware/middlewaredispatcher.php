@@ -28,19 +28,35 @@ use OCA\AppFramework\Controller\Controller as Controller;
 use OCA\AppFramework\Http\Response as Response;
 
 
+/**
+ * This class is used to store and run all the middleware in correct order
+ */
 class MiddlewareDispatcher {
 
+        /**
+         * @var array array containing all the middlewares
+         */
 	private $middlewares;
+
+        /**
+         * @var int counter which tells us what middlware was executed once an
+         *                  exception occurs
+         */
 	private $middlewareCounter;
 
+
+        /**
+         * Constructor
+         */
 	public function __construct(){
 		$this->middlewares = array();
 		$this->middlewareCounter = 0;
 	}
 
+
 	/**
-	 * @brief adds a new middleware
-	 * @param Middleware $middleware: the middleware which will be added
+         * Adds a new middleware
+         * @param Middleware $middleware the middleware which will be added
 	 */
 	public function registerMiddleware(Middleware $middleware){
 		array_push($this->middlewares, $middleware);
@@ -48,7 +64,8 @@ class MiddlewareDispatcher {
 
 
 	/**
-	 * @brief returns an array with all middleware elements
+         * returns an array with all middleware elements
+         * @return array the middlewares
 	 */
 	public function getMiddlewares(){
 		return $this->middlewares;
@@ -56,12 +73,12 @@ class MiddlewareDispatcher {
 
 
 	/**
-	 * @brief This is being run in normal order before the controller is being
+         * This is being run in normal order before the controller is being
 	 * called which allows several modifications and checks
 	 *
-	 * @param Controller $controller: the controller that is being called
-	 * @param string $methodName: the name of the method that will be called on
-	 *                            the controller
+         * @param Controller $controller the controller that is being called
+         * @param string $methodName the name of the method that will be called on
+         *                           the controller
 	 */
 	public function beforeController(Controller $controller, $methodName){
 		// we need to count so that we know which middlewares we have to ask in
@@ -74,17 +91,17 @@ class MiddlewareDispatcher {
 
 
 	/**
-	 * @brief This is being run when either the beforeController method or the
+         * This is being run when either the beforeController method or the
 	 * controller method itself is throwing an exception. The middleware is asked
 	 * in reverse order to handle the exception and to return a response.
 	 * If the response is null, it is assumed that the exception could not be
 	 * handled and the error will be thrown again
 	 *
-	 * @param Controller $controller: the controller that is being called
-	 * @param string $methodName: the name of the method that will be called on
+         * @param Controller $controller the controller that is being called
+         * @param string $methodName the name of the method that will be called on
 	 *                            the controller
-	 * @param Exception $exception: the thrown exception
-	 * @return a Response object or null in case that the exception could not be
+         * @param \Exception $exception the thrown exception
+         * @return Response a Response object or null in case that the exception could not be
 	 * handled
 	 */
 	public function afterException(Controller $controller, $methodName, \Exception $exception){
@@ -100,14 +117,14 @@ class MiddlewareDispatcher {
 
 
 	/**
-	 * @brief This is being run after a successful controllermethod call and allows
+         * This is being run after a successful controllermethod call and allows
 	 * the manipulation of a Response object. The middleware is run in reverse order
 	 *
-	 * @param Controller $controller: the controller that is being called
-	 * @param string $methodName: the name of the method that will be called on
+         * @param Controller $controller the controller that is being called
+         * @param string $methodName the name of the method that will be called on
 	 *                            the controller
-	 * @param Response $response: the generated response from the controller
-	 * @return a Response object
+         * @param Response $response the generated response from the controller
+         * @return Response a Response object
 	 */
 	public function afterController(Controller $controller, $methodName, Response $response){
 		for($i=count($this->middlewares)-1; $i>=0; $i--){
@@ -119,14 +136,14 @@ class MiddlewareDispatcher {
 
 
 	/**
-	 * @brief This is being run after the response object has been rendered and
+         * This is being run after the response object has been rendered and
 	 * allows the manipulation of the output. The middleware is run in reverse order
 	 *
-	 * @param Controller $controller: the controller that is being called
-	 * @param string $methodName: the name of the method that will be called on
-	 *                            the controller
-	 * @param string $output: the generated output from a response
-	 * @return the output that should be printed
+         * @param Controller $controller the controller that is being called
+         * @param string $methodName the name of the method that will be called on
+         *                           the controller
+         * @param string $output the generated output from a response
+         * @return string the output that should be printed
 	 */
 	public function beforeOutput(Controller $controller, $methodName, $output){
 		for($i=count($this->middlewares)-1; $i>=0; $i--){

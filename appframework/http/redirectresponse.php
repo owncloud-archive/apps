@@ -34,7 +34,7 @@ class RedirectResponse extends Response {
 
 	/**
 	 * Creates a response that redirects to a url
-	 * @param string $redirectURL: the url to redirect to
+         * @param string $redirectURL the url to redirect to
 	 */
 	public function __construct($redirectURL){
 		parent::__construct();
@@ -44,7 +44,7 @@ class RedirectResponse extends Response {
 
 
 	/**
-	 * @return: the url to redirect
+         * @return string the url to redirect
 	 */
 	public function getRedirectURL(){
 		return $this->redirectURL;

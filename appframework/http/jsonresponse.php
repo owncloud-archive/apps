@@ -44,9 +44,9 @@ class JSONResponse extends Response {
 
 
 	/**
-	 * @brief sets values in the data json array
-	 * @param array $params: an array with key => value structure which will be
-	 *                       transformed to JSON
+         * Sets values in the data json array
+         * @param array $params an array with key => value structure which will be
+         *                      transformed to JSON
 	 */
 	public function setParams(array $params){
 		$this->data['data'] = $params;
@@ -54,7 +54,8 @@ class JSONResponse extends Response {
 
 
 	/**
-	 * @return the params
+         * Used to get the set parameters
+         * @return array the params
 	 */
 	public function getParams(){
 		return $this->data['data'];
@@ -62,9 +63,8 @@ class JSONResponse extends Response {
 
 
 	/**
-	 * @brief in case we want to render an error message, also logs into the
-	 *        owncloud log
-	 * @param string $message: the error message
+         * in case we want to render an error message, also logs into the owncloud log
+         * @param string $message the error message
 	 */
 	public function setErrorMessage($msg){
 		$this->error = true;
@@ -75,7 +75,7 @@ class JSONResponse extends Response {
 
 	/**
 	 * Returns the rendered json
-	 * @return the rendered json
+         * @return string the rendered json
 	 */
 	public function render(){
 		return json_encode($this->data);

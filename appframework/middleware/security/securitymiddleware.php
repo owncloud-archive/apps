@@ -45,7 +45,7 @@ class SecurityMiddleware extends Middleware {
 	private $api;
 
 	/**
-	 * @param API $api: an instance of the api
+         * @param API $api an instance of the api
 	 */
 	public function __construct(API $api){
 		$this->api = $api;
@@ -53,9 +53,12 @@ class SecurityMiddleware extends Middleware {
 
 
 	/**
-	 * @brief this runs all the security checks before a method call. The
+         * This runs all the security checks before a method call. The
 	 * security checks are determined by inspecting the controller method
 	 * annotations
+         * @param string/Controller $controller the controllername or string
+         * @param string $methodName the name of the method
+         * @throws SecurityException when a security check fails
 	 */
 	public function beforeController($controller, $methodName){
 
@@ -108,6 +111,11 @@ class SecurityMiddleware extends Middleware {
 	/**
 	 * If an SecurityException is being caught, ajax requests return a JSON error
 	 * response and non ajax requests redirect to the index
+         * @param Controller $controller the controller that is being called
+         * @param string $methodName the name of the method that will be called on
+         *                           the controller
+         * @param Exception $exception the thrown exception
+         * @return Response a Response object or null in case that the exception could not be handled
 	 */
 	public function afterException($controller, $methodName, \Exception $exception){
 		if($exception instanceof SecurityException){

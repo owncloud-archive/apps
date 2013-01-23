@@ -35,13 +35,16 @@ require_once __DIR__ . '/../3rdparty/Pimple/Pimple.php';
 
 /**
  * This class extends Pimple (http://pimple.sensiolabs.org/) for reusability
- * Also importing a class via classloader is easier than a function
+ * To use this class, extend your own container from this. Should you require it
+ * you can overwrite the dependencies with your own classes by simply redefining
+ * a dependency
  */
 class DIContainer extends \Pimple {
 
 
 	/**
-	 * @param string $appName: the name of the app
+         * Put your class dependencies in here
+         * @param string $appName the name of the app
 	 */
 	public function __construct($appName){
 		

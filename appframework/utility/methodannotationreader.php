@@ -33,9 +33,8 @@ class MethodAnnotationReader {
 	private $annotations;
 
 	/**
-	 * @param object $object: an object or classname
-	 * @param string $method: the method which we want to inspect for
-	 *                        annotations
+         * @param object $object an object or classname
+         * @param string $method the method which we want to inspect for annotations
 	 */
 	public function __construct($object, $method){
 		$this->annotations = array();
@@ -51,8 +50,8 @@ class MethodAnnotationReader {
 
 	/**
 	 * Check if a method contains an annotation
-	 * @param string $name: the name of the annotation
-	 * @return true if the annotation is found
+         * @param string $name the name of the annotation
+         * @return bool true if the annotation is found
 	 */
 	public function hasAnnotation($name){
 		return in_array($name, $this->annotations);

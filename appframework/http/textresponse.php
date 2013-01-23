@@ -33,8 +33,8 @@ class TextResponse extends Response {
 	private $content;
 
 	/**
-	 * @brief Creates a response that just outputs text
-	 * @param string $content: the content that should be written into the file
+         * Creates a response that just outputs text
+         * @param string $content the content that should be written into the file
 	 */
 	public function __construct($content){
 		parent::__construct();
@@ -44,7 +44,7 @@ class TextResponse extends Response {
 
 	/**
 	 * Simply sets the headers and returns the file contents
-	 * @return the file contents
+         * @return string the file contents
 	 */
 	public function render(){
 		return $this->content;
