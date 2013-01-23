@@ -131,7 +131,7 @@ class ControllerTest extends \PHPUnit_Framework_TestCase {
 				->with($this->equalTo('home'), $this->equalTo('admin'), $this->equalTo('app'))
 				->will($this->returnValue($ocTpl));
 
-		$this->controller = new Controller($api, new Request());
+                $this->controller = new ChildController($api, new Request());
 		$this->controller->render('home', array(), 'admin')->render();
 	}
 
