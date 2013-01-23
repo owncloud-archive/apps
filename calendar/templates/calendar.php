@@ -1,4 +1,6 @@
 <script type="text/javascript" src="<?php echo OC_Helper::linkTo('calendar/js', 'l10n.php');?>"></script>
+<script type="text/javascript" src="<?php echo OC_Helper::linkTo('calendar/js', 'on-event.php');?>"></script>
+
 <div id="notification" style="display:none;"></div>
 <div id="controls">
 	<form id="view">
