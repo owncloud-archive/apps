@@ -32,33 +32,33 @@ class Response {
 
 	private $headers;
 
-        public function __construct(){
+	public function __construct(){
 		$this->headers = array();
 	}
 
 	/**
 	 * Adds a new header to the response that will be called before the render
 	 * function
-         * @param string header the string that will be used in the header() function
+	 * @param string header the string that will be used in the header() function
 	 */
 	public function addHeader($header){
 		array_push($this->headers, $header);
 	}
 
 
-        /**
-         * By default renders no output
-         * @return null
-         */
+	/**
+	 * By default renders no output
+	 * @return null
+	 */
 	public function render(){
 		return null;
 	}
 
 
-        /**
-         * Returns the set headers
-         * @return array the headers
-         */
+	/**
+	 * Returns the set headers
+	 * @return array the headers
+	 */
 	public function getHeaders(){
 		return $this->headers;
 	}
