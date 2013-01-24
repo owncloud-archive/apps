@@ -147,4 +147,11 @@ class TemplateResponseTest extends \PHPUnit_Framework_TestCase {
 		$tpl->render();
 	}
 
+
+	public function testGetRenderAs(){
+		$render = 'myrender';
+		$this->tpl->renderAs($render);
+		$this->assertEquals($render, $this->tpl->getRenderAs());
+	}
+
 }

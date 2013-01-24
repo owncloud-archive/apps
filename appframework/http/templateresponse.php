@@ -32,17 +32,17 @@ use OCA\AppFramework\Core\API as API;
  */
 class TemplateResponse extends Response {
 
-        protected $templateName;
-        protected $params;
-        protected $api;
-        protected $renderAs;
-        protected $appName;
+	protected $templateName;
+	protected $params;
+	protected $api;
+	protected $renderAs;
+	protected $appName;
 
 	/**
-         * @param API $api an API instance
-         * @param string $templateName the name of the template
-         * @param string $appName optional if you want to include a template from
-         *                        a different app
+	 * @param API $api an API instance
+	 * @param string $templateName the name of the template
+	 * @param string $appName optional if you want to include a template from
+	 *                        a different app
 	 */
 	public function __construct(API $api, $templateName, $appName=null) {
 		parent::__construct();
@@ -55,9 +55,9 @@ class TemplateResponse extends Response {
 
 
 	/**
-         * Sets template parameters
-         * @param array $params an array with key => value structure which sets template
-         *                      variables
+	 * Sets template parameters
+	 * @param array $params an array with key => value structure which sets template
+	 *                      variables
 	 */
 	public function setParams(array $params){
 		$this->params = $params;
@@ -65,8 +65,8 @@ class TemplateResponse extends Response {
 
 
 	/**
-         * Used for accessing the set parameters
-         * @return array the params
+	 * Used for accessing the set parameters
+	 * @return array the params
 	 */
 	public function getParams(){
 		return $this->params;
@@ -74,8 +74,8 @@ class TemplateResponse extends Response {
 
 
 	/**
-         * Used for accessing the name of the set template
-         * @return string the name of the used template
+	 * Used for accessing the name of the set template
+	 * @return string the name of the used template
 	 */
 	public function getTemplateName(){
 		return $this->templateName;
@@ -83,11 +83,11 @@ class TemplateResponse extends Response {
 
 
 	/**
-         * Sets the template page
-         * @param string $renderAs admin, user or blank. Admin also prints the admin
-         *                         settings header and footer, user renders the normal
-         *                         normal page including footer and header and blank
-         *                         just renders the plain template
+	 * Sets the template page
+	 * @param string $renderAs admin, user or blank. Admin also prints the admin
+	 *                         settings header and footer, user renders the normal
+	 *                         normal page including footer and header and blank
+	 *                         just renders the plain template
 	 */
 	public function renderAs($renderAs){
 		$this->renderAs = $renderAs;
@@ -95,17 +95,17 @@ class TemplateResponse extends Response {
 
 
 	/**
-         * Returns the set renderAs
-         * @return string the renderAs value
-         */
-        public function getRenderAs(){
-                return $this->renderAs;
-        }
+	 * Returns the set renderAs
+	 * @return string the renderAs value
+	 */
+	public function getRenderAs(){
+		return $this->renderAs;
+	}
 
 
-        /**
+	/**
 	 * Returns the rendered html
-         * @return string the rendered html
+	 * @return string the rendered html
 	 */
 	public function render(){
 
