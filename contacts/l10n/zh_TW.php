@@ -26,6 +26,7 @@
 "The uploaded file was only partially uploaded" => "只有部分檔案被上傳",
 "No file was uploaded" => "沒有已上傳的檔案",
 "Missing a temporary folder" => "遺失暫存資料夾",
+"Couldn't save temporary image: " => "無法儲存暫存影像",
 "No file was uploaded. Unknown error" => "沒有檔案被上傳. 未知的錯誤.",
 "Contacts" => "通訊錄",
 "Select photo" => "選擇相片",

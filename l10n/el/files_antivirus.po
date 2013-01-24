@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-23 00:01+0100\n"
-"PO-Revision-Date: 2013-01-22 12:09+0000\n"
+"POT-Creation-Date: 2013-01-25 00:01+0100\n"
+"PO-Revision-Date: 2013-01-24 08:34+0000\n"
 "Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "Αυτό το μήνυμα είναι ειδοποίηση από τον {host}. Παρακαλώ, μην το απαντήσετε."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
@@ -46,7 +46,7 @@ msgstr "Κατάσταση"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr ""
+msgstr "Εκτελέσιμο"
 
 #: templates/settings.php:5
 msgid "Daemon"
