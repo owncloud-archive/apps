@@ -9,7 +9,13 @@
 #
 ###
 
-angular.module('AppTemplateAdvanced', ['OC']).config ['$provide', ($provide) ->
+angular.module('AppTemplateAdvanced', ['OC']).config ['$provide', '$interpolateProvider',
+($provide, $interpolateProvider) ->
+
+        # uses doulbe square brackets instead of double curly braces because twig
+        # already uses doulbe curly braces
+        $interpolateProvider.startSymbol('[[');
+        $interpolateProvider.endSymbol(']]');
 
 	# Use this for configuration values
 	Config =

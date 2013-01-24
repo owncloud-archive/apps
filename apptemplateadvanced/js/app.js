@@ -13,7 +13,30 @@
 
 (function() {
 
-  angular.module('OC', []);
+  angular.module('AppTemplateAdvanced', ['OC']).config([
+    '$provide', '$interpolateProvider', function($provide, $interpolateProvider) {
+      var Config;
+      $interpolateProvider.startSymbol('[[');
+      $interpolateProvider.endSymbol(']]');
+      Config = {
+        myParam: 'test'
+      };
+      Config.routes = {
+        saveNameRoute: 'apptemplate_advanced_ajax_setsystemvalue'
+      };
+      return $provide.value('Config', Config);
+    }
+  ]);
+
+  angular.module('AppTemplateAdvanced').run([
+    '$rootScope', function($rootScope) {
+      var init;
+      init = function() {
+        return $rootScope.$broadcast('routesLoaded');
+      };
+      return OC.Router.registerLoadedCallback(init);
+    }
+  ]);
 
 }).call(this);
 
@@ -33,26 +56,34 @@
 
 (function() {
 
-  angular.module('AppTemplateAdvanced', ['OC']).config([
-    '$provide', function($provide) {
-      var Config;
-      Config = {
-        myParam: 'test'
-      };
-      Config.routes = {
-        saveNameRoute: 'apptemplate_advanced_ajax_setsystemvalue'
-      };
-      return $provide.value('Config', Config);
-    }
-  ]);
+  angular.module('OC', []);
 
-  angular.module('AppTemplateAdvanced').run([
-    '$rootScope', function($rootScope) {
-      var init;
-      init = function() {
-        return $rootScope.$broadcast('routesLoaded');
-      };
-      return OC.Router.registerLoadedCallback(init);
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+/*
+# This file creates instances of classes
+*/
+
+
+(function() {
+
+  angular.module('OC').factory('Publisher', [
+    '_Publisher', function(_Publisher) {
+      return new _Publisher();
     }
   ]);
 
@@ -109,35 +140,6 @@
     })();
     return Publisher;
   });
-
-}).call(this);
-
-
-
-/*
-# ownCloud
-#
-# @author Bernhard Posselt
-# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
-#
-# This file is licensed under the Affero General Public License version 3 or later.
-# See the COPYING-README file
-#
-*/
-
-
-/*
-# This file creates instances of classes
-*/
-
-
-(function() {
-
-  angular.module('OC').factory('Publisher', [
-    '_Publisher', function(_Publisher) {
-      return new _Publisher();
-    }
-  ]);
 
 }).call(this);
 
@@ -415,11 +417,20 @@
 
 (function() {
 
-  angular.module('AppTemplateAdvanced').filter('leetIt', function() {
-    return function(leetThis) {
-      return leetThis.replace('e', '3').replace('i', '1');
-    };
-  });
+  angular.module('AppTemplateAdvanced').factory('AppTemplateAdvancedRequest', [
+    '$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher', 'ItemModel', function($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher, ItemModel) {
+      Publisher.subscribeModelTo(ItemModel, 'items');
+      return new _AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher);
+    }
+  ]);
+
+  angular.module('AppTemplateAdvanced').factory('ItemModel', [
+    '_ItemModel', 'Publisher', function(_ItemModel, Publisher) {
+      var model;
+      model = new _ItemModel();
+      return model;
+    }
+  ]);
 
 }).call(this);
 
@@ -439,20 +450,11 @@
 
 (function() {
 
-  angular.module('AppTemplateAdvanced').factory('AppTemplateAdvancedRequest', [
-    '$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher', 'ItemModel', function($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher, ItemModel) {
-      Publisher.subscribeModelTo(ItemModel, 'items');
-      return new _AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher);
-    }
-  ]);
-
-  angular.module('AppTemplateAdvanced').factory('ItemModel', [
-    '_ItemModel', 'Publisher', function(_ItemModel, Publisher) {
-      var model;
-      model = new _ItemModel();
-      return model;
-    }
-  ]);
+  angular.module('AppTemplateAdvanced').filter('leetIt', function() {
+    return function(leetThis) {
+      return leetThis.replace('e', '3').replace('i', '1');
+    };
+  });
 
 }).call(this);
 
@@ -556,6 +558,30 @@
 
 (function() {
 
+  angular.module('AppTemplateAdvanced').controller('ExampleController', [
+    '$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController', 'ItemModel', function($scope, Config, AppTemplateAdvancedRequest, _ExampleController, ItemModel) {
+      return new _ExampleController($scope, Config, AppTemplateAdvancedRequest, ItemModel);
+    }
+  ]);
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+(function() {
+
   angular.module('AppTemplateAdvanced').factory('_ExampleController', function() {
     var ExampleController;
     ExampleController = (function() {
@@ -580,29 +606,5 @@
     })();
     return ExampleController;
   });
-
-}).call(this);
-
-
-
-/*
-# ownCloud
-#
-# @author Bernhard Posselt
-# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
-#
-# This file is licensed under the Affero General Public License version 3 or later.
-# See the COPYING-README file
-#
-*/
-
-
-(function() {
-
-  angular.module('AppTemplateAdvanced').controller('ExampleController', [
-    '$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController', 'ItemModel', function($scope, Config, AppTemplateAdvancedRequest, _ExampleController, ItemModel) {
-      return new _ExampleController($scope, Config, AppTemplateAdvancedRequest, ItemModel);
-    }
-  ]);
 
 }).call(this);
