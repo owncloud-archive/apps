@@ -32,23 +32,23 @@ require_once(__DIR__ . "/../classloader.php");
 class TwigResponseTest extends \PHPUnit_Framework_TestCase {
 
 
-    protected function setUp(){
-        $this->api = $this->getMock('OCA\AppFramework\Core\API', null, array('hi'));
-        $this->twig = $this->getMock('Twig', array('render'));
-    }
+        protected function setUp(){
+                $this->api = $this->getMock('OCA\AppFramework\Core\API', null, array('hi'));
+                $this->twig = $this->getMock('Twig', array('render'));
+        }
 
 
-    public function testRender(){
-        $templateName = 'test';
-        $params = array('john' => 'doe');
-        $this->twig->expects($this->once())
-                ->method('render')
-                ->with($this->equalTo($templateName . '.php'), $this->equalTo($params));
+        public function testRender(){
+                $templateName = 'test';
+                $params = array('john' => 'doe');
+                $this->twig->expects($this->once())
+                                ->method('render')
+                                ->with($this->equalTo($templateName . '.php'), $this->equalTo($params));
 
-        $response = new TwigResponse($this->api, $templateName, $this->twig);
-        $response->setParams($params);
+                $response = new TwigResponse($this->api, $templateName, $this->twig);
+                $response->setParams($params);
 
-        $response->render();
-    }
+                $response->render();
+        }
 
 }
