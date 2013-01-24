@@ -77,13 +77,14 @@ class DIContainer extends \Pimple {
 		});
 
 		$this['Twig'] = $this->share(function($c){
+			$loader = $c['TwigLoader'];
 			if($c['TwigTemplateCacheDirectory'] !== null){
-				return new \Twig_Environment($c['TwigLoader'], array(
+				return new \Twig_Environment($loader, array(
 					'cache' => $c['TwigTemplateCacheDirectory'],
 					'autoescape' => true
 				));
 			} else {
-				return new \Twig_Environment($c['TwigLoader'], array(
+				return new \Twig_Environment($loader, array(
 					'autoescape' => true
 				));
 			}

@@ -74,4 +74,50 @@ class DIContainerTest extends \PHPUnit_Framework_TestCase {
 		$this->assertContains($security, $dispatcher->getMiddlewares());
 	}
 
+
+	public function testTwigTemplateDirectoryNotSet(){
+		$this->assertNull($this->container['TwigTemplateDirectory']);
+	}
+
+
+	public function testTwigTemplateCacheDirectoryNotSet(){
+		$this->assertNull($this->container['TwigTemplateCacheDirectory']);
+	}
+
+
+	public function testTwigMiddlewareSet(){
+		$this->assertTrue(isset($this->container['TwigMiddleware']));
+	}
+
+
+	public function testMiddlewareDispatcherIncludesTwigWhenTplDirectorySet(){
+		$this->container['TwigTemplateDirectory'] = '.';
+		$twig = $this->container['TwigMiddleware'];
+		$dispatcher = $this->container['MiddlewareDispatcher'];
+
+		$this->assertContains($twig, $dispatcher->getMiddlewares());		
+	}
+
+	public function testMiddlewareDispatcherDoesNotIncludeTwigWhenTplDirectoryNotSet(){
+		$dispatcher = $this->container['MiddlewareDispatcher'];
+
+		$this->assertEquals(1, count($dispatcher->getMiddlewares()));		
+	}
+
+
+	public function testTwigCacheIsDisabledByDefault(){
+		$this->container['TwigTemplateDirectory'] = '.';
+
+		$this->assertFalse($this->container['Twig']->getCache());
+	}
+
+	
+	public function testTwigCache(){
+		$this->container['TwigTemplateDirectory'] = '.';
+		$this->container['TwigTemplateCacheDirectory'] = '..';
+
+		$this->assertEquals('..', $this->container['Twig']->getCache());
+	}
+
+
 }
