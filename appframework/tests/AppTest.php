@@ -77,7 +77,9 @@ class AppTest extends \PHPUnit_Framework_TestCase {
 		$this->controller->expects($this->once())
 				->method('setURLParams')
 				->with($this->equalTo($this->params));
-		
+                $this->dispatcher->expects($this->once())
+                                ->method('afterController')
+                                ->will($this->returnValue($this->response));
 		$this->callMain();
 	}
 
@@ -87,6 +89,10 @@ class AppTest extends \PHPUnit_Framework_TestCase {
 		$this->dispatcher->expects($this->once())
 				->method('beforeController')
 				->with($this->equalTo($this->controller), $this->equalTo($this->controllerMethod));
+                $this->dispatcher->expects($this->once())
+                                ->method('afterController')
+                                ->with($this->equalTo($this->controller), $this->equalTo($this->controllerMethod), $this->equalTo($this->response))
+                                ->will($this->returnValue($this->response));
 		$this->callMain();
 	}
 
@@ -136,7 +142,10 @@ class AppTest extends \PHPUnit_Framework_TestCase {
 		$this->controller->expects($this->once())
 				->method('method')
 				->will($this->returnValue($this->response));
-
+                $this->dispatcher->expects($this->once())
+                                ->method('afterController')
+                                ->with($this->equalTo($this->controller), $this->equalTo($this->controllerMethod), $this->equalTo($this->response))
+                                ->will($this->returnValue($this->response));
 		$this->response->expects($this->once())->method('render');
 
 		$this->callMain();

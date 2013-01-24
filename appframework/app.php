@@ -67,7 +67,7 @@ class App {
 		}
 
 		// this can be used to modify or exchange a response object
-		$reponse = $middlewareDispatcher->afterController($controller, $methodName, $response);
+                $response = $middlewareDispatcher->afterController($controller, $methodName, $response);
 
 		// get the output which should be printed and run the after output middleware
 		// to modify the response

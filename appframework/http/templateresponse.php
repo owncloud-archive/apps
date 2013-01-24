@@ -32,11 +32,11 @@ use OCA\AppFramework\Core\API as API;
  */
 class TemplateResponse extends Response {
 
-	private $templateName;
-	private $params;
-	private $api;
-	private $renderAs;
-	private $appName;
+        protected $templateName;
+        protected $params;
+        protected $api;
+        protected $renderAs;
+        protected $appName;
 
 	/**
          * @param API $api an API instance
@@ -95,6 +95,15 @@ class TemplateResponse extends Response {
 
 
 	/**
+         * Returns the set renderAs
+         * @return string the renderAs value
+         */
+        public function getRenderAs(){
+                return $this->renderAs;
+        }
+
+
+        /**
 	 * Returns the rendered html
          * @return string the rendered html
 	 */
