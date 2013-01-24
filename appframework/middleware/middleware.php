@@ -38,12 +38,12 @@ abstract class Middleware {
 
 
 	/**
-         * This is being run in normal order before the controller is being
+	 * This is being run in normal order before the controller is being
 	 * called which allows several modifications and checks
 	 *
-         * @param Controller $controller the controller that is being called
-         * @param string $methodName the name of the method that will be called on
-         *                           the controller
+	 * @param Controller $controller the controller that is being called
+	 * @param string $methodName the name of the method that will be called on
+	 *                           the controller
 	 */
 	public function beforeController($controller, $methodName){
 
@@ -51,17 +51,17 @@ abstract class Middleware {
 
 
 	/**
-         * This is being run when either the beforeController method or the
+	 * This is being run when either the beforeController method or the
 	 * controller method itself is throwing an exception. The middleware is  
 	 * asked in reverse order to handle the exception and to return a response.
 	 * If the response is null, it is assumed that the exception could not be
 	 * handled and the error will be thrown again
 	 *
-         * @param Controller $controller the controller that is being called
-         * @param string $methodName the name of the method that will be called on
-         *                           the controller
-         * @param \Exception $exception the thrown exception
-         * @return Response a Response object or null in case that the exception could not be handled
+	 * @param Controller $controller the controller that is being called
+	 * @param string $methodName the name of the method that will be called on
+	 *                           the controller
+	 * @param \Exception $exception the thrown exception
+	 * @return Response a Response object or null in case that the exception could not be handled
 	 */
 	public function afterException($controller, $methodName, \Exception $exception){
 		throw $exception;
@@ -69,14 +69,14 @@ abstract class Middleware {
 
 
 	/**
-         * This is being run after a successful controllermethod call and allows
+	 * This is being run after a successful controllermethod call and allows
 	 * the manipulation of a Response object. The middleware is run in reverse order
 	 *
-         * @param Controller $controller the controller that is being called
-         * @param string $methodName the name of the method that will be called on
-         *                           the controller
-         * @param Response $response the generated response from the controller
-         * @return Response a Response object
+	 * @param Controller $controller the controller that is being called
+	 * @param string $methodName the name of the method that will be called on
+	 *                           the controller
+	 * @param Response $response the generated response from the controller
+	 * @return Response a Response object
 	 */
 	public function afterController($controller, $methodName, Response $response){
 		return $response;
@@ -84,14 +84,14 @@ abstract class Middleware {
 
 
 	/**
-         * This is being run after the response object has been rendered and
+	 * This is being run after the response object has been rendered and
 	 * allows the manipulation of the output. The middleware is run in reverse order
 	 *
-         * @param Controller $controller the controller that is being called
-         * @param string $methodName the name of the method that will be called on
-         *                           the controller
-         * @param string $output the generated output from a response
-         * @return string the output that should be printed
+	 * @param Controller $controller the controller that is being called
+	 * @param string $methodName the name of the method that will be called on
+	 *                           the controller
+	 * @param string $output the generated output from a response
+	 * @return string the output that should be printed
 	 */
 	public function beforeOutput($controller, $methodName, $output){
 		return $output;

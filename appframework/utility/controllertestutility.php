@@ -35,9 +35,9 @@ abstract class ControllerTestUtility extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * Boilerplate function for getting an API Mock class
-         * @param string $apiClass the class inclusive namespace of the api that we
+	 * @param string $apiClass the class inclusive namespace of the api that we
 	 *                          want to use
-         * @param array $constructor constructor parameters of the api class
+	 * @param array $constructor constructor parameters of the api class
 	 */
 	protected function getAPIMock($apiClass='OCA\AppFramework\Core\API', 
 									array $constructor=array('appname')){
@@ -48,9 +48,9 @@ abstract class ControllerTestUtility extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * Checks if a controllermethod has the expected annotations
-         * @param Controller/string $controller name or instance of the controller
-         * @param array $expected an array containing the expected annotations
-         * @param array $valid if you define your own annotations, pass them here
+	 * @param Controller/string $controller name or instance of the controller
+	 * @param array $expected an array containing the expected annotations
+	 * @param array $valid if you define your own annotations, pass them here
 	 */
 	protected function assertAnnotations($controller, $method, array $expected,
 										array $valid=array()){
@@ -77,9 +77,9 @@ abstract class ControllerTestUtility extends \PHPUnit_Framework_TestCase {
 
 
 	/**
-         * Shortcut for testing expected headers of a response
-         * @param array $expected an array with the expected headers
-         * @param Response $response the response which we want to test for headers
+	 * Shortcut for testing expected headers of a response
+	 * @param array $expected an array with the expected headers
+	 * @param Response $response the response which we want to test for headers
 	 */
 	protected function assertHeaders(array $expected=array(), Response $response){
 		$headers = $reponse->getHeaders();

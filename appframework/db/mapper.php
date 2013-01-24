@@ -34,7 +34,7 @@ use OCA\AppFramework\Core\API as API;
 abstract class Mapper {
 
 	/**
-         * @param API $api Instance of the API abstraction layer
+	 * @param API $api Instance of the API abstraction layer
 	 */
 	public function __construct(API $api){
 		$this->api = $api;
@@ -43,10 +43,10 @@ abstract class Mapper {
 
 	/**
 	 * Returns an db result by id
-         * @param string $tableName the name of the table to query
-         * @param int $id the id of the item
-         * @throws DoesNotExistException if the item does not exist
-         * @return array the result as row
+	 * @param string $tableName the name of the table to query
+	 * @param int $id the id of the item
+	 * @throws DoesNotExistException if the item does not exist
+	 * @return array the result as row
 	 */
 	protected function findQuery($tableName, $id){
 		$sql = 'SELECT * FROM `' . $tableName . '` WHERE `id` = ?';
@@ -64,8 +64,8 @@ abstract class Mapper {
 
 	/**
 	 * Returns all entries of a table
-         * @param string $tableName the name of the table to query
-         * @return \PDOStatement the result
+	 * @param string $tableName the name of the table to query
+	 * @return \PDOStatement the result
 	 */
 	protected function findAllQuery($tableName){
 		$sql = 'SELECT * FROM `' . $tableName . '`';
@@ -75,8 +75,8 @@ abstract class Mapper {
 
 	/**
 	 * Deletes a row in a table by id
-         * @param string $tableName the name of the table to query
-         * @param int $id the id of the item
+	 * @param string $tableName the name of the table to query
+	 * @param int $id the id of the item
 	 */
 	protected function deleteQuery($tableName, $id){
 		$sql = 'DELETE FROM `' . $tableName . '` WHERE `id` = ?';
@@ -87,11 +87,11 @@ abstract class Mapper {
 
 	/**
 	 * Runs an sql query
-         * @param string $sql the prepare string
-         * @param array $params the params which should replace the ? in the sql query
-         * @param int $limit the maximum number of rows
-         * @param int $offset from which row we want to start
-         * @return \PDOStatement the database query result
+	 * @param string $sql the prepare string
+	 * @param array $params the params which should replace the ? in the sql query
+	 * @param int $limit the maximum number of rows
+	 * @param int $offset from which row we want to start
+	 * @return \PDOStatement the database query result
 	 */
 	protected function execute($sql, array $params=array(), $limit=null, $offset=null){
 		$query = $this->api->prepareQuery($sql);

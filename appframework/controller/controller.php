@@ -36,16 +36,16 @@ use OCA\AppFramework\Core\API as API;
 abstract class Controller {
 
 	/**
-         * @var API instance of the api layer
-         */
+	 * @var API instance of the api layer
+	 */
 	protected $api;
 	
 	private $request;
 	private $urlParams;
 
 	/**
-         * @param API $api an api wrapper instance
-         * @param Request $request an instance of the request
+	 * @param API $api an api wrapper instance
+	 * @param Request $request an instance of the request
 	 */
 	public function __construct(API $api, Request $request){
 		$this->api = $api;
@@ -55,7 +55,7 @@ abstract class Controller {
 
 
 	/**
-         * URL params are passed to this method from the routes dispatcher to be available via the $this->params
+	 * URL params are passed to this method from the routes dispatcher to be available via the $this->params
 	 * @param array $urlParams: the array with the params from the URL
 	 */
 	public function setURLParams(array $urlParams=array()){
@@ -64,15 +64,15 @@ abstract class Controller {
 
 
 	/**
-         * Lets you access post and get parameters by the index
-         * @param string $key the key which you want to access in the URL Parameter
+	 * Lets you access post and get parameters by the index
+	 * @param string $key the key which you want to access in the URL Parameter
 	 *                     placeholder, $_POST or $_GET array. 
 	 *                     The priority how they're returned is the following:
 	 *                     1. URL parameters
 	 *                     2. POST parameters
 	 *                     3. GET parameters
-         * @param mixed $default If the key is not found, this value will be returned
-         * @return mixed the content of the array
+	 * @param mixed $default If the key is not found, this value will be returned
+	 * @return mixed the content of the array
 	 */
 	public function params($key, $default=null){
 		$postValue = $this->request->getPOST($key);
@@ -96,8 +96,8 @@ abstract class Controller {
 
 	/**
 	 * Shortcut for accessing an uploaded file through the $_FILES array
-         * @param string $key the key that will be taken from the $_FILES array
-         * @return array the file in the $_FILES element
+	 * @param string $key the key that will be taken from the $_FILES array
+	 * @return array the file in the $_FILES element
 	 */
 	public function getUploadedFile($key){
 		return $this->request->getFILES($key);
@@ -106,12 +106,12 @@ abstract class Controller {
 
 	/**
 	 * Shortcut for rendering a template
-         * @param string $templateName the name of the template
-         * @param array $params the template parameters in key => value structure
-         * @param string $renderAs user renders a full page, blank only your template
+	 * @param string $templateName the name of the template
+	 * @param array $params the template parameters in key => value structure
+	 * @param string $renderAs user renders a full page, blank only your template
 	 *                          admin an entry in the admin settings
-         * @param array $headers set additional headers
-         * @return \OCA\AppFramework\Http\TemplateResponse containing the page
+	 * @param array $headers set additional headers
+	 * @return \OCA\AppFramework\Http\TemplateResponse containing the page
 	 */
 	public function render($templateName, array $params=array(),
 							$renderAs='user', array $headers=array()){
@@ -129,9 +129,9 @@ abstract class Controller {
 
 	/**
 	 * Shortcut for rendering a JSON response
-         * @param array $data the PHP array that will be put into the JSON data index
-         * @param string $errorMsg If you want to return an error message, pass one
-         * @return \OCA\AppFramework\Http\JSONResponse containing the values
+	 * @param array $data the PHP array that will be put into the JSON data index
+	 * @param string $errorMsg If you want to return an error message, pass one
+	 * @return \OCA\AppFramework\Http\JSONResponse containing the values
 	 */
 	public function renderJSON(array $data, $errorMsg=null){
 		$response = new JSONResponse();
