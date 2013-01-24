@@ -1,7 +1,7 @@
 <?php
 
 OC_App::loadApp('mozilla_sync');
-class Test_StorageService extends UnitTestCase {
+class Test_StorageService extends PHPUnit_Framework_TestCase {
 
   private $userName = 'testUser';
   private $userHash = 'qwegffggh';

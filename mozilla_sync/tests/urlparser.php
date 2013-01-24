@@ -1,7 +1,7 @@
 <?php
 
 OC_App::loadApp('mozilla_sync');
-class Test_UrlParser extends UnitTestCase {
+class Test_UrlParser extends PHPUnit_Framework_TestCase {
 
   function testUserApi_1() {
 

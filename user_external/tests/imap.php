@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
-class Test_User_Imap extends UnitTestCase{
+class Test_User_Imap extends PHPUnit_Framework_TestCase{
 	/**
 	 * @var OC_User_IMAP $instance
 	 */
@@ -28,7 +28,7 @@ class Test_User_Imap extends UnitTestCase{
 
 	function testLogin() {
 		$config=$this->getConfig();
-		$this->assertEqual($config['imap']['user'],$this->instance->checkPassword($config['imap']['user'],$config['imap']['password']));
+		$this->assertEquals($config['imap']['user'],$this->instance->checkPassword($config['imap']['user'],$config['imap']['password']));
 		$this->assertFalse($this->instance->checkPassword($config['imap']['user'],$config['imap']['password'].'foo'));
 	}
 }
