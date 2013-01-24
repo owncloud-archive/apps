@@ -83,7 +83,8 @@ class MiddlewareDispatcher {
 	public function beforeController(Controller $controller, $methodName){
 		// we need to count so that we know which middlewares we have to ask in
 		// case theres an exception
-		for($i=0; $i<count($this->middlewares); $i++, $this->middlewareCounter++){
+		for($i=0; $i<count($this->middlewares); $i++){
+			$this->middlewareCounter++;
 			$middleware = $this->middlewares[$i];
 			$middleware->beforeController($controller, $methodName);
 		}

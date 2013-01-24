@@ -134,6 +134,7 @@ class SecurityMiddleware extends Middleware {
 				// normal error messages link to the index page
 				//$url = $this->api->linkToRoute('index')
 				$url = $this->api->linkToAbsolute('index.php', ''); // TODO: replace with link to route
+				$this->api->log('hi');
 				$this->api->log($exception->getMessage());
 				return new RedirectResponse($url);
 			}
