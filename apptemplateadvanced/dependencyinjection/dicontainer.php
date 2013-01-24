@@ -41,14 +41,14 @@ class DIContainer extends BaseContainer {
 		parent::__construct('apptemplateadvanced');
 
 
-                /**
-                 * Delete the following twig config to use ownClouds default templates
-                 */
-                // use this to specify the template directory
-                $this['TwigTemplateDirectory'] = __DIR__ . '/../templates';
+		/**
+		 * Delete the following twig config to use ownClouds default templates
+		 */
+		// use this to specify the template directory
+		$this['TwigTemplateDirectory'] = __DIR__ . '/../templates';
 
-                // if you want to cache the template directory, add this path
-                $this['TwigTemplateCacheDirectory'] = null;
+		// if you want to cache the template directory, add this path
+		$this['TwigTemplateCacheDirectory'] = null;		
 
 		/** 
 		 * CONTROLLERS
