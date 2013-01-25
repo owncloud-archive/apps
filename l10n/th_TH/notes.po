@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# AriesAnywhere Anywhere <ariesanywhere@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-18 00:01+0100\n"
-"PO-Revision-Date: 2013-01-17 21:33+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-23 00:02+0100\n"
+"PO-Revision-Date: 2013-01-22 01:06+0000\n"
+"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,11 @@ msgstr ""
 
 #: appinfo/app.php:9
 msgid "Notes"
-msgstr ""
+msgstr "บันทึกย่อ"
 
 #: templates/categories.php:10 templates/help.php:5
 msgid "Back to Notes"
-msgstr ""
+msgstr "กลับไปที่บันทึกย่อ"
 
 #: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
 msgid "Help"
@@ -31,7 +32,7 @@ msgstr "ช่วยเหลือ"
 
 #: templates/categories.php:99
 msgid "Categories"
-msgstr ""
+msgstr "หมวดหมู่"
 
 #: templates/categories.php:116 templates/notes.php:345
 #: templates/notes.php:388
@@ -44,11 +45,11 @@ msgstr "บันทึก"
 
 #: templates/categories.php:129
 msgid "No categories available yet"
-msgstr ""
+msgstr "ยังไม่มีหมวดหมู่"
 
 #: templates/categories.php:137
 msgid "New category"
-msgstr ""
+msgstr "สร้างหมวดหมู่ใหม่"
 
 #: templates/categories.php:141
 msgid "Add"
@@ -62,7 +63,7 @@ msgstr "หมายเหตุ"
 msgid ""
 "If you delete a category, all containing notes get moved to the following "
 "category"
-msgstr ""
+msgstr "หากคุณลบหมวดหมู่ทิ้งไป บันทึกย่อทั้งหมดที่อยู่ในหมวดหมู่ดังกล่าวจะถูกย้ายไปยังหมวดหมู่ต่อไปนี้"
 
 #: templates/categories.php:145 templates/notes.php:61
 msgid "General"
@@ -70,15 +71,15 @@ msgstr "ทั่วไป"
 
 #: templates/notes.php:81
 msgid "Add Note"
-msgstr ""
+msgstr "เพิ่มบันทึกย่อ"
 
 #: templates/notes.php:87
 msgid "Edit Categories"
-msgstr ""
+msgstr "แก้ไขหมวดหมู่"
 
 #: templates/notes.php:291
 msgid "No note available in this category"
-msgstr ""
+msgstr "ยังไม่มีบันทึกอยู่ในหมวดหมู่นี้"
 
 #: templates/notes.php:335
 msgid "Edit"
@@ -94,24 +95,24 @@ msgstr "ชื่อ"
 
 #: templates/notes.php:382
 msgid "Content"
-msgstr ""
+msgstr "เนื้อหา"
 
 #: templates/notes.php:413
 msgid "Restore content"
-msgstr ""
+msgstr "คืนค่าเนื้อหา"
 
 #: templates/notes.php:421
 msgid "Restore"
-msgstr ""
+msgstr "คืนค่า"
 
 #: templates/notes.php:455
 msgid "The title can not be empty"
-msgstr ""
+msgstr "หัวเรื่องไม่สามารถเว้นว่างได้"
 
 #: templates/notes.php:462
 msgid "Invalid title"
-msgstr ""
+msgstr "หัวเรื่องไม่ถูกต้อง"
 
 #: templates/notes.php:462
 msgid "The following characters are not allowed"
-msgstr ""
+msgstr "ตัวอักษรต่อไปนี้ไม่อนุญาตให้ใช้งานได้"

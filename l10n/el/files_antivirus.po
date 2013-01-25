@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-21 00:01+0100\n"
-"PO-Revision-Date: 2013-01-19 23:02+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-25 00:01+0100\n"
+"PO-Revision-Date: 2013-01-24 08:34+0000\n"
+"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +30,7 @@ msgstr ""
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "Αυτό το μήνυμα είναι ειδοποίηση από τον {host}. Παρακαλώ, μην το απαντήσετε."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
@@ -37,19 +38,19 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "Ρύθμιση Antivirus"
 
 #: templates/settings.php:4
 msgid "Mode"
-msgstr ""
+msgstr "Κατάσταση"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr ""
+msgstr "Εκτελέσιμο"
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr ""
+msgstr "Υπηρεσία"
 
 #: templates/settings.php:7
 msgid "Host"
@@ -93,7 +94,7 @@ msgstr ""
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "Ενέργεια για τα μολυσμένα αρχεία κατά την σάρωση"
 
 #: templates/settings.php:12
 msgid "Only log"
@@ -101,7 +102,7 @@ msgstr ""
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr ""
+msgstr "Διαγραφή αρχείου"
 
 #: templates/settings.php:14
 msgid "Save"

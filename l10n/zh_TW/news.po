@@ -4,13 +4,14 @@
 # 
 # Translators:
 #   <dw4dev@gmail.com>, 2012.
+# Pellaeon Lin <nfsmwlin@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-30 00:01+0100\n"
-"PO-Revision-Date: 2012-11-28 23:14+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-25 00:02+0100\n"
+"PO-Revision-Date: 2013-01-24 13:25+0000\n"
+"Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgstr "變更資料夾名稱時發生錯誤"
 
 #: ajax/collapsefolder.php:36
 msgid "Error collapsing folder."
-msgstr ""
+msgstr "收合資料夾時發生錯誤。"
 
 #: ajax/createfeed.php:52
 msgid "Feed already exists."
@@ -64,7 +65,7 @@ msgstr "空白的檔名"
 
 #: ajax/importopml.php:50
 msgid "No source argument passed"
-msgstr ""
+msgstr "沒有傳遞來源參數"
 
 #: ajax/importopml.php:54
 msgid "Error while reading file"
@@ -92,7 +93,7 @@ msgstr "檔案不存在"
 
 #: ajax/selectfromcloud.php:44
 msgid "Couldn't save temporary image: "
-msgstr ""
+msgstr "無法儲存暫存影像"
 
 #: ajax/setallitemsread.php:63
 msgid "Error setting all items as read."
@@ -116,7 +117,7 @@ msgstr "新聞"
 
 #: js/items.js:122
 msgid "Error while loading the feed"
-msgstr ""
+msgstr "載入訊息串時發生錯誤"
 
 #: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
 #: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
@@ -197,7 +198,7 @@ msgstr "匯入 OPML 檔案中..."
 
 #: js/settings.js:42
 msgid "Not a valid type"
-msgstr ""
+msgstr "不是有效的類型"
 
 #: js/settings.js:60
 msgid "Importing done"
@@ -225,7 +226,7 @@ msgstr "沒有主體"
 
 #: opmlexporter.php:53
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "在 ownCloud - News 中的訂閱"
 
 #: subscribe.php:30
 msgid "An error occurred"
@@ -233,11 +234,11 @@ msgstr "發生錯誤"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr ""
+msgstr "太棒了！您已經訂閱"
 
 #: subscribe.php:36
 msgid "You had already subscribed to this feed!"
-msgstr ""
+msgstr "您已經訂閱了這個訊息串！"
 
 #: templates/firstrun.php:2
 msgid "You don't have any feed in your reader."
@@ -249,7 +250,7 @@ msgstr "網址"
 
 #: templates/firstrun.php:7 templates/subscribelet.php:7
 msgid "Subscribe"
-msgstr ""
+msgstr "訂閱"
 
 #: templates/firstrun.php:11
 msgid "Import OPML"
@@ -276,7 +277,7 @@ msgid ""
 "Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
 "filesystem</a> or <a href=\"#\" class=\"settings\" "
 "id=\"cloudlink\">cloud</a>"
-msgstr ""
+msgstr "從 <a href=\"#\" class=\"settings\" id=\"browselink\">本地檔案系統</a> 或 <a href=\"#\" class=\"settings\" id=\"cloudlink\">雲端</a> 選擇檔案"
 
 #: templates/firstrun.php:18
 msgid "Import"
@@ -349,11 +350,11 @@ msgstr "星號"
 
 #: templates/part.items.php:17 templates/part.shared.php:18
 msgid "Mark as unimportant"
-msgstr ""
+msgstr "標示為不重要"
 
 #: templates/part.items.php:20 templates/part.shared.php:21
 msgid "Mark as important"
-msgstr ""
+msgstr "標示為重要"
 
 #: templates/part.items.php:38 templates/part.shared.php:38
 msgid "from"
@@ -378,7 +379,7 @@ msgstr "刪除訂閱"
 
 #: templates/part.listfolder.php:29
 msgid "Collapse"
-msgstr ""
+msgstr "收合"
 
 #: templates/part.listfolder.php:33
 msgid "Delete folder"
@@ -402,10 +403,10 @@ msgstr "下載 OPML"
 
 #: templates/settings.php:12
 msgid "Subscribelet"
-msgstr ""
+msgstr "Subscribelet"
 
 #: templates/subscribelet.php:5
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr ""
+msgstr "將這個拖曳至瀏覽器的書籤列，當您想要訂閱網頁時，點它一下即可。"

@@ -6,6 +6,20 @@ Modernizr.load({
 		]
 });
 
+(function($) {
+	$.QueryString = (function(a) {
+		if (a == "") return {};
+		var b = {};
+		for (var i = 0; i < a.length; ++i)
+		{
+			var p=a[i].split('=');
+			if (p.length != 2) continue;
+			b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+		}
+		return b;
+	})(window.location.search.substr(1).split('&'))
+})(jQuery);
+
 var utils = {};
 
 /**
@@ -58,6 +72,14 @@ utils.moveCursorToEnd = function(el) {
 		range.collapse(false);
 		range.select();
 	}
+};
+
+utils.linkToRemote = function(service) {
+	return window.location.protocol + '//' + window.location.host + utils.linkToRemoteBase(service);
+};
+
+utils.linkToRemoteBase = function(service) {
+	return OC.webroot + '/remote.php/' + service;
 };
 
 if (typeof Object.create !== 'function') {
@@ -153,7 +175,7 @@ OC.notify = function(params) {
 
 
 OC.Contacts = OC.Contacts || {
-	init:function(id) {
+	init:function() {
 		if(oc_debug === true) {
 			$(document).ajaxError(function(e, xhr, settings, exception) {
 				// Don't try to get translation because it's likely a network error.
@@ -162,11 +184,7 @@ OC.Contacts = OC.Contacts || {
 				});
 			});
 		}
-		//if(id) {
-			this.currentid = parseInt(id);
-			console.log('init, id:', id);
-		//}
-		// Holds an array of {id,name} maps
+
 		this.scrollTimeoutMiliSecs = 100;
 		this.isScrolling = false;
 		this.cacheElements();
@@ -183,16 +201,6 @@ OC.Contacts = OC.Contacts || {
 		this.bindEvents();
 		this.$toggleAll.show();
 		this.showActions(['add']);
-
-		// Wait 2 mins then check if contacts are indexed.
-		setTimeout(function() {
-			if(!is_indexed) {
-				OC.notify({message:t('contacts', 'Indexing contacts'), timeout:20});
-				$.post(OC.filePath('contacts', 'ajax', 'indexproperties.php'));
-			} else {
-				console.log('contacts are indexed.');
-			}
-		}, 10000);
 	},
 	loading:function(obj, state) {
 		$(obj).toggleClass('loading', state);
@@ -330,11 +338,22 @@ OC.Contacts = OC.Contacts || {
 				self.loading(self.$rightContent, false);
 				self.groups.loadGroups(self.numcontacts, function() {
 					self.loading($('#leftcontent'), false);
+					var id = $.QueryString['id'];
+					self.currentid = parseInt(id);
 					console.log('Groups loaded, currentid', self.currentid);
 					if(self.currentid) {
 						self.openContact(self.currentid);
 					}
 				});
+				if(!result.is_indexed) {
+					// Wait a couple of mins then check if contacts are indexed.
+					setTimeout(function() {
+							OC.notify({message:t('contacts', 'Indexing contacts'), timeout:20});
+							$.post(OC.filePath('contacts', 'ajax', 'indexproperties.php'));
+					}, 10000);
+				} else {
+					console.log('contacts are indexed.');
+				}
 			}
 		});
 
@@ -800,7 +819,7 @@ OC.Contacts = OC.Contacts || {
 					var id = parseInt($(this).parents('li').first().data('id'));
 					var book = self.contacts.addressbooks[id];
 					var uri = (book.owner === oc_current_user ) ? book.uri : book.uri + '_shared_by_' + book.owner;
-					var link = totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
+					var link = utils.linkToRemote('carddav')+'/addressbooks/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
 					var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" /></div>');
 					$dropdown.appendTo($(this).parents('li').first());
 					var $input = $dropdown.find('input');
@@ -1602,8 +1621,9 @@ OC.Contacts = OC.Contacts || {
 		},
 		// From stackoverflow.com/questions/1408289/best-way-to-do-variable-interpolation-in-javascript
 		_build: function(o){
-			var data = this.$elem.attr('type') === 'text/template'
-				? this.$elem.html() : this.$elem.outerHTML();
+			var data = this.$elem.html();
+				//this.$elem.attr('type') === 'text/template'
+				//? this.$elem.html() : this.$elem.outerHTML();
 			return data.replace(/{([^{}]*)}/g,
 				function (a, b) {
 					var r = o[b];
@@ -1626,6 +1646,6 @@ OC.Contacts = OC.Contacts || {
 
 $(document).ready(function() {
 
-	OC.Contacts.init(id);
+	OC.Contacts.init();
 
 });

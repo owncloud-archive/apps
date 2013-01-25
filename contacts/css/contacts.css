@@ -61,7 +61,7 @@
 
 /* Left content */
 
-#leftcontent { position: absolute; top: 4em; padding: 0; margin: 0; }
+#leftcontent { padding: 0; margin: 0; }
 #leftcontent a { display: inline-block; padding: 0; margin: 0; }
 #leftcontent h3 { 
 	cursor: pointer; 
@@ -446,6 +446,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	padding: 0; margin:0; 
 	top:3.5em; left: 32.5em; right: 0; height: 4em; 
 	border-bottom: 1px solid #DDDDDD; z-index: 50;
+	background-color: #fff;
 }
 #contactsheader div.actions { 
 	-webkit-box-sizing: border-box;  -moz-box-sizing: border-box; box-sizing: border-box; 

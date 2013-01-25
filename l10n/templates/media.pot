@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-21 00:01+0100\n"
+"POT-Creation-Date: 2013-01-25 00:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,4 +75,12 @@ msgstr ""
 
 #: templates/music.php:39
 msgid "Title"
+msgstr ""
+
+#: templates/settings.php:3
+msgid "Media"
+msgstr ""
+
+#: templates/settings.php:4
+msgid "Ampache address:"
 msgstr ""
