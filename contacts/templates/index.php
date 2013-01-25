@@ -1,5 +1,4 @@
 <div id='notification'></div>
-<script type="text/javascript" src="<?php echo OC_Helper::linkTo('contacts/js', 'js-index.php');?>?id=<?php echo $_['id']; ?>"></script>
 <div id="leftcontent">
 	<div class="hidden" id="statusbar"></div>
 	<div id="contacts">
