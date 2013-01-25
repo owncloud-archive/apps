@@ -30,6 +30,7 @@ class ItemMapperTest extends \PHPUnit_Framework_TestCase {
 
     private $api;
     private $mapper;
+    private $row;
 
     protected function setUp(){
         $this->api = $this->getMock('OCA\AppFramework\Core\Api', array('prepareQuery'), array('apptemplateadvanced'));
@@ -64,7 +65,12 @@ class ItemMapperTest extends \PHPUnit_Framework_TestCase {
                 ->with($this->equalTo($expected))
                 ->will($this->returnValue($query));
 
-        $this->mapper->findByUserId($userId);
+        $item = $this->mapper->findByUserId($userId);
+
+        $this->assertEquals($this->row['id'], $item->getId());
+        $this->assertEquals($this->row['path'], $item->getPath());
+        $this->assertEquals($this->row['name'], $item->getName());
+        $this->assertEquals($this->row['user'], $item->getUser());
     }
 
 
