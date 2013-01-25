@@ -58,7 +58,7 @@
 		<tr>
 			<th width="75px"></th>
 			<td>
-				<input onclick="Calendar.UI.lockTime();" type="checkbox"<?php if($_['allday']) {echo 'checked="checked"';} ?> id="allday_checkbox" name="allday" disabled="disabled">
+				<input type="checkbox"<?php if($_['allday']) {echo 'checked="checked"';} ?> id="allday_checkbox" name="allday" disabled="disabled">
 				<?php echo $l->t("All Day Event");?>
 			</td>
 		</tr>
@@ -79,7 +79,7 @@
 			</td>
 		</tr>
 	</table>
-	<input type="button" class="submit" value="<?php echo $l->t("Advanced options"); ?>" onclick="Calendar.UI.showadvancedoptions();" id="advanced_options_button">
+	<input type="button" class="submit" value="<?php echo $l->t("Advanced options"); ?>" id="advanced_options_button">
 	<div id="advanced_options" style="display: none;">
 		<hr>
 		<table>
@@ -109,7 +109,7 @@
 					echo OCP\html_select_options(array($_['repeat_options'][$_['repeat']]), $_['repeat']);
 					?>
 				</select></td>
-				<td><input type="button" style="float:right;" class="submit" value="<?php echo $l->t("Advanced"); ?>" onclick="Calendar.UI.showadvancedoptionsforrepeating();" id="advanced_options_button"></td>
+				<td><input type="button" style="float:right;" class="submit" value="<?php echo $l->t("Advanced"); ?>" id="advanced_options_button_repeat"></td>
 			</tr>
 		</table>
 		<div id="advanced_options_repeating" style="display:none;">
