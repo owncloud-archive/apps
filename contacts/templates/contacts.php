@@ -1,6 +1,5 @@
 <div id='notification'></div>
 <script type='text/javascript'>
-	var is_indexed = <?php echo $_['is_indexed'] == 'yes' ? 'true' : 'false'; ?>;
 	var totalurl = '<?php echo OCP\Util::linkToRemote('carddav'); ?>addressbooks';
 	var lang = '<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>';
 </script>

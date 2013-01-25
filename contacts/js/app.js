@@ -193,16 +193,6 @@ OC.Contacts = OC.Contacts || {
 		this.bindEvents();
 		this.$toggleAll.show();
 		this.showActions(['add']);
-
-		// Wait 2 mins then check if contacts are indexed.
-		setTimeout(function() {
-			if(!is_indexed) {
-				OC.notify({message:t('contacts', 'Indexing contacts'), timeout:20});
-				$.post(OC.filePath('contacts', 'ajax', 'indexproperties.php'));
-			} else {
-				console.log('contacts are indexed.');
-			}
-		}, 10000);
 	},
 	loading:function(obj, state) {
 		$(obj).toggleClass('loading', state);
@@ -347,6 +337,15 @@ OC.Contacts = OC.Contacts || {
 						self.openContact(self.currentid);
 					}
 				});
+				if(!result.is_indexed) {
+					// Wait a couple of mins then check if contacts are indexed.
+					setTimeout(function() {
+							OC.notify({message:t('contacts', 'Indexing contacts'), timeout:20});
+							$.post(OC.filePath('contacts', 'ajax', 'indexproperties.php'));
+					}, 10000);
+				} else {
+					console.log('contacts are indexed.');
+				}
 			}
 		});
 

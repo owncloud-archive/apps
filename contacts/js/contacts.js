@@ -1715,7 +1715,8 @@ OC.Contacts = OC.Contacts || {};
 				, 2000);
 				$(document).trigger('status.contacts.loaded', {
 					status: true,
-					numcontacts: jsondata.data.contacts.length
+					numcontacts: jsondata.data.contacts.length,
+					is_indexed: jsondata.data.is_indexed
 				});
 				self.setCurrent(self.$contactList.find('tr:first-child').data('id'), false);
 			}
