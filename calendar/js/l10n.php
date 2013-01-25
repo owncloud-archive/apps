@@ -19,6 +19,7 @@ $l = OC_L10N::get('core');
 
 // Get the event sources
 $eventSources = array();
+$calendars = OC_Calendar_Calendar::allCalendars(OCP\User::getUser());
 foreach($calendars as $calendar) {
 	if(!array_key_exists('active', $calendar)){
 		$calendar['active'] = 1;
