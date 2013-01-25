@@ -33,6 +33,6 @@ if($_['calendar']['userid'] == OCP\USER::getUser()){
 </td>
 <td width="20px">
   <?php if($_['calendar']['permissions'] & OCP\PERMISSION_DELETE) { ?>
-  <a href="#"  id="chooseCalendar-delete" data-id"<?php echo $_['calendar']['id'] ?>" title="<?php echo $l->t('Delete') ?>" class="action"><img class="svg action" src="<?php echo OCP\Util::imagePath('core', 'actions/delete.svg') ?>"></a>
+  <a href="#"  id="chooseCalendar-delete" data-id="<?php echo $_['calendar']['id'] ?>" title="<?php echo $l->t('Delete') ?>" class="action"><img class="svg action" src="<?php echo OCP\Util::imagePath('core', 'actions/delete.svg') ?>"></a>
   <?php } ?>
 </td>
