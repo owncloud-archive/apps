@@ -1041,7 +1041,7 @@ OC.Contacts = OC.Contacts || {};
 							featureClass: "P",
 							style: "full",
 							maxRows: 12,
-							lang: lang,
+							lang: $elem.data('lang'),
 							name_startsWith: request.term
 						},
 						success: function( data ) {
