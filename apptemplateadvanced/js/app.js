@@ -13,6 +13,26 @@
 
 (function() {
 
+  angular.module('OC', []);
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+(function() {
+
   angular.module('AppTemplateAdvanced', ['OC']).config([
     '$provide', '$interpolateProvider', function($provide, $interpolateProvider) {
       var Config;
@@ -54,26 +74,6 @@
 */
 
 
-(function() {
-
-  angular.module('OC', []);
-
-}).call(this);
-
-
-
-/*
-# ownCloud
-#
-# @author Bernhard Posselt
-# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
-#
-# This file is licensed under the Affero General Public License version 3 or later.
-# See the COPYING-README file
-#
-*/
-
-
 /*
 # This file creates instances of classes
 */
@@ -86,60 +86,6 @@
       return new _Publisher();
     }
   ]);
-
-}).call(this);
-
-
-
-/*
-# ownCloud
-#
-# @author Bernhard Posselt
-# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
-#
-# This file is licensed under the Affero General Public License version 3 or later.
-# See the COPYING-README file
-#
-*/
-
-
-/*
-# Used for properly distributing received model data from the server
-*/
-
-
-(function() {
-
-  angular.module('OC').factory('_Publisher', function() {
-    var Publisher;
-    Publisher = (function() {
-
-      function Publisher() {
-        this.subscriptions = {};
-      }
-
-      Publisher.prototype.subscribeModelTo = function(model, name) {
-        var _base;
-        (_base = this.subscriptions)[name] || (_base[name] = []);
-        return this.subscriptions[name].push(model);
-      };
-
-      Publisher.prototype.publishDataTo = function(data, name) {
-        var subscriber, _i, _len, _ref, _results;
-        _ref = this.subscriptions[name] || [];
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          subscriber = _ref[_i];
-          _results.push(subscriber.handle(data));
-        }
-        return _results;
-      };
-
-      return Publisher;
-
-    })();
-    return Publisher;
-  });
 
 }).call(this);
 
@@ -206,7 +152,7 @@
         postData = $.param(data);
         headers = {
           headers: {
-            'requesttoken': requesttoken,
+            'requesttoken': oc_requesttoken,
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         };
@@ -233,6 +179,60 @@
 
     })();
     return Request;
+  });
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+/*
+# Used for properly distributing received model data from the server
+*/
+
+
+(function() {
+
+  angular.module('OC').factory('_Publisher', function() {
+    var Publisher;
+    Publisher = (function() {
+
+      function Publisher() {
+        this.subscriptions = {};
+      }
+
+      Publisher.prototype.subscribeModelTo = function(model, name) {
+        var _base;
+        (_base = this.subscriptions)[name] || (_base[name] = []);
+        return this.subscriptions[name].push(model);
+      };
+
+      Publisher.prototype.publishDataTo = function(data, name) {
+        var subscriber, _i, _len, _ref, _results;
+        _ref = this.subscriptions[name] || [];
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          subscriber = _ref[_i];
+          _results.push(subscriber.handle(data));
+        }
+        return _results;
+      };
+
+      return Publisher;
+
+    })();
+    return Publisher;
   });
 
 }).call(this);
@@ -417,39 +417,6 @@
 
 (function() {
 
-  angular.module('AppTemplateAdvanced').factory('AppTemplateAdvancedRequest', [
-    '$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher', 'ItemModel', function($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher, ItemModel) {
-      Publisher.subscribeModelTo(ItemModel, 'items');
-      return new _AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher);
-    }
-  ]);
-
-  angular.module('AppTemplateAdvanced').factory('ItemModel', [
-    '_ItemModel', 'Publisher', function(_ItemModel, Publisher) {
-      var model;
-      model = new _ItemModel();
-      return model;
-    }
-  ]);
-
-}).call(this);
-
-
-
-/*
-# ownCloud
-#
-# @author Bernhard Posselt
-# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
-#
-# This file is licensed under the Affero General Public License version 3 or later.
-# See the COPYING-README file
-#
-*/
-
-
-(function() {
-
   angular.module('AppTemplateAdvanced').filter('leetIt', function() {
     return function(leetThis) {
       return leetThis.replace('e', '3').replace('i', '1');
@@ -519,24 +486,19 @@
 
 
 (function() {
-  var __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  angular.module('AppTemplateAdvanced').factory('_ItemModel', [
-    '_Model', function(_Model) {
-      var ItemModel;
-      ItemModel = (function(_super) {
+  angular.module('AppTemplateAdvanced').factory('AppTemplateAdvancedRequest', [
+    '$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher', 'ItemModel', function($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher, ItemModel) {
+      Publisher.subscribeModelTo(ItemModel, 'items');
+      return new _AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher);
+    }
+  ]);
 
-        __extends(ItemModel, _super);
-
-        function ItemModel() {
-          ItemModel.__super__.constructor.call(this);
-        }
-
-        return ItemModel;
-
-      })(_Model);
-      return ItemModel;
+  angular.module('AppTemplateAdvanced').factory('ItemModel', [
+    '_ItemModel', 'Publisher', function(_ItemModel, Publisher) {
+      var model;
+      model = new _ItemModel();
+      return model;
     }
   ]);
 
@@ -557,10 +519,24 @@
 
 
 (function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  angular.module('AppTemplateAdvanced').controller('ExampleController', [
-    '$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController', 'ItemModel', function($scope, Config, AppTemplateAdvancedRequest, _ExampleController, ItemModel) {
-      return new _ExampleController($scope, Config, AppTemplateAdvancedRequest, ItemModel);
+  angular.module('AppTemplateAdvanced').factory('_ItemModel', [
+    '_Model', function(_Model) {
+      var ItemModel;
+      ItemModel = (function(_super) {
+
+        __extends(ItemModel, _super);
+
+        function ItemModel() {
+          ItemModel.__super__.constructor.call(this);
+        }
+
+        return ItemModel;
+
+      })(_Model);
+      return ItemModel;
     }
   ]);
 
@@ -606,5 +582,29 @@
     })();
     return ExampleController;
   });
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+(function() {
+
+  angular.module('AppTemplateAdvanced').controller('ExampleController', [
+    '$scope', 'Config', 'AppTemplateAdvancedRequest', '_ExampleController', 'ItemModel', function($scope, Config, AppTemplateAdvancedRequest, _ExampleController, ItemModel) {
+      return new _ExampleController($scope, Config, AppTemplateAdvancedRequest, ItemModel);
+    }
+  ]);
 
 }).call(this);
