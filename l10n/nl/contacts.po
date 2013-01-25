@@ -19,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-19 00:01+0100\n"
-"PO-Revision-Date: 2013-01-18 09:03+0000\n"
-"Last-Translator: André Koot <meneer@tken.net>\n"
+"POT-Creation-Date: 2013-01-26 00:04+0100\n"
+"PO-Revision-Date: 2013-01-25 23:05+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -241,10 +241,6 @@ msgstr "Contacten"
 msgid "%d_selected_contacts"
 msgstr "%d_selected_contacts"
 
-#: js/app.js:190
-msgid "Indexing contacts"
-msgstr "Bezig met indexeren van contactpersonen"
-
 #: js/app.js:265 js/app.js:279
 msgid "Add to..."
 msgstr "Toevoegen aan..."
@@ -257,141 +253,145 @@ msgstr "Verwijderen uit..."
 msgid "Add group..."
 msgstr "Nieuwe groep..."
 
-#: js/app.js:429
+#: js/app.js:354
+msgid "Indexing contacts"
+msgstr "Bezig met indexeren van contactpersonen"
+
+#: js/app.js:451
 msgid "Select photo"
 msgstr "Selecteer een foto"
 
-#: js/app.js:476 js/app.js:502 js/app.js:1461 js/app.js:1573
-#: js/contacts.js:156 js/contacts.js:254 js/contacts.js:476
+#: js/app.js:498 js/app.js:524 js/app.js:1483 js/app.js:1595
+#: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "Netwerk- of serverfout. Neem contact op met de beheerder."
 
-#: js/app.js:638 js/app.js:673
+#: js/app.js:660 js/app.js:695
 msgid "Error adding to group."
 msgstr "Fout bij het toevoegen aan de groep."
 
-#: js/app.js:698
+#: js/app.js:720
 msgid "Error removing from group."
 msgstr "Fout bij het verwijderen uit de groep."
 
-#: js/app.js:728
+#: js/app.js:750
 msgid "There was an error opening a mail composer."
 msgstr "Er is iets misgegaan tijdens het openen van een email programma."
 
-#: js/app.js:778
+#: js/app.js:800
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Verwijderen gereed. Klik hier om herladen te annuleren."
 
-#: js/app.js:855
+#: js/app.js:877
 msgid "Add address book"
 msgstr "Toevoegen adresboek"
 
-#: js/app.js:951
+#: js/app.js:973
 msgid "Import done. Click here to cancel reloading."
 msgstr "Import gereed. Klik hier om herladen te annuleren."
 
-#: js/app.js:992
+#: js/app.js:1014
 msgid "Not all files uploaded. Retrying..."
 msgstr "Nog niet alle bestanden zijn ge-upload.  Nogmaals proberen..."
 
-#: js/app.js:998
+#: js/app.js:1020
 msgid "Something went wrong with the upload, please retry."
 msgstr "Er is iets fout gegaan met het uploaden.  Probeer het nog eens."
 
-#: js/app.js:998 js/app.js:1508 js/settings.js:25 js/settings.js:45
+#: js/app.js:1020 js/app.js:1530 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Fout"
 
-#: js/app.js:1008
+#: js/app.js:1030
 msgid "Importing from {filename}..."
 msgstr "Importeren van {filename}..."
 
-#: js/app.js:1011
+#: js/app.js:1033
 msgid "{success} imported, {failed} failed."
 msgstr "{success} geïmporteerd, {failed} mislukt."
 
-#: js/app.js:1019
+#: js/app.js:1041
 msgid "Importing..."
 msgstr "Importeren..."
 
-#: js/app.js:1042
+#: js/app.js:1064
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Het lukt niet om uw bestand te uploaded, omdat het een folder of 0 bytes is"
 
-#: js/app.js:1042
+#: js/app.js:1064
 msgid "Upload Error"
 msgstr "Upload fout"
 
-#: js/app.js:1049 js/app.js:1336
+#: js/app.js:1071 js/app.js:1358
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Het bestand dat u probeert te uploaden overschrijdt de maximale bestand grootte voor bestand uploads voor deze server."
 
-#: js/app.js:1049
+#: js/app.js:1071
 msgid "Upload too large"
 msgstr "Upload is te groot"
 
-#: js/app.js:1089
+#: js/app.js:1111
 msgid "Pending"
 msgstr "In behandeling"
 
-#: js/app.js:1232 templates/contacts.php:129
+#: js/app.js:1254 templates/contacts.php:123
 msgid "Add group"
 msgstr "Toevoegen groep"
 
-#: js/app.js:1325
+#: js/app.js:1347
 msgid "No files selected for upload."
 msgstr "Geen bestanden geselecteerd voor upload."
 
-#: js/app.js:1426
+#: js/app.js:1448
 msgid "Edit profile picture"
 msgstr "Bewerk profielafbeelding"
 
-#: js/app.js:1444 js/contacts.js:1121
+#: js/app.js:1466 js/contacts.js:1130
 msgid "Error loading profile picture."
 msgstr "Fout profiel plaatje kan niet worden geladen."
 
-#: js/app.js:1496 templates/part.selectaddressbook.php:27
+#: js/app.js:1518
 msgid "Enter name"
 msgstr "Naam"
 
-#: js/app.js:1497 templates/part.selectaddressbook.php:29
+#: js/app.js:1519
 msgid "Enter description"
 msgstr "Beschrijving"
 
-#: js/app.js:1500
+#: js/app.js:1522
 msgid "Select addressbook"
 msgstr "Kies een adresboek"
 
-#: js/app.js:1508
+#: js/app.js:1530
 msgid "The address book name cannot be empty."
 msgstr "De naam van het adresboek mag niet leeg zijn."
 
-#: js/contacts.js:347
+#: js/contacts.js:356
 msgid "Is this correct?"
 msgstr "Is dit correct?"
 
-#: js/contacts.js:535
+#: js/contacts.js:544
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Er is een onbekende fout opgetreden bij het verwijderen van deze contactpersoon"
 
-#: js/contacts.js:673
+#: js/contacts.js:682
 msgid "# groups"
 msgstr "# groepen"
 
-#: js/contacts.js:1454
+#: js/contacts.js:1463
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Enkele contacten zijn gemarkeerd om verwijderd te worden, maar zijn nog niet verwijderd.  Wacht totdat ze zijn verwijderd."
 
-#: js/contacts.js:1465
+#: js/contacts.js:1474
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Klik om het verwijderen van {num} contactpersonen ongedaan te maken."
 
-#: js/contacts.js:1480
+#: js/contacts.js:1489
 msgid "Cancelled deletion of {num}"
 msgstr "Verwijderen geannuleerd van {num}"
 
@@ -461,7 +461,7 @@ msgstr "Laat CardDav link zien"
 msgid "Show read-only VCF link"
 msgstr "Laat alleen lezen VCF link zien"
 
-#: js/settings.js:99 templates/contacts.php:263 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:257 templates/settings.php:40
 msgid "Download"
 msgstr "Download"
 
@@ -469,16 +469,14 @@ msgstr "Download"
 msgid "Edit"
 msgstr "Bewerken"
 
-#: js/settings.js:102 templates/contacts.php:208 templates/contacts.php:215
-#: templates/contacts.php:222 templates/contacts.php:229
-#: templates/contacts.php:277 templates/contacts.php:404
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:50
+#: js/settings.js:102 templates/contacts.php:202 templates/contacts.php:209
+#: templates/contacts.php:216 templates/contacts.php:223
+#: templates/contacts.php:271 templates/contacts.php:398
+#: templates/settings.php:50
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: js/settings.js:120 templates/contacts.php:261 templates/settings.php:62
+#: js/settings.js:120 templates/contacts.php:255 templates/settings.php:62
 msgid "Cancel"
 msgstr "Anuleren"
 
@@ -619,7 +617,7 @@ msgstr "Er is iets misgegaan tijdens het verwijderen van de eigenschappen van di
 msgid "{name}'s Birthday"
 msgstr "{name}'s verjaardag"
 
-#: lib/search.php:19
+#: lib/search.php:18
 msgid "Contact"
 msgstr "Contact"
 
@@ -659,551 +657,341 @@ msgstr "Contact niet gevonden."
 msgid "HomePage"
 msgstr "HomePage"
 
-#: templates/contacts.php:17
+#: templates/contacts.php:11
 msgid "New Group"
 msgstr "Nieuwe Groep"
 
-#: templates/contacts.php:23 templates/index.php:16
+#: templates/contacts.php:17
 msgid "Settings"
 msgstr "Instellingen"
 
-#: templates/contacts.php:24
+#: templates/contacts.php:18
 msgid "Address books"
 msgstr "Adresboeken"
 
-#: templates/contacts.php:27 templates/contacts.php:104 templates/index.php:15
-#: templates/part.import.php:17
+#: templates/contacts.php:21 templates/contacts.php:98
 msgid "Import"
 msgstr "Importeer"
 
-#: templates/contacts.php:32
+#: templates/contacts.php:26
 msgid "Select files to import"
 msgstr "Selecteer de te importeren bestanden"
 
-#: templates/contacts.php:33
+#: templates/contacts.php:27
 msgid "Select files"
 msgstr "Selecteer bestanden"
 
-#: templates/contacts.php:39 templates/contacts.php:41
+#: templates/contacts.php:33 templates/contacts.php:35
 msgid "Import into:"
 msgstr "Importeer naar:"
 
-#: templates/contacts.php:43
+#: templates/contacts.php:37
 msgid "OK"
 msgstr "OK"
 
-#: templates/contacts.php:53
+#: templates/contacts.php:47
 msgid "(De-)select all"
 msgstr "(De-)selecteer alle"
 
-#: templates/contacts.php:55
+#: templates/contacts.php:49
 msgid "New Contact"
 msgstr "Nieuw Contact"
 
-#: templates/contacts.php:56
+#: templates/contacts.php:50
 msgid "Download Contact(s)"
 msgstr "Downloaden Contactperso(o)n(en)"
 
-#: templates/contacts.php:58 templates/part.contact.php:47
-#: templates/part.contact.php:135
+#: templates/contacts.php:52
 msgid "Groups"
 msgstr "Groepen"
 
-#: templates/contacts.php:60
+#: templates/contacts.php:54
 msgid "Favorite"
 msgstr "Favoriet"
 
-#: templates/contacts.php:61
+#: templates/contacts.php:55
 msgid "Delete Contact"
 msgstr "Verwijder Contact"
 
-#: templates/contacts.php:68 templates/contacts.php:262 templates/index.php:30
-#: templates/part.import.php:24
+#: templates/contacts.php:62 templates/contacts.php:256
 msgid "Close"
 msgstr "Sluiten"
 
-#: templates/contacts.php:69 templates/index.php:31
+#: templates/contacts.php:63
 msgid "Keyboard shortcuts"
 msgstr "Sneltoetsen"
 
-#: templates/contacts.php:71 templates/index.php:33
+#: templates/contacts.php:65
 msgid "Navigation"
 msgstr "Navigatie"
 
-#: templates/contacts.php:74 templates/index.php:36
+#: templates/contacts.php:68
 msgid "Next contact in list"
 msgstr "Volgende contact in de lijst"
 
-#: templates/contacts.php:76 templates/index.php:38
+#: templates/contacts.php:70
 msgid "Previous contact in list"
 msgstr "Vorige contact in de lijst"
 
-#: templates/contacts.php:78 templates/index.php:40
+#: templates/contacts.php:72
 msgid "Expand/collapse current addressbook"
 msgstr "Uitklappen / inklappen huidig adresboek"
 
-#: templates/contacts.php:80 templates/index.php:42
+#: templates/contacts.php:74
 msgid "Next addressbook"
 msgstr "Volgende adresboek"
 
-#: templates/contacts.php:82 templates/index.php:44
+#: templates/contacts.php:76
 msgid "Previous addressbook"
 msgstr "Vorige adresboek"
 
-#: templates/contacts.php:86 templates/index.php:48
+#: templates/contacts.php:80
 msgid "Actions"
 msgstr "Acties"
 
-#: templates/contacts.php:89 templates/index.php:51
+#: templates/contacts.php:83
 msgid "Refresh contacts list"
 msgstr "Vernieuw contact lijst"
 
-#: templates/contacts.php:91 templates/index.php:53
+#: templates/contacts.php:85
 msgid "Add new contact"
 msgstr "Voeg nieuw contact toe"
 
-#: templates/contacts.php:93 templates/index.php:55
+#: templates/contacts.php:87
 msgid "Add new addressbook"
 msgstr "Voeg nieuw adresboek toe"
 
-#: templates/contacts.php:95 templates/index.php:57
+#: templates/contacts.php:89
 msgid "Delete current contact"
 msgstr "Verwijder huidig contact"
 
-#: templates/contacts.php:100
+#: templates/contacts.php:94
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
 msgstr "<h3>Je hebt geen contacten in je addresboek.</h3><p>Voeg een nieuw contact toe of importeer bestaande contacten met een VCF bestand.</p>"
 
-#: templates/contacts.php:103 templates/part.no_contacts.php:9
+#: templates/contacts.php:97
 msgid "Add contact"
 msgstr "Contactpersoon toevoegen"
 
-#: templates/contacts.php:144
+#: templates/contacts.php:138
 msgid "Compose mail"
 msgstr "Schrijf email"
 
-#: templates/contacts.php:155
+#: templates/contacts.php:149
 msgid "Delete group"
 msgstr "Verwijder groep"
 
-#: templates/contacts.php:168 templates/part.contact.php:19
+#: templates/contacts.php:162
 msgid "Delete current photo"
 msgstr "Verwijdere huidige foto"
 
-#: templates/contacts.php:169 templates/part.contact.php:20
+#: templates/contacts.php:163
 msgid "Edit current photo"
 msgstr "Wijzig huidige foto"
 
-#: templates/contacts.php:170 templates/part.contact.php:21
+#: templates/contacts.php:164
 msgid "Upload new photo"
 msgstr "Upload nieuwe foto"
 
-#: templates/contacts.php:171 templates/part.contact.php:22
+#: templates/contacts.php:165
 msgid "Select photo from ownCloud"
 msgstr "Selecteer foto uit ownCloud"
 
-#: templates/contacts.php:182 templates/contacts.php:183
+#: templates/contacts.php:176 templates/contacts.php:177
 msgid "First name"
 msgstr "Voornaam"
 
-#: templates/contacts.php:187 templates/contacts.php:188
-#: templates/part.edit_name_dialog.php:37
+#: templates/contacts.php:181 templates/contacts.php:182
 msgid "Additional names"
 msgstr "Extra namen"
 
-#: templates/contacts.php:192 templates/contacts.php:193
+#: templates/contacts.php:186 templates/contacts.php:187
 msgid "Last name"
 msgstr "Achternaam"
 
-#: templates/contacts.php:200
+#: templates/contacts.php:194
 msgid "Select groups"
 msgstr "Selecteer groepen"
 
-#: templates/contacts.php:204 templates/contacts.php:268
-#: templates/part.contact.php:41 templates/part.contact.php:127
+#: templates/contacts.php:198 templates/contacts.php:262
 msgid "Nickname"
 msgstr "Roepnaam"
 
-#: templates/contacts.php:207 templates/part.contact.php:42
+#: templates/contacts.php:201
 msgid "Enter nickname"
 msgstr "Voer roepnaam in"
 
-#: templates/contacts.php:211 templates/contacts.php:267
+#: templates/contacts.php:205 templates/contacts.php:261
 msgid "Title"
 msgstr "Titel"
 
-#: templates/contacts.php:214
+#: templates/contacts.php:208
 msgid "Enter title"
 msgstr "Invoeren titel"
 
-#: templates/contacts.php:218 templates/contacts.php:266
-#: templates/part.contact.php:39 templates/part.contact.php:40
-#: templates/part.contact.php:126
+#: templates/contacts.php:212 templates/contacts.php:260
 msgid "Organization"
 msgstr "Organisatie"
 
-#: templates/contacts.php:221
+#: templates/contacts.php:215
 msgid "Enter organization"
 msgstr "Invoeren organisatie"
 
-#: templates/contacts.php:225 templates/contacts.php:269
-#: templates/part.contact.php:45 templates/part.contact.php:128
+#: templates/contacts.php:219 templates/contacts.php:263
 msgid "Birthday"
 msgstr "Verjaardag"
 
-#: templates/contacts.php:256
+#: templates/contacts.php:250
 msgid "Notes go here..."
 msgstr "Hier de notities..."
 
-#: templates/contacts.php:263
+#: templates/contacts.php:257
 msgid "Export as VCF"
 msgstr "Exporteren als VCF"
 
-#: templates/contacts.php:265
+#: templates/contacts.php:259
 msgid "Add"
 msgstr "Toevoegen"
 
-#: templates/contacts.php:270 templates/part.contact.php:129
+#: templates/contacts.php:264
 msgid "Phone"
 msgstr "Telefoon"
 
-#: templates/contacts.php:271 templates/part.contact.php:130
+#: templates/contacts.php:265
 msgid "Email"
 msgstr "E-mail"
 
-#: templates/contacts.php:272 templates/part.contact.php:131
+#: templates/contacts.php:266
 msgid "Instant Messaging"
 msgstr "Instant Messaging"
 
-#: templates/contacts.php:273 templates/part.contact.php:132
+#: templates/contacts.php:267
 msgid "Address"
 msgstr "Adres"
 
-#: templates/contacts.php:274 templates/part.contact.php:133
+#: templates/contacts.php:268
 msgid "Note"
 msgstr "Notitie"
 
-#: templates/contacts.php:275 templates/part.contact.php:43
-#: templates/part.contact.php:134
+#: templates/contacts.php:269
 msgid "Web site"
 msgstr "Website"
 
-#: templates/contacts.php:277 templates/part.contact.php:139
+#: templates/contacts.php:271
 msgid "Delete contact"
 msgstr "Verwijder contact"
 
-#: templates/contacts.php:290 templates/contacts.php:305
-#: templates/contacts.php:319 templates/contacts.php:344
-#: templates/contacts.php:381 templates/part.contact.php:59
-#: templates/part.contact.php:73 templates/part.contact.php:98
+#: templates/contacts.php:284 templates/contacts.php:299
+#: templates/contacts.php:313 templates/contacts.php:338
+#: templates/contacts.php:375
 msgid "Preferred"
 msgstr "Voorkeur"
 
-#: templates/contacts.php:292 templates/part.contact.php:60
+#: templates/contacts.php:286
 msgid "Please specify a valid email address."
 msgstr "Geef een geldig email adres op."
 
-#: templates/contacts.php:292
+#: templates/contacts.php:286
 msgid "someone@example.com"
 msgstr "iemand@voorbeeld.nl"
 
-#: templates/contacts.php:294 templates/part.contact.php:64
+#: templates/contacts.php:288
 msgid "Mail to address"
 msgstr "Mail naar adres"
 
-#: templates/contacts.php:295 templates/part.contact.php:65
+#: templates/contacts.php:289
 msgid "Delete email address"
 msgstr "Verwijder email adres"
 
-#: templates/contacts.php:307 templates/part.contact.php:75
+#: templates/contacts.php:301
 msgid "Enter phone number"
 msgstr "Voer telefoonnummer in"
 
-#: templates/contacts.php:309 templates/part.contact.php:79
+#: templates/contacts.php:303
 msgid "Delete phone number"
 msgstr "Verwijdere telefoonnummer"
 
-#: templates/contacts.php:323 templates/part.contact.php:44
+#: templates/contacts.php:317
 msgid "Go to web site"
 msgstr "Ga naar website"
 
-#: templates/contacts.php:324
+#: templates/contacts.php:318
 msgid "Delete URL"
 msgstr "Verwijder URL"
 
-#: templates/contacts.php:335 templates/part.contact.php:110
+#: templates/contacts.php:329
 msgid "View on map"
 msgstr "Bekijk op een kaart"
 
-#: templates/contacts.php:336
+#: templates/contacts.php:330
 msgid "Delete address"
 msgstr "Verwijder adres"
 
-#: templates/contacts.php:348
+#: templates/contacts.php:342
 msgid "1 Main Street"
 msgstr "Hoofdstraat 1"
 
-#: templates/contacts.php:349 templates/part.edit_address_dialog.php:24
+#: templates/contacts.php:343
 msgid "Street address"
 msgstr "Adres"
 
-#: templates/contacts.php:353
+#: templates/contacts.php:347
 msgid "12345"
 msgstr "12345"
 
-#: templates/contacts.php:354 templates/part.edit_address_dialog.php:51
+#: templates/contacts.php:348
 msgid "Postal code"
 msgstr "Postcode"
 
-#: templates/contacts.php:356
+#: templates/contacts.php:350
 msgid "Your city"
 msgstr "Ons Dorp"
 
-#: templates/contacts.php:357 templates/part.edit_address_dialog.php:36
-#: templates/part.edit_address_dialog.php:39
+#: templates/contacts.php:351
 msgid "City"
 msgstr "Stad"
 
-#: templates/contacts.php:361
+#: templates/contacts.php:355
 msgid "Some region"
 msgstr "Een regio"
 
-#: templates/contacts.php:362
+#: templates/contacts.php:356
 msgid "State or province"
 msgstr "Staat of provincie"
 
-#: templates/contacts.php:366
+#: templates/contacts.php:360
 msgid "Your country"
 msgstr "Uw land"
 
-#: templates/contacts.php:367 templates/part.edit_address_dialog.php:54
-#: templates/part.edit_address_dialog.php:57
+#: templates/contacts.php:361
 msgid "Country"
 msgstr "Land"
 
-#: templates/contacts.php:389 templates/part.contact.php:100
+#: templates/contacts.php:383
 msgid "Instant Messenger"
 msgstr "Instant Messenger"
 
-#: templates/contacts.php:391 templates/part.contact.php:101
+#: templates/contacts.php:385
 msgid "Delete IM"
 msgstr "Verwijder IM"
 
-#: templates/contacts.php:401 templates/settings.php:36
+#: templates/contacts.php:395 templates/settings.php:36
 msgid "Share"
 msgstr "Deel"
 
-#: templates/contacts.php:402
+#: templates/contacts.php:396
 msgid "Export"
 msgstr "Exporteer"
 
-#: templates/contacts.php:403
+#: templates/contacts.php:397
 msgid "CardDAV link"
 msgstr "CardDAV link"
 
-#: templates/index.php:14
-msgid "Add Contact"
-msgstr "Contact toevoegen"
-
-#: templates/part.contact.php:17
-msgid "Drop photo to upload"
-msgstr "Verwijder foto uit upload"
-
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "Formateer aangepast, Korte naam, Volledige naam, Achteruit of Achteruit met komma"
-
-#: templates/part.contact.php:36
-msgid "Edit name details"
-msgstr "Wijzig naam gegevens"
-
-#: templates/part.contact.php:44
-msgid "http://www.somesite.com"
-msgstr "http://www.willekeurigesite.com"
-
-#: templates/part.contact.php:46
-msgid "dd-mm-yyyy"
-msgstr "dd-mm-yyyy"
-
-#: templates/part.contact.php:49
-msgid "Separate groups with commas"
-msgstr "Gebruik komma bij meerder groepen"
-
-#: templates/part.contact.php:50
-msgid "Edit groups"
-msgstr "Wijzig groepen"
-
-#: templates/part.contact.php:60
-msgid "Enter email address"
-msgstr "Voer email adres in"
-
-#: templates/part.contact.php:110
-msgid "Edit address details"
-msgstr "Wijzig adres gegevens"
-
-#: templates/part.contact.php:116
-msgid "Add notes here."
-msgstr "Voeg notitie toe"
-
-#: templates/part.contact.php:124
-msgid "Add field"
-msgstr "Voeg veld toe"
-
-#: templates/part.contact.php:138
-msgid "Download contact"
-msgstr "Download contact"
-
-#: templates/part.cropphoto.php:65
+#: templates/part.cropphoto.php:31
 msgid "The temporary image has been removed from cache."
 msgstr "Het tijdelijke plaatje is uit de cache verwijderd."
-
-#: templates/part.edit_address_dialog.php:6
-msgid "Edit address"
-msgstr "Wijzig adres"
-
-#: templates/part.edit_address_dialog.php:10
-msgid "Type"
-msgstr "Type"
-
-#: templates/part.edit_address_dialog.php:18
-#: templates/part.edit_address_dialog.php:21
-msgid "PO Box"
-msgstr "Postbus"
-
-#: templates/part.edit_address_dialog.php:27
-msgid "Street and number"
-msgstr "Straat en nummer"
-
-#: templates/part.edit_address_dialog.php:30
-msgid "Extended"
-msgstr "Uitgebreide"
-
-#: templates/part.edit_address_dialog.php:33
-msgid "Apartment number etc."
-msgstr "Apartement nummer"
-
-#: templates/part.edit_address_dialog.php:42
-msgid "Region"
-msgstr "Regio"
-
-#: templates/part.edit_address_dialog.php:45
-msgid "E.g. state or province"
-msgstr "Provincie"
-
-#: templates/part.edit_address_dialog.php:48
-msgid "Zipcode"
-msgstr "Postcode"
-
-#: templates/part.edit_name_dialog.php:16
-msgid "Addressbook"
-msgstr "Adresboek"
-
-#: templates/part.edit_name_dialog.php:23
-msgid "Hon. prefixes"
-msgstr "Hon. prefixes"
-
-#: templates/part.edit_name_dialog.php:27
-msgid "Miss"
-msgstr "Mw"
-
-#: templates/part.edit_name_dialog.php:28
-msgid "Ms"
-msgstr "Mw"
-
-#: templates/part.edit_name_dialog.php:29
-msgid "Mr"
-msgstr "M"
-
-#: templates/part.edit_name_dialog.php:30
-msgid "Sir"
-msgstr "M"
-
-#: templates/part.edit_name_dialog.php:31
-msgid "Mrs"
-msgstr "Mw"
-
-#: templates/part.edit_name_dialog.php:32
-msgid "Dr"
-msgstr "M"
-
-#: templates/part.edit_name_dialog.php:35
-msgid "Given name"
-msgstr "Voornaam"
-
-#: templates/part.edit_name_dialog.php:39
-msgid "Family name"
-msgstr "Achternaam"
-
-#: templates/part.edit_name_dialog.php:41
-msgid "Hon. suffixes"
-msgstr "Honorabele"
-
-#: templates/part.edit_name_dialog.php:45
-msgid "J.D."
-msgstr "Jurist"
-
-#: templates/part.edit_name_dialog.php:46
-msgid "M.D."
-msgstr "Arts"
-
-#: templates/part.edit_name_dialog.php:47
-msgid "D.O."
-msgstr "Theoloog"
-
-#: templates/part.edit_name_dialog.php:48
-msgid "D.C."
-msgstr "Chircopracter"
-
-#: templates/part.edit_name_dialog.php:49
-msgid "Ph.D."
-msgstr "Doctor"
-
-#: templates/part.edit_name_dialog.php:50
-msgid "Esq."
-msgstr "Weledel gestrenge"
-
-#: templates/part.edit_name_dialog.php:51
-msgid "Jr."
-msgstr "Junior"
-
-#: templates/part.edit_name_dialog.php:52
-msgid "Sn."
-msgstr "Senior"
-
-#: templates/part.import.php:1
-msgid "Import a contacts file"
-msgstr "Importeer een contacten bestand"
-
-#: templates/part.import.php:6
-msgid "Please choose the addressbook"
-msgstr "Kies een adresboek"
-
-#: templates/part.import.php:10
-msgid "create a new addressbook"
-msgstr "Maak een nieuw adresboek"
-
-#: templates/part.import.php:15
-msgid "Name of new addressbook"
-msgstr "Naam van nieuw adresboek"
-
-#: templates/part.import.php:20
-msgid "Importing contacts"
-msgstr "Importeren van contacten"
-
-#: templates/part.no_contacts.php:3
-msgid ""
-"<h3>You have no contacts in your addressbook.</h3><p>You can import VCF "
-"files by dragging them to the contacts list and either drop them on an "
-"addressbook to import into it, or on an empty spot to create a new "
-"addressbook and import into that.<br />You can also import by clicking on "
-"the import button at the bottom of the list.</p>"
-msgstr "<h3>U heeft geen contacten in uw adresboek.</h3><p>U kunt VCF bestanden importeren door ze naar de contactenlijst te slepen en ze daar op een adresboek los te laten om ze in het desbetreffende adresboek op te nemen of laat ze op het lege gedeelte los om een nieuw adresboek te maken met de contacten uit het bestand.<br />Uw kunt ook importeren door op de import knop te klikken aan de onderkant van de lijst.</p>"
-
-#: templates/part.selectaddressbook.php:1
-msgid "Select Address Books"
-msgstr "Selecteer adresboeken"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"

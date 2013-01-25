@@ -1,8 +1,8 @@
 <?php $TRANSLATIONS = array(
 "Invalid request" => "Невалидна заявка",
 "Calendar" => "Календар",
-"Personal" => "Лични",
 "Title" => "Заглавие",
+"Personal" => "Лични",
 "Settings" => "Настройки",
 "Download" => "Изтегляне",
 "Edit" => "Промяна",
