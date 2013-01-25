@@ -64,7 +64,7 @@ angular.module('OC').factory '_Request', ->
 			# pass the CSRF token as header
 			headers =
 				headers:
-					'requesttoken': requesttoken
+					'requesttoken': oc_requesttoken
 					'Content-Type': 'application/x-www-form-urlencoded'
 
 			# do the actual request

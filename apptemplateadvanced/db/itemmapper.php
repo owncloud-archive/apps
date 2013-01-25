@@ -59,7 +59,7 @@ class ItemMapper extends Mapper {
 	 * @return the item
 	 */
 	public function findByUserId($userId){
-		$sql = 'SELECT * FROM ' . $this->tableName . ' WHERE user = ?';
+                $sql = 'SELECT * FROM `' . $this->tableName . '` WHERE `user` = ?';
 		$params = array($userId);
 
 		$result = $this->execute($sql, $params)->fetchRow();
@@ -94,7 +94,7 @@ class ItemMapper extends Mapper {
 	 * @return the item with the filled in id
 	 */
 	public function save($item){
-		$sql = 'INSERT INTO '. $this->tableName . '(name, user, path)'.
+                $sql = 'INSERT INTO `'. $this->tableName . '`(`name`, `user`, `path`)'.
 				' VALUES(?, ?, ?)';
 
 		$params = array(
@@ -114,11 +114,11 @@ class ItemMapper extends Mapper {
 	 * @param Item $item: the item to be updated
 	 */
 	public function update($item){
-		$sql = 'UPDATE '. $this->tableName . ' SET
-			name = ?,
-			user = ?,
-			path = ?
-			WHERE id = ?';
+                $sql = 'UPDATE `'. $this->tableName . '` SET
+                        `name` = ?,
+                        `user` = ?,
+                        `path` = ?
+                        WHERE `id` = ?';
 
 		$params = array(
 			$item->getName(),

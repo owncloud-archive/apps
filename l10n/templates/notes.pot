@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-25 00:02+0100\n"
+"POT-Creation-Date: 2013-01-26 00:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,18 @@ msgstr ""
 
 #: appinfo/app.php:9
 msgid "Notes"
+msgstr ""
+
+#: js/notes.js:8
+msgid "The title can not be empty"
+msgstr ""
+
+#: js/notes.js:15
+msgid "Invalid title"
+msgstr ""
+
+#: js/notes.js:15
+msgid "The following characters are not allowed"
 msgstr ""
 
 #: templates/categories.php:10 templates/help.php:5
@@ -102,16 +114,4 @@ msgstr ""
 
 #: templates/notes.php:421
 msgid "Restore"
-msgstr ""
-
-#: templates/notes.php:455
-msgid "The title can not be empty"
-msgstr ""
-
-#: templates/notes.php:462
-msgid "Invalid title"
-msgstr ""
-
-#: templates/notes.php:462
-msgid "The following characters are not allowed"
 msgstr ""
