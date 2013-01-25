@@ -1,6 +1,5 @@
 <div id='notification'></div>
 <script type='text/javascript'>
-	var totalurl = '<?php echo OCP\Util::linkToRemote('carddav'); ?>addressbooks';
 	var lang = '<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>';
 </script>
 <form class="float" id="file_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php'); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
