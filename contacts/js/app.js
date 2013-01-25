@@ -6,6 +6,20 @@ Modernizr.load({
 		]
 });
 
+(function($) {
+	$.QueryString = (function(a) {
+		if (a == "") return {};
+		var b = {};
+		for (var i = 0; i < a.length; ++i)
+		{
+			var p=a[i].split('=');
+			if (p.length != 2) continue;
+			b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+		}
+		return b;
+	})(window.location.search.substr(1).split('&'))
+})(jQuery);
+
 var utils = {};
 
 /**
@@ -153,7 +167,7 @@ OC.notify = function(params) {
 
 
 OC.Contacts = OC.Contacts || {
-	init:function(id) {
+	init:function() {
 		if(oc_debug === true) {
 			$(document).ajaxError(function(e, xhr, settings, exception) {
 				// Don't try to get translation because it's likely a network error.
@@ -162,11 +176,7 @@ OC.Contacts = OC.Contacts || {
 				});
 			});
 		}
-		//if(id) {
-			this.currentid = parseInt(id);
-			console.log('init, id:', id);
-		//}
-		// Holds an array of {id,name} maps
+
 		this.scrollTimeoutMiliSecs = 100;
 		this.isScrolling = false;
 		this.cacheElements();
@@ -330,6 +340,8 @@ OC.Contacts = OC.Contacts || {
 				self.loading(self.$rightContent, false);
 				self.groups.loadGroups(self.numcontacts, function() {
 					self.loading($('#leftcontent'), false);
+					var id = $.QueryString['id'];
+					self.currentid = parseInt(id);
 					console.log('Groups loaded, currentid', self.currentid);
 					if(self.currentid) {
 						self.openContact(self.currentid);
@@ -1626,6 +1638,6 @@ OC.Contacts = OC.Contacts || {
 
 $(document).ready(function() {
 
-	OC.Contacts.init(id);
+	OC.Contacts.init();
 
 });
