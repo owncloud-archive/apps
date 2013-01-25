@@ -1621,8 +1621,9 @@ OC.Contacts = OC.Contacts || {
 		},
 		// From stackoverflow.com/questions/1408289/best-way-to-do-variable-interpolation-in-javascript
 		_build: function(o){
-			var data = this.$elem.attr('type') === 'text/template'
-				? this.$elem.html() : this.$elem.outerHTML();
+			var data = this.$elem.html();
+				//this.$elem.attr('type') === 'text/template'
+				//? this.$elem.html() : this.$elem.outerHTML();
 			return data.replace(/{([^{}]*)}/g,
 				function (a, b) {
 					var r = o[b];
