@@ -294,6 +294,14 @@ OC.Contacts = OC.Contacts || {
 			$(window).trigger('beforeunload');
 		});
 
+		$(window).bind('hashchange', function() {
+			console.log('hashchange', window.location.hash)
+			var id = parseInt(window.location.hash.substr(1));
+			if(id) {
+				self.openContact(id);
+			}
+		});
+		
 		// App specific events
 		$(document).bind('status.contact.deleted', function(e, data) {
 			var id = parseInt(data.id);
@@ -330,8 +338,11 @@ OC.Contacts = OC.Contacts || {
 				self.loading(self.$rightContent, false);
 				self.groups.loadGroups(self.numcontacts, function() {
 					self.loading($('#leftcontent'), false);
-					var id = $.QueryString['id'];
+					var id = $.QueryString['id']; // Keep for backwards compatible links.
 					self.currentid = parseInt(id);
+					if(!self.currentid) {
+						self.currentid = parseInt(window.location.hash.substr(1));
+					}
 					console.log('Groups loaded, currentid', self.currentid);
 					if(self.currentid) {
 						self.openContact(self.currentid);
