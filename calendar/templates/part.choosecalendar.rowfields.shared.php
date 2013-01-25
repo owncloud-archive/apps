@@ -1,4 +1,0 @@
-<?php
-echo '<td width="20px"><input id="active_' . $_['share']['owner'] . '_' . $_['share']['calendar']['id'] . '"  class="choosecalendar-rowfield-active" type="checkbox" data-id="<?php echo ($_['share']['owner'] . '\',' . $_['share']['calendar']['id'] . ')"' . ($_['share']['active'] ? ' checked="checked"' : ''); ?>"></td>';
-echo '<td><label for="active_' . $_['share']['owner'] . '_' . $_['share']['calendar']['id'] . '">' . htmlspecialchars($_['share']['calendar']['displayname']) . '</label></td>';
-echo '<td style="font-style: italic;">' .  $l->t('shared with you by') . ' ' . $_['share']['owner'] . '</td>';
