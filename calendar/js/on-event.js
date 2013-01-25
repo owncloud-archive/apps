@@ -19,3 +19,6 @@ $('#advanced_options_button').live('click', function () {
 $('#advanced_options_button_repeat').live('click', function () {
 	Calendar.UI.showadvancedoptionsforrepeating();
 });
+$('#submitNewEvent').live('click', function () {
+	Calendar.UI.validateEventForm($(this).data('link'));
+});
