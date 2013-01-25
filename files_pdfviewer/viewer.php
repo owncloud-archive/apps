@@ -10,6 +10,6 @@ $file = isset($_GET['file']) ? $_GET['file'] : '';
 $mime = "application/pdf";
 
 $page = new OCP\Template( 'files_pdfviewer', 'pdf');
-$page->assign('dir', $dir, false);
-$page->assign('file', $file, false);
+$page->assign('dir', $dir);
+$page->assign('file', $file);
 $page->printPage();
