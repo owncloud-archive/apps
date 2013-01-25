@@ -58,7 +58,7 @@
 		<tr>
 			<th width="75px"></th>
 			<td>
-				<input onclick="Calendar.UI.lockTime();" type="checkbox"<?php if($_['allday']) {echo 'checked="checked"';} ?> id="allday_checkbox" name="allday" disabled="disabled">
+				<input type="checkbox"<?php if($_['allday']) {echo 'checked="checked"';} ?> id="allday_checkbox" name="allday" disabled="disabled">
 				<?php echo $l->t("All Day Event");?>
 			</td>
 		</tr>
