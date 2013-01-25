@@ -74,14 +74,6 @@ utils.moveCursorToEnd = function(el) {
 	}
 };
 
-utils.linkToRemote = function(service) {
-	return window.location.protocol + '//' + window.location.host + utils.linkToRemoteBase(service);
-};
-
-utils.linkToRemoteBase = function(service) {
-	return OC.webroot + '/remote.php/' + service;
-};
-
 if (typeof Object.create !== 'function') {
 	Object.create = function (o) {
 		function F() {}
@@ -819,7 +811,7 @@ OC.Contacts = OC.Contacts || {
 					var id = parseInt($(this).parents('li').first().data('id'));
 					var book = self.contacts.addressbooks[id];
 					var uri = (book.owner === oc_current_user ) ? book.uri : book.uri + '_shared_by_' + book.owner;
-					var link = utils.linkToRemote('carddav')+'/addressbooks/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
+					var link = OC.linkToRemote('carddav')+'/addressbooks/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
 					var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" /></div>');
 					$dropdown.appendTo($(this).parents('li').first());
 					var $input = $dropdown.find('input');
