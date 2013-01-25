@@ -136,6 +136,7 @@ function saveRID(){
 	if(sessionAttached==true){
 		$.ajax({
 			type: 'POST',
+			timeout: 600,
 			async: false,
 			url:OC.linkTo('xmpp','ajax/setRid.php'),
 			data:"rid="+connection.rid
@@ -157,6 +158,7 @@ function attachNew(){
 function attachSession(){
 	$.ajax({
                 type: 'GET',
+		timeout: 600,
                 url:OC.linkTo('xmpp','ajax/getSession.php'),
                 success: function(xmppsess){
                         var j=jQuery.parseJSON(xmppsess)
@@ -169,6 +171,7 @@ function attachSession(){
 function initBosh(){
 	$.ajax({
 		type: 'GET',
+		timeout: 600,
 		url:OC.linkTo('xmpp','ajax/getBOSHURL.php'),
 		success: function(boshurl){
 			var bosh=jQuery.parseJSON(boshurl);
