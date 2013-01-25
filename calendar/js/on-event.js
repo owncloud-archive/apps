@@ -41,7 +41,7 @@ $('.editEvent-export').live('click', function () {
 	window.location = $(this).data('link');
 });
 $('#chooseCalendar-showCalDAVURL').live('click', function () {
-	Calendar.UI.showCalDAVUrl($(this).data('user'), $(this).data('calendar'));
+	Calendar.UI.showCalDAVUrl($(this).data('user'), $(this).data('caldav'));
 });
 $('#chooseCalendar-edit').live('click', function () {
 	Calendar.UI.Calendar.edit($(this), $(this).data('id'));
