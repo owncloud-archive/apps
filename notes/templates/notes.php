@@ -57,7 +57,7 @@
 <div style="float:left;">
 <form action="?app=notes" method="get" target="_self">
 	<input type="hidden" name="app" value="notes">
-	<select name="category" size="1" style="width: 150px" onchange="window.open('?app=notes&category='+this.options[this.selectedIndex].value, '_self');">
+	<select name="category" size="1" style="width: 150px" id="notes_cat_select">
 <option value='General'><?php echo $l->t('General'); ?></option>
 <?php
   foreach( $arr_rootfilelist as $i ) {
@@ -431,39 +431,6 @@ if( OCA_Versions\Storage::isversioned( $source ) ) {
 
 <?php } ?>
 
-<script type="text/javascript">
-    function getEventTarget(e) {
-        e = e || window.event;
-        return e.target || e.srcElement;
-    }
-    var ul = document.getElementById('entries');
-    ul.onclick = function(event) {
-        var target = getEventTarget(event);
-	var txt = target.innerHTML;
-	var arr = txt.split('"');
-	url = arr[1]
-	url = arr[1].replace(/&amp;/g, "&");
-	if(url != "active"){
-// 	    alert(url);
-	    window.open(url, "_self");
-	}
-    };
+<?php
+OCP\Util::addscript('notes', 'notes');
 
-function checkform()
-{
-	if(String.trim(document.notes_save.title.value) == ""){
-		alert("<?php echo $l->t('The title can not be empty'); ?>!");
-		return false;	
-	}
-
-	var invalid_characters = ['\\', '/', '<', '>', ':', '"', '|', '?', '*'];
-	for (var i = 0; i < invalid_characters.length; i++) {
-		if (document.notes_save.title.value.indexOf(invalid_characters[i]) != -1) {
-			alert("<?php echo $l->t('Invalid title'); echo "!\\n"; echo $l->t('The following characters are not allowed'); ?>: '\\', '/', '<', '>', ':', '\"', '|', '?', '*'");
-			return false;
-		}
-	}
-
-	return true;
-}
-</script>

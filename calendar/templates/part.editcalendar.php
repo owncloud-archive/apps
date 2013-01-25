@@ -39,6 +39,6 @@
 	</td>
 </tr>
 </table>
-<input style="float: left;" type="button" onclick="Calendar.UI.Calendar.submit(this, <?php echo $_['new'] ? "'new'" : $_['calendar']['id'] ?>);" value="<?php echo $_['new'] ? $l->t("Save") : $l->t("Submit"); ?>">
-<input style="float: left;" type="button" onclick="Calendar.UI.Calendar.cancel(this, <?php echo $_['new'] ? "'new'" : $_['calendar']['id'] ?>);" value="<?php echo $l->t("Cancel"); ?>">
+<input style="float: left;"  id="editCalendar-submit" type="button" data-id="<?php echo $_['new'] ? "new" : $_['calendar']['id'] ?>" value="<?php echo $_['new'] ? $l->t("Save") : $l->t("Submit"); ?>">
+<input style="float: left;"  id="editCalendar-cancel"  type="button" data-id="<?php echo $_['new'] ? "new" : $_['calendar']['id'] ?>" value="<?php echo $l->t("Cancel"); ?>">
 </td>

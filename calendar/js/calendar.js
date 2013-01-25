@@ -529,7 +529,7 @@ Calendar={
 							$('#fullcalendar').fullCalendar('removeEventSource', data.eventSource.url);
 							$('#fullcalendar').fullCalendar('addEventSource', data.eventSource);
 							if (calendarid == 'new'){
-								$('#choosecalendar_dialog > table:first').append('<tr><td colspan="6"><a href="#" onclick="Calendar.UI.Calendar.newCalendar(this);"><input type="button" value="' + newcalendar + '"></a></td></tr>');
+								$('#choosecalendar_dialog > table:first').append('<tr><td colspan="6"><a href="#" id="chooseCalendar"><input type="button" value="' + newcalendar + '"></a></td></tr>');
 							}
 						}else{
 							$("#displayname_"+calendarid).css('background-color', '#FF2626');
