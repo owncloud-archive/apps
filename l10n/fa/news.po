@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-23 00:02+0100\n"
-"PO-Revision-Date: 2013-01-21 08:11+0000\n"
+"POT-Creation-Date: 2013-01-27 00:01+0100\n"
+"PO-Revision-Date: 2013-01-26 13:36+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -172,7 +172,7 @@ msgstr ""
 
 #: js/news.js:90
 msgid "URL cannot be empty."
-msgstr ""
+msgstr "URL  نمی تواند خالی باشد."
 
 #: js/news.js:120 js/news.js:127 templates/firstrun.php:5
 msgid "Add feed"

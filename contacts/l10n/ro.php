@@ -25,6 +25,7 @@
 "The uploaded file was only partially uploaded" => "Fișierul a fost încărcat doar parțial",
 "No file was uploaded" => "Nu a fost încărcat nici un fișier",
 "Missing a temporary folder" => "Lipsește un director temporar",
+"Couldn't save temporary image: " => "Nu s-a putut salva imaginea temporară",
 "No file was uploaded. Unknown error" => "Nici un fișier nu a fost încărcat. Eroare necunoscută",
 "Contacts" => "Contacte",
 "Error" => "Eroare",

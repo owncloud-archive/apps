@@ -5,13 +5,14 @@
 # Translators:
 #   <basir.jafarzadeh@gmail.com>, 2012.
 # Hossein nag <h.sname@yahoo.com>, 2012.
+# mahdi Kereshteh <miki_mika1362@yahoo.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-24 00:02+0100\n"
-"PO-Revision-Date: 2013-01-23 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-27 00:01+0100\n"
+"PO-Revision-Date: 2013-01-26 06:14+0000\n"
+"Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,8 +82,8 @@ msgstr "عنوان"
 
 #: templates/settings.php:3
 msgid "Media"
-msgstr ""
+msgstr "رسانه ها"
 
 #: templates/settings.php:4
 msgid "Ampache address:"
-msgstr ""
+msgstr "آدرس Ampache "

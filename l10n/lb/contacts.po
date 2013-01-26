@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-26 00:04+0100\n"
-"PO-Revision-Date: 2013-01-25 23:05+0000\n"
+"POT-Creation-Date: 2013-01-27 00:01+0100\n"
+"PO-Revision-Date: 2013-01-26 13:35+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
@@ -676,7 +676,7 @@ msgstr ""
 
 #: templates/contacts.php:37
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: templates/contacts.php:47
 msgid "(De-)select all"
@@ -988,7 +988,7 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr ""
+msgstr "méi Informatiounen"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <sim0n@trypill.org>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-30 00:01+0100\n"
-"PO-Revision-Date: 2012-11-28 23:14+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-27 00:01+0100\n"
+"PO-Revision-Date: 2013-01-26 12:16+0000\n"
+"Last-Translator: sim0n <sim0n@trypill.org>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,35 +28,35 @@ msgstr ""
 
 #: ajax/createfeed.php:52
 msgid "Feed already exists."
-msgstr ""
+msgstr "Feed existéiert schonn."
 
 #: ajax/createfeed.php:58
 msgid "Error adding feed."
-msgstr ""
+msgstr "Fehler beim bäisetzen vum Feed."
 
 #: ajax/createfeed.php:71
 msgid "Feed added!"
-msgstr ""
+msgstr "Feed bäigesat!"
 
 #: ajax/createfolder.php:37
 msgid "Error adding folder."
-msgstr ""
+msgstr "Fehler beim bäisetzen vum Dossier."
 
 #: ajax/createfolder.php:47
 msgid "Folder added!"
-msgstr ""
+msgstr "Dossier bäigesat!"
 
 #: ajax/deletefeed.php:29
 msgid "Error removing feed."
-msgstr ""
+msgstr "Fehler beim läschen vum Feed."
 
 #: ajax/deletefolder.php:27
 msgid "Error removing folder."
-msgstr ""
+msgstr "Fehler beim läschen vum Dossier."
 
 #: ajax/feedlist.php:28
 msgid "Error updating feeds."
-msgstr ""
+msgstr "Fehler beim updaten vum Feed."
 
 #: ajax/importopml.php:40
 msgid "Empty filename"
@@ -75,7 +76,7 @@ msgstr ""
 
 #: ajax/loadfeed.php:52
 msgid "Feed loaded!"
-msgstr ""
+msgstr "Feed gelueden!"
 
 #: ajax/movefeedtofolder.php:37
 msgid "Error moving feed into folder."
@@ -103,15 +104,15 @@ msgstr ""
 
 #: ajax/updatefeed.php:37
 msgid "Error updating feed."
-msgstr ""
+msgstr "Fehler beim updaten vum Feed."
 
 #: ajax/updatefeed.php:45
 msgid "Feed updated!"
-msgstr ""
+msgstr "Feed geupdate!"
 
 #: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
 msgid "News"
-msgstr ""
+msgstr "News"
 
 #: js/items.js:122
 msgid "Error while loading the feed"
@@ -176,7 +177,7 @@ msgstr ""
 
 #: js/news.js:120 js/news.js:127 templates/firstrun.php:5
 msgid "Add feed"
-msgstr ""
+msgstr "Feed bäisetzen"
 
 #: js/news.js:124
 msgid "Error while parsing the feed"
@@ -212,11 +213,11 @@ msgstr ""
 
 #: lib/feedmapper.php:180 lib/itemmapper.php:221
 msgid "no title"
-msgstr ""
+msgstr "keen Titel"
 
 #: lib/foldermapper.php:127
 msgid "no name"
-msgstr ""
+msgstr "kee Numm"
 
 #: lib/itemmapper.php:226
 msgid "no body"
@@ -260,7 +261,7 @@ msgstr ""
 
 #: templates/firstrun.php:12
 msgid "Upload"
-msgstr ""
+msgstr "Eroplueden"
 
 #: templates/firstrun.php:13
 msgid "Select file from ownCloud"
@@ -268,7 +269,7 @@ msgstr ""
 
 #: templates/firstrun.php:13
 msgid "Select"
-msgstr ""
+msgstr "Auswielen"
 
 #: templates/firstrun.php:15 templates/settings.php:4
 msgid ""
@@ -295,7 +296,7 @@ msgstr ""
 
 #: templates/main.php:37
 msgid "Feed"
-msgstr ""
+msgstr "Feed"
 
 #: templates/main.php:38
 msgid "Folder"
@@ -315,7 +316,7 @@ msgstr ""
 
 #: templates/part.dialogues.php:8 templates/part.dialogues.php:42
 msgid "Folder name"
-msgstr ""
+msgstr "Dossiers Numm:"
 
 #: templates/part.dialogues.php:14
 msgid "Add Subscription"
@@ -335,7 +336,7 @@ msgstr "Dobäisetzen"
 
 #: templates/part.feeds.php:48
 msgid "New articles"
-msgstr ""
+msgstr "Nei Artikelen"
 
 #: templates/part.feeds.php:51 templates/part.listfeed.php:34
 #: templates/part.listfolder.php:35
@@ -381,7 +382,7 @@ msgstr ""
 
 #: templates/part.listfolder.php:33
 msgid "Delete folder"
-msgstr ""
+msgstr "Dossier läschen"
 
 #: templates/part.listfolder.php:34
 msgid "Rename folder"
@@ -389,11 +390,11 @@ msgstr ""
 
 #: templates/settings.php:2
 msgid "Import feeds"
-msgstr ""
+msgstr "Feeden importéieren"
 
 #: templates/settings.php:8
 msgid "Export feeds"
-msgstr ""
+msgstr "Feeden exportéieren"
 
 #: templates/settings.php:10
 msgid "Download OPML"

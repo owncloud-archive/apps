@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-10 00:01+0100\n"
+"POT-Creation-Date: 2013-01-27 00:01+0100\n"
 "PO-Revision-Date: 2012-08-26 23:39+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
@@ -123,7 +123,7 @@ msgstr ""
 #: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
 #: js/settings.js:68
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 #: js/main.js:33
 msgid "None"

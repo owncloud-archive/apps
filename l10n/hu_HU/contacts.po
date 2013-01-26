@@ -5,6 +5,7 @@
 # Translators:
 # Adam Toth <adazlord@gmail.com>, 2012.
 #   <gyonkibendeguz@gmail.com>, 2013.
+# Laszlo Tornoci <torlasz@gmail.com>, 2013.
 #   <mail@tamas-nagy.net>, 2011.
 # Peter Borsa <peter.borsa@gmail.com>, 2011.
 # Tamas Nagy <mail@tamas-nagy.net>, 2012.
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-26 00:04+0100\n"
-"PO-Revision-Date: 2013-01-25 23:05+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-27 00:01+0100\n"
+"PO-Revision-Date: 2013-01-26 19:12+0000\n"
+"Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgstr ""
 
 #: ajax/addressbook/activate.php:37 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
-msgstr "Címlista (de)aktiválása sikertelen"
+msgstr "A címlista (de)aktiválása sikertelen"
 
 #: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/delete.php:32 ajax/contact/deleteproperty.php:38
@@ -70,7 +71,7 @@ msgstr "Nem található címlista"
 
 #: ajax/categories/delete.php:36
 msgid "No contacts found."
-msgstr "Nem található kontakt"
+msgstr "Nem található bejegyzés."
 
 #: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:74
 msgid "element name is not set."
@@ -82,7 +83,7 @@ msgstr "az ellenőrzőösszeg nincs beállítva"
 
 #: ajax/contact/deleteproperty.php:54
 msgid "Information about vCard is incorrect. Please reload the page."
-msgstr "A vCardról szóló információ helytelen. Töltsd újra az oldalt."
+msgstr "A vCardról szóló információ helytelen. Frissítse az oldalt!"
 
 #: ajax/contact/saveproperty.php:98
 #, php-format
@@ -95,7 +96,7 @@ msgstr "Helytelen információ a vCardról. Töltse újra az oldalt: "
 
 #: ajax/contact/saveproperty.php:116
 msgid "Something went FUBAR. "
-msgstr "Valami balul sült el."
+msgstr "Helyrehozhatatlan hiba történt."
 
 #: ajax/contact/saveproperty.php:128
 #, php-format
@@ -117,7 +118,7 @@ msgstr "Nincs ID megadva a kontakthoz"
 
 #: ajax/currentphoto.php:36
 msgid "Error reading contact photo."
-msgstr "A kontakt képének beolvasása sikertelen"
+msgstr "Az arckép beolvasása sikertelen"
 
 #: ajax/currentphoto.php:50
 msgid "Error saving temporary file."
@@ -141,7 +142,7 @@ msgstr "A fájl nem létezik:"
 
 #: ajax/oc_photo.php:44 ajax/oc_photo.php:47
 msgid "Error loading image."
-msgstr "Kép betöltése sikertelen"
+msgstr "A kép betöltése sikertelen"
 
 #: ajax/savecrop.php:70
 msgid "Error getting contact object."
@@ -207,7 +208,7 @@ msgstr "A fájl csak részlegesen lett feltöltve"
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
-msgstr "Nincs feltöltött fájl"
+msgstr "Nem töltődött fel állomány"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
@@ -227,7 +228,7 @@ msgstr "Nem történt feltöltés. Ismeretlen hiba"
 
 #: appinfo/app.php:25
 msgid "Contacts"
-msgstr "Kapcsolatok"
+msgstr "Címjegyzékek"
 
 #: export.php:66
 #, php-format
@@ -257,7 +258,7 @@ msgstr "Fotó kiválasztása"
 #: js/app.js:498 js/app.js:524 js/app.js:1483 js/app.js:1595
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
-msgstr ""
+msgstr "Hiba történt a hálózatban vagy a kiszolgálón. Értesítse a rendszergazdát!"
 
 #: js/app.js:660 js/app.js:695
 msgid "Error adding to group."
@@ -277,7 +278,7 @@ msgstr ""
 
 #: js/app.js:877
 msgid "Add address book"
-msgstr ""
+msgstr "Új címjegyzék"
 
 #: js/app.js:973
 msgid "Import done. Click here to cancel reloading."
@@ -356,7 +357,7 @@ msgstr "Leírás megadása"
 
 #: js/app.js:1522
 msgid "Select addressbook"
-msgstr ""
+msgstr "A címlista kiválasztása"
 
 #: js/app.js:1530
 msgid "The address book name cannot be empty."
@@ -483,11 +484,11 @@ msgstr "Kevesebb..."
 
 #: lib/addressbook.php:152
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "Nincs jogosultsága hozzáférni ehhez a címjegyzékhez."
 
 #: lib/addressbook.php:264
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "Nincs jogosultsága módosítani ezt a címjegyzéket."
 
 #: lib/addressbook.php:283 lib/addressbook.php:292
 msgid "There was an error updating the addressbook."
@@ -495,11 +496,11 @@ msgstr ""
 
 #: lib/addressbook.php:354
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "Nincs jogosultsága törölni ezt a címjegyzéket."
 
 #: lib/addressbook.php:383
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "A címjegyzék törlése nem sikerült."
 
 #: lib/app.php:89
 msgid "Jabber"
@@ -616,7 +617,7 @@ msgstr "Kapcsolat"
 
 #: lib/vcard.php:342
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "Nincs jogosultsága bővíteni ezt a címjegyzéket."
 
 #: lib/vcard.php:462
 msgid "Could not find the vCard with ID."
@@ -624,7 +625,7 @@ msgstr ""
 
 #: lib/vcard.php:490
 msgid "You do not have the permissions to edit this contact."
-msgstr ""
+msgstr "Nincs jogosultsága módosítani az illető adatait."
 
 #: lib/vcard.php:565
 msgid "Could not find the vCard with ID: "
@@ -632,15 +633,15 @@ msgstr ""
 
 #: lib/vcard.php:573
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "Nincs címjegyzék ezzel az ID-vel:"
 
 #: lib/vcard.php:603
 msgid "You do not have the permissions to delete this contact."
-msgstr ""
+msgstr "Nincs jogosultsága törölni az illető adatait."
 
 #: lib/vcard.php:622
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "A bejegyzés törlése nem sikerült."
 
 #: lib/vcard.php:648
 msgid "Contact not found."
@@ -660,7 +661,7 @@ msgstr "Beállítások"
 
 #: templates/contacts.php:18
 msgid "Address books"
-msgstr ""
+msgstr "Címjegyzékek"
 
 #: templates/contacts.php:21 templates/contacts.php:98
 msgid "Import"
@@ -728,15 +729,15 @@ msgstr "Előző kapcsolat a listán"
 
 #: templates/contacts.php:72
 msgid "Expand/collapse current addressbook"
-msgstr ""
+msgstr "A címlista kinyitása/becsukása"
 
 #: templates/contacts.php:74
 msgid "Next addressbook"
-msgstr ""
+msgstr "A következő címlista"
 
 #: templates/contacts.php:76
 msgid "Previous addressbook"
-msgstr ""
+msgstr "Az előző címlista"
 
 #: templates/contacts.php:80
 msgid "Actions"
@@ -752,7 +753,7 @@ msgstr "Új kapcsolat hozzáadása"
 
 #: templates/contacts.php:87
 msgid "Add new addressbook"
-msgstr ""
+msgstr "Új címlista létrehozása"
 
 #: templates/contacts.php:89
 msgid "Delete current contact"
@@ -762,11 +763,11 @@ msgstr "Jelenlegi kapcsolat törlése"
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
-msgstr ""
+msgstr "<h3>Ebben a címjegyzékben még nincsenek bejegyzések.</h3><p>Hozzon létre egyet, vagy importáljon adatokar egy VCF-állományból.</p>"
 
 #: templates/contacts.php:97
 msgid "Add contact"
-msgstr "Kapcsolat hozzáadása"
+msgstr "Új személy hozzáadása"
 
 #: templates/contacts.php:138
 msgid "Compose mail"
@@ -778,11 +779,11 @@ msgstr "Csoport törlése"
 
 #: templates/contacts.php:162
 msgid "Delete current photo"
-msgstr "Aktuális kép törlése"
+msgstr "Az aktuális kép törlése"
 
 #: templates/contacts.php:163
 msgid "Edit current photo"
-msgstr "Aktuális kép szerkesztése"
+msgstr "Az aktuális kép szerkesztése"
 
 #: templates/contacts.php:164
 msgid "Upload new photo"
@@ -790,7 +791,7 @@ msgstr "Új kép feltöltése"
 
 #: templates/contacts.php:165
 msgid "Select photo from ownCloud"
-msgstr "Kép kiválasztása ownCloud-ból"
+msgstr "Kép kiválasztása ownCloudból"
 
 #: templates/contacts.php:176 templates/contacts.php:177
 msgid "First name"
@@ -874,7 +875,7 @@ msgstr "Weboldal"
 
 #: templates/contacts.php:271
 msgid "Delete contact"
-msgstr "Kapcsolat törlése"
+msgstr "A bejegyzés törlése"
 
 #: templates/contacts.php:284 templates/contacts.php:299
 #: templates/contacts.php:313 templates/contacts.php:338
