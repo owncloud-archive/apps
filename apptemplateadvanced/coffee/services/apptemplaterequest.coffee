@@ -29,6 +29,13 @@ angular.module('AppTemplateAdvanced').factory '_AppTemplateAdvancedRequest',
 			@post(route, {}, data)
 
 
+		getName: (route, scope) ->
+			success = (data) ->
+				scope.name = data.data.somesetting
+				console.log data
+
+			@post(route, {}, {}, success)			
+
 		# Create your local request methods in here
 		#
 		# myReqest: (route, ...) ->

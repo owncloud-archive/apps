@@ -14,4 +14,7 @@
 angular.module('AppTemplateAdvanced').filter 'leetIt', ->
 
 	return (leetThis) ->
-		return leetThis.replace('e', '3').replace('i', '1')
+		if leetThis != undefined
+			return leetThis.replace('e', '3').replace('i', '1')
+		else
+			return ''

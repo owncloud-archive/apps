@@ -31,30 +31,16 @@
 */
 
 
+/*
+# This file creates instances of classes
+*/
+
+
 (function() {
 
-  angular.module('AppTemplateAdvanced', ['OC']).config([
-    '$provide', '$interpolateProvider', function($provide, $interpolateProvider) {
-      var Config;
-      $interpolateProvider.startSymbol('[[');
-      $interpolateProvider.endSymbol(']]');
-      Config = {
-        myParam: 'test'
-      };
-      Config.routes = {
-        saveNameRoute: 'apptemplate_advanced_ajax_setsystemvalue'
-      };
-      return $provide.value('Config', Config);
-    }
-  ]);
-
-  angular.module('AppTemplateAdvanced').run([
-    '$rootScope', function($rootScope) {
-      var init;
-      init = function() {
-        return $rootScope.$broadcast('routesLoaded');
-      };
-      return OC.Router.registerLoadedCallback(init);
+  angular.module('OC').factory('Publisher', [
+    '_Publisher', function(_Publisher) {
+      return new _Publisher();
     }
   ]);
 
@@ -74,16 +60,31 @@
 */
 
 
-/*
-# This file creates instances of classes
-*/
-
-
 (function() {
 
-  angular.module('OC').factory('Publisher', [
-    '_Publisher', function(_Publisher) {
-      return new _Publisher();
+  angular.module('AppTemplateAdvanced', ['OC']).config([
+    '$provide', '$interpolateProvider', function($provide, $interpolateProvider) {
+      var Config;
+      $interpolateProvider.startSymbol('[[');
+      $interpolateProvider.endSymbol(']]');
+      Config = {
+        myParam: 'test'
+      };
+      Config.routes = {
+        saveNameRoute: 'apptemplate_advanced_ajax_setsystemvalue',
+        getNameRoute: 'apptemplate_advanced_ajax_getsystemvalue'
+      };
+      return $provide.value('Config', Config);
+    }
+  ]);
+
+  angular.module('AppTemplateAdvanced').run([
+    '$rootScope', function($rootScope) {
+      var init;
+      init = function() {
+        return $rootScope.$broadcast('routesLoaded');
+      };
+      return OC.Router.registerLoadedCallback(init);
     }
   ]);
 
@@ -419,9 +420,46 @@
 
   angular.module('AppTemplateAdvanced').filter('leetIt', function() {
     return function(leetThis) {
-      return leetThis.replace('e', '3').replace('i', '1');
+      if (leetThis !== void 0) {
+        return leetThis.replace('e', '3').replace('i', '1');
+      } else {
+        return '';
+      }
     };
   });
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+(function() {
+
+  angular.module('AppTemplateAdvanced').factory('AppTemplateAdvancedRequest', [
+    '$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher', 'ItemModel', function($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher, ItemModel) {
+      Publisher.subscribeModelTo(ItemModel, 'items');
+      return new _AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher);
+    }
+  ]);
+
+  angular.module('AppTemplateAdvanced').factory('ItemModel', [
+    '_ItemModel', 'Publisher', function(_ItemModel, Publisher) {
+      var model;
+      model = new _ItemModel();
+      return model;
+    }
+  ]);
 
 }).call(this);
 
@@ -462,43 +500,19 @@
           return this.post(route, {}, data);
         };
 
+        AppTemplateAdvancedRequest.prototype.getName = function(route, scope) {
+          var success;
+          success = function(data) {
+            scope.name = data.data.somesetting;
+            return console.log(data);
+          };
+          return this.post(route, {}, {}, success);
+        };
+
         return AppTemplateAdvancedRequest;
 
       })(_Request);
       return AppTemplateAdvancedRequest;
-    }
-  ]);
-
-}).call(this);
-
-
-
-/*
-# ownCloud
-#
-# @author Bernhard Posselt
-# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
-#
-# This file is licensed under the Affero General Public License version 3 or later.
-# See the COPYING-README file
-#
-*/
-
-
-(function() {
-
-  angular.module('AppTemplateAdvanced').factory('AppTemplateAdvancedRequest', [
-    '$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher', 'ItemModel', function($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher, ItemModel) {
-      Publisher.subscribeModelTo(ItemModel, 'items');
-      return new _AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher);
-    }
-  ]);
-
-  angular.module('AppTemplateAdvanced').factory('ItemModel', [
-    '_ItemModel', 'Publisher', function(_ItemModel, Publisher) {
-      var model;
-      model = new _ItemModel();
-      return model;
     }
   ]);
 
@@ -571,10 +585,17 @@
         this.$scope.saveName = function(name) {
           return _this.saveName(name);
         };
+        this.$scope.$on('routesLoaded', function() {
+          return _this.getName(_this.$scope);
+        });
       }
 
       ExampleController.prototype.saveName = function(name) {
         return this.request.saveName(this.config.routes.saveNameRoute, name);
+      };
+
+      ExampleController.prototype.getName = function(scope) {
+        return this.request.getName(this.config.routes.getNameRoute, scope);
       };
 
       return ExampleController;

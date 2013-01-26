@@ -24,9 +24,14 @@ angular.module('AppTemplateAdvanced').factory '_ExampleController', ->
 			@$scope.saveName = (name) =>
 				@saveName(name)
 
+			@$scope.$on 'routesLoaded', =>
+				@getName(@$scope)
+
 
 		saveName: (name) ->
 			@request.saveName(@config.routes.saveNameRoute, name)
 
+		getName: (scope) ->
+			@request.getName(@config.routes.getNameRoute, scope)
 
 	return ExampleController

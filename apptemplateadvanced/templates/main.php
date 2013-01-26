@@ -1,7 +1,6 @@
 <div id="app"
 	ng-app="AppTemplateAdvanced"
-	ng-controller="ExampleController"
-	ng-init="name='{{somesetting}}'">
+	ng-controller="ExampleController">
 
 	<h1 class="heading">This is an advanced app template</h1>
 

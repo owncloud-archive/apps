@@ -28,6 +28,7 @@ angular.module('AppTemplateAdvanced', ['OC']).config ['$provide', '$interpolateP
 	# http:#docs.angularjs.org/api/ng.$route
 	Config.routes =
 		saveNameRoute: 'apptemplate_advanced_ajax_setsystemvalue'
+		getNameRoute: 'apptemplate_advanced_ajax_getsystemvalue'
 
 	return $provide.value('Config', Config)
 ]

@@ -61,3 +61,9 @@ $this->create('apptemplate_advanced_ajax_setsystemvalue', '/setsystemvalue')->po
 		App::main('ItemController', 'setSystemValue', $params, new DIContainer());
 	}
 );
+
+$this->create('apptemplate_advanced_ajax_getsystemvalue', '/getsystemvalue')->post()->action(
+	function($params){
+		App::main('ItemController', 'getSystemValue', $params, new DIContainer());
+	}
+);

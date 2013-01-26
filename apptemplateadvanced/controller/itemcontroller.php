@@ -117,4 +117,18 @@ class ItemController extends Controller {
 
 		return $this->renderJSON($params);
 	}
+
+	/**
+	 * @Ajax
+	 */
+	public function getSystemValue(){
+		$value = $this->api->getSystemValue('somesetting');
+
+		$params = array(
+			'somesetting' => $value
+		);
+
+		return $this->renderJSON($params);
+	}
+
 }
