@@ -7,7 +7,7 @@
     <target>doc/output</target>
   </transformer>
   <files>
-    <file>app.php</file>
+    <file>./app.php</file>
     <directory>controller</directory>
     <directory>db</directory>
     <directory>core</directory>
