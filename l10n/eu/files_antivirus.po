@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Piarres Beobide <pi@beobide.net>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-21 00:01+0100\n"
-"PO-Revision-Date: 2013-01-19 23:02+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-28 00:01+0100\n"
+"PO-Revision-Date: 2013-01-27 15:45+0000\n"
+"Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,19 +38,19 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "Antivirus konfigurazioa"
 
 #: templates/settings.php:4
 msgid "Mode"
-msgstr ""
+msgstr "Modua"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr ""
+msgstr "Abiarazgarria"
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr ""
+msgstr "Deabrua"
 
 #: templates/settings.php:7
 msgid "Host"
@@ -81,7 +82,7 @@ msgstr ""
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "clamscan bidea"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
@@ -101,7 +102,7 @@ msgstr ""
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr ""
+msgstr "Ezabatu fitxaegia"
 
 #: templates/settings.php:14
 msgid "Save"

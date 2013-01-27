@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <mednismartins@inbox.lv>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-26 00:04+0100\n"
-"PO-Revision-Date: 2013-01-25 23:05+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-28 00:01+0100\n"
+"PO-Revision-Date: 2013-01-27 12:13+0000\n"
+"Last-Translator: martins1 <mednismartins@inbox.lv>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +36,7 @@ msgstr ""
 
 #: ajax/event/edit.form.php:21
 msgid "Wrong calendar"
-msgstr ""
+msgstr "Nepareizs kalendārs"
 
 #: ajax/event/edit.form.php:221 lib/object.php:196 lib/object.php:232
 msgid "You do not have the permissions to edit this event."
@@ -61,11 +62,11 @@ msgstr ""
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
-msgstr ""
+msgstr "Jauna laika zona"
 
 #: ajax/settings/settimezone.php:23
 msgid "Timezone changed"
-msgstr ""
+msgstr "Laika zona nomainīta"
 
 #: ajax/settings/settimezone.php:25
 msgid "Invalid request"
@@ -74,7 +75,7 @@ msgstr "Nepareizs vaicājums"
 #: appinfo/app.php:38 js/l10n.php:55 templates/part.eventform.php:30
 #: templates/part.showevent.php:33
 msgid "Calendar"
-msgstr ""
+msgstr "Kalendārs"
 
 #: js/calendar.js:154
 msgid "Deletion failed"
@@ -134,31 +135,31 @@ msgstr ""
 
 #: js/l10n.php:45 lib/object.php:555 templates/settings.php:70
 msgid "Sunday"
-msgstr ""
+msgstr "Svētdiena"
 
 #: js/l10n.php:45 lib/object.php:549 templates/settings.php:69
 msgid "Monday"
-msgstr ""
+msgstr "Pirmdiena"
 
 #: js/l10n.php:45 lib/object.php:550
 msgid "Tuesday"
-msgstr ""
+msgstr "Otrdiena"
 
 #: js/l10n.php:45 lib/object.php:551
 msgid "Wednesday"
-msgstr ""
+msgstr "Trešdiena"
 
 #: js/l10n.php:45 lib/object.php:552
 msgid "Thursday"
-msgstr ""
+msgstr "Ceturtdiena"
 
 #: js/l10n.php:45 lib/object.php:553
 msgid "Friday"
-msgstr ""
+msgstr "Piektdiena"
 
 #: js/l10n.php:45 lib/object.php:554
 msgid "Saturday"
-msgstr ""
+msgstr "Sestdiena"
 
 #: js/l10n.php:46
 msgid "Sun."
@@ -190,51 +191,51 @@ msgstr ""
 
 #: js/l10n.php:47 lib/object.php:605
 msgid "January"
-msgstr ""
+msgstr "Janvāris"
 
 #: js/l10n.php:47 lib/object.php:606
 msgid "February"
-msgstr ""
+msgstr "Februāris"
 
 #: js/l10n.php:47 lib/object.php:607
 msgid "March"
-msgstr ""
+msgstr "Marts"
 
 #: js/l10n.php:47 lib/object.php:608
 msgid "April"
-msgstr ""
+msgstr "Aprīlis"
 
 #: js/l10n.php:47 lib/object.php:609
 msgid "May"
-msgstr ""
+msgstr "Maijs"
 
 #: js/l10n.php:47 lib/object.php:610
 msgid "June"
-msgstr ""
+msgstr "Jūnijs"
 
 #: js/l10n.php:47 lib/object.php:611
 msgid "July"
-msgstr ""
+msgstr "Jūlijs"
 
 #: js/l10n.php:47 lib/object.php:612
 msgid "August"
-msgstr ""
+msgstr "Augusts"
 
 #: js/l10n.php:47 lib/object.php:613
 msgid "September"
-msgstr ""
+msgstr "Septembris"
 
 #: js/l10n.php:47 lib/object.php:614
 msgid "October"
-msgstr ""
+msgstr "Oktobris"
 
 #: js/l10n.php:47 lib/object.php:615
 msgid "November"
-msgstr ""
+msgstr "Novembris"
 
 #: js/l10n.php:47 lib/object.php:616
 msgid "December"
-msgstr ""
+msgstr "Decembris"
 
 #: js/l10n.php:48
 msgid "Jan."
@@ -286,11 +287,11 @@ msgstr ""
 
 #: js/l10n.php:51
 msgid "All day"
-msgstr ""
+msgstr "Visu dienu"
 
 #: js/l10n.php:52 lib/import.php:216 templates/part.choosecalendar.php:23
 msgid "New Calendar"
-msgstr ""
+msgstr "Jauns kalendārs"
 
 #: js/l10n.php:53
 msgid "Missing or invalid fields"
@@ -303,67 +304,67 @@ msgstr "Nosaukums"
 
 #: js/l10n.php:56
 msgid "From Date"
-msgstr ""
+msgstr "Sākuma datums"
 
 #: js/l10n.php:57
 msgid "From Time"
-msgstr ""
+msgstr "Sākuma laiks"
 
 #: js/l10n.php:58
 msgid "To Date"
-msgstr ""
+msgstr "Beigu datums"
 
 #: js/l10n.php:59
 msgid "To Time"
-msgstr ""
+msgstr "Beigu laiks"
 
 #: js/l10n.php:60
 msgid "The event ends before it starts"
-msgstr ""
+msgstr "Notikums beidzas vēl nesācies"
 
 #: js/l10n.php:61
 msgid "There was a database fail"
-msgstr ""
+msgstr "Datubāzes kļūme"
 
 #: lib/app.php:114
 msgid "Birthday"
-msgstr ""
+msgstr "Dzimšanas diena"
 
 #: lib/app.php:115
 msgid "Business"
-msgstr ""
+msgstr "Darījumi"
 
 #: lib/app.php:116
 msgid "Call"
-msgstr ""
+msgstr "Zvans"
 
 #: lib/app.php:117
 msgid "Clients"
-msgstr ""
+msgstr "Klienti"
 
 #: lib/app.php:118
 msgid "Deliverer"
-msgstr ""
+msgstr "Piegādātājs"
 
 #: lib/app.php:119
 msgid "Holidays"
-msgstr ""
+msgstr "Brīvdienas"
 
 #: lib/app.php:120
 msgid "Ideas"
-msgstr ""
+msgstr "Idejas"
 
 #: lib/app.php:121
 msgid "Journey"
-msgstr ""
+msgstr "Ceļojums"
 
 #: lib/app.php:122
 msgid "Jubilee"
-msgstr ""
+msgstr "Jubileja"
 
 #: lib/app.php:123
 msgid "Meeting"
-msgstr ""
+msgstr "Tikšanās"
 
 #: lib/app.php:124
 msgid "Other"
@@ -375,15 +376,15 @@ msgstr "Personīgi"
 
 #: lib/app.php:126
 msgid "Projects"
-msgstr ""
+msgstr "Projekti"
 
 #: lib/app.php:127
 msgid "Questions"
-msgstr ""
+msgstr "Jautājumi"
 
 #: lib/app.php:128
 msgid "Work"
-msgstr ""
+msgstr "Darbs"
 
 #: lib/app.php:396
 msgid "by"
@@ -431,43 +432,43 @@ msgstr ""
 
 #: lib/object.php:510
 msgid "Does not repeat"
-msgstr ""
+msgstr "Neatkārtojas"
 
 #: lib/object.php:511
 msgid "Daily"
-msgstr ""
+msgstr "Katru dienu"
 
 #: lib/object.php:512
 msgid "Weekly"
-msgstr ""
+msgstr "Katru nedēļu"
 
 #: lib/object.php:513
 msgid "Every Weekday"
-msgstr ""
+msgstr "Katrā nedēļas dienā"
 
 #: lib/object.php:514
 msgid "Bi-Weekly"
-msgstr ""
+msgstr "Katru otro nedēļu"
 
 #: lib/object.php:515
 msgid "Monthly"
-msgstr ""
+msgstr "Katru mēnesi"
 
 #: lib/object.php:516
 msgid "Yearly"
-msgstr ""
+msgstr "Katru gadu"
 
 #: lib/object.php:526
 msgid "never"
-msgstr ""
+msgstr "nekad"
 
 #: lib/object.php:527
 msgid "by occurrences"
-msgstr ""
+msgstr "pēc reižu skaita"
 
 #: lib/object.php:528
 msgid "by date"
-msgstr ""
+msgstr "līdz datumam"
 
 #: lib/object.php:538
 msgid "by monthday"
@@ -523,7 +524,7 @@ msgstr ""
 
 #: lib/search.php:35 lib/search.php:37 lib/search.php:40
 msgid "Date"
-msgstr ""
+msgstr "Datums"
 
 #: lib/search.php:43
 msgid "Cal."
@@ -531,19 +532,19 @@ msgstr ""
 
 #: templates/calendar.php:6
 msgid "Week"
-msgstr ""
+msgstr "Nedēļa"
 
 #: templates/calendar.php:7
 msgid "Month"
-msgstr ""
+msgstr "Mēnesis"
 
 #: templates/calendar.php:8
 msgid "List"
-msgstr ""
+msgstr "Saraksts"
 
 #: templates/calendar.php:12
 msgid "Today"
-msgstr ""
+msgstr "Šodien"
 
 #: templates/calendar.php:13
 msgid "Calendars"
@@ -560,7 +561,7 @@ msgstr ""
 #: templates/part.choosecalendar.php:28
 #: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
-msgstr ""
+msgstr "CalDav saite"
 
 #: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
@@ -572,7 +573,7 @@ msgstr "Lejuplādēt"
 
 #: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
-msgstr ""
+msgstr "Rediģēt"
 
 #: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
@@ -581,23 +582,23 @@ msgstr "Izdzēst"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
-msgstr ""
+msgstr "Jauns kalendārs"
 
 #: templates/part.editcalendar.php:9
 msgid "Edit calendar"
-msgstr ""
+msgstr "Rediģēt kalendāru"
 
 #: templates/part.editcalendar.php:12
 msgid "Displayname"
-msgstr ""
+msgstr "Attēlojamais vārds"
 
 #: templates/part.editcalendar.php:23
 msgid "Active"
-msgstr ""
+msgstr "Aktīvs"
 
 #: templates/part.editcalendar.php:29
 msgid "Calendar color"
-msgstr ""
+msgstr "Kalendāra krāsa"
 
 #: templates/part.editcalendar.php:42
 msgid "Save"
@@ -610,15 +611,15 @@ msgstr ""
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"
-msgstr ""
+msgstr "Atcelt"
 
 #: templates/part.editevent.php:1
 msgid "Edit an event"
-msgstr ""
+msgstr "Rediģēt notikumu"
 
 #: templates/part.editevent.php:10
 msgid "Export"
-msgstr ""
+msgstr "Eksportēt"
 
 #: templates/part.eventform.php:5 templates/part.showevent.php:3
 msgid "Eventinfo"
@@ -642,11 +643,11 @@ msgstr "Līdzdalīt"
 
 #: templates/part.eventform.php:18
 msgid "Title of the Event"
-msgstr ""
+msgstr "Notikuma nosaukums"
 
 #: templates/part.eventform.php:24 templates/part.showevent.php:19
 msgid "Category"
-msgstr ""
+msgstr "Kategorija"
 
 #: templates/part.eventform.php:26
 msgid "Separate categories with commas"
@@ -662,39 +663,39 @@ msgstr ""
 
 #: templates/part.eventform.php:64 templates/part.showevent.php:62
 msgid "All Day Event"
-msgstr ""
+msgstr "Visas dienas notikums"
 
 #: templates/part.eventform.php:68 templates/part.showevent.php:66
 msgid "From"
-msgstr ""
+msgstr "No"
 
 #: templates/part.eventform.php:76 templates/part.showevent.php:74
 msgid "To"
-msgstr ""
+msgstr "Līdz"
 
 #: templates/part.eventform.php:84 templates/part.showevent.php:82
 msgid "Advanced options"
-msgstr ""
+msgstr "Papildus opcijas"
 
 #: templates/part.eventform.php:89 templates/part.showevent.php:87
 msgid "Location"
-msgstr ""
+msgstr "Vieta"
 
 #: templates/part.eventform.php:91
 msgid "Location of the Event"
-msgstr ""
+msgstr "Notikuma vieta"
 
 #: templates/part.eventform.php:97 templates/part.showevent.php:95
 msgid "Description"
-msgstr ""
+msgstr "Apraksts"
 
 #: templates/part.eventform.php:99
 msgid "Description of the Event"
-msgstr ""
+msgstr "Notikuma apraksts"
 
 #: templates/part.eventform.php:108 templates/part.showevent.php:105
 msgid "Repeat"
-msgstr ""
+msgstr "Atkārtot"
 
 #: templates/part.eventform.php:115 templates/part.showevent.php:112
 msgid "Advanced"
@@ -773,7 +774,7 @@ msgstr ""
 
 #: templates/part.import.php:50
 msgid "Import"
-msgstr ""
+msgstr "Importēt"
 
 #: templates/part.import.php:59
 msgid "Close Dialog"
@@ -781,7 +782,7 @@ msgstr ""
 
 #: templates/part.newevent.php:1
 msgid "Create a new event"
-msgstr ""
+msgstr "Izveidot jaunu notikumu"
 
 #: templates/part.share.php:27
 msgid "Share with:"
@@ -831,7 +832,7 @@ msgstr ""
 
 #: templates/settings.php:15
 msgid "Timezone"
-msgstr ""
+msgstr "Laika zona"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
@@ -843,11 +844,11 @@ msgstr ""
 
 #: templates/settings.php:57
 msgid "24h"
-msgstr ""
+msgstr "24h"
 
 #: templates/settings.php:58
 msgid "12h"
-msgstr ""
+msgstr "12h"
 
 #: templates/settings.php:64
 msgid "Start week on"

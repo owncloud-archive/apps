@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-26 00:04+0100\n"
-"PO-Revision-Date: 2013-01-25 23:06+0000\n"
+"POT-Creation-Date: 2013-01-28 00:01+0100\n"
+"PO-Revision-Date: 2013-01-27 11:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -455,7 +455,7 @@ msgstr "Lejuplādēt"
 
 #: js/settings.js:101 templates/settings.php:45
 msgid "Edit"
-msgstr ""
+msgstr "Rediģēt"
 
 #: js/settings.js:102 templates/contacts.php:202 templates/contacts.php:209
 #: templates/contacts.php:216 templates/contacts.php:223
@@ -466,7 +466,7 @@ msgstr "Izdzēst"
 
 #: js/settings.js:120 templates/contacts.php:255 templates/settings.php:62
 msgid "Cancel"
-msgstr ""
+msgstr "Atcelt"
 
 #: js/settings.js:159 templates/settings.php:66
 msgid "More..."
@@ -546,7 +546,7 @@ msgstr ""
 
 #: lib/app.php:167 lib/app.php:175 lib/app.php:186 lib/app.php:227
 msgid "Work"
-msgstr ""
+msgstr "Darbs"
 
 #: lib/app.php:168 lib/app.php:173 lib/app.php:187
 msgid "Home"
@@ -659,7 +659,7 @@ msgstr ""
 
 #: templates/contacts.php:21 templates/contacts.php:98
 msgid "Import"
-msgstr ""
+msgstr "Importēt"
 
 #: templates/contacts.php:26
 msgid "Select files to import"
@@ -829,7 +829,7 @@ msgstr ""
 
 #: templates/contacts.php:219 templates/contacts.php:263
 msgid "Birthday"
-msgstr ""
+msgstr "Dzimšanas diena"
 
 #: templates/contacts.php:250
 msgid "Notes go here..."
@@ -971,7 +971,7 @@ msgstr "Līdzdalīt"
 
 #: templates/contacts.php:396
 msgid "Export"
-msgstr ""
+msgstr "Eksportēt"
 
 #: templates/contacts.php:397
 msgid "CardDAV link"
@@ -1011,7 +1011,7 @@ msgstr "Nosaukums"
 
 #: templates/settings.php:60
 msgid "Description"
-msgstr ""
+msgstr "Apraksts"
 
 #: templates/settings.php:61
 msgid "Save"

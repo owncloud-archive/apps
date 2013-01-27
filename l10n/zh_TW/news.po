@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-25 00:02+0100\n"
-"PO-Revision-Date: 2013-01-24 13:25+0000\n"
-"Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
+"POT-Creation-Date: 2013-01-28 00:01+0100\n"
+"PO-Revision-Date: 2013-01-27 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,212 +19,27 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ajax/changefoldername.php:30
-msgid "Error changing name of folder "
-msgstr "變更資料夾名稱時發生錯誤"
+#: 3rdparty/js/moment.min.js:6
+msgid "year"
+msgstr ""
 
-#: ajax/collapsefolder.php:36
-msgid "Error collapsing folder."
-msgstr "收合資料夾時發生錯誤。"
-
-#: ajax/createfeed.php:52
-msgid "Feed already exists."
-msgstr "訂閱已經存在."
-
-#: ajax/createfeed.php:58
-msgid "Error adding feed."
-msgstr "新增訂閱時發生錯誤."
-
-#: ajax/createfeed.php:71
-msgid "Feed added!"
-msgstr "訂閱已新增!"
-
-#: ajax/createfolder.php:37
-msgid "Error adding folder."
-msgstr "新增資料夾時發生錯誤."
-
-#: ajax/createfolder.php:47
-msgid "Folder added!"
-msgstr "資料夾已新增!"
-
-#: ajax/deletefeed.php:29
-msgid "Error removing feed."
-msgstr "移除訂閱時發生錯誤."
-
-#: ajax/deletefolder.php:27
-msgid "Error removing folder."
-msgstr "移除資料夾時發生錯誤."
-
-#: ajax/feedlist.php:28
-msgid "Error updating feeds."
-msgstr "更新訂閱時發生錯誤"
-
-#: ajax/importopml.php:40
-msgid "Empty filename"
-msgstr "空白的檔名"
-
-#: ajax/importopml.php:50
-msgid "No source argument passed"
-msgstr "沒有傳遞來源參數"
-
-#: ajax/importopml.php:54
-msgid "Error while reading file"
-msgstr "讀取檔案時發生錯誤"
-
-#: ajax/importopml.php:64
-msgid "An error occurred while parsing the file."
-msgstr "解析檔案時發生錯誤."
-
-#: ajax/loadfeed.php:52
-msgid "Feed loaded!"
-msgstr "訂閱已載入!"
-
-#: ajax/movefeedtofolder.php:37
-msgid "Error moving feed into folder."
-msgstr "移動訂閱至資料夾時發生錯誤"
-
-#: ajax/selectfromcloud.php:31
-msgid "No file path was submitted."
-msgstr "沒有提交檔案路徑."
-
-#: ajax/selectfromcloud.php:38
-msgid "File doesn't exist:"
-msgstr "檔案不存在"
-
-#: ajax/selectfromcloud.php:44
-msgid "Couldn't save temporary image: "
-msgstr "無法儲存暫存影像"
-
-#: ajax/setallitemsread.php:63
-msgid "Error setting all items as read."
-msgstr "設定所有項目為已閱讀時發生錯誤"
-
-#: ajax/setitemstatus.php:47
-msgid "Error marking item as read."
-msgstr "標示已閱讀時發生錯誤."
-
-#: ajax/updatefeed.php:37
-msgid "Error updating feed."
-msgstr "更新訂閱時發生錯誤."
-
-#: ajax/updatefeed.php:45
-msgid "Feed updated!"
-msgstr "訂閱已更新!"
-
-#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
+#: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
 msgid "News"
 msgstr "新聞"
 
-#: js/items.js:122
-msgid "Error while loading the feed"
-msgstr "載入訊息串時發生錯誤"
-
-#: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
-#: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
-#: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
-#: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:68
-msgid "Error"
-msgstr "錯誤"
-
-#: js/main.js:33
-msgid "None"
-msgstr "無"
-
-#: js/main.js:101 templates/main.php:17
-msgid "Show only unread"
-msgstr "只顯示未閱讀"
-
-#: js/main.js:105 templates/main.php:13
-msgid "Show everything"
-msgstr "顯示所有項目"
-
-#: js/menu.js:505
-msgid "Are you sure you want to delete this feed?"
-msgstr "您確定要刪除這個訂閱嗎?"
-
-#: js/menu.js:513
-msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr "您確定要刪除這個資料夾與裡面所有的訂閱嗎?"
-
-#: js/menu.js:521
-msgid "Warning"
-msgstr "警告"
-
-#: js/news.js:28 js/news.js:58
-msgid "Name of the folder cannot be empty."
-msgstr "資料夾名稱不能為空白."
-
-#: js/news.js:33 js/news.js:95
-msgid "Adding..."
-msgstr "加入中..."
-
-#: js/news.js:50 templates/part.dialogues.php:9
-msgid "Add folder"
-msgstr "新增資料夾"
-
-#: js/news.js:63
-msgid "Changing..."
-msgstr "變更中..."
-
-#: js/news.js:79 templates/part.dialogues.php:34
-#: templates/part.dialogues.php:38 templates/part.dialogues.php:43
-msgid "Change folder name"
-msgstr "變更資料夾名稱"
-
-#: js/news.js:90
-msgid "URL cannot be empty."
-msgstr "URL不能為空白."
-
-#: js/news.js:120 js/news.js:127 templates/firstrun.php:5
-msgid "Add feed"
-msgstr "新增訂閱"
-
-#: js/news.js:124
-msgid "Error while parsing the feed"
-msgstr "解析訂閱資料時發生錯誤"
-
-#: js/news.js:124
-msgid "Fatal Error"
-msgstr "嚴重錯誤"
-
-#: js/settings.js:17
-msgid "No files selected."
-msgstr "沒有挑選檔案"
-
-#: js/settings.js:31
-msgid "Importing OPML file..."
-msgstr "匯入 OPML 檔案中..."
-
-#: js/settings.js:42
-msgid "Not a valid type"
-msgstr "不是有效的類型"
-
-#: js/settings.js:60
-msgid "Importing done"
-msgstr "匯入完成"
-
-#: js/settings.js:64
-msgid "Error while importing feeds."
-msgstr "匯入訂閱時發生錯誤."
-
-#: js/settings.js:88
-msgid "Select file"
-msgstr "選擇檔案"
-
-#: lib/feedmapper.php:180 lib/itemmapper.php:221
+#: db/feedmapper.php:172 db/itemmapper.php:262
 msgid "no title"
 msgstr "沒有標題"
 
-#: lib/foldermapper.php:127
+#: db/foldermapper.php:127
 msgid "no name"
 msgstr "沒有名稱"
 
-#: lib/itemmapper.php:226
+#: db/itemmapper.php:267
 msgid "no body"
 msgstr "沒有主體"
 
-#: opmlexporter.php:53
+#: opmlexporter.php:44
 msgid "subscriptions in ownCloud - News"
 msgstr "在 ownCloud - News 中的訂閱"
 
@@ -240,173 +55,134 @@ msgstr "太棒了！您已經訂閱"
 msgid "You had already subscribed to this feed!"
 msgstr "您已經訂閱了這個訊息串！"
 
-#: templates/firstrun.php:2
-msgid "You don't have any feed in your reader."
-msgstr "您的閱讀器中沒有任何訂閱."
-
-#: templates/firstrun.php:6 templates/part.dialogues.php:28
-msgid "Address"
-msgstr "網址"
-
-#: templates/firstrun.php:7 templates/subscribelet.php:7
-msgid "Subscribe"
-msgstr "訂閱"
-
-#: templates/firstrun.php:11
-msgid "Import OPML"
-msgstr "匯入 OPML"
-
-#: templates/firstrun.php:12
-msgid "Upload file from desktop"
-msgstr "從桌面上傳檔案"
-
-#: templates/firstrun.php:12
-msgid "Upload"
-msgstr "上傳"
-
-#: templates/firstrun.php:13
-msgid "Select file from ownCloud"
-msgstr "從 ownCloud 中挑選檔案"
-
-#: templates/firstrun.php:13
-msgid "Select"
-msgstr "選擇"
-
-#: templates/firstrun.php:15 templates/settings.php:4
-msgid ""
-"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
-"filesystem</a> or <a href=\"#\" class=\"settings\" "
-"id=\"cloudlink\">cloud</a>"
-msgstr "從 <a href=\"#\" class=\"settings\" id=\"browselink\">本地檔案系統</a> 或 <a href=\"#\" class=\"settings\" id=\"cloudlink\">雲端</a> 選擇檔案"
-
-#: templates/firstrun.php:18
-msgid "Import"
-msgstr "匯入"
-
-#: templates/firstrun.php:24
-msgid "Or..."
-msgstr "或..."
-
-#: templates/main.php:34
-msgid "Add feed or folder"
-msgstr "新增訂閱或資料夾"
-
-#: templates/main.php:35
-msgid "Add Feed/Folder"
-msgstr "新增訂閱/資料夾"
-
-#: templates/main.php:37
-msgid "Feed"
-msgstr "訂閱"
-
-#: templates/main.php:38
-msgid "Folder"
-msgstr "資料夾"
-
-#: templates/main.php:45
-msgid "Settings"
-msgstr "設定"
-
-#: templates/part.dialogues.php:1
-msgid "Add Folder"
-msgstr "新增資料夾"
-
-#: templates/part.dialogues.php:4
-msgid "Add new folder"
-msgstr "加入新資料夾"
-
-#: templates/part.dialogues.php:8 templates/part.dialogues.php:42
-msgid "Folder name"
-msgstr "資料夾名稱"
-
-#: templates/part.dialogues.php:14
-msgid "Add Subscription"
-msgstr "新增訂閱"
-
-#: templates/part.dialogues.php:17
-msgid "Add new feed"
-msgstr "加入新訂閱"
-
-#: templates/part.dialogues.php:20
-msgid "Choose folder"
-msgstr "選擇資料夾"
-
-#: templates/part.dialogues.php:29
-msgid "Add"
-msgstr "新增"
-
-#: templates/part.feeds.php:48
+#: templates/main.php:15
 msgid "New articles"
 msgstr "新文章"
 
-#: templates/part.feeds.php:51 templates/part.listfeed.php:34
-#: templates/part.listfolder.php:35
+#: templates/main.php:23 templates/part.listfeed.php:22
+#: templates/part.listfolder.php:32
 msgid "Mark all read"
 msgstr "標記所有為已閱讀"
 
-#: templates/part.feeds.php:55
+#: templates/main.php:35
 msgid "Starred"
 msgstr "星號"
 
-#: templates/part.items.php:17 templates/part.shared.php:18
-msgid "Mark as unimportant"
-msgstr "標示為不重要"
-
-#: templates/part.items.php:20 templates/part.shared.php:21
-msgid "Mark as important"
-msgstr "標示為重要"
-
-#: templates/part.items.php:38 templates/part.shared.php:38
-msgid "from"
-msgstr "從"
-
-#: templates/part.items.php:44 templates/part.shared.php:44
-msgid "by"
-msgstr "由"
-
-#: templates/part.items.php:70 templates/part.items.php:71
-#: templates/part.shared.php:55
+#: templates/part.items.php:46 templates/part.items.php:49
 msgid "Share"
 msgstr "分享"
 
-#: templates/part.items.php:72 templates/part.shared.php:60
+#: templates/part.items.php:53
 msgid "Keep unread"
 msgstr "保持未閱讀"
 
-#: templates/part.listfeed.php:33
+#: templates/part.listfeed.php:19
 msgid "Delete feed"
 msgstr "刪除訂閱"
 
-#: templates/part.listfolder.php:29
+#: templates/part.listfolder.php:13
 msgid "Collapse"
 msgstr "收合"
 
-#: templates/part.listfolder.php:33
+#: templates/part.listfolder.php:26
 msgid "Delete folder"
 msgstr "刪除資料夾"
 
-#: templates/part.listfolder.php:34
+#: templates/part.listfolder.php:29
 msgid "Rename folder"
 msgstr "資料夾更名"
 
-#: templates/settings.php:2
-msgid "Import feeds"
-msgstr "匯入訂閱"
+#: templates/part.settings.php:10
+msgid "Add Subscription"
+msgstr "新增訂閱"
 
-#: templates/settings.php:8
-msgid "Export feeds"
-msgstr "匯出訂閱"
+#: templates/part.settings.php:13
+msgid "Folder under which the feed is being saved"
+msgstr ""
 
-#: templates/settings.php:10
-msgid "Download OPML"
-msgstr "下載 OPML"
+#: templates/part.settings.php:17
+msgid "-- choose folder --"
+msgstr ""
 
-#: templates/settings.php:12
+#: templates/part.settings.php:20
+msgid "Address must not be empty!"
+msgstr ""
+
+#: templates/part.settings.php:21
+msgid "Feed exists already!"
+msgstr ""
+
+#: templates/part.settings.php:22
+msgid "Could not add feed!"
+msgstr ""
+
+#: templates/part.settings.php:26
+msgid "Address"
+msgstr "網址"
+
+#: templates/part.settings.php:28 templates/part.settings.php:30
+#: templates/part.settings.php:46 templates/part.settings.php:48
+msgid "Add"
+msgstr "新增"
+
+#: templates/part.settings.php:34
+msgid "Add Folder"
+msgstr "新增資料夾"
+
+#: templates/part.settings.php:37
+msgid "Folder name must not be empty!"
+msgstr ""
+
+#: templates/part.settings.php:38
+msgid "Folder exists already!"
+msgstr ""
+
+#: templates/part.settings.php:45
+msgid "Folder Name"
+msgstr ""
+
+#: templates/part.settings.php:60
+msgid "Show everything"
+msgstr "顯示所有項目"
+
+#: templates/part.settings.php:66
+msgid "Show only unread"
+msgstr "只顯示未閱讀"
+
+#: templates/part.settings.php:72 templates/part.settings.php:76
+msgid "Settings"
+msgstr "設定"
+
+#: templates/part.settings.php:80
+msgid "Add feed or folder"
+msgstr "新增訂閱或資料夾"
+
+#: templates/part.settings.php:85
+msgid "Add Feed/Folder"
+msgstr "新增訂閱/資料夾"
+
+#: templates/part.settings.php:91
+msgid "Import / Export"
+msgstr ""
+
+#: templates/part.settings.php:93 templates/part.settings.php:95
+msgid "Import OPML"
+msgstr "匯入 OPML"
+
+#: templates/part.settings.php:99
+msgid "Export OPML"
+msgstr ""
+
+#: templates/part.settings.php:102
 msgid "Subscribelet"
 msgstr "Subscribelet"
 
-#: templates/subscribelet.php:5
+#: templates/part.subscribelet.php:3
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
 msgstr "將這個拖曳至瀏覽器的書籤列，當您想要訂閱網頁時，點它一下即可。"
+
+#: templates/part.subscribelet.php:17
+msgid "Subscribe"
+msgstr "訂閱"

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Vincenzo Reale <vinx.reale@gmail.com>, 2012.
+# Vincenzo Reale <vinx.reale@gmail.com>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-27 00:01+0100\n"
-"PO-Revision-Date: 2013-01-25 23:10+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-28 00:01+0100\n"
+"PO-Revision-Date: 2013-01-27 19:37+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: js/updater.js:5
 msgid "In progress..."
-msgstr ""
+msgstr "In corso..."
 
 #: js/updater.js:16
 msgid "Done. Reload the page to proceed."
-msgstr ""
+msgstr "Completato. Ricarica la pagina per continuare."
 
 #: js/updater.js:19 js/updater.js:25
 msgid "Error"
