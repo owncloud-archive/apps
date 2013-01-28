@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Akos <nagy.akos@libreoffice.ro>, 2013.
 #   <gyonkibendeguz@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-15 00:01+0100\n"
-"PO-Revision-Date: 2013-01-14 17:58+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-29 00:01+0100\n"
+"PO-Revision-Date: 2013-01-28 11:23+0000\n"
+"Last-Translator: akoscomp <nagy.akos@libreoffice.ro>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,15 +29,15 @@ msgstr "Érvénytelen kérés"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr ""
+msgstr "Ez egy OpenID kiszolgálószerver. További információkért látogassa meg"
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
-msgstr ""
+msgstr "Azonosító: <b>"
 
 #: templates/nomode.php:15
 msgid "Realm: <b>"
-msgstr ""
+msgstr "Felhasználó: <b>"
 
 #: templates/nomode.php:16
 msgid "User: <b>"
@@ -56,12 +57,12 @@ msgstr "OpenID"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
-msgstr ""
+msgstr "bejelentkezhet más weblapokra evvel a címmel"
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"
-msgstr ""
+msgstr "Engedélyezett OpenID szolgáltató"
 
 #: templates/settings.php:6
 msgid "Your address at Wordpress, Identi.ca, &hellip;"
-msgstr ""
+msgstr "Az címe a kiszolgálókon: Wordpress, Identi.ca, &hellip;"

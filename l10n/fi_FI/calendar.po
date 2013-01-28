@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-26 00:04+0100\n"
-"PO-Revision-Date: 2013-01-25 23:05+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-29 00:01+0100\n"
+"PO-Revision-Date: 2013-01-28 18:41+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -419,7 +419,7 @@ msgstr "Käyttöoikeutesi eivät riitä tämän tapahtuman poistamiseen."
 
 #: lib/object.php:481
 msgid "Busy"
-msgstr ""
+msgstr "Kiireinen"
 
 #: lib/object.php:498
 msgid "Public"
@@ -662,7 +662,7 @@ msgstr "Muokkaa luokkia"
 
 #: templates/part.eventform.php:47 templates/part.showevent.php:46
 msgid "Access Class"
-msgstr ""
+msgstr "Pääsyluokka"
 
 #: templates/part.eventform.php:64 templates/part.showevent.php:62
 msgid "All Day Event"

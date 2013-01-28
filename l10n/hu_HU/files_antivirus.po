@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <gyonkibendeguz@gmail.com>, 2013.
 # Laszlo Tornoci <torlasz@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-24 00:02+0100\n"
-"PO-Revision-Date: 2013-01-23 21:35+0000\n"
-"Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
+"POT-Creation-Date: 2013-01-29 00:01+0100\n"
+"PO-Revision-Date: 2013-01-28 10:35+0000\n"
+"Last-Translator: gyeben <gyonkibendeguz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,19 +27,19 @@ msgstr "Üdv {user},"
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "Sajnáljuk, de egy rosszindulatú program található egy fájlban, amit megpróbált feltölteni és ezért törölni kellett."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "Ez az e-mail egy értesítés a következőtől: {host}. Kérjük, ne válaszoljon."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "Fájl feltöltve: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "Antivírus beállítása"
 
 #: templates/settings.php:4
 msgid "Mode"
@@ -74,11 +75,11 @@ msgstr "A vírusellenőrző kiszolgáló port száma"
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "Folyamhossz"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "ClamAV StreamMaxLength érték byte-okban kifejezve"
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
@@ -94,15 +95,15 @@ msgstr "Nem szükséges, ha a működési mód: démon"
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "A vizsgálat során talált fertőzett fájlok ezt tegye:"
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "Naplózza"
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr ""
+msgstr "Törölje a fájlt"
 
 #: templates/settings.php:14
 msgid "Save"

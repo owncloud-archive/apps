@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2013.
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
 # Marios Bekatoros <>, 2012.
 # Γιάννης Ανθυμίδης <yannanth@gmail.com>, 2012.
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-28 00:01+0100\n"
-"PO-Revision-Date: 2013-01-27 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-29 00:01+0100\n"
+"PO-Revision-Date: 2013-01-28 02:20+0000\n"
+"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +24,7 @@ msgstr ""
 
 #: 3rdparty/js/moment.min.js:6
 msgid "year"
-msgstr ""
+msgstr "έτος"
 
 #: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
 msgid "News"
@@ -104,19 +105,19 @@ msgstr ""
 
 #: templates/part.settings.php:17
 msgid "-- choose folder --"
-msgstr ""
+msgstr "-- αλλαγή φακέλου --"
 
 #: templates/part.settings.php:20
 msgid "Address must not be empty!"
-msgstr ""
+msgstr "Η διεύθυνση δεν πρέπει να είναι κενή!"
 
 #: templates/part.settings.php:21
 msgid "Feed exists already!"
-msgstr ""
+msgstr "Η ροή υπάρχει ήδη!"
 
 #: templates/part.settings.php:22
 msgid "Could not add feed!"
-msgstr ""
+msgstr "Αδυναμία προσθήκης ροής!"
 
 #: templates/part.settings.php:26
 msgid "Address"
@@ -133,15 +134,15 @@ msgstr "Προσθήκη Φακέλου"
 
 #: templates/part.settings.php:37
 msgid "Folder name must not be empty!"
-msgstr ""
+msgstr "Το όνομα φακέλου δεν πρέπει να είναι κενό!"
 
 #: templates/part.settings.php:38
 msgid "Folder exists already!"
-msgstr ""
+msgstr "Ο φάκελος υπάρχει ήδη!"
 
 #: templates/part.settings.php:45
 msgid "Folder Name"
-msgstr ""
+msgstr "Όνομα Φακέλου"
 
 #: templates/part.settings.php:60
 msgid "Show everything"
@@ -165,7 +166,7 @@ msgstr "Προσθήκη Ροής/Φακέλου"
 
 #: templates/part.settings.php:91
 msgid "Import / Export"
-msgstr ""
+msgstr "Εισαγωγή / Εξαγωγή"
 
 #: templates/part.settings.php:93 templates/part.settings.php:95
 msgid "Import OPML"
@@ -173,7 +174,7 @@ msgstr "Εισαγωγή OPML"
 
 #: templates/part.settings.php:99
 msgid "Export OPML"
-msgstr ""
+msgstr "Εξαγωγή OPML"
 
 #: templates/part.settings.php:102
 msgid "Subscribelet"

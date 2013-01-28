@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Andreas Tangemann <a.tangemann@web.de>, 2013.
 #   <a.tangemann@web.de>, 2012.
 #   <blobbyjj@ymail.com>, 2012.
 # I Robot <owncloud-bot@tmit.eu>, 2012.
@@ -16,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-28 00:01+0100\n"
-"PO-Revision-Date: 2013-01-27 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-29 00:01+0100\n"
+"PO-Revision-Date: 2013-01-28 21:40+0000\n"
+"Last-Translator: a.tangemann <a.tangemann@web.de>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgstr ""
 
 #: 3rdparty/js/moment.min.js:6
 msgid "year"
-msgstr ""
+msgstr "Jahr"
 
 #: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
 msgid "News"
@@ -113,7 +114,7 @@ msgstr ""
 
 #: templates/part.settings.php:20
 msgid "Address must not be empty!"
-msgstr ""
+msgstr "Die Adresse muss angegeben werden !"
 
 #: templates/part.settings.php:21
 msgid "Feed exists already!"
@@ -138,15 +139,15 @@ msgstr "Ordner hinzufügen"
 
 #: templates/part.settings.php:37
 msgid "Folder name must not be empty!"
-msgstr ""
+msgstr "Der Ordnername muss angegeben werden !"
 
 #: templates/part.settings.php:38
 msgid "Folder exists already!"
-msgstr ""
+msgstr "Der Ordner existiert bereits !"
 
 #: templates/part.settings.php:45
 msgid "Folder Name"
-msgstr ""
+msgstr "Ordnername"
 
 #: templates/part.settings.php:60
 msgid "Show everything"
@@ -170,7 +171,7 @@ msgstr "Order / Feed hinzufügen"
 
 #: templates/part.settings.php:91
 msgid "Import / Export"
-msgstr ""
+msgstr "Import / Export"
 
 #: templates/part.settings.php:93 templates/part.settings.php:95
 msgid "Import OPML"
@@ -178,7 +179,7 @@ msgstr "OPML importieren"
 
 #: templates/part.settings.php:99
 msgid "Export OPML"
-msgstr ""
+msgstr "Export OPML"
 
 #: templates/part.settings.php:102
 msgid "Subscribelet"
