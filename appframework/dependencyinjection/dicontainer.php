@@ -71,14 +71,14 @@ class DIContainer extends \Pimple {
 		// if you want to cache the template directory, add this path
 		$this['TwigTemplateCacheDirectory'] = null;
 		
-                // enables the l10n function as t() function in twig
-                $this['TwigL10N'] = $this->share(function($c){
-                        $api = $c['API'];
-                        return new \Twig_SimpleFunction('t', function () use ($api) {
-                                $trans = $api->getTrans();
-                                return call_user_func_array(array($trans, 't'), func_get_args());
-                        });
-                });
+		// enables the l10n function as t() function in twig
+		$this['TwigL10N'] = $this->share(function($c){
+			$api = $c['API'];
+			return new \Twig_SimpleFunction('t', function () use ($api) {
+				$trans = $api->getTrans();
+				return call_user_func_array(array($trans, 't'), func_get_args());
+			});
+		});
 
 		$this['TwigLoader'] = $this->share(function($c){
 			return new \Twig_Loader_Filesystem($c['TwigTemplateDirectory']);
@@ -87,17 +87,17 @@ class DIContainer extends \Pimple {
 		$this['Twig'] = $this->share(function($c){
 			$loader = $c['TwigLoader'];
 			if($c['TwigTemplateCacheDirectory'] !== null){
-                                $twig = new \Twig_Environment($loader, array(
+				$twig = new \Twig_Environment($loader, array(
 					'cache' => $c['TwigTemplateCacheDirectory'],
 					'autoescape' => true
 				));
 			} else {
-                                $twig = new \Twig_Environment($loader, array(
+				$twig = new \Twig_Environment($loader, array(
 					'autoescape' => true
 				));
 			}
-                        $twig->addFunction($c['TwigL10N']);
-                        return $twig;
+			$twig->addFunction($c['TwigL10N']);
+			return $twig;
 		});
 
 
