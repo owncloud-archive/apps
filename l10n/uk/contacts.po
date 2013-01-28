@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-17 22:32+0100\n"
-"PO-Revision-Date: 2013-01-17 13:23+0000\n"
-"Last-Translator: volodya327 <volodya327@gmail.com>\n"
+"POT-Creation-Date: 2013-01-26 00:04+0100\n"
+"PO-Revision-Date: 2013-01-25 23:06+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -233,10 +233,6 @@ msgstr "Контакти"
 msgid "%d_selected_contacts"
 msgstr "%d_selected_contacts"
 
-#: js/app.js:190
-msgid "Indexing contacts"
-msgstr "Індексування контактів"
-
 #: js/app.js:265 js/app.js:279
 msgid "Add to..."
 msgstr "Додати до..."
@@ -249,141 +245,145 @@ msgstr "Видалити з..."
 msgid "Add group..."
 msgstr "Додати групу..."
 
-#: js/app.js:429
+#: js/app.js:354
+msgid "Indexing contacts"
+msgstr "Індексування контактів"
+
+#: js/app.js:451
 msgid "Select photo"
 msgstr "Оберіть фото"
 
-#: js/app.js:476 js/app.js:502 js/app.js:1461 js/app.js:1573
-#: js/contacts.js:156 js/contacts.js:254 js/contacts.js:476
+#: js/app.js:498 js/app.js:524 js/app.js:1483 js/app.js:1595
+#: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "Мережева або серверна помилка. Будь ласка, проінформуйте адміністратора."
 
-#: js/app.js:638 js/app.js:673
+#: js/app.js:660 js/app.js:695
 msgid "Error adding to group."
 msgstr "Помилка при додаванні у групу."
 
-#: js/app.js:698
+#: js/app.js:720
 msgid "Error removing from group."
 msgstr "Помилка при видаленні з групи."
 
-#: js/app.js:728
+#: js/app.js:750
 msgid "There was an error opening a mail composer."
 msgstr "Виникла помилка при відкриванні поштової програми."
 
-#: js/app.js:778
+#: js/app.js:800
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Видалення завершено. Клацніть тут для скасування перезавантаження."
 
-#: js/app.js:855
+#: js/app.js:877
 msgid "Add address book"
 msgstr "Додати адресну книгу"
 
-#: js/app.js:951
+#: js/app.js:973
 msgid "Import done. Click here to cancel reloading."
 msgstr "Імпорт завершено. Клацніть тут для скасування перезавантаження."
 
-#: js/app.js:992
+#: js/app.js:1014
 msgid "Not all files uploaded. Retrying..."
 msgstr "Не всі файли завантажено. Повторна спроба..."
 
-#: js/app.js:998
+#: js/app.js:1020
 msgid "Something went wrong with the upload, please retry."
 msgstr "Щось пішло не так при завантаженні, будь ласка, повторіть."
 
-#: js/app.js:998 js/app.js:1508 js/settings.js:25 js/settings.js:45
+#: js/app.js:1020 js/app.js:1530 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Помилка"
 
-#: js/app.js:1008
+#: js/app.js:1030
 msgid "Importing from {filename}..."
 msgstr "Імпорт з {filename}..."
 
-#: js/app.js:1011
+#: js/app.js:1033
 msgid "{success} imported, {failed} failed."
 msgstr "{success} імпортовано, {failed} змарновано."
 
-#: js/app.js:1019
+#: js/app.js:1041
 msgid "Importing..."
 msgstr "Імпортування..."
 
-#: js/app.js:1042
+#: js/app.js:1064
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Неможливо завантажити ваш файл тому, що він тека або файл розміром 0 байт"
 
-#: js/app.js:1042
+#: js/app.js:1064
 msgid "Upload Error"
 msgstr "Помилка завантаження"
 
-#: js/app.js:1049 js/app.js:1336
+#: js/app.js:1071 js/app.js:1358
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Файл, який Ви намагаєтесь завантажити перевищує максимальний розмір файлу, що дозволено завантажувати на даний сервер."
 
-#: js/app.js:1049
+#: js/app.js:1071
 msgid "Upload too large"
 msgstr "Файл занадто великий"
 
-#: js/app.js:1089
+#: js/app.js:1111
 msgid "Pending"
 msgstr "Очікування"
 
-#: js/app.js:1232 templates/contacts.php:129
+#: js/app.js:1254 templates/contacts.php:123
 msgid "Add group"
 msgstr "Додати групу"
 
-#: js/app.js:1325
+#: js/app.js:1347
 msgid "No files selected for upload."
 msgstr "Не обрано файлів для завантаження."
 
-#: js/app.js:1426
+#: js/app.js:1448
 msgid "Edit profile picture"
 msgstr "Редагувати зображення облікового запису"
 
-#: js/app.js:1444 js/contacts.js:1121
+#: js/app.js:1466 js/contacts.js:1130
 msgid "Error loading profile picture."
 msgstr "Помилка при завантаженні зображення облікового запису."
 
-#: js/app.js:1496 templates/part.selectaddressbook.php:27
+#: js/app.js:1518
 msgid "Enter name"
 msgstr "Введіть ім'я"
 
-#: js/app.js:1497 templates/part.selectaddressbook.php:29
+#: js/app.js:1519
 msgid "Enter description"
 msgstr "Введіть опис"
 
-#: js/app.js:1500
+#: js/app.js:1522
 msgid "Select addressbook"
 msgstr "Обрати адресну книгу"
 
-#: js/app.js:1508
+#: js/app.js:1530
 msgid "The address book name cannot be empty."
 msgstr "Ім'я адресної книги не може бути порожнім."
 
-#: js/contacts.js:347
+#: js/contacts.js:356
 msgid "Is this correct?"
 msgstr "Це вірно?"
 
-#: js/contacts.js:535
+#: js/contacts.js:544
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Виникла невідома помилка при спробі видалити цей контакт"
 
-#: js/contacts.js:673
+#: js/contacts.js:682
 msgid "# groups"
 msgstr "# груп"
 
-#: js/contacts.js:1454
+#: js/contacts.js:1463
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Деякі контакти помічено для видалення, але ще не видалені. Будь ласка, зачекайте, доки вони будуть видалені."
 
-#: js/contacts.js:1465
+#: js/contacts.js:1474
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Натисніть для відміни видалення {num} контактів"
 
-#: js/contacts.js:1480
+#: js/contacts.js:1489
 msgid "Cancelled deletion of {num}"
 msgstr "Відмінено видалення {num}"
 
@@ -453,7 +453,7 @@ msgstr "Показати посилання CardDav"
 msgid "Show read-only VCF link"
 msgstr "Показати VCF посилання тільки для читання"
 
-#: js/settings.js:99 templates/contacts.php:263 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:257 templates/settings.php:40
 msgid "Download"
 msgstr "Завантажити"
 
@@ -461,16 +461,14 @@ msgstr "Завантажити"
 msgid "Edit"
 msgstr "Редагувати"
 
-#: js/settings.js:102 templates/contacts.php:208 templates/contacts.php:215
-#: templates/contacts.php:222 templates/contacts.php:229
-#: templates/contacts.php:277 templates/contacts.php:404
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:50
+#: js/settings.js:102 templates/contacts.php:202 templates/contacts.php:209
+#: templates/contacts.php:216 templates/contacts.php:223
+#: templates/contacts.php:271 templates/contacts.php:398
+#: templates/settings.php:50
 msgid "Delete"
 msgstr "Видалити"
 
-#: js/settings.js:120 templates/contacts.php:261 templates/settings.php:62
+#: js/settings.js:120 templates/contacts.php:255 templates/settings.php:62
 msgid "Cancel"
 msgstr "Відмінити"
 
@@ -611,7 +609,7 @@ msgstr "Виникла помилка при видаленні властиво
 msgid "{name}'s Birthday"
 msgstr "День народження {name}"
 
-#: lib/search.php:19
+#: lib/search.php:18
 msgid "Contact"
 msgstr "Контакт"
 
@@ -651,551 +649,341 @@ msgstr "Контакт не знайдено."
 msgid "HomePage"
 msgstr "Домашня Сторінка"
 
-#: templates/contacts.php:17
+#: templates/contacts.php:11
 msgid "New Group"
 msgstr "Нова група"
 
-#: templates/contacts.php:23 templates/index.php:16
+#: templates/contacts.php:17
 msgid "Settings"
 msgstr "Налаштування"
 
-#: templates/contacts.php:24
+#: templates/contacts.php:18
 msgid "Address books"
 msgstr "Адресні книги"
 
-#: templates/contacts.php:27 templates/contacts.php:104 templates/index.php:15
-#: templates/part.import.php:17
+#: templates/contacts.php:21 templates/contacts.php:98
 msgid "Import"
 msgstr "Імпорт"
 
-#: templates/contacts.php:32
+#: templates/contacts.php:26
 msgid "Select files to import"
 msgstr "Виберіть файли для імпорта"
 
-#: templates/contacts.php:33
+#: templates/contacts.php:27
 msgid "Select files"
 msgstr "Виберіть файли"
 
-#: templates/contacts.php:39 templates/contacts.php:41
+#: templates/contacts.php:33 templates/contacts.php:35
 msgid "Import into:"
 msgstr "Імпортувати в:"
 
-#: templates/contacts.php:43
+#: templates/contacts.php:37
 msgid "OK"
 msgstr "OK"
 
-#: templates/contacts.php:53
+#: templates/contacts.php:47
 msgid "(De-)select all"
 msgstr "(Відміна) виділення усіх"
 
-#: templates/contacts.php:55
+#: templates/contacts.php:49
 msgid "New Contact"
 msgstr "Новий контакт"
 
-#: templates/contacts.php:56
+#: templates/contacts.php:50
 msgid "Download Contact(s)"
 msgstr "Завантажити Контакт(и)"
 
-#: templates/contacts.php:58 templates/part.contact.php:47
-#: templates/part.contact.php:135
+#: templates/contacts.php:52
 msgid "Groups"
 msgstr "Групи"
 
-#: templates/contacts.php:60
+#: templates/contacts.php:54
 msgid "Favorite"
 msgstr "Улюблений"
 
-#: templates/contacts.php:61
+#: templates/contacts.php:55
 msgid "Delete Contact"
 msgstr "Видалити контакт"
 
-#: templates/contacts.php:68 templates/contacts.php:262 templates/index.php:30
-#: templates/part.import.php:24
+#: templates/contacts.php:62 templates/contacts.php:256
 msgid "Close"
 msgstr "Закрити"
 
-#: templates/contacts.php:69 templates/index.php:31
+#: templates/contacts.php:63
 msgid "Keyboard shortcuts"
 msgstr "Сполучення клавіш"
 
-#: templates/contacts.php:71 templates/index.php:33
+#: templates/contacts.php:65
 msgid "Navigation"
 msgstr "Навігація"
 
-#: templates/contacts.php:74 templates/index.php:36
+#: templates/contacts.php:68
 msgid "Next contact in list"
 msgstr "Наступний контакт у списку"
 
-#: templates/contacts.php:76 templates/index.php:38
+#: templates/contacts.php:70
 msgid "Previous contact in list"
 msgstr "Попередній контакт у списку"
 
-#: templates/contacts.php:78 templates/index.php:40
+#: templates/contacts.php:72
 msgid "Expand/collapse current addressbook"
 msgstr "Розгорнути/згорнути поточну адресну книгу"
 
-#: templates/contacts.php:80 templates/index.php:42
+#: templates/contacts.php:74
 msgid "Next addressbook"
 msgstr "Наступна адресна книга"
 
-#: templates/contacts.php:82 templates/index.php:44
+#: templates/contacts.php:76
 msgid "Previous addressbook"
 msgstr "Попередня адресна книга"
 
-#: templates/contacts.php:86 templates/index.php:48
+#: templates/contacts.php:80
 msgid "Actions"
 msgstr "Дії"
 
-#: templates/contacts.php:89 templates/index.php:51
+#: templates/contacts.php:83
 msgid "Refresh contacts list"
 msgstr "Оновити список контактів"
 
-#: templates/contacts.php:91 templates/index.php:53
+#: templates/contacts.php:85
 msgid "Add new contact"
 msgstr "Додати новий контакт"
 
-#: templates/contacts.php:93 templates/index.php:55
+#: templates/contacts.php:87
 msgid "Add new addressbook"
 msgstr "Додати нову адресну книгу"
 
-#: templates/contacts.php:95 templates/index.php:57
+#: templates/contacts.php:89
 msgid "Delete current contact"
 msgstr "Видалити даний контакт"
 
-#: templates/contacts.php:100
+#: templates/contacts.php:94
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
 msgstr "<h3>У вашій адресній книзі відсутні контакти.</h3><p>Додайте новий контакт або імпортуйте контакти з VCF файлу.</p>"
 
-#: templates/contacts.php:103 templates/part.no_contacts.php:9
+#: templates/contacts.php:97
 msgid "Add contact"
 msgstr "Додати контакт"
 
-#: templates/contacts.php:144
+#: templates/contacts.php:138
 msgid "Compose mail"
 msgstr "Написати листа"
 
-#: templates/contacts.php:155
+#: templates/contacts.php:149
 msgid "Delete group"
 msgstr "Видалити групу"
 
-#: templates/contacts.php:168 templates/part.contact.php:19
+#: templates/contacts.php:162
 msgid "Delete current photo"
 msgstr "Видалити поточне фото"
 
-#: templates/contacts.php:169 templates/part.contact.php:20
+#: templates/contacts.php:163
 msgid "Edit current photo"
 msgstr "Редагувати поточне фото"
 
-#: templates/contacts.php:170 templates/part.contact.php:21
+#: templates/contacts.php:164
 msgid "Upload new photo"
 msgstr "Завантажити нове фото"
 
-#: templates/contacts.php:171 templates/part.contact.php:22
+#: templates/contacts.php:165
 msgid "Select photo from ownCloud"
 msgstr "Обрати фото з ownCloud"
 
-#: templates/contacts.php:182 templates/contacts.php:183
+#: templates/contacts.php:176 templates/contacts.php:177
 msgid "First name"
 msgstr "Ім'я"
 
-#: templates/contacts.php:187 templates/contacts.php:188
-#: templates/part.edit_name_dialog.php:37
+#: templates/contacts.php:181 templates/contacts.php:182
 msgid "Additional names"
 msgstr "Додаткові імена"
 
-#: templates/contacts.php:192 templates/contacts.php:193
+#: templates/contacts.php:186 templates/contacts.php:187
 msgid "Last name"
 msgstr "Прізвище"
 
-#: templates/contacts.php:200
+#: templates/contacts.php:194
 msgid "Select groups"
 msgstr "Оберіть групи"
 
-#: templates/contacts.php:204 templates/contacts.php:268
-#: templates/part.contact.php:41 templates/part.contact.php:127
+#: templates/contacts.php:198 templates/contacts.php:262
 msgid "Nickname"
 msgstr "Прізвисько"
 
-#: templates/contacts.php:207 templates/part.contact.php:42
+#: templates/contacts.php:201
 msgid "Enter nickname"
 msgstr "Ввести прізвисько"
 
-#: templates/contacts.php:211 templates/contacts.php:267
+#: templates/contacts.php:205 templates/contacts.php:261
 msgid "Title"
 msgstr "Назва"
 
-#: templates/contacts.php:214
+#: templates/contacts.php:208
 msgid "Enter title"
 msgstr "Введіть назву"
 
-#: templates/contacts.php:218 templates/contacts.php:266
-#: templates/part.contact.php:39 templates/part.contact.php:40
-#: templates/part.contact.php:126
+#: templates/contacts.php:212 templates/contacts.php:260
 msgid "Organization"
 msgstr "Організація"
 
-#: templates/contacts.php:221
+#: templates/contacts.php:215
 msgid "Enter organization"
 msgstr "Введіть організацію"
 
-#: templates/contacts.php:225 templates/contacts.php:269
-#: templates/part.contact.php:45 templates/part.contact.php:128
+#: templates/contacts.php:219 templates/contacts.php:263
 msgid "Birthday"
 msgstr "День народження"
 
-#: templates/contacts.php:256
+#: templates/contacts.php:250
 msgid "Notes go here..."
 msgstr "Тут будуть примітки..."
 
-#: templates/contacts.php:263
+#: templates/contacts.php:257
 msgid "Export as VCF"
 msgstr "Експорт як VCF"
 
-#: templates/contacts.php:265
+#: templates/contacts.php:259
 msgid "Add"
 msgstr "Додати"
 
-#: templates/contacts.php:270 templates/part.contact.php:129
+#: templates/contacts.php:264
 msgid "Phone"
 msgstr "Телефон"
 
-#: templates/contacts.php:271 templates/part.contact.php:130
+#: templates/contacts.php:265
 msgid "Email"
 msgstr "Ел.пошта"
 
-#: templates/contacts.php:272 templates/part.contact.php:131
+#: templates/contacts.php:266
 msgid "Instant Messaging"
 msgstr "Instant Messaging"
 
-#: templates/contacts.php:273 templates/part.contact.php:132
+#: templates/contacts.php:267
 msgid "Address"
 msgstr "Адреса"
 
-#: templates/contacts.php:274 templates/part.contact.php:133
+#: templates/contacts.php:268
 msgid "Note"
 msgstr "Примітка"
 
-#: templates/contacts.php:275 templates/part.contact.php:43
-#: templates/part.contact.php:134
+#: templates/contacts.php:269
 msgid "Web site"
 msgstr "Веб-сайт"
 
-#: templates/contacts.php:277 templates/part.contact.php:139
+#: templates/contacts.php:271
 msgid "Delete contact"
 msgstr "Видалити контакт"
 
-#: templates/contacts.php:290 templates/contacts.php:305
-#: templates/contacts.php:319 templates/contacts.php:344
-#: templates/contacts.php:381 templates/part.contact.php:59
-#: templates/part.contact.php:73 templates/part.contact.php:98
+#: templates/contacts.php:284 templates/contacts.php:299
+#: templates/contacts.php:313 templates/contacts.php:338
+#: templates/contacts.php:375
 msgid "Preferred"
 msgstr "Пріоритетний"
 
-#: templates/contacts.php:292 templates/part.contact.php:60
+#: templates/contacts.php:286
 msgid "Please specify a valid email address."
 msgstr "Будь ласка, вкажіть вірну адресу електронної пошти."
 
-#: templates/contacts.php:292
+#: templates/contacts.php:286
 msgid "someone@example.com"
 msgstr "someone@example.com"
 
-#: templates/contacts.php:294 templates/part.contact.php:64
+#: templates/contacts.php:288
 msgid "Mail to address"
 msgstr "Написати листа за адресою"
 
-#: templates/contacts.php:295 templates/part.contact.php:65
+#: templates/contacts.php:289
 msgid "Delete email address"
 msgstr "Видалити адресу електронної пошти"
 
-#: templates/contacts.php:307 templates/part.contact.php:75
+#: templates/contacts.php:301
 msgid "Enter phone number"
 msgstr "Ввести номер телефону"
 
-#: templates/contacts.php:309 templates/part.contact.php:79
+#: templates/contacts.php:303
 msgid "Delete phone number"
 msgstr "Видалити номер телефону"
 
-#: templates/contacts.php:323 templates/part.contact.php:44
+#: templates/contacts.php:317
 msgid "Go to web site"
 msgstr "Перейти на веб-сайт"
 
-#: templates/contacts.php:324
+#: templates/contacts.php:318
 msgid "Delete URL"
 msgstr "Видалити URL"
 
-#: templates/contacts.php:335 templates/part.contact.php:110
+#: templates/contacts.php:329
 msgid "View on map"
 msgstr "Переглянути на карті"
 
-#: templates/contacts.php:336
+#: templates/contacts.php:330
 msgid "Delete address"
 msgstr "Видалити адресу"
 
-#: templates/contacts.php:348
+#: templates/contacts.php:342
 msgid "1 Main Street"
 msgstr "1 Головна вулиця"
 
-#: templates/contacts.php:349 templates/part.edit_address_dialog.php:24
+#: templates/contacts.php:343
 msgid "Street address"
 msgstr "Адреса"
 
-#: templates/contacts.php:353
+#: templates/contacts.php:347
 msgid "12345"
 msgstr "12345"
 
-#: templates/contacts.php:354 templates/part.edit_address_dialog.php:51
+#: templates/contacts.php:348
 msgid "Postal code"
 msgstr "Поштовий індекс"
 
-#: templates/contacts.php:356
+#: templates/contacts.php:350
 msgid "Your city"
 msgstr "Ваше місто"
 
-#: templates/contacts.php:357 templates/part.edit_address_dialog.php:36
-#: templates/part.edit_address_dialog.php:39
+#: templates/contacts.php:351
 msgid "City"
 msgstr "Місто"
 
-#: templates/contacts.php:361
+#: templates/contacts.php:355
 msgid "Some region"
 msgstr "Деякий регіон"
 
-#: templates/contacts.php:362
+#: templates/contacts.php:356
 msgid "State or province"
 msgstr "Область"
 
-#: templates/contacts.php:366
+#: templates/contacts.php:360
 msgid "Your country"
 msgstr "Ваша країна"
 
-#: templates/contacts.php:367 templates/part.edit_address_dialog.php:54
-#: templates/part.edit_address_dialog.php:57
+#: templates/contacts.php:361
 msgid "Country"
 msgstr "Країна"
 
-#: templates/contacts.php:389 templates/part.contact.php:100
+#: templates/contacts.php:383
 msgid "Instant Messenger"
 msgstr "Instant Messenger"
 
-#: templates/contacts.php:391 templates/part.contact.php:101
+#: templates/contacts.php:385
 msgid "Delete IM"
 msgstr "Видалити IM"
 
-#: templates/contacts.php:401 templates/settings.php:36
+#: templates/contacts.php:395 templates/settings.php:36
 msgid "Share"
 msgstr "Поділитися"
 
-#: templates/contacts.php:402
+#: templates/contacts.php:396
 msgid "Export"
 msgstr "Експорт"
 
-#: templates/contacts.php:403
+#: templates/contacts.php:397
 msgid "CardDAV link"
 msgstr "CardDAV посилання"
 
-#: templates/index.php:14
-msgid "Add Contact"
-msgstr "Додати контакт"
-
-#: templates/part.contact.php:17
-msgid "Drop photo to upload"
-msgstr "Піднесіть фото для завантаження"
-
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "Format custom, Short name, Full name, Reverse or Reverse with comma"
-
-#: templates/part.contact.php:36
-msgid "Edit name details"
-msgstr "Редагувати деталі"
-
-#: templates/part.contact.php:44
-msgid "http://www.somesite.com"
-msgstr "http://www.somesite.com"
-
-#: templates/part.contact.php:46
-msgid "dd-mm-yyyy"
-msgstr "дд-мм-рррр"
-
-#: templates/part.contact.php:49
-msgid "Separate groups with commas"
-msgstr "Відділяйте групи комами"
-
-#: templates/part.contact.php:50
-msgid "Edit groups"
-msgstr "Редагувати групи"
-
-#: templates/part.contact.php:60
-msgid "Enter email address"
-msgstr "Ввести адресу електронної пошти"
-
-#: templates/part.contact.php:110
-msgid "Edit address details"
-msgstr "Редагувати деталі адреси"
-
-#: templates/part.contact.php:116
-msgid "Add notes here."
-msgstr "Додайте сюди примітки."
-
-#: templates/part.contact.php:124
-msgid "Add field"
-msgstr "Додати поле"
-
-#: templates/part.contact.php:138
-msgid "Download contact"
-msgstr "Завантажити контакт"
-
-#: templates/part.cropphoto.php:65
+#: templates/part.cropphoto.php:31
 msgid "The temporary image has been removed from cache."
 msgstr "Тимчасове зображення було видалене з кешу."
-
-#: templates/part.edit_address_dialog.php:6
-msgid "Edit address"
-msgstr "Редагувати адреси"
-
-#: templates/part.edit_address_dialog.php:10
-msgid "Type"
-msgstr "Тип"
-
-#: templates/part.edit_address_dialog.php:18
-#: templates/part.edit_address_dialog.php:21
-msgid "PO Box"
-msgstr "Поштова скринька"
-
-#: templates/part.edit_address_dialog.php:27
-msgid "Street and number"
-msgstr "Вулиця та номер будинку"
-
-#: templates/part.edit_address_dialog.php:30
-msgid "Extended"
-msgstr "Розширено"
-
-#: templates/part.edit_address_dialog.php:33
-msgid "Apartment number etc."
-msgstr "Номер квартири та ін."
-
-#: templates/part.edit_address_dialog.php:42
-msgid "Region"
-msgstr "Регіон"
-
-#: templates/part.edit_address_dialog.php:45
-msgid "E.g. state or province"
-msgstr "Область чи район"
-
-#: templates/part.edit_address_dialog.php:48
-msgid "Zipcode"
-msgstr "Поштовий індекс"
-
-#: templates/part.edit_name_dialog.php:16
-msgid "Addressbook"
-msgstr "Адресна книга"
-
-#: templates/part.edit_name_dialog.php:23
-msgid "Hon. prefixes"
-msgstr "Високоповажні префікси"
-
-#: templates/part.edit_name_dialog.php:27
-msgid "Miss"
-msgstr "Пані"
-
-#: templates/part.edit_name_dialog.php:28
-msgid "Ms"
-msgstr "Пані"
-
-#: templates/part.edit_name_dialog.php:29
-msgid "Mr"
-msgstr "Пан"
-
-#: templates/part.edit_name_dialog.php:30
-msgid "Sir"
-msgstr "Пан"
-
-#: templates/part.edit_name_dialog.php:31
-msgid "Mrs"
-msgstr "Панове"
-
-#: templates/part.edit_name_dialog.php:32
-msgid "Dr"
-msgstr "Доктор"
-
-#: templates/part.edit_name_dialog.php:35
-msgid "Given name"
-msgstr "Ім'я"
-
-#: templates/part.edit_name_dialog.php:39
-msgid "Family name"
-msgstr "Прізвище"
-
-#: templates/part.edit_name_dialog.php:41
-msgid "Hon. suffixes"
-msgstr "Високоповажні суфікси"
-
-#: templates/part.edit_name_dialog.php:45
-msgid "J.D."
-msgstr "J.D."
-
-#: templates/part.edit_name_dialog.php:46
-msgid "M.D."
-msgstr "M.D."
-
-#: templates/part.edit_name_dialog.php:47
-msgid "D.O."
-msgstr "D.O."
-
-#: templates/part.edit_name_dialog.php:48
-msgid "D.C."
-msgstr "D.C."
-
-#: templates/part.edit_name_dialog.php:49
-msgid "Ph.D."
-msgstr "Ph.D."
-
-#: templates/part.edit_name_dialog.php:50
-msgid "Esq."
-msgstr "Esq."
-
-#: templates/part.edit_name_dialog.php:51
-msgid "Jr."
-msgstr "Jr."
-
-#: templates/part.edit_name_dialog.php:52
-msgid "Sn."
-msgstr "Sn."
-
-#: templates/part.import.php:1
-msgid "Import a contacts file"
-msgstr "Імпортувати файл контактів"
-
-#: templates/part.import.php:6
-msgid "Please choose the addressbook"
-msgstr "Будь ласка, оберіть адресну книгу"
-
-#: templates/part.import.php:10
-msgid "create a new addressbook"
-msgstr "створити нову адресну книгу"
-
-#: templates/part.import.php:15
-msgid "Name of new addressbook"
-msgstr "Ім'я нової адресної книги"
-
-#: templates/part.import.php:20
-msgid "Importing contacts"
-msgstr "Імпортування контактів"
-
-#: templates/part.no_contacts.php:3
-msgid ""
-"<h3>You have no contacts in your addressbook.</h3><p>You can import VCF "
-"files by dragging them to the contacts list and either drop them on an "
-"addressbook to import into it, or on an empty spot to create a new "
-"addressbook and import into that.<br />You can also import by clicking on "
-"the import button at the bottom of the list.</p>"
-msgstr "<h3>Відсутні контакти у Вашій адресній книзі.</h3><p>Ви можете імпортувати VCF файли перетаскуванням до списку контактів та або кинути їх на адресну книгу для імпортування в неї, або на пусте місце для створення нової адресної книги та імпортування в нову.<br />Також, Ви можете імпортувати натисканням на кнопку імпорту внизу списку.</p>"
-
-#: templates/part.selectaddressbook.php:1
-msgid "Select Address Books"
-msgstr "Обрати адресні книги"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"

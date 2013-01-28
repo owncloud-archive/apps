@@ -7,15 +7,16 @@
 # Csaba Orban <vicsabi@gmail.com>, 2012.
 #  <gyonkibendeguz@gmail.com>, 2013.
 #   <gyonkibendeguz@gmail.com>, 2013.
+# Laszlo Tornoci <torlasz@gmail.com>, 2013.
 # Peter Borsa <peter.borsa@gmail.com>, 2011.
 # Tamas Nagy <mail@tamas-nagy.net>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-20 00:01+0100\n"
-"PO-Revision-Date: 2013-01-19 11:47+0000\n"
-"Last-Translator: gyeben <gyonkibendeguz@gmail.com>\n"
+"POT-Creation-Date: 2013-01-26 00:04+0100\n"
+"PO-Revision-Date: 2013-01-25 23:05+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,13 +40,13 @@ msgstr "Nem található naptár"
 msgid "No events found."
 msgstr "Nem található esemény"
 
-#: ajax/event/edit.form.php:20
+#: ajax/event/edit.form.php:21
 msgid "Wrong calendar"
 msgstr "Hibás naptár"
 
-#: ajax/event/edit.form.php:220 lib/object.php:196 lib/object.php:232
+#: ajax/event/edit.form.php:221 lib/object.php:196 lib/object.php:232
 msgid "You do not have the permissions to edit this event."
-msgstr "Nincs jogod ahhoz, hogy módosítsd ezt az eseményt."
+msgstr "Nincs joga ahhoz, hogy módosítsa ezt az eseményt."
 
 #: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
@@ -59,40 +60,40 @@ msgstr "események mentve az új naptárba"
 
 #: ajax/import/import.php:57
 msgid "Import failed"
-msgstr "Az importálás sikertelen"
+msgstr "Az importálás nem sikerült"
 
 #: ajax/import/import.php:70
 msgid "events has been saved in your calendar"
-msgstr "az események mentve a naptáradba"
+msgstr "esemény került rögzítésre a naptárban"
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
-msgstr "Új időzóna"
+msgstr "Új időzóna:"
 
 #: ajax/settings/settimezone.php:23
 msgid "Timezone changed"
-msgstr "Időzóna megváltozott"
+msgstr "Az időzóna megváltozott"
 
 #: ajax/settings/settimezone.php:25
 msgid "Invalid request"
 msgstr "Érvénytelen kérés"
 
-#: appinfo/app.php:38 templates/calendar.php:15
-#: templates/part.eventform.php:33 templates/part.showevent.php:33
+#: appinfo/app.php:38 js/l10n.php:55 templates/part.eventform.php:30
+#: templates/part.showevent.php:33
 msgid "Calendar"
 msgstr "Naptár"
 
 #: js/calendar.js:154
 msgid "Deletion failed"
-msgstr "Törlés sikertelen"
+msgstr "A törlés nem sikerült"
 
 #: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
 
 #: js/calendar.js:245
 msgid "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
-msgstr ""
+msgstr "ddd d MMMM[ yyyy] HH:mm{ - [ ddd d MMMM yyyy] HH:mm}"
 
 #: js/calendar.js:597
 msgid "user"
@@ -116,19 +117,19 @@ msgstr "Törölhető"
 
 #: js/calendar.js:869
 msgid "ddd"
-msgstr "nnn"
+msgstr "ddd"
 
 #: js/calendar.js:870
 msgid "ddd M/d"
-msgstr "nnn H/n"
+msgstr "ddd M.d."
 
 #: js/calendar.js:871
 msgid "dddd M/d"
-msgstr "nnnn H/n"
+msgstr "dddd M.d."
 
 #: js/calendar.js:874
 msgid "MMMM yyyy"
-msgstr "HHHH éééé"
+msgstr "yyyy MMMM"
 
 #: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
@@ -136,7 +137,200 @@ msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
-msgstr "nnnn, HHH n, éééé"
+msgstr "dddd, MMM d, yyyy"
+
+#: js/l10n.php:45 lib/object.php:555 templates/settings.php:70
+msgid "Sunday"
+msgstr "vasárnap"
+
+#: js/l10n.php:45 lib/object.php:549 templates/settings.php:69
+msgid "Monday"
+msgstr "hétfő"
+
+#: js/l10n.php:45 lib/object.php:550
+msgid "Tuesday"
+msgstr "kedd"
+
+#: js/l10n.php:45 lib/object.php:551
+msgid "Wednesday"
+msgstr "szerda"
+
+#: js/l10n.php:45 lib/object.php:552
+msgid "Thursday"
+msgstr "csütörtök"
+
+#: js/l10n.php:45 lib/object.php:553
+msgid "Friday"
+msgstr "péntek"
+
+#: js/l10n.php:45 lib/object.php:554
+msgid "Saturday"
+msgstr "szombat"
+
+#: js/l10n.php:46
+msgid "Sun."
+msgstr "V."
+
+#: js/l10n.php:46
+msgid "Mon."
+msgstr "H."
+
+#: js/l10n.php:46
+msgid "Tue."
+msgstr "K."
+
+#: js/l10n.php:46
+msgid "Wed."
+msgstr "Sze."
+
+#: js/l10n.php:46
+msgid "Thu."
+msgstr "Cs."
+
+#: js/l10n.php:46
+msgid "Fri."
+msgstr "P."
+
+#: js/l10n.php:46
+msgid "Sat."
+msgstr "Szo."
+
+#: js/l10n.php:47 lib/object.php:605
+msgid "January"
+msgstr "január"
+
+#: js/l10n.php:47 lib/object.php:606
+msgid "February"
+msgstr "február"
+
+#: js/l10n.php:47 lib/object.php:607
+msgid "March"
+msgstr "március"
+
+#: js/l10n.php:47 lib/object.php:608
+msgid "April"
+msgstr "április"
+
+#: js/l10n.php:47 lib/object.php:609
+msgid "May"
+msgstr "május"
+
+#: js/l10n.php:47 lib/object.php:610
+msgid "June"
+msgstr "június"
+
+#: js/l10n.php:47 lib/object.php:611
+msgid "July"
+msgstr "július"
+
+#: js/l10n.php:47 lib/object.php:612
+msgid "August"
+msgstr "augusztus"
+
+#: js/l10n.php:47 lib/object.php:613
+msgid "September"
+msgstr "szeptember"
+
+#: js/l10n.php:47 lib/object.php:614
+msgid "October"
+msgstr "október"
+
+#: js/l10n.php:47 lib/object.php:615
+msgid "November"
+msgstr "november"
+
+#: js/l10n.php:47 lib/object.php:616
+msgid "December"
+msgstr "december"
+
+#: js/l10n.php:48
+msgid "Jan."
+msgstr "jan."
+
+#: js/l10n.php:48
+msgid "Feb."
+msgstr "feb."
+
+#: js/l10n.php:48
+msgid "Mar."
+msgstr "márc."
+
+#: js/l10n.php:48
+msgid "Apr."
+msgstr "ápr."
+
+#: js/l10n.php:48
+msgid "May."
+msgstr "máj."
+
+#: js/l10n.php:48
+msgid "Jun."
+msgstr "jún."
+
+#: js/l10n.php:48
+msgid "Jul."
+msgstr "júl."
+
+#: js/l10n.php:48
+msgid "Aug."
+msgstr "aug."
+
+#: js/l10n.php:48
+msgid "Sep."
+msgstr "szept."
+
+#: js/l10n.php:48
+msgid "Oct."
+msgstr "okt."
+
+#: js/l10n.php:48
+msgid "Nov."
+msgstr "nov."
+
+#: js/l10n.php:48
+msgid "Dec."
+msgstr "dec."
+
+#: js/l10n.php:51
+msgid "All day"
+msgstr "Egész nap"
+
+#: js/l10n.php:52 lib/import.php:216 templates/part.choosecalendar.php:23
+msgid "New Calendar"
+msgstr "Új naptár"
+
+#: js/l10n.php:53
+msgid "Missing or invalid fields"
+msgstr "Kitöltetlen vagy érvénytelenül kitöltött mezők"
+
+#: js/l10n.php:54 templates/part.eventform.php:16
+#: templates/part.showevent.php:11
+msgid "Title"
+msgstr "Cím"
+
+#: js/l10n.php:56
+msgid "From Date"
+msgstr "Napjától"
+
+#: js/l10n.php:57
+msgid "From Time"
+msgstr "Időtől"
+
+#: js/l10n.php:58
+msgid "To Date"
+msgstr "Napig"
+
+#: js/l10n.php:59
+msgid "To Time"
+msgstr "Ideig"
+
+#: js/l10n.php:60
+msgid "The event ends before it starts"
+msgstr "Az esemény a kezdete előtt ér véget."
+
+#: js/l10n.php:61
+msgid "There was a database fail"
+msgstr "Adatbázis hiba történt"
 
 #: lib/app.php:114
 msgid "Birthday"
@@ -144,7 +338,7 @@ msgstr "Születésap"
 
 #: lib/app.php:115
 msgid "Business"
-msgstr "Üzlet"
+msgstr "Üzleti"
 
 #: lib/app.php:116
 msgid "Call"
@@ -208,28 +402,23 @@ msgstr "névtelen"
 
 #: lib/calendar.php:163 lib/calendar.php:196
 msgid "You do not have the permissions to update this calendar."
-msgstr "Nincs jogod ahhoz, hogy frissítsd ezt a naptárat."
+msgstr "Nincs joga ahhoz, hogy frissítse ezt a naptárat."
 
 #: lib/calendar.php:231
 msgid "You do not have the permissions to delete this calendar."
-msgstr "Nincs jogod ahhoz, hogy töröld ezt a naptárat."
+msgstr "Nincs joga ahhoz, hogy törölje ezt a naptárat."
 
 #: lib/calendar.php:265
 msgid "You do not have the permissions to add to this calendar."
-msgstr "Nincs jogod ahhoz, hogy hozzáadj ehhez a naptárhoz."
-
-#: lib/import.php:216 templates/calendar.php:12
-#: templates/part.choosecalendar.php:23
-msgid "New Calendar"
-msgstr "Új naptár"
+msgstr "Nincs joga ahhoz, hogy hozzáadjon ehhez a naptárhoz."
 
 #: lib/object.php:122 lib/object.php:162 lib/object.php:316
 msgid "You do not have the permissions to add events to this calendar."
-msgstr "Nincs jogod ahhoz, hogy hozzáadhass eseményeket ehhez a naptárhoz."
+msgstr "Nincs joga ahhoz, hogy eseményeket illesszen ebbe a naptárba."
 
 #: lib/object.php:264 lib/object.php:296
 msgid "You do not have the permissions to delete this event."
-msgstr "Nincs jogod ahhoz, hogy törölhesd ezt az eseményt."
+msgstr "Nincs joga ahhoz, hogy törölje ezt az eseményt."
 
 #: lib/object.php:481
 msgid "Busy"
@@ -241,7 +430,7 @@ msgstr "Publikus"
 
 #: lib/object.php:499
 msgid "Private"
-msgstr "Privát"
+msgstr "Személyes"
 
 #: lib/object.php:500
 msgid "Confidential"
@@ -253,11 +442,11 @@ msgstr "Nem ismétlődik"
 
 #: lib/object.php:511
 msgid "Daily"
-msgstr "Napi"
+msgstr "Naponta"
 
 #: lib/object.php:512
 msgid "Weekly"
-msgstr "Heti"
+msgstr "Hetente"
 
 #: lib/object.php:513
 msgid "Every Weekday"
@@ -269,11 +458,11 @@ msgstr "Kéthetente"
 
 #: lib/object.php:515
 msgid "Monthly"
-msgstr "Havi"
+msgstr "Havonta"
 
 #: lib/object.php:516
 msgid "Yearly"
-msgstr "Évi"
+msgstr "Évente"
 
 #: lib/object.php:526
 msgid "never"
@@ -281,7 +470,7 @@ msgstr "soha"
 
 #: lib/object.php:527
 msgid "by occurrences"
-msgstr "előfordulás szerint"
+msgstr "előfordulások száma szerint"
 
 #: lib/object.php:528
 msgid "by date"
@@ -294,34 +483,6 @@ msgstr "hónap napja szerint"
 #: lib/object.php:539
 msgid "by weekday"
 msgstr "hét napja szerint"
-
-#: lib/object.php:549 templates/calendar.php:5 templates/settings.php:69
-msgid "Monday"
-msgstr "Hétfő"
-
-#: lib/object.php:550 templates/calendar.php:5
-msgid "Tuesday"
-msgstr "Kedd"
-
-#: lib/object.php:551 templates/calendar.php:5
-msgid "Wednesday"
-msgstr "Szerda"
-
-#: lib/object.php:552 templates/calendar.php:5
-msgid "Thursday"
-msgstr "Csütörtök"
-
-#: lib/object.php:553 templates/calendar.php:5
-msgid "Friday"
-msgstr "Péntek"
-
-#: lib/object.php:554 templates/calendar.php:5
-msgid "Saturday"
-msgstr "Szombat"
-
-#: lib/object.php:555 templates/calendar.php:5 templates/settings.php:70
-msgid "Sunday"
-msgstr "Vasárnap"
 
 #: lib/object.php:565
 msgid "events week of month"
@@ -351,54 +512,6 @@ msgstr "ötödik"
 msgid "last"
 msgstr "utolsó"
 
-#: lib/object.php:605 templates/calendar.php:7
-msgid "January"
-msgstr "Január"
-
-#: lib/object.php:606 templates/calendar.php:7
-msgid "February"
-msgstr "Február"
-
-#: lib/object.php:607 templates/calendar.php:7
-msgid "March"
-msgstr "Március"
-
-#: lib/object.php:608 templates/calendar.php:7
-msgid "April"
-msgstr "Április"
-
-#: lib/object.php:609 templates/calendar.php:7
-msgid "May"
-msgstr "Május"
-
-#: lib/object.php:610 templates/calendar.php:7
-msgid "June"
-msgstr "Június"
-
-#: lib/object.php:611 templates/calendar.php:7
-msgid "July"
-msgstr "Július"
-
-#: lib/object.php:612 templates/calendar.php:7
-msgid "August"
-msgstr "Augusztus"
-
-#: lib/object.php:613 templates/calendar.php:7
-msgid "September"
-msgstr "Szeptember"
-
-#: lib/object.php:614 templates/calendar.php:7
-msgid "October"
-msgstr "Október"
-
-#: lib/object.php:615 templates/calendar.php:7
-msgid "November"
-msgstr "November"
-
-#: lib/object.php:616 templates/calendar.php:7
-msgid "December"
-msgstr "December"
-
 #: lib/object.php:626
 msgid "by events date"
 msgstr "az esemény napja szerint"
@@ -424,145 +537,32 @@ msgid "Cal."
 msgstr "Naptár"
 
 #: templates/calendar.php:6
-msgid "Sun."
-msgstr "V."
-
-#: templates/calendar.php:6
-msgid "Mon."
-msgstr "H."
-
-#: templates/calendar.php:6
-msgid "Tue."
-msgstr "K."
-
-#: templates/calendar.php:6
-msgid "Wed."
-msgstr "Sze."
-
-#: templates/calendar.php:6
-msgid "Thu."
-msgstr "Cs."
-
-#: templates/calendar.php:6
-msgid "Fri."
-msgstr "P."
-
-#: templates/calendar.php:6
-msgid "Sat."
-msgstr "Szo."
-
-#: templates/calendar.php:8
-msgid "Jan."
-msgstr "Jan."
-
-#: templates/calendar.php:8
-msgid "Feb."
-msgstr "Feb."
-
-#: templates/calendar.php:8
-msgid "Mar."
-msgstr "Márc."
-
-#: templates/calendar.php:8
-msgid "Apr."
-msgstr "Ápr."
-
-#: templates/calendar.php:8
-msgid "May."
-msgstr "Máj."
-
-#: templates/calendar.php:8
-msgid "Jun."
-msgstr "Jún."
-
-#: templates/calendar.php:8
-msgid "Jul."
-msgstr "Júl."
-
-#: templates/calendar.php:8
-msgid "Aug."
-msgstr "Aug."
-
-#: templates/calendar.php:8
-msgid "Sep."
-msgstr "Szept."
-
-#: templates/calendar.php:8
-msgid "Oct."
-msgstr "Okt."
-
-#: templates/calendar.php:8
-msgid "Nov."
-msgstr "Nov."
-
-#: templates/calendar.php:8
-msgid "Dec."
-msgstr "Dec."
-
-#: templates/calendar.php:11
-msgid "All day"
-msgstr "Egész nap"
-
-#: templates/calendar.php:13
-msgid "Missing or invalid fields"
-msgstr "Kitöltetlen vagy érvénytelenül kitöltött mezők"
-
-#: templates/calendar.php:14 templates/part.eventform.php:19
-#: templates/part.showevent.php:11
-msgid "Title"
-msgstr "Cím"
-
-#: templates/calendar.php:16
-msgid "From Date"
-msgstr "Napjától"
-
-#: templates/calendar.php:17
-msgid "From Time"
-msgstr "Időtől"
-
-#: templates/calendar.php:18
-msgid "To Date"
-msgstr "Napig"
-
-#: templates/calendar.php:19
-msgid "To Time"
-msgstr "Ideig"
-
-#: templates/calendar.php:20
-msgid "The event ends before it starts"
-msgstr "Az esemény véget ér a kezdés előtt."
-
-#: templates/calendar.php:21
-msgid "There was a database fail"
-msgstr "Adatbázis hiba történt"
-
-#: templates/calendar.php:39
 msgid "Week"
 msgstr "Hét"
 
-#: templates/calendar.php:40
+#: templates/calendar.php:7
 msgid "Month"
 msgstr "Hónap"
 
-#: templates/calendar.php:41
+#: templates/calendar.php:8
 msgid "List"
 msgstr "Lista"
 
-#: templates/calendar.php:45
+#: templates/calendar.php:12
 msgid "Today"
 msgstr "Ma"
 
-#: templates/calendar.php:46
+#: templates/calendar.php:13
 msgid "Calendars"
 msgstr "Naptárak"
 
-#: templates/calendar.php:47
+#: templates/calendar.php:14
 msgid "Settings"
 msgstr "Beállítások"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
-msgstr "Naptárjaid"
+msgstr "Az Ön naptárai"
 
 #: templates/part.choosecalendar.php:28
 #: templates/part.choosecalendar.rowfields.php:24
@@ -571,7 +571,7 @@ msgstr "CalDAV link"
 
 #: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
-msgstr "Naptármegosztás"
+msgstr "A naptár megosztása"
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
@@ -586,17 +586,13 @@ msgstr "Szerkesztés"
 msgid "Delete"
 msgstr "Törlés"
 
-#: templates/part.choosecalendar.rowfields.shared.php:4
-msgid "shared with you by"
-msgstr "megosztotta veled: "
-
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
 msgstr "Új naptár"
 
 #: templates/part.editcalendar.php:9
 msgid "Edit calendar"
-msgstr "Naptár szerkesztése"
+msgstr " A naptár szerkesztése"
 
 #: templates/part.editcalendar.php:12
 msgid "Displayname"
@@ -608,7 +604,7 @@ msgstr "Aktív"
 
 #: templates/part.editcalendar.php:29
 msgid "Calendar color"
-msgstr "Naptár szín"
+msgstr "A naptár színe"
 
 #: templates/part.editcalendar.php:42
 msgid "Save"
@@ -631,126 +627,126 @@ msgstr "Esemény szerkesztése"
 msgid "Export"
 msgstr "Export"
 
-#: templates/part.eventform.php:8 templates/part.showevent.php:3
+#: templates/part.eventform.php:5 templates/part.showevent.php:3
 msgid "Eventinfo"
 msgstr "Eseményinfó"
 
-#: templates/part.eventform.php:9 templates/part.showevent.php:4
+#: templates/part.eventform.php:6 templates/part.showevent.php:4
 msgid "Repeating"
 msgstr "Ismétlődő"
 
-#: templates/part.eventform.php:10 templates/part.showevent.php:5
+#: templates/part.eventform.php:7 templates/part.showevent.php:5
 msgid "Alarm"
 msgstr "Riasztás"
 
-#: templates/part.eventform.php:11 templates/part.showevent.php:6
+#: templates/part.eventform.php:8 templates/part.showevent.php:6
 msgid "Attendees"
 msgstr "Résztvevők"
 
-#: templates/part.eventform.php:13
+#: templates/part.eventform.php:10
 msgid "Share"
 msgstr "Megosztás"
 
-#: templates/part.eventform.php:21
+#: templates/part.eventform.php:18
 msgid "Title of the Event"
 msgstr "Az esemény címe"
 
-#: templates/part.eventform.php:27 templates/part.showevent.php:19
+#: templates/part.eventform.php:24 templates/part.showevent.php:19
 msgid "Category"
 msgstr "Kategória"
 
-#: templates/part.eventform.php:29
+#: templates/part.eventform.php:26
 msgid "Separate categories with commas"
-msgstr "Vesszővel válaszd el a kategóriákat"
+msgstr "Vesszővel válassza el a kategóriákat"
 
-#: templates/part.eventform.php:30
+#: templates/part.eventform.php:27
 msgid "Edit categories"
 msgstr "Kategóriák szerkesztése"
 
-#: templates/part.eventform.php:50 templates/part.showevent.php:46
+#: templates/part.eventform.php:47 templates/part.showevent.php:46
 msgid "Access Class"
 msgstr "Hozzáférési osztály"
 
-#: templates/part.eventform.php:67 templates/part.showevent.php:62
+#: templates/part.eventform.php:64 templates/part.showevent.php:62
 msgid "All Day Event"
 msgstr "Egész napos esemény"
 
-#: templates/part.eventform.php:71 templates/part.showevent.php:66
+#: templates/part.eventform.php:68 templates/part.showevent.php:66
 msgid "From"
 msgstr "Ettől"
 
-#: templates/part.eventform.php:79 templates/part.showevent.php:74
+#: templates/part.eventform.php:76 templates/part.showevent.php:74
 msgid "To"
 msgstr "Eddig"
 
-#: templates/part.eventform.php:87 templates/part.showevent.php:82
+#: templates/part.eventform.php:84 templates/part.showevent.php:82
 msgid "Advanced options"
 msgstr "Haladó beállítások"
 
-#: templates/part.eventform.php:92 templates/part.showevent.php:87
+#: templates/part.eventform.php:89 templates/part.showevent.php:87
 msgid "Location"
 msgstr "Hely"
 
-#: templates/part.eventform.php:94
+#: templates/part.eventform.php:91
 msgid "Location of the Event"
 msgstr "Az esemény helyszíne"
 
-#: templates/part.eventform.php:100 templates/part.showevent.php:95
+#: templates/part.eventform.php:97 templates/part.showevent.php:95
 msgid "Description"
 msgstr "Leírás"
 
-#: templates/part.eventform.php:102
+#: templates/part.eventform.php:99
 msgid "Description of the Event"
 msgstr "Az esemény leírása"
 
-#: templates/part.eventform.php:111 templates/part.showevent.php:105
+#: templates/part.eventform.php:108 templates/part.showevent.php:105
 msgid "Repeat"
 msgstr "Ismétlés"
 
-#: templates/part.eventform.php:118 templates/part.showevent.php:112
+#: templates/part.eventform.php:115 templates/part.showevent.php:112
 msgid "Advanced"
 msgstr "Haladó"
 
-#: templates/part.eventform.php:162 templates/part.showevent.php:156
+#: templates/part.eventform.php:159 templates/part.showevent.php:156
 msgid "Select weekdays"
 msgstr "Hétköznapok kiválasztása"
 
-#: templates/part.eventform.php:175 templates/part.eventform.php:188
+#: templates/part.eventform.php:172 templates/part.eventform.php:185
 #: templates/part.showevent.php:169 templates/part.showevent.php:182
 msgid "Select days"
 msgstr "Napok kiválasztása"
 
-#: templates/part.eventform.php:180 templates/part.showevent.php:174
+#: templates/part.eventform.php:177 templates/part.showevent.php:174
 msgid "and the events day of year."
 msgstr "és az éves esemény napja."
 
-#: templates/part.eventform.php:193 templates/part.showevent.php:187
+#: templates/part.eventform.php:190 templates/part.showevent.php:187
 msgid "and the events day of month."
 msgstr "és a havi esemény napja."
 
-#: templates/part.eventform.php:201 templates/part.showevent.php:195
+#: templates/part.eventform.php:198 templates/part.showevent.php:195
 msgid "Select months"
 msgstr "Hónapok kiválasztása"
 
-#: templates/part.eventform.php:214 templates/part.showevent.php:208
+#: templates/part.eventform.php:211 templates/part.showevent.php:208
 msgid "Select weeks"
 msgstr "Hetek kiválasztása"
 
-#: templates/part.eventform.php:219 templates/part.showevent.php:213
+#: templates/part.eventform.php:216 templates/part.showevent.php:213
 msgid "and the events week of year."
 msgstr "és az heti esemény napja."
 
-#: templates/part.eventform.php:225 templates/part.showevent.php:219
+#: templates/part.eventform.php:222 templates/part.showevent.php:219
 msgid "Interval"
 msgstr "Időköz"
 
-#: templates/part.eventform.php:231 templates/part.showevent.php:225
+#: templates/part.eventform.php:228 templates/part.showevent.php:225
 msgid "End"
 msgstr "Vége"
 
-#: templates/part.eventform.php:244 templates/part.showevent.php:238
+#: templates/part.eventform.php:241 templates/part.showevent.php:238
 msgid "occurrences"
-msgstr "előfordulások"
+msgstr "előfordulás"
 
 #: templates/part.import.php:14
 msgid "create a new calendar"
@@ -758,25 +754,25 @@ msgstr "új naptár létrehozása"
 
 #: templates/part.import.php:17
 msgid "Import a calendar file"
-msgstr "Naptár-fájl importálása"
+msgstr "Naptárállomány importálása"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
-msgstr "Kérlek válassz egy naptárt"
+msgstr "Kérem válasszon egy naptárt"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
-msgstr "Új naptár neve"
+msgstr "Az új naptár neve"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
-msgstr "Válassz egy rendelkezésre álló nevet!"
+msgstr "Válasszon egy rendelkezésre álló nevet!"
 
 #: templates/part.import.php:45
 msgid ""
 "A Calendar with this name already exists. If you continue anyhow, these "
 "calendars will be merged."
-msgstr "A naptár ezen a néven már létezik. Ha folytatja, akkor a naptárak összevonásra kerülnek."
+msgstr "Egy naptár létezik már ezen a néven. Ha folytatja, akkor a naptárak összevonásra kerülnek."
 
 #: templates/part.import.php:48
 msgid "Remove all events from the selected calendar"
@@ -788,7 +784,7 @@ msgstr "Importálás"
 
 #: templates/part.import.php:59
 msgid "Close Dialog"
-msgstr "Párbeszédablak bezárása"
+msgstr "A párbeszédablak bezárása"
 
 #: templates/part.newevent.php:1
 msgid "Create a new event"
@@ -800,11 +796,11 @@ msgstr "Megosztás:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr "Megosztva:"
+msgstr "Meg van osztva a következőkkel:"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr "Nem oszt meg"
+msgstr "A megosztás visszavonása"
 
 #: templates/part.share.php:53
 msgid "Nobody"
@@ -812,13 +808,13 @@ msgstr "Senki"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr "Megosztva a naptáron keresztül"
+msgstr "Az egész naptár megosztása miatt meg van osztva a következőkkel:"
 
 #: templates/part.share.php:79
 msgid ""
 "NOTE: Actions on events shared via calendar will affect the entire calendar "
 "sharing."
-msgstr ""
+msgstr "Figyelem: a naptárokban megosztott események módosítása a megosztott információt is módosítja."
 
 #: templates/part.showevent.php:1
 msgid "View an event"
@@ -830,7 +826,7 @@ msgstr "Nincs kiválasztott kategória"
 
 #: templates/part.showevent.php:37
 msgid "of"
-msgstr ", tulaj "
+msgstr ", tulajdonos"
 
 #: templates/part.showevent.php:69 templates/part.showevent.php:77
 msgid "at"
@@ -846,11 +842,11 @@ msgstr "Időzóna"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
-msgstr "Automatikus időzóna frissítés"
+msgstr "Az időzóna automatikus frissítése"
 
 #: templates/settings.php:52
 msgid "Time format"
-msgstr "Idő formátum"
+msgstr "Az idő formátuma"
 
 #: templates/settings.php:57
 msgid "24h"
@@ -866,11 +862,11 @@ msgstr "A hét első napja"
 
 #: templates/settings.php:76
 msgid "Cache"
-msgstr "Cache"
+msgstr "Gyorsítótár"
 
 #: templates/settings.php:80
 msgid "Clear cache for repeating events"
-msgstr "Az ismétlődő eseményeknél a Chace törlése"
+msgstr "Az ismétlődő eseményeknél a gyorsítótár törlése"
 
 #: templates/settings.php:85
 msgid "URLs"
@@ -878,15 +874,15 @@ msgstr "URL-ek"
 
 #: templates/settings.php:87
 msgid "Calendar CalDAV syncing addresses"
-msgstr "CaIDAv naptár szinkronizálás eelérhetősége"
+msgstr "A naptár CaIDAV szinkronizálási címe"
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr "további info"
+msgstr "további információ"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr "Elsődleges cím (Kontakt)"
+msgstr "Elsődleges cím (Kontact és már programok)"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
@@ -894,4 +890,4 @@ msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"
-msgstr "Csak az iCalendar link(ek) olvasása"
+msgstr "iCalendar cím (csak olvasásra)"

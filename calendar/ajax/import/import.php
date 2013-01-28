@@ -13,7 +13,7 @@ if (isset($_POST['progresskey']) && isset($_POST['getprogress'])) {
 	echo OCP\JSON::success(array('percent'=>OC_Cache::get($_POST['progresskey'])));
 	exit;
 }
-$file = OC_Filesystem::file_get_contents($_POST['path'] . '/' . $_POST['file']);
+$file = \OC\Files\Filesystem::file_get_contents($_POST['path'] . '/' . $_POST['file']);
 if(!$file) {
 	OCP\JSON::error(array('error'=>'404'));
 }

@@ -21,7 +21,9 @@ class OC_User_xmpp_Hooks {
 	}
 
 	static public function createXmppUser($info){
-		system('sudo /usr/sbin/ejabberdctl register '.$info['uid'].' '.OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain','').' '.$info['password']);
+		$x=new OC_xmpp_login(OCP\Config::getAppValue('xmpp', 'xmppAdminUser',''),OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''),OCP\Config::getAppValue('xmpp', 'xmppAdminPasswd',''),OCP\Config::getAppValue('xmpp', 'xmppBOSHURL',''));
+		$x->addUser($info['uid'].'@'.OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain',''),$info['password'],$info['password']);
+#		system('sudo /usr/sbin/ejabberdctl register '.$info['uid'].' '.OCP\Config::getAppValue('xmpp', 'xmppDefaultDomain','').' '.$info['password']);
 	}
 
 	static public function updateXmppUserPassword($info){

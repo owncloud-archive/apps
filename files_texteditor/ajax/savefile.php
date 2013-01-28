@@ -36,7 +36,7 @@ $mtime = isset($_POST['mtime']) ? $_POST['mtime'] : '';
 if($path != '' && $mtime != '' && $filecontents)
 {
 	// Get file mtime
-	$filemtime = OC_Filesystem::filemtime($path);
+	$filemtime = \OC\Files\Filesystem::filemtime($path);
 	if($mtime != $filemtime)
 	{
 		// Then the file has changed since opening
@@ -47,14 +47,14 @@ if($path != '' && $mtime != '' && $filecontents)
 	{
 		// File same as when opened
 		// Save file
-		if(OC_Filesystem::is_writable($path))
+		if(\OC\Files\Filesystem::isUpdatable($path))
 		{
 			$filecontents = iconv(mb_detect_encoding($filecontents), "UTF-8", $filecontents);
-			OC_Filesystem::file_put_contents($path, $filecontents);
+			\OC\Files\Filesystem::file_put_contents($path, $filecontents);
 			// Clear statcache
 			clearstatcache();
 			// Get new mtime
-			$newmtime = OC_Filesystem::filemtime($path);
+			$newmtime = \OC\Files\Filesystem::filemtime($path);
 			OCP\JSON::success(array('data' => array('mtime' => $newmtime)));
 		}
 		else

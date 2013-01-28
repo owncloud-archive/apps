@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Marián Hvolka <marian.hvolka@stuba.sk>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-21 00:01+0100\n"
-"PO-Revision-Date: 2013-01-19 23:02+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-25 00:01+0100\n"
+"PO-Revision-Date: 2013-01-24 19:15+0000\n"
+"Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,11 +34,11 @@ msgstr ""
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "Súbor na odoslanie: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "Nastavenie antivírusu"
 
 #: templates/settings.php:4
 msgid "Mode"
@@ -97,11 +98,11 @@ msgstr ""
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "Len log"
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr ""
+msgstr "Zmazať súbor"
 
 #: templates/settings.php:14
 msgid "Save"

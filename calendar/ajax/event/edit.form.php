@@ -9,8 +9,9 @@
 
 
 if(!OCP\User::isLoggedIn()) {
-	die('<script type="text/javascript">document.location = oc_webroot;</script>');
+	OCP\User::checkLoggedIn();
 }
+
 OCP\JSON::checkAppEnabled('calendar');
 
 $id = $_POST['id'];

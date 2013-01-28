@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
-class Test_User_FTP extends UnitTestCase{
+class Test_User_FTP extends PHPUnit_Framework_TestCase{
 	/**
 	 * @var OC_User_IMAP $instance
 	 */
@@ -28,7 +28,7 @@ class Test_User_FTP extends UnitTestCase{
 
 	function testLogin() {
 		$config=$this->getConfig();
-		$this->assertEqual($config['ftp']['user'],$this->instance->checkPassword($config['ftp']['user'],$config['ftp']['password']));
+		$this->assertEquals($config['ftp']['user'],$this->instance->checkPassword($config['ftp']['user'],$config['ftp']['password']));
 		$this->assertFalse($this->instance->checkPassword($config['ftp']['user'],$config['ftp']['password'].'foo'));
 	}
 }
