@@ -8,10 +8,11 @@
 
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('gallery');
-session_write_close();
 
-list($owner, $img) = explode('/', $_GET['file'], 2);
-\OC\Files\Filesystem::initMountPoints($owner);
+list($owner, $gallery) = explode('/', $_GET['gallery'], 2);
 
-$image = new \OCA\Gallery\Thumbnail('/' . $img, $owner);
-$image->show();
+$ownerView = new \OC\Files\View('/' . $owner . '/files');
+$meta = $ownerView->getFileInfo($gallery);
+
+OCP\JSON::setContentTypeHeader();
+echo json_encode($meta);

@@ -8,20 +8,34 @@
 
 namespace OCA\Gallery;
 
+use OC\Files\Filesystem;
+
 class Thumbnail {
 	static private $writeHookCount;
 
 	protected $image;
 	protected $path;
+	protected $user;
 	protected $useOriginal = false;
 
-	public function __construct($imagePath, $square = false) {
+	/**
+	 * @var \OC\Files\View $view
+	 */
+	protected $view;
+
+	public function __construct($imagePath, $user = null, $square = false) {
+		if (is_null($user)) {
+			$this->view = \OC\Files\Filesystem::getView();
+			$this->user = \OCP\USER::getUser();
+		} else {
+			$this->view = new \OC\Files\View('/' . $user . '/files');
+			$this->user = $user;
+		}
 		$this->useOriginal = (substr($imagePath, -4) === '.svg' or substr($imagePath, -5) === '.svgz');
 		if ($this->useOriginal) {
 			$this->path = $imagePath;
 		} else {
-			$user = \OCP\USER::getUser();
-			$galleryDir = \OC_User::getHome($user) . '/gallery/';
+			$galleryDir = \OC_User::getHome($this->user) . '/gallery/' . $this->user . '/';
 			if (strrpos($imagePath, '.')) {
 				$extension = substr($imagePath, strrpos($imagePath, '.') + 1);
 				$image = substr($imagePath, 0, strrpos($imagePath, '.'));
@@ -40,16 +54,15 @@ class Thumbnail {
 	}
 
 	public function create($imagePath, $square) {
-		$user = \OCP\USER::getUser();
-		$galleryDir = \OC_User::getHome($user) . '/gallery/';
+		$galleryDir = \OC_User::getHome($this->user) . '/gallery/';
 		$dir = dirname($imagePath);
 		if (!is_dir($galleryDir . $dir)) {
 			mkdir($galleryDir . $dir, 0755, true);
 		}
-		if (!\OC_Filesystem::file_exists($imagePath)) {
+		if (!$this->view->file_exists($imagePath)) {
 			return;
 		}
-		$this->image = new \OC_Image(\OC_Filesystem::getLocalFile($imagePath));
+		$this->image = new \OC_Image($this->view->getLocalFile($imagePath));
 		if ($this->image->valid()) {
 			$this->image->fixOrientation();
 			if ($square) {
@@ -70,10 +83,10 @@ class Thumbnail {
 
 	public function show() {
 		if ($this->useOriginal) {
-			$fp = @\OC_Filesystem::fopen($this->path, 'rb');
-			$mtime = \OC_Filesystem::filemtime($this->path);
-			$size = \OC_Filesystem::filesize($this->path);
-			$mime = \OC_Filesystem::getMimetype($this->path);
+			$fp = @$this->view->fopen($this->path, 'rb');
+			$mtime = $this->view->filemtime($this->path);
+			$size = $this->view->filesize($this->path);
+			$mime = $this->view->getMimetype($this->path);
 		} else {
 			$fp = @fopen($this->path, 'rb');
 			$mtime = filemtime($this->path);
@@ -130,7 +143,7 @@ class Thumbnail {
 		//only create 5 thumbnails max in one request to prevent locking up the request
 		if (self::$writeHookCount < 5) {
 			$path = $params['path'];
-			$mime = \OC_Filesystem::getMimetype($path);
+			$mime = \OC\Files\Filesystem::getMimetype($path);
 			if (substr($mime, 0, 6) === 'image/') {
 				self::$writeHookCount++;
 				new Thumbnail($path);
@@ -141,9 +154,15 @@ class Thumbnail {
 
 class AlbumThumbnail extends Thumbnail {
 
-	public function __construct($imagePath, $square = false) {
-		$user = \OCP\USER::getUser();
-		$galleryDir = \OC_User::getHome($user) . '/gallery/';
+	public function __construct($imagePath, $user = null, $square = false) {
+		if (is_null($user)) {
+			$this->view = \OC\Files\Filesystem::getView();
+			$this->user = \OCP\USER::getUser();
+		} else {
+			$this->view = new \OC\Files\View('/' . $user . '/files');
+			$this->user = $user;
+		}
+		$galleryDir = \OC_User::getHome($this->user) . '/gallery/' . $this->user . '/';
 		$this->path = $galleryDir . $imagePath . '.png';
 		if (!file_exists($this->path)) {
 			self::create($imagePath, $square);
@@ -151,13 +170,13 @@ class AlbumThumbnail extends Thumbnail {
 	}
 
 	public function create($albumPath, $square = false) {
-		$user = \OCP\USER::getUser();
-		$images = \OC_Filecache::searchByMime('image', null, '/' . $user . '/files' . $albumPath);
+		$albumView = new \OC\Files\View($this->view->getRoot() . $albumPath);
+		$images = $albumView->searchByMime('image', 10);
 
 		$count = min(count($images), 10);
 		$thumbnail = imagecreatetruecolor($count * 200, 200);
 		for ($i = 0; $i < $count; $i++) {
-			$thumb = new Thumbnail($albumPath . '/' . $images[$i], true);
+			$thumb = new Thumbnail($albumPath . $images[$i]['path'], $this->user, true);
 			$image = $thumb->get();
 			if ($image && $image->valid()) {
 				imagecopy($thumbnail, $image->resource(), $i * 200, 0, 0, 0, 200, 200);

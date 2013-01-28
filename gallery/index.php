@@ -20,8 +20,5 @@ OCP\Util::addScript('gallery', 'jquery.easing.min');
 OCP\Util::addScript('gallery', 'supersized.3.2.7.min');
 OCP\Util::addScript('gallery', 'supersized.shutter.min');
 
-$images = \OC_FileCache::searchByMime('image');
-
 $tmpl = new OCP\Template('gallery', 'index', 'user');
-$tmpl->assign('images', $images, false);
 $tmpl->printPage();

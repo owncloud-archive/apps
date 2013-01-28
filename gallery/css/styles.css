@@ -31,11 +31,38 @@
 	zoom: 1;
 }
 
-#slideshow-start {
-	position: absolute;
-	right: 13.5em;
-}
-
 #gallery > a.image >img {
 	max-height: 200px;
+}
+
+#controls > .right {
+	float: right;
+}
+
+#controls {
+	padding: 0;
+	padding-left: 12.5em;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	left: 0;
+}
+
+#gallery>h2 {
+	background: #f7f7f7;
+	height: 2.8em;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	vertical-align: middle;
+	font-weight: bold;
+	padding: 0.5em;
+	padding-left: 2em;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+#dropdown {
+	top: 2.7em;
+	right: 0;
+	margin-right: 0;
+	border-bottom-right-radius: 0;
 }

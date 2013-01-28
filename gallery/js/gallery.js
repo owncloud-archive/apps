@@ -1,7 +1,9 @@
 var Gallery = {};
 Gallery.albums = {};
+Gallery.images = [];
 Gallery.currentAlbum = '';
 Gallery.subAlbums = {};
+Gallery.users = [];
 
 Gallery.sortFunction = function (a, b) {
 	return a.toLowerCase().localeCompare(b.toLowerCase());
@@ -9,44 +11,90 @@ Gallery.sortFunction = function (a, b) {
 
 // fill the albums from Gallery.images
 Gallery.fillAlbums = function () {
-	var albumPath, i, imagePath, parent;
-	for (i = 0; i < Gallery.images.length; i++) {
-		imagePath = Gallery.images[i];
+	var def = new $.Deferred();
+	$.getJSON(OC.filePath('gallery', 'ajax', 'getimages.php')).then(function (data) {
+		var albumPath, i, imagePath, parent, path;
+		Gallery.users = data.users;
+		for (i = 0; i < data.images.length; i++) {
+			Gallery.images.push(data.images[i].path);
+		}
+		Gallery.fillAlbums.fill(Gallery.albums, Gallery.images);
+		Gallery.fillAlbums.fillSubAlbums(Gallery.subAlbums, Gallery.albums);
+
+		Gallery.fillAlbums.sortAlbums(Gallery.subAlbums);
+		def.resolve();
+	});
+	return def;
+};
+Gallery.fillAlbums.fill = function (albums, images) {
+	var imagePath, albumPath, parent;
+	for (i = 0; i < images.length; i++) {
+		imagePath = images[i];
 		albumPath = OC.dirname(imagePath);
-		if (!Gallery.albums[albumPath]) {
-			Gallery.albums[albumPath] = [];
+		if (!albums[albumPath]) {
+			albums[albumPath] = [];
 		}
 		parent = OC.dirname(albumPath);
-		while (parent && !Gallery.albums[parent]) {
-			Gallery.albums[parent] = [];
+		while (parent && !albums[parent] && parent !== albumPath) {
+			albums[parent] = [];
 			parent = OC.dirname(parent);
 		}
-		Gallery.albums[albumPath].push(imagePath);
-	}
-	Gallery.albums[albumPath].sort(Gallery.sortFunction);
-
-	for (albumPath in Gallery.albums) {
-		if (albumPath !== '') {
-			parent = OC.dirname(albumPath);
-			if (!Gallery.subAlbums[parent]) {
-				Gallery.subAlbums[parent] = [];
-			}
-			Gallery.subAlbums[parent].push(albumPath);
-		}
-	}
-
-	for (path in Gallery.subAlbums) {
-		Gallery.subAlbums[path].sort(Gallery.sortFunction);
+		albums[albumPath].push(imagePath);
 	}
 };
+Gallery.fillAlbums.fillSubAlbums = function (subAlbums, albums) {
+	var albumPath, parent;
+	for (albumPath in albums) {
+		if (albums.hasOwnProperty(albumPath)) {
+			if (albumPath !== '') {
+				parent = OC.dirname(albumPath);
+				if (albumPath !== parent) {
+					if (!subAlbums[parent]) {
+						subAlbums[parent] = [];
+					}
+					subAlbums[parent].push(albumPath);
+				}
+			}
+		}
+	}
+};
+Gallery.fillAlbums.sortAlbums = function (albums) {
+	var path;
+	for (path in albums) {
+		if (albums.hasOwnProperty(path)) {
+			albums[path].sort(Gallery.sortFunction);
+		}
+	}
+};
+
+Gallery.getAlbumInfo = function (album) {
+	if (!Gallery.getAlbumInfo.cache[album]) {
+		var def = new $.Deferred();
+		Gallery.getAlbumInfo.cache[album] = def;
+		$.getJSON(OC.filePath('gallery', 'ajax', 'gallery.php'), {gallery: album}, function (data) {
+			def.resolve(data);
+		});
+	}
+	return Gallery.getAlbumInfo.cache[album];
+};
+Gallery.getAlbumInfo.cache = {};
 Gallery.getImage = function (image) {
-	return OC.filePath('files', 'ajax', 'download.php') + '?dir=' + encodeURIComponent(OC.dirname(image)) + '&files=' + encodeURIComponent(OC.basename(image));
+	return OC.filePath('gallery', 'ajax', 'image.php') + '?file=' + encodeURIComponent(image);
 };
 Gallery.getThumbnail = function (image) {
 	return OC.filePath('gallery', 'ajax', 'thumbnail.php') + '?file=' + encodeURIComponent(image);
 };
 Gallery.getAlbumThumbnail = function (image) {
 	return OC.filePath('gallery', 'ajax', 'albumthumbnail.php') + '?file=' + encodeURIComponent(image);
+};
+Gallery.share = function (event) {
+	event.preventDefault();
+	event.stopPropagation();
+	Gallery.getAlbumInfo(Gallery.currentAlbum).then(function (info) {
+		$('a.share').data('item', info.fileid)
+			.data('possible-permissions', info.permissions).
+			click();
+	});
 };
 Gallery.view = {};
 Gallery.view.element = null;
@@ -128,25 +176,50 @@ Gallery.view.viewAlbum = function (albumPath) {
 	}
 
 	album = Gallery.albums[albumPath];
-	for (i = 0; i < album.length; i++) {
-		Gallery.view.addImage(album[i]);
-		Gallery.view.element.append(' '); //add a space for justify
+	if (album) {
+		for (i = 0; i < album.length; i++) {
+			Gallery.view.addImage(album[i]);
+			Gallery.view.element.append(' '); //add a space for justify
+		}
 	}
 
 	OC.Breadcrumb.clear();
-	OC.Breadcrumb.push('Pictures', '#').click(Gallery.view.viewAlbum.bind(null, ''));
+	OC.Breadcrumb.push('Pictures', '#').click(Gallery.view.viewAlbum.bind(null, OC.currentUser, false));
 	crumbs = albumPath.split('/');
-	path = '';
+	path = crumbs.splice(0, 1); //first entry is username
 	for (i = 0; i < crumbs.length; i++) {
 		if (crumbs[i]) {
 			path += '/' + crumbs[i];
-			OC.Breadcrumb.push(crumbs[i], '#' + crumbs[i]).click(Gallery.view.viewAlbum.bind(null, path));
+			OC.Breadcrumb.push(crumbs[i], '#' + path).click(Gallery.view.viewAlbum.bind(null, path));
 		}
+	}
+
+	if (albumPath === OC.currentUser) {
+		Gallery.view.showUsers();
 	}
 
 	$('#gallery').children('a.image').fancybox({
 		"titlePosition": "inside"
 	});
+
+	Gallery.getAlbumInfo(Gallery.currentAlbum); //preload album info
+};
+
+Gallery.view.showUsers = function () {
+	var i, j, user, head, subAlbums;
+	for (i = 0; i < Gallery.users.length; i++) {
+		user = Gallery.users[i];
+		head = $('<h2/>');
+		head.text(t('gallery', 'Shared by') + ' ' + user);
+		$('#gallery').append(head);
+		subAlbums = Gallery.subAlbums[user];
+		if (subAlbums) {
+			for (j = 0; j < subAlbums.length; j++) {
+				Gallery.view.addAlbum(subAlbums[j]);
+				Gallery.view.element.append(' '); //add a space for justify
+			}
+		}
+	}
 };
 
 Gallery.slideshow = {
@@ -222,19 +295,24 @@ Gallery.slideshow = {
 };
 
 $(document).ready(function () {
-	Gallery.fillAlbums();
-	Gallery.view.element = $('#gallery');
-	OC.Breadcrumb.container = $('#breadcrumbs');
-	var album = location.hash.substr(1);
-	Gallery.view.viewAlbum(album);
-
-	//close slideshow on esc and remove holder
-	$(document).keyup(function (e) {
-		if (e.keyCode === 27) { // esc
-			Gallery.slideshow.end();
+	Gallery.fillAlbums().then(function () {
+		Gallery.view.element = $('#gallery');
+		OC.Breadcrumb.container = $('#breadcrumbs');
+		var album = location.hash.substr(1);
+		if (!album) {
+			album = OC.currentUser;
 		}
-	});
-	$('#slideshow-start').click(function () {
-		Gallery.slideshow.start();
+		Gallery.view.viewAlbum(album);
+
+		//close slideshow on esc and remove holder
+		$(document).keyup(function (e) {
+			if (e.keyCode === 27) { // esc
+				Gallery.slideshow.end();
+			}
+		});
+		$('#slideshow-start').click(function () {
+			Gallery.slideshow.start();
+		});
+		$('button.share').click(Gallery.share);
 	});
 });

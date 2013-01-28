@@ -10,7 +10,8 @@ OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('gallery');
 session_write_close();
 
-$img = $_GET['file'];
+list($owner, $img) = explode('/', $_GET['file'], 2);
+\OC\Files\Filesystem::initMountPoints($owner);
 
-$image = new \OCA\Gallery\AlbumThumbnail($img);
+$image = new \OCA\Gallery\AlbumThumbnail('/' . $img, $owner);
 $image->show();

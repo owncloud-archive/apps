@@ -11,7 +11,9 @@ OCP\JSON::checkAppEnabled('gallery');
 session_write_close();
 
 list($owner, $img) = explode('/', $_GET['file'], 2);
-\OC\Files\Filesystem::initMountPoints($owner);
+$ownerView = new \OC\Files\View('/' . $owner . '/files');
 
-$image = new \OCA\Gallery\Thumbnail('/' . $img, $owner);
+$file = $ownerView->fopen($img, 'rb');
+$image = new \OC_Image($file);
+$image->fixOrientation();
 $image->show();
