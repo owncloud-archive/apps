@@ -5,7 +5,7 @@
 	<description>Authenticate Users by a CAS SERVER</description>
 	<licence>AGPL</licence>
 	<author>Sixto Martin Garcia</author>
-	<require>4.9</require>
+	<require>4.91</require>
 	<shipped>true</shipped>
 	<types>
         <prelogin/>

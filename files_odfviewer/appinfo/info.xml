@@ -6,7 +6,7 @@
 	<version>0.1</version>
 	<licence>AGPL</licence>
 	<author>Thomas Müller</author>
-	<require>4.9</require>
+	<require>4.91</require>
 	<shipped>true</shipped>
 	<default_enable/>
 </info>
