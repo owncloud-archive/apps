@@ -1,6 +1,6 @@
 <?php
 //Prerendering for iCalendar file
-$file = OC_Filesystem::file_get_contents($_['path'] . '/' . $_['filename']);
+$file = \OC\Files\Filesystem::file_get_contents($_['path'] . '/' . $_['filename']);
 if(!$file) {
 	OCP\JSON::error(array('error'=>'404'));
 }

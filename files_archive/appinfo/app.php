@@ -6,8 +6,8 @@
  * See the COPYING-README file.
  */
 
-OC::$CLASSPATH['OC_Filestorage_Archive']='apps/files_archive/lib/storage.php';
+OC::$CLASSPATH['OC\Files\Storage\Archive']='apps/files_archive/lib/storage.php';
 
-OCP\Util::connectHook('OC_Filesystem','get_mountpoint','OC_Filestorage_Archive','autoMount');
+OCP\Util::connectHook('OC_Filesystem','get_mountpoint','OC\Files\Storage\Archive','autoMount');
 
 OCP\Util::addscript( 'files_archive', 'archive' );
