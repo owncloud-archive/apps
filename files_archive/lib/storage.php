@@ -58,7 +58,7 @@ class Archive extends Common {
 			}
 		}
 		$id = md5($this->path . $path);
-		\OC_FakeDirStream::$dirs[$id] = $content;
+		\OC\Files\Stream\Dir::register($id, $content);
 		return opendir('fakedir://' . $id);
 	}
 
