@@ -1,31 +1,13 @@
-<script type="text/javascript" src="<?php echo OC_Helper::linkToRoute('ready_js');?>?root=<?php echo $_['root'];?>"></script>
-
-<div id="controls"><?php
-	$sr = trim($_['root'], '/');
-	if (!empty($sr)) {
-		$paths = explode('/', $sr);
-		$path = '/';
-		for ($i = 0; $i < count($paths); $i++) {
-			$path .= urlencode($paths[$i]).'/';
-			$classess = 'crumb'.($i == count($paths)-1?' last':'');
-			echo '<div class="'.$classess.'" style="background-image:url(\''.\OCP\image_path('core','breadcrumb.png').'\')"><a href="'.\OCP\Util::linkTo('gallery', 'index.php').'?root='.$path.'">'.OCP\Util::sanitizeHTML($paths[$i]).'</a></div>';
-		}
-	}
-
-?>
-	<div id="slideshow">
-		<input type="button" class="start" value="<?php echo $l->t('Slideshow')?>" />
-	</div>
+<div id="controls">
+	<div id='breadcrumbs'></div>
+	<span class="right">
+		<button class="share"><?php echo $l->t("Share"); ?></button>
+		<a class="share" data-item-type="gallery" data-item="" title="<?php echo $l->t("Share"); ?>"
+		   data-possible-permissions="31"></a>
+		<input type='button' id='slideshow-start' value='<?php echo $l->t('Slideshow');?>'> </input>
+	</span>
 </div>
-<div id="gallerycontent">
-<?php
-session_write_close();
-
-echo $_['tl']->get();
-
-?>
-</div>
-
+<div id='gallery'></div>
 <!-- start supersized block -->
 <div id="slideshow-content" style="display:none;">
 
@@ -51,7 +33,8 @@ echo $_['tl']->get();
 	<div id="slideshow-controls-wrapper" class="load-item">
 		<div id="slideshow-controls">
 
-			<a id="play-button"><img id="pauseplay" src="<?php echo OCP\image_path('gallery', 'supersized/pause.png'); ?>"/></a>
+			<a id="play-button"><img id="pauseplay"
+									 src="<?php echo OCP\image_path('gallery', 'supersized/pause.png'); ?>" /></a>
 
 			<!--Slide counter-->
 			<div id="slidecounter">
@@ -62,13 +45,15 @@ echo $_['tl']->get();
 			<div id="slidecaption"></div>
 
 			<!--Thumb Tray button-->
-			<a id="tray-button"><img id="tray-arrow" src="<?php echo OCP\image_path('gallery', 'supersized/button-tray-up.png'); ?>"/></a>
+			<a id="tray-button"><img id="tray-arrow"
+									 src="<?php echo OCP\image_path('gallery', 'supersized/button-tray-up.png'); ?>" /></a>
 
 			<!--Navigation-->
 			<!--
-			<ul id="slide-list"></ul>
-			-->
+			   <ul id="slide-list"></ul>
+			   -->
 		</div>
 	</div>
 
-</div><!-- end supersized block -->
+</div>
+<!-- end supersized block -->
