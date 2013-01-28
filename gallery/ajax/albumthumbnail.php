@@ -11,7 +11,21 @@ OCP\JSON::checkAppEnabled('gallery');
 session_write_close();
 
 list($owner, $img) = explode('/', $_GET['file'], 2);
-\OC\Files\Filesystem::initMountPoints($owner);
+if ($owner !== OC_User::getUser()) {
+	\OC\Files\Filesystem::initMountPoints($owner);
+	list($shareId, , $img) = explode('/', $img, 3);
+	if (OCP\Share::getItemSharedWith('gallery', $shareId)) {
+		$ownerView = new \OC\Files\View('/' . $owner . '/files');
+		$sharedGallery = $ownerView->getPath($shareId);
+		if ($img) {
+			$img = $sharedGallery . '/' . $img;
+		} else {
+			$img = $sharedGallery;
+		}
+	} else {
+		OC_JSON::error('no such file');
+	}
+}
 
 $image = new \OCA\Gallery\AlbumThumbnail('/' . $img, $owner);
 $image->show();

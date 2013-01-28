@@ -121,8 +121,9 @@ Gallery.view.addImage = function (image) {
 	}
 };
 
-Gallery.view.addAlbum = function (path) {
+Gallery.view.addAlbum = function (path, name) {
 	var link, image, label;
+	name = name || OC.basename(path);
 	if (Gallery.view.cache[path]) {
 		Gallery.view.element.append(Gallery.view.cache[path]);
 		//event handlers are removed when using clear()
@@ -137,7 +138,7 @@ Gallery.view.addAlbum = function (path) {
 		link.data('path', path);
 		link.data('offset', 0);
 		link.attr('style', 'background-image:url("' + Gallery.getAlbumThumbnail(path) + '")').attr('title', OC.basename(path));
-		label.text(OC.basename(path));
+		label.text(name);
 		link.append(label);
 		image = new Image();
 		image.src = Gallery.getAlbumThumbnail(path);
@@ -187,6 +188,9 @@ Gallery.view.viewAlbum = function (albumPath) {
 	OC.Breadcrumb.push('Pictures', '#').click(Gallery.view.viewAlbum.bind(null, OC.currentUser, false));
 	crumbs = albumPath.split('/');
 	path = crumbs.splice(0, 1); //first entry is username
+	if (path != OC.currentUser) { //remove shareid
+		path += '/' + crumbs.splice(0, 1);
+	}
 	for (i = 0; i < crumbs.length; i++) {
 		if (crumbs[i]) {
 			path += '/' + crumbs[i];
@@ -206,7 +210,7 @@ Gallery.view.viewAlbum = function (albumPath) {
 };
 
 Gallery.view.showUsers = function () {
-	var i, j, user, head, subAlbums;
+	var i, j, user, head, subAlbums, album;
 	for (i = 0; i < Gallery.users.length; i++) {
 		user = Gallery.users[i];
 		head = $('<h2/>');
@@ -215,7 +219,9 @@ Gallery.view.showUsers = function () {
 		subAlbums = Gallery.subAlbums[user];
 		if (subAlbums) {
 			for (j = 0; j < subAlbums.length; j++) {
-				Gallery.view.addAlbum(subAlbums[j]);
+				album = subAlbums[j];
+				album = Gallery.subAlbums[album][0];//first level sub albums is share source id
+				Gallery.view.addAlbum(album);
 				Gallery.view.element.append(' '); //add a space for justify
 			}
 		}

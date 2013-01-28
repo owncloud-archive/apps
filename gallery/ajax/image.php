@@ -12,8 +12,20 @@ session_write_close();
 
 list($owner, $img) = explode('/', $_GET['file'], 2);
 $ownerView = new \OC\Files\View('/' . $owner . '/files');
+if ($owner !== OC_User::getUser()) {
+	\OC\Files\Filesystem::initMountPoints($owner);
+	list($shareId, , $img) = explode('/', $img, 3);
+	if (OCP\Share::getItemSharedWith('gallery', $shareId)) {
+		$sharedGallery = $ownerView->getPath($shareId);
+		if ($img) {
+			$img = $sharedGallery . '/' . $img;
+		} else {
+			$img = $sharedGallery;
+		}
+	} else {
+		OC_JSON::error('no such file');
+	}
+}
 
-$file = $ownerView->fopen($img, 'rb');
-$image = new \OC_Image($file);
-$image->fixOrientation();
-$image->show();
+header('Content-Type: ' . $ownerView->getMimeType($img));
+$ownerView->readfile($img);

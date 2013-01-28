@@ -27,25 +27,8 @@ class Gallery implements \OCP\Share_Backend {
 		return is_array(\OC\Files\Cache\Cache::getById($itemSource));
 	}
 
-	public function generateTarget($filePath, $shareWith, $exclude = null) {
-		$target = '/' . basename($filePath);
-		if (isset($exclude)) {
-			if ($pos = strrpos($target, '.')) {
-				$name = substr($target, 0, $pos);
-				$ext = substr($target, $pos);
-			} else {
-				$name = $target;
-				$ext = '';
-			}
-			$i = 2;
-			$append = '';
-			while (in_array($name . $append . $ext, $exclude)) {
-				$append = ' (' . $i . ')';
-				$i++;
-			}
-			$target = $name . $append . $ext;
-		}
-		return $target;
+	public function generateTarget($itemSource, $shareWith, $exclude = null) {
+		return $itemSource;
 	}
 
 	public function formatItems($items, $format, $parameters = null) {

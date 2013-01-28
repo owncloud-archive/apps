@@ -28,10 +28,11 @@ foreach ($sharedSources as $sharedSource) {
 	$ownerView = new \OC\Files\View('/' . $owner . '/files');
 	$path = $ownerView->getPath($sharedSource['item_source']);
 	if ($path) {
+		$shareName = basename($path);
 		$shareView = new \OC\Files\View('/' . $owner . '/files' . $path);
 		$sharedImages = $shareView->searchByMime('image');
 		foreach ($sharedImages as $sharedImage) {
-			$sharedImage['path'] = $owner . $path . $sharedImage['path'];
+			$sharedImage['path'] = $owner . '/' . $sharedSource['item_source'] . '/' . $shareName . $sharedImage['path'];
 			$images[] = $sharedImage;
 		}
 	}
