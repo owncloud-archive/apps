@@ -11,11 +11,11 @@ OCP\JSON::checkAppEnabled('gallery');
 
 list($owner, $gallery) = explode('/', $_GET['gallery'], 2);
 
+$ownerView = new \OC\Files\View('/' . $owner . '/files');
 if ($owner !== OC_User::getUser()) {
 	\OC\Files\Filesystem::initMountPoints($owner);
 	list($shareId, , $gallery) = explode('/', $gallery, 3);
 	if (OCP\Share::getItemSharedWith('gallery', $shareId)) {
-		$ownerView = new \OC\Files\View('/' . $owner . '/files');
 		$sharedGallery = $ownerView->getPath($shareId);
 		if ($gallery) {
 			$gallery = $sharedGallery . '/' . $gallery;
