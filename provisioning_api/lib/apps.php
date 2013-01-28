@@ -28,39 +28,39 @@ class OC_Provisioning_API_Apps {
 		if($filter){
 			switch($filter){
 				case 'enabled':
-					return array('apps' => OC_App::getEnabledApps());
+					return new OC_OCS_Result(array('apps' => OC_App::getEnabledApps()));
 					break;
 				case 'disabled':
 					$apps = OC_App::getAllApps();
 					$enabled = OC_App::getEnabledApps();
-					return array('apps' => array_diff($apps, $enabled));
+					return new OC_OCS_Result(array('apps' => array_diff($apps, $enabled)));
 					break;
 				default:
 					// Invalid filter variable
-					return 101;
+					return new OC_OCS_Result(null, 101);
 					break;
 			}
 
 		} else {
-			return array('apps' => OC_App::getAllApps());
+			return new OC_OCS_Result(array('apps' => OC_App::getAllApps()));
 		}
 	}
 
 	public static function getAppInfo($parameters){
 		$app = $parameters['appid'];
-		return OC_App::getAppInfo($app);
+		return new OC_OCS_Result(OC_App::getAppInfo($app));
 	}
 
 	public static function enable($parameters){
 		$app = $parameters['appid'];
 		OC_App::enable($app);
-		return 100;
+		return new OC_OCS_Result(null, 100);
 	}
 
 	public static function disable($parameters){
 		$app = $parameters['appid'];
 		OC_App::disable($app);
-		return 100;
+		return new OC_OCS_Result(null, 100);
 	}
 
 }

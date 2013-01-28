@@ -5,13 +5,13 @@
 # Translators:
 # Francesco Apruzzese <cescoap@gmail.com>, 2011.
 #   <marco@carnazzo.it>, 2011.
-# Vincenzo Reale <vinx.reale@gmail.com>, 2012.
+# Vincenzo Reale <vinx.reale@gmail.com>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-02 00:01+0100\n"
-"PO-Revision-Date: 2012-11-01 08:41+0000\n"
+"POT-Creation-Date: 2013-01-25 00:02+0100\n"
+"PO-Revision-Date: 2013-01-24 00:15+0000\n"
 "Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
+#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "Musica"
 
@@ -79,3 +79,11 @@ msgstr "Album"
 #: templates/music.php:39
 msgid "Title"
 msgstr "Titolo"
+
+#: templates/settings.php:3
+msgid "Media"
+msgstr "Media"
+
+#: templates/settings.php:4
+msgid "Ampache address:"
+msgstr "Indirizzo Ampache:"

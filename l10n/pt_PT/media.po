@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <duartegrilo@gmail.com>, 2013.
 # Duarte Velez Grilo <duartegrilo@gmail.com>, 2012.
 # Helder Meneses <helder.meneses@gmail.com>, 2012.
 #   <rjgpp.1994@gmail.com>, 2012.
@@ -10,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-06 00:00+0100\n"
-"PO-Revision-Date: 2012-11-05 13:52+0000\n"
+"POT-Creation-Date: 2013-01-25 00:02+0100\n"
+"PO-Revision-Date: 2013-01-24 14:44+0000\n"
 "Last-Translator: Duarte Velez Grilo <duartegrilo@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
+#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "Musica"
 
@@ -79,3 +80,11 @@ msgstr "Álbum"
 #: templates/music.php:39
 msgid "Title"
 msgstr "Título"
+
+#: templates/settings.php:3
+msgid "Media"
+msgstr "Media"
+
+#: templates/settings.php:4
+msgid "Ampache address:"
+msgstr "Endereço Ampache:"

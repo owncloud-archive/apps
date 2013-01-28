@@ -29,6 +29,4 @@
 		<img title="<?php echo $l->t('Delete') ?>" src="<?php echo OCP\image_path('core', 'actions/delete.svg') ?>" class="svg"><?php echo $l->t('Delete') ?>
 	</span>
 </p>
-<script type='text/javascript'>
-var categories = <?php echo json_encode($_['categories']); ?>;
-</script>
+<script type="text/javascript" src="<?php echo OC_Helper::linkTo('tasks/js', 'categories.php');?>"></script>

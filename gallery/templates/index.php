@@ -1,14 +1,4 @@
-<script type="text/javascript">
-
-var root = "<?php echo OCP\Util::sanitizeHTML($_['root']); ?>";
-
-$(document).ready(function() {
-		$("a[rel=images]").fancybox({
-			'titlePosition': 'inside'
-		});
-});
-
-</script>
+<script type="text/javascript" src="<?php echo OC_Helper::linkToRoute('ready_js');?>?root=<?php echo $_['root'];?>"></script>
 
 <div id="controls"><?php
 	$sr = trim($_['root'], '/');

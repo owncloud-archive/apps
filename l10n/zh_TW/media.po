@@ -5,14 +5,15 @@
 # Translators:
 # Donahue Chuang <soshinwu@gmail.com>, 2012.
 # Ming Yi Wu <mingi.wu@gmail.com>, 2012.
+# Pellaeon Lin <nfsmwlin@gmail.com>, 2013.
 #   <sofia168@livemail.tw>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-27 00:07+0100\n"
-"PO-Revision-Date: 2012-11-26 09:06+0000\n"
-"Last-Translator: sofiasu <sofia168@livemail.tw>\n"
+"POT-Creation-Date: 2013-01-25 00:02+0100\n"
+"PO-Revision-Date: 2013-01-24 13:13+0000\n"
+"Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
+#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "音樂"
 
@@ -79,3 +80,11 @@ msgstr "專輯"
 #: templates/music.php:39
 msgid "Title"
 msgstr "標題"
+
+#: templates/settings.php:3
+msgid "Media"
+msgstr "媒體"
+
+#: templates/settings.php:4
+msgid "Ampache address:"
+msgstr "Ampache 位址："

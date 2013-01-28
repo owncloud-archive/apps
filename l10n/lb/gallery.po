@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <sim0n@trypill.org>, 2013.
 #   <sim0n@trypill.org>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:02+0200\n"
-"PO-Revision-Date: 2012-09-11 00:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-27 00:01+0100\n"
+"PO-Revision-Date: 2013-01-26 11:57+0000\n"
+"Last-Translator: sim0n <sim0n@trypill.org>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgstr "Fotoen"
 
 #: appinfo/app.php:53
 msgid "Galleries"
-msgstr ""
+msgstr "Galerien"
 
 #: js/pictures.js:12
 msgid "Share gallery"
@@ -38,7 +39,7 @@ msgstr "Fehler:"
 msgid "Internal error"
 msgstr "Internen Fehler"
 
-#: templates/index.php:27
+#: templates/index.php:17
 msgid "Slideshow"
 msgstr "Slideshow"
 

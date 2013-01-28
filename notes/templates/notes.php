@@ -57,7 +57,7 @@
 <div style="float:left;">
 <form action="?app=notes" method="get" target="_self">
 	<input type="hidden" name="app" value="notes">
-	<select name="category" size="1" style="width: 150px" onchange="window.open('?app=notes&category='+this.options[this.selectedIndex].value, '_self');">
+	<select name="category" size="1" style="width: 150px" id="notes_cat_select">
 <option value='General'><?php echo $l->t('General'); ?></option>
 <?php
   foreach( $arr_rootfilelist as $i ) {
@@ -175,7 +175,9 @@ if($show_Warnings == true){
 	  $version = $_POST['version']; 
 // 	  print "check if File is versioned: "  . $root . "/" . $old_category . '/' . $file . ", Version: " . $version;
 
-	  if( OCA_Versions\Storage::isversioned($root . "/" . $old_category . '/' . $file ) ) {
+// 	  if( OCA_Versions\Storage::isversioned($root . "/" . $old_category . '/' . $file ) ) {
+        $count = 999; //show the newest revisions
+        if( ($versions = OCA_Versions\Storage::getVersions( $root . "/" . $old_category . '/' . $file, $count)) ){
 // 	      print "File is versioned: "  . $root . "/" . $old_category . '/' . $file . ", Version: " . $version;
 	      $versions = new OCA_Versions\Storage();
 	      $ret = $versions->rollback("/" . $root . "/" . $old_category . '/' . $file, (int)$version );
@@ -335,7 +337,7 @@ if($show_Warnings == true){
 	    <button type="submit" name="edit" value="true" ><?php echo $l->t('Edit'); ?></button>
 	</form>
 </div>
-<div>
+<div style="float:left;">
 	<form action="?app=notes" method="post" target="_self">
 	    <input type="hidden" name="app" value="notes">
 	    <input type="hidden" name="post" value="true">
@@ -345,6 +347,7 @@ if($show_Warnings == true){
 	    <button type="submit" name="delete" value="true" ><?php echo $l->t('Delete'); ?></button>
 	</form>
 </div>
+<br><br>
 <div style="float:none;">
 <?php
 	echo "$html<br><br>";
@@ -397,7 +400,9 @@ else{ //versions enabled
   $source = $root . "/" . $category . "/" . $file;
 //   print "Source: $source";
 
-if( OCA_Versions\Storage::isversioned( $source ) ) {
+// if( OCA_Versions\Storage::isversioned( $source ) ) {
+$count = 999; //show the newest revisions
+if( ($versions = OCA_Versions\Storage::getVersions( $source, $count)) ){
 
 	$count=50; //show the newest revisions
 	$versions = OCA_Versions\Storage::getVersions( $source, $count);
@@ -431,39 +436,6 @@ if( OCA_Versions\Storage::isversioned( $source ) ) {
 
 <?php } ?>
 
-<script type="text/javascript">
-    function getEventTarget(e) {
-        e = e || window.event;
-        return e.target || e.srcElement;
-    }
-    var ul = document.getElementById('entries');
-    ul.onclick = function(event) {
-        var target = getEventTarget(event);
-	var txt = target.innerHTML;
-	var arr = txt.split('"');
-	url = arr[1]
-	url = arr[1].replace(/&amp;/g, "&");
-	if(url != "active"){
-// 	    alert(url);
-	    window.open(url, "_self");
-	}
-    };
+<?php
+OCP\Util::addscript('notes', 'notes');
 
-function checkform()
-{
-	if(String.trim(document.notes_save.title.value) == ""){
-		alert("<?php echo $l->t('The title can not be empty'); ?>!");
-		return false;	
-	}
-
-	var invalid_characters = ['\\', '/', '<', '>', ':', '"', '|', '?', '*'];
-	for (var i = 0; i < invalid_characters.length; i++) {
-		if (document.notes_save.title.value.indexOf(invalid_characters[i]) != -1) {
-			alert("<?php echo $l->t('Invalid title'); echo "!\\n"; echo $l->t('The following characters are not allowed'); ?>: '\\', '/', '<', '>', ':', '\"', '|', '?', '*'");
-			return false;
-		}
-	}
-
-	return true;
-}
-</script>
