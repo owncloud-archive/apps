@@ -3,7 +3,7 @@
 	ng-controller="ExampleController">
 
 	<h1 class="heading">This is an advanced app template</h1>
-        <p>{{ t('This string will be %s', 'translated') }}
+	<p>{{ t('This string will be %s', 'translated') }}</p>
 	<p>The URL Parameter for the index page is: {{test}}</p>
 
 	<p ng-show="name">Welcome home [[name | leetIt]]!</p>
