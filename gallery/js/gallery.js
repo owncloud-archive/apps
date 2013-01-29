@@ -127,14 +127,20 @@ Gallery.view.addAlbum = function (path, name) {
 	if (Gallery.view.cache[path]) {
 		Gallery.view.element.append(Gallery.view.cache[path]);
 		//event handlers are removed when using clear()
-		Gallery.view.cache[path].click(Gallery.view.viewAlbum.bind(null, path));
-		Gallery.view.cache[path].mousemove(Gallery.view.addAlbum.mouseEvent.bind(Gallery.view.cache[path], Gallery.view.addAlbum.thumbs[path]));
+		Gallery.view.cache[path].click(function () {
+			Gallery.view.viewAlbum(path);
+		});
+		Gallery.view.cache[path].mousemove(function () {
+			Gallery.view.addAlbum.mouseEvent.call(Gallery.view.cache[path], Gallery.view.addAlbum.thumbs[path]);
+		});
 	} else {
 		link = $('<a/>');
 		label = $('<label/>');
 		link.attr('href', '#' + path);
 		link.addClass('album');
-		link.click(Gallery.view.viewAlbum.bind(null, path));
+		link.click(function () {
+			Gallery.view.viewAlbum(path);
+		});
 		link.data('path', path);
 		link.data('offset', 0);
 		link.attr('style', 'background-image:url("' + Gallery.getAlbumThumbnail(path) + '")').attr('title', OC.basename(path));
@@ -144,7 +150,9 @@ Gallery.view.addAlbum = function (path, name) {
 		image.src = Gallery.getAlbumThumbnail(path);
 		Gallery.view.addAlbum.thumbs[path] = image;
 
-		link.mousemove(Gallery.view.addAlbum.mouseEvent.bind(link, image));
+		link.mousemove(function () {
+			Gallery.view.addAlbum.mouseEvent.call(link, image);
+		});
 
 		Gallery.view.element.append(link);
 		Gallery.view.cache[path] = link;
@@ -185,7 +193,9 @@ Gallery.view.viewAlbum = function (albumPath) {
 	}
 
 	OC.Breadcrumb.clear();
-	OC.Breadcrumb.push('Pictures', '#').click(Gallery.view.viewAlbum.bind(null, OC.currentUser, false));
+	OC.Breadcrumb.push('Pictures', '#').click(function () {
+		Gallery.view.viewAlbum(OC.currentUser);
+	});
 	crumbs = albumPath.split('/');
 	path = crumbs.splice(0, 1); //first entry is username
 	if (path != OC.currentUser) { //remove shareid
@@ -194,7 +204,7 @@ Gallery.view.viewAlbum = function (albumPath) {
 	for (i = 0; i < crumbs.length; i++) {
 		if (crumbs[i]) {
 			path += '/' + crumbs[i];
-			OC.Breadcrumb.push(crumbs[i], '#' + path).click(Gallery.view.viewAlbum.bind(null, path));
+			Gallery.view.pushBreadCrumb(crumbs[i], path);
 		}
 	}
 
@@ -207,6 +217,12 @@ Gallery.view.viewAlbum = function (albumPath) {
 	});
 
 	Gallery.getAlbumInfo(Gallery.currentAlbum); //preload album info
+};
+
+Gallery.view.pushBreadCrumb = function (text, path) {
+	OC.Breadcrumb.push(text, '#' + path).click(function () {
+		Gallery.view.viewAlbum(path);
+	});
 };
 
 Gallery.view.showUsers = function () {
