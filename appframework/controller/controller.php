@@ -95,6 +95,16 @@ abstract class Controller {
 
 
 	/**
+	 * Returns all params that were received, be it from the request 
+	 * (as GET or POST) or throuh the URL by the route
+	 * @return array the array with all parameters
+	 */
+	public function getParams() {
+		return array_merge($this->request->getGETAndPOST(), $this->urlParams);
+	}
+
+
+	/**
 	 * Shortcut for accessing an uploaded file through the $_FILES array
 	 * @param string $key the key that will be taken from the $_FILES array
 	 * @return array the file in the $_FILES element
