@@ -24,6 +24,8 @@
 
 Changelog: 
 
+* Tue Jan 29 2013 Christian Reiner: version 0.1.7
+Changed requirement of OC version from 4.0 to 4.5.
 * Fri Jan 18 2013 Christian Reiner: version 0.1.6
 Convert plain text content to simple markup to preserve linebreaks.
 * Fri Dec 07 2012 Christian Reiner: version 0.1.5
