@@ -3,7 +3,7 @@
  */
 
 (function( $ ) {
-	$.widget('ui.combobox', {
+	$.widget('oc.combobox', {
 		options: {
 			id: null,
 			showButton: false,
