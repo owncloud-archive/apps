@@ -191,11 +191,8 @@
 .no-svg .checked { background-image:url('%appswebroot%/contacts/img/checkmark-green.png'); }
 .no-svg .checked.disabled { background-image:url('%appswebroot%/contacts/img/checkmark-gray.png'); cursor: default; }
 
-.svg .action:not(.text), .svg .icon:not(.text), .svg .svg:not(.text) {
-	background-size: contain;
-}
 .svg .action.text, .svg .icon.text, .svg .svg.text {
-	background-size: 16px 16px;
+	background-size: 20px 16px;
 	background-origin: content-box;
 	background-repeat: no-repeat;
 }
@@ -436,7 +433,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 
 .svg .favorite { display: inline-block; float: left; height: 20px; width: 20px; background-image:url('%appswebroot%/contacts/img/inactive_star.svg'); }
 .svg .favorite.active, .favorite:hover { background-image:url('%appswebroot%/contacts/img/active_star.svg'); }
-.svg .favorite.inactive { background-image:url('%appswebroot%/contacts/img/inactive_star.svg'); }
+.svg .favorite.inactive { background-image:url('%appswebroot%/contacts/img/inactive_star.svg'); background-size:contain; }
 
 /* Header */
 
@@ -453,8 +450,9 @@ input[type="checkbox"].propertytype { width: 10px; }
 	height: 100%; width: 100%;
 }
 #contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: .7em; padding: .2em; clear: none; }
+#contactsheader select { width:100px; }
 #contactsheader .delete { 
-	bottom: 0.5em;
+	bottom: 1.4em;
 	right: 1em;
 	position: absolute;
 	background-image:url('%webroot%/core/img/actions/delete.svg');
