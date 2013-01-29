@@ -34,15 +34,15 @@ class DIContainerTest extends \PHPUnit_Framework_TestCase {
 
 	protected function setUp(){
 		$this->container = new DIContainer('name');
-                $this->api = $this->getMock('OCA\AppFramework\Core\API', array('getTrans'), array('hi'));
+		$this->api = $this->getMock('OCA\AppFramework\Core\API', array('getTrans'), array('hi'));
 	}
 
-        private function exchangeAPI(){
-                $this->api->expects($this->any())
-                                ->method('getTrans')
-                                ->will($this->returnValue('yo'));
-                $this->container['API'] = $this->api;
-        }
+	private function exchangeAPI(){
+		$this->api->expects($this->any())
+				->method('getTrans')
+				->will($this->returnValue('yo'));
+		$this->container['API'] = $this->api;
+	}
 
 	public function testProvidesAPI(){
 		$this->assertTrue(isset($this->container['API']));
@@ -68,16 +68,16 @@ class DIContainerTest extends \PHPUnit_Framework_TestCase {
 		$this->assertTrue(isset($this->container['AppName']));	
 	}
 
-        public function testProvidesTwigL10N(){
-                $this->exchangeAPI();
-                $this->assertTrue(isset($this->container['TwigL10N']));
-        }
+	public function testProvidesTwigL10N(){
+		$this->exchangeAPI();
+		$this->assertTrue(isset($this->container['TwigL10N']));	
+	}
 
 
-        public function testProvidesTwigLinkToRoute(){
-                $this->exchangeAPI();
-                $this->assertTrue(isset($this->container['TwigLinkToRoute']));
-        }
+	public function testProvidesTwigLinkToRoute(){
+		$this->exchangeAPI();
+		$this->assertTrue(isset($this->container['TwigLinkToRoute']));	
+	}
 
 
 	public function testAppNameIsSetCorrectly(){
@@ -104,13 +104,13 @@ class DIContainerTest extends \PHPUnit_Framework_TestCase {
 
 
 	public function testTwigMiddlewareSet(){
-                $this->exchangeAPI();
+		$this->exchangeAPI();
 		$this->assertTrue(isset($this->container['TwigMiddleware']));
 	}
 
 
 	public function testMiddlewareDispatcherIncludesTwigWhenTplDirectorySet(){
-                $this->exchangeAPI();
+		$this->exchangeAPI();
 		$this->container['TwigTemplateDirectory'] = '.';
 		$twig = $this->container['TwigMiddleware'];
 		$dispatcher = $this->container['MiddlewareDispatcher'];
@@ -119,7 +119,7 @@ class DIContainerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testMiddlewareDispatcherDoesNotIncludeTwigWhenTplDirectoryNotSet(){
-                $this->exchangeAPI();
+		$this->exchangeAPI();
 		$dispatcher = $this->container['MiddlewareDispatcher'];
 
 		$this->assertEquals(1, count($dispatcher->getMiddlewares()));		
@@ -127,7 +127,7 @@ class DIContainerTest extends \PHPUnit_Framework_TestCase {
 
 
 	public function testTwigCacheIsDisabledByDefault(){
-                $this->exchangeAPI();
+		$this->exchangeAPI();
 		$this->container['TwigTemplateDirectory'] = '.';
 
 		$this->assertFalse($this->container['Twig']->getCache());
@@ -135,7 +135,7 @@ class DIContainerTest extends \PHPUnit_Framework_TestCase {
 
 	
 	public function testTwigCache(){
-                $this->exchangeAPI();
+		$this->exchangeAPI();
 		$this->container['TwigTemplateDirectory'] = '.';
 		$this->container['TwigTemplateCacheDirectory'] = '..';
 

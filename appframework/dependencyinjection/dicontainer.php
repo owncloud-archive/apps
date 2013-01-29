@@ -73,19 +73,19 @@ class DIContainer extends \Pimple {
 		
 		// enables the l10n function as t() function in twig
 		$this['TwigL10N'] = $this->share(function($c){
-                        $trans = $c['API']->getTrans();;
-                        return new \Twig_SimpleFunction('t', function () use ($trans) {
+			$trans = $c['API']->getTrans();;
+			return new \Twig_SimpleFunction('t', function () use ($trans) {
 				return call_user_func_array(array($trans, 't'), func_get_args());
 			});
 		});
 
-                // enables the linkToRoute function as url() function in twig
-                $this['TwigLinkToRoute'] = $this->share(function($c){
-                        $api = $c['API'];
-                        return new \Twig_SimpleFunction('url', function () use ($api) {
-                                return call_user_func_array(array($api, 'linkToRoute'), func_get_args());
-                        });
-                });
+		// enables the linkToRoute function as url() function in twig
+		$this['TwigLinkToRoute'] = $this->share(function($c){
+			$api = $c['API'];
+			return new \Twig_SimpleFunction('url', function () use ($api) {
+				return call_user_func_array(array($api, 'linkToRoute'), func_get_args());
+			});
+		});
 
 
 
@@ -106,7 +106,7 @@ class DIContainer extends \Pimple {
 				));
 			}
 			$twig->addFunction($c['TwigL10N']);
-                        $twig->addFunction($c['TwigLinkToRoute']);
+			$twig->addFunction($c['TwigLinkToRoute']);
 			return $twig;
 		});
 
