@@ -15,6 +15,9 @@
 
 	<p>Your username is {{item.getUser}}</p>
 	<p>Your username entry was saved with the path {{item.getPath}}</p>
+
+        <p>You can also <a href="{{ url('apptemplate_advanced_index_param', {test: 'ho'}) }}">link</a> to
+                a specific route </p>
 </div>
 
 
