@@ -80,6 +80,12 @@ class DIContainerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 
+	public function testProvidesTwigLinkToAbsoluteRoute(){
+		$this->exchangeAPI();
+		$this->assertTrue(isset($this->container['TwigLinkToAbsoluteRoute']));	
+	}
+
+
 	public function testAppNameIsSetCorrectly(){
 		$this->assertEquals('name', $this->container['AppName']);
 	}

@@ -87,6 +87,14 @@ class DIContainer extends \Pimple {
 			});
 		});
 
+		// enables the linkToRoute function as url() function in twig
+		$this['TwigLinkToAbsoluteRoute'] = $this->share(function($c){
+			$api = $c['API'];
+			return new \Twig_SimpleFunction('abs_url', function () use ($api) {
+				$url = call_user_func_array(array($api, 'linkToRoute'), func_get_args());
+				return $api->getAbsoluteURL($url);
+			});
+		});
 
 
 		$this['TwigLoader'] = $this->share(function($c){
@@ -107,6 +115,7 @@ class DIContainer extends \Pimple {
 			}
 			$twig->addFunction($c['TwigL10N']);
 			$twig->addFunction($c['TwigLinkToRoute']);
+			$twig->addFunction($c['TwigLinkToAbsoluteRoute']);
 			return $twig;
 		});
 

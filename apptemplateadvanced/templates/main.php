@@ -18,6 +18,9 @@
 
 	<p>You can also <a href="{{ url('apptemplate_advanced_index_param', {test: 'ho'}) }}">link</a> to
 		a specific route </p>
+
+	<p>If you need an absolute url use <a href="{{ abs_url('apptemplate_advanced_index_param', {test: 'ho'}) }}">link</a> to
+		a specific route </p>
 </div>
 
 
