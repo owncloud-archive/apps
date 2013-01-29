@@ -1,7 +1,10 @@
+#firstrunwizard { margin:12px; text-align:center; }
+#firstrunwizard h1 { font-size:40px; font-weight:bold; margin:50px 0 20px; }
+#firstrunwizard h2 { font-size:20px; font-weight:bold; margin:35px 0 10px; }
 
+#firstrunwizard .appsmall { height:16px; width:16px; position:relative; top:3px; }
+#firstrunwizard p a { font-weight:bold; }
+#firstrunwizard p a:hover, #firstrunwizard p a:focus { color:#444; }
+#firstrunwizard .footnote { margin-top:40px; }
 
-.firstrunwizard {margin:12px;}
-.firstrunwizardheadline1 {font-size:16pt; font-color:666;}
-.firstrunwizardlink {font-size:10pt; font-color:666;}
-.firstrunwizardclose {font-size:8pt; font-color:999; text-align:right}
-
+#firstrunwizard .close { position:absolute; top:0; right:0; padding:20px; }
