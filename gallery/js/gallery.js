@@ -130,8 +130,8 @@ Gallery.view.addAlbum = function (path, name) {
 		Gallery.view.cache[path].click(function () {
 			Gallery.view.viewAlbum(path);
 		});
-		Gallery.view.cache[path].mousemove(function () {
-			Gallery.view.addAlbum.mouseEvent.call(Gallery.view.cache[path], Gallery.view.addAlbum.thumbs[path]);
+		Gallery.view.cache[path].mousemove(function (event) {
+			Gallery.view.addAlbum.mouseEvent.call(Gallery.view.cache[path], Gallery.view.addAlbum.thumbs[path], event);
 		});
 	} else {
 		link = $('<a/>');
@@ -150,8 +150,8 @@ Gallery.view.addAlbum = function (path, name) {
 		image.src = Gallery.getAlbumThumbnail(path);
 		Gallery.view.addAlbum.thumbs[path] = image;
 
-		link.mousemove(function () {
-			Gallery.view.addAlbum.mouseEvent.call(link, image);
+		link.mousemove(function (event) {
+			Gallery.view.addAlbum.mouseEvent.call(link, image, event);
 		});
 
 		Gallery.view.element.append(link);
