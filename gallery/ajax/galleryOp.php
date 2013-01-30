@@ -66,11 +66,11 @@ function handleFilescan($cleanup) {
 }
 
 function handleStoreSettings($root, $order) {
-	if (!OC_Filesystem::file_exists($root)) {
+	if (!\OC\Files\Filesystem::file_exists($root)) {
 		OCP\JSON::error(array('cause' => 'No such file or directory'));
 		return;
 	}
-	if (!OC_Filesystem::is_dir($root)) {
+	if (!\OC\Files\Filesystem::is_dir($root)) {
 		OCP\JSON::error(array('cause' => $root . ' is not a directory'));
 		return;
 	}
