@@ -7,6 +7,7 @@
 #   <fred.maranhao@gmail.com>, 2012.
 # Guilherme Maluf Balzana <guimalufb@gmail.com>, 2012.
 #   <philippi.sedir@gmail.com>, 2012.
+# Rodrigo Tavares <rodrigo.st23@hotmail.com>, 2013.
 # Sandro Venezuela <sandrovenezuela@gmail.com>, 2012.
 #   <tbsoares@gmail.com>, 2012.
 # Thiago Vicente <thiagovice@gmail.com>, 2012.
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:46+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-31 00:24+0100\n"
+"PO-Revision-Date: 2013-01-30 16:30+0000\n"
+"Last-Translator: rodrigost23 <rodrigo.st23@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -423,19 +424,19 @@ msgstr "Você não tem permissões para remover esse evento."
 
 #: lib/object.php:481
 msgid "Busy"
-msgstr ""
+msgstr "Ocupado"
 
 #: lib/object.php:498
 msgid "Public"
-msgstr ""
+msgstr "Público"
 
 #: lib/object.php:499
 msgid "Private"
-msgstr ""
+msgstr "Privado"
 
 #: lib/object.php:500
 msgid "Confidential"
-msgstr ""
+msgstr "Confidencial"
 
 #: lib/object.php:510
 msgid "Does not repeat"
@@ -666,7 +667,7 @@ msgstr "Editar categorias"
 
 #: templates/part.eventform.php:47 templates/part.showevent.php:46
 msgid "Access Class"
-msgstr ""
+msgstr "Classe de Acesso"
 
 #: templates/part.eventform.php:64 templates/part.showevent.php:62
 msgid "All Day Event"

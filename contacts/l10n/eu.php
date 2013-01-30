@@ -16,6 +16,7 @@
 "Information about vCard is incorrect. Please reload the page." => "vCard-aren inguruko informazioa okerra da. Mesedez birkargatu orrialdea.",
 "Couldn't find vCard for %d." => "Ezin izan da %drentzako vCarda aurkitu.",
 "Information about vCard is incorrect. Please reload the page: " => "vCard honen informazioa ez da zuzena.Mezedez birkargatu orria:",
+"Something went FUBAR. " => "Zerbaitek huts egin du.",
 "Cannot save property of type \"%s\" as array" => "Ezin da \"%s\" motako propietatea taula moduan gorde.",
 "Missing IM parameter." => "BM parametroa falta da.",
 "Unknown IM: " => "BM ezezaguna:",
