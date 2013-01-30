@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <admin@kaio.ws>, 2013.
 # Andreas Tangemann <a.tangemann@web.de>, 2013.
 # Marcel Kühlhorn <susefan93@gmx.de>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-23 00:01+0100\n"
-"PO-Revision-Date: 2013-01-21 18:50+0000\n"
-"Last-Translator: a.tangemann <a.tangemann@web.de>\n"
+"POT-Creation-Date: 2013-01-30 00:19+0100\n"
+"PO-Revision-Date: 2013-01-29 16:46+0000\n"
+"Last-Translator: Naga <admin@kaio.ws>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +40,7 @@ msgstr "Datei {file} hochgeladen"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "Antivirus Konfiguration"
 
 #: templates/settings.php:4
 msgid "Mode"
@@ -83,7 +84,7 @@ msgstr ""
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "Pfad zu clamscan"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."

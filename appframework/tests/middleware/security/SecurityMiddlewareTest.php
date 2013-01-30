@@ -24,10 +24,10 @@
 
 namespace OCA\AppFramework\Middleware\Security;
 
-use OCA\AppFramework\Http\Request as Request;
-use OCA\AppFramework\Http\RedirectResponse as RedirectResponse;
-use OCA\AppFramework\Http\JSONResponse as JSONResponse;
-use OCA\AppFramework\Middleware\Middleware as Middleware;
+use OCA\AppFramework\Http\Request;
+use OCA\AppFramework\Http\RedirectResponse;
+use OCA\AppFramework\Http\JSONResponse;
+use OCA\AppFramework\Middleware\Middleware;
 
 
 require_once(__DIR__ . "/../../classloader.php");

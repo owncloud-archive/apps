@@ -79,6 +79,7 @@
 "You can drag groups to\narrange them as you like." => "Voit järjestää ryhmät vetämällä\nne haluamaasi järjestykseen.",
 "All" => "Kaikki",
 "Favorites" => "Suosikit",
+"Shared by {owner}" => "Jakanut {owner}",
 "Result: " => "Tulos: ",
 " imported, " => " tuotu, ",
 " failed." => " epäonnistui.",

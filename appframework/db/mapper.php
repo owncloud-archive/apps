@@ -24,7 +24,7 @@
 
 namespace OCA\AppFramework\Db;
 
-use OCA\AppFramework\Core\API as API;
+use OCA\AppFramework\Core\API;
 
 
 /**
@@ -46,19 +46,22 @@ abstract class Mapper {
 	 * @param string $tableName the name of the table to query
 	 * @param int $id the id of the item
 	 * @throws DoesNotExistException if the item does not exist
+	 * @throws MultipleObjectsReturnedException if more than one item exist
 	 * @return array the result as row
 	 */
 	protected function findQuery($tableName, $id){
 		$sql = 'SELECT * FROM `' . $tableName . '` WHERE `id` = ?';
 		$params = array($id);
 
-		$result = $this->execute($sql, $params)->fetchRow();
-		if($result){
-			return $result;
-		} else {
+		$result = $this->execute($sql, $params);
+		$row = $result->fetchRow();
+		if($row === null){
 			throw new DoesNotExistException('Item with id ' . $id . ' does not exist!');
+		} elseif($result->fetchRow() !== null) {
+			throw new MultipleObjectsReturnedException('More than one result for Item with id ' . $id . '!');
 		}
 
+		return $row;
 	}
 
 

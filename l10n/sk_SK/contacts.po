@@ -4,6 +4,7 @@
 # 
 # Translators:
 #   <intense.feel@gmail.com>, 2012.
+# Marián Hvolka <marian.hvolka@stuba.sk>, 2013.
 #   <martin.babik@gmail.com>, 2012.
 # Roman Priesol <roman@priesol.net>, 2012.
 #   <zatroch.martin@gmail.com>, 2012-2013.
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-26 00:04+0100\n"
-"PO-Revision-Date: 2013-01-25 23:05+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-30 16:04+0100\n"
+"PO-Revision-Date: 2013-01-30 12:47+0000\n"
+"Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -372,7 +373,7 @@ msgstr "Vyskytla sa neznáma chyba pri odstraňovaní daného kontaktu."
 
 #: js/contacts.js:682
 msgid "# groups"
-msgstr ""
+msgstr "# skupiny"
 
 #: js/contacts.js:1463
 msgid ""
@@ -610,7 +611,7 @@ msgstr "Vyskytla sa chyba pri odstraňovaní charakteristík pre daný kontakt."
 msgid "{name}'s Birthday"
 msgstr "Narodeniny {name}"
 
-#: lib/search.php:18
+#: lib/search.php:20
 msgid "Contact"
 msgstr "Kontakt"
 

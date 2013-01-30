@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-27 00:01+0100\n"
-"PO-Revision-Date: 2013-01-25 23:23+0000\n"
+"POT-Creation-Date: 2013-01-30 16:04+0100\n"
+"PO-Revision-Date: 2013-01-30 12:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -605,7 +605,7 @@ msgstr ""
 msgid "{name}'s Birthday"
 msgstr ""
 
-#: lib/search.php:18
+#: lib/search.php:20
 msgid "Contact"
 msgstr ""
 
@@ -967,7 +967,7 @@ msgstr ""
 
 #: templates/contacts.php:395 templates/settings.php:36
 msgid "Share"
-msgstr ""
+msgstr "Споделяне"
 
 #: templates/contacts.php:396
 msgid "Export"

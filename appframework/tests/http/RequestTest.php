@@ -95,4 +95,13 @@ class RequestTest extends \PHPUnit_Framework_TestCase {
 	}
 
 
+	public function testGetGETAndPOST(){
+		$get = array('johnny' => 'begood');
+		$post = array('also' => 'rockit');
+		$request = new Request($get, $post);
+
+		$this->assertEquals(array_merge($get, $post), $request->getGETAndPOST());
+	}
+
+
 }

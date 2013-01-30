@@ -24,13 +24,13 @@
 
 namespace OCA\AppFramework\Middleware\Security;
 
-use OCA\AppFramework\Controller\Controller as Controller;
-use OCA\AppFramework\Http\Response as Response;
-use OCA\AppFramework\Http\JSONResponse as JSONResponse;
-use OCA\AppFramework\Http\RedirectResponse as RedirectResponse;
-use OCA\AppFramework\Utility\MethodAnnotationReader as MethodAnnotationReader;
-use OCA\AppFramework\Middleware\Middleware as Middleware;
-use OCA\AppFramework\Core\API as API;
+use OCA\AppFramework\Controller\Controller;
+use OCA\AppFramework\Http\Response;
+use OCA\AppFramework\Http\JSONResponse;
+use OCA\AppFramework\Http\RedirectResponse;
+use OCA\AppFramework\Utility\MethodAnnotationReader;
+use OCA\AppFramework\Middleware\Middleware;
+use OCA\AppFramework\Core\API;
 
 
 /**
@@ -91,13 +91,13 @@ class SecurityMiddleware extends Middleware {
 
 		if(!$annotationReader->hasAnnotation('IsAdminExemption')){
 			if(!$this->api->isAdminUser($this->api->getUserId())){
-								$exceptionMessage = 'Logged in user must be an admin';
+				$exceptionMessage = 'Logged in user must be an admin';
 			}
 		}
 
 		if(!$annotationReader->hasAnnotation('IsSubAdminExemption')){
 			if(!$this->api->isSubAdminUser($this->api->getUserId())){
-								$exceptionMessage = 'Logged in user must be a subadmin';
+				$exceptionMessage = 'Logged in user must be a subadmin';
 			}
 		}
 
@@ -114,7 +114,7 @@ class SecurityMiddleware extends Middleware {
 	 * @param Controller $controller the controller that is being called
 	 * @param string $methodName the name of the method that will be called on
 	 *                           the controller
-	 * @param Exception $exception the thrown exception
+	 * @param \Exception $exception the thrown exception
 	 * @return Response a Response object or null in case that the exception could not be handled
 	 */
 	public function afterException($controller, $methodName, \Exception $exception){

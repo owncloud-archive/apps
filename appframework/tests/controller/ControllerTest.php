@@ -24,9 +24,9 @@
 
 namespace OCA\AppFramework\Controller;
 
-use OCA\AppFramework\Http\Request as Request;
-use OCA\AppFramework\Http\JSONResponse as JSONResponse;
-use OCA\AppFramework\Http\TemplateResponse as TemplateResponse;
+use OCA\AppFramework\Http\Request;
+use OCA\AppFramework\Http\JSONResponse;
+use OCA\AppFramework\Http\TemplateResponse;
 
 
 require_once(__DIR__ . "/../classloader.php");
@@ -100,6 +100,16 @@ class ControllerTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetUploadedFileDefault(){
 		$this->assertEquals('default', $this->controller->params('files', 'default'));
+	}
+
+
+	public function testGetParams(){
+		$urlParams = array('url' => 'something');
+		$get = array('get'=>'getvalue');
+		$post = array('post'=>'postvalue');
+		$this->controller->setURLParams($urlParams);
+
+		$this->assertEquals(array_merge($urlParams, $get, $post), $this->controller->getParams());
 	}
 
 

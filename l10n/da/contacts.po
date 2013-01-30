@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-27 00:01+0100\n"
-"PO-Revision-Date: 2013-01-26 21:28+0000\n"
+"POT-Creation-Date: 2013-01-30 16:04+0100\n"
+"PO-Revision-Date: 2013-01-30 12:47+0000\n"
 "Last-Translator: rpaasch <rasmuspaasch@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -615,7 +615,7 @@ msgstr "Der opstod en fejl under sletning egenskaber for denne kontakt."
 msgid "{name}'s Birthday"
 msgstr "{name}s fødselsdag"
 
-#: lib/search.php:18
+#: lib/search.php:20
 msgid "Contact"
 msgstr "Kontaktperson"
 

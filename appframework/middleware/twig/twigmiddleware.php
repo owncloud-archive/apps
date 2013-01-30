@@ -23,12 +23,12 @@
 
 namespace OCA\AppFramework\Middleware\Twig;
 
-use OCA\AppFramework\Controller\Controller as Controller;
-use OCA\AppFramework\Http\Response as Response;
-use OCA\AppFramework\Http\TemplateResponse as TemplateResponse;
-use OCA\AppFramework\Http\TwigResponse as TwigResponse;
-use OCA\AppFramework\Middleware\Middleware as Middleware;
-use OCA\AppFramework\Core\API as API;
+use OCA\AppFramework\Controller\Controller;
+use OCA\AppFramework\Http\Response;
+use OCA\AppFramework\Http\TemplateResponse;
+use OCA\AppFramework\Http\TwigResponse;
+use OCA\AppFramework\Middleware\Middleware;
+use OCA\AppFramework\Core\API;
 
 
 /**

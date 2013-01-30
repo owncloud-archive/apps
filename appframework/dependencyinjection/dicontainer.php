@@ -24,11 +24,11 @@
 
 namespace OCA\AppFramework\DependencyInjection;
 
-use OCA\AppFramework\Http\Request as Request;
-use OCA\AppFramework\Core\API as API;
-use OCA\AppFramework\Middleware\MiddlewareDispatcher as MiddlewareDispatcher;
-use OCA\AppFramework\Middleware\Security\SecurityMiddleware as SecurityMiddleware;
-use OCA\AppFramework\Middleware\Twig\TwigMiddleware as TwigMiddleware;
+use OCA\AppFramework\Http\Request;
+use OCA\AppFramework\Core\API;
+use OCA\AppFramework\Middleware\MiddlewareDispatcher;
+use OCA\AppFramework\Middleware\Security\SecurityMiddleware;
+use OCA\AppFramework\Middleware\Twig\TwigMiddleware;
 
 
 require_once __DIR__ . '/../3rdparty/Pimple/Pimple.php';
@@ -71,7 +71,32 @@ class DIContainer extends \Pimple {
 		// if you want to cache the template directory, add this path
 		$this['TwigTemplateCacheDirectory'] = null;
 		
-		// if you want to exchange the template loader, do it here
+		// enables the l10n function as t() function in twig
+		$this['TwigL10N'] = $this->share(function($c){
+			$trans = $c['API']->getTrans();;
+			return new \Twig_SimpleFunction('trans', function () use ($trans) {
+				return call_user_func_array(array($trans, 't'), func_get_args());
+			});
+		});
+
+		// enables the linkToRoute function as url() function in twig
+		$this['TwigLinkToRoute'] = $this->share(function($c){
+			$api = $c['API'];
+			return new \Twig_SimpleFunction('url', function () use ($api) {
+				return call_user_func_array(array($api, 'linkToRoute'), func_get_args());
+			});
+		});
+
+		// enables the linkToRoute function as url() function in twig
+		$this['TwigLinkToAbsoluteRoute'] = $this->share(function($c){
+			$api = $c['API'];
+			return new \Twig_SimpleFunction('abs_url', function () use ($api) {
+				$url = call_user_func_array(array($api, 'linkToRoute'), func_get_args());
+				return $api->getAbsoluteURL($url);
+			});
+		});
+
+
 		$this['TwigLoader'] = $this->share(function($c){
 			return new \Twig_Loader_Filesystem($c['TwigTemplateDirectory']);
 		});
@@ -79,15 +104,19 @@ class DIContainer extends \Pimple {
 		$this['Twig'] = $this->share(function($c){
 			$loader = $c['TwigLoader'];
 			if($c['TwigTemplateCacheDirectory'] !== null){
-				return new \Twig_Environment($loader, array(
+				$twig = new \Twig_Environment($loader, array(
 					'cache' => $c['TwigTemplateCacheDirectory'],
 					'autoescape' => true
 				));
 			} else {
-				return new \Twig_Environment($loader, array(
+				$twig = new \Twig_Environment($loader, array(
 					'autoescape' => true
 				));
 			}
+			$twig->addFunction($c['TwigL10N']);
+			$twig->addFunction($c['TwigLinkToRoute']);
+			$twig->addFunction($c['TwigLinkToAbsoluteRoute']);
+			return $twig;
 		});
 
 

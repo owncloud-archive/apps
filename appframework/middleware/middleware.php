@@ -24,8 +24,7 @@
 
 namespace OCA\AppFramework\Middleware;
 
-use OCA\AppFramework\Http\Response as Response;
-use OCA\AppFramework\Controller\Controller as Controller;
+use OCA\AppFramework\Http\Response;
 
 
 /**

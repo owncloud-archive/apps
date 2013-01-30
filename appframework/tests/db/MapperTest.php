@@ -24,7 +24,7 @@
 
 namespace OCA\AppFramework\Db;
 
-use OCA\AppFramework\Core\API as API;
+use OCA\AppFramework\Core\API;
 
 
 require_once(__DIR__ . "/../classloader.php");
@@ -54,10 +54,17 @@ class MapperTest extends \PHPUnit_Framework_TestCase {
 		$sql = 'SELECT * FROM `hihi` WHERE `id` = ?';
 		$params = array(1);
 
+		if($doesNotExist){
+			$this->setExpectedException('\OCA\AppFramework\Db\DoesNotExistException');
+			$fetchRowReturn = null;
+		} else {
+			$fetchRowReturn = true;
+		}
+
 		$cursor = $this->getMock('cursor', array('fetchRow'));
-		$cursor->expects($this->once())
+		$cursor->expects($this->at(0))
 				->method('fetchRow')
-				->will($this->returnValue(!$doesNotExist));
+				->will($this->returnValue($fetchRowReturn));
 
 		$query = $this->getMock('query', array('execute'));
 		$query->expects($this->once())
@@ -72,9 +79,6 @@ class MapperTest extends \PHPUnit_Framework_TestCase {
 
 		$mapper = new ExampleMapper($this->api);
 
-		if($doesNotExist){
-			$this->setExpectedException('\OCA\AppFramework\Db\DoesNotExistException');
-		}
 
 		$result = $mapper->find('hihi', $params[0]);
 
@@ -83,6 +87,37 @@ class MapperTest extends \PHPUnit_Framework_TestCase {
 		} else {
 			$this->assertTrue($result);
 		}
+		
+	}
+
+	public function testFindThrowsExceptionWhenMoreThanOneResult(){
+		$sql = 'SELECT * FROM `hihi` WHERE `id` = ?';
+		$params = array(1);
+
+		$cursor = $this->getMock('cursor', array('fetchRow'));
+		$cursor->expects($this->at(0))
+				->method('fetchRow')
+				->will($this->returnValue(true));
+		$cursor->expects($this->at(1))
+				->method('fetchRow')
+				->will($this->returnValue(true));
+
+		$query = $this->getMock('query', array('execute'));
+		$query->expects($this->once())
+				->method('execute')
+				->with($this->equalTo($params))
+				->will($this->returnValue($cursor));
+
+		$this->api->expects($this->once())
+				->method('prepareQuery')
+				->with($this->equalTo($sql))
+				->will($this->returnValue($query));
+
+		$mapper = new ExampleMapper($this->api);
+
+		$this->setExpectedException('\OCA\AppFramework\Db\MultipleObjectsReturnedException');
+
+		$result = $mapper->find('hihi', $params[0]);
 		
 	}
 

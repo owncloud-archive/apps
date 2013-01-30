@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Akos <nagy.akos@libreoffice.ro>, 2013.
 #   <gyonkibendeguz@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-09 00:01+0100\n"
-"PO-Revision-Date: 2013-01-08 21:38+0000\n"
-"Last-Translator: gyeben <gyonkibendeguz@gmail.com>\n"
+"POT-Creation-Date: 2013-01-29 00:01+0100\n"
+"PO-Revision-Date: 2013-01-28 11:00+0000\n"
+"Last-Translator: akoscomp <nagy.akos@libreoffice.ro>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgstr "Feladatok"
 
 #: js/tasks.js:78
 msgid "Due"
-msgstr ""
+msgstr "Teendő"
 
 #: js/tasks.js:107
 msgid "List"
@@ -81,27 +82,27 @@ msgstr "Feladat hozzáadása"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "Aktuális feladat"
 
 #: templates/tasks.php:5
 msgid "Order List"
-msgstr ""
+msgstr "Feladatlista"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr ""
+msgstr "Feladat befejezve"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr ""
+msgstr "Feladat helye"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr ""
+msgstr "Feladat prioritása"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr ""
+msgstr "Feladat címkéje"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
