@@ -25,7 +25,7 @@
 OC::$CLASSPATH['OCA_FirstRunWizard\Config'] = 'apps/firstrunwizard/lib/firstrunwizard.php';
 
 OCP\Util::addStyle( 'firstrunwizard', 'colorbox');
-OCP\Util::addScript( 'firstrunwizard', 'jquery.colorbox-min');
+OCP\Util::addScript( 'firstrunwizard', 'jquery.colorbox');
 OCP\Util::addScript( 'firstrunwizard', 'firstrunwizard');
 
 OCP\App::registerPersonal('firstrunwizard', 'enable');
