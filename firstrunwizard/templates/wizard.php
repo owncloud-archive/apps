@@ -31,8 +31,8 @@
 	<img class="appsmall" src="<?php echo OCP\Util::imagePath('core', 'places/folder.svg'); ?>" /> <?php echo $l->t('Access files via WebDAV');?>
 </a>
 
-<p class="footnote">There’s more information in the <a href="http://doc.owncloud.org/server/5.0/user_manual/">documentation</a> and on our <a href="http://owncloud.org">website</a>.<br>
-If you like ownCloud, <a href="mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org">recommend it to your friends</a>!</p>
+<p class="footnote"><?php echo $l->t('There’s more information in the <a href="http://doc.owncloud.org/server/5.0/user_manual/">documentation</a> and on our <a href="http://owncloud.org">website</a>.'); ?><br>
+<?php echo $l->t('If you like ownCloud, <a href="mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org">recommend it to your friends</a>!'); ?></p>
 
 
 </div>
