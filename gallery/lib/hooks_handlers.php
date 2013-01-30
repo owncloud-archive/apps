@@ -24,7 +24,7 @@
 class OC_Gallery_Hooks_Handlers {
 
 	public static function writePhoto($params) {
-		$path = $params[OC_Filesystem::signal_param_path];
+		$path = $params[\OC\Files\Filesystem::signal_param_path];
 		if (self::isPhoto($path)) {
 			OCP\Util::writeLog('gallery', 'updating thumbnail for ' . $path, OCP\Util::DEBUG);
 			\OC\Pictures\ThumbnailsManager::getInstance()->getThumbnail($path);
@@ -32,12 +32,12 @@ class OC_Gallery_Hooks_Handlers {
 	}
 
 	public static function removePhoto($params) {
-		\OC\Pictures\ThumbnailsManager::getInstance()->delete($params[OC_Filesystem::signal_param_path]);
+		\OC\Pictures\ThumbnailsManager::getInstance()->delete($params[\OC\Files\Filesystem::signal_param_path]);
 	}
 
 	public static function renamePhoto($params) {
-		$oldpath = $params[OC_Filesystem::signal_param_oldpath];
-		$newpath = $params[OC_Filesystem::signal_param_newpath];
+		$oldpath = $params[\OC\Files\Filesystem::signal_param_oldpath];
+		$newpath = $params[\OC\Files\Filesystem::signal_param_newpath];
 		//TODO: implement this
 	}
 

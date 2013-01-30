@@ -79,7 +79,7 @@ class OC_Gallery_Photo {
 		if ($view->file_exists($thumb_file)) {
 			$image = new OC_Image($view->fopen($thumb_file, 'r'));
 		} else {
-			$image_path = OC_Filesystem::getLocalFile($image_name);
+			$image_path = \OC\Files\Filesystem::getLocalFile($image_name);
 			if (!file_exists($image_path)) {
 				return null;
 			}
@@ -107,7 +107,7 @@ class OC_Gallery_Photo {
 		if (file_exists($view_file)) {
 			$image = new OC_Image($view_file);
 		} else {
-			$image_path = OC_Filesystem::getLocalFile($image_path);
+			$image_path = \OC\Files\Filesystem::getLocalFile($image_path);
 			if (!file_exists($image_path)) {
 				return null;
 			}

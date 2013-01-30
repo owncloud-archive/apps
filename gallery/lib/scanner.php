@@ -27,7 +27,7 @@ class OC_Gallery_Scanner {
 		return OCP\Config::getUserValue(OCP\USER::getUser(), 'gallery', 'root', '/');
 	}
 	public static function getScanningRoot() {
-		return OC_Filesystem::getRoot().self::getGalleryRoot();
+		return \OC\Files\Filesystem::getRoot().self::getGalleryRoot();
 	}
 
 	public static function cleanUp() {
@@ -98,7 +98,7 @@ class OC_Gallery_Scanner {
 					foreach ($a as $e) {
 						$p .= ($p == '/'?'':'/').$e;
 						OC_Gallery_Album::create(OCP\USER::getUser(), $e, $p);
-						$arr = OC_FileCache::searchByMime('image','', OC_Filesystem::getRoot().$p);
+						$arr = OC_FileCache::searchByMime('image','', \OC\Files\Filesystem::getRoot().$p);
 						$step = floor(count($arr)/10);
 						if ($step == 0) $step = 1;
 						$na = array();
@@ -119,7 +119,7 @@ class OC_Gallery_Scanner {
 	}
 
 	public static function findFiles($path) {
-		$images = OC_FileCache::searchByMime('image','', OC_Filesystem::getRoot().$path);
+		$images = OC_FileCache::searchByMime('image','', \OC\Files\Filesystem::getRoot().$path);
 		$new = array();
 		foreach ($images as $i)
 			if (strpos($i, '/',1) === FALSE)
