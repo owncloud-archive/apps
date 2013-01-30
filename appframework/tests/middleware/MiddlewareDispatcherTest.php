@@ -24,11 +24,11 @@
 
 namespace OCA\AppFramework;
 
-use OCA\AppFramework\Controller\Controller as Controller;
-use OCA\AppFramework\Http\Request as Request;
-use OCA\AppFramework\Http\Response as Response;
-use OCA\AppFramework\Middleware\Middleware as Middleware;
-use OCA\AppFramework\Middleware\MiddlewareDispatcher as MiddlewareDispatcher;
+use OCA\AppFramework\Controller\Controller;
+use OCA\AppFramework\Http\Request;
+use OCA\AppFramework\Http\Response;
+use OCA\AppFramework\Middleware\Middleware;
+use OCA\AppFramework\Middleware\MiddlewareDispatcher;
 
 
 require_once(__DIR__ . "/../classloader.php");

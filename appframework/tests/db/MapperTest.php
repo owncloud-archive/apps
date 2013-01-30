@@ -24,7 +24,7 @@
 
 namespace OCA\AppFramework\Db;
 
-use OCA\AppFramework\Core\API as API;
+use OCA\AppFramework\Core\API;
 
 
 require_once(__DIR__ . "/../classloader.php");

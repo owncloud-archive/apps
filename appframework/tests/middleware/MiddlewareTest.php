@@ -24,8 +24,8 @@
 
 namespace OCA\AppFramework;
 
-use OCA\AppFramework\Http\Request as Request;
-use OCA\AppFramework\Middleware\Middleware as Middleware;
+use OCA\AppFramework\Http\Request;
+use OCA\AppFramework\Middleware\Middleware;
 
 
 require_once(__DIR__ . "/../classloader.php");

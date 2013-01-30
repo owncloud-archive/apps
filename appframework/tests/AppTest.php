@@ -24,9 +24,9 @@
 
 namespace OCA\AppFramework;
 
-use OCA\AppFramework\Http\Request as Request;
-use OCA\AppFramework\Core\API as API;
-use OCA\AppFramework\Middleware\MiddlewareDispatcher as MiddlewareDispatcher;
+use OCA\AppFramework\Http\Request;
+use OCA\AppFramework\Core\API;
+use OCA\AppFramework\Middleware\MiddlewareDispatcher;
 
 
 require_once(__DIR__ . "/../3rdparty/Pimple/Pimple.php");
