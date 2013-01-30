@@ -7,6 +7,7 @@
 "User: <b>" => "Používateľ: <b>",
 "Login" => "Prihlásenie",
 "Error: <b>No user Selected" => "Chyba: <b>Neni vybraný žiadny používateľ",
+"OpenID" => "OpenID",
 "you can authenticate to other sites with this address" => "s touto adresou sa môžete overiť aj na ďalších stránkach",
 "Authorized OpenID provider" => "Overený poskytovateľ OpenID ",
 "Your address at Wordpress, Identi.ca, &hellip;" => "Vaša adresa na Wordpress, Identi.ca, &hellip;"
