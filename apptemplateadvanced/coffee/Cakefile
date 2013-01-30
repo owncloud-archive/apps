@@ -128,6 +128,7 @@ task 'build', 'Build and compress CoffeeScript into single JavaScript file', ->
 	files = getOrderedCoffeeFiles(sourceDirectory)
 	content = []
 	remaining = files.length
+	counter = 0
 
 	# read out content of files and compile them afterwards
 	for file in files then do (file) ->
@@ -135,8 +136,9 @@ task 'build', 'Build and compress CoffeeScript into single JavaScript file', ->
 			if error
 				throw error
 
-			content.push([file, fileContent])
+			content[counter] = [file, fileContent]
 
 			remaining -= 1
+			counter += 1
 			if remaining <= 0
 				compile(content, compileToFile)
