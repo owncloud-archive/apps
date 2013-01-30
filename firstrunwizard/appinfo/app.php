@@ -34,6 +34,3 @@ OCP\Util::addStyle('firstrunwizard', 'firstrunwizard');
 if(\OCP\User::isLoggedIn() and \OCA_FirstRunWizard\Config::isenabled()){
 	OCP\Util::addScript( 'firstrunwizard', 'activate');
 }
-
-
-?>
