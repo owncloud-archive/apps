@@ -103,6 +103,16 @@ class ControllerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 
+	public function testGetParams(){
+		$urlParams = array('url' => 'something');
+		$get = array('get'=>'getvalue');
+		$post = array('post'=>'postvalue');
+		$this->controller->setURLParams($urlParams);
+
+		$this->assertEquals(array_merge($urlParams, $get, $post), $this->controller->getParams());
+	}
+
+
 	public function testRender(){
 		$this->assertTrue($this->controller->render('') instanceof TemplateResponse);
 	}

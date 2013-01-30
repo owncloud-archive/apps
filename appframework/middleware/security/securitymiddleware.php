@@ -24,13 +24,13 @@
 
 namespace OCA\AppFramework\Middleware\Security;
 
-use OCA\AppFramework\Controller\Controller as Controller;
-use OCA\AppFramework\Http\Response as Response;
-use OCA\AppFramework\Http\JSONResponse as JSONResponse;
-use OCA\AppFramework\Http\RedirectResponse as RedirectResponse;
-use OCA\AppFramework\Utility\MethodAnnotationReader as MethodAnnotationReader;
-use OCA\AppFramework\Middleware\Middleware as Middleware;
-use OCA\AppFramework\Core\API as API;
+use OCA\AppFramework\Controller\Controller;
+use OCA\AppFramework\Http\Response;
+use OCA\AppFramework\Http\JSONResponse;
+use OCA\AppFramework\Http\RedirectResponse;
+use OCA\AppFramework\Utility\MethodAnnotationReader;
+use OCA\AppFramework\Middleware\Middleware;
+use OCA\AppFramework\Core\API;
 
 
 /**

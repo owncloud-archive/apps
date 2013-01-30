@@ -196,6 +196,16 @@ class API {
 
 
 	/**
+	 * Makes an URL absolute
+	 * @param string $url the url
+	 * @return string the absolute url
+	 */
+	public function getAbsoluteURL($url){
+		return \OC_Helper::makeURLAbsolute($url);
+	}
+
+
+	/**
 	 * links to a file
 	 * @param string $file the name of the file
 	 * @param string $appName the name of the app, defaults to the current one

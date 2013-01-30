@@ -1,10 +1,12 @@
 <?php
 
 /**
-* ownCloud - App Template Example
+* ownCloud - News
 *
+* @author Alessandro Copyright
 * @author Bernhard Posselt
-* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com 
+* @copyright 2012 Alessandro Cosentino cosenal@gmail.com
+* @copyright 2012 Bernhard Posselt nukeawhale@gmail.com
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -21,19 +23,16 @@
 *
 */
 
-namespace OCA\AppTemplateAdvanced\Admin;
+namespace OCA\News\Business;
 
-use OCA\AppFramework\App;
-
-use OCA\AppTemplateAdvanced\DependencyInjection\DIContainer;
+class Feed {
 
 
-// we need to fetch the output and return it for the admin page. Dont ask why
-ob_start();
+    public function __construct($feedMapper) {
+        $this->feedMapper = $feedMapper;
+    }
 
-App::main('SettingsController', 'index', array(), new DIContainer());
 
-$content = ob_get_contents();
-ob_clean();
 
-return $content; 
+
+}

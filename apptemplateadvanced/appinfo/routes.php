@@ -23,9 +23,9 @@
 
 namespace OCA\AppTemplateAdvanced;
 
-use \OCA\AppFramework\App as App;
+use \OCA\AppFramework\App;
 
-use \OCA\AppTemplateAdvanced\DependencyInjection\DIContainer as DIContainer;
+use \OCA\AppTemplateAdvanced\DependencyInjection\DIContainer;
 
 
 /*************************

@@ -24,7 +24,7 @@
 
 namespace OCA\AppFramework\Utility;
 
-use OCA\AppFramework\Http\Response as Response;
+use OCA\AppFramework\Http\Response;
 
 
 /**

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <asieriko@gmail.com>, 2013.
 # Piarres Beobide <pi@beobide.net>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-28 00:01+0100\n"
-"PO-Revision-Date: 2013-01-27 15:45+0000\n"
-"Last-Translator: Piarres Beobide <pi@beobide.net>\n"
+"POT-Creation-Date: 2013-01-30 00:19+0100\n"
+"PO-Revision-Date: 2013-01-29 18:40+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr ""
+msgstr "Kaixo {user},"
 
 #: templates/notification.php:2
 msgid ""
@@ -34,7 +35,7 @@ msgstr ""
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "Igotako fitxategia: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
@@ -58,7 +59,7 @@ msgstr "Hostalaria"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "Antiburus Hostalariaren Helbidea."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
@@ -70,7 +71,7 @@ msgstr "Portua"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "Antiburus Hostalariaren Ataka zenbakia."
 
 #: templates/settings.php:9
 msgid "Stream Length"

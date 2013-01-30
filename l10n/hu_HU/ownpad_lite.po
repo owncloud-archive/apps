@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Akos <nagy.akos@libreoffice.ro>, 2013.
 #   <gyonkibendeguz@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-08 00:26+0100\n"
-"PO-Revision-Date: 2013-01-07 21:07+0000\n"
-"Last-Translator: gyeben <gyonkibendeguz@gmail.com>\n"
+"POT-Creation-Date: 2013-01-29 00:01+0100\n"
+"PO-Revision-Date: 2013-01-28 13:50+0000\n"
+"Last-Translator: akoscomp <nagy.akos@libreoffice.ro>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: appinfo/app.php:58
 msgid "My pad"
-msgstr ""
+msgstr "Saját Pad"
 
 #: templates/index.php:14 templates/index.php:15
 msgid "Settings"
@@ -28,7 +29,7 @@ msgstr "Beállítások"
 
 #: templates/index.php:17
 msgid "Pad Title"
-msgstr ""
+msgstr "Pad címe"
 
 #: templates/index.php:18
 msgid "Open"

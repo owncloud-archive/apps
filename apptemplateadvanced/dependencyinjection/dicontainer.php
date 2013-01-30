@@ -25,9 +25,9 @@ namespace OCA\AppTemplateAdvanced\DependencyInjection;
 
 use OCA\AppFramework\DependencyInjection\DIContainer as BaseContainer;
 
-use OCA\AppTemplateAdvanced\Controller\ItemController as ItemController;
-use OCA\AppTemplateAdvanced\Controller\SettingsController as SettingsController;
-use OCA\AppTemplateAdvanced\Db\ItemMapper as ItemMapper;
+use OCA\AppTemplateAdvanced\Controller\ItemController;
+use OCA\AppTemplateAdvanced\Controller\SettingsController;
+use OCA\AppTemplateAdvanced\Db\ItemMapper;
 
 
 class DIContainer extends BaseContainer {

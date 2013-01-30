@@ -24,10 +24,10 @@
 
 namespace OCA\AppFramework\Controller;
 
-use OCA\AppFramework\Http\JSONResponse as JSONResponse;
-use OCA\AppFramework\Http\TemplateResponse as TemplateResponse;
-use OCA\AppFramework\Http\Request as Request;
-use OCA\AppFramework\Core\API as API;
+use OCA\AppFramework\Http\JSONResponse;
+use OCA\AppFramework\Http\TemplateResponse;
+use OCA\AppFramework\Http\Request;
+use OCA\AppFramework\Core\API;
 
 
 /**
@@ -91,6 +91,16 @@ abstract class Controller {
 		}
 
 		return $default;
+	}
+
+
+	/**
+	 * Returns all params that were received, be it from the request 
+	 * (as GET or POST) or throuh the URL by the route
+	 * @return array the array with all parameters
+	 */
+	public function getParams() {
+		return array_merge($this->request->getGETAndPOST(), $this->urlParams);
 	}
 
 

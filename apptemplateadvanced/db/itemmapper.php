@@ -22,9 +22,9 @@
 
 namespace OCA\AppTemplateAdvanced\Db;
 
-use \OCA\AppFramework\Core\API as API;
-use \OCA\AppFramework\Db\Mapper as Mapper;
-use \OCA\AppFramework\Db\DoesNotExistException as DoesNotExistException;
+use \OCA\AppFramework\Core\API;
+use \OCA\AppFramework\Db\Mapper;
+use \OCA\AppFramework\Db\DoesNotExistException;
 
 
 class ItemMapper extends Mapper {

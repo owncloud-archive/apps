@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Adam Toth <adazlord@gmail.com>, 2012.
+# Akos <nagy.akos@libreoffice.ro>, 2013.
 #   <gyonkibendeguz@gmail.com>, 2013.
 # Laszlo Tornoci <torlasz@gmail.com>, 2013.
 #   <mail@tamas-nagy.net>, 2011.
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-27 00:01+0100\n"
-"PO-Revision-Date: 2013-01-26 19:12+0000\n"
-"Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
+"POT-Creation-Date: 2013-01-29 00:01+0100\n"
+"PO-Revision-Date: 2013-01-28 13:49+0000\n"
+"Last-Translator: akoscomp <nagy.akos@libreoffice.ro>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +40,7 @@ msgstr "Üres névvel nem frissíthető a címlista"
 
 #: ajax/categories/add.php:19
 msgid "No category name given."
-msgstr ""
+msgstr "Nincs megadva kategórianév."
 
 #: ajax/categories/add.php:28
 msgid "Error adding group."
@@ -47,11 +48,11 @@ msgstr "Hiba a csoport hozzáadása közben."
 
 #: ajax/categories/addto.php:20 ajax/categories/removefrom.php:20
 msgid "Group ID missing from request."
-msgstr ""
+msgstr "A csoport azonosítója hiányzik a kérésből."
 
 #: ajax/categories/addto.php:24 ajax/categories/removefrom.php:24
 msgid "Contact ID missing from request."
-msgstr ""
+msgstr "A kapcsolat azonosítója hiányzik a kérésből."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
@@ -88,7 +89,7 @@ msgstr "A vCardról szóló információ helytelen. Frissítse az oldalt!"
 #: ajax/contact/saveproperty.php:98
 #, php-format
 msgid "Couldn't find vCard for %d."
-msgstr ""
+msgstr "Nem található a(z) %d vCard."
 
 #: ajax/contact/saveproperty.php:108
 msgid "Information about vCard is incorrect. Please reload the page: "
@@ -101,7 +102,7 @@ msgstr "Helyrehozhatatlan hiba történt."
 #: ajax/contact/saveproperty.php:128
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
-msgstr ""
+msgstr "Az \"%s\" típusú tulajdonság nem menthető mint tömb."
 
 #: ajax/contact/saveproperty.php:180
 msgid "Missing IM parameter."
@@ -174,15 +175,15 @@ msgstr "A kép nem található"
 
 #: ajax/setpreference.php:37
 msgid "Key is not set for: "
-msgstr ""
+msgstr "Nincs megadva a kulcs:"
 
 #: ajax/setpreference.php:41
 msgid "Value is not set for: "
-msgstr ""
+msgstr "Nincs megadva az érték:"
 
 #: ajax/setpreference.php:53
 msgid "Could not set preference: "
-msgstr ""
+msgstr "Nem állítható be a tulajdonság:"
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
@@ -233,7 +234,7 @@ msgstr "Címjegyzékek"
 #: export.php:66
 #, php-format
 msgid "%d_selected_contacts"
-msgstr ""
+msgstr "%d_kijelölt_kapcsolat"
 
 #: js/app.js:265 js/app.js:279
 msgid "Add to..."
@@ -249,7 +250,7 @@ msgstr "Csoport hozzáadása..."
 
 #: js/app.js:354
 msgid "Indexing contacts"
-msgstr ""
+msgstr "Kapcsolatok indexelése."
 
 #: js/app.js:451
 msgid "Select photo"
@@ -262,19 +263,19 @@ msgstr "Hiba történt a hálózatban vagy a kiszolgálón. Értesítse a rendsz
 
 #: js/app.js:660 js/app.js:695
 msgid "Error adding to group."
-msgstr ""
+msgstr "Hiba a csoporthoz adása közben."
 
 #: js/app.js:720
 msgid "Error removing from group."
-msgstr ""
+msgstr "Hiba a csoportból való eltávolítás közben."
 
 #: js/app.js:750
 msgid "There was an error opening a mail composer."
-msgstr ""
+msgstr "Hiba történt a levélszerkesztő megnyitása közben."
 
 #: js/app.js:800
 msgid "Deleting done. Click here to cancel reloading."
-msgstr ""
+msgstr "Sikeresen törölve. Kattintson ide az újratöltés tiltásához."
 
 #: js/app.js:877
 msgid "Add address book"
@@ -282,15 +283,15 @@ msgstr "Új címjegyzék"
 
 #: js/app.js:973
 msgid "Import done. Click here to cancel reloading."
-msgstr ""
+msgstr "Sikeresen importálva. Kattintson ide az újratöltés tiltásához."
 
 #: js/app.js:1014
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "Nem minden fájt töltődött fel. Próbálkozik..."
 
 #: js/app.js:1020
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "Valami hiba történt a feltöltéskor, próbálja újra."
 
 #: js/app.js:1020 js/app.js:1530 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
@@ -303,7 +304,7 @@ msgstr "Importálás ebből: {filename}..."
 
 #: js/app.js:1033
 msgid "{success} imported, {failed} failed."
-msgstr ""
+msgstr "{success} importálva, {failed} meghíusult."
 
 #: js/app.js:1041
 msgid "Importing..."
@@ -361,7 +362,7 @@ msgstr "A címlista kiválasztása"
 
 #: js/app.js:1530
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "A címjegyzékben a név nem lehet üres."
 
 #: js/contacts.js:356
 msgid "Is this correct?"
@@ -369,55 +370,55 @@ msgstr "Helyes ez?"
 
 #: js/contacts.js:544
 msgid "There was an unknown error when trying to delete this contact"
-msgstr ""
+msgstr "A kapcsolat törlése közben ismeretlen hiba történt."
 
 #: js/contacts.js:682
 msgid "# groups"
-msgstr ""
+msgstr "# csoportok"
 
 #: js/contacts.js:1463
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
-msgstr ""
+msgstr "Néhány kapcsolat ki lett jelölve törlésre, de nem lett törölve. Várja meg ameddig törölve lesznek."
 
 #: js/contacts.js:1474
 msgid "Click to undo deletion of {num} contacts"
-msgstr ""
+msgstr "Kattintson a {num} kapcsolat törlésének visszavonásához"
 
 #: js/contacts.js:1489
 msgid "Cancelled deletion of {num}"
-msgstr ""
+msgstr "A(z) {num} törlésének visszavonása"
 
 #: js/groups.js:193
 msgid "Contact is already in this group."
-msgstr ""
+msgstr "A kapcsolat már a csoportban van."
 
 #: js/groups.js:206
 msgid "Contacts are already in this group."
-msgstr ""
+msgstr "A kapcsolatok már a csoportban vannak."
 
 #: js/groups.js:272
 msgid "Couldn't get contact list."
-msgstr ""
+msgstr "Nem érhető el a kapcsolatlista."
 
 #: js/groups.js:283
 msgid "Contact is not in this group."
-msgstr ""
+msgstr "A kapcsolat nincs ebben a csoportban."
 
 #: js/groups.js:297
 msgid "Contacts are not in this group."
-msgstr ""
+msgstr "A kapcsolatok nincsenek ebben a csoportban."
 
 #: js/groups.js:541
 msgid "A group named {group} already exists"
-msgstr ""
+msgstr "A {group} nevű csoport már létezik"
 
 #: js/groups.js:573
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
-msgstr ""
+msgstr "Áthúzhatja a csoportokat\nelrendezheti őket ahogy akarja."
 
 #: js/groups.js:592
 msgid "All"
@@ -492,7 +493,7 @@ msgstr "Nincs jogosultsága módosítani ezt a címjegyzéket."
 
 #: lib/addressbook.php:283 lib/addressbook.php:292
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "Hiba történt a a címjegyzék frissítésekor."
 
 #: lib/addressbook.php:354
 msgid "You do not have the permissions to delete this addressbook."
@@ -605,7 +606,7 @@ msgstr "Család"
 
 #: lib/app.php:362
 msgid "There was an error deleting properties for this contact."
-msgstr ""
+msgstr "Hiba lépett fel a kapcsolat tulajdonságainak törlésekor."
 
 #: lib/hooks.php:108
 msgid "{name}'s Birthday"
@@ -621,7 +622,7 @@ msgstr "Nincs jogosultsága bővíteni ezt a címjegyzéket."
 
 #: lib/vcard.php:462
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "Nincs címjegyzék ezzel az ID-vel."
 
 #: lib/vcard.php:490
 msgid "You do not have the permissions to edit this contact."
@@ -629,7 +630,7 @@ msgstr "Nincs jogosultsága módosítani az illető adatait."
 
 #: lib/vcard.php:565
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "Nincs címjegyzék ezzel az ID-vel:"
 
 #: lib/vcard.php:573
 msgid "Could not find the Addressbook with ID: "
@@ -653,7 +654,7 @@ msgstr "Kezdőoldal"
 
 #: templates/contacts.php:11
 msgid "New Group"
-msgstr ""
+msgstr "Új csoport"
 
 #: templates/contacts.php:17
 msgid "Settings"
@@ -685,7 +686,7 @@ msgstr "OK"
 
 #: templates/contacts.php:47
 msgid "(De-)select all"
-msgstr ""
+msgstr "(Ki)Bejelöli mindet"
 
 #: templates/contacts.php:49
 msgid "New Contact"
@@ -741,7 +742,7 @@ msgstr "Az előző címlista"
 
 #: templates/contacts.php:80
 msgid "Actions"
-msgstr ""
+msgstr "Műveletek"
 
 #: templates/contacts.php:83
 msgid "Refresh contacts list"
@@ -771,7 +772,7 @@ msgstr "Új személy hozzáadása"
 
 #: templates/contacts.php:138
 msgid "Compose mail"
-msgstr ""
+msgstr "Levél szerkesztése"
 
 #: templates/contacts.php:149
 msgid "Delete group"
@@ -889,7 +890,7 @@ msgstr "Adjon meg érvényes email címet"
 
 #: templates/contacts.php:286
 msgid "someone@example.com"
-msgstr ""
+msgstr "someone@example.com"
 
 #: templates/contacts.php:288
 msgid "Mail to address"
