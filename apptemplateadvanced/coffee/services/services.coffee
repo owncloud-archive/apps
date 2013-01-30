@@ -16,8 +16,8 @@ angular.module('AppTemplateAdvanced').factory 'AppTemplateAdvancedRequest',
 ]
 
 angular.module('AppTemplateAdvanced').factory 'ItemModel',
-['_ItemModel', 'Publisher',
-(_ItemModel, Publisher) ->
+['_ItemModel',
+(_ItemModel) ->
 	return new _ItemModel()
 ]
 

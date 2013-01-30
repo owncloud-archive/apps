@@ -38,14 +38,10 @@ angular.module('AppTemplateAdvanced', ['OC']).config ['$provide', '$interpolateP
 # the document is ready
 angular.module('AppTemplateAdvanced').run ['$rootScope', ($rootScope) ->
 
-
-	initRequest = ->
+	init = ->
 		$rootScope.$broadcast('routesLoaded')
-		console.log 'loading'
-
-	initRequest()
 
 	# this registers a callback that is executed once the routes have
 	# finished loading. Before this you cant really do request
-	OC.Router.registerLoadedCallback(initRequest)
+	OC.Router.registerLoadedCallback(init)
 ]
