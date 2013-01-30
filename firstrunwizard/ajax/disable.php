@@ -21,8 +21,8 @@
 *
 */
 
-\OCP\User::checkLoggedIn();
-\OCP\App::checkAppEnabled('firstrunwizard');
+OCP\JSON::checkLoggedIn();
+OCP\JSON::checkAppEnabled('firstrunwizard');
 
 \OCA_FirstRunWizard\Config::disable();
 
