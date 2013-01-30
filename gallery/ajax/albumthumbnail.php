@@ -27,5 +27,5 @@ if ($owner !== OC_User::getUser()) {
 	}
 }
 
-$image = new \OCA\Gallery\Thumbnail('/' . $img, $owner);
+$image = new \OCA\Gallery\AlbumThumbnail('/' . $img, $owner);
 $image->show();
