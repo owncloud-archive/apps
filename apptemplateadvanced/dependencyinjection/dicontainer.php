@@ -25,9 +25,9 @@ namespace OCA\AppTemplateAdvanced\DependencyInjection;
 
 use OCA\AppFramework\DependencyInjection\DIContainer as BaseContainer;
 
-use OCA\AppTemplateAdvanced\Controller\ItemController as ItemController;
-use OCA\AppTemplateAdvanced\Controller\SettingsController as SettingsController;
-use OCA\AppTemplateAdvanced\Db\ItemMapper as ItemMapper;
+use OCA\AppTemplateAdvanced\Controller\ItemController;
+use OCA\AppTemplateAdvanced\Controller\SettingsController;
+use OCA\AppTemplateAdvanced\Db\ItemMapper;
 
 
 class DIContainer extends BaseContainer {
@@ -47,8 +47,10 @@ class DIContainer extends BaseContainer {
 		// use this to specify the template directory
 		$this['TwigTemplateDirectory'] = __DIR__ . '/../templates';
 
-		// if you want to cache the template directory, add this path
-		$this['TwigTemplateCacheDirectory'] = null;		
+		// if you want to cache the template directory in yourapp/cache
+		// uncomment this line. Remember to give your webserver access rights
+		// to the cache folder 
+		// $this['TwigTemplateCacheDirectory'] = __DIR__ . '/../cache';		
 
 		/** 
 		 * CONTROLLERS

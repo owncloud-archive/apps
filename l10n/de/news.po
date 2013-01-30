@@ -7,6 +7,7 @@
 # I Robot <owncloud-bot@tmit.eu>, 2012.
 # I Robot <thomas.mueller@tmit.eu>, 2012.
 #   <mail@felixmoeller.de>, 2012.
+# Marcel Kühlhorn <susefan93@gmx.de>, 2013.
 #   <martin@oemus.net>, 2012.
 #   <mibunrui@gmx.de>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-28 00:01+0100\n"
-"PO-Revision-Date: 2013-01-27 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-30 16:04+0100\n"
+"PO-Revision-Date: 2013-01-30 12:48+0000\n"
+"Last-Translator: Marcel Kühlhorn <susefan93@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +28,7 @@ msgstr ""
 
 #: 3rdparty/js/moment.min.js:6
 msgid "year"
-msgstr ""
+msgstr "Jahr"
 
 #: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
 msgid "News"
@@ -104,23 +105,23 @@ msgstr "Abonnement hinzufügen"
 
 #: templates/part.settings.php:13
 msgid "Folder under which the feed is being saved"
-msgstr ""
+msgstr "Ordner in dem der Feed gespeichert wird"
 
 #: templates/part.settings.php:17
 msgid "-- choose folder --"
-msgstr ""
+msgstr "-- Ordner wählen --"
 
 #: templates/part.settings.php:20
 msgid "Address must not be empty!"
-msgstr ""
+msgstr "Die Adresse muss angegeben werden!"
 
 #: templates/part.settings.php:21
 msgid "Feed exists already!"
-msgstr ""
+msgstr "Feed existiert bereits!"
 
 #: templates/part.settings.php:22
 msgid "Could not add feed!"
-msgstr ""
+msgstr "Feed konnte nicht hinzugefügen!"
 
 #: templates/part.settings.php:26
 msgid "Address"
@@ -137,15 +138,15 @@ msgstr "Ordner hinzufügen"
 
 #: templates/part.settings.php:37
 msgid "Folder name must not be empty!"
-msgstr ""
+msgstr "Der Ordnername muss angegeben werden!"
 
 #: templates/part.settings.php:38
 msgid "Folder exists already!"
-msgstr ""
+msgstr "Ordner existiert bereits!"
 
 #: templates/part.settings.php:45
 msgid "Folder Name"
-msgstr ""
+msgstr "Ordnername"
 
 #: templates/part.settings.php:60
 msgid "Show everything"
@@ -169,7 +170,7 @@ msgstr "Order / Feed hinzufügen"
 
 #: templates/part.settings.php:91
 msgid "Import / Export"
-msgstr ""
+msgstr "Importieren / Exportieren"
 
 #: templates/part.settings.php:93 templates/part.settings.php:95
 msgid "Import OPML"
@@ -177,7 +178,7 @@ msgstr "OPML importieren"
 
 #: templates/part.settings.php:99
 msgid "Export OPML"
-msgstr ""
+msgstr "OPML Exportieren"
 
 #: templates/part.settings.php:102
 msgid "Subscribelet"

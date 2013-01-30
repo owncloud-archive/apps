@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-28 00:01+0100\n"
-"PO-Revision-Date: 2013-01-27 23:03+0000\n"
+"POT-Creation-Date: 2013-01-30 16:04+0100\n"
+"PO-Revision-Date: 2013-01-30 12:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgstr "তারা চিহ্নিত"
 
 #: templates/part.items.php:46 templates/part.items.php:49
 msgid "Share"
-msgstr ""
+msgstr "ভাগাভাগি কর"
 
 #: templates/part.items.php:53
 msgid "Keep unread"

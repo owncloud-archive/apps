@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Christophe Lherieau <skimpax@gmail.com>, 2012.
+# David Basquin <dba@alternalease.fr>, 2013.
 #   <fkhannouf@me.com>, 2012.
 #   <florentin.lemoal@gmail.com>, 2012.
 #   <gp4004@arghh.org>, 2012.
@@ -16,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-28 00:01+0100\n"
-"PO-Revision-Date: 2013-01-27 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-30 16:04+0100\n"
+"PO-Revision-Date: 2013-01-30 12:48+0000\n"
+"Last-Translator: dbasquin <dba@alternalease.fr>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,23 +106,23 @@ msgstr "S'abonner à"
 
 #: templates/part.settings.php:13
 msgid "Folder under which the feed is being saved"
-msgstr ""
+msgstr "Dossier au sein duquel le flux est enregistré"
 
 #: templates/part.settings.php:17
 msgid "-- choose folder --"
-msgstr ""
+msgstr "-- choisir le dossier --"
 
 #: templates/part.settings.php:20
 msgid "Address must not be empty!"
-msgstr ""
+msgstr "L'adresse ne doit pas être vide !"
 
 #: templates/part.settings.php:21
 msgid "Feed exists already!"
-msgstr ""
+msgstr "Le flux existe déjà !"
 
 #: templates/part.settings.php:22
 msgid "Could not add feed!"
-msgstr ""
+msgstr "Impossible d'ajouter le flux !"
 
 #: templates/part.settings.php:26
 msgid "Address"
@@ -138,15 +139,15 @@ msgstr "Ajouter le dossier"
 
 #: templates/part.settings.php:37
 msgid "Folder name must not be empty!"
-msgstr ""
+msgstr "Le nom du dossier ne doit pas être vide !"
 
 #: templates/part.settings.php:38
 msgid "Folder exists already!"
-msgstr ""
+msgstr "Le dossier existe déjà !"
 
 #: templates/part.settings.php:45
 msgid "Folder Name"
-msgstr ""
+msgstr "Nom du dossier"
 
 #: templates/part.settings.php:60
 msgid "Show everything"
@@ -170,7 +171,7 @@ msgstr "Ajouter un flux/dossier"
 
 #: templates/part.settings.php:91
 msgid "Import / Export"
-msgstr ""
+msgstr "Import / Export"
 
 #: templates/part.settings.php:93 templates/part.settings.php:95
 msgid "Import OPML"
@@ -178,7 +179,7 @@ msgstr "Importer depuis un fichier OPML"
 
 #: templates/part.settings.php:99
 msgid "Export OPML"
-msgstr ""
+msgstr "Exporter vers un fichier OPML "
 
 #: templates/part.settings.php:102
 msgid "Subscribelet"

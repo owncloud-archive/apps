@@ -48,6 +48,15 @@ class Request {
 
 
 	/**
+	 * Returns the merged GET and POST array
+	 * @return array the merged array
+	 */
+	public function getGETAndPOST(){
+		return array_merge($this->get, $this->post);
+	}
+
+
+	/**
 	 * Returns the get value or the default if not found
 	 * @param string $key the array key that should be looked up
 	 * @param string $default if the key is not found, return this value

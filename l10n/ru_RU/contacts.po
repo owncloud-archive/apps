@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <cdewqazxsqwe@gmail.com>, 2013.
 #   <cdewqazxsqwe@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-26 00:04+0100\n"
-"PO-Revision-Date: 2013-01-25 23:06+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-30 16:04+0100\n"
+"PO-Revision-Date: 2013-01-30 12:47+0000\n"
+"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -368,7 +369,7 @@ msgstr "Возникла неизвестная ошибка при попытк
 
 #: js/contacts.js:682
 msgid "# groups"
-msgstr ""
+msgstr "# группы"
 
 #: js/contacts.js:1463
 msgid ""
@@ -606,7 +607,7 @@ msgstr "Возникла ошибка при удалении свойств д�
 msgid "{name}'s Birthday"
 msgstr "{имя} день рождения"
 
-#: lib/search.php:18
+#: lib/search.php:20
 msgid "Contact"
 msgstr "Контакт"
 
@@ -802,7 +803,7 @@ msgstr "Фамилия"
 
 #: templates/contacts.php:194
 msgid "Select groups"
-msgstr ""
+msgstr "Выбрать группы"
 
 #: templates/contacts.php:198 templates/contacts.php:262
 msgid "Nickname"

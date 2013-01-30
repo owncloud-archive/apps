@@ -23,11 +23,11 @@
 
 namespace OCA\AppTemplateAdvanced\Controller;
 
-use OCA\AppFramework\Controller\Controller as Controller;
-use OCA\AppFramework\Db\DoesNotExistException as DoesNotExistException;
-use OCA\AppFramework\Http\RedirectResponse as RedirectResponse;
+use OCA\AppFramework\Controller\Controller;
+use OCA\AppFramework\Db\DoesNotExistException;
+use OCA\AppFramework\Http\RedirectResponse;
 
-use OCA\AppTemplateAdvanced\Db\Item as Item;
+use OCA\AppTemplateAdvanced\Db\Item;
 
 
 class ItemController extends Controller {

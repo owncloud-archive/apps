@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2013.
 # Marios Bekatoros <>, 2012.
 # Γιάννης Ανθυμίδης <yannanth@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-27 00:01+0100\n"
-"PO-Revision-Date: 2013-01-25 23:10+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-29 00:01+0100\n"
+"PO-Revision-Date: 2013-01-28 02:22+0000\n"
+"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,11 +22,11 @@ msgstr ""
 
 #: js/updater.js:5
 msgid "In progress..."
-msgstr ""
+msgstr "Σε εξέλιξη..."
 
 #: js/updater.js:16
 msgid "Done. Reload the page to proceed."
-msgstr ""
+msgstr "Ολοκληρώθηκε. Ανανεώστε την σελίδα για να συνεχίσετε."
 
 #: js/updater.js:19 js/updater.js:25
 msgid "Error"

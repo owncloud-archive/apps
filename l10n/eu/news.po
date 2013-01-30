@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <asieriko@gmail.com>, 2013.
 #   <asieriko@gmail.com>, 2012.
 # Piarres Beobide <pi@beobide.net>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-28 00:01+0100\n"
-"PO-Revision-Date: 2013-01-27 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-30 16:04+0100\n"
+"PO-Revision-Date: 2013-01-30 12:48+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: 3rdparty/js/moment.min.js:6
 msgid "year"
-msgstr ""
+msgstr "urtea"
 
 #: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
 msgid "News"
@@ -102,11 +103,11 @@ msgstr ""
 
 #: templates/part.settings.php:17
 msgid "-- choose folder --"
-msgstr ""
+msgstr "-- hautatu karpeta --"
 
 #: templates/part.settings.php:20
 msgid "Address must not be empty!"
-msgstr ""
+msgstr "Helbidea ezin da hutsik egon!"
 
 #: templates/part.settings.php:21
 msgid "Feed exists already!"
@@ -131,15 +132,15 @@ msgstr "Gehitu Karpeta"
 
 #: templates/part.settings.php:37
 msgid "Folder name must not be empty!"
-msgstr ""
+msgstr "Karpetaren izena ezin da hutsik egon!"
 
 #: templates/part.settings.php:38
 msgid "Folder exists already!"
-msgstr ""
+msgstr "Karpeta dagoeneko existitzen da!"
 
 #: templates/part.settings.php:45
 msgid "Folder Name"
-msgstr ""
+msgstr "Karpetaren izena"
 
 #: templates/part.settings.php:60
 msgid "Show everything"
@@ -163,7 +164,7 @@ msgstr "Gehitu ituburu/karpeta"
 
 #: templates/part.settings.php:91
 msgid "Import / Export"
-msgstr ""
+msgstr "Inportatu / Esportatu"
 
 #: templates/part.settings.php:93 templates/part.settings.php:95
 msgid "Import OPML"
@@ -171,7 +172,7 @@ msgstr "Inportatu OPML"
 
 #: templates/part.settings.php:99
 msgid "Export OPML"
-msgstr ""
+msgstr "Esportatu OPML"
 
 #: templates/part.settings.php:102
 msgid "Subscribelet"

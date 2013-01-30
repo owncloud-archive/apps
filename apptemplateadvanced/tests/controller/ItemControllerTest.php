@@ -23,11 +23,11 @@
 
 namespace OCA\AppTemplateAdvanced\Controller;
 
-use OCA\AppFramework\Http\Request as Request;
-use OCA\AppFramework\Db\DoesNotExistException as DoesNotExistException;
-use OCA\AppFramework\Utility\ControllerTestUtility as ControllerTestUtility;
+use OCA\AppFramework\Http\Request;
+use OCA\AppFramework\Db\DoesNotExistException;
+use OCA\AppFramework\Utility\ControllerTestUtility;
 
-use OCA\AppTemplateAdvanced\Db\Item as Item;
+use OCA\AppTemplateAdvanced\Db\Item;
 
 
 require_once(__DIR__ . "/../classloader.php");

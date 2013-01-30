@@ -83,6 +83,7 @@
 "The address book name cannot be empty." => "Názov adresára nemôže byť prázdny.",
 "Is this correct?" => "Je to správne?",
 "There was an unknown error when trying to delete this contact" => "Vyskytla sa neznáma chyba pri odstraňovaní daného kontaktu.",
+"# groups" => "# skupiny",
 "Some contacts are marked for deletion, but not deleted yet. Please wait for them to be deleted." => "Počkajte prosím do skončenia mazania kontaktov označených na mazanie.",
 "Click to undo deletion of {num} contacts" => "Kliknite pre odvrátenie operácie zmazania {num} kontaktov.",
 "Cancelled deletion of {num}" => "Zrušené odstraňovanie {num} kontaktov.",

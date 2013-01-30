@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Akos <nagy.akos@libreoffice.ro>, 2013.
 #   <gyonkibendeguz@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-28 00:01+0100\n"
-"PO-Revision-Date: 2013-01-27 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-30 16:04+0100\n"
+"PO-Revision-Date: 2013-01-30 12:48+0000\n"
+"Last-Translator: akoscomp <nagy.akos@libreoffice.ro>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: 3rdparty/js/moment.min.js:6
 msgid "year"
-msgstr ""
+msgstr "év"
 
 #: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
 msgid "News"
@@ -40,7 +41,7 @@ msgstr "nincs szöveg"
 
 #: opmlexporter.php:44
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "feliratkozás az ownCloud - Newsba"
 
 #: subscribe.php:30
 msgid "An error occurred"
@@ -52,7 +53,7 @@ msgstr "Remek! Feliratkoztál a következőre: "
 
 #: subscribe.php:36
 msgid "You had already subscribed to this feed!"
-msgstr ""
+msgstr "Már fel van iratkozva erre a csatornára!"
 
 #: templates/main.php:15
 msgid "New articles"
@@ -73,7 +74,7 @@ msgstr "Megosztás"
 
 #: templates/part.items.php:53
 msgid "Keep unread"
-msgstr ""
+msgstr "Maradjon olvasatlan"
 
 #: templates/part.listfeed.php:19
 msgid "Delete feed"
@@ -93,27 +94,27 @@ msgstr "Mappa átnevezése"
 
 #: templates/part.settings.php:10
 msgid "Add Subscription"
-msgstr ""
+msgstr "Feliratkozás hozzáadása"
 
 #: templates/part.settings.php:13
 msgid "Folder under which the feed is being saved"
-msgstr ""
+msgstr "A mappa amibe a csatorna el lett mentve"
 
 #: templates/part.settings.php:17
 msgid "-- choose folder --"
-msgstr ""
+msgstr "-- válasszon mappát --"
 
 #: templates/part.settings.php:20
 msgid "Address must not be empty!"
-msgstr ""
+msgstr "A cím nem lehet üres!"
 
 #: templates/part.settings.php:21
 msgid "Feed exists already!"
-msgstr ""
+msgstr "A csatorna már létezik!"
 
 #: templates/part.settings.php:22
 msgid "Could not add feed!"
-msgstr ""
+msgstr "Nem lehetett hozzáadni a csatornát!"
 
 #: templates/part.settings.php:26
 msgid "Address"
@@ -130,15 +131,15 @@ msgstr "Mappa hozzáadása"
 
 #: templates/part.settings.php:37
 msgid "Folder name must not be empty!"
-msgstr ""
+msgstr "A mappa neve nem lehet üres!"
 
 #: templates/part.settings.php:38
 msgid "Folder exists already!"
-msgstr ""
+msgstr "A mappa már létezik!"
 
 #: templates/part.settings.php:45
 msgid "Folder Name"
-msgstr ""
+msgstr "Mappa neve"
 
 #: templates/part.settings.php:60
 msgid "Show everything"
@@ -154,15 +155,15 @@ msgstr "Beállítások"
 
 #: templates/part.settings.php:80
 msgid "Add feed or folder"
-msgstr ""
+msgstr "Csatorna vagy mappa hozzáadása"
 
 #: templates/part.settings.php:85
 msgid "Add Feed/Folder"
-msgstr ""
+msgstr "Csatorna/Mappa hozzáadása"
 
 #: templates/part.settings.php:91
 msgid "Import / Export"
-msgstr ""
+msgstr "Import / Export"
 
 #: templates/part.settings.php:93 templates/part.settings.php:95
 msgid "Import OPML"
@@ -170,7 +171,7 @@ msgstr "OPML importálása"
 
 #: templates/part.settings.php:99
 msgid "Export OPML"
-msgstr ""
+msgstr "OPML export"
 
 #: templates/part.settings.php:102
 msgid "Subscribelet"
@@ -180,7 +181,7 @@ msgstr ""
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr ""
+msgstr "Húzza ezt a böngészője könyvjelzői közé és kattintson rá amikor csak gyorsan a weblapra akar jutni:"
 
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"

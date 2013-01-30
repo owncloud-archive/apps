@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
+"Greetings {user}," => "Herzlich Willkommen {user},",
 "Sorry, but a malware was detected in a file you tried to upload and it had to be deleted." => "Entschuldige, es wurde Malware in einer Datei gefunden die Du hochladen wolltest und sie musste gelöscht werden.",
 "This email is a notification from {host}. Please, do not reply." => "Diese E-Mail ist eine Benachrichtigung von {host}. Bitte antworte nicht.",
 "File uploaded: {file}" => "Datei {file} hochgeladen.",

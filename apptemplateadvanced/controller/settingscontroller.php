@@ -23,7 +23,7 @@
 
 namespace OCA\AppTemplateAdvanced\Controller;
 
-use OCA\AppFramework\Controller\Controller as Controller;
+use OCA\AppFramework\Controller\Controller;
 
 
 class SettingsController extends Controller {

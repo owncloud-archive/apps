@@ -23,9 +23,9 @@
 
 namespace OCA\AppTemplateAdvanced\Admin;
 
-use OCA\AppFramework\App as App;
+use OCA\AppFramework\App;
 
-use OCA\AppTemplateAdvanced\DependencyInjection\DIContainer as DIContainer;
+use OCA\AppTemplateAdvanced\DependencyInjection\DIContainer;
 
 
 // we need to fetch the output and return it for the admin page. Dont ask why

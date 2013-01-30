@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-18 00:01+0100\n"
-"PO-Revision-Date: 2013-01-17 21:33+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-30 00:19+0100\n"
+"PO-Revision-Date: 2013-01-29 12:09+0000\n"
+"Last-Translator: Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,23 @@ msgstr ""
 
 #: appinfo/app.php:9
 msgid "Notes"
-msgstr ""
+msgstr "Noter"
+
+#: js/notes.js:8
+msgid "The title can not be empty"
+msgstr "Titelfeltet kan ikke stå tomt"
+
+#: js/notes.js:15
+msgid "Invalid title"
+msgstr "Ugyldig titel"
+
+#: js/notes.js:15
+msgid "The following characters are not allowed"
+msgstr "Følgende tegn er ikke tilladte"
 
 #: templates/categories.php:10 templates/help.php:5
 msgid "Back to Notes"
-msgstr ""
+msgstr "Tilbage til Noter"
 
 #: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
 msgid "Help"
@@ -31,24 +44,24 @@ msgstr "Hjælp"
 
 #: templates/categories.php:99
 msgid "Categories"
-msgstr ""
+msgstr "Kategorier"
 
-#: templates/categories.php:116 templates/notes.php:345
-#: templates/notes.php:388
+#: templates/categories.php:116 templates/notes.php:347
+#: templates/notes.php:391
 msgid "Delete"
 msgstr "Slet"
 
-#: templates/categories.php:117 templates/notes.php:390
+#: templates/categories.php:117 templates/notes.php:393
 msgid "Save"
 msgstr "Gem"
 
 #: templates/categories.php:129
 msgid "No categories available yet"
-msgstr ""
+msgstr "Der er endnu ingen kategorier"
 
 #: templates/categories.php:137
 msgid "New category"
-msgstr ""
+msgstr "Ny kategori"
 
 #: templates/categories.php:141
 msgid "Add"
@@ -62,7 +75,7 @@ msgstr "Note"
 msgid ""
 "If you delete a category, all containing notes get moved to the following "
 "category"
-msgstr ""
+msgstr "Hvis en kategori slettes, vil alle omfattede noter blive flyttet til følgende kategori"
 
 #: templates/categories.php:145 templates/notes.php:61
 msgid "General"
@@ -70,48 +83,36 @@ msgstr "Generel"
 
 #: templates/notes.php:81
 msgid "Add Note"
-msgstr ""
+msgstr "Tilføj note"
 
 #: templates/notes.php:87
 msgid "Edit Categories"
-msgstr ""
+msgstr "Rediger kategorier"
 
-#: templates/notes.php:291
+#: templates/notes.php:293
 msgid "No note available in this category"
-msgstr ""
+msgstr "Der er ingen note i denne kategori"
 
-#: templates/notes.php:335
+#: templates/notes.php:337
 msgid "Edit"
 msgstr "Rediger"
 
-#: templates/notes.php:363
+#: templates/notes.php:366
 msgid "Category"
 msgstr "Kategori"
 
-#: templates/notes.php:381
+#: templates/notes.php:384
 msgid "Title"
 msgstr "Titel"
 
-#: templates/notes.php:382
+#: templates/notes.php:385
 msgid "Content"
-msgstr ""
+msgstr "Indhold"
 
-#: templates/notes.php:413
+#: templates/notes.php:418
 msgid "Restore content"
-msgstr ""
+msgstr "Gendan indhold"
 
-#: templates/notes.php:421
+#: templates/notes.php:426
 msgid "Restore"
-msgstr ""
-
-#: templates/notes.php:455
-msgid "The title can not be empty"
-msgstr ""
-
-#: templates/notes.php:462
-msgid "Invalid title"
-msgstr ""
-
-#: templates/notes.php:462
-msgid "The following characters are not allowed"
-msgstr ""
+msgstr "Gendan"

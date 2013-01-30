@@ -22,9 +22,9 @@
 
 namespace OCA\AppTemplateAdvanced\Db;
 
-use \OCA\AppFramework\Core\API as API;
-use \OCA\AppFramework\Db\Mapper as Mapper;
-use \OCA\AppFramework\Db\DoesNotExistException as DoesNotExistException;
+use \OCA\AppFramework\Core\API;
+use \OCA\AppFramework\Db\Mapper;
+use \OCA\AppFramework\Db\DoesNotExistException;
 
 
 class ItemMapper extends Mapper {
@@ -59,7 +59,7 @@ class ItemMapper extends Mapper {
 	 * @return the item
 	 */
 	public function findByUserId($userId){
-                $sql = 'SELECT * FROM `' . $this->tableName . '` WHERE `user` = ?';
+		$sql = 'SELECT * FROM `' . $this->tableName . '` WHERE `user` = ?';
 		$params = array($userId);
 
 		$result = $this->execute($sql, $params)->fetchRow();
@@ -94,7 +94,7 @@ class ItemMapper extends Mapper {
 	 * @return the item with the filled in id
 	 */
 	public function save($item){
-                $sql = 'INSERT INTO `'. $this->tableName . '`(`name`, `user`, `path`)'.
+		$sql = 'INSERT INTO `'. $this->tableName . '`(`name`, `user`, `path`)'.
 				' VALUES(?, ?, ?)';
 
 		$params = array(
@@ -105,7 +105,7 @@ class ItemMapper extends Mapper {
 
 		$this->execute($sql, $params);
 
-		$item->setId($this->api->getInsertId());
+		$item->setId($this->api->getInsertId($this->tableName));
 	}
 
 
@@ -114,11 +114,11 @@ class ItemMapper extends Mapper {
 	 * @param Item $item: the item to be updated
 	 */
 	public function update($item){
-                $sql = 'UPDATE `'. $this->tableName . '` SET
-                        `name` = ?,
-                        `user` = ?,
-                        `path` = ?
-                        WHERE `id` = ?';
+		$sql = 'UPDATE `'. $this->tableName . '` SET
+				`name` = ?,
+				`user` = ?,
+				`path` = ?
+				WHERE `id` = ?';
 
 		$params = array(
 			$item->getName(),

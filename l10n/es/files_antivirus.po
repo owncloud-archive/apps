@@ -5,13 +5,14 @@
 # Translators:
 # Agustin Ferrario <agustin.ferrario@hotmail.com.ar>, 2013.
 # Art O. Pal <artopal@fastmail.fm>, 2013.
+# Felix Liberio <felix.liberio@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-21 00:01+0100\n"
-"PO-Revision-Date: 2013-01-20 19:05+0000\n"
-"Last-Translator: Art O. Pal <artopal@fastmail.fm>\n"
+"POT-Creation-Date: 2013-01-30 16:04+0100\n"
+"PO-Revision-Date: 2013-01-30 15:06+0000\n"
+"Last-Translator: felix.liberio <felix.liberio@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +28,7 @@ msgstr "Hola {user}"
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "Lo sentimos, pero se ha detectado un malware en un archivo que trata de subir y tuvo que ser eliminado."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
@@ -59,11 +60,11 @@ msgstr "Servidor"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "Dirección del Host del Antivirus."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
-msgstr ""
+msgstr "No requerido en el modo ejecutable."
 
 #: templates/settings.php:8
 msgid "Port"
@@ -71,23 +72,23 @@ msgstr "Puerto"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "Número de puerto del Host del Antivirus."
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "Longitud del Stream"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "Valor de StreamMaxLength del ClamAV en bytes."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "Ruta al clamscan"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "Ruta al ejecutable clamscan."
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
