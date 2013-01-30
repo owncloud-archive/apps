@@ -38,5 +38,10 @@ foreach ($sharedSources as $sharedSource) {
 	}
 }
 
+$displayNames = array();
+foreach ($users as $user) {
+	$displayNames[$user] = \OCP\User::getDisplayName($user);
+}
+
 OCP\JSON::setContentTypeHeader();
-echo json_encode(array('images' => $images, 'users' => $users));
+echo json_encode(array('images' => $images, 'users' => $users, 'displayNames' => $displayNames));

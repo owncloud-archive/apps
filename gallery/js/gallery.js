@@ -4,6 +4,7 @@ Gallery.images = [];
 Gallery.currentAlbum = '';
 Gallery.subAlbums = {};
 Gallery.users = [];
+Gallery.displayNames = [];
 
 Gallery.sortFunction = function (a, b) {
 	return a.toLowerCase().localeCompare(b.toLowerCase());
@@ -15,6 +16,7 @@ Gallery.fillAlbums = function () {
 	$.getJSON(OC.filePath('gallery', 'ajax', 'getimages.php')).then(function (data) {
 		var albumPath, i, imagePath, parent, path;
 		Gallery.users = data.users;
+		Gallery.displayNames = data.displayNames;
 		for (i = 0; i < data.images.length; i++) {
 			Gallery.images.push(data.images[i].path);
 		}
@@ -230,7 +232,7 @@ Gallery.view.showUsers = function () {
 	for (i = 0; i < Gallery.users.length; i++) {
 		user = Gallery.users[i];
 		head = $('<h2/>');
-		head.text(t('gallery', 'Shared by') + ' ' + user);
+		head.text(t('gallery', 'Shared by') + ' ' + Gallery.displayNames[user]);
 		$('#gallery').append(head);
 		subAlbums = Gallery.subAlbums[user];
 		if (subAlbums) {
