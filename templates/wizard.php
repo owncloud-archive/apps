@@ -1,6 +1,6 @@
 <div id="firstrunwizard">
 
-<a href="javascript:$.colorbox.close()" class="close">
+<a id="closeWizard" class="close">
 	<img class="svg" src="/owncloud/core/img/actions/delete.svg">
 </a>
 

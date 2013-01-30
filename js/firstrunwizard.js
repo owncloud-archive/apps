@@ -15,3 +15,11 @@ function showfirstrunwizard(){
 		}  
 	});
 }
+
+$('#showWizard').live('click', function () {	
+	showfirstrunwizard();
+});
+
+$('#closeWizard').live('click', function () {	
+		$.colorbox.close();
+});
