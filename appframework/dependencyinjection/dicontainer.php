@@ -24,11 +24,11 @@
 
 namespace OCA\AppFramework\DependencyInjection;
 
-use OCA\AppFramework\Http\Request as Request;
-use OCA\AppFramework\Core\API as API;
-use OCA\AppFramework\Middleware\MiddlewareDispatcher as MiddlewareDispatcher;
-use OCA\AppFramework\Middleware\Security\SecurityMiddleware as SecurityMiddleware;
-use OCA\AppFramework\Middleware\Twig\TwigMiddleware as TwigMiddleware;
+use OCA\AppFramework\Http\Request;
+use OCA\AppFramework\Core\API;
+use OCA\AppFramework\Middleware\MiddlewareDispatcher;
+use OCA\AppFramework\Middleware\Security\SecurityMiddleware;
+use OCA\AppFramework\Middleware\Twig\TwigMiddleware;
 
 
 require_once __DIR__ . '/../3rdparty/Pimple/Pimple.php';

@@ -24,7 +24,7 @@
 
 namespace OCA\AppFramework\Http;
 
-use OCA\AppFramework\Core\API as API;
+use OCA\AppFramework\Core\API;
 
 
 /**

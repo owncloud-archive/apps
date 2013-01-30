@@ -24,10 +24,10 @@
 
 namespace OCA\AppFramework\Controller;
 
-use OCA\AppFramework\Http\JSONResponse as JSONResponse;
-use OCA\AppFramework\Http\TemplateResponse as TemplateResponse;
-use OCA\AppFramework\Http\Request as Request;
-use OCA\AppFramework\Core\API as API;
+use OCA\AppFramework\Http\JSONResponse;
+use OCA\AppFramework\Http\TemplateResponse;
+use OCA\AppFramework\Http\Request;
+use OCA\AppFramework\Core\API;
 
 
 /**
