@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"POT-Creation-Date: 2013-02-01 00:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: js/editor.js:72 js/editor.js:177 js/editor.js:185
+#: js/editor.js:72 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr ""
 
@@ -29,26 +29,26 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: js/editor.js:151
+#: js/editor.js:132
 msgid "Next"
 msgstr ""
 
-#: js/editor.js:152
+#: js/editor.js:133
 msgid "Clear"
 msgstr ""
 
-#: js/editor.js:170
+#: js/editor.js:151
 msgid "Saving..."
 msgstr ""
 
-#: js/editor.js:178
+#: js/editor.js:159
 msgid "Failed to save file"
 msgstr ""
 
-#: js/editor.js:262
+#: js/editor.js:243
 msgid "An error occurred!"
 msgstr ""
 
-#: js/editor.js:297
+#: js/editor.js:271
 msgid "There were unsaved changes, click here to go back"
 msgstr ""
