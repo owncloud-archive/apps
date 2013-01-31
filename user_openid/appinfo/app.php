@@ -6,11 +6,11 @@ if (!in_array ('curl', get_loaded_extensions())) {
 }
 /*
 $userName='';
-if(strpos($_SERVER["REQUEST_URI"],'?') and !strpos($_SERVER["REQUEST_URI"],'=')) {
-	if(strpos($_SERVER["REQUEST_URI"],'/?') !== false) {
-		$userName=substr($_SERVER["REQUEST_URI"],strpos($_SERVER["REQUEST_URI"],'/?')+2);
-	}elseif(strpos($_SERVER["REQUEST_URI"],'.php?') !== false) {
-		$userName=substr($_SERVER["REQUEST_URI"],strpos($_SERVER["REQUEST_URI"],'.php?')+5);
+if(strpos(OCP\Util::getRequestUri(),'?') and !strpos(OCP\Util::getRequestUri(),'=')) {
+	if(strpos(OCP\Util::getRequestUri(),'/?') !== false) {
+		$userName=substr(OCP\Util::getRequestUri(),strpos(OCP\Util::getRequestUri(),'/?')+2);
+	}elseif(strpos(OCP\Util::getRequestUri(),'.php?') !== false) {
+		$userName=substr(OCP\Util::getRequestUri(),strpos(OCP\Util::getRequestUri(),'.php?')+5);
 	}
 }
 
