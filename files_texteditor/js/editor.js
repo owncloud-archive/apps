@@ -67,32 +67,13 @@ function setSyntaxMode(ext) {
 function showControls(dir, filename, writeperms) {
 	// Loads the control bar at the top.
 	// Load the new toolbar.
-	var editorbarhtml = '<div id="editorcontrols" style="display: none;"><div class="crumb svg last" id="breadcrumb_file" style="background-image:url(&quot;' + OC.imagePath('core', 'breadcrumb.png') + '&quot;)"><p>' + filename.replace(/</, "&lt;").replace(/>/, "&gt;") + '</p></div>';
+	var editorbarhtml = '<div id="editorcontrols" style="display: none;">';
 	if (writeperms == "true") {
 		editorbarhtml += '<button id="editor_save">' + t('files_texteditor', 'Save') + '</button><div class="separator"></div>';
 	}
 	editorbarhtml += '<label for="editorseachval">' + t('files_texteditor', 'Search:') + '</label><input type="text" name="editorsearchval" id="editorsearchval"><div class="separator"></div><button id="editor_close">' + t('files_texteditor', 'Close') + '</button></div>';
-	// update breadcrumbs to dir, but remember to restore old breadcrumbs on close
-	//var olddir = $('#dir').value; // we want to be compatible with an optional 'home' breadcrumb, so well go through the breadcrumbs manually
 
-	$('#controls .crumb').hide();
-	var dirs = dir.split('/');
-	$(dirs).each(function (i, d) {
-		if (d == '') {
-			//if sth like a 'Home' breadcrumb exists show it
-			if ($('#controls .crumb:first').data('dir') == '') {
-				$('#controls .crumb:first').show();
-			}
-			return;
-		}
-		var pathToDir = encodeURIComponent(dirs.slice(0, i + 1).join('/')).replace(/%2F/g, '/');
-
-		var editorcrumb = '<div class="crumb svg"\n\
-								style="background-image:url(\'' + OC.imagePath('core', 'breadcrumb') + '\')">\n\
-								<a href="' + OC.linkTo('files', 'index.php') + '?dir=' + pathToDir + '">' + d + '</a>\n\
-							</div>';
-		$('#controls').append(editorcrumb);
-	});
+	OC.Breadcrumb.push(filename, '#');
 
 	// Change breadcrumb classes
 	$('#controls').append(editorbarhtml);
@@ -271,14 +252,7 @@ function showFileEditor(dir, filename) {
 
 // Fades out the editor.
 function hideFileEditor() {
-	//if sth like a 'Home' breadcrumb exists hide it
-	if ($('#controls .crumb:first').data('dir') == '') {
-		$('#controls .crumb:first').hide();
-	}
-	//remove editor specific breadcrumbs
-	$('#controls .crumb:visible').remove();
-	//show all breadcrumbs again
-	$('#controls .crumb').show();
+	OC.Breadcrumb.pop();
 	if ($('#editor').attr('data-edited') == 'true') {
 		// Hide, not remove
 		$('#editorcontrols').fadeOut('slow', function () {
