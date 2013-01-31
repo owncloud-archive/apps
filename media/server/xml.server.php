@@ -74,5 +74,8 @@ if (isset($arguments['action'])) {
 		case 'song':
 			$ampache->song($arguments);
 			break;
+		case 'videos':
+			$ampache->videos($arguments);
+			break;
 	}
 }

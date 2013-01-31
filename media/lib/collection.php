@@ -71,7 +71,7 @@ class Collection {
 	}
 
 	/**
-	 * get the id of an song (case-insensitive)
+	 * get the id of a song (case-insensitive)
 	 *
 	 * @param string $name
 	 * @param int $artistId
@@ -101,6 +101,28 @@ class Collection {
 			}
 		}
 		return self::$albumIdCache[$artistId][$albumId][$name];
+	}
+	
+	/**
+	 * get the id of a video (case-insensitive)
+	 *
+	 * @param string $name
+	 * @return int
+	 */
+	public function getVideoId($name) {
+		if (empty($name)) {
+			return 0;
+		}
+		$name = strtolower($name);
+
+		$query = \OCP\DB::prepare("SELECT `video_id` FROM `*PREFIX*media_videos` WHERE
+				`video_user`=? AND lower(`video_name`) = ?");
+		$result = $query->execute(array($this->uid, $name));
+		if ($row = $result->fetchRow()) {
+			return $row['song_id'];
+		} else {
+			return 0;
+		}
 	}
 
 	/**
@@ -240,7 +262,7 @@ class Collection {
 	}
 
 	/**
-	 * Add an song to the database
+	 * Add a song to the database
 	 *
 	 * @param string $name
 	 * @param string $path
@@ -274,6 +296,51 @@ class Collection {
 		\OCP\DB::insertid(' * PREFIX * media_songs_song');
 		return $this->getSongId($name, $artist, $album);
 	}
+	
+	/**
+	 * Get the videos
+	 *
+	 * @param integer $offset (optional)
+	 * @param integer $limit (optional)
+	 * @return array
+	 */
+	public function getVideos($offset = 0, $limit = 30) {
+		$query = \OCP\DB::prepare("SELECT * FROM `*PREFIX*media_videos` WHERE `video_user`=?", $limit, $offset);
+		return $query->execute(array($this->uid))->fetchAll();
+	}
+	
+	/**
+	 * Add a video to the database
+	 *
+	 * @param string $name
+	 * @param string $path
+	 * @param string $mime
+	 * @param int $resolutionX
+	 * @param int $resolutionY
+	 * @param int $size
+	 * @return int the video_id of the added video
+	 */
+	public function addVideo($name, $path, $mime, $resolutionX, $resolutionY, $size) {
+		$name = trim($name);
+		$path = trim($path);
+		
+		$videoId = $this->getVideoId($name);
+		if ($videoID != 0) {
+			$videoInfo = $this->getVideo($videoId);
+			$this->moveVideo($videoInfo['video_path'], $path);
+			return $videoId;
+		}
+		
+		if ($this->getVideoCountByPath($path) !== 0) {
+			$this->deleteVideoByPath($path);
+		}
+		
+		$query = \OCP\DB::prepare("INSERT INTO  `*PREFIX*media_videos` (`video_name` ,`video_mime` ,`video_resolution_x` ,`video_resolution_y` ,`video_path`,`video_size`,`video_user`)
+			VALUES (?, ?, ?, ?, ?, ?, ?)");
+		$query->execute(array($name, $mime, $resolutionX, $resolutionY, $path, $size, $this->uid));
+		
+		return $this->getSongId($name);
+	}
 
 	public function getSongCount() {
 		$query = \OCP\DB::prepare("SELECT COUNT(`song_id`) AS `count` FROM `*PREFIX*media_songs` WHERE `song_user` = ?");
@@ -291,6 +358,12 @@ class Collection {
 	public function getAlbumCount() {
 		$query = \OCP\DB::prepare("SELECT COUNT(DISTINCT `album_id`) AS `count` FROM `*PREFIX*media_albums`
 			INNER JOIN `*PREFIX*media_songs` ON `album_id`=`song_album` WHERE `song_user` = ?");
+		$row = $query->execute(array($this->uid))->fetchRow();
+		return $row['count'];
+	}
+	
+	public function getVideoCount() {
+		$query = \OCP\DB::prepare("SELECT COUNT(DISTINCT `video_id`) AS `count` FROM `*PREFIX*media_videos` WHERE `video_user` = ?");
 		$row = $query->execute(array($this->uid))->fetchRow();
 		return $row['count'];
 	}
@@ -324,6 +397,16 @@ class Collection {
 			return '';
 		}
 	}
+	
+	public function getVideo($id) {
+		$query = \OCP\DB::prepare("SELECT * FROM `*PREFIX*media_videos` WHERE `video_id`=?");
+		$result = $query->execute(array($id));
+		if ($row = $result->fetchRow()) {
+			return $row;
+		} else {
+			return '';
+		}
+	}
 
 	/**
 	 * get the number of songs in a directory
@@ -335,7 +418,23 @@ class Collection {
 		$query = \OCP\DB::prepare("SELECT COUNT(`song_id`) AS `count` FROM `*PREFIX*media_songs` WHERE `song_path` LIKE ?");
 		$result = $query->execute(array("$path%"));
 		if ($row = $result->fetchRow()) {
-			return $row['count'];
+			return (int)$row['count'];
+		} else {
+			return 0;
+		}
+	}
+	
+	/**
+	 * get the number of videos in a directory
+	 *
+	 * @param string $path
+	 * @return int
+	 */
+	public function getVideoCountByPath($path) {
+		$query = \OCP\DB::prepare("SELECT COUNT(`video_id`) AS `count` FROM `*PREFIX*media_videos` WHERE `video_path` LIKE ?");
+		$result = $query->execute(array("$path%"));
+		if ($row = $result->fetchRow()) {
+			return (int)$row['count'];
 		} else {
 			return 0;
 		}
@@ -350,6 +449,18 @@ class Collection {
 	 */
 	public function deleteSongByPath($path) {
 		$query = \OCP\DB::prepare("DELETE FROM `*PREFIX*media_songs` WHERE `song_path` LIKE ? AND `song_user` = ?");
+		$query->execute(array("$path%", $this->uid));
+	}
+	
+	/**
+	 * remove a video from the database by path
+	 *
+	 * @param string $path the path of the video
+	 *
+	 * if a path of a folder is passed, all videos stored in the folder will be removed from the database
+	 */
+	public function deleteVideoByPath($path) {
+		$query = \OCP\DB::prepare("DELETE FROM `*PREFIX*media_videos` WHERE `video_path` LIKE ? AND `video_user` = ?");
 		$query->execute(array("$path%", $this->uid));
 	}
 
@@ -379,6 +490,22 @@ class Collection {
 			return 0;
 		}
 	}
+	
+	/**
+	 * get the id of the video by path
+	 *
+	 * @param string $path
+	 * @return int
+	 */
+	public function getVideoByPath($path) {
+		$query = \OCP\DB::prepare("SELECT `video_id` FROM `*PREFIX*media_videos` WHERE `video_path` = ?");
+		$result = $query->execute(array($path));
+		if ($row = $result->fetchRow()) {
+			return $row['video_id'];
+		} else {
+			return 0;
+		}
+	}
 
 	/**
 	 * set the path of a song
@@ -388,6 +515,17 @@ class Collection {
 	 */
 	public function moveSong($oldPath, $newPath) {
 		$query = \OCP\DB::prepare("UPDATE `*PREFIX*media_songs` SET `song_path` = ? WHERE `song_path` = ?");
+		$query->execute(array($newPath, $oldPath));
+	}
+	
+	/**
+	 * set the path of a video
+	 *
+	 * @param string $oldPath
+	 * @param string $newPath
+	 */
+	public function moveVideo($oldPath, $newPath) {
+		$query = \OCP\DB::prepare("UPDATE `*PREFIX*media_videos` SET `video_path` = ? WHERE `video_path` = ?");
 		$query->execute(array($newPath, $oldPath));
 	}
 

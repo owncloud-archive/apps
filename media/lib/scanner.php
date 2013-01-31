@@ -39,20 +39,35 @@ class Scanner {
 		$ogg = \OC_Files::searchByMime('application/ogg');
 		return array_merge($music, $ogg);
 	}
+	
+	/**
+	 * get a list of all video files of the user
+	 *
+	 * @return array
+	 */
+	public function getVideo() {
+		$video = \OC_Files::searchByMime('video');
+		return $video;
+	}
+
 
 	/**
-	 * scan all music for the current user
+	 * scan all media files for the current user
 	 *
 	 * @return int the number of songs found
 	 */
 	public function scanCollection() {
 		$music = $this->getMusic();
+		$video = $this->getVideo();
 		\OC_Hook::emit('media', 'song_count', array('count' => count($music)));
 		$songs = 0;
 		foreach ($music as $file) {
 			$this->scanFile($file);
 			$songs++;
 			\OC_Hook::emit('media', 'song_scanned', array('path' => $file, 'count' => $songs));
+		}		
+		foreach ($video as $file) {
+			$this->scanFile($file);
 		}
 		return $songs;
 	}
@@ -65,10 +80,17 @@ class Scanner {
 	 */
 	public function scanFile($path) {
 		$data = $this->extractor->extract($path);
-		$artistId = $this->collection->addArtist($data['artist']);
-		$albumId = $this->collection->addAlbum($data['album'], $artistId);
+		
+		if($data['type'] == 'song') {
+			$artistId = $this->collection->addArtist($data['artist']);
+			$albumId = $this->collection->addAlbum($data['album'], $artistId);
 
-		$this->collection->addSong($data['title'], $path, $artistId, $albumId, $data['length'], $data['track'], $data['size']);
+			$this->collection->addSong($data['title'], $path, $artistId, $albumId, $data['length'], $data['track'], $data['size']);
+		}
+		elseif($data['type'] == 'video') {
+			$this->collection->addVideo($data['name'], $path, $data['mime'], $data['resolution_x'], $data['resolution_y'], $data['size']);
+		}
+		
 		return true;
 	}
 }

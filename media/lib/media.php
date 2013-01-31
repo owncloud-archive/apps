@@ -64,12 +64,24 @@ class Media {
 	public static function deleteFile($params) {
 		$path = $params['path'];
 		$collection = new Collection(\OCP\User::getUser());
-		$collection->deleteSongByPath($path);
+		
+		if ($collection->getSongCountByPath($path) !== 0) {
+			$collection->deleteSongByPath($path);
+		}
+		elseif ($collection->getVideoCountByPath($path) !== 0) {
+			$collection->deleteVideoByPath($path);
+		}
 	}
 
 	public static function moveFile($params) {
 		$collection = new Collection(\OCP\User::getUser());
-		$collection->moveSong($params['oldpath'], $params['newpath']);
+		
+		if ($collection->getSongCountByPath($params['oldpath']) !== 0) {
+			$collection->moveSong($params['oldpath'], $params['newpath']);
+		}
+		elseif ($collection->getVideoCountByPath($params['oldpath']) !== 0) {
+			$collection->moveVideo($params['oldpath'], $params['newpath']);
+		}
 	}
 }
 

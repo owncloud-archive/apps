@@ -50,6 +50,7 @@ class Ampache {
 					$songs = $this->collection->getSongCount();
 					$artists = $this->collection->getArtistCount();
 					$albums = $this->collection->getAlbumCount();
+					$videos = $this->collection->getVideoCount();
 					$query = \OCP\DB::prepare("INSERT INTO `*PREFIX*media_sessions` (`token`, `user_id`, `start`) VALUES (?, ?, now());");
 					$query->execute(array($token, $user));
 					$expire = date('c', time() + 600);
@@ -60,6 +61,7 @@ class Ampache {
 					$tmpl->assign('songs', $songs);
 					$tmpl->assign('artists', $artists);
 					$tmpl->assign('albums', $albums);
+					$tmpl->assign('videos', $videos);
 					$tmpl->assign('expire', $expire);
 					$tmpl->printPage();
 					return;
@@ -180,6 +182,24 @@ class Ampache {
 		}
 		$tmpl->printPage();
 	}
+	
+	private function printVideos($videos) {
+		header('Content-Type:  text/xml');
+		$tmpl = new \OC_Template('media', 'ampache/videos');
+
+		foreach($videos as $video){
+			$videoData = array();
+			$videoData['id'] = $video['video_id'];
+			$videoData['name'] = xmlentities($video['video_name']);
+			$videoData['mime'] = $video['video_mime'];
+			$videoData['resolution'] = $video['video_resolution_x'] . 'x' . $video['video_resolution_y'];
+			$videoData['size'] = $video['video_size'];
+			$url = \OCP\Util::linkToRemote('ampache') . 'server/xml.server.php/?action=play&video=' . $videoData['id'] . '&auth=' . $_GET['auth'];
+			$videoData['url'] = xmlentities($url);
+			$tmpl->append('videos', $videoData);
+		}
+		$tmpl->printPage();
+	}
 
 	public function artists($params) {
 		if (!$this->checkAuth($params)) {
@@ -252,17 +272,37 @@ class Ampache {
 			$this->printSongs(array($song));
 		}
 	}
+	
+	public function videos($params) {
+		if (!$this->checkAuth($params)) {
+			$this->error(400, 'Invalid Login');
+		}
+
+		$videos = $this->collection->getVideos($params['offset'], $params['limit']);
+		$this->printVideos($videos);
+	}
 
 	public function play($params) {
 		if (!$this->checkAuth($params)) {
 			$this->error(400, 'Invalid Login');
 		}
-		if ($song = $this->collection->getSong($params['song'])) {
-			\OC_Util::setupFS($song["song_user"]);
+		if (isset($params['song'])) {
+			if ($song = $this->collection->getSong($params['song'])) {
+				\OC_Util::setupFS($song["song_user"]);
 
-			header('Content-type: ' . \OC_Filesystem::getMimeType($song['song_path']));
-			header('Content-Length: ' . $song['song_size']);
-			\OC_Filesystem::readfile($song['song_path']);
+				header('Content-type: ' . \OC_Filesystem::getMimeType($song['song_path']));
+				header('Content-Length: ' . $song['song_size']);
+				\OC_Filesystem::readfile($song['song_path']);
+			}
+		}
+		elseif (isset($params['video'])){
+			if ($video = $this->collection->getVideo($params['video'])) {
+				\OC_Util::setupFS($video["video_user"]);
+
+				header('Content-type: ' . \OC_Filesystem::getMimeType($video['mime']));
+				header('Content-Length: ' . $video['video_size']);
+				\OC_Filesystem::readfile($video['video_path']);
+			}
 		}
 	}
 
