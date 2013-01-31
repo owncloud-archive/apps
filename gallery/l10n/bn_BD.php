@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Pictures" => "চিত্রসমূহ"
+"Pictures" => "চিত্রসমূহ",
+"Share" => "ভাগাভাগি কর"
 );

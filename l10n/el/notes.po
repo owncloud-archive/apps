@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-19 00:01+0100\n"
-"PO-Revision-Date: 2013-01-17 23:30+0000\n"
-"Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 16:21+0000\n"
+"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,6 +21,18 @@ msgstr ""
 #: appinfo/app.php:9
 msgid "Notes"
 msgstr "Σημειώσεις"
+
+#: js/notes.js:8
+msgid "The title can not be empty"
+msgstr "Ο τίτλος δεν μπορεί να είναι κενός"
+
+#: js/notes.js:15
+msgid "Invalid title"
+msgstr "Μη έγκυρος τίτλος"
+
+#: js/notes.js:15
+msgid "The following characters are not allowed"
+msgstr "Δεν επιτρέπονται οι παρακάτω χαρακτήρες"
 
 #: templates/categories.php:10 templates/help.php:5
 msgid "Back to Notes"
@@ -34,12 +46,12 @@ msgstr "Βοήθεια"
 msgid "Categories"
 msgstr "Κατηγορίες"
 
-#: templates/categories.php:116 templates/notes.php:345
-#: templates/notes.php:388
+#: templates/categories.php:116 templates/notes.php:347
+#: templates/notes.php:391
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: templates/categories.php:117 templates/notes.php:390
+#: templates/categories.php:117 templates/notes.php:393
 msgid "Save"
 msgstr "Αποθήκευση"
 
@@ -77,42 +89,30 @@ msgstr "Προσθήκη Σημείωσης"
 msgid "Edit Categories"
 msgstr "Επεξεργασία Κατηγοριών"
 
-#: templates/notes.php:291
+#: templates/notes.php:293
 msgid "No note available in this category"
 msgstr "Καμία διαθέσιμη σημείωση σε αυτή την κατηγορία"
 
-#: templates/notes.php:335
+#: templates/notes.php:337
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: templates/notes.php:363
+#: templates/notes.php:366
 msgid "Category"
 msgstr "Κατηγορία"
 
-#: templates/notes.php:381
+#: templates/notes.php:384
 msgid "Title"
 msgstr "Τίτλος"
 
-#: templates/notes.php:382
+#: templates/notes.php:385
 msgid "Content"
 msgstr "Περιεχόμενο"
 
-#: templates/notes.php:413
+#: templates/notes.php:418
 msgid "Restore content"
 msgstr "Επαναφορά περιεχομένου"
 
-#: templates/notes.php:421
+#: templates/notes.php:426
 msgid "Restore"
 msgstr "Επαναφορά"
-
-#: templates/notes.php:455
-msgid "The title can not be empty"
-msgstr "Ο τίτλος δεν μπορεί να είναι κενός"
-
-#: templates/notes.php:462
-msgid "Invalid title"
-msgstr "Μη έγκυρος τίτλος"
-
-#: templates/notes.php:462
-msgid "The following characters are not allowed"
-msgstr "Δεν επιτρέπονται οι παρακάτω χαρακτήρες"

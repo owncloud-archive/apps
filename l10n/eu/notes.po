@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-20 00:01+0100\n"
-"PO-Revision-Date: 2013-01-18 23:49+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 16:21+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,18 @@ msgstr ""
 #: appinfo/app.php:9
 msgid "Notes"
 msgstr "Oharrak"
+
+#: js/notes.js:8
+msgid "The title can not be empty"
+msgstr "Izenburua ezin da hutsik egon"
+
+#: js/notes.js:15
+msgid "Invalid title"
+msgstr "Izenburu ez egokia"
+
+#: js/notes.js:15
+msgid "The following characters are not allowed"
+msgstr "Hurrengo karaktereak ez dira onartzen"
 
 #: templates/categories.php:10 templates/help.php:5
 msgid "Back to Notes"
@@ -34,12 +46,12 @@ msgstr "Laguntza"
 msgid "Categories"
 msgstr "Kategoriak"
 
-#: templates/categories.php:116 templates/notes.php:345
-#: templates/notes.php:388
+#: templates/categories.php:116 templates/notes.php:347
+#: templates/notes.php:391
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: templates/categories.php:117 templates/notes.php:390
+#: templates/categories.php:117 templates/notes.php:393
 msgid "Save"
 msgstr "Gorde"
 
@@ -77,42 +89,30 @@ msgstr "Gehitu oharra"
 msgid "Edit Categories"
 msgstr "Editatu kategoriak"
 
-#: templates/notes.php:291
+#: templates/notes.php:293
 msgid "No note available in this category"
 msgstr "Ez dago oharrik kategoria honetan"
 
-#: templates/notes.php:335
+#: templates/notes.php:337
 msgid "Edit"
 msgstr "Editatu"
 
-#: templates/notes.php:363
+#: templates/notes.php:366
 msgid "Category"
 msgstr "Kategoria"
 
-#: templates/notes.php:381
+#: templates/notes.php:384
 msgid "Title"
 msgstr "Izenburua"
 
-#: templates/notes.php:382
+#: templates/notes.php:385
 msgid "Content"
 msgstr "Edukia"
 
-#: templates/notes.php:413
+#: templates/notes.php:418
 msgid "Restore content"
 msgstr "Berrezarri edukia"
 
-#: templates/notes.php:421
+#: templates/notes.php:426
 msgid "Restore"
 msgstr "Berrezarri"
-
-#: templates/notes.php:455
-msgid "The title can not be empty"
-msgstr "Izenburua ezin da hutsik egon"
-
-#: templates/notes.php:462
-msgid "Invalid title"
-msgstr "Izenburu ez egokia"
-
-#: templates/notes.php:462
-msgid "The following characters are not allowed"
-msgstr "Hurrengo karaktereak ez dira onartzen"

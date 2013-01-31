@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:46+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:40+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -329,71 +329,71 @@ msgstr "Udalosť končí ešte pred tým než začne"
 msgid "There was a database fail"
 msgstr "Nastala chyba databázy"
 
-#: lib/app.php:114
+#: lib/app.php:121
 msgid "Birthday"
 msgstr "Narodeniny"
 
-#: lib/app.php:115
+#: lib/app.php:122
 msgid "Business"
 msgstr "Podnikanie"
 
-#: lib/app.php:116
+#: lib/app.php:123
 msgid "Call"
 msgstr "Hovor"
 
-#: lib/app.php:117
+#: lib/app.php:124
 msgid "Clients"
 msgstr "Klienti"
 
-#: lib/app.php:118
+#: lib/app.php:125
 msgid "Deliverer"
 msgstr "Doručovateľ"
 
-#: lib/app.php:119
+#: lib/app.php:126
 msgid "Holidays"
 msgstr "Prázdniny"
 
-#: lib/app.php:120
+#: lib/app.php:127
 msgid "Ideas"
 msgstr "Nápady"
 
-#: lib/app.php:121
+#: lib/app.php:128
 msgid "Journey"
 msgstr "Cesta"
 
-#: lib/app.php:122
+#: lib/app.php:129
 msgid "Jubilee"
 msgstr "Jubileá"
 
-#: lib/app.php:123
+#: lib/app.php:130
 msgid "Meeting"
 msgstr "Stretnutia"
 
-#: lib/app.php:124
+#: lib/app.php:131
 msgid "Other"
 msgstr "Ostatné"
 
-#: lib/app.php:125
+#: lib/app.php:132
 msgid "Personal"
 msgstr "Osobné"
 
-#: lib/app.php:126
+#: lib/app.php:133
 msgid "Projects"
 msgstr "Projekty"
 
-#: lib/app.php:127
+#: lib/app.php:134
 msgid "Questions"
 msgstr "Otázky"
 
-#: lib/app.php:128
+#: lib/app.php:135
 msgid "Work"
 msgstr "Práca"
 
-#: lib/app.php:396
+#: lib/app.php:403
 msgid "by"
 msgstr "od"
 
-#: lib/app.php:444
+#: lib/app.php:451
 msgid "unnamed"
 msgstr "nepomenovaný"
 

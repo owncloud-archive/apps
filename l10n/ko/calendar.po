@@ -6,13 +6,14 @@
 #   <aoiob4305@gmail.com>, 2013.
 # 남자사람  <cessnagi@gmail.com>, 2012.
 #   <limonade83@gmail.com>, 2012.
+# Park Shinjo <kde@peremen.name>, 2013.
 # Shinjo Park <kde@peremen.name>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:46+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 08:10+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -329,71 +330,71 @@ msgstr "종료 일시가 시작 일시보다 빠름"
 msgid "There was a database fail"
 msgstr "데이터베이스 오류가 발생함"
 
-#: lib/app.php:114
+#: lib/app.php:121
 msgid "Birthday"
 msgstr "생일"
 
-#: lib/app.php:115
+#: lib/app.php:122
 msgid "Business"
 msgstr "사업"
 
-#: lib/app.php:116
+#: lib/app.php:123
 msgid "Call"
 msgstr "통화"
 
-#: lib/app.php:117
+#: lib/app.php:124
 msgid "Clients"
 msgstr "클라이언트"
 
-#: lib/app.php:118
+#: lib/app.php:125
 msgid "Deliverer"
 msgstr "배송"
 
-#: lib/app.php:119
+#: lib/app.php:126
 msgid "Holidays"
 msgstr "공휴일"
 
-#: lib/app.php:120
+#: lib/app.php:127
 msgid "Ideas"
 msgstr "생각"
 
-#: lib/app.php:121
+#: lib/app.php:128
 msgid "Journey"
 msgstr "여행"
 
-#: lib/app.php:122
+#: lib/app.php:129
 msgid "Jubilee"
 msgstr "기념일"
 
-#: lib/app.php:123
+#: lib/app.php:130
 msgid "Meeting"
 msgstr "미팅"
 
-#: lib/app.php:124
+#: lib/app.php:131
 msgid "Other"
 msgstr "기타"
 
-#: lib/app.php:125
+#: lib/app.php:132
 msgid "Personal"
 msgstr "개인"
 
-#: lib/app.php:126
+#: lib/app.php:133
 msgid "Projects"
 msgstr "프로젝트"
 
-#: lib/app.php:127
+#: lib/app.php:134
 msgid "Questions"
 msgstr "질문"
 
-#: lib/app.php:128
+#: lib/app.php:135
 msgid "Work"
 msgstr "작업"
 
-#: lib/app.php:396
+#: lib/app.php:403
 msgid "by"
 msgstr "로"
 
-#: lib/app.php:444
+#: lib/app.php:451
 msgid "unnamed"
 msgstr "이름 없음"
 

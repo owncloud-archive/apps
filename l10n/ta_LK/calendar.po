@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:46+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:40+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -326,71 +326,71 @@ msgstr "அது தொடங்குவதற்கு முன்பு ந
 msgid "There was a database fail"
 msgstr "தரவுத்தள பிழை ஒன்று உள்ளது"
 
-#: lib/app.php:114
+#: lib/app.php:121
 msgid "Birthday"
 msgstr "பிறந்த நாள்"
 
-#: lib/app.php:115
+#: lib/app.php:122
 msgid "Business"
 msgstr "வியாபாரம்"
 
-#: lib/app.php:116
+#: lib/app.php:123
 msgid "Call"
 msgstr "அழை"
 
-#: lib/app.php:117
+#: lib/app.php:124
 msgid "Clients"
 msgstr "வாடிக்கையாளர்கள்"
 
-#: lib/app.php:118
+#: lib/app.php:125
 msgid "Deliverer"
 msgstr "விநியோகிப்பவர்"
 
-#: lib/app.php:119
+#: lib/app.php:126
 msgid "Holidays"
 msgstr "விடுமுறைகள்"
 
-#: lib/app.php:120
+#: lib/app.php:127
 msgid "Ideas"
 msgstr "எண்ணங்கள்"
 
-#: lib/app.php:121
+#: lib/app.php:128
 msgid "Journey"
 msgstr "பயணம்"
 
-#: lib/app.php:122
+#: lib/app.php:129
 msgid "Jubilee"
 msgstr "50 ஆவது வருட விழா"
 
-#: lib/app.php:123
+#: lib/app.php:130
 msgid "Meeting"
 msgstr "கூட்டம்"
 
-#: lib/app.php:124
+#: lib/app.php:131
 msgid "Other"
 msgstr "மற்றவை"
 
-#: lib/app.php:125
+#: lib/app.php:132
 msgid "Personal"
 msgstr "தனிப்பட்ட"
 
-#: lib/app.php:126
+#: lib/app.php:133
 msgid "Projects"
 msgstr "செயல் திட்டங்கள்"
 
-#: lib/app.php:127
+#: lib/app.php:134
 msgid "Questions"
 msgstr "கேள்விகள்"
 
-#: lib/app.php:128
+#: lib/app.php:135
 msgid "Work"
 msgstr "வேலை"
 
-#: lib/app.php:396
+#: lib/app.php:403
 msgid "by"
 msgstr "மூலம்"
 
-#: lib/app.php:444
+#: lib/app.php:451
 msgid "unnamed"
 msgstr "பெயரிடப்படவில்லை"
 

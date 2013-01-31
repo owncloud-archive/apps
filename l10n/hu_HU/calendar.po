@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:46+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:40+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -332,71 +332,71 @@ msgstr "Az esemény a kezdete előtt ér véget."
 msgid "There was a database fail"
 msgstr "Adatbázis hiba történt"
 
-#: lib/app.php:114
+#: lib/app.php:121
 msgid "Birthday"
 msgstr "Születésap"
 
-#: lib/app.php:115
+#: lib/app.php:122
 msgid "Business"
 msgstr "Üzleti"
 
-#: lib/app.php:116
+#: lib/app.php:123
 msgid "Call"
 msgstr "Hívás"
 
-#: lib/app.php:117
+#: lib/app.php:124
 msgid "Clients"
 msgstr "Kliensek"
 
-#: lib/app.php:118
+#: lib/app.php:125
 msgid "Deliverer"
 msgstr "Szállító"
 
-#: lib/app.php:119
+#: lib/app.php:126
 msgid "Holidays"
 msgstr "Ünnepek"
 
-#: lib/app.php:120
+#: lib/app.php:127
 msgid "Ideas"
 msgstr "Ötletek"
 
-#: lib/app.php:121
+#: lib/app.php:128
 msgid "Journey"
 msgstr "Utazás"
 
-#: lib/app.php:122
+#: lib/app.php:129
 msgid "Jubilee"
 msgstr "Évforduló"
 
-#: lib/app.php:123
+#: lib/app.php:130
 msgid "Meeting"
 msgstr "Találkozó"
 
-#: lib/app.php:124
+#: lib/app.php:131
 msgid "Other"
 msgstr "Egyéb"
 
-#: lib/app.php:125
+#: lib/app.php:132
 msgid "Personal"
 msgstr "Személyes"
 
-#: lib/app.php:126
+#: lib/app.php:133
 msgid "Projects"
 msgstr "Projektek"
 
-#: lib/app.php:127
+#: lib/app.php:134
 msgid "Questions"
 msgstr "Kérdések"
 
-#: lib/app.php:128
+#: lib/app.php:135
 msgid "Work"
 msgstr "Munka"
 
-#: lib/app.php:396
+#: lib/app.php:403
 msgid "by"
 msgstr "tőle"
 
-#: lib/app.php:444
+#: lib/app.php:451
 msgid "unnamed"
 msgstr "névtelen"
 

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Park Shinjo <kde@peremen.name>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-18 00:01+0100\n"
-"PO-Revision-Date: 2013-01-17 21:33+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 16:21+0000\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,23 @@ msgstr ""
 
 #: appinfo/app.php:9
 msgid "Notes"
-msgstr ""
+msgstr "메모"
+
+#: js/notes.js:8
+msgid "The title can not be empty"
+msgstr "제목을 입력해야 합니다"
+
+#: js/notes.js:15
+msgid "Invalid title"
+msgstr "잘못된 제목"
+
+#: js/notes.js:15
+msgid "The following characters are not allowed"
+msgstr "다음 문자를 사용할 수 없습니다"
 
 #: templates/categories.php:10 templates/help.php:5
 msgid "Back to Notes"
-msgstr ""
+msgstr "메모로 돌아가기"
 
 #: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
 msgid "Help"
@@ -31,24 +44,24 @@ msgstr "도움말"
 
 #: templates/categories.php:99
 msgid "Categories"
-msgstr ""
+msgstr "분류"
 
-#: templates/categories.php:116 templates/notes.php:345
-#: templates/notes.php:388
+#: templates/categories.php:116 templates/notes.php:347
+#: templates/notes.php:391
 msgid "Delete"
 msgstr "삭제"
 
-#: templates/categories.php:117 templates/notes.php:390
+#: templates/categories.php:117 templates/notes.php:393
 msgid "Save"
 msgstr "저장"
 
 #: templates/categories.php:129
 msgid "No categories available yet"
-msgstr ""
+msgstr "사용 가능한 분류가 없음"
 
 #: templates/categories.php:137
 msgid "New category"
-msgstr ""
+msgstr "새 분류"
 
 #: templates/categories.php:141
 msgid "Add"
@@ -62,7 +75,7 @@ msgstr "메모"
 msgid ""
 "If you delete a category, all containing notes get moved to the following "
 "category"
-msgstr ""
+msgstr "분류를 삭제하면 분류에 포함된 모든 메모가 다음으로 이동됩니다"
 
 #: templates/categories.php:145 templates/notes.php:61
 msgid "General"
@@ -70,48 +83,36 @@ msgstr "일반"
 
 #: templates/notes.php:81
 msgid "Add Note"
-msgstr ""
+msgstr "메모 추가"
 
 #: templates/notes.php:87
 msgid "Edit Categories"
-msgstr ""
+msgstr "분류 편집"
 
-#: templates/notes.php:291
+#: templates/notes.php:293
 msgid "No note available in this category"
-msgstr ""
+msgstr "이 분류에 메모 없음"
 
-#: templates/notes.php:335
+#: templates/notes.php:337
 msgid "Edit"
 msgstr "편집"
 
-#: templates/notes.php:363
+#: templates/notes.php:366
 msgid "Category"
 msgstr "분류"
 
-#: templates/notes.php:381
+#: templates/notes.php:384
 msgid "Title"
-msgstr "직위"
+msgstr "제목"
 
-#: templates/notes.php:382
+#: templates/notes.php:385
 msgid "Content"
-msgstr ""
+msgstr "내용"
 
-#: templates/notes.php:413
+#: templates/notes.php:418
 msgid "Restore content"
-msgstr ""
+msgstr "내용 복원"
 
-#: templates/notes.php:421
+#: templates/notes.php:426
 msgid "Restore"
-msgstr ""
-
-#: templates/notes.php:455
-msgid "The title can not be empty"
-msgstr ""
-
-#: templates/notes.php:462
-msgid "Invalid title"
-msgstr ""
-
-#: templates/notes.php:462
-msgid "The following characters are not allowed"
-msgstr ""
+msgstr "복원"

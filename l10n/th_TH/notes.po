@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-23 00:02+0100\n"
-"PO-Revision-Date: 2013-01-22 01:06+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 16:21+0000\n"
 "Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,18 @@ msgstr ""
 #: appinfo/app.php:9
 msgid "Notes"
 msgstr "บันทึกย่อ"
+
+#: js/notes.js:8
+msgid "The title can not be empty"
+msgstr "หัวเรื่องไม่สามารถเว้นว่างได้"
+
+#: js/notes.js:15
+msgid "Invalid title"
+msgstr "หัวเรื่องไม่ถูกต้อง"
+
+#: js/notes.js:15
+msgid "The following characters are not allowed"
+msgstr "ตัวอักษรต่อไปนี้ไม่อนุญาตให้ใช้งานได้"
 
 #: templates/categories.php:10 templates/help.php:5
 msgid "Back to Notes"
@@ -34,12 +46,12 @@ msgstr "ช่วยเหลือ"
 msgid "Categories"
 msgstr "หมวดหมู่"
 
-#: templates/categories.php:116 templates/notes.php:345
-#: templates/notes.php:388
+#: templates/categories.php:116 templates/notes.php:347
+#: templates/notes.php:391
 msgid "Delete"
 msgstr "ลบ"
 
-#: templates/categories.php:117 templates/notes.php:390
+#: templates/categories.php:117 templates/notes.php:393
 msgid "Save"
 msgstr "บันทึก"
 
@@ -77,42 +89,30 @@ msgstr "เพิ่มบันทึกย่อ"
 msgid "Edit Categories"
 msgstr "แก้ไขหมวดหมู่"
 
-#: templates/notes.php:291
+#: templates/notes.php:293
 msgid "No note available in this category"
 msgstr "ยังไม่มีบันทึกอยู่ในหมวดหมู่นี้"
 
-#: templates/notes.php:335
+#: templates/notes.php:337
 msgid "Edit"
 msgstr "แก้ไข"
 
-#: templates/notes.php:363
+#: templates/notes.php:366
 msgid "Category"
 msgstr "หมวดหมู่"
 
-#: templates/notes.php:381
+#: templates/notes.php:384
 msgid "Title"
 msgstr "ชื่อ"
 
-#: templates/notes.php:382
+#: templates/notes.php:385
 msgid "Content"
 msgstr "เนื้อหา"
 
-#: templates/notes.php:413
+#: templates/notes.php:418
 msgid "Restore content"
 msgstr "คืนค่าเนื้อหา"
 
-#: templates/notes.php:421
+#: templates/notes.php:426
 msgid "Restore"
 msgstr "คืนค่า"
-
-#: templates/notes.php:455
-msgid "The title can not be empty"
-msgstr "หัวเรื่องไม่สามารถเว้นว่างได้"
-
-#: templates/notes.php:462
-msgid "Invalid title"
-msgstr "หัวเรื่องไม่ถูกต้อง"
-
-#: templates/notes.php:462
-msgid "The following characters are not allowed"
-msgstr "ตัวอักษรต่อไปนี้ไม่อนุญาตให้ใช้งานได้"

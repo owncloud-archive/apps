@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:46+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:40+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -329,71 +329,71 @@ msgstr "Sự kiện này kết thúc trước khi nó bắt đầu"
 msgid "There was a database fail"
 msgstr "Lỗi truy xuất cơ sở dữ liệu"
 
-#: lib/app.php:114
+#: lib/app.php:121
 msgid "Birthday"
 msgstr "Ngày sinh nhật"
 
-#: lib/app.php:115
+#: lib/app.php:122
 msgid "Business"
 msgstr "Công việc"
 
-#: lib/app.php:116
+#: lib/app.php:123
 msgid "Call"
 msgstr "Số điện thoại"
 
-#: lib/app.php:117
+#: lib/app.php:124
 msgid "Clients"
 msgstr "Máy trạm"
 
-#: lib/app.php:118
+#: lib/app.php:125
 msgid "Deliverer"
 msgstr "Giao"
 
-#: lib/app.php:119
+#: lib/app.php:126
 msgid "Holidays"
 msgstr "Ngày lễ"
 
-#: lib/app.php:120
+#: lib/app.php:127
 msgid "Ideas"
 msgstr "Ý tưởng"
 
-#: lib/app.php:121
+#: lib/app.php:128
 msgid "Journey"
 msgstr "Cuộc hành trình"
 
-#: lib/app.php:122
+#: lib/app.php:129
 msgid "Jubilee"
 msgstr "Lễ kỷ niệm"
 
-#: lib/app.php:123
+#: lib/app.php:130
 msgid "Meeting"
 msgstr "Hội nghị"
 
-#: lib/app.php:124
+#: lib/app.php:131
 msgid "Other"
 msgstr "Khác"
 
-#: lib/app.php:125
+#: lib/app.php:132
 msgid "Personal"
 msgstr "Cá nhân"
 
-#: lib/app.php:126
+#: lib/app.php:133
 msgid "Projects"
 msgstr "Dự án"
 
-#: lib/app.php:127
+#: lib/app.php:134
 msgid "Questions"
 msgstr "Câu hỏi"
 
-#: lib/app.php:128
+#: lib/app.php:135
 msgid "Work"
 msgstr "Công việc"
 
-#: lib/app.php:396
+#: lib/app.php:403
 msgid "by"
 msgstr "bởi"
 
-#: lib/app.php:444
+#: lib/app.php:451
 msgid "unnamed"
 msgstr "Không tên"
 

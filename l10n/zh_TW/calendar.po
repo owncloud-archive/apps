@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:46+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:40+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -332,71 +332,71 @@ msgstr "事件的結束在開始之前"
 msgid "There was a database fail"
 msgstr "資料庫錯誤"
 
-#: lib/app.php:114
+#: lib/app.php:121
 msgid "Birthday"
 msgstr "生日"
 
-#: lib/app.php:115
+#: lib/app.php:122
 msgid "Business"
 msgstr "商業"
 
-#: lib/app.php:116
+#: lib/app.php:123
 msgid "Call"
 msgstr "呼叫"
 
-#: lib/app.php:117
+#: lib/app.php:124
 msgid "Clients"
 msgstr "客戶"
 
-#: lib/app.php:118
+#: lib/app.php:125
 msgid "Deliverer"
 msgstr "遞送者"
 
-#: lib/app.php:119
+#: lib/app.php:126
 msgid "Holidays"
 msgstr "節日"
 
-#: lib/app.php:120
+#: lib/app.php:127
 msgid "Ideas"
 msgstr "主意"
 
-#: lib/app.php:121
+#: lib/app.php:128
 msgid "Journey"
 msgstr "旅行"
 
-#: lib/app.php:122
+#: lib/app.php:129
 msgid "Jubilee"
 msgstr "周年慶"
 
-#: lib/app.php:123
+#: lib/app.php:130
 msgid "Meeting"
 msgstr "會議"
 
-#: lib/app.php:124
+#: lib/app.php:131
 msgid "Other"
 msgstr "其他"
 
-#: lib/app.php:125
+#: lib/app.php:132
 msgid "Personal"
 msgstr "個人"
 
-#: lib/app.php:126
+#: lib/app.php:133
 msgid "Projects"
 msgstr "計畫"
 
-#: lib/app.php:127
+#: lib/app.php:134
 msgid "Questions"
 msgstr "問題"
 
-#: lib/app.php:128
+#: lib/app.php:135
 msgid "Work"
 msgstr "工作"
 
-#: lib/app.php:396
+#: lib/app.php:403
 msgid "by"
 msgstr "由"
 
-#: lib/app.php:444
+#: lib/app.php:451
 msgid "unnamed"
 msgstr "無名稱的"
 

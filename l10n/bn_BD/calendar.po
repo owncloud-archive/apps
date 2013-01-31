@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:50+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:40+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -325,71 +325,71 @@ msgstr "শুরু হওয়ার পূর্বেই ইভেন্ট �
 msgid "There was a database fail"
 msgstr "মনে হচ্ছে ডাটাবেজে সমস্যা আছে"
 
-#: lib/app.php:114
+#: lib/app.php:121
 msgid "Birthday"
 msgstr "জন্মদিন"
 
-#: lib/app.php:115
+#: lib/app.php:122
 msgid "Business"
 msgstr "ব্যবসা"
 
-#: lib/app.php:116
+#: lib/app.php:123
 msgid "Call"
 msgstr "কল"
 
-#: lib/app.php:117
+#: lib/app.php:124
 msgid "Clients"
 msgstr "ক্লায়েন্ট"
 
-#: lib/app.php:118
+#: lib/app.php:125
 msgid "Deliverer"
 msgstr "বিতরণকারী"
 
-#: lib/app.php:119
+#: lib/app.php:126
 msgid "Holidays"
 msgstr "ছুটিরদিন"
 
-#: lib/app.php:120
+#: lib/app.php:127
 msgid "Ideas"
 msgstr "প্রস্তাবনা"
 
-#: lib/app.php:121
+#: lib/app.php:128
 msgid "Journey"
 msgstr "ভ্রমণ"
 
-#: lib/app.php:122
+#: lib/app.php:129
 msgid "Jubilee"
 msgstr "জয়ন্তী"
 
-#: lib/app.php:123
+#: lib/app.php:130
 msgid "Meeting"
 msgstr "সভা"
 
-#: lib/app.php:124
+#: lib/app.php:131
 msgid "Other"
 msgstr "অন্যান্য"
 
-#: lib/app.php:125
+#: lib/app.php:132
 msgid "Personal"
 msgstr "ব্যক্তিগত"
 
-#: lib/app.php:126
+#: lib/app.php:133
 msgid "Projects"
 msgstr "প্রকল্পসমূহ"
 
-#: lib/app.php:127
+#: lib/app.php:134
 msgid "Questions"
 msgstr "প্রশ্ন"
 
-#: lib/app.php:128
+#: lib/app.php:135
 msgid "Work"
 msgstr "কর্মস্থল"
 
-#: lib/app.php:396
+#: lib/app.php:403
 msgid "by"
 msgstr "কর্তৃক"
 
-#: lib/app.php:444
+#: lib/app.php:451
 msgid "unnamed"
 msgstr "অজ্ঞাতনামা"
 

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-19 00:01+0100\n"
-"PO-Revision-Date: 2013-01-18 06:45+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 16:21+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,18 @@ msgstr ""
 #: appinfo/app.php:9
 msgid "Notes"
 msgstr "Muistiot"
+
+#: js/notes.js:8
+msgid "The title can not be empty"
+msgstr "Otsikko ei voi olla tyhjä"
+
+#: js/notes.js:15
+msgid "Invalid title"
+msgstr "Virheellinen otsikko"
+
+#: js/notes.js:15
+msgid "The following characters are not allowed"
+msgstr "Seuraavat merkit eivät ole sallittuja"
 
 #: templates/categories.php:10 templates/help.php:5
 msgid "Back to Notes"
@@ -34,12 +46,12 @@ msgstr "Ohje"
 msgid "Categories"
 msgstr "Luokat"
 
-#: templates/categories.php:116 templates/notes.php:345
-#: templates/notes.php:388
+#: templates/categories.php:116 templates/notes.php:347
+#: templates/notes.php:391
 msgid "Delete"
 msgstr "Poista"
 
-#: templates/categories.php:117 templates/notes.php:390
+#: templates/categories.php:117 templates/notes.php:393
 msgid "Save"
 msgstr "Tallenna"
 
@@ -77,42 +89,30 @@ msgstr "Lisää muistio"
 msgid "Edit Categories"
 msgstr "Muokkaa luokkia"
 
-#: templates/notes.php:291
+#: templates/notes.php:293
 msgid "No note available in this category"
 msgstr "Tässä luokassa ei ole muistioita"
 
-#: templates/notes.php:335
+#: templates/notes.php:337
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: templates/notes.php:363
+#: templates/notes.php:366
 msgid "Category"
 msgstr "Luokka"
 
-#: templates/notes.php:381
+#: templates/notes.php:384
 msgid "Title"
 msgstr "Otsikko"
 
-#: templates/notes.php:382
+#: templates/notes.php:385
 msgid "Content"
 msgstr "Sisältö"
 
-#: templates/notes.php:413
+#: templates/notes.php:418
 msgid "Restore content"
 msgstr "Palauta sisältö"
 
-#: templates/notes.php:421
+#: templates/notes.php:426
 msgid "Restore"
 msgstr "Palauta"
-
-#: templates/notes.php:455
-msgid "The title can not be empty"
-msgstr "Otsikko ei voi olla tyhjä"
-
-#: templates/notes.php:462
-msgid "Invalid title"
-msgstr "Virheellinen otsikko"
-
-#: templates/notes.php:462
-msgid "The following characters are not allowed"
-msgstr "Seuraavat merkit eivät ole sallittuja"

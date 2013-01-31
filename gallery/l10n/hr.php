@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Pictures" => "Slike"
+"Pictures" => "Slike",
+"Share" => "Podijeli"
 );

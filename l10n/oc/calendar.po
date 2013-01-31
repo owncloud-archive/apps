@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:46+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:40+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Occitan (post 1500) (http://www.transifex.com/projects/p/owncloud/language/oc/)\n"
 "MIME-Version: 1.0\n"
@@ -326,71 +326,71 @@ msgstr "L'eveniment s'acaba avans sa debuta"
 msgid "There was a database fail"
 msgstr "I a agut un fracàs de basa de donadas"
 
-#: lib/app.php:114
+#: lib/app.php:121
 msgid "Birthday"
 msgstr "Anniversari"
 
-#: lib/app.php:115
+#: lib/app.php:122
 msgid "Business"
 msgstr "Afar"
 
-#: lib/app.php:116
+#: lib/app.php:123
 msgid "Call"
 msgstr "Crida"
 
-#: lib/app.php:117
+#: lib/app.php:124
 msgid "Clients"
 msgstr "Practica"
 
-#: lib/app.php:118
+#: lib/app.php:125
 msgid "Deliverer"
 msgstr "Liurason"
 
-#: lib/app.php:119
+#: lib/app.php:126
 msgid "Holidays"
 msgstr "Vacanças"
 
-#: lib/app.php:120
+#: lib/app.php:127
 msgid "Ideas"
 msgstr "Idèas"
 
-#: lib/app.php:121
+#: lib/app.php:128
 msgid "Journey"
 msgstr "Viatge"
 
-#: lib/app.php:122
+#: lib/app.php:129
 msgid "Jubilee"
 msgstr "Jubileu"
 
-#: lib/app.php:123
+#: lib/app.php:130
 msgid "Meeting"
 msgstr "Encontra"
 
-#: lib/app.php:124
+#: lib/app.php:131
 msgid "Other"
 msgstr "Autres"
 
-#: lib/app.php:125
+#: lib/app.php:132
 msgid "Personal"
 msgstr "Personal"
 
-#: lib/app.php:126
+#: lib/app.php:133
 msgid "Projects"
 msgstr "Projèctes"
 
-#: lib/app.php:127
+#: lib/app.php:134
 msgid "Questions"
 msgstr "Questions"
 
-#: lib/app.php:128
+#: lib/app.php:135
 msgid "Work"
 msgstr "Trabalh"
 
-#: lib/app.php:396
+#: lib/app.php:403
 msgid "by"
 msgstr "per"
 
-#: lib/app.php:444
+#: lib/app.php:451
 msgid "unnamed"
 msgstr "pas nomenat"
 

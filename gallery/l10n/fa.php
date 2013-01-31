@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Pictures" => "تصاویر"
+"Pictures" => "تصاویر",
+"Share" => "اشتراک‌گزاری"
 );

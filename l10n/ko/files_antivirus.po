@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Park Shinjo <kde@peremen.name>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-21 00:01+0100\n"
-"PO-Revision-Date: 2013-01-19 23:02+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 08:20+0000\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,37 +20,37 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr ""
+msgstr "{user}님, 환영합니다"
 
 #: templates/notification.php:2
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "업로드하려고 시도한 파일에 악성 소프트웨어가 포함되어 있어서 삭제되었습니다."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "이 이메일은 {host}에서 보낸 알림입니다. 답장하지 마십시오."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "파일 업로드됨: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "안티바이러스 설정"
 
 #: templates/settings.php:4
 msgid "Mode"
-msgstr ""
+msgstr "모드"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr ""
+msgstr "실행 파일"
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr ""
+msgstr "대몬"
 
 #: templates/settings.php:7
 msgid "Host"
@@ -57,11 +58,11 @@ msgstr "호스트"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "안티바이러스 호스트 주소입니다."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
-msgstr ""
+msgstr "실행 파일 모드에서는 필요하지 않습니다."
 
 #: templates/settings.php:8
 msgid "Port"
@@ -69,39 +70,39 @@ msgstr "포트"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "안티바이러스 호스트 포트입니다."
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "스트림 길이"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "바이트 단위의 ClamAV StreamMaxLength 값입니다."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "clamscan 경로"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "clamscan 실행 파일의 경로입니다."
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "대몬 모드에서는 필요하지 않습니다."
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "감염된 파일이 발견되었을 때 동작"
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "기록만"
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr ""
+msgstr "파일 삭제"
 
 #: templates/settings.php:14
 msgid "Save"

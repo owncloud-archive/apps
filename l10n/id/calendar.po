@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:46+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:41+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -329,71 +329,71 @@ msgstr "kejadian berakhir sebelum dimulai"
 msgid "There was a database fail"
 msgstr "terjadi kesalahan basis data"
 
-#: lib/app.php:114
+#: lib/app.php:121
 msgid "Birthday"
 msgstr "Ulang tahun"
 
-#: lib/app.php:115
+#: lib/app.php:122
 msgid "Business"
 msgstr "Usaha"
 
-#: lib/app.php:116
+#: lib/app.php:123
 msgid "Call"
 msgstr "panggil"
 
-#: lib/app.php:117
+#: lib/app.php:124
 msgid "Clients"
 msgstr "Klien"
 
-#: lib/app.php:118
+#: lib/app.php:125
 msgid "Deliverer"
 msgstr "Pengirim"
 
-#: lib/app.php:119
+#: lib/app.php:126
 msgid "Holidays"
 msgstr "Hari libur"
 
-#: lib/app.php:120
+#: lib/app.php:127
 msgid "Ideas"
 msgstr "ide"
 
-#: lib/app.php:121
+#: lib/app.php:128
 msgid "Journey"
 msgstr "Perjalanan"
 
-#: lib/app.php:122
+#: lib/app.php:129
 msgid "Jubilee"
 msgstr "peringatan"
 
-#: lib/app.php:123
+#: lib/app.php:130
 msgid "Meeting"
 msgstr "Rapat"
 
-#: lib/app.php:124
+#: lib/app.php:131
 msgid "Other"
 msgstr "Lainnya"
 
-#: lib/app.php:125
+#: lib/app.php:132
 msgid "Personal"
 msgstr "pribadi"
 
-#: lib/app.php:126
+#: lib/app.php:133
 msgid "Projects"
 msgstr "proyek"
 
-#: lib/app.php:127
+#: lib/app.php:134
 msgid "Questions"
 msgstr "Pertanyaan"
 
-#: lib/app.php:128
+#: lib/app.php:135
 msgid "Work"
 msgstr "kerja"
 
-#: lib/app.php:396
+#: lib/app.php:403
 msgid "by"
 msgstr "oleh"
 
-#: lib/app.php:444
+#: lib/app.php:451
 msgid "unnamed"
 msgstr "tidak diberi nama"
 

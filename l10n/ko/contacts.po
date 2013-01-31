@@ -7,15 +7,16 @@
 # 남자사람  <cessnagi@gmail.com>, 2012.
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2012.
 #   <limonade83@gmail.com>, 2012.
+# Park Shinjo <kde@peremen.name>, 2013.
 # Shinjo Park <kde@peremen.name>, 2012.
 #   <tetuyano+transi@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:47+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 16:20+0000\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,11 +89,11 @@ msgstr "vCard 정보가 올바르지 않습니다. 페이지를 새로 고치십
 #: ajax/contact/saveproperty.php:98
 #, php-format
 msgid "Couldn't find vCard for %d."
-msgstr "%d의 vCard를 찾을 수 없습니다."
+msgstr "%d 님의 vCard를 찾을 수 없습니다."
 
 #: ajax/contact/saveproperty.php:108
 msgid "Information about vCard is incorrect. Please reload the page: "
-msgstr " vCard 정보가 올바르지 않습니다. 페이지를 새로 고치십시오:"
+msgstr "vCard 정보가 올바르지 않습니다. 페이지를 새로 고치십시오: "
 
 #: ajax/contact/saveproperty.php:116
 msgid "Something went FUBAR. "
@@ -233,7 +234,7 @@ msgstr "연락처"
 #: export.php:66
 #, php-format
 msgid "%d_selected_contacts"
-msgstr "%d 개의 연락처 선택됨"
+msgstr "%d개의_연락처_선택됨"
 
 #: js/app.js:265 js/app.js:279
 msgid "Add to..."
@@ -373,7 +374,7 @@ msgstr "이 연락처를 삭제할 때 알 수 없는 오류가 발생하였습�
 
 #: js/contacts.js:682
 msgid "# groups"
-msgstr ""
+msgstr "그룹 개수"
 
 #: js/contacts.js:1463
 msgid ""
@@ -387,7 +388,7 @@ msgstr "연락처 {num}개 삭제를 취소하려면 누르십시오"
 
 #: js/contacts.js:1489
 msgid "Cancelled deletion of {num}"
-msgstr "{num} 개의 삭제를 캔슬했습니다"
+msgstr "{num}개 삭제를 취소함"
 
 #: js/groups.js:193
 msgid "Contact is already in this group."
@@ -609,7 +610,7 @@ msgstr "이 연락처의 속성을 삭제하는 중 오류가 발생하였습니
 
 #: lib/hooks.php:108
 msgid "{name}'s Birthday"
-msgstr "{name}의 생일"
+msgstr "{name} 님의 생일"
 
 #: lib/search.php:20
 msgid "Contact"
@@ -633,7 +634,7 @@ msgstr "다음 ID의 vCard를 찾을 수 없습니다:"
 
 #: lib/vcard.php:573
 msgid "Could not find the Addressbook with ID: "
-msgstr "다음 ID의 주소록 찾을 수 없습니다:"
+msgstr "다음 ID의 주소록을 찾을 수 없습니다:"
 
 #: lib/vcard.php:603
 msgid "You do not have the permissions to delete this contact."
@@ -843,7 +844,7 @@ msgstr "메모를 입력하십시오..."
 
 #: templates/contacts.php:257
 msgid "Export as VCF"
-msgstr "VCF 로 추출"
+msgstr "VCF로 내보내기"
 
 #: templates/contacts.php:259
 msgid "Add"
