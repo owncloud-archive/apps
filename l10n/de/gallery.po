@@ -6,6 +6,7 @@
 #   <admin@s-goecker.de>, 2012.
 # Bartek  <bart.p.pl@gmail.com>, 2012.
 #   <blobbyjj@ymail.com>, 2012.
+# I Robot <owncloud-bot@tmit.eu>, 2013.
 # I Robot <thomas.mueller@tmit.eu>, 2012.
 # Marcel Kühlhorn <susefan93@gmx.de>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
@@ -15,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-01 00:16+0100\n"
-"PO-Revision-Date: 2013-01-31 22:50+0000\n"
-"Last-Translator: Wachhund <wachhund@wachhund.to>\n"
+"POT-Creation-Date: 2013-02-02 00:03+0100\n"
+"PO-Revision-Date: 2013-02-01 00:10+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +32,7 @@ msgstr "Bilder"
 
 #: js/gallery.js:235
 msgid "Shared by"
-msgstr "Geteilt von"
+msgstr "Freigegeben von "
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-24 00:03+0100\n"
+"POT-Creation-Date: 2013-02-02 00:03+0100\n"
 "PO-Revision-Date: 2013-01-17 21:33+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
@@ -19,6 +19,18 @@ msgstr ""
 
 #: appinfo/app.php:9
 msgid "Notes"
+msgstr ""
+
+#: js/notes.js:8
+msgid "The title can not be empty"
+msgstr ""
+
+#: js/notes.js:15
+msgid "Invalid title"
+msgstr ""
+
+#: js/notes.js:15
+msgid "The following characters are not allowed"
 msgstr ""
 
 #: templates/categories.php:10 templates/help.php:5
@@ -33,12 +45,12 @@ msgstr "Помоћ"
 msgid "Categories"
 msgstr ""
 
-#: templates/categories.php:116 templates/notes.php:345
-#: templates/notes.php:388
+#: templates/categories.php:116 templates/notes.php:347
+#: templates/notes.php:391
 msgid "Delete"
 msgstr "Обриши"
 
-#: templates/categories.php:117 templates/notes.php:390
+#: templates/categories.php:117 templates/notes.php:393
 msgid "Save"
 msgstr "Сачувај"
 
@@ -76,42 +88,30 @@ msgstr ""
 msgid "Edit Categories"
 msgstr ""
 
-#: templates/notes.php:291
+#: templates/notes.php:293
 msgid "No note available in this category"
 msgstr ""
 
-#: templates/notes.php:335
+#: templates/notes.php:337
 msgid "Edit"
 msgstr "Уреди"
 
-#: templates/notes.php:363
+#: templates/notes.php:366
 msgid "Category"
 msgstr "Категорија"
 
-#: templates/notes.php:381
+#: templates/notes.php:384
 msgid "Title"
 msgstr "Наслов"
 
-#: templates/notes.php:382
+#: templates/notes.php:385
 msgid "Content"
 msgstr ""
 
-#: templates/notes.php:413
+#: templates/notes.php:418
 msgid "Restore content"
 msgstr ""
 
-#: templates/notes.php:421
+#: templates/notes.php:426
 msgid "Restore"
-msgstr ""
-
-#: templates/notes.php:455
-msgid "The title can not be empty"
-msgstr ""
-
-#: templates/notes.php:462
-msgid "Invalid title"
-msgstr ""
-
-#: templates/notes.php:462
-msgid "The following characters are not allowed"
-msgstr ""
+msgstr "Врати"

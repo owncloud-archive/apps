@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# André Koot <meneer@tken.net>, 2013.
 #   <bramdv@me.com>, 2012.
 #   <lenny@weijl.org>, 2012.
 # Richard Bos <radoeka@gmail.com>, 2012.
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-30 23:42+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-02 00:03+0100\n"
+"PO-Revision-Date: 2013-02-01 08:10+0000\n"
+"Last-Translator: André Koot <meneer@tken.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +24,7 @@ msgstr ""
 
 #: 3rdparty/js/moment.min.js:6
 msgid "year"
-msgstr ""
+msgstr "jaar"
 
 #: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
 msgid "News"
@@ -104,11 +105,11 @@ msgstr ""
 
 #: templates/part.settings.php:17
 msgid "-- choose folder --"
-msgstr ""
+msgstr "-- kies map --"
 
 #: templates/part.settings.php:20
 msgid "Address must not be empty!"
-msgstr ""
+msgstr "Adres mag niet leeg zijn!"
 
 #: templates/part.settings.php:21
 msgid "Feed exists already!"
@@ -133,15 +134,15 @@ msgstr "Voeg Map Toe"
 
 #: templates/part.settings.php:37
 msgid "Folder name must not be empty!"
-msgstr ""
+msgstr "Mapnaam mag niet leeg zijn!"
 
 #: templates/part.settings.php:38
 msgid "Folder exists already!"
-msgstr ""
+msgstr "Map bestaat al!"
 
 #: templates/part.settings.php:45
 msgid "Folder Name"
-msgstr ""
+msgstr "Mapnaam"
 
 #: templates/part.settings.php:60
 msgid "Show everything"
@@ -165,7 +166,7 @@ msgstr "Voeg Feed/Map Toe"
 
 #: templates/part.settings.php:91
 msgid "Import / Export"
-msgstr ""
+msgstr "Import / Export"
 
 #: templates/part.settings.php:93 templates/part.settings.php:95
 msgid "Import OPML"
@@ -173,7 +174,7 @@ msgstr "Importeer OPML"
 
 #: templates/part.settings.php:99
 msgid "Export OPML"
-msgstr ""
+msgstr "Export OPML"
 
 #: templates/part.settings.php:102
 msgid "Subscribelet"

@@ -189,7 +189,7 @@
 "First name" => "Vorname",
 "Additional names" => "Zusätzliche Namen",
 "Last name" => "Nachname",
-"Select groups" => "Wähle Gruppen aus",
+"Select groups" => "Gruppen auswählen",
 "Nickname" => "Spitzname",
 "Enter nickname" => "Spitzname angeben",
 "Title" => "Titel",
