@@ -98,7 +98,7 @@
 	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; 
 	position: fixed;
 	padding: 0; margin:0; 
-	top:3.5em; left: 12.5em;
+	top:3.5em;
 	height: 4em; width: 20em;
 	border-bottom: 1px solid #DDDDDD;
 	border-right: 1px solid #DDDDDD;
@@ -191,11 +191,8 @@
 .no-svg .checked { background-image:url('%appswebroot%/contacts/img/checkmark-green.png'); }
 .no-svg .checked.disabled { background-image:url('%appswebroot%/contacts/img/checkmark-gray.png'); cursor: default; }
 
-.svg .action:not(.text), .svg .icon:not(.text), .svg .svg:not(.text) {
-	background-size: contain;
-}
 .svg .action.text, .svg .icon.text, .svg .svg.text {
-	background-size: 16px 16px;
+	background-size: 20px 16px;
 	background-origin: content-box;
 	background-repeat: no-repeat;
 }
@@ -436,7 +433,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 
 .svg .favorite { display: inline-block; float: left; height: 20px; width: 20px; background-image:url('%appswebroot%/contacts/img/inactive_star.svg'); }
 .svg .favorite.active, .favorite:hover { background-image:url('%appswebroot%/contacts/img/active_star.svg'); }
-.svg .favorite.inactive { background-image:url('%appswebroot%/contacts/img/inactive_star.svg'); }
+.svg .favorite.inactive { background-image:url('%appswebroot%/contacts/img/inactive_star.svg'); background-size:contain; }
 
 /* Header */
 
@@ -444,7 +441,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	position: fixed; 
 	-webkit-box-sizing: border-box;  -moz-box-sizing: border-box; box-sizing: border-box; 
 	padding: 0; margin:0; 
-	top:3.5em; left: 32.5em; right: 0; height: 4em; 
+	top:3.5em; left:25em; right: 0; height: 4em;
 	border-bottom: 1px solid #DDDDDD; z-index: 50;
 	background-color: #fff;
 }
@@ -454,8 +451,9 @@ input[type="checkbox"].propertytype { width: 10px; }
 	height: 100%; width: 100%;
 }
 #contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: .7em; padding: .2em; clear: none; }
+#contactsheader select { width:100px; }
 #contactsheader .delete { 
-	bottom: 0.5em;
+	bottom: 1.4em;
 	right: 1em;
 	position: absolute;
 	background-image:url('%webroot%/core/img/actions/delete.svg');
