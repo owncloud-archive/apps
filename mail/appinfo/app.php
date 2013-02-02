@@ -10,7 +10,7 @@ OCP\App::addNavigationEntry( array(
   'id' => 'mail_index',
   'order' => 1,
   'href' => OCP\Util::linkTo( 'mail', 'index.php' ),
-  'icon' => OCP\Util::imagePath( 'mail', 'icon.png' ),
+  'icon' => OCP\Util::imagePath( 'mail', 'mail.svg' ),
   'name' => 'Mail'));
 
 OCP\App::registerPersonal('mail','settings');

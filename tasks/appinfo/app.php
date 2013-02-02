@@ -6,5 +6,5 @@ OCP\App::addNavigationEntry( array(
   'id' => 'tasks_index',
   'order' => 11,
   'href' => OCP\Util::linkTo( 'tasks', 'index.php' ),
-  'icon' => OCP\Util::imagePath( 'tasks', 'icon.png' ),
+  'icon' => OCP\Util::imagePath( 'tasks', 'tasks.svg' ),
   'name' => $l->t('Tasks')));
