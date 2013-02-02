@@ -54,8 +54,10 @@ $(document).ready(function(){
 	// handle mouse reactions
 	// 1.) click => toggle navigation hidden or shown
 	// 2.) hold => enter vertical handle move mode
-	OC.FluXX.Handle.Object.on('mousedown',function(){
-		OC.FluXX.click();
+	OC.FluXX.Handle.Object.on('mousedown',function(event){
+		// swallow click event
+		event.stopPropagation();
+		OC.FluXX.click(event);
 	});
 })
 
@@ -165,8 +167,8 @@ OC.FluXX={
 	* @author Christian Reiner
 	*/
 	limit:function(){
-		OC.FluXX.Handle.Position.Min=37;
-		OC.FluXX.Handle.Position.Max=$('body > nav > #navigation').height()-$('body > nav > #navigation').position().top-37;
+		OC.FluXX.Handle.Position.Min=0;
+		OC.FluXX.Handle.Position.Max=$('body > nav > #navigation').height()-$('body > nav > #navigation').position().top-22;
 	}, // OC.FluXX.limit
 	/**
 	* @method OC.FluXX.move

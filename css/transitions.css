@@ -33,7 +33,10 @@
 html body .fluxx-handle * {
 	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
 }
-
+html.fluxx-state-x-hidden #fluxx-x.fluxx-handle,
+html.fluxx-state-x-shown #fluxx-x.fluxx-handle {
+	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
+}
 /* some general mode specific modifications */
 html body #navigation {
 	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
