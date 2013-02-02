@@ -110,6 +110,15 @@ OC.Contacts = OC.Contacts || {};
 		}
 
 		if($elem) {
+			// If there's already a property of this type enable setting as preferred.
+			if(this.multi_properties.indexOf(name) !== -1 && this.data[name] && this.data[name].length > 0) {
+				var selector = 'li[data-element="' + name.toLowerCase() + '"]';
+				$.each(this.$fullelem.find(selector), function(idx, elem) {
+					$(elem).find('input.parameter[value="PREF"]').show();
+				});
+			} else if(this.multi_properties.indexOf(name) !== -1) {
+				$elem.find('input.parameter[value="PREF"]').hide();
+			}
 			$elem.find('select.type[name="parameters[TYPE][]"]')
 				.combobox({
 					singleclick: true,
@@ -133,6 +142,11 @@ OC.Contacts = OC.Contacts || {};
 		if(this.multi_properties.indexOf(element) !== -1) {
 			params['checksum'] = this.checksumFor(obj);
 			if(params['checksum'] === 'new' && this.valueFor(obj).trim() === '') {
+				// If there's only one property of this type enable setting as preferred.
+				if(this.data[element].length === 1) {
+					var selector = 'li[data-element="' + element.toLowerCase() + '"]';
+					this.$fullelem.find(selector).find('input.parameter[value="PREF"]').hide();
+				}
 				$container.remove();
 				return;
 			}
@@ -167,6 +181,11 @@ OC.Contacts = OC.Contacts || {};
 								break;
 							}
 						}
+					}
+					// If there's only one property of this type enable setting as preferred.
+					if(self.data[element].length === 1) {
+						var selector = 'li[data-element="' + element.toLowerCase() + '"]';
+						self.$fullelem.find(selector).find('input.parameter[value="PREF"]').hide();
 					}
 					$container.remove();
 				} else {
@@ -447,7 +466,7 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	/**
-	 * Add a contact from data store and remove it from the DOM
+	 * Add a contact to data store.
 	 * @params params. An object which can contain the optional properties:
 	 *		aid: The id of the addressbook to add the contact to. Per default it will be added to the first.
 	 *		fn: The formatted name of the contact.
@@ -782,7 +801,7 @@ OC.Contacts = OC.Contacts || {};
 		});
 
 		this.$fullelem.on('change', '.value,.parameter', function(event) {
-			if(this.value === this.defaultValue) {
+			if($(this).hasClass('value') && this.value === this.defaultValue) {
 				return;
 			}
 			console.log('change', this.defaultValue, this.value);
@@ -844,7 +863,7 @@ OC.Contacts = OC.Contacts || {};
 							case 'URL':
 							case 'EMAIL':
 								$property = self.renderStandardProperty(name.toLowerCase(), property);
-								if(self.data[name].length >= 1) {
+								if(self.data[name].length === 1) {
 									$property.find('input:checkbox[value="PREF"]').hide();
 								}
 								break;
@@ -853,6 +872,9 @@ OC.Contacts = OC.Contacts || {};
 								break;
 							case 'IMPP':
 								$property = self.renderIMProperty(property);
+								if(self.data[name].length === 1) {
+									$property.find('input:checkbox[value="PREF"]').hide();
+								}
 								break;
 						}
 						if(!$property) {
@@ -1019,7 +1041,7 @@ OC.Contacts = OC.Contacts || {};
 							featureClass: "P",
 							style: "full",
 							maxRows: 12,
-							lang: lang,
+							lang: $elem.data('lang'),
 							name_startsWith: request.term
 						},
 						success: function( data ) {
@@ -1693,7 +1715,8 @@ OC.Contacts = OC.Contacts || {};
 				, 2000);
 				$(document).trigger('status.contacts.loaded', {
 					status: true,
-					numcontacts: jsondata.data.contacts.length
+					numcontacts: jsondata.data.contacts.length,
+					is_indexed: jsondata.data.is_indexed
 				});
 				self.setCurrent(self.$contactList.find('tr:first-child').data('id'), false);
 			}

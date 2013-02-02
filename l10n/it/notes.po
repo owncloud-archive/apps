@@ -1,0 +1,119 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#  <mrjive@mrjive.it>, 2013.
+# Vincenzo Reale <vinx.reale@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-01-19 00:01+0100\n"
+"PO-Revision-Date: 2013-01-18 11:18+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:9
+msgid "Notes"
+msgstr "Note"
+
+#: templates/categories.php:10 templates/help.php:5
+msgid "Back to Notes"
+msgstr "Torna a Note"
+
+#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
+msgid "Help"
+msgstr "Aiuto"
+
+#: templates/categories.php:99
+msgid "Categories"
+msgstr "Categorie"
+
+#: templates/categories.php:116 templates/notes.php:345
+#: templates/notes.php:388
+msgid "Delete"
+msgstr "Elimina"
+
+#: templates/categories.php:117 templates/notes.php:390
+msgid "Save"
+msgstr "Salva"
+
+#: templates/categories.php:129
+msgid "No categories available yet"
+msgstr "Nessuna categoria disponibile"
+
+#: templates/categories.php:137
+msgid "New category"
+msgstr "Nuova categoria"
+
+#: templates/categories.php:141
+msgid "Add"
+msgstr "Aggiungi"
+
+#: templates/categories.php:144
+msgid "Note"
+msgstr "Nota"
+
+#: templates/categories.php:145
+msgid ""
+"If you delete a category, all containing notes get moved to the following "
+"category"
+msgstr "Se elimini una categoria, tutte le note contenute sono spostate nella categoria seguente"
+
+#: templates/categories.php:145 templates/notes.php:61
+msgid "General"
+msgstr "Generale"
+
+#: templates/notes.php:81
+msgid "Add Note"
+msgstr "Aggiungi nota"
+
+#: templates/notes.php:87
+msgid "Edit Categories"
+msgstr "Modifica categorie"
+
+#: templates/notes.php:291
+msgid "No note available in this category"
+msgstr "Nessuna nota disponibile in questa categoria"
+
+#: templates/notes.php:335
+msgid "Edit"
+msgstr "Modifica"
+
+#: templates/notes.php:363
+msgid "Category"
+msgstr "Categoria"
+
+#: templates/notes.php:381
+msgid "Title"
+msgstr "Titolo"
+
+#: templates/notes.php:382
+msgid "Content"
+msgstr "Contenuto"
+
+#: templates/notes.php:413
+msgid "Restore content"
+msgstr "Ripristina contenuto"
+
+#: templates/notes.php:421
+msgid "Restore"
+msgstr "Ripristina"
+
+#: templates/notes.php:455
+msgid "The title can not be empty"
+msgstr "Il titolo non può essere vuoto"
+
+#: templates/notes.php:462
+msgid "Invalid title"
+msgstr "Titolo non valido"
+
+#: templates/notes.php:462
+msgid "The following characters are not allowed"
+msgstr "I seguenti caratteri non sono consentiti"

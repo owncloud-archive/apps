@@ -22,8 +22,5 @@
  */
 
 
-namespace OCA\AppFramework;
-
-
-require_once \OC_App::getAppPath('appframework') . '/appinfo/classpath.php';
+/* The rest is silence */
 

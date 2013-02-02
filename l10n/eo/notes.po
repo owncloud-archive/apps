@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Mariano <mstreet@kde.org.ar>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-01-21 00:01+0100\n"
+"PO-Revision-Date: 2013-01-20 01:23+0000\n"
+"Last-Translator: Mariano <mstreet@kde.org.ar>\n"
+"Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eo\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:9
+msgid "Notes"
+msgstr "Notoj"
+
+#: templates/categories.php:10 templates/help.php:5
+msgid "Back to Notes"
+msgstr "Reen al notoj"
+
+#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
+msgid "Help"
+msgstr "Helpo"
+
+#: templates/categories.php:99
+msgid "Categories"
+msgstr "Kategorioj"
+
+#: templates/categories.php:116 templates/notes.php:345
+#: templates/notes.php:388
+msgid "Delete"
+msgstr "Forigi"
+
+#: templates/categories.php:117 templates/notes.php:390
+msgid "Save"
+msgstr "Konservi"
+
+#: templates/categories.php:129
+msgid "No categories available yet"
+msgstr "Neniu kategorio haveblas ankoraŭ"
+
+#: templates/categories.php:137
+msgid "New category"
+msgstr "Nova kategorio"
+
+#: templates/categories.php:141
+msgid "Add"
+msgstr "Aldoni"
+
+#: templates/categories.php:144
+msgid "Note"
+msgstr "Noto"
+
+#: templates/categories.php:145
+msgid ""
+"If you delete a category, all containing notes get moved to the following "
+"category"
+msgstr "Se vi forigas kategorion, ĉiuj notoj enhavataj en ĝi moviĝos en la jenan kategorion"
+
+#: templates/categories.php:145 templates/notes.php:61
+msgid "General"
+msgstr "Ĝenerala"
+
+#: templates/notes.php:81
+msgid "Add Note"
+msgstr "Aldoni noton"
+
+#: templates/notes.php:87
+msgid "Edit Categories"
+msgstr "Redakti kategoriojn"
+
+#: templates/notes.php:291
+msgid "No note available in this category"
+msgstr "Neniu noto haveblas en ĉi tiu kategorio"
+
+#: templates/notes.php:335
+msgid "Edit"
+msgstr "Redakti"
+
+#: templates/notes.php:363
+msgid "Category"
+msgstr "Kategorio"
+
+#: templates/notes.php:381
+msgid "Title"
+msgstr "Titolo"
+
+#: templates/notes.php:382
+msgid "Content"
+msgstr "Enhavo"
+
+#: templates/notes.php:413
+msgid "Restore content"
+msgstr "Restaŭri enhavon"
+
+#: templates/notes.php:421
+msgid "Restore"
+msgstr "Restaŭri"
+
+#: templates/notes.php:455
+msgid "The title can not be empty"
+msgstr "La titolo devas ne malpleni"
+
+#: templates/notes.php:462
+msgid "Invalid title"
+msgstr "Nevalida titolo"
+
+#: templates/notes.php:462
+msgid "The following characters are not allowed"
+msgstr "La jenaj signoj ne permesatas"

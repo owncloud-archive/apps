@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Marián Hvolka <marian.hvolka@stuba.sk>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-01-25 00:02+0100\n"
+"PO-Revision-Date: 2013-01-24 18:41+0000\n"
+"Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
+"Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sk_SK\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: appinfo/app.php:9
+msgid "Notes"
+msgstr "Poznámky"
+
+#: templates/categories.php:10 templates/help.php:5
+msgid "Back to Notes"
+msgstr "Návrat do poznámok"
+
+#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
+msgid "Help"
+msgstr "Pomoc"
+
+#: templates/categories.php:99
+msgid "Categories"
+msgstr "Kategórie"
+
+#: templates/categories.php:116 templates/notes.php:345
+#: templates/notes.php:388
+msgid "Delete"
+msgstr "Zmazať"
+
+#: templates/categories.php:117 templates/notes.php:390
+msgid "Save"
+msgstr "Uložiť"
+
+#: templates/categories.php:129
+msgid "No categories available yet"
+msgstr "Žiadne kategórie ešte nie sú k dispozícii"
+
+#: templates/categories.php:137
+msgid "New category"
+msgstr "Nová kategória"
+
+#: templates/categories.php:141
+msgid "Add"
+msgstr "Pridať"
+
+#: templates/categories.php:144
+msgid "Note"
+msgstr "Poznámka"
+
+#: templates/categories.php:145
+msgid ""
+"If you delete a category, all containing notes get moved to the following "
+"category"
+msgstr "Ak odstránite kategóriu, všetky poznámky z nej budú presunuté do nasledujúcej kategórie"
+
+#: templates/categories.php:145 templates/notes.php:61
+msgid "General"
+msgstr "Všeobecné"
+
+#: templates/notes.php:81
+msgid "Add Note"
+msgstr "Vložiť poznámku"
+
+#: templates/notes.php:87
+msgid "Edit Categories"
+msgstr "Upraviť kategóriu"
+
+#: templates/notes.php:291
+msgid "No note available in this category"
+msgstr "Nie sú žiadne poznámky v tejto kategórii"
+
+#: templates/notes.php:335
+msgid "Edit"
+msgstr "Upraviť"
+
+#: templates/notes.php:363
+msgid "Category"
+msgstr "Kategória"
+
+#: templates/notes.php:381
+msgid "Title"
+msgstr "Nadpis"
+
+#: templates/notes.php:382
+msgid "Content"
+msgstr "Obsah"
+
+#: templates/notes.php:413
+msgid "Restore content"
+msgstr "Obnovenie obsahu"
+
+#: templates/notes.php:421
+msgid "Restore"
+msgstr "Obnoviť"
+
+#: templates/notes.php:455
+msgid "The title can not be empty"
+msgstr "Názov nemôže byť prázdny"
+
+#: templates/notes.php:462
+msgid "Invalid title"
+msgstr "Nesprávny názov"
+
+#: templates/notes.php:462
+msgid "The following characters are not allowed"
+msgstr "Nasledovné znaky nie sú povolené"

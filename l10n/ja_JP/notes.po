@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-01-19 00:01+0100\n"
+"PO-Revision-Date: 2013-01-18 08:15+0000\n"
+"Last-Translator: Daisuke Deguchi <ddeguchi@nagoya-u.jp>\n"
+"Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: appinfo/app.php:9
+msgid "Notes"
+msgstr "ノート"
+
+#: templates/categories.php:10 templates/help.php:5
+msgid "Back to Notes"
+msgstr "ノートに戻る"
+
+#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
+msgid "Help"
+msgstr "ヘルプ"
+
+#: templates/categories.php:99
+msgid "Categories"
+msgstr "カテゴリ"
+
+#: templates/categories.php:116 templates/notes.php:345
+#: templates/notes.php:388
+msgid "Delete"
+msgstr "削除"
+
+#: templates/categories.php:117 templates/notes.php:390
+msgid "Save"
+msgstr "保存"
+
+#: templates/categories.php:129
+msgid "No categories available yet"
+msgstr "カテゴリはまだ利用できません"
+
+#: templates/categories.php:137
+msgid "New category"
+msgstr "新しいカテゴリ"
+
+#: templates/categories.php:141
+msgid "Add"
+msgstr "追加"
+
+#: templates/categories.php:144
+msgid "Note"
+msgstr "メモ"
+
+#: templates/categories.php:145
+msgid ""
+"If you delete a category, all containing notes get moved to the following "
+"category"
+msgstr "カテゴリを削除すると、含まれている全てのノートは以下のカテゴリに移動します"
+
+#: templates/categories.php:145 templates/notes.php:61
+msgid "General"
+msgstr "一般"
+
+#: templates/notes.php:81
+msgid "Add Note"
+msgstr "ノートを追加"
+
+#: templates/notes.php:87
+msgid "Edit Categories"
+msgstr "カテゴリを編集"
+
+#: templates/notes.php:291
+msgid "No note available in this category"
+msgstr "このカテゴリには利用可能なノートはありません"
+
+#: templates/notes.php:335
+msgid "Edit"
+msgstr "編集"
+
+#: templates/notes.php:363
+msgid "Category"
+msgstr "カテゴリー"
+
+#: templates/notes.php:381
+msgid "Title"
+msgstr "タイトル"
+
+#: templates/notes.php:382
+msgid "Content"
+msgstr "内容"
+
+#: templates/notes.php:413
+msgid "Restore content"
+msgstr "内容を復元"
+
+#: templates/notes.php:421
+msgid "Restore"
+msgstr "復元"
+
+#: templates/notes.php:455
+msgid "The title can not be empty"
+msgstr "タイトルは空にできません"
+
+#: templates/notes.php:462
+msgid "Invalid title"
+msgstr "無効なタイトル"
+
+#: templates/notes.php:462
+msgid "The following characters are not allowed"
+msgstr "以下の文字は利用できません"

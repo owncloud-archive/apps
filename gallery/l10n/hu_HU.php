@@ -1,7 +1,7 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "Képek",
 "Galleries" => "Galériák",
-"Share gallery" => "Galéria megosztása",
+"Share gallery" => "A galéria megosztása",
 "Error: " => "Hiba: ",
 "Internal error" => "Rendszerhiba",
 "Slideshow" => "Diavetítés",

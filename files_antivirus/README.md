@@ -2,7 +2,7 @@
 
 files_antivirus is an antivirus app for [Owncloud](https://github.com/owncloud) based on [ClamAV](http://www.clamav.net).
 
-v0.2
+v0.3
 
 ##Details
 
@@ -11,12 +11,13 @@ remove the file if it's infected.
 
 ##Status
 
-The App is not complete yet...
+The App is not complete yet, the following works/is done:
 * It can be configured to work with the executable or the daemon mode of ClamAV
 * In daemon mode, it sends files to a remote/local server using INSTREAM command
 * When the user uploads a file, it's checked
 * If an uploaded file is infected, it's deleted and a notification is shown to the user on screen and an email is sent with details.
 * Tested in Linux only
+* Background Job to scan all files
 
 ##In progress
 
@@ -24,7 +25,6 @@ The App is not complete yet...
 
 ##ToDo
 
-* Background Job to scan all files
 * File size limit
 * Configurations Tuneups
 * Other OS Testing
@@ -37,14 +37,10 @@ The App is not complete yet...
 
 ## Install
 
-* Download App tarball or clone repo
- * [master](https://github.com/valarauco/files_antivirus/tarball/master)
- * [v0.2](https://github.com/valarauco/files_antivirus/archive/v0.2.tar.gz)
- * `git clone git://github.com/valarauco/files_antivirus.git`
-* Unpack the tarball inside the apps directory of Owncloud
-* Activate the App
+* Install and enable the App
 * Go to Admin Panel and configure the App
 
 
-Author: 
+Authors:
 [Manuel Delgado López](https://github.com/valarauco/) :: manuel.delgado at ucr.ac.cr
+[Bart Visscher](https://github.com/bartv2/)

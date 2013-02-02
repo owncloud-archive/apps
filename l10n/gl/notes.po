@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Xosé M. Lamas <correo.xmgz@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-01-19 00:01+0100\n"
+"PO-Revision-Date: 2013-01-18 06:13+0000\n"
+"Last-Translator: Xosé M. Lamas <correo.xmgz@gmail.com>\n"
+"Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: gl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:9
+msgid "Notes"
+msgstr "Notas"
+
+#: templates/categories.php:10 templates/help.php:5
+msgid "Back to Notes"
+msgstr "Voltar a notas"
+
+#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
+msgid "Help"
+msgstr "Axuda"
+
+#: templates/categories.php:99
+msgid "Categories"
+msgstr "Categorías"
+
+#: templates/categories.php:116 templates/notes.php:345
+#: templates/notes.php:388
+msgid "Delete"
+msgstr "Eliminar"
+
+#: templates/categories.php:117 templates/notes.php:390
+msgid "Save"
+msgstr "Gardar"
+
+#: templates/categories.php:129
+msgid "No categories available yet"
+msgstr "Sen categorías polo de agora"
+
+#: templates/categories.php:137
+msgid "New category"
+msgstr "Nova categoría"
+
+#: templates/categories.php:141
+msgid "Add"
+msgstr "Engadir"
+
+#: templates/categories.php:144
+msgid "Note"
+msgstr "Nota"
+
+#: templates/categories.php:145
+msgid ""
+"If you delete a category, all containing notes get moved to the following "
+"category"
+msgstr "Se borra unha categoría, todas as notas irán parar a seguinte categoría"
+
+#: templates/categories.php:145 templates/notes.php:61
+msgid "General"
+msgstr "Xeral"
+
+#: templates/notes.php:81
+msgid "Add Note"
+msgstr "Engadir unha nota"
+
+#: templates/notes.php:87
+msgid "Edit Categories"
+msgstr "Editar categorías"
+
+#: templates/notes.php:291
+msgid "No note available in this category"
+msgstr "Sen notas nesta categoría"
+
+#: templates/notes.php:335
+msgid "Edit"
+msgstr "Editar"
+
+#: templates/notes.php:363
+msgid "Category"
+msgstr "Categoría"
+
+#: templates/notes.php:381
+msgid "Title"
+msgstr "Título"
+
+#: templates/notes.php:382
+msgid "Content"
+msgstr "Contido"
+
+#: templates/notes.php:413
+msgid "Restore content"
+msgstr "Restablecer contido"
+
+#: templates/notes.php:421
+msgid "Restore"
+msgstr "Restablecer"
+
+#: templates/notes.php:455
+msgid "The title can not be empty"
+msgstr "O título non pode quedar baldeiro"
+
+#: templates/notes.php:462
+msgid "Invalid title"
+msgstr "Título non válido"
+
+#: templates/notes.php:462
+msgid "The following characters are not allowed"
+msgstr "Os seguintes caracteres non están permitidos"

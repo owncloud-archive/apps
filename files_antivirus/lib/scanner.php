@@ -39,7 +39,14 @@ class OC_Files_Antivirus_BackgroundScanner {
 				\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is not checked', \OCP\Util::ERROR);
 				break;
 			case CLAMAV_SCANRESULT_INFECTED:
-				\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected', \OCP\Util::ERROR);
+				$infected_action = \OCP\Config::getAppValue('files_antivirus', 'infected_action', 'only_log');
+				if ($infected_action == 'delete') {
+					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected, file deleted', \OCP\Util::ERROR);
+					unlink($file);
+				}
+				else {
+					\OCP\Util::writeLog('files_antivirus', 'File "'.$path.'" from user "'.$user.'": is infected', \OCP\Util::ERROR);
+				}
 				break;
 			case CLAMAV_SCANRESULT_CLEAN:
 				//echo 'File "'.$path.'" from user "'.$user.'": is clean.'.$id."\n";

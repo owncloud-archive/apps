@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# André Koot <meneer@tken.net>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-01-19 00:01+0100\n"
+"PO-Revision-Date: 2013-01-18 09:06+0000\n"
+"Last-Translator: André Koot <meneer@tken.net>\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:9
+msgid "Notes"
+msgstr "Notities"
+
+#: templates/categories.php:10 templates/help.php:5
+msgid "Back to Notes"
+msgstr "Terug naar notities"
+
+#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
+msgid "Help"
+msgstr "Help"
+
+#: templates/categories.php:99
+msgid "Categories"
+msgstr "Categorieën"
+
+#: templates/categories.php:116 templates/notes.php:345
+#: templates/notes.php:388
+msgid "Delete"
+msgstr "Verwijder"
+
+#: templates/categories.php:117 templates/notes.php:390
+msgid "Save"
+msgstr "Bewaar"
+
+#: templates/categories.php:129
+msgid "No categories available yet"
+msgstr "Nog geen categorieën beschikbaar"
+
+#: templates/categories.php:137
+msgid "New category"
+msgstr "Nieuwe categorie"
+
+#: templates/categories.php:141
+msgid "Add"
+msgstr "Toevoegen"
+
+#: templates/categories.php:144
+msgid "Note"
+msgstr "Notitie"
+
+#: templates/categories.php:145
+msgid ""
+"If you delete a category, all containing notes get moved to the following "
+"category"
+msgstr "Als u een categorie verwijderd, worden alle notities daarbinnen verplaatst naar de volgende categorie"
+
+#: templates/categories.php:145 templates/notes.php:61
+msgid "General"
+msgstr "Algemeen"
+
+#: templates/notes.php:81
+msgid "Add Note"
+msgstr "Toevoegen notitie "
+
+#: templates/notes.php:87
+msgid "Edit Categories"
+msgstr "Bewerken categorieën"
+
+#: templates/notes.php:291
+msgid "No note available in this category"
+msgstr "Geen notities binnen deze categorie"
+
+#: templates/notes.php:335
+msgid "Edit"
+msgstr "Bewerk"
+
+#: templates/notes.php:363
+msgid "Category"
+msgstr "Categorie"
+
+#: templates/notes.php:381
+msgid "Title"
+msgstr "Titel"
+
+#: templates/notes.php:382
+msgid "Content"
+msgstr "Inhoud"
+
+#: templates/notes.php:413
+msgid "Restore content"
+msgstr "Herstel inhoud"
+
+#: templates/notes.php:421
+msgid "Restore"
+msgstr "Herstellen"
+
+#: templates/notes.php:455
+msgid "The title can not be empty"
+msgstr "De titel kan niet leeg zijn"
+
+#: templates/notes.php:462
+msgid "Invalid title"
+msgstr "Ongeldige titel"
+
+#: templates/notes.php:462
+msgid "The following characters are not allowed"
+msgstr "De volgende tekens zijn niet toegestaan"

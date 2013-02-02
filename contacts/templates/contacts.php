@@ -1,10 +1,4 @@
 <div id='notification'></div>
-<script type='text/javascript'>
-	var is_indexed = <?php echo $_['is_indexed'] == 'yes' ? 'true' : 'false'; ?>;
-	var totalurl = '<?php echo OCP\Util::linkToRemote('carddav'); ?>addressbooks';
-	var id = '<?php echo $_['id']; ?>';
-	var lang = '<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>';
-</script>
 <form class="float" id="file_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php'); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
 	<input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'] ?>">
 	<input type="hidden" name="id" value="<?php echo $_['id'] ?>">
@@ -264,6 +258,7 @@
 		<select class="add action text button" id="addproperty">
 			<option value=""><?php echo $l->t('Add'); ?></option>
 			<option value="ORG"><?php echo $l->t('Organization'); ?></option>
+			<option value="TITLE"><?php echo $l->t('Title'); ?></option>
 			<option value="NICKNAME"><?php echo $l->t('Nickname'); ?></option>
 			<option value="BDAY"><?php echo $l->t('Birthday'); ?></option>
 			<option value="TEL"><?php echo $l->t('Phone'); ?></option>
@@ -272,7 +267,6 @@
 			<option value="ADR"><?php echo $l->t('Address'); ?></option>
 			<option value="NOTE"><?php echo $l->t('Note'); ?></option>
 			<option value="URL"><?php echo $l->t('Web site'); ?></option>
-			<option value="CATEGORIES"><?php echo $l->t('Groups'); ?></option>
 		</select>
 		<button class="delete action text float right tooltipped downwards" title="<?php echo $l->t('Delete contact'); ?>"><?php echo $l->t('Delete'); ?></button>
 	</footer>
@@ -326,7 +320,7 @@
 		</li>
 	</div>
 	<div class="adr">
-		<li data-element="adr" data-checksum="{checksum}" class="propertycontainer">
+		<li data-element="adr" data-checksum="{checksum}" data-lang="<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>" class="propertycontainer">
 			<span class="float display">
 				<label class="meta parameters"></label>
 				<span class="adr">{value}</span>

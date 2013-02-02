@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-01-19 00:01+0100\n"
+"PO-Revision-Date: 2013-01-18 06:45+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fi_FI\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:9
+msgid "Notes"
+msgstr "Muistiot"
+
+#: templates/categories.php:10 templates/help.php:5
+msgid "Back to Notes"
+msgstr "Takaisin muistioihin"
+
+#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
+msgid "Help"
+msgstr "Ohje"
+
+#: templates/categories.php:99
+msgid "Categories"
+msgstr "Luokat"
+
+#: templates/categories.php:116 templates/notes.php:345
+#: templates/notes.php:388
+msgid "Delete"
+msgstr "Poista"
+
+#: templates/categories.php:117 templates/notes.php:390
+msgid "Save"
+msgstr "Tallenna"
+
+#: templates/categories.php:129
+msgid "No categories available yet"
+msgstr "Luokkia ei ole vielä käytettävissä"
+
+#: templates/categories.php:137
+msgid "New category"
+msgstr "Uusi luokka"
+
+#: templates/categories.php:141
+msgid "Add"
+msgstr "Lisää"
+
+#: templates/categories.php:144
+msgid "Note"
+msgstr "Muistio"
+
+#: templates/categories.php:145
+msgid ""
+"If you delete a category, all containing notes get moved to the following "
+"category"
+msgstr "Jos poistat luokan, kaikki siihen kuuluvat muistiot siirtyvät seuraavaan luokkaan"
+
+#: templates/categories.php:145 templates/notes.php:61
+msgid "General"
+msgstr "Yleiset"
+
+#: templates/notes.php:81
+msgid "Add Note"
+msgstr "Lisää muistio"
+
+#: templates/notes.php:87
+msgid "Edit Categories"
+msgstr "Muokkaa luokkia"
+
+#: templates/notes.php:291
+msgid "No note available in this category"
+msgstr "Tässä luokassa ei ole muistioita"
+
+#: templates/notes.php:335
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: templates/notes.php:363
+msgid "Category"
+msgstr "Luokka"
+
+#: templates/notes.php:381
+msgid "Title"
+msgstr "Otsikko"
+
+#: templates/notes.php:382
+msgid "Content"
+msgstr "Sisältö"
+
+#: templates/notes.php:413
+msgid "Restore content"
+msgstr "Palauta sisältö"
+
+#: templates/notes.php:421
+msgid "Restore"
+msgstr "Palauta"
+
+#: templates/notes.php:455
+msgid "The title can not be empty"
+msgstr "Otsikko ei voi olla tyhjä"
+
+#: templates/notes.php:462
+msgid "Invalid title"
+msgstr "Virheellinen otsikko"
+
+#: templates/notes.php:462
+msgid "The following characters are not allowed"
+msgstr "Seuraavat merkit eivät ole sallittuja"

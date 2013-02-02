@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-10 00:01+0100\n"
+"POT-Creation-Date: 2013-01-18 00:01+0100\n"
 "PO-Revision-Date: 2012-07-27 22:17+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Bookmarks"
 msgstr "Предпочитани"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:231
 msgid "Tags"
 msgstr ""
 
@@ -38,11 +38,11 @@ msgstr ""
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:362
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:363
 msgid "Warning"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgstr "Изтриване"
 
 #: templates/js_tpl.php:19 templates/js_tpl.php:57
 msgid "Edit"
-msgstr ""
+msgstr "Промяна"
 
 #: templates/js_tpl.php:46
 msgid "Cancel"

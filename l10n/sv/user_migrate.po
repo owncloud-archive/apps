@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# André <lokal_profil@hotmail.com>, 2013.
 # Magnus Höglund <magnus@linux.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-24 00:03+0100\n"
-"PO-Revision-Date: 2012-12-23 13:56+0000\n"
-"Last-Translator: Magnus Höglund <magnus@linux.com>\n"
+"POT-Creation-Date: 2013-01-30 00:19+0100\n"
+"PO-Revision-Date: 2013-01-29 09:01+0000\n"
+"Last-Translator: Lokal_Profil <lokal_profil@hotmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,4 +37,4 @@ msgstr "Migrering av användarkonton"
 
 #: templates/settings.php:3
 msgid "Export and import ownCloud user accounts."
-msgstr "Export och import ownCloud användarkonton."
+msgstr "Exportera och importera ownCloud-användarkonton."

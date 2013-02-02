@@ -81,7 +81,7 @@ var openContact = function(id) {
 	if(typeof OC.Contacts !== 'undefined') {
 		OC.Contacts.openContact(id);
 	} else {
-		window.location.href = OC.linkTo('contacts', 'index.php') + '?id=' + id;
+		window.location.href = OC.linkTo('contacts', 'index.php') + '#' + id;
 	}
 };
 

@@ -9,8 +9,9 @@
 
 
 if(!OCP\User::isLoggedIn()) {
-	die('<script type="text/javascript">document.location = oc_webroot;</script>');
+	OCP\User::checkLoggedIn();
 }
+
 OCP\JSON::checkAppEnabled('calendar');
 
 $id = $_POST['id'];
@@ -200,7 +201,7 @@ if($data['repeating'] == 1) {
 }
 $calendar_options = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
 $category_options = OC_Calendar_App::getCategoryOptions();
-+$access_class_options = OC_Calendar_App::getAccessClassOptions();
+$access_class_options = OC_Calendar_App::getAccessClassOptions();
 $repeat_options = OC_Calendar_App::getRepeatOptions();
 $repeat_end_options = OC_Calendar_App::getEndOptions();
 $repeat_month_options = OC_Calendar_App::getMonthOptions();

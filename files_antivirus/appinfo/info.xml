@@ -4,7 +4,7 @@
 	<name>Antivirus App for files</name>
 	<description>Verify files for virus using ClamAV</description>
 	<licence>AGPL</licence>
-	<author>Manuel Delgado</author>
+	<author>Manuel Delgado, Bart Visscher</author>
 	<require>4</require>
 	<shipped>false</shipped>
 	<types>

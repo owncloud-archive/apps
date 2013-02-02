@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
-class Test_User_SMB extends UnitTestCase{
+class Test_User_SMB extends PHPUnit_Framework_TestCase{
 	/**
 	 * @var OC_User_IMAP $instance
 	 */
@@ -28,7 +28,7 @@ class Test_User_SMB extends UnitTestCase{
 
 	function testLogin() {
 		$config=$this->getConfig();
-		$this->assertEqual($config['smb']['user'],$this->instance->checkPassword($config['smb']['user'],$config['smb']['password']));
+		$this->assertEquals($config['smb']['user'],$this->instance->checkPassword($config['smb']['user'],$config['smb']['password']));
 		$this->assertFalse($this->instance->checkPassword($config['smb']['user'],$config['smb']['password'].'foo'));
 	}
 }
