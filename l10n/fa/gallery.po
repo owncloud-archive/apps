@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Hossein nag <h.sname@yahoo.com>, 2012.
+# mahdi Kereshteh <miki_mika1362@yahoo.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-30 23:41+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-03 00:01+0100\n"
+"PO-Revision-Date: 2013-02-02 14:04+0000\n"
+"Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,18 +25,18 @@ msgstr "تصاویر"
 
 #: js/gallery.js:235
 msgid "Shared by"
-msgstr ""
+msgstr "اشتراک گذاشته شده به وسیله"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
-msgstr "اشتراک‌گزاری"
+msgstr "اشتراک‌گذاری"
 
 #: templates/index.php:7
 msgid "Slideshow"
-msgstr ""
+msgstr "نمایش خودکار"
 
 #: templates/no-image-app.php:9
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr ""
+msgstr "برای استفاده از این برنامه ، نیاز است برنامه Image Viewer هم فعال باشد."

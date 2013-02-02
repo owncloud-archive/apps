@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <theranchcowboy@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-20 02:05+0200\n"
-"PO-Revision-Date: 2012-09-20 00:07+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-03 00:01+0100\n"
+"PO-Revision-Date: 2013-02-02 22:00+0000\n"
+"Last-Translator: Rancher <theranchcowboy@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,56 +22,56 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr ""
+msgstr "Многим програмима је потребан модул php-json за унутрашњу комуникацију."
 
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr ""
+msgstr "За прибављање наслова странице при додавању обележивача потребан је модул php-curl."
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr ""
+msgstr "За прављење умањених приказа слика потребан је модул php-gd."
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr ""
+msgstr "За повезивање са ldap сервером потребан је модул php-ldap."
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr ""
+msgstr "За преузимање више датотека истовремено потребан је модул php-zip."
 
 #: settings.php:63
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
-msgstr ""
+msgstr "За исправно приказивање кодирања потребан је модул php-mb_multibyte."
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr ""
+msgstr "За проверу ваљаности података потребан је модул php-ctype."
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr ""
+msgstr "За дељење датотека са webdav-ом потребан је модул php-xml."
 
 #: settings.php:81
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr ""
+msgstr "Директива allow_url_fopen из датотеке php.ini требало би да буде постављена на 1 како би се прибављала база знања са OCS сервера."
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr ""
+msgstr "За смештање података ownCloud-а у базу потребан је модул php-pdo."
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "За претварање података у исправно кодирање потребан је модул iconv."
 
 #: templates/settings.php:2
 msgid "Dependencies status"
-msgstr ""
+msgstr "Статус зависности"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr ""
+msgstr "Користи:"

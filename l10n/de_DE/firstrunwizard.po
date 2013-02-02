@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Lukas Reschke <lukas@statuscode.ch>, 2013.
 # Phillip Schichtel <quick_wango@code-infection.de>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-01 00:16+0100\n"
-"PO-Revision-Date: 2013-01-31 19:30+0000\n"
-"Last-Translator: quick_wango <quick_wango@code-infection.de>\n"
+"POT-Creation-Date: 2013-02-03 00:01+0100\n"
+"PO-Revision-Date: 2013-02-02 00:10+0000\n"
+"Last-Translator: Lukas Reschke <lukas@statuscode.ch>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,8 +21,8 @@ msgstr ""
 
 #: templates/enable.php:2
 msgid "First Run Wizard"
-msgstr "Erst-Start-Assistent"
+msgstr "Einrichtungsassistent"
 
 #: templates/enable.php:3
 msgid "Show First Run Wizard again"
-msgstr "Zeige den Erst-Start-Assistent erneut"
+msgstr "Zeige den Einrichtungsassistenten erneut"
