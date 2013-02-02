@@ -1,8 +1,5 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "Fotoen",
-"Galleries" => "Galerien",
-"Share gallery" => "Galerie deelen",
-"Error: " => "Fehler:",
-"Internal error" => "Internen Fehler",
+"Share" => "Deelen",
 "Slideshow" => "Slideshow"
 );

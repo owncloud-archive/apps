@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:48+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:42+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -99,7 +99,7 @@ msgstr "Gehitu harpidetza"
 
 #: templates/part.settings.php:13
 msgid "Folder under which the feed is being saved"
-msgstr ""
+msgstr "Iturburua gordeko den karpeta"
 
 #: templates/part.settings.php:17
 msgid "-- choose folder --"
@@ -111,11 +111,11 @@ msgstr "Helbidea ezin da hutsik egon!"
 
 #: templates/part.settings.php:21
 msgid "Feed exists already!"
-msgstr ""
+msgstr "Iturburua dagoeneko existitzen da!"
 
 #: templates/part.settings.php:22
 msgid "Could not add feed!"
-msgstr ""
+msgstr "Ezin izan da iturburua gehitu!"
 
 #: templates/part.settings.php:26
 msgid "Address"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-19 00:01+0100\n"
-"PO-Revision-Date: 2013-01-18 08:32+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 16:21+0000\n"
 "Last-Translator: rogerc <rcalvoi@yahoo.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,18 @@ msgstr ""
 #: appinfo/app.php:9
 msgid "Notes"
 msgstr "Anotacions"
+
+#: js/notes.js:8
+msgid "The title can not be empty"
+msgstr "El títol no pot ser buit"
+
+#: js/notes.js:15
+msgid "Invalid title"
+msgstr "Títol no vàlid"
+
+#: js/notes.js:15
+msgid "The following characters are not allowed"
+msgstr "Els caràcters següents no són permesos"
 
 #: templates/categories.php:10 templates/help.php:5
 msgid "Back to Notes"
@@ -34,12 +46,12 @@ msgstr "Ajuda"
 msgid "Categories"
 msgstr "Categories"
 
-#: templates/categories.php:116 templates/notes.php:345
-#: templates/notes.php:388
+#: templates/categories.php:116 templates/notes.php:347
+#: templates/notes.php:391
 msgid "Delete"
 msgstr "Esborra"
 
-#: templates/categories.php:117 templates/notes.php:390
+#: templates/categories.php:117 templates/notes.php:393
 msgid "Save"
 msgstr "Desa"
 
@@ -77,42 +89,30 @@ msgstr "Afegeix anotació"
 msgid "Edit Categories"
 msgstr "Edita categories"
 
-#: templates/notes.php:291
+#: templates/notes.php:293
 msgid "No note available in this category"
 msgstr "No hia ha anotacions disponibles en aquesta categoria"
 
-#: templates/notes.php:335
+#: templates/notes.php:337
 msgid "Edit"
 msgstr "Edita"
 
-#: templates/notes.php:363
+#: templates/notes.php:366
 msgid "Category"
 msgstr "Categoria"
 
-#: templates/notes.php:381
+#: templates/notes.php:384
 msgid "Title"
 msgstr "Títol"
 
-#: templates/notes.php:382
+#: templates/notes.php:385
 msgid "Content"
 msgstr "Contingut"
 
-#: templates/notes.php:413
+#: templates/notes.php:418
 msgid "Restore content"
 msgstr "Recupera el contingut"
 
-#: templates/notes.php:421
+#: templates/notes.php:426
 msgid "Restore"
 msgstr "Recupera"
-
-#: templates/notes.php:455
-msgid "The title can not be empty"
-msgstr "El títol no pot ser buit"
-
-#: templates/notes.php:462
-msgid "Invalid title"
-msgstr "Títol no vàlid"
-
-#: templates/notes.php:462
-msgid "The following characters are not allowed"
-msgstr "Els caràcters següents no són permesos"

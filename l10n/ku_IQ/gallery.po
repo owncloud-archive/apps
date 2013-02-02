@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-08 02:03+0200\n"
-"PO-Revision-Date: 2012-10-07 00:37+0000\n"
-"Last-Translator: Hozha Koyi <hozhan@gmail.com>\n"
+"POT-Creation-Date: 2013-01-31 00:24+0100\n"
+"PO-Revision-Date: 2013-01-30 23:24+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,27 +18,19 @@ msgstr ""
 "Language: ku_IQ\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "وێنه‌کان"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "پیشانگاکان"
+#: js/gallery.js:235
+msgid "Shared by"
+msgstr ""
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "دابه‌شکردنی پیشانگا"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr ""
 
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "هه‌ڵه:"
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "هه‌ڵه‌کی ناوه‌کی"
-
-#: templates/index.php:27
+#: templates/index.php:7
 msgid "Slideshow"
 msgstr "پیشاندانی لووس"
 

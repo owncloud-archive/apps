@@ -126,17 +126,20 @@ task 'watch', 'Watch and rebuild on changes', ->
 
 task 'build', 'Build and compress CoffeeScript into single JavaScript file', ->
 	files = getOrderedCoffeeFiles(sourceDirectory)
-	content = []
+	content = new Array(files.length)
 	remaining = files.length
+	counter = -1
 
 	# read out content of files and compile them afterwards
 	for file in files then do (file) ->
-		fs.readFile file, 'utf8', (error, fileContent) ->
-			if error
-				throw error
+		counter += 1
+		do (counter) ->
+			fs.readFile file, 'utf8', (error, fileContent) ->
+				if error
+					throw error
 
-			content.push([file, fileContent])
+				content[counter] = [file, fileContent]
 
-			remaining -= 1
-			if remaining <= 0
-				compile(content, compileToFile)
+				remaining -= 1
+				if remaining <= 0
+					compile(content, compileToFile)

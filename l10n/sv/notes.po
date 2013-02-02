@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-23 00:02+0100\n"
-"PO-Revision-Date: 2013-01-21 15:16+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 16:21+0000\n"
 "Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,18 @@ msgstr ""
 #: appinfo/app.php:9
 msgid "Notes"
 msgstr "Anteckningar"
+
+#: js/notes.js:8
+msgid "The title can not be empty"
+msgstr "Titel kan inte vara tom"
+
+#: js/notes.js:15
+msgid "Invalid title"
+msgstr "Felaktig titel"
+
+#: js/notes.js:15
+msgid "The following characters are not allowed"
+msgstr "Följande tecken är inte tillåtna"
 
 #: templates/categories.php:10 templates/help.php:5
 msgid "Back to Notes"
@@ -34,12 +46,12 @@ msgstr "Hjälp"
 msgid "Categories"
 msgstr "Kategorier"
 
-#: templates/categories.php:116 templates/notes.php:345
-#: templates/notes.php:388
+#: templates/categories.php:116 templates/notes.php:347
+#: templates/notes.php:391
 msgid "Delete"
 msgstr "Radera"
 
-#: templates/categories.php:117 templates/notes.php:390
+#: templates/categories.php:117 templates/notes.php:393
 msgid "Save"
 msgstr "Spara"
 
@@ -77,42 +89,30 @@ msgstr "Lägg till anteckning"
 msgid "Edit Categories"
 msgstr "Redigera kategorier"
 
-#: templates/notes.php:291
+#: templates/notes.php:293
 msgid "No note available in this category"
 msgstr "Ingen anteckning tillgänglig i denna kategori"
 
-#: templates/notes.php:335
+#: templates/notes.php:337
 msgid "Edit"
 msgstr "Redigera"
 
-#: templates/notes.php:363
+#: templates/notes.php:366
 msgid "Category"
 msgstr "Kategori"
 
-#: templates/notes.php:381
+#: templates/notes.php:384
 msgid "Title"
 msgstr "Titel"
 
-#: templates/notes.php:382
+#: templates/notes.php:385
 msgid "Content"
 msgstr "Innehåll"
 
-#: templates/notes.php:413
+#: templates/notes.php:418
 msgid "Restore content"
 msgstr "Återskapa innehåll"
 
-#: templates/notes.php:421
+#: templates/notes.php:426
 msgid "Restore"
 msgstr "Återskapa"
-
-#: templates/notes.php:455
-msgid "The title can not be empty"
-msgstr "Titel kan inte vara tom"
-
-#: templates/notes.php:462
-msgid "Invalid title"
-msgstr "Felaktig titel"
-
-#: templates/notes.php:462
-msgid "The following characters are not allowed"
-msgstr "Följande tecken är inte tillåtna"

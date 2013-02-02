@@ -28,17 +28,17 @@ OC::$CLASSPATH['OC_OpenIdProviderUserSession'] = 'user_openid_provider/lib/OpenI
 OC::$CLASSPATH['OC_OpenIdProviderStorage'] = 'user_openid_provider/lib/OpenIdProviderStorage.php';
 
 $userName='';
-if(strpos($_SERVER["REQUEST_URI"],'?') and !strpos($_SERVER["REQUEST_URI"],'=')){
-	if(strpos($_SERVER["REQUEST_URI"],'/?') !== false){
-		$userName=substr($_SERVER["REQUEST_URI"],strpos($_SERVER["REQUEST_URI"],'/?')+2);
-	}elseif(strpos($_SERVER["REQUEST_URI"],'.php?') !== false){
-		$userName=substr($_SERVER["REQUEST_URI"],strpos($_SERVER["REQUEST_URI"],'.php?')+5);
+if(strpos(OCP\Util::getRequestUri(),'?') and !strpos(OCP\Util::getRequestUri(),'=')){
+	if(strpos(OCP\Util::getRequestUri(),'/?') !== false){
+		$userName=substr(OCP\Util::getRequestUri(),strpos(OCP\Util::getRequestUri(),'/?')+2);
+	}elseif(strpos(OCP\Util::getRequestUri(),'.php?') !== false){
+		$userName=substr(OCP\Util::getRequestUri(),strpos(OCP\Util::getRequestUri(),'.php?')+5);
 	}
 }
 $remote_token = 'openid_provider';
-if (($pos = strpos($_SERVER["REQUEST_URI"],$remote_token)) !== false) {
+if (($pos = strpos(OCP\Util::getRequestUri(),$remote_token)) !== false) {
 	$pos += strlen($remote_token)+1;
-	$userName = substr($_SERVER['REQUEST_URI'],$pos);
+	$userName = substr(OCP\Util::getRequestUri(),$pos);
 }
 //die('username: ' . $userName);
 if ($userName != '') {

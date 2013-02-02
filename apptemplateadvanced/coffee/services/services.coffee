@@ -11,18 +11,20 @@
 
 angular.module('AppTemplateAdvanced').factory 'AppTemplateAdvancedRequest',
 ['$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher',
-'ItemModel',
-($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher,
-ItemModel) ->
-
-	Publisher.subscribeModelTo(ItemModel, 'items')
+($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher) ->
 	return new _AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher)
 ]
 
 angular.module('AppTemplateAdvanced').factory 'ItemModel',
-['_ItemModel', 'Publisher',
-(_ItemModel, Publisher) ->
+['_ItemModel',
+(_ItemModel) ->
+	return new _ItemModel()
+]
 
-	model = new _ItemModel()
-	return model
+angular.module('AppTemplateAdvanced').factory 'Publisher',
+['_Publisher', 'ItemModel',
+(_Publisher, ItemModel) ->
+	publisher = new _Publisher()
+	publisher.subscribeModelTo(ItemModel, 'items')
+	return publisher
 ]

@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2012-08-26 23:39+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Afrikaans (South Africa) (http://www.transifex.com/projects/p/owncloud/language/af_ZA/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: af_ZA\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: 3rdparty/js/moment.min.js:6
+msgid "year"
+msgstr ""
+
+#: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
+msgid "News"
+msgstr ""
+
+#: db/feedmapper.php:172 db/itemmapper.php:262
+msgid "no title"
+msgstr ""
+
+#: db/foldermapper.php:127
+msgid "no name"
+msgstr ""
+
+#: db/itemmapper.php:267
+msgid "no body"
+msgstr ""
+
+#: opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr ""
+
+#: subscribe.php:30
+msgid "An error occurred"
+msgstr ""
+
+#: subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr ""
+
+#: subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr ""
+
+#: templates/main.php:15
+msgid "New articles"
+msgstr ""
+
+#: templates/main.php:23 templates/part.listfeed.php:22
+#: templates/part.listfolder.php:32
+msgid "Mark all read"
+msgstr ""
+
+#: templates/main.php:35
+msgid "Starred"
+msgstr ""
+
+#: templates/part.items.php:46 templates/part.items.php:49
+msgid "Share"
+msgstr ""
+
+#: templates/part.items.php:53
+msgid "Keep unread"
+msgstr ""
+
+#: templates/part.listfeed.php:19
+msgid "Delete feed"
+msgstr ""
+
+#: templates/part.listfolder.php:13
+msgid "Collapse"
+msgstr ""
+
+#: templates/part.listfolder.php:26
+msgid "Delete folder"
+msgstr ""
+
+#: templates/part.listfolder.php:29
+msgid "Rename folder"
+msgstr ""
+
+#: templates/part.settings.php:10
+msgid "Add Subscription"
+msgstr ""
+
+#: templates/part.settings.php:13
+msgid "Folder under which the feed is being saved"
+msgstr ""
+
+#: templates/part.settings.php:17
+msgid "-- choose folder --"
+msgstr ""
+
+#: templates/part.settings.php:20
+msgid "Address must not be empty!"
+msgstr ""
+
+#: templates/part.settings.php:21
+msgid "Feed exists already!"
+msgstr ""
+
+#: templates/part.settings.php:22
+msgid "Could not add feed!"
+msgstr ""
+
+#: templates/part.settings.php:26
+msgid "Address"
+msgstr ""
+
+#: templates/part.settings.php:28 templates/part.settings.php:30
+#: templates/part.settings.php:46 templates/part.settings.php:48
+msgid "Add"
+msgstr ""
+
+#: templates/part.settings.php:34
+msgid "Add Folder"
+msgstr ""
+
+#: templates/part.settings.php:37
+msgid "Folder name must not be empty!"
+msgstr ""
+
+#: templates/part.settings.php:38
+msgid "Folder exists already!"
+msgstr ""
+
+#: templates/part.settings.php:45
+msgid "Folder Name"
+msgstr ""
+
+#: templates/part.settings.php:60
+msgid "Show everything"
+msgstr ""
+
+#: templates/part.settings.php:66
+msgid "Show only unread"
+msgstr ""
+
+#: templates/part.settings.php:72 templates/part.settings.php:76
+msgid "Settings"
+msgstr ""
+
+#: templates/part.settings.php:80
+msgid "Add feed or folder"
+msgstr ""
+
+#: templates/part.settings.php:85
+msgid "Add Feed/Folder"
+msgstr ""
+
+#: templates/part.settings.php:91
+msgid "Import / Export"
+msgstr ""
+
+#: templates/part.settings.php:93 templates/part.settings.php:95
+msgid "Import OPML"
+msgstr ""
+
+#: templates/part.settings.php:99
+msgid "Export OPML"
+msgstr ""
+
+#: templates/part.settings.php:102
+msgid "Subscribelet"
+msgstr ""
+
+#: templates/part.subscribelet.php:3
+msgid ""
+"Drag this to your browser bookmarks and click on it whenever you want to "
+"subscribe to a webpage quickly:"
+msgstr ""
+
+#: templates/part.subscribelet.php:17
+msgid "Subscribe"
+msgstr ""

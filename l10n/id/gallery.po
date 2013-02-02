@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:03+0200\n"
-"PO-Revision-Date: 2012-10-20 23:02+0000\n"
-"Last-Translator: elmakong <mr.pige_ina@yahoo.co.id>\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:41+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,27 +20,19 @@ msgstr ""
 "Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Gambar"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "galeri galeri"
+#: js/gallery.js:235
+msgid "Shared by"
+msgstr ""
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Bagikan galeri"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "berbagi"
 
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "kesalahan:"
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "kesalahan internal"
-
-#: templates/index.php:27
+#: templates/index.php:7
 msgid "Slideshow"
 msgstr "Tampilan bergeser"
 

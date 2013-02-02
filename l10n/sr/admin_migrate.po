@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Ivan Petrović <ivan@ipplusstudio.com>, 2013.
+#  <theranchcowboy@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-24 00:02+0100\n"
-"PO-Revision-Date: 2013-01-23 08:29+0000\n"
-"Last-Translator: Ivan Petrović <ivan@ipplusstudio.com>\n"
+"POT-Creation-Date: 2013-02-02 00:03+0100\n"
+"PO-Revision-Date: 2013-02-01 15:10+0000\n"
+"Last-Translator: Rancher <theranchcowboy@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,29 +21,29 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "Export this ownCloud instance"
-msgstr "Извези ову ownCloud инстанцу"
+msgstr "Извези овај примерак ownCloud-а"
 
 #: templates/settings.php:5
 msgid ""
 "This will create a compressed file that contains the data of this owncloud "
 "instance."
-msgstr "Овим ћете направити компресовану датотеку са подацима ове инстанце ownCloud-а."
+msgstr "Овим ћете компримовати податке овог примерка ownCloud-а."
 
 #: templates/settings.php:7
 msgid "Please choose the export type:"
-msgstr "Одабери врсту извоза:"
+msgstr "Изаберите врсту извоза:"
 
 #: templates/settings.php:10
 msgid "ownCloud instance (user data and database"
-msgstr "ownCloud инстанца (кориснички подаци и база"
+msgstr "Примерак ownCloud-а (кориснички подаци и база"
 
 #: templates/settings.php:11
 msgid "ownCloud system files"
-msgstr "ownCloud системске датотеке"
+msgstr "Системске датотеке ownCloud-а"
 
 #: templates/settings.php:12
 msgid "Just user files"
-msgstr "само корисничке датотеке"
+msgstr "Само корисничке датотеке"
 
 #: templates/settings.php:13
 msgid "Export"

@@ -42,7 +42,14 @@ class OC_Calendar_App{
 
 		$calendar = OC_Calendar_Calendar::find($id);
 		// FIXME: Correct arguments to just check for permissions
-		if($security === true || $shared === true) {
+		if($security === true && $shared === false) {
+			if(OCP\User::getUser() === $calendar['userid']){
+				return $calendar;
+			}else{
+				return false;
+			}
+		}
+		if($security === true && $shared === true) {
 			if(OCP\Share::getItemSharedWithBySource('calendar', $id)) {
 				return $calendar;
 			}

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:40+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 13:40+0000\n"
 "Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -91,7 +91,7 @@ msgstr "Редактировать категории"
 
 #: templates/notes.php:293
 msgid "No note available in this category"
-msgstr ""
+msgstr "Нет доступных заметок в этой категории"
 
 #: templates/notes.php:337
 msgid "Edit"

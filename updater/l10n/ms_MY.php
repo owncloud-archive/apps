@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Error" => "Ralat"
+"Error" => "Ralat",
+"Update" => "Kemaskini"
 );

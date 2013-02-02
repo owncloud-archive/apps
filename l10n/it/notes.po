@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-19 00:01+0100\n"
-"PO-Revision-Date: 2013-01-18 11:18+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 16:21+0000\n"
 "Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,18 @@ msgstr ""
 #: appinfo/app.php:9
 msgid "Notes"
 msgstr "Note"
+
+#: js/notes.js:8
+msgid "The title can not be empty"
+msgstr "Il titolo non può essere vuoto"
+
+#: js/notes.js:15
+msgid "Invalid title"
+msgstr "Titolo non valido"
+
+#: js/notes.js:15
+msgid "The following characters are not allowed"
+msgstr "I seguenti caratteri non sono consentiti"
 
 #: templates/categories.php:10 templates/help.php:5
 msgid "Back to Notes"
@@ -35,12 +47,12 @@ msgstr "Aiuto"
 msgid "Categories"
 msgstr "Categorie"
 
-#: templates/categories.php:116 templates/notes.php:345
-#: templates/notes.php:388
+#: templates/categories.php:116 templates/notes.php:347
+#: templates/notes.php:391
 msgid "Delete"
 msgstr "Elimina"
 
-#: templates/categories.php:117 templates/notes.php:390
+#: templates/categories.php:117 templates/notes.php:393
 msgid "Save"
 msgstr "Salva"
 
@@ -78,42 +90,30 @@ msgstr "Aggiungi nota"
 msgid "Edit Categories"
 msgstr "Modifica categorie"
 
-#: templates/notes.php:291
+#: templates/notes.php:293
 msgid "No note available in this category"
 msgstr "Nessuna nota disponibile in questa categoria"
 
-#: templates/notes.php:335
+#: templates/notes.php:337
 msgid "Edit"
 msgstr "Modifica"
 
-#: templates/notes.php:363
+#: templates/notes.php:366
 msgid "Category"
 msgstr "Categoria"
 
-#: templates/notes.php:381
+#: templates/notes.php:384
 msgid "Title"
 msgstr "Titolo"
 
-#: templates/notes.php:382
+#: templates/notes.php:385
 msgid "Content"
 msgstr "Contenuto"
 
-#: templates/notes.php:413
+#: templates/notes.php:418
 msgid "Restore content"
 msgstr "Ripristina contenuto"
 
-#: templates/notes.php:421
+#: templates/notes.php:426
 msgid "Restore"
 msgstr "Ripristina"
-
-#: templates/notes.php:455
-msgid "The title can not be empty"
-msgstr "Il titolo non può essere vuoto"
-
-#: templates/notes.php:462
-msgid "Invalid title"
-msgstr "Titolo non valido"
-
-#: templates/notes.php:462
-msgid "The following characters are not allowed"
-msgstr "I seguenti caratteri non sono consentiti"

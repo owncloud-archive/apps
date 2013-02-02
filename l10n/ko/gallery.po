@@ -5,13 +5,14 @@
 # Translators:
 # 남자사람  <cessnagi@gmail.com>, 2012.
 #   <limonade83@gmail.com>, 2012.
+# Park Shinjo <kde@peremen.name>, 2013.
 # Shinjo Park <kde@peremen.name>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-10 00:03+0100\n"
-"PO-Revision-Date: 2012-12-09 05:37+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 08:10+0000\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -20,27 +21,19 @@ msgstr ""
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "사진"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "갤러리"
+#: js/gallery.js:235
+msgid "Shared by"
+msgstr "공유한 사용자:"
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "갤러리 공유"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "공유"
 
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "오류:"
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "내부 오류"
-
-#: templates/index.php:27
+#: templates/index.php:7
 msgid "Slideshow"
 msgstr "슬라이드 쇼"
 

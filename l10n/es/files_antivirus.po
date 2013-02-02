@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 15:06+0000\n"
+"POT-Creation-Date: 2013-01-31 00:24+0100\n"
+"PO-Revision-Date: 2013-01-30 15:20+0000\n"
 "Last-Translator: felix.liberio <felix.liberio@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -92,15 +92,15 @@ msgstr "Ruta al ejecutable clamscan."
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "No requerido en Modo Demonio."
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "Acción para los archivos infectados encontrados durante el escaneo"
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "Solo registrar"
 
 #: templates/settings.php:12
 msgid "Delete file"

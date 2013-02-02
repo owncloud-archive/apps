@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 09:07+0000\n"
-"Last-Translator: mateju <>\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:41+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,27 +21,19 @@ msgstr ""
 "Language: sl\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Slike"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "Galerije"
+#: js/gallery.js:235
+msgid "Shared by"
+msgstr ""
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Souporaba galerije"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Souporaba"
 
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Napaka: "
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Notranja napaka"
-
-#: templates/index.php:27
+#: templates/index.php:7
 msgid "Slideshow"
 msgstr "Predstavitev"
 

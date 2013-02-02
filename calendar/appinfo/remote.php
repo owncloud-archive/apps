@@ -7,7 +7,7 @@
  */
 OCP\App::checkAppEnabled('calendar');
 
-if(substr($_SERVER["REQUEST_URI"],0,strlen(OC_App::getAppWebPath('calendar').'/caldav.php')) == OC_App::getAppWebPath('calendar'). '/caldav.php') {
+if(substr(OCP\Util::getRequestUri(),0,strlen(OC_App::getAppWebPath('calendar').'/caldav.php')) == OC_App::getAppWebPath('calendar'). '/caldav.php') {
 	$baseuri = OC_App::getAppWebPath('calendar').'/caldav.php';
 }
 
@@ -19,6 +19,7 @@ OC_App::loadApps($RUNTIME_APPTYPES);
 $authBackend = new OC_Connector_Sabre_Auth();
 $principalBackend = new OC_Connector_Sabre_Principal();
 $caldavBackend    = new OC_Connector_Sabre_CalDAV();
+$requestBackend = new OC_Connector_Sabre_Request();
 
 // Root nodes
 $Sabre_CalDAV_Principal_Collection = new Sabre_CalDAV_Principal_Collection($principalBackend);
@@ -34,6 +35,7 @@ $nodes = array(
 
 // Fire up server
 $server = new Sabre_DAV_Server($nodes);
+$server->httpRequest = $requestBackend;
 $server->setBaseUri($baseuri);
 // Add plugins
 $server->addPlugin(new Sabre_DAV_Auth_Plugin($authBackend,'ownCloud'));

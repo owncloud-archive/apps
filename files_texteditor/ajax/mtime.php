@@ -33,7 +33,7 @@ $path = isset($_GEt['path']) ? $_GET['path'] : '';
 if($path != '')
 {
 	// Find the mtime
-	$mtime = OC_Filesystem::filemtime($path);
+	$mtime = \OC\Files\Filesystem::filemtime($path);
 	if($mtime)
 	{
 		OCP\JSON::success(array('data' => array('path' => $path, 'mtime' => $mtime)));

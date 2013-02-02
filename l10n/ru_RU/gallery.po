@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <cdewqazxsqwe@gmail.com>, 2013.
 #   <cdewqazxsqwe@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-09 02:03+0200\n"
-"PO-Revision-Date: 2012-10-08 12:21+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 12:11+0000\n"
 "Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -18,27 +19,19 @@ msgstr ""
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Изображения"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "Галереи"
+#: js/gallery.js:235
+msgid "Shared by"
+msgstr "Опубликовано"
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Сделать галерею общей"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Сделать общим"
 
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Ошибка: "
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Внутренняя ошибка"
-
-#: templates/index.php:27
+#: templates/index.php:7
 msgid "Slideshow"
 msgstr "Слайдшоу"
 

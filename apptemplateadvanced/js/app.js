@@ -31,35 +31,6 @@
 */
 
 
-/*
-# This file creates instances of classes
-*/
-
-
-(function() {
-
-  angular.module('OC').factory('Publisher', [
-    '_Publisher', function(_Publisher) {
-      return new _Publisher();
-    }
-  ]);
-
-}).call(this);
-
-
-
-/*
-# ownCloud
-#
-# @author Bernhard Posselt
-# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
-#
-# This file is licensed under the Affero General Public License version 3 or later.
-# See the COPYING-README file
-#
-*/
-
-
 (function() {
 
   angular.module('AppTemplateAdvanced', ['OC']).config([
@@ -80,13 +51,69 @@
 
   angular.module('AppTemplateAdvanced').run([
     '$rootScope', function($rootScope) {
-      var init;
-      init = function() {
-        return $rootScope.$broadcast('routesLoaded');
+      var initRequest;
+      initRequest = function() {
+        $rootScope.$broadcast('routesLoaded');
+        return console.log('loading');
       };
-      return OC.Router.registerLoadedCallback(init);
+      initRequest();
+      return OC.Router.registerLoadedCallback(initRequest);
     }
   ]);
+
+}).call(this);
+
+
+
+/*
+# ownCloud
+#
+# @author Bernhard Posselt
+# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
+#
+# This file is licensed under the Affero General Public License version 3 or later.
+# See the COPYING-README file
+#
+*/
+
+
+/*
+# Used for properly distributing received model data from the server
+*/
+
+
+(function() {
+
+  angular.module('OC').factory('_Publisher', function() {
+    var Publisher;
+    Publisher = (function() {
+
+      function Publisher() {
+        this.subscriptions = {};
+      }
+
+      Publisher.prototype.subscribeModelTo = function(model, name) {
+        var _base;
+        (_base = this.subscriptions)[name] || (_base[name] = []);
+        return this.subscriptions[name].push(model);
+      };
+
+      Publisher.prototype.publishDataTo = function(data, name) {
+        var subscriber, _i, _len, _ref, _results;
+        _ref = this.subscriptions[name] || [];
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          subscriber = _ref[_i];
+          _results.push(subscriber.handle(data));
+        }
+        return _results;
+      };
+
+      return Publisher;
+
+    })();
+    return Publisher;
+  });
 
 }).call(this);
 
@@ -153,7 +180,7 @@
         postData = $.param(data);
         headers = {
           headers: {
-            'requesttoken': oc_requesttoken,
+            'requesttoken': requestToken,
             'Content-Type': 'application/x-www-form-urlencoded'
           }
         };
@@ -180,60 +207,6 @@
 
     })();
     return Request;
-  });
-
-}).call(this);
-
-
-
-/*
-# ownCloud
-#
-# @author Bernhard Posselt
-# Copyright (c) 2012 - Bernhard Posselt <nukeawhale@gmail.com>
-#
-# This file is licensed under the Affero General Public License version 3 or later.
-# See the COPYING-README file
-#
-*/
-
-
-/*
-# Used for properly distributing received model data from the server
-*/
-
-
-(function() {
-
-  angular.module('OC').factory('_Publisher', function() {
-    var Publisher;
-    Publisher = (function() {
-
-      function Publisher() {
-        this.subscriptions = {};
-      }
-
-      Publisher.prototype.subscribeModelTo = function(model, name) {
-        var _base;
-        (_base = this.subscriptions)[name] || (_base[name] = []);
-        return this.subscriptions[name].push(model);
-      };
-
-      Publisher.prototype.publishDataTo = function(data, name) {
-        var subscriber, _i, _len, _ref, _results;
-        _ref = this.subscriptions[name] || [];
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          subscriber = _ref[_i];
-          _results.push(subscriber.handle(data));
-        }
-        return _results;
-      };
-
-      return Publisher;
-
-    })();
-    return Publisher;
   });
 
 }).call(this);
@@ -447,17 +420,23 @@
 (function() {
 
   angular.module('AppTemplateAdvanced').factory('AppTemplateAdvancedRequest', [
-    '$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher', 'ItemModel', function($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher, ItemModel) {
-      Publisher.subscribeModelTo(ItemModel, 'items');
+    '$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher', function($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher) {
       return new _AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher);
     }
   ]);
 
   angular.module('AppTemplateAdvanced').factory('ItemModel', [
     '_ItemModel', 'Publisher', function(_ItemModel, Publisher) {
-      var model;
-      model = new _ItemModel();
-      return model;
+      return new _ItemModel();
+    }
+  ]);
+
+  angular.module('AppTemplateAdvanced').factory('Publisher', [
+    '_Publisher', 'ItemModel', function(_Publisher, ItemModel) {
+      var publisher;
+      publisher = new _Publisher();
+      publisher.subscribeModelTo(ItemModel, 'items');
+      return publisher;
     }
   ]);
 

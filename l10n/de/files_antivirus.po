@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# I Robot <owncloud-bot@tmit.eu>, 2013.
 # Marcel Kühlhorn <susefan93@gmx.de>, 2013.
+#  <wachhund@wachhund.to>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 12:47+0000\n"
-"Last-Translator: Marcel Kühlhorn <susefan93@gmx.de>\n"
+"POT-Creation-Date: 2013-02-02 00:03+0100\n"
+"PO-Revision-Date: 2013-02-01 00:20+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/owncloud/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +32,7 @@ msgstr "Entschuldige, es wurde Malware in einer Datei gefunden die Du hochladen 
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr "Diese E-Mail ist eine Benachrichtigung von {host}. Bitte antworte nicht."
+msgstr "Diese E-Mail ist eine Benachrichtigung von {host}. Bitte nicht antworten."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
@@ -38,7 +40,7 @@ msgstr "Datei {file} hochgeladen."
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr "Antivirus Konfiguration"
+msgstr "Antivirus-Konfiguration"
 
 #: templates/settings.php:4
 msgid "Mode"
@@ -46,11 +48,11 @@ msgstr "Modus"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr ""
+msgstr "ausführbar"
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr ""
+msgstr "Dienst"
 
 #: templates/settings.php:7
 msgid "Host"
@@ -58,11 +60,11 @@ msgstr "Host"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "Adresse des Antivirus-Servers"
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
-msgstr ""
+msgstr "Nicht benötigt im ausführbaren Modus"
 
 #: templates/settings.php:8
 msgid "Port"
@@ -70,27 +72,27 @@ msgstr "Port"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "Port des Antivirus-Servers"
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "Stream-Länge"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "ClamAV-Wert 'StreamMaxLength' in Bytes."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "Pfad zu clamscan"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "Pfad zur clamscan Datei"
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "Nicht erforderlich im Dienst Modus"
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
@@ -98,7 +100,7 @@ msgstr "Aktion für infizierte Dateien die beim Scannen gefunden werden"
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr "Nur loggen"
+msgstr "Nur protokollieren"
 
 #: templates/settings.php:12
 msgid "Delete file"

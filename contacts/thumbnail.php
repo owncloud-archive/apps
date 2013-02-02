@@ -24,7 +24,7 @@ OCP\JSON::checkLoggedIn();
 OCP\App::checkAppEnabled('contacts');
 session_write_close();
 
-//OCP\Util::writeLog('contacts', $_SERVER["REQUEST_URI"], OCP\Util::DEBUG);
+//OCP\Util::writeLog('contacts', OCP\Util::getRequestUri(), OCP\Util::DEBUG);
 
 function getStandardImage() {
 	OCP\Response::enableCaching();
