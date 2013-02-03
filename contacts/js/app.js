@@ -250,7 +250,10 @@ OC.Contacts = OC.Contacts || {
 	buildGroupSelect: function() {
 		// If a contact is open we know which categories it's in
 		if(this.currentid) {
-			var contact = this.contacts.contacts[this.currentid];
+			var contact = this.contacts.findById(this.currentid);
+			if(contact === null) {
+				return false;
+			}
 			this.$groups.find('optgroup,option:not([value="-1"])').remove();
 			var addopts = '', rmopts = '';
 			$.each(this.groups.categories, function(i, category) {
@@ -487,7 +490,11 @@ OC.Contacts = OC.Contacts || {
 
 		$(document).bind('status.group.contactadded', function(e, result) {
 			console.log('status.group.contactadded', result);
-			self.contacts.contacts[parseInt(result.contactid)].addToGroup(result.groupname);
+			var contact = self.contacts.findById(self.currentid);
+			if(contact === null) {
+				return false;
+			}
+			contact.addToGroup(result.groupname);
 		});
 
 		// Group sorted, save the sort order
@@ -643,7 +650,11 @@ OC.Contacts = OC.Contacts || {
 									// Delay each contact to not trigger too many ajax calls
 									// at a time.
 									setTimeout(function() {
-										self.contacts.contacts[id].addToGroup(groupName);
+										var contact = self.contacts.findById(id);
+										if(contact === null) {
+											return true;
+										}
+										contact.addToGroup(groupName);
 										// I don't think this is used...
 										if(buildnow) {
 											self.buildGroupSelect();
@@ -679,7 +690,11 @@ OC.Contacts = OC.Contacts || {
 							// at a time.
 							setTimeout(function() {
 								console.log('adding', id, 'to', groupName);
-								self.contacts.contacts[id].addToGroup(groupName);
+								var contact = self.contacts.findById(id);
+								if(contact === null) {
+									return true;
+								}
+								contact.addToGroup(groupName);
 								// I don't think this is used...
 								if(buildnow) {
 									self.buildGroupSelect();
@@ -705,7 +720,11 @@ OC.Contacts = OC.Contacts || {
 					if(result.status === 'success') {
 						var groupname = $opt.text(), groupid = $opt.val();
 						$.each(result.ids, function(idx, id) {
-							self.contacts.contacts[id].removeFromGroup(groupname);
+							var contact = self.contacts.findById(id);
+							if(contact === null) {
+								return true;
+							}
+							contact.removeFromGroup(groupname);
 							if(buildnow) {
 								self.buildGroupSelect();
 							}
