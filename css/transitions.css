@@ -29,21 +29,16 @@
  * @author Christian Reiner
  */
 
-/* some app internal transitions */
-html body .fluxx-handle * {
+html body .fluxx-handle *,
+html.fluxx-state-N-hidden .fluxx-handle,
+html.fluxx-state-N-shown .fluxx-handle,
+html.fluxx-state-H-hidden .fluxx-handle,
+html.fluxx-state-H-shown .fluxx-handle {
 	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
 }
-html.fluxx-state-x-hidden #fluxx-x.fluxx-handle,
-html.fluxx-state-x-shown #fluxx-x.fluxx-handle {
-	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
-}
-/* some general mode specific modifications */
-html body #navigation {
-	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
-}
-html body #content {
-	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
-}
+html body > header > #header,
+html body > nav > #navigation,
+html body #content,
 html body #controls {
 	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
 }

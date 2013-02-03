@@ -38,19 +38,33 @@
 	border: 0.5px solid #666;
 	cursor: pointer;
 }
-#fluxx-x.fluxx-handle {
+.fluxx-handle.fluxx-horizontal {
 	border-left: 0;
 	border-top-right-radius: 12px;
 	border-bottom-right-radius: 12px;
 	box-shadow: 1px 0px 2px #666;
 }
-html.fluxx-state-x-shown #fluxx-x.fluxx-handle {
+.fluxx-handle.fluxx-vertical {
+	border-top: 0;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+	box-shadow: 0px 1px 2px #666;
+}
+.fluxx-handle.fluxx-horizontal.fluxx-shown {
 	transform: scale(-1,1) translate(19px,0);
 	-o-transform: scale(-1,1) translate(19px,0);
 	-ms-transform: scale(-1,1) translate(19px,0);
 	-moz-transform: scale(-1,1) translate(19px,0);
 	-khtml-transform: scale(-1,1) translate(19px,0);
 	-webkit-transform: scale(-1,1) translate(19px,0);
+}
+.fluxx-handle.fluxx-vertical.fluxx-shown {
+	transform: scale(1,-1) translate(0,19px);
+	-o-transform: scale(1,-1) translate(0,19px);
+	-ms-transform: scale(1,-1) translate(0,19px);
+	-moz-transform: scale(1,-1) translate(0,19px);
+	-khtml-transform: scale(1,-1) translate(0,19px);
+	-webkit-transform: scale(1,-1) translate(0,19px);
 }
 .fluxx-handle img {
 	margin: 2px 2px;
@@ -68,7 +82,7 @@ html.fluxx-state-x-shown #fluxx-x.fluxx-handle {
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 }
-html .fluxx-handle img {
+html .fluxx-handle.fluxx-horizontal img {
 	transform: rotate(90deg);
 	-o-transform: rotate(90deg);
 	-ms-transform: rotate(90deg);
@@ -76,8 +90,19 @@ html .fluxx-handle img {
 	-khtml-transform: rotate(90deg);
 	-webkit-transform: rotate(90deg);
 }
+html .fluxx-handle.fluxx-vertical img {
+	transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-khtml-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+}
 
 /* switch cursor to a 'move' indication during move mode */
-html.fluxx-handle-move, html.fluxx-handle-move * {
+html.fluxx-handle-move-H, html.fluxx-handle-move-H * {
+	cursor: col-resize !important;
+}
+html.fluxx-handle-move-N, html.fluxx-handle-move-N * {
 	cursor: row-resize !important;
 }

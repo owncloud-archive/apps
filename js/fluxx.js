@@ -31,33 +31,37 @@
 
 // add handle to navigation area
 $(document).ready(function(){
-	// setup limits for the handles position
-	OC.FluXX.limit();
-	// setup handle object
-	OC.FluXX.create();
-	// store some references to handle and moved objects
-	OC.FluXX.Handle.Object=$('body #fluxx-x');
-	// hide or show the navigation in a persistent manner
-	OC.AppConfig.getValue('fluxx_compensator','fluxx-status','shown',function(status){
-		if ('hidden'==status){
-			OC.FluXX.hide();
-			OC.FluXX.state(false);}
-		else{
-			OC.FluXX.show();
-			OC.FluXX.state(true);}
+	// setup handle objects
+	OC.FluXX.Handle['H']=OC.FluXX.create('H', OC.FluXX.C_VERTICAL,   1, 'body > header > #header');
+	OC.FluXX.Handle['N']=OC.FluXX.create('N', OC.FluXX.C_HORIZONTAL, 1, 'body > nav > #navigation');
+	// initialize created handles
+	$.each(OC.FluXX.Handle, function(){
+		var handle=this;
+		// hide or show the navigation in a persistent manner
+		OC.AppConfig.getValue('fluxx_compensator','fluxx-status-'+handle.Id,'shown',function(status){
+			if ('hidden'==status){
+				OC.FluXX.hide(handle);
+				OC.FluXX.state(handle, false);}
+			else{
+				OC.FluXX.show(handle);
+				OC.FluXX.state(handle, true);}
+		});
+		// handle mouse reactions
+		// 1.) click => toggle navigation hidden or shown
+		// 2.) hold => enter vertical handle move mode
+		$(handle.Selector).on('mousedown',function(event){
+			// swallow click event
+			event.stopPropagation();
+			OC.FluXX.click(handle);
+		});
 	});
-	// reposition the handle upon resize of the window
+	// reposition the handles upon resize of the window
 	$(window).on('resize',function(){
-		OC.FluXX.limit();
-		OC.FluXX.position(OC.FluXX.Handle.Position.Val);
-	});
-	// handle mouse reactions
-	// 1.) click => toggle navigation hidden or shown
-	// 2.) hold => enter vertical handle move mode
-	OC.FluXX.Handle.Object.on('mousedown',function(event){
-		// swallow click event
-		event.stopPropagation();
-		OC.FluXX.click(event);
+		$.each(OC.FluXX.Handle, function(){
+			var handle=this;
+			OC.FluXX.limit(handle);
+			OC.FluXX.position(handle, handle.Position.Val);
+		});
 	});
 })
 
@@ -67,96 +71,106 @@ $(document).ready(function(){
  * @author Christian Reiner
  */
 OC.FluXX={
+	C_WAIT: 500,
+	C_HORIZONTAL:	false,
+	C_VERTICAL:		true,
 	/**
 	* @object OC.FluXX.Handle
 	* @brief Static reference to the handle object inside the DOM
-	* @author Christian Reiner
+	* @author Christian Reinerowncloud-core-master-2013-01-08/apps/fluxx_compensator
 	*/
-	Handle:{
-		/**
-		* @object OC.FluXX.Handle.Object
-		* @brief A set of limits controling the position of the handle
-		* @author Christian Reiner
-		*/
-		Object:false,
-		/**
-		* @object OC.FluXX.Handle.Position
-		* @brief A set of limits controling the position of the handle
-		* @author Christian Reiner
-		*/
-		Position:{
-			Val:0,
-			Min:0,
-			Max:0
-		} // OC.FluXX.Handle.Position
-	},
+	Handle:{},
 	/**
 	* @method OC.FluXX.click
-	* @brief Hide the navigation area if visible
+	* @brief Handle click actions on a handle object
+	* @param object handle: handle object as defined clas internal
 	* @author Christian Reiner
 	*/
-	click:function(){
+	click:function(handle){
 		// 1.) click => toggle navigation hidden or shown
 		// 2.) hold => enter vertical handle move mode
 		// so only enter move mode after holding mouse down for an amount of time
 		var timer=setTimeout(function(){
-			OC.FluXX.move();
-		},500);
+			OC.FluXX.move(handle);
+		},OC.FluXX.C_WAIT);
 		// raise normal click handling
-		OC.FluXX.Handle.Object.on('mouseup',function(){
+		$(handle.Selector).on('mouseup',function(){
 			// remove _this_ handler
-			OC.FluXX.Handle.Object.off('mouseup');
+			$(handle.Selector).off('mouseup');
 			// start click reaction
-			OC.FluXX.toggle();
+			OC.FluXX.toggle(handle);
 		});
-		// make sure to cancel move mode if mouse is released before 1 second has passed
+		// make sure to cancel move mode if mouse is released before C_WAIT duration has passed (500ms)
 		$(document).on('mouseup',function(){
 			// don't enter move mode
 			clearTimeout(timer);
 			// remove _this_ handler
 			$(document).off('mouseup');
 			// remove _above_ handler
-			OC.FluXX.Handle.Object.off('mouseup');
+			$(handle.Selector).off('mouseup');
 		});
 		return false;
-	}, // OC.FluXX.click
+	}, // OC.FluXX.clickhandle.Id
 	/**
 	* @method OC.FluXX.create
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	create:function(){
-		// construct handle object
-		var handle=$('<span id="fluxx-x" class="fluxx-handle fluxx-shown" />');
+	create:function(id, orientation, offset, anchor){
+		var handle={};
+		handle.Anchor=anchor;
+		handle.Id=id;
+		handle.Offset=offset;
+		handle.Orientation=orientation;
+		handle.Position={Val:0,Min:0,Max:0};
+		handle.Selector='body #fluxx-'+id;
+		// compute position limits
+		OC.FluXX.limit(handle);
+		// generate DOM node
+		OC.FluXX.generate(handle);
+		// position handle object
+		OC.AppConfig.getValue('fluxx_compensator','fluxx-position-'+handle.Id,handle.Position.Max,function(pos){
+			OC.FluXX.position(handle, pos);
+		});
+		return handle;
+	}, // OC.FluXX.create
+	/**
+	* @method OC.FluXX.generate
+	* @brief Generate handles DOM node
+	* @author Christian Reiner
+	*/
+	generate:function(handle){
+		// create a new handle node
+		var node=$('<span id="fluxx-'+handle.Id+'" class="fluxx-handle fluxx-shown" />');
 		var img=$('<img class="svg" draggable="false">');
 		img.attr('src',OC.filePath('fluxx_compensator','img','actions/fluxx.svg'));
-		handle.append(img);
-		// inject handle object into navigation areaa
-		var navigation=$('body > nav > #navigation').first();
-		navigation.append(handle);
-		// position handle object horizontally
-		$('#fluxx-x').css('left',(navigation.width()-1)+'px');
-		// position handle object vertically
-		OC.AppConfig.getValue('fluxx_compensator','fluxx-position',OC.FluXX.Handle.Position.Max,function(x){
-			OC.FluXX.position(x);
-		});
-	}, // OC.FluXX.create
+		node.append(img);
+		if (handle.Orientation==OC.FluXX.C_HORIZONTAL){
+			node.addClass('fluxx-horizontal');
+			node.css('left',($(handle.Anchor).outerWidth()-1)+'px');
+		}
+		else{
+			node.addClass('fluxx-vertical');
+			node.css('top',($(handle.Anchor).outerHeight()-1)+'px');
+		}
+		$(handle.Anchor).append(node);
+	}, // OC.FluXX.generate
 	/**
 	* @method OC.FluXX.hide
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	hide:function(){
+	hide:function(handle){
 		var dfd = new $.Deferred();
-		OC.FluXX.stylish();
-		if (OC.FluXX.Handle.Object.hasClass('fluxx-shown')){
+		OC.FluXX.stylish(handle);
+		if ($(handle.Selector).hasClass('fluxx-shown')){
 			$.when(
-				OC.FluXX.Handle.Object.addClass('fluxx-hidden'),
-				OC.FluXX.Handle.Object.removeClass('fluxx-shown')
+				$(handle.Selector).addClass('fluxx-hidden'),
+				$(handle.Selector).removeClass('fluxx-shown')
 			).done(function(){
 				dfd.resolve();
 				// store current handle status inside user preferences
-				OC.AppConfig.setValue('fluxx_compensator','fluxx-status','hidden');
+				OC.AppConfig.setValue('fluxx_compensator','fluxx-status-'+handle.Id,'hidden');
 			}).fail(dfd.reject)}
 		else dfd.resolve();
 		return dfd.promise();
@@ -166,22 +180,25 @@ OC.FluXX={
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	limit:function(){
-		OC.FluXX.Handle.Position.Min=0;
-		OC.FluXX.Handle.Position.Max=$('body > nav > #navigation').height()-$('body > nav > #navigation').position().top-22;
+	limit:function(handle){
+		handle.Position.Min=handle.Offset;
+		if (OC.FluXX.C_HORIZONTAL==handle.Orientation)
+			handle.Position.Max=$(handle.Anchor).outerHeight()-$(handle.Anchor).position().top-handle.Offset-$(handle.Selector).outerHeight();
+		else
+			handle.Position.Max=$(handle.Anchor).outerWidth()-$(handle.Anchor).position().top-handle.Offset-$(handle.Selector).outerWidth();
 	}, // OC.FluXX.limit
 	/**
 	* @method OC.FluXX.move
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	move:function(){
+	move:function(handle){
 		// enable cursor move mode
-		$('html').addClass('fluxx-handle-move');
-		OC.FluXX.Handle.Object.effect('highlight',{color:'#FFF'},400);
+		$('html').addClass('fluxx-handle-move-'+handle.Id);
+		$(handle.Selector).effect('highlight',{color:'#FFF'},400);
 		// remove _outer_ reactions (2!) on mouseup
 		$(document).off('mouseup');
-		OC.FluXX.Handle.Object.off('mouseup');
+		$(handle.Selector).off('mouseup');
 		// react on mouseup
 		$(document).on('mouseup',function(){
 			// remove _this_ handler
@@ -189,15 +206,22 @@ OC.FluXX={
 			// remove reaction on mouse movements
 			$(document).off('mousemove');
 			// disable cursor move mode
-			$('html').removeClass('fluxx-handle-move');
-			OC.FluXX.Handle.Object.css('cursor','pointer');
-			OC.FluXX.Handle.Object.find('img').css('cursor','inherit');
+			$('html').removeClass('fluxx-handle-move-'+handle.Id);
+			$(handle.Selector).css('cursor','pointer');
+			$(handle.Selector).find('img').css('cursor','inherit');
 			// store final handle position
-			OC.AppConfig.setValue('fluxx_compensator','fluxx-position',OC.FluXX.Handle.Object.position().top);
+			OC.AppConfig.setValue('fluxx_compensator','fluxx-position-'+handle.Id,handle.Position.Val);
 		});
 		// reaction on mouse move: position handle
 		$(document).on('mousemove',function(event){
-			OC.FluXX.position(event.pageY-60);
+			if (OC.FluXX.C_HORIZONTAL==handle.Orientation){
+				OC.FluXX.position(handle, event.pageY-60);
+				handle.Position.Val=$(handle.Selector).position().top;
+			}
+			else{
+				OC.FluXX.position(handle, event.pageX-10);
+				handle.Position.Val=$(handle.Selector).position().left;
+			}
 		});
 	}, // OC.FluXX.move
 	/**
@@ -205,31 +229,34 @@ OC.FluXX={
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	position:function(x){
+	position:function(handle, pos){
 		// hide handle whilst being repositioned
-		$('body > nav > #navigation').css('overflow','hidden !important');
+		$(handle.Anchor).css('overflow','hidden !important');
 		// use specified x as new position, ob only inside the given limits
-		OC.FluXX.Handle.Position.Val=(x>OC.FluXX.Handle.Position.Max)?OC.FluXX.Handle.Position.Max:((x<OC.FluXX.Handle.Position.Min)?OC.FluXX.Handle.Position.Min:x);
-		$('#fluxx-x').css('top',OC.FluXX.Handle.Position.Val+'px');
+		handle.Position.Val=(pos>handle.Position.Max)?handle.Position.Max:((pos<handle.Position.Min)?handle.Position.Min:pos);
+		if (OC.FluXX.C_HORIZONTAL==handle.Orientation)
+			$(handle.Selector).css('top',handle.Position.Val+'px');
+		else
+			$(handle.Selector).css('left',handle.Position.Val+'px');
 		// show handle after having been repositioned
-		$('body > nav > #navigation').css('overflow','visible');
+		$(handle.Anchor).css('overflow','visible');
 	}, // OC.FluXX.position
 	/**
 	* @method OC.FluXX.show
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	show:function(){
+	show:function(handle){
 		var dfd = new $.Deferred();
-		OC.FluXX.stylish();
-		if (OC.FluXX.Handle.Object.hasClass('fluxx-hidden')){
+		OC.FluXX.stylish(handle);
+		if ($(handle.Selector).hasClass('fluxx-hidden')){
 			$.when(
-				OC.FluXX.Handle.Object.addClass('fluxx-shown'),
-				OC.FluXX.Handle.Object.removeClass('fluxx-hidden')
+				$(handle.Selector).addClass('fluxx-shown'),
+				$(handle.Selector).removeClass('fluxx-hidden')
 			).done(function(){
 				dfd.resolve();
 				// store current handle status inside user preferences
-				OC.AppConfig.setValue('fluxx_compensator','fluxx-status','shown');
+				OC.AppConfig.setValue('fluxx_compensator','fluxx-status-'+handle.Id,'shown');
 			}).fail(dfd.reject)}
 		else dfd.resolve();
 		return dfd.promise();
@@ -239,12 +266,12 @@ OC.FluXX={
 	* @brief mark current state of the compensator
 	* @author Christian Reiner
 	*/
-	state:function(shown){
+	state:function(handle,shown){
 		// mark the current state (hidden or shown) as class of the html element
 		if (shown){
-			$('html').removeClass('fluxx-state-x-hidden').addClass('fluxx-state-x-shown');
+			$('html').removeClass('fluxx-state-'+handle.Id+'-hidden').addClass('fluxx-state-'+handle.Id+'-shown');
 		}else{
-			$('html').removeClass('fluxx-state-x-shown').addClass('fluxx-state-x-hidden');
+			$('html').removeClass('fluxx-state-'+handle.Id+'-shown').addClass('fluxx-state-'+handle.Id+'-hidden');
 		}
 	}, // OC.FluXX.state
 	/**
@@ -252,7 +279,7 @@ OC.FluXX={
 	* @brief Hide the navigation area if visible
 	* @author Christian Reiner
 	*/
-	stylish:function(){
+	stylish:function(handle){
 		// dynamically load stylesheet to make sure it is loaded LAST
 		OC.addStyle('fluxx_compensator','dynamic');
 		// mark mode and active app as class of the html tag
@@ -266,7 +293,7 @@ OC.FluXX={
 			gallery_index:	'gallery',
 			shorty_index:	'shorty'
 		};
-		var index=$('body > nav > #navigation #apps .active').parents('li').attr('data-id');
+		var index=$(handle.Selector).find('#apps .active').parents('li').attr('data-id');
 		// mark current mode (active app) as class of the html element
 		if (index && mode[index]){
 			$('html').addClass('fluxx-mode-'+mode[index]);
@@ -279,22 +306,22 @@ OC.FluXX={
 	* @brief Swaps the mode of the app between hidden and shown
 	* @author Christian Reiner
 	*/
-	swap: function(){
+	swap: function(handle){
 		var dfd = new $.Deferred();
 		// call action depending on the current mode
-		if (OC.FluXX.Handle.Object.hasClass('fluxx-shown')){
+		if ($(handle.Selector).hasClass('fluxx-shown')){
 			$.when(
-				OC.FluXX.hide(),
-				OC.FluXX.state(false)
+				OC.FluXX.hide(handle),
+				OC.FluXX.state(handle,false)
 			).done(dfd.resolve)}
 		else{
 			$.when(
-				OC.FluXX.show(),
-				OC.FluXX.state(true)
+				OC.FluXX.show(handle),
+				OC.FluXX.state(handle,true)
 			).done(dfd.resolve)}
 		// make sure temporary transition style rules are removed, preferably upon event, time based as catchall
 		var timer=setTimeout(function(){$('head link#fluxx-transitions').remove();},10000);
-		$('body > nav > #navigation').on('webkitTransitionEnd oTransitionEnd transitionEnd',function(){
+		$(handle.Selector).on('webkitTransitionEnd oTransitionEnd transitionEnd',function(){
 			clearTimeout(timer);
 			$('head link#fluxx-transitions').remove();
 		});
@@ -305,18 +332,18 @@ OC.FluXX={
 	* @brief Toggles the visibility of the navigation area
 	* @author Christian Reiner
 	*/
-	toggle: function(){
+	toggle: function(handle){
 		var dfd = new $.Deferred();
 		// temporarily include transition style rules if not yet present (should not be!)
 		if ($('head link#fluxx-transitions').length)
-			OC.FluXX.swap();
+			OC.FluXX.swap(handle);
 		else
 			$('<link/>',{
 				id:'fluxx-transitions',
 				rel:'stylesheet',
 				type:'text/css',
 				href:OC.filePath('fluxx_compensator','css','transitions.css'),
-				onLoad:'OC.FluXX.swap()'
+				onLoad:"OC.FluXX.swap(OC.FluXX.Handle['"+handle.Id+"']);"
 			}).appendTo('head');
 		return dfd.promise();
 	} // OC.FluXX.toggle
