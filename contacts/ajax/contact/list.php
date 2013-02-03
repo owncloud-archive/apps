@@ -126,5 +126,6 @@ OCP\JSON::success(array(
 	'data' => array(
 		'contacts' => $contacts,
 		'addressbooks' => $active_addressbooks,
+		'is_indexed' => OCP\Config::getUserValue(OCP\User::getUser(), 'contacts', 'contacts_indexed', 'no') === 'yes'
 	)
 ));

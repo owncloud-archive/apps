@@ -6,16 +6,19 @@
  * See the COPYING-README file.
  */
 
+namespace Test\Files\Storage;
+
 OC_App::loadApp('files_archive');
-class Test_Filestorage_Archive_Zip extends Test_FileStorage {
+
+class Archive_Zip extends Storage {
 	/**
 	 * @var string tmpDir
 	 */
 	private $tmpFile;
 
 	public function setUp() {
-		$this->tmpFile=OCP\Files::tmpFile('.zip');
-		$this->instance=new OC_Filestorage_Archive(array('archive'=>$this->tmpFile));
+		$this->tmpFile=\OCP\Files::tmpFile('.zip');
+		$this->instance=new \OC\Files\Storage\Archive(array('archive'=>$this->tmpFile));
 	}
 
 	public function tearDown() {
@@ -23,15 +26,15 @@ class Test_Filestorage_Archive_Zip extends Test_FileStorage {
 	}
 }
 
-class Test_Filestorage_Archive_Tar extends Test_FileStorage {
+class Archive_Tar extends Storage {
 	/**
 	 * @var string tmpDir
 	 */
 	private $tmpFile;
 
 	public function setUp() {
-		$this->tmpFile=OCP\Files::tmpFile('.tar.gz');
-		$this->instance=new OC_Filestorage_Archive(array('archive'=>$this->tmpFile));
+		$this->tmpFile=\OCP\Files::tmpFile('.tar.gz');
+		$this->instance=new \OC\Files\Storage\Archive(array('archive'=>$this->tmpFile));
 	}
 
 	public function tearDown() {

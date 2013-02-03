@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Jesse Jaara <jesse.jaara@gmail.com>, 2012.
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2012.
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-12 02:01+0200\n"
-"PO-Revision-Date: 2012-09-11 10:28+0000\n"
+"POT-Creation-Date: 2013-02-03 00:01+0100\n"
+"PO-Revision-Date: 2013-02-02 13:58+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -19,27 +19,19 @@ msgstr ""
 "Language: fi_FI\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Kuvat"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "Galleriat"
+#: js/gallery.js:235
+msgid "Shared by"
+msgstr "Jakanut"
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Jaa galleria"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Jaa"
 
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Virhe: "
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Sisäinen virhe"
-
-#: templates/index.php:27
+#: templates/index.php:7
 msgid "Slideshow"
 msgstr "Diaesitys"
 

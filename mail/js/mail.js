@@ -261,5 +261,28 @@ $(document).ready(function () {
         });
     });
 
+	// new mail message button handling
+	$(document).on('click', '#mail_new_message', function () {
+		$('#to').val('');
+		$('#subject').val('');
+		$('#body').val('');
+		$('#mail_editor').dialog("open");
+	});
+
+	// Clicking on a folder loads the message list
+	$(document).on('click', 'ul.mail_folders li', function () {
+		var account_id, folder_id;
+		account_id = $(this).parent().data('account_id');
+		folder_id = $(this).data('folder_id');
+
+		Mail.UI.loadMessages(account_id, folder_id);
+	});
+
+	// Clicking on a message loads the entire message
+	$(document).on('click', '#mail_messages .mail_message_summary', function () {
+		var message_id = $(this).data('message_id');
+		Mail.UI.openMessage(message_id);
+	});
+
 //    Mail.UI.bindEndlessScrolling();
 });

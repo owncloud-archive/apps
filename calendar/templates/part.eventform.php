@@ -1,8 +1,5 @@
-<script type="text/javascript">
-<?php
-echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid = "' . $_['eventid'] . '";';
-?>
-</script>
+<script type="text/javascript" src="<?php echo OC_Helper::linkTo('calendar/js', 'idtype.php');?>?id=<?php echo $_['eventid']; ?>"></script>
+
 
 <ul>
 	<li><a href="#tabs-1"><?php echo $l->t('Eventinfo'); ?></a></li>
@@ -27,7 +24,7 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 			<th width="75px"><?php echo $l->t("Category");?>:</th>
 			<td>
 				<input id="category" name="categories" type="text" placeholder="<?php echo $l->t('Separate categories with commas'); ?>" value="<?php echo isset($_['categories']) ? $_['categories'] : '' ?>">
-				<a class="action edit" onclick="$(this).tipsy('hide');OCCategories.edit();" title="<?php echo $l->t('Edit categories'); ?>"><img alt="<?php echo $l->t('Edit categories'); ?>" src="<?php echo OCP\image_path('core','actions/rename.svg')?>" class="svg action" style="width: 16px; height: 16px;"></a>
+				<a class="action edit" id="editCategories" title="<?php echo $l->t('Edit categories'); ?>"><img alt="<?php echo $l->t('Edit categories'); ?>" src="<?php echo OCP\image_path('core','actions/rename.svg')?>" class="svg action" style="width: 16px; height: 16px;"></a>
 			</td>
 			<?php if(count($_['calendar_options']) > 1) { ?>
 			<th width="75px">&nbsp;&nbsp;&nbsp;<?php echo $l->t("Calendar");?>:</th>
@@ -63,7 +60,7 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 		<tr>
 			<th width="75px"></th>
 			<td>
-				<input onclick="Calendar.UI.lockTime();" type="checkbox"<?php if($_['allday']) {echo 'checked="checked"';} ?> id="allday_checkbox" name="allday">
+				<input type="checkbox"<?php if($_['allday']) {echo 'checked="checked"';} ?> id="allday_checkbox" name="allday">
 				<label for="allday_checkbox"><?php echo $l->t("All Day Event");?></label>
 			</td>
 		</tr>
@@ -84,7 +81,7 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 			</td>
 		</tr>
 	</table>
-	<input type="button" class="submit" value="<?php echo $l->t("Advanced options"); ?>" onclick="Calendar.UI.showadvancedoptions();" id="advanced_options_button">
+	<input type="button" class="submit" value="<?php echo $l->t("Advanced options"); ?>" id="advanced_options_button">
 	<div id="advanced_options" style="display: none;">
 		<hr>
 		<table>
@@ -115,7 +112,7 @@ echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid
 					echo OCP\html_select_options($_['repeat_options'], $_['repeat']);
 					?>
 				</select></td>
-				<td><input type="button" style="float:right;" class="submit" value="<?php echo $l->t("Advanced"); ?>" onclick="Calendar.UI.showadvancedoptionsforrepeating();" id="advanced_options_button"></td>
+				<td><input type="button" style="float:right;" class="submit" value="<?php echo $l->t("Advanced"); ?>" id="advanced_options_button_repeat"></td>
 			</tr>
 		</table>
 		<div id="advanced_options_repeating" style="display:none;">

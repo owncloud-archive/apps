@@ -5,18 +5,19 @@
 # Translators:
 #   <appweb.cn@gmail.com>, 2012.
 #   <dave2008713@gmail.com>, 2012.
-# Dianjin Wang <1132321739qq@gmail.com>, 2012.
+# Dianjin Wang <1132321739qq@gmail.com>, 2012-2013.
 # Phoenix Nemo <>, 2012.
 #   <rainofchaos@gmail.com>, 2012.
 #   <suiy02@gmail.com>, 2012.
+#   <supertonnie@hotmail.com>, 2012.
 #   <wengxt@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-24 00:02+0100\n"
-"PO-Revision-Date: 2012-12-23 14:36+0000\n"
-"Last-Translator: Dianjin Wang <1132321739qq@gmail.com>\n"
+"POT-Creation-Date: 2013-02-02 00:03+0100\n"
+"PO-Revision-Date: 2013-01-31 23:31+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -236,197 +237,201 @@ msgstr "联系人"
 msgid "%d_selected_contacts"
 msgstr ""
 
-#: js/app.js:288
-msgid "Contact is already in this group."
-msgstr ""
-
-#: js/app.js:301
-msgid "Contacts are already in this group."
-msgstr ""
-
-#: js/app.js:359
-msgid "Couldn't get contact list."
-msgstr "无法获取联系人列表。"
-
-#: js/app.js:370
-msgid "Contact is not in this group."
-msgstr "联系人不在此分组中。"
-
-#: js/app.js:384
-msgid "Contacts are not in this group."
-msgstr ""
-
-#: js/app.js:564
-msgid "A group named {group} already exists"
-msgstr "分组{group}已存在。"
-
-#: js/app.js:596
-msgid ""
-"You can drag groups to\n"
-"arrange them as you like."
-msgstr ""
-
-#: js/app.js:615
-msgid "All"
-msgstr "全部"
-
-#: js/app.js:629
-msgid "Favorites"
-msgstr "收藏"
-
-#: js/app.js:678
-msgid "Shared by {owner}"
-msgstr "共享人：{owner}"
-
-#: js/app.js:754
-msgid "Indexing contacts"
-msgstr "正在索引联系人"
-
-#: js/app.js:829 js/app.js:843
+#: js/app.js:265 js/app.js:279
 msgid "Add to..."
 msgstr "添加到……"
 
-#: js/app.js:833 js/app.js:845
+#: js/app.js:269 js/app.js:281
 msgid "Remove from..."
-msgstr ""
+msgstr "从……删除"
 
-#: js/app.js:850
+#: js/app.js:286
 msgid "Add group..."
 msgstr "添加分组……"
 
-#: js/app.js:987
+#: js/app.js:354
+msgid "Indexing contacts"
+msgstr "正在索引联系人"
+
+#: js/app.js:451
 msgid "Select photo"
 msgstr "选择图片"
 
-#: js/app.js:1036 js/app.js:1062 js/app.js:2017 js/app.js:2129
-#: js/contacts.js:146 js/contacts.js:244 js/contacts.js:466
+#: js/app.js:498 js/app.js:524 js/app.js:1483 js/app.js:1595
+#: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
-msgstr ""
+msgstr "网络或服务器错误。请通知管理员。"
 
-#: js/app.js:1198 js/app.js:1233
+#: js/app.js:660 js/app.js:695
 msgid "Error adding to group."
 msgstr "添加到组时出错。"
 
-#: js/app.js:1258
+#: js/app.js:720
 msgid "Error removing from group."
 msgstr "从组删除时出错。"
 
-#: js/app.js:1288
+#: js/app.js:750
 msgid "There was an error opening a mail composer."
 msgstr "打开邮件撰写器时出错。"
 
-#: js/app.js:1338
+#: js/app.js:800
 msgid "Deleting done. Click here to cancel reloading."
-msgstr ""
+msgstr "删除完成。点击此处以取消重新载入。"
 
-#: js/app.js:1415
+#: js/app.js:877
 msgid "Add address book"
 msgstr "添加地址簿"
 
-#: js/app.js:1511
+#: js/app.js:973
 msgid "Import done. Click here to cancel reloading."
 msgstr "导入完毕。点击此处取消重载。"
 
-#: js/app.js:1552
+#: js/app.js:1014
 msgid "Not all files uploaded. Retrying..."
 msgstr "仍有文件未上传，重试中"
 
-#: js/app.js:1558
+#: js/app.js:1020
 msgid "Something went wrong with the upload, please retry."
 msgstr "上传中出现些问题，请重试。"
 
-#: js/app.js:1558 js/app.js:2064 js/settings.js:25 js/settings.js:45
+#: js/app.js:1020 js/app.js:1530 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "错误"
 
-#: js/app.js:1568
+#: js/app.js:1030
 msgid "Importing from {filename}..."
 msgstr "正在导入 {文件名}..."
 
-#: js/app.js:1571
+#: js/app.js:1033
 msgid "{success} imported, {failed} failed."
 msgstr ""
 
-#: js/app.js:1579
+#: js/app.js:1041
 msgid "Importing..."
 msgstr "导入中"
 
-#: js/app.js:1602
+#: js/app.js:1064
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "无法上传您的文件，文件夹或者空文件"
 
-#: js/app.js:1602
+#: js/app.js:1064
 msgid "Upload Error"
 msgstr "上传错误"
 
-#: js/app.js:1609 js/app.js:1892
+#: js/app.js:1071 js/app.js:1358
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "您试图上传的文件超出了该服务器的最大文件限制"
 
-#: js/app.js:1609
+#: js/app.js:1071
 msgid "Upload too large"
 msgstr "上传文件过大"
 
-#: js/app.js:1649
+#: js/app.js:1111
 msgid "Pending"
 msgstr "等待"
 
-#: js/app.js:1788 templates/contacts.php:130
+#: js/app.js:1254 templates/contacts.php:123
 msgid "Add group"
 msgstr "添加分组"
 
-#: js/app.js:1881
+#: js/app.js:1347
 msgid "No files selected for upload."
 msgstr "没有选择文件以上传"
 
-#: js/app.js:1982
+#: js/app.js:1448
 msgid "Edit profile picture"
 msgstr "编辑配置图片"
 
-#: js/app.js:2000 js/contacts.js:1066
+#: js/app.js:1466 js/contacts.js:1130
 msgid "Error loading profile picture."
 msgstr "载入档案图片时出错"
 
-#: js/app.js:2052 templates/part.selectaddressbook.php:27
+#: js/app.js:1518
 msgid "Enter name"
 msgstr "输入姓名"
 
-#: js/app.js:2053 templates/part.selectaddressbook.php:29
+#: js/app.js:1519
 msgid "Enter description"
 msgstr "输入描述"
 
-#: js/app.js:2056
+#: js/app.js:1522
 msgid "Select addressbook"
 msgstr "选择地址簿"
 
-#: js/app.js:2064
+#: js/app.js:1530
 msgid "The address book name cannot be empty."
 msgstr "地址簿名称不能为空"
 
-#: js/contacts.js:337
+#: js/contacts.js:356
 msgid "Is this correct?"
 msgstr "这正确吗？"
 
-#: js/contacts.js:525
+#: js/contacts.js:544
 msgid "There was an unknown error when trying to delete this contact"
+msgstr "尝试删除这个联系人时出现一个未知错误。"
+
+#: js/contacts.js:682
+msgid "# groups"
 msgstr ""
 
-#: js/contacts.js:1399
+#: js/contacts.js:1463
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "一些联系人已被标注为删除，但是尚未完成，请稍候。"
 
-#: js/contacts.js:1410
+#: js/contacts.js:1474
 msgid "Click to undo deletion of {num} contacts"
-msgstr ""
+msgstr "点击以撤销删除这{num}个联系人"
 
-#: js/contacts.js:1423
+#: js/contacts.js:1489
 msgid "Cancelled deletion of {num}"
 msgstr ""
+
+#: js/groups.js:193
+msgid "Contact is already in this group."
+msgstr "联系人已经在这个组中。"
+
+#: js/groups.js:206
+msgid "Contacts are already in this group."
+msgstr "联系人都已经在这个组中。"
+
+#: js/groups.js:272
+msgid "Couldn't get contact list."
+msgstr "无法获取联系人列表。"
+
+#: js/groups.js:283
+msgid "Contact is not in this group."
+msgstr "联系人不在此分组中。"
+
+#: js/groups.js:297
+msgid "Contacts are not in this group."
+msgstr "联系人都没有在这个组中。"
+
+#: js/groups.js:541
+msgid "A group named {group} already exists"
+msgstr "分组{group}已存在。"
+
+#: js/groups.js:573
+msgid ""
+"You can drag groups to\n"
+"arrange them as you like."
+msgstr "你可以拖拽群组以你喜欢的方式摆放他们。"
+
+#: js/groups.js:592
+msgid "All"
+msgstr "全部"
+
+#: js/groups.js:606
+msgid "Favorites"
+msgstr "收藏"
+
+#: js/groups.js:655
+msgid "Shared by {owner}"
+msgstr "共享人：{owner}"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -452,7 +457,7 @@ msgstr "显示CardDav连接"
 msgid "Show read-only VCF link"
 msgstr "显示只读VCF连接"
 
-#: js/settings.js:99 templates/contacts.php:261 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:257 templates/settings.php:40
 msgid "Download"
 msgstr "下载"
 
@@ -460,16 +465,14 @@ msgstr "下载"
 msgid "Edit"
 msgstr "编辑"
 
-#: js/settings.js:102 templates/contacts.php:206 templates/contacts.php:213
-#: templates/contacts.php:220 templates/contacts.php:227
-#: templates/contacts.php:275 templates/contacts.php:402
-#: templates/part.contact.php:40 templates/part.contact.php:42
-#: templates/part.contact.php:44 templates/part.contact.php:46
-#: templates/part.contact.php:50 templates/settings.php:50
+#: js/settings.js:102 templates/contacts.php:202 templates/contacts.php:209
+#: templates/contacts.php:216 templates/contacts.php:223
+#: templates/contacts.php:271 templates/contacts.php:398
+#: templates/settings.php:50
 msgid "Delete"
 msgstr "删除"
 
-#: js/settings.js:120 templates/contacts.php:259 templates/settings.php:62
+#: js/settings.js:120 templates/contacts.php:255 templates/settings.php:62
 msgid "Cancel"
 msgstr "取消"
 
@@ -501,116 +504,116 @@ msgstr "你没有权限编辑此地址簿"
 msgid "There was an error deleting this addressbook."
 msgstr "删除地址簿时出错"
 
-#: lib/app.php:88
+#: lib/app.php:89
 msgid "Jabber"
 msgstr "Jabber"
 
-#: lib/app.php:93
+#: lib/app.php:94
 msgid "AIM"
 msgstr "AIM"
 
-#: lib/app.php:98
+#: lib/app.php:99
 msgid "MSN"
 msgstr "MSN"
 
-#: lib/app.php:103
+#: lib/app.php:104
 msgid "Twitter"
 msgstr "Twitter"
 
-#: lib/app.php:108
+#: lib/app.php:109
 msgid "GoogleTalk"
 msgstr "GoogleTalk"
 
-#: lib/app.php:113
+#: lib/app.php:114
 msgid "Facebook"
 msgstr "Facebook"
 
-#: lib/app.php:118
+#: lib/app.php:119
 msgid "XMPP"
 msgstr "XMPP"
 
-#: lib/app.php:123
+#: lib/app.php:124
 msgid "ICQ"
 msgstr "ICQ"
 
-#: lib/app.php:128
+#: lib/app.php:129
 msgid "Yahoo"
 msgstr "Yahoo"
 
-#: lib/app.php:133
+#: lib/app.php:134
 msgid "Skype"
 msgstr "Skype"
 
-#: lib/app.php:138
+#: lib/app.php:139
 msgid "QQ"
 msgstr "QQ"
 
-#: lib/app.php:143
+#: lib/app.php:144
 msgid "GaduGadu"
 msgstr "GaduGadu"
 
-#: lib/app.php:166 lib/app.php:174 lib/app.php:185 lib/app.php:226
+#: lib/app.php:167 lib/app.php:175 lib/app.php:186 lib/app.php:227
 msgid "Work"
 msgstr "工作"
 
-#: lib/app.php:167 lib/app.php:172 lib/app.php:186
+#: lib/app.php:168 lib/app.php:173 lib/app.php:187
 msgid "Home"
 msgstr "家庭"
 
-#: lib/app.php:168 lib/app.php:181 lib/app.php:188 lib/app.php:227
+#: lib/app.php:169 lib/app.php:182 lib/app.php:189 lib/app.php:228
 #: lib/vcard.php:701
 msgid "Other"
 msgstr "其它"
 
-#: lib/app.php:173
+#: lib/app.php:174
 msgid "Mobile"
 msgstr "手机"
 
-#: lib/app.php:175
+#: lib/app.php:176
 msgid "Text"
 msgstr "文本"
 
-#: lib/app.php:176
+#: lib/app.php:177
 msgid "Voice"
 msgstr "语音"
 
-#: lib/app.php:177
+#: lib/app.php:178
 msgid "Message"
 msgstr "消息"
 
-#: lib/app.php:178
+#: lib/app.php:179
 msgid "Fax"
 msgstr "传真"
 
-#: lib/app.php:179
+#: lib/app.php:180
 msgid "Video"
 msgstr "视频"
 
-#: lib/app.php:180
+#: lib/app.php:181
 msgid "Pager"
 msgstr "传呼机"
 
-#: lib/app.php:187
+#: lib/app.php:188
 msgid "Internet"
 msgstr "互联网"
 
-#: lib/app.php:224
+#: lib/app.php:225
 msgid "Friends"
 msgstr "朋友"
 
-#: lib/app.php:225
+#: lib/app.php:226
 msgid "Family"
 msgstr "家庭"
 
-#: lib/app.php:361
+#: lib/app.php:362
 msgid "There was an error deleting properties for this contact."
-msgstr ""
+msgstr "删除这个联系人的属性时出现了一个错误。"
 
 #: lib/hooks.php:108
 msgid "{name}'s Birthday"
 msgstr "{name} 的生日"
 
-#: lib/search.php:19
+#: lib/search.php:20
 msgid "Contact"
 msgstr "联系人"
 
@@ -650,547 +653,341 @@ msgstr "找不到联系人。"
 msgid "HomePage"
 msgstr "主页"
 
-#: templates/contacts.php:18
+#: templates/contacts.php:11
 msgid "New Group"
 msgstr "新建分组"
 
-#: templates/contacts.php:24 templates/index.php:16
+#: templates/contacts.php:17
 msgid "Settings"
 msgstr "设置"
 
-#: templates/contacts.php:25
+#: templates/contacts.php:18
 msgid "Address books"
 msgstr "地址簿"
 
-#: templates/contacts.php:28 templates/contacts.php:105 templates/index.php:15
-#: templates/part.import.php:17
+#: templates/contacts.php:21 templates/contacts.php:98
 msgid "Import"
 msgstr "导入"
 
-#: templates/contacts.php:33
+#: templates/contacts.php:26
 msgid "Select files to import"
 msgstr "选择要导入的文件"
 
-#: templates/contacts.php:34
+#: templates/contacts.php:27
 msgid "Select files"
 msgstr "选择文件"
 
-#: templates/contacts.php:40 templates/contacts.php:42
+#: templates/contacts.php:33 templates/contacts.php:35
 msgid "Import into:"
 msgstr "导入至："
 
-#: templates/contacts.php:44
+#: templates/contacts.php:37
 msgid "OK"
 msgstr "OK"
 
-#: templates/contacts.php:54
+#: templates/contacts.php:47
 msgid "(De-)select all"
 msgstr "反选全部"
 
-#: templates/contacts.php:56
+#: templates/contacts.php:49
 msgid "New Contact"
 msgstr "新建联系人"
 
-#: templates/contacts.php:57
+#: templates/contacts.php:50
 msgid "Download Contact(s)"
 msgstr "下载联系人"
 
-#: templates/contacts.php:59 templates/contacts.php:273
-#: templates/part.contact.php:47 templates/part.contact.php:135
+#: templates/contacts.php:52
 msgid "Groups"
 msgstr "分组"
 
-#: templates/contacts.php:61
+#: templates/contacts.php:54
 msgid "Favorite"
 msgstr "最爱"
 
-#: templates/contacts.php:62
+#: templates/contacts.php:55
 msgid "Delete Contact"
 msgstr "删除联系人"
 
-#: templates/contacts.php:69 templates/contacts.php:260 templates/index.php:30
-#: templates/part.import.php:24
+#: templates/contacts.php:62 templates/contacts.php:256
 msgid "Close"
 msgstr "关闭"
 
-#: templates/contacts.php:70 templates/index.php:31
+#: templates/contacts.php:63
 msgid "Keyboard shortcuts"
 msgstr "快捷键"
 
-#: templates/contacts.php:72 templates/index.php:33
+#: templates/contacts.php:65
 msgid "Navigation"
 msgstr "导航"
 
-#: templates/contacts.php:75 templates/index.php:36
+#: templates/contacts.php:68
 msgid "Next contact in list"
 msgstr "列表中的下一个联系人"
 
-#: templates/contacts.php:77 templates/index.php:38
+#: templates/contacts.php:70
 msgid "Previous contact in list"
 msgstr "列表中的上一个联系人"
 
-#: templates/contacts.php:79 templates/index.php:40
+#: templates/contacts.php:72
 msgid "Expand/collapse current addressbook"
 msgstr "展开/收起此地址簿"
 
-#: templates/contacts.php:81 templates/index.php:42
+#: templates/contacts.php:74
 msgid "Next addressbook"
 msgstr "下一个地址簿"
 
-#: templates/contacts.php:83 templates/index.php:44
+#: templates/contacts.php:76
 msgid "Previous addressbook"
 msgstr "上一个地址簿"
 
-#: templates/contacts.php:87 templates/index.php:48
+#: templates/contacts.php:80
 msgid "Actions"
 msgstr "地址"
 
-#: templates/contacts.php:90 templates/index.php:51
+#: templates/contacts.php:83
 msgid "Refresh contacts list"
 msgstr "刷新联系人列表"
 
-#: templates/contacts.php:92 templates/index.php:53
+#: templates/contacts.php:85
 msgid "Add new contact"
 msgstr "新增联系人"
 
-#: templates/contacts.php:94 templates/index.php:55
+#: templates/contacts.php:87
 msgid "Add new addressbook"
 msgstr "新增地址簿"
 
-#: templates/contacts.php:96 templates/index.php:57
+#: templates/contacts.php:89
 msgid "Delete current contact"
 msgstr "删除当前联系人"
 
-#: templates/contacts.php:101
+#: templates/contacts.php:94
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
-msgstr ""
+msgstr "<h3>你的地址薄中没有联系人。</h3><p>添加一个新的联系人或者从VCF文件中导入。</p>"
 
-#: templates/contacts.php:104 templates/part.no_contacts.php:9
+#: templates/contacts.php:97
 msgid "Add contact"
 msgstr "添加联系人"
 
-#: templates/contacts.php:145
+#: templates/contacts.php:138
 msgid "Compose mail"
 msgstr "编写邮件"
 
-#: templates/contacts.php:156
+#: templates/contacts.php:149
 msgid "Delete group"
 msgstr "删除分组"
 
-#: templates/contacts.php:169 templates/part.contact.php:19
+#: templates/contacts.php:162
 msgid "Delete current photo"
 msgstr "删除当前照片"
 
-#: templates/contacts.php:170 templates/part.contact.php:20
+#: templates/contacts.php:163
 msgid "Edit current photo"
 msgstr "编辑当前照片"
 
-#: templates/contacts.php:171 templates/part.contact.php:21
+#: templates/contacts.php:164
 msgid "Upload new photo"
 msgstr "上传新照片"
 
-#: templates/contacts.php:172 templates/part.contact.php:22
+#: templates/contacts.php:165
 msgid "Select photo from ownCloud"
 msgstr "从 ownCloud 选择照片"
 
-#: templates/contacts.php:183 templates/contacts.php:184
+#: templates/contacts.php:176 templates/contacts.php:177
 msgid "First name"
 msgstr "名"
 
-#: templates/contacts.php:188 templates/contacts.php:189
-#: templates/part.edit_name_dialog.php:37
+#: templates/contacts.php:181 templates/contacts.php:182
 msgid "Additional names"
 msgstr "其他名称"
 
-#: templates/contacts.php:193 templates/contacts.php:194
+#: templates/contacts.php:186 templates/contacts.php:187
 msgid "Last name"
 msgstr "姓"
 
-#: templates/contacts.php:202 templates/contacts.php:265
-#: templates/part.contact.php:41 templates/part.contact.php:127
+#: templates/contacts.php:194
+msgid "Select groups"
+msgstr "选择分组"
+
+#: templates/contacts.php:198 templates/contacts.php:262
 msgid "Nickname"
 msgstr "昵称"
 
-#: templates/contacts.php:205 templates/part.contact.php:42
+#: templates/contacts.php:201
 msgid "Enter nickname"
 msgstr "输入昵称"
 
-#: templates/contacts.php:209
+#: templates/contacts.php:205 templates/contacts.php:261
 msgid "Title"
 msgstr "标题"
 
-#: templates/contacts.php:212
+#: templates/contacts.php:208
 msgid "Enter title"
 msgstr "输入标题"
 
-#: templates/contacts.php:216 templates/contacts.php:264
-#: templates/part.contact.php:39 templates/part.contact.php:40
-#: templates/part.contact.php:126
+#: templates/contacts.php:212 templates/contacts.php:260
 msgid "Organization"
 msgstr "组织"
 
-#: templates/contacts.php:219
+#: templates/contacts.php:215
 msgid "Enter organization"
 msgstr "输入组织"
 
-#: templates/contacts.php:223 templates/contacts.php:266
-#: templates/part.contact.php:45 templates/part.contact.php:128
+#: templates/contacts.php:219 templates/contacts.php:263
 msgid "Birthday"
 msgstr "生日"
 
-#: templates/contacts.php:254
+#: templates/contacts.php:250
 msgid "Notes go here..."
 msgstr ""
 
-#: templates/contacts.php:261
+#: templates/contacts.php:257
 msgid "Export as VCF"
 msgstr "导出为 VCF"
 
-#: templates/contacts.php:263
+#: templates/contacts.php:259
 msgid "Add"
 msgstr "增加"
 
-#: templates/contacts.php:267 templates/part.contact.php:129
+#: templates/contacts.php:264
 msgid "Phone"
 msgstr "电话"
 
-#: templates/contacts.php:268 templates/part.contact.php:130
+#: templates/contacts.php:265
 msgid "Email"
 msgstr "电子邮件"
 
-#: templates/contacts.php:269 templates/part.contact.php:131
+#: templates/contacts.php:266
 msgid "Instant Messaging"
 msgstr "即时通讯"
 
-#: templates/contacts.php:270 templates/part.contact.php:132
+#: templates/contacts.php:267
 msgid "Address"
 msgstr "地址"
 
-#: templates/contacts.php:271 templates/part.contact.php:133
+#: templates/contacts.php:268
 msgid "Note"
 msgstr "注释"
 
-#: templates/contacts.php:272 templates/part.contact.php:43
-#: templates/part.contact.php:134
+#: templates/contacts.php:269
 msgid "Web site"
 msgstr "网址"
 
-#: templates/contacts.php:275 templates/part.contact.php:139
+#: templates/contacts.php:271
 msgid "Delete contact"
 msgstr "删除联系人"
 
-#: templates/contacts.php:288 templates/contacts.php:303
-#: templates/contacts.php:317 templates/contacts.php:342
-#: templates/contacts.php:379 templates/part.contact.php:59
-#: templates/part.contact.php:73 templates/part.contact.php:98
+#: templates/contacts.php:284 templates/contacts.php:299
+#: templates/contacts.php:313 templates/contacts.php:338
+#: templates/contacts.php:375
 msgid "Preferred"
 msgstr "偏好"
 
-#: templates/contacts.php:290 templates/part.contact.php:60
+#: templates/contacts.php:286
 msgid "Please specify a valid email address."
 msgstr "请指定合法的电子邮件地址"
 
-#: templates/contacts.php:290
+#: templates/contacts.php:286
 msgid "someone@example.com"
 msgstr "someone@example.com"
 
-#: templates/contacts.php:292 templates/part.contact.php:64
+#: templates/contacts.php:288
 msgid "Mail to address"
 msgstr "发送邮件到地址"
 
-#: templates/contacts.php:293 templates/part.contact.php:65
+#: templates/contacts.php:289
 msgid "Delete email address"
 msgstr "删除电子邮件地址"
 
-#: templates/contacts.php:305 templates/part.contact.php:75
+#: templates/contacts.php:301
 msgid "Enter phone number"
 msgstr "输入电话号码"
 
-#: templates/contacts.php:307 templates/part.contact.php:79
+#: templates/contacts.php:303
 msgid "Delete phone number"
 msgstr "删除电话号码"
 
-#: templates/contacts.php:321 templates/part.contact.php:44
+#: templates/contacts.php:317
 msgid "Go to web site"
 msgstr "访问网址"
 
-#: templates/contacts.php:322
+#: templates/contacts.php:318
 msgid "Delete URL"
 msgstr "删除ＵＲＬ"
 
-#: templates/contacts.php:333 templates/part.contact.php:110
+#: templates/contacts.php:329
 msgid "View on map"
 msgstr "在地图上显示"
 
-#: templates/contacts.php:334
+#: templates/contacts.php:330
 msgid "Delete address"
 msgstr "删除地址"
 
-#: templates/contacts.php:346
+#: templates/contacts.php:342
 msgid "1 Main Street"
 msgstr "1 主街道"
 
-#: templates/contacts.php:347 templates/part.edit_address_dialog.php:24
+#: templates/contacts.php:343
 msgid "Street address"
 msgstr "街道地址"
 
-#: templates/contacts.php:351
+#: templates/contacts.php:347
 msgid "12345"
 msgstr "12345"
 
-#: templates/contacts.php:352 templates/part.edit_address_dialog.php:51
+#: templates/contacts.php:348
 msgid "Postal code"
 msgstr "邮政编码"
 
-#: templates/contacts.php:354
+#: templates/contacts.php:350
 msgid "Your city"
 msgstr "城市"
 
-#: templates/contacts.php:355 templates/part.edit_address_dialog.php:36
-#: templates/part.edit_address_dialog.php:39
+#: templates/contacts.php:351
 msgid "City"
 msgstr "城市"
 
-#: templates/contacts.php:359
+#: templates/contacts.php:355
 msgid "Some region"
 msgstr "部分地区"
 
-#: templates/contacts.php:360
+#: templates/contacts.php:356
 msgid "State or province"
 msgstr "州/省"
 
-#: templates/contacts.php:364
+#: templates/contacts.php:360
 msgid "Your country"
 msgstr "国家"
 
-#: templates/contacts.php:365 templates/part.edit_address_dialog.php:54
-#: templates/part.edit_address_dialog.php:57
+#: templates/contacts.php:361
 msgid "Country"
 msgstr "国家"
 
-#: templates/contacts.php:387 templates/part.contact.php:100
+#: templates/contacts.php:383
 msgid "Instant Messenger"
 msgstr "即时通讯"
 
-#: templates/contacts.php:389 templates/part.contact.php:101
+#: templates/contacts.php:385
 msgid "Delete IM"
 msgstr "删除即时通讯工具"
 
-#: templates/contacts.php:399 templates/settings.php:36
+#: templates/contacts.php:395 templates/settings.php:36
 msgid "Share"
 msgstr "共享"
 
-#: templates/contacts.php:400
+#: templates/contacts.php:396
 msgid "Export"
 msgstr "导出"
 
-#: templates/contacts.php:401
+#: templates/contacts.php:397
 msgid "CardDAV link"
-msgstr ""
+msgstr "CardDAV 链接"
 
-#: templates/index.php:14
-msgid "Add Contact"
-msgstr "添加联系人"
-
-#: templates/part.contact.php:17
-msgid "Drop photo to upload"
-msgstr "拖拽图片进行上传"
-
-#: templates/part.contact.php:35
-msgid "Format custom, Short name, Full name, Reverse or Reverse with comma"
-msgstr "自定义格式，简称，全名，姓在前，姓在前并用逗号分割"
-
-#: templates/part.contact.php:36
-msgid "Edit name details"
-msgstr "编辑名称详情"
-
-#: templates/part.contact.php:44
-msgid "http://www.somesite.com"
-msgstr "http://www.wodewangzhan.com"
-
-#: templates/part.contact.php:46
-msgid "dd-mm-yyyy"
-msgstr "yyyy-mm-dd"
-
-#: templates/part.contact.php:49
-msgid "Separate groups with commas"
-msgstr "用逗号隔开分组"
-
-#: templates/part.contact.php:50
-msgid "Edit groups"
-msgstr "编辑分组"
-
-#: templates/part.contact.php:60
-msgid "Enter email address"
-msgstr "输入电子邮件地址"
-
-#: templates/part.contact.php:110
-msgid "Edit address details"
-msgstr "编辑详细地址。"
-
-#: templates/part.contact.php:116
-msgid "Add notes here."
-msgstr "添加注释。"
-
-#: templates/part.contact.php:124
-msgid "Add field"
-msgstr "添加字段"
-
-#: templates/part.contact.php:138
-msgid "Download contact"
-msgstr "下载联系人"
-
-#: templates/part.cropphoto.php:65
+#: templates/part.cropphoto.php:31
 msgid "The temporary image has been removed from cache."
 msgstr "临时图像文件已从缓存中删除"
-
-#: templates/part.edit_address_dialog.php:6
-msgid "Edit address"
-msgstr "编辑地址"
-
-#: templates/part.edit_address_dialog.php:10
-msgid "Type"
-msgstr "类型"
-
-#: templates/part.edit_address_dialog.php:18
-#: templates/part.edit_address_dialog.php:21
-msgid "PO Box"
-msgstr "邮箱"
-
-#: templates/part.edit_address_dialog.php:27
-msgid "Street and number"
-msgstr "街道门牌号码"
-
-#: templates/part.edit_address_dialog.php:30
-msgid "Extended"
-msgstr "扩展"
-
-#: templates/part.edit_address_dialog.php:33
-msgid "Apartment number etc."
-msgstr "公寓号码"
-
-#: templates/part.edit_address_dialog.php:42
-msgid "Region"
-msgstr "地区"
-
-#: templates/part.edit_address_dialog.php:45
-msgid "E.g. state or province"
-msgstr "例如州或省"
-
-#: templates/part.edit_address_dialog.php:48
-msgid "Zipcode"
-msgstr "邮编"
-
-#: templates/part.edit_name_dialog.php:16
-msgid "Addressbook"
-msgstr "地址簿"
-
-#: templates/part.edit_name_dialog.php:23
-msgid "Hon. prefixes"
-msgstr "荣誉头衔"
-
-#: templates/part.edit_name_dialog.php:27
-msgid "Miss"
-msgstr "小姐"
-
-#: templates/part.edit_name_dialog.php:28
-msgid "Ms"
-msgstr "女士"
-
-#: templates/part.edit_name_dialog.php:29
-msgid "Mr"
-msgstr "先生"
-
-#: templates/part.edit_name_dialog.php:30
-msgid "Sir"
-msgstr "先生"
-
-#: templates/part.edit_name_dialog.php:31
-msgid "Mrs"
-msgstr "夫人"
-
-#: templates/part.edit_name_dialog.php:32
-msgid "Dr"
-msgstr "博士"
-
-#: templates/part.edit_name_dialog.php:35
-msgid "Given name"
-msgstr "名"
-
-#: templates/part.edit_name_dialog.php:39
-msgid "Family name"
-msgstr "姓"
-
-#: templates/part.edit_name_dialog.php:41
-msgid "Hon. suffixes"
-msgstr "名誉后缀"
-
-#: templates/part.edit_name_dialog.php:45
-msgid "J.D."
-msgstr "法律博士"
-
-#: templates/part.edit_name_dialog.php:46
-msgid "M.D."
-msgstr "医学博士"
-
-#: templates/part.edit_name_dialog.php:47
-msgid "D.O."
-msgstr "骨科医学博士"
-
-#: templates/part.edit_name_dialog.php:48
-msgid "D.C."
-msgstr "教育学博士"
-
-#: templates/part.edit_name_dialog.php:49
-msgid "Ph.D."
-msgstr "哲学博士"
-
-#: templates/part.edit_name_dialog.php:50
-msgid "Esq."
-msgstr "先生"
-
-#: templates/part.edit_name_dialog.php:51
-msgid "Jr."
-msgstr "小"
-
-#: templates/part.edit_name_dialog.php:52
-msgid "Sn."
-msgstr "老"
-
-#: templates/part.import.php:1
-msgid "Import a contacts file"
-msgstr "导入联系人文件"
-
-#: templates/part.import.php:6
-msgid "Please choose the addressbook"
-msgstr "请选择地址簿"
-
-#: templates/part.import.php:10
-msgid "create a new addressbook"
-msgstr "创建新地址簿"
-
-#: templates/part.import.php:15
-msgid "Name of new addressbook"
-msgstr "新地址簿名称"
-
-#: templates/part.import.php:20
-msgid "Importing contacts"
-msgstr "导入联系人"
-
-#: templates/part.no_contacts.php:3
-msgid ""
-"<h3>You have no contacts in your addressbook.</h3><p>You can import VCF "
-"files by dragging them to the contacts list and either drop them on an "
-"addressbook to import into it, or on an empty spot to create a new "
-"addressbook and import into that.<br />You can also import by clicking on "
-"the import button at the bottom of the list.</p>"
-msgstr "<h3>您还没有联系人哟。</h3><p>您可以通过拖曳VCF文件到联系人列表或地址簿来导入联系人，或者空白处创建新的地址簿进行导入。<br />您还可以通过点击列表底部的导入按钮来导入</p>"
-
-#: templates/part.selectaddressbook.php:1
-msgid "Select Address Books"
-msgstr "选择地址簿"
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"

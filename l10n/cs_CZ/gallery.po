@@ -6,13 +6,13 @@
 # Jan Krejci <krejca85@gmail.com>, 2012.
 # Martin  <fireball@atlas.cz>, 2012.
 # Michal Hrušecký <Michal@hrusecky.net>, 2012.
-# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-12 02:01+0200\n"
-"PO-Revision-Date: 2012-09-11 07:30+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 07:20+0000\n"
 "Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -21,27 +21,19 @@ msgstr ""
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Obrázky"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "Galerie"
+#: js/gallery.js:235
+msgid "Shared by"
+msgstr "Sdílí"
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Sdílet galerii"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Sdílet"
 
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Chyba: "
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Vnitřní chyba"
-
-#: templates/index.php:27
+#: templates/index.php:7
 msgid "Slideshow"
 msgstr "Prezentace"
 

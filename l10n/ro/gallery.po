@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-19 02:02+0200\n"
-"PO-Revision-Date: 2012-09-18 12:33+0000\n"
-"Last-Translator: g.ciprian <g.ciprian@osn.ro>\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:41+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,27 +21,19 @@ msgstr ""
 "Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Imagini"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "Galerii"
+#: js/gallery.js:235
+msgid "Shared by"
+msgstr ""
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Împărtășește galaria"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Partajează"
 
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Eroare:"
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Eroare internă"
-
-#: templates/index.php:27
+#: templates/index.php:7
 msgid "Slideshow"
 msgstr "Diaporamă"
 

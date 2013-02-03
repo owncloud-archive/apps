@@ -529,7 +529,7 @@ Calendar={
 							$('#fullcalendar').fullCalendar('removeEventSource', data.eventSource.url);
 							$('#fullcalendar').fullCalendar('addEventSource', data.eventSource);
 							if (calendarid == 'new'){
-								$('#choosecalendar_dialog > table:first').append('<tr><td colspan="6"><a href="#" onclick="Calendar.UI.Calendar.newCalendar(this);"><input type="button" value="' + newcalendar + '"></a></td></tr>');
+								$('#choosecalendar_dialog > table:first').append('<tr><td colspan="6"><a href="#" id="chooseCalendar"><input type="button" value="' + newcalendar + '"></a></td></tr>');
 							}
 						}else{
 							$("#displayname_"+calendarid).css('background-color', '#FF2626');
@@ -897,7 +897,6 @@ $(document).ready(function(){
 			else {
 				$('#fullcalendar').fullCalendar('option', 'aspectRatio', 1.35);
 			}
-			$('#fullcalendar').fullCalendar('rerenderEvents');
 		},
 		columnFormat: {
 		    week: 'ddd d. MMM'
@@ -921,11 +920,6 @@ $(document).ready(function(){
 					return Calendar.UI.getEventPopupText(event);
 				}
 			});
-		},
-		eventAfterRender: function(event, element, view) {
-			if(view.name == 'agendaWeek'){
-				element.find('.fc-event-title').html(element.find('.fc-event-title').text());
-			}
 		},
 		loading: Calendar.UI.loading,
 		eventSources: eventSources

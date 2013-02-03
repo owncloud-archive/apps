@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <theranchcowboy@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-18 22:56+0200\n"
-"PO-Revision-Date: 2012-10-18 20:57+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-02-03 00:01+0100\n"
+"PO-Revision-Date: 2013-02-02 22:30+0000\n"
+"Last-Translator: Rancher <theranchcowboy@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,16 +20,16 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "OpenID Provider remembered sites"
-msgstr ""
+msgstr "Запамћени сајтови на OpenID-ју"
 
 #: templates/settings.php:8
 msgid "Trusted"
-msgstr ""
+msgstr "Поверљиво"
 
 #: templates/settings.php:8
 msgid "Denied"
-msgstr ""
+msgstr "Одбијено"
 
 #: templates/settings.php:9
 msgid "Remove"
-msgstr ""
+msgstr "Уклони"

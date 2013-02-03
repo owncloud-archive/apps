@@ -1,3 +1,7 @@
 <?php $TRANSLATIONS = array(
-"URL" => "Адреса"
+"External Sites" => "Надворешни сајтови",
+"Name" => "Име",
+"URL" => "Адреса",
+"Remove site" => "Острани сајт",
+"Add" => "Додади"
 );

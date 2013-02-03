@@ -3,7 +3,7 @@
  */
 
 (function( $ ) {
-	$.widget('ui.combobox', {
+	$.widget('oc.combobox', {
 		options: {
 			id: null,
 			showButton: false,
@@ -73,7 +73,7 @@
 				})
 				.addClass('ui-widget ui-widget-content ui-corner-left');
 
-			input.data('autocomplete')._renderItem = function( ul, item ) {
+			input.data('uiAutocomplete')._renderItem = function( ul, item ) {
 				return $('<li></li>')
 					.data('item.autocomplete', item )
 					.append('<a>' + item.label + '</a>')

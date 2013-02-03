@@ -419,7 +419,7 @@ class OC_Calendar_Object{
 	 * Furthermore it converts the time to UTC.
 	 */
 	public static function getUTCforMDB($datetime) {
-		return date('Y-m-d H:i', $datetime->format('U') - $datetime->getOffset());
+		return date('Y-m-d H:i', $datetime->format('U'));
 	}
 
 	/**

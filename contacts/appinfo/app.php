@@ -21,7 +21,7 @@ OCP\App::addNavigationEntry( array(
   'id' => 'contacts_index',
   'order' => 10,
   'href' => OCP\Util::linkTo( 'contacts', 'index.php' ),
-  'icon' => OCP\Util::imagePath( 'settings', 'users.svg' ),
+  'icon' => OCP\Util::imagePath( 'contacts', 'contacts.svg' ),
   'name' => OC_L10N::get('contacts')->t('Contacts') ));
 
 OCP\Util::addscript('contacts', 'loader');

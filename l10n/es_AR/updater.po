@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# CJTess <claudio.tessone@gmail.com>, 2013.
 #   <claudio.tessone@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-25 02:03+0200\n"
-"PO-Revision-Date: 2012-09-24 04:26+0000\n"
+"POT-Creation-Date: 2013-02-02 00:03+0100\n"
+"PO-Revision-Date: 2013-01-31 23:33+0000\n"
 "Last-Translator: cjtess <claudio.tessone@gmail.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +19,18 @@ msgstr ""
 "Language: es_AR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/admin.php:22
+#: js/updater.js:5
+msgid "In progress..."
+msgstr "En progreso..."
+
+#: js/updater.js:16
+msgid "Done. Reload the page to proceed."
+msgstr "Listo. Recargá la página para continuar."
+
+#: js/updater.js:19 js/updater.js:25
+msgid "Error"
+msgstr "Error"
+
+#: templates/admin.php:24
 msgid "Update"
 msgstr "Actualizar"

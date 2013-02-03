@@ -10,13 +10,11 @@ input.disabled, input.disabled:hover, input.disabled:focus {
 	background-color: #ddd;
 	color: gray;
 }
-#leftcontent {
-	top: 4em !important;
-}
 
 #rightcontent {
-    	padding-top: 5px;
-    	top: 1em !important;
+	padding-top: 5px;
+	top: 1em !important;
+
 }
 
 .bookmarks_headline {
@@ -36,8 +34,11 @@ input.disabled, input.disabled:hover, input.disabled:focus {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding-top: 3em;
-	width: 100%;
+/* 	width: 100%; */
 	height: 100%;
+	position: fixed;
+	left: 32.5em;
+	right:0;
 }
 
 #add_form {
@@ -98,6 +99,7 @@ input.disabled, input.disabled:hover, input.disabled:focus {
         font-weight: bold;
         display: inline-block;
         margin-right: 0.8em;
+		margin-top:0.7em;
         width: 20%;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -205,7 +207,7 @@ input.disabled, input.disabled:hover, input.disabled:focus {
 	font-weight: normal;
 	float:left;
 	padding: 0.3em;
-    	position: relative;
+	position: relative;
 }
 
 ul.tagit li.tagit-new {
@@ -249,8 +251,8 @@ li:hover em { display : none; }
 #tag_filter ul.tagit li.tagit-choice .close{
 	margin-top: -8px;
 	cursor: pointer;
-    	margin-top: -8px;
-    	position: absolute;
+    margin-top: -8px;
+    position: absolute;
 	right: 0.1em;
 	top: 50%;
 }
@@ -262,12 +264,12 @@ li:hover em { display : none; }
 	text-overflow:ellipsis;
 	overflow:hidden;
 	display:block;
-        float:left;
-        position: absolute;
-        left: 25%;
-        width:40%;
-        top: 0.7em;
-        font-weight:500;
+	float:left;
+	position: absolute;
+	left: 25%;
+	width:40%;
+	top: 0.7em;
+	font-weight:500;
 }
 .bookmark_date, .bookmark_submit {
 	font-size:small;
@@ -276,7 +278,7 @@ li:hover em { display : none; }
 	color:gray;
 /* 	margin-top:2.5em; */
 	margin-right: 0.2em;
-        top:0.8em;
+	top:0.8em;
 }
 
 /*
@@ -291,8 +293,45 @@ li:hover em { display : none; }
 .bookmark_single:hover .bookmark_url a[href]{ color:gray; }
 
 .bookmark_url { display: none; }
+.bookmark_form_title { 
+	float: left;
+	width:25%;
+}
+
+.bookmark_form_url {
+	float:left;
+	width:25%;
+}
+
+.bookmark_form_tags {
+	width:30%;
+	float:left;
+}
+
+
+.bookmark_form_desc {
+	width:50%;
+}
+
+.bookmark_form_desc textarea {
+	margin-top:-3.4em;
+}
+
 .bookmark_form_title input, .bookmark_form_url input, .bookmark_form_desc textarea  {
 	width: 80%;
+}
+
+.bookmark_single .bookmark_edit_btn {
+	display:none;
+}
+
+.bookmark_single:hover .bookmark_edit_btn {
+	display:block;
+}
+
+.bookmark_single:focus .bookmark_edit_btn {
+	display:block;
+	opacity:1;
 }
 
 .bookmark_single_form {
@@ -305,6 +344,7 @@ li:hover em { display : none; }
 	width: 80%;
 	box-shadow: 0 1px 1px #FFFFFF, 0 1px 0 #BBBBBB inset;
 	margin: 3px;
+	height:6.4em;
 }
 .bm_view_img .bookmark_actions {
 	bottom: 0.7em;

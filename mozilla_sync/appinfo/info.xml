@@ -6,7 +6,7 @@
 	<version>1.0</version>
 	<licence>AGPL</licence>
 	<author>Michal Jaskurzynski</author>
-	<require>4.9</require>
+	<require>4.91</require>
 	<remote>
 	   <mozilla_sync>appinfo/remote.php</mozilla_sync>
 	</remote>

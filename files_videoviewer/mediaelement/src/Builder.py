@@ -44,6 +44,7 @@ mep_files.append('mep-feature-volume.js')
 mep_files.append('mep-feature-fullscreen.js')
 mep_files.append('mep-feature-tracks.js')
 mep_files.append('mep-feature-contextmenu.js')
+mep_files.append('mep-feature-postroll.js')
 # mep_files.append('mep-feature-sourcechooser.js')
 
 code = ''
@@ -122,7 +123,9 @@ os.system("java -jar yuicompressor-2.4.2.jar ../build/mediaelementplayer.css -o 
 #COPY skin files
 print('Copying Skin Files')
 shutil.copy2('css/controls.png','../build/controls.png')
+shutil.copy2('css/controls.svg','../build/controls.svg')
 shutil.copy2('css/bigplay.png','../build/bigplay.png')
+shutil.copy2('css/bigplay.svg','../build/bigplay.svg')
 shutil.copy2('css/loading.gif','../build/loading.gif')
 
 shutil.copy2('css/mejs-skins.css','../build/mejs-skins.css')

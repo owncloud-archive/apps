@@ -15,26 +15,6 @@ if( count($calendars) == 0) {
 	$calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser(), true);
 }
 
-$eventSources = array();
-foreach($calendars as $calendar) {
-	if(!array_key_exists('active', $calendar)){
-		$calendar['active'] = 1;
-	}
-	if($calendar['active'] == 1) {
-		$eventSources[] = OC_Calendar_Calendar::getEventSourceInfo($calendar);
-	}
-}
-
-$events_baseURL = OCP\Util::linkTo('calendar', 'ajax/events.php');
-$eventSources[] = array('url' => $events_baseURL.'?calendar_id=shared_events',
-		'backgroundColor' => '#1D2D44',
-		'borderColor' => '#888',
-		'textColor' => 'white',
-		'editable' => 'false');
-
-OCP\Util::emitHook('OC_Calendar', 'getSources', array('sources' => &$eventSources));
-$categories = OC_Calendar_App::getCategoryOptions();
-
 //Fix currentview for fullcalendar
 if(OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'currentview', 'month') == "oneweekview") {
 	OCP\Config::setUserValue(OCP\USER::getUser(), "calendar", "currentview", "agendaWeek");
@@ -59,10 +39,10 @@ OCP\Util::addscript('', 'jquery.multiselect');
 OCP\Util::addStyle('', 'jquery.multiselect');
 OCP\Util::addscript('contacts','jquery.multi-autocomplete');
 OCP\Util::addscript('','oc-vcategories');
+OCP\Util::addscript('calendar','on-event');
 OCP\App::setActiveNavigationEntry('calendar_index');
 $tmpl = new OCP\Template('calendar', 'calendar', 'user');
-$tmpl->assign('eventSources', $eventSources,false);
-$tmpl->assign('categories', $categories, false);
+
 if(array_key_exists('showevent', $_GET)) {
 	$tmpl->assign('showevent', $_GET['showevent'], false);
 }

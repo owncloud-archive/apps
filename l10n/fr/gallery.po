@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Cédric MARTIN <sid50.martin@gmail.com>, 2013.
 # Geoffrey Guerrier <geoffrey.guerrier@gmail.com>, 2012.
 # Nahir Mohamed <nahirmoha@gmail.com>, 2012.
 #   <rom1dep@gmail.com>, 2012.
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-12 02:01+0200\n"
-"PO-Revision-Date: 2012-09-11 14:37+0000\n"
-"Last-Translator: Geoffrey Guerrier <geoffrey.guerrier@gmail.com>\n"
+"POT-Creation-Date: 2013-02-02 00:03+0100\n"
+"PO-Revision-Date: 2013-02-01 14:30+0000\n"
+"Last-Translator: Flywall <sid50.martin@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,27 +23,19 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Images"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "Galerie"
+#: js/gallery.js:235
+msgid "Shared by"
+msgstr "Partager par"
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Partager la galerie"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Partager"
 
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Erreur :"
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Erreur interne"
-
-#: templates/index.php:27
+#: templates/index.php:7
 msgid "Slideshow"
 msgstr "Diaporama"
 

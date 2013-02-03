@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-18 00:02+0100\n"
-"PO-Revision-Date: 2012-12-17 23:03+0000\n"
+"POT-Creation-Date: 2013-01-24 00:03+0100\n"
+"PO-Revision-Date: 2013-01-23 08:30+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: js/export.js:14 js/export.js:20
 msgid "Export"
-msgstr ""
+msgstr "Извези"
 
 #: js/export.js:19
 msgid "Something went wrong while the export file was being generated"
