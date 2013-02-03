@@ -490,6 +490,7 @@ OC.Contacts = OC.Contacts || {};
 				self.id = parseInt(jsondata.data.id);
 				self.access.id = parseInt(jsondata.data.aid);
 				self.data = jsondata.data.details;
+				self.$groupSelect.multiselect('enable');
 				// Add contact to current group
 				if(self.groupprops && self.groupprops.currentgroup.id !== 'all'
 					&& self.groupprops.currentgroup.id !== 'fav') {
@@ -694,6 +695,9 @@ OC.Contacts = OC.Contacts || {};
 					self.removeFromGroup(ui.text);
 				}
 			});
+			if(!self.id) {
+				self.$groupSelect.multiselect('disable');
+			}
 		};
 		
 		var n = this.getPreferredValue('N', ['', '', '', '', '']);
