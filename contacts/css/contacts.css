@@ -1,4 +1,4 @@
-#content-wrapper { overflow: hidden; }
+#content-wrapper { overflow: hidden; } /* Avoid double scroll bars */
 /* General element settings */
 #content li { cursor: default; }
 #content input[type=checkbox] { 
