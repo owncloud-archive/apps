@@ -53,7 +53,7 @@ OCP\Util::writeLog('contacts', 'savecrop.php: key: '.$tmpkey, OCP\Util::DEBUG);
 $data = OC_Cache::get($tmpkey);
 if($data) {
 	$image = new OC_Image();
-	if($image->loadFromdata($data)) {
+	if($image->loadFromData($data)) {
 		$w = ($w != -1 ? $w : $image->width());
 		$h = ($h != -1 ? $h : $image->height());
 		OCP\Util::writeLog('contacts',
