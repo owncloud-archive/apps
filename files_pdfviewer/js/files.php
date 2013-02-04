@@ -25,5 +25,5 @@ $array = array(
 
 // Echo it
 foreach ($array as  $setting => $value) {
-	echo($setting ."=\"".$value."\";\n");
+	echo($setting ."=".json_encode($value).";\n");
 }
