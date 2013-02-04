@@ -7,7 +7,7 @@
 		<input type='button' id='slideshow-start' value='<?php echo $l->t('Slideshow');?>'> </input>
 	</span>
 </div>
-<div id='gallery'></div>
+<div id='gallery' class="hascontrols"></div>
 <div id='slideshow'>
 	<input type='button' class='next'/>
 	<input type='button' class='previous'/>

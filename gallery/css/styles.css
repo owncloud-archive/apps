@@ -1,5 +1,4 @@
 #gallery {
-	margin-top: 2.8em;
 	overflow: auto;
 	overflow-x: hidden;
 	text-align: justify;
@@ -37,14 +36,6 @@
 
 #controls > .right {
 	float: right;
-}
-
-#controls {
-	padding: 0;
-	padding-left: 64px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	left: 0;
 }
 
 #gallery>h2 {
