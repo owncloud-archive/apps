@@ -85,3 +85,8 @@ jQuery.fn.slideShow.stop = function () {
 	jQuery.fn.slideShow.container.hide();
 	jQuery.fn.slideShow.container = null;
 };
+
+jQuery.fn.slideShow.hideImage = function () {
+	var container = jQuery.fn.slideShow.container;
+	container.children('img').remove();
+};

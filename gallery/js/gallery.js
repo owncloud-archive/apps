@@ -255,6 +255,16 @@ Gallery.slideshow.end = function () {
 	jQuery.fn.slideShow.stop();
 };
 
+Gallery.slideshow.next = function () {
+	jQuery.fn.slideShow.hideImage();
+	jQuery.fn.slideShow.next();
+};
+
+Gallery.slideshow.previous = function () {
+	jQuery.fn.slideShow.hideImage();
+	jQuery.fn.slideShow.previous();
+};
+
 $(document).ready(function () {
 	Gallery.fillAlbums().then(function () {
 		Gallery.view.element = $('#gallery');
@@ -269,14 +279,20 @@ $(document).ready(function () {
 		$(document).keyup(function (e) {
 			if (e.keyCode === 27) { // esc
 				Gallery.slideshow.end();
+			} else if (e.keyCode == 37) { // left
+				Gallery.slideshow.previous();
+			} else if (e.keyCode == 39) { // right
+				Gallery.slideshow.next();
+			} else if (e.keyCode == 32) { // space
+				return false;
 			}
 		});
 		$('#slideshow-start').click(function () {
 			Gallery.slideshow.start();
 		});
 		var slideshow = $('#slideshow');
-		slideshow.children('.next').click(jQuery.fn.slideShow.next);
-		slideshow.children('.previous').click(jQuery.fn.slideShow.previous);
+		slideshow.children('.next').click(Gallery.slideshow.next);
+		slideshow.children('.previous').click(Gallery.slideshow.previous);
 		slideshow.children('.exit').click(jQuery.fn.slideShow.stop);
 
 		$('button.share').click(Gallery.share);
