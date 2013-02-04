@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-28 00:01+0100\n"
-"PO-Revision-Date: 2013-01-27 11:50+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-05 00:17+0100\n"
+"PO-Revision-Date: 2013-02-04 11:10+0000\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,16 +24,16 @@ msgstr "Eksportēt"
 
 #: js/export.js:19
 msgid "Something went wrong while the export file was being generated"
-msgstr ""
+msgstr "Kaut kas nogāja greizi, veidojot eksporta datni"
 
 #: js/export.js:19
 msgid "An error has occurred"
-msgstr ""
+msgstr "Gadījās kļūda"
 
 #: templates/settings.php:2
 msgid "User Account Migration"
-msgstr ""
+msgstr "Lietotāju kontu migrēšana"
 
 #: templates/settings.php:3
 msgid "Export and import ownCloud user accounts."
-msgstr ""
+msgstr "Eksportēt un importēt ownCloud lietotāju kontus."

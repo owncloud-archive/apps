@@ -3,25 +3,26 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:02+0200\n"
-"PO-Revision-Date: 2012-09-02 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-05 00:17+0100\n"
+"PO-Revision-Date: 2013-02-04 11:20+0000\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lv\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
 #: templates/presentations.php:5
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentācija"
 
 #: templates/presentations.php:10
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
-msgstr ""
+msgstr "Jūsu ownCloud nav atrodamas Impress datnes. Lūdzu, augšupielādējiet .impress datni."

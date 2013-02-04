@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-03 00:01+0100\n"
-"PO-Revision-Date: 2013-02-02 14:05+0000\n"
+"POT-Creation-Date: 2013-02-05 00:17+0100\n"
+"PO-Revision-Date: 2013-02-04 14:31+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -231,131 +231,131 @@ msgstr "اشخاص"
 msgid "%d_selected_contacts"
 msgstr ""
 
-#: js/app.js:265 js/app.js:279
+#: js/app.js:268 js/app.js:282
 msgid "Add to..."
 msgstr ""
 
-#: js/app.js:269 js/app.js:281
+#: js/app.js:272 js/app.js:284
 msgid "Remove from..."
 msgstr ""
 
-#: js/app.js:286
+#: js/app.js:289
 msgid "Add group..."
 msgstr ""
 
-#: js/app.js:354
+#: js/app.js:357
 msgid "Indexing contacts"
 msgstr ""
 
-#: js/app.js:451
+#: js/app.js:454
 msgid "Select photo"
 msgstr "تصویر را انتخاب کنید"
 
-#: js/app.js:498 js/app.js:524 js/app.js:1483 js/app.js:1595
+#: js/app.js:505 js/app.js:531 js/app.js:1502 js/app.js:1614
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr ""
 
-#: js/app.js:660 js/app.js:695
+#: js/app.js:671 js/app.js:710
 msgid "Error adding to group."
 msgstr ""
 
-#: js/app.js:720
+#: js/app.js:739
 msgid "Error removing from group."
 msgstr ""
 
-#: js/app.js:750
+#: js/app.js:769
 msgid "There was an error opening a mail composer."
 msgstr ""
 
-#: js/app.js:800
+#: js/app.js:819
 msgid "Deleting done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:877
+#: js/app.js:896
 msgid "Add address book"
 msgstr ""
 
-#: js/app.js:973
+#: js/app.js:992
 msgid "Import done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:1014
+#: js/app.js:1033
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/app.js:1020
+#: js/app.js:1039
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/app.js:1020 js/app.js:1530 js/settings.js:25 js/settings.js:45
+#: js/app.js:1039 js/app.js:1549 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "خطا"
 
-#: js/app.js:1030
+#: js/app.js:1049
 msgid "Importing from {filename}..."
 msgstr ""
 
-#: js/app.js:1033
+#: js/app.js:1052
 msgid "{success} imported, {failed} failed."
 msgstr ""
 
-#: js/app.js:1041
+#: js/app.js:1060
 msgid "Importing..."
 msgstr ""
 
-#: js/app.js:1064
+#: js/app.js:1083
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "ناتوان در بارگذاری یا فایل یک پوشه است یا 0بایت دارد"
 
-#: js/app.js:1064
+#: js/app.js:1083
 msgid "Upload Error"
 msgstr "خطا در بار گذاری"
 
-#: js/app.js:1071 js/app.js:1358
+#: js/app.js:1090 js/app.js:1377
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "حجم فایل بسیار بیشتر از حجم تنظیم شده در تنظیمات سرور است"
 
-#: js/app.js:1071
+#: js/app.js:1090
 msgid "Upload too large"
 msgstr "سایز فایل برای آپلود زیاد است(م.تنظیمات در php.ini)"
 
-#: js/app.js:1111
+#: js/app.js:1130
 msgid "Pending"
 msgstr "در انتظار"
 
-#: js/app.js:1254 templates/contacts.php:123
+#: js/app.js:1273 templates/contacts.php:123
 msgid "Add group"
 msgstr ""
 
-#: js/app.js:1347
+#: js/app.js:1366
 msgid "No files selected for upload."
 msgstr "هیچ فایلی برای آپلود انتخاب نشده است"
 
-#: js/app.js:1448
+#: js/app.js:1467
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1466 js/contacts.js:1130
+#: js/app.js:1485 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/app.js:1518
+#: js/app.js:1537
 msgid "Enter name"
 msgstr ""
 
-#: js/app.js:1519
+#: js/app.js:1538
 msgid "Enter description"
 msgstr ""
 
-#: js/app.js:1522
+#: js/app.js:1541
 msgid "Select addressbook"
 msgstr ""
 
-#: js/app.js:1530
+#: js/app.js:1549
 msgid "The address book name cannot be empty."
 msgstr ""
 
@@ -363,25 +363,25 @@ msgstr ""
 msgid "Is this correct?"
 msgstr ""
 
-#: js/contacts.js:544
+#: js/contacts.js:545
 msgid "There was an unknown error when trying to delete this contact"
 msgstr ""
 
-#: js/contacts.js:682
+#: js/contacts.js:683
 msgid "# groups"
 msgstr ""
 
-#: js/contacts.js:1463
+#: js/contacts.js:1490
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1474
+#: js/contacts.js:1501
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1489
+#: js/contacts.js:1516
 msgid "Cancelled deletion of {num}"
 msgstr ""
 

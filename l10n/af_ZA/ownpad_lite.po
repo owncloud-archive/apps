@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"POT-Creation-Date: 2013-02-05 00:17+0100\n"
 "PO-Revision-Date: 2012-09-02 00:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Afrikaans (South Africa) (http://www.transifex.com/projects/p/owncloud/language/af_ZA/)\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: templates/index.php:14 templates/index.php:15
 msgid "Settings"
-msgstr ""
+msgstr "Instellings"
 
 #: templates/index.php:17
 msgid "Pad Title"
@@ -39,7 +39,7 @@ msgstr ""
 
 #: templates/settings.php:20
 msgid "Username"
-msgstr ""
+msgstr "Gebruikersnaam"
 
 #: templates/settings.php:27
 msgid "Save"

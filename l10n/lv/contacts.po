@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-04 00:01+0100\n"
-"PO-Revision-Date: 2013-02-03 20:50+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-05 00:17+0100\n"
+"PO-Revision-Date: 2013-02-04 19:10+0000\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,17 +20,17 @@ msgstr ""
 
 #: ajax/addressbook/activate.php:37 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
-msgstr ""
+msgstr "Kļūda, (de)aktivizējot adrešu grāmatu."
 
 #: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/delete.php:32 ajax/contact/deleteproperty.php:38
 #: ajax/contact/saveproperty.php:77
 msgid "id is not set."
-msgstr ""
+msgstr "id nav iestatīts."
 
 #: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
-msgstr ""
+msgstr "Nevar atjaunināt adrešu grāmatu ar tukšu vārdu."
 
 #: ajax/categories/add.php:19
 msgid "No category name given."
@@ -49,35 +50,35 @@ msgstr ""
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
-msgstr ""
+msgstr "Nav norādīts ID"
 
 #: ajax/categories/categoriesfor.php:35
 msgid "Error setting checksum."
-msgstr ""
+msgstr "Kļūda, iestatot kontrolsummu."
 
 #: ajax/categories/delete.php:21
 msgid "No categories selected for deletion."
-msgstr ""
+msgstr "Neviena kategorija nav izvēlēta dzēšanai."
 
 #: ajax/categories/delete.php:28
 msgid "No address books found."
-msgstr ""
+msgstr "Nav atrastu adrešu grāmatu."
 
 #: ajax/categories/delete.php:36
 msgid "No contacts found."
-msgstr ""
+msgstr "Nav atrastu kontaktu."
 
 #: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:74
 msgid "element name is not set."
-msgstr ""
+msgstr "elementa nosaukums nav iestatīts."
 
 #: ajax/contact/deleteproperty.php:46 ajax/contact/saveproperty.php:80
 msgid "checksum is not set."
-msgstr ""
+msgstr "kontrolsumma nav iestatīta."
 
 #: ajax/contact/deleteproperty.php:54
 msgid "Information about vCard is incorrect. Please reload the page."
-msgstr ""
+msgstr "Informācija par vCard ir nepareiza. Lūdzu, pārlādējiet šo lapu."
 
 #: ajax/contact/saveproperty.php:98
 #, php-format
@@ -86,11 +87,11 @@ msgstr ""
 
 #: ajax/contact/saveproperty.php:108
 msgid "Information about vCard is incorrect. Please reload the page: "
-msgstr ""
+msgstr "Informācija par vCard ir nepareiza. Lūdzu, pārlādējiet lapu:"
 
 #: ajax/contact/saveproperty.php:116
 msgid "Something went FUBAR. "
-msgstr ""
+msgstr "Kaut kas sagāja reālā sviestā."
 
 #: ajax/contact/saveproperty.php:128
 #, php-format
@@ -108,63 +109,63 @@ msgstr ""
 #: ajax/currentphoto.php:30 ajax/oc_photo.php:28 ajax/uploadphoto.php:36
 #: ajax/uploadphoto.php:68
 msgid "No contact ID was submitted."
-msgstr ""
+msgstr "Netika iesniegts kontakta ID. "
 
 #: ajax/currentphoto.php:36
 msgid "Error reading contact photo."
-msgstr ""
+msgstr "Kļūda, nolasot kontakta fotogrāfiju."
 
 #: ajax/currentphoto.php:50
 msgid "Error saving temporary file."
-msgstr ""
+msgstr "Kļūda, saglabājot pagaidu datni."
 
 #: ajax/currentphoto.php:53
 msgid "The loading photo is not valid."
-msgstr ""
+msgstr "Ielādes fotogrāfija nav derīga."
 
 #: ajax/editname.php:31
 msgid "Contact ID is missing."
-msgstr ""
+msgstr "Trūkst kontakta ID."
 
 #: ajax/oc_photo.php:32
 msgid "No photo path was submitted."
-msgstr ""
+msgstr "Nav iesniegts fotogrāfijas ceļš."
 
 #: ajax/oc_photo.php:39
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "Datne neeksistē:"
 
 #: ajax/oc_photo.php:44 ajax/oc_photo.php:47
 msgid "Error loading image."
-msgstr ""
+msgstr "Kļūda, ielādējot attēlu."
 
 #: ajax/savecrop.php:70
 msgid "Error getting contact object."
-msgstr ""
+msgstr "Kļūda, saņemot kontakta objektu."
 
 #: ajax/savecrop.php:80
 msgid "Error getting PHOTO property."
-msgstr ""
+msgstr "Kļūda, saņemot PHOTO īpašību."
 
 #: ajax/savecrop.php:105
 msgid "Error saving contact."
-msgstr ""
+msgstr "Kļūda, saglabājot kontaktu."
 
 #: ajax/savecrop.php:117
 msgid "Error resizing image"
-msgstr ""
+msgstr "Kļūda, mainot attēla izmēru"
 
 #: ajax/savecrop.php:120
 msgid "Error cropping image"
-msgstr ""
+msgstr "Kļūda, apcērtot attēlu"
 
 #: ajax/savecrop.php:123
 msgid "Error creating temporary image"
-msgstr ""
+msgstr "Kļūda, veidojot pagaidu attēlu"
 
 #: ajax/savecrop.php:126
 msgid "Error finding image: "
-msgstr ""
+msgstr "Kļūda, meklējot attēlu:"
 
 #: ajax/setpreference.php:37
 msgid "Key is not set for: "
@@ -180,15 +181,15 @@ msgstr ""
 
 #: ajax/uploadimport.php:44 ajax/uploadimport.php:76
 msgid "Error uploading contacts to storage."
-msgstr ""
+msgstr "Kļūda, augšupielādējot kontaktus uz krātuvi."
 
 #: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
-msgstr "Viss kārtībā, augšupielāde veiksmīga"
+msgstr "Viss kārtībā, datne augšupielādēta veiksmīga"
 
 #: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
+msgstr "Augšupielādētā datne pārsniedz upload_max_filesize direktīvu datnē php.ini"
 
 #: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
 msgid ""
@@ -202,7 +203,7 @@ msgstr "Augšupielādētā datne ir tikai daļēji augšupielādēta"
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
-msgstr "Neviens fails netika augšuplādēts"
+msgstr "Neviena datne netika augšupielādēta"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
@@ -210,11 +211,11 @@ msgstr "Trūkst pagaidu mapes"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
-msgstr ""
+msgstr "Nevar saglabāt pagaidu attēlu:"
 
 #: ajax/uploadphoto.php:62 ajax/uploadphoto.php:112
 msgid "Couldn't load temporary image: "
-msgstr ""
+msgstr "Nevarēja ielādēt pagaidu attēlu:"
 
 #: ajax/uploadphoto.php:71
 msgid "No file was uploaded. Unknown error"
@@ -222,7 +223,7 @@ msgstr "Netika augšupielādēta neviena datne. Nezināma kļūda"
 
 #: appinfo/app.php:25
 msgid "Contacts"
-msgstr ""
+msgstr "Kontakti"
 
 #: export.php:66
 #, php-format
@@ -289,7 +290,7 @@ msgstr ""
 #: js/app.js:1039 js/app.js:1549 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
-msgstr "Kļūme"
+msgstr "Kļūda"
 
 #: js/app.js:1049
 msgid "Importing from {filename}..."
@@ -315,7 +316,7 @@ msgstr "Augšuplādēšanas laikā radās kļūda"
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
-msgstr ""
+msgstr "Datne, ko mēģināt augšupielādēt pārsniedz maksimālo datņu augšupielādes izmēru šim serverim."
 
 #: js/app.js:1090
 msgid "Upload too large"
@@ -331,7 +332,7 @@ msgstr ""
 
 #: js/app.js:1366
 msgid "No files selected for upload."
-msgstr ""
+msgstr "Neviena datne nav izvēlēta augšupielādei."
 
 #: js/app.js:1467
 msgid "Edit profile picture"
@@ -427,15 +428,15 @@ msgstr ""
 
 #: js/loader.js:49
 msgid "Result: "
-msgstr ""
+msgstr "Rezultāts:"
 
 #: js/loader.js:49
 msgid " imported, "
-msgstr ""
+msgstr "importēts,"
 
 #: js/loader.js:49
 msgid " failed."
-msgstr ""
+msgstr "cieta neveiksmi."
 
 #: js/settings.js:75
 msgid "Displayname cannot be empty."
@@ -451,7 +452,7 @@ msgstr ""
 
 #: js/settings.js:99 templates/contacts.php:257 templates/settings.php:40
 msgid "Download"
-msgstr "Lejuplādēt"
+msgstr "Lejupielādēt"
 
 #: js/settings.js:101 templates/settings.php:45
 msgid "Edit"
@@ -462,7 +463,7 @@ msgstr "Rediģēt"
 #: templates/contacts.php:271 templates/contacts.php:398
 #: templates/settings.php:50
 msgid "Delete"
-msgstr "Izdzēst"
+msgstr "Dzēst"
 
 #: js/settings.js:120 templates/contacts.php:255 templates/settings.php:62
 msgid "Cancel"
@@ -550,7 +551,7 @@ msgstr "Darbs"
 
 #: lib/app.php:168 lib/app.php:173 lib/app.php:187
 msgid "Home"
-msgstr ""
+msgstr "Mājas"
 
 #: lib/app.php:169 lib/app.php:182 lib/app.php:189 lib/app.php:228
 #: lib/vcard.php:701
@@ -559,35 +560,35 @@ msgstr "Cits"
 
 #: lib/app.php:174
 msgid "Mobile"
-msgstr ""
+msgstr "Mobilais"
 
 #: lib/app.php:176
 msgid "Text"
-msgstr ""
+msgstr "Teksts"
 
 #: lib/app.php:177
 msgid "Voice"
-msgstr ""
+msgstr "Balss"
 
 #: lib/app.php:178
 msgid "Message"
-msgstr ""
+msgstr "Ziņojums"
 
 #: lib/app.php:179
 msgid "Fax"
-msgstr ""
+msgstr "Fakss"
 
 #: lib/app.php:180
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: lib/app.php:181
 msgid "Pager"
-msgstr ""
+msgstr "Peidžeris"
 
 #: lib/app.php:188
 msgid "Internet"
-msgstr ""
+msgstr "Internets"
 
 #: lib/app.php:225
 msgid "Friends"
@@ -603,11 +604,11 @@ msgstr ""
 
 #: lib/hooks.php:108
 msgid "{name}'s Birthday"
-msgstr ""
+msgstr "{name} dzimšanas diena"
 
 #: lib/search.php:20
 msgid "Contact"
-msgstr ""
+msgstr "Kontakts"
 
 #: lib/vcard.php:342
 msgid "You do not have the permissions to add contacts to this addressbook."
@@ -707,15 +708,15 @@ msgstr "Aizvērt"
 
 #: templates/contacts.php:63
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Tastatūras saīsnes"
 
 #: templates/contacts.php:65
 msgid "Navigation"
-msgstr ""
+msgstr "Navigācija"
 
 #: templates/contacts.php:68
 msgid "Next contact in list"
-msgstr ""
+msgstr "Nākošais kontakts sarakstā"
 
 #: templates/contacts.php:70
 msgid "Previous contact in list"
@@ -761,7 +762,7 @@ msgstr ""
 
 #: templates/contacts.php:97
 msgid "Add contact"
-msgstr ""
+msgstr "Pievienot kontaktu"
 
 #: templates/contacts.php:138
 msgid "Compose mail"
@@ -773,19 +774,19 @@ msgstr ""
 
 #: templates/contacts.php:162
 msgid "Delete current photo"
-msgstr ""
+msgstr "Dzēst pašreizējo fotogrāfiju"
 
 #: templates/contacts.php:163
 msgid "Edit current photo"
-msgstr ""
+msgstr "Rediģēt pašreizējo fotogrāfiju"
 
 #: templates/contacts.php:164
 msgid "Upload new photo"
-msgstr ""
+msgstr "Augšupielādēt jaunu fotogrāfiju"
 
 #: templates/contacts.php:165
 msgid "Select photo from ownCloud"
-msgstr ""
+msgstr "Izvēlieties fotogrāfiju no ownCloud"
 
 #: templates/contacts.php:176 templates/contacts.php:177
 msgid "First name"
@@ -793,7 +794,7 @@ msgstr ""
 
 #: templates/contacts.php:181 templates/contacts.php:182
 msgid "Additional names"
-msgstr ""
+msgstr "Papildu vārdi"
 
 #: templates/contacts.php:186 templates/contacts.php:187
 msgid "Last name"
@@ -805,11 +806,11 @@ msgstr ""
 
 #: templates/contacts.php:198 templates/contacts.php:262
 msgid "Nickname"
-msgstr ""
+msgstr "Iesauka"
 
 #: templates/contacts.php:201
 msgid "Enter nickname"
-msgstr ""
+msgstr "Ievadiet iesauku"
 
 #: templates/contacts.php:205 templates/contacts.php:261
 msgid "Title"
@@ -821,7 +822,7 @@ msgstr ""
 
 #: templates/contacts.php:212 templates/contacts.php:260
 msgid "Organization"
-msgstr ""
+msgstr "Organizācija"
 
 #: templates/contacts.php:215
 msgid "Enter organization"
@@ -841,15 +842,15 @@ msgstr ""
 
 #: templates/contacts.php:259
 msgid "Add"
-msgstr ""
+msgstr "Pievienot"
 
 #: templates/contacts.php:264
 msgid "Phone"
-msgstr ""
+msgstr "Tālrunis"
 
 #: templates/contacts.php:265
 msgid "Email"
-msgstr "Epasts"
+msgstr "E-pasts"
 
 #: templates/contacts.php:266
 msgid "Instant Messaging"
@@ -857,11 +858,11 @@ msgstr ""
 
 #: templates/contacts.php:267
 msgid "Address"
-msgstr ""
+msgstr "Adrese"
 
 #: templates/contacts.php:268
 msgid "Note"
-msgstr ""
+msgstr "Piezīme"
 
 #: templates/contacts.php:269
 msgid "Web site"
@@ -869,17 +870,17 @@ msgstr ""
 
 #: templates/contacts.php:271
 msgid "Delete contact"
-msgstr ""
+msgstr "Dzēst kontaktu"
 
 #: templates/contacts.php:284 templates/contacts.php:299
 #: templates/contacts.php:313 templates/contacts.php:338
 #: templates/contacts.php:375
 msgid "Preferred"
-msgstr ""
+msgstr "Vēlamais"
 
 #: templates/contacts.php:286
 msgid "Please specify a valid email address."
-msgstr ""
+msgstr "Lūdzu, norādiet derīgu e-pasta adresi."
 
 #: templates/contacts.php:286
 msgid "someone@example.com"
@@ -887,19 +888,19 @@ msgstr ""
 
 #: templates/contacts.php:288
 msgid "Mail to address"
-msgstr ""
+msgstr "Vēstule uz adresi"
 
 #: templates/contacts.php:289
 msgid "Delete email address"
-msgstr ""
+msgstr "Dzēst e-pasta adresi"
 
 #: templates/contacts.php:301
 msgid "Enter phone number"
-msgstr ""
+msgstr "Ievadiet tālruņa numuru"
 
 #: templates/contacts.php:303
 msgid "Delete phone number"
-msgstr ""
+msgstr "Dzēst tālruņa numuru"
 
 #: templates/contacts.php:317
 msgid "Go to web site"
@@ -911,7 +912,7 @@ msgstr ""
 
 #: templates/contacts.php:329
 msgid "View on map"
-msgstr ""
+msgstr "Skatīt kartē"
 
 #: templates/contacts.php:330
 msgid "Delete address"
@@ -939,7 +940,7 @@ msgstr ""
 
 #: templates/contacts.php:351
 msgid "City"
-msgstr ""
+msgstr "Pilsēta"
 
 #: templates/contacts.php:355
 msgid "Some region"
@@ -955,7 +956,7 @@ msgstr ""
 
 #: templates/contacts.php:361
 msgid "Country"
-msgstr ""
+msgstr "Valsts"
 
 #: templates/contacts.php:383
 msgid "Instant Messenger"
@@ -979,31 +980,31 @@ msgstr ""
 
 #: templates/part.cropphoto.php:31
 msgid "The temporary image has been removed from cache."
-msgstr ""
+msgstr "Pagaidu attēls ir izņemts no kešatmiņas."
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"
-msgstr ""
+msgstr "CardDAV sinhronizēšanas adreses"
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr ""
+msgstr "vairāk informācijas"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "Primārā adrese"
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:11
 msgid "Addressbooks"
-msgstr ""
+msgstr "Adrešu grāmatas"
 
 #: templates/settings.php:58
 msgid "New Address Book"
-msgstr ""
+msgstr "Jauna adrešu grāmata"
 
 #: templates/settings.php:59
 msgid "Name"

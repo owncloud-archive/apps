@@ -4,13 +4,14 @@
 # 
 # Translators:
 #  <mednismartins@inbox.lv>, 2013.
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-04 00:01+0100\n"
-"PO-Revision-Date: 2013-02-03 20:50+0000\n"
-"Last-Translator: martins1 <mednismartins@inbox.lv>\n"
+"POT-Creation-Date: 2013-02-05 00:17+0100\n"
+"PO-Revision-Date: 2013-02-04 20:20+0000\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,11 +29,11 @@ msgstr ""
 
 #: ajax/categories/rescan.php:29
 msgid "No calendars found."
-msgstr ""
+msgstr "Nav atrastu kalendāru."
 
 #: ajax/categories/rescan.php:37
 msgid "No events found."
-msgstr ""
+msgstr "Nav atrastu notikumu."
 
 #: ajax/event/edit.form.php:21
 msgid "Wrong calendar"
@@ -62,15 +63,15 @@ msgstr ""
 
 #: ajax/settings/guesstimezone.php:25
 msgid "New Timezone:"
-msgstr "Jauna laika zona"
+msgstr "Jauna laika josla"
 
 #: ajax/settings/settimezone.php:23
 msgid "Timezone changed"
-msgstr "Laika zona nomainīta"
+msgstr "Laika josla ir nomainīta"
 
 #: ajax/settings/settimezone.php:25
 msgid "Invalid request"
-msgstr "Nepareizs vaicājums"
+msgstr "Nederīgs vaicājums"
 
 #: appinfo/app.php:38 js/l10n.php:55 templates/part.eventform.php:30
 #: templates/part.showevent.php:33
@@ -79,7 +80,7 @@ msgstr "Kalendārs"
 
 #: js/calendar.js:154
 msgid "Deletion failed"
-msgstr ""
+msgstr "Neizdevās izdzēst"
 
 #: js/calendar.js:243
 msgid "ddd d MMMM[ yyyy]{ - [ddd d] MMMM yyyy}"
@@ -127,7 +128,7 @@ msgstr ""
 
 #: js/calendar.js:876
 msgid "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
-msgstr ""
+msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 
 #: js/calendar.js:878
 msgid "dddd, MMM d, yyyy"
@@ -392,7 +393,7 @@ msgstr ""
 
 #: lib/app.php:451
 msgid "unnamed"
-msgstr ""
+msgstr "nenosaukts"
 
 #: lib/calendar.php:163 lib/calendar.php:196
 msgid "You do not have the permissions to update this calendar."
@@ -472,55 +473,55 @@ msgstr "līdz datumam"
 
 #: lib/object.php:538
 msgid "by monthday"
-msgstr ""
+msgstr "pēc mēneša dienas"
 
 #: lib/object.php:539
 msgid "by weekday"
-msgstr ""
+msgstr "pēc nedēļas dienas"
 
 #: lib/object.php:565
 msgid "events week of month"
-msgstr ""
+msgstr "notikuma mēneša nedēļa"
 
 #: lib/object.php:566
 msgid "first"
-msgstr ""
+msgstr "pirmais"
 
 #: lib/object.php:567
 msgid "second"
-msgstr ""
+msgstr "otrais"
 
 #: lib/object.php:568
 msgid "third"
-msgstr ""
+msgstr "trešais"
 
 #: lib/object.php:569
 msgid "fourth"
-msgstr ""
+msgstr "ceturtais"
 
 #: lib/object.php:570
 msgid "fifth"
-msgstr ""
+msgstr "piektais"
 
 #: lib/object.php:571
 msgid "last"
-msgstr ""
+msgstr "pēdējais"
 
 #: lib/object.php:626
 msgid "by events date"
-msgstr ""
+msgstr "pēc notikumu datuma"
 
 #: lib/object.php:627
 msgid "by yearday(s)"
-msgstr ""
+msgstr "pēc gada dienas(-ām)"
 
 #: lib/object.php:628
 msgid "by weeknumber(s)"
-msgstr ""
+msgstr "pēc nedēļas numura(-iem)"
 
 #: lib/object.php:629
 msgid "by day and month"
-msgstr ""
+msgstr "pēc dienas un mēneša"
 
 #: lib/search.php:35 lib/search.php:37 lib/search.php:40
 msgid "Date"
@@ -528,7 +529,7 @@ msgstr "Datums"
 
 #: lib/search.php:43
 msgid "Cal."
-msgstr ""
+msgstr "Kal."
 
 #: templates/calendar.php:6
 msgid "Week"
@@ -556,7 +557,7 @@ msgstr "Iestatījumi"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
-msgstr ""
+msgstr "Jūsu kalendāri"
 
 #: templates/part.choosecalendar.php:28
 #: templates/part.choosecalendar.rowfields.php:24
@@ -565,11 +566,11 @@ msgstr "CalDav saite"
 
 #: templates/part.choosecalendar.rowfields.php:13
 msgid "Share Calendar"
-msgstr ""
+msgstr "Dalīties ar kalendāru"
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
-msgstr "Lejuplādēt"
+msgstr "Lejupielādēt"
 
 #: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
@@ -578,7 +579,7 @@ msgstr "Rediģēt"
 #: templates/part.choosecalendar.rowfields.php:36
 #: templates/part.editevent.php:9
 msgid "Delete"
-msgstr "Izdzēst"
+msgstr "Dzēst"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
@@ -590,7 +591,7 @@ msgstr "Rediģēt kalendāru"
 
 #: templates/part.editcalendar.php:12
 msgid "Displayname"
-msgstr "Attēlojamais vārds"
+msgstr "Redzamais vārds"
 
 #: templates/part.editcalendar.php:23
 msgid "Active"
@@ -607,7 +608,7 @@ msgstr "Saglabāt"
 #: templates/part.editcalendar.php:42 templates/part.editevent.php:8
 #: templates/part.newevent.php:6
 msgid "Submit"
-msgstr ""
+msgstr "Iesniegt"
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"
@@ -623,23 +624,23 @@ msgstr "Eksportēt"
 
 #: templates/part.eventform.php:5 templates/part.showevent.php:3
 msgid "Eventinfo"
-msgstr ""
+msgstr "Notikuma info"
 
 #: templates/part.eventform.php:6 templates/part.showevent.php:4
 msgid "Repeating"
-msgstr ""
+msgstr "Atkārtojas"
 
 #: templates/part.eventform.php:7 templates/part.showevent.php:5
 msgid "Alarm"
-msgstr ""
+msgstr "Signāls"
 
 #: templates/part.eventform.php:8 templates/part.showevent.php:6
 msgid "Attendees"
-msgstr ""
+msgstr "Apmeklētāji"
 
 #: templates/part.eventform.php:10
 msgid "Share"
-msgstr "Līdzdalīt"
+msgstr "Dalīties"
 
 #: templates/part.eventform.php:18
 msgid "Title of the Event"
@@ -651,11 +652,11 @@ msgstr "Kategorija"
 
 #: templates/part.eventform.php:26
 msgid "Separate categories with commas"
-msgstr ""
+msgstr "Atdalīt kategorijas ar komatiem"
 
 #: templates/part.eventform.php:27
 msgid "Edit categories"
-msgstr ""
+msgstr "Rediģēt kategoriju"
 
 #: templates/part.eventform.php:47 templates/part.showevent.php:46
 msgid "Access Class"
@@ -675,7 +676,7 @@ msgstr "Līdz"
 
 #: templates/part.eventform.php:84 templates/part.showevent.php:82
 msgid "Advanced options"
-msgstr "Papildus opcijas"
+msgstr "Paplašinātās opcijas"
 
 #: templates/part.eventform.php:89 templates/part.showevent.php:87
 msgid "Location"
@@ -699,56 +700,56 @@ msgstr "Atkārtot"
 
 #: templates/part.eventform.php:115 templates/part.showevent.php:112
 msgid "Advanced"
-msgstr ""
+msgstr "Paplašināti"
 
 #: templates/part.eventform.php:159 templates/part.showevent.php:156
 msgid "Select weekdays"
-msgstr ""
+msgstr "Izvēlieties nedēļas dienas"
 
 #: templates/part.eventform.php:172 templates/part.eventform.php:185
 #: templates/part.showevent.php:169 templates/part.showevent.php:182
 msgid "Select days"
-msgstr ""
+msgstr "Izvēlieties dienas"
 
 #: templates/part.eventform.php:177 templates/part.showevent.php:174
 msgid "and the events day of year."
-msgstr ""
+msgstr "un notikuma gada dienu."
 
 #: templates/part.eventform.php:190 templates/part.showevent.php:187
 msgid "and the events day of month."
-msgstr ""
+msgstr "un notikuma mēneša dienu."
 
 #: templates/part.eventform.php:198 templates/part.showevent.php:195
 msgid "Select months"
-msgstr ""
+msgstr "Izvēlieties mēnešus"
 
 #: templates/part.eventform.php:211 templates/part.showevent.php:208
 msgid "Select weeks"
-msgstr ""
+msgstr "Izvēlieties nedēļas"
 
 #: templates/part.eventform.php:216 templates/part.showevent.php:213
 msgid "and the events week of year."
-msgstr ""
+msgstr "un notikuma gada nedēļu."
 
 #: templates/part.eventform.php:222 templates/part.showevent.php:219
 msgid "Interval"
-msgstr ""
+msgstr "Intervāls"
 
 #: templates/part.eventform.php:228 templates/part.showevent.php:225
 msgid "End"
-msgstr ""
+msgstr "Beigas"
 
 #: templates/part.eventform.php:241 templates/part.showevent.php:238
 msgid "occurrences"
-msgstr ""
+msgstr "notikumu skaits"
 
 #: templates/part.import.php:14
 msgid "create a new calendar"
-msgstr ""
+msgstr "izveidot jaunu kalendāru"
 
 #: templates/part.import.php:17
 msgid "Import a calendar file"
-msgstr ""
+msgstr "Importēt kalendāra datni"
 
 #: templates/part.import.php:24
 msgid "Please choose a calendar"
@@ -756,7 +757,7 @@ msgstr ""
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
-msgstr ""
+msgstr "Jaunā kalendāra nosaukums"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
@@ -778,7 +779,7 @@ msgstr "Importēt"
 
 #: templates/part.import.php:59
 msgid "Close Dialog"
-msgstr ""
+msgstr "Aizvērt dialoglodziņu"
 
 #: templates/part.newevent.php:1
 msgid "Create a new event"
@@ -794,7 +795,7 @@ msgstr ""
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr "Pārtraukt līdzdalīšanu"
+msgstr "Pārtraukt dalīšanos"
 
 #: templates/part.share.php:53
 msgid "Nobody"
@@ -812,11 +813,11 @@ msgstr ""
 
 #: templates/part.showevent.php:1
 msgid "View an event"
-msgstr ""
+msgstr "Skatīt notikumu"
 
 #: templates/part.showevent.php:23
 msgid "No categories selected"
-msgstr ""
+msgstr "Nav izvēlētu kategoriju"
 
 #: templates/part.showevent.php:37
 msgid "of"
@@ -828,11 +829,11 @@ msgstr ""
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "Vispārīgās"
 
 #: templates/settings.php:15
 msgid "Timezone"
-msgstr "Laika zona"
+msgstr "Laika josla"
 
 #: templates/settings.php:47
 msgid "Update timezone automatically"
@@ -872,15 +873,15 @@ msgstr ""
 
 #: templates/settings.php:87
 msgid "more info"
-msgstr ""
+msgstr "vairāk informācijas"
 
 #: templates/settings.php:89
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "Primārā adrese"
 
 #: templates/settings.php:91
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:93
 msgid "Read only iCalendar link(s)"

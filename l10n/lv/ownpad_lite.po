@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-04 00:01+0100\n"
-"PO-Revision-Date: 2013-02-03 21:00+0000\n"
+"POT-Creation-Date: 2013-02-05 00:17+0100\n"
+"PO-Revision-Date: 2013-02-04 12:42+0000\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: appinfo/app.php:58
 msgid "My pad"
-msgstr ""
+msgstr "Mans paliktnis"
 
 #: templates/index.php:14 templates/index.php:15
 msgid "Settings"
@@ -28,7 +28,7 @@ msgstr "Iestatījumi"
 
 #: templates/index.php:17
 msgid "Pad Title"
-msgstr ""
+msgstr "Paliktņa virsraksts"
 
 #: templates/index.php:18
 msgid "Open"
@@ -36,7 +36,7 @@ msgstr "Atvērt"
 
 #: templates/settings.php:15
 msgid "Etherpad service URL"
-msgstr ""
+msgstr "Etherpad servisa URL"
 
 #: templates/settings.php:20
 msgid "Username"

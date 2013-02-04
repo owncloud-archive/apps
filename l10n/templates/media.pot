@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-04 00:01+0100\n"
+"POT-Creation-Date: 2013-02-05 00:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,31 +37,31 @@ msgstr ""
 msgid "Add album to playlist"
 msgstr ""
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr ""
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr ""
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
-msgstr ""
-
-#: templates/music.php:5
-msgid "Previous"
 msgstr ""
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr ""
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr ""
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr ""
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr ""
 
