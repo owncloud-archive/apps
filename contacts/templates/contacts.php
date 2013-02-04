@@ -8,7 +8,7 @@
 </form>
 <iframe name="file_upload_target" id='file_upload_target' src=""></iframe>
 <div id="groupsheader">
-	<button class="addgroup"><?php echo $l->t('New Group'); ?></button>
+	<button class="addgroup icon-plus text"><?php echo $l->t('New Group'); ?></button>
 </div>
 <div id="leftcontent" class="loading">
 	<nav id="grouplist">

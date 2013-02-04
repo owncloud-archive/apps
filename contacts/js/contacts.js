@@ -490,6 +490,7 @@ OC.Contacts = OC.Contacts || {};
 				self.id = parseInt(jsondata.data.id);
 				self.access.id = parseInt(jsondata.data.aid);
 				self.data = jsondata.data.details;
+				self.$groupSelect.multiselect('enable');
 				// Add contact to current group
 				if(self.groupprops && self.groupprops.currentgroup.id !== 'all'
 					&& self.groupprops.currentgroup.id !== 'fav') {
@@ -694,6 +695,9 @@ OC.Contacts = OC.Contacts || {};
 					self.removeFromGroup(ui.text);
 				}
 			});
+			if(!self.id) {
+				self.$groupSelect.multiselect('disable');
+			}
 		};
 		
 		var n = this.getPreferredValue('N', ['', '', '', '', '']);
@@ -1403,32 +1407,44 @@ OC.Contacts = OC.Contacts || {};
 			$('tr.contact:not(:visible)').show();
 			return;
 		}
-		for(var contact in this.contacts) {
-			contact = parseInt(contact);
-			if(contacts.indexOf(contact) === -1) {
-				this.contacts[contact].getListItemElement().hide();
+		for(var id in this.contacts) {
+			var contact = this.findById(id);
+			if(contact === null) {
+				continue;
+			}
+			if(contacts.indexOf(parseInt(id)) === -1) {
+				contact.getListItemElement().hide();
 			} else {
-				this.contacts[contact].getListItemElement().show();
+				contact.getListItemElement().show();
 			}
 		}
 	};
 
 	ContactList.prototype.contactPos = function(id) {
-		if(!id) {
-			console.warn('id missing');
-			return false;
+		var contact = this.findById(id);
+		if(contact === null) {
+			return 0;
 		}
-		var $elem = this.contacts[parseInt(id)].getListItemElement();
+		
+		var $elem = contact.getListItemElement();
 		var pos = $elem.offset().top - this.$contactList.offset().top + this.$contactList.scrollTop();
 		return pos;
 	};
 
 	ContactList.prototype.hideContact = function(id) {
-		this.contacts[parseInt(id)].hide();
+		var contact = this.findById(id);
+		if(contact === null) {
+			return false;
+		}
+		contact.hide();
 	};
 
 	ContactList.prototype.closeContact = function(id) {
-		this.contacts[parseInt(id)].close();
+		var contact = this.findById(id);
+		if(contact === null) {
+			return false;
+		}
+		contact.close();
 	};
 
 	/**
@@ -1439,6 +1455,17 @@ OC.Contacts = OC.Contacts || {};
 	* to load the requested contact if not in list.
 	*/
 	ContactList.prototype.findById = function(id) {
+		if(!id) {
+			console.warn('id missing');
+			console.trace();
+			return false;
+		}
+		id = parseInt(id);
+		if(typeof this.contacts[id] === 'undefined') {
+			console.warn('Could not find contact with id', id);
+			console.trace();
+			return null;
+		}
 		return this.contacts[parseInt(id)];
 	};
 
@@ -1515,7 +1542,11 @@ OC.Contacts = OC.Contacts || {};
 		}
 
 		// Let contact remove itself.
-		self.contacts[id].destroy(function(response) {
+		var contact = this.findById(id);
+		if(contact === null) {
+			return false;
+		}
+		contact.destroy(function(response) {
 			console.log('deleteContact', response);
 			if(response.status === 'success') {
 				delete self.contacts[id];
@@ -1538,10 +1569,13 @@ OC.Contacts = OC.Contacts || {};
 	* @returns A jquery object to be inserted in the DOM.
 	*/
 	ContactList.prototype.showContact = function(id, props) {
-		console.assert(typeof id === 'number', 'ContactList.showContact called with a non-number');
+		var contact = this.findById(id);
+		if(contact === null) {
+			return false;
+		}
 		this.currentContact = id;
-		console.log('Contacts.showContact', id, this.contacts[this.currentContact], this.contacts);
-		return this.contacts[this.currentContact].renderContact(props);
+		console.log('Contacts.showContact', id, contact, this.contacts);
+		return contact.renderContact(props);
 	};
 
 	/**
