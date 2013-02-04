@@ -5,6 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<link rel="stylesheet" href="<?php echo OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.css'); ?>"/>
+	
+	<!-- oC changes-->
+	<script type="text/javascript" src="<?php echo OC_Helper::linkTo('core', 'js/jquery-1.7.2.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo OC_Helper::linkToRoute('js_config');?>"></script>
+	<script type="text/javascript" src="<?php echo OC_Helper::linkTo('core', 'js/oc-dialogs.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo OC_Helper::linkTo('core', 'js/js.js'); ?>"></script>
+	<!-- oC changes -->
 
 	<script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/compatibility.js'); ?>"></script>
 
@@ -12,7 +19,7 @@
 	<script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/l10n.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/pdf.js'); ?>"></script>
 
-	<script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/files.php'); ?>"></script>
+    	<script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/files.php'); ?>?file=<?php echo urlencode($_['file']); ?>&amp;dir=<?php echo urlencode($_['dir']); ?>"></script>
 	<script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.js'); ?>"></script>
 </head>
 

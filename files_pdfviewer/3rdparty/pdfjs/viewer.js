@@ -17,6 +17,7 @@
 
 'use strict';
 
+
 var DEFAULT_URL = 'compressed.tracemonkey-pldi-09.pdf';
 var DEFAULT_SCALE = 'auto';
 var DEFAULT_SCALE_DELTA = 1.1;
@@ -2873,7 +2874,7 @@ document.addEventListener('DOMContentLoaded', function webViewerLoad(evt) {
     });
 
 
-  PDFView.open(file, 0);
+  PDFView.open(OC.linkTo('files', 'ajax/download.php')+"?files="+window.file+"&dir="+window.dir, 1.0);
 }, true);
 
 function updateViewarea() {
