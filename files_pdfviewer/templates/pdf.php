@@ -97,7 +97,7 @@
 							<span data-l10n-id="presentation_mode_label">Presentation Mode</span>
 						</button>
 
-						<button id="openFile" class="toolbarButton openFile" title="Open File" tabindex="12" data-l10n-id="open_file">
+						<button id="openFile" style="display:none;" class="toolbarButton openFile" title="Open File" tabindex="12" data-l10n-id="open_file">
 							<span data-l10n-id="open_file_label">Open</span>
 						</button>
 
@@ -109,7 +109,7 @@
 							<span data-l10n-id="download_label">Download</span>
 						</button>
 						<!-- <div class="toolbarButtonSpacer"></div> -->
-						<a href="#" id="viewBookmark" class="toolbarButton bookmark" title="Current view (copy or open in new window)" tabindex="15" data-l10n-id="bookmark"><span data-l10n-id="bookmark_label">Current View</span></a>
+						<a href="#" id="viewBookmark" style="display:none;" class="toolbarButton bookmark" title="Current view (copy or open in new window)" tabindex="15" data-l10n-id="bookmark"><span data-l10n-id="bookmark_label">Current View</span></a>
 					</div>
 					<div class="outerCenter">
 						<div class="innerCenter" id="toolbarViewerMiddle">

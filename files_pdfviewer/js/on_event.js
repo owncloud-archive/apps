@@ -29,9 +29,6 @@ $(document).ready(function(){
 	$('#fullscreen').on('click', function(){
 		PDFView.fullscreen();
 	});
-	$('#openFile').on('click', function(){
-		document.getElementById('fileInput').click();
-	});
 	$('#print').on('click', function(){
 		window.print();
 	});
