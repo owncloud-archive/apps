@@ -1,76 +1,98 @@
 <?php
 
+// @TODO remove after debugging
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+function pr($thing) {
+    echo '<pre>';
+    if (is_null($thing))
+	echo 'NULL';
+    elseif (is_bool($thing))
+	echo $thing ? 'TRUE' : 'FALSE';
+    else
+	print_r($thing);
+    echo '</pre>' . "\n";
+    return ($thing) ? true : false; // for testing purposes
+}
+
 // check if we are a user
 OCP\User::checkLoggedIn();
+OCP\App::checkAppEnabled('search');
 
 // load files
-OCP\Util::addStyle('files', 'files');
-OCP\Util::addStyle('search', 'search');
-OCP\Util::addscript('files', 'jquery.iframe-transport');
-OCP\Util::addscript('files', 'jquery.fileupload');
-OCP\Util::addscript('files', 'files');
-OCP\Util::addscript('files', 'filelist');
-OCP\Util::addscript('files', 'fileactions');
-OCP\Util::addscript('files', 'keyboardshortcuts');
+OCP\Util::addStyle('search', 'list-view');
+//OCP\Util::addScript('search', 'fileactions');
+//OCP\Util::addScript('search', 'ajaxloader');
 
-// activate link
+// add JS
+OCP\Util::addScript('search', 'columns');
+
+// activate navigation link
 OCP\App::setActiveNavigationEntry('search');
 
-// get results
-$query = (isset($_GET['query'])) ? $_GET['query'] : '';
-$results = null;
-if ($query) {
-    $results = OC_Search::search($query);
+// get query
+$query = (isset($_GET['query'])) ? $_GET['query'] : false;
+if($query === false && array_key_exists('search_query', $_SESSION)){
+    $query = $_SESSION['search_query'];
+}
+else{
+    $_SESSION['search_query'] = $query;
 }
 
-// create HTML table
-$files = array();
-if (is_array($results)) {
-    foreach ($results as $result) {
-        // create file
-        $_file = $result->fileData;
-        // discard versions
-        if (strpos($_file['path'], '_versions') === 0) {
-            continue;
-        }
-        // get basename and extension
-        $fileinfo = pathinfo($_file['name']);
-        $_file['basename'] = $fileinfo['filename'];
-        if (!empty($fileinfo['extension'])) {
-            $_file['extension'] = '.' . $fileinfo['extension'];
-        } else {
-            $_file['extension'] = '';
-        }
-        // get date
-        $_file['date'] = OCP\Util::formatDate($_file['mtime']);
-        // get directory
-        $_file['directory'] = str_replace('/' . $_file['name'], '', $_file['path']);
-        // get permissions
-        $_file['type'] = ($_file['mimetype'] == 'httpd/unix-directory') ? 'dir' : 'file';
-        $permissions = OCP\PERMISSION_READ;
-        if (!$_file['encrypted']) {
-            $permissions |= OCP\PERMISSION_SHARE;
-        }
-        if ($_file['type'] == 'dir' && $_file['writable']) {
-            $permissions |= OCP\PERMISSION_CREATE;
-        }
-        if ($_file['writable']) {
-            $permissions |= OCP\PERMISSION_UPDATE | OCP\PERMISSION_DELETE;
-        }
-        $_file['permissions'] = $permissions;
-        // add file
-        $files[] = $_file;
+// get results
+$results = array();
+if ($query) {
+    // if Lucene is available, only search using it
+    if(OCP\Config::getUserValue(OCP\User::getUser(), 'search', 'lucene_enabled', 'no') == 'yes'){
+	$results = OC_Search::search($query, 'OC_Search_Provider_Lucene');
+    }
+    else{
+	$results = OC_Search::search($query);
     }
 }
-$list = new OCP\Template('files', 'part.list', '');
-$list->assign('files', $files, false);
-$list->assign('baseURL', OCP\Util::linkTo('files', 'index.php') . '?dir=', false);
-$list->assign('downloadURL', OCP\Util::linkTo('files', 'download.php') . '?file=', false);
 
-// populate main template
-$tmpl = new OCP\Template('search', 'index', 'user');
-$tmpl->assign('files', $files);
-$tmpl->assign('fileList', $list->fetchPage(), false);
-$tmpl->assign('breadcrumb', $query, true);
-$tmpl->assign('allowZipDownload', intval(OCP\Config::getSystemValue('allowZipDownload', true)));
-$tmpl->printPage();
+// separate results by type
+$_results = array();
+foreach ($results as $result) {
+    $class = get_class($result);
+    $_results[$class][] = $result;
+}
+$results = $_results;
+
+$html = '';
+foreach ($results as $class => $class_results) {
+    // get columns
+    $columns = $class_results[0]->default_columns;
+
+    // create properties <thead> HTML
+    $_thead = new OCP\Template('search', 'part.properties');
+    $_thead->assign('title', $class_results[0]::TITLE);
+    $_thead->assign('properties', $columns);
+    $thead = $_thead->fetchPage();
+
+    // create result rows <tr> HTML
+    $tbody = '';
+    foreach ($class_results as $result) {
+	// run HTML formatting
+	$result->formatToHtml();
+	// do templating
+	$tr = new OCP\Template('search', 'part.result');
+	$tr->assign('result', $result, false);
+	$tr->assign('columns', $columns, true);
+	$tbody .= $tr->fetchPage() . "\n\t";
+    }
+
+    // add to html
+    $type_html = new OCP\Template('search', 'part.list');
+    $type_html->assign('title', $class_results[0]::TITLE, false);
+    $type_html->assign('properties', $thead, false);
+    $type_html->assign('results', $tbody, false);
+    $html .= $type_html->fetchPage() . "\n";
+}
+
+// create results <tbody> HTML
+$template = new OCP\Template('search', 'index', 'user');
+$template->assign('query', $query, false);
+$template->assign('html', $html, false);
+$template->printPage();
