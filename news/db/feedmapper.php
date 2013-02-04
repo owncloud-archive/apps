@@ -166,14 +166,11 @@ class FeedMapper {
 		$title = $feed->getTitle();
 		$url = $feed->getUrl();
 		$url_hash = md5($url);
-
 		if(empty($title)) {
 			$l = \OC_L10N::get('news');
 			$title = $l->t('no title');
 		}
-
 		$favicon = $feed->getFavicon();
-
 		//FIXME: Detect when feed contains already a database id
 		$feedid =  $this->findIdFromUrl($url);
 		if ($feedid === null) {
@@ -182,7 +179,6 @@ class FeedMapper {
 				"(url, url_hash, title, favicon_link, folder_id, user_id, added, lastmodified)
 				VALUES (?, ?, ?, ?, ?, ?, UNIX_TIMESTAMP(), UNIX_TIMESTAMP())
 				");
-
 			$params=array(
 				$url,
 				$url_hash,
@@ -192,8 +188,9 @@ class FeedMapper {
 				$this->userid
 			);
 			$query->execute($params);
-
 			$feedid = \OCP\DB::insertid(self::tableName);
+			// emit event
+			OCP\Util::emitHook('OCA_News', 'addFeed', $feedid);
 		}
 		else {
 			//update the db. it needs to be done, since it might be the first save after a full fetch
@@ -202,49 +199,63 @@ class FeedMapper {
 					' SET favicon_link = ? , lastmodified = UNIX_TIMESTAMP() , folder_id = ?
 					WHERE id = ?
 					');
-
 			$params=array(
 				$favicon,
 				$folderid,
 				$feedid
 				);
 			$stmt->execute($params);
+			// emit event
+			OCP\Util::emitHook('OCA_News', 'editFeed', $feedid);
 		}
 		$feed->setId($feedid);
-
+		// edit feed items
 		$itemMapper = new ItemMapper();
-
 		$items = $feed->getItems();
 		if ($items !== null) {
 			foreach($items as $item) {
 				$itemMapper->save($item, $feedid);
 			}
 		}
-
+		// return
 		return $feedid;
 	}
 
-
+	/**
+	 * Delete a feed by its ID
+	 * @param ing $id
+	 * @return boolean
+	 */
 	public function deleteById($id) {
 		if ($id == null) {
 			return false;
 		}
 		$stmt = \OCP\DB::prepare('DELETE FROM ' . self::tableName .' WHERE id = ? AND user_id = ?');
-
-		$result = $stmt->execute(array($id, $this->userid));
-
+		$result = $stmt->execute(array($id, $this->userid)); //TODO: handle the value that the execute returns
+		// emit event
+		OCP\Util::emitHook('OCA_News', 'deleteFeed', $id);
+		// delete items
 		$itemMapper = new ItemMapper();
-		//TODO: handle the value that the execute returns
 		$itemMapper->deleteAll($id);
-
+		// return
 		return true;
 	}
 
+	/**
+	 * Use self::deleteByID() to delete a feed
+	 * @param \OCA\News\Feed $feed
+	 * @return boolean
+	 */
 	public function delete(Feed $feed) {
 		$id = $feed->getId();
 		return deleteById($id);
 	}
-
+	
+	/**
+	 * Use self::deleteByID() to delete all feeds
+	 * @param int $folderid
+	 * @return boolean
+	 */
 	public function deleteAll($folderid) {
 		if ($folderid == null) {
 			return false;

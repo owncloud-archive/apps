@@ -8,7 +8,6 @@
 */
 
 OC::$CLASSPATH['OC_Bookmarks_Bookmarks'] = 'bookmarks/lib/bookmarks.php';
-OC::$CLASSPATH['OC_Search_Provider_Bookmarks'] = 'bookmarks/lib/search.php';
 
 $l = new OC_l10n('bookmarks');
 OCP\App::addNavigationEntry( array( 'id' => 'bookmarks_index',
@@ -19,4 +18,4 @@ OCP\App::addNavigationEntry( array( 'id' => 'bookmarks_index',
 
 OCP\Util::addscript('bookmarks', 'bookmarksearch');
 
-OC_Search::registerProvider('OC_Search_Provider_Bookmarks');
+OC_Search::registerProvider('OC_Search_Provider_Bookmark');

@@ -14,7 +14,6 @@ namespace OCA\News;
 
 require_once \OC_App::getAppPath('news') . '/appinfo/bootstrap.php';
 
-
 \OCP\App::addNavigationEntry( array(
   'id' => 'news',
   'order' => 74,
@@ -27,5 +26,3 @@ require_once \OC_App::getAppPath('news') . '/appinfo/bootstrap.php';
 
 \OCP\Backgroundjob::addRegularTask( 'OCA\News\Backgroundjob', 'run' );
 \OCP\Share::registerBackend('news_item', 'OCA\News\Share_Backend_News_Item');
-
-

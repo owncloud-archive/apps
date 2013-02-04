@@ -122,6 +122,37 @@ class ItemMapper {
 
 		return $items;
 	}
+	
+	/**
+	 * Find every item containing the query
+	 * @param string $query
+	 */
+	public function find($query){
+	    // check query
+	    if(!$query){
+		return array();
+	    }
+	    else{
+		$query = '%'.$query.'%';
+	    }
+	    // create statement
+	    $stmt = \OCP\DB::prepare('SELECT ' . self::tableName . '.*, ' . 
+		    FeedMapper::tableName . '.title AS feed_title, ' . FeedMapper::tableName . '.favicon_link AS feed_favicon
+		    FROM ' . self::tableName . '
+		    JOIN '. FeedMapper::tableName .' ON
+		    '. FeedMapper::tableName .'.id = ' . self::tableName . '.feed_id
+		    WHERE '. FeedMapper::tableName .'.user_id = ?
+		    AND ('. self::tableName .'.title LIKE ? OR '. self::tableName .'.author LIKE ?)
+		    ORDER BY ' . self::tableName . '.pub_date DESC');
+	    $result = $stmt->execute(array($this->userid, $query, $query));
+	    $items = array();
+	    while ($row = $result->fetchRow()) {
+		    $item = $this->fromRow($row);
+		    $items[] = $item;
+	    }
+	    // return
+	    return $items;
+	}
 
 	public function countAllStatus($feedid, $status) {
 		$stmt = \OCP\DB::prepare('SELECT COUNT(*) as size FROM ' . self::tableName . '
@@ -222,8 +253,9 @@ class ItemMapper {
 			);
 			
 		$result = $stmt->execute($params);
-
-		
+		// emit event
+		OCP\Util::emitHook('OCA_News', 'editArticle', $itemid);
+		// return
 		return true;
 	}
 
@@ -282,10 +314,10 @@ class ItemMapper {
 				$feedid,
 				$status
 			);
-
 			$stmt->execute($params);
-
 			$itemid = \OCP\DB::insertid(self::tableName);
+			// emit event
+			OCP\Util::emitHook('OCA_News', 'addArticle', $itemid);
 		}
 		else {
 			$this->update($item);
@@ -329,10 +361,17 @@ class ItemMapper {
 		if ($feedid == null) {
 			return false;
 		}
-		$stmt = \OCP\DB::prepare('DELETE FROM ' . self::tableName .' WHERE feed_id = ?');
-
-		$result = $stmt->execute(array($feedid));
-
+		// get IDs
+		$stmt1 = \OCP\DB::prepare('SELECT id FROM ' . self::tableName .' WHERE feed_id = ?');
+		$ids = $stmt1->execute(array($feedid));
+		// delete all
+		$stmt2 = \OCP\DB::prepare('DELETE FROM ' . self::tableName .' WHERE feed_id = ?');
+		$result = $stmt2->execute(array($feedid));
+		// emit events
+		while ($row = $ids->fetchRow()) {
+			OCP\Util::emitHook('OCA_News', 'deleteArticle', $row['id']);
+		}
+		// return
 		return $result;
 	}
 
