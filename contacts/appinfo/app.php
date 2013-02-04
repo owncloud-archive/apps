@@ -11,7 +11,6 @@ OC::$CLASSPATH['OC_Connector_Sabre_CardDAV_AddressBookRoot'] = 'contacts/lib/sab
 OC::$CLASSPATH['OC_Connector_Sabre_CardDAV_UserAddressBooks'] = 'contacts/lib/sabre/useraddressbooks.php';
 OC::$CLASSPATH['OC_Connector_Sabre_CardDAV_AddressBook'] = 'contacts/lib/sabre/addressbook.php';
 OC::$CLASSPATH['OC_Connector_Sabre_CardDAV_Card'] = 'contacts/lib/sabre/card.php';
-OC::$CLASSPATH['OCA\\Contacts\\SearchProvider'] = 'contacts/lib/search.php';
 OCP\Util::connectHook('OC_User', 'post_createUser', 'OCA\Contacts\Hooks', 'createUser');
 OCP\Util::connectHook('OC_User', 'post_deleteUser', 'OCA\Contacts\Hooks', 'deleteUser');
 OCP\Util::connectHook('OC_Calendar', 'getEvents', 'OCA\Contacts\Hooks', 'getBirthdayEvents');
@@ -26,7 +25,8 @@ OCP\App::addNavigationEntry( array(
 
 OCP\Util::addscript('contacts', 'loader');
 
-OC_Search::registerProvider('OCA\Contacts\SearchProvider');
+OC_Search::registerProvider('OC_Search_Provider_Contact');
+
 OCP\Share::registerBackend('contact', 'OCA\Contacts\Share_Backend_Contact');
 OCP\Share::registerBackend('addressbook', 'OCA\Contacts\Share_Backend_Addressbook', 'contact');
 

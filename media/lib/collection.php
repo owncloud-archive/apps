@@ -140,7 +140,11 @@ class Collection {
 		} else {
 			$query = \OCP\DB::prepare("INSERT INTO `*PREFIX*media_artists` (`artist_name`) VALUES (?)");
 			$query->execute(array($name));
-			return $this->getArtistId($name);
+			$artistId = self::getArtistId($name);
+			// emit event
+			OCP\Util::emitHook('OC_MEDIA_COLLECTION', 'addArtist', $artistId);
+			// return
+			return $artistId;
 		}
 	}
 
@@ -173,6 +177,18 @@ class Collection {
 	}
 
 	/**
+	 * Get an album by its ID
+	 * @param int $id
+	 * @return array
+	 */
+	static public function getAlbum($id){
+	    	$sql = "SELECT * FROM `*PREFIX*media_albums` WHERE `song_user`=? AND `album_id` = ?";
+		$params = array(self::$uid, $id);
+		$query = OCP\DB::prepare($sql);
+		return $query->execute($params)->fetchRow();
+	}
+
+	/**
 	 * Add an album to the database
 	 *
 	 * @param string $name
@@ -198,7 +214,11 @@ class Collection {
 			} else {
 				\OC_Log::write('OC_MEDIA_COLLECTION', 'could not add album: ' . \OC_DB::getErrorMessage($stmt), \OC_Log::ERROR);
 			}
-			return $this->getAlbumId($name, $artist);
+			$albumId = self::getAlbumId($name,$artist);
+			// emit event
+			OCP\Util::emitHook('OC_MEDIA_COLLECTION', 'addAlbum', $albumId);
+			// return
+			return $albumId;			
 		}
 	}
 
@@ -258,10 +278,13 @@ class Collection {
 			return 0;
 		}
 		//check if the song is already in the database
-		$songId = $this->getSongId($name, $artist, $album);
-		if ($songId != 0) {
-			$songInfo = $this->getSong($songId);
-			$this->moveSong($songInfo['song_path'], $path);
+		$songId = $this->getSongId($name,$artist,$album);
+		if($songId!=0) {
+			$songInfo=self::getSong($songId);
+			self::moveSong($songInfo['song_path'],$path);
+			// emit event
+			OCP\Util::emitHook('OC_MEDIA_COLLECTION', 'addSong', $songId);
+			// return
 			return $songId;
 		}
 
@@ -272,7 +295,11 @@ class Collection {
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, 0)");
 		$query->execute(array($name, $artist, $album, $path, $this->uid, $length, $track, $size));
 		\OCP\DB::insertid(' * PREFIX * media_songs_song');
-		return $this->getSongId($name, $artist, $album);
+		$songId = $this->getSongId($name, $artist, $album);
+		// emit event
+		OCP\Util::emitHook('OC_MEDIA_COLLECTION', 'addSong', $songId);
+		// return
+		return $songId;
 	}
 
 	public function getSongCount() {
@@ -349,8 +376,10 @@ class Collection {
 	 * if a path of a folder is passed, all songs stored in the folder will be removed from the database
 	 */
 	public function deleteSongByPath($path) {
+		$songId = self::getSongByPath($path);
 		$query = \OCP\DB::prepare("DELETE FROM `*PREFIX*media_songs` WHERE `song_path` LIKE ? AND `song_user` = ?");
 		$query->execute(array("$path%", $this->uid));
+		OCP\Util::emitHook('OC_MEDIA_COLLECTION', 'deleteSong', $songId);
 	}
 
 	/**

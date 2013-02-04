@@ -1,6 +1,4 @@
 <?php
-OC::$CLASSPATH['OC_ReaderSearchProvider'] = 'reader/lib/search.php';
-
 OCP\App::register(array(
   'order' => 20,
   'id' => 'reader',
@@ -13,7 +11,4 @@ OCP\App::addNavigationEntry( array(
  'icon' => OCP\Util::imagePath( 'reader', 'reader.png' ),
  'name'=>'Reader'));
  
-OC_Search::registerProvider('OC_ReaderSearchProvider');
-
-
-?>
+OC_Search::registerProvider('OC_Search_Provider_Reader');

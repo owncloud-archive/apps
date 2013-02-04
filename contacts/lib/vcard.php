@@ -623,12 +623,11 @@ class VCard {
 				)
 			);
 		}
-
 		App::updateDBProperties($id);
 		App::getVCategories()->purgeObject($id);
 		Addressbook::touch($addressbook['id']);
-
 		\OCP\Share::unshareAll('contact', $id);
+		\OC_Hook::emit('\OCA\Contacts\VCard', 'post_deleteVCard', $id);
 		return true;
 	}
 

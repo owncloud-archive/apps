@@ -47,4 +47,4 @@ OCP\Util::connectHook('OC_Filesystem', 'post_rename', 'OCA\Media\Media', 'moveFi
 
 OCP\App::addNavigationEntry(array('id' => 'media_index', 'order' => 2, 'href' => OCP\Util::linkTo('media', 'index.php'), 'icon' => OCP\Util::imagePath('core', 'places/music.svg'), 'name' => $l->t('Music')));
 
-OC_Search::registerProvider('OCA\Media\SearchProvider');
+OC_Search::registerProvider('OC_Search_Provider_Media');
