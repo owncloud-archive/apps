@@ -1,0 +1,11 @@
+#searchbox.indexing {
+	background-image: none;
+}
+form.searchbox #spinner {
+	width: 16px;
+	height: 16px;
+	margin-top: 14px;
+	float: right;
+	margin-right: -27px;
+	background-image: url('%webroot%/core/img/loading.gif');
+}
