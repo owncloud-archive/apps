@@ -27,6 +27,9 @@ OCP\User::checkLoggedIn();
 
 OCP\App::checkAppEnabled('user_migrate');
 if (isset($_POST['user_import'])) {
+	// CSRF check
+	OCP\JSON::callCheck();
+	
 	$root = OC::$SERVERROOT . "/";
 	$importname = "owncloud_import_" . date("y-m-d_H-i-s");
 
