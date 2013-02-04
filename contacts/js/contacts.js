@@ -1412,7 +1412,7 @@ OC.Contacts = OC.Contacts || {};
 			if(contact === null) {
 				continue;
 			}
-			if(contacts.indexOf(id) === -1) {
+			if(contacts.indexOf(parseInt(id)) === -1) {
 				contact.getListItemElement().hide();
 			} else {
 				contact.getListItemElement().show();
