@@ -21,20 +21,18 @@ limitations under the License.
 
     <script type="text/javascript" src="<?php echo OC_Helper::linkTo('core', 'js/jquery-1.7.2.min.js'); ?>"></script>
 
-    <link rel="stylesheet" href="<?php echo OC_Helper::linkTo('files_pdfviewer', 'css/pdf/viewer.css'); ?>"/>
+    <link rel="stylesheet" href="<?php echo OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.css'); ?>"/>
+
+    <script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/compatibility.js'); ?>"></script>
+
+    <link rel="resource" type="application/l10n" href="<?php echo OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/locale.properties'); ?>"/>
 
     <script type="text/javascript"
-            src="<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/pdf/compatibility.js'); ?>"></script>
-
-
-    <!-- This snippet is used in production, see Makefile -->
-    <link rel="resource" type="application/l10n" href="<?php echo OC_Helper::linkTo('files_pdfviewer', 'misc/pdf/locale.properties'); ?>"/>
-    <script type="text/javascript"
-            src="<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/pdf/l10n.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/pdf/pdf.js'); ?>"></script>
+            src="<?php echo OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/l10n.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/pdf.js'); ?>"></script>
 
     <script type="text/javascript"
-            src="<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/pdf/viewer.js'); ?>"></script>
+            src="<?php echo OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.js'); ?>"></script>
 
     <script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/files.php'); ?>?file=<?php echo urlencode($_['file']); ?>&amp;dir=<?php echo urlencode($_['dir']); ?>"></script>
     <script type="text/javascript" src="<?php echo OC_Helper::linkTo('files_pdfviewer', 'js/on_event.js'); ?>"></script>

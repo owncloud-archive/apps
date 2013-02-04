@@ -4,7 +4,7 @@
     <name>PDF Viewer</name>
     <description>Inline PDF viewer (pdfjs-based)</description>
     <licence>MIT</licence>
-    <author>Thomas Müller (ownCloud), pdf.js: Andreas Gal, Chris G Jones, Shaon Barman, Vivien Nicolas, Justin D'Arcangelo, Yury Delendik, Kalervo Kujala, Adil Allawi, Jakob Miland, Artur Adib, Brendan Dahl, David Quintana</author>
+    <author>Thomas Müller (ownCloud), Lukas Reschke (ownCloud), pdf.js: Andreas Gal, Chris G Jones, Shaon Barman, Vivien Nicolas, Justin D'Arcangelo, Yury Delendik, Kalervo Kujala, Adil Allawi, Jakob Miland, Artur Adib, Brendan Dahl, David Quintana</author>
     <require>4.91</require>
     <shipped>true</shipped>
     <default_enable/>
