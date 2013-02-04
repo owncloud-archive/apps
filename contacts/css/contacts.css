@@ -431,8 +431,8 @@ input[type="checkbox"].propertytype { width: 10px; }
 .no-svg .favorite.active, .favorite:hover { background-image:url('%appswebroot%/contacts/img/active_star.png'); }
 .no-svg .favorite.inactive { background-image:url('%appswebroot%/contacts/img/inactive_star.png'); }
 
-.svg .favorite { display: inline-block; float: left; height: 20px; width: 20px; background-image:url('%appswebroot%/contacts/img/inactive_star.svg'); }
-.svg .favorite.active, .favorite:hover { background-image:url('%appswebroot%/contacts/img/active_star.svg'); }
+.svg .favorite { display: inline-block; float: left; height: 20px; width: 20px; background-image:url('%appswebroot%/contacts/img/inactive_star.svg'); background-size:contain; }
+.svg .favorite.active, .favorite:hover { background-image:url('%appswebroot%/contacts/img/active_star.svg');	}
 .svg .favorite.inactive { background-image:url('%appswebroot%/contacts/img/inactive_star.svg'); background-size:contain; }
 
 /* Header */
