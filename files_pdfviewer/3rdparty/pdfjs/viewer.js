@@ -43,8 +43,6 @@ var FindStates = {
   FIND_PENDING: 3
 };
 
-  PDFJS.workerSrc = '../build/pdf.js';
-
 var mozL10n = document.mozL10n || document.webL10n;
 
 function getFileName(url) {

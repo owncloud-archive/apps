@@ -17,7 +17,7 @@ $dir = isset($_GET['dir']) ? $_GET['dir'] : '';
 $file = isset($_GET['file']) ? $_GET['file'] : '';
 
 $array = array(
-	"PDFJS.workerSrc" => OC_Helper::linkTo('files_pdfviewer', 'js/pdf/pdf.js'),
+	"PDFJS.workerSrc" => OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/pdf.js'),
 	"window.dir" => $dir,
 	"window.file" => $file,
 	"oc_webroot" => OC::$WEBROOT,
@@ -25,5 +25,5 @@ $array = array(
 
 // Echo it
 foreach ($array as  $setting => $value) {
-	echo($setting ."=".json_encode($value).";\n");
+	echo($setting ."=\"".($value)."\";\n");
 }
