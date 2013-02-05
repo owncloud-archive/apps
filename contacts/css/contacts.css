@@ -331,9 +331,8 @@ ul.propertylist { width: 450px; }
 #contacts-settings .settings { 
 	/*width: 20px; height: 20px; 
 	float: left;*/
-	color: transparent;
 	background-repeat: no-repeat;
-	background-position: left center;
+	background-position:0px 4px;
 	background-origin: content-box;
 	background-image:url('%webroot%/core/img/actions/settings.svg'); 
 }
