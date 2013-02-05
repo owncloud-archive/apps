@@ -4,12 +4,6 @@
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('search');
 
-// add CSS
-OCP\Util::addStyle('search', 'list-view');
-
-// add JS
-OCP\Util::addScript('search', 'columns');
-
 // activate navigation link
 OCP\App::setActiveNavigationEntry('search');
 

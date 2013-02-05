@@ -1,4 +1,4 @@
-<?php // note: strange formatting fixes output HTML  ?>
+<?php OCP\Util::addStyle('search', 'list-view');  ?>
 <!-- search form -->
 <div id="controls">
     <form id="search-form" action="<?php echo OCP\Util::linkTo('search', 'index.php'); ?>" method="get">
