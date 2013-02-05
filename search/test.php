@@ -7,11 +7,11 @@ ini_set('display_errors', '1');
 function pr($thing) {
     echo '<pre>';
     if (is_null($thing))
-	echo 'NULL';
+        echo 'NULL';
     elseif (is_bool($thing))
-	echo $thing ? 'TRUE' : 'FALSE';
+        echo $thing ? 'TRUE' : 'FALSE';
     else
-	print_r($thing);
+        print_r($thing);
     echo '</pre>' . "\n";
     return ($thing) ? true : false; // for testing purposes
 }

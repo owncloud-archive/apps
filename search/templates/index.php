@@ -1,4 +1,4 @@
-<?php // note: strange formatting fixes output HTML ?>
+<?php // note: strange formatting fixes output HTML  ?>
 <!-- search form -->
 <div id="controls">
     <form id="search-form" action="<?php echo OCP\Util::linkTo('search', 'index.php'); ?>" method="get">

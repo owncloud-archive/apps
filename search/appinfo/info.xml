@@ -64,6 +64,6 @@
     <standalone/>
     <default_enable/>
     <types>
-	<filesystem/>
+        <filesystem/>
     </types>
 </info>
