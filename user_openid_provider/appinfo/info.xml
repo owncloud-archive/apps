@@ -13,6 +13,6 @@
 		<authentication/>
 	</types>
 	<remote>
-		<openid_provider>user_openid_provider/provider.php</openid_provider>
+		<openid_provider>provider.php</openid_provider>
 	</remote>
 </info>
