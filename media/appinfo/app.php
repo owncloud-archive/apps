@@ -48,4 +48,4 @@ OCP\App::registerPersonal('media', 'settings');
 
 OCP\App::addNavigationEntry(array('id' => 'media_index', 'order' => 2, 'href' => OCP\Util::linkTo('media', 'index.php'), 'icon' => OCP\Util::imagePath('core', 'places/music.svg'), 'name' => $l->t('Music')));
 
-OC_Search::registerProvider('OCA\Media\SearchProvider');
+OC_Search::registerProvider('OC_Search_Provider_Media');

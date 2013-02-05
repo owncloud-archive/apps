@@ -36,9 +36,10 @@ OCP\App::addNavigationEntry(array(
 		'name' => $l->t('Pictures'))
 );
 
-
 OCP\Util::connectHook('OC_Filesystem', 'post_write', 'OCA\Gallery\Thumbnail', 'writeHook');
 OCP\Util::connectHook('OC_Filesystem', 'post_delete', 'OCA\Gallery\Thumbnail', 'removeHook');
+
+OC_Search::registerProvider('OC_Search_Provider_Gallery');
 
 OCP\Share::registerBackend('picture', 'OCA\Gallery\Share\Picture', null, array('gif', 'jpeg', 'jpg', 'png', 'svg', 'svgz'));
 OCP\Share::registerBackend('gallery', 'OCA\Gallery\Share\Gallery', 'picture');
