@@ -1,5 +1,7 @@
 <?php
 
+$new_include_path = OC_App::getAppPath('search').DIRECTORY_SEPARATOR.'lib';
+set_include_path(get_include_path().PATH_SEPARATOR.$new_include_path);
 require_once 'Zend/Search/Lucene.php';
 require_once 'Zend/Search/Lucene/Index/Term.php';
 require_once 'Zend/Search/Lucene/Search/Query/Term.php';
