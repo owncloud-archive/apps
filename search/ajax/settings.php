@@ -1,14 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-
-//header('Content-type: text/html; charset=UTF-8');
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('search');
-//OC_App::loadApp('search');
-//var_dump(get_declared_classes());
-//OC::autoload('OC_EventSource
 OC::autoload('OC_Search_Provider_Lucene');
 
 /**
