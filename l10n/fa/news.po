@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-03 00:01+0100\n"
-"PO-Revision-Date: 2013-02-02 14:04+0000\n"
+"POT-Creation-Date: 2013-02-06 00:01+0100\n"
+"PO-Revision-Date: 2013-02-05 13:10+0000\n"
 "Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgstr ""
 
 #: subscribe.php:30
 msgid "An error occurred"
-msgstr ""
+msgstr "یک خطا رخ داده است"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
@@ -56,7 +56,7 @@ msgstr ""
 
 #: templates/main.php:15
 msgid "New articles"
-msgstr ""
+msgstr "مقالات جدید"
 
 #: templates/main.php:23 templates/part.listfeed.php:22
 #: templates/part.listfolder.php:32
@@ -105,7 +105,7 @@ msgstr "-- انتخاب پوشه --"
 
 #: templates/part.settings.php:20
 msgid "Address must not be empty!"
-msgstr ""
+msgstr "آدرس نباید خالی باشد!"
 
 #: templates/part.settings.php:21
 msgid "Feed exists already!"
@@ -134,7 +134,7 @@ msgstr "نام پوشه نباید خالی باشد!"
 
 #: templates/part.settings.php:38
 msgid "Folder exists already!"
-msgstr ""
+msgstr "پوشه در حال حاضر موجود است!"
 
 #: templates/part.settings.php:45
 msgid "Folder Name"
@@ -146,7 +146,7 @@ msgstr "نمایش همه"
 
 #: templates/part.settings.php:66
 msgid "Show only unread"
-msgstr ""
+msgstr "نمایش خوانده نشده ها"
 
 #: templates/part.settings.php:72 templates/part.settings.php:76
 msgid "Settings"
@@ -184,4 +184,4 @@ msgstr ""
 
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
-msgstr ""
+msgstr "اشتراک گذاری"

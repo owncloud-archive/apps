@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Amir Reza Asadi <amirreza.asadi@live.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-03 00:01+0100\n"
-"PO-Revision-Date: 2013-02-02 14:05+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-06 00:01+0100\n"
+"PO-Revision-Date: 2013-02-05 20:50+0000\n"
+"Last-Translator: Amir Reza Asadi <amirreza.asadi@live.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,30 +20,30 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "Export this ownCloud instance"
-msgstr ""
+msgstr "گرفتن خروجی از نمونه این ابر "
 
 #: templates/settings.php:5
 msgid ""
 "This will create a compressed file that contains the data of this owncloud "
 "instance."
-msgstr ""
+msgstr "این یک فایل فشرده را که شامل داده های این نمونه از ابر است خواهد ساخت"
 
 #: templates/settings.php:7
 msgid "Please choose the export type:"
-msgstr ""
-
-#: templates/settings.php:10
-msgid "ownCloud instance (user data and database"
-msgstr ""
+msgstr "لطفا نوع خروجی را مشخص کنید"
 
 #: templates/settings.php:11
-msgid "ownCloud system files"
-msgstr ""
+msgid "ownCloud instance (user data and database"
+msgstr "نمونه از ابر(شما اطلاعات کاربر و پایگاه داده"
 
 #: templates/settings.php:12
-msgid "Just user files"
-msgstr ""
+msgid "ownCloud system files"
+msgstr "فایل های سیستمی  ابر"
 
 #: templates/settings.php:13
+msgid "Just user files"
+msgstr "فقط فایل های  کاربر"
+
+#: templates/settings.php:14
 msgid "Export"
 msgstr "خروجی گرفتن"
