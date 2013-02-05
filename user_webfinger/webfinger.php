@@ -11,6 +11,7 @@ header("Content-Type: application/xrd+json");
  * 'webfinger.php' to /apps/yourapp/appinfo/, which prints out the XML parts
  * to be included. That script can make use of the constants WF_USER (e. g.
  * "user"), WF_ID (user
+ *
  * @host) and WF_BASEURL (e. g. https://host/owncloud).
  * An example could look like this:
  *
@@ -53,13 +54,22 @@ if (empty($id)) {
 define('WF_USER', $userName);
 define('WF_ID', $id);
 define('WF_BASEURL', $baseAddress);
-echo "{\"links\":[";
 $apps = OC_Appconfig::getApps();
+$links = array();
+
 foreach ($apps as $app) {
 	if (OCP\App::isEnabled($app)) {
 		if (is_file(OC_App::getAppPath($app) . '/appinfo/webfinger.php')) {
+			ob_start();
 			require $app . '/appinfo/webfinger.php';
+			$link = trim(ob_get_clean());
+			if ($link) {
+				$links[] = $link;
+			}
 		}
 	}
 }
+
+echo "{\"links\":[";
+echo implode(',', $links);
 echo "]}";
