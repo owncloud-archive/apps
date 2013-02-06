@@ -25,8 +25,8 @@ $('#submitNewEvent').live('click', function () {
 $('#chooseCalendar').live('click', function () {
 	Calendar.UI.Calendar.newCalendar(this);
 });
-$('.activeCalendar').live('click', function () {
-	Calendar.UI.Calendar.activation($(this),$(this).data('id'));
+$('.activeCalendar').live('change', function () {
+	Calendar.UI.Calendar.activation(this,$(this).data('id'));
 });
 $('#allday_checkbox').live('click', function () {
 	Calendar.UI.lockTime();
