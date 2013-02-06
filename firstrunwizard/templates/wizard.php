@@ -9,13 +9,13 @@
 
 
 <h2><?php echo $l->t('Get the apps to sync your files');?></h2>
-<a href="http://owncloud.org/sync-clients/">
+<a href="<?php echo $_['clients']['desktop']; ?>">
 	<img src="<?php echo OCP\Util::imagePath('firstrunwizard', 'desktopapp.png'); ?>" />
 </a>
-<a href="https://play.google.com/store/apps/details?id=com.owncloud.android">
+<a href="<?php echo $_['clients']['android']; ?>">
 	<img src="<?php echo OCP\Util::imagePath('firstrunwizard', 'googleplay.png'); ?>" />
 </a>
-<a href="https://itunes.apple.com/us/app/owncloud/id543672169?mt=8">
+<a href="<?php echo $_['clients']['ios']; ?>">
 	<img src="<?php echo OCP\Util::imagePath('firstrunwizard', 'appstore.png'); ?>" />
 </a>
 
