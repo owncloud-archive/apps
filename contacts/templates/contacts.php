@@ -1,4 +1,3 @@
-<div id='notification'></div>
 <form class="float" id="file_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php'); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
 	<input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'] ?>">
 	<input type="hidden" name="id" value="<?php echo $_['id'] ?>">
