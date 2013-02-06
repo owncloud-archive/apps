@@ -125,7 +125,6 @@
 "Month" => "මාසය",
 "List" => "ලැයිස්තුව",
 "Today" => "අද",
-"Calendars" => "දින දර්ශන",
 "Settings" => "සිටුවම",
 "Your calendars" => "ඔබේ දිනදසුන",
 "CalDav Link" => "CalDav සබැදිය",

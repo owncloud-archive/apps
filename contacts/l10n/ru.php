@@ -83,6 +83,7 @@
 "The address book name cannot be empty." => "Имя адресной книги не может быть пустым.",
 "Is this correct?" => "Это верно?",
 "There was an unknown error when trying to delete this contact" => "Произошла неизвестная ошибка при попытке удалить этот контакт",
+"# groups" => "# группы",
 "Some contacts are marked for deletion, but not deleted yet. Please wait for them to be deleted." => "Некоторые контакты помечены на удаление, но ещё не удалены. Подождите, пока они удаляются.",
 "Click to undo deletion of {num} contacts" => "Нажмите для отмены удаления {num} контактов",
 "Cancelled deletion of {num}" => "Отменено удаление {num}",

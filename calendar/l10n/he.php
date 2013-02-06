@@ -126,7 +126,6 @@
 "Month" => "חודש",
 "List" => "רשימה",
 "Today" => "היום",
-"Calendars" => "לוחות שנה",
 "Settings" => "הגדרות",
 "Your calendars" => "לוחות השנה שלך",
 "CalDav Link" => "קישור CalDav",

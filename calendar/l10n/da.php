@@ -130,7 +130,6 @@
 "Month" => "Måned",
 "List" => "Liste",
 "Today" => "I dag",
-"Calendars" => "Kalendere",
 "Settings" => "Indstillinger",
 "Your calendars" => "Dine kalendere",
 "CalDav Link" => "CalDav-link",

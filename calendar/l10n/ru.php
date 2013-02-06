@@ -130,7 +130,6 @@
 "Month" => "Месяц",
 "List" => "Список",
 "Today" => "Сегодня",
-"Calendars" => "Календари",
 "Settings" => "Параметры",
 "Your calendars" => "Ваши календари",
 "CalDav Link" => "Ссылка для CalDav",

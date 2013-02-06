@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-26 00:04+0100\n"
-"PO-Revision-Date: 2013-01-25 23:05+0000\n"
+"POT-Creation-Date: 2013-02-07 00:02+0100\n"
+"PO-Revision-Date: 2013-02-06 23:03+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/owncloud/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
@@ -326,71 +326,71 @@ msgstr ""
 msgid "There was a database fail"
 msgstr ""
 
-#: lib/app.php:114
+#: lib/app.php:121
 msgid "Birthday"
 msgstr "Rođendan"
 
-#: lib/app.php:115
+#: lib/app.php:122
 msgid "Business"
 msgstr "Posao"
 
-#: lib/app.php:116
+#: lib/app.php:123
 msgid "Call"
 msgstr "Poziv"
 
-#: lib/app.php:117
+#: lib/app.php:124
 msgid "Clients"
 msgstr "Klijenti"
 
-#: lib/app.php:118
+#: lib/app.php:125
 msgid "Deliverer"
 msgstr "Dostavljač"
 
-#: lib/app.php:119
+#: lib/app.php:126
 msgid "Holidays"
 msgstr "Praznici"
 
-#: lib/app.php:120
+#: lib/app.php:127
 msgid "Ideas"
 msgstr "Ideje"
 
-#: lib/app.php:121
+#: lib/app.php:128
 msgid "Journey"
 msgstr "putovanje"
 
-#: lib/app.php:122
+#: lib/app.php:129
 msgid "Jubilee"
 msgstr "jubilej"
 
-#: lib/app.php:123
+#: lib/app.php:130
 msgid "Meeting"
 msgstr "Sastanak"
 
-#: lib/app.php:124
+#: lib/app.php:131
 msgid "Other"
 msgstr "Drugo"
 
-#: lib/app.php:125
+#: lib/app.php:132
 msgid "Personal"
 msgstr "Lično"
 
-#: lib/app.php:126
+#: lib/app.php:133
 msgid "Projects"
 msgstr "Projekti"
 
-#: lib/app.php:127
+#: lib/app.php:134
 msgid "Questions"
 msgstr "Pitanja"
 
-#: lib/app.php:128
+#: lib/app.php:135
 msgid "Work"
 msgstr "Posao"
 
-#: lib/app.php:396
+#: lib/app.php:403
 msgid "by"
 msgstr ""
 
-#: lib/app.php:444
+#: lib/app.php:451
 msgid "unnamed"
 msgstr ""
 
@@ -547,10 +547,6 @@ msgid "Today"
 msgstr "Danas"
 
 #: templates/calendar.php:13
-msgid "Calendars"
-msgstr ""
-
-#: templates/calendar.php:14
 msgid "Settings"
 msgstr "Podešavanja"
 

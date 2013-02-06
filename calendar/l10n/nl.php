@@ -130,7 +130,6 @@
 "Month" => "Maand",
 "List" => "Lijst",
 "Today" => "Vandaag",
-"Calendars" => "Agenda's",
 "Settings" => "Instellingen",
 "Your calendars" => "Uw agenda's",
 "CalDav Link" => "CalDav Link",

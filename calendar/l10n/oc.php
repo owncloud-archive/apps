@@ -123,7 +123,6 @@
 "Month" => "Mes",
 "List" => "Tièra",
 "Today" => "Uèi",
-"Calendars" => "Calendièrs",
 "Settings" => "Configuracion",
 "Your calendars" => "Los calendièrs vòstres",
 "CalDav Link" => "Ligam CalDav",

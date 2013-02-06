@@ -130,7 +130,6 @@
 "Month" => "Monat",
 "List" => "Liste",
 "Today" => "Heute",
-"Calendars" => "Kalender",
 "Settings" => "Einstellungen",
 "Your calendars" => "Deine Kalender",
 "CalDav Link" => "CalDAV-Link",

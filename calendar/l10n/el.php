@@ -130,7 +130,6 @@
 "Month" => "Μήνας",
 "List" => "Λίστα",
 "Today" => "Σήμερα",
-"Calendars" => "Ημερολόγια",
 "Settings" => "Ρυθμίσεις",
 "Your calendars" => "Τα ημερολόγια σου",
 "CalDav Link" => "Σύνδεση CalDAV",

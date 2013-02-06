@@ -128,7 +128,6 @@
 "Month" => "Kuukausi",
 "List" => "Lista",
 "Today" => "Tänään",
-"Calendars" => "Kalenterit",
 "Settings" => "Asetukset",
 "Your calendars" => "Omat kalenterisi",
 "CalDav Link" => "CalDav-linkki",

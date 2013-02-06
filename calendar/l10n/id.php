@@ -115,7 +115,6 @@
 "Month" => "Bulan",
 "List" => "daftar",
 "Today" => "Hari ini",
-"Calendars" => "kalender",
 "Settings" => "Setting",
 "Your calendars" => "kalender anda",
 "CalDav Link" => "tautan CalDav",

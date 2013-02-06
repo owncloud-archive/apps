@@ -126,7 +126,6 @@
 "Month" => "Месец",
 "List" => "Листа",
 "Today" => "Денеска",
-"Calendars" => "Календари",
 "Settings" => "Параметри",
 "Your calendars" => "Ваши календари",
 "CalDav Link" => "Врска за CalDav",

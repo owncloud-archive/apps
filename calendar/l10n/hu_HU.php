@@ -130,7 +130,6 @@
 "Month" => "Hónap",
 "List" => "Lista",
 "Today" => "Ma",
-"Calendars" => "Naptárak",
 "Settings" => "Beállítások",
 "Your calendars" => "Az Ön naptárai",
 "CalDav Link" => "CalDAV link",

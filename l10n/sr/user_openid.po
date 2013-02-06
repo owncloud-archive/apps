@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-15 00:01+0100\n"
-"PO-Revision-Date: 2013-01-14 17:58+0000\n"
+"POT-Creation-Date: 2013-02-07 00:02+0100\n"
+"PO-Revision-Date: 2013-02-06 17:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgstr ""
 
 #: templates/nomode.php:17
 msgid "Login"
-msgstr ""
+msgstr "Пријави ме"
 
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"

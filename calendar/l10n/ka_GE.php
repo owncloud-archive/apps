@@ -125,7 +125,6 @@
 "Month" => "თვე",
 "List" => "სია",
 "Today" => "დღეს",
-"Calendars" => "კალენდრები",
 "Settings" => "პარამეტრები",
 "Your calendars" => "თქვენი კალენდარები",
 "CalDav Link" => "CalDav ლინკი",
