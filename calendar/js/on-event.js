@@ -31,13 +31,14 @@ $('.activeCalendar').live('click', function () {
 $('#allday_checkbox').live('click', function () {
 	Calendar.UI.lockTime();
 });
-$('.editEvent-submit').live('click', function () {
+$('#editEvent-submit').live('click', function () {
+	console.log('submit-event');
 	Calendar.UI.validateEventForm($(this).data('link'));
 });
-$('.editEvent-delete').live('click', function () {
+$('#editEvent-delete').live('click', function () {
 	Calendar.UI.submitDeleteEventForm($(this).data('link'));
 });
-$('.editEvent-export').live('click', function () {
+$('#editEvent-export').live('click', function () {
 	window.location = $(this).data('link');
 });
 $('#chooseCalendar-showCalDAVURL').live('click', function () {
