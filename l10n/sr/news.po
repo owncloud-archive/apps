@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <theranchcowboy@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-02-01 15:00+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-07 00:02+0100\n"
+"PO-Revision-Date: 2013-02-06 17:20+0000\n"
+"Last-Translator: Rancher <theranchcowboy@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,100 +20,100 @@ msgstr ""
 
 #: 3rdparty/js/moment.min.js:6
 msgid "year"
-msgstr ""
+msgstr "година"
 
-#: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
 msgid "News"
-msgstr ""
+msgstr "Вести"
 
 #: db/feedmapper.php:172 db/itemmapper.php:262
 msgid "no title"
-msgstr ""
+msgstr "нема наслова"
 
 #: db/foldermapper.php:127
 msgid "no name"
-msgstr ""
+msgstr "нема имена"
 
 #: db/itemmapper.php:267
 msgid "no body"
-msgstr ""
+msgstr "нема текста"
 
 #: opmlexporter.php:44
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "пријаве на ownCloud-у – вести"
 
 #: subscribe.php:30
 msgid "An error occurred"
-msgstr ""
+msgstr "Дошло је до грешке"
 
 #: subscribe.php:32
 msgid "Nice! You have subscribed to "
-msgstr ""
+msgstr "Лепо! Пријавили сте се на "
 
 #: subscribe.php:36
 msgid "You had already subscribed to this feed!"
-msgstr ""
+msgstr "Већ сте пријављени на овај довод."
 
 #: templates/main.php:15
 msgid "New articles"
-msgstr ""
+msgstr "Нови чланци"
 
 #: templates/main.php:23 templates/part.listfeed.php:22
 #: templates/part.listfolder.php:32
 msgid "Mark all read"
-msgstr ""
+msgstr "Означи све као прочитано"
 
 #: templates/main.php:35
 msgid "Starred"
-msgstr ""
+msgstr "Означено звездицом"
 
 #: templates/part.items.php:46 templates/part.items.php:49
 msgid "Share"
-msgstr "Дељење"
+msgstr "Дели"
 
 #: templates/part.items.php:53
 msgid "Keep unread"
-msgstr ""
+msgstr "Задржи непрочитано"
 
 #: templates/part.listfeed.php:19
 msgid "Delete feed"
-msgstr ""
+msgstr "Обриши довод"
 
 #: templates/part.listfolder.php:13
 msgid "Collapse"
-msgstr ""
+msgstr "Скупи"
 
 #: templates/part.listfolder.php:26
 msgid "Delete folder"
-msgstr ""
+msgstr "Обриши фасциклу"
 
 #: templates/part.listfolder.php:29
 msgid "Rename folder"
-msgstr ""
+msgstr "Преименуј фасциклу"
 
 #: templates/part.settings.php:10
 msgid "Add Subscription"
-msgstr ""
+msgstr "Додај пријаву"
 
 #: templates/part.settings.php:13
 msgid "Folder under which the feed is being saved"
-msgstr ""
+msgstr "Фасцикла под којом се чува довод"
 
 #: templates/part.settings.php:17
 msgid "-- choose folder --"
-msgstr ""
+msgstr "– изаберите фасциклу –"
 
 #: templates/part.settings.php:20
 msgid "Address must not be empty!"
-msgstr ""
+msgstr "Адреса не може бити празна."
 
 #: templates/part.settings.php:21
 msgid "Feed exists already!"
-msgstr ""
+msgstr "Довод већ постоји."
 
 #: templates/part.settings.php:22
 msgid "Could not add feed!"
-msgstr ""
+msgstr "Не могу да додам довод."
 
 #: templates/part.settings.php:26
 msgid "Address"
@@ -125,62 +126,62 @@ msgstr "Додај"
 
 #: templates/part.settings.php:34
 msgid "Add Folder"
-msgstr ""
+msgstr "Додај фасциклу"
 
 #: templates/part.settings.php:37
 msgid "Folder name must not be empty!"
-msgstr ""
+msgstr "Име фасцикле не може бити празно."
 
 #: templates/part.settings.php:38
 msgid "Folder exists already!"
-msgstr ""
+msgstr "Фасцикла већ постоји."
 
 #: templates/part.settings.php:45
 msgid "Folder Name"
-msgstr ""
+msgstr "Име фасцикле"
 
 #: templates/part.settings.php:60
 msgid "Show everything"
-msgstr ""
+msgstr "Прикажи све"
 
 #: templates/part.settings.php:66
 msgid "Show only unread"
-msgstr ""
+msgstr "Прикажи само непрочитане"
 
 #: templates/part.settings.php:72 templates/part.settings.php:76
 msgid "Settings"
-msgstr "Подешавања"
+msgstr "Поставке"
 
 #: templates/part.settings.php:80
 msgid "Add feed or folder"
-msgstr ""
+msgstr "Додај довод или фасциклу"
 
 #: templates/part.settings.php:85
 msgid "Add Feed/Folder"
-msgstr ""
+msgstr "Додај довод/фасциклу"
 
 #: templates/part.settings.php:91
 msgid "Import / Export"
-msgstr ""
+msgstr "Увези/извези"
 
 #: templates/part.settings.php:93 templates/part.settings.php:95
 msgid "Import OPML"
-msgstr ""
+msgstr "Увези OPML"
 
 #: templates/part.settings.php:99
 msgid "Export OPML"
-msgstr ""
+msgstr "Извези OPML"
 
 #: templates/part.settings.php:102
 msgid "Subscribelet"
-msgstr ""
+msgstr "Пријава"
 
 #: templates/part.subscribelet.php:3
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr ""
+msgstr "Превуците ово на траку са обележивачима и кликните кад год желите да бисте се пријавили на веб страницу:"
 
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
-msgstr ""
+msgstr "Пријави ме"

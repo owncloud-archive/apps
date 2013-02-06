@@ -130,7 +130,6 @@
 "Month" => "Mesiac",
 "List" => "Zoznam",
 "Today" => "Dnes",
-"Calendars" => "Kalendáre",
 "Settings" => "Nastavenia",
 "Your calendars" => "Vaše kalendáre",
 "CalDav Link" => "CalDav odkaz",

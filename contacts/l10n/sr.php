@@ -31,6 +31,7 @@
 "Contact" => "Контакт",
 "Settings" => "Подешавања",
 "Import" => "Увези",
+"OK" => "У реду",
 "Groups" => "Групе",
 "Close" => "Затвори",
 "Delete current photo" => "Izbriši trenutnu fotografiju",

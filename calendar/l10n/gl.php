@@ -130,7 +130,6 @@
 "Month" => "Mes",
 "List" => "Lista",
 "Today" => "Hoxe",
-"Calendars" => "Calendarios",
 "Settings" => "Configuracións",
 "Your calendars" => "Os teus calendarios",
 "CalDav Link" => "Ligazón CalDav",

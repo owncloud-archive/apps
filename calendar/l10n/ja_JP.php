@@ -130,7 +130,6 @@
 "Month" => "月",
 "List" => "予定リスト",
 "Today" => "今日",
-"Calendars" => "カレンダー",
 "Settings" => "設定",
 "Your calendars" => "あなたのカレンダー",
 "CalDav Link" => "CalDavへのリンク",

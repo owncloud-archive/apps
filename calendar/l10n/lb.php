@@ -116,7 +116,6 @@
 "Month" => "Mount",
 "List" => "Lescht",
 "Today" => "Haut",
-"Calendars" => "Kalenneren",
 "Settings" => "Astellungen",
 "Your calendars" => "Deng Kalenneren",
 "CalDav Link" => "CalDav Link",

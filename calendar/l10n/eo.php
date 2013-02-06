@@ -126,7 +126,6 @@
 "Month" => "Monato",
 "List" => "Listo",
 "Today" => "Hodiaŭ",
-"Calendars" => "Kalendaroj",
 "Settings" => "Agordo",
 "Your calendars" => "Viaj kalendaroj",
 "CalDav Link" => "CalDav-a ligilo",

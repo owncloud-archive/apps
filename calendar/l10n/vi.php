@@ -126,7 +126,6 @@
 "Month" => "Tháng",
 "List" => "Danh sách",
 "Today" => "Hôm nay",
-"Calendars" => "Lịch",
 "Settings" => "Tùy chỉnh",
 "Your calendars" => "Lịch của bạn",
 "CalDav Link" => "Liên kết CalDav ",

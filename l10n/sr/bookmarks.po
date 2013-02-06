@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-02-01 15:00+0000\n"
+"POT-Creation-Date: 2013-02-07 00:01+0100\n"
+"PO-Revision-Date: 2013-02-06 17:30+0000\n"
 "Last-Translator: Rancher <theranchcowboy@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Неподржана врста датотеке за увоз"
 msgid "Bookmarks"
 msgstr "Обележивачи"
 
-#: js/addBm.js:42 js/bookmarks.js:231
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "Ознаке"
 
@@ -39,11 +39,11 @@ msgstr "Филтрирај по ознаци"
 msgid "Edit bookmark"
 msgstr "Уреди обележивач"
 
-#: js/bookmarks.js:362
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Желите ли да уклоните ову ознаку из сваког уноса?"
 
-#: js/bookmarks.js:363
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "Упозорење"
 
@@ -121,11 +121,11 @@ msgstr "Сродне ознаке"
 msgid "Settings"
 msgstr "Поставке"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "Немате обележиваче"
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr "Можете да пробате да увезете и датотеку са обележивачима"
 

@@ -130,7 +130,6 @@
 "Month" => "ماه",
 "List" => "فهرست",
 "Today" => "امروز",
-"Calendars" => "تقویم ها",
 "Settings" => "تنظیمات",
 "Your calendars" => "تقویم های شما",
 "CalDav Link" => "CalDav Link",

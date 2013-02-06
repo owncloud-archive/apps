@@ -130,7 +130,6 @@
 "Month" => "Luna",
 "List" => "Listă",
 "Today" => "Astăzi",
-"Calendars" => "Calendare",
 "Settings" => "Setări",
 "Your calendars" => "Calendarele tale",
 "CalDav Link" => "Legătură CalDav",

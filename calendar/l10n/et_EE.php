@@ -125,7 +125,6 @@
 "Month" => "Kuu",
 "List" => "Nimekiri",
 "Today" => "Täna",
-"Calendars" => "Kalendrid",
 "Settings" => "Seaded",
 "Your calendars" => "Sinu kalendrid",
 "CalDav Link" => "CalDav Link",

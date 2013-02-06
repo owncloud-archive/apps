@@ -125,7 +125,6 @@
 "Month" => "月",
 "List" => "列表",
 "Today" => "今天",
-"Calendars" => "日程表",
 "Settings" => "设置",
 "Your calendars" => "您的日程表",
 "CalDav Link" => "CalDav 链接",
