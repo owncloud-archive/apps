@@ -25,7 +25,15 @@
 // Check if we are a user
 OCP\User::checkLoggedIn();
 
+//links to clients
+$clients = array(
+	'desktop' => OC_Config::getValue('customclient_desktop', 'http://owncloud.org/sync-clients/'),
+	'android' => OC_Config::getValue('customclient_android', 'https://play.google.com/store/apps/details?id=com.owncloud.android'),
+	'ios'     => OC_Config::getValue('customclient_ios', 'https://itunes.apple.com/us/app/owncloud/id543672169?mt=8')
+);
+
 $tmpl = new OCP\Template( 'firstrunwizard', 'wizard', '' );
 $tmpl->assign('logo', OCP\Util::linkTo('core','img/logo-inverted.svg'));
+$tmpl->assign('clients', $clients);
 $tmpl->printPage();
 
