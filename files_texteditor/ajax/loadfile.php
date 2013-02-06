@@ -37,14 +37,14 @@ if(!empty($filename))
 	{
 		$mtime = \OC\Files\Filesystem::filemtime($path);
 		$filecontents = \OC\Files\Filesystem::file_get_contents($path);
-		$filecontents = iconv(mb_detect_encoding($filecontents), "UTF-8", $filecontents);
+		$filecontents = iconv(mb_detect_encoding($filecontents,implode(", ",mb_list_encodings())), "UTF-8", $filecontents);
 		OCP\JSON::success(array('data' => array('filecontents' => $filecontents, 'write' => 'true', 'mtime' => $mtime)));
 	}
 	else
 	{
 		$mtime = \OC\Files\Filesystem::filemtime($path);
 		$filecontents = \OC\Files\Filesystem::file_get_contents($path);
-		$filecontents = iconv(mb_detect_encoding($filecontents), "UTF-8", $filecontents);
+		$filecontents = iconv(mb_detect_encoding($filecontents,implode(", ",mb_list_encodings())), "UTF-8", $filecontents);
 		OCP\JSON::success(array('data' => array('filecontents' => $filecontents, 'write' => 'false', 'mtime' => $mtime)));
 	}
 } else {
