@@ -32,6 +32,7 @@
 /* style the 'handle' itself used to switch the navigation */
 .fluxx-handle {
 	z-index: 9000;
+	opacity: 0.6;
 	position: absolute;
 	width: 20px;
 	height: 20px;
@@ -59,6 +60,8 @@
 	-webkit-transform: scale(-1,1) translate(19px,0);
 }
 .fluxx-handle.fluxx-vertical.fluxx-shown {
+	background-color: #ddd;
+	box-shadow: 0px 1px 2px #999;
 	transform: scale(1,-1) translate(0,19px);
 	-o-transform: scale(1,-1) translate(0,19px);
 	-ms-transform: scale(1,-1) translate(0,19px);
@@ -69,7 +72,6 @@
 .fluxx-handle img {
 	margin: 2px 2px;
 	padding: 1px ;
-	opacity: 0.4;
 	width: 14px;
 	height: 14px;
 	border: 0;

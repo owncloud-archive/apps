@@ -59,8 +59,11 @@ $(document).ready(function(){
 	$(window).on('resize',function(){
 		$.each(OC.FluXX.Handle, function(){
 			var handle=this;
+			var closeToMax=(handle.Position.Max-handle.Position.Val);
 			OC.FluXX.limit(handle);
-			OC.FluXX.position(handle, handle.Position.Val);
+			// reposition close to max if been there before, just within limits otherwise
+			var position=(closeToMax>10)?handle.Position.Val:handle.Position.Max-closeToMax;
+			OC.FluXX.position(handle, position);
 		});
 	});
 })
@@ -215,11 +218,16 @@ OC.FluXX={
 		// reaction on mouse move: position handle
 		$(document).on('mousemove',function(event){
 			if (OC.FluXX.C_HORIZONTAL==handle.Orientation){
-				OC.FluXX.position(handle, event.pageY-60);
+				// we have to correct the raw mouse position by two factors: 
+				// 1. half the handles size and 2. the start position of the anchor which is changed by the other handle
+				var delta=($(handle.Selector).height()/2);
+				if (handle.Orientation==OC.FluXX.C_HORIZONTAL)
+					delta+=$(handle.Anchor).position().top;
+				OC.FluXX.position(handle, event.pageY-delta);
 				handle.Position.Val=$(handle.Selector).position().top;
 			}
 			else{
-				OC.FluXX.position(handle, event.pageX-10);
+				OC.FluXX.position(handle, event.pageX-$(handle.Selector).width()/2);
 				handle.Position.Val=$(handle.Selector).position().left;
 			}
 		});
