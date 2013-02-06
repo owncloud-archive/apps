@@ -966,11 +966,7 @@ $(document).ready(function(){
 	Calendar.UI.Drop.init();
 	$('#choosecalendar .generalsettings').on('click keydown', function(event) {
 		event.preventDefault();
-		OC.appSettings({appid:'calendar', loadJS:true, cache:false});
-	});
-	$('#choosecalendar .calendarsettings').on('click keydown', function(event) {
-		event.preventDefault();
-		OC.appSettings({appid:'calendar', loadJS:true, cache:false, scriptName:'calendar.php'});
+		OC.appSettings({appid:'calendar', loadJS:true, cache:false, scriptName:'settingswrapper.php'});
 	});
 	$('#fullcalendar').fullCalendar('option', 'height', $(window).height() - $('#controls').height() - $('#header').height() - 15);
 });
