@@ -14,7 +14,7 @@
 	<nav id="grouplist">
 	</nav>
 	<div id="contacts-settings">
-			<h3 class="settings action text" tabindex="0" role="button"><?php echo $l->t('Settings'); ?></h3>
+			<h3 class="settings action text" tabindex="0" role="button" title="<?php echo $l->t('Settings'); ?>"></h3>
 			<h3 data-id="addressbooks" tabindex="0" role="button"><?php echo $l->t('Address books'); ?></h3>
 				<ul class="hidden">
 				</ul>
