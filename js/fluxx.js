@@ -150,10 +150,12 @@ OC.FluXX={
 		node.append(img);
 		if (handle.Orientation==OC.FluXX.C_HORIZONTAL){
 			node.addClass('fluxx-horizontal');
+			// move to visible position
 			node.css('left',($(handle.Anchor).outerWidth()-1)+'px');
 		}
 		else{
 			node.addClass('fluxx-vertical');
+			// move to visible position
 			node.css('top',($(handle.Anchor).outerHeight()-1)+'px');
 		}
 		$(handle.Anchor).append(node);
