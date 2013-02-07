@@ -60,7 +60,7 @@ $array = array(
 	"missing_field_startsbeforeends" => "\"".addslashes($l->t('The event ends before it starts'))."\"",
 	"missing_field_dberror" => "\"".addslashes($l->t('There was a database fail'))."\"",
 	"totalurl" => "\"".OCP\Util::linkToRemote('caldav')."calendars"."\"",
-	"firstday" => "\"".(OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'firstday', 'mo') == 'mo' ? '1' : '0')."\"",
+	"firstDay" => (OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'firstday', 'mo') == 'mo' ? '1' : '0'),
 	);
 
 // Echo it
