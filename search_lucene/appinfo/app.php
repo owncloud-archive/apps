@@ -41,7 +41,7 @@ OC::$CLASSPATH['Zend_Search_Lucene_Document'] = 'apps/search_lucene/3rdparty/Zen
 OC::$CLASSPATH['Zend_Search_Lucene_Document_Html'] = 'apps/search_lucene/3rdparty/Zend/Search/Lucene/Document/Html.php';
 OC::$CLASSPATH['Zend_Search_Lucene_Analysis_Analyzer'] = 'apps/search_lucene/3rdparty/Zend/Search/Lucene/Analysis/Analyzer.php';
 
-OC::$CLASSPATH['getID3'] = '3rdparty/getid3/getid3.php';
+OC::$CLASSPATH['getID3'] = 'getid3/getid3.php';
 
 OC::$CLASSPATH['App_Search_Helper_PdfParser'] = 'apps/search_lucene/3rdparty/pdf2text.php';
 
