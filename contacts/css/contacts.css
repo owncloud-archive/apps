@@ -258,15 +258,14 @@
 	text-align: right; 
 	box-sizing: border-box;
 	display: inline-block;
+	margin-top:10px;
 }
 
 ul.propertylist { width: 450px; }
 .propertylist li.propertycontainer { white-space: nowrap; min-width: 38em; display: block; clear: both; }
 .propertylist li.propertycontainer > .listactions { 
 	display: inline-block; 
-	position: absolute; 
 	clear: none; opacity: 0; 
-	float: right; 
 }
 .propertylist li.propertycontainer:hover > .listactions { opacity: 1; }
 .propertylist li.propertycontainer .listactions a { 
@@ -299,6 +298,7 @@ ul.propertylist { width: 450px; }
 	border: 0; 
 	display: inline-block;
 	box-sizing: border-box;
+	margin:3px;
 }
 #rightcontent label:hover, #rightcontent dt:hover, #rightcontent input.label:hover { color: #777 !important; }
 #rightcontent input.label, #rightcontent input.label { margin:-2px; }
@@ -554,7 +554,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	padding-top: .5em; 
 	overflow: hidden; text-overflow: ellipsis; text-align: bottom; white-space: nowrap; 
 }
-#contact span.adr:hover { /*overflow: inherit;*/ white-space: pre-wrap; }
+#contact span.adr:hover { /*overflow: inherit;*/ /*white-space: pre-wrap;*/ }
 
 #contact > ul.propertylist {
 	-webkit-transition: all 0.5s ease-in-out;
