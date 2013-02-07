@@ -36,6 +36,8 @@ html.fluxx-state-H-shown {}
 html.fluxx-state-N-shown {}
 
 /* some general mode specific modifications */
+
+/* navigation hidden: move left and add a more impressive shadow as a hint */
 html.fluxx-state-N-hidden body > nav > #navigation {
 	left: -12.5em;
 	box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
@@ -45,14 +47,17 @@ html.fluxx-state-N-hidden body > nav > #navigation {
 	-khtml-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
 	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
 }
-html.fluxx-state-N-hidden #content {
+/* move content to the left when navigation is hidden */
+html.fluxx-state-N-hidden body #content {
 	left: 0;
 	width: 100% !important;
 }
-html.fluxx-state-N-hidden #controls {
+/* widen control bar when navigation is hidden */
+html.fluxx-state-N-hidden body #controls {
 	width: 100% !important;
 }
 
+/* header hidden: move up and show more impressive shadow as a hint */
 html.fluxx-state-H-hidden body > header > #header {
 	top: -3.5em !important;
 	box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
@@ -62,36 +67,41 @@ html.fluxx-state-H-hidden body > header > #header {
 	-khtml-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
 	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
 }
-html.fluxx-state-H-hidden #content,
-html.fluxx-state-H-hidden #navigation,
-html.fluxx-state-H-hidden #controls {
+/* move content up to top when header is hidden */
+html.fluxx-state-H-hidden body > nav> #navigation,
+html.fluxx-state-H-hidden body #content,
+html.fluxx-state-H-hidden body #controls {
 	top: 0 !important;
+}
+/* move bottom aligned 'settings' navigation entry down to the bottom again */
+html.fluxx-state-H-hidden body > nav > #navigation #settings {
+	bottom: 0;
 }
 
 /* some specific app dependent settings */
 
 /* no _known_ mode detected, so _guess_ */
-html.fluxx-modeless { }
+html.fluxx-modeless body { }
 
 /* 'files' app */
-html.fluxx-mode-files { }
+html.fluxx-mode-files body { }
 
 /* 'notes' app */
-html.fluxx-mode-notes.fluxx-state-N-hidden #entries { left:0; }
+html.fluxx-mode-notes.fluxx-state-N-hidden body #content #entries { left:0; }
 
 /* 'media' app */
-html.fluxx-mode-media { }
+html.fluxx-mode-media body { }
 
 /* 'calendar' app */
-html.fluxx-mode-calendar { }
+html.fluxx-mode-calendar body { }
 
 /* 'contacts' app */
-html.fluxx-mode-contacts.fluxx-state-N-hidden #content > #leftcontent,
-html.fluxx-mode-contacts.fluxx-state-N-hidden #content > #leftcontent > #contacts { left:0; }
-html.fluxx-mode-contacts.fluxx-state-N-hidden #content > #rightcontent { left:256px; }
+html.fluxx-mode-contacts.fluxx-state-N-hidden body #content > #leftcontent,
+html.fluxx-mode-contacts.fluxx-state-N-hidden body #content > #leftcontent > #contacts { left:0; }
+html.fluxx-mode-contacts.fluxx-state-N-hidden body #content > #rightcontent { left:256px; }
 
 /* 'gallery' app */
-html.fluxx-mode-gallery { }
+html.fluxx-mode-gallery body { }
 
 /* 'shorty' app */
-html.fluxx-mode-shorty { }
+html.fluxx-mode-shorty body { }
