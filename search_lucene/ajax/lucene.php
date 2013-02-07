@@ -17,7 +17,7 @@ function handleIndex($id = -1) {
 	$query = \OC_DB::prepare('INSERT INTO `*PREFIX*lucene_status`'
 							.' VALUES (?,?)');
 	
-	$skipped_dirs = split(';', OCP\Config::getUserValue(OCP\User::getUser(), 'search_lucene', 'skipped_dirs', '.git;.svn;.CVS;.bzr'));
+	$skipped_dirs = explode(';', OCP\Config::getUserValue(OCP\User::getUser(), 'search_lucene', 'skipped_dirs', '.git;.svn;.CVS;.bzr'));
 	$skipped = false;
 	
 	foreach($skipped_dirs as $skipped_dir) {
