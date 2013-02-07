@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-02-01 08:10+0000\n"
+"POT-Creation-Date: 2013-02-08 00:07+0100\n"
+"PO-Revision-Date: 2013-02-07 14:00+0000\n"
 "Last-Translator: André Koot <meneer@tken.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "year"
 msgstr "jaar"
 
-#: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
 msgid "News"
 msgstr "Nieuws"
 
@@ -101,7 +101,7 @@ msgstr "Voeg Abonnement Toe"
 
 #: templates/part.settings.php:13
 msgid "Folder under which the feed is being saved"
-msgstr ""
+msgstr "Map waar9onder de feed wordt opgeslagen"
 
 #: templates/part.settings.php:17
 msgid "-- choose folder --"
@@ -113,11 +113,11 @@ msgstr "Adres mag niet leeg zijn!"
 
 #: templates/part.settings.php:21
 msgid "Feed exists already!"
-msgstr ""
+msgstr "Feed bestaat al!"
 
 #: templates/part.settings.php:22
 msgid "Could not add feed!"
-msgstr ""
+msgstr "Kon de feed niet toevoegen!"
 
 #: templates/part.settings.php:26
 msgid "Address"
