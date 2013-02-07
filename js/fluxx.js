@@ -32,7 +32,7 @@
 // add handle to navigation area
 $(document).ready(function(){
 	// setup handle objects
-	OC.FluXX.Handle['H']=OC.FluXX.create('H', OC.FluXX.C_VERTICAL,   1, 'body > header > #header');
+	OC.FluXX.Handle['H']=OC.FluXX.create('H', OC.FluXX.C_VERTICAL,   0, 'body > header > #header');
 	OC.FluXX.Handle['N']=OC.FluXX.create('N', OC.FluXX.C_HORIZONTAL, 1, 'body > nav > #navigation');
 	// initialize created handles
 	$.each(OC.FluXX.Handle, function(){
@@ -127,10 +127,10 @@ OC.FluXX={
 		handle.Orientation=orientation;
 		handle.Position={Val:0,Min:0,Max:0};
 		handle.Selector='body #fluxx-'+id;
-		// compute position limits
-		OC.FluXX.limit(handle);
 		// generate DOM node
 		OC.FluXX.generate(handle);
+		// compute position limits
+		OC.FluXX.limit(handle);
 		// position handle object
 		OC.AppConfig.getValue('fluxx_compensator','fluxx-position-'+handle.Id,handle.Position.Max,function(pos){
 			OC.FluXX.position(handle, pos);
@@ -188,7 +188,7 @@ OC.FluXX={
 		if (OC.FluXX.C_HORIZONTAL==handle.Orientation)
 			handle.Position.Max=$(handle.Anchor).outerHeight()-$(handle.Anchor).position().top-handle.Offset-$(handle.Selector).outerHeight();
 		else
-			handle.Position.Max=$(handle.Anchor).outerWidth()-$(handle.Anchor).position().top-handle.Offset-$(handle.Selector).outerWidth();
+			handle.Position.Max=$(handle.Anchor).outerWidth()-$(handle.Anchor).position().left-handle.Offset-$(handle.Selector).outerWidth();
 	}, // OC.FluXX.limit
 	/**
 	* @method OC.FluXX.move
@@ -227,7 +227,7 @@ OC.FluXX={
 				handle.Position.Val=$(handle.Selector).position().top;
 			}
 			else{
-				OC.FluXX.position(handle, event.pageX-$(handle.Selector).width()/2);
+				OC.FluXX.position(handle, event.pageX-($(handle.Selector).width()/2));
 				handle.Position.Val=$(handle.Selector).position().left;
 			}
 		});
