@@ -12,22 +12,22 @@ class OC_Search_Lucene_Indexer {
 
 	/**
 	 * index a file
-	 * 
+	 *
 	 * @author Jörn Dreyer <jfd@butonic.de>
-	 * 
+	 *
 	 * @param string $path the path of the file
-	 * 
+	 *
 	 * @return void
 	 */
 	static public function indexFile($path = '') {
 
-		if ( $path === '' ) {
+		if ($path === '') {
 			//ignore the empty path element
 			return false;
 		}
 
-		$root=  OC\Files\Filesystem::getRoot();
-		$pk = md5($root.$path);
+		$root = OC\Files\Filesystem::getRoot();
+		$pk = md5($root . $path);
 
 		// the cache already knows mime and other basic stuff
 		$data = OC\Files\Filesystem::getFileInfo($path);
@@ -58,13 +58,13 @@ class OC_Search_Lucene_Indexer {
 			self::extractMetadata($doc, $path, $mimetype);
 
 			OC_Search_Lucene::updateFile($doc, $path);
-			
+
 			return true;
 
 		} else {
 			OC_Log::write('search_lucene',
-					'need mimetype for content extraction',
-					OC_Log::ERROR);
+				'need mimetype for content extraction',
+				OC_Log::ERROR);
 			return false;
 		}
 	}
@@ -72,25 +72,25 @@ class OC_Search_Lucene_Indexer {
 
 	/**
 	 * extract the metadata from a file
-	 * 
+	 *
 	 * uses getid3 to extract metadata.
 	 * if possible also adds content (currently only for plain text files)
 	 * hint: use OC\Files\Filesystem::getFileInfo($path) to get metadata for the last param
-	 *  
+	 *
 	 * @author Jörn Dreyer <jfd@butonic.de>
-	 * 
+	 *
 	 * @param Zend_Search_Lucene_Document $doc      to add the metadata to
 	 * @param string                      $path     path of the file to extract metadata from
 	 * @param string                      $mimetype depending on the mimetype different extractions are performed
-	 * 
+	 *
 	 * @return void
 	 */
-	private static function extractMetadata (Zend_Search_Lucene_Document $doc, $path, $mimetype) {
+	private static function extractMetadata(Zend_Search_Lucene_Document $doc, $path, $mimetype) {
 
-		$file=OC\Files\Filesystem::getLocalFile($path);
-		$getID3=@new getID3();
-		$getID3->encoding='UTF-8';
-		$data=$getID3->analyze($file);
+		$file = OC\Files\Filesystem::getLocalFile($path);
+		$getID3 = @new getID3();
+		$getID3->encoding = 'UTF-8';
+		$data = $getID3->analyze($file);
 
 		// TODO index meta information from media files?
 
@@ -109,19 +109,19 @@ class OC_Search_Lucene_Indexer {
 		}*/
 
 		// filename _should_ always work, so log if it does not
-		if ( isset($data['filename']) ) {
+		if (isset($data['filename'])) {
 			$doc->addField(Zend_Search_Lucene_Field::Text('filename', $data['filename']));
 		} else {
 			OC_Log::write('search_lucene',
-						'failed to extract meta information for '.$path.': '.$data['error']['0'],
-						OC_Log::WARN);
+				'failed to extract meta information for ' . $path . ': ' . $data['error']['0'],
+				OC_Log::WARN);
 		}
 
 		//content
 
 		OC_Log::write('search_lucene',
-					'indexer extracting content for '.$path.' ('.$mimetype.')',
-					OC_Log::DEBUG);
+			'indexer extracting content for ' . $path . ' (' . $mimetype . ')',
+			OC_Log::DEBUG);
 
 		$body = '';
 
@@ -153,7 +153,7 @@ class OC_Search_Lucene_Indexer {
 
 			} catch (Exception $e) {
 				OC_Log::write('search_lucene',
-					$e->getMessage().' Trace:\n'.$e->getTraceAsString(),
+					$e->getMessage() . ' Trace:\n' . $e->getTraceAsString(),
 					OC_Log::ERROR);
 			}
 
@@ -163,15 +163,14 @@ class OC_Search_Lucene_Indexer {
 			$doc->addField(Zend_Search_Lucene_Field::UnStored('body', $body));
 		}
 
-		if ( isset($data['error']) ) {
+		if (isset($data['error'])) {
 			//OC_Search_Lucene_Status::markAsError($fscacheId);
 			OC_Log::write('search_lucene',
-						'failed to extract meta information for '.$path.': '.$data['error']['0'],
-						OC_Log::WARN);
+				'failed to extract meta information for ' . $path . ': ' . $data['error']['0'],
+				OC_Log::WARN);
 
 			return;
 		}
 	}
-	
 
 }
