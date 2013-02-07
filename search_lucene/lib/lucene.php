@@ -30,7 +30,7 @@ class OC_Search_Lucene extends OC_Search_Provider {
 			// Create index
 			//$ocFilesystemView = OC_App::getStorage('search_lucene'); // encrypt the index on logout, decrypt on login
 
-			$indexUrl .= \OC_User::getHome(\OCP\User::getUser()) . '/lucene_index';
+			$indexUrl = \OC_User::getHome(\OCP\User::getUser()) . '/lucene_index';
 			if (file_exists($indexUrl)) {
 				$index = Zend_Search_Lucene::open($indexUrl);
 			} else {
