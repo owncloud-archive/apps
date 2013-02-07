@@ -17,7 +17,7 @@ class OC_Search_Lucene_Indexer {
 	 *
 	 * @param string $path the path of the file
 	 *
-	 * @return void
+	 * @return bool
 	 */
 	static public function indexFile($path = '') {
 
@@ -171,6 +171,42 @@ class OC_Search_Lucene_Indexer {
 
 			return;
 		}
+	}
+
+	/**
+	 * get the list of all unindexed files for the user
+	 *
+	 * @return array
+	 */
+	static public function getUnindexed() {
+		$files = array();
+		$absoluteRoot = \OC\Files\Filesystem::getView()->getAbsolutePath('/');
+		$mounts = \OC\Files\Mount::findIn($absoluteRoot);
+		$mount = \OC\Files\Mount::find($absoluteRoot);
+		if (!in_array($mount, $mounts)) {
+			$mounts[] = $mount;
+		}
+
+		$query = \OC_DB::prepare('SELECT `*PREFIX*filecache`.`fileid`'
+			. ' FROM `*PREFIX*filecache`'
+			. ' LEFT JOIN `*PREFIX*lucene_status`'
+			. ' ON `*PREFIX*filecache`.`fileid` = `*PREFIX*lucene_status`.`fileid`'
+			. ' WHERE `storage` = ?'
+			. ' AND `status` is null OR `status` = "N"');
+
+		foreach ($mounts as $mount) {
+			$cache = $mount->getStorage()->getCache();
+			$numericId = $cache->getNumericStorageId();
+
+			$result = $query->execute(array($numericId));
+			if (!$result) {
+				return false;
+			}
+			while ($row = $result->fetchRow()) {
+				$files[] = $row['fileid'];
+			}
+		}
+		return $files;
 	}
 
 }
