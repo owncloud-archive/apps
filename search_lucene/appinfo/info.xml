@@ -9,6 +9,7 @@
 	</types>
 	<require>4.91</require>
 	<shipped>true</shipped>
+	<default_enable/>
 	<description>Activate this app when you want to be
 		able to find files by searching their content.
 		The implementation does not search the files
