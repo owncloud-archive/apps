@@ -363,6 +363,11 @@ ul.propertylist { width: 450px; }
 #contacts-settings li,#contacts-settings li:hover { background-color: transparent; white-space: nowrap; }
 #contacts-settings a.action:not(.settings) { width: 16px; height: 16px; }
 #contacts-settings .actions { float: right; }
+#contacts-settings h2 {
+	text-indent: .5em;
+	font-weight: bold;
+	font-size: 1.2em;
+}
 
 /* Single elements */
 #file_upload_target, #import_upload_target, #crop_target { display:none; }
