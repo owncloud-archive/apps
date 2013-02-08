@@ -1,55 +1,57 @@
-function lucene_index_files(ids) {
-	if ( $.isArray(ids) && ids.length > 0 ) {
-		if ( $('form.searchbox #spinner').length == 0 ) {
-			$('#searchbox').addClass('indexing');
-			$('form.searchbox').append('<div id="spinner"/>');
-			$('form.searchbox #spinner').tipsy({trigger:'manual', gravity:'e', fade:false});
-		}
-		var id = ids.pop();
-		
-		var updateEventSource = new OC.EventSource(OC.filePath('search_lucene','ajax','lucene.php'),{operation:'index', id:id});
-		updateEventSource.listen('error', function(message) {
-			console.log(message.message);
-			/*todo log in browser?*/
-		});
-		updateEventSource.listen('indexing', function(message) {
-			console.log(t('search_lucene','Indexing {filename}, {count} files in queue',
-				{filename:OC.basename(message.file),count:ids.length}));
-			$('form.searchbox #spinner').attr('title',t('search_lucene','Indexing... {count} files left',
-				{filename:OC.basename(message.file),count:ids.length}));
-			$('form.searchbox #spinner').tipsy('show');
-		});
-		updateEventSource.listen('done', function(message) {
-			console.log('done');
-			if (ids.length > 0) {
-				setTimeout(function () {
-					lucene_index_files(ids)
-				}, 100);
-			} else {
-				console.log('finished');
-				$('#searchbox').removeClass('indexing');
-				$('form.searchbox #spinner').tipsy('hide');
-				$('form.searchbox #spinner').remove();
-			}
-		});
-		
+function luceneIndexFiles() {
+	var spinner, count, updateEventSource;
+	if (luceneIndexFiles.active) {
+		return;
 	}
+	t('search_lucene', 'Indexing... {count} files left', {count: 0}); //preload translations
+	luceneIndexFiles.active = true;
+	updateEventSource = new OC.EventSource(OC.filePath('search_lucene', 'ajax', 'lucene.php'), {operation: 'index'});
+	updateEventSource.listen('count', function (unIndexedCount) {
+		count = unIndexedCount;
+		if (count > 0) {
+			spinner = $('form.searchbox #spinner');
+			if (spinner.length == 0) {
+				$('#searchbox').addClass('indexing');
+				spinner = $('<div id="spinner"/>');
+				$('form.searchbox').append(spinner);
+				spinner.tipsy({trigger: 'manual', gravity: 'e', fade: false});
+				spinner.attr('title', t('search_lucene', 'Indexing... {count} files left', {count: count}));
+				spinner.tipsy('show');
+			}
+		}
+	});
+
+	updateEventSource.listen('error', function (path) {
+		console.log('error while indexing ' + path);
+	});
+
+	updateEventSource.listen('indexing', function (path) {
+		count--;
+		spinner.attr('title', t('search_lucene', 'Indexing... {count} files left', {count: count}));
+		spinner.tipsy('show');
+	});
+
+	updateEventSource.listen('done', function (path) {
+		if (spinner) {
+			spinner.tipsy('hide');
+			spinner.remove();
+		}
+	});
 }
+luceneIndexFiles.active = false;
 
 $(document).ready(function () {
-	//add listerner to the search box
-	$('#searchbox').on('click',function(){
-		//check status of indexer
-		if ( $('form.searchbox #spinner').length == 0 ) {
-			$.get( OC.filePath('search_lucene','ajax','status.php'), {}, function(result){
-				lucene_index_files(result.files);
-			}).fail(/*TODO show notification to user?*/);
-		}
-	})
-	
+	//add listener to the search box
+	$('#searchbox').on('click', function () {
+		setTimeout(function () { //load other stuff first
+			//check status of indexer
+			luceneIndexFiles();
+		}, 100);
+	});
+
 	//clock that shows progress ○◔◑◕●.
 	//hovering over it shows the current file
-	//clicking it stops the indexer: ⌛ 
-	
-	
+	//clicking it stops the indexer: ⌛
+
+
 });
