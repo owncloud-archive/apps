@@ -3,41 +3,57 @@
 	 <name>*dbname*</name>
 	 <create>true</create>
 	 <overwrite>false</overwrite>
-	 <charset>utf8</charset>
+	 <charset>latin1</charset>
 	 <table>
 		<name>*dbprefix*open_web_apps</name>
 		<declaration>
 			<field>
-				<name>item_id</name>
-				<type>integer</type>
-				<default>0</default>
+				<name>uid_owner</name>
+				<type>text</type>
+				<primary>true</primary>
 				<notnull>true</notnull>
-    				<autoincrement>1</autoincrement>
-				<length>4</length>
+				<length>64</length>
 			</field>
+			<field>
+				<name>app_id</name>
+				<type>text</type>
+				<primary>true</primary>
+				<notnull>true</notnull>
+				<length>100</length>
+			</field>
+			<field>
+				<name>access_token</name>
+				<type>text</type>
+				<length>100</length>
+			</field>
+		</declaration>
+	</table>
+	 <table>
+		<name>*dbprefix*remotestorage_access</name>
+		<declaration>
 			<field>
 				<name>uid_owner</name>
 				<type>text</type>
+				<primary>true</primary>
 				<notnull>true</notnull>
 				<length>64</length>
 			</field>
 			<field>
 				<name>access_token</name>
 				<type>text</type>
+				<primary>true</primary>
 				<notnull>true</notnull>
 				<length>100</length>
 			</field>
 			<field>
-				<name>manifest_path</name>
+				<name>module</name>
 				<type>text</type>
-				<notnull>true</notnull>
 				<length>100</length>
 			</field>
 			<field>
-				<name>scopes</name>
+				<name>level</name>
 				<type>text</type>
-				<notnull>true</notnull>
-				<length>100</length>
+				<length>10</length>
 			</field>
 		</declaration>
 	</table>

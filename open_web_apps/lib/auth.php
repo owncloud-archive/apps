@@ -7,76 +7,34 @@
  */
 
 class MyAuth {
-  static function addApp($uid, $manifestPath, $scopesObj) {
-    $scopes = json_encode($scopesObj);
+  public static function giveAccess($token, $uid, $module, $level) {
     try {
-      $stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*open_web_apps` WHERE `manifest_path` = ? AND `uid_owner` = ?' );
-      $result = $stmt->execute(array($manifestPath, $uid));
+      $stmt = OCP\DB::prepare( 'INSERT INTO `*PREFIX*remotestorage_access` (`access_token`, `uid_owner`, `module`, `level`) VALUES (?, ?, ?, ?)' );
+      $result = $stmt->execute(array($token, $uid, $module, $level));
     } catch(Exception $e) {
-      OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' exception: '.$e->getMessage(), OCP\Util::ERROR);
-      OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' uid: '.$uid, OCP\Util::DEBUG);
       var_dump($e);
-      return false;
-    }
-    $apps = array();
-    while( $row = $result->fetchRow()) {
-      $token = $row['access_token'];
-      $existingScopes = $row['scopes'];
-    }
-    if($token) {
-      if($existingScopes != $scopes) {
-        try {
-          $stmt = OCP\DB::prepare( 'UPDATE `*PREFIX*open_web_apps` SET `scopes` = ? WHERE `manifest_path` = ? AND `uid_owner` = ?' );
-          $result = $stmt->execute(array($scopes, $manifestPath, $uid));
-        } catch(Exception $e) {
-          OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' exception: '.$e->getMessage(), OCP\Util::ERROR);
-          OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' uid: '.$uid, OCP\Util::DEBUG);
-          var_dump($e);
-          return false;
-        }
-      }
-    } else {
-      $token = OC_Util::generate_random_bytes(40);
-      try {
-        $stmt = OCP\DB::prepare( 'INSERT INTO `*PREFIX*open_web_apps` (`manifest_path`, `access_token`, `scopes`, `uid_owner`) VALUES (?,?,?,?)' );
-        $result = $stmt->execute(array($manifestPath, $token, $scopes, $uid));
-      } catch(Exception $e) {
-        OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' exception: '.$e->getMessage(), OCP\Util::ERROR);
-        OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' uid: '.$uid, OCP\Util::DEBUG);
-        var_dump($e);
-        return false;
-      }
-    }
-    return $token;
-  }
-  static function getApps($uid) {
-    try {
-      $stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*open_web_apps` WHERE `uid_owner` = ?' );
-      $result = $stmt->execute(array($uid));
-    } catch(Exception $e) {
-      OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' exception: '.$e->getMessage(), OCP\Util::ERROR);
-      OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' uid: '.$uid, OCP\Util::DEBUG);
-      return false;
-    }
-
-    $apps = array();
-    while( $row = $result->fetchRow()) {
-      $apps[$row['access_token']] = array(
-        'manifestPath' => $row['manifest_path'],
-        'scopes' => json_decode($row['scopes'], true)
-      );
-    }
-    return $apps;
-  }
-  static function removeApp($uid, $token) {
-    try {
-      $stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*open_web_apps` WHERE `uid_owner` = ? AND `access_token` = ?' );
-      $result = $stmt->execute(array($uid, $token));
-    } catch(Exception $e) {
       OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' exception: '.$e->getMessage(), OCP\Util::ERROR);
       OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' uid: '.$uid, OCP\Util::DEBUG);
       return false;
     }
   }
 
+  public static function hasOneOf($token, $uid, $modules, $levels) {
+    try {
+      $stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*remotestorage_access` WHERE `access_token` = ? AND `uid_owner` = ?' );
+      $result = $stmt->execute(array($token, $uid));
+    } catch(Exception $e) {
+      var_dump($e);
+      OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' exception: '.$e->getMessage(), OCP\Util::ERROR);
+      OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' uid: '.$uid, OCP\Util::DEBUG);
+      return false;
+    }
+    $rows = $stmt->fetchAll();
+    foreach($rows as $row) {
+      if(in_array($row['module'], $modules) && in_array($row['level'], $levels)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

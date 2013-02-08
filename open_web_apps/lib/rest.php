@@ -10,32 +10,40 @@ require_once 'storage.php';
 require_once 'auth.php';
 
 class MyRest {
-  private static function may($action, $uid, $path, $headers) {
-    $actionsToPerms = array(
-      'l' => 'r',
-      'r' => 'r',
-      'w' => 'w',
-      'd' => 'w'
-    );
-    $require_oncedPerms = $actionsToPerms[$action];
-    $pathParts = explode('/', $path);
-    $module = $pathParts[0];
-    if($module == 'public') {
-      //special case:
-      if($action == 'r') {
-        return true;
+  private static function parsePath($path) {
+    $underPublic = false;
+    if(substr($path, 0, strlen('public/')) == 'public/') {
+      $path = substr($path, strlen('public/'));
+      $underPublic = true;
+    }
+    if($path == '') {
+      return array(
+        'modules' => array('root'),
+        'under_public' => $underPublic
+      );
+    } else {
+      $parts = explode('/', $path);
+      if($parts[0] == '') {
+        return false;//empty module name not permitted
+      } else {
+        return array(
+          'modules' => array('root', $parts[0]),
+          'under_public' => $underPublic
+        );
       }
-      $module = $pathParts[1];
     }
-    if(strlen($module)==0) {// access to '/' and 'public/'
-      $module = 'root';
+  }
+  private static function may($action, $uid, $path, $headers) {
+    $obj = self::parsePath($path);
+    if($obj['under_public'] && $action == 'r') {
+      return true;//'r'eading anything under /public/ requires no token
     }
-    $apps = MyAuth::getApps($uid);
     $token = substr($headers['Authorization'], strlen('Bearer '));
-    if((!$apps[$token]) || (!$apps[$token]['scopes']) || (!$apps[$token]['scopes'][$require_oncedPerms])) {
-      return false;
+    if($action == 'l' || $action == 'r') {
+      return MyAuth::hasOneOf($token, $uid, $obj['modules'], array('r', 'rw'));
+    } else {
+      return MyAuth::hasOneOf($token, $uid, $obj['modules'], array('rw'));
     }
-    return ((in_array($module, $apps[$token]['scopes'][$require_oncedPerms])) || (in_array('root', $apps[$token]['scopes'][$require_oncedPerms])));
   }
   private static function getMimeType($headers) {
     return $headers['Content-Type'];
@@ -45,21 +53,19 @@ class MyRest {
   }
   static function HandleRequest($verb, $uid, $path, $headers, $body) {
     if($verb == 'GET') {
-      if(self::isDir($path)) {
-        $action = 'l';
-        $obj = array(
-          'mimeType' => 'application/json',
-          'content' => json_encode(MyStorage::getDir($uid, $path))
-        );
-      } else {
-        $action = 'r';
-        $obj = MyStorage::get($uid, $path);
-      }
-      if(self::may($action, $uid, $path, $headers)) {
-        if(!$obj['mimeType']) {
-          return array(404, array(), 'Not found');
+      if(self::may((self::isDir($path)?'l':'r'), $uid, $path, $headers)) {
+        if(self::isDir($path)) {
+          $obj = array(
+            'mimeType' => 'application/json',
+            'content' => json_encode(MyStorage::getDir($uid, $path))
+          );
         } else {
+          $obj = MyStorage::get($uid, $path);
+        }
+        if($obj['mimeType']) {
           return array(200, array('Content-Type' => $obj['mimeType'], 'Last-Modified' => $obj['timestamp']), $obj['content']);
+        } else {
+          return array(404, array(), 'Not found');
         }
       } else {
         return array(401, array(), 'Computer says no');
@@ -67,26 +73,28 @@ class MyRest {
     } else if($verb == 'PUT') {
       if(self::isDir($path)) {
         return array(401, array(), 'Computer says no');
-      }
-      if(self::may('w', $uid, $path, $headers)) {
-        $timestamp = MyStorage::store($uid, $path, self::getMimeType($headers), $body);
-        return array(200, array('Last-Modified' => $timestamp), '');
       } else {
-        return array(401, array(), 'Computer says no');
+        if(self::may('w', $uid, $path, $headers)) {
+          $timestamp = MyStorage::store($uid, $path, self::getMimeType($headers), $body);
+         return array(200, array('Last-Modified' => $timestamp), '');
+         } else {
+          return array(401, array(), 'Computer says no');
+        }
       }
     } else if($verb == 'DELETE') {
       if(self::isDir($path)) {
         return array(401, array(), 'Computer says no');
-      }
-      if(self::may('d', $uid, $path, $headers)) {
-        $found = MyStorage::remove($uid, $path, self::getMimeType($headers));
-        if($found) {
-          return array(200, array('Last-Modified' => $timestamp), '');
-        } else {
-          return array(404, array(), 'Not found');
-        }
       } else {
-        return array(401, array(), 'Computer says no');
+        if(self::may('d', $uid, $path, $headers)) {
+          $found = MyStorage::remove($uid, $path, self::getMimeType($headers));
+          if($found) {
+            return array(200, array('Last-Modified' => $timestamp), '');
+          } else {
+            return array(404, array(), 'Not found');
+          }
+        } else {
+          return array(401, array(), 'Computer says no');
+        }
       }
     } else if($verb == 'OPTIONS') {
       return array(200, array(), '');

@@ -29,6 +29,6 @@ OCP\App::addNavigationEntry( array(
 	'id' => 'open_web_apps',
 	'order' => 74,
 	'href' => OCP\Util::linkTo( 'open_web_apps', 'main.php' ),
-	'icon' => OCP\Util::imagePath( 'open_web_apps', 'mozilla-rocket.png' ),
+	'icon' => OCP\Util::imagePath( 'open_web_apps', 'mozilla-rocket-small.png' ),
 	'name' => 'Open web apps'
 ));

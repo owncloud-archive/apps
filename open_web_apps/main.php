@@ -1,7 +1,7 @@
 <?php
 
 /**
-* ownCloud - open web apps Example
+* ownCloud - Unhosted apps Example
 *
 * @author Frank Karlitschek
 * @author Florian Hülsmann
@@ -23,12 +23,64 @@
 *
 */
 
-// Check if we are a user
-OCP\User::checkLoggedIn();
+require_once 'open_web_apps/lib/apps.php';
+require_once 'open_web_apps/lib/parser.php';
 
+function calcScopeDiff($existingScope, $addingScope) {
+  $newScopeObj = MyParser::parseScope($existingScope.' '.$addingScope);
+  if($newScopeObj['normalized'] == $existingScope) {
+    return false;
+  } else {
+    return $newScopeObj;
+  }
+}
+
+function checkForAdd($apps) {
+  $params = array();
+  $paramStrs = explode('&', $_SERVER['QUERY_STRING']);
+  foreach($paramStrs as $str) {
+    $parts = explode('=', $str);
+    if(count($parts) == 2) {
+      $params[urldecode($parts[0])] = urldecode($parts[1]);
+    }
+  }
+  if($params['redirect_uri'] && $params['scope']) {
+    $urlObj = MyParser::parseUrl($params['redirect_uri']);
+    $appId = $urlObj['id'];
+    if($apps[$appId]) {
+      $scopeDiff = calcScopeDiff($apps[$appId]['scope'], $params['scope']);
+      if($scopeDiff) {
+        return array(
+	  'scope_diff_id' => $appId,
+          'scope_diff_add' => $scopeDiff
+        );
+      } else {
+        return array( 'launch_app' => $appId );
+      }
+    } else {
+      return array(
+        'adding_id' => $appId,
+        'adding_launch_url' => $urlObj['clean'],
+        'adding_name' => MyParser::cleanName($params['client_id']),
+        'adding_scope' => MyParser::parseScope($params['scope'])//scope.normalized and scope.human will only contain [a-zA-Z0-9%\-_\.] and spaces
+      );
+    }
+  }
+}
+
+//...
+OCP\User::checkLoggedIn();
+$uid = OCP\USER::getUser();
+$apps = MyApps::getApps($uid);
 $storage_origin = OCP\Config::getAppValue('open_web_apps',  "storage_origin", '' );
 OCP\App::setActiveNavigationEntry( 'open_web_apps' );
-//OCP\Util::addScript( "open_web_apps", "helpers" );
 $tmpl = new OCP\Template( 'open_web_apps', 'main', 'user' );
+$adds = checkForAdd($apps);
+foreach($adds as $k => $v) {
+  $tmpl->assign($k, $v);
+}
+$tmpl->assign( 'user_address', $uid.'@'.$_SERVER['SERVER_NAME'] );
+$tmpl->assign( 'uid', $uid );
 $tmpl->assign( 'storage_origin', $storage_origin );
+$tmpl->assign( 'apps', $apps );
 $tmpl->printPage();

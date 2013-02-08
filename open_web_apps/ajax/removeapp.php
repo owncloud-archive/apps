@@ -18,11 +18,9 @@ function handle() {
   OCP\JSON::callCheck();
 
   $uid = OCP\USER::getUser();
-  $token = base64_encode(openssl_random_pseudo_bytes(40));
-  //var_dump($params);
   try {
-	  $stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*open_web_apps` WHERE `uid_owner` = ? AND `access_token` = ?' );
-  	$result = $stmt->execute(array($uid, $params['token']));
+	$stmt = OCP\DB::prepare( 'DELETE FROM `*PREFIX*open_web_apps` WHERE `uid_owner` = ? AND `app_id` = ?' );
+  	$result = $stmt->execute(array($uid, $params['id']));
   } catch(Exception $e) {
     var_dump($e);
    	OCP\Util::writeLog('open_web_apps', __CLASS__.'::'.__METHOD__.' exception: '.$e->getMessage(), OCP\Util::ERROR);

@@ -1,7 +1,7 @@
 <?php
 
 /**
-* ownCloud - open web apps Example
+* ownCloud - Unhosted apps Example
 *
 * @author Frank Karlitschek
 * @author Florian Hülsmann
