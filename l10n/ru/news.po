@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-08 00:07+0100\n"
-"PO-Revision-Date: 2013-02-07 07:30+0000\n"
+"POT-Creation-Date: 2013-02-09 00:10+0100\n"
+"PO-Revision-Date: 2013-02-08 06:40+0000\n"
 "Last-Translator: Langaru <langaru@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -104,7 +104,7 @@ msgstr "Добавить подписку"
 
 #: templates/part.settings.php:13
 msgid "Folder under which the feed is being saved"
-msgstr ""
+msgstr "Папка, для которой была сохранена лента"
 
 #: templates/part.settings.php:17
 msgid "-- choose folder --"
@@ -116,11 +116,11 @@ msgstr "Адрес не должен быть пустым"
 
 #: templates/part.settings.php:21
 msgid "Feed exists already!"
-msgstr ""
+msgstr "Лента уже существует!"
 
 #: templates/part.settings.php:22
 msgid "Could not add feed!"
-msgstr ""
+msgstr "Не получилось добавить ленту!"
 
 #: templates/part.settings.php:26
 msgid "Address"
