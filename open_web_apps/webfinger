@@ -1,11 +1,11 @@
 {
   "links":[{
-    "href": "https://freedombox/?user=admin&path=",
+    "href": "https://example.com:44344/?user=admin&path=",
     "rel": "remotestorage",
     "type": "remotestorage-00",
     "properties": {
       "auth-method": "https://tools.ietf.org/html/draft-ietf-oauth-v2-26#section-4.2",
-      "auth-endpoint": "https://freedombox/index.php/apps/open_web_apps/main.php"
+      "auth-endpoint": "https://example.com/index.php?app=open_web_apps&getfile=main.php"
     }
  }]
 }

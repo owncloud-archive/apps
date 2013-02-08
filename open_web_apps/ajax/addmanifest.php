@@ -16,7 +16,22 @@ require_once('open_web_apps/lib/apps.php');
 require_once('open_web_apps/lib/parser.php');
 
 function fetchManifest($url) {
-  $str = OC_Util::getUrlContent($url);
+  $curl = curl_init();
+
+  curl_setopt($curl, CURLOPT_HEADER, 0);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 10);
+  curl_setopt($curl, CURLOPT_URL, $url);
+  curl_setopt($curl, CURLOPT_USERAGENT, "ownCloud Server Crawler");
+  if(OC_Config::getValue('proxy','')<>'') {
+    curl_setopt($curl, CURLOPT_PROXY, OC_Config::getValue('proxy'));
+  }
+  if(OC_Config::getValue('proxyuserpwd','')<>'') {
+    curl_setopt($curl, CURLOPT_PROXYUSERPWD, OC_Config::getValue('proxyuserpwd'));
+  }
+  $str = curl_exec($curl);
+  curl_close($curl);
+  
   try {
     $obj = json_decode($str, true);
   } catch(Exception $e) {
