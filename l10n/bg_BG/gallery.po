@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-10 00:01+0100\n"
-"PO-Revision-Date: 2013-01-09 20:48+0000\n"
-"Last-Translator: Stefan Ilivanov <ilivanov@gmail.com>\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-30 23:41+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,27 +18,19 @@ msgstr ""
 "Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Снимки"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "Галерии"
+#: js/gallery.js:235
+msgid "Shared by"
+msgstr ""
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Споделете галерия"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Споделяне"
 
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Грешка:"
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Вътрешна грешка"
-
-#: templates/index.php:27
+#: templates/index.php:7
 msgid "Slideshow"
 msgstr ""
 

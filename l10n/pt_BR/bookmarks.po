@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-12 00:01+0100\n"
-"PO-Revision-Date: 2012-11-11 13:39+0000\n"
+"POT-Creation-Date: 2013-01-31 00:24+0100\n"
+"PO-Revision-Date: 2013-01-30 16:30+0000\n"
 "Last-Translator: thoriumbr <thoriumbr@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "Arquivo para importação não suportado"
 msgid "Bookmarks"
 msgstr "Marcadores"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:231
 msgid "Tags"
 msgstr "Tags"
 
@@ -41,11 +41,11 @@ msgstr "Filtrar por tag"
 msgid "Edit bookmark"
 msgstr "Editar bookmark"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:362
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Tem certeza que deseja remover esta tag de todas as entradas?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:363
 msgid "Warning"
 msgstr "Aviso"
 
@@ -61,39 +61,39 @@ msgstr "Enviando..."
 msgid "Bookm."
 msgstr "Marc."
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "Adicionar um bookmark"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "Fechar"
 
-#: templates/addBm.php:22 templates/js_tpl.php:33
+#: templates/addBm.php:16 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr "O título da página"
 
-#: templates/addBm.php:27 templates/js_tpl.php:37
+#: templates/addBm.php:21 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr "O endereço da página"
 
-#: templates/addBm.php:40 templates/js_tpl.php:46
+#: templates/addBm.php:34 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr "Descrição da página"
 
-#: templates/addBm.php:44 templates/js_tpl.php:50
+#: templates/addBm.php:38 templates/js_tpl.php:47
 msgid "Save"
 msgstr "Salvar"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:61
 msgid "Delete"
 msgstr "Excluir"
 
-#: templates/js_tpl.php:20 templates/js_tpl.php:60
+#: templates/js_tpl.php:19 templates/js_tpl.php:57
 msgid "Edit"
 msgstr "Editar"
 
-#: templates/js_tpl.php:49
+#: templates/js_tpl.php:46
 msgid "Cancel"
 msgstr "Cancelar"
 

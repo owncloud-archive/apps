@@ -40,7 +40,8 @@
 <?php
 	
 	// Search for pdf files in current directory.
-	$pdfs = \OC_FileCache::searchByMime('application', 'pdf', '/'.\OCP\USER::getUser().'/files'.$current_dir);
+	$view = new \OC\Files\View('/'.\OCP\USER::getUser().'/files'.$current_dir);
+	$pdfs = $view->searchByMime('application/pdf');
 	sort($pdfs);
 
 	// Cleans the eBooks table of files that have been deleted from the files app.

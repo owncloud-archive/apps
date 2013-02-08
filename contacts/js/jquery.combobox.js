@@ -3,7 +3,7 @@
  */
 
 (function( $ ) {
-	$.widget('ui.combobox', {
+	$.widget('oc.combobox', {
 		options: {
 			id: null,
 			showButton: false,
@@ -48,17 +48,29 @@
 						self._trigger('selected', event, {
 							item: ui.item.option
 						});
+						select.children('option').each(function() {
+							if ($(this).text().toLowerCase() === $(ui.item.option).text().toLowerCase()) {
+								$(this).attr('selected', 'selected');
+							} else {
+								$(this).removeAttr('selected');
+							}
+						});
+						select.trigger('change');
 					},
 					change: function( event, ui ) {
-						if ( !ui.item ) {
-							var matcher = new RegExp( '^' + $.ui.autocomplete.escapeRegex( $(this).val() ) + '$', 'i' ),
+						if(!ui.item) {
+							var matcher = new RegExp( '^' + $.ui.autocomplete.escapeRegex($(this).val()) + '$', 'i'),
 								valid = false;
 							self.input.val($(this).val());
 							//self.input.trigger('change');
 							select.children('option').each(function() {
-								if ( $( this ).text().match( matcher ) ) {
+								if ($(this).text().match(matcher)) {
 									this.selected = valid = true;
-									return false;
+									$(this).attr('selected', 'selected');
+									select.trigger('change');
+									//return false;
+								} else {
+									$(this).removeAttr('selected');
 								}
 							});
 							if ( !self.options['editable'] && !valid ) {
@@ -67,13 +79,16 @@
 								select.val( "" );
 								input.data('autocomplete').term = '';
 								return false;
+							} else if(!valid) {
+								select.append('<option selected="selected">' + $(this).val() + '</option>');
+								select.trigger('change');
 							}
 						}
 					}
 				})
 				.addClass('ui-widget ui-widget-content ui-corner-left');
 
-			input.data('autocomplete')._renderItem = function( ul, item ) {
+			input.data('uiAutocomplete')._renderItem = function( ul, item ) {
 				return $('<li></li>')
 					.data('item.autocomplete', item )
 					.append('<a>' + item.label + '</a>')

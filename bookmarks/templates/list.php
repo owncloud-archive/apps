@@ -49,6 +49,8 @@ function bookmarklet(){
 </div>
 <div id="rightcontent" class="rightcontent">
 	<div id="firstrun" style="display: none;">
+		<div id="distance"></div>
+		<div id="firstrun_message">
 		<?php
 			echo $l->t('You have no bookmarks');
 			$embedded = true;
@@ -56,12 +58,12 @@ function bookmarklet(){
 			echo bookmarklet();?><br/><br />
 
 			<small><a href="#" id="firstrun_setting"><?php echo $l->t('You can also try to import a bookmark file');?></a></small>
+		</div>
 	</div>
 	<div class="bookmarks_list"></div>
 </div>
-<script>
-	var fullTags = <?php echo $_['tags'];?>;
-</script>
+<script type="text/javascript" src="<?php echo OC_Helper::linkTo('bookmarks/js', 'full_tags.php');?>"></script>
+
 
 <script type="text/html" id="edit_dialog_tmpl">
 <?php require 'addBm.php';?>

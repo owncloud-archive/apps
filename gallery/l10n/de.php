@@ -1,9 +1,7 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "Bilder",
-"Galleries" => "Galerien",
-"Share gallery" => "Galerie freigeben",
-"Error: " => "Fehler:",
-"Internal error" => "Interner Fehler",
+"Shared by" => "Freigegeben von ",
+"Share" => "Freigeben",
 "Slideshow" => "Slideshow",
 "The \"Image Viewer\" application also need to be enabled to use this application." => "Die Anwendung \"Image Viewer\" muss aktiviert sein, damit Du diese Anwendung benutzen kannst."
 );

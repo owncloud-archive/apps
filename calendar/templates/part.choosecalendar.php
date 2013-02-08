@@ -20,12 +20,12 @@
 	?>
 	<tr>
 		<td colspan="6">
-			<a href="#" onclick="Calendar.UI.Calendar.newCalendar(this);"><input type="button" value="<?php echo $l->t('New Calendar') ?>"></a>
+			<input type="button" value="<?php echo $l->t('New Calendar') ?>" id="newCalendar">
 		</td>
 	</tr>
 	<tr>
 		<td colspan="6">
-			<p style="margin: 0 auto;width: 90%;"><input style="display:none;width: 90%;float: left;" type="text" id="caldav_url" onmouseover="$('#caldav_url').select();" title="<?php echo $l->t("CalDav Link"); ?>"><img id="caldav_url_close" style="height: 20px;vertical-align: middle;display: none;" src="<?php echo OCP\Util::imagePath('core', 'actions/delete.svg') ?>" alt="close" onclick="$('#caldav_url').hide();$('#caldav_url_close').hide();"/></p>
+			<p style="margin: 0 auto;width: 90%;"><input style="display:none;width: 90%;float: left;" type="text" id="caldav_url" title="<?php echo $l->t("CalDav Link"); ?>"><img id="caldav_url_close" style="height: 20px;vertical-align: middle;display: none;" src="<?php echo OCP\Util::imagePath('core', 'actions/delete.svg') ?>" alt="close"/></p>
 		</td>
 	</tr>
 	</table><br>

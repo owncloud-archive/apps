@@ -5,14 +5,15 @@
 # Translators:
 # Dimitris M. <monopatis@gmail.com>, 2012.
 # Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2013.
 # Petros Kyladitis <petros.kyladitis@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-15 00:01+0100\n"
-"PO-Revision-Date: 2012-11-14 22:29+0000\n"
-"Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
+"POT-Creation-Date: 2013-01-25 00:02+0100\n"
+"PO-Revision-Date: 2013-01-24 08:30+0000\n"
+"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
+#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "Μουσική"
 
@@ -79,3 +80,11 @@ msgstr "Άλμπουμ"
 #: templates/music.php:39
 msgid "Title"
 msgstr "Τίτλος"
+
+#: templates/settings.php:3
+msgid "Media"
+msgstr "Πολυμέσα"
+
+#: templates/settings.php:4
+msgid "Ampache address:"
+msgstr "Διεύθυνση Ampache:"

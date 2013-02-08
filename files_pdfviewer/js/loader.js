@@ -1,9 +1,9 @@
 function hidePDFviewer() {
 	$('#content table').show();
-    $("#controls").show();
-    $("#editor").show();
+	$("#controls").show();
+	$("#editor").show();
 	$('iframe').remove();
-    $('a.action').remove();
+	$('a.action').remove();
 }
 
 function showPDFviewer(dir,filename){
@@ -12,7 +12,7 @@ function showPDFviewer(dir,filename){
 		$('#content table').hide();
 		$("#controls").hide();
 		var oldcontent = $("#content").html();
-        var viewer = OC.linkTo('files_pdfviewer', 'viewer.php')+'?dir='+encodeURIComponent(dir).replace(/%2F/g, '/')+'&file='+encodeURIComponent(filename);
+		var viewer = OC.linkTo('files_pdfviewer', 'viewer.php')+'?dir='+encodeURIComponent(dir).replace(/%2F/g, '/')+'&file='+encodeURIComponent(filename);
 		$("#content").html(oldcontent+'<iframe style="width:100%;height:100%;display:block;" src="'+viewer+'" />');
 		$("#pageWidthOption").attr("selected","selected");
 	}

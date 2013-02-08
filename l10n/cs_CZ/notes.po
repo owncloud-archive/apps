@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-19 00:01+0100\n"
-"PO-Revision-Date: 2013-01-18 06:55+0000\n"
+"POT-Creation-Date: 2013-01-31 19:56+0100\n"
+"PO-Revision-Date: 2013-01-31 16:21+0000\n"
 "Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,18 @@ msgstr ""
 #: appinfo/app.php:9
 msgid "Notes"
 msgstr "Poznámky"
+
+#: js/notes.js:8
+msgid "The title can not be empty"
+msgstr "Název nemůže být prázdný"
+
+#: js/notes.js:15
+msgid "Invalid title"
+msgstr "Neplatný název"
+
+#: js/notes.js:15
+msgid "The following characters are not allowed"
+msgstr "Následující znaky nejsou povoleny"
 
 #: templates/categories.php:10 templates/help.php:5
 msgid "Back to Notes"
@@ -34,12 +46,12 @@ msgstr "Nápověda"
 msgid "Categories"
 msgstr "Kategorie"
 
-#: templates/categories.php:116 templates/notes.php:345
-#: templates/notes.php:388
+#: templates/categories.php:116 templates/notes.php:347
+#: templates/notes.php:391
 msgid "Delete"
 msgstr "Smazat"
 
-#: templates/categories.php:117 templates/notes.php:390
+#: templates/categories.php:117 templates/notes.php:393
 msgid "Save"
 msgstr "Uložit"
 
@@ -77,42 +89,30 @@ msgstr "Přidat poznámku"
 msgid "Edit Categories"
 msgstr "Upravit kategorie"
 
-#: templates/notes.php:291
+#: templates/notes.php:293
 msgid "No note available in this category"
 msgstr "V kategorii nejsou dostupné žádné poznámky"
 
-#: templates/notes.php:335
+#: templates/notes.php:337
 msgid "Edit"
 msgstr "Upravit"
 
-#: templates/notes.php:363
+#: templates/notes.php:366
 msgid "Category"
 msgstr "Kategorie"
 
-#: templates/notes.php:381
+#: templates/notes.php:384
 msgid "Title"
 msgstr "Název"
 
-#: templates/notes.php:382
+#: templates/notes.php:385
 msgid "Content"
 msgstr "Obsah"
 
-#: templates/notes.php:413
+#: templates/notes.php:418
 msgid "Restore content"
 msgstr "Obnovit obsah"
 
-#: templates/notes.php:421
+#: templates/notes.php:426
 msgid "Restore"
 msgstr "Obnovit"
-
-#: templates/notes.php:455
-msgid "The title can not be empty"
-msgstr "Název nemůže být prázdný"
-
-#: templates/notes.php:462
-msgid "Invalid title"
-msgstr "Neplatný název"
-
-#: templates/notes.php:462
-msgid "The following characters are not allowed"
-msgstr "Následující znaky nejsou povoleny"

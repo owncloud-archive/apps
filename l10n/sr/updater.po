@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <theranchcowboy@gmail.com>, 2013.
 #   <theranchcowboy@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-02 00:01+0100\n"
-"PO-Revision-Date: 2012-12-01 20:45+0000\n"
+"POT-Creation-Date: 2013-02-02 00:03+0100\n"
+"PO-Revision-Date: 2013-02-01 14:21+0000\n"
 "Last-Translator: Rancher <theranchcowboy@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +18,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: js/updater.js:5
+msgid "In progress..."
+msgstr "У току…"
+
+#: js/updater.js:16
+msgid "Done. Reload the page to proceed."
+msgstr "Готово. Поново учитајте страницу да наставите."
+
+#: js/updater.js:19 js/updater.js:25
+msgid "Error"
+msgstr "Грешка"
 
 #: templates/admin.php:24
 msgid "Update"

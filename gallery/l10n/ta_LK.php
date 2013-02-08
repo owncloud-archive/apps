@@ -1,9 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "படங்கள்",
-"Galleries" => "தொகுப்புகள்",
-"Share gallery" => "தொகுப்பை பகிர்க",
-"Error: " => "வழு:",
-"Internal error" => "உள்ளக வழு",
+"Share" => "பகிர்வு",
 "Slideshow" => "படவில்லைக்காட்சி",
 "The \"Image Viewer\" application also need to be enabled to use this application." => "இந்த செயலியை பயன்படுத்துவதற்கு \"Image viewer\" செயலியையும் இயலுமைப்படுத்த வேண்டும்."
 );

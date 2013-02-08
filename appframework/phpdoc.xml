@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+  <parser>
+    <target>doc/output</target>
+  </parser>
+  <transformer>
+    <target>doc/output</target>
+  </transformer>
+  <files>
+    <file>./app.php</file>
+    <directory>controller</directory>
+    <directory>db</directory>
+    <directory>core</directory>
+    <directory>http</directory>
+    <directory>middleware</directory>
+    <directory>utility</directory>
+    <directory>dependencyinjection</directory>
+  </files>
+</phpdoc>

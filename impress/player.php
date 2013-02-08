@@ -30,7 +30,7 @@ OCP\JSON::checkAppEnabled('impress');
 $filename = OCP\Util::sanitizeHTML($_GET['file']);
 $title = OCP\Util::sanitizeHTML($_GET['name']);
 
-if(!OC_Filesystem::file_exists($filename)) {
+if(!\OC\Files\Filesystem::file_exists($filename)) {
 	header("HTTP/1.0 404 Not Found");
 	$tmpl = new OCP\Template( '', '404', 'guest' );
 	$tmpl->assign('file', $filename);
@@ -38,7 +38,7 @@ if(!OC_Filesystem::file_exists($filename)) {
 	exit;
 }
 
-$data=OC_Filesystem::file_get_contents( $filename );
+$data=\OC\Files\Filesystem::file_get_contents( $filename );
 
 
 if((stripos($data,'<html')<>false) or (stripos($data,'<head')<>false) or (stripos($data,'<body')<>false)) {
@@ -58,5 +58,5 @@ OCP\Response::disableCaching();
 @ob_end_clean();
 
 \OCA_Impress\Storage::showHeader($title);
-OC_Filesystem::readfile( $filename );
+\OC\Files\Filesystem::readfile( $filename );
 \OCA_Impress\Storage::showFooter();

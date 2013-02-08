@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <rcalvoi@yahoo.com>, 2013.
 #   <rcalvoi@yahoo.com>, 2011-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-03 00:00+0100\n"
-"PO-Revision-Date: 2012-11-02 14:39+0000\n"
+"POT-Creation-Date: 2013-01-25 00:02+0100\n"
+"PO-Revision-Date: 2013-01-24 15:09+0000\n"
 "Last-Translator: rogerc <rcalvoi@yahoo.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
+#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "Música"
 
@@ -77,3 +78,11 @@ msgstr "Àlbum"
 #: templates/music.php:39
 msgid "Title"
 msgstr "Títol"
+
+#: templates/settings.php:3
+msgid "Media"
+msgstr "Suport"
+
+#: templates/settings.php:4
+msgid "Ampache address:"
+msgstr "Adreça Ampache:"

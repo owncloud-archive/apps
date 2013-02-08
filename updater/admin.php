@@ -14,4 +14,7 @@ namespace OCA\Updater;
 
 \OCP\User::checkAdminUser();
 $tmpl = new \OCP\Template(App::APP_ID, 'admin');
+
+\OCP\Util::addScript( "updater", "updater" );
+
 return $tmpl->fetchPage();

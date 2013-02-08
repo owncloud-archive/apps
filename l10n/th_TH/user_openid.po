@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# AriesAnywhere Anywhere <ariesanywhere@gmail.com>, 2012.
+# AriesAnywhere Anywhere <ariesanywhere@gmail.com>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-15 00:01+0100\n"
-"PO-Revision-Date: 2013-01-14 17:58+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-01-23 00:02+0100\n"
+"PO-Revision-Date: 2013-01-22 00:50+0000\n"
+"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +52,7 @@ msgstr "พบข้อผิดพลาด <b> ยังไม่ได้เ�
 
 #: templates/settings.php:3
 msgid "OpenID"
-msgstr ""
+msgstr "OpenID"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"

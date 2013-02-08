@@ -7,6 +7,7 @@
             <?php echo $l->t('Please choose the export type:');?>
         </p>
         <p>
+        <input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'] ?>" id="requesttoken">
         <input type="radio" id="export_instance" name="export_type" value="instance" style="width:20px;" /><label for="export_instance"><?php echo $l->t('ownCloud instance (user data and database');?></label><br />
         <input type="radio" id="export_system" name="export_type" value="system" style="width:20px;" /><label for="export_system"><?php echo $l->t('ownCloud system files');?></label><br />
         <input type="radio" id="export_value" name="export_type" value="userfiles" style="width:20px;" /><label for="export_value"><?php echo $l->t('Just user files');?></label><br />

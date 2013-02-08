@@ -4,13 +4,14 @@
 # 
 # Translators:
 #   <gyonkibendeguz@gmail.com>, 2013.
+# Laszlo Tornoci <torlasz@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-08 00:26+0100\n"
-"PO-Revision-Date: 2013-01-07 21:05+0000\n"
-"Last-Translator: gyeben <gyonkibendeguz@gmail.com>\n"
+"POT-Creation-Date: 2013-01-27 00:01+0100\n"
+"PO-Revision-Date: 2013-01-26 15:33+0000\n"
+"Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr "A php-json modulra számos alkalmazásnak szüksége van a kommunikációhoz"
+msgstr "A php-json modulra számos alkalmazásnak szüksége van az egymással való kommunikációhoz"
 
 #: settings.php:39
 msgid ""
@@ -35,7 +36,7 @@ msgstr "A php-gd modul szükséges az előnézeti képek létrehozásához"
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr "A php-ldap modul szükséges az ldap szerveredhez történő csatlakozáshoz"
+msgstr "A php-ldap modul szükséges az ldap szerverhez történő csatlakozáshoz"
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
@@ -52,13 +53,13 @@ msgstr "A php-ctype modul szükséges az adatok hitelesítéséhez"
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr "A php-xml modul szükséges a fájlok webdav-on keresztüli megosztásához"
+msgstr "A php-xml modul szükséges a fájlok webdavon keresztüli megosztásához"
 
 #: settings.php:81
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr "A php.ini fájlodban található allow_url_fopen változó értékének 1-nek kell lennie az OCS szerverek tudásbázisainak  eléréséhez"
+msgstr "A php.ini fájlban található allow_url_fopen változó értékének 1-nek kell lennie az OCS szerverek tudásbázisainak  eléréséhez"
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
@@ -74,4 +75,4 @@ msgstr "Függőségek állapota"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr "Használva van ez által:"
+msgstr "Ez használja:"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-19 00:01+0100\n"
+"POT-Creation-Date: 2013-02-08 00:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: js/addBm.js:42 js/bookmarks.js:231
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr ""
 
@@ -37,11 +37,11 @@ msgstr ""
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:362
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:363
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr ""
 
@@ -57,27 +57,27 @@ msgstr ""
 msgid "Bookm."
 msgstr ""
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr ""
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr ""
 
-#: templates/addBm.php:22 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr ""
 
-#: templates/addBm.php:27 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr ""
 
-#: templates/addBm.php:40 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr ""
 
-#: templates/addBm.php:44 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:47
 msgid "Save"
 msgstr ""
 
@@ -119,11 +119,11 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr ""
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr ""
 

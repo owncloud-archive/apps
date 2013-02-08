@@ -33,17 +33,17 @@ $filename = isset($_GET['file']) ? $_GET['file'] : '';
 if(!empty($filename))
 {
 	$path = $dir.'/'.$filename;
-	if(OC_Filesystem::is_writable($path))
+	if(\OC\Files\Filesystem::isUpdatable($path))
 	{
-		$mtime = OC_Filesystem::filemtime($path);
-		$filecontents = OC_Filesystem::file_get_contents($path);
+		$mtime = \OC\Files\Filesystem::filemtime($path);
+		$filecontents = \OC\Files\Filesystem::file_get_contents($path);
 		$filecontents = iconv(mb_detect_encoding($filecontents), "UTF-8", $filecontents);
 		OCP\JSON::success(array('data' => array('filecontents' => $filecontents, 'write' => 'true', 'mtime' => $mtime)));
 	}
 	else
 	{
-		$mtime = OC_Filesystem::filemtime($path);
-		$filecontents = OC_Filesystem::file_get_contents($path);
+		$mtime = \OC\Files\Filesystem::filemtime($path);
+		$filecontents = \OC\Files\Filesystem::file_get_contents($path);
 		$filecontents = iconv(mb_detect_encoding($filecontents), "UTF-8", $filecontents);
 		OCP\JSON::success(array('data' => array('filecontents' => $filecontents, 'write' => 'false', 'mtime' => $mtime)));
 	}

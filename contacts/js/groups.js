@@ -528,7 +528,7 @@ OC.Contacts = OC.Contacts || {};
 	GroupList.prototype.addGroup = function(params, cb) {
 		console.log('GroupList.addGroup', params.name);
 		var name = params.name;
-		contacts = []; // $.map(contacts, function(c) {return parseInt(c)});
+		var contacts = []; // $.map(contacts, function(c) {return parseInt(c)});
 		var self = this, exists = false;
 		self.$groupList.find('h3[data-type="category"]').each(function() {
 			if ($(this).data('name').toLowerCase() === name.toLowerCase()) {

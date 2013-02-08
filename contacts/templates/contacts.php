@@ -1,10 +1,3 @@
-<div id='notification'></div>
-<script type='text/javascript'>
-	var is_indexed = <?php echo $_['is_indexed'] == 'yes' ? 'true' : 'false'; ?>;
-	var totalurl = '<?php echo OCP\Util::linkToRemote('carddav'); ?>addressbooks';
-	var id = '<?php echo $_['id']; ?>';
-	var lang = '<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>';
-</script>
 <form class="float" id="file_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php'); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
 	<input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'] ?>">
 	<input type="hidden" name="id" value="<?php echo $_['id'] ?>">
@@ -14,13 +7,13 @@
 </form>
 <iframe name="file_upload_target" id='file_upload_target' src=""></iframe>
 <div id="groupsheader">
-	<button class="addgroup"><?php echo $l->t('New Group'); ?></button>
+	<button class="addgroup icon-plus text"><?php echo $l->t('New Group'); ?></button>
 </div>
 <div id="leftcontent" class="loading">
 	<nav id="grouplist">
 	</nav>
 	<div id="contacts-settings">
-			<h3 class="settings action text" tabindex="0" role="button"><?php echo $l->t('Settings'); ?></h3>
+			<h3 class="settings action text" tabindex="0" role="button" title="<?php echo $l->t('Settings'); ?>"></h3>
 			<h3 data-id="addressbooks" tabindex="0" role="button"><?php echo $l->t('Address books'); ?></h3>
 				<ul class="hidden">
 				</ul>
@@ -326,7 +319,7 @@
 		</li>
 	</div>
 	<div class="adr">
-		<li data-element="adr" data-checksum="{checksum}" class="propertycontainer">
+		<li data-element="adr" data-checksum="{checksum}" data-lang="<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>" class="propertycontainer">
 			<span class="float display">
 				<label class="meta parameters"></label>
 				<span class="adr">{value}</span>

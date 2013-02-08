@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2012.
+# Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-22 00:01+0100\n"
-"PO-Revision-Date: 2012-11-21 06:26+0000\n"
-"Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
+"POT-Creation-Date: 2013-02-02 00:03+0100\n"
+"PO-Revision-Date: 2013-02-01 01:10+0000\n"
+"Last-Translator: Daisuke Deguchi <ddeguchi@nagoya-u.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,27 +19,19 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "ピクチャ"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "ギャラリー"
+#: js/gallery.js:235
+msgid "Shared by"
+msgstr "共有者："
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "ギャラリーを共有"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "共有"
 
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "エラー: "
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "内部エラー"
-
-#: templates/index.php:27
+#: templates/index.php:7
 msgid "Slideshow"
 msgstr "スライドショー"
 

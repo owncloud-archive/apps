@@ -529,7 +529,7 @@ Calendar={
 							$('#fullcalendar').fullCalendar('removeEventSource', data.eventSource.url);
 							$('#fullcalendar').fullCalendar('addEventSource', data.eventSource);
 							if (calendarid == 'new'){
-								$('#choosecalendar_dialog > table:first').append('<tr><td colspan="6"><a href="#" onclick="Calendar.UI.Calendar.newCalendar(this);"><input type="button" value="' + newcalendar + '"></a></td></tr>');
+								$('#choosecalendar_dialog > table:first').append('<tr><td colspan="6"><a href="#" id="chooseCalendar"><input type="button" value="' + newcalendar + '"></a></td></tr>');
 							}
 						}else{
 							$("#displayname_"+calendarid).css('background-color', '#FF2626');
@@ -966,11 +966,7 @@ $(document).ready(function(){
 	Calendar.UI.Drop.init();
 	$('#choosecalendar .generalsettings').on('click keydown', function(event) {
 		event.preventDefault();
-		OC.appSettings({appid:'calendar', loadJS:true, cache:false});
-	});
-	$('#choosecalendar .calendarsettings').on('click keydown', function(event) {
-		event.preventDefault();
-		OC.appSettings({appid:'calendar', loadJS:true, cache:false, scriptName:'calendar.php'});
+		OC.appSettings({appid:'calendar', loadJS:true, cache:false, scriptName:'settingswrapper.php'});
 	});
 	$('#fullcalendar').fullCalendar('option', 'height', $(window).height() - $('#controls').height() - $('#header').height() - 15);
 });
