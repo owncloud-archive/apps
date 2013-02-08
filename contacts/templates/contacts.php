@@ -392,7 +392,7 @@
 	<label class="float">{displayname}</label>
 	<span class="actions">
 	<a title="<?php echo $l->t('Share'); ?>" class="share action" data-possible-permissions="{permissions}" data-item="{id}" data-item-type="addressbook"></a>
-	<a title="<?php echo $l->t('Export'); ?>" class="download action" href="<?php echo OCP\Util::linkTo('contacts', 'export.php'); ?>?bookid=' + {id}"></a>
+	<a title="<?php echo $l->t('Export'); ?>" class="download action" href="<?php echo OCP\Util::linkTo('contacts', 'export.php'); ?>?bookid={id}"></a>
 	<a  title="<?php echo $l->t('CardDAV link'); ?>" class="globe action"></a>
 	<a  title="<?php echo $l->t('Delete'); ?>" class="delete action"></a>
 </span></li>
