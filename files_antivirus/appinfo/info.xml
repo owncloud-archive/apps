@@ -6,7 +6,7 @@
 	<licence>AGPL</licence>
 	<author>Manuel Delgado, Bart Visscher</author>
 	<require>4</require>
-	<shipped>false</shipped>
+	<shipped>true</shipped>
 	<types>
 		<filesystem/>
 	</types>
