@@ -10,7 +10,7 @@
 #datecontrol_left{font-size: 12px;}
 #datecontrol_right{font-size: 12px;}
 #datecontrol_date_label {margin: 0; padding: 0; font-size: 12px;}
-#choosecalendar {margin-right: 74px; float: right; font-size: 12px;}
+#choosecalendar {margin-right: 10px; float: right; font-size: 12px;}
 
 #choosecalendar_dialog {display: none;}
 #newentry_dialog {display: none;}
