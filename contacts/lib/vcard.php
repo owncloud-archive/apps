@@ -753,7 +753,7 @@ class VCard {
 				$value = explode(':', $value);
 				$protocol = array_shift($value);
 				if(!isset($property['X-SERVICE-TYPE'])) {
-					$property['X-SERVICE-TYPE'] = strtoupper(strip_tags($protocol));
+					$property['X-SERVICE-TYPE'] = strtoupper(\OCP\Util::sanitizeHTML($protocol));
 				}
 				$value = implode('', $value);
 			}
@@ -763,7 +763,7 @@ class VCard {
 		}
 		$temp = array(
 			//'name' => $property->name,
-			'value' => $value,
+			'value' => \OCP\Util::sanitizeHTML($value),
 			'parameters' => array()
 		);
 
@@ -789,14 +789,14 @@ class VCard {
 				}
 				$pvalue = is_array($pvalue) ? $pvalue : array($pvalue);
 				if (isset($temp['parameters'][$parameter->name])) {
-					$temp['parameters'][$parameter->name][] = $pvalue;
+					$temp['parameters'][$parameter->name][] = \OCP\Util::sanitizeHTML($pvalue);
 				}
 				else {
-					$temp['parameters'][$parameter->name] = $pvalue;
+					$temp['parameters'][$parameter->name] = \OCP\Util::sanitizeHTML($pvalue);
 				}
 			}
 			else{
-				$temp['parameters'][$parameter->name] = $parameter->value;
+				$temp['parameters'][$parameter->name] = \OCP\Util::sanitizeHTML($parameter->value);
 			}
 		}
 		return $temp;
