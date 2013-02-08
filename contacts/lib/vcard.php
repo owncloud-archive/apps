@@ -79,7 +79,7 @@ class VCard {
 		} elseif(is_int($id) || is_string($id)) {
 			try {
 				$sql = 'SELECT ' . $qfields . ' FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? ORDER BY `fullname`';
-				$stmt = \OCP\DB::prepare($sql, $limit, $limit);
+				$stmt = \OCP\DB::prepare($sql, $limit, $offset);
 				$result = $stmt->execute(array($id));
 				if (\OC_DB::isError($result)) {
 					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
