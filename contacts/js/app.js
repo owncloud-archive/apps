@@ -133,7 +133,7 @@ OC.notify = function(params) {
 		return;
 	}
 	self.notifier.text(params.message);
-	self.notifier.fadeIn();
+	self.notifier.fadeIn().css('display', 'inline');
 	self.notifier.on('click', function() { $(this).fadeOut();});
 	var timer = setTimeout(function() {
 		/*if(!self || !self.notifier) {
