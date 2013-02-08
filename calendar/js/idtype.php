@@ -13,4 +13,4 @@ header("Content-type: text/javascript");
 header("Cache-Control: no-cache, must-revalidate"); 
 header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
 
-echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid = "' . $_GET['id'] . '";';
+echo 'Calendar.UI.Share.idtype = "event";' . "\n" . 'Calendar.UI.Share.currentid = '. json_encode($_GET['id']) .';';
