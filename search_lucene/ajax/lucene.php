@@ -2,6 +2,7 @@
 
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('search_lucene');
+session_write_close();
 
 function index() {
 	$fileIds = OC_Search_Lucene_Indexer::getUnindexed();
