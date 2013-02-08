@@ -6,9 +6,9 @@ if(!$file) {
 }
 $import = new OC_Calendar_Import($file);
 $import->setUserID(OCP\User::getUser());
-$newcalendarname = strip_tags($import->createCalendarName());
-$guessedcalendarname = strip_tags($import->guessCalendarName());
-$calendarcolor = strip_tags($import->createCalendarColor());
+$newcalendarname = OCP\Util::sanitizeHTML($import->createCalendarName());
+$guessedcalendarname = OCP\Util::sanitizeHTML($import->guessCalendarName());
+$calendarcolor = OCP\Util::sanitizeHTML($import->createCalendarColor());
 //loading calendars for select box
 $calendar_options = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
 $calendar_options[] = array('id'=>'newcal', 'displayname'=>$l->t('create a new calendar'));
