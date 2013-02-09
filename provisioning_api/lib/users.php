@@ -174,8 +174,21 @@ class OC_Provisioning_API_Users {
 	}
 
 	public static function getUsersGroups($parameters){
-		$userid = $parameters['userid'];
-		return new OC_OCS_Result(array('groups' => OC_Group::getUserGroups($userid)));
+		if($parameters['userid'] === OC_User::getUser() || OC_User::isAdminUser(OC_User::getUser())) {
+			// Self lookup or admin lookup
+			return new OC_OCS_Result(array('groups' => OC_Group::getUserGroups($parameters['userid'])));
+		} else {
+			// Looking up someone else
+			if(OC_SubAdmin::isUserAccessible(OC_User::getUser(), $parameters['userid'])) {
+				// Return the group that the method caller is subadmin of for the user in question
+				$groups = array_intersect(OC_SubAdmin::getSubAdminsGroups(OC_User::getUser()), OC_Group::getUserGroups($parameters['userid']));
+				return new OC_OCS_Result(array('groups' => $groups));
+			} else {
+				// Not permitted
+				return new OC_OCS_Result(null, 997);
+			}
+		}
+		
 	}
 
 	public static function addToGroup($parameters){
