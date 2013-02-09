@@ -67,13 +67,3 @@ $array = array(
 foreach ($array as  $setting => $value) {
 	echo("var ". $setting ."=".$value.";\n");
 }
-
-echo("$(document).ready(function() {");
-	if(array_key_exists('showevent', $_GET)) {
-		$data = OC_Calendar_App::getEventObject($_['showevent']);
-		$date = substr($data['startdate'], 0, 10);
-		list($year, $month, $day) = explode('-', $date);
-		echo '$(\'#calendar_holder\').fullCalendar(\'gotoDate\', ' . $year . ', ' . --$month . ', ' . $day . ');';
-		echo '$(\'#dialog_holder\').load(OC.filePath(\'calendar\', \'ajax\', \'editeventform.php\') + \'?id=\' +  ' . $_['showevent'] . ' , Calendar.UI.startEventDialog);';
-	}
-echo("});");

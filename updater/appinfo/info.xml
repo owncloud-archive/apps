@@ -7,6 +7,7 @@
 	<licence>AGPL</licence>
 	<author>Victor Dubiniuk</author>
 	<shipped>true</shipped>
+	<default_enable/>
 	<require>4.91</require>
 		<types></types>
 </info>

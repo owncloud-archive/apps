@@ -1,6 +1,5 @@
 <form class="float" id="file_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php'); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
 	<input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'] ?>">
-	<input type="hidden" name="id" value="<?php echo $_['id'] ?>">
 	<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
 	<input type="hidden" class="max_human_file_size" value="(max <?php echo $_['uploadMaxHumanFilesize']; ?>)">
 	<input id="contactphoto_fileupload" type="file" accept="image/*" name="imagefile" />
@@ -14,11 +13,11 @@
 	</nav>
 	<div id="contacts-settings">
 			<h3 class="settings action text" tabindex="0" role="button" title="<?php echo $l->t('Settings'); ?>"></h3>
-			<h3 data-id="addressbooks" tabindex="0" role="button"><?php echo $l->t('Address books'); ?></h3>
+			<h2 data-id="addressbooks" tabindex="0" role="button"><?php echo $l->t('Address books'); ?></h3>
 				<ul class="hidden">
 				</ul>
-			<h3 data-id="import" tabindex="0" role="button"><?php echo $l->t('Import'); ?></h3>
-				<ul class="hidden">
+			<h2 data-id="import" tabindex="0" role="button"><?php echo $l->t('Import'); ?></h3>
+				<ul>
 					<li class="import-upload">
 						<form id="import_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadimport.php'); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
 						<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
@@ -392,7 +391,7 @@
 	<label class="float">{displayname}</label>
 	<span class="actions">
 	<a title="<?php echo $l->t('Share'); ?>" class="share action" data-possible-permissions="{permissions}" data-item="{id}" data-item-type="addressbook"></a>
-	<a title="<?php echo $l->t('Export'); ?>" class="download action" href="<?php echo OCP\Util::linkTo('contacts', 'export.php'); ?>?bookid=' + {id}"></a>
+	<a title="<?php echo $l->t('Export'); ?>" class="download action" href="<?php echo OCP\Util::linkTo('contacts', 'export.php'); ?>?bookid={id}"></a>
 	<a  title="<?php echo $l->t('CardDAV link'); ?>" class="globe action"></a>
 	<a  title="<?php echo $l->t('Delete'); ?>" class="delete action"></a>
 </span></li>

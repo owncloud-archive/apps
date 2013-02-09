@@ -133,7 +133,7 @@ OC.notify = function(params) {
 		return;
 	}
 	self.notifier.text(params.message);
-	self.notifier.fadeIn();
+	self.notifier.fadeIn().css('display', 'inline');
 	self.notifier.on('click', function() { $(this).fadeOut();});
 	var timer = setTimeout(function() {
 		/*if(!self || !self.notifier) {
@@ -567,6 +567,8 @@ OC.Contacts = OC.Contacts || {
 				self.$settings.switchClass('open', '');
 				$('body').unbind('click', bodyListener);
 			} else {
+				// FIXME: Settings needs to be refactored
+				self.$settings.find('h2').trigger('click');
 				self.$settings.switchClass('', 'open');
 				$('body').bind('click', bodyListener);
 			}
@@ -773,12 +775,12 @@ OC.Contacts = OC.Contacts || {
 			self.openContact($(this).data('id'));
 		});
 
-		this.$settings.find('h3').on('click keydown', function(event) {
+		this.$settings.find('h2').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
 			if($(this).next('ul').is(':visible')) {
-				$(this).next('ul').slideUp();
+				//$(this).next('ul').slideUp();
 				return;
 			}
 			console.log('settings');
