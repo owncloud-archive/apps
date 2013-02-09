@@ -10,13 +10,13 @@
 
 <h2><?php echo $l->t('Get the apps to sync your files');?></h2>
 <a href="<?php echo $_['clients']['desktop']; ?>">
-	<img src="<?php echo OCP\Util::imagePath('firstrunwizard', 'desktopapp.png'); ?>" />
+	<img src="<?php echo OCP\Util::imagePath('core', 'desktopapp.png'); ?>" />
 </a>
 <a href="<?php echo $_['clients']['android']; ?>">
-	<img src="<?php echo OCP\Util::imagePath('firstrunwizard', 'googleplay.png'); ?>" />
+	<img src="<?php echo OCP\Util::imagePath('core', 'googleplay.png'); ?>" />
 </a>
 <a href="<?php echo $_['clients']['ios']; ?>">
-	<img src="<?php echo OCP\Util::imagePath('firstrunwizard', 'appstore.png'); ?>" />
+	<img src="<?php echo OCP\Util::imagePath('core', 'appstore.png'); ?>" />
 </a>
 
 
