@@ -34,7 +34,7 @@ OCP\API::register('delete', '/cloud/users/{userid}/groups', array('OC_Provisioni
 OCP\API::register('get', '/cloud/groups', array('OC_Provisioning_API_Groups', 'getGroups'), 'provisioning_api', OC_API::SUBADMIN_AUTH);
 OCP\API::register('post', '/cloud/groups', array('OC_Provisioning_API_Groups', 'addGroup'), 'provisioning_api', OC_API::SUBADMIN_AUTH);
 OCP\API::register('get', '/cloud/groups/{groupid}', array('OC_Provisioning_API_Groups', 'getGroup'), 'provisioning_api', OC_API::USER_AUTH);
-OCP\API::register('delete', '/cloud/groups/{groupid}', array('OC_Provisioning_API_Groups', 'deleteGroup'), 'provisioning_api', OC_API::SUBADMIN_AUTH);
+OCP\API::register('delete', '/cloud/groups/{groupid}', array('OC_Provisioning_API_Groups', 'deleteGroup'), 'provisioning_api', OC_API::ADMIN_AUTH);
 // apps
 OCP\API::register('get', '/cloud/apps', array('OC_Provisioning_API_Apps', 'getApps'), 'provisioning_api', OC_API::ADMIN_AUTH);
 OCP\API::register('get', '/cloud/apps/{appid}', array('OC_Provisioning_API_Apps', 'getAppInfo'), 'provisioning_api', OC_API::ADMIN_AUTH);
