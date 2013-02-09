@@ -1,3 +1,3 @@
 <?php $TRANSLATIONS = array(
-"Export" => "Експорт"
+"Close" => "Затвори"
 );
