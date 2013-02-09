@@ -60,28 +60,31 @@ class OC_Provisioning_API_Users {
 	 * gets user info
 	 */
 	public static function getUser($parameters){
-		// Check the user exists
-		if(!OC_User::userExists($parameters['userid'])){
-			return new OC_OCS_Result(null, 101);
-		}
 		$userid = $parameters['userid'];
 		$return = array();
-		$return['email'] = OC_Preferences::getValue($userid, 'settings', 'email', '');
-		// Calcuate quota values
-		$user_dir = '/'.$user.'/files';
-		OC_Filesystem::init($user_dir);
-		$rootInfo=OC_FileCache::get('');
-		$sharedInfo=OC_FileCache::get('/Shared');
-		$used=$rootInfo['size']-$sharedInfo['size'];
-		$free=OC_Filesystem::free_space();
-		$total=$free+$used;
-		if($total==0) $total=1;  // prevent division by zero
-		$relative=round(($used/$total)*10000)/100;
-		$return['quota']=$total;
-		$return['freespace']=$free;
-		$return['usedspace']=$used;
-		$return['relativespaceused']=$relative;
-		$return['enabled'] = OC_Preferences::getValue($userid, 'core', 'enabled', 'true');
+		// Check if they are viewing information on themself
+		if($userid === OC_User::getUser()){
+			// Self lookup
+			$return['email'] = OC_Preferences::getValue($userid, 'settings', 'email', '');			
+			// Todo add quota info
+		} else {
+			// Looking up someone else
+			if(OC_User::isAdminUser(OC_User::getUser()) 
+			|| OC_SubAdmin::isUserAccessible(OC_User::getUser(), $userid)) {
+				// Check the user exists
+				if(!OC_User::userExists($parameters['userid'])){
+					return new OC_OCS_Result(null, 101);
+				}
+				// If an admin, return if the user is enabled or not
+				if(OC_User::isAdminUser($userid)){
+					$return['enabled'] = OC_Preferences::getValue($userid, 'core', 'enabled', 'true');
+				}
+			} else {
+				// No permission to view this user data
+				return new OC_OCS_Result(null, 997);
+			}
+		}
+		$return['displayname'] = OC_User::getDisplayName($userid);
 		return new OC_OCS_Result($return);
 	}
 
