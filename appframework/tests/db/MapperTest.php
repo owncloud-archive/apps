@@ -54,18 +54,18 @@ class MapperTest extends \PHPUnit_Framework_TestCase {
 		$sql = 'SELECT * FROM `hihi` WHERE `id` = ?';
 		$params = array(1);
 
-                $cursor = $this->getMock('cursor', array('fetchRow'));
-                $cursor->expects($this->at(0))
-                                ->method('fetchRow')
-                                ->will($this->returnValue(!$doesNotExist));
+		$cursor = $this->getMock('cursor', array('fetchRow'));
+		$cursor->expects($this->at(0))
+				->method('fetchRow')
+				->will($this->returnValue(!$doesNotExist));
 
 		if($doesNotExist){
 			$this->setExpectedException('\OCA\AppFramework\Db\DoesNotExistException');
 		} else {
-                        $cursor->expects($this->at(1))
+			$cursor->expects($this->at(1))
 				->method('fetchRow')
-                                ->will($this->returnValue(false));
-                }
+				->will($this->returnValue(false));
+		}
 
 		$query = $this->getMock('query', array('execute'));
 		$query->expects($this->once())

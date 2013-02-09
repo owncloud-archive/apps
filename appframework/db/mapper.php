@@ -56,12 +56,12 @@ abstract class Mapper {
 		$result = $this->execute($sql, $params);
 		$row = $result->fetchRow();
 
-                if($row === false){
+		if($row === false){
 			throw new DoesNotExistException('Item with id ' . $id . ' does not exist!');
-                } elseif($result->fetchRow() !== false) {
+		} elseif($result->fetchRow() !== false) {
 			throw new MultipleObjectsReturnedException('More than one result for Item with id ' . $id . '!');
-                } else {
-                        return $row;
+		} else {
+			return $row;	
 		}
 	}
 
