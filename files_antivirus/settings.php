@@ -21,6 +21,8 @@
  *
  */
 
+OCP\User::checkAdminUser();
+
 $params = array(
 	'av_mode' => 'executable',
 	'av_host' => '',
@@ -31,6 +33,7 @@ $params = array(
 	);
 
 if($_POST){
+	OCP\Util::callCheck();
 	foreach($params as $param => $default){
 		if(isset($_POST[$param])){
 			OCP\Config::setAppValue('files_antivirus', $param, $_POST[$param]);
@@ -40,6 +43,7 @@ if($_POST){
 
 // fill template
 $tmpl = new OC_Template( 'files_antivirus', 'settings');
+$tmpl->assign('requesttoken', OCP\Util::callRegister());
 OCP\Util::addScript('files_antivirus', 'settings');
 foreach($params as $param => $default){
 		$value = OCP\Config::getAppValue('files_antivirus', $param, $default);
