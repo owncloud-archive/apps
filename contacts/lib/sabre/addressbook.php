@@ -34,7 +34,7 @@ class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
 	*
 	* @var Sabre_CardDAV_Backend_Abstract
 	*/
-	private $carddavBackend;
+	protected $carddavBackend;
 
 	/**
 	* Constructor
