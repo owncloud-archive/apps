@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Pellaeon Lin <nfsmwlin@gmail.com>, 2013.
 #   <sofia168@livemail.tw>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-27 00:07+0100\n"
-"PO-Revision-Date: 2012-11-26 08:59+0000\n"
-"Last-Translator: sofiasu <sofia168@livemail.tw>\n"
+"POT-Creation-Date: 2013-02-11 00:01+0100\n"
+"PO-Revision-Date: 2013-02-10 06:30+0000\n"
+"Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "OpenID Provider remembered sites"
-msgstr ""
+msgstr "OpenID 提供者已經記住的網站"
 
 #: templates/settings.php:8
 msgid "Trusted"

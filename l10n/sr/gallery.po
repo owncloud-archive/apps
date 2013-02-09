@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-07 00:02+0100\n"
-"PO-Revision-Date: 2013-02-06 17:20+0000\n"
-"Last-Translator: Rancher <theranchcowboy@gmail.com>\n"
+"POT-Creation-Date: 2013-02-11 00:01+0100\n"
+"PO-Revision-Date: 2013-02-10 23:01+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,17 +23,13 @@ msgstr ""
 msgid "Pictures"
 msgstr "Слике"
 
-#: js/gallery.js:235
+#: js/gallery.js:237
 msgid "Shared by"
 msgstr "Делио"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
 msgstr "Дели"
-
-#: templates/index.php:7
-msgid "Slideshow"
-msgstr "Покретни приказ"
 
 #: templates/no-image-app.php:9
 msgid ""

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-31 16:21+0000\n"
-"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
+"POT-Creation-Date: 2013-02-11 00:01+0100\n"
+"PO-Revision-Date: 2013-02-10 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,101 +18,10 @@ msgstr ""
 "Language: th_TH\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:9
+#: appinfo/app.php:12
 msgid "Notes"
 msgstr "บันทึกย่อ"
 
-#: js/notes.js:8
-msgid "The title can not be empty"
-msgstr "หัวเรื่องไม่สามารถเว้นว่างได้"
-
-#: js/notes.js:15
-msgid "Invalid title"
-msgstr "หัวเรื่องไม่ถูกต้อง"
-
-#: js/notes.js:15
-msgid "The following characters are not allowed"
-msgstr "ตัวอักษรต่อไปนี้ไม่อนุญาตให้ใช้งานได้"
-
-#: templates/categories.php:10 templates/help.php:5
-msgid "Back to Notes"
-msgstr "กลับไปที่บันทึกย่อ"
-
-#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
-msgid "Help"
-msgstr "ช่วยเหลือ"
-
-#: templates/categories.php:99
-msgid "Categories"
-msgstr "หมวดหมู่"
-
-#: templates/categories.php:116 templates/notes.php:347
-#: templates/notes.php:391
-msgid "Delete"
-msgstr "ลบ"
-
-#: templates/categories.php:117 templates/notes.php:393
-msgid "Save"
-msgstr "บันทึก"
-
-#: templates/categories.php:129
-msgid "No categories available yet"
-msgstr "ยังไม่มีหมวดหมู่"
-
-#: templates/categories.php:137
-msgid "New category"
-msgstr "สร้างหมวดหมู่ใหม่"
-
-#: templates/categories.php:141
-msgid "Add"
-msgstr "เพิ่ม"
-
-#: templates/categories.php:144
-msgid "Note"
-msgstr "หมายเหตุ"
-
-#: templates/categories.php:145
-msgid ""
-"If you delete a category, all containing notes get moved to the following "
-"category"
-msgstr "หากคุณลบหมวดหมู่ทิ้งไป บันทึกย่อทั้งหมดที่อยู่ในหมวดหมู่ดังกล่าวจะถูกย้ายไปยังหมวดหมู่ต่อไปนี้"
-
-#: templates/categories.php:145 templates/notes.php:61
-msgid "General"
-msgstr "ทั่วไป"
-
-#: templates/notes.php:81
-msgid "Add Note"
-msgstr "เพิ่มบันทึกย่อ"
-
-#: templates/notes.php:87
-msgid "Edit Categories"
-msgstr "แก้ไขหมวดหมู่"
-
-#: templates/notes.php:293
-msgid "No note available in this category"
-msgstr "ยังไม่มีบันทึกอยู่ในหมวดหมู่นี้"
-
-#: templates/notes.php:337
-msgid "Edit"
-msgstr "แก้ไข"
-
-#: templates/notes.php:366
-msgid "Category"
-msgstr "หมวดหมู่"
-
-#: templates/notes.php:384
-msgid "Title"
-msgstr "ชื่อ"
-
-#: templates/notes.php:385
-msgid "Content"
-msgstr "เนื้อหา"
-
-#: templates/notes.php:418
-msgid "Restore content"
-msgstr "คืนค่าเนื้อหา"
-
-#: templates/notes.php:426
-msgid "Restore"
-msgstr "คืนค่า"
+#: templates/notes.php:3
+msgid "New Note"
+msgstr ""

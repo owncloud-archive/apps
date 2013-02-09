@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-31 16:21+0000\n"
-"Last-Translator: Mariano <mstreet@kde.org.ar>\n"
+"POT-Creation-Date: 2013-02-11 00:01+0100\n"
+"PO-Revision-Date: 2013-02-10 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,101 +18,10 @@ msgstr ""
 "Language: eo\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:9
+#: appinfo/app.php:12
 msgid "Notes"
 msgstr "Notoj"
 
-#: js/notes.js:8
-msgid "The title can not be empty"
-msgstr "La titolo devas ne malpleni"
-
-#: js/notes.js:15
-msgid "Invalid title"
-msgstr "Nevalida titolo"
-
-#: js/notes.js:15
-msgid "The following characters are not allowed"
-msgstr "La jenaj signoj ne permesatas"
-
-#: templates/categories.php:10 templates/help.php:5
-msgid "Back to Notes"
-msgstr "Reen al notoj"
-
-#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
-msgid "Help"
-msgstr "Helpo"
-
-#: templates/categories.php:99
-msgid "Categories"
-msgstr "Kategorioj"
-
-#: templates/categories.php:116 templates/notes.php:347
-#: templates/notes.php:391
-msgid "Delete"
-msgstr "Forigi"
-
-#: templates/categories.php:117 templates/notes.php:393
-msgid "Save"
-msgstr "Konservi"
-
-#: templates/categories.php:129
-msgid "No categories available yet"
-msgstr "Neniu kategorio haveblas ankoraŭ"
-
-#: templates/categories.php:137
-msgid "New category"
-msgstr "Nova kategorio"
-
-#: templates/categories.php:141
-msgid "Add"
-msgstr "Aldoni"
-
-#: templates/categories.php:144
-msgid "Note"
-msgstr "Noto"
-
-#: templates/categories.php:145
-msgid ""
-"If you delete a category, all containing notes get moved to the following "
-"category"
-msgstr "Se vi forigas kategorion, ĉiuj notoj enhavataj en ĝi moviĝos en la jenan kategorion"
-
-#: templates/categories.php:145 templates/notes.php:61
-msgid "General"
-msgstr "Ĝenerala"
-
-#: templates/notes.php:81
-msgid "Add Note"
-msgstr "Aldoni noton"
-
-#: templates/notes.php:87
-msgid "Edit Categories"
-msgstr "Redakti kategoriojn"
-
-#: templates/notes.php:293
-msgid "No note available in this category"
-msgstr "Neniu noto haveblas en ĉi tiu kategorio"
-
-#: templates/notes.php:337
-msgid "Edit"
-msgstr "Redakti"
-
-#: templates/notes.php:366
-msgid "Category"
-msgstr "Kategorio"
-
-#: templates/notes.php:384
-msgid "Title"
-msgstr "Titolo"
-
-#: templates/notes.php:385
-msgid "Content"
-msgstr "Enhavo"
-
-#: templates/notes.php:418
-msgid "Restore content"
-msgstr "Restaŭri enhavon"
-
-#: templates/notes.php:426
-msgid "Restore"
-msgstr "Restaŭri"
+#: templates/notes.php:3
+msgid "New Note"
+msgstr ""

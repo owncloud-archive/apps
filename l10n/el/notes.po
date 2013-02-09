@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-31 16:21+0000\n"
-"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
+"POT-Creation-Date: 2013-02-11 00:01+0100\n"
+"PO-Revision-Date: 2013-02-10 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,101 +18,10 @@ msgstr ""
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:9
+#: appinfo/app.php:12
 msgid "Notes"
 msgstr "Σημειώσεις"
 
-#: js/notes.js:8
-msgid "The title can not be empty"
-msgstr "Ο τίτλος δεν μπορεί να είναι κενός"
-
-#: js/notes.js:15
-msgid "Invalid title"
-msgstr "Μη έγκυρος τίτλος"
-
-#: js/notes.js:15
-msgid "The following characters are not allowed"
-msgstr "Δεν επιτρέπονται οι παρακάτω χαρακτήρες"
-
-#: templates/categories.php:10 templates/help.php:5
-msgid "Back to Notes"
-msgstr "Πίσω στις Σημειώσεις"
-
-#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
-msgid "Help"
-msgstr "Βοήθεια"
-
-#: templates/categories.php:99
-msgid "Categories"
-msgstr "Κατηγορίες"
-
-#: templates/categories.php:116 templates/notes.php:347
-#: templates/notes.php:391
-msgid "Delete"
-msgstr "Διαγραφή"
-
-#: templates/categories.php:117 templates/notes.php:393
-msgid "Save"
-msgstr "Αποθήκευση"
-
-#: templates/categories.php:129
-msgid "No categories available yet"
-msgstr "Δεν είναι διαθέσιμες ακόμα οι κατηγορίες"
-
-#: templates/categories.php:137
-msgid "New category"
-msgstr "Νέα κατηγορία"
-
-#: templates/categories.php:141
-msgid "Add"
-msgstr "Προσθήκη"
-
-#: templates/categories.php:144
-msgid "Note"
-msgstr "Σημείωση"
-
-#: templates/categories.php:145
-msgid ""
-"If you delete a category, all containing notes get moved to the following "
-"category"
-msgstr "Εάν διαγράψετε μια κατηγορία, όλες οι σημειώσεις μετακινούνται στην παρακάτω κατηγορία"
-
-#: templates/categories.php:145 templates/notes.php:61
-msgid "General"
-msgstr "Γενικά"
-
-#: templates/notes.php:81
-msgid "Add Note"
-msgstr "Προσθήκη Σημείωσης"
-
-#: templates/notes.php:87
-msgid "Edit Categories"
-msgstr "Επεξεργασία Κατηγοριών"
-
-#: templates/notes.php:293
-msgid "No note available in this category"
-msgstr "Καμία διαθέσιμη σημείωση σε αυτή την κατηγορία"
-
-#: templates/notes.php:337
-msgid "Edit"
-msgstr "Επεξεργασία"
-
-#: templates/notes.php:366
-msgid "Category"
-msgstr "Κατηγορία"
-
-#: templates/notes.php:384
-msgid "Title"
-msgstr "Τίτλος"
-
-#: templates/notes.php:385
-msgid "Content"
-msgstr "Περιεχόμενο"
-
-#: templates/notes.php:418
-msgid "Restore content"
-msgstr "Επαναφορά περιεχομένου"
-
-#: templates/notes.php:426
-msgid "Restore"
-msgstr "Επαναφορά"
+#: templates/notes.php:3
+msgid "New Note"
+msgstr ""

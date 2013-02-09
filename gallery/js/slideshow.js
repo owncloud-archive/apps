@@ -1,12 +1,15 @@
-jQuery.fn.slideShow = function (container, options) {
+jQuery.fn.slideShow = function (container, start, options) {
 	var i, images = [], settings;
+	start = start || 0;
 	settings = $.extend({
 		'interval': 5000,
 		'play': true
 	}, options);
+	console.log(options.play);
+	console.log(settings.play);
 	jQuery.fn.slideShow.container = container;
 	jQuery.fn.slideShow.settings = settings;
-	jQuery.fn.slideShow.current = 0;
+	jQuery.fn.slideShow.current = start;
 	for (i = 0; i < this.length; i++) {
 		images.push(this[i].href);
 	}
@@ -14,10 +17,14 @@ jQuery.fn.slideShow = function (container, options) {
 	container.show();
 	jQuery.fn.slideShow.images = images;
 	jQuery.fn.slideShow.cache = [];
-	jQuery.fn.slideShow.showImage(images[0]);
-	BigScreen.request(container[0]);
+	console.log(start);
+	jQuery.fn.slideShow.showImage(images[start]);
+//	BigScreen.request(container[0]);
+	jQuery.fn.slideShow.progressBar = container.find('.progress');
 	return jQuery.fn.slideShow;
 };
+
+jQuery.fn.slideShow.progressBar = null;
 
 jQuery.fn.slideShow.loadImage = function (url) {
 	if (!jQuery.fn.slideShow.cache[url]) {
@@ -59,12 +66,17 @@ jQuery.fn.slideShow.pause = function () {
 jQuery.fn.slideShow.setTimeout = function () {
 	jQuery.fn.slideShow.clearTimeout();
 	jQuery.fn.slideShow.timeout = setTimeout(jQuery.fn.slideShow.next, jQuery.fn.slideShow.settings.interval);
+	jQuery.fn.slideShow.progressBar.stop();
+	jQuery.fn.slideShow.progressBar.css('height', '6px');
+	jQuery.fn.slideShow.progressBar.animate({'height': '26px'}, jQuery.fn.slideShow.settings.interval, 'linear');
 };
 
 jQuery.fn.slideShow.clearTimeout = function () {
 	if (jQuery.fn.slideShow.timeout) {
 		clearTimeout(jQuery.fn.slideShow.timeout);
 	}
+	jQuery.fn.slideShow.progressBar.stop();
+	jQuery.fn.slideShow.progressBar.css('height', '6px');
 	jQuery.fn.slideShow.timeout = 0;
 };
 
