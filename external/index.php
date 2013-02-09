@@ -34,8 +34,11 @@ if (isset($_GET['id'])) {
 	if (sizeof($sites) >= $id) {
 		$url = $sites[$id - 1][1];
 		OCP\App::setActiveNavigationEntry('external_index' . $id);
-
+		
 		$tmpl = new OCP\Template('external', 'frame', 'user');
+		//overwrite x-frame-options
+		$tmpl->addHeader('X-Frame-Options', 'ALLOW-FROM *');
+		
 		$tmpl->assign('url', $url);
 		$tmpl->printPage();
 	}
