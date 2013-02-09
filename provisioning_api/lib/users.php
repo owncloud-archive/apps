@@ -218,7 +218,7 @@ class OC_Provisioning_API_Users {
 		if(is_null($group)){
 			return new OC_OCS_Result(null, 101);
 		}
-		// If they're not an adamin, check they are a subadmin of the group in question
+		// If they're not an admin, check they are a subadmin of the group in question
 		if(!OC_Group::inGroup(OC_User::getUser(), 'admin') && !OC_SubAdmin::isSubAdminofGroup(OC_User::getUser(), $group)){
 			return new OC_OCS_Result(null, 104);
 		}
@@ -243,7 +243,7 @@ class OC_Provisioning_API_Users {
 		if(!OC_User::userExists($parameters['userid'])){
 			return new OC_OCS_Result(null, 103);
 		}
-		// Add user to group
+		// Remove user from group
 		return OC_Group::removeFromGroup($parameters['userid'], $group) ? new OC_OCS_Result(null, 100) : new OC_OCS_Result(null, 105);
 	}
 
