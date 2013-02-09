@@ -31,7 +31,7 @@ class OC_Connector_Sabre_CardDAV_Card extends Sabre_CardDAV_Card {
      *
      * @var array
      */
-    private $addressBookInfo;
+    protected $addressBookInfo;
 
     /**
      * Constructor
