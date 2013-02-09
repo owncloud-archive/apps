@@ -155,15 +155,21 @@ class OC_Provisioning_API_Users {
 	}
 
 	public static function deleteUser($parameters){
-		// Do they exist?
-		if(!OC_User::userExists($parameters['userid'])){
+		if(!OC_User::userExists($parameters['userid']) 
+		|| $parameters['userid'] === OC_User::getUser()) {
 			return new OC_OCS_Result(null, 101);
 		}
-		// Can't delete yourself.
-		if($parameters['userid'] === OC_User::getUser() || !OC_User::deleteUser($parameters['userid'])){
-			return new OC_OCS_Result(null, 102);
-		} else {
+		// If not an admin
+		if(!OC_User::isAdminUser(OC_User::getUser())) {
+			if(!OC_SubAdmin::isUserAccessible(OC_User::getUser(), $parameters['userid'])) {
+				return new OC_OCS_Result(null, 997);
+			}
+		}
+		// Go ahead with the delete
+		if(OC_User::deleteUser($parameters['userid'])) {
 			return new OC_OCS_Result(null, 100);
+		} else {
+			return new OC_OCS_Result(null, 101);
 		}
 	}
 

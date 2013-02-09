@@ -26,7 +26,7 @@ OCP\API::register('get', '/cloud/users', array('OC_Provisioning_API_Users', 'get
 OCP\API::register('post', '/cloud/users', array('OC_Provisioning_API_Users', 'addUser'), 'provisioning_api', OC_API::ADMIN_AUTH);
 OCP\API::register('get', '/cloud/users/{userid}', array('OC_Provisioning_API_Users', 'getUser'), 'provisioning_api', OC_API::USER_AUTH);
 OCP\API::register('put', '/cloud/users/{userid}', array('OC_Provisioning_API_Users', 'editUser'), 'provisioning_api', OC_API::USER_AUTH);
-OCP\API::register('delete', '/cloud/users/{userid}', array('OC_Provisioning_API_Users', 'deleteUser'), 'provisioning_api', OC_API::ADMIN_AUTH);
+OCP\API::register('delete', '/cloud/users/{userid}', array('OC_Provisioning_API_Users', 'deleteUser'), 'provisioning_api', OC_API::SUBADMIN_AUTH);
 OCP\API::register('get', '/cloud/users/{userid}/groups', array('OC_Provisioning_API_Users', 'getUsersGroups'), 'provisioning_api', OC_API::USER_AUTH);
 OCP\API::register('post', '/cloud/users/{userid}/groups', array('OC_Provisioning_API_Users', 'addToGroup'), 'provisioning_api', OC_API::SUBADMIN_AUTH);
 OCP\API::register('delete', '/cloud/users/{userid}/groups', array('OC_Provisioning_API_Users', 'removeFromGroup'), 'provisioning_api', OC_API::SUBADMIN_AUTH);
