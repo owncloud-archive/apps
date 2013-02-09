@@ -52,7 +52,8 @@
 }
 
 #dropdown {
-	top: 2.7em;
+	top: 6.4em;
+	position: fixed;
 	right: 0;
 	margin-right: 0;
 	border-bottom-right-radius: 0;
