@@ -346,7 +346,7 @@ class Addressbook {
 	public static function delete($id) {
 		$addressbook = self::find($id);
 
-		if ($addressbook['userid'] != \OCP\User::getUser() && !\OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
+		if ($addressbook['userid'] != \OCP\User::getUser() && !\OC_Group::inGroup(\OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & \OCP\PERMISSION_DELETE)) {
 				throw new Exception(
