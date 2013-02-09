@@ -88,8 +88,70 @@ class OC_Provisioning_API_Users {
 		return new OC_OCS_Result($return);
 	}
 
+	/** 
+	 * edit users
+	 */
 	public static function editUser($parameters){
-		// TODO
+		$userid = $parameters['userid'];
+		if($userid === OC_User::getUser()) {
+			// Editing self (diaply, email)
+			$permittedfields[] = 'display';
+			$permittedfields[] = 'email';
+			$permittedfields[] = 'password';
+		} else {
+			// Check if admin / subadmin
+			if(OC_SubAdmin::isUserAccessible(OC_User::getUser(), $userid) 
+			|| OC_User::isAdminUser(OC_User::getUser())) {
+				// They have permissions over the user
+				$permittedfields[] = 'display';
+				$permittedfields[] = 'quota';
+				$permittedfields[] = 'password';
+			} else {
+				// No rights
+				return new OC_OCS_Result(null, 997);
+			}
+		}
+		// Check if permitted to edit this field
+		if(!in_array($parameters['_put']['key'], $permittedfields)) {
+			return new OC_OCS_Result(null, 997);
+		}
+		// Process the edit
+		switch($parameters['_put']['key']){
+			case 'display':
+				OC_User::setDisplayName($userid, $parameters['_put']['value']);
+				break;
+			case 'quota':
+				if(!is_numeric($parameters['_put']['value'])) {
+					return new OC_OCS_Result(null, 101);
+				}
+				$quota = $parameters['_put']['value'];
+				if($quota !== 'none' and $quota !== 'default') {
+					$quota = OC_Helper::computerFileSize($quota);
+					if($quota == 0) {
+						$quota = 'default';
+					}else if($quota == -1){
+						$quota = 'none';
+					} else {
+						$quota = OC_Helper::humanFileSize($quota);
+					}
+				}
+				OC_Preferences::setValue($userid, 'files', 'quota', $quota);
+				break;
+			case 'password':
+				OC_User::setPassword($userid, $parameters['_put']['value']);
+				break;
+			case 'email':
+				if(filter_var($parameters['_put']['value'], FILTER_VALIDATE_EMAIL)) {
+					OC_Preferences::setValue(OC_User::getUser(), 'settings', 'email', $parameters['_put']['value']);
+				} else {
+					return new OC_OCS_Result(null, 102);
+				}
+				break;
+			default:
+				return new OC_OCS_Result(null, 103);
+				break;
+		}
+		return new OC_OCS_Result(null, 100);
 	}
 
 	public static function deleteUser($parameters){
