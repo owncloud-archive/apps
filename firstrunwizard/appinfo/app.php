@@ -28,7 +28,6 @@ OCP\Util::addStyle( 'firstrunwizard', 'colorbox');
 OCP\Util::addScript( 'firstrunwizard', 'jquery.colorbox');
 OCP\Util::addScript( 'firstrunwizard', 'firstrunwizard');
 
-OCP\App::registerPersonal('firstrunwizard', 'enable');
 OCP\Util::addStyle('firstrunwizard', 'firstrunwizard');
 
 if(\OCP\User::isLoggedIn() and \OCA_FirstRunWizard\Config::isenabled()){
