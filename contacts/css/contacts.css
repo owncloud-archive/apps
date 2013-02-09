@@ -298,7 +298,7 @@ ul.propertylist { width: 450px; }
 	border: 0; 
 	display: inline-block;
 	box-sizing: border-box;
-	margin:2px;
+	-moz-box-sizing: border-box;
 }
 #rightcontent label:hover, #rightcontent dt:hover, #rightcontent input.label:hover { color: #777 !important; }
 #rightcontent input.label, #rightcontent input.label { margin:-2px; }
