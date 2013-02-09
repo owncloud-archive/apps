@@ -32,7 +32,6 @@ angular.module('AppTemplateAdvanced').factory '_AppTemplateAdvancedRequest',
 		getName: (route, scope) ->
 			success = (data) ->
 				scope.name = data.data.somesetting
-				console.log data
 
 			@post(route, {}, {}, success)			
 
