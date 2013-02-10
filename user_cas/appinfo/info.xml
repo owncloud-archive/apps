@@ -6,7 +6,6 @@
 	<licence>AGPL</licence>
 	<author>Sixto Martin Garcia</author>
 	<require>4.91</require>
-	<shipped>true</shipped>
 	<types>
         <prelogin/>
         <authentication/>
