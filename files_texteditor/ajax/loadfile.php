@@ -33,20 +33,11 @@ $filename = isset($_GET['file']) ? $_GET['file'] : '';
 if(!empty($filename))
 {
 	$path = $dir.'/'.$filename;
-	if(\OC\Files\Filesystem::isUpdatable($path))
-	{
-		$mtime = \OC\Files\Filesystem::filemtime($path);
-		$filecontents = \OC\Files\Filesystem::file_get_contents($path);
-		$filecontents = iconv(mb_detect_encoding($filecontents), "UTF-8", $filecontents);
-		OCP\JSON::success(array('data' => array('filecontents' => $filecontents, 'write' => 'true', 'mtime' => $mtime)));
-	}
-	else
-	{
-		$mtime = \OC\Files\Filesystem::filemtime($path);
-		$filecontents = \OC\Files\Filesystem::file_get_contents($path);
-		$filecontents = iconv(mb_detect_encoding($filecontents), "UTF-8", $filecontents);
-		OCP\JSON::success(array('data' => array('filecontents' => $filecontents, 'write' => 'false', 'mtime' => $mtime)));
-	}
+	$writeable = \OC\Files\Filesystem::isUpdatable($path) ? 'true' : 'false';
+	$mtime = \OC\Files\Filesystem::filemtime($path);
+	$filecontents = \OC\Files\Filesystem::file_get_contents($path);
+	$filecontents = iconv(mb_detect_encoding($filecontents), "UTF-8", $filecontents);
+	OCP\JSON::success(array('data' => array('filecontents' => $filecontents, 'write' => $writeable, 'mtime' => $mtime)));
 } else {
 	OCP\JSON::error(array('data' => array( 'message' => 'Invalid file path supplied.')));
 }
