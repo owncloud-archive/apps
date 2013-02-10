@@ -8,7 +8,7 @@
 
 namespace Test\Files\Storage;
 
-OC_App::loadApp('files_archive');
+\OC_App::loadApp('files_archive');
 
 class Archive_Zip extends Storage {
 	/**
