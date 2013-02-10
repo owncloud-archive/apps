@@ -4,7 +4,6 @@
 		<button class="share"><?php echo $l->t("Share"); ?></button>
 		<a class="share" data-item-type="gallery" data-item="" title="<?php echo $l->t("Share"); ?>"
 		   data-possible-permissions="31"></a>
-		<input type='button' id='slideshow-start' value='<?php echo $l->t('Slideshow');?>'> </input>
 	</span>
 </div>
 <div id='gallery' class="hascontrols"></div>
@@ -15,7 +14,5 @@
 	<input type='button' class='previous'/>
 	<input type='button' class='exit'/>
 
-<!--	<div class="progresscontainer">-->
-		<div class='progress'/>
-<!--	</div>-->
+	<div class='progress'/>
 </div>

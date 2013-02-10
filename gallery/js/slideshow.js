@@ -1,12 +1,15 @@
-jQuery.fn.slideShow = function (container, options) {
+jQuery.fn.slideShow = function (container, start, options) {
 	var i, images = [], settings;
+	start = start || 0;
 	settings = $.extend({
 		'interval': 5000,
 		'play': true
 	}, options);
+	console.log(options.play);
+	console.log(settings.play);
 	jQuery.fn.slideShow.container = container;
 	jQuery.fn.slideShow.settings = settings;
-	jQuery.fn.slideShow.current = 0;
+	jQuery.fn.slideShow.current = start;
 	for (i = 0; i < this.length; i++) {
 		images.push(this[i].href);
 	}
@@ -14,8 +17,9 @@ jQuery.fn.slideShow = function (container, options) {
 	container.show();
 	jQuery.fn.slideShow.images = images;
 	jQuery.fn.slideShow.cache = [];
-	jQuery.fn.slideShow.showImage(images[0]);
-	BigScreen.request(container[0]);
+	console.log(start);
+	jQuery.fn.slideShow.showImage(images[start]);
+//	BigScreen.request(container[0]);
 	jQuery.fn.slideShow.progressBar = container.find('.progress');
 	return jQuery.fn.slideShow;
 };

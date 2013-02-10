@@ -214,11 +214,13 @@ Gallery.view.viewAlbum = function (albumPath) {
 		Gallery.view.showUsers();
 	}
 
-	$('#gallery').children('a.image').fancybox({
-		"titlePosition": "inside"
-	});
-
 	Gallery.getAlbumInfo(Gallery.currentAlbum); //preload album info
+
+	$('#gallery').children('a.image').click(function (event) {
+		var i = $('#gallery').children('a.image').index(this);
+		event.preventDefault();
+		Gallery.slideshow.start(i, {play: Gallery.slideshow.playPause.playing});
+	});
 };
 
 Gallery.view.pushBreadCrumb = function (text, path) {
@@ -247,32 +249,45 @@ Gallery.view.showUsers = function () {
 };
 
 Gallery.slideshow = {};
-Gallery.slideshow.start = function () {
-	$('a.image').slideShow($('#slideshow'));
+Gallery.slideshow.start = function (start, options) {
+	start = start || 0;
+	$('a.image').slideShow($('#slideshow'), start, options);
 };
 
 Gallery.slideshow.end = function () {
 	jQuery.fn.slideShow.stop();
 };
 
-Gallery.slideshow.next = function () {
+Gallery.slideshow.next = function (event) {
+	if (event) {
+		event.stopPropagation();
+	}
 	jQuery.fn.slideShow.hideImage();
 	jQuery.fn.slideShow.next();
 };
 
-Gallery.slideshow.previous = function () {
+Gallery.slideshow.previous = function (event) {
+	if (event) {
+		event.stopPropagation();
+	}
 	jQuery.fn.slideShow.hideImage();
 	jQuery.fn.slideShow.previous();
 };
 
-Gallery.slideshow.pause = function () {
+Gallery.slideshow.pause = function (event) {
+	if (event) {
+		event.stopPropagation();
+	}
 	$('#slideshow').children('.play').show();
 	$('#slideshow').children('.pause').hide();
 	Gallery.slideshow.playPause.playing = false;
 	jQuery.fn.slideShow.pause();
 };
 
-Gallery.slideshow.play = function () {
+Gallery.slideshow.play = function (event) {
+	if (event) {
+		event.stopPropagation();
+	}
 	$('#slideshow').children('.play').hide();
 	$('#slideshow').children('.pause').show();
 	Gallery.slideshow.playPause.playing = true;
@@ -282,7 +297,7 @@ Gallery.slideshow.play = function () {
 Gallery.slideshow.playPause = function () {
 	if (Gallery.slideshow.playPause.playing) {
 		Gallery.slideshow.pause();
-	}else{
+	} else {
 		Gallery.slideshow.play();
 	}
 };
@@ -310,15 +325,13 @@ $(document).ready(function () {
 				Gallery.slideshow.playPause();
 			}
 		});
-		$('#slideshow-start').click(function () {
-			Gallery.slideshow.start();
-		});
 		var slideshow = $('#slideshow');
 		slideshow.children('.next').click(Gallery.slideshow.next);
 		slideshow.children('.previous').click(Gallery.slideshow.previous);
 		slideshow.children('.exit').click(jQuery.fn.slideShow.stop);
 		slideshow.children('.pause').click(Gallery.slideshow.pause);
 		slideshow.children('.play').click(Gallery.slideshow.play);
+		slideshow.click(Gallery.slideshow.next);
 
 		$('button.share').click(Gallery.share);
 	});
