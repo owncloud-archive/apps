@@ -1,6 +1,7 @@
 <?php
 
 OCP\JSON::checkLoggedIn();
+OCP\JSON::callCheck();
 OCP\JSON::checkAppEnabled('search_lucene');
 session_write_close();
 
