@@ -265,6 +265,18 @@ Gallery.slideshow.previous = function () {
 	jQuery.fn.slideShow.previous();
 };
 
+Gallery.slideshow.pause = function () {
+	$('#slideshow').children('.play').show();
+	$('#slideshow').children('.pause').hide();
+	jQuery.fn.slideShow.pause();
+};
+
+Gallery.slideshow.play = function () {
+	$('#slideshow').children('.play').hide();
+	$('#slideshow').children('.pause').show();
+	jQuery.fn.slideShow.play();
+};
+
 $(document).ready(function () {
 	Gallery.fillAlbums().then(function () {
 		Gallery.view.element = $('#gallery');
@@ -294,6 +306,8 @@ $(document).ready(function () {
 		slideshow.children('.next').click(Gallery.slideshow.next);
 		slideshow.children('.previous').click(Gallery.slideshow.previous);
 		slideshow.children('.exit').click(jQuery.fn.slideShow.stop);
+		slideshow.children('.pause').click(Gallery.slideshow.pause);
+		slideshow.children('.play').click(Gallery.slideshow.play);
 
 		$('button.share').click(Gallery.share);
 	});

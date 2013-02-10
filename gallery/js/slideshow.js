@@ -43,13 +43,17 @@ jQuery.fn.slideShow.showImage = function (url) {
 };
 
 jQuery.fn.slideShow.play = function () {
-	jQuery.fn.slideShow.settings.play = true;
-	jQuery.fn.slideShow.setTimeout();
+	if (jQuery.fn.slideShow.settings) {
+		jQuery.fn.slideShow.settings.play = true;
+		jQuery.fn.slideShow.setTimeout();
+	}
 };
 
 jQuery.fn.slideShow.pause = function () {
-	jQuery.fn.slideShow.settings.play = false;
-	jQuery.fn.slideShow.clearTimeout();
+	if (jQuery.fn.slideShow.settings) {
+		jQuery.fn.slideShow.settings.play = false;
+		jQuery.fn.slideShow.clearTimeout();
+	}
 };
 
 jQuery.fn.slideShow.setTimeout = function () {
