@@ -14,4 +14,8 @@
 	<input type='button' class='pause'/>
 	<input type='button' class='previous'/>
 	<input type='button' class='exit'/>
+
+<!--	<div class="progresscontainer">-->
+		<div class='progress'/>
+<!--	</div>-->
 </div>

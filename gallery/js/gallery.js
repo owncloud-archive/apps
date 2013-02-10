@@ -268,14 +268,25 @@ Gallery.slideshow.previous = function () {
 Gallery.slideshow.pause = function () {
 	$('#slideshow').children('.play').show();
 	$('#slideshow').children('.pause').hide();
+	Gallery.slideshow.playPause.playing = false;
 	jQuery.fn.slideShow.pause();
 };
 
 Gallery.slideshow.play = function () {
 	$('#slideshow').children('.play').hide();
 	$('#slideshow').children('.pause').show();
+	Gallery.slideshow.playPause.playing = true;
 	jQuery.fn.slideShow.play();
 };
+
+Gallery.slideshow.playPause = function () {
+	if (Gallery.slideshow.playPause.playing) {
+		Gallery.slideshow.pause();
+	}else{
+		Gallery.slideshow.play();
+	}
+};
+Gallery.slideshow.playPause.playing = true;
 
 $(document).ready(function () {
 	Gallery.fillAlbums().then(function () {
@@ -296,7 +307,7 @@ $(document).ready(function () {
 			} else if (e.keyCode == 39) { // right
 				Gallery.slideshow.next();
 			} else if (e.keyCode == 32) { // space
-				return false;
+				Gallery.slideshow.playPause();
 			}
 		});
 		$('#slideshow-start').click(function () {
