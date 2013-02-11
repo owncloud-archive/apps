@@ -16,8 +16,8 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 ?>
 
 var ownPad = {
-	username : '<?php echo $_[\OCA\ownpad_lite\App::CONFIG_USERNAME] ?>',
-	host :  '<?php echo $_[\OCA\ownpad_lite\App::CONFIG_ETHERPAD_URL] ?>',
+	username : '<?php echo OCA\ownpad_lite\App::getUsername() ?>',
+	host :  '<?php echo OCA\ownpad_lite\App::getServiceUrl() ?>',
 	showPad : function() {
 		$('#ownpad-content').pad({
 			'showControls'     : true,
