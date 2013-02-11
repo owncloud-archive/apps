@@ -74,26 +74,26 @@ class API {
 	/**
 	 * Adds a new javascript file
 	 * @param string $scriptName the name of the javascript in js/ without the suffix
-         * @param string $appName the name of the app, defaults to the current one
+	 * @param string $appName the name of the app, defaults to the current one
 	 */
-        public function addScript($scriptName, $appName=null){
-                if($appName === null){
-                        $appName = $this->appName;
-                }
-                \OCP\Util::addScript($appName, $scriptName);
+	public function addScript($scriptName, $appName=null){
+		if($appName === null){
+			$appName = $this->appName;
+		}
+		\OCP\Util::addScript($appName, $scriptName);
 	}
 
 
 	/**
 	 * Adds a new css file
 	 * @param string $styleName the name of the css file in css/without the suffix
-         * @param string $appName the name of the app, defaults to the current one
+	 * @param string $appName the name of the app, defaults to the current one
 	 */
-        public function addStyle($styleName, $appName=null){
-                if($appName === null){
-                        $appName = $this->appName;
-                }
-                \OCP\Util::addStyle($appName, $styleName);
+	public function addStyle($styleName, $appName=null){
+		if($appName === null){
+			$appName = $this->appName;
+		}
+		\OCP\Util::addStyle($appName, $styleName);
 	}
 
 
