@@ -38,7 +38,11 @@ class App {
 	}
 
 	static public function getUsername() {
-		return self::getValue(self::CONFIG_USERNAME, \OCP\User::getUser());
+		$username =  self::getValue(self::CONFIG_USERNAME, \OCP\User::getDisplayName());
+		if (!$username){
+			$username = \OCP\User::getUser();
+		}
+		return $username;
 	}
 
 	static public function setUsername($username) {
