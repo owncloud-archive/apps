@@ -11,4 +11,7 @@
 	<licence>AGPL</licence>
 	<author>Florian Reinhard florian.reinhard@googlemail.com</author>
 	<require>4</require>
+	<types>
+		<authentication/>
+	</types>
 </info>
