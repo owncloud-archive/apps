@@ -117,10 +117,6 @@ OC.notify = function(params) {
 	var self = this;
 	if(!self.notifier) {
 		self.notifier = $('#notification');
-		if(!self.notifier.length) {
-			$('#content').prepend('<div id="notification" />');
-			self.notifier = $('#notification');
-		}
 	}
 	if(params.cancel) {
 		self.notifier.off('click');
@@ -136,10 +132,6 @@ OC.notify = function(params) {
 	self.notifier.fadeIn().css('display', 'inline');
 	self.notifier.on('click', function() { $(this).fadeOut();});
 	var timer = setTimeout(function() {
-		/*if(!self || !self.notifier) {
-			var self = OC.Contacts;
-			self.notifier = $('#notification');
-		}*/
 		self.notifier.fadeOut();
 		if(params.timeouthandler && $.isFunction(params.timeouthandler)) {
 			params.timeouthandler(self.notifier.data(dataid));
@@ -153,10 +145,6 @@ OC.notify = function(params) {
 	}
 	if(params.clickhandler && $.isFunction(params.clickhandler)) {
 		self.notifier.on('click', function() {
-			/*if(!self || !self.notifier) {
-				var self = OC.Contacts;
-				self.notifier = $(this);
-			}*/
 			clearTimeout(timer);
 			self.notifier.off('click');
 			params.clickhandler(self.notifier.data(dataid));
