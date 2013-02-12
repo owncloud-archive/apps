@@ -19,7 +19,7 @@ class Contacts{
 			return array();
 		}
 
-		$result = \OCP\Contacts::search($term, array('FN', 'EMAIL'));
+		$result = \OCP\Contacts::search($str, array('FN', 'EMAIL'));
 		$receivers = array();
 		foreach ($result as $r) {
 			$id = $r['id'];
