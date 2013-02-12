@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 11:49+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -73,12 +73,12 @@ msgid "Feed exists already!"
 msgstr "Iturburua dagoeneko existitzen da!"
 
 #: templates/part.addnew.php:16
-msgid "Could not add feed!"
-msgstr "Ezin izan da iturburua gehitu!"
+msgid "Could not add feed! Check if feed contains valid RSS!"
+msgstr ""
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
-msgstr ""
+msgstr "Karpeta dagoeneko existitzen da"
 
 #: templates/part.addnew.php:22
 msgid "Address"
@@ -90,7 +90,7 @@ msgstr "Gehitu"
 
 #: templates/part.addnew.php:29
 msgid "New folder"
-msgstr ""
+msgstr "Karpeta berria"
 
 #: templates/part.addnew.php:30
 msgid "Folder"
@@ -98,7 +98,7 @@ msgstr "Karpeta"
 
 #: templates/part.addnew.php:35
 msgid "No folder"
-msgstr ""
+msgstr "Karpetarik ez"
 
 #: templates/part.feed.starred.php:6
 msgid "Starred"
@@ -106,20 +106,20 @@ msgstr "Izardunak"
 
 #: templates/part.feed.unread.php:10
 msgid "Unread articles"
-msgstr ""
+msgstr "Irakurri gabeko artikuluak"
 
 #: templates/part.feed.unread.php:16
 msgid "All articles"
-msgstr ""
+msgstr "Artikulu guztiak"
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:18
-#: templates/part.listfolder.php:25
+#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Markatu guztiak irakurrita"
 
 #: templates/part.items.php:34
 msgid "Cant play audio format"
-msgstr ""
+msgstr "Ezin da audio formatua erreproduzitu"
 
 #: templates/part.items.php:48 templates/part.items.php:51
 msgid "Share"
@@ -129,7 +129,7 @@ msgstr "Elkarbanatu"
 msgid "Keep unread"
 msgstr "Mantendu irakurri gabea"
 
-#: templates/part.listfeed.php:26
+#: templates/part.listfeed.php:17
 msgid "Delete feed"
 msgstr "Ezabatu iturburua"
 
@@ -137,33 +137,33 @@ msgstr "Ezabatu iturburua"
 msgid "Collapse"
 msgstr "Tolestu"
 
-#: templates/part.listfolder.php:33
-msgid "Delete folder"
-msgstr "Ezabatu karpeta"
-
-#: templates/part.listfolder.php:37
+#: templates/part.listfolder.php:24
 msgid "Rename folder"
 msgstr "Berrizendatu karpeta"
 
+#: templates/part.listfolder.php:28
+msgid "Delete folder"
+msgstr "Ezabatu karpeta"
+
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"
-msgstr ""
+msgstr "Inportatu/Esportatu OPML"
 
 #: templates/part.settings.php:4 templates/part.settings.php:5
 msgid "Import"
 msgstr "Inportatu"
 
-#: templates/part.settings.php:9
+#: templates/part.settings.php:7 templates/part.settings.php:9
 msgid "Export"
 msgstr "Exportatu"
 
-#: templates/part.settings.php:12
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr "Subscribelet"
 
 #: templates/part.showall.php:2
 msgid "Show all"
-msgstr ""
+msgstr "Bistartu denak"
 
 #: templates/part.showall.php:6
 msgid "Show only unread"

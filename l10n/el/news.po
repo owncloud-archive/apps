@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 11:49+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -76,8 +76,8 @@ msgid "Feed exists already!"
 msgstr "Η ροή υπάρχει ήδη!"
 
 #: templates/part.addnew.php:16
-msgid "Could not add feed!"
-msgstr "Αδυναμία προσθήκης ροής!"
+msgid "Could not add feed! Check if feed contains valid RSS!"
+msgstr ""
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
@@ -115,8 +115,8 @@ msgstr ""
 msgid "All articles"
 msgstr ""
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:18
-#: templates/part.listfolder.php:25
+#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Σήμανση όλων ως ανεγνωσμένων"
 
@@ -132,7 +132,7 @@ msgstr "Διαμοιρασμός"
 msgid "Keep unread"
 msgstr "Διατήρηση αδιάβαστου"
 
-#: templates/part.listfeed.php:26
+#: templates/part.listfeed.php:17
 msgid "Delete feed"
 msgstr "Διαγραφή ροής"
 
@@ -140,13 +140,13 @@ msgstr "Διαγραφή ροής"
 msgid "Collapse"
 msgstr "Σύμπτυξη"
 
-#: templates/part.listfolder.php:33
-msgid "Delete folder"
-msgstr "Διαγραφή φακέλου"
-
-#: templates/part.listfolder.php:37
+#: templates/part.listfolder.php:24
 msgid "Rename folder"
 msgstr "Μετονομασία φακέλου"
+
+#: templates/part.listfolder.php:28
+msgid "Delete folder"
+msgstr "Διαγραφή φακέλου"
 
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"
@@ -156,11 +156,11 @@ msgstr ""
 msgid "Import"
 msgstr "Εισαγωγή"
 
-#: templates/part.settings.php:9
+#: templates/part.settings.php:7 templates/part.settings.php:9
 msgid "Export"
 msgstr "Εξαγωγή"
 
-#: templates/part.settings.php:12
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr "Εφαρμογίδιο Συνδρομής"
 

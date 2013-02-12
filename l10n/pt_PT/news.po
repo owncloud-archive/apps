@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 11:49+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -75,8 +75,8 @@ msgid "Feed exists already!"
 msgstr "O feed já existe!"
 
 #: templates/part.addnew.php:16
-msgid "Could not add feed!"
-msgstr "Não foi possível adicionar o feed!"
+msgid "Could not add feed! Check if feed contains valid RSS!"
+msgstr ""
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
@@ -114,8 +114,8 @@ msgstr ""
 msgid "All articles"
 msgstr ""
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:18
-#: templates/part.listfolder.php:25
+#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Marcar todos como lidos"
 
@@ -131,7 +131,7 @@ msgstr "Partilhar"
 msgid "Keep unread"
 msgstr "Manter como não lido"
 
-#: templates/part.listfeed.php:26
+#: templates/part.listfeed.php:17
 msgid "Delete feed"
 msgstr "Eliminar Feed"
 
@@ -139,13 +139,13 @@ msgstr "Eliminar Feed"
 msgid "Collapse"
 msgstr "Expandir"
 
-#: templates/part.listfolder.php:33
-msgid "Delete folder"
-msgstr "Apagar pasta"
-
-#: templates/part.listfolder.php:37
+#: templates/part.listfolder.php:24
 msgid "Rename folder"
 msgstr "Renomear pasta"
+
+#: templates/part.listfolder.php:28
+msgid "Delete folder"
+msgstr "Apagar pasta"
 
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"
@@ -155,11 +155,11 @@ msgstr ""
 msgid "Import"
 msgstr "Importar"
 
-#: templates/part.settings.php:9
+#: templates/part.settings.php:7 templates/part.settings.php:9
 msgid "Export"
 msgstr "Exportar"
 
-#: templates/part.settings.php:12
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr "Subescriçao"
 

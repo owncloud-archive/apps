@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 11:49+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -71,8 +71,8 @@ msgid "Feed exists already!"
 msgstr "Довод већ постоји."
 
 #: templates/part.addnew.php:16
-msgid "Could not add feed!"
-msgstr "Не могу да додам довод."
+msgid "Could not add feed! Check if feed contains valid RSS!"
+msgstr ""
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
@@ -110,8 +110,8 @@ msgstr ""
 msgid "All articles"
 msgstr ""
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:18
-#: templates/part.listfolder.php:25
+#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Означи све као прочитано"
 
@@ -127,7 +127,7 @@ msgstr "Дели"
 msgid "Keep unread"
 msgstr "Задржи непрочитано"
 
-#: templates/part.listfeed.php:26
+#: templates/part.listfeed.php:17
 msgid "Delete feed"
 msgstr "Обриши довод"
 
@@ -135,13 +135,13 @@ msgstr "Обриши довод"
 msgid "Collapse"
 msgstr "Скупи"
 
-#: templates/part.listfolder.php:33
-msgid "Delete folder"
-msgstr "Обриши фасциклу"
-
-#: templates/part.listfolder.php:37
+#: templates/part.listfolder.php:24
 msgid "Rename folder"
 msgstr "Преименуј фасциклу"
+
+#: templates/part.listfolder.php:28
+msgid "Delete folder"
+msgstr "Обриши фасциклу"
 
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"
@@ -151,11 +151,11 @@ msgstr ""
 msgid "Import"
 msgstr "Увези"
 
-#: templates/part.settings.php:9
+#: templates/part.settings.php:7 templates/part.settings.php:9
 msgid "Export"
 msgstr "Извези"
 
-#: templates/part.settings.php:12
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr "Пријава"
 

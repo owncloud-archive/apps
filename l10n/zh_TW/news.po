@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 11:49+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -72,8 +72,8 @@ msgid "Feed exists already!"
 msgstr "訂閱已經存在！"
 
 #: templates/part.addnew.php:16
-msgid "Could not add feed!"
-msgstr "無法新增訂閱！"
+msgid "Could not add feed! Check if feed contains valid RSS!"
+msgstr ""
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
@@ -111,8 +111,8 @@ msgstr ""
 msgid "All articles"
 msgstr ""
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:18
-#: templates/part.listfolder.php:25
+#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "標記所有為已閱讀"
 
@@ -128,7 +128,7 @@ msgstr "分享"
 msgid "Keep unread"
 msgstr "保持未閱讀"
 
-#: templates/part.listfeed.php:26
+#: templates/part.listfeed.php:17
 msgid "Delete feed"
 msgstr "刪除訂閱"
 
@@ -136,13 +136,13 @@ msgstr "刪除訂閱"
 msgid "Collapse"
 msgstr "收合"
 
-#: templates/part.listfolder.php:33
-msgid "Delete folder"
-msgstr "刪除資料夾"
-
-#: templates/part.listfolder.php:37
+#: templates/part.listfolder.php:24
 msgid "Rename folder"
 msgstr "資料夾更名"
+
+#: templates/part.listfolder.php:28
+msgid "Delete folder"
+msgstr "刪除資料夾"
 
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"
@@ -152,11 +152,11 @@ msgstr ""
 msgid "Import"
 msgstr "匯入"
 
-#: templates/part.settings.php:9
+#: templates/part.settings.php:7 templates/part.settings.php:9
 msgid "Export"
 msgstr "匯出"
 
-#: templates/part.settings.php:12
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr "Subscribelet"
 

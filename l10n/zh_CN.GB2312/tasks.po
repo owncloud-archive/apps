@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-16 23:32+0200\n"
-"PO-Revision-Date: 2012-10-16 12:00+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 14:33+0000\n"
 "Last-Translator: marguerite su <i@marguerite.su>\n"
 "Language-Team: Chinese (China) (GB2312) (http://www.transifex.com/projects/p/owncloud/language/zh_CN.GB2312/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr "列表"
 msgid "Location"
 msgstr "位置"
 
-#: js/tasks.js:415
+#: js/tasks.js:420
 msgid "No category"
 msgstr "无分类"
 

@@ -1,4 +1,3 @@
 <?php $TRANSLATIONS = array(
-"First Run Wizard" => "Sprievodca prvým spustením",
-"Show First Run Wizard again" => "Znovu zobraziť sprievodcu prvým spustením"
+"Get the apps to sync your files" => "Získať aplikácie na synchronizáciu Vašich súborov"
 );

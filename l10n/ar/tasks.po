@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-23 00:02+0100\n"
-"PO-Revision-Date: 2012-12-22 20:11+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 14:33+0000\n"
 "Last-Translator: aboodilankaboot <shiningmoon25@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/owncloud/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "المهام"
 
 #: js/tasks.js:78
 msgid "Due"
-msgstr ""
+msgstr "مستحق"
 
 #: js/tasks.js:107
 msgid "List"
@@ -64,7 +64,7 @@ msgstr "ملخص خالي"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr ""
+msgstr "بالمئة غير صحيحة اكتملت"
 
 #: lib/app.php:107
 msgid "Invalid priority"
@@ -81,7 +81,7 @@ msgstr "إضافة مهام"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "الطلب مستحق"
 
 #: templates/tasks.php:5
 msgid "Order List"

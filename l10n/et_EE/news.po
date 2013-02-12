@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2012.
+# Rivo Zängov <eraser@eraser.ee>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 11:49+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: 3rdparty/js/moment.min.js:6
 msgid "year"
-msgstr ""
+msgstr "aasta"
 
 #: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
 msgid "News"
@@ -64,19 +64,19 @@ msgstr "Lisa tellimus"
 
 #: templates/part.addnew.php:14
 msgid "Address must not be empty!"
-msgstr ""
+msgstr "Aadress ei tohi olla tühi!"
 
 #: templates/part.addnew.php:15
 msgid "Feed exists already!"
-msgstr ""
+msgstr "Uudisvoog on juba olemas!"
 
 #: templates/part.addnew.php:16
-msgid "Could not add feed!"
+msgid "Could not add feed! Check if feed contains valid RSS!"
 msgstr ""
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
-msgstr ""
+msgstr "Kaust on juba olemas"
 
 #: templates/part.addnew.php:22
 msgid "Address"
@@ -88,7 +88,7 @@ msgstr "Lisa"
 
 #: templates/part.addnew.php:29
 msgid "New folder"
-msgstr ""
+msgstr "Uus kaust"
 
 #: templates/part.addnew.php:30
 msgid "Folder"
@@ -96,7 +96,7 @@ msgstr "Kaust"
 
 #: templates/part.addnew.php:35
 msgid "No folder"
-msgstr ""
+msgstr "Kausta pole"
 
 #: templates/part.feed.starred.php:6
 msgid "Starred"
@@ -104,20 +104,20 @@ msgstr "Tärniga märgitud"
 
 #: templates/part.feed.unread.php:10
 msgid "Unread articles"
-msgstr ""
+msgstr "Lugemata artiklid"
 
 #: templates/part.feed.unread.php:16
 msgid "All articles"
-msgstr ""
+msgstr "Kõik artiklid"
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:18
-#: templates/part.listfolder.php:25
+#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Märgi loetuks"
 
 #: templates/part.items.php:34
 msgid "Cant play audio format"
-msgstr ""
+msgstr "Helivormingut ei saa esitada"
 
 #: templates/part.items.php:48 templates/part.items.php:51
 msgid "Share"
@@ -127,7 +127,7 @@ msgstr "Jaga"
 msgid "Keep unread"
 msgstr "Hoia kui lugemata"
 
-#: templates/part.listfeed.php:26
+#: templates/part.listfeed.php:17
 msgid "Delete feed"
 msgstr "Kustuta uudisvoog"
 
@@ -135,33 +135,33 @@ msgstr "Kustuta uudisvoog"
 msgid "Collapse"
 msgstr "Sulge"
 
-#: templates/part.listfolder.php:33
-msgid "Delete folder"
-msgstr "Kustuta kaust"
-
-#: templates/part.listfolder.php:37
+#: templates/part.listfolder.php:24
 msgid "Rename folder"
 msgstr "Nimeta kaust ümber"
 
+#: templates/part.listfolder.php:28
+msgid "Delete folder"
+msgstr "Kustuta kaust"
+
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"
-msgstr ""
+msgstr "Impordi / Ekspordi OPML"
 
 #: templates/part.settings.php:4 templates/part.settings.php:5
 msgid "Import"
 msgstr "Impordi"
 
-#: templates/part.settings.php:9
+#: templates/part.settings.php:7 templates/part.settings.php:9
 msgid "Export"
 msgstr "Ekspordi"
 
-#: templates/part.settings.php:12
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr "Tellimuse vidin"
 
 #: templates/part.showall.php:2
 msgid "Show all"
-msgstr ""
+msgstr "Näita kõiki"
 
 #: templates/part.showall.php:6
 msgid "Show only unread"

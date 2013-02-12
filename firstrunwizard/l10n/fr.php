@@ -1,4 +1,3 @@
 <?php $TRANSLATIONS = array(
-"First Run Wizard" => "Premier lancement de l'installeur",
-"Show First Run Wizard again" => "Revoir le premier lancement de l'installeur"
+"Get the apps to sync your files" => "Obtenez les applications de synchronisation de vos fichiers"
 );

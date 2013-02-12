@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 5.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,15 +115,15 @@ msgstr ""
 msgid "Related Tags"
 msgstr ""
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr ""
 
-#: templates/list.php:55
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr ""
 
-#: templates/list.php:60
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr ""
 

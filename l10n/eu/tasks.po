@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-04 02:05+0200\n"
-"PO-Revision-Date: 2012-10-03 08:03+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 14:33+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr "Zerrenda"
 msgid "Location"
 msgstr "Kokapena"
 
-#: js/tasks.js:415
+#: js/tasks.js:420
 msgid "No category"
 msgstr "Kategoriarik ez"
 

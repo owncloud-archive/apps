@@ -4,14 +4,14 @@
 # 
 # Translators:
 #   <dagor.vint@hotmail.com>, 2012.
-# Rivo Zängov <eraser@eraser.ee>, 2011-2012.
+# Rivo Zängov <eraser@eraser.ee>, 2011-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 10:05+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 17:50+0000\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -229,133 +229,133 @@ msgstr "Kontaktid"
 #: export.php:66
 #, php-format
 msgid "%d_selected_contacts"
-msgstr ""
+msgstr "%d_valitud_kontakti"
 
-#: js/app.js:268 js/app.js:282
+#: js/app.js:256 js/app.js:270
 msgid "Add to..."
 msgstr "Lisa..."
 
-#: js/app.js:272 js/app.js:284
+#: js/app.js:260 js/app.js:272
 msgid "Remove from..."
 msgstr "Eemalda..."
 
-#: js/app.js:289
+#: js/app.js:277
 msgid "Add group..."
 msgstr "Lisa gruppi..."
 
-#: js/app.js:357
+#: js/app.js:345
 msgid "Indexing contacts"
 msgstr "Kontaktide indekseerimine"
 
-#: js/app.js:454
+#: js/app.js:442
 msgid "Select photo"
 msgstr "Vali foto"
 
-#: js/app.js:505 js/app.js:531 js/app.js:1517 js/app.js:1629
+#: js/app.js:493 js/app.js:519 js/app.js:1505 js/app.js:1617
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "Võrgu või serveri viga. Palun informeeri administraatorit."
 
-#: js/app.js:673 js/app.js:712
+#: js/app.js:661 js/app.js:700
 msgid "Error adding to group."
 msgstr "Viga gruppi lisamisel."
 
-#: js/app.js:741
+#: js/app.js:729
 msgid "Error removing from group."
 msgstr "Viga grupist eemaldamisel."
 
-#: js/app.js:771
+#: js/app.js:759
 msgid "There was an error opening a mail composer."
 msgstr "Meiliprogrammi avamisel tekkis viga."
 
-#: js/app.js:821
+#: js/app.js:809
 msgid "Deleting done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:898
+#: js/app.js:886
 msgid "Add address book"
-msgstr ""
+msgstr "Lisa aadressiraamat"
 
-#: js/app.js:994
+#: js/app.js:982
 msgid "Import done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:1035
+#: js/app.js:1023
 msgid "Not all files uploaded. Retrying..."
 msgstr "Kõiki faile ei laetud üles. Proovime uuesti..."
 
-#: js/app.js:1041
+#: js/app.js:1029
 msgid "Something went wrong with the upload, please retry."
 msgstr "Midagi läks üleslaadimisega valesti, palun proovi uuesti."
 
-#: js/app.js:1041 js/app.js:1564 js/settings.js:25 js/settings.js:45
+#: js/app.js:1029 js/app.js:1552 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Viga"
 
-#: js/app.js:1051
+#: js/app.js:1039
 msgid "Importing from {filename}..."
-msgstr ""
+msgstr "Importimine failist {filename}..."
 
-#: js/app.js:1054
+#: js/app.js:1042
 msgid "{success} imported, {failed} failed."
-msgstr ""
+msgstr "{success} imporditud, {failed} ebaõnnestus."
 
-#: js/app.js:1062
+#: js/app.js:1050
 msgid "Importing..."
 msgstr "Importimine..."
 
-#: js/app.js:1085
+#: js/app.js:1073
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Faili ei saa üles laadida, kuna see on kaust või selle suurus on 0 baiti"
 
-#: js/app.js:1085
+#: js/app.js:1073
 msgid "Upload Error"
 msgstr "Üleslaadimise viga"
 
-#: js/app.js:1092 js/app.js:1392
+#: js/app.js:1080 js/app.js:1380
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Fail , mida sa proovid üles laadida ületab sinu serveri poolt määratud maksimaalse üleslaadimise limiidi."
 
-#: js/app.js:1092
+#: js/app.js:1080
 msgid "Upload too large"
 msgstr "Üleslaadimine on liiga suur"
 
-#: js/app.js:1132
+#: js/app.js:1120
 msgid "Pending"
 msgstr "Ootel"
 
-#: js/app.js:1275 templates/contacts.php:121
+#: js/app.js:1263 templates/contacts.php:121
 msgid "Add group"
 msgstr "Lisa grupp"
 
-#: js/app.js:1381
+#: js/app.js:1369
 msgid "No files selected for upload."
 msgstr "Üleslaadimiseks pole faile valitud."
 
-#: js/app.js:1482
+#: js/app.js:1470
 msgid "Edit profile picture"
 msgstr "Muuda profiili pilti"
 
-#: js/app.js:1500 js/contacts.js:1134
+#: js/app.js:1488 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr "Viga profiilipildi laadimisel"
 
-#: js/app.js:1552
+#: js/app.js:1540
 msgid "Enter name"
 msgstr "Sisesta nimi"
 
-#: js/app.js:1553
+#: js/app.js:1541
 msgid "Enter description"
 msgstr "Sisesta kirjeldus"
 
-#: js/app.js:1556
+#: js/app.js:1544
 msgid "Select addressbook"
 msgstr "Vali aadressiraamat"
 
-#: js/app.js:1564
+#: js/app.js:1552
 msgid "The address book name cannot be empty."
 msgstr "Aadressiraamatu nimi ei saa olla tühi."
 
@@ -369,7 +369,7 @@ msgstr "Selle kontakti kustutamisel tekkis viga"
 
 #: js/contacts.js:683
 msgid "# groups"
-msgstr ""
+msgstr "Gruppide arv"
 
 #: js/contacts.js:1490
 msgid ""
@@ -657,7 +657,7 @@ msgstr "Seaded"
 
 #: templates/contacts.php:16
 msgid "Address books"
-msgstr ""
+msgstr "Aadressiraamatud"
 
 #: templates/contacts.php:19 templates/contacts.php:96
 msgid "Import"
@@ -665,11 +665,11 @@ msgstr "Impordi"
 
 #: templates/contacts.php:24
 msgid "Select files to import"
-msgstr ""
+msgstr "Vali failid, mida importida"
 
 #: templates/contacts.php:25
 msgid "Select files"
-msgstr ""
+msgstr "Vali failid"
 
 #: templates/contacts.php:31 templates/contacts.php:33
 msgid "Import into:"
@@ -689,7 +689,7 @@ msgstr "Uus kontakt"
 
 #: templates/contacts.php:48
 msgid "Download Contact(s)"
-msgstr ""
+msgstr "Lae kontakt(id) alla"
 
 #: templates/contacts.php:50
 msgid "Groups"
@@ -803,7 +803,7 @@ msgstr "Perekonnanimi"
 
 #: templates/contacts.php:192
 msgid "Select groups"
-msgstr ""
+msgstr "Vali grupid"
 
 #: templates/contacts.php:196 templates/contacts.php:260
 msgid "Nickname"
@@ -819,7 +819,7 @@ msgstr "Pealkiri"
 
 #: templates/contacts.php:206
 msgid "Enter title"
-msgstr ""
+msgstr "Sisesta pealkiri"
 
 #: templates/contacts.php:210 templates/contacts.php:258
 msgid "Organization"
@@ -827,7 +827,7 @@ msgstr "Organisatsioon"
 
 #: templates/contacts.php:213
 msgid "Enter organization"
-msgstr ""
+msgstr "Sisesta organisatsioon"
 
 #: templates/contacts.php:217 templates/contacts.php:261
 msgid "Birthday"
@@ -839,7 +839,7 @@ msgstr "Märkmed lähevad siia.."
 
 #: templates/contacts.php:255
 msgid "Export as VCF"
-msgstr ""
+msgstr "Ekspordi VCF-ina"
 
 #: templates/contacts.php:257
 msgid "Add"
@@ -949,7 +949,7 @@ msgstr "Mingi regioon"
 
 #: templates/contacts.php:354
 msgid "State or province"
-msgstr ""
+msgstr "Maakond"
 
 #: templates/contacts.php:358
 msgid "Your country"
@@ -977,7 +977,7 @@ msgstr "Ekspordi"
 
 #: templates/contacts.php:395
 msgid "CardDAV link"
-msgstr ""
+msgstr "CardDAV link"
 
 #: templates/part.cropphoto.php:31
 msgid "The temporary image has been removed from cache."

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-12 02:04+0200\n"
-"PO-Revision-Date: 2012-10-11 18:04+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 14:33+0000\n"
 "Last-Translator: variaatiox <ari.takalo@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr "Lista"
 msgid "Location"
 msgstr "Sijainti"
 
-#: js/tasks.js:415
+#: js/tasks.js:420
 msgid "No category"
 msgstr "Ei luokkaa"
 

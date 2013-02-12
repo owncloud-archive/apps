@@ -1,4 +1,3 @@
 <?php $TRANSLATIONS = array(
-"First Run Wizard" => "Настройка после первого запуска",
-"Show First Run Wizard again" => "Показать помощник настройки"
+"Get the apps to sync your files" => "Получить приложения для синхронизации ваших файлов"
 );

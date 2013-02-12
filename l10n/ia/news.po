@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 11:49+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Interlingua (http://www.transifex.com/projects/p/owncloud/language/ia/)\n"
 "MIME-Version: 1.0\n"
@@ -70,7 +70,7 @@ msgid "Feed exists already!"
 msgstr ""
 
 #: templates/part.addnew.php:16
-msgid "Could not add feed!"
+msgid "Could not add feed! Check if feed contains valid RSS!"
 msgstr ""
 
 #: templates/part.addnew.php:17
@@ -109,8 +109,8 @@ msgstr ""
 msgid "All articles"
 msgstr ""
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:18
-#: templates/part.listfolder.php:25
+#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr ""
 
@@ -126,7 +126,7 @@ msgstr "Compartir"
 msgid "Keep unread"
 msgstr ""
 
-#: templates/part.listfeed.php:26
+#: templates/part.listfeed.php:17
 msgid "Delete feed"
 msgstr ""
 
@@ -134,12 +134,12 @@ msgstr ""
 msgid "Collapse"
 msgstr ""
 
-#: templates/part.listfolder.php:33
-msgid "Delete folder"
+#: templates/part.listfolder.php:24
+msgid "Rename folder"
 msgstr ""
 
-#: templates/part.listfolder.php:37
-msgid "Rename folder"
+#: templates/part.listfolder.php:28
+msgid "Delete folder"
 msgstr ""
 
 #: templates/part.settings.php:2
@@ -150,11 +150,11 @@ msgstr ""
 msgid "Import"
 msgstr "Importar"
 
-#: templates/part.settings.php:9
+#: templates/part.settings.php:7 templates/part.settings.php:9
 msgid "Export"
 msgstr "Exportar"
 
-#: templates/part.settings.php:12
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr ""
 

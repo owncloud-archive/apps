@@ -1,4 +1,3 @@
 <?php $TRANSLATIONS = array(
-"First Run Wizard" => "Prima Esecuzione della Procedura Guidata",
-"Show First Run Wizard again" => "Mostra Nuovamente la Prima Esecuzione della Procedura Guidata"
+"Get the apps to sync your files" => "Scarica le applicazioni per sincronizzare i tuoi file"
 );

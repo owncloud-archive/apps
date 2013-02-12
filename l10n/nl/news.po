@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 11:49+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -75,8 +75,8 @@ msgid "Feed exists already!"
 msgstr "Feed bestaat al!"
 
 #: templates/part.addnew.php:16
-msgid "Could not add feed!"
-msgstr "Kon de feed niet toevoegen!"
+msgid "Could not add feed! Check if feed contains valid RSS!"
+msgstr ""
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
@@ -114,8 +114,8 @@ msgstr ""
 msgid "All articles"
 msgstr ""
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:18
-#: templates/part.listfolder.php:25
+#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Markeer alles als gelezen"
 
@@ -131,7 +131,7 @@ msgstr "Delen"
 msgid "Keep unread"
 msgstr "Bewaar ongelezen"
 
-#: templates/part.listfeed.php:26
+#: templates/part.listfeed.php:17
 msgid "Delete feed"
 msgstr "Verwijder feed"
 
@@ -139,13 +139,13 @@ msgstr "Verwijder feed"
 msgid "Collapse"
 msgstr "Inklappen"
 
-#: templates/part.listfolder.php:33
-msgid "Delete folder"
-msgstr "Verwijder map"
-
-#: templates/part.listfolder.php:37
+#: templates/part.listfolder.php:24
 msgid "Rename folder"
 msgstr "Hernoem map"
+
+#: templates/part.listfolder.php:28
+msgid "Delete folder"
+msgstr "Verwijder map"
 
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"
@@ -155,11 +155,11 @@ msgstr ""
 msgid "Import"
 msgstr "Importeer"
 
-#: templates/part.settings.php:9
+#: templates/part.settings.php:7 templates/part.settings.php:9
 msgid "Export"
 msgstr "Exporteer"
 
-#: templates/part.settings.php:12
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr "Subscribelet"
 

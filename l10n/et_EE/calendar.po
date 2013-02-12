@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2011-2012.
+# Rivo Zängov <eraser@eraser.ee>, 2011-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 10:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 17:40+0000\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -295,7 +295,7 @@ msgstr "Uus kalender"
 
 #: js/l10n.php:53
 msgid "Missing or invalid fields"
-msgstr ""
+msgstr "Puuduvad või vigased väljad"
 
 #: js/l10n.php:54 templates/part.eventform.php:16
 #: templates/part.showevent.php:11
@@ -416,19 +416,19 @@ msgstr "Sul pole õigusi selle ürituse kustutamiseks."
 
 #: lib/object.php:481
 msgid "Busy"
-msgstr ""
+msgstr "Hõivatud"
 
 #: lib/object.php:498
 msgid "Public"
-msgstr ""
+msgstr "Avalik"
 
 #: lib/object.php:499
 msgid "Private"
-msgstr ""
+msgstr "Privaatne"
 
 #: lib/object.php:500
 msgid "Confidential"
-msgstr ""
+msgstr "Konfitentsiaalne"
 
 #: lib/object.php:510
 msgid "Does not repeat"
@@ -655,7 +655,7 @@ msgstr "Muuda kategooriaid"
 
 #: templates/part.eventform.php:47 templates/part.showevent.php:46
 msgid "Access Class"
-msgstr ""
+msgstr "Ligipääsu klass"
 
 #: templates/part.eventform.php:64 templates/part.showevent.php:62
 msgid "All Day Event"
