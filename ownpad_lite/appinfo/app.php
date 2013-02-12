@@ -54,6 +54,34 @@ class App {
 	}
 }
 
+class UrlParam{
+	const CONFIG_URL = 'url';
+	const CONFIG_USERNAME = 'username';
+	static public function getParam($key){
+		$param = self::post($key);
+		if (!$param){
+			$param = self::get($key);
+		}
+		return $param;
+	}
+	
+	static public function get($key){
+		return self::getKey($_POST, $key);
+	}
+	
+	static public function post($key){
+	
+		return self::getKey($_POST, $key);
+	}
+	
+	static protected function getKey($array, $key){
+		if (isset($array[$key])){
+			return $array[$key];
+		}
+		return false;
+	}
+}
+
 \OCP\App::addNavigationEntry( array(
 	'id' => 'ownpad_lite_index',
 	'order' => 90,

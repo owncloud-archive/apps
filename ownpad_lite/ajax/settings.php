@@ -15,8 +15,8 @@ namespace OCA\ownpad_lite;
 \OCP\JSON::checkLoggedIn();
 \OCP\JSON::callCheck();
 
-$serviceUrl = isset($_POST[App::CONFIG_ETHERPAD_URL]) ? $_POST[App::CONFIG_ETHERPAD_URL] : false;
-$username = isset($_POST[App::CONFIG_USERNAME]) ? $_POST[App::CONFIG_USERNAME] : false;
+$serviceUrl = UrlParam::post(UrlParam::CONFIG_URL);
+$username = UrlParam::post(UrlParam::CONFIG_USERNAME);
 
 $errors = array();
 
@@ -36,3 +36,4 @@ if ($serviceUrl) {
 }
 
 \OCP\JSON::success(array('data'=>$errors));
+exit();
