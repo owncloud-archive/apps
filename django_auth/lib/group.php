@@ -4,7 +4,7 @@
  * ownCloud
  *
  * @author Florian Reinhard
- * @copyright 2012 Florian Reinhard <florian.reinhard@googlemail.com>
+ * @copyright 2012-2013 Florian Reinhard <florian.reinhard@googlemail.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -21,6 +21,8 @@
  *
  */
 
+require_once 'django_auth/lib/djangodatabase.php';
+
 /**
 * @brief Class providing django groups to ownCloud
 * @see http://www.djangoproject.com
@@ -31,12 +33,13 @@
 class OC_GROUP_DJANGO extends OC_Group_Backend {
 	static $staff_is_admin;
 	static $superuser_is_admin;
+	private $db;
 
 	public function __construct() {
 		self::$staff_is_admin     = OC_Appconfig::getValue('django_auth', 'staff_is_admin',     OC_GROUP_BACKEND_DJANGO_STAFF_IS_ADMIN);
 		self::$superuser_is_admin = OC_Appconfig::getValue('django_auth', 'superuser_is_admin', OC_GROUP_BACKEND_DJANGO_SUPERUSER_IS_ADMIN);
+		$this->db = Djangodatabase::getDatabase();
 	}
-	static private $userGroupCache=array();
 
 	/**
 	* @brief Try to create a new group
@@ -72,6 +75,8 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	* Checks whether the user is member of a group or not.
 	*/
 	public function inGroup( $uid, $gid ) {
+		if (!$this->db) return false;
+
 		// Special case for the admin group
 		if ($gid =='admin') {
 			$sql = 'SELECT `auth_user`.`username`
@@ -91,8 +96,8 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 				}
 				$sql.=')';
 			}
-			$query  = OC_DB::prepare($sql);
-			$result = $query->execute( array( $uid ));
+			$query = $this->db->prepare($sql);
+			$param = array( $uid );
 		}
 		else {
 			$sql = 'SELECT `auth_user`.`username`
@@ -104,11 +109,14 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
  WHERE `auth_group`.`name` = ?
    AND `auth_user`.`username`  = ?
    AND `auth_user`.`is_active` = 1';
-			$query  = OC_DB::prepare($sql);
-			$result = $query->execute( array( $gid, $uid ));
+			$query  = $this->db->prepare($sql);
+			$param = array( $gid, $uid );
 		}
-
-		return $result->fetchRow() ? true : false;
+		if ($query->execute( $param )) {
+			$row = $query->fetch();
+			return !empty($row);
+		}
+		return false;
 	}
 
 	/**
@@ -146,16 +154,22 @@ class OC_GROUP_DJANGO extends OC_Group_Backend {
 	* if the user exists at all.
 	*/
 	public function getUserGroups( $uid ) {
-		$query = OC_DB::prepare( 'SELECT  `auth_group`.`name`
+		$groups = array();
+
+		if (!$this->db) return $groups;
+
+		$query = $this->db->prepare( 'SELECT  `auth_group`.`name`
 FROM  `auth_group`
 INNER JOIN  `auth_user_groups` ON (  `auth_group`.`id` =  `auth_user_groups`.`group_id` )
 INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`user_id` )
  WHERE `auth_user`.`username`  = ?
    AND `auth_user`.`is_active` = 1' );
-		$result = $query->execute( array( $uid ));
-		$groups = array();
-		while ( $row = $result->fetchRow()) {
-			$groups[] = $row["name"];
+
+		if ($query->execute( array( $uid )))
+		{
+			while ( $row = $query->fetch()) {
+				$groups[] = $row["name"];
+			}
 		}
 		return $groups;
 	}
@@ -167,11 +181,16 @@ INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`use
 	* Returns a list with all groups
 	*/
 	public function getGroups($search = '', $limit = -1, $offset = 0) {
-		$query  = OC_DB::prepare( "SELECT id, name FROM auth_group ORDER BY name" );
-		$result = $query->execute();
 		$groups = array();
-		while ( $row = $result->fetchRow()) {
-			$groups[] = $row["name"];
+
+		if (!$this->db) return $groups;
+
+		$query = $this->db->prepare( "SELECT id, name FROM auth_group ORDER BY name" );
+		if ($query->execute())
+		{
+			while ( $row = $query->fetch()) {
+				$groups[] = $row["name"];
+			}
 		}
 
 		return $groups;
@@ -182,7 +201,11 @@ INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`use
 	* @returns array with user ids
 	*/
 	public function usersInGroup($gid, $search = '', $limit = -1, $offset = 0) {
-		$query = OC_DB::prepare('SELECT `auth_user`.`username`
+		$users  = array();
+
+		if (!$this->db) return $users;
+
+		$query = $this->db->prepare('SELECT `auth_user`.`username`
   FROM `auth_user`
  INNER JOIN `auth_user_groups`
          ON (`auth_user`.`id` = `auth_user_groups`.`user_id`)
@@ -190,7 +213,7 @@ INNER JOIN  `auth_user`        ON (  `auth_user`.`id` =  `auth_user_groups`.`use
          ON (`auth_group`.`id` = `auth_user_groups`.`group_id`)
  WHERE `auth_group`.`name` = ?
    AND `auth_user`.`is_active` = 1');
-		$users  = array();
+
 		$result = $query->execute(array($gid));
 		while ($row=$result->fetchRow()) {
 			$users[]=$row['username'];
