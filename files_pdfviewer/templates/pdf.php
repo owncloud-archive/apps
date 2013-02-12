@@ -43,8 +43,8 @@ limitations under the License.
 
 <script type="text/javascript">
     var oc_webroot = '<?php echo OC::$WEBROOT; ?>';
-    window.dir = "<?php echo $_['dir']; ?>";
-    window.file = "<?php echo $_['file']; ?>";
+    window.dir = "<?php echo urlencode($_['dir']); ?>";
+    window.file = "<?php echo urlencode($_['file']); ?>";
 </script>
 
 <body>
