@@ -57,6 +57,7 @@ class App {
 class UrlParam{
 	const CONFIG_URL = 'url';
 	const CONFIG_USERNAME = 'username';
+	const SHARE_SEARCH = 'search';
 	static public function getParam($key){
 		$param = self::post($key);
 		if (!$param){
@@ -89,3 +90,5 @@ class UrlParam{
 	'icon' => \OCP\Util::imagePath( 'settings', 'users.svg' ),
 	'name' => \OC_L10N::get(App::APP_ID)->t('My pad') )
 );
+
+\OC::$CLASSPATH['OCA\ownpad_lite\Contacts'] = App::APP_ID.'/lib/contacts.php';
