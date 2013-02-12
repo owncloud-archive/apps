@@ -171,14 +171,14 @@
 	background-size:contain;
 }
 
-.action.text, .icon.text { 
+.action:not(.add).text, .icon:not(.add).text { 
 	background-position: left; 
 	text-indent: 18px;
 }
 
 /* TODO: Use @import url('%appswebroot%/contacts/css/[no-]svg.css); instead. */
 
-.no-svg .add { background-image:url('%webroot%/core/img/actions/add.png'); }
+/*.no-svg .add { background-image:url('%webroot%/core/img/actions/add.png'); }*/
 .no-svg .delete { background-image:url('%webroot%/core/img/actions/delete.png'); }
 .no-svg .edit { background-image:url('%webroot%/core/img/actions/rename.png'); }
 .no-svg .share { background-image:url('%webroot%/core/img/actions/share.png'); }
@@ -198,7 +198,7 @@
 	background-origin: content-box;
 	background-repeat: no-repeat;
 }
-.svg .add { background-image:url('%webroot%/core/img/actions/add.svg'); }
+/*.svg .add { background-image:url('%webroot%/core/img/actions/add.svg'); }*/
 .svg .delete { background-image:url('%webroot%/core/img/actions/delete.svg'); }
 .svg .edit { background-image:url('%webroot%/core/img/actions/rename.svg'); }
 .svg .share { background-image:url('%webroot%/core/img/actions/share.svg'); }
@@ -458,7 +458,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	padding: 0 .5em 0 4em; margin: 0 auto; 
 	height: 100%; width: 100%;
 }
-#contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: .7em; padding: .2em; clear: none; }
+#groupsheader button, #contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: .7em; padding: .2em; clear: none; }
 #contactsheader select { width:100px; }
 #contactsheader .delete { 
 	bottom: 1.4em;
@@ -533,7 +533,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	padding: 10px; 
 	position: fixed !important; 
 	z-index: 200; 
-	top: 8em; left: 35em;
+	top: 8em; left: 28em;
 	width: 490px;
 }
 #contact .arrow { 
