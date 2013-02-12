@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 17:22+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:38+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Bookmarks"
 msgstr "ბუქმარკები"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "ტაგები"
 
@@ -38,11 +38,11 @@ msgstr ""
 msgid "Edit bookmark"
 msgstr "ბუქმარკების რედაქტირება"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "დარწმუნებული ხართ რომ აღნიშნული ტაგის წაშლა გინდათ ყველა ჩანაწერიდა?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "გაფრთხილება"
 
@@ -58,39 +58,39 @@ msgstr ""
 msgid "Bookm."
 msgstr "Bookm."
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "ბუქმარქში დამატება"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "დახურვა"
 
-#: templates/addBm.php:22 templates/js_tpl.php:33
+#: templates/addBm.php:16 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr "გვერდის სათაური"
 
-#: templates/addBm.php:27 templates/js_tpl.php:37
+#: templates/addBm.php:21 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr "გვერდის მისამართი"
 
-#: templates/addBm.php:40 templates/js_tpl.php:46
+#: templates/addBm.php:34 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr "გვერდის დახასიათება"
 
-#: templates/addBm.php:44 templates/js_tpl.php:50
+#: templates/addBm.php:38 templates/js_tpl.php:47
 msgid "Save"
 msgstr "შენახვა"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:61
 msgid "Delete"
 msgstr "წაშლა"
 
-#: templates/js_tpl.php:20 templates/js_tpl.php:60
+#: templates/js_tpl.php:19 templates/js_tpl.php:57
 msgid "Edit"
 msgstr "რედაქტირება"
 
-#: templates/js_tpl.php:49
+#: templates/js_tpl.php:46
 msgid "Cancel"
 msgstr "უარყოფა"
 
@@ -120,11 +120,11 @@ msgstr "Related Tags"
 msgid "Settings"
 msgstr "პარამეტრები"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "თქვენ არ გაქვთ ბუქმარკები"
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr ""
 

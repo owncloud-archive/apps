@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-14 00:01+0100\n"
-"PO-Revision-Date: 2012-11-13 18:02+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:05+0000\n"
 "Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "Dateityp wird für den Import nicht unterstützt"
 msgid "Bookmarks"
 msgstr "Lesezeichen"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "Tags"
 
@@ -44,11 +44,11 @@ msgstr "Filtern nach Schlagwort"
 msgid "Edit bookmark"
 msgstr "Lesezeichen bearbeiten"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Soll dieses Schlagwort wirklich von allen Einträgen entfernt werden?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "Warnung"
 
@@ -64,39 +64,39 @@ msgstr "Lade hoch ..."
 msgid "Bookm."
 msgstr "Lesez."
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "Ein Lesezeichen hinzufügen"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "Schließen"
 
-#: templates/addBm.php:22 templates/js_tpl.php:33
+#: templates/addBm.php:16 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr "Der Titel der Seite"
 
-#: templates/addBm.php:27 templates/js_tpl.php:37
+#: templates/addBm.php:21 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr "Die Adresse der Seite"
 
-#: templates/addBm.php:40 templates/js_tpl.php:46
+#: templates/addBm.php:34 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr "Die Beschreibung der Seite"
 
-#: templates/addBm.php:44 templates/js_tpl.php:50
+#: templates/addBm.php:38 templates/js_tpl.php:47
 msgid "Save"
 msgstr "Speichern"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:61
 msgid "Delete"
 msgstr "Löschen"
 
-#: templates/js_tpl.php:20 templates/js_tpl.php:60
+#: templates/js_tpl.php:19 templates/js_tpl.php:57
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: templates/js_tpl.php:49
+#: templates/js_tpl.php:46
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -126,11 +126,11 @@ msgstr "Verwandte Schlagworte"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "Sie haben keine Lesezeichen"
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr "Sie können auch versuchen, eine Lesezeichen Datei zu importieren."
 

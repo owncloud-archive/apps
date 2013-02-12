@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-18 02:01+0200\n"
-"PO-Revision-Date: 2012-09-17 17:13+0000\n"
-"Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,3 +27,15 @@ msgstr "Τεκμηρίωση"
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
 msgstr "Δεν βρέθηκαν αρχεία παρουσιάσεων στο ownCloud σας. Παρακαλώ μεταφορτώστε ένα αρχείο .impress"
+
+#: templates/presentations.php:12
+msgid "Name"
+msgstr "Όνομα"
+
+#: templates/presentations.php:12
+msgid "Size"
+msgstr "Μέγεθος"
+
+#: templates/presentations.php:12
+msgid "Date"
+msgstr "Ημερομηνία"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-27 00:01+0100\n"
-"PO-Revision-Date: 2012-12-26 17:16+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:05+0000\n"
 "Last-Translator: Gilad Naaman <gilad.doom@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/owncloud/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "סוג הקובץ אינו ניתן לייבוא"
 msgid "Bookmarks"
 msgstr "סימניות"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "תגיות"
 
@@ -39,11 +39,11 @@ msgstr "סנן לפי תגית"
 msgid "Edit bookmark"
 msgstr "ערוך סימניה"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "האם אתה בטוח שברצונך להסיר את התגית מכל הרשומות?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "אזהרה"
 
@@ -59,27 +59,27 @@ msgstr "העלאה..."
 msgid "Bookm."
 msgstr "סימניה."
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "הוסף סימניה"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "סגירה"
 
-#: templates/addBm.php:22 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr "כותרת הדף"
 
-#: templates/addBm.php:27 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr "כתובת הדף"
 
-#: templates/addBm.php:40 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr "תיאור הדף"
 
-#: templates/addBm.php:44 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:47
 msgid "Save"
 msgstr "שמירה"
 
@@ -121,11 +121,11 @@ msgstr "תגיות קשורות"
 msgid "Settings"
 msgstr "הגדרות"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "אין ברשותך סימניות"
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr "יש ביכולתך לייבא גם קובץ סימניות"
 

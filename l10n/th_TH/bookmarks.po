@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-23 00:01+0100\n"
-"PO-Revision-Date: 2012-11-22 10:41+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
 "Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "ประเภทของไฟล์ที่ต้องการน
 msgid "Bookmarks"
 msgstr "รายการโปรด"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "ป้ายกำกับ"
 
@@ -38,11 +38,11 @@ msgstr "แสดงข้อมูลตามป้ายกำกับ"
 msgid "Edit bookmark"
 msgstr "แก้ไขรายการโปรด"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "คุณแน่ใจแล้วหรือว่าต้องการลบป้ายกำกับนี้ออกจากทุกๆรายการ"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "คำเตือน"
 
@@ -58,27 +58,27 @@ msgstr "กำลังอัพโหลด..."
 msgid "Bookm."
 msgstr "รายการโปรด"
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "เพิ่มรายการโปรด"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "ปิด"
 
-#: templates/addBm.php:22 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr "ชื่อของหน้า"
 
-#: templates/addBm.php:27 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr "ที่อยู่ของหน้า"
 
-#: templates/addBm.php:40 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr "คำอธิบายเกี่ยวกับหน้า"
 
-#: templates/addBm.php:44 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:47
 msgid "Save"
 msgstr "บันทึก"
 
@@ -120,11 +120,11 @@ msgstr "ป้ายกำกับอื่นๆที่เกี่ยวข
 msgid "Settings"
 msgstr "ตั้งค่า"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "คุณยังไม่มีรายการโปรด"
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr "คุณสามารถที่จะลองนำเข้าไฟล์รายการโปรดได้ด้วยเช่นกัน"
 

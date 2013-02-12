@@ -6,14 +6,15 @@
 # Bartek  <bart.p.pl@gmail.com>, 2012.
 # Cyryl Sochacki <>, 2012.
 # Marcin Małecki <gerber@tkdami.net>, 2012.
+# Michał Plichta <mplichta@gmail.com>, 2013.
 # Piotr Sokół <psokol@jabster.pl>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 09:43+0000\n"
+"Last-Translator: emc <mplichta@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +28,7 @@ msgstr "Zdjęcia"
 
 #: js/gallery.js:237
 msgid "Shared by"
-msgstr ""
+msgstr "Współdzielone z"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"

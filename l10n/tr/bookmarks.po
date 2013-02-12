@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-28 00:18+0100\n"
-"PO-Revision-Date: 2012-12-27 13:39+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
 "Last-Translator: Necdet Yücel <necdetyucel@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "İçe aktarmak için desteklenmeyen dosya türü"
 msgid "Bookmarks"
 msgstr "Yer İmleri"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "Etiketler"
 
@@ -39,11 +39,11 @@ msgstr "Etikete göre süz"
 msgid "Edit bookmark"
 msgstr "Yer imini düzenle"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Bu etiketi tüm girdilerden silmek istediğinizden emin misiniz?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "Uyarı"
 
@@ -59,27 +59,27 @@ msgstr "Yükleniyor..."
 msgid "Bookm."
 msgstr "Yer imi"
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "Yer imi ekle"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "Kapat"
 
-#: templates/addBm.php:22 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr "Sayfanın başlığı"
 
-#: templates/addBm.php:27 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr "Sayfanın adresi"
 
-#: templates/addBm.php:40 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr "Sayfanın tanımlaması"
 
-#: templates/addBm.php:44 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:47
 msgid "Save"
 msgstr "Kaydet"
 
@@ -121,11 +121,11 @@ msgstr "İlgili etiketler"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "Hiç yer iminiz yok"
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr "Bir yer imi dosyasını içe aktarmayı deneyebilirsiniz"
 

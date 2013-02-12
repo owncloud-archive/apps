@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-10 00:06+0100\n"
-"PO-Revision-Date: 2013-02-09 18:30+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:04+0000\n"
 "Last-Translator: saosangm <saosangmo@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -254,7 +254,7 @@ msgstr "Chỉ mục địa chỉ liên lạc"
 msgid "Select photo"
 msgstr "Chọn ảnh"
 
-#: js/app.js:505 js/app.js:531 js/app.js:1504 js/app.js:1616
+#: js/app.js:505 js/app.js:531 js/app.js:1517 js/app.js:1629
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "Mạng hoặc máy chủ lỗi. Vui lòng liên hệ người quản trị."
@@ -291,7 +291,7 @@ msgstr "Tất cả các tập tin không được tải lên .Đang thử lại.
 msgid "Something went wrong with the upload, please retry."
 msgstr "Một cái gì đó đã sai khi tải lên ,hãy thử lại."
 
-#: js/app.js:1041 js/app.js:1551 js/settings.js:25 js/settings.js:45
+#: js/app.js:1041 js/app.js:1564 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Lỗi"
@@ -316,7 +316,7 @@ msgstr "Không thể tải lên tập tin của bạn ,nó như là một thư m
 msgid "Upload Error"
 msgstr "Lỗi tải lên"
 
-#: js/app.js:1092 js/app.js:1379
+#: js/app.js:1092 js/app.js:1392
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -334,31 +334,31 @@ msgstr "Đang chờ"
 msgid "Add group"
 msgstr "Thêm nhóm"
 
-#: js/app.js:1368
+#: js/app.js:1381
 msgid "No files selected for upload."
 msgstr "Không có tập tin nào được chọn để tải lên."
 
-#: js/app.js:1469
+#: js/app.js:1482
 msgid "Edit profile picture"
 msgstr "Chỉnh sửa hồ sơ ảnh"
 
-#: js/app.js:1487 js/contacts.js:1134
+#: js/app.js:1500 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr "Lỗi khi tải lên hồ sơ hình ảnh."
 
-#: js/app.js:1539
+#: js/app.js:1552
 msgid "Enter name"
 msgstr "Nhập tên"
 
-#: js/app.js:1540
+#: js/app.js:1553
 msgid "Enter description"
 msgstr "Nhập mô tả"
 
-#: js/app.js:1543
+#: js/app.js:1556
 msgid "Select addressbook"
 msgstr "Thêm danh bạ"
 
-#: js/app.js:1551
+#: js/app.js:1564
 msgid "The address book name cannot be empty."
 msgstr "Tên Danh bạ không thể để trống ."
 

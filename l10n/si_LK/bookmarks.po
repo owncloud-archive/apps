@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-10 00:01+0100\n"
-"PO-Revision-Date: 2012-11-09 09:43+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:05+0000\n"
 "Last-Translator: Anushke Guneratne <anushke@gmail.com>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "ආයාත කරන ගොනුව රුචි නොවේ"
 msgid "Bookmarks"
 msgstr "පිටු සළකුනු"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "ටැග"
 
@@ -39,11 +39,11 @@ msgstr "ටැගය ආධාරයෙන් පෙරන්න"
 msgid "Edit bookmark"
 msgstr "පිටු සළකුනු සකසන්න"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "මෙම ටැගය සියළු ඇතුලත් කිරීමකින් ඉවත් කරන බව ඔබට සහතිකද"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "අනතුරු ඇඟවිම"
 
@@ -59,39 +59,39 @@ msgstr "උඩුගත කෙරේ..."
 msgid "Bookm."
 msgstr "පිටුසන"
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "පිටු සළකුනක් එක් කරන්න"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "වසන්න"
 
-#: templates/addBm.php:22 templates/js_tpl.php:33
+#: templates/addBm.php:16 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr "පිටුවේ මාතෘකාව"
 
-#: templates/addBm.php:27 templates/js_tpl.php:37
+#: templates/addBm.php:21 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr "පිටුවේ ලිපිනය"
 
-#: templates/addBm.php:40 templates/js_tpl.php:46
+#: templates/addBm.php:34 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr "පිටුවේ විස්තර"
 
-#: templates/addBm.php:44 templates/js_tpl.php:50
+#: templates/addBm.php:38 templates/js_tpl.php:47
 msgid "Save"
 msgstr "සුරකින්න"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:61
 msgid "Delete"
 msgstr "මකන්න"
 
-#: templates/js_tpl.php:20 templates/js_tpl.php:60
+#: templates/js_tpl.php:19 templates/js_tpl.php:57
 msgid "Edit"
 msgstr "සකසන්න"
 
-#: templates/js_tpl.php:49
+#: templates/js_tpl.php:46
 msgid "Cancel"
 msgstr "එපා"
 
@@ -121,11 +121,11 @@ msgstr "අදාළ ටැගයන්"
 msgid "Settings"
 msgstr "සිටුවම්"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "පිටු සළකුනු නොමැත"
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr "පිටුසන අඩංගු ගොනුවක් ආයාත කිරීමට උත්සහ කළ හැක"
 

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chamara Disanayake <chamara@nic.lk>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-21 00:01+0100\n"
-"PO-Revision-Date: 2013-01-19 23:02+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 09:50+0000\n"
+"Last-Translator: Chamara Disanayake <chamara@nic.lk>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +42,7 @@ msgstr ""
 
 #: templates/settings.php:4
 msgid "Mode"
-msgstr ""
+msgstr "ආකාරය"
 
 #: templates/settings.php:5
 msgid "Executable"
@@ -57,7 +58,7 @@ msgstr "සත්කාරකය"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "ප්‍රතිවයිරස සත්කාරකයේ ලිපිනය"
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
@@ -93,16 +94,16 @@ msgstr ""
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "පිරික්සුමේදි හමුවන ආසාධිත ගොනු සඳහා ගතයුතු පියවර"
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "වාර්තා කිරීම පමණක් කරන්න"
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr ""
+msgstr "ගොනුය මකන්න"
 
-#: templates/settings.php:14
+#: templates/settings.php:15
 msgid "Save"
 msgstr "සුරකින්න"

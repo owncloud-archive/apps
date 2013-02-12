@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-26 00:04+0100\n"
-"PO-Revision-Date: 2013-01-25 22:56+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
 "Last-Translator: Dimon Pockemon <>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Tipul de fișier nu este suportat pentru importări"
 msgid "Bookmarks"
 msgstr "Semne de carte"
 
-#: js/addBm.js:42 js/bookmarks.js:231
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "Cuvinte cheie"
 
@@ -39,11 +39,11 @@ msgstr "Filtrare după marcaj"
 msgid "Edit bookmark"
 msgstr "Editează semnele de carte"
 
-#: js/bookmarks.js:362
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Ești sigur că vrei să ștergi acest marcaj din fiecare înscriere"
 
-#: js/bookmarks.js:363
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "Atenție"
 
@@ -121,11 +121,11 @@ msgstr "Marcaje asemănătoare"
 msgid "Settings"
 msgstr "Setări"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "Nu ai nici un semn de carte"
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr "Dvs. de asemenea puteți să încercați importarea unui fișier cu semne de carte"
 

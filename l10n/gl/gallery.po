@@ -4,14 +4,15 @@
 # 
 # Translators:
 # antiparvos  <marcoslansgarza@gmail.com>, 2012.
+#  <mbouzada@gmail.com>, 2013.
 # Xosé M. Lamas <correo.xmgz@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-11 10:01+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgstr "Imaxes"
 
 #: js/gallery.js:237
 msgid "Shared by"
-msgstr ""
+msgstr "Compartido por"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
@@ -35,4 +36,4 @@ msgstr "Compartir"
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr "Para usar este aplicativo tamén tes que activar o «Visualizador de imaxes»"
+msgstr "Para usar este aplicativo tamén tes que activar o «Visor de imaxes»"

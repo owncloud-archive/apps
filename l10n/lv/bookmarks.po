@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-05 00:17+0100\n"
-"PO-Revision-Date: 2013-02-04 18:30+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Importēšanai neatbalstītie datņu tipi"
 msgid "Bookmarks"
 msgstr "Grāmatzīmes"
 
-#: js/addBm.js:42 js/bookmarks.js:231
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "Birkas"
 
@@ -38,11 +38,11 @@ msgstr "Atlasīt pēc birkas"
 msgid "Edit bookmark"
 msgstr "Rediģēt grāmatzīmi"
 
-#: js/bookmarks.js:362
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Vai tiešām vēlaties izņemt šo birku no katra ieraksta?"
 
-#: js/bookmarks.js:363
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "Brīdinājums"
 
@@ -120,11 +120,11 @@ msgstr "Saistītās birkas"
 msgid "Settings"
 msgstr "Iestatījumi"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "Jums nav grāmatzīmju"
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr "Jūs varat arī mēģināt importēt grāmatzīmes datni"
 

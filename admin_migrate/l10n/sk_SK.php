@@ -4,6 +4,6 @@
 "Please choose the export type:" => "Vybrať typ exportu:",
 "ownCloud instance (user data and database" => "ownCloud inštancia (používateľské dáta a databáza)",
 "ownCloud system files" => "ownCloud systémové súbory",
-"Just user files" => "Iba súbory užívateľov",
+"Just user files" => "Iba súbory používateľov",
 "Export" => "Export"
 );

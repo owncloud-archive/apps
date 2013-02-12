@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-30 23:42+0000\n"
-"Last-Translator: cjtess <claudio.tessone@gmail.com>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 11:49+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "year"
 msgstr "año"
 
-#: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
 msgid "News"
 msgstr "Noticias"
 
@@ -56,127 +56,118 @@ msgstr "¡Perfecto! Te suscribiste a"
 msgid "You had already subscribed to this feed!"
 msgstr "¡Tu ya estas subscripto a esta fuente!"
 
-#: templates/main.php:15
-msgid "New articles"
-msgstr "Nuevo artículo"
+#: templates/part.addnew.php:7
+msgid "New"
+msgstr "Nuevo"
 
-#: templates/main.php:23 templates/part.listfeed.php:22
-#: templates/part.listfolder.php:32
-msgid "Mark all read"
-msgstr "Marcar como leido"
-
-#: templates/main.php:35
-msgid "Starred"
-msgstr "Favoritos"
-
-#: templates/part.items.php:46 templates/part.items.php:49
-msgid "Share"
-msgstr "Compartir"
-
-#: templates/part.items.php:53
-msgid "Keep unread"
-msgstr "Mantener como no leido"
-
-#: templates/part.listfeed.php:19
-msgid "Delete feed"
-msgstr "Borrar fuente"
-
-#: templates/part.listfolder.php:13
-msgid "Collapse"
-msgstr "Colapsar"
-
-#: templates/part.listfolder.php:26
-msgid "Delete folder"
-msgstr "Borrar carpeta"
-
-#: templates/part.listfolder.php:29
-msgid "Rename folder"
-msgstr "Renombrar carpeta"
-
-#: templates/part.settings.php:10
+#: templates/part.addnew.php:12
 msgid "Add Subscription"
 msgstr "Agregar subcripción"
 
-#: templates/part.settings.php:13
-msgid "Folder under which the feed is being saved"
-msgstr "Nombre del directorio dentro del cual la fuente está siendo guardada"
-
-#: templates/part.settings.php:17
-msgid "-- choose folder --"
-msgstr "-- elegir directorio --"
-
-#: templates/part.settings.php:20
+#: templates/part.addnew.php:14
 msgid "Address must not be empty!"
 msgstr "¡La dirección no puede quedar vacía!"
 
-#: templates/part.settings.php:21
+#: templates/part.addnew.php:15
 msgid "Feed exists already!"
 msgstr "¡La fuente ya existe!"
 
-#: templates/part.settings.php:22
+#: templates/part.addnew.php:16
 msgid "Could not add feed!"
 msgstr "¡No fue posible agregar la fuente!"
 
-#: templates/part.settings.php:26
+#: templates/part.addnew.php:17
+msgid "Folder exists already"
+msgstr ""
+
+#: templates/part.addnew.php:22
 msgid "Address"
 msgstr "Dirección"
 
-#: templates/part.settings.php:28 templates/part.settings.php:30
-#: templates/part.settings.php:46 templates/part.settings.php:48
+#: templates/part.addnew.php:24 templates/part.addnew.php:27
 msgid "Add"
 msgstr "Agregar"
 
-#: templates/part.settings.php:34
-msgid "Add Folder"
-msgstr "gregar directorio"
+#: templates/part.addnew.php:29
+msgid "New folder"
+msgstr ""
 
-#: templates/part.settings.php:37
-msgid "Folder name must not be empty!"
-msgstr "¡El nombre del directorio no puede quedar vacío!"
+#: templates/part.addnew.php:30
+msgid "Folder"
+msgstr "Carpeta"
 
-#: templates/part.settings.php:38
-msgid "Folder exists already!"
-msgstr "¡El directorio ya existe!"
+#: templates/part.addnew.php:35
+msgid "No folder"
+msgstr ""
 
-#: templates/part.settings.php:45
-msgid "Folder Name"
-msgstr "Nombre del directorio"
+#: templates/part.feed.starred.php:6
+msgid "Starred"
+msgstr "Favoritos"
 
-#: templates/part.settings.php:60
-msgid "Show everything"
-msgstr "Mostrar todo"
+#: templates/part.feed.unread.php:10
+msgid "Unread articles"
+msgstr ""
 
-#: templates/part.settings.php:66
-msgid "Show only unread"
-msgstr "Mostrar únicamente los no leidos"
+#: templates/part.feed.unread.php:16
+msgid "All articles"
+msgstr ""
 
-#: templates/part.settings.php:72 templates/part.settings.php:76
-msgid "Settings"
-msgstr "Configuración"
+#: templates/part.feed.unread.php:21 templates/part.listfeed.php:18
+#: templates/part.listfolder.php:25
+msgid "Mark all read"
+msgstr "Marcar como leido"
 
-#: templates/part.settings.php:80
-msgid "Add feed or folder"
-msgstr "Agregar fuente o directorio"
+#: templates/part.items.php:34
+msgid "Cant play audio format"
+msgstr ""
 
-#: templates/part.settings.php:85
-msgid "Add Feed/Folder"
-msgstr "Agregar Fuente/Directorio"
+#: templates/part.items.php:48 templates/part.items.php:51
+msgid "Share"
+msgstr "Compartir"
 
-#: templates/part.settings.php:91
-msgid "Import / Export"
-msgstr "Importar / Exportar"
+#: templates/part.items.php:55
+msgid "Keep unread"
+msgstr "Mantener como no leido"
 
-#: templates/part.settings.php:93 templates/part.settings.php:95
-msgid "Import OPML"
-msgstr "Importar OPML"
+#: templates/part.listfeed.php:26
+msgid "Delete feed"
+msgstr "Borrar fuente"
 
-#: templates/part.settings.php:99
-msgid "Export OPML"
-msgstr "Exportar OPML"
+#: templates/part.listfolder.php:12
+msgid "Collapse"
+msgstr "Colapsar"
 
-#: templates/part.settings.php:102
+#: templates/part.listfolder.php:33
+msgid "Delete folder"
+msgstr "Borrar carpeta"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "Renombrar carpeta"
+
+#: templates/part.settings.php:2
+msgid "Import / Export OPML"
+msgstr ""
+
+#: templates/part.settings.php:4 templates/part.settings.php:5
+msgid "Import"
+msgstr "Importar"
+
+#: templates/part.settings.php:9
+msgid "Export"
+msgstr "Exportar"
+
+#: templates/part.settings.php:12
 msgid "Subscribelet"
 msgstr "Suscribirse"
+
+#: templates/part.showall.php:2
+msgid "Show all"
+msgstr ""
+
+#: templates/part.showall.php:6
+msgid "Show only unread"
+msgstr "Mostrar únicamente los no leidos"
 
 #: templates/part.subscribelet.php:3
 msgid ""

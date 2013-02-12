@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-17 00:01+0100\n"
-"PO-Revision-Date: 2012-11-16 16:29+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
 "Last-Translator: suganthi <suganthi@nic.lk>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "இறக்குமதிக்கு ஆதரவளிக்கா�
 msgid "Bookmarks"
 msgstr "பக்க அடையாளங்கள்"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "சீட்டுகள்"
 
@@ -38,11 +38,11 @@ msgstr "சீட்டுகளால் வடிகட்டுக"
 msgid "Edit bookmark"
 msgstr "பக்க அடையாளத் தொகுக்க "
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "ஒவ்வொரு நுழைவின் போதும் இந்த சீட்டை கட்டாயம் அகற்ற வேண்டுமா?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "எச்சரிக்கை"
 
@@ -58,39 +58,39 @@ msgstr "பதிவேற்றல்..."
 msgid "Bookm."
 msgstr "பக்க அடையாளங்கள்"
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "பக்க அடையாளம் ஒன்றை சேர்க்க"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "மூடுக"
 
-#: templates/addBm.php:22 templates/js_tpl.php:33
+#: templates/addBm.php:16 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr "பக்கத்தி்ன் தலைப்பு"
 
-#: templates/addBm.php:27 templates/js_tpl.php:37
+#: templates/addBm.php:21 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr "பக்கத்தின் முகவரி"
 
-#: templates/addBm.php:40 templates/js_tpl.php:46
+#: templates/addBm.php:34 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr "பக்கத்தின் விவரிப்பு"
 
-#: templates/addBm.php:44 templates/js_tpl.php:50
+#: templates/addBm.php:38 templates/js_tpl.php:47
 msgid "Save"
 msgstr "சேமிக்க"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:61
 msgid "Delete"
 msgstr "அழிக்க"
 
-#: templates/js_tpl.php:20 templates/js_tpl.php:60
+#: templates/js_tpl.php:19 templates/js_tpl.php:57
 msgid "Edit"
 msgstr "தொகுக்க"
 
-#: templates/js_tpl.php:49
+#: templates/js_tpl.php:46
 msgid "Cancel"
 msgstr "இரத்து செய்க"
 
@@ -120,11 +120,11 @@ msgstr "தொடர்புபட்ட சீட்டுகள்"
 msgid "Settings"
 msgstr "அமைப்புகள்"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "உங்களிடம் பக்க அடையாளங்கள் இல்லை "
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr "நீங்களும் ஒரு பக்க அடையாள கோப்பை இறக்குமதி செய்ய முயற்சிக்கலாம்"
 

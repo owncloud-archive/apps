@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-11 00:02+0100\n"
-"PO-Revision-Date: 2013-01-10 10:26+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:37+0000\n"
 "Last-Translator: Shubhra Paul <paul_shubhra@yahoo.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "আমদানি করার জন্য ফাইলের ফর�
 msgid "Bookmarks"
 msgstr "ঠিকাসমূহ"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "ট্যাগ"
 
@@ -38,11 +38,11 @@ msgstr "ট্যাগ অনুসারে ছাঁক"
 msgid "Edit bookmark"
 msgstr "ঠিকা সম্পাদনা"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "প্রত্যেক ভুক্তি থেকে এই ট্যাগটি অপসারণ করতে আপনি কি বদ্ধপরিকর?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "সতর্কবাণী"
 
@@ -58,27 +58,27 @@ msgstr "আপলোড করা হচ্ছে.........."
 msgid "Bookm."
 msgstr "ঠিকা"
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "ঠিকা যোগ করুন"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "বন্ধ"
 
-#: templates/addBm.php:22 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr "পৃষ্ঠার শিরোনাম"
 
-#: templates/addBm.php:27 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr "পৃষ্ঠার ঠিকানা"
 
-#: templates/addBm.php:40 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr "পৃষ্ঠার বিবরণ"
 
-#: templates/addBm.php:44 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:47
 msgid "Save"
 msgstr "সংরক্ষণ কর"
 
@@ -120,11 +120,11 @@ msgstr "সম্পর্কযুক্ত ট্যাগ"
 msgid "Settings"
 msgstr "নিয়ামকসমূহ"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "আপনার কোন ঠিক নেই"
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr "আপনি একটি ঠিকা ফাইল আমদানি করার চেষ্টা করে দেখতে পারেন"
 

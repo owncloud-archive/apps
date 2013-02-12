@@ -156,6 +156,7 @@
 "Category" => "Kategorija",
 "Separate categories with commas" => "Kategorije ločite z vejico",
 "Edit categories" => "Uredi kategorije",
+"Access Class" => "Razred dostopa",
 "All Day Event" => "Celodnevni dogodek",
 "From" => "Od",
 "To" => "Do",

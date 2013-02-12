@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-06 00:01+0100\n"
-"PO-Revision-Date: 2013-02-05 13:22+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
 "Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr ""
 msgid "Bookmarks"
 msgstr "نشانک‌ها"
 
-#: js/addBm.js:42 js/bookmarks.js:231
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "برچسب‌ها"
 
@@ -39,11 +39,11 @@ msgstr ""
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:362
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:363
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "اخطار"
 
@@ -121,11 +121,11 @@ msgstr ""
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "شما هیچ نشانکی ندارید"
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr ""
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-07 00:02+0100\n"
-"PO-Revision-Date: 2013-02-06 23:03+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 09:52+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/owncloud/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +59,7 @@ msgstr ""
 msgid "events has been saved in your calendar"
 msgstr ""
 
-#: ajax/settings/guesstimezone.php:25
+#: ajax/settings/guesstimezone.php:26
 msgid "New Timezone:"
 msgstr ""
 
@@ -371,7 +371,7 @@ msgstr ""
 
 #: lib/app.php:132
 msgid "Personal"
-msgstr ""
+msgstr "यक्तिगत"
 
 #: lib/app.php:133
 msgid "Projects"
@@ -547,7 +547,7 @@ msgstr ""
 
 #: templates/calendar.php:13
 msgid "Settings"
-msgstr ""
+msgstr "सेटिंग्स"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-25 00:01+0100\n"
-"PO-Revision-Date: 2013-01-24 14:16+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
 "Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "不支援這種檔案類型的匯入"
 msgid "Bookmarks"
 msgstr "書籤"
 
-#: js/addBm.js:42 js/bookmarks.js:231
+#: js/addBm.js:42 js/bookmarks.js:233
 msgid "Tags"
 msgstr "標籤"
 
@@ -40,11 +40,11 @@ msgstr "依標籤篩選"
 msgid "Edit bookmark"
 msgstr "編輯書籤"
 
-#: js/bookmarks.js:362
+#: js/bookmarks.js:364
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "您確定要從每個項目中移除這個標籤嗎？"
 
-#: js/bookmarks.js:363
+#: js/bookmarks.js:365
 msgid "Warning"
 msgstr "警告"
 
@@ -60,27 +60,27 @@ msgstr "上傳中..."
 msgid "Bookm."
 msgstr "書籤"
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "新增書籤"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "關閉"
 
-#: templates/addBm.php:22 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:30
 msgid "The title of the page"
 msgstr "頁面標題"
 
-#: templates/addBm.php:27 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:34
 msgid "The address of the page"
 msgstr "頁面的位址"
 
-#: templates/addBm.php:40 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:43
 msgid "Description of the page"
 msgstr "頁面說明"
 
-#: templates/addBm.php:44 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:47
 msgid "Save"
 msgstr "儲存"
 
@@ -122,11 +122,11 @@ msgstr "相關標籤"
 msgid "Settings"
 msgstr "設定"
 
-#: templates/list.php:53
+#: templates/list.php:55
 msgid "You have no bookmarks"
 msgstr "你沒有書籤"
 
-#: templates/list.php:58
+#: templates/list.php:60
 msgid "You can also try to import a bookmark file"
 msgstr "您也可以匯入書籤檔"
 

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 07:10+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:05+0000\n"
 "Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -254,7 +254,7 @@ msgstr ""
 msgid "Select photo"
 msgstr "選擇相片"
 
-#: js/app.js:505 js/app.js:531 js/app.js:1504 js/app.js:1616
+#: js/app.js:505 js/app.js:531 js/app.js:1517 js/app.js:1629
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr ""
@@ -291,7 +291,7 @@ msgstr ""
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/app.js:1041 js/app.js:1551 js/settings.js:25 js/settings.js:45
+#: js/app.js:1041 js/app.js:1564 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "錯誤"
@@ -316,7 +316,7 @@ msgstr "無法上傳您的檔案因為它可能是一個目錄或檔案大小為
 msgid "Upload Error"
 msgstr "上傳發生錯誤"
 
-#: js/app.js:1092 js/app.js:1379
+#: js/app.js:1092 js/app.js:1392
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -334,31 +334,31 @@ msgstr "等候中"
 msgid "Add group"
 msgstr "新增群組"
 
-#: js/app.js:1368
+#: js/app.js:1381
 msgid "No files selected for upload."
 msgstr "沒有選定上傳的檔案。"
 
-#: js/app.js:1469
+#: js/app.js:1482
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1487 js/contacts.js:1134
+#: js/app.js:1500 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr "載入大頭照發生錯誤"
 
-#: js/app.js:1539
+#: js/app.js:1552
 msgid "Enter name"
 msgstr "輸入姓名"
 
-#: js/app.js:1540
+#: js/app.js:1553
 msgid "Enter description"
 msgstr "輸入描述"
 
-#: js/app.js:1543
+#: js/app.js:1556
 msgid "Select addressbook"
 msgstr ""
 
-#: js/app.js:1551
+#: js/app.js:1564
 msgid "The address book name cannot be empty."
 msgstr ""
 

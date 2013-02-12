@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-07 02:04+0200\n"
-"PO-Revision-Date: 2012-10-06 23:56+0000\n"
-"Last-Translator: Hozha Koyi <hozhan@gmail.com>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,3 +26,15 @@ msgstr "به‌ڵگه‌نامه"
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
 msgstr "هیچ په‌ڕگه‌یه‌کی Impress نه‌دۆزراوه‌ له‌ ownCloud-که‌ت. تکایه‌ی په‌ڕگه‌یه‌کی .impress باربکه."
+
+#: templates/presentations.php:12
+msgid "Name"
+msgstr "ناو"
+
+#: templates/presentations.php:12
+msgid "Size"
+msgstr ""
+
+#: templates/presentations.php:12
+msgid "Date"
+msgstr ""

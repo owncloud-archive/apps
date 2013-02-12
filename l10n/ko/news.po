@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-31 08:10+0000\n"
-"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 11:49+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "year"
 msgstr "년"
 
-#: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
 msgid "News"
 msgstr "뉴스"
 
@@ -56,127 +56,118 @@ msgstr "좋습니다! 다음 피드를 구독합니다:"
 msgid "You had already subscribed to this feed!"
 msgstr "이 피드를 이미 구독하고 있습니다!"
 
-#: templates/main.php:15
-msgid "New articles"
-msgstr "새 글"
+#: templates/part.addnew.php:7
+msgid "New"
+msgstr "새로 만들기"
 
-#: templates/main.php:23 templates/part.listfeed.php:22
-#: templates/part.listfolder.php:32
-msgid "Mark all read"
-msgstr "모두 읽은 글로 표시"
-
-#: templates/main.php:35
-msgid "Starred"
-msgstr "별표"
-
-#: templates/part.items.php:46 templates/part.items.php:49
-msgid "Share"
-msgstr "공유"
-
-#: templates/part.items.php:53
-msgid "Keep unread"
-msgstr "읽지 않은 글로 두기"
-
-#: templates/part.listfeed.php:19
-msgid "Delete feed"
-msgstr "피드 삭제"
-
-#: templates/part.listfolder.php:13
-msgid "Collapse"
-msgstr "접기"
-
-#: templates/part.listfolder.php:26
-msgid "Delete folder"
-msgstr "폴더 삭제"
-
-#: templates/part.listfolder.php:29
-msgid "Rename folder"
-msgstr "폴더 이름 바꾸기"
-
-#: templates/part.settings.php:10
+#: templates/part.addnew.php:12
 msgid "Add Subscription"
 msgstr "구독 추가"
 
-#: templates/part.settings.php:13
-msgid "Folder under which the feed is being saved"
-msgstr "피드를 저장할 폴더"
-
-#: templates/part.settings.php:17
-msgid "-- choose folder --"
-msgstr "-- 폴더 선택 --"
-
-#: templates/part.settings.php:20
+#: templates/part.addnew.php:14
 msgid "Address must not be empty!"
 msgstr "주소를 입력해야 합니다!"
 
-#: templates/part.settings.php:21
+#: templates/part.addnew.php:15
 msgid "Feed exists already!"
 msgstr "피드가 이미 존재합니다!"
 
-#: templates/part.settings.php:22
+#: templates/part.addnew.php:16
 msgid "Could not add feed!"
 msgstr "피드를 추가할 수 없습니다!"
 
-#: templates/part.settings.php:26
+#: templates/part.addnew.php:17
+msgid "Folder exists already"
+msgstr ""
+
+#: templates/part.addnew.php:22
 msgid "Address"
 msgstr "주소"
 
-#: templates/part.settings.php:28 templates/part.settings.php:30
-#: templates/part.settings.php:46 templates/part.settings.php:48
+#: templates/part.addnew.php:24 templates/part.addnew.php:27
 msgid "Add"
 msgstr "추가"
 
-#: templates/part.settings.php:34
-msgid "Add Folder"
-msgstr "폴더 추가"
+#: templates/part.addnew.php:29
+msgid "New folder"
+msgstr ""
 
-#: templates/part.settings.php:37
-msgid "Folder name must not be empty!"
-msgstr "폴더 이름을 입력해야 합니다!"
+#: templates/part.addnew.php:30
+msgid "Folder"
+msgstr "폴더"
 
-#: templates/part.settings.php:38
-msgid "Folder exists already!"
-msgstr "폴더가 이미 존재합니다!"
+#: templates/part.addnew.php:35
+msgid "No folder"
+msgstr ""
 
-#: templates/part.settings.php:45
-msgid "Folder Name"
-msgstr "폴더 이름"
+#: templates/part.feed.starred.php:6
+msgid "Starred"
+msgstr "별표"
 
-#: templates/part.settings.php:60
-msgid "Show everything"
-msgstr "모두 보기"
+#: templates/part.feed.unread.php:10
+msgid "Unread articles"
+msgstr ""
 
-#: templates/part.settings.php:66
-msgid "Show only unread"
-msgstr "읽지 않은 글만 보기"
+#: templates/part.feed.unread.php:16
+msgid "All articles"
+msgstr ""
 
-#: templates/part.settings.php:72 templates/part.settings.php:76
-msgid "Settings"
-msgstr "설정"
+#: templates/part.feed.unread.php:21 templates/part.listfeed.php:18
+#: templates/part.listfolder.php:25
+msgid "Mark all read"
+msgstr "모두 읽은 글로 표시"
 
-#: templates/part.settings.php:80
-msgid "Add feed or folder"
-msgstr "피드 또는 폴더 추가"
+#: templates/part.items.php:34
+msgid "Cant play audio format"
+msgstr ""
 
-#: templates/part.settings.php:85
-msgid "Add Feed/Folder"
-msgstr "피드/폴더 추가"
+#: templates/part.items.php:48 templates/part.items.php:51
+msgid "Share"
+msgstr "공유"
 
-#: templates/part.settings.php:91
-msgid "Import / Export"
-msgstr "가져오기/내보내기"
+#: templates/part.items.php:55
+msgid "Keep unread"
+msgstr "읽지 않은 글로 두기"
 
-#: templates/part.settings.php:93 templates/part.settings.php:95
-msgid "Import OPML"
-msgstr "OPML 가져오기"
+#: templates/part.listfeed.php:26
+msgid "Delete feed"
+msgstr "피드 삭제"
 
-#: templates/part.settings.php:99
-msgid "Export OPML"
-msgstr "OPML 내보내기"
+#: templates/part.listfolder.php:12
+msgid "Collapse"
+msgstr "접기"
 
-#: templates/part.settings.php:102
+#: templates/part.listfolder.php:33
+msgid "Delete folder"
+msgstr "폴더 삭제"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "폴더 이름 바꾸기"
+
+#: templates/part.settings.php:2
+msgid "Import / Export OPML"
+msgstr ""
+
+#: templates/part.settings.php:4 templates/part.settings.php:5
+msgid "Import"
+msgstr "가져오기"
+
+#: templates/part.settings.php:9
+msgid "Export"
+msgstr "내보내기"
+
+#: templates/part.settings.php:12
 msgid "Subscribelet"
 msgstr "구독물"
+
+#: templates/part.showall.php:2
+msgid "Show all"
+msgstr ""
+
+#: templates/part.showall.php:6
+msgid "Show only unread"
+msgstr "읽지 않은 글만 보기"
 
 #: templates/part.subscribelet.php:3
 msgid ""

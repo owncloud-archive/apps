@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-30 23:42+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 11:49+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "year"
 msgstr ""
 
-#: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
 msgid "News"
 msgstr "Novas"
 
@@ -55,127 +55,118 @@ msgstr "Ben! Subscribiuse a "
 msgid "You had already subscribed to this feed!"
 msgstr "Xa está subscrito a esta fonte"
 
-#: templates/main.php:15
-msgid "New articles"
-msgstr "Novos artigos"
+#: templates/part.addnew.php:7
+msgid "New"
+msgstr "Novo"
 
-#: templates/main.php:23 templates/part.listfeed.php:22
-#: templates/part.listfolder.php:32
-msgid "Mark all read"
-msgstr "Marcar todo como lido"
-
-#: templates/main.php:35
-msgid "Starred"
-msgstr "Destacado"
-
-#: templates/part.items.php:46 templates/part.items.php:49
-msgid "Share"
-msgstr "Compartir"
-
-#: templates/part.items.php:53
-msgid "Keep unread"
-msgstr "Manter sen ler"
-
-#: templates/part.listfeed.php:19
-msgid "Delete feed"
-msgstr "Eliminar fonte"
-
-#: templates/part.listfolder.php:13
-msgid "Collapse"
-msgstr "Repregar"
-
-#: templates/part.listfolder.php:26
-msgid "Delete folder"
-msgstr "Eliminar o cartafol"
-
-#: templates/part.listfolder.php:29
-msgid "Rename folder"
-msgstr "Renomear o cartafol"
-
-#: templates/part.settings.php:10
+#: templates/part.addnew.php:12
 msgid "Add Subscription"
 msgstr "Engadir subscrición"
 
-#: templates/part.settings.php:13
-msgid "Folder under which the feed is being saved"
-msgstr ""
-
-#: templates/part.settings.php:17
-msgid "-- choose folder --"
-msgstr ""
-
-#: templates/part.settings.php:20
+#: templates/part.addnew.php:14
 msgid "Address must not be empty!"
 msgstr ""
 
-#: templates/part.settings.php:21
+#: templates/part.addnew.php:15
 msgid "Feed exists already!"
 msgstr ""
 
-#: templates/part.settings.php:22
+#: templates/part.addnew.php:16
 msgid "Could not add feed!"
 msgstr ""
 
-#: templates/part.settings.php:26
+#: templates/part.addnew.php:17
+msgid "Folder exists already"
+msgstr ""
+
+#: templates/part.addnew.php:22
 msgid "Address"
 msgstr "Enderezo"
 
-#: templates/part.settings.php:28 templates/part.settings.php:30
-#: templates/part.settings.php:46 templates/part.settings.php:48
+#: templates/part.addnew.php:24 templates/part.addnew.php:27
 msgid "Add"
 msgstr "Engadir"
 
-#: templates/part.settings.php:34
-msgid "Add Folder"
-msgstr "Engadir un cartafol"
-
-#: templates/part.settings.php:37
-msgid "Folder name must not be empty!"
+#: templates/part.addnew.php:29
+msgid "New folder"
 msgstr ""
 
-#: templates/part.settings.php:38
-msgid "Folder exists already!"
+#: templates/part.addnew.php:30
+msgid "Folder"
+msgstr "Cartafol"
+
+#: templates/part.addnew.php:35
+msgid "No folder"
 msgstr ""
 
-#: templates/part.settings.php:45
-msgid "Folder Name"
+#: templates/part.feed.starred.php:6
+msgid "Starred"
+msgstr "Destacado"
+
+#: templates/part.feed.unread.php:10
+msgid "Unread articles"
 msgstr ""
 
-#: templates/part.settings.php:60
-msgid "Show everything"
-msgstr "Amosar todo"
-
-#: templates/part.settings.php:66
-msgid "Show only unread"
-msgstr "Amosar só o non lido"
-
-#: templates/part.settings.php:72 templates/part.settings.php:76
-msgid "Settings"
-msgstr "Configuracións"
-
-#: templates/part.settings.php:80
-msgid "Add feed or folder"
-msgstr "Engadir unha fonte ou un cartafol"
-
-#: templates/part.settings.php:85
-msgid "Add Feed/Folder"
-msgstr "Engadir unha fonte/cartafol"
-
-#: templates/part.settings.php:91
-msgid "Import / Export"
+#: templates/part.feed.unread.php:16
+msgid "All articles"
 msgstr ""
 
-#: templates/part.settings.php:93 templates/part.settings.php:95
-msgid "Import OPML"
-msgstr "Importar OPML"
+#: templates/part.feed.unread.php:21 templates/part.listfeed.php:18
+#: templates/part.listfolder.php:25
+msgid "Mark all read"
+msgstr "Marcar todo como lido"
 
-#: templates/part.settings.php:99
-msgid "Export OPML"
+#: templates/part.items.php:34
+msgid "Cant play audio format"
 msgstr ""
 
-#: templates/part.settings.php:102
+#: templates/part.items.php:48 templates/part.items.php:51
+msgid "Share"
+msgstr "Compartir"
+
+#: templates/part.items.php:55
+msgid "Keep unread"
+msgstr "Manter sen ler"
+
+#: templates/part.listfeed.php:26
+msgid "Delete feed"
+msgstr "Eliminar fonte"
+
+#: templates/part.listfolder.php:12
+msgid "Collapse"
+msgstr "Repregar"
+
+#: templates/part.listfolder.php:33
+msgid "Delete folder"
+msgstr "Eliminar o cartafol"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "Renomear o cartafol"
+
+#: templates/part.settings.php:2
+msgid "Import / Export OPML"
+msgstr ""
+
+#: templates/part.settings.php:4 templates/part.settings.php:5
+msgid "Import"
+msgstr "Importar"
+
+#: templates/part.settings.php:9
+msgid "Export"
+msgstr "Exportar"
+
+#: templates/part.settings.php:12
 msgid "Subscribelet"
 msgstr "Subscripción"
+
+#: templates/part.showall.php:2
+msgid "Show all"
+msgstr ""
+
+#: templates/part.showall.php:6
+msgid "Show only unread"
+msgstr "Amosar só o non lido"
 
 #: templates/part.subscribelet.php:3
 msgid ""

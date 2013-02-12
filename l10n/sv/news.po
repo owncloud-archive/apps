@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-30 23:42+0000\n"
-"Last-Translator: Lokal_Profil <lokal_profil@hotmail.com>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 11:49+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "year"
 msgstr "år"
 
-#: appinfo/app.php:23 controllers/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
 msgid "News"
 msgstr "Nyheter"
 
@@ -56,127 +56,118 @@ msgstr "Gött! Du prenumererar nu på"
 msgid "You had already subscribed to this feed!"
 msgstr "Du prenumererar redan på detta flöde!"
 
-#: templates/main.php:15
-msgid "New articles"
-msgstr "Nya artiklar"
+#: templates/part.addnew.php:7
+msgid "New"
+msgstr "Ny"
 
-#: templates/main.php:23 templates/part.listfeed.php:22
-#: templates/part.listfolder.php:32
-msgid "Mark all read"
-msgstr "Markera alla som lästa"
-
-#: templates/main.php:35
-msgid "Starred"
-msgstr "Stjärnmärkt"
-
-#: templates/part.items.php:46 templates/part.items.php:49
-msgid "Share"
-msgstr "Dela"
-
-#: templates/part.items.php:53
-msgid "Keep unread"
-msgstr "Behåll som oläst"
-
-#: templates/part.listfeed.php:19
-msgid "Delete feed"
-msgstr "Ta bort flöde"
-
-#: templates/part.listfolder.php:13
-msgid "Collapse"
-msgstr "Dölj"
-
-#: templates/part.listfolder.php:26
-msgid "Delete folder"
-msgstr "Radera mapp"
-
-#: templates/part.listfolder.php:29
-msgid "Rename folder"
-msgstr "Byt namn på mapp"
-
-#: templates/part.settings.php:10
+#: templates/part.addnew.php:12
 msgid "Add Subscription"
 msgstr "Lägg till prenumeration"
 
-#: templates/part.settings.php:13
-msgid "Folder under which the feed is being saved"
-msgstr "Katalog i vilket flödet sparas"
-
-#: templates/part.settings.php:17
-msgid "-- choose folder --"
-msgstr "-- välj katalog --"
-
-#: templates/part.settings.php:20
+#: templates/part.addnew.php:14
 msgid "Address must not be empty!"
 msgstr "Adress får ej vara tomt!"
 
-#: templates/part.settings.php:21
+#: templates/part.addnew.php:15
 msgid "Feed exists already!"
 msgstr "Flödet finns redan!"
 
-#: templates/part.settings.php:22
+#: templates/part.addnew.php:16
 msgid "Could not add feed!"
 msgstr "Kunde inte lägga till flöde!"
 
-#: templates/part.settings.php:26
+#: templates/part.addnew.php:17
+msgid "Folder exists already"
+msgstr ""
+
+#: templates/part.addnew.php:22
 msgid "Address"
 msgstr "Adress"
 
-#: templates/part.settings.php:28 templates/part.settings.php:30
-#: templates/part.settings.php:46 templates/part.settings.php:48
+#: templates/part.addnew.php:24 templates/part.addnew.php:27
 msgid "Add"
 msgstr "Lägg till"
 
-#: templates/part.settings.php:34
-msgid "Add Folder"
-msgstr "Lägg till mapp"
+#: templates/part.addnew.php:29
+msgid "New folder"
+msgstr ""
 
-#: templates/part.settings.php:37
-msgid "Folder name must not be empty!"
-msgstr "Katalognamnet får ej vara tomt!"
+#: templates/part.addnew.php:30
+msgid "Folder"
+msgstr "Mapp"
 
-#: templates/part.settings.php:38
-msgid "Folder exists already!"
-msgstr "Katalogen finns redan"
+#: templates/part.addnew.php:35
+msgid "No folder"
+msgstr ""
 
-#: templates/part.settings.php:45
-msgid "Folder Name"
-msgstr "Katalognamn"
+#: templates/part.feed.starred.php:6
+msgid "Starred"
+msgstr "Stjärnmärkt"
 
-#: templates/part.settings.php:60
-msgid "Show everything"
-msgstr "Visa allt"
+#: templates/part.feed.unread.php:10
+msgid "Unread articles"
+msgstr ""
 
-#: templates/part.settings.php:66
-msgid "Show only unread"
-msgstr "Visa endast olästa"
+#: templates/part.feed.unread.php:16
+msgid "All articles"
+msgstr ""
 
-#: templates/part.settings.php:72 templates/part.settings.php:76
-msgid "Settings"
-msgstr "Inställningar"
+#: templates/part.feed.unread.php:21 templates/part.listfeed.php:18
+#: templates/part.listfolder.php:25
+msgid "Mark all read"
+msgstr "Markera alla som lästa"
 
-#: templates/part.settings.php:80
-msgid "Add feed or folder"
-msgstr "Lägg till flöde eller mapp"
+#: templates/part.items.php:34
+msgid "Cant play audio format"
+msgstr ""
 
-#: templates/part.settings.php:85
-msgid "Add Feed/Folder"
-msgstr "Lägg till flöde/mapp"
+#: templates/part.items.php:48 templates/part.items.php:51
+msgid "Share"
+msgstr "Dela"
 
-#: templates/part.settings.php:91
-msgid "Import / Export"
-msgstr "Importera / Exportera"
+#: templates/part.items.php:55
+msgid "Keep unread"
+msgstr "Behåll som oläst"
 
-#: templates/part.settings.php:93 templates/part.settings.php:95
-msgid "Import OPML"
-msgstr "Importera OPML"
+#: templates/part.listfeed.php:26
+msgid "Delete feed"
+msgstr "Ta bort flöde"
 
-#: templates/part.settings.php:99
-msgid "Export OPML"
-msgstr "Exportera OPML"
+#: templates/part.listfolder.php:12
+msgid "Collapse"
+msgstr "Dölj"
 
-#: templates/part.settings.php:102
+#: templates/part.listfolder.php:33
+msgid "Delete folder"
+msgstr "Radera mapp"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "Byt namn på mapp"
+
+#: templates/part.settings.php:2
+msgid "Import / Export OPML"
+msgstr ""
+
+#: templates/part.settings.php:4 templates/part.settings.php:5
+msgid "Import"
+msgstr "Importera"
+
+#: templates/part.settings.php:9
+msgid "Export"
+msgstr "Exportera"
+
+#: templates/part.settings.php:12
 msgid "Subscribelet"
 msgstr "Subscribelet"
+
+#: templates/part.showall.php:2
+msgid "Show all"
+msgstr ""
+
+#: templates/part.showall.php:6
+msgid "Show only unread"
+msgstr "Visa endast olästa"
 
 #: templates/part.subscribelet.php:3
 msgid ""

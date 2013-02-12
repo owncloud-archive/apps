@@ -14,8 +14,11 @@
 "Port number of Antivirus Host." => "Номер порта хоста антивируса.",
 "Stream Length" => "Длина потока",
 "ClamAV StreamMaxLength value in bytes." => "ClamAV StreamMaxLength значение в байтах.",
+"Path to clamscan" => "Путь к  антивирусу clamscan",
+"Path to clamscan executable." => "Путь к исполнителю clamscan.",
 "Not required in Daemon Mode." => "Не требуется в режиме демона.",
 "Action for infected files found while scanning" => "Действие для зараженных файлов, найденных при сканировании",
+"Only log" => "Только лог",
 "Delete file" => "Удалить файл",
 "Save" => "Сохранить"
 );

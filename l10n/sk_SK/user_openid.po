@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 16:04+0100\n"
-"PO-Revision-Date: 2013-01-30 06:20+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-11 13:20+0000\n"
 "Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "Neplatná požiadavka"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr "Koncový bod serveru OpenID. Viac informácií na"
+msgstr "Koncový bod servera OpenID. Viac informácií na"
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
@@ -49,7 +49,7 @@ msgstr "Prihlásenie"
 
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"
-msgstr "Chyba: <b>Neni vybraný žiadny používateľ"
+msgstr "Chyba: <b>Nie je vybraný žiadny používateľ"
 
 #: templates/settings.php:3
 msgid "OpenID"

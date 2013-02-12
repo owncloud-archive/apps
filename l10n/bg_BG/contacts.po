@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-10 00:06+0100\n"
-"PO-Revision-Date: 2013-02-09 10:40+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:35+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Select photo"
 msgstr ""
 
-#: js/app.js:505 js/app.js:531 js/app.js:1504 js/app.js:1616
+#: js/app.js:505 js/app.js:531 js/app.js:1517 js/app.js:1629
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr ""
@@ -286,7 +286,7 @@ msgstr ""
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/app.js:1041 js/app.js:1551 js/settings.js:25 js/settings.js:45
+#: js/app.js:1041 js/app.js:1564 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Грешка"
@@ -311,7 +311,7 @@ msgstr ""
 msgid "Upload Error"
 msgstr ""
 
-#: js/app.js:1092 js/app.js:1379
+#: js/app.js:1092 js/app.js:1392
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
@@ -329,31 +329,31 @@ msgstr ""
 msgid "Add group"
 msgstr ""
 
-#: js/app.js:1368
+#: js/app.js:1381
 msgid "No files selected for upload."
 msgstr ""
 
-#: js/app.js:1469
+#: js/app.js:1482
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1487 js/contacts.js:1134
+#: js/app.js:1500 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/app.js:1539
+#: js/app.js:1552
 msgid "Enter name"
 msgstr ""
 
-#: js/app.js:1540
+#: js/app.js:1553
 msgid "Enter description"
 msgstr ""
 
-#: js/app.js:1543
+#: js/app.js:1556
 msgid "Select addressbook"
 msgstr ""
 
-#: js/app.js:1551
+#: js/app.js:1564
 msgid "The address book name cannot be empty."
 msgstr ""
 
@@ -659,7 +659,7 @@ msgstr ""
 
 #: templates/contacts.php:19 templates/contacts.php:96
 msgid "Import"
-msgstr ""
+msgstr "Внасяне"
 
 #: templates/contacts.php:24
 msgid "Select files to import"
