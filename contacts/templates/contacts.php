@@ -17,7 +17,7 @@
 				<ul class="hidden">
 				</ul>
 			<h2 data-id="import" tabindex="0" role="button"><?php echo $l->t('Import'); ?></h3>
-				<ul>
+				<ul class="hidden">
 					<li class="import-upload">
 						<form id="import_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadimport.php'); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
 						<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
