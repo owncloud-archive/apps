@@ -1298,7 +1298,7 @@ OC.Contacts = OC.Contacts || {
 		});
 	},
 	jumpToContact: function(id) {
-		this.$rightContent.scrollTop(this.contacts.contactPos(id)+10);
+		this.$rightContent.scrollTop(this.contacts.contactPos(id)-30);
 	},
 	closeContact: function(id) {
 		if(typeof this.currentid === 'number') {
