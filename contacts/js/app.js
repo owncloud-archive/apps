@@ -763,7 +763,7 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			if($(event.target).is('a.mailto')) {
-				var mailto = 'mailto:' + $(this).find('.email').text().trim();
+				var mailto = 'mailto:' + $.trim($(this).find('.email').text());
 				console.log('mailto', mailto);
 				try {
 					window.location.href=mailto;
@@ -971,7 +971,7 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		this.$contactList.on('mouseenter', 'td.email', function(event) {
-			if($(this).text().trim().length > 3) {
+			if($.trim($(this).text()).length > 3) {
 				$(this).find('.mailto').css('display', 'inline-block'); //.fadeIn(100);
 			}
 		});
@@ -1560,7 +1560,7 @@ OC.Contacts = OC.Contacts || {
 						if(aid == 'new') {
 							var displayname = $(this).find('input.name').val();
 							var description = $(this).find('input.desc').val();
-							if(!displayname.trim()) {
+							if(!$.trim(displayname)) {
 								OC.dialogs.alert(t('contacts', 'The address book name cannot be empty.'), t('contacts', 'Error'));
 								return false;
 							}

@@ -141,7 +141,7 @@ OC.Contacts = OC.Contacts || {};
 		};
 		if(this.multi_properties.indexOf(element) !== -1) {
 			params['checksum'] = this.checksumFor(obj);
-			if(params['checksum'] === 'new' && this.valueFor(obj).trim() === '') {
+			if(params['checksum'] === 'new' && $.trim(this.valueFor(obj)) === '') {
 				// If there's only one property of this type enable setting as preferred.
 				if(this.data[element].length === 1) {
 					var selector = 'li[data-element="' + element.toLowerCase() + '"]';
@@ -1061,7 +1061,7 @@ OC.Contacts = OC.Contacts || {};
 				},
 				minLength: 2,
 				select: function( event, ui ) {
-					if(ui.item && $elem.find('.value.country').val().trim().length == 0) {
+					if(ui.item && $.trim($elem.find('.value.country').val()).length == 0) {
 						$elem.find('.value.country').val(ui.item.country);
 					}
 				}
@@ -1232,7 +1232,7 @@ OC.Contacts = OC.Contacts || {};
 		var found = false;
 
 		$.each(categories, function(idx, category) {
-			if(name.toLowerCase() == category.trim().toLowerCase()) {
+			if(name.toLowerCase() == $.trim(category).toLowerCase()) {
 				found = true
 				return false;
 			}

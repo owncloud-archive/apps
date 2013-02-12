@@ -87,7 +87,7 @@ OC.Contacts = OC.Contacts || {};
 	 * @returns string The name of the group.
 	 */
 	GroupList.prototype.nameById = function(id) {
-		return this.findById(id).clone().find("*").remove().end().text().trim(); //.contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
+		return $.trim(this.findById(id).clone().find("*").remove().end().text()); //.contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
 	};
 
 	/** Get the group element by id.
@@ -432,7 +432,7 @@ OC.Contacts = OC.Contacts || {};
 		// NOTE: Currently this only works for adding, not renaming
 		var saveChanges = function($elem, $input) {
 			console.log('saveChanges', $input.val());
-			var name = $input.val().trim();
+			var name = $.trim($input.val());
 			if(name.length === 0) {
 				return false;
 			}
