@@ -1327,6 +1327,7 @@ OC.Contacts = OC.Contacts || {
 		delete this.currentid;
 		this.showActions(['add']);
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
+		$('body').unbind('click', this.bodyListener);
 	},
 	openContact: function(id) {
 		console.log('Contacts.openContact', id);
@@ -1358,6 +1359,18 @@ OC.Contacts = OC.Contacts || {
 		//$contact.resizable({ minWidth: 400, minHeight: 400, maxHeight: maxheight});
 		this.$rightContent.prepend($contactelem);
 		adjustElems();
+		this.bodyListener = function(e) {
+			if(!self.currentid) {
+				return;
+			}
+			var $contactelem = self.contacts.findById(self.currentid).$fullelem;
+			if($contactelem.find($(e.target)).length === 0) {
+				self.closeContact(self.currentid);
+			}
+		};
+		setTimeout(function() {
+			$('body').bind('click', self.bodyListener);
+		}, 500);
 	},
 	update: function() {
 		console.log('update');
