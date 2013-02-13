@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 11:49+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-14 00:01+0100\n"
+"PO-Revision-Date: 2013-02-13 13:30+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,13 +20,13 @@ msgstr ""
 
 #: templates/wizard.php:7
 msgid "Welcome to ownCloud"
-msgstr ""
+msgstr "Tervetuloa ownCloudin käyttäjäksi"
 
 #: templates/wizard.php:8
 msgid ""
 "Your personal web services. All your files, contacts, calendar and more, in "
 "one place."
-msgstr ""
+msgstr "Henkilökohtaiset verkkopalvelusi. Tiedostosi, yhteystietosi, kalenterisi ja paljon muuta, kaikki samassa paikassa."
 
 #: templates/wizard.php:11
 msgid "Get the apps to sync your files"
@@ -46,7 +46,7 @@ msgstr ""
 
 #: templates/wizard.php:31
 msgid "Access files via WebDAV"
-msgstr ""
+msgstr "Käytä tiedostoja WebDAVin välityksellä"
 
 #: templates/wizard.php:34
 msgid ""

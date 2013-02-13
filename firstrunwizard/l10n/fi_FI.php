@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
-"First Run Wizard" => "Ensimmäisen käyttökerran avustaja",
-"Show First Run Wizard again" => "Näytä ensimmäisen käyttökerran avustaja uudelleen"
+"Welcome to ownCloud" => "Tervetuloa ownCloudin käyttäjäksi",
+"Your personal web services. All your files, contacts, calendar and more, in one place." => "Henkilökohtaiset verkkopalvelusi. Tiedostosi, yhteystietosi, kalenterisi ja paljon muuta, kaikki samassa paikassa.",
+"Access files via WebDAV" => "Käytä tiedostoja WebDAVin välityksellä"
 );

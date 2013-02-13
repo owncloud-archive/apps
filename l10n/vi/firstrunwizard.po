@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 11:49+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-14 00:01+0100\n"
+"PO-Revision-Date: 2013-02-13 05:10+0000\n"
+"Last-Translator: saosangm <saosangmo@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,44 +20,44 @@ msgstr ""
 
 #: templates/wizard.php:7
 msgid "Welcome to ownCloud"
-msgstr ""
+msgstr "Chào mừng đến với ownCloud"
 
 #: templates/wizard.php:8
 msgid ""
 "Your personal web services. All your files, contacts, calendar and more, in "
 "one place."
-msgstr ""
+msgstr "Dịch vụ web cá nhân của bạn. Mọi file, liên hệ, lịch của bạn và nhiều hơn thế  trong 1 nơi duy nhất"
 
 #: templates/wizard.php:11
 msgid "Get the apps to sync your files"
-msgstr ""
+msgstr "Nhận ứng dụng để đồng bộ file của bạn"
 
 #: templates/wizard.php:23
 msgid "Connect your desktop apps to ownCloud"
-msgstr ""
+msgstr "Kết nối ứng dụng để bàn tới ownCloud"
 
 #: templates/wizard.php:25
 msgid "Connect your Calendar"
-msgstr ""
+msgstr "Kết nối tới lịch của bạn"
 
 #: templates/wizard.php:28
 msgid "Connect your Contacts"
-msgstr ""
+msgstr "Kết nối tới liên lạc của bạn"
 
 #: templates/wizard.php:31
 msgid "Access files via WebDAV"
-msgstr ""
+msgstr "Truy cập file qua WebDAV"
 
 #: templates/wizard.php:34
 msgid ""
 "There’s more information in the <a "
 "href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
 "and on our <a href=\"http://owncloud.org\">website</a>."
-msgstr ""
+msgstr "Xem thêm thông tin trong <a href=\"http://doc.owncloud.org/server/5.0/user_manual/\">tài liệu</a> và <a href=\"http://owncloud.org\">website</a> của chúng tôi."
 
 #: templates/wizard.php:35
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"
 " http://owncloud.org\">recommend it to your friends</a>!"
-msgstr ""
+msgstr "Nếu bạn thích ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">giới thiệu với bạn bè của bạn</a>!"
