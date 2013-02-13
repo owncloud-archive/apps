@@ -5,8 +5,6 @@ jQuery.fn.slideShow = function (container, start, options) {
 		'interval': 5000,
 		'play': true
 	}, options);
-	console.log(options.play);
-	console.log(settings.play);
 	jQuery.fn.slideShow.container = container;
 	jQuery.fn.slideShow.settings = settings;
 	jQuery.fn.slideShow.current = start;
@@ -17,9 +15,7 @@ jQuery.fn.slideShow = function (container, start, options) {
 	container.show();
 	jQuery.fn.slideShow.images = images;
 	jQuery.fn.slideShow.cache = [];
-	console.log(start);
 	jQuery.fn.slideShow.showImage(images[start]);
-//	BigScreen.request(container[0]);
 	jQuery.fn.slideShow.progressBar = container.find('.progress');
 	return jQuery.fn.slideShow;
 };
@@ -41,8 +37,23 @@ jQuery.fn.slideShow.loadImage = function (url) {
 jQuery.fn.slideShow.showImage = function (url) {
 	var container = jQuery.fn.slideShow.container;
 	jQuery.fn.slideShow.loadImage(url).then(function (image) {
+		var ratio = image.width / image.height,
+			screenRatio = container.width() / container.height();
 		container.children('img').remove();
 		container.append(image);
+		if (ratio > screenRatio) {
+			$(image).css({
+				'top': ((container.height() - (container.width() / ratio)) / 2) + 'px',
+				width: '100%',
+				height: null
+			});
+		} else {
+			$(image).css({
+				top: null,
+				width: null,
+				height: '100%'
+			});
+		}
 		if (jQuery.fn.slideShow.settings.play) {
 			jQuery.fn.slideShow.setTimeout();
 		}

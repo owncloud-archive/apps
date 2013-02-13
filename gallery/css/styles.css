@@ -75,11 +75,11 @@
 }
 
 #slideshow>img {
-	top: 0;
+	position:relative;
+	vertical-align: middle;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	height: 100%;
 }
 
 #slideshow > input {
