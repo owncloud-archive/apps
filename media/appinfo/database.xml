@@ -292,5 +292,88 @@
 
  </table>
 
+ <table>
+
+  <name>*dbprefix*media_videos</name>
+
+  <declaration>
+
+   <field>
+    <name>video_id</name>
+    <type>integer</type>
+    <default>0</default>
+    <notnull>true</notnull>
+    <autoincrement>1</autoincrement>
+    <length>4</length>
+   </field>
+
+   <field>
+    <name>video_name</name>
+    <type>text</type>
+    <default></default>
+    <notnull>true</notnull>
+    <length>200</length>
+   </field>
+
+   <field>
+    <name>video_mime</name>
+    <type>text</type>
+    <default>0</default>
+    <notnull>true</notnull>
+    <length>200</length>
+   </field>
+
+   <field>
+    <name>video_resolution_x</name>
+    <type>integer</type>
+    <default></default>
+    <notnull>true</notnull>
+    <length>4</length>
+   </field>
+   
+   <field>
+    <name>video_resolution_y</name>
+    <type>integer</type>
+    <default></default>
+    <notnull>true</notnull>
+    <length>4</length>>
+   </field>
+
+   <field>
+    <name>video_path</name>
+    <type>text</type>
+    <default></default>
+    <notnull>true</notnull>
+    <length>200</length>
+   </field>
+
+   <field>
+    <name>video_size</name>
+    <type>integer</type>
+    <default></default>
+    <notnull>true</notnull>
+    <length>4</length>
+   </field>
+
+   <field>
+    <name>video_user</name>
+    <type>text</type>
+    <default>0</default>
+    <notnull>true</notnull>
+    <length>64</length>
+   </field>
+
+   <index>
+	   <name>video_name_index</name>
+	   <field>
+		   <name>video_name</name>
+		   <sorting>ascending</sorting>
+	   </field>
+   </index>
+   
+
+  </declaration>
+
+ </table>
 
 </database>

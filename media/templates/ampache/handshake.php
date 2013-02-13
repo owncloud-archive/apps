@@ -14,5 +14,5 @@ print '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
 	<session_length>600</session_length>
 	<session_expire><?php echo $_['expire'];?></session_expire>
 	<tags>0</tags>
-	<videos>0</videos>
+	<videos><?php echo $_['videos'];?></videos>
 </root>

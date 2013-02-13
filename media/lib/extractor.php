@@ -45,11 +45,24 @@ class Extractor_GetID3 implements Extractor {
 		$data = @$this->getID3->analyze($file);
 		\getid3_lib::CopyTagsToComments($data);
 
+		$meta = array();
+
+		if (!empty($data['video']) && !preg_match('/image/', $data['mime_type'])) {
+			$meta['type'] = 'video';
+			$meta['name'] = $data['filename'];
+			$meta['mime'] = $data['mime_type'];
+			$meta['resolution_x'] = (int)$data['video']['resolution_x'];
+			$meta['resolution_y'] = (int)$data['video']['resolution_y'];
+			$meta['size'] = (int)$data['filesize'];
+			
+			return $meta;
+		}
+
 		if (!isset($data['comments'])) {
 			return array();
 		}
-		$meta = array();
-
+		
+		$meta['type'] = 'song';
 		$meta['artist'] = stripslashes($data['comments']['artist'][0]);
 		$meta['album'] = stripslashes($data['comments']['album'][0]);
 		$meta['title'] = stripslashes($data['comments']['title'][0]);
