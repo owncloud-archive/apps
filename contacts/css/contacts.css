@@ -180,7 +180,7 @@
 
 /*.no-svg .add { background-image:url('%webroot%/core/img/actions/add.png'); }*/
 .no-svg .delete { background-image:url('%webroot%/core/img/actions/delete.png'); }
-/*.no-svg .delete:hover { background-image:url('%webroot%/core/img/actions/delete-hover.png'); }*/
+.no-svg .delete:hover { background-image:url('%webroot%/core/img/actions/delete-hover.png'); }
 .no-svg .edit { background-image:url('%webroot%/core/img/actions/rename.png'); }
 .no-svg .share { background-image:url('%webroot%/core/img/actions/share.png'); }
 .no-svg .groups { background-image:url('%webroot%/core/img/actions/shared.png'); }
@@ -201,7 +201,7 @@
 }
 /*.svg .add { background-image:url('%webroot%/core/img/actions/add.svg'); }*/
 .svg .delete { background-image:url('%webroot%/core/img/actions/delete.svg'); }
-/*.svg .delete:hover { background-image:url('%webroot%/core/img/actions/delete-hover.svg'); }*/
+.svg .delete:hover { background-image:url('%webroot%/core/img/actions/delete-hover.svg'); }
 .svg .edit { background-image:url('%webroot%/core/img/actions/rename.svg'); }
 .svg .share { background-image:url('%webroot%/core/img/actions/share.svg'); }
 .svg .groups { background-image:url('%webroot%/core/img/actions/shared.svg'); }
