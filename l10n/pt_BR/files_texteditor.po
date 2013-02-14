@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Rodrigo Tavares <rodrigo.st23@hotmail.com>, 2013.
 #   <tbsoares@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 00:24+0100\n"
-"PO-Revision-Date: 2013-01-30 16:30+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-15 00:01+0100\n"
+"PO-Revision-Date: 2013-02-14 00:10+0000\n"
+"Last-Translator: rodrigost23 <rodrigo.st23@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,38 +19,38 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: js/editor.js:72 js/editor.js:177 js/editor.js:185
+#: js/editor.js:72 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr "Salvar"
 
 #: js/editor.js:74
 msgid "Search:"
-msgstr ""
+msgstr "Pesquisar:"
 
 #: js/editor.js:74
 msgid "Close"
 msgstr "Fechar"
 
-#: js/editor.js:151
+#: js/editor.js:132
 msgid "Next"
 msgstr "Próximo"
 
-#: js/editor.js:152
+#: js/editor.js:133
 msgid "Clear"
 msgstr "Limpar"
 
-#: js/editor.js:170
+#: js/editor.js:151
 msgid "Saving..."
 msgstr "Salvando..."
 
-#: js/editor.js:178
+#: js/editor.js:159
 msgid "Failed to save file"
-msgstr ""
+msgstr "Falha ao salvar arquivo"
 
-#: js/editor.js:262
+#: js/editor.js:243
 msgid "An error occurred!"
 msgstr "Ocorreu um erro!"
 
-#: js/editor.js:297
+#: js/editor.js:271
 msgid "There were unsaved changes, click here to go back"
-msgstr "Existem mudanças não salvas, clique aqui para voltar"
+msgstr "Existem alterações não salvas, clique aqui para voltar"

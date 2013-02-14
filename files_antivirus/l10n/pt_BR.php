@@ -8,10 +8,13 @@
 "Executable" => "Executável",
 "Daemon" => "Daemon",
 "Host" => "Host",
+"Address of Antivirus Host." => "Endereço do Host do Antivírus.",
 "Not required in Executable Mode." => "Não necessário no Modo Executável.",
 "Port" => "Porta",
+"Port number of Antivirus Host." => "Número da porta do Host do Antivírus.",
 "Not required in Daemon Mode." => "Não necessário no Modo Daemon.",
 "Action for infected files found while scanning" => "Ação para arquivos infectados encontrados ao escanear",
+"Only log" => "Somente registro",
 "Delete file" => "Excluir arquivo",
 "Save" => "Salvar"
 );

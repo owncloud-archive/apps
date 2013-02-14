@@ -1,4 +1,5 @@
 <?php $TRANSLATIONS = array(
 "Save" => "Запис",
-"Close" => "Затвори"
+"Close" => "Затвори",
+"Saving..." => "Записване..."
 );

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 00:24+0100\n"
-"PO-Revision-Date: 2013-01-30 16:30+0000\n"
+"POT-Creation-Date: 2013-02-15 00:01+0100\n"
+"PO-Revision-Date: 2013-02-13 23:10+0000\n"
 "Last-Translator: rodrigost23 <rodrigo.st23@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr "Host"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "Endereço do Host do Antivírus."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
@@ -70,7 +70,7 @@ msgstr "Porta"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "Número da porta do Host do Antivírus."
 
 #: templates/settings.php:9
 msgid "Stream Length"
@@ -98,12 +98,12 @@ msgstr "Ação para arquivos infectados encontrados ao escanear"
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "Somente registro"
 
 #: templates/settings.php:12
 msgid "Delete file"
 msgstr "Excluir arquivo"
 
-#: templates/settings.php:14
+#: templates/settings.php:15
 msgid "Save"
 msgstr "Salvar"

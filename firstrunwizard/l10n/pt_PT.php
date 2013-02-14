@@ -1,4 +1,3 @@
 <?php $TRANSLATIONS = array(
-"First Run Wizard" => "Wizard de Arranque Inicial",
-"Show First Run Wizard again" => "Mostrar novamente Wizard de Arranque Inicial"
+"Get the apps to sync your files" => "Obtenha as aplicações para sincronizar os seus ficheiros"
 );
