@@ -24,6 +24,7 @@ if ($owner !== OC_User::getUser()) {
 		}
 	} else {
 		OC_JSON::error('no such file');
+		die();
 	}
 }
 
