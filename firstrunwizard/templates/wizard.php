@@ -22,13 +22,13 @@
 
 <h2><?php echo $l->t('Connect your desktop apps to ownCloud');?></h2>
 <a class="button" href="http://doc.owncloud.org/server/5.0/user_manual/calendars.html#synchronising-calendars-with-caldav">
-	<img class="appsmall appsmall-calendar" src="<?php echo OCP\Util::imagePath('core', 'places/calendar-dark.svg'); ?>" /> <?php echo $l->t('Connect your Calendar');?>
+	<img class="appsmall appsmall-calendar svg" src="<?php echo OCP\Util::imagePath('core', 'places/calendar-dark.svg'); ?>" /> <?php echo $l->t('Connect your Calendar');?>
 </a>
 <a class="button" href="http://doc.owncloud.org/server/5.0/user_manual/contacts.html#keeping-your-address-book-in-sync">
-	<img class="appsmall appsmall-contacts" src="<?php echo OCP\Util::imagePath('core', 'places/contacts-dark.svg'); ?>" /> <?php echo $l->t('Connect your Contacts');?>
+	<img class="appsmall appsmall-contacts svg" src="<?php echo OCP\Util::imagePath('core', 'places/contacts-dark.svg'); ?>" /> <?php echo $l->t('Connect your Contacts');?>
 </a>
 <a class="button" href="http://doc.owncloud.org/server/5.0/user_manual/connecting_webdav.html">
-	<img class="appsmall" src="<?php echo OCP\Util::imagePath('core', 'places/folder.svg'); ?>" /> <?php echo $l->t('Access files via WebDAV');?>
+	<img class="appsmall svg" src="<?php echo OCP\Util::imagePath('core', 'places/folder.svg'); ?>" /> <?php echo $l->t('Access files via WebDAV');?>
 </a>
 
 <p class="footnote"><?php echo $l->t('There’s more information in the <a href="http://doc.owncloud.org/server/5.0/user_manual/">documentation</a> and on our <a href="http://owncloud.org">website</a>.'); ?><br>
