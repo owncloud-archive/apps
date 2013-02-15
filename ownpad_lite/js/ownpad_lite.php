@@ -44,10 +44,20 @@ var ownPad = {
 	},
 	setHost : function(host) {
 		ownPad.host = host;
+	},
+	search : function(){
+		var str = $(this).val();
+		if (str && str.length && str.length>2){
+			$.post(OC.filePath('ownpad_lite', 'ajax', 'search.php'), {<?php echo OCA\ownpad_lite\UrlParam::SHARE_SEARCH ?>:str}, ownPad.onSearchResult);
+		}
+	},
+	onSearchResult : function(result){
+		console.log(result);
 	}
 };
 
 $('#ownpad-open').click(ownPad.showPad);
+$('#ownpad-share').keyup(ownPad.search);
 $('#settingsbtn').on('click keydown', function() {
 	try {
 		OC.appSettings({appid:'ownpad_lite', loadJS:true, cache:false});

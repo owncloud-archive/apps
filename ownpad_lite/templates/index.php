@@ -16,6 +16,7 @@
 	</button>
 	<label><?php echo $l->t('Pad Title') ?></label><input id="ownpad-title" value="eetest" />
 	<button id="ownpad-open"><?php echo $l->t('Open') ?></button>
+	<?php /* <input id="ownpad-share" value="" /> */ ?>
 </div>
 <div id="ownpad-content"></div>
 <div id="ownpad-appsettings"><div id="appsettings" class="popup hidden topright"></div></div>
