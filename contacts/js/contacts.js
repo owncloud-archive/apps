@@ -1345,6 +1345,7 @@ OC.Contacts = OC.Contacts || {};
 		this.$contactList.scrollTop(0);
 		this.loadContacts(0);
 		$(document).bind('status.contact.added', function(e, data) {
+			self.length += 1;
 			self.contacts[parseInt(data.id)] = data.contact;
 			self.insertContact(data.contact.renderListItem());
 		});
@@ -1547,7 +1548,7 @@ OC.Contacts = OC.Contacts || {};
 			return false;
 		}
 		contact.destroy(function(response) {
-			console.log('deleteContact', response);
+			console.log('deleteContact', response, self.length);
 			if(response.status === 'success') {
 				delete self.contacts[id];
 				$(document).trigger('status.contact.deleted', {
@@ -1714,6 +1715,9 @@ OC.Contacts = OC.Contacts || {};
 					self.setAddressbook(book);
 				});
 				var items = [];
+				if(jsondata.data.contacts.length === 0) {
+					$(document).trigger('status.nomorecontacts');
+				}
 				$.each(jsondata.data.contacts, function(c, contact) {
 					self.contacts[parseInt(contact.id)]
 						= new Contact(

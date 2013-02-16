@@ -892,10 +892,7 @@ OC.Contacts = OC.Contacts || {
 			$list.toggle('slow');
 		});
 
-		this.$header.on('click keydown', '.add', function(event) {
-			if(wrongKey(event)) {
-				return;
-			}
+		var addContact = function() {
 			console.log('add');
 			self.$toggleAll.hide();
 			$(this).hide();
@@ -910,6 +907,28 @@ OC.Contacts = OC.Contacts || {
 			self.tmpcontact = self.contacts.addContact(groupprops);
 			self.$rightContent.prepend(self.tmpcontact);
 			self.hideActions();
+		};
+
+		this.$firstRun.on('click keydown', '.import', function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			self.$settings.find('.settings').click();
+		});
+
+		this.$firstRun.on('click keydown', '.addcontact', function(event) {
+			self.$firstRun.hide();
+			self.$contactList.show();
+			if(wrongKey(event)) {
+				return;
+			}
+			addContact();
+		});
+
+		this.$header.on('click keydown', '.add', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			addContact();
 		});
 
 		this.$header.on('click keydown', '.delete', function(event) {

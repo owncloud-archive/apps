@@ -92,8 +92,8 @@
 		<?php echo $l->t('<h3>You have no contacts in your addressbook.</h3>'
 			. '<p>Add a new contact or import existing contacts from a VCF file.</p>') ?>
 		<div id="selections">
-			<button class="addcontact"><?php echo $l->t('Add contact') ?></button>
-			<button class="import"><?php echo $l->t('Import') ?></button>
+			<button class="addcontact icon-plus text"><?php echo $l->t('Add contact') ?></button>
+			<button class="import icon text"><?php echo $l->t('Import') ?></button>
 		</div>
 	</div>
 </div>
