@@ -134,12 +134,12 @@
         this.shelvedRequests = [];
         OC.Router.registerLoadedCallback(function() {
           var req, _i, _len, _ref;
+          _this.initialized = true;
           _ref = _this.shelvedRequests;
           for (_i = 0, _len = _ref.length; _i < _len; _i++) {
             req = _ref[_i];
             _this.post(req.route, req.routeParams, req.data, req.onSuccess, req.onFailure);
           }
-          _this.initialized = true;
           return _this.shelvedRequests = [];
         });
       }
@@ -381,6 +381,7 @@
           return _this.saveName(name);
         };
         this.getName(this.$scope);
+        console.log(this.request);
       }
 
       ExampleController.prototype.saveName = function(name) {

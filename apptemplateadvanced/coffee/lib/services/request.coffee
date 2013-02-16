@@ -21,11 +21,11 @@ angular.module('OC').factory '_Request', ->
 			@initialized = false
 			@shelvedRequests = []
 			OC.Router.registerLoadedCallback =>
+				@initialized = true
 				for req in @shelvedRequests
 					@post(req.route, req.routeParams, req.data,
 							req.onSuccess, req.onFailure)
 
-				@initialized = true
 				@shelvedRequests = []
 
 
