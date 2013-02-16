@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 5.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-02-16 21:16+0100\n"
+"POT-Creation-Date: 2013-02-17 00:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Select photo"
 msgstr ""
 
-#: js/app.js:493 js/app.js:519 js/app.js:1505 js/app.js:1617
+#: js/app.js:493 js/app.js:519 js/app.js:1524 js/app.js:1636
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr ""
@@ -274,86 +274,86 @@ msgstr ""
 msgid "Add address book"
 msgstr ""
 
-#: js/app.js:982
+#: js/app.js:1001
 msgid "Import done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:1023
+#: js/app.js:1042
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/app.js:1029
+#: js/app.js:1048
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/app.js:1029 js/app.js:1552 js/settings.js:25 js/settings.js:45
+#: js/app.js:1048 js/app.js:1571 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr ""
 
-#: js/app.js:1039
+#: js/app.js:1058
 msgid "Importing from {filename}..."
 msgstr ""
 
-#: js/app.js:1042
+#: js/app.js:1061
 msgid "{success} imported, {failed} failed."
 msgstr ""
 
-#: js/app.js:1050
+#: js/app.js:1069
 msgid "Importing..."
 msgstr ""
 
-#: js/app.js:1073
+#: js/app.js:1092
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr ""
 
-#: js/app.js:1073
+#: js/app.js:1092
 msgid "Upload Error"
 msgstr ""
 
-#: js/app.js:1080 js/app.js:1380
+#: js/app.js:1099 js/app.js:1399
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr ""
 
-#: js/app.js:1080
+#: js/app.js:1099
 msgid "Upload too large"
 msgstr ""
 
-#: js/app.js:1120
+#: js/app.js:1139
 msgid "Pending"
 msgstr ""
 
-#: js/app.js:1263 templates/contacts.php:121
+#: js/app.js:1282 templates/contacts.php:121
 msgid "Add group"
 msgstr ""
 
-#: js/app.js:1369
+#: js/app.js:1388
 msgid "No files selected for upload."
 msgstr ""
 
-#: js/app.js:1470
+#: js/app.js:1489
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1488 js/contacts.js:1134
+#: js/app.js:1507 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/app.js:1540
+#: js/app.js:1559
 msgid "Enter name"
 msgstr ""
 
-#: js/app.js:1541
+#: js/app.js:1560
 msgid "Enter description"
 msgstr ""
 
-#: js/app.js:1544
+#: js/app.js:1563
 msgid "Select addressbook"
 msgstr ""
 
-#: js/app.js:1552
+#: js/app.js:1571
 msgid "The address book name cannot be empty."
 msgstr ""
 
@@ -369,17 +369,17 @@ msgstr ""
 msgid "# groups"
 msgstr ""
 
-#: js/contacts.js:1490
+#: js/contacts.js:1491
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1501
+#: js/contacts.js:1502
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1516
+#: js/contacts.js:1517
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
