@@ -122,7 +122,7 @@ class ItemController extends Controller {
 	 * @Ajax
 	 */
 	public function getSystemValue(){
-		$value = $this->api->getSystemValue('somesetting');
+		$value = $this->api->getAppValue('somesetting');
 
 		$params = array(
 			'somesetting' => $value

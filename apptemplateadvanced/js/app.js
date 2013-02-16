@@ -381,7 +381,6 @@
           return _this.saveName(name);
         };
         this.getName(this.$scope);
-        console.log(this.request);
       }
 
       ExampleController.prototype.saveName = function(name) {
