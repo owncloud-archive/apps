@@ -125,10 +125,9 @@
     var Request;
     Request = (function() {
 
-      function Request($http, $rootScope, Config, publisher) {
+      function Request($http, Config, publisher) {
         var _this = this;
         this.$http = $http;
-        this.$rootScope = $rootScope;
         this.Config = Config;
         this.publisher = publisher;
         this.initialized = false;
@@ -244,8 +243,8 @@
 (function() {
 
   angular.module('AppTemplateAdvanced').factory('AppTemplateAdvancedRequest', [
-    '$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher', function($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher) {
-      return new _AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher);
+    '$http', 'Config', '_AppTemplateAdvancedRequest', 'Publisher', function($http, Config, _AppTemplateAdvancedRequest, Publisher) {
+      return new _AppTemplateAdvancedRequest($http, Config, Publisher);
     }
   ]);
 
@@ -291,8 +290,8 @@
 
         __extends(AppTemplateAdvancedRequest, _super);
 
-        function AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher) {
-          AppTemplateAdvancedRequest.__super__.constructor.call(this, $http, $rootScope, Config, Publisher);
+        function AppTemplateAdvancedRequest($http, Config, Publisher) {
+          AppTemplateAdvancedRequest.__super__.constructor.call(this, $http, Config, Publisher);
         }
 
         AppTemplateAdvancedRequest.prototype.saveName = function(route, name) {
@@ -335,26 +334,20 @@
 
 
 (function() {
-  var __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  angular.module('AppTemplateAdvanced').factory('_ItemModel', [
-    '_Model', function(_Model) {
-      var ItemModel;
-      ItemModel = (function(_super) {
+  angular.module('AppTemplateAdvanced').factory('_ItemModel', function() {
+    var ItemModel;
+    ItemModel = (function() {
 
-        __extends(ItemModel, _super);
+      function ItemModel() {}
 
-        function ItemModel() {
-          ItemModel.__super__.constructor.call(this);
-        }
+      ItemModel.prototype.handle = function(data) {};
 
-        return ItemModel;
-
-      })(_Model);
       return ItemModel;
-    }
-  ]);
+
+    })();
+    return ItemModel;
+  });
 
 }).call(this);
 
@@ -387,9 +380,7 @@
         this.$scope.saveName = function(name) {
           return _this.saveName(name);
         };
-        this.$scope.$on('routesLoaded', function() {
-          return _this.getName(_this.$scope);
-        });
+        this.getName(this.$scope);
       }
 
       ExampleController.prototype.saveName = function(name) {

@@ -13,14 +13,13 @@ angular.module('OC').factory '_Request', ->
 
 	class Request
 
-		constructor: (@$http, @$rootScope, @Config, @publisher) ->
+		constructor: (@$http, @Config, @publisher) ->
 
 			# if the routes are not yet initialized we dont want to lose
 			# requests. Save all requests and run them when the routes are
 			# ready
 			@initialized = false
 			@shelvedRequests = []
-
 			OC.Router.registerLoadedCallback =>
 				for req in @shelvedRequests
 					@post(req.route, req.routeParams, req.data,

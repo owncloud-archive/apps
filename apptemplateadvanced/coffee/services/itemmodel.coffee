@@ -9,16 +9,12 @@
 #
 ###
 
-angular.module('AppTemplateAdvanced').factory '_ItemModel',
-['_Model',
-(_Model) ->
+angular.module('AppTemplateAdvanced').factory '_ItemModel', ->
 
-	class ItemModel extends _Model
+	class ItemModel
 
 		constructor: ->
-			super()
-			#@hasForeignKey('user')
 
+		handle: (data) ->
 
 	return ItemModel
-]

@@ -24,8 +24,7 @@ angular.module('AppTemplateAdvanced').factory '_ExampleController', ->
 			@$scope.saveName = (name) =>
 				@saveName(name)
 
-			@$scope.$on 'routesLoaded', =>
-				@getName(@$scope)
+			@getName(@$scope)
 
 
 		saveName: (name) ->

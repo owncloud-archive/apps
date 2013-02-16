@@ -50,7 +50,7 @@ class SettingsController extends Controller {
 		
 		$templateName = 'settings';
 		$params = array(
-			'url' => $this->api->getSystemValue('somesetting')
+			'url' => $this->api->getAppValue('somesetting')
 		);
 
 		return $this->render($templateName, $params, 'blank');
