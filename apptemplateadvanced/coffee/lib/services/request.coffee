@@ -21,7 +21,7 @@ angular.module('OC').factory '_Request', ->
 			@initialized = false
 			@shelvedRequests = []
 
-			@$rootScope.$on 'routesLoaded', =>
+			OC.Router.registerLoadedCallback =>
 				for req in @shelvedRequests
 					@post(req.route, req.routeParams, req.data,
 							req.onSuccess, req.onFailure)
