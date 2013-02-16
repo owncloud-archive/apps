@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-15 00:01+0100\n"
+"POT-Creation-Date: 2013-02-16 21:16+0100\n"
 "PO-Revision-Date: 2011-09-03 16:52+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Belarusian (http://www.transifex.com/projects/p/owncloud/language/be/)\n"
@@ -694,7 +694,7 @@ msgstr ""
 
 #: templates/part.eventform.php:115 templates/part.showevent.php:112
 msgid "Advanced"
-msgstr ""
+msgstr "Дасведчаны"
 
 #: templates/part.eventform.php:159 templates/part.showevent.php:156
 msgid "Select weekdays"

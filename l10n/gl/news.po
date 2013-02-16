@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <mbouzada@gmail.com>, 2013.
 #   <mbouzada@gmail.com>, 2012.
 # Xosé M. Lamas <correo.xmgz@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-13 00:00+0100\n"
-"PO-Revision-Date: 2013-02-12 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-16 21:16+0100\n"
+"PO-Revision-Date: 2013-02-15 18:50+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: 3rdparty/js/moment.min.js:6
 msgid "year"
-msgstr ""
+msgstr "ano"
 
 #: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
 msgid "News"
@@ -65,19 +66,19 @@ msgstr "Engadir subscrición"
 
 #: templates/part.addnew.php:14
 msgid "Address must not be empty!"
-msgstr ""
+msgstr "O enderezo non pode estar baleiro!"
 
 #: templates/part.addnew.php:15
 msgid "Feed exists already!"
-msgstr ""
+msgstr "Esta fonte de novas xa existe!"
 
 #: templates/part.addnew.php:16
 msgid "Could not add feed! Check if feed contains valid RSS!"
-msgstr ""
+msgstr "Non foi posíbel engadir a fonte de novas! Comprobe se a fonte de novas contén un RSS correcto!"
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
-msgstr ""
+msgstr "O cartafol xa existe"
 
 #: templates/part.addnew.php:22
 msgid "Address"
@@ -89,7 +90,7 @@ msgstr "Engadir"
 
 #: templates/part.addnew.php:29
 msgid "New folder"
-msgstr ""
+msgstr "Novo cartafol"
 
 #: templates/part.addnew.php:30
 msgid "Folder"
@@ -97,7 +98,7 @@ msgstr "Cartafol"
 
 #: templates/part.addnew.php:35
 msgid "No folder"
-msgstr ""
+msgstr "Sen cartafol"
 
 #: templates/part.feed.starred.php:6
 msgid "Starred"
@@ -105,20 +106,20 @@ msgstr "Destacado"
 
 #: templates/part.feed.unread.php:10
 msgid "Unread articles"
-msgstr ""
+msgstr "Artigos sen ler"
 
 #: templates/part.feed.unread.php:16
 msgid "All articles"
-msgstr ""
+msgstr "Todos os artigos"
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Marcar todo como lido"
 
 #: templates/part.items.php:34
 msgid "Cant play audio format"
-msgstr ""
+msgstr "Non é posíbel reproducir este formato de son"
 
 #: templates/part.items.php:48 templates/part.items.php:51
 msgid "Share"
@@ -130,23 +131,23 @@ msgstr "Manter sen ler"
 
 #: templates/part.listfeed.php:17
 msgid "Delete feed"
-msgstr "Eliminar fonte"
+msgstr "Eliminar fonte de novas"
 
 #: templates/part.listfolder.php:12
 msgid "Collapse"
 msgstr "Repregar"
 
 #: templates/part.listfolder.php:24
-msgid "Rename folder"
-msgstr "Renomear o cartafol"
-
-#: templates/part.listfolder.php:28
 msgid "Delete folder"
 msgstr "Eliminar o cartafol"
 
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "Renomear o cartafol"
+
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"
-msgstr ""
+msgstr "Importar / Exportar OPML"
 
 #: templates/part.settings.php:4 templates/part.settings.php:5
 msgid "Import"
@@ -162,7 +163,7 @@ msgstr "Subscripción"
 
 #: templates/part.showall.php:2
 msgid "Show all"
-msgstr ""
+msgstr "Amosar todo"
 
 #: templates/part.showall.php:6
 msgid "Show only unread"
