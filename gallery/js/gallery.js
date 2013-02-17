@@ -194,6 +194,12 @@ Gallery.view.viewAlbum = function (albumPath) {
 		}
 	}
 
+	if (albumPath === OC.currentUser){
+		$('button.share').hide();
+	}else{
+		$('button.share').show();
+	}
+
 	OC.Breadcrumb.clear();
 	OC.Breadcrumb.push('Pictures', '#').click(function () {
 		Gallery.view.viewAlbum(OC.currentUser);

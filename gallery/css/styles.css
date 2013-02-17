@@ -1,3 +1,7 @@
+button.share {
+	display: none;
+}
+
 #gallery {
 	overflow: auto;
 	overflow-x: hidden;
@@ -75,7 +79,7 @@
 }
 
 #slideshow>img {
-	position:relative;
+	position: relative;
 	vertical-align: middle;
 	display: block;
 	margin-left: auto;
