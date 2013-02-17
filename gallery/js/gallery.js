@@ -90,13 +90,15 @@ Gallery.getAlbumThumbnail = function (image) {
 	return OC.filePath('gallery', 'ajax', 'albumthumbnail.php') + '?file=' + encodeURIComponent(image);
 };
 Gallery.share = function (event) {
-	event.preventDefault();
-	event.stopPropagation();
-	Gallery.getAlbumInfo(Gallery.currentAlbum).then(function (info) {
-		$('a.share').data('item', info.fileid)
-			.data('possible-permissions', info.permissions).
-			click();
-	});
+	if (!OC.Share.droppedDown) {
+		event.preventDefault();
+		event.stopPropagation();
+		Gallery.getAlbumInfo(Gallery.currentAlbum).then(function (info) {
+			$('a.share').data('item', info.fileid)
+				.data('possible-permissions', info.permissions).
+				click();
+		});
+	}
 };
 Gallery.view = {};
 Gallery.view.element = null;
@@ -194,9 +196,9 @@ Gallery.view.viewAlbum = function (albumPath) {
 		}
 	}
 
-	if (albumPath === OC.currentUser){
+	if (albumPath === OC.currentUser) {
 		$('button.share').hide();
-	}else{
+	} else {
 		$('button.share').show();
 	}
 
