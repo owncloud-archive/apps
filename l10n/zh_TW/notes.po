@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <tseronnie@ymail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-18 00:02+0100\n"
+"PO-Revision-Date: 2013-02-17 14:00+0000\n"
+"Last-Translator: ronnietse <tseronnie@ymail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,8 +20,8 @@ msgstr ""
 
 #: appinfo/app.php:12
 msgid "Notes"
-msgstr ""
+msgstr "筆記"
 
 #: templates/notes.php:3
 msgid "New Note"
-msgstr ""
+msgstr "新筆記"

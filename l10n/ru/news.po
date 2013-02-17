@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-13 00:00+0100\n"
-"PO-Revision-Date: 2013-02-12 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-18 00:02+0100\n"
+"PO-Revision-Date: 2013-02-17 20:10+0000\n"
+"Last-Translator: Langaru <langaru@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,7 +80,7 @@ msgstr "Лента уже существует!"
 
 #: templates/part.addnew.php:16
 msgid "Could not add feed! Check if feed contains valid RSS!"
-msgstr ""
+msgstr "Не могу добавить ленту! Проверте содержит ли лента действительные RSS!"
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
@@ -112,13 +112,13 @@ msgstr "Отмеченный"
 
 #: templates/part.feed.unread.php:10
 msgid "Unread articles"
-msgstr ""
+msgstr "Непрочтённые статьи"
 
 #: templates/part.feed.unread.php:16
 msgid "All articles"
-msgstr ""
+msgstr "Все статьи"
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Отметить все как прочитанные"
@@ -144,12 +144,12 @@ msgid "Collapse"
 msgstr "Свернуть"
 
 #: templates/part.listfolder.php:24
-msgid "Rename folder"
-msgstr "Переименовать папку"
-
-#: templates/part.listfolder.php:28
 msgid "Delete folder"
 msgstr "Удалить папку"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "Переименовать папку"
 
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"
