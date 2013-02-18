@@ -32,10 +32,12 @@
 
 $l = new OC_L10n('imprint');
 
-// there are three configuration options
 OCP\App::registerAdmin ( 'imprint', 'settings' );
 OCP\Util::addStyle  ( 'imprint', 'imprint' );
-// add navigation entry in case it is enabled in the apps options
+/* workaround for OC-4.x's chaotoc header layout */
+if ('5'==substr(OC_Util::getVersionString(),0,1))
+	OCP\Util::addStyle  ( 'imprint', 'imprint-oc4' );
+// add link according to what position is selected inside the apps options
 switch ( OCP\Config::getAppValue( 'imprint', 'position', 'standalone' ) )
 {
 	case 'header-left':
@@ -57,7 +59,7 @@ switch ( OCP\Config::getAppValue( 'imprint', 'position', 'standalone' ) )
 			'id' => 'imprint',
 			'order' => 99999,
 			'href' => OCP\Util::linkTo   ( 'imprint', 'index.php' ),
-			'icon' => OCP\Util::imagePath( 'imprint', 'imprint.png' ),
+			'icon' => OCP\Util::imagePath( 'imprint', 'imprint-light.svg' ),
 			'name' => $l->t("Legal notice") ) );
 	} // switch
 ?>

@@ -40,7 +40,7 @@
 	<div class="imprint-explanation">
 		<?php echo $l->t("The configuration is done here").":";?>
 		<a	class="imprint-reference"
-			href="<?php echo OCP\Util::linkTo('settings','admin.php');?>">
+			href="<?php echo OCP\Util::linkTo('','settings/admin.php');?>">
 			<?php echo $l->t("Admin");?>
 		</a>
 	</div>

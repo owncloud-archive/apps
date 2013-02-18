@@ -1,3 +1,4 @@
+<?php
 /**
 * @package imprint an ownCloud app
 * @category base
@@ -24,14 +25,23 @@
 */
 
 /**
- * @file js/imprint_navigation_bottom.js
- * @brief Client side activity library
+ * @file content.php
+ * Content of the imprint as configured
+ * @access public
  * @author Christian Reiner
  */
-$(document).ready(function(){
-	var anchor=$('<a />');
-	anchor.attr('href',OC.linkTo('imprint','index.php'));
-	anchor.text(t("imprint","Legal notice"));
-	anchor.addClass('imprint-anchor').addClass('navigation-bottom');
-	$('#navigation').append(anchor);
-})
+
+// prepare content
+if ( FALSE === ($content=OCP\Config::getAppValue('imprint','content',FALSE)) )
+{
+	// fetch 'dummy' template
+	$tmpl = new OCP\Template( 'imprint', 'tmpl_dummy' );
+}
+else
+{
+	// fetch 'real' template, will pull content itself
+	$tmpl = new OCP\Template( 'imprint', 'tmpl_content' );
+}
+// render template
+$tmpl->printPage ( );
+?>

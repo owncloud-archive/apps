@@ -34,22 +34,14 @@
  */
 ?>
 
-<!-- an iframe holding the imprints content (safety reasons...) -->
-<iframe id="imprint-content" width="100%" height="100%"></iframe>
-<!-- imprint template content to be processed by the small script below -->
-<script id="imprint-template" type="text/template">
+<html>
+	<head>
+		<link rel="stylesheet" href="<?php echo OCP\Util::linkTo('imprint','css/content.css');?>" type="text/css" media="screen" />
+	</head>
+	<body id="imprint-content">
 <?php
 	$content = OCP\Config::getAppValue('imprint','content',FALSE);
-	echo (strlen($content)!=strlen(strip_tags($content))) ? $content : nl2br($content);
+	echo (strlen($content)!=strlen(strip_tags($content))) ? $content : "<pre>\n".$content."\n</pre>";
 ?>
-</script>
-<!-- small script to transfer template content from above into the iframe document object -->
-<script type="text/javascript">
-	$(document).ready(function(){
-		var markup=$('<body />').append($('#imprint-template').html());
-		var style =$('<style type="text/css" />').html('body{padding:1.2em;}');
-		$('#imprint-content').contents().find('html body').html(markup.html());
-		$('#imprint-content').contents().find('html head').append(style);
-		$('#imprint-template').remove();
-	})
-</script>
+	</body>
+</html>
