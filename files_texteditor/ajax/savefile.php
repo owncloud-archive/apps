@@ -19,7 +19,6 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
- 
 // Check if we are a user
 OCP\JSON::checkLoggedIn();
 OCP\JSON::callCheck();
@@ -32,7 +31,7 @@ $mtime = isset($_POST['mtime']) ? $_POST['mtime'] : '';
 if($path != '' && $mtime != '' && $filecontents) {
 	// Get file mtime
 	$filemtime = \OC\Files\Filesystem::filemtime($path);
-	if($mtime !=== $filemtime) {
+	if($mtime != $filemtime) {
 		// Then the file has changed since opening
 		OCP\JSON::error();
 		OCP\Util::writeLog(
