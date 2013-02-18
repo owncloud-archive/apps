@@ -24,6 +24,8 @@
 
 Changelog: 
 
+* Mon Feb 18 2013 Christian Reiner: version 0.1.8
+Compatibility to ownCloud version 5.
 * Tue Jan 29 2013 Christian Reiner: version 0.1.7
 Changed requirement of OC version from 4.0 to 4.5 (4.9).
 * Fri Jan 18 2013 Christian Reiner: version 0.1.6
