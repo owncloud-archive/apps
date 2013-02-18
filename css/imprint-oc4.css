@@ -34,8 +34,7 @@ a.imprint-anchor{
 }
 #header a.imprint-anchor.header-left{
 	line-height:2.8em;
-	left: 150px;
-	top: 10px;
+	left: 0;
 }
 #header a.imprint-anchor.header-right{
 	line-height:2.8em;

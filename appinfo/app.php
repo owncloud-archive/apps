@@ -35,7 +35,7 @@ $l = new OC_L10n('imprint');
 OCP\App::registerAdmin ( 'imprint', 'settings' );
 OCP\Util::addStyle  ( 'imprint', 'imprint' );
 /* workaround for OC-4.x's chaotoc header layout */
-if ('5'==substr(OC_Util::getVersionString(),0,1))
+if (5>intval(substr(OC_Util::getVersionString(),0,1)))
 	OCP\Util::addStyle  ( 'imprint', 'imprint-oc4' );
 // add link according to what position is selected inside the apps options
 switch ( OCP\Config::getAppValue( 'imprint', 'position', 'standalone' ) )

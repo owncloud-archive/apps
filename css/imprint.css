@@ -38,14 +38,18 @@ a.imprint-anchor{
 	font-weight:inherit;
 }
 #header a.imprint-anchor.header-left{
-	line-height:2.5em;
+	line-height:2.8em;
 	color:#BFBFBF;
 	float: left;
+	top: 11px;
+	left: 150px;
+	font-weight: bold;
 }
 #header a.imprint-anchor.header-right{
-	line-height:2.5em;
+	line-height:2.8em;
 	color:#BFBFBF;
 	float: right;
+	font-weight: bold;
 }
 #navigation a.imprint-anchor.navigation-top{
 	border:none;
