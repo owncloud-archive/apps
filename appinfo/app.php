@@ -59,7 +59,9 @@ switch ( OCP\Config::getAppValue( 'imprint', 'position', 'standalone' ) )
 			'id' => 'imprint',
 			'order' => 99999,
 			'href' => OCP\Util::linkTo   ( 'imprint', 'index.php' ),
-			'icon' => OCP\Util::imagePath( 'imprint', 'imprint-light.svg' ),
+			'icon' => (5<=intval(substr(OC_Util::getVersionString(),0,1)))
+						? OCP\Util::imagePath( 'imprint', 'imprint-light.svg' )
+						: OCP\Util::imagePath( 'imprint', 'imprint-dusky.svg' ),
 			'name' => $l->t("Legal notice") ) );
 	} // switch
 ?>
