@@ -34,7 +34,7 @@ class App {
 	/**
 	 * Properties to index.
 	 */
-	public static $index_properties = array('UID', 'N', 'FN', 'NOTE', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO', 'PHOTO');
+	public static $index_properties = array('BDAY', 'UID', 'N', 'FN', 'NOTE', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO', 'PHOTO');
 
 	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
 	const THUMBNAIL_SIZE = 28;
