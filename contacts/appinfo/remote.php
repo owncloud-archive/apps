@@ -54,7 +54,7 @@ $server->httpRequest = $requestBackend;
 $server->setBaseUri($baseuri);
 // Add plugins
 $server->addPlugin(new Sabre_DAV_Auth_Plugin($authBackend, 'ownCloud'));
-$server->addPlugin(new Sabre_CardDAV_Plugin());
+$server->addPlugin(new OCA\Contacts\CardDAVPlugin());
 $server->addPlugin(new Sabre_DAVACL_Plugin());
 $server->addPlugin(new Sabre_DAV_Browser_Plugin(false)); // Show something in the Browser, but no upload
 $server->addPlugin(new Sabre_CardDAV_VCFExportPlugin());

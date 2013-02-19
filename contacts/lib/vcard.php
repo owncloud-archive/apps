@@ -156,48 +156,6 @@ class VCard {
 	}
 
 	/**
-	* @brief Format property TYPE parameters for upgrading from v. 2.1
-	* @param $property Reference to a Sabre_VObject_Property.
-	* In version 2.1 e.g. a phone can be formatted like: TEL;HOME;CELL:123456789
-	* This has to be changed to either TEL;TYPE=HOME,CELL:123456789 or TEL;TYPE=HOME;TYPE=CELL:123456789 - both are valid.
-	*/
-	public static function formatPropertyTypes(&$property) {
-		foreach($property->parameters as $key=>&$parameter) {
-			$types = App::getTypesOfProperty($property->name);
-			if(is_array($types) && in_array(strtoupper($parameter->name), array_keys($types)) || strtoupper($parameter->name) == 'PREF') {
-				$property->parameters[] = new \Sabre\VObject\Parameter('TYPE', $parameter->name);
-			}
-			unset($property->parameters[$key]);
-		}
-	}
-
-	/**
-	* @brief Decode properties for upgrading from v. 2.1
-	* @param $property Reference to a Sabre_VObject_Property.
-	* The only encoding allowed in version 3.0 is 'b' for binary. All encoded strings
-	* must therefor be decoded and the parameters removed.
-	*/
-	public static function decodeProperty(&$property) {
-		// Check out for encoded string and decode them :-[
-		foreach($property->parameters as $key=>&$parameter) {
-			if(strtoupper($parameter->name) == 'ENCODING') {
-				if(strtoupper($parameter->value) == 'QUOTED-PRINTABLE') { // what kind of other encodings could be used?
-					// Decode quoted-printable and strip any control chars
-					// except \n and \r
-					$property->value = preg_replace(
-								'/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/',
-								'',
-								quoted_printable_decode($property->value)
-					);
-					unset($property->parameters[$key]);
-				}
-			} elseif(strtoupper($parameter->name) == 'CHARSET') {
-					unset($property->parameters[$key]);
-			}
-		}
-	}
-
-	/**
 	* @brief Checks if a contact with the same UID already exist in the address book.
 	* @param $aid Address book ID.
 	* @param $uid UID (passed by reference).
@@ -235,92 +193,6 @@ class VCard {
 	}
 
 	/**
-	* @brief Tries to update imported VCards to adhere to rfc2426 (VERSION: 3.0) and add mandatory fields if missing.
-	* @param aid Address book id.
-	* @param vcard A Sabre\VObject\Component of type VCARD (passed by reference).
-	*/
-	protected static function updateValuesFromAdd($aid, &$vcard) { // any suggestions for a better method name? ;-)
-		$stringprops = array('N', 'FN', 'ORG', 'NICK', 'ADR', 'NOTE');
-		$typeprops = array('ADR', 'TEL', 'EMAIL');
-		$upgrade = false;
-		$fn = $n = $uid = $email = $org = null;
-		$version = isset($vcard->VERSION) ? $vcard->VERSION : null;
-		// Add version if needed
-		if($version && $version < '3.0') {
-			$upgrade = true;
-			//OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. Updating from version: '.$version, OCP\Util::DEBUG);
-		}
-		foreach($vcard->children as &$property) {
-			// Decode string properties and remove obsolete properties.
-			if($upgrade && in_array($property->name, $stringprops)) {
-				self::decodeProperty($property);
-			}
-			if(function_exists('iconv')) {
-				$property->value = str_replace("\r\n", "\n", iconv(mb_detect_encoding($property->value, 'UTF-8, ISO-8859-1'), 'utf-8', $property->value));
-			} else {
-				$property->value = str_replace("\r\n", "\n", mb_convert_encoding($property->value, 'UTF-8', mb_detect_encoding($property->value, 'UTF-8, ISO-8859-1'), $property->value));
-			}
-			if(in_array($property->name, $stringprops)) {
-				$property->value = strip_tags($property->value);
-			}
-			// Fix format of type parameters.
-			if($upgrade && in_array($property->name, $typeprops)) {
-				//OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. before: '.$property->serialize(), OCP\Util::DEBUG);
-				self::formatPropertyTypes($property);
-				//OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. after: '.$property->serialize(), OCP\Util::DEBUG);
-			}
-			if($property->name == 'FN') {
-				$fn = $property->value;
-			}
-			else if($property->name == 'N') {
-				$n = $property->value;
-			}
-			else if($property->name == 'UID') {
-				$uid = $property->value;
-			}
-			else if($property->name == 'ORG') {
-				$org = $property->value;
-			}
-			else if($property->name == 'EMAIL' && is_null($email)) { // only use the first email as substitute for missing N or FN.
-				$email = $property->value;
-			}
-		}
-		// Check for missing 'N', 'FN' and 'UID' properties
-		if(!$fn) {
-			if($n && $n != ';;;;') {
-				$fn = join(' ', array_reverse(array_slice(explode(';', $n), 0, 2)));
-			} elseif($email) {
-				$fn = $email;
-			} elseif($org) {
-				$fn = $org;
-			} else {
-				$fn = 'Unknown Name';
-			}
-			$vcard->FN = $fn;
-			//OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. Added missing \'FN\' field: '.$fn, OCP\Util::DEBUG);
-		}
-		if(!$n || $n == ';;;;') { // Fix missing 'N' field. Ugly hack ahead ;-)
-			$slice = array_reverse(array_slice(explode(' ', $fn), 0, 2)); // Take 2 first name parts of 'FN' and reverse.
-			if(count($slice) < 2) { // If not enought, add one more...
-				$slice[] = "";
-			}
-			$n = implode(';', $slice).';;;';
-			$vcard->N = $n;
-			//OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. Added missing \'N\' field: '.$n, OCP\Util::DEBUG);
-		}
-		if(!$uid) {
-			$uid = substr(md5(rand().time()), 0, 10);
-			$vcard->add('UID', $uid);
-			//OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. Added missing \'UID\' field: '.$uid, OCP\Util::DEBUG);
-		}
-		if(self::trueUID($aid, $uid)) {
-			$vcard->{'UID'} = $uid;
-		}
-		$now = new \DateTime;
-		$vcard->{'REV'} = $now->format(\DateTime::W3C);
-	}
-
-	/**
 	 * @brief Adds a card
 	 * @param $aid integer Addressbook id
 	 * @param $card Sabre\VObject\Component  vCard file
@@ -344,10 +216,12 @@ class VCard {
 				);
 			}
 		}
-		if(!$isChecked) {
-			self::updateValuesFromAdd($aid, $card);
+		$uid = $vcard->UID;
+		if(self::trueUID($aid, $uid)) {
+			$vcard->UID = $uid;
 		}
-		$card->{'VERSION'} = '3.0';
+		$now = new \DateTime;
+		$vcard->REV = $now->format(\DateTime::W3C);
 		// Add product ID is missing.
 		//$prodid = trim($card->getAsString('PRODID'));
 		//if(!$prodid) {
