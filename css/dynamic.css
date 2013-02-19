@@ -84,15 +84,14 @@ html.fluxx-modeless body { }
 
 /* 'bookarks' app */
 html.fluxx-mode-bookmarks { }
-html.fluxx-mode-bookmarks.fluxx-state-N-hidden  body #content #firstrun { left: 20em; }
+html.fluxx-mode-bookmarks.fluxx-state-N-hidden body #content #firstrun { left: 20em; }
 
 /* 'calendar' app */
 html.fluxx-mode-calendar body { }
 
 /* 'contacts' app */
-/*html.fluxx-mode-contacts.fluxx-state-N-hidden body #content > #leftcontent,
-html.fluxx-mode-contacts.fluxx-state-N-hidden body #content > #leftcontent > #contacts { left:0; }
-html.fluxx-mode-contacts.fluxx-state-N-hidden body #content > #rightcontent { left:256px; }*/
+html.fluxx-mode-contacts body { }
+html.fluxx-mode-contacts.fluxx-state-N-hidden body #content #contactsheader { left: 20em; }
 
 /* 'files' app */
 html.fluxx-mode-files body { }
@@ -104,7 +103,7 @@ html.fluxx-mode-gallery body { }
 html.fluxx-mode-media body { }
 
 /* 'notes' app */
-/* html.fluxx-mode-notes.fluxx-state-N-hidden body #content #entries { left:0; } */
+html.fluxx-mode-notes body { }
 
 /* 'shorty' app */
 html.fluxx-mode-shorty body { }
