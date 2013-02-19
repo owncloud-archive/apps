@@ -8,15 +8,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 10:05+0000\n"
-"Last-Translator: sveinn <sveinng@gmail.com>\n"
+"POT-Creation-Date: 2013-02-19 09:56+0100\n"
+"PO-Revision-Date: 2013-02-19 08:57+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Icelandic (http://www.transifex.com/projects/p/owncloud/language/is/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: is\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -26,7 +30,7 @@ msgstr "Ekki er hægt að flytja inn þessa tegund af bókamerki"
 msgid "Bookmarks"
 msgstr "Bókamerki"
 
-#: js/addBm.js:42 js/bookmarks.js:233
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr "Tagg"
 
@@ -38,19 +42,23 @@ msgstr "Sía eftir töggum"
 msgid "Edit bookmark"
 msgstr "Breyta bókamerki"
 
-#: js/bookmarks.js:364
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Ertu viss um að þú viljir fjarlægja þetta tagg úr öllum færslum?"
 
-#: js/bookmarks.js:365
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr "Aðvörun"
 
-#: js/settings.js:25
+#: js/settings.js:18
+msgid "Import error"
+msgstr ""
+
+#: js/settings.js:29
 msgid "Import completed successfully."
 msgstr "Tókst að flytja inn"
 
-#: js/settings.js:56
+#: js/settings.js:60
 msgid "Uploading..."
 msgstr "Sendi inn ..."
 
@@ -116,15 +124,15 @@ msgstr "Bæta við"
 msgid "Related Tags"
 msgstr "Skyld tögg"
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "Stillingar"
 
-#: templates/list.php:55
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr "Þú hefur engin bókamerki"
 
-#: templates/list.php:60
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr "Þú getur inni prófa að flytja inn bókamerkja skrá"
 

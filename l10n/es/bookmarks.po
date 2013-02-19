@@ -13,15 +13,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 10:06+0000\n"
-"Last-Translator: Art O. Pal <artopal@fastmail.fm>\n"
+"POT-Creation-Date: 2013-02-19 09:56+0100\n"
+"PO-Revision-Date: 2013-02-19 08:57+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -31,7 +35,7 @@ msgstr "Tipo de archivo no compatible para importar"
 msgid "Bookmarks"
 msgstr "Marcadores"
 
-#: js/addBm.js:42 js/bookmarks.js:233
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr "Etiquetas"
 
@@ -43,19 +47,23 @@ msgstr "Filtro por etiquetas"
 msgid "Edit bookmark"
 msgstr "Editar marcador"
 
-#: js/bookmarks.js:364
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Esta seguro que desea remover este tag de todas las entradas?"
 
-#: js/bookmarks.js:365
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr "Preacucion"
 
-#: js/settings.js:25
+#: js/settings.js:18
+msgid "Import error"
+msgstr ""
+
+#: js/settings.js:29
 msgid "Import completed successfully."
 msgstr "Importación completada con éxito"
 
-#: js/settings.js:56
+#: js/settings.js:60
 msgid "Uploading..."
 msgstr "Subiendo..."
 
@@ -121,15 +129,15 @@ msgstr "Adicionar"
 msgid "Related Tags"
 msgstr "Tags relacionados"
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "Ajustes"
 
-#: templates/list.php:55
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr "No tienes marcadores"
 
-#: templates/list.php:60
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr "También puede intentar importar un archivo de marcadores"
 

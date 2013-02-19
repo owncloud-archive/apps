@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 09:54+0000\n"
+"POT-Creation-Date: 2013-02-19 09:56+0100\n"
+"PO-Revision-Date: 2013-02-19 08:57+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/owncloud/language/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -25,7 +29,7 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: js/addBm.js:42 js/bookmarks.js:233
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr ""
 
@@ -37,19 +41,23 @@ msgstr ""
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:364
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:365
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr ""
 
-#: js/settings.js:25
+#: js/settings.js:18
+msgid "Import error"
+msgstr ""
+
+#: js/settings.js:29
 msgid "Import completed successfully."
 msgstr ""
 
-#: js/settings.js:56
+#: js/settings.js:60
 msgid "Uploading..."
 msgstr ""
 
@@ -115,15 +123,15 @@ msgstr ""
 msgid "Related Tags"
 msgstr ""
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "सेटिंग्स"
 
-#: templates/list.php:55
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr ""
 
-#: templates/list.php:60
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr ""
 

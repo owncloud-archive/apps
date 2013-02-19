@@ -11,15 +11,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 10:06+0000\n"
-"Last-Translator: cronner <cronner@gmail.com>\n"
+"POT-Creation-Date: 2013-02-19 09:56+0100\n"
+"PO-Revision-Date: 2013-02-19 08:57+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -29,7 +33,7 @@ msgstr "Ikke understøttet filtype til import"
 msgid "Bookmarks"
 msgstr "Bogmærker"
 
-#: js/addBm.js:42 js/bookmarks.js:233
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr "Mærker"
 
@@ -41,19 +45,23 @@ msgstr "Filtrer efter tag"
 msgid "Edit bookmark"
 msgstr "Rediger bogmærker"
 
-#: js/bookmarks.js:364
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Er du sikker på at du vil fjerne dette flag fra alle poster?"
 
-#: js/bookmarks.js:365
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr "Advarsel"
 
-#: js/settings.js:25
+#: js/settings.js:18
+msgid "Import error"
+msgstr ""
+
+#: js/settings.js:29
 msgid "Import completed successfully."
 msgstr "Importer fuldført."
 
-#: js/settings.js:56
+#: js/settings.js:60
 msgid "Uploading..."
 msgstr "Uploader..."
 
@@ -119,15 +127,15 @@ msgstr "Tilføj"
 msgid "Related Tags"
 msgstr "Relaterede Tags"
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "Indstillinger"
 
-#: templates/list.php:55
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr "Du har ingen bogmærker"
 
-#: templates/list.php:60
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr "Du kan også prøve at importere en bogmærke-fil"
 

@@ -8,15 +8,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 10:06+0000\n"
-"Last-Translator: suganthi <suganthi@nic.lk>\n"
+"POT-Creation-Date: 2013-02-19 09:56+0100\n"
+"PO-Revision-Date: 2013-02-19 08:57+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ta_LK\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -26,7 +30,7 @@ msgstr "இறக்குமதிக்கு ஆதரவளிக்கா�
 msgid "Bookmarks"
 msgstr "பக்க அடையாளங்கள்"
 
-#: js/addBm.js:42 js/bookmarks.js:233
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr "சீட்டுகள்"
 
@@ -38,19 +42,23 @@ msgstr "சீட்டுகளால் வடிகட்டுக"
 msgid "Edit bookmark"
 msgstr "பக்க அடையாளத் தொகுக்க "
 
-#: js/bookmarks.js:364
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "ஒவ்வொரு நுழைவின் போதும் இந்த சீட்டை கட்டாயம் அகற்ற வேண்டுமா?"
 
-#: js/bookmarks.js:365
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr "எச்சரிக்கை"
 
-#: js/settings.js:25
+#: js/settings.js:18
+msgid "Import error"
+msgstr ""
+
+#: js/settings.js:29
 msgid "Import completed successfully."
 msgstr "இறக்குமதி வெற்றிகரமாக நிறைவேற்றப்பட்டது."
 
-#: js/settings.js:56
+#: js/settings.js:60
 msgid "Uploading..."
 msgstr "பதிவேற்றல்..."
 
@@ -116,15 +124,15 @@ msgstr "சேர்க்க"
 msgid "Related Tags"
 msgstr "தொடர்புபட்ட சீட்டுகள்"
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "அமைப்புகள்"
 
-#: templates/list.php:55
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr "உங்களிடம் பக்க அடையாளங்கள் இல்லை "
 
-#: templates/list.php:60
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr "நீங்களும் ஒரு பக்க அடையாள கோப்பை இறக்குமதி செய்ய முயற்சிக்கலாம்"
 
