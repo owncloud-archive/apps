@@ -47,7 +47,5 @@
 	<licence>AGPL</licence>
 	<author>Christian Reiner</author>
 	<require>4.9</require>
-		<types>
-			<base/>
-		</types>
+	<types><base/></types>
 </info>
