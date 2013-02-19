@@ -75,9 +75,9 @@ $(document).ready(function(){
  * @author Christian Reiner
  */
 OC.FluXX={
-	C_WAIT: 500,
-	C_HORIZONTAL:	false,
-	C_VERTICAL:		true,
+	C_THREASHOLD: 500,
+	C_HORIZONTAL: false,
+	C_VERTICAL:   true,
 	/**
 	* @object OC.FluXX.Handle
 	* @brief Static reference to the handle object inside the DOM
@@ -96,7 +96,7 @@ OC.FluXX={
 		// so only enter move mode after holding mouse down for an amount of time
 		var timer=setTimeout(function(){
 			OC.FluXX.move(handle);
-		},OC.FluXX.C_WAIT);
+		},OC.FluXX.C_THREASHOLD);
 		// raise normal click handling
 		$(handle.Selector).on('mouseup',function(){
 			// remove _this_ handler
@@ -104,7 +104,7 @@ OC.FluXX={
 			// start click reaction
 			OC.FluXX.toggle(handle);
 		});
-		// make sure to cancel move mode if mouse is released before C_WAIT duration has passed (500ms)
+		// make sure to cancel move mode if mouse is released before C_THREASHOLD duration has passed (500ms)
 		$(document).on('mouseup',function(){
 			// don't enter move mode
 			clearTimeout(timer);
