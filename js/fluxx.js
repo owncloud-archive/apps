@@ -34,6 +34,7 @@ $(document).ready(function(){
 	// setup handle objects
 	OC.FluXX.Handle['H']=OC.FluXX.create('H', OC.FluXX.C_VERTICAL,   0, 'body > header > #header');
 	OC.FluXX.Handle['N']=OC.FluXX.create('N', OC.FluXX.C_HORIZONTAL, 1, 'body > nav > #navigation');
+	OC.FluXX.mode();
 	// initialize created handles
 	$.each(OC.FluXX.Handle, function(){
 		var handle=this;
@@ -167,7 +168,6 @@ OC.FluXX={
 	*/
 	hide:function(handle){
 		var dfd = new $.Deferred();
-		OC.FluXX.stylish(handle);
 		if ($(handle.Selector).hasClass('fluxx-shown')){
 			$.when(
 				$(handle.Selector).addClass('fluxx-hidden'),
@@ -192,6 +192,34 @@ OC.FluXX={
 		else
 			handle.Position.Max=$(handle.Anchor).outerWidth()-$(handle.Anchor).position().left-handle.Offset-$(handle.Selector).outerWidth();
 	}, // OC.FluXX.limit
+	/**
+	* @method OC.FluXX.mode
+	* @brief Hide the navigation area if visible
+	* @author Christian Reiner
+	*/
+	mode:function(){
+		// dynamically load stylesheet to make sure it is loaded LAST
+		OC.addStyle('fluxx_compensator','dynamic');
+		// mark mode and active app as class of the html tag
+		// this acts like a 'switch' command inside the dynamically loaded css
+		var mode={
+			bookmarks_index:	'bookmarks',
+			files_index:		'files',
+			notes_index:		'notes',
+			media_index:		'media',
+			calendar_index:		'calendar',
+			contacts_index:		'contacts',
+			gallery_index:		'gallery',
+			shorty_index:		'shorty',
+		};
+		var index=$('body nav #navigation #apps').find('li .active').parents('li').attr('data-id');
+		// mark current mode (active app) as class of the html element
+		if (index && mode[index]){
+			$('html').addClass('fluxx-mode-'+mode[index]);
+		}else{
+			$('html').addClass('fluxx-modeless');
+		}
+	}, // OC.FluXX.mode
 	/**
 	* @method OC.FluXX.move
 	* @brief Hide the navigation area if visible
@@ -258,7 +286,6 @@ OC.FluXX={
 	*/
 	show:function(handle){
 		var dfd = new $.Deferred();
-		OC.FluXX.stylish(handle);
 		if ($(handle.Selector).hasClass('fluxx-hidden')){
 			$.when(
 				$(handle.Selector).addClass('fluxx-shown'),
@@ -284,33 +311,6 @@ OC.FluXX={
 			$('html').removeClass('fluxx-state-'+handle.Id+'-shown').addClass('fluxx-state-'+handle.Id+'-hidden');
 		}
 	}, // OC.FluXX.state
-	/**
-	* @method OC.FluXX.stylish
-	* @brief Hide the navigation area if visible
-	* @author Christian Reiner
-	*/
-	stylish:function(handle){
-		// dynamically load stylesheet to make sure it is loaded LAST
-		OC.addStyle('fluxx_compensator','dynamic');
-		// mark mode and active app as class of the html tag
-		// this acts like a 'switch' command inside the dynamically loaded css
-		var mode={
-			files_index:	'files',
-			notes_index:	'notes',
-			media_index:	'media',
-			calendar_index:	'calendar',
-			contacts_index:	'contacts',
-			gallery_index:	'gallery',
-			shorty_index:	'shorty'
-		};
-		var index=$(handle.Selector).find('#apps .active').parents('li').attr('data-id');
-		// mark current mode (active app) as class of the html element
-		if (index && mode[index]){
-			$('html').addClass('fluxx-mode-'+mode[index]);
-		}else{
-			$('html').addClass('fluxx-modeless');
-		}
-	}, // OC.FluXX.stylish
 	/**
 	* @method OC.FluXX.swap
 	* @brief Swaps the mode of the app between hidden and shown
