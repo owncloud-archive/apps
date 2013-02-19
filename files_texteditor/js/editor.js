@@ -66,16 +66,17 @@ function setSyntaxMode(ext) {
 
 function showControls(dir, filename, writeperms) {
 	// Loads the control bar at the top.
+	OC.Breadcrumb.push(filename, '#');
 	// Load the new toolbar.
 	var editorbarhtml = '<div id="editorcontrols" style="display: none;">';
 	if (writeperms == "true") {
 		editorbarhtml += '<button id="editor_save">' + t('files_texteditor', 'Save') + '</button><div class="separator"></div>';
 	}
-	editorbarhtml += '<label for="editorseachval">' + t('files_texteditor', 'Search:') + '</label><input type="text" name="editorsearchval" id="editorsearchval"><div class="separator"></div><button id="editor_close">' + t('files_texteditor', 'Close') + '</button></div>';
+	editorbarhtml += '<label for="editorseachval">' + t('files_texteditor', 'Search:');
+	editorbarhtml += '</label><input type="text" name="editorsearchval" id="editorsearchval">';
+	editorbarhtml += '<div class="separator"></div><button id="editor_close">';
+	editorbarhtml += t('files_texteditor', 'Close') + '</button></div>';
 
-	OC.Breadcrumb.push(filename, '#');
-
-	// Change breadcrumb classes
 	$('#controls').append(editorbarhtml);
 	$('#editorcontrols').show();
 }
@@ -167,7 +168,7 @@ function doFileSave() {
 					$("#editor_save").live('click', doFileSave);
 					// Update titles
 					$('#editor').attr('data-edited', 'false');
-					$('#breadcrumb_file').text($('#editor').attr('data-filename'));
+					$('.crumb.last').text($('#editor').attr('data-filename'));
 					document.title = $('#editor').attr('data-filename') + ' - ownCloud';
 				}
 			}, 'json');
@@ -220,7 +221,7 @@ function showFileEditor(dir, filename) {
 					window.aceEditor.getSession().on('change', function () {
 						if ($('#editor').attr('data-edited') != 'true') {
 							$('#editor').attr('data-edited', 'true');
-							$('#breadcrumb_file').text($('#breadcrumb_file').text() + ' *');
+							$('.crumb.last').text($('.crumb.last').text() + ' *');
 							document.title = $('#editor').attr('data-filename') + ' * - ownCloud';
 						}
 					});
@@ -281,6 +282,8 @@ function reopenEditor() {
 	$('#controls .last').not('#breadcrumb_file').removeClass('last');
 	$('#editor').show();
 	$('#editorcontrols').show();
+	OC.Breadcrumb.push($('#editor').attr('data-filename') + ' *', '#');
+	document.title = $('#editor').attr('data-filename') + ' * - ownCloud';
 	is_editor_shown = true;
 }
 
