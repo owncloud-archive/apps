@@ -260,9 +260,8 @@ function hideFileEditor() {
 		document.title = $('body').attr('old_title');
 		$('.actions,#file_access_panel').show();
 		$('#content table').show();
-		$('#notification').text(t('files_texteditor', 'There were unsaved changes, click here to go back'));
+		OC.Notification.show(t('files_texteditor', 'There were unsaved changes, click here to go back'));
 		$('#notification').data('reopeneditor', true);
-		$('#notification').show();
 		is_editor_shown = false;
 	} else {
 		// Fade out editor
