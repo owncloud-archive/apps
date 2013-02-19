@@ -347,14 +347,18 @@ OC.FluXX={
 		// temporarily include transition style rules if not yet present (should not be!)
 		if ($('head link#fluxx-transitions').length)
 			OC.FluXX.swap(handle);
-		else
+		else{
 			$('<link/>',{
 				id:'fluxx-transitions',
 				rel:'stylesheet',
 				type:'text/css',
-				href:OC.filePath('fluxx_compensator','css','transitions.css'),
-				onLoad:"OC.FluXX.swap(OC.FluXX.Handle['"+handle.Id+"']);"
+				href:OC.filePath('fluxx_compensator','css','transitions.css')
 			}).appendTo('head');
+			$('head link#fluxx-transitions').on('load',function(){
+				$('head link#fluxx-transitions').off('load');
+				OC.FluXX.swap(handle);
+			});
+		}
 		return dfd.promise();
 	} // OC.FluXX.toggle
 }
