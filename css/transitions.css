@@ -34,14 +34,13 @@ html.fluxx-state-N-hidden .fluxx-handle,
 html.fluxx-state-N-shown .fluxx-handle,
 html.fluxx-state-H-hidden .fluxx-handle,
 html.fluxx-state-H-shown .fluxx-handle {
-	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
+	transition:all 200ms;-o-transition:all 200ms;-ms-transition:all 200ms;-moz-transition:all 200ms;-khtml-transition:all 200ms;-webkit-transition:all 200ms;
 }
 html body > header > #header,
 html body > nav > #navigation,
 html body > nav > #navigation #settings,
-html body #content,
-html body #controls {
-	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
+html body #content-wrapper {
+	transition:all 200ms;-o-transition:all 200ms;-ms-transition:all 200ms;-moz-transition:all 200ms;-khtml-transition:all 200ms;-webkit-transition:all 200ms;
 }
 
 /* some specific app dependent settings */
@@ -52,7 +51,7 @@ html.fluxx-mode-files { }
 
 /* 'notes' app */
 html.fluxx-mode-notes #entries {
-	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
+	transition:all 200ms;-o-transition:all 200ms;-ms-transition:all 200ms;-moz-transition:all 200ms;-khtml-transition:all 200ms;-webkit-transition:all 200ms;
 }
 
 /* 'media' app */
@@ -65,7 +64,7 @@ html.fluxx-mode-calendar { }
 html.fluxx-mode-contacts #content > #leftcontent,
 html.fluxx-mode-contacts #content > #leftcontent > #contacts,
 html.fluxx-mode-contacts #content > #rightcontent {
-	transition:all 1s;-o-transition:all 1s;-ms-transition:all 1s;-moz-transition:all 1s;-khtml-transition:all 1s;-webkit-transition:all 1s;
+	transition:all 200ms;-o-transition:all 200ms;-ms-transition:all 200ms;-moz-transition:all 200ms;-khtml-transition:all 200ms;-webkit-transition:all 200ms;
 }
 
 /* 'gallery' app */

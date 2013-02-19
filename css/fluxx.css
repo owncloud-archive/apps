@@ -52,6 +52,10 @@
 	border-bottom-right-radius: 10px;
 	box-shadow: 0px 1px 2px #666;
 }
+.fluxx-handle.fluxx-shown {
+	background-color: #ddd;
+	box-shadow: 0px 1px 2px #999;
+}
 .fluxx-handle.fluxx-horizontal.fluxx-shown {
 	transform: scale(-1,1) translate(15px,0);
 	-o-transform: scale(-1,1) translate(15px,0);
@@ -61,8 +65,6 @@
 	-webkit-transform: scale(-1,1) translate(15px,0);
 }
 .fluxx-handle.fluxx-vertical.fluxx-shown {
-	background-color: #ddd;
-	box-shadow: 0px 1px 2px #999;
 	transform: scale(1,-1) translate(0,15px);
 	-o-transform: scale(1,-1) translate(0,15px);
 	-ms-transform: scale(1,-1) translate(0,15px);

@@ -39,7 +39,7 @@ html.fluxx-state-N-shown {}
 
 /* navigation hidden: move left and add a more impressive shadow as a hint */
 html.fluxx-state-N-hidden body > nav > #navigation {
-	left: -12.5em;
+	left: -64px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
 	-o-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
 	-ms-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
@@ -48,13 +48,8 @@ html.fluxx-state-N-hidden body > nav > #navigation {
 	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222;
 }
 /* move content to the left when navigation is hidden */
-html.fluxx-state-N-hidden body #content {
-	left: 0;
-	width: 100% !important;
-}
-/* widen control bar when navigation is hidden */
-html.fluxx-state-N-hidden body #controls {
-	width: 100% !important;
+html.fluxx-state-N-hidden body #content-wrapper {
+	padding-left: 0px;
 }
 
 /* header hidden: move up and show more impressive shadow as a hint */
@@ -68,10 +63,11 @@ html.fluxx-state-H-hidden body > header > #header {
 	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
 }
 /* move content up to top when header is hidden */
-html.fluxx-state-H-hidden body > nav> #navigation,
-html.fluxx-state-H-hidden body #content,
-html.fluxx-state-H-hidden body #controls {
+html.fluxx-state-H-hidden body > nav> #navigation {
 	top: 0 !important;
+}
+html.fluxx-state-H-hidden body #content-wrapper {
+	padding-top: 0px;
 }
 /* move bottom aligned 'settings' navigation entry down to the bottom again */
 html.fluxx-state-H-hidden body > nav > #navigation #settings {
