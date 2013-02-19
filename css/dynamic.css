@@ -49,7 +49,10 @@ html.fluxx-state-N-hidden body > nav > #navigation {
 }
 /* move content to the left when navigation is hidden */
 html.fluxx-state-N-hidden body #content-wrapper {
-	padding-left: 0px;
+	padding-left: 0;
+}
+html.fluxx-state-N-hidden body #controls {
+	padding-right: 6px;
 }
 
 /* header hidden: move up and show more impressive shadow as a hint */
@@ -79,25 +82,29 @@ html.fluxx-state-H-hidden body > nav > #navigation #settings {
 /* no _known_ mode detected, so _guess_ */
 html.fluxx-modeless body { }
 
-/* 'files' app */
-html.fluxx-mode-files body { }
-
-/* 'notes' app */
-html.fluxx-mode-notes.fluxx-state-N-hidden body #content #entries { left:0; }
-
-/* 'media' app */
-html.fluxx-mode-media body { }
+/* 'bookarks' app */
+html.fluxx-mode-bookmarks { }
+html.fluxx-mode-bookmarks.fluxx-state-N-hidden  body #content #firstrun { left: 20em; }
 
 /* 'calendar' app */
 html.fluxx-mode-calendar body { }
 
 /* 'contacts' app */
-html.fluxx-mode-contacts.fluxx-state-N-hidden body #content > #leftcontent,
+/*html.fluxx-mode-contacts.fluxx-state-N-hidden body #content > #leftcontent,
 html.fluxx-mode-contacts.fluxx-state-N-hidden body #content > #leftcontent > #contacts { left:0; }
-html.fluxx-mode-contacts.fluxx-state-N-hidden body #content > #rightcontent { left:256px; }
+html.fluxx-mode-contacts.fluxx-state-N-hidden body #content > #rightcontent { left:256px; }*/
+
+/* 'files' app */
+html.fluxx-mode-files body { }
 
 /* 'gallery' app */
 html.fluxx-mode-gallery body { }
+
+/* 'media' app */
+html.fluxx-mode-media body { }
+
+/* 'notes' app */
+/* html.fluxx-mode-notes.fluxx-state-N-hidden body #content #entries { left:0; } */
 
 /* 'shorty' app */
 html.fluxx-mode-shorty body { }

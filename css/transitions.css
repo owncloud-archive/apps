@@ -39,7 +39,8 @@ html.fluxx-state-H-shown .fluxx-handle {
 html body > header > #header,
 html body > nav > #navigation,
 html body > nav > #navigation #settings,
-html body #content-wrapper {
+html body #content-wrapper,
+html body #controls {
 	transition:all 200ms;-o-transition:all 200ms;-ms-transition:all 200ms;-moz-transition:all 200ms;-khtml-transition:all 200ms;-webkit-transition:all 200ms;
 }
 
