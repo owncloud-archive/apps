@@ -61,15 +61,25 @@ var ownPad = {
 	onShare : function(){
 		var source = ownPad.getHost() + ownPad.getTitle();
 		var shareWith = $('#ownpad-share').val();
+		if (shareWith.length<3) {
+			return;
+		}
 			$.post(
 				OC.filePath('ownpad_lite', 'ajax', 'share.php'),
 				{
 					<?php echo OCA\ownpad_lite\UrlParam::SHARE_WHAT ?> : source,
 					<?php echo OCA\ownpad_lite\UrlParam::SHARE_WITH ?> : shareWith
 				},
-				function(){}
+				ownPad.onShareComplete
 			);
 	},
+	onShareComplete : function(data){
+		var successMessage = t('<?php echo OCA\ownpad_lite\App::APP_ID ?>', 'Shared successfully');
+		var errorMessage = t('<?php echo OCA\ownpad_lite\App::APP_ID ?>', 'Failed to send notification');
+		var message = data && data.status && data.status=='success' ? successMessage : errorMessage ;
+		OC.Notification.show(message);
+		setTimeout(OC.Notification.hide, 6000);
+	}
 };
 
 $('#ownpad-open').click(ownPad.showPad);
