@@ -296,6 +296,9 @@ OC.Contacts = OC.Contacts || {
 		// App specific events
 		$(document).bind('status.contact.deleted', function(e, data) {
 			var id = parseInt(data.id);
+			if(id === self.currentid) {
+				delete self.currentid;
+			}
 			console.log('contact', data.id, 'deleted');
 			// update counts on group lists
 			self.groups.removeFromAll(data.id, true);
@@ -427,6 +430,7 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('request.contact.delete', function(e, data) {
 			var id = parseInt(data.id);
 			console.log('contact', data.id, 'request.contact.delete');
+			self.closeContact(id);
 			self.contacts.delayedDelete(id);
 			self.$contactList.removeClass('dim');
 			self.showActions(['add']);
