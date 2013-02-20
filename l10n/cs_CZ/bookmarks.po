@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Martin  <fireball@atlas.cz>, 2012.
-# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-19 09:56+0100\n"
-"PO-Revision-Date: 2013-02-19 08:57+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-21 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 12:40+0000\n"
+"Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/owncloud/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ajax/import.php:9
 msgid "No file provided for import"
-msgstr ""
+msgstr "Nezadán žádný soubor k importu"
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -53,7 +53,7 @@ msgstr "Varování"
 
 #: js/settings.js:18
 msgid "Import error"
-msgstr ""
+msgstr "Chyba při importu"
 
 #: js/settings.js:29
 msgid "Import completed successfully."
@@ -75,31 +75,31 @@ msgstr "Přidat záložku"
 msgid "Close"
 msgstr "Zavřít"
 
-#: templates/addBm.php:16 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:27
 msgid "The title of the page"
 msgstr "Název stránky"
 
-#: templates/addBm.php:21 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:31
 msgid "The address of the page"
 msgstr "Adresa stránky"
 
-#: templates/addBm.php:34 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:40
 msgid "Description of the page"
 msgstr "Popis stránky"
 
-#: templates/addBm.php:38 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:44
 msgid "Save"
 msgstr "Uložit"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:61
+#: templates/js_tpl.php:6 templates/js_tpl.php:58
 msgid "Delete"
 msgstr "Smazat"
 
-#: templates/js_tpl.php:19 templates/js_tpl.php:57
+#: templates/js_tpl.php:14 templates/js_tpl.php:54
 msgid "Edit"
 msgstr "Upravit"
 
-#: templates/js_tpl.php:46
+#: templates/js_tpl.php:43
 msgid "Cancel"
 msgstr "Zrušit"
 

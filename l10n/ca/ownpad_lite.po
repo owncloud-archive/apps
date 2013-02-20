@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:02+0200\n"
-"PO-Revision-Date: 2012-09-10 07:37+0000\n"
-"Last-Translator: rogerc <rcalvoi@yahoo.com>\n"
+"POT-Creation-Date: 2013-02-21 00:02+0100\n"
+"PO-Revision-Date: 2013-02-20 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,16 @@ msgstr ""
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:58
+#: ajax/share.php:26
+msgid "Document was shared"
+msgstr ""
+
+#: ajax/share.php:27
+#, php-format
+msgid "User %s shared quick document %s with you."
+msgstr ""
+
+#: appinfo/app.php:99
 msgid "My pad"
 msgstr "El meu pad"
 
@@ -34,6 +43,14 @@ msgstr "Títol del pad"
 #: templates/index.php:18
 msgid "Open"
 msgstr "Obre"
+
+#: templates/index.php:19
+msgid "Share with"
+msgstr ""
+
+#: templates/index.php:20
+msgid "Share"
+msgstr ""
 
 #: templates/settings.php:15
 msgid "Etherpad service URL"

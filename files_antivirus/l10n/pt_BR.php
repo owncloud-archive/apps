@@ -13,6 +13,7 @@
 "Port" => "Porta",
 "Port number of Antivirus Host." => "Número da porta do Host do Antivírus.",
 "Stream Length" => "Duração do fluxo",
+"ClamAV StreamMaxLength value in bytes." => "Valor de StreamMaxLength do ClamAV  em bytes.",
 "Path to clamscan" => "Caminho para clamscan",
 "Path to clamscan executable." => "Caminho para executável clamscan.",
 "Not required in Daemon Mode." => "Não necessário no Modo Daemon.",

@@ -194,6 +194,7 @@
 "NOTE: Actions on events shared via calendar will affect the entire calendar sharing." => "OHARRA: Egutegiaren bidez partekatutako gertaeren gaineko ekintzak egutegi osoaren partekatzean izango dute eragina.",
 "View an event" => "Ikusi gertaera bat",
 "No categories selected" => "Ez da kategoriarik hautatu",
+"at" => "ordua",
 "General" => "Orokorra",
 "Timezone" => "Ordu-zonaldea",
 "Update timezone automatically" => "Eguneratu ordu-zonaldea automatikoki",

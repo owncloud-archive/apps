@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-05 00:17+0100\n"
-"PO-Revision-Date: 2013-02-04 12:42+0000\n"
-"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
+"POT-Creation-Date: 2013-02-21 00:02+0100\n"
+"PO-Revision-Date: 2013-02-20 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,16 @@ msgstr ""
 "Language: lv\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
-#: appinfo/app.php:58
+#: ajax/share.php:26
+msgid "Document was shared"
+msgstr ""
+
+#: ajax/share.php:27
+#, php-format
+msgid "User %s shared quick document %s with you."
+msgstr ""
+
+#: appinfo/app.php:99
 msgid "My pad"
 msgstr "Mans paliktnis"
 
@@ -33,6 +42,14 @@ msgstr "Paliktņa virsraksts"
 #: templates/index.php:18
 msgid "Open"
 msgstr "Atvērt"
+
+#: templates/index.php:19
+msgid "Share with"
+msgstr ""
+
+#: templates/index.php:20
+msgid "Share"
+msgstr ""
 
 #: templates/settings.php:15
 msgid "Etherpad service URL"

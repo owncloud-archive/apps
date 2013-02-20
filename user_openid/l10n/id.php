@@ -7,6 +7,7 @@
 "User: <b>" => "pengguna: <b>",
 "Login" => "login",
 "Error: <b>No user Selected" => "kesalahan: <b> tidak ada pengguna dipilih",
+"OpenID" => "OpenID",
 "you can authenticate to other sites with this address" => "anda dapat masuk ke situs lain dengan alamat ini",
 "Authorized OpenID provider" => "penyedia OpenID yang sah",
 "Your address at Wordpress, Identi.ca, &hellip;" => "alamat anda di Wordpress, Identi.ca, &hellip;"
