@@ -58,6 +58,9 @@ class UrlParam{
 	const CONFIG_URL = 'url';
 	const CONFIG_USERNAME = 'username';
 	const SHARE_SEARCH = 'search';
+	const SHARE_WITH = 'target';
+	const SHARE_WHAT = 'document';
+	
 	static public function getParam($key){
 		$param = self::post($key);
 		if (!$param){

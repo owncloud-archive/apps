@@ -45,7 +45,7 @@ var ownPad = {
 	setHost : function(host) {
 		ownPad.host = host;
 	},
-	search : function(request, response){
+	onSearch : function(request, response){
 		if (request && request.term){
 			$.post(
 				OC.filePath('ownpad_lite', 'ajax', 'search.php'),
@@ -57,11 +57,24 @@ var ownPad = {
 				}
 			);
 		}
-	}
+	},
+	onShare : function(){
+		var source = ownPad.getHost() + ownPad.getTitle();
+		var shareWith = $('#ownpad-share').val();
+			$.post(
+				OC.filePath('ownpad_lite', 'ajax', 'share.php'),
+				{
+					<?php echo OCA\ownpad_lite\UrlParam::SHARE_WHAT ?> : source,
+					<?php echo OCA\ownpad_lite\UrlParam::SHARE_WITH ?> : shareWith
+				},
+				function(){}
+			);
+	},
 };
 
 $('#ownpad-open').click(ownPad.showPad);
-$('#ownpad-share').autocomplete({ minLength: 3, source: ownPad.search}, ownPad.search);
+$('#ownpad-share').autocomplete({ minLength: 3, source: ownPad.onSearch});
+$('#ownpad-share-button').click(ownPad.onShare);
 $('#settingsbtn').on('click keydown', function() {
 	try {
 		OC.appSettings({appid:'ownpad_lite', loadJS:true, cache:false});
