@@ -50,7 +50,7 @@ OCP\Util::addscript('files', 'jquery.fileupload');
 OCP\Util::addscript('contacts', 'jquery.Jcrop');
 OCP\Util::addStyle('3rdparty/fontawesome', 'font-awesome');
 OCP\Util::addStyle('contacts', 'font-awesome');
-OCP\Util::addStyle('contacts', 'multiselect');
+OCP\Util::addStyle('', 'multiselect');
 OCP\Util::addStyle('', 'jquery.multiselect');
 OCP\Util::addStyle('contacts', 'jquery.combobox');
 OCP\Util::addStyle('contacts', 'jquery.Jcrop');
