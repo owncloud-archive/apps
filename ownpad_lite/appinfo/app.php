@@ -42,7 +42,7 @@ class App {
 
 	static public function getUsername() {
 		$username =  self::getValue(self::CONFIG_USERNAME, \OCP\User::getDisplayName());
-		if (!$username){
+		if (!$username) {
 			$username = \OCP\User::getUser();
 		}
 		return $username;
@@ -66,7 +66,7 @@ class UrlParam{
 
 	static public function getParam($key){
 		$param = self::post($key);
-		if (!$param){
+		if (!$param) {
 			$param = self::get($key);
 		}
 		return $param;
@@ -82,7 +82,7 @@ class UrlParam{
 	}
 
 	static protected function getKey($array, $key){
-		if (isset($array[$key])){
+		if (isset($array[$key])) {
 			return $array[$key];
 		}
 		return false;
