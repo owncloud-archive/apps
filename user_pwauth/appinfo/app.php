@@ -21,7 +21,7 @@
 *
 */
 
-require_once 'apps/user_pwauth/user_pwauth.php';
+require_once 'user_pwauth/user_pwauth.php';
 
 OC_APP::registerAdmin('user_pwauth','settings');
 
