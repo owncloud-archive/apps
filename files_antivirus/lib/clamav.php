@@ -31,7 +31,7 @@ define('CLAMAV_SCANRESULT_INFECTED', 1);
 class OC_Files_Antivirus {
 
 	public static function av_scan($path) {
-		$path=$path[\OC_Filesystem::signal_param_path];
+		$path=$path[\OC\Files\Filesystem::signal_param_path];
 		if ($path != '') {
 			$files_view = \OCP\Files::getStorage("files");
 			if ($files_view->file_exists($path)) {
