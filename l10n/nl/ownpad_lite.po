@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# André Koot <meneer@tken.net>, 2013.
 #   <didi.debian@cknow.org>, 2012.
 # Richard Bos <radoeka@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-21 00:02+0100\n"
-"PO-Revision-Date: 2013-02-20 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-21 08:50+0000\n"
+"Last-Translator: André Koot <meneer@tken.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,45 +22,45 @@ msgstr ""
 
 #: ajax/share.php:26
 msgid "Document was shared"
-msgstr ""
+msgstr "Document was gedeeld"
 
 #: ajax/share.php:27
 #, php-format
 msgid "User %s shared quick document %s with you."
-msgstr ""
+msgstr "Gebruiker %s deelde document %s met u."
 
 #: appinfo/app.php:99
 msgid "My pad"
 msgstr "Mijn pad"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
 msgstr "Instellingen"
 
-#: templates/index.php:17
+#: templates/index.php:18
 msgid "Pad Title"
 msgstr "Pad titel"
 
-#: templates/index.php:18
+#: templates/index.php:19
 msgid "Open"
 msgstr "Open"
 
-#: templates/index.php:19
-msgid "Share with"
-msgstr ""
-
 #: templates/index.php:20
-msgid "Share"
-msgstr ""
+msgid "Share with"
+msgstr "Deel met"
 
-#: templates/settings.php:15
+#: templates/index.php:21
+msgid "Share"
+msgstr "Delen"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr "Etherpad dienst URL"
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
 msgstr "Opslaan"

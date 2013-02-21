@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-14 00:01+0100\n"
-"PO-Revision-Date: 2013-02-13 05:00+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:22+0000\n"
 "Last-Translator: saosangm <saosangmo@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -113,7 +113,7 @@ msgstr "Bài chưa đọc"
 msgid "All articles"
 msgstr "Mọi bài viết"
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Đánh dấu tất cả đã đọc"
@@ -139,12 +139,12 @@ msgid "Collapse"
 msgstr "Thu gọn"
 
 #: templates/part.listfolder.php:24
-msgid "Rename folder"
-msgstr "Đổi tên thư mục"
-
-#: templates/part.listfolder.php:28
 msgid "Delete folder"
 msgstr "Xóa thư mục"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "Đổi tên thư mục"
 
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"

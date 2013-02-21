@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 10:04+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:31+0000\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -236,131 +236,131 @@ msgstr "연락처"
 msgid "%d_selected_contacts"
 msgstr "%d개의_연락처_선택됨"
 
-#: js/app.js:268 js/app.js:282
+#: js/app.js:256 js/app.js:270
 msgid "Add to..."
 msgstr "다음에 추가..."
 
-#: js/app.js:272 js/app.js:284
+#: js/app.js:260 js/app.js:272
 msgid "Remove from..."
 msgstr "다음에서 삭제..."
 
-#: js/app.js:289
+#: js/app.js:277
 msgid "Add group..."
 msgstr "그룹 추가..."
 
-#: js/app.js:357
+#: js/app.js:348
 msgid "Indexing contacts"
 msgstr "연락처 인덱스 작성 중"
 
-#: js/app.js:454
+#: js/app.js:446
 msgid "Select photo"
 msgstr "사진 선택"
 
-#: js/app.js:505 js/app.js:531 js/app.js:1517 js/app.js:1629
+#: js/app.js:497 js/app.js:523 js/app.js:1528 js/app.js:1640
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "네트워크 및 서버 오류입니다. 관리자에게 알려 주십시오."
 
-#: js/app.js:673 js/app.js:712
+#: js/app.js:665 js/app.js:704
 msgid "Error adding to group."
 msgstr "그룹에 추가하는 중 오류가 발생하였습니다."
 
-#: js/app.js:741
+#: js/app.js:733
 msgid "Error removing from group."
 msgstr "그룹에서 삭제하는 중 오류가 발생하였습니다."
 
-#: js/app.js:771
+#: js/app.js:763
 msgid "There was an error opening a mail composer."
 msgstr "메일 작성기를 여는 중 오류가 발생하였습니다."
 
-#: js/app.js:821
+#: js/app.js:813
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "삭제가 완료되었습니다. 새로 고침을 취소하려면 누르십시오."
 
-#: js/app.js:898
+#: js/app.js:890
 msgid "Add address book"
 msgstr "주소록 추가"
 
-#: js/app.js:994
+#: js/app.js:1005
 msgid "Import done. Click here to cancel reloading."
 msgstr "가져오기가 완료되었습니다. 새로 고침을 취소하려면 누르십시오."
 
-#: js/app.js:1035
+#: js/app.js:1046
 msgid "Not all files uploaded. Retrying..."
 msgstr "모든 파일이 업로드되지 않았습니다. 다시 시도하는 중..."
 
-#: js/app.js:1041
+#: js/app.js:1052
 msgid "Something went wrong with the upload, please retry."
 msgstr "업로드 중 오류가 발생하였습니다. 다시 시도해 주십시오."
 
-#: js/app.js:1041 js/app.js:1564 js/settings.js:25 js/settings.js:45
+#: js/app.js:1052 js/app.js:1575 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "오류"
 
-#: js/app.js:1051
+#: js/app.js:1062
 msgid "Importing from {filename}..."
 msgstr "{filename}에서 가져오는 중..."
 
-#: js/app.js:1054
+#: js/app.js:1065
 msgid "{success} imported, {failed} failed."
 msgstr "항목 {success}개를 가져왔으며, {failed}개는 실패하였습니다."
 
-#: js/app.js:1062
+#: js/app.js:1073
 msgid "Importing..."
 msgstr "가져오는 중..."
 
-#: js/app.js:1085
+#: js/app.js:1096
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "디렉터리 및 빈 파일은 업로드할 수 없습니다"
 
-#: js/app.js:1085
+#: js/app.js:1096
 msgid "Upload Error"
 msgstr "업로드 오류"
 
-#: js/app.js:1092 js/app.js:1392
+#: js/app.js:1103 js/app.js:1403
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "업로드할 파일이 서버의 최대 업로드 파일 크기를 초과합니다."
 
-#: js/app.js:1092
+#: js/app.js:1103
 msgid "Upload too large"
 msgstr "업로드한 파일이 너무 큼"
 
-#: js/app.js:1132
+#: js/app.js:1143
 msgid "Pending"
 msgstr "대기 중"
 
-#: js/app.js:1275 templates/contacts.php:121
+#: js/app.js:1286 templates/contacts.php:121
 msgid "Add group"
 msgstr "그룹 추가"
 
-#: js/app.js:1381
+#: js/app.js:1392
 msgid "No files selected for upload."
 msgstr "업로드할 파일이 선택되지 않았습니다."
 
-#: js/app.js:1482
+#: js/app.js:1493
 msgid "Edit profile picture"
 msgstr "프로필 사진 편집"
 
-#: js/app.js:1500 js/contacts.js:1134
+#: js/app.js:1511 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr "프로필 사진을 불러오는 중 오류가 발생하였습니다."
 
-#: js/app.js:1552
+#: js/app.js:1563
 msgid "Enter name"
 msgstr "이름 입력"
 
-#: js/app.js:1553
+#: js/app.js:1564
 msgid "Enter description"
 msgstr "설명 입력"
 
-#: js/app.js:1556
+#: js/app.js:1567
 msgid "Select addressbook"
 msgstr "주소록 선택"
 
-#: js/app.js:1564
+#: js/app.js:1575
 msgid "The address book name cannot be empty."
 msgstr "주소록 이름을 비워둘 수 없습니다."
 
@@ -376,17 +376,17 @@ msgstr "이 연락처를 삭제할 때 알 수 없는 오류가 발생하였습�
 msgid "# groups"
 msgstr "그룹 개수"
 
-#: js/contacts.js:1490
+#: js/contacts.js:1491
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "일부 연락처가 삭제하기로 표시되었지만 아직 삭제되지 않았습니다. 삭제하는 동안 잠시 기다려 주십시오."
 
-#: js/contacts.js:1501
+#: js/contacts.js:1502
 msgid "Click to undo deletion of {num} contacts"
 msgstr "연락처 {num}개 삭제를 취소하려면 누르십시오"
 
-#: js/contacts.js:1516
+#: js/contacts.js:1517
 msgid "Cancelled deletion of {num}"
 msgstr "{num}개 삭제를 취소함"
 

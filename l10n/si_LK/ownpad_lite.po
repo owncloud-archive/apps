@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-21 00:02+0100\n"
-"PO-Revision-Date: 2013-02-20 23:02+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:22+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -31,34 +31,34 @@ msgstr ""
 msgid "My pad"
 msgstr "මගේ padය"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
 msgstr "සිටුවම"
 
-#: templates/index.php:17
+#: templates/index.php:18
 msgid "Pad Title"
 msgstr "Pad මාතෘකාව"
 
-#: templates/index.php:18
+#: templates/index.php:19
 msgid "Open"
 msgstr "විවෘත කරන්න"
 
-#: templates/index.php:19
-msgid "Share with"
-msgstr ""
-
 #: templates/index.php:20
-msgid "Share"
-msgstr ""
+msgid "Share with"
+msgstr "බෙදාගන්න"
 
-#: templates/settings.php:15
+#: templates/index.php:21
+msgid "Share"
+msgstr "බෙදා හදා ගන්න"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr "Etherpad සේවා යොමුව"
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
 msgstr "පරිශීලක නම"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
 msgstr "සුරකින්න"

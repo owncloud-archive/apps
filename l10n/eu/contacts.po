@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 10:05+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:32+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -233,131 +233,131 @@ msgstr "Kontaktuak"
 msgid "%d_selected_contacts"
 msgstr "%d_kontaktu_hautatuta"
 
-#: js/app.js:268 js/app.js:282
+#: js/app.js:256 js/app.js:270
 msgid "Add to..."
 msgstr "Gehitu hemen..."
 
-#: js/app.js:272 js/app.js:284
+#: js/app.js:260 js/app.js:272
 msgid "Remove from..."
 msgstr "Ezabatu hemendik..."
 
-#: js/app.js:289
+#: js/app.js:277
 msgid "Add group..."
 msgstr "Gehitu taldea..."
 
-#: js/app.js:357
+#: js/app.js:348
 msgid "Indexing contacts"
 msgstr "Kontaktuak indexatzen"
 
-#: js/app.js:454
+#: js/app.js:446
 msgid "Select photo"
 msgstr "Hautatu argazkia"
 
-#: js/app.js:505 js/app.js:531 js/app.js:1517 js/app.js:1629
+#: js/app.js:497 js/app.js:523 js/app.js:1528 js/app.js:1640
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "Errore bat izan da sare edo zerbitzarian. Mesedez abisatu administradorea."
 
-#: js/app.js:673 js/app.js:712
+#: js/app.js:665 js/app.js:704
 msgid "Error adding to group."
 msgstr "Errore bat izan da taldera gehitzean."
 
-#: js/app.js:741
+#: js/app.js:733
 msgid "Error removing from group."
 msgstr "Errore bat izan da taldetik kentzean."
 
-#: js/app.js:771
+#: js/app.js:763
 msgid "There was an error opening a mail composer."
 msgstr "Errore bat izan da posta editorea abiaraztean."
 
-#: js/app.js:821
+#: js/app.js:813
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Ezabatzea burutu da. Klikatu hemen birkargatzea bertan behera uzteko."
 
-#: js/app.js:898
+#: js/app.js:890
 msgid "Add address book"
 msgstr "Gehitu helbide-liburua"
 
-#: js/app.js:994
+#: js/app.js:1005
 msgid "Import done. Click here to cancel reloading."
 msgstr "Inportatzea eginda. Hemen klikatu birkargatzea uzteko."
 
-#: js/app.js:1035
+#: js/app.js:1046
 msgid "Not all files uploaded. Retrying..."
 msgstr "Fitxategi guztiak ez dira igo. Berriz saiatzen..."
 
-#: js/app.js:1041
+#: js/app.js:1052
 msgid "Something went wrong with the upload, please retry."
 msgstr "Zerbait gaizki joan da igotzean, mesedez saiatu berriz."
 
-#: js/app.js:1041 js/app.js:1564 js/settings.js:25 js/settings.js:45
+#: js/app.js:1052 js/app.js:1575 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Errorea"
 
-#: js/app.js:1051
+#: js/app.js:1062
 msgid "Importing from {filename}..."
 msgstr "Inportatzen {fitxategi-izena}..."
 
-#: js/app.js:1054
+#: js/app.js:1065
 msgid "{success} imported, {failed} failed."
 msgstr "{success} inportatuta, {failed} huts eginda."
 
-#: js/app.js:1062
+#: js/app.js:1073
 msgid "Importing..."
 msgstr "Inportatzen"
 
-#: js/app.js:1085
+#: js/app.js:1096
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Ezin izan da zure fitxategia igo karpeta bat delako edo 0 byte dituelako"
 
-#: js/app.js:1085
+#: js/app.js:1096
 msgid "Upload Error"
 msgstr "Igotzeak huts egin du"
 
-#: js/app.js:1092 js/app.js:1392
+#: js/app.js:1103 js/app.js:1403
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Igo nahi duzun fitxategia zerbitzariak onartzen duen tamaina baino handiagoa da."
 
-#: js/app.js:1092
+#: js/app.js:1103
 msgid "Upload too large"
 msgstr "Igoera handiegia da"
 
-#: js/app.js:1132
+#: js/app.js:1143
 msgid "Pending"
 msgstr "Zain"
 
-#: js/app.js:1275 templates/contacts.php:121
+#: js/app.js:1286 templates/contacts.php:121
 msgid "Add group"
 msgstr "Gehitu taldea"
 
-#: js/app.js:1381
+#: js/app.js:1392
 msgid "No files selected for upload."
 msgstr "Ez duzu igotzeko fitxategirik hautatu."
 
-#: js/app.js:1482
+#: js/app.js:1493
 msgid "Edit profile picture"
 msgstr "Editatu profilaren argazkia"
 
-#: js/app.js:1500 js/contacts.js:1134
+#: js/app.js:1511 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr "Errorea profilaren irudia kargatzean."
 
-#: js/app.js:1552
+#: js/app.js:1563
 msgid "Enter name"
 msgstr "Sartu izena"
 
-#: js/app.js:1553
+#: js/app.js:1564
 msgid "Enter description"
 msgstr "Sartu deskribapena"
 
-#: js/app.js:1556
+#: js/app.js:1567
 msgid "Select addressbook"
 msgstr "Hautatu helbide-liburua"
 
-#: js/app.js:1564
+#: js/app.js:1575
 msgid "The address book name cannot be empty."
 msgstr "Helbide-liburuaren izena ezin da hutsik egon."
 
@@ -373,17 +373,17 @@ msgstr "Errore ezezagun bat izan da kontaktu hau ezabatzeko orduan"
 msgid "# groups"
 msgstr "# taldeak"
 
-#: js/contacts.js:1490
+#: js/contacts.js:1491
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Kontaktu batzuk ezabatzeko markatuta daude, baina oraindik ez dira ezabatu. Mesedez itxoin ezabatu arte."
 
-#: js/contacts.js:1501
+#: js/contacts.js:1502
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Klikatu {num} kontaktuen ezabaketa desegiteko"
 
-#: js/contacts.js:1516
+#: js/contacts.js:1517
 msgid "Cancelled deletion of {num}"
 msgstr "{num}en ezabaketa ezeztatuta"
 

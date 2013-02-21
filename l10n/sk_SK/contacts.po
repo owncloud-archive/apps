@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 09:43+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:31+0000\n"
 "Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -235,131 +235,131 @@ msgstr "Kontakty"
 msgid "%d_selected_contacts"
 msgstr "%d_selected_contacts"
 
-#: js/app.js:268 js/app.js:282
+#: js/app.js:256 js/app.js:270
 msgid "Add to..."
 msgstr "Pridať do..."
 
-#: js/app.js:272 js/app.js:284
+#: js/app.js:260 js/app.js:272
 msgid "Remove from..."
 msgstr "Odstrániť z..."
 
-#: js/app.js:289
+#: js/app.js:277
 msgid "Add group..."
 msgstr "Pridať skupinu..."
 
-#: js/app.js:357
+#: js/app.js:348
 msgid "Indexing contacts"
 msgstr "Indexovanie kontaktov"
 
-#: js/app.js:454
+#: js/app.js:446
 msgid "Select photo"
 msgstr "Vybrať fotku"
 
-#: js/app.js:505 js/app.js:531 js/app.js:1517 js/app.js:1629
+#: js/app.js:497 js/app.js:523 js/app.js:1528 js/app.js:1640
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "Chyba sieťe alebo servra. Informujte prosím administrátora."
 
-#: js/app.js:673 js/app.js:712
+#: js/app.js:665 js/app.js:704
 msgid "Error adding to group."
 msgstr "Chyba pri pridávaní do skupiny."
 
-#: js/app.js:741
+#: js/app.js:733
 msgid "Error removing from group."
 msgstr "Chyba pri odstraňovaní zo skupiny."
 
-#: js/app.js:771
+#: js/app.js:763
 msgid "There was an error opening a mail composer."
 msgstr "Vyskytla sa chyba pri otváraní nástroja na tvorbu pošty."
 
-#: js/app.js:821
+#: js/app.js:813
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Odstraňovanie dokončené. Kliknite sem pre zrušenie obnovenia."
 
-#: js/app.js:898
+#: js/app.js:890
 msgid "Add address book"
 msgstr "Pridať adresár kontaktov"
 
-#: js/app.js:994
+#: js/app.js:1005
 msgid "Import done. Click here to cancel reloading."
 msgstr "Importovanie dokončené. Kliknite sem pre zrušenie obnovenia."
 
-#: js/app.js:1035
+#: js/app.js:1046
 msgid "Not all files uploaded. Retrying..."
 msgstr "Všetky súbory neboli odoslané. Opakujem..."
 
-#: js/app.js:1041
+#: js/app.js:1052
 msgid "Something went wrong with the upload, please retry."
 msgstr "Stalo sa niečo zlé s odosielaným súborom, skúste ho prosím odoslať znovu."
 
-#: js/app.js:1041 js/app.js:1564 js/settings.js:25 js/settings.js:45
+#: js/app.js:1052 js/app.js:1575 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Chyba"
 
-#: js/app.js:1051
+#: js/app.js:1062
 msgid "Importing from {filename}..."
 msgstr "Importujem z {filename}..."
 
-#: js/app.js:1054
+#: js/app.js:1065
 msgid "{success} imported, {failed} failed."
 msgstr "{success} importované, {failed} zlyhané."
 
-#: js/app.js:1062
+#: js/app.js:1073
 msgid "Importing..."
 msgstr "Importujem..."
 
-#: js/app.js:1085
+#: js/app.js:1096
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Nedá sa odoslať Váš súbor, pretože je to priečinok, alebo je jeho veľkosť 0 bajtov"
 
-#: js/app.js:1085
+#: js/app.js:1096
 msgid "Upload Error"
 msgstr "Chyba odosielania"
 
-#: js/app.js:1092 js/app.js:1392
+#: js/app.js:1103 js/app.js:1403
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Súbor, ktorý sa pokúšate nahrať, presahuje maximálnu povolenú veľkosť."
 
-#: js/app.js:1092
+#: js/app.js:1103
 msgid "Upload too large"
 msgstr "Nahrávanie je príliš veľké"
 
-#: js/app.js:1132
+#: js/app.js:1143
 msgid "Pending"
 msgstr "Prebieha"
 
-#: js/app.js:1275 templates/contacts.php:121
+#: js/app.js:1286 templates/contacts.php:121
 msgid "Add group"
 msgstr "Pridať skupinu"
 
-#: js/app.js:1381
+#: js/app.js:1392
 msgid "No files selected for upload."
 msgstr "Žiadne súbory neboli vybrané k nahratiu"
 
-#: js/app.js:1482
+#: js/app.js:1493
 msgid "Edit profile picture"
 msgstr "Upraviť profilový avatar"
 
-#: js/app.js:1500 js/contacts.js:1134
+#: js/app.js:1511 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr "Chyba pri nahrávaní profilového obrázku."
 
-#: js/app.js:1552
+#: js/app.js:1563
 msgid "Enter name"
 msgstr "Zadaj meno"
 
-#: js/app.js:1553
+#: js/app.js:1564
 msgid "Enter description"
 msgstr "Zadať popis"
 
-#: js/app.js:1556
+#: js/app.js:1567
 msgid "Select addressbook"
 msgstr "Vybrať adresár"
 
-#: js/app.js:1564
+#: js/app.js:1575
 msgid "The address book name cannot be empty."
 msgstr "Názov adresára nemôže byť prázdny."
 
@@ -375,17 +375,17 @@ msgstr "Vyskytla sa neznáma chyba pri odstraňovaní daného kontaktu."
 msgid "# groups"
 msgstr "# skupiny"
 
-#: js/contacts.js:1490
+#: js/contacts.js:1491
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Počkajte prosím do skončenia mazania kontaktov označených na mazanie."
 
-#: js/contacts.js:1501
+#: js/contacts.js:1502
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Kliknite pre zrušenie operácie zmazania {num} kontaktov."
 
-#: js/contacts.js:1516
+#: js/contacts.js:1517
 msgid "Cancelled deletion of {num}"
 msgstr "Zrušené odstraňovanie {num} kontaktov."
 

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-13 00:00+0100\n"
-"PO-Revision-Date: 2013-02-12 17:50+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:32+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -243,119 +243,119 @@ msgstr "Eemalda..."
 msgid "Add group..."
 msgstr "Lisa gruppi..."
 
-#: js/app.js:345
+#: js/app.js:348
 msgid "Indexing contacts"
 msgstr "Kontaktide indekseerimine"
 
-#: js/app.js:442
+#: js/app.js:446
 msgid "Select photo"
 msgstr "Vali foto"
 
-#: js/app.js:493 js/app.js:519 js/app.js:1505 js/app.js:1617
+#: js/app.js:497 js/app.js:523 js/app.js:1528 js/app.js:1640
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "Võrgu või serveri viga. Palun informeeri administraatorit."
 
-#: js/app.js:661 js/app.js:700
+#: js/app.js:665 js/app.js:704
 msgid "Error adding to group."
 msgstr "Viga gruppi lisamisel."
 
-#: js/app.js:729
+#: js/app.js:733
 msgid "Error removing from group."
 msgstr "Viga grupist eemaldamisel."
 
-#: js/app.js:759
+#: js/app.js:763
 msgid "There was an error opening a mail composer."
 msgstr "Meiliprogrammi avamisel tekkis viga."
 
-#: js/app.js:809
+#: js/app.js:813
 msgid "Deleting done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:886
+#: js/app.js:890
 msgid "Add address book"
 msgstr "Lisa aadressiraamat"
 
-#: js/app.js:982
+#: js/app.js:1005
 msgid "Import done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:1023
+#: js/app.js:1046
 msgid "Not all files uploaded. Retrying..."
 msgstr "Kõiki faile ei laetud üles. Proovime uuesti..."
 
-#: js/app.js:1029
+#: js/app.js:1052
 msgid "Something went wrong with the upload, please retry."
 msgstr "Midagi läks üleslaadimisega valesti, palun proovi uuesti."
 
-#: js/app.js:1029 js/app.js:1552 js/settings.js:25 js/settings.js:45
+#: js/app.js:1052 js/app.js:1575 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Viga"
 
-#: js/app.js:1039
+#: js/app.js:1062
 msgid "Importing from {filename}..."
 msgstr "Importimine failist {filename}..."
 
-#: js/app.js:1042
+#: js/app.js:1065
 msgid "{success} imported, {failed} failed."
 msgstr "{success} imporditud, {failed} ebaõnnestus."
 
-#: js/app.js:1050
+#: js/app.js:1073
 msgid "Importing..."
 msgstr "Importimine..."
 
-#: js/app.js:1073
+#: js/app.js:1096
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Faili ei saa üles laadida, kuna see on kaust või selle suurus on 0 baiti"
 
-#: js/app.js:1073
+#: js/app.js:1096
 msgid "Upload Error"
 msgstr "Üleslaadimise viga"
 
-#: js/app.js:1080 js/app.js:1380
+#: js/app.js:1103 js/app.js:1403
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Fail , mida sa proovid üles laadida ületab sinu serveri poolt määratud maksimaalse üleslaadimise limiidi."
 
-#: js/app.js:1080
+#: js/app.js:1103
 msgid "Upload too large"
 msgstr "Üleslaadimine on liiga suur"
 
-#: js/app.js:1120
+#: js/app.js:1143
 msgid "Pending"
 msgstr "Ootel"
 
-#: js/app.js:1263 templates/contacts.php:121
+#: js/app.js:1286 templates/contacts.php:121
 msgid "Add group"
 msgstr "Lisa grupp"
 
-#: js/app.js:1369
+#: js/app.js:1392
 msgid "No files selected for upload."
 msgstr "Üleslaadimiseks pole faile valitud."
 
-#: js/app.js:1470
+#: js/app.js:1493
 msgid "Edit profile picture"
 msgstr "Muuda profiili pilti"
 
-#: js/app.js:1488 js/contacts.js:1134
+#: js/app.js:1511 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr "Viga profiilipildi laadimisel"
 
-#: js/app.js:1540
+#: js/app.js:1563
 msgid "Enter name"
 msgstr "Sisesta nimi"
 
-#: js/app.js:1541
+#: js/app.js:1564
 msgid "Enter description"
 msgstr "Sisesta kirjeldus"
 
-#: js/app.js:1544
+#: js/app.js:1567
 msgid "Select addressbook"
 msgstr "Vali aadressiraamat"
 
-#: js/app.js:1552
+#: js/app.js:1575
 msgid "The address book name cannot be empty."
 msgstr "Aadressiraamatu nimi ei saa olla tühi."
 
@@ -371,17 +371,17 @@ msgstr "Selle kontakti kustutamisel tekkis viga"
 msgid "# groups"
 msgstr "Gruppide arv"
 
-#: js/contacts.js:1490
+#: js/contacts.js:1491
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Mõned kontaktid on märgitud kustutamiseks, aga pole veel kustutatud. Palun oota, kuni need kustutatakse."
 
-#: js/contacts.js:1501
+#: js/contacts.js:1502
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Kliki, et tühistada {num} kontakti kustutamine"
 
-#: js/contacts.js:1516
+#: js/contacts.js:1517
 msgid "Cancelled deletion of {num}"
 msgstr "{num} kustutamine tühistati"
 

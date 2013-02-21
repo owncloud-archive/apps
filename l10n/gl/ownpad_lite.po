@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <mbouzada@gmail.com>, 2013.
 #   <mbouzada@gmail.com>, 2012.
 # Xosé M. Lamas <correo.xmgz@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-21 00:02+0100\n"
-"PO-Revision-Date: 2013-02-20 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-21 11:41+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,45 +22,45 @@ msgstr ""
 
 #: ajax/share.php:26
 msgid "Document was shared"
-msgstr ""
+msgstr "O documento foi compartido"
 
 #: ajax/share.php:27
 #, php-format
 msgid "User %s shared quick document %s with you."
-msgstr ""
+msgstr "O usuario %s fixo unha compartición rápida do documento %s con vostede"
 
 #: appinfo/app.php:99
 msgid "My pad"
 msgstr "O meu bloque"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
 msgstr "Configuración"
 
-#: templates/index.php:17
+#: templates/index.php:18
 msgid "Pad Title"
 msgstr "Título do bloque"
 
-#: templates/index.php:18
+#: templates/index.php:19
 msgid "Open"
 msgstr "Abrir"
 
-#: templates/index.php:19
-msgid "Share with"
-msgstr ""
-
 #: templates/index.php:20
-msgid "Share"
-msgstr ""
+msgid "Share with"
+msgstr "Compartir con"
 
-#: templates/settings.php:15
+#: templates/index.php:21
+msgid "Share"
+msgstr "Compartir"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr "URL do servizo Etherpad"
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
 msgstr "Nome de usuario"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
 msgstr "Gardar"

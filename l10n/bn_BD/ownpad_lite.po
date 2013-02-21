@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-21 00:02+0100\n"
-"PO-Revision-Date: 2013-02-20 23:02+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:22+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -31,34 +31,34 @@ msgstr ""
 msgid "My pad"
 msgstr "আমার প্যাড"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
 msgstr "নিয়ামকসমূহ"
 
-#: templates/index.php:17
+#: templates/index.php:18
 msgid "Pad Title"
 msgstr "প্যাড শিরোনাম"
 
-#: templates/index.php:18
+#: templates/index.php:19
 msgid "Open"
 msgstr "খোল"
 
-#: templates/index.php:19
-msgid "Share with"
-msgstr ""
-
 #: templates/index.php:20
-msgid "Share"
-msgstr ""
+msgid "Share with"
+msgstr "যাদের সাথে ভাগাভাগি করা হয়েছে"
 
-#: templates/settings.php:15
+#: templates/index.php:21
+msgid "Share"
+msgstr "ভাগাভাগি কর"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr "Etherpad সেবার URL"
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
 msgstr "ব্যবহারকারি"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
 msgstr "সংরক্ষণ কর"

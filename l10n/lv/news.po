@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-14 00:01+0100\n"
-"PO-Revision-Date: 2013-02-13 09:50+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:22+0000\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -110,7 +110,7 @@ msgstr "Nelasītie raksti"
 msgid "All articles"
 msgstr "Visi raksti"
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Atzīmēt visu kā lasītu"
@@ -136,12 +136,12 @@ msgid "Collapse"
 msgstr "Sakļaut"
 
 #: templates/part.listfolder.php:24
-msgid "Rename folder"
-msgstr "Pārsaukt mapi"
-
-#: templates/part.listfolder.php:28
 msgid "Delete folder"
 msgstr "Dzēst mapi"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "Pārsaukt mapi"
 
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"

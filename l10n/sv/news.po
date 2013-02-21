@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-14 00:01+0100\n"
-"PO-Revision-Date: 2013-02-13 10:40+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:22+0000\n"
 "Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -112,7 +112,7 @@ msgstr "Olästa artiklar"
 msgid "All articles"
 msgstr "Alla artiklar"
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Markera alla som lästa"
@@ -138,12 +138,12 @@ msgid "Collapse"
 msgstr "Dölj"
 
 #: templates/part.listfolder.php:24
-msgid "Rename folder"
-msgstr "Byt namn på mapp"
-
-#: templates/part.listfolder.php:28
 msgid "Delete folder"
 msgstr "Radera mapp"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "Byt namn på mapp"
 
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"

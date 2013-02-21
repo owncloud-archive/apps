@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-19 00:02+0100\n"
-"PO-Revision-Date: 2013-02-18 14:20+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:31+0000\n"
 "Last-Translator: tuliouel <tuliouel@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -249,119 +249,119 @@ msgstr "Remover de..."
 msgid "Add group..."
 msgstr "Adicionar grupo..."
 
-#: js/app.js:345
+#: js/app.js:348
 msgid "Indexing contacts"
 msgstr "Indexando contatos"
 
-#: js/app.js:442
+#: js/app.js:446
 msgid "Select photo"
 msgstr "Selecione foto"
 
-#: js/app.js:493 js/app.js:519 js/app.js:1524 js/app.js:1636
+#: js/app.js:497 js/app.js:523 js/app.js:1528 js/app.js:1640
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "Erro no servidor ou rede. Por favor, informe o administrador."
 
-#: js/app.js:661 js/app.js:700
+#: js/app.js:665 js/app.js:704
 msgid "Error adding to group."
 msgstr "Erro ao adicionar ao grupo."
 
-#: js/app.js:729
+#: js/app.js:733
 msgid "Error removing from group."
 msgstr "Erro ao remover ao grupo."
 
-#: js/app.js:759
+#: js/app.js:763
 msgid "There was an error opening a mail composer."
 msgstr "Houve um erro ao abrir um editor de correio."
 
-#: js/app.js:809
+#: js/app.js:813
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Exclusão concluída. Clique aqui para cancelar recarregamento."
 
-#: js/app.js:886
+#: js/app.js:890
 msgid "Add address book"
 msgstr "Adicionar agenda"
 
-#: js/app.js:1001
+#: js/app.js:1005
 msgid "Import done. Click here to cancel reloading."
 msgstr "Importação concluída. Clique aqui para cancelar recarregamento."
 
-#: js/app.js:1042
+#: js/app.js:1046
 msgid "Not all files uploaded. Retrying..."
 msgstr "Nem todos os arquivos foram enviados. Tentando novamente..."
 
-#: js/app.js:1048
+#: js/app.js:1052
 msgid "Something went wrong with the upload, please retry."
 msgstr "Algo errado ocorreu com o envio, por favor tente novamente."
 
-#: js/app.js:1048 js/app.js:1571 js/settings.js:25 js/settings.js:45
+#: js/app.js:1052 js/app.js:1575 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Erro"
 
-#: js/app.js:1058
+#: js/app.js:1062
 msgid "Importing from {filename}..."
 msgstr "Importando de {filename}..."
 
-#: js/app.js:1061
+#: js/app.js:1065
 msgid "{success} imported, {failed} failed."
 msgstr "{sucess} importado, {failed} falhou."
 
-#: js/app.js:1069
+#: js/app.js:1073
 msgid "Importing..."
 msgstr "Importando..."
 
-#: js/app.js:1092
+#: js/app.js:1096
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Incapaz de enviar seu arquivo pois é um diretório ou tem 0 byte"
 
-#: js/app.js:1092
+#: js/app.js:1096
 msgid "Upload Error"
 msgstr "Erro de Upload"
 
-#: js/app.js:1099 js/app.js:1399
+#: js/app.js:1103 js/app.js:1403
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "O arquivo que você está tentando enviar excede o tamanho máximo para este servidor."
 
-#: js/app.js:1099
+#: js/app.js:1103
 msgid "Upload too large"
 msgstr "Upload muito grande"
 
-#: js/app.js:1139
+#: js/app.js:1143
 msgid "Pending"
 msgstr "Pendente"
 
-#: js/app.js:1282 templates/contacts.php:121
+#: js/app.js:1286 templates/contacts.php:121
 msgid "Add group"
 msgstr "Adicionar grupo"
 
-#: js/app.js:1388
+#: js/app.js:1392
 msgid "No files selected for upload."
 msgstr "Nenhum arquivo selecionado para carregar."
 
-#: js/app.js:1489
+#: js/app.js:1493
 msgid "Edit profile picture"
 msgstr "Editar imagem do perfil"
 
-#: js/app.js:1507 js/contacts.js:1134
+#: js/app.js:1511 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr "Erro ao carregar imagem de perfil."
 
-#: js/app.js:1559
+#: js/app.js:1563
 msgid "Enter name"
 msgstr "Insira o nome"
 
-#: js/app.js:1560
+#: js/app.js:1564
 msgid "Enter description"
 msgstr "Insira a descrição"
 
-#: js/app.js:1563
+#: js/app.js:1567
 msgid "Select addressbook"
 msgstr "Selecionar agenda"
 
-#: js/app.js:1571
+#: js/app.js:1575
 msgid "The address book name cannot be empty."
 msgstr "O nome da agenda não pode ficar em branco."
 

@@ -31,8 +31,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-18 00:02+0100\n"
-"PO-Revision-Date: 2013-02-17 14:10+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:31+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
@@ -265,119 +265,119 @@ msgstr "Entfernen von ..."
 msgid "Add group..."
 msgstr "Gruppe hinzufügen ..."
 
-#: js/app.js:345
+#: js/app.js:348
 msgid "Indexing contacts"
 msgstr "Kontakte Indizieren"
 
-#: js/app.js:442
+#: js/app.js:446
 msgid "Select photo"
 msgstr "Wähle  ein Foto"
 
-#: js/app.js:493 js/app.js:519 js/app.js:1524 js/app.js:1636
+#: js/app.js:497 js/app.js:523 js/app.js:1528 js/app.js:1640
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "Netzwerk- oder Serverfehler. Bitte Administrator informieren."
 
-#: js/app.js:661 js/app.js:700
+#: js/app.js:665 js/app.js:704
 msgid "Error adding to group."
 msgstr "Fehler beim Hinzufügen zur Gruppe."
 
-#: js/app.js:729
+#: js/app.js:733
 msgid "Error removing from group."
 msgstr "Fehler beim Entfernen aus Gruppe."
 
-#: js/app.js:759
+#: js/app.js:763
 msgid "There was an error opening a mail composer."
 msgstr "Fehler beim Öffnen des Mail-Editors"
 
-#: js/app.js:809
+#: js/app.js:813
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Gelöscht. Klicke hier, um das Neuladen abzubrechen"
 
-#: js/app.js:886
+#: js/app.js:890
 msgid "Add address book"
 msgstr "Adressbuch hinzufügen"
 
-#: js/app.js:1001
+#: js/app.js:1005
 msgid "Import done. Click here to cancel reloading."
 msgstr "Import abgeschlossen. Klicken Sie hier, um das Neuladen abzubrechen"
 
-#: js/app.js:1042
+#: js/app.js:1046
 msgid "Not all files uploaded. Retrying..."
 msgstr "Es wurden nicht alle Dateien hochgeladen. Versuche erneut..."
 
-#: js/app.js:1048
+#: js/app.js:1052
 msgid "Something went wrong with the upload, please retry."
 msgstr "Beim Hochladen ist etwas schiefgegangen. Bitte versuche es erneut."
 
-#: js/app.js:1048 js/app.js:1571 js/settings.js:25 js/settings.js:45
+#: js/app.js:1052 js/app.js:1575 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Fehler"
 
-#: js/app.js:1058
+#: js/app.js:1062
 msgid "Importing from {filename}..."
 msgstr "Importiere von {filename}"
 
-#: js/app.js:1061
+#: js/app.js:1065
 msgid "{success} imported, {failed} failed."
 msgstr "{success} importiert, {failed} fehlgeschlagen."
 
-#: js/app.js:1069
+#: js/app.js:1073
 msgid "Importing..."
 msgstr "Importiere..."
 
-#: js/app.js:1092
+#: js/app.js:1096
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Deine Datei kann nicht hochgeladen werden, da sie entweder ein Verzeichnis oder 0 Bytes groß ist."
 
-#: js/app.js:1092
+#: js/app.js:1096
 msgid "Upload Error"
 msgstr "Fehler beim Hochladen"
 
-#: js/app.js:1099 js/app.js:1399
+#: js/app.js:1103 js/app.js:1403
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Die Datei, die Du hochladen möchtest, überschreitet die maximale Größe für Datei-Uploads auf diesem Server."
 
-#: js/app.js:1099
+#: js/app.js:1103
 msgid "Upload too large"
 msgstr "Der Upload ist zu groß"
 
-#: js/app.js:1139
+#: js/app.js:1143
 msgid "Pending"
 msgstr "Ausstehend"
 
-#: js/app.js:1282 templates/contacts.php:121
+#: js/app.js:1286 templates/contacts.php:121
 msgid "Add group"
 msgstr "Gruppe hinzufügen"
 
-#: js/app.js:1388
+#: js/app.js:1392
 msgid "No files selected for upload."
 msgstr "Keine Datei(en) zum Hochladen ausgewählt."
 
-#: js/app.js:1489
+#: js/app.js:1493
 msgid "Edit profile picture"
 msgstr "Profilbild bearbeiten"
 
-#: js/app.js:1507 js/contacts.js:1134
+#: js/app.js:1511 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr "Fehler beim Laden des Profilbildes."
 
-#: js/app.js:1559
+#: js/app.js:1563
 msgid "Enter name"
 msgstr "Name eingeben"
 
-#: js/app.js:1560
+#: js/app.js:1564
 msgid "Enter description"
 msgstr "Beschreibung eingeben"
 
-#: js/app.js:1563
+#: js/app.js:1567
 msgid "Select addressbook"
 msgstr "Adressbuch auswählen"
 
-#: js/app.js:1571
+#: js/app.js:1575
 msgid "The address book name cannot be empty."
 msgstr "Der Name des Adressbuches darf nicht leer sein."
 

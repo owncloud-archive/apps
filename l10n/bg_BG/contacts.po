@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-15 00:01+0100\n"
-"PO-Revision-Date: 2013-02-14 17:50+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:31+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -241,119 +241,119 @@ msgstr ""
 msgid "Add group..."
 msgstr ""
 
-#: js/app.js:345
+#: js/app.js:348
 msgid "Indexing contacts"
 msgstr ""
 
-#: js/app.js:442
+#: js/app.js:446
 msgid "Select photo"
 msgstr ""
 
-#: js/app.js:493 js/app.js:519 js/app.js:1505 js/app.js:1617
+#: js/app.js:497 js/app.js:523 js/app.js:1528 js/app.js:1640
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr ""
 
-#: js/app.js:661 js/app.js:700
+#: js/app.js:665 js/app.js:704
 msgid "Error adding to group."
 msgstr ""
 
-#: js/app.js:729
+#: js/app.js:733
 msgid "Error removing from group."
 msgstr ""
 
-#: js/app.js:759
+#: js/app.js:763
 msgid "There was an error opening a mail composer."
 msgstr ""
 
-#: js/app.js:809
+#: js/app.js:813
 msgid "Deleting done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:886
+#: js/app.js:890
 msgid "Add address book"
 msgstr ""
 
-#: js/app.js:982
+#: js/app.js:1005
 msgid "Import done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:1023
+#: js/app.js:1046
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/app.js:1029
+#: js/app.js:1052
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/app.js:1029 js/app.js:1552 js/settings.js:25 js/settings.js:45
+#: js/app.js:1052 js/app.js:1575 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Грешка"
 
-#: js/app.js:1039
+#: js/app.js:1062
 msgid "Importing from {filename}..."
 msgstr ""
 
-#: js/app.js:1042
+#: js/app.js:1065
 msgid "{success} imported, {failed} failed."
 msgstr ""
 
-#: js/app.js:1050
+#: js/app.js:1073
 msgid "Importing..."
 msgstr ""
 
-#: js/app.js:1073
+#: js/app.js:1096
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr ""
 
-#: js/app.js:1073
+#: js/app.js:1096
 msgid "Upload Error"
 msgstr "Възникна грешка при качването"
 
-#: js/app.js:1080 js/app.js:1380
+#: js/app.js:1103 js/app.js:1403
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr ""
 
-#: js/app.js:1080
+#: js/app.js:1103
 msgid "Upload too large"
 msgstr "Файлът който сте избрали за качване е прекалено голям"
 
-#: js/app.js:1120
+#: js/app.js:1143
 msgid "Pending"
 msgstr "Чакащо"
 
-#: js/app.js:1263 templates/contacts.php:121
+#: js/app.js:1286 templates/contacts.php:121
 msgid "Add group"
 msgstr ""
 
-#: js/app.js:1369
+#: js/app.js:1392
 msgid "No files selected for upload."
 msgstr ""
 
-#: js/app.js:1470
+#: js/app.js:1493
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1488 js/contacts.js:1134
+#: js/app.js:1511 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/app.js:1540
+#: js/app.js:1563
 msgid "Enter name"
 msgstr ""
 
-#: js/app.js:1541
+#: js/app.js:1564
 msgid "Enter description"
 msgstr ""
 
-#: js/app.js:1544
+#: js/app.js:1567
 msgid "Select addressbook"
 msgstr ""
 
-#: js/app.js:1552
+#: js/app.js:1575
 msgid "The address book name cannot be empty."
 msgstr ""
 
@@ -369,17 +369,17 @@ msgstr ""
 msgid "# groups"
 msgstr ""
 
-#: js/contacts.js:1490
+#: js/contacts.js:1491
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1501
+#: js/contacts.js:1502
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1516
+#: js/contacts.js:1517
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
