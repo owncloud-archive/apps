@@ -79,27 +79,12 @@ class VCardObject extends VObject\Component\VCard {
 				if(strtoupper($parameter->value) == 'QUOTED-PRINTABLE') {
 					// Decode quoted-printable and strip any control chars
 					// except \n and \r
-					$property->value = preg_replace(
-								'/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/',
-								'',
-								quoted_printable_decode($property->value)
+					$property->value = str_replace(
+						"\r\n", "\n",
+						VObject\StringUtil::convertToUTF8(
+							quoted_printable_decode($property->value)
+						)
 					);
-					if(function_exists('iconv')) {
-						$property->value = str_replace("\r\n", "\n",
-							iconv(
-								mb_detect_encoding(
-									$property->value,
-									'UTF-8, ISO-8859-1'
-								), 'utf-8',
-								$property->value));
-					} else {
-						$property->value = str_replace("\r\n", "\n",
-							mb_convert_encoding(
-								$property->value,
-								'UTF-8',
-								mb_detect_encoding($property->value, 'UTF-8, ISO-8859-1'),
-								$property->value));
-					}
 					unset($property->parameters[$key]);
 				}
 			} elseif(strtoupper($parameter->name) == 'CHARSET') {
