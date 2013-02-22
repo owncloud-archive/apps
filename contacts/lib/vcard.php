@@ -195,13 +195,13 @@ class VCard {
 	/**
 	 * @brief Adds a card
 	 * @param $aid integer Addressbook id
-	 * @param $card Sabre\VObject\Component  vCard file
+	 * @param $vcard \Sabre\VObject\Component  vCard object
 	 * @param $uri string the uri of the card, default based on the UID
 	 * @param $isChecked boolean If the vCard should be checked for validity and version.
 	 * @return insertid on success or false.
 	 */
-	public static function add($aid, VObject\Component $card, $uri=null, $isChecked=false) {
-		if(is_null($card)) {
+	public static function add($aid, VObject\Component $vcard, $uri=null, $isChecked=false) {
+		if(is_null($vcard)) {
 			\OCP\Util::writeLog('contacts', __METHOD__ . ', No vCard supplied', \OCP\Util::ERROR);
 			return null;
 		};
@@ -223,20 +223,20 @@ class VCard {
 		$now = new \DateTime;
 		$vcard->REV = $now->format(\DateTime::W3C);
 		// Add product ID is missing.
-		//$prodid = trim($card->getAsString('PRODID'));
+		//$prodid = trim($vcard->getAsString('PRODID'));
 		//if(!$prodid) {
-		if(!isset($card->PRODID)) {
+		if(!isset($vcard->PRODID)) {
 			$appinfo = \OCP\App::getAppInfo('contacts');
 			$appversion = \OCP\App::getAppVersion('contacts');
 			$prodid = '-//ownCloud//NONSGML '.$appinfo['name'].' '.$appversion.'//EN';
-			$card->add('PRODID', $prodid);
+			$vcard->add('PRODID', $prodid);
 		}
 
-		$fn = isset($card->FN) ? $card->FN : '';
+		$fn = isset($vcard->FN) ? $vcard->FN : '';
 
-		$uri = isset($uri) ? $uri : $card->UID . '.vcf';
+		$uri = isset($uri) ? $uri : $vcard->UID . '.vcf';
 
-		$data = $card->serialize();
+		$data = $vcard->serialize();
 		$stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards` (`addressbookid`,`fullname`,`carddata`,`uri`,`lastmodified`) VALUES(?,?,?,?,?)' );
 		try {
 			$result = $stmt->execute(array($aid, $fn, $data, $uri, time()));
@@ -250,8 +250,8 @@ class VCard {
 			return false;
 		}
 		$newid = \OCP\DB::insertid('*PREFIX*contacts_cards');
-		App::loadCategoriesFromVCard($newid, $card);
-		App::updateDBProperties($newid, $card);
+		App::loadCategoriesFromVCard($newid, $vcard);
+		App::updateDBProperties($newid, $vcard);
 		App::cacheThumbnail($newid);
 
 		Addressbook::touch($aid);
