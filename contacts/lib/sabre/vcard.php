@@ -204,6 +204,7 @@ class VCardObject extends VObject\Component\VCard {
 		}
 
 		if ($options & self::UPGRADE) {
+			$this->VERSION = self::DEFAULT_VERSION;
 			foreach($this->children as &$property) {
 				$this->decodeProperty($property);
 				$this->formatPropertyTypes($property);
