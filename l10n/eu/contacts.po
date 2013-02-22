@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:32+0000\n"
+"POT-Creation-Date: 2013-02-23 00:01+0100\n"
+"PO-Revision-Date: 2013-02-22 22:30+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -427,7 +427,7 @@ msgstr "Gogokoak"
 
 #: js/groups.js:655
 msgid "Shared by {owner}"
-msgstr "{owner}-k partekatuta"
+msgstr "{owner}-k elkarbanatuta"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -971,7 +971,7 @@ msgstr "Ezabatu BM"
 
 #: templates/contacts.php:393 templates/settings.php:36
 msgid "Share"
-msgstr "Partekatu"
+msgstr "Elkarbanatu"
 
 #: templates/contacts.php:394
 msgid "Export"

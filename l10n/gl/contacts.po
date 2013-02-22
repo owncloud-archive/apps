@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:32+0000\n"
+"POT-Creation-Date: 2013-02-23 00:01+0100\n"
+"PO-Revision-Date: 2013-02-22 11:00+0000\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -232,7 +232,7 @@ msgstr "Contactos"
 #: export.php:66
 #, php-format
 msgid "%d_selected_contacts"
-msgstr ""
+msgstr "%d_contactos_seleccionados"
 
 #: js/app.js:256 js/app.js:270
 msgid "Add to..."
@@ -416,7 +416,7 @@ msgstr "O grupo nomeado {group} xa existe"
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
-msgstr ""
+msgstr "Pode arrastrar grupos para\norganizalos como desexe."
 
 #: js/groups.js:592
 msgid "All"
@@ -762,7 +762,7 @@ msgstr "Eliminar o contacto actual"
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
-msgstr ""
+msgstr "<h3>Non ten contactos no seu caderno de enderezos.</h3><p>Engada un novo contacto ou importe os contactos existentes desde un ficheiro VCF.</p>"
 
 #: templates/contacts.php:95
 msgid "Add contact"
@@ -838,7 +838,7 @@ msgstr "Aniversario"
 
 #: templates/contacts.php:248
 msgid "Notes go here..."
-msgstr ""
+msgstr "As notas van aquí..."
 
 #: templates/contacts.php:255
 msgid "Export as VCF"

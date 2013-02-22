@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:00+0100\n"
-"PO-Revision-Date: 2013-02-20 23:31+0000\n"
+"POT-Creation-Date: 2013-02-23 00:01+0100\n"
+"PO-Revision-Date: 2013-02-22 22:30+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -785,15 +785,15 @@ msgstr "Sortu gertaera berria"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr "Partekatu honekin:"
+msgstr "elkarbanatu honekin:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr "Hauekin partekatuta:"
+msgstr "Hauekin elkarbanatuta:"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr "Ez partekatu"
+msgstr "Ez elkarbanatu"
 
 #: templates/part.share.php:53
 msgid "Nobody"
@@ -801,13 +801,13 @@ msgstr "Inor"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr "Egutegiaren bidez partekatuta"
+msgstr "Egutegiaren bidez elkarbanatuta"
 
 #: templates/part.share.php:79
 msgid ""
 "NOTE: Actions on events shared via calendar will affect the entire calendar "
 "sharing."
-msgstr "OHARRA: Egutegiaren bidez partekatutako gertaeren gaineko ekintzak egutegi osoaren partekatzean izango dute eragina."
+msgstr "OHARRA: Egutegiaren bidez elkarbanatutako gertaeren gaineko ekintzak egutegi osoaren elkarbanatzean izango dute eragina."
 
 #: templates/part.showevent.php:1
 msgid "View an event"

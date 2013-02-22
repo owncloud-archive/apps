@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-14 00:01+0100\n"
-"PO-Revision-Date: 2013-02-13 13:30+0000\n"
+"POT-Creation-Date: 2013-02-23 00:01+0100\n"
+"PO-Revision-Date: 2013-02-22 17:40+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -34,11 +34,11 @@ msgstr ""
 
 #: templates/wizard.php:23
 msgid "Connect your desktop apps to ownCloud"
-msgstr ""
+msgstr "Yhdistä työpöytäsovelluksesi ownCloudiin"
 
 #: templates/wizard.php:25
 msgid "Connect your Calendar"
-msgstr ""
+msgstr "Yhdistä kalenteriisi"
 
 #: templates/wizard.php:28
 msgid "Connect your Contacts"
@@ -60,4 +60,4 @@ msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"
 " http://owncloud.org\">recommend it to your friends</a>!"
-msgstr ""
+msgstr "Jos pidät ownCloudista, <a href=\"mailto:?subject=ownCloud&body=ownCloud on erinomainen avoin ohjelmisto tiedostojen synkronointiin ja jakamiseen. Tutustu siihen osoitteessa http://owncloud.org\">suosittele sitä ystävillesi</a>!"
