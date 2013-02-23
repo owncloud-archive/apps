@@ -75,7 +75,6 @@ class VCardObject extends VObject\Component\VCard {
 		// Check out for encoded string and decode them :-[
 		foreach($property->parameters as $key=>&$parameter) {
 			if(strtoupper($parameter->name) == 'ENCODING') {
-				 // what other kinds of encodings could be used?
 				if(strtoupper($parameter->value) == 'QUOTED-PRINTABLE') {
 					// Decode quoted-printable and strip any control chars
 					// except \n and \r
@@ -86,10 +85,11 @@ class VCardObject extends VObject\Component\VCard {
 						)
 					);
 					unset($property->parameters[$key]);
+				} else if(strtoupper($parameter->value) == 'BASE64') {
+					$parameter->value = 'b';
 				}
 			} elseif(strtoupper($parameter->name) == 'CHARSET') {
-					// TODO: Should probably use this while decoding.
-					unset($property->parameters[$key]);
+				unset($property->parameters[$key]);
 			}
 		}
 	}
@@ -115,7 +115,6 @@ class VCardObject extends VObject\Component\VCard {
 	public function validate($options = 0) {
 
 		$warnings = array();
-		\OCP\Util::writeLog('contacts', __METHOD__.' options: '.$options, \OCP\Util::DEBUG);
 
 		$version = $this->select('VERSION');
 		if (count($version) !== 1) {
@@ -208,6 +207,15 @@ class VCardObject extends VObject\Component\VCard {
 			foreach($this->children as &$property) {
 				$this->decodeProperty($property);
 				$this->formatPropertyTypes($property);
+				\OCP\Util::writeLog('contacts', __METHOD__.' upgrade: '.$property->name, \OCP\Util::DEBUG);
+				switch((string)$property->name) {
+					case 'LOGO':
+					case 'SOUND':
+					case 'PHOTO':
+						if(isset($property['TYPE']) && strpos((string)$property['TYPE'], '/') === false) {
+							$property['TYPE'] = 'image/' . strtolower($property['TYPE']);
+						}
+				}
 			}
 		}
 
