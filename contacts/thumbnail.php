@@ -27,14 +27,20 @@ session_write_close();
 //OCP\Util::writeLog('contacts', OCP\Util::getRequestUri(), OCP\Util::DEBUG);
 
 function getStandardImage() {
+	$image = new \OC_Image();
+	$file = __DIR__ . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'person.png';
+	OCP\Response::setLastModifiedHeader(filemtime($file));
 	OCP\Response::enableCaching();
-	OCP\Response::redirect(OCP\Util::imagePath('contacts', 'person.png'));
+	$image->loadFromFile($file);
+	$image();
+	exit();
 }
 
 if(!extension_loaded('gd') || !function_exists('gd_info')) {
 	OCP\Util::writeLog('contacts',
 		'thumbnail.php. GD module not installed', OCP\Util::DEBUG);
-	getStandardImage();
+	OCP\Response::enableCaching();
+	OCP\Response::redirect(OCP\Util::imagePath('contacts', 'person.png'));
 	exit();
 }
 
