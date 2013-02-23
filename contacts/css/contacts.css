@@ -187,7 +187,6 @@
 .no-svg .mail { background-image:url('%webroot%/core/img/actions/mail.png'); }
 .no-svg .import, .no-svg .upload { background-image:url('%webroot%/core/img/actions/upload.png'); }
 .no-svg .export, .no-svg .download { background-image:url('%webroot%/core/img/actions/download.png'); }
-/*.no-svg .cloud { background-image:url('%webroot%/core/img/places/picture.png'); }*/
 .no-svg .globe { background-image:url('%webroot%/core/img/actions/public.png'); }
 .no-svg .settings { background-image:url('%webroot%/core/img/actions/settings.svg'); }
 .no-svg .starred { background-image:url('%appswebroot%/contacts/img/starred.png'); background-size: contain; }
@@ -208,7 +207,6 @@
 .svg .mail { background-image:url('%webroot%/core/img/actions/mail.svg'); }
 .svg .import,.svg .upload { background-image:url('%webroot%/core/img/actions/upload.svg'); }
 .svg .export,.svg .download { background-image:url('%webroot%/core/img/actions/download.svg'); }
-/*.svg .cloud { background-image:url('%webroot%/core/img/places/picture.svg'); }*/
 .svg .globe { background-image:url('%webroot%/core/img/actions/public.svg'); }
 .svg .settings { background-image:url('%webroot%/core/img/actions/settings.svg'); }
 .svg .starred { background-image:url('%appswebroot%/contacts/img/starred.svg'); background-size: contain; }
