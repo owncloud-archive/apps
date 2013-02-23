@@ -290,6 +290,8 @@ OC.Contacts = OC.Contacts || {
 			var id = parseInt(window.location.hash.substr(1));
 			if(id && id !== self.currentid) {
 				self.openContact(id);
+			} else if(!id && self.currentid) {
+				self.closeContact(self.currentid);
 			}
 		}
 
