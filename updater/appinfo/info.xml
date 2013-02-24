@@ -8,6 +8,6 @@
 	<author>Victor Dubiniuk</author>
 	<shipped>true</shipped>
 	<default_enable/>
-	<require>4.91</require>
+	<require>4.93</require>
 		<types></types>
 </info>
