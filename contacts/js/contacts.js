@@ -1323,7 +1323,7 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.next = function() {
-		var $next = this.$listelem.next('tr');
+		var $next = this.$listelem.next('tr:visible');
 		if($next.length > 0) {
 			this.$listelem.removeClass('active');
 			$next.addClass('active');
@@ -1336,7 +1336,7 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.prev = function() {
-		var $prev = this.$listelem.prev('tr');
+		var $prev = this.$listelem.prev('tr:visible');
 		if($prev.length > 0) {
 			this.$listelem.removeClass('active');
 			$prev.addClass('active');
@@ -1659,6 +1659,7 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	ContactList.prototype.setCurrent = function(id, deselect_other) {
+		console.log('ContactList.setCurrent', id);
 		if(!id) {
 			return;
 		}
@@ -1765,6 +1766,7 @@ OC.Contacts = OC.Contacts || {};
 				}
 				setTimeout(function() {
 					self.doSort();
+					self.setCurrent(self.$contactList.find('tr:visible:first-child').data('id'), false);
 				}
 				, 2000);
 				$(document).trigger('status.contacts.loaded', {
@@ -1772,7 +1774,6 @@ OC.Contacts = OC.Contacts || {};
 					numcontacts: jsondata.data.contacts.length,
 					is_indexed: jsondata.data.is_indexed
 				});
-				self.setCurrent(self.$contactList.find('tr:first-child').data('id'), false);
 			}
 			if(typeof cb === 'function') {
 				cb();
