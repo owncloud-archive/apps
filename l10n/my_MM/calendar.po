@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-21 00:02+0100\n"
+"POT-Creation-Date: 2013-02-25 00:01+0100\n"
 "PO-Revision-Date: 2011-09-03 16:52+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Burmese (Myanmar) (http://www.transifex.com/projects/p/owncloud/language/my_MM/)\n"
@@ -190,51 +190,51 @@ msgstr ""
 
 #: js/l10n.php:47 lib/object.php:605
 msgid "January"
-msgstr ""
+msgstr "ဇန်နဝါရီ"
 
 #: js/l10n.php:47 lib/object.php:606
 msgid "February"
-msgstr ""
+msgstr "ဖေဖော်ဝါရီ"
 
 #: js/l10n.php:47 lib/object.php:607
 msgid "March"
-msgstr ""
+msgstr "မတ်"
 
 #: js/l10n.php:47 lib/object.php:608
 msgid "April"
-msgstr ""
+msgstr "ဧပြီ"
 
 #: js/l10n.php:47 lib/object.php:609
 msgid "May"
-msgstr ""
+msgstr "မေ"
 
 #: js/l10n.php:47 lib/object.php:610
 msgid "June"
-msgstr ""
+msgstr "ဇွန်"
 
 #: js/l10n.php:47 lib/object.php:611
 msgid "July"
-msgstr ""
+msgstr "ဇူလိုင်"
 
 #: js/l10n.php:47 lib/object.php:612
 msgid "August"
-msgstr ""
+msgstr "ဩဂုတ်"
 
 #: js/l10n.php:47 lib/object.php:613
 msgid "September"
-msgstr ""
+msgstr "စက်တင်ဘာ"
 
 #: js/l10n.php:47 lib/object.php:614
 msgid "October"
-msgstr ""
+msgstr "အောက်တိုဘာ"
 
 #: js/l10n.php:47 lib/object.php:615
 msgid "November"
-msgstr ""
+msgstr "နိုဝင်ဘာ"
 
 #: js/l10n.php:47 lib/object.php:616
 msgid "December"
-msgstr ""
+msgstr "ဒီဇင်ဘာ"
 
 #: js/l10n.php:48
 msgid "Jan."
@@ -606,7 +606,7 @@ msgstr ""
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"
-msgstr ""
+msgstr "ပယ်ဖျက်မည်"
 
 #: templates/part.editevent.php:1
 msgid "Edit an event"
@@ -694,7 +694,7 @@ msgstr ""
 
 #: templates/part.eventform.php:115 templates/part.showevent.php:112
 msgid "Advanced"
-msgstr ""
+msgstr "အဆင့်မြင့်"
 
 #: templates/part.eventform.php:159 templates/part.showevent.php:156
 msgid "Select weekdays"

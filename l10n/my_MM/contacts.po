@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"POT-Creation-Date: 2013-02-25 00:01+0100\n"
 "PO-Revision-Date: 2011-09-23 17:10+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Burmese (Myanmar) (http://www.transifex.com/projects/p/owncloud/language/my_MM/)\n"
@@ -57,7 +57,7 @@ msgstr ""
 
 #: ajax/categories/delete.php:21
 msgid "No categories selected for deletion."
-msgstr ""
+msgstr "ဖျက်ရန်အတွက်ခေါင်းစဉ်မရွေးထားပါ"
 
 #: ajax/categories/delete.php:28
 msgid "No address books found."
@@ -466,7 +466,7 @@ msgstr ""
 
 #: js/settings.js:120 templates/contacts.php:253 templates/settings.php:62
 msgid "Cancel"
-msgstr ""
+msgstr "ပယ်ဖျက်မည်"
 
 #: js/settings.js:159 templates/settings.php:66
 msgid "More..."
@@ -841,7 +841,7 @@ msgstr ""
 
 #: templates/contacts.php:257
 msgid "Add"
-msgstr ""
+msgstr "ပေါင်းထည့်"
 
 #: templates/contacts.php:262
 msgid "Phone"
