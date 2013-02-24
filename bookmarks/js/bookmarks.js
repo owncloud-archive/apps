@@ -137,6 +137,8 @@ function replaceQueryString(url,param,value) {
 }
 
 function updateBookmarksList(bookmark) {
+	if((typeof(bookmark)!='object'))
+		return;
 	var tags = encodeEntities(bookmark.tags).split(' ');
 	var taglist = '';
 	for ( var i=0, len=tags.length; i<len; ++i ){
