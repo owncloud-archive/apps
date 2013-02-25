@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-27 00:01+0100\n"
-"PO-Revision-Date: 2013-01-26 06:16+0000\n"
+"POT-Creation-Date: 2013-02-26 00:00+0100\n"
+"PO-Revision-Date: 2013-02-25 05:40+0000\n"
 "Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -20,38 +20,38 @@ msgstr ""
 "Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: js/editor.js:72 js/editor.js:177 js/editor.js:185
+#: js/editor.js:73 js/editor.js:159 js/editor.js:167
 msgid "Save"
 msgstr "ذخیره"
 
-#: js/editor.js:74
+#: js/editor.js:75
 msgid "Search:"
 msgstr "جستجو"
 
-#: js/editor.js:74
+#: js/editor.js:78
 msgid "Close"
 msgstr "بستن"
 
-#: js/editor.js:151
+#: js/editor.js:133
 msgid "Next"
 msgstr "بعدی"
 
-#: js/editor.js:152
+#: js/editor.js:134
 msgid "Clear"
 msgstr "معلوم"
 
-#: js/editor.js:170
+#: js/editor.js:152
 msgid "Saving..."
 msgstr "در حال ذخیره سازی..."
 
-#: js/editor.js:178
+#: js/editor.js:160
 msgid "Failed to save file"
 msgstr "برای ذخیره سازی در فایل انجام نشد"
 
-#: js/editor.js:262
+#: js/editor.js:242
 msgid "An error occurred!"
 msgstr "یک خطا رخ‌داده است!"
 
-#: js/editor.js:297
+#: js/editor.js:263
 msgid "There were unsaved changes, click here to go back"
 msgstr "There were unsaved changes, click here to go back"
