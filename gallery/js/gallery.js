@@ -344,3 +344,11 @@ $(document).ready(function () {
 		$('button.share').click(Gallery.share);
 	});
 });
+
+window.onhashchange = function () {
+	var album = location.hash.substr(1);
+	if (!album) {
+		album = OC.currentUser;
+	}
+	Gallery.view.viewAlbum(album);
+};
