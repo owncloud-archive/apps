@@ -86,8 +86,8 @@ class MyRest {
         return array(401, array(), 'Computer says no');
       } else {
         if(self::may('d', $uid, $path, $headers)) {
-          $found = MyStorage::remove($uid, $path, self::getMimeType($headers));
-          if($found) {
+          $timestamp = MyStorage::remove($uid, $path, self::getMimeType($headers));
+          if($timestamp) {
             return array(200, array('Last-Modified' => $timestamp), '');
           } else {
             return array(404, array(), 'Not found');

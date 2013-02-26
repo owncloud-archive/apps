@@ -54,9 +54,13 @@ class MyStorage {
   static function get($uid, $path) {
     $view = self::getView($uid);
     $contents = $view->file_get_contents($path);
+    $mimeType = xattr_get(OC_Config::getValue( "datadirectory", OC::$SERVERROOT.'/data' ).$view->getAbsolutePath($path), 'Content-Type');
+    if(!$mimeType) {
+      $mimeType = 'application/octet-stream';
+    }
     return array(
       'content' => $contents,
-      'mimeType' => xattr_get(OC_Config::getValue( "datadirectory", OC::$SERVERROOT.'/data' ).$view->getAbsolutePath($path), 'Content-Type') || 'application/octet-stream',
+      'mimeType' => $mimeType,
       'timestamp' => $view->filemtime($path)
     );
   }
@@ -91,6 +95,7 @@ class MyStorage {
     if(!$stat) {
       return false;
     }
+    $timestamp = $view->filemtime($path);
     $view->unlink($path);
     $path = self::getContainingDir($path);
     while($path != null) {
@@ -102,6 +107,6 @@ class MyStorage {
       }
       $path = self::getContainingDir($path);
     }
-    return true;
+    return $timestamp;
   }
 }

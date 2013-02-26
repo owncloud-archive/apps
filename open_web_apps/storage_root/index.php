@@ -43,7 +43,7 @@ $body = file_get_contents('php://input');
 
 
 $response = MyRest::handleRequest($verb, $uid, $path, $headers, $body);
-header(':', true, $response[0]);
+header('HTTP/1.1 '. $response[0]);
 if($headers['Origin']) {
   $originToAllow = $headers['Origin'];
 } else {
