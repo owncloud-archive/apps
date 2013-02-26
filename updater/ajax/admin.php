@@ -29,7 +29,7 @@ if (isset($updateData['url']) && extension_loaded('bz2')) {
 	$packageUrl = $updateData['url'];
 }
 if (!strlen($packageVersion) || !strlen($packageUrl)) {
-	\OC_Log::write(App::APP_ID, 'Invalid response from update feed.', \OC_Log::ERROR);
+	App::log('Invalid response from update feed.');
 	\OCP\JSON::error(array('msg' => 'Version not found'));
 	exit();
 }
@@ -44,7 +44,7 @@ if (!App::getSource($packageUrl, $packageVersion)){
 		App::setSource($packageUrl, $packageVersion, true);
 		\OCP\JSON::success(array());
 	} catch (\Exception $e){
-		\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
+		App::log($e->getMessage());
 		\OCP\JSON::error(array('msg' => 'Unable to fetch package'));
 	}
 	exit();
@@ -64,7 +64,7 @@ try {
 	Updater::cleanUp();
 	\OCP\JSON::success(array());
 } catch (\Exception $e){
-	\OC_Log::write(App::APP_ID, $e->getMessage(), \OC_Log::ERROR);
+	App::log($e->getMessage());
 	App::setSource($packageUrl, $packageVersion, false);
 	\OCP\JSON::error(array('msg' => 'Failed to create backup'));
 }

@@ -37,6 +37,7 @@ class Backup {
 				}
 			}
 		} catch (\Exception $e){
+			App::log('Backup creation failed. Check permissions.');
 			self::cleanUp();
 			throw $e;
 		}

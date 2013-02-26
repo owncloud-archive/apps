@@ -49,6 +49,10 @@ class App {
 	public static function setRecentBackupPath($path) {
 		\OCP\Config::setAppValue(self::APP_ID, self::LAST_BACKUP_PATH, $path);
 	}
+	
+	public static function log($message, $level= \OC_Log::ERROR) {
+		\OC_Log::write(self::APP_ID, $message, $level);
+	}
 }
 
 //Startup
