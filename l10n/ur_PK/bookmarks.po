@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-26 00:00+0100\n"
+"POT-Creation-Date: 2013-02-27 00:00+0100\n"
 "PO-Revision-Date: 2012-07-27 22:17+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Urdu (Pakistan) (http://www.transifex.com/projects/p/owncloud/language/ur_PK/)\n"
@@ -117,7 +117,7 @@ msgstr ""
 
 #: templates/list.php:23
 msgid "Add"
-msgstr ""
+msgstr "شامل کریں"
 
 #: templates/list.php:31
 msgid "Related Tags"
@@ -125,7 +125,7 @@ msgstr ""
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "سیٹینگز"
 
 #: templates/list.php:54
 msgid "You have no bookmarks"

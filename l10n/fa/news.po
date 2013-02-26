@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Amir Reza Asadi <amirreza.asadi@live.com>, 2013.
 # mahdi Kereshteh <miki_mika1362@yahoo.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:22+0000\n"
-"Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
+"POT-Creation-Date: 2013-02-27 00:01+0100\n"
+"PO-Revision-Date: 2013-02-26 10:50+0000\n"
+"Last-Translator: Amir Reza Asadi <amirreza.asadi@live.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,7 +61,7 @@ msgstr "جدید"
 
 #: templates/part.addnew.php:12
 msgid "Add Subscription"
-msgstr ""
+msgstr "افزودن اشتراک"
 
 #: templates/part.addnew.php:14
 msgid "Address must not be empty!"
@@ -76,7 +77,7 @@ msgstr ""
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
-msgstr ""
+msgstr "این پوشه در حال حاضر وجود دارد!"
 
 #: templates/part.addnew.php:22
 msgid "Address"
@@ -100,15 +101,15 @@ msgstr ""
 
 #: templates/part.feed.starred.php:6
 msgid "Starred"
-msgstr ""
+msgstr "ستاره دار"
 
 #: templates/part.feed.unread.php:10
 msgid "Unread articles"
-msgstr ""
+msgstr "مطالب خوانده نشده"
 
 #: templates/part.feed.unread.php:16
 msgid "All articles"
-msgstr ""
+msgstr "تمام مطالب"
 
 #: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:33

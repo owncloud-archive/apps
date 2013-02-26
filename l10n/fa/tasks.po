@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:32+0000\n"
+"POT-Creation-Date: 2013-02-27 00:01+0100\n"
+"PO-Revision-Date: 2013-02-26 08:00+0000\n"
 "Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "وظایف"
 
 #: js/tasks.js:78
 msgid "Due"
-msgstr ""
+msgstr "سررسید"
 
 #: js/tasks.js:107
 msgid "List"
@@ -45,7 +45,7 @@ msgstr "بدون دسته بندی"
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr ""
+msgstr "نامشخص"
 
 #: lib/app.php:34
 msgid "1=highest"
@@ -61,20 +61,20 @@ msgstr "9=کم‌ترین"
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr ""
+msgstr "خلاصه خالی"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"
-msgstr ""
+msgstr "درصد تکمیل نامعتبر"
 
 #: lib/app.php:107
 msgid "Invalid priority"
-msgstr ""
+msgstr "اولویت نامعتبر"
 
 #: templates/no-calendar-app.php:9
 msgid ""
 "The calendar application also need to be enabled to use this application."
-msgstr ""
+msgstr "برای استفاده از این کاربرد، نیاز به فعال بودن کاربرد تقویم می باشد."
 
 #: templates/tasks.php:3
 msgid "Add Task"
@@ -82,7 +82,7 @@ msgstr "افزودن وظیفه"
 
 #: templates/tasks.php:4
 msgid "Order Due"
-msgstr ""
+msgstr "سررسید سفارش"
 
 #: templates/tasks.php:5
 msgid "Order List"
@@ -90,19 +90,19 @@ msgstr "لیست سفارش"
 
 #: templates/tasks.php:6
 msgid "Order Complete"
-msgstr ""
+msgstr "تکمیل سفارش"
 
 #: templates/tasks.php:7
 msgid "Order Location"
-msgstr ""
+msgstr "محل سفارش"
 
 #: templates/tasks.php:8
 msgid "Order Priority"
-msgstr ""
+msgstr "اولویت سفارش"
 
 #: templates/tasks.php:9
 msgid "Order Label"
-msgstr ""
+msgstr "برچسب سفارش"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-04 00:01+0100\n"
-"PO-Revision-Date: 2013-02-03 12:00+0000\n"
+"POT-Creation-Date: 2013-02-27 00:01+0100\n"
+"PO-Revision-Date: 2013-02-26 09:00+0000\n"
 "Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "پیکربندی آنتی ویروس"
 
 #: templates/settings.php:4
 msgid "Mode"
@@ -58,7 +58,7 @@ msgstr "میزبانی"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "آدرس میزبان آنتی ویروس."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
@@ -70,7 +70,7 @@ msgstr "درگاه"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "شماره پورت میزبان آنتی ویروس."
 
 #: templates/settings.php:9
 msgid "Stream Length"
@@ -94,7 +94,7 @@ msgstr ""
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "اقدام لازم در مورد فایل های آلوده ی یافت شده در حین اسکن"
 
 #: templates/settings.php:12
 msgid "Only log"
@@ -104,6 +104,6 @@ msgstr ""
 msgid "Delete file"
 msgstr "حذف فایل"
 
-#: templates/settings.php:14
+#: templates/settings.php:15
 msgid "Save"
 msgstr "ذخیره"

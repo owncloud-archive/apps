@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-26 00:00+0100\n"
+"POT-Creation-Date: 2013-02-27 00:01+0100\n"
 "PO-Revision-Date: 2011-09-23 17:10+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Urdu (Pakistan) (http://www.transifex.com/projects/p/owncloud/language/ur_PK/)\n"
@@ -97,11 +97,11 @@ msgstr ""
 msgid "Cannot save property of type \"%s\" as array"
 msgstr ""
 
-#: ajax/contact/saveproperty.php:180
+#: ajax/contact/saveproperty.php:179
 msgid "Missing IM parameter."
 msgstr ""
 
-#: ajax/contact/saveproperty.php:184
+#: ajax/contact/saveproperty.php:183
 msgid "Unknown IM: "
 msgstr ""
 
@@ -651,7 +651,7 @@ msgstr ""
 
 #: templates/contacts.php:15
 msgid "Settings"
-msgstr ""
+msgstr "سیٹینگز"
 
 #: templates/contacts.php:16
 msgid "Address books"
@@ -841,7 +841,7 @@ msgstr ""
 
 #: templates/contacts.php:257
 msgid "Add"
-msgstr ""
+msgstr "شامل کریں"
 
 #: templates/contacts.php:262
 msgid "Phone"

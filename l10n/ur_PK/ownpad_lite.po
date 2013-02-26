@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-26 00:01+0100\n"
+"POT-Creation-Date: 2013-02-27 00:01+0100\n"
 "PO-Revision-Date: 2012-09-02 00:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Urdu (Pakistan) (http://www.transifex.com/projects/p/owncloud/language/ur_PK/)\n"
@@ -32,7 +32,7 @@ msgstr ""
 
 #: templates/index.php:15 templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "سیٹینگز"
 
 #: templates/index.php:18
 msgid "Pad Title"
@@ -56,7 +56,7 @@ msgstr ""
 
 #: templates/settings.php:21
 msgid "Username"
-msgstr ""
+msgstr "یوزر نیم"
 
 #: templates/settings.php:28
 msgid "Save"

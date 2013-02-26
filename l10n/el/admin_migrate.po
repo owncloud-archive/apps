@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Dimitris M. <monopatis@gmail.com>, 2013.
 # Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 10:06+0000\n"
-"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
+"POT-Creation-Date: 2013-02-27 00:00+0100\n"
+"PO-Revision-Date: 2013-02-26 16:30+0000\n"
+"Last-Translator: Dimitris M. <monopatis@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,13 +22,13 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "Export this ownCloud instance"
-msgstr "Εξαγωγή αυτού του αντιγράφου ownCloud"
+msgstr "Εξαγωγή αυτής της εγκατάστασης ownCloud"
 
 #: templates/settings.php:5
 msgid ""
 "This will create a compressed file that contains the data of this owncloud "
 "instance."
-msgstr "Αυτό θα δημιουργήσει ένα συμπιεσμένο αρχείο που περιέχει τα δεδομένα από αυτήν την εγκατάσταση ownCloud."
+msgstr "Αυτό θα δημιουργήσει ένα συμπιεσμένο αρχείο που θα περιέχει τα δεδομένα από αυτήν την εγκατάσταση ownCloud."
 
 #: templates/settings.php:7
 msgid "Please choose the export type:"

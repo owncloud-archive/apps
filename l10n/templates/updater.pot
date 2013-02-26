@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 5.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-02-26 00:01+0100\n"
+"POT-Creation-Date: 2013-02-27 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,10 +22,14 @@ msgid "In progress..."
 msgstr ""
 
 #: js/updater.js:16
-msgid "Done. Reload the page to proceed."
+msgid "Done."
 msgstr ""
 
-#: js/updater.js:19 js/updater.js:25
+#: js/updater.js:17
+msgid "Here is your backup: "
+msgstr ""
+
+#: js/updater.js:21 js/updater.js:27
 msgid "Error"
 msgstr ""
 

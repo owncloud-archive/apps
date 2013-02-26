@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-26 00:00+0100\n"
-"PO-Revision-Date: 2013-02-25 14:48+0000\n"
+"POT-Creation-Date: 2013-02-27 00:01+0100\n"
+"PO-Revision-Date: 2013-02-26 10:34+0000\n"
 "Last-Translator: ehdoton <sampsa.somerma@gmail.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
@@ -103,11 +103,11 @@ msgstr "Jokin meni pahasti pieleen."
 msgid "Cannot save property of type \"%s\" as array"
 msgstr ""
 
-#: ajax/contact/saveproperty.php:180
+#: ajax/contact/saveproperty.php:179
 msgid "Missing IM parameter."
 msgstr "Puuttuva IM-arvo."
 
-#: ajax/contact/saveproperty.php:184
+#: ajax/contact/saveproperty.php:183
 msgid "Unknown IM: "
 msgstr "Tuntematon IM-arvo."
 
