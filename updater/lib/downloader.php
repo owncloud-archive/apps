@@ -44,11 +44,10 @@ class Downloader {
 			Helper::mkdir($extractDir, true);
 
 			$archive = \OC_Archive::open(self::$package);
-			if ($archive) {
-				$archive->extract($extractDir);
-			} else {
+			if (!$archive || !$archive->extract($extractDir)) {
 				throw new \Exception(self::$package . " extraction error");
 			}
+			
 		} catch (\Exception $e){
 			self::cleanUp($version);
 			throw $e;
