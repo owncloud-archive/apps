@@ -148,7 +148,6 @@ if(in_array($name, $multi_properties)) {
 } else {
 	$element = $name;
 	$property = $vcard->select($name);
-	debug('propertylist: ' . get_class($property));
 	if(count($property) === 0) {
 		$property = VObject\Property::create($name);
 		$vcard->add($property);

@@ -32,14 +32,11 @@ if(!$aid) {
 	$aid = min(OCA\Contacts\Addressbook::activeIds()); // first active addressbook.
 }
 
-debug('Adding new contact to: ' . $aid);
-
 $isnew = isset($_POST['isnew']) ? $_POST['isnew'] : false;
 
 $vcard = Sabre\VObject\Component::create('VCARD');
 $uid = substr(md5(rand().time()), 0, 10);
 $vcard->add('UID', $uid);
-debug('vobject: ', print_r($vcard->serialize(), true));
 
 $id = null;
 try {
