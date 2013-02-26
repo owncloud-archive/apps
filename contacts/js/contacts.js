@@ -618,7 +618,7 @@ OC.Contacts = OC.Contacts || {};
 				} else if($elem.length > 1) {
 					var retval = [];
 					$.each($elem, function(idx, e) {
-						retval.push($(e).val());
+						retval[parseInt($(e).attr('name').substr(6,1))] = $(e).val();
 					});
 					return retval;
 				}
