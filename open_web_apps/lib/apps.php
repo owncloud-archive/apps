@@ -35,10 +35,12 @@ class MyApps {
       $manifest = self::getManifest($app['app_id']);
       if($manifest) {
         $origin = MyParser::idToOrigin($app['app_id']);
+        $launchUrlObj = MyParser::parseUrl($origin.$manifest['launch_path']);
+        $iconUrlObj = MyParser::parseUrl($origin.$manifest['icons'][128]);//in JSON this is ['128']
         $apps[$app['app_id']] = array(
           'name' => $manifest['name'],
-          'launch_url' => MyParser::parseUrl($origin.$manifest['launch_path'])['clean'],
-          'icon_url' => MyParser::parseUrl($origin.$manifest['icons'][128])['clean'],//in JSON this is ['128']
+          'launch_url' => $launchUrlObj['clean'],
+          'icon_url' => $iconUrlObj['clean'],
           'scope' => self::getScope($app['access_token']),
           'token' => $app['access_token']
         );
