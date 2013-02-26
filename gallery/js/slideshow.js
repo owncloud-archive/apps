@@ -3,7 +3,8 @@ jQuery.fn.slideShow = function (container, start, options) {
 	start = start || 0;
 	settings = $.extend({
 		'interval': 5000,
-		'play': true
+		'play': true,
+		'maxScale': 2
 	}, options);
 	jQuery.fn.slideShow.container = container;
 	jQuery.fn.slideShow.settings = settings;
@@ -38,22 +39,31 @@ jQuery.fn.slideShow.showImage = function (url) {
 	var container = jQuery.fn.slideShow.container;
 	jQuery.fn.slideShow.loadImage(url).then(function (image) {
 		var ratio = image.width / image.height,
-			screenRatio = container.width() / container.height();
+			screenRatio = container.width() / container.height(),
+			width = null, height = null, top = null;
 		container.children('img').remove();
 		container.append(image);
 		if (ratio > screenRatio) {
-			$(image).css({
-				'top': ((container.height() - (container.width() / ratio)) / 2) + 'px',
-				width: '100%',
-				height: null
-			});
+			if (container.width() > image.width * jQuery.fn.slideShow.settings.maxScale) {
+				width = image.width + 'px';
+				top = ((container.height() - image.height) / 2) + 'px';
+			} else {
+				width = '100%';
+				top = ((container.height() - (container.width() / ratio)) / 2) + 'px';
+			}
 		} else {
-			$(image).css({
-				top: null,
-				width: null,
-				height: '100%'
-			});
+			if (container.height() > image.height * jQuery.fn.slideShow.settings.maxScale) {
+				top = ((container.height() - image.height) / 2) + 'px';
+				height = image.height + 'px';
+			} else {
+				height = '100%';
+			}
 		}
+		$(image).css({
+			top: top,
+			width: width,
+			height: height
+		});
 		if (jQuery.fn.slideShow.settings.play) {
 			jQuery.fn.slideShow.setTimeout();
 		}
