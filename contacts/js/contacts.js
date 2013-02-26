@@ -348,14 +348,11 @@ OC.Contacts = OC.Contacts || {};
 								self.data.N[0]['value'][1] = nvalue[0] || '';
 								self.data.N[0]['value'][2] = nvalue.length > 2 && nvalue.slice(1, nvalue.length-1).join(' ') || '';
 								setTimeout(function() {
-									// TODO: Hint to user to check if name is properly formatted
-									//console.log('auto creating N', self.data.N[0].value)
 									self.saveProperty({name:'N', value:self.data.N[0].value.join(';')});
 									setTimeout(function() {
 										self.$fullelem.find('.fullname').next('.action.edit').trigger('click');
 										OC.notify({message:t('contacts', 'Is this correct?')});
-									}
-									, 1000);
+									}, 1000);
 								}
 								, 500);
 							}
@@ -368,6 +365,25 @@ OC.Contacts = OC.Contacts || {};
 								$.each(value, function(idx, val) {
 									self.$fullelem.find('#n_' + idx).val(val);
 								});
+							}
+							var $fullname = self.$fullelem.find('.fullname'), fullname = '';
+							var update_fn = false;
+							if(!self.data.FN) {
+								self.data.FN = [{name:'N', value:'', parameters:[]}];
+							}
+							if(self.data.FN[0]['value'] === '') {
+								self.data.FN[0]['value'] = value[1] + ' ' + value[0];
+								$fullname.val(self.data.FN[0]['value']);
+								update_fn = true;
+							} else if($fullname.val()[0] === ' ') {
+								self.data.FN[0]['value'] = value[1] + ' ' + value[0];
+								$fullname.val(self.data.FN[0]['value']);
+								update_fn = true;
+							}
+							if(update_fn) {
+								setTimeout(function() {
+									self.saveProperty({name:'FN', value:self.data.FN[0]['value']});
+								}, 1000);
 							}
 						case 'NICKNAME':
 						case 'BDAY':
