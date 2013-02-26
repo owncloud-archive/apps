@@ -49,7 +49,7 @@ class Downloader {
 			}
 			
 		} catch (\Exception $e){
-			App::log('Retrieveng ' . $url);
+			App::log('Retrieving ' . $url);
 			self::cleanUp($version);
 			throw $e;
 		}
