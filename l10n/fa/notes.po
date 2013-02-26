@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-04 00:01+0100\n"
-"PO-Revision-Date: 2013-02-03 12:40+0000\n"
-"Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
+"POT-Creation-Date: 2013-02-11 00:01+0100\n"
+"PO-Revision-Date: 2013-02-10 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,101 +18,10 @@ msgstr ""
 "Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:9
+#: appinfo/app.php:12
 msgid "Notes"
 msgstr "یادداشت ها"
 
-#: js/notes.js:8
-msgid "The title can not be empty"
-msgstr "عنوان نباید خالی باشد"
-
-#: js/notes.js:15
-msgid "Invalid title"
-msgstr "عنوان غیر معتبر"
-
-#: js/notes.js:15
-msgid "The following characters are not allowed"
-msgstr "اجازه استفاده از این حروف وجود ندارد"
-
-#: templates/categories.php:10 templates/help.php:5
-msgid "Back to Notes"
-msgstr "بازگشت به یادداشت ها"
-
-#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
-msgid "Help"
-msgstr "راه‌نما"
-
-#: templates/categories.php:99
-msgid "Categories"
-msgstr "دسته بندی ها"
-
-#: templates/categories.php:116 templates/notes.php:347
-#: templates/notes.php:391
-msgid "Delete"
-msgstr "حذف"
-
-#: templates/categories.php:117 templates/notes.php:393
-msgid "Save"
-msgstr "ذخیره"
-
-#: templates/categories.php:129
-msgid "No categories available yet"
-msgstr "هیچ دسته بندی موجود نیست"
-
-#: templates/categories.php:137
-msgid "New category"
-msgstr "دسته بندی جدید"
-
-#: templates/categories.php:141
-msgid "Add"
-msgstr "افزودن"
-
-#: templates/categories.php:144
-msgid "Note"
-msgstr "یادداشت"
-
-#: templates/categories.php:145
-msgid ""
-"If you delete a category, all containing notes get moved to the following "
-"category"
-msgstr "اگر یک دسته بندی را حذف کنید ، تمام یادداشت های متعلق به آن ، به دسته بندی زیرین انتقال می یابد"
-
-#: templates/categories.php:145 templates/notes.php:61
-msgid "General"
-msgstr "عمومی"
-
-#: templates/notes.php:81
-msgid "Add Note"
-msgstr "ایجاد یادداشت"
-
-#: templates/notes.php:87
-msgid "Edit Categories"
-msgstr "اصلاح دسته بندی ها"
-
-#: templates/notes.php:293
-msgid "No note available in this category"
-msgstr "هیچ یادداشتی در این دسته بندی موجود نیست"
-
-#: templates/notes.php:337
-msgid "Edit"
-msgstr "ویرایش"
-
-#: templates/notes.php:366
-msgid "Category"
-msgstr "نوع"
-
-#: templates/notes.php:384
-msgid "Title"
-msgstr "عنوان"
-
-#: templates/notes.php:385
-msgid "Content"
-msgstr "محتوا"
-
-#: templates/notes.php:418
-msgid "Restore content"
-msgstr "بازیابی محتوا"
-
-#: templates/notes.php:426
-msgid "Restore"
-msgstr "بازیابی"
+#: templates/notes.php:3
+msgid "New Note"
+msgstr ""

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-03 00:01+0100\n"
-"PO-Revision-Date: 2013-02-02 14:05+0000\n"
-"Last-Translator: Amir Reza Asadi <amirreza.asadi@live.com>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,3 +26,15 @@ msgstr "مستندسازی"
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
 msgstr "هیچ فایلی با فرمت Impress یافت نشد . لطفا فایلی با فرمت impress. بارگذاری کنید"
+
+#: templates/presentations.php:12
+msgid "Name"
+msgstr "نام"
+
+#: templates/presentations.php:12
+msgid "Size"
+msgstr "اندازه"
+
+#: templates/presentations.php:12
+msgid "Date"
+msgstr "تاریخ"

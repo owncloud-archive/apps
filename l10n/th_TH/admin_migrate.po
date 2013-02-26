@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-23 00:01+0100\n"
-"PO-Revision-Date: 2012-11-22 10:44+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
 "Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -32,18 +32,18 @@ msgstr "ส่วนนี้จะเป็นการสร้างไฟล
 msgid "Please choose the export type:"
 msgstr "กรุณาเลือกรูปแบบการส่งออก:"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "ownCloud instance (user data and database"
 msgstr "ค่าตัวอย่าง ownCloud (ข้อมูลผู้ใช้งานและฐานข้อมูล"
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "ownCloud system files"
 msgstr "ไฟล์ระบบ ownCloud"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Just user files"
 msgstr "แค่ไฟล์ผู้ใช้งานเท่านั้น"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Export"
 msgstr "ส่งออก"

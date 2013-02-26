@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <asieriko@gmail.com>, 2013.
 #   <asieriko@gmail.com>, 2012.
 # Asier Urio Larrea <asieriko@gmail.com>, 2011.
 # Piarres Beobide <pi@beobide.net>, 2012.
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-07 00:02+0100\n"
-"PO-Revision-Date: 2013-02-06 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-23 00:01+0100\n"
+"PO-Revision-Date: 2013-02-22 22:30+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,7 +63,7 @@ msgstr "Inportazioak huts egin du"
 msgid "events has been saved in your calendar"
 msgstr "gertaerak zure egutegian gorde dira"
 
-#: ajax/settings/guesstimezone.php:25
+#: ajax/settings/guesstimezone.php:26
 msgid "New Timezone:"
 msgstr "Ordu-zonalde berria"
 
@@ -784,15 +785,15 @@ msgstr "Sortu gertaera berria"
 
 #: templates/part.share.php:27
 msgid "Share with:"
-msgstr "Partekatu honekin:"
+msgstr "elkarbanatu honekin:"
 
 #: templates/part.share.php:30
 msgid "Shared with"
-msgstr "Hauekin partekatuta:"
+msgstr "Hauekin elkarbanatuta:"
 
 #: templates/part.share.php:47 templates/part.share.php:73
 msgid "Unshare"
-msgstr "Ez partekatu"
+msgstr "Ez elkarbanatu"
 
 #: templates/part.share.php:53
 msgid "Nobody"
@@ -800,13 +801,13 @@ msgstr "Inor"
 
 #: templates/part.share.php:56
 msgid "Shared via calendar"
-msgstr "Egutegiaren bidez partekatuta"
+msgstr "Egutegiaren bidez elkarbanatuta"
 
 #: templates/part.share.php:79
 msgid ""
 "NOTE: Actions on events shared via calendar will affect the entire calendar "
 "sharing."
-msgstr "OHARRA: Egutegiaren bidez partekatutako gertaeren gaineko ekintzak egutegi osoaren partekatzean izango dute eragina."
+msgstr "OHARRA: Egutegiaren bidez elkarbanatutako gertaeren gaineko ekintzak egutegi osoaren elkarbanatzean izango dute eragina."
 
 #: templates/part.showevent.php:1
 msgid "View an event"
@@ -822,7 +823,7 @@ msgstr ""
 
 #: templates/part.showevent.php:69 templates/part.showevent.php:77
 msgid "at"
-msgstr ""
+msgstr "ordua"
 
 #: templates/settings.php:10
 msgid "General"

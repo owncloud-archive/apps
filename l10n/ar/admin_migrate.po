@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-23 00:01+0100\n"
-"PO-Revision-Date: 2012-12-22 19:25+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
 "Last-Translator: aboodilankaboot <shiningmoon25@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/owncloud/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -20,30 +20,30 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "Export this ownCloud instance"
-msgstr ""
+msgstr "تصدير هذا الـ ownCloud instance"
 
 #: templates/settings.php:5
 msgid ""
 "This will create a compressed file that contains the data of this owncloud "
 "instance."
-msgstr ""
+msgstr "هذه العملية ستقوم بإنشاء ملف مضغوط يحتوي على بيانات هذا الـ ownCloud instance"
 
 #: templates/settings.php:7
 msgid "Please choose the export type:"
 msgstr "يرجى اختيار نوع التصدير:"
 
-#: templates/settings.php:10
-msgid "ownCloud instance (user data and database"
-msgstr ""
-
 #: templates/settings.php:11
+msgid "ownCloud instance (user data and database"
+msgstr "ownCloud instance (بيانات المستخدم و قاعدة البيانات"
+
+#: templates/settings.php:12
 msgid "ownCloud system files"
 msgstr "ملفات نظام ownCloud"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Just user files"
 msgstr "ملفات المستخدم فقط"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Export"
 msgstr "تصدير المعلومات"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-07 00:02+0100\n"
-"PO-Revision-Date: 2013-02-06 23:04+0000\n"
+"POT-Creation-Date: 2013-02-22 00:00+0100\n"
+"PO-Revision-Date: 2013-02-20 23:31+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "events has been saved in your calendar"
 msgstr ""
 
-#: ajax/settings/guesstimezone.php:25
+#: ajax/settings/guesstimezone.php:26
 msgid "New Timezone:"
 msgstr ""
 
@@ -369,7 +369,7 @@ msgstr ""
 
 #: lib/app.php:131
 msgid "Other"
-msgstr ""
+msgstr "Други"
 
 #: lib/app.php:132
 msgid "Personal"
@@ -525,7 +525,7 @@ msgstr ""
 
 #: lib/search.php:35 lib/search.php:37 lib/search.php:40
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: lib/search.php:43
 msgid "Cal."
@@ -616,7 +616,7 @@ msgstr ""
 
 #: templates/part.editevent.php:10
 msgid "Export"
-msgstr ""
+msgstr "Експорт"
 
 #: templates/part.eventform.php:5 templates/part.showevent.php:3
 msgid "Eventinfo"
@@ -771,7 +771,7 @@ msgstr ""
 
 #: templates/part.import.php:50
 msgid "Import"
-msgstr ""
+msgstr "Внасяне"
 
 #: templates/part.import.php:59
 msgid "Close Dialog"
@@ -825,7 +825,7 @@ msgstr ""
 
 #: templates/settings.php:10
 msgid "General"
-msgstr ""
+msgstr "Общи"
 
 #: templates/settings.php:15
 msgid "Timezone"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-23 00:01+0100\n"
-"PO-Revision-Date: 2013-01-21 09:05+0000\n"
+"POT-Creation-Date: 2013-02-26 00:00+0100\n"
+"PO-Revision-Date: 2013-02-25 13:02+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Niestey w pliku który próbowałeś wysłać znaleziono złośliwe opro
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "Ten e-mail jest powiadomieniem od {hosta}. Proszę nie odpowiadać."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
@@ -59,11 +59,11 @@ msgstr "Host"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "Adres hosta Antivirus."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
-msgstr ""
+msgstr "Nie jest wymagane w trybie wykonywalnym."
 
 #: templates/settings.php:8
 msgid "Port"
@@ -71,15 +71,15 @@ msgstr "Port"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "Numer portu hosta Antivirus."
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "Długość strumienia"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "ClamAV StreamMaxLength wartości w bajtach."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
@@ -95,7 +95,7 @@ msgstr "Nie jest wymagany w trybie demona"
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "Działania dla zainfekowanych plików znalezionych podczas skanowania"
 
 #: templates/settings.php:12
 msgid "Only log"
@@ -105,6 +105,6 @@ msgstr "Tylko log"
 msgid "Delete file"
 msgstr "Usuń plik"
 
-#: templates/settings.php:14
+#: templates/settings.php:15
 msgid "Save"
 msgstr "Zapisz"

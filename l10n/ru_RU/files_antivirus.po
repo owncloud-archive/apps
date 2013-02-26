@@ -4,13 +4,14 @@
 # 
 # Translators:
 #  <cdewqazxsqwe@gmail.com>, 2013.
+# Дмитрий <langaru@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 00:19+0100\n"
-"PO-Revision-Date: 2013-01-29 11:34+0000\n"
-"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-11 12:30+0000\n"
+"Last-Translator: Langaru <langaru@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,11 +83,11 @@ msgstr "ClamAV StreamMaxLength значение в байтах."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "Путь к  антивирусу clamscan"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "Путь к исполнителю clamscan."
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
@@ -98,12 +99,12 @@ msgstr "Действие для зараженных файлов, найден�
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "Только лог"
 
 #: templates/settings.php:12
 msgid "Delete file"
 msgstr "Удалить файл"
 
-#: templates/settings.php:14
+#: templates/settings.php:15
 msgid "Save"
 msgstr "Сохранить"

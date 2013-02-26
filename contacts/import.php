@@ -102,6 +102,7 @@ foreach($lines as $line) {
 writeProgress('70');
 $imported = 0;
 $failed = 0;
+$partial = 0;
 if(!count($parts) > 0) {
 	OCP\JSON::error(
 		array(
@@ -124,12 +125,20 @@ if(!count($parts) > 0) {
 foreach($parts as $part) {
 	try {
 		$vcard = Sabre\VObject\Reader::read($part);
-	} catch (Exception $e) {
-		$failed += 1;
-		OCP\Util::writeLog('contacts',
-			'Import: skipping card. Error parsing VCard: ' . $e->getMessage(),
-				OCP\Util::ERROR);
-		continue; // Ditch cards that can't be parsed by Sabre.
+	} catch (Sabre\VObject\ParseException $e) {
+		try {
+			$vcard = Sabre\VObject\Reader::read($part, Sabre\VObject\Reader::OPTION_IGNORE_INVALID_LINES);
+			$partial += 1;
+			OCP\Util::writeLog('contacts',
+				'Import: Retrying reading card. Error parsing VCard: ' . $e->getMessage(),
+					OCP\Util::ERROR);
+		} catch (Exception $e) {
+			$failed += 1;
+			OCP\Util::writeLog('contacts',
+				'Import: skipping card. Error parsing VCard: ' . $e->getMessage(),
+					OCP\Util::ERROR);
+			continue; // Ditch cards that can't be parsed by Sabre.
+		}
 	}
 	try {
 		OCA\Contacts\VCard::add($id, $vcard);

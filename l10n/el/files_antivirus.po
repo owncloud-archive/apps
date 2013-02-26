@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-25 00:01+0100\n"
-"PO-Revision-Date: 2013-01-24 08:34+0000\n"
+"POT-Creation-Date: 2013-02-18 00:02+0100\n"
+"PO-Revision-Date: 2013-02-17 12:50+0000\n"
 "Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -82,11 +82,11 @@ msgstr ""
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "Διαδρομή για το clamscan"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "Διαδρομή για το εκτελέσιμο clamscan."
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
@@ -104,6 +104,6 @@ msgstr ""
 msgid "Delete file"
 msgstr "Διαγραφή αρχείου"
 
-#: templates/settings.php:14
+#: templates/settings.php:15
 msgid "Save"
 msgstr "Αποθήκευση"

@@ -2,7 +2,7 @@ var bookmarks_page = 0;
 var bookmarks_loading = false;
 var dialog;
 var bookmarks_sorting = 'bookmarks_sorting_recent';
-
+var fullTags = [];
 $(document).ready(function() {
 	watchUrlField();
 	$('#bm_import').change(attachSettingEvent);
@@ -210,9 +210,11 @@ function delBookmark(event) {
 function checkEmpty() {
 	if($('.bookmarks_list').children().length == 0) {
 		$("#firstrun").show();
+		$("#bm_export").addClass('disabled');
 		$('.bookmarks_list').hide();
 	} else {
 		$("#firstrun").hide();
+		$("#bm_export").removeClass('disabled');
 		$('.bookmarks_list').show();
 	}
 }

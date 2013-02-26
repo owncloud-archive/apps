@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-31 16:21+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-11 00:30+0000\n"
 "Last-Translator: Romain DEP. <rom1dep@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -18,101 +18,10 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: appinfo/app.php:9
+#: appinfo/app.php:12
 msgid "Notes"
 msgstr "Notes"
 
-#: js/notes.js:8
-msgid "The title can not be empty"
-msgstr "Le titre ne peut être vide"
-
-#: js/notes.js:15
-msgid "Invalid title"
-msgstr "Titre invalide"
-
-#: js/notes.js:15
-msgid "The following characters are not allowed"
-msgstr "Les caractères suivants sont ne sont pas autorisés"
-
-#: templates/categories.php:10 templates/help.php:5
-msgid "Back to Notes"
-msgstr "Retour aux notes"
-
-#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
-msgid "Help"
-msgstr "Aide"
-
-#: templates/categories.php:99
-msgid "Categories"
-msgstr "Catégories"
-
-#: templates/categories.php:116 templates/notes.php:347
-#: templates/notes.php:391
-msgid "Delete"
-msgstr "Supprimer"
-
-#: templates/categories.php:117 templates/notes.php:393
-msgid "Save"
-msgstr "Sauvegarder"
-
-#: templates/categories.php:129
-msgid "No categories available yet"
-msgstr "Aucune catégorie n'est disponible pour le moment"
-
-#: templates/categories.php:137
-msgid "New category"
-msgstr "Créer une catégorie"
-
-#: templates/categories.php:141
-msgid "Add"
-msgstr "Ajouter"
-
-#: templates/categories.php:144
-msgid "Note"
-msgstr "Note"
-
-#: templates/categories.php:145
-msgid ""
-"If you delete a category, all containing notes get moved to the following "
-"category"
-msgstr "Si vous supprimez une catégorie, toutes les notes qu'elle contient seront déplacées vers la catégorie suivante"
-
-#: templates/categories.php:145 templates/notes.php:61
-msgid "General"
-msgstr "Généraux"
-
-#: templates/notes.php:81
-msgid "Add Note"
-msgstr "Ajouter une Note"
-
-#: templates/notes.php:87
-msgid "Edit Categories"
-msgstr "Éditer les catégories"
-
-#: templates/notes.php:293
-msgid "No note available in this category"
-msgstr "Cette catégorie ne contient aucune note"
-
-#: templates/notes.php:337
-msgid "Edit"
-msgstr "Modifier"
-
-#: templates/notes.php:366
-msgid "Category"
-msgstr "Catégorie"
-
-#: templates/notes.php:384
-msgid "Title"
-msgstr "Titre"
-
-#: templates/notes.php:385
-msgid "Content"
-msgstr "Contenu"
-
-#: templates/notes.php:418
-msgid "Restore content"
-msgstr "Restaurer le contenu"
-
-#: templates/notes.php:426
-msgid "Restore"
-msgstr "Restaurer"
+#: templates/notes.php:3
+msgid "New Note"
+msgstr "Nouvelle note"

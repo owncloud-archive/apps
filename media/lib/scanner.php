@@ -37,7 +37,11 @@ class Scanner {
 	public function getMusic() {
 		$music = \OC\Files\Filesystem::searchByMime('audio');
 		$ogg = \OC\Files\Filesystem::searchByMime('application/ogg');
-		return array_merge($music, $ogg);
+		$music = array_merge($music, $ogg);
+		foreach ($music as &$file) {
+			$file = $file['path'];
+		}
+		return $music;
 	}
 
 	/**
@@ -64,11 +68,14 @@ class Scanner {
 	 * @return boolean
 	 */
 	public function scanFile($path) {
-		$data = $this->extractor->extract($path);
-		$artistId = $this->collection->addArtist($data['artist']);
-		$albumId = $this->collection->addAlbum($data['album'], $artistId);
+		$mimeType = \OC\Files\Filesystem::getMimeType($path);
+		if ($mimeType === 'application/ogg' or substr($mimeType, 0, 5) === 'audio') {
+			$data = $this->extractor->extract($path);
+			$artistId = $this->collection->addArtist($data['artist']);
+			$albumId = $this->collection->addAlbum($data['album'], $artistId);
 
-		$this->collection->addSong($data['title'], $path, $artistId, $albumId, $data['length'], $data['track'], $data['size']);
+			$this->collection->addSong($data['title'], $path, $artistId, $albumId, $data['length'], $data['track'], $data['size']);
+		}
 		return true;
 	}
 }

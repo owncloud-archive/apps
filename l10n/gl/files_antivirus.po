@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <mbouzada@gmail.com>, 2013.
 # Xosé M. Lamas <correo.xmgz@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-23 00:01+0100\n"
-"PO-Revision-Date: 2013-01-22 06:10+0000\n"
-"Last-Translator: Xosé M. Lamas <correo.xmgz@gmail.com>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-11 11:10+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,15 +27,15 @@ msgstr "Parabéns {user},"
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr "Sentímolo, pero detectouse software malicioso nun ficheiro que tentaba subir e tivo que ser eliminado."
+msgstr "Sentímolo, pero detectouse software malicioso nun ficheiro que tentaba enviar e tivo que ser eliminado."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr "Este correo é unha notificación desde {host}. Por favor, non responda."
+msgstr "Este correo é unha notificación desde {host}. Non responda."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr "Ficheiro subido: {file}"
+msgstr "Ficheiro enviado: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
@@ -46,11 +47,11 @@ msgstr "Modo"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr "Executable"
+msgstr "Executábel"
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr "Demoño"
+msgstr "Servizo"
 
 #: templates/settings.php:7
 msgid "Host"
@@ -58,11 +59,11 @@ msgstr "Servidor"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr "Enderezo do host do antivirus"
+msgstr "Enderezo do servidor do antivirus"
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
-msgstr "Non é requerido no modo executable"
+msgstr "Non é requirido no modo executable"
 
 #: templates/settings.php:8
 msgid "Port"
@@ -70,7 +71,7 @@ msgstr "Porto"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr "Número de porto no host do antivirus"
+msgstr "Número de porto no servidor do antivirus"
 
 #: templates/settings.php:9
 msgid "Stream Length"
@@ -86,11 +87,11 @@ msgstr "Ruta a clamscan"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr "Ruta ao executable clamscan"
+msgstr "Ruta ao executábel clamscan"
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
-msgstr "Non requerido no modo demoño"
+msgstr "Non requirido no modo de servizo"
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
@@ -102,8 +103,8 @@ msgstr "Só rexistro"
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr "Borrar ficheiro"
+msgstr "Eliminar ficheiro"
 
-#: templates/settings.php:14
+#: templates/settings.php:15
 msgid "Save"
 msgstr "Gardar"

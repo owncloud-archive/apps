@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Gos Groc <gosgroc@gmail.com>, 2013.
 #   <joan@montane.cat>, 2012.
 # Josep Tomàs <jtomas.binsoft@gmail.com>, 2012.
 #   <rcalvoi@yahoo.com>, 2011-2012.
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-07 00:02+0100\n"
-"PO-Revision-Date: 2013-02-06 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-26 00:00+0100\n"
+"PO-Revision-Date: 2013-02-25 19:56+0000\n"
+"Last-Translator: gosgroc <gosgroc@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,7 +63,7 @@ msgstr "Ha fallat la importació"
 msgid "events has been saved in your calendar"
 msgstr "els esdveniments s'han desat en el calendari"
 
-#: ajax/settings/guesstimezone.php:25
+#: ajax/settings/guesstimezone.php:26
 msgid "New Timezone:"
 msgstr "Nova zona horària:"
 
@@ -72,7 +73,7 @@ msgstr "La zona horària ha canviat"
 
 #: ajax/settings/settimezone.php:25
 msgid "Invalid request"
-msgstr "Sol.licitud no vàlida"
+msgstr "Sol·licitud no vàlida"
 
 #: appinfo/app.php:38 js/l10n.php:55 templates/part.eventform.php:30
 #: templates/part.showevent.php:33
@@ -653,7 +654,7 @@ msgstr "Separeu les categories amb comes"
 
 #: templates/part.eventform.php:27
 msgid "Edit categories"
-msgstr "Edita categories"
+msgstr "Edita les categories"
 
 #: templates/part.eventform.php:47 templates/part.showevent.php:46
 msgid "Access Class"
@@ -701,7 +702,7 @@ msgstr "Avançat"
 
 #: templates/part.eventform.php:159 templates/part.showevent.php:156
 msgid "Select weekdays"
-msgstr "Dies de la setmana seleccionats"
+msgstr "Selecciona els dies de la setmana"
 
 #: templates/part.eventform.php:172 templates/part.eventform.php:185
 #: templates/part.showevent.php:169 templates/part.showevent.php:182
@@ -718,7 +719,7 @@ msgstr "i dies d'esdeveniment del mes."
 
 #: templates/part.eventform.php:198 templates/part.showevent.php:195
 msgid "Select months"
-msgstr "Seleccionar mesos"
+msgstr "Selecciona els mesos"
 
 #: templates/part.eventform.php:211 templates/part.showevent.php:208
 msgid "Select weeks"
@@ -742,7 +743,7 @@ msgstr "aparicions"
 
 #: templates/part.import.php:14
 msgid "create a new calendar"
-msgstr "crea un nou calendari"
+msgstr "crea un calendari nou"
 
 #: templates/part.import.php:17
 msgid "Import a calendar file"
@@ -754,7 +755,7 @@ msgstr "Escolliu un calendari"
 
 #: templates/part.import.php:36
 msgid "Name of new calendar"
-msgstr "Nom del nou calendari"
+msgstr "Nom del calendari nou"
 
 #: templates/part.import.php:44
 msgid "Take an available name!"
@@ -768,7 +769,7 @@ msgstr "Ja hi ha un calendari amb aquest nom. Si continueu, els calendaris es co
 
 #: templates/part.import.php:48
 msgid "Remove all events from the selected calendar"
-msgstr "Elimina tots els esdeveniments del calendaro seleccionat"
+msgstr "Elimina tots els esdeveniments del calendari seleccionat"
 
 #: templates/part.import.php:50
 msgid "Import"
@@ -810,7 +811,7 @@ msgstr "NOTA: Les accions en esdeveniments compartits via calendari afectaran la
 
 #: templates/part.showevent.php:1
 msgid "View an event"
-msgstr "Mostra un event"
+msgstr "Mostra un esdeveniment"
 
 #: templates/part.showevent.php:23
 msgid "No categories selected"

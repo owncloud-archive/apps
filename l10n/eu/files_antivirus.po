@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-30 00:19+0100\n"
-"PO-Revision-Date: 2013-01-29 18:40+0000\n"
+"POT-Creation-Date: 2013-02-13 00:00+0100\n"
+"PO-Revision-Date: 2013-02-12 22:00+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -27,11 +27,11 @@ msgstr "Kaixo {user},"
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "Barkatu, baina igotzen saiatu zaren fitxategi batean malware bat aurkitu da eta ezabatu behar da."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "E-posta hau {hots}-(e)k bidalitako mezu bat da. Mesedez, ez erantzun."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
@@ -63,7 +63,7 @@ msgstr "Antiburus Hostalariaren Helbidea."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
-msgstr ""
+msgstr "Ez da beharrezkoa Exekutagarri Moduan."
 
 #: templates/settings.php:8
 msgid "Port"
@@ -75,11 +75,11 @@ msgstr "Antiburus Hostalariaren Ataka zenbakia."
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "Korrontearen Luzera"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "ClamAV StreamMaxLength-en balioa bytetan."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
@@ -87,24 +87,24 @@ msgstr "clamscan bidea"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "clamscan programaren kokapena."
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "Ez da beharrezkoa Deabru Moduan."
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "Eskaneatzean aurkitutako infektatutako fitxategiekin hartu beharreko ekintza"
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "Bakarrik erregistratu"
 
 #: templates/settings.php:12
 msgid "Delete file"
 msgstr "Ezabatu fitxaegia"
 
-#: templates/settings.php:14
+#: templates/settings.php:15
 msgid "Save"
 msgstr "Gorde"

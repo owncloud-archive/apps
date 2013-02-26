@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-08 00:07+0100\n"
+"Project-Id-Version: ownCloud Apps 5.0.0\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-02-26 00:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,16 +21,12 @@ msgstr ""
 msgid "Pictures"
 msgstr ""
 
-#: js/gallery.js:235
+#: js/gallery.js:245
 msgid "Shared by"
 msgstr ""
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
-msgstr ""
-
-#: templates/index.php:7
-msgid "Slideshow"
 msgstr ""
 
 #: templates/no-image-app.php:9

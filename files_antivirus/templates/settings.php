@@ -11,6 +11,7 @@
 		<p class='infected_action'><label for="infected_action"><?php echo $l->t('Action for infected files found while scanning');?></label>
 			<select id="infected_action" name="infected_action"><?php echo html_select_options(array('only_log' => $l->t('Only log'), 'delete' => $l->t('Delete file')), $_['infected_action']) ?></select>
 		</p>
+		<input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'];?>" />
 		<input type="submit" value="<?php echo $l->t('Save');?>" />
 	</fieldset>
 </form>

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-17 00:01+0100\n"
-"PO-Revision-Date: 2012-11-16 17:10+0000\n"
-"Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
+"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,18 +33,18 @@ msgstr "Αυτό θα δημιουργήσει ένα συμπιεσμένο α�
 msgid "Please choose the export type:"
 msgstr "Παρακαλώ επιλέξτε τον τύπο εξαγωγής:"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "ownCloud instance (user data and database"
 msgstr "Αντίγραφο ownCloud (δεδομένα χρήστη και βάση δεδομένων"
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "ownCloud system files"
 msgstr "Αρχεία συστήματος ownCloud"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Just user files"
 msgstr "Μόνο τα αρχεία χρήστη"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Export"
 msgstr "Εξαγωγή"

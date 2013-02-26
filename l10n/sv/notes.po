@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-31 16:21+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-11 07:20+0000\n"
 "Last-Translator: Magnus Höglund <magnus@linux.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/owncloud/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -18,101 +18,10 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:9
+#: appinfo/app.php:12
 msgid "Notes"
 msgstr "Anteckningar"
 
-#: js/notes.js:8
-msgid "The title can not be empty"
-msgstr "Titel kan inte vara tom"
-
-#: js/notes.js:15
-msgid "Invalid title"
-msgstr "Felaktig titel"
-
-#: js/notes.js:15
-msgid "The following characters are not allowed"
-msgstr "Följande tecken är inte tillåtna"
-
-#: templates/categories.php:10 templates/help.php:5
-msgid "Back to Notes"
-msgstr "Tillbaka till Anteckningar"
-
-#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
-msgid "Help"
-msgstr "Hjälp"
-
-#: templates/categories.php:99
-msgid "Categories"
-msgstr "Kategorier"
-
-#: templates/categories.php:116 templates/notes.php:347
-#: templates/notes.php:391
-msgid "Delete"
-msgstr "Radera"
-
-#: templates/categories.php:117 templates/notes.php:393
-msgid "Save"
-msgstr "Spara"
-
-#: templates/categories.php:129
-msgid "No categories available yet"
-msgstr "Inga kategorier finns tillgängliga än"
-
-#: templates/categories.php:137
-msgid "New category"
-msgstr "Ny kategori"
-
-#: templates/categories.php:141
-msgid "Add"
-msgstr "Lägg till"
-
-#: templates/categories.php:144
-msgid "Note"
-msgstr "Notering"
-
-#: templates/categories.php:145
-msgid ""
-"If you delete a category, all containing notes get moved to the following "
-"category"
-msgstr "Om du raderar en kategori, kommer alla anteckningar i aktuell kategori att flyttas till följande kategori"
-
-#: templates/categories.php:145 templates/notes.php:61
-msgid "General"
-msgstr "Allmänt"
-
-#: templates/notes.php:81
-msgid "Add Note"
-msgstr "Lägg till anteckning"
-
-#: templates/notes.php:87
-msgid "Edit Categories"
-msgstr "Redigera kategorier"
-
-#: templates/notes.php:293
-msgid "No note available in this category"
-msgstr "Ingen anteckning tillgänglig i denna kategori"
-
-#: templates/notes.php:337
-msgid "Edit"
-msgstr "Redigera"
-
-#: templates/notes.php:366
-msgid "Category"
-msgstr "Kategori"
-
-#: templates/notes.php:384
-msgid "Title"
-msgstr "Titel"
-
-#: templates/notes.php:385
-msgid "Content"
-msgstr "Innehåll"
-
-#: templates/notes.php:418
-msgid "Restore content"
-msgstr "Återskapa innehåll"
-
-#: templates/notes.php:426
-msgid "Restore"
-msgstr "Återskapa"
+#: templates/notes.php:3
+msgid "New Note"
+msgstr "Ny anteckning"

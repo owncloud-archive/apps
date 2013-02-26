@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-05 00:17+0100\n"
-"PO-Revision-Date: 2013-02-04 11:20+0000\n"
-"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,3 +26,15 @@ msgstr "Dokumentācija"
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
 msgstr "Jūsu ownCloud nav atrodamas Impress datnes. Lūdzu, augšupielādējiet .impress datni."
+
+#: templates/presentations.php:12
+msgid "Name"
+msgstr "Nosaukums"
+
+#: templates/presentations.php:12
+msgid "Size"
+msgstr "Izmērs"
+
+#: templates/presentations.php:12
+msgid "Date"
+msgstr "Datums"

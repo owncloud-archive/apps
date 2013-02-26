@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-27 00:01+0100\n"
-"PO-Revision-Date: 2013-01-26 15:26+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
 "Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -34,18 +34,18 @@ msgstr "Ez egy tömörített fájlt fog létrehozni, ami tartalmazza ennek az ow
 msgid "Please choose the export type:"
 msgstr "Válassza ki az exportálás típusát:"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "ownCloud instance (user data and database"
 msgstr "ownCloud példány (felhasználói adatok és adatbázis)"
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "ownCloud system files"
 msgstr "ownCloud rendszerfájlok"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Just user files"
 msgstr "Csak felhasználói fájlok"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Export"
 msgstr "Exportálás"

@@ -15,7 +15,6 @@ OCP\Util::addScript('gallery', 'slideshow');
 OCP\Util::addStyle('gallery', 'styles');
 
 OCP\Util::addScript('gallery', 'bigscreen.min');
-OCP\Util::addScript('gallery', 'jquery.easing.min');
 
 $tmpl = new OCP\Template('gallery', 'index', 'user');
 $tmpl->printPage();

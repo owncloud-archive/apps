@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-07 00:01+0100\n"
-"PO-Revision-Date: 2012-11-05 23:30+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
 "Last-Translator: emc <mplichta@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -33,18 +33,18 @@ msgstr "Spowoduje to utworzenie pliku skompresowanego, który zawiera dane tej i
 msgid "Please choose the export type:"
 msgstr "Proszę wybrać typ eksportu:"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "ownCloud instance (user data and database"
 msgstr "instancja ownCloud (dane użytkownika i baza danych"
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "ownCloud system files"
 msgstr "Systemu plików ownCloud"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Just user files"
 msgstr "Tylko pliki użytkownika"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Export"
 msgstr "Eksport"

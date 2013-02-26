@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-11 00:02+0100\n"
-"PO-Revision-Date: 2013-01-10 10:33+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:38+0000\n"
 "Last-Translator: Shubhra Paul <paul_shubhra@yahoo.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -32,18 +32,18 @@ msgstr "এই ownCloud Instances এর উপাত্তধারণকার
 msgid "Please choose the export type:"
 msgstr "রপ্তানির ধরণটি নির্বাচন করুনঃ"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "ownCloud instance (user data and database"
 msgstr ""
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "ownCloud system files"
 msgstr "ownCloud সিস্টেম ফাইল"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Just user files"
 msgstr ""
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Export"
 msgstr "রপ্তানী কর"

@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Marián Hvolka <marian.hvolka@stuba.sk>, 2013.
 #   <martin.babik@gmail.com>, 2012.
 #   <zatroch.martin@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-02 00:01+0100\n"
-"PO-Revision-Date: 2012-12-01 16:27+0000\n"
-"Last-Translator: martin <zatroch.martin@gmail.com>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 09:46+0000\n"
+"Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,18 +34,18 @@ msgstr "Bude vytvorený komprimovaný archív s dátami owncloud inštancie."
 msgid "Please choose the export type:"
 msgstr "Vybrať typ exportu:"
 
-#: templates/settings.php:10
+#: templates/settings.php:11
 msgid "ownCloud instance (user data and database"
 msgstr "ownCloud inštancia (používateľské dáta a databáza)"
 
-#: templates/settings.php:11
+#: templates/settings.php:12
 msgid "ownCloud system files"
 msgstr "ownCloud systémové súbory"
 
-#: templates/settings.php:12
-msgid "Just user files"
-msgstr "Iba súbory užívateľov"
-
 #: templates/settings.php:13
+msgid "Just user files"
+msgstr "Iba súbory používateľov"
+
+#: templates/settings.php:14
 msgid "Export"
 msgstr "Export"

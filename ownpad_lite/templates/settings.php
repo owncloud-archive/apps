@@ -10,17 +10,18 @@
  * later.
  */
  ?>
-
+<?php $urlKey = OCA\ownpad_lite\App::CONFIG_ETHERPAD_URL; ?>
+<?php $usernameKey = OCA\ownpad_lite\App::CONFIG_USERNAME; ?>
 <dl>
 	<dt><?php echo $l->t('Etherpad service URL'); ?></dt>
 	<dd>
-		<input id="<?php echo OCA\ownpad_lite\App::CONFIG_ETHERPAD_URL ?>" value="<?php echo $_[OCA\ownpad_lite\App::CONFIG_ETHERPAD_URL] ?>" />
+		<input id="<?php echo $urlKey; ?>" value="<?php echo $_[$urlKey]; ?>" />
 	</dd>
 	<dt>
 		<?php echo $l->t('Username'); ?>
 	</dt>
 	<dd>
-		<input id="<?php echo OCA\ownpad_lite\App::CONFIG_USERNAME ?>" value="<?php echo $_[OCA\ownpad_lite\App::CONFIG_USERNAME] ?>" />
+		<input id="<?php echo $usernameKey; ?>" value="<?php echo $_[$usernameKey]; ?>" />
 	</dd>
 	<dt>&nbsp;</dt>
 	<dd>

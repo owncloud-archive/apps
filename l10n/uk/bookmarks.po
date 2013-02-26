@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Soul Kim <warlock.rf@gmail.com>, 2012.
+# пан Володимир <volodya327@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-28 00:09+0100\n"
-"PO-Revision-Date: 2012-11-27 12:47+0000\n"
+"POT-Creation-Date: 2013-02-22 00:00+0100\n"
+"PO-Revision-Date: 2013-02-20 23:32+0000\n"
 "Last-Translator: volodya327 <volodya327@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr "Немає файла для імпорту"
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -26,7 +31,7 @@ msgstr "Імпорт файлу даного типу не підтримуєт�
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr "Теги"
 
@@ -38,19 +43,23 @@ msgstr "Фільтр по тегах"
 msgid "Edit bookmark"
 msgstr "Редагувати закладку"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Ви впевнені, що бажаєте видалити цей тег з кожного запису ?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr "Попередження"
 
-#: js/settings.js:25
+#: js/settings.js:18
+msgid "Import error"
+msgstr "Помилка імпорту"
+
+#: js/settings.js:29
 msgid "Import completed successfully."
 msgstr "Імпорт завершено успішно."
 
-#: js/settings.js:56
+#: js/settings.js:60
 msgid "Uploading..."
 msgstr "Вивантаження..."
 
@@ -58,39 +67,39 @@ msgstr "Вивантаження..."
 msgid "Bookm."
 msgstr "Заклд."
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "Додати закладку"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "Закрити"
 
-#: templates/addBm.php:22 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:27
 msgid "The title of the page"
 msgstr "Заголовок сторінки"
 
-#: templates/addBm.php:27 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:31
 msgid "The address of the page"
 msgstr "Адреса сторінки"
 
-#: templates/addBm.php:40 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:40
 msgid "Description of the page"
 msgstr "Опис сторінки"
 
-#: templates/addBm.php:44 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:44
 msgid "Save"
 msgstr "Зберегти"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:61
+#: templates/js_tpl.php:6 templates/js_tpl.php:58
 msgid "Delete"
 msgstr "Видалити"
 
-#: templates/js_tpl.php:19 templates/js_tpl.php:57
+#: templates/js_tpl.php:14 templates/js_tpl.php:54
 msgid "Edit"
 msgstr "Редагувати"
 
-#: templates/js_tpl.php:46
+#: templates/js_tpl.php:43
 msgid "Cancel"
 msgstr "Відмінити"
 
@@ -116,15 +125,15 @@ msgstr "Додати"
 msgid "Related Tags"
 msgstr "Пов'язані теги"
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "Налаштування"
 
-#: templates/list.php:53
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr "У вас немає закладок"
 
-#: templates/list.php:58
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr "Ви можете також спробувати імпортувати файл закладок"
 

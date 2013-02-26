@@ -4,13 +4,14 @@
 # 
 # Translators:
 #   <bury1000@gmail.com>, 2012.
+#  <rcalvoi@yahoo.com>, 2013.
 #   <rcalvoi@yahoo.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:02+0200\n"
-"PO-Revision-Date: 2012-09-10 07:37+0000\n"
+"POT-Creation-Date: 2013-02-23 00:01+0100\n"
+"PO-Revision-Date: 2013-02-22 07:10+0000\n"
 "Last-Translator: rogerc <rcalvoi@yahoo.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -19,30 +20,47 @@ msgstr ""
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:58
+#: ajax/share.php:26
+msgid "Document was shared"
+msgstr "S'ha compartit el document"
+
+#: ajax/share.php:27
+#, php-format
+msgid "User %s shared quick document %s with you."
+msgstr "L'usuari %s ha compartit el document %s amb vós."
+
+#: appinfo/app.php:99
 msgid "My pad"
 msgstr "El meu pad"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
 msgstr "Configuració"
 
-#: templates/index.php:17
+#: templates/index.php:18
 msgid "Pad Title"
 msgstr "Títol del pad"
 
-#: templates/index.php:18
+#: templates/index.php:19
 msgid "Open"
 msgstr "Obre"
 
-#: templates/settings.php:15
+#: templates/index.php:20
+msgid "Share with"
+msgstr "Comparteix amb"
+
+#: templates/index.php:21
+msgid "Share"
+msgstr "Comparteix"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr "URL del servei Etherpad"
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
 msgstr "Nom d'usuari"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
 msgstr "Desar"

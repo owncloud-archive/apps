@@ -1,0 +1,16 @@
+.add-new > a {
+	background-image: url('%appswebroot%/news/img/add.svg');
+}
+
+.add-new-popup {
+	display: none;
+	padding: 0 15px;
+}
+
+.add-new-popup .personalblock:first-child legend {
+	padding-top: 15px;
+}
+
+.add-new input[type=text] {
+	width: 100px;
+}

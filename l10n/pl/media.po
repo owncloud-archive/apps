@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Cyryl Sochacki <>, 2012.
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013.
 # Marcin Małecki <gerber@tkdami.net>, 2011-2012.
 #   <mosslar@gmail.com>, 2011.
 #   <mplichta@gmail.com>, 2012.
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-24 00:02+0100\n"
-"PO-Revision-Date: 2013-01-23 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-26 00:00+0100\n"
+"PO-Revision-Date: 2013-02-25 12:42+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
+#: appinfo/app.php:48 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "Muzyka"
 
@@ -42,31 +43,31 @@ msgstr "Dodaj do playlisty"
 msgid "Add album to playlist"
 msgstr "Dodaj album do playlisty"
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr "Poprzedni"
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr "Odtwarzaj"
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
 msgstr "Wstrzymaj"
-
-#: templates/music.php:5
-msgid "Previous"
-msgstr "Poprzedni"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr "Następny"
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr "Wycisz"
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr "Wyłącz wyciszenie"
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr "Przeszukaj kolekcję"
 
@@ -84,8 +85,8 @@ msgstr "Tytuł"
 
 #: templates/settings.php:3
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: templates/settings.php:4
 msgid "Ampache address:"
-msgstr ""
+msgstr "Adres Ampache:"

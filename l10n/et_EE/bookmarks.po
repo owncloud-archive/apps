@@ -9,15 +9,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-20 00:00+0100\n"
-"PO-Revision-Date: 2012-11-19 21:09+0000\n"
-"Last-Translator: dagor <dagor.vint@hotmail.com>\n"
+"POT-Creation-Date: 2013-02-22 00:00+0100\n"
+"PO-Revision-Date: 2013-02-20 23:32+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: et_EE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -27,7 +31,7 @@ msgstr ""
 msgid "Bookmarks"
 msgstr "Järjehoidjad"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr "Sildid"
 
@@ -39,19 +43,23 @@ msgstr ""
 msgid "Edit bookmark"
 msgstr "Muuda järjehoidjat"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Oled sa kindel, et sa soovid kõigilt sissekannetelt seda silti eemaldada?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr "Hoiatus"
 
-#: js/settings.js:25
+#: js/settings.js:18
+msgid "Import error"
+msgstr ""
+
+#: js/settings.js:29
 msgid "Import completed successfully."
 msgstr ""
 
-#: js/settings.js:56
+#: js/settings.js:60
 msgid "Uploading..."
 msgstr "Üleslaadimine..."
 
@@ -59,39 +67,39 @@ msgstr "Üleslaadimine..."
 msgid "Bookm."
 msgstr "Järjeh."
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "Lisa järjehoidja"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "Sulge"
 
-#: templates/addBm.php:22 templates/js_tpl.php:33
+#: templates/addBm.php:16 templates/js_tpl.php:27
 msgid "The title of the page"
 msgstr "Lehe pealkiri"
 
-#: templates/addBm.php:27 templates/js_tpl.php:37
+#: templates/addBm.php:21 templates/js_tpl.php:31
 msgid "The address of the page"
 msgstr "Lehe aadress"
 
-#: templates/addBm.php:40 templates/js_tpl.php:46
+#: templates/addBm.php:34 templates/js_tpl.php:40
 msgid "Description of the page"
 msgstr "Lehe kirjeldus"
 
-#: templates/addBm.php:44 templates/js_tpl.php:50
+#: templates/addBm.php:38 templates/js_tpl.php:44
 msgid "Save"
 msgstr "Salvesta"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:58
 msgid "Delete"
 msgstr "Kustuta"
 
-#: templates/js_tpl.php:20 templates/js_tpl.php:60
+#: templates/js_tpl.php:14 templates/js_tpl.php:54
 msgid "Edit"
 msgstr "Muuda"
 
-#: templates/js_tpl.php:49
+#: templates/js_tpl.php:43
 msgid "Cancel"
 msgstr "Loobu"
 
@@ -117,15 +125,15 @@ msgstr "Lisa"
 msgid "Related Tags"
 msgstr "Seotud sildid"
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "Seaded"
 
-#: templates/list.php:53
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr "Sul pole järjehoidjaid"
 
-#: templates/list.php:58
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr ""
 

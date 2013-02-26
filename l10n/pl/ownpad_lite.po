@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Cyryl Sochacki <>, 2012.
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013.
 # Marcin Małecki <gerber@tkdami.net>, 2012.
 #   <mplichta@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-13 02:01+0200\n"
-"PO-Revision-Date: 2012-09-12 12:41+0000\n"
+"POT-Creation-Date: 2013-02-26 00:01+0100\n"
+"PO-Revision-Date: 2013-02-25 13:31+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -20,30 +21,47 @@ msgstr ""
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: appinfo/app.php:58
+#: ajax/share.php:26
+msgid "Document was shared"
+msgstr "Dokument został udostępniony"
+
+#: ajax/share.php:27
+#, php-format
+msgid "User %s shared quick document %s with you."
+msgstr "Użytkownik %s współdzieli szybki dokument %s z tobą."
+
+#: appinfo/app.php:99
 msgid "My pad"
 msgstr "Moja konsola"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: templates/index.php:17
+#: templates/index.php:18
 msgid "Pad Title"
 msgstr "Nazwa konsoli"
 
-#: templates/index.php:18
+#: templates/index.php:19
 msgid "Open"
 msgstr "Otwórz"
 
-#: templates/settings.php:15
+#: templates/index.php:20
+msgid "Share with"
+msgstr "Współdziel z"
+
+#: templates/index.php:21
+msgid "Share"
+msgstr "Udostępnij"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr "Adres URL usługi Etherpad"
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
 msgstr "Nazwa użytkownika"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
 msgstr "Zapisz"

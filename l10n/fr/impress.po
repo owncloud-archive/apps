@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Brice  <bmaron@gmail.com>, 2012.
-# Romain DEP. <rom1dep@gmail.com>, 2012.
+# Romain DEP. <rom1dep@gmail.com>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-05 02:02+0200\n"
-"PO-Revision-Date: 2012-09-04 11:38+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 09:47+0000\n"
 "Last-Translator: Romain DEP. <rom1dep@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -27,3 +27,15 @@ msgstr "Documentation"
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
 msgstr "Aucun fichier Impress n'a été trouvé sur votre ownCloud. Veuillez en importer au moins un avec l'extension .impress ."
+
+#: templates/presentations.php:12
+msgid "Name"
+msgstr "Nom"
+
+#: templates/presentations.php:12
+msgid "Size"
+msgstr "Taille"
+
+#: templates/presentations.php:12
+msgid "Date"
+msgstr "Date"

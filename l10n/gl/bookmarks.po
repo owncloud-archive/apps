@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <mbouzada@gmail.com>, 2013.
 #   <mbouzada@gmail.com>, 2012.
 # Miguel Branco <mgl.branco@gmail.com>, 2012.
 # Xosé M. Lamas <correo.xmgz@gmail.com>, 2012.
@@ -10,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-01 00:01+0100\n"
-"PO-Revision-Date: 2012-12-31 09:40+0000\n"
+"POT-Creation-Date: 2013-02-22 00:00+0100\n"
+"PO-Revision-Date: 2013-02-20 23:32+0000\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -19,6 +20,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr "Non foi fornecido un ficheiro para importar"
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -28,7 +33,7 @@ msgstr "Tipo de ficheiro non admitido para a importación"
 msgid "Bookmarks"
 msgstr "Marcadores"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr "Etiquetas"
 
@@ -40,19 +45,23 @@ msgstr "Filtrar segundo a etiqueta"
 msgid "Edit bookmark"
 msgstr "Editar o marcador"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Confirma que quere eliminar esta etiqueta de todas as entradas?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr "Aviso"
 
-#: js/settings.js:25
+#: js/settings.js:18
+msgid "Import error"
+msgstr "Produciuse un erro na importación"
+
+#: js/settings.js:29
 msgid "Import completed successfully."
 msgstr "A importación completouse correctamente."
 
-#: js/settings.js:56
+#: js/settings.js:60
 msgid "Uploading..."
 msgstr "Enviando..."
 
@@ -60,39 +69,39 @@ msgstr "Enviando..."
 msgid "Bookm."
 msgstr "Marc."
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "Engadir un marcador"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "Pechar"
 
-#: templates/addBm.php:22 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:27
 msgid "The title of the page"
 msgstr "O título da páxina"
 
-#: templates/addBm.php:27 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:31
 msgid "The address of the page"
 msgstr "O enderezo desta páxina"
 
-#: templates/addBm.php:40 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:40
 msgid "Description of the page"
 msgstr "Descrición da páxina"
 
-#: templates/addBm.php:44 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:44
 msgid "Save"
 msgstr "Gardar"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:61
+#: templates/js_tpl.php:6 templates/js_tpl.php:58
 msgid "Delete"
 msgstr "Eliminar"
 
-#: templates/js_tpl.php:19 templates/js_tpl.php:57
+#: templates/js_tpl.php:14 templates/js_tpl.php:54
 msgid "Edit"
 msgstr "Editar"
 
-#: templates/js_tpl.php:46
+#: templates/js_tpl.php:43
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -118,15 +127,15 @@ msgstr "Engadir"
 msgid "Related Tags"
 msgstr "Etiquetas relacionadas"
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "Preferencias"
 
-#: templates/list.php:53
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr "Non ten marcadores"
 
-#: templates/list.php:58
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr "Tamén pode intentar importar un ficheiro de marcadores"
 

@@ -50,6 +50,7 @@
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
 }
 #content fieldset.editor { 
+	padding:4px;
 	border: 1px solid #1d2d44; 
 	-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; outline:none; 
 }
@@ -123,7 +124,7 @@
 #grouplist { z-index: 100; }
 #grouplist h3 .action:not(.starred):not(.checked):not(.favorite) { float: right; display: none; padding: 0; margin: auto; }
 #grouplist h3:not([data-type="shared"]):not(.editing):hover .action.numcontacts, #grouplist h3:not([data-type="shared"]):not(.editing) .active.action.numcontacts { display: inline-block; }
-#grouplist h3[data-type="category"]:not(.editing):hover .action.delete { display: inline-block; }
+#grouplist h3.active[data-type="category"]:not(.editing):hover .action.delete { display: inline-block; }
 #grouplist h3:not(.editing) .action.delete { width: 20px; height: 20px; }
 
 /* First run */
@@ -136,7 +137,7 @@
 #contact { margin: 1em; }
 #contact textarea { min-height: 5em; width: 100%; margin: 0 !important; padding: 0 !important; outline: 0 !important;}
 
-#contact input[type="checkbox"] { margin-top: 10px; vertical-align: bottom; float: left; }
+#contact input[type="checkbox"] { margin: 3px; padding:1px; vertical-align: bottom; float: left; }
 /*dl.form { display: block; width: auto; margin: 0; padding: 0; cursor: normal; }*/
 .form dt { display: inline-block; clear: left; float: left; width: 7em; margin: 0; padding: 0.8em 0.5em 0 0; text-align:right; text-overflow:ellipsis; o-text-overflow: ellipsis; vertical-align: text-bottom; color: #bbb;/* white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap;*/ }
 .form dd { display: inline-block; clear: right; float: left; margin: 0; padding: 0; white-space: nowrap; vertical-align: text-bottom; }
@@ -170,15 +171,16 @@
 	background-size:contain;
 }
 
-.action.text, .icon.text { 
+.action:not(.add).text, .icon:not(.add).text { 
 	background-position: left; 
 	text-indent: 18px;
 }
 
 /* TODO: Use @import url('%appswebroot%/contacts/css/[no-]svg.css); instead. */
 
-.no-svg .add { background-image:url('%webroot%/core/img/actions/add.png'); }
+/*.no-svg .add { background-image:url('%webroot%/core/img/actions/add.png'); }*/
 .no-svg .delete { background-image:url('%webroot%/core/img/actions/delete.png'); }
+.no-svg .delete:hover { background-image:url('%webroot%/core/img/actions/delete-hover.png'); }
 .no-svg .edit { background-image:url('%webroot%/core/img/actions/rename.png'); }
 .no-svg .share { background-image:url('%webroot%/core/img/actions/share.png'); }
 .no-svg .groups { background-image:url('%webroot%/core/img/actions/shared.png'); }
@@ -197,8 +199,9 @@
 	background-origin: content-box;
 	background-repeat: no-repeat;
 }
-.svg .add { background-image:url('%webroot%/core/img/actions/add.svg'); }
+/*.svg .add { background-image:url('%webroot%/core/img/actions/add.svg'); }*/
 .svg .delete { background-image:url('%webroot%/core/img/actions/delete.svg'); }
+.svg .delete:hover { background-image:url('%webroot%/core/img/actions/delete-hover.svg'); }
 .svg .edit { background-image:url('%webroot%/core/img/actions/rename.svg'); }
 .svg .share { background-image:url('%webroot%/core/img/actions/share.svg'); }
 .svg .groups { background-image:url('%webroot%/core/img/actions/shared.svg'); }
@@ -257,20 +260,19 @@
 	text-align: right; 
 	box-sizing: border-box;
 	display: inline-block;
+	margin-top:10px;
 }
 
 ul.propertylist { width: 450px; }
 .propertylist li.propertycontainer { white-space: nowrap; min-width: 38em; display: block; clear: both; }
 .propertylist li.propertycontainer > .listactions { 
 	display: inline-block; 
-	position: absolute; 
 	clear: none; opacity: 0; 
-	float: right; 
 }
 .propertylist li.propertycontainer:hover > .listactions { opacity: 1; }
 .propertylist li.propertycontainer .listactions a { 
 	display: inline-block; 
-	float: left; clear: none; 
+	clear: none; 
 	width: 16px; height: 16px; 
 }
 
@@ -298,8 +300,10 @@ ul.propertylist { width: 450px; }
 	border: 0; 
 	display: inline-block;
 	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 }
 #rightcontent label:hover, #rightcontent dt:hover, #rightcontent input.label:hover { color: #777 !important; }
+#rightcontent input.label, #rightcontent input.label { margin:-2px; }
 #rightcontent input.label:hover, #rightcontent input.label:active { border: 0 none !important; border-radius: 0; cursor: pointer; }
 .typelist[type="button"] { float: left; max-width: 8em; border: 0; background-color: #fff; color: #bbb; box-shadow: none; } /* for multiselect */
 .typelist[type="button"]:hover { color: #777; } /* for multiselect */
@@ -332,6 +336,7 @@ ul.propertylist { width: 450px; }
 #contacts-settings .settings { 
 	/*width: 20px; height: 20px; 
 	float: left;*/
+	height:1.4em;
 	background-repeat: no-repeat;
 	background-position:0px 4px;
 	background-origin: content-box;
@@ -363,6 +368,11 @@ ul.propertylist { width: 450px; }
 #contacts-settings li,#contacts-settings li:hover { background-color: transparent; white-space: nowrap; }
 #contacts-settings a.action:not(.settings) { width: 16px; height: 16px; }
 #contacts-settings .actions { float: right; }
+#contacts-settings h2 {
+	text-indent: .5em;
+	font-weight: bold;
+	font-size: 1.2em;
+}
 
 /* Single elements */
 #file_upload_target, #import_upload_target, #crop_target { display:none; }
@@ -450,7 +460,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	padding: 0 .5em 0 4em; margin: 0 auto; 
 	height: 100%; width: 100%;
 }
-#contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: .7em; padding: .2em; clear: none; }
+#groupsheader button, #contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: .7em; padding: .2em; clear: none; }
 #contactsheader select { width:100px; }
 #contactsheader .delete { 
 	bottom: 1.4em;
@@ -497,7 +507,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 .adr.editor input.value:hover { border: none; }
 .adr.editor input.value.street, ul.adr.edit input.value.country, ul.adr.edit input.value.region { width: 19em;}
 .adr.editor input.value.zip { width: 5em; }
-.adr.editor input.value.city { width: 10em; }
+.adr.editor input.value.city { width: 10em; margin:4px; }
 
 .note { margin-left: 120px; }
 
@@ -525,7 +535,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	padding: 10px; 
 	position: fixed !important; 
 	z-index: 200; 
-	top: 8em; left: 35em;
+	top: 8em; left: 28em;
 	width: 490px;
 }
 #contact .arrow { 
@@ -552,7 +562,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	padding-top: .5em; 
 	overflow: hidden; text-overflow: ellipsis; text-align: bottom; white-space: nowrap; 
 }
-#contact span.adr:hover { /*overflow: inherit;*/ white-space: pre-wrap; }
+#contact span.adr:hover { /*overflow: inherit;*/ /*white-space: pre-wrap;*/ }
 
 #contact > ul.propertylist {
 	-webkit-transition: all 0.5s ease-in-out;

@@ -6,6 +6,8 @@
 "Daemon" => "Υπηρεσία",
 "Host" => "Διακομιστής",
 "Port" => "Θύρα",
+"Path to clamscan" => "Διαδρομή για το clamscan",
+"Path to clamscan executable." => "Διαδρομή για το εκτελέσιμο clamscan.",
 "Action for infected files found while scanning" => "Ενέργεια για τα μολυσμένα αρχεία κατά την σάρωση",
 "Delete file" => "Διαγραφή αρχείου",
 "Save" => "Αποθήκευση"

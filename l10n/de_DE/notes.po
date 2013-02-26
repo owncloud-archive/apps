@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-31 16:21+0000\n"
-"Last-Translator: a.tangemann <a.tangemann@web.de>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 09:50+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/owncloud/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,101 +18,10 @@ msgstr ""
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:9
+#: appinfo/app.php:12
 msgid "Notes"
 msgstr "Notizen"
 
-#: js/notes.js:8
-msgid "The title can not be empty"
-msgstr "Der Titel darf nicht leer sein"
-
-#: js/notes.js:15
-msgid "Invalid title"
-msgstr "Ungültiger Titel"
-
-#: js/notes.js:15
-msgid "The following characters are not allowed"
-msgstr "Die folgenden Zeichen sind nicht erlaubt"
-
-#: templates/categories.php:10 templates/help.php:5
-msgid "Back to Notes"
-msgstr "Zurück zu den Notizen"
-
-#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
-msgid "Help"
-msgstr "Hilfe"
-
-#: templates/categories.php:99
-msgid "Categories"
-msgstr "Kategorien"
-
-#: templates/categories.php:116 templates/notes.php:347
-#: templates/notes.php:391
-msgid "Delete"
-msgstr "Löschen"
-
-#: templates/categories.php:117 templates/notes.php:393
-msgid "Save"
-msgstr "Speichern"
-
-#: templates/categories.php:129
-msgid "No categories available yet"
-msgstr "Keine Kategorien verfügbar"
-
-#: templates/categories.php:137
-msgid "New category"
-msgstr "Neue Kategorie"
-
-#: templates/categories.php:141
-msgid "Add"
-msgstr "Hinzufügen"
-
-#: templates/categories.php:144
-msgid "Note"
-msgstr "Notiz"
-
-#: templates/categories.php:145
-msgid ""
-"If you delete a category, all containing notes get moved to the following "
-"category"
-msgstr "Wenn Sie eine Kategorie löschen, werden alle darin enthaltenen Notizen in die folgende Kategorie verschoben"
-
-#: templates/categories.php:145 templates/notes.php:61
-msgid "General"
-msgstr "Allgemein"
-
-#: templates/notes.php:81
-msgid "Add Note"
-msgstr "Notiz hinzufügen"
-
-#: templates/notes.php:87
-msgid "Edit Categories"
-msgstr "Kategorien bearbeiten"
-
-#: templates/notes.php:293
-msgid "No note available in this category"
-msgstr "Keine Notiz in dieser Kategorien verfügbar"
-
-#: templates/notes.php:337
-msgid "Edit"
-msgstr "Bearbeiten"
-
-#: templates/notes.php:366
-msgid "Category"
-msgstr "Kategorie"
-
-#: templates/notes.php:384
-msgid "Title"
-msgstr "Titel"
-
-#: templates/notes.php:385
-msgid "Content"
-msgstr "Inhalt"
-
-#: templates/notes.php:418
-msgid "Restore content"
-msgstr "Inhalt wiederherstellen"
-
-#: templates/notes.php:426
-msgid "Restore"
-msgstr "Wiederherstellen"
+#: templates/notes.php:3
+msgid "New Note"
+msgstr "Neue Notiz"

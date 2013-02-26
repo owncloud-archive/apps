@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-18 00:01+0100\n"
-"PO-Revision-Date: 2013-01-17 21:57+0000\n"
+"POT-Creation-Date: 2013-02-21 00:02+0100\n"
+"PO-Revision-Date: 2013-02-20 23:02+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,16 @@ msgstr ""
 "Language: nn_NO\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:58
+#: ajax/share.php:26
+msgid "Document was shared"
+msgstr ""
+
+#: ajax/share.php:27
+#, php-format
+msgid "User %s shared quick document %s with you."
+msgstr ""
+
+#: appinfo/app.php:99
 msgid "My pad"
 msgstr ""
 
@@ -31,6 +40,14 @@ msgstr ""
 
 #: templates/index.php:18
 msgid "Open"
+msgstr ""
+
+#: templates/index.php:19
+msgid "Share with"
+msgstr ""
+
+#: templates/index.php:20
+msgid "Share"
 msgstr ""
 
 #: templates/settings.php:15

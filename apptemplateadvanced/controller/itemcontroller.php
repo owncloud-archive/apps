@@ -91,7 +91,7 @@ class ItemController extends Controller {
 
 		$templateName = 'main';
 		$params = array(
-			'somesetting' => $this->api->getSystemValue('somesetting'),
+			'somesetting' => $this->api->getAppValue('somesetting'),
 			'item' => $item,
 			'test' => $this->params('test')
 		);
@@ -109,7 +109,7 @@ class ItemController extends Controller {
 	 */
 	public function setSystemValue(){
 		$value = $this->params('somesetting');
-		$this->api->setSystemValue('somesetting', $value);
+		$this->api->setAppValue('somesetting', $value);
 
 		$params = array(
 			'somesetting' => $value
@@ -122,7 +122,7 @@ class ItemController extends Controller {
 	 * @Ajax
 	 */
 	public function getSystemValue(){
-		$value = $this->api->getSystemValue('somesetting');
+		$value = $this->api->getAppValue('somesetting');
 
 		$params = array(
 			'somesetting' => $value

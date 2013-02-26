@@ -34,14 +34,3 @@ angular.module('AppTemplateAdvanced', ['OC']).config ['$provide', '$interpolateP
 ]
 
 
-# This function is run once angular is set up. That doesnt mean though that
-# the document is ready
-angular.module('AppTemplateAdvanced').run ['$rootScope', ($rootScope) ->
-
-	init = ->
-		$rootScope.$broadcast('routesLoaded')
-
-	# this registers a callback that is executed once the routes have
-	# finished loading. Before this you cant really do request
-	OC.Router.registerLoadedCallback(init)
-]

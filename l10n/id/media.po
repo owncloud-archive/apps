@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-24 00:02+0100\n"
-"PO-Revision-Date: 2013-01-23 23:03+0000\n"
+"POT-Creation-Date: 2013-02-21 00:02+0100\n"
+"PO-Revision-Date: 2013-02-20 01:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -40,31 +40,31 @@ msgstr "Tambahkan ke Daftar Main"
 msgid "Add album to playlist"
 msgstr "tambahkan album ke daftar putar"
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr "Sebelumnya"
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr "putar"
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
 msgstr "Jeda"
-
-#: templates/music.php:5
-msgid "Previous"
-msgstr "Sebelumnya"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr "Selanjutnya"
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr "Nonaktifkan suara"
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr "Aktifkan suara"
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr "Pindai ulang Koleksi"
 

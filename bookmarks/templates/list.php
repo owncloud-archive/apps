@@ -35,11 +35,10 @@ function bookmarklet(){
 
 <div id="bookmark_settings" class="">
 	<ul class="controls">
-		<li style="float: right">
-			<button id="settingsbtn" title="<?php echo $l->t('Settings'); ?>">
+			<li id="settingsbtn" title="<?php echo $l->t('Settings'); ?>">
 				<img class="svg" src="<?php echo OCP\Util::imagePath('core', 'actions/settings.png'); ?>"
-				alt="<?php echo $l->t('Settings'); ?>"   /></button>
-		</li>
+				alt="<?php echo $l->t('Settings'); ?>" />
+			</li>
 	</ul>
 	<div id="bm_setting_panel">
 		<?php require 'settings.php';?>
@@ -64,8 +63,4 @@ function bookmarklet(){
 </div>
 <script type="text/javascript" src="<?php echo OC_Helper::linkTo('bookmarks/js', 'full_tags.php');?>"></script>
 
-
-<script type="text/html" id="edit_dialog_tmpl">
-<?php require 'addBm.php';?>
-</script>
 <?php require 'js_tpl.php';?>

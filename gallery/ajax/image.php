@@ -24,23 +24,27 @@ if ($owner !== OC_User::getUser()) {
 		}
 	} else {
 		OC_JSON::error('no such file');
+		die();
 	}
 }
 
 $mime = $ownerView->getMimeType($img);
-$local = $ownerView->getLocalFile($img);
-$rotate = false;
-if (is_callable('exif_read_data')) { //don't use OC_Image here, using OC_Image will always cause parsing the image file
-	$exif = @exif_read_data($local, 'IFD0');
-	if (isset($exif['Orientation'])) {
-		$rotate = ($exif['Orientation'] > 1);
+list($mimePart,) = explode('/', $mime);
+if ($mimePart === 'image') {
+	$local = $ownerView->getLocalFile($img);
+	$rotate = false;
+	if (is_callable('exif_read_data')) { //don't use OC_Image here, using OC_Image will always cause parsing the image file
+		$exif = @exif_read_data($local, 'IFD0');
+		if (isset($exif['Orientation'])) {
+			$rotate = ($exif['Orientation'] > 1);
+		}
 	}
-}
-if ($rotate) {
-	$image = new OC_Image($local);
-	$image->fixOrientation();
-	$image->show();
-} else { //use the original file if we dont need to rotate, saves having to re-encode the image
-	header('Content-Type: ' . $mime);
-	readfile($local);
+	if ($rotate) {
+		$image = new OC_Image($local);
+		$image->fixOrientation();
+		$image->show();
+	} else { //use the original file if we dont need to rotate, saves having to re-encode the image
+		header('Content-Type: ' . $mime);
+		readfile($local);
+	}
 }

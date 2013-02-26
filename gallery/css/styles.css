@@ -1,3 +1,7 @@
+button.share {
+	display: none;
+}
+
 #gallery {
 	overflow: auto;
 	overflow-x: hidden;
@@ -52,7 +56,8 @@
 }
 
 #dropdown {
-	top: 2.7em;
+	top: 6.4em;
+	position: fixed;
 	right: 0;
 	margin-right: 0;
 	border-bottom-right-radius: 0;
@@ -74,41 +79,87 @@
 }
 
 #slideshow>img {
-	top: 0;
+	position: relative;
+	vertical-align: middle;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	height: 100%;
 }
 
-#slideshow>.next, #slideshow>.previous, #slideshow>.exit {
+#slideshow > input {
 	background: none;
 	border: 0 transparent;
 	outline: 0;
 	box-shadow: none;
-	width: 43px;
-	height: 43px;
+	width: 52px;
+	height: 52px;
 	position: absolute;
 	z-index: 1100;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity = 30);
+	opacity: .3;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
-#slideshow>.next, #slideshow>.previous{
+#slideshow > * {
+	-webkit-transition: opacity 300ms;
+	-moz-transition: opacity 300ms;
+	-o-transition: opacity 300ms;
+	transition: opacity 300ms;
+}
+
+#slideshow > input:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity = 60);
+	opacity: .6;
+}
+
+#slideshow > .next, #slideshow > .previous {
 	top: 50%;
 	margin-top: -21px;
 }
 
-#slideshow>.next {
+#slideshow > .next {
 	right: 0;
-	background-image: url("../img/forward.png");
+	background-image: url("%webroot%/core/img/actions/view-next.svg");
 }
 
-#slideshow>.previous {
+#slideshow > .previous {
 	left: 0;
-	background-image: url("../img/back.png");
+	background-image: url("%webroot%/core/img/actions/view-previous.svg");
 }
 
-#slideshow>.exit {
+#slideshow > .exit {
 	right: 0;
 	top: 0;
-	background-image: url("../img/close.png");
+	background-image: url("%webroot%/core/img/actions/view-close.svg");
+}
+
+#slideshow > .pause, #slideshow > .play {
+	bottom: 0;
+	right: 0;
+	margin-top: -21px;
+}
+
+#slideshow > .play {
+	display: none;
+	background-image: url("%webroot%/core/img/actions/view-play.svg");
+}
+
+#slideshow > .pause {
+	background-image: url("%webroot%/core/img/actions/view-pause.svg");
+}
+
+#slideshow > .progress {
+	position: fixed;
+	bottom: 14px;
+	right: 14px;
+	background-position: 0 100%;
+	width: 32px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	background-image: url("%webroot%/core/img/actions/view-pause.svg");
+	filter: alpha(opacity = 30);
+	opacity: .3;
+	height: 0;
 }

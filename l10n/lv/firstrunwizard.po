@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-05 00:17+0100\n"
-"PO-Revision-Date: 2013-02-04 11:30+0000\n"
+"POT-Creation-Date: 2013-02-14 00:01+0100\n"
+"PO-Revision-Date: 2013-02-13 10:00+0000\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -18,10 +18,46 @@ msgstr ""
 "Language: lv\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
-#: templates/enable.php:2
-msgid "First Run Wizard"
-msgstr "Pirmās palaišanas vednis"
+#: templates/wizard.php:7
+msgid "Welcome to ownCloud"
+msgstr "Laipni lūdzam ownCloud"
 
-#: templates/enable.php:3
-msgid "Show First Run Wizard again"
-msgstr "Vēlreiz rādīt pirmās palaišanas vedni"
+#: templates/wizard.php:8
+msgid ""
+"Your personal web services. All your files, contacts, calendar and more, in "
+"one place."
+msgstr "Jūsu personīgie tīmekļa pakalpojumi. Visas jūsu datnes, kalendāru un citi dati vienuviet."
+
+#: templates/wizard.php:11
+msgid "Get the apps to sync your files"
+msgstr "Saņem lietotnes, lai sinhronizētu savas datnes"
+
+#: templates/wizard.php:23
+msgid "Connect your desktop apps to ownCloud"
+msgstr "Savienojiet savas darbvirsmas lietotnes ar ownCloud"
+
+#: templates/wizard.php:25
+msgid "Connect your Calendar"
+msgstr "Savienojiet savu kalendāru"
+
+#: templates/wizard.php:28
+msgid "Connect your Contacts"
+msgstr "Savienojiet savus kontaktus"
+
+#: templates/wizard.php:31
+msgid "Access files via WebDAV"
+msgstr "Piekļūstiet datnēm caur WebDAV"
+
+#: templates/wizard.php:34
+msgid ""
+"There’s more information in the <a "
+"href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
+"and on our <a href=\"http://owncloud.org\">website</a>."
+msgstr "Vairāk informācijas var atrast <a href=\"http://doc.owncloud.org/server/5.0/user_manual/\">dokumentācijā</a> un mūsu <a href=\"http://owncloud.org\">tīmekļa vietnē</a>."
+
+#: templates/wizard.php:35
+msgid ""
+"If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
+"great open software to sync and share your files. You can freely get it from"
+" http://owncloud.org\">recommend it to your friends</a>!"
+msgstr "Ja jums patīk ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud ir lieliska atvērtā programma, lai sinhronizētu un dalītos ar datnēm. To vari brīvi dabūt no http://owncloud.org\">iesakiet to saviem draugiem</a>!"

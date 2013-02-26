@@ -138,6 +138,7 @@
 "Instant Messenger" => "তাৎক্ষণিক বার্তাবাহক",
 "Delete IM" => "IM মুছে ফেল",
 "Share" => "ভাগাভাগি কর",
+"Export" => "রপ্তানি",
 "The temporary image has been removed from cache." => "ক্যাসে থেকে ক্ষণস্থায়ী ছবিটি মুছে ফেলা হয়েছে । ",
 "CardDAV syncing addresses" => "CardDAV সমলয় ঠিকানাসমূহ",
 "more info" => "আরো তথ্য",

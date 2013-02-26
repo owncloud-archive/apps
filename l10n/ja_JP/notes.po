@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-31 16:21+0000\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 09:50+0000\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@nagoya-u.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -18,101 +18,10 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:9
+#: appinfo/app.php:12
 msgid "Notes"
 msgstr "ノート"
 
-#: js/notes.js:8
-msgid "The title can not be empty"
-msgstr "タイトルは空にできません"
-
-#: js/notes.js:15
-msgid "Invalid title"
-msgstr "無効なタイトル"
-
-#: js/notes.js:15
-msgid "The following characters are not allowed"
-msgstr "以下の文字は利用できません"
-
-#: templates/categories.php:10 templates/help.php:5
-msgid "Back to Notes"
-msgstr "ノートに戻る"
-
-#: templates/categories.php:16 templates/help.php:13 templates/notes.php:93
-msgid "Help"
-msgstr "ヘルプ"
-
-#: templates/categories.php:99
-msgid "Categories"
-msgstr "カテゴリ"
-
-#: templates/categories.php:116 templates/notes.php:347
-#: templates/notes.php:391
-msgid "Delete"
-msgstr "削除"
-
-#: templates/categories.php:117 templates/notes.php:393
-msgid "Save"
-msgstr "保存"
-
-#: templates/categories.php:129
-msgid "No categories available yet"
-msgstr "カテゴリはまだ利用できません"
-
-#: templates/categories.php:137
-msgid "New category"
-msgstr "新しいカテゴリ"
-
-#: templates/categories.php:141
-msgid "Add"
-msgstr "追加"
-
-#: templates/categories.php:144
-msgid "Note"
-msgstr "メモ"
-
-#: templates/categories.php:145
-msgid ""
-"If you delete a category, all containing notes get moved to the following "
-"category"
-msgstr "カテゴリを削除すると、含まれている全てのノートは以下のカテゴリに移動します"
-
-#: templates/categories.php:145 templates/notes.php:61
-msgid "General"
-msgstr "一般"
-
-#: templates/notes.php:81
-msgid "Add Note"
-msgstr "ノートを追加"
-
-#: templates/notes.php:87
-msgid "Edit Categories"
-msgstr "カテゴリを編集"
-
-#: templates/notes.php:293
-msgid "No note available in this category"
-msgstr "このカテゴリには利用可能なノートはありません"
-
-#: templates/notes.php:337
-msgid "Edit"
-msgstr "編集"
-
-#: templates/notes.php:366
-msgid "Category"
-msgstr "カテゴリー"
-
-#: templates/notes.php:384
-msgid "Title"
-msgstr "タイトル"
-
-#: templates/notes.php:385
-msgid "Content"
-msgstr "内容"
-
-#: templates/notes.php:418
-msgid "Restore content"
-msgstr "内容を復元"
-
-#: templates/notes.php:426
-msgid "Restore"
-msgstr "復元"
+#: templates/notes.php:3
+msgid "New Note"
+msgstr "新しいノート"

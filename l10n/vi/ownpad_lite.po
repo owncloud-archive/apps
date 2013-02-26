@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-27 00:01+0200\n"
-"PO-Revision-Date: 2012-10-26 13:48+0000\n"
-"Last-Translator: mattheu_9x <mattheu_9x@yahoo.com>\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:22+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,30 +19,47 @@ msgstr ""
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:58
+#: ajax/share.php:26
+msgid "Document was shared"
+msgstr ""
+
+#: ajax/share.php:27
+#, php-format
+msgid "User %s shared quick document %s with you."
+msgstr ""
+
+#: appinfo/app.php:99
 msgid "My pad"
 msgstr "Pad của tôi"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
 msgstr "Cài đặt"
 
-#: templates/index.php:17
+#: templates/index.php:18
 msgid "Pad Title"
 msgstr "Tiêu đề pad"
 
-#: templates/index.php:18
+#: templates/index.php:19
 msgid "Open"
 msgstr "Mở"
 
-#: templates/settings.php:15
+#: templates/index.php:20
+msgid "Share with"
+msgstr "Chia sẻ với"
+
+#: templates/index.php:21
+msgid "Share"
+msgstr "Chia sẻ"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr "Dịch vụ URL Etherpad "
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
 msgstr "Tên đăng nhập"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
 msgstr "Lưu"

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# TayançKILIÇLI <tayancatakan@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-21 00:01+0100\n"
-"PO-Revision-Date: 2013-01-19 23:02+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-02-19 00:02+0100\n"
+"PO-Revision-Date: 2013-02-18 20:00+0000\n"
+"Last-Translator: atakan96 <tayancatakan@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,33 +20,33 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr ""
+msgstr "Hoşgeldiniz {user},"
 
 #: templates/notification.php:2
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "Üzgünüz, yüklemeye çalıştığınız dosyada kötü amaçlı yazılım algılandı ve dosya silindi."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "Bu bir e-posta bilgilendirmesidir {host}. Lütfen cevap yazmayınız."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "Dosya yüklendi: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "Antivirüs ayarları"
 
 #: templates/settings.php:4
 msgid "Mode"
-msgstr ""
+msgstr "Mod"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr ""
+msgstr "yürütülebilir"
 
 #: templates/settings.php:5
 msgid "Daemon"
@@ -57,7 +58,7 @@ msgstr "Konak"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "Antivirus sunucusunun adresi."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
@@ -69,7 +70,7 @@ msgstr "Port"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "Antivirüs sunucusunun port numarası."
 
 #: templates/settings.php:9
 msgid "Stream Length"
@@ -101,8 +102,8 @@ msgstr ""
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr ""
+msgstr "Dosyayı sil"
 
-#: templates/settings.php:14
+#: templates/settings.php:15
 msgid "Save"
 msgstr "Kaydet"

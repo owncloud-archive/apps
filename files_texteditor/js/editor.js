@@ -66,18 +66,19 @@ function setSyntaxMode(ext) {
 
 function showControls(dir, filename, writeperms) {
 	// Loads the control bar at the top.
+	OC.Breadcrumb.push(filename, '#');
 	// Load the new toolbar.
 	var editorbarhtml = '<div id="editorcontrols" style="display: none;">';
 	if (writeperms == "true") {
 		editorbarhtml += '<button id="editor_save">' + t('files_texteditor', 'Save') + '</button><div class="separator"></div>';
 	}
-	editorbarhtml += '<label for="editorseachval">' + t('files_texteditor', 'Search:') + '</label><input type="text" name="editorsearchval" id="editorsearchval"><div class="separator"></div><button id="editor_close">' + t('files_texteditor', 'Close') + '</button></div>';
+	editorbarhtml += '<label for="editorseachval">' + t('files_texteditor', 'Search:');
+	editorbarhtml += '</label><input type="text" name="editorsearchval" id="editorsearchval">';
+	editorbarhtml += '<div class="separator"></div><button id="editor_close">';
+	editorbarhtml += t('files_texteditor', 'Close') + '</button></div>';
 
-	OC.Breadcrumb.push(filename, '#');
-
-	// Change breadcrumb classes
 	$('#controls').append(editorbarhtml);
-	$('#editorcontrols').fadeIn('slow');
+	$('#editorcontrols').show();
 }
 
 function bindControlEvents() {
@@ -167,7 +168,7 @@ function doFileSave() {
 					$("#editor_save").live('click', doFileSave);
 					// Update titles
 					$('#editor').attr('data-edited', 'false');
-					$('#breadcrumb_file').text($('#editor').attr('data-filename'));
+					$('.crumb.last').text($('#editor').attr('data-filename'));
 					document.title = $('#editor').attr('data-filename') + ' - ownCloud';
 				}
 			}, 'json');
@@ -196,47 +197,45 @@ function showFileEditor(dir, filename) {
 					// Save mtime
 					$('#editor').attr('data-mtime', result.data.mtime);
 					// Initialise the editor
-					$('.actions,#file_action_panel').fadeOut('slow');
-					$('#content table').fadeOut('slow', function () {
-						// Show the control bar
-						showControls(dir, filename, result.data.write);
-						// Update document title
-						$('body').attr('old_title', document.title);
-						document.title = filename + ' - ownCloud';
-						$('#editor').text(result.data.filecontents);
-						$('#editor').attr('data-dir', dir);
-						$('#editor').attr('data-filename', filename);
-						$('#editor').attr('data-edited', 'false');
-						window.aceEditor = ace.edit("editor");
-						aceEditor.setShowPrintMargin(false);
-						aceEditor.getSession().setUseWrapMode(true);
-						if (result.data.write == 'false') {
-							aceEditor.setReadOnly(true);
+					$('.actions,#file_action_panel,#content table').hide();
+					// Show the control bar
+					showControls(dir, filename, result.data.write);
+					// Update document title
+					$('body').attr('old_title', document.title);
+					document.title = filename + ' - ownCloud';
+					$('#editor').text(result.data.filecontents);
+					$('#editor').attr('data-dir', dir);
+					$('#editor').attr('data-filename', filename);
+					$('#editor').attr('data-edited', 'false');
+					window.aceEditor = ace.edit("editor");
+					aceEditor.setShowPrintMargin(false);
+					aceEditor.getSession().setUseWrapMode(true);
+					if (result.data.write == 'false') {
+						aceEditor.setReadOnly(true);
+					}
+					setEditorSize();
+					setSyntaxMode(getFileExtension(filename));
+					OC.addScript('files_texteditor', 'aceeditor/theme-clouds', function () {
+						window.aceEditor.setTheme("ace/theme/clouds");
+					});
+					window.aceEditor.getSession().on('change', function () {
+						if ($('#editor').attr('data-edited') != 'true') {
+							$('#editor').attr('data-edited', 'true');
+							$('.crumb.last').text($('.crumb.last').text() + ' *');
+							document.title = $('#editor').attr('data-filename') + ' * - ownCloud';
 						}
-						setEditorSize();
-						setSyntaxMode(getFileExtension(filename));
-						OC.addScript('files_texteditor', 'aceeditor/theme-clouds', function () {
-							window.aceEditor.setTheme("ace/theme/clouds");
-						});
-						window.aceEditor.getSession().on('change', function () {
-							if ($('#editor').attr('data-edited') != 'true') {
-								$('#editor').attr('data-edited', 'true');
-								$('#breadcrumb_file').text($('#breadcrumb_file').text() + ' *');
-								document.title = $('#editor').attr('data-filename') + ' * - ownCloud';
-							}
-						});
-						// Add the ctrl+s event
-						window.aceEditor.commands.addCommand({
-							name: "save",
-							bindKey: {
-								win: "Ctrl-S",
-								mac: "Command-S",
-								sender: "editor"
-							},
-							exec: function () {
-								doFileSave();
-							}
-						});
+					});
+					// Add the ctrl+s event
+					window.aceEditor.commands.addCommand({
+						name: "save",
+						bindKey: {
+							win: "Ctrl-S",
+							mac: "Command-S",
+							sender: "editor"
+						},
+						exec: function () {
+							doFileSave();
+						}
 					});
 				} else {
 					// Failed to get the file.
@@ -255,51 +254,35 @@ function hideFileEditor() {
 	OC.Breadcrumb.pop();
 	if ($('#editor').attr('data-edited') == 'true') {
 		// Hide, not remove
-		$('#editorcontrols').fadeOut('slow', function () {
-			// Check if there is a folder in the breadcrumb
-			if ($('.crumb.ui-droppable').length) {
-				$('.crumb.ui-droppable:last').addClass('last');
-			}
-		});
+		$('#editorcontrols,#editor').hide();
 		// Fade out editor
-		$('#editor').fadeOut('slow', function () {
-			// Reset document title
-			document.title = $('body').attr('old_title');
-			$('.actions,#file_access_panel').fadeIn('slow');
-			$('#content table').fadeIn('slow');
-		});
-		$('#notification').text(t('files_texteditor', 'There were unsaved changes, click here to go back'));
+		// Reset document title
+		document.title = $('body').attr('old_title');
+		$('.actions,#file_access_panel').show();
+		$('#content table').show();
+		OC.Notification.show(t('files_texteditor', 'There were unsaved changes, click here to go back'));
 		$('#notification').data('reopeneditor', true);
-		$('#notification').fadeIn();
 		is_editor_shown = false;
 	} else {
-		// Remove editor
-		$('#editorcontrols').fadeOut('slow', function () {
-			$(this).remove();
-			$(".crumb:last").addClass('last');
-		});
 		// Fade out editor
-		$('#editor').fadeOut('slow', function () {
-			$(this).remove();
-			// Reset document title
-			document.title = $('body').attr('old_title');
-			$('.actions,#file_access_panel').fadeIn('slow');
-			$('#content table').fadeIn('slow');
-		});
+		$('#editor, #editorcontrols').remove();
+		// Reset document title
+		document.title = $('body').attr('old_title');
+		$('.actions,#file_access_panel').show();
+		$('#content table').show();
 		is_editor_shown = false;
 	}
 }
 
 // Reopens the last document
 function reopenEditor() {
-	$('.actions,#file_action_panel').fadeOut('slow');
-	$('#content table').fadeOut('slow', function () {
-		$('#controls .last').not('#breadcrumb_file').removeClass('last');
-		$('#editor').fadeIn('fast');
-		$('#editorcontrols').fadeIn('fast', function () {
-
-		});
-	});
+	$('.actions,#file_action_panel').hide();
+	$('#content table').hide();
+	$('#controls .last').not('#breadcrumb_file').removeClass('last');
+	$('#editor').show();
+	$('#editorcontrols').show();
+	OC.Breadcrumb.push($('#editor').attr('data-filename') + ' *', '#');
+	document.title = $('#editor').attr('data-filename') + ' * - ownCloud';
 	is_editor_shown = true;
 }
 

@@ -8,15 +8,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-24 00:00+0100\n"
-"PO-Revision-Date: 2012-11-23 19:49+0000\n"
-"Last-Translator: Mariano <mstreet@kde.org.ar>\n"
+"POT-Creation-Date: 2013-02-22 00:00+0100\n"
+"PO-Revision-Date: 2013-02-20 23:32+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Esperanto (http://www.transifex.com/projects/p/owncloud/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eo\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -26,7 +30,7 @@ msgstr "Dosiertipo nekongrua kun enporto"
 msgid "Bookmarks"
 msgstr "Legosignoj"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr "Etikedoj"
 
@@ -38,19 +42,23 @@ msgstr "Filtri laŭ etikedo"
 msgid "Edit bookmark"
 msgstr "Redakti legosignon"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Ĉu vi vere volas forigi ĉi tiun etikedon el ĉiu ero?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr "Averto"
 
-#: js/settings.js:25
+#: js/settings.js:18
+msgid "Import error"
+msgstr ""
+
+#: js/settings.js:29
 msgid "Import completed successfully."
 msgstr "Enporto plenumiĝis sukcese."
 
-#: js/settings.js:56
+#: js/settings.js:60
 msgid "Uploading..."
 msgstr "Alŝutante..."
 
@@ -58,39 +66,39 @@ msgstr "Alŝutante..."
 msgid "Bookm."
 msgstr "Legos."
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr "Aldoni legosignon"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "Fermi"
 
-#: templates/addBm.php:22 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:27
 msgid "The title of the page"
 msgstr "Titolo de la paĝo"
 
-#: templates/addBm.php:27 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:31
 msgid "The address of the page"
 msgstr "Adreso de la paĝo"
 
-#: templates/addBm.php:40 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:40
 msgid "Description of the page"
 msgstr "Priskribo de la paĝo"
 
-#: templates/addBm.php:44 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:44
 msgid "Save"
 msgstr "Konservi"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:61
+#: templates/js_tpl.php:6 templates/js_tpl.php:58
 msgid "Delete"
 msgstr "Forigi"
 
-#: templates/js_tpl.php:19 templates/js_tpl.php:57
+#: templates/js_tpl.php:14 templates/js_tpl.php:54
 msgid "Edit"
 msgstr "Redakti"
 
-#: templates/js_tpl.php:46
+#: templates/js_tpl.php:43
 msgid "Cancel"
 msgstr "Nuligi"
 
@@ -116,15 +124,15 @@ msgstr "Aldoni"
 msgid "Related Tags"
 msgstr "Rilataj etikedoj"
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "Agordo"
 
-#: templates/list.php:53
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr "Vi havas neniun legosignon"
 
-#: templates/list.php:58
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr "Vi povas ankaŭ provi enporti legosignan dosieron"
 

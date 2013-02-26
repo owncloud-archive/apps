@@ -59,7 +59,7 @@ class ItemControllerTest extends ControllerTestUtility {
 	public function testIndexGetSystemValue(){
 		$api = $this->getAPIMock();
 		$api->expects($this->any())
-					->method('getSystemValue')
+					->method('getAppValue')
 					->with($this->equalTo('somesetting'))
 					->will($this->returnValue('systemvalue'));
 
@@ -140,7 +140,7 @@ class ItemControllerTest extends ControllerTestUtility {
 		// expects to be called once with the method
 		// setSystemValue('somesetting', 'this is a test')
 		$api->expects($this->once())
-					->method('setSystemValue')
+					->method('setAppValue')
 					->with(	$this->equalTo('somesetting'),
 							$this->equalTo('this is a test'));
 

@@ -6,14 +6,15 @@
 #   <khanhnd@kenhgiaiphap.vn>, 2012.
 #   <mattheu.9x@gmail.com>, 2012.
 #   <mattheu_9x@yahoo.com>, 2012.
+# sao sang <saosangmo@yahoo.com>, 2013.
 # Sơn Nguyễn <sonnghit@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-07 00:02+0100\n"
-"PO-Revision-Date: 2013-02-06 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-22 00:00+0100\n"
+"PO-Revision-Date: 2013-02-20 23:31+0000\n"
+"Last-Translator: saosangm <saosangmo@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +64,7 @@ msgstr "Nhập vào thất bại"
 msgid "events has been saved in your calendar"
 msgstr "sự kiện đã dược lưu vào lịch"
 
-#: ajax/settings/guesstimezone.php:25
+#: ajax/settings/guesstimezone.php:26
 msgid "New Timezone:"
 msgstr "Múi giờ mới :"
 
@@ -419,19 +420,19 @@ msgstr "Bạn không có quyền xóa sự kiện này."
 
 #: lib/object.php:481
 msgid "Busy"
-msgstr ""
+msgstr "Bận"
 
 #: lib/object.php:498
 msgid "Public"
-msgstr ""
+msgstr "Công khai"
 
 #: lib/object.php:499
 msgid "Private"
-msgstr ""
+msgstr "Riêng tư"
 
 #: lib/object.php:500
 msgid "Confidential"
-msgstr ""
+msgstr "Mật"
 
 #: lib/object.php:510
 msgid "Does not repeat"
@@ -658,7 +659,7 @@ msgstr "Sửa chuyên mục"
 
 #: templates/part.eventform.php:47 templates/part.showevent.php:46
 msgid "Access Class"
-msgstr ""
+msgstr "Mức truy cập"
 
 #: templates/part.eventform.php:64 templates/part.showevent.php:62
 msgid "All Day Event"

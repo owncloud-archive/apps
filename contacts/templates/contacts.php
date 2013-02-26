@@ -1,6 +1,5 @@
 <form class="float" id="file_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php'); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
 	<input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'] ?>">
-	<input type="hidden" name="id" value="<?php echo $_['id'] ?>">
 	<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
 	<input type="hidden" class="max_human_file_size" value="(max <?php echo $_['uploadMaxHumanFilesize']; ?>)">
 	<input id="contactphoto_fileupload" type="file" accept="image/*" name="imagefile" />
@@ -14,10 +13,10 @@
 	</nav>
 	<div id="contacts-settings">
 			<h3 class="settings action text" tabindex="0" role="button" title="<?php echo $l->t('Settings'); ?>"></h3>
-			<h3 data-id="addressbooks" tabindex="0" role="button"><?php echo $l->t('Address books'); ?></h3>
+			<h2 data-id="addressbooks" tabindex="0" role="button"><?php echo $l->t('Address books'); ?></h3>
 				<ul class="hidden">
 				</ul>
-			<h3 data-id="import" tabindex="0" role="button"><?php echo $l->t('Import'); ?></h3>
+			<h2 data-id="import" tabindex="0" role="button"><?php echo $l->t('Import'); ?></h3>
 				<ul class="hidden">
 					<li class="import-upload">
 						<form id="import_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadimport.php'); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
@@ -45,7 +44,7 @@
 <div id="contactsheader">
 	<input type="checkbox" id="toggle_all" title="<?php echo $l->t('(De-)select all'); ?>" />
 	<div class="actions">
-		<button class="add svg action text"><?php echo $l->t('New Contact'); ?></button>
+		<button class="add svg icon-plus action text"><?php echo $l->t('New Contact'); ?></button>
 		<button class="download svg action text"><?php echo $l->t('Download Contact(s)'); ?></button>
 		<select class="groups svg action text button" name="groups">
 			<option value="-1" disabled="disabled" selected="selected"><?php echo $l->t('Groups'); ?></option>
@@ -93,8 +92,8 @@
 		<?php echo $l->t('<h3>You have no contacts in your addressbook.</h3>'
 			. '<p>Add a new contact or import existing contacts from a VCF file.</p>') ?>
 		<div id="selections">
-			<button class="addcontact"><?php echo $l->t('Add contact') ?></button>
-			<button class="import"><?php echo $l->t('Import') ?></button>
+			<button class="addcontact icon-plus text"><?php echo $l->t('Add contact') ?></button>
+			<button class="import icon text"><?php echo $l->t('Import') ?></button>
 		</div>
 	</div>
 </div>
@@ -254,7 +253,7 @@
 		<button class="cancel action text tooltipped downwards" title="<?php echo $l->t('Cancel'); ?>"><?php echo $l->t('Cancel'); ?></button>
 		<button class="close text tooltipped downwards" title="<?php echo $l->t('Close'); ?>"><?php echo $l->t('Close'); ?></button>
 		<button class="export action text tooltipped downwards" title="<?php echo $l->t('Export as VCF'); ?>"><?php echo $l->t('Download'); ?></button>
-		<select class="add action text button" id="addproperty">
+		<select class="add action text icon-plus button" id="addproperty">
 			<option value=""><?php echo $l->t('Add'); ?></option>
 			<option value="ORG"><?php echo $l->t('Organization'); ?></option>
 			<option value="TITLE"><?php echo $l->t('Title'); ?></option>
@@ -392,7 +391,7 @@
 	<label class="float">{displayname}</label>
 	<span class="actions">
 	<a title="<?php echo $l->t('Share'); ?>" class="share action" data-possible-permissions="{permissions}" data-item="{id}" data-item-type="addressbook"></a>
-	<a title="<?php echo $l->t('Export'); ?>" class="download action" href="<?php echo OCP\Util::linkTo('contacts', 'export.php'); ?>?bookid=' + {id}"></a>
+	<a title="<?php echo $l->t('Export'); ?>" class="download action" href="<?php echo OCP\Util::linkTo('contacts', 'export.php'); ?>?bookid={id}"></a>
 	<a  title="<?php echo $l->t('CardDAV link'); ?>" class="globe action"></a>
 	<a  title="<?php echo $l->t('Delete'); ?>" class="delete action"></a>
 </span></li>

@@ -5,7 +5,7 @@
 	<description>Simple image viewer for owncloud</description>
 	<licence>AGPL</licence>
 	<author>Robin Appelman</author>
-	<require>4.91</require>
+	<require>4.93</require>
 	<shipped>true</shipped>
 	<default_enable/>
 </info>

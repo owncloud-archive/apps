@@ -8,15 +8,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-18 00:01+0100\n"
-"PO-Revision-Date: 2012-07-27 22:17+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-02-22 00:00+0100\n"
+"PO-Revision-Date: 2013-02-20 23:32+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -26,7 +30,7 @@ msgstr ""
 msgid "Bookmarks"
 msgstr "Предпочитани"
 
-#: js/addBm.js:42 js/bookmarks.js:231
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr ""
 
@@ -38,19 +42,23 @@ msgstr ""
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:362
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:363
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr ""
 
-#: js/settings.js:25
+#: js/settings.js:18
+msgid "Import error"
+msgstr ""
+
+#: js/settings.js:29
 msgid "Import completed successfully."
 msgstr ""
 
-#: js/settings.js:56
+#: js/settings.js:60
 msgid "Uploading..."
 msgstr ""
 
@@ -58,39 +66,39 @@ msgstr ""
 msgid "Bookm."
 msgstr ""
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
 msgstr ""
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
-msgstr ""
+msgstr "Затвори"
 
-#: templates/addBm.php:22 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:27
 msgid "The title of the page"
 msgstr ""
 
-#: templates/addBm.php:27 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:31
 msgid "The address of the page"
 msgstr ""
 
-#: templates/addBm.php:40 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:40
 msgid "Description of the page"
 msgstr ""
 
-#: templates/addBm.php:44 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:44
 msgid "Save"
 msgstr "Запис"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:61
+#: templates/js_tpl.php:6 templates/js_tpl.php:58
 msgid "Delete"
 msgstr "Изтриване"
 
-#: templates/js_tpl.php:19 templates/js_tpl.php:57
+#: templates/js_tpl.php:14 templates/js_tpl.php:54
 msgid "Edit"
 msgstr "Промяна"
 
-#: templates/js_tpl.php:46
+#: templates/js_tpl.php:43
 msgid "Cancel"
 msgstr ""
 
@@ -106,7 +114,7 @@ msgstr ""
 
 #: templates/list.php:22
 msgid "Address"
-msgstr ""
+msgstr "Адрес"
 
 #: templates/list.php:23
 msgid "Add"
@@ -116,15 +124,15 @@ msgstr "Добавяне"
 msgid "Related Tags"
 msgstr ""
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "Настройки"
 
-#: templates/list.php:53
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr ""
 
-#: templates/list.php:58
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr ""
 
@@ -138,8 +146,8 @@ msgstr ""
 
 #: templates/settings.php:24
 msgid "Export"
-msgstr ""
+msgstr "Експорт"
 
 #: templates/settings.php:26
 msgid "Import"
-msgstr ""
+msgstr "Внасяне"

@@ -10,9 +10,9 @@
 ###
 
 angular.module('AppTemplateAdvanced').factory 'AppTemplateAdvancedRequest',
-['$http', '$rootScope', 'Config', '_AppTemplateAdvancedRequest', 'Publisher',
-($http, $rootScope, Config, _AppTemplateAdvancedRequest, Publisher) ->
-	return new _AppTemplateAdvancedRequest($http, $rootScope, Config, Publisher)
+['$http', 'Config', '_AppTemplateAdvancedRequest', 'Publisher',
+($http, Config, _AppTemplateAdvancedRequest, Publisher) ->
+	return new _AppTemplateAdvancedRequest($http, Config, Publisher)
 ]
 
 angular.module('AppTemplateAdvanced').factory 'ItemModel',

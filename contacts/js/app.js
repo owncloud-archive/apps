@@ -117,10 +117,6 @@ OC.notify = function(params) {
 	var self = this;
 	if(!self.notifier) {
 		self.notifier = $('#notification');
-		if(!self.notifier.length) {
-			$('#content').prepend('<div id="notification" />');
-			self.notifier = $('#notification');
-		}
 	}
 	if(params.cancel) {
 		self.notifier.off('click');
@@ -133,13 +129,9 @@ OC.notify = function(params) {
 		return;
 	}
 	self.notifier.text(params.message);
-	self.notifier.fadeIn();
+	self.notifier.fadeIn().css('display', 'inline');
 	self.notifier.on('click', function() { $(this).fadeOut();});
 	var timer = setTimeout(function() {
-		/*if(!self || !self.notifier) {
-			var self = OC.Contacts;
-			self.notifier = $('#notification');
-		}*/
 		self.notifier.fadeOut();
 		if(params.timeouthandler && $.isFunction(params.timeouthandler)) {
 			params.timeouthandler(self.notifier.data(dataid));
@@ -153,10 +145,6 @@ OC.notify = function(params) {
 	}
 	if(params.clickhandler && $.isFunction(params.clickhandler)) {
 		self.notifier.on('click', function() {
-			/*if(!self || !self.notifier) {
-				var self = OC.Contacts;
-				self.notifier = $(this);
-			}*/
 			clearTimeout(timer);
 			self.notifier.off('click');
 			params.clickhandler(self.notifier.data(dataid));
@@ -308,6 +296,9 @@ OC.Contacts = OC.Contacts || {
 		// App specific events
 		$(document).bind('status.contact.deleted', function(e, data) {
 			var id = parseInt(data.id);
+			if(id === self.currentid) {
+				delete self.currentid;
+			}
 			console.log('contact', data.id, 'deleted');
 			// update counts on group lists
 			self.groups.removeFromAll(data.id, true);
@@ -439,6 +430,7 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('request.contact.delete', function(e, data) {
 			var id = parseInt(data.id);
 			console.log('contact', data.id, 'request.contact.delete');
+			self.closeContact(id);
 			self.contacts.delayedDelete(id);
 			self.$contactList.removeClass('dim');
 			self.showActions(['add']);
@@ -567,6 +559,8 @@ OC.Contacts = OC.Contacts || {
 				self.$settings.switchClass('open', '');
 				$('body').unbind('click', bodyListener);
 			} else {
+				// FIXME: Settings needs to be refactored
+				self.$settings.find('h2').trigger('click');
 				self.$settings.switchClass('', 'open');
 				$('body').bind('click', bodyListener);
 			}
@@ -761,7 +755,7 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			if($(event.target).is('a.mailto')) {
-				var mailto = 'mailto:' + $(this).find('.email').text().trim();
+				var mailto = 'mailto:' + $.trim($(this).find('.email').text());
 				console.log('mailto', mailto);
 				try {
 					window.location.href=mailto;
@@ -773,12 +767,12 @@ OC.Contacts = OC.Contacts || {
 			self.openContact($(this).data('id'));
 		});
 
-		this.$settings.find('h3').on('click keydown', function(event) {
+		this.$settings.find('h2').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
 			if($(this).next('ul').is(':visible')) {
-				$(this).next('ul').slideUp();
+				//$(this).next('ul').slideUp();
 				return;
 			}
 			console.log('settings');
@@ -902,10 +896,7 @@ OC.Contacts = OC.Contacts || {
 			$list.toggle('slow');
 		});
 
-		this.$header.on('click keydown', '.add', function(event) {
-			if(wrongKey(event)) {
-				return;
-			}
+		var addContact = function() {
 			console.log('add');
 			self.$toggleAll.hide();
 			$(this).hide();
@@ -920,6 +911,28 @@ OC.Contacts = OC.Contacts || {
 			self.tmpcontact = self.contacts.addContact(groupprops);
 			self.$rightContent.prepend(self.tmpcontact);
 			self.hideActions();
+		};
+
+		this.$firstRun.on('click keydown', '.import', function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			self.$settings.find('.settings').click();
+		});
+
+		this.$firstRun.on('click keydown', '.addcontact', function(event) {
+			self.$firstRun.hide();
+			self.$contactList.show();
+			if(wrongKey(event)) {
+				return;
+			}
+			addContact();
+		});
+
+		this.$header.on('click keydown', '.add', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			addContact();
 		});
 
 		this.$header.on('click keydown', '.delete', function(event) {
@@ -969,7 +982,7 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		this.$contactList.on('mouseenter', 'td.email', function(event) {
-			if($(this).text().trim().length > 3) {
+			if($.trim($(this).text()).length > 3) {
 				$(this).find('.mailto').css('display', 'inline-block'); //.fadeIn(100);
 			}
 		});
@@ -1308,7 +1321,7 @@ OC.Contacts = OC.Contacts || {
 		});
 	},
 	jumpToContact: function(id) {
-		this.$rightContent.scrollTop(this.contacts.contactPos(id)+10);
+		this.$rightContent.scrollTop(this.contacts.contactPos(id)-30);
 	},
 	closeContact: function(id) {
 		if(typeof this.currentid === 'number') {
@@ -1325,6 +1338,7 @@ OC.Contacts = OC.Contacts || {
 		delete this.currentid;
 		this.showActions(['add']);
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
+		$('body').unbind('click', this.bodyListener);
 	},
 	openContact: function(id) {
 		console.log('Contacts.openContact', id);
@@ -1356,6 +1370,18 @@ OC.Contacts = OC.Contacts || {
 		//$contact.resizable({ minWidth: 400, minHeight: 400, maxHeight: maxheight});
 		this.$rightContent.prepend($contactelem);
 		adjustElems();
+		this.bodyListener = function(e) {
+			if(!self.currentid) {
+				return;
+			}
+			var $contactelem = self.contacts.findById(self.currentid).$fullelem;
+			if($contactelem.find($(e.target)).length === 0) {
+				self.closeContact(self.currentid);
+			}
+		};
+		setTimeout(function() {
+			$('body').bind('click', self.bodyListener);
+		}, 500);
 	},
 	update: function() {
 		console.log('update');
@@ -1545,7 +1571,7 @@ OC.Contacts = OC.Contacts || {
 						if(aid == 'new') {
 							var displayname = $(this).find('input.name').val();
 							var description = $(this).find('input.desc').val();
-							if(!displayname.trim()) {
+							if(!$.trim(displayname)) {
 								OC.dialogs.alert(t('contacts', 'The address book name cannot be empty.'), t('contacts', 'Error'));
 								return false;
 							}

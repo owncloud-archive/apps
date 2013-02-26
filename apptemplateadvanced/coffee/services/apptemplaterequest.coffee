@@ -18,8 +18,8 @@ angular.module('AppTemplateAdvanced').factory '_AppTemplateAdvancedRequest',
 	class AppTemplateAdvancedRequest extends _Request
 
 
-		constructor: ($http, $rootScope, Config, Publisher) ->
-			super($http, $rootScope, Config, Publisher)
+		constructor: ($http, Config, Publisher) ->
+			super($http, Config, Publisher)
 
 
 		saveName: (route, name) ->
@@ -32,7 +32,6 @@ angular.module('AppTemplateAdvanced').factory '_AppTemplateAdvancedRequest',
 		getName: (route, scope) ->
 			success = (data) ->
 				scope.name = data.data.somesetting
-				console.log data
 
 			@post(route, {}, {}, success)			
 
