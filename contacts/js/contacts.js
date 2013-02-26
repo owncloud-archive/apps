@@ -375,7 +375,12 @@ OC.Contacts = OC.Contacts || {};
 								self.data.FN[0]['value'] = value[1] + ' ' + value[0];
 								$fullname.val(self.data.FN[0]['value']);
 								update_fn = true;
-							} else if($fullname.val()[0] === ' ') {
+							} else if($fullname.val() == value[1] + ' ') {
+								console.log('change', value);
+								self.data.FN[0]['value'] = value[1] + ' ' + value[0];
+								$fullname.val(self.data.FN[0]['value']);
+								update_fn = true;
+							} else if($fullname.val() == ' ' + value[0]) {
 								self.data.FN[0]['value'] = value[1] + ' ' + value[0];
 								$fullname.val(self.data.FN[0]['value']);
 								update_fn = true;
