@@ -62,11 +62,10 @@ try {
 	//Cleanup
 	Downloader::cleanUp($packageVersion);
 	Updater::cleanUp();
-	\OCP\JSON::success(array());
+	\OCP\JSON::success(array('backup' => $backupPath . '.zip'));
 } catch (\Exception $e){
 	App::log($e->getMessage());
 	App::setSource($packageUrl, $packageVersion, false);
 	\OCP\JSON::error(array('msg' => 'Failed to create backup'));
 }
-
 exit();
