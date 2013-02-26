@@ -153,8 +153,8 @@ button.share {
 
 #slideshow > .progress {
 	position: fixed;
-	bottom: 14px;
-	right: 14px;
+	bottom: 10px;
+	right: 10px;
 	background-position: 0 100%;
 	width: 32px;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
