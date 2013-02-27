@@ -355,7 +355,7 @@ class VCard {
 				$addressbook_permissions = $sharedAddressbook['permissions'];
 			}
 			if ($sharedContact) {
-				$contact_permissions = $sharedEvent['permissions'];
+				$contact_permissions = $sharedContact['permissions'];
 			}
 			$permissions = max($addressbook_permissions, $contact_permissions);
 			if (!($permissions & \OCP\PERMISSION_UPDATE)) {
@@ -467,7 +467,7 @@ class VCard {
 				$addressbook_permissions = $sharedAddressbook['permissions'];
 			}
 			if ($sharedContact) {
-				$contact_permissions = $sharedEvent['permissions'];
+				$contact_permissions = $sharedContact['permissions'];
 			}
 			$permissions = max($addressbook_permissions, $contact_permissions);
 
