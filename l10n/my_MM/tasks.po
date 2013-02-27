@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-21 00:02+0100\n"
+"POT-Creation-Date: 2013-02-28 00:01+0100\n"
 "PO-Revision-Date: 2012-08-12 22:44+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Burmese (Myanmar) (http://www.transifex.com/projects/p/owncloud/language/my_MM/)\n"
@@ -35,7 +35,7 @@ msgstr ""
 
 #: js/tasks.js:128
 msgid "Location"
-msgstr ""
+msgstr "တည်နေရာ"
 
 #: js/tasks.js:420
 msgid "No category"

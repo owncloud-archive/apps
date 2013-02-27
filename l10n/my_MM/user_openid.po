@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-21 00:02+0100\n"
+"POT-Creation-Date: 2013-02-28 00:01+0100\n"
 "PO-Revision-Date: 2012-08-12 22:45+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Burmese (Myanmar) (http://www.transifex.com/projects/p/owncloud/language/my_MM/)\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ajax/openid.php:15
 msgid "Invalid request"
-msgstr ""
+msgstr "တောင်းဆိုချက်မမှန်ကန်ပါ"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "

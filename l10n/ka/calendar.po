@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-27 00:01+0100\n"
+"POT-Creation-Date: 2013-02-28 00:00+0100\n"
 "PO-Revision-Date: 2011-09-03 16:52+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Georgian (http://www.transifex.com/projects/p/owncloud/language/ka/)\n"
@@ -371,7 +371,7 @@ msgstr ""
 
 #: lib/app.php:132
 msgid "Personal"
-msgstr ""
+msgstr "პერსონა"
 
 #: lib/app.php:133
 msgid "Projects"
@@ -564,7 +564,7 @@ msgstr ""
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
-msgstr ""
+msgstr "გადმოწერა"
 
 #: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"

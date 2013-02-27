@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Pyae Sone <gipsyhnh@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-25 00:01+0100\n"
-"PO-Revision-Date: 2011-09-03 16:52+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-02-28 00:00+0100\n"
+"PO-Revision-Date: 2013-02-27 10:01+0000\n"
+"Last-Translator: Pyae Sone <gipsyhnh@gmail.com>\n"
 "Language-Team: Burmese (Myanmar) (http://www.transifex.com/projects/p/owncloud/language/my_MM/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,16 +66,16 @@ msgstr ""
 
 #: ajax/settings/settimezone.php:23
 msgid "Timezone changed"
-msgstr ""
+msgstr "အချိန်ဇုံပြောင်းလဲသည်"
 
 #: ajax/settings/settimezone.php:25
 msgid "Invalid request"
-msgstr ""
+msgstr "တောင်းဆိုချက်မမှန်ကန်ပါ"
 
 #: appinfo/app.php:38 js/l10n.php:55 templates/part.eventform.php:30
 #: templates/part.showevent.php:33
 msgid "Calendar"
-msgstr ""
+msgstr "ပြက္ခဒိန်"
 
 #: js/calendar.js:154
 msgid "Deletion failed"
@@ -286,7 +287,7 @@ msgstr ""
 
 #: js/l10n.php:51
 msgid "All day"
-msgstr ""
+msgstr "နေ့တိုင်း"
 
 #: js/l10n.php:52 lib/import.php:216 templates/part.choosecalendar.php:23
 msgid "New Calendar"
@@ -299,7 +300,7 @@ msgstr ""
 #: js/l10n.php:54 templates/part.eventform.php:16
 #: templates/part.showevent.php:11
 msgid "Title"
-msgstr ""
+msgstr "ခေါင်းစဉ်"
 
 #: js/l10n.php:56
 msgid "From Date"
@@ -435,11 +436,11 @@ msgstr ""
 
 #: lib/object.php:511
 msgid "Daily"
-msgstr ""
+msgstr "နေ့တိုင်း"
 
 #: lib/object.php:512
 msgid "Weekly"
-msgstr ""
+msgstr "အပတ်တိုင်း"
 
 #: lib/object.php:513
 msgid "Every Weekday"
@@ -531,11 +532,11 @@ msgstr ""
 
 #: templates/calendar.php:6
 msgid "Week"
-msgstr ""
+msgstr "အပတ်"
 
 #: templates/calendar.php:7
 msgid "Month"
-msgstr ""
+msgstr "လ"
 
 #: templates/calendar.php:8
 msgid "List"
@@ -543,7 +544,7 @@ msgstr ""
 
 #: templates/calendar.php:12
 msgid "Today"
-msgstr ""
+msgstr "ယနေ့"
 
 #: templates/calendar.php:13
 msgid "Settings"
@@ -564,7 +565,7 @@ msgstr ""
 
 #: templates/part.choosecalendar.rowfields.php:27
 msgid "Download"
-msgstr ""
+msgstr "ဒေါင်းလုတ်"
 
 #: templates/part.choosecalendar.rowfields.php:31
 msgid "Edit"
@@ -581,7 +582,7 @@ msgstr ""
 
 #: templates/part.editcalendar.php:9
 msgid "Edit calendar"
-msgstr ""
+msgstr "ပြက္ခဒိန်ကိုပြင်မည်"
 
 #: templates/part.editcalendar.php:12
 msgid "Displayname"
@@ -593,7 +594,7 @@ msgstr ""
 
 #: templates/part.editcalendar.php:29
 msgid "Calendar color"
-msgstr ""
+msgstr "ပြက္ခဒိန်အရောင်"
 
 #: templates/part.editcalendar.php:42
 msgid "Save"
@@ -602,7 +603,7 @@ msgstr ""
 #: templates/part.editcalendar.php:42 templates/part.editevent.php:8
 #: templates/part.newevent.php:6
 msgid "Submit"
-msgstr ""
+msgstr "ထည့်သွင်းမည်"
 
 #: templates/part.editcalendar.php:43
 msgid "Cancel"
@@ -610,7 +611,7 @@ msgstr "ပယ်ဖျက်မည်"
 
 #: templates/part.editevent.php:1
 msgid "Edit an event"
-msgstr ""
+msgstr "ပွဲကိုပြင်ဆင်မည်"
 
 #: templates/part.editevent.php:10
 msgid "Export"
@@ -638,7 +639,7 @@ msgstr ""
 
 #: templates/part.eventform.php:18
 msgid "Title of the Event"
-msgstr ""
+msgstr "ပွဲ၏ခေါင်းစဉ်"
 
 #: templates/part.eventform.php:24 templates/part.showevent.php:19
 msgid "Category"
@@ -662,11 +663,11 @@ msgstr ""
 
 #: templates/part.eventform.php:68 templates/part.showevent.php:66
 msgid "From"
-msgstr ""
+msgstr "မှ"
 
 #: templates/part.eventform.php:76 templates/part.showevent.php:74
 msgid "To"
-msgstr ""
+msgstr "သို့"
 
 #: templates/part.eventform.php:84 templates/part.showevent.php:82
 msgid "Advanced options"
@@ -674,15 +675,15 @@ msgstr ""
 
 #: templates/part.eventform.php:89 templates/part.showevent.php:87
 msgid "Location"
-msgstr ""
+msgstr "တည်နေရာ"
 
 #: templates/part.eventform.php:91
 msgid "Location of the Event"
-msgstr ""
+msgstr "ပွဲ၏တည်နေရာ"
 
 #: templates/part.eventform.php:97 templates/part.showevent.php:95
 msgid "Description"
-msgstr ""
+msgstr "ဖော်ပြချက်"
 
 #: templates/part.eventform.php:99
 msgid "Description of the Event"
@@ -777,7 +778,7 @@ msgstr ""
 
 #: templates/part.newevent.php:1
 msgid "Create a new event"
-msgstr ""
+msgstr "ပွဲအသစ်တစ်ပွဲပြုလုပ်မည်"
 
 #: templates/part.share.php:27
 msgid "Share with:"

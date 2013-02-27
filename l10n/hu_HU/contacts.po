@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:31+0000\n"
+"POT-Creation-Date: 2013-02-28 00:00+0100\n"
+"PO-Revision-Date: 2013-02-27 09:30+0000\n"
 "Last-Translator: akoscomp <nagy.akos@libreoffice.ro>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -104,11 +104,11 @@ msgstr "Helyrehozhatatlan hiba történt."
 msgid "Cannot save property of type \"%s\" as array"
 msgstr "Az \"%s\" típusú tulajdonság nem menthető mint tömb."
 
-#: ajax/contact/saveproperty.php:180
+#: ajax/contact/saveproperty.php:179
 msgid "Missing IM parameter."
 msgstr "Hiányzó IM paraméter."
 
-#: ajax/contact/saveproperty.php:184
+#: ajax/contact/saveproperty.php:183
 msgid "Unknown IM: "
 msgstr "Ismeretlen IM:"
 
