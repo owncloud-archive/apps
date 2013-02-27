@@ -13,4 +13,4 @@ OCP\App::addNavigationEntry( array(
   'icon' => OCP\Util::imagePath( 'mail', 'mail.svg' ),
   'name' => 'Mail'));
 
-OCP\App::registerPersonal('mail','settings');
+//OCP\App::registerPersonal('mail','settings');
