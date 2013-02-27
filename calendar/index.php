@@ -11,7 +11,7 @@ OCP\App::checkAppEnabled('calendar');
 // Create default calendar ...
 $calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser(), false);
 if( count($calendars) == 0) {
-	OC_Calendar_Calendar::addCalendar(OCP\USER::getUser(),'Default calendar');
+	OC_Calendar_Calendar::addDefaultCalendars(OCP\USER::getUser());
 	$calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser(), true);
 }
 
