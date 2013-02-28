@@ -24,7 +24,7 @@
 			<th width="75px"><?php p($l->t("Category"));?>:</th>
 			<td>
 				<input id="category" name="categories" type="text" placeholder="<?php p($l->t('Separate categories with commas')); ?>" value="<?php echo isset($_['categories']) ? $_['categories'] : '' ?>">
-				<a class="action edit" id="editCategories" title="<?php p($l->t('Edit categories')); ?>"><img alt="<?php p($l->t('Edit categories')); ?>" src="<?php echo OCP\image_path('core','actions/rename.svg')?>" class="svg action" style="width: 16px; height: 16px;"></a>
+				<a class="action edit" id="editCategories" title="<?php p($l->t('Edit categories')); ?>"><img alt="<?php p($l->t('Edit categories')); ?>" src="<?php print_unescaped(OCP\image_path('core','actions/rename.svg'))?>" class="svg action" style="width: 16px; height: 16px;"></a>
 			</td>
 			<?php if(count($_['calendar_options']) > 1) { ?>
 			<th width="75px">&nbsp;&nbsp;&nbsp;<?php p($l->t("Calendar"));?>:</th>
