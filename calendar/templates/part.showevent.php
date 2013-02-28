@@ -235,7 +235,7 @@
 				<tr>
 					<th></th>
 					<td id="byoccurrences" style="display:none;">
-						<?php echo $_['repeat_count'] . ' ' . $l->t('occurrences'); ?>
+						<?php p($_['repeat_count'] . ' ' . $l->t('occurrences')); ?>
 					</td>
 				</tr>
 				<tr>
