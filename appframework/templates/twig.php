@@ -1,1 +1,1 @@
-<?php echo $_['twig']; ?>
+<?php print_unescaped($_['twig']); ?>
