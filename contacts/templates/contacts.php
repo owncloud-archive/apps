@@ -1,7 +1,7 @@
 <form class="float" id="file_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php')); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
 	<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>">
 	<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
-	<input type="hidden" class="max_human_file_size" value="(max <?php echo $_['uploadMaxHumanFilesize']; ?>)">
+	<input type="hidden" class="max_human_file_size" value="(max <?php p($_['uploadMaxHumanFilesize']); ?>)">
 	<input id="contactphoto_fileupload" type="file" accept="image/*" name="imagefile" />
 </form>
 <iframe name="file_upload_target" id='file_upload_target' src=""></iframe>

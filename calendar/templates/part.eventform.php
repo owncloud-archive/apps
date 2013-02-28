@@ -1,4 +1,4 @@
-<script type="text/javascript" src="<?php echo OC_Helper::linkTo('calendar/js', 'idtype.php');?>?id=<?php echo $_['eventid']; ?>"></script>
+<script type="text/javascript" src="<?php echo OC_Helper::linkTo('calendar/js', 'idtype.php');?>?id=<?php p($_['eventid']); ?>"></script>
 
 
 <ul>
@@ -39,7 +39,7 @@
 			<?php } else { ?>
 			<th width="75px">&nbsp;</th>
 			<td>
-				<input type="hidden" name="calendar" value="<?php echo $_['calendar_options'][0]['id']; ?>">
+				<input type="hidden" name="calendar" value="<?php p($_['calendar_options'][0]['id']); ?>">
 			</td>
 			<?php } ?>
 		</tr>
@@ -67,17 +67,17 @@
 		<tr>
 			<th width="75px"><?php p($l->t("From"));?>:</th>
 			<td>
-				<input type="text" value="<?php echo $_['startdate'];?>" name="from" id="from">
+				<input type="text" value="<?php p($_['startdate']);?>" name="from" id="from">
 				&nbsp;&nbsp;
-				<input type="time" value="<?php echo $_['starttime'];?>" name="fromtime" id="fromtime">
+				<input type="time" value="<?php p($_['starttime']);?>" name="fromtime" id="fromtime">
 			</td>
 		</tr>
 		<tr>
 			<th width="75px"><?php p($l->t("To"));?>:</th>
 			<td>
-				<input type="text" value="<?php echo $_['enddate'];?>" name="to" id="to">
+				<input type="text" value="<?php p($_['enddate']);?>" name="to" id="to">
 				&nbsp;&nbsp;
-				<input type="time" value="<?php echo $_['endtime'];?>" name="totime" id="totime">
+				<input type="time" value="<?php p($_['endtime']);?>" name="totime" id="totime">
 			</td>
 		</tr>
 	</table>
@@ -238,13 +238,13 @@
 				<tr>
 					<th></th>
 					<td id="byoccurrences" style="display:none;">
-						<input type="number" min="1" max="99999" id="until_count" name="byoccurrences" value="<?php echo $_['repeat_count']; ?>"><?php p($l->t('occurrences')); ?>
+						<input type="number" min="1" max="99999" id="until_count" name="byoccurrences" value="<?php p($_['repeat_count']); ?>"><?php p($l->t('occurrences')); ?>
 					</td>
 				</tr>
 				<tr>
 					<th></th>
 					<td id="bydate" style="display:none;">
-						<input type="text" name="bydate" value="<?php echo $_['repeat_date']; ?>">
+						<input type="text" name="bydate" value="<?php p($_['repeat_date']); ?>">
 					</td>
 				</tr>
 			</table>

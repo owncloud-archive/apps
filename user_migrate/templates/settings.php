@@ -3,8 +3,8 @@
 	<p><?php p($l->t('Export and import ownCloud user accounts.'));?>
 	</p>
 	<?php if(isset($_['error'])) { ?>
-		<h3><?php echo $_['error']['error']; ?></h3>
-		<p><?php echo $_['error']['hint']; ?></p>
+		<h3><?php p($_['error']['error']); ?></h3>
+		<p><?php p($_['error']['hint']); ?></p>
 		<?php } ?>
 	<button id="exportbtn">Export<img class="loadingexport" src="<?php echo OCP\Util::imagePath('core', 'loading.gif'); ?>" /></button>
 	<form id="import" action="#" method="post" enctype="multipart/form-data">

@@ -1,6 +1,6 @@
 <td width="20px">
   <?php if($_['calendar']['userid'] == OCP\USER::getUser()) { ?>
-  <input type="checkbox" id="active_<?php p($_['calendar']['id']) ?>" class="activeCalendar" data-id="<?php p($_['calendar']['id']) ?>" <?php echo $_['calendar']['active'] ? ' checked="checked"' : '' ?>>
+  <input type="checkbox" id="active_<?php p($_['calendar']['id']) ?>" class="activeCalendar" data-id="<?php p($_['calendar']['id']) ?>" <?php print_unescaped($_['calendar']['active'] ? ' checked="checked"' : '') ?>>
   <?php } ?>
 </td>
 <td id="<?php p(OCP\USER::getUser()) ?>_<?php p($_['calendar']['id']) ?>">
@@ -8,9 +8,9 @@
 </td>
 <td width="20px">
   <?php if($_['calendar']['permissions'] & OCP\PERMISSION_SHARE) { ?>
-  <a href="#" class="share" data-item-type="calendar" data-item="<?php echo $_['calendar']['id']; ?>"
+  <a href="#" class="share" data-item-type="calendar" data-item="<?php p($_['calendar']['id']); ?>"
 	data-possible-permissions="<?php p($_['calendar']['permissions']) ?>"
-	title="<?php p($l->t('Share Calendar')) ?>" class="action permanent"><img class="svg" src="<?php echo (!$_['shared']) ? OCP\Util::imagePath('core', 'actions/share.svg') : OCP\Util::imagePath('core', 'actions/shared.svg') ?>"></a>
+	title="<?php p($l->t('Share Calendar')) ?>" class="action permanent"><img class="svg" src="<?php print_unescaped((!$_['shared']) ? OCP\Util::imagePath('core', 'actions/share.svg') : OCP\Util::imagePath('core', 'actions/shared.svg')) ?>"></a>
   <?php } ?>
 </td>
 <td width="20px">

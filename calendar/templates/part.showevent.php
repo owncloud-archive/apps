@@ -65,17 +65,17 @@
 		<tr>
 			<th width="75px"><?php p($l->t("From"));?>:</th>
 			<td>
-				<?php echo $_['startdate'];?>
+				<?php p($_['startdate']);?>
 				&nbsp;&nbsp; <?php echo (!$_['allday'])?$l->t('at'):''; ?> &nbsp;&nbsp;
-				<?php echo $_['starttime'];?>
+				<?php p($_['starttime']);?>
 			</td>
 		</tr>
 		<tr>
 			<th width="75px"><?php p($l->t("To"));?>:</th>
 			<td>
-				<?php echo $_['enddate'];?>
+				<?php p($_['enddate']);?>
 				&nbsp;&nbsp; <?php echo (!$_['allday'])?$l->t('at'):''; ?> &nbsp;&nbsp;
-				<?php echo $_['endtime'];?>
+				<?php p($_['endtime']);?>
 			</td>
 		</tr>
 	</table>
@@ -241,7 +241,7 @@
 				<tr>
 					<th></th>
 					<td id="bydate" style="display:none;">
-						<?php echo $_['repeat_date']; ?>
+						<?php p($_['repeat_date']); ?>
 					</td>
 				</tr>
 			</table>

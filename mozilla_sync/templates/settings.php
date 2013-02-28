@@ -4,7 +4,7 @@
 
       <tr>
         <td><label class="bold"><?php p($l->t('Email'));?></label></td>
-        <td><?php echo $_['email'];?></td>
+        <td><?php p($_['email']);?></td>
       </tr>
       <tr>
         <td><label class="bold"><?php p($l->t('Password and Confirmation'));?></label></td>
@@ -12,7 +12,7 @@
       </tr>
       <tr>
         <td><label class="bold"><?php p($l->t('Server address'));?></label></td>
-        <td><?php echo $_['syncaddress'];?></td>
+        <td><?php p($_['syncaddress']);?></td>
       </tr>
     </table>
     Video tutorial on Mozilla Sync Service configuration can be found at

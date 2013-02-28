@@ -3,7 +3,7 @@
 <!-- search form -->
 <div id="controls">
     <form id="search-form" action="<?php print_unescaped(OCP\Util::linkTo('search', 'index.php')); ?>" method="get">
-        <input type="text" name="query" id="search_query" value="<?php echo $_['breadcrumb']; ?>">
+        <input type="text" name="query" id="search_query" value="<?php p($_['breadcrumb']); ?>">
         <button class="button search_button">Search</button>
     </form>
 </div>
@@ -40,4 +40,4 @@
 <div id="editor"></div>
 
 <!-- config hints for javascript -->
-<input type="hidden" name="allowZipDownload" id="allowZipDownload" value="<?php echo $_['allowZipDownload']; ?>" />
+<input type="hidden" name="allowZipDownload" id="allowZipDownload" value="<?php p($_['allowZipDownload']); ?>" />

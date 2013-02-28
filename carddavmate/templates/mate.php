@@ -1,7 +1,7 @@
 <script type="text/javascript">
 <!--
 //configuration
-globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
+globalNetworkCheckSettings.href = '<?php p($_['carddavUrl']); ?>';
 globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 //-->
 </script>

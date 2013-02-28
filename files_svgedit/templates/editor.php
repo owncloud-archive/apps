@@ -1,9 +1,9 @@
 <script type="text/javascript">
 <!--
 var ocsvgFile = {
-    path: <?php echo $_['filePath']; ?>,
-    mtime: <?php echo $_['filemTime']; ?>,
-    contents: <?php echo $_['fileContents']; ?>
+    path: <?php p($_['filePath']); ?>,
+    mtime: <?php p($_['filemTime']); ?>,
+    contents: <?php p($_['fileContents']); ?>
 };
 //-->
 </script>

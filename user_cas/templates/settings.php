@@ -29,23 +29,23 @@
 	?>
 		</select>
 		</p>
-		<p><label for="cas_server_hostname"><?php p($l->t('CAS Server Hostname'));?></label><input type="text" id="cas_server_hostname" name="cas_server_hostname" value="<?php echo $_['cas_server_hostname']; ?>"></p>
-		<p><label for="cas_server_port"><?php p($l->t('CAS Server Port'));?></label><input type="text" id="cas_server_port" name="cas_server_port" value="<?php echo $_['cas_server_port']; ?>"></p>
-		<p><label for="cas_server_path"><?php p($l->t('CAS Server Path'));?></label><input type="text" id="cas_server_path" name="cas_server_path" value="<?php echo $_['cas_server_path']; ?>"></p>
-                <p><label for="cas_cert_path"><?php p($l->t('Certification file path (.crt). Leave empty if dont want to validate'));?></label><input type="text" id="cas_cert_path" name="cas_cert_path" value="<?php echo $_['cas_cert_path']; ?>"></p>
+		<p><label for="cas_server_hostname"><?php p($l->t('CAS Server Hostname'));?></label><input type="text" id="cas_server_hostname" name="cas_server_hostname" value="<?php p($_['cas_server_hostname']); ?>"></p>
+		<p><label for="cas_server_port"><?php p($l->t('CAS Server Port'));?></label><input type="text" id="cas_server_port" name="cas_server_port" value="<?php p($_['cas_server_port']); ?>"></p>
+		<p><label for="cas_server_path"><?php p($l->t('CAS Server Path'));?></label><input type="text" id="cas_server_path" name="cas_server_path" value="<?php p($_['cas_server_path']); ?>"></p>
+                <p><label for="cas_cert_path"><?php p($l->t('Certification file path (.crt). Leave empty if dont want to validate'));?></label><input type="text" id="cas_cert_path" name="cas_cert_path" value="<?php p($_['cas_cert_path']); ?>"></p>
 
 
 	</fieldset>
 	<fieldset id="casSettings-2">
 	<p><label for="cas_autocreate"><?php p($l->t('Autocreate user after cas login?'));?></label><input type="checkbox" id="cas_autocreate" name="cas_autocreate" <?php echo (($_['cas_autocreate'] != false) ? 'checked="checked"' : ''); ?>></p>
 	<p><label for="cas_update_user_data"><?php p($l->t('Update user data after login?'));?></label><input type="checkbox" id="cas_update_user_data" name="cas_update_user_data" <?php echo (($_['cas_update_user_data'] != false) ? 'checked="checked"' : ''); ?>></p>
-	<p><label for="cas_protected_groups"><?php p($l->t('Groups that will not be unlinked from the user when sync the CAS server and the owncloud'));?></label><input type="text" id="cas_protected_groups" name="cas_protected_groups" value="<?php echo $_['cas_protected_groups']; ?>" /></p> <?php p($l->t('(protected grop are multivalued, use comma to separate the values)')); ?>
-        <p><label for="cas_default_group"><?php p($l->t('Default group when autocreating users and not group data found for the user'));?></label><input type="text" id="cas_default_group" name="cas_default_group" value="<?php echo $_['cas_default_group']; ?>"></p>
+	<p><label for="cas_protected_groups"><?php p($l->t('Groups that will not be unlinked from the user when sync the CAS server and the owncloud'));?></label><input type="text" id="cas_protected_groups" name="cas_protected_groups" value="<?php p($_['cas_protected_groups']); ?>" /></p> <?php p($l->t('(protected grop are multivalued, use comma to separate the values)')); ?>
+        <p><label for="cas_default_group"><?php p($l->t('Default group when autocreating users and not group data found for the user'));?></label><input type="text" id="cas_default_group" name="cas_default_group" value="<?php p($_['cas_default_group']); ?>"></p>
 	</fieldset>
 	<fieldset id="casSettings-3">
-		<p><label for="cas_username_mapping"><?php p($l->t('Username'));?></label><input type="text" id="cas_username_mapping" name="cas_username_mapping" value="<?php echo $_['cas_username_mapping']; ?>" /></p>
-		<p><label for="cas_email_mapping"><?php p($l->t('Email'));?></label><input type="text" id="cas_email_mapping" name="cas_email_mapping" value="<?php echo $_['cas_email_mapping']; ?>" /></p>
-		<p><label for="cas_group_mapping"><?php p($l->t('Group'));?></label><input type="text" id="cas_group_mapping" name="cas_group_mapping" value="<?php echo $_['cas_group_mapping']; ?>" /></p>
+		<p><label for="cas_username_mapping"><?php p($l->t('Username'));?></label><input type="text" id="cas_username_mapping" name="cas_username_mapping" value="<?php p($_['cas_username_mapping']); ?>" /></p>
+		<p><label for="cas_email_mapping"><?php p($l->t('Email'));?></label><input type="text" id="cas_email_mapping" name="cas_email_mapping" value="<?php p($_['cas_email_mapping']); ?>" /></p>
+		<p><label for="cas_group_mapping"><?php p($l->t('Group'));?></label><input type="text" id="cas_group_mapping" name="cas_group_mapping" value="<?php p($_['cas_group_mapping']); ?>" /></p>
 	</fieldset>
 	<input type="submit" value="Save" />
 	</div>

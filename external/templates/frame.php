@@ -1,4 +1,4 @@
-<iframe src="<?php echo $_['url']; ?>" width="100%" id="ifm" ></iframe>
+<iframe src="<?php p($_['url']); ?>" width="100%" id="ifm" ></iframe>
 
 
 <?php

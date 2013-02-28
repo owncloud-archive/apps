@@ -17,8 +17,8 @@ $defaultcolors = OC_Calendar_Calendar::getCalendarColorOptions();
 <div id="calendar_import_dialog" title="<?php p($l->t("Import a calendar file"));?>">
 <div id="calendar_import_form">
 	<form>
-		<input type="hidden" id="calendar_import_filename" value="<?php echo $_['filename'];?>">
-		<input type="hidden" id="calendar_import_path" value="<?php echo $_['path'];?>">
+		<input type="hidden" id="calendar_import_filename" value="<?php p($_['filename']);?>">
+		<input type="hidden" id="calendar_import_path" value="<?php p($_['path']);?>">
 		<input type="hidden" id="calendar_import_progresskey" value="<?php p(rand()) ?>">
 		<input type="hidden" id="calendar_import_availablename" value="<?php p($newcalendarname) ?>">
 		<div id="calendar_import_form_message"><?php p($l->t('Please choose a calendar')); ?></div>
