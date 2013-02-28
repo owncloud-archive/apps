@@ -17,16 +17,16 @@
 </div>
 <p id="task_actions_template" class="task_actions">
 	<!-- span class="task_star">
-		<img title="<?php p($l->t('Important')) ?>" src="<?php print_unescaped(OCP\image_path('core', 'actions/add.svg') ?>" class="svg"><?php p($l->t('Important')) ?>
+		<img title="<?php p($l->t('Important')) ?>" src="<?php print_unescaped(OCP\image_path('core', 'actions/add.svg')) ?>" class="svg"><?php p($l->t('Important')) ?>
 	</span -->
 	<span class="task_more">
-		<img title="<?php p($l->t('More')) ?>" src="<?php echo OCP\image_path('core', 'actions/triangle-s.svg') ?>" class="svg"><?php p($l->t('More')) ?>
+		<img title="<?php p($l->t('More')) ?>" src="<?php p(OCP\image_path('core', 'actions/triangle-s.svg')) ?>" class="svg"><?php p($l->t('More')) ?>
 	</span>
 	<span class="task_less">
-		<img title="<?php p($l->t('Less')) ?>" src="<?php echo OCP\image_path('core', 'actions/triangle-n.svg') ?>" class="svg"><?php p($l->t('Less')) ?>
+		<img title="<?php p($l->t('Less')) ?>" src="<?php p(OCP\image_path('core', 'actions/triangle-n.svg')) ?>" class="svg"><?php p($l->t('Less')) ?>
 	</span>
 	<span class="task_delete">
-		<img title="<?php p($l->t('Delete')) ?>" src="<?php echo OCP\image_path('core', 'actions/delete.svg') ?>" class="svg"><?php p($l->t('Delete')) ?>
+		<img title="<?php p($l->t('Delete')) ?>" src="<?php p(OCP\image_path('core', 'actions/delete.svg')) ?>" class="svg"><?php p($l->t('Delete')) ?>
 	</span>
 </p>
-<script type="text/javascript" src="<?php echo OC_Helper::linkTo('tasks/js', 'categories.php'));?>"></script>
+<script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('tasks/js', 'categories.php')) ?>"></script>

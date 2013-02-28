@@ -39,7 +39,7 @@
 			</td>
 			<th width="75px">&nbsp;</th>
 			<td>
-				<input type="hidden" name="calendar" value="<?php echo $_['calendar_options'][0]['id'] ?>">
+				<input type="hidden" name="calendar" value="<?php p($_['calendar_options'][0]['id']) ?>">
 			</td>
 		</tr>
 		<tr>

@@ -11,15 +11,15 @@
 <tr>
 	<th><?php p($l->t('Displayname')) ?></th>
 	<td>
-		<input id="displayname_<?php echo $_['calendar']['id'] ?>" type="text" value="<?php echo OCP\Util::sanitizeHTML($_['calendar']['displayname']) ?>">
+		<input id="displayname_<?php p($_['calendar']['id']) ?>" type="text" value="<?php p(OCP\Util::sanitizeHTML($_['calendar']['displayname'])) ?>">
 	</td>
 </tr>
 <?php if (!$_['new']): ?>
 <tr>
 	<td></td>
 	<td>
-		<input id="edit_active_<?php echo $_['calendar']['id'] ?>" type="checkbox"<?php echo $_['calendar']['active'] ? ' checked="checked"' : '' ?>>
-		<label for="edit_active_<?php echo $_['calendar']['id'] ?>">
+		<input id="edit_active_<?php p($_['calendar']['id']) ?>" type="checkbox"<?php echo $_['calendar']['active'] ? ' checked="checked"' : '' ?>>
+		<label for="edit_active_<?php p($_['calendar']['id']) ?>">
 			<?php p($l->t('Active')) ?>
 		</label>
 	</td>
@@ -28,7 +28,7 @@
 <tr>
 	<th><?php p($l->t('Calendar color')) ?></th>
 	<td>
-		<select id="calendarcolor_<?php echo $_['calendar']['id'] ?>" class="colorpicker">
+		<select id="calendarcolor_<?php p($_['calendar']['id']) ?>" class="colorpicker">
 			<?php
 			if (!isset($_['calendar']['calendarcolor'])) {$_['calendar']['calendarcolor'] = false;}
 			foreach($_['calendarcolor_options'] as $color) {

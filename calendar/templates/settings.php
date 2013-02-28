@@ -99,7 +99,7 @@
 				$uri = rawurlencode(html_entity_decode($calendar['uri'], ENT_QUOTES, 'UTF-8')) . '_shared_by_' . $calendar['userid'];
 			}
 			?>
-			<a href="<?php echo OCP\Util::linkToRemote('caldav').'calendars/'.OCP\USER::getUser().'/'.$uri ?>?export"><?php echo OCP\Util::sanitizeHTML($calendar['displayname']) ?></a><br />
+			<a href="<?php p(OCP\Util::linkToRemote('caldav').'calendars/'.OCP\USER::getUser().'/'.$uri) ?>?export"><?php p(OCP\Util::sanitizeHTML($calendar['displayname'])) ?></a><br />
 			<?php } ?>
 		</dd>
 		</dl>

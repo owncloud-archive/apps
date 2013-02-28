@@ -19,8 +19,8 @@ $defaultcolors = OC_Calendar_Calendar::getCalendarColorOptions();
 	<form>
 		<input type="hidden" id="calendar_import_filename" value="<?php echo $_['filename'];?>">
 		<input type="hidden" id="calendar_import_path" value="<?php echo $_['path'];?>">
-		<input type="hidden" id="calendar_import_progresskey" value="<?php echo rand() ?>">
-		<input type="hidden" id="calendar_import_availablename" value="<?php echo $newcalendarname ?>">
+		<input type="hidden" id="calendar_import_progresskey" value="<?php p(rand()) ?>">
+		<input type="hidden" id="calendar_import_availablename" value="<?php p($newcalendarname) ?>">
 		<div id="calendar_import_form_message"><?php p($l->t('Please choose a calendar')); ?></div>
 		<select style="width:100%;" id="calendar_import_calendar" name="calendar_import_calendar">
 		<?php
@@ -33,7 +33,7 @@ $defaultcolors = OC_Calendar_Calendar::getCalendarColorOptions();
 		<br><br>
 		<div id="calendar_import_newcalform">
 			<input id="calendar_import_newcalendar_color" class="color-picker" type="hidden" size="6" value="<?php echo substr($calendarcolor,1); ?>">
-			<input id="calendar_import_newcalendar"  class="" type="text" placeholder="<?php p($l->t('Name of new calendar')); ?>" value="<?php echo $guessedcalendarname ?>"><br>
+			<input id="calendar_import_newcalendar"  class="" type="text" placeholder="<?php p($l->t('Name of new calendar')); ?>" value="<?php p($guessedcalendarname) ?>"><br>
 			<div id="calendar_import_defaultcolors">
 				<?php
 				foreach($defaultcolors as $color) {

@@ -1,6 +1,6 @@
 <form class="float" id="file_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php')); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
-	<input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'] ?>">
-	<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
+	<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>">
+	<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
 	<input type="hidden" class="max_human_file_size" value="(max <?php echo $_['uploadMaxHumanFilesize']; ?>)">
 	<input id="contactphoto_fileupload" type="file" accept="image/*" name="imagefile" />
 </form>
@@ -20,7 +20,7 @@
 				<ul class="hidden">
 					<li class="import-upload">
 						<form id="import_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadimport.php')); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
-						<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
+						<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
 						<label for="import_fileupload"><?php p($l->t('Select files to import')); ?>
 							<button class="import-upload-button" title="<?php p($l->t('Select files')); ?>"></button>
 						</label>
@@ -277,9 +277,9 @@
 		<li data-element="email" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
-					<?php print_unescaped(OCP\html_select_options($_['email_types'], array()) ?>
+					<?php print_unescaped(OCP\html_select_options($_['email_types']), array()) ?>
 				</select>
-				<input type="checkbox" class="parameter tooltipped rightwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred'))); ?>" />
+				<input type="checkbox" class="parameter tooltipped rightwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred')); ?>" />
 			</span>
 			<input type="email" class="nonempty value" name="value" value="{value}" x-moz-errormessage="<?php p($l->t('Please specify a valid email address.')); ?>" placeholder="<?php p($l->t('someone@example.com')); ?>" required />
 			<span class="listactions">
@@ -292,9 +292,9 @@
 		<li data-element="tel" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
-					<?php print_unescaped(OCP\html_select_options($_['phone_types'], array()) ?>
+					<?php print_unescaped(OCP\html_select_options($_['phone_types'], array())) ?>
 				</select>
-				<input type="checkbox" class="parameter tooltipped rightwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred'))); ?>" />
+				<input type="checkbox" class="parameter tooltipped rightwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred')); ?>" />
 			</span>
 			<input type="tel" class="nonempty value" name="value" value="{value}" placeholder="<?php p($l->t('Enter phone number')); ?>" required />
 			<span class="listactions">
@@ -306,9 +306,9 @@
 		<li data-element="url" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
-					<?php print_unescaped(OCP\html_select_options($_['email_types'], array()) ?>
+					<?php print_unescaped(OCP\html_select_options($_['email_types'], array())) ?>
 				</select>
-				<input type="checkbox" class="parameter tooltipped rightwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred'))); ?>" />
+				<input type="checkbox" class="parameter tooltipped rightwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred')); ?>" />
 			</span>
 			<input type="url" class="nonempty value" name="value" value="{value}" placeholder="http://www.example.com/" required />
 			<span class="listactions">
@@ -331,9 +331,9 @@
 				<ul>
 				<li>
 					<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
-						<?php print_unescaped(OCP\html_select_options($_['adr_types'], array()) ?>
+						<?php print_unescaped(OCP\html_select_options($_['adr_types'], array())) ?>
 					</select>
-					<input type="checkbox" id="adr_pref_{idx}" class="parameter tooltipped downwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred'))); ?>" /><label for="adr_pref_{idx}"><?php p($l->t('Preferred')); ?></label>
+					<input type="checkbox" id="adr_pref_{idx}" class="parameter tooltipped downwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred')); ?>" /><label for="adr_pref_{idx}"><?php p($l->t('Preferred')); ?></label>
 				</li>
 				<li>
 					<input class="value stradr tooltipped rightwards onfocus" type="text" id="adr_2" name="value[2]" value="{adr2}" 
@@ -368,17 +368,17 @@
 		<li data-element="impp" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
-					<?php print_unescaped(OCP\html_select_options($_['impp_types'], array()) ?>
+					<?php print_unescaped(OCP\html_select_options($_['impp_types'], array())) ?>
 				</select>
-				<input type="checkbox" class="parameter impp tooltipped downwards" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred'))); ?>" />
+				<input type="checkbox" class="parameter impp tooltipped downwards" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred')); ?>" />
 			</span>
 				<div class="select_wrapper">
 				<select class="ltr parameter label impp" data-parameter="X-SERVICE-TYPE" name="parameters[X-SERVICE-TYPE]">
-					<?php print_unescaped(OCP\html_select_options($_['im_protocols'], array()) ?>
+					<?php print_unescaped(OCP\html_select_options($_['im_protocols'], array())) ?>
 				</select>
 				</div>
 			<input type="text" class="nonempty value" name="value" value="{value}"
-					placeholder="<?php p($l->t('Instant Messenger'))); ?>" required />
+					placeholder="<?php p($l->t('Instant Messenger')); ?>" required />
 			<span class="listactions">
 				<a role="button" class="action delete tooltipped leftwards" title="<?php p($l->t('Delete IM')); ?>"></a>
 			</span>

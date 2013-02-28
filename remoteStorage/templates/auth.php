@@ -1,7 +1,7 @@
 		<section id="main">
 		<div id="oauth">
 			<h2><img src="<?php echo image_path('', 'remoteStorage-big.png'); ?>" alt="remoteStorage" /></h2>
-			<p><strong><?php echo $_['host'] ?></strong>
+			<p><strong><?php p($_['host']) ?></strong>
 			requests read &amp; write access to your 
 			<?php
 				$categories = $_['categories'];

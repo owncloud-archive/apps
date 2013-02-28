@@ -11,17 +11,17 @@
 			<?php p($l->t('Addressbooks')); ?>
 			<table>
 			<?php foreach($_['addressbooks'] as $addressbook) { ?>
-			<tr class="addressbook" data-id="<?php echo $addressbook['id'] ?>"
-				data-uri="<?php echo $addressbook['uri'] ?>"
-				data-owner="<?php echo $addressbook['userid'] ?>"
+			<tr class="addressbook" data-id="<?php p($addressbook['id']) ?>"
+				data-uri="<?php p($addressbook['uri']) ?>"
+				data-owner="<?php p($addressbook['userid']) ?>"
 				>
 				<td class="active">
 					<?php if($addressbook['permissions'] & OCP\PERMISSION_UPDATE) { ?>
 					<input type="checkbox" <?php echo (($addressbook['active']) == '1' ? ' checked="checked"' : ''); ?> />
 					<?php } ?>
 				</td>
-				<td class="name"><?php echo $addressbook['displayname'] ?></td>
-				<td class="description"><?php echo $addressbook['description'] ?></td>
+				<td class="name"><?php p($addressbook['displayname']) ?></td>
+				<td class="description"><?php p($addressbook['description']) ?></td>
 				<td class="action">
 					<a class="svg action globe" title="<?php p($l->t('Show CardDav link')); ?>"></a>
 				</td>
@@ -31,14 +31,14 @@
 				<td class="action">
 					<?php if($addressbook['permissions'] & OCP\PERMISSION_SHARE) { ?>
 					<a class="svg action share" data-item-type="addressbook"
-						data-item="<?php echo $addressbook['id'] ?>"
-						data-possible-permissions="<?php echo $addressbook['permissions'] ?>"
+						data-item="<?php p($addressbook['id']) ?>"
+						data-possible-permissions="<?php p($addressbook['permissions']) ?>"
 						title="<?php p($l->t("Share")); ?>"></a>
 					<?php } ?>
 				</td>
 				<td class="action">
 					<a class="svg action download" title="<?php p($l->t('Download')); ?>"
-						href="<?php echo OCP\Util::linkToAbsolute('contacts', 'export.php'); ?>?bookid=<?php echo $addressbook['id'] ?>"></a>
+						href="<?php echo OCP\Util::linkToAbsolute('contacts', 'export.php'); ?>?bookid=<?php p($addressbook['id']) ?>"></a>
 				</td>
 				<td class="action">
 					<?php if($addressbook['permissions'] & OCP\PERMISSION_UPDATE) { ?>
