@@ -1,4 +1,4 @@
-<script type="text/javascript" src="<?php echo OC_Helper::linkTo('calendar/js', 'idtype.php');?>?id=<?php p($_['eventid']); ?>"></script>
+<script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('calendar/js', 'idtype.php'));?>?id=<?php p($_['eventid']); ?>"></script>
 
 
 <ul>
@@ -15,7 +15,7 @@
 		<tr>
 			<th width="75px"><?php p($l->t("Title"));?>:</th>
 			<td>
-				<input type="text" style="width:350px;" size="100" placeholder="<?php p($l->t("Title of the Event"));?>" value="<?php echo isset($_['title']) ? $_['title'] : '' ?>" maxlength="100" name="title"/>
+				<input type="text" style="width:350px;" size="100" placeholder="<?php p($l->t("Title of the Event"));?>" value="<?php p (sset($_['title']) ? $_['title'] : '') ?>" maxlength="100" name="title"/>
 			</td>
 		</tr>
 	</table>
@@ -23,7 +23,7 @@
 		<tr>
 			<th width="75px"><?php p($l->t("Category"));?>:</th>
 			<td>
-				<input id="category" name="categories" type="text" placeholder="<?php p($l->t('Separate categories with commas')); ?>" value="<?php echo isset($_['categories']) ? $_['categories'] : '' ?>">
+				<input id="category" name="categories" type="text" placeholder="<?php p($l->t('Separate categories with commas')); ?>" value="<?php p(isset($_['categories']) ? $_['categories'] : '') ?>">
 				<a class="action edit" id="editCategories" title="<?php p($l->t('Edit categories')); ?>"><img alt="<?php p($l->t('Edit categories')); ?>" src="<?php print_unescaped(OCP\image_path('core','actions/rename.svg'))?>" class="svg action" style="width: 16px; height: 16px;"></a>
 			</td>
 			<?php if(count($_['calendar_options']) > 1) { ?>
@@ -60,7 +60,7 @@
 		<tr>
 			<th width="75px"></th>
 			<td>
-				<input type="checkbox"<?php if($_['allday']) {echo 'checked="checked"';} ?> id="allday_checkbox" name="allday">
+				<input type="checkbox"<?php if($_['allday']) {print_unescaped('checked="checked"');} ?> id="allday_checkbox" name="allday">
 				<label for="allday_checkbox"><?php p($l->t("All Day Event"));?></label>
 			</td>
 		</tr>
@@ -88,7 +88,7 @@
 			<tr>
 				<th width="85px"><?php p($l->t("Location"));?>:</th>
 				<td>
-					<input type="text" style="width:350px;" size="100" placeholder="<?php p($l->t("Location of the Event"));?>" value="<?php echo isset($_['location']) ? $_['location'] : '' ?>" maxlength="100"  name="location" />
+					<input type="text" style="width:350px;" size="100" placeholder="<?php p($l->t("Location of the Event"));?>" value="<?php p(isset($_['location']) ? $_['location'] : '') ?>" maxlength="100"  name="location" />
 				</td>
 			</tr>
 		</table>
@@ -96,7 +96,7 @@
 			<tr>
 				<th width="85px" style="vertical-align: top;"><?php p($l->t("Description"));?>:</th>
 				<td>
-					<textarea style="width:350px;height: 150px;" placeholder="<?php p($l->t("Description of the Event"));?>" name="description"><?php echo isset($_['description']) ? $_['description'] : '' ?></textarea>
+					<textarea style="width:350px;height: 150px;" placeholder="<?php p($l->t("Description of the Event"));?>" name="description"><?php p(isset($_['description']) ? $_['description'] : '') ?></textarea>
 				</td>
 			</tr>
 		</table>
@@ -221,7 +221,7 @@
 				<tr>
 					<th width="75px"><?php p($l->t('Interval')); ?>:</th>
 					<td>
-						<input style="width:350px;" type="number" min="1" size="4" max="1000" value="<?php echo isset($_['repeat_interval']) ? $_['repeat_interval'] : '1'; ?>" name="interval">
+						<input style="width:350px;" type="number" min="1" size="4" max="1000" value="<?php p(isset($_['repeat_interval']) ? $_['repeat_interval'] : '1'); ?>" name="interval">
 					</td>
 				</tr>
 				<tr>
@@ -254,6 +254,6 @@
 <div id="tabs-4">//Attendees</div>-->
 <?php if($_['eventid'] != 'new' && $_['permissions'] & OCP\PERMISSION_SHARE) { ?>
 <div id="tabs-5">
-	<?php if($_['eventid'] != 'new') { echo $this->inc('part.share'); } ?>
+	<?php if($_['eventid'] != 'new') { print_unescaped($this->inc('part.share')); } ?>
 </div>
 <?php } ?>

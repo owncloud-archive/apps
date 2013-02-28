@@ -10,7 +10,7 @@
 		<tr>
 			<th width="75px"><?php p($l->t("Title"));?>:</th>
 			<td>
-				<?php echo isset($_['title']) ? $_['title'] : '' ?>
+				<?php p(isset($_['title']) ? $_['title'] : '') ?>
 			</td>
 		</tr>
 	</table>
@@ -22,11 +22,11 @@
 				if(count($_['categories']) == 0 || $_['categories'] == '') {
 					p($l->t('No categories selected'));
 				}else{
-					echo '<ul>';
+					print_unescaped('<ul>');
 					foreach($_['categories'] as $categorie) {
-						echo '<li>' . $categorie . '</li>';
+						print_unescaped('<li>' . OC_Util::sanitizeHTML($categorie) . '</li>');
 					}
-					echo '</ul>';
+					print_unescaped('</ul>');
 				}
 				?>
 			</td>
@@ -34,7 +34,7 @@
 			<td>
 			<?php
 			$calendar = OC_Calendar_App::getCalendar($_['calendar'], false, false);
-			echo OCP\Util::sanitizeHTML($calendar['displayname']) . ' ' . $l->t('of') . ' ' . $calendar['userid'];
+			p($calendar['displayname']) . ' ' . $l->t('of') . ' ' . $calendar['userid'];
 			?>
 			</td>
 			<th width="75px">&nbsp;</th>
@@ -58,7 +58,7 @@
 		<tr>
 			<th width="75px"></th>
 			<td>
-				<input type="checkbox"<?php if($_['allday']) {echo 'checked="checked"';} ?> id="allday_checkbox" name="allday" disabled="disabled">
+				<input type="checkbox"<?php if($_['allday']) {print_unescaped('checked="checked"');} ?> id="allday_checkbox" name="allday" disabled="disabled">
 				<?php p($l->t("All Day Event"));?>
 			</td>
 		</tr>
@@ -66,7 +66,7 @@
 			<th width="75px"><?php p($l->t("From"));?>:</th>
 			<td>
 				<?php p($_['startdate']);?>
-				&nbsp;&nbsp; <?php echo (!$_['allday'])?$l->t('at'):''; ?> &nbsp;&nbsp;
+				&nbsp;&nbsp; <?php p((!$_['allday'])?$l->t('at'):''); ?> &nbsp;&nbsp;
 				<?php p($_['starttime']);?>
 			</td>
 		</tr>
@@ -74,7 +74,7 @@
 			<th width="75px"><?php p($l->t("To"));?>:</th>
 			<td>
 				<?php p($_['enddate']);?>
-				&nbsp;&nbsp; <?php echo (!$_['allday'])?$l->t('at'):''; ?> &nbsp;&nbsp;
+				&nbsp;&nbsp; <?php p((!$_['allday'])?$l->t('at'):''); ?> &nbsp;&nbsp;
 				<?php p($_['endtime']);?>
 			</td>
 		</tr>
@@ -86,7 +86,7 @@
 			<tr>
 				<th width="85px"><?php p($l->t("Location"));?>:</th>
 				<td>
-					<?php echo isset($_['location']) ? $_['location'] : '' ?>
+					<?php p(isset($_['location']) ? $_['location'] : '') ?>
 				</td>
 			</tr>
 		</table>
@@ -94,7 +94,7 @@
 			<tr>
 				<th width="85px" style="vertical-align: top;"><?php p($l->t("Description"));?>:</th>
 				<td>
-					<?php echo isset($_['description']) ? $_['description'] : '' ?></textarea>
+					<?php p(isset($_['description']) ? $_['description'] : '') ?></textarea>
 			</tr>
 		</table>
 	</div>
@@ -218,7 +218,7 @@
 				<tr>
 					<th width="75px"><?php p($l->t('Interval')); ?>:</th>
 					<td>
-						<?php echo isset($_['repeat_interval']) ? $_['repeat_interval'] : '1'; ?>
+						<?php p(isset($_['repeat_interval']) ? $_['repeat_interval'] : '1'); ?>
 					</td>
 				</tr>
 				<tr>
