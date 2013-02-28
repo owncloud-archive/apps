@@ -27,7 +27,7 @@ $defaultcolors = OC_Calendar_Calendar::getCalendarColorOptions();
 		for($i = 0;$i<count($calendar_options);$i++) {
 			$calendar_options[$i]['displayname'] = OCP\Util::sanitizeHTML($calendar_options[$i]['displayname']);
 		}
-		echo OCP\html_select_options($calendar_options, $calendar_options[0]['id'], array('value'=>'id', 'label'=>'displayname'));
+		print_unescaped(OCP\html_select_options($calendar_options, $calendar_options[0]['id'], array('value'=>'id', 'label'=>'displayname')));
 		?>
 		</select>
 		<br><br>

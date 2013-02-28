@@ -47,7 +47,7 @@
 			<td>
 			<select id="accessclass" name="accessclass">
 				<?php
-				echo OCP\html_select_options(array($_['access_class_options'][$_['accessclass']]), $_['accessclass']);
+				print_unescaped(OCP\html_select_options(array($_['access_class_options'][$_['accessclass']]), $_['accessclass']));
 				?>
 			</select>
 			</td>
@@ -106,7 +106,7 @@
 				<td>
 				<select id="repeat" name="repeat">
 					<?php
-					echo OCP\html_select_options(array($_['repeat_options'][$_['repeat']]), $_['repeat']);
+					print_unescaped(OCP\html_select_options(array($_['repeat_options'][$_['repeat']]), $_['repeat']));
 					?>
 				</select></td>
 				<td><input type="button" style="float:right;" class="submit" value="<?php p($l->t("Advanced")); ?>" id="advanced_options_button_repeat"></td>
@@ -119,7 +119,7 @@
 					<td>
 						<select id="advanced_month_select" name="advanced_month_select">
 							<?php
-							echo OCP\html_select_options(array($_['repeat_month_options'][$_['repeat_month']]), $_['repeat_month']);
+							print_unescaped(OCP\html_select_options(array($_['repeat_month_options'][$_['repeat_month']]), $_['repeat_month']));
 							?>
 						</select>
 					</td>
@@ -131,7 +131,7 @@
 					<td>
 						<select id="advanced_year_select" name="advanced_year_select">
 							<?php
-							echo OCP\html_select_options(array($_['repeat_year_options'][$_['repeat_year']]), $_['repeat_year']);
+							print_unescaped(OCP\html_select_options(array($_['repeat_year_options'][$_['repeat_year']]), $_['repeat_year']));
 							?>
 						</select>
 					</td>
@@ -143,7 +143,7 @@
 					<td id="weekofmonthcheckbox">
 						<select id="weekofmonthoptions" name="weekofmonthoptions">
 							<?php
-							echo OCP\html_select_options(array($_['repeat_weekofmonth_options'][$_['repeat_weekofmonth']]), $_['repeat_weekofmonth']);
+							print_unescaped(OCP\html_select_options(array($_['repeat_weekofmonth_options'][$_['repeat_weekofmonth']]), $_['repeat_weekofmonth']));
 							?>
 						</select>
 					</td>
@@ -156,7 +156,7 @@
 						<select id="weeklyoptions" name="weeklyoptions[]" multiple="multiple" style="width: 150px;" title="<?php p($l->t("Select weekdays")) ?>">
 							<?php
 							if (!isset($_['weekdays'])) {$_['weekdays'] = array();}
-							echo OCP\html_select_options(array($_['repeat_weekly_options'][$_['repeat_weekdays']]), $_['repeat_weekdays'], array('combine'=>true));
+							print_unescaped(OCP\html_select_options(array($_['repeat_weekly_options'][$_['repeat_weekdays']]), $_['repeat_weekdays'], array('combine'=>true)));
 							?>
 						</select>
 					</td>
@@ -169,7 +169,7 @@
 						<select id="byyearday" name="byyearday[]" multiple="multiple" title="<?php p($l->t("Select days")) ?>">
 							<?php
 							if (!isset($_['repeat_byyearday'])) {$_['repeat_byyearday'] = array();}
-							echo OCP\html_select_options(array($_['repeat_byyearday_options'][$_['repeat_byyearday']]), $_['repeat_byyearday'], array('combine'=>true));
+							print_unescaped(OCP\html_select_options(array($_['repeat_byyearday_options'][$_['repeat_byyearday']]), $_['repeat_byyearday'], array('combine'=>true)));
 							?>
 						</select><?php p($l->t('and the events day of year.')); ?>
 					</td>
@@ -182,7 +182,7 @@
 						<select id="bymonthday" name="bymonthday[]" multiple="multiple" title="<?php p($l->t("Select days")) ?>">
 							<?php
 							if (!isset($_['repeat_bymonthday'])) {$_['repeat_bymonthday'] = array();}
-							echo OCP\html_select_options(array($_['repeat_bymonthday_options'][$_['repeat_bymonthday']]), $_['repeat_bymonthday'], array('combine'=>true));
+							print_unescaped(OCP\html_select_options(array($_['repeat_bymonthday_options'][$_['repeat_bymonthday']]), $_['repeat_bymonthday'], array('combine'=>true)));
 							?>
 						</select><?php p($l->t('and the events day of month.')); ?>
 					</td>
@@ -195,7 +195,7 @@
 						<select id="bymonth" name="bymonth[]" multiple="multiple" title="<?php p($l->t("Select months")) ?>">
 							<?php
 							if (!isset($_['repeat_bymonth'])) {$_['repeat_bymonth'] = array();}
-							echo OCP\html_select_options(array($_['repeat_bymonth_options'][$_['repeat_bymonth']]), $_['repeat_bymonth'], array('combine'=>true));
+							print_unescaped(OCP\html_select_options(array($_['repeat_bymonth_options'][$_['repeat_bymonth']]), $_['repeat_bymonth'], array('combine'=>true)));
 							?>
 						</select>
 					</td>
@@ -208,7 +208,7 @@
 						<select id="byweekno" name="byweekno[]" multiple="multiple" title="<?php p($l->t("Select weeks")) ?>">
 							<?php
 							if (!isset($_['repeat_byweekno'])) {$_['repeat_byweekno'] = array();}
-							echo OCP\html_select_options(array($_['repeat_byweekno_options'][$_['repeat_byweekno']]), $_['repeat_byweekno'], array('combine'=>true));
+							print_unescaped(OCP\html_select_options(array($_['repeat_byweekno_options'][$_['repeat_byweekno']]), $_['repeat_byweekno'], array('combine'=>true)));
 							?>
 						</select><?php p($l->t('and the events week of year.')); ?>
 					</td>
@@ -227,7 +227,7 @@
 						<select id="end" name="end">
 							<?php
 							if($_['repeat_end'] == '') $_['repeat_end'] = 'never';
-							echo OCP\html_select_options(array($_['repeat_end_options'][$_['repeat_end']]), $_['repeat_end']);
+							print_unescaped(OCP\html_select_options(array($_['repeat_end_options'][$_['repeat_end']]), $_['repeat_end']));
 							?>
 						</select>
 					</td>
