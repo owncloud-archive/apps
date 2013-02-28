@@ -16,7 +16,7 @@ class OC_Calendar_Hooks{
 	 * @return array
 	 */
 	public static function createUser($parameters) {
-		OC_Calendar_Calendar::addCalendar($parameters['uid'],'Default calendar');
+		OC_Calendar_Calendar::addDefaultCalendars($parameters['uid']);
 
 		return true;
 	}

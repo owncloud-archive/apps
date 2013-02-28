@@ -118,6 +118,21 @@ class OC_Calendar_Calendar{
 	}
 
 	/**
+	 * @brief Creates default calendars
+	 * @param string $userid
+	 * @return boolean
+	 */
+	public static function addDefaultCalendars($userid = null) {
+		if(is_null($userid)) {
+			$userid = OCP\USER::getUser();
+		}
+		
+		$id = self::addCalendar($userid,'Default calendar');
+
+		return true;
+	}
+
+	/**
 	 * @brief Creates a new calendar from the data sabredav provides
 	 * @param string $principaluri
 	 * @param string $uri
@@ -243,7 +258,7 @@ class OC_Calendar_Calendar{
 
 		OCP\Util::emitHook('OC_Calendar', 'deleteCalendar', $id);
 		if(OCP\USER::isLoggedIn() and count(self::allCalendars(OCP\USER::getUser())) == 0) {
-			self::addCalendar(OCP\USER::getUser(),'Default calendar');
+			self::addDefaultCalendars(OCP\USER::getUser());
 		}
 
 		return true;
