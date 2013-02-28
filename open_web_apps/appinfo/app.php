@@ -1,14 +1,12 @@
 <?php
 
 /**
-* ownCloud
+* ownCloud - open web apps plugin
 *
-* Original:
 * @author Frank Karlitschek
-* @copyright 2012 Frank Karlitschek frank@owncloud.org
-* 
-* Adapted:
-* @author Michiel de Jong, 2012
+* @author Florian Hülsmann
+* @copyright 2011 Frank Karlitschek karlitschek@kde.org
+* @copyright 2012 Florian Hülsmann fh@cbix.de
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -25,11 +23,12 @@
 *
 */
 
-OCP\App::checkAppEnabled('remoteStorage');
-require_once 'remoteStorage/lib_remoteStorage.php';
+OCP\App::registerAdmin( 'open_web_apps', 'settings' );
 
-ini_set('default_charset', 'UTF-8');
-//ini_set('error_reporting', '');
-@ob_clean();
-
-echo OC_remoteStorage::deleteToken(file_get_contents("php://input"));
+OCP\App::addNavigationEntry( array(
+	'id' => 'open_web_apps',
+	'order' => 74,
+	'href' => OCP\Util::linkTo( 'open_web_apps', 'main.php' ),
+	'icon' => OCP\Util::imagePath( 'open_web_apps', 'mozilla-rocket-small.png' ),
+	'name' => 'Open web apps'
+));
