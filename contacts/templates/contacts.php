@@ -319,6 +319,7 @@
 	</div>
 	<div class="adr">
 		<li data-element="adr" data-checksum="{checksum}" data-lang="<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>" class="propertycontainer">
+		<li data-element="adr" data-checksum="{checksum}" data-lang="<?php p(OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en')); ?>" class="propertycontainer">
 			<span class="float display">
 				<label class="meta parameters"></label>
 				<span class="adr">{value}</span>
