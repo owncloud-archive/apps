@@ -16,20 +16,20 @@ var ocsvgFile = {
 	<input type="button" id="ocsvgBtnClose" value="<?php p($l->t('Close')); ?>" />
 </div>
 <div id="svgEditor">
-    <iframe src="<?php echo OC_Helper::linkTo('files_svgedit', 'svg-edit/svg-editor.html'); ?>" id="svgedit"></iframe>
+    <iframe src="<?php print_unescaped(OC_Helper::linkTo('files_svgedit', 'svg-edit/svg-editor.html')); ?>" id="svgedit"></iframe>
 </div>
 <div id="svgEditorSave" title="<?php p($l->t('Save')); ?>">
 	<ul>
 		<li><a href="#svgSave">
-            <img src="<?php echo OC_Helper::mimetypeIcon("image/svg+xml"); ?>" class="mimetypeTab" />
+            <img src="<?php print_unescaped(OC_Helper::mimetypeIcon("image/svg+xml")); ?>" class="mimetypeTab" />
             <?php p($l->t('Save SVG')); ?>
         </a></li>
 		<li><a href="#pngExport">
-            <img src="<?php echo OC_Helper::mimetypeIcon("image/png"); ?>" class="mimetypeTab" />
+            <img src="<?php print_unescaped(OC_Helper::mimetypeIcon("image/png")); ?>" class="mimetypeTab" />
             <?php p($l->t('Export PNG')); ?>
         </a></li>
 		<li><a href="#pdfExport">
-            <img src="<?php echo OC_Helper::mimetypeIcon("application/pdf"); ?>" class="mimetypeTab" />
+            <img src="<?php print_unescaped(OC_Helper::mimetypeIcon("application/pdf")); ?>" class="mimetypeTab" />
             <?php p($l->t('Export PDF')); ?>
         </a></li>
 	</ul>

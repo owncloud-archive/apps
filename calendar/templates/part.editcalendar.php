@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 ?>
-<td id="<?php echo $_['new'] ? 'new' : 'edit' ?>calendar_dialog" title="<?php echo $_['new'] ? $l->t("New calendar") : $l->t("Edit calendar"); ?>" colspan="6">
+<td id="<?php p($_['new'] ? 'new' : 'edit') ?>calendar_dialog" title="<?php p($_['new'] ? $l->t("New calendar") : $l->t("Edit calendar")); ?>" colspan="6">
 <table width="100%" style="border: 0;">
 <tr>
 	<th><?php p($l->t('Displayname')) ?></th>
@@ -18,7 +18,7 @@
 <tr>
 	<td></td>
 	<td>
-		<input id="edit_active_<?php p($_['calendar']['id']) ?>" type="checkbox"<?php echo $_['calendar']['active'] ? ' checked="checked"' : '' ?>>
+		<input id="edit_active_<?php p($_['calendar']['id']) ?>" type="checkbox"<?php p($_['calendar']['active'] ? ' checked="checked"' : '') ?>>
 		<label for="edit_active_<?php p($_['calendar']['id']) ?>">
 			<?php p($l->t('Active')) ?>
 		</label>
@@ -32,13 +32,13 @@
 			<?php
 			if (!isset($_['calendar']['calendarcolor'])) {$_['calendar']['calendarcolor'] = false;}
 			foreach($_['calendarcolor_options'] as $color) {
-				echo '<option value="' . $color . '"' . ($_['calendar']['calendarcolor'] == $color ? ' selected="selected"' : '') . '>' . $color . '</option>';
+				print_unescaped('<option value="' . OC_Util::sanitizeHTML($color) . '"' . ($_['calendar']['calendarcolor'] == $color ? ' selected="selected"' : '') . '>' . OC_Util::sanitizeHTML($color) . '</option>');
 			}
 			?>
 		</select>
 	</td>
 </tr>
 </table>
-<input style="float: left;"  id="editCalendar-submit" type="button" data-id="<?php echo $_['new'] ? "new" : $_['calendar']['id'] ?>" value="<?php echo $_['new'] ? $l->t("Save") : $l->t("Submit"); ?>">
-<input style="float: left;"  id="editCalendar-cancel"  type="button" data-id="<?php echo $_['new'] ? "new" : $_['calendar']['id'] ?>" value="<?php p($l->t("Cancel")); ?>">
+<input style="float: left;"  id="editCalendar-submit" type="button" data-id="<?php p($_['new'] ? "new" : $_['calendar']['id']) ?>" value="<?php p($_['new'] ? $l->t("Save") : $l->t("Submit")); ?>">
+<input style="float: left;"  id="editCalendar-cancel"  type="button" data-id="<?php p($_['new'] ? "new" : $_['calendar']['id']) ?>" value="<?php p($l->t("Cancel")); ?>">
 </td>

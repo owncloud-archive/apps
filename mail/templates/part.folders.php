@@ -4,16 +4,16 @@
 </form>
 
 <?php foreach ($_['accounts'] as $account): ?>
-    <h2 class="mail_account"><?php echo $account['name']; ?></h2>
-    <ul class="mail_folders" data-account_id="<?php echo $account['id']; ?>">
-        <!--	<li>--><?php //echo $account['error']; ?><!--</li>-->
+    <h2 class="mail_account"><?php p($account['name']); ?></h2>
+    <ul class="mail_folders" data-account_id="<?php p($account['id']); ?>">
+        <!--	<li>--><?php //p($account['error']); ?><!--</li>-->
 		<?php foreach ($account['folders'] as $folder): ?>
 		<?php $unseen = $folder['unseen'] ?>
 		<?php $total = $folder['total'] ?>
-        <li data-folder_id="<?php echo $folder['id']; ?>">
-			<?php echo $folder['name']; ?>
+        <li data-folder_id="<?php p($folder['id']); ?>">
+			<?php p($folder['name']); ?>
 			<?php if ($total > 0) {
-			echo " ($unseen/$total)";
+			p(" ($unseen/$total)");
 		}?>
         </li>
 		<?php endforeach; ?>

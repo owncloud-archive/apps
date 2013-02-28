@@ -1,13 +1,13 @@
 <?php
 $accounts = OCA\Mail\App::getFolders(OCP\User::getUser());
 if (count($accounts) == 0) {
-	echo $this->inc("part.no-accounts");
+	print_unescaped($this->inc("part.no-accounts"));
 } else {
 	?>
 
 <div id="leftcontent" class="leftcontent">
     <div id="mail-folders">
-        <img src="<?php echo OCP\Util::imagePath('core', 'loading.gif'); ?>" />
+        <img src="<?php print_unescaped(OCP\Util::imagePath('core', 'loading.gif')); ?>" />
     </div>
     <div id="bottomcontrols">
         <button class="control settings" title="<?php p($l->t('Settings')); ?>"></button>
@@ -23,13 +23,13 @@ if (count($accounts) == 0) {
 	    <tr class="template_loading mail_message_loading">
             <td></td>
 		    <td>
-			    <img src="<?php echo OCP\Util::imagePath('core', 'loading.gif'); ?>" />
+			    <img src="<?php print_unescaped(OCP\Util::imagePath('core', 'loading.gif')); ?>" />
             </td>
             <td></td>
 	    </tr>
     </table>
 </div>
 
-<?php echo $this->inc("part.editor"); ?>
+<?php print_unescaped($this->inc("part.editor")); ?>
 
 <?php } ?>

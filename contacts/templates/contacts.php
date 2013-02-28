@@ -89,8 +89,8 @@
 		</div>
 	</div>
 	<div id="firstrun" class="hidden">
-		<?php echo $l->t('<h3>You have no contacts in your addressbook.</h3>'
-			. '<p>Add a new contact or import existing contacts from a VCF file.</p>') ?>
+		<?php print_unescaped($l->t('<h3>You have no contacts in your addressbook.</h3>'
+			. '<p>Add a new contact or import existing contacts from a VCF file.</p>')) ?>
 		<div id="selections">
 			<button class="addcontact icon-plus text"><?php p($l->t('Add contact')) ?></button>
 			<button class="import icon text"><?php p($l->t('Import')) ?></button>
@@ -103,7 +103,7 @@
 		method="post"
 		enctype="multipart/form-data"
 		target="crop_target"
-		action="<?php echo OCP\Util::linkToAbsolute('contacts', 'ajax/savecrop.php'); ?>">
+		action="<?php print_unescaped(OCP\Util::linkToAbsolute('contacts', 'ajax/savecrop.php')); ?>">
 		<input type="hidden" id="id" name="id" value="{id}" />
 		<input type="hidden" id="tmpkey" name="tmpkey" value="{tmpkey}" />
 		<fieldset id="coords">
@@ -128,7 +128,7 @@
 <script id="contactListItemTemplate" type="text/template">
 	<tr class="contact" data-id="{id}">
 		<td class="name"
-			style="background: url('<?php echo OC_Helper::linkToRemoteBase('contactthumbnail'); ?>?id={id}')">
+			style="background: url('<?php print_unescaped(OC_Helper::linkToRemoteBase('contactthumbnail')); ?>?id={id}')">
 			<input type="checkbox" name="id" value="{id}" /><span class="nametext">{name}</span>
 		</td>
 		<td class="email">

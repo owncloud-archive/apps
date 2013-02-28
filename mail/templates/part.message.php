@@ -1,6 +1,6 @@
 <tr id="mail_message_header">
 	<td>
-        <img src="<?php echo OCP\Util::imagePath('mail', 'person.png'); ?>" />
+        <img src="<?php print_unescaped(OCP\Util::imagePath('mail', 'person.png')); ?>" />
 	</td>
     <td>
 		<?php p($_['message']['from']); ?>
@@ -14,9 +14,9 @@
 	    ?>
     </td>
     <td>
-        <img src="<?php echo OCP\Util::imagePath('mail', 'reply.png'); ?>" />
-        <img src="<?php echo OCP\Util::imagePath('mail', 'reply-all.png'); ?>" />
-        <img src="<?php echo OCP\Util::imagePath('mail', 'forward.png'); ?>" />
+        <img src="<?php print_unescaped(OCP\Util::imagePath('mail', 'reply.png')); ?>" />
+        <img src="<?php print_unescaped(OCP\Util::imagePath('mail', 'reply-all.png')); ?>" />
+        <img src="<?php print_unescaped(OCP\Util::imagePath('mail', 'forward.png')); ?>" />
         <br/>
 	    <?php p(OCP\Util::formatDate($_['message']['date'])); ?>
 	</td>

@@ -15,13 +15,13 @@
 <dl>
 	<dt><?php p($l->t('Etherpad service URL')); ?></dt>
 	<dd>
-		<input id="<?php echo $urlKey; ?>" value="<?php echo $_[$urlKey]; ?>" />
+		<input id="<?php p($urlKey); ?>" value="<?php p($_[$urlKey]); ?>" />
 	</dd>
 	<dt>
 		<?php p($l->t('Username')); ?>
 	</dt>
 	<dd>
-		<input id="<?php echo $usernameKey; ?>" value="<?php echo $_[$usernameKey]; ?>" />
+		<input id="<?php p($usernameKey); ?>" value="<?php p($_[$usernameKey]); ?>" />
 	</dd>
 	<dt>&nbsp;</dt>
 	<dd>

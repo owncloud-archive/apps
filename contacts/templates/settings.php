@@ -3,9 +3,9 @@
 		<?php p($l->t('CardDAV syncing addresses')); ?> (<a href="http://owncloud.org/synchronisation/" target="_blank"><?php p($l->t('more info')); ?></a>)
 		<dl>
 		<dt><?php p($l->t('Primary address (Kontact et al)')); ?></dt>
-		<dd><code><?php echo OCP\Util::linkToRemote('carddav'); ?></code></dd>
+		<dd><code><?php print_unescaped(OCP\Util::linkToRemote('carddav')); ?></code></dd>
 		<dt><?php p($l->t('iOS/OS X')); ?></dt>
-		<dd><code><?php echo OCP\Util::linkToRemote('carddav'); ?>principals/<?php echo OCP\USER::getUser(); ?></code>/</dd>
+		<dd><code><?php print_unescaped(OCP\Util::linkToRemote('carddav')); ?>principals/<?php p(OCP\USER::getUser()); ?></code>/</dd>
 		</dl>
 		<div class="addressbooks-settings hidden">
 			<?php p($l->t('Addressbooks')); ?>
@@ -17,7 +17,7 @@
 				>
 				<td class="active">
 					<?php if($addressbook['permissions'] & OCP\PERMISSION_UPDATE) { ?>
-					<input type="checkbox" <?php echo (($addressbook['active']) == '1' ? ' checked="checked"' : ''); ?> />
+					<input type="checkbox" <?php print_unescaped((($addressbook['active']) == '1' ? ' checked="checked"' : '')); ?> />
 					<?php } ?>
 				</td>
 				<td class="name"><?php p($addressbook['displayname']) ?></td>
@@ -38,7 +38,7 @@
 				</td>
 				<td class="action">
 					<a class="svg action download" title="<?php p($l->t('Download')); ?>"
-						href="<?php echo OCP\Util::linkToAbsolute('contacts', 'export.php'); ?>?bookid=<?php p($addressbook['id']) ?>"></a>
+						href="<?php print_unescaped(OCP\Util::linkToAbsolute('contacts', 'export.php')); ?>?bookid=<?php p($addressbook['id']) ?>"></a>
 				</td>
 				<td class="action">
 					<?php if($addressbook['permissions'] & OCP\PERMISSION_UPDATE) { ?>

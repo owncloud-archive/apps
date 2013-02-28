@@ -12,10 +12,10 @@ globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 				<form onsubmit="login(); return false;">
 					<table>
 						<tr>
-							<td><img data-type="system_logo" src="<?php echo OCP\Util::imagePath('carddavmate', 'logo.svg'); ?>" alt="Logo" /></td>
+							<td><img data-type="system_logo" src="<?php print_unescaped(OCP\Util::imagePath('carddavmate', 'logo.svg')); ?>" alt="Logo" /></td>
 						</tr>
 						<tr>
-							<td><input data-type="system_username" type="text" class="fs" autocomplete="off" placeholder="Login" value="<?php echo OCP\User::getUser(); ?>" /></td>
+							<td><input data-type="system_username" type="text" class="fs" autocomplete="off" placeholder="Login" value="<?php p(OCP\User::getUser()); ?>" /></td>
 						</tr>
 						<tr>
 							<td><input data-type="system_password" type="password" class="fs" autocomplete="off" placeholder="Password" /></td>
@@ -45,11 +45,11 @@ globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 		</div>
 		<div class="resources_d">
 			<div data-type="resources_txt" class="resources_h">Resources</div>
-			<input id="Logout" style="display: none;" data-url="" class="system_l" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'logout.svg'); ?>" alt="Logout" onclick="logout();" />
+			<input id="Logout" style="display: none;" data-url="" class="system_l" type="image" src="<?php print_unescaped(OCP\Util::imagePath('carddavmate', 'logout.svg')); ?>" alt="Logout" onclick="logout();" />
 		</div>
 		<div class="collection_d">
 			<div data-type="addressbook_txt" class="collection_h">Addressbook</div>
-			<input id="AddContact" disabled="disabled" data-account-uid="" data-url="" data-filter-url="" class="collection_a element_no_display" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'new_contact.svg'); ?>" alt="Add Contact" onclick="$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABList').find('.ablist_item').removeClass('ablist_item_selected'); editor_cleanup(true); $('#vcard_editor').attr('data-account-uid',this.getAttribute('data-account-uid')); $('#vcard_editor').attr('data-url',this.getAttribute('data-url')); 
+			<input id="AddContact" disabled="disabled" data-account-uid="" data-url="" data-filter-url="" class="collection_a element_no_display" type="image" src="<?php print_unescaped(OCP\Util::imagePath('carddavmate', 'new_contact.svg')); ?>" alt="Add Contact" onclick="$('#ResourceListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABListOverlay').fadeTo(globalEditorFadeAnimation,0.6); $('#ABList').find('.ablist_item').removeClass('ablist_item_selected'); editor_cleanup(true); $('#vcard_editor').attr('data-account-uid',this.getAttribute('data-account-uid')); $('#vcard_editor').attr('data-url',this.getAttribute('data-url')); 
 		$('#vcard_editor').find('[data-type=cancel]').attr('data-id',globalAddressbookList.getLoadedContactUID());
 		processEditorElements('add',null); $('[data-type=given]').focus();" />
 		</div>
@@ -69,11 +69,11 @@ globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 		</div>
 		<div id="ResourceListOverlay"></div>
 		<div id="SearchBox">
-			<img data-type="invalid" style="position: inline; margin-top: 0px; margin-left: 3px; vertical-align: top;" src="<?php echo OCP\Util::imagePath('carddavmate', 'search.svg'); ?>" alt="invalid" />
+			<img data-type="invalid" style="position: inline; margin-top: 0px; margin-left: 3px; vertical-align: top;" src="<?php p(OCP\Util::imagePath('carddavmate', 'search.svg')); ?>" alt="invalid" />
 			<div class="container">
 				<input data-type="search" type="text" placeholder="Search" size="45" value="" />
 			</div>
-			<img data-type="reset" style="display: none; position: absolute; margin-top: 7px; right: 9px; vertical-align: top;" src="<?php echo OCP\Util::imagePath('carddavmate', 'x.svg'); ?>" alt="reset" onclick="if(globalQs!=null) {$('[data-type=search]').val(''); globalQs.search('');}" />
+			<img data-type="reset" style="display: none; position: absolute; margin-top: 7px; right: 9px; vertical-align: top;" src="<?php p(OCP\Util::imagePath('carddavmate', 'x.svg')); ?>" alt="reset" onclick="if(globalQs!=null) {$('[data-type=search]').val(''); globalQs.search('');}" />
 		</div>
 		<div id="ABList">
 			<div id="ABListTemplate" style="display: none;">
@@ -117,7 +117,7 @@ globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 									<tr>
 										<td rowspan="8" class="photo_box">
 											<div class="photo_div">
-												<img id="photo" data-type="photo" class="photo" src="<?php echo OCP\Util::imagePath('carddavmate', 'user.svg'); ?>" alt="Photo" />
+												<img id="photo" data-type="photo" class="photo" src="<?php p(OCP\Util::imagePath('carddavmate', 'user.svg')); ?>" alt="Photo" />
 											</div>
 										</td>
 										<td><input data-type="given" type="text" class="hs" placeholder="FirstName" value="" /></td>
@@ -133,10 +133,10 @@ globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 									</tr>
 									<tr>
 										<td>
-											<input data-type="date_bday" type="text" class="hs" placeholder="BirthDay" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="<?php echo OCP\Util::imagePath('carddavmate', 'error_b.svg'); ?>" alt="invalid" />
+											<input data-type="date_bday" type="text" class="hs" placeholder="BirthDay" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="<?php p(OCP\Util::imagePath('carddavmate', 'error_b.svg')); ?>" alt="invalid" />
 										</td>
 										<td>
-											<input data-type="date_anniversary" type="text" class="hs" placeholder="Anniversary" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="<?php echo OCP\Util::imagePath('carddavmate', 'error_b.svg'); ?>" alt="invalid" />
+											<input data-type="date_anniversary" type="text" class="hs" placeholder="Anniversary" value="" /><img data-type="invalid" style="position: inline; margin-top: 1px; margin-left: -20px; display: none; vertical-align: top;" src="<?php p(OCP\Util::imagePath('carddavmate', 'error_b.svg')); ?>" alt="invalid" />
 										</td>
 									</tr>
 									<tr>
@@ -151,7 +151,7 @@ globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 									<tr class="heightfix">
 										<td colspan="2" class="heightfix">
 											<label>
-												<input data-type="isorg" type="checkbox" onclick="if($(this).prop('checked')) {if($('#vcard_editor').find('img[data-type=photo]').attr('src')=='<?php echo OCP\Util::imagePath('carddavmate', 'user.svg'); ?>') $('#vcard_editor').find('img[data-type=photo]').attr('src','<?php echo OCP\Util::imagePath('carddavmate', 'company.svg'); ?>')} else if($('#vcard_editor').find('img[data-type=photo]').attr('src')=='<?php echo OCP\Util::imagePath('carddavmate', 'company.svg'); ?>') $('#vcard_editor').find('img[data-type=photo]').attr('src','<?php echo OCP\Util::imagePath('carddavmate', 'user.svg'); ?>')" /><span data-type="company_contact">Company Contact</span>
+												<input data-type="isorg" type="checkbox" onclick="if($(this).prop('checked')) {if($('#vcard_editor').find('img[data-type=photo]').attr('src')=='<?php p(OCP\Util::imagePath('carddavmate', 'user.svg')); ?>') $('#vcard_editor').find('img[data-type=photo]').attr('src','<?php p(OCP\Util::imagePath('carddavmate', 'company.svg')); ?>')} else if($('#vcard_editor').find('img[data-type=photo]').attr('src')=='<?php p(OCP\Util::imagePath('carddavmate', 'company.svg')); ?>') $('#vcard_editor').find('img[data-type=photo]').attr('src','<?php p(OCP\Util::imagePath('carddavmate', 'user.svg')); ?>')" /><span data-type="company_contact">Company Contact</span>
 											</label>
 										</td>
 									</tr>
@@ -162,8 +162,8 @@ globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 							<td data-type="phone_txt" colspan="5" class="attr_desc">Phone</td>
 						</tr>
 						<tr data-type="%phone" data-id="0">
-							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
-							<td data-type="%add"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
+							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'op_del.svg')); ?>" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'op_add.svg')); ?>" alt="+" /></td>
 							<td data-size="small">
 								<select data-type="phone_type">
 									<option data-type="work">work</option>
@@ -181,15 +181,15 @@ globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 								</select>
 							</td>
 							<td colspan="2" onmouseover="if(typeof globalUriHandlerTel!='undefined' && globalUriHandlerTel!=null && $(this).find('input[data-type=value]').prop('readonly') && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
-								<input data-type="value" type="text" class="fs" placeholder="Phone" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'arrow.svg'); ?>" alt=">" onclick="if(typeof globalUriHandlerTel!='undefined' && globalUriHandlerTel!=null) parent.location=globalUriHandlerTel+$(this).parent().find('input[data-type=value]').val();" />
+								<input data-type="value" type="text" class="fs" placeholder="Phone" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'arrow.svg')); ?>" alt=">" onclick="if(typeof globalUriHandlerTel!='undefined' && globalUriHandlerTel!=null) parent.location=globalUriHandlerTel+$(this).parent().find('input[data-type=value]').val();" />
 							</td>
 						</tr>
 						<tr>
 							<td data-type="email_txt" colspan="5" class="attr_desc">Email</td>
 						</tr>
 						<tr data-type="%email" data-id="0">
-							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
-							<td data-type="%add"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
+							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'op_del.svg')); ?>" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'op_add.svg')); ?>" alt="+" /></td>
 							<td data-size="small">
 								<select data-type="email_type">
 									<option data-type="internet_work">work</option>
@@ -199,15 +199,15 @@ globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 								</select>
 							</td>
 							<td colspan="2" onmouseover="if(typeof globalUriHandlerEmail!='undefined' && globalUriHandlerEmail!=null && $(this).find('input[data-type=value]').prop('readonly') && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
-								<input data-type="value" type="text" class="fs" placeholder="Email" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'arrow.svg'); ?>" alt=">" onclick="if(typeof globalUriHandlerEmail!='undefined' && globalUriHandlerEmail!=null) parent.location=globalUriHandlerEmail+$(this).parent().find('input[data-type=value]').val();" />
+								<input data-type="value" type="text" class="fs" placeholder="Email" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'arrow.svg')); ?>" alt=">" onclick="if(typeof globalUriHandlerEmail!='undefined' && globalUriHandlerEmail!=null) parent.location=globalUriHandlerEmail+$(this).parent().find('input[data-type=value]').val();" />
 							</td>
 						</tr>
 						<tr>
 							<td data-type="url_txt" colspan="5" class="attr_desc">URL</td>
 						</tr>
 						<tr data-type="%url" data-id="0">
-							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
-							<td data-type="%add"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
+							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'op_del.svg')); ?>" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'op_add.svg')); ?>" alt="+" /></td>
 							<td data-size="small">
 								<select data-type="url_type">
 									<option data-type="work">work</option>
@@ -217,15 +217,15 @@ globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 								</select>
 							</td>
 							<td colspan="2" onmouseover="if(typeof globalUriHandlerUrl!='undefined' && globalUriHandlerUrl!=null && $(this).find('input[data-type=value]').prop('readonly') && $(this).find('input[data-type=value]').val()!='' && $(this).find('input[type=image]').css('visibility')=='hidden') $(this).find('input[type=image]').css('visibility','')" onmouseout="$(this).find('input[type=image]').css('visibility','hidden');">
-								<input data-type="value" type="text" class="fs" placeholder="URL" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'arrow.svg'); ?>" alt=">" onclick="if(typeof globalUriHandlerUrl!='undefined' && globalUriHandlerUrl!=null) {var value=$(this).parent().find('input[data-type=value]').val(); if(value.match(RegExp('^[a-z0-9]+:','i'))==null) value=globalUriHandlerUrl+value; window.open(value);}" />
+								<input data-type="value" type="text" class="fs" placeholder="URL" value="" /><input data-type="value_handler" style="position: inline; margin-left: -13px; visibility: hidden; vertical-align: top;" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'arrow.svg')); ?>" alt=">" onclick="if(typeof globalUriHandlerUrl!='undefined' && globalUriHandlerUrl!=null) {var value=$(this).parent().find('input[data-type=value]').val(); if(value.match(RegExp('^[a-z0-9]+:','i'))==null) value=globalUriHandlerUrl+value; window.open(value);}" />
 							</td>
 						</tr>
 						<tr>
 							<td data-type="related_txt" colspan="5" class="attr_desc">Related</td>
 						</tr>
 						<tr data-type="%person" data-id="0">
-							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
-							<td data-type="%add"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
+							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'op_del.svg')); ?>" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'op_add.svg')); ?>" alt="+" /></td>
 							<td data-size="small">
 								<select data-type="person_type">
 									<option data-type="/_$!<father>!$_/">father</option>
@@ -248,8 +248,8 @@ globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 							<td data-type="im_txt" colspan="5" class="attr_desc">IM</td>
 						</tr>
 						<tr data-type="%im" data-id="0">
-							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
-							<td data-type="%add"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
+							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'op_del.svg')); ?>" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'op_add.svg')); ?>" alt="+" /></td>
 							<td data-size="small">
 								<select data-type="im_type">
 									<option data-type="work">work</option>
@@ -279,8 +279,8 @@ globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 							<td data-type="address_txt" colspan="5" class="attr_desc">Address</td>
 						</tr>
 						<tr data-type="%address" data-id="0">
-							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_del.svg'); ?>" alt="-" /></td>
-							<td data-type="%add"><input class="op" type="image" src="<?php echo OCP\Util::imagePath('carddavmate', 'op_add.svg'); ?>" alt="+" /></td>
+							<td data-type="%del" style="visibility: hidden;"><input class="op" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'op_del.svg')); ?>" alt="-" /></td>
+							<td data-type="%add"><input class="op" type="image" src="<?php p(OCP\Util::imagePath('carddavmate', 'op_add.svg')); ?>" alt="+" /></td>
 							<td data-size="small">
 								<select data-type="address_type">
 									<option data-type="work">work</option>

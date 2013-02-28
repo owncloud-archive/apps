@@ -26,12 +26,12 @@
 						$ex[0] = "Other";
 					}
 					if ($continent!=$ex[0]):
-						if ($continent!="") echo '</optgroup>';
-						echo '<optgroup label="'.$ex[0].'">';
+						if ($continent!="") print_unescaped('</optgroup>');
+						print_unescaped('<optgroup label="'.OC_Util::sanitizeHTML($ex[0]).'">');
 					endif;
 					$city=strtr($ex[1], '_', ' ');
 					$continent=$ex[0];
-					echo '<option value="'.$timezone.'"'.($_['timezone'] == $timezone?' selected="selected"':'').'>'.$city.'</option>';
+					print_unescaped('<option value="'.OC_Util::sanitizeHTML($timezone).'"'.($_['timezone'] == $timezone?' selected="selected"':'').'>'.OC_Util::sanitizeHTML($city).'</option>');
 					var_dump($_['timezone']);
 				endforeach;?>
 				</select>
@@ -53,7 +53,7 @@
 				&nbsp;&nbsp;
 			</td>
 			<td>
-				<select style="display: none; width: 60px;" id="timeformat" title="<?php echo "timeformat"; ?>" name="timeformat">
+				<select style="display: none; width: 60px;" id="timeformat" title="<?php p("timeformat"); ?>" name="timeformat">
 					<option value="24" id="24h"><?php p($l->t("24h")); ?></option>
 					<option value="ampm" id="ampm"><?php p($l->t("12h")); ?></option>
 				</select>
@@ -65,7 +65,7 @@
 				&nbsp;&nbsp;
 			</td>
 			<td>
-				<select style="display: none;" id="firstday" title="<?php echo "First day"; ?>" name="firstday">
+				<select style="display: none;" id="firstday" title="<?php p("First day"); ?>" name="firstday">
 					<option value="mo" id="mo"><?php p($l->t("Monday")); ?></option>
 					<option value="su" id="su"><?php p($l->t("Sunday")); ?></option>
 				</select>
@@ -87,9 +87,9 @@
 		<?php p($l->t('Calendar CalDAV syncing addresses')); ?> (<a href="http://owncloud.org/synchronisation/" target="_blank"><?php p($l->t('more info')); ?></a>)
 		<dl>
 		<dt><?php p($l->t('Primary address (Kontact et al)')); ?></dt>
-		<dd><code><?php echo OCP\Util::linkToRemote('caldav'); ?></code></dd>
+		<dd><code><?php print_unescaped(OCP\Util::linkToRemote('caldav')); ?></code></dd>
 		<dt><?php p($l->t('iOS/OS X')); ?></dt>
-		<dd><code><?php echo OCP\Util::linkToRemote('caldav'); ?>principals/<?php echo OCP\USER::getUser(); ?></code>/</dd>
+		<dd><code><?php print_unescaped(OCP\Util::linkToRemote('caldav')); ?>principals/<?php p(OCP\USER::getUser()); ?></code>/</dd>
 		<dt><?php p($l->t('Read only iCalendar link(s)')); ?></dt>
 		<dd>
 			<?php foreach($_['calendars'] as $calendar) {
