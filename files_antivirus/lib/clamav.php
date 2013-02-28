@@ -50,9 +50,9 @@ class OC_Files_Antivirus {
 						\OCP\Util::writeLog('files_antivirus', 'Email: '.$email, \OCP\Util::DEBUG);
 						if (!empty($email) ) {
 							$tmpl = new OC_Template('files_antivirus', 'notification');
-							$tmpl->assign('file', $path, false);
-							$tmpl->assign('host', OCP\Util::getServerHost(), false);
-							$tmpl->assign('user', OC_User::getUser(), false);
+							$tmpl->assign('file', $path);
+							$tmpl->assign('host', OCP\Util::getServerHost());
+							$tmpl->assign('user', OC_User::getUser());
 							$msg = $tmpl->fetchPage();
 							$from = 'security-noreply@' . OCP\Util::getServerHost();
 							\OC_MAIL::send($email, OC_User::getUser(), 'Malware detected', $msg, $from, 'ownCloud', 1);

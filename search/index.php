@@ -63,14 +63,14 @@ if (is_array($results)) {
     }
 }
 $list = new OCP\Template('files', 'part.list', '');
-$list->assign('files', $files, false);
-$list->assign('baseURL', OCP\Util::linkTo('files', 'index.php') . '?dir=', false);
-$list->assign('downloadURL', OCP\Util::linkTo('files', 'download.php') . '?file=', false);
+$list->assign('files', $files);
+$list->assign('baseURL', OCP\Util::linkTo('files', 'index.php') . '?dir=');
+$list->assign('downloadURL', OCP\Util::linkTo('files', 'download.php') . '?file=');
 
 // populate main template
 $tmpl = new OCP\Template('search', 'index', 'user');
 $tmpl->assign('files', $files);
-$tmpl->assign('fileList', $list->fetchPage(), false);
-$tmpl->assign('breadcrumb', $query, true);
+$tmpl->assign('fileList', $list->fetchPage());
+$tmpl->assign('breadcrumb', $query);
 $tmpl->assign('allowZipDownload', intval(OCP\Config::getSystemValue('allowZipDownload', true)));
 $tmpl->printPage();

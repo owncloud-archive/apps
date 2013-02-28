@@ -44,6 +44,6 @@ OCP\App::setActiveNavigationEntry('calendar_index');
 $tmpl = new OCP\Template('calendar', 'calendar', 'user');
 
 if(array_key_exists('showevent', $_GET)) {
-	$tmpl->assign('showevent', $_GET['showevent'], false);
+	$tmpl->assign('showevent', $_GET['showevent']);
 }
 $tmpl->printPage();
