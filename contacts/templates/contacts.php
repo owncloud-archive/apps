@@ -1,4 +1,4 @@
-<form class="float" id="file_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php'); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
+<form class="float" id="file_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php')); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
 	<input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'] ?>">
 	<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
 	<input type="hidden" class="max_human_file_size" value="(max <?php echo $_['uploadMaxHumanFilesize']; ?>)">
@@ -19,7 +19,7 @@
 			<h2 data-id="import" tabindex="0" role="button"><?php p($l->t('Import')); ?></h3>
 				<ul class="hidden">
 					<li class="import-upload">
-						<form id="import_upload_form" action="<?php echo OCP\Util::linkTo('contacts', 'ajax/uploadimport.php'); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
+						<form id="import_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadimport.php')); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
 						<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $_['uploadMaxFilesize'] ?>" id="max_upload">
 						<label for="import_fileupload"><?php p($l->t('Select files to import')); ?>
 							<button class="import-upload-button" title="<?php p($l->t('Select files')); ?>"></button>
@@ -150,7 +150,7 @@
 </script>
 
 <script id="contactFullTemplate" type="text/template">
-<form action="<?php echo OCP\Util::linkTo('contacts', 'index.php'); ?>" method="post" enctype="multipart/form-data">
+<form action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'index.php')); ?>" method="post" enctype="multipart/form-data">
 	<section id="contact" data-id="{id}">
 	<span class="arrow"></span>
 	<ul>
@@ -318,7 +318,6 @@
 		</li>
 	</div>
 	<div class="adr">
-		<li data-element="adr" data-checksum="{checksum}" data-lang="<?php echo OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en'); ?>" class="propertycontainer">
 		<li data-element="adr" data-checksum="{checksum}" data-lang="<?php p(OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en')); ?>" class="propertycontainer">
 			<span class="float display">
 				<label class="meta parameters"></label>
@@ -392,7 +391,7 @@
 	<label class="float">{displayname}</label>
 	<span class="actions">
 	<a title="<?php p($l->t('Share')); ?>" class="share action" data-possible-permissions="{permissions}" data-item="{id}" data-item-type="addressbook"></a>
-	<a title="<?php p($l->t('Export')); ?>" class="download action" href="<?php echo OCP\Util::linkTo('contacts', 'export.php'); ?>?bookid={id}"></a>
+	<a title="<?php p($l->t('Export')); ?>" class="download action" href="<?php print_unescaped(OCP\Util::linkTo('contacts', 'export.php')); ?>?bookid={id}"></a>
 	<a  title="<?php p($l->t('CardDAV link')); ?>" class="globe action"></a>
 	<a  title="<?php p($l->t('Delete')); ?>" class="delete action"></a>
 </span></li>

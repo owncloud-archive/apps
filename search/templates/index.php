@@ -2,7 +2,7 @@
 
 <!-- search form -->
 <div id="controls">
-    <form id="search-form" action="<?php echo OCP\Util::linkTo('search', 'index.php'); ?>" method="get">
+    <form id="search-form" action="<?php print_unescaped(OCP\Util::linkTo('search', 'index.php')); ?>" method="get">
         <input type="text" name="query" id="search_query" value="<?php echo $_['breadcrumb']; ?>">
         <button class="button search_button">Search</button>
     </form>
