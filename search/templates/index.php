@@ -34,7 +34,7 @@
         </tr>
     </thead>
     <tbody id="fileList">
-        <?php echo($_['fileList']); ?>
+        <?php print_unescaped($_['fileList']); ?>
     </tbody>
 </table>
 <div id="editor"></div>

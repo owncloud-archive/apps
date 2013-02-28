@@ -9,7 +9,7 @@
 	    </fieldset>
     </div>
     <div>
-        <small><?php echo($l->t('You can manage your email accounts here:')); ?></small>
+        <small><?php p($l->t('You can manage your email accounts here:')); ?></small>
 	    <a class="button"><?php p($l->t('Settings')); ?></a>
 	</div>
 </div>
