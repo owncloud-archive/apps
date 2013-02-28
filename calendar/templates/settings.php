@@ -7,12 +7,12 @@
  * See the COPYING-README file.
  */
 ?>
-<h2 id="title_general"><?php echo $l->t('General'); ?></h2>
+<h2 id="title_general"><?php p($l->t('General')); ?></h2>
 <div id="general">
 	<table class="nostyle">
 		<tr>
 			<td>
-				<label for="timezone" class="bold"><?php echo $l->t('Timezone');?></label>
+				<label for="timezone" class="bold"><?php p($l->t('Timezone'));?></label>
 				&nbsp;&nbsp;
 			</td>
 			<td>
@@ -44,53 +44,53 @@
 			<td>
 				<input type="checkbox" name="timezonedetection" id="timezonedetection">
 				&nbsp;
-				<label for="timezonedetection"><?php echo $l->t('Update timezone automatically'); ?></label>
+				<label for="timezonedetection"><?php p($l->t('Update timezone automatically')); ?></label>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<label for="timeformat" class="bold"><?php echo $l->t('Time format');?></label>
+				<label for="timeformat" class="bold"><?php p($l->t('Time format'));?></label>
 				&nbsp;&nbsp;
 			</td>
 			<td>
 				<select style="display: none; width: 60px;" id="timeformat" title="<?php echo "timeformat"; ?>" name="timeformat">
-					<option value="24" id="24h"><?php echo $l->t("24h"); ?></option>
-					<option value="ampm" id="ampm"><?php echo $l->t("12h"); ?></option>
+					<option value="24" id="24h"><?php p($l->t("24h")); ?></option>
+					<option value="ampm" id="ampm"><?php p($l->t("12h")); ?></option>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<label for="firstday" class="bold"><?php echo $l->t('Start week on');?></label>
+				<label for="firstday" class="bold"><?php p($l->t('Start week on'));?></label>
 				&nbsp;&nbsp;
 			</td>
 			<td>
 				<select style="display: none;" id="firstday" title="<?php echo "First day"; ?>" name="firstday">
-					<option value="mo" id="mo"><?php echo $l->t("Monday"); ?></option>
-					<option value="su" id="su"><?php echo $l->t("Sunday"); ?></option>
+					<option value="mo" id="mo"><?php p($l->t("Monday")); ?></option>
+					<option value="su" id="su"><?php p($l->t("Sunday")); ?></option>
 				</select>
 			</td>
 		</tr>
 		<tr class="advancedsettings">
 			<td>
-				<label for="" class="bold"><?php echo $l->t('Cache');?></label>
+				<label for="" class="bold"><?php p($l->t('Cache'));?></label>
 				&nbsp;&nbsp;
 			</td>
 			<td>
-				<input id="cleancalendarcache" type="button" class="button" value="<?php echo $l->t('Clear cache for repeating events');?>">
+				<input id="cleancalendarcache" type="button" class="button" value="<?php p($l->t('Clear cache for repeating events'));?>">
 			</td>
 		</tr>
 	</table>
 </div>
-<h2 id="title_urls"><?php echo $l->t('URLs'); ?></h2>
+<h2 id="title_urls"><?php p($l->t('URLs')); ?></h2>
 <div id="urls">
-		<?php echo $l->t('Calendar CalDAV syncing addresses'); ?> (<a href="http://owncloud.org/synchronisation/" target="_blank"><?php echo $l->t('more info'); ?></a>)
+		<?php p($l->t('Calendar CalDAV syncing addresses')); ?> (<a href="http://owncloud.org/synchronisation/" target="_blank"><?php p($l->t('more info')); ?></a>)
 		<dl>
-		<dt><?php echo $l->t('Primary address (Kontact et al)'); ?></dt>
+		<dt><?php p($l->t('Primary address (Kontact et al)')); ?></dt>
 		<dd><code><?php echo OCP\Util::linkToRemote('caldav'); ?></code></dd>
-		<dt><?php echo $l->t('iOS/OS X'); ?></dt>
+		<dt><?php p($l->t('iOS/OS X')); ?></dt>
 		<dd><code><?php echo OCP\Util::linkToRemote('caldav'); ?>principals/<?php echo OCP\USER::getUser(); ?></code>/</dd>
-		<dt><?php echo $l->t('Read only iCalendar link(s)'); ?></dt>
+		<dt><?php p($l->t('Read only iCalendar link(s)')); ?></dt>
 		<dd>
 			<?php foreach($_['calendars'] as $calendar) {
 			if($calendar['userid'] == OCP\USER::getUser()){

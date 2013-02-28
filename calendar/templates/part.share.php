@@ -24,10 +24,10 @@ if(is_array($sharedwithByEvent)) {
 }
 ?>
 
-<label for="sharewith"><?php echo $l->t('Share with:'); ?></label>
+<label for="sharewith"><?php p($l->t('Share with:')); ?></label>
 <input type="text" id="sharewith" data-item-source="<?php echo $eventid; ?>" /><br />
 
-<strong><?php echo $l->t('Shared with'); ?></strong>
+<strong><?php p($l->t('Shared with')); ?></strong>
 <ul class="sharedby eventlist">
 <?php foreach($eventsharees as $sharee): ?>
 	<li data-share-with="<?php echo $sharee['share_with']; ?>"
@@ -38,13 +38,13 @@ if(is_array($sharedwithByEvent)) {
 		<?php echo $sharee['share_with'] . ' (' . ($sharee['share_type'] == OCP\Share::SHARE_TYPE_USER ? 'user' : 'group'). ')'; ?>
 		<span class="shareactions">
 			<input class="update" type="checkbox" <?php echo ($sharee['permissions'] & OCP\PERMISSION_UPDATE?'checked="checked"':'')?>
-				title="<?php echo $l->t('Editable'); ?>">
+				title="<?php p($l->t('Editable')); ?>">
 			<input class="share" type="checkbox" <?php echo ($sharee['permissions'] & OCP\PERMISSION_SHARE?'checked="checked"':'')?>
-				title="<?php echo $l->t('Shareable'); ?>">
+				title="<?php p($l->t('Shareable')); ?>">
 			<input class="delete" type="checkbox" <?php echo ($sharee['permissions'] & OCP\PERMISSION_DELETE?'checked="checked"':'')?>
-				title="<?php echo $l->t('Deletable'); ?>">
+				title="<?php p($l->t('Deletable')); ?>">
 			<img src="<?php echo OCP\Util::imagePath('core', 'actions/delete.svg'); ?>" class="svg action delete"
-				title="<?php echo $l->t('Unshare'); ?>">
+				title="<?php p($l->t('Unshare')); ?>">
 		</span>
 	</li>
 <?php endforeach; ?>
@@ -53,7 +53,7 @@ if(is_array($sharedwithByEvent)) {
 	echo '<div id="sharedWithNobody">' . $l->t('Nobody') . '</div>';
 } ?>
 <br />
-<strong><?php echo $l->t('Shared via calendar'); ?></strong>
+<strong><?php p($l->t('Shared via calendar')); ?></strong>
 <ul class="sharedby calendarlist">
 <?php foreach($calsharees as $sharee): ?>
 	<li data-share-with="<?php echo $sharee['share_with']; ?>"
@@ -64,16 +64,16 @@ if(is_array($sharedwithByEvent)) {
 		<?php echo $sharee['share_with'] . ' (' . ($sharee['share_type'] == OCP\Share::SHARE_TYPE_USER ? 'user' : 'group'). ')'; ?>
 		<span class="shareactions">
 			<input class="update" type="checkbox" <?php echo ($sharee['permissions'] & OCP\PERMISSION_UPDATE?'checked="checked"':'')?>
-				title="<?php echo $l->t('Editable'); ?>">
+				title="<?php p($l->t('Editable')); ?>">
 			<input class="share" type="checkbox" <?php echo ($sharee['permissions'] & OCP\PERMISSION_SHARE?'checked="checked"':'')?>
-				title="<?php echo $l->t('Shareable'); ?>">
+				title="<?php p($l->t('Shareable')); ?>">
 			<input class="delete" type="checkbox" <?php echo ($sharee['permissions'] & OCP\PERMISSION_DELETE?'checked="checked"':'')?>
-				title="<?php echo $l->t('Deletable'); ?>">
+				title="<?php p($l->t('Deletable')); ?>">
 			<img src="<?php echo OCP\Util::imagePath('core', 'actions/delete.svg'); ?>" class="svg action delete"
-				title="<?php echo $l->t('Unshare'); ?>">
+				title="<?php p($l->t('Unshare')); ?>">
 		</span>
 	</li>
 <?php endforeach; ?>
 </ul>
 <br />
-<?php echo $l->t('NOTE: Actions on events shared via calendar will affect the entire calendar sharing.'); ?>
+<?php p($l->t('NOTE: Actions on events shared via calendar will affect the entire calendar sharing.')); ?>

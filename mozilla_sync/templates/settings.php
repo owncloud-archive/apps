@@ -1,16 +1,17 @@
 <fieldset class="personalblock">
-	<legend><?php echo $l->t('Mozilla Sync Service'); ?></legend>
+	<legend><?php p($l->t('Mozilla Sync Service')); ?></legend>
     <table class="nostyle">
+
       <tr>
-        <td><label class="bold"><?php echo $l->t('Email');?></label></td>
+        <td><label class="bold"><?php p($l->t('Email'));?></label></td>
         <td><?php echo $_['email'];?></td>
       </tr>
       <tr>
-        <td><label class="bold"><?php echo $l->t('Password and Confirmation');?></label></td>
+        <td><label class="bold"><?php p($l->t('Password and Confirmation'));?></label></td>
         <td>Use your owncloud account password</td>
       </tr>
       <tr>
-        <td><label class="bold"><?php echo $l->t('Server address');?></label></td>
+        <td><label class="bold"><?php p($l->t('Server address'));?></label></td>
         <td><?php echo $_['syncaddress'];?></td>
       </tr>
     </table>

@@ -1,6 +1,6 @@
 <?php if (count($_['accounts']) > 0) { ?>
 <form>
-    <input type="button" id="mail_new_message" value="<?php echo $l->t('New Message'); ?>">
+    <input type="button" id="mail_new_message" value="<?php p($l->t('New Message')); ?>">
 </form>
 
 <?php foreach ($_['accounts'] as $account): ?>

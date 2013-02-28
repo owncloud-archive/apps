@@ -6,5 +6,5 @@
  * See the COPYING-README file.
  */
 echo '<ul><li class="error">';
-echo $l->t('The calendar application also need to be enabled to use this application.');
+p($l->t('The calendar application also need to be enabled to use this application.'));
 echo '</li></ul>';

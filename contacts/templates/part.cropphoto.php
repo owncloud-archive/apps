@@ -28,5 +28,5 @@ $requesttoken = $_['requesttoken'];
 <script type="text/javascript" src="<?php echo OC_Helper::linkTo('contacts/js', 'jcrop.js');?>"></script>
 <?php
 } else {
-	echo $l->t('The temporary image has been removed from cache.');
+	p($l->t('The temporary image has been removed from cache.'));
 }

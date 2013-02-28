@@ -1,6 +1,6 @@
 <form id="tattoo" method="post">
 	<fieldset class="personalblock">
-		<strong><?php echo $l->t('Tattoo Wallpaper'); ?></strong><br />
+		<strong><?php p($l->t('Tattoo Wallpaper')); ?></strong><br />
 		<div class="tattooTile">
 			<div class="tattooTilePicture"></div>
 			<input type="radio" name="tattooWallpaper" value="none"<?php if ($_['tattooSelectedWallpaper']=='none') echo ' checked="checked"'; ?>/>

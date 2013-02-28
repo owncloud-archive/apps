@@ -1,6 +1,6 @@
 <fieldset class="personalblock" id="migration-settings-block">
-	<legend><strong><?php echo $l->t('User Account Migration');?></strong></legend>
-	<p><?php echo $l->t('Export and import ownCloud user accounts.');?>
+	<legend><strong><?php p($l->t('User Account Migration'));?></strong></legend>
+	<p><?php p($l->t('Export and import ownCloud user accounts.'));?>
 	</p>
 	<?php if(isset($_['error'])) { ?>
 		<h3><?php echo $_['error']['error']; ?></h3>

@@ -2,7 +2,7 @@
 <!--
 //configuration
 globalNetworkCheckSettings.href = '<?php echo $_['carddavUrl']; ?>';
-globalInterfaceLanguage = '<?php echo $l->t('en_US'); ?>';
+globalInterfaceLanguage = '<?php p($l->t('en_US')); ?>';
 //-->
 </script>
 <div id="carddavmate">

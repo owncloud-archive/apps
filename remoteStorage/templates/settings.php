@@ -1,6 +1,6 @@
 	<fieldset class="personalblock">
 		<img src="<?php echo image_path('remoteStorage', 'remoteStorage.png') ?>" style="width:16px">
-		<strong><?php echo $l->t('remoteStorage') ?></strong> user address: <?php echo OCP\USER::getUser().'@'.$_SERVER['SERVER_NAME'] ?> (<a href="http://unhosted.org/">more info</a>)
+		<strong><?php p($l->t('remoteStorage')) ?></strong> user address: <?php echo OCP\USER::getUser().'@'.$_SERVER['SERVER_NAME'] ?> (<a href="http://unhosted.org/">more info</a>)
 		<p><em>Apps that currently have access to your ownCloud:</em></p>
 		<script>
 			function revokeToken(token) {

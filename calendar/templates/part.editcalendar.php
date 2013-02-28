@@ -9,7 +9,7 @@
 <td id="<?php echo $_['new'] ? 'new' : 'edit' ?>calendar_dialog" title="<?php echo $_['new'] ? $l->t("New calendar") : $l->t("Edit calendar"); ?>" colspan="6">
 <table width="100%" style="border: 0;">
 <tr>
-	<th><?php echo $l->t('Displayname') ?></th>
+	<th><?php p($l->t('Displayname')) ?></th>
 	<td>
 		<input id="displayname_<?php echo $_['calendar']['id'] ?>" type="text" value="<?php echo OCP\Util::sanitizeHTML($_['calendar']['displayname']) ?>">
 	</td>
@@ -20,13 +20,13 @@
 	<td>
 		<input id="edit_active_<?php echo $_['calendar']['id'] ?>" type="checkbox"<?php echo $_['calendar']['active'] ? ' checked="checked"' : '' ?>>
 		<label for="edit_active_<?php echo $_['calendar']['id'] ?>">
-			<?php echo $l->t('Active') ?>
+			<?php p($l->t('Active')) ?>
 		</label>
 	</td>
 </tr>
 <?php endif; ?>
 <tr>
-	<th><?php echo $l->t('Calendar color') ?></th>
+	<th><?php p($l->t('Calendar color')) ?></th>
 	<td>
 		<select id="calendarcolor_<?php echo $_['calendar']['id'] ?>" class="colorpicker">
 			<?php
@@ -40,5 +40,5 @@
 </tr>
 </table>
 <input style="float: left;"  id="editCalendar-submit" type="button" data-id="<?php echo $_['new'] ? "new" : $_['calendar']['id'] ?>" value="<?php echo $_['new'] ? $l->t("Save") : $l->t("Submit"); ?>">
-<input style="float: left;"  id="editCalendar-cancel"  type="button" data-id="<?php echo $_['new'] ? "new" : $_['calendar']['id'] ?>" value="<?php echo $l->t("Cancel"); ?>">
+<input style="float: left;"  id="editCalendar-cancel"  type="button" data-id="<?php echo $_['new'] ? "new" : $_['calendar']['id'] ?>" value="<?php p($l->t("Cancel")); ?>">
 </td>

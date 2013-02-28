@@ -1,11 +1,11 @@
 <form id="notify">
 	<fieldset class="personalblock">
-		<p><strong><?php echo $l->t('Notifications'); ?></strong></p>
+		<p><strong><?php p($l->t('Notifications')); ?></strong></p>
 		<table class="notificationClassesTable">
 			<thead>
 				<th><input type="checkbox" name="notify-block-all" id="notify-block-all" /><label for="notify-block-all"</th>
-				<th><?php echo $l->t('App Name'); ?></th>
-				<th><?php echo $l->t('Summary'); ?></th>
+				<th><?php p($l->t('App Name')); ?></th>
+				<th><?php p($l->t('Summary')); ?></th>
 			</thead>
 			<tbody>
 			<?php foreach($_['classes'] as $cid => $class): ?>

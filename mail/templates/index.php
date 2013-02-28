@@ -10,7 +10,7 @@ if (count($accounts) == 0) {
         <img src="<?php echo OCP\Util::imagePath('core', 'loading.gif'); ?>" />
     </div>
     <div id="bottomcontrols">
-        <button class="control settings" title="<?php echo $l->t('Settings'); ?>"></button>
+        <button class="control settings" title="<?php p($l->t('Settings')); ?>"></button>
     </div>
 </div>
 <div id="rightcontent" class="rightcontent">
