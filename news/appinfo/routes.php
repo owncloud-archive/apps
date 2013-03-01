@@ -26,7 +26,7 @@ require_once \OC_App::getAppPath('news') . '/appinfo/bootstrap.php';
 function callController($controllerName, $methodName, $urlParams, $disableAdminCheck=true,
 						$isAjax=false){
 	$container = createDIContainer();
-	
+
 	// run security checks
 	$security = $container['Security'];
 	runSecurityChecks($security, $isAjax, $disableAdminCheck);
@@ -51,6 +51,32 @@ function callAjaxController($controllerName, $methodName, $urlParams, $disableAd
 }
 
 
+function callExtController($urlParams){
+	// check for controller
+	switch ($urlParams['controllerName']) {
+		case "folders":
+			$controllerName = FolderController;
+			break;
+		case "feeds":
+			$controllerName = FeedController;
+			break;
+		case "items":
+			$controllerName = ItemController;
+			break;
+		default:
+			return new \OC_OCS_Result(null, 999, 'Invalid query');
+	}
+
+	// method defaults to getAll
+	$methodName = isset($urlParams['methodName']) ? $urlParams['methodName'] : "getAll";
+
+	// and run the method, must return \OC_OCS_Result
+	$container = createDIContainer();
+	$controller = $container[$controllerName];
+	return $controller->$methodName($urlParams);
+}
+
+
 /**
  * Runs the security checks and exits on error
  * @param Security $security: the security object
@@ -60,7 +86,7 @@ function callAjaxController($controllerName, $methodName, $urlParams, $disableAd
  */
 function runSecurityChecks($security, $isAjax=false, $disableAdminCheck=true){
 	if($disableAdminCheck){
-		$security->setIsAdminCheck(false);	
+		$security->setIsAdminCheck(false);
 	}
 
 	if($isAjax){
@@ -80,19 +106,19 @@ function runSecurityChecks($security, $isAjax=false, $disableAdminCheck=true){
  * Normal Routes
  */
 $this->create('news_index', '/')->action(
-	function($params){		
+	function($params){
 		callController('NewsController', 'index', $params, true);
 	}
 );
 
 $this->create('news_index_feed', '/feed/{feedid}')->action(
-	function($params){		
+	function($params){
 		callController('NewsController', 'index', $params, true);
 	}
 );
 
 $this->create('news_export_opml', '/export/opml')->action(
-	function($params){		
+	function($params){
 		callController('NewsController', 'exportOPML', $params, true);
 	}
 );
@@ -102,13 +128,13 @@ $this->create('news_export_opml', '/export/opml')->action(
  * AJAX Routes
  */
 $this->create('news_ajax_init', '/ajax/init')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'init', $params);
 	}
 );
 
 $this->create('news_ajax_setshowall', '/ajax/setshowall')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'setShowAll', $params);
 	}
 );
@@ -118,25 +144,25 @@ $this->create('news_ajax_setshowall', '/ajax/setshowall')->action(
  * Folders
  */
 $this->create('news_ajax_collapsefolder', '/ajax/collapsefolder')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'collapseFolder', $params);
 	}
 );
 
 $this->create('news_ajax_changefoldername', '/ajax/changefoldername')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'changeFolderName', $params);
 	}
 );
 
 $this->create('news_ajax_createfolder', '/ajax/createfolder')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'createFolder', $params);
 	}
 );
 
 $this->create('news_ajax_deletefolder', '/ajax/deletefolder')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'deleteFolder', $params);
 	}
 );
@@ -146,31 +172,31 @@ $this->create('news_ajax_deletefolder', '/ajax/deletefolder')->action(
  * Feeds
  */
 $this->create('news_ajax_loadfeed', '/ajax/loadfeed')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'loadFeed', $params);
 	}
 );
 
 $this->create('news_ajax_deletefeed', '/ajax/deletefeed')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'deleteFeed', $params);
 	}
 );
 
 $this->create('news_ajax_movefeedtofolder', '/ajax/movefeedtofolder')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'moveFeedToFolder', $params);
 	}
 );
 
 $this->create('news_ajax_updatefeed', '/ajax/updatefeed')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'updateFeed', $params);
 	}
 );
 
 $this->create('news_ajax_createfeed', '/ajax/createfeed')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'createFeed', $params);
 	}
 );
@@ -180,13 +206,13 @@ $this->create('news_ajax_createfeed', '/ajax/createfeed')->action(
  * Items
  */
 $this->create('news_ajax_setitemstatus', '/ajax/setitemstatus')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'setItemStatus', $params);
 	}
 );
 
 $this->create('news_ajax_setallitemsread', '/ajax/setallitemsread')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'setAllItemsRead', $params);
 	}
 );
@@ -196,7 +222,15 @@ $this->create('news_ajax_setallitemsread', '/ajax/setallitemsread')->action(
  * Import stuff
  */
 $this->create('news_ajax_importOPML', '/import')->action(
-	function($params){		
+	function($params){
 		callAjaxController('NewsAjaxController', 'uploadOPML', $params);
 	}
 );
+
+/**
+ * External Api
+ */
+\OCP\API::register('get', '/news/{controllerName}', 'OCA\News\callExtController', 'news', \OC_API::USER_AUTH);
+\OCP\API::register('get', '/news/{controllerName}/{methodName}', 'OCA\News\callExtController', 'news', \OC_API::USER_AUTH);
+\OCP\API::register('get', '/news/{controller}/{folderid}/{methodName}', 'OCA\News\callExtController', 'news', \OC_API::USER_AUTH);
+

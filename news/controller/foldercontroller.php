@@ -25,12 +25,11 @@
 
 namespace OCA\News\Controller;
 
-use \OCA\AppFramework\Controller\Controller;
+use \OCA\AppFramework\Controller\Controller as Controller;
 use \OCA\AppFramework\Core\API;
 use \OCA\AppFramework\Http\Request;
 use \OCA\AppFramework\Db\DoesNotExistException;
 use \OCA\AppFramework\Db\MultipleObjectsReturnedException;
-
 
 class FolderController extends Controller {
 
@@ -49,8 +48,18 @@ class FolderController extends Controller {
 	 * Returns all folders
 	 */
 	public function getAll(){
-		$folders = $this->folderMapper->getAll();
-		return $this->renderJSON($folders);
+		$folders = $this->folderMapper->childrenOf(0);
+        $foldersArray = array();
+        foreach($folders as $folder){
+            array_push($foldersArray, array(
+                'id' => (int)$folder->getId(),
+                'name' => $folder->getName(),
+                'parentId' => (int)$folder->getParentId(),
+                'opened' => (int)$folder->getOpened()
+                )
+            );
+        }
+        return new \OC_OCS_Result($foldersArray);
 	}
 
 
