@@ -76,7 +76,7 @@ class NewsController extends Controller {
 		$lastViewedFeedType = $this->api->getUserValue('lastViewedFeedType');
 
 		if( $lastViewedFeedId === null || $lastViewedFeedType === null) {
-			
+
 			$this->api->setUserValue('lastViewedFeed', $this->feedMapper->mostRecent());;
 			$this->api->setUserValue('lastViewedFeedType', FeedType::FEED);
 
