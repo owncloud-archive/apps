@@ -1,11 +1,11 @@
 <h1>OpenID Authentication</h1>
 <p>A site identifying as
-<a href="<?php echo htmlspecialchars($_['site']);?>">
-<?php echo htmlspecialchars($_['site']);?>
+<a href="<?php p($_['site']);?>">
+<?php p($_['site']);?>
 </a>
 has asked us for confirmation that
-<a href="<?php echo htmlspecialchars($_['openid']);?>">
-<?php echo htmlspecialchars($_['openid']);?>
+<a href="<?php p($_['openid']);?>">
+<?php p($_['openid']);?>
 </a>
 is your identity URL.
 </p>

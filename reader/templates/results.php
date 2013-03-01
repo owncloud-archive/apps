@@ -15,14 +15,14 @@
 	if( $path != '' ){
 		for($i=0; $i<count($path); $i++){ 
 			$curr_path .= '/'.str_replace('+','%20', urlencode($path[$i]));?>
-			<div class="crumb <?php if($i == count($path)-1) echo 'last';?> svg" data-dir='<?php echo $curr_path;?>' style='background-image:url("<?php echo OCP\image_path('core','breadcrumb.png');?>")'>
-				<a href="<?php echo $base_url.$curr_path.'/'; ?>"><?php echo htmlentities($path[$i],ENT_COMPAT,'utf-8'); ?></a>
+			<div class="crumb <?php if($i == count($path)-1) p('last');?> svg" data-dir='<?php p($curr_path);?>' style='background-image:url("<?php print_unescaped(OCP\image_path('core','breadcrumb.png'));?>")'>
+				<a href="<?php print_unescaped($base_url.$curr_path.'/'); ?>"><?php p($path[$i]) ?></a>
 			</div>
 	<?php }
 	}	
 	?>
 	<div id="file_action_panel"></div>
-	<input type="hidden" name="dir" value="<?php echo empty($_['path'])?'':rtrim($_['path'],'/') ?>" id="dir">
+	<input type="hidden" name="dir" value="<?php p(empty($_['path'])?'':rtrim($_['path'],'/')) ?>" id="dir">
 </div>
 
 <div class="actions"></div>
