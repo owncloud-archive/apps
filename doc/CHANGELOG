@@ -24,6 +24,8 @@
 
 Changelog: 
 
+* Fri Mar 01 2013 Christian Reiner: version 0.1.9
+Some general security fix to the apps framework.
 * Mon Feb 18 2013 Christian Reiner: version 0.1.8
 Compatibility to ownCloud version 5.
 * Tue Jan 29 2013 Christian Reiner: version 0.1.7
