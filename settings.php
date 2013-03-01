@@ -32,6 +32,11 @@
  * @author Christian Reiner
  */
 
+// Session checks
+OCP\JSON::checkLoggedIn ( );
+OCP\JSON::checkAdminUser ( );
+OCP\JSON::checkAppEnabled ( 'imprint' );
+
 OCP\Util::addStyle  ( '3rdparty', 'chosen/chosen' );
 OCP\Util::addStyle  ( 'imprint',  'imprint' );
 
