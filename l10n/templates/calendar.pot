@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 5.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-03-01 00:01+0100\n"
+"POT-Creation-Date: 2013-03-02 00:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -393,15 +393,15 @@ msgstr ""
 msgid "unnamed"
 msgstr ""
 
-#: lib/calendar.php:163 lib/calendar.php:196
+#: lib/calendar.php:178 lib/calendar.php:211
 msgid "You do not have the permissions to update this calendar."
 msgstr ""
 
-#: lib/calendar.php:231
+#: lib/calendar.php:246
 msgid "You do not have the permissions to delete this calendar."
 msgstr ""
 
-#: lib/calendar.php:265
+#: lib/calendar.php:280
 msgid "You do not have the permissions to add to this calendar."
 msgstr ""
 
