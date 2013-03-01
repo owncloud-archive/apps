@@ -277,7 +277,7 @@
 		<li data-element="email" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
-					<?php print_unescaped(OCP\html_select_options($_['email_types']), array()) ?>
+					<?php print_unescaped(OCP\html_select_options($_['email_types'], array())) ?>
 				</select>
 				<input type="checkbox" class="parameter tooltipped rightwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred')); ?>" />
 			</span>
