@@ -36,7 +36,7 @@ if(!empty($filename))
 	$writeable = \OC\Files\Filesystem::isUpdatable($path) ? 'true' : 'false';
 	$mtime = \OC\Files\Filesystem::filemtime($path);
 	$filecontents = \OC\Files\Filesystem::file_get_contents($path);
-	$encoding = mb_detect_encoding($filecontents."a", "UTF-8, WINDOWS-1252, ISO-8859-15, ISO-8859-1, ASCII", TRUE);
+	$encoding = mb_detect_encoding($filecontents."a", "UTF-8, WINDOWS-1252, ISO-8859-15, ISO-8859-1, ASCII", true);
 	if ($encoding == "") {
 		// set default encoding if it couldn't be detected
 		$encoding = 'ISO-8859-15';
