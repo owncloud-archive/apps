@@ -35,6 +35,8 @@ $dbParams = array(
 );
 
 if ($_POST) {
+	// CSRF check
+	OPC\JSON::callCheck();
 	foreach($params as $param) {
 		if(isset($_POST[$param])) {
 			OC_Appconfig::setValue('django_auth', $param, $_POST[$param]);

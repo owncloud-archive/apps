@@ -1,4 +1,5 @@
 <form id="django_auth" action="#" method="post">
+	<input type="hidden" name="requesttoken" value="<?php echo $_['requesttoken'] ?>" id="requesttoken">
 	<fieldset class="personalblock">
 		<legend><strong>Django Authentification Backend</strong></legend>
 		<p>

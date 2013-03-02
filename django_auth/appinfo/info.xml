@@ -7,7 +7,7 @@
 		ownCloud and your django webapplication need to share the same database.
 		Supported password hashers:SHA1, PBKDF2_SHA1, PBKDF2_SHA256.
 	</description>
-	<version>0.2</version>
+	<version>0.4.1</version>
 	<licence>AGPL</licence>
 	<author>Florian Reinhard florian.reinhard@googlemail.com</author>
 	<require>4</require>
