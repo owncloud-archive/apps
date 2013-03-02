@@ -214,7 +214,11 @@ function showFileEditor(dir, filename) {
 						aceEditor.setReadOnly(true);
 					}
 					setEditorSize();
-					setSyntaxMode(getFileExtension(filename));
+					if (result.data.mime && result.data.mime === 'text/html') {
+						setSyntaxMode('html');
+					} else {
+						setSyntaxMode(getFileExtension(filename));
+					}
 					OC.addScript('files_texteditor', 'aceeditor/theme-clouds', function () {
 						window.aceEditor.setTheme("ace/theme/clouds");
 					});
