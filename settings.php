@@ -33,9 +33,9 @@
  */
 
 // Session checks
-OCP\JSON::checkLoggedIn ( );
-OCP\JSON::checkAdminUser ( );
-OCP\JSON::checkAppEnabled ( 'imprint' );
+OCP\User::checkLoggedIn  ( );
+OCP\User::checkAdminUser ( );
+OCP\App::checkAppEnabled ( 'imprint' );
 
 OCP\Util::addStyle  ( '3rdparty', 'chosen/chosen' );
 OCP\Util::addStyle  ( 'imprint',  'imprint' );

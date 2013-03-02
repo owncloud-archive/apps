@@ -32,7 +32,7 @@
  */
 
 // Session checks
-OCP\JSON::checkAppEnabled ( 'imprint' );
+OCP\App::checkAppEnabled ( 'imprint' );
 
 OCP\App::setActiveNavigationEntry ( 'imprint' );
 OCP\Util::addStyle  ( 'imprint','imprint' );

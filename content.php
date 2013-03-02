@@ -32,7 +32,7 @@
  */
 
 // Session checks
-OCP\JSON::checkAppEnabled ( 'imprint' );
+OCP\App::checkAppEnabled ( 'imprint' );
 
 // prepare content
 if ( FALSE === ($content=OCP\Config::getAppValue('imprint','content',FALSE)) )
