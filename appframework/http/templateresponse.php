@@ -118,7 +118,7 @@ class TemplateResponse extends Response {
 		$template = $this->api->getTemplate($this->templateName, $this->renderAs, $appName);
 
 		foreach($this->params as $key => $value){
-			$template->assign($key, $value, false);
+			$template->assign($key, $value);
 		}
 
 		return $template->fetchPage();
