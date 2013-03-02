@@ -5,6 +5,7 @@
 # Translators:
 # Cyryl Sochacki <>, 2012.
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013.
+# Maciej Tarmas <maciej@tarmas.com>, 2013.
 # Marcin Małecki <gerber@tkdami.net>, 2011-2012.
 #   <mosslar@gmail.com>, 2011.
 #   <mplichta@gmail.com>, 2012.
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-26 00:00+0100\n"
-"PO-Revision-Date: 2013-02-25 12:42+0000\n"
-"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
+"POT-Creation-Date: 2013-03-03 00:02+0100\n"
+"PO-Revision-Date: 2013-03-02 14:40+0000\n"
+"Last-Translator: Maciej Tarmas <maciej@tarmas.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +30,7 @@ msgstr "Muzyka"
 
 #: js/collection.js:100 js/collection.js:210 js/collection.js:257
 msgid "songs"
-msgstr "piosenki"
+msgstr "utwory"
 
 #: js/collection.js:101 js/collection.js:208
 msgid "albums"
@@ -37,11 +38,11 @@ msgstr "albumy"
 
 #: js/collection.js:282
 msgid "Add to playlist"
-msgstr "Dodaj do playlisty"
+msgstr "Dodaj do listy odtwarzania"
 
 #: js/music.js:18
 msgid "Add album to playlist"
-msgstr "Dodaj album do playlisty"
+msgstr "Dodaj album do listy odtwarzania"
 
 #: templates/music.php:3
 msgid "Previous"
@@ -69,7 +70,7 @@ msgstr "Wyłącz wyciszenie"
 
 #: templates/music.php:22
 msgid "Rescan Collection"
-msgstr "Przeszukaj kolekcję"
+msgstr "Ponownie skanuj kolekcję"
 
 #: templates/music.php:37
 msgid "Artist"
