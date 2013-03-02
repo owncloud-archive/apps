@@ -34,6 +34,7 @@ if(!empty($filename))
 {
 	$path = $dir.'/'.$filename;
 	$writeable = \OC\Files\Filesystem::isUpdatable($path);
+	$mime = \OC\Files\Filesystem::getMimeType($path);
 	$mtime = \OC\Files\Filesystem::filemtime($path);
 	$filecontents = \OC\Files\Filesystem::file_get_contents($path);
 	$encoding = mb_detect_encoding($filecontents."a", "UTF-8, WINDOWS-1252, ISO-8859-15, ISO-8859-1, ASCII", true);
@@ -42,7 +43,12 @@ if(!empty($filename))
 		$encoding = 'ISO-8859-15';
 	}
 	$filecontents = iconv($encoding, "UTF-8", $filecontents);
-	OCP\JSON::success(array('data' => array('filecontents' => $filecontents, 'writeable' => $writeable, 'mtime' => $mtime)));
+	OCP\JSON::success(array('data' => array(
+		'filecontents' => $filecontents,
+		'writeable' => $writeable,
+		'mime' => $mime,
+		'mtime' => $mtime))
+	);
 } else {
 	OCP\JSON::error(array('data' => array( 'message' => 'Invalid file path supplied.')));
 }
