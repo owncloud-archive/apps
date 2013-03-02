@@ -91,7 +91,6 @@ function bindControlEvents() {
 
 // returns true or false if the editor is in view or not
 function editorIsShown() {
-	// Not working as intended. Always returns true.
 	return is_editor_shown;
 }
 
@@ -184,9 +183,10 @@ function giveEditorFocus() {
 
 // Loads the file editor. Accepts two parameters, dir and filename.
 function showFileEditor(dir, filename) {
-	// Delete any old editors
-	$('#editor').remove();
 	if (!editorIsShown()) {
+		is_editor_shown = true;
+		// Delete any old editors
+		$('#editor').remove();
 		// Loads the file editor and display it.
 		$('#content').append('<div id="editor"></div>');
 		var data = $.getJSON(
@@ -245,7 +245,6 @@ function showFileEditor(dir, filename) {
 			}
 			// End ajax
 		);
-		is_editor_shown = true;
 	}
 }
 
