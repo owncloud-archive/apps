@@ -123,7 +123,6 @@ jQuery.fn.slideShow.previous = function () {
 
 jQuery.fn.slideShow.stop = function () {
 	if (jQuery.fn.slideShow.container) {
-		BigScreen.exit();
 		jQuery.fn.slideShow.container.hide();
 		jQuery.fn.slideShow.container = null;
 	}
