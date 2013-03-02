@@ -64,12 +64,12 @@ function setSyntaxMode(ext) {
 	}
 }
 
-function showControls(dir, filename, writeperms) {
+function showControls(dir, filename, writeable) {
 	// Loads the control bar at the top.
 	OC.Breadcrumb.push(filename, '#');
 	// Load the new toolbar.
 	var editorbarhtml = '<div id="editorcontrols" style="display: none;">';
-	if (writeperms == "true") {
+	if (writeable) {
 		editorbarhtml += '<button id="editor_save">' + t('files_texteditor', 'Save') + '</button><div class="separator"></div>';
 	}
 	editorbarhtml += '<label for="editorseachval">' + t('files_texteditor', 'Search:');
@@ -199,7 +199,7 @@ function showFileEditor(dir, filename) {
 					// Initialise the editor
 					$('.actions,#file_action_panel,#content table').hide();
 					// Show the control bar
-					showControls(dir, filename, result.data.write);
+					showControls(dir, filename, result.data.writeable);
 					// Update document title
 					$('body').attr('old_title', document.title);
 					document.title = filename + ' - ownCloud';
@@ -210,7 +210,7 @@ function showFileEditor(dir, filename) {
 					window.aceEditor = ace.edit("editor");
 					aceEditor.setShowPrintMargin(false);
 					aceEditor.getSession().setUseWrapMode(true);
-					if (result.data.write == 'false') {
+					if ( ! result.data.writeable ) {
 						aceEditor.setReadOnly(true);
 					}
 					setEditorSize();
