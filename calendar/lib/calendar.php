@@ -15,7 +15,7 @@
  *     userid VARCHAR(255),
  *     displayname VARCHAR(100),
  *     uri VARCHAR(100),
- *     active INTEGER UNSIGNED NOT NULL DEFAULT '0',
+ *     active INTEGER UNSIGNED NOT NULL DEFAULT '1',
  *     ctag INTEGER UNSIGNED NOT NULL DEFAULT '0',
  *     calendarorder INTEGER UNSIGNED NOT NULL DEFAULT '0',
  *     calendarcolor VARCHAR(10),

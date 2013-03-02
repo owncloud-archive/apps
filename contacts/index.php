@@ -12,7 +12,14 @@
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('contacts');
 
-// Get active address books. This creates a default one if none exists.
+// Create default address books ...
+$addressbooks = OCA\Contacts\Addressbook::all(OCP\USER::getUser(), false);
+if( count($addressbooks) == 0) {
+    OCA\Contacts\Addressbook::addDefaults(OCP\USER::getUser());
+    $addressbooks = OCA\Contacts\Addressbook::all(OCP\USER::getUser(), true);
+}
+
+// Get active address books.
 $ids = OCA\Contacts\Addressbook::activeIds(OCP\USER::getUser());
 
 // Load the files we need
