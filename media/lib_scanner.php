@@ -101,12 +101,18 @@ class OC_MEDIA_SCANNER{
 		else if (isset($data['comments']['track_number']))
 		{
 			$track = $data['comments']['track_number'][0];
-			$track = explode('/',$track);
-			$track = $track[0];
+		}
+		else if (isset($data['comments']['tracknumber']))
+		{
+			$track = $data['comments']['tracknumber'][0];
 		}
 		else
 		{
 			$track = 0;
+		}
+		if (is_string($track) && strpos($track, '/')){
+			$track = explode('/',$track);
+			$track = $track[0];
 		}
 		$length=isset($data['playtime_seconds'])?round($data['playtime_seconds']):0;
 
