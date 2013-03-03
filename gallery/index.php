@@ -14,7 +14,5 @@ OCP\Util::addScript('gallery', 'gallery');
 OCP\Util::addScript('gallery', 'slideshow');
 OCP\Util::addStyle('gallery', 'styles');
 
-OCP\Util::addScript('gallery', 'bigscreen.min');
-
 $tmpl = new OCP\Template('gallery', 'index', 'user');
 $tmpl->printPage();
