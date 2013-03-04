@@ -160,7 +160,7 @@
 					<li><a class="action delete" title="<?php p($l->t('Delete current photo')); ?>"></a></li>
 					<li><a class="action edit" title="<?php p($l->t('Edit current photo')); ?>"></a></li>
 					<li><a class="action upload" title="<?php p($l->t('Upload new photo')); ?>"></a></li>
-					<li><a class="action cloud" title="<?php p($l->t('Select photo from ownCloud')); ?>"></a></li>
+					<li><a class="action cloud icon-cloud" title="<?php p($l->t('Select photo from ownCloud')); ?>"></a></li>
 				</ul>
 				<a class="favorite action {favorite}"></a>
 			</div>
