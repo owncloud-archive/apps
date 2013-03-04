@@ -28,7 +28,7 @@
 							print_unescaped('<li>' . OC_Util::sanitizeHTML($categorie) . '</li>');
 						}
 					}else{
-						print_unescaped('<li>' . $_['categories'] . '</li>');
+						print_unescaped('<li>' . OC_Util::sanitizeHTML($_['categories']) . '</li>');
 					}
 					print_unescaped('</ul>');
 				}
