@@ -75,7 +75,9 @@ class DIContainer extends \Pimple {
 		$this['TwigL10N'] = $this->share(function($c){
                         $trans = $c['API']->getTrans();
 			return new \Twig_SimpleFunction('trans', function () use ($trans) {
-				return call_user_func_array(array($trans, 't'), func_get_args());
+                                $args = func_get_args();
+                                $string = array_shift($args);
+                                return $trans->t($string, $args);
 			});
 		});
 
