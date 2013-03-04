@@ -908,6 +908,8 @@ OC.Contacts = OC.Contacts || {
 				groups: self.groups.categories,
 				currentgroup: {id:self.currentgroup, name:self.groups.nameById(self.currentgroup)}
 			};
+			self.$firstRun.hide();
+			self.$contactList.show();
 			self.tmpcontact = self.contacts.addContact(groupprops);
 			self.$rightContent.prepend(self.tmpcontact);
 			self.hideActions();
@@ -920,8 +922,6 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		this.$firstRun.on('click keydown', '.addcontact', function(event) {
-			self.$firstRun.hide();
-			self.$contactList.show();
 			if(wrongKey(event)) {
 				return;
 			}
@@ -1338,6 +1338,9 @@ OC.Contacts = OC.Contacts || {
 		delete this.currentid;
 		this.showActions(['add']);
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
+		if(this.contacts.length === 0) {
+			$(document).trigger('status.nomorecontacts');
+		}
 		//$('body').unbind('click', this.bodyListener);
 	},
 	openContact: function(id) {
