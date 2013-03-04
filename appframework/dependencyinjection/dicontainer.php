@@ -73,7 +73,7 @@ class DIContainer extends \Pimple {
 		
 		// enables the l10n function as t() function in twig
 		$this['TwigL10N'] = $this->share(function($c){
-			$trans = $c['API']->getTrans();;
+                        $trans = $c['API']->getTrans();
 			return new \Twig_SimpleFunction('trans', function () use ($trans) {
 				return call_user_func_array(array($trans, 't'), func_get_args());
 			});
