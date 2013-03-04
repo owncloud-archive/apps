@@ -23,8 +23,12 @@
 					p($l->t('No categories selected'));
 				}else{
 					print_unescaped('<ul>');
-					foreach($_['categories'] as $categorie) {
-						print_unescaped('<li>' . OC_Util::sanitizeHTML($categorie) . '</li>');
+					if(is_array($_['categories'])){
+						foreach($_['categories'] as $categorie) {
+							print_unescaped('<li>' . OC_Util::sanitizeHTML($categorie) . '</li>');
+						}
+					}else{
+						print_unescaped('<li>' . $_['categories'] . '</li>');
 					}
 					print_unescaped('</ul>');
 				}
