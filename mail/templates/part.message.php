@@ -23,6 +23,6 @@
 </tr>
 <tr id="mail_message">
 	<td colspan="3" class="mail_message_body">
-		<?php p($_['message']['body']); ?>
+		<?php print_unescaped($_['message']['body']); ?>
 	</td>
 </tr>
