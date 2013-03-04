@@ -1395,6 +1395,7 @@ OC.Contacts = OC.Contacts || {
 		var file = filelist[0];
 		var target = $('#file_upload_target');
 		var form = $('#file_upload_form');
+		form.find('input[name="id"]').val(this.currentid);
 		var totalSize=0;
 		if(file.size > $('#max_upload').val()){
 			OC.notify({
