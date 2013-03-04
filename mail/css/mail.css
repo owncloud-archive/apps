@@ -1,12 +1,16 @@
 #leftcontent {
-    top: 3.5em !important;
     padding: 0;
     margin: 0;
 }
 
-#rightcontent {
-    top: 3.5em !important;
-    padding-top: 5px;
+#rightcontent, .rightcontent {
+	position: absolute;
+	top: 4em;
+	left: 20em;
+	right: 0;
+	bottom: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 #bottomcontrols {
@@ -28,6 +32,10 @@ button.control {
     margin: 0.2em 0 0 1em;
     height: 2.4em;
     width: 2.4em; /* border: 0 none; border-radius: 0; -moz-box-shadow: none; box-shadow: none; outline: 0 none;*/
+}
+
+table#mail_messages {
+	width: 100%;
 }
 
 .settings {
