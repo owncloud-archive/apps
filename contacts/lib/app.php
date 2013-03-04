@@ -374,10 +374,10 @@ class App {
 			if(!in_array($property->name, self::$index_properties)) {
 				continue;
 			}
-			$preferred = false;
+			$preferred = 0;
 			foreach($property->parameters as $parameter) {
 				if($parameter->name == 'TYPE' && strtoupper($parameter->value) == 'PREF') {
-					$preferred = true;
+					$preferred = 1;
 					break;
 				}
 			}
