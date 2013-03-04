@@ -309,7 +309,7 @@ class App {
 	}
 
 	public static function cacheThumbnail($id, \OC_Image $image = null) {
-		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id)) {
+		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id) && $image === null) {
 			return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 		}
 		if(is_null($image)) {
