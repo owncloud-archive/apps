@@ -1,6 +1,6 @@
 <tr id="mail_message_header">
 	<td>
-        <img src="<?php print_unescaped(OCP\Util::imagePath('mail', 'person.png')); ?>" />
+        <img src="<?php print_unescaped($_['message']['sender_image']); ?>" width="32px" height="32px" />
 	</td>
     <td>
 		<?php p($_['message']['from']); ?>

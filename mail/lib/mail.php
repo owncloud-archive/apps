@@ -142,10 +142,24 @@ namespace OCA\Mail {
 				$m = $mailbox->getMessage($message_id);
 				$message = $m->as_array();
 
+				// add sender image
+				$message['sender_image'] = self::getPhoto($m->getFromEmail());
+
 				return array('message' => $message);
 			} catch (\Horde_Imap_Client_Exception $e) {
 				return array('error' => $e->getMessage());
 			}
+		}
+
+		public static function getPhoto($email) {
+			$result = \OCP\Contacts::search($email, array('EMAIL'));
+			if (count($result) > 0) {
+				if (isset($result[0]['PHOTO'])) {
+					$s = $result[0]['PHOTO'];
+					return substr($s, strpos($s, 'http'));
+				}
+			}
+			return \OCP\Util::imagePath('mail', 'person.png');
 		}
 
 		/**

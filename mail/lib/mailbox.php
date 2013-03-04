@@ -67,6 +67,10 @@ class Mailbox {
 		return $messages;
 	}
 
+	/**
+	 * @param $message_id
+	 * @return Message
+	 */
 	public function getMessage($message_id) {
 		return new Message($this->conn, $this->folder_id, $message_id);
 	}

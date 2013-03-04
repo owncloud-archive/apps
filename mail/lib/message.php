@@ -63,6 +63,12 @@ class Message {
 		return $this->fetch->getEnvelope();
 	}
 
+	public function getFromEmail() {
+		$e = $this->getEnvelope();
+		$from = $e->from[0];
+		return $from->bare_address;
+	}
+
 	public function getFrom() {
 		$e = $this->getEnvelope();
 		$from = $e->from[0];
