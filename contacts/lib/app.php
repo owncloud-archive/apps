@@ -398,7 +398,6 @@ class App {
 				}
 			} catch(\Exception $e) {
 				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
-				\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uri'.$uri, \OCP\Util::DEBUG);
 				return false;
 			}
 		}
