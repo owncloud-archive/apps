@@ -4,13 +4,14 @@
 # 
 # Translators:
 #   <appweb.cn@gmail.com>, 2012.
+# Kaijia Feng <fengkaijia@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-27 00:01+0100\n"
-"PO-Revision-Date: 2013-02-26 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-06 00:04+0100\n"
+"PO-Revision-Date: 2013-03-05 02:00+0000\n"
+"Last-Translator: fkj <fengkaijia@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,15 +21,15 @@ msgstr ""
 
 #: js/updater.js:5
 msgid "In progress..."
-msgstr ""
+msgstr "正在运行..."
 
 #: js/updater.js:16
 msgid "Done."
-msgstr ""
+msgstr "完成。"
 
 #: js/updater.js:17
 msgid "Here is your backup: "
-msgstr ""
+msgstr "备份："
 
 #: js/updater.js:21 js/updater.js:27
 msgid "Error"

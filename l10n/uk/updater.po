@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-27 00:01+0100\n"
-"PO-Revision-Date: 2013-02-26 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-06 00:04+0100\n"
+"PO-Revision-Date: 2013-03-05 12:40+0000\n"
+"Last-Translator: volodya327 <volodya327@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,11 +25,11 @@ msgstr "В процесі..."
 
 #: js/updater.js:16
 msgid "Done."
-msgstr ""
+msgstr "Виконано."
 
 #: js/updater.js:17
 msgid "Here is your backup: "
-msgstr ""
+msgstr "Ось ваша резервна копія:"
 
 #: js/updater.js:21 js/updater.js:27
 msgid "Error"
