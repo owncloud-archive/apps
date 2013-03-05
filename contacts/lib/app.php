@@ -285,9 +285,9 @@ class App {
 	public static function lastModified($contact = null) {
 		if(is_null($contact)) {
 			// FIXME: This doesn't take shared address books into account.
-			$sql = 'SELECT MAX(`lastmodified`) FROM `oc_contacts_cards`, `oc_contacts_addressbooks` ' . 
-				'WHERE  `oc_contacts_cards`.`addressbookid` = `oc_contacts_addressbooks`.`id` AND ' .
-				'`oc_contacts_addressbooks`.`userid` = ?';
+			$sql = 'SELECT MAX(`lastmodified`) FROM `*PREFIX*contacts_cards`, `*PREFIX*contacts_addressbooks` ' .
+				'WHERE  `*PREFIX*contacts_cards`.`addressbookid` = `*PREFIX*contacts_addressbooks`.`id` AND ' .
+				'`*PREFIX*contacts_addressbooks`.`userid` = ?';
 			$stmt = \OCP\DB::prepare($sql);
 			$result = $stmt->execute(array(\OCP\USER::getUser()));
 			if (\OC_DB::isError($result)) {
