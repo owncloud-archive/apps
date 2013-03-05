@@ -26,7 +26,7 @@ namespace OCA\AppFramework\Http;
 
 
 /**
- * Prompts the user to download the a textfile
+ * Redirects to a different URL
  */
 class RedirectResponse extends Response {
 

@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:31+0000\n"
+"POT-Creation-Date: 2013-03-04 00:02+0100\n"
+"PO-Revision-Date: 2013-03-03 14:40+0000\n"
 "Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -103,11 +103,11 @@ msgstr "Niečo sa pokazilo."
 msgid "Cannot save property of type \"%s\" as array"
 msgstr "Nemožno uložiť charaktersitiku typu \"%s\" ako pole"
 
-#: ajax/contact/saveproperty.php:180
+#: ajax/contact/saveproperty.php:179
 msgid "Missing IM parameter."
 msgstr "Chýba údaj o IM."
 
-#: ajax/contact/saveproperty.php:184
+#: ajax/contact/saveproperty.php:183
 msgid "Unknown IM: "
 msgstr "Neznáme IM:"
 

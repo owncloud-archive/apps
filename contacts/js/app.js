@@ -908,6 +908,8 @@ OC.Contacts = OC.Contacts || {
 				groups: self.groups.categories,
 				currentgroup: {id:self.currentgroup, name:self.groups.nameById(self.currentgroup)}
 			};
+			self.$firstRun.hide();
+			self.$contactList.show();
 			self.tmpcontact = self.contacts.addContact(groupprops);
 			self.$rightContent.prepend(self.tmpcontact);
 			self.hideActions();
@@ -920,8 +922,6 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		this.$firstRun.on('click keydown', '.addcontact', function(event) {
-			self.$firstRun.hide();
-			self.$contactList.show();
 			if(wrongKey(event)) {
 				return;
 			}
@@ -1338,7 +1338,10 @@ OC.Contacts = OC.Contacts || {
 		delete this.currentid;
 		this.showActions(['add']);
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
-		$('body').unbind('click', this.bodyListener);
+		if(this.contacts.length === 0) {
+			$(document).trigger('status.nomorecontacts');
+		}
+		//$('body').unbind('click', this.bodyListener);
 	},
 	openContact: function(id) {
 		console.log('Contacts.openContact', id);
@@ -1370,7 +1373,7 @@ OC.Contacts = OC.Contacts || {
 		//$contact.resizable({ minWidth: 400, minHeight: 400, maxHeight: maxheight});
 		this.$rightContent.prepend($contactelem);
 		adjustElems();
-		this.bodyListener = function(e) {
+		/*this.bodyListener = function(e) {
 			if(!self.currentid) {
 				return;
 			}
@@ -1381,7 +1384,7 @@ OC.Contacts = OC.Contacts || {
 		};
 		setTimeout(function() {
 			$('body').bind('click', self.bodyListener);
-		}, 500);
+		}, 500);*/
 	},
 	update: function() {
 		console.log('update');
@@ -1395,6 +1398,7 @@ OC.Contacts = OC.Contacts || {
 		var file = filelist[0];
 		var target = $('#file_upload_target');
 		var form = $('#file_upload_form');
+		form.find('input[name="id"]').val(this.currentid);
 		var totalSize=0;
 		if(file.size > $('#max_upload').val()){
 			OC.notify({

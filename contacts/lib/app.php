@@ -285,9 +285,9 @@ class App {
 	public static function lastModified($contact = null) {
 		if(is_null($contact)) {
 			// FIXME: This doesn't take shared address books into account.
-			$sql = 'SELECT MAX(`lastmodified`) FROM `oc_contacts_cards`, `oc_contacts_addressbooks` ' . 
-				'WHERE  `oc_contacts_cards`.`addressbookid` = `oc_contacts_addressbooks`.`id` AND ' .
-				'`oc_contacts_addressbooks`.`userid` = ?';
+			$sql = 'SELECT MAX(`lastmodified`) FROM `*PREFIX*contacts_cards`, `*PREFIX*contacts_addressbooks` ' .
+				'WHERE  `*PREFIX*contacts_cards`.`addressbookid` = `*PREFIX*contacts_addressbooks`.`id` AND ' .
+				'`*PREFIX*contacts_addressbooks`.`userid` = ?';
 			$stmt = \OCP\DB::prepare($sql);
 			$result = $stmt->execute(array(\OCP\USER::getUser()));
 			if (\OC_DB::isError($result)) {
@@ -309,7 +309,7 @@ class App {
 	}
 
 	public static function cacheThumbnail($id, \OC_Image $image = null) {
-		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id)) {
+		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id) && $image === null) {
 			return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 		}
 		if(is_null($image)) {
@@ -374,10 +374,10 @@ class App {
 			if(!in_array($property->name, self::$index_properties)) {
 				continue;
 			}
-			$preferred = false;
+			$preferred = 0;
 			foreach($property->parameters as $parameter) {
 				if($parameter->name == 'TYPE' && strtoupper($parameter->value) == 'PREF') {
-					$preferred = true;
+					$preferred = 1;
 					break;
 				}
 			}
@@ -398,7 +398,6 @@ class App {
 				}
 			} catch(\Exception $e) {
 				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
-				\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uri'.$uri, \OCP\Util::DEBUG);
 				return false;
 			}
 		}

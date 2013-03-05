@@ -26,7 +26,7 @@ namespace OCA\AppFramework\Http;
 
 
 /**
- * Prompts the user to download the a textfile
+ * Prompts the user to download the a file
  */
 abstract class DownloadResponse extends Response {
 	

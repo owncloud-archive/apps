@@ -26,7 +26,7 @@ namespace OCA\AppFramework\Http;
 
 
 /**
- * Prompts the user to download the a textfile
+ * Just outputs text to the browser
  */
 class TextResponse extends Response {
 
@@ -35,10 +35,13 @@ class TextResponse extends Response {
 	/**
 	 * Creates a response that just outputs text
 	 * @param string $content the content that should be written into the file
+	 * @param string $contentType the mimetype. text/ is added automatically so
+	 * only plain or html can be added to get text/plain or text/html
 	 */
-	public function __construct($content){
+	public function __construct($content, $contentType='plain'){
 		parent::__construct();
 		$this->content = $content;
+		$this->addHeader('text/' . $contentType);
 	}
 
 

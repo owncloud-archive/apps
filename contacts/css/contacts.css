@@ -171,7 +171,7 @@
 	background-size:contain;
 }
 
-.action:not(.add).text, .icon:not(.add).text { 
+.action:not(.add):not(.groups).text, .icon:not(.add):not(.groups).text {
 	background-position: left; 
 	text-indent: 18px;
 }
@@ -183,11 +183,11 @@
 .no-svg .delete:hover { background-image:url('%webroot%/core/img/actions/delete-hover.png'); }
 .no-svg .edit { background-image:url('%webroot%/core/img/actions/rename.png'); }
 .no-svg .share { background-image:url('%webroot%/core/img/actions/share.png'); }
-.no-svg .groups { background-image:url('%webroot%/core/img/actions/shared.png'); }
+/*.no-svg .groups { background-image:url('%webroot%/core/img/actions/shared.png'); }*/
 .no-svg .mail { background-image:url('%webroot%/core/img/actions/mail.png'); }
 .no-svg .import, .no-svg .upload { background-image:url('%webroot%/core/img/actions/upload.png'); }
 .no-svg .export, .no-svg .download { background-image:url('%webroot%/core/img/actions/download.png'); }
-.no-svg .cloud { background-image:url('%webroot%/core/img/places/picture.png'); }
+/*.no-svg .cloud { background-image:url('%webroot%/core/img/places/picture.png'); }*/
 .no-svg .globe { background-image:url('%webroot%/core/img/actions/public.png'); }
 .no-svg .settings { background-image:url('%webroot%/core/img/actions/settings.svg'); }
 .no-svg .starred { background-image:url('%appswebroot%/contacts/img/starred.png'); background-size: contain; }
@@ -204,11 +204,11 @@
 .svg .delete:hover { background-image:url('%webroot%/core/img/actions/delete-hover.svg'); }
 .svg .edit { background-image:url('%webroot%/core/img/actions/rename.svg'); }
 .svg .share { background-image:url('%webroot%/core/img/actions/share.svg'); }
-.svg .groups { background-image:url('%webroot%/core/img/actions/shared.svg'); }
+/*.svg .groups { background-image:url('%webroot%/core/img/actions/shared.svg'); }*/
 .svg .mail { background-image:url('%webroot%/core/img/actions/mail.svg'); }
 .svg .import,.svg .upload { background-image:url('%webroot%/core/img/actions/upload.svg'); }
 .svg .export,.svg .download { background-image:url('%webroot%/core/img/actions/download.svg'); }
-.svg .cloud { background-image:url('%webroot%/core/img/places/picture.svg'); }
+/*.svg .cloud { background-image:url('%webroot%/core/img/places/picture.svg'); }*/
 .svg .globe { background-image:url('%webroot%/core/img/actions/public.svg'); }
 .svg .settings { background-image:url('%webroot%/core/img/actions/settings.svg'); }
 .svg .starred { background-image:url('%appswebroot%/contacts/img/starred.svg'); background-size: contain; }

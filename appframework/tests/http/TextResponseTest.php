@@ -40,4 +40,15 @@ class TextResponseTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals('sometext', $this->response->render());
 	}
 
+	public function testContentTypeDefaultsToText(){
+		$this->assertContains('text/plain', $this->response->getHeaders());
+	}
+
+
+	public function testContentTypeIsSetableViaConstructor(){
+		$response = new TextResponse('sometext', 'html');
+
+		$this->assertContains('text/html', $response->getHeaders());
+	}
+
 }

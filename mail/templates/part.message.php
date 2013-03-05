@@ -1,11 +1,11 @@
 <tr id="mail_message_header">
 	<td>
-        <img src="<?php echo OCP\Util::imagePath('mail', 'person.png'); ?>" />
+        <img src="<?php print_unescaped($_['message']['sender_image']); ?>" width="32px" height="32px" />
 	</td>
     <td>
-		<?php echo $_['message']['from']; ?>
+		<?php p($_['message']['from']); ?>
         <br/>
-		<?php echo $_['message']['subject']; ?>
+		<?php p($_['message']['subject']); ?>
 	    <br/>
 	    <?php
 	    foreach( $_['message']['attachments'] as $a) {
@@ -14,15 +14,15 @@
 	    ?>
     </td>
     <td>
-        <img src="<?php echo OCP\Util::imagePath('mail', 'reply.png'); ?>" />
-        <img src="<?php echo OCP\Util::imagePath('mail', 'reply-all.png'); ?>" />
-        <img src="<?php echo OCP\Util::imagePath('mail', 'forward.png'); ?>" />
+        <img src="<?php print_unescaped(OCP\Util::imagePath('mail', 'reply.png')); ?>" />
+        <img src="<?php print_unescaped(OCP\Util::imagePath('mail', 'reply-all.png')); ?>" />
+        <img src="<?php print_unescaped(OCP\Util::imagePath('mail', 'forward.png')); ?>" />
         <br/>
 	    <?php p(OCP\Util::formatDate($_['message']['date'])); ?>
 	</td>
 </tr>
 <tr id="mail_message">
 	<td colspan="3" class="mail_message_body">
-		<?php echo $_['message']['body']; ?>
+		<?php print_unescaped($_['message']['body']); ?>
 	</td>
 </tr>

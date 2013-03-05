@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <>, 2013.
 #   <>, 2012.
 #   <peter.perosa@gmail.com>, 2012.
 # Peter Peroša <peter.perosa@gmail.com>, 2012.
@@ -11,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:31+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-04 00:02+0100\n"
+"PO-Revision-Date: 2013-03-03 08:00+0000\n"
+"Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,11 +102,11 @@ msgstr "Nekaj je šlo v franže. "
 msgid "Cannot save property of type \"%s\" as array"
 msgstr "Lastnost vrste \"%s\" ne morem shraniti kot matriko"
 
-#: ajax/contact/saveproperty.php:180
+#: ajax/contact/saveproperty.php:179
 msgid "Missing IM parameter."
 msgstr "Manjka parameter IM."
 
-#: ajax/contact/saveproperty.php:184
+#: ajax/contact/saveproperty.php:183
 msgid "Unknown IM: "
 msgstr "Neznan IM:"
 
@@ -371,7 +372,7 @@ msgstr "Med poskusom izbrisa tega stika je prišlo do neznane napake."
 
 #: js/contacts.js:683
 msgid "# groups"
-msgstr ""
+msgstr "# skupine"
 
 #: js/contacts.js:1491
 msgid ""
@@ -805,7 +806,7 @@ msgstr "Priimek"
 
 #: templates/contacts.php:192
 msgid "Select groups"
-msgstr ""
+msgstr "Izberi skupine"
 
 #: templates/contacts.php:196 templates/contacts.php:260
 msgid "Nickname"

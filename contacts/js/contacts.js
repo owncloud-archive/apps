@@ -1621,7 +1621,7 @@ OC.Contacts = OC.Contacts || {};
 			this.$contactFullTemplate,
 			this.contactDetailTemplates
 		);
-		if(this.currentContact) {
+		if(utils.isUInt(this.currentContact)) {
 			console.assert(typeof this.currentContact == 'number', 'this.currentContact is not a number');
 			this.contacts[this.currentContact].close();
 		}

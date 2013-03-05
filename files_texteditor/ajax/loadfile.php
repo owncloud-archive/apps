@@ -33,11 +33,22 @@ $filename = isset($_GET['file']) ? $_GET['file'] : '';
 if(!empty($filename))
 {
 	$path = $dir.'/'.$filename;
-	$writeable = \OC\Files\Filesystem::isUpdatable($path) ? 'true' : 'false';
+	$writeable = \OC\Files\Filesystem::isUpdatable($path);
+	$mime = \OC\Files\Filesystem::getMimeType($path);
 	$mtime = \OC\Files\Filesystem::filemtime($path);
 	$filecontents = \OC\Files\Filesystem::file_get_contents($path);
-	$filecontents = iconv(mb_detect_encoding($filecontents), "UTF-8", $filecontents);
-	OCP\JSON::success(array('data' => array('filecontents' => $filecontents, 'write' => $writeable, 'mtime' => $mtime)));
+	$encoding = mb_detect_encoding($filecontents."a", "UTF-8, WINDOWS-1252, ISO-8859-15, ISO-8859-1, ASCII", true);
+	if ($encoding == "") {
+		// set default encoding if it couldn't be detected
+		$encoding = 'ISO-8859-15';
+	}
+	$filecontents = iconv($encoding, "UTF-8", $filecontents);
+	OCP\JSON::success(array('data' => array(
+		'filecontents' => $filecontents,
+		'writeable' => $writeable,
+		'mime' => $mime,
+		'mtime' => $mtime))
+	);
 } else {
 	OCP\JSON::error(array('data' => array( 'message' => 'Invalid file path supplied.')));
 }
