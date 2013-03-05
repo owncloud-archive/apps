@@ -8,16 +8,16 @@ OC::$CLASSPATH['OCA\Contacts\Share_Backend_Addressbook'] = 'contacts/lib/share/a
 OC::$CLASSPATH['OCA\Contacts\AddressbookProvider'] = 'contacts/lib/addressbookprovider.php';
 OC::$CLASSPATH['OCA\Contacts\VObject\VCard'] = 'contacts/lib/vobject/vcard.php';
 OC::$CLASSPATH['OCA\Contacts\VObject\StringProperty'] = 'contacts/lib/vobject/stringproperty.php';
-OC::$CLASSPATH['OCA\Contacts\CardDAV\Backend'] = 'contacts/lib/sabre/backend.php';
-OC::$CLASSPATH['OCA\Contacts\CardDAV\Plugin'] = 'contacts/lib/sabre/plugin.php';
-OC::$CLASSPATH['OCA\Contacts\CardDAV\AddressBookRoot'] = 'contacts/lib/sabre/addressbookroot.php';
-OC::$CLASSPATH['OCA\Contacts\CardDAV\UserAddressBooks'] = 'contacts/lib/sabre/useraddressbooks.php';
-OC::$CLASSPATH['OCA\Contacts\CardDAV\AddressBook'] = 'contacts/lib/sabre/addressbook.php';
-OC::$CLASSPATH['OCA\Contacts\CardDAV\Card'] = 'contacts/lib/sabre/card.php';
+OC::$CLASSPATH['OCA\Contacts\CardDAV\Backend'] = 'contacts/lib/carddav/backend.php';
+OC::$CLASSPATH['OCA\Contacts\CardDAV\Plugin'] = 'contacts/lib/carddav/plugin.php';
+OC::$CLASSPATH['OCA\Contacts\CardDAV\AddressBookRoot'] = 'contacts/lib/carddav/addressbookroot.php';
+OC::$CLASSPATH['OCA\Contacts\CardDAV\UserAddressBooks'] = 'contacts/lib/carddav/useraddressbooks.php';
+OC::$CLASSPATH['OCA\Contacts\CardDAV\AddressBook'] = 'contacts/lib/carddav/addressbook.php';
+OC::$CLASSPATH['OCA\Contacts\CardDAV\Card'] = 'contacts/lib/carddav/card.php';
 OC::$CLASSPATH['OCA\Contacts\SearchProvider'] = 'contacts/lib/search.php';
 
 require_once __DIR__ . '/../lib/vobject/vcard.php';
-//require_once __DIR__ . '/../lib/sabre/stringproperty.php';
+//require_once __DIR__ . '/../lib/vobject/stringproperty.php';
 Sabre\VObject\Component::$classMap['VCARD'] = 'OCA\Contacts\VObject\VCard';
 Sabre\VObject\Property::$classMap['FN'] = 'OCA\Contacts\VObject\StringProperty';
 Sabre\VObject\Property::$classMap['NOTE'] = 'OCA\Contacts\VObject\StringProperty';
