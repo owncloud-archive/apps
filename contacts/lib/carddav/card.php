@@ -20,11 +20,15 @@
  *
  */
 
+namespace OCA\Contacts\CardDAV;
+
+use OCA\Contacts;
+
 /**
  * This class overrides Sabre_CardDAV_Card::getACL()
  * to return read/write permissions based on user and shared state.
 */
-class OC_Connector_Sabre_CardDAV_Card extends Sabre_CardDAV_Card {
+class Card extends \Sabre_CardDAV_Card {
 
     /**
      * Array with information about the containing addressbook
@@ -40,7 +44,7 @@ class OC_Connector_Sabre_CardDAV_Card extends Sabre_CardDAV_Card {
      * @param array $addressBookInfo
      * @param array $cardData
      */
-    public function __construct(Sabre_CardDAV_Backend_Abstract $carddavBackend, array $addressBookInfo, array $cardData) {
+    public function __construct(\Sabre_CardDAV_Backend_Abstract $carddavBackend, array $addressBookInfo, array $cardData) {
 
         $this->addressBookInfo = $addressBookInfo;
 		parent::__construct($carddavBackend, $addressBookInfo, $cardData);
@@ -63,15 +67,15 @@ class OC_Connector_Sabre_CardDAV_Card extends Sabre_CardDAV_Card {
 
 		$readprincipal = $this->getOwner();
 		$writeprincipal = $this->getOwner();
-		$uid = OCA\Contacts\Addressbook::extractUserID($this->getOwner());
+		$uid = Contacts\Addressbook::extractUserID($this->getOwner());
 
-		if($uid != OCP\USER::getUser()) {
-			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $this->addressBookInfo['id']);
-			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_READ)) {
-				$readprincipal = 'principals/' . OCP\USER::getUser();
+		if($uid != \OCP\USER::getUser()) {
+			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $this->addressBookInfo['id']);
+			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & \OCP\PERMISSION_READ)) {
+				$readprincipal = 'principals/' . \OCP\USER::getUser();
 			}
-			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE)) {
-				$writeprincipal = 'principals/' . OCP\USER::getUser();
+			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & \OCP\PERMISSION_UPDATE)) {
+				$writeprincipal = 'principals/' . \OCP\USER::getUser();
 			}
 		}
 

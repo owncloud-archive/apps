@@ -22,16 +22,17 @@
  *
  */
 
-namespace OCA\Contacts;
+namespace OCA\Contacts\CardDAV;
 
 use Sabre\VObject;
+use OCA\Contacts;
 
 /**
  * This class overrides Sabre_CardDAV_Plugin::validateVCard() to be able
  * to import partially invalid vCards by ignoring invalid lines and to
  * validate and upgrade using \OCA\Contacts\VCardObject.
 */
-class CardDAVPlugin extends \Sabre_CardDAV_Plugin {
+class Plugin extends \Sabre_CardDAV_Plugin {
 
 	/**
 	* Checks if the submitted vCard data is in fact, valid.

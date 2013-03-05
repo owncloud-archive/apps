@@ -20,11 +20,13 @@
  *
  */
 
+namespace OCA\Contacts\CardDAV;
+
 /**
  * This class overrides Sabre_CardDAV_UserAddressBooks::getChildren()
- * to instantiate OC_Connector_Sabre_CardDAV_AddressBooks.
+ * to instantiate \OCA\Contacts\CardDAV\AddressBooks.
 */
-class OC_Connector_Sabre_CardDAV_UserAddressBooks extends Sabre_CardDAV_UserAddressBooks {
+class UserAddressBooks extends \Sabre_CardDAV_UserAddressBooks {
 
 	/**
 	* Returns a list of addressbooks
@@ -36,7 +38,7 @@ class OC_Connector_Sabre_CardDAV_UserAddressBooks extends Sabre_CardDAV_UserAddr
 		$addressbooks = $this->carddavBackend->getAddressbooksForUser($this->principalUri);
 		$objs = array();
 		foreach($addressbooks as $addressbook) {
-			$objs[] = new OC_Connector_Sabre_CardDAV_AddressBook($this->carddavBackend, $addressbook);
+			$objs[] = new AddressBook($this->carddavBackend, $addressbook);
 		}
 		return $objs;
 
