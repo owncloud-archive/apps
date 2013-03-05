@@ -23,7 +23,7 @@
  *
  */
 
-namespace OCA\Contacts;
+namespace OCA\Contacts\VObject;
 
 use Sabre\VObject;
 

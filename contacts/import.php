@@ -146,7 +146,7 @@ foreach($parts as $part) {
 		}
 	}
 	try {
-		$vcard->validate(VCardObject::REPAIR|VCardObject::UPGRADE);
+		$vcard->validate(VCard::REPAIR|VCard::UPGRADE);
 	} catch (\Exception $e) {
 		OCP\Util::writeLog('contacts', __LINE__ . ' ' .
 			'Error validating vcard: ' . $e->getMessage() . $nl . $vcard->serialize(),

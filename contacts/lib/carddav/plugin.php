@@ -30,7 +30,7 @@ use OCA\Contacts;
 /**
  * This class overrides Sabre_CardDAV_Plugin::validateVCard() to be able
  * to import partially invalid vCards by ignoring invalid lines and to
- * validate and upgrade using \OCA\Contacts\VCardObject.
+ * validate and upgrade using \OCA\Contacts\VCard.
 */
 class Plugin extends \Sabre_CardDAV_Plugin {
 
@@ -63,7 +63,7 @@ class Plugin extends \Sabre_CardDAV_Plugin {
 			throw new \Sabre_DAV_Exception_UnsupportedMediaType('This collection can only support vcard objects.');
 		}
 
-		$vobj->validate(VCardObject::REPAIR|VCardObject::UPGRADE);
+		$vobj->validate(VCard::REPAIR|VCard::UPGRADE);
 		$data = $vobj->serialize();
 	}
 }

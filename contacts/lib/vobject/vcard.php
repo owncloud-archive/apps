@@ -23,8 +23,9 @@
  *
  */
 
-namespace OCA\Contacts;
+namespace OCA\Contacts\VObject;
 
+use OCA\Contacts;
 use Sabre\VObject;
 
 /**
@@ -32,7 +33,7 @@ use Sabre\VObject;
  * to import partially invalid vCards by ignoring invalid lines and to
  * validate and upgrade using ....
 */
-class VCardObject extends VObject\Component\VCard {
+class VCard extends VObject\Component\VCard {
 
 	/**
 	* The following constants are used by the validate() method.
@@ -56,7 +57,7 @@ class VCardObject extends VObject\Component\VCard {
 	*/
 	protected function formatPropertyTypes(&$property) {
 		foreach($property->parameters as $key=>&$parameter) {
-			$types = App::getTypesOfProperty($property->name);
+			$types = Contacts\App::getTypesOfProperty($property->name);
 			if(is_array($types) && in_array(strtoupper($parameter->name), array_keys($types))
 				|| strtoupper($parameter->name) == 'PREF') {
 				unset($property->parameters[$key]);
@@ -98,9 +99,9 @@ class VCardObject extends VObject\Component\VCard {
 	* Validates the node for correctness.
 	*
 	* The following options are supported:
-	*   - Node::REPAIR - If something is broken, and automatic repair may
+	*   - VCard::REPAIR - If something is broken, and automatic repair may
 	*                    be attempted.
-	*   - VCardObject::UPGRADE - If needed the vCard will be upgraded to version 3.0.
+	*   - VCard::UPGRADE - If needed the vCard will be upgraded to version 3.0.
 	*
 	* An array is returned with warnings.
 	*
