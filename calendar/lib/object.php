@@ -466,7 +466,7 @@ class OC_Calendar_Object{
 		}
 
 		$vevent = $vobject->VEVENT;
-		if($vevent->CLASS->value == 'CONFIDENTIAL') {
+		if(!is_null($vevent->CLASS) && $vevent->CLASS->value == 'CONFIDENTIAL') {
 			foreach ($vevent->children as &$property) {
 				switch($property->name) {
 					case 'CREATED':
@@ -1029,7 +1029,11 @@ class OC_Calendar_Object{
 	public static function getowner($id) {
 		$event = self::find($id);
 		$cal = OC_Calendar_Calendar::find($event['calendarid']);
-		return $cal['userid'];
+		if(array_key_exists('userid', $cal)){
+			return $cal['userid'];
+		}else{
+			return null;
+		}
 	}
 
 	/**

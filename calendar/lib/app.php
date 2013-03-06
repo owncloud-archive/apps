@@ -436,7 +436,8 @@ class OC_Calendar_App{
 		$id = $event['id'];
 		if(OC_Calendar_Object::getowner($id) !== OCP\USER::getUser()) {
 			// do not show events with private or unknown access class
-			if ($vevent->CLASS->value !== 'CONFIDENTIAL' 
+			if (!is_null($vevent->CLASS)
+				&& $vevent->CLASS->value !== 'CONFIDENTIAL' 
 				&& $vevent->CLASS->value !== 'PUBLIC' 
 				&& $vevent->CLASS->value !== '')
 			{
@@ -448,7 +449,7 @@ class OC_Calendar_App{
 		$last_modified = @$vevent->__get('LAST-MODIFIED');
 		$lastmodified = ($last_modified)?$last_modified->getDateTime()->format('U'):0;
 		$staticoutput = array('id'=>(int)$event['id'],
-						'title' => ($vevent->SUMMARY->value != '')?$vevent->SUMMARY->value: self::$l10n->t('unnamed'),
+						'title' => (!is_null($vevent->SUMMARY) && $vevent->SUMMARY->value != '')? $vevent->SUMMARY->value: self::$l10n->t('unnamed'),
 						'description' => isset($vevent->DESCRIPTION)?$vevent->DESCRIPTION->value:'',
 						'lastmodified'=>$lastmodified,
 						'allDay'=>$allday);

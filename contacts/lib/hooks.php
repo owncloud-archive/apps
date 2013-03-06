@@ -93,6 +93,10 @@ class Hooks{
 			}
 			$birthday = $vcard->BDAY;
 			if ((string)$birthday) {
+				$title = str_replace('{name}',
+					$vcard->FN,
+					App::$l10n->t('{name}\'s Birthday'));
+				
 				$date = new \DateTime($birthday);
 				$vevent = VObject\Component::create('VEVENT');
 				//$vevent->setDateTime('LAST-MODIFIED', new DateTime($vcard->REV));
@@ -103,9 +107,7 @@ class Hooks{
 				$vevent->{'UID'} = substr(md5(rand().time()), 0, 10);
 				// DESCRIPTION?
 				$vevent->{'RRULE'} = 'FREQ=YEARLY';
-				$title = str_replace('{name}',
-					$vcard->FN,
-					App::$l10n->t('{name}\'s Birthday'));
+				$vevent->{'SUMMARY'} = $title;
 				$parameters['events'][] = array(
 					'id' => 0,//$card['id'],
 					'vevent' => $vevent,
