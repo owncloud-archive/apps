@@ -160,7 +160,7 @@
 "Import into:" => "Importa a:",
 "OK" => "D'acord",
 "(De-)select all" => "(Des-)selecciona'ls tots",
-"New Contact" => "Contate nou",
+"New Contact" => "Contacte nou",
 "Download Contact(s)" => "Baixa contacte(s)",
 "Groups" => "Grups",
 "Favorite" => "Preferits",

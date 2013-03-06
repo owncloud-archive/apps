@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-04 00:01+0100\n"
-"PO-Revision-Date: 2013-02-03 05:00+0000\n"
+"POT-Creation-Date: 2013-03-07 00:12+0100\n"
+"PO-Revision-Date: 2013-03-06 21:20+0000\n"
 "Last-Translator: felix.liberio <felix.liberio@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -106,6 +106,6 @@ msgstr "Solo registrar"
 msgid "Delete file"
 msgstr "Eliminar archivo"
 
-#: templates/settings.php:14
+#: templates/settings.php:15
 msgid "Save"
 msgstr "Guardar"
