@@ -7,7 +7,7 @@
 "Open" => "Åpne",
 "Share with" => "Del med",
 "Share" => "Del",
-"Etherpad service URL" => "Etherpad service URL",
+"Etherpad service URL" => "Etherpad tjeneste URL",
 "Username" => "Brukernavn",
 "Save" => "Lagre"
 );

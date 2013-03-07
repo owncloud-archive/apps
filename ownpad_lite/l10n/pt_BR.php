@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
+"Document was shared" => "Documento foi compartilhado",
+"User %s shared quick document %s with you." => "Usuário %s compartilhou o documento %s com você.",
 "My pad" => "Meu bloco",
 "Settings" => "Ajustes",
 "Pad Title" => "Título do bloco",
