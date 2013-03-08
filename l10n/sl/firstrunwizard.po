@@ -4,12 +4,13 @@
 # 
 # Translators:
 #  <>, 2013.
+# Matej Urbančič <>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-04 00:03+0100\n"
-"PO-Revision-Date: 2013-03-03 08:20+0000\n"
+"POT-Creation-Date: 2013-03-09 00:02+0100\n"
+"PO-Revision-Date: 2013-03-08 22:30+0000\n"
 "Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -46,18 +47,18 @@ msgstr "Poveži stike"
 
 #: templates/wizard.php:31
 msgid "Access files via WebDAV"
-msgstr ""
+msgstr "Dostop do datotek preko WebDAV"
 
 #: templates/wizard.php:34
 msgid ""
 "There’s more information in the <a "
 "href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
 "and on our <a href=\"http://owncloud.org\">website</a>."
-msgstr ""
+msgstr "Več podrobnosti je mogoče najti v <a href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentaciji</a> in na spletni strani <a href=\"http://owncloud.org\">ownCloud</a>."
 
 #: templates/wizard.php:35
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"
 " http://owncloud.org\">recommend it to your friends</a>!"
-msgstr ""
+msgstr "Če vam je oblak ownCloud všeč, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">ga priporočite prijateljem</a>!"
