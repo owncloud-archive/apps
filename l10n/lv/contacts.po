@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:32+0000\n"
-"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
+"POT-Creation-Date: 2013-03-10 00:01+0100\n"
+"PO-Revision-Date: 2013-03-09 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr "Kļūda, (de)aktivizējot adrešu grāmatu."
 
 #: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/delete.php:32 ajax/contact/deleteproperty.php:38
-#: ajax/contact/saveproperty.php:77
+#: ajax/contact/saveproperty.php:82
 msgid "id is not set."
 msgstr "id nav iestatīts."
 
@@ -68,11 +68,11 @@ msgstr "Nav atrastu adrešu grāmatu."
 msgid "No contacts found."
 msgstr "Nav atrastu kontaktu."
 
-#: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:74
+#: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."
 msgstr "elementa nosaukums nav iestatīts."
 
-#: ajax/contact/deleteproperty.php:46 ajax/contact/saveproperty.php:80
+#: ajax/contact/deleteproperty.php:46 ajax/contact/saveproperty.php:85
 msgid "checksum is not set."
 msgstr "kontrolsumma nav iestatīta."
 
@@ -80,29 +80,29 @@ msgstr "kontrolsumma nav iestatīta."
 msgid "Information about vCard is incorrect. Please reload the page."
 msgstr "Informācija par vCard ir nepareiza. Lūdzu, pārlādējiet šo lapu."
 
-#: ajax/contact/saveproperty.php:98
+#: ajax/contact/saveproperty.php:103
 #, php-format
 msgid "Couldn't find vCard for %d."
 msgstr "Nevarēja atrast %d vCard."
 
-#: ajax/contact/saveproperty.php:108
+#: ajax/contact/saveproperty.php:113
 msgid "Information about vCard is incorrect. Please reload the page: "
 msgstr "Informācija par vCard ir nepareiza. Lūdzu, pārlādējiet lapu:"
 
-#: ajax/contact/saveproperty.php:116
+#: ajax/contact/saveproperty.php:121
 msgid "Something went FUBAR. "
 msgstr "Kaut kas sagāja reālā sviestā."
 
-#: ajax/contact/saveproperty.php:128
+#: ajax/contact/saveproperty.php:133
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
 msgstr "Nevarēja saglabāt īpašību ar tipu “%s” kā masīvu"
 
-#: ajax/contact/saveproperty.php:180
+#: ajax/contact/saveproperty.php:184
 msgid "Missing IM parameter."
 msgstr "Trūkst TZ parametra."
 
-#: ajax/contact/saveproperty.php:184
+#: ajax/contact/saveproperty.php:188
 msgid "Unknown IM: "
 msgstr "Nezināms TZ:"
 
@@ -179,33 +179,37 @@ msgstr "Vēstība nav iestatīta:"
 msgid "Could not set preference: "
 msgstr "Nevarēja iestatīt iestatījumu:"
 
-#: ajax/uploadimport.php:44 ajax/uploadimport.php:76
+#: ajax/uploadimport.php:42 ajax/uploadimport.php:79
+msgid "Upload of blacklisted file:"
+msgstr ""
+
+#: ajax/uploadimport.php:48 ajax/uploadimport.php:84
 msgid "Error uploading contacts to storage."
 msgstr "Kļūda, augšupielādējot kontaktus uz krātuvi."
 
-#: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
+#: ajax/uploadimport.php:65 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
 msgstr "Viss kārtībā, datne augšupielādēta veiksmīga"
 
-#: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
+#: ajax/uploadimport.php:66 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr "Augšupielādētā datne pārsniedz upload_max_filesize direktīvu datnē php.ini"
 
-#: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
+#: ajax/uploadimport.php:67 ajax/uploadphoto.php:79
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr "Augšupielādētā datne pārsniedz MAX_FILE_SIZE norādi, kas ir norādīta HTML formā"
 
-#: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
+#: ajax/uploadimport.php:68 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
 msgstr "Augšupielādētā datne ir tikai daļēji augšupielādēta"
 
-#: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
+#: ajax/uploadimport.php:69 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
 msgstr "Neviena datne netika augšupielādēta"
 
-#: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
+#: ajax/uploadimport.php:70 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
 msgstr "Trūkst pagaidu mapes"
 
@@ -250,7 +254,7 @@ msgstr "Indeksē kontaktus"
 msgid "Select photo"
 msgstr "Izvēlieties fotogrāfiju"
 
-#: js/app.js:497 js/app.js:523 js/app.js:1528 js/app.js:1640
+#: js/app.js:497 js/app.js:523 js/app.js:1541 js/app.js:1653
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "Tīkla vai servera kļūda. Lūdzu, informējiet administratoru."
@@ -287,7 +291,7 @@ msgstr "Ne visas datnes ir augšupielādētas. Mēģina vēlreiz..."
 msgid "Something went wrong with the upload, please retry."
 msgstr "Kaut kas nogāja greizi ar augšupielādēšanu. Lūdzu, mēģiniet vēlreiz."
 
-#: js/app.js:1052 js/app.js:1575 js/settings.js:25 js/settings.js:45
+#: js/app.js:1052 js/app.js:1588 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Kļūda"
@@ -300,61 +304,61 @@ msgstr "Importē no {filename}..."
 msgid "{success} imported, {failed} failed."
 msgstr "{success} importēti, {failed} cieta neveiksmi."
 
-#: js/app.js:1073
+#: js/app.js:1076
 msgid "Importing..."
 msgstr "Importē..."
 
-#: js/app.js:1096
+#: js/app.js:1099
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Nevar augšupielādēt jūsu datni, jo tā ir direktorija vai arī tā ir 0 baitu liela"
 
-#: js/app.js:1096
+#: js/app.js:1099
 msgid "Upload Error"
 msgstr "Augšupielādes kļūda"
 
-#: js/app.js:1103 js/app.js:1403
+#: js/app.js:1106 js/app.js:1416
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Datne, ko mēģināt augšupielādēt pārsniedz maksimālo datņu augšupielādes izmēru šim serverim."
 
-#: js/app.js:1103
+#: js/app.js:1106
 msgid "Upload too large"
 msgstr "Datne ir par lielu, lai to augšupielādētu"
 
-#: js/app.js:1143
+#: js/app.js:1150
 msgid "Pending"
 msgstr "Gaida savu kārtu"
 
-#: js/app.js:1286 templates/contacts.php:121
+#: js/app.js:1295 templates/contacts.php:122
 msgid "Add group"
 msgstr "Pievienot grupu"
 
-#: js/app.js:1392
+#: js/app.js:1404
 msgid "No files selected for upload."
 msgstr "Neviena datne nav izvēlēta augšupielādei."
 
-#: js/app.js:1493
+#: js/app.js:1506
 msgid "Edit profile picture"
 msgstr "Rediģēt profila bildi"
 
-#: js/app.js:1511 js/contacts.js:1134
+#: js/app.js:1524 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr "Kļūda, ielādējot profila bildi."
 
-#: js/app.js:1563
+#: js/app.js:1576
 msgid "Enter name"
 msgstr "Ievadiet vārdu"
 
-#: js/app.js:1564
+#: js/app.js:1577
 msgid "Enter description"
 msgstr "Ievadiet aprakstu"
 
-#: js/app.js:1567
+#: js/app.js:1580
 msgid "Select addressbook"
 msgstr "Izvēlieties adrešu grāmatu"
 
-#: js/app.js:1575
+#: js/app.js:1588
 msgid "The address book name cannot be empty."
 msgstr "Adrešu grāmatas nosaukums nedrīkst būt tukšs."
 
@@ -450,7 +454,7 @@ msgstr "Rādīt CardDav saiti"
 msgid "Show read-only VCF link"
 msgstr "Rādīt tikai lasāmu VCF saiti"
 
-#: js/settings.js:99 templates/contacts.php:255 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:256 templates/settings.php:40
 msgid "Download"
 msgstr "Lejupielādēt"
 
@@ -458,14 +462,14 @@ msgstr "Lejupielādēt"
 msgid "Edit"
 msgstr "Rediģēt"
 
-#: js/settings.js:102 templates/contacts.php:200 templates/contacts.php:207
-#: templates/contacts.php:214 templates/contacts.php:221
-#: templates/contacts.php:269 templates/contacts.php:396
+#: js/settings.js:102 templates/contacts.php:201 templates/contacts.php:208
+#: templates/contacts.php:215 templates/contacts.php:222
+#: templates/contacts.php:270 templates/contacts.php:397
 #: templates/settings.php:50
 msgid "Delete"
 msgstr "Dzēst"
 
-#: js/settings.js:120 templates/contacts.php:253 templates/settings.php:62
+#: js/settings.js:120 templates/contacts.php:254 templates/settings.php:62
 msgid "Cancel"
 msgstr "Atcelt"
 
@@ -602,7 +606,7 @@ msgstr "Ģimene"
 msgid "There was an error deleting properties for this contact."
 msgstr "Gadījās kļūda, dzēšot īpašības šim kontaktam."
 
-#: lib/hooks.php:108
+#: lib/hooks.php:98
 msgid "{name}'s Birthday"
 msgstr "{name} dzimšanas diena"
 
@@ -646,335 +650,335 @@ msgstr "Kontakts nav atrasts."
 msgid "HomePage"
 msgstr "Mājas lapa"
 
-#: templates/contacts.php:9
+#: templates/contacts.php:10
 msgid "New Group"
 msgstr "Jauna grupa"
 
-#: templates/contacts.php:15
+#: templates/contacts.php:16
 msgid "Settings"
 msgstr "Iestatījumi"
 
-#: templates/contacts.php:16
+#: templates/contacts.php:17
 msgid "Address books"
 msgstr "Adrešu grāmatas"
 
-#: templates/contacts.php:19 templates/contacts.php:96
+#: templates/contacts.php:20 templates/contacts.php:97
 msgid "Import"
 msgstr "Importēt"
 
-#: templates/contacts.php:24
+#: templates/contacts.php:25
 msgid "Select files to import"
 msgstr "Izvēlieties datnes, ko importēt"
 
-#: templates/contacts.php:25
+#: templates/contacts.php:26
 msgid "Select files"
 msgstr "Izvēlieties datnes"
 
-#: templates/contacts.php:31 templates/contacts.php:33
+#: templates/contacts.php:32 templates/contacts.php:34
 msgid "Import into:"
 msgstr "Importēt uz:"
 
-#: templates/contacts.php:35
+#: templates/contacts.php:36
 msgid "OK"
 msgstr "Labi"
 
-#: templates/contacts.php:45
+#: templates/contacts.php:46
 msgid "(De-)select all"
 msgstr "Izvēlēties visu/neko"
 
-#: templates/contacts.php:47
+#: templates/contacts.php:48
 msgid "New Contact"
 msgstr "Jauns kontakts"
 
-#: templates/contacts.php:48
+#: templates/contacts.php:49
 msgid "Download Contact(s)"
 msgstr "Lejupielādēt kontaktu(-s)"
 
-#: templates/contacts.php:50
+#: templates/contacts.php:51
 msgid "Groups"
 msgstr "Grupas"
 
-#: templates/contacts.php:52
+#: templates/contacts.php:53
 msgid "Favorite"
 msgstr "Iecienītais"
 
-#: templates/contacts.php:53
+#: templates/contacts.php:54
 msgid "Delete Contact"
 msgstr "Dzēst kontaktu"
 
-#: templates/contacts.php:60 templates/contacts.php:254
+#: templates/contacts.php:61 templates/contacts.php:255
 msgid "Close"
 msgstr "Aizvērt"
 
-#: templates/contacts.php:61
+#: templates/contacts.php:62
 msgid "Keyboard shortcuts"
 msgstr "Tastatūras saīsnes"
 
-#: templates/contacts.php:63
+#: templates/contacts.php:64
 msgid "Navigation"
 msgstr "Navigācija"
 
-#: templates/contacts.php:66
+#: templates/contacts.php:67
 msgid "Next contact in list"
 msgstr "Nākošais kontakts sarakstā"
 
-#: templates/contacts.php:68
+#: templates/contacts.php:69
 msgid "Previous contact in list"
 msgstr "Iepriekšējais kontakts sarakstā"
 
-#: templates/contacts.php:70
+#: templates/contacts.php:71
 msgid "Expand/collapse current addressbook"
 msgstr "Izvērst/sakļaut pašreizējo adrešu grāmatu"
 
-#: templates/contacts.php:72
+#: templates/contacts.php:73
 msgid "Next addressbook"
 msgstr "Nākošā adrešu grāmata"
 
-#: templates/contacts.php:74
+#: templates/contacts.php:75
 msgid "Previous addressbook"
 msgstr "Iepriekšējā adrešu grāmata"
 
-#: templates/contacts.php:78
+#: templates/contacts.php:79
 msgid "Actions"
 msgstr "Darbības"
 
-#: templates/contacts.php:81
+#: templates/contacts.php:82
 msgid "Refresh contacts list"
 msgstr "Atsvaidzināt kontaktu sarakstu"
 
-#: templates/contacts.php:83
+#: templates/contacts.php:84
 msgid "Add new contact"
 msgstr "Pievienot jaunu kontaktu"
 
-#: templates/contacts.php:85
+#: templates/contacts.php:86
 msgid "Add new addressbook"
 msgstr "Pievienot jaunu adrešu grāmatu"
 
-#: templates/contacts.php:87
+#: templates/contacts.php:88
 msgid "Delete current contact"
 msgstr "Dzēst pašreizējo kontaktu"
 
-#: templates/contacts.php:92
+#: templates/contacts.php:93
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
 msgstr "<h3>Jūsu adrešu grāmatā nav kontaktu.</h3><p>Pievieno jaunu kontaktu vai importē esošos kontaktus no VCF datnes.</p>"
 
-#: templates/contacts.php:95
+#: templates/contacts.php:96
 msgid "Add contact"
 msgstr "Pievienot kontaktu"
 
-#: templates/contacts.php:136
+#: templates/contacts.php:137
 msgid "Compose mail"
 msgstr "Sacerēt vēstuli"
 
-#: templates/contacts.php:147
+#: templates/contacts.php:148
 msgid "Delete group"
 msgstr "Dzēst grupu"
 
-#: templates/contacts.php:160
+#: templates/contacts.php:161
 msgid "Delete current photo"
 msgstr "Dzēst pašreizējo fotogrāfiju"
 
-#: templates/contacts.php:161
+#: templates/contacts.php:162
 msgid "Edit current photo"
 msgstr "Rediģēt pašreizējo fotogrāfiju"
 
-#: templates/contacts.php:162
+#: templates/contacts.php:163
 msgid "Upload new photo"
 msgstr "Augšupielādēt jaunu fotogrāfiju"
 
-#: templates/contacts.php:163
+#: templates/contacts.php:164
 msgid "Select photo from ownCloud"
 msgstr "Izvēlieties fotogrāfiju no ownCloud"
 
-#: templates/contacts.php:174 templates/contacts.php:175
+#: templates/contacts.php:175 templates/contacts.php:176
 msgid "First name"
 msgstr "Vārds"
 
-#: templates/contacts.php:179 templates/contacts.php:180
+#: templates/contacts.php:180 templates/contacts.php:181
 msgid "Additional names"
 msgstr "Papildu vārdi"
 
-#: templates/contacts.php:184 templates/contacts.php:185
+#: templates/contacts.php:185 templates/contacts.php:186
 msgid "Last name"
 msgstr "Uzvārds"
 
-#: templates/contacts.php:192
+#: templates/contacts.php:193
 msgid "Select groups"
 msgstr "Izvēlieties grupas"
 
-#: templates/contacts.php:196 templates/contacts.php:260
+#: templates/contacts.php:197 templates/contacts.php:261
 msgid "Nickname"
 msgstr "Iesauka"
 
-#: templates/contacts.php:199
+#: templates/contacts.php:200
 msgid "Enter nickname"
 msgstr "Ievadiet iesauku"
 
-#: templates/contacts.php:203 templates/contacts.php:259
+#: templates/contacts.php:204 templates/contacts.php:260
 msgid "Title"
 msgstr "Nosaukums"
 
-#: templates/contacts.php:206
+#: templates/contacts.php:207
 msgid "Enter title"
 msgstr "Ievadiet nosaukumu"
 
-#: templates/contacts.php:210 templates/contacts.php:258
+#: templates/contacts.php:211 templates/contacts.php:259
 msgid "Organization"
 msgstr "Organizācija"
 
-#: templates/contacts.php:213
+#: templates/contacts.php:214
 msgid "Enter organization"
 msgstr "Ievadiet organizāciju"
 
-#: templates/contacts.php:217 templates/contacts.php:261
+#: templates/contacts.php:218 templates/contacts.php:262
 msgid "Birthday"
 msgstr "Dzimšanas diena"
 
-#: templates/contacts.php:248
+#: templates/contacts.php:249
 msgid "Notes go here..."
 msgstr "Piezīmes atrodas šeit..."
 
-#: templates/contacts.php:255
+#: templates/contacts.php:256
 msgid "Export as VCF"
 msgstr "Eksportēt kā VCF"
 
-#: templates/contacts.php:257
+#: templates/contacts.php:258
 msgid "Add"
 msgstr "Pievienot"
 
-#: templates/contacts.php:262
+#: templates/contacts.php:263
 msgid "Phone"
 msgstr "Tālrunis"
 
-#: templates/contacts.php:263
+#: templates/contacts.php:264
 msgid "Email"
 msgstr "E-pasts"
 
-#: templates/contacts.php:264
+#: templates/contacts.php:265
 msgid "Instant Messaging"
 msgstr "Tūlītējā ziņojumapmaiņa"
 
-#: templates/contacts.php:265
+#: templates/contacts.php:266
 msgid "Address"
 msgstr "Adrese"
 
-#: templates/contacts.php:266
+#: templates/contacts.php:267
 msgid "Note"
 msgstr "Piezīme"
 
-#: templates/contacts.php:267
+#: templates/contacts.php:268
 msgid "Web site"
 msgstr "Tīmekļa vietne"
 
-#: templates/contacts.php:269
+#: templates/contacts.php:270
 msgid "Delete contact"
 msgstr "Dzēst kontaktu"
 
-#: templates/contacts.php:282 templates/contacts.php:297
-#: templates/contacts.php:311 templates/contacts.php:336
-#: templates/contacts.php:373
+#: templates/contacts.php:283 templates/contacts.php:298
+#: templates/contacts.php:312 templates/contacts.php:337
+#: templates/contacts.php:374
 msgid "Preferred"
 msgstr "Vēlamais"
 
-#: templates/contacts.php:284
+#: templates/contacts.php:285
 msgid "Please specify a valid email address."
 msgstr "Lūdzu, norādiet derīgu e-pasta adresi."
 
-#: templates/contacts.php:284
+#: templates/contacts.php:285
 msgid "someone@example.com"
 msgstr "kāds@piemērs.lv"
 
-#: templates/contacts.php:286
+#: templates/contacts.php:287
 msgid "Mail to address"
 msgstr "Vēstule uz adresi"
 
-#: templates/contacts.php:287
+#: templates/contacts.php:288
 msgid "Delete email address"
 msgstr "Dzēst e-pasta adresi"
 
-#: templates/contacts.php:299
+#: templates/contacts.php:300
 msgid "Enter phone number"
 msgstr "Ievadiet tālruņa numuru"
 
-#: templates/contacts.php:301
+#: templates/contacts.php:302
 msgid "Delete phone number"
 msgstr "Dzēst tālruņa numuru"
 
-#: templates/contacts.php:315
+#: templates/contacts.php:316
 msgid "Go to web site"
 msgstr "Doties uz tīmekļa vietni"
 
-#: templates/contacts.php:316
+#: templates/contacts.php:317
 msgid "Delete URL"
 msgstr "Dzēst URL"
 
-#: templates/contacts.php:327
+#: templates/contacts.php:328
 msgid "View on map"
 msgstr "Skatīt kartē"
 
-#: templates/contacts.php:328
+#: templates/contacts.php:329
 msgid "Delete address"
 msgstr "Dzēst adresi"
 
-#: templates/contacts.php:340
+#: templates/contacts.php:341
 msgid "1 Main Street"
 msgstr "Brīvības iela 1"
 
-#: templates/contacts.php:341
+#: templates/contacts.php:342
 msgid "Street address"
 msgstr "Ielas adrese"
 
-#: templates/contacts.php:345
+#: templates/contacts.php:346
 msgid "12345"
 msgstr "12345"
 
-#: templates/contacts.php:346
+#: templates/contacts.php:347
 msgid "Postal code"
 msgstr "Pasta kods"
 
-#: templates/contacts.php:348
+#: templates/contacts.php:349
 msgid "Your city"
 msgstr "Tava pilsēta"
 
-#: templates/contacts.php:349
+#: templates/contacts.php:350
 msgid "City"
 msgstr "Pilsēta"
 
-#: templates/contacts.php:353
+#: templates/contacts.php:354
 msgid "Some region"
 msgstr "Kāds reģions"
 
-#: templates/contacts.php:354
+#: templates/contacts.php:355
 msgid "State or province"
 msgstr "Štats vai province"
 
-#: templates/contacts.php:358
+#: templates/contacts.php:359
 msgid "Your country"
 msgstr "Tava valsts"
 
-#: templates/contacts.php:359
+#: templates/contacts.php:360
 msgid "Country"
 msgstr "Valsts"
 
-#: templates/contacts.php:381
+#: templates/contacts.php:382
 msgid "Instant Messenger"
 msgstr "Tūlītējās ziņojumapmaiņas programma"
 
-#: templates/contacts.php:383
+#: templates/contacts.php:384
 msgid "Delete IM"
 msgstr "Dzēst TZ"
 
-#: templates/contacts.php:393 templates/settings.php:36
+#: templates/contacts.php:394 templates/settings.php:36
 msgid "Share"
 msgstr "Dalīties"
 
-#: templates/contacts.php:394
+#: templates/contacts.php:395
 msgid "Export"
 msgstr "Eksportēt"
 
-#: templates/contacts.php:395
+#: templates/contacts.php:396
 msgid "CardDAV link"
 msgstr "CardDAV saite"
 

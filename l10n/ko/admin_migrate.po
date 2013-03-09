@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 10:06+0000\n"
-"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"POT-Creation-Date: 2013-03-10 00:01+0100\n"
+"PO-Revision-Date: 2013-03-09 23:03+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,8 +34,8 @@ msgid "Please choose the export type:"
 msgstr "내보낼 형식을 선택하십시오:"
 
 #: templates/settings.php:11
-msgid "ownCloud instance (user data and database"
-msgstr "ownCloud 인스턴스 (사용자 데이터와 데이터베이스)"
+msgid "ownCloud instance (user data and database)"
+msgstr ""
 
 #: templates/settings.php:12
 msgid "ownCloud system files"

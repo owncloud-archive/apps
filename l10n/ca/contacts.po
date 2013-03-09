@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-07 00:12+0100\n"
-"PO-Revision-Date: 2013-03-06 11:00+0000\n"
-"Last-Translator: aseques <sacoo2@hotmail.com>\n"
+"POT-Creation-Date: 2013-03-10 00:01+0100\n"
+"PO-Revision-Date: 2013-03-09 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgstr "Error en (des)activar la llibreta d'adreces."
 
 #: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/delete.php:32 ajax/contact/deleteproperty.php:38
-#: ajax/contact/saveproperty.php:77
+#: ajax/contact/saveproperty.php:82
 msgid "id is not set."
 msgstr "no s'ha establert la id."
 
@@ -71,11 +71,11 @@ msgstr "No s'han trobat llibretes d'adreces."
 msgid "No contacts found."
 msgstr "No s'han trobat contactes."
 
-#: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:74
+#: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."
 msgstr "no s'ha establert el nom de l'element."
 
-#: ajax/contact/deleteproperty.php:46 ajax/contact/saveproperty.php:80
+#: ajax/contact/deleteproperty.php:46 ajax/contact/saveproperty.php:85
 msgid "checksum is not set."
 msgstr "no s'ha establert la suma de verificació."
 
@@ -83,29 +83,29 @@ msgstr "no s'ha establert la suma de verificació."
 msgid "Information about vCard is incorrect. Please reload the page."
 msgstr "La informació de la vCard és incorrecta. Carregueu la pàgina de nou."
 
-#: ajax/contact/saveproperty.php:98
+#: ajax/contact/saveproperty.php:103
 #, php-format
 msgid "Couldn't find vCard for %d."
 msgstr "No s'ha trobat la vCard per %d."
 
-#: ajax/contact/saveproperty.php:108
+#: ajax/contact/saveproperty.php:113
 msgid "Information about vCard is incorrect. Please reload the page: "
 msgstr "La informació de la vCard és incorrecta. Carregueu de nou la pàgina:"
 
-#: ajax/contact/saveproperty.php:116
+#: ajax/contact/saveproperty.php:121
 msgid "Something went FUBAR. "
 msgstr "Alguna cosa ha anat FUBAR."
 
-#: ajax/contact/saveproperty.php:128
+#: ajax/contact/saveproperty.php:133
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
 msgstr "No es pot desar la propietat del tipus \"%s\" com una matriu"
 
-#: ajax/contact/saveproperty.php:179
+#: ajax/contact/saveproperty.php:184
 msgid "Missing IM parameter."
 msgstr "Falta el paràmetre IM."
 
-#: ajax/contact/saveproperty.php:183
+#: ajax/contact/saveproperty.php:188
 msgid "Unknown IM: "
 msgstr "IM desconegut:"
 
@@ -182,33 +182,37 @@ msgstr "No s'ha establert el valor per:"
 msgid "Could not set preference: "
 msgstr "No s'ha pogut establir la preferència:"
 
-#: ajax/uploadimport.php:44 ajax/uploadimport.php:76
+#: ajax/uploadimport.php:42 ajax/uploadimport.php:79
+msgid "Upload of blacklisted file:"
+msgstr ""
+
+#: ajax/uploadimport.php:48 ajax/uploadimport.php:84
 msgid "Error uploading contacts to storage."
 msgstr "Error en carregar contactes a l'emmagatzemament."
 
-#: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
+#: ajax/uploadimport.php:65 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
 msgstr "No hi ha errors, el fitxer s'ha carregat correctament"
 
-#: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
+#: ajax/uploadimport.php:66 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr "El fitxer carregat supera la directiva upload_max_filesize de php.ini"
 
-#: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
+#: ajax/uploadimport.php:67 ajax/uploadphoto.php:79
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr "El fitxer carregat supera la directiva MAX_FILE_SIZE especificada al formulari HTML"
 
-#: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
+#: ajax/uploadimport.php:68 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
 msgstr "El fitxer només s'ha carregat parcialment"
 
-#: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
+#: ajax/uploadimport.php:69 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
 msgstr "No s'ha carregat cap fitxer"
 
-#: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
+#: ajax/uploadimport.php:70 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
 msgstr "Falta un fitxer temporal"
 
@@ -253,7 +257,7 @@ msgstr "Indexant contactes"
 msgid "Select photo"
 msgstr "Selecciona una foto"
 
-#: js/app.js:497 js/app.js:523 js/app.js:1532 js/app.js:1644
+#: js/app.js:497 js/app.js:523 js/app.js:1541 js/app.js:1653
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "Error de xarxa o del servidor. Informeu a l'administrador."
@@ -290,7 +294,7 @@ msgstr "No s'han pujat tots els fitxers. Es reintenta..."
 msgid "Something went wrong with the upload, please retry."
 msgstr "Alguna cosa ha fallat en la pujada, intenteu-ho de nou."
 
-#: js/app.js:1052 js/app.js:1579 js/settings.js:25 js/settings.js:45
+#: js/app.js:1052 js/app.js:1588 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Error"
@@ -303,61 +307,61 @@ msgstr "Important des de {filename}..."
 msgid "{success} imported, {failed} failed."
 msgstr "{success} importat, {failed} fallat."
 
-#: js/app.js:1073
+#: js/app.js:1076
 msgid "Importing..."
 msgstr "Important..."
 
-#: js/app.js:1096
+#: js/app.js:1099
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "No es pot pujar el fitxer perquè és una carpeta o té 0 bytes"
 
-#: js/app.js:1096
+#: js/app.js:1099
 msgid "Upload Error"
 msgstr "Error en la pujada"
 
-#: js/app.js:1103 js/app.js:1407
+#: js/app.js:1106 js/app.js:1416
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "El fitxer que intenteu pujar excedeix la mida màxima de pujada en aquest servidor."
 
-#: js/app.js:1103
+#: js/app.js:1106
 msgid "Upload too large"
 msgstr "La pujada és massa gran"
 
-#: js/app.js:1143
+#: js/app.js:1150
 msgid "Pending"
 msgstr "Pendent"
 
-#: js/app.js:1286 templates/contacts.php:122
+#: js/app.js:1295 templates/contacts.php:122
 msgid "Add group"
 msgstr "Afegeix grup"
 
-#: js/app.js:1395
+#: js/app.js:1404
 msgid "No files selected for upload."
 msgstr "No s'han seleccionat fitxers per a la pujada."
 
-#: js/app.js:1497
+#: js/app.js:1506
 msgid "Edit profile picture"
 msgstr "Edita la fotografia de perfil"
 
-#: js/app.js:1515 js/contacts.js:1134
+#: js/app.js:1524 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr "Error en carregar la imatge de perfil."
 
-#: js/app.js:1567
+#: js/app.js:1576
 msgid "Enter name"
 msgstr "Escriviu un nom"
 
-#: js/app.js:1568
+#: js/app.js:1577
 msgid "Enter description"
 msgstr "Escriviu una descripció"
 
-#: js/app.js:1571
+#: js/app.js:1580
 msgid "Select addressbook"
 msgstr "Selecciona la llibreta d'adreces"
 
-#: js/app.js:1579
+#: js/app.js:1588
 msgid "The address book name cannot be empty."
 msgstr "El nom de la llibreta d'adreces no pot ser buit."
 

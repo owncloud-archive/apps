@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-08 00:07+0100\n"
-"PO-Revision-Date: 2011-09-23 17:10+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-03-10 00:01+0100\n"
+"PO-Revision-Date: 2013-03-09 23:03+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Swahili (Kenya) (http://www.transifex.com/projects/p/owncloud/language/sw_KE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/delete.php:32 ajax/contact/deleteproperty.php:38
-#: ajax/contact/saveproperty.php:77
+#: ajax/contact/saveproperty.php:82
 msgid "id is not set."
 msgstr ""
 
@@ -67,11 +67,11 @@ msgstr ""
 msgid "No contacts found."
 msgstr ""
 
-#: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:74
+#: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."
 msgstr ""
 
-#: ajax/contact/deleteproperty.php:46 ajax/contact/saveproperty.php:80
+#: ajax/contact/deleteproperty.php:46 ajax/contact/saveproperty.php:85
 msgid "checksum is not set."
 msgstr ""
 
@@ -79,29 +79,29 @@ msgstr ""
 msgid "Information about vCard is incorrect. Please reload the page."
 msgstr ""
 
-#: ajax/contact/saveproperty.php:98
+#: ajax/contact/saveproperty.php:103
 #, php-format
 msgid "Couldn't find vCard for %d."
 msgstr ""
 
-#: ajax/contact/saveproperty.php:108
+#: ajax/contact/saveproperty.php:113
 msgid "Information about vCard is incorrect. Please reload the page: "
 msgstr ""
 
-#: ajax/contact/saveproperty.php:116
+#: ajax/contact/saveproperty.php:121
 msgid "Something went FUBAR. "
 msgstr ""
 
-#: ajax/contact/saveproperty.php:128
+#: ajax/contact/saveproperty.php:133
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
 msgstr ""
 
-#: ajax/contact/saveproperty.php:180
+#: ajax/contact/saveproperty.php:184
 msgid "Missing IM parameter."
 msgstr ""
 
-#: ajax/contact/saveproperty.php:184
+#: ajax/contact/saveproperty.php:188
 msgid "Unknown IM: "
 msgstr ""
 
@@ -178,33 +178,37 @@ msgstr ""
 msgid "Could not set preference: "
 msgstr ""
 
-#: ajax/uploadimport.php:44 ajax/uploadimport.php:76
+#: ajax/uploadimport.php:42 ajax/uploadimport.php:79
+msgid "Upload of blacklisted file:"
+msgstr ""
+
+#: ajax/uploadimport.php:48 ajax/uploadimport.php:84
 msgid "Error uploading contacts to storage."
 msgstr ""
 
-#: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
+#: ajax/uploadimport.php:65 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
 msgstr ""
 
-#: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
+#: ajax/uploadimport.php:66 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr ""
 
-#: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
+#: ajax/uploadimport.php:67 ajax/uploadphoto.php:79
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr ""
 
-#: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
+#: ajax/uploadimport.php:68 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
-#: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
+#: ajax/uploadimport.php:69 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
 msgstr ""
 
-#: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
+#: ajax/uploadimport.php:70 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
 msgstr ""
 
@@ -229,131 +233,131 @@ msgstr ""
 msgid "%d_selected_contacts"
 msgstr ""
 
-#: js/app.js:268 js/app.js:282
+#: js/app.js:256 js/app.js:270
 msgid "Add to..."
 msgstr ""
 
-#: js/app.js:272 js/app.js:284
+#: js/app.js:260 js/app.js:272
 msgid "Remove from..."
 msgstr ""
 
-#: js/app.js:289
+#: js/app.js:277
 msgid "Add group..."
 msgstr ""
 
-#: js/app.js:357
+#: js/app.js:348
 msgid "Indexing contacts"
 msgstr ""
 
-#: js/app.js:454
+#: js/app.js:446
 msgid "Select photo"
 msgstr ""
 
-#: js/app.js:505 js/app.js:531 js/app.js:1502 js/app.js:1614
+#: js/app.js:497 js/app.js:523 js/app.js:1541 js/app.js:1653
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr ""
 
-#: js/app.js:671 js/app.js:710
+#: js/app.js:665 js/app.js:704
 msgid "Error adding to group."
 msgstr ""
 
-#: js/app.js:739
+#: js/app.js:733
 msgid "Error removing from group."
 msgstr ""
 
-#: js/app.js:769
+#: js/app.js:763
 msgid "There was an error opening a mail composer."
 msgstr ""
 
-#: js/app.js:819
+#: js/app.js:813
 msgid "Deleting done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:896
+#: js/app.js:890
 msgid "Add address book"
 msgstr ""
 
-#: js/app.js:992
+#: js/app.js:1005
 msgid "Import done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:1033
+#: js/app.js:1046
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/app.js:1039
+#: js/app.js:1052
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/app.js:1039 js/app.js:1549 js/settings.js:25 js/settings.js:45
+#: js/app.js:1052 js/app.js:1588 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr ""
 
-#: js/app.js:1049
+#: js/app.js:1062
 msgid "Importing from {filename}..."
 msgstr ""
 
-#: js/app.js:1052
+#: js/app.js:1065
 msgid "{success} imported, {failed} failed."
 msgstr ""
 
-#: js/app.js:1060
+#: js/app.js:1076
 msgid "Importing..."
 msgstr ""
 
-#: js/app.js:1083
+#: js/app.js:1099
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr ""
 
-#: js/app.js:1083
+#: js/app.js:1099
 msgid "Upload Error"
 msgstr ""
 
-#: js/app.js:1090 js/app.js:1377
+#: js/app.js:1106 js/app.js:1416
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr ""
 
-#: js/app.js:1090
+#: js/app.js:1106
 msgid "Upload too large"
 msgstr ""
 
-#: js/app.js:1130
+#: js/app.js:1150
 msgid "Pending"
 msgstr ""
 
-#: js/app.js:1273 templates/contacts.php:122
+#: js/app.js:1295 templates/contacts.php:122
 msgid "Add group"
 msgstr ""
 
-#: js/app.js:1366
+#: js/app.js:1404
 msgid "No files selected for upload."
 msgstr ""
 
-#: js/app.js:1467
+#: js/app.js:1506
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1485 js/contacts.js:1134
+#: js/app.js:1524 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/app.js:1537
+#: js/app.js:1576
 msgid "Enter name"
 msgstr ""
 
-#: js/app.js:1538
+#: js/app.js:1577
 msgid "Enter description"
 msgstr ""
 
-#: js/app.js:1541
+#: js/app.js:1580
 msgid "Select addressbook"
 msgstr ""
 
-#: js/app.js:1549
+#: js/app.js:1588
 msgid "The address book name cannot be empty."
 msgstr ""
 
@@ -369,17 +373,17 @@ msgstr ""
 msgid "# groups"
 msgstr ""
 
-#: js/contacts.js:1490
+#: js/contacts.js:1491
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1501
+#: js/contacts.js:1502
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1516
+#: js/contacts.js:1517
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
@@ -601,7 +605,7 @@ msgstr ""
 msgid "There was an error deleting properties for this contact."
 msgstr ""
 
-#: lib/hooks.php:108
+#: lib/hooks.php:98
 msgid "{name}'s Birthday"
 msgstr ""
 

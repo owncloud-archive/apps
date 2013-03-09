@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-09 00:02+0100\n"
-"PO-Revision-Date: 2013-03-08 22:40+0000\n"
+"POT-Creation-Date: 2013-03-10 00:01+0100\n"
+"PO-Revision-Date: 2013-03-09 19:50+0000\n"
 "Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr "brez vsebine"
 
 #: opmlexporter.php:44
 msgid "subscriptions in ownCloud - News"
-msgstr "naročnine v ownCloud - Novice"
+msgstr "naročnine na ownCloud - Novice"
 
 #: subscribe.php:30
 msgid "An error occurred"
@@ -54,11 +54,11 @@ msgstr "Naročili ste se na"
 
 #: subscribe.php:36
 msgid "You had already subscribed to this feed!"
-msgstr "Na ta vir ste se že prijavili!"
+msgstr "Na ta vir ste že prijavljeni!"
 
 #: templates/part.addnew.php:7
 msgid "New"
-msgstr "Nova"
+msgstr "Novo"
 
 #: templates/part.addnew.php:12
 msgid "Add Subscription"
@@ -66,19 +66,19 @@ msgstr "Dodaj naročnino"
 
 #: templates/part.addnew.php:14
 msgid "Address must not be empty!"
-msgstr ""
+msgstr "Naslov ne sme biti prazna vrednost!"
 
 #: templates/part.addnew.php:15
 msgid "Feed exists already!"
-msgstr ""
+msgstr "Vir že obstaja!"
 
 #: templates/part.addnew.php:16
 msgid "Could not add feed! Check if feed contains valid RSS!"
-msgstr ""
+msgstr "Vira ni mogoče dodati. Preverite, ali je koda RSS veljavna!"
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
-msgstr ""
+msgstr "Mapa že obstaja"
 
 #: templates/part.addnew.php:22
 msgid "Address"
@@ -90,7 +90,7 @@ msgstr "Dodaj"
 
 #: templates/part.addnew.php:29
 msgid "New folder"
-msgstr ""
+msgstr "Nova mapa"
 
 #: templates/part.addnew.php:30
 msgid "Folder"
@@ -98,7 +98,7 @@ msgstr "Mapa"
 
 #: templates/part.addnew.php:35
 msgid "No folder"
-msgstr "Ni map"
+msgstr "Ni mape"
 
 #: templates/part.feed.starred.php:6
 msgid "Starred"
@@ -106,11 +106,11 @@ msgstr "Z zvezdico"
 
 #: templates/part.feed.unread.php:10
 msgid "Unread articles"
-msgstr ""
+msgstr "Neprebrani prispevki"
 
 #: templates/part.feed.unread.php:16
 msgid "All articles"
-msgstr ""
+msgstr "Vsi prispevki"
 
 #: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:33
@@ -119,7 +119,7 @@ msgstr "Označi vse kot prebrano"
 
 #: templates/part.items.php:34
 msgid "Cant play audio format"
-msgstr ""
+msgstr "Zvočnega zapisa ni mogoče predvajati"
 
 #: templates/part.items.php:48 templates/part.items.php:51
 msgid "Share"
@@ -127,7 +127,7 @@ msgstr "Souporaba"
 
 #: templates/part.items.php:55
 msgid "Keep unread"
-msgstr "Obdrži neprebrano"
+msgstr "Ohrani neprebrano"
 
 #: templates/part.listfeed.php:17
 msgid "Delete feed"
@@ -147,7 +147,7 @@ msgstr "Preimenuj mapo"
 
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"
-msgstr ""
+msgstr "Izvoz / Uvoz OPML"
 
 #: templates/part.settings.php:4 templates/part.settings.php:5
 msgid "Import"
@@ -159,7 +159,7 @@ msgstr "Izvozi"
 
 #: templates/part.settings.php:13
 msgid "Subscribelet"
-msgstr "Vstavek za naročanje"
+msgstr "Aplet naročanja"
 
 #: templates/part.showall.php:2
 msgid "Show all"
@@ -173,8 +173,8 @@ msgstr "Prikaži le neprebrano"
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
-msgstr "Povlecite gumb med svoje zaznamke in kliknite nanj, ko se želite hitro prijaviti na novice obiskane spletne strani:"
+msgstr "Povlecite gumb med zaznamke in kliknite nanj, ko želite hitro pregledati novice na spletni strani:"
 
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
-msgstr "Naroči se"
+msgstr "Naročilo"

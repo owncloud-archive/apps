@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:31+0000\n"
+"POT-Creation-Date: 2013-03-10 00:01+0100\n"
+"PO-Revision-Date: 2013-03-09 23:02+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Adres defteri etkisizleştirilirken hata oluştu."
 
 #: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/delete.php:32 ajax/contact/deleteproperty.php:38
-#: ajax/contact/saveproperty.php:77
+#: ajax/contact/saveproperty.php:82
 msgid "id is not set."
 msgstr "id atanmamış."
 
@@ -74,11 +74,11 @@ msgstr "Adres defteri bulunamadı."
 msgid "No contacts found."
 msgstr "Bağlantı bulunamadı."
 
-#: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:74
+#: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."
 msgstr "eleman ismi atanmamış."
 
-#: ajax/contact/deleteproperty.php:46 ajax/contact/saveproperty.php:80
+#: ajax/contact/deleteproperty.php:46 ajax/contact/saveproperty.php:85
 msgid "checksum is not set."
 msgstr "checksum atanmamış."
 
@@ -86,29 +86,29 @@ msgstr "checksum atanmamış."
 msgid "Information about vCard is incorrect. Please reload the page."
 msgstr "vCard bilgileri doğru değil. Lütfen sayfayı yenileyin."
 
-#: ajax/contact/saveproperty.php:98
+#: ajax/contact/saveproperty.php:103
 #, php-format
 msgid "Couldn't find vCard for %d."
 msgstr "%d için vCard bulunamadı."
 
-#: ajax/contact/saveproperty.php:108
+#: ajax/contact/saveproperty.php:113
 msgid "Information about vCard is incorrect. Please reload the page: "
 msgstr "vCard hakkındaki bilgi hatalı. Lütfen sayfayı yeniden yükleyin: "
 
-#: ajax/contact/saveproperty.php:116
+#: ajax/contact/saveproperty.php:121
 msgid "Something went FUBAR. "
 msgstr "Bir şey FUBAR gitti."
 
-#: ajax/contact/saveproperty.php:128
+#: ajax/contact/saveproperty.php:133
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
 msgstr "\"%s\" tipinin özellikleri dizi olarak kaydedilemedi"
 
-#: ajax/contact/saveproperty.php:180
+#: ajax/contact/saveproperty.php:184
 msgid "Missing IM parameter."
 msgstr "IM parametersi kayıp."
 
-#: ajax/contact/saveproperty.php:184
+#: ajax/contact/saveproperty.php:188
 msgid "Unknown IM: "
 msgstr "Bilinmeyen IM:"
 
@@ -185,33 +185,37 @@ msgstr "Değer bunun için ayarlı değil:"
 msgid "Could not set preference: "
 msgstr "Özellik atanamadı:"
 
-#: ajax/uploadimport.php:44 ajax/uploadimport.php:76
+#: ajax/uploadimport.php:42 ajax/uploadimport.php:79
+msgid "Upload of blacklisted file:"
+msgstr ""
+
+#: ajax/uploadimport.php:48 ajax/uploadimport.php:84
 msgid "Error uploading contacts to storage."
 msgstr "Bağlantıları depoya yükleme hatası"
 
-#: ajax/uploadimport.php:61 ajax/uploadphoto.php:77
+#: ajax/uploadimport.php:65 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
 msgstr "Dosya başarıyla yüklendi, hata oluşmadı"
 
-#: ajax/uploadimport.php:62 ajax/uploadphoto.php:78
+#: ajax/uploadimport.php:66 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr "Dosyanın boyutu php.ini dosyasındaki upload_max_filesize limitini aşıyor"
 
-#: ajax/uploadimport.php:63 ajax/uploadphoto.php:79
+#: ajax/uploadimport.php:67 ajax/uploadphoto.php:79
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr "Yüklenecek dosyanın boyutu HTML formunda belirtilen MAX_FILE_SIZE limitini aşıyor"
 
-#: ajax/uploadimport.php:64 ajax/uploadphoto.php:80
+#: ajax/uploadimport.php:68 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
 msgstr "Dosya kısmen karşıya yüklenebildi"
 
-#: ajax/uploadimport.php:65 ajax/uploadphoto.php:81
+#: ajax/uploadimport.php:69 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
 msgstr "Hiç dosya gönderilmedi"
 
-#: ajax/uploadimport.php:66 ajax/uploadphoto.php:82
+#: ajax/uploadimport.php:70 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
 msgstr "Geçici dizin eksik"
 
@@ -256,7 +260,7 @@ msgstr "Bağlantılar listeleniyor"
 msgid "Select photo"
 msgstr "Fotograf seç"
 
-#: js/app.js:497 js/app.js:523 js/app.js:1528 js/app.js:1640
+#: js/app.js:497 js/app.js:523 js/app.js:1541 js/app.js:1653
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr "Ağ veya sunucu hatası. Lütfen sistem yöneticisini bilgilendirin."
@@ -293,7 +297,7 @@ msgstr "Tüm dosyalar yüklenemedi. Yeniden deneniyor..."
 msgid "Something went wrong with the upload, please retry."
 msgstr "Yükleme yaparken birşeyler yanlış gitti. Lütfen tekrar deneyin."
 
-#: js/app.js:1052 js/app.js:1575 js/settings.js:25 js/settings.js:45
+#: js/app.js:1052 js/app.js:1588 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Hata"
@@ -306,61 +310,61 @@ msgstr "{filename} dosyasından içe aktarılıyor..."
 msgid "{success} imported, {failed} failed."
 msgstr "{success} içe aktarıldı, {failed} başarısız oldu."
 
-#: js/app.js:1073
+#: js/app.js:1076
 msgid "Importing..."
 msgstr "İçeri aktarılıyor..."
 
-#: js/app.js:1096
+#: js/app.js:1099
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Dosyanızın boyutu 0 byte olduğundan veya bir dizin olduğundan yüklenemedi"
 
-#: js/app.js:1096
+#: js/app.js:1099
 msgid "Upload Error"
 msgstr "Yükleme Hatası"
 
-#: js/app.js:1103 js/app.js:1403
+#: js/app.js:1106 js/app.js:1416
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Yüklemeye çalıştığınız dosya sunucudaki dosya yükleme maksimum boyutunu aşmaktadır. "
 
-#: js/app.js:1103
+#: js/app.js:1106
 msgid "Upload too large"
 msgstr "Yükleme çok büyük"
 
-#: js/app.js:1143
+#: js/app.js:1150
 msgid "Pending"
 msgstr "Bekliyor"
 
-#: js/app.js:1286 templates/contacts.php:121
+#: js/app.js:1295 templates/contacts.php:122
 msgid "Add group"
 msgstr "Grup ekle"
 
-#: js/app.js:1392
+#: js/app.js:1404
 msgid "No files selected for upload."
 msgstr "Yükleme için dosya seçilmedi."
 
-#: js/app.js:1493
+#: js/app.js:1506
 msgid "Edit profile picture"
 msgstr "Profil fotografı ekle"
 
-#: js/app.js:1511 js/contacts.js:1134
+#: js/app.js:1524 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr "Profil resmi yüklenirken hata oluştu."
 
-#: js/app.js:1563
+#: js/app.js:1576
 msgid "Enter name"
 msgstr "İsim giriniz"
 
-#: js/app.js:1564
+#: js/app.js:1577
 msgid "Enter description"
 msgstr "Tanım giriniz"
 
-#: js/app.js:1567
+#: js/app.js:1580
 msgid "Select addressbook"
 msgstr "Adres defterini sil"
 
-#: js/app.js:1575
+#: js/app.js:1588
 msgid "The address book name cannot be empty."
 msgstr "Adres defterinde adı boş olamaz."
 
@@ -456,7 +460,7 @@ msgstr "CardDav bağlantısı göster"
 msgid "Show read-only VCF link"
 msgstr "Salt-okur VCF bağlantısı göster"
 
-#: js/settings.js:99 templates/contacts.php:255 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:256 templates/settings.php:40
 msgid "Download"
 msgstr "İndir"
 
@@ -464,14 +468,14 @@ msgstr "İndir"
 msgid "Edit"
 msgstr "Düzenle"
 
-#: js/settings.js:102 templates/contacts.php:200 templates/contacts.php:207
-#: templates/contacts.php:214 templates/contacts.php:221
-#: templates/contacts.php:269 templates/contacts.php:396
+#: js/settings.js:102 templates/contacts.php:201 templates/contacts.php:208
+#: templates/contacts.php:215 templates/contacts.php:222
+#: templates/contacts.php:270 templates/contacts.php:397
 #: templates/settings.php:50
 msgid "Delete"
 msgstr "Sil"
 
-#: js/settings.js:120 templates/contacts.php:253 templates/settings.php:62
+#: js/settings.js:120 templates/contacts.php:254 templates/settings.php:62
 msgid "Cancel"
 msgstr "İptal"
 
@@ -608,7 +612,7 @@ msgstr "Aile"
 msgid "There was an error deleting properties for this contact."
 msgstr "Bu kişinin özelliklerini silerken bir hata oluştu"
 
-#: lib/hooks.php:108
+#: lib/hooks.php:98
 msgid "{name}'s Birthday"
 msgstr "{name}'nin Doğumgünü"
 
@@ -652,335 +656,335 @@ msgstr "Bağlantı bulunamadı."
 msgid "HomePage"
 msgstr "Ev Sayfası"
 
-#: templates/contacts.php:9
+#: templates/contacts.php:10
 msgid "New Group"
 msgstr "Yeni Grup"
 
-#: templates/contacts.php:15
+#: templates/contacts.php:16
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: templates/contacts.php:16
+#: templates/contacts.php:17
 msgid "Address books"
 msgstr "Adres defterleri"
 
-#: templates/contacts.php:19 templates/contacts.php:96
+#: templates/contacts.php:20 templates/contacts.php:97
 msgid "Import"
 msgstr "İçe aktar"
 
-#: templates/contacts.php:24
+#: templates/contacts.php:25
 msgid "Select files to import"
 msgstr "İçe aktarılacak dosyarı seçin"
 
-#: templates/contacts.php:25
+#: templates/contacts.php:26
 msgid "Select files"
 msgstr "Dosyaları seçin"
 
-#: templates/contacts.php:31 templates/contacts.php:33
+#: templates/contacts.php:32 templates/contacts.php:34
 msgid "Import into:"
 msgstr "İçe aktar:"
 
-#: templates/contacts.php:35
+#: templates/contacts.php:36
 msgid "OK"
 msgstr "OK"
 
-#: templates/contacts.php:45
+#: templates/contacts.php:46
 msgid "(De-)select all"
 msgstr "Hepsini seç(me)"
 
-#: templates/contacts.php:47
+#: templates/contacts.php:48
 msgid "New Contact"
 msgstr "Yeni Kişi"
 
-#: templates/contacts.php:48
+#: templates/contacts.php:49
 msgid "Download Contact(s)"
 msgstr "Bağlantı(ları) İndir"
 
-#: templates/contacts.php:50
+#: templates/contacts.php:51
 msgid "Groups"
 msgstr "Gruplar"
 
-#: templates/contacts.php:52
+#: templates/contacts.php:53
 msgid "Favorite"
 msgstr "Favori"
 
-#: templates/contacts.php:53
+#: templates/contacts.php:54
 msgid "Delete Contact"
 msgstr "Bağlantıyı Sil"
 
-#: templates/contacts.php:60 templates/contacts.php:254
+#: templates/contacts.php:61 templates/contacts.php:255
 msgid "Close"
 msgstr "Kapat"
 
-#: templates/contacts.php:61
+#: templates/contacts.php:62
 msgid "Keyboard shortcuts"
 msgstr "Klavye kısayolları"
 
-#: templates/contacts.php:63
+#: templates/contacts.php:64
 msgid "Navigation"
 msgstr "Dolaşım"
 
-#: templates/contacts.php:66
+#: templates/contacts.php:67
 msgid "Next contact in list"
 msgstr "Listedeki sonraki kişi"
 
-#: templates/contacts.php:68
+#: templates/contacts.php:69
 msgid "Previous contact in list"
 msgstr "Listedeki önceki kişi"
 
-#: templates/contacts.php:70
+#: templates/contacts.php:71
 msgid "Expand/collapse current addressbook"
 msgstr "Şuanki adres defterini genişlet/daralt"
 
-#: templates/contacts.php:72
+#: templates/contacts.php:73
 msgid "Next addressbook"
 msgstr "Sonraki adresdefteri"
 
-#: templates/contacts.php:74
+#: templates/contacts.php:75
 msgid "Previous addressbook"
 msgstr "Önceki adresdefteri"
 
-#: templates/contacts.php:78
+#: templates/contacts.php:79
 msgid "Actions"
 msgstr "Eylemler"
 
-#: templates/contacts.php:81
+#: templates/contacts.php:82
 msgid "Refresh contacts list"
 msgstr "Kişi listesini tazele"
 
-#: templates/contacts.php:83
+#: templates/contacts.php:84
 msgid "Add new contact"
 msgstr "Yeni kişi ekle"
 
-#: templates/contacts.php:85
+#: templates/contacts.php:86
 msgid "Add new addressbook"
 msgstr "Yeni adres defteri ekle"
 
-#: templates/contacts.php:87
+#: templates/contacts.php:88
 msgid "Delete current contact"
 msgstr "Şuanki kişiyi sil"
 
-#: templates/contacts.php:92
+#: templates/contacts.php:93
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
 msgstr "<h3>Adres defterinizde hiç bağlantınız yok.</h3><p>yeni bir bağlantı ekleyin veya bir VCF dosyasından içe aktarın.</p>"
 
-#: templates/contacts.php:95
+#: templates/contacts.php:96
 msgid "Add contact"
 msgstr "Bağlatı ekle"
 
-#: templates/contacts.php:136
+#: templates/contacts.php:137
 msgid "Compose mail"
 msgstr "Posta oluştur"
 
-#: templates/contacts.php:147
+#: templates/contacts.php:148
 msgid "Delete group"
 msgstr "Grubu sil"
 
-#: templates/contacts.php:160
+#: templates/contacts.php:161
 msgid "Delete current photo"
 msgstr "Mevcut fotoğrafı sil"
 
-#: templates/contacts.php:161
+#: templates/contacts.php:162
 msgid "Edit current photo"
 msgstr "Mevcut fotoğrafı düzenle"
 
-#: templates/contacts.php:162
+#: templates/contacts.php:163
 msgid "Upload new photo"
 msgstr "Yeni fotoğraf yükle"
 
-#: templates/contacts.php:163
+#: templates/contacts.php:164
 msgid "Select photo from ownCloud"
 msgstr "ownCloud'dan bir fotoğraf seç"
 
-#: templates/contacts.php:174 templates/contacts.php:175
+#: templates/contacts.php:175 templates/contacts.php:176
 msgid "First name"
 msgstr "İsim"
 
-#: templates/contacts.php:179 templates/contacts.php:180
+#: templates/contacts.php:180 templates/contacts.php:181
 msgid "Additional names"
 msgstr "İlave isimler"
 
-#: templates/contacts.php:184 templates/contacts.php:185
+#: templates/contacts.php:185 templates/contacts.php:186
 msgid "Last name"
 msgstr "Soyisim"
 
-#: templates/contacts.php:192
+#: templates/contacts.php:193
 msgid "Select groups"
 msgstr "Grupları seç"
 
-#: templates/contacts.php:196 templates/contacts.php:260
+#: templates/contacts.php:197 templates/contacts.php:261
 msgid "Nickname"
 msgstr "Takma ad"
 
-#: templates/contacts.php:199
+#: templates/contacts.php:200
 msgid "Enter nickname"
 msgstr "Takma adı girin"
 
-#: templates/contacts.php:203 templates/contacts.php:259
+#: templates/contacts.php:204 templates/contacts.php:260
 msgid "Title"
 msgstr "Başlık"
 
-#: templates/contacts.php:206
+#: templates/contacts.php:207
 msgid "Enter title"
 msgstr "Başlık girin"
 
-#: templates/contacts.php:210 templates/contacts.php:258
+#: templates/contacts.php:211 templates/contacts.php:259
 msgid "Organization"
 msgstr "Organizasyon"
 
-#: templates/contacts.php:213
+#: templates/contacts.php:214
 msgid "Enter organization"
 msgstr "Organizasyonu girin"
 
-#: templates/contacts.php:217 templates/contacts.php:261
+#: templates/contacts.php:218 templates/contacts.php:262
 msgid "Birthday"
 msgstr "Doğum günü"
 
-#: templates/contacts.php:248
+#: templates/contacts.php:249
 msgid "Notes go here..."
 msgstr "Notlar buraya gidiyor..."
 
-#: templates/contacts.php:255
+#: templates/contacts.php:256
 msgid "Export as VCF"
 msgstr "VCF olarak dışa aktar"
 
-#: templates/contacts.php:257
+#: templates/contacts.php:258
 msgid "Add"
 msgstr "Ekle"
 
-#: templates/contacts.php:262
+#: templates/contacts.php:263
 msgid "Phone"
 msgstr "Telefon"
 
-#: templates/contacts.php:263
+#: templates/contacts.php:264
 msgid "Email"
 msgstr "Eposta"
 
-#: templates/contacts.php:264
+#: templates/contacts.php:265
 msgid "Instant Messaging"
 msgstr "Anında Mesajlaşma"
 
-#: templates/contacts.php:265
+#: templates/contacts.php:266
 msgid "Address"
 msgstr "Adres"
 
-#: templates/contacts.php:266
+#: templates/contacts.php:267
 msgid "Note"
 msgstr "Not"
 
-#: templates/contacts.php:267
+#: templates/contacts.php:268
 msgid "Web site"
 msgstr "Web sitesi"
 
-#: templates/contacts.php:269
+#: templates/contacts.php:270
 msgid "Delete contact"
 msgstr "Kişiyi sil"
 
-#: templates/contacts.php:282 templates/contacts.php:297
-#: templates/contacts.php:311 templates/contacts.php:336
-#: templates/contacts.php:373
+#: templates/contacts.php:283 templates/contacts.php:298
+#: templates/contacts.php:312 templates/contacts.php:337
+#: templates/contacts.php:374
 msgid "Preferred"
 msgstr "Tercih edilen"
 
-#: templates/contacts.php:284
+#: templates/contacts.php:285
 msgid "Please specify a valid email address."
 msgstr "Lütfen geçerli bir eposta adresi belirtin."
 
-#: templates/contacts.php:284
+#: templates/contacts.php:285
 msgid "someone@example.com"
 msgstr "someone@example.com"
 
-#: templates/contacts.php:286
+#: templates/contacts.php:287
 msgid "Mail to address"
 msgstr "Eposta adresi"
 
-#: templates/contacts.php:287
+#: templates/contacts.php:288
 msgid "Delete email address"
 msgstr "Eposta adresini sil"
 
-#: templates/contacts.php:299
+#: templates/contacts.php:300
 msgid "Enter phone number"
 msgstr "Telefon numarasını gir"
 
-#: templates/contacts.php:301
+#: templates/contacts.php:302
 msgid "Delete phone number"
 msgstr "Telefon numarasını sil"
 
-#: templates/contacts.php:315
+#: templates/contacts.php:316
 msgid "Go to web site"
 msgstr "Web sitesine git"
 
-#: templates/contacts.php:316
+#: templates/contacts.php:317
 msgid "Delete URL"
 msgstr "URL'yi sil"
 
-#: templates/contacts.php:327
+#: templates/contacts.php:328
 msgid "View on map"
 msgstr "Haritada gör"
 
-#: templates/contacts.php:328
+#: templates/contacts.php:329
 msgid "Delete address"
 msgstr "Adresi sil"
 
-#: templates/contacts.php:340
+#: templates/contacts.php:341
 msgid "1 Main Street"
 msgstr "1 Main Street"
 
-#: templates/contacts.php:341
+#: templates/contacts.php:342
 msgid "Street address"
 msgstr "Sokak adresi"
 
-#: templates/contacts.php:345
+#: templates/contacts.php:346
 msgid "12345"
 msgstr "12345"
 
-#: templates/contacts.php:346
+#: templates/contacts.php:347
 msgid "Postal code"
 msgstr "Posta kodu"
 
-#: templates/contacts.php:348
+#: templates/contacts.php:349
 msgid "Your city"
 msgstr "Şehriniz"
 
-#: templates/contacts.php:349
+#: templates/contacts.php:350
 msgid "City"
 msgstr "Şehir"
 
-#: templates/contacts.php:353
+#: templates/contacts.php:354
 msgid "Some region"
 msgstr "Bölge"
 
-#: templates/contacts.php:354
+#: templates/contacts.php:355
 msgid "State or province"
 msgstr "Eyalet"
 
-#: templates/contacts.php:358
+#: templates/contacts.php:359
 msgid "Your country"
 msgstr "Ükleniz"
 
-#: templates/contacts.php:359
+#: templates/contacts.php:360
 msgid "Country"
 msgstr "Ülke"
 
-#: templates/contacts.php:381
+#: templates/contacts.php:382
 msgid "Instant Messenger"
 msgstr "Instant Messenger"
 
-#: templates/contacts.php:383
+#: templates/contacts.php:384
 msgid "Delete IM"
 msgstr "IM Sil"
 
-#: templates/contacts.php:393 templates/settings.php:36
+#: templates/contacts.php:394 templates/settings.php:36
 msgid "Share"
 msgstr "Paylaş"
 
-#: templates/contacts.php:394
+#: templates/contacts.php:395
 msgid "Export"
 msgstr "Dışa aktar"
 
-#: templates/contacts.php:395
+#: templates/contacts.php:396
 msgid "CardDAV link"
 msgstr "CardDAV bağlantısı"
 

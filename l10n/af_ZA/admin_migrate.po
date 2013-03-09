@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2012-08-12 22:32+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-03-10 00:01+0100\n"
+"PO-Revision-Date: 2013-03-09 23:03+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Afrikaans (South Africa) (http://www.transifex.com/projects/p/owncloud/language/af_ZA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,18 +31,18 @@ msgstr ""
 msgid "Please choose the export type:"
 msgstr ""
 
-#: templates/settings.php:10
-msgid "ownCloud instance (user data and database"
-msgstr ""
-
 #: templates/settings.php:11
-msgid "ownCloud system files"
+msgid "ownCloud instance (user data and database)"
 msgstr ""
 
 #: templates/settings.php:12
-msgid "Just user files"
+msgid "ownCloud system files"
 msgstr ""
 
 #: templates/settings.php:13
+msgid "Just user files"
+msgstr ""
+
+#: templates/settings.php:14
 msgid "Export"
 msgstr ""
