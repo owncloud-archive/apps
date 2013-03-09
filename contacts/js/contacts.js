@@ -785,8 +785,14 @@ OC.Contacts={
 							$(obj).removeAttr('disabled');
 							return true;
 						}
-						else{
+						else if(jsondata.status == 'error'){
 							OC.dialogs.alert(jsondata.data.message, t('contacts', 'Error'));
+							OC.Contacts.loading(obj, false);
+							$(obj).removeAttr('disabled');
+							OC.Contacts.Card.update({cid:OC.Contacts.Card.id});
+							return false;
+						} else {
+							OC.dialogs.alert(t('contacts', 'Unknown error. Please check logs.'), t('contacts', 'Error'));
 							OC.Contacts.loading(obj, false);
 							$(obj).removeAttr('disabled');
 							OC.Contacts.Card.update({cid:OC.Contacts.Card.id});
