@@ -1064,6 +1064,9 @@ OC.Contacts = OC.Contacts || {
 						if(response.status === 'success') {
 							$status.text(t('contacts', '{success} imported, {failed} failed.',
 								{success:response.data.imported, failed:response.data.failed})).fadeIn();
+						} else {
+							$('.import-upload').show();
+							$('.import-select').hide();
 						}
 						delete uploadingFiles[fileName];
 						numfiles -= 1; uploadedfiles -= 1;
@@ -1123,6 +1126,10 @@ OC.Contacts = OC.Contacts || {
 											uploadedfiles += 1;
 										} else {
 											OC.notify({message:response.data.message});
+											$('.import-upload').show();
+											$('.import-select').hide();
+											$('#import-progress').hide();
+											$('#import-status-text').hide();
 										}
 										return false;
 									})
@@ -1154,6 +1161,8 @@ OC.Contacts = OC.Contacts || {
 				fail: function(e, data) {
 					console.log('fail');
 					OC.notify({message:data.errorThrown + ': ' + data.textStatus});
+					$('.import-upload').show();
+					$('.import-select').hide();
 					// TODO: Remove file from upload queue.
 				},
 				progressall: function(e, data) {
