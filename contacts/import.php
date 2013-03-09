@@ -29,7 +29,7 @@ function writeProgress($pct) {
 writeProgress('10');
 $view = null;
 $inputfile = strtr($_POST['file'], array('/' => '', "\\" => ''));
-if(OC\Files\Filesystem::isFileBlacklisted($inputfile)) {
+if(OC_Filesystem::isFileBlacklisted($inputfile)) {
 	OCP\JSON::error(array('data' => array('message' => 'Upload of blacklisted file: ' . $inputfile)));
 	exit();
 }
