@@ -130,7 +130,7 @@ class OC_Contacts_App {
 				'twitter' => array(
 					'displayname' => (string)$l10n->t('Twitter'),
 					'xname' => 'X-TWITTER',
-					'protocol' => null,
+					'protocol' => 'twitter',
 				),
 				'googletalk' => array(
 					'displayname' => (string)$l10n->t('GoogleTalk'),
