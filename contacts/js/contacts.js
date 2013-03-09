@@ -2063,7 +2063,7 @@ $(document).ready(function(){
 	}
 	// Import using jquery.fileupload
 	$(function() {
-		var uploadingFiles = {}, numfiles = 0, uploadedfiles = 0, retries = 0;
+		var uploadingFiles = {}, numfiles = 0, uploadedfiles = 0, retries = 0, errors = false;
 		var aid;
 
 		$('#import_upload_start').fileupload({
@@ -2076,6 +2076,7 @@ $(document).ready(function(){
 					numfiles += files.length; uploadedfiles = 0;
 					for(var i=0;i<files.length;i++) {
 						if(files[i].size ==0 && files[i].type== '') {
+							errors = true;
 							OC.dialogs.alert(t('files', 'Unable to upload your file as it is a directory or has 0 bytes'), t('files', 'Upload Error'));
 							return;
 						}
@@ -2113,12 +2114,15 @@ $(document).ready(function(){
 										// import the file
 										uploadedfiles += 1;
 									} else {
-										OC.Contacts.notify({message:jsondata.data.message});
+										errors = true;
+										$('#uploadprogressbar').fadeOut();
+										OC.Contacts.notify({message:result.data.message});
 									}
 									return false;
 								})
 								.error(function(jqXHR, textStatus, errorThrown) {
 									//console.log(textStatus);
+									errors = true;
 									OC.Contacts.notify({message:errorThrown + ': ' + textStatus,});
 								});
 							uploadingFiles[fileName] = jqXHR;
@@ -2144,6 +2148,7 @@ $(document).ready(function(){
 			},
 			fail: function(e, data) {
 				//console.log('fail');
+				errors = true;
 				OC.Contacts.notify({message:data.errorThrown + ': ' + data.textStatus});
 				// TODO: Remove file from upload queue.
 			},
@@ -2159,6 +2164,9 @@ $(document).ready(function(){
 				}
 			},
 			stop: function(e, data) {
+				if(errors) {
+					return;
+				}
 				// stop only gets fired once so we collect uploaded items here.
 				var waitForImport = function() {
 					if(numfiles == 0 && uploadedfiles == 0) {
