@@ -28,16 +28,17 @@ function writeProgress($pct) {
 	OC_Cache::set($progresskey, $pct, 300);
 }
 writeProgress('10');
-$view = $file = null;
-if(OC\Files\Filesystem::isFileBlacklisted($_POST['file'])) {
-	OCP\JSON::error(array('data' => array('message' => 'Upload of blacklisted file: ' . $_POST['file'])));
+$view = null;
+$inputfile = strtr($_POST['file'], array('/' => '', "\\" => ''));
+if(OC\Files\Filesystem::isFileBlacklisted($inputfile)) {
+	OCP\JSON::error(array('data' => array('message' => 'Upload of blacklisted file: ' . $inputfile)));
 	exit();
 }
 if(isset($_POST['fstype']) && $_POST['fstype'] == 'OC_FilesystemView') {
 	$view = OCP\Files::getStorage('contacts');
-	$file = $view->file_get_contents('/imports/' . $_POST['file']);
+	$file = $view->file_get_contents('/imports/' . $inputfile);
 } else {
-	$file = \OC\Files\Filesystem::file_get_contents($_POST['path'] . '/' . $_POST['file']);
+	$file = \OC\Files\Filesystem::file_get_contents($_POST['path'] . '/' . $inputfile);
 }
 if(!$file) {
 	OCP\JSON::error(array('data' => array('message' => 'Import file was empty.')));
@@ -62,7 +63,7 @@ if(isset($_POST['method']) && $_POST['method'] == 'new') {
 			array(
 				'data' => array(
 					'message' => 'Error getting the ID of the address book.',
-					'file'=>OCP\Util::sanitizeHTML($_POST['file'])
+					'file'=>OCP\Util::sanitizeHTML($inputfile)
 				)
 			)
 		);
@@ -75,7 +76,7 @@ if(isset($_POST['method']) && $_POST['method'] == 'new') {
 			array(
 				'data' => array(
 					'message' => $e->getMessage(),
-					'file'=>OCP\Util::sanitizeHTML($_POST['file'])
+					'file'=>OCP\Util::sanitizeHTML($inputfile)
 				)
 			)
 		);
@@ -113,15 +114,15 @@ if(!count($parts) > 0) {
 		array(
 			'data' => array(
 				'message' => 'No contacts to import in '
-					. OCP\Util::sanitizeHTML($_POST['file']).'. Please check if the file is corrupted.',
-				'file'=>OCP\Util::sanitizeHTML($_POST['file'])
+					. OCP\Util::sanitizeHTML($inputfile).'. Please check if the file is corrupted.',
+				'file'=>OCP\Util::sanitizeHTML($inputfile)
 			)
 		)
 	);
 	if(isset($_POST['fstype']) && $_POST['fstype'] == 'OC_FilesystemView') {
-		if(!$view->unlink('/imports/' . $_POST['file'])) {
+		if(!$view->unlink('/imports/' . $inputfile)) {
 			OCP\Util::writeLog('contacts',
-				'Import: Error unlinking OC_FilesystemView ' . '/' . OCP\Util::sanitizeHTML($_POST['file']),
+				'Import: Error unlinking OC_FilesystemView ' . '/' . OCP\Util::sanitizeHTML($inputfile),
 				OCP\Util::ERROR);
 		}
 	}
@@ -160,9 +161,9 @@ writeProgress('100');
 sleep(3);
 OC_Cache::remove($progresskey);
 if(isset($_POST['fstype']) && $_POST['fstype'] == 'OC_FilesystemView') {
-	if(!$view->unlink('/imports/' . $_POST['file'])) {
+	if(!$view->unlink('/imports/' . $inputfile)) {
 		OCP\Util::writeLog('contacts',
-			'Import: Error unlinking OC_FilesystemView ' . '/' . $_POST['file'],
+			'Import: Error unlinking OC_FilesystemView ' . '/' . $inputfile,
 			OCP\Util::ERROR);
 	}
 }
@@ -171,7 +172,7 @@ OCP\JSON::success(
 		'data' => array(
 			'imported'=>$imported,
 			'failed'=>$failed,
-			'file'=>OCP\Util::sanitizeHTML($_POST['file']),
+			'file'=>OCP\Util::sanitizeHTML($inputfile),
 		)
 	)
 );
