@@ -41,6 +41,7 @@ session_write_close();
 $contacts_addressbook = array();
 $ids = array();
 foreach($active_addressbooks as $addressbook) {
+	$addressbook['displayname'] = OCP\Util::sanitizeHTML($active_addressbooks['displayname']);
 	$ids[] = $addressbook['id'];
 	/*if(!isset($contacts_addressbook[$addressbook['id']])) {
 		$contacts_addressbook[$addressbook['id']]
