@@ -33,7 +33,11 @@ OC_App::loadApps($RUNTIME_APPTYPES);
 // Backends
 $authBackend = new OC_Connector_Sabre_Auth();
 $principalBackend = new OC_Connector_Sabre_Principal();
-$carddavBackend   = new OCA\Contacts\CardDAV\Backend();
+
+$addressbookbackends = array();
+$addressbookbackends[] = new OCA\Contacts\Backend\Shared();
+$addressbookbackends[] = new OCA\Contacts\Backend\Database();
+$carddavBackend = new OCA\Contacts\CardDAV\Backend($addressbookbackends);
 $requestBackend = new OC_Connector_Sabre_Request();
 
 // Root nodes
