@@ -89,6 +89,7 @@ if($contacts_alphabet) {
 					'data' => $details,
 				);
 		} catch (Exception $e) {
+			\OCP\Util::writeLog('contacts', 'Exception: ' . $e->getMessage(), \OCP\Util::DEBUG);
 			continue;
 		}
 		// This should never execute.
