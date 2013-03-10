@@ -74,7 +74,7 @@ $checksum = isset($_POST['checksum'])?$_POST['checksum']:null;
 debug('value: ' . print_r($value, 1));
 
 $multi_properties = array('EMAIL', 'TEL', 'IMPP', 'ADR', 'URL');
-$string_properties = array('FN', 'NICKNAME', 'NOTE', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL');
+$string_properties = array('FN', 'TITLE', 'ROLE', 'NICKNAME', 'NOTE', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL');
 
 if(!$name) {
 	bailOut(App::$l10n->t('element name is not set.'));
@@ -90,11 +90,6 @@ if(is_array($value)) {
 	// NOTE: Important, otherwise the compound value will be
 	// set in the order the fields appear in the form!
 	ksort($value);
-	//if($name == 'CATEGORIES') {
-	//	$value = VCard::escapeDelimiters($value, ',');
-	//} else {
-	//	$value = VCard::escapeDelimiters($value, ';');
-	//}
 } else {
 	$value = trim(strip_tags($value));
 }
@@ -201,9 +196,6 @@ if(!$value) {
 		unset($vcard->{$name});
 	}
 } else {
-	if(in_array($name, $string_properties)) {
-		$value = strtr($value, array(',' => '\,', ';' => '\;'));
-	}
 	/* setting value */
 	switch($element) {
 		case 'BDAY':
