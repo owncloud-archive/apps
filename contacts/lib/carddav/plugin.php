@@ -25,7 +25,7 @@
 namespace OCA\Contacts\CardDAV;
 
 use Sabre\VObject;
-use OCA\Contacts;
+use OCA\Contacts\VObject\VCard;
 
 /**
  * This class overrides Sabre_CardDAV_Plugin::validateVCard() to be able
@@ -54,7 +54,7 @@ class Plugin extends \Sabre_CardDAV_Plugin {
 		$data = \Sabre_DAV_StringUtil::ensureUTF8($data);
 
 		try {
-			$vobj = VObject\Reader::read($data, VObject\Reader::OPTION_IGNORE_INVALID_LINE);
+			$vobj = VObject\Reader::read($data, VObject\Reader::OPTION_IGNORE_INVALID_LINES);
 		} catch (VObject\ParseException $e) {
 			throw new \Sabre_DAV_Exception_UnsupportedMediaType('This resource only supports valid vcard data. Parse error: ' . $e->getMessage());
 		}
