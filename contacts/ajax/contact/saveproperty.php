@@ -52,6 +52,11 @@ function setParameters($property, $parameters, $reset = false) {
 					}
 				}
 			}
+		} else {
+			if(trim($key) && trim($parameter)) {
+				debug('Adding parameter: '.$key.'=>'.print_r($parameter, true));
+				$property->add($key, strip_tags($parameter));
+			}
 		}
 	}
 }
