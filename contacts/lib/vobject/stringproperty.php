@@ -1,6 +1,6 @@
 <?php
 /**
- * ownCloud - VCard component
+ * ownCloud - VObject String Property
  *
  * This component represents the BEGIN:VCARD and END:VCARD found in every
  * vcard.
@@ -50,16 +50,19 @@ class StringProperty extends VObject\Property {
 		}
 
 		$src = array(
-			"\n",);
-		/*	';',
+			'\\',
+			"\n",
+			';',
 			',',
-		);*/
+		);
 		$out = array(
-			'\n',);
-		/*	'\;',
+			'\\\\',
+			'\n',
+			'\;',
 			'\,',
-		);*/
-		$str.=':' . str_replace($src, $out, $this->value);
+		);
+		$value = strtr($this->value, array('\,' => ',', '\;' => ';', '\\\\' => '\\'));
+		$str.=':' . str_replace($src, $out, $value);
 
 		$out = '';
 		while(strlen($str) > 0) {
