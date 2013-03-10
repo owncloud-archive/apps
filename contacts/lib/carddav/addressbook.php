@@ -84,10 +84,10 @@ class AddressBook extends \Sabre_CardDAV_AddressBook {
 			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & \OCP\PERMISSION_READ)) {
 				$readprincipal = 'principals/' . \OCP\USER::getUser();
 			}
-			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE)) {
+			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & \OCP\PERMISSION_UPDATE)) {
 				$writeprincipal = 'principals/' . \OCP\USER::getUser();
 			}
-			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_DELETE)) {
+			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & \OCP\PERMISSION_DELETE)) {
 				$deleteprincipal = 'principals/' . \OCP\USER::getUser();
 			}
 		}
@@ -179,7 +179,9 @@ class AddressBook extends \Sabre_CardDAV_AddressBook {
 	public function getChild($name) {
 
 		$obj = $this->carddavBackend->getCard($this->addressBookInfo['id'],$name);
-		if (!$obj) throw new \Sabre_DAV_Exception_NotFound('Card not found');
+		if (!$obj) {
+			throw new \Sabre_DAV_Exception_NotFound('Card not found');
+		}
 		return new Card($this->carddavBackend,$this->addressBookInfo,$obj);
 
 	}
