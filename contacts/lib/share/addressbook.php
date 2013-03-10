@@ -41,17 +41,18 @@ class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 	* If it does generate a new name e.g. name_#
 	*/
 	public function generateTarget($itemSource, $shareWith, $exclude = null) {
-		$addressbook = Addressbook::find( $itemSource );
+		$addressbook = Addressbook::find($itemSource);
 		$user_addressbooks = array();
 		foreach(Addressbook::all($shareWith) as $user_addressbook) {
 			$user_addressbooks[] = $user_addressbook['displayname'];
 		}
-		$name = $addressbook['displayname'];
+		$name = $addressbook['displayname'] . '(' . $addressbook['userid'] . ')';
 		$suffix = '';
 		while (in_array($name.$suffix, $user_addressbooks)) {
 			$suffix++;
 		}
 
+		$suffix = $suffix ? ' ' . $suffix : '';
 		return $name.$suffix;
 	}
 
