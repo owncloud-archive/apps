@@ -482,8 +482,8 @@ OC.Contacts = OC.Contacts || {
 
 		$(document).bind('status.group.contactadded', function(e, result) {
 			console.log('status.group.contactadded', result);
-			var contact = self.contacts.findById(self.currentid);
-			if(contact === null) {
+			var contact = self.contacts.findById(result.contactid);
+			if(!contact) {
 				return false;
 			}
 			contact.addToGroup(result.groupname);

@@ -361,12 +361,13 @@ OC.Contacts = OC.Contacts || {};
 	GroupList.prototype.contactDropped = function(event, ui) {
 		var dragitem = ui.draggable, droptarget = $(this);
 		console.log('dropped', dragitem);
-		if(dragitem.is('tr')) {
-			console.log('tr dropped', dragitem.data('id'), 'on', $(this).data('id'));
+		if(dragitem.is('td.name')) {
+			var id = dragitem.parent().data('id');
+			console.log('td dropped', id, 'on', $(this).data('id'));
 			if($(this).data('type') === 'fav') {
-				$(this).data('obj').setAsFavorite(dragitem.data('id'), true);
+				$(this).data('obj').setAsFavorite(id, true);
 			} else {
-				$(this).data('obj').addTo(dragitem.data('id'), $(this).data('id'));
+				$(this).data('obj').addTo(id, $(this).data('id'));
 			}
 		}
 	};
@@ -585,7 +586,7 @@ OC.Contacts = OC.Contacts || {};
 
 	GroupList.prototype.loadGroups = function(numcontacts, cb) {
 		var self = this;
-		var acceptdrop = 'tr.contact';
+		var acceptdrop = 'td.name';
 		var $groupList = this.$groupList;
 		var tmpl = this.$groupListItemTemplate;
 

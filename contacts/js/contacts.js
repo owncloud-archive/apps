@@ -1584,7 +1584,7 @@ OC.Contacts = OC.Contacts || {};
 	 * @param contact jQuery object.
 	 */
 	ContactList.prototype.insertContact = function($contact) {
-		$contact.draggable({
+		$contact.find('td.name').draggable({
 			distance: 10,
 			revert: 'invalid',
 			//containment: '#content',
@@ -1732,7 +1732,7 @@ OC.Contacts = OC.Contacts || {};
 					self.length +=1;
 					var $item = self.contacts[parseInt(contact.id)].renderListItem();
 					items.push($item.get(0));
-					$item.draggable({
+					$item.find('td.name').draggable({
 						distance: 10,
 						revert: 'invalid',
 						//containment: '#content',
