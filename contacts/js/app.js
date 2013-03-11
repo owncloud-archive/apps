@@ -487,7 +487,7 @@ OC.Contacts = OC.Contacts || {
 
 		$(document).bind('status.group.contactadded', function(e, result) {
 			console.log('status.group.contactadded', result);
-			var contact = self.contacts.findById(self.currentid);
+			var contact = self.contacts.findById(result.contactid);
 			if(contact === null) {
 				return false;
 			}
