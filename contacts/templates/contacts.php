@@ -142,6 +142,13 @@
 	</tr>
 </script>
 
+<script id="contactDragItemTemplate" type="text/template">
+	<div class="dragContact" data-id="{id}"
+		style="background: url('<?php print_unescaped(OC_Helper::linkToRemoteBase('contactthumbnail')); ?>?id={id}')">
+		{name}
+	</div>
+</script>
+
 <script id="groupListItemTemplate" type="text/template">
 	<h3 class="group" data-type="{type}" data-id="{id}">
 		{name}

@@ -233,7 +233,18 @@
 .control > * { background: none repeat scroll 0 0 #F8F8F8; color: #555 !important; font-size: 100%; margin: 0px; }
 
 .ui-draggable { height: 3em; z-index: 1000; }
-.ui-draggable-dragging { width: 70%; cursor: move; }
+.ui-draggable { height: 3em; z-index: 1000; }
+.ui-draggable-dragging {
+	cursor: move;
+	background-repeat: no-repeat !important;
+	background-color: #fff;
+	z-index: 5;
+	width: 200px; height: 30px;
+	text-indent: 30px;
+	font-weight: bold;
+	border: thin solid silver; border-radius: 3px;
+	padding: 3px;
+}
 .ui-state-hover { border: 1px solid dashed; z-index: 1; }
 
 /* Properties */

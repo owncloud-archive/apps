@@ -361,9 +361,9 @@ OC.Contacts = OC.Contacts || {};
 	GroupList.prototype.contactDropped = function(event, ui) {
 		var dragitem = ui.draggable, droptarget = $(this);
 		console.log('dropped', dragitem);
-		if(dragitem.is('td.name')) {
+		if(dragitem.is('.name')) {
 			var id = dragitem.parent().data('id');
-			console.log('td dropped', id, 'on', $(this).data('id'));
+			console.log('contact dropped', id, 'on', $(this).data('id'));
 			if($(this).data('type') === 'fav') {
 				$(this).data('obj').setAsFavorite(id, true);
 			} else {
@@ -586,7 +586,7 @@ OC.Contacts = OC.Contacts || {};
 
 	GroupList.prototype.loadGroups = function(numcontacts, cb) {
 		var self = this;
-		var acceptdrop = 'td.name';
+		var acceptdrop = '.dragContact';
 		var $groupList = this.$groupList;
 		var tmpl = this.$groupListItemTemplate;
 
@@ -610,9 +610,12 @@ OC.Contacts = OC.Contacts || {};
 				$elem.data('contacts', contacts).find('.numcontacts').before('<span class="starred action" />');
 				$elem.droppable({
 							drop: self.contactDropped,
+							over: function( event, ui ) {
+								console.log('over favorites', ui.draggable);
+							},
 							activeClass: 'ui-state-active',
 							hoverClass: 'ui-state-hover',
-							accept: acceptdrop
+							scope: 'contacts'
 						});
 				if(contacts.length === 0) {
 					$elem.hide();
@@ -634,8 +637,12 @@ OC.Contacts = OC.Contacts || {};
 					$elem.data('id', category.id);
 					$elem.droppable({
 									drop: self.contactDropped,
-									activeClass: 'ui-state-hover',
-									accept: acceptdrop
+									over: function( event, ui ) {
+										console.log('over group', ui.draggable);
+									},
+									activeClass: 'ui-state-active',
+									hoverClass: 'ui-state-hover',
+									scope: 'contacts'
 								});
 					$elem.appendTo($groupList);
 				});
