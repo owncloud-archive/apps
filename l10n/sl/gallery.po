@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-09 00:02+0100\n"
-"PO-Revision-Date: 2013-03-08 22:01+0000\n"
+"POT-Creation-Date: 2013-03-12 00:10+0100\n"
+"PO-Revision-Date: 2013-03-11 19:30+0000\n"
 "Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Slike"
 
 #: js/gallery.js:245
 msgid "Shared by"
-msgstr "Razvrščeno po"
+msgstr "V souporabi z"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"

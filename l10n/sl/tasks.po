@@ -4,13 +4,14 @@
 # 
 # Translators:
 #   <>, 2012.
+# Matej Urbančič <>, 2013.
 # Peter Peroša <peter.perosa@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-10 00:01+0100\n"
-"PO-Revision-Date: 2013-03-09 18:42+0000\n"
+"POT-Creation-Date: 2013-03-12 00:10+0100\n"
+"PO-Revision-Date: 2013-03-11 08:50+0000\n"
 "Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +26,7 @@ msgstr "Neveljaven datum ali čas"
 
 #: appinfo/app.php:10
 msgid "Tasks"
-msgstr "Opravila"
+msgstr "Naloge"
 
 #: js/tasks.js:78
 msgid "Due"
@@ -78,7 +79,7 @@ msgstr "Za uporabo tega programa mora biti koledar omogočen."
 
 #: templates/tasks.php:3
 msgid "Add Task"
-msgstr "Dodaj opravilo"
+msgstr "Dodaj nalogo"
 
 #: templates/tasks.php:4
 msgid "Order Due"
@@ -106,7 +107,7 @@ msgstr "Razvrsti po oznakah"
 
 #: templates/tasks.php:16
 msgid "Loading tasks..."
-msgstr "Poteka nalaganje opravil ..."
+msgstr "Poteka nalaganje nalog ..."
 
 #: templates/tasks.php:20
 msgid "Important"

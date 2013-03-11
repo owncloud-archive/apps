@@ -38,6 +38,7 @@
 "Key is not set for: " => "No s'ha establert la clau per:",
 "Value is not set for: " => "No s'ha establert el valor per:",
 "Could not set preference: " => "No s'ha pogut establir la preferència:",
+"Upload of blacklisted file:" => "Puja a llista negra de fitxers:",
 "Error uploading contacts to storage." => "Error en carregar contactes a l'emmagatzemament.",
 "There is no error, the file uploaded with success" => "No hi ha errors, el fitxer s'ha carregat correctament",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "El fitxer carregat supera la directiva upload_max_filesize de php.ini",

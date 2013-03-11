@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-10 00:01+0100\n"
-"PO-Revision-Date: 2013-03-09 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-12 00:10+0100\n"
+"PO-Revision-Date: 2013-03-09 23:30+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -185,7 +185,7 @@ msgstr "Impossibile impostare la preferenza:"
 
 #: ajax/uploadimport.php:42 ajax/uploadimport.php:79
 msgid "Upload of blacklisted file:"
-msgstr ""
+msgstr "Caricamento del file nella lista nera:"
 
 #: ajax/uploadimport.php:48 ajax/uploadimport.php:84
 msgid "Error uploading contacts to storage."
@@ -412,25 +412,25 @@ msgstr "Il contatto non è in questo gruppo."
 msgid "Contacts are not in this group."
 msgstr "I contatti non sono in questo gruppo."
 
-#: js/groups.js:541
+#: js/groups.js:542
 msgid "A group named {group} already exists"
 msgstr "Un gruppo con nome {group} esiste già"
 
-#: js/groups.js:573
+#: js/groups.js:574
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Puoi trascinare i gruppi per\norganizzarli come preferisci."
 
-#: js/groups.js:592
+#: js/groups.js:593
 msgid "All"
 msgstr "Tutti"
 
-#: js/groups.js:606
+#: js/groups.js:607
 msgid "Favorites"
 msgstr "Preferiti"
 
-#: js/groups.js:655
+#: js/groups.js:656
 msgid "Shared by {owner}"
 msgstr "Condiviso da {owner}"
 

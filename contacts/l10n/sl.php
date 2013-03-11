@@ -38,6 +38,7 @@
 "Key is not set for: " => "Ključ ni nastavljen za:",
 "Value is not set for: " => "Vrednost ni nastavljena za:",
 "Could not set preference: " => "Ne morem nastaviti lastnosti:",
+"Upload of blacklisted file:" => "Poslane datoteke na črnem seznamu:",
 "Error uploading contacts to storage." => "Napaka med nalaganjem stikov v hrambo.",
 "There is no error, the file uploaded with success" => "Datoteka je uspešno naložena brez napak.",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "Naložena datoteka presega velikost, ki jo določa parameter upload_max_filesize v datoteki php.ini",

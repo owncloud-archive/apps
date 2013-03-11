@@ -4,6 +4,7 @@
 # 
 # Translators:
 #   <blobbyjj@ymail.com>, 2012.
+# I Robot <owncloud-bot@tmit.eu>, 2013.
 # I Robot <thomas.mueller@tmit.eu>, 2012.
 #   <mail@felixmoeller.de>, 2012.
 #   <niko@nik-o-mat.de>, 2012.
@@ -13,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-10 00:01+0100\n"
-"PO-Revision-Date: 2013-03-09 23:03+0000\n"
+"POT-Creation-Date: 2013-03-12 00:10+0100\n"
+"PO-Revision-Date: 2013-03-11 10:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +40,7 @@ msgstr "Bitte wähle die Art des Exports:"
 
 #: templates/settings.php:11
 msgid "ownCloud instance (user data and database)"
-msgstr ""
+msgstr "ownCloud Instanz (Benutzerdaten und Datenbank)"
 
 #: templates/settings.php:12
 msgid "ownCloud system files"

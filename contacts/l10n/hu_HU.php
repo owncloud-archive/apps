@@ -38,6 +38,7 @@
 "Key is not set for: " => "Nincs megadva a kulcs:",
 "Value is not set for: " => "Nincs megadva az érték:",
 "Could not set preference: " => "Nem állítható be a tulajdonság:",
+"Upload of blacklisted file:" => "Feketelistában található fájl feltöltése:",
 "Error uploading contacts to storage." => "Hiba a kapcsolatok feltöltésekor",
 "There is no error, the file uploaded with success" => "Nincs hiba, a fájl sikeresen feltöltődött",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "A feltöltött fájl mérete meghaladja az upload_max_filesize értéket a php.ini-ben",

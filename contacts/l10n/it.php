@@ -38,6 +38,7 @@
 "Key is not set for: " => "Chiave non impostata per:",
 "Value is not set for: " => "Valore non impostato per:",
 "Could not set preference: " => "Impossibile impostare la preferenza:",
+"Upload of blacklisted file:" => "Caricamento del file nella lista nera:",
 "Error uploading contacts to storage." => "Errore di caricamento in archivio dei contatti.",
 "There is no error, the file uploaded with success" => "Non ci sono errori, il file è stato caricato correttamente",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "Il file inviato supera la direttiva upload_max_filesize nel php.ini",

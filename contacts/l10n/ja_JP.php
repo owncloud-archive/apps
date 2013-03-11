@@ -38,6 +38,7 @@
 "Key is not set for: " => "キーが未設定:",
 "Value is not set for: " => "値が未設定:",
 "Could not set preference: " => "優先度を設定出来ません: ",
+"Upload of blacklisted file:" => "ブラックリストのファイルのアップロード:",
 "Error uploading contacts to storage." => "ストレージへの連絡先のアップロードエラー。",
 "There is no error, the file uploaded with success" => "エラーはありません。ファイルのアップロードは成功しました",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "アップロードファイルは php.ini 内の upload_max_filesize の制限を超えています",

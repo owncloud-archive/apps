@@ -38,6 +38,7 @@
 "Key is not set for: " => "Sleutel niet bekend:",
 "Value is not set for: " => "Waarde niet bekend:",
 "Could not set preference: " => "Kan voorkeur niet opslaan:",
+"Upload of blacklisted file:" => "Upload van het ge-blackliste bestand:",
 "Error uploading contacts to storage." => "Fout bij opslaan van contacten.",
 "There is no error, the file uploaded with success" => "De upload van het bestand is goedgegaan.",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "Het bestand overschrijdt de upload_max_filesize instelling in php.ini",
