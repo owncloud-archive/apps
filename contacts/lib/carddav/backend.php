@@ -145,7 +145,8 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 * @return void
 	 */
 	public function deleteAddressBook($addressbookid) {
-		$this->backend->deleteAddressBook($addressbookid);
+		$backend = $this->getBackendForAddressBook($addressbookid);
+		$backend->deleteAddressBook($addressbookid);
 	}
 
 	/**
@@ -156,11 +157,9 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 */
 	public function getCards($addressbookid) {
 		$contacts = array();
-		foreach($this->backends as $backend) {
-			if($backend->hasAddressBook($addressbookid)) {
-				$contacts = $backend->getContacts($addressbookid);
-			}
-		}
+		$backend = $this->getBackendForAddressBook($addressbookid);
+		$contacts = $backend->getContacts($addressbookid);
+
 		$cards = array();
 		foreach($contacts as $contact) {
 			//OCP\Util::writeLog('contacts', __METHOD__.', uri: ' . $i['uri'], OCP\Util::DEBUG);
@@ -184,6 +183,7 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 * @return array
 	 */
 	public function getCard($addressbookid, $carduri) {
+		$backend = $this->getBackendForAddressBook($addressbookid);
 		return Contacts\VCard::findWhereDAVDataIs($addressbookid, $carduri);
 
 	}
