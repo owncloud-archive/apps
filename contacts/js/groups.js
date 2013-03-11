@@ -355,18 +355,18 @@ OC.Contacts = OC.Contacts || {};
 
 	/**
 	 * Drop handler for for adding contact to group/favorites.
-	 * FIXME: The drag helper object goes below the group elements
 	 * during drag, and the drop target is hard to hit.
 	 */
 	GroupList.prototype.contactDropped = function(event, ui) {
 		var dragitem = ui.draggable, droptarget = $(this);
 		console.log('dropped', dragitem);
-		if(dragitem.is('tr')) {
-			console.log('tr dropped', dragitem.data('id'), 'on', $(this).data('id'));
+		if(dragitem.is('.name')) {
+			var id = dragitem.parent().data('id');
+			console.log('contact dropped', id, 'on', id);
 			if($(this).data('type') === 'fav') {
-				$(this).data('obj').setAsFavorite(dragitem.data('id'), true);
+				$(this).data('obj').setAsFavorite(id, true);
 			} else {
-				$(this).data('obj').addTo(dragitem.data('id'), $(this).data('id'));
+				$(this).data('obj').addTo(id, $(this).data('id'));
 			}
 		}
 	};
@@ -585,7 +585,7 @@ OC.Contacts = OC.Contacts || {};
 
 	GroupList.prototype.loadGroups = function(numcontacts, cb) {
 		var self = this;
-		var acceptdrop = 'tr.contact';
+		var acceptdrop = '.dragContact';
 		var $groupList = this.$groupList;
 		var tmpl = this.$groupListItemTemplate;
 
@@ -609,9 +609,12 @@ OC.Contacts = OC.Contacts || {};
 				$elem.data('contacts', contacts).find('.numcontacts').before('<span class="starred action" />');
 				$elem.droppable({
 							drop: self.contactDropped,
+							over: function( event, ui ) {
+								console.log('over favorites', ui.draggable);
+							},
 							activeClass: 'ui-state-active',
 							hoverClass: 'ui-state-hover',
-							accept: acceptdrop
+							scope: 'contacts'
 						});
 				if(contacts.length === 0) {
 					$elem.hide();
@@ -633,8 +636,12 @@ OC.Contacts = OC.Contacts || {};
 					$elem.data('id', category.id);
 					$elem.droppable({
 									drop: self.contactDropped,
-									activeClass: 'ui-state-hover',
-									accept: acceptdrop
+									over: function( event, ui ) {
+										console.log('over group', ui.draggable);
+									},
+									activeClass: 'ui-state-active',
+									hoverClass: 'ui-state-hover',
+									scope: 'contacts'
 								});
 					$elem.appendTo($groupList);
 				});

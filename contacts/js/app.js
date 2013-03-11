@@ -171,6 +171,7 @@ OC.Contacts = OC.Contacts || {
 		this.contacts = new OC.Contacts.ContactList(
 			this.$contactList,
 			this.$contactListItemTemplate,
+			this.$contactDragItemTemplate,
 			this.$contactFullTemplate,
 			this.detailTemplates
 		);
@@ -218,6 +219,7 @@ OC.Contacts = OC.Contacts || {
 		});
 		this.$groupListItemTemplate = $('#groupListItemTemplate');
 		this.$contactListItemTemplate = $('#contactListItemTemplate');
+		this.$contactDragItemTemplate = $('#contactDragItemTemplate');
 		this.$contactFullTemplate = $('#contactFullTemplate');
 		this.$contactDetailsTemplate = $('#contactDetailsTemplate');
 		this.$rightContent = $('#rightcontent');
@@ -482,7 +484,7 @@ OC.Contacts = OC.Contacts || {
 
 		$(document).bind('status.group.contactadded', function(e, result) {
 			console.log('status.group.contactadded', result);
-			var contact = self.contacts.findById(self.currentid);
+			var contact = self.contacts.findById(result.contactid);
 			if(contact === null) {
 				return false;
 			}
