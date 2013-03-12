@@ -42,6 +42,21 @@ abstract class AbstractBackend {
 	}
 
 	/**
+	 * Get an addressbook's properties
+	 *
+	 * The returned array MUST contain 'displayname' and an integer 'permissions'
+	 * value using there ownCloud CRUDS constants (which MUST be at least
+	 * \OCP\PERMISSION_READ).
+	 * Currently the only ones supported are 'displayname' and
+	 * 'description', but backends can implement additional.
+	 *
+	 * @param string $addressbookid
+	 * @return array $properties
+	 */
+	public function getAddressBook($addressbookid) {
+	}
+
+	/**
 	 * Updates an addressbook's properties
 	 *
 	 * The $properties array contains the changes to be made.

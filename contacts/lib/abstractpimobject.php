@@ -68,6 +68,13 @@ abstract class PIMObjectAbstract implements IPIMObject {
 	/**
 	 * @return string|null
 	 */
+	function getDisplayName() {
+		return $this->displayName;
+	}
+
+	/**
+	 * @return string|null
+	 */
 	public function getOwner() {
 		return $this->owner;
 	}
@@ -106,11 +113,20 @@ abstract class PIMObjectAbstract implements IPIMObject {
 	}
 
 	/**
-	 * Save the contact data to backend
+	 * Save the data to backend
+	 *
+	 * @param array $data
+	 * @return bool
+	 */
+	public function update(array $data) {
+	}
+
+	/**
+	 * Delete the data from backend
 	 *
 	 * @return bool
 	 */
-	public function save() {
+	public function delete() {
 	}
 
 }

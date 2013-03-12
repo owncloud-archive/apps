@@ -22,7 +22,7 @@
 
 namespace OCA\Contacts\Backend;
 
-use OCA\Contacts\Contact;
+use OCA\Contacts;
 
 /**
  * Subclass this class for Cantacts backends
@@ -30,6 +30,7 @@ use OCA\Contacts\Contact;
 
 class Shared extends Database {
 
+	public $backendname = 'shared';
 	public $addressbooks = array();
 
 	/**
@@ -45,10 +46,25 @@ class Shared extends Database {
 
 		$this->addressbooks = \OCP\Share::getItemsSharedWith(
 			'addressbook',
-			\OCA\Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS
+			Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS
 		);
 
 		return $this->addressbooks;
+	}
+
+	/**
+	 * Returns a specific address book.
+	 *
+	 * @param string $addressbookid
+	 * @param mixed $id Contact ID
+	 * @return mixed
+	 */
+	public function getAddressBook($addressbookid) {
+		return \OCP\Share::getItemSharedWithBySource(
+			'addressbook',
+			$addressbookid,
+			Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS
+		);
 	}
 
 	/**
@@ -61,11 +77,24 @@ class Shared extends Database {
 	 * @return array
 	 */
 	public function getContacts($addressbookid, $limit = null, $offset = null, $omitdata = false) {
+		//\OCP\Util::writeLog('contacts', __METHOD__.' addressbookid: '
+		//	. $addressbookid, \OCP\Util::DEBUG);
 		$permissions = 0;
+
+		$addressbook = \OCP\Share::getItemSharedWithBySource(
+			'addressbook',
+			$addressbookid,
+			Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS,
+			null, // parameters
+			true // includeCollection
+		);
+		\OCP\Util::writeLog('contacts', __METHOD__.' shared: '
+			. print_r($addressbook, true), \OCP\Util::DEBUG);
+
 		if(!$this->addressbooks) {
 			$this->addressbooks = \OCP\Share::getItemsSharedWith(
 				'addressbook',
-				\OCA\Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS
+				Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS
 			);
 		}
 
@@ -103,4 +132,5 @@ class Shared extends Database {
 
 		return $cards;
 	}
+
 }

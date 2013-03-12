@@ -133,29 +133,6 @@ class VCard {
 	}
 
 	/**
-	 * @brief finds a card by its DAV Data
-	 * @param integer $aid Addressbook id
-	 * @param string $uri the uri ('filename')
-	 * @return associative array or false.
-	 */
-	public static function findWhereDAVDataIs($aid, $uri) {
-		try {
-			$stmt = \OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? AND `uri` = ?' );
-			$result = $stmt->execute(array($aid,$uri));
-			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
-				return false;
-			}
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
-			\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uri'.$uri, \OCP\Util::DEBUG);
-			return false;
-		}
-
-		return $result->fetchRow();
-	}
-
-	/**
 	* @brief Checks if a contact with the same UID already exist in the address book.
 	* @param $aid Address book ID.
 	* @param $uid UID (passed by reference).
@@ -257,23 +234,6 @@ class VCard {
 		Addressbook::touch($aid);
 		\OC_Hook::emit('\OCA\Contacts\VCard', 'post_createVCard', $newid);
 		return $newid;
-	}
-
-	/**
-	 * @brief Adds a card with the data provided by sabredav
-	 * @param integer $id Addressbook id
-	 * @param string $uri   the uri the card will have
-	 * @param string $data  vCard file
-	 * @returns integer|false insertid or false on error
-	 */
-	public static function addFromDAVData($id, $uri, $data) {
-		try {
-			$vcard = \Sabre\VObject\Reader::read($data);
-			return self::add($id, $vcard, $uri);
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
-			return false;
-		}
 	}
 
 	/**
@@ -396,35 +356,6 @@ class VCard {
 	}
 
 	/**
-	 * @brief edits a card with the data provided by sabredav
-	 * @param integer $id Addressbook id
-	 * @param string $uri   the uri of the card
-	 * @param string $data  vCard file
-	 * @return boolean
-	 */
-	public static function editFromDAVData($aid, $uri, $data) {
-		$oldcard = self::findWhereDAVDataIs($aid, $uri);
-		try {
-			$vcard = \Sabre\VObject\Reader::read($data);
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.
-				', Unable to parse VCARD, : ' . $e->getMessage(), \OCP\Util::ERROR);
-			return false;
-		}
-		try {
-			self::edit($oldcard['id'], $vcard);
-			return true;
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '
-				. $e->getMessage() . ', '
-				. \OCP\USER::getUser(), \OCP\Util::ERROR);
-			\OCP\Util::writeLog('contacts', __METHOD__.', uri'
-				. $uri, \OCP\Util::DEBUG);
-			return false;
-		}
-	}
-
-	/**
 	 * @brief deletes a card
 	 * @param integer $id id of card
 	 * @return boolean true on success, otherwise an exception will be thrown
@@ -503,54 +434,6 @@ class VCard {
 		Addressbook::touch($addressbook['id']);
 
 		\OCP\Share::unshareAll('contact', $id);
-		return true;
-	}
-
-	/**
-	 * @brief deletes a card with the data provided by sabredav
-	 * @param integer $aid Addressbook id
-	 * @param string $uri the uri of the card
-	 * @return boolean
-	 */
-	public static function deleteFromDAVData($aid, $uri) {
-		$contact = self::findWhereDAVDataIs($aid, $uri);
-		if(!$contact) {
-			\OCP\Util::writeLog('contacts', __METHOD__.', contact not found: '
-				. $uri, \OCP\Util::DEBUG);
-			throw new \Sabre_DAV_Exception_NotFound(
-				App::$l10n->t(
-					'Contact not found.'
-				)
-			);
-		}
-		$id = $contact['id'];
-		try {
-			return self::delete($id);
-		} catch (Exception $e) {
-			switch($e->getCode()) {
-				case 403:
-					\OCP\Util::writeLog('contacts', __METHOD__.', forbidden: '
-						. $uri, \OCP\Util::DEBUG);
-					throw new \Sabre_DAV_Exception_Forbidden(
-						App::$l10n->t(
-							$e->getMessage()
-						)
-					);
-					break;
-				case 404:
-					\OCP\Util::writeLog('contacts', __METHOD__.', contact not found: '
-						. $uri, \OCP\Util::DEBUG);
-					throw new \Sabre_DAV_Exception_NotFound(
-						App::$l10n->t(
-							$e->getMessage()
-						)
-					);
-					break;
-				default:
-					throw $e;
-					break;
-			}
-		}
 		return true;
 	}
 

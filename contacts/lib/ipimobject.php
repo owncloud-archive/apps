@@ -41,6 +41,16 @@ interface IPIMObject {
 	public function getId();
 
 	/**
+	 * @return string
+	 */
+	public function getURI();
+
+	/**
+	 * @return string|null
+	 */
+	function getDisplayName();
+
+	/**
 	 * @return string|null
 	 */
 	function getOwner();
@@ -76,9 +86,10 @@ interface IPIMObject {
 	/**
 	 * Save the contact data to backend
 	 *
+	 * @param array $data
 	 * @return bool
 	 */
-	public function save();
+	public function update(array $data);
 
 	/**
 	 * @brief Get the last modification time for the object.
@@ -89,4 +100,12 @@ interface IPIMObject {
 	 * @returns int | null
 	 */
 	public function lastModified();
+
+	/**
+	 * Delete the data from backend
+	 *
+	 * @return bool
+	 */
+	public function delete();
+
 }

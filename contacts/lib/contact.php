@@ -39,24 +39,58 @@ class Contact extends VObject\VCard implements IPIMObject {
 
 	protected $props = array();
 
-	public function __construct($parent, $backend) {
+	public function __construct($parent, $backend, $properties = null) {
 		//\OCP\Util::writeLog('contacts', __METHOD__, \OCP\Util::DEBUG);
 		$this->props['parent'] = $parent;
 		$this->props['backend'] = $backend;
+
+		if(!is_null($properties) {
+			foreach($properties as $key => $value) {
+				switch($key) {
+					case 'id':
+						$this->props['id'] = $value;
+						break;
+					case 'lastmodified':
+						$this->props['lastmodified'] = $value;
+						break;
+					case 'uri':
+						$this->props['uri'] = $value;
+						break;
+					case 'displayname':
+					case 'fullname':
+						$this->props['displayname'] = $value;
+						break;
+				}
+			}
+		}
 	}
 
 	/**
 	 * @return string|null
 	 */
 	public function getOwner() {
-		return $this->props['owner'];
+		return $this->props['parent']->getOwner();
 	}
 
 	/**
 	 * @return string|null
 	 */
 	public function getId() {
-		return $this->props['id'];
+		return isset($this->props['id']) ? $this->props['id'] : null;
+	}
+
+	/**
+	 * @return string|null
+	 */
+	function getDisplayName() {
+		return isset($this->props['displayname']) ? $this->props['displayname'] : null;
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getURI() {
+		return isset($this->props['uri']) ? $this->props['uri'] : null;
 	}
 
 	/**
@@ -113,6 +147,8 @@ class Contact extends VObject\VCard implements IPIMObject {
 				$result = $this->props['backend']->getContact($this->parent->getID, $this->id);
 				if($result) {
 					if(isset($result['vcard']) && $result['vcard'] instanceof Contact) {
+						// NOTE: Maybe iterate over $result['vcard']->children
+						// and add() them
 						$this->children = $result['vcard']->children;
 						return true;
 					} elseif(isset($result['carddata'])) {
@@ -130,7 +166,10 @@ class Contact extends VObject\VCard implements IPIMObject {
 			try {
 				$obj = \Sabre\VObject\Reader::read(
 					$data,
-					\Sabre\VObject\Reader::OPTION_IGNORE_INVALID_LINES);
+					\Sabre\VObject\Reader::OPTION_IGNORE_INVALID_LINES
+				);
+				// NOTE: Maybe iterate over $result['vcard']->children
+				// and add() them
 				$this->children = $obj->children;
 			} catch (\Exception $e) {
 				\OCP\Util::writeLog('contacts', __METHOD__ .

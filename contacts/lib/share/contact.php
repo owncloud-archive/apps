@@ -27,6 +27,11 @@ class Share_Backend_Contact implements \OCP\Share_Backend {
 
 	private static $contact;
 
+	public function __construct() {
+		// Currently only share
+		$this->backend = new Backend\Database();
+	}
+
 	public function isValidSource($itemSource, $uidOwner) {
 		self::$contact = VCard::find($itemSource);
 		if (self::$contact) {

@@ -26,13 +26,21 @@ namespace OCA\Contacts;
  * Subclass this for PIM collections
  */
 
-abstract class PIMCollectionAbstract extends PIMObjectAbstract implements Iterator, Countable, ArrayAccess {
+abstract class PIMCollectionAbstract extends PIMObjectAbstract implements \Iterator, \Countable, \ArrayAccess {
 
 	// Iterator properties
 
 	protected $objects = array();
 
 	protected $counter = 0;
+
+	/**
+	 * This is a collection so return null.
+	 * @return null
+	 */
+	function getParent() {
+		null;
+	}
 
 	/**
 	* Returns a specific child node, referenced by its id
@@ -58,7 +66,7 @@ abstract class PIMCollectionAbstract extends PIMObjectAbstract implements Iterat
 	* @param string $id
 	* @return bool
 	*/
-	function childExists($id);
+	abstract function childExists($id);
 
     // Iterator methods
 

@@ -184,21 +184,25 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 */
 	public function getCard($addressbookid, $carduri) {
 		$backend = $this->getBackendForAddressBook($addressbookid);
-		return Contacts\VCard::findWhereDAVDataIs($addressbookid, $carduri);
+		return $backend->getContact($addressbookid, array('uri' => $carduri));
 
 	}
 
 	/**
 	 * Creates a new card
 	 *
+	 * We don't return an Etag as the carddata can have been modified
+	 * by Plugin::validate()
+	 *
+	 * @see Plugin::validate()
 	 * @param mixed $addressbookid
 	 * @param string $carduri
 	 * @param string $carddata
-	 * @return bool
+	 * @return string|null
 	 */
 	public function createCard($addressbookid, $carduri, $carddata) {
-		Contacts\VCard::addFromDAVData($addressbookid, $carduri, $carddata);
-		return true;
+		$backend = $this->getBackendForAddressBook($addressbookid);
+		$backend->createContact($addressbookid, $carddata, $carduri);
 	}
 
 	/**
@@ -207,12 +211,11 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 * @param mixed $addressbookid
 	 * @param string $carduri
 	 * @param string $carddata
-	 * @return bool
+	 * @return null
 	 */
 	public function updateCard($addressbookid, $carduri, $carddata) {
-		return Contacts\VCard::editFromDAVData(
-			$addressbookid, $carduri, $carddata
-		);
+		$backend = $this->getBackendForAddressBook($addressbookid);
+		$backend->updateContact($addressbookid, array('uri' => $carduri,), $carddata);
 	}
 
 	/**
@@ -223,7 +226,8 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 * @return bool
 	 */
 	public function deleteCard($addressbookid, $carduri) {
-		return Contacts\VCard::deleteFromDAVData($addressbookid, $carduri);
+		$backend = $this->getBackendForAddressBook($addressbookid);
+		return $backend->deleteContact($addressbookid);
 	}
 
 	/**

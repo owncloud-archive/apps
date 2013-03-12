@@ -23,12 +23,15 @@
 namespace OCA\Contacts\Backend;
 
 use OCA\Contacts\Contact;
+use Sabre\VObject\Reader;
 
 /**
  * Subclass this class for Cantacts backends
  */
 
 class Database extends AbstractBackend {
+
+	public $backendname = 'database';
 
 	/**
 	* Sets up the backend
@@ -45,38 +48,6 @@ class Database extends AbstractBackend {
 		$this->addressBooksTableName = $addressBooksTableName;
 		$this->cardsTableName = $cardsTableName;
 		$this->addressbooks = array();
-	}
-
-	public function hasAddressBook($addressbookid) {
-		if($this->addressbooks) {
-			foreach($this->addressbooks as $addressbook) {
-				if($addressbook['id'] === $addressbookid) {
-					return true;
-				}
-			}
-			return false;
-		}
-		try {
-			$query = 'SELECT `id` FROM `' . $this->addressBooksTableName
-				. '` WHERE `id` = ?';
-			\OCP\Util::writeLog('contacts', __METHOD__.' query: '
-				. $query, \OCP\Util::DEBUG);
-			$stmt = \OCP\DB::prepare($query);
-			$result = $stmt->execute(array($addressbookid));
-			if (\OC_DB::isError($result)) {
-				\OCP\Util::write('contacts', __METHOD__. 'DB error: '
-					. \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
-				return false;
-			}
-			if($result->fetchOne()) {
-				return true;
-			}
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.' exception: '
-				. $e->getMessage(), \OCP\Util::ERROR);
-			return false;
-		}
-		return false;
 	}
 
 	/**
@@ -109,6 +80,70 @@ class Database extends AbstractBackend {
 			$this->addressbooks[] = $row;
 		}
 		return $this->addressbooks;
+	}
+
+	public function getAddressBook($addressbookid) {
+		//\OCP\Util::writeLog('contacts', __METHOD__.' id: '
+		//	. $addressbookid, \OCP\Util::DEBUG);
+		if($this->addressbooks) {
+			foreach($this->addressbooks as $addressbook) {
+				if($addressbook['id'] === $addressbookid) {
+					return $addressbook;
+				}
+			}
+			// Hmm, not found. Lets query the db.
+		}
+		try {
+			$query = 'SELECT * FROM `' . $this->addressBooksTableName
+				. '` WHERE `id` = ?';
+			//\OCP\Util::writeLog('contacts', __METHOD__.' query: '
+			//	. $query, \OCP\Util::DEBUG);
+			$stmt = \OCP\DB::prepare($query);
+			$result = $stmt->execute(array($addressbookid));
+			if (\OC_DB::isError($result)) {
+				\OCP\Util::write('contacts', __METHOD__. 'DB error: '
+					. \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
+				return array();
+			}
+			return $result->fetchRow();
+		} catch(\Exception $e) {
+			\OCP\Util::writeLog('contacts', __METHOD__.' exception: '
+				. $e->getMessage(), \OCP\Util::ERROR);
+			return array();
+		}
+		return array();
+	}
+
+	public function hasAddressBook($addressbookid) {
+		if($this->addressbooks) {
+			foreach($this->addressbooks as $addressbook) {
+				if($addressbook['id'] === $addressbookid) {
+					return true;
+				}
+			}
+			return false;
+		}
+		try {
+			$query = 'SELECT `id` FROM `' . $this->addressBooksTableName
+				. '` WHERE `id` = ?';
+			\OCP\Util::writeLog('contacts', __METHOD__.' query: '
+				. $query, \OCP\Util::DEBUG);
+			$stmt = \OCP\DB::prepare($query);
+			$result = $stmt->execute(array($addressbookid));
+			if (\OC_DB::isError($result)) {
+				\OCP\Util::write('contacts', __METHOD__. 'DB error: '
+					. \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
+				return false;
+			}
+			if($result->fetchOne()) {
+				return true;
+			}
+		} catch(\Exception $e) {
+			\OCP\Util::writeLog('contacts', __METHOD__.' exception: '
+				. $e->getMessage(), \OCP\Util::ERROR);
+			return false;
+		}
+		return false;
 	}
 
 	/**
@@ -290,17 +325,34 @@ class Database extends AbstractBackend {
 	/**
 	 * Returns a specfic contact.
 	 *
-	 * Same as getContacts except that either 'carddata' or 'vcard' is mandatory.
+	 * The $id for Database and Shared backends can be an array containing
+	 * either 'id' or 'uri' to be able to play seamlessly with the
+	 * CardDAV backend.
 	 *
 	 * @param string $addressbookid
 	 * @param mixed $id Contact ID
 	 * @return mixed
 	 */
 	public function getContact($addressbookid, $id) {
-		$where_query = '';
-		//if(isset)
+		//\OCP\Util::writeLog('contacts', __METHOD__.' identifier: '
+		//	. print_r($id, true), \OCP\Util::DEBUG);
+
+		$where_query = '`id` = ?';
+		if(is_array($id)) {
+			$where_query = '';
+			if(isset($id['id'])) {
+				$id = $id['id'];
+			} elseif(isset($id['uri'])) {
+				$where_query = '`uri` = ?';
+				$id = $id['uri'];
+			} else {
+				throw new \Exception(
+					__METHOD__ . ' If second argument is an array, either \'id\' or \'uri\' has to be set.'
+				);
+			}
+		}
 		try {
-			$stmt = \OCP\DB::prepare( 'SELECT * FROM `' . $this->cardsTableName . '` WHERE `id` = ?' );
+			$stmt = \OCP\DB::prepare( 'SELECT * FROM `' . $this->cardsTableName . '` WHERE ' . $where_query );
 			$result = $stmt->execute(array($id));
 			if (\OC_DB::isError($result)) {
 				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
@@ -320,12 +372,25 @@ class Database extends AbstractBackend {
 	/**
 	 * Creates a new contact
 	 *
+	 * In the Database and Shared backends contact be either a Contact object or a string
+	 * with carddata to be able to play seamlessly with the CardDAV backend.
+	 * If this method is called by the CardDAV backend, the carddata is already validated.
+	 *
 	 * @param string $addressbookid
-	 * @param Contact $contact
+	 * @param mixed $contact
 	 * @return bool
 	 */
 	public function createContact($addressbookid, $contact, $uri = null) {
 		$uri = is_null($uri) ? $contact->UID . '.vcf' : $uri;
+
+		if(!$contact instanceof Contact) {
+			try {
+				$contact = Reader::read($contact);
+			} catch(\Exception $e) {
+				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
+				return false;
+			}
+		}
 
 		$now = new \DateTime;
 		$contact->REV = $now->format(\DateTime::W3C);
@@ -356,17 +421,40 @@ class Database extends AbstractBackend {
 	 * Updates a contact
 	 *
 	 * @param string $addressbookid
-	 * @param string $id Contact ID
-	 * @param string $carddata
+	 * @param mixed $id Contact ID
+	 * @param mixed $contact
+	 * @see getContact
 	 * @return bool
 	 */
 	public function updateContact($addressbookid, $id, $contact) {
+		if(!$contact instanceof Contact) {
+			try {
+				$contact = Reader::read($contact);
+			} catch(\Exception $e) {
+				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
+				return false;
+			}
+		}
+		$where_query = '`id` = ?';
+		if(is_array($id)) {
+			$where_query = '';
+			if(isset($id['id'])) {
+				$id = $id['id'];
+			} elseif(isset($id['uri'])) {
+				$where_query = '`id` = ?';
+				$id = $id['uri'];
+			} else {
+				throw new Exception(
+					__METHOD__ . ' If second argument is an array, either \'id\' or \'uri\' has to be set.'
+				);
+			}
+		}
 		$now = new \DateTime;
 		$contact->REV = $now->format(\DateTime::W3C);
 
 		$data = $card->serialize();
 		$stmt = \OCP\DB::prepare( 'UPDATE `' . $this->cardsTableName
-			. '` SET `fullname` = ?,`carddata` = ?, `lastmodified` = ? WHERE `id` = ?' );
+			. '` SET `fullname` = ?,`carddata` = ?, `lastmodified` = ? WHERE ' . $where_query );
 		try {
 			$result = $stmt->execute(array($contact->FN, $data, time(), $id));
 			if (\OC_DB::isError($result)) {
@@ -392,14 +480,29 @@ class Database extends AbstractBackend {
 	 *
 	 * @param string $addressbookid
 	 * @param string $id
+	 * @see getContact
 	 * @return bool
 	 */
 	public function deleteContact($addressbookid, $id) {
+		$where_query = '`id` = ?';
+		if(is_array($id)) {
+			$where_query = '';
+			if(isset($id['id'])) {
+				$id = $id['id'];
+			} elseif(isset($id['uri'])) {
+				$where_query = '`id` = ?';
+				$id = $id['uri'];
+			} else {
+				throw new Exception(
+					__METHOD__ . ' If second argument is an array, either \'id\' or \'uri\' has to be set.'
+				);
+			}
+		}
 		\OC_Hook::emit('\OCA\Contacts\VCard', 'pre_deleteContact',
 			array('id' => $id)
 		);
 		$stmt = \OCP\DB::prepare('DELETE FROM `' . $this->cardsTableName
-			. '` WHERE `id` = ? AND `addressbookid` = ?');
+			. '` WHERE ' . $where_query . ' AND `addressbookid` = ?');
 		try {
 			$stmt->execute(array($id, $addressbookid));
 			if (\OC_DB::isError($result)) {
