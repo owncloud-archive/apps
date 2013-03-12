@@ -60,11 +60,14 @@ class Shared extends Database {
 	 * @return mixed
 	 */
 	public function getAddressBook($addressbookid) {
-		return \OCP\Share::getItemSharedWithBySource(
+		$addressbook = \OCP\Share::getItemSharedWithBySource(
 			'addressbook',
 			$addressbookid,
 			Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS
 		);
+		// Not sure if I'm doing it wrongly, or if its supposed to return
+		// the info in an array?
+		return (isset($addressbook['permissions']) ? $addressbook : $addressbook[0]);
 	}
 
 	/**
@@ -79,9 +82,7 @@ class Shared extends Database {
 	public function getContacts($addressbookid, $limit = null, $offset = null, $omitdata = false) {
 		//\OCP\Util::writeLog('contacts', __METHOD__.' addressbookid: '
 		//	. $addressbookid, \OCP\Util::DEBUG);
-		$permissions = 0;
-
-		$addressbook = \OCP\Share::getItemSharedWithBySource(
+		/*$addressbook = \OCP\Share::getItemSharedWithBySource(
 			'addressbook',
 			$addressbookid,
 			Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS,
@@ -89,25 +90,14 @@ class Shared extends Database {
 			true // includeCollection
 		);
 		\OCP\Util::writeLog('contacts', __METHOD__.' shared: '
-			. print_r($addressbook, true), \OCP\Util::DEBUG);
+			. print_r($addressbook, true), \OCP\Util::DEBUG);*/
 
-		if(!$this->addressbooks) {
-			$this->addressbooks = \OCP\Share::getItemsSharedWith(
-				'addressbook',
-				Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS
-			);
-		}
-
-		foreach($this->addressbooks as $addressbook) {
-			if($addressbook['id'] === $addressbookid) {
-				$permissions = $addressbook['permissions'];
-				break;
-			}
-		}
+		$addressbook = $this->getAddressBook($addressbookid);
+		$permissions = $addressbook['permissions'];
 
 		$cards = array();
 		try {
-			$qfields = $omitdata ? '`id`, `fullname`' : '*';
+			$qfields = $omitdata ? '`id`, `fullname` AS `displayname`, `lastmodified`' : '*';
 			$query = 'SELECT ' . $qfields . ' FROM `' . $this->cardsTableName
 				. '` WHERE `addressbookid` = ? ORDER BY `fullname`';
 			$stmt = \OCP\DB::prepare($query, $limit, $offset);

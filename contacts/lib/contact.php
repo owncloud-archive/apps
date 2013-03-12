@@ -44,7 +44,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 		$this->props['parent'] = $parent;
 		$this->props['backend'] = $backend;
 
-		if(!is_null($properties) {
+		if(!is_null($properties)) {
 			foreach($properties as $key => $value) {
 				switch($key) {
 					case 'id':
@@ -55,6 +55,13 @@ class Contact extends VObject\VCard implements IPIMObject {
 						break;
 					case 'uri':
 						$this->props['uri'] = $value;
+						break;
+					case 'carddata':
+						$this->props['carddata'] = $value;
+						break;
+					case 'vcard':
+						$this->props['vcard'] = $value;
+						$this->read();
 						break;
 					case 'displayname':
 					case 'fullname':
@@ -119,18 +126,58 @@ class Contact extends VObject\VCard implements IPIMObject {
 	}
 
 	/**
+	 * Save the address book data to backend
+	 * FIXME
+	 *
+	 * @param array $data
+	 * @return bool
+	 */
+	public function update(array $data) {
+
+		foreach($data as $key => $value) {
+			switch($key) {
+				case 'displayname':
+					$this->addressBookInfo['displayname'] = $value;
+					break;
+				case 'description':
+					$this->addressBookInfo['description'] = $value;
+					break;
+			}
+		}
+		return $this->props['backend']->updateContact(
+			$this->getParent()->getId(),
+			$this->getId(),
+			$this
+		);
+	}
+
+	/**
+	 * Delete the data from backend
+	 *
+	 * @return bool
+	 */
+	public function delete() {
+		return $this->props['backend']->deleteContact(
+			$this->getParent()->getId(),
+			$this->getId()
+		);
+	}
+
+	/**
 	 * Save the contact data to backend
 	 *
 	 * @return bool
 	 */
 	public function save() {
-		if($this->id) {
+		if($this->getId()) {
 			return $this->props['backend']->updateContact(
-				$this->props['parent']->getID(), $this->props['id'], $this->serialize()
+				$this->props['parent']->getId(),
+				$this->props['id'],
+				$this->serialize()
 			);
 		} else {
 			$this->props['id'] = $this->props['backend']->createContact(
-				$this->parent->getID(), $this->serialize()
+				$this->parent->getId(), $this->serialize()
 			);
 			if($this->props['id'] !== false) {
 				$this->parent->setChildID();
@@ -143,10 +190,20 @@ class Contact extends VObject\VCard implements IPIMObject {
 		// NOTE: Maybe this will mess with
 		// the magic accessors.
 		if(!$this->children) {
+			if(isset($this->props['vcard'])
+				&& $this->props['vcard'] instanceof VObject\VCard) {
+				$this->children = $this->props['vcard']->children();
+				unset($this->props['vcard']);
+				return true;
+			}
 			if(!isset($this->props['carddata']) && is_null($data)) {
-				$result = $this->props['backend']->getContact($this->parent->getID, $this->id);
+				$result = $this->props['backend']->getContact(
+					$this->parent->getId(),
+					$this->id
+				);
 				if($result) {
-					if(isset($result['vcard']) && $result['vcard'] instanceof Contact) {
+					if(isset($result['vcard'])
+						&& $result['vcard'] instanceof VObject\VCard) {
 						// NOTE: Maybe iterate over $result['vcard']->children
 						// and add() them
 						$this->children = $result['vcard']->children;

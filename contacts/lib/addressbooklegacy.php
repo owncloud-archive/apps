@@ -40,7 +40,7 @@ namespace OCA\Contacts;
 /**
  * This class manages our addressbooks.
  */
-class Addressbook {
+class AddressbookLegacy {
 	/**
 	 * @brief Returns the list of addressbooks for a specific user.
 	 * @param string $uid

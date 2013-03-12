@@ -23,7 +23,7 @@ OC::$CLASSPATH['OCA\Contacts\CardDAV\AddressBook'] = 'contacts/lib/carddav/addre
 OC::$CLASSPATH['OCA\Contacts\CardDAV\Card'] = 'contacts/lib/carddav/card.php';
 OC::$CLASSPATH['OCA\Contacts\SearchProvider'] = 'contacts/lib/search.php';
 
-//require_once __DIR__ . '/../lib/abstractobject.php';
+//require_once __DIR__ . '/../lib/contact.php';
 //require_once __DIR__ . '/../lib/backend/database.php';
 Sabre\VObject\Component::$classMap['VCARD'] = 'OCA\Contacts\Contact';
 Sabre\VObject\Property::$classMap['FN'] = 'OCA\Contacts\VObject\StringProperty';
@@ -53,6 +53,6 @@ OC_Search::registerProvider('OCA\Contacts\SearchProvider');
 OCP\Share::registerBackend('contact', 'OCA\Contacts\Share_Backend_Contact');
 OCP\Share::registerBackend('addressbook', 'OCA\Contacts\Share_Backend_Addressbook', 'contact');
 
-foreach(OCA\Contacts\Addressbook::all(OCP\USER::getUser()) as $addressbook)  {
+/*foreach(OCA\Contacts\Addressbook::all(OCP\USER::getUser()) as $addressbook)  {
 	OCP\Contacts::registerAddressBook(new OCA\Contacts\AddressbookProvider($addressbook['id']));
-}
+}*/
