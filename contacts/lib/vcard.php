@@ -212,7 +212,7 @@ class VCard {
 				\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return false;
 			}
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uid'.$uid, \OCP\Util::DEBUG);
 			return false;
@@ -437,7 +437,7 @@ class VCard {
 						\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 					}
 					//OCP\Util::writeLog('contacts','OCA\Contacts\VCard::updateDataByID, id: '.$object[0].': '.$object[1],OCP\Util::DEBUG);
-				} catch(Exception $e) {
+				} catch(\Exception $e) {
 					\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 					\OCP\Util::writeLog('contacts', __METHOD__.', id: '.$object[0], \OCP\Util::DEBUG);
 				}
@@ -652,7 +652,7 @@ class VCard {
 		$id = $contact['id'];
 		try {
 			return self::delete($id);
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			switch($e->getCode()) {
 				case 403:
 					\OCP\Util::writeLog('contacts', __METHOD__.', forbidden: '
