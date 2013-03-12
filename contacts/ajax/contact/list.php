@@ -23,10 +23,10 @@ $aid = isset($_GET['aid'])?$_GET['aid']:null;
 $active_addressbooks = array();
 if(is_null($aid)) {
 	// Called initially to get the active addressbooks.
-	$active_addressbooks = OCA\Contacts\Addressbook::active(OCP\USER::getUser());
+	$active_addressbooks = OCA\Contacts\AddressbookLegacy::active(OCP\USER::getUser());
 } else {
 	// called each time more contacts has to be shown.
-	$active_addressbooks = array(OCA\Contacts\Addressbook::find($aid));
+	$active_addressbooks = array(OCA\Contacts\AddressbookLegacy::find($aid));
 }
 
 $lastModified = OCA\Contacts\App::lastModified();
