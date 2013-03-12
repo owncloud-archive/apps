@@ -5,6 +5,11 @@
  * later.
  * See the COPYING-README file.
  */
+
+namespace OCA\Contacts;
+
+use Sabre\VObject;
+
 //check for addressbooks rights or create new one
 ob_start();
 
@@ -19,13 +24,13 @@ global $progresskey;
 $progresskey = 'contacts.import-' . (isset($_GET['progresskey'])?$_GET['progresskey']:'');
 
 if (isset($_GET['progress']) && $_GET['progress']) {
-	echo OC_Cache::get($progresskey);
+	echo \OC_Cache::get($progresskey);
 	die;
 }
 
 function writeProgress($pct) {
 	global $progresskey;
-	OC_Cache::set($progresskey, $pct, 300);
+	\OC_Cache::set($progresskey, $pct, 300);
 }
 writeProgress('10');
 $view = null;
@@ -41,25 +46,25 @@ if(isset($_POST['fstype']) && $_POST['fstype'] == 'OC_FilesystemView') {
 	$file = \OC\Files\Filesystem::file_get_contents($_POST['path'] . '/' . $inputfile);
 }
 if(!$file) {
-	OCP\JSON::error(array('data' => array('message' => 'Import file was empty.')));
+	\OCP\JSON::error(array('data' => array('message' => 'Import file was empty.')));
 	exit();
 }
 if(isset($_POST['method']) && $_POST['method'] == 'new') {
-	$id = OCA\Contacts\Addressbook::add(OCP\USER::getUser(),
+	$id = Addressbook::add(\OCP\USER::getUser(),
 		$_POST['addressbookname']);
 	if(!$id) {
-		OCP\JSON::error(
+		\OCP\JSON::error(
 			array(
 				'data' => array('message' => 'Error creating address book.')
 			)
 		);
 		exit();
 	}
-	OCA\Contacts\Addressbook::setActive($id, 1);
+	Addressbook::setActive($id, 1);
 }else{
 	$id = $_POST['id'];
 	if(!$id) {
-		OCP\JSON::error(
+		\OCP\JSON::error(
 			array(
 				'data' => array(
 					'message' => 'Error getting the ID of the address book.',
@@ -70,9 +75,9 @@ if(isset($_POST['method']) && $_POST['method'] == 'new') {
 		exit();
 	}
 	try {
-		OCA\Contacts\Addressbook::find($id); // is owner access check
-	} catch(Exception $e) {
-		OCP\JSON::error(
+		Addressbook::find($id); // is owner access check
+	} catch(\Exception $e) {
+		\OCP\JSON::error(
 			array(
 				'data' => array(
 					'message' => $e->getMessage(),
@@ -110,7 +115,7 @@ $imported = 0;
 $failed = 0;
 $partial = 0;
 if(!count($parts) > 0) {
-	OCP\JSON::error(
+	\OCP\JSON::error(
 		array(
 			'data' => array(
 				'message' => 'No contacts to import in '
@@ -130,36 +135,44 @@ if(!count($parts) > 0) {
 }
 foreach($parts as $part) {
 	try {
-		$vcard = Sabre\VObject\Reader::read($part);
-	} catch (Sabre\VObject\ParseException $e) {
+		$vcard = VObject\Reader::read($part);
+	} catch (VObject\ParseException $e) {
 		try {
-			$vcard = Sabre\VObject\Reader::read($part, Sabre\VObject\Reader::OPTION_IGNORE_INVALID_LINES);
+			$vcard = VObject\Reader::read($part, VObject\Reader::OPTION_IGNORE_INVALID_LINES);
 			$partial += 1;
-			OCP\Util::writeLog('contacts',
+			\OCP\Util::writeLog('contacts',
 				'Import: Retrying reading card. Error parsing VCard: ' . $e->getMessage(),
-					OCP\Util::ERROR);
-		} catch (Exception $e) {
+					\OCP\Util::ERROR);
+		} catch (\Exception $e) {
 			$failed += 1;
-			OCP\Util::writeLog('contacts',
+			\OCP\Util::writeLog('contacts',
 				'Import: skipping card. Error parsing VCard: ' . $e->getMessage(),
-					OCP\Util::ERROR);
+					\OCP\Util::ERROR);
 			continue; // Ditch cards that can't be parsed by Sabre.
 		}
 	}
 	try {
-		OCA\Contacts\VCard::add($id, $vcard);
+		$vcard->validate(VCard::REPAIR|VCard::UPGRADE);
+	} catch (\Exception $e) {
+		OCP\Util::writeLog('contacts', __LINE__ . ' ' .
+			'Error validating vcard: ' . $e->getMessage() . $nl . $vcard->serialize(),
+			\OCP\Util::ERROR);
+		$failed += 1;
+	}
+	try {
+		VCard::add($id, $vcard);
 		$imported += 1;
-	} catch (Exception $e) {
-		OCP\Util::writeLog('contacts',
-			'Error importing vcard: ' . $e->getMessage() . $nl . $vcard,
-			OCP\Util::ERROR);
+	} catch (\Exception $e) {
+		\OCP\Util::writeLog('contacts', __LINE__ . ' ' .
+			'Error importing vcard: ' . $e->getMessage() . $nl . $vcard->serialize(),
+			\OCP\Util::ERROR);
 		$failed += 1;
 	}
 }
 //done the import
 writeProgress('100');
 sleep(3);
-OC_Cache::remove($progresskey);
+\OC_Cache::remove($progresskey);
 if(isset($_POST['fstype']) && $_POST['fstype'] == 'OC_FilesystemView') {
 	if(!$view->unlink('/imports/' . $inputfile)) {
 		OCP\Util::writeLog('contacts',
@@ -167,7 +180,7 @@ if(isset($_POST['fstype']) && $_POST['fstype'] == 'OC_FilesystemView') {
 			OCP\Util::ERROR);
 	}
 }
-OCP\JSON::success(
+\OCP\JSON::success(
 	array(
 		'data' => array(
 			'imported'=>$imported,

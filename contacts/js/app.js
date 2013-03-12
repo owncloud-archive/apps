@@ -171,6 +171,7 @@ OC.Contacts = OC.Contacts || {
 		this.contacts = new OC.Contacts.ContactList(
 			this.$contactList,
 			this.$contactListItemTemplate,
+			this.$contactDragItemTemplate,
 			this.$contactFullTemplate,
 			this.detailTemplates
 		);
@@ -218,6 +219,7 @@ OC.Contacts = OC.Contacts || {
 		});
 		this.$groupListItemTemplate = $('#groupListItemTemplate');
 		this.$contactListItemTemplate = $('#contactListItemTemplate');
+		this.$contactDragItemTemplate = $('#contactDragItemTemplate');
 		this.$contactFullTemplate = $('#contactFullTemplate');
 		this.$contactDetailsTemplate = $('#contactDetailsTemplate');
 		this.$rightContent = $('#rightcontent');
@@ -285,13 +287,18 @@ OC.Contacts = OC.Contacts || {
 			$(window).trigger('beforeunload');
 		});
 
-		$(window).bind('hashchange', function() {
+		this.hashChange = function() {
 			console.log('hashchange', window.location.hash)
 			var id = parseInt(window.location.hash.substr(1));
-			if(id) {
+			if(id && id !== self.currentid) {
 				self.openContact(id);
+			} else if(!id && self.currentid) {
+				self.closeContact(self.currentid);
 			}
-		});
+		}
+
+		$(window).bind('popstate', this.hashChange);
+		$(window).bind('hashchange', this.hashChange);
 		
 		// App specific events
 		$(document).bind('status.contact.deleted', function(e, data) {
@@ -1333,6 +1340,7 @@ OC.Contacts = OC.Contacts || {
 		this.$rightContent.scrollTop(this.contacts.contactPos(id)-30);
 	},
 	closeContact: function(id) {
+		$(window).unbind('hashchange', this.hashChange);
 		if(typeof this.currentid === 'number') {
 			var contact = this.contacts.findById(id);
 			if(contact && contact.close()) {
@@ -1351,12 +1359,15 @@ OC.Contacts = OC.Contacts || {
 			$(document).trigger('status.nomorecontacts');
 		}
 		//$('body').unbind('click', this.bodyListener);
+		window.location.hash = '';
+		$(window).bind('hashchange', this.hashChange);
 	},
 	openContact: function(id) {
 		console.log('Contacts.openContact', id);
 		if(this.currentid) {
 			this.closeContact(this.currentid);
 		}
+		$(window).unbind('hashchange', this.hashChange);
 		this.currentid = parseInt(id);
 		console.log('Contacts.openContact, Favorite', this.currentid, this.groups.isFavorite(this.currentid), this.groups);
 		this.setAllChecked(false);
@@ -1390,10 +1401,12 @@ OC.Contacts = OC.Contacts || {
 			if($contactelem.find($(e.target)).length === 0) {
 				self.closeContact(self.currentid);
 			}
-		};
+		};*/
+		window.location.hash = this.currentid.toString();
 		setTimeout(function() {
-			$('body').bind('click', self.bodyListener);
-		}, 500);*/
+			//$('body').bind('click', self.bodyListener);
+			$(window).bind('hashchange', this.hashChange);
+		}, 500);
 	},
 	update: function() {
 		console.log('update');

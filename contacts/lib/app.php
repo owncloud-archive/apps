@@ -161,6 +161,7 @@ class App {
 	public static function getTypesOfProperty($prop) {
 		$l = self::$l10n;
 		switch($prop) {
+			case 'LABEL':
 			case 'ADR':
 			case 'IMPP':
 				return array(

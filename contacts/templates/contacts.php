@@ -142,6 +142,13 @@
 	</tr>
 </script>
 
+<script id="contactDragItemTemplate" type="text/template">
+	<div class="dragContact" data-id="{id}"
+		style="background: url('<?php print_unescaped(OC_Helper::linkToRemoteBase('contactthumbnail')); ?>?id={id}')">
+		{name}
+	</div>
+</script>
+
 <script id="groupListItemTemplate" type="text/template">
 	<h3 class="group" data-type="{type}" data-id="{id}">
 		{name}
@@ -158,10 +165,10 @@
 		<li>
 			<div id="photowrapper" class="propertycontainer" data-element="photo">
 				<ul id="phototools" class="transparent hidden">
-					<li><a class="action delete" title="<?php p($l->t('Delete current photo')); ?>"></a></li>
-					<li><a class="action edit" title="<?php p($l->t('Edit current photo')); ?>"></a></li>
-					<li><a class="action upload" title="<?php p($l->t('Upload new photo')); ?>"></a></li>
-					<li><a class="action cloud icon-cloud" title="<?php p($l->t('Select photo from ownCloud')); ?>"></a></li>
+					<li><a class="action delete" title="<?php echo $l->t('Delete current photo'); ?>"></a></li>
+					<li><a class="action edit" title="<?php echo $l->t('Edit current photo'); ?>"></a></li>
+					<li><a class="action upload" title="<?php echo $l->t('Upload new photo'); ?>"></a></li>
+					<li><a class="action cloud icon-cloud" title="<?php echo $l->t('Select photo from ownCloud'); ?>"></a></li>
 				</ul>
 				<a class="favorite action {favorite}"></a>
 			</div>
