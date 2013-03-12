@@ -49,13 +49,13 @@ class App {
 		$vcard = null;
 		try {
 			$card = VCard::find($id);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			return null;
 		}
 
 		try {
 			$vcard = \Sabre\VObject\Reader::read($card['carddata']);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', id: ' . $id, \OCP\Util::DEBUG);
 			return null;
