@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-12 00:10+0100\n"
-"PO-Revision-Date: 2013-03-11 08:50+0000\n"
+"POT-Creation-Date: 2013-03-13 00:02+0100\n"
+"PO-Revision-Date: 2013-03-12 14:30+0000\n"
 "Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Naloge"
 
 #: js/tasks.js:78
 msgid "Due"
-msgstr "Zastara"
+msgstr "Rok"
 
 #: js/tasks.js:107
 msgid "List"
@@ -62,7 +62,7 @@ msgstr "9=najnižje"
 
 #: lib/app.php:81
 msgid "Empty Summary"
-msgstr "Prazen povzetek"
+msgstr "Ni povzetka"
 
 #: lib/app.php:93
 msgid "Invalid percent complete"

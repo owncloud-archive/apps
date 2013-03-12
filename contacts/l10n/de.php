@@ -38,6 +38,7 @@
 "Key is not set for: " => "Schlüssel konnte nicht gesetzt werden:",
 "Value is not set for: " => "Wert konnte nicht gesetzt werden:",
 "Could not set preference: " => "Einstellung konnte nicht gesetzt werden:",
+"Upload of blacklisted file:" => "Hochladen der gesperrten Datei:",
 "Error uploading contacts to storage." => "Übertragen der Kontakte fehlgeschlagen.",
 "There is no error, the file uploaded with success" => "Es ist kein Fehler aufgetreten. Die Datei wurde erfolgreich übertragen.",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "Die Datei ist größer, als durch die upload_max_filesize Direktive in php.ini erlaubt",

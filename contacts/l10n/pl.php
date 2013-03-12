@@ -38,6 +38,7 @@
 "Key is not set for: " => "Klucz nie ustawiony dla:",
 "Value is not set for: " => "Wartość nie ustawiona dla:",
 "Could not set preference: " => "Nie można ustawić preferencji: ",
+"Upload of blacklisted file:" => "Załadowanie niedozwolonego pliku:",
 "Error uploading contacts to storage." => "Błąd podczas wysyłania kontaktów do magazynu.",
 "There is no error, the file uploaded with success" => "Nie było błędów, plik wysłano poprawnie.",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "Wysłany plik przekracza wielkość upload_max_filesize w php.ini ",
