@@ -45,9 +45,6 @@ abstract class PIMCollectionAbstract extends PIMObjectAbstract implements \Itera
 	/**
 	* Returns a specific child node, referenced by its id
 	*
-	* This method must throw Sabre_DAV_Exception_NotFound if the node does not
-	* exist.
-	*
 	* @param string $id
 	* @return IPIMObject
 	*/

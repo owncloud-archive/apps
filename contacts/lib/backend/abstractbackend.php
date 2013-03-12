@@ -143,7 +143,7 @@ abstract class AbstractBackend {
 	 * @param mixed $id
 	 * @return array
 	 */
-	public function getContact($addressbookid, $id) {
+	public function getContact($addressbookid, $id, $omitdata = false) {
 	}
 
 	/**
