@@ -39,10 +39,10 @@ class SettingsController extends Controller {
 
 
 	/**
-         * ATTENTION!!!
-         * The follwoing comment turn off security checks
-         * Please look up their meaning the documentation!
-         *
+	 * ATTENTION!!!
+	 * The following comment turn off security checks
+	 * Please look up their meaning the documentation!
+	 *
 	 * @CSRFExemption 
 	 *
 	 * @brief renders the settings page
