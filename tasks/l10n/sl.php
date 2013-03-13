@@ -1,7 +1,7 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Neveljaven datum ali čas",
 "Tasks" => "Naloge",
-"Due" => "Zastara",
+"Due" => "Rok",
 "List" => "Seznam",
 "Location" => "Mesto",
 "No category" => "Ni kategorije",
@@ -9,7 +9,7 @@
 "1=highest" => "1=najvišje",
 "5=medium" => "5=srednje",
 "9=lowest" => "9=najnižje",
-"Empty Summary" => "Prazen povzetek",
+"Empty Summary" => "Ni povzetka",
 "Invalid percent complete" => "Neveljaven odstotek dokončanja",
 "Invalid priority" => "Neveljavna prednost",
 "The calendar application also need to be enabled to use this application." => "Za uporabo tega programa mora biti koledar omogočen.",

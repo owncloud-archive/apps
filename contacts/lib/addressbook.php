@@ -137,7 +137,7 @@ class Addressbook {
 				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 				return false;
 			}
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', id: ' . $id, \OCP\Util::DEBUG);
 			return false;
@@ -147,7 +147,7 @@ class Addressbook {
 		if($row['userid'] != \OCP\USER::getUser() && !\OC_Group::inGroup(\OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & \OCP\PERMISSION_READ)) {
-				throw new Exception(
+				throw new \Exception(
 					App::$l10n->t(
 						'You do not have the permissions to read this addressbook.'
 					)
@@ -190,7 +190,7 @@ class Addressbook {
 				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 				return false;
 			}
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__ . ' exception: ' . $e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__ . ' uid: ' . $uid, \OCP\Util::DEBUG);
 			return false;
@@ -208,7 +208,7 @@ class Addressbook {
 				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 				return false;
 			}
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', uid: '.$uid, \OCP\Util::DEBUG);
 			return false;
@@ -236,7 +236,7 @@ class Addressbook {
 				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
 				return false;
 			}
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', uid: ' . $uid, \OCP\Util::DEBUG);
 			\OCP\Util::writeLog('contacts', __METHOD__.', uri: ' . $uri, \OCP\Util::DEBUG);
@@ -278,16 +278,16 @@ class Addressbook {
 			$result = $stmt->execute(array($name,$description,$id));
 			if (\OC_DB::isError($result)) {
 				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-				throw new Exception(
+				throw new \Exception(
 					App::$l10n->t(
 						'There was an error updating the addressbook.'
 					)
 				);
 			}
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__ . ', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__ . ', id: ' . $id, \OCP\Util::DEBUG);
-			throw new Exception(
+			throw new \Exception(
 				App::$l10n->t(
 					'There was an error updating the addressbook.'
 				)
@@ -332,7 +332,7 @@ class Addressbook {
 			}
 			$row = $result->fetchRow();
 			return (bool)$row['active'];
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
 			return false;
 		}
@@ -349,7 +349,7 @@ class Addressbook {
 		if ($addressbook['userid'] != \OCP\User::getUser() && !\OC_Group::inGroup(\OCP\User::getUser(), 'admin')) {
 			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & \OCP\PERMISSION_DELETE)) {
-				throw new Exception(
+				throw new \Exception(
 					App::$l10n->t(
 						'You do not have the permissions to delete this addressbook.'
 					)
@@ -362,7 +362,7 @@ class Addressbook {
 		foreach($cards as $card) {
 			try {
 				VCard::delete($card['id']);
-			} catch(Exception $e) {
+			} catch(\Exception $e) {
 				\OCP\Util::writeLog('contacts',
 					__METHOD__.', exception deleting vCard '.$card['id'].': '
 					. $e->getMessage(),
@@ -378,7 +378,7 @@ class Addressbook {
 				__METHOD__.', exception for ' . $id . ': '
 				. $e->getMessage(),
 				\OCP\Util::ERROR);
-			throw new Exception(
+			throw new \Exception(
 				App::$l10n->t(
 					'There was an error deleting this addressbook.'
 				)

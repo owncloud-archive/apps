@@ -38,6 +38,7 @@
 "Key is not set for: " => "Nezadaný kľúč pre:",
 "Value is not set for: " => "Nezadaná hodnota pre:",
 "Could not set preference: " => "Nemožno nastaviť voľbu:",
+"Upload of blacklisted file:" => "Nahrať na čiernu listinu súborov:",
 "Error uploading contacts to storage." => "Chyba pri ukladaní kontaktov na úložisko.",
 "There is no error, the file uploaded with success" => "Nevyskytla sa žiadna chyba, súbor úspešne uložené.",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "Ukladaný súbor prekračuje nastavenie upload_max_filesize v php.ini",
