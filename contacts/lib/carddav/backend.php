@@ -107,11 +107,11 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 * Creates a new address book
 	 *
 	 * @param string $principaluri
-	 * @param string $url Just the 'basename' of the url.
+	 * @param string $uri Just the 'basename' of the url.
 	 * @param array $properties
 	 * @return void
 	 */
-	public function createAddressBook($principaluri, $url, array $properties) {
+	public function createAddressBook($principaluri, $uri, array $properties) {
 
 		$properties = array();
 		$userid = $this->userIDByPrincipal($principaluri);
