@@ -3,7 +3,7 @@
  * ownCloud - Interface for PIM object
  *
  * @author Thomas Tanghus
- * @copyright 2012 Thomas Tanghus (thomas@tanghus.net)
+ * @copyright 2013 Thomas Tanghus (thomas@tanghus.net)
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
