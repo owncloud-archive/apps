@@ -55,11 +55,20 @@ class API {
 
 
 	/**
+	 * Creates a new navigation entry
+	 * @param array $entry containing: id, name, order, icon and href key
+	 */
+	public function addNavigationEntry(array $entry){
+		\OCP\App::addNavigationEntry($entry);
+	}
+
+
+	/**
 	 * Gets the userid of the current user
 	 * @return string the user id of the current user
 	 */
 	public function getUserId(){
-		return \OCP\USER::getUser();
+		return \OCP\User::getUser();
 	}
 
 
@@ -115,7 +124,7 @@ class API {
 	}
 
 	/**
-	 * Looks up a systemwide defined value from the config/config.php
+	 * Looks up a systemwide defined value
 	 * @param string $key the key of the value, under which it was saved
 	 * @return string the saved value
 	 */
@@ -125,37 +134,12 @@ class API {
 
 
 	/**
-	 * Writes a new systemwide value into the config/config.php
+	 * Sets a new systemwide value
 	 * @param string $key the key of the value, under which will be saved
 	 * @param string $value the value that should be stored
 	 */
 	public function setSystemValue($key, $value){
 		return \OCP\Config::setSystemValue($key, $value);
-	}
-
-	/**
-	 * Looks up an appwide defined value
-	 * @param string $key the key of the value, under which it was saved
-	 * @return string the saved value
-	 */
-	public function getAppValue($key, $appName=null){
-		if($appName === null){
-			$appName = $this->appName;
-		}
-		return \OCP\Config::getAppValue($appName, $key, '');
-	}
-
-
-	/**
-	 * Writes a new appwide value
-	 * @param string $key the key of the value, under which will be saved
-	 * @param string $value the value that should be stored
-	 */
-	public function setAppValue($key, $value, $appName=null){
-		if($appName === null){
-			$appName = $this->appName;
-		}
-		return \OCP\Config::setAppValue($appName, $key, $value);
 	}
 
 
@@ -191,6 +175,7 @@ class API {
 	 * @return \OC_L10N the translation object
 	 */
 	public function getTrans(){
+		# TODO: use public api
 		return \OC_L10N::get($this->appName);
 	}
 
@@ -224,7 +209,33 @@ class API {
 	 * @return string the url
 	 */
 	public function linkToRoute($routeName, $arguments=array()){
-		return \OC_Helper::linkToRoute($routeName, $arguments);
+		return \OCP\Util::linkToRoute($routeName, $arguments);
+	}
+
+
+	/**
+	 * Returns an URL for an image or file
+	 * @param string $file the name of the file
+	 * @param string $appName the name of the app, defaults to the current one
+	 */
+	public function linkTo($file, $appName=null){
+		if($appName === null){
+			$appName = $this->appName;
+		}
+		return \OCP\Util::linkTo($appName, $file);
+	}
+
+
+	/**
+	 * Returns the link to an image, like link to but only with prepending img/
+	 * @param string $file the name of the file
+	 * @param string $appName the name of the app, defaults to the current one
+	 */
+	public function imagePath($file, $appName=null){
+		if($appName === null){
+			$appName = $this->appName;
+		}
+		return \OCP\Util::imagePath($appName, $file);
 	}
 
 
@@ -234,6 +245,7 @@ class API {
 	 * @return string the absolute url
 	 */
 	public function getAbsoluteURL($url){
+		# TODO: use public api
 		return \OC_Helper::makeURLAbsolute($url);
 	}
 
@@ -249,7 +261,7 @@ class API {
 		if($appName === null){
 			$appName = $this->appName;
 		}
-		return \OC_Helper::linkToAbsolute($appName, $file);
+		return \OCP\Util::linkToAbsolute($appName, $file);
 	}
 
 
@@ -258,7 +270,7 @@ class API {
 	 * @return bool true if logged in
 	 */
 	public function isLoggedIn(){
-		return \OC_User::isLoggedIn();
+		return \OCP\User::isLoggedIn();
 	}
 
 
@@ -268,6 +280,7 @@ class API {
 	 * @return bool true if admin
 	 */
 	public function isAdminUser($userId){
+		# TODO: use public api
 		return \OC_User::isAdminUser($userId);
 	}
 
@@ -278,6 +291,7 @@ class API {
 	 * @return bool true if subadmin
 	 */
 	public function isSubAdminUser($userId){
+		# TODO: use public api
 		return \OC_SubAdmin::isSubAdmin($userId);
 	}
 
@@ -287,6 +301,7 @@ class API {
 	 * @return bool true if CSRF check passed
 	 */
 	public function passesCSRFCheck(){
+		# TODO: use public api
 		return \OC_Util::isCallRegistered();
 	}
 
@@ -297,7 +312,7 @@ class API {
 	 * @return bool true if app is enabled
 	 */
 	public function isAppEnabled($appName){
-		\OC_App::isEnabled($appName);
+		\OCP\App::isEnabled($appName);
 	}
 
 
@@ -340,6 +355,7 @@ class API {
 	 * @return string the filepath in the filesystem
 	 */
 	public function getLocalFilePath($path){
+		# TODO: use public api
 		return \OC_Filesystem::getLocalFile($path);
 	}
 
@@ -349,6 +365,7 @@ class API {
 	 * @return \OC_EventSource a new open EventSource class
 	 */
 	public function openEventSource(){
+		# TODO: use public api
 		return new \OC_EventSource();
 	}
 

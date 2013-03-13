@@ -73,7 +73,7 @@ class DIContainer extends \Pimple {
 		
 		// enables the l10n function as t() function in twig
 		$this['TwigL10N'] = $this->share(function($c){
-			$trans = $c['API']->getTrans();
+			$trans = $c['API']->getTrans();;
 			return new \Twig_SimpleFunction('trans', function () use ($trans) {
 				$args = func_get_args();
 				$string = array_shift($args);
@@ -89,12 +89,44 @@ class DIContainer extends \Pimple {
 			});
 		});
 
+		// enables the addScript function as script() function in twig
+		$this['TwigAddScript'] = $this->share(function($c){
+			$api = $c['API'];
+			return new \Twig_SimpleFunction('script', function () use ($api) {
+				call_user_func_array(array($api, 'addScript'), func_get_args());
+			});
+		});
+
+		// enables the addScript function as script() function in twig
+		$this['TwigAddStyle'] = $this->share(function($c){
+			$api = $c['API'];
+			return new \Twig_SimpleFunction('style', function () use ($api) {
+				call_user_func_array(array($api, 'addStyle'), func_get_args());
+			});
+		});
+
 		// enables the linkToRoute function as url() function in twig
 		$this['TwigLinkToAbsoluteRoute'] = $this->share(function($c){
 			$api = $c['API'];
 			return new \Twig_SimpleFunction('abs_url', function () use ($api) {
 				$url = call_user_func_array(array($api, 'linkToRoute'), func_get_args());
 				return $api->getAbsoluteURL($url);
+			});
+		});
+
+		// enables the linkTo function as link_to() function in twig
+		$this['TwigLinkTo'] = $this->share(function($c){
+			$api = $c['API'];
+			return new \Twig_SimpleFunction('link_to', function () use ($api) {
+				return call_user_func_array(array($api, 'linkTo'), func_get_args());
+			});
+		});
+
+		// enables the linkTo function as link_to() function in twig
+		$this['TwigImagePath'] = $this->share(function($c){
+			$api = $c['API'];
+			return new \Twig_SimpleFunction('image_path', function () use ($api) {
+				return call_user_func_array(array($api, 'imagePath'), func_get_args());
 			});
 		});
 
@@ -115,7 +147,11 @@ class DIContainer extends \Pimple {
 					'autoescape' => true
 				));
 			}
+			$twig->addFunction($c['TwigAddScript']);
+			$twig->addFunction($c['TwigAddStyle']);
 			$twig->addFunction($c['TwigL10N']);
+			$twig->addFunction($c['TwigImagePath']);
+			$twig->addFunction($c['TwigLinkTo']);
 			$twig->addFunction($c['TwigLinkToRoute']);
 			$twig->addFunction($c['TwigLinkToAbsoluteRoute']);
 			return $twig;

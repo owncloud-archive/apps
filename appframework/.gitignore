@@ -1,3 +1,6 @@
 report/
-node_modules
 structure.xml
+build/
+node_modules/
+*.log
+test-results.xml
