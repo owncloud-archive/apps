@@ -189,7 +189,9 @@ class Contact extends VObject\VCard implements IPIMObject {
 	public function read($data = null) {
 		// NOTE: Maybe this will mess with
 		// the magic accessors.
-		if(!$this->children) {
+		if($this->children && is_null($data)) {
+			return true;
+		} else {
 			if(isset($this->props['vcard'])
 				&& $this->props['vcard'] instanceof VObject\VCard) {
 				$this->children = $this->props['vcard']->children();
@@ -236,6 +238,24 @@ class Contact extends VObject\VCard implements IPIMObject {
 			}
 		}
 		return true;
+	}
+
+	/**
+	* Get a property by the checksum of its serialized value
+	*
+	* @param string $checksum An 8 char m5d checksum.
+	* @return \Sabre\VObject\Propert|null
+	*/
+	public function getPropertyByChecksum($checksum) {
+		$this->read();
+		$line = null;
+		foreach($this->children as $i => $property) {
+			if(substr(md5($property->serialize()), 0, 8) == $checksum ) {
+				$line = $i;
+				break;
+			}
+		}
+		return isset($this->children[$line]) ? $this->children[$line] : null;
 	}
 
 	public function lastModified() {
