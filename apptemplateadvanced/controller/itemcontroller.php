@@ -45,6 +45,10 @@ class ItemController extends Controller {
 
 
 	/**
+         * ATTENTION!!!
+         * The follwoing comments turn off security checks
+         * Please look up their meaning the documentation!
+         *
 	 * @CSRFExemption
 	 * @IsAdminExemption
 	 * @IsSubAdminExemption
@@ -58,6 +62,10 @@ class ItemController extends Controller {
 
 
 	/**
+         * ATTENTION!!!
+         * The follwoing comments turn off security checks
+         * Please look up their meaning the documentation!
+         *
 	 * @CSRFExemption
 	 * @IsAdminExemption
 	 * @IsSubAdminExemption
