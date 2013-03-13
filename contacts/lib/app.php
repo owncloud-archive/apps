@@ -16,34 +16,8 @@ use Sabre\VObject;
 App::$l10n = \OC_L10N::get('contacts');
 
 class App {
-	/*
-	 * @brief language object for calendar app
-	 */
-
-	public static $l10n;
-	/*
-	 * @brief categories of the user
-	 */
-	public static $categories = null;
-
 	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
 	const THUMBNAIL_SIZE = 28;
-
-	/**
-	 * @brief returns the vcategories object of the user
-	 * @return (object) $vcategories
-	 */
-	public static function getVCategories() {
-		if (is_null(self::$categories)) {
-			if(\OC_VCategories::isEmpty('contact')) {
-				self::scanCategories();
-			}
-			self::$categories = new \OC_VCategories('contact',
-				null,
-				self::getDefaultCategories());
-		}
-		return self::$categories;
-	}
 
 	/**
 	 * @brief returns the categories for the user
@@ -142,58 +116,4 @@ class App {
 		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 	}
 
-	public static function updateDBProperties($contactid, $vcard = null) {
-		$stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_cards_properties` WHERE `contactid` = ?');
-		try {
-			$stmt->execute(array($contactid));
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.
-				', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
-			\OCP\Util::writeLog('contacts', __METHOD__.', id: '
-				. $id, \OCP\Util::DEBUG);
-			throw new \Exception(
-				App::$l10n->t(
-					'There was an error deleting properties for this contact.'
-				)
-			);
-		}
-
-		if(is_null($vcard)) {
-			return;
-		}
-
-		$stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards_properties` '
-			. '(`userid`, `contactid`,`name`,`value`,`preferred`) VALUES(?,?,?,?,?)' );
-		foreach($vcard->children as $property) {
-			if(!in_array($property->name, self::$index_properties)) {
-				continue;
-			}
-			$preferred = 0;
-			foreach($property->parameters as $parameter) {
-				if($parameter->name == 'TYPE' && strtoupper($parameter->value) == 'PREF') {
-					$preferred = 1;
-					break;
-				}
-			}
-			try {
-				$result = $stmt->execute(
-					array(
-						\OCP\User::getUser(), 
-						$contactid, 
-						$property->name, 
-						$property->value, 
-						$preferred,
-					)
-				);
-				if (\OC_DB::isError($result)) {
-					\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: ' 
-						. \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-					return false;
-				}
-			} catch(\Exception $e) {
-				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
-				return false;
-			}
-		}
-	}
 }

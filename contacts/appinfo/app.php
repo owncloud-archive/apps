@@ -39,8 +39,12 @@ Sabre\VObject\Property::$classMap['TEL'] = 'OCA\Contacts\VObject\StringProperty'
 Sabre\VObject\Property::$classMap['IMPP'] = 'OCA\Contacts\VObject\StringProperty';
 Sabre\VObject\Property::$classMap['URL'] = 'OCA\Contacts\VObject\StringProperty';
 
-OCP\Util::connectHook('OC_User', 'post_createUser', 'OCA\Contacts\Hooks', 'createUser');
-OCP\Util::connectHook('OC_User', 'post_deleteUser', 'OCA\Contacts\Hooks', 'deleteUser');
+OCP\Util::connectHook('OC_User', 'post_createUser', 'OCA\Contacts\Hooks', 'userCreated');
+OCP\Util::connectHook('OC_User', 'post_deleteUser', 'OCA\Contacts\Hooks', 'userDeleted');
+OCP\Util::connectHook('OCA\Contacts', 'pre_deleteAddressBook', 'OCA\Contacts\Hooks', 'addresBookDeletion');
+OCP\Util::connectHook('OCA\Contacts', 'pre_deleteContact', 'OCA\Contacts\Hooks', 'contactDeletion');
+OCP\Util::connectHook('OCA\Contacts', 'post_createContact', 'OCA\Contacts\Hooks', 'contactUpdated');
+OCP\Util::connectHook('OCA\Contacts', 'post_updateContact', 'OCA\Contacts\Hooks', 'contactUpdated');
 OCP\Util::connectHook('OC_Calendar', 'getEvents', 'OCA\Contacts\Hooks', 'getBirthdayEvents');
 OCP\Util::connectHook('OC_Calendar', 'getSources', 'OCA\Contacts\Hooks', 'getCalenderSources');
 

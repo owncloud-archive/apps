@@ -42,7 +42,7 @@ class Hooks{
 	 * @param paramters parameters from postCreateUser-Hook
 	 * @return array
 	 */
-	static public function createUser($parameters) {
+	public static function userCreated($parameters) {
 		Addressbook::addDefault($parameters['uid']);
 		return true;
 	}
@@ -52,17 +52,43 @@ class Hooks{
 	 * @param paramters parameters from postDeleteUser-Hook
 	 * @return array
 	 */
-	static public function deleteUser($parameters) {
-		$addressbooks = Addressbook::all($parameters['uid']);
+	public static function userDeleted($parameters) {
+		$backend = new Backend\Database();
+		$addressbook = $backend->getAddressBooksForUser($parameters['uid']);
 
 		foreach($addressbooks as $addressbook) {
-			Addressbook::delete($addressbook['id']);
+			$contacts = $backend->getContacts($addressbook['id'], null, null, true);
+			foreach($contacts as $contact) {
+				$backend->deleteContact($addressbook['id'], $contact['id']);
+			}
+			\OCP\Share::unshareAll('addressbook', $addressbook['id']);
+			$backend->deleteAddressBook($addressbook['id']);
 		}
 
 		return true;
 	}
 
-	static public function getCalenderSources($parameters) {
+	/**
+	* Delete any registred address books (Future)
+	*/
+	public static function addressBookDeletion($parameters) {
+	}
+
+	public static function contactDeletion($parameters) {
+		// TODO: Purge contact index
+		$catctrl = new \OC_VCategories('contact');
+		$catctrl->purgeObject($parameters['id']);
+		Utils\Properties::updateIndex($parameters['id']);
+
+		// Contact sharing not implemented, but keep for future.
+		//\OCP\Share::unshareAll('contact', $id);
+	}
+
+	public static function contactUpdated($parameters) {
+		Utils\Properties::updateIndex($parameters['id'], $parameters['contact']);
+	}
+
+	public static function getCalenderSources($parameters) {
 		$base_url = \OCP\Util::linkTo('calendar', 'ajax/events.php').'?calendar_id=';
 		foreach(Addressbook::all(\OCP\USER::getUser()) as $addressbook) {
 			$parameters['sources'][]
@@ -77,7 +103,7 @@ class Hooks{
 		}
 	}
 
-	static public function getBirthdayEvents($parameters) {
+	public static function getBirthdayEvents($parameters) {
 		$name = $parameters['calendar_id'];
 		if (strpos($name, 'birthday_') != 0) {
 			return;

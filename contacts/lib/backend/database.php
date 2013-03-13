@@ -227,7 +227,7 @@ class Database extends AbstractBackend {
 	 * @return bool
 	 */
 	public function deleteAddressBook($addressbookid) {
-		\OC_Hook::emit('\OCA\Contacts\VCard', 'pre_deleteAddressBook',
+		\OC_Hook::emit('\OCA\Contacts', 'pre_deleteAddressBook',
 			array('id' => $addressbookid)
 		);
 
@@ -420,8 +420,8 @@ class Database extends AbstractBackend {
 		}
 		$newid = \OCP\DB::insertid($this->cardsTableName);
 
-		$this->touch(addressbookid);
-		\OC_Hook::emit('\OCA\Contacts\VCard', 'post_createVCard',
+		$this->touchAddressBook(addressbookid);
+		\OC_Hook::emit('\OCA\Contacts', 'post_createContact',
 			array('id' => $id, 'contact' => $contact)
 		);
 		return $newid;
@@ -485,8 +485,8 @@ class Database extends AbstractBackend {
 			return false;
 		}
 
-		$this->touch(addressbookid);
-		\OC_Hook::emit('\OCA\Contacts\VCard', 'post_updateVCard',
+		$this->touchAddressBook(addressbookid);
+		\OC_Hook::emit('\OCA\Contacts', 'post_updateContact',
 			array('id' => $id, 'contact' => $contact)
 		);
 		return true;
@@ -519,7 +519,7 @@ class Database extends AbstractBackend {
 		} else {
 			$qname = 'deletecontactsbyid';
 		}
-		\OC_Hook::emit('\OCA\Contacts\VCard', 'pre_deleteContact',
+		\OC_Hook::emit('\OCA\Contacts', 'pre_deleteContact',
 			array('id' => $id)
 		);
 		if(!isset(self::$preparedQueries[$qname])) {

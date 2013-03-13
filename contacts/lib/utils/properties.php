@@ -25,6 +25,10 @@ namespace OCA\Contacts\Utils;
 Properties::$l10n = \OC_L10N::get('contacts');
 
 Class Properties {
+
+	private static $deleteindexstmt;
+	private static $updateindexstmt;
+
 	/**
 	 * @brief language object for calendar app
 	 *
@@ -178,5 +182,66 @@ Class Properties {
 			(string)$l10n->t('Work'),
 			(string)$l10n->t('Other'),
 		);
+	}
+
+	public static function updateIndex($contactid, $vcard = null) {
+		if(!isset(self::$deleteindexstmt)) {
+			self::$deleteindexstmt
+				= \OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_cards_properties`';
+					. ' WHERE `contactid` = ?');
+		}
+		try {
+			self::$deleteindexstmt->execute(array($contactid));
+		} catch(\Exception $e) {
+			\OCP\Util::writeLog('contacts', __METHOD__.
+				', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
+			\OCP\Util::writeLog('contacts', __METHOD__.', id: '
+				. $id, \OCP\Util::DEBUG);
+			throw new \Exception(
+				App::$l10n->t(
+					'There was an error deleting properties for this contact.'
+				)
+			);
+		}
+
+		if(is_null($vcard)) {
+			return;
+		}
+
+		if(!isset(self::$updateindexstmt)) {
+			self::$updateindexstmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards_properties` '
+				. '(`userid`, `contactid`,`name`,`value`,`preferred`) VALUES(?,?,?,?,?)' );
+		}
+		foreach($vcard->children as $property) {
+			if(!in_array($property->name, self::$index_properties)) {
+				continue;
+			}
+			$preferred = 0;
+			foreach($property->parameters as $parameter) {
+				if($parameter->name == 'TYPE' && strtoupper($parameter->value) == 'PREF') {
+					$preferred = 1;
+					break;
+				}
+			}
+			try {
+				$result = self::$updateindexstmt->execute(
+					array(
+						\OCP\User::getUser(),
+						$contactid,
+						$property->name,
+						$property->value,
+						$preferred,
+					)
+				);
+				if (\OC_DB::isError($result)) {
+					\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: '
+						. \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+					return false;
+				}
+			} catch(\Exception $e) {
+				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
+				return false;
+			}
+		}
 	}
 }

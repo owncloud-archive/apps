@@ -82,7 +82,7 @@ class Shared extends Database {
 	public function getContacts($addressbookid, $limit = null, $offset = null, $omitdata = false) {
 		//\OCP\Util::writeLog('contacts', __METHOD__.' addressbookid: '
 		//	. $addressbookid, \OCP\Util::DEBUG);
-		/*$addressbook = \OCP\Share::getItemSharedWithBySource(
+		$addressbook = \OCP\Share::getItemSharedWithBySource(
 			'addressbook',
 			$addressbookid,
 			Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS,
@@ -90,7 +90,7 @@ class Shared extends Database {
 			true // includeCollection
 		);
 		\OCP\Util::writeLog('contacts', __METHOD__.' shared: '
-			. print_r($addressbook, true), \OCP\Util::DEBUG);*/
+			. print_r($addressbook, true), \OCP\Util::DEBUG);
 
 		$addressbook = $this->getAddressBook($addressbookid);
 		$permissions = $addressbook['permissions'];
