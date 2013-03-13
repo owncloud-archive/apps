@@ -38,6 +38,7 @@ Sabre\VObject\Property::$classMap['EMAIL'] = 'OCA\Contacts\VObject\StringPropert
 Sabre\VObject\Property::$classMap['TEL'] = 'OCA\Contacts\VObject\StringProperty';
 Sabre\VObject\Property::$classMap['IMPP'] = 'OCA\Contacts\VObject\StringProperty';
 Sabre\VObject\Property::$classMap['URL'] = 'OCA\Contacts\VObject\StringProperty';
+Sabre\VObject\Property::$classMap['GEO'] = 'Sabre\VObject\Property\Compound';
 
 OCP\Util::connectHook('OC_User', 'post_createUser', 'OCA\Contacts\Hooks', 'userCreated');
 OCP\Util::connectHook('OC_User', 'post_deleteUser', 'OCA\Contacts\Hooks', 'userDeleted');
