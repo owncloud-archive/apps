@@ -64,13 +64,6 @@ class VCard {
 					return false;
 				}
 
-				$addressbook = Addressbook::find($oldcard['addressbookid']);
-				if ($addressbook['userid'] != \OCP\User::getUser()) {
-					$sharedContact = \OCP\Share::getItemSharedWithBySource('contact', $object[0], \OCP\Share::FORMAT_NONE, null, true);
-					if (!$sharedContact || !($sharedContact['permissions'] & \OCP\PERMISSION_UPDATE)) {
-						return false;
-					}
-				}
 				$vcard->{'REV'} = $now->format(\DateTime::W3C);
 				$data = $vcard->serialize();
 				try {
