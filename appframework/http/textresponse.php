@@ -44,6 +44,13 @@ class TextResponse extends Response {
 		$this->addHeader('Content-type: text/' . $contentType);
 	}
 
+	/**
+	 * Append more text to current TextResponse content
+	 * @param string $content text to append
+	 */
+	public function appendContent($content){
+		$this->content = $this->content . $content;
+	}
 
 	/**
 	 * Simply sets the headers and returns the file contents
