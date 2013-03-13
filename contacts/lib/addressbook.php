@@ -161,21 +161,4 @@ class Addressbook extends PIMCollectionAbstract {
 		return $this->backend->lastModifiedAddressBook($this->getId());
 	}
 
-	/**
-	 * @brief Creates a URI for Addressbook
-	 * @param string $name name of the addressbook
-	 * @param array  $existing existing addressbook URIs
-	 * @return string new name
-	 */
-	public static function createURI($name,$existing) {
-		$name = str_replace(' ', '_', strtolower($name));
-		$newname = $name;
-		$i = 1;
-		while(in_array($newname, $existing)) {
-			$newname = $name.$i;
-			$i = $i + 1;
-		}
-		return $newname;
-	}
-
 }

@@ -26,16 +26,6 @@ class App {
 	 */
 	public static $categories = null;
 
-	/**
-	 * Properties there can be more than one of.
-	 */
-	public static $multi_properties = array('EMAIL', 'TEL', 'IMPP', 'ADR', 'URL');
-
-	/**
-	 * Properties to index.
-	 */
-	public static $index_properties = array('BDAY', 'UID', 'N', 'FN', 'TITLE', 'ROLE', 'NOTE', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO', 'PHOTO');
-
 	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
 	const THUMBNAIL_SIZE = 28;
 
@@ -68,130 +58,6 @@ class App {
 		return $vcard;
 	}
 
-	public static function getPropertyLineByChecksum($vcard, $checksum) {
-		$line = null;
-		foreach($vcard->children as $i => $property) {
-			if(substr(md5($property->serialize()), 0, 8) == $checksum ) {
-				$line = $i;
-				break;
-			}
-		}
-		return $line;
-	}
-
-	/**
-	 * @return array of vcard prop => label
-	 */
-	public static function getIMOptions($im = null) {
-		$l10n = self::$l10n;
-		$ims = array(
-				'jabber' => array(
-					'displayname' => (string)$l10n->t('Jabber'),
-					'xname' => 'X-JABBER',
-					'protocol' => 'xmpp',
-				),
-				'aim' => array(
-					'displayname' => (string)$l10n->t('AIM'),
-					'xname' => 'X-AIM',
-					'protocol' => 'aim',
-				),
-				'msn' => array(
-					'displayname' => (string)$l10n->t('MSN'),
-					'xname' => 'X-MSN',
-					'protocol' => 'msn',
-				),
-				'twitter' => array(
-					'displayname' => (string)$l10n->t('Twitter'),
-					'xname' => 'X-TWITTER',
-					'protocol' => 'twitter',
-				),
-				'googletalk' => array(
-					'displayname' => (string)$l10n->t('GoogleTalk'),
-					'xname' => null,
-					'protocol' => 'xmpp',
-				),
-				'facebook' => array(
-					'displayname' => (string)$l10n->t('Facebook'),
-					'xname' => null,
-					'protocol' => 'xmpp',
-				),
-				'xmpp' => array(
-					'displayname' => (string)$l10n->t('XMPP'),
-					'xname' => null,
-					'protocol' => 'xmpp',
-				),
-				'icq' => array(
-					'displayname' => (string)$l10n->t('ICQ'),
-					'xname' => 'X-ICQ',
-					'protocol' => 'icq',
-				),
-				'yahoo' => array(
-					'displayname' => (string)$l10n->t('Yahoo'),
-					'xname' => 'X-YAHOO',
-					'protocol' => 'ymsgr',
-				),
-				'skype' => array(
-					'displayname' => (string)$l10n->t('Skype'),
-					'xname' => 'X-SKYPE',
-					'protocol' => 'skype',
-				),
-				'qq' => array(
-					'displayname' => (string)$l10n->t('QQ'),
-					'xname' => 'X-SKYPE',
-					'protocol' => 'x-apple',
-				),
-				'gadugadu' => array(
-					'displayname' => (string)$l10n->t('GaduGadu'),
-					'xname' => 'X-SKYPE',
-					'protocol' => 'x-apple',
-				),
-		);
-		if(is_null($im)) {
-			return $ims;
-		} else {
-			$ims['ymsgr'] = $ims['yahoo'];
-			$ims['gtalk'] = $ims['googletalk'];
-			return isset($ims[$im]) ? $ims[$im] : null;
-		}
-	}
-
-	/**
-	 * @return types for property $prop
-	 */
-	public static function getTypesOfProperty($prop) {
-		$l = self::$l10n;
-		switch($prop) {
-			case 'LABEL':
-			case 'ADR':
-			case 'IMPP':
-				return array(
-					'WORK' => $l->t('Work'),
-					'HOME' => $l->t('Home'),
-					'OTHER' =>  $l->t('Other'),
-				);
-			case 'TEL':
-				return array(
-					'HOME'  =>  $l->t('Home'),
-					'CELL'  =>  $l->t('Mobile'),
-					'WORK'  =>  $l->t('Work'),
-					'TEXT'  =>  $l->t('Text'),
-					'VOICE' =>  $l->t('Voice'),
-					'MSG'   =>  $l->t('Message'),
-					'FAX'   =>  $l->t('Fax'),
-					'VIDEO' =>  $l->t('Video'),
-					'PAGER' =>  $l->t('Pager'),
-					'OTHER' =>  $l->t('Other'),
-				);
-			case 'EMAIL':
-				return array(
-					'WORK' => $l->t('Work'),
-					'HOME' => $l->t('Home'),
-					'INTERNET' => $l->t('Internet'),
-					'OTHER' =>  $l->t('Other'),
-				);
-		}
-	}
-
 	/**
 	 * @brief returns the vcategories object of the user
 	 * @return (object) $vcategories
@@ -215,19 +81,6 @@ class App {
 	public static function getCategories($format = null) {
 		$categories = self::getVCategories()->categories($format);
 		return ($categories ? $categories : self::getDefaultCategories());
-	}
-
-	/**
-	 * @brief returns the default categories of ownCloud
-	 * @return (array) $categories
-	 */
-	public static function getDefaultCategories() {
-		return array(
-			(string)self::$l10n->t('Friends'),
-			(string)self::$l10n->t('Family'),
-			(string)self::$l10n->t('Work'),
-			(string)self::$l10n->t('Other'),
-		);
 	}
 
 	/**
