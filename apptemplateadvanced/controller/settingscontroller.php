@@ -40,7 +40,7 @@ class SettingsController extends Controller {
 
 	/**
 	 * ATTENTION!!!
-	 * The following comment turn off security checks
+	 * The following comment turns off security checks
 	 * Please look up their meaning in the documentation!
 	 *
 	 * @CSRFExemption 
