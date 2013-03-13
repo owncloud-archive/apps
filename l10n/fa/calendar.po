@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:00+0100\n"
-"PO-Revision-Date: 2013-02-20 23:31+0000\n"
+"POT-Creation-Date: 2013-03-14 00:02+0100\n"
+"PO-Revision-Date: 2013-03-13 13:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -74,7 +74,7 @@ msgid "Invalid request"
 msgstr "درخواست نامعتبر"
 
 #: appinfo/app.php:38 js/l10n.php:55 templates/part.eventform.php:30
-#: templates/part.showevent.php:33
+#: templates/part.showevent.php:37
 msgid "Calendar"
 msgstr "تقویم"
 
@@ -391,19 +391,19 @@ msgstr "کار"
 msgid "by"
 msgstr "با"
 
-#: lib/app.php:451
+#: lib/app.php:467
 msgid "unnamed"
 msgstr "نام گذاری نشده"
 
-#: lib/calendar.php:163 lib/calendar.php:196
+#: lib/calendar.php:178 lib/calendar.php:211
 msgid "You do not have the permissions to update this calendar."
 msgstr "شما دسترسی مجاز برای به روزرسانی این تقویم را ندارید."
 
-#: lib/calendar.php:231
+#: lib/calendar.php:246
 msgid "You do not have the permissions to delete this calendar."
 msgstr "شما دسترسی مجاز برای حذف این تقویم را ندارید."
 
-#: lib/calendar.php:265
+#: lib/calendar.php:280
 msgid "You do not have the permissions to add to this calendar."
 msgstr "شما دسترسی مجاز برای ایجاد این تقویم را ندارید."
 
@@ -654,27 +654,27 @@ msgstr "گروه ها را به وسیله درنگ نما از هم جدا کن
 msgid "Edit categories"
 msgstr "ویرایش گروه"
 
-#: templates/part.eventform.php:47 templates/part.showevent.php:46
+#: templates/part.eventform.php:47 templates/part.showevent.php:50
 msgid "Access Class"
 msgstr "کلاس دسترسی"
 
-#: templates/part.eventform.php:64 templates/part.showevent.php:62
+#: templates/part.eventform.php:64 templates/part.showevent.php:66
 msgid "All Day Event"
 msgstr "رویداد های روزانه"
 
-#: templates/part.eventform.php:68 templates/part.showevent.php:66
+#: templates/part.eventform.php:68 templates/part.showevent.php:70
 msgid "From"
 msgstr "از"
 
-#: templates/part.eventform.php:76 templates/part.showevent.php:74
+#: templates/part.eventform.php:76 templates/part.showevent.php:78
 msgid "To"
 msgstr "به"
 
-#: templates/part.eventform.php:84 templates/part.showevent.php:82
+#: templates/part.eventform.php:84 templates/part.showevent.php:86
 msgid "Advanced options"
 msgstr "تنظیمات حرفه ای"
 
-#: templates/part.eventform.php:89 templates/part.showevent.php:87
+#: templates/part.eventform.php:89 templates/part.showevent.php:91
 msgid "Location"
 msgstr "منطقه"
 
@@ -682,7 +682,7 @@ msgstr "منطقه"
 msgid "Location of the Event"
 msgstr "منطقه رویداد"
 
-#: templates/part.eventform.php:97 templates/part.showevent.php:95
+#: templates/part.eventform.php:97 templates/part.showevent.php:99
 msgid "Description"
 msgstr "توضیحات"
 
@@ -690,52 +690,52 @@ msgstr "توضیحات"
 msgid "Description of the Event"
 msgstr "توضیحات درباره رویداد"
 
-#: templates/part.eventform.php:108 templates/part.showevent.php:105
+#: templates/part.eventform.php:108 templates/part.showevent.php:109
 msgid "Repeat"
 msgstr "تکرار"
 
-#: templates/part.eventform.php:115 templates/part.showevent.php:112
+#: templates/part.eventform.php:115 templates/part.showevent.php:116
 msgid "Advanced"
 msgstr "پیشرفته"
 
-#: templates/part.eventform.php:159 templates/part.showevent.php:156
+#: templates/part.eventform.php:159 templates/part.showevent.php:160
 msgid "Select weekdays"
 msgstr "انتخاب روز های هفته "
 
 #: templates/part.eventform.php:172 templates/part.eventform.php:185
-#: templates/part.showevent.php:169 templates/part.showevent.php:182
+#: templates/part.showevent.php:173 templates/part.showevent.php:186
 msgid "Select days"
 msgstr "انتخاب روز ها"
 
-#: templates/part.eventform.php:177 templates/part.showevent.php:174
+#: templates/part.eventform.php:177 templates/part.showevent.php:178
 msgid "and the events day of year."
 msgstr "و رویداد های روز از سال"
 
-#: templates/part.eventform.php:190 templates/part.showevent.php:187
+#: templates/part.eventform.php:190 templates/part.showevent.php:191
 msgid "and the events day of month."
 msgstr "و رویداد های روز از ماه"
 
-#: templates/part.eventform.php:198 templates/part.showevent.php:195
+#: templates/part.eventform.php:198 templates/part.showevent.php:199
 msgid "Select months"
 msgstr "انتخاب ماه ها"
 
-#: templates/part.eventform.php:211 templates/part.showevent.php:208
+#: templates/part.eventform.php:211 templates/part.showevent.php:212
 msgid "Select weeks"
 msgstr "انتخاب هفته ها"
 
-#: templates/part.eventform.php:216 templates/part.showevent.php:213
+#: templates/part.eventform.php:216 templates/part.showevent.php:217
 msgid "and the events week of year."
 msgstr "و رویداد هفته ها از سال"
 
-#: templates/part.eventform.php:222 templates/part.showevent.php:219
+#: templates/part.eventform.php:222 templates/part.showevent.php:223
 msgid "Interval"
 msgstr "فاصله"
 
-#: templates/part.eventform.php:228 templates/part.showevent.php:225
+#: templates/part.eventform.php:228 templates/part.showevent.php:229
 msgid "End"
 msgstr "پایان"
 
-#: templates/part.eventform.php:241 templates/part.showevent.php:238
+#: templates/part.eventform.php:241 templates/part.showevent.php:242
 msgid "occurrences"
 msgstr "ظهور"
 
@@ -815,11 +815,11 @@ msgstr "دیدن یک رویداد"
 msgid "No categories selected"
 msgstr "هیچ گروهی انتخاب نشده"
 
-#: templates/part.showevent.php:37
+#: templates/part.showevent.php:41
 msgid "of"
 msgstr "از"
 
-#: templates/part.showevent.php:69 templates/part.showevent.php:77
+#: templates/part.showevent.php:73 templates/part.showevent.php:81
 msgid "at"
 msgstr "در"
 

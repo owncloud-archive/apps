@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-13 00:00+0100\n"
-"PO-Revision-Date: 2013-02-12 23:01+0000\n"
+"POT-Creation-Date: 2013-03-14 00:02+0100\n"
+"PO-Revision-Date: 2013-03-13 02:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/owncloud/language/zh_HK/)\n"
 "MIME-Version: 1.0\n"
@@ -79,11 +79,11 @@ msgstr ""
 
 #: templates/part.addnew.php:22
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
 #: templates/part.addnew.php:24 templates/part.addnew.php:27
 msgid "Add"
-msgstr ""
+msgstr "加入"
 
 #: templates/part.addnew.php:29
 msgid "New folder"
@@ -109,7 +109,7 @@ msgstr ""
 msgid "All articles"
 msgstr ""
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr ""
@@ -120,7 +120,7 @@ msgstr ""
 
 #: templates/part.items.php:48 templates/part.items.php:51
 msgid "Share"
-msgstr ""
+msgstr "分享"
 
 #: templates/part.items.php:55
 msgid "Keep unread"
@@ -135,11 +135,11 @@ msgid "Collapse"
 msgstr ""
 
 #: templates/part.listfolder.php:24
-msgid "Rename folder"
+msgid "Delete folder"
 msgstr ""
 
-#: templates/part.listfolder.php:28
-msgid "Delete folder"
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
 msgstr ""
 
 #: templates/part.settings.php:2
@@ -148,7 +148,7 @@ msgstr ""
 
 #: templates/part.settings.php:4 templates/part.settings.php:5
 msgid "Import"
-msgstr ""
+msgstr "導入"
 
 #: templates/part.settings.php:7 templates/part.settings.php:9
 msgid "Export"

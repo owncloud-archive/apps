@@ -38,6 +38,7 @@
 "Key is not set for: " => "Gakoa ez da zehaztu hemen:",
 "Value is not set for: " => "Balioa ez da zehaztu hemen:",
 "Could not set preference: " => "Ezin izan da lehentasuna ezarri:",
+"Upload of blacklisted file:" => "Zerrenda beltzako fitxategiaren igoera:",
 "Error uploading contacts to storage." => "Errore bat egon da kontaktuak biltegira igotzerakoan.",
 "There is no error, the file uploaded with success" => "Ez da errorerik egon, fitxategia ongi igo da",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "Igotako fitxategia php.ini fitxategiko upload_max_filesize direktiba baino handiagoa da",

@@ -5,15 +5,16 @@
 # Translators:
 # Agustin Ferrario <>, 2012.
 # Agustin Ferrario <agustin.ferrario@hotmail.com.ar>, 2012-2013.
+# CJTess <claudio.tessone@gmail.com>, 2013.
 #   <claudio.tessone@gmail.com>, 2012.
 #   <javierkaiser@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-10 00:01+0100\n"
-"PO-Revision-Date: 2013-03-09 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-14 00:02+0100\n"
+"PO-Revision-Date: 2013-03-13 09:50+0000\n"
+"Last-Translator: cjtess <claudio.tessone@gmail.com>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/owncloud/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -184,7 +185,7 @@ msgstr "No se pudo asignar la preferencia:"
 
 #: ajax/uploadimport.php:42 ajax/uploadimport.php:79
 msgid "Upload of blacklisted file:"
-msgstr ""
+msgstr "Subida de archivo en \"lista negra\":"
 
 #: ajax/uploadimport.php:48 ajax/uploadimport.php:84
 msgid "Error uploading contacts to storage."
@@ -411,25 +412,25 @@ msgstr "El contacto no se encuentra en este grupo."
 msgid "Contacts are not in this group."
 msgstr "Los contactos ya se encuentran en este grupo. "
 
-#: js/groups.js:541
+#: js/groups.js:542
 msgid "A group named {group} already exists"
 msgstr "Un grupo llamado {grup} ya existe"
 
-#: js/groups.js:573
+#: js/groups.js:574
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Podés arrastrar los grupos para \narreglarlos como quieras."
 
-#: js/groups.js:592
+#: js/groups.js:593
 msgid "All"
 msgstr "Todos"
 
-#: js/groups.js:606
+#: js/groups.js:607
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: js/groups.js:655
+#: js/groups.js:656
 msgid "Shared by {owner}"
 msgstr "Compartidos por {owner}"
 

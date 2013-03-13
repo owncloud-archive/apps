@@ -38,6 +38,7 @@
 "Key is not set for: " => "A chave não está definida para:",
 "Value is not set for: " => "O valor não está definido para:",
 "Could not set preference: " => "Não foi possível definir as preferencias:",
+"Upload of blacklisted file:" => "Upload do ficheiros na lista negra:",
 "Error uploading contacts to storage." => "Erro a carregar os contactos para o armazenamento.",
 "There is no error, the file uploaded with success" => "Não ocorreu erros, o ficheiro foi submetido com sucesso",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "O tamanho do ficheiro carregado excede o parametro upload_max_filesize em php.ini",

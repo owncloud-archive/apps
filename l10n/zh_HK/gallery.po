@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 23:01+0000\n"
+"POT-Creation-Date: 2013-03-14 00:02+0100\n"
+"PO-Revision-Date: 2013-03-13 01:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/owncloud/language/zh_HK/)\n"
 "MIME-Version: 1.0\n"
@@ -21,13 +21,13 @@ msgstr ""
 msgid "Pictures"
 msgstr ""
 
-#: js/gallery.js:237
+#: js/gallery.js:245
 msgid "Shared by"
 msgstr ""
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
-msgstr ""
+msgstr "分享"
 
 #: templates/no-image-app.php:9
 msgid ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-19 00:00+0100\n"
+"POT-Creation-Date: 2013-03-14 00:02+0100\n"
 "PO-Revision-Date: 2012-09-03 13:15+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/owncloud/language/zh_HK/)\n"
@@ -25,14 +25,14 @@ msgstr ""
 msgid "Please set your email address in account settings"
 msgstr ""
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Email"
-msgstr ""
+msgstr "電郵"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Password and Confirmation"
 msgstr ""
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Server address"
 msgstr ""

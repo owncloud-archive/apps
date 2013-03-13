@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-21 00:02+0100\n"
-"PO-Revision-Date: 2013-02-20 23:02+0000\n"
+"POT-Creation-Date: 2013-03-14 00:02+0100\n"
+"PO-Revision-Date: 2013-03-13 06:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/owncloud/language/zh_HK/)\n"
 "MIME-Version: 1.0\n"
@@ -30,34 +30,34 @@ msgstr ""
 msgid "My pad"
 msgstr ""
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
-#: templates/index.php:17
+#: templates/index.php:18
 msgid "Pad Title"
 msgstr ""
 
-#: templates/index.php:18
-msgid "Open"
-msgstr ""
-
 #: templates/index.php:19
-msgid "Share with"
-msgstr ""
+msgid "Open"
+msgstr "開啟"
 
 #: templates/index.php:20
-msgid "Share"
-msgstr ""
+msgid "Share with"
+msgstr "分享"
 
-#: templates/settings.php:15
+#: templates/index.php:21
+msgid "Share"
+msgstr "分享"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr ""
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
-msgstr ""
+msgstr "用戶名稱"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
-msgstr ""
+msgstr "儲存"

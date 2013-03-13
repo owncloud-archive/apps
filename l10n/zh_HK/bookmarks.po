@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-19 09:56+0100\n"
-"PO-Revision-Date: 2013-02-19 08:57+0000\n"
+"POT-Creation-Date: 2013-03-14 00:02+0100\n"
+"PO-Revision-Date: 2013-03-13 06:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/owncloud/language/zh_HK/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
-msgstr ""
+msgstr "收藏"
 
 #: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
@@ -73,33 +73,33 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: templates/addBm.php:16 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:27
 msgid "The title of the page"
 msgstr ""
 
-#: templates/addBm.php:21 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:31
 msgid "The address of the page"
 msgstr ""
 
-#: templates/addBm.php:34 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:40
 msgid "Description of the page"
 msgstr ""
 
-#: templates/addBm.php:38 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:44
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:61
+#: templates/js_tpl.php:6 templates/js_tpl.php:58
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
-#: templates/js_tpl.php:19 templates/js_tpl.php:57
+#: templates/js_tpl.php:14 templates/js_tpl.php:54
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
-#: templates/js_tpl.php:46
+#: templates/js_tpl.php:43
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: templates/list.php:14
 msgid ""
@@ -113,11 +113,11 @@ msgstr ""
 
 #: templates/list.php:22
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
 #: templates/list.php:23
 msgid "Add"
-msgstr ""
+msgstr "加入"
 
 #: templates/list.php:31
 msgid "Related Tags"
@@ -125,7 +125,7 @@ msgstr ""
 
 #: templates/list.php:38 templates/list.php:40
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: templates/list.php:54
 msgid "You have no bookmarks"
@@ -149,4 +149,4 @@ msgstr ""
 
 #: templates/settings.php:26
 msgid "Import"
-msgstr ""
+msgstr "導入"

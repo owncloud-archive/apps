@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Dennis <dtsang29@hotmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-10 00:01+0100\n"
-"PO-Revision-Date: 2013-03-09 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-14 00:02+0100\n"
+"PO-Revision-Date: 2013-03-13 06:10+0000\n"
+"Last-Translator: dtsang29 <dtsang29@hotmail.com>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/owncloud/language/zh_HK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,7 +66,7 @@ msgstr ""
 
 #: ajax/categories/delete.php:36
 msgid "No contacts found."
-msgstr ""
+msgstr "找不到聯絡人"
 
 #: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."
@@ -112,11 +113,11 @@ msgstr ""
 
 #: ajax/currentphoto.php:36
 msgid "Error reading contact photo."
-msgstr ""
+msgstr "讀入聯絡人照片時發生錯誤"
 
 #: ajax/currentphoto.php:50
 msgid "Error saving temporary file."
-msgstr ""
+msgstr "儲存暫存檔時發生錯誤"
 
 #: ajax/currentphoto.php:53
 msgid "The loading photo is not valid."
@@ -132,11 +133,11 @@ msgstr ""
 
 #: ajax/oc_photo.php:39
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "文件不存在"
 
 #: ajax/oc_photo.php:44 ajax/oc_photo.php:47
 msgid "Error loading image."
-msgstr ""
+msgstr "載入圖片時發生錯誤"
 
 #: ajax/savecrop.php:70
 msgid "Error getting contact object."
@@ -148,15 +149,15 @@ msgstr ""
 
 #: ajax/savecrop.php:105
 msgid "Error saving contact."
-msgstr ""
+msgstr "儲存聯絡人時發生錯誤"
 
 #: ajax/savecrop.php:117
 msgid "Error resizing image"
-msgstr ""
+msgstr "更改影相大小時發生錯誤"
 
 #: ajax/savecrop.php:120
 msgid "Error cropping image"
-msgstr ""
+msgstr "剪裁影像時發生錯誤"
 
 #: ajax/savecrop.php:123
 msgid "Error creating temporary image"
@@ -226,7 +227,7 @@ msgstr ""
 
 #: appinfo/app.php:25
 msgid "Contacts"
-msgstr ""
+msgstr "聯絡人"
 
 #: export.php:66
 #, php-format
@@ -293,7 +294,7 @@ msgstr ""
 #: js/app.js:1052 js/app.js:1588 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
-msgstr ""
+msgstr "錯誤"
 
 #: js/app.js:1062
 msgid "Importing from {filename}..."
@@ -407,25 +408,25 @@ msgstr ""
 msgid "Contacts are not in this group."
 msgstr ""
 
-#: js/groups.js:541
+#: js/groups.js:542
 msgid "A group named {group} already exists"
 msgstr ""
 
-#: js/groups.js:573
+#: js/groups.js:574
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr ""
 
-#: js/groups.js:592
+#: js/groups.js:593
 msgid "All"
 msgstr ""
 
-#: js/groups.js:606
+#: js/groups.js:607
 msgid "Favorites"
 msgstr ""
 
-#: js/groups.js:655
+#: js/groups.js:656
 msgid "Shared by {owner}"
 msgstr ""
 
@@ -455,22 +456,22 @@ msgstr ""
 
 #: js/settings.js:99 templates/contacts.php:256 templates/settings.php:40
 msgid "Download"
-msgstr ""
+msgstr "下載"
 
 #: js/settings.js:101 templates/settings.php:45
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
 #: js/settings.js:102 templates/contacts.php:201 templates/contacts.php:208
 #: templates/contacts.php:215 templates/contacts.php:222
 #: templates/contacts.php:270 templates/contacts.php:397
 #: templates/settings.php:50
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 #: js/settings.js:120 templates/contacts.php:254 templates/settings.php:62
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: js/settings.js:159 templates/settings.php:66
 msgid "More..."
@@ -550,11 +551,11 @@ msgstr ""
 
 #: lib/app.php:167 lib/app.php:175 lib/app.php:186 lib/app.php:227
 msgid "Work"
-msgstr ""
+msgstr "工作"
 
 #: lib/app.php:168 lib/app.php:173 lib/app.php:187
 msgid "Home"
-msgstr ""
+msgstr "住家"
 
 #: lib/app.php:169 lib/app.php:182 lib/app.php:189 lib/app.php:228
 #: lib/vcard.php:701
@@ -563,23 +564,23 @@ msgstr ""
 
 #: lib/app.php:174
 msgid "Mobile"
-msgstr ""
+msgstr "手提電話"
 
 #: lib/app.php:176
 msgid "Text"
-msgstr ""
+msgstr "文字"
 
 #: lib/app.php:177
 msgid "Voice"
-msgstr ""
+msgstr "聲音"
 
 #: lib/app.php:178
 msgid "Message"
-msgstr ""
+msgstr "信息"
 
 #: lib/app.php:179
 msgid "Fax"
-msgstr ""
+msgstr "傳真"
 
 #: lib/app.php:180
 msgid "Video"
@@ -587,11 +588,11 @@ msgstr ""
 
 #: lib/app.php:181
 msgid "Pager"
-msgstr ""
+msgstr "傳呼機"
 
 #: lib/app.php:188
 msgid "Internet"
-msgstr ""
+msgstr "互聯網"
 
 #: lib/app.php:225
 msgid "Friends"
@@ -607,7 +608,7 @@ msgstr ""
 
 #: lib/hooks.php:98
 msgid "{name}'s Birthday"
-msgstr ""
+msgstr "{name}的生日"
 
 #: lib/search.php:20
 msgid "Contact"
@@ -655,7 +656,7 @@ msgstr ""
 
 #: templates/contacts.php:16
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: templates/contacts.php:17
 msgid "Address books"
@@ -663,7 +664,7 @@ msgstr ""
 
 #: templates/contacts.php:20 templates/contacts.php:97
 msgid "Import"
-msgstr ""
+msgstr "導入"
 
 #: templates/contacts.php:25
 msgid "Select files to import"
@@ -679,7 +680,7 @@ msgstr ""
 
 #: templates/contacts.php:36
 msgid "OK"
-msgstr ""
+msgstr "確定"
 
 #: templates/contacts.php:46
 msgid "(De-)select all"
@@ -695,7 +696,7 @@ msgstr ""
 
 #: templates/contacts.php:51
 msgid "Groups"
-msgstr ""
+msgstr "群組"
 
 #: templates/contacts.php:53
 msgid "Favorite"
@@ -765,7 +766,7 @@ msgstr ""
 
 #: templates/contacts.php:96
 msgid "Add contact"
-msgstr ""
+msgstr "新增聯絡人"
 
 #: templates/contacts.php:137
 msgid "Compose mail"
@@ -777,19 +778,19 @@ msgstr ""
 
 #: templates/contacts.php:161
 msgid "Delete current photo"
-msgstr ""
+msgstr "刪除當前照片"
 
 #: templates/contacts.php:162
 msgid "Edit current photo"
-msgstr ""
+msgstr "編輯當前照片"
 
 #: templates/contacts.php:163
 msgid "Upload new photo"
-msgstr ""
+msgstr "上傳新照片"
 
 #: templates/contacts.php:164
 msgid "Select photo from ownCloud"
-msgstr ""
+msgstr "所ownCloud中選擇照片"
 
 #: templates/contacts.php:175 templates/contacts.php:176
 msgid "First name"
@@ -809,15 +810,15 @@ msgstr ""
 
 #: templates/contacts.php:197 templates/contacts.php:261
 msgid "Nickname"
-msgstr ""
+msgstr "暱稱"
 
 #: templates/contacts.php:200
 msgid "Enter nickname"
-msgstr ""
+msgstr "輸入你成"
 
 #: templates/contacts.php:204 templates/contacts.php:260
 msgid "Title"
-msgstr ""
+msgstr "標題"
 
 #: templates/contacts.php:207
 msgid "Enter title"
@@ -825,7 +826,7 @@ msgstr ""
 
 #: templates/contacts.php:211 templates/contacts.php:259
 msgid "Organization"
-msgstr ""
+msgstr "組織"
 
 #: templates/contacts.php:214
 msgid "Enter organization"
@@ -833,7 +834,7 @@ msgstr ""
 
 #: templates/contacts.php:218 templates/contacts.php:262
 msgid "Birthday"
-msgstr ""
+msgstr "生日"
 
 #: templates/contacts.php:249
 msgid "Notes go here..."
@@ -845,15 +846,15 @@ msgstr ""
 
 #: templates/contacts.php:258
 msgid "Add"
-msgstr ""
+msgstr "加入"
 
 #: templates/contacts.php:263
 msgid "Phone"
-msgstr ""
+msgstr "電話"
 
 #: templates/contacts.php:264
 msgid "Email"
-msgstr ""
+msgstr "電郵"
 
 #: templates/contacts.php:265
 msgid "Instant Messaging"
@@ -861,11 +862,11 @@ msgstr ""
 
 #: templates/contacts.php:266
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
 #: templates/contacts.php:267
 msgid "Note"
-msgstr ""
+msgstr "備註"
 
 #: templates/contacts.php:268
 msgid "Web site"
@@ -873,7 +874,7 @@ msgstr ""
 
 #: templates/contacts.php:270
 msgid "Delete contact"
-msgstr ""
+msgstr "刪除聯絡人"
 
 #: templates/contacts.php:283 templates/contacts.php:298
 #: templates/contacts.php:312 templates/contacts.php:337
@@ -883,7 +884,7 @@ msgstr ""
 
 #: templates/contacts.php:285
 msgid "Please specify a valid email address."
-msgstr ""
+msgstr "請輸入有效的電郵地址"
 
 #: templates/contacts.php:285
 msgid "someone@example.com"
@@ -891,19 +892,19 @@ msgstr ""
 
 #: templates/contacts.php:287
 msgid "Mail to address"
-msgstr ""
+msgstr "傳送郵件到該地址"
 
 #: templates/contacts.php:288
 msgid "Delete email address"
-msgstr ""
+msgstr "刪除電郵地址"
 
 #: templates/contacts.php:300
 msgid "Enter phone number"
-msgstr ""
+msgstr "輸入電話號碼"
 
 #: templates/contacts.php:302
 msgid "Delete phone number"
-msgstr ""
+msgstr "刪除電話號碼"
 
 #: templates/contacts.php:316
 msgid "Go to web site"
@@ -915,7 +916,7 @@ msgstr ""
 
 #: templates/contacts.php:328
 msgid "View on map"
-msgstr ""
+msgstr "顯示在地圖上"
 
 #: templates/contacts.php:329
 msgid "Delete address"
@@ -943,7 +944,7 @@ msgstr ""
 
 #: templates/contacts.php:350
 msgid "City"
-msgstr ""
+msgstr "城市"
 
 #: templates/contacts.php:354
 msgid "Some region"
@@ -959,7 +960,7 @@ msgstr ""
 
 #: templates/contacts.php:360
 msgid "Country"
-msgstr ""
+msgstr "國家"
 
 #: templates/contacts.php:382
 msgid "Instant Messenger"
@@ -971,7 +972,7 @@ msgstr ""
 
 #: templates/contacts.php:394 templates/settings.php:36
 msgid "Share"
-msgstr ""
+msgstr "分享"
 
 #: templates/contacts.php:395
 msgid "Export"
@@ -991,23 +992,23 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr ""
+msgstr "更多"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "主要地址"
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OSX"
 
 #: templates/settings.php:11
 msgid "Addressbooks"
-msgstr ""
+msgstr "地址簿"
 
 #: templates/settings.php:58
 msgid "New Address Book"
-msgstr ""
+msgstr "新增地址簿"
 
 #: templates/settings.php:59
 msgid "Name"
@@ -1019,4 +1020,4 @@ msgstr ""
 
 #: templates/settings.php:61
 msgid "Save"
-msgstr ""
+msgstr "儲存"

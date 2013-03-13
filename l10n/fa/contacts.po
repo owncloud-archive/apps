@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-10 00:01+0100\n"
-"PO-Revision-Date: 2013-03-09 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-14 00:02+0100\n"
+"PO-Revision-Date: 2013-03-13 13:50+0000\n"
+"Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -237,7 +237,7 @@ msgstr ""
 
 #: js/app.js:256 js/app.js:270
 msgid "Add to..."
-msgstr ""
+msgstr "اضافه کن در..."
 
 #: js/app.js:260 js/app.js:272
 msgid "Remove from..."
@@ -345,15 +345,15 @@ msgstr ""
 
 #: js/app.js:1524 js/contacts.js:1134
 msgid "Error loading profile picture."
-msgstr ""
+msgstr "خطا در بارگذاری عکس پرونده"
 
 #: js/app.js:1576
 msgid "Enter name"
-msgstr ""
+msgstr "ورود نام"
 
 #: js/app.js:1577
 msgid "Enter description"
-msgstr ""
+msgstr "ورود توضیحات"
 
 #: js/app.js:1580
 msgid "Select addressbook"
@@ -379,7 +379,7 @@ msgstr ""
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
-msgstr ""
+msgstr "تعدادی از مخاطبان برای حذف شدن، نشانه گذاری شده اند، ولی هنوز حذف نشده اند. لطفاً صبر کنید تا همه ی آنها حذف شوند."
 
 #: js/contacts.js:1502
 msgid "Click to undo deletion of {num} contacts"
@@ -409,25 +409,25 @@ msgstr ""
 msgid "Contacts are not in this group."
 msgstr ""
 
-#: js/groups.js:541
+#: js/groups.js:542
 msgid "A group named {group} already exists"
 msgstr ""
 
-#: js/groups.js:573
+#: js/groups.js:574
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr ""
 
-#: js/groups.js:592
+#: js/groups.js:593
 msgid "All"
-msgstr ""
+msgstr "همه"
 
-#: js/groups.js:606
+#: js/groups.js:607
 msgid "Favorites"
-msgstr ""
+msgstr "برگزیدگان"
 
-#: js/groups.js:655
+#: js/groups.js:656
 msgid "Shared by {owner}"
 msgstr ""
 
@@ -476,11 +476,11 @@ msgstr "انصراف"
 
 #: js/settings.js:159 templates/settings.php:66
 msgid "More..."
-msgstr ""
+msgstr "بیشتر..."
 
 #: js/settings.js:162
 msgid "Less..."
-msgstr ""
+msgstr "کمتر..."
 
 #: lib/addressbook.php:152
 msgid "You do not have the permissions to read this addressbook."
@@ -597,11 +597,11 @@ msgstr "اینترنت"
 
 #: lib/app.php:225
 msgid "Friends"
-msgstr ""
+msgstr "دوستان"
 
 #: lib/app.php:226
 msgid "Family"
-msgstr ""
+msgstr "خانواده"
 
 #: lib/app.php:362
 msgid "There was an error deleting properties for this contact."
@@ -653,7 +653,7 @@ msgstr ""
 
 #: templates/contacts.php:10
 msgid "New Group"
-msgstr ""
+msgstr "گروه جدید"
 
 #: templates/contacts.php:16
 msgid "Settings"
@@ -713,7 +713,7 @@ msgstr "بستن"
 
 #: templates/contacts.php:62
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "میان بر صفحه ی کلید"
 
 #: templates/contacts.php:64
 msgid "Navigation"
@@ -721,11 +721,11 @@ msgstr ""
 
 #: templates/contacts.php:67
 msgid "Next contact in list"
-msgstr ""
+msgstr "مخاطب بعدی در لیست"
 
 #: templates/contacts.php:69
 msgid "Previous contact in list"
-msgstr ""
+msgstr "مخاطب قبلی در لیست"
 
 #: templates/contacts.php:71
 msgid "Expand/collapse current addressbook"
@@ -733,15 +733,15 @@ msgstr ""
 
 #: templates/contacts.php:73
 msgid "Next addressbook"
-msgstr ""
+msgstr "دفتر تلفن بعدی"
 
 #: templates/contacts.php:75
 msgid "Previous addressbook"
-msgstr ""
+msgstr "دفتر تلفن قبلی"
 
 #: templates/contacts.php:79
 msgid "Actions"
-msgstr ""
+msgstr "فعالیت ها"
 
 #: templates/contacts.php:82
 msgid "Refresh contacts list"
@@ -749,15 +749,15 @@ msgstr ""
 
 #: templates/contacts.php:84
 msgid "Add new contact"
-msgstr ""
+msgstr "افزودن مخاطب جدید"
 
 #: templates/contacts.php:86
 msgid "Add new addressbook"
-msgstr ""
+msgstr "افزودن دفتر تلفن جدید"
 
 #: templates/contacts.php:88
 msgid "Delete current contact"
-msgstr ""
+msgstr "حذف مخاطب فعلی"
 
 #: templates/contacts.php:93
 msgid ""
@@ -775,7 +775,7 @@ msgstr ""
 
 #: templates/contacts.php:148
 msgid "Delete group"
-msgstr ""
+msgstr "حذف گروه"
 
 #: templates/contacts.php:161
 msgid "Delete current photo"
@@ -795,7 +795,7 @@ msgstr "انتخاب یک تصویر از ابر های شما"
 
 #: templates/contacts.php:175 templates/contacts.php:176
 msgid "First name"
-msgstr ""
+msgstr "نام"
 
 #: templates/contacts.php:180 templates/contacts.php:181
 msgid "Additional names"
@@ -803,7 +803,7 @@ msgstr "نام های دیگر"
 
 #: templates/contacts.php:185 templates/contacts.php:186
 msgid "Last name"
-msgstr ""
+msgstr "فامیلی"
 
 #: templates/contacts.php:193
 msgid "Select groups"
@@ -839,7 +839,7 @@ msgstr "روزتولد"
 
 #: templates/contacts.php:249
 msgid "Notes go here..."
-msgstr ""
+msgstr "یادداشت ها می روند به ..."
 
 #: templates/contacts.php:256
 msgid "Export as VCF"
@@ -871,7 +871,7 @@ msgstr "یادداشت"
 
 #: templates/contacts.php:268
 msgid "Web site"
-msgstr ""
+msgstr "وب سایت"
 
 #: templates/contacts.php:270
 msgid "Delete contact"
@@ -909,7 +909,7 @@ msgstr "پاک کردن شماره تلفن"
 
 #: templates/contacts.php:316
 msgid "Go to web site"
-msgstr ""
+msgstr "رفتن به وب سایت"
 
 #: templates/contacts.php:317
 msgid "Delete URL"
@@ -921,7 +921,7 @@ msgstr "دیدن روی نقشه"
 
 #: templates/contacts.php:329
 msgid "Delete address"
-msgstr ""
+msgstr "حذف آدرس"
 
 #: templates/contacts.php:341
 msgid "1 Main Street"
@@ -1017,7 +1017,7 @@ msgstr "نام"
 
 #: templates/settings.php:60
 msgid "Description"
-msgstr ""
+msgstr "توضیحات"
 
 #: templates/settings.php:61
 msgid "Save"
