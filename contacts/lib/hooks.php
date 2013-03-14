@@ -43,7 +43,7 @@ class Hooks{
 	 * @return array
 	 */
 	static public function createUser($parameters) {
-		Addressbook::addDefault($parameters['uid']);
+		Addressbook::addDefaults($parameters['uid']);
 		return true;
 	}
 

@@ -31,6 +31,7 @@
  * uri VARCHAR(100),
  * description TEXT,
  * ctag INT(11) UNSIGNED NOT NULL DEFAULT '1'
+ * active INT(11) UNSIGNED NOT NULL DEFAULT '1',
  * );
  *
  */
@@ -77,10 +78,6 @@ class Addressbook {
 		if($shared === true) {
 			$addressbooks = array_merge($addressbooks, \OCP\Share::getItemsSharedWith('addressbook', Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS));
 		}
-		if(!$active && !count($addressbooks)) {
-			$id = self::addDefault($uid);
-			return array(self::find($id),);
-		}
 		return $addressbooks;
 	}
 
@@ -94,7 +91,7 @@ class Addressbook {
 			$uid = \OCP\USER::getUser();
 		}
 
-		// query all addressbooks to force creation of default if it desn't exist.
+		// query all addressbooks.
 		$activeaddressbooks = self::all($uid);
 		$ids = array();
 		foreach($activeaddressbooks as $addressbook) {
@@ -161,10 +158,11 @@ class Addressbook {
 	}
 
 	/**
-	 * @brief Adds default address book
-	 * @return $id ID of the newly created addressbook or false on error.
+	 * @brief Creates default address books
+	 * @param string $userid
+	 * @return boolean
 	 */
-	public static function addDefault($uid = null) {
+	public static function addDefaults($uid = null) {
 		if(is_null($uid)) {
 			$uid = \OCP\USER::getUser();
 		}
@@ -172,7 +170,7 @@ class Addressbook {
 		if($id !== false) {
 			self::setActive($id, true);
 		}
-		return $id;
+		return true;
 	}
 
 	/**
@@ -388,7 +386,7 @@ class Addressbook {
 		\OCP\Share::unshareAll('addressbook', $id);
 
 		if(count(self::all(\OCP\User::getUser())) == 0) {
-			self::addDefault();
+			self::addDefaults();
 		}
 
 		return true;
