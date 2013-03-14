@@ -29,9 +29,7 @@ foreach($ims as $name => $values) {
 }
 $categories = OCA\Contacts\App::getCategories();
 
-$upload_max_filesize = OCP\Util::computerFileSize(ini_get('upload_max_filesize'));
-$post_max_size = OCP\Util::computerFileSize(ini_get('post_max_size'));
-$maxUploadFilesize = min($upload_max_filesize, $post_max_size);
+$maxUploadFilesize = OCP\Util::maxUploadFilesize('/');
 
 $freeSpace=\OC\Files\Filesystem::free_space('/');
 $freeSpace=max($freeSpace, 0);
