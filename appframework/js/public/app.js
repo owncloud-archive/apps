@@ -1295,45 +1295,46 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         });
       }
 
-      Request.prototype.request = function(route, routeParams, data, onSuccess, onFailure, config) {
-        var defaultConfig, url,
+      Request.prototype.request = function(route, data) {
+        var defaultConfig, defaultData, url,
           _this = this;
-        if (routeParams == null) {
-          routeParams = {};
-        }
         if (data == null) {
           data = {};
-        }
-        if (onSuccess == null) {
-          onSuccess = null;
-        }
-        if (onFailure == null) {
-          onFailure = null;
-        }
-        if (config == null) {
-          config = {};
         }
         /*
         			Wrapper to do a normal request to the server. This needs to
         			be done to hook the publisher into the requests and to handle
         			requests, that come in before routes have been loaded
+
+				route: the routename data can contain the following
+				data.routeParams: object with parameters for the route
+				data.data: ajax data objec which is passed to PHP
+				data.onSuccess: callback for successful requests
+				data.onFailure: callback for failed requests
+				data.config: a config which should be passed to $http
         */
 
+        defaultData = {
+          routeParams: {},
+          data: {},
+          onSuccess: angular.noop,
+          onFailure: angular.noop,
+          config: {}
+        };
+        angular.extend(defaultData, data);
         if (!this._initialized) {
-          this._shelveRequest(route, routeParams, data, onSuccess, onFailure, config);
+          this._shelveRequest(route, defaultData);
           return;
         }
-        url = this._router.generate(route, routeParams);
+        url = this._router.generate(route, defaultData.routeParams);
         defaultConfig = {
           url: url,
-          data: data
+          data: defaultData.data
         };
-        angular.extend(defaultConfig, config);
+        angular.extend(defaultConfig, defaultData.config);
         return this._$http(defaultConfig).success(function(data, status, headers, config) {
           var name, value, _ref, _results;
-          if (onSuccess !== null) {
-            onSuccess(data, status, headers, config);
-          }
+          defaultData.onSuccess(data, status, headers, config);
           _ref = data.data;
           _results = [];
           for (name in _ref) {
@@ -1342,61 +1343,63 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
           }
           return _results;
         }).error(function(data, status, headers, config) {
-          if (onFailure !== null) {
-            return onFailure(data, status, headers, config);
-          }
+          return defaultData.onFailure(data, status, headers, config);
         });
       };
 
-      Request.prototype.post = function(route, routeParams, data, onSuccess, onFailure, config) {
-        if (routeParams == null) {
-          routeParams = {};
-        }
+      Request.prototype.post = function(route, data) {
         if (data == null) {
           data = {};
-        }
-        if (onSuccess == null) {
-          onSuccess = null;
-        }
-        if (onFailure == null) {
-          onFailure = null;
-        }
-        if (config == null) {
-          config = {};
         }
         /*
         			Request shortcut which sets the method to POST
         */
 
-        config.method = 'POST';
-        return this.request(route, routeParams, data, onSuccess, onFailure, config);
+        data.config || (data.config = {});
+        data.config.method = 'POST';
+        return this.request(route, data);
       };
 
-      Request.prototype.get = function(route, routeParams, data, onSuccess, onFailure, config) {
-        if (routeParams == null) {
-          routeParams = {};
-        }
+      Request.prototype.get = function(route, data) {
         if (data == null) {
           data = {};
         }
-        if (onSuccess == null) {
-          onSuccess = null;
+        /*
+				Request shortcut which sets the method to GET
+        */
+
+        data.config || (data.config = {});
+        data.config.method = 'GET';
+        return this.request(route, data);
+      };
+
+      Request.prototype.put = function(route, data) {
+        if (data == null) {
+          data = {};
         }
-        if (onFailure == null) {
-          onFailure = null;
-        }
-        if (config == null) {
-          config = {};
+        /*
+				Request shortcut which sets the method to GET
+        */
+
+        data.config || (data.config = {});
+        data.config.method = 'PUT';
+        return this.request(route, data);
+      };
+
+      Request.prototype["delete"] = function(route, data) {
+        if (data == null) {
+          data = {};
         }
         /*
         			Request shortcut which sets the method to GET
         */
 
-        config.method = 'GET';
-        return this.request(route, routeParams, data, onSuccess, onFailure, config);
+        data.config || (data.config = {});
+        data.config.method = 'DELETE';
+        return this.request(route, data);
       };
 
-      Request.prototype._shelveRequest = function(route, routeParams, data, onSuccess, onFailure, config) {
+      Request.prototype._shelveRequest = function(route, data) {
         /*
         			Saves requests for later if the routes have not been loaded
         */
@@ -1404,11 +1407,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         var request;
         request = {
           route: route,
-          routeParams: routeParams,
-          data: data,
-          onSuccess: onSuccess,
-          onFailure: onFailure,
-          config: config
+          data: data
         };
         return this._shelvedRequests.push(request);
       };
@@ -1424,7 +1423,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           r = _ref[_i];
-          _results.push(this.request(r.route, r.routeParams, r.data, r.onSuccess, r.onFailure, r.config));
+          _results.push(this.request(r.route, r.data));
         }
         return _results;
       };

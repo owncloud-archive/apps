@@ -59,17 +59,16 @@ describe '_Request', ->
 
 		config =
 			route: 'route'
-			params:
-				test: 'test'
 			data:
-				abc: 'test'
+                                data:
+                                        abc: 'test'
 
 		called =
 			url: 'url'
-			data: config.data
+                        data: config.data.data
 
 		req = new @request(http, @publisher, @router)
-		req.request(config.route, config.params, config.data)
+                req.request(config.route, config.data)
 
 		@router.call()
 
@@ -89,13 +88,15 @@ describe '_Request', ->
 
 		config =
 			route: 'route'
-			params:
-				test: 'test'
+                        data:
+                                routeParams:
+                                        test: 'test'
 
 		req = new @request(http, @publisher, router)
-		req.request(config.route, config.params)
+                req.request(config.route, config.data)
 
-		expect(router.generate).toHaveBeenCalledWith(config.route, config.params)
+                expect(router.generate).toHaveBeenCalledWith(config.route,
+                                config.data.routeParams)
 
 
 	it 'should call callbacks', =>
@@ -112,7 +113,10 @@ describe '_Request', ->
 		onFailure = jasmine.createSpy('onFailure')
 
 		req = new @request(http, @publisher, @router)
-		req.request(null, null, null, onSuccess, onFailure)
+                data =
+                        onSuccess: onSuccess
+                        onFailure: onFailure
+                req.request('route', data)
 
 		expect(onSuccess).toHaveBeenCalled()
 		expect(onFailure).toHaveBeenCalled()
@@ -154,13 +158,14 @@ describe '_Request', ->
 		req = new @request(http, @publisher, @router)
 
 		defaultConfig =
-			url: 'url'
-			data:
-				test: 2
+                        config:
+                                url: 'url'
+                                data:
+                                        test: 2
 
-		req.request('test', null, defaultConfig.data)
+                req.request('test', defaultConfig)
 
-		expect(http).toHaveBeenCalledWith(defaultConfig)
+                expect(http).toHaveBeenCalledWith(defaultConfig.config)
 
 
 
@@ -173,14 +178,14 @@ describe '_Request', ->
 		req = new @request(http, @publisher, @router)
 
 		defaultConfig =
-			url: 'wonderurl'
-			data:
-				test: 2
+                        config:
+                                url: 'wonderurl'
+                                data:
+                                        test: 2
 
-		req.request('test', null, defaultConfig.data, null, null,
-			{url: defaultConfig.url})
+                req.request('test', defaultConfig)
 
-		expect(http).toHaveBeenCalledWith(defaultConfig)
+                expect(http).toHaveBeenCalledWith(defaultConfig.config)
 
 
 	it 'should have a post shortcut', =>
@@ -192,15 +197,15 @@ describe '_Request', ->
 		req = new @request(http, @publisher, @router)
 
 		defaultConfig =
-			url: 'wonderurl'
-			method: 'POST'
-			data:
-				test: 2
+                        config:
+                                url: 'wonderurl'
+                                method: 'POST'
+                                data:
+                                        test: 2
 
-		req.post('test', null, defaultConfig.data, null, null,
-			{url: defaultConfig.url})
+                req.post('test', defaultConfig)
 
-		expect(http).toHaveBeenCalledWith(defaultConfig)
+                expect(http).toHaveBeenCalledWith(defaultConfig.config)
 
 
 
@@ -213,12 +218,52 @@ describe '_Request', ->
 		req = new @request(http, @publisher, @router)
 
 		defaultConfig =
-			url: 'wonderurl'
-			method: 'GET'
-			data:
-				test: 2
+                        config:
+                                url: 'wonderurl'
+                                method: 'GET'
+                                data:
+                                        test: 2
 
-		req.get('test', null, defaultConfig.data, null, null,
-			{url: defaultConfig.url})
+                req.post('test', defaultConfig)
 
-		expect(http).toHaveBeenCalledWith(defaultConfig)
+                expect(http).toHaveBeenCalledWith(defaultConfig.config)
+
+
+        it 'should have a put shortcut', =>
+                success =
+                        success: ->
+                                error: ->
+
+                http = jasmine.createSpy('http').andReturn(success)
+                req = new @request(http, @publisher, @router)
+
+                defaultConfig =
+                        config:
+                                url: 'wonderurl'
+                                method: 'PUT'
+                                data:
+                                        test: 2
+
+                req.put('test', defaultConfig)
+
+                expect(http).toHaveBeenCalledWith(defaultConfig.config)
+
+
+        it 'should have a delete shortcut', =>
+                success =
+                        success: ->
+                                error: ->
+
+                http = jasmine.createSpy('http').andReturn(success)
+                req = new @request(http, @publisher, @router)
+
+                defaultConfig =
+                        config:
+                                url: 'wonderurl'
+                                method: 'DELETE'
+                                data:
+                                        test: 2
+
+                req.delete('test', defaultConfig)
+
+                expect(http).toHaveBeenCalledWith(defaultConfig.config)

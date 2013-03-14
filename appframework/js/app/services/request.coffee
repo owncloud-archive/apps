@@ -36,72 +36,97 @@ angular.module('OC').factory '_Request', ->
 				@_shelvedRequests = []
 
 
-		request: (route, routeParams={}, data={}, onSuccess=null,
-			onFailure=null, config={}) ->
+                request: (route, data={}) ->
 			###
 			Wrapper to do a normal request to the server. This needs to
 			be done to hook the publisher into the requests and to handle
 			requests, that come in before routes have been loaded
+
+                        route: the routename data can contain the following
+                        data.routeParams: object with parameters for the route
+                        data.data: ajax data objec which is passed to PHP
+                        data.onSuccess: callback for successful requests
+                        data.onFailure: callback for failed requests
+                        data.config: a config which should be passed to $http
 			###
+                        defaultData =
+                                routeParams: {}
+                                data: {}
+                                onSuccess: angular.noop
+                                onFailure: angular.noop
+                                config: {}
+
+                        angular.extend(defaultData, data)
+
 			# if routes are not ready yet, save the request
 			if not @_initialized
-				@_shelveRequest(route, routeParams, data, onSuccess, onFailure,
-					config)
+                                @_shelveRequest(route, defaultData)
 				return
 
-			url = @_router.generate(route, routeParams)
+                        url = @_router.generate(route, defaultData.routeParams)
 
 			defaultConfig =
 				url: url
-				data: data
+                                data: defaultData.data
+
 
 			# overwrite default values from passed in config
-			angular.extend(defaultConfig, config)
+                        angular.extend(defaultConfig, defaultData.config)
 
 			@_$http(defaultConfig)
 				.success (data, status, headers, config) =>
-					if onSuccess != null
-						onSuccess(data, status, headers, config)
+                                        defaultData.onSuccess(data, status, headers, config)
 
 					# publish data to models
 					for name, value of data.data
 						@_publisher.publishDataTo(name, value)
 
 				.error (data, status, headers, config) ->
-					if onFailure != null
-						onFailure(data, status, headers, config)
+                                        defaultData.onFailure(data, status, headers, config)
 
 
-		post: (route, routeParams={}, data={}, onSuccess=null,
-			onFailure=null, config={}) ->
+                post: (route, data={}) ->
 			###
 			Request shortcut which sets the method to POST
 			###
-			config.method = 'POST'
-			@request(route, routeParams, data, onSuccess, onFailure, config)
+                        data.config or= {}
+                        data.config.method = 'POST'
+                        @request(route, data)
 
 
-		get: (route, routeParams={}, data={}, onSuccess=null,
-			onFailure=null, config={}) ->
+                get: (route, data={}) ->
+                        ###
+                        Request shortcut which sets the method to GET
+                        ###
+                        data.config or= {}
+                        data.config.method = 'GET'
+                        @request(route, data)
+
+                put: (route, data={}) ->
+                        ###
+                        Request shortcut which sets the method to GET
+                        ###
+                        data.config or= {}
+                        data.config.method = 'PUT'
+                        @request(route, data)
+
+
+                delete: (route, data={}) ->
 			###
 			Request shortcut which sets the method to GET
 			###
-			config.method = 'GET'
-			@request(route, routeParams, data, onSuccess, onFailure, config)
+                        data.config or= {}
+                        data.config.method = 'DELETE'
+                        @request(route, data)
 
 
-		_shelveRequest: (route, routeParams, data, onSuccess, onFailure,
-			config) ->
+                _shelveRequest: (route, data) ->
 			###
 			Saves requests for later if the routes have not been loaded
 			###
 			request =
 				route: route
-				routeParams: routeParams
 				data: data
-				onSuccess: onSuccess
-				onFailure: onFailure
-				config: config
 
 			@_shelvedRequests.push(request)
 
@@ -112,8 +137,7 @@ angular.module('OC').factory '_Request', ->
 			loaded
 			###
 			for r in @_shelvedRequests
-				@request(r.route, r.routeParams, r.data, r.onSuccess,
-					r.onFailure, r.config)
+                                @request(r.route, r.data)
 
 
 
