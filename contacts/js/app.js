@@ -769,12 +769,127 @@ OC.Contacts = OC.Contacts || {
 			self.openContact($(this).data('id'));
 		});
 
+		/** Appends an address book entry to $list and adds the id to
+		 * internal list.
+		 *
+		 * @param object $list A jquery object of an unordered list
+		 * @param object book An object with the properties 'id', 'name' and 'permissions'.
+		 */
+		var appendAddressBook = function($list, book) {
+			self.contacts.setAddressbook(book);
+			var $li = self.$addressbookTmpl.octemplate({
+				id: book.id,
+				permissions: book.permissions,
+				displayname: book.displayname
+			});
+
+			$li.find('a.action').tipsy({gravity: 'w'});
+			$li.find('a.action.delete').on('click keypress', function() {
+				$('.tipsy').remove();
+				var id = parseInt($(this).parents('li').first().data('id'));
+				console.log('delete', id);
+				var $li = $(this).parents('li').first();
+				$.ajax({
+					type:'POST',
+					url:OC.filePath('contacts', 'ajax', 'addressbook/delete.php'),
+					data:{ id: id },
+					success:function(jsondata) {
+						console.log(jsondata);
+						if(jsondata.status == 'success') {
+							self.contacts.unsetAddressbook(id);
+							$li.remove();
+							OC.notify({
+								message:t('contacts','Deleting done. Click here to cancel reloading.'),
+								timeout:5,
+								timeouthandler:function() {
+									console.log('reloading');
+									window.location.href = OC.linkTo('contacts', 'index.php');
+								},
+								clickhandler:function() {
+									console.log('reloading cancelled');
+									OC.notify({cancel:true});
+								}
+							});
+						} else {
+							OC.notify({message:jsondata.data.message});
+						}
+					},
+					error:function(jqXHR, textStatus, errorThrown) {
+						OC.notify({message:textStatus + ': ' + errorThrown});
+						id = false;
+					}
+				});
+			});
+			$li.find('a.action.globe').on('click keypress', function() {
+				var id = parseInt($(this).parents('li').first().data('id'));
+				var book = self.contacts.addressbooks[id];
+				var uri = (book.owner === oc_current_user ) ? book.uri : book.uri + '_shared_by_' + book.owner;
+				var link = OC.linkToRemote('carddav')+'/addressbooks/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
+				var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" /></div>');
+				$dropdown.appendTo($(this).parents('li').first());
+				var $input = $dropdown.find('input');
+				$input.focus().get(0).select();
+				$input.on('blur', function() {
+					$dropdown.hide('blind', function() {
+						$dropdown.remove();
+					});
+				});
+			});
+			$list.append($li);
+		};
+
+		this.$settings.find('.addaddressbook').on('click keydown', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			$(this).hide();
+			var $addAddressbookPart = $(this).next('ul').show();
+			var $addinput = $addAddressbookPart.find('input.addaddressbookinput').focus();
+			$addAddressbookPart.on('click keydown', 'button', function(event) {
+				if(wrongKey(event)) {
+					return;
+				}
+				if($(this).is('.addaddressbookok')) {
+					if($addinput.val().trim() === '') {
+						return false;
+					} else {
+						var name = $addinput.val().trim();
+						$addinput.addClass('loading');
+						$addAddressbookPart.find('button input').prop('disabled', true);
+						console.log('adding', name);
+						self.addAddressbook({
+							name: name,
+							description: ''
+						}, function(response) {
+							if(!response || !response.status) {
+								OC.notify({
+									message:t('contacts', 'Network or server error. Please inform administrator.')
+								});
+								return false;
+							} else if(response.status === 'error') {
+								OC.notify({message: response.message});
+								return false;
+							} else if(response.status === 'success') {
+								var book = response.addressbook;
+								var $list = self.$settings.find('[data-id="addressbooks"]').next('ul');
+								appendAddressBook($list, book);
+							}
+							$addinput.removeClass('loading');
+							$addAddressbookPart.find('button input').prop('disabled', false);
+							$addAddressbookPart.hide().prev('button').show();
+						});
+					}
+				} else if($(this).is('.addaddressbookcancel')) {
+					$addAddressbookPart.hide().prev('button').show();
+				}
+			});
+		});
+
 		this.$settings.find('h2').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
 			if($(this).next('ul').is(':visible')) {
-				//$(this).next('ul').slideUp();
 				return;
 			}
 			console.log('settings');
@@ -788,65 +903,7 @@ OC.Contacts = OC.Contacts || {
 
 				$list.empty();
 				$.each(self.contacts.addressbooks, function(id, book) {
-					var $li = self.$addressbookTmpl.octemplate({
-						id: id,
-						permissions: book.permissions,
-						displayname: book.displayname
-					});
-
-					$list.append($li);
-				});
-				$list.find('a.action').tipsy({gravity: 'w'});
-				$list.find('a.action.delete').on('click keypress', function() {
-					$('.tipsy').remove();
-					var id = parseInt($(this).parents('li').first().data('id'));
-					console.log('delete', id);
-					var $li = $(this).parents('li').first();
-					$.ajax({
-						type:'POST',
-						url:OC.filePath('contacts', 'ajax', 'addressbook/delete.php'),
-						data:{ id: id },
-						success:function(jsondata) {
-							console.log(jsondata);
-							if(jsondata.status == 'success') {
-								self.contacts.unsetAddressbook(id);
-								$li.remove();
-								OC.notify({
-									message:t('contacts','Deleting done. Click here to cancel reloading.'),
-									timeout:5,
-									timeouthandler:function() {
-										console.log('reloading');
-										window.location.href = OC.linkTo('contacts', 'index.php');
-									},
-									clickhandler:function() {
-										console.log('reloading cancelled');
-										OC.notify({cancel:true});
-									}
-								});
-							} else {
-								OC.notify({message:jsondata.data.message});
-							}
-						},
-						error:function(jqXHR, textStatus, errorThrown) {
-							OC.notify({message:textStatus + ': ' + errorThrown});
-							id = false;
-						}
-					});
-				});
-				$list.find('a.action.globe').on('click keypress', function() {
-					var id = parseInt($(this).parents('li').first().data('id'));
-					var book = self.contacts.addressbooks[id];
-					var uri = (book.owner === oc_current_user ) ? book.uri : book.uri + '_shared_by_' + book.owner;
-					var link = OC.linkToRemote('carddav')+'/addressbooks/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
-					var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" /></div>');
-					$dropdown.appendTo($(this).parents('li').first());
-					var $input = $dropdown.find('input');
-					$input.focus().get(0).select();
-					$input.on('blur', function() {
-						$dropdown.hide('blind', function() {
-							$dropdown.remove();
-						});
-					});
+					appendAddressBook($list, book);
 				});
 				if(typeof OC.Share !== 'undefined') {
 					OC.Share.loadIcons('addressbook');
@@ -859,24 +916,21 @@ OC.Contacts = OC.Contacts || {
 				$('.import-select').hide();
 
 				var addAddressbookCallback = function(select, name) {
-					var id;
-					$.ajax({
-						type:'POST',
-						async:false,
-						url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'),
-						data:{ name: name },
-						success:function(jsondata) {
-							console.log(jsondata);
-							if(jsondata.status == 'success') {
-								self.contacts.setAddressbook(jsondata.data.addressbook);
-								id = jsondata.data.addressbook.id;
-							} else {
-								OC.notify({message:jsondata.data.message});
-							}
-						},
-						error:function(jqXHR, textStatus, errorThrown) {
-							OC.notify({message:textStatus + ': ' + errorThrown});
-							id = false;
+					var id = false;
+					self.addAddressbook({
+						name: name,
+						description: ''
+					}, function(response) {
+						if(!response || !response.status) {
+							OC.notify({
+								message:t('contacts', 'Network or server error. Please inform administrator.')
+							});
+							return false;
+						} else if(response.status === 'error') {
+							OC.notify({message: response.message});
+							return false;
+						} else if(response.status === 'success') {
+							id = response.addressbook.id;
 						}
 					});
 					return id;
@@ -1547,7 +1601,6 @@ OC.Contacts = OC.Contacts || {
 			}
 		});
 	},
-	// NOTE: Deprecated
 	addAddressbook:function(data, cb) {
 		$.ajax({
 			type:'POST',
@@ -1565,9 +1618,22 @@ OC.Contacts = OC.Contacts || {
 				} else {
 					if(typeof cb === 'function') {
 						cb({status:'error', message:jsondata.data.message});
+					} else {
+						OC.notify({message:textStatus + ': ' + errorThrown});
 					}
 				}
-		}});
+			},
+			error:function(jqXHR, textStatus, errorThrown) {
+				if(typeof cb === 'function') {
+					cb({
+						status:'success',
+						message: textStatus + ': ' + errorThrown
+					});
+				} else {
+					OC.notify({message:textStatus + ': ' + errorThrown});
+				}
+			}
+		});
 	},
 	// NOTE: Deprecated
 	selectAddressbook:function(cb) {
