@@ -38,13 +38,4 @@ class NotFoundResponse extends Response {
 		$this->addHeader('HTTP/1.1 404 Not Found');
 	}
 
-
-	/**
-	 * renders no output
-	 * @return null
-	 */
-	public function render(){
-		return null;
-	}
-
 }
