@@ -81,20 +81,4 @@ class VCard {
 		}
 	}
 
-
-	/**
-	 * @brief deletes a card
-	 * @param integer $id id of card
-	 * @return boolean true on success, otherwise an exception will be thrown
-	 */
-	public static function delete($id) {
-
-		App::updateDBProperties($id);
-		App::getVCategories()->purgeObject($id);
-		Addressbook::touch($addressbook['id']);
-
-		\OCP\Share::unshareAll('contact', $id);
-		return true;
-	}
-
 }
