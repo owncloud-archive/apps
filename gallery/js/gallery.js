@@ -30,6 +30,7 @@ Gallery.fillAlbums = function () {
 };
 Gallery.fillAlbums.fill = function (albums, images) {
 	var imagePath, albumPath, parent;
+	images.sort();
 	for (i = 0; i < images.length; i++) {
 		imagePath = images[i];
 		albumPath = OC.dirname(imagePath);
