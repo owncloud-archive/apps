@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Dennis <dtsang29@hotmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-14 00:02+0100\n"
-"PO-Revision-Date: 2013-01-19 23:02+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-03-15 00:01+0100\n"
+"PO-Revision-Date: 2013-03-14 02:50+0000\n"
+"Last-Translator: dtsang29 <dtsang29@hotmail.com>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/owncloud/language/zh_HK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,13 +20,13 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr ""
+msgstr "歡迎{user}"
 
 #: templates/notification.php:2
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "對不起, 你所上傳的文件含有惡意軟體, 該文件將被刪除."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
@@ -33,19 +34,19 @@ msgstr ""
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "文件已被上傳: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "防毒功能設定"
 
 #: templates/settings.php:4
 msgid "Mode"
-msgstr ""
+msgstr "橂式"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr ""
+msgstr "可執行"
 
 #: templates/settings.php:5
 msgid "Daemon"
@@ -65,7 +66,7 @@ msgstr ""
 
 #: templates/settings.php:8
 msgid "Port"
-msgstr ""
+msgstr "連接埠"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
@@ -101,7 +102,7 @@ msgstr ""
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr ""
+msgstr "刪除文件"
 
 #: templates/settings.php:15
 msgid "Save"

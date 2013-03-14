@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-10 00:01+0100\n"
-"PO-Revision-Date: 2013-03-09 23:02+0000\n"
+"POT-Creation-Date: 2013-03-15 00:01+0100\n"
+"PO-Revision-Date: 2013-03-14 23:02+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -235,157 +235,157 @@ msgstr "ข้อมูลการติดต่อ"
 msgid "%d_selected_contacts"
 msgstr "%d_selected_contacts"
 
-#: js/app.js:256 js/app.js:270
+#: js/app.js:258 js/app.js:272
 msgid "Add to..."
 msgstr "เพิ่มเข้าไปที่..."
 
-#: js/app.js:260 js/app.js:272
+#: js/app.js:262 js/app.js:274
 msgid "Remove from..."
 msgstr "ลบออกจาก..."
 
-#: js/app.js:277
+#: js/app.js:279
 msgid "Add group..."
 msgstr "เพิ่มกลุ่ม..."
 
-#: js/app.js:348
+#: js/app.js:350
 msgid "Indexing contacts"
 msgstr "จัดทำสารบัญรายชื่อผู้ติดต่อ"
 
-#: js/app.js:446
+#: js/app.js:448
 msgid "Select photo"
 msgstr "เลือกรูปถ่าย"
 
-#: js/app.js:497 js/app.js:523 js/app.js:1541 js/app.js:1653
-#: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
+#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1597
+#: js/app.js:1721 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
 msgid "Network or server error. Please inform administrator."
 msgstr "เครือข่ายหรือเซิร์ฟเวอร์ เกิดข้อผิดพลาด กรุณาติดต่อผู้ดูแลระบบ"
 
-#: js/app.js:665 js/app.js:704
+#: js/app.js:667 js/app.js:706
 msgid "Error adding to group."
 msgstr "เกิดข้อผิดพลาดในการเพิ่มเข้าไปยังกลุ่ม"
 
-#: js/app.js:733
+#: js/app.js:735
 msgid "Error removing from group."
 msgstr "เกิดข้อผิดพลาดในการลบออกจากกลุ่ม"
 
-#: js/app.js:763
+#: js/app.js:765
 msgid "There was an error opening a mail composer."
 msgstr "เกิดข้อผิดพลาดในการระหว่างการเปิดหน้าเครื่องมือเขียนอีเมล"
 
-#: js/app.js:813
+#: js/app.js:802
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "ลบเสร็จสิ้น คลิกที่นี่เพื่อยกเลิกการโหลดซ้ำ"
 
-#: js/app.js:890
+#: js/app.js:946
 msgid "Add address book"
 msgstr "เพิ่มสมุดบันทึกที่อยู่"
 
-#: js/app.js:1005
+#: js/app.js:1061
 msgid "Import done. Click here to cancel reloading."
 msgstr "การนำเข้าเสร็จสิ้น คลิกที่นี่เพื่อยกเลิกการโหลดซ้ำ"
 
-#: js/app.js:1046
+#: js/app.js:1102
 msgid "Not all files uploaded. Retrying..."
 msgstr "ไม่ใช่ไฟล์ทั้งหมดที่จะถูกอัพโหลด กำลังลองใหม่..."
 
-#: js/app.js:1052
+#: js/app.js:1108
 msgid "Something went wrong with the upload, please retry."
 msgstr "เกิดข้อผิดพลาดบางประการในการอัพโหลด, กรุณาลองใหม่อีกครั้ง"
 
-#: js/app.js:1052 js/app.js:1588 js/settings.js:25 js/settings.js:45
+#: js/app.js:1108 js/app.js:1656 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "พบข้อผิดพลาด"
 
-#: js/app.js:1062
+#: js/app.js:1118
 msgid "Importing from {filename}..."
 msgstr "กำลังนำเข้าข้อมูลจาก {filename}..."
 
-#: js/app.js:1065
+#: js/app.js:1121
 msgid "{success} imported, {failed} failed."
 msgstr "{success} นำเข้าแล้ว, {failed} ล้มเหลว."
 
-#: js/app.js:1076
+#: js/app.js:1132
 msgid "Importing..."
 msgstr "กำลังนำเข้าข้อมูล..."
 
-#: js/app.js:1099
+#: js/app.js:1155
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "ไม่สามารถอัพโหลดไฟล์ของคุณได้ เนื่องจากไฟล์ดังกล่าวเป็นไดเร็กทอรี่ หรือ มีขนาดไฟล์ 0 ไบต์"
 
-#: js/app.js:1099
+#: js/app.js:1155
 msgid "Upload Error"
 msgstr "เกิดข้อผิดพลาดในการอัพโหลด"
 
-#: js/app.js:1106 js/app.js:1416
+#: js/app.js:1162 js/app.js:1472
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "ไฟล์ที่คุณกำลังพยายามที่จะอัพโหลดมีขนาดเกินจำนวนสูงสุดที่สามารถอัพโหลดได้สำหรับเซิร์ฟเวอร์นี้"
 
-#: js/app.js:1106
+#: js/app.js:1162
 msgid "Upload too large"
 msgstr "ไฟล์ที่อัพโหลดมีขนาดใหญ่เกินไป"
 
-#: js/app.js:1150
+#: js/app.js:1206
 msgid "Pending"
 msgstr "อยู่ระหว่างดำเนินการ"
 
-#: js/app.js:1295 templates/contacts.php:122
+#: js/app.js:1351 templates/contacts.php:130
 msgid "Add group"
 msgstr "เพิ่มกลุ่ม"
 
-#: js/app.js:1404
+#: js/app.js:1460
 msgid "No files selected for upload."
 msgstr "ยังไม่ได้เลือกไฟล์ำสำหรับอัพโหลด"
 
-#: js/app.js:1506
+#: js/app.js:1562
 msgid "Edit profile picture"
 msgstr "แก้ไขรูปภาพหน้าโปรไฟล์"
 
-#: js/app.js:1524 js/contacts.js:1134
+#: js/app.js:1580 js/contacts.js:1169
 msgid "Error loading profile picture."
 msgstr "เกิดข้อผิดพลาดในการโหลดรูปภาพประจำตัว"
 
-#: js/app.js:1576
+#: js/app.js:1644
 msgid "Enter name"
 msgstr "กรอกชื่อ"
 
-#: js/app.js:1577
+#: js/app.js:1645
 msgid "Enter description"
 msgstr "กรอกคำอธิบาย"
 
-#: js/app.js:1580
+#: js/app.js:1648
 msgid "Select addressbook"
 msgstr "เลือกสมุดบันทึกที่อยู่"
 
-#: js/app.js:1588
+#: js/app.js:1656
 msgid "The address book name cannot be empty."
 msgstr "ชื่อของสมุดบันทึกที่อยู่ไม่สามารถเว้นว่างได้"
 
-#: js/contacts.js:356
+#: js/contacts.js:354
 msgid "Is this correct?"
 msgstr "คุณแน่ใจแล้วหรือว่าถูกต้อง?"
 
-#: js/contacts.js:545
+#: js/contacts.js:566
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "เกิดข้อผิดพลาดบางประการที่ไม่ทราบสาเหตุ ในระหว่างการลบรายชื่อผู้ติดต่อนี้"
 
-#: js/contacts.js:683
+#: js/contacts.js:718
 msgid "# groups"
 msgstr "# กลุ่ม"
 
-#: js/contacts.js:1491
+#: js/contacts.js:1533
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "ข้อมูลผู้ติดต่อบางรายการได้ถูกทำเครื่องหมายสำหรับลบทิ้งเอาไว้, แต่ยังไม่ได้ถูกลบทิ้ง, กรุณารอให้รายการดังกล่าวถูกลบทิ้งเสียก่อน"
 
-#: js/contacts.js:1502
+#: js/contacts.js:1544
 msgid "Click to undo deletion of {num} contacts"
 msgstr "คลิกเพื่อเลิกทำ การลบรายชื่อผู้ติดต่อ {num} รายการ"
 
-#: js/contacts.js:1517
+#: js/contacts.js:1559
 msgid "Cancelled deletion of {num}"
 msgstr "ยกเลิกการลบ {num} รายการแล้ว"
 
@@ -409,25 +409,25 @@ msgstr "รายชื่อผู้ติดต่อไม่มีอยู
 msgid "Contacts are not in this group."
 msgstr "รายชื่อผู้ติดต่อดังกล่าวไม่มีอยู่ในกลุ่มนี้"
 
-#: js/groups.js:541
+#: js/groups.js:542
 msgid "A group named {group} already exists"
 msgstr "ชื่อกลุ่มดังกล่าว {group} มีอยู่แล้ว"
 
-#: js/groups.js:573
+#: js/groups.js:574
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "คุณสามารถลากชื่อกลุ่ม\nเพื่อจัดระเบียบตามที่คุณต้องการได้."
 
-#: js/groups.js:592
+#: js/groups.js:593
 msgid "All"
 msgstr "ทั้งหมด"
 
-#: js/groups.js:606
+#: js/groups.js:607
 msgid "Favorites"
 msgstr "รายการโปรด"
 
-#: js/groups.js:655
+#: js/groups.js:663
 msgid "Shared by {owner}"
 msgstr "ถูกแชร์โดย {owner}"
 
@@ -455,7 +455,7 @@ msgstr "แสดงลิงก์ CardDav"
 msgid "Show read-only VCF link"
 msgstr "แสดงลิงก์ VCF สำหรับอ่านเท่านั้น"
 
-#: js/settings.js:99 templates/contacts.php:256 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:271 templates/settings.php:40
 msgid "Download"
 msgstr "ดาวน์โหลด"
 
@@ -463,14 +463,15 @@ msgstr "ดาวน์โหลด"
 msgid "Edit"
 msgstr "แก้ไข"
 
-#: js/settings.js:102 templates/contacts.php:201 templates/contacts.php:208
-#: templates/contacts.php:215 templates/contacts.php:222
-#: templates/contacts.php:270 templates/contacts.php:397
+#: js/settings.js:102 templates/contacts.php:216 templates/contacts.php:223
+#: templates/contacts.php:230 templates/contacts.php:237
+#: templates/contacts.php:285 templates/contacts.php:412
 #: templates/settings.php:50
 msgid "Delete"
 msgstr "ลบ"
 
-#: js/settings.js:120 templates/contacts.php:254 templates/settings.php:62
+#: js/settings.js:120 templates/contacts.php:25 templates/contacts.php:269
+#: templates/settings.php:62
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -663,323 +664,331 @@ msgstr "ตั้งค่า"
 msgid "Address books"
 msgstr "สมุดบันทึกที่อยู่"
 
-#: templates/contacts.php:20 templates/contacts.php:97
-msgid "Import"
-msgstr "นำเข้า"
+#: templates/contacts.php:20
+msgid "New"
+msgstr ""
 
-#: templates/contacts.php:25
-msgid "Select files to import"
-msgstr "เลือกไฟล์ที่ต้องการนำเข้า"
+#: templates/contacts.php:22
+msgid "Display name"
+msgstr ""
 
-#: templates/contacts.php:26
-msgid "Select files"
-msgstr "เลือกไฟล์"
-
-#: templates/contacts.php:32 templates/contacts.php:34
-msgid "Import into:"
-msgstr "นำเข้าข้อมูลไปไว้ที่:"
-
-#: templates/contacts.php:36
+#: templates/contacts.php:24 templates/contacts.php:44
 msgid "OK"
 msgstr "ตกลง"
 
-#: templates/contacts.php:46
+#: templates/contacts.php:28 templates/contacts.php:105
+msgid "Import"
+msgstr "นำเข้า"
+
+#: templates/contacts.php:33
+msgid "Select files to import"
+msgstr "เลือกไฟล์ที่ต้องการนำเข้า"
+
+#: templates/contacts.php:34
+msgid "Select files"
+msgstr "เลือกไฟล์"
+
+#: templates/contacts.php:40 templates/contacts.php:42
+msgid "Import into:"
+msgstr "นำเข้าข้อมูลไปไว้ที่:"
+
+#: templates/contacts.php:54
 msgid "(De-)select all"
 msgstr "ยกเลิกการเลือกทั้งหมด"
 
-#: templates/contacts.php:48
+#: templates/contacts.php:56
 msgid "New Contact"
 msgstr "สร้างรายชื่อผู้ติดต่อใหม่"
 
-#: templates/contacts.php:49
+#: templates/contacts.php:57
 msgid "Download Contact(s)"
 msgstr "ดาวน์โหลดรายชื่อผู้ติดต่อ"
 
-#: templates/contacts.php:51
+#: templates/contacts.php:59
 msgid "Groups"
 msgstr "กลุ่ม"
 
-#: templates/contacts.php:53
+#: templates/contacts.php:61
 msgid "Favorite"
 msgstr "รายการโปรด"
 
-#: templates/contacts.php:54
+#: templates/contacts.php:62
 msgid "Delete Contact"
 msgstr "ลบรายชื่อผู้ติดต่อ"
 
-#: templates/contacts.php:61 templates/contacts.php:255
+#: templates/contacts.php:69 templates/contacts.php:270
 msgid "Close"
 msgstr "ปิด"
 
-#: templates/contacts.php:62
+#: templates/contacts.php:70
 msgid "Keyboard shortcuts"
 msgstr "ปุ่มลัด"
 
-#: templates/contacts.php:64
+#: templates/contacts.php:72
 msgid "Navigation"
 msgstr "ระบบเมนู"
 
-#: templates/contacts.php:67
+#: templates/contacts.php:75
 msgid "Next contact in list"
 msgstr "ข้อมูลผู้ติดต่อถัดไปในรายการ"
 
-#: templates/contacts.php:69
+#: templates/contacts.php:77
 msgid "Previous contact in list"
 msgstr "ข้อมูลผู้ติดต่อก่อนหน้าในรายการ"
 
-#: templates/contacts.php:71
+#: templates/contacts.php:79
 msgid "Expand/collapse current addressbook"
 msgstr "ขยาย/ย่อ สมุดบันทึกที่อยู่ปัจจุบัน"
 
-#: templates/contacts.php:73
+#: templates/contacts.php:81
 msgid "Next addressbook"
 msgstr "สมุดบันทึกที่อยู่ถัดไป"
 
-#: templates/contacts.php:75
+#: templates/contacts.php:83
 msgid "Previous addressbook"
 msgstr "สมุดบันทึกที่อยู่ก่อนหน้า"
 
-#: templates/contacts.php:79
+#: templates/contacts.php:87
 msgid "Actions"
 msgstr "การกระทำ"
 
-#: templates/contacts.php:82
+#: templates/contacts.php:90
 msgid "Refresh contacts list"
 msgstr "รีเฟรชรายชื่อผู้ติดต่อใหม่"
 
-#: templates/contacts.php:84
+#: templates/contacts.php:92
 msgid "Add new contact"
 msgstr "เพิ่มข้อมูลผู้ติดต่อใหม่"
 
-#: templates/contacts.php:86
+#: templates/contacts.php:94
 msgid "Add new addressbook"
 msgstr "เพิ่มสมุดบันทึกที่อยู่ใหม่"
 
-#: templates/contacts.php:88
+#: templates/contacts.php:96
 msgid "Delete current contact"
 msgstr "ลบข้อมูลผู้ติดต่อปัจจุบัน"
 
-#: templates/contacts.php:93
+#: templates/contacts.php:101
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
 msgstr "<h3> คุณยังไม่มีรายชื่อผู้ติดต่อในสมุดบันทึกที่อยู่ของคุณ </h3><p>เพิ่มรายชื่อผู้ติดต่อใหม่ หรือนำเข้ารายชื่อผู้ติดต่อเดิมที่มีอยู่แล้วจากไฟล์ VCF</p>"
 
-#: templates/contacts.php:96
+#: templates/contacts.php:104
 msgid "Add contact"
 msgstr "เพิ่มชื่อผู้ติดต่อ"
 
-#: templates/contacts.php:137
+#: templates/contacts.php:145
 msgid "Compose mail"
 msgstr "เขียนอีเมล"
 
-#: templates/contacts.php:148
+#: templates/contacts.php:163
 msgid "Delete group"
 msgstr "ลบกลุ่ม"
 
-#: templates/contacts.php:161
+#: templates/contacts.php:176
 msgid "Delete current photo"
 msgstr "ลบรูปภาพปัจจุบัน"
 
-#: templates/contacts.php:162
+#: templates/contacts.php:177
 msgid "Edit current photo"
 msgstr "แก้ไขรูปภาพปัจจุบัน"
 
-#: templates/contacts.php:163
+#: templates/contacts.php:178
 msgid "Upload new photo"
 msgstr "อัพโหลดรูปภาพใหม่"
 
-#: templates/contacts.php:164
+#: templates/contacts.php:179
 msgid "Select photo from ownCloud"
 msgstr "เลือกรูปภาพจาก ownCloud"
 
-#: templates/contacts.php:175 templates/contacts.php:176
+#: templates/contacts.php:190 templates/contacts.php:191
 msgid "First name"
 msgstr "ชื่อจริง"
 
-#: templates/contacts.php:180 templates/contacts.php:181
+#: templates/contacts.php:195 templates/contacts.php:196
 msgid "Additional names"
 msgstr "ชื่ออื่นๆ"
 
-#: templates/contacts.php:185 templates/contacts.php:186
+#: templates/contacts.php:200 templates/contacts.php:201
 msgid "Last name"
 msgstr "นามสกุลจริง"
 
-#: templates/contacts.php:193
+#: templates/contacts.php:208
 msgid "Select groups"
 msgstr "เลือกกลุ่ม"
 
-#: templates/contacts.php:197 templates/contacts.php:261
+#: templates/contacts.php:212 templates/contacts.php:276
 msgid "Nickname"
 msgstr "ชื่อเล่น"
 
-#: templates/contacts.php:200
+#: templates/contacts.php:215
 msgid "Enter nickname"
 msgstr "กรอกชื่อเล่น"
 
-#: templates/contacts.php:204 templates/contacts.php:260
+#: templates/contacts.php:219 templates/contacts.php:275
 msgid "Title"
 msgstr "ชื่อ"
 
-#: templates/contacts.php:207
+#: templates/contacts.php:222
 msgid "Enter title"
 msgstr "กรอกชื่อ"
 
-#: templates/contacts.php:211 templates/contacts.php:259
+#: templates/contacts.php:226 templates/contacts.php:274
 msgid "Organization"
 msgstr "หน่วยงาน"
 
-#: templates/contacts.php:214
+#: templates/contacts.php:229
 msgid "Enter organization"
 msgstr "กรอกหน่วยงาน"
 
-#: templates/contacts.php:218 templates/contacts.php:262
+#: templates/contacts.php:233 templates/contacts.php:277
 msgid "Birthday"
 msgstr "วันเกิด"
 
-#: templates/contacts.php:249
+#: templates/contacts.php:264
 msgid "Notes go here..."
 msgstr "เขียนบันทึกกำกับตรงนี้..."
 
-#: templates/contacts.php:256
+#: templates/contacts.php:271
 msgid "Export as VCF"
 msgstr "ส่งออกเป็น VCF"
 
-#: templates/contacts.php:258
+#: templates/contacts.php:273
 msgid "Add"
 msgstr "เพิ่ม"
 
-#: templates/contacts.php:263
+#: templates/contacts.php:278
 msgid "Phone"
 msgstr "โทรศัพท์"
 
-#: templates/contacts.php:264
+#: templates/contacts.php:279
 msgid "Email"
 msgstr "อีเมล์"
 
-#: templates/contacts.php:265
+#: templates/contacts.php:280
 msgid "Instant Messaging"
 msgstr "ส่งข้อความโต้ตอบแบบทันที"
 
-#: templates/contacts.php:266
+#: templates/contacts.php:281
 msgid "Address"
 msgstr "ที่อยู่"
 
-#: templates/contacts.php:267
+#: templates/contacts.php:282
 msgid "Note"
 msgstr "หมายเหตุ"
 
-#: templates/contacts.php:268
+#: templates/contacts.php:283
 msgid "Web site"
 msgstr "เว็บไซต์"
 
-#: templates/contacts.php:270
+#: templates/contacts.php:285
 msgid "Delete contact"
 msgstr "ลบข้อมูลการติดต่อ"
 
-#: templates/contacts.php:283 templates/contacts.php:298
-#: templates/contacts.php:312 templates/contacts.php:337
-#: templates/contacts.php:374
+#: templates/contacts.php:298 templates/contacts.php:313
+#: templates/contacts.php:327 templates/contacts.php:352
+#: templates/contacts.php:389
 msgid "Preferred"
 msgstr "พิเศษ"
 
-#: templates/contacts.php:285
+#: templates/contacts.php:300
 msgid "Please specify a valid email address."
 msgstr "กรุณาระบุที่อยู่อีเมลที่ถูกต้อง"
 
-#: templates/contacts.php:285
+#: templates/contacts.php:300
 msgid "someone@example.com"
 msgstr "someone@example.com"
 
-#: templates/contacts.php:287
+#: templates/contacts.php:302
 msgid "Mail to address"
 msgstr "ส่งอีเมลไปที่"
 
-#: templates/contacts.php:288
+#: templates/contacts.php:303
 msgid "Delete email address"
 msgstr "ลบที่อยู่อีเมล"
 
-#: templates/contacts.php:300
+#: templates/contacts.php:315
 msgid "Enter phone number"
 msgstr "กรอกหมายเลขโทรศัพท์"
 
-#: templates/contacts.php:302
+#: templates/contacts.php:317
 msgid "Delete phone number"
 msgstr "ลบหมายเลขโทรศัพท์"
 
-#: templates/contacts.php:316
+#: templates/contacts.php:331
 msgid "Go to web site"
 msgstr "ไปที่เว็บไซต์"
 
-#: templates/contacts.php:317
+#: templates/contacts.php:332
 msgid "Delete URL"
 msgstr "ลบที่อยู่ URL"
 
-#: templates/contacts.php:328
+#: templates/contacts.php:343
 msgid "View on map"
 msgstr "ดูบนแผนที่"
 
-#: templates/contacts.php:329
+#: templates/contacts.php:344
 msgid "Delete address"
 msgstr "ลบที่อยู่"
 
-#: templates/contacts.php:341
+#: templates/contacts.php:356
 msgid "1 Main Street"
 msgstr "ถนนสายหลัก"
 
-#: templates/contacts.php:342
+#: templates/contacts.php:357
 msgid "Street address"
 msgstr "ที่อยู่"
 
-#: templates/contacts.php:346
+#: templates/contacts.php:361
 msgid "12345"
 msgstr "12345"
 
-#: templates/contacts.php:347
+#: templates/contacts.php:362
 msgid "Postal code"
 msgstr "รหัสไปรษณีย์"
 
-#: templates/contacts.php:349
+#: templates/contacts.php:364
 msgid "Your city"
 msgstr "ชื่อเมือง"
 
-#: templates/contacts.php:350
+#: templates/contacts.php:365
 msgid "City"
 msgstr "เมือง"
 
-#: templates/contacts.php:354
+#: templates/contacts.php:369
 msgid "Some region"
 msgstr "ย่าน"
 
-#: templates/contacts.php:355
+#: templates/contacts.php:370
 msgid "State or province"
 msgstr "ชื่อรัฐ หรือ จังหวัด"
 
-#: templates/contacts.php:359
+#: templates/contacts.php:374
 msgid "Your country"
 msgstr "ประเทศของคุณ"
 
-#: templates/contacts.php:360
+#: templates/contacts.php:375
 msgid "Country"
 msgstr "ประเทศ"
 
-#: templates/contacts.php:382
+#: templates/contacts.php:397
 msgid "Instant Messenger"
 msgstr "โปรแกรมรับส่งข้อความ"
 
-#: templates/contacts.php:384
+#: templates/contacts.php:399
 msgid "Delete IM"
 msgstr "ลบ IM"
 
-#: templates/contacts.php:394 templates/settings.php:36
+#: templates/contacts.php:409 templates/settings.php:36
 msgid "Share"
 msgstr "แชร์"
 
-#: templates/contacts.php:395
+#: templates/contacts.php:410
 msgid "Export"
 msgstr "ส่งออก"
 
-#: templates/contacts.php:396
+#: templates/contacts.php:411
 msgid "CardDAV link"
 msgstr "ลิงก์ CardDAV"
 

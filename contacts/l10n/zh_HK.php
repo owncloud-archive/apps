@@ -24,8 +24,8 @@
 "Internet" => "互聯網",
 "{name}'s Birthday" => "{name}的生日",
 "Settings" => "設定",
-"Import" => "導入",
 "OK" => "確定",
+"Import" => "導入",
 "Groups" => "群組",
 "Add contact" => "新增聯絡人",
 "Delete current photo" => "刪除當前照片",
@@ -57,5 +57,6 @@
 "iOS/OS X" => "iOS/OSX",
 "Addressbooks" => "地址簿",
 "New Address Book" => "新增地址簿",
+"Name" => "名稱",
 "Save" => "儲存"
 );

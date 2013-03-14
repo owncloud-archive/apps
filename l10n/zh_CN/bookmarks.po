@@ -4,13 +4,14 @@
 # 
 # Translators:
 #   <appweb.cn@gmail.com>, 2012.
+#  <wengxt@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:00+0100\n"
-"PO-Revision-Date: 2013-02-20 23:32+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-15 00:01+0100\n"
+"PO-Revision-Date: 2013-03-14 03:20+0000\n"
+"Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: ajax/import.php:9
 msgid "No file provided for import"
-msgstr ""
+msgstr "未提供导入文件"
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -52,7 +53,7 @@ msgstr "警告"
 
 #: js/settings.js:18
 msgid "Import error"
-msgstr ""
+msgstr "导入错误"
 
 #: js/settings.js:29
 msgid "Import completed successfully."

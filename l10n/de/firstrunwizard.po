@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-21 00:02+0100\n"
-"PO-Revision-Date: 2013-02-20 21:50+0000\n"
+"POT-Creation-Date: 2013-03-15 00:01+0100\n"
+"PO-Revision-Date: 2013-03-14 14:41+0000\n"
 "Last-Translator: Marcel Kühlhorn <susefan93@gmx.de>\n"
 "Language-Team: German <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: templates/wizard.php:7
 msgid "Welcome to ownCloud"
-msgstr "Wilkommen zu ownCloud"
+msgstr "Willkommen zu ownCloud"
 
 #: templates/wizard.php:8
 msgid ""
@@ -30,19 +30,19 @@ msgstr "Deine persönlichen Web-Services. Alle deine Dateien, Kontakte, Kalender
 
 #: templates/wizard.php:11
 msgid "Get the apps to sync your files"
-msgstr "Lade die Apps zur Synchronisierung deiner Daten herunter"
+msgstr "Lade die Apps zur Synchronisierung Deiner Daten herunter"
 
 #: templates/wizard.php:23
 msgid "Connect your desktop apps to ownCloud"
-msgstr "Verbinde deine Desktop-Anwendungen mit ownCloud"
+msgstr "Verbinde Deine Desktop-Anwendungen mit ownCloud"
 
 #: templates/wizard.php:25
 msgid "Connect your Calendar"
-msgstr "Verbinde deine Kalender "
+msgstr "Verbinde Deine Kalender "
 
 #: templates/wizard.php:28
 msgid "Connect your Contacts"
-msgstr "Verbinde deine Kontakte"
+msgstr "Verbinde Deine Kontakte"
 
 #: templates/wizard.php:31
 msgid "Access files via WebDAV"
@@ -60,4 +60,4 @@ msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"
 " http://owncloud.org\">recommend it to your friends</a>!"
-msgstr "Wenn dir ownCloud gefällt, <a href=\"mailto:?subject=ownCloud&body=\"ownCloud ist großartige freie Software zum synchronisieren und teilen deiner Dateien, du kannst es frei von http://owncloud.org herunterladen\">empfiehl es weiter</a>!"
+msgstr "Wenn Dir ownCloud gefällt, <a href=\"mailto:?subject=ownCloud&body=\"ownCloud ist großartige freie Software zum synchronisieren und teilen Deiner Dateien, du kannst es frei von http://owncloud.org herunterladen\">empfiehl es weiter</a>!"

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-21 00:02+0100\n"
-"PO-Revision-Date: 2013-02-20 22:12+0000\n"
-"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
+"POT-Creation-Date: 2013-03-15 00:01+0100\n"
+"PO-Revision-Date: 2013-03-14 14:41+0000\n"
+"Last-Translator: Marcel Kühlhorn <susefan93@gmx.de>\n"
 "Language-Team: German (Germany) <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: templates/wizard.php:7
 msgid "Welcome to ownCloud"
-msgstr "Wilkommen zu ownCloud"
+msgstr "Willkommen zu ownCloud"
 
 #: templates/wizard.php:8
 msgid ""
@@ -32,11 +32,11 @@ msgstr "Ihre persönlichen Web-Services. Alle Ihre Dateien, Kontakte, Kalender u
 
 #: templates/wizard.php:11
 msgid "Get the apps to sync your files"
-msgstr "Laden Sie die Apps zur Synchronisierung ihrer Daten herunter"
+msgstr "Laden Sie die Apps zur Synchronisierung Ihrer Daten herunter"
 
 #: templates/wizard.php:23
 msgid "Connect your desktop apps to ownCloud"
-msgstr "Verbinden Sie ihre Desktop-Anwendungen mit ownCloud"
+msgstr "Verbinden Sie Ihre Desktop-Anwendungen mit ownCloud"
 
 #: templates/wizard.php:25
 msgid "Connect your Calendar"

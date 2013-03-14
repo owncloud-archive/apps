@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Amir Reza Asadi <amirreza.asadi@live.com>, 2013.
 # mahdi Kereshteh <miki_mika1362@yahoo.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-27 00:01+0100\n"
-"PO-Revision-Date: 2013-02-26 09:00+0000\n"
-"Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
+"POT-Creation-Date: 2013-03-15 00:01+0100\n"
+"PO-Revision-Date: 2013-03-14 08:10+0000\n"
+"Last-Translator: Amir Reza Asadi <amirreza.asadi@live.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,21 +21,21 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr ""
+msgstr "{user} خوش آمدی"
 
 #: templates/notification.php:2
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "متاسفیم ، اما یک بد افزار در فایلی که سعی کردید بارگذاری کنید پیدا شده بود و ما آن را پاک کردیم"
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "این ایمیل از {host}. می باشد لطفا به آن پاسخ ندهید"
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "فایل بارگذاری شد:{file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"

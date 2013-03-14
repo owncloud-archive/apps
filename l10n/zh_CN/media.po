@@ -5,14 +5,15 @@
 # Translators:
 #   <appweb.cn@gmail.com>, 2012.
 #   <suiy02@gmail.com>, 2012.
+#  <wengxt@gmail.com>, 2013.
 #   <wengxt@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-24 00:02+0100\n"
-"PO-Revision-Date: 2013-01-23 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-15 00:01+0100\n"
+"PO-Revision-Date: 2013-03-14 03:00+0000\n"
+"Last-Translator: Xuetian Weng <wengxt@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
+#: appinfo/app.php:48 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "音乐"
 
@@ -40,31 +41,31 @@ msgstr "添加到播放列表"
 msgid "Add album to playlist"
 msgstr "专辑加入到播放列表"
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr "前一首"
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr "播放"
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
 msgstr "暂停"
-
-#: templates/music.php:5
-msgid "Previous"
-msgstr "前一首"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr "后一首"
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr "静音"
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr "取消静音"
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr "重新扫描收藏"
 
@@ -82,8 +83,8 @@ msgstr "标题"
 
 #: templates/settings.php:3
 msgid "Media"
-msgstr ""
+msgstr "音乐"
 
 #: templates/settings.php:4
 msgid "Ampache address:"
-msgstr ""
+msgstr "Ampache 地址："
