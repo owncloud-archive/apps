@@ -31,10 +31,6 @@ $categories = OCA\Contacts\App::getCategories();
 
 $maxUploadFilesize = OCP\Util::maxUploadFilesize('/');
 
-$freeSpace=\OC\Files\Filesystem::free_space('/');
-$freeSpace=max($freeSpace, 0);
-$maxUploadFilesize = min($maxUploadFilesize, $freeSpace);
-
 OCP\Util::addscript('', 'multiselect');
 OCP\Util::addscript('', 'jquery.multiselect');
 OCP\Util::addscript('', 'oc-vcategories');
