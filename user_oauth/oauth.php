@@ -32,18 +32,10 @@ class OC_Connector_Sabre_OAuth implements Sabre_DAV_Auth_IBackend
             "resourceServerRealm" => $realm,
         );
 
-        $authorizationHeader = $server->httpRequest->getHeader('Authorization');
-
-        // Apache could prefix environment variables with REDIRECT_ when urls
-        // are passed through mod_rewrite
-        if (!$authorizationHeader) {
-            $authorizationHeader = $server->httpRequest->getRawServerValue('REDIRECT_HTTP_AUTHORIZATION');
-        }
-
         try {
             $resourceServer = new RemoteResourceServer($config);
 
-            $resourceServer->verifyAuthorizationHeader($authorizationHeader);
+            $resourceServer->verifyRequest();
 
             if ($this->useResourceOwnerId) {
                 // when using the user_id
