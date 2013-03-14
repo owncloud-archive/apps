@@ -1305,13 +1305,13 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         			Wrapper to do a normal request to the server. This needs to
         			be done to hook the publisher into the requests and to handle
         			requests, that come in before routes have been loaded
-
-				route: the routename data can contain the following
-				data.routeParams: object with parameters for the route
-				data.data: ajax data objec which is passed to PHP
-				data.onSuccess: callback for successful requests
-				data.onFailure: callback for failed requests
-				data.config: a config which should be passed to $http
+        
+        			route: the routename data can contain the following
+        			data.routeParams: object with parameters for the route
+        			data.data: ajax data objec which is passed to PHP
+        			data.onSuccess: callback for successful requests
+        			data.onFailure: callback for failed requests
+        			data.config: a config which should be passed to $http
         */
 
         defaultData = {
@@ -1365,7 +1365,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
           data = {};
         }
         /*
-				Request shortcut which sets the method to GET
+        			Request shortcut which sets the method to GET
         */
 
         data.config || (data.config = {});
@@ -1378,7 +1378,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
           data = {};
         }
         /*
-				Request shortcut which sets the method to GET
+        			Request shortcut which sets the method to GET
         */
 
         data.config || (data.config = {});
