@@ -17,6 +17,14 @@
 			<h2 data-id="addressbooks" tabindex="0" role="button"><?php p($l->t('Address books')); ?></h3>
 				<ul class="hidden">
 				</ul>
+				<button class="addaddressbook icon-plus text"><?php p($l->t('New')); ?></button>
+				<ul class="hidden">
+					<li><input class="addaddressbookinput" type="text" placeholder="<?php p($l->t('Display name')); ?>" /></li>
+					<li>
+						<button class="addaddressbookok"><?php p($l->t('OK')); ?></button>
+						<button class="addaddressbookcancel"><?php p($l->t('Cancel')); ?></button>
+					</li>
+				</ul>
 			<h2 data-id="import" tabindex="0" role="button"><?php p($l->t('Import')); ?></h3>
 				<ul class="hidden">
 					<li class="import-upload">
