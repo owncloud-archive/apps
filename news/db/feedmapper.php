@@ -52,9 +52,16 @@ class FeedMapper {
 	 * @returns
 	 */
 	public function findAll() {
-		$query = 'SELECT * FROM ' . self::tableName . ' WHERE user_id = ?';
-		$stmt = \OCP\DB::prepare($query);
-		$result = $stmt->execute(array($this->userid));
+		if ($this->userid) {
+			$query = 'SELECT * FROM ' . self::tableName . ' WHERE user_id = ?';
+			$stmt = \OCP\DB::prepare($query);
+			$result = $stmt->execute(array($this->userid));
+		}
+		else {
+			$query = 'SELECT * FROM ' . self::tableName;
+			$stmt = \OCP\DB::prepare($query);
+			$result = $stmt->execute();
+		}
 
 		$feeds = array();
 		while($row = $result->fetchRow()){
