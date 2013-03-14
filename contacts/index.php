@@ -29,13 +29,7 @@ foreach($ims as $name => $values) {
 	$im_protocols[$name] = $values['displayname'];
 }
 
-$upload_max_filesize = \OCP\Util::computerFileSize(ini_get('upload_max_filesize'));
-$post_max_size = \OCP\Util::computerFileSize(ini_get('post_max_size'));
-$maxUploadFilesize = min($upload_max_filesize, $post_max_size);
-
-$freeSpace=\OC\Files\Filesystem::free_space('/');
-$freeSpace=max($freeSpace, 0);
-$maxUploadFilesize = min($maxUploadFilesize, $freeSpace);
+$maxUploadFilesize = OCP\Util::maxUploadFilesize('/');
 
 \OCP\Util::addscript('', 'multiselect');
 \OCP\Util::addscript('', 'jquery.multiselect');
