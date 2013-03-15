@@ -29,7 +29,7 @@ foreach($ims as $name => $values) {
 	$im_protocols[$name] = $values['displayname'];
 }
 
-$maxUploadFilesize = OCP\Util::maxUploadFilesize('/');
+$maxUploadFilesize = \OCP\Util::maxUploadFilesize('/');
 
 \OCP\Util::addscript('', 'multiselect');
 \OCP\Util::addscript('', 'jquery.multiselect');
