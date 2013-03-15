@@ -31,7 +31,8 @@ use OCA\AppTemplateAdvanced\Db\Item;
 
 
 class ItemController extends Controller {
-	
+
+	private $itemMapper;
 
 	/**
 	 * @param Request $request: an instance of the request
