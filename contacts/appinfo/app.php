@@ -26,11 +26,11 @@ OCP\App::addNavigationEntry( array(
 
 OCP\Util::addscript('contacts', 'loader');
 
-if(OCP\User::isLoggedIn()) {
-	OC_Search::registerProvider('OCA\Contacts\SearchProvider');
-	OCP\Share::registerBackend('contact', 'OCA\Contacts\Share_Backend_Contact');
-	OCP\Share::registerBackend('addressbook', 'OCA\Contacts\Share_Backend_Addressbook', 'contact');
+OC_Search::registerProvider('OCA\Contacts\SearchProvider');
+OCP\Share::registerBackend('contact', 'OCA\Contacts\Share_Backend_Contact');
+OCP\Share::registerBackend('addressbook', 'OCA\Contacts\Share_Backend_Addressbook', 'contact');
 
+if(OCP\User::isLoggedIn()) {
 	foreach(OCA\Contacts\Addressbook::all(OCP\USER::getUser()) as $addressbook)  {
 		OCP\Contacts::registerAddressBook(new OCA\Contacts\AddressbookProvider($addressbook['id']));
 	}
