@@ -30,7 +30,7 @@ use OCA\Contacts;
 
 class Shared extends Database {
 
-	public $backendname = 'shared';
+	public $name = 'shared';
 	public $addressbooks = array();
 
 	/**

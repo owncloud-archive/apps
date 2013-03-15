@@ -29,6 +29,12 @@ namespace OCA\Contacts\Backend;
 abstract class AbstractBackend {
 
 	/**
+	 * The name of the backend.
+	 * @var string
+	 */
+	public $name;
+
+	/**
 	 * Returns the list of addressbooks for a specific user.
 	 *
 	 * The returned arrays MUST contain a unique 'id' for the
@@ -187,6 +193,6 @@ abstract class AbstractBackend {
 	 * @param mixed $id
 	 * @returns int | null
 	 */
-	public function lastModifiedContact($addressbookid, $contact) {
+	public function lastModifiedContact($addressbookid, $id) {
 	}
 }

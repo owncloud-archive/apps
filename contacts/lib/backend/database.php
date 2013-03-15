@@ -544,6 +544,21 @@ class Database extends AbstractBackend {
 		return true;
 	}
 
+	/**
+	 * @brief Get the last modification time for a contact.
+	 *
+	 * Must return a UNIX time stamp or null if the backend
+	 * doesn't support it.
+	 *
+	 * @param string $addressbookid
+	 * @param mixed $id
+	 * @returns int | null
+	 */
+	public function lastModifiedContact($addressbookid, $id) {
+		$contact = $this->getContact($addressbookid, $id);
+		return $contact ? $contact['lastmodified'] : null;
+	}
+
 	private function createAddressBookURI($displayname, $userid = null) {
 		$userid = $userid ? $userid : \OCP\User::getUser();
 		$name = str_replace(' ', '_', strtolower($displayname));
@@ -572,6 +587,4 @@ class Database extends AbstractBackend {
 		return $newname;
 	}
 
-	public function lastModifiedContact($addressbookid, $id) {
-	}
 }
