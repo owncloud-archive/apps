@@ -676,13 +676,13 @@ OC.Contacts = OC.Contacts || {};
 	 * Render the list item
 	 * @return A jquery object to be inserted in the DOM
 	 */
-	Contact.prototype.renderListItem = function() {
+	Contact.prototype.renderListItem = function(isnew) {
 		this.$listelem = this.$listTemplate.octemplate({
 			id: this.id,
-			name: this.getPreferredValue('FN', ''),
-			email: this.getPreferredValue('EMAIL', ''),
-			tel: this.getPreferredValue('TEL', ''),
-			adr: this.getPreferredValue('ADR', []).clean('').join(', '),
+			name: isnew ? escapeHTML(this.getPreferredValue('FN', '')) : this.getPreferredValue('FN', ''),
+			email: isnew ? escapeHTML(this.getPreferredValue('EMAIL', '')) : this.getPreferredValue('EMAIL', ''),
+			tel: isnew ? escapeHTML(this.getPreferredValue('TEL', '')) : this.getPreferredValue('TEL', ''),
+			adr: isnew ? escapeHTML(this.getPreferredValue('ADR', []).clean('').join(', ')) : this.getPreferredValue('ADR', []).clean('').join(', '),
 			categories: this.getPreferredValue('CATEGORIES', [])
 				.clean('').join(' / ')
 		});
@@ -1389,13 +1389,13 @@ OC.Contacts = OC.Contacts || {};
 		$(document).bind('status.contact.added', function(e, data) {
 			self.length += 1;
 			self.contacts[parseInt(data.id)] = data.contact;
-			self.insertContact(data.contact.renderListItem());
+			self.insertContact(data.contact.renderListItem(true));
 		});
 
 		$(document).bind('status.contact.updated', function(e, data) {
 			if(['FN', 'EMAIL', 'TEL', 'ADR', 'CATEGORIES'].indexOf(data.property) !== -1) {
 				data.contact.getListItemElement().remove();
-				self.insertContact(self.contacts[parseInt(data.contact.id)].renderListItem());
+				self.insertContact(self.contacts[parseInt(data.contact.id)].renderListItem(true));
 			}
 		});
 	};
