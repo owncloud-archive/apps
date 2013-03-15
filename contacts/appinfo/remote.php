@@ -30,6 +30,8 @@ if(substr(OCP\Util::getRequestUri(), 0, strlen(OC_App::getAppWebPath('contacts')
 $RUNTIME_APPTYPES=array('authentication');
 OC_App::loadApps($RUNTIME_APPTYPES);
 
+require_once __DIR__ . '/bootstrap.php';
+
 // Backends
 $authBackend = new OC_Connector_Sabre_Auth();
 $principalBackend = new OC_Connector_Sabre_Principal();
