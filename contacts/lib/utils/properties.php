@@ -187,7 +187,7 @@ Class Properties {
 	public static function updateIndex($contactid, $vcard = null) {
 		if(!isset(self::$deleteindexstmt)) {
 			self::$deleteindexstmt
-				= \OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_cards_properties`';
+				= \OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_cards_properties`'
 					. ' WHERE `contactid` = ?');
 		}
 		try {
