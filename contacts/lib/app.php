@@ -20,6 +20,115 @@ class App {
 	const THUMBNAIL_SIZE = 28;
 
 	/**
+	 * @brief language object for calendar app
+	 *
+	 * @var OC_L10N
+	 */
+	public static $l10n;
+
+	/**
+	 * An array holding the current users address books.
+	 * @var array
+	 */
+	protected static $addressBooks = array();
+	/**
+	* If backends are added to this map, they will be automatically mapped
+	* to their respective classes, if constructed with the 'createBackend' method.
+	*
+	* @var array
+	*/
+	public static $backendClasses = array(
+		'database' => 'OCA\Contacts\Backend\Database',
+		'shared' => 'OCA\Contacts\Backend\Shared',
+	);
+
+	public function __construct(
+		$addressBooksTableName = '*PREFIX*addressbook',
+		$backendsTableName = '*PREFIX*addressbooks_backend',
+		$dbBackend = null
+	) {
+		$this->addressBooksTableName = $addressBooksTableName;
+		$this->backendsTableName = $backendsTableName;
+		$this->dbBackend = $dbBackend ? $dbBackend : new Backend\Database();
+	}
+
+	/**
+	* Creates the new backend by name, but in addition will also see if
+	* there's a class mapped to the property name.
+	*
+	* @param string $name
+	* @return \Backend\AbstractBackend
+	*/
+	static public function createBackend($name) {
+		$name = $name ? $name : 'database';
+		if (isset(self::$backendClasses[$name])) {
+			return new self::$classMap[$name]();
+		} else {
+			throw new \Exception('No backend for: ' . $name);
+		}
+	}
+
+	/**
+	 * Return all registered address books for current user.
+	 * For now this is hard-coded to using the Database and
+	 * Shared backends, but eventually admins will be able to
+	 * register additional backends, and users will be able to
+	 * subscribe to address books using those backends.
+	 *
+	 * @return AddressBook[]
+	 */
+	public function getAllAddressBooksForUser() {
+		if(!self::$addressBooks) {
+			foreach(array_keys(self::$backendClasses) as $backendName) {
+				$backend = self::createBackend($backendName);
+				$addressBooks = $backend->getAddressBooksForUser();
+				foreach($addressBooks as $addressBook) {
+					$addressBook['backend'] = $backendName;
+					self::$addressBooks[] = new AddressBook($backend, $addressBook);
+				}
+			}
+		}
+		return self::$addressBooks;
+	}
+
+	/**
+	 * Get an address book from a specific backend.
+	 *
+	 * @param string $backendName
+	 * @param string $addressbookid
+	 */
+	public function getAddressBook($backendName, $addressbookid) {
+		foreach(self::$addressBooks as $addressBook) {
+			if($addressBook->backend->name === $backendName
+				&& $addressBook->getId() === $addressbookid
+			) {
+				return $addressBook;
+			}
+		}
+		// TODO: Check for return values
+		$backend = self::createBackend($backendName);
+		$info = $backend->getAddressBook($addressbookid);
+		// FIXME: Backend name should be set by the backend.
+		$info['backend'] = $backendName;
+		$addressBook = new AddressBook($backend, $info);
+		self::$addressBooks[] = $addressBook;
+		return $addressBook;
+	}
+
+	/**
+	 * Get a Contact from an address book from a specific backend.
+	 *
+	 * @param string $backendName
+	 * @param string $addressbookid
+	 * @param string $id - Contact id
+	 */
+	public function getContact($backendName, $addressbookid, $id) {
+		$addressBook = $this->getAddressBook($backendName, $addressbookid);
+		// TODO: Check for return value
+		return $addressBook->getChild($id);
+	}
+
+	/**
 	 * @brief returns the categories for the user
 	 * @return (Array) $categories
 	 */
