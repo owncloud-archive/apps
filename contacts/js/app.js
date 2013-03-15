@@ -966,6 +966,7 @@ OC.Contacts = OC.Contacts || {
 			};
 			self.$firstRun.hide();
 			self.$contactList.show();
+			self.$contactList.addClass('dim');
 			self.tmpcontact = self.contacts.addContact(groupprops);
 			self.$rightContent.prepend(self.tmpcontact);
 			self.hideActions();
