@@ -87,7 +87,8 @@ OC.Contacts = OC.Contacts || {};
 	 * @returns string The name of the group.
 	 */
 	GroupList.prototype.nameById = function(id) {
-		return $.trim(this.findById(id).clone().find("*").remove().end().text()); //.contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
+		return $.trim(this.findById(id).data('rawname'));
+		//return $.trim(this.findById(id).clone().find("*").remove().end().text()); //.contents().filter(function(){ return(this.nodeType == 3); }).text().trim();
 	};
 
 	/** Get the group element by id.
@@ -438,10 +439,10 @@ OC.Contacts = OC.Contacts || {};
 				return false;
 			}
 			$input.prop('disabled', true);
-			$elem.data('name', '');
-			self.addGroup({name:name, element:$elem}, function(response) {
+			$elem.data('rawname', '');
+			self.addGroup({name:name, element: $elem}, function(response) {
 				if(response.status === 'success') {
-					$elem.prepend(name).removeClass('editing').attr('data-id', response.id);
+					$elem.prepend(escapeHTML(response.name)).removeClass('editing').attr('data-id', response.id);
 					$input.next('.checked').remove();
 					$input.remove();
 					self.$editelem = null;
@@ -464,6 +465,7 @@ OC.Contacts = OC.Contacts || {};
 			var $input = $('<input type="text" class="active" /><a class="action checked disabled" />');
 			self.$editelem.prepend($input).addClass('editing');
 			self.$editelem.data('contacts', []);
+			self.$editelem.data('rawname', '');
 			this.$groupList.find('h3.group[data-type="category"]').first().before(self.$editelem);
 			this.selectGroup({element:self.$editelem});
 			$input.on('input', function(event) {
@@ -527,41 +529,43 @@ OC.Contacts = OC.Contacts || {};
 	 *     from the backend.
 	 */
 	GroupList.prototype.addGroup = function(params, cb) {
-		console.log('GroupList.addGroup', params.name);
+		//console.log('GroupList.addGroup', params);
 		var name = params.name;
 		var contacts = []; // $.map(contacts, function(c) {return parseInt(c)});
 		var self = this, exists = false;
 		self.$groupList.find('h3[data-type="category"]').each(function() {
-			if ($(this).data('name').toLowerCase() === name.toLowerCase()) {
+			if ($(this).data('rawname').toLowerCase() === name.toLowerCase()) {
 				exists = true;
 				return false; //break out of loop
 			}
 		});
 		if(exists) {
 			if(typeof cb === 'function') {
-				cb({status:'error', message:t('contacts', 'A group named {group} already exists', {group: name})});
+				cb({status:'error', message:t('contacts', 'A group named {group} already exists', {group: escapeHTML(name)})});
 			}
 			return;
 		}
 		$.post(OC.filePath('contacts', 'ajax', 'categories/add.php'), {category: name}, function(jsondata) {
 			if (jsondata && jsondata.status == 'success') {
+				name = jsondata.data.name;
+				var id = jsondata.data.id;
 				var tmpl = self.$groupListItemTemplate;
 				var $elem = params.element
 					? params.element
 					: (tmpl).octemplate({
-						id: jsondata.data.id,
+						id: id,
 						type: 'category',
 						num: contacts.length,
-						name: name
+						name: escapeHTML(name)
 					});
-				self.categories.push({id: jsondata.data.id, name: name});
+				self.categories.push({id: id, name: name});
 				$elem.data('obj', self);
 				$elem.data('contacts', contacts);
-				$elem.data('name', name);
-				$elem.data('id', jsondata.data.id);
+				$elem.data('rawname', name);
+				$elem.data('id', id);
 				var added = false;
 				self.$groupList.find('h3.group[data-type="category"]').each(function() {
-					if ($(this).data('name').toLowerCase().localeCompare(name.toLowerCase()) > 0) {
+					if ($(this).data('rawname').toLowerCase().localeCompare(name.toLowerCase()) > 0) {
 						$(this).before($elem);
 						added = true;
 						return false;
@@ -574,7 +578,7 @@ OC.Contacts = OC.Contacts || {};
 				$elem.tipsy({trigger:'manual', gravity:'w', fallback: t('contacts', 'You can drag groups to\narrange them as you like.')});
 				$elem.tipsy('show');
 				if(typeof cb === 'function') {
-					cb({status:'success', id:parseInt(jsondata.data.id), name:name});
+					cb({status:'success', id:parseInt(id), name:name});
 				}
 			} else {
 				if(typeof cb === 'function') {
@@ -607,6 +611,7 @@ OC.Contacts = OC.Contacts || {};
 					name: t('contacts', 'Favorites')
 				}).appendTo($groupList);
 				$elem.data('obj', self);
+				$elem.data('rawname', t('contacts', 'Favorites'));
 				$elem.data('contacts', contacts).find('.numcontacts').before('<span class="starred action" />');
 				$elem.droppable({
 							drop: self.contactDropped,
@@ -633,7 +638,7 @@ OC.Contacts = OC.Contacts || {};
 					self.categories.push({id: category.id, name: category.name});
 					$elem.data('obj', self);
 					$elem.data('contacts', contacts);
-					$elem.data('name', category.name);
+					$elem.data('rawname', category.name);
 					$elem.data('id', category.id);
 					$elem.droppable({
 									drop: self.contactDropped,
@@ -669,7 +674,7 @@ OC.Contacts = OC.Contacts || {};
 					});
 					$elem.find('.numcontacts').after(sharedindicator);
 					$elem.data('obj', self);
-					$elem.data('name', shared.displayname);
+					$elem.data('rawname', shared.displayname);
 					$elem.data('id', shared.id);
 					$elem.appendTo($groupList);
 				});

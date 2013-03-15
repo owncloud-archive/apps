@@ -23,7 +23,7 @@ $catman = new OC_VCategories('contact');
 $id = $catman->add($category);
 
 if($id !== false) {
-	OCP\JSON::success(array('data' => array('id'=>$id)));
+	OCP\JSON::success(array('data' => array('id'=>$id, 'name' => $category)));
 } else {
 	bailOut(OCA\Contacts\App::$l10n->t('Error adding group.'));
 }

@@ -785,7 +785,7 @@ OC.Contacts = OC.Contacts || {
 			var $li = self.$addressbookTmpl.octemplate({
 				id: book.id,
 				permissions: book.permissions,
-				displayname: book.displayname
+				displayname: escapeHTML(book.displayname)
 			});
 
 			$li.find('a.action').tipsy({gravity: 'w'});
