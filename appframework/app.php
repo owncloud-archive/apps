@@ -44,8 +44,8 @@ class App {
 	 */
 	public static function main($controllerName, $methodName, array $urlParams, \Pimple $container){
 
+                $container['urlParams'] = $urlParams;
 		$controller = $container[$controllerName];
-		$controller->setURLParams($urlParams);
 		
 		// initialize the dispatcher and run all the middleware before the controller
 		$middlewareDispatcher = $container['MiddlewareDispatcher'];

@@ -72,18 +72,6 @@ class AppTest extends \PHPUnit_Framework_TestCase {
 	}
 
 
-	public function testSetURLParams(){
-		$this->expectControllerMethodCall();
-		$this->controller->expects($this->once())
-				->method('setURLParams')
-				->with($this->equalTo($this->params));
-		$this->dispatcher->expects($this->once())
-				->method('afterController')
-				->will($this->returnValue($this->response));		
-		$this->callMain();
-	}
-
-
 	public function testBeforeControllerWillBeCalled(){
 		$this->expectControllerMethodCall();
 		$this->dispatcher->expects($this->once())

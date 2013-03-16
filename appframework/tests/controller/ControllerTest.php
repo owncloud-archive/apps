@@ -37,13 +37,18 @@ class ChildController extends Controller {};
 class ControllerTest extends \PHPUnit_Framework_TestCase {
 
 	private $controller;
-		private $api;
+        private $api;
 
 	protected function setUp(){
 		$request = new Request(
 			array('get'=>'getvalue'), 
 			array('post'=>'postvalue'), 
-			array('file'=>'filevalue')
+                        array('file'=>'filevalue'),
+                        array('REQUEST_METHOD' => 'hi'),
+                        array('PATH' => 'daheim'),
+                        array('sezession' => 'kein'),
+                        array('cooken' => 'warm'),
+                        array('url' => 'something')
 		);
 
 		$this->api = $this->getMock('OCA\AppFramework\Core\API',
@@ -55,13 +60,6 @@ class ControllerTest extends \PHPUnit_Framework_TestCase {
 		$this->controller = new ChildController($this->api, $request);
 	}
 
-
-	public function testSetURLParams() {
-		$urlParams = array('post' => 'something');
-		$this->controller->setURLParams($urlParams);
-
-		$this->assertEquals($urlParams['post'], $this->controller->params('post'));
-	}
 
 
 	public function testParamsPreferPostOverGet(){
@@ -107,7 +105,6 @@ class ControllerTest extends \PHPUnit_Framework_TestCase {
 		$urlParams = array('url' => 'something');
 		$get = array('get'=>'getvalue');
 		$post = array('post'=>'postvalue');
-		$this->controller->setURLParams($urlParams);
 
 		$this->assertEquals(array_merge($urlParams, $get, $post), $this->controller->getParams());
 	}
@@ -175,5 +172,29 @@ class ControllerTest extends \PHPUnit_Framework_TestCase {
 				$this->controller->renderJSON($params, $error)->render());	
 	}
 
+
+        public function testGetRequestMethod(){
+                $this->assertEquals('hi', $this->controller->method());
+        }
+
+
+        public function testGetEnvVariable(){
+                $this->assertEquals('daheim', $this->controller->env('PATH'));
+        }
+
+        public function testGetSessionVariable(){
+                $this->assertEquals('kein', $this->controller->session('sezession'));
+        }
+
+
+        public function testSetCookieVariable(){
+                $this->controller->session('test', 'problem');
+                $this->assertEquals('problem', $this->controller->session('test'));
+        }
+
+
+        public function testGetCookieVariable(){
+                $this->assertEquals('warm', $this->controller->cookie('cooken'));
+        }
 
 }

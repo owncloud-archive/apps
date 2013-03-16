@@ -41,7 +41,6 @@ abstract class Controller {
 	protected $api;
 	
 	private $request;
-	private $urlParams;
 
 	/**
 	 * @param API $api an api wrapper instance
@@ -50,16 +49,6 @@ abstract class Controller {
 	public function __construct(API $api, Request $request){
 		$this->api = $api;
 		$this->request = $request;
-		$this->urlParams = array();
-	}
-
-
-	/**
-	 * URL params are passed to this method from the routes dispatcher to be available via the $this->params
-	 * @param array $urlParams: the array with the params from the URL
-	 */
-	public function setURLParams(array $urlParams=array()){
-		$this->urlParams = $urlParams;
 	}
 
 
@@ -77,9 +66,10 @@ abstract class Controller {
 	public function params($key, $default=null){
 		$postValue = $this->request->getPOST($key);
 		$getValue = $this->request->getGET($key);
+                $urlValue = $this->request->getURLParams($key);
 
-		if(array_key_exists($key, $this->urlParams)){
-			return $this->urlParams[$key];
+                if($urlValue !== null){
+                        return $urlValue;
 		}
 
 		if($postValue !== null){
@@ -100,7 +90,16 @@ abstract class Controller {
 	 * @return array the array with all parameters
 	 */
 	public function getParams() {
-		return array_merge($this->request->getGETAndPOST(), $this->urlParams);
+                return $this->request->getRequestParams();
+        }
+
+
+        /**
+         * Returns the method of the request
+         * @return string the method of the request (POST, GET, etc)
+         */
+        public function method() {
+                return $this->request->getMethod();
 	}
 
 
@@ -115,6 +114,41 @@ abstract class Controller {
 
 
 	/**
+         * Shortcut for getting env variables
+         * @param string $key the key that will be taken from the $_ENV array
+         * @return array the value in the $_ENV element
+         */
+        public function env($key){
+                return $this->request->getENV($key);
+        }
+
+
+        /**
+         * Shortcut for getting and setting session variables
+         * @param string $key the key that will be taken from the $_SESSION array
+         * @param string $value if given sets a new session variable
+         * @return array the value in the $_SESSION element
+         */
+        public function session($key, $value=null){
+                if($value !== null) {
+                        $this->request->setSESSION($key, $value);
+                }
+                return $this->request->getSESSION($key);
+        }
+
+
+        /**
+         * Shortcut for getting and setting cookie variables
+         * @param string $key the key that will be taken from the $_COOKIE array
+         * @param string $value if given sets a new cookie variable
+         * @return array the value in the $_COOKIE element
+         */
+        public function cookie($key, $value=null){
+                return $this->request->getCOOKIE($key);
+        }
+
+
+        /**
 	 * Shortcut for rendering a template
 	 * @param string $templateName the name of the template
 	 * @param array $params the template parameters in key => value structure
