@@ -58,8 +58,8 @@ class DIContainer extends \Pimple {
 		});
 
 		$this['Request'] = $this->share(function($c){
-                        return new Request($_GET, $_POST, $_FILES,
-                                $_SERVER, $_ENV, $_SESSION, $_COOKIE, $c['urlParams']);
+			return new Request($_GET, $_POST, $_FILES,
+				$_SERVER, $_ENV, $_SESSION, $_COOKIE, $c['urlParams']);
 		});
 
 
@@ -74,7 +74,7 @@ class DIContainer extends \Pimple {
 		
 		// enables the l10n function as t() function in twig
 		$this['TwigL10N'] = $this->share(function($c){
-                        $trans = $c['API']->getTrans();
+			$trans = $c['API']->getTrans();
 			return new \Twig_SimpleFunction('trans', function () use ($trans) {
 				$args = func_get_args();
 				$string = array_shift($args);

@@ -33,44 +33,44 @@ class Request {
 	private $get;
 	private $post;
 	private $files;
-        private $server;
-        private $env;
-        private $session;
-        private $cookie;
-        private $urlParams;
+	private $server;
+	private $env;
+	private $session;
+	private $cookie;
+	private $urlParams;
 
 	/**
 	 * @param array $get the $_GET array
 	 * @param array $post the $_POST array
 	 * @param array $files the $_FILES array
-         * @param array $server the $_SERVER array
-         * @param array $env the $_ENV array
-         * @param array $session the $_SESSION array
-         * @param array $cookie the $_COOKIE array
-         * @param array $urlParams the parameters which were matched from the URL
+	 * @param array $server the $_SERVER array
+	 * @param array $env the $_ENV array
+	 * @param array $session the $_SESSION array
+	 * @param array $cookie the $_COOKIE array
+	 * @param array $urlParams the parameters which were matched from the URL
 	 */
 	public function __construct(array $get=array(), array $post=array(), 
-                                                                array $files=array(), array $server=array(),
-                                                                array $env=array(), array $session=array(),
-                                                                array $cookie=array(),
-                                                                array $urlParams=array()) {
+								array $files=array(), array $server=array(),
+								array $env=array(), array $session=array(),
+								array $cookie=array(), 
+								array $urlParams=array()) {
 		$this->get = $get;
 		$this->post = $post;
 		$this->files = $files;
-                $this->server = $server;
-                $this->env = $env;
-                $this->session = $session;
-                $this->cookie = $cookie;
-                $this->urlParams = $urlParams;
+		$this->server = $server;
+		$this->env = $env;
+		$this->session = $session;
+		$this->cookie = $cookie;
+		$this->urlParams = $urlParams;
 	}
 
 
 	/**
-         * Returns the merged urlParams, GET and POST array
+	 * Returns the merged urlParams, GET and POST array
 	 * @return array the merged array
 	 */
-        public function getRequestParams(){
-                return array_merge($this->urlParams, $this->get, $this->post);
+	public function getRequestParams(){
+		return array_merge($this->urlParams, $this->get, $this->post);
 	}
 
 
@@ -117,97 +117,97 @@ class Request {
 	}
 
 
-        /**
-         * Returns the get value of the server array
-         * @param string $key the array key that should be looked up
-         * @param string $default if the key is not found, return this value
-         * @return mixed the value of the stored array or the default
-         */
-        public function getSERVER($key, $default=null){
-                if(array_key_exists($key, $this->server)){
-                        return $this->server[$key];
-                } else {
-                        return $default;
-                }
-        }
+	/**
+	 * Returns the get value of the server array
+	 * @param string $key the array key that should be looked up
+	 * @param string $default if the key is not found, return this value
+	 * @return mixed the value of the stored array or the default
+	 */
+	public function getSERVER($key, $default=null){
+		if(array_key_exists($key, $this->server)){
+			return $this->server[$key];
+		} else {
+			return $default;
+		}
+	}
 
 
-        /**
-         * Returns the get value of the env array
-         * @param string $key the array key that should be looked up
-         * @param string $default if the key is not found, return this value
-         * @return mixed the value of the stored array or the default
-         */
-        public function getENV($key, $default=null){
-                if(array_key_exists($key, $this->env)){
-                        return $this->env[$key];
-                } else {
-                        return $default;
-                }
-        }
+	/**
+	 * Returns the get value of the env array
+	 * @param string $key the array key that should be looked up
+	 * @param string $default if the key is not found, return this value
+	 * @return mixed the value of the stored array or the default
+	 */
+	public function getENV($key, $default=null){
+		if(array_key_exists($key, $this->env)){
+			return $this->env[$key];
+		} else {
+			return $default;
+		}
+	}
 
 
-        /**
-         * Returns the get value of the session array
-         * @param string $key the array key that should be looked up
-         * @param string $default if the key is not found, return this value
-         * @return mixed the value of the stored array or the default
-         */
-        public function getSESSION($key, $default=null){
-                if(array_key_exists($key, $this->session)){
-                        return $this->session[$key];
-                } else {
-                        return $default;
-                }
-        }
+	/**
+	 * Returns the get value of the session array
+	 * @param string $key the array key that should be looked up
+	 * @param string $default if the key is not found, return this value
+	 * @return mixed the value of the stored array or the default
+	 */
+	public function getSESSION($key, $default=null){
+		if(array_key_exists($key, $this->session)){
+			return $this->session[$key];
+		} else {
+			return $default;
+		}
+	}
 
 
-        /**
-         * Returns the get value of the cookie array
-         * @param string $key the array key that should be looked up
-         * @param string $default if the key is not found, return this value
-         * @return mixed the value of the stored array or the default
-         */
-        public function getCOOKIE($key, $default=null){
-                if(array_key_exists($key, $this->cookie)){
-                        return $this->cookie[$key];
-                } else {
-                        return $default;
-                }
-        }
+	/**
+	 * Returns the get value of the cookie array
+	 * @param string $key the array key that should be looked up
+	 * @param string $default if the key is not found, return this value
+	 * @return mixed the value of the stored array or the default
+	 */
+	public function getCOOKIE($key, $default=null){
+		if(array_key_exists($key, $this->cookie)){
+			return $this->cookie[$key];
+		} else {
+			return $default;
+		}
+	}
 
 
-        /**
-         * Returns the get value of the urlParams array
-         * @param string $key the array key that should be looked up
-         * @param string $default if the key is not found, return this value
-         * @return mixed the value of the stored array or the default
-         */
-        public function getURLParams($key, $default=null){
-                if(array_key_exists($key, $this->urlParams)){
-                        return $this->urlParams[$key];
-                } else {
-                        return $default;
-                }
-        }
+	/**
+	 * Returns the get value of the urlParams array
+	 * @param string $key the array key that should be looked up
+	 * @param string $default if the key is not found, return this value
+	 * @return mixed the value of the stored array or the default
+	 */
+	public function getURLParams($key, $default=null){
+		if(array_key_exists($key, $this->urlParams)){
+			return $this->urlParams[$key];
+		} else {
+			return $default;
+		}
+	}
 
 
-        /**
-         * Returns the request method
-         * @return string request method of the server array
-         */
-        public function getMethod(){
-                return $this->getSERVER('REQUEST_METHOD');
-        }
+	/**
+	 * Returns the request method
+	 * @return string request method of the server array
+	 */
+	public function getMethod(){
+		return $this->getSERVER('REQUEST_METHOD');
+	}
 
 
-        /**
-         * Sets a session variable
-         * @param string $key the key of the session variable
-         * @param string $value the value of the session variable
-         */
-        public function setSESSION($key, $value){
-                $this->session[$key] = $value;
-        }
+	/**
+	 * Sets a session variable
+	 * @param string $key the key of the session variable
+	 * @param string $value the value of the session variable
+	 */
+	public function setSESSION($key, $value){
+		$this->session[$key] = $value;
+	}
 
 }

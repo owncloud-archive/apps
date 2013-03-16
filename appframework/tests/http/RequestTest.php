@@ -95,165 +95,165 @@ class RequestTest extends \PHPUnit_Framework_TestCase {
 	}
 
 
-        public function testRequestParams(){
+	public function testRequestParams(){
 		$get = array('johnny' => 'begood');
 		$post = array('also' => 'rockit');
-                $urlParams = array('aaa' => 'bbb');
-                $request = new Request($get, $post, array(), array(),
-                                        array(), array(), array(), $urlParams);
+		$urlParams = array('aaa' => 'bbb');
+		$request = new Request($get, $post, array(), array(),
+					array(), array(), array(), $urlParams);
 
-                $this->assertEquals(array_merge($get, $post, $urlParams),
-                                $request->getRequestParams());
+		$this->assertEquals(array_merge($get, $post, $urlParams), 
+				$request->getRequestParams());
 	}
 
-        // server
-        public function testGetSERVER(){
-                $server = array('test' => 'somevalue');
-                $request = new Request(array(), array(), array(), $server);
+	// server
+	public function testGetSERVER(){
+		$server = array('test' => 'somevalue');
+		$request = new Request(array(), array(), array(), $server);
 
-                $this->assertEquals('somevalue', $request->getSERVER('test'));
-        }
-
-
-        public function testGetSERVEREmpty(){
-                $server = array();
-                $request = new Request(array(), array(), array(), $server);
-
-                $this->assertEquals('', $request->getSERVER('test'));
-        }
+		$this->assertEquals('somevalue', $request->getSERVER('test'));
+	}
 
 
-        public function testGetSERVERDefault(){
-                $server = array();
-                $request = new Request(array(), array(), array(), $server);
+	public function testGetSERVEREmpty(){
+		$server = array();
+		$request = new Request(array(), array(), array(), $server);
 
-                $this->assertEquals('default', $request->getSERVER('test', 'default'));
-        }
-
-
-        // env
-        public function testGetENV(){
-                $ENV = array('test' => 'somevalue');
-                $request = new Request(array(), array(), array(), array(), $ENV);
-
-                $this->assertEquals('somevalue', $request->getENV('test'));
-        }
+		$this->assertEquals('', $request->getSERVER('test'));
+	}
 
 
-        public function testGetENVEmpty(){
-                $ENV = array();
-                $request = new Request(array(), array(), array(), array(), $ENV);
+	public function testGetSERVERDefault(){
+		$server = array();
+		$request = new Request(array(), array(), array(), $server);
 
-                $this->assertEquals('', $request->getENV('test'));
-        }
-
-
-        public function testGetENVDefault(){
-                $ENV = array();
-                $request = new Request(array(), array(), array(), array(), $ENV);
-
-                $this->assertEquals('default', $request->getENV('test', 'default'));
-        }
+		$this->assertEquals('default', $request->getSERVER('test', 'default'));
+	}
 
 
-        // session
-        public function testGetSESSION(){
-                $SESSION = array('test' => 'somevalue');
-                $request = new Request(array(), array(), array(), array(), array(),
-                                                                $SESSION);
+	// env
+	public function testGetENV(){
+		$ENV = array('test' => 'somevalue');
+		$request = new Request(array(), array(), array(), array(), $ENV);
 
-                $this->assertEquals('somevalue', $request->getSESSION('test'));
-        }
-
-
-        public function testGetSESSIONEmpty(){
-                $SESSION = array();
-                $request = new Request(array(), array(), array(), array(), array(),
-                                                                $SESSION);
-
-                $this->assertEquals('', $request->getSESSION('test'));
-        }
+		$this->assertEquals('somevalue', $request->getENV('test'));
+	}
 
 
-        public function testGetSESSIONDefault(){
-                $SESSION = array();
-                $request = new Request(array(), array(), array(), array(), array(),
-                                                                $SESSION);
+	public function testGetENVEmpty(){
+		$ENV = array();
+		$request = new Request(array(), array(), array(), array(), $ENV);
 
-                $this->assertEquals('default', $request->getSESSION('test', 'default'));
-        }
-
-
-        // cookie
-        public function testGetCOOKIE(){
-                $COOKIE = array('test' => 'somevalue');
-                $request = new Request(array(), array(), array(), array(), array(),
-                                                                array(), $COOKIE);
-
-                $this->assertEquals('somevalue', $request->getCOOKIE('test'));
-        }
+		$this->assertEquals('', $request->getENV('test'));
+	}
 
 
-        public function testGetCOOKIEEmpty(){
-                $COOKIE = array();
-                $request = new Request(array(), array(), array(), array(), array(),
-                                                                array(), $COOKIE);
+	public function testGetENVDefault(){
+		$ENV = array();
+		$request = new Request(array(), array(), array(), array(), $ENV);
 
-                $this->assertEquals('', $request->getCOOKIE('test'));
-        }
-
-
-        public function testGetCOOKIEDefault(){
-                $COOKIE = array();
-                $request = new Request(array(), array(), array(), array(), array(),
-                                                                array(), $COOKIE);
-
-                $this->assertEquals('default', $request->getCOOKIE('test', 'default'));
-        }
+		$this->assertEquals('default', $request->getENV('test', 'default'));
+	}
 
 
+	// session
+	public function testGetSESSION(){
+		$SESSION = array('test' => 'somevalue');
+		$request = new Request(array(), array(), array(), array(), array(), 
+								$SESSION);
 
-        // urlParams
-        public function testGeturlParams(){
-                $urlParams = array('test' => 'somevalue');
-                $request = new Request(array(), array(), array(), array(), array(),
-                                                                array(), array(), $urlParams);
-
-                $this->assertEquals('somevalue', $request->getURLParams('test'));
-        }
-
-
-        public function testGeturlParamsEmpty(){
-                $urlParams = array();
-                $request = new Request(array(), array(), array(), array(), array(),
-                                                                array(), array(), $urlParams);
-
-                $this->assertEquals('', $request->getURLParams('test'));
-        }
+		$this->assertEquals('somevalue', $request->getSESSION('test'));
+	}
 
 
-        public function testGeturlParamsDefault(){
-                $urlParams = array();
-                $request = new Request(array(), array(), array(), array(), array(),
-                                                                array(), array(), $urlParams);
+	public function testGetSESSIONEmpty(){
+		$SESSION = array();
+		$request = new Request(array(), array(), array(), array(), array(), 
+								$SESSION);
 
-                $this->assertEquals('default', $request->getURLParams('test', 'default'));
-        }
-
-
-        public function testGetMethod(){
-                $server = array('REQUEST_METHOD' => 'hi');
-                $request = new Request(array(), array(), array(), $server);
-
-                $this->assertEquals('hi', $request->getMethod());
-        }
+		$this->assertEquals('', $request->getSESSION('test'));
+	}
 
 
-        public function testSetSession(){
-                $request = new Request();
-                $request->setSESSION('my', 'value');
+	public function testGetSESSIONDefault(){
+		$SESSION = array();
+		$request = new Request(array(), array(), array(), array(), array(), 
+								$SESSION);
 
-                $this->assertEquals('value', $request->getSESSION('my'));
-        }
+		$this->assertEquals('default', $request->getSESSION('test', 'default'));
+	}
+
+
+	// cookie
+	public function testGetCOOKIE(){
+		$COOKIE = array('test' => 'somevalue');
+		$request = new Request(array(), array(), array(), array(), array(), 
+								array(), $COOKIE);
+
+		$this->assertEquals('somevalue', $request->getCOOKIE('test'));
+	}
+
+
+	public function testGetCOOKIEEmpty(){
+		$COOKIE = array();
+		$request = new Request(array(), array(), array(), array(), array(), 
+								array(), $COOKIE);
+
+		$this->assertEquals('', $request->getCOOKIE('test'));
+	}
+
+
+	public function testGetCOOKIEDefault(){
+		$COOKIE = array();
+		$request = new Request(array(), array(), array(), array(), array(), 
+								array(), $COOKIE);
+
+		$this->assertEquals('default', $request->getCOOKIE('test', 'default'));
+	}
+
+
+
+	// urlParams
+	public function testGeturlParams(){
+		$urlParams = array('test' => 'somevalue');
+		$request = new Request(array(), array(), array(), array(), array(), 
+								array(), array(), $urlParams);
+
+		$this->assertEquals('somevalue', $request->getURLParams('test'));
+	}
+
+
+	public function testGeturlParamsEmpty(){
+		$urlParams = array();
+		$request = new Request(array(), array(), array(), array(), array(), 
+								array(), array(), $urlParams);
+
+		$this->assertEquals('', $request->getURLParams('test'));
+	}
+
+
+	public function testGeturlParamsDefault(){
+		$urlParams = array();
+		$request = new Request(array(), array(), array(), array(), array(), 
+								array(), array(), $urlParams);
+
+		$this->assertEquals('default', $request->getURLParams('test', 'default'));
+	}
+
+
+	public function testGetMethod(){
+		$server = array('REQUEST_METHOD' => 'hi');
+		$request = new Request(array(), array(), array(), $server);
+
+		$this->assertEquals('hi', $request->getMethod());
+	}
+
+
+	public function testSetSession(){
+		$request = new Request();
+		$request->setSESSION('my', 'value');
+
+		$this->assertEquals('value', $request->getSESSION('my'));
+	}
 
 }
