@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 OC_App::loadApp('contacts');
-class Test_Contacts extends PHPUnit_Framework_TestCase {
+class Test_Contacts_Backend_Datebase extends PHPUnit_Framework_TestCase {
 	protected static $schema_file = 'static://test_db_scheme';
 	protected $test_prefix;
 
@@ -50,41 +50,32 @@ class Test_Contacts extends PHPUnit_Framework_TestCase {
 			)
 		);
 
+		// Test address books
 		$this->assertEquals(1, count($this->backend->getAddressBooksForUser()));
+		$this->assertTrue($this->backend->hasAddressBook($aid));
+		$addressBook = $this->backend->getAddressBook($aid);
+		$this->assertEquals('Contacts', $addressBook['displayname']);
+		$this->assertEquals('My Contacts', $addressBook['description']);
+		$this->backend->updateAddressBook($aid, array('description' => 'All my contacts'));
+		$addressBook = $this->backend->getAddressBook($aid);
+		$this->assertEquals('All my contacts', $addressBook['description']);
 
+		// Test contacts
+		$this->assertEquals(array(), $this->backend->getContacts($aid));
+
+		$carddata = file_get_contents(__DIR__ . '/data/test.vcf');
+		$id = $this->backend->createContact($aid, $carddata);
+		$this->assertNotEquals(false, $id); // Isn't there an assertNotFalse() ?
+		$this->assertEquals(1, count($this->backend->getContacts($aid)));
+		$this->assertTrue($this->backend->hasContact($aid, $id));
+		$contact = $this->backend->getContact($aid, $id);
+		$this->assertEquals('Max Mustermann', $contact['displayname']);
+		$carddata = file_get_contents(__DIR__ . '/data/test2.vcf');
+		$this->assertTrue($this->backend->updateContact($aid, $id, $carddata));
+		$contact = $this->backend->getContact($aid, $id);
+		$this->assertEquals('John Q. Public', $contact['displayname']);
+		$this->assertTrue($this->backend->deleteContact($aid, $id));
+
+		$this->assertTrue($this->backend->deleteAddressBook($aid));
 	}
-/*
-	function testAddressbook() {
-		$uid=uniqid();
-		OC_User::setUserId($uid);
-		$this->assertEqual(array(), OCA\Contacts\Addressbook::all($uid));
-		$aid1 = OCA\Contacts\Addressbook::add($uid, 'test');
-		$this->assertTrue(OCA\Contacts\Addressbook::isActive($aid1))
-
-		$all = OCA\Contacts\Addressbook::all($uid);
-		$this->assertEqual(1, count($all));
-
-		$this->assertEqual($aid1, $all[0]['id']);
-		$this->assertEqual('test', $all[0]['displayname']);
-		$this->assertEqual('test', $all[0]['uri']);
-		$this->assertEqual($uid, $all[0]['userid']);
-
-		$aid2=OCA\Contacts\Addressbook::add($uid, 'test');
-		$this->assertNotEqual($aid1, $aid2);
-
-		$all=OCA\Contacts\Addressbook::all($uid);
-		$this->assertEqual(2, count($all));
-
-		$this->assertEqual($aid2, $all[1]['id']);
-		$this->assertEqual('test', $all[1]['displayname']);
-		$this->assertEqual('test1', $all[1]['uri']);
-
-		//$cal1=OCA\Contacts\Addressbook::find($calId1);
-		//$this->assertEqual($cal1,$all[0]);
-
-		OCA\Contacts\Addressbook::delete($aid1);
-		OCA\Contacts\Addressbook::delete($aid);
-		$this->assertEqual(array(), OCA\Contacts\Addressbook::all($uid));
-	}
-*/
 }
