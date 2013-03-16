@@ -1,13 +1,13 @@
 <?php
 OC::$CLASSPATH['OCA\Contacts\App'] = 'contacts/lib/app.php';
-OC::$CLASSPATH['OCA\Contacts\Addressbook'] = 'contacts/lib/addressbook.php';
+OC::$CLASSPATH['OCA\Contacts\AddressBook'] = 'contacts/lib/addressbook.php';
+OC::$CLASSPATH['OCA\Contacts\Contact'] = 'contacts/lib/contact.php';
 OC::$CLASSPATH['OCA\Contacts\AddressbookLegacy'] = 'contacts/lib/addressbooklegacy.php';
 OC::$CLASSPATH['OCA\Contacts\IPIMObject'] = 'contacts/lib/ipimobject.php';
 OC::$CLASSPATH['OCA\Contacts\PIMCollectionAbstract'] = 'contacts/lib/abstractpimcollection.php';
 OC::$CLASSPATH['OCA\Contacts\PIMObjectAbstract'] = 'contacts/lib/abstractpimobject.php';
 OC::$CLASSPATH['OCA\Contacts\VCard'] = 'contacts/lib/vcard.php';
 OC::$CLASSPATH['OCA\Contacts\Hooks'] = 'contacts/lib/hooks.php';
-//require_once __DIR__ . '/../lib/utils/properties.php';
 OC::$CLASSPATH['OCA\Contacts\Utils\JSONSerializer'] = 'contacts/lib/utils/jsonserializer.php';
 OC::$CLASSPATH['OCA\Contacts\Utils\Properties'] = 'contacts/lib/utils/properties.php';
 OC::$CLASSPATH['OCA\Contacts\Backend\AbstractBackend'] = 'contacts/lib/backend/abstractbackend.php';
