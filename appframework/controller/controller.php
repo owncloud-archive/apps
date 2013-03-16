@@ -140,10 +140,9 @@ abstract class Controller {
 	/**
 	 * Shortcut for getting and setting cookie variables
 	 * @param string $key the key that will be taken from the $_COOKIE array
-	 * @param string $value if given sets a new cookie variable
 	 * @return array the value in the $_COOKIE element
 	 */
-	public function cookie($key, $value=null){
+        public function cookie($key){
 		return $this->request->getCOOKIE($key);
 	}
 
