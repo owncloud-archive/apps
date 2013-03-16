@@ -75,16 +75,6 @@ class ItemController extends Controller {
 	 * @return an instance of a Response implementation
 	 */
 	public function index(){
-
-		// thirdparty stuff
-		$this->api->add3rdPartyScript('angular/angular');
-
-		// your own stuff
-		$this->api->addStyle('style');
-		$this->api->addStyle('animation');
-
-		$this->api->addScript('app');
-
 		// example database access
 		// check if an entry with the current user is in the database, if not
 		// create a new entry

@@ -1,3 +1,8 @@
+{{ script('vendor/angular/angular') }}
+{{ script('public/app') }}
+{{ style('style') }}
+{{ style('animation') }}
+
 <div id="app"
 	ng-app="AppTemplateAdvanced"
 	ng-controller="ExampleController">
