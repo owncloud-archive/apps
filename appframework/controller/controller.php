@@ -142,7 +142,7 @@ abstract class Controller {
 	 * @param string $key the key that will be taken from the $_COOKIE array
 	 * @return array the value in the $_COOKIE element
 	 */
-        public function cookie($key){
+	public function cookie($key){
 		return $this->request->getCOOKIE($key);
 	}
 
