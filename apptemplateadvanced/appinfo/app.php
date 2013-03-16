@@ -37,7 +37,7 @@ namespace OCA\AppTemplateAdvanced;
 	'order' => 74,
 	
 	// the route that will be shown on startup
-	'href' => \OC_Helper::linkToRoute('apptemplate_advanced_index'),
+	'href' => \OCP\Util::linkToRoute('apptemplate_advanced_index'),
 	
 	// the icon that will be shown in the navigation
 	'icon' => \OCP\Util::imagePath('apptemplateadvanced', 'example.png' ),

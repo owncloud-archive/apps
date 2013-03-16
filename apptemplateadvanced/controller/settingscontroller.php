@@ -50,8 +50,6 @@ class SettingsController extends Controller {
 	 *                          the routes file
 	 */
 	public function index(){
-		$this->api->addScript('admin');
-		
 		$templateName = 'settings';
 		$params = array(
 			'url' => $this->api->getAppValue('somesetting')

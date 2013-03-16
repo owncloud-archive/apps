@@ -44,6 +44,7 @@ class ItemMapper extends Mapper {
 	/**
 	 * Finds an item by id
 	 * @throws DoesNotExistException: if the item does not exist
+	 * @throws MultipleObjectsReturnedException if more than one item exist
 	 * @return the item
 	 */
 	public function find($id){
