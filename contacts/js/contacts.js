@@ -1754,7 +1754,7 @@ OC.Contacts = OC.Contacts || {};
 	ContactList.prototype.loadContacts = function(offset, cb) {
 		var self = this;
 		// Should the actual ajax call be in the controller?
-		$.getJSON(OC.filePath('contacts', 'ajax', 'contact/list.php'), {offset: offset}, function(jsondata) {
+		$.getJSON(OC.filePath('contacts', 'ajax', 'addressbook/list.php'), {offset: offset}, function(jsondata) {
 			if (jsondata && jsondata.status == 'success') {
 				//console.log('ContactList.loadContacts', jsondata.data);
 				self.addressbooks = {};
