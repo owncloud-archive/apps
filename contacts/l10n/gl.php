@@ -155,6 +155,8 @@
 "New Group" => "Novo grupo",
 "Settings" => "Axustes",
 "Address books" => "Cadernos de enderezos",
+"New" => "Novo",
+"Display name" => "Amosar o nome",
 "OK" => "Aceptar",
 "Import" => "Importar",
 "Select files to import" => "Seleccionar os ficheiros a importar",

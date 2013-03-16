@@ -154,6 +154,7 @@
 "New Group" => "Nhóm mới",
 "Settings" => "Tùy chỉnh",
 "Address books" => "Sổ địa chỉ",
+"New" => "Mới",
 "OK" => "Chấp nhận",
 "Import" => "Nhập",
 "Select files to import" => "Chọn file để nhập dữ liệu.",

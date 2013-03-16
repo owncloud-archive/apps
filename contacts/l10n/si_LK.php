@@ -71,6 +71,7 @@
 "You do not have the permissions to delete this contact." => "මෙම සම්බන්ධතාව මැකීමට ඔබට අවසර නැත",
 "There was an error deleting this contact." => "මෙම සම්බන්ධතාව මැකීමේදී දෝෂයක් ඇති විය",
 "Settings" => "සිටුවම්",
+"New" => "නව",
 "OK" => "හරි",
 "Import" => "ආයාත කරන්න",
 "Groups" => "කණ්ඩායම්",

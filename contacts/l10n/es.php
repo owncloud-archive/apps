@@ -154,6 +154,7 @@
 "New Group" => "Nuevo grupo",
 "Settings" => "Configuración",
 "Address books" => "Libretas de direcciones",
+"New" => "Nuevo",
 "OK" => "Aceptar",
 "Import" => "Importar",
 "Select files to import" => "Selecionar archivos para importar",

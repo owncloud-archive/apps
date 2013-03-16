@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-14 00:02+0100\n"
-"PO-Revision-Date: 2013-03-13 13:50+0000\n"
+"POT-Creation-Date: 2013-03-16 22:12+0100\n"
+"PO-Revision-Date: 2013-03-16 13:00+0000\n"
 "Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr "هیچ کس"
 
 #: opmlexporter.php:44
 msgid "subscriptions in ownCloud - News"
-msgstr ""
+msgstr "اشتراک در بخش اخبار ownCloud"
 
 #: subscribe.php:30
 msgid "An error occurred"
@@ -97,7 +97,7 @@ msgstr "پوشه"
 
 #: templates/part.addnew.php:35
 msgid "No folder"
-msgstr ""
+msgstr "بدون پوشه"
 
 #: templates/part.feed.starred.php:6
 msgid "Starred"
@@ -114,7 +114,7 @@ msgstr "تمام مطالب"
 #: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:33
 msgid "Mark all read"
-msgstr ""
+msgstr "علامت خوانده شده برای همه"
 
 #: templates/part.items.php:34
 msgid "Cant play audio format"

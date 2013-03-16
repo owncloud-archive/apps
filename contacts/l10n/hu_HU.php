@@ -155,6 +155,8 @@
 "New Group" => "Új csoport",
 "Settings" => "Beállítások",
 "Address books" => "Címjegyzékek",
+"New" => "Új",
+"Display name" => "A megjelenített név",
 "OK" => "OK",
 "Import" => "Import",
 "Select files to import" => "Importálandó fájlok kiválasztása",

@@ -155,6 +155,7 @@
 "New Group" => "Talde berria",
 "Settings" => "Ezarpenak",
 "Address books" => "Helbide liburuak",
+"New" => "Berria",
 "OK" => "Ados",
 "Import" => "Inportatu",
 "Select files to import" => "Hautatu inportatzeko fitxategiak",

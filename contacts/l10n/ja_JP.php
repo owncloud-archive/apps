@@ -155,6 +155,7 @@
 "New Group" => "新しいグループ",
 "Settings" => "設定",
 "Address books" => "アドレスブック",
+"New" => "新規",
 "OK" => "OK",
 "Import" => "インポート",
 "Select files to import" => "インポートするファイルを選択",

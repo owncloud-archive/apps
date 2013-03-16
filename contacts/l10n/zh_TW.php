@@ -105,6 +105,7 @@
 "HomePage" => "首頁",
 "New Group" => "新群組",
 "Settings" => "設定",
+"New" => "新增",
 "OK" => "好",
 "Import" => "匯入",
 "(De-)select all" => "(反)全選",

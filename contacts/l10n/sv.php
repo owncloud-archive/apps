@@ -154,6 +154,7 @@
 "New Group" => "Ny grupp",
 "Settings" => "Inställningar",
 "Address books" => "Adressböcker",
+"New" => "Ny",
 "OK" => "OK",
 "Import" => "Importera",
 "Select files to import" => "Välj filer för import",

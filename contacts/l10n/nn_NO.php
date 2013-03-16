@@ -25,6 +25,7 @@
 "Pager" => "Personsøkjar",
 "Contact" => "Kontakt",
 "Settings" => "Innstillingar",
+"New" => "Ny",
 "Import" => "Importer",
 "Groups" => "Grupper",
 "Close" => "Lukk",

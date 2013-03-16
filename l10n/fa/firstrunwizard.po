@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-20 00:01+0100\n"
-"PO-Revision-Date: 2013-02-19 09:30+0000\n"
+"POT-Creation-Date: 2013-03-16 22:12+0100\n"
+"PO-Revision-Date: 2013-03-16 08:31+0000\n"
 "Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "خوش آمدید"
 msgid ""
 "Your personal web services. All your files, contacts, calendar and more, in "
 "one place."
-msgstr ""
+msgstr "سرویس های شخصی تحت وب شما، همه ی فایلهای شما، مخاطبان، تقویم و چیزهای بیشتر، در یکجا."
 
 #: templates/wizard.php:11
 msgid "Get the apps to sync your files"
@@ -35,15 +35,15 @@ msgstr ""
 
 #: templates/wizard.php:23
 msgid "Connect your desktop apps to ownCloud"
-msgstr ""
+msgstr "اتصال برنامه های دسکتاپ به ownCloud"
 
 #: templates/wizard.php:25
 msgid "Connect your Calendar"
-msgstr ""
+msgstr "اتصال تقویم خودتان"
 
 #: templates/wizard.php:28
 msgid "Connect your Contacts"
-msgstr ""
+msgstr "اتصال مخاطبان شما"
 
 #: templates/wizard.php:31
 msgid "Access files via WebDAV"
@@ -54,11 +54,11 @@ msgid ""
 "There’s more information in the <a "
 "href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
 "and on our <a href=\"http://owncloud.org\">website</a>."
-msgstr ""
+msgstr "اطلاعات بیشتری در <a href=\"http://doc.owncloud.org/server/5.0/user_manual/\">مستندات</a> و بر روی <a href=\"http://owncloud.org\">وب سایت </a> ما قرار دارد."
 
 #: templates/wizard.php:35
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"
 " http://owncloud.org\">recommend it to your friends</a>!"
-msgstr ""
+msgstr "اگر شما ownCloud را دوست دارید، <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">اون رو به دوستانتان معرفی کنید</a>!"

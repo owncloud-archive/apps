@@ -155,6 +155,7 @@
 "New Group" => "Yeni Grup",
 "Settings" => "Ayarlar",
 "Address books" => "Adres defterleri",
+"New" => "Yeni",
 "OK" => "OK",
 "Import" => "İçe aktar",
 "Select files to import" => "İçe aktarılacak dosyarı seçin",

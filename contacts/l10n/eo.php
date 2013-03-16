@@ -153,6 +153,7 @@
 "New Group" => "Nova grupo",
 "Settings" => "Agordo",
 "Address books" => "Adresaroj",
+"New" => "Nova",
 "OK" => "Akcepti",
 "Import" => "Enporti",
 "Select files to import" => "Elekti dosierojn por enporti",

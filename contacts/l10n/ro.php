@@ -58,6 +58,7 @@
 "{name}'s Birthday" => "Ziua de naștere a {name}",
 "Contact" => "Contact",
 "Settings" => "Setări",
+"New" => "Nou",
 "OK" => "OK",
 "Import" => "Importă",
 "Groups" => "Grupuri",

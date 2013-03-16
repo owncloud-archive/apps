@@ -71,6 +71,7 @@
 "{name}'s Birthday" => "Hari Lahir {name}",
 "Contact" => "Hubungan",
 "Settings" => "Tetapan",
+"New" => "Baru",
 "OK" => "OK",
 "Import" => "Import",
 "Groups" => "Kumpulan",

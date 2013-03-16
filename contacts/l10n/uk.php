@@ -154,6 +154,7 @@
 "New Group" => "Нова група",
 "Settings" => "Налаштування",
 "Address books" => "Адресні книги",
+"New" => "Створити",
 "OK" => "OK",
 "Import" => "Імпорт",
 "Select files to import" => "Виберіть файли для імпорта",

@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-15 00:01+0100\n"
-"PO-Revision-Date: 2013-03-14 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-16 22:12+0100\n"
+"PO-Revision-Date: 2013-03-14 23:50+0000\n"
+"Last-Translator: Vincenzo Reale <vinx.reale@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -258,8 +258,8 @@ msgstr "Indicizzazione dei contatti"
 msgid "Select photo"
 msgstr "Seleziona la foto"
 
-#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1597
-#: js/app.js:1721 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
+#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1598
+#: js/app.js:1722 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
 msgid "Network or server error. Please inform administrator."
 msgstr "Errore di rete o del server. Informare l'amministratore."
 
@@ -283,86 +283,86 @@ msgstr "Eliminazione completata. Fai clic qui per annullare il ricaricamento."
 msgid "Add address book"
 msgstr "Aggiungi rubrica"
 
-#: js/app.js:1061
+#: js/app.js:1062
 msgid "Import done. Click here to cancel reloading."
 msgstr "Importazione completata. Fai clic qui per annullare il ricaricamento."
 
-#: js/app.js:1102
+#: js/app.js:1103
 msgid "Not all files uploaded. Retrying..."
 msgstr "Non tutti i file sono stati caricati. Riprovo..."
 
-#: js/app.js:1108
+#: js/app.js:1109
 msgid "Something went wrong with the upload, please retry."
 msgstr "Qualcosa non ha funzionato durante il caricamento. Prova ancora."
 
-#: js/app.js:1108 js/app.js:1656 js/settings.js:25 js/settings.js:45
+#: js/app.js:1109 js/app.js:1657 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Errore"
 
-#: js/app.js:1118
+#: js/app.js:1119
 msgid "Importing from {filename}..."
 msgstr "Importazione da {filename} in corso..."
 
-#: js/app.js:1121
+#: js/app.js:1122
 msgid "{success} imported, {failed} failed."
 msgstr "{success} importati, {failed} non riusciti."
 
-#: js/app.js:1132
+#: js/app.js:1133
 msgid "Importing..."
 msgstr "Importazione in corso..."
 
-#: js/app.js:1155
+#: js/app.js:1156
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Impossibile caricare il file poiché è una cartella o ha una dimensione di 0 byte"
 
-#: js/app.js:1155
+#: js/app.js:1156
 msgid "Upload Error"
 msgstr "Errore di caricamento"
 
-#: js/app.js:1162 js/app.js:1472
+#: js/app.js:1163 js/app.js:1473
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Il file che stai cercando di inviare supera la dimensione massima per l'invio dei file su questo server."
 
-#: js/app.js:1162
+#: js/app.js:1163
 msgid "Upload too large"
 msgstr "Caricamento troppo grande"
 
-#: js/app.js:1206
+#: js/app.js:1207
 msgid "Pending"
 msgstr "In corso"
 
-#: js/app.js:1351 templates/contacts.php:130
+#: js/app.js:1352 templates/contacts.php:130
 msgid "Add group"
 msgstr "Aggiungi gruppo"
 
-#: js/app.js:1460
+#: js/app.js:1461
 msgid "No files selected for upload."
 msgstr "Nessun file selezionato per l'invio"
 
-#: js/app.js:1562
+#: js/app.js:1563
 msgid "Edit profile picture"
 msgstr "Modifica l'immagine del profilo"
 
-#: js/app.js:1580 js/contacts.js:1169
+#: js/app.js:1581 js/contacts.js:1169
 msgid "Error loading profile picture."
 msgstr "Errore durante il caricamento dell'immagine di profilo."
 
-#: js/app.js:1644
+#: js/app.js:1645
 msgid "Enter name"
 msgstr "Inserisci il nome"
 
-#: js/app.js:1645
+#: js/app.js:1646
 msgid "Enter description"
 msgstr "Inserisci una descrizione"
 
-#: js/app.js:1648
+#: js/app.js:1649
 msgid "Select addressbook"
 msgstr "Seleziona rubrica"
 
-#: js/app.js:1656
+#: js/app.js:1657
 msgid "The address book name cannot be empty."
 msgstr "Il nome della rubrica non può essere vuoto."
 
@@ -392,45 +392,45 @@ msgstr "Un clic per annullare l'eliminazione di {num} contatti"
 msgid "Cancelled deletion of {num}"
 msgstr "Eliminazione di {num} annullata"
 
-#: js/groups.js:193
+#: js/groups.js:194
 msgid "Contact is already in this group."
 msgstr "Il contatto è già in questo gruppo."
 
-#: js/groups.js:206
+#: js/groups.js:207
 msgid "Contacts are already in this group."
 msgstr "I contatti sono già in questo gruppo."
 
-#: js/groups.js:272
+#: js/groups.js:273
 msgid "Couldn't get contact list."
 msgstr "Impossibile ottenere l'elenco dei contatti."
 
-#: js/groups.js:283
+#: js/groups.js:284
 msgid "Contact is not in this group."
 msgstr "Il contatto non è in questo gruppo."
 
-#: js/groups.js:297
+#: js/groups.js:298
 msgid "Contacts are not in this group."
 msgstr "I contatti non sono in questo gruppo."
 
-#: js/groups.js:542
+#: js/groups.js:544
 msgid "A group named {group} already exists"
 msgstr "Un gruppo con nome {group} esiste già"
 
-#: js/groups.js:574
+#: js/groups.js:578
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Puoi trascinare i gruppi per\norganizzarli come preferisci."
 
-#: js/groups.js:593
+#: js/groups.js:597
 msgid "All"
 msgstr "Tutti"
 
-#: js/groups.js:607
+#: js/groups.js:611 js/groups.js:614
 msgid "Favorites"
 msgstr "Preferiti"
 
-#: js/groups.js:663
+#: js/groups.js:668
 msgid "Shared by {owner}"
 msgstr "Condiviso da {owner}"
 
@@ -669,11 +669,11 @@ msgstr "Rubriche"
 
 #: templates/contacts.php:20
 msgid "New"
-msgstr ""
+msgstr "Nuovo"
 
 #: templates/contacts.php:22
 msgid "Display name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #: templates/contacts.php:24 templates/contacts.php:44
 msgid "OK"

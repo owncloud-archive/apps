@@ -155,6 +155,8 @@
 "New Group" => "新建分组",
 "Settings" => "设置",
 "Address books" => "地址簿",
+"New" => "新建",
+"Display name" => "显示名称",
 "OK" => "OK",
 "Import" => "导入",
 "Select files to import" => "选择要导入的文件",

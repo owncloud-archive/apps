@@ -4,13 +4,14 @@
 # 
 # Translators:
 #   <appweb.cn@gmail.com>, 2012.
+# marguerite su <i@marguerite.su>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-16 22:12+0100\n"
+"PO-Revision-Date: 2013-03-16 14:00+0000\n"
+"Last-Translator: marguerite su <i@marguerite.su>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,16 +21,16 @@ msgstr ""
 
 #: ajax/share.php:26
 msgid "Document was shared"
-msgstr ""
+msgstr "文档已分享"
 
 #: ajax/share.php:27
 #, php-format
 msgid "User %s shared quick document %s with you."
-msgstr ""
+msgstr "用户 %s 与您分享了便捷文档 %s。"
 
 #: appinfo/app.php:99
 msgid "My pad"
-msgstr "我的Pad"
+msgstr "我的 Pad"
 
 #: templates/index.php:15 templates/index.php:16
 msgid "Settings"
@@ -37,7 +38,7 @@ msgstr "设置"
 
 #: templates/index.php:18
 msgid "Pad Title"
-msgstr "Pad名称"
+msgstr "Pad 名称"
 
 #: templates/index.php:19
 msgid "Open"
@@ -45,19 +46,19 @@ msgstr "打开"
 
 #: templates/index.php:20
 msgid "Share with"
-msgstr "共享"
+msgstr "分享之"
 
 #: templates/index.php:21
 msgid "Share"
-msgstr "共享"
+msgstr "分享"
 
 #: templates/settings.php:16
 msgid "Etherpad service URL"
-msgstr "Etherpad 服务地址"
+msgstr "Etherpad 服务 URL"
 
 #: templates/settings.php:21
 msgid "Username"
-msgstr "用户名称"
+msgstr "用户名"
 
 #: templates/settings.php:28
 msgid "Save"

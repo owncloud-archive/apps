@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-15 00:01+0100\n"
-"PO-Revision-Date: 2013-03-14 23:02+0000\n"
+"POT-Creation-Date: 2013-03-16 22:12+0100\n"
+"PO-Revision-Date: 2013-03-14 23:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -254,8 +254,8 @@ msgstr "Indeksē kontaktus"
 msgid "Select photo"
 msgstr "Izvēlieties fotogrāfiju"
 
-#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1597
-#: js/app.js:1721 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
+#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1598
+#: js/app.js:1722 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
 msgid "Network or server error. Please inform administrator."
 msgstr "Tīkla vai servera kļūda. Lūdzu, informējiet administratoru."
 
@@ -279,86 +279,86 @@ msgstr "Dzēšana ir pabeigta. Spiediet šeit, lai beigtu pārlādēt."
 msgid "Add address book"
 msgstr "Pievienot adrešu grāmatu"
 
-#: js/app.js:1061
+#: js/app.js:1062
 msgid "Import done. Click here to cancel reloading."
 msgstr "Importēšana ir pabeigta. Spiediet šeit, lai beigtu pārlādēt."
 
-#: js/app.js:1102
+#: js/app.js:1103
 msgid "Not all files uploaded. Retrying..."
 msgstr "Ne visas datnes ir augšupielādētas. Mēģina vēlreiz..."
 
-#: js/app.js:1108
+#: js/app.js:1109
 msgid "Something went wrong with the upload, please retry."
 msgstr "Kaut kas nogāja greizi ar augšupielādēšanu. Lūdzu, mēģiniet vēlreiz."
 
-#: js/app.js:1108 js/app.js:1656 js/settings.js:25 js/settings.js:45
+#: js/app.js:1109 js/app.js:1657 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Kļūda"
 
-#: js/app.js:1118
+#: js/app.js:1119
 msgid "Importing from {filename}..."
 msgstr "Importē no {filename}..."
 
-#: js/app.js:1121
+#: js/app.js:1122
 msgid "{success} imported, {failed} failed."
 msgstr "{success} importēti, {failed} cieta neveiksmi."
 
-#: js/app.js:1132
+#: js/app.js:1133
 msgid "Importing..."
 msgstr "Importē..."
 
-#: js/app.js:1155
+#: js/app.js:1156
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Nevar augšupielādēt jūsu datni, jo tā ir direktorija vai arī tā ir 0 baitu liela"
 
-#: js/app.js:1155
+#: js/app.js:1156
 msgid "Upload Error"
 msgstr "Augšupielādes kļūda"
 
-#: js/app.js:1162 js/app.js:1472
+#: js/app.js:1163 js/app.js:1473
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Datne, ko mēģināt augšupielādēt pārsniedz maksimālo datņu augšupielādes izmēru šim serverim."
 
-#: js/app.js:1162
+#: js/app.js:1163
 msgid "Upload too large"
 msgstr "Datne ir par lielu, lai to augšupielādētu"
 
-#: js/app.js:1206
+#: js/app.js:1207
 msgid "Pending"
 msgstr "Gaida savu kārtu"
 
-#: js/app.js:1351 templates/contacts.php:130
+#: js/app.js:1352 templates/contacts.php:130
 msgid "Add group"
 msgstr "Pievienot grupu"
 
-#: js/app.js:1460
+#: js/app.js:1461
 msgid "No files selected for upload."
 msgstr "Neviena datne nav izvēlēta augšupielādei."
 
-#: js/app.js:1562
+#: js/app.js:1563
 msgid "Edit profile picture"
 msgstr "Rediģēt profila bildi"
 
-#: js/app.js:1580 js/contacts.js:1169
+#: js/app.js:1581 js/contacts.js:1169
 msgid "Error loading profile picture."
 msgstr "Kļūda, ielādējot profila bildi."
 
-#: js/app.js:1644
+#: js/app.js:1645
 msgid "Enter name"
 msgstr "Ievadiet vārdu"
 
-#: js/app.js:1645
+#: js/app.js:1646
 msgid "Enter description"
 msgstr "Ievadiet aprakstu"
 
-#: js/app.js:1648
+#: js/app.js:1649
 msgid "Select addressbook"
 msgstr "Izvēlieties adrešu grāmatu"
 
-#: js/app.js:1656
+#: js/app.js:1657
 msgid "The address book name cannot be empty."
 msgstr "Adrešu grāmatas nosaukums nedrīkst būt tukšs."
 
@@ -388,45 +388,45 @@ msgstr "Spiediet, lai atsauktu {num} kontaktu dzēšanu"
 msgid "Cancelled deletion of {num}"
 msgstr "Atcēla {num} dzēšanu"
 
-#: js/groups.js:193
+#: js/groups.js:194
 msgid "Contact is already in this group."
 msgstr "Kontakts jau ir šajā grupā."
 
-#: js/groups.js:206
+#: js/groups.js:207
 msgid "Contacts are already in this group."
 msgstr "Kontakti jau ir šajā grupā."
 
-#: js/groups.js:272
+#: js/groups.js:273
 msgid "Couldn't get contact list."
 msgstr "Nevarēja saņemt kontaktu sarakstu."
 
-#: js/groups.js:283
+#: js/groups.js:284
 msgid "Contact is not in this group."
 msgstr "Kontakts nav šajā grupā."
 
-#: js/groups.js:297
+#: js/groups.js:298
 msgid "Contacts are not in this group."
 msgstr "Kontakti nav šajā grupā."
 
-#: js/groups.js:542
+#: js/groups.js:544
 msgid "A group named {group} already exists"
 msgstr "Grupa “{group}” jau eksistē"
 
-#: js/groups.js:574
+#: js/groups.js:578
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Jūs varat vilkt grupas,\nlai izkārtotu tās pēc savas patikas."
 
-#: js/groups.js:593
+#: js/groups.js:597
 msgid "All"
 msgstr "Visi"
 
-#: js/groups.js:607
+#: js/groups.js:611 js/groups.js:614
 msgid "Favorites"
 msgstr "Iecienītie"
 
-#: js/groups.js:663
+#: js/groups.js:668
 msgid "Shared by {owner}"
 msgstr "Dalījās {owner}"
 
@@ -665,7 +665,7 @@ msgstr "Adrešu grāmatas"
 
 #: templates/contacts.php:20
 msgid "New"
-msgstr ""
+msgstr "Jauna"
 
 #: templates/contacts.php:22
 msgid "Display name"

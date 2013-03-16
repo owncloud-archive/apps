@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-15 00:01+0100\n"
-"PO-Revision-Date: 2013-03-14 23:02+0000\n"
+"POT-Creation-Date: 2013-03-16 22:12+0100\n"
+"PO-Revision-Date: 2013-03-14 23:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -255,8 +255,8 @@ msgstr "จัดทำสารบัญรายชื่อผู้ติด
 msgid "Select photo"
 msgstr "เลือกรูปถ่าย"
 
-#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1597
-#: js/app.js:1721 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
+#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1598
+#: js/app.js:1722 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
 msgid "Network or server error. Please inform administrator."
 msgstr "เครือข่ายหรือเซิร์ฟเวอร์ เกิดข้อผิดพลาด กรุณาติดต่อผู้ดูแลระบบ"
 
@@ -280,86 +280,86 @@ msgstr "ลบเสร็จสิ้น คลิกที่นี่เพ�
 msgid "Add address book"
 msgstr "เพิ่มสมุดบันทึกที่อยู่"
 
-#: js/app.js:1061
+#: js/app.js:1062
 msgid "Import done. Click here to cancel reloading."
 msgstr "การนำเข้าเสร็จสิ้น คลิกที่นี่เพื่อยกเลิกการโหลดซ้ำ"
 
-#: js/app.js:1102
+#: js/app.js:1103
 msgid "Not all files uploaded. Retrying..."
 msgstr "ไม่ใช่ไฟล์ทั้งหมดที่จะถูกอัพโหลด กำลังลองใหม่..."
 
-#: js/app.js:1108
+#: js/app.js:1109
 msgid "Something went wrong with the upload, please retry."
 msgstr "เกิดข้อผิดพลาดบางประการในการอัพโหลด, กรุณาลองใหม่อีกครั้ง"
 
-#: js/app.js:1108 js/app.js:1656 js/settings.js:25 js/settings.js:45
+#: js/app.js:1109 js/app.js:1657 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "พบข้อผิดพลาด"
 
-#: js/app.js:1118
+#: js/app.js:1119
 msgid "Importing from {filename}..."
 msgstr "กำลังนำเข้าข้อมูลจาก {filename}..."
 
-#: js/app.js:1121
+#: js/app.js:1122
 msgid "{success} imported, {failed} failed."
 msgstr "{success} นำเข้าแล้ว, {failed} ล้มเหลว."
 
-#: js/app.js:1132
+#: js/app.js:1133
 msgid "Importing..."
 msgstr "กำลังนำเข้าข้อมูล..."
 
-#: js/app.js:1155
+#: js/app.js:1156
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "ไม่สามารถอัพโหลดไฟล์ของคุณได้ เนื่องจากไฟล์ดังกล่าวเป็นไดเร็กทอรี่ หรือ มีขนาดไฟล์ 0 ไบต์"
 
-#: js/app.js:1155
+#: js/app.js:1156
 msgid "Upload Error"
 msgstr "เกิดข้อผิดพลาดในการอัพโหลด"
 
-#: js/app.js:1162 js/app.js:1472
+#: js/app.js:1163 js/app.js:1473
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "ไฟล์ที่คุณกำลังพยายามที่จะอัพโหลดมีขนาดเกินจำนวนสูงสุดที่สามารถอัพโหลดได้สำหรับเซิร์ฟเวอร์นี้"
 
-#: js/app.js:1162
+#: js/app.js:1163
 msgid "Upload too large"
 msgstr "ไฟล์ที่อัพโหลดมีขนาดใหญ่เกินไป"
 
-#: js/app.js:1206
+#: js/app.js:1207
 msgid "Pending"
 msgstr "อยู่ระหว่างดำเนินการ"
 
-#: js/app.js:1351 templates/contacts.php:130
+#: js/app.js:1352 templates/contacts.php:130
 msgid "Add group"
 msgstr "เพิ่มกลุ่ม"
 
-#: js/app.js:1460
+#: js/app.js:1461
 msgid "No files selected for upload."
 msgstr "ยังไม่ได้เลือกไฟล์ำสำหรับอัพโหลด"
 
-#: js/app.js:1562
+#: js/app.js:1563
 msgid "Edit profile picture"
 msgstr "แก้ไขรูปภาพหน้าโปรไฟล์"
 
-#: js/app.js:1580 js/contacts.js:1169
+#: js/app.js:1581 js/contacts.js:1169
 msgid "Error loading profile picture."
 msgstr "เกิดข้อผิดพลาดในการโหลดรูปภาพประจำตัว"
 
-#: js/app.js:1644
+#: js/app.js:1645
 msgid "Enter name"
 msgstr "กรอกชื่อ"
 
-#: js/app.js:1645
+#: js/app.js:1646
 msgid "Enter description"
 msgstr "กรอกคำอธิบาย"
 
-#: js/app.js:1648
+#: js/app.js:1649
 msgid "Select addressbook"
 msgstr "เลือกสมุดบันทึกที่อยู่"
 
-#: js/app.js:1656
+#: js/app.js:1657
 msgid "The address book name cannot be empty."
 msgstr "ชื่อของสมุดบันทึกที่อยู่ไม่สามารถเว้นว่างได้"
 
@@ -389,45 +389,45 @@ msgstr "คลิกเพื่อเลิกทำ การลบราย�
 msgid "Cancelled deletion of {num}"
 msgstr "ยกเลิกการลบ {num} รายการแล้ว"
 
-#: js/groups.js:193
+#: js/groups.js:194
 msgid "Contact is already in this group."
 msgstr "รายชื่อผู้ติดต่อมีอยู่ในกลุ่มนี้อยู่แล้ว"
 
-#: js/groups.js:206
+#: js/groups.js:207
 msgid "Contacts are already in this group."
 msgstr "รายชื่อผู้ติดต่อดังกล่าวมีอยู่แล้วในกลุ่มนี้"
 
-#: js/groups.js:272
+#: js/groups.js:273
 msgid "Couldn't get contact list."
 msgstr "ไม่สามารถดึงรายชื่อผู้ติดต่อได้"
 
-#: js/groups.js:283
+#: js/groups.js:284
 msgid "Contact is not in this group."
 msgstr "รายชื่อผู้ติดต่อไม่มีอยู่ในกลุ่มนี้"
 
-#: js/groups.js:297
+#: js/groups.js:298
 msgid "Contacts are not in this group."
 msgstr "รายชื่อผู้ติดต่อดังกล่าวไม่มีอยู่ในกลุ่มนี้"
 
-#: js/groups.js:542
+#: js/groups.js:544
 msgid "A group named {group} already exists"
 msgstr "ชื่อกลุ่มดังกล่าว {group} มีอยู่แล้ว"
 
-#: js/groups.js:574
+#: js/groups.js:578
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "คุณสามารถลากชื่อกลุ่ม\nเพื่อจัดระเบียบตามที่คุณต้องการได้."
 
-#: js/groups.js:593
+#: js/groups.js:597
 msgid "All"
 msgstr "ทั้งหมด"
 
-#: js/groups.js:607
+#: js/groups.js:611 js/groups.js:614
 msgid "Favorites"
 msgstr "รายการโปรด"
 
-#: js/groups.js:663
+#: js/groups.js:668
 msgid "Shared by {owner}"
 msgstr "ถูกแชร์โดย {owner}"
 
@@ -666,7 +666,7 @@ msgstr "สมุดบันทึกที่อยู่"
 
 #: templates/contacts.php:20
 msgid "New"
-msgstr ""
+msgstr "อัพโหลดไฟล์ใหม่"
 
 #: templates/contacts.php:22
 msgid "Display name"

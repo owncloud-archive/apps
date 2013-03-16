@@ -62,6 +62,7 @@
 "{name}'s Birthday" => "{name} Rođendan",
 "Contact" => "Kontakt",
 "Settings" => "Postavke",
+"New" => "novo",
 "Import" => "Uvezi",
 "Groups" => "Grupe",
 "Close" => "Zatvori",

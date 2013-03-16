@@ -19,6 +19,7 @@
 "Work" => "Trabalh",
 "Other" => "Autres",
 "Settings" => "Configuracion",
+"New" => "Nòu",
 "OK" => "D'accòrdi",
 "Import" => "Importa",
 "Groups" => "Grops",

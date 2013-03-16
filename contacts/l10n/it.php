@@ -155,6 +155,8 @@
 "New Group" => "Nuovo gruppo",
 "Settings" => "Impostazioni",
 "Address books" => "Rubriche",
+"New" => "Nuovo",
+"Display name" => "Nome visualizzato",
 "OK" => "OK",
 "Import" => "Importa",
 "Select files to import" => "Seleziona i file da importare",

@@ -32,6 +32,7 @@
 "{name}'s Birthday" => "hari ulang tahun {name}",
 "Contact" => "kontak",
 "Settings" => "pengaturan",
+"New" => "Baru",
 "Import" => "impor",
 "Groups" => "grup",
 "Close" => "tutup",

@@ -37,6 +37,7 @@
 "Internet" => "Internetas",
 "Contact" => "Kontaktas",
 "Settings" => "Nustatymai",
+"New" => "Naujas",
 "OK" => "Gerai",
 "Import" => "Importuoti",
 "Groups" => "Grupės",

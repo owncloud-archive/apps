@@ -155,6 +155,7 @@
 "New Group" => "Nieuwe Groep",
 "Settings" => "Instellingen",
 "Address books" => "Adresboeken",
+"New" => "Nieuw",
 "OK" => "OK",
 "Import" => "Importeer",
 "Select files to import" => "Selecteer de te importeren bestanden",

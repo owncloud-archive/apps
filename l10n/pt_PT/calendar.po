@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-06 00:04+0100\n"
-"PO-Revision-Date: 2013-03-05 11:39+0000\n"
+"POT-Creation-Date: 2013-03-16 22:12+0100\n"
+"PO-Revision-Date: 2013-03-15 15:40+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -395,7 +395,7 @@ msgstr "Trabalho"
 msgid "by"
 msgstr "por"
 
-#: lib/app.php:451
+#: lib/app.php:467
 msgid "unnamed"
 msgstr "não definido"
 

@@ -44,6 +44,7 @@
 "{name}'s Birthday" => "{name} säi Gebuertsdag",
 "Contact" => "Kontakt",
 "Settings" => "Astellungen",
+"New" => "Nei",
 "OK" => "OK",
 "Import" => "Import",
 "Groups" => "Gruppen",

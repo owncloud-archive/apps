@@ -106,6 +106,7 @@
 "You do not have the permissions to delete this contact." => "您没有权限删除此联系人。",
 "There was an error deleting this contact." => "删除联系人出错。",
 "Settings" => "设置",
+"New" => "新建",
 "OK" => "好",
 "Import" => "导入",
 "Groups" => "群组",

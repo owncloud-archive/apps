@@ -155,6 +155,7 @@
 "New Group" => "Grup nou",
 "Settings" => "Configuració",
 "Address books" => "Llibretes d'adreces",
+"New" => "Nova",
 "OK" => "D'acord",
 "Import" => "Importa",
 "Select files to import" => "Seleccioneu els fitxers a importar",

@@ -90,6 +90,7 @@
 "There was an error deleting this contact." => "Det oppstod en feil ved sletting av denne kontakten",
 "New Group" => "Ny gruppe",
 "Settings" => "Innstillinger",
+"New" => "Ny",
 "OK" => "OK",
 "Import" => "Importer",
 "Select files" => "Velg filer",

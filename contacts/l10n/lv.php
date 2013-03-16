@@ -154,6 +154,7 @@
 "New Group" => "Jauna grupa",
 "Settings" => "Iestatījumi",
 "Address books" => "Adrešu grāmatas",
+"New" => "Jauna",
 "OK" => "Labi",
 "Import" => "Importēt",
 "Select files to import" => "Izvēlieties datnes, ko importēt",

@@ -155,6 +155,7 @@
 "New Group" => "Nouveau Groupe",
 "Settings" => "Paramètres",
 "Address books" => "Carnets d'adresses",
+"New" => "Nouveau",
 "OK" => "OK",
 "Import" => "Importer",
 "Select files to import" => "Sélectionnez les fichiers à importer",

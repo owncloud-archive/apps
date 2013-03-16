@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Amir Reza Asadi <amirreza.asadi@live.com>, 2013.
 # Hossein nag <h.sname@yahoo.com>, 2012.
 # mahdi Kereshteh <miki_mika1362@yahoo.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-15 00:01+0100\n"
-"PO-Revision-Date: 2013-03-14 23:02+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-16 22:12+0100\n"
+"PO-Revision-Date: 2013-03-16 13:00+0000\n"
+"Last-Translator: Amir Reza Asadi <amirreza.asadi@live.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -255,8 +256,8 @@ msgstr ""
 msgid "Select photo"
 msgstr "تصویر را انتخاب کنید"
 
-#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1597
-#: js/app.js:1721 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
+#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1598
+#: js/app.js:1722 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
 msgid "Network or server error. Please inform administrator."
 msgstr ""
 
@@ -280,88 +281,88 @@ msgstr ""
 msgid "Add address book"
 msgstr ""
 
-#: js/app.js:1061
+#: js/app.js:1062
 msgid "Import done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:1102
+#: js/app.js:1103
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/app.js:1108
+#: js/app.js:1109
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/app.js:1108 js/app.js:1656 js/settings.js:25 js/settings.js:45
+#: js/app.js:1109 js/app.js:1657 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "خطا"
 
-#: js/app.js:1118
+#: js/app.js:1119
 msgid "Importing from {filename}..."
 msgstr ""
 
-#: js/app.js:1121
+#: js/app.js:1122
 msgid "{success} imported, {failed} failed."
 msgstr ""
 
-#: js/app.js:1132
+#: js/app.js:1133
 msgid "Importing..."
 msgstr ""
 
-#: js/app.js:1155
+#: js/app.js:1156
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "ناتوان در بارگذاری یا فایل یک پوشه است یا 0بایت دارد"
 
-#: js/app.js:1155
+#: js/app.js:1156
 msgid "Upload Error"
 msgstr "خطا در بار گذاری"
 
-#: js/app.js:1162 js/app.js:1472
+#: js/app.js:1163 js/app.js:1473
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "حجم فایل بسیار بیشتر از حجم تنظیم شده در تنظیمات سرور است"
 
-#: js/app.js:1162
+#: js/app.js:1163
 msgid "Upload too large"
 msgstr "سایز فایل برای آپلود زیاد است(م.تنظیمات در php.ini)"
 
-#: js/app.js:1206
+#: js/app.js:1207
 msgid "Pending"
 msgstr "در انتظار"
 
-#: js/app.js:1351 templates/contacts.php:130
+#: js/app.js:1352 templates/contacts.php:130
 msgid "Add group"
 msgstr ""
 
-#: js/app.js:1460
+#: js/app.js:1461
 msgid "No files selected for upload."
 msgstr "هیچ فایلی برای آپلود انتخاب نشده است"
 
-#: js/app.js:1562
+#: js/app.js:1563
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1580 js/contacts.js:1169
+#: js/app.js:1581 js/contacts.js:1169
 msgid "Error loading profile picture."
 msgstr "خطا در بارگذاری عکس پرونده"
 
-#: js/app.js:1644
+#: js/app.js:1645
 msgid "Enter name"
 msgstr "ورود نام"
 
-#: js/app.js:1645
+#: js/app.js:1646
 msgid "Enter description"
 msgstr "ورود توضیحات"
 
-#: js/app.js:1648
+#: js/app.js:1649
 msgid "Select addressbook"
 msgstr ""
 
-#: js/app.js:1656
+#: js/app.js:1657
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "فیلد نام کتابچه آدرس نمی تواند خالی باشد"
 
 #: js/contacts.js:354
 msgid "Is this correct?"
@@ -389,45 +390,45 @@ msgstr ""
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
-#: js/groups.js:193
+#: js/groups.js:194
 msgid "Contact is already in this group."
 msgstr ""
 
-#: js/groups.js:206
+#: js/groups.js:207
 msgid "Contacts are already in this group."
 msgstr ""
 
-#: js/groups.js:272
+#: js/groups.js:273
 msgid "Couldn't get contact list."
 msgstr ""
 
-#: js/groups.js:283
+#: js/groups.js:284
 msgid "Contact is not in this group."
 msgstr ""
 
-#: js/groups.js:297
+#: js/groups.js:298
 msgid "Contacts are not in this group."
 msgstr ""
 
-#: js/groups.js:542
+#: js/groups.js:544
 msgid "A group named {group} already exists"
 msgstr ""
 
-#: js/groups.js:574
+#: js/groups.js:578
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr ""
 
-#: js/groups.js:593
+#: js/groups.js:597
 msgid "All"
 msgstr "همه"
 
-#: js/groups.js:607
+#: js/groups.js:611 js/groups.js:614
 msgid "Favorites"
 msgstr "برگزیدگان"
 
-#: js/groups.js:663
+#: js/groups.js:668
 msgid "Shared by {owner}"
 msgstr ""
 
@@ -493,11 +494,11 @@ msgstr ""
 
 #: lib/addressbook.php:283 lib/addressbook.php:292
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "یک خطا هنگام به روزرسانی این کتابچه آدرس رخ داد "
 
 #: lib/addressbook.php:354
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "شما اجازه حذف این کتابچه آدرس را ندارید"
 
 #: lib/addressbook.php:383
 msgid "There was an error deleting this addressbook."
@@ -509,15 +510,15 @@ msgstr ""
 
 #: lib/app.php:94
 msgid "AIM"
-msgstr ""
+msgstr "AIM"
 
 #: lib/app.php:99
 msgid "MSN"
-msgstr ""
+msgstr "msn"
 
 #: lib/app.php:104
 msgid "Twitter"
-msgstr ""
+msgstr "توییتر"
 
 #: lib/app.php:109
 msgid "GoogleTalk"
@@ -537,19 +538,19 @@ msgstr ""
 
 #: lib/app.php:129
 msgid "Yahoo"
-msgstr ""
+msgstr "یاهو"
 
 #: lib/app.php:134
 msgid "Skype"
-msgstr ""
+msgstr "اسکایپ"
 
 #: lib/app.php:139
 msgid "QQ"
-msgstr ""
+msgstr "QQ"
 
 #: lib/app.php:144
 msgid "GaduGadu"
-msgstr ""
+msgstr "GaduGadu"
 
 #: lib/app.php:167 lib/app.php:175 lib/app.php:186 lib/app.php:227
 msgid "Work"
@@ -666,7 +667,7 @@ msgstr ""
 
 #: templates/contacts.php:20
 msgid "New"
-msgstr ""
+msgstr "جدید"
 
 #: templates/contacts.php:22
 msgid "Display name"
@@ -738,7 +739,7 @@ msgstr "مخاطب قبلی در لیست"
 
 #: templates/contacts.php:79
 msgid "Expand/collapse current addressbook"
-msgstr ""
+msgstr "باز/بسته کردن کتابچه آدرس فعلی"
 
 #: templates/contacts.php:81
 msgid "Next addressbook"
@@ -922,7 +923,7 @@ msgstr "رفتن به وب سایت"
 
 #: templates/contacts.php:332
 msgid "Delete URL"
-msgstr ""
+msgstr "حذف url"
 
 #: templates/contacts.php:343
 msgid "View on map"
@@ -938,7 +939,7 @@ msgstr ""
 
 #: templates/contacts.php:357
 msgid "Street address"
-msgstr ""
+msgstr "آدرس خیابان"
 
 #: templates/contacts.php:361
 msgid "12345"
@@ -946,11 +947,11 @@ msgstr ""
 
 #: templates/contacts.php:362
 msgid "Postal code"
-msgstr ""
+msgstr "کد پستی"
 
 #: templates/contacts.php:364
 msgid "Your city"
-msgstr ""
+msgstr "شهر شما"
 
 #: templates/contacts.php:365
 msgid "City"
@@ -966,7 +967,7 @@ msgstr ""
 
 #: templates/contacts.php:374
 msgid "Your country"
-msgstr ""
+msgstr "کشور شما"
 
 #: templates/contacts.php:375
 msgid "Country"

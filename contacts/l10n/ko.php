@@ -154,6 +154,7 @@
 "New Group" => "새 그룹",
 "Settings" => "설정",
 "Address books" => "주소록",
+"New" => "새로 만들기",
 "OK" => "확인",
 "Import" => "가져오기",
 "Select files to import" => "가져올 파일 선택",

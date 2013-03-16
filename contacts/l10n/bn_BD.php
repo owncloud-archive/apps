@@ -89,6 +89,7 @@
 "You do not have the permissions to edit this contact." => "এই ঠিকানাটি সম্পাদনা করার মত অধিকার আপনার নেই।",
 "You do not have the permissions to delete this contact." => "এই ঠিকানাটি মুছে ফেলার মত যথাযথ অধিকার আপনার নেই।",
 "Settings" => "নিয়ামকসমূহ",
+"New" => "নতুন",
 "Import" => "আমদানি",
 "Groups" => "গোষ্ঠীসমূহ",
 "Close" => "বন্ধ",

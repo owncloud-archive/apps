@@ -150,6 +150,7 @@
 "New Group" => "Uus grupp",
 "Settings" => "Seaded",
 "Address books" => "Aadressiraamatud",
+"New" => "Uus",
 "OK" => "OK",
 "Import" => "Impordi",
 "Select files to import" => "Vali failid, mida importida",

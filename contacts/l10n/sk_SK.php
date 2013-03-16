@@ -155,6 +155,8 @@
 "New Group" => "Nová skupina",
 "Settings" => "Nastavenia",
 "Address books" => "Adresáre kontaktov",
+"New" => "Nová",
+"Display name" => "Zobrazované meno",
 "OK" => "OK",
 "Import" => "Importovať",
 "Select files to import" => "Vybrať súbory pre import",
