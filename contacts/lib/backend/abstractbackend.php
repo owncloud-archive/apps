@@ -63,6 +63,13 @@ abstract class AbstractBackend {
 	}
 
 	/**
+	 * Test if the address book exists
+	 * @return bool
+	 */
+	public function hasAddressBook($addressbookid) {
+	}
+
+	/**
 	 * Updates an addressbook's properties
 	 *
 	 * The $properties array contains the changes to be made.
@@ -149,7 +156,7 @@ abstract class AbstractBackend {
 	 *
 	 * @param string $addressbookid
 	 * @param mixed $id
-	 * @return array
+	 * @return array|bool
 	 */
 	public function getContact($addressbookid, $id) {
 	}
@@ -159,7 +166,7 @@ abstract class AbstractBackend {
 	 *
 	 * @param string $addressbookid
 	 * @param string $carddata
-	 * @return bool
+	 * @return string|bool The identifier for the new contact or false on error.
 	 */
 	public function createContact($addressbookid, $carddata) {
 	}
