@@ -105,10 +105,12 @@ abstract class AbstractBackend {
 	 * Must return a UNIX time stamp or null if the backend
 	 * doesn't support it.
 	 *
+	 * TODO: Implement default methods get/set for backends that
+	 * don't support.
 	 * @param string $addressbookid
 	 * @returns int | null
 	 */
-	public static function lastModifiedAddressBook($addressbookid) {
+	public function lastModifiedAddressBook($addressbookid) {
 	}
 
 	/**

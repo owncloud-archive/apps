@@ -31,7 +31,7 @@ use Sabre\VObject\Reader;
 
 class Database extends AbstractBackend {
 
-	public $backendname = 'database';
+	public $name = 'database';
 	static private $preparedQueries = array();
 
 	/**
@@ -190,7 +190,7 @@ class Database extends AbstractBackend {
 	 */
 	public function createAddressBook(array $properties, $userid = null) {
 		$userid = $userid ? $userid : $this->userid;
-		if(count($changes) === 0) {
+		if(count($properties) === 0) {
 			return false;
 		}
 
@@ -202,6 +202,7 @@ class Database extends AbstractBackend {
 			? $properties['uri']
 			: $this->createAddressBookURI($properties['displayname']);
 		$updates[] = isset($properties['description']) ? $properties['description'] : '';
+		$updates[] = time();
 
 		try {
 			if(!isset(self::$preparedQueries['createaddressbook'])) {
@@ -268,7 +269,7 @@ class Database extends AbstractBackend {
 	 * @param integer $id
 	 * @return boolean
 	 */
-	public static function touchAddressBook($id) {
+	public function touchAddressBook($id) {
 		$query = 'UPDATE `' . $this->addressBooksTableName
 			. '` SET `ctag` = `ctag` + 1 WHERE `id` = ?';
 		if(!isset(self::$preparedQueries['touchaddressbook'])) {
@@ -279,7 +280,7 @@ class Database extends AbstractBackend {
 		return true;
 	}
 
-	public static function lastModifiedAddressBook($addressbookid) {
+	public function lastModifiedAddressBook($addressbookid) {
 		$sql = 'SELECT MAX(`lastmodified`) FROM `' . $this->cardsTableName . '`, `' . $this->addressBooksTableName . '` ' .
 			'WHERE  `' . $this->cardsTableName . '`.`addressbookid` = `*PREFIX*contacts_addressbooks`.`id` AND ' .
 			'`' . $this->addressBooksTableName . '`.`userid` = ? AND `' . $this->addressBooksTableName . '`.`id` = ?';
@@ -304,7 +305,7 @@ class Database extends AbstractBackend {
 	public function getContacts($addressbookid, $limit = null, $offset = null, $omitdata = false) {
 		$cards = array();
 		try {
-			$qfields = $omitdata ? '`id`, `fullname`' : '*';
+			$qfields = $omitdata ? '`id`, `fullname` AS `displayname`' : '*';
 			$query = 'SELECT ' . $qfields . ' FROM `' . $this->cardsTableName
 				. '` WHERE `addressbookid` = ? ORDER BY `fullname`';
 			$stmt = \OCP\DB::prepare($query, $limit, $offset);
@@ -556,7 +557,7 @@ class Database extends AbstractBackend {
 	 */
 	public function lastModifiedContact($addressbookid, $id) {
 		$contact = $this->getContact($addressbookid, $id);
-		return $contact ? $contact['lastmodified'] : null;
+		return ($contact ? $contact['lastmodified'] : null);
 	}
 
 	private function createAddressBookURI($displayname, $userid = null) {
@@ -580,7 +581,7 @@ class Database extends AbstractBackend {
 
 		$newname = $name;
 		$i = 1;
-		while(in_array($newname, $existing)) {
+		while(in_array($newname, $uris)) {
 			$newname = $name.$i;
 			$i = $i + 1;
 		}

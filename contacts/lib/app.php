@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2011 Bart Visscher bartv@thisnet.nl
+ * Copyright (c) 2013 Thomas Tanghus (thomas@tanghus.net)
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  * See the COPYING-README file.
@@ -62,7 +62,7 @@ class App {
 	static public function createBackend($name) {
 		$name = $name ? $name : 'database';
 		if (isset(self::$backendClasses[$name])) {
-			return new self::$classMap[$name]();
+			return new self::$backendClasses[$name]();
 		} else {
 			throw new \Exception('No backend for: ' . $name);
 		}
@@ -96,6 +96,7 @@ class App {
 	 *
 	 * @param string $backendName
 	 * @param string $addressbookid
+	 * @return AddressBook|null
 	 */
 	public function getAddressBook($backendName, $addressbookid) {
 		foreach(self::$addressBooks as $addressBook) {
@@ -121,6 +122,8 @@ class App {
 	 * @param string $backendName
 	 * @param string $addressbookid
 	 * @param string $id - Contact id
+	 * @return Contact|null
+	 *
 	 */
 	public function getContact($backendName, $addressbookid, $id) {
 		$addressBook = $this->getAddressBook($backendName, $addressbookid);

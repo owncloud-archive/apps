@@ -79,8 +79,8 @@ class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 	* It is only called through calls to the public getItem(s)Shared(With) functions.
 	*/
 	public function formatItems($items, $format, $parameters = null, $include = false) {
-		\OCP\Util::writeLog('contacts', __METHOD__
-			. ' ' . $include . ' ' . print_r($items, true), \OCP\Util::DEBUG);
+		//\OCP\Util::writeLog('contacts', __METHOD__
+		//	. ' ' . $include . ' ' . print_r($items, true), \OCP\Util::DEBUG);
 		$addressbooks = array();
 		if ($format == self::FORMAT_ADDRESSBOOKS) {
 			foreach ($items as $item) {

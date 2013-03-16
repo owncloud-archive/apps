@@ -27,6 +27,8 @@ namespace OCA\Contacts;
  */
 class Addressbook extends PIMCollectionAbstract {
 
+	protected $backend;
+
 	/**
 	 * An array containing the mandatory:
 	 * 	'displayname'
@@ -45,9 +47,10 @@ class Addressbook extends PIMCollectionAbstract {
 	 * @param AbstractBackend $backend The storage backend
 	 * @param array $addressBookInfo
 	 */
-	public function __construct(AbstractBackend $backend, array $addressBookInfo) {
+	public function __construct(Backend\AbstractBackend $backend, array $addressBookInfo) {
 		$this->backend = $backend;
 		$this->addressBookInfo = $addressBookInfo;
+		//\OCP\Util::writeLog('contacts', __METHOD__.' backend: ' . print_r($this->backend, true), \OCP\Util::DEBUG);
 	}
 
 	/**
@@ -55,6 +58,15 @@ class Addressbook extends PIMCollectionAbstract {
 	 */
 	public function getId() {
 		return $this->addressBookInfo['id'];
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getMetaData() {
+		$metadata = $this->addressBookInfo;
+		$metadata['lastmodified'] = $this->lastModified();
+		return $metadata;
 	}
 
 	/**
@@ -114,12 +126,14 @@ class Addressbook extends PIMCollectionAbstract {
 	/**
 	* Returns an array with all the child nodes
 	*
-	* @return IPIMObject[]
+	* @return Contact[]
 	*/
 	function getChildren($limit = null, $offset = null, $omitdata = false) {
+		//\OCP\Util::writeLog('contacts', __METHOD__.' backend: ' . print_r($this->backend, true), \OCP\Util::DEBUG);
 		$contacts = array();
 
 		foreach($this->backend->getContacts($this->getId(), $limit, $offset, $omitdata) as $contact) {
+			//\OCP\Util::writeLog('contacts', __METHOD__.' id: '.$contact['id'], \OCP\Util::DEBUG);
 			if(!isset($this->objects[$contact['id']])) {
 				$this->objects[$contact['id']] = new Contact($this, $this->backend, $contact);
 			}

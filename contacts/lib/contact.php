@@ -40,6 +40,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 	protected $props = array();
 
 	public function __construct($parent, $backend, $properties = null) {
+		//\OCP\Util::writeLog('contacts', __METHOD__ . ' ' . print_r($properties, true), \OCP\Util::DEBUG);
 		//\OCP\Util::writeLog('contacts', __METHOD__, \OCP\Util::DEBUG);
 		$this->props['parent'] = $parent;
 		$this->props['backend'] = $backend;
@@ -61,7 +62,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 						break;
 					case 'vcard':
 						$this->props['vcard'] = $value;
-						$this->read();
+						$this->retrieve();
 						break;
 					case 'displayname':
 					case 'fullname':
@@ -70,6 +71,26 @@ class Contact extends VObject\VCard implements IPIMObject {
 				}
 			}
 		}
+	}
+
+	/**
+	 * @return array|null
+	 */
+	public function getMetaData() {
+		if(!isset($this->props['displayname'])) {
+			if(!$this->retrieve()) {
+				\OCP\Util::writeLog('contacts', __METHOD__.' error reading: '.print_r($this->props, true), \OCP\Util::ERROR);
+				return null;
+			}
+		}
+		return array(
+			'id' => $this->getId(),
+			'displayname' => $this->getDisplayName(),
+			'permissions' => $this->getPermissions(),
+			'lastmodified' => $this->lastModified(),
+			'owner' => $this->getOwner(),
+			'parent' => $this->getParent()->getId(),
+		);
 	}
 
 	/**
@@ -114,7 +135,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 	 * @return integer
 	 */
 	function getPermissions() {
-		return $this->props['permissions'];
+		return $this->props['parent']->getPermissions();
 	}
 
 	/**
@@ -186,19 +207,23 @@ class Contact extends VObject\VCard implements IPIMObject {
 		}
 	}
 
-	public function read($data = null) {
-		// NOTE: Maybe this will mess with
-		// the magic accessors.
+	/**
+	 * Get the data from the backend
+	 */
+	public function retrieve() {
+		//\OCP\Util::writeLog('contacts', __METHOD__.' ' . print_r($this->props, true), \OCP\Util::DEBUG);
 		if($this->children && is_null($data)) {
 			return true;
 		} else {
 			if(isset($this->props['vcard'])
 				&& $this->props['vcard'] instanceof VObject\VCard) {
-				$this->children = $this->props['vcard']->children();
+				foreach($this->props['vcard']->children() as $child) {
+					$this->add($child);
+				}
+				//$this->children = $this->props['vcard']->children();
 				unset($this->props['vcard']);
 				return true;
-			}
-			if(!isset($this->props['carddata']) && is_null($data)) {
+			} elseif(!isset($this->props['carddata']) && is_null($data)) {
 				$result = $this->props['backend']->getContact(
 					$this->parent->getId(),
 					$this->id
@@ -206,33 +231,39 @@ class Contact extends VObject\VCard implements IPIMObject {
 				if($result) {
 					if(isset($result['vcard'])
 						&& $result['vcard'] instanceof VObject\VCard) {
-						// NOTE: Maybe iterate over $result['vcard']->children
-						// and add() them
-						$this->children = $result['vcard']->children;
+						foreach($result['vcard']->children() as $child) {
+							$this->add($child);
+						}
 						return true;
 					} elseif(isset($result['carddata'])) {
 						// Save internal values
 						$data = $result['carddata'];
 						$this->props['carddata'] = $result['carddata'];
 						$this->props['lastmodified'] = $result['lastmodified'];
-						$this->props['displayname'] = $result['displayname'];
+						$this->props['displayname'] = $result['fullname'];
 						$this->props['permissions'] = $result['permissions'];
 					} else {
 						return false;
 					}
 				}
+			} elseif(isset($this->props['carddata'])) {
+				$data = $this->props['carddata'];
 			}
 			try {
 				$obj = \Sabre\VObject\Reader::read(
 					$data,
 					\Sabre\VObject\Reader::OPTION_IGNORE_INVALID_LINES
 				);
-				// NOTE: Maybe iterate over $result['vcard']->children
-				// and add() them
-				$this->children = $obj->children;
+				if($obj) {
+					foreach($obj->children as $child) {
+						$this->add($child);
+					}
+				} else {
+					return false;
+				}
 			} catch (\Exception $e) {
 				\OCP\Util::writeLog('contacts', __METHOD__ .
-					'Error parsing carddata: ' . $e->getMessage(),
+					' Error parsing carddata: ' . $e->getMessage(),
 						\OCP\Util::ERROR);
 				return false;
 			}
@@ -247,7 +278,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 	* @return \Sabre\VObject\Propert|null
 	*/
 	public function getPropertyByChecksum($checksum) {
-		$this->read();
+		$this->retrieve();
 		$line = null;
 		foreach($this->children as $i => $property) {
 			if(substr(md5($property->serialize()), 0, 8) == $checksum ) {
@@ -260,10 +291,10 @@ class Contact extends VObject\VCard implements IPIMObject {
 
 	public function lastModified() {
 		if(!isset($this->props['lastmodified'])) {
-			$this->read();
+			$this->retrieve();
 		}
 		return isset($this->props['lastmodified'])
-			? isset($this->props['lastmodified'])
+			? $this->props['lastmodified']
 			: null;
 	}
 }

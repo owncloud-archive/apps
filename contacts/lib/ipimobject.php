@@ -36,11 +36,31 @@ interface IPIMObject {
 	//function getParent();
 
 	/**
+	 * Get the identifier for the object.
 	 * @return string
 	 */
 	public function getId();
 
 	/**
+	 * A convenience method for getting all the info about the object.
+	 *
+	 * The returned array MUST contain:
+	 * 	'id' @see getId().
+	 * 	'displayname' @see getDisplayName()
+	 * 	'owner' @see getOwner()
+	 * 	'permissions' @see getPermissions
+	 * 	'lastmodified' @see lastModified()
+	 *
+	 * If the object is part of a collection it MUST contain
+	 * 	'parent' The identifier for the parent object. @see getParent()
+	 *
+	 * @return array|null
+	 */
+	public function getMetaData();
+
+	/**
+	 * FIXME: This should probably not be in the interface
+	 * as it's *DAV specific.
 	 * @return string
 	 */
 	public function getURI();
@@ -51,6 +71,7 @@ interface IPIMObject {
 	function getDisplayName();
 
 	/**
+	 * Get the owner of the object.
 	 * @return string|null
 	 */
 	function getOwner();
@@ -85,6 +106,7 @@ interface IPIMObject {
 
 	/**
 	 * Save the contact data to backend
+	 * FIXME: This isn't consistent.
 	 *
 	 * @param array $data
 	 * @return bool
