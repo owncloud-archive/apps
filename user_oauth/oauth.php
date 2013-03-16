@@ -46,6 +46,7 @@ class OC_Connector_Sabre_OAuth implements Sabre_DAV_Auth_IBackend
                 $this->currentUser = $attributes[$this->userIdAttributeName][0];
             }
 
+            OC_User::setUserid($this->currentUser);
             OC_Util::setupFS($this->currentUser);
 
             return true;
