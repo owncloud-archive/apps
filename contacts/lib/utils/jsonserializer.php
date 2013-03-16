@@ -24,6 +24,7 @@
 namespace OCA\Contacts\Utils;
 
 use OCA\Contacts\VObject;
+use OCA\Contacts\Contact;
 
 /**
  * This class serializes properties, components an
@@ -37,15 +38,19 @@ class JSONSerializer {
 	 * General method serialize method. Use this for arrays
 	 * of contacts.
 	 *
-	 * @param \VObject\VCard[] $input
+	 * @param Contact[] $input
 	 * @return array
 	 */
 	 public static function serialize($input) {
 		$response = array();
 		if(is_array($input)) {
 			foreach($input as $object) {
-				if($object instanceof VObject\VCard) {
-					$response[] = self::serializeContact($object);
+				if($object instanceof Contact) {
+					\OCP\Util::writeLog('contacts', __METHOD__.' serializing: ' . print_r($object, true), \OCP\Util::DEBUG);
+					$tmp = self::serializeContact($object);
+					if($tmp !== null) {
+						$response[] = $tmp;
+					}
 				} else {
 					throw new \Exception(
 						'Only arrays of OCA\\Contacts\\VObject\\VCard '
@@ -70,26 +75,32 @@ class JSONSerializer {
 
 	/**
 	 * @brief Data structure of vCard
-	 * @param VObject\VCard $vcard
-	 * @return associative array
-	 *
-	 * look at code ...
+	 * @param VObject\VCard $contact
+	 * @return associative array|null
 	 */
-	public static function serializeContact(VObject\VCard $vcard) {
+	public static function serializeContact(Contact $contact) {
+		//\OCP\Util::writeLog('contacts', __METHOD__, \OCP\Util::DEBUG);
+
+		if(!$contact->retrieve()) {
+			\OCP\Util::writeLog('contacts', __METHOD__.' error reading: ' . print_r($contact, true), \OCP\Util::DEBUG);
+			return null;
+		}
+
 		$details = array();
 
-		foreach($vcard->children as $property) {
+		foreach($contact->children() as $property) {
+			//\OCP\Util::writeLog('contacts', __METHOD__.' property: '.$property->name, \OCP\Util::DEBUG);
 			$pname = $property->name;
 			$temp = self::serializeProperty($property);
 			if(!is_null($temp)) {
 				// Get Apple X-ABLabels
-				if(isset($vcard->{$property->group . '.X-ABLABEL'})) {
-					$temp['label'] = $vcard->{$property->group . '.X-ABLABEL'}->value;
+				if(isset($contact->{$property->group . '.X-ABLABEL'})) {
+					$temp['label'] = $contact->{$property->group . '.X-ABLABEL'}->value;
 					if($temp['label'] == '_$!<Other>!$_') {
-						$temp['label'] = App::$l10n->t('Other');
+						$temp['label'] = Properties::$l10n->t('Other');
 					}
 					if($temp['label'] == '_$!<HomePage>!$_') {
-						$temp['label'] = App::$l10n->t('HomePage');
+						$temp['label'] = Properties::$l10n->t('HomePage');
 					}
 				}
 				if(array_key_exists($pname, $details)) {
@@ -100,11 +111,11 @@ class JSONSerializer {
 				}
 			}
 		}
-		return $details;
+		return array('data' =>$details, 'metadata' => $contact->getMetaData());
 	}
 
 	/**
-	 * @brief Data structure of properties
+	 * @brief Get data structure of property.
 	 * @param \Sabre\VObject\Property $property
 	 * @return associative array
 	 *
@@ -117,7 +128,7 @@ class JSONSerializer {
 	 * but we should look out for any problems.
 	 */
 	public static function serializeProperty(\Sabre\VObject\Property $property) {
-		if(!in_array($property->name, App::$index_properties)) {
+		if(!in_array($property->name, Properties::$index_properties)) {
 			return;
 		}
 		$value = $property->value;
@@ -156,7 +167,7 @@ class JSONSerializer {
 		);
 
 		// This cuts around a 3rd off of the json response size.
-		if(in_array($property->name, App::$multi_properties)) {
+		if(in_array($property->name, Properties::$multi_properties)) {
 			$temp['checksum'] = substr(md5($property->serialize()), 0, 8);
 		}
 		foreach($property->parameters as $parameter) {
