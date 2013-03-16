@@ -144,33 +144,33 @@ class API {
 
 
 	/**
-         * Looks up an appwide defined value
-         * @param string $key the key of the value, under which it was saved
-         * @return string the saved value
-         */
-        public function getAppValue($key, $appName=null){
-                if($appName === null){
-                        $appName = $this->appName;
-                }
-                return \OCP\Config::getAppValue($appName, $key, '');
-        }
+	 * Looks up an appwide defined value
+	 * @param string $key the key of the value, under which it was saved
+	 * @return string the saved value
+	 */
+	public function getAppValue($key, $appName=null){
+		if($appName === null){
+			$appName = $this->appName;
+		}
+		return \OCP\Config::getAppValue($appName, $key, '');
+	}
 
 
-        /**
-         * Writes a new appwide value
-         * @param string $key the key of the value, under which will be saved
-         * @param string $value the value that should be stored
-         */
-        public function setAppValue($key, $value, $appName=null){
-                if($appName === null){
-                        $appName = $this->appName;
-                }
-                return \OCP\Config::setAppValue($appName, $key, $value);
-        }
+	/**
+	 * Writes a new appwide value
+	 * @param string $key the key of the value, under which will be saved
+	 * @param string $value the value that should be stored
+	 */
+	public function setAppValue($key, $value, $appName=null){
+		if($appName === null){
+			$appName = $this->appName;
+		}
+		return \OCP\Config::setAppValue($appName, $key, $value);
+	}
 
 
 
-        /**
+	/**
 	 * Shortcut for setting a user defined value
 	 * @param string $key the key under which the value is being stored
 	 * @param string $value the value that you want to store
