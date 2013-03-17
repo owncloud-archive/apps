@@ -50,6 +50,9 @@ class Addressbook extends PIMCollectionAbstract {
 	public function __construct(Backend\AbstractBackend $backend, array $addressBookInfo) {
 		$this->backend = $backend;
 		$this->addressBookInfo = $addressBookInfo;
+		if(!isset($this->addressBookInfo['id']))
+			// TODO: If 'id' is not set save to backend
+		}
 		//\OCP\Util::writeLog('contacts', __METHOD__.' backend: ' . print_r($this->backend, true), \OCP\Util::DEBUG);
 	}
 
@@ -163,12 +166,15 @@ class Addressbook extends PIMCollectionAbstract {
 
 	/**
 	 * Update and save the address book data to backend
+	 * NOTE: @see IPIMObject::update for consistency considerations.
 	 *
 	 * @param array $data
 	 * @return bool
 	 */
 	public function update(array $data) {
-
+		if(count($data) === 0) {
+			return false;
+		}
 		foreach($data as $key => $value) {
 			switch($key) {
 				case 'displayname':
@@ -179,7 +185,7 @@ class Addressbook extends PIMCollectionAbstract {
 					break;
 			}
 		}
-		$this->backend->updateAddressBook($this->getId(), $data);
+		return $this->backend->updateAddressBook($this->getId(), $data);
 	}
 
 	/**
