@@ -405,6 +405,9 @@ class Database extends AbstractBackend {
 	 * In the Database and Shared backends contact be either a Contact object or a string
 	 * with carddata to be able to play seamlessly with the CardDAV backend.
 	 * If this method is called by the CardDAV backend, the carddata is already validated.
+	 * NOTE: It's assumed that this method is called either from the CardDAV backend, the
+	 * import script, or from the ownCloud web UI in which case either the uri parameter is
+	 * set, or the contact has a UID. If neither is set, it will fail.
 	 *
 	 * @param string $addressbookid
 	 * @param mixed $contact
