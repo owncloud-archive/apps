@@ -14,7 +14,7 @@
 	</nav>
 	<div id="contacts-settings">
 			<h3 class="settings action text" tabindex="0" role="button" title="<?php p($l->t('Settings')); ?>"></h3>
-			<h2 data-id="addressbooks" tabindex="0" role="button"><?php p($l->t('Address books')); ?></h3>
+			<h2 data-id="addressbooks" tabindex="0" role="button"><?php p($l->t('Address books')); ?></h2>
 				<ul class="hidden">
 				</ul>
 				<button class="addaddressbook icon-plus text"><?php p($l->t('New')); ?></button>
@@ -25,7 +25,7 @@
 						<button class="addaddressbookcancel"><?php p($l->t('Cancel')); ?></button>
 					</li>
 				</ul>
-			<h2 data-id="import" tabindex="0" role="button"><?php p($l->t('Import')); ?></h3>
+			<h2 data-id="import" tabindex="0" role="button"><?php p($l->t('Import')); ?></h2>
 				<ul class="hidden">
 					<li class="import-upload">
 						<form id="import_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadimport.php')); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
