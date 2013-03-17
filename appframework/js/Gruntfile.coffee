@@ -65,7 +65,7 @@ module.exports = (grunt) ->
 				src: '<%= meta.production %>app.js'
 				dest: ''
 				wrapper: [
-					'(function(angular, $, OC, oc_requesttoken){\n\n'
+                                        '(function(angular, $, OC, oc_requesttoken, undefined){\n\n'
 					'\n})(window.angular, jQuery, OC, oc_requesttoken);'
 				]	
 

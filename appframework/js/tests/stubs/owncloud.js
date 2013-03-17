@@ -27,10 +27,10 @@
 var oc_requesttoken = "token";
 
 var OC = {
-	Router:function(){
-		return null;
-	},
-	Notification:function(){
-		return null;
-	}
+        Router:function(){
+                return null;
+        },
+        Notification:function(){
+                return null;
+        }
 };

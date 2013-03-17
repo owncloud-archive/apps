@@ -1,4 +1,4 @@
-(function(angular, $, OC, oc_requesttoken){
+(function(angular, $, OC, oc_requesttoken, undefined){
 
 /**
  * ownCloud App Framework - v0.0.1
