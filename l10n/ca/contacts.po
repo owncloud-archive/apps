@@ -4,7 +4,7 @@
 # 
 # Translators:
 #   <joan@montane.cat>, 2012.
-# Josep Tomàs <jtomas.binsoft@gmail.com>, 2012.
+# Josep Tomàs <jtomas.binsoft@gmail.com>, 2012-2013.
 #  <rcalvoi@yahoo.com>, 2013.
 #   <rcalvoi@yahoo.com>, 2011-2013.
 #  <sacoo2@hotmail.com>, 2013.
@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-14 23:20+0000\n"
+"POT-Creation-Date: 2013-03-18 00:00+0100\n"
+"PO-Revision-Date: 2013-03-17 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -71,6 +71,10 @@ msgstr "No s'han trobat llibretes d'adreces."
 #: ajax/categories/delete.php:36
 msgid "No contacts found."
 msgstr "No s'han trobat contactes."
+
+#: ajax/contact/add.php:38
+msgid "You have no addressbooks."
+msgstr ""
 
 #: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."
@@ -673,7 +677,7 @@ msgstr "Nova"
 
 #: templates/contacts.php:22
 msgid "Display name"
-msgstr ""
+msgstr "Nom a mostrar"
 
 #: templates/contacts.php:24 templates/contacts.php:44
 msgid "OK"

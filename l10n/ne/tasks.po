@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-03-18 00:00+0100\n"
+"PO-Revision-Date: 2012-08-12 22:44+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Nepali (http://www.transifex.com/projects/p/owncloud/language/ne/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ne\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
+msgid "Invalid date/time"
+msgstr ""
+
+#: appinfo/app.php:10
+msgid "Tasks"
+msgstr ""
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr ""
+
+#: js/tasks.js:107
+msgid "List"
+msgstr ""
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr ""
+
+#: js/tasks.js:420
+msgid "No category"
+msgstr ""
+
+#: lib/app.php:33
+msgid "Unspecified"
+msgstr ""
+
+#: lib/app.php:34
+msgid "1=highest"
+msgstr ""
+
+#: lib/app.php:38
+msgid "5=medium"
+msgstr ""
+
+#: lib/app.php:42
+msgid "9=lowest"
+msgstr ""
+
+#: lib/app.php:81
+msgid "Empty Summary"
+msgstr ""
+
+#: lib/app.php:93
+msgid "Invalid percent complete"
+msgstr ""
+
+#: lib/app.php:107
+msgid "Invalid priority"
+msgstr ""
+
+#: templates/no-calendar-app.php:9
+msgid ""
+"The calendar application also need to be enabled to use this application."
+msgstr ""
+
+#: templates/tasks.php:3
+msgid "Add Task"
+msgstr ""
+
+#: templates/tasks.php:4
+msgid "Order Due"
+msgstr ""
+
+#: templates/tasks.php:5
+msgid "Order List"
+msgstr ""
+
+#: templates/tasks.php:6
+msgid "Order Complete"
+msgstr ""
+
+#: templates/tasks.php:7
+msgid "Order Location"
+msgstr ""
+
+#: templates/tasks.php:8
+msgid "Order Priority"
+msgstr ""
+
+#: templates/tasks.php:9
+msgid "Order Label"
+msgstr ""
+
+#: templates/tasks.php:16
+msgid "Loading tasks..."
+msgstr ""
+
+#: templates/tasks.php:20
+msgid "Important"
+msgstr ""
+
+#: templates/tasks.php:23
+msgid "More"
+msgstr ""
+
+#: templates/tasks.php:26
+msgid "Less"
+msgstr ""
+
+#: templates/tasks.php:29
+msgid "Delete"
+msgstr ""

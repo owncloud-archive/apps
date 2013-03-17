@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-15 00:01+0100\n"
-"PO-Revision-Date: 2013-03-14 23:02+0000\n"
+"POT-Creation-Date: 2013-03-18 00:00+0100\n"
+"PO-Revision-Date: 2013-03-17 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Afrikaans (South Africa) (http://www.transifex.com/projects/p/owncloud/language/af_ZA/)\n"
 "MIME-Version: 1.0\n"
@@ -65,6 +65,10 @@ msgstr ""
 
 #: ajax/categories/delete.php:36
 msgid "No contacts found."
+msgstr ""
+
+#: ajax/contact/add.php:38
+msgid "You have no addressbooks."
 msgstr ""
 
 #: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
@@ -253,8 +257,8 @@ msgstr ""
 msgid "Select photo"
 msgstr ""
 
-#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1597
-#: js/app.js:1721 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
+#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1598
+#: js/app.js:1722 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
 msgid "Network or server error. Please inform administrator."
 msgstr ""
 
@@ -278,86 +282,86 @@ msgstr ""
 msgid "Add address book"
 msgstr ""
 
-#: js/app.js:1061
+#: js/app.js:1062
 msgid "Import done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:1102
+#: js/app.js:1103
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/app.js:1108
+#: js/app.js:1109
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/app.js:1108 js/app.js:1656 js/settings.js:25 js/settings.js:45
+#: js/app.js:1109 js/app.js:1657 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr ""
 
-#: js/app.js:1118
+#: js/app.js:1119
 msgid "Importing from {filename}..."
 msgstr ""
 
-#: js/app.js:1121
+#: js/app.js:1122
 msgid "{success} imported, {failed} failed."
 msgstr ""
 
-#: js/app.js:1132
+#: js/app.js:1133
 msgid "Importing..."
 msgstr ""
 
-#: js/app.js:1155
+#: js/app.js:1156
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr ""
 
-#: js/app.js:1155
+#: js/app.js:1156
 msgid "Upload Error"
 msgstr ""
 
-#: js/app.js:1162 js/app.js:1472
+#: js/app.js:1163 js/app.js:1473
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr ""
 
-#: js/app.js:1162
+#: js/app.js:1163
 msgid "Upload too large"
 msgstr ""
 
-#: js/app.js:1206
+#: js/app.js:1207
 msgid "Pending"
 msgstr ""
 
-#: js/app.js:1351 templates/contacts.php:130
+#: js/app.js:1352 templates/contacts.php:130
 msgid "Add group"
 msgstr ""
 
-#: js/app.js:1460
+#: js/app.js:1461
 msgid "No files selected for upload."
 msgstr ""
 
-#: js/app.js:1562
+#: js/app.js:1563
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1580 js/contacts.js:1169
+#: js/app.js:1581 js/contacts.js:1169
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/app.js:1644
+#: js/app.js:1645
 msgid "Enter name"
 msgstr ""
 
-#: js/app.js:1645
+#: js/app.js:1646
 msgid "Enter description"
 msgstr ""
 
-#: js/app.js:1648
+#: js/app.js:1649
 msgid "Select addressbook"
 msgstr ""
 
-#: js/app.js:1656
+#: js/app.js:1657
 msgid "The address book name cannot be empty."
 msgstr ""
 
@@ -387,45 +391,45 @@ msgstr ""
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
-#: js/groups.js:193
+#: js/groups.js:194
 msgid "Contact is already in this group."
 msgstr ""
 
-#: js/groups.js:206
+#: js/groups.js:207
 msgid "Contacts are already in this group."
 msgstr ""
 
-#: js/groups.js:272
+#: js/groups.js:273
 msgid "Couldn't get contact list."
 msgstr ""
 
-#: js/groups.js:283
+#: js/groups.js:284
 msgid "Contact is not in this group."
 msgstr ""
 
-#: js/groups.js:297
+#: js/groups.js:298
 msgid "Contacts are not in this group."
 msgstr ""
 
-#: js/groups.js:542
+#: js/groups.js:544
 msgid "A group named {group} already exists"
 msgstr ""
 
-#: js/groups.js:574
+#: js/groups.js:578
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr ""
 
-#: js/groups.js:593
+#: js/groups.js:597
 msgid "All"
 msgstr ""
 
-#: js/groups.js:607
+#: js/groups.js:611 js/groups.js:614
 msgid "Favorites"
 msgstr ""
 
-#: js/groups.js:663
+#: js/groups.js:668
 msgid "Shared by {owner}"
 msgstr ""
 

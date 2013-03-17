@@ -18,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-16 14:10+0000\n"
-"Last-Translator: marguerite su <i@marguerite.su>\n"
+"POT-Creation-Date: 2013-03-18 00:00+0100\n"
+"PO-Revision-Date: 2013-03-17 23:01+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,6 +77,10 @@ msgstr "找不到地址簿。"
 #: ajax/categories/delete.php:36
 msgid "No contacts found."
 msgstr "找不到联系人。"
+
+#: ajax/contact/add.php:38
+msgid "You have no addressbooks."
+msgstr ""
 
 #: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."

@@ -156,6 +156,7 @@
 "Settings" => "Configuració",
 "Address books" => "Llibretes d'adreces",
 "New" => "Nova",
+"Display name" => "Nom a mostrar",
 "OK" => "D'acord",
 "Import" => "Importa",
 "Select files to import" => "Seleccioneu els fitxers a importar",

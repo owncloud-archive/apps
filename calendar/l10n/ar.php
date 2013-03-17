@@ -156,6 +156,7 @@
 "Category" => "فئة",
 "Separate categories with commas" => "افصل الفئات بالفواصل",
 "Edit categories" => "عدل الفئات",
+"Access Class" => "فئة السماح بالدخول",
 "All Day Event" => "حدث في يوم كامل",
 "From" => "من",
 "To" => "إلى",

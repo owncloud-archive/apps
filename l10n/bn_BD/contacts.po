@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-14 23:20+0000\n"
+"POT-Creation-Date: 2013-03-18 00:00+0100\n"
+"PO-Revision-Date: 2013-03-17 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -66,6 +66,10 @@ msgstr "কোন ঠিকানাপঞ্জী খুঁজে পাওয়
 #: ajax/categories/delete.php:36
 msgid "No contacts found."
 msgstr "কোন ঠিকানা খুঁজে পাওয়া গেল না।"
+
+#: ajax/contact/add.php:38
+msgid "You have no addressbooks."
+msgstr ""
 
 #: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."
