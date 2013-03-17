@@ -74,18 +74,28 @@ class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
 
 		if($uid != OCP\USER::getUser()) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $this->addressBookInfo['id']);
-			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_CREATE)) {
-				$createprincipal = 'principals/' . OCP\USER::getUser();
+			if($sharedAddressbook) {
+				if(($sharedAddressbook['permissions'] & OCP\PERMISSION_CREATE)
+					&& ($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE)
+					&& ($sharedAddressbook['permissions'] & OCP\PERMISSION_DELETE)
+				) {
+					return parent::getACL();
+				}
+				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_CREATE) {
+					$createprincipal = 'principals/' . OCP\USER::getUser();
+				}
+				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_READ) {
+					$readprincipal = 'principals/' . OCP\USER::getUser();
+				}
+				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE) {
+					$writeprincipal = 'principals/' . OCP\USER::getUser();
+				}
+				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_DELETE) {
+					$deleteprincipal = 'principals/' . OCP\USER::getUser();
+				}
 			}
-			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_READ)) {
-				$readprincipal = 'principals/' . OCP\USER::getUser();
-			}
-			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE)) {
-				$writeprincipal = 'principals/' . OCP\USER::getUser();
-			}
-			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & OCP\PERMISSION_DELETE)) {
-				$deleteprincipal = 'principals/' . OCP\USER::getUser();
-			}
+		} else {
+			return parent::getACL();
 		}
 
 		return array(
