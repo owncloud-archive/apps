@@ -39,36 +39,53 @@ class Contact extends VObject\VCard implements IPIMObject {
 
 	protected $props = array();
 
-	public function __construct($parent, $backend, $properties = null) {
-		//\OCP\Util::writeLog('contacts', __METHOD__ . ' ' . print_r($properties, true), \OCP\Util::DEBUG);
+	/**
+	 * Create a new Contact object
+	 *
+	 * @param AddressBook $parent
+	 * @param AbstractBackend $backend
+	 * @param mixed $data
+	 */
+	public function __construct($parent, $backend, $data = null) {
+		//\OCP\Util::writeLog('contacts', __METHOD__ . ' ' . print_r($data, true), \OCP\Util::DEBUG);
 		//\OCP\Util::writeLog('contacts', __METHOD__, \OCP\Util::DEBUG);
 		$this->props['parent'] = $parent;
 		$this->props['backend'] = $backend;
 
-		if(!is_null($properties)) {
-			foreach($properties as $key => $value) {
-				switch($key) {
-					case 'id':
-						$this->props['id'] = $value;
-						break;
-					case 'lastmodified':
-						$this->props['lastmodified'] = $value;
-						break;
-					case 'uri':
-						$this->props['uri'] = $value;
-						break;
-					case 'carddata':
-						$this->props['carddata'] = $value;
-						break;
-					case 'vcard':
-						$this->props['vcard'] = $value;
-						$this->retrieve();
-						break;
-					case 'displayname':
-					case 'fullname':
-						$this->props['displayname'] = $value;
-						break;
+		if(!is_null($data)) {
+			if($data instanceof VObject\VCard) {
+				foreach($obj->children as $child) {
+					$this->add($child);
 				}
+			} elseif(is_array($data)) {
+				foreach($data as $key => $value) {
+					switch($key) {
+						case 'id':
+							$this->props['id'] = $value;
+							break;
+						case 'lastmodified':
+							$this->props['lastmodified'] = $value;
+							break;
+						case 'uri':
+							$this->props['uri'] = $value;
+							break;
+						case 'carddata':
+							$this->props['carddata'] = $value;
+							break;
+						case 'vcard':
+							$this->props['vcard'] = $value;
+							$this->retrieve();
+							break;
+						case 'displayname':
+						case 'fullname':
+							$this->props['displayname'] = $value;
+							break;
+					}
+				}
+			} else {
+				throw new Exception(
+					__METHOD__ . ' 3rd argument must either be an array or a subclass of \VObject\VCard'
+				);
 			}
 		}
 	}
@@ -192,18 +209,18 @@ class Contact extends VObject\VCard implements IPIMObject {
 	public function save() {
 		if($this->getId()) {
 			return $this->props['backend']->updateContact(
-				$this->props['parent']->getId(),
-				$this->props['id'],
+				$this->getParent()->getId(),
+				$this->getId(),
 				$this->serialize()
 			);
 		} else {
 			$this->props['id'] = $this->props['backend']->createContact(
-				$this->parent->getId(), $this->serialize()
+				$this->getParent()->getId(), $this->serialize()
 			);
 			if($this->props['id'] !== false) {
-				$this->parent->setChildID();
+				$this->getParent()->setChildID($this);
 			}
-			return $this->props['id'] !== false;
+			return $this->getId() !== false;
 		}
 	}
 

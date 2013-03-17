@@ -54,10 +54,12 @@ class Addressbook extends PIMCollectionAbstract {
 	}
 
 	/**
-	 * @return string
+	 * @return string|null
 	 */
 	public function getId() {
-		return $this->addressBookInfo['id'];
+		return isset($this->addressBookInfo['id'])
+			? $this->addressBookInfo['id']
+			: null;
 	}
 
 	/**
@@ -101,7 +103,7 @@ class Addressbook extends PIMCollectionAbstract {
 	* Returns a specific child node, referenced by its id
 	*
 	* @param string $id
-	* @return IPIMObject
+	* @return Contact|null
 	*/
 	function getChild($id) {
 		if(!isset($this->objects[$id])) {
@@ -110,7 +112,11 @@ class Addressbook extends PIMCollectionAbstract {
 				$this->objects[$id] = new Contact($this, $this->backend, $contact);
 			}
 		}
-		return isset($this->objects[$id]) ? $this->objects[$id] : null;
+		// When requesting a single contact we preparse it
+		if(isset($this->objects[$id])) {
+			$this->objects[$id]->retrieve();
+			return $this->objects[$id];
+		}
 	}
 
 	/**
@@ -143,7 +149,20 @@ class Addressbook extends PIMCollectionAbstract {
 	}
 
 	/**
-	 * Save the address book data to backend
+	 * Add a contact to the address book
+	 * FIXME: This should take an array or a VCard|Contact and return
+	 * the ID or false (null?).
+	 *
+	 * @param array|VObject\VCard $data
+	 */
+	public function add($data) {
+		if($data instanceof VObject\VCard) {
+		} else {
+		}
+	}
+
+	/**
+	 * Update and save the address book data to backend
 	 *
 	 * @param array $data
 	 * @return bool
@@ -161,6 +180,15 @@ class Addressbook extends PIMCollectionAbstract {
 			}
 		}
 		$this->backend->updateAddressBook($this->getId(), $data);
+	}
+
+	/**
+	 * Save the address book data to backend
+	 * NOTE: @see IPIMObject::update for consistency considerations.
+	 *
+	 * @return bool
+	 */
+	public function save() {
 	}
 
 	/**

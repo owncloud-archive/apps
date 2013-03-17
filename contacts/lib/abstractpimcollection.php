@@ -35,6 +35,15 @@ abstract class PIMCollectionAbstract extends PIMObjectAbstract implements \Itera
 	protected $counter = 0;
 
 	/**
+	 * Add a child to the collection
+	 *
+	 * It's up to the implementations to "keep track" of the children.
+	 *
+	 * @param mixed $data
+	 */
+	abstract public function add($data);
+
+	/**
 	 * This is a collection so return null.
 	 * @return null
 	 */
@@ -44,6 +53,7 @@ abstract class PIMCollectionAbstract extends PIMObjectAbstract implements \Itera
 
 	/**
 	* Returns a specific child node, referenced by its id
+	* TODO: Maybe implement it here?
 	*
 	* @param string $id
 	* @return IPIMObject
@@ -127,22 +137,22 @@ abstract class PIMCollectionAbstract extends PIMObjectAbstract implements \Itera
 	}
 
 	// Magic property accessors
-	// TODO: They should go in the implementations.
+	// NOTE: They should go in the implementations(?)
 
 	public function __set($id, $value) {
-
+		$this->objects[$id] = $value;
 	}
 
 	public function __get($id) {
-
+		return $this->objects[$id];
 	}
 
 	public function __isset($id) {
-
+		return isset($this->objects[$id]);
 	}
 
 	public function __unset($id) {
-
+		unset($this->objects[$id]);
 	}
 
 

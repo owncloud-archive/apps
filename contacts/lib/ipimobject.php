@@ -106,7 +106,8 @@ interface IPIMObject {
 
 	/**
 	 * Save the contact data to backend
-	 * FIXME: This isn't consistent.
+	 * FIXME: This isn't consistent. We need a proper interface
+	 * for creating new instances and saving to storage.
 	 *
 	 * @param array $data
 	 * @return bool
