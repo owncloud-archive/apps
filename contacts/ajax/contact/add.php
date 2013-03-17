@@ -29,7 +29,17 @@ require_once __DIR__.'/../loghandler.php';
 
 $aid = isset($_POST['aid']) ? $_POST['aid'] : null;
 if(!$aid) {
-	$aid = min(OCA\Contacts\Addressbook::activeIds()); // first active addressbook.
+	$ids = OCA\Contacts\Addressbook::activeIds();
+	if(count($ids) > 0) {
+		$aid = min($ids); // first active addressbook.
+	} else {
+		$addressbooks = OCA\Contacts\Addressbook::all(OCP\User::getUser());
+		if(count($addressbooks) === 0) {
+			bailOut(OCA\Contacts\App::$l10n->t('You have no addressbooks.'));
+		} else {
+			$aid = $addressbooks[0]['id'];
+		}
+	}
 }
 
 $isnew = isset($_POST['isnew']) ? $_POST['isnew'] : false;
