@@ -4,6 +4,10 @@ against an external authorization server. It aims at supporting both
 the [php-oauth](https://github.com/fkooman/php-oauth) service and the 
 [Google](https://developers.google.com/accounts/docs/OAuth2Login#validatingtoken) service.
 
+# Requirements
+* PHP cURL extension
+* Apache (because we use `apache_request_headers()` at the moment)
+
 # Installation
 Install this code in the directory `user_oauth` in the `apps` directory of
 your Owncloud installation.
@@ -66,4 +70,4 @@ implement OAuth 2.0 and can be used to modify the Owncloud Mobile Apps.
 So far, the Owncloud Mobile Apps have not been updated to support OAuth 2.0.
 
 # Compatibilty
-The app was tested with version 4.5.4 of Owncloud.
+The app was tested with version 5 of Owncloud.
