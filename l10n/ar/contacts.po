@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Raed Chammem <shemada@gmail.com>, 2013.
 #   <tarek.taha@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-18 00:00+0100\n"
-"PO-Revision-Date: 2013-03-17 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-19 00:01+0100\n"
+"PO-Revision-Date: 2013-03-18 10:40+0000\n"
+"Last-Translator: Raed667 <shemada@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/owncloud/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +27,7 @@ msgstr "خطء خلال توقيف كتاب العناوين."
 #: ajax/contact/delete.php:32 ajax/contact/deleteproperty.php:38
 #: ajax/contact/saveproperty.php:82
 msgid "id is not set."
-msgstr ""
+msgstr "المعرف غير محدد."
 
 #: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
@@ -50,7 +51,7 @@ msgstr ""
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
-msgstr ""
+msgstr "لم يتوفر المعرف الوحيد "
 
 #: ajax/categories/categoriesfor.php:35
 msgid "Error setting checksum."
@@ -62,11 +63,11 @@ msgstr "لم يتم اختيار فئة للحذف"
 
 #: ajax/categories/delete.php:28
 msgid "No address books found."
-msgstr ""
+msgstr "لم يتوفر دفتر عناوين "
 
 #: ajax/categories/delete.php:36
 msgid "No contacts found."
-msgstr ""
+msgstr "لم توجد عناوين "
 
 #: ajax/contact/add.php:38
 msgid "You have no addressbooks."
@@ -117,15 +118,15 @@ msgstr ""
 
 #: ajax/currentphoto.php:36
 msgid "Error reading contact photo."
-msgstr ""
+msgstr "خطأ في قرأة صورة الشخص "
 
 #: ajax/currentphoto.php:50
 msgid "Error saving temporary file."
-msgstr ""
+msgstr "خطأ في حفض ملف وقتي."
 
 #: ajax/currentphoto.php:53
 msgid "The loading photo is not valid."
-msgstr ""
+msgstr "الصورة المحملة غير صالحة. "
 
 #: ajax/editname.php:31
 msgid "Contact ID is missing."
@@ -137,11 +138,11 @@ msgstr ""
 
 #: ajax/oc_photo.php:39
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "الملف غير موجود. "
 
 #: ajax/oc_photo.php:44 ajax/oc_photo.php:47
 msgid "Error loading image."
-msgstr ""
+msgstr "خطأ في تحميل الصورة "
 
 #: ajax/savecrop.php:70
 msgid "Error getting contact object."
@@ -581,7 +582,7 @@ msgstr "صوت"
 
 #: lib/app.php:178
 msgid "Message"
-msgstr ""
+msgstr "رسالة "
 
 #: lib/app.php:179
 msgid "Fax"
@@ -597,7 +598,7 @@ msgstr "الرنان"
 
 #: lib/app.php:188
 msgid "Internet"
-msgstr ""
+msgstr "انترنات "
 
 #: lib/app.php:225
 msgid "Friends"
@@ -823,11 +824,11 @@ msgstr ""
 
 #: templates/contacts.php:212 templates/contacts.php:276
 msgid "Nickname"
-msgstr ""
+msgstr "كنية"
 
 #: templates/contacts.php:215
 msgid "Enter nickname"
-msgstr ""
+msgstr "أدخل كنية"
 
 #: templates/contacts.php:219 templates/contacts.php:275
 msgid "Title"
@@ -897,7 +898,7 @@ msgstr "مفضل"
 
 #: templates/contacts.php:300
 msgid "Please specify a valid email address."
-msgstr ""
+msgstr "الرجاء إدخال عنوان بريد إلكتروني صحيح."
 
 #: templates/contacts.php:300
 msgid "someone@example.com"
@@ -905,11 +906,11 @@ msgstr ""
 
 #: templates/contacts.php:302
 msgid "Mail to address"
-msgstr ""
+msgstr "بريد إلكتروني إلى عنوان. "
 
 #: templates/contacts.php:303
 msgid "Delete email address"
-msgstr ""
+msgstr "فسخ عنوان البريد الإلكتروني عنوان."
 
 #: templates/contacts.php:315
 msgid "Enter phone number"

@@ -11,6 +11,7 @@
 "No categories selected for deletion." => "Žádné kategorie nebyly vybrány k smazání.",
 "No address books found." => "Žádná kniha adres nenalezena.",
 "No contacts found." => "Žádné kontakty nenalezeny.",
+"You have no addressbooks." => "Nemáte žádnou knihu adres.",
 "element name is not set." => "název prvku není nastaven.",
 "checksum is not set." => "kontrolní součet není nastaven.",
 "Information about vCard is incorrect. Please reload the page." => "Informace o vCard je neplatná. Obnovte, prosím, stránku.",

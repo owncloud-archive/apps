@@ -11,6 +11,7 @@
 "No categories selected for deletion." => "Non se seleccionaron categorías para eliminación.",
 "No address books found." => "Non se atoparon cadernos de enderezos.",
 "No contacts found." => "Non se atoparon contactos.",
+"You have no addressbooks." => "Non ten  un caderno de enderezos.",
 "element name is not set." => "non se estabeleceu o elemento.",
 "checksum is not set." => "non se estableceu a suma de verificación.",
 "Information about vCard is incorrect. Please reload the page." => "A información sobre a vCard é incorrecta. Volva cargar a páxina.",
