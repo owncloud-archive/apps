@@ -1,1 +1,0 @@
-<?php print_unescaped($_['twig']); ?>
