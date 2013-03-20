@@ -35,15 +35,6 @@ abstract class PIMCollectionAbstract extends PIMObjectAbstract implements \Itera
 	protected $counter = 0;
 
 	/**
-	 * Add a child to the collection
-	 *
-	 * It's up to the implementations to "keep track" of the children.
-	 *
-	 * @param mixed $data
-	 */
-	abstract public function add($data);
-
-	/**
 	 * This is a collection so return null.
 	 * @return null
 	 */
@@ -74,6 +65,24 @@ abstract class PIMCollectionAbstract extends PIMObjectAbstract implements \Itera
 	* @return bool
 	*/
 	abstract function childExists($id);
+
+	/**
+	 * Add a child to the collection
+	 *
+	 * It's up to the implementations to "keep track" of the children.
+	 *
+	 * @param mixed $data
+	 * @return string ID of the newly added child
+	 */
+	abstract public function addChild($data);
+
+	/**
+	 * Delete a child from the collection
+	 *
+	 * @param string $id
+	 * @return bool
+	 */
+	abstract public function deleteChild($id);
 
     // Iterator methods
 

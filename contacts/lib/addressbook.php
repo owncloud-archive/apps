@@ -50,8 +50,13 @@ class Addressbook extends PIMCollectionAbstract {
 	public function __construct(Backend\AbstractBackend $backend, array $addressBookInfo) {
 		$this->backend = $backend;
 		$this->addressBookInfo = $addressBookInfo;
-		if(!isset($this->addressBookInfo['id']))
-			// TODO: If 'id' is not set save to backend
+		if(is_null($this->getId())) {
+			$id = $this->backend->createAddressBook($addressBookInfo);
+			if($id === false) {
+				throw new \Exception('Error creating address book.');
+			}
+			$this->addressBookInfo = $this->backend->getAddressBook($id);
+			//print(__METHOD__. ' '. __LINE__ . ' addressBookInfo: ' . print_r($this->backend->getAddressBook($id), true));
 		}
 		//\OCP\Util::writeLog('contacts', __METHOD__.' backend: ' . print_r($this->backend, true), \OCP\Util::DEBUG);
 	}
@@ -92,7 +97,7 @@ class Addressbook extends PIMCollectionAbstract {
 	 * @return string
 	 */
 	public function getOwner() {
-		return $this->addressBookInfo['userid'];
+		return $this->addressBookInfo['owner'];
 	}
 
 	/**
@@ -153,15 +158,43 @@ class Addressbook extends PIMCollectionAbstract {
 
 	/**
 	 * Add a contact to the address book
-	 * FIXME: This should take an array or a VCard|Contact and return
-	 * the ID or false (null?).
+	 * This takes an array or a VCard|Contact and return
+	 * the ID or false.
 	 *
 	 * @param array|VObject\VCard $data
+	 * @return int|bool
 	 */
-	public function add($data) {
-		if($data instanceof VObject\VCard) {
+	public function addChild($data) {
+		if($data instanceof VObject\VCard || is_array($data)) {
+			$contact = new Contact($this, $this->backend, $data);
+			if($contact->save() === false) {
+				return false;
+			}
+			$id = $contact->getId();
+			$this->objects[$id] = $contact;
+			return $id;
 		} else {
+			throw new Exception(
+				__METHOD__
+				. ' This method accepts only an array or an instance of OCA\\Contacts\\VCard'
+			);
 		}
+	}
+
+	/**
+	 * Delete a contact from the address book
+	 *
+	 * @param string $id
+	 * @return bool
+	 */
+	public function deleteChild($id) {
+		if($this->backend->deleteContact($this->getId(), $id)) {
+			if(isset($this->objects[$id])) {
+				unset($this->objects[$id]);
+			}
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -195,6 +228,21 @@ class Addressbook extends PIMCollectionAbstract {
 	 * @return bool
 	 */
 	public function save() {
+		if(!$this->hasPermission(OCP\PERMISSION_UPDATE)) {
+			throw new Exception('You don\'t have permissions to update the address book.');
+		}
+	}
+
+	/**
+	 * Delete the address book from backend
+	 *
+	 * @return bool
+	 */
+	public function delete() {
+		if(!$this->hasPermission(OCP\PERMISSION_DELETE)) {
+			throw new Exception('You don\'t have permissions to delete the address book.');
+		}
+		return $this->backend->deleteAddressBook($this->getId());
 	}
 
 	/**

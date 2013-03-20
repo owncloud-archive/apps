@@ -118,15 +118,13 @@ abstract class PIMObjectAbstract implements IPIMObject {
 	 * @param array $data
 	 * @return bool
 	 */
-	public function update(array $data) {
-	}
+	abstract public function update(array $data);
 
 	/**
 	 * Delete the data from backend
 	 *
 	 * @return bool
 	 */
-	public function delete() {
-	}
+	abstract public function delete();
 
 }
