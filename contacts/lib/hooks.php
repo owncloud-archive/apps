@@ -89,6 +89,7 @@ class Hooks{
 	}
 
 	public static function getCalenderSources($parameters) {
+		/*
 		$base_url = \OCP\Util::linkTo('calendar', 'ajax/events.php').'?calendar_id=';
 		foreach(Addressbook::all(\OCP\USER::getUser()) as $addressbook) {
 			$parameters['sources'][]
@@ -101,6 +102,7 @@ class Hooks{
 					'editable' => false,
 				);
 		}
+		*/
 	}
 
 	public static function getBirthdayEvents($parameters) {
