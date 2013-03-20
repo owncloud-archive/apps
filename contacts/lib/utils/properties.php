@@ -184,6 +184,16 @@ Class Properties {
 		);
 	}
 
+	/**
+	 * Update the contact property index.
+	 *
+	 * If vcard is null the properties for that contact will be purged.
+	 * If it is a valid object the old properties will first be purged
+	 * and the current properties indexed.
+	 *
+	 * @param string $contactid
+	 * @param \OCA\VObject\VCard|null $vcard
+	 */
 	public static function updateIndex($contactid, $vcard = null) {
 		if(!isset(self::$deleteindexstmt)) {
 			self::$deleteindexstmt
