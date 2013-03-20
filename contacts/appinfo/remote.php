@@ -42,10 +42,10 @@ $requestBackend = new OC_Connector_Sabre_Request();
 
 // Root nodes
 $principalCollection = new Sabre_CalDAV_Principal_Collection($principalBackend);
-$principalCollection->disableListing = true; // Disable listening
+$principalCollection->disableListing = true; // Disable listing
 
 $addressBookRoot = new OCA\Contacts\CardDAV\AddressBookRoot($principalBackend, $carddavBackend);
-$addressBookRoot->disableListing = true; // Disable listening
+$addressBookRoot->disableListing = true; // Disable listing
 
 $nodes = array(
 	$principalCollection,
