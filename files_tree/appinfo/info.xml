@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<info>
+    <id>files_tree</id>
+    <name>Files Tree</name>
+    <description>Add a tree to explore filesystem</description>
+    <version>0.4.0</version>
+    <licence>CC BY-NC 3.0</licence>
+    <author>Bastien Ho (EELV - Urbancube)</author>
+    <require>4.0.7</require>
+</info>
