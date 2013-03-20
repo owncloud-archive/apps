@@ -57,7 +57,7 @@ class VCard extends VObject\Component\VCard {
 	*/
 	protected function formatPropertyTypes(&$property) {
 		foreach($property->parameters as $key=>&$parameter) {
-			$types = Contacts\App::getTypesOfProperty($property->name);
+			$types = Contacts\Utils\Properties::getTypesForProperty($property->name);
 			if(is_array($types) && in_array(strtoupper($parameter->name), array_keys($types))
 				|| strtoupper($parameter->name) == 'PREF') {
 				unset($property->parameters[$key]);
