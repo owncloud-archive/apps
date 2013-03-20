@@ -24,6 +24,8 @@
 
 Changelog: 
 
+* Wed Mar 20 2013 Christian Reiner: version 0.1.10
+Allow direct activation in ownCloud5 based installations. 
 * Fri Mar 01 2013 Christian Reiner: version 0.1.9
 Some general security fix to the apps framework.
 * Mon Feb 18 2013 Christian Reiner: version 0.1.8
