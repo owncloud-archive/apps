@@ -24,6 +24,7 @@ namespace OCA\Contacts;
 
 /**
  * This class manages our addressbooks.
+ * TODO: Port this to use the new backend
  */
 class AddressbookProvider implements \OCP\IAddressBook {
 
