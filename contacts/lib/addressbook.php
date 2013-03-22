@@ -115,7 +115,7 @@ class Addressbook extends PIMCollectionAbstract {
 	*/
 	function getChild($id) {
 		if(!isset($this->objects[$id])) {
-			$contact = $this->$backend->getContact($id);
+			$contact = $this->backend->getContact($this->getId(), $id);
 			if($contact) {
 				$this->objects[$id] = new Contact($this, $this->backend, $contact);
 			}
