@@ -129,7 +129,6 @@ OC.Contacts = OC.Contacts || {};
 	 * @param function cb. Optional callback function.
 	 */
 	GroupList.prototype.setAsFavorite = function(contactid, state, cb) {
-		contactid = parseInt(contactid);
 		var $groupelem = this.findById('fav');
 		var contacts = $groupelem.data('contacts');
 		if(state) {
@@ -603,7 +602,7 @@ OC.Contacts = OC.Contacts || {};
 					: [];
 				console.log('sortorder', self.sortorder);
 				// Favorites
-				var contacts = $.map(jsondata.data.favorites, function(c) {return parseInt(c);});
+				var contacts = jsondata.data.favorites; //$.map(jsondata.data.favorites, function(c) {return parseInt(c);});
 				var $elem = tmpl.octemplate({
 					id: 'fav',
 					type: 'fav',
@@ -628,7 +627,7 @@ OC.Contacts = OC.Contacts || {};
 				console.log('favorites', $elem.data('contacts'));
 				// Normal groups
 				$.each(jsondata.data.categories, function(c, category) {
-					var contacts = $.map(category.contacts, function(c) {return parseInt(c);});
+					var contacts = category.contacts; //$.map(category.contacts, function(c) {return parseInt(c);});
 					var $elem = (tmpl).octemplate({
 						id: category.id,
 						type: 'category',
