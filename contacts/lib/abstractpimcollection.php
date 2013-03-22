@@ -147,7 +147,7 @@ abstract class PIMCollectionAbstract extends PIMObjectAbstract implements \Itera
 
 	// Magic property accessors
 	// NOTE: They should go in the implementations(?)
-
+	/*
 	public function __set($id, $value) {
 		$this->objects[$id] = $value;
 	}
@@ -163,6 +163,6 @@ abstract class PIMCollectionAbstract extends PIMObjectAbstract implements \Itera
 	public function __unset($id) {
 		unset($this->objects[$id]);
 	}
-
+	*/
 
 }
