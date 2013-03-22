@@ -10,6 +10,7 @@ namespace OCA\Contacts;
 
 class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 	const FORMAT_ADDRESSBOOKS = 1;
+	const FORMAT_COLLECTION = 2;
 
 	public $backend;
 
@@ -82,7 +83,7 @@ class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 		//\OCP\Util::writeLog('contacts', __METHOD__
 		//	. ' ' . $include . ' ' . print_r($items, true), \OCP\Util::DEBUG);
 		$addressbooks = array();
-		if ($format == self::FORMAT_ADDRESSBOOKS) {
+		if ($format === self::FORMAT_ADDRESSBOOKS) {
 			foreach ($items as $item) {
 				//\OCP\Util::writeLog('contacts', __METHOD__.' item_source: ' . $item['item_source'] . ' include: '
 				//	. (int)$include, \OCP\Util::DEBUG);
@@ -93,7 +94,7 @@ class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 					$addressbooks[] = $addressbook;
 				}
 			}
-		} else {
+		} elseif ($format === self::FORMAT_COLLECTION) {
 			foreach ($items as $item) {
 			}
 		}
