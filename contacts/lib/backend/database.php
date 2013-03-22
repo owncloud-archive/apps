@@ -65,9 +65,10 @@ class Database extends AbstractBackend {
 
 		try {
 			if(!isset(self::$preparedQueries['addressbooksforuser'])) {
-				self::$preparedQueries['addressbooksforuser'] = \OCP\DB::prepare( 'SELECT * FROM `'
+				$sql = 'SELECT `id`, `displayname`, `description`, `ctag` AS `lastmodified`, `userid` AS `owner` FROM `'
 					. $this->addressBooksTableName
-					. '` WHERE `userid` = ? ORDER BY `displayname`' );
+					. '` WHERE `userid` = ? ORDER BY `displayname`';
+				self::$preparedQueries['addressbooksforuser'] = \OCP\DB::prepare($sql);
 			}
 			$result = self::$preparedQueries['addressbooksforuser']->execute(array($userid));
 			if (\OC_DB::isError($result)) {
