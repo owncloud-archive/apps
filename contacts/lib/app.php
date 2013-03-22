@@ -16,8 +16,12 @@ use Sabre\VObject;
 App::$l10n = \OC_L10N::get('contacts');
 
 class App {
-	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
-	const THUMBNAIL_SIZE = 28;
+
+	/**
+	* @brief Categories of the user
+	* @var OC_VCategories
+	*/
+	public static $categories = null;
 
 	/**
 	 * @brief language object for calendar app
@@ -43,13 +47,17 @@ class App {
 	);
 
 	public function __construct(
+		$user = null,
 		$addressBooksTableName = '*PREFIX*addressbook',
 		$backendsTableName = '*PREFIX*addressbooks_backend',
 		$dbBackend = null
 	) {
+		$this->user = $user ? $user : \OCP\User::getUser();
 		$this->addressBooksTableName = $addressBooksTableName;
 		$this->backendsTableName = $backendsTableName;
-		$this->dbBackend = $dbBackend ? $dbBackend : new Backend\Database();
+		$this->dbBackend = $dbBackend
+			? $dbBackend
+			: new Backend\Database($user);
 	}
 
 	/**
@@ -77,7 +85,7 @@ class App {
 	 *
 	 * @return AddressBook[]
 	 */
-	public function getAllAddressBooksForUser() {
+	public function getAddressBooksForUser() {
 		if(!self::$addressBooks) {
 			foreach(array_keys(self::$backendClasses) as $backendName) {
 				$backend = self::createBackend($backendName);
@@ -132,12 +140,40 @@ class App {
 	}
 
 	/**
+	* @brief returns the vcategories object of the user
+	* @return (object) $vcategories
+	*/
+	public static function getVCategories() {
+		if (is_null(self::$categories)) {
+			if(\OC_VCategories::isEmpty('contact')) {
+				self::scanCategories();
+			}
+			self::$categories = new \OC_VCategories('contact',
+			null,
+			self::getDefaultCategories());
+		}
+		return self::$categories;
+	}
+	/**
 	 * @brief returns the categories for the user
 	 * @return (Array) $categories
 	 */
 	public static function getCategories($format = null) {
 		$categories = self::getVCategories()->categories($format);
 		return ($categories ? $categories : self::getDefaultCategories());
+	}
+
+	/**
+	* @brief returns the default categories of ownCloud
+	* @return (array) $categories
+	*/
+	public static function getDefaultCategories() {
+		return array(
+			(string)self::$l10n->t('Friends'),
+			(string)self::$l10n->t('Family'),
+			(string)self::$l10n->t('Work'),
+			(string)self::$l10n->t('Other'),
+		);
 	}
 
 	/**
@@ -186,46 +222,6 @@ class App {
 			$contact = new \OC_VObject($contact);
 		}
 		self::getVCategories()->loadFromVObject($id, $contact, true);
-	}
-
-	public static function cacheThumbnail($id, \OC_Image $image = null) {
-		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id) && $image === null) {
-			return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
-		}
-		if(is_null($image)) {
-			$vcard = self::getContactVCard($id);
-
-			// invalid vcard
-			if(is_null($vcard)) {
-				\OCP\Util::writeLog('contacts',
-					__METHOD__.' The VCard for ID ' . $id . ' is not RFC compatible',
-					\OCP\Util::ERROR);
-				return false;
-			}
-			$image = new \OC_Image();
-			if(!isset($vcard->PHOTO)) {
-				return false;
-			}
-			if(!$image->loadFromBase64((string)$vcard->PHOTO)) {
-				return false;
-			}
-		}
-		if(!$image->centerCrop()) {
-			\OCP\Util::writeLog('contacts',
-				'thumbnail.php. Couldn\'t crop thumbnail for ID ' . $id,
-				\OCP\Util::ERROR);
-			return false;
-		}
-		if(!$image->resize(self::THUMBNAIL_SIZE)) {
-			\OCP\Util::writeLog('contacts',
-				'thumbnail.php. Couldn\'t resize thumbnail for ID ' . $id,
-				\OCP\Util::ERROR);
-			return false;
-		}
-		 // Cache for around a month
-		\OC_Cache::set(self::THUMBNAIL_PREFIX . $id, $image->data(), 3000000);
-		\OCP\Util::writeLog('contacts', 'Caching ' . $id, \OCP\Util::DEBUG);
-		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 	}
 
 }
