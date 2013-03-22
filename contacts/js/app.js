@@ -168,7 +168,9 @@ OC.Contacts = OC.Contacts || {
 		this.scrollTimeoutMiliSecs = 100;
 		this.isScrolling = false;
 		this.cacheElements();
+		this.storage = new OC.Contacts.Storage();
 		this.contacts = new OC.Contacts.ContactList(
+			this.storage,
 			this.$contactList,
 			this.$contactListItemTemplate,
 			this.$contactDragItemTemplate,
