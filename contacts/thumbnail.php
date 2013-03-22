@@ -45,14 +45,18 @@ if(!extension_loaded('gd') || !function_exists('gd_info')) {
 }
 
 $id = $_GET['id'];
+$parent = $_GET['parent'];
+$backend = $_GET['backend'];
 $caching = null;
 
-$image = OCA\Contacts\App::cacheThumbnail($id);
+$app = new OCA\Contacts\App();
+$contact = $app->getContact($backend, $parent, $id);
+$image = $contact->cacheThumbnail();
 if($image !== false) {
-	$modified = OCA\Contacts\App::lastModified($id);
+	$modified = $contact->lastModified();
 	// Force refresh if modified within the last minute.
 	if(!is_null($modified)) {
-		$caching = (time() - $modified->format('U') > 60) ? null : 0;
+		$caching = (time() - $modified > 60) ? null : 0;
 		OCP\Response::setLastModifiedHeader($modified);
 	}
 	OCP\Response::enableCaching($caching);

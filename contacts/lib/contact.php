@@ -28,6 +28,9 @@ namespace OCA\Contacts;
 
 class Contact extends VObject\VCard implements IPIMObject {
 
+	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
+	const THUMBNAIL_SIZE = 28;
+
 	/**
 	 * The name of the object type in this case VCARD.
 	 *
@@ -80,7 +83,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 						case 'displayname':
 						case 'fullname':
 							$this->props['displayname'] = $value;
-							$this->FN = $value;
+							//$this->FN = $value;
 							break;
 					}
 				}
@@ -147,6 +150,10 @@ class Contact extends VObject\VCard implements IPIMObject {
 	 */
 	function getParent() {
 		return $this->props['parent'];
+	}
+
+	function getBackend() {
+		return $this->props['backend'];
 	}
 
 	/** CRUDS permissions (Create, Read, Update, Delete, Share)
@@ -232,8 +239,10 @@ class Contact extends VObject\VCard implements IPIMObject {
 	 * FIXME: Clean this up and make sure the logic is OK.
 	 */
 	public function retrieve() {
+		//error_log(__METHOD__);
 		//\OCP\Util::writeLog('contacts', __METHOD__.' ' . print_r($this->props, true), \OCP\Util::DEBUG);
 		if($this->children) {
+			//\OCP\Util::writeLog('contacts', __METHOD__. ' children', \OCP\Util::DEBUG);
 			return true;
 		} else {
 			$data = null;
@@ -274,6 +283,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 				}
 			} elseif(isset($this->props['carddata'])) {
 				$data = $this->props['carddata'];
+				//error_log(__METHOD__.' data: '.print_r($data, true));
 			}
 			try {
 				$obj = \Sabre\VObject\Reader::read(
@@ -285,6 +295,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 						$this->add($child);
 					}
 				} else {
+					\OCP\Util::writeLog('contacts', __METHOD__.' Error reading: ' . print_r($data, true), \OCP\Util::DEBUG);
 					return false;
 				}
 			} catch (\Exception $e) {
@@ -322,5 +333,40 @@ class Contact extends VObject\VCard implements IPIMObject {
 		return isset($this->props['lastmodified'])
 			? $this->props['lastmodified']
 			: null;
+	}
+
+	public function cacheThumbnail(\OC_Image $image = null) {
+		$key = $this->getBackend()->name . '::' . $this->getParent()->getId() . '::' . $this->getId();
+		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $key) && $image === null) {
+			return \OC_Cache::get(self::THUMBNAIL_PREFIX . $key);
+		}
+		if(is_null($image)) {
+			$this->retrieve();
+			$image = new \OC_Image();
+			if(!isset($this->PHOTO) && !isset($this->LOGO)) {
+				return false;
+			}
+			if(!$image->loadFromBase64((string)$this->PHOTO)) {
+				if(!$image->loadFromBase64((string)$this->LOGO)) {
+					return false;
+				}
+			}
+		}
+		if(!$image->centerCrop()) {
+			\OCP\Util::writeLog('contacts',
+				'thumbnail.php. Couldn\'t crop thumbnail for ID ' . $key,
+				\OCP\Util::ERROR);
+			return false;
+		}
+		if(!$image->resize(self::THUMBNAIL_SIZE)) {
+			\OCP\Util::writeLog('contacts',
+				'thumbnail.php. Couldn\'t resize thumbnail for ID ' . $key,
+				\OCP\Util::ERROR);
+			return false;
+		}
+		 // Cache for around a month
+		\OC_Cache::set(self::THUMBNAIL_PREFIX . $key, $image->data(), 3000000);
+		\OCP\Util::writeLog('contacts', 'Caching ' . $key, \OCP\Util::DEBUG);
+		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $key);
 	}
 }
