@@ -465,9 +465,18 @@ class OC_Calendar_Object{
 			return $vobject;
 		}
 
-		$vevent = $vobject->VEVENT;
-		if(!is_null($vevent->CLASS) && $vevent->CLASS->value == 'CONFIDENTIAL') {
-			foreach ($vevent->children as &$property) {
+		if(isset($vobject->VEVENT)) {
+			$velement = $vobject->VEVENT;
+		}
+		elseif(isset($vobject->VJOURNAL)) {
+			$velement = $vobject->VJOURNAL;
+		}
+		elseif(isset($vobject->VTODO)) {
+			$velement = $vobject->VTODO;
+		}
+
+		if(isset($velement->CLASS) && $velement->CLASS->value == 'CONFIDENTIAL') {
+			foreach ($velement->children as &$property) {
 				switch($property->name) {
 					case 'CREATED':
 					case 'DTSTART':
@@ -481,7 +490,7 @@ class OC_Calendar_Object{
 						$property->value = OC_Calendar_App::$l10n->t('Busy');
 						break;
 					default:
-						$vevent->__unset($property->name);
+						$velement->__unset($property->name);
 						break;
 				}
 			}
