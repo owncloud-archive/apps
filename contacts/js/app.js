@@ -177,7 +177,7 @@ OC.Contacts = OC.Contacts || {
 			this.$contactFullTemplate,
 			this.detailTemplates
 		);
-		this.groups = new OC.Contacts.GroupList(this.$groupList, this.$groupListItemTemplate);
+		this.groups = new OC.Contacts.GroupList(this.storage, this.$groupList, this.$groupListItemTemplate);
 		OCCategories.changed = this.groups.categoriesChanged;
 		OCCategories.app = 'contacts';
 		OCCategories.type = 'contact';
