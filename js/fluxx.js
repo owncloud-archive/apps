@@ -32,8 +32,8 @@
 // add handle to navigation area
 $(document).ready(function(){
 	// setup handle objects
-	OC.FluXX.Handle['H']=OC.FluXX.create('H', OC.FluXX.C_VERTICAL,   0, 'body > header > #header');
-	OC.FluXX.Handle['N']=OC.FluXX.create('N', OC.FluXX.C_HORIZONTAL, 1, 'body > nav > #navigation');
+	OC.FluXX.Handle['H']=OC.FluXX.create('H', OC.FluXX.C_VERTICAL,   0, 'body header > #header');
+	OC.FluXX.Handle['N']=OC.FluXX.create('N', OC.FluXX.C_HORIZONTAL, 1, 'body nav > #navigation');
 	OC.FluXX.mode();
 	// initialize created handles
 	$.each(OC.FluXX.Handle, function(){
@@ -189,8 +189,9 @@ OC.FluXX={
 		handle.Position.Min=handle.Offset;
 		if (OC.FluXX.C_HORIZONTAL==handle.Orientation)
 			handle.Position.Max=$(handle.Anchor).outerHeight()-$(handle.Anchor).position().top-handle.Offset-$(handle.Selector).outerHeight();
-		else
+		else{
 			handle.Position.Max=$(handle.Anchor).outerWidth()-$(handle.Anchor).position().left-handle.Offset-$(handle.Selector).outerWidth();
+		}
 	}, // OC.FluXX.limit
 	/**
 	* @method OC.FluXX.mode

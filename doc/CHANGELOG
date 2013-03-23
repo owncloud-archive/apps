@@ -24,5 +24,8 @@
 
 Changelog: 
 
+* Sat Mar 23 2013 Christian Reiner: version 0.1.1
+Corrected handles anchor definition to work correct on more exotic page layouts. 
+This is required by the 'external' app which embeds a frame as main widgets. 
 * Tue Feb 19 2013 Christian Reiner: version 0.1.0
 Initial release.
