@@ -4,7 +4,7 @@
 
 #content { background:#ffffff; }
 #emptyfolder { position:absolute; margin:10em 0 0 10em; font-size:1.5em; font-weight:bold; color:#888; text-shadow:#fff 0 1px 0; }
-.impresslist {position: relative; top: 33px; width: 100%; padding:6px; }
+.impresslist {position: relative; top: 33px; width: 100%; padding:6px; margin-top: 0px; }
 .impresslist th {color:#999;}
 .impresslist th#impressImg, .impresslist th#impressName, .impresslist th#impressSize, .impresslist th#impressDate { font-weight:200; border-bottom:2px solid #ccc; }
 .impresslist th#impressName {width:95em; }
