@@ -21,6 +21,8 @@ function getStandardImage() {
 }
 
 $id = isset($_GET['id']) ? $_GET['id'] : null;
+$parent = isset($_GET['parent']) ? $_GET['parent'] : null;
+$backend = isset($_GET['backend']) ? $_GET['backend'] : null;
 $etag = null;
 $caching = null;
 $max_size = 170;
@@ -35,7 +37,8 @@ if(!extension_loaded('gd') || !function_exists('gd_info')) {
 	getStandardImage();
 }
 
-$contact = OCA\Contacts\App::getContactVCard($id);
+$app = new OCA\Contacts\App();
+$contact = $app->getContact($backend, $parent, $id);
 $image = new OC_Image();
 if (!$image) {
 	getStandardImage();
@@ -58,10 +61,10 @@ if (is_null($contact)) {
 		$etag = md5($contact->LOGO);
 	}
 	if ($image->valid()) {
-		$modified = OCA\Contacts\App::lastModified($contact);
+		$modified = $contact->lastModified();
 		// Force refresh if modified within the last minute.
 		if(!is_null($modified)) {
-			$caching = (time() - $modified->format('U') > 60) ? null : 0;
+			$caching = (time() - $modified > 60) ? null : 0;
 		}
 		OCP\Response::enableCaching($caching);
 		if(!is_null($modified)) {
