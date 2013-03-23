@@ -43,6 +43,28 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	/**
+	 * Get all groups for this user.
+	 *
+	 * @return An array containing the groups, the favorites, any shared
+	 * address books, the last selected group and the sort order of the groups.
+	 * {
+	 * 	'categories': [{'id':1',Family'}, {...}],
+	 * 	'favorites': [123,456],
+	 * 	'shared': [],
+	 * 	'lastgroup':'1',
+	 * 	'sortorder':'3,2,4'
+	 * }
+	 */
+	Storage.prototype.getGroupsForUser = function() {
+		console.log('getGroupsForUser');
+		return this.requestRoute(
+			'contacts_categories_list',
+			'GET',
+			{user: this.user}
+		);
+	}
+
+	/**
 	 * Get contacts from an address book from a specific backend
 	 *
 	 * @param string backend

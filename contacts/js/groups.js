@@ -16,7 +16,8 @@ OC.Contacts = OC.Contacts || {};
 	 *   'contacts': An array of contact ids belonging to that group
 	 *   'obj': A reference to the groupList object.
 	 */
-	var GroupList = function(groupList, listItemTmpl) {
+	var GroupList = function(storage, groupList, listItemTmpl) {
+		this.storage = storage;
 		this.$groupList = groupList;
 		var self = this;
 		var numtypes = ['category', 'fav', 'all'];
@@ -594,7 +595,9 @@ OC.Contacts = OC.Contacts || {};
 		var tmpl = this.$groupListItemTemplate;
 
 		tmpl.octemplate({id: 'all', type: 'all', num: numcontacts, name: t('contacts', 'All')}).appendTo($groupList);
-		$.getJSON(OC.filePath('contacts', 'ajax', 'categories/list.php'), {}, function(jsondata) {
+		$.when(this.storage.getGroupsForUser())
+			.then(function(jsondata) {
+		//$.getJSON(OC.filePath('contacts', 'ajax', 'categories/list.php'), {}, function(jsondata) {
 			if (jsondata && jsondata.status == 'success') {
 				self.lastgroup = jsondata.data.lastgroup;
 				self.sortorder = jsondata.data.sortorder.length > 0
@@ -602,7 +605,8 @@ OC.Contacts = OC.Contacts || {};
 					: [];
 				console.log('sortorder', self.sortorder);
 				// Favorites
-				var contacts = jsondata.data.favorites; //$.map(jsondata.data.favorites, function(c) {return parseInt(c);});
+				// Map to strings easier lookup an contacts list.
+				var contacts = $.map(jsondata.data.favorites, function(c) {return String(c);});
 				var $elem = tmpl.octemplate({
 					id: 'fav',
 					type: 'fav',
@@ -627,7 +631,7 @@ OC.Contacts = OC.Contacts || {};
 				console.log('favorites', $elem.data('contacts'));
 				// Normal groups
 				$.each(jsondata.data.categories, function(c, category) {
-					var contacts = category.contacts; //$.map(category.contacts, function(c) {return parseInt(c);});
+					var contacts = $.map(category.contacts, function(c) {return String(c);});
 					var $elem = (tmpl).octemplate({
 						id: category.id,
 						type: 'category',
@@ -702,6 +706,10 @@ OC.Contacts = OC.Contacts || {};
 			if(typeof cb === 'function') {
 				cb();
 			}
+		})
+		.fail(function(jqxhr, textStatus, error) {
+			var err = textStatus + ', ' + error;
+			console.log( "Request Failed: " + err);
 		});
 	};
 
