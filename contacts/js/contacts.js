@@ -1172,7 +1172,9 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	Contact.prototype.loadPhoto = function(dontloadhandlers) {
 		var self = this;
-		var id = this.id || 'new';
+		var id = this.id || 'new',
+			backend = this.metadata.backend,
+			parent = this.metadata.parent;
 		var refreshstr = '&refresh='+Math.random();
 		this.$photowrapper = this.$fullelem.find('#photowrapper');
 		this.$photowrapper.addClass('loading').addClass('wait');
@@ -1187,7 +1189,7 @@ OC.Contacts = OC.Contacts || {};
 			$(this).insertAfter($phototools).fadeIn();
 		}).error(function () {
 			OC.notify({message:t('contacts','Error loading profile picture.')});
-		}).attr('src', OC.linkTo('contacts', 'photo.php')+'?id='+id+refreshstr);
+		}).attr('src', OC.linkTo('contacts', 'photo.php')+'?backend='+backend+'&parent='+parent+'&id='+id+refreshstr);
 
 		if(!dontloadhandlers && this.isEditable()) {
 			this.$photowrapper.on('mouseenter', function(event) {
@@ -1231,7 +1233,8 @@ OC.Contacts = OC.Contacts || {};
 				self.loadPhoto(true);
 				var refreshstr = '&refresh='+Math.random();
 				self.getListItemElement().find('td.name')
-					.css('background', 'url(' + OC.filePath('', '', 'remote.php')+'/contactthumbnail?id='+self.id+refreshstr + ')');
+					.css('background', 'url(' + OC.filePath('', '', 'remote.php')
+						+'/contactthumbnail?backend='+backend+'&parent='+parent+'id='+id+refreshstr + ')');
 			});
 		}
 	};
@@ -1362,7 +1365,9 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.next = function() {
-		var $next = this.$listelem.next('tr:visible');
+		// This used to work..?
+		//var $next = this.$listelem.next('tr:visible');
+		var $next = this.$listelem.nextAll('tr').filter(':visible').first();
 		if($next.length > 0) {
 			this.$listelem.removeClass('active');
 			$next.addClass('active');
@@ -1375,7 +1380,8 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.prev = function() {
-		var $prev = this.$listelem.prev('tr:visible');
+		//var $prev = this.$listelem.prev('tr:visible');
+		var $prev = this.$listelem.prevAll('tr').filter(':visible').first();
 		if($prev.length > 0) {
 			this.$listelem.removeClass('active');
 			$prev.addClass('active');
@@ -1808,7 +1814,7 @@ OC.Contacts = OC.Contacts || {};
 							if(num === 0) {
 								setTimeout(function() {
 									self.doSort();
-									self.setCurrent(self.$contactList.find('tr:visible:first-child').data('id'), false);
+									self.setCurrent(self.$contactList.find('tr:visible').first().data('id'), false);
 								}
 								, 2000);
 								$(document).trigger('status.contacts.loaded', {
