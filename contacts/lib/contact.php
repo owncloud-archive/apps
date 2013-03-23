@@ -309,21 +309,20 @@ class Contact extends VObject\VCard implements IPIMObject {
 	}
 
 	/**
-	* Get a property by the checksum of its serialized value
+	* Delete a property by the checksum of its serialized value
 	*
 	* @param string $checksum An 8 char m5d checksum.
-	* @return \Sabre\VObject\Propert|null
+	* @return bool
 	*/
-	public function getPropertyByChecksum($checksum) {
+	public function unsetPropertyByChecksum($checksum) {
 		$this->retrieve();
-		$line = null;
 		foreach($this->children as $i => $property) {
 			if(substr(md5($property->serialize()), 0, 8) == $checksum ) {
-				$line = $i;
-				break;
+				unset($this->children[$i]);
+				return true;
 			}
 		}
-		return isset($this->children[$line]) ? $this->children[$line] : null;
+		return false;
 	}
 
 	public function lastModified() {
