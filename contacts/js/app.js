@@ -966,6 +966,7 @@ OC.Contacts = OC.Contacts || {
 			self.currentid = 'new';
 			// Properties that the contact doesn't know
 			console.log('addContact, groupid', self.currentgroup);
+			self.$contactList.addClass('dim');
 			var groupprops = {
 				favorite: false,
 				groups: self.groups.categories,
