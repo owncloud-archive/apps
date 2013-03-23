@@ -386,6 +386,7 @@ $(document).ready(function(){
 	});
 
 	$('#tasks_order_category').click(function(){
+		$('#controls input[type="button"]').removeClass('active');
 		var tasks = $('#tasks_list .task').not('.clone');
 		var collection = {};
 		tasks.each(function(i, task) {
@@ -421,44 +422,55 @@ $(document).ready(function(){
 			}
 			$('<h1>').text(label).appendTo(container);
 			container.append(collection[labels[index]]);
-		}
+		};
+		$('#tasks_order_category').addClass('active');
 	});
 
 	$('#tasks_order_due').click(function(){
+		$('#controls input[type="button"]').removeClass('active');
 		OC.Tasks.order(function(a, b){
 			a = $(a).data('task').due;
 			b = $(b).data('task').due;
 			return OC.Tasks.bool_string_cmp(a, b);
 		});
+		$('#tasks_order_due').addClass('active');
 	});
 
 	$('#tasks_order_complete').click(function(){
+		$('#controls input[type="button"]').removeClass('active');
 		OC.Tasks.order(function(a, b){
 			return ($(a).data('task').complete - $(b).data('task').complete) ||
 				OC.Tasks.bool_string_cmp($(a).data('task').completed, $(b).data('task').completed);
 		});
+		$('#tasks_order_complete').addClass('active');
 	});
 
 	$('#tasks_order_location').click(function(){
+		$('#controls input[type="button"]').removeClass('active');
 		OC.Tasks.order(function(a, b){
 			a = $(a).data('task').location;
 			b = $(b).data('task').location;
 			return OC.Tasks.bool_string_cmp(a, b);
 		});
+		$('#tasks_order_location').addClass('active');
 	});
 
 	$('#tasks_order_prio').click(function(){
+		$('#controls input[type="button"]').removeClass('active');
 		OC.Tasks.order(function(a, b){
 			return $(a).data('task').priority
 			     - $(b).data('task').priority;
 		});
+		$('#tasks_order_prio').addClass('active');
 	});
 
 	$('#tasks_order_label').click(function(){
+		$('#controls input[type="button"]').removeClass('active');
 		OC.Tasks.order(function(a, b){
 			return $(a).data('task').summary.localeCompare(
 			       $(b).data('task').summary);
 		});
+		$('#tasks_order_label').addClass('active');
 	});
 
 	$('#tasks_addtask').click(function(){
