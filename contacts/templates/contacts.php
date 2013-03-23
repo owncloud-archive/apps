@@ -136,8 +136,7 @@
 
 <script id="contactListItemTemplate" type="text/template">
 	<tr class="contact" data-id="{id}">
-		<td class="name"
-			style="background: url('<?php print_unescaped(OC_Helper::linkToRemoteBase('contactthumbnail')); ?>?id={id}&parent={parent}&backend={backend}')">
+		<td class="name thumbnail">
 			<input type="checkbox" name="id" value="{id}" /><span class="nametext">{name}</span>
 		</td>
 		<td class="email">
