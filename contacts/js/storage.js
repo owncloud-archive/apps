@@ -16,7 +16,7 @@ OC.Contacts = OC.Contacts || {};
 	*	message: The error message
 	* }
 	*
-	* @param string user The user to query for. Default to current user
+	* @param string user The user to query for. Defaults to current user
 	*/
 	var Storage = function(user) {
 		this.user = user ? user : OC.currentUser;
@@ -25,8 +25,7 @@ OC.Contacts = OC.Contacts || {};
 	/**
 	 * Get all address books registered for this user.
 	 *
-	 * @param function cb Callback function returning the data
-	 * @return An array containing address book metadata e.g.:
+	 * @return An array containing object of address book metadata e.g.:
 	 * {
 	 * 	backend:'database',
 	 * 	id:'1234'
