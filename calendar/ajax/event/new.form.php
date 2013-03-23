@@ -58,7 +58,7 @@ $repeat_bymonthday_options = OC_Calendar_App::getByMonthDayOptions();
 
 $tmpl = new OCP\Template('calendar', 'part.newevent');
 $tmpl->assign('access', 'owner');
-$tmpl->assign('accessclass', 'PRIVATE');
+$tmpl->assign('accessclass', 'PUBLIC');
 $tmpl->assign('calendar_options', $calendar_options);
 $tmpl->assign('access_class_options', $access_class_options);
 $tmpl->assign('repeat_options', $repeat_options);
