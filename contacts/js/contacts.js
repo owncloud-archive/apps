@@ -34,6 +34,24 @@ OC.Contacts = OC.Contacts || {};
 		}
 	};
 
+	Contact.prototype.setThumbnail = function(refresh) {
+		if(this.getPreferredValue('PHOTO', null) === null) {
+			return;
+		}
+		var $elem = this.getListItemElement().find('td.name');
+		if(!$elem.hasClass('thumbnail')) {
+			return;
+		}
+		$elem.removeClass('thumbnail');
+		var refreshstr = refresh ? '&refresh='+Math.random() : '';
+		$elem.css('background-image', 'url(' + OC.filePath('', '', 'remote.php')
+				+'/contactthumbnail?backend='
+				+this.metadata.backend+'&parent='
+				+this.metadata.parent+'&id='
+				+this.id+refreshstr + ')'
+			);
+	}
+
 	Contact.prototype.setAsSaving = function(obj, state) {
 		if(!obj) {
 			return;
@@ -1446,6 +1464,7 @@ OC.Contacts = OC.Contacts || {};
 	*/
 	ContactList.prototype.showContacts = function(contacts) {
 		console.log('showContacts', contacts);
+		var self = this;
 		if(contacts.length === 0) {
 			// ~5 times faster
 			$('tr:visible.contact').hide();
@@ -1453,7 +1472,16 @@ OC.Contacts = OC.Contacts || {};
 		}
 		if(contacts === 'all') {
 			// ~2 times faster
-			$('tr.contact:not(:visible)').show();
+			var $elems = $('tr.contact:not(:visible)');
+			$elems.show();
+			$.each($elems, function(idx, elem) {
+				try {
+					var id = $(elem).data('id');
+					self.contacts[id].setThumbnail();
+				} catch(e) {
+					console.warn('Failed getting id from', $elem, e);
+				}
+			});
 			return;
 		}
 		for(var id in this.contacts) {
@@ -1465,6 +1493,7 @@ OC.Contacts = OC.Contacts || {};
 				contact.getListItemElement().hide();
 			} else {
 				contact.getListItemElement().show();
+				contact.setThumbnail();
 			}
 		}
 	};
