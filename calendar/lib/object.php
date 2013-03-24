@@ -189,7 +189,7 @@ class OC_Calendar_Object{
 		$oldvobject = OC_VObject::parse($oldobject['calendardata']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			$sharedAccessClassPermissions = OC_Calendar_App::getAccessClassPermissions($oldvobject->VEVENT->CLASS->value);
+			$sharedAccessClassPermissions = OC_Calendar_Object::getAccessClassPermissions($oldvobject);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE) || !($sharedAccessClassPermissions & OCP\PERMISSION_UPDATE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
@@ -225,7 +225,7 @@ class OC_Calendar_Object{
 		$oldvobject = OC_VObject::parse($oldobject['calendardata']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $cid);
-			$sharedAccessClassPermissions = OC_Calendar_App::getAccessClassPermissions($oldvobject->VEVENT->CLASS->value);
+			$sharedAccessClassPermissions = OC_Calendar_Object::getAccessClassPermissions($oldvobject);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE) || !($sharedAccessClassPermissions & OCP\PERMISSION_UPDATE)) {
 				throw new Sabre_DAV_Exception_Forbidden(
 					OC_Calendar_App::$l10n->t(
@@ -254,10 +254,10 @@ class OC_Calendar_Object{
 	public static function delete($id) {
 		$oldobject = self::find($id);
 		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
-		$object = OC_VObject::parse($oldobject['calendardata']);
+		$oldvobject = OC_VObject::parse($oldobject['calendardata']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			$sharedAccessClassPermissions = OC_Calendar_App::getAccessClassPermissions($object->VEVENT->CLASS->value);
+			$sharedAccessClassPermissions = OC_Calendar_Object::getAccessClassPermissions($oldvobject);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_DELETE) || !($sharedAccessClassPermissions & OCP\PERMISSION_DELETE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
@@ -496,6 +496,36 @@ class OC_Calendar_Object{
 			}
 		}
 		return $vobject;
+	}
+
+	/**
+	 * @brief Get the permissions determined by the access class of an event/todo/journal
+	 * @param Sabre_VObject $vobject Sabre VObject
+	 * @return (int) $permissions - CRUDS permissions
+	 * @see OCP\Share
+	 */
+	public static function getAccessClassPermissions($vobject) {
+		if(isset($vobject->VEVENT)) {
+			$velement = $vobject->VEVENT;
+		}
+		elseif(isset($vobject->VJOURNAL)) {
+			$velement = $vobject->VJOURNAL;
+		}
+		elseif(isset($vobject->VTODO)) {
+			$velement = $vobject->VTODO;
+		}
+
+		$accessclass = $velement->getAsString('CLASS');
+
+		switch($accessclass) {
+			case 'CONFIDENTIAL':
+				return OCP\PERMISSION_READ;
+			case 'PUBLIC':
+			case '':
+				return (OCP\PERMISSION_READ | OCP\PERMISSION_UPDATE | OCP\PERMISSION_DELETE);
+			default:
+				return 0;
+		}
 	}
 
 	/**
