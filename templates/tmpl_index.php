@@ -1,3 +1,4 @@
+<?php
 /**
 * @package imprint an ownCloud app
 * @category base
@@ -22,16 +23,17 @@
 * If not, see <http://www.gnu.org/licenses/>.
 *
 */
+?>
 
+<?php
 /**
- * @file js/imprint_navigation_bottom.js
- * @brief Client side activity library
+ * @file templates/tmpl_content.php
+ * Visualizes the configured imprint content.
+ * @access public
  * @author Christian Reiner
  */
-$(document).ready(function(){
-	var anchor=$('<a />');
-	anchor.attr('href',OC.linkTo('imprint','index.php'));
-	anchor.text(t("imprint","Legal notice"));
-	anchor.addClass('imprint-anchor').addClass('navigation-bottom');
-	$('#navigation').append(anchor);
-})
+?>
+
+<!-- an iframe holding the imprints content (safety reasons...) -->
+<iframe src="<?php echo OCP\Util::linkTo('imprint','content.php');?>" 
+		width="100%" height="100%"></iframe>

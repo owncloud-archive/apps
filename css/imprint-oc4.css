@@ -24,14 +24,23 @@
 */
 
 /**
- * @file js/imprint_navigation_bottom.js
- * @brief Client side activity library
+ * @file css/imprint-oc4.css
+ * @brief Style corrections to OC versions prior to OC-5
  * @author Christian Reiner
  */
-$(document).ready(function(){
-	var anchor=$('<a />');
-	anchor.attr('href',OC.linkTo('imprint','index.php'));
-	anchor.text(t("imprint","Legal notice"));
-	anchor.addClass('imprint-anchor').addClass('navigation-bottom');
-	$('#navigation').append(anchor);
-})
+
+/* some rules for the reference itself */
+a.imprint-anchor{
+}
+#header a.imprint-anchor.header-left{
+	line-height:2.8em;
+	left: 0;
+}
+#header a.imprint-anchor.header-right{
+	line-height:2.8em;
+}
+#navigation a.imprint-anchor.navigation-top{
+}
+#navigation a.imprint-anchor.navigation-bottom{
+}
+

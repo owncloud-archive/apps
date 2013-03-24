@@ -24,14 +24,13 @@
 */
 
 /**
- * @file js/imprint_navigation_bottom.js
- * @brief Client side activity library
+ * @file css/content.css
+ * @brief Style definitions of the apps view
  * @author Christian Reiner
  */
-$(document).ready(function(){
-	var anchor=$('<a />');
-	anchor.attr('href',OC.linkTo('imprint','index.php'));
-	anchor.text(t("imprint","Legal notice"));
-	anchor.addClass('imprint-anchor').addClass('navigation-bottom');
-	$('#navigation').append(anchor);
-})
+
+/* some general content padding */
+#imprint-content {
+	padding: 1em;
+	font-size: larger;
+}

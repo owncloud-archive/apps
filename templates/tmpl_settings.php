@@ -39,7 +39,7 @@
 	<fieldset class="personalblock">
 		<legend>
 			<span id="title" class="title">
-				<img class="" src="<?php echo OCP\Util::imagePath("imprint","imprint.png"); ?> ">
+				<img class="" src="<?php echo OCP\Util::imagePath("imprint","imprint-dusky.svg"); ?> ">
 				<strong><?php echo $l->t("Imprint");?></strong>
 			</span>
 		</legend>
