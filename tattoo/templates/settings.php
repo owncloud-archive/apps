@@ -22,6 +22,7 @@
 			<input type="radio" name="tattooWallpaper" value="tattoo-sun.png"<?php if ($_['tattooSelectedWallpaper']=='tattoo-sun.png') print_unescaped(' checked="checked"'); ?>/>
 		</div>
 		<br/>
+        <input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']); ?>">
 		<input type="submit" name="tattooSetWallpaper" id="tattooSetWallpaper" value="Save"/>
 	</fieldset>
 </form>
