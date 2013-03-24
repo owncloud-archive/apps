@@ -24,7 +24,8 @@ if(!$data) {
 $object = OC_VObject::parse($data['calendardata']);
 $vevent = $object->VEVENT;
 $object = OC_Calendar_Object::cleanByAccessClass($id, $object);
-$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT, $vevent->CLASS->value);
+$accessclass = $vevent->getAsString('CLASS');
+$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT, $accessclass);
 
 $dtstart = $vevent->DTSTART;
 $dtend = OC_Calendar_Object::getDTEndFromVEvent($vevent);
@@ -55,7 +56,6 @@ switch($dtstart->getDateType()) {
 		break;
 }
 
-$accessclass = $vevent->getAsString('CLASS');
 $summary = $vevent->getAsString('SUMMARY');
 $location = $vevent->getAsString('LOCATION');
 $categories = $vevent->getAsString('CATEGORIES');
