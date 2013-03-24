@@ -1,5 +1,5 @@
 var PlayList={
-	urlBase:OC.linkTo('media','ajax/api.php')+'?action=play&path=',
+	urlBase:OC.linkTo('media','ajax/api.php')+'?action=play&requesttoken=' + oc_requesttoken + '&path=',
 	current:-1,
 	items:[],
 	player:null,
