@@ -1,14 +1,21 @@
 <?php
 
-//require_once 'Zend/Search/Lucene.php';
-//require_once 'Zend/Search/Lucene/Index/Term.php';
-//require_once 'Zend/Search/Lucene/Search/Query/Term.php';
+namespace OCA\Search_Lucene;
+
+use \OC\Files\Filesystem;
+use \OCP\User;
+use \OCP\Util;
 
 /**
  * @author Jörn Dreyer <jfd@butonic.de>
  */
-class OC_Search_Lucene extends OC_Search_Provider {
+class Lucene extends \OC_Search_Provider {
 
+	/**
+	 * classname which used for hooks handling
+	 * used as signalclass in OC_Hooks::emit()
+	 */
+	const CLASSNAME = 'Lucene';
 
 	/**
 	 * opens or creates the users lucene index
@@ -19,29 +26,33 @@ class OC_Search_Lucene extends OC_Search_Provider {
 	 *
 	 * @return Zend_Search_Lucene_Interface 
 	 */
-	public static function openOrCreate() {
+	public static function openOrCreate($user = null) {
+
+		if ($user == null) {
+			$user = User::getUser();
+		}
 
 		try {
 			
-			Zend_Search_Lucene_Analysis_Analyzer::setDefault(
-				new Zend_Search_Lucene_Analysis_Analyzer_Common_TextNum_CaseInsensitive()
+			\Zend_Search_Lucene_Analysis_Analyzer::setDefault(
+				new \Zend_Search_Lucene_Analysis_Analyzer_Common_TextNum_CaseInsensitive()
 			); //let lucene search for numbers as well as words
 			
 			// Create index
 			//$ocFilesystemView = OC_App::getStorage('search_lucene'); // encrypt the index on logout, decrypt on login
 
-			$indexUrl = \OC_User::getHome(\OCP\User::getUser()) . '/lucene_index';
+			$indexUrl = \OC_User::getHome($user) . '/lucene_index';
 			if (file_exists($indexUrl)) {
-				$index = Zend_Search_Lucene::open($indexUrl);
+				$index = \Zend_Search_Lucene::open($indexUrl);
 			} else {
-				$index = Zend_Search_Lucene::create($indexUrl);
+				$index = \Zend_Search_Lucene::create($indexUrl);
 				//todo index all user files
 				
 			}
 		} catch ( Exception $e ) {
-			OC_Log::write('search_lucene',
-						$e->getMessage().' Trace:\n'.$e->getTraceAsString(),
-						OC_Log::ERROR);
+            Util::writeLog('search_lucene',
+					$e->getMessage().' Trace:\n'.$e->getTraceAsString(),
+                	Util::ERROR);
 			return null;
 		}
 		
@@ -59,15 +70,15 @@ class OC_Search_Lucene extends OC_Search_Provider {
 	 * 
 	 * @return void
 	 */
-	static public function optimizeIndex(Zend_Search_Lucene_Interface $index = null) {  
+	static public function optimizeIndex(\Zend_Search_Lucene_Interface $index = null) {
 
 		if ($index === null) {
 			$index = self::openOrCreate();
 		}
 
-		OC_Log::write('search_lucene',
-					  'optimizing index ' . $path,
-					  OC_Log::DEBUG);
+		Util::writeLog('search_lucene',
+					   'optimizing index ',
+						Util::DEBUG);
 
 		$index->optimize();
 
@@ -87,20 +98,21 @@ class OC_Search_Lucene extends OC_Search_Provider {
 	 * 
 	 * @return void
 	 */
-	static public function updateFile(Zend_Search_Lucene_Document $doc,
+	static public function updateFile(\Zend_Search_Lucene_Document $doc,
 									  $path = '',
-									  Zend_Search_Lucene_Interface $index = null) {
+									  $user = null,
+									  \Zend_Search_Lucene_Interface $index = null) {
 
 		if ($index === null) {
-			$index = self::openOrCreate();
+			$index = self::openOrCreate($user);
 		}
 		
 		// TODO profile perfomance for searching before adding to index
-		self::deleteFile($path, $index);
+		self::deleteFile($path, $user, $index);
 
-		OC_Log::write('search_lucene',
-					  'adding ' . $path,
-					  OC_Log::DEBUG);
+		Util::writeLog('search_lucene',
+					   'adding ' . $path ,
+					   Util::DEBUG);
 		
 		// Add document to the index
 		$index->addDocument($doc);
@@ -119,35 +131,49 @@ class OC_Search_Lucene extends OC_Search_Provider {
 	 * 
 	 * @return void
 	 */
-	static public function deleteFile($path, Zend_Search_Lucene_Interface $index = null) {
+	static public function deleteFile($path, $user = null, \Zend_Search_Lucene_Interface $index = null) {
 
 		if ( $path === '' ) {
 			//ignore the empty path element
 			return;
 		}
 
-		if ($index === null) {
-			$index = self::openOrCreate();
+		if (is_null($user)) {
+			$view = Filesystem::getView();
+			$user = \OCP\User::getUser();
+		} else {
+			$view = new \OC\Files\View('/' . $user . '/files');
 		}
 
-		$root=  OC\Files\Filesystem::getRoot();
+		if ( ! $view ) {
+			Util::writeLog('search_lucene',
+				'could not resolve filesystem view',
+				Util::WARN);
+			return false;
+		}
+
+		if ($index === null) {
+			$index = self::openOrCreate($user);
+		}
+
+		$root= $view->getRoot();
 		$pk = md5($root.$path);
 
-		OC_Log::write('search_lucene',
+		Util::writeLog('search_lucene',
 					  'searching hits for pk:' . $pk,
-					  OC_Log::DEBUG);
+					  Util::DEBUG);
 
 
 		$hits = $index->find( 'pk:' . $pk ); //id would be internal to lucene
 
-		OC_Log::write('search_lucene',
+		Util::writeLog('search_lucene',
 					  'found ' . count($hits) . ' hits ',
-					  OC_Log::DEBUG);
+					  Util::DEBUG);
 
 		foreach ($hits as $hit) {
-			OC_Log::write('search_lucene',
-						  'removing ' . $hit->id . ':' . $hit->path . ' from index',
-						  OC_Log::DEBUG);
+			Util::writeLog('search_lucene',
+						'removing ' . $hit->id . ':' . $hit->path . ' from index',
+						Util::DEBUG);
 			$index->delete($hit);
 		}
 	}
@@ -188,9 +214,9 @@ class OC_Search_Lucene extends OC_Search_Provider {
 				}
 
 			} catch ( Exception $e ) {
-				OC_Log::write('search_lucene',
+				Util::writeLog('search_lucene',
 							$e->getMessage().' Trace:\n'.$e->getTraceAsString(),
-							OC_Log::ERROR);
+							Util::ERROR);
 			}
 
 		}
@@ -210,7 +236,7 @@ class OC_Search_Lucene extends OC_Search_Provider {
 	 * @param Zend_Search_Lucene_Search_QueryHit $hit The Lucene Search Result
 	 * @return OC_Search_Result an OC_Search_Result
 	 */
-	private static function asOCSearchResult(Zend_Search_Lucene_Search_QueryHit $hit) {
+	private static function asOCSearchResult(\Zend_Search_Lucene_Search_QueryHit $hit) {
 
 		$mimeBase = self::baseTypeOf($hit->mimetype);
 
@@ -234,16 +260,16 @@ class OC_Search_Lucene extends OC_Search_Provider {
 
 		switch ($hit->mimetype) {
 			case 'httpd/unix-directory':
-				$url = OCP\Util::linkTo('files', 'index.php') . '?dir='.$hit->path;
+				$url = Util::linkTo('files', 'index.php') . '?dir='.$hit->path;
 				break;
 			default:
-				$url = OC::getRouter()->generate('download', array('file'=>$hit->path));
+				$url = \OC::getRouter()->generate('download', array('file'=>$hit->path));
 		}
 		
-		return new OC_Search_Result(
+		return new \OC_Search_Result(
 				basename($hit->path),
 				dirname($hit->path)
-					. ', ' . OC_Helper::humanFileSize($hit->size)
+					. ', ' . \OC_Helper::humanFileSize($hit->size)
 					. ', Score: ' . number_format($hit->score, 2),
 				$url,
 				$type

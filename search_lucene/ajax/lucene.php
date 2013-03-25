@@ -6,18 +6,21 @@ OCP\JSON::checkAppEnabled('search_lucene');
 session_write_close();
 
 function index() {
-	$fileIds = OC_Search_Lucene_Indexer::getUnindexed();
+	$fileIds = OCA\Search_Lucene\Indexer::getUnindexed();
 
 	$eventSource = new OC_EventSource();
 	$eventSource->send('count', count($fileIds));
 
 	$skippedDirs = explode(';', OCP\Config::getUserValue(OCP\User::getUser(), 'search_lucene', 'skipped_dirs', '.git;.svn;.CVS;.bzr'));
 
-	$query = \OC_DB::prepare('INSERT INTO `*PREFIX*lucene_status` VALUES (?,?)');
+	$query = OC_DB::prepare('INSERT INTO `*PREFIX*lucene_status` VALUES (?,?)');
 
 	foreach ($fileIds as $id) {
 		$skipped = false;
-		$result = false;
+
+		//before we start mark the file as error so we know there was a problem when the php execution dies
+		$result = $query->execute(array($id, 'E'));
+
 		$path = OC\Files\Filesystem::getPath($id);
 		$eventSource->send('indexing', $path);
 		foreach ($skippedDirs as $skippedDir) {
@@ -30,10 +33,8 @@ function index() {
 			}
 		}
 		if (!$skipped) {
-			if (OC_Search_Lucene_Indexer::indexFile($path)) {
+			if (OCA\Search_Lucene\Indexer::indexFile($path, OCP\User::getUser())) {
 				$result = $query->execute(array($id, 'I'));
-			} else {
-				$result = $query->execute(array($id, 'E'));
 			}
 		}
 
@@ -48,7 +49,7 @@ function index() {
 }
 
 function handleOptimize() {
-	OC_Search_Lucene::optimizeIndex();
+	OCA\Search_Lucene\Lucene::optimizeIndex();
 }
 
 if ($_GET['operation']) {
