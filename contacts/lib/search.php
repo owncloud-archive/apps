@@ -12,7 +12,7 @@ class SearchProvider extends \OC_Search_Provider{
 			$link = \OCP\Util::linkTo('contacts', 'index.php').'#' . $vcard['id'];
 			$props = array();
 			foreach(array('EMAIL', 'NICKNAME', 'ORG') as $searchvar) {
-				if(count($result[$searchvar]) > 0 && strlen($result[$searchvar][0]) > 3) {
+				if(isset($result[$searchvar]) && count($result[$searchvar]) > 0 && strlen($result[$searchvar][0]) > 3) {
 					$props = array_merge($props, $result[$searchvar]);
 				}
 			}
