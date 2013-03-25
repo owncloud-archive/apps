@@ -156,7 +156,7 @@ class Indexer {
 			unset($data['error']);
 		} else if ('application/pdf' === $mimetype) {
 			try {
-				$zendpdf = \Zend_Pdf::parse(Filesystem::file_get_contents($path));
+				$zendpdf = \Zend_Pdf::parse($view->file_get_contents($path));
 
 				//we currently only display the filename, so we only index metadata here
 				if (isset($zendpdf->properties['Title'])) {
