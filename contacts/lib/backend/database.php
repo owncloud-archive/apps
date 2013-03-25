@@ -353,15 +353,21 @@ class Database extends AbstractBackend {
 	 * The $id for Database and Shared backends can be an array containing
 	 * either 'id' or 'uri' to be able to play seamlessly with the
 	 * CardDAV backend.
+	 * FIXME: $addressbookid isn't used in the query, so there's no access control.
+	 * 	OTOH the groups backend - OC_VCategories - doesn't no about parent collections
+	 * 	only object IDs. Hmm.
+	 * 	I could make a hack and add an optional, not documented 'nostrict' argument
+	 * 	so it doesn't look for addressbookid.
 	 *
 	 * @param string $addressbookid
 	 * @param mixed $id Contact ID
 	 * @return array|false
 	 */
-	public function getContact($addressbookid, $id) {
+	public function getContact($addressbookid, $id, $noCollection = false) {
 		//\OCP\Util::writeLog('contacts', __METHOD__.' identifier: '
 		//	. print_r($id, true), \OCP\Util::DEBUG);
 
+		$ids = array($id);
 		$where_query = '`id` = ?';
 		if(is_array($id)) {
 			$where_query = '';
@@ -376,11 +382,17 @@ class Database extends AbstractBackend {
 				);
 			}
 		}
+
+		if(!$noCollection) {
+			$where_query .= ' AND `addressbookid` = ?';
+			$ids[] = $addressbookid;
+		}
+
 		try {
 			$query =  'SELECT `id`, `carddata`, `lastmodified`, `fullname` AS `displayname` FROM `'
 				. $this->cardsTableName . '` WHERE ' . $where_query;
 			$stmt = \OCP\DB::prepare($query);
-			$result = $stmt->execute(array($id));
+			$result = $stmt->execute($ids);
 			if (\OC_DB::isError($result)) {
 				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return false;
@@ -485,7 +497,7 @@ class Database extends AbstractBackend {
 	 * @see getContact
 	 * @return bool
 	 */
-	public function updateContact($addressbookid, $id, $contact) {
+	public function updateContact($addressbookid, $id, $contact, $noCollection = false) {
 		if(!$contact instanceof Contact) {
 			try {
 				$contact = Reader::read($contact);
@@ -512,17 +524,25 @@ class Database extends AbstractBackend {
 		} else {
 			$qname = 'createcontactbyid';
 		}
+
 		$now = new \DateTime;
 		$contact->REV = $now->format(\DateTime::W3C);
 
 		$data = $contact->serialize();
+
+		$updates = array($contact->FN, $data, time(), $id);
+		if(!$noCollection) {
+			$where_query .= ' AND `addressbookid` = ?';
+			$updates[] = $addressbookid;
+		}
+
 		$query = 'UPDATE `' . $this->cardsTableName
 				. '` SET `fullname` = ?,`carddata` = ?, `lastmodified` = ? WHERE ' . $where_query;
 		if(!isset(self::$preparedQueries[$qname])) {
 			self::$preparedQueries[$qname] = \OCP\DB::prepare($query);
 		}
 		try {
-			$result = self::$preparedQueries[$qname]->execute(array($contact->FN, $data, time(), $id));
+			$result = self::$preparedQueries[$qname]->execute($updates);
 			if (\OC_DB::isError($result)) {
 				\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return false;

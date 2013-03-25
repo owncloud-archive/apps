@@ -99,6 +99,11 @@ interface IPIMObject {
 	function getPermissions();
 
 	/**
+	 * @return AbstractBackend
+	 */
+	function getBackend();
+
+	/**
 	 * @param integer $permission
 	 * @return boolean
 	 */

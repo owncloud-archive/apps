@@ -76,6 +76,7 @@ class Addressbook extends PIMCollectionAbstract {
 	public function getMetaData() {
 		$metadata = $this->addressBookInfo;
 		$metadata['lastmodified'] = $this->lastModified();
+		$metadata['backend'] = $this->getBackend()->name;
 		return $metadata;
 	}
 
@@ -105,6 +106,10 @@ class Addressbook extends PIMCollectionAbstract {
 	 */
 	public function getPermissions() {
 		return $this->addressBookInfo['permissions'];
+	}
+
+	function getBackend() {
+		return $this->backend;
 	}
 
 	/**
@@ -164,8 +169,8 @@ class Addressbook extends PIMCollectionAbstract {
 	 * @param array|VObject\VCard $data
 	 * @return int|bool
 	 */
-	public function addChild($data) {
-		if($data instanceof VObject\VCard || is_array($data)) {
+	public function addChild($data = null) {
+		//if($data instanceof VObject\VCard || is_array($data)) {
 			$contact = new Contact($this, $this->backend, $data);
 			if($contact->save() === false) {
 				return false;
@@ -173,12 +178,12 @@ class Addressbook extends PIMCollectionAbstract {
 			$id = $contact->getId();
 			$this->objects[$id] = $contact;
 			return $id;
-		} else {
+		/*} else {
 			throw new Exception(
 				__METHOD__
 				. ' This method accepts only an array or an instance of OCA\\Contacts\\VCard'
 			);
-		}
+		}*/
 	}
 
 	/**

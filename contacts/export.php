@@ -43,7 +43,9 @@ if(!is_null($bookid)) {
 	}
 } elseif(!is_null($contactid)) {
 	try {
-		$data = OCA\Contacts\VCard::find($contactid);
+		$app = new OCA\Contacts\App();
+		$contact = $app->getContact($_GET['backend'], $_GET['parent'], $_GET['contactid']);
+		$data = $contact->serialize();
 	} catch(Exception $e) {
 		OCP\JSON::error(
 			array(
@@ -56,8 +58,8 @@ if(!is_null($bookid)) {
 	}
 	header('Content-Type: text/vcard');
 	header('Content-Disposition: inline; filename='
-		. str_replace(' ', '_', $data['fullname']) . '.vcf');
-	echo $data['carddata'];
+		. str_replace(' ', '_', $contact->FN) . '.vcf');
+	echo $data;
 } elseif(!is_null($selectedids)) {
 	$selectedids = explode(',', $selectedids);
 	$l10n = \OC_L10N::get('contacts');

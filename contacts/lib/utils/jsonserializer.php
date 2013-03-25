@@ -30,6 +30,8 @@ use OCA\Contacts\Contact;
  * This class serializes properties, components an
  * arrays of components into a format suitable for
  * passing to a JSON response.
+ * TODO: Return jCard (almost) compliant data, but still omitting unneeded data.
+ * http://tools.ietf.org/html/draft-kewisch-vcard-in-json-01
  */
 
 class JSONSerializer {

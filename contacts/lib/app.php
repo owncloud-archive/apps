@@ -37,7 +37,7 @@ class App {
 	protected static $addressBooks = array();
 	/**
 	* If backends are added to this map, they will be automatically mapped
-	* to their respective classes, if constructed with the 'createBackend' method.
+	* to their respective classes, if constructed with the 'getBackend' method.
 	*
 	* @var array
 	*/
@@ -61,16 +61,15 @@ class App {
 	}
 
 	/**
-	* Creates the new backend by name, but in addition will also see if
-	* there's a class mapped to the property name.
+	* Gets backend by name.
 	*
 	* @param string $name
 	* @return \Backend\AbstractBackend
 	*/
-	static public function createBackend($name) {
+	static public function getBackend($name, $user = null) {
 		$name = $name ? $name : 'database';
 		if (isset(self::$backendClasses[$name])) {
-			return new self::$backendClasses[$name]();
+			return new self::$backendClasses[$name]($user);
 		} else {
 			throw new \Exception('No backend for: ' . $name);
 		}
@@ -88,7 +87,7 @@ class App {
 	public function getAddressBooksForUser() {
 		if(!self::$addressBooks) {
 			foreach(array_keys(self::$backendClasses) as $backendName) {
-				$backend = self::createBackend($backendName);
+				$backend = self::getBackend($backendName, $this->user);
 				$addressBooks = $backend->getAddressBooksForUser();
 				foreach($addressBooks as $addressBook) {
 					$addressBook['backend'] = $backendName;
@@ -115,7 +114,7 @@ class App {
 			}
 		}
 		// TODO: Check for return values
-		$backend = self::createBackend($backendName);
+		$backend = self::getBackend($backendName, $this->user);
 		$info = $backend->getAddressBook($addressbookid);
 		// FIXME: Backend name should be set by the backend.
 		$info['backend'] = $backendName;

@@ -54,11 +54,14 @@ class Contact extends VObject\VCard implements IPIMObject {
 		//\OCP\Util::writeLog('contacts', __METHOD__, \OCP\Util::DEBUG);
 		$this->props['parent'] = $parent;
 		$this->props['backend'] = $backend;
+		$this->props['retrieved'] = false;
+		$this->props['saved'] = false;
 
 		if(!is_null($data)) {
 			if($data instanceof VObject\VCard) {
 				foreach($obj->children as $child) {
 					$this->add($child);
+					$this->setRetrieved(true);
 				}
 			} elseif(is_array($data)) {
 				foreach($data as $key => $value) {
@@ -83,15 +86,15 @@ class Contact extends VObject\VCard implements IPIMObject {
 						case 'displayname':
 						case 'fullname':
 							$this->props['displayname'] = $value;
-							//$this->FN = $value;
+							$this->FN = $value;
 							break;
 					}
 				}
-			} else {
+			}/* else {
 				throw new Exception(
 					__METHOD__ . ' 3rd argument must either be an array or a subclass of \VObject\VCard'
 				);
-			}
+			}*/
 		}
 	}
 
@@ -112,6 +115,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 			'lastmodified' => $this->lastModified(),
 			'owner' => $this->getOwner(),
 			'parent' => $this->getParent()->getId(),
+			'backend' => $this->getBackend()->name,
 		);
 	}
 
@@ -215,21 +219,34 @@ class Contact extends VObject\VCard implements IPIMObject {
 	 *
 	 * @return bool
 	 */
-	public function save() {
+	public function save($force = false) {
+		if($this->isSaved() && !$force) {
+			\OCP\Util::writeLog('contacts', __METHOD__.' Already saved: ' . print_r($this->props, true), \OCP\Util::DEBUG);
+			return true;
+		}
 		if(isset($this->FN)) {
 			$this->props['displayname'] = (string)$this->FN;
 		}
 		if($this->getId()) {
-			return $this->props['backend']->updateContact(
-				$this->getParent()->getId(),
-				$this->getId(),
-				$this->serialize()
-			);
+			if($this->props['backend']
+				->updateContact(
+					$this->getParent()->getId(),
+					$this->getId(),
+					$this->serialize()
+				)
+			) {
+				$this->props['lastmodified'] = time();
+				$this->setSaved(true);
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			//print(__METHOD__.' ' . print_r($this->getParent(), true));
 			$this->props['id'] = $this->props['backend']->createContact(
 				$this->getParent()->getId(), $this
 			);
+			$this->setSaved(true);
 			return $this->getId() !== false;
 		}
 	}
@@ -241,7 +258,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 	public function retrieve() {
 		//error_log(__METHOD__);
 		//\OCP\Util::writeLog('contacts', __METHOD__.' ' . print_r($this->props, true), \OCP\Util::DEBUG);
-		if($this->children) {
+		if($this->isRetrieved()) {
 			//\OCP\Util::writeLog('contacts', __METHOD__. ' children', \OCP\Util::DEBUG);
 			return true;
 		} else {
@@ -255,12 +272,13 @@ class Contact extends VObject\VCard implements IPIMObject {
 							= strtr($child->value, array('\,' => ',', '\;' => ';', '\\\\' => '\\'));
 					}
 				}
+				$this->setRetrieved(true);
 				//$this->children = $this->props['vcard']->children();
 				unset($this->props['vcard']);
 				return true;
 			} elseif(!isset($this->props['carddata'])) {
 				$result = $this->props['backend']->getContact(
-					$this->parent->getId(),
+					$this->getParent()->getId(),
 					$this->id
 				);
 				if($result) {
@@ -269,6 +287,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 						foreach($result['vcard']->children() as $child) {
 							$this->add($child);
 						}
+						$this->setRetrieved(true);
 						return true;
 					} elseif(isset($result['carddata'])) {
 						// Save internal values
@@ -294,13 +313,14 @@ class Contact extends VObject\VCard implements IPIMObject {
 					foreach($obj->children as $child) {
 						$this->add($child);
 					}
+					$this->setRetrieved(true);
 				} else {
 					\OCP\Util::writeLog('contacts', __METHOD__.' Error reading: ' . print_r($data, true), \OCP\Util::DEBUG);
 					return false;
 				}
 			} catch (\Exception $e) {
 				\OCP\Util::writeLog('contacts', __METHOD__ .
-					' Error parsing carddata: ' . $e->getMessage(),
+					' Error parsing carddata  for: ' . $this->getId() . ' ' . $e->getMessage(),
 						\OCP\Util::ERROR);
 				return false;
 			}
@@ -309,20 +329,161 @@ class Contact extends VObject\VCard implements IPIMObject {
 	}
 
 	/**
-	* Delete a property by the checksum of its serialized value
+	* Get a property by the checksum of its serialized value
 	*
 	* @param string $checksum An 8 char m5d checksum.
-	* @return bool
+	* @return \Sabre\VObject\Property Property by reference
+	* @throws An exception with error code 404 if the property is not found.
 	*/
-	public function unsetPropertyByChecksum($checksum) {
+	public function getPropertyByChecksum($checksum) {
 		$this->retrieve();
-		foreach($this->children as $i => $property) {
+		foreach($this->children as $i => &$property) {
 			if(substr(md5($property->serialize()), 0, 8) == $checksum ) {
-				unset($this->children[$i]);
-				return true;
+				return $property;
 			}
 		}
-		return false;
+		throw new Exception('Property not found', 404);
+	}
+
+	/**
+	* Delete a property by the checksum of its serialized value
+	* It is up to the caller to call ->save()
+	*
+	* @param string $checksum An 8 char m5d checksum.
+	* @throws @see getPropertyByChecksum
+	*/
+	public function unsetPropertyByChecksum($checksum) {
+		$property = $this->getPropertyByChecksum($checksum);
+		unset($property);
+	}
+
+	/**
+	* Set a property by the checksum of its serialized value
+	* It is up to the caller to call ->save()
+	*
+	* @param string $checksum An 8 char m5d checksum.
+	* @param string $name Property name
+	* @param mixed $value
+	* @param array $parameters
+	* @throws @see getPropertyByChecksum
+	* @return string new checksum
+	*/
+	public function setPropertyByChecksum($checksum, $name, $value, $parameters=array()) {
+		$property = $this->getPropertyByChecksum($checksum);
+		switch($name) {
+			case 'EMAIL':
+				$value = strtolower($value);
+				$property->setValue($value);
+				break;
+			case 'ADR':
+				if(is_array($value)) {
+					$property->setParts($value);
+				} else {
+					debug('Saving N ' . $value);
+					$property->setValue($value);
+				}
+				break;
+			case 'IMPP':
+				if(is_null($parameters) || !isset($parameters['X-SERVICE-TYPE'])) {
+					bailOut(App::$l10n->t('Missing IM parameter.'));
+				}
+				$impp = Utils\Properties::getIMOptions($parameters['X-SERVICE-TYPE']);
+				if(is_null($impp)) {
+					bailOut(App::$l10n->t('Unknown IM: '.$parameters['X-SERVICE-TYPE']));
+				}
+				$value = $impp['protocol'] . ':' . $value;
+				$property->setValue($value);
+				break;
+			default:
+				$property->setValue($value);
+				break;
+		}
+		$this->setParameters($property, $parameters);
+		return substr(md5($property->serialize()), 0, 8);
+	}
+
+	/**
+	* Set a property by the property name.
+	* It is up to the caller to call ->save()
+	*
+	* @param string $name Property name
+	* @param mixed $value
+	* @param array $parameters
+	* @return bool
+	*/
+	public function setPropertyByName($name, $value, $parameters=array()) {
+		// TODO: parameters are ignored for now.
+		switch($name) {
+			case 'BDAY':
+				try {
+					$date = New \DateTime($value);
+				} catch(\Exception $e) {
+					\OCP\Util::writeLog('contacts',
+						__METHOD__.' DateTime exception: ' . $e->getMessage(),
+						\OCP\Util::ERROR
+					);
+					return false;
+				}
+				$value = $date->format('Y-m-d');
+				$this->BDAY = $value;
+				$this->BDAY->VALUE = 'DATE';
+				break;
+			case 'N':
+				$property = $this->select($name);
+				if(count($property) === 0) {
+					$property = VObject\Property::create($name);
+					$this->add($property);
+				} else {
+					// Actually no idea why this works
+					$property = array_shift($property);
+				}
+				if(is_array($value)) {
+					$property->setParts($value);
+				} else {
+					$this->N = $value;
+				}
+				break;
+			default:
+				$this->{$name} = $value;
+				break;
+		}
+		return true;
+	}
+
+	protected function setParameters($property, $parameters, $reset = false) {
+		if(!$parameters) {
+			return;
+		}
+
+		if($reset) {
+			$property->parameters = array();
+		}
+		debug('Setting parameters: ' . print_r($parameters, true));
+		foreach($parameters as $key => $parameter) {
+			debug('Adding parameter: ' . $key);
+			if(is_array($parameter)) {
+				foreach($parameter as $val) {
+					if(is_array($val)) {
+						foreach($val as $val2) {
+							if(trim($key) && trim($val2)) {
+								debug('Adding parameter: '.$key.'=>'.print_r($val2, true));
+								$property->add($key, strip_tags($val2));
+							}
+						}
+					} else {
+						if(trim($key) && trim($val)) {
+							debug('Adding parameter: '.$key.'=>'.print_r($val, true));
+							$property->add($key, strip_tags($val));
+						}
+					}
+				}
+			} else {
+				if(trim($key) && trim($parameter)) {
+					debug('Adding parameter: '.$key.'=>'.print_r($parameter, true));
+					$property->add($key, strip_tags($parameter));
+				}
+			}
+		}
 	}
 
 	public function lastModified() {
@@ -368,4 +529,31 @@ class Contact extends VObject\VCard implements IPIMObject {
 		\OCP\Util::writeLog('contacts', 'Caching ' . $key, \OCP\Util::DEBUG);
 		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $key);
 	}
+
+	public function __set($key, $value) {
+		parent::__set($key, $value);
+		$this->setSaved(false);
+	}
+
+	public function __unset($id) {
+		parent::__unset($key, $value);
+		$this->setSaved(false);
+	}
+
+	protected function setRetrieved($state) {
+		$this->props['retrieved'] = $state;
+	}
+
+	protected function isRetrieved() {
+		return $this->props['retrieved'];
+	}
+
+	protected function setSaved($state) {
+		$this->props['saved'] = $state;
+	}
+
+	protected function isSaved() {
+		return $this->props['saved'];
+	}
+
 }

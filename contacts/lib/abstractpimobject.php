@@ -105,6 +105,13 @@ abstract class PIMObjectAbstract implements IPIMObject {
 	}
 
 	/**
+	 * @return AbstractBackend
+	 */
+	function getBackend() {
+		return $this->backend;
+	}
+
+	/**
 	 * @param integer $permission
 	 * @return boolean
 	 */
