@@ -41,8 +41,8 @@ class Extractor_GetID3 implements Extractor {
 	 * @return array
 	 */
 	public function extract($path) {
-		$file = \OC\Files\Filesystem::getView()->getAbsolutePath($path);
-		$data = @$this->getID3->analyze('oc://' . $file);
+		$file = \OC\Files\Filesystem::getLocalFile($path);
+		$data = @$this->getID3->analyze($file);
 		\getid3_lib::CopyTagsToComments($data);
 
 		if (!isset($data['comments'])) {
