@@ -8,6 +8,8 @@
  */
 namespace OCA\Contacts;
 
+require_once __DIR__.'/../ajax/loghandler.php';
+
 //define the routes
 //for the index
 $this->create('contacts_index', '/')
@@ -29,7 +31,7 @@ $this->create('contacts_index', '/')
 $this->create('contacts_address_books_for_user', 'addressbooks/{user}/')
 	->get()
 	->action(
-		function($params){
+		function($params) {
 			session_write_close();
 			$app = new App($params['user']);
 			$addressBooks = $app->getAddressBooksForUser();
@@ -43,15 +45,16 @@ $this->create('contacts_address_books_for_user', 'addressbooks/{user}/')
 				)
 			));
 		}
-	)->defaults(array('user' => \OCP\User::getUser()));
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
 
-$this->create('contacts_address_book_collection', 'addressbook/{user}/{backend}/{id}/contacts')
+$this->create('contacts_address_book_collection', 'addressbook/{user}/{backend}/{addressbookid}/contacts')
 	->get()
 	->action(
-		function($params){
+		function($params) {
 			session_write_close();
 			$app = new App($params['user']);
-			$addressBook = $app->getAddressBook($params['backend'], $params['id']);
+			$addressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
 			$lastModified = $addressBook->lastModified();
 			if(!is_null($lastModified)) {
 				\OCP\Response::enableCaching();
@@ -73,4 +76,265 @@ $this->create('contacts_address_book_collection', 'addressbook/{user}/{backend}/
 				)
 			));
 		}
-	)->defaults(array('user' => \OCP\User::getUser()));
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
+$this->create('contacts_address_book_add', 'addressbook/{user}/{backend}/add')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			$app = new App($params['user']);
+			$backend = App::getBackend('database', $params['user']);
+			$id = $backend->createAddressBook($_POST);
+			if($id === false) {
+				bailOut(App::$l10n->t('Error creating address book'));
+			}
+			\OCP\JSON::success(array(
+				'data' => $backend->getAddressBook($id)
+			));
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
+$this->create('contacts_address_book_delete', 'addressbook/{user}/{backend}/{addressbookid}/delete')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			$app = new App($params['user']);
+			$backend = App::getBackend('database', $params['user']);
+			if(!$backend->deleteAddressBook($params['addressbookid'])) {
+				bailOut(App::$l10n->t('Error deleting address book'));
+			}
+			\OCP\JSON::success(array(
+				'data' => $backend->getAddressBook($id)
+			));
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
+$this->create('contacts_address_book_add_contact', 'addressbook/{user}/{backend}/{addressbookid}/contact/add')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			$app = new App($params['user']);
+			$addressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
+			$id = $addressBook->addChild();
+			if($id === false) {
+				bailOut(App::$l10n->t('Error creating contact.'));
+			}
+			$contact = $addressBook->getChild($id);
+			\OCP\JSON::success(array(
+				'data' => Utils\JSONSerializer::serializeContact($contact),
+			));
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
+$this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/property/delete')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			$name = isset($_POST['name']) ? $_POST['name'] : null;
+			$checksum = isset($_POST['checksum']) ? $_POST['checksum'] : null;
+
+			debug('contacts_contact_delete_property, name: ' . print_r($name, true));
+			debug('contacts_contact_delete_property, checksum: ' . print_r($checksum, true));
+
+			$app = new App($params['user']);
+			$contact = $app->getContact($params['backend'], $params['addressbookid'], $params['contactid']);
+
+			if(!$contact) {
+				bailOut(App::$l10n->t('Couldn\'t find contact.'));
+			}
+			if(!$name) {
+				bailOut(App::$l10n->t('Property name is not set.'));
+			}
+			if(!$checksum && in_array($name, Utils\Properties::$multi_properties)) {
+				bailOut(App::$l10n->t('Property checksum is not set.'));
+			}
+			if(!is_null($checksum)) {
+				try {
+					$contact->unsetPropertyByChecksum($checksum);
+				} catch(Exception $e) {
+					bailOut(App::$l10n->t('Information about vCard is incorrect. Please reload the page.'));
+				}
+			} else {
+				unset($contact->{$name});
+			}
+			if(!$contact->save()) {
+				bailOut(App::$l10n->t('Error saving contact to backend.'));
+			}
+			\OCP\JSON::success(array(
+				'data' => array(
+					'backend' => $params['backend'],
+					'addressbookid' => $params['addressbookid'],
+					'contactid' => $params['contactid'],
+					'lastmodified' => $contact->lastModified(),
+				)
+			));
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
+$this->create('contacts_contact_save_property', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/property/save')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			// TODO: When value is empty unset the property and return a checksum of 'new' if multi_property
+			$name = isset($_POST['name']) ? $_POST['name'] : null;
+			$value = isset($_POST['value']) ? $_POST['value'] : null;
+			$parameters = isset($_POST['parameters']) ? $_POST['parameters'] : array();
+			$checksum = isset($_POST['checksum']) ? $_POST['checksum'] : null;
+
+			debug('contacts_contact_save_property, name: ' . print_r($name, true));
+			debug('contacts_contact_save_property, value: ' . print_r($value, true));
+			debug('contacts_contact_save_property, parameters: ' . print_r($parameters, true));
+			debug('contacts_contact_save_property, checksum: ' . print_r($checksum, true));
+
+			$app = new App($params['user']);
+			$contact = $app->getContact($params['backend'], $params['addressbookid'], $params['contactid']);
+
+			$response = array('contactid' => $params['contactid']);
+
+			if(!$contact) {
+				bailOut(App::$l10n->t('Couldn\'t find contact.'));
+			}
+			if(!$name) {
+				bailOut(App::$l10n->t('Property name is not set.'));
+			}
+			if(!$checksum && in_array($name, Utils\Properties::$multi_properties)) {
+				bailOut(App::$l10n->t('Property checksum is not set.'));
+			} elseif($checksum && in_array($name, Utils\Properties::$multi_properties)) {
+				try {
+					$checksum = $contact->setPropertyByChecksum($checksum, $name, $value, $parameters);
+					$response['checksum'] = $checksum;
+				} catch(Exception $e)	{
+					bailOut(App::$l10n->t('Information about vCard is incorrect. Please reload the page.'));
+				}
+			} elseif(!in_array($name, Utils\Properties::$multi_properties)) {
+				if(!$contact->setPropertyByName($name, $value, $parameters)) {
+					bailOut(App::$l10n->t('Error setting property'));
+				}
+			}
+			if(!$contact->save()) {
+				bailOut(App::$l10n->t('Error saving property to backend'));
+			}
+			$response['lastmodified'] = $contact->lastModified();
+			$contact->save();
+			\OCP\JSON::success(array('data' => $response));
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
+$this->create('contacts_categories_list', 'groups/{user}/')
+	->get()
+	->action(
+		function($params) {
+			session_write_close();
+			$catmgr = new \OC_VCategories('contact', $params['user']);
+			$categories = $catmgr->categories(\OC_VCategories::FORMAT_MAP);
+			foreach($categories as &$category) {
+				$ids = $catmgr->idsForCategory($category['name']);
+				$category['contacts'] = $ids;
+			}
+
+			$favorites = $catmgr->getFavorites();
+
+			\OCP\JSON::success(array(
+				'data' => array(
+					'categories' => $categories,
+					'favorites' => $favorites,
+					'shared' => \OCP\Share::getItemsSharedWith('addressbook', Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS),
+					'lastgroup' => \OCP\Config::getUserValue(
+									$params['user'],
+									'contacts',
+									'lastgroup', 'all'),
+					'sortorder' => \OCP\Config::getUserValue(
+									$params['user'],
+									'contacts',
+									'groupsort', ''),
+					)
+				)
+			);
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
+$this->create('contacts_categories_add', 'groups/{user}/add')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			$name = isset($_POST['name']) ? trim(strip_tags($_POST['name'])) : null;
+
+			if(is_null($name) || $name === "") {
+				bailOut(App::$l10n->t('No group name given.'));
+			}
+
+			$catman = new \OC_VCategories('contact', $params['user']);
+			$id = $catman->add($name);
+
+			if($id !== false) {
+				\OCP\JSON::success(array('data' => array('id'=>$id, 'name' => $name)));
+			} else {
+				bailOut(App::$l10n->t('Error adding group.'));
+			}
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
+$this->create('contacts_categories_delete', 'groups/{user}/delete')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			$name = isset($_POST['name']) ? trim(strip_tags($_POST['name'])) : null;
+
+			if(is_null($name) || $name === "") {
+				bailOut(App::$l10n->t('No group name given.'));
+			}
+
+			$catman = new \OC_VCategories('contact', $params['user']);
+			$catman->delete($name);
+
+			\OCP\JSON::success();
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
+$this->create('contacts_setpreference', 'preference/{user}/set')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			$key = isset($_POST['key']) ? trim(strip_tags($_POST['key'])) : null;
+			$value = isset($_POST['value']) ? trim(strip_tags($_POST['value'])) : null;
+
+			if(is_null($key) || $key === "") {
+				bailOut(App::$l10n->t('No key is given.'));
+			}
+
+			if(is_null($value) || $value === "") {
+				bailOut(App::$l10n->t('No value is given.'));
+			}
+
+			if(\OCP\Config::setUserValue($params['user'], 'contacts', $key, $value)) {
+				\OCP\JSON::success(array(
+					'data' => array(
+						'key' => $key,
+						'value' => $value)
+					)
+				);
+			} else {
+				bailOut(App::$l10n->t(
+					'Could not set preference: ' . $key . ':' . $value)
+				);
+			}
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));

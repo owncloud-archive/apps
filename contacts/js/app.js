@@ -319,6 +319,7 @@ OC.Contacts = OC.Contacts || {
 			self.hideActions();
 		});
 
+		// Keep error messaging at one place to be able to replace it.
 		$(document).bind('status.contact.error', function(e, data) {
 			OC.notify({message:data.message});
 		});
@@ -427,7 +428,7 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('request.contact.export', function(e, data) {
 			var id = parseInt(data.id);
 			console.log('contact', data.id, 'request.contact.export');
-			document.location.href = OC.linkTo('contacts', 'export.php') + '?contactid=' + self.currentid;
+			document.location.href = OC.linkTo('contacts', 'export.php') + '?' + $.param(data);
 		});
 
 		$(document).bind('request.contact.close', function(e, data) {
@@ -501,10 +502,17 @@ OC.Contacts = OC.Contacts || {
 		// Group sorted, save the sort order
 		$(document).bind('status.groups.sorted', function(e, result) {
 			console.log('status.groups.sorted', result);
-			$.post(OC.filePath('contacts', 'ajax', 'setpreference.php'), {'key':'groupsort', 'value':result.sortorder}, function(jsondata) {
-				if(jsondata.status !== 'success') {
-					OC.notify({message: jsondata ? jsondata.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
+			$.when(self.storage.setPreference('groupsort', result.sortorder)).then(function(response) {
+				if(response.status !== 'success') {
+					OC.notify({message: response ? response.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
 				}
+			})
+			.fail(function(jqxhr, textStatus, error) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
+				$(document).trigger('status.contact.error', {
+					message: t('contacts', 'Failed saving sort order: {error}', {error:err})
+				});
 			});
 		});
 		// Group selected, only show contacts from that group
@@ -527,10 +535,17 @@ OC.Contacts = OC.Contacts || {
 			} else {
 				self.contacts.showContacts(self.currentgroup);
 			}
-			$.post(OC.filePath('contacts', 'ajax', 'setpreference.php'), {'key':'lastgroup', 'value':self.currentgroup}, function(jsondata) {
-				if(!jsondata || jsondata.status !== 'success') {
-					OC.notify({message: (jsondata && jsondata.data) ? jsondata.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
+			$.when(self.storage.setPreference('lastgroup', self.currentgroup)).then(function(response) {
+				if(!response || response.status !== 'success') {
+					OC.notify({message: (response && response.data) ? response.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
 				}
+			})
+			.fail(function(jqxhr, textStatus, error) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
+				$(document).trigger('status.contact.error', {
+					message: t('contacts', 'Failed saving last group: {error}', {error:err})
+				});
 			});
 			self.$rightContent.scrollTop(0);
 		});
@@ -796,34 +811,25 @@ OC.Contacts = OC.Contacts || {
 				var id = parseInt($(this).parents('li').first().data('id'));
 				console.log('delete', id);
 				var $li = $(this).parents('li').first();
-				$.ajax({
-					type:'POST',
-					url:OC.filePath('contacts', 'ajax', 'addressbook/delete.php'),
-					data:{ id: id },
-					success:function(jsondata) {
-						console.log(jsondata);
-						if(jsondata.status == 'success') {
-							self.contacts.unsetAddressbook(id);
-							$li.remove();
-							OC.notify({
-								message:t('contacts','Deleting done. Click here to cancel reloading.'),
-								timeout:5,
-								timeouthandler:function() {
-									console.log('reloading');
-									window.location.href = OC.linkTo('contacts', 'index.php');
-								},
-								clickhandler:function() {
-									console.log('reloading cancelled');
-									OC.notify({cancel:true});
-								}
-							});
-						} else {
-							OC.notify({message:jsondata.data.message});
-						}
-					},
-					error:function(jqXHR, textStatus, errorThrown) {
-						OC.notify({message:textStatus + ': ' + errorThrown});
-						id = false;
+				$.when(this.storage.deleteAddressBook('database',{addressbookid:id}))
+					.then(function(response) {
+					if(response.status == 'success') {
+						self.contacts.unsetAddressbook(id);
+						$li.remove();
+						OC.notify({
+							message:t('contacts','Deleting done. Click here to cancel reloading.'),
+							timeout:5,
+							timeouthandler:function() {
+								console.log('reloading');
+								window.location.href = OC.Router.generate('contacts_index');
+							},
+							clickhandler:function() {
+								console.log('reloading cancelled');
+								OC.notify({cancel:true});
+							}
+						});
+					} else {
+						OC.notify({message:response.data.message});
 					}
 				});
 			});
@@ -864,10 +870,8 @@ OC.Contacts = OC.Contacts || {
 						$addinput.addClass('loading');
 						$addAddressbookPart.find('button input').prop('disabled', true);
 						console.log('adding', name);
-						self.addAddressbook({
-							name: name,
-							description: ''
-						}, function(response) {
+						$.when(this.storage.addAddressBook('database',
+						{name: name, description: ''})).then(function(response) {
 							if(!response || !response.status) {
 								OC.notify({
 									message:t('contacts', 'Network or server error. Please inform administrator.')
@@ -884,6 +888,13 @@ OC.Contacts = OC.Contacts || {
 							$addinput.removeClass('loading');
 							$addAddressbookPart.find('button input').prop('disabled', false);
 							$addAddressbookPart.hide().prev('button').show();
+						})
+						.fail(function(jqxhr, textStatus, error) {
+							var err = textStatus + ', ' + error;
+							console.log( "Request Failed: " + err);
+							$(document).trigger('status.contact.error', {
+								message: t('contacts', 'Failed adding address book: {error}', {error:err})
+							});
 						});
 					}
 				} else if($(this).is('.addaddressbookcancel')) {
@@ -924,10 +935,8 @@ OC.Contacts = OC.Contacts || {
 
 				var addAddressbookCallback = function(select, name) {
 					var id = false;
-					self.addAddressbook({
-						name: name,
-						description: ''
-					}, function(response) {
+					$.when(this.storage.addAddressBook('database',
+						{name: name, description: ''})).then(function(response) {
 						if(!response || !response.status) {
 							OC.notify({
 								message:t('contacts', 'Network or server error. Please inform administrator.')
@@ -937,8 +946,15 @@ OC.Contacts = OC.Contacts || {
 							OC.notify({message: response.message});
 							return false;
 						} else if(response.status === 'success') {
-							id = response.addressbook.id;
+							id = response.data.id;
 						}
+					})
+					.fail(function(jqxhr, textStatus, error) {
+						var err = textStatus + ', ' + error;
+						console.log( "Request Failed: " + err);
+						$(document).trigger('status.contact.error', {
+							message: t('contacts', 'Failed adding addres books: {error}', {error:err})
+						});
 					});
 					return id;
 				};
@@ -1615,126 +1631,6 @@ OC.Contacts = OC.Contacts || {
 			}
 		});
 	},
-	addAddressbook:function(data, cb) {
-		$.ajax({
-			type:'POST',
-			async:false,
-			url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'),
-			data:{ name: data.name, description: data.description },
-			success:function(jsondata) {
-				if(jsondata.status == 'success') {
-					if(typeof cb === 'function') {
-						cb({
-							status:'success',
-							addressbook: jsondata.data.addressbook
-						});
-					}
-				} else {
-					if(typeof cb === 'function') {
-						cb({status:'error', message:jsondata.data.message});
-					} else {
-						OC.notify({message:textStatus + ': ' + errorThrown});
-					}
-				}
-			},
-			error:function(jqXHR, textStatus, errorThrown) {
-				if(typeof cb === 'function') {
-					cb({
-						status:'success',
-						message: textStatus + ': ' + errorThrown
-					});
-				} else {
-					OC.notify({message:textStatus + ': ' + errorThrown});
-				}
-			}
-		});
-	},
-	// NOTE: Deprecated
-	selectAddressbook:function(cb) {
-		var self = this;
-		var jqxhr = $.get(OC.filePath('contacts', 'templates', 'selectaddressbook.html'), function(data) {
-			$('body').append('<div id="addressbook_dialog"></div>');
-			var $dlg = $('#addressbook_dialog').html(data).octemplate({
-				nameplaceholder: t('contacts', 'Enter name'),
-				descplaceholder: t('contacts', 'Enter description')
-			}).dialog({
-				modal: true, height: 'auto', width: 'auto',
-				title:  t('contacts', 'Select addressbook'),
-				buttons: {
-					'Ok':function() {
-						aid = $(this).find('input:checked').val();
-						if(aid == 'new') {
-							var displayname = $(this).find('input.name').val();
-							var description = $(this).find('input.desc').val();
-							if(!$.trim(displayname)) {
-								OC.dialogs.alert(t('contacts', 'The address book name cannot be empty.'), t('contacts', 'Error'));
-								return false;
-							}
-							console.log('ID, name and desc', aid, displayname, description);
-							if(typeof cb === 'function') {
-								// TODO: Create addressbook
-								var data = {name:displayname, description:description};
-								self.addAddressbook(data, function(data) {
-									if(data.status === 'success') {
-										cb({
-											status:'success',
-											addressbook:data.addressbook
-										});
-									} else {
-										cb({status:'error'});
-									}
-								});
-							}
-							$(this).dialog('close');
-						} else {
-							console.log('aid ' + aid);
-							if(typeof cb === 'function') {
-								cb({
-									status:'success',
-									addressbook:self.contacts.addressbooks[parseInt(aid)]
-								});
-							}
-							$(this).dialog('close');
-						}
-					},
-					'Cancel':function() {
-						$(this).dialog('close');
-					}
-				},
-				close: function(event, ui) {
-					$(this).dialog('destroy').remove();
-					$('#addressbook_dialog').remove();
-				},
-				open: function(event, ui) {
-					console.log('open', $(this));
-					var $lastrow = $(this).find('tr.new');
-					$.each(self.contacts.addressbooks, function(i, book) {
-						console.log('book', i, book);
-						if(book.owner === OC.currentUser
-								|| (book.permissions & OC.PERMISSION_UPDATE
-								|| book.permissions & OC.PERMISSION_CREATE
-								|| book.permissions & OC.PERMISSION_DELETE)) {
-							var row = '<tr><td><input id="book_{id}" name="book" type="radio" value="{id}"</td>'
-								+ '<td><label for="book_{id}">{displayname}</label></td>'
-								+ '<td>{description}</td></tr>';
-							var $row = $(row).octemplate({
-									id:book.id,
-									displayname:book.displayname,
-									description:book.description
-								});
-							$lastrow.before($row);
-						}
-					});
-					$(this).find('input[type="radio"]').first().prop('checked', true);
-					$lastrow.find('input.name,input.desc').on('focus', function(e) {
-						$lastrow.find('input[type="radio"]').prop('checked', true);
-					});
-				}
-			});
-		}).error(function() {
-			OC.notify({message: t('contacts', 'Network or server error. Please inform administrator.')});
-		});
-	}
 };
 
 $(document).ready(function() {

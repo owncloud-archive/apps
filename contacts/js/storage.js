@@ -43,6 +43,142 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	/**
+	 * Add an address book to a specific backend
+	 *
+	 * @param string backend - currently defaults to 'database'
+	 * @param object params An object {displayname:"My contacts", description:""}
+	 * @return An array containing contact data e.g.:
+	 * {
+	 * 	metadata:
+	 * 		{
+	 * 		id:'1234'
+	 * 		permissions:31,
+	 * 		displayname:'My contacts',
+	 * 		lastmodified: (unix timestamp),
+	 * 		owner: 'joye',
+	 * }
+	 */
+	Storage.prototype.addAddressBook = function(backend, parameters) {
+		console.log('Storage.addAddressBook', backend);
+		return this.requestRoute(
+			'contacts_address_book_add',
+			'POST',
+			{user: this.user, backend: 'database'},
+			params
+		);
+	}
+
+	/**
+	 * Delete an address book from a specific backend
+	 *
+	 * @param string backend
+	 * @param string addressbookid Address book ID
+	 */
+	Storage.prototype.deleteAddressBook = function(backend, addressbookid) {
+		console.log('Storage.deleteAddressBook', backend, addressbookid);
+		return this.requestRoute(
+			'contacts_address_book_delete',
+			'POST',
+			{user: this.user, backend: 'database', addressbookid: addressbookid}
+		);
+	}
+
+	/**
+	 * Get contacts from an address book from a specific backend
+	 *
+	 * @param string backend
+	 * @param string addressbookid Address book ID
+	 * @return An array containing contact data e.g.:
+	 * {
+	 * 	metadata:
+	 * 		{
+	 * 		id:'1234'
+	 * 		permissions:31,
+	 * 		displayname:'John Q. Public',
+	 * 		lastmodified: (unix timestamp),
+	 * 		owner: 'joye',
+	 * 		parent: (id of the parent address book)
+	 * 	data: //array of VCard data
+	 * }
+	 */
+	Storage.prototype.getContacts = function(backend, addressbookid) {
+		return this.requestRoute(
+			'contacts_address_book_collection',
+			'GET',
+			{user: this.user, backend: backend, addressbookid: addressbookid}
+		);
+	}
+
+	/**
+	 * Add a contact to an address book from a specific backend
+	 *
+	 * @param string backend
+	 * @param string addressbookid Address book ID
+	 * @return An array containing contact data e.g.:
+	 * {
+	 * 	metadata:
+	 * 		{
+	 * 		id:'1234'
+	 * 		permissions:31,
+	 * 		displayname:'John Q. Public',
+	 * 		lastmodified: (unix timestamp),
+	 * 		owner: 'joye',
+	 * 		parent: (id of the parent address book)
+	 * 	data: //array of VCard data
+	 * }
+	 */
+	Storage.prototype.addContact = function(backend, addressbookid) {
+		console.log('Storage.addContact', backend, addressbookid);
+		return this.requestRoute(
+			'contacts_address_book_add_contact',
+			'POST',
+			{user: this.user, backend: backend, addressbookid: addressbookid}
+		);
+	}
+
+	/**
+	 * Delete a single property.
+	 *
+	 * @param string backend
+	 * @param string addressbookid Address book ID
+	 * @param string contactid Contact ID
+	 * @param object params An object with the following properties:
+	 * @param string name The name of the property e.g. EMAIL.
+	 * @param string checksum For non-singular properties such as email this must contain
+	 * 	an 8 character md5 checksum of the serialized \Sabre\Property
+	 */
+	Storage.prototype.deleteProperty = function(backend, addressbookid, contactid, params) {
+		return this.requestRoute(
+			'contacts_contact_delete_property',
+			'POST',
+			{user: this.user, backend: backend, addressbookid: addressbookid, contactid: contactid},
+			params
+		);
+	}
+
+	/**
+	 * Save a property.
+	 *
+	 * @param string backend
+	 * @param string addressbookid Address book ID
+	 * @param string contactid Contact ID
+	 * @param object params An object with the following properties:
+	 * @param string name The name of the property e.g. EMAIL.
+	 * @param string|array value The of the property
+	 * @param array parameters Optional parameters for the property
+	 * @param string checksum For non-singular properties such as email this must contain
+	 * 	an 8 character md5 checksum of the serialized \Sabre\Property
+	 */
+	Storage.prototype.saveProperty = function(backend, addressbookid, contactid, params) {
+		return this.requestRoute(
+			'contacts_contact_save_property',
+			'POST',
+			{user: this.user, backend: backend, addressbookid: addressbookid, contactid: contactid},
+			params
+		);
+	}
+
+	/**
 	 * Get all groups for this user.
 	 *
 	 * @return An array containing the groups, the favorites, any shared
@@ -65,60 +201,62 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	/**
-	 * Get contacts from an address book from a specific backend
+	 * Add a group
 	 *
-	 * @param string backend
-	 * @param string id Address book ID
-	 * @return An array containing contact data e.g.:
+	 * @param string name
+	 * @return A JSON object containing the (maybe sanitized) group name and its ID:
 	 * {
-	 * 	metadata:
-	 * 		{
-	 * 		id:'1234'
-	 * 		permissions:31,
-	 * 		displayname:'John Q. Public',
-	 * 		lastmodified: (unix timestamp),
-	 * 		owner: 'joye',
-	 * 		parent: (id of the parent address book)
-	 * 	data: //array of VCard data
+	 * 	'id':1234,
+	 * 	'name':'My group'
 	 * }
 	 */
-	Storage.prototype.getContacts = function(backend, id) {
+	Storage.prototype.addGroup = function(name) {
+		console.log('Storage.addGroup', name);
 		return this.requestRoute(
-			'contacts_address_book_collection',
-			'GET',
-			{user: this.user, backend: backend, id: id}
+			'contacts_categories_add',
+			'POST',
+			{user: this.user},
+			{name: name}
 		);
 	}
 
-	Storage.prototype.requestRoute = function(route, type, params) {
+	/**
+	 * Delete a group
+	 *
+	 * @param string name
+	 */
+	Storage.prototype.deleteGroup = function(name) {
+		return this.requestRoute(
+			'contacts_categories_delete',
+			'POST',
+			{user: this.user},
+			{name: name}
+		);
+	}
+
+	/**
+	 * Set a user preference
+	 *
+	 * @param string key
+	 * @param string value
+	 */
+	Storage.prototype.setPreference = function(key, value) {
+		return this.requestRoute(
+			'contacts_setpreference',
+			'POST',
+			{user: this.user},
+			{key: key, value:value}
+		);
+	}
+
+	Storage.prototype.requestRoute = function(route, type, routeParams, params) {
 		var self = this;
-		//var dfd = new $.Deferred();
-		var url = OC.Router.generate(route, params);
-		return $.ajax({type: type, url: url});/*
-			.done(function(jsondata) {
-				if(!jsondata || !jsondata.status) {
-					console.log(type, 'error. Response:', jsondata);
-					dfd.reject({
-						status: 'error',
-						message: self.getMessage('network_or_server_error')
-					});
-				} else if(jsondata.status === 'success') {
-					dfd.resolve(jsondata.data);
-				} else if(jsondata.status === 'error') {
-					dfd.reject({
-						status: 'error',
-						message: jsondata.data.message
-					});
-				}
-			}).fail(function(jqxhr, textStatus, error) {
-				var err = textStatus + ', ' + error;
-				console.log( "Request Failed: " + err);
-					dfd.reject({
-						status: 'error',
-						message: t('contacts', 'Failed getting address books: {error}', {error: err})
-					});
-			});
-		return dfd.promise();*/
+		var url = OC.Router.generate(route, routeParams);
+		var ajaxParams = {type: type, url: url, dataType: 'json'};
+		if(typeof params === 'object') {
+			ajaxParams['data'] = params;
+		}
+		return $.ajax(ajaxParams);
 	}
 
 	OC.Contacts.Storage = Storage;

@@ -185,7 +185,7 @@ OC.Contacts = OC.Contacts || {};
 		}
 		var self = this;
 		var doPost = false;
-		if(typeof contactid === 'number') {
+		if(typeof contactid === 'string') {
 			if(contacts.indexOf(contactid) === -1) {
 				ids.push(contactid);
 				doPost = true;
@@ -300,6 +300,7 @@ OC.Contacts = OC.Contacts || {};
 			}
 		}
 		if(doPost) {
+			// TODO: Use Storage
 			$.post(OC.filePath('contacts', 'ajax', 'categories/removefrom.php'), {contactids: ids, categoryid: groupid},function(jsondata) {
 				if(!jsondata) {
 					if(typeof cb === 'function') {
@@ -397,8 +398,8 @@ OC.Contacts = OC.Contacts || {};
 		var contacts = $elem.data('contacts');
 		var self = this;
 		console.log('delete group', groupid, contacts);
-		$.post(OC.filePath('contacts', 'ajax', 'categories/delete.php'), {categories: name}, function(jsondata) {
-			if (jsondata && jsondata.status == 'success') {
+		$.when(this.storage.deleteGroup(name)).then(function(response) {
+			if (response && response.status == 'success') {
 				$(document).trigger('status.group.groupremoved', {
 					groupid: groupid,
 					newgroupid: parseInt($newelem.data('id')),
@@ -411,8 +412,15 @@ OC.Contacts = OC.Contacts || {};
 				//
 			}
 			if(typeof cb === 'function') {
-				cb(jsondata);
+				cb(response);
 			}
+		})
+		.fail(function(jqxhr, textStatus, error) {
+			var err = textStatus + ', ' + error;
+			console.log( "Request Failed: " + err);
+			$(document).trigger('status.contact.error', {
+				message: t('contacts', 'Failed deleting group: {error}', {error:err})
+			});
 		});
 	};
 
@@ -545,10 +553,10 @@ OC.Contacts = OC.Contacts || {};
 			}
 			return;
 		}
-		$.post(OC.filePath('contacts', 'ajax', 'categories/add.php'), {category: name}, function(jsondata) {
-			if (jsondata && jsondata.status == 'success') {
-				name = jsondata.data.name;
-				var id = jsondata.data.id;
+		$.when(this.storage.addGroup(name)).then(function(response) {
+			if (response && response.status == 'success') {
+				name = response.data.name;
+				var id = response.data.id;
 				var tmpl = self.$groupListItemTemplate;
 				var $elem = params.element
 					? params.element
@@ -582,9 +590,16 @@ OC.Contacts = OC.Contacts || {};
 				}
 			} else {
 				if(typeof cb === 'function') {
-					cb({status:'error', message:jsondata.data.message});
+					cb({status:'error', message:response.data.message});
 				}
 			}
+		})
+		.fail(function(jqxhr, textStatus, error) {
+			var err = textStatus + ', ' + error;
+			console.log( "Request Failed: " + err);
+			$(document).trigger('status.contact.error', {
+				message: t('contacts', 'Failed adding group: {error}', {error:err})
+			});
 		});
 	};
 
@@ -595,9 +610,7 @@ OC.Contacts = OC.Contacts || {};
 		var tmpl = this.$groupListItemTemplate;
 
 		tmpl.octemplate({id: 'all', type: 'all', num: numcontacts, name: t('contacts', 'All')}).appendTo($groupList);
-		$.when(this.storage.getGroupsForUser())
-			.then(function(jsondata) {
-		//$.getJSON(OC.filePath('contacts', 'ajax', 'categories/list.php'), {}, function(jsondata) {
+		$.when(this.storage.getGroupsForUser()).then(function(jsondata) {
 			if (jsondata && jsondata.status == 'success') {
 				self.lastgroup = jsondata.data.lastgroup;
 				self.sortorder = jsondata.data.sortorder.length > 0
