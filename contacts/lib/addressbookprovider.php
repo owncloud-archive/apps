@@ -133,15 +133,18 @@ class AddressbookProvider implements \OCP\IAddressBook {
 	public function search($pattern, $searchProperties, $options) {
 		$ids = array();
 		$results = array();
-		$query = 'SELECT DISTINCT `contactid` FROM `' . self::PROPERTY_TABLE . '` WHERE 1 AND (';
+		$query = 'SELECT DISTINCT `contactid` FROM `' . self::PROPERTY_TABLE . '` WHERE (';
+		$params = array();
 		foreach($searchProperties as $property) {
-			$query .= '(`name` = "' . $property . '" AND `value` LIKE "%' . $pattern . '%") OR ';
+			$params[] = $property;
+			$params[] = '%' . $pattern . '%';
+			$query .= '(`name` = ? AND `value` LIKE ?) OR ';
 		}
 		$query = substr($query, 0, strlen($query) - 4);
 		$query .= ')';
 
 		$stmt = \OCP\DB::prepare($query);
-		$result = $stmt->execute();
+		$result = $stmt->execute($params);
 		if (\OC_DB::isError($result)) {
 			\OC_Log::write('contacts', __METHOD__ . 'DB error: ' . \OC_DB::getErrorMessage($result), 
 				\OCP\Util::ERROR);
