@@ -28,10 +28,9 @@
 $dir = dirname(dirname(__FILE__)).'/3rdparty';
 set_include_path(get_include_path() . PATH_SEPARATOR . $dir);
 
-//TODO hmm better move these to core? or add an 
-OC::$CLASSPATH['OC_Search_Lucene'] = 'apps/search_lucene/lib/lucene.php';
-OC::$CLASSPATH['OC_Search_Lucene_Indexer'] = 'apps/search_lucene/lib/indexer.php';
-OC::$CLASSPATH['OC_Search_Lucene_Hooks'] = 'apps/search_lucene/lib/hooks.php';
+OC::$CLASSPATH['OCA\Search_Lucene\Lucene'] = 'search_lucene/lib/lucene.php';
+OC::$CLASSPATH['OCA\Search_Lucene\Indexer'] = 'search_lucene/lib/indexer.php';
+OC::$CLASSPATH['OCA\Search_Lucene\Hooks'] = 'search_lucene/lib/hooks.php';
 
 OC::$CLASSPATH['Zend_Search_Lucene'] = 'apps/search_lucene/3rdparty/Zend/Search/Lucene.php';
 OC::$CLASSPATH['Zend_Search_Lucene_Index_Term'] = 'apps/search_lucene/3rdparty/Zend/Search/Lucene/Index/Term.php';
@@ -56,7 +55,7 @@ OCP\Util::addStyle('search_lucene', 'lucene');
 
 //remove other providers
 OC_Search::removeProvider('OC_Search_Provider_File');
-OC_Search::registerProvider('OC_Search_Lucene');
+OC_Search::registerProvider('OCA\Search_Lucene\Lucene');
 
 // --- add hooks -----------------------------------------------
 
@@ -66,19 +65,19 @@ OC_Search::registerProvider('OC_Search_Lucene');
 OCP\Util::connectHook(
 		OC\Files\Filesystem::CLASSNAME,
 		OC\Files\Filesystem::signal_post_write,
-		'OC_Search_Lucene_Hooks',
-		'indexFile');
+		'OCA\Search_Lucene\Hooks',
+		OCA\Search_Lucene\Hooks::handle_post_write);
 
 //connect to the filesystem for renaming
 OCP\Util::connectHook(
 		OC\Files\Filesystem::CLASSNAME,
 		OC\Files\Filesystem::signal_post_rename,
-		'OC_Search_Lucene_Hooks',
-		'renameFile');
+		'OCA\Search_Lucene\Hooks',
+		OCA\Search_Lucene\Hooks::handle_post_rename);
 
 //listen for file deletions to clean the database
 OCP\Util::connectHook(
 		OC\Files\Filesystem::CLASSNAME,
 		OC\Files\Filesystem::signal_delete,
-		'OC_Search_Lucene_Hooks',
-		'deleteFile');
+		'OCA\Search_Lucene\Hooks',
+		OCA\Search_Lucene\Hooks::handle_delete);
