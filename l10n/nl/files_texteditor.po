@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-21 00:02+0100\n"
-"PO-Revision-Date: 2012-12-20 17:37+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
 "Last-Translator: André Koot <meneer@tken.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -19,38 +19,38 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/editor.js:72 js/editor.js:177 js/editor.js:185
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr "Opslaan"
 
-#: js/editor.js:74
+#: js/editor.js:75
 msgid "Search:"
 msgstr "Zoeken:"
 
-#: js/editor.js:74
+#: js/editor.js:78
 msgid "Close"
 msgstr "Sluiten"
 
-#: js/editor.js:151
+#: js/editor.js:132
 msgid "Next"
 msgstr "Volgende"
 
-#: js/editor.js:152
+#: js/editor.js:133
 msgid "Clear"
 msgstr "Opschonen"
 
-#: js/editor.js:170
+#: js/editor.js:151
 msgid "Saving..."
 msgstr "Opslaan"
 
-#: js/editor.js:178
+#: js/editor.js:159
 msgid "Failed to save file"
 msgstr "Bewaren mislukt"
 
-#: js/editor.js:262
+#: js/editor.js:246
 msgid "An error occurred!"
 msgstr "Er is iets fout gegaan!"
 
-#: js/editor.js:297
+#: js/editor.js:266
 msgid "There were unsaved changes, click here to go back"
 msgstr "Er zijn niet opgeslagen veranderingen, klik hier of ga terug"

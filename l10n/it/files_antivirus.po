@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-21 00:01+0100\n"
-"PO-Revision-Date: 2013-01-20 11:44+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:33+0000\n"
 "Last-Translator: Teolo78 <teolo78@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -105,6 +105,6 @@ msgstr "Solo log"
 msgid "Delete file"
 msgstr "Elimina il file"
 
-#: templates/settings.php:14
+#: templates/settings.php:15
 msgid "Save"
 msgstr "Salva"

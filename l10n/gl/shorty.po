@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <mbouzada@gmail.com>, 2013.
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
-"PO-Revision-Date: 2013-03-26 11:18+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 12:30+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,15 +22,15 @@ msgstr ""
 #: ajax/add.php:100
 #, php-format
 msgid "Url shortened to: %s"
-msgstr ""
+msgstr "URL recortado a: %s"
 
 #: ajax/click.php:86
 msgid "Click registered"
-msgstr ""
+msgstr "Clic rexistrado"
 
 #: ajax/count.php:53
 msgid "Counted entries and clicks"
-msgstr ""
+msgstr "Entradas e clics contados"
 
 #: ajax/del.php:62
 #, php-format
@@ -43,12 +45,12 @@ msgstr ""
 #: ajax/list.php:82
 #, php-format
 msgid "Number of entries: %s"
-msgstr ""
+msgstr "Número de entradas: %s"
 
 #: ajax/meta.php:56
 #, php-format
 msgid "Target url '%s' is valid"
-msgstr ""
+msgstr "O URL de destino«%s» é incorrecto"
 
 #: ajax/preferences.php:77
 #, php-format
@@ -72,16 +74,16 @@ msgstr ""
 
 #: index.php:162
 msgid "all"
-msgstr ""
+msgstr "todo"
 
 #: js/shorty.js:930 js/shorty.js:2196 templates/tmpl_url_add.php:81
 #: templates/tmpl_url_edit.php:92
 msgid "never"
-msgstr ""
+msgstr "nunca"
 
 #: js/shorty.js:1267
 msgid "Sorry, that target is invalid!"
-msgstr ""
+msgstr "Este destino é incorrecto!"
 
 #: js/shorty.js:1787 js/shorty.js:1889 templates/tmpl_url_add.php:41
 #: templates/tmpl_url_add.php:42 templates/tmpl_url_edit.php:41
@@ -89,28 +91,28 @@ msgstr ""
 #: templates/tmpl_url_share.php:42 templates/tmpl_url_show.php:41
 #: templates/tmpl_url_show.php:42
 msgid "Close"
-msgstr ""
+msgstr "Pechar"
 
 #: js/shorty.js:1833
 msgid "Mail client"
-msgstr ""
+msgstr "Cliente de correo"
 
 #: js/shorty.js:1834 js/shorty.js:1863
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: js/shorty.js:1862
 msgid "SMS composer"
-msgstr ""
+msgstr "Editor de SMS"
 
 #: lib/exception.php:84
 msgid "Exception"
-msgstr ""
+msgstr "Excepción"
 
 #: lib/exception.php:93
 #, php-format
 msgid "Exception (%s)"
-msgstr ""
+msgstr "Excepción (%s)"
 
 #: lib/exception.php:92
 #, php-format
@@ -119,7 +121,7 @@ msgid ""
 "Message(code): %s (%s)\n"
 "File(line): %s (%s)\n"
 "Info: %%s"
-msgstr ""
+msgstr "%s\nMensaxe(código): %s (%s)\nFicheiro(liña): %s (%s)\nInformación: %%s"
 
 #: lib/exception.php:103
 #, php-format
@@ -139,45 +141,45 @@ msgstr ""
 #: templates/tmpl_dlg_email.php:49 templates/tmpl_dlg_qrcode.php:64
 #: templates/tmpl_dlg_sms.php:50 templates/tmpl_url_share.php:114
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copiar ao portapapeis"
 
 #: templates/tmpl_dlg_clipboard.php:41
 msgid "The link below can be copied for usage apart"
-msgstr ""
+msgstr "Pode copiar a seguinte ligazón para usala aparte"
 
 #: templates/tmpl_dlg_clipboard.php:45 templates/tmpl_dlg_email.php:51
 #: templates/tmpl_dlg_qrcode.php:64 templates/tmpl_dlg_sms.php:50
 msgid "Ctrl-C"
-msgstr ""
+msgstr "Ctrl-C"
 
 #: templates/tmpl_dlg_email.php:39
 msgid "Send link by email"
-msgstr ""
+msgstr "Enviar a ligazón por correo"
 
 #: templates/tmpl_dlg_email.php:42
 msgid "Clicking 'Ok' below will try to launch an email composer"
-msgstr ""
+msgstr "Ao premer en «Aceptar» de embaixo tentaremos iniciar un editor de correo"
 
 #: templates/tmpl_dlg_email.php:44
 msgid "Alternatively the link can be copied into a message manually"
-msgstr ""
+msgstr "Alternativamente, a ligazón pode copiala manualmente nunha mensaxe"
 
 #: templates/tmpl_dlg_email.php:54 templates/tmpl_dlg_sms.php:54
 msgid "then paste into message"
-msgstr ""
+msgstr "entón, pegar na mensaxe"
 
 #: templates/tmpl_dlg_email.php:56 templates/tmpl_dlg_qrcode.php:66
 #: templates/tmpl_dlg_sms.php:54
 msgid "Ctrl-V"
-msgstr ""
+msgstr "Ctrl-V"
 
 #: templates/tmpl_dlg_qrcode.php:39
 msgid "Shorty as QRCode"
-msgstr ""
+msgstr "«Shorty» como código QR"
 
 #: templates/tmpl_dlg_qrcode.php:43
 msgid "This 2d barcode encodes the url pointing to this Shorty"
-msgstr ""
+msgstr "Este código de barras 2D codifica o URL apuntando a este Shorty"
 
 #: templates/tmpl_dlg_qrcode.php:45
 msgid "Use it in web pages by referencing or embedding"
@@ -189,15 +191,15 @@ msgstr ""
 
 #: templates/tmpl_dlg_qrcode.php:49
 msgid "QRCode"
-msgstr ""
+msgstr "Código QR"
 
 #: templates/tmpl_dlg_qrcode.php:52
 msgid "Click for embedding details"
-msgstr ""
+msgstr "Prema para ver os detalles integrados"
 
 #: templates/tmpl_dlg_qrcode.php:58
 msgid "This is the url referencing the QRCode shown before"
-msgstr ""
+msgstr "Este é o URL ao que fai referencia o código QR amosado antes"
 
 #: templates/tmpl_dlg_qrcode.php:60
 msgid "Embed the QRCode as an image into some web page using this url"
@@ -245,12 +247,12 @@ msgstr ""
 
 #: templates/tmpl_dlg_verify.php:46 templates/tmpl_dlg_verify.php:62
 msgid "Success"
-msgstr ""
+msgstr "Correcto"
 
 #: templates/tmpl_dlg_verify.php:46 templates/tmpl_dlg_verify.php:47
 #: templates/tmpl_dlg_verify.php:62
 msgid "Verification successful"
-msgstr ""
+msgstr "A verificación foi satisfactoria"
 
 #: templates/tmpl_dlg_verify.php:49
 msgid "Great, your setup appears to be working fine!"
@@ -276,7 +278,7 @@ msgstr ""
 
 #: templates/tmpl_dlg_verify.php:63
 msgid "Verification failed"
-msgstr ""
+msgstr "Fracasou a verificación"
 
 #: templates/tmpl_dlg_verify.php:65
 msgid "Sorry, but your setup appears not to be working correctly yet!"
@@ -300,35 +302,35 @@ msgstr ""
 
 #: templates/tmpl_index.php:53 templates/tmpl_url_list.php:59
 msgid "New Shorty"
-msgstr ""
+msgstr "Novo «Shorty»"
 
 #: templates/tmpl_index.php:59 templates/tmpl_index.php:61
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 #: templates/tmpl_index.php:66 templates/tmpl_index.php:68
 msgid "Configuration"
-msgstr ""
+msgstr "Configuración"
 
 #: templates/tmpl_index.php:81
 msgid "Number of entries"
-msgstr ""
+msgstr "Número de entradas"
 
 #: templates/tmpl_index.php:84 templates/tmpl_index.php:90
 msgid "Loading"
-msgstr ""
+msgstr "Cargando"
 
 #: templates/tmpl_index.php:87
 msgid "Total of clicks"
-msgstr ""
+msgstr "Total de «clics»"
 
 #: templates/tmpl_preferences.php:49
 msgid "Backend"
-msgstr ""
+msgstr "Infraestrutura"
 
 #: templates/tmpl_preferences.php:53
 msgid "Choose service…"
-msgstr ""
+msgstr "Escolla un servizo…"
 
 #: templates/tmpl_preferences.php:69 templates/tmpl_preferences.php:89
 #: templates/tmpl_preferences.php:114 templates/tmpl_preferences.php:132
@@ -336,7 +338,7 @@ msgstr ""
 #: templates/tmpl_preferences.php:193 templates/tmpl_preferences.php:210
 #: templates/tmpl_preferences.php:223 templates/tmpl_settings.php:56
 msgid "Example"
-msgstr ""
+msgstr "Exemplo"
 
 #: templates/tmpl_preferences.php:75
 msgid ""
@@ -356,7 +358,7 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:82 templates/tmpl_settings.php:49
 msgid "Base url"
-msgstr ""
+msgstr "URL base"
 
 #: templates/tmpl_preferences.php:85 templates/tmpl_settings.php:52
 msgid "Specify a static base url…"
@@ -392,19 +394,19 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:105
 msgid "bit.ly user"
-msgstr ""
+msgstr "usuario bit.ly"
 
 #: templates/tmpl_preferences.php:107
 msgid "bit.ly user name"
-msgstr ""
+msgstr "nome de usuario bit.ly"
 
 #: templates/tmpl_preferences.php:108
 msgid "bit.ly key"
-msgstr ""
+msgstr "chave bit.ly"
 
 #: templates/tmpl_preferences.php:110
 msgid "bit.ly users key"
-msgstr ""
+msgstr "cave de usuario bit.ly"
 
 #: templates/tmpl_preferences.php:120
 msgid ""
@@ -414,7 +416,7 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:122
 msgid "API access key"
-msgstr ""
+msgstr "Chave de acceso a API"
 
 #: templates/tmpl_preferences.php:121
 #, php-format
@@ -425,7 +427,7 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:124
 msgid "register an account"
-msgstr ""
+msgstr "Rexistrar unha conta"
 
 #: templates/tmpl_preferences.php:123
 #, php-format
@@ -446,11 +448,11 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:155
 msgid "API key"
-msgstr ""
+msgstr "Chave da API"
 
 #: templates/tmpl_preferences.php:157 templates/tmpl_preferences.php:176
 msgid "Google API key"
-msgstr ""
+msgstr "Chave da API de Google"
 
 #: templates/tmpl_preferences.php:168
 msgid ""
@@ -480,23 +482,23 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:179
 msgid "Google API account"
-msgstr ""
+msgstr "Conta da API de Google"
 
 #: templates/tmpl_preferences.php:184
 msgid "tiny.cc user"
-msgstr ""
+msgstr "usuario tiny.cc"
 
 #: templates/tmpl_preferences.php:186
 msgid "tiny.cc user name"
-msgstr ""
+msgstr "nome de usuario tiny.cc"
 
 #: templates/tmpl_preferences.php:187
 msgid "tiny.cc key"
-msgstr ""
+msgstr "chave tiny.cc"
 
 #: templates/tmpl_preferences.php:189
 msgid "tiny.cc user key"
-msgstr ""
+msgstr "chave de usuario tiny.cc"
 
 #: templates/tmpl_preferences.php:199
 msgid ""
@@ -512,7 +514,7 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:202
 msgid "account"
-msgstr ""
+msgstr "conta"
 
 #: templates/tmpl_preferences.php:201
 #, php-format
@@ -533,15 +535,15 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:234
 msgid "SMS"
-msgstr ""
+msgstr "SMS"
 
 #: templates/tmpl_preferences.php:239
 msgid "disabled"
-msgstr ""
+msgstr "desactivado"
 
 #: templates/tmpl_preferences.php:242
 msgid "enabled"
-msgstr ""
+msgstr "activado"
 
 #: templates/tmpl_preferences.php:244
 msgid "Enabling the SMS option will offer sending a Shorty via SMS."
@@ -577,7 +579,7 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:279
 msgid "Administration"
-msgstr ""
+msgstr "Administración"
 
 #: templates/tmpl_settings.php:47
 msgid "Optional configuration of a 'Static Backend'"
@@ -610,7 +612,7 @@ msgstr ""
 
 #: templates/tmpl_settings.php:80
 msgid "Apps selector"
-msgstr ""
+msgstr "Selector de aplicativos"
 
 #: templates/tmpl_url_add.php:45
 msgid "Add a new shorty"
@@ -619,29 +621,29 @@ msgstr ""
 #: templates/tmpl_url_add.php:47 templates/tmpl_url_edit.php:54
 #: templates/tmpl_url_share.php:83 templates/tmpl_url_show.php:53
 msgid "Target url"
-msgstr ""
+msgstr "URL de destino"
 
 #: templates/tmpl_url_add.php:65 templates/tmpl_url_edit.php:76
 #: templates/tmpl_url_list.php:74 templates/tmpl_url_share.php:48
 #: templates/tmpl_url_show.php:71
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: templates/tmpl_url_add.php:69 templates/tmpl_url_edit.php:80
 #: templates/tmpl_url_list.php:78 templates/tmpl_url_share.php:51
 #: templates/tmpl_url_show.php:75
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
 #: templates/tmpl_url_add.php:78 templates/tmpl_url_edit.php:89
 #: templates/tmpl_url_list.php:77 templates/tmpl_url_show.php:77
 msgid "Expiration"
-msgstr ""
+msgstr "Caducidade"
 
 #: templates/tmpl_url_add.php:86 templates/tmpl_url_edit.php:97
 #: templates/tmpl_url_show.php:81
 msgid "Notes"
-msgstr ""
+msgstr "Notas"
 
 #: templates/tmpl_url_add.php:88 templates/tmpl_url_edit.php:99
 msgid "Anything that appears helpful …"
@@ -649,7 +651,7 @@ msgstr ""
 
 #: templates/tmpl_url_add.php:91
 msgid "Add as new"
-msgstr ""
+msgstr "Engadir como novo"
 
 #: templates/tmpl_url_edit.php:45 templates/tmpl_url_list.php:183
 msgid "Modify shorty"
@@ -658,7 +660,7 @@ msgstr ""
 #: templates/tmpl_url_edit.php:48 templates/tmpl_url_share.php:65
 #: templates/tmpl_url_show.php:47
 msgid "Source url"
-msgstr ""
+msgstr "URL orixe"
 
 #: templates/tmpl_url_edit.php:51 templates/tmpl_url_share.php:74
 #: templates/tmpl_url_show.php:50
@@ -668,23 +670,23 @@ msgstr ""
 #: templates/tmpl_url_edit.php:103 templates/tmpl_url_list.php:76
 #: templates/tmpl_url_show.php:85
 msgid "Clicks"
-msgstr ""
+msgstr "Clics"
 
 #: templates/tmpl_url_edit.php:105 templates/tmpl_url_show.php:87
 msgid "Creation"
-msgstr ""
+msgstr "Creación"
 
 #: templates/tmpl_url_edit.php:107 templates/tmpl_url_show.php:89
 msgid "Access"
-msgstr ""
+msgstr "Acceso"
 
 #: templates/tmpl_url_edit.php:112
 msgid "Save"
-msgstr ""
+msgstr "Gardar"
 
 #: templates/tmpl_url_list.php:41
 msgid "Nothing here yet"
-msgstr ""
+msgstr "Aquí aínda non hai nada"
 
 #: templates/tmpl_url_list.php:44
 msgid "If you just started using Shorty"
@@ -697,116 +699,116 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:58
 msgid "Create a new 'Shorty' and share it"
-msgstr ""
+msgstr "Crear un novo «Shorty» e compartilo"
 
 #: templates/tmpl_url_list.php:59
 #, php-format
 msgid "Use the '%s' button above or the fine 'Shortlet'"
-msgstr ""
+msgstr "Use o botón «%s» de embaixo para obter «Shortlet» fino"
 
 #: templates/tmpl_url_list.php:70
 msgid "Toggle toolbar"
-msgstr ""
+msgstr "Alternar a barra de ferramentas"
 
 #: templates/tmpl_url_list.php:75
 msgid "Target"
-msgstr ""
+msgstr "Destino"
 
 #: templates/tmpl_url_list.php:86
 msgid "reload"
-msgstr ""
+msgstr "recargar"
 
 #: templates/tmpl_url_list.php:86
 msgid "Reload list"
-msgstr ""
+msgstr "Cargar de novo a lista"
 
 #: templates/tmpl_url_list.php:94 templates/tmpl_url_list.php:105
 #: templates/tmpl_url_list.php:116 templates/tmpl_url_list.php:126
 msgid "up"
-msgstr ""
+msgstr "arriba"
 
 #: templates/tmpl_url_list.php:94 templates/tmpl_url_list.php:105
 #: templates/tmpl_url_list.php:116 templates/tmpl_url_list.php:126
 msgid "Sort ascending"
-msgstr ""
+msgstr "Orde ascendente"
 
 #: templates/tmpl_url_list.php:97 templates/tmpl_url_list.php:108
 #: templates/tmpl_url_list.php:119 templates/tmpl_url_list.php:129
 msgid "down"
-msgstr ""
+msgstr "abaixo"
 
 #: templates/tmpl_url_list.php:97 templates/tmpl_url_list.php:108
 #: templates/tmpl_url_list.php:119 templates/tmpl_url_list.php:129
 msgid "Sort descending"
-msgstr ""
+msgstr "Orde descendente"
 
 #: templates/tmpl_url_list.php:178 templates/tmpl_url_list.php:179
 msgid "show"
-msgstr ""
+msgstr "amosar"
 
 #: templates/tmpl_url_list.php:179 templates/tmpl_url_show.php:45
 msgid "Show details"
-msgstr ""
+msgstr "Amosar os detalles"
 
 #: templates/tmpl_url_list.php:182
 msgid "edit"
-msgstr ""
+msgstr "editar"
 
 #: templates/tmpl_url_list.php:183
 msgid "modify"
-msgstr ""
+msgstr "modificar"
 
 #: templates/tmpl_url_list.php:186 templates/tmpl_url_list.php:187
 msgid "delete"
-msgstr ""
+msgstr "eliminar"
 
 #: templates/tmpl_url_list.php:187
 msgid "Delete shorty"
-msgstr ""
+msgstr "Eliminar o «Shorty»"
 
 #: templates/tmpl_url_list.php:190 templates/tmpl_url_list.php:191
 msgid "share"
-msgstr ""
+msgstr "compartir"
 
 #: templates/tmpl_url_list.php:191
 msgid "Share shorty"
-msgstr ""
+msgstr "Compartir o «Shorty»"
 
 #: templates/tmpl_url_list.php:194 templates/tmpl_url_list.php:195
 msgid "open"
-msgstr ""
+msgstr "abrir"
 
 #: templates/tmpl_url_list.php:195
 msgid "Open target"
-msgstr ""
+msgstr "Abrir o destino"
 
 #: templates/tmpl_url_share.php:45
 msgid "Share and use"
-msgstr ""
+msgstr "Compartir e usar"
 
 #: templates/tmpl_url_share.php:59
 msgid "for any access"
-msgstr ""
+msgstr "para calquera acceso"
 
 #: templates/tmpl_url_share.php:60
 msgid "for own usage"
-msgstr ""
+msgstr "para uso propio"
 
 #: templates/tmpl_url_share.php:61
 msgid "with ownCloud users"
-msgstr ""
+msgstr "Con usuarios de ownCloud"
 
 #: templates/tmpl_url_share.php:62
 msgid "available for everyone"
-msgstr ""
+msgstr "dispoñíbel para todo el mundo"
 
 #: templates/tmpl_url_share.php:66
 msgid "This is the shortened url registered at the backend"
-msgstr ""
+msgstr "Este é un URL recortado rexistrado na infraestrutura"
 
 #: templates/tmpl_url_share.php:69
 msgid "Open source url"
-msgstr ""
+msgstr "Abrir o URL orixe"
 
 #: templates/tmpl_url_share.php:75
 msgid "This is a internal url that the shortened url relays to"
@@ -822,23 +824,23 @@ msgstr ""
 
 #: templates/tmpl_url_share.php:87
 msgid "Open target url"
-msgstr ""
+msgstr "Abrir o URL de destino"
 
 #: templates/tmpl_url_share.php:97
 msgid "Show as QRCode"
-msgstr ""
+msgstr "Amosar como código QR"
 
 #: templates/tmpl_url_share.php:102
 msgid "Send by email"
-msgstr ""
+msgstr "Enviar por correo"
 
 #: templates/tmpl_url_share.php:108
 msgid "Send by SMS"
-msgstr ""
+msgstr "Enviar por SMS"
 
 #: templates/tmpl_wdg_shortlet.php:37
 msgid "Shortlet"
-msgstr ""
+msgstr "Shortlet"
 
 #: templates/tmpl_wdg_shortlet.php:41
 msgid "Add page as 'Shorty' to ownCloud"

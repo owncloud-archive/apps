@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
 "PO-Revision-Date: 2013-03-26 11:18+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
@@ -77,7 +77,7 @@ msgstr ""
 #: js/shorty.js:930 js/shorty.js:2196 templates/tmpl_url_add.php:81
 #: templates/tmpl_url_edit.php:92
 msgid "never"
-msgstr ""
+msgstr "nikdy"
 
 #: js/shorty.js:1267
 msgid "Sorry, that target is invalid!"
@@ -89,7 +89,7 @@ msgstr ""
 #: templates/tmpl_url_share.php:42 templates/tmpl_url_show.php:41
 #: templates/tmpl_url_show.php:42
 msgid "Close"
-msgstr ""
+msgstr "Zavrieť"
 
 #: js/shorty.js:1833
 msgid "Mail client"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: js/shorty.js:1834 js/shorty.js:1863
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #: js/shorty.js:1862
 msgid "SMS composer"
@@ -245,7 +245,7 @@ msgstr ""
 
 #: templates/tmpl_dlg_verify.php:46 templates/tmpl_dlg_verify.php:62
 msgid "Success"
-msgstr ""
+msgstr "Úspešné"
 
 #: templates/tmpl_dlg_verify.php:46 templates/tmpl_dlg_verify.php:47
 #: templates/tmpl_dlg_verify.php:62
@@ -304,11 +304,11 @@ msgstr ""
 
 #: templates/tmpl_index.php:59 templates/tmpl_index.php:61
 msgid "Home"
-msgstr ""
+msgstr "Domov"
 
 #: templates/tmpl_index.php:66 templates/tmpl_index.php:68
 msgid "Configuration"
-msgstr ""
+msgstr "Nastavenia"
 
 #: templates/tmpl_index.php:81
 msgid "Number of entries"
@@ -324,7 +324,7 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:49
 msgid "Backend"
-msgstr ""
+msgstr "Backend"
 
 #: templates/tmpl_preferences.php:53
 msgid "Choose service…"
@@ -625,7 +625,7 @@ msgstr ""
 #: templates/tmpl_url_list.php:74 templates/tmpl_url_share.php:48
 #: templates/tmpl_url_show.php:71
 msgid "Title"
-msgstr ""
+msgstr "Nadpis"
 
 #: templates/tmpl_url_add.php:69 templates/tmpl_url_edit.php:80
 #: templates/tmpl_url_list.php:78 templates/tmpl_url_share.php:51
@@ -641,7 +641,7 @@ msgstr ""
 #: templates/tmpl_url_add.php:86 templates/tmpl_url_edit.php:97
 #: templates/tmpl_url_show.php:81
 msgid "Notes"
-msgstr ""
+msgstr "Poznámky"
 
 #: templates/tmpl_url_add.php:88 templates/tmpl_url_edit.php:99
 msgid "Anything that appears helpful …"
@@ -680,7 +680,7 @@ msgstr ""
 
 #: templates/tmpl_url_edit.php:112
 msgid "Save"
-msgstr ""
+msgstr "Uložiť"
 
 #: templates/tmpl_url_list.php:41
 msgid "Nothing here yet"
@@ -742,7 +742,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:178 templates/tmpl_url_list.php:179
 msgid "show"
-msgstr ""
+msgstr "zobraziť"
 
 #: templates/tmpl_url_list.php:179 templates/tmpl_url_show.php:45
 msgid "Show details"
@@ -758,7 +758,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:186 templates/tmpl_url_list.php:187
 msgid "delete"
-msgstr ""
+msgstr "vymazať"
 
 #: templates/tmpl_url_list.php:187
 msgid "Delete shorty"
@@ -766,7 +766,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:190 templates/tmpl_url_list.php:191
 msgid "share"
-msgstr ""
+msgstr "zdieľať"
 
 #: templates/tmpl_url_list.php:191
 msgid "Share shorty"

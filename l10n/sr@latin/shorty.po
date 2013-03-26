@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
 "PO-Revision-Date: 2013-03-26 11:18+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/owncloud/language/sr@latin/)\n"
@@ -89,7 +89,7 @@ msgstr ""
 #: templates/tmpl_url_share.php:42 templates/tmpl_url_show.php:41
 #: templates/tmpl_url_show.php:42
 msgid "Close"
-msgstr ""
+msgstr "Zatvori"
 
 #: js/shorty.js:1833
 msgid "Mail client"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: js/shorty.js:1834 js/shorty.js:1863
 msgid "Cancel"
-msgstr ""
+msgstr "Otkaži"
 
 #: js/shorty.js:1862
 msgid "SMS composer"
@@ -304,7 +304,7 @@ msgstr ""
 
 #: templates/tmpl_index.php:59 templates/tmpl_index.php:61
 msgid "Home"
-msgstr ""
+msgstr "Kuća"
 
 #: templates/tmpl_index.php:66 templates/tmpl_index.php:68
 msgid "Configuration"
@@ -625,7 +625,7 @@ msgstr ""
 #: templates/tmpl_url_list.php:74 templates/tmpl_url_share.php:48
 #: templates/tmpl_url_show.php:71
 msgid "Title"
-msgstr ""
+msgstr "Naslov"
 
 #: templates/tmpl_url_add.php:69 templates/tmpl_url_edit.php:80
 #: templates/tmpl_url_list.php:78 templates/tmpl_url_share.php:51
@@ -680,7 +680,7 @@ msgstr ""
 
 #: templates/tmpl_url_edit.php:112
 msgid "Save"
-msgstr ""
+msgstr "Snimi"
 
 #: templates/tmpl_url_list.php:41
 msgid "Nothing here yet"
@@ -742,7 +742,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:178 templates/tmpl_url_list.php:179
 msgid "show"
-msgstr ""
+msgstr "prikaži"
 
 #: templates/tmpl_url_list.php:179 templates/tmpl_url_show.php:45
 msgid "Show details"

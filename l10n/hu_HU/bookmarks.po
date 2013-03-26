@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-28 00:00+0100\n"
-"PO-Revision-Date: 2013-02-27 09:21+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
 "Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "Hiba történt az importáláskor"
 msgid "Import completed successfully."
 msgstr "Az importálás sikeresen befejeződött."
 
-#: js/settings.js:60
+#: js/settings.js:61
 msgid "Uploading..."
 msgstr "Feltöltés..."
 

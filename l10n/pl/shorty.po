@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
-"PO-Revision-Date: 2013-03-26 11:18+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:40+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,12 +73,12 @@ msgstr ""
 
 #: index.php:162
 msgid "all"
-msgstr ""
+msgstr "Wszystkie"
 
 #: js/shorty.js:930 js/shorty.js:2196 templates/tmpl_url_add.php:81
 #: templates/tmpl_url_edit.php:92
 msgid "never"
-msgstr ""
+msgstr "nigdy"
 
 #: js/shorty.js:1267
 msgid "Sorry, that target is invalid!"
@@ -89,15 +90,15 @@ msgstr ""
 #: templates/tmpl_url_share.php:42 templates/tmpl_url_show.php:41
 #: templates/tmpl_url_show.php:42
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: js/shorty.js:1833
 msgid "Mail client"
-msgstr ""
+msgstr "Klient mailowy"
 
 #: js/shorty.js:1834 js/shorty.js:1863
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: js/shorty.js:1862
 msgid "SMS composer"
@@ -105,12 +106,12 @@ msgstr ""
 
 #: lib/exception.php:84
 msgid "Exception"
-msgstr ""
+msgstr "Wyjątek"
 
 #: lib/exception.php:93
 #, php-format
 msgid "Exception (%s)"
-msgstr ""
+msgstr "Wyjątek (%s)"
 
 #: lib/exception.php:92
 #, php-format
@@ -148,7 +149,7 @@ msgstr ""
 #: templates/tmpl_dlg_clipboard.php:45 templates/tmpl_dlg_email.php:51
 #: templates/tmpl_dlg_qrcode.php:64 templates/tmpl_dlg_sms.php:50
 msgid "Ctrl-C"
-msgstr ""
+msgstr "Ctrl-C"
 
 #: templates/tmpl_dlg_email.php:39
 msgid "Send link by email"
@@ -169,7 +170,7 @@ msgstr ""
 #: templates/tmpl_dlg_email.php:56 templates/tmpl_dlg_qrcode.php:66
 #: templates/tmpl_dlg_sms.php:54
 msgid "Ctrl-V"
-msgstr ""
+msgstr "Ctrl-V"
 
 #: templates/tmpl_dlg_qrcode.php:39
 msgid "Shorty as QRCode"
@@ -245,12 +246,12 @@ msgstr ""
 
 #: templates/tmpl_dlg_verify.php:46 templates/tmpl_dlg_verify.php:62
 msgid "Success"
-msgstr ""
+msgstr "Sukces"
 
 #: templates/tmpl_dlg_verify.php:46 templates/tmpl_dlg_verify.php:47
 #: templates/tmpl_dlg_verify.php:62
 msgid "Verification successful"
-msgstr ""
+msgstr "Udana weryfikacja"
 
 #: templates/tmpl_dlg_verify.php:49
 msgid "Great, your setup appears to be working fine!"
@@ -276,7 +277,7 @@ msgstr ""
 
 #: templates/tmpl_dlg_verify.php:63
 msgid "Verification failed"
-msgstr ""
+msgstr "Nieudana weryfikacja"
 
 #: templates/tmpl_dlg_verify.php:65
 msgid "Sorry, but your setup appears not to be working correctly yet!"
@@ -304,11 +305,11 @@ msgstr ""
 
 #: templates/tmpl_index.php:59 templates/tmpl_index.php:61
 msgid "Home"
-msgstr ""
+msgstr "Dom"
 
 #: templates/tmpl_index.php:66 templates/tmpl_index.php:68
 msgid "Configuration"
-msgstr ""
+msgstr "Konfiguracja"
 
 #: templates/tmpl_index.php:81
 msgid "Number of entries"
@@ -316,7 +317,7 @@ msgstr ""
 
 #: templates/tmpl_index.php:84 templates/tmpl_index.php:90
 msgid "Loading"
-msgstr ""
+msgstr "Ładuję"
 
 #: templates/tmpl_index.php:87
 msgid "Total of clicks"
@@ -324,7 +325,7 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:49
 msgid "Backend"
-msgstr ""
+msgstr "Zaplecze"
 
 #: templates/tmpl_preferences.php:53
 msgid "Choose service…"
@@ -336,7 +337,7 @@ msgstr ""
 #: templates/tmpl_preferences.php:193 templates/tmpl_preferences.php:210
 #: templates/tmpl_preferences.php:223 templates/tmpl_settings.php:56
 msgid "Example"
-msgstr ""
+msgstr "Przykład"
 
 #: templates/tmpl_preferences.php:75
 msgid ""
@@ -446,11 +447,11 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:155
 msgid "API key"
-msgstr ""
+msgstr "Klucz API"
 
 #: templates/tmpl_preferences.php:157 templates/tmpl_preferences.php:176
 msgid "Google API key"
-msgstr ""
+msgstr "Klucz Google API"
 
 #: templates/tmpl_preferences.php:168
 msgid ""
@@ -533,15 +534,15 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:234
 msgid "SMS"
-msgstr ""
+msgstr "SMS"
 
 #: templates/tmpl_preferences.php:239
 msgid "disabled"
-msgstr ""
+msgstr "Wyłączone"
 
 #: templates/tmpl_preferences.php:242
 msgid "enabled"
-msgstr ""
+msgstr "Włączone"
 
 #: templates/tmpl_preferences.php:244
 msgid "Enabling the SMS option will offer sending a Shorty via SMS."
@@ -577,7 +578,7 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:279
 msgid "Administration"
-msgstr ""
+msgstr "Administracja"
 
 #: templates/tmpl_settings.php:47
 msgid "Optional configuration of a 'Static Backend'"
@@ -625,13 +626,13 @@ msgstr ""
 #: templates/tmpl_url_list.php:74 templates/tmpl_url_share.php:48
 #: templates/tmpl_url_show.php:71
 msgid "Title"
-msgstr ""
+msgstr "Tytuł"
 
 #: templates/tmpl_url_add.php:69 templates/tmpl_url_edit.php:80
 #: templates/tmpl_url_list.php:78 templates/tmpl_url_share.php:51
 #: templates/tmpl_url_show.php:75
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: templates/tmpl_url_add.php:78 templates/tmpl_url_edit.php:89
 #: templates/tmpl_url_list.php:77 templates/tmpl_url_show.php:77
@@ -641,7 +642,7 @@ msgstr ""
 #: templates/tmpl_url_add.php:86 templates/tmpl_url_edit.php:97
 #: templates/tmpl_url_show.php:81
 msgid "Notes"
-msgstr ""
+msgstr "Notatki"
 
 #: templates/tmpl_url_add.php:88 templates/tmpl_url_edit.php:99
 msgid "Anything that appears helpful …"
@@ -649,7 +650,7 @@ msgstr ""
 
 #: templates/tmpl_url_add.php:91
 msgid "Add as new"
-msgstr ""
+msgstr "Dodaj jako nowe"
 
 #: templates/tmpl_url_edit.php:45 templates/tmpl_url_list.php:183
 msgid "Modify shorty"
@@ -676,15 +677,15 @@ msgstr ""
 
 #: templates/tmpl_url_edit.php:107 templates/tmpl_url_show.php:89
 msgid "Access"
-msgstr ""
+msgstr "Dostęp"
 
 #: templates/tmpl_url_edit.php:112
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
 #: templates/tmpl_url_list.php:41
 msgid "Nothing here yet"
-msgstr ""
+msgstr "Nie ma ty jeszcze nic"
 
 #: templates/tmpl_url_list.php:44
 msgid "If you just started using Shorty"
@@ -714,16 +715,16 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:86
 msgid "reload"
-msgstr ""
+msgstr "przeładuj"
 
 #: templates/tmpl_url_list.php:86
 msgid "Reload list"
-msgstr ""
+msgstr "Przeładuj liste"
 
 #: templates/tmpl_url_list.php:94 templates/tmpl_url_list.php:105
 #: templates/tmpl_url_list.php:116 templates/tmpl_url_list.php:126
 msgid "up"
-msgstr ""
+msgstr "góra"
 
 #: templates/tmpl_url_list.php:94 templates/tmpl_url_list.php:105
 #: templates/tmpl_url_list.php:116 templates/tmpl_url_list.php:126
@@ -733,7 +734,7 @@ msgstr ""
 #: templates/tmpl_url_list.php:97 templates/tmpl_url_list.php:108
 #: templates/tmpl_url_list.php:119 templates/tmpl_url_list.php:129
 msgid "down"
-msgstr ""
+msgstr "dół"
 
 #: templates/tmpl_url_list.php:97 templates/tmpl_url_list.php:108
 #: templates/tmpl_url_list.php:119 templates/tmpl_url_list.php:129
@@ -742,7 +743,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:178 templates/tmpl_url_list.php:179
 msgid "show"
-msgstr ""
+msgstr "Wyświetlanie"
 
 #: templates/tmpl_url_list.php:179 templates/tmpl_url_show.php:45
 msgid "Show details"
@@ -750,15 +751,15 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:182
 msgid "edit"
-msgstr ""
+msgstr "edycja"
 
 #: templates/tmpl_url_list.php:183
 msgid "modify"
-msgstr ""
+msgstr "modyfikuj"
 
 #: templates/tmpl_url_list.php:186 templates/tmpl_url_list.php:187
 msgid "delete"
-msgstr ""
+msgstr "usuń"
 
 #: templates/tmpl_url_list.php:187
 msgid "Delete shorty"
@@ -766,7 +767,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:190 templates/tmpl_url_list.php:191
 msgid "share"
-msgstr ""
+msgstr "współdziel"
 
 #: templates/tmpl_url_list.php:191
 msgid "Share shorty"
@@ -774,7 +775,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:194 templates/tmpl_url_list.php:195
 msgid "open"
-msgstr ""
+msgstr "otwarte"
 
 #: templates/tmpl_url_list.php:195
 msgid "Open target"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
 "PO-Revision-Date: 2013-03-26 11:18+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Icelandic (http://www.transifex.com/projects/p/owncloud/language/is/)\n"
@@ -89,7 +89,7 @@ msgstr ""
 #: templates/tmpl_url_share.php:42 templates/tmpl_url_show.php:41
 #: templates/tmpl_url_show.php:42
 msgid "Close"
-msgstr ""
+msgstr "Loka"
 
 #: js/shorty.js:1833
 msgid "Mail client"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: js/shorty.js:1834 js/shorty.js:1863
 msgid "Cancel"
-msgstr ""
+msgstr "Hætta við"
 
 #: js/shorty.js:1862
 msgid "SMS composer"
@@ -308,7 +308,7 @@ msgstr ""
 
 #: templates/tmpl_index.php:66 templates/tmpl_index.php:68
 msgid "Configuration"
-msgstr ""
+msgstr "Uppsetning"
 
 #: templates/tmpl_index.php:81
 msgid "Number of entries"
@@ -324,7 +324,7 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:49
 msgid "Backend"
-msgstr ""
+msgstr "Stjórnun"
 
 #: templates/tmpl_preferences.php:53
 msgid "Choose service…"
@@ -625,7 +625,7 @@ msgstr ""
 #: templates/tmpl_url_list.php:74 templates/tmpl_url_share.php:48
 #: templates/tmpl_url_show.php:71
 msgid "Title"
-msgstr ""
+msgstr "Titill"
 
 #: templates/tmpl_url_add.php:69 templates/tmpl_url_edit.php:80
 #: templates/tmpl_url_list.php:78 templates/tmpl_url_share.php:51
@@ -680,7 +680,7 @@ msgstr ""
 
 #: templates/tmpl_url_edit.php:112
 msgid "Save"
-msgstr ""
+msgstr "Vista"
 
 #: templates/tmpl_url_list.php:41
 msgid "Nothing here yet"
@@ -742,7 +742,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:178 templates/tmpl_url_list.php:179
 msgid "show"
-msgstr ""
+msgstr "sýna"
 
 #: templates/tmpl_url_list.php:179 templates/tmpl_url_show.php:45
 msgid "Show details"
@@ -758,7 +758,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:186 templates/tmpl_url_list.php:187
 msgid "delete"
-msgstr ""
+msgstr "eyða"
 
 #: templates/tmpl_url_list.php:187
 msgid "Delete shorty"
@@ -766,7 +766,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:190 templates/tmpl_url_list.php:191
 msgid "share"
-msgstr ""
+msgstr "deila"
 
 #: templates/tmpl_url_list.php:191
 msgid "Share shorty"

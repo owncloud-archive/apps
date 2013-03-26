@@ -1,0 +1,23 @@
+<?php $TRANSLATIONS = array(
+"all" => "todos",
+"never" => "nunca",
+"Close" => "Cerrar",
+"Cancel" => "Cancelar",
+"Success" => "Éxito",
+"Home" => "Particular",
+"Configuration" => "Configuración",
+"Number of entries" => "Número de entradas",
+"Loading" => "Cargando",
+"Backend" => "Motor",
+"Title" => "Título",
+"Status" => "Estado",
+"Notes" => "Notas",
+"Clicks" => "Clicks",
+"Save" => "Guardar",
+"Nothing here yet" => "Todavía no hay nada aquí",
+"Reload list" => "Recargar lista",
+"show" => "mostrar",
+"Show details" => "Mostrar detalles",
+"delete" => "borrar",
+"share" => "compartir"
+);

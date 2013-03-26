@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
 "PO-Revision-Date: 2013-03-26 11:18+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: js/tracking.js:287
 msgid "never"
-msgstr ""
+msgstr "geen"
 
 #: js/tracking.js:478 js/tracking.js:488
 msgid "granted"
@@ -51,7 +51,7 @@ msgstr ""
 
 #: templates/tmpl_trc_dlg_click.php:41 templates/tmpl_trc_dlg_click.php:42
 msgid "Close"
-msgstr ""
+msgstr "Sluit"
 
 #: templates/tmpl_trc_dlg_click.php:45
 msgid "Click details"
@@ -59,27 +59,27 @@ msgstr ""
 
 #: templates/tmpl_trc_dlg_click.php:47 templates/tmpl_trc_dlg_list.php:51
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: templates/tmpl_trc_dlg_click.php:50 templates/tmpl_trc_dlg_list.php:75
 msgid "Result"
-msgstr ""
+msgstr "Resultaat"
 
 #: templates/tmpl_trc_dlg_click.php:53 templates/tmpl_trc_dlg_list.php:76
 msgid "Address"
-msgstr ""
+msgstr "Adres"
 
 #: templates/tmpl_trc_dlg_click.php:56 templates/tmpl_trc_dlg_list.php:77
 msgid "Host"
-msgstr ""
+msgstr "Host"
 
 #: templates/tmpl_trc_dlg_click.php:59 templates/tmpl_trc_dlg_list.php:78
 msgid "User"
-msgstr ""
+msgstr "Gebruiker"
 
 #: templates/tmpl_trc_dlg_click.php:62 templates/tmpl_trc_dlg_list.php:79
 msgid "Time"
-msgstr ""
+msgstr "Tijd"
 
 #: templates/tmpl_trc_dlg_list.php:43 templates/tmpl_trc_dlg_list.php:44
 msgid "close"

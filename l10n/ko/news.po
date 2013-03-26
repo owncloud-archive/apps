@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 11:50+0100\n"
-"PO-Revision-Date: 2013-03-26 10:27+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 23:02+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -36,35 +36,32 @@ msgstr "구독 추가"
 msgid "Address must not be empty!"
 msgstr "주소를 입력해야 합니다!"
 
-#: templates/part.addnew.php:15
-msgid "Feed exists already!"
-msgstr "피드가 이미 존재합니다!"
-
 #: templates/part.addnew.php:16
-msgid "Could not add feed! Check if feed contains valid RSS!"
+msgid ""
+"Could not add feed! Check if feed contains valid RSS or exists already!"
 msgstr ""
 
-#: templates/part.addnew.php:17
+#: templates/part.addnew.php:18
 msgid "Folder exists already"
 msgstr ""
 
-#: templates/part.addnew.php:22
+#: templates/part.addnew.php:23
 msgid "Address"
 msgstr "주소"
 
-#: templates/part.addnew.php:24 templates/part.addnew.php:27
+#: templates/part.addnew.php:25 templates/part.addnew.php:28
 msgid "Add"
 msgstr "추가"
 
-#: templates/part.addnew.php:29
+#: templates/part.addnew.php:30
 msgid "New folder"
 msgstr ""
 
-#: templates/part.addnew.php:30
+#: templates/part.addnew.php:31
 msgid "Folder"
 msgstr "폴더"
 
-#: templates/part.addnew.php:35
+#: templates/part.addnew.php:36
 msgid "No folder"
 msgstr ""
 
@@ -80,24 +77,28 @@ msgstr ""
 msgid "All articles"
 msgstr ""
 
-#: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:29
 #: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "모두 읽은 글로 표시"
 
-#: templates/part.items.php:34
+#: templates/part.items.php:27
+msgid "from"
+msgstr ""
+
+#: templates/part.items.php:32
+msgid "by"
+msgstr ""
+
+#: templates/part.items.php:39
 msgid "Cant play audio format"
 msgstr ""
 
-#: templates/part.items.php:48 templates/part.items.php:51
-msgid "Share"
-msgstr "공유"
-
-#: templates/part.items.php:55
+#: templates/part.items.php:52
 msgid "Keep unread"
 msgstr "읽지 않은 글로 두기"
 
-#: templates/part.listfeed.php:17
+#: templates/part.listfeed.php:20
 msgid "Delete feed"
 msgstr "피드 삭제"
 

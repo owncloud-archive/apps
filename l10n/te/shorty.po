@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
 "PO-Revision-Date: 2013-03-26 11:18+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Telugu (http://www.transifex.com/projects/p/owncloud/language/te/)\n"
@@ -89,7 +89,7 @@ msgstr ""
 #: templates/tmpl_url_share.php:42 templates/tmpl_url_show.php:41
 #: templates/tmpl_url_show.php:42
 msgid "Close"
-msgstr ""
+msgstr "మూసివేయి"
 
 #: js/shorty.js:1833
 msgid "Mail client"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: js/shorty.js:1834 js/shorty.js:1863
 msgid "Cancel"
-msgstr ""
+msgstr "రద్దుచేయి"
 
 #: js/shorty.js:1862
 msgid "SMS composer"
@@ -680,7 +680,7 @@ msgstr ""
 
 #: templates/tmpl_url_edit.php:112
 msgid "Save"
-msgstr ""
+msgstr "భద్రపరచు"
 
 #: templates/tmpl_url_list.php:41
 msgid "Nothing here yet"
@@ -758,7 +758,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:186 templates/tmpl_url_list.php:187
 msgid "delete"
-msgstr ""
+msgstr "తొలగించు"
 
 #: templates/tmpl_url_list.php:187
 msgid "Delete shorty"

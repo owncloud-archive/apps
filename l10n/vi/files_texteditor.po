@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-10 00:06+0100\n"
-"PO-Revision-Date: 2013-02-09 19:00+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
 "Last-Translator: saosangm <saosangmo@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -20,15 +20,15 @@ msgstr ""
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: js/editor.js:72 js/editor.js:158 js/editor.js:166
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr "Lưu"
 
-#: js/editor.js:74
+#: js/editor.js:75
 msgid "Search:"
 msgstr "Tìm:"
 
-#: js/editor.js:74
+#: js/editor.js:78
 msgid "Close"
 msgstr "Đóng"
 
@@ -48,10 +48,10 @@ msgstr "Đang lưu..."
 msgid "Failed to save file"
 msgstr "Lỗi khi lưu file"
 
-#: js/editor.js:243
+#: js/editor.js:246
 msgid "An error occurred!"
 msgstr "Có một lỗi đã xảy ra!"
 
-#: js/editor.js:271
+#: js/editor.js:266
 msgid "There were unsaved changes, click here to go back"
 msgstr "Thay đổi không được lưu, bấm vào đây để trở lại"

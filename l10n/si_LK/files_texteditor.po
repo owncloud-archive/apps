@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-15 00:07+0100\n"
-"PO-Revision-Date: 2012-12-14 23:08+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -18,38 +18,38 @@ msgstr ""
 "Language: si_LK\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/editor.js:72 js/editor.js:177 js/editor.js:185
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr "සුරකින්න"
 
-#: js/editor.js:74
+#: js/editor.js:75
 msgid "Search:"
 msgstr ""
 
-#: js/editor.js:74
+#: js/editor.js:78
 msgid "Close"
 msgstr "වසන්න"
 
-#: js/editor.js:151
+#: js/editor.js:132
 msgid "Next"
 msgstr "ඊලඟ"
 
-#: js/editor.js:152
+#: js/editor.js:133
 msgid "Clear"
 msgstr ""
 
-#: js/editor.js:170
+#: js/editor.js:151
 msgid "Saving..."
 msgstr "සුරැකෙමින් පවතී"
 
-#: js/editor.js:178
+#: js/editor.js:159
 msgid "Failed to save file"
 msgstr ""
 
-#: js/editor.js:262
+#: js/editor.js:246
 msgid "An error occurred!"
 msgstr "දෝෂයක් ඇති විය"
 
-#: js/editor.js:297
+#: js/editor.js:266
 msgid "There were unsaved changes, click here to go back"
 msgstr "සුරැකුම් නොකරන ලද වෙනස් කිරීම් ඇත, පෙර පිටුවට යාමට මෙතැන ක්ලික් කරන්න"

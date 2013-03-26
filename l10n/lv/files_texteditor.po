@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-05 00:17+0100\n"
-"PO-Revision-Date: 2013-02-04 11:00+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Language: lv\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
-#: js/editor.js:72 js/editor.js:158 js/editor.js:166
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr "Saglabāt"
 
-#: js/editor.js:74
+#: js/editor.js:75
 msgid "Search:"
 msgstr "Meklēt:"
 
-#: js/editor.js:74
+#: js/editor.js:78
 msgid "Close"
 msgstr "Aizvērt"
 
@@ -46,10 +46,10 @@ msgstr "Saglabā..."
 msgid "Failed to save file"
 msgstr "Neizdevās saglabāt datni"
 
-#: js/editor.js:243
+#: js/editor.js:246
 msgid "An error occurred!"
 msgstr "Gadījās kļūda!"
 
-#: js/editor.js:271
+#: js/editor.js:266
 msgid "There were unsaved changes, click here to go back"
 msgstr "Bija nesaglabātas izmaiņas, spiediet šeit, lai ietu atpakaļ"

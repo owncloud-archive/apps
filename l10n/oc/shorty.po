@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
 "PO-Revision-Date: 2013-03-26 11:18+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Occitan (post 1500) (http://www.transifex.com/projects/p/owncloud/language/oc/)\n"
@@ -77,7 +77,7 @@ msgstr ""
 #: js/shorty.js:930 js/shorty.js:2196 templates/tmpl_url_add.php:81
 #: templates/tmpl_url_edit.php:92
 msgid "never"
-msgstr ""
+msgstr "jamai"
 
 #: js/shorty.js:1267
 msgid "Sorry, that target is invalid!"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: js/shorty.js:1834 js/shorty.js:1863
 msgid "Cancel"
-msgstr ""
+msgstr "Annula"
 
 #: js/shorty.js:1862
 msgid "SMS composer"
@@ -625,7 +625,7 @@ msgstr ""
 #: templates/tmpl_url_list.php:74 templates/tmpl_url_share.php:48
 #: templates/tmpl_url_show.php:71
 msgid "Title"
-msgstr ""
+msgstr "Títol"
 
 #: templates/tmpl_url_add.php:69 templates/tmpl_url_edit.php:80
 #: templates/tmpl_url_list.php:78 templates/tmpl_url_share.php:51
@@ -680,7 +680,7 @@ msgstr ""
 
 #: templates/tmpl_url_edit.php:112
 msgid "Save"
-msgstr ""
+msgstr "Enregistra"
 
 #: templates/tmpl_url_list.php:41
 msgid "Nothing here yet"
@@ -742,7 +742,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:178 templates/tmpl_url_list.php:179
 msgid "show"
-msgstr ""
+msgstr "mòstra"
 
 #: templates/tmpl_url_list.php:179 templates/tmpl_url_show.php:45
 msgid "Show details"
@@ -758,7 +758,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:186 templates/tmpl_url_list.php:187
 msgid "delete"
-msgstr ""
+msgstr "escafa"
 
 #: templates/tmpl_url_list.php:187
 msgid "Delete shorty"
@@ -766,7 +766,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:190 templates/tmpl_url_list.php:191
 msgid "share"
-msgstr ""
+msgstr "parteja"
 
 #: templates/tmpl_url_list.php:191
 msgid "Share shorty"

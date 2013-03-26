@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
 "PO-Revision-Date: 2013-03-26 11:18+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
@@ -51,7 +51,7 @@ msgstr ""
 
 #: templates/tmpl_trc_dlg_click.php:41 templates/tmpl_trc_dlg_click.php:42
 msgid "Close"
-msgstr ""
+msgstr "داخستن"
 
 #: templates/tmpl_trc_dlg_click.php:45
 msgid "Click details"
@@ -59,7 +59,7 @@ msgstr ""
 
 #: templates/tmpl_trc_dlg_click.php:47 templates/tmpl_trc_dlg_list.php:51
 msgid "Title"
-msgstr ""
+msgstr "ناونیشان"
 
 #: templates/tmpl_trc_dlg_click.php:50 templates/tmpl_trc_dlg_list.php:75
 msgid "Result"
@@ -67,7 +67,7 @@ msgstr ""
 
 #: templates/tmpl_trc_dlg_click.php:53 templates/tmpl_trc_dlg_list.php:76
 msgid "Address"
-msgstr ""
+msgstr "ناونیشان"
 
 #: templates/tmpl_trc_dlg_click.php:56 templates/tmpl_trc_dlg_list.php:77
 msgid "Host"

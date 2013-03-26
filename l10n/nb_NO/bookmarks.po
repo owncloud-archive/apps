@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-07 00:12+0100\n"
-"PO-Revision-Date: 2013-03-06 15:13+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
 "Last-Translator: troll <oyvind.hojem@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "Importerings-feil"
 msgid "Import completed successfully."
 msgstr "Importering fullførte vellykket."
 
-#: js/settings.js:60
+#: js/settings.js:61
 msgid "Uploading..."
 msgstr "Laster opp..."
 

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Agustin Ferrario <agustin.ferrario@hotmail.com.ar>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
-"PO-Revision-Date: 2013-03-26 11:18+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:50+0000\n"
+"Last-Translator: Agustin Ferrario <agustin.ferrario@hotmail.com.ar>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,27 +20,27 @@ msgstr ""
 
 #: ajax/layout.php:69
 msgid "all"
-msgstr ""
+msgstr "todos"
 
 #: ajax/list.php:90
 msgid "Number of entries"
-msgstr ""
+msgstr "Numero de entradas"
 
 #: js/tracking.js:287
 msgid "never"
-msgstr ""
+msgstr "nunca"
 
 #: js/tracking.js:478 js/tracking.js:488
 msgid "granted"
-msgstr ""
+msgstr "garantizados"
 
 #: js/tracking.js:500
 msgid "denied"
-msgstr ""
+msgstr "denegados"
 
 #: js/tracking.js:512
 msgid "blocked"
-msgstr ""
+msgstr "bloqueados"
 
 #: lib/hooks.php:136
 msgid "List clicks"
@@ -47,11 +48,11 @@ msgstr ""
 
 #: lib/hooks.php:137 templates/tmpl_trc_dlg_list.php:155
 msgid "Clicks"
-msgstr ""
+msgstr "Clicks"
 
 #: templates/tmpl_trc_dlg_click.php:41 templates/tmpl_trc_dlg_click.php:42
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: templates/tmpl_trc_dlg_click.php:45
 msgid "Click details"
@@ -59,31 +60,31 @@ msgstr ""
 
 #: templates/tmpl_trc_dlg_click.php:47 templates/tmpl_trc_dlg_list.php:51
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: templates/tmpl_trc_dlg_click.php:50 templates/tmpl_trc_dlg_list.php:75
 msgid "Result"
-msgstr ""
+msgstr "Resultado"
 
 #: templates/tmpl_trc_dlg_click.php:53 templates/tmpl_trc_dlg_list.php:76
 msgid "Address"
-msgstr ""
+msgstr "Dirección"
 
 #: templates/tmpl_trc_dlg_click.php:56 templates/tmpl_trc_dlg_list.php:77
 msgid "Host"
-msgstr ""
+msgstr "Servidor"
 
 #: templates/tmpl_trc_dlg_click.php:59 templates/tmpl_trc_dlg_list.php:78
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 #: templates/tmpl_trc_dlg_click.php:62 templates/tmpl_trc_dlg_list.php:79
 msgid "Time"
-msgstr ""
+msgstr "Hora"
 
 #: templates/tmpl_trc_dlg_list.php:43 templates/tmpl_trc_dlg_list.php:44
 msgid "close"
-msgstr ""
+msgstr "cerrar"
 
 #: templates/tmpl_trc_dlg_list.php:47
 msgid "List of tracked clicks"
@@ -91,11 +92,11 @@ msgstr ""
 
 #: templates/tmpl_trc_dlg_list.php:54
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
 #: templates/tmpl_trc_dlg_list.php:57
 msgid "Loading"
-msgstr ""
+msgstr "Cargando"
 
 #: templates/tmpl_trc_dlg_list.php:69
 msgid "Toggle toolbar"
@@ -103,23 +104,23 @@ msgstr ""
 
 #: templates/tmpl_trc_dlg_list.php:87
 msgid "Reload"
-msgstr ""
+msgstr "Recargar"
 
 #: templates/tmpl_trc_dlg_list.php:87
 msgid "Reload list"
-msgstr ""
+msgstr "Recargar lista"
 
 #: templates/tmpl_trc_dlg_list.php:134 templates/tmpl_trc_dlg_list.php:135
 msgid "details"
-msgstr ""
+msgstr "detalles"
 
 #: templates/tmpl_trc_dlg_list.php:136
 msgid "Show details"
-msgstr ""
+msgstr "Mostar detalles"
 
 #: templates/tmpl_trc_dlg_list.php:151
 msgid "load"
-msgstr ""
+msgstr "cargar"
 
 #: templates/tmpl_trc_dlg_list.php:159
 msgid "Expiration"

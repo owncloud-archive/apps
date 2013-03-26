@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
 "PO-Revision-Date: 2013-03-26 11:18+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Telugu (http://www.transifex.com/projects/p/owncloud/language/te/)\n"
@@ -51,7 +51,7 @@ msgstr ""
 
 #: templates/tmpl_trc_dlg_click.php:41 templates/tmpl_trc_dlg_click.php:42
 msgid "Close"
-msgstr ""
+msgstr "మూసివేయి"
 
 #: templates/tmpl_trc_dlg_click.php:45
 msgid "Click details"
@@ -75,7 +75,7 @@ msgstr ""
 
 #: templates/tmpl_trc_dlg_click.php:59 templates/tmpl_trc_dlg_list.php:78
 msgid "User"
-msgstr ""
+msgstr "వాడుకరి"
 
 #: templates/tmpl_trc_dlg_click.php:62 templates/tmpl_trc_dlg_list.php:79
 msgid "Time"

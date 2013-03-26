@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
 "PO-Revision-Date: 2013-03-26 11:18+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
@@ -72,12 +72,12 @@ msgstr ""
 
 #: index.php:162
 msgid "all"
-msgstr ""
+msgstr "todos"
 
 #: js/shorty.js:930 js/shorty.js:2196 templates/tmpl_url_add.php:81
 #: templates/tmpl_url_edit.php:92
 msgid "never"
-msgstr ""
+msgstr "nunca"
 
 #: js/shorty.js:1267
 msgid "Sorry, that target is invalid!"
@@ -89,7 +89,7 @@ msgstr ""
 #: templates/tmpl_url_share.php:42 templates/tmpl_url_show.php:41
 #: templates/tmpl_url_show.php:42
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: js/shorty.js:1833
 msgid "Mail client"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: js/shorty.js:1834 js/shorty.js:1863
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: js/shorty.js:1862
 msgid "SMS composer"
@@ -245,7 +245,7 @@ msgstr ""
 
 #: templates/tmpl_dlg_verify.php:46 templates/tmpl_dlg_verify.php:62
 msgid "Success"
-msgstr ""
+msgstr "Éxito"
 
 #: templates/tmpl_dlg_verify.php:46 templates/tmpl_dlg_verify.php:47
 #: templates/tmpl_dlg_verify.php:62
@@ -304,19 +304,19 @@ msgstr ""
 
 #: templates/tmpl_index.php:59 templates/tmpl_index.php:61
 msgid "Home"
-msgstr ""
+msgstr "Particular"
 
 #: templates/tmpl_index.php:66 templates/tmpl_index.php:68
 msgid "Configuration"
-msgstr ""
+msgstr "Configuración"
 
 #: templates/tmpl_index.php:81
 msgid "Number of entries"
-msgstr ""
+msgstr "Numero de entradas"
 
 #: templates/tmpl_index.php:84 templates/tmpl_index.php:90
 msgid "Loading"
-msgstr ""
+msgstr "Cargando"
 
 #: templates/tmpl_index.php:87
 msgid "Total of clicks"
@@ -324,7 +324,7 @@ msgstr ""
 
 #: templates/tmpl_preferences.php:49
 msgid "Backend"
-msgstr ""
+msgstr "Motor"
 
 #: templates/tmpl_preferences.php:53
 msgid "Choose service…"
@@ -625,13 +625,13 @@ msgstr ""
 #: templates/tmpl_url_list.php:74 templates/tmpl_url_share.php:48
 #: templates/tmpl_url_show.php:71
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: templates/tmpl_url_add.php:69 templates/tmpl_url_edit.php:80
 #: templates/tmpl_url_list.php:78 templates/tmpl_url_share.php:51
 #: templates/tmpl_url_show.php:75
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
 #: templates/tmpl_url_add.php:78 templates/tmpl_url_edit.php:89
 #: templates/tmpl_url_list.php:77 templates/tmpl_url_show.php:77
@@ -641,7 +641,7 @@ msgstr ""
 #: templates/tmpl_url_add.php:86 templates/tmpl_url_edit.php:97
 #: templates/tmpl_url_show.php:81
 msgid "Notes"
-msgstr ""
+msgstr "Notas"
 
 #: templates/tmpl_url_add.php:88 templates/tmpl_url_edit.php:99
 msgid "Anything that appears helpful …"
@@ -668,7 +668,7 @@ msgstr ""
 #: templates/tmpl_url_edit.php:103 templates/tmpl_url_list.php:76
 #: templates/tmpl_url_show.php:85
 msgid "Clicks"
-msgstr ""
+msgstr "Clicks"
 
 #: templates/tmpl_url_edit.php:105 templates/tmpl_url_show.php:87
 msgid "Creation"
@@ -680,11 +680,11 @@ msgstr ""
 
 #: templates/tmpl_url_edit.php:112
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: templates/tmpl_url_list.php:41
 msgid "Nothing here yet"
-msgstr ""
+msgstr "Todavía no hay nada aquí"
 
 #: templates/tmpl_url_list.php:44
 msgid "If you just started using Shorty"
@@ -718,7 +718,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:86
 msgid "Reload list"
-msgstr ""
+msgstr "Recargar lista"
 
 #: templates/tmpl_url_list.php:94 templates/tmpl_url_list.php:105
 #: templates/tmpl_url_list.php:116 templates/tmpl_url_list.php:126
@@ -742,11 +742,11 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:178 templates/tmpl_url_list.php:179
 msgid "show"
-msgstr ""
+msgstr "mostrar"
 
 #: templates/tmpl_url_list.php:179 templates/tmpl_url_show.php:45
 msgid "Show details"
-msgstr ""
+msgstr "Mostar detalles"
 
 #: templates/tmpl_url_list.php:182
 msgid "edit"
@@ -758,7 +758,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:186 templates/tmpl_url_list.php:187
 msgid "delete"
-msgstr ""
+msgstr "eliminar"
 
 #: templates/tmpl_url_list.php:187
 msgid "Delete shorty"
@@ -766,7 +766,7 @@ msgstr ""
 
 #: templates/tmpl_url_list.php:190 templates/tmpl_url_list.php:191
 msgid "share"
-msgstr ""
+msgstr "compartir"
 
 #: templates/tmpl_url_list.php:191
 msgid "Share shorty"

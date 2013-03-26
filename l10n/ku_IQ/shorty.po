@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
 "PO-Revision-Date: 2013-03-26 11:18+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
@@ -89,7 +89,7 @@ msgstr ""
 #: templates/tmpl_url_share.php:42 templates/tmpl_url_show.php:41
 #: templates/tmpl_url_show.php:42
 msgid "Close"
-msgstr ""
+msgstr "داخستن"
 
 #: js/shorty.js:1833
 msgid "Mail client"
@@ -245,7 +245,7 @@ msgstr ""
 
 #: templates/tmpl_dlg_verify.php:46 templates/tmpl_dlg_verify.php:62
 msgid "Success"
-msgstr ""
+msgstr "سه‌رکه‌وتن"
 
 #: templates/tmpl_dlg_verify.php:46 templates/tmpl_dlg_verify.php:47
 #: templates/tmpl_dlg_verify.php:62
@@ -625,7 +625,7 @@ msgstr ""
 #: templates/tmpl_url_list.php:74 templates/tmpl_url_share.php:48
 #: templates/tmpl_url_show.php:71
 msgid "Title"
-msgstr ""
+msgstr "ناونیشان"
 
 #: templates/tmpl_url_add.php:69 templates/tmpl_url_edit.php:80
 #: templates/tmpl_url_list.php:78 templates/tmpl_url_share.php:51
@@ -680,7 +680,7 @@ msgstr ""
 
 #: templates/tmpl_url_edit.php:112
 msgid "Save"
-msgstr ""
+msgstr "پاشکه‌وتکردن"
 
 #: templates/tmpl_url_list.php:41
 msgid "Nothing here yet"

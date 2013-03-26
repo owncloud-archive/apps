@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
-"PO-Revision-Date: 2013-03-26 10:51+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:40+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,19 +22,19 @@ msgstr ""
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
-msgstr ""
+msgstr "Lainopillinen huomautus"
 
 #: templates/tmpl_dummy.php:37
 msgid "Nothing here yet"
-msgstr ""
+msgstr "Täällä ei ole vielä mitään"
 
 #: templates/tmpl_dummy.php:38
 msgid "The content of the legal notice has to be configured first"
-msgstr ""
+msgstr "Lainopillinen huomautus on määriteltävä ensin"
 
 #: templates/tmpl_dummy.php:40
 msgid "The configuration is done here"
-msgstr ""
+msgstr "Määrittely tehdään täällä"
 
 #: templates/tmpl_dummy.php:43
 msgid "Admin"
@@ -45,7 +46,7 @@ msgstr ""
 
 #: templates/tmpl_settings.php:46
 msgid "Placement"
-msgstr ""
+msgstr "Sijoittelu"
 
 #: templates/tmpl_settings.php:48
 msgid "Standalone app"
