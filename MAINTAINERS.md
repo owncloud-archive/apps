@@ -58,7 +58,7 @@ Other repos
 |----------|-----|------------|
 | [owncloud] | appframework | [@Raydiation]
 | [owncloud] | apptemplateadvanced | [@Raydiation]
-| [owncloud] | mail | *Jakob, Bart, Tom* [@DeepDiver1975 ]
+| [owncloud] | mail | *Jakob, Bart, Tom* [@DeepDiver1975]
 | [owncloud] | news | [@zimba12], [@Raydiation], [@jancborchardt]
 | [owncloud] | notes | [@icewind1991], [@jancborchardt], [@caco3]
 | /[apps-playground] | movies | [@karlitschek]
