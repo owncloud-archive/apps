@@ -56,12 +56,6 @@ Other repos
 
 | Location | App | Maintainer |
 |----------|-----|------------|
-| [owncloud] | appframework | [@Raydiation]
-| [owncloud] | apptemplateadvanced | [@Raydiation]
-| [owncloud] | mail | *Jakob, Bart, Tom* [@DeepDiver1975]
-| [owncloud] | news | [@zimba12], [@Raydiation], [@jancborchardt]
-| [owncloud] | notes | [@icewind1991], [@jancborchardt], [@caco3]
-| /[apps-playground] | movies | [@karlitschek]
 | /[core] | files | [@icewind1991]
 | /[core] | files_encryption | [@samtuke]
 | /[core] | files_external | [@icewind1991], [@MTGap]
@@ -70,13 +64,24 @@ Other repos
 | /[core] | files_versions | [@karlitschek]
 | /[core] | user_ldap | [@blizzz], [@dschmidt]
 | /[core] | user_webdavauth | [@karlitschek]
+| /[appframework] | appframework | [@Raydiation]
+| /[apptemplateadvanced] | apptemplateadvanced | [@Raydiation]
+| /[mail] | mail | *Jakob, Bart, Tom* [@DeepDiver1975]
+| /[news] | news | [@zimba12], [@Raydiation], [@jancborchardt]
+| /[notes] | notes | [@icewind1991], [@jancborchardt], [@caco3]
+| /[apps-playground] | movies | [@karlitschek]
 | /[shorty] | shorty | [@arkascha], **New maintainer needed**
 | /[shorty] | shorty_tracking | [@arkascha], **New maintainer needed**
 
 
 [owncloud]: https://github.com/owncloud
-[apps-playground]: https://github.com/owncloud/apps-playground
 [core]: https://github.com/owncloud/core/tree/master/apps
+[appframework]: https://github.com/owncloud/appframework
+[apptemplateadvanced]: https://github.com/owncloud/apptemplateadvanced
+[mail]: https://github.com/owncloud/mail
+[news]: https://github.com/owncloud/news
+[notes]: https://github.com/owncloud/notes
+[apps-playground]: https://github.com/owncloud/apps-playground
 [shorty]: https://github.com/owncloud/shorty
 
 
