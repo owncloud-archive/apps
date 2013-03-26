@@ -135,4 +135,16 @@ source_file = templates/imprint.pot
 source_lang = en
 type = PO
 
+[owncloud.shorty]
+file_filter = <lang>/shorty.po
+source_file = templates/shorty.pot
+source_lang = en
+type = PO
+
+[owncloud.shorty_tracking]
+file_filter = <lang>/shorty_tracking.po
+source_file = templates/shorty_tracking.pot
+source_lang = en
+type = PO
+
 
