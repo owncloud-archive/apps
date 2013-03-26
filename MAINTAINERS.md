@@ -7,9 +7,9 @@ Apps repo
 | admin_migrate | *Thomas Schmidt*, [@tomneedham]
 | apptemplate | [@karlitschek]
 | bookmarks | [@eMerzh]
-| calendar | [@georgehrke], [@bartv2], *Jakob Sack*
+| calendar | [@georgehrke], [@bartv2]
 | carddavmate | [@CBiX], *Ján Máté*
-| contacts | *Jakob Sack*, [@tanghus]
+| contacts | [@tanghus]
 | django_auth | [@flreinhard]
 | external | [@karlitschek]
 | files_antivirus | [@valarauco], [@bartv2]
@@ -58,7 +58,7 @@ Other repos
 |----------|-----|------------|
 | [owncloud] | appframework | [@Raydiation]
 | [owncloud] | apptemplateadvanced | [@Raydiation]
-| [owncloud] | mail | *Jakob, Bart, Tom*
+| [owncloud] | mail | *Jakob, Bart, Tom* [@DeepDiver1975 ]
 | [owncloud] | news | [@zimba12], [@Raydiation], [@jancborchardt]
 | [owncloud] | notes | [@icewind1991], [@jancborchardt], [@caco3]
 | /[apps-playground] | movies | [@karlitschek]
