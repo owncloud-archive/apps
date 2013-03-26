@@ -4,7 +4,7 @@ Apps repo
 | App | Maintainer |
 |-----|------------|
 | admin_dependencies_chk | [@eMerzh]
-| admin_migrate | Thomas Schmidt, [@tomneedham]
+| admin_migrate | *Thomas Schmidt*, [@tomneedham]
 | apptemplate | [@karlitschek]
 | bookmarks | *Arthur Schiwon*, *Marvin Thomas Rabe*
 | calendar | [@georgehrke], [@bartv2], *Jakob Sack*
