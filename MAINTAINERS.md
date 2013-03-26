@@ -6,7 +6,7 @@ Apps repo
 | admin_dependencies_chk | [@eMerzh]
 | admin_migrate | *Thomas Schmidt*, [@tomneedham]
 | apptemplate | [@karlitschek]
-| bookmarks | *Arthur Schiwon*, *Marvin Thomas Rabe*
+| bookmarks | [@blizzz], *Marvin Thomas Rabe*
 | calendar | [@georgehrke], [@bartv2], *Jakob Sack*
 | carddavmate | [@CBiX], *Ján Máté*
 | contacts | *Jakob Sack*, [@tanghus]
