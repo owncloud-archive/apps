@@ -129,4 +129,10 @@ source_file = templates/firstrunwizard.pot
 source_lang = en
 type = PO
 
+[owncloud.imprint]
+file_filter = <lang>/imprint.po
+source_file = templates/imprint.pot
+source_lang = en
+type = PO
+
 
