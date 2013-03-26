@@ -54,29 +54,63 @@ Apps repo
 Other repos
 ===========
 
+| Location | App | Maintainer |
+|----------|-----|------------|
+| [owncloud] | news | [@zimba12], [@Raydiation], [@jancborchardt]
+| [owncloud] | appframework | [@Raydiation]
+| [owncloud] | mail | *Jakob, Bart, Tom*
+| [owncloud] | apptemplateadvanced | [@Raydiation]
+| [owncloud] | notes | [@icewind1991], [@jancborchardt], [@caco3]
+| /[apps-playground] | movies | [@karlitschek]
+| /[core] | files | [@icewind1991]
+| /[core] | files_encryption | [@samtuke]
+| /[core] | files_external | [@icewind1991], [@MTGap]
+| /[core] | files_sharing | [@MTGap]
+| /[core] | files_trashbin | [@schiesbn]
+| /[core] | files_versions | [@karlitschek]
+| /[core] | user_ldap | [@blizzz], [@dschmidt]
+| /[core] | user_webdavauth | [@karlitschek]
+| /[shorty] | shorty | [@arkascha], **New maintainer needed**
+| /[shorty] | shorty_tracking | [@arkascha], **New maintainer needed**
+
+
+[owncloud]: https://github.com/owncloud
+[apps-playground]: https://github.com/owncloud/apps-playground
+[core]: https://github.com/owncloud/core/tree/master/apps
+[shorty]: https://github.com/owncloud/shorty
+
 
 [@andrewsbrown]: https://github.com/andrewsbrown
 [@arkascha]: https://github.com/arkascha
 [@bartv2]: https://github.com/bartv2
 [@blizzz]: https://github.com/blizzz
 [@butonic]: https://github.com/butonic
+[@caco3]: https://github.com/caco3
 [@CBiX]: https://github.com/CBiX
 [@DeepDiver1975]: https://github.com/DeepDiver1975
+[@dschmidt]: https://github.com/dschmidt
 [@eMerzh]: https://github.com/eMerzh
 [@florianjacob]: https://github.com/florianjacob
 [@flreinhard]: https://github.com/flreinhard
 [@georgehrke]: https://github.com/georgehrke
 [@icewind1991]: https://github.com/icewind1991
+[@jancborchardt]: https://github.com/jancborchardt
 [@jaskoola]: https://github.com/jaskoola
 [@karlitschek]: https://github.com/karlitschek
 [@LukasReschke]: https://github.com/LukasReschke
 [@michielbdejong]: https://github.com/michielbdejong
+[@MTGap]: https://github.com/MTGap
 [@nilsja]: https://github.com/nilsja
 [@pitbulk]: https://github.com/pitbulk
 [@priyanka-m]: https://github.com/priyanka-m
 [@raghunayyar]: https://github.com/raghunayyar
+[@Raydiation]: https://github.com/Raydiation
+[@samtuke]: https://github.com/samtuke
+[@schiesbn]: https://github.com/schiesbn
 [@tanghus]: https://github.com/tanghus
 [@tomneedham]: https://github.com/tomneedham
 [@valarauco]: https://github.com/valarauco
 [@VicDeo]: https://github.com/VicDeo]
+[@zimba12]: https://github.com/zimba12
 [@ZUNbado]: https://github.com/ZUNbado
+
