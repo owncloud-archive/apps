@@ -56,10 +56,10 @@ Other repos
 
 | Location | App | Maintainer |
 |----------|-----|------------|
-| [owncloud] | news | [@zimba12], [@Raydiation], [@jancborchardt]
 | [owncloud] | appframework | [@Raydiation]
-| [owncloud] | mail | *Jakob, Bart, Tom*
 | [owncloud] | apptemplateadvanced | [@Raydiation]
+| [owncloud] | mail | *Jakob, Bart, Tom*
+| [owncloud] | news | [@zimba12], [@Raydiation], [@jancborchardt]
 | [owncloud] | notes | [@icewind1991], [@jancborchardt], [@caco3]
 | /[apps-playground] | movies | [@karlitschek]
 | /[core] | files | [@icewind1991]
