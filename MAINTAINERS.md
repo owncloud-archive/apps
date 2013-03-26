@@ -15,8 +15,8 @@ Apps repo
 | files_antivirus | @valarauco, @bartv2
 | files_archive | @icewind1991
 | files_imageviewer | @icewind1991
-| files_odfviewer | @DeepDiver1975
-| files_pdfviewer | @DeepDiver1975 , @LukasReschke
+| files_odfviewer | @DeepDiver1975, **New maintainer needed**
+| files_pdfviewer | @DeepDiver1975, @LukasReschke, **New maintainer needed**
 | files_sgfviewer | @nilsja
 | files_svgedit | @CBiX
 | files_texteditor | @tomneedham
