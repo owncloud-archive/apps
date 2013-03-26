@@ -329,6 +329,25 @@ class Contact extends VObject\VCard implements IPIMObject {
 	}
 
 	/**
+	* Get a property index in the contact by the checksum of its serialized value
+	*
+	* @param string $checksum An 8 char m5d checksum.
+	* @return \Sabre\VObject\Property Property by reference
+	* @throws An exception with error code 404 if the property is not found.
+	*/
+	public function getPropertyIndexByChecksum($checksum) {
+		$this->retrieve();
+		$idx = 0;
+		foreach($this->children as $i => &$property) {
+			if(substr(md5($property->serialize()), 0, 8) == $checksum ) {
+				return $idx;
+			}
+			$idx += 1;
+		}
+		throw new Exception('Property not found', 404);
+	}
+
+	/**
 	* Get a property by the checksum of its serialized value
 	*
 	* @param string $checksum An 8 char m5d checksum.
@@ -353,8 +372,9 @@ class Contact extends VObject\VCard implements IPIMObject {
 	* @throws @see getPropertyByChecksum
 	*/
 	public function unsetPropertyByChecksum($checksum) {
-		$property = $this->getPropertyByChecksum($checksum);
-		unset($property);
+		$idx = $this->getPropertyIndexByChecksum($checksum);
+		unset($this->children[$idx]);
+		$this->setSaved(false);
 	}
 
 	/**
@@ -399,6 +419,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 				break;
 		}
 		$this->setParameters($property, $parameters);
+		$this->setSaved(false);
 		return substr(md5($property->serialize()), 0, 8);
 	}
 
@@ -447,6 +468,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 				$this->{$name} = $value;
 				break;
 		}
+		$this->setSaved(false);
 		return true;
 	}
 
