@@ -22,12 +22,11 @@ Apps repo
 | files_texteditor | @tomneedham
 | files_videoviewer | @VicDeo
 | firstrunwizard | @karlitschek
-| fluxx_compensator | @arkascha **New maintainer needed**
+| fluxx_compensator | @arkascha, **New maintainer needed**
 | gallery | @icewind1991
 | impress | @karlitschek
 | impressionist | @raghunayyar
-| imprint | @arkascha **New maintainer needed**
-| issue_template.md | 
+| imprint | @arkascha, **New maintainer needed**
 | media | **No maintainer**
 | mozilla_sync | @jaskoola
 | notify | @CBiX
