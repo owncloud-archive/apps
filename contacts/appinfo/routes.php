@@ -24,10 +24,8 @@ $this->create('contacts_index', '/')
 	- Check what it requires to be a RESTful API. I think maybe {user}
 	shouldn't be in the URI but be authenticated in headers or elsewhere.
 	- Do security checks: logged in, csrf
+	- Move the actual code to controllers.
 */
-/*$this->create('core_lostpassword_send_email', 'contacts/contact/{id}')
-	->post()
-	->action('Utils\Properties', 'saveProperty');*/
 $this->create('contacts_address_books_for_user', 'addressbooks/{user}/')
 	->get()
 	->action(
@@ -138,14 +136,19 @@ $this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/
 	->action(
 		function($params) {
 			session_write_close();
-			$name = isset($_POST['name']) ? $_POST['name'] : null;
-			$checksum = isset($_POST['checksum']) ? $_POST['checksum'] : null;
+			$request = new Request($params);
+			$name = $request->post['name'];
+			$checksum = $request->post['checksum'];
 
 			debug('contacts_contact_delete_property, name: ' . print_r($name, true));
 			debug('contacts_contact_delete_property, checksum: ' . print_r($checksum, true));
 
-			$app = new App($params['user']);
-			$contact = $app->getContact($params['backend'], $params['addressbookid'], $params['contactid']);
+			$app = new App($request->parameters['user']);
+			$contact = $app->getContact(
+				$request->parameters['backend'],
+				$request->parameters['addressbookid'],
+				$request->parameters['contactid']
+			);
 
 			if(!$contact) {
 				bailOut(App::$l10n->t('Couldn\'t find contact.'));
@@ -170,9 +173,9 @@ $this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/
 			}
 			\OCP\JSON::success(array(
 				'data' => array(
-					'backend' => $params['backend'],
-					'addressbookid' => $params['addressbookid'],
-					'contactid' => $params['contactid'],
+					'backend' => $request->parameters['backend'],
+					'addressbookid' => $request->parameters['addressbookid'],
+					'contactid' => $request->parameters['contactid'],
 					'lastmodified' => $contact->lastModified(),
 				)
 			));
@@ -185,11 +188,12 @@ $this->create('contacts_contact_save_property', 'addressbook/{user}/{backend}/{a
 	->action(
 		function($params) {
 			session_write_close();
+			$request = new Request($params);
 			// TODO: When value is empty unset the property and return a checksum of 'new' if multi_property
-			$name = isset($_POST['name']) ? $_POST['name'] : null;
-			$value = isset($_POST['value']) ? $_POST['value'] : null;
-			$parameters = isset($_POST['parameters']) ? $_POST['parameters'] : array();
-			$checksum = isset($_POST['checksum']) ? $_POST['checksum'] : null;
+			$name = $request->post['name'];
+			$value = $request->post['value'];
+			$parameters = $request->post['parameters'];
+			$checksum = $request->post['checksum'];
 
 			debug('contacts_contact_save_property, name: ' . print_r($name, true));
 			debug('contacts_contact_save_property, value: ' . print_r($value, true));
@@ -270,7 +274,8 @@ $this->create('contacts_categories_add', 'groups/{user}/add')
 	->action(
 		function($params) {
 			session_write_close();
-			$name = isset($_POST['name']) ? trim(strip_tags($_POST['name'])) : null;
+			$request = new Request($params);
+			$name = $request->post['name'];
 
 			if(is_null($name) || $name === "") {
 				bailOut(App::$l10n->t('No group name given.'));
@@ -293,7 +298,8 @@ $this->create('contacts_categories_delete', 'groups/{user}/delete')
 	->action(
 		function($params) {
 			session_write_close();
-			$name = isset($_POST['name']) ? trim(strip_tags($_POST['name'])) : null;
+			$request = new Request($params);
+			$name = $request->post['name'];
 
 			if(is_null($name) || $name === "") {
 				bailOut(App::$l10n->t('No group name given.'));
@@ -312,8 +318,9 @@ $this->create('contacts_setpreference', 'preference/{user}/set')
 	->action(
 		function($params) {
 			session_write_close();
-			$key = isset($_POST['key']) ? trim(strip_tags($_POST['key'])) : null;
-			$value = isset($_POST['value']) ? trim(strip_tags($_POST['value'])) : null;
+			$request = new Request($params);
+			$key = $request->post['key'];
+			$value = $request->post['value'];
 
 			if(is_null($key) || $key === "") {
 				bailOut(App::$l10n->t('No key is given.'));
