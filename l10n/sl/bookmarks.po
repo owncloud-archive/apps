@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-09 00:01+0100\n"
-"PO-Revision-Date: 2013-03-08 22:03+0000\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-25 09:00+0000\n"
 "Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr "Oznake"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr "Razvrsti po značkah"
+msgstr "Razvrsti po oznakah"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
@@ -60,9 +60,9 @@ msgstr "Napaka med uvozom"
 msgid "Import completed successfully."
 msgstr "Uvoz je uspešno zaključen."
 
-#: js/settings.js:60
+#: js/settings.js:61
 msgid "Uploading..."
-msgstr "Nalagam ..."
+msgstr "Poteka pošiljanje ..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -108,7 +108,7 @@ msgstr "Prekliči"
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr "Povlecite gumb med svoje zaznamke in kliknite nanj, ko želite obiskano spletno stran hitro dodati med svoje zaznamke:"
+msgstr "Povlecite gumb med zaznamke in kliknite nanj, kadar želite obiskano spletno stran hitro dodati med svoje zaznamke:"
 
 #: templates/list.php:15
 msgid "Read later"
@@ -132,11 +132,11 @@ msgstr "Nastavitve"
 
 #: templates/list.php:54
 msgid "You have no bookmarks"
-msgstr "Nimate zaznamkov"
+msgstr "Ni shranjenih zaznamkov"
 
 #: templates/list.php:59
 msgid "You can also try to import a bookmark file"
-msgstr "Prav tako lahko poskusite uvoziti datoteko z zaznamki"
+msgstr "Prav tako je mogoče uvoziti datoteko z zaznamki"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
@@ -144,7 +144,7 @@ msgstr "Vstavek za zaznamke"
 
 #: templates/settings.php:23
 msgid "Export & Import"
-msgstr "Izvoz & uvoz"
+msgstr "Izvoz in uvoz"
 
 #: templates/settings.php:24
 msgid "Export"

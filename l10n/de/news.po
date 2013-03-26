@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-14 23:20+0000\n"
-"Last-Translator: Mirodin <blobbyjj@ymail.com>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-26 10:27+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,41 +26,9 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "Jahr"
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "Nachrichten"
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "kein Titel"
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "kein Name"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "kein Nachrichtentext"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "Abonnements in ownCloud - Nachrichten"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "Es ist ein Fehler aufgetreten"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "Gratulation! Du hast Folgendes abonniert:"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "Du hast diesen Feed bereits abonniert!"
 
 #: templates/part.addnew.php:7
 msgid "New"
@@ -184,3 +152,19 @@ msgstr "Lege dies in Deinen Lesezeichen ab und klicke darauf, wann immer Du schn
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "Abonnieren"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "Es ist ein Fehler aufgetreten"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "Gratulation! Du hast Folgendes abonniert:"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "Du hast diesen Feed bereits abonniert!"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "Abonnements in ownCloud - Nachrichten"

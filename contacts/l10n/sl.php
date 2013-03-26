@@ -11,6 +11,7 @@
 "No categories selected for deletion." => "Ni izbrane kategorije za izbris.",
 "No address books found." => "Ni mogoče najti nobenega imenika.",
 "No contacts found." => "Ni najdenih stikov.",
+"You have no addressbooks." => "Ni ustvarjenih imenikov.",
 "element name is not set." => "ime predmeta ni nastavljeno.",
 "checksum is not set." => "nadzorna vsota ni nastavljena.",
 "Information about vCard is incorrect. Please reload the page." => "Podrobnosti kartice vCard niso pravilne. Ponovno naložite stran.",

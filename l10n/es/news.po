@@ -18,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-14 23:20+0000\n"
-"Last-Translator: xsergiolpx <sergioballesterossolanas@gmail.com>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-26 10:27+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,41 +28,9 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "año"
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "Noticias"
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "sin título"
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "sin nombre"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "sin cuerpo"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "suscripciones en ownCloud - Noticias"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "Ocurrió un error"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "¡Bien! Te has suscrito a "
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "¡Ya te has suscrito a esta fuente!"
 
 #: templates/part.addnew.php:7
 msgid "New"
@@ -186,3 +154,19 @@ msgstr "Arrastra hacia los favoritos de tu navegador y haz clic en él siempre q
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "Subscribirse"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "Ocurrió un error"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "¡Bien! Te has suscrito a "
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "¡Ya te has suscrito a esta fuente!"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "suscripciones en ownCloud - Noticias"

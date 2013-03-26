@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-14 23:20+0000\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-26 10:27+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -20,41 +20,9 @@ msgstr ""
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "년"
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "뉴스"
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "제목 없음"
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "이름 없음"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "본문 없음"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "ownCloud 뉴스 구독"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "오류가 발생하였습니다."
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "좋습니다! 다음 피드를 구독합니다:"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "이 피드를 이미 구독하고 있습니다!"
 
 #: templates/part.addnew.php:7
 msgid "New"
@@ -178,3 +146,19 @@ msgstr "웹 브라우저 책갈피 항목에 다음 링크를 끌어다 놓으�
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "구독"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "오류가 발생하였습니다."
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "좋습니다! 다음 피드를 구독합니다:"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "이 피드를 이미 구독하고 있습니다!"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "ownCloud 뉴스 구독"

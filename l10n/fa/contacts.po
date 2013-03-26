@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-18 00:00+0100\n"
-"PO-Revision-Date: 2013-03-17 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-21 14:30+0000\n"
+"Last-Translator: Amir Reza Asadi <amirreza.asadi@live.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,7 +72,7 @@ msgstr "هیچ شخصی پیدا نشد"
 
 #: ajax/contact/add.php:38
 msgid "You have no addressbooks."
-msgstr ""
+msgstr "شما هیچ  کتابچه آدرسی ندارید"
 
 #: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."
@@ -246,11 +246,11 @@ msgstr "اضافه کن در..."
 
 #: js/app.js:262 js/app.js:274
 msgid "Remove from..."
-msgstr ""
+msgstr "پاک کردن تماس ها"
 
 #: js/app.js:279
 msgid "Add group..."
-msgstr ""
+msgstr "افزودن گروه.."
 
 #: js/app.js:350
 msgid "Indexing contacts"
@@ -267,11 +267,11 @@ msgstr ""
 
 #: js/app.js:667 js/app.js:706
 msgid "Error adding to group."
-msgstr ""
+msgstr "خطا در افزودن به گروه"
 
 #: js/app.js:735
 msgid "Error removing from group."
-msgstr ""
+msgstr "خطا در حذف کردن از گروه"
 
 #: js/app.js:765
 msgid "There was an error opening a mail composer."
@@ -338,7 +338,7 @@ msgstr "در انتظار"
 
 #: js/app.js:1352 templates/contacts.php:130
 msgid "Add group"
-msgstr ""
+msgstr "افزودن گروه"
 
 #: js/app.js:1461
 msgid "No files selected for upload."
@@ -346,7 +346,7 @@ msgstr "هیچ فایلی برای آپلود انتخاب نشده است"
 
 #: js/app.js:1563
 msgid "Edit profile picture"
-msgstr ""
+msgstr "ویرایش تصویر پروفایل"
 
 #: js/app.js:1581 js/contacts.js:1169
 msgid "Error loading profile picture."
@@ -362,7 +362,7 @@ msgstr "ورود توضیحات"
 
 #: js/app.js:1649
 msgid "Select addressbook"
-msgstr ""
+msgstr "انتخاب کتابچه آدرس"
 
 #: js/app.js:1657
 msgid "The address book name cannot be empty."
@@ -412,7 +412,7 @@ msgstr ""
 
 #: js/groups.js:298
 msgid "Contacts are not in this group."
-msgstr ""
+msgstr "تماس ها در این گروه وجود ندارند"
 
 #: js/groups.js:544
 msgid "A group named {group} already exists"
@@ -434,7 +434,7 @@ msgstr "برگزیدگان"
 
 #: js/groups.js:668
 msgid "Shared by {owner}"
-msgstr ""
+msgstr "اشتراک گذارنده {owner}"
 
 #: js/loader.js:49
 msgid "Result: "
@@ -510,7 +510,7 @@ msgstr ""
 
 #: lib/app.php:89
 msgid "Jabber"
-msgstr ""
+msgstr "Jabber"
 
 #: lib/app.php:94
 msgid "AIM"
@@ -526,15 +526,15 @@ msgstr "توییتر"
 
 #: lib/app.php:109
 msgid "GoogleTalk"
-msgstr ""
+msgstr "GoogleTalk"
 
 #: lib/app.php:114
 msgid "Facebook"
-msgstr ""
+msgstr "فیس بوک"
 
 #: lib/app.php:119
 msgid "XMPP"
-msgstr ""
+msgstr "XMPP"
 
 #: lib/app.php:124
 msgid "ICQ"
@@ -651,7 +651,7 @@ msgstr ""
 
 #: lib/vcard.php:648
 msgid "Contact not found."
-msgstr ""
+msgstr "تماس یافت نشد"
 
 #: lib/vcard.php:704
 msgid "HomePage"
@@ -707,7 +707,7 @@ msgstr ""
 
 #: templates/contacts.php:57
 msgid "Download Contact(s)"
-msgstr ""
+msgstr "دانلود تماس(ها)"
 
 #: templates/contacts.php:59
 msgid "Groups"
@@ -837,7 +837,7 @@ msgstr "عنوان"
 
 #: templates/contacts.php:222
 msgid "Enter title"
-msgstr ""
+msgstr "عنوان را وارد کنید"
 
 #: templates/contacts.php:226 templates/contacts.php:274
 msgid "Organization"
@@ -903,7 +903,7 @@ msgstr "لطفا یک پست الکترونیکی معتبر وارد کنید"
 
 #: templates/contacts.php:300
 msgid "someone@example.com"
-msgstr ""
+msgstr "someone@example.com"
 
 #: templates/contacts.php:302
 msgid "Mail to address"
@@ -967,7 +967,7 @@ msgstr ""
 
 #: templates/contacts.php:370
 msgid "State or province"
-msgstr ""
+msgstr "استان"
 
 #: templates/contacts.php:374
 msgid "Your country"

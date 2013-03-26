@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-18 00:00+0100\n"
-"PO-Revision-Date: 2013-03-17 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-24 18:40+0000\n"
+"Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,7 +75,7 @@ msgstr "Ni najdenih stikov."
 
 #: ajax/contact/add.php:38
 msgid "You have no addressbooks."
-msgstr ""
+msgstr "Ni ustvarjenih imenikov."
 
 #: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."

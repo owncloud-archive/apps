@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-14 23:20+0000\n"
-"Last-Translator: MorphyNOR <ivar.bredesen@gmail.com>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-26 10:27+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,41 +21,9 @@ msgstr ""
 "Language: nb_NO\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "år"
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "Nyheter"
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "ingen tittel"
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "intet navn"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "ingen body"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "abonnementer i ownCloud - Nyheter"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "En feil har oppstått"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "Flott! Du abonnerer på"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "Du abonnerer allerede på denne kilden!"
 
 #: templates/part.addnew.php:7
 msgid "New"
@@ -179,3 +147,19 @@ msgstr "Dra denne til bokmerkelinjen din, og trykk på den hver gang du ønsker 
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "Abonnér"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "En feil har oppstått"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "Flott! Du abonnerer på"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "Du abonnerer allerede på denne kilden!"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "abonnementer i ownCloud - Nyheter"

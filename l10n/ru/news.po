@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-14 23:20+0000\n"
-"Last-Translator: Langaru <langaru@gmail.com>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-26 10:27+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,41 +26,9 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "год"
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "Новости"
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "без заголовка"
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "без имени"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "без содержимого"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "подписки в ownCloud - Новости"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "Произошла ошибка"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "Ура! Вы подписаны на "
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "Вы уже подписаны на эту ленту!"
 
 #: templates/part.addnew.php:7
 msgid "New"
@@ -184,3 +152,19 @@ msgstr "Перетащите эту кнопку в закладки вашег�
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "Подписаться"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "Произошла ошибка"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "Ура! Вы подписаны на "
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "Вы уже подписаны на эту ленту!"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "подписки в ownCloud - Новости"

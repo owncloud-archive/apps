@@ -11,6 +11,7 @@
 "No categories selected for deletion." => "Nincs kiválasztva törlendő kategória",
 "No address books found." => "Nem található címlista",
 "No contacts found." => "Nem található bejegyzés.",
+"You have no addressbooks." => "Nincs egy címjegyzéke sem.",
 "element name is not set." => "az elem neve nincs beállítva",
 "checksum is not set." => "az ellenőrzőösszeg nincs beállítva",
 "Information about vCard is incorrect. Please reload the page." => "A vCardról szóló információ helytelen. Frissítse az oldalt!",

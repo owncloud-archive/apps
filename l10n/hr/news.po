@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-14 23:20+0000\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-26 10:27+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/owncloud/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -17,40 +17,8 @@ msgstr ""
 "Language: hr\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr ""
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
-msgstr ""
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr ""
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr ""
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr ""
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr ""
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr ""
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr ""
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
 msgstr ""
 
 #: templates/part.addnew.php:7
@@ -174,4 +142,20 @@ msgstr ""
 
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
+msgstr ""
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr ""
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr ""
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr ""
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
 msgstr ""

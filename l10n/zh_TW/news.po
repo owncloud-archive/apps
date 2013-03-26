@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <admin@alphacorp.tk>, 2013.
 #   <dw4dev@gmail.com>, 2012.
+# Hydriz Scholz <admin@alphacorp.tk>, 2013.
 # Pellaeon Lin <nfsmwlin@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-14 23:20+0000\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-26 10:27+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -19,41 +21,9 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "年"
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "新聞"
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "沒有標題"
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "沒有名稱"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "沒有正文"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "在 ownCloud - News 中的訂閱"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "發生錯誤"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "太棒了！您已經訂閱"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "您已經訂閱了這個訊息串！"
 
 #: templates/part.addnew.php:7
 msgid "New"
@@ -73,11 +43,11 @@ msgstr "訂閱已經存在！"
 
 #: templates/part.addnew.php:16
 msgid "Could not add feed! Check if feed contains valid RSS!"
-msgstr ""
+msgstr "無法添加訂閱！檢查訂閱如何有包含有效的RSS！"
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
-msgstr ""
+msgstr "資料夾已經存在"
 
 #: templates/part.addnew.php:22
 msgid "Address"
@@ -89,7 +59,7 @@ msgstr "新增"
 
 #: templates/part.addnew.php:29
 msgid "New folder"
-msgstr ""
+msgstr "新資料夾"
 
 #: templates/part.addnew.php:30
 msgid "Folder"
@@ -97,7 +67,7 @@ msgstr "資料夾"
 
 #: templates/part.addnew.php:35
 msgid "No folder"
-msgstr ""
+msgstr "無資料夾"
 
 #: templates/part.feed.starred.php:6
 msgid "Starred"
@@ -105,11 +75,11 @@ msgstr "星號"
 
 #: templates/part.feed.unread.php:10
 msgid "Unread articles"
-msgstr ""
+msgstr "未讀文章"
 
 #: templates/part.feed.unread.php:16
 msgid "All articles"
-msgstr ""
+msgstr "所有文章"
 
 #: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:33
@@ -118,7 +88,7 @@ msgstr "標記所有為已閱讀"
 
 #: templates/part.items.php:34
 msgid "Cant play audio format"
-msgstr ""
+msgstr "無法播放音頻格式"
 
 #: templates/part.items.php:48 templates/part.items.php:51
 msgid "Share"
@@ -146,7 +116,7 @@ msgstr "資料夾更名"
 
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"
-msgstr ""
+msgstr "匯入/匯出 OPML"
 
 #: templates/part.settings.php:4 templates/part.settings.php:5
 msgid "Import"
@@ -162,7 +132,7 @@ msgstr "Subscribelet"
 
 #: templates/part.showall.php:2
 msgid "Show all"
-msgstr ""
+msgstr "顯示全部"
 
 #: templates/part.showall.php:6
 msgid "Show only unread"
@@ -177,3 +147,19 @@ msgstr "將這個拖曳至瀏覽器的書籤列，當您想要訂閱網頁時，
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "訂閱"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "發生錯誤"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "太棒了！您已經訂閱"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "您已經訂閱了這個訊息串！"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "在 ownCloud - News 中的訂閱"

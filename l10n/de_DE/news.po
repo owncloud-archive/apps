@@ -13,14 +13,15 @@
 #   <niko@nik-o-mat.de>, 2012.
 #   <seeed@freenet.de>, 2012.
 #  <stefan.niedermann@googlemail.com>, 2013.
+#  <transifex-2.7.mensaje@spamgourmet.com>, 2013.
 #   <transifex.3.mensaje@spamgourmet.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-14 23:20+0000\n"
-"Last-Translator: Marcel Kühlhorn <susefan93@gmx.de>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-26 10:27+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German (Germany) <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,41 +29,9 @@ msgstr ""
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "Jahr"
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "Nachrichten"
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "kein Titel"
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "kein Name"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "kein Nachrichtentext"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "Abonnements in ownCloud - Nachrichten"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "Es ist ein Fehler aufgetreten"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "Gratulation! Sie haben Folgendes abonniert:"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "Sie haben diesen Feed bereits abonniert!"
 
 #: templates/part.addnew.php:7
 msgid "New"
@@ -78,15 +47,15 @@ msgstr "Die Adresse muss angegeben werden!"
 
 #: templates/part.addnew.php:15
 msgid "Feed exists already!"
-msgstr "Feed existiert bereits!"
+msgstr "Der Feed existiert bereits!"
 
 #: templates/part.addnew.php:16
 msgid "Could not add feed! Check if feed contains valid RSS!"
-msgstr "Feed konnte nicht hinzugefügt werden! Überprüfe, ob der Feed gültiges RSS enthält!"
+msgstr "Der Feed konnte nicht hinzugefügt werden! Überprüfen Sie, ob der Feed ein gültiges RSS enthält!"
 
 #: templates/part.addnew.php:17
 msgid "Folder exists already"
-msgstr "Verzeichnis existiert bereits"
+msgstr "Das Verzeichnis existiert bereits"
 
 #: templates/part.addnew.php:22
 msgid "Address"
@@ -127,7 +96,7 @@ msgstr "Alles als gelesen kennzeichnen"
 
 #: templates/part.items.php:34
 msgid "Cant play audio format"
-msgstr "Audio-Format kann nicht abgespielt werden"
+msgstr "Das Audio-Format kann nicht abgespielt werden"
 
 #: templates/part.items.php:48 templates/part.items.php:51
 msgid "Share"
@@ -186,3 +155,19 @@ msgstr "Speichern Sie diesen Link als Lesezeichen ab und klicken Sie darauf, wan
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "Abonnieren"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "Es ist ein Fehler aufgetreten"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "Gratulation! Sie haben Folgendes abonniert:"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "Sie haben diesen Feed bereits abonniert!"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "Abonnements in ownCloud - Nachrichten"

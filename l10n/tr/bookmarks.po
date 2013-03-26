@@ -3,25 +3,26 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# H.Oktay Tefenli <otefenli@gmail.com>, 2013.
 # Murat Bişkin <mbiskin@gmail.com>, 2012.
 # Necdet Yücel <necdetyucel@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:00+0100\n"
-"PO-Revision-Date: 2013-02-20 23:32+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-25 10:20+0000\n"
+"Last-Translator: otefenli <otefenli@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ajax/import.php:9
 msgid "No file provided for import"
-msgstr ""
+msgstr "İçe aktarılacak dosya yok"
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -53,13 +54,13 @@ msgstr "Uyarı"
 
 #: js/settings.js:18
 msgid "Import error"
-msgstr ""
+msgstr "İçeri aktarım hatası"
 
 #: js/settings.js:29
 msgid "Import completed successfully."
 msgstr "İçe aktarım başarıyla tamamlandı."
 
-#: js/settings.js:60
+#: js/settings.js:61
 msgid "Uploading..."
 msgstr "Yükleniyor..."
 

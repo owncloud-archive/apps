@@ -19,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-18 00:00+0100\n"
-"PO-Revision-Date: 2013-03-17 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-22 09:10+0000\n"
+"Last-Translator: emc <mplichta@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,7 +81,7 @@ msgstr "Nie znaleziono żadnych kontaktów."
 
 #: ajax/contact/add.php:38
 msgid "You have no addressbooks."
-msgstr ""
+msgstr "Nie masz książek adresowych."
 
 #: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."
@@ -684,7 +684,7 @@ msgstr "Nowy"
 
 #: templates/contacts.php:22
 msgid "Display name"
-msgstr ""
+msgstr "Wyświetl imię"
 
 #: templates/contacts.php:24 templates/contacts.php:44
 msgid "OK"

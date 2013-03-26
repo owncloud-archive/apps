@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-27 00:00+0100\n"
-"PO-Revision-Date: 2013-02-26 10:13+0000\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-22 02:00+0000\n"
 "Last-Translator: Ricardo Hermosilla <ra.hermosillac@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -64,7 +64,7 @@ msgstr "Error de importación"
 msgid "Import completed successfully."
 msgstr "Importación completada con éxito"
 
-#: js/settings.js:60
+#: js/settings.js:61
 msgid "Uploading..."
 msgstr "Subiendo..."
 

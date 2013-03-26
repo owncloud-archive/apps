@@ -1,5 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Documentation" => "文件",
+"No Impress files are found in your ownCloud. Please upload a .impress file." => "您的ownCloud裡沒找到任何Impress文件。請上在一個.impress文件。",
 "Name" => "名稱",
 "Size" => "大小",
 "Date" => "日期"

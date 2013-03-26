@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-16 14:00+0000\n"
-"Last-Translator: dtsang29 <dtsang29@hotmail.com>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-26 10:27+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,41 +21,9 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "年"
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "新闻"
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "没有标题"
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "没有名称"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "没有正文"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "在owncloud中订阅-新闻"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "发生了一个错误"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "不错！您已经订阅"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "您已经订阅过此feed哟。"
 
 #: templates/part.addnew.php:7
 msgid "New"
@@ -179,3 +147,19 @@ msgstr "拖动此到您的浏览器书签，每当你想迅速订阅网页单击
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "订阅"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "发生了一个错误"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "不错！您已经订阅"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "您已经订阅过此feed哟。"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "在owncloud中订阅-新闻"

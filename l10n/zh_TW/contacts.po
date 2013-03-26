@@ -3,18 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <admin@alphacorp.tk>, 2013.
 # Donahue Chuang <soshinwu@gmail.com>, 2012.
 #   <dw4dev@gmail.com>, 2012.
 # Eddy Chang <taiwanmambo@gmail.com>, 2012.
+# Hydriz Scholz <admin@alphacorp.tk>, 2013.
 # Pellaeon Lin <nfsmwlin@gmail.com>, 2013.
 # ywang  <ywang1007@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-18 00:00+0100\n"
-"PO-Revision-Date: 2013-03-17 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-24 02:00+0000\n"
+"Last-Translator: Hydriz <admin@alphacorp.tk>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -244,7 +246,7 @@ msgstr ""
 
 #: js/app.js:258 js/app.js:272
 msgid "Add to..."
-msgstr ""
+msgstr "添加至…"
 
 #: js/app.js:262 js/app.js:274
 msgid "Remove from..."
@@ -314,7 +316,7 @@ msgstr ""
 
 #: js/app.js:1133
 msgid "Importing..."
-msgstr ""
+msgstr "匯入中…"
 
 #: js/app.js:1156
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
@@ -348,7 +350,7 @@ msgstr "沒有選定上傳的檔案。"
 
 #: js/app.js:1563
 msgid "Edit profile picture"
-msgstr ""
+msgstr "編輯個人資料照片"
 
 #: js/app.js:1581 js/contacts.js:1169
 msgid "Error loading profile picture."
@@ -428,11 +430,11 @@ msgstr ""
 
 #: js/groups.js:597
 msgid "All"
-msgstr ""
+msgstr "所有"
 
 #: js/groups.js:611 js/groups.js:614
 msgid "Favorites"
-msgstr ""
+msgstr "最愛"
 
 #: js/groups.js:668
 msgid "Shared by {owner}"
@@ -492,15 +494,15 @@ msgstr "較少..."
 
 #: lib/addressbook.php:152
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "您沒有閱讀這本聯絡簿的權限。"
 
 #: lib/addressbook.php:264
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "您沒有更新這本聯絡簿的權限。"
 
 #: lib/addressbook.php:283 lib/addressbook.php:292
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "更新這本聯絡簿時發生錯誤。"
 
 #: lib/addressbook.php:354
 msgid "You do not have the permissions to delete this addressbook."
@@ -625,7 +627,7 @@ msgstr "通訊錄"
 
 #: lib/vcard.php:342
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "您沒有添加聯繫人至這本聯絡簿的權限。"
 
 #: lib/vcard.php:462
 msgid "Could not find the vCard with ID."
@@ -649,7 +651,7 @@ msgstr "您沒有刪除這位聯絡人的權限。"
 
 #: lib/vcard.php:622
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "刪除聯繫人時出現了錯誤。"
 
 #: lib/vcard.php:648
 msgid "Contact not found."
@@ -689,15 +691,15 @@ msgstr "匯入"
 
 #: templates/contacts.php:33
 msgid "Select files to import"
-msgstr ""
+msgstr "選擇要匯入的檔案"
 
 #: templates/contacts.php:34
 msgid "Select files"
-msgstr ""
+msgstr "選擇檔案"
 
 #: templates/contacts.php:40 templates/contacts.php:42
 msgid "Import into:"
-msgstr ""
+msgstr "匯入至："
 
 #: templates/contacts.php:54
 msgid "(De-)select all"
@@ -847,7 +849,7 @@ msgstr "組織"
 
 #: templates/contacts.php:229
 msgid "Enter organization"
-msgstr ""
+msgstr "輸入組織"
 
 #: templates/contacts.php:233 templates/contacts.php:277
 msgid "Birthday"
@@ -859,7 +861,7 @@ msgstr ""
 
 #: templates/contacts.php:271
 msgid "Export as VCF"
-msgstr ""
+msgstr "以VCF匯出"
 
 #: templates/contacts.php:273
 msgid "Add"
@@ -937,7 +939,7 @@ msgstr "在地圖上檢視"
 
 #: templates/contacts.php:344
 msgid "Delete address"
-msgstr ""
+msgstr "刪除地址"
 
 #: templates/contacts.php:356
 msgid "1 Main Street"
@@ -969,7 +971,7 @@ msgstr ""
 
 #: templates/contacts.php:370
 msgid "State or province"
-msgstr ""
+msgstr "州或省"
 
 #: templates/contacts.php:374
 msgid "Your country"

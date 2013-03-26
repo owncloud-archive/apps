@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-14 23:20+0000\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-26 10:27+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Icelandic (http://www.transifex.com/projects/p/owncloud/language/is/)\n"
 "MIME-Version: 1.0\n"
@@ -18,41 +18,9 @@ msgstr ""
 "Language: is\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr ""
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "Fréttir"
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "enginn titill"
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "ekkert nafn"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "ekkert innihald"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "áskriftir í ownCloud - Fréttir"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "Villa kom upp"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "Flott! Þú ert nú áskrifandi af"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "Þú ert nú þegar áskrifandi af þessum fréttastraum!"
 
 #: templates/part.addnew.php:7
 msgid "New"
@@ -176,3 +144,19 @@ msgstr "Dragðu þetta í bókamerkjaslá vafrans og notaðu til að búa til á
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "Áskrift"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "Villa kom upp"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "Flott! Þú ert nú áskrifandi af"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "Þú ert nú þegar áskrifandi af þessum fréttastraum!"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "áskriftir í ownCloud - Fréttir"

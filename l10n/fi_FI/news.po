@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-16 22:12+0100\n"
-"PO-Revision-Date: 2013-03-14 23:20+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-26 10:27+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,41 +19,9 @@ msgstr ""
 "Language: fi_FI\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "vuosi"
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "Uutiset"
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "ei otsikkoa"
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "ei nimeä"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "ei sisältöä"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "tilaukset ownCloudista -Uutiset"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "Tapahtui virhe"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "Hienoa! Olet tilannut"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "Olet jo tilannut tämän syötteen!"
 
 #: templates/part.addnew.php:7
 msgid "New"
@@ -177,3 +145,19 @@ msgstr "Vedä tämä selaimesi kirjanmerkkeihin ja napsauta sitä aina kun halua
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "Tilaa"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "Tapahtui virhe"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "Hienoa! Olet tilannut"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "Olet jo tilannut tämän syötteen!"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "tilaukset ownCloudista -Uutiset"

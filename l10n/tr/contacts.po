@@ -5,6 +5,7 @@
 # Translators:
 # Aranel Surion <aranel@aranelsurion.org>, 2011, 2012.
 # Caner Başaran <basaran.caner@gmail.com>, 2012.
+# H.Oktay Tefenli <otefenli@gmail.com>, 2013.
 #   <info@beyboo.de>, 2012.
 # ismail yenigul <ismail.yenigul@surgate.com>, 2013.
 #   <mesutgungor@iyte.edu.tr>, 2012.
@@ -14,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-18 00:00+0100\n"
-"PO-Revision-Date: 2013-03-17 23:01+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-25 10:10+0000\n"
+"Last-Translator: otefenli <otefenli@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,7 +77,7 @@ msgstr "Bağlantı bulunamadı."
 
 #: ajax/contact/add.php:38
 msgid "You have no addressbooks."
-msgstr ""
+msgstr "Hiç yer adres defteriniz yok"
 
 #: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."
@@ -679,7 +680,7 @@ msgstr "Yeni"
 
 #: templates/contacts.php:22
 msgid "Display name"
-msgstr ""
+msgstr "Ekran Adı"
 
 #: templates/contacts.php:24 templates/contacts.php:44
 msgid "OK"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-13 00:00+0100\n"
-"PO-Revision-Date: 2013-02-12 23:01+0000\n"
+"POT-Creation-Date: 2013-03-26 11:50+0100\n"
+"PO-Revision-Date: 2013-03-26 10:27+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Kurdish (Iraq) (http://www.transifex.com/projects/p/owncloud/language/ku_IQ/)\n"
 "MIME-Version: 1.0\n"
@@ -18,41 +18,9 @@ msgstr ""
 "Language: ku_IQ\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr ""
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "هه‌واڵه‌کان"
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "بێ ناونیشان"
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "بێ ناو"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "بێ ناوه‌ڕۆك"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "به‌شداربوون له‌ هه‌واڵه‌کانی ownCloud"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "هه‌ڵه‌ك ڕوویدا"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "جوانه! تۆ به‌شداربووی له"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr ""
 
 #: templates/part.addnew.php:7
 msgid "New"
@@ -110,7 +78,7 @@ msgstr ""
 msgid "All articles"
 msgstr ""
 
-#: templates/part.feed.unread.php:21 templates/part.listfeed.php:22
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
 #: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "نیشانیان بکه‌ سه‌رجه‌میان خوێندراوه‌ته‌وه"
@@ -136,12 +104,12 @@ msgid "Collapse"
 msgstr "شکستهێنان"
 
 #: templates/part.listfolder.php:24
-msgid "Rename folder"
-msgstr "گۆڕینی ناوی بوخچه"
-
-#: templates/part.listfolder.php:28
 msgid "Delete folder"
 msgstr "سڕینه‌وه‌ی بوخچه"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "گۆڕینی ناوی بوخچه"
 
 #: templates/part.settings.php:2
 msgid "Import / Export OPML"
@@ -176,3 +144,19 @@ msgstr "رابکێشه‌ ئه‌مه بۆ دڵخوازه‌کان له‌ وێ�
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "به‌شداربوون"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "هه‌ڵه‌ك ڕوویدا"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "جوانه! تۆ به‌شداربووی له"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr ""
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "به‌شداربوون له‌ هه‌واڵه‌کانی ownCloud"

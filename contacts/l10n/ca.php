@@ -11,6 +11,7 @@
 "No categories selected for deletion." => "No heu seleccionat les categories a eliminar.",
 "No address books found." => "No s'han trobat llibretes d'adreces.",
 "No contacts found." => "No s'han trobat contactes.",
+"You have no addressbooks." => "No té llibretes d'adreces.",
 "element name is not set." => "no s'ha establert el nom de l'element.",
 "checksum is not set." => "no s'ha establert la suma de verificació.",
 "Information about vCard is incorrect. Please reload the page." => "La informació de la vCard és incorrecta. Carregueu la pàgina de nou.",
