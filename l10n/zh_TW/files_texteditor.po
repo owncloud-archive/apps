@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-11 00:01+0100\n"
-"PO-Revision-Date: 2013-02-10 06:30+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
 "Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: js/editor.js:72 js/editor.js:158 js/editor.js:166
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr "儲存"
 
-#: js/editor.js:74
+#: js/editor.js:75
 msgid "Search:"
 msgstr "搜尋："
 
-#: js/editor.js:74
+#: js/editor.js:78
 msgid "Close"
 msgstr " 關閉"
 
@@ -47,10 +47,10 @@ msgstr "儲存中..."
 msgid "Failed to save file"
 msgstr "儲存檔案失敗"
 
-#: js/editor.js:243
+#: js/editor.js:246
 msgid "An error occurred!"
 msgstr "發生錯誤！"
 
-#: js/editor.js:271
+#: js/editor.js:266
 msgid "There were unsaved changes, click here to go back"
 msgstr "還有尚未儲存的變更，點這裡返回"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-27 00:01+0100\n"
-"PO-Revision-Date: 2013-01-26 06:14+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:31+0000\n"
 "Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
+#: appinfo/app.php:48 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "موسیقی"
 
@@ -40,31 +40,31 @@ msgstr "افزودن به لیست اجرا"
 msgid "Add album to playlist"
 msgstr "یک آلبوم به لیست پخش شونده ها اضافه کن"
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr "قبلی"
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr "پخش کردن"
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
 msgstr "توقف کوتاه"
-
-#: templates/music.php:5
-msgid "Previous"
-msgstr "قبلی"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr "بعدی"
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr "خفه کردن"
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr "باز گشایی صدا"
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr "دوباره بازرسی مجموعه ها"
 

@@ -34,13 +34,13 @@
 ?>
 
 <div class="imprint-dummy">
-	<div class="imprint-factoid">    <?php echo $l->t("Nothing here yet")."!";?></div>
-	<div class="imprint-suggestion"> <?php echo $l->t("The content of the legal notice has to be configured first").".";?></div>
+	<div class="imprint-factoid">    <?php p($l->t("Nothing here yet")."!");?></div>
+	<div class="imprint-suggestion"> <?php p($l->t("The content of the legal notice has to be configured first").".");?></div>
 	<div class="imprint-explanation">
-		<?php echo $l->t("The configuration is done here").":";?>
+		<?php p($l->t("The configuration is done here").":");?>
 		<a	class="imprint-reference"
-			href="<?php echo OCP\Util::linkTo('','settings/admin.php');?>">
-			<?php echo $l->t("Admin");?>
+			href="<?php p(OCP\Util::linkTo('','settings/admin.php'));?>">
+			<?php p($l->t("Admin"));?>
 		</a>
 	</div>
 </div>

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-21 00:02+0100\n"
-"PO-Revision-Date: 2013-02-20 02:02+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
 "Last-Translator: w41l <walecha99@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: js/editor.js:73 js/editor.js:159 js/editor.js:167
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr "simpan"
 
@@ -31,26 +31,26 @@ msgstr "Cari:"
 msgid "Close"
 msgstr "tutup"
 
-#: js/editor.js:133
+#: js/editor.js:132
 msgid "Next"
 msgstr "Selanjutnya"
 
-#: js/editor.js:134
+#: js/editor.js:133
 msgid "Clear"
 msgstr "Bersihkan"
 
-#: js/editor.js:152
+#: js/editor.js:151
 msgid "Saving..."
 msgstr "menyimpan..."
 
-#: js/editor.js:160
+#: js/editor.js:159
 msgid "Failed to save file"
 msgstr "Gagal menyimpan berkas"
 
-#: js/editor.js:242
+#: js/editor.js:246
 msgid "An error occurred!"
 msgstr "terjadi kesalahan!"
 
-#: js/editor.js:263
+#: js/editor.js:266
 msgid "There were unsaved changes, click here to go back"
 msgstr "ada perubahan yang belum tersimpan, klik disini untuk kembali"

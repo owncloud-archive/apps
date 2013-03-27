@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Agustin Ferrario <agustin.ferrario@hotmail.com.ar>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 11:50+0100\n"
-"PO-Revision-Date: 2013-03-26 10:51+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:33+0000\n"
+"Last-Translator: Agustin Ferrario <agustin.ferrario@hotmail.com.ar>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,23 +22,23 @@ msgstr ""
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
-msgstr ""
+msgstr "Información legal"
 
 #: templates/tmpl_dummy.php:37
 msgid "Nothing here yet"
-msgstr ""
+msgstr "Todavía no hay nada aquí"
 
 #: templates/tmpl_dummy.php:38
 msgid "The content of the legal notice has to be configured first"
-msgstr ""
+msgstr "El contenido de la información legal tiene que ser configurado primero"
 
 #: templates/tmpl_dummy.php:40
 msgid "The configuration is done here"
-msgstr ""
+msgstr "Aquí es hecha la configuración"
 
 #: templates/tmpl_dummy.php:43
 msgid "Admin"
-msgstr ""
+msgstr "Administración"
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"
@@ -53,11 +54,11 @@ msgstr ""
 
 #: templates/tmpl_settings.php:49
 msgid "Header left"
-msgstr ""
+msgstr "Encabezado izquierdo"
 
 #: templates/tmpl_settings.php:50
 msgid "Header right"
-msgstr ""
+msgstr "Encabezado derecho"
 
 #: templates/tmpl_settings.php:51
 msgid "Navigation top"
@@ -69,7 +70,7 @@ msgstr ""
 
 #: templates/tmpl_settings.php:55
 msgid "Content"
-msgstr ""
+msgstr "Contenido"
 
 #: templates/tmpl_settings.php:60
 msgid ""

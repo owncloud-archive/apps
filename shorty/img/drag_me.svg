@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created using Karbon, part of Calligra: http://www.calligra.org/karbon -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="595.277pt"
+   height="841.891pt"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="drag_me.svg">
+  <title
+     id="title3062">drag me</title>
+  <metadata
+     id="metadata71">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-nc-sa/3.0/" />
+        <dc:title>drag me</dc:title>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Copyright 2012, Christian Reiner, Hamburg, Germany</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>Christian Reiner</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Christian Reiner</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>drag me</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:prohibits
+           rdf:resource="http://creativecommons.org/ns#CommercialUse" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1114"
+     id="namedview69"
+     showgrid="false"
+     inkscape:zoom="0.22425706"
+     inkscape:cx="-508.63769"
+     inkscape:cy="526.18188"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4" />
+  <g
+     id="Bubbles">
+    <ellipse
+       id="shape0"
+       transform="translate(162.259, 571.542)"
+       rx="20.11097874441pt"
+       ry="8.61849622845pt"
+       cx="20.11097874441pt"
+       cy="8.61849622845pt"
+       fill="none"
+       stroke="#989898"
+       stroke-width="3.45827370760"
+       stroke-linecap="square"
+       stroke-linejoin="miter"
+       stroke-miterlimit="2.00000000000" />
+    <path
+       id="shape1"
+       transform="translate(172.543, 536.388)"
+       fill="none"
+       stroke="#707071"
+       stroke-width="3.45827370760"
+       stroke-linecap="square"
+       stroke-linejoin="miter"
+       stroke-miterlimit="2.00000000000"
+       d="M63.9895 13.6082C63.9895 6.09258 49.6649 4.60196e-16 31.9947 0C14.3245 -4.60196e-16 2.16398e-15 6.09258 0 13.6082C-2.16398e-15 21.1237 14.3245 27.2163 31.9947 27.2163C49.6649 27.2163 63.9895 21.1237 63.9895 13.6082" />
+    <path
+       id="shape2"
+       transform="translate(238.818, 495.564)"
+       fill="none"
+       stroke="#535353"
+       stroke-width="3.45827370760"
+       stroke-linecap="square"
+       stroke-linejoin="miter"
+       stroke-miterlimit="2.00000000000"
+       d="M254.815 38.5564C254.815 17.2623 197.773 1.30389e-15 127.408 0C57.0423 -1.30389e-15 8.61726e-15 17.2623 0 38.5564C-8.61726e-15 59.8506 57.0423 77.1129 127.408 77.1129C197.773 77.1129 254.815 59.8506 254.815 38.5564" />
+  </g>
+  <g
+     id="Text">
+    <svg
+       version="1.2"
+       baseProfile="tiny"
+       id="svg11">
+      <title
+         id="title13">Qt Svg Document</title>
+      <desc
+         id="desc15">Generated with Qt</desc>
+      <defs
+         id="defs17" />
+      <g
+         fill="none"
+         stroke="black"
+         stroke-width="1"
+         fill-rule="evenodd"
+         stroke-linecap="square"
+         stroke-linejoin="bevel"
+         id="g19">
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1,0,0,1,0,0)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g21" />
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1,0,0,1,-0.235294,-0.346925)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g23" />
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1,0,0,1,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g25" />
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1.25123,0,0,1.25123,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g27" />
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1.25123,0,0,1.25123,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g29" />
+        <g
+           fill="none"
+           stroke="#1f1c1b"
+           stroke-opacity="1"
+           stroke-width="1"
+           stroke-linecap="square"
+           stroke-linejoin="bevel"
+           transform="matrix(1.25123,0,0,1.25123,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g31" />
+        <g
+           fill="none"
+           stroke="#1f1c1b"
+           stroke-opacity="1"
+           stroke-width="1"
+           stroke-linecap="square"
+           stroke-linejoin="bevel"
+           transform="matrix(1.25123,0,0,1.25123,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g33" />
+        <g
+           fill="none"
+           stroke="#1f1c1b"
+           stroke-opacity="1"
+           stroke-width="1"
+           stroke-linecap="square"
+           stroke-linejoin="bevel"
+           transform="matrix(1.25123,0,0,1.25123,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g35" />
+        <g
+           fill="none"
+           stroke="#333333"
+           stroke-opacity="1"
+           stroke-width="1"
+           stroke-linecap="square"
+           stroke-linejoin="bevel"
+           transform="matrix(1.25123,0,0,1.25123,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g37">
+          <text
+             fill="#333333"
+             fill-opacity="1"
+             stroke="none"
+             xml:space="preserve"
+             x="0"
+             y="33"
+             font-family="Vahika"
+             font-size="32"
+             font-weight="700"
+             font-style="normal"
+             id="text39">Drag</text>
+          <text
+             fill="#333333"
+             fill-opacity="1"
+             stroke="none"
+             xml:space="preserve"
+             x="59.0156"
+             y="33"
+             font-family="Vahika"
+             font-size="32"
+             font-weight="700"
+             font-style="normal"
+             id="text41"> me !</text>
+        </g>
+        <g
+           fill="none"
+           stroke="#1f1c1b"
+           stroke-opacity="1"
+           stroke-width="1"
+           stroke-linecap="square"
+           stroke-linejoin="bevel"
+           transform="matrix(1.25123,0,0,1.25123,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g43" />
+        <g
+           fill="none"
+           stroke="#1f1c1b"
+           stroke-opacity="1"
+           stroke-width="1"
+           stroke-linecap="square"
+           stroke-linejoin="bevel"
+           transform="matrix(1,0,0,1,0,0)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g45" />
+        <g
+           fill="none"
+           stroke="#1f1c1b"
+           stroke-opacity="1"
+           stroke-width="1"
+           stroke-linecap="square"
+           stroke-linejoin="bevel"
+           transform="matrix(1.25123,0,0,1.25123,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g47" />
+        <g
+           fill="none"
+           stroke="#1f1c1b"
+           stroke-opacity="1"
+           stroke-width="1"
+           stroke-linecap="square"
+           stroke-linejoin="bevel"
+           transform="matrix(1.25123,0,0,1.25123,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g49" />
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1.25123,0,0,1.25123,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g51" />
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1.25123,0,0,1.25123,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g53" />
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1.25123,0,0,1.25123,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g55" />
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1,0,0,1,0,0)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g57" />
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1,0,0,1,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g59" />
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1,0,0,1,288,508.189)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g61" />
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1,0,0,1,-0.235294,-0.346925)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g63" />
+        <g
+           fill="none"
+           stroke="none"
+           transform="matrix(1,0,0,1,-0.235294,-0.346925)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g65" />
+        <g
+           fill="none"
+           stroke="#000000"
+           stroke-opacity="1"
+           stroke-width="1"
+           stroke-linecap="square"
+           stroke-linejoin="bevel"
+           transform="matrix(1,0,0,1,0,0)"
+           font-family="Sans Serif"
+           font-size="9"
+           font-weight="400"
+           font-style="normal"
+           id="g67" />
+      </g>
+    </svg>
+  </g>
+</svg>

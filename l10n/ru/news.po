@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 11:50+0100\n"
-"PO-Revision-Date: 2013-03-26 10:27+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 23:02+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -42,35 +42,32 @@ msgstr "Добавить подписку"
 msgid "Address must not be empty!"
 msgstr "Адрес не должен быть пустым"
 
-#: templates/part.addnew.php:15
-msgid "Feed exists already!"
-msgstr "Лента уже существует!"
-
 #: templates/part.addnew.php:16
-msgid "Could not add feed! Check if feed contains valid RSS!"
-msgstr "Не могу добавить ленту! Проверте содержит ли лента действительные RSS!"
+msgid ""
+"Could not add feed! Check if feed contains valid RSS or exists already!"
+msgstr ""
 
-#: templates/part.addnew.php:17
+#: templates/part.addnew.php:18
 msgid "Folder exists already"
 msgstr "Папка уже существует"
 
-#: templates/part.addnew.php:22
+#: templates/part.addnew.php:23
 msgid "Address"
 msgstr "Адрес"
 
-#: templates/part.addnew.php:24 templates/part.addnew.php:27
+#: templates/part.addnew.php:25 templates/part.addnew.php:28
 msgid "Add"
 msgstr "Добавить"
 
-#: templates/part.addnew.php:29
+#: templates/part.addnew.php:30
 msgid "New folder"
 msgstr "Новая папка"
 
-#: templates/part.addnew.php:30
+#: templates/part.addnew.php:31
 msgid "Folder"
 msgstr "Папка"
 
-#: templates/part.addnew.php:35
+#: templates/part.addnew.php:36
 msgid "No folder"
 msgstr "Нет папки"
 
@@ -86,24 +83,28 @@ msgstr "Непрочтённые статьи"
 msgid "All articles"
 msgstr "Все статьи"
 
-#: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:29
 #: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Отметить все как прочитанные"
 
-#: templates/part.items.php:34
+#: templates/part.items.php:27
+msgid "from"
+msgstr ""
+
+#: templates/part.items.php:32
+msgid "by"
+msgstr ""
+
+#: templates/part.items.php:39
 msgid "Cant play audio format"
 msgstr "Невозможно проиграть данный формат аудио"
 
-#: templates/part.items.php:48 templates/part.items.php:51
-msgid "Share"
-msgstr "Открыть доступ"
-
-#: templates/part.items.php:55
+#: templates/part.items.php:52
 msgid "Keep unread"
 msgstr "Оставить непрочитанным"
 
-#: templates/part.listfeed.php:17
+#: templates/part.listfeed.php:20
 msgid "Delete feed"
 msgstr "Удалить ленту"
 

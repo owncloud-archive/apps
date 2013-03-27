@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-23 00:02+0100\n"
-"PO-Revision-Date: 2013-01-22 00:51+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
 "Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -18,38 +18,38 @@ msgstr ""
 "Language: th_TH\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: js/editor.js:72 js/editor.js:177 js/editor.js:185
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr "บันทึก"
 
-#: js/editor.js:74
+#: js/editor.js:75
 msgid "Search:"
 msgstr "ค้นหา:"
 
-#: js/editor.js:74
+#: js/editor.js:78
 msgid "Close"
 msgstr "ปิด"
 
-#: js/editor.js:151
+#: js/editor.js:132
 msgid "Next"
 msgstr "ถัดไป"
 
-#: js/editor.js:152
+#: js/editor.js:133
 msgid "Clear"
 msgstr "ล้างข้อมูล"
 
-#: js/editor.js:170
+#: js/editor.js:151
 msgid "Saving..."
 msgstr "กำลังบันทึกข้อมูล..."
 
-#: js/editor.js:178
+#: js/editor.js:159
 msgid "Failed to save file"
 msgstr "บันทึกไฟล์ล้มเหลว"
 
-#: js/editor.js:262
+#: js/editor.js:246
 msgid "An error occurred!"
 msgstr "เกิดข้อผิดพลาดบางประการ!"
 
-#: js/editor.js:297
+#: js/editor.js:266
 msgid "There were unsaved changes, click here to go back"
 msgstr "มีค่าเปลี่ยนแปลงที่ยังไม่ได้รับการบันทึกข้อมูล, คลิกเพื่อย้อนกลับไป"

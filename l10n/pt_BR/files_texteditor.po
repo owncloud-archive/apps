@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-15 00:01+0100\n"
-"PO-Revision-Date: 2013-02-14 00:10+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
 "Last-Translator: rodrigost23 <rodrigo.st23@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: js/editor.js:72 js/editor.js:158 js/editor.js:166
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr "Salvar"
 
-#: js/editor.js:74
+#: js/editor.js:75
 msgid "Search:"
 msgstr "Pesquisar:"
 
-#: js/editor.js:74
+#: js/editor.js:78
 msgid "Close"
 msgstr "Fechar"
 
@@ -47,10 +47,10 @@ msgstr "Salvando..."
 msgid "Failed to save file"
 msgstr "Falha ao salvar arquivo"
 
-#: js/editor.js:243
+#: js/editor.js:246
 msgid "An error occurred!"
 msgstr "Ocorreu um erro!"
 
-#: js/editor.js:271
+#: js/editor.js:266
 msgid "There were unsaved changes, click here to go back"
 msgstr "Existem alterações não salvas, clique aqui para voltar"

@@ -1,0 +1,21 @@
+<?php $TRANSLATIONS = array(
+"all" => "kaikki",
+"never" => "ei koskaan",
+"granted" => "myönnetty",
+"denied" => "kielletty",
+"blocked" => "estetty",
+"Close" => "Sulje",
+"Title" => "Otsikko",
+"Result" => "Tulos",
+"Address" => "Osoite",
+"Host" => "Isäntä",
+"User" => "Käyttäjä",
+"Time" => "Aika",
+"close" => "sulje",
+"Status" => "Tila",
+"Loading" => "Ladataan",
+"Toggle toolbar" => "Työkalupalkki päälle/pois",
+"Reload" => "Päivitä",
+"details" => "tiedot",
+"Show details" => "Näytä tiedot"
+);

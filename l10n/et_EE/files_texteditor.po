@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-13 00:00+0100\n"
-"PO-Revision-Date: 2013-02-12 17:50+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Language: et_EE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/editor.js:72 js/editor.js:158 js/editor.js:166
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr "Salvesta"
 
-#: js/editor.js:74
+#: js/editor.js:75
 msgid "Search:"
 msgstr "Otsi:"
 
-#: js/editor.js:74
+#: js/editor.js:78
 msgid "Close"
 msgstr "Sulge"
 
@@ -46,10 +46,10 @@ msgstr "Salvestamine..."
 msgid "Failed to save file"
 msgstr "Faili salvestamine ebaõnnestus"
 
-#: js/editor.js:243
+#: js/editor.js:246
 msgid "An error occurred!"
 msgstr "Tekis tõrge!"
 
-#: js/editor.js:271
+#: js/editor.js:266
 msgid "There were unsaved changes, click here to go back"
 msgstr "Mõned muudatused olid salvestamata, tagasi minemiseks kliki siia"
