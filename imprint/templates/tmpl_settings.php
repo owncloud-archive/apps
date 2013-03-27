@@ -38,26 +38,26 @@
 	<fieldset class="personalblock">
 		<legend>
 			<span id="title" class="title">
-				<img class="" src="<?php echo OCP\Util::imagePath("imprint","imprint-dusky.svg"); ?> ">
-				<strong><?php echo $l->t("Imprint");?></strong>
+				<img class="" src="<?php p(OCP\Util::imagePath("imprint","imprint-dusky.svg")); ?> ">
+				<strong><?php p($l->t("Imprint"));?></strong>
 			</span>
 		</legend>
 		<div id="imprint-options" class="imprint-option">
-			<label for="imprint-option-position" class="imprint-option"><?php echo $l->t("Placement").": ";?></label>
+			<label for="imprint-option-position" class="imprint-option"><?php p($l->t("Placement").": ");?></label>
 			<select id="imprint-option-position" class="imprint-option" type="select" name="position">
-				<option value="standalone"><?php echo $l->t("Standalone app");?></option>
-				<option value="header-left"><?php echo $l->t("Header left");?></option>
-				<option value="header-right"><?php echo $l->t("Header right");?></option>
-				<option value="navigation-top"><?php echo $l->t("Navigation top");?></option>
-				<option value="navigation-bottom"><?php echo $l->t("Navigation bottom");?></option>
+				<option value="standalone"><?php p($l->t("Standalone app"));?></option>
+				<option value="header-left"><?php p($l->t("Header left"));?></option>
+				<option value="header-right"><?php p($l->t("Header right"));?></option>
+				<option value="navigation-top"><?php p($l->t("Navigation top"));?></option>
+				<option value="navigation-bottom"><?php p($l->t("Navigation bottom"));?></option>
 			</select>
 			<br>
-			<label   for="imprint-content" class="imprint-option"><?php echo $l->t("Content").': ';?></label>
+			<label   for="imprint-content" class="imprint-option"><?php p($l->t("Content").': ');?></label>
 			<textarea id="imprint-content" class="imprint-option"></textarea>
 			<br>
 			<label   for="imprint-usage"   class="imprint-option"></label>
 			<span     id="imprint-usage"   class="imprint-option imprint-hint">
-				<?php echo $l->t("You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;).");?>
+				<?php p($l->t("You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)."));?>
 			</span>
 		</div>
   </fieldset>
