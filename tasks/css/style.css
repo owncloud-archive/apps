@@ -60,3 +60,5 @@
 .task .due .time{width:6em;}
 
 .task_delete{position:absolute;bottom:2px;right:5px}
+
+input[type="button"].active {color: #6193CF}
