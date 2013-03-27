@@ -16,15 +16,15 @@ class OC_Files_Antivirus_BackgroundScanner {
 		} else {
 			$dir_mimetype = 0;
 		}
-
 		// locate files that are not checked yet
-		$sql = 'SELECT `*PREFIX*filecache`.`fileid`, `path`, `storage`'
+		$sql = 'SELECT `*PREFIX*filecache`.`fileid`, `path`, `*PREFIX*storages`.`id`'
 			.' FROM `*PREFIX*filecache`'
 			.' LEFT JOIN `*PREFIX*files_antivirus` ON `*PREFIX*files_antivirus`.`fileid` = `*PREFIX*filecache`.`fileid`'
-			.' WHERE `mimetype` != ? AND (`*PREFIX*files_antivirus`.`fileid` IS NULL OR `mtime` > `check_time`)';
+			.' JOIN `*PREFIX*storages` ON `*PREFIX*storages`.`numeric_id` = `*PREFIX*filecache`.`storage`'
+			.' WHERE `mimetype` != ? AND `*PREFIX*storages`.`id` LIKE ? AND (`*PREFIX*files_antivirus`.`fileid` IS NULL OR `mtime` > `check_time`)';
 		$stmt = OCP\DB::prepare($sql, 5);
 		try {
-			$result = $stmt->execute(array($dir_mimetype));
+			$result = $stmt->execute(array($dir_mimetype, 'local::%'));
 			if (\OC_DB::isError($result)) {
 				\OC_Log::write('files_antivirus', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return;
@@ -35,28 +35,26 @@ class OC_Files_Antivirus_BackgroundScanner {
 		}
 		// scan the found files
 		while ($row = $result->fetchRow()) {
-			self::scan($row['fileid'], $row['storage'], $row['path']);
+			$storage = self::getStorage($row['id']);
+			if ($storage !== null) {
+				self::scan($row['fileid'], $row['path'], $storage);
+			} else {
+				\OCP\Util::writeLog('files_antivirus', 'File "'.$row['path'].'" has a non local storage backend "'.$row['id'].'"', \OCP\Util::ERROR);
+			}
 		}
 	}
 
-	protected static function getStorage($numeric_id)
-	{
-		$query = \OC_DB::prepare('SELECT `id` FROM `*PREFIX*storages` WHERE `numeric_id` = ?');
-		$result = $query->execute(array($numeric_id));
-		if ($row = $result->fetchRow()) {
-			$storage_id = $row['id'];
-			if (strpos($storage_id, 'local::') === 0) {
-				$arguments = array(
-					'datadir' => substr($storage_id, 7),
-				);
-				return new \OC\Files\Storage\Local($arguments);
-			}
+	protected static function getStorage($storage_id) {
+		if (strpos($storage_id, 'local::') === 0) {
+			$arguments = array(
+				'datadir' => substr($storage_id, 7),
+			);
+			return new \OC\Files\Storage\Local($arguments);
 		}
 		return null;
 	}
 
-	public static function scan($id, $storage_id, $path) {
-		$storage = self::getStorage($storage_id);
+	public static function scan($id, $path, $storage) {
 		$file = $storage->getLocalFile($path);
 		$result = OC_Files_Antivirus::clamav_scan($file);
 		switch($result) {
@@ -74,7 +72,6 @@ class OC_Files_Antivirus_BackgroundScanner {
 				}
 				break;
 			case CLAMAV_SCANRESULT_CLEAN:
-				//echo 'File "'.$path.'" from user "'.$user.'": is clean.'.$id."\n";
 				$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*files_antivirus` (`fileid`, `check_time`) VALUES (?, ?)');
 				try {
 					$result = $stmt->execute(array($id, time()));
