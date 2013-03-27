@@ -54,7 +54,6 @@ class Indexer {
 
 		// the cache already knows mime and other basic stuff
 		$data = $view->getFileInfo($path);
-		//$data = Filesystem::getFileInfo($path);
 		if (isset($data['mimetype'])) {
 			$mimetype = $data['mimetype'];
 			if ('text/html' === $mimetype) {
@@ -154,6 +153,11 @@ class Indexer {
 		} else if ('text/html' === $mimetype) {
 			// getid3 does not handle html, but that's not a real error
 			unset($data['error']);
+
+		} else if ('httpd/unix-directory' === $mimetype) {
+			// getid3 does not handle directories, ignore the error
+			unset($data['error']);
+
 		} else if ('application/pdf' === $mimetype) {
 			try {
 				$zendpdf = \Zend_Pdf::parse($view->file_get_contents($path));
@@ -221,7 +225,8 @@ class Indexer {
 
 		foreach ($mounts as $mount) {
 			$storage = $mount->getStorage();
-			if ($storage) {
+			//only index local files for now
+			if ($storage instanceof \OC\Files\Storage\Local) {
 				$cache = $storage->getCache();
 				$numericId = $cache->getNumericStorageId();
 
