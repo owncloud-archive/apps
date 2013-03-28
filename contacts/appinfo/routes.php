@@ -208,8 +208,8 @@ $this->create('contacts_contact_save_property', 'addressbook/{user}/{backend}/{a
 			// TODO: When value is empty unset the property and return a checksum of 'new' if multi_property
 			$name = $request->post['name'];
 			$value = $request->post['value'];
-			$parameters = $request->post['parameters'];
-			$checksum = $request->post['checksum'];
+			$parameters = isset($request->post['parameters']) ? $request->post['parameters'] : null;
+			$checksum = isset($request->post['checksum']) ? $request->post['checksum'] : null;
 
 			debug('contacts_contact_save_property, name: ' . print_r($name, true));
 			debug('contacts_contact_save_property, value: ' . print_r($value, true));
