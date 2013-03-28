@@ -23,7 +23,24 @@
 namespace OCA\Contacts\Backend;
 
 /**
- * Subclass this class for Cantacts backends
+ * Subclass this class for address book backends
+ *
+ * The following methods MUST be implemented:
+ * @method array getAddressBooksForUser(string $userid) FIXME: I'm not sure about this one.
+ * @method array getAddressBook(string $addressbookid)
+ * @method array getContacts(string $addressbookid)
+ * @method array getContact(string $addressbookid, mixed $id)
+ * The following methods MAY be implemented:
+ * @method bool hasAddressBook(string $addressbookid)
+ * @method bool updateAddressBook(string $addressbookid, array $updates)
+ * @method string createAddressBook(string $addressbookid, array $properties)
+ * @method bool deleteAddressBook(string $addressbookid)
+ * @method int lastModifiedAddressBook(string $addressbookid)
+ * @method array numContacts(string $addressbookid)
+ * @method bool updateContact(string $addressbookid, string $id, array $updates)
+ * @method string createContact(string $addressbookid, string $id, array $properties)
+ * @method bool deleteContact(string $addressbookid, string $id)
+ * @method int lastModifiedContact(string $addressbookid)
  */
 
 abstract class AbstractBackend {
@@ -34,6 +51,94 @@ abstract class AbstractBackend {
 	 */
 	public $name;
 
+	protected $possibleContactPermissions = array(
+		\OCP\PERMISSION_CREATE 	=> 'createContact',
+		\OCP\PERMISSION_READ	=> 'getContact',
+		\OCP\PERMISSION_UPDATE	=> 'updateContact',
+		\OCP\PERMISSION_DELETE 	=> 'deleteContact',
+	);
+
+	protected $possibleAddressBookPermissions = array(
+		\OCP\PERMISSION_CREATE 	=> 'createAddressBook',
+		\OCP\PERMISSION_READ		=> 'getAddressBook',
+		\OCP\PERMISSION_UPDATE	=> 'updateAddressBook',
+		\OCP\PERMISSION_DELETE 	=> 'deleteAddressBook',
+	);
+
+	/**
+	* @brief Get all permissions for contacts
+	* @returns bitwise-or'ed actions
+	*
+	* Returns the supported actions as int to be
+	* compared with \OCP\PERMISSION_CREATE etc.
+	* TODO: When getting the permissions we also have to check for
+	* configured permissions and return min() of the two values.
+	* A user can for example configure an address book with a backend
+	* that implements deleteContact() but wants to set it read-only.
+	*/
+	public function getContactPermissions() {
+		$permissions = 0;
+		foreach($this->possibleContactPermissions AS $permission => $methodName) {
+			if(method_exists($this, $methodName)) {
+				$permissions |= $permission;
+			}
+		}
+
+		return $permissions;
+	}
+
+	/**
+	* @brief Get all permissions for address book.
+	* @returns bitwise-or'ed actions
+	*
+	* Returns the supported actions as int to be
+	* compared with \OCP\PERMISSION_CREATE etc.
+	*/
+	public function getAddressBookPermissions() {
+		$permissions = 0;
+		foreach($this->possibleAddressBookPermissions AS $permission => $methodName) {
+			if(method_exists($this, $methodName)) {
+				$permissions |= $permission;
+			}
+		}
+
+		return $permissions;
+	}
+
+	/**
+	* @brief Check if backend implements action for contacts
+	* @param $actions bitwise-or'ed actions
+	* @returns boolean
+	*
+	* Returns the supported actions as int to be
+	* compared with \OCP\PERMISSION_CREATE etc.
+	*/
+	public function hasContactPermission($permission) {
+		return (bool)($this->getContactPermissions() & $permission);
+	}
+
+	/**
+	* @brief Check if backend implements action for contacts
+	* @param $actions bitwise-or'ed actions
+	* @returns boolean
+	*
+	* Returns the supported actions as int to be
+	* compared with \OCP\PERMISSION_CREATE etc.
+	*/
+	public function hasAddressBooksPermission($permission) {
+		return (bool)($this->getAddressBooksPermissions() & $permission);
+	}
+
+	/**
+	 * Check if the backend has the address book
+	 *
+	 * @param string $addressbookid
+	 * @return bool
+	 */
+	public function hasAddressBook($addressbookid) {
+		return count($this->getAddressBook($addressbookid)) > 0;
+	}
+
 	/**
 	 * Returns the list of addressbooks for a specific user.
 	 *
@@ -43,9 +148,9 @@ abstract class AbstractBackend {
 	 *
 	 * @param string $principaluri
 	 * @return array
-	 */
 	public function getAddressBooksForUser($userid) {
 	}
+	 */
 
 	/**
 	 * Get an addressbook's properties
@@ -59,15 +164,7 @@ abstract class AbstractBackend {
 	 * @param string $addressbookid
 	 * @return array $properties
 	 */
-	public function getAddressBook($addressbookid) {
-	}
-
-	/**
-	 * Test if the address book exists
-	 * @return bool
-	 */
-	public function hasAddressBook($addressbookid) {
-	}
+	public abstract function getAddressBook($addressbookid);
 
 	/**
 	 * Updates an addressbook's properties
@@ -80,9 +177,9 @@ abstract class AbstractBackend {
 	 * @param string $addressbookid
 	 * @param array $properties
 	 * @return bool
-	 */
 	public function updateAddressBook($addressbookid, array $properties) {
 	}
+	 */
 
 	/**
 	 * Creates a new address book
@@ -93,18 +190,18 @@ abstract class AbstractBackend {
 	 *
 	 * @param array $properties
 	 * @return string|false The ID if the newly created AddressBook or false on error.
-	 */
 	public function createAddressBook(array $properties) {
 	}
+	 */
 
 	/**
 	 * Deletes an entire addressbook and all its contents
 	 *
 	 * @param string $addressbookid
 	 * @return bool
-	 */
 	public function deleteAddressBook($addressbookid) {
 	}
+	 */
 
 	/**
 	 * @brief Get the last modification time for an address book.
@@ -146,8 +243,7 @@ abstract class AbstractBackend {
 	 * @param bool $omitdata Don't fetch the entire carddata or vcard.
 	 * @return array
 	 */
-	public function getContacts($addressbookid, $limit = null, $offset = null, $omitdata = false) {
-	}
+	public abstract function getContacts($addressbookid, $limit = null, $offset = null, $omitdata = false);
 
 	/**
 	 * Returns a specfic contact.
@@ -158,8 +254,7 @@ abstract class AbstractBackend {
 	 * @param mixed $id
 	 * @return array|bool
 	 */
-	public function getContact($addressbookid, $id) {
-	}
+	public abstract function getContact($addressbookid, $id);
 
 	/**
 	 * Creates a new contact
@@ -167,9 +262,9 @@ abstract class AbstractBackend {
 	 * @param string $addressbookid
 	 * @param string $carddata
 	 * @return string|bool The identifier for the new contact or false on error.
-	 */
 	public function createContact($addressbookid, $carddata) {
 	}
+	 */
 
 	/**
 	 * Updates a contact
@@ -178,9 +273,9 @@ abstract class AbstractBackend {
 	 * @param mixed $id
 	 * @param string $carddata
 	 * @return bool
-	 */
 	public function updateContact($addressbookid, $id, $carddata) {
 	}
+	 */
 
 	/**
 	 * Deletes a contact
@@ -188,9 +283,9 @@ abstract class AbstractBackend {
 	 * @param string $addressbookid
 	 * @param mixed $id
 	 * @return bool
-	 */
 	public function deleteContact($addressbookid, $id) {
 	}
+	 */
 
 	/**
 	 * @brief Get the last modification time for a contact.
