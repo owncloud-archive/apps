@@ -321,7 +321,7 @@ class OC_Calendar_Object{
 		$stmt = OCP\DB::prepare( 'UPDATE `*PREFIX*calendar_objects` SET `calendarid`=? WHERE `id`=?' );
 		$stmt->execute(array($calendarid,$id));
 
-		OC_Calendar_Calendar::touchCalendar($id);
+		OC_Calendar_Calendar::touchCalendar($calendarid);
 		OCP\Util::emitHook('OC_Calendar', 'moveEvent', $id);
 
 		return true;
