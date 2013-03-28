@@ -503,7 +503,7 @@ OC.Contacts = OC.Contacts || {};
 				self.id = String(response.data.metadata.id);
 				self.metadata = response.data.metadata;
 				self.data = response.data.data;
-				self.$groupSelect.multiselect('widget').show();
+				self.$groupSelect.multiselect('enable');
 				// Add contact to current group
 				if(self.groupprops && self.groupprops.currentgroup.id !== 'all'
 					&& self.groupprops.currentgroup.id !== 'fav') {
@@ -767,7 +767,7 @@ OC.Contacts = OC.Contacts || {};
 				}
 			});
 			if(!self.id) {
-				self.$groupSelect.multiselect('widget').hide();
+				self.$groupSelect.multiselect('disable');
 			}
 		};
 		
@@ -795,7 +795,7 @@ OC.Contacts = OC.Contacts || {};
 				selectedText: t('contacts', '# groups')
 			});
 			if(self.id) {
-				self.$addressBookSelect.multiselect('widget').hide();
+				self.$addressBookSelect.multiselect('disable');
 			}
 		};
 
