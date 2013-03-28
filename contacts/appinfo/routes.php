@@ -131,6 +131,22 @@ $this->create('contacts_address_book_add_contact', 'addressbook/{user}/{backend}
 	)
 	->defaults(array('user' => \OCP\User::getUser()));
 
+$this->create('contacts_address_book_delete_contact', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/delete')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			$app = new App($params['user']);
+			$addressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
+			$response = $addressBook->deleteChild($params['contactid']);
+			if($response === false) {
+				bailOut(App::$l10n->t('Error deleting contact.'));
+			}
+			\OCP\JSON::success();
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
 $this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/property/delete')
 	->post()
 	->action(
@@ -318,7 +334,7 @@ $this->create('contacts_setpreference', 'preference/{user}/set')
 	->action(
 		function($params) {
 			session_write_close();
-			$request = new Request($params);
+			$request = new Request(array('urlParams' => $params));
 			$key = $request->post['key'];
 			$value = $request->post['value'];
 

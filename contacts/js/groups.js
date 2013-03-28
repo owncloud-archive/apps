@@ -610,16 +610,16 @@ OC.Contacts = OC.Contacts || {};
 		var tmpl = this.$groupListItemTemplate;
 
 		tmpl.octemplate({id: 'all', type: 'all', num: numcontacts, name: t('contacts', 'All')}).appendTo($groupList);
-		$.when(this.storage.getGroupsForUser()).then(function(jsondata) {
-			if (jsondata && jsondata.status == 'success') {
-				self.lastgroup = jsondata.data.lastgroup;
-				self.sortorder = jsondata.data.sortorder.length > 0
-					? $.map(jsondata.data.sortorder.split(','), function(c) {return parseInt(c);})
+		$.when(this.storage.getGroupsForUser()).then(function(response) {
+			if (response && !response.error) {
+				self.lastgroup = response.data.lastgroup;
+				self.sortorder = response.data.sortorder.length > 0
+					? $.map(response.data.sortorder.split(','), function(c) {return parseInt(c);})
 					: [];
 				console.log('sortorder', self.sortorder);
 				// Favorites
 				// Map to strings easier lookup an contacts list.
-				var contacts = $.map(jsondata.data.favorites, function(c) {return String(c);});
+				var contacts = $.map(response.data.favorites, function(c) {return String(c);});
 				var $elem = tmpl.octemplate({
 					id: 'fav',
 					type: 'fav',
@@ -643,7 +643,7 @@ OC.Contacts = OC.Contacts || {};
 				}
 				console.log('favorites', $elem.data('contacts'));
 				// Normal groups
-				$.each(jsondata.data.categories, function(c, category) {
+				$.each(response.data.categories, function(c, category) {
 					var contacts = $.map(category.contacts, function(c) {return String(c);});
 					var $elem = (tmpl).octemplate({
 						id: category.id,
@@ -679,13 +679,13 @@ OC.Contacts = OC.Contacts || {};
 				});
 
 				// Shared addressbook
-				$.each(jsondata.data.shared, function(c, shared) {
+				$.each(response.data.shared, function(c, shared) {
 					var sharedindicator = '<img class="shared svg" src="' + OC.imagePath('core', 'actions/shared') + '"'
 						+ 'title="' + t('contacts', 'Shared by {owner}', {owner:shared.userid}) + '" />';
 					var $elem = (tmpl).octemplate({
 						id: shared.id,
 						type: 'shared',
-						num: '', //jsondata.data.shared.length,
+						num: response.data.shared.length,
 						name: shared.displayname
 					});
 					$elem.find('.numcontacts').after(sharedindicator);

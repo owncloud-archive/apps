@@ -6,6 +6,19 @@ OC.Contacts = OC.Contacts || {};
 
 (function(window, $, OC) {
 	'use strict';
+
+	var JSONResponse = function(response) {
+		if(!response || !response.status || response.status === 'error') {
+			this.error = true;
+			this.message = response.data.message || 'Unknown error.';
+		} else {
+			this.error = false;
+			if(response.data) {
+				this.data = response.data;
+			}
+		}
+	}
+
 	/**
 	* An object for saving contact data to backends
 	*
@@ -137,6 +150,22 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	/**
+	 * Delete a contact from an address book from a specific backend
+	 *
+	 * @param string backend
+	 * @param string addressbookid Address book ID
+	 * @param string contactid Address book ID
+	 */
+	Storage.prototype.deleteContact = function(backend, addressbookid, contactid) {
+		console.log('Storage.deleteContact', backend, addressbookid, contactid);
+		return this.requestRoute(
+			'contacts_address_book_delete_contact',
+			'POST',
+			{user: this.user, backend: backend, addressbookid: addressbookid, contactid: contactid}
+		);
+	}
+
+	/**
 	 * Delete a single property.
 	 *
 	 * @param string backend
@@ -256,7 +285,19 @@ OC.Contacts = OC.Contacts || {};
 		if(typeof params === 'object') {
 			ajaxParams['data'] = params;
 		}
-		return $.ajax(ajaxParams);
+		var defer = $.Deferred();
+		$.when($.ajax(ajaxParams)).then(function(response) {
+			//console.log('response', response);
+			defer.resolve(new JSONResponse(response));
+		}).fail(function(jqxhr, textStatus, error) {
+			defer.reject(
+				new JSONResponse({
+					status:'error',
+					data:{message:t('contacts', 'Failed loading address books: {error}', {error:textStatus + ', ' + error})}
+				})
+			);
+		});
+		return defer.promise();
 	}
 
 	OC.Contacts.Storage = Storage;

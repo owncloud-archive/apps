@@ -27,12 +27,15 @@ namespace OCA\Contacts;
  * This class provides an immutable object with request variables.
  */
 
-class Request extends OC_Request implements \ArrayAccess {
+class Request implements \ArrayAccess, \Countable {
 
 	protected $items = array();
 
+	protected $varnames = array('get', 'post', 'files', 'server', 'env', 'session', 'cookies', 'urlParams', 'params', 'parameters', 'method');
+
 	/**
 	 * @param array $vars And associative array with the following optional	values:
+	 * @param array 'params' the parsed json array
 	 * @param array 'urlParams' the parameters which were matched from the URL
 	 * @param array 'get' the $_GET array
 	 * @param array 'post' the $_POST array
@@ -43,41 +46,57 @@ class Request extends OC_Request implements \ArrayAccess {
 	 * @param array 'cookies' the $_COOKIE array
 	 * @see http://www.php.net/manual/en/reserved.variables.php
 	 */
-	public function __construct(array $vars) {
+	public function __construct(array $vars = array()) {
 
-		foreach($vars as $name => $var) {
-			switch(strtolower($name)) {
+		foreach($this->varnames as $name) {
+			switch($name) {
 				case 'get':
-					$this->items[$name] = $var ? $var : $_GET;
+					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : $_GET;
 					break;
 				case 'post':
-					$this->items[$name] = $var ? $var : $_POST;
+					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : $_POST;
 					break;
 				case 'files':
-					$this->items[$name] = $var ? $var : $_FILES;
+					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : $_FILES;
 					break;
 				case 'server':
-					$this->items[$name] = $var ? $var : $_SERVER;
+					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : $_SERVER;
 					break;
 				case 'env':
-					$this->items[$name] = $var ? $var : $_ENV;
+					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : $_ENV;
 					break;
 				case 'session':
-					$this->items[$name] = $var ? $var : $_SESSION;
+					$this->items[$name] = isset($vars[$name])
+						? $vars[$name]
+						: (isset($_SESSION) ? $_SESSION : array());
 					break;
 				case 'cookies':
-					$this->items[$name] = $var ? $var : $_COOKIE;
+					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : $_COOKIE;
+					break;
+				case 'method':
+					$this->items[$name] = isset($vars[$name])
+						? $vars[$name]
+						: (isset($_SERVER) && isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : array());
 					break;
 				case 'urlParams':
-					$this->items[$name] = $var ? $var : array();
+				case 'params':
+					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : array();
 					break;
 			}
 		}
 
 		$this->items['parameters'] = array_merge(
-			$this->items['urlParams'],
-			$_REQUEST
+			$this->items['params'],
+			$this->items['get'],
+			$this->items['post'],
+			$this->items['urlParams']
 		);
+
+	}
+
+	// Countable method.
+	public function count() {
+		return count(array_keys($this->items['parameters']));
 	}
 
 	/**
@@ -117,14 +136,14 @@ class Request extends OC_Request implements \ArrayAccess {
 	* @see offsetExists
 	*/
 	public function offsetSet($offset, $value) {
-		throw new \Exception('You cannot change the contents of the request object');
+		throw new \RuntimeException('You cannot change the contents of the request object');
 	}
 
 	/**
 	* @see offsetExists
 	*/
 	public function offsetUnset($offset) {
-		throw new \Exception('You cannot change the contents of the request object');
+		throw new \RuntimeException('You cannot change the contents of the request object');
 	}
 
 	/**
@@ -132,17 +151,16 @@ class Request extends OC_Request implements \ArrayAccess {
 	* $request->get('post', 'some_key', 'default value');
 	*
 	* @param string $vars Which variables to look in e.g. 'get', 'post, 'session'
+	* @param string $name
+	* @param string $default
 	*/
-	public function get($vars, $name, $default = null) {
-		if(isset($this->{$vars}) && isset($this->{$vars}[$name])) {
-			return $this->{$vars}[$name];
-		}
-		return $default;
+	public function getVar($vars, $name, $default = null) {
+		return isset($this->{$vars}[$name]) ? $this->{$vars}[$name] : $default;
 	}
 
 	// Magic property accessors
 	public function __set($name, $value) {
-		throw new \Exception('You cannot change the contents of the request object');
+		throw new \RuntimeException('You cannot change the contents of the request object');
 	}
 
 	/**
@@ -161,7 +179,7 @@ class Request extends OC_Request implements \ArrayAccess {
 	* @return mixed|null
 	*/
 	public function __get($name) {
-		switch(strtolower($name)) {
+		switch($name) {
 			case 'get':
 			case 'post':
 			case 'files':
@@ -176,10 +194,10 @@ class Request extends OC_Request implements \ArrayAccess {
 					: null;
 				break;
 			case 'method':
-				return $this->server['REQUEST_METHOD'];
+				return $this->items['method'];
 				break;
 			default;
-				return $this->parameters[$name];
+				return isset($this[$name]) ? $this[$name] : null;
 				break;
 		}
 	}
@@ -189,7 +207,7 @@ class Request extends OC_Request implements \ArrayAccess {
 	}
 
 	public function __unset($id) {
-		throw new \Exception('You cannot change the contents of the request object');
+		throw new \RunTimeException('You cannot change the contents of the request object');
 	}
 
 }

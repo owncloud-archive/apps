@@ -157,11 +157,9 @@ OC.notify = function(params) {
 OC.Contacts = OC.Contacts || {
 	init:function() {
 		if(oc_debug === true) {
-			$(document).ajaxError(function(e, xhr, settings, exception) {
-				// Don't try to get translation because it's likely a network error.
-				OC.notify({
-					message: 'error in: ' + settings.url + ', '+'error: ' + xhr.responseText
-				});
+		$.error = console.error;
+		$(document).ajaxError(function(e, xhr, settings, exception) {
+				console.error('Error in: ', settings.url, ' : ', xhr.responseText, exception);
 			});
 		}
 
@@ -438,10 +436,10 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		$(document).bind('request.contact.delete', function(e, data) {
-			var id = parseInt(data.id);
-			console.log('contact', data.id, 'request.contact.delete');
+			var id = parseInt(data.contactid);
+			console.log('contact', data, 'request.contact.delete');
 			self.closeContact(id);
-			self.contacts.delayedDelete(id);
+			self.contacts.delayedDelete(data);
 			self.$contactList.removeClass('dim');
 			self.showActions(['add']);
 		});
@@ -503,8 +501,8 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('status.groups.sorted', function(e, result) {
 			console.log('status.groups.sorted', result);
 			$.when(self.storage.setPreference('groupsort', result.sortorder)).then(function(response) {
-				if(response.status !== 'success') {
-					OC.notify({message: response ? response.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
+				if(response.error) {
+					OC.notify({message: response ? response.message : t('contacts', 'Network or server error. Please inform administrator.')});
 				}
 			})
 			.fail(function(jqxhr, textStatus, error) {
@@ -536,8 +534,8 @@ OC.Contacts = OC.Contacts || {
 				self.contacts.showContacts(self.currentgroup);
 			}
 			$.when(self.storage.setPreference('lastgroup', self.currentgroup)).then(function(response) {
-				if(!response || response.status !== 'success') {
-					OC.notify({message: (response && response.data) ? response.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
+				if(response.error) {
+					OC.notify({message: response.message});
 				}
 			})
 			.fail(function(jqxhr, textStatus, error) {
@@ -813,7 +811,7 @@ OC.Contacts = OC.Contacts || {
 				var $li = $(this).parents('li').first();
 				$.when(this.storage.deleteAddressBook('database',{addressbookid:id}))
 					.then(function(response) {
-					if(response.status == 'success') {
+					if(!response.error) {
 						self.contacts.unsetAddressbook(id);
 						$li.remove();
 						OC.notify({
@@ -829,7 +827,7 @@ OC.Contacts = OC.Contacts || {
 							}
 						});
 					} else {
-						OC.notify({message:response.data.message});
+						OC.notify({message:response.message});
 					}
 				});
 			});
@@ -872,15 +870,10 @@ OC.Contacts = OC.Contacts || {
 						console.log('adding', name);
 						$.when(this.storage.addAddressBook('database',
 						{name: name, description: ''})).then(function(response) {
-							if(!response || !response.status) {
-								OC.notify({
-									message:t('contacts', 'Network or server error. Please inform administrator.')
-								});
-								return false;
-							} else if(response.status === 'error') {
+							if(response.error) {
 								OC.notify({message: response.message});
 								return false;
-							} else if(response.status === 'success') {
+							} else {
 								var book = response.addressbook;
 								var $list = self.$settings.find('[data-id="addressbooks"]').next('ul');
 								appendAddressBook($list, book);
@@ -937,15 +930,10 @@ OC.Contacts = OC.Contacts || {
 					var id = false;
 					$.when(this.storage.addAddressBook('database',
 						{name: name, description: ''})).then(function(response) {
-						if(!response || !response.status) {
-							OC.notify({
-								message:t('contacts', 'Network or server error. Please inform administrator.')
-							});
-							return false;
-						} else if(response.status === 'error') {
+						if(response.error) {
 							OC.notify({message: response.message});
 							return false;
-						} else if(response.status === 'success') {
+						} else {
 							id = response.data.id;
 						}
 					})
