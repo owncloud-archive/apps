@@ -140,6 +140,19 @@ abstract class AbstractBackend {
 	}
 
 	/**
+	 * Returns the number of contacts in an address book.
+	 * Implementations can choose to override this method to either
+	 * get the result more effectively or to return null if the backend
+	 * cannot determine the number.
+	 *
+	 * @param string $addressbookid
+	 * @return integer|null
+	 */
+	public function numContacts($addressbookid) {
+		return count($this->getContacts($addressbookid));
+	}
+
+	/**
 	 * Returns the list of addressbooks for a specific user.
 	 *
 	 * The returned arrays MUST contain a unique 'id' for the

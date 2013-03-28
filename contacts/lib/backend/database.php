@@ -314,6 +314,28 @@ class Database extends AbstractBackend {
 	}
 
 	/**
+	 * Returns the number of contacts in a specific address book.
+	 *
+	 * @param string $addressbookid
+	 * @param bool $omitdata Don't fetch the entire carddata or vcard.
+	 * @return array
+	 */
+	public function numContacts($addressbookid) {
+		$query = 'SELECT COUNT(*) AS `count` FROM `' . $this->cardsTableName . '` WHERE '
+			. '`addressbookid` = ?';
+
+		if(!isset(self::$preparedQueries['count'])) {
+			self::$preparedQueries['count'] = \OCP\DB::prepare($query);
+		}
+		$result = self::$preparedQueries['count']->execute(array($addressbookid));
+		if (\OC_DB::isError($result)) {
+			\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+			return null;
+		}
+		return (int)$result->fetchOne();
+	}
+
+	/**
 	 * Returns all contacts for a specific addressbook id.
 	 *
 	 * @param string $addressbookid

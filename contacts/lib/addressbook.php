@@ -176,6 +176,9 @@ class Addressbook extends PIMCollectionAbstract {
 			return false;
 		}
 		$id = $contact->getId();
+		if($this->count() !== null) {
+			$this->_count += 1;
+		}
 		\OCP\Util::writeLog('contacts', __METHOD__.' id: '.$id, \OCP\Util::DEBUG);
 		return $id;
 	}
@@ -191,9 +194,23 @@ class Addressbook extends PIMCollectionAbstract {
 			if(isset($this->objects[$id])) {
 				unset($this->objects[$id]);
 			}
+			if($this->count() !== null) {
+				$this->_count -= 1;
+			}
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * @internal implements Countable
+	 * @return int|null
+	 */
+	public function count() {
+		if(!isset($this->_count)) {
+			$this->_count = $this->backend->numContacts($this->getId());
+		}
+		return $this->_count;
 	}
 
 	/**
