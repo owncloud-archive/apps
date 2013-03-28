@@ -4,7 +4,7 @@
 	<name>Internal Messages</name>
 	<description>light system for sending and receiving messages.</description>
 	<licence>AGPL</licence>
-	<author>Jorge Rafael Garcia Ramos & Tharindu Dhananjaya Galappaththi</author>
+	<author>Jorge Rafael Garcia Ramos &amp; Tharindu Dhananjaya Galappaththi</author>
 	<version>1.0</version>
 	<require>4.9</require>
 </info>
