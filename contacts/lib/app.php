@@ -89,6 +89,15 @@ class App {
 			foreach(array_keys(self::$backendClasses) as $backendName) {
 				$backend = self::getBackend($backendName, $this->user);
 				$addressBooks = $backend->getAddressBooksForUser();
+				if($backendName === 'database' && count($addressBooks) === 0) {
+					$id = $backend->createAddressBook(array('displayname' => 'Contacts'));
+					if($id !== false) {
+						$addressBook = $backend->getAddressBook($id);
+						$addressBooks = array($addressBook);
+					} else {
+						// TODO: Write log
+					}
+				}
 				foreach($addressBooks as $addressBook) {
 					$addressBook['backend'] = $backendName;
 					self::$addressBooks[] = new AddressBook($backend, $addressBook);
