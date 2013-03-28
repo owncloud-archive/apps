@@ -119,6 +119,7 @@ class Addressbook extends PIMCollectionAbstract {
 	* @return Contact|null
 	*/
 	function getChild($id) {
+		//\OCP\Util::writeLog('contacts', __METHOD__.' id: '.$id, \OCP\Util::DEBUG);
 		if(!isset($this->objects[$id])) {
 			$contact = $this->backend->getContact($this->getId(), $id);
 			if($contact) {
@@ -170,20 +171,13 @@ class Addressbook extends PIMCollectionAbstract {
 	 * @return int|bool
 	 */
 	public function addChild($data = null) {
-		//if($data instanceof VObject\VCard || is_array($data)) {
-			$contact = new Contact($this, $this->backend, $data);
-			if($contact->save() === false) {
-				return false;
-			}
-			$id = $contact->getId();
-			$this->objects[$id] = $contact;
-			return $id;
-		/*} else {
-			throw new Exception(
-				__METHOD__
-				. ' This method accepts only an array or an instance of OCA\\Contacts\\VCard'
-			);
-		}*/
+		$contact = new Contact($this, $this->backend, $data);
+		if($contact->save() === false) {
+			return false;
+		}
+		$id = $contact->getId();
+		\OCP\Util::writeLog('contacts', __METHOD__.' id: '.$id, \OCP\Util::DEBUG);
+		return $id;
 	}
 
 	/**
