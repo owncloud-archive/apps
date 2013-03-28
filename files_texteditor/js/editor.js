@@ -312,6 +312,19 @@ $(document).ready(function () {
 			showFileEditor($('#dir').val(), filename);
 		});
 		FileActions.setDefault('inode/x-empty', 'Edit');
+		FileActions.register('application/x-php', 'Edit', OC.PERMISSION_READ, '', function (filename) {
+			showFileEditor($('#dir').val(), filename);
+		});
+		FileActions.setDefault('application/x-php', 'Edit');
+		FileActions.register('application/javascript', 'Edit', OC.PERMISSION_READ, '', function (filename) {
+			showFileEditor($('#dir').val(), filename);
+		});
+		FileActions.setDefault('application/javascript', 'Edit');
+		FileActions.register('application/x-pearl', 'Edit', OC.PERMISSION_READ, '', function (filename) {
+			showFileEditor($('#dir').val(), filename);
+		});
+		FileActions.setDefault('application/x-pearl', 'Edit');
+
 	}
 	OC.search.customResults.Text = function (row, item) {
 		var text = item.link.substr(item.link.indexOf('download') + 8);
