@@ -33,9 +33,24 @@ $l = new OC_L10n('imprint');
 
 OCP\App::registerAdmin ( 'imprint', 'settings' );
 OCP\Util::addStyle  ( 'imprint', 'imprint' );
-/* workaround for OC-4.x's chaotoc header layout */
+// workaround for OC-4.x's chaotoc header layout
 if (5>intval(substr(OC_Util::getVersionString(),0,1)))
 	OCP\Util::addStyle  ( 'imprint', 'imprint-oc4' );
+
+// backwards compatibility for OC5's global p() functions
+if ( ! function_exists('p'))
+{
+	function p($string) {
+		print(OC_Util::sanitizeHTML($string));
+	}
+}
+if ( ! function_exists('print_unescaped'))
+{
+	function print_unescaped($string) {
+		print($string);
+	}
+}
+
 // add link according to what position is selected inside the apps options
 switch ( OCP\Config::getAppValue( 'imprint', 'position', 'standalone' ) )
 {
