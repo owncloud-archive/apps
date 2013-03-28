@@ -90,11 +90,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 							break;
 					}
 				}
-			}/* else {
-				throw new Exception(
-					__METHOD__ . ' 3rd argument must either be an array or a subclass of \VObject\VCard'
-				);
-			}*/
+			}
 		}
 	}
 
@@ -297,8 +293,14 @@ class Contact extends VObject\VCard implements IPIMObject {
 						$this->props['displayname'] = $result['displayname'];
 						$this->props['permissions'] = $result['permissions'];
 					} else {
+						\OCP\Util::writeLog('contacts', __METHOD__
+							. ' Could not get vcard or carddata: '
+							. $this->getId()
+							. print_r($result, true), \OCP\Util::DEBUG);
 						return false;
 					}
+				} else {
+					\OCP\Util::writeLog('contacts', __METHOD__.' Error getting contact: ' . $this->getId(), \OCP\Util::DEBUG);
 				}
 			} elseif(isset($this->props['carddata'])) {
 				$data = $this->props['carddata'];
