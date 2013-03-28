@@ -27,6 +27,10 @@ namespace OCA\Contacts;
  */
 class Addressbook extends PIMCollectionAbstract {
 
+	protected $_count;
+	/**
+	 * @var Backend\AbstractBackend
+	 */
 	protected $backend;
 
 	/**
@@ -39,7 +43,7 @@ class Addressbook extends PIMCollectionAbstract {
 	 * 	'Etag'
 	 * 	'lastModified'
 	 *
-	 * @var string
+	 * @var array
 	 */
 	protected $addressBookInfo;
 
