@@ -557,7 +557,7 @@ OC.Contacts = OC.Contacts || {};
 						id: id,
 						type: 'category',
 						num: contacts.length,
-						name: escapeHTML(name)
+						name: name
 					});
 				self.categories.push({id: id, name: name});
 				$elem.data('obj', self);
