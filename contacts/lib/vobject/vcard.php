@@ -168,7 +168,7 @@ class VCard extends VObject\Component\VCard {
 				} elseif (isset($this->ORG)) {
 					$this->FN = (string)$this->ORG;
 				} elseif (isset($this->EMAIL)) {
-					$this->FN = (string)$this->EMAIL[0];
+					$this->FN = (string)$this->EMAIL;
 				}
 
 			}
@@ -208,7 +208,7 @@ class VCard extends VObject\Component\VCard {
 			foreach($this->children as &$property) {
 				$this->decodeProperty($property);
 				$this->formatPropertyTypes($property);
-				\OCP\Util::writeLog('contacts', __METHOD__.' upgrade: '.$property->name, \OCP\Util::DEBUG);
+				//\OCP\Util::writeLog('contacts', __METHOD__.' upgrade: '.$property->name, \OCP\Util::DEBUG);
 				switch((string)$property->name) {
 					case 'LOGO':
 					case 'SOUND':
