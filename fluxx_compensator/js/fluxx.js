@@ -31,10 +31,12 @@
 // add handle to navigation area
 $(document).ready(function(){
 	// setup handle objects
-	if ($('body header > #header').length)
-		OC.FluXX.Handle['H']=OC.FluXX.create('H', OC.FluXX.C_VERTICAL,   0, 'body header > #header');
-	if ($('body nav > #navigation').length)
-		OC.FluXX.Handle['N']=OC.FluXX.create('N', OC.FluXX.C_HORIZONTAL, 1, 'body nav > #navigation');
+	if ($('body#body-user, body#body-settings').length){
+		if ($('body header > #header').length)
+			OC.FluXX.Handle['H']=OC.FluXX.create('H', OC.FluXX.C_VERTICAL,   0, 'body header > #header');
+		if ($('body nav > #navigation').length)
+			OC.FluXX.Handle['N']=OC.FluXX.create('N', OC.FluXX.C_HORIZONTAL, 1, 'body nav > #navigation');
+	}
 	OC.FluXX.mode();
 	// initialize created handles
 	$.each(OC.FluXX.Handle, function(){
