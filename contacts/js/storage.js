@@ -264,6 +264,36 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	/**
+	 * Add contacts to a group
+	 *
+	 * @param array contactids
+	 */
+	Storage.prototype.addToGroup = function(contactids, categoryid) {
+		console.log('Storage.addToGroup', contactids, categoryid);
+		return this.requestRoute(
+			'contacts_categories_addto',
+			'POST',
+			{user: this.user, categoryid: categoryid},
+			{contactids: contactids}
+		);
+	}
+
+	/**
+	 * Remove contacts from a group
+	 *
+	 * @param array contactids
+	 */
+	Storage.prototype.removeFromGroup = function(contactids, categoryid) {
+		console.log('Storage.addToGroup', contactids, categoryid);
+		return this.requestRoute(
+			'contacts_categories_removefrom',
+			'POST',
+			{user: this.user, categoryid: categoryid},
+			{contactids: contactids}
+		);
+	}
+
+	/**
 	 * Set a user preference
 	 *
 	 * @param string key

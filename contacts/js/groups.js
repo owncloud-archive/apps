@@ -30,7 +30,7 @@ OC.Contacts = OC.Contacts || {};
 			if($(event.target).is('.action.delete')) {
 				var id = $(event.target).parents('h3').first().data('id');
 				self.deleteGroup(id, function(response) {
-					if(response.status !== 'success') {
+					if(response.error) {
 						OC.notify({message:response.data.message});
 					}
 				});
@@ -211,14 +211,8 @@ OC.Contacts = OC.Contacts || {};
 			console.warn('Invalid data type: ' + typeof contactid);
 		}
 		if(doPost) {
-			$.post(OC.filePath('contacts', 'ajax', 'categories/addto.php'), {contactids: ids, categoryid: groupid},function(jsondata) {
-				if(!jsondata) {
-					if(typeof cb === 'function') {
-						cb({status:'error', message:'Network or server error. Please inform administrator.'});
-					}
-					return;
-				}
-				if(jsondata.status === 'success') {
+			$.when(this.storage.addToGroup(ids, groupid)).then(function(response) {
+				if(!response.error) {
 					contacts = contacts.concat(ids).sort();
 					$groupelem.data('contacts', contacts);
 					var $numelem = $groupelem.find('.numcontacts');
@@ -237,7 +231,7 @@ OC.Contacts = OC.Contacts || {};
 					}
 				} else {
 					if(typeof cb == 'function') {
-						cb({status:'error', message:jsondata.data.message});
+						cb({status:'error', message:response.message});
 					}
 				}
 			});
@@ -300,15 +294,8 @@ OC.Contacts = OC.Contacts || {};
 			}
 		}
 		if(doPost) {
-			// TODO: Use Storage
-			$.post(OC.filePath('contacts', 'ajax', 'categories/removefrom.php'), {contactids: ids, categoryid: groupid},function(jsondata) {
-				if(!jsondata) {
-					if(typeof cb === 'function') {
-						cb({status:'error', message:'Network or server error. Please inform administrator.'});
-					}
-					return;
-				}
-				if(jsondata.status === 'success') {
+			$.when(this.storage.removeFromGroup(ids, groupid)).then(function(response) {
+				if(!response.error) {
 					$.each(ids, function(idx, id) {
 						contacts.splice(contacts.indexOf(id), 1);
 					});
@@ -324,7 +311,7 @@ OC.Contacts = OC.Contacts || {};
 					}
 				} else {
 					if(typeof cb == 'function') {
-						cb({status:'error', message:jsondata.data.message});
+						cb({status:'error', message:response.message});
 					}
 				}
 			});
@@ -399,7 +386,7 @@ OC.Contacts = OC.Contacts || {};
 		var self = this;
 		console.log('delete group', groupid, contacts);
 		$.when(this.storage.deleteGroup(name)).then(function(response) {
-			if (response && response.status == 'success') {
+			if (!response.error) {
 				$(document).trigger('status.group.groupremoved', {
 					groupid: groupid,
 					newgroupid: parseInt($newelem.data('id')),
@@ -409,7 +396,7 @@ OC.Contacts = OC.Contacts || {};
 				$elem.remove();
 				self.selectGroup({element:$newelem});
 			} else {
-				//
+				console.log('Error', response);
 			}
 			if(typeof cb === 'function') {
 				cb(response);
@@ -449,7 +436,7 @@ OC.Contacts = OC.Contacts || {};
 			$input.prop('disabled', true);
 			$elem.data('rawname', '');
 			self.addGroup({name:name, element: $elem}, function(response) {
-				if(response.status === 'success') {
+				if(!response.error) {
 					$elem.prepend(escapeHTML(response.name)).removeClass('editing').attr('data-id', response.id);
 					$input.next('.checked').remove();
 					$input.remove();
@@ -554,7 +541,7 @@ OC.Contacts = OC.Contacts || {};
 			return;
 		}
 		$.when(this.storage.addGroup(name)).then(function(response) {
-			if (response && response.status == 'success') {
+			if (!response.error) {
 				name = response.data.name;
 				var id = response.data.id;
 				var tmpl = self.$groupListItemTemplate;
@@ -586,11 +573,11 @@ OC.Contacts = OC.Contacts || {};
 				$elem.tipsy({trigger:'manual', gravity:'w', fallback: t('contacts', 'You can drag groups to\narrange them as you like.')});
 				$elem.tipsy('show');
 				if(typeof cb === 'function') {
-					cb({status:'success', id:parseInt(id), name:name});
+					cb({id:parseInt(id), name:name});
 				}
 			} else {
 				if(typeof cb === 'function') {
-					cb({status:'error', message:response.data.message});
+					cb({error:true, message:response.data.message});
 				}
 			}
 		})

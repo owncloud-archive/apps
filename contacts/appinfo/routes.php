@@ -150,7 +150,7 @@ $this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/
 	->action(
 		function($params) {
 			session_write_close();
-			$request = new Request($params);
+			$request = new Request(array('urlParams' => $params));
 			$name = $request->post['name'];
 			$checksum = $request->post['checksum'];
 
@@ -202,7 +202,7 @@ $this->create('contacts_contact_save_property', 'addressbook/{user}/{backend}/{a
 	->action(
 		function($params) {
 			session_write_close();
-			$request = new Request($params);
+			$request = new Request(array('urlParams' => $params));
 			// TODO: When value is empty unset the property and return a checksum of 'new' if multi_property
 			$name = $request->post['name'];
 			$value = $request->post['value'];
@@ -288,7 +288,7 @@ $this->create('contacts_categories_add', 'groups/{user}/add')
 	->action(
 		function($params) {
 			session_write_close();
-			$request = new Request($params);
+			$request = new Request(array('urlParams' => $params));
 			$name = $request->post['name'];
 
 			if(is_null($name) || $name === "") {
@@ -312,7 +312,7 @@ $this->create('contacts_categories_delete', 'groups/{user}/delete')
 	->action(
 		function($params) {
 			session_write_close();
-			$request = new Request($params);
+			$request = new Request(array('urlParams' => $params));
 			$name = $request->post['name'];
 
 			if(is_null($name) || $name === "") {
@@ -321,6 +321,64 @@ $this->create('contacts_categories_delete', 'groups/{user}/delete')
 
 			$catman = new \OC_VCategories('contact', $params['user']);
 			$catman->delete($name);
+
+			\OCP\JSON::success();
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
+$this->create('contacts_categories_addto', 'groups/{user}/addto/{categoryid}')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			$request = new Request(array('urlParams' => $params));
+			$categoryid = $request['categoryid'];
+			$ids = $request['contactids'];
+			debug('request: '.print_r($request->post, true));
+
+			if(is_null($categoryid) || $categoryid === '') {
+				bailOut(App::$l10n->t('Group ID missing from request.'));
+			}
+
+			if(is_null($ids)) {
+				bailOut(App::$l10n->t('Contact ID missing from request.'));
+			}
+
+			$catman = new \OC_VCategories('contact', $params['user']);
+			foreach($ids as $contactid) {
+				debug('contactid: ' . $contactid . ', categoryid: ' . $categoryid);
+				$catman->addToCategory($contactid, $categoryid);
+			}
+
+			\OCP\JSON::success();
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
+$this->create('contacts_categories_removefrom', 'groups/{user}/removefrom/{categoryid}')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			$request = new Request(array('urlParams' => $params));
+			$categoryid = $request['categoryid'];
+			$ids = $request['contactids'];
+			debug('request: '.print_r($request->post, true));
+
+			if(is_null($categoryid) || $categoryid === '') {
+				bailOut(App::$l10n->t('Group ID missing from request.'));
+			}
+
+			if(is_null($ids)) {
+				bailOut(App::$l10n->t('Contact ID missing from request.'));
+			}
+
+			$catman = new \OC_VCategories('contact', $params['user']);
+			foreach($ids as $contactid) {
+				debug('contactid: ' . $contactid . ', categoryid: ' . $categoryid);
+				$catman->removeFromCategory($contactid, $categoryid);
+			}
 
 			\OCP\JSON::success();
 		}
