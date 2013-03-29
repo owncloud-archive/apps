@@ -408,7 +408,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 				if(is_array($value)) {
 					$property->setParts($value);
 				} else {
-					debug('Saving N ' . $value);
+					debug('Saving ADR ' . $value);
 					$property->setValue($value);
 				}
 				break;
