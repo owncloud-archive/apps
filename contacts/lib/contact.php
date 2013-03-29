@@ -393,7 +393,12 @@ class Contact extends VObject\VCard implements IPIMObject {
 	* @return string new checksum
 	*/
 	public function setPropertyByChecksum($checksum, $name, $value, $parameters=array()) {
-		$property = $this->getPropertyByChecksum($checksum);
+		if($checksum === 'new') {
+			$property = Property::create($name);
+			$this->add($property);
+		} else {
+			$property = $this->getPropertyByChecksum($checksum);
+		}
 		switch($name) {
 			case 'EMAIL':
 				$value = strtolower($value);
