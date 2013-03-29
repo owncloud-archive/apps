@@ -44,11 +44,13 @@ class Database extends AbstractBackend {
 	public function __construct(
 		$userid = null,
 		$addressBooksTableName = '*PREFIX*contacts_addressbooks',
-		$cardsTableName = '*PREFIX*contacts_cards'
+		$cardsTableName = '*PREFIX*contacts_cards',
+		$indexTableName = '*PREFIX*contacts_cards_properties'
 	) {
 		$this->userid = $userid ? $userid : \OCP\User::getUser();
 		$this->addressBooksTableName = $addressBooksTableName;
 		$this->cardsTableName = $cardsTableName;
+		$this->indexTableName = $indexTableName;
 		$this->addressbooks = array();
 	}
 
@@ -235,18 +237,59 @@ class Database extends AbstractBackend {
 	/**
 	 * Deletes an entire addressbook and all its contents
 	 *
+	 * TODO: Delete contacts as well.
 	 * @param string $addressbookid
 	 * @return bool
 	 */
 	public function deleteAddressBook($addressbookid) {
-		\OC_Hook::emit('\OCA\Contacts', 'pre_deleteAddressBook',
+		\OC_Hook::emit('OCA\Contacts', 'pre_deleteAddressBook',
 			array('id' => $addressbookid)
 		);
 
+		// Clean up sharing
+		\OCP\Share::unshareAll('addressbook', $addressbookid);
+
+		// Get all contact ids for this address book
+		$ids = array();
+		$result = null;
+		$stmt = \OCP\DB::prepare('SELECT `id` FROM `' . $this->cardsTableName . '`'
+					. ' WHERE `addressbookid` = ?');
+		try {
+			$result = $stmt->execute(array($addressbookid));
+			if (\OC_DB::isError($result)) {
+				\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: '
+					. \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
+				return;
+			}
+		} catch(\Exception $e) {
+			\OCP\Util::writeLog('contacts', __METHOD__.
+				', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
+			return;
+		}
+
+		if(!is_null($result)) {
+			while($id = $result->fetchOne()) {
+				$ids[] = $id;
+			}
+		}
+
+		// Purge contact property indexes
+		$stmt = \OCP\DB::prepare('DELETE FROM `' . $this->indexTableName
+			.'` WHERE `contactid` IN ('.str_repeat('?,', count($ids)-1).'?)');
+		try {
+			$stmt->execute($ids);
+		} catch(\Exception $e) {
+			\OCP\Util::writeLog('contacts', __METHOD__.
+				', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
+		}
+
+		// Purge categories
+		$catctrl = new \OC_VCategories('contact');
+		$catctrl->purgeObjects($ids);
+
 		if(!isset(self::$preparedQueries['deleteaddressbookcontacts'])) {
 			self::$preparedQueries['deleteaddressbookcontacts'] =
-				\OCP\DB::prepare('DELETE FROM `'
-					. $this->cardsTableName
+				\OCP\DB::prepare('DELETE FROM `' . $this->cardsTableName
 					. '` WHERE `addressbookid` = ?');
 		}
 		try {
@@ -504,8 +547,8 @@ class Database extends AbstractBackend {
 		$newid = \OCP\DB::insertid($this->cardsTableName);
 
 		$this->touchAddressBook($addressbookid);
-		\OC_Hook::emit('\OCA\Contacts', 'post_createContact',
-			array('id' => $newid, 'contact' => $contact)
+		\OC_Hook::emit('OCA\Contacts', 'post_createContact',
+			array('id' => $newid, 'parent' => $addressbookid, 'contact' => $contact)
 		);
 		return (string)$newid;
 	}
@@ -577,8 +620,8 @@ class Database extends AbstractBackend {
 		}
 
 		$this->touchAddressBook($addressbookid);
-		\OC_Hook::emit('\OCA\Contacts', 'post_updateContact',
-			array('id' => $id, 'contact' => $contact)
+		\OC_Hook::emit('OCA\Contacts', 'post_updateContact',
+			array('id' => $id, 'parent' => $addressbookid, 'contact' => $contact)
 		);
 		return true;
 	}
@@ -610,7 +653,7 @@ class Database extends AbstractBackend {
 		} else {
 			$qname = 'deletecontactsbyid';
 		}
-		\OC_Hook::emit('\OCA\Contacts', 'pre_deleteContact',
+		\OC_Hook::emit('OCA\Contacts', 'pre_deleteContact',
 			array('id' => $id)
 		);
 		if(!isset(self::$preparedQueries[$qname])) {

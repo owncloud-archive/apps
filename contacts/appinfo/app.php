@@ -43,7 +43,7 @@ Sabre\VObject\Property::$classMap['GEO'] = 'Sabre\VObject\Property\Compound';
 
 OCP\Util::connectHook('OC_User', 'post_createUser', 'OCA\Contacts\Hooks', 'userCreated');
 OCP\Util::connectHook('OC_User', 'post_deleteUser', 'OCA\Contacts\Hooks', 'userDeleted');
-OCP\Util::connectHook('OCA\Contacts', 'pre_deleteAddressBook', 'OCA\Contacts\Hooks', 'addresBookDeletion');
+OCP\Util::connectHook('OCA\Contacts', 'pre_deleteAddressBook', 'OCA\Contacts\Hooks', 'addressBookDeletion');
 OCP\Util::connectHook('OCA\Contacts', 'pre_deleteContact', 'OCA\Contacts\Hooks', 'contactDeletion');
 OCP\Util::connectHook('OCA\Contacts', 'post_createContact', 'OCA\Contacts\Hooks', 'contactUpdated');
 OCP\Util::connectHook('OCA\Contacts', 'post_updateContact', 'OCA\Contacts\Hooks', 'contactUpdated');

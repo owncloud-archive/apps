@@ -233,7 +233,7 @@ OC.Contacts = OC.Contacts || {
 		this.$ninjahelp = $('#ninjahelp');
 		this.$firstRun = $('#firstrun');
 		this.$settings = $('#contacts-settings');
-		this.$importFileInput = $('#import_fileupload');
+		this.$importFileInput = $('#import_upload_start');
 		this.$importIntoSelect = $('#import_into');
 	},
 	// Build the select to add/remove from groups.
@@ -809,7 +809,7 @@ OC.Contacts = OC.Contacts || {
 				var id = parseInt($(this).parents('li').first().data('id'));
 				console.log('delete', id);
 				var $li = $(this).parents('li').first();
-				$.when(this.storage.deleteAddressBook('database',{addressbookid:id}))
+				$.when(self.storage.deleteAddressBook('database',id))
 					.then(function(response) {
 					if(!response.error) {
 						self.contacts.unsetAddressbook(id);
@@ -1060,14 +1060,28 @@ OC.Contacts = OC.Contacts || {
 
 		// Import using jquery.fileupload
 		$(function() {
-			var uploadingFiles = {}, numfiles = 0, uploadedfiles = 0, retries = 0;
+			var uploadingFiles = {},
+				numfiles = 0,
+				uploadedfiles = 0,
+				importedfiles = 0,
+				retries = 0,
+				succeded = 0
+				failed = 0;
 			var aid, importError = false;
 			var $progressbar = $('#import-progress');
 			var $status = $('#import-status-text');
 
+			self.$importFileInput.on('fileuploaddone', function(e, data) {
+				console.log('fileuploaddone', data);
+				var file = data.result.file;
+				console.log('fileuploaddone, file', file);
+				uploadedfiles += 1;
+			});
+
 			var waitForImport = function() {
-				if(numfiles == 0 && uploadedfiles == 0) {
-					$progressbar.progressbar('value',100);
+				console.log('waitForImport', numfiles, uploadedfiles, importedfiles);
+				if(uploadedfiles === importedfiles && importedfiles === numfiles) {
+					$progressbar.progressbar('value', 100);
 					if(!importError) {
 						OC.notify({
 							message:t('contacts','Import done. Click here to cancel reloading.'),
@@ -1082,7 +1096,9 @@ OC.Contacts = OC.Contacts || {
 							}
 						});
 					}
-					retries = aid = 0;
+					$status.text(t('contacts', '{success} imported, {failed} failed.',
+						{success:succeded, failed:failed})).fadeIn();
+					numfiles = uploadedfiles = importedfiles = retries = aid = failed = succeded = 0;
 					$progressbar.fadeOut();
 					setTimeout(function() {
 						$status.fadeOut('slow');
@@ -1110,11 +1126,11 @@ OC.Contacts = OC.Contacts || {
 
 			var importFiles = function(aid, uploadingFiles) {
 				console.log('importFiles', aid, uploadingFiles);
-				if(numfiles != uploadedfiles) {
+				if(numfiles !== uploadedfiles) {
 					OC.notify({message:t('contacts', 'Not all files uploaded. Retrying...')});
 					retries += 1;
 					if(retries > 3) {
-						numfiles = uploadedfiles = retries = aid = 0;
+						numfiles = uploadedfiles = importedfiles = retries = failed = succeded = aid = 0;
 						uploadingFiles = {};
 						$progressbar.fadeOut();
 						OC.dialogs.alert(t('contacts', 'Something went wrong with the upload, please retry.'), t('contacts', 'Error'));
@@ -1130,14 +1146,19 @@ OC.Contacts = OC.Contacts || {
 					$status.text(t('contacts', 'Importing from {filename}...', {filename:fileName})).fadeIn();
 					doImport(fileName, aid, function(response) {
 						if(response.status === 'success') {
-							$status.text(t('contacts', '{success} imported, {failed} failed.',
-								{success:response.data.imported, failed:response.data.failed})).fadeIn();
+							importedfiles += 1;
+							succeded += response.data.imported;
+							failed += response.data.failed;
+							OC.notify({
+								message:t('contacts', '{success} imported, {failed} failed from {file}',
+									{success:response.data.imported, failed:response.data.failed, file:response.data.failed}
+								)
+							});
 						} else {
 							$('.import-upload').show();
 							$('.import-select').hide();
 						}
 						delete uploadingFiles[fileName];
-						numfiles -= 1; uploadedfiles -= 1;
 						$progressbar.progressbar('value',50+(50/(todo-uploadedfiles)));
 					});
 				});
@@ -1155,80 +1176,34 @@ OC.Contacts = OC.Contacts || {
 				importFiles(aid, uploadingFiles);
 			});
 
-			$('#import_fileupload').fileupload({
+			self.$importFileInput.fileupload({
 				acceptFileTypes:  /^text\/(directory|vcard|x-vcard)$/i,
 				add: function(e, data) {
-					var files = data.files;
+					var file = data.files[0];
+					console.log('add', file.name);
 					var totalSize=0;
-					if(files) {
-						numfiles += files.length; uploadedfiles = 0;
-						for(var i=0;i<files.length;i++) {
-							if(files[i].size ==0 && files[i].type== '') {
-								OC.dialogs.alert(t('files', 'Unable to upload your file as it is a directory or has 0 bytes'), t('files', 'Upload Error'));
-								return;
-							}
-							totalSize+=files[i].size;
+					if(file) {
+						numfiles += 1;
+						if(file.size === 0 || file.type== '') {
+							OC.dialogs.alert(t('contacts', 'Unable to upload your file as it is a directory or has 0 bytes'), t('contacts', 'Upload Error'));
+							return;
 						}
+						totalSize+=file.size;
 					}
 					if(totalSize>$('#max_upload').val()) {
 						OC.dialogs.alert(t('contacts','The file you are trying to upload exceed the maximum size for file uploads on this server.'), t('contacts','Upload too large'));
-						numfiles = uploadedfiles = retries = aid = 0;
+						numfiles = uploadedfiles = importedfiles = retries = failed = succeded = aid = 0;
 						uploadingFiles = {};
 						return;
-					} else {
-						if($.support.xhrFileUpload) {
-							$.each(files, function(i, file) {
-								var fileName = file.name;
-								console.log('file.name', file.name);
-								var jqXHR = $('#import_fileupload').fileupload('send',
-									{
-									files: file,
-									formData: function(form) {
-										var formArray = form.serializeArray();
-										formArray['aid'] = aid;
-										return formArray;
-									}})
-									.success(function(response, textStatus, jqXHR) {
-										if(response.status == 'success') {
-											// import the file
-											uploadedfiles += 1;
-										} else {
-											OC.notify({message:response.data.message});
-											$('.import-upload').show();
-											$('.import-select').hide();
-											$('#import-progress').hide();
-											$('#import-status-text').hide();
-										}
-										return false;
-									})
-									.error(function(jqXHR, textStatus, errorThrown) {
-										console.log(textStatus);
-										OC.notify({message:errorThrown + ': ' + textStatus});
-									});
-								uploadingFiles[fileName] = jqXHR;
-							});
-						} else {
-							data.submit().success(function(data, status) {
-								response = jQuery.parseJSON(data[0].body.innerText);
-								if(response[0] != undefined && response[0].status == 'success') {
-									var file=response[0];
-									delete uploadingFiles[file.name];
-									$('tr').filterAttr('data-file',file.name).data('mime',file.mime);
-									var size = $('tr').filterAttr('data-file',file.name).find('td.filesize').text();
-									if(size==t('files','Pending')){
-										$('tr').filterAttr('data-file',file.name).find('td.filesize').text(file.size);
-									}
-									FileList.loadingDone(file.name);
-								} else {
-									OC.notify({message:response.data.message});
-								}
-							});
-						}
 					}
+					var jqXHR = data.submit();
+					uploadingFiles[file.name] = jqXHR;
+
 				},
 				fail: function(e, data) {
 					console.log('fail');
 					OC.notify({message:data.errorThrown + ': ' + data.textStatus});
+					numfiles = uploadedfiles = importedfiles = retries = failed = succeded = aid = 0;
 					$('.import-upload').show();
 					$('.import-select').hide();
 					// TODO: Remove file from upload queue.
@@ -1240,19 +1215,12 @@ OC.Contacts = OC.Contacts || {
 				start: function(e, data) {
 					$progressbar.progressbar({value:0});
 					$progressbar.fadeIn();
-					if(data.dataType != 'iframe ') {
-						$('#upload input.stop').show();
-					}
 				},
 				stop: function(e, data) {
 					console.log('stop, data', data);
 					// stop only gets fired once so we collect uploaded items here.
 					$('.import-upload').hide();
 					$('.import-select').show();
-
-					if(data.dataType != 'iframe ') {
-						$('#upload input.stop').hide();
-					}
 				}
 			});
 		});

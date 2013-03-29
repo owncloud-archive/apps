@@ -28,14 +28,19 @@
 			<h2 data-id="import" tabindex="0" role="button"><?php p($l->t('Import')); ?></h2>
 				<ul class="hidden">
 					<li class="import-upload">
-						<form id="import_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadimport.php')); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
+						<form
+							id="import_upload_form"
+							data-upload-id="1"
+							action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadimport.php')); ?>"
+							method="post" enctype="multipart/form-data"
+							target="import_upload_target_1">
 						<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
-						<label for="import_fileupload"><?php p($l->t('Select files to import')); ?>
+						<label for="import_upload_start"><?php p($l->t('Select files to import')); ?>
 							<button class="import-upload-button" title="<?php p($l->t('Select files')); ?>"></button>
 						</label>
-						<input id="import_fileupload" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" name="importfile" />
+						<input id="import_upload_start" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" name="file" />
 						</form>
-						<iframe name="import_upload_target" id='import_upload_target' src=""></iframe>
+						<!-- iframe name="import_upload_target" id='import_upload_target' src=""></iframe -->
 					</li>
 					<li class="import-select hidden"><label><?php p($l->t('Import into:')); ?></label></li>
 					<li class="import-select hidden">

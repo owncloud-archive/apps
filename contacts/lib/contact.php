@@ -59,7 +59,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 
 		if(!is_null($data)) {
 			if($data instanceof VObject\VCard) {
-				foreach($obj->children as $child) {
+				foreach($data->children as $child) {
 					$this->add($child);
 					$this->setRetrieved(true);
 				}

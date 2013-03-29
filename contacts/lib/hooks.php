@@ -57,15 +57,9 @@ class Hooks{
 		$addressbook = $backend->getAddressBooksForUser($parameters['uid']);
 
 		foreach($addressbooks as $addressbook) {
-			$contacts = $backend->getContacts($addressbook['id'], null, null, true);
-			foreach($contacts as $contact) {
-				$backend->deleteContact($addressbook['id'], $contact['id']);
-			}
-			\OCP\Share::unshareAll('addressbook', $addressbook['id']);
+			// Purging of contact categories and and properties is done by backend.
 			$backend->deleteAddressBook($addressbook['id']);
 		}
-
-		return true;
 	}
 
 	/**
@@ -75,9 +69,8 @@ class Hooks{
 	}
 
 	public static function contactDeletion($parameters) {
-		// TODO: Purge contact index
 		$catctrl = new \OC_VCategories('contact');
-		$catctrl->purgeObject($parameters['id']);
+		$catctrl->purgeObjects(array($parameters['id']));
 		Utils\Properties::updateIndex($parameters['id']);
 
 		// Contact sharing not implemented, but keep for future.
@@ -85,6 +78,9 @@ class Hooks{
 	}
 
 	public static function contactUpdated($parameters) {
+		//\OCP\Util::writeLog('contacts', __METHOD__.' parameters: '.print_r($parameters, true), \OCP\Util::DEBUG);
+		$catctrl = new \OC_VCategories('contact');
+		$catctrl->loadFromVObject($parameters['id'], new \OC_VObject($parameters['contact']), true);
 		Utils\Properties::updateIndex($parameters['id'], $parameters['contact']);
 	}
 

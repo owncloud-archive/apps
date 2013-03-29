@@ -1911,14 +1911,14 @@ OC.Contacts = OC.Contacts || {};
 									self.setCurrent(self.$contactList.find('tr:visible').first().data('id'), false);
 								}
 								, 2000);
-								$(document).trigger('status.contacts.loaded', {
-									status: true,
-									numcontacts: self.length,
-									is_indexed: true // FIXME: jsondata.data.is_indexed
-								});
-								if(self.length === 0) {
-									$(document).trigger('status.nomorecontacts');
-								}
+							}
+							$(document).trigger('status.contacts.loaded', {
+								status: true,
+								numcontacts: self.length,
+								is_indexed: true // FIXME: jsondata.data.is_indexed
+							});
+							if(self.length === 0) {
+								$(document).trigger('status.nomorecontacts');
 							}
 							if(cbresponse.error) {
 								$(document).trigger('status.contact.error', {

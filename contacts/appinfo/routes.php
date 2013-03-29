@@ -105,9 +105,7 @@ $this->create('contacts_address_book_delete', 'addressbook/{user}/{backend}/{add
 			if(!$backend->deleteAddressBook($params['addressbookid'])) {
 				bailOut(App::$l10n->t('Error deleting address book'));
 			}
-			\OCP\JSON::success(array(
-				'data' => $backend->getAddressBook($id)
-			));
+			\OCP\JSON::success();
 		}
 	)
 	->defaults(array('user' => \OCP\User::getUser()));

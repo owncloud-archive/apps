@@ -28,6 +28,8 @@ Class Properties {
 
 	private static $deleteindexstmt;
 	private static $updateindexstmt;
+	protected static $cardsTableName = '*PREFIX*contacts_cards';
+	protected static $indexTableName = '*PREFIX*contacts_cards_properties';
 
 	/**
 	 * @brief language object for calendar app
@@ -197,7 +199,7 @@ Class Properties {
 	public static function updateIndex($contactid, $vcard = null) {
 		if(!isset(self::$deleteindexstmt)) {
 			self::$deleteindexstmt
-				= \OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_cards_properties`'
+				= \OCP\DB::prepare('DELETE FROM `' . self::$indexTableName . '`'
 					. ' WHERE `contactid` = ?');
 		}
 		try {
@@ -219,7 +221,7 @@ Class Properties {
 		}
 
 		if(!isset(self::$updateindexstmt)) {
-			self::$updateindexstmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_cards_properties` '
+			self::$updateindexstmt = \OCP\DB::prepare( 'INSERT INTO `' . self::$indexTableName . '` '
 				. '(`userid`, `contactid`,`name`,`value`,`preferred`) VALUES(?,?,?,?,?)' );
 		}
 		foreach($vcard->children as $property) {
