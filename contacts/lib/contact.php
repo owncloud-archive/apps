@@ -22,6 +22,8 @@
 
 namespace OCA\Contacts;
 
+use Sabre\VObject\Property;
+
 /**
  * Subclass this class or implement IPIMObject interface for PIM objects
  */
@@ -363,7 +365,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 				return $property;
 			}
 		}
-		throw new Exception('Property not found', 404);
+		throw new \Exception('Property not found', 404);
 	}
 
 	/**
