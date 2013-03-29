@@ -162,7 +162,7 @@ OC.FluXX={
 	}, // OC.FluXX.generate
 	/**
 	* @method OC.FluXX.hide
-	* @brief Hide the navigation area if visible
+	* @brief Hide the panel if visible
 	* @author Christian Reiner
 	*/
 	hide:function(handle){
@@ -181,7 +181,7 @@ OC.FluXX={
 	}, // OC.FluXX.hide
 	/**
 	* @method OC.FluXX.limit
-	* @brief Hide the navigation area if visible
+	* @brief Compute limits for the handles positions
 	* @author Christian Reiner
 	*/
 	limit:function(handle){
@@ -194,7 +194,11 @@ OC.FluXX={
 	}, // OC.FluXX.limit
 	/**
 	* @method OC.FluXX.mode
-	* @brief Hide the navigation area if visible
+	* @brief Set global app mode
+	* @description 
+	* Depending on the active app the global html root element is marked with a css class. 
+	* That class controls any actions or compensations that might be required by that apps apge layout. 
+	* This way all changes and animations can later be done purely in css, as opposed to js. 
 	* @author Christian Reiner
 	*/
 	mode:function(){
@@ -222,7 +226,7 @@ OC.FluXX={
 	}, // OC.FluXX.mode
 	/**
 	* @method OC.FluXX.move
-	* @brief Hide the navigation area if visible
+	* @brief Moves the handle when dragging it.
 	* @author Christian Reiner
 	*/
 	move:function(handle){
@@ -264,7 +268,7 @@ OC.FluXX={
 	}, // OC.FluXX.move
 	/**
 	* @method OC.FluXX.position
-	* @brief Hide the navigation area if visible
+	* @brief Position handle upon drag action
 	* @author Christian Reiner
 	*/
 	position:function(handle, pos){
@@ -281,7 +285,7 @@ OC.FluXX={
 	}, // OC.FluXX.position
 	/**
 	* @method OC.FluXX.show
-	* @brief Hide the navigation area if visible
+	* @brief Show the panel if visible
 	* @author Christian Reiner
 	*/
 	show:function(handle){
@@ -300,7 +304,7 @@ OC.FluXX={
 	}, // OC.FluXX.show
 	/**
 	* @method OC.FluXX.state
-	* @brief mark current state of the compensator
+	* @brief Mark current state of the compensator
 	* @author Christian Reiner
 	*/
 	state:function(handle,shown){
