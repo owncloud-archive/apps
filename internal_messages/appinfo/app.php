@@ -1,6 +1,6 @@
 <?php
 
-require_once 'apps/internal_messages/lib/internalmessages.php';
+OC::$CLASSPATH['OC_INT_MESSAGES'] = 'internal_messages/lib/internalmessages.php';
 
 OCP\Util::addscript('internal_messages','messages');
 OCP\Util::addStyle ('internal_messages','style');
