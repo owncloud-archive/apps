@@ -590,7 +590,7 @@ OC.Contacts = OC.Contacts || {};
 			if($elements.length > 1) {
 				args['value'] = [];
 				$.each($elements, function(idx, e) {
-					args['value'].push($(e).text());
+					args['value'].push($(e).val());
 				});
 			} else {
 				args['value'] = $elements.val();
