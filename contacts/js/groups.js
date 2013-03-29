@@ -351,7 +351,7 @@ OC.Contacts = OC.Contacts || {};
 		var dragitem = ui.draggable, droptarget = $(this);
 		console.log('dropped', dragitem);
 		if(dragitem.is('.name')) {
-			var id = dragitem.parent().data('id');
+			var id = String(dragitem.parent().data('id'));
 			console.log('contact dropped', id, 'on', $(this).data('id'));
 			if($(this).data('type') === 'fav') {
 				$(this).data('obj').setAsFavorite(id, true);

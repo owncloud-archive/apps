@@ -657,7 +657,7 @@ OC.Contacts = OC.Contacts || {
 				console.log('add group...');
 				self.$groups.val(-1);
 				self.addGroup(function(response) {
-					if(response.status === 'success') {
+					if(!response.error) {
 						groupId = response.id;
 						groupName = response.name;
 						self.groups.addTo(ids, groupId, function(result) {
@@ -1338,7 +1338,7 @@ OC.Contacts = OC.Contacts || {
 							if(typeof cb === 'function') {
 								cb(response);
 							} else {
-								if(response.status !== 'success') {
+								if(response.error) {
 									OC.notify({message: response.message});
 								}
 							}
