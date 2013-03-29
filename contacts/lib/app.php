@@ -172,19 +172,6 @@ class App {
 	}
 
 	/**
-	* @brief returns the default categories of ownCloud
-	* @return (array) $categories
-	*/
-	public static function getDefaultCategories() {
-		return array(
-			(string)self::$l10n->t('Friends'),
-			(string)self::$l10n->t('Family'),
-			(string)self::$l10n->t('Work'),
-			(string)self::$l10n->t('Other'),
-		);
-	}
-
-	/**
 	 * scan vcards for categories.
 	 * @param $vccontacts VCards to scan. null to check all vcards for the current user.
 	 */
