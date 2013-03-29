@@ -36,7 +36,7 @@ Apps repo
 | search | [@andrewsbrown]
 | search_lucene | [@butonic]
 | tasks | [@bartv2]
-| tattoo | [@blizzz]
+| tattoo | [@ldidry]
 | updater | [@VicDeo]
 | user_cas | [@pitbulk]
 | user_external | [@icewind1991]
