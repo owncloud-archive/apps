@@ -387,10 +387,16 @@ OC.Contacts = OC.Contacts || {};
 		console.log('delete group', groupid, contacts);
 		$.when(this.storage.deleteGroup(name)).then(function(response) {
 			if (!response.error) {
+				$.each(self.categories, function(idx, category) {
+					if(category.id === groupid) {
+						self.categories.splice(self.categories.indexOf(category), 1);
+						return false; // Break loop
+					}
+				});
 				$(document).trigger('status.group.groupremoved', {
 					groupid: groupid,
 					newgroupid: parseInt($newelem.data('id')),
-					groupname: self.nameById(groupid),
+					groupname: name,
 					contacts: contacts
 				});
 				$elem.remove();
