@@ -517,7 +517,7 @@ class Database extends AbstractBackend {
 		$appinfo = \OCP\App::getAppInfo('contacts');
 		$appversion = \OCP\App::getAppVersion('contacts');
 		$prodid = '-//ownCloud//NONSGML '.$appinfo['name'].' '.$appversion.'//EN';
-		$contact->add('PRODID', $prodid);
+		$contact->PRODID = $prodid;
 
 		$data = $contact->serialize();
 		if(!isset(self::$preparedQueries['createcontact'])) {
