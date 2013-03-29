@@ -700,7 +700,7 @@ OC.Contacts = OC.Contacts || {};
 		if(typeof this.$dragelem === 'undefined') {
 			this.$dragelem = this.$dragTemplate.octemplate({
 				id: this.id,
-				name: this.getPreferredValue('FN', '')
+				name: escapeHTML(this.getPreferredValue('FN', ''))
 			});
 		}
 		return this.$dragelem;
@@ -715,10 +715,10 @@ OC.Contacts = OC.Contacts || {};
 			id: this.id,
 			parent: this.metadata.parent,
 			backend: this.metadata.backend,
-			name: isnew ? escapeHTML(this.getPreferredValue('FN', '')) : this.getPreferredValue('FN', ''),
-			email: isnew ? escapeHTML(this.getPreferredValue('EMAIL', '')) : this.getPreferredValue('EMAIL', ''),
-			tel: isnew ? escapeHTML(this.getPreferredValue('TEL', '')) : this.getPreferredValue('TEL', ''),
-			adr: isnew ? escapeHTML(this.getPreferredValue('ADR', []).clean('').join(', ')) : this.getPreferredValue('ADR', []).clean('').join(', '),
+			name: escapeHTML(this.getPreferredValue('FN', '')),
+			email: escapeHTML(this.getPreferredValue('EMAIL', '')),
+			tel: escapeHTML(this.getPreferredValue('TEL', '')),
+			adr: escapeHTML(this.getPreferredValue('ADR', []).clean('').join(', ')),
 			categories: this.getPreferredValue('CATEGORIES', [])
 				.clean('').join(' / ')
 		});
@@ -805,17 +805,17 @@ OC.Contacts = OC.Contacts || {};
 			? {
 				id: this.id,
 				favorite:groupprops.favorite ? 'active' : '',
-				name: this.getPreferredValue('FN', ''),
+				name: escapeHTML(this.getPreferredValue('FN', '')),
 				n0: n[0]||'', n1: n[1]||'', n2: n[2]||'', n3: n[3]||'', n4: n[4]||'',
-				nickname: this.getPreferredValue('NICKNAME', ''),
-				title: this.getPreferredValue('TITLE', ''),
-				org: this.getPreferredValue('ORG', []).clean('').join(', '), // TODO Add parts if more than one.
+				nickname: escapeHTML(this.getPreferredValue('NICKNAME', '')),
+				title: escapeHTML(this.getPreferredValue('TITLE', '')),
+				org: escapeHTML(this.getPreferredValue('ORG', []).clean('').join(', ')), // TODO Add parts if more than one.
 				bday: this.getPreferredValue('BDAY', '').length >= 10
-					? $.datepicker.formatDate('dd-mm-yy',
+					? escapeHTML($.datepicker.formatDate('dd-mm-yy',
 						$.datepicker.parseDate('yy-mm-dd',
-							this.getPreferredValue('BDAY', '').substring(0, 10)))
+							this.getPreferredValue('BDAY', '').substring(0, 10))))
 					: '',
-				note: this.getPreferredValue('NOTE', '')
+				note: escapeHTML(this.getPreferredValue('NOTE', ''))
 				}
 			: {id:'', favorite:'', name:'', nickname:'', title:'', org:'', bday:'', note:'', n0:'', n1:'', n2:'', n3:'', n4:''};
 		this.$fullelem = this.$fullTemplate.octemplate(values).data('contactobject', this);
@@ -1083,7 +1083,7 @@ OC.Contacts = OC.Contacts || {};
 			return;
 		}
 		var values = property
-			? { value: property.value, checksum: property.checksum }
+			? { value: escapeHTML(property.value), checksum: property.checksum }
 			: { value: '', checksum: 'new' };
 		return this.detailTemplates[name].octemplate(values);
 	};
@@ -1105,15 +1105,15 @@ OC.Contacts = OC.Contacts || {};
 			}
 		}
 		var values = property ? {
-				value: property.value.clean('').join(', '),
+				value: escapeHTML(property.value.clean('').join(', ')),
 				checksum: property.checksum,
-				adr0: property.value[0] || '',
-				adr1: property.value[1] || '',
-				adr2: property.value[2] || '',
-				adr3: property.value[3] || '',
-				adr4: property.value[4] || '',
-				adr5: property.value[5] || '',
-				adr6: property.value[6] || '',
+				adr0: escapeHTML(property.value[0]) || '',
+				adr1: escapeHTML(property.value[1]) || '',
+				adr2: escapeHTML(property.value[2]) || '',
+				adr3: escapeHTML(property.value[3]) || '',
+				adr4: escapeHTML(property.value[4]) || '',
+				adr5: escapeHTML(property.value[5]) || '',
+				adr6: escapeHTML(property.value[6]) || '',
 				idx: idx
 			}
 			: {value:'', checksum:'new', adr0:'', adr1:'', adr2:'', adr3:'', adr4:'', adr5:'', adr6:'', idx: idx};
@@ -1215,7 +1215,7 @@ OC.Contacts = OC.Contacts || {};
 			return;
 		}
 		var values = property ? {
-			value: property.value,
+			value: escapeHTML(property.value),
 			checksum: property.checksum
 		} : {value: '', checksum: 'new'};
 		return this.detailTemplates['impp'].octemplate(values);

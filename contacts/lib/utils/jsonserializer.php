@@ -154,7 +154,7 @@ class JSONSerializer {
 				$value = explode(':', $value);
 				$protocol = array_shift($value);
 				if(!isset($property['X-SERVICE-TYPE'])) {
-					$property['X-SERVICE-TYPE'] = strtoupper(\OCP\Util::sanitizeHTML($protocol));
+					$property['X-SERVICE-TYPE'] = strtoupper($protocol);
 				}
 				$value = implode('', $value);
 			}
@@ -164,7 +164,7 @@ class JSONSerializer {
 		}
 		$temp = array(
 			//'name' => $property->name,
-			'value' => \OCP\Util::sanitizeHTML($value),
+			'value' => $value,
 			'parameters' => array()
 		);
 
