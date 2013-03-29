@@ -1229,7 +1229,7 @@ OC.Contacts = OC.Contacts || {
 			event.preventDefault();
 		});
 		
-		$(document).on('keypress', function(event) {
+		$(document).on('keyup', function(event) {
 			if(!$(event.target).is('body')) {
 				return;
 			}
