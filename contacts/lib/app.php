@@ -208,15 +208,4 @@ class App {
 		}
 	}
 
-	/**
-	 * check VCard for new categories.
-	 * @see OC_VCategories::loadFromVObject
-	 */
-	public static function loadCategoriesFromVCard($id, $contact) {
-		if(!$contact instanceof \OC_VObject) {
-			$contact = new \OC_VObject($contact);
-		}
-		self::getVCategories()->loadFromVObject($id, $contact, true);
-	}
-
 }
