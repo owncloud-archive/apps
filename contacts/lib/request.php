@@ -79,8 +79,15 @@ class Request implements \ArrayAccess, \Countable {
 						: (isset($_SERVER) && isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : array());
 					break;
 				case 'urlParams':
-				case 'params':
 					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : array();
+					break;
+				case 'params':
+					if(isset($vars[$name])) {
+						$this->items[$name] = $vars[$name];
+					} else {
+						$params = json_decode(file_get_contents('php://input'));
+						$this->items[$name] = is_null($params) ? array() : $params;
+					}
 					break;
 			}
 		}
