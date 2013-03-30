@@ -55,19 +55,6 @@ Class Properties {
 		'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO', 'PHOTO');
 
 	/**
-	* @brief returns the default categories (groups) for contacts.
-	* @return (array) $categories
-	*/
-	public static function getDefaultCategories() {
-		return array(
-			(string)self::$l10n->t('Friends'),
-			(string)self::$l10n->t('Family'),
-			(string)self::$l10n->t('Work'),
-			(string)self::$l10n->t('Other'),
-		);
-	}
-
-	/**
 	 * Get options for IMPP properties
 	 * @param string $im
 	 * @return array of vcard prop => label
