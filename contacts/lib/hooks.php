@@ -80,8 +80,42 @@ class Hooks{
 	public static function contactUpdated($parameters) {
 		//\OCP\Util::writeLog('contacts', __METHOD__.' parameters: '.print_r($parameters, true), \OCP\Util::DEBUG);
 		$catctrl = new \OC_VCategories('contact');
-		$catctrl->loadFromVObject($parameters['id'], new \OC_VObject($parameters['contact']), true);
+		$catctrl->loadFromVObject(
+			$parameters['id'],
+			new \OC_VObject($parameters['contact']), // OC_VCategories still uses OC_VObject
+			true // force save
+		);
 		Utils\Properties::updateIndex($parameters['id'], $parameters['contact']);
+	}
+
+	/**
+	 * Scan vCards for categories.
+	 */
+	public static function scanCategories() {
+		$offset = 0;
+		$limit = 10;
+
+		$categories = new \OC_VCategories('contact');
+
+		$app = new App();
+		$backend = $app->getBackend('database');
+		$addressBookInfos = $backend->getAddressBooksForUser();
+
+		foreach($addressBookInfos as $addressBookInfo) {
+			$addressBook = new AddressBook($backend, $addressBookInfo['id']);
+			while($contacts = $addressBook->getChildren($limit, $offset, false)) {
+				foreach($contacts as $contact) {
+					$cards[] = array($contact['id'], $contact['carddata']);
+				}
+				\OCP\Util::writeLog('contacts',
+					__CLASS__.'::'.__METHOD__
+						.', scanning: ' . $limit . ' starting from ' . $offset,
+					\OCP\Util::DEBUG);
+				// only reset on first batch.
+				$categories->rescan($cards, true, ($offset === 0 ? true : false));
+				$offset += $limit;
+			}
+		}
 	}
 
 	public static function getCalenderSources($parameters) {
