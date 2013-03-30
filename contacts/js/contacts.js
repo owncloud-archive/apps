@@ -36,6 +36,10 @@ OC.Contacts = OC.Contacts || {};
 		}
 	};
 
+	Contact.prototype.getDisplayName = function() {
+		return this.getPreferredValue('FN');
+	};
+
 	Contact.prototype.getId = function() {
 		return this.id;
 	};
