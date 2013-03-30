@@ -21,7 +21,7 @@ class Test_LibBookmarks_Bookmarks extends PHPUnit_Framework_TestCase {
 	}
 
   protected function tearDown() {
-		$query = OC_DB::prepare('DELETE FROM *PREFIX*bookmarks WHERE `user_id` = \'\' ');
+		$query = OC_DB::prepare('DELETE FROM `*PREFIX*bookmarks` WHERE `user_id` = \'\' ');
 		$query->execute();
   }
 
