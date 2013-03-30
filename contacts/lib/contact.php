@@ -456,7 +456,8 @@ class Contact extends VObject\VCard implements IPIMObject {
 				}
 				$value = $date->format('Y-m-d');
 				$this->BDAY = $value;
-				$this->BDAY->VALUE = 'DATE';
+				$this->BDAY->add('VALUE', 'DATE');
+				//\OCP\Util::writeLog('contacts', __METHOD__.' BDAY: '.$this->BDAY->serialize(), \OCP\Util::DEBUG);
 				break;
 			case 'N':
 				$property = $this->select($name);
