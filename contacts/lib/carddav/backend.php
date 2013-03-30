@@ -46,18 +46,18 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 		$addressbooks = array();
 
 		foreach($user_addressbooks as $i) {
-			if($i['userid'] != \OCP\USER::getUser()) {
-				$i['uri'] = $i['uri'] . '_shared_by_' . $i['userid'];
-				$i['displayname'] = $i['displayname'] . ' shared by ' . $i['userid'];
+			if($i['owner'] != \OCP\USER::getUser()) {
+				$i['uri'] = $i['uri'] . '_shared_by_' . $i['owner'];
+				$i['displayname'] = $i['displayname'] . ' shared by ' . $i['owner'];
 			}
 			$addressbooks[] = array(
 				'id'  => $i['id'],
 				'uri' => $i['uri'],
-				'principaluri' => 'principals/'.$i['userid'],
+				'principaluri' => 'principals/'.$i['owner'],
 				'{DAV:}displayname' => $i['displayname'],
 				'{' . \Sabre_CardDAV_Plugin::NS_CARDDAV . '}addressbook-description'
 						=> $i['description'],
-				'{http://calendarserver.org/ns/}getctag' => $i['ctag'],
+				'{http://calendarserver.org/ns/}getctag' => $i['lastmodified'],
 			);
 		}
 

@@ -74,9 +74,9 @@ class AddressBook extends \Sabre_CardDAV_AddressBook {
 		$writeprincipal = $this->getOwner();
 		$createprincipal = $this->getOwner();
 		$deleteprincipal = $this->getOwner();
-		$uid = \OCA\Contacts\Addressbook::extractUserID($this->getOwner());
+		$uid = $this->carddavBackend->userIDByPrincipal($this->getOwner());
 
-		if($uid != O\CP\USER::getUser()) {
+		if($uid != \OCP\USER::getUser()) {
 			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $this->addressBookInfo['id']);
 			if($sharedAddressbook) {
 				if(($sharedAddressbook['permissions'] & OCP\PERMISSION_CREATE)
