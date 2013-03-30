@@ -1,5 +1,5 @@
 <?php
-	include ('apps/reader/lib/tag_utils.php');
+	include ('reader/lib/tag_utils.php');
 	$filepath = $_POST['filepath'];
 	$tag_toBeRemv = $_POST['tag'];
 	$tags = find_tags_for_ebook($filepath);

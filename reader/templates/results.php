@@ -31,9 +31,9 @@
 	<tbody id = "fileList">
 		<?php
 		
-			include('apps/reader/lib/thumbnail.php');
-			include('apps/reader/lib/library_display.php');
-			include('apps/reader/lib/tag_utils.php');
+			include('reader/lib/thumbnail.php');
+			include('reader/lib/library_display.php');
+			include('reader/lib/tag_utils.php');
 			$file = $_['file'];
 			$path = $_['path'];
 			$filename = $_['filename']; 
