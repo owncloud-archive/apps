@@ -28,6 +28,26 @@ OC.Contacts = OC.Contacts || {};
 		this.multi_properties = ['EMAIL', 'TEL', 'IMPP', 'ADR', 'URL'];
 	};
 
+	Contact.prototype.metaData = function() {
+		return {
+			contactid: this.id,
+			addressbookid: this.metadata.parent,
+			backend: this.metadata.backend
+		}
+	};
+
+	Contact.prototype.getId = function() {
+		return this.id;
+	};
+
+	Contact.prototype.getParent = function() {
+		return this.metadata.parent;
+	};
+
+	Contact.prototype.getBackend = function() {
+		return this.metadata.backend;
+	};
+
 	Contact.prototype.showActions = function(act) {
 		this.$footer.children().hide();
 		if(act && act.length > 0) {
@@ -1638,7 +1658,7 @@ OC.Contacts = OC.Contacts || {};
 	*/
 	ContactList.prototype.findById = function(id) {
 		if(!id) {
-			console.warn('id missing');
+			console.warn('ContactList.findById: id missing');
 			console.trace();
 			return false;
 		}
@@ -1660,18 +1680,26 @@ OC.Contacts = OC.Contacts || {};
 	 * }
 	 */
 	ContactList.prototype.delayedDelete = function(data) {
+		console.log('delayedDelete, data:', typeof data, data);
 		var self = this;
-		if(typeof data === 'object') {
+		if(!utils.isArray(data)) {
 			this.currentContact = null;
-			self.$contactList.show();
-			this.deletionQueue.push(data);
+			//self.$contactList.show();
+			var contact = this.findById(data.contactid);
+			this.deletionQueue.push(contact);
 		} else if(utils.isArray(data)) {
-			$.extend(this.deletionQueue, data);
+			$.each(data, function(idx, contact) {
+				console.log('delayedDelete, meta:', contact);
+				self.deletionQueue.push(contact);
+			});
+			//$.extend(this.deletionQueue, data);
 		} else {
 			throw { name: 'WrongParameterType', message: 'ContactList.delayedDelete only accept objects or arrays.'};
 		}
+		console.log('delayedDelete, deletionQueue', this.deletionQueue);
 		$.each(this.deletionQueue, function(idx, contact) {
-			self.contacts[String(contact.contactid)].detach().setChecked(false);
+			console.log('delayedDelete', contact);
+			contact.detach().setChecked(false);
 		});
 		console.log('deletionQueue', this.deletionQueue);
 		if(!window.onbeforeunload) {
@@ -1700,7 +1728,7 @@ OC.Contacts = OC.Contacts || {};
 			clickhandler:function() {
 				console.log('clickhandler');
 				$.each(self.deletionQueue, function(idx, contact) {
-					self.insertContact(self.contacts[String(contact.contactid)].getListItemElement());
+					self.insertContact(contact.getListItemElement());
 				});
 				OC.notify({cancel:true});
 				OC.notify({message:t('contacts', 'Cancelled deletion of {num}', {num: self.deletionQueue.length})});
@@ -1722,8 +1750,8 @@ OC.Contacts = OC.Contacts || {};
 			return;
 		}
 
-		var data = this.deletionQueue.shift();
-		if(typeof data === 'undefined') {
+		var contact = this.deletionQueue.shift();
+		if(typeof contact === 'undefined') {
 			clearInterval(this.deletionTimer);
 			delete this.deletionTimer;
 			window.onbeforeunload = null;
@@ -1731,16 +1759,13 @@ OC.Contacts = OC.Contacts || {};
 		}
 
 		// Let contact remove itself.
-		var contact = this.findById(String(data.contactid));
-		if(contact === null) {
-			return false;
-		}
+		var id = contact.getId();
 		contact.destroy(function(response) {
 			console.log('deleteContact', response, self.length);
 			if(!response.error) {
-				delete self.contacts[String(data.contactid)];
+				delete self.contacts[id];
 				$(document).trigger('status.contact.deleted', {
-					id: String(data.contactid)
+					id: id
 				});
 				self.length -= 1;
 				if(self.length === 0) {
@@ -1835,8 +1860,10 @@ OC.Contacts = OC.Contacts || {};
 	ContactList.prototype.getSelectedContacts = function() {
 		var contacts = [];
 
+		var self = this;
 		$.each(this.$contactList.find('tr > td > input:checkbox:visible:checked'), function(a, b) {
-			contacts.push(String($(b).parents('tr').first().data('id')));
+			var id = String($(b).parents('tr').first().data('id'));
+			contacts.push(self.contacts[id]);
 		});
 		return contacts;
 	};

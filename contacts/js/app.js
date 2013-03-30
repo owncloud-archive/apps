@@ -635,16 +635,10 @@ OC.Contacts = OC.Contacts || {
 		this.$groups.on('change', function() {
 			var $opt = $(this).find('option:selected');
 			var action = $opt.parent().data('action');
-			var ids, groupName, groupId, buildnow = false;
+			var groupName, groupId, buildnow = false;
 
-			// If a contact is open the action is only applied to that,
-			// otherwise on all selected items.
-			if(self.currentid) {
-				ids = [self.currentid];
-				buildnow = true;
-			} else {
-				ids = self.contacts.getSelectedContacts();
-			}
+			var contacts = self.contacts.getSelectedContacts();
+			var ids = $.map(contacts, function(c) {return c.getId();});
 
 			self.setAllChecked(false);
 			self.$toggleAll.prop('checked', false);
@@ -1009,8 +1003,9 @@ OC.Contacts = OC.Contacts || {
 			}
 			console.log('delete');
 			if(self.currentid) {
-				console.assert(utils.isUInt(self.currentid), 'self.currentid is not an integer');
-				self.contacts.delayedDelete(self.currentid);
+				console.assert(typeof self.currentid === 'string', 'self.currentid is not a string');
+				contactInfo = self.contacts[self.currentid].metaData();
+				self.contacts.delayedDelete(contactInfo);
 			} else {
 				self.contacts.delayedDelete(self.contacts.getSelectedContacts());
 			}
@@ -1022,8 +1017,10 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			console.log('download');
+			var contacts = self.contacts.getSelectedContacts();
+			var ids = $.map(contacts, function(c) {return c.getId();});
 			document.location.href = OC.linkTo('contacts', 'export.php')
-				+ '?selectedids=' + self.contacts.getSelectedContacts().join(',');
+				+ '?selectedids=' + ids.join(',');
 		});
 
 		this.$header.on('click keydown', '.favorite', function(event) {
