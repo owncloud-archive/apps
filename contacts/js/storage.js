@@ -77,7 +77,7 @@ OC.Contacts = OC.Contacts || {};
 			'contacts_address_book_add',
 			'POST',
 			{user: this.user, backend: 'database'},
-			params
+			parameters
 		);
 	}
 
