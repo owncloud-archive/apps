@@ -868,13 +868,13 @@ OC.Contacts = OC.Contacts || {
 						$addinput.addClass('loading');
 						$addAddressbookPart.find('button input').prop('disabled', true);
 						console.log('adding', name);
-						$.when(this.storage.addAddressBook('database',
-						{name: name, description: ''})).then(function(response) {
+						$.when(self.storage.addAddressBook('database',
+						{displayname: name, description: ''})).then(function(response) {
 							if(response.error) {
 								OC.notify({message: response.message});
 								return false;
 							} else {
-								var book = response.addressbook;
+								var book = response.data;
 								var $list = self.$settings.find('[data-id="addressbooks"]').next('ul');
 								appendAddressBook($list, book);
 							}
