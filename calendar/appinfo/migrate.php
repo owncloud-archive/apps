@@ -34,7 +34,7 @@ class OC_Migration_Provider_Calendar extends OC_Migration_Provider{
 		switch( $this->appinfo->version ) {
 			default:
 				// All versions of the app have had the same db structure, so all can use the same import function
-				$query = $this->content->prepare( 'SELECT * FROM `calendar_calendars` WHERE `userid` LIKE ?' );
+				$query = $this->content->prepare( 'SELECT * FROM calendar_calendars WHERE userid = ?' );
 				$results = $query->execute( array( $this->olduid ) );
 				$idmap = array();
 				while( $row = $results->fetchRow() ) {
@@ -49,7 +49,7 @@ class OC_Migration_Provider_Calendar extends OC_Migration_Provider{
 				// Now tags
 				foreach($idmap as $oldid => $newid) {
 
-					$query = $this->content->prepare( 'SELECT * FROM `calendar_objects` WHERE `calendarid` LIKE ?' );
+					$query = $this->content->prepare( 'SELECT * FROM calendar_objects WHERE calendarid = ?' );
 					$results = $query->execute( array( $oldid ) );
 					while( $row = $results->fetchRow() ) {
 						// Import the objects
