@@ -567,8 +567,8 @@ class Contact extends VObject\VCard implements IPIMObject {
 		$this->setSaved(false);
 	}
 
-	public function __unset($id) {
-		parent::__unset($key, $value);
+	public function __unset($key) {
+		parent::__unset($key);
 		$this->setSaved(false);
 	}
 
