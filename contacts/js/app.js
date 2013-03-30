@@ -631,7 +631,6 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		// Add to/remove from group multiple contacts.
-		// FIXME: Refactor this to be usable for favoriting also.
 		this.$groups.on('change', function() {
 			var $opt = $(this).find('option:selected');
 			var action = $opt.parent().data('action');
@@ -690,7 +689,6 @@ OC.Contacts = OC.Contacts || {
 
 			groupName = $opt.text(), groupId = $opt.val();
 
-			console.log('trut', groupName, groupId);
 			if(action === 'add') {
 				self.groups.addTo(ids, $opt.val(), function(result) {
 					console.log('after add', result);
@@ -1027,23 +1025,30 @@ OC.Contacts = OC.Contacts || {
 			if(wrongKey(event)) {
 				return;
 			}
-			if(!utils.isUInt(self.currentid)) {
-				return;
+
+			var contacts = self.contacts.getSelectedContacts();
+
+			self.setAllChecked(false);
+			self.$toggleAll.prop('checked', false);
+			if(!self.currentid) {
+				self.showActions(['add']);
 			}
-			// FIXME: This should only apply for contacts list.
-			var state = self.groups.isFavorite(self.currentid);
-			console.log('Favorite?', this, state);
-			self.groups.setAsFavorite(self.currentid, !state, function(jsondata) {
-				if(jsondata.status === 'success') {
-					if(state) {
-						self.$header.find('.favorite').switchClass('active', '');
-					} else {
-						self.$header.find('.favorite').switchClass('', 'active');
-					}
-				} else {
-					OC.notify({message:t('contacts', jsondata.data.message)});
+
+			$.each(contacts, function(idx, contact) {
+				if(!self.groups.isFavorite(contact.getId())) {
+					self.groups.setAsFavorite(contact.getId(), true, function(result) {
+						if(result.status !== 'success') {
+							OC.notify({message:
+								t('contacts',
+									'Error setting {name} as favorite.',
+									{name:contact.getDisplayName()})
+							});
+						}
+					});
 				}
 			});
+
+			self.showActions(['add']);
 		});
 
 		this.$contactList.on('mouseenter', 'td.email', function(event) {
@@ -1389,6 +1394,7 @@ OC.Contacts = OC.Contacts || {
 		$(window).bind('hashchange', this.hashChange);
 	},
 	openContact: function(id) {
+		self.hideActions();
 		console.log('Contacts.openContact', id);
 		if(this.currentid) {
 			this.closeContact(this.currentid);
