@@ -152,7 +152,7 @@ $this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/
 			session_write_close();
 			$request = new Request(array('urlParams' => $params));
 			$name = $request->post['name'];
-			$checksum = $request->post['checksum'];
+			$checksum = isset($request->post['checksum']) ? $request->post['checksum'] : null;
 
 			debug('contacts_contact_delete_property, name: ' . print_r($name, true));
 			debug('contacts_contact_delete_property, checksum: ' . print_r($checksum, true));
