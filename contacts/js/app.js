@@ -1394,7 +1394,7 @@ OC.Contacts = OC.Contacts || {
 		$(window).bind('hashchange', this.hashChange);
 	},
 	openContact: function(id) {
-		self.hideActions();
+		this.hideActions();
 		console.log('Contacts.openContact', id);
 		if(this.currentid) {
 			this.closeContact(this.currentid);
