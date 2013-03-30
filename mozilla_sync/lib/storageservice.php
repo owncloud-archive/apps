@@ -143,7 +143,7 @@ class StorageService extends Service
 
 		$query = \OCP\DB::prepare( 'SELECT `name`,
 																		(SELECT max(`modified`) FROM `*PREFIX*mozilla_sync_wbo`
-																			WHERE `*PREFIX*mozilla_sync_wbo.collectionid` = `*PREFIX*mozilla_sync_collections.id`
+																			WHERE `*PREFIX*mozilla_sync_wbo`.`collectionid` = `*PREFIX*mozilla_sync_collections`.`id`
 																		) AS `modified`
 															FROM `*PREFIX*mozilla_sync_collections` WHERE `userid` = ?');
 		$result = $query->execute( array($userId) );

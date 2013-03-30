@@ -37,13 +37,13 @@ class OC_Bookmarks_Bookmarks{
 		$not_in = '';
 		if(!empty($filterTags) ) {
 			$exist_clause = " AND	EXISTS (SELECT 1 FROM `*PREFIX*bookmarks_tags`
-				`t2` WHERE `t2.bookmark_id` = `t.bookmark_id` AND `tag` = ?) ";
+				`t2` WHERE `t2`.`bookmark_id` = `t`.`bookmark_id` AND `tag` = ?) ";
 
 			$not_in = ' AND `tag` NOT IN ('. implode(',', array_fill(0, count($filterTags), '?') ) .')'.
 			str_repeat($exist_clause, count($filterTags));
 		}
 		$sql = 'SELECT `tag`, COUNT(*) AS `nbr` FROM `*PREFIX*bookmarks_tags` `t` '.
-			' WHERE EXISTS( SELECT 1 FROM `*PREFIX*bookmarks` `bm` WHERE `t.bookmark_id` = `bm.id` AND `user_id` = ?) '.
+			' WHERE EXISTS( SELECT 1 FROM `*PREFIX*bookmarks` `bm` WHERE `t`.`bookmark_id` = `bm`.`id` AND `user_id` = ?) '.
 			$not_in.
 			' GROUP BY `tag` ORDER BY `nbr` DESC ';
 
@@ -60,7 +60,7 @@ class OC_Bookmarks_Bookmarks{
 		else {
 			$group_fct = 'GROUP_CONCAT(tag)';
 		}
-		$sql = "SELECT *, (SELECT $group_fct FROM `*PREFIX*bookmarks_tags` WHERE `bookmark_id` = `b.id`) AS `tags`
+		$sql = "SELECT *, (SELECT $group_fct FROM `*PREFIX*bookmarks_tags` WHERE `bookmark_id` = `b`.`id`) AS `tags`
 				FROM `*PREFIX*bookmarks` `b`
 				WHERE `user_id` = ? and `id` = ?";
 		$query = OCP\DB::prepare($sql);
@@ -90,14 +90,14 @@ class OC_Bookmarks_Bookmarks{
 				WHERE `user_id` = ? ) AS `x` WHERE true ";
 		}
 		else {
-			$sql = "SELECT *, (SELECT GROUP_CONCAT(`tag`) FROM `*PREFIX*bookmarks_tags` WHERE `bookmark_id` = `b.id`) AS `tags`
+			$sql = "SELECT *, (SELECT GROUP_CONCAT(`tag`) FROM `*PREFIX*bookmarks_tags` WHERE `bookmark_id` = `b`.`id`) AS `tags`
 				FROM `*PREFIX*bookmarks` `b`
 				WHERE `user_id` = ? ";
 		}
 
 		if($filterTagOnly) {
 			$exist_clause = " AND	EXISTS (SELECT `id` FROM `*PREFIX*bookmarks_tags`
-				`t2` WHERE `t2.bookmark_id` = `b.id` AND `tag` = ?) ";
+				`t2` WHERE `t2`.`bookmark_id` = `b`.`id` AND `tag` = ?) ";
 			$sql .= str_repeat($exist_clause, count($filters));
 			$params = array_merge($params, $filters);
 		} else {
@@ -169,7 +169,7 @@ class OC_Bookmarks_Bookmarks{
 				UPDATE OR REPLACE `*PREFIX*bookmarks_tags`
 				SET `tag` = ?
 				WHERE `tag` = ?
-				AND EXISTS( SELECT `b.id` FROM `*PREFIX*bookmarks` `b` WHERE `b.user_id` = ? AND `bookmark_id` = `b.id`)
+				AND EXISTS( SELECT `b`.`id` FROM `*PREFIX*bookmarks` `b` WHERE `b`.`user_id` = ? AND `bookmark_id` = `b`.`id`)
 			");
 
 			$params=array(
@@ -183,9 +183,9 @@ class OC_Bookmarks_Bookmarks{
 
 			// Remove potentialy duplicated tags
 			$query = OCP\DB::prepare("
-			DELETE FROM `*PREFIX*bookmarks_tags` AS `tgs` WHERE `tgs.tag` = ?
-			AND EXISTS( SELECT `id` FROM `*PREFIX*bookmarks` WHERE `user_id` = ? AND `tgs.bookmark_id` = `id`)
-			AND EXISTS( SELECT `t.tag` FROM `*PREFIX*bookmarks_tags` `t` WHERE `t.tag`=? AND `tgs.bookmark_id` = `tbookmark_id`");
+			DELETE FROM `*PREFIX*bookmarks_tags` AS `tgs` WHERE `tgs`.`tag` = ?
+			AND EXISTS( SELECT `id` FROM `*PREFIX*bookmarks` WHERE `user_id` = ? AND `tgs`.`bookmark_id` = `id`)
+			AND EXISTS( SELECT `t`.`tag` FROM `*PREFIX*bookmarks_tags` `t` WHERE `t`.`tag`=? AND `tgs`.`bookmark_id` = `tbookmark_id`");
 
 			$params=array(
 				$new,
@@ -200,7 +200,7 @@ class OC_Bookmarks_Bookmarks{
 			UPDATE `*PREFIX*bookmarks_tags`
 			SET `tag` = ?
 			WHERE `tag` = ?
-			AND EXISTS( SELECT `b.id` FROM `*PREFIX*bookmarks` `b` WHERE `b.user_id` = ? AND `bookmark_id` = `b.id`)
+			AND EXISTS( SELECT `b`.`id` FROM `*PREFIX*bookmarks` `b` WHERE `b`.`user_id` = ? AND `bookmark_id` = `b`.`id`)
 			");
 
 			$params=array(

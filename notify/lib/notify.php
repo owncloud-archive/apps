@@ -267,10 +267,10 @@ class OC_Notify {
 			}
 		}
         if(!$count) {
-			$notifyStmt = OCP\DB::prepare("SELECT `n.id`, `n.uid`, `n.read`, `n.moment`, `c.appid` AS `app`, `c.name` AS `class`, `c.summary`, `c.content` FROM `*PREFIX*notifications` AS `n` INNER JOIN `*PREFIX*notification_classes` AS `c` ON `n.class` = `c.id` WHERE `n.uid` = ? ORDER BY `n.read` ASC, `n.moment` DESC");
+			$notifyStmt = OCP\DB::prepare("SELECT `n`.`id`, `n`.`uid`, `n`.`read`, `n`.`moment`, `c`.`appid` AS `app`, `c`.`name` AS `class`, `c`.`summary`, `c`.`content` FROM `*PREFIX*notifications` AS `n` INNER JOIN `*PREFIX*notification_classes` AS `c` ON `n`.`class` = `c`.`id` WHERE `n`.`uid` = ? ORDER BY `n`.`read` ASC, `n`.`moment` DESC");
 			$result = $notifyStmt->execute(array($uid));
 		} else {
-			$notifyStmt = OCP\DB::prepare("SELECT `n.id`, `n.uid`, `n.read`, `n.moment`, `c.appid` AS `app`, `c.name` AS `class`, `c.summary`, `c.content` FROM `*PREFIX*notifications` AS `n` INNER JOIN `*PREFIX*notification_classes` AS `c` ON `n.class` = `c.id` WHERE `n.uid` = ? ORDER BY `n.read` ASC, `n.moment` DESC LIMIT ?");
+			$notifyStmt = OCP\DB::prepare("SELECT `n`.`id`, `n`.`uid`, `n`.`read`, `n`.`moment`, `c`.`appid` AS `app`, `c`.`name` AS `class`, `c`.`summary`, `c`.`content` FROM `*PREFIX*notifications` AS `n` INNER JOIN `*PREFIX*notification_classes` AS `c` ON `n`.`class` = `c`.`id` WHERE `n`.`uid` = ? ORDER BY `n`.`read` ASC, `n`.`moment` DESC LIMIT ?");
 			$result = $notifyStmt->execute(array($uid, $count));
 		}
         $notifications = $result->fetchAll();
@@ -307,7 +307,7 @@ class OC_Notify {
      * @return notification as an associative array
      */
     public static function getNotificationById($id) {
-		$stmt = OCP\DB::prepare("SELECT `n.id`, `n.uid`, `n.read`, `n.moment`, `c.appid` AS `app`, `c.name` AS `class`, `c.summary`, `c.content` FROM `*PREFIX*notifications` AS `n` INNER JOIN `*PREFIX*notification_classes` AS `c` ON `n.class` = `c.id` WHERE `n.id` = ?");
+		$stmt = OCP\DB::prepare("SELECT `n`.`id`, `n`.`uid`, `n`.`read`, `n`.`moment`, `c`.`appid` AS `app`, `c`.`name` AS `class`, `c`.`summary`, `c`.`content` FROM `*PREFIX*notifications` AS `n` INNER JOIN `*PREFIX*notification_classes` AS `c` ON `n`.`class` = `c`.`id` WHERE `n`.`id` = ?");
 		$result = $stmt->execute(array((int) $id));
 		$notification = $result->fetchRow();
         $paramStmt = OCP\DB::prepare("SELECT `key`, `value` FROM `*PREFIX*notification_params` WHERE `nid` = ?");
@@ -546,7 +546,7 @@ class OC_Notify {
 		if(!isset(self::$classesStmt)) {
 			// b.class + 1 just to be sure that there are no issues if class id is zero
 			// additionally, I tried COUNT(b.class) instead of COALESCE(...) but it didn't give me the expected results
-			self::$classesStmt = OCP\DB::prepare("SELECT `c.id`, `c.appid`, `c.name`, `c.summary`, COALESCE(MIN(1, `b.class` + 1), 0) AS `blocked` FROM `*PREFIX*notification_classes` AS `c` LEFT JOIN `*PREFIX*notification_blacklist` AS `b` ON `c.id` = `b.class` AND `b.uid` = ? ORDER BY `c.appid` ASC, `c.name` ASC");
+			self::$classesStmt = OCP\DB::prepare("SELECT `c`.`id`, `c`.`appid`, `c`.`name`, `c`.`summary`, COALESCE(MIN(1, `b.class` + 1), 0) AS `blocked` FROM `*PREFIX*notification_classes` AS `c` LEFT JOIN `*PREFIX*notification_blacklist` AS `b` ON `c`.`id` = `b`.`class` AND `b`.`uid` = ? ORDER BY `c`.`appid` ASC, `c`.`name` ASC");
 		}
 		$result = self::$classesStmt->execute(array($uid));
 		return $result->fetchAll();
