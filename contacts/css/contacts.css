@@ -64,6 +64,18 @@
 
 #leftcontent { position:absolute; top: 4em; bottom: 0; overflow-x:hidden; overflow-y: auto; padding: 0; margin: 0; }
 #leftcontent a { display: inline-block; padding: 0; margin: 0; }
+#leftcontent a.unshare {
+	float: right;
+}
+
+#shareWithList .cruds {
+	display: inline;
+}
+
+#shareWithList li {
+	border-bottom: 1px solid silver;
+}
+
 #leftcontent h3 { 
 	cursor: pointer; 
 	-moz-transition: background 300ms ease 0s; 
@@ -144,6 +156,7 @@
 
 /* override the default margin on share dropdown */
 #dropdown { margin: 1.5em 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 100%; }
+#dropdown label { display: list-item; }
 
 /* reset box-sizing for multiSelect */
 #content div.multiselect, #content div.multiselect > * { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
@@ -359,6 +372,8 @@ ul.propertylist { width: 450px; }
 }
 #contacts-settings.open {
     height: auto;
+	z-index: 10;
+	overflow-y: scroll;
 }
 #contacts-settings {
 	-webkit-box-sizing: border-box; 
