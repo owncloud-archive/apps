@@ -832,7 +832,7 @@ OC.Contacts = OC.Contacts || {
 				var book = self.contacts.addressbooks[id];
 				var uri = (book.owner === oc_current_user ) ? book.uri : book.uri + '_shared_by_' + book.owner;
 				var link = OC.linkToRemote('carddav')+'/addressbooks/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
-				var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" /></div>');
+				var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" readonly /></div>');
 				$dropdown.appendTo($(this).parents('li').first());
 				var $input = $dropdown.find('input');
 				$input.focus().get(0).select();
