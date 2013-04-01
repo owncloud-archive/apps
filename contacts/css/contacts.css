@@ -236,12 +236,14 @@
 	cursor: move;
 	background-repeat: no-repeat !important;
 	background-color: #fff;
+	opacity: 1;
 	z-index: 5;
 	width: 200px; height: 30px;
 	text-indent: 30px;
 	font-weight: bold;
 	border: thin solid silver; border-radius: 3px;
 	padding: 3px;
+	z-index: 1000;
 }
 .ui-state-hover { border: 1px solid dashed; z-index: 1; }
 
