@@ -374,7 +374,7 @@ ul.propertylist { width: 450px; }
 #contacts-settings.open {
     height: auto;
 	z-index: 10;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 #contacts-settings {
 	-webkit-box-sizing: border-box; 
