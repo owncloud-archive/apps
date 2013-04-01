@@ -119,12 +119,15 @@ Gallery.view.addImage = function (image) {
 	var link , thumb;
 	if (Gallery.view.cache[image]) {
 		Gallery.view.element.append(Gallery.view.cache[image]);
+		thumb = Thumbnail.get(image);
+		thumb.queue();
 	} else {
 		link = $('<a/>');
 		link.addClass('image');
 		link.attr('href', Gallery.getImage(image)).attr('rel', 'album').attr('alt', OC.basename(image)).attr('title', OC.basename(image));
 
-		Thumbnail.get(image).load().then(function(thumb){
+		thumb = Thumbnail.get(image);
+		thumb.queue().then(function (thumb) {
 			link.append(thumb);
 		});
 
@@ -134,7 +137,7 @@ Gallery.view.addImage = function (image) {
 };
 
 Gallery.view.addAlbum = function (path, name) {
-	var link, image, label, thumbs;
+	var link, image, label, thumbs, thumb;
 	name = name || OC.basename(path);
 	if (Gallery.view.cache[path]) {
 		thumbs = Gallery.view.addAlbum.thumbs[path];
@@ -146,6 +149,8 @@ Gallery.view.addAlbum = function (path, name) {
 		Gallery.view.cache[path].mousemove(function (event) {
 			Gallery.view.addAlbum.mouseEvent.call(Gallery.view.cache[path], thumbs, event);
 		});
+		thumb = Thumbnail.get(thumbs[0], true);
+		thumb.queue();
 	} else {
 		thumbs = Gallery.getAlbumThumbnailPaths(path);
 		Gallery.view.addAlbum.thumbs[path] = thumbs;
@@ -161,7 +166,8 @@ Gallery.view.addAlbum = function (path, name) {
 		link.attr('title', OC.basename(path));
 		label.text(name);
 		link.append(label);
-		Thumbnail.get(thumbs[0], true).load().then(function (image) {
+		thumb = Thumbnail.get(thumbs[0], true);
+		thumb.queue().then(function (image) {
 			link.append(image);
 		});
 
@@ -181,7 +187,8 @@ Gallery.view.addAlbum.mouseEvent = function (thumbs, event) {
 		link = this,
 		oldOffset = $(this).data('offset');
 	if (offset !== oldOffset) {
-		Thumbnail.get(thumbs[offset], true).load().then(function (image) {
+		var thumb = Thumbnail.get(thumbs[offset], true);
+		thumb.load().then(function (image) {
 			$('img', link).remove();
 			link.append(image);
 		});
@@ -191,6 +198,7 @@ Gallery.view.addAlbum.mouseEvent = function (thumbs, event) {
 Gallery.view.addAlbum.thumbs = {};
 
 Gallery.view.viewAlbum = function (albumPath) {
+	Thumbnail.queue = [];
 	Gallery.view.clear();
 	Gallery.currentAlbum = albumPath;
 
