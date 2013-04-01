@@ -102,7 +102,7 @@ class Hooks{
 		$addressBookInfos = $backend->getAddressBooksForUser();
 
 		foreach($addressBookInfos as $addressBookInfo) {
-			$addressBook = new AddressBook($backend, $addressBookInfo['id']);
+			$addressBook = new AddressBook($backend, $addressBookInfo);
 			while($contacts = $addressBook->getChildren($limit, $offset, false)) {
 				foreach($contacts as $contact) {
 					$cards[] = array($contact['id'], $contact['carddata']);
@@ -113,6 +113,33 @@ class Hooks{
 					\OCP\Util::DEBUG);
 				// only reset on first batch.
 				$categories->rescan($cards, true, ($offset === 0 ? true : false));
+				$offset += $limit;
+			}
+		}
+	}
+
+	/**
+	 * Scan vCards for categories.
+	 */
+	public static function indexProperties() {
+		$offset = 0;
+		$limit = 10;
+
+		$app = new App();
+		$backend = $app->getBackend('database');
+		$addressBookInfos = $backend->getAddressBooksForUser();
+
+		foreach($addressBookInfos as $addressBookInfo) {
+			$addressBook = new AddressBook($backend, $addressBookInfo);
+			while($contacts = $addressBook->getChildren($limit, $offset, false)) {
+				foreach($contacts as $contact) {
+					$contact->retrieve();
+				}
+				\OCP\Util::writeLog('contacts',
+					__CLASS__.'::'.__METHOD__
+						.', indexing: ' . $limit . ' starting from ' . $offset,
+					\OCP\Util::DEBUG);
+				Utils\Properties::updateIndex($contact->getId(), $contact);
 				$offset += $limit;
 			}
 		}
