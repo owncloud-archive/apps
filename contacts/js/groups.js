@@ -606,9 +606,7 @@ OC.Contacts = OC.Contacts || {};
 		$.when(this.storage.getGroupsForUser()).then(function(response) {
 			if (response && !response.error) {
 				self.lastgroup = response.data.lastgroup;
-				self.sortorder = response.data.sortorder.length > 0
-					? $.map(response.data.sortorder.split(','), function(c) {return parseInt(c);})
-					: [];
+				self.sortorder = contacts_groups_sortorder;
 				console.log('sortorder', self.sortorder);
 				// Favorites
 				// Map to strings easier lookup an contacts list.
