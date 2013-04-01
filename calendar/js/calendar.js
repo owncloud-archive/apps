@@ -142,10 +142,10 @@ Calendar={
 			}
 		},
 		submitDeleteEventForm:function(url){
-			var post = $( '#event_form' ).serialize();
+			var id = $('input[name="id"]').val();
 			$('#errorbox').empty();
 			Calendar.UI.loading(true);
-			$.post(url, post, function(data){
+			$.post(url, {id:id}, function(data){
 					Calendar.UI.loading(false);
 					if(data.status == 'success'){
 						$('#fullcalendar').fullCalendar('removeEvents', $('#event_form input[name=id]').val());
