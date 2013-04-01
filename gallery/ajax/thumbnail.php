@@ -11,6 +11,7 @@ OCP\JSON::checkAppEnabled('gallery');
 session_write_close();
 
 list($owner, $img) = explode('/', $_GET['file'], 2);
+$square = isset($_GET['square']) ? (bool)$_GET['square'] : false;
 if ($owner !== OC_User::getUser()) {
 	\OC\Files\Filesystem::initMountPoints($owner);
 	list($shareId, , $img) = explode('/', $img, 3);
@@ -28,5 +29,5 @@ if ($owner !== OC_User::getUser()) {
 	}
 }
 
-$image = new \OCA\Gallery\Thumbnail('/' . $img, $owner);
+$image = new \OCA\Gallery\Thumbnail('/' . $img, $owner, $square);
 $image->show();
