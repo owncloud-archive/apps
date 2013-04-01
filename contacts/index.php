@@ -42,6 +42,7 @@ $maxUploadFilesize = \OCP\Util::maxUploadFilesize('/');
 \OCP\Util::addscript('contacts', 'groups');
 //\OCP\Util::addscript('contacts', 'expanding');
 \OCP\Util::addscript('contacts', 'jquery.combobox');
+\OCP\Util::addscript('contacts', 'jquery.ocdialog');
 \OCP\Util::addscript('files', 'jquery.fileupload');
 \OCP\Util::addscript('contacts', 'jquery.Jcrop');
 \OCP\Util::addStyle('3rdparty/fontawesome', 'font-awesome');
@@ -49,6 +50,7 @@ $maxUploadFilesize = \OCP\Util::maxUploadFilesize('/');
 \OCP\Util::addStyle('', 'multiselect');
 \OCP\Util::addStyle('', 'jquery.multiselect');
 \OCP\Util::addStyle('contacts', 'jquery.combobox');
+\OCP\Util::addStyle('contacts', 'jquery.ocdialog');
 \OCP\Util::addStyle('contacts', 'jquery.Jcrop');
 \OCP\Util::addStyle('contacts', 'contacts');
 
