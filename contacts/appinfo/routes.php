@@ -420,3 +420,16 @@ $this->create('contacts_setpreference', 'preference/{user}/set')
 		}
 	)
 	->defaults(array('user' => \OCP\User::getUser()));
+
+$this->create('contacts_index_properties', 'indexproperties/{user}/')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			\OC_Hook::emit('OCA\Contacts', 'indexProperties', array());
+
+			\OCP\Config::setUserValue($params['user'], 'contacts', 'contacts_properties_indexed', 'yes');
+			\OCP\JSON::success(array('isIndexed' => true));
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
