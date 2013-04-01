@@ -23,3 +23,12 @@
 OCP\JSON::setContentTypeHeader('text/javascript');
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('contacts');
+
+echo 'var contacts_groups_sortorder=[' . OCP\Config::getUserValue(OCP\USER::getUser(), 'contacts', 'groupsort', '') . '],';
+echo 'contacts_properties_indexed = '
+	. (OCP\Config::getUserValue(OCP\USER::getUser(), 'contacts', 'contacts_properties_indexed', 'no') === 'no'
+	? 'false' : 'true') . ',';
+echo 'contacts_categories_indexed = '
+	. (OCP\Config::getUserValue(OCP\USER::getUser(), 'contacts', 'contacts_categories_indexed', 'no') === 'no'
+	? 'false' : 'true') . ',';
+echo 'lang=\'' . OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en') . '\';';
