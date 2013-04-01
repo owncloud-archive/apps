@@ -20,6 +20,9 @@ $this->create('contacts_index', '/')
 // 		}
 // 	);
 
+$this->create('contacts_jsconfig', 'ajax/config.js')
+	->actionInclude('contacts/js/config.php');
+
 /* TODO:
 	- Check what it requires to be a RESTful API. I think maybe {user}
 	shouldn't be in the URI but be authenticated in headers or elsewhere.
