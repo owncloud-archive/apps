@@ -118,6 +118,15 @@ class Contact extends VObject\VCard implements IPIMObject {
 	}
 
 	/**
+	 * Get a unique key combined of backend name, address book id and contact id.
+	 *
+	 * @return string
+	 */
+	public function combinedKey() {
+		return $this->getBackend()->name . '::' . $this->getParent()->getId() . '::' . $this->getId();
+	}
+
+	/**
 	 * @return string|null
 	 */
 	public function getOwner() {
@@ -527,8 +536,39 @@ class Contact extends VObject\VCard implements IPIMObject {
 			: null;
 	}
 
+	/**
+	 * Merge in data from a multi-dimentional array
+	 *
+	 * NOTE: This is *NOT* tested!
+	 * The data array has this structure:
+	 *
+	 * array(
+	 * 	'EMAIL' => array(array('value' => 'johndoe@example.com', 'parameters' = array('TYPE' => array('HOME','VOICE'))))
+	 * );
+	 * @param array $data
+	 */
+	public function mergeFromArray(array $data, $resetOwn = false) {
+		if($resetOwn) {
+			foreach(array_keys($data) as $key) {
+				if(isset($this->{$key})) {
+					unset($this->{$key});
+				}
+			}
+		}
+		foreach($data as $name => $properties) {
+			if(in_array($name, array('PHOTO', 'UID'))) {
+				continue;
+			}
+			foreach($properties as $parray) {
+				$property = Property::create($name, $parray['value'], $parray['parameters']);
+				$this->add($property);
+			}
+		}
+		$this->setSaved(false);
+	}
+
 	public function cacheThumbnail(\OC_Image $image = null) {
-		$key = $this->getBackend()->name . '::' . $this->getParent()->getId() . '::' . $this->getId();
+		$key = $this->combinedKey();
 		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $key) && $image === null) {
 			return \OC_Cache::get(self::THUMBNAIL_PREFIX . $key);
 		}

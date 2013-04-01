@@ -52,6 +52,27 @@ OC.Contacts = OC.Contacts || {};
 		return this.metadata.backend;
 	};
 
+	Contact.prototype.merge = function(mergees) {
+		if(mergees instanceof Array) {
+			mergees = [mergees];
+		} else if(mergees instanceof Contact) {
+			if(mergees === this) {
+				throw new Error('BadArgument: Why should I merge with myself?');
+			}
+		} else {
+			throw new TypeError('BadArgument: Contact.merge() only takes Contacts');
+		}
+
+		var self = this;
+		$.each(mergees, function(idx, mergee) {
+			if(!mergee instanceof Contact) {
+				throw new TypeError('BadArgument: Contact.merge() only takes Contacts');
+			}
+			self.data = $.extend(true, self.data, mergee.data);
+			// TODO: How do I save an entire data object?
+		});
+	};
+
 	Contact.prototype.showActions = function(act) {
 		this.$footer.children().hide();
 		if(act && act.length > 0) {
@@ -1955,8 +1976,7 @@ OC.Contacts = OC.Contacts || {};
 								}
 								$(document).trigger('status.contacts.loaded', {
 									status: true,
-									numcontacts: self.length,
-									is_indexed: true // FIXME: jsondata.data.is_indexed
+									numcontacts: self.length
 								});
 								if(self.length === 0) {
 									$(document).trigger('status.nomorecontacts');
