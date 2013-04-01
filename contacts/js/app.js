@@ -350,11 +350,15 @@ OC.Contacts = OC.Contacts || {
 						self.openContact(self.currentid);
 					}
 				});
-				if(!result.is_indexed) {
+				if(!contacts_properties_indexed) {
 					// Wait a couple of mins then check if contacts are indexed.
 					setTimeout(function() {
-							OC.notify({message:t('contacts', 'Indexing contacts'), timeout:20});
-							$.post(OC.filePath('contacts', 'ajax', 'indexproperties.php'));
+							$.when($.post(OC.Router.generate('contacts_index_properties')))
+								.then(function(response) {
+									if(!response.isIndexed) {
+										OC.notify({message:t('contacts', 'Indexing contacts'), timeout:20});
+									}
+								});
 					}, 10000);
 				} else {
 					console.log('contacts are indexed.');
@@ -1595,7 +1599,9 @@ OC.Contacts = OC.Contacts || {
 $(document).ready(function() {
 
 	OC.Router.registerLoadedCallback(function() {
-		OC.Contacts.init();
+		$.getScript(OC.Router.generate('contacts_jsconfig'), function() {
+			OC.Contacts.init();
+		});
 	});
 
 });
