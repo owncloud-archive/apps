@@ -71,8 +71,10 @@ class OC_Calendar_Export{
 		}
 
 		$sharedAccessClassPermissions = OC_Calendar_App::getAccessClassPermissions($object->VEVENT->CLASS->value);
-		if (!($sharedAccessClassPermissions & OCP\PERMISSION_READ)) {
-			return '';
+		if(OC_Calendar_Object::getowner($event['id']) !== OCP\User::getUser()){
+			if (!($sharedAccessClassPermissions & OCP\PERMISSION_READ)) {
+				return '';
+			}
 		}
 		$object = OC_Calendar_Object::cleanByAccessClass($event['calendarid'], $object);
 
