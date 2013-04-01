@@ -5,7 +5,10 @@
 			height: 'auto'
 		},
 		_create: function() {
+			console.log('ocdialog._init');
 			var self = this;
+
+			console.log('test name', this);
 
 			this.$element = $('<div class="oc-dialog" />').insertBefore(this.element);
 			this.$element.append(this.element.detach());
@@ -14,16 +17,21 @@
 			this.$element.css('display', 'inline-block');
 
 			$(window).resize(function() {
-				var pos = self.$element.parent().position();
+				self.parent = self.$element.parent().length > 0 ? self.$element.parent() : $('body');
+				console.log('parent', self.parent.length);
+				var pos = self.parent.position();
 				self.$element.css({
 				position:'absolute',
-					left: pos.left + (self.$element.parent().width() - self.$element.outerWidth())/2,
-					top: pos.top + (self.$element.parent().height() - self.$element.outerHeight())/2
+					left: pos.left + (self.parent.width() - self.$element.outerWidth())/2,
+					top: pos.top + (self.parent.height() - self.$element.outerHeight())/2
 				});
 			});
 
 			this._setOptions(this.options);
 			$(window).trigger('resize');
+		},
+		_init: function() {
+			console.log('ocdialog._init');
 		},
 		_setOption: function(key, value) {
 			console.log('_setOption', key, value);
@@ -47,9 +55,13 @@
 					}
 					var self = this;
 					$.each(value, function(idx, val) {
-						var $button = $('<button>' + val.text+ '</button>');
+						console.log('button text', val.text);
+						var $button = $('<button>' + val.text + '</button>');
 						self.$buttonrow.append($button);
-						$button.click(val.click);
+						$button.click(function() {
+							val.click.apply(self.element[0], arguments);
+							//val.click(new $.Event(self));
+						});
 					});
 					this._setSizes();
 					break;
@@ -87,7 +99,7 @@
 		},
 		close: function() {
 			console.log('close 1');
-			this._trigger('close');
+			this._trigger('close', this);
 			this.$element.hide();
 		},
 		destroy: function() {

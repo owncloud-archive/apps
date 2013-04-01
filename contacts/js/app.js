@@ -1331,33 +1331,45 @@ OC.Contacts = OC.Contacts || {
 			this.$addGroupTmpl = $('#addGroupTemplate');
 		}
 		var $dlg = this.$addGroupTmpl.octemplate();
-		$('#add_group_dialog').html($dlg).dialog({
+		$('#add_group_dialog').html($dlg).ocdialog({
 			modal: true,
 			closeOnEscape: true,
 			title:  t('contacts', 'Add group'),
 			height: 'auto', width: 'auto',
-			buttons: {
-				'Ok':function() {
-					self.groups.addGroup(
-						{name:$dlg.find('input:text').val()},
-						function(response) {
-							if(typeof cb === 'function') {
-								cb(response);
-							} else {
-								if(response.error) {
-									OC.notify({message: response.message});
+			buttons: [
+				{
+					text: t('contacts', 'OK'),
+					click:function() {
+						console.log(this, $(this).find('input'));
+						var name = $(this).find('input').val();
+						if(name.trim() === '') {
+							return false;
+						}
+						self.groups.addGroup(
+							{name:$dlg.find('input:text').val()},
+							function(response) {
+								if(typeof cb === 'function') {
+									cb(response);
+								} else {
+									if(response.error) {
+										OC.notify({message: response.message});
+									}
 								}
-							}
-						});
-					$(this).dialog('close');
+							});
+						console.log('this?', this);
+						$(this).ocdialog('close');
+					}
 				},
-				'Cancel':function() {
-					$(this).dialog('close');
-					return false;
+				{
+					text: t('contacts', 'Cancel'),
+					click:function(dlg) {
+						$(this).ocdialog('close');
+						return false;
+					}
 				}
-			},
+			],
 			close: function(event, ui) {
-				$(this).dialog('destroy').remove();
+				$(this).ocdialog('destroy').remove();
 				$('#add_group_dialog').remove();
 			},
 			open: function(event, ui) {

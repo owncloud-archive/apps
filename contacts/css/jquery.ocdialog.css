@@ -5,6 +5,7 @@
 	z-index: 200;
 }
 .oc-dialog-title {
+	font-weight: bold;
 }
 .oc-dialog-content {
 }
@@ -14,6 +15,5 @@
 	float: right;
 	position: relative;
 	bottom: 0;
-	height: 2em;
 	display: block;
 }
