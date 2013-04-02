@@ -37,6 +37,16 @@ OC.Tasks = {
 			.append(checkbox)
 			.prependTo(task_container);
 		var priority = task.priority;
+		
+		if(task.due){			
+			var dateString = OC.Tasks.getDueDateString(task.due,task.due_date_only);	
+			$('<div>')
+			.addClass('tag')
+			.addClass('due_date')
+			.text(dateString)
+			.prependTo(task_container);
+		}		
+		
 		$('<div>')
 			.addClass('tag')
 			.addClass('priority')
@@ -255,6 +265,12 @@ OC.Tasks = {
 		$.post(OC.filePath('tasks', 'ajax', 'update_property.php'), {id:task.id, type:'due', due:due, date:date_only?1:0}, function(jsondata){
 			if(jsondata.status != 'success') {
 				task.due = old_due;
+			}else{
+				if(jsondata.data.due != ''){
+					
+					var dateString = OC.Tasks.getDueDateString(jsondata.data.due,jsondata.data.due_date_only);
+					$('#tasks_list').find(".task[data-id='"+jsondata.data.id+"']").find('div.due_date').text(dateString);
+				}
 			}
 		});
 	},
@@ -268,6 +284,7 @@ OC.Tasks = {
 		$task.find('input.categories').show();
 		$task.find('div.location').hide();
 		$task.find('input.location').show();
+		$task.find('div.due_date').hide();
 	},
 	lessClickHandler:function(event){
 		var $task = $(this).closest('.task'),
@@ -279,6 +296,8 @@ OC.Tasks = {
 		$task.find('input.categories').hide();
 		$task.find('div.location').show();
 		$task.find('input.location').hide();
+		$task.find('div.due_date').show();
+
 	},
 	deleteClickHandler:function(event){
 		var $task = $(this).closest('.task'),
@@ -317,6 +336,22 @@ OC.Tasks = {
 		categories = $.map(newcategories, function(v) {return v;});
 		console.log('Task categories changed to: ' + categories);
 		$('input.categories').multiple_autocomplete('option', 'source', categories);
+	},
+	getDueDateString:function(due,due_date_only){
+		var date_ret =  new Date(parseInt(due)*1000);
+		var date = date_ret.getDate();
+		date = date > 9 ? date : '0'+date;
+		var month = date_ret.getMonth() + 1;
+		month = month > 9 ? month : '0'+month;
+		var year = date_ret.getFullYear();
+		var dateString;
+		
+		if (!due_date_only) {
+			dateString = year + '-' + month + '-' + date + " " + ( date_ret.getHours() > 9 ? date_ret.getHours() : '0' + date_ret.getHours() ) + ':' + ( date_ret.getMinutes() > 9 ? date_ret.getMinutes() : '0' + date_ret.getMinutes() );
+		}else{
+			dateString = year + '-' + month + '-' + date;
+		}
+		return dateString;		
 	},
 	List: {
 		create_list_div:function(category){

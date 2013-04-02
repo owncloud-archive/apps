@@ -1,5 +1,5 @@
 #tasks_list p.loading{margin:15px;}
-#tasks_lists .done{color:#C7C7C7;}
+#tasks_lists .done{color:#280973;}
 #task_details{position:absolute;left:63em;top:6.4em;}
 #task_details th{padding:2px;text-align:right;vertical-align:top; }
 #task_details td{padding:2px;text-align:left;vertical-align:top; }
@@ -48,6 +48,7 @@
 .task input.categories{display:none;top:0;text-align:left;}
 
 .task .location{background-color:#442d44;color:white;position:absolute;right:0.6em;width:9.2em;text-align:left;top:0.5em}
+.task .due_date{background-color:#442d44;color:white;position:absolute;right:18em;width:9.2em;text-align:center;top:0.5em}
 .task input.location{display:none;top:0;text-align:left;right:0.3em;background-color:white;color:#333333;}
 
 .task .more{display:none;margin-top:0.5em;}
