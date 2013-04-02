@@ -136,3 +136,7 @@ margin-bottom:4px;
 #fullcalendar{
 	overflow: auto;
 }
+
+.ui-timepicker-hour-cell *, .ui-timepicker-minute-cell *{
+	text-overflow: clip !important;
+}
