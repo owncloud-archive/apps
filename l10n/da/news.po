@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <cronner@gmail.com>, 2012.
+#  <mikkelbjerglarsen@gmail.com>, 2013.
+# Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2012-2013.
+# Ole Holm Frandsen <froksen@gmail.com>, 2012.
+# Thomas Tanghus <thomas@tanghus.net>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-03-16 22:12+0100\n"
+"PO-Revision-Date: 2013-03-14 23:21+0000\n"
+"Last-Translator: Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: 3rdparty/js/moment.min.js:6
+msgid "year"
+msgstr "år"
+
+#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+msgid "News"
+msgstr "Nyheder"
+
+#: db/feedmapper.php:172 db/itemmapper.php:262
+msgid "no title"
+msgstr "ingen titel"
+
+#: db/foldermapper.php:127
+msgid "no name"
+msgstr "intet navn"
+
+#: db/itemmapper.php:267
+msgid "no body"
+msgstr "ingen brødtekst"
+
+#: opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "Abonnementer i ownCloud - Nyheder"
+
+#: subscribe.php:30
+msgid "An error occurred"
+msgstr "Der opstod en fejl"
+
+#: subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "Godt! Du abonnerer nu på "
+
+#: subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "Du havde allerede abonnerer på dette feed!"
+
+#: templates/part.addnew.php:7
+msgid "New"
+msgstr "Ny"
+
+#: templates/part.addnew.php:12
+msgid "Add Subscription"
+msgstr "Tilføj abonnement"
+
+#: templates/part.addnew.php:14
+msgid "Address must not be empty!"
+msgstr "Adresse kan ikke stå tom"
+
+#: templates/part.addnew.php:15
+msgid "Feed exists already!"
+msgstr "Feedet findes allerede!"
+
+#: templates/part.addnew.php:16
+msgid "Could not add feed! Check if feed contains valid RSS!"
+msgstr "Kunne ikke tilføje feed! Undersøg, om feedet indeholder gyldig RSS!"
+
+#: templates/part.addnew.php:17
+msgid "Folder exists already"
+msgstr "Mappen findes allerede"
+
+#: templates/part.addnew.php:22
+msgid "Address"
+msgstr "Adresse"
+
+#: templates/part.addnew.php:24 templates/part.addnew.php:27
+msgid "Add"
+msgstr "Tilføj"
+
+#: templates/part.addnew.php:29
+msgid "New folder"
+msgstr "Ny Mappe"
+
+#: templates/part.addnew.php:30
+msgid "Folder"
+msgstr "Mappe"
+
+#: templates/part.addnew.php:35
+msgid "No folder"
+msgstr "Ingen Mappe"
+
+#: templates/part.feed.starred.php:6
+msgid "Starred"
+msgstr "Markéret"
+
+#: templates/part.feed.unread.php:10
+msgid "Unread articles"
+msgstr "Ulæste artikler"
+
+#: templates/part.feed.unread.php:16
+msgid "All articles"
+msgstr "Alle artikler"
+
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
+#: templates/part.listfolder.php:33
+msgid "Mark all read"
+msgstr "Marker alle som læst"
+
+#: templates/part.items.php:34
+msgid "Cant play audio format"
+msgstr "Kan ikke afspille lydformatet"
+
+#: templates/part.items.php:48 templates/part.items.php:51
+msgid "Share"
+msgstr "Del"
+
+#: templates/part.items.php:55
+msgid "Keep unread"
+msgstr "Behold ulæste"
+
+#: templates/part.listfeed.php:17
+msgid "Delete feed"
+msgstr "Slet feed"
+
+#: templates/part.listfolder.php:12
+msgid "Collapse"
+msgstr "Sammenfold"
+
+#: templates/part.listfolder.php:24
+msgid "Delete folder"
+msgstr "Slet mappe"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "Omdøb mappe"
+
+#: templates/part.settings.php:2
+msgid "Import / Export OPML"
+msgstr "Import / Eksport af OPML"
+
+#: templates/part.settings.php:4 templates/part.settings.php:5
+msgid "Import"
+msgstr "Importer"
+
+#: templates/part.settings.php:7 templates/part.settings.php:9
+msgid "Export"
+msgstr "Exporter"
+
+#: templates/part.settings.php:13
+msgid "Subscribelet"
+msgstr "Subscribelet"
+
+#: templates/part.showall.php:2
+msgid "Show all"
+msgstr "Vis alt"
+
+#: templates/part.showall.php:6
+msgid "Show only unread"
+msgstr "Vis kun ulæste"
+
+#: templates/part.subscribelet.php:3
+msgid ""
+"Drag this to your browser bookmarks and click on it whenever you want to "
+"subscribe to a webpage quickly:"
+msgstr "Træk denne til din browsers bogmærker og klik på den, når du ønsker at abonnere på en hjemmeside hurtigt:"
+
+#: templates/part.subscribelet.php:17
+msgid "Subscribe"
+msgstr "Abonner"

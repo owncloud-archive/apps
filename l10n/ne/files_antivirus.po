@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-03-18 00:00+0100\n"
+"PO-Revision-Date: 2013-01-19 23:02+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Nepali (http://www.transifex.com/projects/p/owncloud/language/ne/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ne\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/notification.php:1
+msgid "Greetings {user},"
+msgstr ""
+
+#: templates/notification.php:2
+msgid ""
+"Sorry, but a malware was detected in a file you tried to upload and it had "
+"to be deleted."
+msgstr ""
+
+#: templates/notification.php:3
+msgid "This email is a notification from {host}. Please, do not reply."
+msgstr ""
+
+#: templates/notification.php:4
+msgid "File uploaded: {file}"
+msgstr ""
+
+#: templates/settings.php:3
+msgid "Antivirus Configuration"
+msgstr ""
+
+#: templates/settings.php:4
+msgid "Mode"
+msgstr ""
+
+#: templates/settings.php:5
+msgid "Executable"
+msgstr ""
+
+#: templates/settings.php:5
+msgid "Daemon"
+msgstr ""
+
+#: templates/settings.php:7
+msgid "Host"
+msgstr ""
+
+#: templates/settings.php:7
+msgid "Address of Antivirus Host."
+msgstr ""
+
+#: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+msgid "Not required in Executable Mode."
+msgstr ""
+
+#: templates/settings.php:8
+msgid "Port"
+msgstr ""
+
+#: templates/settings.php:8
+msgid "Port number of Antivirus Host."
+msgstr ""
+
+#: templates/settings.php:9
+msgid "Stream Length"
+msgstr ""
+
+#: templates/settings.php:9
+msgid "ClamAV StreamMaxLength value in bytes."
+msgstr ""
+
+#: templates/settings.php:10
+msgid "Path to clamscan"
+msgstr ""
+
+#: templates/settings.php:10
+msgid "Path to clamscan executable."
+msgstr ""
+
+#: templates/settings.php:10
+msgid "Not required in Daemon Mode."
+msgstr ""
+
+#: templates/settings.php:11
+msgid "Action for infected files found while scanning"
+msgstr ""
+
+#: templates/settings.php:12
+msgid "Only log"
+msgstr ""
+
+#: templates/settings.php:12
+msgid "Delete file"
+msgstr ""
+
+#: templates/settings.php:15
+msgid "Save"
+msgstr ""

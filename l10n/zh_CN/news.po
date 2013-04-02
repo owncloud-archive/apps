@@ -1,0 +1,181 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <appweb.cn@gmail.com>, 2012.
+# Dennis <dtsang29@hotmail.com>, 2013.
+#   <suiy02@gmail.com>, 2012.
+#  <wengxt@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-03-16 22:12+0100\n"
+"PO-Revision-Date: 2013-03-16 14:00+0000\n"
+"Last-Translator: dtsang29 <dtsang29@hotmail.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: 3rdparty/js/moment.min.js:6
+msgid "year"
+msgstr "年"
+
+#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+msgid "News"
+msgstr "新闻"
+
+#: db/feedmapper.php:172 db/itemmapper.php:262
+msgid "no title"
+msgstr "没有标题"
+
+#: db/foldermapper.php:127
+msgid "no name"
+msgstr "没有名称"
+
+#: db/itemmapper.php:267
+msgid "no body"
+msgstr "没有正文"
+
+#: opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "在owncloud中订阅-新闻"
+
+#: subscribe.php:30
+msgid "An error occurred"
+msgstr "发生了一个错误"
+
+#: subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "不错！您已经订阅"
+
+#: subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "您已经订阅过此feed哟。"
+
+#: templates/part.addnew.php:7
+msgid "New"
+msgstr "新建"
+
+#: templates/part.addnew.php:12
+msgid "Add Subscription"
+msgstr "添加订阅"
+
+#: templates/part.addnew.php:14
+msgid "Address must not be empty!"
+msgstr "地址不能为空！"
+
+#: templates/part.addnew.php:15
+msgid "Feed exists already!"
+msgstr "Feed已存在！"
+
+#: templates/part.addnew.php:16
+msgid "Could not add feed! Check if feed contains valid RSS!"
+msgstr "无法添加 feed！请检查 feed 是否包含合法的 RSS！"
+
+#: templates/part.addnew.php:17
+msgid "Folder exists already"
+msgstr "文件夹已存在"
+
+#: templates/part.addnew.php:22
+msgid "Address"
+msgstr "地址"
+
+#: templates/part.addnew.php:24 templates/part.addnew.php:27
+msgid "Add"
+msgstr "添加"
+
+#: templates/part.addnew.php:29
+msgid "New folder"
+msgstr "添加文件夹"
+
+#: templates/part.addnew.php:30
+msgid "Folder"
+msgstr "文件夹"
+
+#: templates/part.addnew.php:35
+msgid "No folder"
+msgstr "无文件夹"
+
+#: templates/part.feed.starred.php:6
+msgid "Starred"
+msgstr "已加星标"
+
+#: templates/part.feed.unread.php:10
+msgid "Unread articles"
+msgstr "未读文章"
+
+#: templates/part.feed.unread.php:16
+msgid "All articles"
+msgstr "全部文章"
+
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
+#: templates/part.listfolder.php:33
+msgid "Mark all read"
+msgstr "设置所有为已读"
+
+#: templates/part.items.php:34
+msgid "Cant play audio format"
+msgstr "无法播放此音频格式"
+
+#: templates/part.items.php:48 templates/part.items.php:51
+msgid "Share"
+msgstr "共享"
+
+#: templates/part.items.php:55
+msgid "Keep unread"
+msgstr "保持未读"
+
+#: templates/part.listfeed.php:17
+msgid "Delete feed"
+msgstr "删除Feed"
+
+#: templates/part.listfolder.php:12
+msgid "Collapse"
+msgstr "折叠"
+
+#: templates/part.listfolder.php:24
+msgid "Delete folder"
+msgstr "删除目录"
+
+#: templates/part.listfolder.php:37
+msgid "Rename folder"
+msgstr "重命名目录"
+
+#: templates/part.settings.php:2
+msgid "Import / Export OPML"
+msgstr "导入 / 导出 OPML"
+
+#: templates/part.settings.php:4 templates/part.settings.php:5
+msgid "Import"
+msgstr "导入"
+
+#: templates/part.settings.php:7 templates/part.settings.php:9
+msgid "Export"
+msgstr "导出"
+
+#: templates/part.settings.php:13
+msgid "Subscribelet"
+msgstr "订阅组件"
+
+#: templates/part.showall.php:2
+msgid "Show all"
+msgstr "显示所有"
+
+#: templates/part.showall.php:6
+msgid "Show only unread"
+msgstr "只看未读"
+
+#: templates/part.subscribelet.php:3
+msgid ""
+"Drag this to your browser bookmarks and click on it whenever you want to "
+"subscribe to a webpage quickly:"
+msgstr "拖动此到您的浏览器书签，每当你想迅速订阅网页单击它"
+
+#: templates/part.subscribelet.php:17
+msgid "Subscribe"
+msgstr "订阅"

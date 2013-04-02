@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Amir Reza Asadi <amirreza.asadi@live.com>, 2013.
+# mahdi Kereshteh <miki_mika1362@yahoo.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-03-16 22:12+0100\n"
+"PO-Revision-Date: 2013-03-16 08:31+0000\n"
+"Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
+"Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: templates/notification.php:1
+msgid "Greetings {user},"
+msgstr "{user} خوش آمدی"
+
+#: templates/notification.php:2
+msgid ""
+"Sorry, but a malware was detected in a file you tried to upload and it had "
+"to be deleted."
+msgstr "متاسفیم ، اما یک بد افزار در فایلی که سعی کردید بارگذاری کنید پیدا شده بود و ما آن را پاک کردیم"
+
+#: templates/notification.php:3
+msgid "This email is a notification from {host}. Please, do not reply."
+msgstr "این ایمیل از {host}. می باشد لطفا به آن پاسخ ندهید"
+
+#: templates/notification.php:4
+msgid "File uploaded: {file}"
+msgstr "فایل بارگذاری شد:{file}"
+
+#: templates/settings.php:3
+msgid "Antivirus Configuration"
+msgstr "پیکربندی آنتی ویروس"
+
+#: templates/settings.php:4
+msgid "Mode"
+msgstr "شیوه"
+
+#: templates/settings.php:5
+msgid "Executable"
+msgstr "قابل اجرا"
+
+#: templates/settings.php:5
+msgid "Daemon"
+msgstr "برنامه کمکی"
+
+#: templates/settings.php:7
+msgid "Host"
+msgstr "میزبانی"
+
+#: templates/settings.php:7
+msgid "Address of Antivirus Host."
+msgstr "آدرس میزبان آنتی ویروس."
+
+#: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+msgid "Not required in Executable Mode."
+msgstr "هیچ پیشنیازی در حالت اجرایی نیست."
+
+#: templates/settings.php:8
+msgid "Port"
+msgstr "درگاه"
+
+#: templates/settings.php:8
+msgid "Port number of Antivirus Host."
+msgstr "شماره پورت میزبان آنتی ویروس."
+
+#: templates/settings.php:9
+msgid "Stream Length"
+msgstr ""
+
+#: templates/settings.php:9
+msgid "ClamAV StreamMaxLength value in bytes."
+msgstr ""
+
+#: templates/settings.php:10
+msgid "Path to clamscan"
+msgstr ""
+
+#: templates/settings.php:10
+msgid "Path to clamscan executable."
+msgstr ""
+
+#: templates/settings.php:10
+msgid "Not required in Daemon Mode."
+msgstr ""
+
+#: templates/settings.php:11
+msgid "Action for infected files found while scanning"
+msgstr "اقدام لازم در مورد فایل های آلوده ی یافت شده در حین اسکن"
+
+#: templates/settings.php:12
+msgid "Only log"
+msgstr ""
+
+#: templates/settings.php:12
+msgid "Delete file"
+msgstr "حذف فایل"
+
+#: templates/settings.php:15
+msgid "Save"
+msgstr "ذخیره"

@@ -1,0 +1,19 @@
+<?php $TRANSLATIONS = array(
+"Music" => "Música",
+"songs" => "canciones",
+"albums" => "álbumes",
+"Add to playlist" => "Agregar a la lista de reproducción",
+"Add album to playlist" => "Añadir un Album a la lista.",
+"Previous" => "Anterior",
+"Play" => "Reproducir",
+"Pause" => "Pausa",
+"Next" => "Siguiente",
+"Mute" => "Silenciar",
+"Unmute" => "Quitar silencio",
+"Rescan Collection" => "Buscar canciones nuevas",
+"Artist" => "Artista",
+"Album" => "Álbum",
+"Title" => "Título",
+"Media" => "Multimedia",
+"Ampache address:" => "Direccion de Ampache:"
+);

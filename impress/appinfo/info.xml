@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<info>
+	<id>impress</id>
+	<name>Impress</name>
+	<description>A Player for impress.js presentations.  Impress.js creator Bartek Szopka describes this fantastic tool as "inspired by Prezi".  Simply upload impress.js files without the html header and footer and start viewing your presentations in a whole new, dynamic and interactive manner. impress.js presentation have to use the .impress file extension.</description>
+	<licence>AGPL</licence>
+	<author>Frank Karlitschek</author>
+	<require>4.93</require>
+	<shipped>true</shipped>
+</info>

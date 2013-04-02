@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# marguerite su <i@marguerite.su>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2012-09-22 02:01+0200\n"
+"PO-Revision-Date: 2012-09-21 19:04+0000\n"
+"Last-Translator: marguerite su <i@marguerite.su>\n"
+"Language-Team: Chinese (China) (GB2312) (http://www.transifex.com/projects/p/owncloud/language/zh_CN.GB2312/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN.GB2312\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: settings.php:33
+msgid ""
+"The php-json module is needed by the many applications for inter "
+"communications"
+msgstr "许多应用都需要 php-json 模块以进行内部通讯"
+
+#: settings.php:39
+msgid ""
+"The php-curl module is needed to fetch the page title when adding a bookmark"
+msgstr "需要 php-curl 模块以在添加书签时获取页面标题"
+
+#: settings.php:45
+msgid "The php-gd module is needed to create thumbnails of your images"
+msgstr "需要 php-gd 模块以生成您相片的缩略图"
+
+#: settings.php:51
+msgid "The php-ldap module is needed connect to your ldap server"
+msgstr "需要 php-ldap 模块以和您的 ldap 服务器连接"
+
+#: settings.php:57
+msgid "The php-zip module is needed download multiple files at once"
+msgstr "需要 php-zip 模块以同时下载多个文件"
+
+#: settings.php:63
+msgid ""
+"The php-mb_multibyte module is needed to manage correctly the encoding."
+msgstr "需要 php-mb_multibyte 模块来正确加密。"
+
+#: settings.php:69
+msgid "The php-ctype module is needed validate data."
+msgstr "需要 php-ctype 模块来校验数据。"
+
+#: settings.php:75
+msgid "The php-xml module is needed to share files with webdav."
+msgstr "需要 php-xml 模块以通过 webdav 分享文件。"
+
+#: settings.php:81
+msgid ""
+"The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
+" knowledge base from OCS servers"
+msgstr "您 php.ini 中的 allow_url_fopen 选项应设置为 1 以从 OCS 服务器撷取知识库"
+
+#: settings.php:87
+msgid "The php-pdo module is needed to store owncloud data into a database."
+msgstr "需要 php-pdo 模块来存储 ownCloud 数据到数据库。"
+
+#: settings.php:93
+msgid "The iconv module is needed to convert data into the correct charset."
+msgstr "需要 iconv 模块以转换数据到正确的字符集。"
+
+#: templates/settings.php:2
+msgid "Dependencies status"
+msgstr "依赖状态"
+
+#: templates/settings.php:7
+msgid "Used by :"
+msgstr "被使用："

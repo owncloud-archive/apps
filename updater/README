@@ -1,0 +1,27 @@
+This application is distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+
+Your feedback is appreciated.
+
+Installation:
+Upload the updater directory under the 'apps' directory of your ownCloud.
+Navigate to the 'Apps' page in Admin.
+Click the 'Updater' in the application list. Then click the 'Enable' button.
+
+Usage:
+- Backup your DB and user data;
+- Navigate to the 'Admin' page;
+- Click 'Update';
+- Refresh the page with Ctrl+F5.
+
+
+
+How does it work?
+- creates backup directory inside the ownCloud root.
+- extracts update package content into the backup/packageVersion
+- makes the copy of the current instance (except data dir) to backup/currentVersion-randomstring
+- adds to the include path all required paths relative to backup/currentVersion-randomstring
+- moves all folders except the  data dir from the current instance to backup/tmp 
+- moves all folders from backup/packageVersion to the current version
+- copy old config.php to the config directory.

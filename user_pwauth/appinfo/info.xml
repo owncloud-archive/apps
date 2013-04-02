@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<info>
+	<id>user_pwauth</id>
+	<name>Unix user backend</name>
+	<description>Authenticate Users by PAM</description>
+	<version>1.1</version>
+	<licence>AGPL</licence>
+	<author>Clément Véret</author>
+	<require>4</require>
+	<types>
+		<authentication/>
+	</types>
+</info>

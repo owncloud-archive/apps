@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Marián Hvolka <marian.hvolka@stuba.sk>, 2013.
+#   <martin.babik@gmail.com>, 2012.
+# Roman Priesol <roman@priesol.net>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:32+0000\n"
+"Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
+"Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sk_SK\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
+msgid "Invalid date/time"
+msgstr "Nesprávny dátum/čas"
+
+#: appinfo/app.php:10
+msgid "Tasks"
+msgstr "Úlohy"
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr "Do"
+
+#: js/tasks.js:107
+msgid "List"
+msgstr "Zoznam"
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr "Umiestnenie"
+
+#: js/tasks.js:420
+msgid "No category"
+msgstr "Žiadna kategória"
+
+#: lib/app.php:33
+msgid "Unspecified"
+msgstr "Nešpecifikované"
+
+#: lib/app.php:34
+msgid "1=highest"
+msgstr "1= najvyššia"
+
+#: lib/app.php:38
+msgid "5=medium"
+msgstr "5=stredná"
+
+#: lib/app.php:42
+msgid "9=lowest"
+msgstr "9=najnižšia"
+
+#: lib/app.php:81
+msgid "Empty Summary"
+msgstr "Prázdny sumár"
+
+#: lib/app.php:93
+msgid "Invalid percent complete"
+msgstr "Neplatné percento dokončení"
+
+#: lib/app.php:107
+msgid "Invalid priority"
+msgstr "Nesprávna priorita"
+
+#: templates/no-calendar-app.php:9
+msgid ""
+"The calendar application also need to be enabled to use this application."
+msgstr "Táto aplikácia si vyžaduje aj aplikáciu Kalendár."
+
+#: templates/tasks.php:3
+msgid "Add Task"
+msgstr "Pridať úlohu"
+
+#: templates/tasks.php:4
+msgid "Order Due"
+msgstr "A/Z Termín"
+
+#: templates/tasks.php:5
+msgid "Order List"
+msgstr "A/Z Zoznam"
+
+#: templates/tasks.php:6
+msgid "Order Complete"
+msgstr "A/Z Komplet"
+
+#: templates/tasks.php:7
+msgid "Order Location"
+msgstr "A/Z Umiestnenie"
+
+#: templates/tasks.php:8
+msgid "Order Priority"
+msgstr "A/Z Priorita"
+
+#: templates/tasks.php:9
+msgid "Order Label"
+msgstr "A/Z Štítok"
+
+#: templates/tasks.php:16
+msgid "Loading tasks..."
+msgstr "Nahrávam úlohy"
+
+#: templates/tasks.php:20
+msgid "Important"
+msgstr "Dôležité"
+
+#: templates/tasks.php:23
+msgid "More"
+msgstr "Viac"
+
+#: templates/tasks.php:26
+msgid "Less"
+msgstr "Menej"
+
+#: templates/tasks.php:29
+msgid "Delete"
+msgstr "Zmazať"

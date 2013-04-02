@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
+"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: js/export.js:14 js/export.js:20
+msgid "Export"
+msgstr "Εξαγωγή"
+
+#: js/export.js:19
+msgid "Something went wrong while the export file was being generated"
+msgstr "Κάτι πήγε στραβά κατά τη δημιουργία του εξαγόμενου αρχείου"
+
+#: js/export.js:19
+msgid "An error has occurred"
+msgstr "Παρουσιάστηκε σφάλμα"
+
+#: templates/settings.php:2
+msgid "User Account Migration"
+msgstr "Μεταφορά Λογαριασμών Χρηστών"
+
+#: templates/settings.php:3
+msgid "Export and import ownCloud user accounts."
+msgstr "Εισαγωγή και εξαγωγή λογαριασμών χρηστών ownCloud."

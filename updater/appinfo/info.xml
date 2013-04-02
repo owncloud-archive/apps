@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<info>
+	<id>updater</id>
+	<name>Updater</name>
+	<description>ownCloud updater plugin. Check README for details.</description>
+	<version>0.2.7</version>
+	<licence>AGPL</licence>
+	<author>Victor Dubiniuk</author>
+	<shipped>true</shipped>
+	<default_enable/>
+	<require>4.93</require>
+		<types></types>
+</info>

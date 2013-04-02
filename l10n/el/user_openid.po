@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
+# Nisok Kosin <nikos.efthimiou@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-01-15 00:01+0100\n"
+"PO-Revision-Date: 2013-01-14 17:58+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/openid.php:13
+msgid "OpenID Changed"
+msgstr "Το OpenID άλλαξε"
+
+#: ajax/openid.php:15
+msgid "Invalid request"
+msgstr "Μη έγκυρο αίτημα"
+
+#: templates/nomode.php:12
+msgid "This is an OpenID server endpoint. For more information, see "
+msgstr "Αυτό είναι τελικό σημείο διακομιστή OpenID. Για περισσότερες πληροφορίες, δείτε "
+
+#: templates/nomode.php:14
+msgid "Identity: <b>"
+msgstr "Ταυτότητα: <b>"
+
+#: templates/nomode.php:15
+msgid "Realm: <b>"
+msgstr "Περιοχή: <b>"
+
+#: templates/nomode.php:16
+msgid "User: <b>"
+msgstr "Χρήστης: <b>"
+
+#: templates/nomode.php:17
+msgid "Login"
+msgstr "Σύνδεση"
+
+#: templates/nomode.php:22
+msgid "Error: <b>No user Selected"
+msgstr "Σφάλμα: <b> Δεν έχει επιλεχθεί κάποιος χρήστης"
+
+#: templates/settings.php:3
+msgid "OpenID"
+msgstr "OpenID"
+
+#: templates/settings.php:4
+msgid "you can authenticate to other sites with this address"
+msgstr "μπορείτε να πιστοποιηθείτε σε άλλες ιστοσελίδες με αυτήν την διεύθυνση"
+
+#: templates/settings.php:5
+msgid "Authorized OpenID provider"
+msgstr "Εξουσιοδοτημένος παροχέας OpenID"
+
+#: templates/settings.php:6
+msgid "Your address at Wordpress, Identi.ca, &hellip;"
+msgstr "Η διευθυνσή σας σε Wordpress, Identi.ca, &hellip;"

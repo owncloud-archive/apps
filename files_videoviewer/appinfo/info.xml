@@ -1,0 +1,11 @@
+<?xml version="1.0"?> 
+<info>
+	<id>files_videoviewer</id>
+	<name>Video Viewer</name>
+	<description>Simple video player based on MediaElement.js by John Dyer.</description>
+	<licence>AGPL</licence>
+	<author>Victor Dubiniuk</author>
+	<shipped>true</shipped>
+	<default_enable/>
+	<require>4.93</require>
+</info>

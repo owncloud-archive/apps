@@ -1,0 +1,36 @@
+/* Alter the FontAwesome style sheet to not change the font for normal text.
+ * Enable you to do eg. <button class="icon-fubar">Text</button> without the
+ * need for an extra <i /> element.
+ * 
+ * This requires the 3rdparty_minimizer_path branch:
+ *@import url('%3rdpartyroot%/fontawesome/css/font-awesome.min.css');*/
+
+[class^="icon-"],
+[class*=" icon-"] {
+	font-family: "Lucida Grande", Arial, Verdana, sans-serif;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+	font-family: FontAwesome;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: inherit;
+	-webkit-font-smoothing: antialiased;
+}
+
+input[type="submit"][class^="icon-"].text, input[type="submit"][class*=" icon-"].text,
+input[type="button"][class^="icon-"].text, input[type="button"][class*=" icon-"].text,
+button[class^="icon-"].text, button[class*=" icon-"].text,
+.button[class^="icon-"].text, .button[class*=" icon-"].text,
+select[class^="icon-"].text, select[class*=" icon-"].text {
+	font-weight: bold;
+}
+
+input[type="submit"][class^="icon-"].text:before, input[type="submit"][class*=" icon-"].text:before,
+input[type="button"][class^="icon-"].text:before, input[type="button"][class*=" icon-"].text:before,
+button[class^="icon-"].text:before, button[class*=" icon-"].text:before,
+.button[class^="icon-"].text:before, .button[class*=" icon-"].text:before,
+select[class^="icon-"].text:before, select[class*=" icon-"].text:before {
+	padding-right: 3px;
+}

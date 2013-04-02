@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<info>
+	<id>user_cas</id>
+	<name>CAS user and group backend</name>
+	<description>Authenticate Users by a CAS SERVER</description>
+	<licence>AGPL</licence>
+	<author>Sixto Martin Garcia</author>
+	<require>4.93</require>
+	<types>
+        <prelogin/>
+        <authentication/>
+	</types>
+</info>

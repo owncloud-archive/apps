@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<info>
+	<id>contacts</id>
+	<name>Contacts</name>
+	<licence>AGPL</licence>
+	<author>Jakob Sack,Thomas Tanghus</author>
+	<require>4.93</require>
+	<shipped>true</shipped>
+	<description>Address book with CardDAV support.</description>
+	<standalone/>
+	<default_enable/>
+	<remote>
+		<contacts>appinfo/remote.php</contacts>
+		<carddav>appinfo/remote.php</carddav>
+		<contactthumbnail>thumbnail.php</contactthumbnail>
+	</remote>
+</info>

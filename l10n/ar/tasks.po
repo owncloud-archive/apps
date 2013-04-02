@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <shiningmoon25@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:32+0000\n"
+"Last-Translator: aboodilankaboot <shiningmoon25@gmail.com>\n"
+"Language-Team: Arabic (http://www.transifex.com/projects/p/owncloud/language/ar/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
+msgid "Invalid date/time"
+msgstr "التاريخ أو الوقت غير صحيح"
+
+#: appinfo/app.php:10
+msgid "Tasks"
+msgstr "المهام"
+
+#: js/tasks.js:78
+msgid "Due"
+msgstr "مستحق"
+
+#: js/tasks.js:107
+msgid "List"
+msgstr "قائمة"
+
+#: js/tasks.js:128
+msgid "Location"
+msgstr "موقع"
+
+#: js/tasks.js:420
+msgid "No category"
+msgstr "لا فئة"
+
+#: lib/app.php:33
+msgid "Unspecified"
+msgstr "غير محدد"
+
+#: lib/app.php:34
+msgid "1=highest"
+msgstr "1=أعلى"
+
+#: lib/app.php:38
+msgid "5=medium"
+msgstr "5=وسط"
+
+#: lib/app.php:42
+msgid "9=lowest"
+msgstr "9=أدنى"
+
+#: lib/app.php:81
+msgid "Empty Summary"
+msgstr "ملخص خالي"
+
+#: lib/app.php:93
+msgid "Invalid percent complete"
+msgstr "بالمئة غير صحيحة اكتملت"
+
+#: lib/app.php:107
+msgid "Invalid priority"
+msgstr "أولوية غير صالحة"
+
+#: templates/no-calendar-app.php:9
+msgid ""
+"The calendar application also need to be enabled to use this application."
+msgstr "يلزم تفعيل تطبيق \"التقويم\" لإستخدام هذا التطبيق"
+
+#: templates/tasks.php:3
+msgid "Add Task"
+msgstr "إضافة مهام"
+
+#: templates/tasks.php:4
+msgid "Order Due"
+msgstr "الطلب مستحق"
+
+#: templates/tasks.php:5
+msgid "Order List"
+msgstr "قائمة الطلبات"
+
+#: templates/tasks.php:6
+msgid "Order Complete"
+msgstr "تم الطلب"
+
+#: templates/tasks.php:7
+msgid "Order Location"
+msgstr "موقع الطلب"
+
+#: templates/tasks.php:8
+msgid "Order Priority"
+msgstr "أولويّة الطلب"
+
+#: templates/tasks.php:9
+msgid "Order Label"
+msgstr "رقعة تعريف الطلب"
+
+#: templates/tasks.php:16
+msgid "Loading tasks..."
+msgstr "جاري تحميل المهام..."
+
+#: templates/tasks.php:20
+msgid "Important"
+msgstr "مهم"
+
+#: templates/tasks.php:23
+msgid "More"
+msgstr "المزيد"
+
+#: templates/tasks.php:26
+msgid "Less"
+msgstr "أقل"
+
+#: templates/tasks.php:29
+msgid "Delete"
+msgstr "إلغاء"

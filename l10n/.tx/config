@@ -1,0 +1,132 @@
+[main]
+host = https://www.transifex.net
+
+[owncloud.calendar]
+file_filter = <lang>/calendar.po
+source_file = templates/calendar.pot
+source_lang = en
+
+[owncloud.contacts]
+file_filter = <lang>/contacts.po
+source_file = templates/contacts.pot
+source_lang = en
+
+[owncloud.media]
+file_filter = <lang>/media.po
+source_file = templates/media.pot
+source_lang = en
+
+[owncloud.gallery]
+file_filter = <lang>/gallery.po
+source_file = templates/gallery.pot
+source_lang = en
+
+[owncloud.bookmarks]
+file_filter = <lang>/bookmarks.po
+source_file = templates/bookmarks.pot
+source_lang = en
+type = PO
+
+[owncloud.admin_dependencies_chk]
+file_filter = <lang>/admin_dependencies_chk.po
+source_file = templates/admin_dependencies_chk.pot
+source_lang = en
+type = PO
+
+[owncloud.admin_migrate]
+file_filter = <lang>/admin_migrate.po
+source_file = templates/admin_migrate.pot
+source_lang = en
+type = PO
+
+[owncloud.tasks]
+file_filter = <lang>/tasks.po
+source_file = templates/tasks.pot
+source_lang = en
+type = PO
+
+[owncloud.user_migrate]
+file_filter = <lang>/user_migrate.po
+source_file = templates/user_migrate.pot
+source_lang = en
+type = PO
+
+[owncloud.user_openid]
+file_filter = <lang>/user_openid.po
+source_file = templates/user_openid.pot
+source_lang = en
+type = PO
+
+[owncloud.user_openid_provider]
+file_filter = <lang>/user_openid_provider.po
+source_file = templates/user_openid_provider.pot
+source_lang = en
+type = PO
+
+[owncloud.files_texteditor]
+file_filter = <lang>/files_texteditor.po
+source_file = templates/files_texteditor.pot
+source_lang = en
+type = PO
+
+[owncloud.impress]
+file_filter = <lang>/impress.po
+source_file = templates/impress.pot
+source_lang = en
+type = PO
+
+[owncloud.files_odfviewer]
+file_filter = <lang>/files_odfviewer.po
+source_file = templates/files_odfviewer.pot
+source_lang = en
+type = PO
+
+[owncloud.external]
+file_filter = <lang>/external.po
+source_file = templates/external.pot
+source_lang = en
+type = PO
+
+[owncloud.news]
+file_filter = <lang>/news.po
+source_file = templates/news.pot
+source_lang = en
+type = PO
+
+[owncloud.updater]
+file_filter = <lang>/updater.po
+source_file = templates/updater.pot
+source_lang = en
+type = PO
+
+[owncloud.ownpad_lite]
+file_filter = <lang>/ownpad_lite.po
+source_file = templates/ownpad_lite.pot
+source_lang = en
+type = PO
+
+[owncloud.mozilla_sync]
+file_filter = <lang>/mozilla_sync.po
+source_file = templates/mozilla_sync.pot
+source_lang = en
+type = PO
+
+[owncloud.notes]
+file_filter = <lang>/notes.po
+source_file = templates/notes.pot
+source_lang = en
+type = PO
+
+[owncloud.files_antivirus]
+file_filter = <lang>/files_antivirus.po
+source_file = templates/files_antivirus.pot
+source_lang = en
+type = PO
+
+[owncloud.firstrunwizard]
+file_filter = <lang>/firstrunwizard.po
+source_file = templates/firstrunwizard.pot
+source_lang = en
+type = PO
+
+

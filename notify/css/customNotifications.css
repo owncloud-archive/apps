@@ -1,0 +1,12 @@
+#notify-list li.notification.notify_sharedEvent > .content > img.notify-img,
+	#notify-list li.notification.notify_sharedCal > .content > img.notify-img,
+	#notify-list li.notification.notify_sharedFolder > .content > img.notify-img,
+	#notify-list li.notification.notify_sharedAbook > .content > img.notify-img,
+	#notify-list li.notification.notify_sharedFile > .content > img.notify-img { padding:0.3em 0.5em 0 0.3em; float:left; }
+#notify-list li.notification.notify_fullImg > .content { padding:0 0.5em; }
+#notify-list li.notification.notify_fullImg > .content > img.notify-img { max-width:50%; max-height:9em; margin:0; padding:0; position:relative; left:-0.5em; }
+li.notification.notify_sharedEvent .notify_param,
+	li.notification.notify_sharedCal .notify_param,
+	li.notification.notify_sharedFolder .notify_param,
+	li.notification.notify_sharedAbook .notify_param,
+	li.notification.notify_sharedFile .notify_param { font-weight:bold; }

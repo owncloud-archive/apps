@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <skoptev@ukr.net>, 2012.
+#   <victor.dubiniuk@gmail.com>, 2012.
+#   <volodya327@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2012-12-19 00:01+0100\n"
+"PO-Revision-Date: 2012-12-18 12:47+0000\n"
+"Last-Translator: volodya327 <volodya327@gmail.com>\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: js/editor.js:72 js/editor.js:177 js/editor.js:185
+msgid "Save"
+msgstr "Зберегти"
+
+#: js/editor.js:74
+msgid "Search:"
+msgstr "Шукати:"
+
+#: js/editor.js:74
+msgid "Close"
+msgstr "Закрити"
+
+#: js/editor.js:151
+msgid "Next"
+msgstr "Наступний"
+
+#: js/editor.js:152
+msgid "Clear"
+msgstr "Очистити"
+
+#: js/editor.js:170
+msgid "Saving..."
+msgstr "Зберігаю..."
+
+#: js/editor.js:178
+msgid "Failed to save file"
+msgstr "Неможливо зберегти файл"
+
+#: js/editor.js:262
+msgid "An error occurred!"
+msgstr "Сталася помилка!"
+
+#: js/editor.js:297
+msgid "There were unsaved changes, click here to go back"
+msgstr "Були незбережені зміни, натисніть сюди для повернення"

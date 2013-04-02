@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <ido.parag@gmail.com>, 2012.
+# Yaron Shahrabani <sh.yaron@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:22+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Language-Team: Hebrew (http://www.transifex.com/projects/p/owncloud/language/he/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: he\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:36
+msgid "Pictures"
+msgstr "תמונות"
+
+#: js/gallery.js:245
+msgid "Shared by"
+msgstr ""
+
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "שתף"
+
+#: templates/no-image-app.php:9
+msgid ""
+"The \"Image Viewer\" application also need to be enabled to use this "
+"application."
+msgstr "יש להפעיל גם את היישום „מציג התמונות“  כדי להשתמש ביישום זה."

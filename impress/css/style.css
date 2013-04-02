@@ -1,0 +1,24 @@
+/* Copyright (c) 2013, Raghu Nayyar http://www.iraghu.com
+ This file is licensed under the Affero General Public License version 3 or later.
+ See the COPYING-README file. */
+
+#content { background:#ffffff; }
+#emptyfolder { position:absolute; margin:10em 0 0 10em; font-size:1.5em; font-weight:bold; color:#888; text-shadow:#fff 0 1px 0; }
+table {position: relative; top: 33px; width: 100%;}
+table th {color:#999;}
+table th#impressImg, table th#impressName, table th#impressSize, table th#impressDate { font-weight:200; border-bottom:2px solid #ccc; }
+table th#impressName {width:95em; }
+table th#impressSize {padding:0 1em; text-align:left; }
+table th#impressDate { padding: 0 1em; }
+.impresslist { padding:6px; width:100%;}
+.impresslist tr { border-bottom:1px solid #eee; }
+.impresslist tr:hover {background:#f8f8f8;}
+.impresslist tr td {  padding:5px; border-bottom:2px solid #ddd; }
+.impresslist .tablefilesize { color:#bbb; }
+.docu { position: absolute; right: 5.5em; top: 0em; }
+#documentation { margin: 20px; }
+#documentation h1 { font-size:1.8em; font-weight:bold; color:#888; }
+#documentation h2 { font-size:1.5em; font-weight:bold; color:#888; }
+#documentation h2 { font-size:1.2em; font-weight:bold; color:#888; }
+
+.examplecode { font-size:0.9em; font-family:"Courier New","Courier";  background-color:#eee; color:#333; width:90%; height:300px; padding:10px;}

@@ -1,0 +1,61 @@
+/*
+	CardDavMATE - Web CardDav Client
+	Copyright (C) 2011-2012 Jan Mate <jan.mate@inf-it.com>
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Affero General Public License as
+	published by the Free Software Foundation, either version 3 of the
+	License, or (at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU Affero General Public License for more details.
+
+	You should have received a copy of the GNU Affero General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+select
+{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+select[disabled]
+{
+	padding-left: 0px;
+	padding-right: 0px !important;
+}
+
+input[type=text], input[type=password]
+{
+	padding-left: 3px;	 /* it resizes the input size :( */
+}
+
+input[type=text].fs, input[type=password].fs
+{
+	width: 328px;
+}
+
+input[type=text].ms, input[type=password].ms
+{
+	width: 214px;
+}
+
+input[type=text].hs, input[type=password].hs
+{
+	width: 161px;
+}
+
+/* IE placeholder */
+label.placeholder {
+	font-size: inherit;
+	cursor: text;
+	padding: 1px 0px 0px 3px;
+	color: #e0e0e0;
+}
+
+#tags_addTag *> label.placeholder {
+	padding-left: 1px;
+}

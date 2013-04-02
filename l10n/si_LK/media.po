@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Anushke Guneratne <anushke@gmail.com>, 2012.
+# Chamara Disanayake <chamara@nic.lk>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-01-24 00:02+0100\n"
+"PO-Revision-Date: 2013-01-23 23:03+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: si_LK\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
+msgid "Music"
+msgstr "සංගීත"
+
+#: js/collection.js:100 js/collection.js:210 js/collection.js:257
+msgid "songs"
+msgstr "ගීත"
+
+#: js/collection.js:101 js/collection.js:208
+msgid "albums"
+msgstr "ගීත එකතු"
+
+#: js/collection.js:282
+msgid "Add to playlist"
+msgstr "ධාවන ලැයිස්තුවට එක් කරන්න"
+
+#: js/music.js:18
+msgid "Add album to playlist"
+msgstr "වාදනය සඳහා ගීත එකතුව එක් කරන්න"
+
+#: templates/music.php:3 templates/player.php:12
+msgid "Play"
+msgstr "ධාවනය"
+
+#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+msgid "Pause"
+msgstr "විරාමය"
+
+#: templates/music.php:5
+msgid "Previous"
+msgstr "පෙර"
+
+#: templates/music.php:6 templates/player.php:14
+msgid "Next"
+msgstr "ඊලඟ"
+
+#: templates/music.php:7
+msgid "Mute"
+msgstr "නිහඬ කරන්න"
+
+#: templates/music.php:8
+msgid "Unmute"
+msgstr "හඬ සක්‍රිය කරන්න"
+
+#: templates/music.php:25
+msgid "Rescan Collection"
+msgstr "එකතුව යලි පිරික්සන්න"
+
+#: templates/music.php:37
+msgid "Artist"
+msgstr "කලාකරු"
+
+#: templates/music.php:38
+msgid "Album"
+msgstr "ගීත එකතුව"
+
+#: templates/music.php:39
+msgid "Title"
+msgstr "මාතෘකාව"
+
+#: templates/settings.php:3
+msgid "Media"
+msgstr ""
+
+#: templates/settings.php:4
+msgid "Ampache address:"
+msgstr ""

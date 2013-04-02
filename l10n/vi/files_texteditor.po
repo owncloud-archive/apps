@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <mattheu.9x@gmail.com>, 2012.
+# sao sang <saosangmo@yahoo.com>, 2013.
+# Sơn Nguyễn <sonnghit@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-02-10 00:06+0100\n"
+"PO-Revision-Date: 2013-02-09 19:00+0000\n"
+"Last-Translator: saosangm <saosangmo@yahoo.com>\n"
+"Language-Team: Vietnamese (http://www.transifex.com/projects/p/owncloud/language/vi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: js/editor.js:72 js/editor.js:158 js/editor.js:166
+msgid "Save"
+msgstr "Lưu"
+
+#: js/editor.js:74
+msgid "Search:"
+msgstr "Tìm:"
+
+#: js/editor.js:74
+msgid "Close"
+msgstr "Đóng"
+
+#: js/editor.js:132
+msgid "Next"
+msgstr "Kế tiếp"
+
+#: js/editor.js:133
+msgid "Clear"
+msgstr "Xóa"
+
+#: js/editor.js:151
+msgid "Saving..."
+msgstr "Đang lưu..."
+
+#: js/editor.js:159
+msgid "Failed to save file"
+msgstr "Lỗi khi lưu file"
+
+#: js/editor.js:243
+msgid "An error occurred!"
+msgstr "Có một lỗi đã xảy ra!"
+
+#: js/editor.js:271
+msgid "There were unsaved changes, click here to go back"
+msgstr "Thay đổi không được lưu, bấm vào đây để trở lại"

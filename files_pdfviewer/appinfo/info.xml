@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<info>
+    <id>files_pdfviewer</id>
+    <name>PDF Viewer</name>
+    <description>Inline PDF viewer (pdfjs-based)</description>
+    <licence>Apache 2.0</licence>
+    <author>Thomas Müller (ownCloud), Lukas Reschke (ownCloud), pdf.js: Andreas Gal, Chris G Jones, Shaon Barman, Vivien Nicolas, Justin D'Arcangelo, Yury Delendik, Kalervo Kujala, Adil Allawi, Jakob Miland, Artur Adib, Brendan Dahl, David Quintana, Julian Viereck</author>
+    <require>4.93</require>
+    <shipped>true</shipped>
+    <default_enable/>
+</info>

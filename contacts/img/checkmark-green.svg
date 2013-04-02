@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="300"
+   height="300"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.48.3.1 r9886"
+   inkscape:export-filename="C:\Documents and Settings\Staff\Desktop\checkmark.png"
+   inkscape:export-xdpi="72.839996"
+   inkscape:export-ydpi="72.839996"
+   sodipodi:docname="checkmark.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0"
+   sodipodi:modified="true">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 180.81233 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="417.20389 : 180.81233 : 1"
+       inkscape:persp3d-origin="208.60194 : 120.54155 : 1"
+       id="perspective2441" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="165.91962"
+     inkscape:cy="114.40134"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1024"
+     inkscape:window-height="712"
+     inkscape:window-x="100"
+     inkscape:window-y="100"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-maximized="0">
+    <sodipodi:guide
+       orientation="0,1"
+       position="348.57143,57.142857"
+       id="guide3213" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="302.85714,57.142857"
+       id="guide3215" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/3.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-101.54091,-225.22029)">
+    <path
+       style="fill:#1e6f1e;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       d="M 404.39805,284.11817 C 368.06032,253.38444 350.86772,226.50504 350.86772,226.50504 283.76197,275.28106 212.49623,448.47251 212.49623,448.47251 179.09795,390.4747 145.5172,374.29794 145.5172,374.29794 c -15.09673,24.88467 -41.11915,58.04874 -41.11915,58.04874 60.69423,20.16404 111.63866,94.15836 111.63866,94.15836 C 326.16622,313.22083 404.39805,284.11817 404.39805,284.11817 z"
+       id="path5075"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="C:\Documents and Settings\Staff\Desktop\photos\SVG\path2161.png"
+       inkscape:export-xdpi="72.839996"
+       inkscape:export-ydpi="72.839996"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

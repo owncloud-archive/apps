@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<info>
+	<id>search_lucene</id>
+	<name>Full Text Search</name>
+	<licence>AGPL</licence>
+	<author>Jörn Dreyer</author>
+	<types>
+		<filesystem/>
+	</types>
+	<require>4.93</require>
+	<shipped>true</shipped>
+	<default_enable/>
+	<description>Activate this app when you want to be
+		able to find files by searching their content.
+		The implementation does not search the files
+		directly but will build a so called 
+		<a href="http://en.wikipedia.org/wiki/Reverse_index">reverse index</a>.<br/><br/>
+		Currently only your personal files will be indexed,
+		and only you index is searched, so you will not be able
+		to find files that have been shared with you or that
+		reside on remote mount points.<br/><br/>
+		Every time a file has been written owncloud will
+		index it in the background. Furthermore, when
+		clicking the search box it will check if any
+		files need indexing. This might add a lot of
+		background jobs after first enabling this app,
+		depending on the amount of files you have.<br/><br/>
+		Even thought file indexing is in progress you will
+		still be able to retrieve file search results for any
+		indexed files.<br/><br/>
+		We currenty support plain text, HTML and PDF files.
+		MS Office 2007 and Open/Libre Office are on the roadmap.
+	</description>
+</info>
+
