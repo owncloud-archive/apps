@@ -15,6 +15,7 @@
 	<form id="datecontrol">
 		<input type="button" value="&nbsp;&lt;&nbsp;" id="datecontrol_left"/>
 		<input type="button" value="" id="datecontrol_date"/>
+		<input type="button" value="<?php p($l->t('Go to Today'));?>" id="datecontrol_today"/>
 		<input type="button" value="&nbsp;&gt;&nbsp;" id="datecontrol_right"/>
 	</form>
 </div>
