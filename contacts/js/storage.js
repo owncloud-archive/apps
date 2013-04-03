@@ -327,12 +327,21 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	Storage.prototype.requestRoute = function(route, type, routeParams, params) {
+		var isJSON = (typeof params === 'string');
+		var contentType = isJSON ? 'application/json' : 'application/x-www-form-urlencoded';
+		var processData = !isJSON;
+		contentType += '; charset=UTF-8';
 		var self = this;
 		var url = OC.Router.generate(route, routeParams);
-		var ajaxParams = {type: type, url: url, dataType: 'json'};
-		if(typeof params === 'object') {
-			ajaxParams['data'] = params;
-		}
+		var ajaxParams = {
+			type: type,
+			url: url,
+			dataType: 'json',
+			contentType: contentType,
+			processData: processData,
+			data: params
+		};
+console.log('ajax params', ajaxParams);
 		var defer = $.Deferred();
 		$.when($.ajax(ajaxParams)).then(function(response) {
 			//console.log('response', response);
