@@ -310,7 +310,7 @@
 </script>
 
 <script id="contactDetailsTemplate" class="hidden" type="text/template">
-	<div class="email">
+	<div class="email" type="text/template">
 		<li data-element="email" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
@@ -325,7 +325,7 @@
 			</span>
 		</li>
 	</div>
-	<div class="tel">
+	<div class="tel" type="text/template">
 		<li data-element="tel" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
@@ -339,7 +339,7 @@
 			</span>
 		</li>
 	</div>
-	<div class="url">
+	<div class="url" type="text/template">
 		<li data-element="url" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
@@ -354,7 +354,7 @@
 			</span>
 		</li>
 	</div>
-	<div class="adr">
+	<div class="adr" type="text/template">
 		<li data-element="adr" data-checksum="{checksum}" data-lang="<?php p(OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en')); ?>" class="propertycontainer">
 			<span class="float display">
 				<label class="meta parameters"></label>
@@ -401,7 +401,7 @@
 			</fieldset>
 		</li>
 	</div>
-	<div class="impp">
+	<div class="impp" type="text/template">
 		<li data-element="impp" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
