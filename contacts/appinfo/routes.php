@@ -153,7 +153,7 @@ $this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/
 	->action(
 		function($params) {
 			session_write_close();
-			$request = new Request(array('urlParams' => $params));
+			$request = Request::getRequest($params);
 			$name = $request->post['name'];
 			$checksum = isset($request->post['checksum']) ? $request->post['checksum'] : null;
 
@@ -200,12 +200,13 @@ $this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/
 	)
 	->defaults(array('user' => \OCP\User::getUser()));
 
+// Save a single property.
 $this->create('contacts_contact_save_property', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/property/save')
 	->post()
 	->action(
 		function($params) {
 			session_write_close();
-			$request = new Request(array('urlParams' => $params));
+			$request = Request::getRequest($params);
 			// TODO: When value is empty unset the property and return a checksum of 'new' if multi_property
 			$name = $request->post['name'];
 			$value = $request->post['value'];
@@ -321,7 +322,7 @@ $this->create('contacts_categories_add', 'groups/{user}/add')
 	->action(
 		function($params) {
 			session_write_close();
-			$request = new Request(array('urlParams' => $params));
+			$request = Request::getRequest($params);
 			$name = $request->post['name'];
 
 			if(is_null($name) || $name === "") {
@@ -345,7 +346,7 @@ $this->create('contacts_categories_delete', 'groups/{user}/delete')
 	->action(
 		function($params) {
 			session_write_close();
-			$request = new Request(array('urlParams' => $params));
+			$request = Request::getRequest($params);
 			$name = $request->post['name'];
 
 			if(is_null($name) || $name === "") {
@@ -365,7 +366,7 @@ $this->create('contacts_categories_addto', 'groups/{user}/addto/{categoryid}')
 	->action(
 		function($params) {
 			session_write_close();
-			$request = new Request(array('urlParams' => $params));
+			$request = Request::getRequest($params);
 			$categoryid = $request['categoryid'];
 			$ids = $request['contactids'];
 			debug('request: '.print_r($request->post, true));
@@ -394,7 +395,7 @@ $this->create('contacts_categories_removefrom', 'groups/{user}/removefrom/{categ
 	->action(
 		function($params) {
 			session_write_close();
-			$request = new Request(array('urlParams' => $params));
+			$request = Request::getRequest($params);
 			$categoryid = $request['categoryid'];
 			$ids = $request['contactids'];
 			debug('request: '.print_r($request->post, true));
@@ -423,7 +424,7 @@ $this->create('contacts_setpreference', 'preference/{user}/set')
 	->action(
 		function($params) {
 			session_write_close();
-			$request = new Request(array('urlParams' => $params));
+			$request = Request::getRequest($params);
 			$key = $request->post['key'];
 			$value = $request->post['value'];
 
