@@ -64,6 +64,7 @@
 			<option value="-1" disabled="disabled" selected="selected"><?php p($l->t('Groups')); ?></option>
 		</select>
 		<button class="favorite action svg inactive control" title="<?php p($l->t('Favorite')); ?>"></button>
+		<button class="merge"><?php p($l->t('Merge selected')); ?></button>
 		<a class="delete action" title="<?php p($l->t('Delete Contact')); ?>"></a>
 	</div>
 </div>
@@ -136,6 +137,19 @@
 		<fieldset>
 			<input type="text" name="name" id="name" />
 		</fieldset>
+	</div>
+</script>
+
+<script id="mergeContactsTemplate" type="text/template">
+	<div id="dialog-merge-contacts" title="<?php p($l->t('Merge contacts')); ?>">
+		<p><?php p($l->t('Select which contact to merge into')); ?></p>
+		<fieldset>
+			<ul class="mergelist"></ul>
+		</fieldset>
+		<p>
+		<input type="checkbox" id="delete_other" name="delete_other" />
+			<label for="delete_other"><?php p($l->t('Delete the other(s) after successfull merge?')); ?></label>
+		</p>
 	</div>
 </script>
 

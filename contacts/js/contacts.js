@@ -53,24 +53,73 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.merge = function(mergees) {
-		if(mergees instanceof Array) {
-			mergees = [mergees];
-		} else if(mergees instanceof Contact) {
-			if(mergees === this) {
-				throw new Error('BadArgument: Why should I merge with myself?');
-			}
-		} else {
+		console.log('Contact.merge, mergees', mergees);
+		if(!mergees instanceof Array && !mergees instanceof Contact) {
 			throw new TypeError('BadArgument: Contact.merge() only takes Contacts');
+		} else {
+			if(mergees instanceof Contact) {
+				mergees = [mergees];
+			}
+		}
+
+		// For multi_properties
+		var addIfNotExists = function(name, newproperty) {
+			// If the property isn't set at all just add it and return.
+			if(!self.data[name]) {
+				self.data[name] = [newproperty];
+				return;
+			}
+			var found = false;
+			$.each(self.data[name], function(idx, property) {
+				if(name === 'ADR') {
+					// Do a simple string comparison
+					if(property.value.join(';').toLowerCase() === newproperty.value.join(';').toLowerCase()) {
+						found = true;
+						return false; // break loop
+					}
+				} else {
+					if(property.value.toLowerCase() === newproperty.value.toLowerCase()) {
+						found = true;
+						return false; // break loop
+					}
+				}
+			});
+			if(found) {
+				return;
+			}
+			// Not found, so adding it.
+			self.data[name].push(newproperty);
 		}
 
 		var self = this;
 		$.each(mergees, function(idx, mergee) {
+			console.log('Contact.merge, mergee', mergee);
 			if(!mergee instanceof Contact) {
 				throw new TypeError('BadArgument: Contact.merge() only takes Contacts');
 			}
-			self.data = $.extend(true, self.data, mergee.data);
-			// TODO: How do I save an entire data object?
+			if(mergee === self) {
+				throw new Error('BadArgument: Why should I merge with myself?');
+			}
+			$.each(mergee.data, function(name, properties) {
+				console.log('property', name, properties);
+				if(self.multi_properties.indexOf(name) === -1) {
+					console.log('non-multi', name, properties);
+					if(self.data[name] && self.data[name].length > 0) {
+						// If the property exists don't touch it.
+						return true; // continue
+					} else {
+						// Otherwise add it.
+						self.data[name] = properties;
+					}
+				} else {
+					$.each(properties, function(idx, property) {
+						addIfNotExists(name, property);
+					});
+				}
+			});
+			console.log('Merged', self.data);
 		});
+		return true;
 	};
 
 	Contact.prototype.showActions = function(act) {
@@ -264,9 +313,50 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	/**
+	 * @brief Save all properties. Used for merging contacts.
+	 * If this is a new contact it will first be saved to the datastore and a
+	 * new datastructure will be added to the object.
+	 */
+	Contact.prototype.saveAll = function(cb) {
+		console.log('Contact.saveAll');
+		if(!this.id) {
+			var self = this;
+			this.add({isnew:true}, function(response) {
+				if(response.error) {
+					console.warn('No response object');
+					return false;
+				}
+				self.saveAll();
+			});
+			return;
+		}
+		var self = this;
+		this.setAsSaving(this.$fullelem, true);
+		var data = JSON.stringify(this.data);
+		console.log('stringified', data);
+		$.when(this.storage.saveAllProperties(this.metadata.backend, this.metadata.parent, this.id, data))
+			.then(function(response) {
+			if(!response.error) {
+				self.data = response.data;
+				if(typeof cb === 'function') {
+					cb({error:false});
+				}
+			} else {
+				$(document).trigger('status.contact.error', {
+					message: response.message
+				});
+				if(typeof cb === 'function') {
+					cb({error:true, message:response.message});
+				}
+			}
+			self.setAsSaving(self.$fullelem, false);
+		});
+	}
+
+	/**
 	 * @brief Act on change of a property.
 	 * If this is a new contact it will first be saved to the datastore and a
-	 * new datastructure will be added to the object. FIXME: Not implemented yet.
+	 * new datastructure will be added to the object.
 	 * If the obj argument is not provided 'name' and 'value' MUST be provided
 	 * and this is only allowed for single elements like N, FN, CATEGORIES.
 	 * @param obj. The form form field that has changed.

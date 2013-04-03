@@ -468,10 +468,12 @@ class Contact extends VObject\VCard implements IPIMObject {
 				$this->BDAY->add('VALUE', 'DATE');
 				//\OCP\Util::writeLog('contacts', __METHOD__.' BDAY: '.$this->BDAY->serialize(), \OCP\Util::DEBUG);
 				break;
+			case 'CATEGORIES':
 			case 'N':
+			case 'ORG':
 				$property = $this->select($name);
 				if(count($property) === 0) {
-					$property = VObject\Property::create($name);
+					$property = \Sabre\VObject\Property::create($name);
 					$this->add($property);
 				} else {
 					// Actually no idea why this works
@@ -480,10 +482,11 @@ class Contact extends VObject\VCard implements IPIMObject {
 				if(is_array($value)) {
 					$property->setParts($value);
 				} else {
-					$this->N = $value;
+					$this->{$name} = $value;
 				}
 				break;
 			default:
+				\OCP\Util::writeLog('contacts', __METHOD__.' adding: '.$name. ' ' . $value, \OCP\Util::DEBUG);
 				$this->{$name} = $value;
 				break;
 		}
@@ -547,24 +550,34 @@ class Contact extends VObject\VCard implements IPIMObject {
 	 * );
 	 * @param array $data
 	 */
-	public function mergeFromArray(array $data, $resetOwn = false) {
-		if($resetOwn) {
-			foreach(array_keys($data) as $key) {
-				if(isset($this->{$key})) {
-					unset($this->{$key});
-				}
-			}
-		}
+	public function mergeFromArray(array $data) {
 		foreach($data as $name => $properties) {
 			if(in_array($name, array('PHOTO', 'UID'))) {
 				continue;
 			}
+			if(!is_array($properties)) {
+				\OCP\Util::writeLog('contacts', __METHOD__.' not an array?: ' .$name. ' '.print_r($properties, true), \OCP\Util::DEBUG);
+			}
+			if(in_array($name, Utils\Properties::$multi_properties)) {
+				unset($this->{$name});
+			}
 			foreach($properties as $parray) {
-				$property = Property::create($name, $parray['value'], $parray['parameters']);
-				$this->add($property);
+				//$property = Property::create($name, $parray['value'], $parray['parameters']);
+				\OCP\Util::writeLog('contacts', __METHOD__.' adding: ' .$name. ' '.print_r($parray['value'], true) . ' ' . print_r($parray['parameters'], true), \OCP\Util::DEBUG);
+				if(in_array($name, Utils\Properties::$multi_properties)) {
+					// TODO: wrap in try/catch, check return value
+					$this->setPropertyByChecksum('new', $name, $parray['value'], $parray['parameters']);
+				} else {
+					// TODO: Check return value
+					if(!isset($this->{$name})) {
+						$this->setPropertyByName($name, $parray['value'], $parray['parameters']);
+					}
+				}
+				//$this->add($name, $parray['value'], $parray['parameters']);
 			}
 		}
 		$this->setSaved(false);
+		return true;
 	}
 
 	public function cacheThumbnail(\OC_Image $image = null) {

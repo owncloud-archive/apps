@@ -252,6 +252,36 @@ $this->create('contacts_contact_save_property', 'addressbook/{user}/{backend}/{a
 	)
 	->defaults(array('user' => \OCP\User::getUser()));
 
+// Save all properties. Used for merging contacts.
+$this->create('contacts_contact_save_all', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/save')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			$request = Request::getRequest($params);
+			\OCP\Util::writeLog('contacts', __METHOD__.' params: '.print_r($request->parameters, true), \OCP\Util::DEBUG);
+
+			$app = new App($params['user']);
+			$contact = $app->getContact($params['backend'], $params['addressbookid'], $params['contactid']);
+
+			$response = array('contactid' => $params['contactid']);
+
+			if(!$contact) {
+				bailOut(App::$l10n->t('Couldn\'t find contact.'));
+			}
+			if(!$contact->mergeFromArray($request->params)) {
+				bailOut(App::$l10n->t('Error merging into contact.'));
+			}
+			if(!$contact->save()) {
+				bailOut(App::$l10n->t('Error saving property to backend.'));
+			}
+			$data = Utils\JSONSerializer::serializeContact($contact);
+			$contact->save();
+			\OCP\JSON::success($data);
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
 $this->create('contacts_categories_list', 'groups/{user}/')
 	->get()
 	->action(

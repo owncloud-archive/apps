@@ -208,6 +208,24 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	/**
+	 * Save all properties. Used when merging contacts.
+	 *
+	 * @param string backend
+	 * @param string addressbookid Address book ID
+	 * @param string contactid Contact ID
+	 * @param object params An object with the all properties:
+	 */
+	Storage.prototype.saveAllProperties = function(backend, addressbookid, contactid, params) {
+		console.log('Storage.saveAllProperties', params);
+		return this.requestRoute(
+			'contacts_contact_save_all',
+			'POST',
+			{user: this.user, backend: backend, addressbookid: addressbookid, contactid: contactid},
+			params
+		);
+	}
+
+	/**
 	 * Get all groups for this user.
 	 *
 	 * @return An array containing the groups, the favorites, any shared

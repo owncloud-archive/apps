@@ -448,6 +448,47 @@ OC.Contacts = OC.Contacts || {
 			self.showActions(['add']);
 		});
 
+		$(document).bind('request.contact.merge', function(e, data) {
+			console.log('contact','request.contact.merge', data);
+			var merger = self.contacts.findById(data.merger);
+			var mergees = [];
+			if(!merger) {
+				$(document).trigger('status.contact.error', {
+					message: t('contacts', 'Merge failed. Cannot find contact: {id}', {id:data.merger})
+				});
+				return;
+			}
+			console.log('Found merger');
+			$.each(data.mergees, function(idx, id) {
+				var contact = self.contacts.findById(id);
+				if(!contact) {
+					console.warn('cannot find', id, 'by id');
+				}
+				mergees.push(contact);
+			});
+			console.log('Found mergees');
+			if(!merger.merge(mergees)) {
+				$(document).trigger('status.contact.error', {
+					message: t('contacts', 'Merge failed.')
+				});
+				return;
+			}
+			console.log('Ready to save');
+			merger.saveAll(function(response) {
+				if(response.error) {
+					$(document).trigger('status.contact.error', {
+						message: t('contacts', 'Merge failed. Error saving contact.')
+					});
+					return;
+				} else {
+					if(data.deleteOther) {
+						self.contacts.delayedDelete(mergees);
+					}
+					self.openContact(merger.getId());
+				}
+			});
+		});
+
 		$(document).bind('request.select.contactphoto.fromlocal', function(e, result) {
 			console.log('request.select.contactphoto.fromlocal', result);
 			$('#contactphoto_fileupload').trigger('click');
@@ -617,20 +658,24 @@ OC.Contacts = OC.Contacts || {
 				self.buildGroupSelect();
 			}
 			if(isChecked) {
-				self.showActions(['add', 'download', 'groups', 'delete', 'favorite']);
+				self.showActions(['add', 'download', 'groups', 'delete', 'favorite', 'merge']);
 			} else {
 				self.showActions(['add']);
 			}
 		});
 
 		this.$contactList.on('change', 'input:checkbox', function(event) {
-			if($(this).is(':checked')) {
-				if(self.$groups.find('option').length === 1) {
-					self.buildGroupSelect();
-				}
-				self.showActions(['add', 'download', 'groups', 'delete', 'favorite']);
-			} else if(self.contacts.getSelectedContacts().length === 0) {
+			var selected = self.contacts.getSelectedContacts();
+			console.log('selected', selected.length);
+			if(selected.length > 0 && self.$groups.find('option').length === 1) {
+				self.buildGroupSelect();
+			}
+			if(selected.length === 0) {
 				self.showActions(['add']);
+			} else if(selected.length === 1) {
+				self.showActions(['add', 'download', 'groups', 'delete', 'favorite']);
+			} else {
+				self.showActions(['add', 'download', 'groups', 'delete', 'favorite', 'merge']);
 			}
 		});
 
@@ -1025,6 +1070,14 @@ OC.Contacts = OC.Contacts || {
 				+ '?selectedids=' + ids.join(',');
 		});
 
+		this.$header.on('click keydown', '.merge', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			console.log('merge');
+			self.mergeSelectedContacts();
+		});
+
 		this.$header.on('click keydown', '.favorite', function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -1324,12 +1377,74 @@ OC.Contacts = OC.Contacts || {
 		$('.tooltipped.downwards.onfocus').tipsy({trigger: 'focus', gravity: 'n'});
 		$('.tooltipped.rightwards.onfocus').tipsy({trigger: 'focus', gravity: 'w'});
 	},
+	mergeSelectedContacts: function() {
+		var contacts = this.contacts.getSelectedContacts();
+		var self = this;
+		this.$rightContent.append('<div id="merge_contacts_dialog"></div>');
+		if(!this.$mergeContactsTmpl) {
+			this.$mergeContactsTmpl = $('#mergeContactsTemplate');
+		}
+		var $dlg = this.$mergeContactsTmpl.octemplate();
+		var $contactList = $dlg.find('.mergelist');
+		$.each(contacts, function(idx, contact) {
+			var checked = idx === 0 ? 'checked ' : '';
+			var $li = $('<li><input type="radio" {checked} name="contact" value="{id}">{displayname}</li>')
+				.octemplate({checked: checked, id: contact.getId(), displayname: contact.getDisplayName()});
+			$contactList.append($li);
+		});
+		this.$contactList.addClass('dim');
+		$('#merge_contacts_dialog').html($dlg).ocdialog({
+			closeOnEscape: true,
+			title:  t('contacts', 'Merge contacts'),
+			height: 'auto', width: 'auto',
+			buttons: [
+				{
+					text: t('contacts', 'OK'),
+					click:function() {
+						// Do the merging, use $(this) to get dialog
+						var contactid = $(this).find('input:radio:checked').val();
+						var others = [];
+						var deleteOther = $(this).find('#delete_other').prop('checked');
+						console.log('Selected contact', contactid, 'Delete others', deleteOther);
+						$.each($(this).find('input:radio:not(:checked)'), function(idx, item) {
+							others.push($(item).val());
+						});
+						console.log('others', others);
+						$(document).trigger('request.contact.merge', {
+							merger: contactid,
+							mergees: others,
+							deleteOther: deleteOther
+						});
+
+						$(this).ocdialog('close');
+					},
+					defaultButton: true
+				},
+				{
+					text: t('contacts', 'Cancel'),
+					click:function(dlg) {
+						$(this).ocdialog('close');
+						return false;
+					}
+				}
+			],
+			close: function(event, ui) {
+				$(this).ocdialog('destroy').remove();
+				$('#add_group_dialog').remove();
+				self.$contactList.removeClass('dim');
+			},
+			open: function(event, ui) {
+				$dlg.find('input').focus();
+			}
+		});
+	},
 	addGroup: function(cb) {
 		var self = this;
-		$('body').append('<div id="add_group_dialog"></div>');
+		this.$rightContent.append('<div id="add_group_dialog"></div>');
 		if(!this.$addGroupTmpl) {
 			this.$addGroupTmpl = $('#addGroupTemplate');
 		}
+		this.$contactList.addClass('dim');
 		var $dlg = this.$addGroupTmpl.octemplate();
 		$('#add_group_dialog').html($dlg).ocdialog({
 			modal: true,
