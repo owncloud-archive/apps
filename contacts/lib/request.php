@@ -44,52 +44,13 @@ class Request implements \ArrayAccess, \Countable {
 	 * @param array 'env' the $_ENV array
 	 * @param array 'session' the $_SESSION array
 	 * @param array 'cookies' the $_COOKIE array
+	 * @param string 'method' the request method (GET, POST etc)
 	 * @see http://www.php.net/manual/en/reserved.variables.php
 	 */
 	public function __construct(array $vars = array()) {
 
 		foreach($this->varnames as $name) {
-			switch($name) {
-				case 'get':
-					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : $_GET;
-					break;
-				case 'post':
-					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : $_POST;
-					break;
-				case 'files':
-					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : $_FILES;
-					break;
-				case 'server':
-					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : $_SERVER;
-					break;
-				case 'env':
-					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : $_ENV;
-					break;
-				case 'session':
-					$this->items[$name] = isset($vars[$name])
-						? $vars[$name]
-						: (isset($_SESSION) ? $_SESSION : array());
-					break;
-				case 'cookies':
-					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : $_COOKIE;
-					break;
-				case 'method':
-					$this->items[$name] = isset($vars[$name])
-						? $vars[$name]
-						: (isset($_SERVER) && isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : array());
-					break;
-				case 'urlParams':
-					$this->items[$name] = isset($vars[$name]) ? $vars[$name] : array();
-					break;
-				case 'params':
-					if(isset($vars[$name])) {
-						$this->items[$name] = $vars[$name];
-					} else {
-						$params = json_decode(file_get_contents('php://input'));
-						$this->items[$name] = is_null($params) ? array() : $params;
-					}
-					break;
-			}
+			$this->items[$name] = isset($vars[$name]) ? $vars[$name] : array();
 		}
 
 		$this->items['parameters'] = array_merge(
@@ -99,6 +60,32 @@ class Request implements \ArrayAccess, \Countable {
 			$this->items['urlParams']
 		);
 
+	}
+
+	/**
+	 * Returns an instance of Request using default request variables.
+	 */
+	public static function getRequest($urlParams) {
+		// Ensure that params is an array, not null
+		$params = json_decode(file_get_contents('php://input'), true);
+		\OCP\Util::writeLog('contacts', __METHOD__.' params: '.print_r($params, true), \OCP\Util::DEBUG);
+		$params = is_null($params) ? array() : $params;
+		return new self(
+			array(
+				'get' => $_GET,
+				'post' => $_POST,
+				'files' => $_FILES,
+				'server' => $_SERVER,
+				'env' => $_ENV,
+				'session' => $_SESSION,
+				'cookies' => $_COOKIE,
+				'method' => (isset($_SERVER) && isset($_SERVER['REQUEST_METHOD']))
+						? $_SERVER['REQUEST_METHOD']
+						: '',
+				'params' => $params,
+				'urlParams' => $urlParams
+				)
+		);
 	}
 
 	// Countable method.
@@ -194,6 +181,7 @@ class Request implements \ArrayAccess, \Countable {
 			case 'env':
 			case 'session':
 			case 'cookies':
+			case 'params':
 			case 'parameters':
 			case 'urlParams':
 				return isset($this->items[$name])
