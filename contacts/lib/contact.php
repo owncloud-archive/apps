@@ -402,6 +402,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 	* @return string new checksum
 	*/
 	public function setPropertyByChecksum($checksum, $name, $value, $parameters=array()) {
+		// FIXME: Change the debug and bailOut calls
 		if($checksum === 'new') {
 			$property = Property::create($name);
 			$this->add($property);
@@ -433,6 +434,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 				$property->setValue($value);
 				break;
 			default:
+				\OCP\Util::writeLog('contacts', __METHOD__.' adding: '.$name. ' ' . $value, \OCP\Util::DEBUG);
 				$property->setValue($value);
 				break;
 		}
