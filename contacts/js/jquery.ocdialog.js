@@ -2,28 +2,69 @@
 	$.widget('oc.ocdialog', {
 		options: {
 			width: 'auto',
-			height: 'auto'
+			height: 'auto',
+			closeButton: true,
+			closeOnEscape: true
 		},
 		_create: function() {
-			console.log('ocdialog._init');
+			console.log('ocdialog._create');
 			var self = this;
 
-			console.log('test name', this);
+			this.originalCss = {
+				display: this.element[0].style.display,
+				width: this.element[0].style.width,
+				height: this.element[0].style.height,
+			};
 
-			this.$element = $('<div class="oc-dialog" />').insertBefore(this.element);
-			this.$element.append(this.element.detach());
-			this.$content = this.element.wrap('<div class="oc-dialog-content" />').parent();
+			this.$dialog = $('<div class="oc-dialog" />')
+				.attr({
+					// Setting tabIndex makes the div focusable
+					tabIndex: -1,
+					role: 'dialog'
+				})
+				.insertBefore(this.element);
+			this.$dialog.append(this.element.detach());
+			this.element.addClass('oc-dialog-content').appendTo(this.$dialog);
 
-			this.$element.css('display', 'inline-block');
+			this.$dialog.css({
+				display: 'inline-block',
+				position: 'fixed'
+			});
 
+			$(document).on('keydown keyup', function(event) {
+				if(event.target !== self.$dialog.get(0) && self.$dialog.find($(event.target)).length === 0) {
+					return;
+				}
+				// Escape
+				if(event.keyCode === 27 && self.options.closeOnEscape) {
+					self.close();
+					return false;
+				}
+				// Enter
+				if(event.keyCode === 13) {
+					event.stopImmediatePropagation();
+					if(event.type === 'keyup') {
+						event.preventDefault();
+						return false;
+					}
+					// If no button is selected we trigger the primary
+					if(self.$buttonrow && self.$buttonrow.find($(event.target)).length === 0) {
+						var $button = self.$buttonrow.find('button.primary');
+						if($button) {
+							$button.trigger('click');
+						}
+					} else if(self.$buttonrow) {
+						$(event.target).trigger('click');
+					}
+					return false;
+				}
+			});
 			$(window).resize(function() {
-				self.parent = self.$element.parent().length > 0 ? self.$element.parent() : $('body');
-				console.log('parent', self.parent.length);
+				self.parent = self.$dialog.parent().length > 0 ? self.$dialog.parent() : $('body');
 				var pos = self.parent.position();
-				self.$element.css({
-				position:'absolute',
-					left: pos.left + (self.parent.width() - self.$element.outerWidth())/2,
-					top: pos.top + (self.parent.height() - self.$element.outerHeight())/2
+				self.$dialog.css({
+					left: pos.left + (self.parent.width() - self.$dialog.outerWidth())/2,
+					top: pos.top + (self.parent.height() - self.$dialog.outerHeight())/2
 				});
 			});
 
@@ -32,9 +73,11 @@
 		},
 		_init: function() {
 			console.log('ocdialog._init');
+			this.$dialog.focus();
 		},
 		_setOption: function(key, value) {
 			console.log('_setOption', key, value);
+			var self = this;
 			switch(key) {
 				case 'title':
 					var $title = $('<h3 class="oc-dialog-title">' + this.options.title
@@ -42,7 +85,7 @@
 					if(this.$title) {
 						this.$title.replaceWith($title);
 					} else {
-						this.$title = $title.prependTo(this.$element);
+						this.$title = $title.prependTo(this.$dialog);
 					}
 					this._setSizes();
 					break;
@@ -51,25 +94,42 @@
 					if(this.$buttonrow) {
 						this.$buttonrow.replaceWith($buttonrow);
 					} else {
-						this.$buttonrow = $buttonrow.appendTo(this.$element);
+						this.$buttonrow = $buttonrow.appendTo(this.$dialog);
 					}
-					var self = this;
 					$.each(value, function(idx, val) {
-						console.log('button text', val.text);
 						var $button = $('<button>' + val.text + '</button>');
+						if(val.defaultButton) {
+							$button.addClass('primary');
+							self.$defaultButton = $button;
+						}
 						self.$buttonrow.append($button);
 						$button.click(function() {
 							val.click.apply(self.element[0], arguments);
-							//val.click(new $.Event(self));
 						});
 					});
+					this.$buttonrow.find('button')
+						.on('focus', function(event) {
+							self.$buttonrow.find('button').removeClass('primary');
+							$(this).addClass('primary');
+						});
 					this._setSizes();
 					break;
+				case 'closeButton':
+					console.log('closeButton', value);
+					if(value) {
+						var $closeButton = $('<a class="oc-dialog-close svg"></a>');
+						console.log('closeButton', $closeButton);
+						this.$dialog.prepend($closeButton);
+						$closeButton.on('click', function() {
+							self.close();
+						});
+					}
+					break;
 				case 'width':
-					this.$element.css('width', value);
+					this.$dialog.css('width', value);
 					break;
 				case 'height':
-					this.$element.css('height', value);
+					this.$dialog.css('height', value);
 					break;
 				case 'close':
 					this.closeCB = value;
@@ -84,23 +144,26 @@
 			$.Widget.prototype._setOptions.apply(this, arguments);
 		},
 		_setSizes: function() {
-			var content_height = this.$element.height();
+			var content_height = this.$dialog.height();
 			if(this.$title) {
 				content_height -= this.$title.outerHeight(true);
 			}
 			if(this.$buttonrow) {
 				content_height -= this.$buttonrow.outerHeight(true);
-				console.log('buttonrow', this.$buttonrow.outerHeight(true));
 			}
-			this.$content.css({
+			this.element.css({
 				height: content_height + 'px',
-				width: this.$element.innerWidth() + 'px'
+				width: this.$dialog.innerWidth() + 'px'
 			});
 		},
 		close: function() {
-			console.log('close 1');
-			this._trigger('close', this);
-			this.$element.hide();
+			console.log('close');
+			var self = this;
+			// Ugly hack to catch remaining keyup events.
+			setTimeout(function() {
+				self._trigger('close', self);
+				self.$dialog.hide();
+			}, 200);
 		},
 		destroy: function() {
 			console.log('destroy');
@@ -110,8 +173,9 @@
 			if(this.$buttonrow) {
 				this.$buttonrow.remove()
 			}
-			this.element.detach().insertBefore(this.$element);
-			this.$element.remove();
+			this.element.removeClass('oc-dialog-content')
+					.css(this.originalCss).detach().insertBefore(this.$dialog);
+			this.$dialog.remove();
 		}
 	});
 }(jQuery));
