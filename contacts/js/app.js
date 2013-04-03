@@ -319,6 +319,8 @@ OC.Contacts = OC.Contacts || {
 
 		// Keep error messaging at one place to be able to replace it.
 		$(document).bind('status.contact.error', function(e, data) {
+			console.warn(data.message);
+			console.trace();
 			OC.notify({message:data.message});
 		});
 
@@ -428,19 +430,19 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		$(document).bind('request.contact.export', function(e, data) {
-			var id = parseInt(data.id);
+			var id = String(data.id);
 			console.log('contact', data.id, 'request.contact.export');
 			document.location.href = OC.linkTo('contacts', 'export.php') + '?' + $.param(data);
 		});
 
 		$(document).bind('request.contact.close', function(e, data) {
-			var id = parseInt(data.id);
+			var id = String(data.id);
 			console.log('contact', data.id, 'request.contact.close');
 			self.closeContact(id);
 		});
 
 		$(document).bind('request.contact.delete', function(e, data) {
-			var id = parseInt(data.contactid);
+			var id = String(data.contactid);
 			console.log('contact', data, 'request.contact.delete');
 			self.closeContact(id);
 			self.contacts.delayedDelete(data);
@@ -1289,7 +1291,7 @@ OC.Contacts = OC.Contacts || {
 		});
 		
 		$(document).on('keyup', function(event) {
-			if(!$(event.target).is('body')) {
+			if(!$(event.target).is('body') || event.isPropagationStopped()) {
 				return;
 			}
 			var keyCode = Math.max(event.keyCode, event.which);
@@ -1455,7 +1457,6 @@ OC.Contacts = OC.Contacts || {
 				{
 					text: t('contacts', 'OK'),
 					click:function() {
-						console.log(this, $(this).find('input'));
 						var name = $(this).find('input').val();
 						if(name.trim() === '') {
 							return false;
@@ -1471,9 +1472,9 @@ OC.Contacts = OC.Contacts || {
 									}
 								}
 							});
-						console.log('this?', this);
 						$(this).ocdialog('close');
-					}
+					},
+					defaultButton: true
 				},
 				{
 					text: t('contacts', 'Cancel'),
@@ -1486,6 +1487,7 @@ OC.Contacts = OC.Contacts || {
 			close: function(event, ui) {
 				$(this).ocdialog('destroy').remove();
 				$('#add_group_dialog').remove();
+				self.$contactList.removeClass('dim');
 			},
 			open: function(event, ui) {
 				$dlg.find('input').focus();

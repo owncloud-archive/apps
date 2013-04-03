@@ -29,14 +29,14 @@
   top: -8px;
   left: -6px;
 }
-#content textarea { font-family: inherit; }
+#contact textarea { font-family: inherit; }
 
-#content ::-moz-placeholder, #content input:-moz-placeholder, #content input[placeholder], #content input:placeholder, #content input:-ms-input-placeholder, #content input::-webkit-input-placeholder, #content input:-moz-placeholder { 
+#contact ::-moz-placeholder, #contact input:-moz-placeholder, #contact input[placeholder], #contact input:placeholder, #contact input:-ms-input-placeholder, #contact input::-webkit-input-placeholder, #contact input:-moz-placeholder {
 	color: #bbb; 
 	text-overflow: ellipsis;
 }
 
-#content input:not([type="checkbox"]), #content select:not(.button), #content textarea { 
+#contact input:not([type="checkbox"]), #contact select:not(.button), #contact textarea {
 	background-color: #fefefe; border: 1px solid #fff !important; 
 	-moz-appearance:none  !important; -webkit-appearance: none !important; 
 	-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; 
@@ -44,17 +44,17 @@
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
 	float: left;
 }
-#content input[type="button"]:hover, #content select:hover, #content select:focus, #content select:active, #content input[type="button"]:focus, #content .button:hover, button:hover { background-color:#fff; color:#333; }
+#contact input[type="button"]:hover, #contact select:hover, #contact select:focus, #contact select:active, #contact input[type="button"]:focus, #contact .button:hover, button:hover { background-color:#fff; color:#333; }
 
-#content fieldset, #content div, #content span, #content section {
+#contact fieldset, #contact div, #contact span, #contact section {
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
 }
-#content fieldset.editor { 
+#contact fieldset.editor {
 	padding:4px;
 	border: 1px solid #1d2d44; 
 	-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; outline:none; 
 }
-#content input:invalid, #content input:hover:not([type="checkbox"]), #content input:active:not([type="checkbox"]), #content input:focus:not([type="checkbox"]), #content input.active, #content textarea:focus, #content textarea:hover { 
+#contact input:invalid, #contact input:hover:not([type="checkbox"]), #contact input:active:not([type="checkbox"]), #contact input:focus:not([type="checkbox"]), #contact input.active, #contact textarea:focus, #contact textarea:hover {
 	border: 1px solid silver !important; 
 	-moz-border-radius:.3em; -webkit-border-radius:.3em; border-radius:.3em; 
 	outline:none; float: left;
@@ -316,7 +316,7 @@ ul.propertylist { width: 450px; }
 .propertylist li > input[type="checkbox"].impp { clear: none; }
 .propertylist li > label.xab { display: block; color: #bbb; float:left; clear: both; padding: 0.5em 0 0 2.5em; }
 .propertylist li > label.xab:hover { color: #777; }
-#rightcontent label, #rightcontent dt, #rightcontent th, #rightcontent .label { 
+#contact label, #contact dt, #contact th, #contact .label {
 	float: left; 
 	font-size: 0.7em; font-weight: bold; 
 	color: #bbb !important; 
@@ -325,9 +325,9 @@ ul.propertylist { width: 450px; }
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 }
-#rightcontent label:hover, #rightcontent dt:hover, #rightcontent input.label:hover { color: #777 !important; }
-#rightcontent input.label, #rightcontent input.label { margin:-2px; }
-#rightcontent input.label:hover, #rightcontent input.label:active { border: 0 none !important; border-radius: 0; cursor: pointer; }
+#contact label:hover, #contact dt:hover, #contact input.label:hover { color: #777 !important; }
+#contact input.label, #contact input.label { margin:-2px; }
+#contact input.label:hover, #contact input.label:active { border: 0 none !important; border-radius: 0; cursor: pointer; }
 .typelist[type="button"] { float: left; max-width: 8em; border: 0; background-color: #fff; color: #bbb; box-shadow: none; } /* for multiselect */
 .typelist[type="button"]:hover { color: #777; } /* for multiselect */
 .addresslist { clear: both; font-weight: bold; }
@@ -410,6 +410,12 @@ ul.propertylist { width: 450px; }
 	clear: right;
 	cursor: pointer;
 	z-index: 1001;
+}
+/* Those dang Germans and their long sentences ;) */
+label[for="import_upload_start"] {
+	display: inline-block;
+	max-width: 16em;
+	white-space: pre-line;
 }
 .import-upload-button {
 	background-image: url("%webroot%/core/img/actions/upload.svg");

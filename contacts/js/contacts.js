@@ -379,12 +379,11 @@ OC.Contacts = OC.Contacts || {};
 		}
 		var obj = null;
 		var element = null;
-		var args = [], q = '';
+		var args = [];
 		if(params.obj) {
 			obj = params.obj;
 			args = this.argumentsFor(obj);
 			args['parameters'] = this.parametersFor(obj);
-			q = this.queryStringFor(obj);
 			element = this.propertyTypeFor(obj);
 		} else {
 			args = params;
@@ -392,9 +391,7 @@ OC.Contacts = OC.Contacts || {};
 			var value = utils.isArray(params.value)
 				? $.param(params.value)
 				: encodeURIComponent(params.value);
-			q = 'id=' + this.id + '&value=' + value + '&name=' + element;
 		}
-		console.log('q', q);
 		console.log('args', args);
 		var self = this;
 		this.setAsSaving(obj, true);
@@ -1800,8 +1797,12 @@ OC.Contacts = OC.Contacts || {};
 		if(!utils.isArray(data)) {
 			this.currentContact = null;
 			//self.$contactList.show();
-			var contact = this.findById(data.contactid);
-			this.deletionQueue.push(contact);
+			if(data instanceof Contact) {
+				this.deletionQueue.push(data);
+			} else {
+				var contact = this.findById(data.contactid);
+				this.deletionQueue.push(contact);
+			}
 		} else if(utils.isArray(data)) {
 			$.each(data, function(idx, contact) {
 				console.log('delayedDelete, meta:', contact);
