@@ -16,7 +16,7 @@ jQuery.fn.slideShow = function (container, start, options) {
 	container.show();
 	jQuery.fn.slideShow.images = images;
 	jQuery.fn.slideShow.cache = [];
-	jQuery.fn.slideShow.showImage(images[start]);
+	jQuery.fn.slideShow.showImage(images[start], images[start + 1]);
 	jQuery.fn.slideShow.progressBar = container.find('.progress');
 	return jQuery.fn.slideShow;
 };
@@ -35,7 +35,7 @@ jQuery.fn.slideShow.loadImage = function (url) {
 	return jQuery.fn.slideShow.cache[url];
 };
 
-jQuery.fn.slideShow.showImage = function (url) {
+jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
 	var container = jQuery.fn.slideShow.container;
 	jQuery.fn.slideShow.loadImage(url).then(function (image) {
 		var ratio = image.width / image.height,
@@ -66,6 +66,9 @@ jQuery.fn.slideShow.showImage = function (url) {
 		});
 		if (jQuery.fn.slideShow.settings.play) {
 			jQuery.fn.slideShow.setTimeout();
+		}
+		if (preloadUrl) {
+			jQuery.fn.slideShow.loadImage(preloadUrl);
 		}
 	});
 };
@@ -107,7 +110,9 @@ jQuery.fn.slideShow.next = function () {
 		if (jQuery.fn.slideShow.current >= jQuery.fn.slideShow.images.length) {
 			jQuery.fn.slideShow.current = 0;
 		}
-		jQuery.fn.slideShow.showImage(jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]);
+		var image = jQuery.fn.slideShow.images[jQuery.fn.slideShow.current],
+			nextImage = jQuery.fn.slideShow.images[jQuery.fn.slideShow.current + 1];
+		jQuery.fn.slideShow.showImage(image, nextImage);
 	}
 };
 
@@ -117,7 +122,9 @@ jQuery.fn.slideShow.previous = function () {
 		if (jQuery.fn.slideShow.current < 0) {
 			jQuery.fn.slideShow.current = jQuery.fn.slideShow.images.length - 1;
 		}
-		jQuery.fn.slideShow.showImage(jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]);
+		var image = jQuery.fn.slideShow.images[jQuery.fn.slideShow.current],
+			previousImage = jQuery.fn.slideShow.images[jQuery.fn.slideShow.current - 1];
+		jQuery.fn.slideShow.showImage(image, previousImage);
 	}
 };
 
