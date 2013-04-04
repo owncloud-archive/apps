@@ -21,19 +21,18 @@
 */
 function FileTree(){
 	tree=this;
-	$('#fileList').parent().css('width','85%').css('float','right');
+	$('#fileTable').css('width','86%');
 	$('#emptyfolder').css('margin-left','20%');
-	$('#content').append('<div id="files_tree"><div id="dir_browser"><span class="loading">'+t('files_tree','Loading')+'</span></div><div id="files_tree_switcher"></div><div id="files_tree_refresh" class="bt"></div></div>');
+	$('#content').prepend('<div id="files_tree"><div id="dir_browser"><span class="loading">'+t('files_tree','Loading')+'</span></div><div id="files_tree_switcher"></div><div id="files_tree_refresh" class="bt"></div></div>');
 	$('#files_tree_switcher').click(function(){tree.toggle()});
 	$('#dir_browser').css('width',$('#files_tree').width()-25).css('height',$('#files_tree').height()-40);
-	tree.browse($('#dir').val(),'');
+	tree.browse('','');
 	$('#files_tree_refresh').css('background-image', 'url('+OC.imagePath('files_tree', 'refresh.svg')+')').click(function(){
 		$('#dir_browser').html('<span class="loading">'+t('files_tree','Resfreshing files tree')+'</span>');
-		tree.browse($('#dir').val(),'&refresh=1');		
+		tree.browse('','&refresh=1');		
 	});
 	tree.sync();
 }
-
 FileTree.prototype={	
 	toggle:function(){
 		if($('#files_tree').width()==10){
@@ -60,10 +59,17 @@ FileTree.prototype={
 		$.ajax({
 			type: 'POST',
 			url:'./?app=files_tree&getfile=ajax/explore.php&dir='+dir+refresh,
-			dataType: 'html',
+			dataType: 'json',
 			async: true,
 			success: function (k) {
-				$('#dir_browser').html(k);				
+				$('#dir_browser').html(k.list);
+				$('#dir_browser ul').attr('class','collapsed');	
+				var stats = k.stat;
+				if(k.stat){
+					for(var f in k.stat){
+						$('#dir_browser ul').filterAttr('data-path',f).attr('class',k.stat[f]);						
+					}
+				}			
 				$('#dir_browser ul ul li:first-child').click(function(){
 					tree.toggle_dir($(this).parent());					
 				});	
@@ -74,20 +80,35 @@ FileTree.prototype={
 	},
 	// For AJAX Navigation
 	browseContent:function(url){
-		$.ajax({
-			type: 'POST',
-			url:url,
-			dataType: 'html',
-			async: true,
-			success: function (data) {
-			  document.title = $(data).filter('title').text(); 
-			  $('#fileList').html( $(data).find("#fileList").html());
-			  $('#controls').html( $(data).find("#controls").html());
-			  tree.browse($('#dir').val(),'');
-			  tree.rescan();
-			  // todo : find functions to execute no enable "new button", and other functions.
-			}
-		});	
+		url=url.replace('app_files&dir=','');
+		var lastModified = new Date();
+		$("#fileList").fadeOut(500,function(){
+			$.ajax({
+				type: 'GET',
+				url:url,
+				dataType: 'html',
+				async: true,
+				success: function (data) {
+					
+    				$('#dropdown').remove();
+					document.title = $(data).filter('title').text(); 
+					$('#dir').val( $(data).find("#dir").val());
+				    $('#controls .crumb').remove();	
+				    var crumb='';		    
+				    $(data).find("#controls .crumb").each(function(){
+				    	crumb+=$(this).wrap('<div></div>').parent().html();
+				    });
+				     $('#controls').prepend(crumb);	
+					FileList.update($(data).find("#fileList").html());
+					$('#fileList td.filename').each(function(){
+						FileActions.display($(this));
+					});
+				  tree.browse('','');
+				  $("#fileList").fadeIn(500);
+				}				
+			});	
+		});
+		
 	},
 	rescan:function(){
 		var lechem='';
@@ -103,7 +124,16 @@ FileTree.prototype={
 			$('#dir_browser a').filterAttr('data-pathname', lechem).css('font-weight','700');
 		}		
 		$('#dir_browser a').filterAttr('data-pathname', lechem).parent('li').css('background-image', 'url('+OC.imagePath('files_tree', 'open.png')+')');
-		// FOR AJAX NAVIGATION : .click(function(){tree.browseContent($(this).attr('href'),'');return false;}) 
+		$('#dir_browser a,#controls .crumb a, #fileList tr[data-type=dir] a').click(function(event){
+			event.preventDefault();
+			location.hash = this.pathname+this.search;
+			return false;
+			//$(this).attr('href', top.location.host+top.location.pathname+'#'+$(this).attr('href').replace('?','#'));
+		});
+		/*$('#fileList tr').filterAttr('data-type','dir').find('a').each(function(){
+			$(this).attr('href',$(this).attr('href').replace('?','#'));
+		});*/
+		// FOR AJAX NAVIGATION :  
 	},
 	toggle_dir:function(ul){
 		ul.toggleClass('expanded').toggleClass('collapsed');
@@ -134,5 +164,14 @@ FileTree.prototype={
 $(document).ready(function(){
   if($('#fileList').length>0) {
 	var the_tree=new FileTree();
+	// AJAX NAVIGATION
+	function on_hashchange(event) {
+		var url = window.location.hash.substring(1);
+		if (!event || event.type === "DOMContentLoaded")
+				return;
+		the_tree.browseContent(url);
+	}
+	$(window).bind('hashchange', on_hashchange);
+	on_hashchange(true);
   }
 });

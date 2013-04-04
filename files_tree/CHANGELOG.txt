@@ -1,3 +1,15 @@
+V 0.5.0
+Add : Full AJAX navigation
+Fix : Performances optimization
+
+V 0.4.2
+Fix : Performances optimization
+Fix : Cache was making opened folders forgotten
+Fix : CSS fix
+
+V 0.4.1
+Fix : Only refresh cache on folder action
+
 V 0.4.0
 Add : Performances optimization with cache
 Add : Refresh cache button
@@ -12,7 +24,7 @@ Fix : Closed icon folder for ownCloud, when not running in the host root
 
 V 0.2.1
 Add : Different icon for open or closed folders
-Fix : icon folder for ownCloud not running in the root of the virtual host
+Fix : Icon folder for ownCloud not running in the root of the virtual host
 
 V 0.2.0
 Add : Enhanced GUI

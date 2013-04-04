@@ -1,3 +1,24 @@
+#fileTable{
+	width:86%;
+	float:right;
+	margin-top:2.8em;
+	position:relative;
+}
+#fileTable.multiselect thead{
+	position:relative;
+}
+#content #filestable{
+	width:86%;
+	float:right;
+	position:relative;
+}
+#content #filestable.multiselect{
+	top:36px;
+}
+#content #filestable.multiselect thead{
+	position:relative;
+	top:0;
+}
 #files_tree{
 	position:absolute;
 	width:14%;
