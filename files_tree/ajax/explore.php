@@ -2,33 +2,24 @@
 OCP\JSON::callCheck();
 $currentdir=$_REQUEST['dir'];
 $uid=OCP\User::getUser();
-$dirs_stat = OC_Preferences::getValue($uid,'files_tree','dirs_stat','');
-if($dirs_stat=='') $dirs_stat=array();
-else $dirs_stat=unserialize($dirs_stat);
 
-
-
-function listdir($dir,$dirs_stat){	
+function listdir($dir){
+	$dir = stripslashes($dir);
 	$list = \OC\Files\Filesystem::getdirectorycontent($dir);			
 	if(sizeof($list)>0){
 		$ret='';
-		//$d=explode('/',$dir);
 		foreach( $list as $i ) {		
 			if($i['type']=='dir' && $i['name']!='.') {
-				if(!isset($i['directory'])) $i['directory']=''; 
-				$ret.='<li class="ui-droppable">
-				 	<a href="./?app=files&dir='.$i['directory'].'/'.$i['name'].'" data-pathname="'.$i['directory'].'/'.$i['name'].'">'.$i['name'].'</a>'.listdir($dir.'/'.$i['name'],$dirs_stat).'
-					</li>
-				';
-			}	
-			
+				$ret.='<li><a href="./?app=files&dir='.$dir.'/'.$i['name'].'" data-pathname="'.$dir.'/'.$i['name'].'">';
+				$ret.=$i['name'].'</a>';
+				$ret.=listdir($dir.'/'.$i['name']);
+				$ret.='</li>';
+			}			
 		}
 		if($ret!=''){
-			$class='class="collapsed"';
-			if($dir=='' || (isset($dirs_stat[$dir]) && $dirs_stat[$dir]=='expanded'))  $class='class="expanded"';
-			$ret= '<ul '.$class.' data-path="'.$dir.'"><li></li>'.$ret.'</ul>';
+			$ret= '<ul data-path="'.$dir.'"><li></li>'.$ret.'</ul>';
 		}
-		return $ret;
+		return stripslashes($ret);
 	}
 }
 
@@ -44,11 +35,20 @@ if(!isset($_REQUEST['refresh']) && null !== $loglist = $cache->get($dir_cache_fi
 }
 
 if($loglist==''){
-	$loglist = listdir('',$dirs_stat);
+	$loglist = listdir('');
 }
 if($loglist!='' && $inilist==''){	
 	$cache->set($dir_cache_file, $loglist);	
 	\OC_Log::write('files_tree', 'cache saved to file ' . $dir_cache_file, \OC_Log::DEBUG);
 }
 /* Sendind results */
-echo $loglist;
+$dirs_stat = OC_Preferences::getValue($uid,'files_tree','dirs_stat','');
+if($dirs_stat=='') $dirs_stat=array();
+else $dirs_stat=unserialize($dirs_stat);
+	
+echo json_encode(
+	array(
+		'list'=>$loglist,
+		'stat'=>$dirs_stat
+	)
+);
