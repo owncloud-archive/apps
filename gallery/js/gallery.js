@@ -280,9 +280,15 @@ Gallery.view.showUsers = function () {
 };
 
 Gallery.slideshow = {};
+Gallery.scrollLocation = 0;
 Gallery.slideshow.start = function (start, options) {
+	var content = $('#content');
 	start = start || 0;
+	if (content.is(":visible")) {
+		Gallery.scrollLocation = $(window).scrollTop();
+	}
 	$('a.image').slideShow($('#slideshow'), start, options);
+	content.hide();
 };
 
 Gallery.slideshow.end = function () {
@@ -370,6 +376,13 @@ $(document).ready(function () {
 		location.hash = image;
 		Gallery.slideshow.start(i, {play: Gallery.slideshow.playPause.playing});
 	});
+	$('body').append($('#slideshow')); //move the slideshow outside the content so we can hide the content
+
+	jQuery.fn.slideShow.onstop = function () {
+		$('#content').show();
+		$(window).scrollTop(Gallery.scrollLocation);
+		location.hash = Gallery.currentAlbum;
+	};
 });
 
 window.onhashchange = function () {
