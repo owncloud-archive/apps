@@ -97,8 +97,8 @@ jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
 			if (jQuery.fn.slideShow.settings.play) {
 				jQuery.fn.slideShow.setTimeout();
 			}
-			if (preloadUrl) {  
-				jQuery.fn.slideShow.loadImage(preloadUrl);  
+			if (preloadUrl) {
+				jQuery.fn.slideShow.loadImage(preloadUrl);
 			}
 		}
 	});
