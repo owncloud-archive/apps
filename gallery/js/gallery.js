@@ -284,6 +284,7 @@ Gallery.scrollLocation = 0;
 Gallery.slideshow.start = function (start, options) {
 	var content = $('#content');
 	start = start || 0;
+	Thumbnail.concurrent = 1; //make sure we can load the image and doesn't get blocked by loading thumbnail
 	if (content.is(":visible")) {
 		Gallery.scrollLocation = $(window).scrollTop();
 	}
@@ -382,6 +383,7 @@ $(document).ready(function () {
 		$('#content').show();
 		$(window).scrollTop(Gallery.scrollLocation);
 		location.hash = Gallery.currentAlbum;
+		Thumbnail.concurrent = 3;
 	};
 });
 
