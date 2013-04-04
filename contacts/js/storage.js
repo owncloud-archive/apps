@@ -15,6 +15,8 @@ OC.Contacts = OC.Contacts || {};
 			this.error = false;
 			if(response.data) {
 				this.data = response.data;
+			} else {
+				this.data = response;
 			}
 		}
 	}
@@ -341,10 +343,8 @@ OC.Contacts = OC.Contacts || {};
 			processData: processData,
 			data: params
 		};
-console.log('ajax params', ajaxParams);
 		var defer = $.Deferred();
 		$.when($.ajax(ajaxParams)).then(function(response) {
-			//console.log('response', response);
 			defer.resolve(new JSONResponse(response));
 		}).fail(function(jqxhr, textStatus, error) {
 			defer.reject(
