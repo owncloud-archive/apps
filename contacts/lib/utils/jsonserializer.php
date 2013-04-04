@@ -81,7 +81,6 @@ class JSONSerializer {
 	 * @return associative array|null
 	 */
 	public static function serializeContact(Contact $contact) {
-		//\OCP\Util::writeLog('contacts', __METHOD__, \OCP\Util::DEBUG);
 
 		if(!$contact->retrieve()) {
 			\OCP\Util::writeLog('contacts', __METHOD__.' error reading: ' . print_r($contact, true), \OCP\Util::DEBUG);
@@ -90,8 +89,7 @@ class JSONSerializer {
 
 		$details = array();
 
-		foreach($contact->children() as $property) {
-			//\OCP\Util::writeLog('contacts', __METHOD__.' property: '.$property->name, \OCP\Util::DEBUG);
+		foreach($contact->children as $property) {
 			$pname = $property->name;
 			$temp = self::serializeProperty($property);
 			if(!is_null($temp)) {
