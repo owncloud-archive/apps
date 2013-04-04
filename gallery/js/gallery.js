@@ -125,6 +125,7 @@ Gallery.view.addImage = function (image) {
 	} else {
 		link = $('<a/>');
 		link.addClass('image');
+		link.attr('data-path', image);
 		link.attr('href', Gallery.getImage(image)).attr('rel', 'album').attr('alt', OC.basename(image)).attr('title', OC.basename(image));
 
 		thumb = Thumbnail.get(image);
@@ -252,12 +253,6 @@ Gallery.view.viewAlbum = function (albumPath) {
 	}
 
 	Gallery.getAlbumInfo(Gallery.currentAlbum); //preload album info
-
-	$('#gallery').children('a.image').click(function (event) {
-		var i = $('#gallery').children('a.image').index(this);
-		event.preventDefault();
-		Gallery.slideshow.start(i, {play: Gallery.slideshow.playPause.playing});
-	});
 };
 
 Gallery.view.pushBreadCrumb = function (text, path) {
@@ -344,11 +339,7 @@ $(document).ready(function () {
 	Gallery.fillAlbums().then(function () {
 		Gallery.view.element = $('#gallery');
 		OC.Breadcrumb.container = $('#breadcrumbs');
-		var album = location.hash.substr(1);
-		if (!album) {
-			album = OC.currentUser;
-		}
-		Gallery.view.viewAlbum(album);
+		window.onhashchange()
 
 		//close slideshow on esc
 		$(document).keyup(function (e) {
@@ -385,6 +376,14 @@ $(document).ready(function () {
 		
 		$('button.share').click(Gallery.share);
 	});
+
+	$('#gallery').on('click', 'a.image', function (event) {
+		var i = $('#gallery').children('a.image').index(this),
+			image = $(this).data('path');
+		event.preventDefault();
+		location.hash = image;
+		Gallery.slideshow.start(i, {play: Gallery.slideshow.playPause.playing});
+	});
 });
 
 window.onhashchange = function () {
@@ -392,5 +391,12 @@ window.onhashchange = function () {
 	if (!album) {
 		album = OC.currentUser;
 	}
-	Gallery.view.viewAlbum(album);
+	console.log(OC.dirname(album));
+	if (Gallery.images.indexOf(album) === -1) {
+		Gallery.slideshow.end();
+		Gallery.view.viewAlbum(album);
+	} else {
+		Gallery.view.viewAlbum(OC.dirname(album));
+		$('#gallery a.image[data-path="' + album + '"]').click();
+	}
 };
