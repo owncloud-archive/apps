@@ -148,6 +148,51 @@ $this->create('contacts_address_book_delete_contact', 'addressbook/{user}/{backe
 	)
 	->defaults(array('user' => \OCP\User::getUser()));
 
+$this->create('contacts_contact_photo', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/photo')
+	->get()
+	->action(
+		function($params) {
+			// TODO: Cache resized photo
+			session_write_close();
+			$etag = null;
+			$caching = null;
+			$max_size = 170;
+			$app = new App();
+			$contact = $app->getContact($params['backend'], $params['addressbookid'], $params['contactid']);
+			$image = new \OC_Image();
+			if (isset($contact->PHOTO) && $image->loadFromBase64((string)$contact->PHOTO)) {
+				// OK
+				$etag = md5($contact->PHOTO);
+			}
+			else
+			// Logo :-/
+			if (isset($contact->LOGO) && $image->loadFromBase64((string)$contact->LOGO)) {
+				// OK
+				$etag = md5($contact->LOGO);
+			}
+			if ($image->valid()) {
+				$modified = $contact->lastModified();
+				// Force refresh if modified within the last minute.
+				if(!is_null($modified)) {
+					$caching = (time() - $modified > 60) ? null : 0;
+				}
+				\OCP\Response::enableCaching($caching);
+				if(!is_null($modified)) {
+					\OCP\Response::setLastModifiedHeader($modified);
+				}
+				if($etag) {
+					\OCP\Response::setETagHeader($etag);
+				}
+				if ($image->width() > $max_size || $image->height() > $max_size) {
+					$image->resize($max_size);
+				}
+				header('Content-Type: ' . $image->mimeType());
+				$image->show();
+			}
+		}
+	)
+	->defaults(array('user' => \OCP\User::getUser()));
+
 $this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/property/delete')
 	->post()
 	->action(

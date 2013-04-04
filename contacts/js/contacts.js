@@ -1387,26 +1387,37 @@ OC.Contacts = OC.Contacts || {};
 			backend = this.metadata.backend,
 			parent = this.metadata.parent,
 			src;
-		if(this.getPreferredValue('PHOTO', null) === null) {
-			src = this.storage.contactPhoto;
-		} else {
-			var refreshstr = '&refresh='+Math.random();
-			src = OC.linkTo('contacts', 'photo.php')+'?backend='+backend+'&parent='+parent+'&id='+id+refreshstr;
+
+		if(!this.$photowrapper) {
+			this.$photowrapper = this.$fullelem.find('#photowrapper');
 		}
-		this.$photowrapper = this.$fullelem.find('#photowrapper');
+
+		var finishLoad = function(image) {
+			$(image).addClass('contactphoto');
+			self.$photowrapper.css({width: image.width + 10, height: image.height + 10});
+			self.$photowrapper.removeClass('loading').removeClass('wait');
+			$(image).insertAfter($phototools).fadeIn();
+		};
+
 		this.$photowrapper.addClass('loading').addClass('wait');
 		var $phototools = this.$fullelem.find('#phototools');
-		delete this.photo;
-		$('img.contactphoto').remove();
-		this.photo = new Image();
-		$(this.photo).load(function () {
-			$(this).addClass('contactphoto');
-			self.$photowrapper.css({width: $(this).get(0).width + 10, height: $(this).get(0).height + 10});
-			self.$photowrapper.removeClass('loading').removeClass('wait');
-			$(this).insertAfter($phototools).fadeIn();
-		}).error(function () {
-			OC.notify({message:t('contacts','Error loading profile picture.')});
-		}).attr('src', src);
+		if(this.getPreferredValue('PHOTO', null) === null) {
+			$.when(this.storage.getDefaultPhoto())
+				.then(function(image) {
+					$('img.contactphoto').detach();
+					finishLoad(image);
+				});
+		} else {
+			$.when(this.storage.getContactPhoto(backend, parent, id))
+				.then(function(image) {
+					$('img.contactphoto').remove();
+					finishLoad(image);
+				})
+				.fail(function(defaultImage) {
+					$('img.contactphoto').remove();
+					finishLoad(defaultImage);
+				});
+		}
 
 		if(!dontloadhandlers && this.isEditable()) {
 			this.$photowrapper.on('mouseenter', function(event) {
@@ -1449,6 +1460,7 @@ OC.Contacts = OC.Contacts || {};
 			$(document).bind('status.contact.photoupdated', function(e, result) {
 				self.loadPhoto(true);
 				var refreshstr = '&refresh='+Math.random();
+				// TODO: Use setThumbnail
 				self.getListItemElement().find('td.name')
 					.css('background', 'url(' + OC.filePath('', '', 'remote.php')
 						+'/contactthumbnail?backend='+backend+'&parent='+parent+'id='+id+refreshstr + ')');
