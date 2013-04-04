@@ -13,6 +13,10 @@ $images = \OC\Files\Filesystem::searchByMime('image');
 $user = \OC_User::getUser();
 
 foreach ($images as &$image) {
+	$path = $user . $image['path'];
+	if(strpos($path, DIRECTORY_SEPARATOR.".")){
+		continue;
+	}
 	$image['path'] = $user . $image['path'];
 }
 
@@ -41,6 +45,11 @@ foreach ($sharedSources as $sharedSource) {
 $displayNames = array();
 foreach ($users as $user) {
 	$displayNames[$user] = \OCP\User::getDisplayName($user);
+}
+
+function startsWith($haystack, $needle)
+{
+	return !strncmp($haystack, $needle, strlen($needle));
 }
 
 OCP\JSON::setContentTypeHeader();
