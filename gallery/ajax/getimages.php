@@ -11,20 +11,10 @@ OCP\JSON::checkAppEnabled('gallery');
 
 $images = \OC\Files\Filesystem::searchByMime('image');
 $user = \OC_User::getUser();
-$img_paths = array();
 
 foreach ($images as &$image) {
 	$path = $user . $image['path'];
-	$pieces = explode(DIRECTORY_SEPARATOR, $path);
-	
-	$skip_iteration = false;
-	foreach($pieces as $piece){
-		if(startsWith($piece,".")){
-			$skip_iteration = true;
-			break;
-		}
-	}	
-	if($skip_iteration){
+	if(strpos($path, DIRECTORY_SEPARATOR.".")){
 		continue;
 	}
 	$image['path'] = $user . $image['path'];
