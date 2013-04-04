@@ -274,11 +274,10 @@ $this->create('contacts_contact_save_all', 'addressbook/{user}/{backend}/{addres
 				bailOut(App::$l10n->t('Error merging into contact.'));
 			}
 			if(!$contact->save()) {
-				bailOut(App::$l10n->t('Error saving property to backend.'));
+				bailOut(App::$l10n->t('Error saving contact to backend.'));
 			}
 			$data = Utils\JSONSerializer::serializeContact($contact);
-			$contact->save();
-			\OCP\JSON::success($data);
+			\OCP\JSON::success(array('data' => $data));
 		}
 	)
 	->defaults(array('user' => \OCP\User::getUser()));

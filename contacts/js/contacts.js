@@ -337,7 +337,8 @@ OC.Contacts = OC.Contacts || {};
 		$.when(this.storage.saveAllProperties(this.metadata.backend, this.metadata.parent, this.id, data))
 			.then(function(response) {
 			if(!response.error) {
-				self.data = response.data;
+				self.data = response.data.data;
+				self.metadata = response.data.metadata;
 				if(typeof cb === 'function') {
 					cb({error:false});
 				}
