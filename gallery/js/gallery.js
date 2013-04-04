@@ -183,12 +183,17 @@ Gallery.view.addAlbum.thumbs = {};
 
 Gallery.view.addAlbum.mouseEvent = function (thumbs, event) {
 	var mousePos = event.pageX - $(this).offset().left,
-		offset = Math.floor((mousePos / 200) * thumbs.length),
+		offset = ((Math.floor((mousePos / 200) * thumbs.length - 1) % thumbs.length) + thumbs.length) % thumbs.length, //workaround js modulo "feature" with negative numbers
 		link = this,
 		oldOffset = $(this).data('offset');
-	if (offset !== oldOffset) {
+	if (offset !== oldOffset && !link.data('loading')) {
+		if (!thumbs[offset]) {
+			console.log(offset);
+		}
 		var thumb = Thumbnail.get(thumbs[offset], true);
+		link.data('loading', true);
 		thumb.load().then(function (image) {
+			link.data('loading', false);
 			$('img', link).remove();
 			link.append(image);
 		});
