@@ -83,25 +83,22 @@
 			</td>
 		</tr>
 	</table>
-	<input type="button" class="submit" value="<?php p($l->t("Advanced options")); ?>" id="advanced_options_button">
-	<div id="advanced_options" style="display: none;">
-		<hr>
-		<table>
-			<tr>
-				<th width="85px"><?php p($l->t("Location"));?>:</th>
-				<td>
-					<?php p(isset($_['location']) ? $_['location'] : '') ?>
-				</td>
-			</tr>
-		</table>
-		<table>
-			<tr>
-				<th width="85px" style="vertical-align: top;"><?php p($l->t("Description"));?>:</th>
-				<td>
-					<?php p(isset($_['description']) ? $_['description'] : '') ?></textarea>
-			</tr>
-		</table>
-	</div>
+	<hr>
+	<table>
+		<tr>
+			<th width="85px"><?php p($l->t("Location"));?>:</th>
+			<td>
+				<?php p(isset($_['location']) ? $_['location'] : '') ?>
+			</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<th width="85px" style="vertical-align: top;"><?php p($l->t("Description"));?>:</th>
+			<td>
+				<?php p(isset($_['description']) ? $_['description'] : '') ?></textarea>
+		</tr>
+	</table>
 	</div>
 <div id="tabs-2">
 	<table style="width:100%">
