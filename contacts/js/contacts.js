@@ -1367,21 +1367,15 @@ OC.Contacts = OC.Contacts || {};
 	 * Set a thumbnail for the contact if a PHOTO property exists
 	 */
 	Contact.prototype.setThumbnail = function(refresh) {
-		if(this.getPreferredValue('PHOTO', null) === null) {
+		if(!this.data.thumbnail) {
 			return;
 		}
 		var $elem = this.getListItemElement().find('td.name');
-		if(!$elem.hasClass('thumbnail')) {
+		if(!$elem.hasClass('thumbnail') && !refresh) {
 			return;
 		}
 		$elem.removeClass('thumbnail');
-		var refreshstr = refresh ? '&refresh='+Math.random() : '';
-		$elem.css('background-image', 'url(' + OC.filePath('', '', 'remote.php')
-				+'/contactthumbnail?backend='
-				+this.metadata.backend+'&parent='
-				+this.metadata.parent+'&id='
-				+this.id+refreshstr + ')'
-			);
+		$elem.css('background-image', 'url(data:image/png;base64,' + this.data.thumbnail + ')');
 	}
 
 	/**

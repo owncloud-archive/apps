@@ -611,8 +611,8 @@ class Contact extends VObject\VCard implements IPIMObject {
 				\OCP\Util::ERROR);
 			return false;
 		}
-		 // Cache for around a month
-		\OC_Cache::set(self::THUMBNAIL_PREFIX . $key, $image->data(), 3000000);
+		 // Cache as base64 for around a month
+		\OC_Cache::set(self::THUMBNAIL_PREFIX . $key, strval($image), 3000); //3000000);
 		\OCP\Util::writeLog('contacts', 'Caching ' . $key, \OCP\Util::DEBUG);
 		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $key);
 	}

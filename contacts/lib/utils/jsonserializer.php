@@ -89,6 +89,10 @@ class JSONSerializer {
 
 		$details = array();
 
+		if(isset($contact->PHOTO) || isset($contact->LOGO)) {
+			$details['thumbnail'] = $contact->cacheThumbnail();
+		}
+
 		foreach($contact->children as $property) {
 			$pname = $property->name;
 			$temp = self::serializeProperty($property);
