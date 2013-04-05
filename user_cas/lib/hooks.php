@@ -31,6 +31,7 @@ class OC_USER_CAS_Hooks {
 
 		if (phpCAS::isAuthenticated()) {
 			$attributes = phpCAS::getAttributes();
+			$attributes[$casBackend->usernameMapping][0]=phpCAS::getUser();
 
 			if (array_key_exists($casBackend->usernameMapping, $attributes) && $attributes[$casBackend->usernameMapping][0] == $uid) {
 				if (array_key_exists($casBackend->mailMapping, $attributes)) {
