@@ -62,3 +62,4 @@ if (OCP\App::isEnabled('user_cas')) {
 		OCP\Util::addScript('user_cas', 'utils');
 	}
 
+}
