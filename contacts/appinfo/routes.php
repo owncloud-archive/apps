@@ -47,6 +47,7 @@ $this->create('contacts_address_books_for_user', 'addressbooks/{user}/')
 			));
 		}
 	)
+	->requirements(array('user'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_address_book_collection', 'addressbook/{user}/{backend}/{addressbookid}/contacts')
@@ -78,6 +79,7 @@ $this->create('contacts_address_book_collection', 'addressbook/{user}/{backend}/
 			));
 		}
 	)
+	->requirements(array('user', 'backend', 'addressbookid'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_address_book_add', 'addressbook/{user}/{backend}/add')
@@ -96,6 +98,7 @@ $this->create('contacts_address_book_add', 'addressbook/{user}/{backend}/add')
 			));
 		}
 	)
+	->requirements(array('user', 'backend', 'addressbookid'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_address_book_delete', 'addressbook/{user}/{backend}/{addressbookid}/delete')
@@ -111,6 +114,7 @@ $this->create('contacts_address_book_delete', 'addressbook/{user}/{backend}/{add
 			\OCP\JSON::success();
 		}
 	)
+	->requirements(array('user', 'backend', 'addressbookid'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_address_book_add_contact', 'addressbook/{user}/{backend}/{addressbookid}/contact/add')
@@ -130,6 +134,7 @@ $this->create('contacts_address_book_add_contact', 'addressbook/{user}/{backend}
 			));
 		}
 	)
+	->requirements(array('user', 'backend', 'addressbookid'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_address_book_delete_contact', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/delete')
@@ -146,6 +151,7 @@ $this->create('contacts_address_book_delete_contact', 'addressbook/{user}/{backe
 			\OCP\JSON::success();
 		}
 	)
+	->requirements(array('user', 'backend', 'addressbookid', 'contactid'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_contact_photo', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/photo')
@@ -191,6 +197,7 @@ $this->create('contacts_contact_photo', 'addressbook/{user}/{backend}/{addressbo
 			}
 		}
 	)
+	->requirements(array('user', 'backend', 'addressbook', 'contactid'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/property/delete')
@@ -243,6 +250,7 @@ $this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/
 			));
 		}
 	)
+	->requirements(array('user', 'backend', 'addressbook', 'contactid'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 // Save a single property.
@@ -296,6 +304,7 @@ $this->create('contacts_contact_save_property', 'addressbook/{user}/{backend}/{a
 			\OCP\JSON::success(array('data' => $response));
 		}
 	)
+	->requirements(array('user', 'backend', 'addressbook', 'contactid'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 // Save all properties. Used for merging contacts.
@@ -325,6 +334,7 @@ $this->create('contacts_contact_save_all', 'addressbook/{user}/{backend}/{addres
 			\OCP\JSON::success(array('data' => $data));
 		}
 	)
+	->requirements(array('user', 'backend', 'addressbook', 'contactid'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_categories_list', 'groups/{user}/')
@@ -359,6 +369,7 @@ $this->create('contacts_categories_list', 'groups/{user}/')
 			);
 		}
 	)
+	->requirements(array('user'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_categories_add', 'groups/{user}/add')
@@ -383,6 +394,7 @@ $this->create('contacts_categories_add', 'groups/{user}/add')
 			}
 		}
 	)
+	->requirements(array('user'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_categories_delete', 'groups/{user}/delete')
@@ -403,6 +415,7 @@ $this->create('contacts_categories_delete', 'groups/{user}/delete')
 			\OCP\JSON::success();
 		}
 	)
+	->requirements(array('user'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_categories_addto', 'groups/{user}/addto/{categoryid}')
@@ -432,6 +445,7 @@ $this->create('contacts_categories_addto', 'groups/{user}/addto/{categoryid}')
 			\OCP\JSON::success();
 		}
 	)
+	->requirements(array('user', 'categoryid'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_categories_removefrom', 'groups/{user}/removefrom/{categoryid}')
@@ -461,6 +475,7 @@ $this->create('contacts_categories_removefrom', 'groups/{user}/removefrom/{categ
 			\OCP\JSON::success();
 		}
 	)
+	->requirements(array('user', 'categoryid'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_setpreference', 'preference/{user}/set')
@@ -494,6 +509,7 @@ $this->create('contacts_setpreference', 'preference/{user}/set')
 			}
 		}
 	)
+	->requirements(array('user'))
 	->defaults(array('user' => \OCP\User::getUser()));
 
 $this->create('contacts_index_properties', 'indexproperties/{user}/')
@@ -507,4 +523,5 @@ $this->create('contacts_index_properties', 'indexproperties/{user}/')
 			\OCP\JSON::success(array('isIndexed' => true));
 		}
 	)
+	->requirements(array('user'))
 	->defaults(array('user' => \OCP\User::getUser()));
