@@ -3,7 +3,7 @@
 	OCP\JSON::checkLoggedIn();
 	OCP\JSON::checkAppEnabled('reader');
 
-	require_once('apps/reader/lib/thumbnail.php');
+	require_once('reader/lib/thumbnail.php');
 	$img = $_GET['filepath'];
 	$image = thumb($img);
 	if ($image) {

@@ -21,7 +21,7 @@
 */
 
 $l = OC_L10N::get('notify');
-OC::$CLASSPATH['OC_Notify'] = 'apps/notify/lib/notify.php';
+OC::$CLASSPATH['OC_Notify'] = 'notify/lib/notify.php';
 if(OCP\User::isLoggedIn()) {
 	// this makes no sense for guests, so only for users
 	OCP\Util::addScript('notify', 'notifications');
