@@ -144,7 +144,7 @@
 
 <script id="mergeContactsTemplate" type="text/template">
 	<div id="dialog-merge-contacts" title="<?php p($l->t('Merge contacts')); ?>">
-		<p><?php p($l->t('Select which contact to merge into')); ?></p>
+		<p><?php p($l->t('Which contact should the data be merged into?')); ?></p>
 		<fieldset>
 			<ul class="mergelist"></ul>
 		</fieldset>

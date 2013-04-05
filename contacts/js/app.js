@@ -1401,7 +1401,7 @@ OC.Contacts = OC.Contacts || {
 			height: 'auto', width: 'auto',
 			buttons: [
 				{
-					text: t('contacts', 'OK'),
+					text: t('contacts', 'Merge contacts'),
 					click:function() {
 						// Do the merging, use $(this) to get dialog
 						var contactid = $(this).find('input:radio:checked').val();
@@ -1610,7 +1610,7 @@ OC.Contacts = OC.Contacts || {
 	},
 	cloudPhotoSelected:function(metadata, path) {
 		var self = this;
-		console.log('cloudPhotoSelected, id', id);
+		console.log('cloudPhotoSelected', metadata);
 		$.getJSON(OC.filePath('contacts', 'ajax', 'oc_photo.php'),
 				  {path: path, contact: metadata},function(jsondata) {
 			if(jsondata.status == 'success') {
