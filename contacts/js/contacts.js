@@ -1027,17 +1027,9 @@ OC.Contacts = OC.Contacts || {};
 					id: self.id
 				});
 			} else if($(this).is('.export')) {
-				$(document).trigger('request.contact.export', {
-					backend: self.metadata.backend,
-					parent: self.metadata.parent,
-					contactid: self.id
-				});
+				$(document).trigger('request.contact.export', self.metaData());
 			} else if($(this).is('.delete')) {
-				$(document).trigger('request.contact.delete', {
-					backend: self.metadata.backend,
-					parent: self.metadata.parent,
-					contactid: self.id
-				});
+				$(document).trigger('request.contact.delete', self.metaData());
 			}
 			return false;
 		});
@@ -1436,19 +1428,13 @@ OC.Contacts = OC.Contacts || {};
 			$phototools.find('li a').tipsy();
 
 			$phototools.find('.edit').on('click', function() {
-				$(document).trigger('request.edit.contactphoto', {
-					id: self.id
-				});
+				$(document).trigger('request.edit.contactphoto', self.metaData());
 			});
 			$phototools.find('.cloud').on('click', function() {
-				$(document).trigger('request.select.contactphoto.fromcloud', {
-					id: self.id
-				});
+				$(document).trigger('request.select.contactphoto.fromcloud', self.metaData());
 			});
 			$phototools.find('.upload').on('click', function() {
-				$(document).trigger('request.select.contactphoto.fromlocal', {
-					id: self.id
-				});
+				$(document).trigger('request.select.contactphoto.fromlocal', self.metaData());
 			});
 			if(this.data && this.data.PHOTO) {
 				$phototools.find('.delete').show();
