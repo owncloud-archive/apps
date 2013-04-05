@@ -146,7 +146,9 @@
 	<div id="dialog-merge-contacts" title="<?php p($l->t('Merge contacts')); ?>">
 		<p><?php p($l->t('Which contact should the data be merged into?')); ?></p>
 		<fieldset>
-			<ul class="mergelist"></ul>
+			<ul class="mergelist">
+				<li><input id="mergee_{idx}" type="radio" name="contact" value="{id}"><label for="mergee_{idx}" >{displayname}</label></li>
+			</ul>
 		</fieldset>
 		<p>
 		<input type="checkbox" id="delete_other" name="delete_other" />

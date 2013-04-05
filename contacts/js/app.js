@@ -1387,12 +1387,20 @@ OC.Contacts = OC.Contacts || {
 			this.$mergeContactsTmpl = $('#mergeContactsTemplate');
 		}
 		var $dlg = this.$mergeContactsTmpl.octemplate();
-		var $contactList = $dlg.find('.mergelist');
+		var $liTmpl = $dlg.find('li').detach();
+		var $mergeList = $dlg.find('.mergelist');
 		$.each(contacts, function(idx, contact) {
-			var checked = idx === 0 ? 'checked ' : '';
-			var $li = $('<li><input type="radio" {checked} name="contact" value="{id}">{displayname}</li>')
-				.octemplate({checked: checked, id: contact.getId(), displayname: contact.getDisplayName()});
-			$contactList.append($li);
+			var $li = $liTmpl
+				.octemplate({idx: idx, id: contact.getId(), displayname: contact.getDisplayName()});
+			if(!contact.data.thumbnail) {
+				$li.addClass('thumbnail');
+			} else {
+				$li.css('background-image', 'url(data:image/png;base64,' + contact.data.thumbnail + ')');
+			}
+			if(idx === 0) {
+				$li.find('input:radio').prop('checked', true);
+			}
+			$mergeList.append($li);
 		});
 		this.$contactList.addClass('dim');
 		$('#merge_contacts_dialog').html($dlg).ocdialog({
