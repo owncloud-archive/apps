@@ -24,8 +24,8 @@ OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('contacts');
 require_once 'loghandler.php';
 
-if(!isset($_GET['id'])) {
-	bailOut(OCA\Contacts\App::$l10n->t('No contact ID was submitted.'));
+if(!isset($_GET['contact'])) {
+	bailOut(OCA\Contacts\App::$l10n->t('No contact info was submitted.'));
 }
 
 if(!isset($_GET['path'])) {
@@ -33,7 +33,7 @@ if(!isset($_GET['path'])) {
 }
 
 $localpath = \OC\Files\Filesystem::getLocalFile($_GET['path']);
-$tmpkey = 'contact-photo-'.$_GET['id'];
+$tmpkey = 'contact-photo-'.$_GET['contact']['contactid'];
 
 if(!file_exists($localpath)) {
 	bailOut(OCA\Contacts\App::$l10n->t('File doesn\'t exist:').$localpath);
@@ -55,7 +55,7 @@ if(!$image->fixOrientation()) { // No fatal error so we don't bail out.
 		OCP\Util::DEBUG);
 }
 if(OC_Cache::set($tmpkey, $image->data(), 600)) {
-	OCP\JSON::success(array('data' => array('id'=>$_GET['id'], 'tmp'=>$tmpkey)));
+	OCP\JSON::success(array('data' => array('id'=>$_GET['contact']['contactid'], 'tmp'=>$tmpkey)));
 	exit();
 } else {
 	bailOut('Couldn\'t save temporary image: '.$tmpkey);

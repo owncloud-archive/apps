@@ -491,21 +491,21 @@ OC.Contacts = OC.Contacts || {
 			});
 		});
 
-		$(document).bind('request.select.contactphoto.fromlocal', function(e, result) {
-			console.log('request.select.contactphoto.fromlocal', result);
+		$(document).bind('request.select.contactphoto.fromlocal', function(e, metadata) {
+			console.log('request.select.contactphoto.fromlocal', metadata);
 			$('#contactphoto_fileupload').trigger('click');
 		});
 
-		$(document).bind('request.select.contactphoto.fromcloud', function(e, result) {
-			console.log('request.select.contactphoto.fromcloud', result);
+		$(document).bind('request.select.contactphoto.fromcloud', function(e, metadata) {
+			console.log('request.select.contactphoto.fromcloud', metadata);
 			OC.dialogs.filepicker(t('contacts', 'Select photo'), function(path) {
-				self.cloudPhotoSelected(self.currentid, path);
+				self.cloudPhotoSelected(metadata, path);
 			}, false, 'image', true);
 		});
 
-		$(document).bind('request.edit.contactphoto', function(e, result) {
-			console.log('request.edit.contactphoto', result);
-			self.editCurrentPhoto(result.id);
+		$(document).bind('request.edit.contactphoto', function(e, metadata) {
+			console.log('request.edit.contactphoto', metadata);
+			self.editCurrentPhoto(metadata);
 		});
 
 		$(document).bind('request.addressbook.activate', function(e, result) {
@@ -1608,14 +1608,14 @@ OC.Contacts = OC.Contacts || {
 			form.submit();
 		}
 	},
-	cloudPhotoSelected:function(id, path) {
+	cloudPhotoSelected:function(metadata, path) {
 		var self = this;
 		console.log('cloudPhotoSelected, id', id);
 		$.getJSON(OC.filePath('contacts', 'ajax', 'oc_photo.php'),
-				  {path: path, id: id},function(jsondata) {
+				  {path: path, contact: metadata},function(jsondata) {
 			if(jsondata.status == 'success') {
 				//alert(jsondata.data.page);
-				self.editPhoto(jsondata.data.id, jsondata.data.tmp);
+				self.editPhoto(metadata, jsondata.data.tmp);
 				$('#edit_photo_dialog_img').html(jsondata.data.page);
 			}
 			else{
@@ -1623,13 +1623,13 @@ OC.Contacts = OC.Contacts || {
 			}
 		});
 	},
-	editCurrentPhoto:function(id) {
+	editCurrentPhoto:function(metadata) {
 		var self = this;
-		$.getJSON(OC.filePath('contacts', 'ajax', 'currentphoto.php'),
-				  {id: id}, function(jsondata) {
+		$.getJSON(OC.filePath('contacts', 'ajax', 'currentphoto.php'), metadata,
+			function(jsondata) {
 			if(jsondata.status == 'success') {
 				//alert(jsondata.data.page);
-				self.editPhoto(jsondata.data.id, jsondata.data.tmp);
+				self.editPhoto(metadata, jsondata.data.tmp);
 				$('#edit_photo_dialog_img').html(jsondata.data.page);
 			}
 			else{
@@ -1637,8 +1637,8 @@ OC.Contacts = OC.Contacts || {
 			}
 		});
 	},
-	editPhoto:function(id, tmpkey) {
-		console.log('editPhoto', id, tmpkey);
+	editPhoto:function(metadata, tmpkey) {
+		console.log('editPhoto', metadata, tmpkey);
 		$('.tipsy').remove();
 		// Simple event handler, called from onChange and onSelect
 		// event handlers, as per the Jcrop invocation above
@@ -1660,7 +1660,13 @@ OC.Contacts = OC.Contacts || {
 			this.$cropBoxTmpl = $('#cropBoxTemplate');
 		}
 		$('body').append('<div id="edit_photo_dialog"></div>');
-		var $dlg = this.$cropBoxTmpl.octemplate({id: id, tmpkey: tmpkey});
+		var $dlg = this.$cropBoxTmpl.octemplate(
+			{
+				backend: metadata.backend,
+				addressbookid: metadata.parent,
+				contactid: metadata.contactid,
+				tmpkey: tmpkey
+			});
 
 		var cropphoto = new Image();
 		$(cropphoto).load(function () {
