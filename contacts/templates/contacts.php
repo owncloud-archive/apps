@@ -150,7 +150,7 @@
 		</fieldset>
 		<p>
 		<input type="checkbox" id="delete_other" name="delete_other" />
-			<label for="delete_other"><?php p($l->t('Delete the other(s) after successfull merge?')); ?></label>
+			<label for="delete_other"><?php p($l->t('Delete the other(s) after successful merge?')); ?></label>
 		</p>
 	</div>
 </script>
