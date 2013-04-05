@@ -81,7 +81,7 @@
 			switch(key) {
 				case 'title':
 					var $title = $('<h3 class="oc-dialog-title">' + this.options.title
-						+ '</h3><hr class="oc-dialog-separator" />');
+						+ '</h3>'); //<hr class="oc-dialog-separator" />');
 					if(this.$title) {
 						this.$title.replaceWith($title);
 					} else {
