@@ -42,13 +42,13 @@
 .task:hover .tag{opacity:0.5}
 .task:hover .tag:hover{opacity:0.8;}
 
-.task .categories{position:absolute;right:12em;text-align:right;top:0.5em}
+.task .categories{position:absolute;right:23em;text-align:right;top:0.5em}
 .task .categories a{background-color:#1d2d44;color:white;}
 .task .categories .tag.active{display:none;}
 .task input.categories{display:none;top:0;text-align:left;}
 
 .task .location{background-color:#442d44;color:white;position:absolute;right:0.6em;width:9.2em;text-align:left;top:0.5em}
-.task .due_date{background-color:#442d44;color:white;position:absolute;right:18em;width:9.2em;text-align:center;top:0.5em}
+.task .due_date{background-color:#442d44;color:white;position:absolute;right:12em;width:9.2em;text-align:center;top:0.5em}
 .task input.location{display:none;top:0;text-align:left;right:0.3em;background-color:white;color:#333333;}
 
 .task .more{display:none;margin-top:0.5em;}

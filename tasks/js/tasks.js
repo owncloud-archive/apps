@@ -36,17 +36,7 @@ OC.Tasks = {
 			.addClass('completed')
 			.append(checkbox)
 			.prependTo(task_container);
-		var priority = task.priority;
-		
-		if(task.due){			
-			var dateString = OC.Tasks.getDueDateString(task.due,task.due_date_only);	
-			$('<div>')
-			.addClass('tag')
-			.addClass('due_date')
-			.text(dateString)
-			.prependTo(task_container);
-		}		
-		
+		var priority = task.priority;		
 		$('<div>')
 			.addClass('tag')
 			.addClass('priority')
@@ -60,6 +50,14 @@ OC.Tasks = {
 				.text(task.location)
 				.appendTo(task_container);
 		}
+		if(task.due){			
+			var dateString = OC.Tasks.getDueDateString(task.due,task.due_date_only);	
+			$('<div>')
+			.addClass('tag')
+			.addClass('due_date')
+			.text(dateString)
+			.prependTo(task_container);
+		}	
 		var $categories = $('<div>')
 				.addClass('categories')
 				.appendTo(task_container);
@@ -268,7 +266,7 @@ OC.Tasks = {
 			}else{
 				if(jsondata.data.due != ''){
 					
-					var dateString = OC.Tasks.getDueDateString(jsondata.data.due,jsondata.data.due_date_only);
+					var dateString = OC.Tasks.getDueDateString(jsondata.data.due, jsondata.data.due_date_only);
 					$('#tasks_list').find(".task[data-id='"+jsondata.data.id+"']").find('div.due_date').text(dateString);
 				}
 			}
@@ -337,7 +335,7 @@ OC.Tasks = {
 		console.log('Task categories changed to: ' + categories);
 		$('input.categories').multiple_autocomplete('option', 'source', categories);
 	},
-	getDueDateString:function(due,due_date_only){
+	getDueDateString:function(due, due_date_only) {
 		var date_ret =  new Date(parseInt(due)*1000);
 		var date = date_ret.getDate();
 		date = date > 9 ? date : '0'+date;
