@@ -136,7 +136,7 @@ class Thumbnail {
 		}
 
 		$parent = dirname($path);
-		if ($parent !== '/' and $parent !== '') {
+		if ($parent !== DIRECTORY_SEPARATOR and $parent !== '') {
 			self::removeHook(array('path' => $parent));
 		}
 	}
