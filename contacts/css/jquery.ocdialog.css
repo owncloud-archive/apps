@@ -1,21 +1,26 @@
 .oc-dialog {
-	background-color: white; color: #333333;
+	background: white;
+	color: #333333;
 	border-radius: 3px; box-shadow: 0 0 7px #888888;
 	padding: 15px;
 	z-index: 200;
 	font-size: 100%;
 }
 .oc-dialog-title {
+	background: white;
 	font-weight: bold;
 	font-size: 110%;
 	margin-bottom: 10px;
 }
 .oc-dialog-content {
+	z-index: 200;
+	background: white;
 	overflow-y: auto;
 }
 .oc-dialog-separator {
 }
 .oc-dialog-buttonrow {
+	background: white;
 	float: right;
 	position: relative;
 	bottom: 0;
