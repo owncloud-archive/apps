@@ -476,16 +476,19 @@ input[type="checkbox"].propertytype { width: 10px; }
 	margin: 10px;
 }
 #dialog-merge-contacts .mergelist > li {
-	text-indent: 30px;
 	height: 30px;
 	-webkit-transition:background-image 500ms; -moz-transition:background-image 500ms; -o-transition:background-image 500ms;  transition:background-image 500ms;
 	position:relative;
 	background-position: 0 .2em !important; background-repeat:no-repeat !important;
 }
-#dialog-merge-contacts .mergelist > li > input:radio {
-	/*margin-left: 25px;*/
+#dialog-merge-contacts .mergelist > li > input {
+	opacity: 0;
+}
+#dialog-merge-contacts .mergelist > li > input:hover, #dialog-merge-contacts .mergelist > li > input:checked {
+	opacity: 1;
 }
 #dialog-merge-contacts .mergelist > li > label {
+	padding-left: 20px;
 	font-weight: normal;
 }
 .no-svg .favorite { display: inline-block; float: left; height: 20px; width: 20px; background-image:url('%appswebroot%/contacts/img/inactive_star.png'); }
