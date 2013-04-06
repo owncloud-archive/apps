@@ -845,6 +845,7 @@ OC.Contacts = OC.Contacts || {};
 				name: this.getPreferredValue('FN', '')
 			});
 		}
+		this.setThumbnail(this.$dragelem);
 		return this.$dragelem;
 	}
 
@@ -1358,11 +1359,13 @@ OC.Contacts = OC.Contacts || {};
 	/**
 	 * Set a thumbnail for the contact if a PHOTO property exists
 	 */
-	Contact.prototype.setThumbnail = function(refresh) {
+	Contact.prototype.setThumbnail = function($elem, refresh) {
 		if(!this.data.thumbnail) {
 			return;
 		}
-		var $elem = this.getListItemElement().find('td.name');
+		if(!$elem) {
+			$elem = this.getListItemElement().find('td.name');
+		}
 		if(!$elem.hasClass('thumbnail') && !refresh) {
 			return;
 		}

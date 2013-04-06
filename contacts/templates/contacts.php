@@ -173,8 +173,7 @@
 </script>
 
 <script id="contactDragItemTemplate" type="text/template">
-	<div class="dragContact" data-id="{id}"
-		style="background: url('<?php print_unescaped(OC_Helper::linkToRemoteBase('contactthumbnail')); ?>?id={id}')">
+	<div class="dragContact thumbnail" data-id="{id}">
 		{name}
 	</div>
 </script>

@@ -244,17 +244,16 @@
 .control > * { background: none repeat scroll 0 0 #F8F8F8; color: #555 !important; font-size: 100%; margin: 0px; }
 
 .dim {
-	background: #ddd;
 	opacity: .50;filter:Alpha(Opacity=50);
 	z-index: 0;
 }
 
 .ui-draggable { height: 3em; z-index: 1000; }
-.ui-draggable-dragging {
+.dragContact {
 	cursor: move;
 	background-repeat: no-repeat !important;
+	background-position: .3em .3em !important;
 	background-color: #fff;
-	opacity: 1;
 	z-index: 5;
 	width: 200px; height: 30px;
 	text-indent: 30px;
@@ -262,6 +261,7 @@
 	border: thin solid silver; border-radius: 3px;
 	padding: 3px;
 	z-index: 1000;
+	transition: background-image 500ms ease 0s;
 }
 .ui-state-hover { border: 1px solid dashed; z-index: 1; }
 
