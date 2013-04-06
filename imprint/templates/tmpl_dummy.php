@@ -47,7 +47,9 @@
 		<div class="imprint-explanation">
 			<?php 
 				if (   OCP\User::isLoggedIn()
-				    && OC_User::isAdminUser(OCP\User::getUser()))
+					&& (  (    method_exists('OC_User','isAdminUser')
+							&& OC_User::isAdminUser(OCP\User::getUser()) )
+						|| OC_Group::inGroup(OC_User::getUser(), 'admin') ) )
 					p($l->t("That configuration is done in the administration section."));
 				else
 					p($l->t("That configuration has to be done by the system administration."));
