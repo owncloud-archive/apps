@@ -583,9 +583,10 @@ class Contact extends VObject\VCard implements IPIMObject {
 	}
 
 	public function cacheThumbnail(\OC_Image $image = null) {
-		$key = $this->combinedKey();
-		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $key) && $image === null) {
-			return \OC_Cache::get(self::THUMBNAIL_PREFIX . $key);
+		$key = self::THUMBNAIL_PREFIX . $this->combinedKey();
+		//\OC_Cache::remove($key);
+		if(\OC_Cache::hasKey($key) && $image === null) {
+			return \OC_Cache::get($key);
 		}
 		if(is_null($image)) {
 			$this->retrieve();
@@ -612,9 +613,9 @@ class Contact extends VObject\VCard implements IPIMObject {
 			return false;
 		}
 		 // Cache as base64 for around a month
-		\OC_Cache::set(self::THUMBNAIL_PREFIX . $key, strval($image), 3000000);
+		\OC_Cache::set($key, strval($image), 3000000);
 		\OCP\Util::writeLog('contacts', 'Caching ' . $key, \OCP\Util::DEBUG);
-		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $key);
+		return \OC_Cache::get($key);
 	}
 
 	public function __set($key, $value) {
