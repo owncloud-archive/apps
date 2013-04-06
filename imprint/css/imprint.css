@@ -79,11 +79,6 @@ a.imprint-anchor{
 	margin: 0 0.6em;
 }
 /* some rules for the 'dummy' content */
-.imprint-dummy{
-	width:32em;
-	padding: 1.6em;
-	text-align: center;
-}
 .imprint-factoid{
 	font-size: 160%;
 	font-weight: bold;
