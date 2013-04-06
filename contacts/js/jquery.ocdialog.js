@@ -151,6 +151,8 @@
 			if(this.$buttonrow) {
 				content_height -= this.$buttonrow.outerHeight(true);
 			}
+			this.parent = this.$dialog.parent().length > 0 ? this.$dialog.parent() : $('body');
+			content_height = Math.min(content_height, this.parent.height()-20)
 			this.element.css({
 				height: content_height + 'px',
 				width: this.$dialog.innerWidth() + 'px'

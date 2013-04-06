@@ -11,6 +11,7 @@
 	margin-bottom: 10px;
 }
 .oc-dialog-content {
+	overflow-y: auto;
 }
 .oc-dialog-separator {
 }
