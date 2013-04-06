@@ -74,6 +74,7 @@
 		_init: function() {
 			console.log('ocdialog._init');
 			this.$dialog.focus();
+			this._trigger('open');
 		},
 		_setOption: function(key, value) {
 			console.log('_setOption', key, value);
