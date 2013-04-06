@@ -36,17 +36,14 @@ OCP\App::checkAppEnabled ( 'imprint' );
 OCP\App::setActiveNavigationEntry ( 'imprint' );
 OCP\Util::addStyle  ( 'imprint','imprint' );
 
-// prepare content
-if ( FALSE === ($content=OCP\Config::getAppValue('imprint','content',FALSE)) )
-{
-	// fetch 'dummy' template
-	$tmpl = new OCP\Template( 'imprint', 'tmpl_dummy', 'user' );
-}
+// prepare view
+if (OCP\User::isLoggedIn())
+	$tmpl_view = 'user';
 else
-{
-	// fetch 'real' template, will pull content itself
-	$tmpl = new OCP\Template( 'imprint', 'tmpl_index', 'user' );
-}
+	$tmpl_view = 'guest';
+
+// fetch content
+$tmpl = new OCP\Template( 'imprint', 'tmpl_index', $tmpl_view );
 // render template
 $tmpl->printPage ( );
 ?>

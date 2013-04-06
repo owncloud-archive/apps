@@ -31,19 +31,24 @@
  */
 
 // Session checks
+// OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled ( 'imprint' );
 
 // prepare content
 if ( FALSE === ($content=OCP\Config::getAppValue('imprint','content',FALSE)) )
 {
-	// fetch 'dummy' template
 	$tmpl = new OCP\Template( 'imprint', 'tmpl_dummy' );
+	OCP\Util::addStyle  ( 'imprint','imprint' );
+	// workaround for OC-4.x's chaotoc header layout
+	if (5>intval(substr(OC_Util::getVersionString(),0,1)))
+		OCP\Util::addStyle  ( 'imprint', 'imprint-oc4' );
 }
 else
 {
-	// fetch 'real' template, will pull content itself
+	OCP\Util::addStyle  ( 'imprint','content' );
 	$tmpl = new OCP\Template( 'imprint', 'tmpl_content' );
 }
+
 // render template
 $tmpl->printPage ( );
 ?>

@@ -33,14 +33,26 @@
  */
 ?>
 
-<div class="imprint-dummy">
-	<div class="imprint-factoid">    <?php p($l->t("Nothing here yet")."!");?></div>
-	<div class="imprint-suggestion"> <?php p($l->t("The content of the legal notice has to be configured first").".");?></div>
-	<div class="imprint-explanation">
-		<?php p($l->t("The configuration is done here").":");?>
-		<a	class="imprint-reference"
-			href="<?php p(OCP\Util::linkTo('','settings/admin.php'));?>">
-			<?php p($l->t("Admin"));?>
-		</a>
-	</div>
-</div>
+<html>
+	<head>
+		<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/content.css'));?>" type="text/css" media="screen" />
+		<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/imprint.css'));?>" type="text/css" media="screen" />
+		<?php if (5>intval(substr(OC_Util::getVersionString(),0,1))) { ?>
+			<link rel="stylesheet" href="<?php p(OCP\Util::linkTo('imprint','css/imprint-oc4.css'));?>" type="text/css" media="screen" />
+		<?php } ?>
+	</head>
+	<body id="imprint-content">
+		<div class="imprint-factoid">    <?php p($l->t("Nothing here yet")."!");?></div>
+		<div class="imprint-suggestion"> <?php p($l->t("The content of the legal notice has to be configured first").".");?></div>
+		<div class="imprint-explanation">
+			<?php 
+				if (   OCP\User::isLoggedIn()
+				    && OC_User::isAdminUser(OCP\User::getUser()))
+					p($l->t("That configuration is done in the administration section."));
+				else
+					p($l->t("That configuration has to be done by the system administration."));
+			?>
+			</a>
+		</div>
+	</body>
+</html>
