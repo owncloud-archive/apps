@@ -6,6 +6,30 @@ Modernizr.load({
 		]
 });
 
+if (typeof Object.create !== 'function') {
+	Object.create = function (o) {
+		function F() {}
+		F.prototype = o;
+		return new F();
+	};
+}
+
+
+if (typeof Object.keys !== 'function') {
+	Object.keys = function(o) {
+		if (o !== Object(o)) {
+			throw new TypeError('Object.keys called on a non-object');
+		}
+		var k=[],p;
+		for (p in o) {
+			if (Object.prototype.hasOwnProperty.call(o,p)) {
+				k.push(p);
+			}
+		}
+		return k;
+	}
+}
+
 (function($) {
 	$.QueryString = (function(a) {
 		if (a == "") return {};
@@ -73,14 +97,6 @@ utils.moveCursorToEnd = function(el) {
 		range.select();
 	}
 };
-
-if (typeof Object.create !== 'function') {
-	Object.create = function (o) {
-		function F() {}
-		F.prototype = o;
-		return new F();
-	};
-}
 
 Array.prototype.clone = function() {
   return this.slice(0);
