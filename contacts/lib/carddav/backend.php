@@ -97,9 +97,7 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 			}
 		}
 
-		$this->backend->updateAddressBook($addressbookid, $changes);
-
-		return true;
+		return $this->backend->updateAddressBook($addressbookid, $changes);
 
 	}
 
