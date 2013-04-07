@@ -72,6 +72,19 @@ class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
 		$deleteprincipal = $this->getOwner();
 		$uid = OCA\Contacts\Addressbook::extractUserID($this->getOwner());
 
+		$readWriteACL = array(
+			array(
+				'privilege' => '{DAV:}read',
+				'principal' => 'principals/' . OCP\User::getUser(),
+				'protected' => true,
+			),
+			array(
+				'privilege' => '{DAV:}write',
+				'principal' => 'principals/' . OCP\User::getUser(),
+				'protected' => true,
+			),
+		);
+
 		if($uid != OCP\USER::getUser()) {
 			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $this->addressBookInfo['id']);
 			if($sharedAddressbook) {
@@ -79,7 +92,7 @@ class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
 					&& ($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE)
 					&& ($sharedAddressbook['permissions'] & OCP\PERMISSION_DELETE)
 				) {
-					return parent::getACL();
+					return $readWriteACL;
 				}
 				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_CREATE) {
 					$createprincipal = 'principals/' . OCP\USER::getUser();
