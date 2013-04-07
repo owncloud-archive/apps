@@ -70,7 +70,8 @@ class Card extends \Sabre_CardDAV_Card {
 		$uid = $this->carddavBackend->userIDByPrincipal($this->getOwner());
 
 		if($uid != \OCP\USER::getUser()) {
-			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $this->addressBookInfo['id']);
+			list($backendName, $id) = explode('::', $this->addressBookInfo['id']);
+			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if ($sharedAddressbook && ($sharedAddressbook['permissions'] & \OCP\PERMISSION_READ)) {
 				$readprincipal = 'principals/' . \OCP\USER::getUser();
 			}

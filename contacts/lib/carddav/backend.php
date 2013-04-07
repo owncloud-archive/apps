@@ -39,29 +39,28 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 */
 	public function getAddressBooksForUser($principaluri) {
 		$userid = $this->userIDByPrincipal($principaluri);
-		$addressBooks = array();
+		$userAddressBooks = array();
 		foreach($this->backends as $backend) {
-			$addressBooks = array_merge($addressBooks, $backend->getAddressBooksForUser($userid));
-		}
-		$addressbooks = array();
+			$addressBooks = $backend->getAddressBooksForUser($userid);
 
-		foreach($addressBooks as $addressBook) {
-			if($addressBook['owner'] != \OCP\USER::getUser()) {
-				$addressBook['uri'] = $addressBook['uri'] . '_shared_by_' . $addressBook['owner'];
-				$addressBook['displayname'] = $addressBook['displayname'];
+			foreach($addressBooks as $addressBook) {
+				if($addressBook['owner'] != \OCP\USER::getUser()) {
+					$addressBook['uri'] = $addressBook['uri'] . '_shared_by_' . $addressBook['owner'];
+					$addressBook['displayname'] = $addressBook['displayname'];
+				}
+				$userAddressbooks[] = array(
+					'id'  => $backend->name . '::' . $addressBook['id'],
+					'uri' => $addressBook['uri'],
+					'principaluri' => 'principals/'.$addressBook['owner'],
+					'{DAV:}displayname' => $addressBook['displayname'],
+					'{' . \Sabre_CardDAV_Plugin::NS_CARDDAV . '}addressbook-description'
+							=> $addressBook['description'],
+					'{http://calendarserver.org/ns/}getctag' => $addressBook['lastmodified'],
+				);
 			}
-			$addressbooks[] = array(
-				'id'  => $addressBook['id'],
-				'uri' => $addressBook['uri'],
-				'principaluri' => 'principals/'.$addressBook['owner'],
-				'{DAV:}displayname' => $addressBook['displayname'],
-				'{' . \Sabre_CardDAV_Plugin::NS_CARDDAV . '}addressbook-description'
-						=> $addressBook['description'],
-				'{http://calendarserver.org/ns/}getctag' => $addressBook['lastmodified'],
-			);
 		}
 
-		return $addressbooks;
+		return $userAddressbooks;
 	}
 
 
@@ -97,7 +96,8 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 			}
 		}
 
-		return $this->backend->updateAddressBook($addressbookid, $changes);
+		list($id, $backend) = $this->getBackendForAddressBook($addressbookid);
+		return $backend->updateAddressBook($id, $changes);
 
 	}
 
@@ -133,7 +133,8 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 
 		$properties['uri'] = $uri;
 
-		$this->backend->createAddressBook($properties, $userid);
+		list(,$backend) = $this->getBackendForAddressBook($addressbookid);
+		$backend->createAddressBook($properties, $userid);
 	}
 
 	/**
@@ -143,8 +144,8 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 * @return void
 	 */
 	public function deleteAddressBook($addressbookid) {
-		$backend = $this->getBackendForAddressBook($addressbookid);
-		$backend->deleteAddressBook($addressbookid);
+		list($id, $backend) = $this->getBackendForAddressBook($addressbookid);
+		$backend->deleteAddressBook($id);
 	}
 
 	/**
@@ -155,8 +156,8 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 */
 	public function getCards($addressbookid) {
 		$contacts = array();
-		$backend = $this->getBackendForAddressBook($addressbookid);
-		$contacts = $backend->getContacts($addressbookid);
+		list($id, $backend) = $this->getBackendForAddressBook($addressbookid);
+		$contacts = $backend->getContacts($id);
 
 		$cards = array();
 		foreach($contacts as $contact) {
@@ -181,8 +182,9 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 * @return array
 	 */
 	public function getCard($addressbookid, $carduri) {
-		$backend = $this->getBackendForAddressBook($addressbookid);
-		$contact = $backend->getContact($addressbookid, array('uri' => $carduri));
+		\OCP\Util::writeLog('contacts', __METHOD__.' identifier: ' . $carduri . ' ' . print_r($addressbookid, true), \OCP\Util::DEBUG);
+		list($id, $backend) = $this->getBackendForAddressBook($addressbookid);
+		$contact = $backend->getContact($id, array('uri' => $carduri));
 		return ($contact ? $contact : false);
 
 	}
@@ -200,8 +202,8 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 * @return string|null
 	 */
 	public function createCard($addressbookid, $carduri, $carddata) {
-		$backend = $this->getBackendForAddressBook($addressbookid);
-		$backend->createContact($addressbookid, $carddata, $carduri);
+		list($id, $backend) = $this->getBackendForAddressBook($addressbookid);
+		$backend->createContact($id, $carddata, $carduri);
 	}
 
 	/**
@@ -213,8 +215,8 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 * @return null
 	 */
 	public function updateCard($addressbookid, $carduri, $carddata) {
-		$backend = $this->getBackendForAddressBook($addressbookid);
-		$backend->updateContact($addressbookid, array('uri' => $carduri,), $carddata);
+		list($id, $backend) = $this->getBackendForAddressBook($addressbookid);
+		$backend->updateContact($id, array('uri' => $carduri,), $carddata);
 	}
 
 	/**
@@ -225,8 +227,8 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 * @return bool
 	 */
 	public function deleteCard($addressbookid, $carduri) {
-		$backend = $this->getBackendForAddressBook($addressbookid);
-		return $backend->deleteContact($addressbookid);
+		list($id, $backend) = $this->getBackendForAddressBook($addressbookid);
+		return $backend->deleteContact($id);
 	}
 
 	/**
@@ -241,15 +243,16 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	/**
 	 * Get the backend for an address book
 	 *
-	 * FIXME: Find a better way to get the right backend if possible.
-	 * @param string $addressbookid
-	 * @return \OCA\Contacts\Backend\AbstractBackend
+	 * @param mixed $addressbookid
+	 * @return array(string, \OCA\Contacts\Backend\AbstractBackend)
 	 */
 	public function getBackendForAddressBook($addressbookid) {
+		list($backendName, $id) = explode('::', $addressbookid);
 		foreach($this->backends as $backend) {
-			if($backend->hasAddressBook($addressbookid)) {
-				return $backend;
+			if($backend->name === $backendName && $backend->hasAddressBook($id)) {
+				return array($id, $backend);
 			}
 		}
+		throw new \Sabre_DAV_Exception_NotFound('Backend not found: ' . $addressbookid);
 	}
 }

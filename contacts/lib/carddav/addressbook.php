@@ -89,8 +89,9 @@ class AddressBook extends \Sabre_CardDAV_AddressBook {
 			),
 		);
 
-		if($uid != \OCP\User::getUser()) {
-			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $this->addressBookInfo['id']);
+		if($uid !== \OCP\User::getUser()) {
+			list($backendName, $id) = explode('::', $this->addressBookInfo['id']);
+			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if($sharedAddressbook) {
 				if(($sharedAddressbook['permissions'] & \OCP\PERMISSION_CREATE)
 					&& ($sharedAddressbook['permissions'] & \OCP\PERMISSION_UPDATE)

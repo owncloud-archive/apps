@@ -386,6 +386,7 @@ class Database extends AbstractBackend {
 	 * @return array
 	 */
 	public function getContacts($addressbookid, $limit = null, $offset = null, $omitdata = false) {
+		//\OCP\Util::writeLog('contacts', __METHOD__.' addressbookid: ' . $addressbookid, \OCP\Util::DEBUG);
 		$cards = array();
 		try {
 			$qfields = $omitdata ? '`id`, `fullname` AS `displayname`' : '*';
@@ -413,7 +414,7 @@ class Database extends AbstractBackend {
 	}
 
 	/**
-	 * Returns a specfic contact.
+	 * Returns a specific contact.
 	 *
 	 * The $id for Database and Shared backends can be an array containing
 	 * either 'id' or 'uri' to be able to play seamlessly with the
@@ -429,10 +430,8 @@ class Database extends AbstractBackend {
 	 * @return array|false
 	 */
 	public function getContact($addressbookid, $id, $noCollection = false) {
-		//\OCP\Util::writeLog('contacts', __METHOD__.' identifier: '
-		//	. print_r($id, true), \OCP\Util::DEBUG);
+		//\OCP\Util::writeLog('contacts', __METHOD__.' identifier: ' . $addressbookid . ' ' . $id['uri'], \OCP\Util::DEBUG);
 
-		$ids = array($id);
 		$where_query = '`id` = ?';
 		if(is_array($id)) {
 			$where_query = '';
@@ -445,8 +444,10 @@ class Database extends AbstractBackend {
 				throw new \Exception(
 					__METHOD__ . ' If second argument is an array, either \'id\' or \'uri\' has to be set.'
 				);
+				return false;
 			}
 		}
+		$ids = array($id);
 
 		if(!$noCollection) {
 			$where_query .= ' AND `addressbookid` = ?';
