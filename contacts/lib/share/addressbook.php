@@ -89,7 +89,7 @@ class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 				//	. (int)$include, \OCP\Util::DEBUG);
 				$addressbook = $this->backend->getAddressBook($item['item_source']);
 				if ($addressbook) {
-					$addressbook['displayname'] = $item['item_target'];
+					$addressbook['displayname'] = $addressbook['displayname'] . ' (' . $addressbook['owner'] . ')';
 					$addressbook['permissions'] = $item['permissions'];
 					$addressbooks[] = $addressbook;
 				}
