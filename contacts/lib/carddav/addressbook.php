@@ -79,36 +79,36 @@ class AddressBook extends \Sabre_CardDAV_AddressBook {
 		$readWriteACL = array(
 			array(
 				'privilege' => '{DAV:}read',
-				'principal' => 'principals/' . OCP\User::getUser(),
+				'principal' => 'principals/' . \OCP\User::getUser(),
 				'protected' => true,
 			),
 			array(
 				'privilege' => '{DAV:}write',
-				'principal' => 'principals/' . OCP\User::getUser(),
+				'principal' => 'principals/' . \OCP\User::getUser(),
 				'protected' => true,
 			),
 		);
 
-		if($uid != \OCP\USER::getUser()) {
+		if($uid != \OCP\User::getUser()) {
 			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $this->addressBookInfo['id']);
 			if($sharedAddressbook) {
-				if(($sharedAddressbook['permissions'] & OCP\PERMISSION_CREATE)
-					&& ($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE)
-					&& ($sharedAddressbook['permissions'] & OCP\PERMISSION_DELETE)
+				if(($sharedAddressbook['permissions'] & \OCP\PERMISSION_CREATE)
+					&& ($sharedAddressbook['permissions'] & \OCP\PERMISSION_UPDATE)
+					&& ($sharedAddressbook['permissions'] & \OCP\PERMISSION_DELETE)
 				) {
 					return $readWriteACL;
 				}
-				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_CREATE) {
-					$createprincipal = 'principals/' . OCP\USER::getUser();
+				if ($sharedAddressbook['permissions'] & \OCP\PERMISSION_CREATE) {
+					$createprincipal = 'principals/' . \OCP\User::getUser();
 				}
-				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_READ) {
-					$readprincipal = 'principals/' . OCP\USER::getUser();
+				if ($sharedAddressbook['permissions'] & \OCP\PERMISSION_READ) {
+					$readprincipal = 'principals/' . \OCP\User::getUser();
 				}
-				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE) {
-					$writeprincipal = 'principals/' . OCP\USER::getUser();
+				if ($sharedAddressbook['permissions'] & \OCP\PERMISSION_UPDATE) {
+					$writeprincipal = 'principals/' . \OCP\User::getUser();
 				}
-				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_DELETE) {
-					$deleteprincipal = 'principals/' . OCP\USER::getUser();
+				if ($sharedAddressbook['permissions'] & \OCP\PERMISSION_DELETE) {
+					$deleteprincipal = 'principals/' . \OCP\User::getUser();
 				}
 			}
 		} else {
