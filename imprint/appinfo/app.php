@@ -38,7 +38,8 @@ if (5>intval(substr(OC_Util::getVersionString(),0,1)))
 	OCP\Util::addStyle  ( 'imprint', 'imprint-oc4' );
 
 // backwards compatibility for OC5's global p() functions
-if (OC_Shorty_Tools::versionCompare('<','4.93')) // OC-5
+$ocVersion = implode('.',OCP\Util::getVersion());
+if (version_compare($ocVersion,'4.93','<')) // OC-5
 {
 	if ( ! function_exists('p'))
 	{

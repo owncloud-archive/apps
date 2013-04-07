@@ -22,7 +22,8 @@
 *****
 
 Changelog: 
-
+* Sun Apr 07 2013 Christian Reiner: version 0.1.12
+Fixed reference to another app that crashed OC. 
 * Sat Apr 06 2013 Christian Reiner: version 0.1.11
 Fixed content access during login for OC>=5.
 Fixed styles and layout in content display.
