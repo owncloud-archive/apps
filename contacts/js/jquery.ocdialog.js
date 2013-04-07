@@ -16,6 +16,9 @@
 				height: this.element[0].style.height,
 			};
 
+			this.originalTitle = this.element.attr('title');
+			this.options.title = this.options.title || this.originalTitle;
+
 			this.$dialog = $('<div class="oc-dialog" />')
 				.attr({
 					// Setting tabIndex makes the div focusable
@@ -24,7 +27,7 @@
 				})
 				.insertBefore(this.element);
 			this.$dialog.append(this.element.detach());
-			this.element.addClass('oc-dialog-content').appendTo(this.$dialog);
+			this.element.removeAttr('title').addClass('oc-dialog-content').appendTo(this.$dialog);
 
 			this.$dialog.css({
 				display: 'inline-block',
@@ -159,6 +162,9 @@
 				width: this.$dialog.innerWidth() + 'px'
 			});
 		},
+		widget: function() {
+			return this.$dialog
+		},
 		close: function() {
 			console.log('close');
 			var self = this;
@@ -175,6 +181,10 @@
 			}
 			if(this.$buttonrow) {
 				this.$buttonrow.remove()
+			}
+
+			if(this.originalTitle) {
+				this.element.attr('title', this.originalTitle);
 			}
 			this.element.removeClass('oc-dialog-content')
 					.css(this.originalCss).detach().insertBefore(this.$dialog);
