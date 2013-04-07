@@ -39,25 +39,25 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 	 */
 	public function getAddressBooksForUser($principaluri) {
 		$userid = $this->userIDByPrincipal($principaluri);
-		$user_addressbooks = array();
+		$addressBooks = array();
 		foreach($this->backends as $backend) {
-			$user_addressbooks = array_merge($user_addressbooks, $backend->getAddressBooksForUser($userid));
+			$addressBooks = array_merge($addressBooks, $backend->getAddressBooksForUser($userid));
 		}
 		$addressbooks = array();
 
-		foreach($user_addressbooks as $i) {
-			if($i['owner'] != \OCP\USER::getUser()) {
-				$i['uri'] = $i['uri'] . '_shared_by_' . $i['owner'];
-				$i['displayname'] = $i['displayname'] . ' shared by ' . $i['owner'];
+		foreach($addressBooks as $addressBook) {
+			if($addressBook['owner'] != \OCP\USER::getUser()) {
+				$addressBook['uri'] = $addressBook['uri'] . '_shared_by_' . $addressBook['owner'];
+				$addressBook['displayname'] = $addressBook['displayname'];
 			}
 			$addressbooks[] = array(
-				'id'  => $i['id'],
-				'uri' => $i['uri'],
-				'principaluri' => 'principals/'.$i['owner'],
-				'{DAV:}displayname' => $i['displayname'],
+				'id'  => $addressBook['id'],
+				'uri' => $addressBook['uri'],
+				'principaluri' => 'principals/'.$addressBook['owner'],
+				'{DAV:}displayname' => $addressBook['displayname'],
 				'{' . \Sabre_CardDAV_Plugin::NS_CARDDAV . '}addressbook-description'
-						=> $i['description'],
-				'{http://calendarserver.org/ns/}getctag' => $i['lastmodified'],
+						=> $addressBook['description'],
+				'{http://calendarserver.org/ns/}getctag' => $addressBook['lastmodified'],
 			);
 		}
 
