@@ -42,7 +42,7 @@ OC.Contacts = OC.Contacts || {};
 	 *
 	 * @return An array containing object of address book metadata e.g.:
 	 * {
-	 * 	backend:'database',
+	 * 	backend:'local',
 	 * 	id:'1234'
 	 * 	permissions:31,
 	 * 	displayname:'Contacts'
@@ -59,7 +59,7 @@ OC.Contacts = OC.Contacts || {};
 	/**
 	 * Add an address book to a specific backend
 	 *
-	 * @param string backend - currently defaults to 'database'
+	 * @param string backend - currently defaults to 'local'
 	 * @param object params An object {displayname:"My contacts", description:""}
 	 * @return An array containing contact data e.g.:
 	 * {
@@ -77,7 +77,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_address_book_add',
 			'POST',
-			{user: this.user, backend: 'database'},
+			{user: this.user, backend: 'local'},
 			parameters
 		);
 	}
@@ -93,7 +93,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_address_book_delete',
 			'POST',
-			{user: this.user, backend: 'database', addressbookid: addressbookid}
+			{user: this.user, backend: 'local', addressbookid: addressbookid}
 		);
 	}
 

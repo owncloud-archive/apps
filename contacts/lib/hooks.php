@@ -98,7 +98,7 @@ class Hooks{
 		$categories = new \OC_VCategories('contact');
 
 		$app = new App();
-		$backend = $app->getBackend('database');
+		$backend = $app->getBackend('local');
 		$addressBookInfos = $backend->getAddressBooksForUser();
 
 		foreach($addressBookInfos as $addressBookInfo) {
@@ -126,7 +126,7 @@ class Hooks{
 		$limit = 10;
 
 		$app = new App();
-		$backend = $app->getBackend('database');
+		$backend = $app->getBackend('local');
 		$addressBookInfos = $backend->getAddressBooksForUser();
 
 		foreach($addressBookInfos as $addressBookInfo) {

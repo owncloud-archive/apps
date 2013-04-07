@@ -1788,7 +1788,7 @@ OC.Contacts = OC.Contacts || {};
 	 * {
 	 * 	contactid: '1234',
 	 * 	addressbookid: '4321',
-	 * 	backend: 'database'
+	 * 	backend: 'local'
 	 * }
 	 */
 	ContactList.prototype.delayedDelete = function(data) {

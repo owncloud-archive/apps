@@ -847,7 +847,7 @@ OC.Contacts = OC.Contacts || {
 				var id = parseInt($(this).parents('li').first().data('id'));
 				console.log('delete', id);
 				var $li = $(this).parents('li').first();
-				$.when(self.storage.deleteAddressBook('database',id))
+				$.when(self.storage.deleteAddressBook('local',id))
 					.then(function(response) {
 					if(!response.error) {
 						self.contacts.unsetAddressbook(id);
@@ -906,7 +906,7 @@ OC.Contacts = OC.Contacts || {
 						$addinput.addClass('loading');
 						$addAddressbookPart.find('button input').prop('disabled', true);
 						console.log('adding', name);
-						$.when(self.storage.addAddressBook('database',
+						$.when(self.storage.addAddressBook('local',
 						{displayname: name, description: ''})).then(function(response) {
 							if(response.error) {
 								OC.notify({message: response.message});
@@ -966,7 +966,7 @@ OC.Contacts = OC.Contacts || {
 
 				var addAddressbookCallback = function(select, name) {
 					var id = false;
-					$.when(this.storage.addAddressBook('database',
+					$.when(this.storage.addAddressBook('local',
 						{name: name, description: ''})).then(function(response) {
 						if(response.error) {
 							OC.notify({message: response.message});

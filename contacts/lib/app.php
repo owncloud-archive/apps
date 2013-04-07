@@ -42,7 +42,7 @@ class App {
 	* @var array
 	*/
 	public static $backendClasses = array(
-		'database' => 'OCA\Contacts\Backend\Database',
+		'local' => 'OCA\Contacts\Backend\Database',
 		'shared' => 'OCA\Contacts\Backend\Shared',
 	);
 
@@ -67,7 +67,7 @@ class App {
 	* @return \Backend\AbstractBackend
 	*/
 	static public function getBackend($name, $user = null) {
-		$name = $name ? $name : 'database';
+		$name = $name ? $name : 'local';
 		if (isset(self::$backendClasses[$name])) {
 			return new self::$backendClasses[$name]($user);
 		} else {
@@ -89,7 +89,7 @@ class App {
 			foreach(array_keys(self::$backendClasses) as $backendName) {
 				$backend = self::getBackend($backendName, $this->user);
 				$addressBooks = $backend->getAddressBooksForUser();
-				if($backendName === 'database' && count($addressBooks) === 0) {
+				if($backendName === 'local' && count($addressBooks) === 0) {
 					$id = $backend->createAddressBook(array('displayname' => 'Contacts'));
 					if($id !== false) {
 						$addressBook = $backend->getAddressBook($id);

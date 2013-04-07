@@ -32,7 +32,7 @@ use Sabre\VObject\Reader;
 
 class Database extends AbstractBackend {
 
-	public $name = 'database';
+	public $name = 'local';
 	static private $preparedQueries = array();
 
 	/**

@@ -65,7 +65,7 @@ if(!$id) {
 }
 
 $app = new App();
-$addressBook = $app->getAddressBook('database', $id);
+$addressBook = $app->getAddressBook('local', $id);
 
 //analyse the contacts file
 writeProgress('40');

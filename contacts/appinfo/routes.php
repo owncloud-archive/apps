@@ -88,7 +88,7 @@ $this->create('contacts_address_book_add', 'addressbook/{user}/{backend}/add')
 		function($params) {
 			session_write_close();
 			$app = new App($params['user']);
-			$backend = App::getBackend('database', $params['user']);
+			$backend = App::getBackend('local', $params['user']);
 			$id = $backend->createAddressBook($_POST);
 			if($id === false) {
 				bailOut(App::$l10n->t('Error creating address book'));
@@ -107,7 +107,7 @@ $this->create('contacts_address_book_delete', 'addressbook/{user}/{backend}/{add
 		function($params) {
 			session_write_close();
 			$app = new App($params['user']);
-			$backend = App::getBackend('database', $params['user']);
+			$backend = App::getBackend('local', $params['user']);
 			if(!$backend->deleteAddressBook($params['addressbookid'])) {
 				bailOut(App::$l10n->t('Error deleting address book'));
 			}
