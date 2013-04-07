@@ -775,8 +775,10 @@ OC.Contacts = OC.Contacts || {
 		 * @param object $list A jquery object of an unordered list
 		 * @param object book An object with the properties 'id', 'name' and 'permissions'.
 		 */
-		var appendAddressBook = function($list, book) {
-			self.contacts.setAddressbook(book);
+		var appendAddressBook = function($list, book, add) {
+			if(add) {
+				self.contacts.setAddressbook(book);
+			}
 			var $li = self.$addressbookTmpl.octemplate({
 				id: book.id,
 				permissions: book.permissions,
@@ -872,7 +874,7 @@ OC.Contacts = OC.Contacts || {
 							} else if(response.status === 'success') {
 								var book = response.addressbook;
 								var $list = self.$settings.find('[data-id="addressbooks"]').next('ul');
-								appendAddressBook($list, book);
+								appendAddressBook($list, book, true);
 							}
 							$addinput.removeClass('loading');
 							$addAddressbookPart.find('button input').prop('disabled', false);
@@ -903,7 +905,7 @@ OC.Contacts = OC.Contacts || {
 
 				$list.empty();
 				$.each(self.contacts.addressbooks, function(id, book) {
-					appendAddressBook($list, book);
+					appendAddressBook($list, book, false);
 				});
 				if(typeof OC.Share !== 'undefined') {
 					OC.Share.loadIcons('addressbook');
