@@ -98,7 +98,7 @@ class Database extends AbstractBackend {
 		}
 		// Hmm, not found. Lets query the db.
 		try {
-			$query = 'SELECT `id`, `displayname`, `description`, `userid` AS `owner`, `ctag` AS `lastmodified` FROM `'
+			$query = 'SELECT `id`, `displayname`, `description`, `userid` AS `owner`, `ctag` AS `lastmodified`, `uri` FROM `'
 				. $this->addressBooksTableName
 				. '` WHERE `id` = ?';
 			if(!isset(self::$preparedQueries['getaddressbook'])) {
