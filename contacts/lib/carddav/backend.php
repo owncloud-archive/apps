@@ -238,6 +238,13 @@ class Backend extends \Sabre_CardDAV_Backend_Abstract {
 		return $userid;
 	}
 
+	/**
+	 * Get the backend for an address book
+	 *
+	 * FIXME: Find a better way to get the right backend if possible.
+	 * @param string $addressbookid
+	 * @return \OCA\Contacts\Backend\AbstractBackend
+	 */
 	public function getBackendForAddressBook($addressbookid) {
 		foreach($this->backends as $backend) {
 			if($backend->hasAddressBook($addressbookid)) {
