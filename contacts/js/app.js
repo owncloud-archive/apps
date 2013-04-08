@@ -485,7 +485,7 @@ OC.Contacts = OC.Contacts || {
 
 		$(document).bind('request.select.contactphoto.fromlocal', function(e, metadata) {
 			console.log('request.select.contactphoto.fromlocal', metadata);
-			$('#contactphoto_fileupload').trigger('click');
+			$('#contactphoto_fileupload').trigger('click', metadata);
 		});
 
 		$(document).bind('request.select.contactphoto.fromcloud', function(e, metadata) {
@@ -626,6 +626,13 @@ OC.Contacts = OC.Contacts || {
 				$('body').bind('click', bodyListener);
 			}
 		});
+		$('#contactphoto_fileupload').on('click', function(event, metadata) {
+			var form = $('#file_upload_form');
+			form.find('input[name="contactid"]').val(metadata.contactid);
+			form.find('input[name="addressbookid"]').val(metadata.addressbookid);
+			form.find('input[name="backend"]').val(metadata.backend);
+		});
+
 		$('#contactphoto_fileupload').on('change', function() {
 			self.uploadPhoto(this.files);
 		});
@@ -1588,7 +1595,6 @@ OC.Contacts = OC.Contacts || {
 		var file = filelist[0];
 		var target = $('#file_upload_target');
 		var form = $('#file_upload_form');
-		form.find('input[name="id"]').val(this.currentid);
 		var totalSize=0;
 		if(file.size > $('#max_upload').val()){
 			OC.notify({
@@ -1602,7 +1608,10 @@ OC.Contacts = OC.Contacts || {
 				var response=jQuery.parseJSON(target.contents().text());
 				if(response != undefined && response.status == 'success') {
 					console.log('response', response);
-					self.editPhoto(self.currentid, response.data.tmp);
+					self.editPhoto(
+						response.metadata,
+						response.data.tmp
+					);
 					//alert('File: ' + file.tmp + ' ' + file.name + ' ' + file.mime);
 				} else {
 					OC.notify({message:response.data.message});
@@ -1619,7 +1628,7 @@ OC.Contacts = OC.Contacts || {
 			if(jsondata.status == 'success') {
 				//alert(jsondata.data.page);
 				self.editPhoto(metadata, jsondata.data.tmp);
-				$('#edit_photo_dialog_img').html(jsondata.data.page);
+				//$('#edit_photo_dialog_img').html(jsondata.data.page);
 			}
 			else{
 				OC.notify({message: jsondata.data.message});
@@ -1666,7 +1675,7 @@ OC.Contacts = OC.Contacts || {
 		var $dlg = this.$cropBoxTmpl.octemplate(
 			{
 				backend: metadata.backend,
-				addressbookid: metadata.parent,
+				addressbookid: metadata.addressbookid,
 				contactid: metadata.contactid,
 				tmpkey: tmpkey
 			});
@@ -1709,25 +1718,26 @@ OC.Contacts = OC.Contacts || {
 						});
 		}).error(function () {
 			OC.notify({message:t('contacts','Error loading profile picture.')});
-		}).attr('src', OC.linkTo('contacts', 'tmpphoto.php')+'?tmpkey='+tmpkey);
+		}).attr('src', OC.linkTo('contacts', 'tmpphoto.php')+'?tmpkey='+tmpkey+'&refresh='+Math.random());
 	},
 	savePhoto:function($dlg) {
 		var form = $dlg.find('#cropform');
 		q = form.serialize();
 		console.log('savePhoto', q);
 		$.post(OC.filePath('contacts', 'ajax', 'savecrop.php'), q, function(response) {
-			var jsondata = $.parseJSON(response);
-			console.log('savePhoto, jsondata', typeof jsondata);
-			if(jsondata && jsondata.status === 'success') {
+			//var jsondata = $.parseJSON(response);
+			console.log('savePhoto, response', typeof response);
+			if(response && response.status === 'success') {
 				// load cropped photo.
 				$(document).trigger('status.contact.photoupdated', {
-					id: jsondata.data.id
+					id: response.data.id,
+					thumbnail: response.data.thumbnail
 				});
 			} else {
-				if(!jsondata) {
+				if(!response) {
 					OC.notify({message:t('contacts', 'Network or server error. Please inform administrator.')});
 				} else {
-					OC.notify({message: jsondata.data.message});
+					OC.notify({message: response.data.message});
 				}
 			}
 		});

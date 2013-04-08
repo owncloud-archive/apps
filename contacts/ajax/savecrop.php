@@ -47,8 +47,12 @@ if($tmpkey == '') {
 	bailOut('Missing key to temporary file.');
 }
 
-if($id == '') {
+if($contactid == '') {
 	bailOut('Missing contact id.');
+}
+
+if($addressbookid == '') {
+	bailOut('Missing address book id.');
 }
 
 \OCP\Util::writeLog('contacts', 'savecrop.php: key: '.$tmpkey, \OCP\Util::DEBUG);
@@ -75,6 +79,12 @@ if($data) {
 			if(($image->width() <= 200 && $image->height() <= 200)
 				|| $image->resize(200)) {
 
+				// For vCard 3.0 the type must be e.g. JPEG or PNG
+				// For version 4.0 the full mimetype should be used.
+				// https://tools.ietf.org/html/rfc2426#section-3.1.4
+				$type = strval($contact->VERSION) === '4.0'
+					? $image->mimeType()
+					: strtoupper(array_pop(explode('/', $image->mimeType())));
 				if(isset($contact->PHOTO)) {
 					\OCP\Util::writeLog('contacts',
 						'savecrop.php: PHOTO property exists.',
@@ -86,23 +96,20 @@ if($data) {
 							->t('Error getting PHOTO property.'));
 					}
 					$property->setValue(strval($image));
+					$property->parameters = [];
+					/*$property->ENCODING = 'b';
+					$property->TYPE = $type;*/
 					$property->parameters[]
-						= new Sabre\VObject\Parameter('ENCODING', 'b');
+						= new \Sabre\VObject\Parameter('ENCODING', 'b');
 					$property->parameters[]
-						= new Sabre\VObject\Parameter('TYPE', $image->mimeType());
+						= new \Sabre\VObject\Parameter('TYPE', $image->mimeType());
 					$contact->PHOTO = $property;
 				} else {
 					\OCP\Util::writeLog('contacts',
 						'savecrop.php: files: Adding PHOTO property.',
 						\OCP\Util::DEBUG);
-					// For vCard 3.0 the type must be e.g. JPEG or PNG
-					// For version 4.0 the full mimetype should be used.
-					// https://tools.ietf.org/html/rfc2426#section-3.1.4
-					$type = strval($contact->VERSION) === '4.0'
-						? $image->mimeType() 
-						: strtoupper(array_pop(explode('/', $image->mimeType())));
 					$contact->add('PHOTO',
-						$image->__toString(), array('ENCODING' => 'b',
+						strval($image), array('ENCODING' => 'b',
 						'TYPE' => $type));
 				}
 				if(!$contact->save()) {
@@ -111,10 +118,8 @@ if($data) {
 				$thumbnail = $contact->cacheThumbnail($image);
 				\OCP\JSON::success(array(
 					'data' => array(
-						'width' => $image->width(),
-						'height' => $image->height(),
+						'id' => $contactid,
 						'thumbnail' => $thumbnail,
-						'lastmodified' => App::lastModified($contact)->format('U')
 					)
 				));
 			} else {
