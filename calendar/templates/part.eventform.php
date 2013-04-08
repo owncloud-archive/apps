@@ -15,7 +15,7 @@
 		<tr>
 			<th width="75px"><?php p($l->t("Title"));?>:</th>
 			<td>
-				<input type="text" style="width:350px;" size="100" placeholder="<?php p($l->t("Title of the Event"));?>" value="<?php p(isset($_['title']) ? $_['title'] : '') ?>" maxlength="100" name="title"/>
+				<input type="text" style="width:350px;" size="100" placeholder="<?php p($l->t("Title of the Event"));?>" value="<?php p(isset($_['title']) ? $_['title'] : '') ?>" maxlength="100" name="title" autofocus="autofocus"/>
 			</td>
 		</tr>
 	</table>
