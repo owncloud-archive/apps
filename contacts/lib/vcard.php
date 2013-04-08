@@ -763,7 +763,7 @@ class VCard {
 		}
 		$temp = array(
 			//'name' => $property->name,
-			'value' => \OCP\Util::sanitizeHTML($value),
+			'value' => $value,
 			'parameters' => array()
 		);
 
