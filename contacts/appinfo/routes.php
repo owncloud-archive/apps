@@ -282,6 +282,11 @@ $this->create('contacts_contact_save_property', 'addressbook/{user}/{backend}/{a
 			if(!$name) {
 				bailOut(App::$l10n->t('Property name is not set.'));
 			}
+			if(is_array($value)) {
+				// NOTE: Important, otherwise the compound value will be
+				// set in the order the fields appear in the form!
+				ksort($value);
+			}
 			if(!$checksum && in_array($name, Utils\Properties::$multi_properties)) {
 				bailOut(App::$l10n->t('Property checksum is not set.'));
 			} elseif($checksum && in_array($name, Utils\Properties::$multi_properties)) {
