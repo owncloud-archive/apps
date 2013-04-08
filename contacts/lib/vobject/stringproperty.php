@@ -2,8 +2,7 @@
 /**
  * ownCloud - VObject String Property
  *
- * This component represents the BEGIN:VCARD and END:VCARD found in every
- * vcard.
+ * This class adds escaping/unescaping of simple string properties.
  *
  * @author Thomas Tanghus
  * @author Evert Pot (http://www.rooftopsolutions.nl/)
