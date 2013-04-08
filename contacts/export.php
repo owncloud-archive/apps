@@ -44,7 +44,7 @@ if(!is_null($bookid)) {
 } elseif(!is_null($contactid)) {
 	try {
 		$app = new OCA\Contacts\App();
-		$contact = $app->getContact($_GET['backend'], $_GET['parent'], $_GET['contactid']);
+		$contact = $app->getContact($_GET['backend'], $_GET['addressbookid'], $_GET['contactid']);
 		$data = $contact->serialize();
 	} catch(Exception $e) {
 		OCP\JSON::error(
