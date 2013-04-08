@@ -101,9 +101,7 @@ OC.Contacts = OC.Contacts || {};
 				throw new Error('BadArgument: Why should I merge with myself?');
 			}
 			$.each(mergee.data, function(name, properties) {
-				console.log('property', name, properties);
 				if(self.multi_properties.indexOf(name) === -1) {
-					console.log('non-multi', name, properties);
 					if(self.data[name] && self.data[name].length > 0) {
 						// If the property exists don't touch it.
 						return true; // continue
@@ -163,7 +161,7 @@ OC.Contacts = OC.Contacts || {};
 			newvalue: params.newvalue,
 			oldvalue: params.oldvalue
 		});
-		console.log('undoQueue', this.undoQueue);
+		//console.log('undoQueue', this.undoQueue);
 	}
 	
 	Contact.prototype.addProperty = function($option, name) {
@@ -304,7 +302,7 @@ OC.Contacts = OC.Contacts || {};
 		})
 		.fail(function(jqxhr, textStatus, error) {
 			var err = textStatus + ', ' + error;
-			console.log( "Request Failed: " + err);
+			console.warn( "Request Failed: " + err);
 			$(document).trigger('status.contact.error', {
 				message: t('contacts', 'Failed deleting property: {error}', {error:err})
 			});
@@ -333,7 +331,7 @@ OC.Contacts = OC.Contacts || {};
 		var self = this;
 		this.setAsSaving(this.$fullelem, true);
 		var data = JSON.stringify(this.data);
-		console.log('stringified', data);
+		//console.log('stringified', data);
 		$.when(this.storage.saveAllProperties(this.metadata.backend, this.metadata.parent, this.id, data))
 			.then(function(response) {
 			if(!response.error) {
@@ -522,7 +520,7 @@ OC.Contacts = OC.Contacts || {};
 								$fullname.val(self.data.FN[0]['value']);
 								update_fn = true;
 							} else if($fullname.val() == value[1] + ' ') {
-								console.log('change', value);
+								//console.log('change', value);
 								self.data.FN[0]['value'] = value[1] + ' ' + value[0];
 								$fullname.val(self.data.FN[0]['value']);
 								update_fn = true;
@@ -736,7 +734,8 @@ OC.Contacts = OC.Contacts || {};
 			if($elements.length > 1) {
 				args['value'] = [];
 				$.each($elements, function(idx, e) {
-					args['value'].push($(e).val());
+					args['value'][parseInt($(e).attr('name').substr(6,1))] = $(e).val();
+					//args['value'].push($(e).val());
 				});
 			} else {
 				args['value'] = $elements.val();
@@ -874,6 +873,9 @@ OC.Contacts = OC.Contacts || {};
 				|| this.metadata.permissions & OC.PERMISSION_DELETE)) {
 			this.$listelem.find('input:checkbox').prop('disabled', true).css('opacity', '0');
 		}
+		if(isnew) {
+			this.setThumbnail();
+		}
 		return this.$listelem;
 	};
 
@@ -925,7 +927,7 @@ OC.Contacts = OC.Contacts || {};
 			 * - Add method to change address book.
 			 */
 			$.each(availableAddressBooks, function(idx, addressBook) {
-				console.log('addressBook', idx, addressBook);
+				//console.log('addressBook', idx, addressBook);
 				var $option = $('<option data-backend="'
 					+ addressBook.backend + '" value="' + addressBook.id + '">'
 					+ addressBook.displayname + '(' + addressBook.backend + ')</option>');
@@ -1055,7 +1057,7 @@ OC.Contacts = OC.Contacts || {};
 			if($(this).hasClass('value') && this.value === this.defaultValue) {
 				return;
 			}
-			console.log('change', this.defaultValue, this.value);
+			//console.log('change', this.defaultValue, this.value);
 			this.defaultValue = this.value;
 			self.saveProperty({obj:event.target});
 		});
@@ -1364,7 +1366,7 @@ OC.Contacts = OC.Contacts || {};
 	 * Set a thumbnail for the contact if a PHOTO property exists
 	 */
 	Contact.prototype.setThumbnail = function($elem, refresh) {
-		if(!this.data.thumbnail) {
+		if(!this.data.thumbnail && !refresh) {
 			return;
 		}
 		if(!$elem) {
@@ -1373,8 +1375,12 @@ OC.Contacts = OC.Contacts || {};
 		if(!$elem.hasClass('thumbnail') && !refresh) {
 			return;
 		}
-		$elem.removeClass('thumbnail');
-		$elem.css('background-image', 'url(data:image/png;base64,' + this.data.thumbnail + ')');
+		if(this.data.thumbnail) {
+			$elem.removeClass('thumbnail');
+			$elem.css('background-image', 'url(data:image/png;base64,' + this.data.thumbnail + ')');
+		} else {
+			$elem.addClass('thumbnail');
+		}
 	}
 
 	/**
@@ -1387,11 +1393,13 @@ OC.Contacts = OC.Contacts || {};
 			parent = this.metadata.parent,
 			src;
 
+		var $phototools = this.$fullelem.find('#phototools');
 		if(!this.$photowrapper) {
 			this.$photowrapper = this.$fullelem.find('#photowrapper');
 		}
 
 		var finishLoad = function(image) {
+			console.log('finishLoad', self.getDisplayName(), image.width, image.height);
 			$(image).addClass('contactphoto');
 			self.$photowrapper.css({width: image.width + 10, height: image.height + 10});
 			self.$photowrapper.removeClass('loading').removeClass('wait');
@@ -1399,7 +1407,6 @@ OC.Contacts = OC.Contacts || {};
 		};
 
 		this.$photowrapper.addClass('loading').addClass('wait');
-		var $phototools = this.$fullelem.find('#phototools');
 		if(this.getPreferredValue('PHOTO', null) === null) {
 			$.when(this.storage.getDefaultPhoto())
 				.then(function(image) {
@@ -1450,13 +1457,11 @@ OC.Contacts = OC.Contacts || {};
 				$phototools.find('.delete').hide();
 				$phototools.find('.edit').hide();
 			}
-			$(document).bind('status.contact.photoupdated', function(e, result) {
+			$(document).bind('status.contact.photoupdated', function(e, data) {
+				console.log('status.contact.photoupdated', data);
 				self.loadPhoto(true);
-				var refreshstr = '&refresh='+Math.random();
-				// TODO: Use setThumbnail
-				self.getListItemElement().find('td.name')
-					.css('background', 'url(' + OC.filePath('', '', 'remote.php')
-						+'/contactthumbnail?backend='+backend+'&parent='+parent+'id='+id+refreshstr + ')');
+				self.data.thumbnail = data.thumbnail;
+				self.setThumbnail(null, true);
 			});
 		}
 	};
@@ -1646,7 +1651,7 @@ OC.Contacts = OC.Contacts || {};
 		$(document).bind('status.contact.updated', function(e, data) {
 			if(['FN', 'EMAIL', 'TEL', 'ADR', 'CATEGORIES'].indexOf(data.property) !== -1) {
 				data.contact.getListItemElement().remove();
-				self.insertContact(self.contacts[String(data.contact.id)].renderListItem(true));
+				self.insertContact(data.contact.renderListItem(true));
 			}
 		});
 	};
@@ -1805,19 +1810,19 @@ OC.Contacts = OC.Contacts || {};
 			}
 		} else if(utils.isArray(data)) {
 			$.each(data, function(idx, contact) {
-				console.log('delayedDelete, meta:', contact);
+				//console.log('delayedDelete, meta:', contact);
 				self.deletionQueue.push(contact);
 			});
 			//$.extend(this.deletionQueue, data);
 		} else {
 			throw { name: 'WrongParameterType', message: 'ContactList.delayedDelete only accept objects or arrays.'};
 		}
-		console.log('delayedDelete, deletionQueue', this.deletionQueue);
+		//console.log('delayedDelete, deletionQueue', this.deletionQueue);
 		$.each(this.deletionQueue, function(idx, contact) {
-			console.log('delayedDelete', contact);
+			//console.log('delayedDelete', contact);
 			contact.detach().setChecked(false);
 		});
-		console.log('deletionQueue', this.deletionQueue);
+		//console.log('deletionQueue', this.deletionQueue);
 		if(!window.onbeforeunload) {
 			window.onbeforeunload = function(e) {
 				e = e || window.event;
@@ -1835,14 +1840,14 @@ OC.Contacts = OC.Contacts || {};
 			message:t('contacts','Click to undo deletion of {num} contacts', {num: self.deletionQueue.length}),
 			//timeout:5,
 			timeouthandler:function() {
-				console.log('timeout');
+				//console.log('timeout');
 				// Don't fire all deletes at once
 				self.deletionTimer = setInterval(function() {
 					self.deleteContacts();
 				}, 500);
 			},
 			clickhandler:function() {
-				console.log('clickhandler');
+				//console.log('clickhandler');
 				$.each(self.deletionQueue, function(idx, contact) {
 					self.insertContact(contact.getListItemElement());
 				});
@@ -1859,7 +1864,7 @@ OC.Contacts = OC.Contacts || {};
 	*/
 	ContactList.prototype.deleteContacts = function() {
 		var self = this;
-		console.log('ContactList.deleteContacts, deletionQueue', this.deletionQueue);
+		//console.log('ContactList.deleteContacts, deletionQueue', this.deletionQueue);
 		if(typeof this.deletionTimer === 'undefined') {
 			console.log('No deletion timer!');
 			window.onbeforeunload = null;
@@ -1962,7 +1967,6 @@ OC.Contacts = OC.Contacts || {};
 			this.contactDetailTemplates
 		);
 		if(utils.isUInt(this.currentContact)) {
-			console.assert(typeof this.currentContact == 'number', 'this.currentContact is not a number');
 			this.contacts[this.currentContact].close();
 		}
 		return contact.renderContact(props);
@@ -2055,7 +2059,7 @@ OC.Contacts = OC.Contacts || {};
 						addressBook['backend'],
 						addressBook['id'],
 						function(cbresponse) {
-							console.log('loaded', idx, cbresponse);
+							//console.log('loaded', idx, cbresponse);
 							num -= 1;
 							if(num === 0) {
 								if(self.length > 0) {
@@ -2091,7 +2095,7 @@ OC.Contacts = OC.Contacts || {};
 		})
 		.fail(function(jqxhr, textStatus, error) {
 			var err = textStatus + ', ' + error;
-			console.log( "Request Failed: " + err);
+			console.warn( "Request Failed: " + err);
 			$(document).trigger('status.contact.error', {
 				message: t('contacts', 'Failed loading address books: {error}', {error:err})
 			});
@@ -2105,7 +2109,7 @@ OC.Contacts = OC.Contacts || {};
 	ContactList.prototype.loadContacts = function(backend, addressBookId, cb) {
 		var self = this;
 		$.when(this.storage.getContacts(backend, addressBookId)).then(function(response) {
-			console.log('ContactList.loadContacts', response);
+			//console.log('ContactList.loadContacts', response);
 			if(!response.error) {
 				var items = [];
 				$.each(response.data.contacts, function(c, contact) {
@@ -2156,7 +2160,7 @@ OC.Contacts = OC.Contacts || {};
 		})
 		.fail(function(jqxhr, textStatus, error) {
 			var err = textStatus + ', ' + error;
-			console.log( "Request Failed: " + err);
+			console.warn( "Request Failed: " + err);
 			cb({error: true, message: err});
 		});
 	};

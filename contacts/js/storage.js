@@ -179,7 +179,7 @@ OC.Contacts = OC.Contacts || {};
 		var url = OC.Router.generate(
 			'contacts_contact_photo',
 			{user: this.user, backend: backend, addressbookid: addressbookid, contactid: contactid}
-		); // TODO: Test when modifying pic if this is needed: + '?refresh=' + Math.random();
+		);
 		var defer = $.Deferred();
 		$.when(
 			$(photo).load(function() {
@@ -188,7 +188,7 @@ OC.Contacts = OC.Contacts || {};
 			.error(function() {
 				console.log('Error loading default photo', arguments)
 			})
-			.attr('src', url)
+			.attr('src', url + '?refresh=' + Math.random())
 		)
 		.fail(function(jqxhr, textStatus, error) {
 			defer.reject();

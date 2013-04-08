@@ -280,7 +280,7 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		this.hashChange = function() {
-			console.log('hashchange', window.location.hash)
+			//console.log('hashchange', window.location.hash)
 			var id = parseInt(window.location.hash.substr(1));
 			if(id && id !== self.currentid) {
 				self.openContact(id);
@@ -452,7 +452,6 @@ OC.Contacts = OC.Contacts || {
 				});
 				return;
 			}
-			console.log('Found merger');
 			$.each(data.mergees, function(idx, id) {
 				var contact = self.contacts.findById(id);
 				if(!contact) {
@@ -460,14 +459,12 @@ OC.Contacts = OC.Contacts || {
 				}
 				mergees.push(contact);
 			});
-			console.log('Found mergees');
 			if(!merger.merge(mergees)) {
 				$(document).trigger('status.contact.error', {
 					message: t('contacts', 'Merge failed.')
 				});
 				return;
 			}
-			console.log('Ready to save');
 			merger.saveAll(function(response) {
 				if(response.error) {
 					$(document).trigger('status.contact.error', {
@@ -521,9 +518,8 @@ OC.Contacts = OC.Contacts || {
 			}
 			$.each(result.contacts, function(idx, contactid) {
 				var contact = self.contacts.findById(contactid);
-				console.log('contactid', contactid, contact);
 
-				self.contacts.findById(contactid).removeFromGroup(result.groupname);
+				contact.removeFromGroup(result.groupname);
 			});
 		});
 
@@ -813,14 +809,12 @@ OC.Contacts = OC.Contacts || {
 			if(event.ctrlKey || event.metaKey) {
 				event.stopPropagation();
 				event.preventDefault();
-				console.log('select', event);
 				self.dontScroll = true;
 				self.contacts.select($(this).data('id'), true);
 				return;
 			}
 			if($(event.target).is('a.mailto')) {
 				var mailto = 'mailto:' + $.trim($(this).find('.email').text());
-				console.log('mailto', mailto);
 				try {
 					window.location.href=mailto;
 				} catch(e) {
@@ -912,7 +906,7 @@ OC.Contacts = OC.Contacts || {
 						var name = $addinput.val().trim();
 						$addinput.addClass('loading');
 						$addAddressbookPart.find('button input').prop('disabled', true);
-						console.log('adding', name);
+						//console.log('adding', name);
 						$.when(self.storage.addAddressBook('local',
 						{displayname: name, description: ''})).then(function(response) {
 							if(response.error) {
@@ -948,10 +942,9 @@ OC.Contacts = OC.Contacts || {
 			if($(this).next('ul').is(':visible')) {
 				return;
 			}
-			console.log('settings');
+			//console.log('settings');
 			var $list = $(this).next('ul');
 			if($(this).data('id') === 'addressbooks') {
-				console.log('addressbooks');
 
 				if(!self.$addressbookTmpl) {
 					self.$addressbookTmpl = $('#addressbookTemplate');
@@ -967,7 +960,6 @@ OC.Contacts = OC.Contacts || {
 					$list.find('a.action.share').css('display', 'none');
 				}
 			} else if($(this).data('id') === 'import') {
-				console.log('import');
 				$('.import-upload').show();
 				$('.import-select').hide();
 
