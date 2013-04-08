@@ -184,11 +184,12 @@ class OC_Calendar_Object{
 	 */
 	public static function edit($id, $data) {
 		$oldobject = self::find($id);
-
-		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
+		$calid = self::getCalendarid($id);
+		
+		$calendar = OC_Calendar_Calendar::find($calid);
 		$oldvobject = OC_VObject::parse($oldobject['calendardata']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $calid); //calid, not objectid !!!! 1111 one one one eleven
 			$sharedAccessClassPermissions = OC_Calendar_App::getAccessClassPermissions($oldvobject->VEVENT->CLASS->value);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE) || !($sharedAccessClassPermissions & OCP\PERMISSION_UPDATE)) {
 				throw new Exception(
