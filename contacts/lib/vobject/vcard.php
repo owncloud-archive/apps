@@ -25,7 +25,7 @@
 
 namespace OCA\Contacts\VObject;
 
-use OCA\Contacts;
+use OCA\Contacts\Utils;
 use Sabre\VObject;
 
 /**
@@ -57,7 +57,7 @@ class VCard extends VObject\Component\VCard {
 	*/
 	protected function formatPropertyTypes(&$property) {
 		foreach($property->parameters as $key=>&$parameter) {
-			$types = Contacts\Utils\Properties::getTypesForProperty($property->name);
+			$types = Utils\Properties::getTypesForProperty($property->name);
 			if(is_array($types) && in_array(strtoupper($parameter->name), array_keys($types))
 				|| strtoupper($parameter->name) == 'PREF') {
 				unset($property->parameters[$key]);
@@ -199,7 +199,7 @@ class VCard extends VObject\Component\VCard {
 				'node' => $this,
 			);
 			if ($options & self::REPAIR) {
-				$this->UID = substr(md5(rand().time()), 0, 10);
+				$this->UID = Utils\Properties::generateUID();
 			}
 		}
 
