@@ -418,7 +418,7 @@ OC.Contacts = OC.Contacts || {};
 			defer.reject(
 				new JSONResponse({
 					status:'error',
-					data:{message:t('contacts', 'Failed loading address books: {error}', {error:textStatus + ', ' + error})}
+					data:{message:t('contacts', 'Request failed: {error}', {error:textStatus + ', ' + error})}
 				})
 			);
 		});
