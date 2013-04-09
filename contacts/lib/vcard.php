@@ -625,10 +625,11 @@ class VCard {
 		}
 
 		App::updateDBProperties($id);
-		App::getVCategories()->purgeObject($id);
+		App::getVCategories()->purgeObjects(array($id));
 		Addressbook::touch($addressbook['id']);
 
-		\OCP\Share::unshareAll('contact', $id);
+		// Contact sharing not enabled, so comment out this
+		//\OCP\Share::unshareAll('contact', $id);
 		return true;
 	}
 
