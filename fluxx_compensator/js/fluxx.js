@@ -42,7 +42,8 @@ $(document).ready(function(){
 	$.each(OC.FluXX.Handle, function(){
 		var handle=this;
 		// hide or show the navigation in a persistent manner
-		OC.AppConfig.getValue('fluxx_compensator','fluxx-status-'+handle.Id,'shown',function(status){
+// 		OC.AppConfig.getValue('fluxx_compensator','fluxx-status-'+handle.Id,'shown',function(status){
+		OC.FluXX.preference(false,'fluxx-status-'+handle.Id,'shown',function(status){
 			if ('hidden'==status){
 				OC.FluXX.hide(handle);
 				OC.FluXX.state(handle, false);}
@@ -136,7 +137,8 @@ OC.FluXX={
 		// compute position limits
 		OC.FluXX.limit(handle);
 		// position handle object
-		OC.AppConfig.getValue('fluxx_compensator','fluxx-position-'+handle.Id,handle.Position.Max,function(pos){
+// 		OC.AppConfig.getValue('fluxx_compensator','fluxx-position-'+handle.Id,handle.Position.Max,function(pos){
+		OC.FluXX.preference(false,'fluxx-position-'+handle.Id,handle.Position.Max,function(pos){
 			OC.FluXX.position(handle, pos);
 		});
 		return handle;
@@ -178,7 +180,8 @@ OC.FluXX={
 			).done(function(){
 				dfd.resolve();
 				// store current handle status inside user preferences
-				OC.AppConfig.setValue('fluxx_compensator','fluxx-status-'+handle.Id,'hidden');
+// 				OC.AppConfig.setValue('fluxx_compensator','fluxx-status-'+handle.Id,'hidden');
+				OC.FluXX.preference(true,'fluxx-status-'+handle.Id,'hidden',null);
 			}).fail(dfd.reject)}
 		else dfd.resolve();
 		return dfd.promise();
@@ -251,7 +254,8 @@ OC.FluXX={
 			$(handle.Selector).css('cursor','pointer');
 			$(handle.Selector).find('img').css('cursor','inherit');
 			// store final handle position
-			OC.AppConfig.setValue('fluxx_compensator','fluxx-position-'+handle.Id,handle.Position.Val);
+// 			OC.AppConfig.setValue('fluxx_compensator','fluxx-position-'+handle.Id,handle.Position.Val);
+			OC.FluXX.preference(true,'fluxx-position-'+handle.Id,handle.Position.Val,null);
 		});
 		// reaction on mouse move: position handle
 		$(document).on('mousemove',function(event){
@@ -270,6 +274,38 @@ OC.FluXX={
 			}
 		});
 	}, // OC.FluXX.move
+	/**
+	 * @method OC.FluXX.preference
+	 * @brief Get or set a personal preference
+	 * @author Christian Reiner
+	 */
+	preference:function(set, key, value, callback){
+		switch(set){
+			case true:
+				// set a preference
+				$.when(
+					$.post(OC.filePath('fluxx_compensator', 'ajax', 'preference.php'), {'key':key, 'value':value})
+				).done(function(result){
+					if (callback)
+						callback(result.value);
+					return result.value;
+				}).fail(function(){
+					return value;
+				})
+			default:
+			case false:
+				// get a preference
+				$.when(
+					$.getJSON(OC.filePath('fluxx_compensator','ajax','preference.php')+'?key='+encodeURIComponent(key)+'&value='+encodeURIComponent(value))
+				).done(function(result){
+					if (callback)
+						callback(result.value);
+					return result.value;
+				}).fail(function(){
+					return value;
+				})
+		}
+	}, // OC.FluXX.preference
 	/**
 	* @method OC.FluXX.position
 	* @brief Position handle upon drag action
@@ -301,7 +337,8 @@ OC.FluXX={
 			).done(function(){
 				dfd.resolve();
 				// store current handle status inside user preferences
-				OC.AppConfig.setValue('fluxx_compensator','fluxx-status-'+handle.Id,'shown');
+// 				OC.AppConfig.setValue('fluxx_compensator','fluxx-status-'+handle.Id,'shown');
+				OC.FluXX.preference(true,'fluxx-status-'+handle.Id,'shown',null);
 			}).fail(dfd.reject)}
 		else dfd.resolve();
 		return dfd.promise();
