@@ -47,13 +47,13 @@ class OC_USER_PWAUTH extends OC_User_Backend {
 		$this->pwauth_uid_list = $r;
 	}
 	
-	public function createUser() {
+	public function createUser($uid, $password) {
 		// Can't create user
 		OC_Log::write('OC_USER_PWAUTH', 'Not possible to create local users from web frontend using unix user backend',3);
 		return false;
 	}
 
-	public function deleteUser() {
+	public function deleteUser($uid) {
 		// Can't delete user
 		OC_Log::write('OC_USER_PWAUTH', 'Not possible to delete local users from web frontend using unix user backend',3);
 		return false;
