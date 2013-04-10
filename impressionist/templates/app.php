@@ -38,7 +38,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <img src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'img/poocha.png'); ?>" class="logopic">
+            <img src="<?php print_unescaped(OCP\Util::linkToAbsolute('impressionist', 'img/poocha.png')) ?>" class="logopic">
             <a class="brand" href="#" id="brandlogo">impressionist <sup id="smallsup">0.1</sup></a>
 
             <div class="nav-collapse">
@@ -351,10 +351,10 @@
     </div>
 </div>
 <a href="#" id="leftarrow" onclick="movePageLeft(event)"><img
-        src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'img/leftarrow.png'); ?>"
+        src="<?php print_unescaped(OCP\Util::linkToAbsolute('impressionist', 'img/leftarrow.png')); ?>"
         style="width:48px; height:48px"></img></a>
 <a href="#" id="rightarrow" onclick="movePageRight(event)"><img
-        src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'img/rightarrow.png'); ?>"
+        src="<?php print_unescaped(OCP\Util::linkToAbsolute('impressionist', 'img/rightarrow.png')); ?>"
         style="width:48px; height:48px"></img></a>
     
     
@@ -370,5 +370,5 @@
 <div id="footerbar" class="navbar">
 
 </div>
-<script type="text/javascript" src="<?php echo OCP\Util::linkToAbsolute('impressionist', 'js/utilities.js'); ?>"></script>
+<script type="text/javascript" src="<?php print_unescaped(OCP\Util::linkToAbsolute('impressionist', 'js/utilities.js')); ?>"></script>
         </body>

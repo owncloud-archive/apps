@@ -13,7 +13,13 @@ session_write_close();
 list($owner, $img) = explode('/', $_GET['file'], 2);
 if ($owner !== OC_User::getUser()) {
 	\OC\Files\Filesystem::initMountPoints($owner);
-	list($shareId, , $img) = explode('/', $img, 3);
+	$parts = explode('/', $img, 3);
+	if (count($parts) === 3) {
+		list($shareId, , $img) = $parts;
+	} else {
+		$shareId = $parts[0];
+		$img = '';
+	}
 	if (OCP\Share::getItemSharedWith('gallery', $shareId)) {
 		$ownerView = new \OC\Files\View('/' . $owner . '/files');
 		$sharedGallery = $ownerView->getPath($shareId);
@@ -24,6 +30,7 @@ if ($owner !== OC_User::getUser()) {
 		}
 	} else {
 		OC_JSON::error('no such file');
+		die();
 	}
 }
 

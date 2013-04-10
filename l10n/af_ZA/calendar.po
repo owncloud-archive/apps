@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2011-09-03 16:52+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-02-07 00:02+0100\n"
+"PO-Revision-Date: 2013-02-06 23:04+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Afrikaans (South Africa) (http://www.transifex.com/projects/p/owncloud/language/af_ZA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -371,7 +371,7 @@ msgstr ""
 
 #: lib/app.php:132
 msgid "Personal"
-msgstr ""
+msgstr "Persoonlik"
 
 #: lib/app.php:133
 msgid "Projects"
@@ -546,12 +546,8 @@ msgid "Today"
 msgstr ""
 
 #: templates/calendar.php:13
-msgid "Calendars"
-msgstr ""
-
-#: templates/calendar.php:14
 msgid "Settings"
-msgstr ""
+msgstr "Instellings"
 
 #: templates/part.choosecalendar.php:2
 msgid "Your calendars"
@@ -698,7 +694,7 @@ msgstr ""
 
 #: templates/part.eventform.php:115 templates/part.showevent.php:112
 msgid "Advanced"
-msgstr ""
+msgstr "Gevorderd"
 
 #: templates/part.eventform.php:159 templates/part.showevent.php:156
 msgid "Select weekdays"

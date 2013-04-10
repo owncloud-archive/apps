@@ -4,7 +4,7 @@
  * ownCloud - Updater plugin
  *
  * @author Victor Dubiniuk
- * @copyright 2012 Victor Dubiniuk victor.dubiniuk@gmail.com
+ * @copyright 2012-2013 Victor Dubiniuk victor.dubiniuk@gmail.com
  *
  * This file is licensed under the Affero General Public License version 3 or
  * later.
@@ -44,12 +44,12 @@ class Downloader {
 			Helper::mkdir($extractDir, true);
 
 			$archive = \OC_Archive::open(self::$package);
-			if ($archive) {
-				$archive->extract($extractDir);
-			} else {
+			if (!$archive || !$archive->extract($extractDir)) {
 				throw new \Exception(self::$package . " extraction error");
 			}
+			
 		} catch (\Exception $e){
+			App::log('Retrieving ' . $url);
 			self::cleanUp($version);
 			throw $e;
 		}

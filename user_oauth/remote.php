@@ -30,7 +30,7 @@ $tokenInfoEndpoint = \OC_Config::getValue( "tokenInfoEndpoint", "https://www.goo
 $useResourceOwnerId = TRUE;     // FIXME: take this from configuration instead
 $userIdAttributeName = "uid";   // FIXME: take this from configuration instead
 
-require_once "oauth.php";
+require_once 'oauth.php';
 
 // Backends
 $authBackend = new OC_Connector_Sabre_OAuth($tokenInfoEndpoint, $useResourceOwnerId, $userIdAttributeName);

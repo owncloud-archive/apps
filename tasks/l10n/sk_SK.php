@@ -1,5 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Invalid date/time" => "Nepsrávny dátum/čas",
+"Invalid date/time" => "Nesprávny dátum/čas",
 "Tasks" => "Úlohy",
 "Due" => "Do",
 "List" => "Zoznam",
@@ -12,7 +12,7 @@
 "Empty Summary" => "Prázdny sumár",
 "Invalid percent complete" => "Neplatné percento dokončení",
 "Invalid priority" => "Nesprávna priorita",
-"The calendar application also need to be enabled to use this application." => "Táto aplikácia si vyžaduje aj aplikáciu kalendár.",
+"The calendar application also need to be enabled to use this application." => "Táto aplikácia si vyžaduje aj aplikáciu Kalendár.",
 "Add Task" => "Pridať úlohu",
 "Order Due" => "A/Z Termín",
 "Order List" => "A/Z Zoznam",

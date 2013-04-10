@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-01-31 23:33+0000\n"
+"POT-Creation-Date: 2013-03-01 00:01+0100\n"
+"PO-Revision-Date: 2013-02-28 11:30+0000\n"
 "Last-Translator: rogerc <rcalvoi@yahoo.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -24,10 +24,14 @@ msgid "In progress..."
 msgstr "En curs..."
 
 #: js/updater.js:16
-msgid "Done. Reload the page to proceed."
-msgstr "Fet. Torneu a carregueu la pàgina per continuar."
+msgid "Done."
+msgstr "Fet."
 
-#: js/updater.js:19 js/updater.js:25
+#: js/updater.js:17
+msgid "Here is your backup: "
+msgstr "Aquí hi ha la còpia de seguretat:"
+
+#: js/updater.js:21 js/updater.js:27
 msgid "Error"
 msgstr "Error"
 

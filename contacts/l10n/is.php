@@ -19,6 +19,7 @@
 "Other" => "Annað",
 "Text" => "Texti",
 "Settings" => "Stillingar",
+"New" => "Nýtt",
 "Import" => "Flytja inn",
 "Groups" => "Hópar",
 "Close" => "Loka",

@@ -11,7 +11,7 @@ OCP\App::checkAppEnabled('calendar');
 // Create default calendar ...
 $calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser(), false);
 if( count($calendars) == 0) {
-	OC_Calendar_Calendar::addCalendar(OCP\USER::getUser(),'Default calendar');
+	OC_Calendar_Calendar::addDefaultCalendars(OCP\USER::getUser());
 	$calendars = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser(), true);
 }
 
@@ -44,6 +44,6 @@ OCP\App::setActiveNavigationEntry('calendar_index');
 $tmpl = new OCP\Template('calendar', 'calendar', 'user');
 
 if(array_key_exists('showevent', $_GET)) {
-	$tmpl->assign('showevent', $_GET['showevent'], false);
+	$tmpl->assign('showevent', $_GET['showevent']);
 }
 $tmpl->printPage();

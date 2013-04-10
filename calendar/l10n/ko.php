@@ -130,7 +130,6 @@
 "Month" => "달",
 "List" => "목록",
 "Today" => "오늘",
-"Calendars" => "달력",
 "Settings" => "설정",
 "Your calendars" => "내 달력",
 "CalDav Link" => "CalDAV 링크",

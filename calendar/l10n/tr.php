@@ -130,7 +130,6 @@
 "Month" => "Ay",
 "List" => "Liste",
 "Today" => "Bugün",
-"Calendars" => "Takvimler",
 "Settings" => "Ayarlar",
 "Your calendars" => "Takvimleriniz",
 "CalDav Link" => "CalDav Bağlantısı",

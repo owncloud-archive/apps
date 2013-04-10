@@ -36,7 +36,11 @@ $tmpfile = md5(rand());
 
 // If it is a Drag'n'Drop transfer it's handled here.
 $fn = (isset($_SERVER['HTTP_X_FILE_NAME']) ? $_SERVER['HTTP_X_FILE_NAME'] : false);
+$fn = strtr($fn, array('/' => '', "\\" => ''));
 if($fn) {
+	if(OC\Files\Filesystem::isFileBlacklisted($fn)) {
+		bailOut($l10n->t('Upload of blacklisted file:') . $fn);
+	}
 	if($view->file_put_contents('/imports/'.$fn, file_get_contents('php://input'))) {
 		OCP\JSON::success(array('data' => array('file'=>$tmpfile, 'name'=>$fn)));
 		exit();
@@ -70,8 +74,12 @@ if($error !== UPLOAD_ERR_OK) {
 $file=$_FILES['importfile'];
 
 if(file_exists($file['tmp_name'])) {
-	if($view->file_put_contents('/imports/'.$file['name'], file_get_contents($file['tmp_name']))) {
-		OCP\JSON::success(array('data' => array('file'=>$file['name'], 'name'=>$file['name'])));
+	$filename = strtr($file['name'], array('/' => '', "\\" => ''));
+	if(OC\Files\Filesystem::isFileBlacklisted($filename)) {
+		bailOut($l10n->t('Upload of blacklisted file:') . $filename);
+	}
+	if($view->file_put_contents('/imports/'.$filename, file_get_contents($file['tmp_name']))) {
+		OCP\JSON::success(array('data' => array('file'=>$filename, 'name'=>$filename)));
 	} else {
 		bailOut($l10n->t('Error uploading contacts to storage.'));
 	}

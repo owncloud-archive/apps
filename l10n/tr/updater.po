@@ -4,12 +4,13 @@
 # 
 # Translators:
 #   <info@beyboo.de>, 2012.
+# TayançKILIÇLI <tayancatakan@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-01-31 23:33+0000\n"
+"POT-Creation-Date: 2013-02-27 00:01+0100\n"
+"PO-Revision-Date: 2013-02-26 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -20,13 +21,17 @@ msgstr ""
 
 #: js/updater.js:5
 msgid "In progress..."
-msgstr ""
+msgstr "Devam ediyor..."
 
 #: js/updater.js:16
-msgid "Done. Reload the page to proceed."
+msgid "Done."
 msgstr ""
 
-#: js/updater.js:19 js/updater.js:25
+#: js/updater.js:17
+msgid "Here is your backup: "
+msgstr ""
+
+#: js/updater.js:21 js/updater.js:27
 msgid "Error"
 msgstr "Hata"
 

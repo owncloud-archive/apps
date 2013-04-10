@@ -21,11 +21,11 @@
 		<fieldset id="uservdSettings-2">
 			<p>
 				Force user_vd backend to create new users? 
-				<input type="checkbox" name="forceCreateUsers" id="forceCreateUsers" <?php if ($_['forceCreateUsers']) echo ' checked'; ?>>
+				<input type="checkbox" name="forceCreateUsers" id="forceCreateUsers" <?php if ($_['forceCreateUsers']) p(' checked'); ?>>
 			</p>
 			<p>
 				Disable other backends? 
-				<input type="checkbox" name="disableBackends" id="disableBackends" <?php if ($_['disableBackends']) echo ' checked'; ?>>
+				<input type="checkbox" name="disableBackends" id="disableBackends" <?php if ($_['disableBackends']) p(' checked'); ?>>
 			</p>
 		</fieldset>
 		<input type='submit' value='Save'>

@@ -126,7 +126,6 @@
 "Month" => "மாதம்",
 "List" => "பட்டியல்",
 "Today" => "இன்று",
-"Calendars" => "நாட்காட்டிகள்",
 "Settings" => "அமைப்புகள்",
 "Your calendars" => "உங்களுடைய நாட்காட்டிகள்",
 "CalDav Link" => "CalDav இணைப்பு",

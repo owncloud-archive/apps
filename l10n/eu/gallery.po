@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <asieriko@gmail.com>, 2013.
 #   <asieriko@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-30 23:41+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-23 00:01+0100\n"
+"PO-Revision-Date: 2013-02-22 22:30+0000\n"
+"Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,17 +23,13 @@ msgstr ""
 msgid "Pictures"
 msgstr "Argazkiak"
 
-#: js/gallery.js:235
+#: js/gallery.js:245
 msgid "Shared by"
-msgstr ""
+msgstr "Honek elkarbanatuta"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
 msgstr "Elkarbanatu"
-
-#: templates/index.php:7
-msgid "Slideshow"
-msgstr "Diapositiba-aurkezpena"
 
 #: templates/no-image-app.php:9
 msgid ""

@@ -9,15 +9,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-02-01 15:00+0000\n"
-"Last-Translator: Rancher <theranchcowboy@gmail.com>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr ""
 
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
@@ -27,7 +31,7 @@ msgstr "Неподржана врста датотеке за увоз"
 msgid "Bookmarks"
 msgstr "Обележивачи"
 
-#: js/addBm.js:42 js/bookmarks.js:231
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr "Ознаке"
 
@@ -39,19 +43,23 @@ msgstr "Филтрирај по ознаци"
 msgid "Edit bookmark"
 msgstr "Уреди обележивач"
 
-#: js/bookmarks.js:362
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Желите ли да уклоните ову ознаку из сваког уноса?"
 
-#: js/bookmarks.js:363
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr "Упозорење"
 
-#: js/settings.js:25
+#: js/settings.js:18
+msgid "Import error"
+msgstr ""
+
+#: js/settings.js:29
 msgid "Import completed successfully."
 msgstr "Увоз је успешно завршен."
 
-#: js/settings.js:56
+#: js/settings.js:61
 msgid "Uploading..."
 msgstr "Отпремам…"
 
@@ -67,31 +75,31 @@ msgstr "Додај обележивач"
 msgid "Close"
 msgstr "Затвори"
 
-#: templates/addBm.php:16 templates/js_tpl.php:30
+#: templates/addBm.php:16 templates/js_tpl.php:27
 msgid "The title of the page"
 msgstr "Наслов странице"
 
-#: templates/addBm.php:21 templates/js_tpl.php:34
+#: templates/addBm.php:21 templates/js_tpl.php:31
 msgid "The address of the page"
 msgstr "Адреса странице"
 
-#: templates/addBm.php:34 templates/js_tpl.php:43
+#: templates/addBm.php:34 templates/js_tpl.php:40
 msgid "Description of the page"
 msgstr "Опис странице"
 
-#: templates/addBm.php:38 templates/js_tpl.php:47
+#: templates/addBm.php:38 templates/js_tpl.php:44
 msgid "Save"
 msgstr "Сачувај"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:61
+#: templates/js_tpl.php:6 templates/js_tpl.php:58
 msgid "Delete"
 msgstr "Обриши"
 
-#: templates/js_tpl.php:19 templates/js_tpl.php:57
+#: templates/js_tpl.php:14 templates/js_tpl.php:54
 msgid "Edit"
 msgstr "Уреди"
 
-#: templates/js_tpl.php:46
+#: templates/js_tpl.php:43
 msgid "Cancel"
 msgstr "Откажи"
 
@@ -117,15 +125,15 @@ msgstr "Додај"
 msgid "Related Tags"
 msgstr "Сродне ознаке"
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "Поставке"
 
-#: templates/list.php:53
+#: templates/list.php:54
 msgid "You have no bookmarks"
 msgstr "Немате обележиваче"
 
-#: templates/list.php:58
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
 msgstr "Можете да пробате да увезете и датотеку са обележивачима"
 

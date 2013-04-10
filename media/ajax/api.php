@@ -9,6 +9,7 @@
 namespace OCA\Media;
 
 \OCP\JSON::checkAppEnabled('media');
+\OCP\JSON::checkLoggedIn();
 
 error_reporting(E_ALL); //no script error reporting because of getID3
 
@@ -41,6 +42,7 @@ $collection = new Collection(\OCP\USER::getUser());
 if ($arguments['action']) {
 	switch ($arguments['action']) {
 		case 'delete':
+			\OCP\JSON::callCheck();
 			$path = $arguments['path'];
 			$collection->deleteSongByPath($path);
 			$paths = explode(PATH_SEPARATOR, \OCP\Config::getUserValue(\OCP\USER::getUser(), 'media', 'paths', ''));
@@ -65,6 +67,7 @@ if ($arguments['action']) {
 			\OC_Hook::connect('media', 'song_count', $watcher, 'count');
 			\OC_Hook::connect('media', 'song_scanned', $watcher, 'scanned');
 			$scanner->scanCollection();
+			$watcher->done();
 			$eventSource->close();
 			\OCP\DB::commit();
 			break;
@@ -82,9 +85,9 @@ if ($arguments['action']) {
 			\OCP\JSON::encodedPrint($collection->getSongs($arguments['artist'], $arguments['album'], $arguments['search']));
 			break;
 		case 'get_path_info':
-			if(\OC\Files\Filesystem::file_exists($arguments['path'])) {
-				$songId=$collection->getSongByPath($arguments['path']);
-				if($songId==0) {
+			if (\OC\Files\Filesystem::file_exists($arguments['path'])) {
+				$songId = $collection->getSongByPath($arguments['path']);
+				if ($songId == 0) {
 					unset($_SESSION['collection']);
 					$scanner = new Scanner($collection);
 					$songId = $scanner->scanFile($arguments['path']);
@@ -98,8 +101,8 @@ if ($arguments['action']) {
 			}
 			break;
 		case 'play':
-			$ftype=\OC\Files\Filesystem::getMimeType( $arguments['path'] );
-			if(substr($ftype,0,5)!='audio' and $ftype!='application/ogg') {
+			$ftype = \OC\Files\Filesystem::getMimeType($arguments['path']);
+			if (substr($ftype, 0, 5) != 'audio' and $ftype != 'application/ogg') {
 				echo 'Not an audio file';
 				exit();
 			}
@@ -107,10 +110,10 @@ if ($arguments['action']) {
 			$songId = $collection->getSongByPath($arguments['path']);
 			$collection->registerPlay($songId);
 
-			header('Content-Type:' . $type);
+			header('Content-Type:' . $ftype);
 			\OCP\Response::enableCaching(3600 * 24); // 24 hour
 			header('Accept-Ranges: bytes');
-			header('Content-Length: '.\OC\Files\Filesystem::filesize($arguments['path']));
+			header('Content-Length: ' . \OC\Files\Filesystem::filesize($arguments['path']));
 			$mtime = \OC\Files\Filesystem::filemtime($arguments['path']);
 			\OCP\Response::setLastModifiedHeader($mtime);
 
@@ -119,6 +122,9 @@ if ($arguments['action']) {
 		case 'find_music':
 			$scanner = new Scanner($collection);
 			$music = $scanner->getMusic();
+			foreach ($music as &$file) {
+				$file = $file['path'];
+			}
 			\OCP\JSON::encodedPrint($music);
 			exit;
 	}
@@ -129,6 +135,7 @@ class ScanWatcher {
 	 * @var \OC_EventSource $eventSource;
 	 */
 	private $eventSource;
+	private $scannedCount = 0;
 
 	public function __construct($eventSource) {
 		$this->eventSource = $eventSource;
@@ -140,5 +147,10 @@ class ScanWatcher {
 
 	public function scanned($params) {
 		$this->eventSource->send('scanned', array('file' => $params['path'], 'count' => $params['count']));
+		$this->scannedCount = $params['count'];
+	}
+
+	public function done() {
+		$this->eventSource->send('done', $this->scannedCount);
 	}
 }

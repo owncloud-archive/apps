@@ -13,7 +13,9 @@ $(document).ready(function() {
 						function(response) {
 							if (response.status && response.status == 'success') {
 								$('#upd-progress div').css({width : '100%'});
-								$('#upgrade_status').html(t('updater', 'Done. Reload the page to proceed.'));
+								$('#upgrade_status').html(t('updater', 'Done.'));
+                                var successMsg = t('updater', 'Here is your backup: ');
+                                OC.dialogs.info(successMsg + response.backup, 'Updater', function(){}, true);
 							} else {
 								var error = response.msg ? ': '+response.msg : '';
 								$('#upgrade_status').html(t('updater', 'Error') + error);

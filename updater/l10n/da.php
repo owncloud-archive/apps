@@ -1,6 +1,7 @@
 <?php $TRANSLATIONS = array(
 "In progress..." => "Arbejder...",
-"Done. Reload the page to proceed." => "Færdig. Genindlæs siden for at fortsætte.",
+"Done." => "Færdig.",
+"Here is your backup: " => "Her er din backup:",
 "Error" => "Fejl",
 "Update" => "Opdater"
 );

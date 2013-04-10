@@ -117,10 +117,6 @@ OC.notify = function(params) {
 	var self = this;
 	if(!self.notifier) {
 		self.notifier = $('#notification');
-		if(!self.notifier.length) {
-			$('#content').prepend('<div id="notification" />');
-			self.notifier = $('#notification');
-		}
 	}
 	if(params.cancel) {
 		self.notifier.off('click');
@@ -133,13 +129,9 @@ OC.notify = function(params) {
 		return;
 	}
 	self.notifier.text(params.message);
-	self.notifier.fadeIn();
+	self.notifier.fadeIn().css('display', 'inline');
 	self.notifier.on('click', function() { $(this).fadeOut();});
 	var timer = setTimeout(function() {
-		/*if(!self || !self.notifier) {
-			var self = OC.Contacts;
-			self.notifier = $('#notification');
-		}*/
 		self.notifier.fadeOut();
 		if(params.timeouthandler && $.isFunction(params.timeouthandler)) {
 			params.timeouthandler(self.notifier.data(dataid));
@@ -153,10 +145,6 @@ OC.notify = function(params) {
 	}
 	if(params.clickhandler && $.isFunction(params.clickhandler)) {
 		self.notifier.on('click', function() {
-			/*if(!self || !self.notifier) {
-				var self = OC.Contacts;
-				self.notifier = $(this);
-			}*/
 			clearTimeout(timer);
 			self.notifier.off('click');
 			params.clickhandler(self.notifier.data(dataid));
@@ -183,6 +171,7 @@ OC.Contacts = OC.Contacts || {
 		this.contacts = new OC.Contacts.ContactList(
 			this.$contactList,
 			this.$contactListItemTemplate,
+			this.$contactDragItemTemplate,
 			this.$contactFullTemplate,
 			this.detailTemplates
 		);
@@ -230,6 +219,7 @@ OC.Contacts = OC.Contacts || {
 		});
 		this.$groupListItemTemplate = $('#groupListItemTemplate');
 		this.$contactListItemTemplate = $('#contactListItemTemplate');
+		this.$contactDragItemTemplate = $('#contactDragItemTemplate');
 		this.$contactFullTemplate = $('#contactFullTemplate');
 		this.$contactDetailsTemplate = $('#contactDetailsTemplate');
 		this.$rightContent = $('#rightcontent');
@@ -308,6 +298,9 @@ OC.Contacts = OC.Contacts || {
 		// App specific events
 		$(document).bind('status.contact.deleted', function(e, data) {
 			var id = parseInt(data.id);
+			if(id === self.currentid) {
+				delete self.currentid;
+			}
 			console.log('contact', data.id, 'deleted');
 			// update counts on group lists
 			self.groups.removeFromAll(data.id, true);
@@ -439,6 +432,7 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('request.contact.delete', function(e, data) {
 			var id = parseInt(data.id);
 			console.log('contact', data.id, 'request.contact.delete');
+			self.closeContact(id);
 			self.contacts.delayedDelete(id);
 			self.$contactList.removeClass('dim');
 			self.showActions(['add']);
@@ -490,8 +484,8 @@ OC.Contacts = OC.Contacts || {
 
 		$(document).bind('status.group.contactadded', function(e, result) {
 			console.log('status.group.contactadded', result);
-			var contact = self.contacts.findById(self.currentid);
-			if(contact === null) {
+			var contact = self.contacts.findById(result.contactid);
+			if(!contact) {
 				return false;
 			}
 			contact.addToGroup(result.groupname);
@@ -567,6 +561,8 @@ OC.Contacts = OC.Contacts || {
 				self.$settings.switchClass('open', '');
 				$('body').unbind('click', bodyListener);
 			} else {
+				// FIXME: Settings needs to be refactored
+				self.$settings.find('h2').trigger('click');
 				self.$settings.switchClass('', 'open');
 				$('body').bind('click', bodyListener);
 			}
@@ -761,7 +757,7 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			if($(event.target).is('a.mailto')) {
-				var mailto = 'mailto:' + $(this).find('.email').text().trim();
+				var mailto = 'mailto:' + $.trim($(this).find('.email').text());
 				console.log('mailto', mailto);
 				try {
 					window.location.href=mailto;
@@ -773,12 +769,129 @@ OC.Contacts = OC.Contacts || {
 			self.openContact($(this).data('id'));
 		});
 
-		this.$settings.find('h3').on('click keydown', function(event) {
+		/** Appends an address book entry to $list and adds the id to
+		 * internal list.
+		 *
+		 * @param object $list A jquery object of an unordered list
+		 * @param object book An object with the properties 'id', 'name' and 'permissions'.
+		 */
+		var appendAddressBook = function($list, book, add) {
+			if(add) {
+				self.contacts.setAddressbook(book);
+			}
+			var $li = self.$addressbookTmpl.octemplate({
+				id: book.id,
+				permissions: book.permissions,
+				displayname: book.displayname
+			});
+
+			$li.find('a.action').tipsy({gravity: 'w'});
+			$li.find('a.action.delete').on('click keypress', function() {
+				$('.tipsy').remove();
+				var id = parseInt($(this).parents('li').first().data('id'));
+				console.log('delete', id);
+				var $li = $(this).parents('li').first();
+				$.ajax({
+					type:'POST',
+					url:OC.filePath('contacts', 'ajax', 'addressbook/delete.php'),
+					data:{ id: id },
+					success:function(jsondata) {
+						console.log(jsondata);
+						if(jsondata.status == 'success') {
+							self.contacts.unsetAddressbook(id);
+							$li.remove();
+							OC.notify({
+								message:t('contacts','Deleting done. Click here to cancel reloading.'),
+								timeout:5,
+								timeouthandler:function() {
+									console.log('reloading');
+									window.location.href = OC.linkTo('contacts', 'index.php');
+								},
+								clickhandler:function() {
+									console.log('reloading cancelled');
+									OC.notify({cancel:true});
+								}
+							});
+						} else {
+							OC.notify({message:jsondata.data.message});
+						}
+					},
+					error:function(jqXHR, textStatus, errorThrown) {
+						OC.notify({message:textStatus + ': ' + errorThrown});
+						id = false;
+					}
+				});
+			});
+			$li.find('a.action.globe').on('click keypress', function() {
+				var id = parseInt($(this).parents('li').first().data('id'));
+				var book = self.contacts.addressbooks[id];
+				var uri = (book.owner === oc_current_user ) ? book.uri : book.uri + '_shared_by_' + book.owner;
+				var link = OC.linkToRemote('carddav')+'/addressbooks/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
+				var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" /></div>');
+				$dropdown.appendTo($(this).parents('li').first());
+				var $input = $dropdown.find('input');
+				$input.focus().get(0).select();
+				$input.on('blur', function() {
+					$dropdown.hide('blind', function() {
+						$dropdown.remove();
+					});
+				});
+			});
+			$list.append($li);
+		};
+
+		this.$settings.find('.addaddressbook').on('click keydown', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			$(this).hide();
+			var $addAddressbookPart = $(this).next('ul').show();
+			var $addinput = $addAddressbookPart.find('input.addaddressbookinput').focus();
+			$addAddressbookPart.on('click keydown', 'button', function(event) {
+				if(wrongKey(event)) {
+					return;
+				}
+				if($(this).is('.addaddressbookok')) {
+					if($addinput.val().trim() === '') {
+						return false;
+					} else {
+						var name = $addinput.val().trim();
+						$addinput.addClass('loading');
+						$addAddressbookPart.find('button input').prop('disabled', true);
+						console.log('adding', name);
+						self.addAddressbook({
+							name: name,
+							description: ''
+						}, function(response) {
+							if(!response || !response.status) {
+								OC.notify({
+									message:t('contacts', 'Network or server error. Please inform administrator.')
+								});
+								return false;
+							} else if(response.status === 'error') {
+								OC.notify({message: response.message});
+								return false;
+							} else if(response.status === 'success') {
+								var book = response.addressbook;
+								var $list = self.$settings.find('[data-id="addressbooks"]').next('ul');
+								appendAddressBook($list, book, true);
+							}
+							$addinput.removeClass('loading');
+							$addAddressbookPart.find('button input').prop('disabled', false);
+							$addAddressbookPart.hide().prev('button').show();
+						});
+					}
+				} else if($(this).is('.addaddressbookcancel')) {
+					$addAddressbookPart.hide().prev('button').show();
+				}
+			});
+		});
+
+		this.$settings.find('h2').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
 			if($(this).next('ul').is(':visible')) {
-				$(this).next('ul').slideUp();
 				return;
 			}
 			console.log('settings');
@@ -792,65 +905,7 @@ OC.Contacts = OC.Contacts || {
 
 				$list.empty();
 				$.each(self.contacts.addressbooks, function(id, book) {
-					var $li = self.$addressbookTmpl.octemplate({
-						id: id,
-						permissions: book.permissions,
-						displayname: book.displayname
-					});
-
-					$list.append($li);
-				});
-				$list.find('a.action').tipsy({gravity: 'w'});
-				$list.find('a.action.delete').on('click keypress', function() {
-					$('.tipsy').remove();
-					var id = parseInt($(this).parents('li').first().data('id'));
-					console.log('delete', id);
-					var $li = $(this).parents('li').first();
-					$.ajax({
-						type:'POST',
-						url:OC.filePath('contacts', 'ajax', 'addressbook/delete.php'),
-						data:{ id: id },
-						success:function(jsondata) {
-							console.log(jsondata);
-							if(jsondata.status == 'success') {
-								self.contacts.unsetAddressbook(id);
-								$li.remove();
-								OC.notify({
-									message:t('contacts','Deleting done. Click here to cancel reloading.'),
-									timeout:5,
-									timeouthandler:function() {
-										console.log('reloading');
-										window.location.href = OC.linkTo('contacts', 'index.php');
-									},
-									clickhandler:function() {
-										console.log('reloading cancelled');
-										OC.notify({cancel:true});
-									}
-								});
-							} else {
-								OC.notify({message:jsondata.data.message});
-							}
-						},
-						error:function(jqXHR, textStatus, errorThrown) {
-							OC.notify({message:textStatus + ': ' + errorThrown});
-							id = false;
-						}
-					});
-				});
-				$list.find('a.action.globe').on('click keypress', function() {
-					var id = parseInt($(this).parents('li').first().data('id'));
-					var book = self.contacts.addressbooks[id];
-					var uri = (book.owner === oc_current_user ) ? book.uri : book.uri + '_shared_by_' + book.owner;
-					var link = OC.linkToRemote('carddav')+'/addressbooks/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
-					var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" /></div>');
-					$dropdown.appendTo($(this).parents('li').first());
-					var $input = $dropdown.find('input');
-					$input.focus().get(0).select();
-					$input.on('blur', function() {
-						$dropdown.hide('blind', function() {
-							$dropdown.remove();
-						});
-					});
+					appendAddressBook($list, book, false);
 				});
 				if(typeof OC.Share !== 'undefined') {
 					OC.Share.loadIcons('addressbook');
@@ -863,24 +918,21 @@ OC.Contacts = OC.Contacts || {
 				$('.import-select').hide();
 
 				var addAddressbookCallback = function(select, name) {
-					var id;
-					$.ajax({
-						type:'POST',
-						async:false,
-						url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'),
-						data:{ name: name },
-						success:function(jsondata) {
-							console.log(jsondata);
-							if(jsondata.status == 'success') {
-								self.contacts.setAddressbook(jsondata.data.addressbook);
-								id = jsondata.data.addressbook.id;
-							} else {
-								OC.notify({message:jsondata.data.message});
-							}
-						},
-						error:function(jqXHR, textStatus, errorThrown) {
-							OC.notify({message:textStatus + ': ' + errorThrown});
-							id = false;
+					var id = false;
+					self.addAddressbook({
+						name: name,
+						description: ''
+					}, function(response) {
+						if(!response || !response.status) {
+							OC.notify({
+								message:t('contacts', 'Network or server error. Please inform administrator.')
+							});
+							return false;
+						} else if(response.status === 'error') {
+							OC.notify({message: response.message});
+							return false;
+						} else if(response.status === 'success') {
+							id = response.addressbook.id;
 						}
 					});
 					return id;
@@ -902,10 +954,7 @@ OC.Contacts = OC.Contacts || {
 			$list.toggle('slow');
 		});
 
-		this.$header.on('click keydown', '.add', function(event) {
-			if(wrongKey(event)) {
-				return;
-			}
+		var addContact = function() {
 			console.log('add');
 			self.$toggleAll.hide();
 			$(this).hide();
@@ -917,9 +966,32 @@ OC.Contacts = OC.Contacts || {
 				groups: self.groups.categories,
 				currentgroup: {id:self.currentgroup, name:self.groups.nameById(self.currentgroup)}
 			};
+			self.$firstRun.hide();
+			self.$contactList.show();
+			self.$contactList.addClass('dim');
 			self.tmpcontact = self.contacts.addContact(groupprops);
 			self.$rightContent.prepend(self.tmpcontact);
 			self.hideActions();
+		};
+
+		this.$firstRun.on('click keydown', '.import', function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			self.$settings.find('.settings').click();
+		});
+
+		this.$firstRun.on('click keydown', '.addcontact', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			addContact();
+		});
+
+		this.$header.on('click keydown', '.add', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			addContact();
 		});
 
 		this.$header.on('click keydown', '.delete', function(event) {
@@ -969,7 +1041,7 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		this.$contactList.on('mouseenter', 'td.email', function(event) {
-			if($(this).text().trim().length > 3) {
+			if($.trim($(this).text()).length > 3) {
 				$(this).find('.mailto').css('display', 'inline-block'); //.fadeIn(100);
 			}
 		});
@@ -1051,6 +1123,9 @@ OC.Contacts = OC.Contacts || {
 						if(response.status === 'success') {
 							$status.text(t('contacts', '{success} imported, {failed} failed.',
 								{success:response.data.imported, failed:response.data.failed})).fadeIn();
+						} else {
+							$('.import-upload').show();
+							$('.import-select').hide();
 						}
 						delete uploadingFiles[fileName];
 						numfiles -= 1; uploadedfiles -= 1;
@@ -1110,6 +1185,10 @@ OC.Contacts = OC.Contacts || {
 											uploadedfiles += 1;
 										} else {
 											OC.notify({message:response.data.message});
+											$('.import-upload').show();
+											$('.import-select').hide();
+											$('#import-progress').hide();
+											$('#import-status-text').hide();
 										}
 										return false;
 									})
@@ -1141,6 +1220,8 @@ OC.Contacts = OC.Contacts || {
 				fail: function(e, data) {
 					console.log('fail');
 					OC.notify({message:data.errorThrown + ': ' + data.textStatus});
+					$('.import-upload').show();
+					$('.import-select').hide();
 					// TODO: Remove file from upload queue.
 				},
 				progressall: function(e, data) {
@@ -1308,7 +1389,7 @@ OC.Contacts = OC.Contacts || {
 		});
 	},
 	jumpToContact: function(id) {
-		this.$rightContent.scrollTop(this.contacts.contactPos(id)+10);
+		this.$rightContent.scrollTop(this.contacts.contactPos(id)-30);
 	},
 	closeContact: function(id) {
 		if(typeof this.currentid === 'number') {
@@ -1325,6 +1406,10 @@ OC.Contacts = OC.Contacts || {
 		delete this.currentid;
 		this.showActions(['add']);
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
+		if(this.contacts.length === 0) {
+			$(document).trigger('status.nomorecontacts');
+		}
+		//$('body').unbind('click', this.bodyListener);
 	},
 	openContact: function(id) {
 		console.log('Contacts.openContact', id);
@@ -1356,6 +1441,18 @@ OC.Contacts = OC.Contacts || {
 		//$contact.resizable({ minWidth: 400, minHeight: 400, maxHeight: maxheight});
 		this.$rightContent.prepend($contactelem);
 		adjustElems();
+		/*this.bodyListener = function(e) {
+			if(!self.currentid) {
+				return;
+			}
+			var $contactelem = self.contacts.findById(self.currentid).$fullelem;
+			if($contactelem.find($(e.target)).length === 0) {
+				self.closeContact(self.currentid);
+			}
+		};
+		setTimeout(function() {
+			$('body').bind('click', self.bodyListener);
+		}, 500);*/
 	},
 	update: function() {
 		console.log('update');
@@ -1369,6 +1466,7 @@ OC.Contacts = OC.Contacts || {
 		var file = filelist[0];
 		var target = $('#file_upload_target');
 		var form = $('#file_upload_form');
+		form.find('input[name="id"]').val(this.currentid);
 		var totalSize=0;
 		if(file.size > $('#max_upload').val()){
 			OC.notify({
@@ -1506,7 +1604,6 @@ OC.Contacts = OC.Contacts || {
 			}
 		});
 	},
-	// NOTE: Deprecated
 	addAddressbook:function(data, cb) {
 		$.ajax({
 			type:'POST',
@@ -1524,9 +1621,22 @@ OC.Contacts = OC.Contacts || {
 				} else {
 					if(typeof cb === 'function') {
 						cb({status:'error', message:jsondata.data.message});
+					} else {
+						OC.notify({message:textStatus + ': ' + errorThrown});
 					}
 				}
-		}});
+			},
+			error:function(jqXHR, textStatus, errorThrown) {
+				if(typeof cb === 'function') {
+					cb({
+						status:'success',
+						message: textStatus + ': ' + errorThrown
+					});
+				} else {
+					OC.notify({message:textStatus + ': ' + errorThrown});
+				}
+			}
+		});
 	},
 	// NOTE: Deprecated
 	selectAddressbook:function(cb) {
@@ -1545,7 +1655,7 @@ OC.Contacts = OC.Contacts || {
 						if(aid == 'new') {
 							var displayname = $(this).find('input.name').val();
 							var description = $(this).find('input.desc').val();
-							if(!displayname.trim()) {
+							if(!$.trim(displayname)) {
 								OC.dialogs.alert(t('contacts', 'The address book name cannot be empty.'), t('contacts', 'Error'));
 								return false;
 							}
@@ -1617,54 +1727,59 @@ OC.Contacts = OC.Contacts || {
 };
 
 (function( $ ) {
-	// Support older browsers. From http://www.yelotofu.com/2008/08/jquery-outerhtml/
-	jQuery.fn.outerHTML = function(s) {
-		return s
-			? this.before(s).remove()
-			: jQuery('<p>').append(this.eq(0).clone()).html();
-	};
 	/**
 	* Object Template
 	* Inspired by micro templating done by e.g. underscore.js
 	*/
 	var Template = {
-		init: function(options, elem) {
+		init: function(vars, options, elem) {
 			// Mix in the passed in options with the default options
+			this.vars = vars;
 			this.options = $.extend({},this.options,options);
 
-			// Save the element reference, both as a jQuery
-			// reference and a normal reference
-			this.elem  = elem;
-			this.$elem = $(elem);
+			this.elem = elem;
+			var self = this;
 
-			var _html = this._build(this.options);
-			//console.log('html', this.$elem.html());
+			if(typeof this.options.escapeFunction === 'function') {
+				$.each(this.vars, function(key, val) {
+					if(typeof val === 'string') {
+						self.vars[key] = self.options.escapeFunction(val);
+					}
+				});
+			}
+
+			var _html = this._build(this.vars);
 			return $(_html);
 		},
 		// From stackoverflow.com/questions/1408289/best-way-to-do-variable-interpolation-in-javascript
 		_build: function(o){
-			var data = this.$elem.html();
-				//this.$elem.attr('type') === 'text/template'
-				//? this.$elem.html() : this.$elem.outerHTML();
-			return data.replace(/{([^{}]*)}/g,
-				function (a, b) {
-					var r = o[b];
-					return typeof r === 'string' || typeof r === 'number' ? r : a;
-				}
-			);
+			var data = this.elem.attr('type') === 'text/template' ? this.elem.html() : this.elem.get(0).outerHTML;
+			try {
+				return data.replace(/{([^{}]*)}/g,
+					function (a, b) {
+						var r = o[b];
+						return typeof r === 'string' || typeof r === 'number' ? r : a;
+					}
+				);
+			} catch(e) {
+				console.error(e, 'data:', data)
+			}
 		},
 		options: {
+			escapeFunction: function(str) {return $('<i></i>').text(str).html();}
 		}
 	};
 
-	$.fn.octemplate = function(options) {
-		if ( this.length ) {
+	$.fn.octemplate = function(vars, options) {
+		var vars = vars ? vars : {};
+		if(this.length) {
 			var _template = Object.create(Template);
-			return _template.init(options, this);
+			return _template.init(vars, options, this);
 		}
 	};
 
 })( jQuery );
+
 
 $(document).ready(function() {
 

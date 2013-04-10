@@ -4,7 +4,7 @@
 	<name>Pictures</name>
 	<licence>AGPL</licence>
 	<author>Robin Appelman</author>
-	<require>4.91</require>
+	<require>4.93</require>
 	<shipped>true</shipped>
 	<description>Dedicated pictures application</description>
 	<standalone/>

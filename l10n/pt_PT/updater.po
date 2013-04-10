@@ -5,13 +5,14 @@
 # Translators:
 # Daniel Pinto <daniel@mouxy.net>, 2013.
 # Duarte Velez Grilo <duartegrilo@gmail.com>, 2012.
+# Helder Meneses <helder.meneses@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-02 00:03+0100\n"
-"PO-Revision-Date: 2013-01-31 23:33+0000\n"
-"Last-Translator: Mouxy <daniel@mouxy.net>\n"
+"POT-Creation-Date: 2013-03-06 00:04+0100\n"
+"PO-Revision-Date: 2013-03-05 11:40+0000\n"
+"Last-Translator: Helder Meneses <helder.meneses@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,13 +22,17 @@ msgstr ""
 
 #: js/updater.js:5
 msgid "In progress..."
-msgstr "Em progresso..."
+msgstr "Em curso..."
 
 #: js/updater.js:16
-msgid "Done. Reload the page to proceed."
-msgstr "Feito. Actualize a página para prosseguir."
+msgid "Done."
+msgstr "Concluído."
 
-#: js/updater.js:19 js/updater.js:25
+#: js/updater.js:17
+msgid "Here is your backup: "
+msgstr "Aqui está a sua cópia de segurança:"
+
+#: js/updater.js:21 js/updater.js:27
 msgid "Error"
 msgstr "Erro"
 

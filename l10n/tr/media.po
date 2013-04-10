@@ -4,23 +4,24 @@
 # 
 # Translators:
 # Aranel Surion <aranel@aranelsurion.org>, 2011.
+# H.Oktay Tefenli <otefenli@gmail.com>, 2013.
 #   <info@beyboo.de>, 2012.
 # Necdet Yücel <necdetyucel@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-24 00:02+0100\n"
-"PO-Revision-Date: 2013-01-23 23:03+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:31+0000\n"
+"Last-Translator: otefenli <otefenli@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: appinfo/app.php:49 lib/media.php:80 templates/player.php:8
+#: appinfo/app.php:48 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "Müzik"
 
@@ -40,31 +41,31 @@ msgstr "Çalma listesine ekle"
 msgid "Add album to playlist"
 msgstr "Albümü çalma listesine ekle"
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr "Önceki"
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr "Oynat"
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
 msgstr "Beklet"
-
-#: templates/music.php:5
-msgid "Previous"
-msgstr "Önceki"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr "Sonraki"
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr "Sesi kapat"
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr "Sesi aç"
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr "Koleksiyonu Tara"
 
@@ -82,8 +83,8 @@ msgstr "Başlık"
 
 #: templates/settings.php:3
 msgid "Media"
-msgstr ""
+msgstr "Ortam"
 
 #: templates/settings.php:4
 msgid "Ampache address:"
-msgstr ""
+msgstr "Ampache adresi:"

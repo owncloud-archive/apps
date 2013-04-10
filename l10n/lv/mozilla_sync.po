@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-04 00:01+0100\n"
-"PO-Revision-Date: 2012-09-03 13:15+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-02-05 00:17+0100\n"
+"PO-Revision-Date: 2013-02-04 18:30+0000\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +20,11 @@ msgstr ""
 
 #: templates/noemail.php:2 templates/settings.php:2
 msgid "Mozilla Sync Service"
-msgstr ""
+msgstr "Mozilla sinhronizēšanas servis"
 
 #: templates/noemail.php:3
 msgid "Please set your email address in account settings"
-msgstr ""
+msgstr "Lūdzu, iestatiet savu e-pasta adresi un konta iestatījumus"
 
 #: templates/settings.php:5
 msgid "Email"
@@ -31,8 +32,8 @@ msgstr "E-pasts"
 
 #: templates/settings.php:9
 msgid "Password and Confirmation"
-msgstr ""
+msgstr "Parole un apstiprinājums"
 
 #: templates/settings.php:13
 msgid "Server address"
-msgstr ""
+msgstr "Servera adrese"

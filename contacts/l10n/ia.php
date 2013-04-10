@@ -25,6 +25,7 @@
 "Internet" => "Internet",
 "Contact" => "Contacto",
 "Settings" => "Configurationes",
+"New" => "Nove",
 "Import" => "Importar",
 "Groups" => "Gruppos",
 "Close" => "Clauder",

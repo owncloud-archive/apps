@@ -7,6 +7,7 @@
 "User: <b>" => "Người dùng: <b>",
 "Login" => "Đăng nhập",
 "Error: <b>No user Selected" => "Lỗi: <b> Không có người dùng được chọn",
+"OpenID" => "OpenID",
 "you can authenticate to other sites with this address" => "bạn có thể xác thực đến các trang web khác với địa chỉ này",
 "Authorized OpenID provider" => "Cung cấp OpenID",
 "Your address at Wordpress, Identi.ca, &hellip;" => "Địa chỉ của bạn tại  Wordpress, Identi.ca, &hellip;"

@@ -29,6 +29,8 @@ OC::$CLASSPATH['OCA\Media\Collection'] = 'media/lib/collection.php';
 OC::$CLASSPATH['OCA\Media\Scanner'] = 'media/lib/scanner.php';
 OC::$CLASSPATH['OCA\Media\Extractor'] = 'media/lib/extractor.php';
 OC::$CLASSPATH['OCA\Media\Extractor_GetID3'] = 'media/lib/extractor.php';
+OC::$CLASSPATH['OCA\Media\Extractable'] = 'media/lib/track.php';
+OC::$CLASSPATH['OCA\Media\Track'] = 'media/lib/track.php';
 
 //we need to have the sha256 hash of passwords for ampache
 OCP\Util::connectHook('OC_User', 'post_login', 'OCA\Media\Media', 'loginListener');
@@ -42,9 +44,6 @@ OCP\Util::connectHook('OC_Filesystem', 'post_delete', 'OCA\Media\Media', 'delete
 
 //list for file moves to update the database
 OCP\Util::connectHook('OC_Filesystem', 'post_rename', 'OCA\Media\Media', 'moveFile');
-
-OCP\Util::addscript('media', 'loader');
-OCP\App::registerPersonal('media', 'settings');
 
 OCP\App::addNavigationEntry(array('id' => 'media_index', 'order' => 2, 'href' => OCP\Util::linkTo('media', 'index.php'), 'icon' => OCP\Util::imagePath('core', 'places/music.svg'), 'name' => $l->t('Music')));
 

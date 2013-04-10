@@ -1,6 +1,7 @@
 <?php $TRANSLATIONS = array(
 "In progress..." => "Proces beží...",
-"Done. Reload the page to proceed." => "Hotovo. Pokračujte obnovením stránky.",
+"Done." => "Hotovo.",
+"Here is your backup: " => "Tu je Vaša záloha:",
 "Error" => "Chyba",
 "Update" => "Aktualizovať"
 );

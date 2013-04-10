@@ -142,10 +142,10 @@ Calendar={
 			}
 		},
 		submitDeleteEventForm:function(url){
-			var post = $( '#event_form' ).serialize();
+			var id = $('input[name="id"]').val();
 			$('#errorbox').empty();
 			Calendar.UI.loading(true);
-			$.post(url, post, function(data){
+			$.post(url, {id:id}, function(data){
 					Calendar.UI.loading(false);
 					if(data.status == 'success'){
 						$('#fullcalendar').fullCalendar('removeEvents', $('#event_form input[name=id]').val());
@@ -959,6 +959,9 @@ $(document).ready(function(){
 	$('#datecontrol_left').click(function(){
 		$('#fullcalendar').fullCalendar('prev');
 	});
+	$('#datecontrol_today').click(function(){
+		$('#fullcalendar').fullCalendar('today');
+	});
 	$('#datecontrol_right').click(function(){
 		$('#fullcalendar').fullCalendar('next');
 	});
@@ -966,11 +969,7 @@ $(document).ready(function(){
 	Calendar.UI.Drop.init();
 	$('#choosecalendar .generalsettings').on('click keydown', function(event) {
 		event.preventDefault();
-		OC.appSettings({appid:'calendar', loadJS:true, cache:false});
-	});
-	$('#choosecalendar .calendarsettings').on('click keydown', function(event) {
-		event.preventDefault();
-		OC.appSettings({appid:'calendar', loadJS:true, cache:false, scriptName:'calendar.php'});
+		OC.appSettings({appid:'calendar', loadJS:true, cache:false, scriptName:'settingswrapper.php'});
 	});
 	$('#fullcalendar').fullCalendar('option', 'height', $(window).height() - $('#controls').height() - $('#header').height() - 15);
 });

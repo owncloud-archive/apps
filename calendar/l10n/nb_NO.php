@@ -106,7 +106,6 @@
 "Month" => "ned",
 "List" => "Liste",
 "Today" => "I dag",
-"Calendars" => "Kalendere",
 "Settings" => "Innstillinger",
 "Your calendars" => "Dine kalendere",
 "CalDav Link" => "CalDav-lenke",

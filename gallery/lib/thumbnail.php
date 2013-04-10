@@ -24,6 +24,9 @@ class Thumbnail {
 	protected $view;
 
 	public function __construct($imagePath, $user = null, $square = false) {
+		if (!\OC\Files\Filesystem::isValidPath($imagePath)) {
+			return;
+		}
 		if (is_null($user)) {
 			$this->view = \OC\Files\Filesystem::getView();
 			$this->user = \OCP\USER::getUser();
@@ -133,7 +136,7 @@ class Thumbnail {
 		}
 
 		$parent = dirname($path);
-		if ($parent !== '/' and $parent !== '') {
+		if ($parent !== DIRECTORY_SEPARATOR and $parent !== '') {
 			self::removeHook(array('path' => $parent));
 		}
 	}
@@ -155,6 +158,9 @@ class Thumbnail {
 class AlbumThumbnail extends Thumbnail {
 
 	public function __construct($imagePath, $user = null, $square = false) {
+		if (!\OC\Files\Filesystem::isValidPath($imagePath)) {
+			return;
+		}
 		if (is_null($user)) {
 			$this->view = \OC\Files\Filesystem::getView();
 			$this->user = \OCP\USER::getUser();

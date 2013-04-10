@@ -107,7 +107,7 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 
 			switch($property) {
 				case '{DAV:}displayname' :
-					$displayname = $newvalue;
+					$name = $newvalue;
 					break;
 				case '{' . Sabre_CardDAV_Plugin::NS_CARDDAV
 						. '}addressbook-description' :
@@ -183,7 +183,6 @@ class OC_Connector_Sabre_CardDAV extends Sabre_CardDAV_Backend_Abstract {
 	 */
 	public function createCard($addressbookid, $carduri, $carddata) {
 		OCA\Contacts\VCard::addFromDAVData($addressbookid, $carduri, $carddata);
-		return true;
 	}
 
 	/**

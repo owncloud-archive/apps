@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:04+0200\n"
-"PO-Revision-Date: 2012-10-21 03:38+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:32+0000\n"
 "Last-Translator: elmakong <mr.pige_ina@yahoo.co.id>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr "daftar"
 msgid "Location"
 msgstr "lokasi"
 
-#: js/tasks.js:415
+#: js/tasks.js:420
 msgid "No category"
 msgstr "tidak ada kategori"
 

@@ -12,11 +12,6 @@ namespace OCA\Media;
 //class for scanning directories for music
 class Scanner {
 	/**
-	 * @var Extractor $extractor
-	 */
-	private $extractor;
-
-	/**
 	 * @var Collection $collection
 	 */
 	private $collection;
@@ -26,7 +21,6 @@ class Scanner {
 	 */
 	public function __construct($collection) {
 		$this->collection = $collection;
-		$this->extractor = new Extractor_GetID3();
 	}
 
 	/**
@@ -37,7 +31,8 @@ class Scanner {
 	public function getMusic() {
 		$music = \OC\Files\Filesystem::searchByMime('audio');
 		$ogg = \OC\Files\Filesystem::searchByMime('application/ogg');
-		return array_merge($music, $ogg);
+		$music = array_merge($music, $ogg);
+		return $music;
 	}
 
 	/**
@@ -52,7 +47,7 @@ class Scanner {
 		foreach ($music as $file) {
 			$this->scanFile($file);
 			$songs++;
-			\OC_Hook::emit('media', 'song_scanned', array('path' => $file, 'count' => $songs));
+			\OC_Hook::emit('media', 'song_scanned', array('path' => $file['path'], 'count' => $songs));
 		}
 		return $songs;
 	}
@@ -63,12 +58,26 @@ class Scanner {
 	 * @param string $path
 	 * @return boolean
 	 */
-	public function scanFile($path) {
-		$data = $this->extractor->extract($path);
-		$artistId = $this->collection->addArtist($data['artist']);
-		$albumId = $this->collection->addAlbum($data['album'], $artistId);
+	public function scanFile($file) {
+		if (is_array($file)) {
+			$path = $file['path'];
+			$mimeType = $file['mimetype'];
+		} else {
+			$path = $file;
+		}
+		if (!$mimeType) {
+			$mimeType = \OC\Files\Filesystem::getMimeType($path);
+		}
+		if ($mimeType === 'application/ogg' or substr($mimeType, 0, 5) === 'audio') {
+			$track = new Track($path);
+			$data = $track->getTags();
+			if (!empty($data)) {
+				$artistId = $this->collection->addArtist($data['artist']);
+				$albumId = $this->collection->addAlbum($data['album'], $artistId);
 
-		$this->collection->addSong($data['title'], $path, $artistId, $albumId, $data['length'], $data['track'], $data['size']);
+				$this->collection->addSong($data['title'], $path, $artistId, $albumId, $data['length'], $data['track'], $data['size']);
+			}
+		}
 		return true;
 	}
 }

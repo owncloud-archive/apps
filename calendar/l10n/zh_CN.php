@@ -130,7 +130,6 @@
 "Month" => "月",
 "List" => "列表",
 "Today" => "今天",
-"Calendars" => "日历",
 "Settings" => "设置",
 "Your calendars" => "您的日历",
 "CalDav Link" => "CalDav 链接",

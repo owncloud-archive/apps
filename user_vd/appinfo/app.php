@@ -1,6 +1,6 @@
 <?php
-OC::$CLASSPATH['OC_USER_VD'] = 'apps/user_vd/lib/vd.php';
-OC::$CLASSPATH['OC_USER_VD_DOMAIN'] = 'apps/user_vd/lib/domains.php';
+OC::$CLASSPATH['OC_USER_VD'] = 'user_vd/lib/vd.php';
+OC::$CLASSPATH['OC_USER_VD_DOMAIN'] = 'user_vd/lib/domains.php';
 
 OCP\App::registerAdmin('user_vd','adminSettings');
 

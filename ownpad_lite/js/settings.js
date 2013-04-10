@@ -19,8 +19,8 @@ $(document).ready(function(){
 		},
 		save : function() {
 			var data = {
-				etherpad_url : ownPadSettings.getHost(),
-				etherpad_username : ownPadSettings.getUsername()
+				url : ownPadSettings.getHost(),
+				username : ownPadSettings.getUsername()
 			};
 			$.post(OC.filePath('ownpad_lite', 'ajax', 'settings.php'), data, ownPadSettings.afterSave);
 		},

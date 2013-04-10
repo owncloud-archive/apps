@@ -27,6 +27,9 @@ if ($owner !== OC_User::getUser()) {
 	}
 }
 $meta = $ownerView->getFileInfo($gallery);
+$data = array();
+$data['fileid'] = $meta['fileid'];
+$data['permissions'] = $meta['permissions'];
 
 OCP\JSON::setContentTypeHeader();
-echo json_encode($meta);
+echo json_encode($data);

@@ -1,6 +1,7 @@
 <?php $TRANSLATIONS = array(
 "In progress..." => "En proceso...",
-"Done. Reload the page to proceed." => "Listo. Actualice la página para continuar.",
+"Done." => "Hecho.",
+"Here is your backup: " => "Aquí está tu copia de seguridad:",
 "Error" => "Error",
 "Update" => "Actualizar"
 );

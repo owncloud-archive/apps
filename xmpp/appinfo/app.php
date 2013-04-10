@@ -1,8 +1,8 @@
 <?php
 OCP\App::checkAppEnabled('xmpp');
 
-OC::$CLASSPATH['OC_User_xmpp_Hooks'] = 'apps/xmpp/lib/hooks.php';
-OC::$CLASSPATH['OC_xmpp_login'] = 'apps/xmpp/lib/xmpplogin.php';
+OC::$CLASSPATH['OC_User_xmpp_Hooks'] = 'xmpp/lib/hooks.php';
+OC::$CLASSPATH['OC_xmpp_login'] = 'xmpp/lib/xmpplogin.php';
 # Crear sessio xmpp
 OCP\Util::connectHook('OC_User', 'post_login', "OC_User_xmpp_Hooks", "createXmppSession");
 OCP\Util::connectHook('OC_User', 'logout', "OC_User_xmpp_Hooks", "deleteXmppSession");

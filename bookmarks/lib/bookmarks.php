@@ -85,14 +85,15 @@ class OC_Bookmarks_Bookmarks{
 		$params=array(OCP\USER::getUser());
 
 		if($CONFIG_DBTYPE == 'pgsql') {
-			$group_fct = 'array_agg(tag)';
+			$sql = "select * from (SELECT *, (select array_to_string(array_agg(tag),'') from *PREFIX*bookmarks_tags where bookmark_id = b.id) as tags
+				FROM *PREFIX*bookmarks b
+				WHERE user_id = ? ) as x WHERE true ";
 		}
 		else {
-			$group_fct = 'GROUP_CONCAT(tag)';
-		}
-		$sql = "SELECT *, (select $group_fct from *PREFIX*bookmarks_tags where bookmark_id = b.id) as tags
+			$sql = "SELECT *, (select GROUP_CONCAT(tag) from *PREFIX*bookmarks_tags where bookmark_id = b.id) as tags
 				FROM *PREFIX*bookmarks b
 				WHERE user_id = ? ";
+		}
 
 		if($filterTagOnly) {
 			$exist_clause = " AND	exists (select id from  *PREFIX*bookmarks_tags
@@ -408,7 +409,11 @@ class OC_Bookmarks_Bookmarks{
 				$tag_str = $link->getAttribute("tags");
 			$tags = explode(',', $tag_str);
 
-			self::addBookmark($ref, $title, $tags);
+			$desc_str = '';
+			if($link->hasAttribute("description"))
+				$desc_str = $link->getAttribute("description");
+
+			self::addBookmark($ref, $title, $tags,$desc_str );
 		}
 		OCP\DB::commit();
 		return array();
@@ -425,11 +430,13 @@ class OC_Bookmarks_Bookmarks{
 		$page  = OC_Util::getUrlContent($url);
 		if($page) {
 			if(preg_match( "/<title>(.*)<\/title>/sUi", $page, $match ) !== false)
-				$metadata['title'] =  html_entity_decode($match[1], ENT_NOQUOTES , 'UTF-8');
-				//Not the best solution but....
-				$metadata['title'] = str_replace('&trade;', chr(153), $metadata['title']);
-				$metadata['title'] = str_replace('&dash;', '‐', $metadata['title']);
-				$metadata['title'] = str_replace('&ndash;', '–', $metadata['title']);
+				if(isset($match[1])) {
+					$metadata['title'] =  html_entity_decode($match[1], ENT_NOQUOTES , 'UTF-8');
+					//Not the best solution but....
+					$metadata['title'] = str_replace('&trade;', chr(153), $metadata['title']);
+					$metadata['title'] = str_replace('&dash;', '‐', $metadata['title']);
+					$metadata['title'] = str_replace('&ndash;', '–', $metadata['title']);
+				}
 		}
 		return $metadata;
 	}

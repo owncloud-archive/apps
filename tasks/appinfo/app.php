@@ -1,6 +1,6 @@
 <?php
 $l=new OC_L10N('tasks');
-OC::$CLASSPATH['OC_Task_App'] = 'apps/tasks/lib/app.php';
+OC::$CLASSPATH['OC_Task_App'] = 'tasks/lib/app.php';
 
 OCP\App::addNavigationEntry( array(
   'id' => 'tasks_index',

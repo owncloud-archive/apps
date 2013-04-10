@@ -14,7 +14,7 @@ header("Cache-Control: no-cache, must-revalidate");
 header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
 
 // Enable l10n support
-$l = OC_L10N::get('core');
+$l = OC_L10N::get('calendar');
 
 
 // Get the event sources
@@ -60,20 +60,10 @@ $array = array(
 	"missing_field_startsbeforeends" => "\"".addslashes($l->t('The event ends before it starts'))."\"",
 	"missing_field_dberror" => "\"".addslashes($l->t('There was a database fail'))."\"",
 	"totalurl" => "\"".OCP\Util::linkToRemote('caldav')."calendars"."\"",
-	"firstday" => "\"".(OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'firstday', 'mo') == 'mo' ? '1' : '0')."\"",
+	"firstDay" => (OCP\Config::getUserValue(OCP\USER::getUser(), 'calendar', 'firstday', 'mo') == 'mo' ? '1' : '0'),
 	);
 
 // Echo it
 foreach ($array as  $setting => $value) {
 	echo("var ". $setting ."=".$value.";\n");
 }
-
-echo("$(document).ready(function() {");
-	if(array_key_exists('showevent', $_GET)) {
-		$data = OC_Calendar_App::getEventObject($_['showevent']);
-		$date = substr($data['startdate'], 0, 10);
-		list($year, $month, $day) = explode('-', $date);
-		echo '$(\'#calendar_holder\').fullCalendar(\'gotoDate\', ' . $year . ', ' . --$month . ', ' . $day . ');';
-		echo '$(\'#dialog_holder\').load(OC.filePath(\'calendar\', \'ajax\', \'editeventform.php\') + \'?id=\' +  ' . $_['showevent'] . ' , Calendar.UI.startEventDialog);';
-	}
-echo("});");

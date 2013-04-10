@@ -9,12 +9,13 @@
 # Soul Kim <warlock.rf@gmail.com>, 2012.
 # Victor Bravo <>, 2012.
 #   <victor.dubiniuk@gmail.com>, 2012.
+# Дмитрий <langaru@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-31 19:56+0100\n"
-"PO-Revision-Date: 2013-01-30 23:41+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:22+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -27,17 +28,13 @@ msgstr ""
 msgid "Pictures"
 msgstr "Рисунки"
 
-#: js/gallery.js:235
+#: js/gallery.js:245
 msgid "Shared by"
-msgstr ""
+msgstr "Опубликовано"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
 msgstr "Открыть доступ"
-
-#: templates/index.php:7
-msgid "Slideshow"
-msgstr "Слайдшоу"
 
 #: templates/no-image-app.php:9
 msgid ""

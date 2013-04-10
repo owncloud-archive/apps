@@ -10,6 +10,7 @@ ob_start();
 
 OCP\JSON::checkLoggedIn();
 OCP\App::checkAppEnabled('contacts');
+OCP\JSON::callCheck();
 session_write_close();
 
 $nl = "\n";
@@ -27,12 +28,17 @@ function writeProgress($pct) {
 	OC_Cache::set($progresskey, $pct, 300);
 }
 writeProgress('10');
-$view = $file = null;
+$view = null;
+$inputfile = strtr($_POST['file'], array('/' => '', "\\" => ''));
+if(OC\Files\Filesystem::isFileBlacklisted($inputfile)) {
+	OCP\JSON::error(array('data' => array('message' => 'Upload of blacklisted file: ' . $inputfile)));
+	exit();
+}
 if(isset($_POST['fstype']) && $_POST['fstype'] == 'OC_FilesystemView') {
 	$view = OCP\Files::getStorage('contacts');
-	$file = $view->file_get_contents('/imports/' . $_POST['file']);
+	$file = $view->file_get_contents('/imports/' . $inputfile);
 } else {
-	$file = \OC\Files\Filesystem::file_get_contents($_POST['path'] . '/' . $_POST['file']);
+	$file = \OC\Files\Filesystem::file_get_contents($_POST['path'] . '/' . $inputfile);
 }
 if(!$file) {
 	OCP\JSON::error(array('data' => array('message' => 'Import file was empty.')));
@@ -57,7 +63,7 @@ if(isset($_POST['method']) && $_POST['method'] == 'new') {
 			array(
 				'data' => array(
 					'message' => 'Error getting the ID of the address book.',
-					'file'=>$_POST['file']
+					'file'=>OCP\Util::sanitizeHTML($inputfile)
 				)
 			)
 		);
@@ -70,7 +76,7 @@ if(isset($_POST['method']) && $_POST['method'] == 'new') {
 			array(
 				'data' => array(
 					'message' => $e->getMessage(),
-					'file'=>$_POST['file']
+					'file'=>OCP\Util::sanitizeHTML($inputfile)
 				)
 			)
 		);
@@ -102,20 +108,21 @@ foreach($lines as $line) {
 writeProgress('70');
 $imported = 0;
 $failed = 0;
+$partial = 0;
 if(!count($parts) > 0) {
 	OCP\JSON::error(
 		array(
 			'data' => array(
 				'message' => 'No contacts to import in '
-					. $_POST['file'].'. Please check if the file is corrupted.',
-				'file'=>$_POST['file']
+					. OCP\Util::sanitizeHTML($inputfile).'. Please check if the file is corrupted.',
+				'file'=>OCP\Util::sanitizeHTML($inputfile)
 			)
 		)
 	);
 	if(isset($_POST['fstype']) && $_POST['fstype'] == 'OC_FilesystemView') {
-		if(!$view->unlink('/imports/' . $_POST['file'])) {
+		if(!$view->unlink('/imports/' . $inputfile)) {
 			OCP\Util::writeLog('contacts',
-				'Import: Error unlinking OC_FilesystemView ' . '/' . $_POST['file'],
+				'Import: Error unlinking OC_FilesystemView ' . '/' . OCP\Util::sanitizeHTML($inputfile),
 				OCP\Util::ERROR);
 		}
 	}
@@ -124,12 +131,20 @@ if(!count($parts) > 0) {
 foreach($parts as $part) {
 	try {
 		$vcard = Sabre\VObject\Reader::read($part);
-	} catch (Exception $e) {
-		$failed += 1;
-		OCP\Util::writeLog('contacts',
-			'Import: skipping card. Error parsing VCard: ' . $e->getMessage(),
-				OCP\Util::ERROR);
-		continue; // Ditch cards that can't be parsed by Sabre.
+	} catch (Sabre\VObject\ParseException $e) {
+		try {
+			$vcard = Sabre\VObject\Reader::read($part, Sabre\VObject\Reader::OPTION_IGNORE_INVALID_LINES);
+			$partial += 1;
+			OCP\Util::writeLog('contacts',
+				'Import: Retrying reading card. Error parsing VCard: ' . $e->getMessage(),
+					OCP\Util::ERROR);
+		} catch (Exception $e) {
+			$failed += 1;
+			OCP\Util::writeLog('contacts',
+				'Import: skipping card. Error parsing VCard: ' . $e->getMessage(),
+					OCP\Util::ERROR);
+			continue; // Ditch cards that can't be parsed by Sabre.
+		}
 	}
 	try {
 		OCA\Contacts\VCard::add($id, $vcard);
@@ -146,9 +161,9 @@ writeProgress('100');
 sleep(3);
 OC_Cache::remove($progresskey);
 if(isset($_POST['fstype']) && $_POST['fstype'] == 'OC_FilesystemView') {
-	if(!$view->unlink('/imports/' . $_POST['file'])) {
+	if(!$view->unlink('/imports/' . $inputfile)) {
 		OCP\Util::writeLog('contacts',
-			'Import: Error unlinking OC_FilesystemView ' . '/' . $_POST['file'],
+			'Import: Error unlinking OC_FilesystemView ' . '/' . $inputfile,
 			OCP\Util::ERROR);
 	}
 }
@@ -157,7 +172,7 @@ OCP\JSON::success(
 		'data' => array(
 			'imported'=>$imported,
 			'failed'=>$failed,
-			'file'=>$_POST['file'],
+			'file'=>OCP\Util::sanitizeHTML($inputfile),
 		)
 	)
 );

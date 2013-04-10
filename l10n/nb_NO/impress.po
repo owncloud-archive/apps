@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-30 00:01+0100\n"
-"PO-Revision-Date: 2012-12-29 17:04+0000\n"
-"Last-Translator: espenbye <espenbye@me.com>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,3 +27,15 @@ msgstr "Dokumentasjon"
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
 msgstr "Ingen Impress-filer funnet i din ownCloud. Vennligst last opp en .impress-fil."
+
+#: templates/presentations.php:12
+msgid "Name"
+msgstr "Navn"
+
+#: templates/presentations.php:12
+msgid "Size"
+msgstr "Størrelse"
+
+#: templates/presentations.php:12
+msgid "Date"
+msgstr "Dato"

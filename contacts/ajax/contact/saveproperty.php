@@ -52,6 +52,11 @@ function setParameters($property, $parameters, $reset = false) {
 					}
 				}
 			}
+		} else {
+			if(trim($key) && trim($val)) {
+				debug('Adding parameter: '.$key.'=>'.print_r($val, true));
+				$property->add($key, strip_tags($parameter));
+			}
 		}
 	}
 }
@@ -148,7 +153,6 @@ if(in_array($name, $multi_properties)) {
 } else {
 	$element = $name;
 	$property = $vcard->select($name);
-	debug('propertylist: ' . get_class($property));
 	if(count($property) === 0) {
 		$property = VObject\Property::create($name);
 		$vcard->add($property);

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-01-11 00:02+0100\n"
-"PO-Revision-Date: 2013-01-10 10:29+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:40+0000\n"
 "Last-Translator: Shubhra Paul <paul_shubhra@yahoo.com>\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/projects/p/owncloud/language/bn_BD/)\n"
 "MIME-Version: 1.0\n"
@@ -17,38 +17,38 @@ msgstr ""
 "Language: bn_BD\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/editor.js:72 js/editor.js:177 js/editor.js:185
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr "সংরক্ষণ কর"
 
-#: js/editor.js:74
+#: js/editor.js:75
 msgid "Search:"
 msgstr ""
 
-#: js/editor.js:74
+#: js/editor.js:78
 msgid "Close"
 msgstr "বন্ধ"
 
-#: js/editor.js:151
+#: js/editor.js:132
 msgid "Next"
 msgstr ""
 
-#: js/editor.js:152
+#: js/editor.js:133
 msgid "Clear"
 msgstr ""
 
-#: js/editor.js:170
+#: js/editor.js:151
 msgid "Saving..."
 msgstr "সংরক্ষণ করা হচ্ছে...."
 
-#: js/editor.js:178
+#: js/editor.js:159
 msgid "Failed to save file"
 msgstr ""
 
-#: js/editor.js:262
+#: js/editor.js:246
 msgid "An error occurred!"
 msgstr "সমস্যা দেখা দিয়েছে !"
 
-#: js/editor.js:297
+#: js/editor.js:266
 msgid "There were unsaved changes, click here to go back"
 msgstr "পরিবর্তনসমূহ সংরক্ষণ করা হয় নি, ফিরে যেতে এখানে ক্লিক করুন"

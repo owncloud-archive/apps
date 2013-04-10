@@ -83,20 +83,30 @@ Gallery.getAlbumInfo.cache = {};
 Gallery.getImage = function (image) {
 	return OC.filePath('gallery', 'ajax', 'image.php') + '?file=' + encodeURIComponent(image);
 };
-Gallery.getThumbnail = function (image) {
-	return OC.filePath('gallery', 'ajax', 'thumbnail.php') + '?file=' + encodeURIComponent(image);
-};
-Gallery.getAlbumThumbnail = function (image) {
-	return OC.filePath('gallery', 'ajax', 'albumthumbnail.php') + '?file=' + encodeURIComponent(image);
+Gallery.getAlbumThumbnailPaths = function (album) {
+	var paths = [];
+	if (Gallery.albums[album].length) {
+		paths = Gallery.albums[album].slice(0, 10);
+	}
+	if (Gallery.subAlbums[album]) {
+		for (var i = 0; i < Gallery.subAlbums[album].length; i++) {
+			if (paths.length < 10) {
+				paths = paths.concat(Gallery.getAlbumThumbnailPaths(Gallery.subAlbums[album][i]));
+			}
+		}
+	}
+	return paths;
 };
 Gallery.share = function (event) {
-	event.preventDefault();
-	event.stopPropagation();
-	Gallery.getAlbumInfo(Gallery.currentAlbum).then(function (info) {
-		$('a.share').data('item', info.fileid)
-			.data('possible-permissions', info.permissions).
-			click();
-	});
+	if (!OC.Share.droppedDown) {
+		event.preventDefault();
+		event.stopPropagation();
+		Gallery.getAlbumInfo(Gallery.currentAlbum).then(function (info) {
+			$('a.share').data('item', info.fileid)
+				.data('possible-permissions', info.permissions).
+				click();
+		});
+	}
 };
 Gallery.view = {};
 Gallery.view.element = null;
@@ -109,14 +119,18 @@ Gallery.view.addImage = function (image) {
 	var link , thumb;
 	if (Gallery.view.cache[image]) {
 		Gallery.view.element.append(Gallery.view.cache[image]);
+		thumb = Thumbnail.get(image);
+		thumb.queue();
 	} else {
 		link = $('<a/>');
-		thumb = $('<img/>');
 		link.addClass('image');
+		link.attr('data-path', image);
 		link.attr('href', Gallery.getImage(image)).attr('rel', 'album').attr('alt', OC.basename(image)).attr('title', OC.basename(image));
 
-		thumb.attr('src', Gallery.getThumbnail(image));
-		link.append(thumb);
+		thumb = Thumbnail.get(image);
+		thumb.queue().then(function (thumb) {
+			link.append(thumb);
+		});
 
 		Gallery.view.element.append(link);
 		Gallery.view.cache[image] = link;
@@ -124,18 +138,23 @@ Gallery.view.addImage = function (image) {
 };
 
 Gallery.view.addAlbum = function (path, name) {
-	var link, image, label;
+	var link, image, label, thumbs, thumb;
 	name = name || OC.basename(path);
 	if (Gallery.view.cache[path]) {
+		thumbs = Gallery.view.addAlbum.thumbs[path];
 		Gallery.view.element.append(Gallery.view.cache[path]);
 		//event handlers are removed when using clear()
 		Gallery.view.cache[path].click(function () {
 			Gallery.view.viewAlbum(path);
 		});
 		Gallery.view.cache[path].mousemove(function (event) {
-			Gallery.view.addAlbum.mouseEvent.call(Gallery.view.cache[path], Gallery.view.addAlbum.thumbs[path], event);
+			Gallery.view.addAlbum.mouseEvent.call(Gallery.view.cache[path], thumbs, event);
 		});
+		thumb = Thumbnail.get(thumbs[0], true);
+		thumb.queue();
 	} else {
+		thumbs = Gallery.getAlbumThumbnailPaths(path);
+		Gallery.view.addAlbum.thumbs[path] = thumbs;
 		link = $('<a/>');
 		label = $('<label/>');
 		link.attr('href', '#' + path);
@@ -145,35 +164,47 @@ Gallery.view.addAlbum = function (path, name) {
 		});
 		link.data('path', path);
 		link.data('offset', 0);
-		link.attr('style', 'background-image:url("' + Gallery.getAlbumThumbnail(path) + '")').attr('title', OC.basename(path));
+		link.attr('title', OC.basename(path));
 		label.text(name);
 		link.append(label);
-		image = new Image();
-		image.src = Gallery.getAlbumThumbnail(path);
-		Gallery.view.addAlbum.thumbs[path] = image;
+		thumb = Thumbnail.get(thumbs[0], true);
+		thumb.queue().then(function (image) {
+			link.append(image);
+		});
 
 		link.mousemove(function (event) {
-			Gallery.view.addAlbum.mouseEvent.call(link, image, event);
+			Gallery.view.addAlbum.mouseEvent.call(link, thumbs, event);
 		});
 
 		Gallery.view.element.append(link);
 		Gallery.view.cache[path] = link;
 	}
 };
-Gallery.view.addAlbum.mouseEvent = function (image, event) {
+Gallery.view.addAlbum.thumbs = {};
+
+Gallery.view.addAlbum.mouseEvent = function (thumbs, event) {
 	var mousePos = event.pageX - $(this).offset().left,
-		path = $(this).data('path'),
-		album = Gallery.albums[path],
-		offset = Math.floor((mousePos / 200) * (image.width / 200)),
+		offset = ((Math.floor((mousePos / 200) * thumbs.length - 1) % thumbs.length) + thumbs.length) % thumbs.length, //workaround js modulo "feature" with negative numbers
+		link = this,
 		oldOffset = $(this).data('offset');
-	if (offset !== oldOffset) {
-		$(this).css('background-position', offset * 200 + 'px 0px');
+	if (offset !== oldOffset && !link.data('loading')) {
+		if (!thumbs[offset]) {
+			console.log(offset);
+		}
+		var thumb = Thumbnail.get(thumbs[offset], true);
+		link.data('loading', true);
+		thumb.load().then(function (image) {
+			link.data('loading', false);
+			$('img', link).remove();
+			link.append(image);
+		});
 		$(this).data('offset', offset);
 	}
 };
 Gallery.view.addAlbum.thumbs = {};
 
 Gallery.view.viewAlbum = function (albumPath) {
+	Thumbnail.queue = [];
 	Gallery.view.clear();
 	Gallery.currentAlbum = albumPath;
 
@@ -192,6 +223,12 @@ Gallery.view.viewAlbum = function (albumPath) {
 			Gallery.view.addImage(album[i]);
 			Gallery.view.element.append(' '); //add a space for justify
 		}
+	}
+
+	if (albumPath === OC.currentUser) {
+		$('button.share').hide();
+	} else {
+		$('button.share').show();
 	}
 
 	OC.Breadcrumb.clear();
@@ -213,10 +250,6 @@ Gallery.view.viewAlbum = function (albumPath) {
 	if (albumPath === OC.currentUser) {
 		Gallery.view.showUsers();
 	}
-
-	$('#gallery').children('a.image').fancybox({
-		"titlePosition": "inside"
-	});
 
 	Gallery.getAlbumInfo(Gallery.currentAlbum); //preload album info
 };
@@ -247,38 +280,124 @@ Gallery.view.showUsers = function () {
 };
 
 Gallery.slideshow = {};
-Gallery.slideshow.start = function () {
-	$('a.image').slideShow($('#slideshow'));
+Gallery.scrollLocation = 0;
+Gallery.slideshow.start = function (start, options) {
+	var content = $('#content');
+	start = start || 0;
+	Thumbnail.concurrent = 1; //make sure we can load the image and doesn't get blocked by loading thumbnail
+	if (content.is(":visible")) {
+		Gallery.scrollLocation = $(window).scrollTop();
+	}
+	$('a.image').slideShow($('#slideshow'), start, options);
+	content.hide();
 };
 
 Gallery.slideshow.end = function () {
 	jQuery.fn.slideShow.stop();
 };
 
+Gallery.slideshow.next = function (event) {
+	if (event) {
+		event.stopPropagation();
+	}
+	jQuery.fn.slideShow.hideImage();
+	jQuery.fn.slideShow.next();
+};
+
+Gallery.slideshow.previous = function (event) {
+	if (event) {
+		event.stopPropagation();
+	}
+	jQuery.fn.slideShow.hideImage();
+	jQuery.fn.slideShow.previous();
+};
+
+Gallery.slideshow.pause = function (event) {
+	if (event) {
+		event.stopPropagation();
+	}
+	$('#slideshow').children('.play').show();
+	$('#slideshow').children('.pause').hide();
+	Gallery.slideshow.playPause.playing = false;
+	jQuery.fn.slideShow.pause();
+};
+
+Gallery.slideshow.play = function (event) {
+	if (event) {
+		event.stopPropagation();
+	}
+	$('#slideshow').children('.play').hide();
+	$('#slideshow').children('.pause').show();
+	Gallery.slideshow.playPause.playing = true;
+	jQuery.fn.slideShow.play();
+};
+
+Gallery.slideshow.playPause = function () {
+	if (Gallery.slideshow.playPause.playing) {
+		Gallery.slideshow.pause();
+	} else {
+		Gallery.slideshow.play();
+	}
+};
+Gallery.slideshow.playPause.playing = true;
+
 $(document).ready(function () {
 	Gallery.fillAlbums().then(function () {
 		Gallery.view.element = $('#gallery');
 		OC.Breadcrumb.container = $('#breadcrumbs');
-		var album = location.hash.substr(1);
-		if (!album) {
-			album = OC.currentUser;
-		}
-		Gallery.view.viewAlbum(album);
+		window.onhashchange()
 
 		//close slideshow on esc
 		$(document).keyup(function (e) {
 			if (e.keyCode === 27) { // esc
 				Gallery.slideshow.end();
+			} else if (e.keyCode == 37) { // left
+				Gallery.slideshow.previous();
+			} else if (e.keyCode == 39) { // right
+				Gallery.slideshow.next();
+			} else if (e.keyCode == 32) { // space
+				Gallery.slideshow.playPause();
 			}
 		});
-		$('#slideshow-start').click(function () {
-			Gallery.slideshow.start();
-		});
 		var slideshow = $('#slideshow');
-		slideshow.children('.next').click(jQuery.fn.slideShow.next);
-		slideshow.children('.previous').click(jQuery.fn.slideShow.previous);
+		slideshow.children('.next').click(Gallery.slideshow.next);
+		slideshow.children('.previous').click(Gallery.slideshow.previous);
 		slideshow.children('.exit').click(jQuery.fn.slideShow.stop);
+		slideshow.children('.pause').click(Gallery.slideshow.pause);
+		slideshow.children('.play').click(Gallery.slideshow.play);
+		slideshow.click(Gallery.slideshow.next);
 
 		$('button.share').click(Gallery.share);
 	});
+
+	$('#gallery').on('click', 'a.image', function (event) {
+		var i = $('#gallery').children('a.image').index(this),
+			image = $(this).data('path');
+		event.preventDefault();
+		location.hash = image;
+		Gallery.slideshow.start(i, {play: Gallery.slideshow.playPause.playing});
+	});
+	$('body').append($('#slideshow')); //move the slideshow outside the content so we can hide the content
+
+	jQuery.fn.slideShow.onstop = function () {
+		$('#content').show();
+		$(window).scrollTop(Gallery.scrollLocation);
+		location.hash = Gallery.currentAlbum;
+		Thumbnail.concurrent = 3;
+	};
 });
+
+window.onhashchange = function () {
+	var album = location.hash.substr(1);
+	if (!album) {
+		album = OC.currentUser;
+	}
+	console.log(OC.dirname(album));
+	if (Gallery.images.indexOf(album) === -1) {
+		Gallery.slideshow.end();
+		Gallery.view.viewAlbum(album);
+	} else {
+		Gallery.view.viewAlbum(OC.dirname(album));
+		$('#gallery a.image[data-path="' + album + '"]').click();
+	}
+};

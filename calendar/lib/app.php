@@ -423,24 +423,40 @@ class OC_Calendar_App{
 	 * @param (int) $end - DateTime object of end
 	 * @return (array) $output - readable output
 	 */
-	public static function generateEventOutput($event, $start, $end) {
+	public static function generateEventOutput(array $event, $start, $end) {
+		\OCP\Util::writeLog('calendar', __METHOD__.' event: '.print_r($event['summary'], true), \OCP\Util::DEBUG);
 		if(!isset($event['calendardata']) && !isset($event['vevent'])) {
 			return false;
 		}
 		if(!isset($event['calendardata']) && isset($event['vevent'])) {
-			$event['calendardata'] = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:ownCloud's Internal iCal System\n" . $event['vevent']->serialize() .  "END:VCALENDAR";
+			$event['calendardata'] = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:ownCloud's Internal iCal System\n"
+				. $event['vevent']->serialize() .  "END:VCALENDAR";
 		}
 		$object = OC_VObject::parse($event['calendardata']);
-		$vevent = $object->VEVENT;
-		$return = array();
+		if(!$object) {
+			\OCP\Util::writeLog('calendar', __METHOD__.' Error parsing event: '.print_r($event, true), \OCP\Util::DEBUG);
+			return array();
+		}
+
+		$output = array();
+
+		if($object->name === 'VEVENT') {
+			$vevent = $object;
+		} elseif(isset($object->VEVENT)) {
+			$vevent = $object->VEVENT;
+		} else {
+			\OCP\Util::writeLog('calendar', __METHOD__.' Object contains not event: '.print_r($event, true), \OCP\Util::DEBUG);
+			return $output;
+		}
 		$id = $event['id'];
 		if(OC_Calendar_Object::getowner($id) !== OCP\USER::getUser()) {
 			// do not show events with private or unknown access class
-			if ($vevent->CLASS->value !== 'CONFIDENTIAL' 
-				&& $vevent->CLASS->value !== 'PUBLIC' 
-				&& $vevent->CLASS->value !== '')
+			if (isset($vevent->CLASS)
+				&& ($vevent->CLASS->value === 'CONFIDENTIAL'
+				|| $vevent->CLASS->value === 'PRIVATE'
+				|| $vevent->CLASS->value === ''))
 			{
-				return $return;
+				return $output;
 			}
 			$object = OC_Calendar_Object::cleanByAccessClass($id, $object);
 		}
@@ -448,7 +464,7 @@ class OC_Calendar_App{
 		$last_modified = @$vevent->__get('LAST-MODIFIED');
 		$lastmodified = ($last_modified)?$last_modified->getDateTime()->format('U'):0;
 		$staticoutput = array('id'=>(int)$event['id'],
-						'title' => ($vevent->SUMMARY->value != '')?$vevent->SUMMARY->value: self::$l10n->t('unnamed'),
+						'title' => (!is_null($vevent->SUMMARY) && $vevent->SUMMARY->value != '')? $vevent->SUMMARY->value: self::$l10n->t('unnamed'),
 						'description' => isset($vevent->DESCRIPTION)?$vevent->DESCRIPTION->value:'',
 						'lastmodified'=>$lastmodified,
 						'allDay'=>$allday);
@@ -469,7 +485,7 @@ class OC_Calendar_App{
 					$dynamicoutput['start'] = $start_dt->format('Y-m-d H:i:s');
 					$dynamicoutput['end'] = $end_dt->format('Y-m-d H:i:s');
 				}
-				$return[] = array_merge($staticoutput, $dynamicoutput);
+				$output[] = array_merge($staticoutput, $dynamicoutput);
 			}
 		}else{
 			if(OC_Calendar_Object::isrepeating($id) || $event['repeating'] == 1) {
@@ -480,9 +496,10 @@ class OC_Calendar_App{
 					continue;
 				}
 				$dynamicoutput = OC_Calendar_Object::generateStartEndDate($singleevent->DTSTART, OC_Calendar_Object::getDTEndFromVEvent($singleevent), $allday, self::$tz);
-				$return[] = array_merge($staticoutput, $dynamicoutput);
+				$output[] = array_merge($staticoutput, $dynamicoutput);
 			}
 		}
-		return $return;
+		\OCP\Util::writeLog('calendar', __METHOD__.' event: '.print_r($event['summary'], true) . ' done', \OCP\Util::DEBUG);
+		return $output;
 	}
 }
