@@ -44,6 +44,7 @@ div.jp-progress {
 	width: 15em;
 	height: 1.2em;
 	padding: 0;
+	margin-left: 3em;
 }
 
 div.jp-seek-bar {
