@@ -10,7 +10,6 @@ OC::$CLASSPATH['OC_Connector_Sabre_CalDAV_UserCalendars'] = 'calendar/lib/sabre/
 OC::$CLASSPATH['OC_Connector_Sabre_CalDAV_Calendar'] = 'calendar/lib/sabre/calendar.php';
 OC::$CLASSPATH['OC_Connector_Sabre_CalDAV_CalendarObject'] = 'calendar/lib/sabre/object.php';
 OC::$CLASSPATH['OC_Calendar_Repeat'] = 'calendar/lib/repeat.php';
-OC::$CLASSPATH['OC_Search_Provider_Calendar'] = 'calendar/lib/search.php';
 OC::$CLASSPATH['OC_Calendar_Export'] = 'calendar/lib/export.php';
 OC::$CLASSPATH['OC_Calendar_Import'] = 'calendar/lib/import.php';
 OC::$CLASSPATH['OC_Share_Backend_Calendar'] = 'calendar/lib/share/calendar.php';
