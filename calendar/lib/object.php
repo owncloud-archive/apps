@@ -254,10 +254,12 @@ class OC_Calendar_Object{
 	 */
 	public static function delete($id) {
 		$oldobject = self::find($id);
-		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
+		$calid = self::getCalendarid($id);
+		
+		$calendar = OC_Calendar_Calendar::find($calid);
 		$object = OC_VObject::parse($oldobject['calendardata']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar',  $calid);
 			$sharedAccessClassPermissions = OC_Calendar_App::getAccessClassPermissions($object->VEVENT->CLASS->value);
 			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_DELETE) || !($sharedAccessClassPermissions & OCP\PERMISSION_DELETE)) {
 				throw new Exception(
