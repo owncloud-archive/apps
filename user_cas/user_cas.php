@@ -28,7 +28,6 @@ class OC_USER_CAS extends OC_User_Backend {
 	public $updateUserData;
 	public $protectedGroups;
 	public $defaultGroup;
-	public $usernameMapping;
 	public $mailMapping;
 	public $groupMapping;
 
@@ -38,7 +37,6 @@ class OC_USER_CAS extends OC_User_Backend {
 		$this->updateUserData = OCP\Config::getAppValue('user_cas', 'cas_update_user_data', false);
 		$this->defaultGroup = OCP\Config::getAppValue('user_cas', 'cas_default_group', '');
 		$this->protectedGroups = explode (',', str_replace(' ', '', OCP\Config::getAppValue('user_cas', 'cas_protected_groups', '')));
-		$this->usernameMapping = OCP\Config::getAppValue('user_cas', 'cas_username_mapping', '');
 		$this->mailMapping = OCP\Config::getAppValue('user_cas', 'cas_email_mapping', '');
 		$this->groupMapping = OCP\Config::getAppValue('user_cas', 'cas_group_mapping', '');
 
@@ -49,7 +47,7 @@ class OC_USER_CAS extends OC_User_Backend {
 	        $casCertPath = OCP\Config::getAppValue('user_cas', 'cas_cert_path', '');
 	
 	        if (!empty($casHostname)) {
-			global $initialized_cas;
+				global $initialized_cas;
 
 			if(!$initialized_cas) {
 
@@ -75,15 +73,7 @@ class OC_USER_CAS extends OC_User_Backend {
 			return false;
 		}
 
-		$attributes = phpCAS::getAttributes();
-
-		if (array_key_exists($this->usernameMapping, $attributes)) {
-			$uid = $attributes[$this->usernameMapping][0];
-			OC_Log::write('cas','Authenticated user '.$uid,OC_Log::DEBUG);
-		}
-		else {
-			OC_Log::write('cas','Not found attribute used to get the username ("'.$this->usernameMapping.'") at the requested cas xml response',OC_Log::DEBUG);
-		}
+		$uid = phpCAS::getUser();
 
 		return $uid;
 	}
