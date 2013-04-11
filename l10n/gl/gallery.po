@@ -4,14 +4,15 @@
 # 
 # Translators:
 # antiparvos  <marcoslansgarza@gmail.com>, 2012.
+#  <mbouzada@gmail.com>, 2013.
 # Xosé M. Lamas <correo.xmgz@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-20 22:34+0000\n"
-"Last-Translator: Miguel Branco <mgl.branco@gmail.com>\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:22+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,32 +20,20 @@ msgstr ""
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Imaxes"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "Galerías"
+#: js/gallery.js:245
+msgid "Shared by"
+msgstr "Compartido por"
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Compartir a galería"
-
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Erro: "
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Erro interno"
-
-#: templates/index.php:27
-msgid "Slideshow"
-msgstr "Presentación"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Compartir"
 
 #: templates/no-image-app.php:9
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr "Para usar este aplicativo tamén tes que activar o «Visualizador de imaxes»"
+msgstr "Para usar este aplicativo tamén tes que activar o «Visor de imaxes»"

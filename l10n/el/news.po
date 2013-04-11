@@ -3,7 +3,9 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Dimitris M. <monopatis@gmail.com>, 2013.
 # Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2013.
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
 # Marios Bekatoros <>, 2012.
 # Γιάννης Ανθυμίδης <yannanth@gmail.com>, 2012.
@@ -11,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-03 00:01+0100\n"
-"PO-Revision-Date: 2012-12-02 11:22+0000\n"
-"Last-Translator: Efstathios Iosifidis <diamond_gr@freemail.gr>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,394 +23,146 @@ msgstr ""
 "Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajax/changefoldername.php:30
-msgid "Error changing name of folder "
-msgstr "Σφάλμα αλλαγής ονόματος του φακέλου"
-
-#: ajax/collapsefolder.php:36
-msgid "Error collapsing folder."
-msgstr "Σφάλμα σύμπτυξης φακέλου."
-
-#: ajax/createfeed.php:52
-msgid "Feed already exists."
-msgstr "Η ροή υπάρχει ήδη."
-
-#: ajax/createfeed.php:58
-msgid "Error adding feed."
-msgstr "Σφάλμα προσθήκης ροής."
-
-#: ajax/createfeed.php:71
-msgid "Feed added!"
-msgstr "Η ροή προστέθηκε!"
-
-#: ajax/createfolder.php:37
-msgid "Error adding folder."
-msgstr "Σφάλμα κατά τη προσθήκη φακέλου"
-
-#: ajax/createfolder.php:47
-msgid "Folder added!"
-msgstr "Ο φάκελος προστέθηκε!"
-
-#: ajax/deletefeed.php:29
-msgid "Error removing feed."
-msgstr "Σφάλμα αφαίρεσης ροής."
-
-#: ajax/deletefolder.php:27
-msgid "Error removing folder."
-msgstr "Σφάλμα αφαίρεσης φακέλου."
-
-#: ajax/feedlist.php:28
-msgid "Error updating feeds."
-msgstr "Σφάλμα ενημέρωσης ροών."
-
-#: ajax/importopml.php:40
-msgid "Empty filename"
-msgstr "Κενό όνομα αρχείου"
-
-#: ajax/importopml.php:50
-msgid "No source argument passed"
-msgstr "Δεν εγκρίθηκε η πηγαία παράμετρος"
-
-#: ajax/importopml.php:54
-msgid "Error while reading file"
-msgstr "Σφάλμα κατά την ανάγνωση του αρχείου"
-
-#: ajax/importopml.php:64
-msgid "An error occurred while parsing the file."
-msgstr "Παρουσιάστηκε σφάλμα κατά την ανάλυση του αρχείου."
-
-#: ajax/loadfeed.php:52
-msgid "Feed loaded!"
-msgstr "Φορτώθηκε η ροή!"
-
-#: ajax/movefeedtofolder.php:37
-msgid "Error moving feed into folder."
-msgstr "Σφάλμα μετακίνησης ροής σε φάκελο."
-
-#: ajax/selectfromcloud.php:31
-msgid "No file path was submitted."
-msgstr "Δεν υποβλήθηκε διαδρομή αρχείου."
-
-#: ajax/selectfromcloud.php:38
-msgid "File doesn't exist:"
-msgstr "Το αρχείο δεν υπάρχει"
-
-#: ajax/selectfromcloud.php:44
-msgid "Couldn't save temporary image: "
-msgstr "Δεν ήταν δυνατή η αποθήκευση της προσωρινής εικόνας: "
-
-#: ajax/setallitemsread.php:63
-msgid "Error setting all items as read."
-msgstr "Σφάλμα ορισμού όλων ως ανεγνωσμένων."
-
-#: ajax/setitemstatus.php:47
-msgid "Error marking item as read."
-msgstr "Σφάλμα σήμανσης ως ανεγνωσμένου."
-
-#: ajax/updatefeed.php:37
-msgid "Error updating feed."
-msgstr "Σφάλμα ενημέρωσης ροής."
-
-#: ajax/updatefeed.php:45
-msgid "Feed updated!"
-msgstr "Ενημερώθηκε η ροή!"
-
-#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "Ειδήσεις"
 
-#: js/items.js:122
-msgid "Error while loading the feed"
-msgstr "Σφάλμα κατά τη φόρτωση της ροής"
+#: templates/part.addnew.php:7
+msgid "New"
+msgstr "Νέο"
 
-#: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
-#: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
-#: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
-#: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:68
-msgid "Error"
-msgstr "Σφάλμα"
-
-#: js/main.js:33
-msgid "None"
-msgstr "Τίποτα"
-
-#: js/main.js:101 templates/main.php:17
-msgid "Show only unread"
-msgstr "Εμφάνιση μόνο αδιάβαστων"
-
-#: js/main.js:105 templates/main.php:13
-msgid "Show everything"
-msgstr "Εμφάνιση όλων"
-
-#: js/menu.js:505
-msgid "Are you sure you want to delete this feed?"
-msgstr "Είστε σίγουροι πως θέλετε να διαγραφτεί αυτή η ροή;"
-
-#: js/menu.js:513
-msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr "Είστε σίγουροι πως θέλετε να διαγραφτεί αυτός ο φάκελος με όλες τις ροές;"
-
-#: js/menu.js:521
-msgid "Warning"
-msgstr "Προειδοποίηση"
-
-#: js/news.js:28 js/news.js:58
-msgid "Name of the folder cannot be empty."
-msgstr "Το όνομα του φακέλου δεν πρέπει να είναι κενό."
-
-#: js/news.js:33 js/news.js:95
-msgid "Adding..."
-msgstr "Προσθήκη..."
-
-#: js/news.js:50 templates/part.dialogues.php:9
-msgid "Add folder"
-msgstr "Προσθήκη φακέλου"
-
-#: js/news.js:63
-msgid "Changing..."
-msgstr "Αλλαγή..."
-
-#: js/news.js:79 templates/part.dialogues.php:34
-#: templates/part.dialogues.php:38 templates/part.dialogues.php:43
-msgid "Change folder name"
-msgstr "Αλλαγή ονόματος φακέλου"
-
-#: js/news.js:90
-msgid "URL cannot be empty."
-msgstr "Η URL δεν πρέπει να είναι κενή."
-
-#: js/news.js:120 js/news.js:127 templates/firstrun.php:5
-msgid "Add feed"
-msgstr "Προσθήκη ροής"
-
-#: js/news.js:124
-msgid "Error while parsing the feed"
-msgstr "Σφάλμα κατά την ανάλυση της ροής"
-
-#: js/news.js:124
-msgid "Fatal Error"
-msgstr "Μοιραίο Σφάλμα"
-
-#: js/settings.js:17
-msgid "No files selected."
-msgstr "Δεν επιλέχθηκαν αρχεία."
-
-#: js/settings.js:31
-msgid "Importing OPML file..."
-msgstr "Εισαγωγή αρχείου OPML..."
-
-#: js/settings.js:42
-msgid "Not a valid type"
-msgstr "Μη έγκυρος τύπος"
-
-#: js/settings.js:60
-msgid "Importing done"
-msgstr "Η εισαγωγή ολοκληρώθηκε"
-
-#: js/settings.js:64
-msgid "Error while importing feeds."
-msgstr "Σφάλμα κατά την εισαγωγή ροών."
-
-#: js/settings.js:88
-msgid "Select file"
-msgstr "Επιλογή αρχείου"
-
-#: lib/feedmapper.php:180 lib/itemmapper.php:221
-msgid "no title"
-msgstr "χωρίς τίτλο"
-
-#: lib/foldermapper.php:127
-msgid "no name"
-msgstr "χωρίς όνομα"
-
-#: lib/itemmapper.php:226
-msgid "no body"
-msgstr "χωρίς σώμα"
-
-#: opmlexporter.php:53
-msgid "subscriptions in ownCloud - News"
-msgstr "συνδρομές στο ownCloud - Νέα"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "Παρουσιάστηκε σφάλμα"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "Ωραία! Γίνατε συνδρομητής στο"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "Έχετε εγγραφεί ήδη σε αυτή την ροή!"
-
-#: templates/firstrun.php:2
-msgid "You don't have any feed in your reader."
-msgstr "Καμία ροή στον αναγνώστη σας."
-
-#: templates/firstrun.php:6 templates/part.dialogues.php:28
-msgid "Address"
-msgstr "Διεύθυνση"
-
-#: templates/firstrun.php:7 templates/subscribelet.php:7
-msgid "Subscribe"
-msgstr "Συνδρομή"
-
-#: templates/firstrun.php:11
-msgid "Import OPML"
-msgstr "Εισαγωγή OPML"
-
-#: templates/firstrun.php:12
-msgid "Upload file from desktop"
-msgstr "Αποστολή αρχείου από τον υπολογιστή"
-
-#: templates/firstrun.php:12
-msgid "Upload"
-msgstr "Αποστολή"
-
-#: templates/firstrun.php:13
-msgid "Select file from ownCloud"
-msgstr "Επιλογή αρχείου από το ownCloud"
-
-#: templates/firstrun.php:13
-msgid "Select"
-msgstr "Επιλογή"
-
-#: templates/firstrun.php:15 templates/settings.php:4
-msgid ""
-"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
-"filesystem</a> or <a href=\"#\" class=\"settings\" "
-"id=\"cloudlink\">cloud</a>"
-msgstr "Επιλογή αρχείου <a href=\"#\" class=\"settings\" id=\"browselink\">τοπικά filesystem</a> ή από το <a href=\"#\" class=\"settings\" id=\"cloudlink\">σύννεφο</a>"
-
-#: templates/firstrun.php:18
-msgid "Import"
-msgstr "Εισαγωγή"
-
-#: templates/firstrun.php:24
-msgid "Or..."
-msgstr "Ή..."
-
-#: templates/main.php:34
-msgid "Add feed or folder"
-msgstr "Προσθήκη ροής ή φακέλου"
-
-#: templates/main.php:35
-msgid "Add Feed/Folder"
-msgstr "Προσθήκη Ροής/Φακέλου"
-
-#: templates/main.php:37
-msgid "Feed"
-msgstr "Ροή"
-
-#: templates/main.php:38
-msgid "Folder"
-msgstr "Φάκελος"
-
-#: templates/main.php:45
-msgid "Settings"
-msgstr "Ρυθμίσεις"
-
-#: templates/part.dialogues.php:1
-msgid "Add Folder"
-msgstr "Προσθήκη Φακέλου"
-
-#: templates/part.dialogues.php:4
-msgid "Add new folder"
-msgstr "Προσθήκη νέου φακέλου"
-
-#: templates/part.dialogues.php:8 templates/part.dialogues.php:42
-msgid "Folder name"
-msgstr "Όνομα φακέλου"
-
-#: templates/part.dialogues.php:14
+#: templates/part.addnew.php:12
 msgid "Add Subscription"
 msgstr "Προσθήκη Συνδρομής"
 
-#: templates/part.dialogues.php:17
-msgid "Add new feed"
-msgstr "Προσθήκη νέας ροής"
+#: templates/part.addnew.php:14
+msgid "Address must not be empty!"
+msgstr "Η διεύθυνση δεν πρέπει να είναι κενή!"
 
-#: templates/part.dialogues.php:20
-msgid "Choose folder"
-msgstr "Επιλογή φακέλου"
+#: templates/part.addnew.php:16
+msgid ""
+"Could not add feed! Check if feed contains valid RSS or exists already!"
+msgstr ""
 
-#: templates/part.dialogues.php:29
+#: templates/part.addnew.php:18
+msgid "Folder exists already"
+msgstr "Ο φάκελος υπάρχει ήδη"
+
+#: templates/part.addnew.php:23
+msgid "Address"
+msgstr "Διεύθυνση"
+
+#: templates/part.addnew.php:25 templates/part.addnew.php:28
 msgid "Add"
 msgstr "Προσθήκη"
 
-#: templates/part.feeds.php:48
-msgid "New articles"
-msgstr "Νέα άρθρα"
+#: templates/part.addnew.php:30
+msgid "New folder"
+msgstr "Νέος κατάλογος"
 
-#: templates/part.feeds.php:51 templates/part.listfeed.php:34
-#: templates/part.listfolder.php:35
-msgid "Mark all read"
-msgstr "Σήμανση όλων ως ανεγνωσμένων"
+#: templates/part.addnew.php:31
+msgid "Folder"
+msgstr "Φάκελος"
 
-#: templates/part.feeds.php:55
+#: templates/part.addnew.php:36
+msgid "No folder"
+msgstr "Κανένας φάκελος"
+
+#: templates/part.feed.starred.php:6
 msgid "Starred"
 msgstr "Με αστέρι"
 
-#: templates/part.items.php:17 templates/part.shared.php:18
-msgid "Mark as unimportant"
-msgstr "Σήμανση ως μη σημαντικού"
+#: templates/part.feed.unread.php:10
+msgid "Unread articles"
+msgstr "Μη αναγνωσμένα άρθρα"
 
-#: templates/part.items.php:20 templates/part.shared.php:21
-msgid "Mark as important"
-msgstr "Σήμανση ως σημαντικού"
+#: templates/part.feed.unread.php:16
+msgid "All articles"
+msgstr "Όλα τα άρθρα"
 
-#: templates/part.items.php:38 templates/part.shared.php:38
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:29
+#: templates/part.listfolder.php:33
+msgid "Mark all read"
+msgstr "Σήμανση όλων ως ανεγνωσμένων"
+
+#: templates/part.items.php:27
 msgid "from"
-msgstr "από"
+msgstr ""
 
-#: templates/part.items.php:44 templates/part.shared.php:44
+#: templates/part.items.php:32
 msgid "by"
-msgstr "από"
+msgstr ""
 
-#: templates/part.items.php:70 templates/part.items.php:71
-#: templates/part.shared.php:55
-msgid "Share"
-msgstr "Διαμοιρασμός"
+#: templates/part.items.php:39
+msgid "Cant play audio format"
+msgstr "Αδυναμία αναπαραγωγής ήχου"
 
-#: templates/part.items.php:72 templates/part.shared.php:60
+#: templates/part.items.php:52
 msgid "Keep unread"
 msgstr "Διατήρηση αδιάβαστου"
 
-#: templates/part.listfeed.php:33
+#: templates/part.listfeed.php:20
 msgid "Delete feed"
 msgstr "Διαγραφή ροής"
 
-#: templates/part.listfolder.php:29
+#: templates/part.listfolder.php:12
 msgid "Collapse"
 msgstr "Σύμπτυξη"
 
-#: templates/part.listfolder.php:33
+#: templates/part.listfolder.php:24
 msgid "Delete folder"
 msgstr "Διαγραφή φακέλου"
 
-#: templates/part.listfolder.php:34
+#: templates/part.listfolder.php:37
 msgid "Rename folder"
 msgstr "Μετονομασία φακέλου"
 
-#: templates/settings.php:2
-msgid "Import feeds"
-msgstr "Εισαγωγή ροών"
+#: templates/part.settings.php:2
+msgid "Import / Export OPML"
+msgstr "Εισαγωγή / Εξαγωγή OPML"
 
-#: templates/settings.php:8
-msgid "Export feeds"
-msgstr "Εξαγωγή ροών"
+#: templates/part.settings.php:4 templates/part.settings.php:5
+msgid "Import"
+msgstr "Εισαγωγή"
 
-#: templates/settings.php:10
-msgid "Download OPML"
-msgstr "Λήψη OPML"
+#: templates/part.settings.php:7 templates/part.settings.php:9
+msgid "Export"
+msgstr "Εξαγωγή"
 
-#: templates/settings.php:12
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr "Εφαρμογίδιο Συνδρομής"
 
-#: templates/subscribelet.php:5
+#: templates/part.showall.php:2
+msgid "Show all"
+msgstr "Εμφάνιση όλων"
+
+#: templates/part.showall.php:6
+msgid "Show only unread"
+msgstr "Εμφάνιση μόνο αδιάβαστων"
+
+#: templates/part.subscribelet.php:3
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
 msgstr "Σύρετε αυτό στους σελιδοδείκτες του περιηγητή σας και κάντε κλικ σε αυτό όταν θέλετε να εγραφείτε σε μια ιστοσελίδα ταχύτατα:"
+
+#: templates/part.subscribelet.php:17
+msgid "Subscribe"
+msgstr "Συνδρομή"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "Παρουσιάστηκε σφάλμα"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "Ωραία! Γίνατε συνδρομητής στο"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "Έχετε εγγραφεί ήδη σε αυτή την ροή!"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "συνδρομές στο ownCloud - Νέα"

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# AriesAnywhere Anywhere <ariesanywhere@gmail.com>, 2012.
+# AriesAnywhere Anywhere <ariesanywhere@gmail.com>, 2012-2013.
 # AriesAnywhere Anywhere <ariesanywherer@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-23 00:01+0100\n"
-"PO-Revision-Date: 2012-11-22 10:47+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:31+0000\n"
 "Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: th_TH\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
+#: appinfo/app.php:48 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "เพลง"
 
@@ -39,31 +39,31 @@ msgstr "เพิ่มเข้าไปยังรายการเปิด
 msgid "Add album to playlist"
 msgstr "เพิ่มอัลบั้มเข้าไปยังเพลย์ลิสต์"
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr "ก่อนหน้า"
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr "เล่น"
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
 msgstr "หยุดชั่วคราว"
-
-#: templates/music.php:5
-msgid "Previous"
-msgstr "ก่อนหน้า"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr "ถัดไป"
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr "ปิดเสียง"
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr "เปิดเสียง"
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr "ตรวจสอบไฟล์ที่เก็บไว้อีกครั้ง"
 
@@ -78,3 +78,11 @@ msgstr "อัลบั้ม"
 #: templates/music.php:39
 msgid "Title"
 msgstr "ชื่อ"
+
+#: templates/settings.php:3
+msgid "Media"
+msgstr "ไฟล์มีเดีย"
+
+#: templates/settings.php:4
+msgid "Ampache address:"
+msgstr "ที่อยู่ Ampache:"

@@ -3,13 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Akos <nagy.akos@libreoffice.ro>, 2013.
+#   <gyonkibendeguz@gmail.com>, 2013.
+# Laszlo Tornoci <torlasz@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-08 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
+"Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,30 +20,47 @@ msgstr ""
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:58
+#: ajax/share.php:26
+msgid "Document was shared"
+msgstr "Megosztott dokumentum"
+
+#: ajax/share.php:27
+#, php-format
+msgid "User %s shared quick document %s with you."
+msgstr "%s felhasználó megosztotta Önnel ezt a dokumentumot: %s"
+
+#: appinfo/app.php:99
 msgid "My pad"
-msgstr ""
+msgstr "Saját Pad"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
-msgstr ""
-
-#: templates/index.php:17
-msgid "Pad Title"
-msgstr ""
+msgstr "Beállítások"
 
 #: templates/index.php:18
+msgid "Pad Title"
+msgstr "Pad címe"
+
+#: templates/index.php:19
 msgid "Open"
-msgstr ""
+msgstr "Megnyitás"
 
-#: templates/settings.php:15
+#: templates/index.php:20
+msgid "Share with"
+msgstr "Kivel osztom meg"
+
+#: templates/index.php:21
+msgid "Share"
+msgstr "Megosztás"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
-msgstr ""
+msgstr "Etherpad szolgáltatás URL"
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
-msgstr ""
+msgstr "Felhasználónév"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
-msgstr ""
+msgstr "Mentés"

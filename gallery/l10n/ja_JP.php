@@ -1,9 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "ピクチャ",
-"Galleries" => "ギャラリー",
-"Share gallery" => "ギャラリーを共有",
-"Error: " => "エラー: ",
-"Internal error" => "内部エラー",
-"Slideshow" => "スライドショー",
+"Shared by" => "共有者：",
+"Share" => "共有",
 "The \"Image Viewer\" application also need to be enabled to use this application." => "このアプリケーションを利用するためには、\"画像ビューア\" も有効化する必要があります。"
 );

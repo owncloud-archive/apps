@@ -1,6 +1,6 @@
 <?php $TRANSLATIONS = array(
-"unnamed" => "بێ ناو",
 "Title" => "ناونیشان",
+"unnamed" => "بێ ناو",
 "Settings" => "ده‌ستكاری",
 "Download" => "داگرتن",
 "Save" => "پاشکه‌وتکردن",

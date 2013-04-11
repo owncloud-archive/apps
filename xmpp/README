@@ -1,0 +1,4 @@
+This plugin allows autocreation of users in a XMPP server with XEP 1033 capable.
+
+Admin user and BOSH URL can be configured in AdminSettings from owncloud admin.
+

@@ -79,7 +79,7 @@ class VCard {
 		} elseif(is_int($id) || is_string($id)) {
 			try {
 				$sql = 'SELECT ' . $qfields . ' FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ? ORDER BY `fullname`';
-				$stmt = \OCP\DB::prepare($sql, $limit, $limit);
+				$stmt = \OCP\DB::prepare($sql, $limit, $offset);
 				$result = $stmt->execute(array($id));
 				if (\OC_DB::isError($result)) {
 					\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
@@ -212,7 +212,7 @@ class VCard {
 				\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 				return false;
 			}
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uid'.$uid, \OCP\Util::DEBUG);
 			return false;
@@ -437,7 +437,7 @@ class VCard {
 						\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
 					}
 					//OCP\Util::writeLog('contacts','OCA\Contacts\VCard::updateDataByID, id: '.$object[0].': '.$object[1],OCP\Util::DEBUG);
-				} catch(Exception $e) {
+				} catch(\Exception $e) {
 					\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
 					\OCP\Util::writeLog('contacts', __METHOD__.', id: '.$object[0], \OCP\Util::DEBUG);
 				}
@@ -652,7 +652,7 @@ class VCard {
 		$id = $contact['id'];
 		try {
 			return self::delete($id);
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			switch($e->getCode()) {
 				case 403:
 					\OCP\Util::writeLog('contacts', __METHOD__.', forbidden: '
@@ -735,6 +735,7 @@ class VCard {
 		$value = $property->value;
 		if($property->name == 'ADR' || $property->name == 'N' || $property->name == 'ORG' || $property->name == 'CATEGORIES') {
 			$value = $property->getParts();
+			$value = array_map('trim', $value);
 		}
 		elseif($property->name == 'BDAY') {
 			if(strpos($value, '-') === false) {
@@ -752,7 +753,7 @@ class VCard {
 				$value = explode(':', $value);
 				$protocol = array_shift($value);
 				if(!isset($property['X-SERVICE-TYPE'])) {
-					$property['X-SERVICE-TYPE'] = strtoupper(strip_tags($protocol));
+					$property['X-SERVICE-TYPE'] = strtoupper(\OCP\Util::sanitizeHTML($protocol));
 				}
 				$value = implode('', $value);
 			}
@@ -788,14 +789,14 @@ class VCard {
 				}
 				$pvalue = is_array($pvalue) ? $pvalue : array($pvalue);
 				if (isset($temp['parameters'][$parameter->name])) {
-					$temp['parameters'][$parameter->name][] = $pvalue;
+					$temp['parameters'][$parameter->name][] = \OCP\Util::sanitizeHTML($pvalue);
 				}
 				else {
-					$temp['parameters'][$parameter->name] = $pvalue;
+					$temp['parameters'][$parameter->name] = \OCP\Util::sanitizeHTML($pvalue);
 				}
 			}
 			else{
-				$temp['parameters'][$parameter->name] = $parameter->value;
+				$temp['parameters'][$parameter->name] = \OCP\Util::sanitizeHTML($parameter->value);
 			}
 		}
 		return $temp;

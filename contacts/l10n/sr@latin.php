@@ -31,11 +31,6 @@
 "Address" => "Adresa",
 "City" => "Grad",
 "Country" => "Zemlja",
-"Add Contact" => "Dodaj kontakt",
-"PO Box" => "Poštanski broj",
-"Extended" => "Proširi",
-"Region" => "Regija",
-"Zipcode" => "Zip kod",
 "Name" => "Ime",
 "Save" => "Snimi"
 );

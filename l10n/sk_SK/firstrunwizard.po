@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Marián Hvolka <marian.hvolka@stuba.sk>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-02-15 00:01+0100\n"
+"PO-Revision-Date: 2013-02-14 14:10+0000\n"
+"Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
+"Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sk_SK\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: templates/wizard.php:7
+msgid "Welcome to ownCloud"
+msgstr "Vitajte v ownCloude"
+
+#: templates/wizard.php:8
+msgid ""
+"Your personal web services. All your files, contacts, calendar and more, in "
+"one place."
+msgstr "Vaše osobné webové služby. Všetky vaše súbory, kontakty, kalendár a ďalšie, na jednom mieste."
+
+#: templates/wizard.php:11
+msgid "Get the apps to sync your files"
+msgstr "Získať aplikácie na synchronizáciu Vašich súborov"
+
+#: templates/wizard.php:23
+msgid "Connect your desktop apps to ownCloud"
+msgstr "Pripojte svoje desktopových aplikácie na ownCloud"
+
+#: templates/wizard.php:25
+msgid "Connect your Calendar"
+msgstr "Pripojte svoj ​​kalendár"
+
+#: templates/wizard.php:28
+msgid "Connect your Contacts"
+msgstr "Pripojte svoje kontakty"
+
+#: templates/wizard.php:31
+msgid "Access files via WebDAV"
+msgstr "Pristupovať k súborom cez WebDAV"
+
+#: templates/wizard.php:34
+msgid ""
+"There’s more information in the <a "
+"href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
+"and on our <a href=\"http://owncloud.org\">website</a>."
+msgstr "Viac informácií nájdete v <a href=\"http://doc.owncloud.org/server/5.0/user_manual/\">dokumentácii</a> a na našich <a href=\"http://owncloud.org\">webstránkach</a>."
+
+#: templates/wizard.php:35
+msgid ""
+"If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
+"great open software to sync and share your files. You can freely get it from"
+" http://owncloud.org\">recommend it to your friends</a>!"
+msgstr "Ak sa Vám ownCloud páči, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a great open software to sync and share your files. You can freely get it from http://owncloud.org\">odporučte ho svojim priateľom</a>!"

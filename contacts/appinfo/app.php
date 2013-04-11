@@ -21,14 +21,17 @@ OCP\App::addNavigationEntry( array(
   'id' => 'contacts_index',
   'order' => 10,
   'href' => OCP\Util::linkTo( 'contacts', 'index.php' ),
-  'icon' => OCP\Util::imagePath( 'settings', 'users.svg' ),
+  'icon' => OCP\Util::imagePath( 'contacts', 'contacts.svg' ),
   'name' => OC_L10N::get('contacts')->t('Contacts') ));
 
 OCP\Util::addscript('contacts', 'loader');
+
 OC_Search::registerProvider('OCA\Contacts\SearchProvider');
 OCP\Share::registerBackend('contact', 'OCA\Contacts\Share_Backend_Contact');
 OCP\Share::registerBackend('addressbook', 'OCA\Contacts\Share_Backend_Addressbook', 'contact');
 
-foreach(OCA\Contacts\Addressbook::all(OCP\USER::getUser()) as $addressbook)  {
-	OCP\Contacts::registerAddressBook(new OCA\Contacts\AddressbookProvider($addressbook['id']));
+if(OCP\User::isLoggedIn()) {
+	foreach(OCA\Contacts\Addressbook::all(OCP\USER::getUser()) as $addressbook)  {
+		OCP\Contacts::registerAddressBook(new OCA\Contacts\AddressbookProvider($addressbook['id']));
+	}
 }

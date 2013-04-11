@@ -46,7 +46,7 @@ if(isset($_SERVER['HTTP_ORIGIN'])) {
 	header('Access-Control-Allow-Origin: *');
 }
 
-$path = substr($_SERVER["REQUEST_URI"], strlen($baseuri));
+$path = substr(OCP\Util::getRequestUri(), strlen($baseuri));
 
 $pathParts =  explode('/', $path);
 // for webdav:
@@ -61,6 +61,9 @@ if(count($pathParts) >= 2) {
 	// Create ownCloud Dir
 	$publicDir = new OC_Connector_Sabre_Directory('');
 	$server = new Sabre_DAV_Server($publicDir);
+
+	$requestBackend = new OC_Connector_Sabre_Request();
+	$server->httpRequest = $requestBackend;
 
 	// Path to our script
 	$server->setBaseUri($baseuri.$ownCloudUser);

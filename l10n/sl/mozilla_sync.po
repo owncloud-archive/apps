@@ -4,13 +4,14 @@
 # 
 # Translators:
 #   <>, 2012.
+# Matej Urbančič <>, 2013.
 # Peter Peroša <peter.perosa@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 09:02+0000\n"
+"POT-Creation-Date: 2013-03-10 00:01+0100\n"
+"PO-Revision-Date: 2013-03-09 19:10+0000\n"
 "Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -21,20 +22,20 @@ msgstr ""
 
 #: templates/noemail.php:2 templates/settings.php:2
 msgid "Mozilla Sync Service"
-msgstr "Storitev Mozilla Sync"
+msgstr "Storitev usklajevanja Mozilla Sync"
 
 #: templates/noemail.php:3
 msgid "Please set your email address in account settings"
-msgstr "Nastavite elektronski poštni naslov med v nastavitvami računa."
+msgstr "Nastavite elektronski naslov med nastavitvami računa."
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Email"
-msgstr "Elektronska pošta"
+msgstr "Elektronski naslov"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Password and Confirmation"
 msgstr "Geslo in potrditev gesla"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Server address"
 msgstr "Naslov strežnika"

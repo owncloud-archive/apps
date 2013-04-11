@@ -5,14 +5,15 @@
 # Translators:
 #   <>, 2012.
 #   <blaz.lapanja@gmail.com>, 2012.
+# Matej Urbančič <>, 2013.
 #   <peter.perosa@gmail.com>, 2012.
 # Peter Peroša <peter.perosa@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 09:07+0000\n"
+"POT-Creation-Date: 2013-03-12 00:10+0100\n"
+"PO-Revision-Date: 2013-03-11 19:30+0000\n"
 "Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -21,29 +22,17 @@ msgstr ""
 "Language: sl\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Slike"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "Galerije"
+#: js/gallery.js:245
+msgid "Shared by"
+msgstr "V souporabi z"
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Souporaba galerije"
-
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Napaka: "
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Notranja napaka"
-
-#: templates/index.php:27
-msgid "Slideshow"
-msgstr "Predstavitev"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Souporaba"
 
 #: templates/no-image-app.php:9
 msgid ""

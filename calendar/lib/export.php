@@ -69,6 +69,15 @@ class OC_Calendar_Export{
 		if(!$object){
 			return false;
 		}
+
+		$sharedAccessClassPermissions = OC_Calendar_App::getAccessClassPermissions($object->VEVENT->CLASS->value);
+		if(OC_Calendar_Object::getowner($event['id']) !== OCP\User::getUser()){
+			if (!($sharedAccessClassPermissions & OCP\PERMISSION_READ)) {
+				return '';
+			}
+		}
+		$object = OC_Calendar_Object::cleanByAccessClass($event['calendarid'], $object);
+
 		if($object->VEVENT){
 			$dtstart = $object->VEVENT->DTSTART;
 			$start_dt = $dtstart->getDateTime();

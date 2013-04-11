@@ -184,11 +184,14 @@ class OC_Calendar_Object{
 	 */
 	public static function edit($id, $data) {
 		$oldobject = self::find($id);
-
-		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
+		$calid = self::getCalendarid($id);
+		
+		$calendar = OC_Calendar_Calendar::find($calid);
+		$oldvobject = OC_VObject::parse($oldobject['calendardata']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE)) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $calid); //calid, not objectid !!!! 1111 one one one eleven
+			$sharedAccessClassPermissions = OC_Calendar_App::getAccessClassPermissions($oldvobject->VEVENT->CLASS->value);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE) || !($sharedAccessClassPermissions & OCP\PERMISSION_UPDATE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to edit this event.'
@@ -220,9 +223,11 @@ class OC_Calendar_Object{
 		$oldobject = self::findWhereDAVDataIs($cid,$uri);
 
 		$calendar = OC_Calendar_Calendar::find($cid);
+		$oldvobject = OC_VObject::parse($oldobject['calendardata']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
 			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $cid);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE)) {
+			$sharedAccessClassPermissions = OC_Calendar_App::getAccessClassPermissions($oldvobject->VEVENT->CLASS->value);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_UPDATE) || !($sharedAccessClassPermissions & OCP\PERMISSION_UPDATE)) {
 				throw new Sabre_DAV_Exception_Forbidden(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to edit this event.'
@@ -249,10 +254,14 @@ class OC_Calendar_Object{
 	 */
 	public static function delete($id) {
 		$oldobject = self::find($id);
-		$calendar = OC_Calendar_Calendar::find($oldobject['calendarid']);
+		$calid = self::getCalendarid($id);
+		
+		$calendar = OC_Calendar_Calendar::find($calid);
+		$object = OC_VObject::parse($oldobject['calendardata']);
 		if ($calendar['userid'] != OCP\User::getUser()) {
-			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar', $id);
-			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_DELETE)) {
+			$sharedCalendar = OCP\Share::getItemSharedWithBySource('calendar',  $calid);
+			$sharedAccessClassPermissions = OC_Calendar_App::getAccessClassPermissions($object->VEVENT->CLASS->value);
+			if (!$sharedCalendar || !($sharedCalendar['permissions'] & OCP\PERMISSION_DELETE) || !($sharedAccessClassPermissions & OCP\PERMISSION_DELETE)) {
 				throw new Exception(
 					OC_Calendar_App::$l10n->t(
 						'You do not have the permissions to delete this event.'
@@ -315,7 +324,7 @@ class OC_Calendar_Object{
 		$stmt = OCP\DB::prepare( 'UPDATE `*PREFIX*calendar_objects` SET `calendarid`=? WHERE `id`=?' );
 		$stmt->execute(array($calendarid,$id));
 
-		OC_Calendar_Calendar::touchCalendar($id);
+		OC_Calendar_Calendar::touchCalendar($calendarid);
 		OCP\Util::emitHook('OC_Calendar', 'moveEvent', $id);
 
 		return true;
@@ -413,7 +422,7 @@ class OC_Calendar_Object{
 	 * Furthermore it converts the time to UTC.
 	 */
 	public static function getUTCforMDB($datetime) {
-		return date('Y-m-d H:i', $datetime->format('U') - $datetime->getOffset());
+		return date('Y-m-d H:i', $datetime->format('U'));
 	}
 
 	/**
@@ -444,6 +453,55 @@ class OC_Calendar_Object{
 			}
 		}
 		return $dtend;
+	}
+
+	/**
+	 * @brief Remove all properties which should not be exported for the AccessClass Confidential
+	 * @param string $calendarId Calendar ID
+	 * @param Sabre_VObject $vobject Sabre VObject
+	 * @return object
+	 */
+	public static function cleanByAccessClass($calendarId, $vobject) {
+
+		// Do not clean your own calendar
+		if(OC_Calendar_Object::getowner($calendarId) === OCP\USER::getUser()) {
+			return $vobject;
+		}
+
+		$vevent = $vobject->VEVENT;
+		if(!is_null($vevent->CLASS) && $vevent->CLASS->value == 'CONFIDENTIAL') {
+			foreach ($vevent->children as &$property) {
+				switch($property->name) {
+					case 'CREATED':
+					case 'DTSTART':
+					case 'RRULE':
+					case 'DURATION':
+					case 'DTEND':
+					case 'CLASS':
+					case 'UID':
+						break;
+					case 'SUMMARY':
+						$property->value = OC_Calendar_App::$l10n->t('Busy');
+						break;
+					default:
+						$vevent->__unset($property->name);
+						break;
+				}
+			}
+		}
+		return $vobject;
+	}
+
+	/**
+	 * @brief returns the options for the access class of an event
+	 * @return array - valid inputs for the access class of an event
+	 */
+	public static function getAccessClassOptions($l10n) {
+		return array(
+			'PUBLIC'       => (string)$l10n->t('Public'),
+			'PRIVATE'      => (string)$l10n->t('Private'),
+			'CONFIDENTIAL' => (string)$l10n->t('Confidential')
+		);
 	}
 
 	/**
@@ -776,6 +834,7 @@ class OC_Calendar_Object{
 	 * @return object updated $vcalendar
 	 */
 	public static function updateVCalendarFromRequest($request, $vcalendar) {
+		$accessclass = $request["accessclass"];
 		$title = $request["title"];
 		$location = $request["location"];
 		$categories = $request["categories"];
@@ -953,6 +1012,7 @@ class OC_Calendar_Object{
 		}
 		unset($vevent->DURATION);
 
+		$vevent->setString('CLASS', $accessclass);
 		$vevent->setString('LOCATION', $location);
 		$vevent->setString('DESCRIPTION', $description);
 		$vevent->setString('CATEGORIES', $categories);
@@ -972,7 +1032,11 @@ class OC_Calendar_Object{
 	public static function getowner($id) {
 		$event = self::find($id);
 		$cal = OC_Calendar_Calendar::find($event['calendarid']);
-		return $cal['userid'];
+		if(array_key_exists('userid', $cal)){
+			return $cal['userid'];
+		}else{
+			return null;
+		}
 	}
 
 	/**

@@ -1,59 +1,148 @@
-$(document).ready(function(){
-
-	$.endSlideshow = function () {
-		if($.supersized.vars.slideshow_interval){
-			clearInterval($.supersized.vars.slideshow_interval);
-		};
-
-		$('#supersized-holder').remove();
-		$('#slideshow-content').hide();
-		$('#thumb-list').remove();
+jQuery.fn.slideShow = function (container, start, options) {
+	var i, images = [], settings;
+	start = start || 0;
+	settings = $.extend({
+		'interval': 5000,
+		'play': true,
+		'maxScale': 2
+	}, options);
+	jQuery.fn.slideShow.container = container;
+	jQuery.fn.slideShow.settings = settings;
+	jQuery.fn.slideShow.current = start;
+	for (i = 0; i < this.length; i++) {
+		images.push(this[i].href);
 	}
+	container.children('img').remove();
+	container.show();
+	jQuery.fn.slideShow.images = images;
+	jQuery.fn.slideShow.cache = [];
+	jQuery.fn.slideShow.showImage(images[start], images[start + 1]);
+	jQuery.fn.slideShow.progressBar = container.find('.progress');
+	return jQuery.fn.slideShow;
+};
 
-	// add slideshow in holder div
-	$('#slideshow input.start').click(function(){
+jQuery.fn.slideShow.progressBar = null;
 
-		var images=[];
-		$('#gallerycontent div a').each(function(i,a){
-			images.push({image : a.href, title : a.title.replace(/</, '&lt;').replace(/>/, '&gt;'), thumb : a.children[0].src, url : 'javascript:$.endSlideshow()'});
-		});
+jQuery.fn.slideShow.loadImage = function (url) {
+	if (!jQuery.fn.slideShow.cache[url]) {
+		jQuery.fn.slideShow.cache[url] = new jQuery.Deferred();
+		image = new Image();
+		image.onload = function () {
+			jQuery.fn.slideShow.cache[url].resolve(image);
+		};
+		image.src = url;
+	}
+	return jQuery.fn.slideShow.cache[url];
+};
 
-		if (images.length <= 0) {
-			return;
+jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
+	var container = jQuery.fn.slideShow.container;
+	jQuery.fn.slideShow.loadImage(url).then(function (image) {
+		var ratio = image.width / image.height,
+			screenRatio = container.width() / container.height(),
+			width = null, height = null, top = null;
+		container.children('img').remove();
+		container.append(image);
+		if (ratio > screenRatio) {
+			if (container.width() > image.width * jQuery.fn.slideShow.settings.maxScale) {
+				width = image.width + 'px';
+				top = ((container.height() - image.height) / 2) + 'px';
+			} else {
+				width = '100%';
+				top = ((container.height() - (container.width() / ratio)) / 2) + 'px';
+			}
+		} else {
+			if (container.height() > image.height * jQuery.fn.slideShow.settings.maxScale) {
+				top = ((container.height() - image.height) / 2) + 'px';
+				height = image.height + 'px';
+			} else {
+				height = '100%';
+			}
 		}
-
-		$('body').append("<div id='supersized-holder'></div>");
-		$('#supersized-loader').remove();
-		$('#supersized').remove();
-		$('#supersized-holder').append("<div id='supersized-loader'></div><ul id='supersized'></ul>");
-		$('#supersized').show();
-		$('#slideshow-content').show();
-
-
-		jQuery(function($){
-
-			$.supersized({
-
-				// Functionality
-				slide_interval      :   3000,		// Length between transitions
-				transition          :   1, 		// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
-				transition_speed    :   700,		// Speed of transition
-
-				// Components
-				slide_links         :   false,	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
-				new_window          :   false,
-				slides              :   images		// Slideshow Images
-
-			});
+		$(image).css({
+			top: top,
+			width: width,
+			height: height
 		});
-
-	});
-
-	//close slideshow on esc and remove holder
-	$(document).keyup(function(e) {
-		if (e.keyCode == 27) { // esc
-			$.endSlideshow();
+		if (jQuery.fn.slideShow.settings.play) {
+			jQuery.fn.slideShow.setTimeout();
+		}
+		if (preloadUrl) {
+			jQuery.fn.slideShow.loadImage(preloadUrl);
 		}
 	});
+};
 
-});
+jQuery.fn.slideShow.play = function () {
+	if (jQuery.fn.slideShow.settings) {
+		jQuery.fn.slideShow.settings.play = true;
+		jQuery.fn.slideShow.setTimeout();
+	}
+};
+
+jQuery.fn.slideShow.pause = function () {
+	if (jQuery.fn.slideShow.settings) {
+		jQuery.fn.slideShow.settings.play = false;
+		jQuery.fn.slideShow.clearTimeout();
+	}
+};
+
+jQuery.fn.slideShow.setTimeout = function () {
+	jQuery.fn.slideShow.clearTimeout();
+	jQuery.fn.slideShow.timeout = setTimeout(jQuery.fn.slideShow.next, jQuery.fn.slideShow.settings.interval);
+	jQuery.fn.slideShow.progressBar.stop();
+	jQuery.fn.slideShow.progressBar.css('height', '6px');
+	jQuery.fn.slideShow.progressBar.animate({'height': '26px'}, jQuery.fn.slideShow.settings.interval, 'linear');
+};
+
+jQuery.fn.slideShow.clearTimeout = function () {
+	if (jQuery.fn.slideShow.timeout) {
+		clearTimeout(jQuery.fn.slideShow.timeout);
+	}
+	jQuery.fn.slideShow.progressBar.stop();
+	jQuery.fn.slideShow.progressBar.css('height', '6px');
+	jQuery.fn.slideShow.timeout = 0;
+};
+
+jQuery.fn.slideShow.next = function () {
+	if (jQuery.fn.slideShow.container) {
+		jQuery.fn.slideShow.current++;
+		if (jQuery.fn.slideShow.current >= jQuery.fn.slideShow.images.length) {
+			jQuery.fn.slideShow.current = 0;
+		}
+		var image = jQuery.fn.slideShow.images[jQuery.fn.slideShow.current],
+			nextImage = jQuery.fn.slideShow.images[jQuery.fn.slideShow.current + 1];
+		jQuery.fn.slideShow.showImage(image, nextImage);
+	}
+};
+
+jQuery.fn.slideShow.previous = function () {
+	if (jQuery.fn.slideShow.container) {
+		jQuery.fn.slideShow.current--;
+		if (jQuery.fn.slideShow.current < 0) {
+			jQuery.fn.slideShow.current = jQuery.fn.slideShow.images.length - 1;
+		}
+		var image = jQuery.fn.slideShow.images[jQuery.fn.slideShow.current],
+			previousImage = jQuery.fn.slideShow.images[jQuery.fn.slideShow.current - 1];
+		jQuery.fn.slideShow.showImage(image, previousImage);
+	}
+};
+
+jQuery.fn.slideShow.stop = function () {
+	if (jQuery.fn.slideShow.container) {
+		jQuery.fn.slideShow.container.hide();
+		jQuery.fn.slideShow.container = null;
+		if (jQuery.fn.slideShow.onstop) {
+			jQuery.fn.slideShow.onstop();
+		}
+	}
+};
+
+jQuery.fn.slideShow.hideImage = function () {
+	var container = jQuery.fn.slideShow.container;
+	if (container) {
+		container.children('img').remove();
+	}
+};
+
+jQuery.fn.slideShow.onstop = null;

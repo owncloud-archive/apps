@@ -9,7 +9,7 @@
 
 
 if(!OCP\User::isLoggedIn()) {
-	die('<script type="text/javascript">document.location = oc_webroot;</script>');
+	OCP\User::checkLoggedIn();
 }
 OCP\JSON::checkAppEnabled('calendar');
 
@@ -44,6 +44,7 @@ foreach($calendars as $calendar) {
 		array_push($calendar_options, $calendar);
 	}
 }
+$access_class_options = OC_Calendar_App::getAccessClassOptions();
 $repeat_options = OC_Calendar_App::getRepeatOptions();
 $repeat_end_options = OC_Calendar_App::getEndOptions();
 $repeat_month_options = OC_Calendar_App::getMonthOptions();
@@ -57,7 +58,9 @@ $repeat_bymonthday_options = OC_Calendar_App::getByMonthDayOptions();
 
 $tmpl = new OCP\Template('calendar', 'part.newevent');
 $tmpl->assign('access', 'owner');
+$tmpl->assign('accessclass', 'PUBLIC');
 $tmpl->assign('calendar_options', $calendar_options);
+$tmpl->assign('access_class_options', $access_class_options);
 $tmpl->assign('repeat_options', $repeat_options);
 $tmpl->assign('repeat_month_options', $repeat_month_options);
 $tmpl->assign('repeat_weekly_options', $repeat_weekly_options);

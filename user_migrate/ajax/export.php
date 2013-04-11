@@ -20,12 +20,12 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-// Init owncloud
-
 
 // Check if we are a user
 OCP\JSON::checkLoggedIn();
+OCP\JSON::callCheck();
 OCP\App::checkAppEnabled('user_migrate');
+
 // Which operation
 if( $_GET['operation']=='create' ) {
 	$uid = !empty( $_POST['uid'] ) ? $_POST['uid'] :  OCP\USER::getUser();

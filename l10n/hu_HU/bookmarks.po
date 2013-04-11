@@ -4,13 +4,15 @@
 # 
 # Translators:
 # Adam Toth <adazlord@gmail.com>, 2012.
+#   <gyonkibendeguz@gmail.com>, 2013.
+# Laszlo Tornoci <torlasz@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-09 00:01+0100\n"
-"PO-Revision-Date: 2012-11-08 17:22+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:32+0000\n"
+"Last-Translator: Laszlo Tornoci <torlasz@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/owncloud/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,79 +20,87 @@ msgstr ""
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ajax/import.php:9
+msgid "No file provided for import"
+msgstr "Nincs megadva az importálandó fájl"
+
 #: ajax/import.php:21
 msgid "Unsupported file type for import"
-msgstr ""
+msgstr "Az importálandó fájltípus nem támogatott"
 
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Könyvjelzők"
 
-#: js/addBm.js:42 js/bookmarks.js:230
+#: js/addBm.js:42 js/bookmarks.js:235
 msgid "Tags"
 msgstr "Címkék"
 
 #: js/bookmarks.js:22
 msgid "Filter by tag"
-msgstr ""
+msgstr "Szűrés címkék szerint"
 
 #: js/bookmarks.js:132
 msgid "Edit bookmark"
-msgstr ""
+msgstr "Könyvjelző szerkesztése"
 
-#: js/bookmarks.js:369
+#: js/bookmarks.js:366
 msgid "Are you sure you want to remove this tag from every entry?"
-msgstr ""
+msgstr "Biztos benne, hogy ezt a címkét el szeretné távolítani az összes bejegyzésből?"
 
-#: js/bookmarks.js:370
+#: js/bookmarks.js:367
 msgid "Warning"
 msgstr "Figyelmeztetés"
 
-#: js/settings.js:25
-msgid "Import completed successfully."
-msgstr ""
+#: js/settings.js:18
+msgid "Import error"
+msgstr "Hiba történt az importáláskor"
 
-#: js/settings.js:56
+#: js/settings.js:29
+msgid "Import completed successfully."
+msgstr "Az importálás sikeresen befejeződött."
+
+#: js/settings.js:61
 msgid "Uploading..."
-msgstr ""
+msgstr "Feltöltés..."
 
 #: lib/search.php:38
 msgid "Bookm."
-msgstr ""
+msgstr "Könyvj."
 
-#: templates/addBm.php:11
+#: templates/addBm.php:5
 msgid "Add a bookmark"
-msgstr ""
+msgstr "Könyvjelző hozzáadása"
 
-#: templates/addBm.php:14
+#: templates/addBm.php:8
 msgid "Close"
 msgstr "Bezár"
 
-#: templates/addBm.php:22 templates/js_tpl.php:33
+#: templates/addBm.php:16 templates/js_tpl.php:27
 msgid "The title of the page"
-msgstr ""
+msgstr "Az oldal neve"
 
-#: templates/addBm.php:27 templates/js_tpl.php:37
+#: templates/addBm.php:21 templates/js_tpl.php:31
 msgid "The address of the page"
-msgstr ""
+msgstr "Az oldal webcíme"
 
-#: templates/addBm.php:40 templates/js_tpl.php:46
+#: templates/addBm.php:34 templates/js_tpl.php:40
 msgid "Description of the page"
-msgstr ""
+msgstr "Az oldal leírása"
 
-#: templates/addBm.php:44 templates/js_tpl.php:50
+#: templates/addBm.php:38 templates/js_tpl.php:44
 msgid "Save"
 msgstr "Mentés"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:64
+#: templates/js_tpl.php:6 templates/js_tpl.php:58
 msgid "Delete"
 msgstr "Törlés"
 
-#: templates/js_tpl.php:20 templates/js_tpl.php:60
+#: templates/js_tpl.php:14 templates/js_tpl.php:54
 msgid "Edit"
 msgstr "Szerkesztés"
 
-#: templates/js_tpl.php:49
+#: templates/js_tpl.php:43
 msgid "Cancel"
 msgstr "Mégsem"
 
@@ -98,7 +108,7 @@ msgstr "Mégsem"
 msgid ""
 "Drag this to your browser bookmarks and click it, when you want to bookmark "
 "a webpage quickly:"
-msgstr "Húzd át ezt a böngésződben a Könyvjelzők sávba! Klikkelj rá bármikor, amikor szeretnéd az aktuális weboldal címét ide elmenteni!"
+msgstr "Húzza át ezt a gombot a böngészőprogram \"Könyvjelzők\" sávjába! Ha ezután rákattint, akkor az aktuális weboldal címét ide fogja menteni."
 
 #: templates/list.php:15
 msgid "Read later"
@@ -114,27 +124,27 @@ msgstr "Hozzáad"
 
 #: templates/list.php:31
 msgid "Related Tags"
-msgstr ""
+msgstr "Kapcsolódó címkék"
 
-#: templates/list.php:39 templates/list.php:41
+#: templates/list.php:38 templates/list.php:40
 msgid "Settings"
 msgstr "Beállítások"
 
-#: templates/list.php:53
+#: templates/list.php:54
 msgid "You have no bookmarks"
-msgstr "Nincsenek könyvjelzőid"
+msgstr "Nincsenek könyvjelzői"
 
-#: templates/list.php:58
+#: templates/list.php:59
 msgid "You can also try to import a bookmark file"
-msgstr ""
+msgstr "Könyvjelzőket tartalmazó állomány is importálható"
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
-msgstr ""
+msgstr "Könyvjelző"
 
 #: templates/settings.php:23
 msgid "Export & Import"
-msgstr ""
+msgstr "Export és import"
 
 #: templates/settings.php:24
 msgid "Export"
@@ -142,4 +152,4 @@ msgstr "Exportálás"
 
 #: templates/settings.php:26
 msgid "Import"
-msgstr "Import"
+msgstr "Importálás"

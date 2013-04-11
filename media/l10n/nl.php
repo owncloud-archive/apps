@@ -4,14 +4,16 @@
 "albums" => "Albums",
 "Add to playlist" => "Voeg aan de afspeellijst toe",
 "Add album to playlist" => "Voeg album toe aan afspeellijst",
+"Previous" => "Vorige",
 "Play" => "Afspelen",
 "Pause" => "Pauzeer",
-"Previous" => "Vorige",
 "Next" => "Volgende",
 "Mute" => "Dempen",
 "Unmute" => "Dempen uit",
 "Rescan Collection" => "Collectie opnieuw scannen",
 "Artist" => "Artiest",
 "Album" => "Album",
-"Title" => "Titel"
+"Title" => "Titel",
+"Media" => "Media",
+"Ampache address:" => "Ampache adres:"
 );

@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2012.
+# Rivo Zängov <eraser@eraser.ee>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-12 02:01+0200\n"
-"PO-Revision-Date: 2012-09-11 11:21+0000\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:22+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -18,29 +18,17 @@ msgstr ""
 "Language: et_EE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Pildid"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "Galeriid"
+#: js/gallery.js:245
+msgid "Shared by"
+msgstr "Jagas"
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Jaga galeriid"
-
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Viga: "
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Sisemine viga"
-
-#: templates/index.php:27
-msgid "Slideshow"
-msgstr "Slaidiseanss"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Jaga"
 
 #: templates/no-image-app.php:9
 msgid ""

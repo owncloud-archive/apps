@@ -9,8 +9,9 @@
 
 
 if(!OCP\User::isLoggedIn()) {
-	die('<script type="text/javascript">document.location = oc_webroot;</script>');
+	OCP\User::checkLoggedIn();
 }
+
 OCP\JSON::checkAppEnabled('calendar');
 
 $id = $_POST['id'];
@@ -20,9 +21,10 @@ if(!$data) {
 	OCP\JSON::error(array('data' => array('message' => OC_Calendar_App::$l10n->t('Wrong calendar'))));
 	exit;
 }
-$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT);
 $object = OC_VObject::parse($data['calendardata']);
 $vevent = $object->VEVENT;
+$object = OC_Calendar_Object::cleanByAccessClass($id, $object);
+$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT, $vevent->CLASS->value);
 
 $dtstart = $vevent->DTSTART;
 $dtend = OC_Calendar_Object::getDTEndFromVEvent($vevent);
@@ -53,6 +55,7 @@ switch($dtstart->getDateType()) {
 		break;
 }
 
+$accessclass = $vevent->getAsString('CLASS');
 $summary = $vevent->getAsString('SUMMARY');
 $location = $vevent->getAsString('LOCATION');
 $categories = $vevent->getAsString('CATEGORIES');
@@ -198,6 +201,7 @@ if($data['repeating'] == 1) {
 }
 $calendar_options = OC_Calendar_Calendar::allCalendars(OCP\USER::getUser());
 $category_options = OC_Calendar_App::getCategoryOptions();
+$access_class_options = OC_Calendar_App::getAccessClassOptions();
 $repeat_options = OC_Calendar_App::getRepeatOptions();
 $repeat_end_options = OC_Calendar_App::getEndOptions();
 $repeat_month_options = OC_Calendar_App::getMonthOptions();
@@ -213,12 +217,16 @@ if($permissions & OCP\PERMISSION_UPDATE) {
 	$tmpl = new OCP\Template('calendar', 'part.editevent');
 } elseif($permissions & OCP\PERMISSION_READ) {
 	$tmpl = new OCP\Template('calendar', 'part.showevent');
+} elseif($permissions === 0) {
+	OCP\JSON::error(array('data' => array('message' => OC_Calendar_App::$l10n->t('You do not have the permissions to edit this event.'))));
+	exit;
 }
 
 $tmpl->assign('eventid', $id);
 $tmpl->assign('permissions', $permissions);
 $tmpl->assign('lastmodified', $lastmodified);
 $tmpl->assign('calendar_options', $calendar_options);
+$tmpl->assign('access_class_options', $access_class_options);
 $tmpl->assign('repeat_options', $repeat_options);
 $tmpl->assign('repeat_month_options', $repeat_month_options);
 $tmpl->assign('repeat_weekly_options', $repeat_weekly_options);
@@ -231,6 +239,7 @@ $tmpl->assign('repeat_bymonthday_options', $repeat_bymonthday_options);
 $tmpl->assign('repeat_weekofmonth_options', $repeat_weekofmonth_options);
 
 $tmpl->assign('title', $summary);
+$tmpl->assign('accessclass', $accessclass);
 $tmpl->assign('location', $location);
 $tmpl->assign('categories', $categories);
 $tmpl->assign('calendar', $data['calendarid']);

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 20:56+0000\n"
-"Last-Translator: andrejuseu <andrejuszl@gmail.com>\n"
+"POT-Creation-Date: 2013-02-22 00:01+0100\n"
+"PO-Revision-Date: 2013-02-20 23:22+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/owncloud/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,29 +19,17 @@ msgstr ""
 "Language: lt_LT\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Nuotraukos"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "Galerijos"
+#: js/gallery.js:245
+msgid "Shared by"
+msgstr ""
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Dalintis galerija"
-
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Klaida:"
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Sistemos klaida"
-
-#: templates/index.php:27
-msgid "Slideshow"
-msgstr "Skaidrių peržiūrą"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Dalintis"
 
 #: templates/no-image-app.php:9
 msgid ""

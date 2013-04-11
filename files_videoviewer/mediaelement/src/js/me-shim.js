@@ -43,9 +43,6 @@ mejs.MediaPluginBridge = {
 			bufferedTime,
 			pluginMediaElement = this.pluginMediaElements[id];
 
-		pluginMediaElement.ended = false;
-		pluginMediaElement.paused = true;
-
 		// fake event object to mimic real HTML media event.
 		e = {
 			type: eventName,
@@ -820,7 +817,7 @@ mejs.YouTubeApi = {
 		// load the youtube video
 		player.cueVideoById(settings.videoId);
 		
-		var callbackName = settings.containerId + '_callback'
+		var callbackName = settings.containerId + '_callback';
 		
 		window[callbackName] = function(e) {
 			mejs.YouTubeApi.handleStateChange(e, player, pluginMediaElement);

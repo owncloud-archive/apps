@@ -1,5 +1,5 @@
 <?php
-include('apps/reader/lib/tag_utils.php');
+include('reader/lib/tag_utils.php');
 	$new_tag = $_POST['tag'];
 	$path_of_ebook = $_POST['path'];
 	$tags = find_tags_for_ebook($path_of_ebook);

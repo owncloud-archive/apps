@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2012.
+# Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-14 00:01+0100\n"
-"PO-Revision-Date: 2012-11-13 01:23+0000\n"
-"Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:31+0000\n"
+"Last-Translator: Daisuke Deguchi <ddeguchi@nagoya-u.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
+#: appinfo/app.php:48 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "ミュージック"
 
@@ -38,31 +39,31 @@ msgstr "プレイリストに追加"
 msgid "Add album to playlist"
 msgstr "アルバムをプレイリストに追加"
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr "前"
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr "再生"
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
 msgstr "一時停止"
-
-#: templates/music.php:5
-msgid "Previous"
-msgstr "前"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr "次"
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr "ミュート"
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr "ミュート解除"
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr "コレクションの再スキャン"
 
@@ -77,3 +78,11 @@ msgstr "アルバム"
 #: templates/music.php:39
 msgid "Title"
 msgstr "曲名"
+
+#: templates/settings.php:3
+msgid "Media"
+msgstr "メディア"
+
+#: templates/settings.php:4
+msgid "Ampache address:"
+msgstr "Ampache アドレス:"

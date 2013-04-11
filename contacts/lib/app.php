@@ -34,27 +34,28 @@ class App {
 	/**
 	 * Properties to index.
 	 */
-	public static $index_properties = array('N', 'FN', 'NOTE', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO', 'PHOTO');
+	public static $index_properties = array('BDAY', 'UID', 'N', 'FN', 'TITLE', 'ROLE', 'NOTE', 'NICKNAME', 'ORG', 'CATEGORIES', 'EMAIL', 'TEL', 'IMPP', 'ADR', 'URL', 'GEO', 'PHOTO');
 
 	const THUMBNAIL_PREFIX = 'contact-thumbnail-';
 	const THUMBNAIL_SIZE = 28;
 
 	/**
-	 * @brief Gets the VCard as a Sabre\VObject\Component
-	 * @returns Sabre\VObject\Component|null The card or null if the card could not be parsed.
+	 * @brief Gets the VCard as a \Sabre\VObject\Component
+	 * @param integer $id
+	 * @returns \Sabre\VObject\Component|null The card or null if the card could not be parsed.
 	 */
 	public static function getContactVCard($id) {
 		$card = null;
 		$vcard = null;
 		try {
 			$card = VCard::find($id);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			return null;
 		}
 
 		try {
 			$vcard = \Sabre\VObject\Reader::read($card['carddata']);
-		} catch(Exception $e) {
+		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
 			\OCP\Util::writeLog('contacts', __METHOD__.', id: ' . $id, \OCP\Util::DEBUG);
 			return null;
@@ -102,7 +103,7 @@ class App {
 				'twitter' => array(
 					'displayname' => (string)$l10n->t('Twitter'),
 					'xname' => 'X-TWITTER',
-					'protocol' => null,
+					'protocol' => 'twitter',
 				),
 				'googletalk' => array(
 					'displayname' => (string)$l10n->t('GoogleTalk'),
@@ -284,9 +285,9 @@ class App {
 	public static function lastModified($contact = null) {
 		if(is_null($contact)) {
 			// FIXME: This doesn't take shared address books into account.
-			$sql = 'SELECT MAX(`lastmodified`) FROM `oc_contacts_cards`, `oc_contacts_addressbooks` ' . 
-				'WHERE  `oc_contacts_cards`.`addressbookid` = `oc_contacts_addressbooks`.`id` AND ' .
-				'`oc_contacts_addressbooks`.`userid` = ?';
+			$sql = 'SELECT MAX(`lastmodified`) FROM `*PREFIX*contacts_cards`, `*PREFIX*contacts_addressbooks` ' .
+				'WHERE  `*PREFIX*contacts_cards`.`addressbookid` = `*PREFIX*contacts_addressbooks`.`id` AND ' .
+				'`*PREFIX*contacts_addressbooks`.`userid` = ?';
 			$stmt = \OCP\DB::prepare($sql);
 			$result = $stmt->execute(array(\OCP\USER::getUser()));
 			if (\OC_DB::isError($result)) {
@@ -308,7 +309,7 @@ class App {
 	}
 
 	public static function cacheThumbnail($id, \OC_Image $image = null) {
-		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id)) {
+		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id) && $image === null) {
 			return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
 		}
 		if(is_null($image)) {
@@ -373,10 +374,10 @@ class App {
 			if(!in_array($property->name, self::$index_properties)) {
 				continue;
 			}
-			$preferred = false;
+			$preferred = 0;
 			foreach($property->parameters as $parameter) {
 				if($parameter->name == 'TYPE' && strtoupper($parameter->value) == 'PREF') {
-					$preferred = true;
+					$preferred = 1;
 					break;
 				}
 			}
@@ -397,7 +398,6 @@ class App {
 				}
 			} catch(\Exception $e) {
 				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
-				\OCP\Util::writeLog('contacts', __METHOD__.', aid: '.$aid.' uri'.$uri, \OCP\Util::DEBUG);
 				return false;
 			}
 		}

@@ -7,10 +7,10 @@
 
 <div id = "controls">
 <?
-	include('apps/reader/lib/dir.php');
-	include('apps/reader/lib/thumbnail.php');
-	include('apps/reader/lib/library_display.php');
-	include('apps/reader/lib/tag_utils.php');
+	include('reader/lib/dir.php');
+	include('reader/lib/thumbnail.php');
+	include('reader/lib/library_display.php');
+	include('reader/lib/tag_utils.php');
 	
 	// Get the current directory.
 	$current_dir = empty($_['dir'])?'/':$_['dir'];
@@ -22,8 +22,8 @@
 	if( $path != '' ){
 		for($i=0; $i<count($path); $i++){ 
 			$curr_path .= '/'.str_replace('+','%20', urlencode($path[$i]));?>
-			<div class="crumb <?php if($i == count($path)-1) echo 'last';?> svg" data-dir='<?php echo $curr_path;?>' style='background-image:url("<?php echo OCP\image_path('core','breadcrumb.png');?>")'>
-				<a href="<?php echo $base_url.$curr_path.'/'; ?>"><?php echo htmlentities($path[$i],ENT_COMPAT,'utf-8'); ?></a>
+			<div class="crumb <?php if($i == count($path)-1) p('last');?> svg" data-dir='<?php p($curr_path);?>' style='background-image:url("<?php print_unescaped(OCP\image_path('core','breadcrumb.png'));?>")'>
+				<a href="<?php print_unescaped($base_url.$curr_path.'/'); ?>"><?php p($path[$i]); ?></a>
 			</div>
 <? 		}
 	}	
@@ -31,7 +31,7 @@
 
 	<div id="file_action_panel"></div>
 	<!-- Set dir value to be passed to integrate.js -->
-	<input type="hidden" name="dir" value="<?php echo empty($_['dir'])?'':rtrim($_['dir'],'/') ?>" id="dir">
+	<input type="hidden" name="dir" value="<?php p(empty($_['dir'])?'':rtrim($_['dir'],'/')) ?>" id="dir">
 
 </div>
 
@@ -40,7 +40,8 @@
 <?php
 	
 	// Search for pdf files in current directory.
-	$pdfs = \OC_FileCache::searchByMime('application', 'pdf', '/'.\OCP\USER::getUser().'/files'.$current_dir);
+	$view = new \OC\Files\View('/'.\OCP\USER::getUser().'/files'.$current_dir);
+	$pdfs = $view->searchByMime('application/pdf');
 	sort($pdfs);
 
 	// Cleans the eBooks table of files that have been deleted from the files app.

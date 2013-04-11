@@ -22,7 +22,7 @@
 
 OCP\App::checkAppEnabled('contacts');
 
-if(substr($_SERVER["REQUEST_URI"], 0, strlen(OC_App::getAppWebPath('contacts').'/carddav.php')) == OC_App::getAppWebPath('contacts').'/carddav.php') {
+if(substr(OCP\Util::getRequestUri(), 0, strlen(OC_App::getAppWebPath('contacts').'/carddav.php')) == OC_App::getAppWebPath('contacts').'/carddav.php') {
 	$baseuri = OC_App::getAppWebPath('contacts').'/carddav.php';
 }
 
@@ -34,6 +34,7 @@ OC_App::loadApps($RUNTIME_APPTYPES);
 $authBackend = new OC_Connector_Sabre_Auth();
 $principalBackend = new OC_Connector_Sabre_Principal();
 $carddavBackend   = new OC_Connector_Sabre_CardDAV();
+$requestBackend = new OC_Connector_Sabre_Request();
 
 // Root nodes
 $principalCollection = new Sabre_CalDAV_Principal_Collection($principalBackend);
@@ -49,6 +50,7 @@ $nodes = array(
 
 // Fire up server
 $server = new Sabre_DAV_Server($nodes);
+$server->httpRequest = $requestBackend;
 $server->setBaseUri($baseuri);
 // Add plugins
 $server->addPlugin(new Sabre_DAV_Auth_Plugin($authBackend, 'ownCloud'));

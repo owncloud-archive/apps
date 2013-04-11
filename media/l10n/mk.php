@@ -1,9 +1,12 @@
 <?php $TRANSLATIONS = array(
 "Music" => "Музика",
+"songs" => "песни",
+"albums" => "албуми",
+"Add to playlist" => "Додади во листа",
 "Add album to playlist" => "Додади го албумот во листата за свирење",
+"Previous" => "Претходно",
 "Play" => "Пушти",
 "Pause" => "Пауза",
-"Previous" => "Претходно",
 "Next" => "Следно",
 "Mute" => "Занеми",
 "Unmute" => "Пушти глас",

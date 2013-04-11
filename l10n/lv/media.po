@@ -5,13 +5,14 @@
 # Translators:
 #   <aldis@udris.lv>, 2012.
 #   <elwins@inbox.lv>, 2012.
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-13 00:04+0100\n"
-"PO-Revision-Date: 2012-11-12 12:11+0000\n"
-"Last-Translator: elwins <elwins@inbox.lv>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:31+0000\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Language: lv\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
-#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
+#: appinfo/app.php:48 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr "Mūzika"
 
@@ -29,41 +30,41 @@ msgstr "dziesmas"
 
 #: js/collection.js:101 js/collection.js:208
 msgid "albums"
-msgstr "albūmi"
+msgstr "albumi"
 
 #: js/collection.js:282
 msgid "Add to playlist"
-msgstr "Pievienot atskaņošanas sarakstam"
+msgstr "Pievienot repertuāram"
 
 #: js/music.js:18
 msgid "Add album to playlist"
-msgstr "Pievienot albūmu sarakstam"
+msgstr "Pievienot albumu repertuāram"
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr "Iepriekšējā"
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr "Atskaņot"
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
-msgstr "Pauze"
-
-#: templates/music.php:5
-msgid "Previous"
-msgstr "Iepriekšējā"
+msgstr "Pauzēt"
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr "Nākamā"
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
-msgstr "Klusums"
+msgstr "Apklusināt"
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
-msgstr "Klusums"
+msgstr "Neapklusināt"
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr "Vēlreiz caurskatīt kolekciju"
 
@@ -73,8 +74,16 @@ msgstr "Izpildītājs"
 
 #: templates/music.php:38
 msgid "Album"
-msgstr "Albūms"
+msgstr "Albums"
 
 #: templates/music.php:39
 msgid "Title"
 msgstr "Nosaukums"
+
+#: templates/settings.php:3
+msgid "Media"
+msgstr "Medijs"
+
+#: templates/settings.php:4
+msgid "Ampache address:"
+msgstr "Ampache adrese:"

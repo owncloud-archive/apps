@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# mahdi Kereshteh <miki_mika1362@yahoo.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-08 02:02+0200\n"
-"PO-Revision-Date: 2012-09-08 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:33+0000\n"
+"Last-Translator: miki_mika1362 <miki_mika1362@yahoo.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,30 +18,47 @@ msgstr ""
 "Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:58
+#: ajax/share.php:26
+msgid "Document was shared"
+msgstr "مستند به اشتراک گذاشته شد"
+
+#: ajax/share.php:27
+#, php-format
+msgid "User %s shared quick document %s with you."
+msgstr "کاربر %s مستند %s را سریع به اشتراک گذاشت."
+
+#: appinfo/app.php:99
 msgid "My pad"
-msgstr ""
+msgstr "دفتر یادداشت من"
 
-#: templates/index.php:14 templates/index.php:15
+#: templates/index.php:15 templates/index.php:16
 msgid "Settings"
-msgstr ""
-
-#: templates/index.php:17
-msgid "Pad Title"
-msgstr ""
+msgstr "تنظیمات"
 
 #: templates/index.php:18
-msgid "Open"
-msgstr ""
+msgid "Pad Title"
+msgstr "عنوان دفتر یادداشت"
 
-#: templates/settings.php:15
+#: templates/index.php:19
+msgid "Open"
+msgstr "باز کردن"
+
+#: templates/index.php:20
+msgid "Share with"
+msgstr "به اشتراک گذاشتن با"
+
+#: templates/index.php:21
+msgid "Share"
+msgstr "اشتراک‌گذاری"
+
+#: templates/settings.php:16
 msgid "Etherpad service URL"
 msgstr ""
 
-#: templates/settings.php:20
+#: templates/settings.php:21
 msgid "Username"
-msgstr ""
+msgstr "نام کاربری"
 
-#: templates/settings.php:27
+#: templates/settings.php:28
 msgid "Save"
-msgstr ""
+msgstr "ذخیره"

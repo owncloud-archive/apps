@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-20 02:05+0200\n"
-"PO-Revision-Date: 2012-09-20 00:07+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2013-02-05 00:17+0100\n"
+"PO-Revision-Date: 2013-02-04 12:10+0000\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/projects/p/owncloud/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,56 +22,56 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr ""
+msgstr "Daudzām lietotnēm komunikācijai ir vajadzīgs php-json modulis"
 
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr ""
+msgstr "Lai, pievienojot grāmatzīmi, saņemtu lapas virsrakstu, ir vajadzīgs php-curl modulis."
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr ""
+msgstr "Lai veidotu attēlu sīktēlus, ir vajadzīgs php-gd modulis"
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr ""
+msgstr "Lai savienotos ar ldap serveri, ir vajadzīgs php-ldap modulis"
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr ""
+msgstr "Lai lejupielādētu vairākas datnes vienlaicīgi, ir vajadzīgs php-zip modulis"
 
 #: settings.php:63
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
-msgstr ""
+msgstr "Lai pareizi pārvaldītu kodējumu, ir vajadzīgs php-mb_multibyte modulis."
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr ""
+msgstr "Lai pārbaudītu datus, ir vajadzīgs php-ctype moduis."
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr ""
+msgstr "Lai koplietotu datnes ar webdav, ir vajadzīgs php-xml modulis."
 
 #: settings.php:81
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr ""
+msgstr "Lai saņemtu zināšanu bāzi no OCS serveriem, php.ini datnes direktīva allow_url_fopen ir jāiestata uz 1."
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr ""
+msgstr "Lai saglabātu mākoņa datus datubāzē, ir vajadzīgs php-pdo modulis."
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr "Lai pārveidotu datus uz pareizu rakstzīmju kopu, ir vajadzīgs iconv modulis."
 
 #: templates/settings.php:2
 msgid "Dependencies status"
-msgstr ""
+msgstr "Atkarību statuss"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr ""
+msgstr "Izmanto:"

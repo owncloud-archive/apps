@@ -40,7 +40,7 @@ class OC_Calendar_Calendar{
 		$active_where = '';
 		if (!is_null($active) && $active) {
 			$active_where = ' AND `active` = ?';
-			$values[] = $active;
+			$values[] = (int)$active;
 		}
 		$stmt = OCP\DB::prepare( 'SELECT * FROM `*PREFIX*calendar_calendars` WHERE `userid` = ?' . $active_where );
 		$result = $stmt->execute($values);
@@ -115,6 +115,21 @@ class OC_Calendar_Calendar{
 		OCP\Util::emitHook('OC_Calendar', 'addCalendar', $insertid);
 
 		return $insertid;
+	}
+
+	/**
+	 * @brief Creates default calendars
+	 * @param string $userid
+	 * @return boolean
+	 */
+	public static function addDefaultCalendars($userid = null) {
+		if(is_null($userid)) {
+			$userid = OCP\USER::getUser();
+		}
+		
+		$id = self::addCalendar($userid,'Default calendar');
+
+		return true;
 	}
 
 	/**
@@ -199,7 +214,7 @@ class OC_Calendar_Calendar{
 			}
 		}
 		$stmt = OCP\DB::prepare( 'UPDATE `*PREFIX*calendar_calendars` SET `active` = ? WHERE `id` = ?' );
-		$stmt->execute(array($active, $id));
+		$stmt->execute(array((int)$active, $id));
 
 		return true;
 	}
@@ -243,7 +258,7 @@ class OC_Calendar_Calendar{
 
 		OCP\Util::emitHook('OC_Calendar', 'deleteCalendar', $id);
 		if(OCP\USER::isLoggedIn() and count(self::allCalendars(OCP\USER::getUser())) == 0) {
-			self::addCalendar(OCP\USER::getUser(),'Default calendar');
+			self::addDefaultCalendars(OCP\USER::getUser());
 		}
 
 		return true;
@@ -362,7 +377,7 @@ class OC_Calendar_Calendar{
 		}
 		$red = hexdec(substr($calendarcolor,0,2));
 		$green = hexdec(substr($calendarcolor,2,2));
-		$blue = hexdec(substr($calendarcolor,2,2));
+		$blue = hexdec(substr($calendarcolor,4,2));
 		//recommendation by W3C
 		$computation = ((($red * 299) + ($green * 587) + ($blue * 114)) / 1000);
 		return ($computation > 130)?'#000000':'#FAFAFA';

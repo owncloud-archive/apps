@@ -4,14 +4,16 @@
 "albums" => "álbuns",
 "Add to playlist" => "Acrescentar à lista de reprodução",
 "Add album to playlist" => "Adicionar album à lista de reprodução",
+"Previous" => "Anterior",
 "Play" => "Reproduzir",
 "Pause" => "Pausa",
-"Previous" => "Anterior",
 "Next" => "Próximo",
 "Mute" => "Mudo",
 "Unmute" => "Som",
 "Rescan Collection" => "Reverificar coleção",
 "Artist" => "Artista",
 "Album" => "Álbum",
-"Title" => "Título"
+"Title" => "Título",
+"Media" => "Media",
+"Ampache address:" => "Endereço Ampache:"
 );

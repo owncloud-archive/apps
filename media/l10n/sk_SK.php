@@ -4,14 +4,16 @@
 "albums" => "albumy",
 "Add to playlist" => "Pridať do playlistu",
 "Add album to playlist" => "Pridať album do playlistu",
+"Previous" => "Predchádzajúce",
 "Play" => "Prehrať",
 "Pause" => "Pauza",
-"Previous" => "Predchádzajúce",
 "Next" => "Ďalšie",
 "Mute" => "Stlmiť",
 "Unmute" => "Nahlas",
 "Rescan Collection" => "Znovu skenovať zbierku",
 "Artist" => "Umelec",
 "Album" => "Album",
-"Title" => "Názov"
+"Title" => "Názov",
+"Media" => "Média",
+"Ampache address:" => "Adresa ampache:"
 );

@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-03-18 00:00+0100\n"
+"PO-Revision-Date: 2012-09-03 13:15+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Nepali (http://www.transifex.com/projects/p/owncloud/language/ne/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ne\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/noemail.php:2 templates/settings.php:2
+msgid "Mozilla Sync Service"
+msgstr ""
+
+#: templates/noemail.php:3
+msgid "Please set your email address in account settings"
+msgstr ""
+
+#: templates/settings.php:6
+msgid "Email"
+msgstr ""
+
+#: templates/settings.php:10
+msgid "Password and Confirmation"
+msgstr ""
+
+#: templates/settings.php:14
+msgid "Server address"
+msgstr ""

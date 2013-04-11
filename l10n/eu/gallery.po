@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <asieriko@gmail.com>, 2013.
 #   <asieriko@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-14 02:01+0200\n"
-"PO-Revision-Date: 2012-09-13 15:23+0000\n"
+"POT-Creation-Date: 2013-02-23 00:01+0100\n"
+"PO-Revision-Date: 2013-02-22 22:30+0000\n"
 "Last-Translator: asieriko <asieriko@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -18,29 +19,17 @@ msgstr ""
 "Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Argazkiak"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "Galeriak"
+#: js/gallery.js:245
+msgid "Shared by"
+msgstr "Honek elkarbanatuta"
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Elkarbanatu galeria"
-
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Errorea:"
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Barne errorea"
-
-#: templates/index.php:27
-msgid "Slideshow"
-msgstr "Diapositiba-aurkezpena"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Elkarbanatu"
 
 #: templates/no-image-app.php:9
 msgid ""

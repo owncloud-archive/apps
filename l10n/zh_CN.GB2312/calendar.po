@@ -5,13 +5,14 @@
 # Translators:
 #   <bluehattree@126.com>, 2012.
 # marguerite su <i@marguerite.su>, 2012.
+# 夕月木 <xiyuemu26@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-21 00:01+0100\n"
-"PO-Revision-Date: 2012-11-19 23:14+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 11:31+0000\n"
+"Last-Translator: 鹏燊 罗 <xiyuemu26@gmail.com>\n"
 "Language-Team: Chinese (China) (GB2312) (http://www.transifex.com/projects/p/owncloud/language/zh_CN.GB2312/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,9 +36,13 @@ msgstr "未找到日程表。"
 msgid "No events found."
 msgstr "未找到事件。"
 
-#: ajax/event/edit.form.php:20
+#: ajax/event/edit.form.php:21
 msgid "Wrong calendar"
 msgstr "错误的日历"
+
+#: ajax/event/edit.form.php:221 lib/object.php:196 lib/object.php:232
+msgid "You do not have the permissions to edit this event."
+msgstr "您没有权限编辑此事件。"
 
 #: ajax/import/dropimport.php:29 ajax/import/import.php:65
 msgid ""
@@ -57,7 +62,7 @@ msgstr "导入失败"
 msgid "events has been saved in your calendar"
 msgstr "事件已保存在您的日程表"
 
-#: ajax/settings/guesstimezone.php:25
+#: ajax/settings/guesstimezone.php:26
 msgid "New Timezone:"
 msgstr "新时区"
 
@@ -69,8 +74,8 @@ msgstr "时区改变了"
 msgid "Invalid request"
 msgstr "非法请求"
 
-#: appinfo/app.php:38 templates/calendar.php:15
-#: templates/part.eventform.php:33 templates/part.showevent.php:33
+#: appinfo/app.php:38 js/l10n.php:55 templates/part.eventform.php:30
+#: templates/part.showevent.php:37
 msgid "Calendar"
 msgstr "日历"
 
@@ -130,268 +135,392 @@ msgstr "MMM d[ yyyy]{ '&#8212;'[ MMM] d yyyy}"
 msgid "dddd, MMM d, yyyy"
 msgstr "dddd, MMM d, yyyy"
 
-#: lib/app.php:114
-msgid "Birthday"
-msgstr "生日"
-
-#: lib/app.php:115
-msgid "Business"
-msgstr "商务"
-
-#: lib/app.php:116
-msgid "Call"
-msgstr "呼叫"
-
-#: lib/app.php:117
-msgid "Clients"
-msgstr "客户端"
-
-#: lib/app.php:118
-msgid "Deliverer"
-msgstr "交付者"
-
-#: lib/app.php:119
-msgid "Holidays"
-msgstr "假期"
-
-#: lib/app.php:120
-msgid "Ideas"
-msgstr "灵感"
-
-#: lib/app.php:121
-msgid "Journey"
-msgstr "旅行"
-
-#: lib/app.php:122
-msgid "Jubilee"
-msgstr "五十年纪念"
-
-#: lib/app.php:123
-msgid "Meeting"
-msgstr "会面"
-
-#: lib/app.php:124
-msgid "Other"
-msgstr "其它"
-
-#: lib/app.php:125
-msgid "Personal"
-msgstr "个人的"
-
-#: lib/app.php:126
-msgid "Projects"
-msgstr "项目"
-
-#: lib/app.php:127
-msgid "Questions"
-msgstr "问题"
-
-#: lib/app.php:128
-msgid "Work"
-msgstr "工作"
-
-#: lib/app.php:362 lib/share/event.php:27
-msgid "by"
-msgstr "由"
-
-#: lib/app.php:400
-msgid "unnamed"
-msgstr "未命名"
-
-#: lib/calendar.php:163 lib/calendar.php:196
-msgid "You do not have the permissions to update this calendar."
-msgstr "您没有权限更新此日程表。"
-
-#: lib/calendar.php:231
-msgid "You do not have the permissions to delete this calendar."
-msgstr "您没有权限删除此日程表。"
-
-#: lib/calendar.php:265
-msgid "You do not have the permissions to add to this calendar."
-msgstr "您没有权限添加到此日程表。"
-
-#: lib/import.php:214 templates/calendar.php:12
-#: templates/part.choosecalendar.php:22
-msgid "New Calendar"
-msgstr "新的日历"
-
-#: lib/object.php:122 lib/object.php:162 lib/object.php:310
-msgid "You do not have the permissions to add events to this calendar."
-msgstr "您没有权限向此日程表添加事件。"
-
-#: lib/object.php:194 lib/object.php:228
-msgid "You do not have the permissions to edit this event."
-msgstr "您没有权限编辑此事件。"
-
-#: lib/object.php:258 lib/object.php:290
-msgid "You do not have the permissions to delete this event."
-msgstr "您没有权限删除此事件。"
-
-#: lib/object.php:455
-msgid "Does not repeat"
-msgstr "不要重复"
-
-#: lib/object.php:456
-msgid "Daily"
-msgstr "每天"
-
-#: lib/object.php:457
-msgid "Weekly"
-msgstr "每星期"
-
-#: lib/object.php:458
-msgid "Every Weekday"
-msgstr "每个周末"
-
-#: lib/object.php:459
-msgid "Bi-Weekly"
-msgstr "每两周"
-
-#: lib/object.php:460
-msgid "Monthly"
-msgstr "每个月"
-
-#: lib/object.php:461
-msgid "Yearly"
-msgstr "每年"
-
-#: lib/object.php:471
-msgid "never"
-msgstr "从不"
-
-#: lib/object.php:472
-msgid "by occurrences"
-msgstr "根据发生时"
-
-#: lib/object.php:473
-msgid "by date"
-msgstr "根据日期"
-
-#: lib/object.php:483
-msgid "by monthday"
-msgstr "根据月天"
-
-#: lib/object.php:484
-msgid "by weekday"
-msgstr "根据星期"
-
-#: lib/object.php:494 templates/calendar.php:5 templates/settings.php:69
-msgid "Monday"
-msgstr "星期一"
-
-#: lib/object.php:495 templates/calendar.php:5
-msgid "Tuesday"
-msgstr "星期二"
-
-#: lib/object.php:496 templates/calendar.php:5
-msgid "Wednesday"
-msgstr "星期三"
-
-#: lib/object.php:497 templates/calendar.php:5
-msgid "Thursday"
-msgstr "星期四"
-
-#: lib/object.php:498 templates/calendar.php:5
-msgid "Friday"
-msgstr "星期五"
-
-#: lib/object.php:499 templates/calendar.php:5
-msgid "Saturday"
-msgstr "星期六"
-
-#: lib/object.php:500 templates/calendar.php:5 templates/settings.php:70
+#: js/l10n.php:45 lib/object.php:555 templates/settings.php:70
 msgid "Sunday"
 msgstr "星期天"
 
-#: lib/object.php:510
-msgid "events week of month"
-msgstr "时间每月发生的周数"
+#: js/l10n.php:45 lib/object.php:549 templates/settings.php:69
+msgid "Monday"
+msgstr "星期一"
 
-#: lib/object.php:511
-msgid "first"
-msgstr "首先"
+#: js/l10n.php:45 lib/object.php:550
+msgid "Tuesday"
+msgstr "星期二"
 
-#: lib/object.php:512
-msgid "second"
-msgstr "其次"
+#: js/l10n.php:45 lib/object.php:551
+msgid "Wednesday"
+msgstr "星期三"
 
-#: lib/object.php:513
-msgid "third"
-msgstr "第三"
+#: js/l10n.php:45 lib/object.php:552
+msgid "Thursday"
+msgstr "星期四"
 
-#: lib/object.php:514
-msgid "fourth"
-msgstr "第四"
+#: js/l10n.php:45 lib/object.php:553
+msgid "Friday"
+msgstr "星期五"
 
-#: lib/object.php:515
-msgid "fifth"
-msgstr "第五"
+#: js/l10n.php:45 lib/object.php:554
+msgid "Saturday"
+msgstr "星期六"
 
-#: lib/object.php:516
-msgid "last"
-msgstr "最后"
+#: js/l10n.php:46
+msgid "Sun."
+msgstr "星期日"
 
-#: lib/object.php:550 templates/calendar.php:7
+#: js/l10n.php:46
+msgid "Mon."
+msgstr "星期一"
+
+#: js/l10n.php:46
+msgid "Tue."
+msgstr "星期二"
+
+#: js/l10n.php:46
+msgid "Wed."
+msgstr "星期三"
+
+#: js/l10n.php:46
+msgid "Thu."
+msgstr "星期四"
+
+#: js/l10n.php:46
+msgid "Fri."
+msgstr "星期五"
+
+#: js/l10n.php:46
+msgid "Sat."
+msgstr "星期六"
+
+#: js/l10n.php:47 lib/object.php:605
 msgid "January"
 msgstr "一月"
 
-#: lib/object.php:551 templates/calendar.php:7
+#: js/l10n.php:47 lib/object.php:606
 msgid "February"
 msgstr "二月"
 
-#: lib/object.php:552 templates/calendar.php:7
+#: js/l10n.php:47 lib/object.php:607
 msgid "March"
 msgstr "三月"
 
-#: lib/object.php:553 templates/calendar.php:7
+#: js/l10n.php:47 lib/object.php:608
 msgid "April"
 msgstr "四月"
 
-#: lib/object.php:554 templates/calendar.php:7
+#: js/l10n.php:47 lib/object.php:609
 msgid "May"
 msgstr "五月"
 
-#: lib/object.php:555 templates/calendar.php:7
+#: js/l10n.php:47 lib/object.php:610
 msgid "June"
 msgstr "六月"
 
-#: lib/object.php:556 templates/calendar.php:7
+#: js/l10n.php:47 lib/object.php:611
 msgid "July"
 msgstr "七月"
 
-#: lib/object.php:557 templates/calendar.php:7
+#: js/l10n.php:47 lib/object.php:612
 msgid "August"
 msgstr "八月"
 
-#: lib/object.php:558 templates/calendar.php:7
+#: js/l10n.php:47 lib/object.php:613
 msgid "September"
 msgstr "九月"
 
-#: lib/object.php:559 templates/calendar.php:7
+#: js/l10n.php:47 lib/object.php:614
 msgid "October"
 msgstr "十月"
 
-#: lib/object.php:560 templates/calendar.php:7
+#: js/l10n.php:47 lib/object.php:615
 msgid "November"
 msgstr "十一月"
 
-#: lib/object.php:561 templates/calendar.php:7
+#: js/l10n.php:47 lib/object.php:616
 msgid "December"
 msgstr "十二月"
 
+#: js/l10n.php:48
+msgid "Jan."
+msgstr "一月"
+
+#: js/l10n.php:48
+msgid "Feb."
+msgstr "二月"
+
+#: js/l10n.php:48
+msgid "Mar."
+msgstr "三月"
+
+#: js/l10n.php:48
+msgid "Apr."
+msgstr "四月"
+
+#: js/l10n.php:48
+msgid "May."
+msgstr "五月"
+
+#: js/l10n.php:48
+msgid "Jun."
+msgstr "六月"
+
+#: js/l10n.php:48
+msgid "Jul."
+msgstr "七月"
+
+#: js/l10n.php:48
+msgid "Aug."
+msgstr "八月"
+
+#: js/l10n.php:48
+msgid "Sep."
+msgstr "九月"
+
+#: js/l10n.php:48
+msgid "Oct."
+msgstr "十月"
+
+#: js/l10n.php:48
+msgid "Nov."
+msgstr "十一月"
+
+#: js/l10n.php:48
+msgid "Dec."
+msgstr "十二月"
+
+#: js/l10n.php:51
+msgid "All day"
+msgstr "整天"
+
+#: js/l10n.php:52 lib/import.php:216 templates/part.choosecalendar.php:23
+msgid "New Calendar"
+msgstr "新的日历"
+
+#: js/l10n.php:53
+msgid "Missing or invalid fields"
+msgstr "字段缺失或无效"
+
+#: js/l10n.php:54 templates/part.eventform.php:16
+#: templates/part.showevent.php:11
+msgid "Title"
+msgstr "标题"
+
+#: js/l10n.php:56
+msgid "From Date"
+msgstr "从日期"
+
+#: js/l10n.php:57
+msgid "From Time"
+msgstr "从时间"
+
+#: js/l10n.php:58
+msgid "To Date"
+msgstr "到日期"
+
+#: js/l10n.php:59
+msgid "To Time"
+msgstr "到时间"
+
+#: js/l10n.php:60
+msgid "The event ends before it starts"
+msgstr "在它开始前需要结束的事件"
+
+#: js/l10n.php:61
+msgid "There was a database fail"
+msgstr "发生了一个数据库失败"
+
+#: lib/app.php:121
+msgid "Birthday"
+msgstr "生日"
+
+#: lib/app.php:122
+msgid "Business"
+msgstr "商务"
+
+#: lib/app.php:123
+msgid "Call"
+msgstr "呼叫"
+
+#: lib/app.php:124
+msgid "Clients"
+msgstr "客户端"
+
+#: lib/app.php:125
+msgid "Deliverer"
+msgstr "交付者"
+
+#: lib/app.php:126
+msgid "Holidays"
+msgstr "假期"
+
+#: lib/app.php:127
+msgid "Ideas"
+msgstr "灵感"
+
+#: lib/app.php:128
+msgid "Journey"
+msgstr "旅行"
+
+#: lib/app.php:129
+msgid "Jubilee"
+msgstr "五十年纪念"
+
+#: lib/app.php:130
+msgid "Meeting"
+msgstr "会面"
+
+#: lib/app.php:131
+msgid "Other"
+msgstr "其它"
+
+#: lib/app.php:132
+msgid "Personal"
+msgstr "个人的"
+
+#: lib/app.php:133
+msgid "Projects"
+msgstr "项目"
+
+#: lib/app.php:134
+msgid "Questions"
+msgstr "问题"
+
+#: lib/app.php:135
+msgid "Work"
+msgstr "工作"
+
+#: lib/app.php:403
+msgid "by"
+msgstr "由"
+
+#: lib/app.php:467
+msgid "unnamed"
+msgstr "未命名"
+
+#: lib/calendar.php:178 lib/calendar.php:211
+msgid "You do not have the permissions to update this calendar."
+msgstr "您没有权限更新此日程表。"
+
+#: lib/calendar.php:246
+msgid "You do not have the permissions to delete this calendar."
+msgstr "您没有权限删除此日程表。"
+
+#: lib/calendar.php:280
+msgid "You do not have the permissions to add to this calendar."
+msgstr "您没有权限添加到此日程表。"
+
+#: lib/object.php:122 lib/object.php:162 lib/object.php:316
+msgid "You do not have the permissions to add events to this calendar."
+msgstr "您没有权限向此日程表添加事件。"
+
+#: lib/object.php:264 lib/object.php:296
+msgid "You do not have the permissions to delete this event."
+msgstr "您没有权限删除此事件。"
+
+#: lib/object.php:481
+msgid "Busy"
+msgstr "忙"
+
+#: lib/object.php:498
+msgid "Public"
+msgstr "共享"
+
+#: lib/object.php:499
+msgid "Private"
+msgstr "私人"
+
+#: lib/object.php:500
+msgid "Confidential"
+msgstr "保密"
+
+#: lib/object.php:510
+msgid "Does not repeat"
+msgstr "不要重复"
+
+#: lib/object.php:511
+msgid "Daily"
+msgstr "每天"
+
+#: lib/object.php:512
+msgid "Weekly"
+msgstr "每星期"
+
+#: lib/object.php:513
+msgid "Every Weekday"
+msgstr "每个周末"
+
+#: lib/object.php:514
+msgid "Bi-Weekly"
+msgstr "每两周"
+
+#: lib/object.php:515
+msgid "Monthly"
+msgstr "每个月"
+
+#: lib/object.php:516
+msgid "Yearly"
+msgstr "每年"
+
+#: lib/object.php:526
+msgid "never"
+msgstr "从不"
+
+#: lib/object.php:527
+msgid "by occurrences"
+msgstr "根据发生时"
+
+#: lib/object.php:528
+msgid "by date"
+msgstr "根据日期"
+
+#: lib/object.php:538
+msgid "by monthday"
+msgstr "根据月天"
+
+#: lib/object.php:539
+msgid "by weekday"
+msgstr "根据星期"
+
+#: lib/object.php:565
+msgid "events week of month"
+msgstr "时间每月发生的周数"
+
+#: lib/object.php:566
+msgid "first"
+msgstr "首先"
+
+#: lib/object.php:567
+msgid "second"
+msgstr "其次"
+
+#: lib/object.php:568
+msgid "third"
+msgstr "第三"
+
+#: lib/object.php:569
+msgid "fourth"
+msgstr "第四"
+
+#: lib/object.php:570
+msgid "fifth"
+msgstr "第五"
+
 #: lib/object.php:571
+msgid "last"
+msgstr "最后"
+
+#: lib/object.php:626
 msgid "by events date"
 msgstr "根据时间日期"
 
-#: lib/object.php:572
+#: lib/object.php:627
 msgid "by yearday(s)"
 msgstr "根据年数"
 
-#: lib/object.php:573
+#: lib/object.php:628
 msgid "by weeknumber(s)"
 msgstr "根据周数"
 
-#: lib/object.php:574
+#: lib/object.php:629
 msgid "by day and month"
 msgstr "根据天和月"
 
@@ -404,139 +533,22 @@ msgid "Cal."
 msgstr "Cal."
 
 #: templates/calendar.php:6
-msgid "Sun."
-msgstr "星期日"
-
-#: templates/calendar.php:6
-msgid "Mon."
-msgstr "星期一"
-
-#: templates/calendar.php:6
-msgid "Tue."
-msgstr "星期二"
-
-#: templates/calendar.php:6
-msgid "Wed."
-msgstr "星期三"
-
-#: templates/calendar.php:6
-msgid "Thu."
-msgstr "星期四"
-
-#: templates/calendar.php:6
-msgid "Fri."
-msgstr "星期五"
-
-#: templates/calendar.php:6
-msgid "Sat."
-msgstr "星期六"
-
-#: templates/calendar.php:8
-msgid "Jan."
-msgstr "一月"
-
-#: templates/calendar.php:8
-msgid "Feb."
-msgstr "二月"
-
-#: templates/calendar.php:8
-msgid "Mar."
-msgstr "三月"
-
-#: templates/calendar.php:8
-msgid "Apr."
-msgstr "四月"
-
-#: templates/calendar.php:8
-msgid "May."
-msgstr "五月"
-
-#: templates/calendar.php:8
-msgid "Jun."
-msgstr "六月"
-
-#: templates/calendar.php:8
-msgid "Jul."
-msgstr "七月"
-
-#: templates/calendar.php:8
-msgid "Aug."
-msgstr "八月"
-
-#: templates/calendar.php:8
-msgid "Sep."
-msgstr "九月"
-
-#: templates/calendar.php:8
-msgid "Oct."
-msgstr "十月"
-
-#: templates/calendar.php:8
-msgid "Nov."
-msgstr "十一月"
-
-#: templates/calendar.php:8
-msgid "Dec."
-msgstr "十二月"
-
-#: templates/calendar.php:11
-msgid "All day"
-msgstr "整天"
-
-#: templates/calendar.php:13
-msgid "Missing or invalid fields"
-msgstr ""
-
-#: templates/calendar.php:14 templates/part.eventform.php:19
-#: templates/part.showevent.php:11
-msgid "Title"
-msgstr "标题"
-
-#: templates/calendar.php:16
-msgid "From Date"
-msgstr "从日期"
-
-#: templates/calendar.php:17
-msgid "From Time"
-msgstr "从时间"
-
-#: templates/calendar.php:18
-msgid "To Date"
-msgstr "到日期"
-
-#: templates/calendar.php:19
-msgid "To Time"
-msgstr "到时间"
-
-#: templates/calendar.php:20
-msgid "The event ends before it starts"
-msgstr "在它开始前需要结束的事件"
-
-#: templates/calendar.php:21
-msgid "There was a database fail"
-msgstr "发生了一个数据库失败"
-
-#: templates/calendar.php:39
 msgid "Week"
 msgstr "星期"
 
-#: templates/calendar.php:40
+#: templates/calendar.php:7
 msgid "Month"
 msgstr "月"
 
-#: templates/calendar.php:41
+#: templates/calendar.php:8
 msgid "List"
 msgstr "列表"
 
-#: templates/calendar.php:45
+#: templates/calendar.php:12
 msgid "Today"
 msgstr "今天"
 
-#: templates/calendar.php:46
-msgid "Calendars"
-msgstr "日程表"
-
-#: templates/calendar.php:47
+#: templates/calendar.php:13
 msgid "Settings"
 msgstr "设置"
 
@@ -544,7 +556,7 @@ msgstr "设置"
 msgid "Your calendars"
 msgstr "您的日程表"
 
-#: templates/part.choosecalendar.php:27
+#: templates/part.choosecalendar.php:28
 #: templates/part.choosecalendar.rowfields.php:24
 msgid "CalDav Link"
 msgstr "CalDav 链接"
@@ -565,10 +577,6 @@ msgstr "编辑"
 #: templates/part.editevent.php:9
 msgid "Delete"
 msgstr "删除"
-
-#: templates/part.choosecalendar.rowfields.shared.php:4
-msgid "shared with you by"
-msgstr "分享给您的日程表，由"
 
 #: templates/part.editcalendar.php:9
 msgid "New calendar"
@@ -611,120 +619,124 @@ msgstr "编辑一个事件"
 msgid "Export"
 msgstr "导出"
 
-#: templates/part.eventform.php:8 templates/part.showevent.php:3
+#: templates/part.eventform.php:5 templates/part.showevent.php:3
 msgid "Eventinfo"
 msgstr "事件信息"
 
-#: templates/part.eventform.php:9 templates/part.showevent.php:4
+#: templates/part.eventform.php:6 templates/part.showevent.php:4
 msgid "Repeating"
 msgstr "重复"
 
-#: templates/part.eventform.php:10 templates/part.showevent.php:5
+#: templates/part.eventform.php:7 templates/part.showevent.php:5
 msgid "Alarm"
 msgstr "提醒"
 
-#: templates/part.eventform.php:11 templates/part.showevent.php:6
+#: templates/part.eventform.php:8 templates/part.showevent.php:6
 msgid "Attendees"
 msgstr "参与人"
 
-#: templates/part.eventform.php:13
+#: templates/part.eventform.php:10
 msgid "Share"
 msgstr "分享"
 
-#: templates/part.eventform.php:21
+#: templates/part.eventform.php:18
 msgid "Title of the Event"
 msgstr "事件的标题"
 
-#: templates/part.eventform.php:27 templates/part.showevent.php:19
+#: templates/part.eventform.php:24 templates/part.showevent.php:19
 msgid "Category"
 msgstr "分类"
 
-#: templates/part.eventform.php:29
+#: templates/part.eventform.php:26
 msgid "Separate categories with commas"
 msgstr "用逗号分隔分类"
 
-#: templates/part.eventform.php:30
+#: templates/part.eventform.php:27
 msgid "Edit categories"
 msgstr "编辑分类"
 
-#: templates/part.eventform.php:56 templates/part.showevent.php:52
+#: templates/part.eventform.php:47 templates/part.showevent.php:50
+msgid "Access Class"
+msgstr "访问规则"
+
+#: templates/part.eventform.php:64 templates/part.showevent.php:66
 msgid "All Day Event"
 msgstr "每天的事件"
 
-#: templates/part.eventform.php:60 templates/part.showevent.php:56
+#: templates/part.eventform.php:68 templates/part.showevent.php:70
 msgid "From"
 msgstr "从"
 
-#: templates/part.eventform.php:68 templates/part.showevent.php:64
+#: templates/part.eventform.php:76 templates/part.showevent.php:78
 msgid "To"
 msgstr "到"
 
-#: templates/part.eventform.php:76 templates/part.showevent.php:72
+#: templates/part.eventform.php:84 templates/part.showevent.php:86
 msgid "Advanced options"
 msgstr "进阶选项"
 
-#: templates/part.eventform.php:81 templates/part.showevent.php:77
+#: templates/part.eventform.php:89 templates/part.showevent.php:91
 msgid "Location"
 msgstr "地点"
 
-#: templates/part.eventform.php:83
+#: templates/part.eventform.php:91
 msgid "Location of the Event"
 msgstr "事件的地点"
 
-#: templates/part.eventform.php:89 templates/part.showevent.php:85
+#: templates/part.eventform.php:97 templates/part.showevent.php:99
 msgid "Description"
 msgstr "解释"
 
-#: templates/part.eventform.php:91
+#: templates/part.eventform.php:99
 msgid "Description of the Event"
 msgstr "事件描述"
 
-#: templates/part.eventform.php:100 templates/part.showevent.php:95
+#: templates/part.eventform.php:108 templates/part.showevent.php:109
 msgid "Repeat"
 msgstr "重复"
 
-#: templates/part.eventform.php:107 templates/part.showevent.php:102
+#: templates/part.eventform.php:115 templates/part.showevent.php:116
 msgid "Advanced"
 msgstr "进阶"
 
-#: templates/part.eventform.php:151 templates/part.showevent.php:146
+#: templates/part.eventform.php:159 templates/part.showevent.php:160
 msgid "Select weekdays"
 msgstr "选择星期"
 
-#: templates/part.eventform.php:164 templates/part.eventform.php:177
-#: templates/part.showevent.php:159 templates/part.showevent.php:172
+#: templates/part.eventform.php:172 templates/part.eventform.php:185
+#: templates/part.showevent.php:173 templates/part.showevent.php:186
 msgid "Select days"
 msgstr "选择日"
 
-#: templates/part.eventform.php:169 templates/part.showevent.php:164
+#: templates/part.eventform.php:177 templates/part.showevent.php:178
 msgid "and the events day of year."
 msgstr "选择每年时间发生天数"
 
-#: templates/part.eventform.php:182 templates/part.showevent.php:177
+#: templates/part.eventform.php:190 templates/part.showevent.php:191
 msgid "and the events day of month."
 msgstr "选择每个月事件发生的天"
 
-#: templates/part.eventform.php:190 templates/part.showevent.php:185
+#: templates/part.eventform.php:198 templates/part.showevent.php:199
 msgid "Select months"
 msgstr "选择月份"
 
-#: templates/part.eventform.php:203 templates/part.showevent.php:198
+#: templates/part.eventform.php:211 templates/part.showevent.php:212
 msgid "Select weeks"
 msgstr "选择星期"
 
-#: templates/part.eventform.php:208 templates/part.showevent.php:203
+#: templates/part.eventform.php:216 templates/part.showevent.php:217
 msgid "and the events week of year."
 msgstr "每年时间发生的星期"
 
-#: templates/part.eventform.php:214 templates/part.showevent.php:209
+#: templates/part.eventform.php:222 templates/part.showevent.php:223
 msgid "Interval"
 msgstr "间隔"
 
-#: templates/part.eventform.php:220 templates/part.showevent.php:215
+#: templates/part.eventform.php:228 templates/part.showevent.php:229
 msgid "End"
 msgstr "结束"
 
-#: templates/part.eventform.php:233 templates/part.showevent.php:228
+#: templates/part.eventform.php:241 templates/part.showevent.php:242
 msgid "occurrences"
 msgstr "发生"
 
@@ -804,11 +816,11 @@ msgstr "查看事件"
 msgid "No categories selected"
 msgstr "未选中分类"
 
-#: templates/part.showevent.php:37
+#: templates/part.showevent.php:41
 msgid "of"
 msgstr "的"
 
-#: templates/part.showevent.php:59 templates/part.showevent.php:67
+#: templates/part.showevent.php:73 templates/part.showevent.php:81
 msgid "at"
 msgstr "于"
 

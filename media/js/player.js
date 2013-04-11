@@ -1,5 +1,5 @@
 var PlayList={
-	urlBase:OC.linkTo('media','ajax/api.php')+'?action=play&path=',
+	urlBase:OC.linkTo('media','ajax/api.php')+'?action=play&requesttoken=' + oc_requesttoken + '&path=',
 	current:-1,
 	items:[],
 	player:null,
@@ -25,7 +25,7 @@ var PlayList={
 	},
 	play:function(index,time,ready){
 		var items=PlayList.items;
-		if(index==null){
+		if(index===null){
 			index=PlayList.current;
 		}
 		PlayList.save();
@@ -36,22 +36,23 @@ var PlayList={
 					PlayList.player.jPlayer("play",time);
 					OC.localStorage.setItem('playlist_time',time);
 					PlayList.player.jPlayer("destroy");
-// 					PlayList.save(); // so that the init don't lose the playlist
+//					PlayList.save(); // so that the init don't lose the playlist
 					PlayList.init(items[index].type,null); // init calls load that calls play
 				}else{
 					PlayList.player.jPlayer("setMedia", items[PlayList.current]);
 					$(".jp-current-song").html(items[PlayList.current].name);
 					items[index].playcount++;
 					PlayList.player.jPlayer("play",time);
+					var previous, next;
 					if(index>0){
-						var previous=index-1;
+						previous=index-1;
 					}else{
-						var previous=items.length-1;
+						previous=items.length-1;
 					}
 					if(index+1<items.length){
-						var next=index+1;
+						next=index+1;
 					}else{
-						var next=0;
+						next=0;
 					}
 					$('.jp-next').attr('title',items[next].name);
 					$('.jp-previous').attr('title',items[previous].name);
@@ -107,7 +108,7 @@ var PlayList={
 			},
 			volume:PlayList.volume,
 			cssSelectorAncestor:'.player-controls',
-			swfPath:OC.linkTo('media','js'),
+			swfPath:OC.linkTo('media','js')
 		});
 	},
 	add:function(song,dontReset){
@@ -134,6 +135,7 @@ var PlayList={
 			var item={name:song.name,type:type,artist:song.artist,album:song.album,length:song.length,playcount:song.playCount};
 			item[type]=PlayList.urlBase+encodeURIComponent(song.path);
 			PlayList.items.push(item);
+			$('.jp-clear:hidden').show();
 		}
 	},
 	addFile:function(path){
@@ -146,10 +148,22 @@ var PlayList={
 		});
 		item[type]=PlayList.urlBase+encodeURIComponent(path);
 		PlayList.items.push(item);
+		$('.jp-clear:hidden').show();
+	},
+	clear:function(){
+		PlayList.items.length=0;
+		PlayList.player.jPlayer("stop");
+		PlayList.player.jPlayer("clearMedia");
+		PlayList.save();
+		PlayList.render();
+		$('.jp-clear:visible').hide();
 	},
 	remove:function(index){
 		PlayList.items.splice(index,1);
 		PlayList.render();
+		if (PlayList.items.length === 0 ) {
+			$('.jp-clear:visible').hide();
+		}
 	},
 	render:function(){},
 	playing:function(){
@@ -199,7 +213,7 @@ var PlayList={
 			}
 		}
 	}
-}
+};
 
 $(document).ready(function(){
 	$(window).bind('beforeunload', function (){
@@ -209,6 +223,6 @@ $(document).ready(function(){
 		}
 	});
 
-	$('jp-previous').tipsy({gravity:'n', fade:true, live:true});
-	$('jp-next').tipsy({gravity:'n', fade:true, live:true});
-})
+	$('.jp-previous').tipsy({gravity:'n', fade:true, live:true});
+	$('.jp-next').tipsy({gravity:'n', fade:true, live:true});
+});

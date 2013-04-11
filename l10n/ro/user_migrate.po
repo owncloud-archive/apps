@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Dumitru Ursu <>, 2013.
 #   <g.ciprian@osn.ro>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-19 02:03+0200\n"
-"PO-Revision-Date: 2012-09-18 11:45+0000\n"
-"Last-Translator: g.ciprian <g.ciprian@osn.ro>\n"
+"POT-Creation-Date: 2013-02-12 12:48+0100\n"
+"PO-Revision-Date: 2013-02-12 10:06+0000\n"
+"Last-Translator: Dimon Pockemon <>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,22 +32,9 @@ msgid "An error has occurred"
 msgstr "A apărut o eroare"
 
 #: templates/settings.php:2
-msgid "Export your user account"
-msgstr "Exportă contul tău de utilizator"
+msgid "User Account Migration"
+msgstr "Migrarea conturilor utilizatorilor"
 
 #: templates/settings.php:3
-msgid ""
-"This will create a compressed file that contains your ownCloud account."
-msgstr "Această acțiune va crea un fișier arhivă care va conține contul tău ownCloud."
-
-#: templates/settings.php:13
-msgid "Import user account"
-msgstr "Importă cont de utilzator"
-
-#: templates/settings.php:15
-msgid "ownCloud User Zip"
-msgstr "Arhivă utilizator ownCloud"
-
-#: templates/settings.php:17
-msgid "Import"
-msgstr "Importă"
+msgid "Export and import ownCloud user accounts."
+msgstr "Exportarea și importarea conturilor de utilizator de ownCloud"
