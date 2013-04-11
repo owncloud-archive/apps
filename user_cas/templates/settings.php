@@ -43,7 +43,6 @@
         <p><label for="cas_default_group"><?php p($l->t('Default group when autocreating users and not group data found for the user'));?></label><input type="text" id="cas_default_group" name="cas_default_group" value="<?php p($_['cas_default_group']); ?>"></p>
 	</fieldset>
 	<fieldset id="casSettings-3">
-		<p><label for="cas_username_mapping"><?php p($l->t('Username'));?></label><input type="text" id="cas_username_mapping" name="cas_username_mapping" value="<?php p($_['cas_username_mapping']); ?>" /></p>
 		<p><label for="cas_email_mapping"><?php p($l->t('Email'));?></label><input type="text" id="cas_email_mapping" name="cas_email_mapping" value="<?php p($_['cas_email_mapping']); ?>" /></p>
 		<p><label for="cas_group_mapping"><?php p($l->t('Group'));?></label><input type="text" id="cas_group_mapping" name="cas_group_mapping" value="<?php p($_['cas_group_mapping']); ?>" /></p>
 	</fieldset>
