@@ -412,7 +412,7 @@ OC.Contacts = OC.Contacts || {};
 			data: params
 		};
 		var defer = $.Deferred();
-		$.when($.ajax(ajaxParams)).then(function(response) {
+		/*$.when($.ajax(ajaxParams)).then(function(response) {
 			defer.resolve(new JSONResponse(response));
 		}).fail(function(jqxhr, textStatus, error) {
 			defer.reject(
@@ -421,7 +421,21 @@ OC.Contacts = OC.Contacts || {};
 					data:{message:t('contacts', 'Request failed: {error}', {error:textStatus + ', ' + error})}
 				})
 			);
-		});
+		});*/
+
+		var jqxhr = $.ajax(ajaxParams)
+			.done(function(response) {
+				defer.resolve(new JSONResponse(response));
+			})
+			.fail(function(jqxhr, textStatus, error) {
+				defer.reject(
+					new JSONResponse({
+						status:'error',
+						data:{message:t('contacts', 'Request failed: {error}', {error:textStatus + ', ' + error})}
+					})
+				);
+			});
+
 		return defer.promise();
 	}
 
