@@ -113,6 +113,9 @@ class VCard {
 	 * @return associative array or false.
 	 */
 	public static function find($id, $fields = array() ) {
+		if(count($fields) > 0 && !in_array('addressbookid', $fields)) {
+			$fields[] = 'addressbookid';
+		}
 		try {
 			$qfields = count($fields) > 0
 				? '`' . implode('`,`', $fields) . '`'
@@ -129,7 +132,17 @@ class VCard {
 			return false;
 		}
 
-		return $result->fetchRow();
+		$row = $result->fetchRow();
+		if($row) {
+			try {
+				$addressbook = Addressbook::find($row['addressbookid']);
+			} catch(\Exception $e) {
+				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
+				\OCP\Util::writeLog('contacts', __METHOD__.', id: '. $id, \OCP\Util::DEBUG);
+				throw $e;
+			}
+		}
+		return $row;
 	}
 
 	/**
