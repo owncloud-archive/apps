@@ -840,51 +840,60 @@ OC.Contacts = OC.Contacts || {
 			$list.append($li);
 		};
 
+		var $addAddressBookNew = this.$settings.find('.addaddressbook');
+		var $addAddressBookPart = $addAddressBookNew.next('ul');
+		var $addInput = $addAddressBookPart.find('input.addaddressbookinput').focus();
+		$addInput.on('keydown', function(event) {
+			if(event.keyCode === 13) {
+				event.stopPropagation();
+				$addAddressBookPart.find('.addaddressbookok').trigger('click');
+			}
+		});
+		$addAddressBookPart.on('click keydown', 'button', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			if($(this).is('.addaddressbookok')) {
+				if($addInput.val().trim() === '') {
+					return false;
+				} else {
+					var name = $addInput.val().trim();
+					$addInput.addClass('loading');
+					$addAddressBookPart.find('button input').prop('disabled', true);
+					console.log('adding', name);
+					self.addAddressbook({
+						name: name,
+						description: ''
+					}, function(response) {
+						if(!response || !response.status) {
+							OC.notify({
+								message:t('contacts', 'Network or server error. Please inform administrator.')
+							});
+							return false;
+						} else if(response.status === 'error') {
+							OC.notify({message: response.message});
+							return false;
+						} else if(response.status === 'success') {
+							var book = response.addressbook;
+							var $list = self.$settings.find('[data-id="addressbooks"]').next('ul');
+							appendAddressBook($list, book, true);
+						}
+						$addInput.removeClass('loading');
+						$addAddressBookPart.find('button input').prop('disabled', false);
+						$addAddressBookPart.hide().prev('button').show();
+					});
+				}
+			} else if($(this).is('.addaddressbookcancel')) {
+				$addAddressBookPart.hide().prev('button').show();
+			}
+		});
+
 		this.$settings.find('.addaddressbook').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
 			$(this).hide();
-			var $addAddressbookPart = $(this).next('ul').show();
-			var $addinput = $addAddressbookPart.find('input.addaddressbookinput').focus();
-			$addAddressbookPart.on('click keydown', 'button', function(event) {
-				if(wrongKey(event)) {
-					return;
-				}
-				if($(this).is('.addaddressbookok')) {
-					if($addinput.val().trim() === '') {
-						return false;
-					} else {
-						var name = $addinput.val().trim();
-						$addinput.addClass('loading');
-						$addAddressbookPart.find('button input').prop('disabled', true);
-						console.log('adding', name);
-						self.addAddressbook({
-							name: name,
-							description: ''
-						}, function(response) {
-							if(!response || !response.status) {
-								OC.notify({
-									message:t('contacts', 'Network or server error. Please inform administrator.')
-								});
-								return false;
-							} else if(response.status === 'error') {
-								OC.notify({message: response.message});
-								return false;
-							} else if(response.status === 'success') {
-								var book = response.addressbook;
-								var $list = self.$settings.find('[data-id="addressbooks"]').next('ul');
-								appendAddressBook($list, book, true);
-							}
-							$addinput.removeClass('loading');
-							$addAddressbookPart.find('button input').prop('disabled', false);
-							$addAddressbookPart.hide().prev('button').show();
-						});
-					}
-				} else if($(this).is('.addaddressbookcancel')) {
-					$addAddressbookPart.hide().prev('button').show();
-				}
-			});
+			$addAddressBookPart.show();
 		});
 
 		this.$settings.find('h2').on('click keydown', function(event) {
