@@ -15,7 +15,7 @@
 	<div id="contacts-settings">
 			<h3 class="settings action text" tabindex="0" role="button" title="<?php p($l->t('Settings')); ?>"></h3>
 			<h2 data-id="addressbooks" tabindex="0" role="button"><?php p($l->t('Address books')); ?></h2>
-				<ul class="hidden">
+				<ul class="hidden addressbooklist">
 				</ul>
 				<button class="addaddressbook icon-plus text"><?php p($l->t('New')); ?></button>
 				<ul class="hidden">

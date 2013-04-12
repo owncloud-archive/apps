@@ -399,6 +399,10 @@ ul.propertylist { width: 450px; }
 	font-size: 1.2em;
 }
 
+#contacts-settings .addressbooklist {
+	max-height: 250px;
+	overflow-y: auto;
+}
 /* Single elements */
 #file_upload_target, #import_upload_target, #crop_target { display:none; }
 #import_fileupload {
