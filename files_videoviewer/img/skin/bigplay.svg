@@ -1,1 +1,36 @@
-<?xml version="1.0" standalone="no"?><!-- Generator: Adobe Fireworks CS6, Export SVG Extension by Aaron Beall (http://fireworks.abeall.com) . Version: 0.6.1  --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg id="bigplay-gradient.fw-Page%201" viewBox="0 0 100 200" style="background-color:#ffffff00" version="1.1"	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"	x="0px" y="0px" width="100px" height="200px">	<defs>		<radialGradient id="gradient1" cx="50%" cy="50%" r="50%">			<stop stop-color="#222222" stop-opacity="0" offset="70%"/>			<stop stop-color="#222222" stop-opacity="0.0118" offset="70.202%"/>			<stop stop-color="#333333" stop-opacity="1" offset="85%"/>			<stop stop-color="#333333" stop-opacity="0" offset="100%"/>		</radialGradient>		<radialGradient id="gradient2" cx="50%" cy="50%" r="50%">			<stop stop-color="#bbbbbb" stop-opacity="0" offset="70%"/>			<stop stop-color="#bbbbbb" stop-opacity="0.0118" offset="70.202%"/>			<stop stop-color="#bbbbbb" stop-opacity="1" offset="85%"/>			<stop stop-color="#bbbbbb" stop-opacity="0" offset="100%"/>		</radialGradient>		<filter id="filter1" x="-100%" y="-100%" width="300%" height="300%">			<!-- Glow -->			<feColorMatrix result="out" in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.251 0"/>			<feMorphology result="out" in="out" operator="dilate" radius="3"/>			<feGaussianBlur result="out" in="out" stdDeviation="1.5"/>			<feBlend in="SourceGraphic" in2="out" mode="normal" result="Glow1"/>		</filter>		<filter id="filter2" x="-100%" y="-100%" width="300%" height="300%">			<!-- Glow -->			<feColorMatrix result="out" in="SourceGraphic" type="matrix" values="0 0 0 0.8667 0  0 0 0 0.8667 0  0 0 0 0.8667 0  0 0 0 0.251 0"/>			<feMorphology result="out" in="out" operator="dilate" radius="3"/>			<feGaussianBlur result="out" in="out" stdDeviation="1.5"/>			<feBlend in="SourceGraphic" in2="out" mode="normal" result="Glow2"/>		</filter>	</defs>	<g id="Background">	</g>	<g id="dark%20shadow">		<path d="M 22 50 C 22 34.5358 34.5358 22 50 22 C 65.4642 22 78 34.5358 78 50 C 78 65.4642 65.4642 78 50 78 C 34.5358 78 22 65.4642 22 50 ZM 5 50 C 5 74.8531 25.1469 95 50 95 C 74.8531 95 95 74.8531 95 50 C 95 25.1469 74.8531 5 50 5 C 25.1469 5 5 25.1469 5 50 Z" fill="url(#gradient1)"/>		<path d="M 22 150 C 22 134.5358 34.5358 122 50 122 C 65.4642 122 78 134.5358 78 150 C 78 165.4642 65.4642 178 50 178 C 34.5358 178 22 165.4642 22 150 ZM 5 150 C 5 174.8531 25.1469 195 50 195 C 74.8531 195 95 174.8531 95 150 C 95 125.1469 74.8531 105 50 105 C 25.1469 105 5 125.1469 5 150 Z" fill="url(#gradient2)"/>	</g>	<g id="dark">		<path id="Polygon" filter="url(#filter1)" d="M 72.5 49.5 L 38.75 68.9856 L 38.75 30.0144 L 72.5 49.5 Z" fill="#ffffff"/>		<path id="Ellipse" d="M 13 50.5 C 13 29.7891 29.7891 13 50.5 13 C 71.2109 13 88 29.7891 88 50.5 C 88 71.2109 71.2109 88 50.5 88 C 29.7891 88 13 71.2109 13 50.5 Z" stroke="#ffffff" stroke-width="5" fill="none"/>	</g>	<g id="light">		<path id="Polygon2" filter="url(#filter2)" d="M 72.5 149.5 L 38.75 168.9856 L 38.75 130.0144 L 72.5 149.5 Z" fill="#ffffff"/>		<path id="Ellipse2" d="M 13 150.5 C 13 129.7891 29.7891 113 50.5 113 C 71.2109 113 88 129.7891 88 150.5 C 88 171.211 71.2109 188 50.5 188 C 29.7891 188 13 171.211 13 150.5 Z" stroke="#ffffff" stroke-width="5" fill="none"/>	</g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg style="background-color:#ffffff00" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" height="200px" width="100px" version="1.1" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 200">
+	<defs>
+		<radialGradient id="b">
+			<stop stop-color="#222" stop-opacity="0" offset=".7"/>
+			<stop stop-color="#222" stop-opacity=".0118" offset=".70202"/>
+			<stop stop-color="#333" offset=".85"/>
+			<stop stop-color="#333" stop-opacity="0" offset="1"/>
+		</radialGradient>
+		<radialGradient id="a">
+			<stop stop-color="#bbb" stop-opacity="0" offset=".7"/>
+			<stop stop-color="#bbb" stop-opacity=".0118" offset=".70202"/>
+			<stop stop-color="#bbb" offset=".85"/>
+			<stop stop-color="#bbb" stop-opacity="0" offset="1"/>
+		</radialGradient>
+		<filter id="d" y="-100%" x="-100%" height="300%" width="300%">
+			<feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.251 0" type="matrix" result="out" in="SourceGraphic"/>
+			<feMorphology operator="dilate" radius="3" result="out" in="out"/>
+			<feGaussianBlur stdDeviation="1.5" result="out" in="out"/>
+			<feBlend result="Glow1" mode="normal" in2="out" in="SourceGraphic"/>
+		</filter>
+		<filter id="c" y="-100%" x="-100%" height="300%" width="300%">
+			<feColorMatrix values="0 0 0 0.8667 0  0 0 0 0.8667 0  0 0 0 0.8667 0  0 0 0 0.251 0" type="matrix" result="out" in="SourceGraphic"/>
+			<feMorphology operator="dilate" radius="3" result="out" in="out"/>
+			<feGaussianBlur stdDeviation="1.5" result="out" in="out"/>
+			<feBlend result="Glow2" mode="normal" in2="out" in="SourceGraphic"/>
+		</filter>
+	</defs>
+		<path d="m22 50c0-15.464 12.536-28 28-28s28 12.536 28 28-12.536 28-28 28-28-12.536-28-28zm-17 0c0 24.853 20.147 45 45 45s45-20.147 45-45-20.147-45-45-45-45 20.147-45 45z" fill="url(#b)"/>
+		<path d="m22 150c0-15.46 12.536-28 28-28s28 12.54 28 28-12.536 28-28 28-28-12.54-28-28zm-17 0c0 24.85 20.147 45 45 45s45-20.15 45-45-20.147-45-45-45-45 20.15-45 45z" fill="url(#a)"/>
+		<path filter="url(#d)" fill="#fff" d="m72.5 49.5l-33.75 19.486v-38.972l33.75 19.486z"/>
+		<path stroke="#fff" stroke-width="5" fill="none" d="m13 50.5c0-20.711 16.789-37.5 37.5-37.5s37.5 16.789 37.5 37.5-16.789 37.5-37.5 37.5-37.5-16.789-37.5-37.5z"/>
+		<path filter="url(#c)" fill="#fff" d="m72.5 149.5l-33.75 19.49v-38.98l33.75 19.49z"/>
+		<path stroke="#fff" stroke-width="5" fill="none" d="m13 150.5c0-20.71 16.789-37.5 37.5-37.5s37.5 16.79 37.5 37.5-16.789 37.5-37.5 37.5-37.5-16.79-37.5-37.5z"/>
+</svg>
