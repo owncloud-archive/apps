@@ -17,6 +17,7 @@ function getStandardImage() {
 	//OCP\Response::setExpiresHeader('P10D');
 	OCP\Response::enableCaching();
 	OCP\Response::redirect(OCP\Util::imagePath('contacts', 'person_large.png'));
+	exit();
 }
 
 $id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -35,7 +36,7 @@ if(!extension_loaded('gd') || !function_exists('gd_info')) {
 
 $contact = OC_Contacts_App::getContactVCard($id);
 $image = new OC_Image();
-if (!$image) {
+if (!$image || !$contact) {
 	getStandardImage();
 }
 // invalid vcard

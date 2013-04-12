@@ -103,7 +103,17 @@ class OC_Contacts_VCard {
 			return false;
 		}
 
-		return $result->fetchRow();
+		$row = $result->fetchRow();
+		if($row) {
+			try {
+				$addressbook = OC_Contacts_Addressbook::find($row['addressbookid']);
+			} catch(\Exception $e) {
+				\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
+				\OCP\Util::writeLog('contacts', __METHOD__.', id: '. $id, \OCP\Util::DEBUG);
+				throw $e;
+			}
+		}
+		return $row;
 	}
 
 	/**
