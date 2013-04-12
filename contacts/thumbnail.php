@@ -29,13 +29,13 @@ session_write_close();
 function getStandardImage() {
 	OCP\Response::enableCaching();
 	OCP\Response::redirect(OCP\Util::imagePath('contacts', 'person.png'));
+	exit();
 }
 
 if(!extension_loaded('gd') || !function_exists('gd_info')) {
 	OCP\Util::writeLog('contacts',
 		'thumbnail.php. GD module not installed', OCP\Util::DEBUG);
 	getStandardImage();
-	exit();
 }
 
 $id = $_GET['id'];
@@ -43,7 +43,11 @@ $caching = null;
 
 $image = OCA\Contacts\App::cacheThumbnail($id);
 if($image !== false) {
+	try {
 	$modified = OCA\Contacts\App::lastModified($id);
+	} catch(Exception $e) {
+		getStandardImage();
+	}
 	// Force refresh if modified within the last minute.
 	if(!is_null($modified)) {
 		$caching = (time() - $modified->format('U') > 60) ? null : 0;

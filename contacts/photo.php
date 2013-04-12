@@ -37,7 +37,7 @@ if(!extension_loaded('gd') || !function_exists('gd_info')) {
 
 $contact = OCA\Contacts\App::getContactVCard($id);
 $image = new OC_Image();
-if (!$image) {
+if (!$image || !$contact) {
 	getStandardImage();
 }
 // invalid vcard

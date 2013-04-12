@@ -53,6 +53,9 @@ class App {
 			return null;
 		}
 
+		if(!$card) {
+			return null;
+		}
 		try {
 			$vcard = \Sabre\VObject\Reader::read($card['carddata']);
 		} catch(\Exception $e) {
