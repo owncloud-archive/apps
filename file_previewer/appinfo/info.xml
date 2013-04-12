@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<info>
+	<id>file_previewer</id>
+	<name>File Viewer</name>
+	<description>Simple file viewer which converts word documents into html.</description>
+	<version>0.1</version>
+	<licence>AGPL</licence>
+	<author>Lloyd Harischandra</author>
+	<require>4.93</require>
+	<shipped>true</shipped>
+	<default_enable/>
+</info>
