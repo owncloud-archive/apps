@@ -14,13 +14,14 @@
 # Petros Kyladitis <petros.kyladitis@gmail.com>, 2011-2012.
 #  <vagelis@cyberdest.com>, 2013.
 #   <vagelis@cyberdest.com>, 2012.
+# Wasilis Mandratzis <m.wasilis@yahoo.de>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:31+0000\n"
-"Last-Translator: axil Pι <axilleas@archlinux.gr>\n"
+"POT-Creation-Date: 2013-04-16 01:09+0200\n"
+"PO-Revision-Date: 2013-04-15 23:09+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -195,7 +196,7 @@ msgstr "Αδυναμία ορισμού προτίμησης:"
 
 #: ajax/uploadimport.php:42 ajax/uploadimport.php:79
 msgid "Upload of blacklisted file:"
-msgstr ""
+msgstr "Ανεβάσμα αρχείου στην μαύρη λίστα:"
 
 #: ajax/uploadimport.php:48 ajax/uploadimport.php:84
 msgid "Error uploading contacts to storage."
@@ -268,8 +269,8 @@ msgstr "Εύρεση επαφών "
 msgid "Select photo"
 msgstr "Επέλεξε φωτογραφία"
 
-#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1598
-#: js/app.js:1722 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
+#: js/app.js:499 js/app.js:525 js/app.js:870 js/app.js:937 js/app.js:1609
+#: js/app.js:1733 js/contacts.js:160 js/contacts.js:263 js/contacts.js:510
 msgid "Network or server error. Please inform administrator."
 msgstr "Σφάλμα δικτύου ή διακομιστή. Παρακαλώ ενημερώστε το διαχειριστή."
 
@@ -285,120 +286,120 @@ msgstr "Σφάλμα κατά την αφαίρεση από ομάδα."
 msgid "There was an error opening a mail composer."
 msgstr "Υπήρχε ένα σφάλμα στο άνοιγμα μίας σύνθεσης μηνύματος."
 
-#: js/app.js:802
+#: js/app.js:804
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Η διαγραφή ολοκληρώθηκε. Κλικ εδώ για να ακυρώσετε την επαναφόρτωση."
 
-#: js/app.js:946
+#: js/app.js:957
 msgid "Add address book"
 msgstr "Προσθήκη βιβλίου διευθύνσεων"
 
-#: js/app.js:1062
+#: js/app.js:1073
 msgid "Import done. Click here to cancel reloading."
 msgstr "Η εισαγωγή ολοκληρώθηκε. Κλικ εδώ για να ακυρώσετε την επαναφόρτωση."
 
-#: js/app.js:1103
+#: js/app.js:1114
 msgid "Not all files uploaded. Retrying..."
 msgstr "Δεν μεταφορτώθηκαν όλα τα αρχεία. Προσπάθεια ξανά..."
 
-#: js/app.js:1109
+#: js/app.js:1120
 msgid "Something went wrong with the upload, please retry."
 msgstr "Κάτι πήγε στραβά με την μεταφόρτωση, παρακαλώ προσπαθήστε ξανά."
 
-#: js/app.js:1109 js/app.js:1657 js/settings.js:25 js/settings.js:45
+#: js/app.js:1120 js/app.js:1668 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "Σφάλμα"
 
-#: js/app.js:1119
+#: js/app.js:1130
 msgid "Importing from {filename}..."
 msgstr "Εισαγωγή από {filename}..."
 
-#: js/app.js:1122
+#: js/app.js:1133
 msgid "{success} imported, {failed} failed."
 msgstr "{success} έγινε εισαγωγή, {failed} απέτυχε."
 
-#: js/app.js:1133
+#: js/app.js:1144
 msgid "Importing..."
 msgstr "Γίνεται εισαγωγή..."
 
-#: js/app.js:1156
+#: js/app.js:1167
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "Αδυναμία στην αποστολή του αρχείου σας αφού είναι φάκελος ή έχει 0 bytes"
 
-#: js/app.js:1156
+#: js/app.js:1167
 msgid "Upload Error"
 msgstr "Σφάλμα Αποστολής"
 
-#: js/app.js:1163 js/app.js:1473
+#: js/app.js:1174 js/app.js:1484
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Το αρχείο που προσπαθείτε να ανεβάσετε υπερβαίνει το μέγιστο μέγεθος για τις προσθήκες αρχείων σε αυτόν τον server."
 
-#: js/app.js:1163
+#: js/app.js:1174
 msgid "Upload too large"
 msgstr "Πολύ μεγάλο αρχείο προς αποστολή"
 
-#: js/app.js:1207
+#: js/app.js:1218
 msgid "Pending"
 msgstr "Εκκρεμεί"
 
-#: js/app.js:1352 templates/contacts.php:130
+#: js/app.js:1363 templates/contacts.php:130
 msgid "Add group"
 msgstr "Προσθήκη ομάδας"
 
-#: js/app.js:1461
+#: js/app.js:1472
 msgid "No files selected for upload."
 msgstr "Δεν επιλέχτηκαν αρχεία για μεταφόρτωση"
 
-#: js/app.js:1563
+#: js/app.js:1574
 msgid "Edit profile picture"
 msgstr "Επεξεργασία εικόνας προφίλ"
 
-#: js/app.js:1581 js/contacts.js:1169
+#: js/app.js:1592 js/contacts.js:1173
 msgid "Error loading profile picture."
 msgstr "Σφάλμα στην φόρτωση εικόνας προφίλ."
 
-#: js/app.js:1645
+#: js/app.js:1656
 msgid "Enter name"
 msgstr "Εισαγωγή ονόματος"
 
-#: js/app.js:1646
+#: js/app.js:1657
 msgid "Enter description"
 msgstr "Εισαγωγή περιγραφής"
 
-#: js/app.js:1649
+#: js/app.js:1660
 msgid "Select addressbook"
 msgstr "Επιλογή βιβλίου επαφών"
 
-#: js/app.js:1657
+#: js/app.js:1668
 msgid "The address book name cannot be empty."
 msgstr "Το όνομα του βιβλίου διευθύνσεων δεν πρέπει να είναι κενό."
 
-#: js/contacts.js:354
+#: js/contacts.js:358
 msgid "Is this correct?"
 msgstr "Είναι σωστό;"
 
-#: js/contacts.js:566
+#: js/contacts.js:570
 msgid "There was an unknown error when trying to delete this contact"
 msgstr "Παρουσιάστηκε άγνωστο σφάλμα κατά τη διαγραφή αυτής της επαφής"
 
-#: js/contacts.js:718
+#: js/contacts.js:722
 msgid "# groups"
 msgstr "# ομάδες"
 
-#: js/contacts.js:1533
+#: js/contacts.js:1537
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Κάποιες επαφές σημειώθηκαν προς διαγραφή,δεν έχουν διαγραφεί ακόμα. Παρακαλώ περιμένετε μέχρι να διαγραφούν."
 
-#: js/contacts.js:1544
+#: js/contacts.js:1548
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Κλικ για να αναιρέσετε τη διαγραφή {num} επαφών"
 
-#: js/contacts.js:1559
+#: js/contacts.js:1563
 msgid "Cancelled deletion of {num}"
 msgstr "Αναιρέθηκε η διαγραφή {num}"
 
@@ -516,108 +517,108 @@ msgstr "Δεν έχετε δικαιώματα να διαγράψετε αυτ�
 msgid "There was an error deleting this addressbook."
 msgstr "Υπήρξε σφάλμα κατά την διαγραφή αυτού του βιβλίου διευθύνσεων"
 
-#: lib/app.php:89
+#: lib/app.php:92
 msgid "Jabber"
 msgstr "Jabber"
 
-#: lib/app.php:94
+#: lib/app.php:97
 msgid "AIM"
 msgstr "AIM"
 
-#: lib/app.php:99
+#: lib/app.php:102
 msgid "MSN"
 msgstr "MSN"
 
-#: lib/app.php:104
+#: lib/app.php:107
 msgid "Twitter"
 msgstr "Twitter"
 
-#: lib/app.php:109
+#: lib/app.php:112
 msgid "GoogleTalk"
 msgstr "GoogleTalk"
 
-#: lib/app.php:114
+#: lib/app.php:117
 msgid "Facebook"
 msgstr "Facebook"
 
-#: lib/app.php:119
+#: lib/app.php:122
 msgid "XMPP"
 msgstr "XMPP"
 
-#: lib/app.php:124
+#: lib/app.php:127
 msgid "ICQ"
 msgstr "ICQ"
 
-#: lib/app.php:129
+#: lib/app.php:132
 msgid "Yahoo"
 msgstr "Yahoo"
 
-#: lib/app.php:134
+#: lib/app.php:137
 msgid "Skype"
 msgstr "Skype"
 
-#: lib/app.php:139
+#: lib/app.php:142
 msgid "QQ"
 msgstr "QQ"
 
-#: lib/app.php:144
+#: lib/app.php:147
 msgid "GaduGadu"
 msgstr "GaduGadu"
 
-#: lib/app.php:167 lib/app.php:175 lib/app.php:186 lib/app.php:227
+#: lib/app.php:170 lib/app.php:178 lib/app.php:189 lib/app.php:230
 msgid "Work"
 msgstr "Εργασία"
 
-#: lib/app.php:168 lib/app.php:173 lib/app.php:187
+#: lib/app.php:171 lib/app.php:176 lib/app.php:190
 msgid "Home"
 msgstr "Σπίτι"
 
-#: lib/app.php:169 lib/app.php:182 lib/app.php:189 lib/app.php:228
-#: lib/vcard.php:701
+#: lib/app.php:172 lib/app.php:185 lib/app.php:192 lib/app.php:231
+#: lib/vcard.php:715
 msgid "Other"
 msgstr "Άλλο"
 
-#: lib/app.php:174
+#: lib/app.php:177
 msgid "Mobile"
 msgstr "Κινητό"
 
-#: lib/app.php:176
+#: lib/app.php:179
 msgid "Text"
 msgstr "Κείμενο"
 
-#: lib/app.php:177
+#: lib/app.php:180
 msgid "Voice"
 msgstr "Ομιλία"
 
-#: lib/app.php:178
+#: lib/app.php:181
 msgid "Message"
 msgstr "Μήνυμα"
 
-#: lib/app.php:179
+#: lib/app.php:182
 msgid "Fax"
 msgstr "Φαξ"
 
-#: lib/app.php:180
+#: lib/app.php:183
 msgid "Video"
 msgstr "Βίντεο"
 
-#: lib/app.php:181
+#: lib/app.php:184
 msgid "Pager"
 msgstr "Βομβητής"
 
-#: lib/app.php:188
+#: lib/app.php:191
 msgid "Internet"
 msgstr "Διαδίκτυο"
 
-#: lib/app.php:225
+#: lib/app.php:228
 msgid "Friends"
 msgstr "Φίλοι"
 
-#: lib/app.php:226
+#: lib/app.php:229
 msgid "Family"
 msgstr "Οικογένεια"
 
-#: lib/app.php:362
+#: lib/app.php:365
 msgid "There was an error deleting properties for this contact."
 msgstr "Παρουσιάστηκε σφάλμα κατά τη διαγραφή των ιδιοτήτων αυτής της επαφής."
 
@@ -629,39 +630,39 @@ msgstr "Τα Γεννέθλια του/της {name}"
 msgid "Contact"
 msgstr "Επαφή"
 
-#: lib/vcard.php:342
+#: lib/vcard.php:355
 msgid "You do not have the permissions to add contacts to this addressbook."
 msgstr "Δεν έχετε δικαιώματα να προσθέσετε επαφές σε αυτό το βιβλίο διευθύνσεων."
 
-#: lib/vcard.php:462
+#: lib/vcard.php:475
 msgid "Could not find the vCard with ID."
 msgstr "Αδυναμία εύρεσης της vCard με το ID."
 
-#: lib/vcard.php:490
+#: lib/vcard.php:503
 msgid "You do not have the permissions to edit this contact."
 msgstr "Δεν διαθέτε επαρκή δικαιώματα για την επεξεργασία αυτής της επαφής."
 
-#: lib/vcard.php:565
+#: lib/vcard.php:578
 msgid "Could not find the vCard with ID: "
 msgstr "Αδυναμία εύρεσης της vCard με το ID:"
 
-#: lib/vcard.php:573
+#: lib/vcard.php:586
 msgid "Could not find the Addressbook with ID: "
 msgstr "Αδυναμία εύρεσης της Βιβλίου Διευθύνσεων με το ID:"
 
-#: lib/vcard.php:603
+#: lib/vcard.php:616
 msgid "You do not have the permissions to delete this contact."
 msgstr "Δεν διαθέτε επαρκή δικαιώματα για την διαγραφή αυτής της επαφής."
 
-#: lib/vcard.php:622
+#: lib/vcard.php:635
 msgid "There was an error deleting this contact."
 msgstr "Υπήρξε σφάλμα κατά την διαγραφή αυτής της επαφής."
 
-#: lib/vcard.php:648
+#: lib/vcard.php:662
 msgid "Contact not found."
 msgstr "Δεν βρέθηκε επαφή."
 
-#: lib/vcard.php:704
+#: lib/vcard.php:718
 msgid "HomePage"
 msgstr "Αρχική Σελίδα"
 

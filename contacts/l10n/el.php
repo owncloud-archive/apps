@@ -39,6 +39,7 @@
 "Key is not set for: " => "Δεν έχει ορισθεί πλήκτρο για το:",
 "Value is not set for: " => "Δεν έχει ορισθεί τιμή για το:",
 "Could not set preference: " => "Αδυναμία ορισμού προτίμησης:",
+"Upload of blacklisted file:" => "Ανεβάσμα αρχείου στην μαύρη λίστα:",
 "Error uploading contacts to storage." => "Σφάλμα κατά την αποθήκευση επαφών",
 "There is no error, the file uploaded with success" => "Δεν υπάρχει σφάλμα, το αρχείο ανέβηκε με επιτυχία ",
 "The uploaded file exceeds the upload_max_filesize directive in php.ini" => "Το μέγεθος του αρχείου ξεπερνάει το upload_max_filesize του php.ini",

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-15 22:06+0200\n"
-"PO-Revision-Date: 2013-04-15 20:09+0000\n"
+"POT-Creation-Date: 2013-04-16 01:09+0200\n"
+"PO-Revision-Date: 2013-04-15 23:11+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -34,11 +34,11 @@ msgstr "Il contenuto delle note legali deve essere precedentemente configurato "
 
 #: templates/tmpl_dummy.php:53
 msgid "That configuration is done in the administration section."
-msgstr ""
+msgstr "La configurazione viene fatta nella sezione di amministrazione."
 
 #: templates/tmpl_dummy.php:55
 msgid "That configuration has to be done by the system administration."
-msgstr ""
+msgstr "La configurazione deve essere fatta dall'amministrazione di sistema."
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"

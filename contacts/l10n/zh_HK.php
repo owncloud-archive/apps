@@ -27,6 +27,7 @@
 "OK" => "確定",
 "Import" => "導入",
 "Groups" => "群組",
+"Close" => "關閉",
 "Add contact" => "新增聯絡人",
 "Delete current photo" => "刪除當前照片",
 "Edit current photo" => "編輯當前照片",

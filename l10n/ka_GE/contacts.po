@@ -4,12 +4,13 @@
 # 
 # Translators:
 #   <romeo@energo-pro.ge>, 2012.
+# Romeo Pirtskhalava <romeo@energo-pro.ge>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:31+0000\n"
+"POT-Creation-Date: 2013-04-16 01:09+0200\n"
+"PO-Revision-Date: 2013-04-15 23:09+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
@@ -20,41 +21,41 @@ msgstr ""
 
 #: ajax/addressbook/activate.php:37 ajax/addressbook/update.php:33
 msgid "Error (de)activating addressbook."
-msgstr ""
+msgstr "შეცდომა addressbook–ის (დე)აქტივაციიის დროს."
 
 #: ajax/addressbook/delete.php:31 ajax/addressbook/update.php:19
 #: ajax/contact/delete.php:32 ajax/contact/deleteproperty.php:38
 #: ajax/contact/saveproperty.php:82
 msgid "id is not set."
-msgstr ""
+msgstr "id არ არის მითითებული."
 
 #: ajax/addressbook/update.php:23
 msgid "Cannot update addressbook with an empty name."
-msgstr ""
+msgstr "ცარიელი სახელით addressbook–ის განახლება ვერ მოხერხდა."
 
 #: ajax/categories/add.php:19
 msgid "No category name given."
-msgstr ""
+msgstr "კატეგორიის სახელი არ არის მოცემული."
 
 #: ajax/categories/add.php:28
 msgid "Error adding group."
-msgstr ""
+msgstr "შეცდომა ჯგუფის დამატების დროს."
 
 #: ajax/categories/addto.php:20 ajax/categories/removefrom.php:20
 msgid "Group ID missing from request."
-msgstr ""
+msgstr "ჯგუფის  ID არ არსებობს მოთხოვნაში."
 
 #: ajax/categories/addto.php:24 ajax/categories/removefrom.php:24
 msgid "Contact ID missing from request."
-msgstr ""
+msgstr "კონტაქტის  ID არ არსებობს მოთხოვნაში."
 
 #: ajax/categories/categoriesfor.php:17
 msgid "No ID provided"
-msgstr ""
+msgstr "ID არ არის განხილული"
 
 #: ajax/categories/categoriesfor.php:35
 msgid "Error setting checksum."
-msgstr ""
+msgstr "შეცდომა checksum–ის დაყენებისას."
 
 #: ajax/categories/delete.php:21
 msgid "No categories selected for deletion."
@@ -62,134 +63,134 @@ msgstr "სარედაქტირებელი კატეგორი�
 
 #: ajax/categories/delete.php:28
 msgid "No address books found."
-msgstr ""
+msgstr "address book–ი არ მოიძებნა."
 
 #: ajax/categories/delete.php:36
 msgid "No contacts found."
-msgstr ""
+msgstr "კონტაქტი არ მოიძებნა."
 
 #: ajax/contact/add.php:38
 msgid "You have no addressbooks."
-msgstr ""
+msgstr "თქვენ არ გაქვთ addressbook-ები."
 
 #: ajax/contact/deleteproperty.php:42 ajax/contact/saveproperty.php:79
 msgid "element name is not set."
-msgstr ""
+msgstr "ელემენტის სახელი არ არის გაყენებული."
 
 #: ajax/contact/deleteproperty.php:46 ajax/contact/saveproperty.php:85
 msgid "checksum is not set."
-msgstr ""
+msgstr "checksum არ არის დაყენებული."
 
 #: ajax/contact/deleteproperty.php:54
 msgid "Information about vCard is incorrect. Please reload the page."
-msgstr ""
+msgstr " ინფორმაცია vCard–ზე არის მართებული. გთხოვთ დაარესტარტოთ გვერდი"
 
 #: ajax/contact/saveproperty.php:103
 #, php-format
 msgid "Couldn't find vCard for %d."
-msgstr ""
+msgstr "ვერ მოხერხდა vCard პოვნა %d –სთვის."
 
 #: ajax/contact/saveproperty.php:113
 msgid "Information about vCard is incorrect. Please reload the page: "
-msgstr ""
+msgstr "ინფორმაცია vCard–ზე არ არის კორექტული. გთხოვთ გადატვირთოთ გვერდი:"
 
 #: ajax/contact/saveproperty.php:121
 msgid "Something went FUBAR. "
-msgstr ""
+msgstr "რაღაც წავიდა FUBAR–ზე."
 
 #: ajax/contact/saveproperty.php:133
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
-msgstr ""
+msgstr " \"%s\" ტიპის პარამეტრების შენახვა ვერ მოხერხდა მასივად"
 
 #: ajax/contact/saveproperty.php:184
 msgid "Missing IM parameter."
-msgstr ""
+msgstr "IM პარამეტრი არ არსებობს."
 
 #: ajax/contact/saveproperty.php:188
 msgid "Unknown IM: "
-msgstr ""
+msgstr "უცნობი IM:"
 
 #: ajax/currentphoto.php:30 ajax/oc_photo.php:28 ajax/uploadphoto.php:36
 #: ajax/uploadphoto.php:68
 msgid "No contact ID was submitted."
-msgstr ""
+msgstr "კონტაქტის ID არ გაიგზავნა."
 
 #: ajax/currentphoto.php:36
 msgid "Error reading contact photo."
-msgstr ""
+msgstr "შეცდომა კონტაქტის ფოტოს ჩატვირთვისას."
 
 #: ajax/currentphoto.php:50
 msgid "Error saving temporary file."
-msgstr ""
+msgstr "შეცდომა დროებითი ფაილის შენახვისას."
 
 #: ajax/currentphoto.php:53
 msgid "The loading photo is not valid."
-msgstr ""
+msgstr "ფოტოს ჩატვირთვა ვერ განხორციელდა."
 
 #: ajax/editname.php:31
 msgid "Contact ID is missing."
-msgstr ""
+msgstr "კონტაქტის ID არ არსებობს."
 
 #: ajax/oc_photo.php:32
 msgid "No photo path was submitted."
-msgstr ""
+msgstr "ფოტოს გზა ვერ გამოიგზავნა."
 
 #: ajax/oc_photo.php:39
 msgid "File doesn't exist:"
-msgstr ""
+msgstr "ფაილი არ არსებობს:"
 
 #: ajax/oc_photo.php:44 ajax/oc_photo.php:47
 msgid "Error loading image."
-msgstr ""
+msgstr "შეცდომა სურათის ჩატვირთვისას."
 
 #: ajax/savecrop.php:70
 msgid "Error getting contact object."
-msgstr ""
+msgstr "შეცდომა კონტაქტ ობიექტის მიღების დროს."
 
 #: ajax/savecrop.php:80
 msgid "Error getting PHOTO property."
-msgstr ""
+msgstr "შეცდომა სურათის პარამეტრების მიღებისას."
 
 #: ajax/savecrop.php:105
 msgid "Error saving contact."
-msgstr ""
+msgstr "შეცდომა კონტაქტის შენახვისას."
 
 #: ajax/savecrop.php:117
 msgid "Error resizing image"
-msgstr ""
+msgstr "შეცდომა სურათის ზომის შეცვლისას"
 
 #: ajax/savecrop.php:120
 msgid "Error cropping image"
-msgstr ""
+msgstr "შეცდომა სურათის მოჭრისას"
 
 #: ajax/savecrop.php:123
 msgid "Error creating temporary image"
-msgstr ""
+msgstr "შეცდომა დროებითი სურათის შექმნისას"
 
 #: ajax/savecrop.php:126
 msgid "Error finding image: "
-msgstr ""
+msgstr "შეცდომა სურათის ძებნისას:"
 
 #: ajax/setpreference.php:37
 msgid "Key is not set for: "
-msgstr ""
+msgstr "გასაღები არ არის მითითებული:"
 
 #: ajax/setpreference.php:41
 msgid "Value is not set for: "
-msgstr ""
+msgstr "მნიშვნელობა არ არის მითითებული:"
 
 #: ajax/setpreference.php:53
 msgid "Could not set preference: "
-msgstr ""
+msgstr "პარამეტრები არ არის მითითებული:"
 
 #: ajax/uploadimport.php:42 ajax/uploadimport.php:79
 msgid "Upload of blacklisted file:"
-msgstr ""
+msgstr "ფაილების ატვირთვის შავ სიაში დამატება:"
 
 #: ajax/uploadimport.php:48 ajax/uploadimport.php:84
 msgid "Error uploading contacts to storage."
-msgstr ""
+msgstr "შეცდომა საცავში კოკტაქტის ატვირთვისას."
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
@@ -219,15 +220,15 @@ msgstr "დროებითი საქაღალდე არ არსე
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
-msgstr ""
+msgstr "დროებითი სურათის შენახვა ვერ მოხერხდა:"
 
 #: ajax/uploadphoto.php:62 ajax/uploadphoto.php:112
 msgid "Couldn't load temporary image: "
-msgstr ""
+msgstr "დროებითი სურათის ჩატვირთვა ვერ მოხერხდა:"
 
 #: ajax/uploadphoto.php:71
 msgid "No file was uploaded. Unknown error"
-msgstr ""
+msgstr "ფაილი არ აიტვირთა. უცნობი შეცდომა"
 
 #: appinfo/app.php:25
 msgid "Contacts"
@@ -236,227 +237,227 @@ msgstr "კონტაქტები"
 #: export.php:66
 #, php-format
 msgid "%d_selected_contacts"
-msgstr ""
+msgstr "%d_selected_contacts"
 
 #: js/app.js:258 js/app.js:272
 msgid "Add to..."
-msgstr ""
+msgstr "დაამატე..."
 
 #: js/app.js:262 js/app.js:274
 msgid "Remove from..."
-msgstr ""
+msgstr "წაშალე..."
 
 #: js/app.js:279
 msgid "Add group..."
-msgstr ""
+msgstr "ჯგუფში დამატება..."
 
 #: js/app.js:350
 msgid "Indexing contacts"
-msgstr ""
+msgstr "კონტაქტების ინდექსირება"
 
 #: js/app.js:448
 msgid "Select photo"
-msgstr ""
+msgstr "ფოტოს არჩევა"
 
-#: js/app.js:499 js/app.js:525 js/app.js:866 js/app.js:926 js/app.js:1598
-#: js/app.js:1722 js/contacts.js:160 js/contacts.js:263 js/contacts.js:506
+#: js/app.js:499 js/app.js:525 js/app.js:870 js/app.js:937 js/app.js:1609
+#: js/app.js:1733 js/contacts.js:160 js/contacts.js:263 js/contacts.js:510
 msgid "Network or server error. Please inform administrator."
-msgstr ""
+msgstr "ქსელი ან სერვერის შეცდომა. გთხოვთ დაუკავშირდეთ ადმინისტრატორს."
 
 #: js/app.js:667 js/app.js:706
 msgid "Error adding to group."
-msgstr ""
+msgstr "შეცდომა ჯგუფში დამატებისას."
 
 #: js/app.js:735
 msgid "Error removing from group."
-msgstr ""
+msgstr "შეცდომა ჯგუფიდან წაშლისას."
 
 #: js/app.js:765
 msgid "There was an error opening a mail composer."
-msgstr ""
+msgstr "შეცდომა მეილის დაწერის გვერდის გახსნის დროს."
 
-#: js/app.js:802
+#: js/app.js:804
 msgid "Deleting done. Click here to cancel reloading."
-msgstr ""
+msgstr "წაშლა დასრულდა. დააჭირეთ აქ რომ შეაჩეროთ გვერდის რელოუდი."
 
-#: js/app.js:946
+#: js/app.js:957
 msgid "Add address book"
-msgstr ""
+msgstr "address book–ის დამატება"
 
-#: js/app.js:1062
+#: js/app.js:1073
 msgid "Import done. Click here to cancel reloading."
-msgstr ""
+msgstr "იმპორტირება დასრულდა. დააჭირეთ აქ რომ შეაჩეროთ გვერდის რელოუდი."
 
-#: js/app.js:1103
+#: js/app.js:1114
 msgid "Not all files uploaded. Retrying..."
-msgstr ""
+msgstr "ყველა ფაილი არ აიტვირთა. გამეორება..."
 
-#: js/app.js:1109
+#: js/app.js:1120
 msgid "Something went wrong with the upload, please retry."
-msgstr ""
+msgstr "მოხდა შეცდომა ატვირთვის დროს. გთხოვთ გაიმეოროთ."
 
-#: js/app.js:1109 js/app.js:1657 js/settings.js:25 js/settings.js:45
+#: js/app.js:1120 js/app.js:1668 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr "შეცდომა"
 
-#: js/app.js:1119
+#: js/app.js:1130
 msgid "Importing from {filename}..."
-msgstr ""
-
-#: js/app.js:1122
-msgid "{success} imported, {failed} failed."
-msgstr ""
+msgstr "იმპორტირება  {filename}–დან ..."
 
 #: js/app.js:1133
-msgid "Importing..."
-msgstr ""
+msgid "{success} imported, {failed} failed."
+msgstr "{success} დაიმპორტდა, {failed} შეცდომა."
 
-#: js/app.js:1156
+#: js/app.js:1144
+msgid "Importing..."
+msgstr "იმპორტირება..."
+
+#: js/app.js:1167
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr "თქვენი ფაილის ატვირთვა ვერ მოხერხდა. ის არის საქაღალდე და შეიცავს 0 ბაიტს"
 
-#: js/app.js:1156
+#: js/app.js:1167
 msgid "Upload Error"
 msgstr "შეცდომა ატვირთვისას"
 
-#: js/app.js:1163 js/app.js:1473
+#: js/app.js:1174 js/app.js:1484
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
-msgstr ""
+msgstr "ფაილი რომლის ატვირთვასაც თქვენ ცდილობთ აჭარბებს ფაილების აპლოუდის მაქსიმუმს ამ სერვერზე."
 
-#: js/app.js:1163
+#: js/app.js:1174
 msgid "Upload too large"
 msgstr "ასატვირთი ფაილი ძალიან დიდია"
 
-#: js/app.js:1207
+#: js/app.js:1218
 msgid "Pending"
 msgstr "მოცდის რეჟიმში"
 
-#: js/app.js:1352 templates/contacts.php:130
+#: js/app.js:1363 templates/contacts.php:130
 msgid "Add group"
-msgstr ""
+msgstr "ჯგუფის დამატება"
 
-#: js/app.js:1461
+#: js/app.js:1472
 msgid "No files selected for upload."
-msgstr ""
+msgstr "ფაილები არ არის მონიშნული ასატვირთად."
 
-#: js/app.js:1563
+#: js/app.js:1574
 msgid "Edit profile picture"
-msgstr ""
+msgstr "პროფილის სურათის რედაქტირება"
 
-#: js/app.js:1581 js/contacts.js:1169
+#: js/app.js:1592 js/contacts.js:1173
 msgid "Error loading profile picture."
-msgstr ""
+msgstr "შეცდომა პროფილის სურათის ჩატვირთვისას."
 
-#: js/app.js:1645
+#: js/app.js:1656
 msgid "Enter name"
-msgstr ""
-
-#: js/app.js:1646
-msgid "Enter description"
-msgstr ""
-
-#: js/app.js:1649
-msgid "Select addressbook"
-msgstr ""
+msgstr "შეიყვანეთ სახელი"
 
 #: js/app.js:1657
+msgid "Enter description"
+msgstr "შეიყვანეთ დახასიათება"
+
+#: js/app.js:1660
+msgid "Select addressbook"
+msgstr "addressbook–ის მონიშვნა"
+
+#: js/app.js:1668
 msgid "The address book name cannot be empty."
-msgstr ""
+msgstr "address book–ის სახელი არ შეიძლება იყოს ცარიელი."
 
-#: js/contacts.js:354
+#: js/contacts.js:358
 msgid "Is this correct?"
-msgstr ""
+msgstr "არის ეს სწორი?"
 
-#: js/contacts.js:566
+#: js/contacts.js:570
 msgid "There was an unknown error when trying to delete this contact"
-msgstr ""
+msgstr "მოხდა უცნობი შეცდომა  კონტაქტის წაშლის დროს."
 
-#: js/contacts.js:718
+#: js/contacts.js:722
 msgid "# groups"
-msgstr ""
+msgstr "# ჯგუფები"
 
-#: js/contacts.js:1533
+#: js/contacts.js:1537
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
-msgstr ""
+msgstr "ზოგიერთი კონტაქტი მონიშნულია წასაშლელად, მაგრამ ჯერ ვერ წაიშლება. გთხოვთ დაიცადოთ სანამ ისინი წაიშლება."
 
-#: js/contacts.js:1544
+#: js/contacts.js:1548
 msgid "Click to undo deletion of {num} contacts"
-msgstr ""
+msgstr "დააჭირეთ წაშლილი  {num}–ი ცონტაქტის დასაბრუნებლად"
 
-#: js/contacts.js:1559
+#: js/contacts.js:1563
 msgid "Cancelled deletion of {num}"
-msgstr ""
+msgstr "{num}–ი წასაშლელის უარყოფა"
 
 #: js/groups.js:194
 msgid "Contact is already in this group."
-msgstr ""
+msgstr "კონტაქტი უკვე არსებობს ჯგუფში."
 
 #: js/groups.js:207
 msgid "Contacts are already in this group."
-msgstr ""
+msgstr "კონტაქტები უკვე არსებობს ჯგუფში."
 
 #: js/groups.js:273
 msgid "Couldn't get contact list."
-msgstr ""
+msgstr "კონტაქტ ლისტის მიღება ვერ მოხერხდა."
 
 #: js/groups.js:284
 msgid "Contact is not in this group."
-msgstr ""
+msgstr "მოცემული კონტაქტი არ არის ჯგუფში"
 
 #: js/groups.js:298
 msgid "Contacts are not in this group."
-msgstr ""
+msgstr "მოცემული კონტაქტები არ არის ჯგუფში."
 
 #: js/groups.js:544
 msgid "A group named {group} already exists"
-msgstr ""
+msgstr "ჯგუფი სახელით {group} უკვე არსებობს "
 
 #: js/groups.js:578
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
-msgstr ""
+msgstr "თქვენ შეგიძლიათ გადაანაცვლოთ (drag & drop) ჯგუფები⏎ და განალაგოთ თქვენი სურვილის მიხედვით."
 
 #: js/groups.js:597
 msgid "All"
-msgstr ""
+msgstr "ყველა"
 
 #: js/groups.js:611 js/groups.js:614
 msgid "Favorites"
-msgstr ""
+msgstr "ფავორიტები"
 
 #: js/groups.js:668
 msgid "Shared by {owner}"
-msgstr ""
+msgstr "გაზიარდა {owner} –ის მიერ"
 
 #: js/loader.js:49
 msgid "Result: "
-msgstr ""
+msgstr "შედეგი:"
 
 #: js/loader.js:49
 msgid " imported, "
-msgstr ""
+msgstr "იმპორტირებულია,"
 
 #: js/loader.js:49
 msgid " failed."
-msgstr ""
+msgstr "ვერ მოხერხდა."
 
 #: js/settings.js:75
 msgid "Displayname cannot be empty."
-msgstr ""
+msgstr "დისფლეის სახელი არ შეიძლება იყოს ცარიელი."
 
 #: js/settings.js:97 templates/settings.php:26
 msgid "Show CardDav link"
-msgstr ""
+msgstr "გამოაჩინე CardDav ლინკი"
 
 #: js/settings.js:98 templates/settings.php:29
 msgid "Show read-only VCF link"
-msgstr ""
+msgstr "გამოაჩინე მხოლოდ კითხვადი VCF ლინკი"
 
 #: js/settings.js:99 templates/contacts.php:271 templates/settings.php:40
 msgid "Download"
@@ -480,184 +481,184 @@ msgstr "უარყოფა"
 
 #: js/settings.js:159 templates/settings.php:66
 msgid "More..."
-msgstr ""
+msgstr "უფორ მეტი..."
 
 #: js/settings.js:162
 msgid "Less..."
-msgstr ""
+msgstr "ნაკლები..."
 
 #: lib/addressbook.php:152
 msgid "You do not have the permissions to read this addressbook."
-msgstr ""
+msgstr "თქვენ არ გაქვთ addressbook–ის ნახვის უფლება."
 
 #: lib/addressbook.php:264
 msgid "You do not have the permissions to update this addressbook."
-msgstr ""
+msgstr "თქვენ არ გაქვთ addressbook–ის განახლების უფლება."
 
 #: lib/addressbook.php:283 lib/addressbook.php:292
 msgid "There was an error updating the addressbook."
-msgstr ""
+msgstr "მოხდა შეცდომა addressbook–ის განახლების დროს."
 
 #: lib/addressbook.php:354
 msgid "You do not have the permissions to delete this addressbook."
-msgstr ""
+msgstr "თქვენ არ გაქვთ addressbook–ის წაშლის უფლება."
 
 #: lib/addressbook.php:383
 msgid "There was an error deleting this addressbook."
-msgstr ""
+msgstr "მოხდა შეცდომა  addressbook–ის წაშლის დროს."
 
-#: lib/app.php:89
+#: lib/app.php:92
 msgid "Jabber"
-msgstr ""
+msgstr "ჯაბერი"
 
-#: lib/app.php:94
+#: lib/app.php:97
 msgid "AIM"
-msgstr ""
+msgstr "AIM"
 
-#: lib/app.php:99
+#: lib/app.php:102
 msgid "MSN"
-msgstr ""
+msgstr "MSN"
 
-#: lib/app.php:104
+#: lib/app.php:107
 msgid "Twitter"
-msgstr ""
+msgstr "ტვიტერი"
 
-#: lib/app.php:109
+#: lib/app.php:112
 msgid "GoogleTalk"
-msgstr ""
+msgstr "GoogleTalk"
 
-#: lib/app.php:114
+#: lib/app.php:117
 msgid "Facebook"
-msgstr ""
+msgstr "ფეისბუქი"
 
-#: lib/app.php:119
+#: lib/app.php:122
 msgid "XMPP"
-msgstr ""
+msgstr "XMPP"
 
-#: lib/app.php:124
+#: lib/app.php:127
 msgid "ICQ"
-msgstr ""
+msgstr "ICQ"
 
-#: lib/app.php:129
+#: lib/app.php:132
 msgid "Yahoo"
-msgstr ""
+msgstr "Yahoo"
 
-#: lib/app.php:134
+#: lib/app.php:137
 msgid "Skype"
-msgstr ""
+msgstr "სკაიპი"
 
-#: lib/app.php:139
+#: lib/app.php:142
 msgid "QQ"
-msgstr ""
+msgstr "QQ"
 
-#: lib/app.php:144
+#: lib/app.php:147
 msgid "GaduGadu"
-msgstr ""
+msgstr "GaduGadu"
 
-#: lib/app.php:167 lib/app.php:175 lib/app.php:186 lib/app.php:227
+#: lib/app.php:170 lib/app.php:178 lib/app.php:189 lib/app.php:230
 msgid "Work"
 msgstr "სამსახური"
 
-#: lib/app.php:168 lib/app.php:173 lib/app.php:187
+#: lib/app.php:171 lib/app.php:176 lib/app.php:190
 msgid "Home"
 msgstr "სახლი"
 
-#: lib/app.php:169 lib/app.php:182 lib/app.php:189 lib/app.php:228
-#: lib/vcard.php:701
+#: lib/app.php:172 lib/app.php:185 lib/app.php:192 lib/app.php:231
+#: lib/vcard.php:715
 msgid "Other"
 msgstr "სხვა"
 
-#: lib/app.php:174
+#: lib/app.php:177
 msgid "Mobile"
 msgstr "მობილური"
 
-#: lib/app.php:176
+#: lib/app.php:179
 msgid "Text"
 msgstr "ტექსტი"
 
-#: lib/app.php:177
+#: lib/app.php:180
 msgid "Voice"
 msgstr "ხმა"
 
-#: lib/app.php:178
+#: lib/app.php:181
 msgid "Message"
 msgstr "მესიჯი"
 
-#: lib/app.php:179
+#: lib/app.php:182
 msgid "Fax"
 msgstr "ფაქსი"
 
-#: lib/app.php:180
+#: lib/app.php:183
 msgid "Video"
 msgstr "ვიდეო"
 
-#: lib/app.php:181
+#: lib/app.php:184
 msgid "Pager"
 msgstr "პეიჯერი"
 
-#: lib/app.php:188
+#: lib/app.php:191
 msgid "Internet"
 msgstr "ინტერნეტი"
 
-#: lib/app.php:225
+#: lib/app.php:228
 msgid "Friends"
-msgstr ""
+msgstr "მეგობრები"
 
-#: lib/app.php:226
+#: lib/app.php:229
 msgid "Family"
-msgstr ""
+msgstr "ოჯახი"
 
-#: lib/app.php:362
+#: lib/app.php:365
 msgid "There was an error deleting properties for this contact."
-msgstr ""
+msgstr "მოხდა შეცდომა  კონტაქტის პარამეტრების წაშლის დროს."
 
 #: lib/hooks.php:98
 msgid "{name}'s Birthday"
-msgstr ""
+msgstr "{name}–ეს დაბადების დღე"
 
 #: lib/search.php:20
 msgid "Contact"
 msgstr "კონტაქტი"
 
-#: lib/vcard.php:342
+#: lib/vcard.php:355
 msgid "You do not have the permissions to add contacts to this addressbook."
-msgstr ""
+msgstr "თქვენ არ გაქვთ კონტაქტის დამატების უფლება addressbook–ში."
 
-#: lib/vcard.php:462
+#: lib/vcard.php:475
 msgid "Could not find the vCard with ID."
-msgstr ""
+msgstr "ვერ მოიძებნა vCard მოცემული ID–ით."
 
-#: lib/vcard.php:490
+#: lib/vcard.php:503
 msgid "You do not have the permissions to edit this contact."
-msgstr ""
+msgstr "თქვენ არ გაქვთ მოცემული კონტაქტის რედაქტირების უფლება."
 
-#: lib/vcard.php:565
+#: lib/vcard.php:578
 msgid "Could not find the vCard with ID: "
-msgstr ""
+msgstr "ვერ მოიძებნა vCard მოცემული ID–ით:"
 
-#: lib/vcard.php:573
+#: lib/vcard.php:586
 msgid "Could not find the Addressbook with ID: "
-msgstr ""
+msgstr "ვერ მოიძებნა Addressbook–ი მოცემული ID–ით."
 
-#: lib/vcard.php:603
+#: lib/vcard.php:616
 msgid "You do not have the permissions to delete this contact."
-msgstr ""
+msgstr "თქვენ არ გაქვთ მოცემული კონტაქტის წაშლის უფლება."
 
-#: lib/vcard.php:622
+#: lib/vcard.php:635
 msgid "There was an error deleting this contact."
-msgstr ""
+msgstr "მოხდა შეცდომა  კონტაქტის წაშლის დროს."
 
-#: lib/vcard.php:648
+#: lib/vcard.php:662
 msgid "Contact not found."
-msgstr ""
+msgstr "კონტაქტი არ არსებობს."
 
-#: lib/vcard.php:704
+#: lib/vcard.php:718
 msgid "HomePage"
-msgstr ""
+msgstr "მთავარი გვერდი"
 
 #: templates/contacts.php:10
 msgid "New Group"
-msgstr ""
+msgstr "ახალი ჯგუფი"
 
 #: templates/contacts.php:16
 msgid "Settings"
@@ -665,7 +666,7 @@ msgstr "პარამეტრები"
 
 #: templates/contacts.php:17
 msgid "Address books"
-msgstr ""
+msgstr "Address books"
 
 #: templates/contacts.php:20
 msgid "New"
@@ -673,11 +674,11 @@ msgstr "ახალი"
 
 #: templates/contacts.php:22
 msgid "Display name"
-msgstr ""
+msgstr "დისპლეის სახელი"
 
 #: templates/contacts.php:24 templates/contacts.php:44
 msgid "OK"
-msgstr ""
+msgstr "დიახ"
 
 #: templates/contacts.php:28 templates/contacts.php:105
 msgid "Import"
@@ -685,27 +686,27 @@ msgstr "იმპორტი"
 
 #: templates/contacts.php:33
 msgid "Select files to import"
-msgstr ""
+msgstr "დასაიმპორტებელი ფაილების არჩევა"
 
 #: templates/contacts.php:34
 msgid "Select files"
-msgstr ""
+msgstr "ფაილების არჩევა"
 
 #: templates/contacts.php:40 templates/contacts.php:42
 msgid "Import into:"
-msgstr ""
+msgstr "იმპორტირება შემდეგში:"
 
 #: templates/contacts.php:54
 msgid "(De-)select all"
-msgstr ""
+msgstr "ყველას მო(გადა)ნიშვნა "
 
 #: templates/contacts.php:56
 msgid "New Contact"
-msgstr ""
+msgstr "ახალი კონტაქტი"
 
 #: templates/contacts.php:57
 msgid "Download Contact(s)"
-msgstr ""
+msgstr "კონტაქტ(ებ)ის ჩამოტვირთვა"
 
 #: templates/contacts.php:59
 msgid "Groups"
@@ -713,11 +714,11 @@ msgstr "ჯგუფები"
 
 #: templates/contacts.php:61
 msgid "Favorite"
-msgstr ""
+msgstr "ფავორიტი"
 
 #: templates/contacts.php:62
 msgid "Delete Contact"
-msgstr ""
+msgstr "კონტაქტის წაშლა"
 
 #: templates/contacts.php:69 templates/contacts.php:270
 msgid "Close"
@@ -725,57 +726,57 @@ msgstr "დახურვა"
 
 #: templates/contacts.php:70
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "ქიბორდის shortcut–ები"
 
 #: templates/contacts.php:72
 msgid "Navigation"
-msgstr ""
+msgstr "ნავიგაცია"
 
 #: templates/contacts.php:75
 msgid "Next contact in list"
-msgstr ""
+msgstr "სიაში შემდეგი კონტაქტი"
 
 #: templates/contacts.php:77
 msgid "Previous contact in list"
-msgstr ""
+msgstr "სიაში წინა კონტაქტი"
 
 #: templates/contacts.php:79
 msgid "Expand/collapse current addressbook"
-msgstr ""
+msgstr "მიმდინარე addressbook–ის გაშლა/აკეცვა"
 
 #: templates/contacts.php:81
 msgid "Next addressbook"
-msgstr ""
+msgstr "შემდეგი addressbook–ი"
 
 #: templates/contacts.php:83
 msgid "Previous addressbook"
-msgstr ""
+msgstr "წინა addressbook–ი"
 
 #: templates/contacts.php:87
 msgid "Actions"
-msgstr ""
+msgstr "მოქმედებები"
 
 #: templates/contacts.php:90
 msgid "Refresh contacts list"
-msgstr ""
+msgstr "კონტაქტ მისამართების განახლება"
 
 #: templates/contacts.php:92
 msgid "Add new contact"
-msgstr ""
+msgstr "ახალი კონტაქტის დამატება"
 
 #: templates/contacts.php:94
 msgid "Add new addressbook"
-msgstr ""
+msgstr "ახალი addressbook–ის დამატება"
 
 #: templates/contacts.php:96
 msgid "Delete current contact"
-msgstr ""
+msgstr "მიმდინარე კონტაქტის წაშლა"
 
 #: templates/contacts.php:101
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
-msgstr ""
+msgstr "<h3>თქვენ არაგაქვთ კონტაქტები თქვენს addressbook–ში.</h3><p> დაამატეთ ახალი კონტაქტი ან დააიმპორტეთ უკვე არსებული კონტაქტები VCF ფაილიდან </p>"
 
 #: templates/contacts.php:104
 msgid "Add contact"
@@ -783,11 +784,11 @@ msgstr "კონტაქტის დამატება"
 
 #: templates/contacts.php:145
 msgid "Compose mail"
-msgstr ""
+msgstr "მეილის დაწერა"
 
 #: templates/contacts.php:163
 msgid "Delete group"
-msgstr ""
+msgstr "ჯგუფის წაშლა"
 
 #: templates/contacts.php:176
 msgid "Delete current photo"
@@ -807,19 +808,19 @@ msgstr "აირჩიე სურათი ownCloud –იდან"
 
 #: templates/contacts.php:190 templates/contacts.php:191
 msgid "First name"
-msgstr ""
+msgstr "სახელი"
 
 #: templates/contacts.php:195 templates/contacts.php:196
 msgid "Additional names"
-msgstr ""
+msgstr "დამატებითი სახელები"
 
 #: templates/contacts.php:200 templates/contacts.php:201
 msgid "Last name"
-msgstr ""
+msgstr "გვარი"
 
 #: templates/contacts.php:208
 msgid "Select groups"
-msgstr ""
+msgstr "ჯგუფების არჩევა"
 
 #: templates/contacts.php:212 templates/contacts.php:276
 msgid "Nickname"
@@ -827,7 +828,7 @@ msgstr "ნიკნეიმი"
 
 #: templates/contacts.php:215
 msgid "Enter nickname"
-msgstr ""
+msgstr "შეიყვანეთ ნიკნეიმი"
 
 #: templates/contacts.php:219 templates/contacts.php:275
 msgid "Title"
@@ -835,7 +836,7 @@ msgstr "სახელი"
 
 #: templates/contacts.php:222
 msgid "Enter title"
-msgstr ""
+msgstr "მიუთითეთ სათაური"
 
 #: templates/contacts.php:226 templates/contacts.php:274
 msgid "Organization"
@@ -843,7 +844,7 @@ msgstr "ორგანიზაცია"
 
 #: templates/contacts.php:229
 msgid "Enter organization"
-msgstr ""
+msgstr "მიუთითეთ ორგანიზაცია"
 
 #: templates/contacts.php:233 templates/contacts.php:277
 msgid "Birthday"
@@ -851,11 +852,11 @@ msgstr "დაბადების დრე"
 
 #: templates/contacts.php:264
 msgid "Notes go here..."
-msgstr ""
+msgstr "შენიშვნებისთვის შეიხედეთ აქ..."
 
 #: templates/contacts.php:271
 msgid "Export as VCF"
-msgstr ""
+msgstr "ექსპორტი VCF ფორმატში"
 
 #: templates/contacts.php:273
 msgid "Add"
@@ -871,7 +872,7 @@ msgstr "იმეილი"
 
 #: templates/contacts.php:280
 msgid "Instant Messaging"
-msgstr ""
+msgstr "Instant Messaging"
 
 #: templates/contacts.php:281
 msgid "Address"
@@ -883,7 +884,7 @@ msgstr "შენიშვნა"
 
 #: templates/contacts.php:283
 msgid "Web site"
-msgstr ""
+msgstr "Web გვერდი"
 
 #: templates/contacts.php:285
 msgid "Delete contact"
@@ -893,67 +894,67 @@ msgstr "კონტაქტის წაშლა"
 #: templates/contacts.php:327 templates/contacts.php:352
 #: templates/contacts.php:389
 msgid "Preferred"
-msgstr ""
+msgstr "პრივილეგირებული"
 
 #: templates/contacts.php:300
 msgid "Please specify a valid email address."
-msgstr ""
+msgstr "გთხოვთ მიუთითოთ სწორი იმეილ მისამართი."
 
 #: templates/contacts.php:300
 msgid "someone@example.com"
-msgstr ""
+msgstr "someone@example.com"
 
 #: templates/contacts.php:302
 msgid "Mail to address"
-msgstr ""
+msgstr "მაილი შემდეგ მისამართებზე"
 
 #: templates/contacts.php:303
 msgid "Delete email address"
-msgstr ""
+msgstr "იმეილ მისამართის წაშლა"
 
 #: templates/contacts.php:315
 msgid "Enter phone number"
-msgstr ""
+msgstr "შეიყვანეთ ტელეფონის ნომერი"
 
 #: templates/contacts.php:317
 msgid "Delete phone number"
-msgstr ""
+msgstr "წაშალეთ ტელეფონის ნომერი"
 
 #: templates/contacts.php:331
 msgid "Go to web site"
-msgstr ""
+msgstr "web გვერდზე გადასვლა"
 
 #: templates/contacts.php:332
 msgid "Delete URL"
-msgstr ""
+msgstr "URL–ის წაშლა"
 
 #: templates/contacts.php:343
 msgid "View on map"
-msgstr ""
+msgstr "ნახეთ რუქაზე"
 
 #: templates/contacts.php:344
 msgid "Delete address"
-msgstr ""
+msgstr "მისამართების წაშლა"
 
 #: templates/contacts.php:356
 msgid "1 Main Street"
-msgstr ""
+msgstr "1 Main Street"
 
 #: templates/contacts.php:357
 msgid "Street address"
-msgstr ""
+msgstr "ქუჩის მისამართი"
 
 #: templates/contacts.php:361
 msgid "12345"
-msgstr ""
+msgstr "12345"
 
 #: templates/contacts.php:362
 msgid "Postal code"
-msgstr ""
+msgstr "საფოსტო კოდი"
 
 #: templates/contacts.php:364
 msgid "Your city"
-msgstr ""
+msgstr "თქვენი ქალაქი"
 
 #: templates/contacts.php:365
 msgid "City"
@@ -961,15 +962,15 @@ msgstr "ქალაქი"
 
 #: templates/contacts.php:369
 msgid "Some region"
-msgstr ""
+msgstr "რომელიმე რეგიონი"
 
 #: templates/contacts.php:370
 msgid "State or province"
-msgstr ""
+msgstr "შტატი ან პროვინცია"
 
 #: templates/contacts.php:374
 msgid "Your country"
-msgstr ""
+msgstr "თქვენი ქვეყანა"
 
 #: templates/contacts.php:375
 msgid "Country"
@@ -977,11 +978,11 @@ msgstr "ქვეყანა"
 
 #: templates/contacts.php:397
 msgid "Instant Messenger"
-msgstr ""
+msgstr "Instant Messenger"
 
 #: templates/contacts.php:399
 msgid "Delete IM"
-msgstr ""
+msgstr "IM–ის წაშლა"
 
 #: templates/contacts.php:409 templates/settings.php:36
 msgid "Share"
@@ -993,15 +994,15 @@ msgstr "ექსპორტი"
 
 #: templates/contacts.php:411
 msgid "CardDAV link"
-msgstr ""
+msgstr "CardDAV ლინკი"
 
 #: templates/part.cropphoto.php:31
 msgid "The temporary image has been removed from cache."
-msgstr ""
+msgstr "დროებითი სურათი წაშლილია ქეშიდან."
 
 #: templates/settings.php:3
 msgid "CardDAV syncing addresses"
-msgstr ""
+msgstr "CardDAV სინქრონიზაციის მისამართი"
 
 #: templates/settings.php:3
 msgid "more info"
@@ -1029,7 +1030,7 @@ msgstr "სახელი"
 
 #: templates/settings.php:60
 msgid "Description"
-msgstr ""
+msgstr "გვერდის დახასიათება"
 
 #: templates/settings.php:61
 msgid "Save"

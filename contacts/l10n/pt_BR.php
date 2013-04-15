@@ -11,6 +11,7 @@
 "No categories selected for deletion." => "Nenhuma categoria selecionada para remoção.",
 "No address books found." => "Nenhuma agenda encontrada.",
 "No contacts found." => "Nenhum contato encontrado.",
+"You have no addressbooks." => "Você não tem agenda de endereços.",
 "element name is not set." => "nome do elemento não definido.",
 "checksum is not set." => "checksum não definido.",
 "Information about vCard is incorrect. Please reload the page." => "Informações sobre vCard é incorreta. Por favor, recarregue a página.",
