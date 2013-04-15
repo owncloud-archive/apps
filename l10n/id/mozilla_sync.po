@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:03+0200\n"
-"PO-Revision-Date: 2012-10-21 04:31+0000\n"
-"Last-Translator: elmakong <mr.pige_ina@yahoo.co.id>\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:08+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,14 +26,14 @@ msgstr "layanan sinkronisasi Mozilla"
 msgid "Please set your email address in account settings"
 msgstr "mohon set alamat surel dalam setting akun"
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Email"
 msgstr "surel"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Password and Confirmation"
 msgstr "kata kunci dan konfirmasi"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Server address"
 msgstr "alamat server"

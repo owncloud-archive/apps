@@ -2,8 +2,6 @@
 "Legal notice" => "Aviso legal",
 "Nothing here yet" => "Aquí aínda non hai nada",
 "The content of the legal notice has to be configured first" => "Primeiro ten que configurar o contido do aviso legal",
-"The configuration is done here" => "A configuración faise aquí",
-"Admin" => "Administración",
 "Imprint" => "Impresión",
 "Placement" => "Emprazamento",
 "Standalone app" => "Aplicativo independente",

@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Park Shinjo <kde@peremen.name>, 2013.
+# Sung Jin Gang <potopro@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 11:49+0000\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:09+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -20,44 +21,44 @@ msgstr ""
 
 #: templates/wizard.php:7
 msgid "Welcome to ownCloud"
-msgstr ""
+msgstr "ownCloud에 오신것을 환영합니다."
 
 #: templates/wizard.php:8
 msgid ""
 "Your personal web services. All your files, contacts, calendar and more, in "
 "one place."
-msgstr ""
+msgstr "당신의 개인 웹서버입니다. 당신의 모든 파일, 콘텐츠, 달력 등등 모든 것들을 한 곳에 모아둘 수 있습니다.ㅏ"
 
 #: templates/wizard.php:11
 msgid "Get the apps to sync your files"
-msgstr ""
+msgstr "앱을 이용하여 당신의 파일을 동기화 할 수 있습니다."
 
 #: templates/wizard.php:23
 msgid "Connect your desktop apps to ownCloud"
-msgstr ""
+msgstr "ownCloud 앱을 이용하여 여러분의 컴퓨터와 연결하십시오."
 
 #: templates/wizard.php:25
 msgid "Connect your Calendar"
-msgstr ""
+msgstr "여러분의 달력을 연결합니다."
 
 #: templates/wizard.php:28
 msgid "Connect your Contacts"
-msgstr ""
+msgstr "당신의 콘덴츠를 연결합니다."
 
 #: templates/wizard.php:31
 msgid "Access files via WebDAV"
-msgstr ""
+msgstr "WebDAV를 이용하여 파일에 접근합니다."
 
 #: templates/wizard.php:34
 msgid ""
 "There’s more information in the <a "
 "href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
 "and on our <a href=\"http://owncloud.org\">website</a>."
-msgstr ""
+msgstr "더많은 정보는 <a href=\"http://doc.owncloud.org/server/5.0/user_manual/\">문서</a> 그리고 우리의  <a href=\"http://owncloud.org\">사이트</a>."
 
 #: templates/wizard.php:35
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"
 " http://owncloud.org\">recommend it to your friends</a>!"
-msgstr ""
+msgstr "만약 ownCloud가 좋다면, <a href=\"mailto:?subject=ownCloud&body=ownCloud는 당신의 파일을 공유하고 동기화하는 위대한 오픈 소프트웨어입니다. http://owncloud.org에서 무료로 사용할 수 있습니다.\">여러분의 친구에게 추천하세요 </a>!"

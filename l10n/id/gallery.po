@@ -6,12 +6,13 @@
 #   <mr.pige_ina@yahoo.co.id>, 2012.
 # Muhammad Fauzan <yosanpro@gmail.com>, 2012.
 # Muhammad Panji <sumodirjo@gmail.com>, 2012.
+#  <romihardiyanto@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-06 00:04+0100\n"
-"PO-Revision-Date: 2013-03-05 14:00+0000\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:07+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -24,16 +25,16 @@ msgstr ""
 msgid "Pictures"
 msgstr "Gambar"
 
-#: js/gallery.js:245
+#: js/gallery.js:269
 msgid "Shared by"
-msgstr ""
+msgstr "Dibagikan oleh"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
-msgstr "berbagi"
+msgstr "Bagikan"
 
 #: templates/no-image-app.php:9
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr "aplikasi \"penampil gambar\" butuh di aktifkan untuk menggunakan aplikasi ini"
+msgstr "Aplikasi \"Penampil Gambar\" juga harus diaktifkan untuk untuk menggunakan aplikasi ini"

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# André Koot <meneer@tken.net>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-26 12:17+0100\n"
-"PO-Revision-Date: 2013-03-26 10:51+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:09+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,55 +18,55 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: appinfo/app.php:64 js/imprint_header_left.js:33
+#: appinfo/app.php:83 js/imprint_header_left.js:33
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
-msgstr ""
+msgstr "Disclaimer"
 
-#: templates/tmpl_dummy.php:37
+#: templates/tmpl_dummy.php:45
 msgid "Nothing here yet"
-msgstr ""
+msgstr "Nog niets"
 
-#: templates/tmpl_dummy.php:38
+#: templates/tmpl_dummy.php:46
 msgid "The content of the legal notice has to be configured first"
+msgstr "De inhoud van de disclaimer moet eerst worden geconfigureerd"
+
+#: templates/tmpl_dummy.php:53
+msgid "That configuration is done in the administration section."
 msgstr ""
 
-#: templates/tmpl_dummy.php:40
-msgid "The configuration is done here"
+#: templates/tmpl_dummy.php:55
+msgid "That configuration has to be done by the system administration."
 msgstr ""
-
-#: templates/tmpl_dummy.php:43
-msgid "Admin"
-msgstr "Beheerder"
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"
-msgstr ""
+msgstr "afdruk"
 
 #: templates/tmpl_settings.php:46
 msgid "Placement"
-msgstr ""
+msgstr "Plaatsing"
 
 #: templates/tmpl_settings.php:48
 msgid "Standalone app"
-msgstr ""
+msgstr "Standalone app"
 
 #: templates/tmpl_settings.php:49
 msgid "Header left"
-msgstr ""
+msgstr "Kop links"
 
 #: templates/tmpl_settings.php:50
 msgid "Header right"
-msgstr ""
+msgstr "Kop rechts"
 
 #: templates/tmpl_settings.php:51
 msgid "Navigation top"
-msgstr ""
+msgstr "Navigatie bovenaan"
 
 #: templates/tmpl_settings.php:52
 msgid "Navigation bottom"
-msgstr ""
+msgstr "Navigatie onderaan"
 
 #: templates/tmpl_settings.php:55
 msgid "Content"
@@ -75,4 +76,4 @@ msgstr "Inhoud"
 msgid ""
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style "
 "attributes (e.g. &lt;a style=\"color:red;\"&gt;)."
-msgstr ""
+msgstr "U kunt gebruik maken van html opmaak tekens (bijv. &lt;br&gt; voor een regeleinde) en ingebedde stijlattributen  (bijv. &lt;a style=\"color:red;\"&gt;)."

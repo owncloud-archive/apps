@@ -2,8 +2,6 @@
 "Legal notice" => "Note legali",
 "Nothing here yet" => "Qui ancora niente",
 "The content of the legal notice has to be configured first" => "Il contenuto delle note legali deve essere precedentemente configurato ",
-"The configuration is done here" => "La configurazione avviene qui",
-"Admin" => "Admin",
 "Imprint" => "Imprint",
 "Placement" => "Posizionamento",
 "Standalone app" => "Applicazione indipendente",

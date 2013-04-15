@@ -1,11 +1,11 @@
 <?php $TRANSLATIONS = array(
-"Save" => "simpan",
+"Save" => "Simpan",
 "Search:" => "Cari:",
-"Close" => "tutup",
+"Close" => "Tutup",
 "Next" => "Selanjutnya",
 "Clear" => "Bersihkan",
-"Saving..." => "menyimpan...",
+"Saving..." => "Menyimpan...",
 "Failed to save file" => "Gagal menyimpan berkas",
-"An error occurred!" => "terjadi kesalahan!",
-"There were unsaved changes, click here to go back" => "ada perubahan yang belum tersimpan, klik disini untuk kembali"
+"An error occurred!" => "Galat terjadi!",
+"There were unsaved changes, click here to go back" => "Ada perubahan yang belum tersimpan, klik di sini untuk kembali"
 );

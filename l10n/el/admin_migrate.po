@@ -6,12 +6,13 @@
 # Dimitris M. <monopatis@gmail.com>, 2013.
 # Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
+# Wasilis Mandratzis <m.wasilis@yahoo.de>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-10 00:01+0100\n"
-"PO-Revision-Date: 2013-03-09 23:03+0000\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:07+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +37,7 @@ msgstr "Παρακαλώ επιλέξτε τον τύπο εξαγωγής:"
 
 #: templates/settings.php:11
 msgid "ownCloud instance (user data and database)"
-msgstr ""
+msgstr "Αντίγραφο ownCloud (δεδομένα χρήστη και βάση δεδομένων)"
 
 #: templates/settings.php:12
 msgid "ownCloud system files"

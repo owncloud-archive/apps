@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud Apps 5.0.0\n"
 "Report-Msgid-Bugs-To: translations@owncloud.org\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: appinfo/app.php:64 js/imprint_header_left.js:33
+#: appinfo/app.php:83 js/imprint_header_left.js:33
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
 msgstr ""
 
-#: templates/tmpl_dummy.php:37
+#: templates/tmpl_dummy.php:45
 msgid "Nothing here yet"
 msgstr ""
 
-#: templates/tmpl_dummy.php:38
+#: templates/tmpl_dummy.php:46
 msgid "The content of the legal notice has to be configured first"
 msgstr ""
 
-#: templates/tmpl_dummy.php:40
-msgid "The configuration is done here"
+#: templates/tmpl_dummy.php:53
+msgid "That configuration is done in the administration section."
 msgstr ""
 
-#: templates/tmpl_dummy.php:43
-msgid "Admin"
+#: templates/tmpl_dummy.php:55
+msgid "That configuration has to be done by the system administration."
 msgstr ""
 
 #: templates/tmpl_settings.php:42

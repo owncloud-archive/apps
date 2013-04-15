@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:31+0000\n"
-"Last-Translator: troll <oyvind.hojem@gmail.com>\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:07+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,22 +70,22 @@ msgstr "Skru på lyd"
 msgid "Rescan Collection"
 msgstr "Søk gjennom samling på nytt"
 
-#: templates/music.php:37
+#: templates/music.php:34
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: templates/music.php:35
+msgid "Ampache address:"
+msgstr "Ampache-adresse:"
+
+#: templates/music.php:44
 msgid "Artist"
 msgstr "Artist"
 
-#: templates/music.php:38
+#: templates/music.php:45
 msgid "Album"
 msgstr "Album"
 
-#: templates/music.php:39
+#: templates/music.php:46
 msgid "Title"
 msgstr "Tittel"
-
-#: templates/settings.php:3
-msgid "Media"
-msgstr "Media"
-
-#: templates/settings.php:4
-msgid "Ampache address:"
-msgstr "Ampache-adresse:"

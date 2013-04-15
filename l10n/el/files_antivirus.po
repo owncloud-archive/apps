@@ -4,13 +4,15 @@
 # 
 # Translators:
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2013.
+# Petros Kyladitis <petros.kyladitis@gmail.com>, 2013.
+# Wasilis Mandratzis <m.wasilis@yahoo.de>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:33+0000\n"
-"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:09+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,25 +22,25 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr ""
+msgstr "Καλωσόρισες {user},"
 
 #: templates/notification.php:2
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "Συγνώμη, αλλά στο αρχείο που προσπαθήσατε να ανεβάσετε βρέθηκε επιβλαβές λογισμικό και διαγράφηκε."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr "Αυτό το μήνυμα είναι ειδοποίηση από τον {host}. Παρακαλώ, μην το απαντήσετε."
+msgstr "Αυτό το μήνυμα είναι μια ειδοποίηση από το {host}. Παρακαλώ, μην το απαντήσετε."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "Το αρχείο ανέβηκε: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr "Ρύθμιση Antivirus"
+msgstr "Ρύθμιση Αντιικού"
 
 #: templates/settings.php:4
 msgid "Mode"
@@ -58,11 +60,11 @@ msgstr "Διακομιστής"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "Διεύθυνση του διακομιστή Αντιικού."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
-msgstr ""
+msgstr "Δεν απαιτείται κατά την λειτουργία ως Εκτελέσιμο."
 
 #: templates/settings.php:8
 msgid "Port"
@@ -70,15 +72,15 @@ msgstr "Θύρα"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "Αριθμός θύρας του διακομιστή Αντιικού"
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "Μήκος της ροής δεδομένων"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "ClamAV αξία StreamMaxLength σε bytes."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
@@ -90,7 +92,7 @@ msgstr "Διαδρομή για το εκτελέσιμο clamscan."
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "Δεν απαιτείται κατά την λειτουργία ως Υπηρεσίας."
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
@@ -98,7 +100,7 @@ msgstr "Ενέργεια για τα μολυσμένα αρχεία κατά τ
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "Καταγραφή μόνο"
 
 #: templates/settings.php:12
 msgid "Delete file"

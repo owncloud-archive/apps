@@ -2,8 +2,6 @@
 "Legal notice" => "Impressum",
 "Nothing here yet" => "Hier gibt's noch nichts",
 "The content of the legal notice has to be configured first" => "Der Inhalt des Impressums muss zuerst konfiguriert werden",
-"The configuration is done here" => "Die Konfiguration findet sich hier",
-"Admin" => "Administration",
 "Imprint" => "Impressum",
 "Placement" => "Platzierung",
 "Standalone app" => "Eigenständige Anwendung",

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2013-03-26 11:32+0000\n"
-"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:08+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,10 +46,10 @@ msgstr "กำลังบันทึกข้อมูล..."
 msgid "Failed to save file"
 msgstr "บันทึกไฟล์ล้มเหลว"
 
-#: js/editor.js:246
+#: js/editor.js:251
 msgid "An error occurred!"
 msgstr "เกิดข้อผิดพลาดบางประการ!"
 
-#: js/editor.js:266
+#: js/editor.js:272
 msgid "There were unsaved changes, click here to go back"
 msgstr "มีค่าเปลี่ยนแปลงที่ยังไม่ได้รับการบันทึกข้อมูล, คลิกเพื่อย้อนกลับไป"

@@ -2,9 +2,13 @@
 "Legal notice" => "Información legal",
 "Nothing here yet" => "Todavía no hay nada aquí",
 "The content of the legal notice has to be configured first" => "El contenido de la información legal tiene que ser configurado primero",
-"The configuration is done here" => "Aquí es hecha la configuración",
-"Admin" => "Administración",
+"Imprint" => "Imprint",
+"Placement" => "Ubicación",
+"Standalone app" => "App Autónoma",
 "Header left" => "Encabezado izquierdo",
 "Header right" => "Encabezado derecho",
-"Content" => "Contenido"
+"Navigation top" => "Navegar al principio",
+"Navigation bottom" => "Navegar al fondo",
+"Content" => "Contenido",
+"You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style attributes (e.g. &lt;a style=\"color:red;\"&gt;)." => "Puedes utilizar html markup (ej. &lt;br&gt; para saltos de línea) y atributos de estilo (ej. &lt;a style=\"color:red;\"&gt;)."
 );

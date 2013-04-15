@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Muhammad Fauzan <yosanpro@gmail.com>, 2012.
+#  <romihardiyanto@gmail.com>, 2013.
 # Widya Walesa <walecha99@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-27 00:01+0100\n"
-"PO-Revision-Date: 2013-02-26 23:01+0000\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:11+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -25,11 +26,11 @@ msgstr "Sedang diproses..."
 
 #: js/updater.js:16
 msgid "Done."
-msgstr ""
+msgstr "Selesai."
 
 #: js/updater.js:17
 msgid "Here is your backup: "
-msgstr ""
+msgstr "Ini cadangan Anda:"
 
 #: js/updater.js:21 js/updater.js:27
 msgid "Error"

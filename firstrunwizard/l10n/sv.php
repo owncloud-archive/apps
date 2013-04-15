@@ -1,4 +1,4 @@
 <?php $TRANSLATIONS = array(
-"First Run Wizard" => "Första uppstarts-guiden",
-"Show First Run Wizard again" => "Visa Första uppstarts-guiden igen"
+"Welcome to ownCloud" => "Välkommen till Owncloud",
+"Get the apps to sync your files" => "Skaffa appar för att synkronisera dina filer"
 );

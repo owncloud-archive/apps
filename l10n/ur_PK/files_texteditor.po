@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-26 00:00+0100\n"
-"PO-Revision-Date: 2012-08-25 23:18+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:08+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Urdu (Pakistan) (http://www.transifex.com/projects/p/owncloud/language/ur_PK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: ur_PK\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: js/editor.js:73 js/editor.js:159 js/editor.js:167
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr ""
 
@@ -29,26 +29,26 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: js/editor.js:133
+#: js/editor.js:132
 msgid "Next"
 msgstr ""
 
-#: js/editor.js:134
+#: js/editor.js:133
 msgid "Clear"
 msgstr ""
 
-#: js/editor.js:152
+#: js/editor.js:151
 msgid "Saving..."
 msgstr ""
 
-#: js/editor.js:160
+#: js/editor.js:159
 msgid "Failed to save file"
 msgstr ""
 
-#: js/editor.js:242
+#: js/editor.js:251
 msgid "An error occurred!"
 msgstr ""
 
-#: js/editor.js:263
+#: js/editor.js:272
 msgid "There were unsaved changes, click here to go back"
 msgstr ""

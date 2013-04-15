@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <rapid_odeen@zoho.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-27 00:01+0100\n"
-"PO-Revision-Date: 2012-08-26 23:49+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:11+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Albanian (http://www.transifex.com/projects/p/owncloud/language/sq/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,20 +20,20 @@ msgstr ""
 
 #: js/updater.js:5
 msgid "In progress..."
-msgstr ""
+msgstr "Në vazhdim..."
 
 #: js/updater.js:16
 msgid "Done."
-msgstr ""
+msgstr "U krye."
 
 #: js/updater.js:17
 msgid "Here is your backup: "
-msgstr ""
+msgstr "Kopja juaj rezervë gjendet këtu:"
 
 #: js/updater.js:21 js/updater.js:27
 msgid "Error"
-msgstr ""
+msgstr "Veprim i gabuar"
 
 #: templates/admin.php:24
 msgid "Update"
-msgstr ""
+msgstr "Azhurno"

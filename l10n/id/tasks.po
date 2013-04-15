@@ -4,13 +4,14 @@
 # 
 # Translators:
 #   <mr.pige_ina@yahoo.co.id>, 2012.
+#  <romihardiyanto@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-22 00:01+0100\n"
-"PO-Revision-Date: 2013-02-20 23:32+0000\n"
-"Last-Translator: elmakong <mr.pige_ina@yahoo.co.id>\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:07+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,31 +21,31 @@ msgstr ""
 
 #: ajax/update_property.php:51 lib/app.php:89 lib/app.php:101
 msgid "Invalid date/time"
-msgstr "tanggal/waktu tidak valid"
+msgstr "Tanggal/waktu tidak valid"
 
 #: appinfo/app.php:10
 msgid "Tasks"
-msgstr "tugas"
+msgstr "Tugas"
 
-#: js/tasks.js:78
+#: js/tasks.js:86
 msgid "Due"
 msgstr "yang harus dibayar"
 
-#: js/tasks.js:107
+#: js/tasks.js:115
 msgid "List"
 msgstr "daftar"
 
-#: js/tasks.js:128
+#: js/tasks.js:136
 msgid "Location"
 msgstr "lokasi"
 
-#: js/tasks.js:420
+#: js/tasks.js:454
 msgid "No category"
-msgstr "tidak ada kategori"
+msgstr "Tidak ada kategori"
 
 #: lib/app.php:33
 msgid "Unspecified"
-msgstr "tidak ditentukan"
+msgstr "Tidak ditentukan"
 
 #: lib/app.php:34
 msgid "1=highest"

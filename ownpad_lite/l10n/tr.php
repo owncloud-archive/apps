@@ -1,4 +1,6 @@
 <?php $TRANSLATIONS = array(
+"Document was shared" => "Belge paylaşıldı.",
+"User %s shared quick document %s with you." => "%s kullanıcısı sizinle %s hızlı belgesini paylaştı",
 "My pad" => "Benim Pad",
 "Settings" => "Ayarlar",
 "Pad Title" => "Pad Başlık",

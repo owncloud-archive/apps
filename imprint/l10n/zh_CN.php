@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Admin" => "管理"
+"Legal notice" => "法律声明",
+"Content" => "内容"
 );

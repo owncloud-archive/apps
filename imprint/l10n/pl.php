@@ -2,8 +2,6 @@
 "Legal notice" => "Informacja prawna",
 "Nothing here yet" => "Nie ma ty jeszcze nic",
 "The content of the legal notice has to be configured first" => "Zawartość redakcyjna musi być najpierw skonfigurowana",
-"The configuration is done here" => "Konfiguracja odbywa się tutaj",
-"Admin" => "Administrator",
 "Imprint" => "Stopka",
 "Placement" => "Położenie",
 "Standalone app" => "Samodzielna aplikacja",

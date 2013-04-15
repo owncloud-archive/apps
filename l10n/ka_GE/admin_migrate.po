@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Romeo Pirtskhalava <romeo@energo-pro.ge>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-10 00:01+0100\n"
-"PO-Revision-Date: 2013-03-09 23:03+0000\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:07+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
@@ -19,29 +20,29 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "Export this ownCloud instance"
-msgstr ""
+msgstr "ownCloud ინსტანციის ექსპორტი"
 
 #: templates/settings.php:5
 msgid ""
 "This will create a compressed file that contains the data of this owncloud "
 "instance."
-msgstr ""
+msgstr "მოხდება ცომპრესირებული ფაილის შექმნა რომელიც შეიცავს owncloud ინსტაციის ფაილებს."
 
 #: templates/settings.php:7
 msgid "Please choose the export type:"
-msgstr ""
+msgstr "გთხოვთ მიუთითოთ ექსპორტის ტიპი:"
 
 #: templates/settings.php:11
 msgid "ownCloud instance (user data and database)"
-msgstr ""
+msgstr "ownCloud ინსტანცია (მომხმარებლის data და database)"
 
 #: templates/settings.php:12
 msgid "ownCloud system files"
-msgstr ""
+msgstr "ownCloud–ის სისტემური ფაილები"
 
 #: templates/settings.php:13
 msgid "Just user files"
-msgstr ""
+msgstr "მხოლოდ მომხმარებლის ფაილები"
 
 #: templates/settings.php:14
 msgid "Export"

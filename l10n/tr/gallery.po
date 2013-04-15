@@ -5,6 +5,7 @@
 # Translators:
 #   <ahmet_kaplan@hotmail.com>, 2012.
 # Aranel Surion <aranel@aranelsurion.org>, 2012.
+# Caner Başaran <basaran.caner@gmail.com>, 2013.
 # Emre  <emresaracoglu@live.com>, 2012.
 #   <info@beyboo.de>, 2012.
 # Necdet Yücel <necdetyucel@gmail.com>, 2012.
@@ -13,21 +14,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-27 00:01+0100\n"
-"PO-Revision-Date: 2013-02-26 09:30+0000\n"
-"Last-Translator: tgezginis <tgezginis@gmail.com>\n"
+"POT-Creation-Date: 2013-04-15 22:06+0200\n"
+"PO-Revision-Date: 2013-04-15 20:07+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Resimler"
 
-#: js/gallery.js:245
+#: js/gallery.js:269
 msgid "Shared by"
 msgstr "Paylaşan"
 
@@ -39,4 +40,4 @@ msgstr "Paylaş"
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr ""
+msgstr "\"Resim Görüntüleyici\" uygulamasını kullanmak için bu uygulamada etkin olması gerekir."
