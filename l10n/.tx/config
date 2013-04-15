@@ -6,11 +6,6 @@ file_filter = <lang>/calendar.po
 source_file = templates/calendar.pot
 source_lang = en
 
-[owncloud.contacts]
-file_filter = <lang>/contacts.po
-source_file = templates/contacts.pot
-source_lang = en
-
 [owncloud.media]
 file_filter = <lang>/media.po
 source_file = templates/media.pot
@@ -20,12 +15,6 @@ source_lang = en
 file_filter = <lang>/gallery.po
 source_file = templates/gallery.pot
 source_lang = en
-
-[owncloud.bookmarks]
-file_filter = <lang>/bookmarks.po
-source_file = templates/bookmarks.pot
-source_lang = en
-type = PO
 
 [owncloud.admin_dependencies_chk]
 file_filter = <lang>/admin_dependencies_chk.po
@@ -87,12 +76,6 @@ source_file = templates/external.pot
 source_lang = en
 type = PO
 
-[owncloud.news]
-file_filter = <lang>/news.po
-source_file = templates/news.pot
-source_lang = en
-type = PO
-
 [owncloud.updater]
 file_filter = <lang>/updater.po
 source_file = templates/updater.pot
@@ -108,12 +91,6 @@ type = PO
 [owncloud.mozilla_sync]
 file_filter = <lang>/mozilla_sync.po
 source_file = templates/mozilla_sync.pot
-source_lang = en
-type = PO
-
-[owncloud.notes]
-file_filter = <lang>/notes.po
-source_file = templates/notes.pot
 source_lang = en
 type = PO
 
@@ -134,17 +111,4 @@ file_filter = <lang>/imprint.po
 source_file = templates/imprint.pot
 source_lang = en
 type = PO
-
-[owncloud.shorty]
-file_filter = <lang>/shorty.po
-source_file = templates/shorty.pot
-source_lang = en
-type = PO
-
-[owncloud.shorty_tracking]
-file_filter = <lang>/shorty_tracking.po
-source_file = templates/shorty_tracking.pot
-source_lang = en
-type = PO
-
 
