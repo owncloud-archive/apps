@@ -18,7 +18,7 @@ class Storage
 	* @param string $collectionName
 	*/
 	static public function collectionNameToIndex($userId, $collectionName) {
-		$query = \OCP\DB::prepare( 'SELECT id FROM *PREFIX*mozilla_sync_collections WHERE userid=? AND name=?');
+		$query = \OCP\DB::prepare( 'SELECT `id` FROM `*PREFIX*mozilla_sync_collections` WHERE `userid`=? AND `name`=?');
 		$result = $query->execute( array($userId, $collectionName) );
 
 		$row=$result->fetchRow();
@@ -29,7 +29,7 @@ class Storage
 		//
 		// No collection found
 		//
-		$query = \OCP\DB::prepare( 'INSERT INTO *PREFIX*mozilla_sync_collections (userid, name) VALUES (?,?)' );
+		$query = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*mozilla_sync_collections` (`userid`, `name`) VALUES (?,?)' );
 		$result = $query->execute( array($userId, $collectionName) );
 
 		if($result == false) {
@@ -43,7 +43,7 @@ class Storage
 	* @brief Delete old wbo
 	*/
 	static public function deleteOldWbo() {
-		$query = \OCP\DB::prepare( 'DELETE FROM *PREFIX*mozilla_sync_wbo WHERE ttl > \'0\' AND (modified + ttl) < CAST( ? AS DECIMAL(15,2))' );
+		$query = \OCP\DB::prepare( 'DELETE FROM `*PREFIX*mozilla_sync_wbo` WHERE `ttl` > 0 AND (`modified` + `ttl`) < CAST( ? AS DECIMAL(15,2))' );
 		$result = $query->execute( array(Utils::getMozillaTimestamp()) );
 
 		if($result == false) {
@@ -65,7 +65,7 @@ class Storage
 			return false;
 		}
 
-		$query = \OCP\DB::prepare( 'SELECT 1 FROM *PREFIX*mozilla_sync_wbo WHERE collectionid = ? AND name = ?' );
+		$query = \OCP\DB::prepare( 'SELECT 1 FROM `*PREFIX*mozilla_sync_wbo` WHERE `collectionid` = ? AND `name` = ?' );
 		$result = $query->execute( array($collectionId, $wboArray['id']) );
 
 		// No wbo found, add new wbo
@@ -86,7 +86,7 @@ class Storage
 	* @return boolean
 	*/
 	static public function deleteWBO($userId, $collectionId, $wboId) {
-		$query = \OCP\DB::prepare( 'DELETE FROM *PREFIX*mozilla_sync_wbo WHERE collectionid=? AND name=?' );
+		$query = \OCP\DB::prepare( 'DELETE FROM `*PREFIX*mozilla_sync_wbo` WHERE `collectionid`=? AND `name`=?' );
 		$result = $query->execute( array($collectionId, $wboId) );
 
 		if($result == false) {
@@ -98,12 +98,12 @@ class Storage
 
 	static private function insertWBO($userId, $modifiedTime, $collectionId, $wboArray) {
 
-		$queryString = 'INSERT INTO *PREFIX*mozilla_sync_wbo(collectionid, name, modified, payload';
+		$queryString = 'INSERT INTO `*PREFIX*mozilla_sync_wbo`(`collectionid`, `name`, `modified`, `payload`';
 		$queryArgs = array($collectionId, $wboArray['id'], $modifiedTime, $wboArray['payload']);
 
 		$valuesString = 'VALUES (?,?,?,?';
 
-		$wboArgs = array('sortindex', 'ttl', 'parentid', 'predecessorid');
+		$wboArgs = array('`sortindex`', '`ttl`', '`parentid`', '`predecessorid`');
 		foreach($wboArgs as $value)
 		{
 			if(array_key_exists($value, $wboArray)) {
@@ -127,7 +127,7 @@ class Storage
 
 	static private function updateWBO($userId, $modifiedTime, $collectionId, $wboArray) {
 
-		$queryString= 'UPDATE *PREFIX*mozilla_sync_wbo SET modified=?';
+		$queryString= 'UPDATE `*PREFIX*mozilla_sync_wbo` SET `modified`=?';
 		$queryArgs = array($modifiedTime);
 
 		$wboArgs = array('sortindex', 'ttl', 'parentid', 'predecessorid', 'payload');
@@ -138,7 +138,7 @@ class Storage
 				$queryArgs[] = $wboArray[$value];
 			}
 		}
-		$queryString .= ' WHERE collectionid=? AND name=?';
+		$queryString .= ' WHERE `collectionid`=? AND `name`=?';
 		array_push($queryArgs, $collectionId, $wboArray['id']);
 
 		$query = \OCP\DB::prepare($queryString);
@@ -158,7 +158,7 @@ class Storage
 	* @return boolean
 	*/
 	static public function deleteStorage($userId) {
-		$query = \OCP\DB::prepare( 'DELETE FROM *PREFIX*mozilla_sync_wbo WHERE collectionid IN (SELECT id FROM *PREFIX*mozilla_sync_collections WHERE userid = ?)' );
+		$query = \OCP\DB::prepare( 'DELETE FROM `*PREFIX*mozilla_sync_wbo` WHERE `collectionid` IN (SELECT `id` FROM `*PREFIX*mozilla_sync_collections` WHERE `userid` = ?)' );
 		$result = $query->execute( array($userId) );
 
 		if($result == false) {
@@ -166,7 +166,7 @@ class Storage
 		}
 
 
-		$query = \OCP\DB::prepare( 'DELETE FROM *PREFIX*mozilla_sync_collections WHERE userid = ?' );
+		$query = \OCP\DB::prepare( 'DELETE FROM `*PREFIX*mozilla_sync_collections` WHERE `userid` = ?' );
 		$result = $query->execute( array($userId) );
 
 		if($result == false) {
@@ -198,13 +198,13 @@ class Storage
 					else{
 						$whereString .= ' OR ';
 					}
-					$whereString .= 'name = ?';
+					$whereString .= '`name` = ?';
 					$queryArgs[] = $value;
 				}
 				$whereString .= ')';
 			}
 			else{
-				$whereString .= ' AND name = ?';
+				$whereString .= ' AND `name` = ?';
 				$queryArgs[] = $modifiers['ids'];
 			}
 		}
@@ -213,7 +213,7 @@ class Storage
 		// predecessorid
 		//
 		if(isset($modifiers['predecessorid'])) {
-			$whereString .= ' AND predecessorid = ?';
+			$whereString .= ' AND `predecessorid` = ?';
 			$queryArgs[] = $modifiers['predecessorid'];
 		}
 
@@ -221,7 +221,7 @@ class Storage
 		// parentid
 		//
 		if(isset($modifiers['parentid'])) {
-			$whereString .= ' AND parentid = ?';
+			$whereString .= ' AND `parentid` = ?';
 			$queryArgs[] = $modifiers['parentid'];
 		}
 
@@ -229,19 +229,19 @@ class Storage
 		// time modifiers
 		//
 		if(isset($modifiers['older'])) {
-			$whereString .= ' AND modified <= CAST( ? AS DECIMAL(15,2))';
+			$whereString .= ' AND `modified` <= CAST( ? AS DECIMAL(15,2))';
 			$queryArgs[] = $modifiers['older'];
 		}
 		else if(isset($modifiers['newer'])) {
-			$whereString .= ' AND modified >= CAST( ? AS DECIMAL(15,2))';
+			$whereString .= ' AND `modified` >= CAST( ? AS DECIMAL(15,2))';
 			$queryArgs[] = $modifiers['newer'];
 		}
 		else if(isset($modifiers['index_above'])) {
-			$whereString .= ' AND sortindex >= ?';
+			$whereString .= ' AND `sortindex` >= ?';
 			$queryArgs[] = $modifiers['index_above'];
 		}
 		else if(isset($modifiers['index_below'])) {
-			$whereString .= ' AND sortindex <= ?';
+			$whereString .= ' AND `sortindex` <= ?';
 			$queryArgs[] = $modifiers['index_below'];
 		}
 
@@ -250,13 +250,13 @@ class Storage
 		//
 		if(isset($modifiers['sort'])) {
 			if($modifiers['sort'] == 'oldest') {
-				$whereString .= ' ORDER BY modified ASC';
+				$whereString .= ' ORDER BY `modified` ASC';
 			}
 			else if($modifiers['sort'] == 'newest') {
-				$whereString .= ' ORDER BY modified DESC';
+				$whereString .= ' ORDER BY `modified` DESC';
 			}
 			else if($modifiers['sort'] == 'index') {
-				$whereString .= ' ORDER BY sortindex DESC';
+				$whereString .= ' ORDER BY `sortindex` DESC';
 			}
 		}
 

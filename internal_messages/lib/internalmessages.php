@@ -29,11 +29,11 @@ class OC_INT_MESSAGES
     public static function delMessage ( $id , $folder )
     {
         if ($folder == 'inbox') {
-            $query = OCP\DB::prepare('UPDATE *PREFIX*internal_messages SET message_delto=? WHERE message_id=?');
+            $query = OCP\DB::prepare('UPDATE `*PREFIX*internal_messages` SET `message_delto`=? WHERE `message_id`=?');
             $query->execute(Array(1,$id));
         }
         if ($folder == 'outbox') {
-            $query = OCP\DB::prepare('UPDATE *PREFIX*internal_messages SET message_delowner=? WHERE message_id=?');
+            $query = OCP\DB::prepare('UPDATE `*PREFIX*internal_messages` SET `message_delowner`=? WHERE `message_id`=?');
             $query->execute(Array(1,$id));
         }
     }
@@ -41,10 +41,10 @@ class OC_INT_MESSAGES
     public static function delMessageInConversation( $msg_owner , $id )
     {       
 	    if(OCP\USER::getUser() == $msg_owner){
-		    $query = OCP\DB::prepare('UPDATE *PREFIX*internal_messages SET message_delowner=? WHERE message_id=?');
+		    $query = OCP\DB::prepare('UPDATE `*PREFIX*internal_messages` SET `message_delowner`=? WHERE `message_id`=?');
 		    $query->execute(Array(1,$id));
             }else{
- 		    $query = OCP\DB::prepare('UPDATE *PREFIX*internal_messages SET message_delto=? WHERE message_id=?');
+ 		    $query = OCP\DB::prepare('UPDATE `*PREFIX*internal_messages` SET `message_delto`=? WHERE `message_id`=?');
 		    $query->execute(Array(1,$id));
 	    }
     }	
@@ -54,7 +54,7 @@ class OC_INT_MESSAGES
 
 	if(!is_array($msgto[0])){
 
-		$query  = OCP\DB::prepare('(SELECT Distinct message_to as user FROM *PREFIX*internal_messages where group_conv_id = ?) UNION (SELECT message_owner as user FROM *PREFIX*internal_messages where group_conv_id = ?)');
+		$query  = OCP\DB::prepare('(SELECT DISTINCT `message_to` AS `user` FROM `*PREFIX*internal_messages` WHERE `group_conv_id` = ?) UNION (SELECT `message_owner` AS `user` FROM `*PREFIX*internal_messages` WHERE `group_conv_id` = ?)');
 		$result = $query->execute(Array( $group_conv_id,$group_conv_id ));
 		$users   = $result->fetchAll();
 		
@@ -80,7 +80,7 @@ class OC_INT_MESSAGES
 	     }
 
              foreach ($msgto[0] as $user) {
-                $query = OCP\DB::prepare('INSERT INTO *PREFIX*internal_messages (message_owner,message_to,message_timestamp,message_content,group_conv_id) VALUES (?,?,?,?,?)');
+                $query = OCP\DB::prepare('INSERT INTO `*PREFIX*internal_messages` (`message_owner`,`message_to`,`message_timestamp`,`message_content`,`group_conv_id`) VALUES (?,?,?,?,?)');
                 $query->execute(Array($msgfrom,$user,time(),$msgcontent,$group_conv_id));
 	     }
          }
@@ -90,11 +90,11 @@ class OC_INT_MESSAGES
                 $groupUsers = OC_Group::usersInGroup( $group );
                 foreach ($groupUsers as $user) {
                     if ($user != $msgfrom) {
-                        $query = OCP\DB::prepare('INSERT INTO *PREFIX*internal_messages (message_owner,message_to,message_timestamp,message_content,message_flag) VALUES (?,?,?,?,?)');
+                        $query = OCP\DB::prepare('INSERT INTO `*PREFIX*internal_messages` (`message_owner`,`message_to`,`message_timestamp`,`message_content`,`message_flag`) VALUES (?,?,?,?,?)');
                         $query->execute(Array($msgfrom,$user,time(),$msgcontent,self::flag_group_part));
                     }
                 }
-                $query = OCP\DB::prepare('INSERT INTO *PREFIX*internal_messages (message_owner,message_to,message_timestamp,message_content,message_flag) VALUES (?,?,?,?,?)');
+                $query = OCP\DB::prepare('INSERT INTO `*PREFIX*internal_messages` (`message_owner`,`message_to`,`message_timestamp`,`message_content`,`message_flag`) VALUES (?,?,?,?,?)');
                 $query->execute(Array($msgfrom,$group.'(group)',time(),$msgcontent, self::flag_group_mesg ));
             }
          }
@@ -105,7 +105,7 @@ class OC_INT_MESSAGES
     public static function unreadMessages($user)
     {
 	
-	$query  = OCP\DB::prepare('SELECT * FROM *PREFIX*internal_messages WHERE message_to = ? AND message_delto = 0 AND message_read = 0');
+	$query  = OCP\DB::prepare('SELECT * FROM `*PREFIX*internal_messages` WHERE `message_to` = ? AND `message_delto` = 0 AND `message_read` = 0');
 	$result = $query->execute(Array( $user ));
 	$msgs   = $result->fetchAll();
 	return count($msgs);
@@ -113,7 +113,7 @@ class OC_INT_MESSAGES
 
     public static function unreadMessagesOf($user,$current_user)
     {
-        $query  = OCP\DB::prepare('SELECT * FROM *PREFIX*internal_messages WHERE message_owner = ? AND message_to = ? AND  message_delto = 0 AND message_read = 0 AND group_conv_id = 0');
+        $query  = OCP\DB::prepare('SELECT * FROM `*PREFIX*internal_messages` WHERE `message_owner` = ? AND `message_to` = ? AND `message_delto` = 0 AND `message_read` = 0 AND `group_conv_id` = 0');
         $result = $query->execute(Array( $user,$current_user ));
         $msgs   = $result->fetchAll();
 
@@ -123,7 +123,7 @@ class OC_INT_MESSAGES
 
     public static function unreadMessagesOfGroupConv($current_user,$id)
     {
-        $query  = OCP\DB::prepare('SELECT * FROM *PREFIX*internal_messages WHERE message_to = ? AND group_conv_id = ? AND  message_delto = 0 AND message_read = 0');
+        $query  = OCP\DB::prepare('SELECT * FROM `*PREFIX*internal_messages` WHERE `message_to` = ? AND `group_conv_id` = ? AND `message_delto` = 0 AND `message_read` = 0');
         $result = $query->execute(Array( $current_user,$id ));
         $msgs   = $result->fetchAll();
 
@@ -134,7 +134,7 @@ class OC_INT_MESSAGES
 
     public static function readMessages($msg_id)
     {
-        $query  = OCP\DB::prepare('UPDATE *PREFIX*internal_messages SET message_read = 1 WHERE message_id = ?');
+        $query  = OCP\DB::prepare('UPDATE `*PREFIX*internal_messages` SET `message_read` = 1 WHERE `message_id` = ?');
         $result = $query->execute(Array( $msg_id ));
         return $result;
     }
@@ -142,11 +142,11 @@ class OC_INT_MESSAGES
     public static function searchMessages ( $user , $pattern , $folder )
     {
         if ($folder == 'inbox') {
-            $query  = OCP\DB::prepare('SELECT * FROM *PREFIX*internal_messages WHERE message_to = ? AND message_delto = 0 AND message_content LIKE ? ORDER by message_timestamp DESC');
+            $query  = OCP\DB::prepare('SELECT * FROM `*PREFIX*internal_messages` WHERE `message_to` = ? AND `message_delto` = 0 AND `message_content` LIKE ? ORDER by `message_timestamp` DESC');
             $result = $query->execute(Array( $user ,'%'.$pattern.'%'));
             $msgs   = $result->fetchAll();
         } else {
-            $query  = OCP\DB::prepare('SELECT * FROM *PREFIX*internal_messages WHERE message_owner = ? AND message_delowner = 0 AND message_flag != ? AND message_content LIKE ? ORDER by message_timestamp DESC');
+            $query  = OCP\DB::prepare('SELECT * FROM `*PREFIX*internal_messages` WHERE `message_owner` = ? AND `message_delowner` = 0 AND `message_flag` != ? AND `message_content` LIKE ? ORDER by `message_timestamp` DESC');
             $result = $query->execute(Array( $user , self::flag_group_part , '%'.$pattern.'%'));
             $msgs   = $result->fetchAll();
         }
@@ -208,11 +208,11 @@ class OC_INT_MESSAGES
     public static function folderMessages( $user , $folder)
     {
         if ($folder == 'inbox') {
-            $query  = OCP\DB::prepare('SELECT * FROM *PREFIX*internal_messages WHERE message_to = ? AND message_delto = 0 ORDER by message_timestamp DESC');
+            $query  = OCP\DB::prepare('SELECT * FROM `*PREFIX*internal_messages` WHERE `message_to` = ? AND `message_delto` = 0 ORDER by `message_timestamp` DESC');
             $result = $query->execute(Array( $user ));
             $msgs   = $result->fetchAll();
         } else {
-            $query  = OCP\DB::prepare('SELECT * FROM *PREFIX*internal_messages WHERE message_owner = ? AND message_delowner = 0 AND message_flag != ? ORDER by message_timestamp DESC');
+            $query  = OCP\DB::prepare('SELECT * FROM `*PREFIX*internal_messages` WHERE `message_owner` = ? AND `message_delowner` = 0 AND `message_flag` != ? ORDER by `message_timestamp` DESC');
             $result = $query->execute(Array( $user , self::flag_group_part ));
             $msgs   = $result->fetchAll();
         }
@@ -275,7 +275,7 @@ class OC_INT_MESSAGES
 
     public static function createConversation($current_user , $user_received){
 		
-		$query  = OCP\DB::prepare('(SELECT * FROM *PREFIX*internal_messages WHERE message_to = ? AND group_conv_id 	= 0 AND message_owner = ? AND message_delowner = 0 AND ignore_conv = 0) UNION 						   (SELECT * FROM *PREFIX*internal_messages WHERE message_to = ? AND group_conv_id 	= 0 AND message_owner = ? AND message_delto = 0 AND ignore_conv = 0)  ORDER by message_timestamp ASC');
+		$query  = OCP\DB::prepare('(SELECT * FROM `*PREFIX*internal_messages` WHERE `message_to` = ? AND `group_conv_id` = 0 AND `message_owner` = ? AND `message_delowner` = 0 AND `ignore_conv` = 0) UNION 						   (SELECT * FROM `*PREFIX*internal_messages` WHERE `message_to` = ? AND `group_conv_id` = 0 AND `message_owner` = ? AND `message_delto` = 0 AND `ignore_conv` = 0)  ORDER by `message_timestamp` ASC');
 		$result = $query->execute(Array( $user_received , $current_user ,   $current_user ,$user_received ));
 		$msgs   = $result->fetchAll();
  		$data = $title ;
@@ -332,8 +332,8 @@ class OC_INT_MESSAGES
 
 	public static function createGroupConversation($current_user,$conv_id){
 		$lastTimeStamp = '';
-		$query  = OCP\DB::prepare('(SELECT * FROM oc_internal_messages WHERE `group_conv_id` = ? AND message_owner = ?) UNION
-(SELECT * FROM oc_internal_messages WHERE `group_conv_id` = ? AND message_to = ? ) ORDER by message_timestamp ASC');
+		$query  = OCP\DB::prepare('(SELECT * FROM `*PREFIX*internal_messages` WHERE `group_conv_id` = ? AND `message_owner` = ?) UNION
+(SELECT * FROM `*PREFIX*internal_messages` WHERE `group_conv_id` = ? AND `message_to` = ? ) ORDER by `message_timestamp` ASC');
 		$result = $query->execute(Array($conv_id,$current_user,$conv_id,$current_user));
 		$msgs   = $result->fetchAll();
  		$data = $title ;
@@ -395,7 +395,7 @@ class OC_INT_MESSAGES
 
    public static function getMessagedUsers($current_user){
 
-        $query  = OCP\DB::prepare('(SELECT Distinct message_to as user FROM oc_internal_messages where `message_owner`=? AND `message_delowner` = 0 AND `group_conv_id`=0) UNION (SELECT Distinct message_owner as user FROM oc_internal_messages where `message_to`=? AND `message_delto` = 0 AND `group_conv_id`=0)');
+        $query  = OCP\DB::prepare('(SELECT DISTINCT `message_to` AS `user` FROM `*PREFIX*internal_messages` WHERE `message_owner`=? AND `message_delowner` = 0 AND `group_conv_id`=0) UNION (SELECT DISTINCT `message_owner` AS `user` FROM `*PREFIX*internal_messages` WHERE `message_to`=? AND `message_delto` = 0 AND `group_conv_id`=0)');
         $result = $query->execute(Array($current_user , $current_user ));
 	$users   = $result->fetchAll();
         
@@ -422,13 +422,13 @@ class OC_INT_MESSAGES
             
         }
 
- 	$query  = OCP\DB::prepare('SELECT Distinct group_conv_id FROM oc_internal_messages WHERE message_owner = ?  AND `group_conv_id` > 0 UNION SELECT Distinct group_conv_id FROM oc_internal_messages WHERE message_to = ? AND `group_conv_id` > 0');
+ 	$query  = OCP\DB::prepare('SELECT DISTINCT `group_conv_id` FROM `*PREFIX*internal_messages` WHERE `message_owner` = ?  AND `group_conv_id` > 0 UNION SELECT DISTINCT `group_conv_id` FROM `*PREFIX*internal_messages` WHERE `message_to` = ? AND `group_conv_id` > 0');
         $result = $query->execute(Array($current_user,$current_user));
 	$group_conv_ids  = $result->fetchAll();
 	
 	foreach($group_conv_ids as $id){
 
-		$query  = OCP\DB::prepare('(SELECT Distinct message_to as user FROM *PREFIX*internal_messages where group_conv_id = ?) UNION (SELECT message_owner as user FROM *PREFIX*internal_messages where group_conv_id = ?)');
+		$query  = OCP\DB::prepare('(SELECT DISTINCT `message_to` AS `user` FROM `*PREFIX*internal_messages` WHERE `group_conv_id` = ?) UNION (SELECT `message_owner` AS `user` FROM `*PREFIX*internal_messages` WHERE `group_conv_id` = ?)');
 		$result = $query->execute(Array( $id['group_conv_id'],$id['group_conv_id'] ));
 		$owners  = $result->fetchAll();
 
