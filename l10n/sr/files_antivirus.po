@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <theranchcowboy@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-16 01:09+0200\n"
-"PO-Revision-Date: 2013-04-15 23:11+0000\n"
+"POT-Creation-Date: 2013-04-17 00:58+0200\n"
+"PO-Revision-Date: 2013-04-16 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -19,37 +20,37 @@ msgstr ""
 
 #: templates/notification.php:1
 msgid "Greetings {user},"
-msgstr ""
+msgstr "Поздрав, {user},"
 
 #: templates/notification.php:2
 msgid ""
 "Sorry, but a malware was detected in a file you tried to upload and it had "
 "to be deleted."
-msgstr ""
+msgstr "Нажалост, датотека је обрисана јер је откривен злонамерни програм у датотеци коју сте покушали да отпремите."
 
 #: templates/notification.php:3
 msgid "This email is a notification from {host}. Please, do not reply."
-msgstr ""
+msgstr "Ово је обавештење од {host}. Молимо вас да не одговарате на поруку."
 
 #: templates/notification.php:4
 msgid "File uploaded: {file}"
-msgstr ""
+msgstr "Отпремљена датотека: {file}"
 
 #: templates/settings.php:3
 msgid "Antivirus Configuration"
-msgstr ""
+msgstr "Подешавање антивируса"
 
 #: templates/settings.php:4
 msgid "Mode"
-msgstr ""
+msgstr "Режим"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr ""
+msgstr "Извршна датотека"
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr ""
+msgstr "Демон"
 
 #: templates/settings.php:7
 msgid "Host"
@@ -57,11 +58,11 @@ msgstr "Домаћин"
 
 #: templates/settings.php:7
 msgid "Address of Antivirus Host."
-msgstr ""
+msgstr "Адреса рачунара с антивирусом."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
-msgstr ""
+msgstr "Није обавезно у извршном режиму."
 
 #: templates/settings.php:8
 msgid "Port"
@@ -69,39 +70,39 @@ msgstr "Порт"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."
-msgstr ""
+msgstr "Број порта рачунара с антивирусом."
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "Дужина тока"
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "Вредност StreamMaxLength ClamAV-а у бајтовима."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "Путања до clamscan-а"
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "Путања до извршне датотеке clamscan-а."
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "Није обавезно у режиму демона."
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "Радња за заражене датотеке пронађене при скенирању"
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "Само забележи"
 
 #: templates/settings.php:12
 msgid "Delete file"
-msgstr ""
+msgstr "Обриши датотеку"
 
 #: templates/settings.php:15
 msgid "Save"

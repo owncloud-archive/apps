@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <mbouzada@gmail.com>, 2013.
 # Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-16 01:09+0200\n"
-"PO-Revision-Date: 2013-04-15 23:11+0000\n"
+"POT-Creation-Date: 2013-04-17 00:58+0200\n"
+"PO-Revision-Date: 2013-04-16 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -34,11 +35,11 @@ msgstr "Primeiro ten que configurar o contido do aviso legal"
 
 #: templates/tmpl_dummy.php:53
 msgid "That configuration is done in the administration section."
-msgstr ""
+msgstr "Esta configuración faise na sección de administración."
 
 #: templates/tmpl_dummy.php:55
 msgid "That configuration has to be done by the system administration."
-msgstr ""
+msgstr "Esa configuración ten de ser feita pola administración do sistema."
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"

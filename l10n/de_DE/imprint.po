@@ -5,12 +5,13 @@
 # Translators:
 # Andreas Tangemann <a.tangemann@web.de>, 2013.
 # Christian Reiner <foss@christian-reiner.info>, 2013.
+#  <uu.kabum@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-16 01:09+0200\n"
-"PO-Revision-Date: 2013-04-15 23:11+0000\n"
+"POT-Creation-Date: 2013-04-17 00:58+0200\n"
+"PO-Revision-Date: 2013-04-16 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German (Germany) <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,11 +36,11 @@ msgstr "Der Inhalt des Impressums muss zuerst konfiguriert werden"
 
 #: templates/tmpl_dummy.php:53
 msgid "That configuration is done in the administration section."
-msgstr ""
+msgstr "Diese Konfiguration wird im Administrationsabschnitt vorgenommen."
 
 #: templates/tmpl_dummy.php:55
 msgid "That configuration has to be done by the system administration."
-msgstr ""
+msgstr "Diese Konfiguration muss von einem Administrator vorgenommen werden."
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"

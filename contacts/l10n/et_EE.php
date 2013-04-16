@@ -170,7 +170,7 @@
 "Favorite" => "Lemmik",
 "Delete Contact" => "Kustuta kontakt",
 "Close" => "Sule",
-"Keyboard shortcuts" => "Klvaiatuuri otseteed",
+"Keyboard shortcuts" => "Klaviatuuri otseteed",
 "Navigation" => "Navigeerimine",
 "Next contact in list" => "Järgmine kontakt nimekirjas",
 "Previous contact in list" => "Eelmine kontakt nimekirjas",

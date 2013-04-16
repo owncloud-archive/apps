@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Amir Keshavarz <pnetsale@gmail.com>, 2013.
 # Amir Reza Asadi <amirreza.asadi@live.com>, 2013.
 # Hossein nag <h.sname@yahoo.com>, 2012.
 # mahdi Kereshteh <miki_mika1362@yahoo.com>, 2013.
@@ -10,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-16 01:09+0200\n"
-"PO-Revision-Date: 2013-04-15 23:09+0000\n"
+"POT-Creation-Date: 2013-04-17 00:58+0200\n"
+"PO-Revision-Date: 2013-04-16 22:58+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -631,7 +632,7 @@ msgstr ""
 
 #: lib/vcard.php:503
 msgid "You do not have the permissions to edit this contact."
-msgstr ""
+msgstr "شما دسترسی لازم برای ویرایش این تماس را ندارید ."
 
 #: lib/vcard.php:578
 msgid "Could not find the vCard with ID: "
@@ -731,7 +732,7 @@ msgstr "میان بر صفحه ی کلید"
 
 #: templates/contacts.php:72
 msgid "Navigation"
-msgstr ""
+msgstr "کنترل"
 
 #: templates/contacts.php:75
 msgid "Next contact in list"
@@ -759,7 +760,7 @@ msgstr "فعالیت ها"
 
 #: templates/contacts.php:90
 msgid "Refresh contacts list"
-msgstr ""
+msgstr "بروز رسانی لیست تماس ها"
 
 #: templates/contacts.php:92
 msgid "Add new contact"
@@ -873,11 +874,11 @@ msgstr "نشانی پست الکترنیک"
 
 #: templates/contacts.php:280
 msgid "Instant Messaging"
-msgstr ""
+msgstr "پیام های فوری"
 
 #: templates/contacts.php:281
 msgid "Address"
-msgstr "نشانی"
+msgstr "آدرس"
 
 #: templates/contacts.php:282
 msgid "Note"
@@ -979,7 +980,7 @@ msgstr "کشور"
 
 #: templates/contacts.php:397
 msgid "Instant Messenger"
-msgstr ""
+msgstr "پیام رسان"
 
 #: templates/contacts.php:399
 msgid "Delete IM"

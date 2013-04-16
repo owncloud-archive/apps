@@ -9,6 +9,7 @@
 "The uploaded file was only partially uploaded" => "Послати фајл је само делимично отпремљен!",
 "No file was uploaded" => "Ниједан фајл није послат",
 "Missing a temporary folder" => "Недостаје привремена фасцикла",
+"No file was uploaded. Unknown error" => "Ниједна датотека није отпремљена услед непознате грешке",
 "Contacts" => "Контакти",
 "Error" => "Грешка",
 "Unable to upload your file as it is a directory or has 0 bytes" => "Не могу да отпремим датотеку као фасциклу или она има 0 бајтова",

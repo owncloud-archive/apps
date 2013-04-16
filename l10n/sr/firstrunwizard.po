@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-16 01:09+0200\n"
-"PO-Revision-Date: 2013-04-15 23:11+0000\n"
+"POT-Creation-Date: 2013-04-17 00:58+0200\n"
+"PO-Revision-Date: 2013-04-16 23:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/owncloud/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -20,44 +20,44 @@ msgstr ""
 
 #: templates/wizard.php:7
 msgid "Welcome to ownCloud"
-msgstr ""
+msgstr "Добро дошли у ownCloud"
 
 #: templates/wizard.php:8
 msgid ""
 "Your personal web services. All your files, contacts, calendar and more, in "
 "one place."
-msgstr ""
+msgstr "Ваш лични кутак. Све ваше датотеке, контакти, календар и друго на једном месту."
 
 #: templates/wizard.php:11
 msgid "Get the apps to sync your files"
-msgstr ""
+msgstr "Преузмите апликације ради синхронизовања датотека"
 
 #: templates/wizard.php:23
 msgid "Connect your desktop apps to ownCloud"
-msgstr ""
+msgstr "Повежите програме за стоне рачунаре са ownCloud-ом"
 
 #: templates/wizard.php:25
 msgid "Connect your Calendar"
-msgstr ""
+msgstr "Повежите календар"
 
 #: templates/wizard.php:28
 msgid "Connect your Contacts"
-msgstr ""
+msgstr "Повежите контакте"
 
 #: templates/wizard.php:31
 msgid "Access files via WebDAV"
-msgstr ""
+msgstr "Приступите датотекама преко WebDAV-а"
 
 #: templates/wizard.php:34
 msgid ""
 "There’s more information in the <a "
 "href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
 "and on our <a href=\"http://owncloud.org\">website</a>."
-msgstr ""
+msgstr "Више информација можете пронаћи у <a href=\"http://doc.owncloud.org/server/5.0/user_manual/\">документацији</a> и на нашем <a href=\"http://owncloud.org\">сајту</a>."
 
 #: templates/wizard.php:35
 msgid ""
 "If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
 "great open software to sync and share your files. You can freely get it from"
 " http://owncloud.org\">recommend it to your friends</a>!"
-msgstr ""
+msgstr "Ако вам се свиђа ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud је одличан програм отвореног кода за синхронизовање и дељење датотека. Можете га бесплатно преузети са http://owncloud.org\">препоручите га пријатељима</a>!"
