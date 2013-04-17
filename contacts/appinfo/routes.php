@@ -8,6 +8,10 @@
  */
 namespace OCA\Contacts;
 
+use \OCA\AppFramework\App as Main;
+
+use \OCA\Contacts\DIContainer;
+
 require_once __DIR__.'/../ajax/loghandler.php';
 
 //define the routes
@@ -34,7 +38,8 @@ $this->create('contacts_address_books_for_user', 'addressbooks/{user}/')
 	->action(
 		function($params) {
 			session_write_close();
-			$app = new App($params['user']);
+			Main::main('AddressBookController', 'userAddressBooks', $params, new DIContainer());
+			/*$app = new App($params['user']);
 			$addressBooks = $app->getAddressBooksForUser();
 			$response = array();
 			foreach($addressBooks as $addressBook) {
@@ -44,7 +49,7 @@ $this->create('contacts_address_books_for_user', 'addressbooks/{user}/')
 				'data' => array(
 					'addressbooks' => $response,
 				)
-			));
+			));*/
 		}
 	)
 	->requirements(array('user'))
