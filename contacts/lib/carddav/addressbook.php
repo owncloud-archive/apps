@@ -20,14 +20,18 @@
  *
  */
 
+namespace OCA\Contacts\CardDAV;
+
+use OCA\Contacts;
+
 /**
  * This class overrides __construct to get access to $addressBookInfo and
  * $carddavBackend, Sabre_CardDAV_AddressBook::getACL() to return read/write
  * permissions based on user and shared state and it overrides
  * Sabre_CardDAV_AddressBook::getChild() and Sabre_CardDAV_AddressBook::getChildren()
- * to instantiate OC_Connector_Sabre_CardDAV_Cards.
+ * to instantiate \OCA\Contacts\CardDAV\Cards.
 */
-class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
+class AddressBook extends \Sabre_CardDAV_AddressBook {
 
 	/**
 	* CardDAV backend
@@ -43,7 +47,7 @@ class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
 	* @param array $addressBookInfo
 	*/
 	public function __construct(
-		Sabre_CardDAV_Backend_Abstract $carddavBackend,
+		\Sabre_CardDAV_Backend_Abstract $carddavBackend,
 		array $addressBookInfo) {
 
 		$this->carddavBackend = $carddavBackend;
@@ -70,41 +74,42 @@ class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
 		$writeprincipal = $this->getOwner();
 		$createprincipal = $this->getOwner();
 		$deleteprincipal = $this->getOwner();
-		$uid = OCA\Contacts\Addressbook::extractUserID($this->getOwner());
+		$uid = $this->carddavBackend->userIDByPrincipal($this->getOwner());
 
 		$readWriteACL = array(
 			array(
 				'privilege' => '{DAV:}read',
-				'principal' => 'principals/' . OCP\User::getUser(),
+				'principal' => 'principals/' . \OCP\User::getUser(),
 				'protected' => true,
 			),
 			array(
 				'privilege' => '{DAV:}write',
-				'principal' => 'principals/' . OCP\User::getUser(),
+				'principal' => 'principals/' . \OCP\User::getUser(),
 				'protected' => true,
 			),
 		);
 
-		if($uid != OCP\USER::getUser()) {
-			$sharedAddressbook = OCP\Share::getItemSharedWithBySource('addressbook', $this->addressBookInfo['id']);
+		if($uid !== \OCP\User::getUser()) {
+			list($backendName, $id) = explode('::', $this->addressBookInfo['id']);
+			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $id);
 			if($sharedAddressbook) {
-				if(($sharedAddressbook['permissions'] & OCP\PERMISSION_CREATE)
-					&& ($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE)
-					&& ($sharedAddressbook['permissions'] & OCP\PERMISSION_DELETE)
+				if(($sharedAddressbook['permissions'] & \OCP\PERMISSION_CREATE)
+					&& ($sharedAddressbook['permissions'] & \OCP\PERMISSION_UPDATE)
+					&& ($sharedAddressbook['permissions'] & \OCP\PERMISSION_DELETE)
 				) {
 					return $readWriteACL;
 				}
-				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_CREATE) {
-					$createprincipal = 'principals/' . OCP\USER::getUser();
+				if ($sharedAddressbook['permissions'] & \OCP\PERMISSION_CREATE) {
+					$createprincipal = 'principals/' . \OCP\User::getUser();
 				}
-				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_READ) {
-					$readprincipal = 'principals/' . OCP\USER::getUser();
+				if ($sharedAddressbook['permissions'] & \OCP\PERMISSION_READ) {
+					$readprincipal = 'principals/' . \OCP\User::getUser();
 				}
-				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_UPDATE) {
-					$writeprincipal = 'principals/' . OCP\USER::getUser();
+				if ($sharedAddressbook['permissions'] & \OCP\PERMISSION_UPDATE) {
+					$writeprincipal = 'principals/' . \OCP\User::getUser();
 				}
-				if ($sharedAddressbook['permissions'] & OCP\PERMISSION_DELETE) {
-					$deleteprincipal = 'principals/' . OCP\USER::getUser();
+				if ($sharedAddressbook['permissions'] & \OCP\PERMISSION_DELETE) {
+					$deleteprincipal = 'principals/' . \OCP\User::getUser();
 				}
 			}
 		} else {
@@ -198,8 +203,10 @@ class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
 	public function getChild($name) {
 
 		$obj = $this->carddavBackend->getCard($this->addressBookInfo['id'],$name);
-		if (!$obj) throw new Sabre_DAV_Exception_NotFound('Card not found');
-		return new OC_Connector_Sabre_CardDAV_Card($this->carddavBackend,$this->addressBookInfo,$obj);
+		if (!$obj) {
+			throw new \Sabre_DAV_Exception_NotFound('Card not found');
+		}
+		return new Card($this->carddavBackend,$this->addressBookInfo,$obj);
 
 	}
 
@@ -213,7 +220,7 @@ class OC_Connector_Sabre_CardDAV_AddressBook extends Sabre_CardDAV_AddressBook {
 		$objs = $this->carddavBackend->getCards($this->addressBookInfo['id']);
 		$children = array();
 		foreach($objs as $obj) {
-			$children[] = new OC_Connector_Sabre_CardDAV_Card($this->carddavBackend,$this->addressBookInfo,$obj);
+			$children[] = new Card($this->carddavBackend,$this->addressBookInfo,$obj);
 		}
 		return $children;
 

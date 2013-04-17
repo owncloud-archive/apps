@@ -4,9 +4,121 @@
 	<name>*dbname*</name>
 	<create>true</create>
 	<overwrite>false</overwrite>
-
 	<charset>utf8</charset>
+	<!--
+	<table>
+		<name>*dbprefix*addressbook</name>
 
+		<declaration>
+
+		<field>
+			<name>id</name>
+			<type>integer</type>
+			<default>0</default>
+			<notnull>true</notnull>
+			<autoincrement>1</autoincrement>
+			<unsigned>true</unsigned>
+			<length>4</length>
+		</field>
+
+		<field>
+			<name>backend</name>
+			<type>text</type>
+			<default></default>
+			<notnull>true</notnull>
+			<length>255</length>
+		</field>
+
+		<field>
+			<name>addressbookid</name>
+			<type>text</type>
+			<default></default>
+			<notnull>true</notnull>
+			<length>255</length>
+		</field>
+
+		<field>
+			<name>userid</name>
+			<type>text</type>
+			<default></default>
+			<notnull>true</notnull>
+			<length>255</length>
+		</field>
+
+		<field>
+			<name>displayname</name>
+			<type>text</type>
+			<default></default>
+			<notnull>true</notnull>
+			<length>255</length>
+		</field>
+
+		<field>
+			<name>visibility</name>
+			<type>integer</type>
+			<default>1</default>
+			<notnull>true</notnull>
+			<length>1</length>
+		</field>
+
+		<field>
+			<name>ctag</name>
+			<type>integer</type>
+			<default>0</default>
+			<notnull>true</notnull>
+			<unsigned>true</unsigned>
+			<length>4</length>
+		</field>
+
+		<field>
+			<name>order</name>
+			<type>integer</type>
+			<default>0</default>
+			<notnull>true</notnull>
+			<unsigned>true</unsigned>
+			<length>4</length>
+		</field>
+
+		</declaration>
+
+	</table>
+
+	<table>
+
+		<name>*dbprefix*addressbook_backend</name>
+
+		<declaration>
+
+		<field>
+			<name>id</name>
+			<type>integer</type>
+			<default>0</default>
+			<notnull>true</notnull>
+			<autoincrement>1</autoincrement>
+			<unsigned>true</unsigned>
+			<length>4</length>
+		</field>
+
+		<field>
+			<name>backendname</name>
+			<type>text</type>
+			<default></default>
+			<notnull>true</notnull>
+			<length>255</length>
+		</field>
+
+		<field>
+			<name>enabled</name>
+			<type>integer</type>
+			<default>1</default>
+			<notnull>true</notnull>
+			<length>1</length>
+		</field>
+
+		</declaration>
+
+	</table>
+	-->
 	<table>
 
 		<name>*dbprefix*contacts_addressbooks</name>

@@ -2,8 +2,8 @@
 /**
  * ownCloud - Addressbook
  *
- * @author Jakob Sack
- * @copyright 2011 Jakob Sack mail@jakobsack.de
+ * @author Thomas Tanghus
+ * @copyright 2012 Thomas Tanghus <thomas@tanghus.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -20,21 +20,17 @@
  *
  */
 
-// Check if we are a user
+OCP\JSON::setContentTypeHeader('text/javascript');
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('contacts');
-OCP\JSON::callCheck();
-require_once  __DIR__.'/../loghandler.php';
 
-$id = $_POST['id'];
-if(!$id) {
-	bailOut(OCA\Contacts\App::$l10n->t('id is not set.'));
-}
+$user = OCP\User::getUser();
 
-try {
-	OCA\Contacts\Addressbook::delete($id);
-} catch(Exception $e) {
-	bailOut($e->getMessage());
-}
-
-OCP\JSON::success(array('data' => array( 'id' => $id )));
+echo 'var contacts_groups_sortorder=[' . OCP\Config::getUserValue($user, 'contacts', 'groupsort', '') . '],';
+echo 'contacts_properties_indexed = '
+	. (OCP\Config::getUserValue($user, 'contacts', 'contacts_properties_indexed', 'no') === 'no'
+	? 'false' : 'true') . ',';
+echo 'contacts_categories_indexed = '
+	. (OCP\Config::getUserValue($user, 'contacts', 'contacts_categories_indexed', 'no') === 'no'
+	? 'false' : 'true') . ',';
+echo 'lang=\'' . OCP\Config::getUserValue($user, 'core', 'lang', 'en') . '\';';

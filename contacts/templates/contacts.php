@@ -1,5 +1,7 @@
 <form class="float" id="file_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php')); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
-	<input type="hidden" name="id" value="">
+	<input type="hidden" name="contactid" value="">
+	<input type="hidden" name="addressbookid" value="">
+	<input type="hidden" name="backend" value="">
 	<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>">
 	<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
 	<input type="hidden" class="max_human_file_size" value="(max <?php p($_['uploadMaxHumanFilesize']); ?>)">
@@ -25,17 +27,30 @@
 						<button class="addaddressbookcancel"><?php p($l->t('Cancel')); ?></button>
 					</li>
 				</ul>
+				<button class="addaddressbook icon-plus text"><?php p($l->t('New')); ?></button>
+				<ul class="hidden">
+					<li><input class="addaddressbookinput" type="text" placeholder="<?php p($l->t('Display name')); ?>" /></li>
+					<li>
+						<button class="addaddressbookok"><?php p($l->t('OK')); ?></button>
+						<button class="addaddressbookcancel"><?php p($l->t('Cancel')); ?></button>
+					</li>
+				</ul>
 			<h2 data-id="import" tabindex="0" role="button"><?php p($l->t('Import')); ?></h2>
 				<ul class="hidden">
 					<li class="import-upload">
-						<form id="import_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadimport.php')); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
+						<form
+							id="import_upload_form"
+							data-upload-id="1"
+							action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadimport.php')); ?>"
+							method="post" enctype="multipart/form-data"
+							target="import_upload_target_1">
 						<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
-						<label for="import_fileupload"><?php p($l->t('Select files to import')); ?>
+						<label for="import_upload_start"><?php p($l->t('Select files to import')); ?>
 							<button class="import-upload-button" title="<?php p($l->t('Select files')); ?>"></button>
 						</label>
-						<input id="import_fileupload" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" name="importfile" />
+						<input id="import_upload_start" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" name="file" />
 						</form>
-						<iframe name="import_upload_target" id='import_upload_target' src=""></iframe>
+						<!-- iframe name="import_upload_target" id='import_upload_target' src=""></iframe -->
 					</li>
 					<li class="import-select hidden"><label><?php p($l->t('Import into:')); ?></label></li>
 					<li class="import-select hidden">
@@ -59,6 +74,7 @@
 			<option value="-1" disabled="disabled" selected="selected"><?php p($l->t('Groups')); ?></option>
 		</select>
 		<button class="favorite action svg inactive control" title="<?php p($l->t('Favorite')); ?>"></button>
+		<button class="merge"><?php p($l->t('Merge selected')); ?></button>
 		<a class="delete action" title="<?php p($l->t('Delete Contact')); ?>"></a>
 	</div>
 </div>
@@ -113,7 +129,9 @@
 		enctype="multipart/form-data"
 		target="crop_target"
 		action="<?php print_unescaped(OCP\Util::linkToAbsolute('contacts', 'ajax/savecrop.php')); ?>">
-		<input type="hidden" id="id" name="id" value="{id}" />
+		<input type="hidden" id="contactid" name="contactid" value="{contactid}" />
+		<input type="hidden" id="addressbookid" name="addressbookid" value="{addressbookid}" />
+		<input type="hidden" id="backend" name="backend" value="{backend}" />
 		<input type="hidden" id="tmpkey" name="tmpkey" value="{tmpkey}" />
 		<fieldset id="coords">
 		<input type="hidden" id="x1" name="x1" value="" />
@@ -134,10 +152,24 @@
 	</div>
 </script>
 
+<script id="mergeContactsTemplate" type="text/template">
+	<div id="dialog-merge-contacts" title="<?php p($l->t('Merge contacts')); ?>">
+		<p><?php p($l->t('Which contact should the data be merged into?')); ?></p>
+		<fieldset>
+			<ul class="mergelist">
+				<li><input id="mergee_{idx}" type="radio" name="contact" value="{id}"><label for="mergee_{idx}" >{displayname}</label></li>
+			</ul>
+		</fieldset>
+		<p>
+		<input type="checkbox" id="delete_other" name="delete_other" />
+			<label for="delete_other"><?php p($l->t('Delete the other(s) after successful merge?')); ?></label>
+		</p>
+	</div>
+</script>
+
 <script id="contactListItemTemplate" type="text/template">
 	<tr class="contact" data-id="{id}">
-		<td class="name"
-			style="background: url('<?php print_unescaped(OC_Helper::linkToRemoteBase('contactthumbnail')); ?>?id={id}')">
+		<td class="name thumbnail">
 			<input type="checkbox" name="id" value="{id}" /><span class="nametext">{name}</span>
 		</td>
 		<td class="email">
@@ -151,8 +183,7 @@
 </script>
 
 <script id="contactDragItemTemplate" type="text/template">
-	<div class="dragContact" data-id="{id}"
-		style="background: url('<?php print_unescaped(OC_Helper::linkToRemoteBase('contactthumbnail')); ?>?id={id}')">
+	<div class="dragContact thumbnail" data-id="{id}">
 		{name}
 	</div>
 </script>
@@ -173,10 +204,10 @@
 		<li>
 			<div id="photowrapper" class="propertycontainer" data-element="photo">
 				<ul id="phototools" class="transparent hidden">
-					<li><a class="action delete" title="<?php p($l->t('Delete current photo')); ?>"></a></li>
-					<li><a class="action edit" title="<?php p($l->t('Edit current photo')); ?>"></a></li>
-					<li><a class="action upload" title="<?php p($l->t('Upload new photo')); ?>"></a></li>
-					<li><a class="action cloud icon-cloud" title="<?php p($l->t('Select photo from ownCloud')); ?>"></a></li>
+					<li><a class="action delete" title="<?php echo $l->t('Delete current photo'); ?>"></a></li>
+					<li><a class="action edit" title="<?php echo $l->t('Edit current photo'); ?>"></a></li>
+					<li><a class="action upload" title="<?php echo $l->t('Upload new photo'); ?>"></a></li>
+					<li><a class="action cloud icon-cloud" title="<?php echo $l->t('Select photo from ownCloud'); ?>"></a></li>
 				</ul>
 				<a class="favorite action {favorite}"></a>
 			</div>
@@ -206,6 +237,9 @@
 			</fieldset>
 			<div class="groupscontainer propertycontainer" data-element="categories">
 				<select id="contactgroups" title="<?php p($l->t('Select groups')); ?>" name="value" multiple></select>
+			</div>
+			<div>
+				<select class="hidden" id="contactaddressbooks" title="<?php p($l->t('Select address book')); ?>" name="value" multiple></select>
 			</div>
 			<dl class="form">
 				<dt data-element="nickname">
@@ -289,7 +323,7 @@
 </script>
 
 <script id="contactDetailsTemplate" class="hidden" type="text/template">
-	<div class="email">
+	<div class="email" type="text/template">
 		<li data-element="email" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
@@ -304,7 +338,7 @@
 			</span>
 		</li>
 	</div>
-	<div class="tel">
+	<div class="tel" type="text/template">
 		<li data-element="tel" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
@@ -318,7 +352,7 @@
 			</span>
 		</li>
 	</div>
-	<div class="url">
+	<div class="url" type="text/template">
 		<li data-element="url" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="rtl type parameter" data-parameter="TYPE" name="parameters[TYPE][]">
@@ -333,7 +367,7 @@
 			</span>
 		</li>
 	</div>
-	<div class="adr">
+	<div class="adr" type="text/template">
 		<li data-element="adr" data-checksum="{checksum}" data-lang="<?php p(OCP\Config::getUserValue(OCP\USER::getUser(), 'core', 'lang', 'en')); ?>" class="propertycontainer">
 			<span class="float display">
 				<label class="meta parameters"></label>
@@ -380,7 +414,7 @@
 			</fieldset>
 		</li>
 	</div>
-	<div class="impp">
+	<div class="impp" type="text/template">
 		<li data-element="impp" data-checksum="{checksum}" class="propertycontainer">
 			<span class="parameters">
 				<select class="type parameter" data-parameter="TYPE" name="parameters[TYPE][]">

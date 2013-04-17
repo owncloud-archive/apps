@@ -10,6 +10,14 @@ namespace OCA\Contacts;
 
 class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 	const FORMAT_ADDRESSBOOKS = 1;
+	const FORMAT_COLLECTION = 2;
+
+	public $backend;
+
+	public function __construct() {
+		// Currently only share
+		$this->backend = new Backend\Database();
+	}
 
 	/**
 	* @brief Get the source of the item to be stored in the database
@@ -23,8 +31,8 @@ class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 	* The formatItems() function will translate the source returned back into the item
 	*/
 	public function isValidSource($itemSource, $uidOwner) {
-		$addressbook = Addressbook::find( $itemSource );
-		if( $addressbook === false || $addressbook['userid'] != $uidOwner) {
+		$addressbook = $this->backend->getAddressBook($itemSource);
+		if(!$addressbook || $addressbook['userid'] !== $uidOwner) {
 			return false;
 		}
 		return true;
@@ -41,17 +49,20 @@ class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 	* If it does generate a new name e.g. name_#
 	*/
 	public function generateTarget($itemSource, $shareWith, $exclude = null) {
-		$addressbook = Addressbook::find( $itemSource );
+		$addressbook = $this->backend->getAddressBook($itemSource);
+
 		$user_addressbooks = array();
-		foreach(Addressbook::all($shareWith) as $user_addressbook) {
+
+		foreach($this->backend->getAddressBooksForUser($shareWith) as $user_addressbook) {
 			$user_addressbooks[] = $user_addressbook['displayname'];
 		}
-		$name = $addressbook['displayname'];
+		$name = $addressbook['displayname'] . '(' . $addressbook['userid'] . ')';
 		$suffix = '';
 		while (in_array($name.$suffix, $user_addressbooks)) {
 			$suffix++;
 		}
 
+		$suffix = $suffix ? ' ' . $suffix : '';
 		return $name.$suffix;
 	}
 
@@ -68,26 +79,33 @@ class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 	* This function allows the backend to control the output of shared items with custom formats.
 	* It is only called through calls to the public getItem(s)Shared(With) functions.
 	*/
-	public function formatItems($items, $format, $parameters = null) {
+	public function formatItems($items, $format, $parameters = null, $include = false) {
+		//\OCP\Util::writeLog('contacts', __METHOD__
+		//	. ' ' . $include . ' ' . print_r($items, true), \OCP\Util::DEBUG);
 		$addressbooks = array();
-		if ($format == self::FORMAT_ADDRESSBOOKS) {
+		if ($format === self::FORMAT_ADDRESSBOOKS) {
 			foreach ($items as $item) {
-				$addressbook = Addressbook::find($item['item_source']);
+				//\OCP\Util::writeLog('contacts', __METHOD__.' item_source: ' . $item['item_source'] . ' include: '
+				//	. (int)$include, \OCP\Util::DEBUG);
+				$addressbook = $this->backend->getAddressBook($item['item_source']);
 				if ($addressbook) {
-					$addressbook['displayname'] = $item['item_target'];
+					$addressbook['displayname'] = $addressbook['displayname'] . ' (' . $addressbook['owner'] . ')';
 					$addressbook['permissions'] = $item['permissions'];
 					$addressbooks[] = $addressbook;
 				}
+			}
+		} elseif ($format === self::FORMAT_COLLECTION) {
+			foreach ($items as $item) {
 			}
 		}
 		return $addressbooks;
 	}
 
 	public function getChildren($itemSource) {
-		$query = \OCP\DB::prepare('SELECT `id`, `fullname` FROM `*PREFIX*contacts_cards` WHERE `addressbookid` = ?');
-		$result = $query->execute(array($itemSource));
+		\OCP\Util::writeLog('contacts', __METHOD__.' item_source: ' . $itemSource, \OCP\Util::DEBUG);
+		$contacts = $this->backend->getContacts($itemSource, null, null, true);
 		$children = array();
-		while ($contact = $result->fetchRow()) {
+		foreach($contacts as $contact) {
 			$children[] = array('source' => $contact['id'], 'target' => $contact['fullname']);
 		}
 		return $children;

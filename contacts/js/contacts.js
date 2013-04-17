@@ -7,17 +7,18 @@ OC.Contacts = OC.Contacts || {};
 	* An item which binds the appropriate html and event handlers
 	* @param parent the parent ContactList
 	* @param id The integer contact id.
-	* @param access An access object containing and 'owner' string variable and an integer 'permissions' variable.
+	* @param metadata An metadata object containing and 'owner' string variable and an integer 'permissions' variable.
 	* @param data the data used to populate the contact
 	* @param listtemplate the jquery object used to render the contact list item
 	* @param fulltemplate the jquery object used to render the entire contact
 	* @param detailtemplates A map of jquery objects used to render the contact parts e.g. EMAIL, TEL etc.
 	*/
-	var Contact = function(parent, id, access, data, listtemplate, dragtemplate, fulltemplate, detailtemplates) {
-		//console.log('contact:', id, access); //parent, id, data, listtemplate, fulltemplate);
+	var Contact = function(parent, id, metadata, data, listtemplate, dragtemplate, fulltemplate, detailtemplates) {
+		//console.log('contact:', id, metadata, data); //parent, id, data, listtemplate, fulltemplate);
 		this.parent = parent,
+			this.storage = parent.storage,
 			this.id = id,
-			this.access = access,
+			this.metadata = metadata,
 			this.data = data,
 			this.$dragTemplate = dragtemplate,
 			this.$listTemplate = listtemplate,
@@ -25,6 +26,98 @@ OC.Contacts = OC.Contacts || {};
 			this.detailTemplates = detailtemplates;
 		this.undoQueue = [];
 		this.multi_properties = ['EMAIL', 'TEL', 'IMPP', 'ADR', 'URL'];
+	};
+
+	Contact.prototype.metaData = function() {
+		return {
+			contactid: this.id,
+			addressbookid: this.metadata.parent,
+			backend: this.metadata.backend
+		}
+	};
+
+	Contact.prototype.getDisplayName = function() {
+		return this.getPreferredValue('FN');
+	};
+
+	Contact.prototype.getId = function() {
+		return this.id;
+	};
+
+	Contact.prototype.getParent = function() {
+		return this.metadata.parent;
+	};
+
+	Contact.prototype.getBackend = function() {
+		return this.metadata.backend;
+	};
+
+	Contact.prototype.merge = function(mergees) {
+		console.log('Contact.merge, mergees', mergees);
+		if(!mergees instanceof Array && !mergees instanceof Contact) {
+			throw new TypeError('BadArgument: Contact.merge() only takes Contacts');
+		} else {
+			if(mergees instanceof Contact) {
+				mergees = [mergees];
+			}
+		}
+
+		// For multi_properties
+		var addIfNotExists = function(name, newproperty) {
+			// If the property isn't set at all just add it and return.
+			if(!self.data[name]) {
+				self.data[name] = [newproperty];
+				return;
+			}
+			var found = false;
+			$.each(self.data[name], function(idx, property) {
+				if(name === 'ADR') {
+					// Do a simple string comparison
+					if(property.value.join(';').toLowerCase() === newproperty.value.join(';').toLowerCase()) {
+						found = true;
+						return false; // break loop
+					}
+				} else {
+					if(property.value.toLowerCase() === newproperty.value.toLowerCase()) {
+						found = true;
+						return false; // break loop
+					}
+				}
+			});
+			if(found) {
+				return;
+			}
+			// Not found, so adding it.
+			self.data[name].push(newproperty);
+		}
+
+		var self = this;
+		$.each(mergees, function(idx, mergee) {
+			console.log('Contact.merge, mergee', mergee);
+			if(!mergee instanceof Contact) {
+				throw new TypeError('BadArgument: Contact.merge() only takes Contacts');
+			}
+			if(mergee === self) {
+				throw new Error('BadArgument: Why should I merge with myself?');
+			}
+			$.each(mergee.data, function(name, properties) {
+				if(self.multi_properties.indexOf(name) === -1) {
+					if(self.data[name] && self.data[name].length > 0) {
+						// If the property exists don't touch it.
+						return true; // continue
+					} else {
+						// Otherwise add it.
+						self.data[name] = properties;
+					}
+				} else {
+					$.each(properties, function(idx, property) {
+						addIfNotExists(name, property);
+					});
+				}
+			});
+			console.log('Merged', self.data);
+		});
+		return true;
 	};
 
 	Contact.prototype.showActions = function(act) {
@@ -68,7 +161,7 @@ OC.Contacts = OC.Contacts || {};
 			newvalue: params.newvalue,
 			oldvalue: params.oldvalue
 		});
-		console.log('undoQueue', this.undoQueue);
+		//console.log('undoQueue', this.undoQueue);
 	}
 	
 	Contact.prototype.addProperty = function($option, name) {
@@ -137,6 +230,8 @@ OC.Contacts = OC.Contacts || {};
 		console.log('Contact.deleteProperty, element', element, $container);
 		var params = {
 			name: element,
+			backend: this.metadata.backend,
+			addressbookid: this.metadata.parent,
 			id: this.id
 		};
 		if(this.multi_properties.indexOf(element) !== -1) {
@@ -153,16 +248,9 @@ OC.Contacts = OC.Contacts || {};
 		}
 		this.setAsSaving(obj, true);
 		var self = this;
-		$.post(OC.filePath('contacts', 'ajax', 'contact/deleteproperty.php'), params, function(jsondata) {
-			if(!jsondata) {
-				$(document).trigger('status.contact.error', {
-					status: 'error',
-					message: t('contacts', 'Network or server error. Please inform administrator.')
-				});
-				self.setAsSaving(obj, false);
-				return false;
-			}
-			if(jsondata.status == 'success') {
+		$.when(this.storage.deleteProperty(this.metadata.backend, this.metadata.parent, this.id, params))
+			.then(function(response) {
+			if(!response.error) {
 				// TODO: Test if removing from internal data structure works
 				if(self.multi_properties.indexOf(element) !== -1) {
 					// First find out if an existing element by looking for checksum
@@ -206,19 +294,68 @@ OC.Contacts = OC.Contacts || {};
 				return true;
 			} else {
 				$(document).trigger('status.contact.error', {
-					status: 'error',
-					message: jsondata.data.message
+					message: response.message
 				});
 				self.setAsSaving(obj, false);
 				return false;
 			}
-		},'json');
+		})
+		.fail(function(jqxhr, textStatus, error) {
+			var err = textStatus + ', ' + error;
+			console.warn( "Request Failed: " + err);
+			$(document).trigger('status.contact.error', {
+				message: t('contacts', 'Failed deleting property: {error}', {error:err})
+			});
+		});
+;
 	};
+
+	/**
+	 * @brief Save all properties. Used for merging contacts.
+	 * If this is a new contact it will first be saved to the datastore and a
+	 * new datastructure will be added to the object.
+	 */
+	Contact.prototype.saveAll = function(cb) {
+		console.log('Contact.saveAll');
+		if(!this.id) {
+			var self = this;
+			this.add({isnew:true}, function(response) {
+				if(response.error) {
+					console.warn('No response object');
+					return false;
+				}
+				self.saveAll();
+			});
+			return;
+		}
+		var self = this;
+		this.setAsSaving(this.$fullelem, true);
+		var data = JSON.stringify(this.data);
+		//console.log('stringified', data);
+		$.when(this.storage.saveAllProperties(this.metadata.backend, this.metadata.parent, this.id, data))
+			.then(function(response) {
+			if(!response.error) {
+				self.data = response.data.data;
+				self.metadata = response.data.metadata;
+				if(typeof cb === 'function') {
+					cb({error:false});
+				}
+			} else {
+				$(document).trigger('status.contact.error', {
+					message: response.message
+				});
+				if(typeof cb === 'function') {
+					cb({error:true, message:response.message});
+				}
+			}
+			self.setAsSaving(self.$fullelem, false);
+		});
+	}
 
 	/**
 	 * @brief Act on change of a property.
 	 * If this is a new contact it will first be saved to the datastore and a
-	 * new datastructure will be added to the object. FIXME: Not implemented yet.
+	 * new datastructure will be added to the object.
 	 * If the obj argument is not provided 'name' and 'value' MUST be provided
 	 * and this is only allowed for single elements like N, FN, CATEGORIES.
 	 * @param obj. The form form field that has changed.
@@ -241,32 +378,25 @@ OC.Contacts = OC.Contacts || {};
 		}
 		var obj = null;
 		var element = null;
-		var q = '';
+		var args = [];
 		if(params.obj) {
 			obj = params.obj;
-			q = this.queryStringFor(obj);
+			args = this.argumentsFor(obj);
+			args['parameters'] = this.parametersFor(obj);
 			element = this.propertyTypeFor(obj);
 		} else {
+			args = params;
 			element = params.name;
 			var value = utils.isArray(params.value)
 				? $.param(params.value)
 				: encodeURIComponent(params.value);
-			q = 'id=' + this.id + '&value=' + value + '&name=' + element;
 		}
-		console.log('q', q);
+		console.log('args', args);
 		var self = this;
 		this.setAsSaving(obj, true);
-		$.post(OC.filePath('contacts', 'ajax', 'contact/saveproperty.php'), q, function(jsondata){
-			if(!jsondata) {
-				$(document).trigger('status.contact.error', {
-					status: 'error',
-					message: t('contacts', 'Network or server error. Please inform administrator.')
-				});
-				$(obj).addClass('error');
-				self.setAsSaving(obj, false);
-				return false;
-			}
-			if(jsondata.status == 'success') {
+		$.when(this.storage.saveProperty(this.metadata.backend, this.metadata.parent, this.id, args))
+			.then(function(response) {
+			if(!response.error) {
 				if(!self.data[element]) {
 					self.data[element] = [];
 				}
@@ -283,7 +413,7 @@ OC.Contacts = OC.Contacts || {};
 						self.pushToUndo({
 							action:'save', 
 							name: element,
-							newchecksum: jsondata.data.checksum,
+							newchecksum: response.data.checksum,
 							oldchecksum: checksum,
 							newvalue: value,
 							oldvalue: obj.defaultValue
@@ -294,7 +424,7 @@ OC.Contacts = OC.Contacts || {};
 									name: element,
 									value: value,
 									parameters: parameters,
-									checksum: jsondata.data.checksum
+									checksum: response.data.checksum
 								};
 								return false;
 							}
@@ -304,17 +434,17 @@ OC.Contacts = OC.Contacts || {};
 						self.pushToUndo({
 							action:'add', 
 							name: element,
-							newchecksum: jsondata.data.checksum,
+							newchecksum: response.data.checksum,
 							newvalue: value,
 						});
 						self.data[element].push({
 							name: element,
 							value: value,
 							parameters: parameters,
-							checksum: jsondata.data.checksum,
+							checksum: response.data.checksum,
 						});
 					}
-					self.propertyContainerFor(obj).data('checksum', jsondata.data.checksum);
+					self.propertyContainerFor(obj).data('checksum', response.data.checksum);
 				} else {
 					// Save value and parameters internally
 					var value = obj ? self.valueFor(obj) : params.value;
@@ -326,6 +456,16 @@ OC.Contacts = OC.Contacts || {};
 					switch(element) {
 						case 'CATEGORIES':
 							// We deal with this in addToGroup()
+							break;
+						case 'BDAY':
+							// reverse order again.
+							value = $.datepicker.formatDate('yy-mm-dd', $.datepicker.parseDate('dd-mm-yy', value));
+							self.data[element][0] = {
+								name: element,
+								value: value,
+								parameters: self.parametersFor(obj),
+								checksum: response.data.checksum
+							};
 							break;
 						case 'FN':
 							if(!self.data.FN || !self.data.FN.length) {
@@ -380,7 +520,6 @@ OC.Contacts = OC.Contacts || {};
 								$fullname.val(self.data.FN[0]['value']);
 								update_fn = true;
 							} else if($fullname.val() == value[1] + ' ') {
-								console.log('change', value);
 								self.data.FN[0]['value'] = value[1] + ' ' + value[0];
 								$fullname.val(self.data.FN[0]['value']);
 								update_fn = true;
@@ -395,7 +534,6 @@ OC.Contacts = OC.Contacts || {};
 								}, 1000);
 							}
 						case 'NICKNAME':
-						case 'BDAY':
 						case 'ORG':
 						case 'TITLE':
 						case 'NOTE':
@@ -403,7 +541,7 @@ OC.Contacts = OC.Contacts || {};
 								name: element,
 								value: value,
 								parameters: self.parametersFor(obj),
-								checksum: jsondata.data.checksum
+								checksum: response.data.checksum
 							};
 							break;
 						default:
@@ -418,13 +556,12 @@ OC.Contacts = OC.Contacts || {};
 				return true;
 			} else {
 				$(document).trigger('status.contact.error', {
-					status: 'error',
-					message: jsondata.data.message
+					message: response.message
 				});
 				self.setAsSaving(obj, false);
 				return false;
 			}
-		},'json');
+		});
 	};
 
 	/**
@@ -499,22 +636,16 @@ OC.Contacts = OC.Contacts || {};
 	 * @returns The callback gets an object as argument with a variable 'status' of either 'success'
 	 * or 'error'. On success the 'data' property of that object contains the contact id as 'id', the
 	 * addressbook id as 'aid' and the contact data structure as 'details'.
+	 * TODO: Use Storage for adding and make sure to get all metadata.
 	 */
 	Contact.prototype.add = function(params, cb) {
 		var self = this;
-		$.post(OC.filePath('contacts', 'ajax', 'contact/add.php'),
-			   params, function(jsondata) {
-			if(!jsondata) {
-				$(document).trigger('status.contact.error', {
-					status: 'error',
-					message: t('contacts', 'Network or server error. Please inform administrator.')
-				});
-				return false;
-			}
-			if(jsondata.status === 'success') {
-				self.id = parseInt(jsondata.data.id);
-				self.access.id = parseInt(jsondata.data.aid);
-				self.data = jsondata.data.details;
+		$.when(this.storage.addContact(this.metadata.backend, this.metadata.parent))
+			.then(function(response) {
+			if(!response.error) {
+				self.id = String(response.data.metadata.id);
+				self.metadata = response.data.metadata;
+				self.data = response.data.data;
 				self.$groupSelect.multiselect('enable');
 				// Add contact to current group
 				if(self.groupprops && self.groupprops.currentgroup.id !== 'all'
@@ -534,9 +665,14 @@ OC.Contacts = OC.Contacts || {};
 					id: self.id,
 					contact: self
 				});
+			} else {
+				$(document).trigger('status.contact.error', {
+					message: response.message
+				});
+				return false;
 			}
 			if(typeof cb == 'function') {
-				cb(jsondata);
+				cb(response);
 			}
 		});
 	};
@@ -548,9 +684,14 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	Contact.prototype.destroy = function(cb) {
 		var self = this;
-		$.post(OC.filePath('contacts', 'ajax', 'contact/delete.php'),
-			   {id: this.id}, function(jsondata) {
-			if(jsondata && jsondata.status === 'success') {
+		$.when(this.storage.deleteContact(
+			this.metadata.backend,
+			this.metadata.parent,
+			this.id)
+		).then(function(response) {
+		//$.post(OC.filePath('contacts', 'ajax', 'contact/delete.php'),
+		//	   {id: this.id}, function(response) {
+			if(!response.error) {
 				if(self.$listelem) {
 					self.$listelem.remove();
 				}
@@ -559,20 +700,47 @@ OC.Contacts = OC.Contacts || {};
 				}
 			}
 			if(typeof cb == 'function') {
-				var retval = {status: jsondata ? jsondata.status : 'error'};
-				if(jsondata) {
-					if(jsondata.status === 'success') {
-						retval['id'] = jsondata.id;
-					} else {
-						retval['message'] = jsondata.message;
-					}
+				if(response.error) {
+					cb(response);
 				} else {
-					retval['message'] = t('contacts', 'There was an unknown error when trying to delete this contact');
-					retval['id'] = self.id;
+					cb({id:self.id});
 				}
-				cb(retval);
 			}
 		});
+	};
+
+	Contact.prototype.argumentsFor = function(obj) {
+		var args = {};
+		var ptype = this.propertyTypeFor(obj);
+		args['name'] = ptype;
+
+		if(this.multi_properties.indexOf(ptype) !== -1) {
+			args['checksum'] = this.checksumFor(obj);
+		}
+
+		if($(obj).hasClass('propertycontainer')) {
+			if($(obj).is('select[data-element="categories"]')) {
+				args['value'] = [];
+				$.each($(obj).find(':selected'), function(idx, e) {
+					args['value'].push($(e).text());
+				});
+			} else {
+				args['value'] = $(obj).val();
+			}
+		} else {
+			var $elements = this.propertyContainerFor(obj)
+				.find('input.value,select.value,textarea.value');
+			if($elements.length > 1) {
+				args['value'] = [];
+				$.each($elements, function(idx, e) {
+					args['value'][parseInt($(e).attr('name').substr(6,1))] = $(e).val();
+					//args['value'].push($(e).val());
+				});
+			} else {
+				args['value'] = $elements.val();
+			}
+		}
+		return args;
 	};
 
 	Contact.prototype.queryStringFor = function(obj) {
@@ -617,7 +785,7 @@ OC.Contacts = OC.Contacts || {};
 	Contact.prototype.valueFor = function(obj) {
 		var $container = this.propertyContainerFor(obj);
 		console.assert($container.length > 0, 'Couldn\'t find container for ' + $(obj));
-		return $container.is('input')
+		return $container.is('input.value')
 			? $container.val()
 			: (function() {
 				var $elem = $container.find('textarea.value,input.value:not(:checkbox)');
@@ -636,23 +804,29 @@ OC.Contacts = OC.Contacts || {};
 
 	Contact.prototype.parametersFor = function(obj, asText) {
 		var parameters = [];
-		$.each(this.propertyContainerFor(obj).find('select.parameter,input:checkbox:checked.parameter,textarea'), function(i, elem) {
+		$.each(this.propertyContainerFor(obj)
+			.find('select.parameter,input:checkbox:checked.parameter,textarea'), // Why do I look for textarea?
+			   function(i, elem) {
 			var $elem = $(elem);
 			var paramname = $elem.data('parameter');
 			if(!parameters[paramname]) {
 				parameters[paramname] = [];
 			}
-			var val;
-			if(asText) {
-				if($elem.is(':checkbox')) {
-					val = $elem.attr('title');
-				} else if($elem.is('select')) {
-					val = $elem.find(':selected').text();
+			if($elem.is(':checkbox')) {
+				if(asText) {
+					parameters[paramname].push($elem.attr('title'));
+				} else {
+					parameters[paramname].push($elem.attr('value'));
 				}
-			} else {
-				val = $elem.val();
+			} else if($elem.is('select')) {
+				$.each($elem.find(':selected'), function(idx, e) {
+					if(asText) {
+						parameters[paramname].push($(e).text());
+					} else {
+						parameters[paramname].push($(e).val());
+					}
+				});
 			}
-			parameters[paramname].push(val);
 		});
 		return parameters;
 	};
@@ -673,6 +847,7 @@ OC.Contacts = OC.Contacts || {};
 				name: this.getPreferredValue('FN', '')
 			});
 		}
+		this.setThumbnail(this.$dragelem);
 		return this.$dragelem;
 	}
 
@@ -683,17 +858,22 @@ OC.Contacts = OC.Contacts || {};
 	Contact.prototype.renderListItem = function(isnew) {
 		this.$listelem = this.$listTemplate.octemplate({
 			id: this.id,
-			name: isnew ? this.getPreferredValue('FN', '') : this.getPreferredValue('FN', ''),
-			email: isnew ? this.getPreferredValue('EMAIL', '') : this.getPreferredValue('EMAIL', ''),
-			tel: isnew ? this.getPreferredValue('TEL', '') : this.getPreferredValue('TEL', ''),
-			adr: isnew ? this.getPreferredValue('ADR', []).clean('').join(', ') : this.getPreferredValue('ADR', []).clean('').join(', '),
+			parent: this.metadata.parent,
+			backend: this.metadata.backend,
+			name: this.getPreferredValue('FN', ''),
+			email: this.getPreferredValue('EMAIL', ''),
+			tel: this.getPreferredValue('TEL', ''),
+			adr: this.getPreferredValue('ADR', []).clean('').join(', '),
 			categories: this.getPreferredValue('CATEGORIES', [])
 				.clean('').join(' / ')
 		});
-		if(this.access.owner !== OC.currentUser
-				&& !(this.access.permissions & OC.PERMISSION_UPDATE
-				|| this.access.permissions & OC.PERMISSION_DELETE)) {
+		if(this.metadata.owner !== OC.currentUser
+				&& !(this.metadata.permissions & OC.PERMISSION_UPDATE
+				|| this.metadata.permissions & OC.PERMISSION_DELETE)) {
 			this.$listelem.find('input:checkbox').prop('disabled', true).css('opacity', '0');
+		}
+		if(isnew) {
+			this.setThumbnail();
 		}
 		return this.$listelem;
 	};
@@ -723,7 +903,7 @@ OC.Contacts = OC.Contacts || {};
 			});
 			self.$groupSelect.bind('multiselectclick', function(event, ui) {
 				var action = ui.checked ? 'addtogroup' : 'removefromgroup';
-				console.assert(typeof self.id === 'number', 'ID is not a number')
+				console.assert(typeof self.id === 'string', 'ID is not a string')
 				$(document).trigger('request.contact.' + action, {
 					id: self.id,
 					groupid: parseInt(ui.value)
@@ -739,6 +919,34 @@ OC.Contacts = OC.Contacts || {};
 			}
 		};
 		
+		var buildAddressBookSelect = function(availableAddressBooks) {
+			console.log('address books', availableAddressBooks.length, availableAddressBooks);
+			/* TODO:
+			 * - Check address books permissions.
+			 * - Add method to change address book.
+			 */
+			$.each(availableAddressBooks, function(idx, addressBook) {
+				//console.log('addressBook', idx, addressBook);
+				var $option = $('<option data-backend="'
+					+ addressBook.backend + '" value="' + addressBook.id + '">'
+					+ addressBook.displayname + '(' + addressBook.backend + ')</option>');
+				if(self.metadata.parent === addressBook.id
+					&& self.metadata.backend === addressBook.backend) {
+					$option.attr('selected', 'selected');
+				}
+				self.$addressBookSelect.append($option);
+			});
+			self.$addressBookSelect.multiselect({
+				header: false,
+				selectedList: 3,
+				noneSelectedText: self.$addressBookSelect.attr('title'),
+				selectedText: t('contacts', '# groups')
+			});
+			if(self.id) {
+				self.$addressBookSelect.multiselect('disable');
+			}
+		};
+
 		var n = this.getPreferredValue('N', ['', '', '', '', '']);
 		//console.log('Contact.renderContact', this.data);
 		var values = this.data
@@ -770,6 +978,11 @@ OC.Contacts = OC.Contacts || {};
 		this.$groupSelect = this.$fullelem.find('#contactgroups');
 		buildGroupSelect(groupprops.groups);
 		
+		if(Object.keys(this.parent.addressbooks).length > 1) {
+			this.$addressBookSelect = this.$fullelem.find('#contactaddressbooks');
+			buildAddressBookSelect(this.parent.addressbooks);
+		}
+
 		this.$addMenu = this.$fullelem.find('#addproperty');
 		this.$addMenu.on('change', function(event) {
 			//console.log('add', $(this).val());
@@ -820,13 +1033,9 @@ OC.Contacts = OC.Contacts || {};
 					id: self.id
 				});
 			} else if($(this).is('.export')) {
-				$(document).trigger('request.contact.export', {
-					id: self.id
-				});
+				$(document).trigger('request.contact.export', self.metaData());
 			} else if($(this).is('.delete')) {
-				$(document).trigger('request.contact.delete', {
-					id: self.id
-				});
+				$(document).trigger('request.contact.delete', self.metaData());
 			}
 			return false;
 		});
@@ -847,7 +1056,8 @@ OC.Contacts = OC.Contacts || {};
 			if($(this).hasClass('value') && this.value === this.defaultValue) {
 				return;
 			}
-			console.log('change', this.defaultValue, this.value);
+			//console.log('change', this.defaultValue, this.value);
+			this.defaultValue = this.value;
 			self.saveProperty({obj:event.target});
 		});
 
@@ -971,9 +1181,9 @@ OC.Contacts = OC.Contacts || {};
 						if($meta.length) {
 							$meta.html(meta.join('/'));
 						}
-						if(self.access.owner === OC.currentUser
-								|| self.access.permissions & OC.PERMISSION_UPDATE
-								|| self.access.permissions & OC.PERMISSION_DELETE) {
+						if(self.metadata.owner === OC.currentUser
+								|| self.metadata.permissions & OC.PERMISSION_UPDATE
+								|| self.metadata.permissions & OC.PERMISSION_DELETE) {
 							$property.find('select.type[name="parameters[TYPE][]"]')
 								.combobox({
 									singleclick: true,
@@ -985,9 +1195,9 @@ OC.Contacts = OC.Contacts || {};
 				}
 			}
 		});
-		if(this.access.owner !== OC.currentUser
-			&& !(this.access.permissions & OC.PERMISSION_UPDATE
-				|| this.access.permissions & OC.PERMISSION_DELETE)) {
+		if(this.metadata.owner !== OC.currentUser
+			&& !(this.metadata.permissions & OC.PERMISSION_UPDATE
+				|| this.metadata.permissions & OC.PERMISSION_DELETE)) {
 			this.setEnabled(false);
 			this.showActions(['close', 'export']);
 		} else {
@@ -998,9 +1208,9 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.isEditable = function() {
-		return ((this.access.owner === OC.currentUser)
-			|| (this.access.permissions & OC.PERMISSION_UPDATE
-				|| this.access.permissions & OC.PERMISSION_DELETE));
+		return ((this.metadata.owner === OC.currentUser)
+			|| (this.metadata.permissions & OC.PERMISSION_UPDATE
+				|| this.metadata.permissions & OC.PERMISSION_DELETE));
 	};
 
 	/**
@@ -1063,7 +1273,7 @@ OC.Contacts = OC.Contacts || {};
 						var val = self.valueFor(input);
 						var params = self.parametersFor(input, true);
 						$(this).find('.meta').html(params['TYPE'].join('/'));
-						$(this).find('.adr').html(escapeHTML(self.valueFor($editor.find('input').first()).clean('').join(', ')));
+						$(this).find('.adr').html(self.valueFor($editor.find('input').first()).clean('').join(', '));
 						$(this).next('.listactions').css('display', 'inline-block');
 						$('body').unbind('click', bodyListener);
 					});
@@ -1152,26 +1362,67 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	/**
+	 * Set a thumbnail for the contact if a PHOTO property exists
+	 */
+	Contact.prototype.setThumbnail = function($elem, refresh) {
+		if(!this.data.thumbnail && !refresh) {
+			return;
+		}
+		if(!$elem) {
+			$elem = this.getListItemElement().find('td.name');
+		}
+		if(!$elem.hasClass('thumbnail') && !refresh) {
+			return;
+		}
+		if(this.data.thumbnail) {
+			$elem.removeClass('thumbnail');
+			$elem.css('background-image', 'url(data:image/png;base64,' + this.data.thumbnail + ')');
+		} else {
+			$elem.addClass('thumbnail');
+		}
+	}
+
+	/**
 	 * Render the PHOTO property.
 	 */
 	Contact.prototype.loadPhoto = function(dontloadhandlers) {
 		var self = this;
-		var id = this.id || 'new';
-		var refreshstr = '&refresh='+Math.random();
-		this.$photowrapper = this.$fullelem.find('#photowrapper');
-		this.$photowrapper.addClass('loading').addClass('wait');
+		var id = this.id || 'new',
+			backend = this.metadata.backend,
+			parent = this.metadata.parent,
+			src;
+
 		var $phototools = this.$fullelem.find('#phototools');
-		delete this.photo;
-		$('img.contactphoto').remove();
-		this.photo = new Image();
-		$(this.photo).load(function () {
-			$(this).addClass('contactphoto');
-			self.$photowrapper.css({width: $(this).get(0).width + 10, height: $(this).get(0).height + 10});
+		if(!this.$photowrapper) {
+			this.$photowrapper = this.$fullelem.find('#photowrapper');
+		}
+
+		var finishLoad = function(image) {
+			console.log('finishLoad', self.getDisplayName(), image.width, image.height);
+			$(image).addClass('contactphoto');
+			self.$photowrapper.css({width: image.width + 10, height: image.height + 10});
 			self.$photowrapper.removeClass('loading').removeClass('wait');
-			$(this).insertAfter($phototools).fadeIn();
-		}).error(function () {
-			OC.notify({message:t('contacts','Error loading profile picture.')});
-		}).attr('src', OC.linkTo('contacts', 'photo.php')+'?id='+id+refreshstr);
+			$(image).insertAfter($phototools).fadeIn();
+		};
+
+		this.$photowrapper.addClass('loading').addClass('wait');
+		if(this.getPreferredValue('PHOTO', null) === null) {
+			$.when(this.storage.getDefaultPhoto())
+				.then(function(image) {
+					$('img.contactphoto').detach();
+					finishLoad(image);
+				});
+		} else {
+			$.when(this.storage.getContactPhoto(backend, parent, id))
+				.then(function(image) {
+					$('img.contactphoto').remove();
+					finishLoad(image);
+				})
+				.fail(function(defaultImage) {
+					$('img.contactphoto').remove();
+					finishLoad(defaultImage);
+				});
+		}
 
 		if(!dontloadhandlers && this.isEditable()) {
 			this.$photowrapper.on('mouseenter', function(event) {
@@ -1190,19 +1441,13 @@ OC.Contacts = OC.Contacts || {};
 			$phototools.find('li a').tipsy();
 
 			$phototools.find('.edit').on('click', function() {
-				$(document).trigger('request.edit.contactphoto', {
-					id: self.id
-				});
+				$(document).trigger('request.edit.contactphoto', self.metaData());
 			});
 			$phototools.find('.cloud').on('click', function() {
-				$(document).trigger('request.select.contactphoto.fromcloud', {
-					id: self.id
-				});
+				$(document).trigger('request.select.contactphoto.fromcloud', self.metaData());
 			});
 			$phototools.find('.upload').on('click', function() {
-				$(document).trigger('request.select.contactphoto.fromlocal', {
-					id: self.id
-				});
+				$(document).trigger('request.select.contactphoto.fromlocal', self.metaData());
 			});
 			if(this.data && this.data.PHOTO) {
 				$phototools.find('.delete').show();
@@ -1211,11 +1456,11 @@ OC.Contacts = OC.Contacts || {};
 				$phototools.find('.delete').hide();
 				$phototools.find('.edit').hide();
 			}
-			$(document).bind('status.contact.photoupdated', function(e, result) {
+			$(document).bind('status.contact.photoupdated', function(e, data) {
+				console.log('status.contact.photoupdated', data);
 				self.loadPhoto(true);
-				var refreshstr = '&refresh='+Math.random();
-				self.getListItemElement().find('td.name')
-					.css('background', 'url(' + OC.filePath('', '', 'remote.php')+'/contactthumbnail?id='+self.id+refreshstr + ')');
+				self.data.thumbnail = data.thumbnail;
+				self.setThumbnail(null, true);
 			});
 		}
 	};
@@ -1346,12 +1591,14 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.next = function() {
-		var $next = this.$listelem.next('tr:visible');
+		// This used to work..?
+		//var $next = this.$listelem.next('tr:visible');
+		var $next = this.$listelem.nextAll('tr').filter(':visible').first();
 		if($next.length > 0) {
 			this.$listelem.removeClass('active');
 			$next.addClass('active');
 			$(document).trigger('status.contact.currentlistitem', {
-				id: parseInt($next.data('id')),
+				id: String($next.data('id')),
 				pos: Math.round($next.position().top),
 				height: Math.round($next.height())
 			});
@@ -1359,12 +1606,13 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.prev = function() {
-		var $prev = this.$listelem.prev('tr:visible');
+		//var $prev = this.$listelem.prev('tr:visible');
+		var $prev = this.$listelem.prevAll('tr').filter(':visible').first();
 		if($prev.length > 0) {
 			this.$listelem.removeClass('active');
 			$prev.addClass('active');
 			$(document).trigger('status.contact.currentlistitem', {
-				id: parseInt($prev.data('id')),
+				id: String($prev.data('id')),
 				pos: Math.round($prev.position().top),
 				height: Math.round($prev.height())
 			});
@@ -1372,6 +1620,7 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	var ContactList = function(
+			storage,
 			contactlist,
 			contactlistitemtemplate,
 			contactdragitemtemplate,
@@ -1382,17 +1631,19 @@ OC.Contacts = OC.Contacts || {};
 		var self = this;
 		this.length = 0;
 		this.contacts = {};
+		this.addressbooks = {};
 		this.deletionQueue = [];
+		this.storage = storage;
 		this.$contactList = contactlist;
 		this.$contactDragItemTemplate = contactdragitemtemplate;
 		this.$contactListItemTemplate = contactlistitemtemplate;
 		this.$contactFullTemplate = contactfulltemplate;
 		this.contactDetailTemplates = contactdetailtemplates;
 		this.$contactList.scrollTop(0);
-		this.loadContacts(0);
+		this.getAddressBooks();
 		$(document).bind('status.contact.added', function(e, data) {
 			self.length += 1;
-			self.contacts[parseInt(data.id)] = data.contact;
+			self.contacts[String(data.id)] = data.contact;
 			self.insertContact(data.contact.renderListItem(true));
 		});
 
@@ -1405,6 +1656,14 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	/**
+	 * Get the number of contacts in the list
+	 * @return integer
+	 */
+	ContactList.prototype.count = function() {
+		return Object.keys(this.contacts.contacts).length
+	}
+
+	/**
 	* Show/hide contacts belonging to an addressbook.
 	* @param int aid. Addressbook id.
 	* @param boolean show. Whether to show or hide.
@@ -1412,9 +1671,9 @@ OC.Contacts = OC.Contacts || {};
 	*/
 	ContactList.prototype.showFromAddressbook = function(aid, show, hideothers) {
 		console.log('ContactList.showFromAddressbook', aid, show);
-		aid = parseInt(aid);
+		aid = String(aid);
 		for(var contact in this.contacts) {
-			if(this.contacts[contact].access.id === aid) {
+			if(this.contacts[contact].metadata.parent === aid) {
 				this.contacts[contact].getListItemElement().toggle(show);
 			} else if(hideothers) {
 				this.contacts[contact].getListItemElement().hide();
@@ -1429,7 +1688,7 @@ OC.Contacts = OC.Contacts || {};
 	ContactList.prototype.showSharedAddressbooks = function(show) {
 		console.log('ContactList.showSharedAddressbooks', show);
 		for(var contact in this.contacts) {
-			if(this.contacts[contact].access.owner !== OC.currentUser) {
+			if(this.contacts[contact].metadata.owner !== OC.currentUser) {
 				if(show) {
 					this.contacts[contact].getListItemElement().show();
 				} else {
@@ -1444,6 +1703,8 @@ OC.Contacts = OC.Contacts || {};
 	* @param Array contacts. A list of contact ids.
 	*/
 	ContactList.prototype.showContacts = function(contacts) {
+		console.log('showContacts', contacts);
+		var self = this;
 		if(contacts.length === 0) {
 			// ~5 times faster
 			$('tr:visible.contact').hide();
@@ -1451,7 +1712,16 @@ OC.Contacts = OC.Contacts || {};
 		}
 		if(contacts === 'all') {
 			// ~2 times faster
-			$('tr.contact:not(:visible)').show();
+			var $elems = $('tr.contact:not(:visible)');
+			$elems.show();
+			$.each($elems, function(idx, elem) {
+				try {
+					var id = $(elem).data('id');
+					self.contacts[id].setThumbnail();
+				} catch(e) {
+					console.warn('Failed getting id from', $elem, e);
+				}
+			});
 			return;
 		}
 		for(var id in this.contacts) {
@@ -1459,10 +1729,11 @@ OC.Contacts = OC.Contacts || {};
 			if(contact === null) {
 				continue;
 			}
-			if(contacts.indexOf(parseInt(id)) === -1) {
+			if(contacts.indexOf(String(id)) === -1) {
 				contact.getListItemElement().hide();
 			} else {
 				contact.getListItemElement().show();
+				contact.setThumbnail();
 			}
 		}
 	};
@@ -1503,34 +1774,54 @@ OC.Contacts = OC.Contacts || {};
 	*/
 	ContactList.prototype.findById = function(id) {
 		if(!id) {
-			console.warn('id missing');
+			console.warn('ContactList.findById: id missing');
 			console.trace();
 			return false;
 		}
-		id = parseInt(id);
+		id = String(id);
 		if(typeof this.contacts[id] === 'undefined') {
 			console.warn('Could not find contact with id', id);
 			console.trace();
 			return null;
 		}
-		return this.contacts[parseInt(id)];
+		return this.contacts[String(id)];
 	};
 
-	ContactList.prototype.delayedDelete = function(id) {
+	/**
+	 * @param object data An object or array of objects containing contact identification
+	 * {
+	 * 	contactid: '1234',
+	 * 	addressbookid: '4321',
+	 * 	backend: 'local'
+	 * }
+	 */
+	ContactList.prototype.delayedDelete = function(data) {
+		console.log('delayedDelete, data:', typeof data, data);
 		var self = this;
-		if(utils.isUInt(id)) {
+		if(!utils.isArray(data)) {
 			this.currentContact = null;
-			self.$contactList.show();
-			this.deletionQueue.push(id);
-		} else if(utils.isArray(id)) {
-			$.extend(this.deletionQueue, id);
+			//self.$contactList.show();
+			if(data instanceof Contact) {
+				this.deletionQueue.push(data);
+			} else {
+				var contact = this.findById(data.contactid);
+				this.deletionQueue.push(contact);
+			}
+		} else if(utils.isArray(data)) {
+			$.each(data, function(idx, contact) {
+				//console.log('delayedDelete, meta:', contact);
+				self.deletionQueue.push(contact);
+			});
+			//$.extend(this.deletionQueue, data);
 		} else {
-			throw { name: 'WrongParameterType', message: 'ContactList.delayedDelete only accept integers or arrays.'};
+			throw { name: 'WrongParameterType', message: 'ContactList.delayedDelete only accept objects or arrays.'};
 		}
-		$.each(this.deletionQueue, function(idx, id) {
-			self.contacts[id].detach().setChecked(false);
+		//console.log('delayedDelete, deletionQueue', this.deletionQueue);
+		$.each(this.deletionQueue, function(idx, contact) {
+			//console.log('delayedDelete', contact);
+			contact.detach().setChecked(false);
 		});
-		console.log('deletionQueue', this.deletionQueue);
+		//console.log('deletionQueue', this.deletionQueue);
 		if(!window.onbeforeunload) {
 			window.onbeforeunload = function(e) {
 				e = e || window.event;
@@ -1548,16 +1839,16 @@ OC.Contacts = OC.Contacts || {};
 			message:t('contacts','Click to undo deletion of {num} contacts', {num: self.deletionQueue.length}),
 			//timeout:5,
 			timeouthandler:function() {
-				console.log('timeout');
+				//console.log('timeout');
 				// Don't fire all deletes at once
 				self.deletionTimer = setInterval(function() {
 					self.deleteContacts();
 				}, 500);
 			},
 			clickhandler:function() {
-				console.log('clickhandler');
-				$.each(self.deletionQueue, function(idx, id) {
-					self.insertContact(self.contacts[id].getListItemElement());
+				//console.log('clickhandler');
+				$.each(self.deletionQueue, function(idx, contact) {
+					self.insertContact(contact.getListItemElement());
 				});
 				OC.notify({cancel:true});
 				OC.notify({message:t('contacts', 'Cancelled deletion of {num}', {num: self.deletionQueue.length})});
@@ -1568,20 +1859,19 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	/**
-	* Delete a contact with this id
-	* @param id the id of the contact
+	* Delete contacts in the queue
 	*/
 	ContactList.prototype.deleteContacts = function() {
 		var self = this;
-		console.log('ContactList.deleteContacts, deletionQueue', this.deletionQueue);
+		//console.log('ContactList.deleteContacts, deletionQueue', this.deletionQueue);
 		if(typeof this.deletionTimer === 'undefined') {
 			console.log('No deletion timer!');
 			window.onbeforeunload = null;
 			return;
 		}
 
-		var id = this.deletionQueue.shift();
-		if(typeof id === 'undefined') {
+		var contact = this.deletionQueue.shift();
+		if(typeof contact === 'undefined') {
 			clearInterval(this.deletionTimer);
 			delete this.deletionTimer;
 			window.onbeforeunload = null;
@@ -1589,13 +1879,10 @@ OC.Contacts = OC.Contacts || {};
 		}
 
 		// Let contact remove itself.
-		var contact = this.findById(id);
-		if(contact === null) {
-			return false;
-		}
+		var id = contact.getId();
 		contact.destroy(function(response) {
 			console.log('deleteContact', response, self.length);
-			if(response.status === 'success') {
+			if(!response.error) {
 				delete self.contacts[id];
 				$(document).trigger('status.contact.deleted', {
 					id: id
@@ -1661,10 +1948,17 @@ OC.Contacts = OC.Contacts || {};
 	* @param object props
 	*/
 	ContactList.prototype.addContact = function(props) {
+		var addressBook = this.addressbooks[Object.keys(this.addressbooks)[0]]
+		var metadata = {
+			parent: addressBook.id,
+			backend: addressBook.backend,
+			permissions: addressBook.permissions,
+			owner: addressBook.owner
+		};
 		var contact = new Contact(
 			this,
 			null,
-			{owner:OC.currentUser, permissions: 31},
+			metadata,
 			null,
 			this.$contactListItemTemplate,
 			this.$contactDragItemTemplate,
@@ -1672,7 +1966,6 @@ OC.Contacts = OC.Contacts || {};
 			this.contactDetailTemplates
 		);
 		if(utils.isUInt(this.currentContact)) {
-			console.assert(typeof this.currentContact == 'number', 'this.currentContact is not a number');
 			this.contacts[this.currentContact].close();
 		}
 		return contact.renderContact(props);
@@ -1681,13 +1974,15 @@ OC.Contacts = OC.Contacts || {};
 	/**
 	 * Get contacts selected in list
 	 *
-	 * @returns array of integer contact ids.
+	 * @returns array of contact ids.
 	 */
 	ContactList.prototype.getSelectedContacts = function() {
 		var contacts = [];
 
+		var self = this;
 		$.each(this.$contactList.find('tr > td > input:checkbox:visible:checked'), function(a, b) {
-			contacts.push(parseInt($(b).parents('tr').first().data('id')));
+			var id = String($(b).parents('tr').first().data('id'));
+			contacts.push(self.contacts[id]);
 		});
 		return contacts;
 	};
@@ -1703,7 +1998,7 @@ OC.Contacts = OC.Contacts || {};
 				self.contacts[contact].setCurrent(false);
 			});
 		}
-		this.contacts[parseInt(id)].setCurrent(true);
+		this.contacts[String(id)].setCurrent(true);
 	};
 
 	// Should only be neccesary with progressive loading, but it's damn fast, so... ;)
@@ -1715,6 +2010,7 @@ OC.Contacts = OC.Contacts || {};
 			return $(a).find('td.name').text().toUpperCase().localeCompare($(b).find('td.name').text().toUpperCase());
 		});
 
+		// TODO: Test if I couldn't just append rows.
 		var items = [];
 		$.each(rows, function(index, row) {
 			items.push(row);
@@ -1741,40 +2037,88 @@ OC.Contacts = OC.Contacts || {};
 	* @param object book
 	*/
 	ContactList.prototype.setAddressbook = function(book) {
-		this.addressbooks[parseInt(book.id)] = {
-			owner: book.userid,
-			uri: book.uri,
-			permissions: parseInt(book.permissions),
-			id: parseInt(book.id),
-			displayname: book.displayname,
-			description: book.description,
-			active: Boolean(parseInt(book.active))
-		};
+		console.log('setAddressbook', book.id, this.addressbooks);
+		var id = String(book.id);
+		this.addressbooks[id] = book;
 	};
+
 	/**
 	* Load contacts
 	* @param int offset
 	*/
-	ContactList.prototype.loadContacts = function(offset, cb) {
+	ContactList.prototype.getAddressBooks = function() {
 		var self = this;
-		// Should the actual ajax call be in the controller?
-		$.getJSON(OC.filePath('contacts', 'ajax', 'contact/list.php'), {offset: offset}, function(jsondata) {
-			if (jsondata && jsondata.status == 'success') {
-				//console.log('ContactList.loadContacts', jsondata.data);
-				self.addressbooks = {};
-				$.each(jsondata.data.addressbooks, function(i, book) {
-					self.setAddressbook(book);
+		$.when(this.storage.getAddressBooksForUser()).then(function(response) {
+			console.log('ContactList.getAddressBooks', response);
+			if(!response.error) {
+				var num = response.data.addressbooks.length;
+				$.each(response.data.addressbooks, function(idx, addressBook) {
+					self.setAddressbook(addressBook);
+					self.loadContacts(
+						addressBook['backend'],
+						addressBook['id'],
+						function(cbresponse) {
+							//console.log('loaded', idx, cbresponse);
+							num -= 1;
+							if(num === 0) {
+								if(self.length > 0) {
+									setTimeout(function() {
+										self.doSort(); // TODO: Test this
+										self.setCurrent(self.$contactList.find('tr:visible').first().data('id'), false);
+									}
+									, 2000);
+								}
+								$(document).trigger('status.contacts.loaded', {
+									status: true,
+									numcontacts: self.length
+								});
+								if(self.length === 0) {
+									$(document).trigger('status.nomorecontacts');
+								}
+							}
+							if(cbresponse.error) {
+								$(document).trigger('status.contact.error', {
+									message:
+										t('contacts', 'Failed loading contacts from {addressbook}: {error}',
+											{addressbook:addressBook['displayname'], error:err})
+								});
+							}
+						});
 				});
+			} else {
+				$(document).trigger('status.contact.error', {
+					message: response.message
+				});
+				return false;
+			}
+		})
+		.fail(function(jqxhr, textStatus, error) {
+			var err = textStatus + ', ' + error;
+			console.warn( "Request Failed: " + err);
+			$(document).trigger('status.contact.error', {
+				message: t('contacts', 'Failed loading address books: {error}', {error:err})
+			});
+		});
+	};
+
+	/**
+	* Load contacts
+	* @param int offset
+	*/
+	ContactList.prototype.loadContacts = function(backend, addressBookId, cb) {
+		var self = this;
+		$.when(this.storage.getContacts(backend, addressBookId)).then(function(response) {
+			//console.log('ContactList.loadContacts', response);
+			if(!response.error) {
 				var items = [];
-				if(jsondata.data.contacts.length === 0) {
-					$(document).trigger('status.nomorecontacts');
-				}
-				$.each(jsondata.data.contacts, function(c, contact) {
-					self.contacts[parseInt(contact.id)]
+				$.each(response.data.contacts, function(c, contact) {
+					var id = String(contact.metadata.id);
+					contact.metadata.backend = backend;
+					self.contacts[id]
 						= new Contact(
 							self,
-							parseInt(contact.id),
-							self.addressbooks[parseInt(contact.aid)],
+							id,
+							contact.metadata,
 							contact.data,
 							self.$contactListItemTemplate,
 							self.$contactDragItemTemplate,
@@ -1782,14 +2126,14 @@ OC.Contacts = OC.Contacts || {};
 							self.contactDetailTemplates
 						);
 					self.length +=1;
-					var $item = self.contacts[parseInt(contact.id)].renderListItem();
+					var $item = self.contacts[id].renderListItem();
 					items.push($item.get(0));
 					$item.find('td.name').draggable({
 						cursor: 'move',
 						distance: 10,
 						revert: 'invalid',
 						helper: function (e,ui) {
-							return self.contacts[parseInt(contact.id)].renderDragItem().appendTo('body');
+							return self.contacts[id].renderDragItem().appendTo('body');
 						},
 						opacity: 1,
 						scope: 'contacts'
@@ -1802,22 +2146,24 @@ OC.Contacts = OC.Contacts || {};
 				if(items.length > 0) {
 					self.$contactList.append(items);
 				}
-				setTimeout(function() {
-					self.doSort();
-					self.setCurrent(self.$contactList.find('tr:visible:first-child').data('id'), false);
-				}
-				, 2000);
-				$(document).trigger('status.contacts.loaded', {
-					status: true,
-					numcontacts: jsondata.data.contacts.length,
-					is_indexed: jsondata.data.is_indexed
+				cb({error:false});
+			} else {
+				$(document).trigger('status.contact.error', {
+					message: response.message
+				});
+				cb({
+					error:true,
+					message: response.message
 				});
 			}
-			if(typeof cb === 'function') {
-				cb();
-			}
+		})
+		.fail(function(jqxhr, textStatus, error) {
+			var err = textStatus + ', ' + error;
+			console.warn( "Request Failed: " + err);
+			cb({error: true, message: err});
 		});
-	}
+	};
+
 	OC.Contacts.ContactList = ContactList;
 
 })(window, jQuery, OC);

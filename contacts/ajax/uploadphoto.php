@@ -29,13 +29,22 @@ OCP\JSON::callCheck();
 OCP\JSON::setContentTypeHeader('text/plain; charset=utf-8');
 require_once 'loghandler.php';
 $l10n = OCA\Contacts\App::$l10n;
+
+$contactid = isset($_POST['contactid']) ? $_POST['contactid'] : '';
+$addressbookid = isset($_POST['addressbookid']) ? $_POST['addressbookid'] : '';
+$backend = isset($_POST['backend']) ? $_POST['backend'] : '';
+
+if($contactid == '') {
+	bailOut('Missing contact id.');
+}
+
+if($addressbookid == '') {
+	bailOut('Missing address book id.');
+}
+
 // If it is a Drag'n'Drop transfer it's handled here.
 $fn = (isset($_SERVER['HTTP_X_FILE_NAME']) ? $_SERVER['HTTP_X_FILE_NAME'] : false);
 if ($fn) {
-	if (!isset($_GET['id'])) {
-		bailOut($l10n->t('No contact ID was submitted.'));
-	}
-	$id = $_GET['id'];
 	$tmpkey = 'contact-photo-'.md5($fn);
 	$data = file_get_contents('php://input');
 	$image = new OC_Image();
@@ -50,10 +59,14 @@ if ($fn) {
 		if(OC_Cache::set($tmpkey, $image->data(), 600)) {
 			OCP\JSON::success(array(
 				'data' => array(
-					'mime'=>$_SERVER['CONTENT_TYPE'],
-					'name'=>$fn,
-					'id'=>$id,
-					'tmp'=>$tmpkey)));
+					'mime'=> $_SERVER['CONTENT_TYPE'],
+					'name'=> $fn,
+					'contactid'=> $id,
+					'addressbookid'=> addressbookid,
+					'backend'=> $backend,
+					'tmp'=>$tmpkey
+				))
+			);
 			exit();
 		} else {
 			bailOut($l10n->t('Couldn\'t save temporary image: ').$tmpkey);
@@ -63,10 +76,6 @@ if ($fn) {
 	}
 }
 
-// Uploads from file dialog are handled here.
-if (!isset($_POST['id'])) {
-	bailOut($l10n->t('No contact ID was submitted.'));
-}
 if (!isset($_FILES['imagefile'])) {
 	bailOut($l10n->t('No file was uploaded. Unknown error'));
 }
@@ -101,9 +110,14 @@ if(file_exists($file['tmp_name'])) {
 					'mime'=>$file['type'],
 					'size'=>$file['size'],
 					'name'=>$file['name'],
-					'id'=>$_POST['id'],
 					'tmp'=>$tmpkey,
-					)));
+				),
+				'metadata' => array(
+					'contactid'=> $contactid,
+					'addressbookid'=> $addressbookid,
+					'backend'=> $backend,
+				),
+			));
 			exit();
 		} else {
 			bailOut($l10n->t('Couldn\'t save temporary image: ').$tmpkey);

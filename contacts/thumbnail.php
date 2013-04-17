@@ -27,30 +27,36 @@ session_write_close();
 //OCP\Util::writeLog('contacts', OCP\Util::getRequestUri(), OCP\Util::DEBUG);
 
 function getStandardImage() {
+	$image = new \OC_Image();
+	$file = __DIR__ . DIRECTORY_SEPARATOR . 'img' . DIRECTORY_SEPARATOR . 'person.png';
+	OCP\Response::setLastModifiedHeader(filemtime($file));
 	OCP\Response::enableCaching();
-	OCP\Response::redirect(OCP\Util::imagePath('contacts', 'person.png'));
+	$image->loadFromFile($file);
+	$image();
 	exit();
 }
 
 if(!extension_loaded('gd') || !function_exists('gd_info')) {
 	OCP\Util::writeLog('contacts',
 		'thumbnail.php. GD module not installed', OCP\Util::DEBUG);
-	getStandardImage();
+	OCP\Response::enableCaching();
+	OCP\Response::redirect(OCP\Util::imagePath('contacts', 'person.png'));
+	exit();
 }
 
 $id = $_GET['id'];
+$parent = $_GET['parent'];
+$backend = $_GET['backend'];
 $caching = null;
 
-$image = OCA\Contacts\App::cacheThumbnail($id);
+$app = new OCA\Contacts\App();
+$contact = $app->getContact($backend, $parent, $id);
+$image = $contact->cacheThumbnail();
 if($image !== false) {
-	try {
-	$modified = OCA\Contacts\App::lastModified($id);
-	} catch(Exception $e) {
-		getStandardImage();
-	}
+	$modified = $contact->lastModified();
 	// Force refresh if modified within the last minute.
 	if(!is_null($modified)) {
-		$caching = (time() - $modified->format('U') > 60) ? null : 0;
+		$caching = (time() - $modified > 60) ? null : 0;
 		OCP\Response::setLastModifiedHeader($modified);
 	}
 	OCP\Response::enableCaching($caching);

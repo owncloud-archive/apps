@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Public;John;Quinlan;;
+FN:John Q. Public
+ORG:ownCloud
+URL:http://owncloud.org/
+UID:e472ea61
+EMAIL;TYPE=INTERNET:joe.public@example.org
+TEL;TYPE=voice,work,pref:+49 1234 56788
+ADR;TYPE=intl,work,postal,parcel:;;Elm Street 1;Metropolis;;12345;USA
+END:VCARD

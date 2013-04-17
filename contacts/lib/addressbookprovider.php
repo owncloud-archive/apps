@@ -24,6 +24,7 @@ namespace OCA\Contacts;
 
 /**
  * This class manages our addressbooks.
+ * TODO: Port this to use the new backend
  */
 class AddressbookProvider implements \OCP\IAddressBook {
 
@@ -48,7 +49,6 @@ class AddressbookProvider implements \OCP\IAddressBook {
 	 */
 	public function __construct($id) {
 		$this->id = $id;
-		\Sabre\VObject\Property::$classMap['GEO'] = 'Sabre\\VObject\\Property\\Compound';
 	}
 	
 	public function getAddressbook() {
