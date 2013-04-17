@@ -8,7 +8,7 @@
 "Placement" => "Platzierung",
 "Standalone app" => "Eigenständige Anwendung",
 "Header left" => "Kopfzeile links",
-"Header right" => "Kopfzeile right",
+"Header right" => "Kopfzeile rechts",
 "Navigation top" => "Navigation oben",
 "Navigation bottom" => "Navigation unten",
 "Content" => "Inhalt",

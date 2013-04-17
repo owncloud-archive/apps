@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Christian Reiner <foss@christian-reiner.info>, 2013.
+# Tristan <blobbyjj@ymail.com>, 2013.
 #  <uu.kabum@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 00:58+0200\n"
-"PO-Revision-Date: 2013-04-16 23:01+0000\n"
+"POT-Creation-Date: 2013-04-17 09:53+0200\n"
+"PO-Revision-Date: 2013-04-17 07:55+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +60,7 @@ msgstr "Kopfzeile links"
 
 #: templates/tmpl_settings.php:50
 msgid "Header right"
-msgstr "Kopfzeile right"
+msgstr "Kopfzeile rechts"
 
 #: templates/tmpl_settings.php:51
 msgid "Navigation top"

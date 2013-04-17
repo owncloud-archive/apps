@@ -4,12 +4,13 @@
 # 
 # Translators:
 #  <thanasis@giannoulis.net>, 2013.
+# Wasilis Mandratzis <m.wasilis@yahoo.de>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 00:58+0200\n"
-"PO-Revision-Date: 2013-04-16 23:01+0000\n"
+"POT-Creation-Date: 2013-04-17 09:53+0200\n"
+"PO-Revision-Date: 2013-04-17 07:55+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -34,11 +35,11 @@ msgstr "Αρχικά πρέπει να διαμορφώσετε τα στοιχ�
 
 #: templates/tmpl_dummy.php:53
 msgid "That configuration is done in the administration section."
-msgstr ""
+msgstr "Η διαμόρφωση γίνεται στο τμήμα διοίκησης."
 
 #: templates/tmpl_dummy.php:55
 msgid "That configuration has to be done by the system administration."
-msgstr ""
+msgstr "Η διαμόρφωση πρέπει να γίνει από τη διοίκηση του συστήματος. "
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"

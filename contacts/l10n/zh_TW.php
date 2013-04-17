@@ -3,6 +3,7 @@
 "id is not set." => "ID 尚未設定.",
 "Cannot update addressbook with an empty name." => "無法使用空白姓名來更新聯絡簿",
 "No category name given." => "沒有指定分類名稱.",
+"Error adding group." => "新增群組錯誤。",
 "No ID provided" => "未提供 ID",
 "Error setting checksum." => "設定檢查碼時發生錯誤.",
 "No categories selected for deletion." => "未選取刪除的類別",
