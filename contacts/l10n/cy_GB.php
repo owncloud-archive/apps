@@ -1,7 +1,19 @@
 <?php $TRANSLATIONS = array(
 "No categories selected for deletion." => "Ni ddewiswyd categorïau i'w dileu.",
 "Error" => "Gwall",
+"Download" => "Llwytho i lawr",
+"Edit" => "Golygu",
+"Delete" => "Dileu",
 "Cancel" => "Diddymu",
+"Work" => "Gwaith",
+"Other" => "Arall",
 "Settings" => "Gosodiadau",
-"Add" => "Ychwanegu"
+"Import" => "Mewnforio",
+"Title" => "Teitl",
+"Birthday" => "Penblwydd",
+"Add" => "Ychwanegu",
+"Share" => "Rhannu",
+"Export" => "Allforio",
+"Description" => "Disgrifiad",
+"Save" => "Cadw"
 );

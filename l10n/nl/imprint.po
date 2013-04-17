@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# André Koot <meneer@tken.net>, 2013.
+# André Koot <meneer@tken.net>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:55+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-18 00:49+0200\n"
+"PO-Revision-Date: 2013-04-17 08:40+0000\n"
+"Last-Translator: André Koot <meneer@tken.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,11 +34,11 @@ msgstr "De inhoud van de disclaimer moet eerst worden geconfigureerd"
 
 #: templates/tmpl_dummy.php:53
 msgid "That configuration is done in the administration section."
-msgstr ""
+msgstr "Deze configuratie gebeurt op de beheerpagina."
 
 #: templates/tmpl_dummy.php:55
 msgid "That configuration has to be done by the system administration."
-msgstr ""
+msgstr "Deze configuratie moet worden ingesteld door de systeembeheerder."
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-18 00:49+0200\n"
+"PO-Revision-Date: 2013-04-17 17:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Welsh (United Kingdom) (http://www.transifex.com/projects/p/owncloud/language/cy_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -459,18 +459,18 @@ msgstr ""
 
 #: js/settings.js:99 templates/contacts.php:271 templates/settings.php:40
 msgid "Download"
-msgstr ""
+msgstr "Llwytho i lawr"
 
 #: js/settings.js:101 templates/settings.php:45
 msgid "Edit"
-msgstr ""
+msgstr "Golygu"
 
 #: js/settings.js:102 templates/contacts.php:216 templates/contacts.php:223
 #: templates/contacts.php:230 templates/contacts.php:237
 #: templates/contacts.php:285 templates/contacts.php:412
 #: templates/settings.php:50
 msgid "Delete"
-msgstr ""
+msgstr "Dileu"
 
 #: js/settings.js:120 templates/contacts.php:25 templates/contacts.php:269
 #: templates/settings.php:62
@@ -555,7 +555,7 @@ msgstr ""
 
 #: lib/app.php:170 lib/app.php:178 lib/app.php:189 lib/app.php:230
 msgid "Work"
-msgstr ""
+msgstr "Gwaith"
 
 #: lib/app.php:171 lib/app.php:176 lib/app.php:190
 msgid "Home"
@@ -564,7 +564,7 @@ msgstr ""
 #: lib/app.php:172 lib/app.php:185 lib/app.php:192 lib/app.php:231
 #: lib/vcard.php:715
 msgid "Other"
-msgstr ""
+msgstr "Arall"
 
 #: lib/app.php:177
 msgid "Mobile"
@@ -680,7 +680,7 @@ msgstr ""
 
 #: templates/contacts.php:28 templates/contacts.php:105
 msgid "Import"
-msgstr ""
+msgstr "Mewnforio"
 
 #: templates/contacts.php:33
 msgid "Select files to import"
@@ -830,7 +830,7 @@ msgstr ""
 
 #: templates/contacts.php:219 templates/contacts.php:275
 msgid "Title"
-msgstr ""
+msgstr "Teitl"
 
 #: templates/contacts.php:222
 msgid "Enter title"
@@ -846,7 +846,7 @@ msgstr ""
 
 #: templates/contacts.php:233 templates/contacts.php:277
 msgid "Birthday"
-msgstr ""
+msgstr "Penblwydd"
 
 #: templates/contacts.php:264
 msgid "Notes go here..."
@@ -984,11 +984,11 @@ msgstr ""
 
 #: templates/contacts.php:409 templates/settings.php:36
 msgid "Share"
-msgstr ""
+msgstr "Rhannu"
 
 #: templates/contacts.php:410
 msgid "Export"
-msgstr ""
+msgstr "Allforio"
 
 #: templates/contacts.php:411
 msgid "CardDAV link"
@@ -1028,8 +1028,8 @@ msgstr ""
 
 #: templates/settings.php:60
 msgid "Description"
-msgstr ""
+msgstr "Disgrifiad"
 
 #: templates/settings.php:61
 msgid "Save"
-msgstr ""
+msgstr "Cadw"

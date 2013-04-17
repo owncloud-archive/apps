@@ -1,5 +1,7 @@
 <?php $TRANSLATIONS = array(
 "Settings" => "Gosodiadau",
 "Share with" => "Rhannu gyda",
-"Username" => "Enw defnyddiwr"
+"Share" => "Rhannu",
+"Username" => "Enw defnyddiwr",
+"Save" => "Cadw"
 );
