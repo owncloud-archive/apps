@@ -37,7 +37,7 @@
 	height: 16px;
 	border: 0.5px solid #666;
 	cursor: pointer;
-	line-height: 1.0em;
+	line-height: 14px;
 }
 .fluxx-handle.fluxx-horizontal {
 	border-left: 0;
