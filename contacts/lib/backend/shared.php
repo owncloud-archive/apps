@@ -36,8 +36,6 @@ class Shared extends Database {
 	/**
 	 * Returns the list of addressbooks for a specific user.
 	 *
-	 * TODO: Create default if none exists.
-	 *
 	 * @param string $principaluri
 	 * @return array
 	 */

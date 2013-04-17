@@ -237,7 +237,6 @@ class Database extends AbstractBackend {
 	/**
 	 * Deletes an entire addressbook and all its contents
 	 *
-	 * TODO: Delete contacts as well.
 	 * @param string $addressbookid
 	 * @return bool
 	 */
