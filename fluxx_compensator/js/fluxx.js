@@ -157,12 +157,12 @@ OC.FluXX={
 		if (handle.Orientation==OC.FluXX.C_HORIZONTAL){
 			node.addClass('fluxx-horizontal');
 			// move to visible position
-			node.css('left',($(handle.Anchor).outerWidth()-1)+'px');
+			node.css('left',($(handle.Anchor).outerWidth()-1.5)+'px');
 		}
 		else{
 			node.addClass('fluxx-vertical');
 			// move to visible position
-			node.css('top',($(handle.Anchor).outerHeight()-1)+'px');
+			node.css('top',($(handle.Anchor).outerHeight()-1.5)+'px');
 		}
 		$(handle.Anchor).append(node);
 	}, // OC.FluXX.generate
