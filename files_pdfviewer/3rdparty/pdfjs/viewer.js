@@ -2832,6 +2832,10 @@ document.addEventListener('DOMContentLoaded', function webViewerLoad(evt) {
     function() {
       PDFView.download();
     });
+	
+	document.getElementById('close').addEventListener('click', function(){
+		window.parent.hidePDFviewer();
+	});
 
   document.getElementById('pageNumber').addEventListener('click',
     function() {

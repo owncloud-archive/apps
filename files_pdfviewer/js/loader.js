@@ -1,9 +1,10 @@
 function hidePDFviewer() {
-	$('#content table').show();
+	/*$('#content table').show();
 	$("#controls").show();
 	$("#editor").show();
 	$('iframe').remove();
-	$('a.action').remove();
+	$('a.action').remove();*/
+	location.reload();
 }
 
 function showPDFviewer(dir,filename){
