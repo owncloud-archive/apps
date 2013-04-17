@@ -27,7 +27,6 @@
 						<button class="addaddressbookcancel"><?php p($l->t('Cancel')); ?></button>
 					</li>
 				</ul>
-				<button class="addaddressbook icon-plus text"><?php p($l->t('New')); ?></button>
 				<ul class="hidden">
 					<li><input class="addaddressbookinput" type="text" placeholder="<?php p($l->t('Display name')); ?>" /></li>
 					<li>
