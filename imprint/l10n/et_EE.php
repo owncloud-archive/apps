@@ -2,6 +2,8 @@
 "Legal notice" => "Õigusalane teave",
 "Nothing here yet" => "Siin pole veel midagi",
 "The content of the legal notice has to be configured first" => "Õigusalase teabe sisu tuleb esmalt seadistada",
+"That configuration is done in the administration section." => "Seda saab seadistada administratiivses sektsioonis.",
+"That configuration has to be done by the system administration." => "Selle peab seadistama süsteemiadministraator.",
 "Imprint" => "Impressum",
 "Placement" => "Asetus",
 "Standalone app" => "Sõltumatu rakendus",
