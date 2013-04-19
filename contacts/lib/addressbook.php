@@ -153,7 +153,7 @@ class Addressbook extends PIMCollectionAbstract {
 	* @return Contact[]
 	*/
 	function getChildren($limit = null, $offset = null, $omitdata = false) {
-		//\OCP\Util::writeLog('contacts', __METHOD__.' backend: ' . print_r($this->backend, true), \OCP\Util::DEBUG);
+		\OCP\Util::writeLog('contacts', __METHOD__.' backend: ' . print_r($this->backend, true), \OCP\Util::DEBUG);
 		$contacts = array();
 
 		foreach($this->backend->getContacts($this->getId(), $limit, $offset, $omitdata) as $contact) {
@@ -163,6 +163,7 @@ class Addressbook extends PIMCollectionAbstract {
 			}
 			$contacts[] = $this->objects[$contact['id']];
 		}
+		\OCP\Util::writeLog('contacts', __METHOD__.' children: '.count($contacts), \OCP\Util::DEBUG);
 		return $contacts;
 	}
 

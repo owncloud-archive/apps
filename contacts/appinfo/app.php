@@ -3,7 +3,7 @@
 namespace OCA\Contacts;
 use \OCA\AppFramework\Core\API;
 
-//require_once __DIR__ . '/../lib/contact.php';
+//require_once __DIR__ . '/../controller/groupcontroller.php';
 \Sabre\VObject\Component::$classMap['VCARD'] = '\OCA\Contacts\Contact';
 \Sabre\VObject\Property::$classMap['FN'] = '\OC\VObject\StringProperty';
 \Sabre\VObject\Property::$classMap['TITLE'] = '\OC\VObject\StringProperty';
@@ -43,9 +43,9 @@ if(\OCP\App::isEnabled('appframework')) {
 }
 \OCP\Util::addscript('contacts', 'loader');
 
-\OC_Search::registerProvider('\OCA\Contacts\SearchProvider');
-\OCP\Share::registerBackend('contact', '\OCA\Contacts\Share_Backend_Contact');
-//OCP\Share::registerBackend('addressbook', 'OCA\Contacts\Share_Backend_Addressbook', 'contact');
+\OC_Search::registerProvider('OCA\Contacts\SearchProvider');
+//\OCP\Share::registerBackend('contact', 'OCA\Contacts\Share_Backend_Contact');
+\OCP\Share::registerBackend('addressbook', 'OCA\Contacts\Share_Backend_Addressbook', 'contact');
 
 /*
 if(OCP\User::isLoggedIn()) {

@@ -115,10 +115,12 @@ class App {
 	 * @return AddressBook|null
 	 */
 	public function getAddressBook($backendName, $addressbookid) {
+		\OCP\Util::writeLog('contacts', __METHOD__ . ': '. $backendName . ', ' . $addressbookid, \OCP\Util::DEBUG);
 		foreach(self::$addressBooks as $addressBook) {
 			if($addressBook->backend->name === $backendName
 				&& $addressBook->getId() === $addressbookid
 			) {
+				\OCP\Util::writeLog('contacts', __METHOD__ . ' returning: '. print_r($addressBook, true), \OCP\Util::DEBUG);
 				return $addressBook;
 			}
 		}
@@ -194,8 +196,7 @@ class App {
 					foreach($vccontacts as $vccontact) {
 						$cards[] = array($vccontact['id'], $vccontact['carddata']);
 					}
-					\OCP\Util::writeLog('contacts',
-						__CLASS__.'::'.__METHOD__
+					\OCP\Util::writeLog('contacts', __METHOD__
 							.', scanning: '.$batchsize.' starting from '.$start,
 						\OCP\Util::DEBUG);
 					// only reset on first batch.

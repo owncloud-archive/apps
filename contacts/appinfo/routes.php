@@ -39,17 +39,6 @@ $this->create('contacts_address_books_for_user', 'addressbooks/{user}/')
 		function($params) {
 			session_write_close();
 			Main::main('AddressBookController', 'userAddressBooks', $params, new DIContainer());
-			/*$app = new App($params['user']);
-			$addressBooks = $app->getAddressBooksForUser();
-			$response = array();
-			foreach($addressBooks as $addressBook) {
-				$response[] = $addressBook->getMetaData();
-			}
-			\OCP\JSON::success(array(
-				'data' => array(
-					'addressbooks' => $response,
-				)
-			));*/
 		}
 	)
 	->requirements(array('user'))
@@ -60,28 +49,7 @@ $this->create('contacts_address_book_collection', 'addressbook/{user}/{backend}/
 	->action(
 		function($params) {
 			session_write_close();
-			$app = new App($params['user']);
-			$addressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
-			$lastModified = $addressBook->lastModified();
-			if(!is_null($lastModified)) {
-				\OCP\Response::enableCaching();
-				\OCP\Response::setLastModifiedHeader($lastModified);
-				\OCP\Response::setETagHeader(md5($lastModified));
-			}
-			$contacts = array();
-			foreach($addressBook->getChildren() as $contact) {
-				//$contact->retrieve();
-				//error_log(__METHOD__.' jsondata: '.print_r($contact, true));
-				$response = Utils\JSONSerializer::serializeContact($contact);
-				if($response !== null) {
-					$contacts[] = $response;
-				}
-			}
-			\OCP\JSON::success(array(
-				'data' => array(
-					'contacts' => $contacts,
-				)
-			));
+			Main::main('AddressBookController', 'getAddressBook', $params, new DIContainer());
 		}
 	)
 	->requirements(array('user', 'backend', 'addressbookid'))
@@ -92,15 +60,7 @@ $this->create('contacts_address_book_add', 'addressbook/{user}/{backend}/add')
 	->action(
 		function($params) {
 			session_write_close();
-			$app = new App($params['user']);
-			$backend = App::getBackend('local', $params['user']);
-			$id = $backend->createAddressBook($_POST);
-			if($id === false) {
-				bailOut(App::$l10n->t('Error creating address book'));
-			}
-			\OCP\JSON::success(array(
-				'data' => $backend->getAddressBook($id)
-			));
+			Main::main('AddressBookController', 'addAddressBook', $params, new DIContainer());
 		}
 	)
 	->requirements(array('user', 'backend', 'addressbookid'))
@@ -111,12 +71,7 @@ $this->create('contacts_address_book_delete', 'addressbook/{user}/{backend}/{add
 	->action(
 		function($params) {
 			session_write_close();
-			$app = new App($params['user']);
-			$backend = App::getBackend('local', $params['user']);
-			if(!$backend->deleteAddressBook($params['addressbookid'])) {
-				bailOut(App::$l10n->t('Error deleting address book'));
-			}
-			\OCP\JSON::success();
+			Main::main('AddressBookController', 'deleteAddressBook', $params, new DIContainer());
 		}
 	)
 	->requirements(array('user', 'backend', 'addressbookid'))
@@ -352,31 +307,7 @@ $this->create('contacts_categories_list', 'groups/{user}/')
 	->action(
 		function($params) {
 			session_write_close();
-			$catmgr = new \OC_VCategories('contact', $params['user']);
-			$categories = $catmgr->categories(\OC_VCategories::FORMAT_MAP);
-			foreach($categories as &$category) {
-				$ids = $catmgr->idsForCategory($category['name']);
-				$category['contacts'] = $ids;
-			}
-
-			$favorites = $catmgr->getFavorites();
-
-			\OCP\JSON::success(array(
-				'data' => array(
-					'categories' => $categories,
-					'favorites' => $favorites,
-					'shared' => \OCP\Share::getItemsSharedWith('addressbook', Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS),
-					'lastgroup' => \OCP\Config::getUserValue(
-									$params['user'],
-									'contacts',
-									'lastgroup', 'all'),
-					'sortorder' => \OCP\Config::getUserValue(
-									$params['user'],
-									'contacts',
-									'groupsort', ''),
-					)
-				)
-			);
+			Main::main('GroupController', 'getGroups', $params, new DIContainer());
 		}
 	)
 	->requirements(array('user'))
@@ -387,21 +318,7 @@ $this->create('contacts_categories_add', 'groups/{user}/add')
 	->action(
 		function($params) {
 			session_write_close();
-			$request = Request::getRequest($params);
-			$name = $request->post['name'];
-
-			if(is_null($name) || $name === "") {
-				bailOut(App::$l10n->t('No group name given.'));
-			}
-
-			$catman = new \OC_VCategories('contact', $params['user']);
-			$id = $catman->add($name);
-
-			if($id !== false) {
-				\OCP\JSON::success(array('data' => array('id'=>$id, 'name' => $name)));
-			} else {
-				bailOut(App::$l10n->t('Error adding group.'));
-			}
+			Main::main('GroupController', 'addGroup', $params, new DIContainer());
 		}
 	)
 	->requirements(array('user'))
@@ -412,17 +329,7 @@ $this->create('contacts_categories_delete', 'groups/{user}/delete')
 	->action(
 		function($params) {
 			session_write_close();
-			$request = Request::getRequest($params);
-			$name = $request->post['name'];
-
-			if(is_null($name) || $name === "") {
-				bailOut(App::$l10n->t('No group name given.'));
-			}
-
-			$catman = new \OC_VCategories('contact', $params['user']);
-			$catman->delete($name);
-
-			\OCP\JSON::success();
+			Main::main('GroupController', 'deleteGroup', $params, new DIContainer());
 		}
 	)
 	->requirements(array('user'))
@@ -433,26 +340,7 @@ $this->create('contacts_categories_addto', 'groups/{user}/addto/{categoryid}')
 	->action(
 		function($params) {
 			session_write_close();
-			$request = Request::getRequest($params);
-			$categoryid = $request['categoryid'];
-			$ids = $request['contactids'];
-			debug('request: '.print_r($request->post, true));
-
-			if(is_null($categoryid) || $categoryid === '') {
-				bailOut(App::$l10n->t('Group ID missing from request.'));
-			}
-
-			if(is_null($ids)) {
-				bailOut(App::$l10n->t('Contact ID missing from request.'));
-			}
-
-			$catman = new \OC_VCategories('contact', $params['user']);
-			foreach($ids as $contactid) {
-				debug('contactid: ' . $contactid . ', categoryid: ' . $categoryid);
-				$catman->addToCategory($contactid, $categoryid);
-			}
-
-			\OCP\JSON::success();
+			Main::main('GroupController', 'addToGroup', $params, new DIContainer());
 		}
 	)
 	->requirements(array('user', 'categoryid'))
@@ -463,26 +351,7 @@ $this->create('contacts_categories_removefrom', 'groups/{user}/removefrom/{categ
 	->action(
 		function($params) {
 			session_write_close();
-			$request = Request::getRequest($params);
-			$categoryid = $request['categoryid'];
-			$ids = $request['contactids'];
-			debug('request: '.print_r($request->post, true));
-
-			if(is_null($categoryid) || $categoryid === '') {
-				bailOut(App::$l10n->t('Group ID missing from request.'));
-			}
-
-			if(is_null($ids)) {
-				bailOut(App::$l10n->t('Contact ID missing from request.'));
-			}
-
-			$catman = new \OC_VCategories('contact', $params['user']);
-			foreach($ids as $contactid) {
-				debug('contactid: ' . $contactid . ', categoryid: ' . $categoryid);
-				$catman->removeFromCategory($contactid, $categoryid);
-			}
-
-			\OCP\JSON::success();
+			Main::main('GroupController', 'removeFromGroup', $params, new DIContainer());
 		}
 	)
 	->requirements(array('user', 'categoryid'))

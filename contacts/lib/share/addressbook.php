@@ -32,7 +32,7 @@ class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 	*/
 	public function isValidSource($itemSource, $uidOwner) {
 		$addressbook = $this->backend->getAddressBook($itemSource);
-		if(!$addressbook || $addressbook['userid'] !== $uidOwner) {
+		if(!$addressbook || $addressbook['owner'] !== $uidOwner) {
 			return false;
 		}
 		return true;

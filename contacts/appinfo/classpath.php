@@ -9,6 +9,7 @@ OC::$CLASSPATH['OCA\Contacts\PIMObjectAbstract'] = 'contacts/lib/abstractpimobje
 OC::$CLASSPATH['OCA\Contacts\VCard'] = 'contacts/lib/vcard.php';
 OC::$CLASSPATH['OCA\Contacts\Hooks'] = 'contacts/lib/hooks.php';
 OC::$CLASSPATH['OCA\Contacts\Request'] = 'contacts/lib/request.php';
+OC::$CLASSPATH['OCA\Contacts\JSONResponse'] = 'contacts/lib/jsonresponse.php';
 OC::$CLASSPATH['OCA\Contacts\Utils\JSONSerializer'] = 'contacts/lib/utils/jsonserializer.php';
 OC::$CLASSPATH['OCA\Contacts\Utils\Properties'] = 'contacts/lib/utils/properties.php';
 OC::$CLASSPATH['OCA\Contacts\Backend\AbstractBackend'] = 'contacts/lib/backend/abstractbackend.php';
