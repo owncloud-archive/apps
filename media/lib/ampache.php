@@ -317,6 +317,7 @@ function get_xml_entity_at_index_0($CHAR) {
 }
 
 function numeric_entity_4_char($char) {
+	if (ord($char) < 32) return "";
 	return "&#" . str_pad(ord($char), 3, '0', STR_PAD_LEFT) . ";";
 }
 
