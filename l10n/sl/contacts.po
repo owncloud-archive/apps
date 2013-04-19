@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#  <>, 2013.
-#   <>, 2012.
-# Matej Urbančič <>, 2013.
-#   <peter.perosa@gmail.com>, 2012.
-# Peter Peroša <peter.perosa@gmail.com>, 2012.
-#   <urossolar@hotmail.com>, 2011.
+# mateju <>, 2013
+# mateju <>, 2012
+# mateju <>, 2013
+# Peter Peroša <peter.perosa@gmail.com>, 2012
+# Peter Peroša <peter.perosa@gmail.com>, 2012
+# urossolar <urossolar@hotmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-20 00:48+0200\n"
+"PO-Revision-Date: 2013-04-19 20:20+0000\n"
+"Last-Translator: mateju <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/owncloud/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,11 +39,11 @@ msgstr "Imenika s praznim imenom ni mogoče posodobiti."
 
 #: ajax/categories/add.php:19
 msgid "No category name given."
-msgstr "Ime kategorije ni bilo podano."
+msgstr "Ime kategorije ni podano."
 
 #: ajax/categories/add.php:28
 msgid "Error adding group."
-msgstr "Napaka pri dodajanju skupine."
+msgstr "Napaka dodajanja skupine."
 
 #: ajax/categories/addto.php:20 ajax/categories/removefrom.php:20
 msgid "Group ID missing from request."
@@ -67,7 +67,7 @@ msgstr "Ni izbrane kategorije za izbris."
 
 #: ajax/categories/delete.php:28
 msgid "No address books found."
-msgstr "Ni mogoče najti nobenega imenika."
+msgstr "Ni mogoče najti imenika."
 
 #: ajax/categories/delete.php:36
 msgid "No contacts found."
@@ -92,7 +92,7 @@ msgstr "Podrobnosti kartice vCard niso pravilne. Ponovno naložite stran."
 #: ajax/contact/saveproperty.php:103
 #, php-format
 msgid "Couldn't find vCard for %d."
-msgstr "Ne najdem vCard za %d."
+msgstr "Ni mogoče najti vCard za %d."
 
 #: ajax/contact/saveproperty.php:113
 msgid "Information about vCard is incorrect. Please reload the page: "
@@ -105,15 +105,15 @@ msgstr "Nekaj je šlo v franže. "
 #: ajax/contact/saveproperty.php:133
 #, php-format
 msgid "Cannot save property of type \"%s\" as array"
-msgstr "Lastnost vrste \"%s\" ne morem shraniti kot matriko"
+msgstr "Lastnosti vrste \"%s\" ni mogoče shraniti kot podatkovno polje"
 
 #: ajax/contact/saveproperty.php:184
 msgid "Missing IM parameter."
-msgstr "Manjka parameter IM."
+msgstr "Manjka parameter sporočilnika."
 
 #: ajax/contact/saveproperty.php:188
 msgid "Unknown IM: "
-msgstr "Neznan IM:"
+msgstr "Neznan sporočilnik:"
 
 #: ajax/currentphoto.php:30 ajax/oc_photo.php:28 ajax/uploadphoto.php:36
 #: ajax/uploadphoto.php:68
@@ -186,7 +186,7 @@ msgstr "Vrednost ni nastavljena za:"
 
 #: ajax/setpreference.php:53
 msgid "Could not set preference: "
-msgstr "Ne morem nastaviti lastnosti:"
+msgstr "Ni mogoče nastaviti lastnosti:"
 
 #: ajax/uploadimport.php:42 ajax/uploadimport.php:79
 msgid "Upload of blacklisted file:"
@@ -194,11 +194,11 @@ msgstr "Poslane datoteke na črnem seznamu:"
 
 #: ajax/uploadimport.php:48 ajax/uploadimport.php:84
 msgid "Error uploading contacts to storage."
-msgstr "Napaka med nalaganjem stikov v hrambo."
+msgstr "Napaka med nalaganjem stikov v shrambo."
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
-msgstr "Datoteka je uspešno naložena brez napak."
+msgstr "Datoteka je uspešno naložena."
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
@@ -241,7 +241,7 @@ msgstr "Stiki"
 #: export.php:66
 #, php-format
 msgid "%d_selected_contacts"
-msgstr "%d_selected_contacts"
+msgstr "%d izbranih stikov"
 
 #: js/app.js:258 js/app.js:272
 msgid "Add to..."
@@ -266,15 +266,15 @@ msgstr "Izbor slike"
 #: js/app.js:499 js/app.js:525 js/app.js:870 js/app.js:937 js/app.js:1609
 #: js/app.js:1733 js/contacts.js:160 js/contacts.js:263 js/contacts.js:510
 msgid "Network or server error. Please inform administrator."
-msgstr "Napaka omrežja ali strežnika. Prosimo, če o tem obvestite administratorja."
+msgstr "Napaka omrežja ali strežnika. O napaki je treba obvestiti skrbnika."
 
 #: js/app.js:667 js/app.js:706
 msgid "Error adding to group."
-msgstr "Napaka pri dodajanju v skupino."
+msgstr "Napaka med dodajanja v skupino."
 
 #: js/app.js:735
 msgid "Error removing from group."
-msgstr "Napaka pri odstranjevanju iz skupine."
+msgstr "Napaka med odstranjevanjem iz skupine."
 
 #: js/app.js:765
 msgid "There was an error opening a mail composer."
@@ -282,7 +282,7 @@ msgstr "Med odpiranjem sestavljalnika pošte je prišlo do napake."
 
 #: js/app.js:804
 msgid "Deleting done. Click here to cancel reloading."
-msgstr "Izbris je končan. Če želite preklicati ponovno nalaganje, kliknite sem."
+msgstr "Brisanje je končano. V kolikor seznama ne želite ponovno naložiti, kliknite tu."
 
 #: js/app.js:957
 msgid "Add address book"
@@ -290,11 +290,11 @@ msgstr "Dodaj imenik"
 
 #: js/app.js:1073
 msgid "Import done. Click here to cancel reloading."
-msgstr "Uvoz je končan. Če želite preklicati ponovno nalaganje, kliknite sem."
+msgstr "Uvažanje je končano. V kolikor seznama ne želite ponovno naložiti, kliknite tu."
 
 #: js/app.js:1114
 msgid "Not all files uploaded. Retrying..."
-msgstr "Vse datoteke niso bile poslane. Poskus bo ponovljen ..."
+msgstr "Vseh datotek ni bilo mogoče poslati. Pošiljanje bo ponovljeno ..."
 
 #: js/app.js:1120
 msgid "Something went wrong with the upload, please retry."
@@ -307,7 +307,7 @@ msgstr "Napaka"
 
 #: js/app.js:1130
 msgid "Importing from {filename}..."
-msgstr "Uvažam iz {filename}..."
+msgstr "Poteka uvažanje iz {filename}..."
 
 #: js/app.js:1133
 msgid "{success} imported, {failed} failed."
@@ -319,7 +319,7 @@ msgstr "Poteka uvažanje ..."
 
 #: js/app.js:1167
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr "Pošiljanje ni mogoče, saj gre za mapo, ali pa je datoteka velikosti 0 bajtov."
+msgstr "Pošiljanja ni mogoče izvesti, saj gre za mapo oziroma datoteko velikosti 0 bajtov."
 
 #: js/app.js:1167
 msgid "Upload Error"
@@ -369,7 +369,7 @@ msgstr "Izbor imenika"
 
 #: js/app.js:1668
 msgid "The address book name cannot be empty."
-msgstr "Imenika mora imeti določeno ime."
+msgstr "Imenik mora imeti določeno ime."
 
 #: js/contacts.js:358
 msgid "Is this correct?"
@@ -387,7 +387,7 @@ msgstr "# skupine"
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
-msgstr "Nekateri stiki so označeni za izbris, vendar še niso izbrisani. Počakajte na izbris."
+msgstr "Nekateri stiki so označeni za izbris, vendar še niso izbrisani. Počakajte, da se izbris konča."
 
 #: js/contacts.js:1548
 msgid "Click to undo deletion of {num} contacts"
@@ -399,23 +399,23 @@ msgstr "Preklican izbris {num} stikov"
 
 #: js/groups.js:194
 msgid "Contact is already in this group."
-msgstr "Stik je že v tej skupini."
+msgstr "Stik je že določen v to skupino."
 
 #: js/groups.js:207
 msgid "Contacts are already in this group."
-msgstr "Stiki so že v tej skupini."
+msgstr "Stiki so že določeni v to skupino."
 
 #: js/groups.js:273
 msgid "Couldn't get contact list."
-msgstr "Ne morem dobiti seznama stikov."
+msgstr "Ni mogoče dobiti seznama stikov."
 
 #: js/groups.js:284
 msgid "Contact is not in this group."
-msgstr "Stik ni v tej skupini"
+msgstr "Stik ni določen v to skupino."
 
 #: js/groups.js:298
 msgid "Contacts are not in this group."
-msgstr "Stiki niso v tej skupini."
+msgstr "Stiki niso določeni v to skupino."
 
 #: js/groups.js:544
 msgid "A group named {group} already exists"
@@ -425,7 +425,7 @@ msgstr "Skupina z imenom {group} že obstaja."
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
-msgstr "Skupine lahko z vlečenjem\nrazporedite po vaših željah."
+msgstr "Skupine je mogoče z vlečenjem\npoljubno razporejati."
 
 #: js/groups.js:597
 msgid "All"
@@ -453,7 +453,7 @@ msgstr " je spodletelo."
 
 #: js/settings.js:75
 msgid "Displayname cannot be empty."
-msgstr "Prikazno ime ne sme biti prazno."
+msgstr "Prikazano ime ne sme biti prazno."
 
 #: js/settings.js:97 templates/settings.php:26
 msgid "Show CardDav link"
@@ -614,13 +614,13 @@ msgstr "Družina"
 
 #: lib/app.php:365
 msgid "There was an error deleting properties for this contact."
-msgstr "Pri brisanju lastnosti tega kontakta, je prišlo do napake."
+msgstr "Med brisanjem lastnosti tega stika je prišlo do napake."
 
 #: lib/hooks.php:98
 msgid "{name}'s Birthday"
 msgstr "{name} - rojstni dan"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "Stik"
 
@@ -702,7 +702,7 @@ msgstr "Uvozi v:"
 
 #: templates/contacts.php:54
 msgid "(De-)select all"
-msgstr "(Od-)izberi vse"
+msgstr "Preklopi izbor"
 
 #: templates/contacts.php:56
 msgid "New Contact"
@@ -710,7 +710,7 @@ msgstr "Nov stik"
 
 #: templates/contacts.php:57
 msgid "Download Contact(s)"
-msgstr "Prenesi stike"
+msgstr "Prejmi seznam stikov"
 
 #: templates/contacts.php:59
 msgid "Groups"
@@ -780,7 +780,7 @@ msgstr "Izbriši trenutni stik"
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
-msgstr "<h3>V vašem imeniku nimate stikov.</h3><p>Dodaj nov stik ali uvozi obstoječe stike iz datoteke VCF.</p>"
+msgstr "<h3>V imeniku ni stikov.</h3><p>Stike je mogoče dodatki ročno ali pa jih uvoziti iz datoteke VCF.</p>"
 
 #: templates/contacts.php:104
 msgid "Add contact"
@@ -906,7 +906,7 @@ msgstr "Navesti je treba veljaven elektronski naslov."
 
 #: templates/contacts.php:300
 msgid "someone@example.com"
-msgstr "nekdo@primer.com"
+msgstr "nekdo@naslov.com"
 
 #: templates/contacts.php:302
 msgid "Mail to address"
@@ -942,7 +942,7 @@ msgstr "Izbriši naslov"
 
 #: templates/contacts.php:356
 msgid "1 Main Street"
-msgstr "1 Glavna ulica"
+msgstr "Glavna ulica 1"
 
 #: templates/contacts.php:357
 msgid "Street address"
@@ -966,7 +966,7 @@ msgstr "Mesto"
 
 #: templates/contacts.php:369
 msgid "Some region"
-msgstr "Neka regija"
+msgstr "Regija"
 
 #: templates/contacts.php:370
 msgid "State or province"
@@ -986,7 +986,7 @@ msgstr "Hipni sporočilnik"
 
 #: templates/contacts.php:399
 msgid "Delete IM"
-msgstr "Izbriši IM"
+msgstr "Izbriši sporočilnik"
 
 #: templates/contacts.php:409 templates/settings.php:36
 msgid "Share"
