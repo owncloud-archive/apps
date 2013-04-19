@@ -4,6 +4,10 @@ namespace OCA\Contacts;
 
 class SearchProvider extends \OC_Search_Provider{
 	function search($query) {
+		$unescape = function($value) {
+			return strtr($value, array('\,' => ',', '\;' => ';'));
+		};
+
 		$searchresults = array(	);
 		$results = \OCP\Contacts::search($query, array('N', 'FN', 'EMAIL', 'NICKNAME', 'ORG'));
 		$l = new \OC_l10n('contacts');
@@ -16,7 +20,7 @@ class SearchProvider extends \OC_Search_Provider{
 					$props = array_merge($props, $result[$searchvar]);
 				}
 			}
-			
+			$props = array_map($unescape, $props);
 			$searchresults[]=new \OC_Search_Result($vcard['fullname'], implode(', ', $props), $link, (string)$l->t('Contact'));//$name,$text,$link,$type
 		}
 		return $searchresults;
