@@ -44,6 +44,7 @@
 	-moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; 
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
 	float: left;
+	padding: .6em .5em .4em;
 }
 #content input[type="button"]:hover, #content select:hover, #content select:focus, #content select:active, #content input[type="button"]:focus, #content .button:hover, button:hover { background-color:#fff; color:#333; }
 
@@ -329,7 +330,7 @@ ul.propertylist { width: 450px; }
 	margin-top:5px;
 }
 #rightcontent label:hover, #rightcontent dt:hover, #rightcontent input.label:hover { color: #777 !important; }
-#rightcontent input.label, #rightcontent input.label { margin:-2px; }
+#rightcontent input.label, #rightcontent input.label { margin:1px; }
 #rightcontent input.label:hover, #rightcontent input.label:active { border: 0 none !important; border-radius: 0; cursor: pointer; }
 .typelist[type="button"] { float: left; max-width: 8em; border: 0; background-color: #fff; color: #bbb; box-shadow: none; } /* for multiselect */
 .typelist[type="button"]:hover { color: #777; } /* for multiselect */
