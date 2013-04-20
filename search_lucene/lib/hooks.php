@@ -38,6 +38,10 @@ class Hooks {
 	 */
 	const handle_delete = 'deleteFile';
 
+	public function run($argument){
+		self::indexFile($argument);
+	}
+
 	/**
 	 * handle file writes (triggers reindexing)
 	 * 
@@ -51,19 +55,16 @@ class Hooks {
 		if (isset($param['path'])) {
 			$param['user'] = \OCP\User::getUser();
 			//Add Background Job:
-			BackgroundJob::addQueuedTask(
-					'search_lucene',
-					'OCA\Search_Lucene\Hooks',
-					'doIndexFile',
-					json_encode($param) );
+			BackgroundJob::registerJob(
+					'OCA\Search_Lucene\IndexJob',
+					$param );
 		} else {
 			Util::writeLog('search_lucene',
 				'missing path parameter',
 				Util::WARN);
 		}
 	}
-	static public function doIndexFile($param) {
-		$data = json_decode($param);
+	static public function doIndexFile($data) {
 		if ( ! isset($data->path) ) {
 			Util::writeLog('search_lucene',
 				'missing path parameter',
@@ -110,11 +111,9 @@ class Hooks {
 		if (isset($param['path'])) {
 			$param['user'] = \OCP\User::getUser();
 			//Add Background Job:
-			BackgroundJob::addQueuedTask(
-					'search_lucene',
-					'OCA\Search_Lucene\Hooks',
-					'doDeleteFile',
-					json_encode($param) );
+			BackgroundJob::registerJon(
+					'OCA\Search_Lucene\DeleteJob',
+					$param );
 		} else {
 			Util::writeLog('search_lucene',
 					'missing path parameter',
@@ -122,8 +121,7 @@ class Hooks {
 		}
 
 	}
-	static public function doDeleteFile($param) {
-		$data = json_decode($param);
+	static public function doDeleteFile($data) {
 		if ( ! isset($data->path) ) {
 			Util::writeLog('search_lucene',
 				'missing path parameter',

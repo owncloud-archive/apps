@@ -27,4 +27,4 @@ OC::$CLASSPATH['OC_Files_Antivirus_BackgroundScanner'] = OC_App::getAppPath('fil
 OC_APP::registerAdmin('files_antivirus', 'settings');
 OC_Hook::connect('OC_Filesystem', 'post_write', 'OC_Files_Antivirus', 'av_scan');
 
-OCP\BackgroundJob::AddRegularTask('OC_Files_Antivirus_BackgroundScanner', 'check');
+OCP\BackgroundJob::registerJob('OC_Files_Antivirus_BackgroundScanner');
