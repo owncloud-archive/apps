@@ -85,7 +85,7 @@
 	display: block; 
 	max-width: 100%; 
 	height: 2em;
-	padding: 0.5em 0.8em; 
+	padding: 12px 5px 0px;
 	color: #666; 
 	text-shadow: 0 1px 0 #f8f8f8; 
 	font-size: 1.2em; 
@@ -326,6 +326,7 @@ ul.propertylist { width: 450px; }
 	display: inline-block;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
+	margin-top:5px;
 }
 #rightcontent label:hover, #rightcontent dt:hover, #rightcontent input.label:hover { color: #777 !important; }
 #rightcontent input.label, #rightcontent input.label { margin:-2px; }
@@ -363,7 +364,7 @@ ul.propertylist { width: 450px; }
 	float: left;*/
 	height:1.4em;
 	background-repeat: no-repeat;
-	background-position:0px 4px;
+	background-position:0px 0px;
 	background-origin: content-box;
 	background-image:url('%webroot%/core/img/actions/settings.svg'); 
 }
@@ -491,7 +492,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	padding: 0 .5em 0 4em; margin: 0 auto; 
 	height: 100%; width: 100%;
 }
-#groupsheader button, #contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: .7em; padding: .2em; clear: none; }
+#groupsheader button, #contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: 13px; padding: .2em; clear: none; }
 #contactsheader select { width:100px; }
 #contactsheader .delete { 
 	bottom: 1.4em;
