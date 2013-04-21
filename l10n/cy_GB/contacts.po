@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-18 00:49+0200\n"
-"PO-Revision-Date: 2013-04-17 17:20+0000\n"
+"POT-Creation-Date: 2013-04-22 00:48+0200\n"
+"PO-Revision-Date: 2013-04-21 20:40+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Welsh (United Kingdom) (http://www.transifex.com/projects/p/owncloud/language/cy_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -192,7 +192,7 @@ msgstr ""
 
 #: ajax/uploadimport.php:65 ajax/uploadphoto.php:77
 msgid "There is no error, the file uploaded with success"
-msgstr ""
+msgstr "Does dim gwall, llwythodd y ffeil i fyny'n llwyddiannus"
 
 #: ajax/uploadimport.php:66 ajax/uploadphoto.php:78
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
@@ -202,19 +202,19 @@ msgstr ""
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
+msgstr "Mae'r ffeil lwythwyd i fyny'n fwy na chyfarwyddeb MAX_FILE_SIZE bennwyd yn y ffurflen HTML"
 
 #: ajax/uploadimport.php:68 ajax/uploadphoto.php:80
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Dim ond yn rhannol y llwythwyd y ffeil i fyny"
 
 #: ajax/uploadimport.php:69 ajax/uploadphoto.php:81
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Ni lwythwyd ffeil i fyny"
 
 #: ajax/uploadimport.php:70 ajax/uploadphoto.php:82
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "Plygell dros dro yn eisiau"
 
 #: ajax/uploadphoto.php:59 ajax/uploadphoto.php:109
 msgid "Couldn't save temporary image: "
@@ -226,7 +226,7 @@ msgstr ""
 
 #: ajax/uploadphoto.php:71
 msgid "No file was uploaded. Unknown error"
-msgstr ""
+msgstr "Ni lwythwyd ffeil i fyny. Gwall anhysbys."
 
 #: appinfo/app.php:25
 msgid "Contacts"
@@ -313,7 +313,7 @@ msgstr ""
 
 #: js/app.js:1167
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Methu llwytho'ch ffeil i fyny gan ei fod yn gyferiadur neu'n cynnwys 0 beit"
 
 #: js/app.js:1167
 msgid "Upload Error"
@@ -327,11 +327,11 @@ msgstr ""
 
 #: js/app.js:1174
 msgid "Upload too large"
-msgstr ""
+msgstr "Maint llwytho i fyny'n rhy fawr"
 
 #: js/app.js:1218
 msgid "Pending"
-msgstr ""
+msgstr "I ddod"
 
 #: js/app.js:1363 templates/contacts.php:130
 msgid "Add group"
@@ -572,7 +572,7 @@ msgstr ""
 
 #: lib/app.php:179
 msgid "Text"
-msgstr ""
+msgstr "Testun"
 
 #: lib/app.php:180
 msgid "Voice"
@@ -614,7 +614,7 @@ msgstr ""
 msgid "{name}'s Birthday"
 msgstr ""
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr ""
 
@@ -668,7 +668,7 @@ msgstr ""
 
 #: templates/contacts.php:20
 msgid "New"
-msgstr ""
+msgstr "Newydd"
 
 #: templates/contacts.php:22
 msgid "Display name"
@@ -1004,15 +1004,15 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "more info"
-msgstr ""
+msgstr "mwy o wybodaeth"
 
 #: templates/settings.php:5
 msgid "Primary address (Kontact et al)"
-msgstr ""
+msgstr "Prif gyfeiriad (Kontact et al)"
 
 #: templates/settings.php:7
 msgid "iOS/OS X"
-msgstr ""
+msgstr "iOS/OS X"
 
 #: templates/settings.php:11
 msgid "Addressbooks"
@@ -1024,7 +1024,7 @@ msgstr ""
 
 #: templates/settings.php:59
 msgid "Name"
-msgstr ""
+msgstr "Enw"
 
 #: templates/settings.php:60
 msgid "Description"
