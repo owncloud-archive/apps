@@ -1,4 +1,3 @@
-
 #content-wrapper { overflow: hidden; } /* Avoid double scroll bars */
 /* General element settings */
 #content li { cursor: default; }
@@ -286,8 +285,13 @@
 	text-align: right; 
 	box-sizing: border-box;
 	display: inline-block;
-	margin-top:10px;
 }
+
+div.email li .parameters .label, div.url li .parameters .label { margin-top: 7px !important; }
+div.tel li .parameters .label { margin-top: 6px !important; margin-bottom: 4px; }
+div.url li .parameters .label, div.impp li .parameters .label { margin-top: 6px !important; }
+div.tel li input, div.url li input { margin-left: 3px; font-size: 1em; }
+div.impp li .select_wrapper select { margin-top: 6px; }
 
 ul.propertylist { width: 450px; }
 .propertylist li.propertycontainer { white-space: nowrap; min-width: 38em; display: block; clear: both; }
@@ -327,8 +331,10 @@ ul.propertylist { width: 450px; }
 	display: inline-block;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	margin-top:5px;
 }
+#contact-nickname, #contact-title, #contact-bday { margin-top: 5px; }
+#contact-org { margin-top: 4px; }
+
 #rightcontent label:hover, #rightcontent dt:hover, #rightcontent input.label:hover { color: #777 !important; }
 #rightcontent input.label, #rightcontent input.label { margin:1px; }
 #rightcontent input.label:hover, #rightcontent input.label:active { border: 0 none !important; border-radius: 0; cursor: pointer; }
@@ -536,6 +542,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	-o-columns: 1;
 	columns: 1;
 }
+fieldset.adr ul li input.label { margin-top: -4px !important; }
 .adr.editor input.value { border: none; }
 .adr.editor input.value:hover { border: none; }
 .adr.editor input.value.street, ul.adr.edit input.value.country, ul.adr.edit input.value.region { width: 19em;}

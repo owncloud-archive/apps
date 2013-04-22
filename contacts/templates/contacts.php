@@ -208,28 +208,28 @@
 				<select id="contactgroups" title="<?php p($l->t('Select groups')); ?>" name="value" multiple></select>
 			</div>
 			<dl class="form">
-				<dt data-element="nickname">
+				<dt data-element="nickname" id="contact-nickname">
 					<?php p($l->t('Nickname')); ?>
 				</dt>
 				<dd data-element="nickname" class="propertycontainer">
 					<input class="value tooltipped rightwards onfocus" type="text" name="value" value="{nickname}" title="<?php p($l->t('Enter nickname')); ?>" required />
 					<a role="button" class="action delete" title="<?php p($l->t('Delete')); ?>"></a>
 				</dd>
-				<dt data-element="title">
+				<dt data-element="title" id="contact-title">
 					<?php p($l->t('Title')); ?>
 				</dt>
 				<dd data-element="title" class="propertycontainer">
 					<input class="value tooltipped rightwards onfocus" type="text" name="value" value="{title}" title="<?php p($l->t('Enter title')); ?>" required />
 					<a role="button" class="action delete" title="<?php p($l->t('Delete')); ?>"></a>
 				</dd>
-				<dt data-element="org">
+				<dt data-element="org" id="contact-org">
 					<?php p($l->t('Organization')); ?>
 				</dt>
 				<dd data-element="org" class="propertycontainer">
 					<input class="value tooltipped rightwards onfocus" type="text" name="value" value="{org}" title="<?php p($l->t('Enter organization')); ?>" required />
 					<a role="button" class="action delete" title="<?php p($l->t('Delete')); ?>"></a>
 				</dd>
-				<dt data-element="bday">
+				<dt data-element="bday" id="contact-bday">
 					<?php p($l->t('Birthday')); ?>
 				</dt>
 				<dd data-element="bday" class="propertycontainer">
