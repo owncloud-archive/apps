@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# TayançKILIÇLI <tayancatakan@gmail.com>, 2013.
+# atakan96 <tayancatakan@gmail.com>, 2013
+# KAT.RAT12 <spanish.katerina@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:55+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-23 00:49+0200\n"
+"PO-Revision-Date: 2013-04-22 20:30+0000\n"
+"Last-Translator: KAT.RAT12 <spanish.katerina@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +51,7 @@ msgstr "yürütülebilir"
 
 #: templates/settings.php:5
 msgid "Daemon"
-msgstr ""
+msgstr "Demon "
 
 #: templates/settings.php:7
 msgid "Host"
@@ -62,7 +63,7 @@ msgstr "Antivirus sunucusunun adresi."
 
 #: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
 msgid "Not required in Executable Mode."
-msgstr ""
+msgstr "Executable Modu istememis."
 
 #: templates/settings.php:8
 msgid "Port"
@@ -74,19 +75,19 @@ msgstr "Antivirüs sunucusunun port numarası."
 
 #: templates/settings.php:9
 msgid "Stream Length"
-msgstr ""
+msgstr "Stream Length, Unun Akilim "
 
 #: templates/settings.php:9
 msgid "ClamAV StreamMaxLength value in bytes."
-msgstr ""
+msgstr "ClamAV Streamen Uzun fiyat bytes."
 
 #: templates/settings.php:10
 msgid "Path to clamscan"
-msgstr ""
+msgstr "Iceri clamscan "
 
 #: templates/settings.php:10
 msgid "Path to clamscan executable."
-msgstr ""
+msgstr "Clamscan icin islemek "
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
@@ -94,11 +95,11 @@ msgstr ""
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"
-msgstr ""
+msgstr "Scan eyleme dosyalari harpanlamisi icin  bulundugu"
 
 #: templates/settings.php:12
 msgid "Only log"
-msgstr ""
+msgstr "Sadece log "
 
 #: templates/settings.php:12
 msgid "Delete file"

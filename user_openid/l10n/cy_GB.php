@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Invalid request" => "Cais annilys"
+"Invalid request" => "Cais annilys",
+"Login" => "Mewngofnodi"
 );

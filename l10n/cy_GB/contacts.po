@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-22 00:48+0200\n"
-"PO-Revision-Date: 2013-04-21 20:40+0000\n"
+"POT-Creation-Date: 2013-04-23 00:49+0200\n"
+"PO-Revision-Date: 2013-04-22 17:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Welsh (United Kingdom) (http://www.transifex.com/projects/p/owncloud/language/cy_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -230,7 +230,7 @@ msgstr "Ni lwythwyd ffeil i fyny. Gwall anhysbys."
 
 #: appinfo/app.php:25
 msgid "Contacts"
-msgstr ""
+msgstr "Cysylltiadau"
 
 #: export.php:66
 #, php-format
@@ -676,7 +676,7 @@ msgstr ""
 
 #: templates/contacts.php:24 templates/contacts.php:44
 msgid "OK"
-msgstr ""
+msgstr "Iawn"
 
 #: templates/contacts.php:28 templates/contacts.php:105
 msgid "Import"

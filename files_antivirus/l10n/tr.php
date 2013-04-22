@@ -6,10 +6,18 @@
 "Antivirus Configuration" => "Antivirüs ayarları",
 "Mode" => "Mod",
 "Executable" => "yürütülebilir",
+"Daemon" => "Demon ",
 "Host" => "Konak",
 "Address of Antivirus Host." => "Antivirus sunucusunun adresi.",
+"Not required in Executable Mode." => "Executable Modu istememis.",
 "Port" => "Port",
 "Port number of Antivirus Host." => "Antivirüs sunucusunun port numarası.",
+"Stream Length" => "Stream Length, Unun Akilim ",
+"ClamAV StreamMaxLength value in bytes." => "ClamAV Streamen Uzun fiyat bytes.",
+"Path to clamscan" => "Iceri clamscan ",
+"Path to clamscan executable." => "Clamscan icin islemek ",
+"Action for infected files found while scanning" => "Scan eyleme dosyalari harpanlamisi icin  bulundugu",
+"Only log" => "Sadece log ",
 "Delete file" => "Dosyayı sil",
 "Save" => "Kaydet"
 );

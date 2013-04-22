@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Save" => "Cadw"
+"Save" => "Cadw",
+"Next" => "Nesaf"
 );

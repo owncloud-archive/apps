@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# ubuntucymraeg <owen.llywelyn@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-22 00:48+0200\n"
-"PO-Revision-Date: 2013-04-21 19:40+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-23 00:49+0200\n"
+"PO-Revision-Date: 2013-04-22 21:10+0000\n"
+"Last-Translator: ubuntucymraeg <owen.llywelyn@gmail.com>\n"
 "Language-Team: Welsh (United Kingdom) (http://www.transifex.com/projects/p/owncloud/language/cy_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 
 #: templates/settings.php:3
 msgid "External Sites"
-msgstr ""
+msgstr "Safleoedd Allanol"
 
 #: templates/settings.php:9
 msgid "Name"
@@ -27,11 +28,11 @@ msgstr "Enw"
 
 #: templates/settings.php:10
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: templates/settings.php:11
 msgid "Remove site"
-msgstr ""
+msgstr "Gwaredu safle"
 
 #: templates/settings.php:18
 msgid "Add"
