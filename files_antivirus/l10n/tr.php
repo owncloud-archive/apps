@@ -16,6 +16,7 @@
 "ClamAV StreamMaxLength value in bytes." => "ClamAV Streamen Uzun fiyat bytes.",
 "Path to clamscan" => "Iceri clamscan ",
 "Path to clamscan executable." => "Clamscan icin islemek ",
+"Not required in Daemon Mode." => "Demo Modu ihbar degil.",
 "Action for infected files found while scanning" => "Scan eyleme dosyalari harpanlamisi icin  bulundugu",
 "Only log" => "Sadece log ",
 "Delete file" => "Dosyayı sil",

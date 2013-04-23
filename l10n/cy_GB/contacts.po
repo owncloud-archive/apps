@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-23 00:49+0200\n"
-"PO-Revision-Date: 2013-04-22 17:50+0000\n"
+"POT-Creation-Date: 2013-04-24 00:49+0200\n"
+"PO-Revision-Date: 2013-04-23 19:40+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Welsh (United Kingdom) (http://www.transifex.com/projects/p/owncloud/language/cy_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -720,7 +720,7 @@ msgstr ""
 
 #: templates/contacts.php:69 templates/contacts.php:270
 msgid "Close"
-msgstr ""
+msgstr "Cau"
 
 #: templates/contacts.php:70
 msgid "Keyboard shortcuts"
@@ -874,7 +874,7 @@ msgstr ""
 
 #: templates/contacts.php:281
 msgid "Address"
-msgstr ""
+msgstr "Cyfeiriad"
 
 #: templates/contacts.php:282
 msgid "Note"

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Stefan Ilivanov <ilivanov@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-24 00:49+0200\n"
+"PO-Revision-Date: 2013-04-23 09:20+0000\n"
+"Last-Translator: Stefan Ilivanov <ilivanov@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -555,11 +556,11 @@ msgstr ""
 
 #: lib/app.php:170 lib/app.php:178 lib/app.php:189 lib/app.php:230
 msgid "Work"
-msgstr ""
+msgstr "Работен"
 
 #: lib/app.php:171 lib/app.php:176 lib/app.php:190
 msgid "Home"
-msgstr ""
+msgstr "Домашен"
 
 #: lib/app.php:172 lib/app.php:185 lib/app.php:192 lib/app.php:231
 #: lib/vcard.php:715
@@ -568,7 +569,7 @@ msgstr "Други"
 
 #: lib/app.php:177
 msgid "Mobile"
-msgstr ""
+msgstr "Мобилен"
 
 #: lib/app.php:179
 msgid "Text"
@@ -576,7 +577,7 @@ msgstr "Текст"
 
 #: lib/app.php:180
 msgid "Voice"
-msgstr ""
+msgstr "Гласово"
 
 #: lib/app.php:181
 msgid "Message"
@@ -584,15 +585,15 @@ msgstr ""
 
 #: lib/app.php:182
 msgid "Fax"
-msgstr ""
+msgstr "Факс"
 
 #: lib/app.php:183
 msgid "Video"
-msgstr ""
+msgstr "Видео"
 
 #: lib/app.php:184
 msgid "Pager"
-msgstr ""
+msgstr "Пейджър"
 
 #: lib/app.php:191
 msgid "Internet"
@@ -614,7 +615,7 @@ msgstr ""
 msgid "{name}'s Birthday"
 msgstr ""
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr ""
 
@@ -838,7 +839,7 @@ msgstr ""
 
 #: templates/contacts.php:226 templates/contacts.php:274
 msgid "Organization"
-msgstr ""
+msgstr "Организация"
 
 #: templates/contacts.php:229
 msgid "Enter organization"
@@ -846,7 +847,7 @@ msgstr ""
 
 #: templates/contacts.php:233 templates/contacts.php:277
 msgid "Birthday"
-msgstr ""
+msgstr "Дата на раждане"
 
 #: templates/contacts.php:264
 msgid "Notes go here..."
@@ -862,7 +863,7 @@ msgstr "Добавяне"
 
 #: templates/contacts.php:278
 msgid "Phone"
-msgstr ""
+msgstr "Телефон"
 
 #: templates/contacts.php:279
 msgid "Email"
@@ -886,13 +887,13 @@ msgstr ""
 
 #: templates/contacts.php:285
 msgid "Delete contact"
-msgstr ""
+msgstr "Изтриване на контакт"
 
 #: templates/contacts.php:298 templates/contacts.php:313
 #: templates/contacts.php:327 templates/contacts.php:352
 #: templates/contacts.php:389
 msgid "Preferred"
-msgstr ""
+msgstr "Предпочитан"
 
 #: templates/contacts.php:300
 msgid "Please specify a valid email address."
@@ -956,7 +957,7 @@ msgstr ""
 
 #: templates/contacts.php:365
 msgid "City"
-msgstr ""
+msgstr "Град"
 
 #: templates/contacts.php:369
 msgid "Some region"
@@ -972,7 +973,7 @@ msgstr ""
 
 #: templates/contacts.php:375
 msgid "Country"
-msgstr ""
+msgstr "Държава"
 
 #: templates/contacts.php:397
 msgid "Instant Messenger"
@@ -1020,7 +1021,7 @@ msgstr ""
 
 #: templates/settings.php:58
 msgid "New Address Book"
-msgstr ""
+msgstr "Нова адресна книга"
 
 #: templates/settings.php:59
 msgid "Name"

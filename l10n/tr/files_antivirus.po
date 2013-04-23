@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-23 00:49+0200\n"
-"PO-Revision-Date: 2013-04-22 20:30+0000\n"
+"POT-Creation-Date: 2013-04-24 00:49+0200\n"
+"PO-Revision-Date: 2013-04-23 17:50+0000\n"
 "Last-Translator: KAT.RAT12 <spanish.katerina@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -91,7 +91,7 @@ msgstr "Clamscan icin islemek "
 
 #: templates/settings.php:10
 msgid "Not required in Daemon Mode."
-msgstr ""
+msgstr "Demo Modu ihbar degil."
 
 #: templates/settings.php:11
 msgid "Action for infected files found while scanning"

@@ -11,6 +11,7 @@
 "No categories selected for deletion." => "未选中要删除的分类。",
 "No address books found." => "找不到地址簿。",
 "No contacts found." => "找不到联系人。",
+"You have no addressbooks." => "你没有地址簿。",
 "element name is not set." => "元素名称未设置",
 "checksum is not set." => "未设置校验值。",
 "Information about vCard is incorrect. Please reload the page." => "vCard 的信息不正确。请重新加载页面。",
