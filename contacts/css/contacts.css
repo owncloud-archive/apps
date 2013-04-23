@@ -332,8 +332,8 @@ ul.propertylist { width: 450px; }
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 }
-#contact-nickname, #contact-title, #contact-bday { margin-top: 5px; }
-#contact-org { margin-top: 4px; }
+dt[data-element="nickname"], dt[data-element="bday"], dt[data-element="title"] { margin-top: 5px; }
+dt[data-element="org"] { margin-top: 4px; }
 
 #rightcontent label:hover, #rightcontent dt:hover, #rightcontent input.label:hover { color: #777 !important; }
 #rightcontent input.label, #rightcontent input.label { margin:1px; }
