@@ -22,7 +22,6 @@ class ImageResponse extends Response {
 
 	public function __construct($image = null) {
 		//\OCP\Util::writeLog('contacts', __METHOD__.' request: '.print_r($request, true), \OCP\Util::DEBUG);
-		parent::__construct($request);
 		$this->setImage($image);
 	}
 
