@@ -45,7 +45,7 @@ if(\OCP\App::isEnabled('appframework')) {
 
 \OC_Search::registerProvider('OCA\Contacts\SearchProvider');
 //\OCP\Share::registerBackend('contact', 'OCA\Contacts\Share_Backend_Contact');
-\OCP\Share::registerBackend('addressbook', 'OCA\Contacts\Share_Backend_Addressbook', 'contact');
+\OCP\Share::registerBackend('addressbook', 'OCA\Contacts\Share\Addressbook', 'contact');
 
 /*
 if(OCP\User::isLoggedIn()) {
