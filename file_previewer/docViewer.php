@@ -13,9 +13,30 @@ $file_name = basename($file, '.'.$path_parts['extension']);
 
 $mime = "application/msword";
 
-//how to do caching? well see if this id or something in the cache and if not, insert it and then show.
-//otherwise, retrieve it from cache and show
+if($dir === '/')
+{
+	$sourceDir = $dir;
+	$previewDir = $dir.$user.'/'.$file_name;
+}
+else
+{
+	$sourceDir = $dir.'/';
+	$previewDir = $dir.'/'.$file_name;
+}
 
-system('python /opt/jischtml5/tools/commandline/WordDownOO.py '.$doc_root.'/owncloud/data/'.$user.'/files'.$dir.$file , $retval);
-$content = file_get_contents($doc_root.'/owncloud/data/'.$user.'/files/'.$file_name.'/'.$file_name.'.html');
+$inputFile = $doc_root.'/owncloud/data/'.$user.'/files'.$sourceDir.$file;
+$outputDir = $doc_root.'/owncloud/data/'.$user.'/files_previewer'.$previewDir;
+$outputFile = $outputDir.'/'.$file_name.'.html';
+
+if (!(file_exists($outputFile) && (filemtime($outputFile) > filemtime($inputFile)))) 
+{
+	// New file, create a preview and store in local file system
+	$command = 'python /opt/jischtml5/tools/commandline/WordDownOO.py --dataURIs '.escapeshellarg($inputFile).' '.escapeshellarg($outputDir);
+	system($command, $retval);
+} 
+$content = file_get_contents($outputFile);
+
+//TODO check whether to run this or not, either using date/time or hash of file content
+//TODO: MIME TYPE!!!!
+//TODO: stop using data URIs
 print $content;
