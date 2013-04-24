@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2012.
-# Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2012-2013.
-#   <tetuyano+transi@gmail.com>, 2012.
-# YANO Tetsu <tetuyano+transi@gmail.com>, 2013.
+# Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2012
+# Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2012-2013
+# tt yn <tetuyano+transi@gmail.com>, 2012
+# tt yn <tetuyano+transi@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -618,7 +618,7 @@ msgstr "この連絡先のプロパティの削除エラーが発生しました
 msgid "{name}'s Birthday"
 msgstr "{name}の誕生日"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "連絡先"
 

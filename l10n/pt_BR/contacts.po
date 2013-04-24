@@ -3,21 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <glauber.guimaraes@poli.ufrj.br>, 2012.
-# Guilherme Maluf Balzana <guimalufb@gmail.com>, 2012.
-#   <philippi.sedir@gmail.com>, 2012.
-# Rodrigo Tavares <rodrigo.st23@hotmail.com>, 2013.
-# Sedir G. Morais <philippi.sedir@gmail.com>, 2013.
-#   <targinosilveira@gmail.com>, 2012.
-# Thiago Vicente <thiagovice@gmail.com>, 2012.
-# Tulio Simoes Martins Padilha <tuliouel@gmail.com>, 2013.
-# Van Der Fran <transifex@vanderland.com>, 2011, 2012.
+# Schopfer <glauber.guimaraes@poli.ufrj.br>, 2012
+# Guilherme Maluf Balzana <guimalufb@gmail.com>, 2012
+# sedir <philippi.sedir@gmail.com>, 2012
+# Rodrigo Tavares <rodrigo.st23@hotmail.com>, 2013
+# sedir <philippi.sedir@gmail.com>, 2013
+# targinosilveira <targinosilveira@gmail.com>, 2012
+# Thiago Vicente <thiagovice@gmail.com>, 2012
+# tuliouel <tuliouel@gmail.com>, 2013
+# Van Der Fran <transifex@vanderland.com>, 2011, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -623,7 +623,7 @@ msgstr "Ocorreu um erro ao excluir propriedades deste contato."
 msgid "{name}'s Birthday"
 msgstr "Aniversário de {name}"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "Contato"
 

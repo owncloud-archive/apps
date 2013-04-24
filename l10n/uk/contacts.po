@@ -3,17 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <skoptev@ukr.net>, 2012.
-# Soul Kim <warlock.rf@gmail.com>, 2012.
-#   <victor.dubiniuk@gmail.com>, 2012.
-#   <volodya327@gmail.com>, 2012-2013.
-# пан Володимир <volodya327@gmail.com>, 2013.
+# skoptev <skoptev@ukr.net>, 2012
+# Soul Kim <warlock.rf@gmail.com>, 2012
+# VicDeo <victor.dubiniuk@gmail.com>, 2012
+# volodya327 <volodya327@gmail.com>, 2012-2013
+# volodya327 <volodya327@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/owncloud/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -619,7 +619,7 @@ msgstr "Виникла помилка при видаленні властиво
 msgid "{name}'s Birthday"
 msgstr "День народження {name}"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "Контакт"
 

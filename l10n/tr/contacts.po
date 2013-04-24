@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Aranel Surion <aranel@aranelsurion.org>, 2011, 2012.
-# Caner Başaran <basaran.caner@gmail.com>, 2012.
-# H.Oktay Tefenli <otefenli@gmail.com>, 2013.
-#   <info@beyboo.de>, 2012.
-# ismail yenigul <ismail.yenigul@surgate.com>, 2013.
-#   <mesutgungor@iyte.edu.tr>, 2012.
-# Murat Bişkin <mbiskin@gmail.com>, 2012.
-# Necdet Yücel <necdetyucel@gmail.com>, 2012.
+# Aranel Surion <aranel@aranelsurion.org>, 2011, 2012
+# Caner Başaran <basaran.caner@gmail.com>, 2012
+# otefenli <otefenli@gmail.com>, 2013
+# alpere <info@beyboo.de>, 2012
+# ismail yenigül <ismail.yenigul@surgate.com>, 2013
+# mesutgungor <mesutgungor@iyte.edu.tr>, 2012
+# Murat Bişkin <mbiskin@gmail.com>, 2012
+# Necdet Yücel <necdetyucel@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -622,7 +622,7 @@ msgstr "Bu kişinin özelliklerini silerken bir hata oluştu"
 msgid "{name}'s Birthday"
 msgstr "{name}'nin Doğumgünü"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "Kişi"
 

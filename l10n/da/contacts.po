@@ -3,23 +3,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Bawl <transifex@bawl.dk>, 2013.
-#   <claus_chr@webspeed.dk>, 2012.
-#   <cronner@gmail.com>, 2012.
-#   <mikkelbjerglarsen@gmail.com>, 2011.
-# Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2011-2012.
-# Ole Holm Frandsen <froksen@gmail.com>, 2012.
-# Pascal d'Hermilly <pascal@dhermilly.dk>, 2011.
-# Rasmus Paasch <rasmuspaasch@gmail.com>, 2013.
-#   <simon@rosmi.dk>, 2012.
-# Thomas Tanghus <>, 2012.
-# Thomas Tanghus <thomas@tanghus.net>, 2012.
+# Bawl <transifex@bawl.dk>, 2013
+# claus_chr <claus_chr@webspeed.dk>, 2012
+# cronner <cronner@gmail.com>, 2012
+# mikkel_ilu <mikkelbjerglarsen@gmail.com>, 2011
+# Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2011-2012
+# Ole Holm Frandsen <froksen@gmail.com>, 2012
+# Pascal d'Hermilly <pascal@dhermilly.dk>, 2011
+# rpaasch <rasmuspaasch@gmail.com>, 2013
+# muunsim <simon@rosmi.dk>, 2012
+# Thomas Tanghus <thomas@tanghus.net>, 2012
+# Thomas Tanghus <thomas@tanghus.net>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -625,7 +625,7 @@ msgstr "Der opstod en fejl under sletning egenskaber for denne kontakt."
 msgid "{name}'s Birthday"
 msgstr "{name}s fødselsdag"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "Kontaktperson"
 

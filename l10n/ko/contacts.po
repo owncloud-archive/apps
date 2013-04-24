@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <aoiob4305@gmail.com>, 2013.
-# 남자사람  <cessnagi@gmail.com>, 2012.
-# Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2012.
-#   <limonade83@gmail.com>, 2012.
-# Park Shinjo <kde@peremen.name>, 2013.
-# Shinjo Park <kde@peremen.name>, 2012.
-# Sung Jin Gang <potopro@gmail.com>, 2013.
-#   <tetuyano+transi@gmail.com>, 2012.
+# aoiob4305 <aoiob4305@gmail.com>, 2013
+# 남자사람 <cessnagi@gmail.com>, 2012
+# Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2012
+# yunhye <limonade83@gmail.com>, 2012
+# Shinjo Park <kde@peremen.name>, 2013
+# Shinjo Park <kde@peremen.name>, 2012
+# ujuc Gang <potopro@gmail.com>, 2013
+# tt yn <tetuyano+transi@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/owncloud/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -622,7 +622,7 @@ msgstr "이 연락처의 속성을 삭제하는 중 오류가 발생하였습니
 msgid "{name}'s Birthday"
 msgstr "{name} 님의 생일"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "연락처"
 

@@ -3,24 +3,24 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#  <b13n1u@gmail.com>, 2013.
-# Bartek  <bart.p.pl@gmail.com>, 2012.
-# Cyryl Sochacki <>, 2012.
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2013.
-#   <czarnystokrotek@mailoo.org>, 2012.
-# Maciej Tarmas <maciej@tarmas.com>, 2013.
-# Marcin Małecki <gerber@tkdami.net>, 2011-2012.
-# Michał Plichta <mplichta@gmail.com>, 2013.
-#   <mplichta@gmail.com>, 2012.
-# Paweł Ciecierski <pciecierski@gmail.com>, 2012.
-# Piotr Sokół <psokol@jabster.pl>, 2012.
-#   <urban@fail.pl>, 2012.
+# b13n1u <b13n1u@gmail.com>, 2013
+# Bartek <bart.p.pl@gmail.com>, 2012
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2013
+# czarnystokrotek <czarnystokrotek@mailoo.org>, 2012
+# Maciej Tarmas <maciej@tarmas.pl>, 2013
+# Marcin Małecki <gerber@tkdami.net>, 2011-2012
+# emc <mplichta@gmail.com>, 2013
+# emc <mplichta@gmail.com>, 2012
+# Paweł Ciecierski <pciecierski@gmail.com>, 2012
+# Piotr Sokół <psokol@jabster.pl>, 2012
+# urban <urban@fail.pl>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/owncloud/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -626,7 +626,7 @@ msgstr "Wystąpił błąd podczas usuwania właściwości tego kontaktu."
 msgid "{name}'s Birthday"
 msgstr "Urodziny: {name}"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "Kontakt"
 

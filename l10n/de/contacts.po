@@ -16,7 +16,7 @@
 # Jan-Christoph Borchardt <jan@unhosted.org>, 2011
 # Marcel Kühlhorn <susefan93@gmx.de>, 2012-2013
 # Melvin Gundlach <mail@melvin-gundlach.de>, 2012
-# Michael Krell <m4dmike.mni@gmail.com>, 2012
+# Michael Krell, 2012
 # LittleBuddha <mi.sc@gmx.net>, 2012
 # piccobello <nelsonfritsch@gmail.com>, 2012
 # JamFX <niko@nik-o-mat.de>, 2012
@@ -31,8 +31,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-21 00:48+0200\n"
-"PO-Revision-Date: 2013-04-20 22:00+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:00+0000\n"
 "Last-Translator: Marcel Kühlhorn <susefan93@gmx.de>\n"
 "Language-Team: German <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"

@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <admin@s-goecker.de>, 2012.
-# Bartek  <bart.p.pl@gmail.com>, 2012.
-#   <blobbyjj@ymail.com>, 2012.
-# I Robot <thomas.mueller@tmit.eu>, 2012.
-# Marcel Kühlhorn <susefan93@gmx.de>, 2012-2013.
-#   <niko@nik-o-mat.de>, 2012.
-# Phillip Schichtel <quick_wango@code-infection.de>, 2013.
-#   <thomas.mueller@tmit.eu>, 2012.
+# goeck <admin@s-goecker.de>, 2012
+# Bartek <bart.p.pl@gmail.com>, 2012
+# Mirodin <blobbyjj@ymail.com>, 2012
+# I Robot <owncloud-bot@tmit.eu>, 2012
+# Marcel Kühlhorn <susefan93@gmx.de>, 2012-2013
+# JamFX <niko@nik-o-mat.de>, 2012
+# quick_wango <quick_wango@code-infection.de>, 2013
+# I Robot <owncloud-bot@tmit.eu>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German (Germany) <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
