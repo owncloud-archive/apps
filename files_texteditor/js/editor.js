@@ -254,6 +254,7 @@ function showFileEditor(dir, filename) {
 				}
 				// End ajax
 			);
+			return data;
 		}
 	}
 }
