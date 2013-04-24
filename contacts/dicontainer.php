@@ -11,6 +11,7 @@ namespace OCA\Contacts;
 use OCA\AppFramework\DependencyInjection\DIContainer as BaseContainer;
 use OCA\Contacts\Controller\AddressBookController;
 use OCA\Contacts\Controller\GroupController;
+use OCA\Contacts\Controller\ContactController;
 
 class DIContainer extends BaseContainer {
 
@@ -31,6 +32,10 @@ class DIContainer extends BaseContainer {
 
 		$this['GroupController'] = $this->share(function($c){
 			return new GroupController($c['API'], $c['Request']);
+		});
+
+		$this['ContactController'] = $this->share(function($c){
+			return new ContactController($c['API'], $c['Request']);
 		});
 
 	}
