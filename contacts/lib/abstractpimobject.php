@@ -26,7 +26,7 @@ namespace OCA\Contacts;
  * Subclass this class or implement IPIMObject interface for PIM objects
  */
 
-abstract class PIMObjectAbstract implements IPIMObject {
+abstract class AbstractPIMObject implements IPIMObject {
 
 	/**
 	 * This variable holds the ID of this object.

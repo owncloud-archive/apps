@@ -44,7 +44,7 @@ class Shared extends Database {
 
 		$this->addressbooks = \OCP\Share::getItemsSharedWith(
 			'addressbook',
-			Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS
+			Contacts\Share\Addressbook::FORMAT_ADDRESSBOOKS
 		);
 
 		return $this->addressbooks;
@@ -61,7 +61,7 @@ class Shared extends Database {
 		$addressbook = \OCP\Share::getItemSharedWithBySource(
 			'addressbook',
 			$addressbookid,
-			Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS
+			Contacts\Share\Addressbook::FORMAT_ADDRESSBOOKS
 		);
 		// Not sure if I'm doing it wrongly, or if its supposed to return
 		// the info in an array?
@@ -83,7 +83,7 @@ class Shared extends Database {
 		$addressbook = \OCP\Share::getItemSharedWithBySource(
 			'addressbook',
 			$addressbookid,
-			Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS,
+			Contacts\Share\Addressbook::FORMAT_ADDRESSBOOKS,
 			null, // parameters
 			true // includeCollection
 		);

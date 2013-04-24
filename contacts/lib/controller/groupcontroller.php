@@ -42,7 +42,7 @@ class GroupController extends BaseController {
 		$groups = array(
 			'categories' => $categories,
 			'favorites' => $favorites,
-			'shared' => \OCP\Share::getItemsSharedWith('addressbook', \OCA\Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS),
+			'shared' => \OCP\Share::getItemsSharedWith('addressbook', \OCA\Contacts\Share\Addressbook::FORMAT_ADDRESSBOOKS),
 			'lastgroup' => \OCP\Config::getUserValue($params['user'], 'contacts', 'lastgroup', 'all'),
 			'sortorder' => \OCP\Config::getUserValue($params['user'], 'contacts', 'groupsort', ''),
 			);

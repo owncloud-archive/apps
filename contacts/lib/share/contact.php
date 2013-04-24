@@ -19,9 +19,10 @@
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-namespace OCA\Contacts;
+namespace OCA\Contacts\Share;
+use OCA\Contacts;
 
-class Share_Backend_Contact implements \OCP\Share_Backend {
+class Contact implements \OCP\Share_Backend {
 
 	const FORMAT_CONTACT = 0;
 

@@ -6,9 +6,10 @@
  * See the COPYING-README file.
  */
 
-namespace OCA\Contacts;
+namespace OCA\Contacts\Share;
+use OCA\Contacts\Backend\Database;
 
-class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
+class Addressbook implements \OCP\Share_Backend_Collection {
 	const FORMAT_ADDRESSBOOKS = 1;
 	const FORMAT_COLLECTION = 2;
 
@@ -16,7 +17,7 @@ class Share_Backend_Addressbook implements \OCP\Share_Backend_Collection {
 
 	public function __construct() {
 		// Currently only share
-		$this->backend = new Backend\Database();
+		$this->backend = new Database();
 	}
 
 	/**

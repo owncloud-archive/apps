@@ -26,7 +26,7 @@ namespace OCA\Contacts;
  * Subclass this for PIM collections
  */
 
-abstract class PIMCollectionAbstract extends PIMObjectAbstract implements \Iterator, \Countable, \ArrayAccess {
+abstract class AbstractPIMCollection extends AbstractPIMObject implements \Iterator, \Countable, \ArrayAccess {
 
 	// Iterator properties
 
