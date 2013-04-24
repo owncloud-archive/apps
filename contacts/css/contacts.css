@@ -1,4 +1,3 @@
-
 #content-wrapper { overflow: hidden; } /* Avoid double scroll bars */
 /* General element settings */
 #content li { cursor: default; }
@@ -44,6 +43,7 @@
 	-moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; 
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
 	float: left;
+	padding: .6em .5em .4em;
 }
 #content input[type="button"]:hover, #content select:hover, #content select:focus, #content select:active, #content input[type="button"]:focus, #content .button:hover, button:hover { background-color:#fff; color:#333; }
 
@@ -85,7 +85,7 @@
 	display: block; 
 	max-width: 100%; 
 	height: 2em;
-	padding: 0.5em 0.8em; 
+	padding: 12px 10px 0px;
 	color: #666; 
 	text-shadow: 0 1px 0 #f8f8f8; 
 	font-size: 1.2em; 
@@ -139,6 +139,7 @@
 #grouplist h3:not([data-type="shared"]):not(.editing):hover .action.numcontacts, #grouplist h3:not([data-type="shared"]):not(.editing) .active.action.numcontacts { display: inline-block; }
 #grouplist h3.active[data-type="category"]:not(.editing):hover .action.delete { display: inline-block; }
 #grouplist h3:not(.editing) .action.delete { width: 20px; height: 20px; }
+#grouplist .group span.numcontacts { width: 30px; text-align: right; margin-right: 10px !important; }
 
 /* First run */
 
@@ -285,8 +286,13 @@
 	text-align: right; 
 	box-sizing: border-box;
 	display: inline-block;
-	margin-top:10px;
 }
+
+div.email li .parameters .label, div.url li .parameters .label { margin-top: 7px !important; }
+div.tel li .parameters .label { margin-top: 6px !important; margin-bottom: 4px; }
+div.url li .parameters .label, div.impp li .parameters .label { margin-top: 6px !important; }
+div.tel li input, div.url li input { margin-left: 3px; font-size: 1em; }
+div.impp li .select_wrapper select { margin-top: 6px; }
 
 ul.propertylist { width: 450px; }
 .propertylist li.propertycontainer { white-space: nowrap; min-width: 38em; display: block; clear: both; }
@@ -327,8 +333,11 @@ ul.propertylist { width: 450px; }
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 }
+dt[data-element="nickname"], dt[data-element="bday"], dt[data-element="title"] { margin-top: 5px; }
+dt[data-element="org"] { margin-top: 4px; }
+
 #rightcontent label:hover, #rightcontent dt:hover, #rightcontent input.label:hover { color: #777 !important; }
-#rightcontent input.label, #rightcontent input.label { margin:-2px; }
+#rightcontent input.label, #rightcontent input.label { margin:1px; }
 #rightcontent input.label:hover, #rightcontent input.label:active { border: 0 none !important; border-radius: 0; cursor: pointer; }
 .typelist[type="button"] { float: left; max-width: 8em; border: 0; background-color: #fff; color: #bbb; box-shadow: none; } /* for multiselect */
 .typelist[type="button"]:hover { color: #777; } /* for multiselect */
@@ -363,7 +372,7 @@ ul.propertylist { width: 450px; }
 	float: left;*/
 	height:1.4em;
 	background-repeat: no-repeat;
-	background-position:0px 4px;
+	background-position:0px 0px;
 	background-origin: content-box;
 	background-image:url('%webroot%/core/img/actions/settings.svg'); 
 }
@@ -491,7 +500,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	padding: 0 .5em 0 4em; margin: 0 auto; 
 	height: 100%; width: 100%;
 }
-#groupsheader button, #contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: .7em; padding: .2em; clear: none; }
+#groupsheader button, #contactsheader button, #contactsheader select { position: relative; float: left; min-width: 26px; height: 26px; margin: 13px; padding: .2em; clear: none; }
 #contactsheader select { width:100px; }
 #contactsheader .delete { 
 	bottom: 1.4em;
@@ -534,6 +543,7 @@ input[type="checkbox"].propertytype { width: 10px; }
 	-o-columns: 1;
 	columns: 1;
 }
+fieldset.adr ul li input.label { margin-top: -4px !important; }
 .adr.editor input.value { border: none; }
 .adr.editor input.value:hover { border: none; }
 .adr.editor input.value.street, ul.adr.edit input.value.country, ul.adr.edit input.value.region { width: 19em;}
