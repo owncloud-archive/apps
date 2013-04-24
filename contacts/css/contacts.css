@@ -139,6 +139,7 @@
 #grouplist h3:not([data-type="shared"]):not(.editing):hover .action.numcontacts, #grouplist h3:not([data-type="shared"]):not(.editing) .active.action.numcontacts { display: inline-block; }
 #grouplist h3.active[data-type="category"]:not(.editing):hover .action.delete { display: inline-block; }
 #grouplist h3:not(.editing) .action.delete { width: 20px; height: 20px; }
+#grouplist .group span.numcontacts { width: 30px; text-align: right; margin-right: 10px !important; }
 
 /* First run */
 
