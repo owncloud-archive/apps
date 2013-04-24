@@ -1400,8 +1400,8 @@ OC.Contacts = OC.Contacts || {};
 		var finishLoad = function(image) {
 			console.log('finishLoad', self.getDisplayName(), image.width, image.height);
 			$(image).addClass('contactphoto');
+			self.$photowrapper.removeClass('loading wait');
 			self.$photowrapper.css({width: image.width + 10, height: image.height + 10});
-			self.$photowrapper.removeClass('loading').removeClass('wait');
 			$(image).insertAfter($phototools).fadeIn();
 		};
 
@@ -2080,7 +2080,7 @@ OC.Contacts = OC.Contacts || {};
 								$(document).trigger('status.contact.error', {
 									message:
 										t('contacts', 'Failed loading contacts from {addressbook}: {error}',
-											{addressbook:addressBook['displayname'], error:err})
+											{addressbook:addressBook['displayname'], error:cbresponse.message})
 								});
 							}
 						});

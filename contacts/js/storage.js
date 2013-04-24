@@ -210,29 +210,21 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	Storage.prototype.getDefaultPhoto = function() {
 		console.log('Storage.getDefaultPhoto');
-		if(!this._defaultPhoto) {
+		if(!this.defaultPhoto) {
+			var defer = $.Deferred();
 			var url = OC.imagePath('contacts', 'person_large.png');
-			this._defaultPhoto = new Image();
-			$.when(
-				$(this._defaultPhoto)
-					.load(function() {
-						console.log('Default photo loaded', arguments);
-					}).error(function() {
-						console.log('Error loading default photo', arguments)
-					}).attr('src', url)
-				)
-				.then(function(response) {
-					console.log('Storage.defaultPhoto', response);
-				})
-				.fail(function(jqxhr, textStatus, error) {
-					var err = textStatus + ', ' + error;
-					console.log( "Request Failed: " + err);
-					$(document).trigger('status.contact.error', {
-						message: t('contacts', 'Failed loading default photo: {error}', {error:err})
-					});
-				});
-		};
-		return this._defaultPhoto;
+			this.defaultPhoto = new Image();
+			var self = this;
+			$(this.defaultPhoto)
+				.load(function() {
+					defer.resolve(this);
+				}).error(function(event) {
+					defer.reject();
+				}).attr('src', url)
+			return defer.promise();
+		} else {
+			return this.defaultPhoto;
+		}
 	}
 
 	/**
