@@ -3,29 +3,29 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Borjan Tchakaloff <borjan@tchaka.fr>, 2012.
-# Christophe Lherieau <skimpax@gmail.com>, 2012-2013.
-# Cyril Glapa <kyriog@gmail.com>, 2012.
-#   <fboulogne@april.org>, 2011.
-#   <gp4004@arghh.org>, 2011-2012.
-#   <guiguidu31300@gmail.com>, 2012.
-# Guillaume Paumier <guillom.pom@gmail.com>, 2013.
-# Jan-Christoph Borchardt <JanCBorchardt@fsfe.org>, 2011.
-#   <mathieu.payrol@gmail.com>, 2012.
-#   <mishka.lazzlo@gmail.com>, 2012.
-# Nahir Mohamed <nahirmoha@gmail.com>, 2012.
-# Nicolas  <boolet.is@free.fr>, 2012.
-#   <nicolas@shivaserv.fr>, 2012.
-# Robert Di Rosa <>, 2012.
-#   <rom1dep@gmail.com>, 2011, 2012.
-# Romain DEP. <rom1dep@gmail.com>, 2012-2013.
-#  <zrk951@gmail.com>, 2013.
+# Borjan Tchakaloff <borjan@tchaka.fr>, 2012
+# Christophe Lherieau <skimpax@gmail.com>, 2012-2013
+# Cyril Glapa <kyriog@gmail.com>, 2012
+# Francois_Boulogne <fboulogne@sciunto.org>, 2011
+# gp4004 <gp4004@arghh.org>, 2011-2012
+# guiguidu31300 <guiguidu31300@gmail.com>, 2012
+# Guillaume Paumier <guillom.pom@gmail.com>, 2013
+# Jan-Christoph Borchardt <JanCBorchardt@fsfe.org>, 2011
+# MathieuP <mathieu.payrol@gmail.com>, 2012
+# mishka <mishka.lazzlo@gmail.com>, 2012
+# Nahir Mohamed <nahirmoha@gmail.com>, 2012
+# Nicolas <booloki@lokizone.net>, 2012
+# ouafnico <nicolas@shivaserv.fr>, 2012
+# Robert Di Rosa <>, 2012
+# Romain DEP. <rom1dep@gmail.com>, 2011, 2012
+# Romain DEP. <rom1dep@gmail.com>, 2012-2013
+# Zertrin <zrk951@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -631,7 +631,7 @@ msgstr "Une erreur s'est produite lors de la suppression des propriétés de ce 
 msgid "{name}'s Birthday"
 msgstr "Anniversaire de {name}"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "Contact"
 

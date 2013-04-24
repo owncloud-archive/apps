@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# ubuntucymraeg <owen.llywelyn@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:55+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:01+0000\n"
+"Last-Translator: ubuntucymraeg <owen.llywelyn@gmail.com>\n"
 "Language-Team: Welsh (United Kingdom) (http://www.transifex.com/projects/p/owncloud/language/cy_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,16 +20,16 @@ msgstr ""
 
 #: ajax/share.php:26
 msgid "Document was shared"
-msgstr ""
+msgstr "Rhannwyd y ddogfen"
 
 #: ajax/share.php:27
 #, php-format
 msgid "User %s shared quick document %s with you."
-msgstr ""
+msgstr "Rhannodd defnyddiwr %s ddogfen gyflym %s â chi."
 
 #: appinfo/app.php:99
 msgid "My pad"
-msgstr ""
+msgstr "Fy mhad"
 
 #: templates/index.php:15 templates/index.php:16
 msgid "Settings"
@@ -36,11 +37,11 @@ msgstr "Gosodiadau"
 
 #: templates/index.php:18
 msgid "Pad Title"
-msgstr ""
+msgstr "Teitl y Pad"
 
 #: templates/index.php:19
 msgid "Open"
-msgstr ""
+msgstr "Agor"
 
 #: templates/index.php:20
 msgid "Share with"
@@ -48,11 +49,11 @@ msgstr "Rhannu gyda"
 
 #: templates/index.php:21
 msgid "Share"
-msgstr ""
+msgstr "Rhannu"
 
 #: templates/settings.php:16
 msgid "Etherpad service URL"
-msgstr ""
+msgstr "URL gwasanaeth Etherpad"
 
 #: templates/settings.php:21
 msgid "Username"
@@ -60,4 +61,4 @@ msgstr "Enw defnyddiwr"
 
 #: templates/settings.php:28
 msgid "Save"
-msgstr ""
+msgstr "Cadw"

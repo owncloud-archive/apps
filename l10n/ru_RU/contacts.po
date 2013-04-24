@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#  <cdewqazxsqwe@gmail.com>, 2013.
-#   <cdewqazxsqwe@gmail.com>, 2012.
+# AnnaSch <cdewqazxsqwe@gmail.com>, 2013
+# AnnaSch <cdewqazxsqwe@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -616,7 +616,7 @@ msgstr "Возникла ошибка при удалении свойств д�
 msgid "{name}'s Birthday"
 msgstr "{имя} день рождения"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "Контакт"
 

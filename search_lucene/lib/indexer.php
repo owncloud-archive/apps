@@ -3,6 +3,9 @@
 namespace OCA\Search_Lucene;
 
 use \OC\Files\Filesystem;
+use OCA\Search_Lucene\Document\Ods;
+use OCA\Search_Lucene\Document\Odt;
+use OCA\Search_Lucene\Document\Pdf;
 use \OCP\Util;
 
 /**
@@ -55,30 +58,77 @@ class Indexer {
 		// the cache already knows mime and other basic stuff
 		$data = $view->getFileInfo($path);
 		if (isset($data['mimetype'])) {
-			$mimetype = $data['mimetype'];
-			if ('text/html' === $mimetype) {
-				$doc = \Zend_Search_Lucene_Document_Html::loadHTML($view->file_get_contents($path));
-			} else if ('application/msword' === $mimetype) {
-				// FIXME uses ZipArchive ... make compatible with OC\Files\Filesystem
-				//$doc = Zend_Search_Lucene_Document_Docx::loadDocxFile(OC\Files\Filesystem::file_get_contents($path));
+			$mimeType = $data['mimetype'];
 
-				//no special treatment yet
-				$doc = new \Zend_Search_Lucene_Document();
-			} else {
-				$doc = new \Zend_Search_Lucene_Document();
+			// initialize plain lucene document
+			$doc = new \Zend_Search_Lucene_Document();
+
+			// index content for local files only
+			$localFile = $view->getLocalFile($path);
+
+			if ( $localFile ) {
+				//try to use special lucene document types
+
+				if ('text/plain' === $mimeType) {
+
+					$body = $view->file_get_contents($path);
+
+					if ($body != '') {
+						$doc->addField(\Zend_Search_Lucene_Field::UnStored('body', $body));
+					}
+
+				} else if ('text/html' === $mimeType) {
+
+					//TODO could be indexed, even if not local
+					$doc = \Zend_Search_Lucene_Document_Html::loadHTML($view->file_get_contents($path));
+
+				} else if ('application/pdf' === $mimeType) {
+
+					$doc = Pdf::loadPdf($view->file_get_contents($path));
+
+				// commented the mimetype checks, as the zend classes only understand docx and not doc files.
+			    // FIXME distinguish doc and docx, xls and xlsx, ppt and pptx, in oc core mimetype helper ...
+				//} else if ('application/msword' === $mimeType) {
+				} else if (strtolower(substr($data['name'], -5)) === '.docx') {
+
+					$doc = \Zend_Search_Lucene_Document_Docx::loadDocxFile($localFile);
+
+				//} else if ('application/msexcel' === $mimeType) {
+				} else if (strtolower(substr($data['name'], -5)) === '.xlsx') {
+
+					$doc = \Zend_Search_Lucene_Document_Xlsx::loadXlsxFile($localFile);
+
+				//} else if ('application/mspowerpoint' === $mimeType) {
+				} else if (strtolower(substr($data['name'], -5)) === '.pptx') {
+
+					$doc = \Zend_Search_Lucene_Document_Pptx::loadPptxFile($localFile);
+
+				} else if (strtolower(substr($data['name'], -4)) === '.odt') {
+
+					$doc = Odt::loadOdtFile($localFile);
+
+				} else if (strtolower(substr($data['name'], -4)) === '.ods') {
+
+					$doc = Ods::loadOdsFile($localFile);
+
+				}
 			}
 
-			// store fscacheid as unique id to lookup by when deleting
+
+			// Store filecache id as unique id to lookup by when deleting
 			$doc->addField(\Zend_Search_Lucene_Field::Keyword('pk', $pk));
 
-			// Store document URL to identify it in the search results
-			$doc->addField(\Zend_Search_Lucene_Field::Text('path', $path));
+			// Store filename
+			$doc->addField(\Zend_Search_Lucene_Field::Text('filename', $data['name'], 'UTF-8'));
+
+			// Store document path to identify it in the search results
+			$doc->addField(\Zend_Search_Lucene_Field::Text('path', $path, 'UTF-8'));
 
 			$doc->addField(\Zend_Search_Lucene_Field::unIndexed('size', $data['size']));
 
-			$doc->addField(\Zend_Search_Lucene_Field::unIndexed('mimetype', $mimetype));
+			$doc->addField(\Zend_Search_Lucene_Field::unIndexed('mimetype', $mimeType));
 
-			self::extractMetadata($doc, $path, $view, $mimetype);
+			//self::extractMetadata($doc, $path, $view, $mimeType);
 
 			Lucene::updateFile($doc, $path, $user);
 
@@ -131,34 +181,7 @@ class Indexer {
 			}
 		}*/
 
-		// filename _should_ always work, so log if it does not
-		if (isset($data['filename'])) {
-			$doc->addField(\Zend_Search_Lucene_Field::Text('filename', $data['filename']));
-		} else {
-            Util::writeLog('search_lucene',
-				'failed to extract meta information for ' . $view->getAbsolutePath($path) . ': ' . $data['error']['0'],
-                Util::WARN);
-		}
-
-		//content
-
-        Util::writeLog('search_lucene',
-			'indexer extracting content for ' . $view->getAbsolutePath($path) . ' (' . $mimetype . ')',
-            Util::DEBUG);
-
-		$body = '';
-
-		if ('text/plain' === $mimetype) {
-			$body = $view->file_get_contents($path);
-		} else if ('text/html' === $mimetype) {
-			// getid3 does not handle html, but that's not a real error
-			unset($data['error']);
-
-		} else if ('httpd/unix-directory' === $mimetype) {
-			// getid3 does not handle directories, ignore the error
-			unset($data['error']);
-
-		} else if ('application/pdf' === $mimetype) {
+		if ('application/pdf' === $mimetype) {
 			try {
 				$zendpdf = \Zend_Pdf::parse($view->file_get_contents($path));
 

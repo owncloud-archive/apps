@@ -32,12 +32,20 @@ OC::$CLASSPATH['OCA\Search_Lucene\Lucene'] = 'search_lucene/lib/lucene.php';
 OC::$CLASSPATH['OCA\Search_Lucene\Indexer'] = 'search_lucene/lib/indexer.php';
 OC::$CLASSPATH['OCA\Search_Lucene\Hooks'] = 'search_lucene/lib/hooks.php';
 
+OC::$CLASSPATH['OCA\Search_Lucene\Document\Pdf'] = 'search_lucene/document/Pdf.php';
+OC::$CLASSPATH['OCA\Search_Lucene\Document\OpenDocument'] = 'search_lucene/document/OpenDocument.php';
+OC::$CLASSPATH['OCA\Search_Lucene\Document\Odt'] = 'search_lucene/document/Odt.php';
+OC::$CLASSPATH['OCA\Search_Lucene\Document\Ods'] = 'search_lucene/document/Ods.php';
+
 OC::$CLASSPATH['Zend_Search_Lucene'] = 'search_lucene/3rdparty/Zend/Search/Lucene.php';
 OC::$CLASSPATH['Zend_Search_Lucene_Index_Term'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Index/Term.php';
 OC::$CLASSPATH['Zend_Search_Lucene_Search_Query_Term'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Search/Query/Term.php';
 OC::$CLASSPATH['Zend_Search_Lucene_Field'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Field.php';
 OC::$CLASSPATH['Zend_Search_Lucene_Document'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Document.php';
 OC::$CLASSPATH['Zend_Search_Lucene_Document_Html'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Document/Html.php';
+OC::$CLASSPATH['Zend_Search_Lucene_Document_Docx'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Document/Docx.php';
+OC::$CLASSPATH['Zend_Search_Lucene_Document_Xlsx'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Document/Xlsx.php';
+OC::$CLASSPATH['Zend_Search_Lucene_Document_Pptx'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Document/Pptx.php';
 OC::$CLASSPATH['Zend_Search_Lucene_Analysis_Analyzer'] = 'search_lucene/3rdparty/Zend/Search/Lucene/Analysis/Analyzer.php';
 
 OC::$CLASSPATH['getID3'] = 'getid3/getid3.php';

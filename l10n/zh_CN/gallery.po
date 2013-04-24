@@ -3,17 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <appweb.cn@gmail.com>, 2012.
-# Bartek  <bart.p.pl@gmail.com>, 2012.
-# CyberCowBoy <ccb3275@gmail.com>, 2013.
-#   <rainofchaos@gmail.com>, 2012.
-#   <wengxt@gmail.com>, 2012.
+# hanfeng <appweb.cn@gmail.com>, 2012
+# Bartek <bart.p.pl@gmail.com>, 2012
+# ccb <ccb3275@gmail.com>, 2013
+# leonfeng <rainofchaos@gmail.com>, 2012
+# Xuetian Weng <wengxt@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/owncloud/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"

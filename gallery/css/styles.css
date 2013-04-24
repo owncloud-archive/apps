@@ -22,6 +22,7 @@ button.share {
 
 #gallery > a.album > label {
 	color: white;
+	text-shadow: 0 0 10px #000;
 	position: absolute;
 	bottom: 5px;
 	width: 100%;

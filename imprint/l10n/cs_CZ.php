@@ -2,6 +2,8 @@
 "Legal notice" => "Právní upozornění",
 "Nothing here yet" => "Zatím zde nic není",
 "The content of the legal notice has to be configured first" => "Obsah právního oznámení musí být nejprve nastaven.",
+"That configuration is done in the administration section." => "Nastavení proveďte v sekci správce.",
+"That configuration has to be done by the system administration." => "Nastavení musí být provedeno správcem systému.",
 "Imprint" => "Imprint",
 "Placement" => "Umístění",
 "Standalone app" => "Samostatná aplikace",

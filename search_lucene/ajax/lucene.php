@@ -6,7 +6,11 @@ OCP\JSON::checkAppEnabled('search_lucene');
 session_write_close();
 
 function index() {
-	$fileIds = OCA\Search_Lucene\Indexer::getUnindexed();
+	if ( isset($_GET['fileid']) ){
+		$fileIds = array($_GET['fileid']);
+	} else {
+		$fileIds = OCA\Search_Lucene\Indexer::getUnindexed();
+	}
 
 	$eventSource = new OC_EventSource();
 	$eventSource->send('count', count($fileIds));

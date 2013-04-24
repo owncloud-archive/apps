@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Amir Keshavarz <pnetsale@gmail.com>, 2013.
-# Amir Reza Asadi <amirreza.asadi@live.com>, 2013.
-# Hossein nag <h.sname@yahoo.com>, 2012.
-# mahdi Kereshteh <miki_mika1362@yahoo.com>, 2013.
+# amirlord <pnetsale@gmail.com>, 2013
+# Amir Reza Asadi <amirreza.asadi@live.com>, 2013
+# Hossein nag <h.sname@yahoo.com>, 2012
+# miki_mika1362 <miki_mika1362@yahoo.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -618,7 +618,7 @@ msgstr ""
 msgid "{name}'s Birthday"
 msgstr "روز تولد {name} است"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "اشخاص"
 

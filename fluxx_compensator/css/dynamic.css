@@ -56,7 +56,7 @@ html.fluxx-state-N-hidden body #controls {
 
 /* header hidden: move up and show more impressive shadow as a hint */
 html.fluxx-state-H-hidden body > header > #header {
-	top: -3.5em !important;
+	top: -45px !important;
 	box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
 	-o-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
 	-ms-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
@@ -66,7 +66,8 @@ html.fluxx-state-H-hidden body > header > #header {
 }
 /* move content up to top when header is hidden */
 html.fluxx-state-H-hidden body > nav> #navigation {
-	top: 0 !important;
+	top: -45px !important;
+	height: 110%;
 }
 html.fluxx-state-H-hidden body #content-wrapper {
 	padding-top: 0px;
@@ -83,14 +84,14 @@ html.fluxx-modeless body { }
 
 /* 'bookarks' app */
 html.fluxx-mode-bookmarks { }
-html.fluxx-mode-bookmarks.fluxx-state-N-hidden body #content #firstrun { left: 20em; }
+html.fluxx-mode-bookmarks.fluxx-state-N-hidden body #content #firstrun { left: 280px; }
 
 /* 'calendar' app */
 html.fluxx-mode-calendar body { }
 
 /* 'contacts' app */
 html.fluxx-mode-contacts body { }
-html.fluxx-mode-contacts.fluxx-state-N-hidden body #content #contactsheader { left: 20em; }
+html.fluxx-mode-contacts.fluxx-state-N-hidden body #content #contactsheader { left: 280px; }
 
 /* 'files' app */
 html.fluxx-mode-files body { }

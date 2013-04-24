@@ -3,24 +3,24 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <anastasia2501@hotmail.com>, 2012.
-# Axilleas Pi <axilleas@archlinux.gr>, 2013.
-#   <christosvas@in.gr>, 2011.
-# Dimitris M. <monopatis@gmail.com>, 2012.
-# Efstathios Iosifidis <diamond_gr@freemail.gr>, 2012.
-# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
-# Marios Bekatoros <>, 2012.
-# Nisok Kosin <nikos.efthimiou@gmail.com>, 2012.
-# Petros Kyladitis <petros.kyladitis@gmail.com>, 2011-2012.
-#  <vagelis@cyberdest.com>, 2013.
-#   <vagelis@cyberdest.com>, 2012.
-# Wasilis Mandratzis <m.wasilis@yahoo.de>, 2013.
+# AnAstAsiA <anastasia2501@hotmail.com>, 2012
+# axil Pι <axilleas@archlinux.gr>, 2013
+# christosvas <christosvas@in.gr>, 2011
+# Dimitris M. <monopatis@gmail.com>, 2012
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2012
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012
+# Marios Bekatoros <>, 2012
+# Nisok Kosin <nikos.efthimiou@gmail.com>, 2012
+# Petros Kyladitis <petros.kyladitis@gmail.com>, 2011-2012
+# xneo1 <vagelis@cyberdest.com>, 2013
+# xneo1 <vagelis@cyberdest.com>, 2012
+# Wasilis <m.wasilis@yahoo.de>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:01+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -626,7 +626,7 @@ msgstr "Παρουσιάστηκε σφάλμα κατά τη διαγραφή �
 msgid "{name}'s Birthday"
 msgstr "Τα Γεννέθλια του/της {name}"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "Επαφή"
 

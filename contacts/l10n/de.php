@@ -160,7 +160,7 @@
 "Display name" => "Anzeigename",
 "OK" => "OK",
 "Import" => "Importieren",
-"Select files to import" => "Dateien für den Import auswählen",
+"Select files to import" => "Dateien für Import wählen",
 "Select files" => "Dateien auswählen",
 "Import into:" => "Importieren nach:",
 "(De-)select all" => "Alle (nicht) auswählen",

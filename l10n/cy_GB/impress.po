@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# ubuntucymraeg <owen.llywelyn@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:54+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-23 00:49+0200\n"
+"PO-Revision-Date: 2013-04-22 17:50+0000\n"
+"Last-Translator: ubuntucymraeg <owen.llywelyn@gmail.com>\n"
 "Language-Team: Welsh (United Kingdom) (http://www.transifex.com/projects/p/owncloud/language/cy_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,21 +20,21 @@ msgstr ""
 
 #: templates/presentations.php:5
 msgid "Documentation"
-msgstr ""
+msgstr "Dogfennaeth"
 
 #: templates/presentations.php:10
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
-msgstr ""
+msgstr "Heb ganfod ffeiliau Impress yn eich cwmwl. Llwythwch ffeil .impress i fyny."
 
 #: templates/presentations.php:12
 msgid "Name"
-msgstr ""
+msgstr "Enw"
 
 #: templates/presentations.php:12
 msgid "Size"
-msgstr ""
+msgstr "Maint"
 
 #: templates/presentations.php:12
 msgid "Date"
-msgstr ""
+msgstr "Dyddiad"

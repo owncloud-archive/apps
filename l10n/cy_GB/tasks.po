@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:54+0000\n"
+"POT-Creation-Date: 2013-04-18 00:49+0200\n"
+"PO-Revision-Date: 2013-04-17 17:20+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Welsh (United Kingdom) (http://www.transifex.com/projects/p/owncloud/language/cy_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -31,11 +31,11 @@ msgstr ""
 
 #: js/tasks.js:115
 msgid "List"
-msgstr ""
+msgstr "Rhestr"
 
 #: js/tasks.js:136
 msgid "Location"
-msgstr ""
+msgstr "Lleoliad"
 
 #: js/tasks.js:454
 msgid "No category"
@@ -120,4 +120,4 @@ msgstr ""
 
 #: templates/tasks.php:29
 msgid "Delete"
-msgstr ""
+msgstr "Dileu"

@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <intense.feel@gmail.com>, 2012.
-# Lubomir Grejtak <l.grejtak@gmail.com>, 2013.
-# Marián Hvolka <marian.hvolka@stuba.sk>, 2013.
-#   <martin.babik@gmail.com>, 2012.
-# Roman Priesol <roman@priesol.net>, 2012.
-#   <zatroch.martin@gmail.com>, 2012-2013.
-#   <zixo@zixo.sk>, 2012.
+# intense <intense.feel@gmail.com>, 2012
+# Lubbzor <l.grejtak@gmail.com>, 2013
+# mhh <marian.hvolka@stuba.sk>, 2013
+# martinb <martin.babik@gmail.com>, 2012
+# Roman Priesol <roman@priesol.net>, 2012
+# martin <zatroch.martin@gmail.com>, 2012-2013
+# zixo <zixo@zixo.sk>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:00+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -621,7 +621,7 @@ msgstr "Vyskytla sa chyba pri odstraňovaní charakteristík pre daný kontakt."
 msgid "{name}'s Birthday"
 msgstr "Narodeniny {name}"
 
-#: lib/search.php:20
+#: lib/search.php:24
 msgid "Contact"
 msgstr "Kontakt"
 

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Stefan Ilivanov <ilivanov@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:55+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-25 00:49+0200\n"
+"PO-Revision-Date: 2013-04-24 16:01+0000\n"
+"Last-Translator: Stefan Ilivanov <ilivanov@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,16 +20,16 @@ msgstr ""
 
 #: ajax/share.php:26
 msgid "Document was shared"
-msgstr ""
+msgstr "Документът беше споделен"
 
 #: ajax/share.php:27
 #, php-format
 msgid "User %s shared quick document %s with you."
-msgstr ""
+msgstr "Потребителят %s сподели документа %s с Вас."
 
 #: appinfo/app.php:99
 msgid "My pad"
-msgstr ""
+msgstr "Моят пад"
 
 #: templates/index.php:15 templates/index.php:16
 msgid "Settings"
@@ -36,15 +37,15 @@ msgstr "Настройки"
 
 #: templates/index.php:18
 msgid "Pad Title"
-msgstr ""
+msgstr "Наименование"
 
 #: templates/index.php:19
 msgid "Open"
-msgstr ""
+msgstr "Отвори"
 
 #: templates/index.php:20
 msgid "Share with"
-msgstr ""
+msgstr "Споделено с"
 
 #: templates/index.php:21
 msgid "Share"
@@ -52,11 +53,11 @@ msgstr "Споделяне"
 
 #: templates/settings.php:16
 msgid "Etherpad service URL"
-msgstr ""
+msgstr "Сервизен уеб адрес за Etherpad"
 
 #: templates/settings.php:21
 msgid "Username"
-msgstr ""
+msgstr "Потребител"
 
 #: templates/settings.php:28
 msgid "Save"

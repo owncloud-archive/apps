@@ -63,7 +63,7 @@ class AddressbookProvider implements \OCP\IAddressBook {
 	*/
 	public function getKey() {
 		$book = $this->getAddressbook();
-		return $book['uri'];
+		return $book['uri'].':'.$book['userid'];
 	}
 
 	/**
@@ -131,6 +131,7 @@ class AddressbookProvider implements \OCP\IAddressBook {
 	* @return array|false
 	*/
 	public function search($pattern, $searchProperties, $options) {
+		\OCP\Util::writeLog('contacts', __METHOD__.' pattern: '.$pattern.' book: '.$this->id, \OCP\Util::DEBUG);
 		$ids = array();
 		$results = array();
 		$query = 'SELECT DISTINCT `contactid` FROM `' . self::PROPERTY_TABLE . '` WHERE (';
@@ -162,7 +163,8 @@ class AddressbookProvider implements \OCP\IAddressBook {
 				. self::PROPERTY_TABLE . '`.`contactid` = `' . self::CONTACT_TABLE . '`.`id` AND `' 
 				. self::PROPERTY_TABLE . '`.`contactid` IN (' . join(',', array_fill(0, count($ids), '?')) . ')';
 
-			//\OC_Log::write('contacts', __METHOD__ . 'DB query: ' . $query, \OCP\Util::DEBUG);
+			\OC_Log::write('contacts', __METHOD__ . 'DB query: ' . $query, \OCP\Util::DEBUG);
+		\OCP\Util::writeLog('contacts', __METHOD__.' params: '.print_r($ids, true), \OCP\Util::DEBUG);
 			$stmt = \OCP\DB::prepare($query);
 			$result = $stmt->execute($ids);
 		}
