@@ -13,11 +13,12 @@ use OCA\Contacts\App;
 use OCA\Contacts\JSONResponse;
 use OCA\Contacts\Utils\JSONSerializer;
 //use OCA\AppFramework\Http\Request;
+use OCA\AppFramework\Controller\Controller as BaseController;
 use OCA\AppFramework\Core\API;
 
 
 /**
- * Controller for groups/categories
+ * Controller class for groups/categories
  */
 class GroupController extends BaseController {
 

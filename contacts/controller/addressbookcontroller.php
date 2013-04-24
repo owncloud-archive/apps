@@ -13,12 +13,12 @@ use OCA\Contacts\App;
 use OCA\Contacts\JSONResponse;
 use OCA\Contacts\Utils\JSONSerializer;
 //use OCA\Contacts\Request;
-//use OCA\AppFramework\Http\Request;
+use OCA\AppFramework\Controller\Controller as BaseController;
 use OCA\AppFramework\Core\API;
 
 
 /**
- * Baseclass to inherit your controllers from
+ * Controller class For Address Books
  */
 class AddressBookController extends BaseController {
 
@@ -34,7 +34,8 @@ class AddressBookController extends BaseController {
 		foreach($addressBooks as $addressBook) {
 			$response[] = $addressBook->getMetaData();
 		}
-		$response = new JSONResponse(array(
+		$response = new JSONResponse(
+			array(
 				'addressbooks' => $response,
 			));
 		return $response;
@@ -54,14 +55,14 @@ class AddressBookController extends BaseController {
 		$response = new JSONResponse();
 
 		if(!is_null($lastModified)) {
-			$response->enableCaching();
-			$response->setLastModifiedHeader($lastModified);
-			$response->setETagHeader(md5($lastModified));
+			$response->setLastModified(\DateTime::createFromFormat('U', $lastModified));
+			$response->setETag(md5($lastModified));
 		}
 
 		$contacts = array();
 		foreach($addressBook->getChildren() as $i => $contact) {
 			$result = JSONSerializer::serializeContact($contact);
+			//\OCP\Util::writeLog('contacts', __METHOD__.' contact: '.print_r($result, true), \OCP\Util::DEBUG);
 			if($result !== null) {
 				$contacts[] = $result;
 			}
@@ -111,5 +112,49 @@ class AddressBookController extends BaseController {
 		}
 		return $response;
 	}
+
+	/**
+	 * @IsAdminExemption
+	 * @IsSubAdminExemption
+	 * @Ajax
+	 */
+	public function addChild() {
+		$params = $this->request->urlParams;
+		$app = new App($params['user']);
+
+		$response = new JSONResponse();
+
+		$app = new App($params['user']);
+		$addressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
+		$id = $addressBook->addChild();
+		if($id === false) {
+			$response->bailOut(App::$l10n->t('Error creating contact.'));
+		}
+		$contact = $addressBook->getChild($id);
+		$response->setParams(Utils\JSONSerializer::serializeContact($contact));
+		return $response;
+	}
+
+	/**
+	 * @IsAdminExemption
+	 * @IsSubAdminExemption
+	 * @Ajax
+	 */
+	public function deleteChild() {
+		$params = $this->request->urlParams;
+		$app = new App($params['user']);
+
+		$response = new JSONResponse();
+
+		$app = new App($params['user']);
+		$addressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
+		$result = $addressBook->deleteChild($params['contactid']);
+		if($result === false) {
+			$response->bailOut(App::$l10n->t('Error deleting contact.'));
+		}
+		return $response;
+	}
+
+
 }
 
