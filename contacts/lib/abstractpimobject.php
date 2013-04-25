@@ -120,14 +120,6 @@ abstract class AbstractPIMObject implements IPIMObject {
 	}
 
 	/**
-	 * Save the data to backend
-	 *
-	 * @param array $data
-	 * @return bool
-	 */
-	abstract public function update(array $data);
-
-	/**
 	 * Delete the data from backend
 	 *
 	 * @return bool
