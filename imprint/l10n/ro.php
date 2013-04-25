@@ -1,3 +1,4 @@
 <?php $TRANSLATIONS = array(
-"Admin" => "Admin"
+"Legal notice" => "Notite legale",
+"Nothing here yet" => "Nimic aici. Încarcă ceva!"
 );

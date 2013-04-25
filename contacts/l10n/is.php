@@ -1,5 +1,4 @@
 <?php $TRANSLATIONS = array(
-"No categories selected for deletion." => "Enginn flokkur valinn til eyðingar.",
 "File doesn't exist:" => "Skrá finnst ekki:",
 "There is no error, the file uploaded with success" => "Engin villa, innsending heppnaðist",
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form" => "Innsenda skráin er stærri en MAX_FILE_SIZE sem skilgreint er í HTML sniðinu.",
@@ -11,11 +10,10 @@
 "Unable to upload your file as it is a directory or has 0 bytes" => "Innsending á skrá mistókst, hugsanlega sendir þú möppu eða skráin er 0 bæti.",
 "Upload Error" => "Villa við innsendingu",
 "Upload too large" => "Innsend skrá of stór",
-"Pending" => "Bíður",
+"Cancel" => "Hætta við",
 "Download" => "Niðurhal",
 "Edit" => "Breyta",
 "Delete" => "Eyða",
-"Cancel" => "Hætta við",
 "Other" => "Annað",
 "Text" => "Texti",
 "Settings" => "Stillingar",

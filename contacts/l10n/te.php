@@ -1,7 +1,7 @@
 <?php $TRANSLATIONS = array(
 "Error" => "పొరపాటు",
-"Delete" => "తొలగించు",
 "Cancel" => "రద్దుచేయి",
+"Delete" => "తొలగించు",
 "Settings" => "అమరికలు",
 "Close" => "మూసివేయి",
 "Add" => "చేర్చు",
