@@ -38,5 +38,9 @@ class DIContainer extends BaseContainer {
 			return new ContactController($c['API'], $c['Request']);
 		});
 
+		$this['SettingsController'] = $this->share(function($c){
+			return new SettingsController($c['API'], $c['Request']);
+		});
+
 	}
 }
