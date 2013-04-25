@@ -25,7 +25,31 @@ class SettingsController extends BaseController {
 	 * @IsSubAdminExemption
 	 * @Ajax
 	 */
-	public function getGroups() {
-		$params = $this->request->urlParams;
+	public function set() {
+		$request = $this->request;
+		$key = $request->post['key'];
+		$value = $request->post['value'];
+
+		$response = new JSONResponse();
+
+		if(is_null($key) || $key === "") {
+			$response->bailOut(App::$l10n->t('No key is given.'));
+		}
+
+		if(is_null($value) || $value === "") {
+			$response->bailOut(App::$l10n->t('No value is given.'));
+		}
+
+		if(\OCP\Config::setUserValue($this->api->getUserId(), 'contacts', $key, $value)) {
+			$response->setParams(array(
+				'key' => $key,
+				'value' => $value)
+			);
+			return $response;
+		} else {
+			$response->bailOut(App::$l10n->t(
+				'Could not set preference: ' . $key . ':' . $value)
+			);
+		}
 	}
 }

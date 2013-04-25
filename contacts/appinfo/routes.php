@@ -199,30 +199,7 @@ $this->create('contacts_setpreference', 'preference/{user}/set')
 	->action(
 		function($params) {
 			session_write_close();
-			$request = Request::getRequest($params);
-			$key = $request->post['key'];
-			$value = $request->post['value'];
-
-			if(is_null($key) || $key === "") {
-				bailOut(App::$l10n->t('No key is given.'));
-			}
-
-			if(is_null($value) || $value === "") {
-				bailOut(App::$l10n->t('No value is given.'));
-			}
-
-			if(\OCP\Config::setUserValue($params['user'], 'contacts', $key, $value)) {
-				\OCP\JSON::success(array(
-					'data' => array(
-						'key' => $key,
-						'value' => $value)
-					)
-				);
-			} else {
-				bailOut(App::$l10n->t(
-					'Could not set preference: ' . $key . ':' . $value)
-				);
-			}
+			Main::main('SettingsController', 'set', $params, new DIContainer());
 		}
 	)
 	->requirements(array('user'))
