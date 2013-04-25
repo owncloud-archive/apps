@@ -110,16 +110,6 @@ interface IPIMObject {
 	function hasPermission($permission);
 
 	/**
-	 * Save the contact data to backend
-	 * FIXME: This isn't consistent. We need a proper interface
-	 * for creating new instances and saving to storage.
-	 *
-	 * @param array $data
-	 * @return bool
-	 */
-	public function update(array $data);
-
-	/**
 	 * @brief Get the last modification time for the object.
 	 *
 	 * Must return a UNIX time stamp or null if the backend
