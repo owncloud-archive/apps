@@ -24,7 +24,7 @@
 OC::$CLASSPATH['OC_External'] = 'external/lib/external.php';
 OCP\Util::addStyle( 'external', 'style');
 
-OCP\App::registerAdmin('external', 'settings');
+OCP\App::registerPersonal('external', 'personal');
 
 $sites = OC_External::getSites();
 for ($i = 0; $i < sizeof($sites); $i++) {

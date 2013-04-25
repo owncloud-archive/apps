@@ -6,8 +6,7 @@
  * See the COPYING-README file.
  */
 
-
-OCP\User::checkAdminUser();
+OCP\User::CheckLoggedIn();
 OCP\JSON::callCheck();
 
 $sites = array();
@@ -20,6 +19,6 @@ for ($i = 0; $i < sizeof($_POST['site_name']); $i++) {
 if (sizeof($sites) == 0)
 	OC_Appconfig::deleteKey('external', 'sites');
 else
-	OCP\Config::setAppValue('external', 'sites', json_encode($sites));
+	OCP\Config::setUserValue(OCP\User::getUser(), 'external', 'sites', json_encode($sites));
 
 echo 'true';

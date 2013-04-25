@@ -24,7 +24,7 @@
 class OC_External {
 
 	public static function getSites() {
-		if (($sites = json_decode(OCP\Config::getAppValue("external", "sites", ''))) != null) {
+		if (($sites = json_decode(OCP\Config::getUserValue(OCP\User::getUser(), "external", "sites", ''))) != null) {
 			return $sites;
 		}
 
