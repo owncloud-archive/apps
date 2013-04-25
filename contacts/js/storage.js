@@ -92,7 +92,7 @@ OC.Contacts = OC.Contacts || {};
 		console.log('Storage.deleteAddressBook', backend, addressbookid);
 		return this.requestRoute(
 			'contacts_address_book_delete',
-			'POST',
+			'DELETE',
 			{backend: 'local', addressbookid: addressbookid}
 		);
 	}
@@ -146,7 +146,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_address_book_add_contact',
 			'POST',
-			{user: this.user, backend: backend, addressbookid: addressbookid}
+			{backend: backend, addressbookid: addressbookid}
 		);
 	}
 
@@ -161,8 +161,8 @@ OC.Contacts = OC.Contacts || {};
 		console.log('Storage.deleteContact', backend, addressbookid, contactid);
 		return this.requestRoute(
 			'contacts_address_book_delete_contact',
-			'POST',
-			{user: this.user, backend: backend, addressbookid: addressbookid, contactid: contactid}
+			'DELETE',
+			{backend: backend, addressbookid: addressbookid, contactid: contactid}
 		);
 	}
 
@@ -178,7 +178,7 @@ OC.Contacts = OC.Contacts || {};
 		var photo = new Image();
 		var url = OC.Router.generate(
 			'contacts_contact_photo',
-			{user: this.user, backend: backend, addressbookid: addressbookid, contactid: contactid}
+			{backend: backend, addressbookid: addressbookid, contactid: contactid}
 		);
 		var defer = $.Deferred();
 		$.when(

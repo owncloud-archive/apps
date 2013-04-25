@@ -56,8 +56,8 @@ $this->create('contacts_address_book_add', 'addressbook/{backend}/add')
 	)
 	->requirements(array('backend', 'addressbookid'));
 
-$this->create('contacts_address_book_delete', 'addressbook/{backend}/{addressbookid}/delete')
-	->post()
+$this->create('contacts_address_book_delete', 'addressbook/{backend}/{addressbookid}')
+	->delete()
 	->action(
 		function($params) {
 			session_write_close();
@@ -76,8 +76,8 @@ $this->create('contacts_address_book_add_contact', 'addressbook/{backend}/{addre
 	)
 	->requirements(array('backend', 'addressbookid'));
 
-$this->create('contacts_address_book_delete_contact', 'addressbook/{backend}/{addressbookid}/contact/{contactid}/delete')
-	->post()
+$this->create('contacts_address_book_delete_contact', 'addressbook/{backend}/{addressbookid}/contact/{contactid}')
+	->delete()
 	->action(
 		function($params) {
 			session_write_close();
