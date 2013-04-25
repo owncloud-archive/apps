@@ -52,7 +52,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_address_books_for_user',
 			'GET',
-			{user: this.user}
+			{}
 		);
 	}
 
@@ -77,7 +77,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_address_book_add',
 			'POST',
-			{user: this.user, backend: 'local'},
+			{backend: 'local'},
 			parameters
 		);
 	}
@@ -93,7 +93,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_address_book_delete',
 			'POST',
-			{user: this.user, backend: 'local', addressbookid: addressbookid}
+			{backend: 'local', addressbookid: addressbookid}
 		);
 	}
 
@@ -119,7 +119,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_address_book_collection',
 			'GET',
-			{user: this.user, backend: backend, addressbookid: addressbookid}
+			{backend: backend, addressbookid: addressbookid}
 		);
 	}
 
@@ -242,7 +242,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_contact_delete_property',
 			'POST',
-			{user: this.user, backend: backend, addressbookid: addressbookid, contactid: contactid},
+			{backend: backend, addressbookid: addressbookid, contactid: contactid},
 			params
 		);
 	}
@@ -264,7 +264,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_contact_save_property',
 			'POST',
-			{user: this.user, backend: backend, addressbookid: addressbookid, contactid: contactid},
+			{backend: backend, addressbookid: addressbookid, contactid: contactid},
 			params
 		);
 	}
@@ -282,7 +282,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_contact_save_all',
 			'POST',
-			{user: this.user, backend: backend, addressbookid: addressbookid, contactid: contactid},
+			{backend: backend, addressbookid: addressbookid, contactid: contactid},
 			params
 		);
 	}
@@ -305,7 +305,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_categories_list',
 			'GET',
-			{user: this.user}
+			{}
 		);
 	}
 
@@ -324,7 +324,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_categories_add',
 			'POST',
-			{user: this.user},
+			{},
 			{name: name}
 		);
 	}
@@ -338,7 +338,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_categories_delete',
 			'POST',
-			{user: this.user},
+			{},
 			{name: name}
 		);
 	}
@@ -353,7 +353,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_categories_addto',
 			'POST',
-			{user: this.user, categoryid: categoryid},
+			{categoryid: categoryid},
 			{contactids: contactids}
 		);
 	}
@@ -368,7 +368,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_categories_removefrom',
 			'POST',
-			{user: this.user, categoryid: categoryid},
+			{categoryid: categoryid},
 			{contactids: contactids}
 		);
 	}
@@ -383,7 +383,7 @@ OC.Contacts = OC.Contacts || {};
 		return this.requestRoute(
 			'contacts_setpreference',
 			'POST',
-			{user: this.user},
+			{},
 			{key: key, value:value}
 		);
 	}
