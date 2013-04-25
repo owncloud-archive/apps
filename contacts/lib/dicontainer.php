@@ -12,6 +12,7 @@ use OCA\AppFramework\DependencyInjection\DIContainer as BaseContainer;
 use OCA\Contacts\Controller\AddressBookController;
 use OCA\Contacts\Controller\GroupController;
 use OCA\Contacts\Controller\ContactController;
+use OCA\Contacts\Controller\SettingsController;
 
 class DIContainer extends BaseContainer {
 
