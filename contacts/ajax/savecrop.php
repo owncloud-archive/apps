@@ -96,7 +96,7 @@ if($data) {
 							->t('Error getting PHOTO property.'));
 					}
 					$property->setValue(strval($image));
-					$property->parameters = [];
+					$property->parameters = array();
 					/*$property->ENCODING = 'b';
 					$property->TYPE = $type;*/
 					$property->parameters[]
