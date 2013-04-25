@@ -11,8 +11,6 @@ namespace OCA\Contacts\Controller;
 
 use OCA\Contacts\App;
 use OCA\Contacts\JSONResponse;
-use OCA\Contacts\Utils\JSONSerializer;
-//use OCA\AppFramework\Http\Request;
 use OCA\AppFramework\Controller\Controller as BaseController;
 use OCA\AppFramework\Core\API;
 
@@ -28,9 +26,8 @@ class GroupController extends BaseController {
 	 * @Ajax
 	 */
 	public function getGroups() {
-		$params = $this->request->urlParams;
-		$app = new App($params['user']);
-		$catmgr = new \OC_VCategories('contact', $params['user']);
+		$app = new App($this->api->getUserId());
+		$catmgr = new \OC_VCategories('contact', $this->api->getUserId());
 		$categories = $catmgr->categories(\OC_VCategories::FORMAT_MAP);
 		foreach($categories as &$category) {
 			$ids = $catmgr->idsForCategory($category['name']);
@@ -43,8 +40,8 @@ class GroupController extends BaseController {
 			'categories' => $categories,
 			'favorites' => $favorites,
 			'shared' => \OCP\Share::getItemsSharedWith('addressbook', \OCA\Contacts\Share\Addressbook::FORMAT_ADDRESSBOOKS),
-			'lastgroup' => \OCP\Config::getUserValue($params['user'], 'contacts', 'lastgroup', 'all'),
-			'sortorder' => \OCP\Config::getUserValue($params['user'], 'contacts', 'groupsort', ''),
+			'lastgroup' => \OCP\Config::getUserValue($this->api->getUserId(), 'contacts', 'lastgroup', 'all'),
+			'sortorder' => \OCP\Config::getUserValue($this->api->getUserId(), 'contacts', 'groupsort', ''),
 			);
 
 		return new JSONResponse($groups);
@@ -56,7 +53,6 @@ class GroupController extends BaseController {
 	 * @Ajax
 	 */
 	public function addGroup() {
-		$params = $this->request->urlParams;
 		$name = $this->request->post['name'];
 
 		$response = new JSONResponse();
@@ -64,7 +60,7 @@ class GroupController extends BaseController {
 			$response->bailOut(App::$l10n->t('No group name given.'));
 		}
 
-		$catman = new \OC_VCategories('contact', $params['user']);
+		$catman = new \OC_VCategories('contact', $this->api->getUserId());
 		$id = $catman->add($name);
 
 		if($id === false) {
@@ -81,7 +77,6 @@ class GroupController extends BaseController {
 	 * @Ajax
 	 */
 	public function deleteGroup() {
-		$params = $this->request->urlParams;
 		$name = $this->request->post['name'];
 
 		$response = new JSONResponse();
@@ -89,7 +84,7 @@ class GroupController extends BaseController {
 			$response->bailOut(App::$l10n->t('No group name given.'));
 		}
 
-		$catman = new \OC_VCategories('contact', $params['user']);
+		$catman = new \OC_VCategories('contact', $this->api->getUserId());
 		$catman->delete($name);
 		return $response;
 	}
@@ -101,7 +96,6 @@ class GroupController extends BaseController {
 	 * @Ajax
 	 */
 	public function addToGroup() {
-		$params = $this->request->urlParams;
 		$response = new JSONResponse();
 		$categoryid = $request['categoryid'];
 		$ids = $request->post['contactids'];
@@ -115,7 +109,7 @@ class GroupController extends BaseController {
 			$response->bailOut(App::$l10n->t('Contact ID missing from request.'));
 		}
 
-		$catman = new \OC_VCategories('contact', $params['user']);
+		$catman = new \OC_VCategories('contact', $this->api->getUserId());
 		foreach($ids as $contactid) {
 			$response->debug('contactid: ' . $contactid . ', categoryid: ' . $categoryid);
 			$catman->addToCategory($contactid, $categoryid);
@@ -130,7 +124,6 @@ class GroupController extends BaseController {
 	 * @Ajax
 	 */
 	public function removeFromGroup() {
-		$params = $this->request->urlParams;
 		$response = new JSONResponse();
 		$categoryid = $request['categoryid'];
 		$ids = $request->post['contactids'];
@@ -144,7 +137,7 @@ class GroupController extends BaseController {
 			$response->bailOut(App::$l10n->t('Contact ID missing from request.'));
 		}
 
-		$catman = new \OC_VCategories('contact', $params['user']);
+		$catman = new \OC_VCategories('contact', $this->api->getUserId());
 		foreach($ids as $contactid) {
 				$response->debug('contactid: ' . $contactid . ', categoryid: ' . $categoryid);
 				$catman->removeFromCategory($contactid, $categoryid);

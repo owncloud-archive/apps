@@ -30,13 +30,11 @@ class ContactController extends BaseController {
 	 * @Ajax
 	 */
 	public function saveContact() {
-		$params = $this->request->urlParams;
-		$app = new App($params['user']);
+		$app = new App($this->api->getUserId());
 
 		$request = $this->request;
 		$response = new JSONResponse();
 
-		$app = new App($request->parameters['user']);
 		$contact = $app->getContact(
 			$request->parameters['backend'],
 			$request->parameters['addressbookid'],
@@ -68,7 +66,7 @@ class ContactController extends BaseController {
 	public function getPhoto() {
 		// TODO: Cache resized photo
 		$params = $this->request->urlParams;
-		$app = new App($params['user']);
+		$app = new App($this->api->getUserId());
 		$etag = null;
 		$max_size = 170;
 		$contact = $app->getContact($params['backend'], $params['addressbookid'], $params['contactid']);
@@ -106,8 +104,7 @@ class ContactController extends BaseController {
 	 * @Ajax
 	 */
 	public function deleteProperty() {
-		$params = $this->request->urlParams;
-		$app = new App($params['user']);
+		$app = new App($$this->api->getUserId());
 
 		$request = $this->request;
 		$response = new JSONResponse();
@@ -164,7 +161,7 @@ class ContactController extends BaseController {
 	 */
 	public function saveProperty() {
 		$params = $this->request->urlParams;
-		$app = new App($params['user']);
+		$app = new App($this->api->getUserId());
 
 		$request = $this->request;
 		$response = new JSONResponse();

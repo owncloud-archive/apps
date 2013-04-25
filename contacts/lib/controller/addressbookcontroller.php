@@ -28,7 +28,7 @@ class AddressBookController extends BaseController {
 	 * @Ajax
 	 */
 	public function userAddressBooks() {
-		$app = new App($this->request->urlParams['user']);
+		$app = new App($this->api->getUserId());
 		$addressBooks = $app->getAddressBooksForUser();
 		$response = array();
 		foreach($addressBooks as $addressBook) {
@@ -48,7 +48,7 @@ class AddressBookController extends BaseController {
 	 */
 	public function getAddressBook() {
 		$params = $this->request->urlParams;
-		$app = new App($params['user']);
+		$app = new App($this->api->getUserId());
 
 		$addressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
 		$lastModified = $addressBook->lastModified();
@@ -79,12 +79,11 @@ class AddressBookController extends BaseController {
 	 * @Ajax
 	 */
 	public function addAddressBook() {
-		$params = $this->request->urlParams;
-		$app = new App($params['user']);
+		$app = new App($this->api->getUserId());
 
 		$response = new JSONResponse();
 
-		$backend = App::getBackend('local', $params['user']);
+		$backend = App::getBackend('local', $this->api->getUserId());
 		$id = $backend->createAddressBook($this->request->post);
 		if($id === false) {
 			$response->bailOut(App::$l10n->t('Error creating address book'));
@@ -102,11 +101,11 @@ class AddressBookController extends BaseController {
 	 */
 	public function deleteAddressBook() {
 		$params = $this->request->urlParams;
-		$app = new App($params['user']);
+		$app = new App($this->api->getUserId());
 
 		$response = new JSONResponse();
 
-		$backend = App::getBackend('local', $params['user']);
+		$backend = App::getBackend('local', $this->api->getUserId());
 		if(!$backend->deleteAddressBook($params['addressbookid'])) {
 			$response->bailOut(App::$l10n->t('Error deleting address book'));
 		}
@@ -120,11 +119,10 @@ class AddressBookController extends BaseController {
 	 */
 	public function addChild() {
 		$params = $this->request->urlParams;
-		$app = new App($params['user']);
+		$app = new App($this->api->getUserId());
 
 		$response = new JSONResponse();
 
-		$app = new App($params['user']);
 		$addressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
 		$id = $addressBook->addChild();
 		if($id === false) {
@@ -142,11 +140,10 @@ class AddressBookController extends BaseController {
 	 */
 	public function deleteChild() {
 		$params = $this->request->urlParams;
-		$app = new App($params['user']);
+		$app = new App($this->api->getUserId());
 
 		$response = new JSONResponse();
 
-		$app = new App($params['user']);
 		$addressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
 		$result = $addressBook->deleteChild($params['contactid']);
 		if($result === false) {
