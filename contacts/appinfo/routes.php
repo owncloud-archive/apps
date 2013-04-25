@@ -27,18 +27,16 @@ $this->create('contacts_jsconfig', 'ajax/config.js')
 /* TODO: Check what it requires to be a RESTful API. I think maybe {user}
 	shouldn't be in the URI but be authenticated in headers or elsewhere.
 */
-$this->create('contacts_address_books_for_user', 'addressbooks/{user}/')
+$this->create('contacts_address_books_for_user', 'addressbooks/')
 	->get()
 	->action(
 		function($params) {
 			session_write_close();
 			Main::main('AddressBookController', 'userAddressBooks', $params, new DIContainer());
 		}
-	)
-	->requirements(array('user'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	);
 
-$this->create('contacts_address_book_collection', 'addressbook/{user}/{backend}/{addressbookid}/contacts')
+$this->create('contacts_address_book_collection', 'addressbook/{backend}/{addressbookid}/contacts')
 	->get()
 	->action(
 		function($params) {
@@ -46,10 +44,9 @@ $this->create('contacts_address_book_collection', 'addressbook/{user}/{backend}/
 			Main::main('AddressBookController', 'getAddressBook', $params, new DIContainer());
 		}
 	)
-	->requirements(array('user', 'backend', 'addressbookid'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	->requirements(array('backend', 'addressbookid'));
 
-$this->create('contacts_address_book_add', 'addressbook/{user}/{backend}/add')
+$this->create('contacts_address_book_add', 'addressbook/{backend}/add')
 	->post()
 	->action(
 		function($params) {
@@ -57,10 +54,9 @@ $this->create('contacts_address_book_add', 'addressbook/{user}/{backend}/add')
 			Main::main('AddressBookController', 'addAddressBook', $params, new DIContainer());
 		}
 	)
-	->requirements(array('user', 'backend', 'addressbookid'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	->requirements(array('backend', 'addressbookid'));
 
-$this->create('contacts_address_book_delete', 'addressbook/{user}/{backend}/{addressbookid}/delete')
+$this->create('contacts_address_book_delete', 'addressbook/{backend}/{addressbookid}/delete')
 	->post()
 	->action(
 		function($params) {
@@ -68,10 +64,9 @@ $this->create('contacts_address_book_delete', 'addressbook/{user}/{backend}/{add
 			Main::main('AddressBookController', 'deleteAddressBook', $params, new DIContainer());
 		}
 	)
-	->requirements(array('user', 'backend', 'addressbookid'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	->requirements(array('backend', 'addressbookid'));
 
-$this->create('contacts_address_book_add_contact', 'addressbook/{user}/{backend}/{addressbookid}/contact/add')
+$this->create('contacts_address_book_add_contact', 'addressbook/{backend}/{addressbookid}/contact/add')
 	->post()
 	->action(
 		function($params) {
@@ -79,10 +74,9 @@ $this->create('contacts_address_book_add_contact', 'addressbook/{user}/{backend}
 			Main::main('AddressBookController', 'addChild', $params, new DIContainer());
 		}
 	)
-	->requirements(array('user', 'backend', 'addressbookid'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	->requirements(array('backend', 'addressbookid'));
 
-$this->create('contacts_address_book_delete_contact', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/delete')
+$this->create('contacts_address_book_delete_contact', 'addressbook/{backend}/{addressbookid}/contact/{contactid}/delete')
 	->post()
 	->action(
 		function($params) {
@@ -90,10 +84,9 @@ $this->create('contacts_address_book_delete_contact', 'addressbook/{user}/{backe
 			Main::main('AddressBookController', 'deleteChild', $params, new DIContainer());
 		}
 	)
-	->requirements(array('user', 'backend', 'addressbookid', 'contactid'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	->requirements(array('backend', 'addressbookid', 'contactid'));
 
-$this->create('contacts_contact_photo', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/photo')
+$this->create('contacts_contact_photo', 'addressbook/{backend}/{addressbookid}/contact/{contactid}/photo')
 	->get()
 	->action(
 		function($params) {
@@ -101,10 +94,9 @@ $this->create('contacts_contact_photo', 'addressbook/{user}/{backend}/{addressbo
 			Main::main('ContactController', 'getPhoto', $params, new DIContainer());
 		}
 	)
-	->requirements(array('user', 'backend', 'addressbook', 'contactid'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	->requirements(array('backend', 'addressbook', 'contactid'));
 
-$this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/property/delete')
+$this->create('contacts_contact_delete_property', 'addressbook/{backend}/{addressbookid}/contact/{contactid}/property/delete')
 	->post()
 	->action(
 		function($params) {
@@ -112,11 +104,10 @@ $this->create('contacts_contact_delete_property', 'addressbook/{user}/{backend}/
 			Main::main('ContactController', 'deleteProperty', $params, new DIContainer());
 		}
 	)
-	->requirements(array('user', 'backend', 'addressbook', 'contactid'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	->requirements(array('backend', 'addressbook', 'contactid'));
 
 // Save a single property.
-$this->create('contacts_contact_save_property', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/property/save')
+$this->create('contacts_contact_save_property', 'addressbook/{backend}/{addressbookid}/contact/{contactid}/property/save')
 	->post()
 	->action(
 		function($params) {
@@ -124,11 +115,10 @@ $this->create('contacts_contact_save_property', 'addressbook/{user}/{backend}/{a
 			Main::main('ContactController', 'saveProperty', $params, new DIContainer());
 		}
 	)
-	->requirements(array('user', 'backend', 'addressbook', 'contactid'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	->requirements(array('backend', 'addressbook', 'contactid'));
 
 // Save all properties. Used for merging contacts.
-$this->create('contacts_contact_save_all', 'addressbook/{user}/{backend}/{addressbookid}/contact/{contactid}/save')
+$this->create('contacts_contact_save_all', 'addressbook/{backend}/{addressbookid}/contact/{contactid}/save')
 	->post()
 	->action(
 		function($params) {
@@ -136,54 +126,45 @@ $this->create('contacts_contact_save_all', 'addressbook/{user}/{backend}/{addres
 			Main::main('ContactController', 'saveContact', $params, new DIContainer());
 		}
 	)
-	->requirements(array('user', 'backend', 'addressbook', 'contactid'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	->requirements(array('backend', 'addressbook', 'contactid'));
 
-$this->create('contacts_categories_list', 'groups/{user}/')
+$this->create('contacts_categories_list', 'groups/')
 	->get()
 	->action(
 		function($params) {
 			session_write_close();
 			Main::main('GroupController', 'getGroups', $params, new DIContainer());
 		}
-	)
-	->requirements(array('user'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	);
 
-$this->create('contacts_categories_add', 'groups/{user}/add')
+$this->create('contacts_categories_add', 'groups/add')
 	->post()
 	->action(
 		function($params) {
 			session_write_close();
 			Main::main('GroupController', 'addGroup', $params, new DIContainer());
 		}
-	)
-	->requirements(array('user'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	);
 
-$this->create('contacts_categories_delete', 'groups/{user}/delete')
+$this->create('contacts_categories_delete', 'groups/delete')
 	->post()
 	->action(
 		function($params) {
 			session_write_close();
 			Main::main('GroupController', 'deleteGroup', $params, new DIContainer());
 		}
-	)
-	->requirements(array('user'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	);
 
-$this->create('contacts_categories_addto', 'groups/{user}/addto/{categoryid}')
+$this->create('contacts_categories_addto', 'groups/addto/{categoryid}')
 	->post()
 	->action(
 		function($params) {
 			session_write_close();
 			Main::main('GroupController', 'addToGroup', $params, new DIContainer());
 		}
-	)
-	->requirements(array('user', 'categoryid'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	);
 
-$this->create('contacts_categories_removefrom', 'groups/{user}/removefrom/{categoryid}')
+$this->create('contacts_categories_removefrom', 'groups/removefrom/{categoryid}')
 	->post()
 	->action(
 		function($params) {
@@ -191,19 +172,16 @@ $this->create('contacts_categories_removefrom', 'groups/{user}/removefrom/{categ
 			Main::main('GroupController', 'removeFromGroup', $params, new DIContainer());
 		}
 	)
-	->requirements(array('user', 'categoryid'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	->requirements(array('categoryid'));
 
-$this->create('contacts_setpreference', 'preference/{user}/set')
+$this->create('contacts_setpreference', 'preference/set')
 	->post()
 	->action(
 		function($params) {
 			session_write_close();
 			Main::main('SettingsController', 'set', $params, new DIContainer());
 		}
-	)
-	->requirements(array('user'))
-	->defaults(array('user' => \OCP\User::getUser()));
+	);
 
 $this->create('contacts_index_properties', 'indexproperties/{user}/')
 	->post()
