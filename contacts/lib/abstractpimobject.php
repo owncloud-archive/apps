@@ -119,11 +119,4 @@ abstract class AbstractPIMObject implements IPIMObject {
 		return $this->getPermissions() & $permission;
 	}
 
-	/**
-	 * Delete the data from backend
-	 *
-	 * @return bool
-	 */
-	abstract public function delete();
-
 }
