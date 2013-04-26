@@ -273,18 +273,22 @@ class Database extends AbstractBackend {
 		}
 
 		// Purge contact property indexes
-		$stmt = \OCP\DB::prepare('DELETE FROM `' . $this->indexTableName
-			.'` WHERE `contactid` IN ('.str_repeat('?,', count($ids)-1).'?)');
-		try {
-			$stmt->execute($ids);
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.
-				', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
+		if(count($ids)) {
+			$stmt = \OCP\DB::prepare('DELETE FROM `' . $this->indexTableName
+				.'` WHERE `contactid` IN ('.str_repeat('?,', count($ids)-1).'?)');
+			try {
+				$stmt->execute($ids);
+			} catch(\Exception $e) {
+				\OCP\Util::writeLog('contacts', __METHOD__.
+					', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
+			}
+
+			// Purge categories
+			$catctrl = new \OC_VCategories('contact');
+			$catctrl->purgeObjects($ids);
+
 		}
 
-		// Purge categories
-		$catctrl = new \OC_VCategories('contact');
-		$catctrl->purgeObjects($ids);
 
 		if(!isset(self::$preparedQueries['deleteaddressbookcontacts'])) {
 			self::$preparedQueries['deleteaddressbookcontacts'] =
