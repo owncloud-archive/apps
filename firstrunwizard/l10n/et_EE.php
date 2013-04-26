@@ -1,6 +1,6 @@
 <?php $TRANSLATIONS = array(
 "Welcome to ownCloud" => "Teretulemast ownCloud-i",
-"Your personal web services. All your files, contacts, calendar and more, in one place." => "Sinu personaalsed veebiteenused. Kõik Su failid, kontaktid, kalender ja palju muud ühes kohas.",
+"Your personal web services. All your files, contacts, calendar and more, in one place." => "Sinu personaalsed veebiteenused. Kõik su failid, kontaktid, kalender ja palju muud ühes kohas.",
 "Get the apps to sync your files" => "Hangi rakendusi failide sünkroniseerimiseks",
 "Connect your desktop apps to ownCloud" => "Ühenda oma töölaua rakendused ownCloudiga",
 "Connect your Calendar" => "Ühenda oma kalender",

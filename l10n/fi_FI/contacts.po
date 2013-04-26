@@ -7,15 +7,16 @@
 # Jesse Jaara <jesse.jaara@gmail.com>, 2012
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2012-2013
 # Johannes Korpela <>, 2012
+# Larso <larso@gmx.com>, 2013
 # teho <tehoratopato@gmail.com>, 2012
 # tscooter <tscooter@hotmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-26 00:49+0200\n"
-"PO-Revision-Date: 2013-04-25 22:49+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:40+0000\n"
+"Last-Translator: Larso <larso@gmx.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,11 +124,11 @@ msgstr "Tilapäiskansio puuttuu"
 
 #: ajax/uploadimport.php:52
 msgid "Failed to write to disk"
-msgstr ""
+msgstr "Levylle kirjoitus epäonnistui"
 
 #: ajax/uploadimport.php:62
 msgid "Not enough storage available"
-msgstr ""
+msgstr "Tallennustilaa ei ole riittävästi käytettävissä"
 
 #: ajax/uploadimport.php:69
 msgid "Upload of blacklisted file:"
@@ -176,11 +177,11 @@ msgstr ""
 
 #: js/app.js:464
 msgid "Merge failed."
-msgstr ""
+msgstr "Yhdistäminen epäonnistui."
 
 #: js/app.js:471
 msgid "Merge failed. Error saving contact."
-msgstr ""
+msgstr "Yhdistäminen epäonnistui. Virhe yhteystietoa tallennettaessa."
 
 #: js/app.js:490
 msgid "Select photo"
@@ -449,7 +450,7 @@ msgstr ""
 
 #: js/storage.js:413 js/storage.js:426
 msgid "Request failed: {error}"
-msgstr ""
+msgstr "Pyyntö epäonnistui: {error}"
 
 #: lib/backend/ldap.php:178
 msgid "There was an error updating the addressbook."
@@ -469,25 +470,25 @@ msgstr "Tuntematon IM-arvo."
 
 #: lib/controller/addressbookcontroller.php:89
 msgid "Error creating address book"
-msgstr ""
+msgstr "Virhe osoitekirjaa luotaessa"
 
 #: lib/controller/addressbookcontroller.php:110
 msgid "Error deleting address book"
-msgstr ""
+msgstr "Virhe osoitekirjaa poistaessa"
 
 #: lib/controller/addressbookcontroller.php:129
 msgid "Error creating contact."
-msgstr ""
+msgstr "Virhe yhteystietoa luotaessa."
 
 #: lib/controller/addressbookcontroller.php:150
 msgid "Error deleting contact."
-msgstr ""
+msgstr "Virhe yhteystietoa poistaessa."
 
 #: lib/controller/contactcontroller.php:45
 #: lib/controller/contactcontroller.php:126
 #: lib/controller/contactcontroller.php:187
 msgid "Couldn't find contact."
-msgstr ""
+msgstr "Yhteystietoa ei löytynyt."
 
 #: lib/controller/contactcontroller.php:49
 msgid "Error merging into contact."
@@ -496,7 +497,7 @@ msgstr ""
 #: lib/controller/contactcontroller.php:52
 #: lib/controller/contactcontroller.php:144
 msgid "Error saving contact to backend."
-msgstr ""
+msgstr "Virhe yhteystietoa tallennettaessa taustaosaan."
 
 #: lib/controller/contactcontroller.php:129
 #: lib/controller/contactcontroller.php:190
@@ -564,7 +565,7 @@ msgstr "Muu"
 
 #: lib/utils/jsonserializer.php:107
 msgid "HomePage"
-msgstr ""
+msgstr "Verkkosivusto"
 
 #: lib/utils/properties.php:66
 msgid "Jabber"
@@ -844,7 +845,7 @@ msgstr "Valitse ryhmät"
 
 #: templates/contacts.php:241
 msgid "Select address book"
-msgstr ""
+msgstr "Valitse osoitekirja"
 
 #: templates/contacts.php:245 templates/contacts.php:309
 msgid "Nickname"
@@ -950,7 +951,7 @@ msgstr "Siirry verkkosivulle"
 
 #: templates/contacts.php:365
 msgid "Delete URL"
-msgstr ""
+msgstr "Poista verkko-osoite"
 
 #: templates/contacts.php:376
 msgid "View on map"

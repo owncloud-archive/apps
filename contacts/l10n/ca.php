@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "El fitxer només s'ha carregat parcialment",
 "No file was uploaded" => "No s'ha carregat cap fitxer",
 "Missing a temporary folder" => "Falta un fitxer temporal",
+"Failed to write to disk" => "Ha fallat en escriure al disc",
+"Not enough storage available" => "No hi ha prou espai disponible",
 "Upload of blacklisted file:" => "Puja a llista negra de fitxers:",
 "Error uploading contacts to storage." => "Error en carregar contactes a l'emmagatzemament.",
 "Couldn't save temporary image: " => "No s'ha pogut desar la imatge temporal: ",

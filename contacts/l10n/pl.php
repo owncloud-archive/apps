@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "Załadowany plik został wysłany tylko częściowo.",
 "No file was uploaded" => "Nie wysłano żadnego pliku",
 "Missing a temporary folder" => "Brak folderu tymczasowego",
+"Failed to write to disk" => "Błąd zapisu na dysk",
+"Not enough storage available" => "Za mało dostępnego miejsca",
 "Upload of blacklisted file:" => "Załadowanie niedozwolonego pliku:",
 "Error uploading contacts to storage." => "Błąd podczas wysyłania kontaktów do magazynu.",
 "Couldn't save temporary image: " => "Nie można zapisać obrazu tymczasowego: ",

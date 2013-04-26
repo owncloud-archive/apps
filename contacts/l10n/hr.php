@@ -11,6 +11,7 @@
 "The uploaded file was only partially uploaded" => "Poslana datoteka je parcijalno poslana",
 "No file was uploaded" => "Datoteka nije poslana",
 "Missing a temporary folder" => "Nedostaje privremeni direktorij",
+"Failed to write to disk" => "Neuspjelo pisanje na disk",
 "Error uploading contacts to storage." => "Pogreška pri slanju kontakata.",
 "Contacts" => "Kontakti",
 "Error" => "Greška",

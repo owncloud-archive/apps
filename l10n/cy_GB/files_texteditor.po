@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-24 00:49+0200\n"
-"PO-Revision-Date: 2013-04-23 19:50+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:24+0000\n"
 "Last-Translator: ubuntucymraeg <owen.llywelyn@gmail.com>\n"
 "Language-Team: Welsh (United Kingdom) (http://www.transifex.com/projects/p/owncloud/language/cy_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -50,6 +50,6 @@ msgstr "Methwyd cadw'r ffeil"
 msgid "An error occurred!"
 msgstr "Digwyddodd gwall!"
 
-#: js/editor.js:272
+#: js/editor.js:273
 msgid "There were unsaved changes, click here to go back"
 msgstr "Roedd newidiadau heb eu cadw, cliciwch fan hyn i ddychwelyd"

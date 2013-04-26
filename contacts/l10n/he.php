@@ -18,6 +18,7 @@
 "The uploaded file was only partially uploaded" => "הקובץ הועלה באופן חלקי בלבד",
 "No file was uploaded" => "שום קובץ לא הועלה",
 "Missing a temporary folder" => "תקיה זמנית חסרה",
+"Failed to write to disk" => "הכתיבה לכונן נכשלה",
 "Error uploading contacts to storage." => "התרשה שגיאה בהעלאת אנשי הקשר לאכסון.",
 "Couldn't save temporary image: " => "אין אפשרות לשמור תמונה זמנית:",
 "Couldn't load temporary image: " => "אין אפשרות לטעון תמונה זמנית:",

@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "ไฟล์ถูกอัพโหลดได้เพียงบางส่วนเท่านั้น",
 "No file was uploaded" => "ไม่มีไฟล์ที่ถูกอัพโหลด",
 "Missing a temporary folder" => "โฟลเดอร์ชั่วคราวเกิดการสูญหาย",
+"Failed to write to disk" => "เขียนข้อมูลลงแผ่นดิสก์ล้มเหลว",
+"Not enough storage available" => "เหลือพื้นที่ไม่เพียงสำหรับใช้งาน",
 "Upload of blacklisted file:" => "การอัพโหลดไฟล์บัญชีดำ:",
 "Error uploading contacts to storage." => "เกิดข้อผิดพลาดในการอัพโหลดข้อมูลการติดต่อไปยังพื้นที่จัดเก็บข้อมูล",
 "Couldn't save temporary image: " => "ไม่สามารถบันทึกรูปภาพชั่วคราวได้: ",

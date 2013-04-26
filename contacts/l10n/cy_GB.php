@@ -5,6 +5,8 @@
 "The uploaded file was only partially uploaded" => "Dim ond yn rhannol y llwythwyd y ffeil i fyny",
 "No file was uploaded" => "Ni lwythwyd ffeil i fyny",
 "Missing a temporary folder" => "Plygell dros dro yn eisiau",
+"Failed to write to disk" => "Methwyd ysgrifennu i'r ddisg",
+"Not enough storage available" => "Dim digon o le storio ar gael",
 "Contacts" => "Cysylltiadau",
 "Error" => "Gwall",
 "Unable to upload your file as it is a directory or has 0 bytes" => "Methu llwytho'ch ffeil i fyny gan ei fod yn gyferiadur neu'n cynnwys 0 beit",

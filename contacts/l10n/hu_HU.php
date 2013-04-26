@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "A fájl csak részlegesen lett feltöltve",
 "No file was uploaded" => "Nem töltődött fel állomány",
 "Missing a temporary folder" => "Hiányzik az ideiglenes könyvtár",
+"Failed to write to disk" => "Nem sikerült a lemezre történő írás",
+"Not enough storage available" => "Nincs elég szabad hely.",
 "Upload of blacklisted file:" => "Feketelistában található fájl feltöltése:",
 "Error uploading contacts to storage." => "Hiba a kapcsolatok feltöltésekor",
 "Couldn't save temporary image: " => "Ideiglenes kép létrehozása sikertelen",

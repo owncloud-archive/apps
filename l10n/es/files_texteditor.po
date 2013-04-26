@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <juanma@kde.org.ar>, 2012.
-#   <manudeloz86@gmail.com>, 2012.
-# Rubén Trujillo <rubentrf@gmail.com>, 2012.
+# juanman <juanma@kde.org.ar>, 2012
+# valarauco <manudeloz86@gmail.com>, 2012
+# Rubén Trujillo <rubentrf@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:54+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:24+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -52,6 +52,6 @@ msgstr "Falló al guardar archivo"
 msgid "An error occurred!"
 msgstr "¡Ocurrió un error!"
 
-#: js/editor.js:272
+#: js/editor.js:273
 msgid "There were unsaved changes, click here to go back"
 msgstr "Hay cambios sin guardar, haga clic aquí para volver"

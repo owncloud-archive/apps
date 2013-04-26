@@ -11,6 +11,8 @@
 "The uploaded file was only partially uploaded" => "تم ترفيع جزء من الملفات الذي تريد ترفيعها فقط",
 "No file was uploaded" => "لم يتم ترفيع أي من الملفات",
 "Missing a temporary folder" => "المجلد المؤقت غير موجود",
+"Failed to write to disk" => "خطأ في الكتابة على القرص الصلب",
+"Not enough storage available" => "لا يوجد مساحة تخزينية كافية",
 "Contacts" => "المعارف",
 "Error" => "خطأ",
 "Unable to upload your file as it is a directory or has 0 bytes" => "فشل في رفع ملفاتك , إما أنها مجلد أو حجمها 0 بايت",

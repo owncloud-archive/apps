@@ -3,18 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Claudiu  <claudiu@tanaselia.ro>, 2011.
-# Dumitru Ursu <>, 2013.
-# Eugen Mihalache <eugemjj@gmail.com>, 2012.
-#   <g.ciprian@osn.ro>, 2012.
-#   <iuranemo@gmail.com>, 2012.
-#   <laur.cristescu@gmail.com>, 2012.
+# Claudiu <claudiu@tanaselia.ro>, 2011
+# Dimon Pockemon <>, 2013
+# Eugen Mihalache <eugemjj@gmail.com>, 2012
+# g.ciprian <g.ciprian@osn.ro>, 2012
+# iuranemo <iuranemo@gmail.com>, 2012
+# laurentiucristescu <laur.cristescu@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"

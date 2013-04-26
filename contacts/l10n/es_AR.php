@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "El archivo fue subido parcialmente",
 "No file was uploaded" => "No se subió ningún archivo ",
 "Missing a temporary folder" => "Error en la carpera temporal",
+"Failed to write to disk" => "Error al escribir en el disco",
+"Not enough storage available" => "No hay suficiente capacidad de almacenamiento",
 "Upload of blacklisted file:" => "Subida de archivo en \"lista negra\":",
 "Error uploading contacts to storage." => "Error al subir contactos al almacenamiento.",
 "Couldn't save temporary image: " => "No fue posible guardar la imagen temporal",

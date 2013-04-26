@@ -19,6 +19,7 @@
 "The uploaded file was only partially uploaded" => "Датотеката беше само делумно подигната.",
 "No file was uploaded" => "Не беше подигната датотека.",
 "Missing a temporary folder" => "Недостасува привремена папка",
+"Failed to write to disk" => "Неуспеав да запишам на диск",
 "Error uploading contacts to storage." => "Грешка во снимање на контактите на диск.",
 "Couldn't save temporary image: " => "Не можеше да се сними привремената фотографија:",
 "Couldn't load temporary image: " => "Не можеше да се вчита привремената фотографија:",

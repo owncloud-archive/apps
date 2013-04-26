@@ -22,6 +22,7 @@
 "The uploaded file was only partially uploaded" => "la alŝutita dosiero nur parte alŝutiĝis",
 "No file was uploaded" => "Neniu dosiero alŝutiĝis.",
 "Missing a temporary folder" => "Mankas provizora dosierujo.",
+"Failed to write to disk" => "Malsukcesis skribo al disko",
 "Error uploading contacts to storage." => "Eraro dum alŝutiĝis kontaktoj al konservejo.",
 "Couldn't save temporary image: " => "Ne eblis konservi provizoran bildon: ",
 "Couldn't load temporary image: " => "Ne eblis ŝargi provizoran bildon: ",

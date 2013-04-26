@@ -11,6 +11,7 @@
 # mPolr <mpolr21@gmail.com>, 2012
 # Nick Remeslennikov <homolibere@gmail.com>, 2012
 # sam002 <semen@sam002.net>, 2012
+# eurekafag <eurekafag@eureka7.ru>, 2013
 # m4rkell <sergey@markevich.ru>, 2013
 # adol <sharov3@gmail.com>, 2013
 # skoptev <skoptev@ukr.net>, 2012
@@ -22,9 +23,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-26 00:49+0200\n"
-"PO-Revision-Date: 2013-04-25 22:49+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
+"Last-Translator: eurekafag <eurekafag@eureka7.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +51,7 @@ msgstr "Загружаемая фотография испорчена."
 
 #: ajax/oc_photo.php:28
 msgid "No contact info was submitted."
-msgstr ""
+msgstr "Информация контакта не заполнена."
 
 #: ajax/oc_photo.php:32
 msgid "No photo path was submitted."
@@ -132,11 +133,11 @@ msgstr "Отсутствует временная папка"
 
 #: ajax/uploadimport.php:52
 msgid "Failed to write to disk"
-msgstr ""
+msgstr "Ошибка записи на диск"
 
 #: ajax/uploadimport.php:62
 msgid "Not enough storage available"
-msgstr ""
+msgstr "Недостаточно доступного места в хранилище"
 
 #: ajax/uploadimport.php:69
 msgid "Upload of blacklisted file:"
@@ -181,15 +182,15 @@ msgstr "Индексация контактов"
 
 #: js/app.js:451
 msgid "Merge failed. Cannot find contact: {id}"
-msgstr ""
+msgstr "Объединение не удалось. Не найден контакт: {id}"
 
 #: js/app.js:464
 msgid "Merge failed."
-msgstr ""
+msgstr "Объединение не удалось"
 
 #: js/app.js:471
 msgid "Merge failed. Error saving contact."
-msgstr ""
+msgstr "Объединение не удалось. Ошибка сохранения контакта."
 
 #: js/app.js:490
 msgid "Select photo"
@@ -201,11 +202,11 @@ msgstr "Ошибка сети или сервера. Пожалуйста, об�
 
 #: js/app.js:547
 msgid "Failed saving sort order: {error}"
-msgstr ""
+msgstr "Не удалось сохранить порядок сортировки: {error}"
 
 #: js/app.js:580
 msgid "Failed saving last group: {error}"
-msgstr ""
+msgstr "Не удалось сохранить последнюю группу: {error}"
 
 #: js/app.js:726 js/app.js:764
 msgid "Error adding to group."
@@ -225,11 +226,11 @@ msgstr "Удаление завершено. Щелкните здесь для 
 
 #: js/app.js:928
 msgid "Failed adding address book: {error}"
-msgstr ""
+msgstr "Не удалось добавить адресную книгу: {error}"
 
 #: js/app.js:981
 msgid "Failed adding addres books: {error}"
-msgstr ""
+msgstr "Не удалось добавить адресную книгу: {error}"
 
 #: js/app.js:994
 msgid "Add address book"
@@ -237,7 +238,7 @@ msgstr "Добавить адресную книгу"
 
 #: js/app.js:1097
 msgid "Error setting {name} as favorite."
-msgstr ""
+msgstr "Ошибка задания {name} как избранного."
 
 #: js/app.js:1143
 msgid "Import done. Click here to cancel reloading."
@@ -266,7 +267,7 @@ msgstr "Импорт из {filename}..."
 
 #: js/app.js:1209
 msgid "{success} imported, {failed} failed from {file}"
-msgstr ""
+msgstr "{success} импортировано, {failed} не удалось из {file}"
 
 #: js/app.js:1221
 msgid "Importing..."
@@ -292,7 +293,7 @@ msgstr "Файл слишком велик"
 
 #: js/app.js:1403 js/app.js:1407 templates/contacts.php:155
 msgid "Merge contacts"
-msgstr ""
+msgstr "Объединить контакты"
 
 #: js/app.js:1429 js/app.js:1483 js/settings.js:120 templates/contacts.php:27
 #: templates/contacts.php:34 templates/contacts.php:302
@@ -323,7 +324,7 @@ msgstr "Ошибка загрузки изображения профиля."
 
 #: js/contacts.js:307
 msgid "Failed deleting property: {error}"
-msgstr ""
+msgstr "Ошибка удаления свойства: {error}"
 
 #: js/contacts.js:498
 msgid "Is this correct?"
@@ -349,11 +350,11 @@ msgstr "Отменено удаление {num}"
 
 #: js/contacts.js:2082
 msgid "Failed loading contacts from {addressbook}: {error}"
-msgstr ""
+msgstr "Ошибка загрузки контактов из {addressbook}: {error}"
 
 #: js/contacts.js:2099
 msgid "Failed loading address books: {error}"
-msgstr ""
+msgstr "Ошибка загрузки адресных книг: {error}"
 
 #: js/groups.js:194
 msgid "Contact is already in this group."
@@ -377,7 +378,7 @@ msgstr "Контакты не в этой группе."
 
 #: js/groups.js:415
 msgid "Failed deleting group: {error}"
-msgstr ""
+msgstr "Ошибка удаления группы: {error}"
 
 #: js/groups.js:545
 msgid "A group named {group} already exists"
@@ -391,7 +392,7 @@ msgstr "Вы можете перетащить группы в\nрасполож
 
 #: js/groups.js:594
 msgid "Failed adding group: {error}"
-msgstr ""
+msgstr "Ошибка добавления группы: {error}"
 
 #: js/groups.js:605
 msgid "All"
@@ -454,11 +455,11 @@ msgstr "Меньше..."
 
 #: js/storage.js:198
 msgid "Failed loading photo: {error}"
-msgstr ""
+msgstr "Ошибка загрузки фото: {error}"
 
 #: js/storage.js:413 js/storage.js:426
 msgid "Request failed: {error}"
-msgstr ""
+msgstr "Запрос не удался: {error}"
 
 #: lib/backend/ldap.php:178
 msgid "There was an error updating the addressbook."
@@ -478,45 +479,45 @@ msgstr "Неизвестный IM:"
 
 #: lib/controller/addressbookcontroller.php:89
 msgid "Error creating address book"
-msgstr ""
+msgstr "Ошибка создания адресной книги"
 
 #: lib/controller/addressbookcontroller.php:110
 msgid "Error deleting address book"
-msgstr ""
+msgstr "Ошибка удаления адресной книги"
 
 #: lib/controller/addressbookcontroller.php:129
 msgid "Error creating contact."
-msgstr ""
+msgstr "Ошибка создания контакта."
 
 #: lib/controller/addressbookcontroller.php:150
 msgid "Error deleting contact."
-msgstr ""
+msgstr "Ошибка удаления контакта."
 
 #: lib/controller/contactcontroller.php:45
 #: lib/controller/contactcontroller.php:126
 #: lib/controller/contactcontroller.php:187
 msgid "Couldn't find contact."
-msgstr ""
+msgstr "Не удалось найти контакт."
 
 #: lib/controller/contactcontroller.php:49
 msgid "Error merging into contact."
-msgstr ""
+msgstr "Ошибка объединения в контакт."
 
 #: lib/controller/contactcontroller.php:52
 #: lib/controller/contactcontroller.php:144
 msgid "Error saving contact to backend."
-msgstr ""
+msgstr "Ошибка сохранения контакта в бэкенд."
 
 #: lib/controller/contactcontroller.php:129
 #: lib/controller/contactcontroller.php:190
 msgid "Property name is not set."
-msgstr ""
+msgstr "Не установлено имя свойства."
 
 #: lib/controller/contactcontroller.php:132
 #: lib/controller/contactcontroller.php:193
 #: lib/controller/contactcontroller.php:202
 msgid "Property checksum is not set."
-msgstr ""
+msgstr "Не установлена контрольная сумма свойства."
 
 #: lib/controller/contactcontroller.php:138
 #: lib/controller/contactcontroller.php:208
@@ -525,15 +526,15 @@ msgstr "Информация о vCard некорректна. Пожалуйст
 
 #: lib/controller/contactcontroller.php:212
 msgid "Error setting property"
-msgstr ""
+msgstr "Ошибка установки свойства"
 
 #: lib/controller/contactcontroller.php:216
 msgid "Error saving property to backend"
-msgstr ""
+msgstr "Ошибка сохранения свойства в бэкенд"
 
 #: lib/controller/groupcontroller.php:60 lib/controller/groupcontroller.php:84
 msgid "No group name given."
-msgstr ""
+msgstr "Не задано имя группы."
 
 #: lib/controller/groupcontroller.php:67
 msgid "Error adding group."
@@ -551,11 +552,11 @@ msgstr "В запросе отсутствует ID контакта."
 
 #: lib/controller/settingscontroller.php:36
 msgid "No key is given."
-msgstr ""
+msgstr "Не задан ключ."
 
 #: lib/controller/settingscontroller.php:40
 msgid "No value is given."
-msgstr ""
+msgstr "Не задано значение."
 
 #: lib/hooks.php:183
 msgid "{name}'s Birthday"
@@ -735,7 +736,7 @@ msgstr "Избранное"
 
 #: templates/contacts.php:76
 msgid "Merge selected"
-msgstr ""
+msgstr "Объединить выбранное"
 
 #: templates/contacts.php:77
 msgid "Delete Contact"
@@ -805,11 +806,11 @@ msgstr "Добавить контакт"
 
 #: templates/contacts.php:156
 msgid "Which contact should the data be merged into?"
-msgstr ""
+msgstr "В какой контакт следует объединить данные?"
 
 #: templates/contacts.php:164
 msgid "Delete the other(s) after successful merge?"
-msgstr ""
+msgstr "Удалить другой(ие) после успешного объединения?"
 
 #: templates/contacts.php:176
 msgid "Compose mail"
@@ -853,7 +854,7 @@ msgstr "Выбрать группу"
 
 #: templates/contacts.php:241
 msgid "Select address book"
-msgstr ""
+msgstr "Выбрать адресную книгу"
 
 #: templates/contacts.php:245 templates/contacts.php:309
 msgid "Nickname"

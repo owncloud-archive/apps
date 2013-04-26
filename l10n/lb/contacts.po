@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-26 00:49+0200\n"
-"PO-Revision-Date: 2013-04-25 22:49+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Luxembourgish (http://www.transifex.com/projects/p/owncloud/language/lb/)\n"
 "MIME-Version: 1.0\n"
@@ -118,7 +118,7 @@ msgstr "Et feelt en temporären Dossier"
 
 #: ajax/uploadimport.php:52
 msgid "Failed to write to disk"
-msgstr ""
+msgstr "Konnt net op den Disk schreiwen"
 
 #: ajax/uploadimport.php:62
 msgid "Not enough storage available"
@@ -274,7 +274,7 @@ msgstr ""
 
 #: js/app.js:1250
 msgid "Upload too large"
-msgstr ""
+msgstr "Upload ze grouss"
 
 #: js/app.js:1403 js/app.js:1407 templates/contacts.php:155
 msgid "Merge contacts"

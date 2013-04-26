@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <mplichta@gmail.com>, 2012.
+# emc <mplichta@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:55+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
-"Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/owncloud/language/pl_PL/)\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2012-09-02 00:04+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,7 +29,7 @@ msgstr ""
 
 #: appinfo/app.php:99
 msgid "My pad"
-msgstr "Moja konsola"
+msgstr ""
 
 #: templates/index.php:15 templates/index.php:16
 msgid "Settings"
@@ -37,11 +37,11 @@ msgstr "Ustawienia"
 
 #: templates/index.php:18
 msgid "Pad Title"
-msgstr "Tytuł bloku"
+msgstr ""
 
 #: templates/index.php:19
 msgid "Open"
-msgstr "Otwórz"
+msgstr ""
 
 #: templates/index.php:20
 msgid "Share with"
@@ -53,7 +53,7 @@ msgstr ""
 
 #: templates/settings.php:16
 msgid "Etherpad service URL"
-msgstr "Adres URL usługi Etherpad"
+msgstr ""
 
 #: templates/settings.php:21
 msgid "Username"

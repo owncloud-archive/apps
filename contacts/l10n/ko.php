@@ -22,6 +22,7 @@
 "The uploaded file was only partially uploaded" => "파일의 일부분만 업로드됨",
 "No file was uploaded" => "파일이 업로드되지 않았음",
 "Missing a temporary folder" => "임시 폴더가 없음",
+"Failed to write to disk" => "디스크에 쓰지 못했습니다",
 "Upload of blacklisted file:" => "블렉리스트 파일 업로드",
 "Error uploading contacts to storage." => "연락처를 저장소에 업로드하는 중 오류가 발생하였습니다.",
 "Couldn't save temporary image: " => "임시 그림을 저장할 수 없음:",

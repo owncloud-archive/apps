@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "已上传文件只上传了部分（不完整）",
 "No file was uploaded" => "没有文件被上传",
 "Missing a temporary folder" => "缺少临时目录",
+"Failed to write to disk" => "写入磁盘失败",
+"Not enough storage available" => "没有足够的存储空间",
 "Upload of blacklisted file:" => "上传黑名单文件:",
 "Error uploading contacts to storage." => "上传联系人到存储空间时出错",
 "Couldn't save temporary image: " => "无法保存临时图像: ",

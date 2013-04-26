@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "Các tập tin được tải lên chỉ tải lên được một phần",
 "No file was uploaded" => "Chưa có file nào được tải lên",
 "Missing a temporary folder" => "Không tìm thấy thư mục tạm",
+"Failed to write to disk" => "Không thể ghi ",
+"Not enough storage available" => "Không đủ không gian lưu trữ",
 "Error uploading contacts to storage." => "Lỗi tải lên danh sách địa chỉ để lưu trữ.",
 "Couldn't save temporary image: " => "Không thể lưu ảnh tạm thời:",
 "Couldn't load temporary image: " => "Không thể tải hình ảnh tạm thời:",

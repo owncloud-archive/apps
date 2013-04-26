@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "Igotako fitxategiaren zati bat bakarrik igo da",
 "No file was uploaded" => "Ez da fitxategirik igo",
 "Missing a temporary folder" => "Aldi bateko karpeta falta da",
+"Failed to write to disk" => "Errore bat izan da diskoan idazterakoan",
+"Not enough storage available" => "Ez dago behar aina leku erabilgarri,",
 "Upload of blacklisted file:" => "Zerrenda beltzako fitxategiaren igoera:",
 "Error uploading contacts to storage." => "Errore bat egon da kontaktuak biltegira igotzerakoan.",
 "Couldn't save temporary image: " => "Ezin izan da aldi bateko irudia gorde:",

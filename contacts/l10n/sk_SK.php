@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "Ukladaný súbor sa nahral len čiastočne",
 "No file was uploaded" => "Žiadny súbor nebol uložený",
 "Missing a temporary folder" => "Chýba dočasný priečinok",
+"Failed to write to disk" => "Zápis na disk sa nepodaril",
+"Not enough storage available" => "Nedostatok dostupného úložného priestoru",
 "Upload of blacklisted file:" => "Nahrať na čiernu listinu súborov:",
 "Error uploading contacts to storage." => "Chyba pri ukladaní kontaktov na úložisko.",
 "Couldn't save temporary image: " => "Nemôžem uložiť dočasný obrázok: ",

@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "只有部分檔案被上傳",
 "No file was uploaded" => "沒有已上傳的檔案",
 "Missing a temporary folder" => "遺失暫存資料夾",
+"Failed to write to disk" => "寫入硬碟失敗",
+"Not enough storage available" => "儲存空間不足",
 "Upload of blacklisted file:" => "上傳黑名單:",
 "Error uploading contacts to storage." => "上傳聯絡人到儲存空間時發生錯誤",
 "Couldn't save temporary image: " => "無法儲存暫存影像",

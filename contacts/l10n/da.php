@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "Filen blev kun delvist uploadet.",
 "No file was uploaded" => "Ingen fil uploadet",
 "Missing a temporary folder" => "Manglende midlertidig mappe.",
+"Failed to write to disk" => "Fejl ved skrivning til disk.",
+"Not enough storage available" => "Der er ikke nok plads til rådlighed",
 "Upload of blacklisted file:" => "Upload blacklistet fil:",
 "Error uploading contacts to storage." => "Kunne ikke uploade kontaktepersoner til midlertidig opbevaring.",
 "Couldn't save temporary image: " => "Kunne ikke gemme midlertidigt billede: ",

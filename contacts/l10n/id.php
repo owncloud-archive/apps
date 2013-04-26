@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "Berkas hanya diunggah sebagian",
 "No file was uploaded" => "Tidak ada berkas yang diunggah",
 "Missing a temporary folder" => "Folder sementara tidak ada",
+"Failed to write to disk" => "Gagal menulis ke disk",
+"Not enough storage available" => "Ruang penyimpanan tidak mencukupi",
 "Upload of blacklisted file:" => "Pengunggahan berkas terlarang:",
 "Error uploading contacts to storage." => "Galat saat mengunggah kontak ke penyimpanan.",
 "Couldn't save temporary image: " => "Tidak dapat menyimpan gambar sementara:",

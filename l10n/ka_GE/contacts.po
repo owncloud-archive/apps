@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-26 00:49+0200\n"
-"PO-Revision-Date: 2013-04-25 22:49+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
+"Last-Translator: drlinux64 <romeo@energo-pro.ge>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,7 @@ msgstr "ფოტოს ჩატვირთვა ვერ განხორ
 
 #: ajax/oc_photo.php:28
 msgid "No contact info was submitted."
-msgstr ""
+msgstr "კონტაქტის ინფორმაცია არ გაიგზავნა."
 
 #: ajax/oc_photo.php:32
 msgid "No photo path was submitted."
@@ -119,11 +119,11 @@ msgstr "დროებითი საქაღალდე არ არსე
 
 #: ajax/uploadimport.php:52
 msgid "Failed to write to disk"
-msgstr ""
+msgstr "შეცდომა დისკზე ჩაწერისას"
 
 #: ajax/uploadimport.php:62
 msgid "Not enough storage available"
-msgstr ""
+msgstr "საცავში საკმარისი ადგილი არ არის"
 
 #: ajax/uploadimport.php:69
 msgid "Upload of blacklisted file:"
@@ -168,15 +168,15 @@ msgstr "კონტაქტების ინდექსირება"
 
 #: js/app.js:451
 msgid "Merge failed. Cannot find contact: {id}"
-msgstr ""
+msgstr "შერწყმა ვერ განხორციელდა. კონტაქტი ვერ მოიძებნა: {id}"
 
 #: js/app.js:464
 msgid "Merge failed."
-msgstr ""
+msgstr "შერწყმა ვერ განხორციელდა."
 
 #: js/app.js:471
 msgid "Merge failed. Error saving contact."
-msgstr ""
+msgstr "შერწყმა ვერ განხორციელდა. შეცდომა კონტაქტის შენახვისას."
 
 #: js/app.js:490
 msgid "Select photo"
@@ -188,11 +188,11 @@ msgstr "ქსელი ან სერვერის შეცდომა. �
 
 #: js/app.js:547
 msgid "Failed saving sort order: {error}"
-msgstr ""
+msgstr "დასორტირებული შენახვა ვერ განხორციელდა: {error}"
 
 #: js/app.js:580
 msgid "Failed saving last group: {error}"
-msgstr ""
+msgstr "ბოლო ჯგუფის შენახვა ვერ მოხერხდა: {error}"
 
 #: js/app.js:726 js/app.js:764
 msgid "Error adding to group."
@@ -212,11 +212,11 @@ msgstr "წაშლა დასრულდა. დააჭირეთ ა�
 
 #: js/app.js:928
 msgid "Failed adding address book: {error}"
-msgstr ""
+msgstr "მისამართების წიგნის დამატება ვერ მოხერხდა: {error}"
 
 #: js/app.js:981
 msgid "Failed adding addres books: {error}"
-msgstr ""
+msgstr "მისამართების წიგნების დამატება ვერ მოხერხდა: {error}"
 
 #: js/app.js:994
 msgid "Add address book"
@@ -224,7 +224,7 @@ msgstr "address book–ის დამატება"
 
 #: js/app.js:1097
 msgid "Error setting {name} as favorite."
-msgstr ""
+msgstr "პარამეტების {name} დაფავორიტების შეცდომა"
 
 #: js/app.js:1143
 msgid "Import done. Click here to cancel reloading."
@@ -253,7 +253,7 @@ msgstr "იმპორტირება  {filename}–დან ..."
 
 #: js/app.js:1209
 msgid "{success} imported, {failed} failed from {file}"
-msgstr ""
+msgstr "{success} იმპორტირებულია, {failed} შეცდომა {file}"
 
 #: js/app.js:1221
 msgid "Importing..."
@@ -279,7 +279,7 @@ msgstr "ასატვირთი ფაილი ძალიან დიდ
 
 #: js/app.js:1403 js/app.js:1407 templates/contacts.php:155
 msgid "Merge contacts"
-msgstr ""
+msgstr "კონტაქტების შერწყმა"
 
 #: js/app.js:1429 js/app.js:1483 js/settings.js:120 templates/contacts.php:27
 #: templates/contacts.php:34 templates/contacts.php:302
@@ -310,7 +310,7 @@ msgstr "შეცდომა პროფილის სურათის ჩ
 
 #: js/contacts.js:307
 msgid "Failed deleting property: {error}"
-msgstr ""
+msgstr "პარამეტრების წაშლა ვერ მოხერხდა: {error}"
 
 #: js/contacts.js:498
 msgid "Is this correct?"
@@ -336,11 +336,11 @@ msgstr "{num}–ი წასაშლელის უარყოფა"
 
 #: js/contacts.js:2082
 msgid "Failed loading contacts from {addressbook}: {error}"
-msgstr ""
+msgstr "კონტაქტების ჩატვირთვა ვერ მოხერხდა  {addressbook}: {error}"
 
 #: js/contacts.js:2099
 msgid "Failed loading address books: {error}"
-msgstr ""
+msgstr "მისამართების წიგნის ჩატვირთვა ვერ მოხერხდა:  {error}"
 
 #: js/groups.js:194
 msgid "Contact is already in this group."
@@ -364,7 +364,7 @@ msgstr "მოცემული კონტაქტები არ არი
 
 #: js/groups.js:415
 msgid "Failed deleting group: {error}"
-msgstr ""
+msgstr "შეცდომა ჯგუფის წაშლისას:  {error}"
 
 #: js/groups.js:545
 msgid "A group named {group} already exists"
@@ -378,7 +378,7 @@ msgstr "თქვენ შეგიძლიათ გადაანაცვ�
 
 #: js/groups.js:594
 msgid "Failed adding group: {error}"
-msgstr ""
+msgstr "შეცდომა ჯგუფის დამატებისას:  {error}"
 
 #: js/groups.js:605
 msgid "All"
@@ -441,11 +441,11 @@ msgstr "ნაკლები..."
 
 #: js/storage.js:198
 msgid "Failed loading photo: {error}"
-msgstr ""
+msgstr "შეცდომა სურათის ჩატვირთვისას:  {error}"
 
 #: js/storage.js:413 js/storage.js:426
 msgid "Request failed: {error}"
-msgstr ""
+msgstr "მოთხოვნის შეცდომა:  {error}"
 
 #: lib/backend/ldap.php:178
 msgid "There was an error updating the addressbook."
@@ -465,45 +465,45 @@ msgstr "უცნობი IM:"
 
 #: lib/controller/addressbookcontroller.php:89
 msgid "Error creating address book"
-msgstr ""
+msgstr "შეცდომა მისამართების წიგნის შექმნისას"
 
 #: lib/controller/addressbookcontroller.php:110
 msgid "Error deleting address book"
-msgstr ""
+msgstr "შეცდომა მისამართების წიგნის წაშლისას"
 
 #: lib/controller/addressbookcontroller.php:129
 msgid "Error creating contact."
-msgstr ""
+msgstr "შეცდომა კონტაქტის შექმნისას."
 
 #: lib/controller/addressbookcontroller.php:150
 msgid "Error deleting contact."
-msgstr ""
+msgstr "შეცდომა კონტაქტის წაშლისას."
 
 #: lib/controller/contactcontroller.php:45
 #: lib/controller/contactcontroller.php:126
 #: lib/controller/contactcontroller.php:187
 msgid "Couldn't find contact."
-msgstr ""
+msgstr "კონტაქტი ვერ მოიძებნა."
 
 #: lib/controller/contactcontroller.php:49
 msgid "Error merging into contact."
-msgstr ""
+msgstr "შეცდომა კონტაქტის შიგნით შერწყმისას."
 
 #: lib/controller/contactcontroller.php:52
 #: lib/controller/contactcontroller.php:144
 msgid "Error saving contact to backend."
-msgstr ""
+msgstr "შეცდომა კონტაქტის ბექენდში შენახვისას."
 
 #: lib/controller/contactcontroller.php:129
 #: lib/controller/contactcontroller.php:190
 msgid "Property name is not set."
-msgstr ""
+msgstr "პარამეტრების სახელი არ არის მითითებული."
 
 #: lib/controller/contactcontroller.php:132
 #: lib/controller/contactcontroller.php:193
 #: lib/controller/contactcontroller.php:202
 msgid "Property checksum is not set."
-msgstr ""
+msgstr "პარამეტრების ჩეკსამი არ არის დაყენებული."
 
 #: lib/controller/contactcontroller.php:138
 #: lib/controller/contactcontroller.php:208
@@ -512,15 +512,15 @@ msgstr " ინფორმაცია vCard–ზე არის მართ
 
 #: lib/controller/contactcontroller.php:212
 msgid "Error setting property"
-msgstr ""
+msgstr "შეცდომა პარამეტრების დაყენებისას"
 
 #: lib/controller/contactcontroller.php:216
 msgid "Error saving property to backend"
-msgstr ""
+msgstr "შეცდომა პარამეტრების ბექენდში შენახვისას"
 
 #: lib/controller/groupcontroller.php:60 lib/controller/groupcontroller.php:84
 msgid "No group name given."
-msgstr ""
+msgstr "ჯგუფის სახელი არ არის მოცემული."
 
 #: lib/controller/groupcontroller.php:67
 msgid "Error adding group."
@@ -538,11 +538,11 @@ msgstr "კონტაქტის  ID არ არსებობს მო�
 
 #: lib/controller/settingscontroller.php:36
 msgid "No key is given."
-msgstr ""
+msgstr "გასაღები არ არის მოცემული."
 
 #: lib/controller/settingscontroller.php:40
 msgid "No value is given."
-msgstr ""
+msgstr "მნიშვნელობა არ არის მოცემული."
 
 #: lib/hooks.php:183
 msgid "{name}'s Birthday"
@@ -722,7 +722,7 @@ msgstr "ფავორიტი"
 
 #: templates/contacts.php:76
 msgid "Merge selected"
-msgstr ""
+msgstr "მონიშნულების შერწყმა"
 
 #: templates/contacts.php:77
 msgid "Delete Contact"
@@ -792,11 +792,11 @@ msgstr "კონტაქტის დამატება"
 
 #: templates/contacts.php:156
 msgid "Which contact should the data be merged into?"
-msgstr ""
+msgstr "რომელი კონტაქტების ინფორმაცია უნდა შეირწყას?"
 
 #: templates/contacts.php:164
 msgid "Delete the other(s) after successful merge?"
-msgstr ""
+msgstr "წავშალო დანარჩენ(ებ)ი წარმატებული შერწყმის შემდეგ?"
 
 #: templates/contacts.php:176
 msgid "Compose mail"
@@ -840,7 +840,7 @@ msgstr "ჯგუფების არჩევა"
 
 #: templates/contacts.php:241
 msgid "Select address book"
-msgstr ""
+msgstr "მისამართების წიგნის არჩევა"
 
 #: templates/contacts.php:245 templates/contacts.php:309
 msgid "Nickname"

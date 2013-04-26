@@ -3,17 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <ajarmund@gmail.com>, 2011.
-# Arvid Nornes <arvid.nornes@gmail.com>, 2012.
-#   <espenbye@me.com>, 2012.
-#  <oyvind.hojem@gmail.com>, 2013.
-#   <sindre@haverstad.com>, 2012.
+# anjar <ajarmund@gmail.com>, 2011
+# Arvid Nornes <arvid.nornes@gmail.com>, 2012
+# espenbye <espenbye@me.com>, 2012
+# troll <oyvind.hojem@gmail.com>, 2013
+# sindrejh <sindre@haverstad.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"

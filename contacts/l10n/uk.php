@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "Файл відвантажено лише частково",
 "No file was uploaded" => "Не відвантажено жодного файлу",
 "Missing a temporary folder" => "Відсутній тимчасовий каталог",
+"Failed to write to disk" => "Невдалося записати на диск",
+"Not enough storage available" => "Місця більше немає",
 "Upload of blacklisted file:" => "Завантажити чорний список файлів:",
 "Error uploading contacts to storage." => "Помилка завантаження контактів у сховище.",
 "Couldn't save temporary image: " => "Не вдалося зберегти тимчасове зображення: ",

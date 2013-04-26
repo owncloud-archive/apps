@@ -22,6 +22,7 @@
 "The uploaded file was only partially uploaded" => "பதிவேற்றப்பட்ட கோப்பானது பகுதியாக மட்டுமே பதிவேற்றப்பட்டுள்ளது",
 "No file was uploaded" => "எந்த கோப்பும் பதிவேற்றப்படவில்லை",
 "Missing a temporary folder" => "ஒரு தற்காலிகமான கோப்புறையை காணவில்லை",
+"Failed to write to disk" => "வட்டில் எழுத முடியவில்லை",
 "Error uploading contacts to storage." => "சேமிப்பகத்தில் தொடர்புகளை பதிவேற்றுவதில் வழு",
 "Couldn't save temporary image: " => "தற்காலிக படத்தை சேமிக்கமுடியாது",
 "Couldn't load temporary image: " => "தற்காலிக படத்தை ஏற்றமுடியாது",

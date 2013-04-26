@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-26 00:49+0200\n"
-"PO-Revision-Date: 2013-04-25 22:49+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -125,11 +125,11 @@ msgstr "Está a faltar a pasta temporária"
 
 #: ajax/uploadimport.php:52
 msgid "Failed to write to disk"
-msgstr ""
+msgstr "Falhou a escrita no disco"
 
 #: ajax/uploadimport.php:62
 msgid "Not enough storage available"
-msgstr ""
+msgstr "Não há espaço suficiente em disco"
 
 #: ajax/uploadimport.php:69
 msgid "Upload of blacklisted file:"

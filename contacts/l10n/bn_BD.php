@@ -25,6 +25,7 @@
 "Couldn't load temporary image: " => "অস্থায়ী ছবি লোড করা সম্ভব হলো নাঃ",
 "Contacts" => "ঠিকানাসমূহ",
 "Error" => "সমস্যা",
+"Unable to upload your file as it is a directory or has 0 bytes" => "আপনার ফাইলটি আপলোড করা সম্ভব হলো না, কেননা এটি হয় একটি ফোল্ডার কিংবা এর আকার ০ বাইট",
 "Upload Error" => "আপলোড করতে সমস্যা",
 "The file you are trying to upload exceed the maximum size for file uploads on this server." => "আপনি যে ফাইলটি আপলোড করার চেষ্টা করছেন তা এই সার্ভারে  আপলোডের জন্য অনুমোদিত সর্বোচ্চ সীমা অতিক্রম করেছেন।",
 "Upload too large" => "আপলোডের আকার অনেক বড়",

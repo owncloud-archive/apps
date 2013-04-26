@@ -1,10 +1,12 @@
 <?php $TRANSLATIONS = array(
 "File doesn't exist:" => "Skrá finnst ekki:",
+"No file was uploaded. Unknown error" => "Engin skrá var send inn. Óþekkt villa.",
 "There is no error, the file uploaded with success" => "Engin villa, innsending heppnaðist",
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form" => "Innsenda skráin er stærri en MAX_FILE_SIZE sem skilgreint er í HTML sniðinu.",
 "The uploaded file was only partially uploaded" => "Einungis hluti af innsendri skrá skilaði sér",
 "No file was uploaded" => "Engin skrá skilaði sér",
 "Missing a temporary folder" => "Vantar bráðabirgðamöppu",
+"Failed to write to disk" => "Tókst ekki að skrifa á disk",
 "Couldn't save temporary image: " => "Gat ekk vistað bráðabirgða mynd:",
 "Error" => "<strong>Villa</strong>",
 "Unable to upload your file as it is a directory or has 0 bytes" => "Innsending á skrá mistókst, hugsanlega sendir þú möppu eða skráin er 0 bæti.",

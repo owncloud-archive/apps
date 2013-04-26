@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "Augšupielādētā datne ir tikai daļēji augšupielādēta",
 "No file was uploaded" => "Neviena datne netika augšupielādēta",
 "Missing a temporary folder" => "Trūkst pagaidu mapes",
+"Failed to write to disk" => "Neizdevās saglabāt diskā",
+"Not enough storage available" => "Nav pietiekami daudz vietas",
 "Error uploading contacts to storage." => "Kļūda, augšupielādējot kontaktus uz krātuvi.",
 "Couldn't save temporary image: " => "Nevar saglabāt pagaidu attēlu:",
 "Couldn't load temporary image: " => "Nevarēja ielādēt pagaidu attēlu:",

@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "アップロードファイルは一部分だけアップロードされました",
 "No file was uploaded" => "ファイルはアップロードされませんでした",
 "Missing a temporary folder" => "一時保存フォルダが見つかりません",
+"Failed to write to disk" => "ディスクへの書き込みに失敗しました",
+"Not enough storage available" => "ストレージに十分な空き容量がありません",
 "Upload of blacklisted file:" => "ブラックリストのファイルのアップロード:",
 "Error uploading contacts to storage." => "ストレージへの連絡先のアップロードエラー。",
 "Couldn't save temporary image: " => "一時的な画像の保存ができませんでした: ",

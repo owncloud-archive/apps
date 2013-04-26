@@ -19,6 +19,7 @@
 "The uploaded file was only partially uploaded" => "文件部分上传",
 "No file was uploaded" => "没有上传文件",
 "Missing a temporary folder" => "缺失临时文件夹",
+"Failed to write to disk" => "写磁盘失败",
 "Error uploading contacts to storage." => "上传联系人到存储出错。",
 "Couldn't save temporary image: " => "不能保存临时相片：",
 "Couldn't load temporary image: " => "不能载入临时相片：",

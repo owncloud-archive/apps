@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-26 00:49+0200\n"
-"PO-Revision-Date: 2013-04-25 22:49+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 16:21+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/owncloud/language/bg_BG/)\n"
 "MIME-Version: 1.0\n"
@@ -92,7 +92,7 @@ msgstr ""
 
 #: ajax/uploadimport.php:45 ajax/uploadphoto.php:86
 msgid "There is no error, the file uploaded with success"
-msgstr ""
+msgstr "Файлът е качен успешно"
 
 #: ajax/uploadimport.php:46 ajax/uploadphoto.php:87
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
@@ -102,15 +102,15 @@ msgstr ""
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
+msgstr "Файлът който се опитвате да качите надвишава стойностите в MAX_FILE_SIZE в HTML формата."
 
 #: ajax/uploadimport.php:49 ajax/uploadphoto.php:89
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Файлът е качен частично"
 
 #: ajax/uploadimport.php:50 ajax/uploadphoto.php:90
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Фахлът не бе качен"
 
 #: ajax/uploadimport.php:51 ajax/uploadphoto.php:91
 msgid "Missing a temporary folder"
@@ -118,7 +118,7 @@ msgstr "Липсва временна папка"
 
 #: ajax/uploadimport.php:52
 msgid "Failed to write to disk"
-msgstr ""
+msgstr "Възникна проблем при запис в диска"
 
 #: ajax/uploadimport.php:62
 msgid "Not enough storage available"

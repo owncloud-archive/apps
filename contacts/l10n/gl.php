@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "O ficheiro so foi parcialmente enviado",
 "No file was uploaded" => "Non se enviou ningún ficheiro",
 "Missing a temporary folder" => "Falta o cartafol temporal",
+"Failed to write to disk" => "Produciuse un erro ao escribir no disco",
+"Not enough storage available" => "Non hai espazo de almacenamento abondo",
 "Upload of blacklisted file:" => "Envío do ficheiro de lista negra:",
 "Error uploading contacts to storage." => "Produciuse un erro ao enviar contactos ao almacén.",
 "Couldn't save temporary image: " => "Non foi posíbel gardar a imaxe temporal: ",

@@ -22,6 +22,8 @@
 "The uploaded file was only partially uploaded" => "Dosya kısmen karşıya yüklenebildi",
 "No file was uploaded" => "Hiç dosya gönderilmedi",
 "Missing a temporary folder" => "Geçici dizin eksik",
+"Failed to write to disk" => "Diske yazılamadı",
+"Not enough storage available" => "Yeterli disk alanı yok",
 "Upload of blacklisted file:" => "Karaliste dosyası yüklemesi:",
 "Error uploading contacts to storage." => "Bağlantıları depoya yükleme hatası",
 "Couldn't save temporary image: " => "Geçici resmi saklayamadı : ",

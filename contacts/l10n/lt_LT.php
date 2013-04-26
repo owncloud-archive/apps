@@ -9,6 +9,7 @@
 "The uploaded file was only partially uploaded" => "Failas buvo įkeltas tik dalinai",
 "No file was uploaded" => "Nebuvo įkeltas joks failas",
 "Missing a temporary folder" => "Nėra laikinojo katalogo",
+"Failed to write to disk" => "Nepavyko įrašyti į diską",
 "Contacts" => "Kontaktai",
 "Error" => "Klaida",
 "Importing..." => "Importuojama...",

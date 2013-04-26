@@ -15,13 +15,14 @@
 # xneo1 <vagelis@cyberdest.com>, 2013
 # xneo1 <vagelis@cyberdest.com>, 2012
 # Wasilis <m.wasilis@yahoo.de>, 2013
+# KAT.RAT12 <spanish.katerina@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-26 00:49+0200\n"
-"PO-Revision-Date: 2013-04-25 22:49+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 18:00+0000\n"
+"Last-Translator: KAT.RAT12 <spanish.katerina@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -129,11 +130,11 @@ msgstr "Λείπει ο προσωρινός φάκελος"
 
 #: ajax/uploadimport.php:52
 msgid "Failed to write to disk"
-msgstr ""
+msgstr "Αποτυχία εγγραφής στο δίσκο"
 
 #: ajax/uploadimport.php:62
 msgid "Not enough storage available"
-msgstr ""
+msgstr "Μη επαρκής διαθέσιμος αποθηκευτικός χώρος"
 
 #: ajax/uploadimport.php:69
 msgid "Upload of blacklisted file:"
@@ -178,15 +179,15 @@ msgstr "Εύρεση επαφών "
 
 #: js/app.js:451
 msgid "Merge failed. Cannot find contact: {id}"
-msgstr ""
+msgstr "Η σύνδεση απέτυχε. Δεν μπορεί να βρεί τις πληροφορίες επαφής. "
 
 #: js/app.js:464
 msgid "Merge failed."
-msgstr ""
+msgstr "Η συγχώνευση απέτυχε. "
 
 #: js/app.js:471
 msgid "Merge failed. Error saving contact."
-msgstr ""
+msgstr "Η σύνδεση απέτυχε. Σφάλμα κατά την αποθήκευση των στοιχείων επαφής. "
 
 #: js/app.js:490
 msgid "Select photo"
@@ -198,11 +199,11 @@ msgstr "Σφάλμα δικτύου ή διακομιστή. Παρακαλώ ε
 
 #: js/app.js:547
 msgid "Failed saving sort order: {error}"
-msgstr ""
+msgstr "Απέτυχε να αποθηκεύσει την σειρά επιλογής (σφάλμα)"
 
 #: js/app.js:580
 msgid "Failed saving last group: {error}"
-msgstr ""
+msgstr "Απέτυχε να αποθηκεύσει την τελευταία ομάδα (σφάλμα)"
 
 #: js/app.js:726 js/app.js:764
 msgid "Error adding to group."
@@ -263,7 +264,7 @@ msgstr "Εισαγωγή από {filename}..."
 
 #: js/app.js:1209
 msgid "{success} imported, {failed} failed from {file}"
-msgstr ""
+msgstr "(επιτυχία)ειαγωγή, (απέτυχε)από τον (φάκελλο)"
 
 #: js/app.js:1221
 msgid "Importing..."
@@ -289,7 +290,7 @@ msgstr "Πολύ μεγάλο αρχείο προς αποστολή"
 
 #: js/app.js:1403 js/app.js:1407 templates/contacts.php:155
 msgid "Merge contacts"
-msgstr ""
+msgstr "Σύνδεση επαφών "
 
 #: js/app.js:1429 js/app.js:1483 js/settings.js:120 templates/contacts.php:27
 #: templates/contacts.php:34 templates/contacts.php:302
@@ -346,11 +347,11 @@ msgstr "Αναιρέθηκε η διαγραφή {num}"
 
 #: js/contacts.js:2082
 msgid "Failed loading contacts from {addressbook}: {error}"
-msgstr ""
+msgstr "Αποτυχία κατά την φόρτωση στοιχείων επικοινωνίας από (το βιβλίο διευθύνσεων) (σφάλμα)"
 
 #: js/contacts.js:2099
 msgid "Failed loading address books: {error}"
-msgstr ""
+msgstr "Απέτυχε να φορτώσει βιβλία διευθύνσεων. (σφάλμα)"
 
 #: js/groups.js:194
 msgid "Contact is already in this group."
@@ -374,7 +375,7 @@ msgstr "Οι επαφές δεν είναι σε αυτή την ομάδα."
 
 #: js/groups.js:415
 msgid "Failed deleting group: {error}"
-msgstr ""
+msgstr "Απέτυχε να διαγράψει την ομάδα (σφάλμα)"
 
 #: js/groups.js:545
 msgid "A group named {group} already exists"
@@ -475,15 +476,15 @@ msgstr "Άγνωστο IM:"
 
 #: lib/controller/addressbookcontroller.php:89
 msgid "Error creating address book"
-msgstr ""
+msgstr "Σφάλμα κατά την δημιουργία βιβλίου διευθύνσεων "
 
 #: lib/controller/addressbookcontroller.php:110
 msgid "Error deleting address book"
-msgstr ""
+msgstr "Σφάλμα κατά την διαγραφή βιβλίου διεευθύνσεων "
 
 #: lib/controller/addressbookcontroller.php:129
 msgid "Error creating contact."
-msgstr ""
+msgstr "Σφάλμα κατά την δημιουργία επαφής "
 
 #: lib/controller/addressbookcontroller.php:150
 msgid "Error deleting contact."
@@ -493,7 +494,7 @@ msgstr ""
 #: lib/controller/contactcontroller.php:126
 #: lib/controller/contactcontroller.php:187
 msgid "Couldn't find contact."
-msgstr ""
+msgstr "Δεν μπόρεσε να βρει την επαφή "
 
 #: lib/controller/contactcontroller.php:49
 msgid "Error merging into contact."
@@ -502,7 +503,7 @@ msgstr ""
 #: lib/controller/contactcontroller.php:52
 #: lib/controller/contactcontroller.php:144
 msgid "Error saving contact to backend."
-msgstr ""
+msgstr "Σφάλμα κατά την αποθήκευση επαφής στο τέλος. "
 
 #: lib/controller/contactcontroller.php:129
 #: lib/controller/contactcontroller.php:190
