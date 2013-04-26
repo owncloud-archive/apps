@@ -258,12 +258,12 @@ class Database extends AbstractBackend {
 			if (\OC_DB::isError($result)) {
 				\OCP\Util::writeLog('contacts', __METHOD__. 'DB error: '
 					. \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-				return;
+				return false;
 			}
 		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.
 				', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
-			return;
+			return false;
 		}
 
 		if(!is_null($result)) {
