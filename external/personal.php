@@ -1,7 +1,11 @@
 <?php
 OCP\User::checkLoggedIn();
-OCP\Util::addscript("external", "personal" );
 
-$tmpl = new OCP\Template( 'external', 'personal');
+if(OCP\Config::getAppValue('external', 'allowUsers') == 'true'){
 
-return $tmpl->fetchPage();
+	OCP\Util::addscript("external", "personal" );
+
+	$tmpl = new OCP\Template( 'external', 'personal');
+
+	return $tmpl->fetchPage();
+}
