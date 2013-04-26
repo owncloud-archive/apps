@@ -187,7 +187,7 @@ Class Properties {
 	}
 
 	public static function generateUID($app = 'contacts') {
-		return date('Ymd\\THis') . '.' . time(). '@' . OCP\Util::getServerHostName();
+		return date('Ymd\\THis') . '.' . time(). '@' . \OCP\Util::getServerHostName();
 	}
 
 	/**
