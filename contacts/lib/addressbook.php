@@ -106,10 +106,11 @@ class Addressbook extends AbstractPIMCollection {
 	}
 
 	/**
-	 * @return string
+	 * Returns the lowest permission of what the backend allows and what it supports.
+	 * @return int
 	 */
 	public function getPermissions() {
-		return $this->addressBookInfo['permissions'];
+		return min($this->addressBookInfo['permissions'], $this->backend->getAddressBookPermissions());
 	}
 
 	function getBackend() {
@@ -124,6 +125,9 @@ class Addressbook extends AbstractPIMCollection {
 	*/
 	function getChild($id) {
 		//\OCP\Util::writeLog('contacts', __METHOD__.' id: '.$id, \OCP\Util::DEBUG);
+		if(!$this->hasPermission(\OCP\PERMISSION_READ)) {
+			throw new \Exception('Access denied');
+		}
 		if(!isset($this->objects[$id])) {
 			$contact = $this->backend->getContact($this->getId(), $id);
 			if($contact) {
@@ -153,6 +157,9 @@ class Addressbook extends AbstractPIMCollection {
 	* @return Contact[]
 	*/
 	function getChildren($limit = null, $offset = null, $omitdata = false) {
+		if(!$this->hasPermission(\OCP\PERMISSION_READ)) {
+			throw new \Exception('Access denied');
+		}
 		//\OCP\Util::writeLog('contacts', __METHOD__.' backend: ' . print_r($this->backend, true), \OCP\Util::DEBUG);
 		$contacts = array();
 
@@ -176,6 +183,9 @@ class Addressbook extends AbstractPIMCollection {
 	 * @return int|bool
 	 */
 	public function addChild($data = null) {
+		if(!$this->hasPermission(\OCP\PERMISSION_CREATE)) {
+			throw new \Exception('Access denied');
+		}
 		$contact = new Contact($this, $this->backend, $data);
 		if($contact->save() === false) {
 			return false;
@@ -195,6 +205,9 @@ class Addressbook extends AbstractPIMCollection {
 	 * @return bool
 	 */
 	public function deleteChild($id) {
+		if(!$this->hasPermission(\OCP\PERMISSION_READ)) {
+			throw new \Exception('Access denied');
+		}
 		if($this->backend->deleteContact($this->getId(), $id)) {
 			if(isset($this->objects[$id])) {
 				unset($this->objects[$id]);

@@ -190,7 +190,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 	 * @param array $data
 	 * @return bool
 	 */
-	public function update(array $data) {
+/*	public function update(array $data) {
 
 		foreach($data as $key => $value) {
 			switch($key) {
@@ -208,7 +208,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 			$this
 		);
 	}
-
+*/
 	/**
 	 * Delete the data from backend
 	 *
@@ -227,6 +227,9 @@ class Contact extends VObject\VCard implements IPIMObject {
 	 * @return bool
 	 */
 	public function save($force = false) {
+		if(!$this->hasPermission(\OCP\PERMISSION_UPDATE)) {
+			throw new \Exception('Access denied');
+		}
 		if($this->isSaved() && !$force) {
 			\OCP\Util::writeLog('contacts', __METHOD__.' Already saved: ' . print_r($this->props, true), \OCP\Util::DEBUG);
 			return true;
