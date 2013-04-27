@@ -176,7 +176,6 @@ class ContactController extends BaseController {
 		$response->debug('contacts_contact_delete_property, checksum: ' . print_r($checksum, true));
 		$response->debug('contacts_contact_save_property, parameters: ' . print_r($parameters, true));
 
-		$app = new App($request->parameters['user']);
 		$contact = $app->getContact(
 			$request->parameters['backend'],
 			$request->parameters['addressbookid'],
