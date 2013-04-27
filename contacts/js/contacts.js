@@ -382,7 +382,7 @@ OC.Contacts = OC.Contacts || {};
 		if(params.obj) {
 			obj = params.obj;
 			args = this.argumentsFor(obj);
-			args['parameters'] = this.parametersFor(obj);
+			//args['parameters'] = $.param(this.parametersFor(obj));
 			element = this.propertyTypeFor(obj);
 		} else {
 			args = params;
@@ -740,6 +740,8 @@ OC.Contacts = OC.Contacts || {};
 				args['value'] = $elements.val();
 			}
 		}
+		args['parameters'] = this.parametersFor(obj);
+		console.log('Contact.argumentsFor', args);
 		return args;
 	};
 
@@ -803,9 +805,9 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.parametersFor = function(obj, asText) {
-		var parameters = [];
+		var parameters = {};
 		$.each(this.propertyContainerFor(obj)
-			.find('select.parameter,input:checkbox:checked.parameter,textarea'), // Why do I look for textarea?
+			.find('select.parameter,input:checkbox:checked.parameter'),
 			   function(i, elem) {
 			var $elem = $(elem);
 			var paramname = $elem.data('parameter');

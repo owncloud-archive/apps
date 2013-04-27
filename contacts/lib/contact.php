@@ -429,9 +429,13 @@ class Contact extends VObject\VCard implements IPIMObject {
 				if(is_null($parameters) || !isset($parameters['X-SERVICE-TYPE'])) {
 					throw new \InvalidArgumentException(__METHOD__.' Missing IM parameter for: '.$name. ' ' . $value);
 				}
-				$impp = Utils\Properties::getIMOptions($parameters['X-SERVICE-TYPE']);
+				$serviceType = $parameters['X-SERVICE-TYPE'];
+				if(is_array($serviceType)) {
+					$serviceType = $serviceType[0];
+				}
+				$impp = Utils\Properties::getIMOptions($serviceType);
 				if(is_null($impp)) {
-					throw new \UnexpectedValueException(__METHOD__.'Unknown IM: ' . $parameters['X-SERVICE-TYPE']);
+					throw new \UnexpectedValueException(__METHOD__.' Unknown IM: ' . $serviceType);
 				}
 				$value = $impp['protocol'] . ':' . $value;
 				$property->setValue($value);
@@ -441,7 +445,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 				$property->setValue($value);
 				break;
 		}
-		$this->setParameters($property, $parameters);
+		$this->setParameters($property, $parameters, true);
 		$this->setSaved(false);
 		return substr(md5($property->serialize()), 0, 8);
 	}
@@ -507,28 +511,28 @@ class Contact extends VObject\VCard implements IPIMObject {
 		if($reset) {
 			$property->parameters = array();
 		}
-		debug('Setting parameters: ' . print_r($parameters, true));
+		//debug('Setting parameters: ' . print_r($parameters, true));
 		foreach($parameters as $key => $parameter) {
-			debug('Adding parameter: ' . $key);
+			//debug('Adding parameter: ' . $key);
 			if(is_array($parameter)) {
 				foreach($parameter as $val) {
 					if(is_array($val)) {
 						foreach($val as $val2) {
 							if(trim($key) && trim($val2)) {
-								debug('Adding parameter: '.$key.'=>'.print_r($val2, true));
+								//debug('Adding parameter: '.$key.'=>'.print_r($val2, true));
 								$property->add($key, strip_tags($val2));
 							}
 						}
 					} else {
 						if(trim($key) && trim($val)) {
-							debug('Adding parameter: '.$key.'=>'.print_r($val, true));
+							//debug('Adding parameter: '.$key.'=>'.print_r($val, true));
 							$property->add($key, strip_tags($val));
 						}
 					}
 				}
 			} else {
 				if(trim($key) && trim($parameter)) {
-					debug('Adding parameter: '.$key.'=>'.print_r($parameter, true));
+					//debug('Adding parameter: '.$key.'=>'.print_r($parameter, true));
 					$property->add($key, strip_tags($parameter));
 				}
 			}
