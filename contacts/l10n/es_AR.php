@@ -86,8 +86,6 @@
 "Less..." => "Menos...",
 "There was an error updating the addressbook." => "Hubo un error mientras se actualizaba la agenda.",
 "There was an error deleting this addressbook." => "Hubo un error mientras se borraba esta agenda.",
-"Missing IM parameter." => "Falta un parámetro del MI.",
-"Unknown IM: " => "MI desconocido:",
 "Information about vCard is incorrect. Please reload the page." => "La información sobre la vCard es incorrecta. Por favor, cargá nuevamente la página",
 "Error adding group." => "Error al añadir grupo",
 "Group ID missing from request." => "ID de grupo faltante en la solicitud.",

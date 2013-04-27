@@ -86,8 +86,6 @@
 "Less..." => "Gutxiago...",
 "There was an error updating the addressbook." => "Errore bat izan da helbide-liburua eguneratzean.",
 "There was an error deleting this addressbook." => "Errore bat izan da helbide-liburu hau ezabatzean.",
-"Missing IM parameter." => "BM parametroa falta da.",
-"Unknown IM: " => "BM ezezaguna:",
 "Information about vCard is incorrect. Please reload the page." => "vCard-aren inguruko informazioa okerra da. Mesedez birkargatu orrialdea.",
 "Error adding group." => "Errore bat izan da taldea gehitzean.",
 "Group ID missing from request." => "Taldearen IDa falta da eskarian.",

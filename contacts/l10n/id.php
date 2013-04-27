@@ -86,8 +86,6 @@
 "Less..." => "Ciutkan",
 "There was an error updating the addressbook." => "Galat terjadi saat memperbarui buku alamat.",
 "There was an error deleting this addressbook." => "Galat saat menghapus buku alamat ini.",
-"Missing IM parameter." => "Parameter IM tidak ada.",
-"Unknown IM: " => "IM tidak dikenal:",
 "Information about vCard is incorrect. Please reload the page." => "Informasi tentang vCard salah. Mohon muat ulang halaman.",
 "Error adding group." => "Galat saat menambah grup.",
 "Group ID missing from request." => "ID grup tidak ada pada permintaan.",

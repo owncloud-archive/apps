@@ -86,8 +86,6 @@
 "Less..." => "Minder...",
 "There was an error updating the addressbook." => "Er is een fout opgetreden bij het bijwerken van het adresboek.",
 "There was an error deleting this addressbook." => "Er is een fout opgetreden bij het verwijderen van dit adresboek.",
-"Missing IM parameter." => "IM parameter ontbreekt",
-"Unknown IM: " => "Onbekende IM:",
 "Information about vCard is incorrect. Please reload the page." => "Informatie over de vCard is onjuist. Herlaad de pagina.",
 "Error adding group." => "Fout bij toevoegen groep",
 "Group ID missing from request." => "Groep ID niet opgegeven",

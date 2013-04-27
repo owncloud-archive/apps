@@ -104,8 +104,6 @@
 "Request failed: {error}" => "Запрос не удался: {error}",
 "There was an error updating the addressbook." => "Ошибка при обновлении адресной книги.",
 "There was an error deleting this addressbook." => "Ошибка при удалении адресной книги.",
-"Missing IM parameter." => "Отсутствует параметр IM.",
-"Unknown IM: " => "Неизвестный IM:",
 "Error creating address book" => "Ошибка создания адресной книги",
 "Error deleting address book" => "Ошибка удаления адресной книги",
 "Error creating contact." => "Ошибка создания контакта.",

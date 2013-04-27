@@ -51,8 +51,6 @@
 "Less..." => "更少...",
 "There was an error updating the addressbook." => "更新地址薄出错。",
 "There was an error deleting this addressbook." => "删除此地址薄出错。",
-"Missing IM parameter." => "缺失即时通讯参数。",
-"Unknown IM: " => "未知即时通讯服务：",
 "Information about vCard is incorrect. Please reload the page." => "vCard 信息不正确。请刷新页面。",
 "{name}'s Birthday" => "{name} 的生日",
 "Contact" => "联系人",

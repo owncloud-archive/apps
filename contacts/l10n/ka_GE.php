@@ -104,8 +104,6 @@
 "Request failed: {error}" => "მოთხოვნის შეცდომა:  {error}",
 "There was an error updating the addressbook." => "მოხდა შეცდომა addressbook–ის განახლების დროს.",
 "There was an error deleting this addressbook." => "მოხდა შეცდომა  addressbook–ის წაშლის დროს.",
-"Missing IM parameter." => "IM პარამეტრი არ არსებობს.",
-"Unknown IM: " => "უცნობი IM:",
 "Error creating address book" => "შეცდომა მისამართების წიგნის შექმნისას",
 "Error deleting address book" => "შეცდომა მისამართების წიგნის წაშლისას",
 "Error creating contact." => "შეცდომა კონტაქტის შექმნისას.",

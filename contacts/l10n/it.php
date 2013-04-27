@@ -104,8 +104,6 @@
 "Request failed: {error}" => "Richiesta non riuscita: {error}",
 "There was an error updating the addressbook." => "Si è verificato un errore durante l'aggiornamento della rubrica.",
 "There was an error deleting this addressbook." => "Si è verificato un errore durante l'eliminazione della rubrica.",
-"Missing IM parameter." => "Parametro IM mancante.",
-"Unknown IM: " => "IM sconosciuto:",
 "Error creating address book" => "Errore durante la creazione della rubrica",
 "Error deleting address book" => "Errore durante l'eliminazione della rubrica",
 "Error creating contact." => "Errore durante la creazione del contatto.",

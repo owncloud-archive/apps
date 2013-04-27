@@ -78,8 +78,6 @@
 "Request failed: {error}" => "Pyyntö epäonnistui: {error}",
 "There was an error updating the addressbook." => "Virhe osoitekirjaa päivittäessä.",
 "There was an error deleting this addressbook." => "Virhe osoitekirjaa poistaessa.",
-"Missing IM parameter." => "Puuttuva IM-arvo.",
-"Unknown IM: " => "Tuntematon IM-arvo.",
 "Error creating address book" => "Virhe osoitekirjaa luotaessa",
 "Error deleting address book" => "Virhe osoitekirjaa poistaessa",
 "Error creating contact." => "Virhe yhteystietoa luotaessa.",

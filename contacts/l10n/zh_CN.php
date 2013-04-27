@@ -86,8 +86,6 @@
 "Less..." => "更少...",
 "There was an error updating the addressbook." => "更新地址簿时出错",
 "There was an error deleting this addressbook." => "删除地址簿时出错",
-"Missing IM parameter." => "缺少即时通讯IM参数",
-"Unknown IM: " => "未知即时通讯服务：",
 "Information about vCard is incorrect. Please reload the page." => "vCard 的信息不正确。请重新加载页面。",
 "Error adding group." => "添加分组错误。",
 "Group ID missing from request." => "请求缺少分组ID。",

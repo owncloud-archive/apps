@@ -104,8 +104,6 @@
 "Request failed: {error}" => "Petición fallida: {error}",
 "There was an error updating the addressbook." => "Hubo un error actualizando la libreta de direcciones.",
 "There was an error deleting this addressbook." => "Hubo un error eliminando esta libreta de direcciones.",
-"Missing IM parameter." => "Falta un parámetro del MI.",
-"Unknown IM: " => "MI desconocido:",
 "Error creating address book" => "Error creando libreta de direcciones",
 "Error deleting address book" => "Error borrando libreta de direcciones",
 "Error creating contact." => "Error creando contacto.",

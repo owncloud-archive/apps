@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-27 00:49+0200\n"
-"PO-Revision-Date: 2013-04-26 16:21+0000\n"
+"POT-Creation-Date: 2013-04-28 00:49+0200\n"
+"PO-Revision-Date: 2013-04-27 22:49+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/owncloud/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -318,29 +318,29 @@ msgstr ""
 msgid "Is this correct?"
 msgstr ""
 
-#: js/contacts.js:902 js/contacts.js:943
+#: js/contacts.js:904 js/contacts.js:945
 msgid "# groups"
 msgstr ""
 
-#: js/contacts.js:1828
+#: js/contacts.js:1830
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "تعدادی از مخاطبان برای حذف شدن، نشانه گذاری شده اند، ولی هنوز حذف نشده اند. لطفاً صبر کنید تا همه ی آنها حذف شوند."
 
-#: js/contacts.js:1839
+#: js/contacts.js:1841
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1854
+#: js/contacts.js:1856
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
-#: js/contacts.js:2082
+#: js/contacts.js:2084
 msgid "Failed loading contacts from {addressbook}: {error}"
 msgstr ""
 
-#: js/contacts.js:2099
+#: js/contacts.js:2101
 msgid "Failed loading address books: {error}"
 msgstr ""
 
@@ -457,14 +457,6 @@ msgstr "یک خطا هنگام به روزرسانی این کتابچه آدر�
 msgid "There was an error deleting this addressbook."
 msgstr ""
 
-#: lib/contact.php:427
-msgid "Missing IM parameter."
-msgstr ""
-
-#: lib/contact.php:431
-msgid "Unknown IM: "
-msgstr ""
-
 #: lib/controller/addressbookcontroller.php:89
 msgid "Error creating address book"
 msgstr ""
@@ -483,7 +475,7 @@ msgstr ""
 
 #: lib/controller/contactcontroller.php:45
 #: lib/controller/contactcontroller.php:126
-#: lib/controller/contactcontroller.php:187
+#: lib/controller/contactcontroller.php:186
 msgid "Couldn't find contact."
 msgstr ""
 
@@ -497,26 +489,26 @@ msgid "Error saving contact to backend."
 msgstr ""
 
 #: lib/controller/contactcontroller.php:129
-#: lib/controller/contactcontroller.php:190
+#: lib/controller/contactcontroller.php:189
 msgid "Property name is not set."
 msgstr ""
 
 #: lib/controller/contactcontroller.php:132
-#: lib/controller/contactcontroller.php:193
-#: lib/controller/contactcontroller.php:202
+#: lib/controller/contactcontroller.php:192
+#: lib/controller/contactcontroller.php:201
 msgid "Property checksum is not set."
 msgstr ""
 
 #: lib/controller/contactcontroller.php:138
-#: lib/controller/contactcontroller.php:208
+#: lib/controller/contactcontroller.php:207
 msgid "Information about vCard is incorrect. Please reload the page."
 msgstr "اطلاعات درمورد vCard شما اشتباه است لطفا صفحه را دوباره بار گذاری کنید"
 
-#: lib/controller/contactcontroller.php:212
+#: lib/controller/contactcontroller.php:211
 msgid "Error setting property"
 msgstr ""
 
-#: lib/controller/contactcontroller.php:216
+#: lib/controller/contactcontroller.php:215
 msgid "Error saving property to backend"
 msgstr ""
 
@@ -554,9 +546,9 @@ msgstr "روز تولد {name} است"
 msgid "Contact"
 msgstr "اشخاص"
 
-#: lib/utils/jsonserializer.php:104 lib/utils/properties.php:150
-#: lib/utils/properties.php:163 lib/utils/properties.php:170
-#: lib/utils/properties.php:185
+#: lib/utils/jsonserializer.php:104 lib/utils/properties.php:155
+#: lib/utils/properties.php:168 lib/utils/properties.php:175
+#: lib/utils/properties.php:190
 msgid "Other"
 msgstr "دیگر"
 
@@ -569,100 +561,104 @@ msgid "Jabber"
 msgstr "Jabber"
 
 #: lib/utils/properties.php:71
+msgid "Internet call"
+msgstr ""
+
+#: lib/utils/properties.php:76
 msgid "AIM"
 msgstr "AIM"
 
-#: lib/utils/properties.php:76
+#: lib/utils/properties.php:81
 msgid "MSN"
 msgstr "msn"
 
-#: lib/utils/properties.php:81
+#: lib/utils/properties.php:86
 msgid "Twitter"
 msgstr "توییتر"
 
-#: lib/utils/properties.php:86
+#: lib/utils/properties.php:91
 msgid "GoogleTalk"
 msgstr "GoogleTalk"
 
-#: lib/utils/properties.php:91
+#: lib/utils/properties.php:96
 msgid "Facebook"
 msgstr "فیس بوک"
 
-#: lib/utils/properties.php:96
+#: lib/utils/properties.php:101
 msgid "XMPP"
 msgstr "XMPP"
 
-#: lib/utils/properties.php:101
+#: lib/utils/properties.php:106
 msgid "ICQ"
 msgstr ""
 
-#: lib/utils/properties.php:106
+#: lib/utils/properties.php:111
 msgid "Yahoo"
 msgstr "یاهو"
 
-#: lib/utils/properties.php:111
+#: lib/utils/properties.php:116
 msgid "Skype"
 msgstr "اسکایپ"
 
-#: lib/utils/properties.php:116
+#: lib/utils/properties.php:121
 msgid "QQ"
 msgstr "QQ"
 
-#: lib/utils/properties.php:121
+#: lib/utils/properties.php:126
 msgid "GaduGadu"
 msgstr "GaduGadu"
 
-#: lib/utils/properties.php:148 lib/utils/properties.php:156
-#: lib/utils/properties.php:167 lib/utils/properties.php:184
+#: lib/utils/properties.php:153 lib/utils/properties.php:161
+#: lib/utils/properties.php:172 lib/utils/properties.php:189
 msgid "Work"
 msgstr "کار"
 
-#: lib/utils/properties.php:149 lib/utils/properties.php:154
-#: lib/utils/properties.php:168
+#: lib/utils/properties.php:154 lib/utils/properties.php:159
+#: lib/utils/properties.php:173
 msgid "Home"
 msgstr "خانه"
 
-#: lib/utils/properties.php:155
+#: lib/utils/properties.php:160
 msgid "Mobile"
 msgstr "موبایل"
 
-#: lib/utils/properties.php:157
+#: lib/utils/properties.php:162
 msgid "Text"
 msgstr "متن"
 
-#: lib/utils/properties.php:158
+#: lib/utils/properties.php:163
 msgid "Voice"
 msgstr "صدا"
 
-#: lib/utils/properties.php:159
+#: lib/utils/properties.php:164
 msgid "Message"
 msgstr "پیغام"
 
-#: lib/utils/properties.php:160
+#: lib/utils/properties.php:165
 msgid "Fax"
 msgstr "دورنگار:"
 
-#: lib/utils/properties.php:161
+#: lib/utils/properties.php:166
 msgid "Video"
 msgstr "رسانه تصویری"
 
-#: lib/utils/properties.php:162
+#: lib/utils/properties.php:167
 msgid "Pager"
 msgstr "صفحه"
 
-#: lib/utils/properties.php:169
+#: lib/utils/properties.php:174
 msgid "Internet"
 msgstr "اینترنت"
 
-#: lib/utils/properties.php:182
+#: lib/utils/properties.php:187
 msgid "Friends"
 msgstr "دوستان"
 
-#: lib/utils/properties.php:183
+#: lib/utils/properties.php:188
 msgid "Family"
 msgstr "خانواده"
 
-#: lib/utils/properties.php:218
+#: lib/utils/properties.php:223
 msgid "There was an error deleting properties for this contact."
 msgstr ""
 

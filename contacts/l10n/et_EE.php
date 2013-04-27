@@ -104,8 +104,6 @@
 "Request failed: {error}" => "Päring ebaõnnestus: {error}",
 "There was an error updating the addressbook." => "Aadressiraamatu uuendamisel tekkis viga.",
 "There was an error deleting this addressbook." => "Selle aadressiraamatu kustutamisel tekkis viga.",
-"Missing IM parameter." => "Puuduv IM parameeter",
-"Unknown IM: " => "Tundmatu IM:",
 "Error creating address book" => "Viga aadressiraamatu loomisel",
 "Error deleting address book" => "Viga aadressiraamatu kustutamisel",
 "Error creating contact." => "Viga kontakti loomisel.",

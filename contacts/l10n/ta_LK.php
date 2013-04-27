@@ -73,8 +73,6 @@
 "Less..." => "குறைவு...",
 "There was an error updating the addressbook." => "முகவரி புத்தகத்தை இற்றைப்படுத்தலில் வழு.",
 "There was an error deleting this addressbook." => "இந்த முகவரி புத்தகத்தை நீக்குவதில் வழு",
-"Missing IM parameter." => "IM அளவுருகளை காணவில்லை.",
-"Unknown IM: " => "அறியப்படாத IM",
 "Information about vCard is incorrect. Please reload the page." => "vCard பற்றிய தகவல்கள் தவறானது. தயவுசெய்து பக்கத்தை மீள்ளேற்றுக",
 "Error adding group." => "குழுவை சேர்ப்பதில் வழு",
 "Group ID missing from request." => "வேண்டுகோளில் குழு ID விடுபட்டுள்ளது.",

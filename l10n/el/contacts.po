@@ -20,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-27 00:49+0200\n"
-"PO-Revision-Date: 2013-04-26 18:00+0000\n"
-"Last-Translator: KAT.RAT12 <spanish.katerina@gmail.com>\n"
+"POT-Creation-Date: 2013-04-28 00:49+0200\n"
+"PO-Revision-Date: 2013-04-27 22:49+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/owncloud/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -321,35 +321,35 @@ msgstr "Σφάλμα στην φόρτωση εικόνας προφίλ."
 
 #: js/contacts.js:307
 msgid "Failed deleting property: {error}"
-msgstr ""
+msgstr "Απέτυχε να διαγράψει κανονικά "
 
 #: js/contacts.js:498
 msgid "Is this correct?"
 msgstr "Είναι σωστό;"
 
-#: js/contacts.js:902 js/contacts.js:943
+#: js/contacts.js:904 js/contacts.js:945
 msgid "# groups"
 msgstr "# ομάδες"
 
-#: js/contacts.js:1828
+#: js/contacts.js:1830
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Κάποιες επαφές σημειώθηκαν προς διαγραφή,δεν έχουν διαγραφεί ακόμα. Παρακαλώ περιμένετε μέχρι να διαγραφούν."
 
-#: js/contacts.js:1839
+#: js/contacts.js:1841
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Κλικ για να αναιρέσετε τη διαγραφή {num} επαφών"
 
-#: js/contacts.js:1854
+#: js/contacts.js:1856
 msgid "Cancelled deletion of {num}"
 msgstr "Αναιρέθηκε η διαγραφή {num}"
 
-#: js/contacts.js:2082
+#: js/contacts.js:2084
 msgid "Failed loading contacts from {addressbook}: {error}"
 msgstr "Αποτυχία κατά την φόρτωση στοιχείων επικοινωνίας από (το βιβλίο διευθύνσεων) (σφάλμα)"
 
-#: js/contacts.js:2099
+#: js/contacts.js:2101
 msgid "Failed loading address books: {error}"
 msgstr "Απέτυχε να φορτώσει βιβλία διευθύνσεων. (σφάλμα)"
 
@@ -466,14 +466,6 @@ msgstr "Υπήρξε σφάλμα κατά την ενημέρωση του βι
 msgid "There was an error deleting this addressbook."
 msgstr "Υπήρξε σφάλμα κατά την διαγραφή αυτού του βιβλίου διευθύνσεων"
 
-#: lib/contact.php:427
-msgid "Missing IM parameter."
-msgstr "Λείπει IM παράμετρος."
-
-#: lib/contact.php:431
-msgid "Unknown IM: "
-msgstr "Άγνωστο IM:"
-
 #: lib/controller/addressbookcontroller.php:89
 msgid "Error creating address book"
 msgstr "Σφάλμα κατά την δημιουργία βιβλίου διευθύνσεων "
@@ -492,7 +484,7 @@ msgstr ""
 
 #: lib/controller/contactcontroller.php:45
 #: lib/controller/contactcontroller.php:126
-#: lib/controller/contactcontroller.php:187
+#: lib/controller/contactcontroller.php:186
 msgid "Couldn't find contact."
 msgstr "Δεν μπόρεσε να βρει την επαφή "
 
@@ -506,32 +498,32 @@ msgid "Error saving contact to backend."
 msgstr "Σφάλμα κατά την αποθήκευση επαφής στο τέλος. "
 
 #: lib/controller/contactcontroller.php:129
-#: lib/controller/contactcontroller.php:190
+#: lib/controller/contactcontroller.php:189
 msgid "Property name is not set."
-msgstr ""
+msgstr "Δεν περάστηκε το όνομα σωστά "
 
 #: lib/controller/contactcontroller.php:132
-#: lib/controller/contactcontroller.php:193
-#: lib/controller/contactcontroller.php:202
+#: lib/controller/contactcontroller.php:192
+#: lib/controller/contactcontroller.php:201
 msgid "Property checksum is not set."
-msgstr ""
+msgstr "Δεν περάστηκε το ποσό του τσεκ σωστά "
 
 #: lib/controller/contactcontroller.php:138
-#: lib/controller/contactcontroller.php:208
+#: lib/controller/contactcontroller.php:207
 msgid "Information about vCard is incorrect. Please reload the page."
 msgstr "Οι πληροφορίες σχετικά με vCard είναι εσφαλμένες. Παρακαλώ επαναφορτώστε τη σελίδα."
 
-#: lib/controller/contactcontroller.php:212
+#: lib/controller/contactcontroller.php:211
 msgid "Error setting property"
 msgstr ""
 
-#: lib/controller/contactcontroller.php:216
+#: lib/controller/contactcontroller.php:215
 msgid "Error saving property to backend"
-msgstr ""
+msgstr "Σφάλμα κατά την αποθήκευση της ιδιότητας στο τέλος "
 
 #: lib/controller/groupcontroller.php:60 lib/controller/groupcontroller.php:84
 msgid "No group name given."
-msgstr ""
+msgstr "Δεν δόθηκε όνομα ομάδας "
 
 #: lib/controller/groupcontroller.php:67
 msgid "Error adding group."
@@ -549,11 +541,11 @@ msgstr "Το ID επαφής λείπει από το αίτημα."
 
 #: lib/controller/settingscontroller.php:36
 msgid "No key is given."
-msgstr ""
+msgstr "Δεν δόθηκε κλειδί "
 
 #: lib/controller/settingscontroller.php:40
 msgid "No value is given."
-msgstr ""
+msgstr "Δεν δόθηκε τιμή "
 
 #: lib/hooks.php:183
 msgid "{name}'s Birthday"
@@ -563,9 +555,9 @@ msgstr "Τα Γεννέθλια του/της {name}"
 msgid "Contact"
 msgstr "Επαφή"
 
-#: lib/utils/jsonserializer.php:104 lib/utils/properties.php:150
-#: lib/utils/properties.php:163 lib/utils/properties.php:170
-#: lib/utils/properties.php:185
+#: lib/utils/jsonserializer.php:104 lib/utils/properties.php:155
+#: lib/utils/properties.php:168 lib/utils/properties.php:175
+#: lib/utils/properties.php:190
 msgid "Other"
 msgstr "Άλλο"
 
@@ -578,100 +570,104 @@ msgid "Jabber"
 msgstr "Jabber"
 
 #: lib/utils/properties.php:71
+msgid "Internet call"
+msgstr ""
+
+#: lib/utils/properties.php:76
 msgid "AIM"
 msgstr "AIM"
 
-#: lib/utils/properties.php:76
+#: lib/utils/properties.php:81
 msgid "MSN"
 msgstr "MSN"
 
-#: lib/utils/properties.php:81
+#: lib/utils/properties.php:86
 msgid "Twitter"
 msgstr "Twitter"
 
-#: lib/utils/properties.php:86
+#: lib/utils/properties.php:91
 msgid "GoogleTalk"
 msgstr "GoogleTalk"
 
-#: lib/utils/properties.php:91
+#: lib/utils/properties.php:96
 msgid "Facebook"
 msgstr "Facebook"
 
-#: lib/utils/properties.php:96
+#: lib/utils/properties.php:101
 msgid "XMPP"
 msgstr "XMPP"
 
-#: lib/utils/properties.php:101
+#: lib/utils/properties.php:106
 msgid "ICQ"
 msgstr "ICQ"
 
-#: lib/utils/properties.php:106
+#: lib/utils/properties.php:111
 msgid "Yahoo"
 msgstr "Yahoo"
 
-#: lib/utils/properties.php:111
+#: lib/utils/properties.php:116
 msgid "Skype"
 msgstr "Skype"
 
-#: lib/utils/properties.php:116
+#: lib/utils/properties.php:121
 msgid "QQ"
 msgstr "QQ"
 
-#: lib/utils/properties.php:121
+#: lib/utils/properties.php:126
 msgid "GaduGadu"
 msgstr "GaduGadu"
 
-#: lib/utils/properties.php:148 lib/utils/properties.php:156
-#: lib/utils/properties.php:167 lib/utils/properties.php:184
+#: lib/utils/properties.php:153 lib/utils/properties.php:161
+#: lib/utils/properties.php:172 lib/utils/properties.php:189
 msgid "Work"
 msgstr "Εργασία"
 
-#: lib/utils/properties.php:149 lib/utils/properties.php:154
-#: lib/utils/properties.php:168
+#: lib/utils/properties.php:154 lib/utils/properties.php:159
+#: lib/utils/properties.php:173
 msgid "Home"
 msgstr "Σπίτι"
 
-#: lib/utils/properties.php:155
+#: lib/utils/properties.php:160
 msgid "Mobile"
 msgstr "Κινητό"
 
-#: lib/utils/properties.php:157
+#: lib/utils/properties.php:162
 msgid "Text"
 msgstr "Κείμενο"
 
-#: lib/utils/properties.php:158
+#: lib/utils/properties.php:163
 msgid "Voice"
 msgstr "Ομιλία"
 
-#: lib/utils/properties.php:159
+#: lib/utils/properties.php:164
 msgid "Message"
 msgstr "Μήνυμα"
 
-#: lib/utils/properties.php:160
+#: lib/utils/properties.php:165
 msgid "Fax"
 msgstr "Φαξ"
 
-#: lib/utils/properties.php:161
+#: lib/utils/properties.php:166
 msgid "Video"
 msgstr "Βίντεο"
 
-#: lib/utils/properties.php:162
+#: lib/utils/properties.php:167
 msgid "Pager"
 msgstr "Βομβητής"
 
-#: lib/utils/properties.php:169
+#: lib/utils/properties.php:174
 msgid "Internet"
 msgstr "Διαδίκτυο"
 
-#: lib/utils/properties.php:182
+#: lib/utils/properties.php:187
 msgid "Friends"
 msgstr "Φίλοι"
 
-#: lib/utils/properties.php:183
+#: lib/utils/properties.php:188
 msgid "Family"
 msgstr "Οικογένεια"
 
-#: lib/utils/properties.php:218
+#: lib/utils/properties.php:223
 msgid "There was an error deleting properties for this contact."
 msgstr "Παρουσιάστηκε σφάλμα κατά τη διαγραφή των ιδιοτήτων αυτής της επαφής."
 
@@ -803,11 +799,11 @@ msgstr "Προσθήκη επαφής"
 
 #: templates/contacts.php:156
 msgid "Which contact should the data be merged into?"
-msgstr ""
+msgstr "Σε ποιά διεύθυνση επικοινωνίας πρέπει να συνδεθούν τα δεδομένα?"
 
 #: templates/contacts.php:164
 msgid "Delete the other(s) after successful merge?"
-msgstr ""
+msgstr "Διαγραφή των άλλων μετά την επιτυχή σύνδεση?"
 
 #: templates/contacts.php:176
 msgid "Compose mail"
@@ -851,7 +847,7 @@ msgstr "Επιλέξτε ομάδες"
 
 #: templates/contacts.php:241
 msgid "Select address book"
-msgstr ""
+msgstr "Επέλεξε βιβλίο διευθύνσεων"
 
 #: templates/contacts.php:245 templates/contacts.php:309
 msgid "Nickname"

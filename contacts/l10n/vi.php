@@ -85,8 +85,6 @@
 "Less..." => " ít hơn...",
 "There was an error updating the addressbook." => "Có một lỗi khi cập nhật danh bạ.",
 "There was an error deleting this addressbook." => "Có một lỗi khi xóa danh bạ này.",
-"Missing IM parameter." => "Thiếu tham số IM",
-"Unknown IM: " => "Không biết IM:",
 "Information about vCard is incorrect. Please reload the page." => "Thông tin vCard không chính xác. Vui lòng tải lại trang.",
 "Error adding group." => "Lỗi thêm nhóm.",
 "Group ID missing from request." => "ID nhóm không tìm thấy.",

@@ -86,8 +86,6 @@
 "Less..." => "Menej...",
 "There was an error updating the addressbook." => "Nastala chyba pri pokuse o úpravy v adresári.",
 "There was an error deleting this addressbook." => "Vyskytla sa chyba pri mazaní tohto adresára.",
-"Missing IM parameter." => "Chýba údaj o IM.",
-"Unknown IM: " => "Neznáme IM:",
 "Information about vCard is incorrect. Please reload the page." => "Informácie o vCard sú neplatné. Prosím obnovte stránku.",
 "Error adding group." => "Chyba vytvárania danej skupiny.",
 "Group ID missing from request." => "Chýbajúce skupinové ID pri požiadavke.",

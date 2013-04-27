@@ -43,8 +43,6 @@
 "Edit" => "সম্পাদনা",
 "Delete" => "মুছে",
 "More..." => "আরও....",
-"Missing IM parameter." => "IM এর পরিমিতি হারানো ।",
-"Unknown IM: " => "অজ্ঞাত IM:",
 "Information about vCard is incorrect. Please reload the page." => "vCard সম্পর্কিত তথ্যটি সঠিক নয়। দয়া করে পৃষ্ঠাটি পূনঃরায় লোড করুন।",
 "{name}'s Birthday" => "{name} এর জন্মদিন",
 "Contact" => "যোগাযোগ",

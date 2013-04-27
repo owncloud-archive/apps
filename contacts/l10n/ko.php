@@ -85,8 +85,6 @@
 "Less..." => "덜 보기...",
 "There was an error updating the addressbook." => "주소록을 업데이트하는 중 오류가 발생하였습니다.",
 "There was an error deleting this addressbook." => "이 주소록을 삭제하는 중 오류가 발생하였습니다.",
-"Missing IM parameter." => "IM 매개 변수가 없습니다.",
-"Unknown IM: " => "알 수 없는 IM:",
 "Information about vCard is incorrect. Please reload the page." => "vCard 정보가 올바르지 않습니다. 페이지를 새로 고치십시오.",
 "Error adding group." => "그룹을 추가하는 중 오류가 발생하였습니다.",
 "Group ID missing from request." => "요청에 그룹 ID가 누락되었습니다.",

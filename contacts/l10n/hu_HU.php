@@ -86,8 +86,6 @@
 "Less..." => "Kevesebb...",
 "There was an error updating the addressbook." => "Hiba történt a a címjegyzék frissítésekor.",
 "There was an error deleting this addressbook." => "A címjegyzék törlése nem sikerült.",
-"Missing IM parameter." => "Hiányzó IM paraméter.",
-"Unknown IM: " => "Ismeretlen IM:",
 "Information about vCard is incorrect. Please reload the page." => "A vCardról szóló információ helytelen. Frissítse az oldalt!",
 "Error adding group." => "Hiba a csoport hozzáadása közben.",
 "Group ID missing from request." => "A csoport azonosítója hiányzik a kérésből.",

@@ -86,8 +86,6 @@
 "Less..." => "Menos...",
 "There was an error updating the addressbook." => "Ocorreu um erro ao actualizar o livro de endereços.",
 "There was an error deleting this addressbook." => "Ocorreu um erro ao apagar esta lista de contactos.",
-"Missing IM parameter." => "Falta o parâmetro de mensagens instantâneas (IM)",
-"Unknown IM: " => "Mensagens instantâneas desconhecida (IM)",
 "Information about vCard is incorrect. Please reload the page." => "A informação sobre o vCard está incorrecta. Por favor recarregue a página",
 "Error adding group." => "Erro a adicionar o grupo",
 "Group ID missing from request." => "Falta o ID do grupo no pedido",

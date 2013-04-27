@@ -86,8 +86,6 @@
 "Less..." => "Mindre...",
 "There was an error updating the addressbook." => "Du har ikke rettigheder til at opdatere denne kontaktperson",
 "There was an error deleting this addressbook." => "Der opstod en fejl ved sletning af denne adressebog.",
-"Missing IM parameter." => "Manglende IM parameter.",
-"Unknown IM: " => "Ukendt IM:",
 "Information about vCard is incorrect. Please reload the page." => "Informationen om vCard er forkert. Genindlæs siden.",
 "Error adding group." => "Fejl ved tilføjelse af gruppe.",
 "Group ID missing from request." => "Group ID mangler anmodning.",

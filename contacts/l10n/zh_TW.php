@@ -86,8 +86,6 @@
 "Less..." => "較少...",
 "There was an error updating the addressbook." => "更新這本聯絡簿時發生錯誤。",
 "There was an error deleting this addressbook." => "刪除這本聯絡簿時發生錯誤。",
-"Missing IM parameter." => "遺失 IM 參數.",
-"Unknown IM: " => "未知的 IM:",
 "Information about vCard is incorrect. Please reload the page." => "有關 vCard 的資訊不正確，請重新載入此頁。",
 "Error adding group." => "新增群組錯誤。",
 "Group ID missing from request." => "該要求缺少群組ID",

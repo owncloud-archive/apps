@@ -86,8 +86,6 @@
 "Less..." => "簡略...",
 "There was an error updating the addressbook." => "アドレス帳を更新中にエラーが発生しました。",
 "There was an error deleting this addressbook." => "アドレス帳を削除するときにエラーが発生しました。",
-"Missing IM parameter." => "IMのパラメータが不足しています。",
-"Unknown IM: " => "不明なIM:",
 "Information about vCard is incorrect. Please reload the page." => "vCardの情報に誤りがあります。ページをリロードして下さい。",
 "Error adding group." => "グループの追加エラー。",
 "Group ID missing from request." => "リクエストにはグループIDがありません。",

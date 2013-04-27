@@ -85,8 +85,6 @@
 "Less..." => "Mazāk...",
 "There was an error updating the addressbook." => "Gadījās kļūda, atjauninot adrešu grāmatu.",
 "There was an error deleting this addressbook." => "Gadījās kļūda, dzēšot šo adrešu grāmatu.",
-"Missing IM parameter." => "Trūkst TZ parametra.",
-"Unknown IM: " => "Nezināms TZ:",
 "Information about vCard is incorrect. Please reload the page." => "Informācija par vCard ir nepareiza. Lūdzu, pārlādējiet šo lapu.",
 "Error adding group." => "Kļūda, pievienojot grupu.",
 "Group ID missing from request." => "Pieprasījumā pietrūkst grupas ID.",

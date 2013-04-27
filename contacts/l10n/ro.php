@@ -13,6 +13,7 @@
 "No file was uploaded" => "Nu a fost încărcat nici un fișier",
 "Missing a temporary folder" => "Lipsește un director temporar",
 "Failed to write to disk" => "Eroare la scriere pe disc",
+"Not enough storage available" => "Nu este suficient spațiu disponibil",
 "Error uploading contacts to storage." => "Eroare la încărcarea contactelor.",
 "Couldn't save temporary image: " => "Nu s-a putut salva imaginea temporară",
 "Contacts" => "Contacte",

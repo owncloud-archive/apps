@@ -86,8 +86,6 @@
 "Less..." => "Menys...",
 "There was an error updating the addressbook." => "S'ha produït un error en actualitzar la llibreta d'adreces.",
 "There was an error deleting this addressbook." => "S'ha produït un error en eliminar la llibreta d'adreces",
-"Missing IM parameter." => "Falta el paràmetre IM.",
-"Unknown IM: " => "IM desconegut:",
 "Information about vCard is incorrect. Please reload the page." => "La informació de la vCard és incorrecta. Carregueu la pàgina de nou.",
 "Error adding group." => "Error en afegir grup.",
 "Group ID missing from request." => "La ID del grup s'ha perdut en el requeriment.",

@@ -86,8 +86,6 @@
 "Less..." => "Menos...",
 "There was an error updating the addressbook." => "Produciuse un erro ao actualizar o caderno de enderezos.",
 "There was an error deleting this addressbook." => "Produciuse un erro ao eliminar este caderno de enderezos.",
-"Missing IM parameter." => "Falta un parámetro do MI.",
-"Unknown IM: " => "MI descoñecido:",
 "Information about vCard is incorrect. Please reload the page." => "A información sobre a vCard é incorrecta. Volva cargar a páxina.",
 "Error adding group." => "Produciuse un erro ao engadir o grupo.",
 "Group ID missing from request." => "Falta o ID do grupo desde a solicitude.",

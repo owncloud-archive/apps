@@ -86,8 +86,6 @@
 "Less..." => "daha küçük",
 "There was an error updating the addressbook." => "Adresdefteri güncellenirken hata oluştu.",
 "There was an error deleting this addressbook." => "Adresdefteri silinirken hata oluştu.",
-"Missing IM parameter." => "IM parametersi kayıp.",
-"Unknown IM: " => "Bilinmeyen IM:",
 "Information about vCard is incorrect. Please reload the page." => "vCard bilgileri doğru değil. Lütfen sayfayı yenileyin.",
 "Error adding group." => "Grup eklerken hata.",
 "Group ID missing from request." => "İstekde Group IP eksik ",

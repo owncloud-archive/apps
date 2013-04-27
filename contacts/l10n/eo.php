@@ -83,8 +83,6 @@
 "Less..." => "Malpli...",
 "There was an error updating the addressbook." => "Eraro okazis dum ĝisdatiĝis la adresaro.",
 "There was an error deleting this addressbook." => "Eraro okazis dum foriĝis ĉi tiu adresaro.",
-"Missing IM parameter." => "Mankas tujmesaĝada parametro.",
-"Unknown IM: " => "Nekonata tujmesaĝado:",
 "Information about vCard is incorrect. Please reload the page." => "Informo pri vCard estas malĝusta. Bonvolu reŝargi la paĝon.",
 "Error adding group." => "Eraro dum aldono de grupo.",
 "Group ID missing from request." => "Grupidentigilo mankas en peto.",

@@ -104,8 +104,6 @@
 "Request failed: {error}" => "Echec de la requête : {error}",
 "There was an error updating the addressbook." => "Une erreur s'est produite pendant la mise à jour du carnet d'adresses.",
 "There was an error deleting this addressbook." => "Erreur lors de la suppression du carnet d'adresses.",
-"Missing IM parameter." => "Paramètre de messagerie instantanée manquants.",
-"Unknown IM: " => "Messagerie instantanée inconnue",
 "Error creating address book" => "Erreur à la création du carnet d'adresses",
 "Error deleting address book" => "Erreur à la suppression du carnet d'adresses",
 "Error creating contact." => "Erreur à la création du contact.",

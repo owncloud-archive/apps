@@ -24,9 +24,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-27 00:49+0200\n"
-"PO-Revision-Date: 2013-04-26 16:21+0000\n"
-"Last-Translator: Christophe Lherieau <skimpax@gmail.com>\n"
+"POT-Creation-Date: 2013-04-28 00:49+0200\n"
+"PO-Revision-Date: 2013-04-27 22:49+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -331,29 +331,29 @@ msgstr "Echec de le suppression de la propriété : {error}"
 msgid "Is this correct?"
 msgstr "Est-ce correct ?"
 
-#: js/contacts.js:902 js/contacts.js:943
+#: js/contacts.js:904 js/contacts.js:945
 msgid "# groups"
 msgstr "# groupes"
 
-#: js/contacts.js:1828
+#: js/contacts.js:1830
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Certains contacts sont marqués pour être supprimés, mais ne le sont pas encore. Veuillez attendre que l'opération se termine."
 
-#: js/contacts.js:1839
+#: js/contacts.js:1841
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Cliquer pour annuler la suppression de {num} contacts"
 
-#: js/contacts.js:1854
+#: js/contacts.js:1856
 msgid "Cancelled deletion of {num}"
 msgstr "Suppression annulée pour {num} contacts"
 
-#: js/contacts.js:2082
+#: js/contacts.js:2084
 msgid "Failed loading contacts from {addressbook}: {error}"
 msgstr "Échec du chargement des contacts de {addressbook} : {error}"
 
-#: js/contacts.js:2099
+#: js/contacts.js:2101
 msgid "Failed loading address books: {error}"
 msgstr "Échec du chargement des carnets d'adresses : {error}"
 
@@ -470,14 +470,6 @@ msgstr "Une erreur s'est produite pendant la mise à jour du carnet d'adresses."
 msgid "There was an error deleting this addressbook."
 msgstr "Erreur lors de la suppression du carnet d'adresses."
 
-#: lib/contact.php:427
-msgid "Missing IM parameter."
-msgstr "Paramètre de messagerie instantanée manquants."
-
-#: lib/contact.php:431
-msgid "Unknown IM: "
-msgstr "Messagerie instantanée inconnue"
-
 #: lib/controller/addressbookcontroller.php:89
 msgid "Error creating address book"
 msgstr "Erreur à la création du carnet d'adresses"
@@ -496,7 +488,7 @@ msgstr "Erreur à la suppression du contact."
 
 #: lib/controller/contactcontroller.php:45
 #: lib/controller/contactcontroller.php:126
-#: lib/controller/contactcontroller.php:187
+#: lib/controller/contactcontroller.php:186
 msgid "Couldn't find contact."
 msgstr "Impossible de trouver le contact."
 
@@ -510,26 +502,26 @@ msgid "Error saving contact to backend."
 msgstr "Erreur d'enregistrement du contact sur l'infrastructure d'arrière-plan."
 
 #: lib/controller/contactcontroller.php:129
-#: lib/controller/contactcontroller.php:190
+#: lib/controller/contactcontroller.php:189
 msgid "Property name is not set."
 msgstr "Le nom de la propriété n'est pas défini."
 
 #: lib/controller/contactcontroller.php:132
-#: lib/controller/contactcontroller.php:193
-#: lib/controller/contactcontroller.php:202
+#: lib/controller/contactcontroller.php:192
+#: lib/controller/contactcontroller.php:201
 msgid "Property checksum is not set."
 msgstr "La somme de contrôle de la propriété n'est pas définie."
 
 #: lib/controller/contactcontroller.php:138
-#: lib/controller/contactcontroller.php:208
+#: lib/controller/contactcontroller.php:207
 msgid "Information about vCard is incorrect. Please reload the page."
 msgstr "Les informations relatives à cette vCard sont incorrectes. Veuillez recharger la page."
 
-#: lib/controller/contactcontroller.php:212
+#: lib/controller/contactcontroller.php:211
 msgid "Error setting property"
 msgstr "Erreur de paramétrage de la propriété"
 
-#: lib/controller/contactcontroller.php:216
+#: lib/controller/contactcontroller.php:215
 msgid "Error saving property to backend"
 msgstr "Erreur d'enregistrement de la propriété sur l'infrastructure d'arrière-plan"
 
@@ -567,9 +559,9 @@ msgstr "Anniversaire de {name}"
 msgid "Contact"
 msgstr "Contact"
 
-#: lib/utils/jsonserializer.php:104 lib/utils/properties.php:150
-#: lib/utils/properties.php:163 lib/utils/properties.php:170
-#: lib/utils/properties.php:185
+#: lib/utils/jsonserializer.php:104 lib/utils/properties.php:155
+#: lib/utils/properties.php:168 lib/utils/properties.php:175
+#: lib/utils/properties.php:190
 msgid "Other"
 msgstr "Autre"
 
@@ -582,100 +574,104 @@ msgid "Jabber"
 msgstr "Jabber"
 
 #: lib/utils/properties.php:71
+msgid "Internet call"
+msgstr ""
+
+#: lib/utils/properties.php:76
 msgid "AIM"
 msgstr "AOL Instant Messaging"
 
-#: lib/utils/properties.php:76
+#: lib/utils/properties.php:81
 msgid "MSN"
 msgstr "MSN"
 
-#: lib/utils/properties.php:81
+#: lib/utils/properties.php:86
 msgid "Twitter"
 msgstr "Twitter"
 
-#: lib/utils/properties.php:86
+#: lib/utils/properties.php:91
 msgid "GoogleTalk"
 msgstr "GoogleTalk"
 
-#: lib/utils/properties.php:91
+#: lib/utils/properties.php:96
 msgid "Facebook"
 msgstr "Facebook"
 
-#: lib/utils/properties.php:96
+#: lib/utils/properties.php:101
 msgid "XMPP"
 msgstr "XMPP"
 
-#: lib/utils/properties.php:101
+#: lib/utils/properties.php:106
 msgid "ICQ"
 msgstr "ICQ"
 
-#: lib/utils/properties.php:106
+#: lib/utils/properties.php:111
 msgid "Yahoo"
 msgstr "Yahoo"
 
-#: lib/utils/properties.php:111
+#: lib/utils/properties.php:116
 msgid "Skype"
 msgstr "Skype"
 
-#: lib/utils/properties.php:116
+#: lib/utils/properties.php:121
 msgid "QQ"
 msgstr "QQ"
 
-#: lib/utils/properties.php:121
+#: lib/utils/properties.php:126
 msgid "GaduGadu"
 msgstr "GaduGadu"
 
-#: lib/utils/properties.php:148 lib/utils/properties.php:156
-#: lib/utils/properties.php:167 lib/utils/properties.php:184
+#: lib/utils/properties.php:153 lib/utils/properties.php:161
+#: lib/utils/properties.php:172 lib/utils/properties.php:189
 msgid "Work"
 msgstr "Travail"
 
-#: lib/utils/properties.php:149 lib/utils/properties.php:154
-#: lib/utils/properties.php:168
+#: lib/utils/properties.php:154 lib/utils/properties.php:159
+#: lib/utils/properties.php:173
 msgid "Home"
 msgstr "Domicile"
 
-#: lib/utils/properties.php:155
+#: lib/utils/properties.php:160
 msgid "Mobile"
 msgstr "Mobile"
 
-#: lib/utils/properties.php:157
+#: lib/utils/properties.php:162
 msgid "Text"
 msgstr "Texte"
 
-#: lib/utils/properties.php:158
+#: lib/utils/properties.php:163
 msgid "Voice"
 msgstr "Voix"
 
-#: lib/utils/properties.php:159
+#: lib/utils/properties.php:164
 msgid "Message"
 msgstr "Message"
 
-#: lib/utils/properties.php:160
+#: lib/utils/properties.php:165
 msgid "Fax"
 msgstr "Fax"
 
-#: lib/utils/properties.php:161
+#: lib/utils/properties.php:166
 msgid "Video"
 msgstr "Vidéo"
 
-#: lib/utils/properties.php:162
+#: lib/utils/properties.php:167
 msgid "Pager"
 msgstr "Bipeur"
 
-#: lib/utils/properties.php:169
+#: lib/utils/properties.php:174
 msgid "Internet"
 msgstr "Internet"
 
-#: lib/utils/properties.php:182
+#: lib/utils/properties.php:187
 msgid "Friends"
 msgstr "Amis"
 
-#: lib/utils/properties.php:183
+#: lib/utils/properties.php:188
 msgid "Family"
 msgstr "Famille"
 
-#: lib/utils/properties.php:218
+#: lib/utils/properties.php:223
 msgid "There was an error deleting properties for this contact."
 msgstr "Une erreur s'est produite lors de la suppression des propriétés de ce contact."
 

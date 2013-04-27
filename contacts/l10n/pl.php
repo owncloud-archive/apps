@@ -86,8 +86,6 @@
 "Less..." => "Mniej...",
 "There was an error updating the addressbook." => "Wystąpił błąd podczas aktualizowania książki adresowej.",
 "There was an error deleting this addressbook." => "Wystąpił błąd podczas usuwania tej książki adresowej",
-"Missing IM parameter." => "Brak parametru komunikatora",
-"Unknown IM: " => "Nieznany komunikator:",
 "Information about vCard is incorrect. Please reload the page." => "Informacje o vCard są nieprawidłowe. Proszę odświeżyć stronę.",
 "Error adding group." => "Błąd podczas dodawania grupy.",
 "Group ID missing from request." => "Brak ID grupy w zapytaniu",
