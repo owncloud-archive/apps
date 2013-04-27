@@ -67,6 +67,11 @@ Class Properties {
 					'xname' => 'X-JABBER',
 					'protocol' => 'xmpp',
 				),
+				'sip' => array(
+					'displayname' => (string)$l10n->t('Internet call'),
+					'xname' => 'X-SIP',
+					'protocol' => 'sip',
+				),
 				'aim' => array(
 					'displayname' => (string)$l10n->t('AIM'),
 					'xname' => 'X-AIM',
