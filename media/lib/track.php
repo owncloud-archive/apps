@@ -177,6 +177,8 @@ class Track implements Extractable {
 		if ($this->tagType) {
 			if (isset($this->trackData[$this->tagType]['comments'][$tagname])) {
 				$value = $this->trackData[$this->tagType]['comments'][$tagname];
+			} elseif (isset($this->trackData[$this->tagType][$tagname])) {
+				$value = $this->trackData[$this->tagType][$tagname];
 			}
 		}
 		if ($value===false) {
@@ -192,6 +194,12 @@ class Track implements Extractable {
 	 * @return string
 	 */
 	protected function getDefaultTagValue($tagname) {
-		return (isset($this->trackData['comments'][$tagname]) ? $this->trackData['comments'][$tagname] : false);
+		if (isset($this->trackData['comments'][$tagname])) {
+			return $this->trackData['comments'][$tagname];
+		} elseif (isset($this->trackData[$tagname])) {
+			return $this->trackData[$tagname];
+		} else {
+			return false;
+		}
 	}
 }
