@@ -107,6 +107,7 @@ class Test_Contacts_Backend_Datebase extends PHPUnit_Framework_TestCase {
 		$contact = $addressBook[$id];
 		$metadata = $contact->getMetaData();
 		$this->assertEquals('Max Mustermann', $metadata['displayname']);
+		$this->assertEquals($contact->getPermissions(), $addressBook->getPermissions());
 
 		// Array access
 		$this->assertEquals($contact, $addressBook[$id]);
