@@ -421,17 +421,17 @@ class Contact extends VObject\VCard implements IPIMObject {
 				if(is_array($value)) {
 					$property->setParts($value);
 				} else {
-					debug('Saving ADR ' . $value);
+					//debug('Saving ADR ' . $value);
 					$property->setValue($value);
 				}
 				break;
 			case 'IMPP':
 				if(is_null($parameters) || !isset($parameters['X-SERVICE-TYPE'])) {
-					bailOut(App::$l10n->t('Missing IM parameter.'));
+					throw new \InvalidArgumentException(__METHOD__.' Missing IM parameter for: '.$name. ' ' . $value);
 				}
 				$impp = Utils\Properties::getIMOptions($parameters['X-SERVICE-TYPE']);
 				if(is_null($impp)) {
-					bailOut(App::$l10n->t('Unknown IM: '.$parameters['X-SERVICE-TYPE']));
+					throw new \UnexpectedValueException(__METHOD__.'Unknown IM: ' . $parameters['X-SERVICE-TYPE']);
 				}
 				$value = $impp['protocol'] . ':' . $value;
 				$property->setValue($value);
