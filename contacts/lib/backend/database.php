@@ -160,7 +160,8 @@ class Database extends AbstractBackend {
 			}
 		}
 
-		$query .= '`ctag` = `ctag` + 1 WHERE `id` = ?';
+		$query .= '`ctag` = ? + 1 WHERE `id` = ?';
+		$updates[] = time();
 		$updates[] = $addressbookid;
 
 		try {
@@ -332,11 +333,12 @@ class Database extends AbstractBackend {
 	 */
 	public function touchAddressBook($id) {
 		$query = 'UPDATE `' . $this->addressBooksTableName
-			. '` SET `ctag` = `ctag` + 1 WHERE `id` = ?';
+			. '` SET `ctag` = ? + 1 WHERE `id` = ?';
 		if(!isset(self::$preparedQueries['touchaddressbook'])) {
 			self::$preparedQueries['touchaddressbook'] = \OCP\DB::prepare($query);
 		}
-		self::$preparedQueries['touchaddressbook']->execute(array($id));
+		$ctag = time();
+		self::$preparedQueries['touchaddressbook']->execute(array($ctag, $id));
 
 		return true;
 	}
@@ -345,9 +347,12 @@ class Database extends AbstractBackend {
 		if($this->addressbooks && isset($this->addressbooks[$addressbookid])) {
 			return $this->addressbooks[$addressbookid]['lastmodified'];
 		}
-		$sql = 'SELECT MAX(`lastmodified`) FROM `' . $this->cardsTableName . '`, `' . $this->addressBooksTableName . '` ' .
+		/*$sql = 'SELECT MAX(`lastmodified`) FROM `' . $this->cardsTableName . '`, `' . $this->addressBooksTableName . '` ' .
 			'WHERE  `' . $this->cardsTableName . '`.`addressbookid` = `*PREFIX*contacts_addressbooks`.`id` AND ' .
-			'`' . $this->addressBooksTableName . '`.`userid` = ? AND `' . $this->addressBooksTableName . '`.`id` = ?';
+			'`' . $this->addressBooksTableName . '`.`userid` = ? AND `' . $this->addressBooksTableName . '`.`id` = ?';*/
+
+		$sql = 'SELECT `ctag` as `lastmodified? FROM `' . $this->addressBooksTableName .'` ' .
+			'WHERE `userid` = ? AND id = ? ';
 		if(!isset(self::$preparedQueries['lastmodifiedaddressbook'])) {
 			self::$preparedQueries['lastmodifiedaddressbook'] = \OCP\DB::prepare($sql);
 		}
