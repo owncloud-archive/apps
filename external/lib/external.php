@@ -31,4 +31,13 @@ class OC_External {
 		return array();
 	}
 
+	public static function getGlobalSites() {
+		if (($sites = json_decode(OCP\Config::getAppValue("external", "globalSites"))) != null) {
+			return $sites;
+		}
+
+		return array();
+	}
+
+
 }

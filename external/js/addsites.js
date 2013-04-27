@@ -21,12 +21,15 @@ $(document).ready(function(){
 
 	function saveSites() {
 		var post = $('#external').serialize();
-		if ($('#global').val()){
-			console.log('global');
-		}
-		$.post( OC.filePath('external','ajax','setsites.php') , post, function(data) {
+		if ($('#global').val() == 'true'){
+			$.post( OC.filePath('external','ajax','setglobalsites.php') , post, function(data) {
 			// OC.msg.finishedSaving('#site_name .msg', data);
-		});
+			});
+		} else {
+			$.post( OC.filePath('external','ajax','setsites.php') , post, function(data) {
+			// OC.msg.finishedSaving('#site_name .msg', data);
+			});
+		}
 	}
 
 	function showDeleteButton(event) {

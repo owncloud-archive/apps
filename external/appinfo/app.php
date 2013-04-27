@@ -24,7 +24,7 @@
 OC::$CLASSPATH['OC_External'] = 'external/lib/external.php';
 OCP\Util::addStyle( 'external', 'style');
 
-OCP\App::registerPersonal('external', 'personal');
+if(OCP\Config::getAppValue('external', 'allowUsers') == 'true') OCP\App::registerPersonal('external', 'personal');
 OCP\App::registerAdmin('external', 'admin');
 
 if(OCP\Config::getAppValue('external', 'allowUsers') == 'true'){
@@ -34,3 +34,10 @@ if(OCP\Config::getAppValue('external', 'allowUsers') == 'true'){
 				array('id' => 'external_index' . ($i + 1), 'order' => 80 + $i, 'href' => OCP\Util::linkTo('external', 'index.php') . '?id=' . ($i + 1), 'icon' => OCP\Util::imagePath('external', 'external.png'), 'name' => $sites[$i][0]));
 	}
 }
+
+	$globalSites = OC_External::getGlobalSites();
+	for ($i = 0; $i < sizeof($globalSites); $i++) {
+		OCP\App::addNavigationEntry(
+				array('id' => 'external_index' . ($i + 1), 'order' => 80 + $i, 'href' => OCP\Util::linkTo('external', 'index.php') . '?id=' . ($i + 1), 'icon' => OCP\Util::imagePath('external', 'external.png'), 'name' => $globalSites[$i][0]));
+	}
+

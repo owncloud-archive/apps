@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
-OCP\User::CheckLoggedIn();
+OCP\User::checkAdminUser();
 OCP\JSON::callCheck();
 
 $sites = array();
@@ -17,9 +17,10 @@ for ($i = 0; $i < sizeof($_POST['site_name']); $i++) {
 }
 
 if (sizeof($sites) == 0){
-	OCP\Config::setUserValue(OCP\User::getUser(), 'external', 'sites', '');
+	OCP\Config::setAppValue('external', 'globalSites', '');
 }
-else{
-	OCP\Config::setUserValue(OCP\User::getUser(), 'external', 'sites', json_encode($sites));
+else {
+	OCP\Config::setAppValue('external', 'globalSites', json_encode($sites));
 }
+
 echo 'true';
