@@ -52,7 +52,7 @@ class Ampache {
 					$albums = $this->collection->getAlbumCount();
 					$query = \OCP\DB::prepare("INSERT INTO `*PREFIX*media_sessions` (`token`, `user_id`, `start`) VALUES (?, ?, now());");
 					$query->execute(array($token, $user));
-					$expire = date('c', time() + 600);
+					$expire = date('c', time() + 86400);
 
 					$tmpl = new \OC_Template('media', 'ampache/handshake');
 					$tmpl->assign('token', $token);
@@ -94,9 +94,9 @@ class Ampache {
 		}
 		$CONFIG_DBTYPE = \OCP\Config::getSystemValue("dbtype", "sqlite");
 		if ($CONFIG_DBTYPE == 'pgsql') {
-			$interval = ' \'600s\'::interval ';
+			$interval = ' \'86400s\'::interval ';
 		} else {
-			$interval = '600';
+			$interval = '86400';
 		}
 		//remove old sessions
 		$query = \OCP\DB::prepare("DELETE FROM `*PREFIX*media_sessions` WHERE `start`<(NOW() - " . $interval . ")");
