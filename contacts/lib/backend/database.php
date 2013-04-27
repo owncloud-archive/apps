@@ -112,6 +112,7 @@ class Database extends AbstractBackend {
 			}
 			$row = $result->fetchRow();
 			$row['permissions'] = \OCP\PERMISSION_ALL;
+			$this->addressbooks[$addressbookid] = $row;
 			return $row;
 		} catch(\Exception $e) {
 			\OCP\Util::writeLog('contacts', __METHOD__.' exception: '
@@ -347,21 +348,8 @@ class Database extends AbstractBackend {
 		if($this->addressbooks && isset($this->addressbooks[$addressbookid])) {
 			return $this->addressbooks[$addressbookid]['lastmodified'];
 		}
-		/*$sql = 'SELECT MAX(`lastmodified`) FROM `' . $this->cardsTableName . '`, `' . $this->addressBooksTableName . '` ' .
-			'WHERE  `' . $this->cardsTableName . '`.`addressbookid` = `*PREFIX*contacts_addressbooks`.`id` AND ' .
-			'`' . $this->addressBooksTableName . '`.`userid` = ? AND `' . $this->addressBooksTableName . '`.`id` = ?';*/
-
-		$sql = 'SELECT `ctag` as `lastmodified? FROM `' . $this->addressBooksTableName .'` ' .
-			'WHERE `userid` = ? AND id = ? ';
-		if(!isset(self::$preparedQueries['lastmodifiedaddressbook'])) {
-			self::$preparedQueries['lastmodifiedaddressbook'] = \OCP\DB::prepare($sql);
-		}
-		$result = self::$preparedQueries['lastmodifiedaddressbook']->execute(array($this->userid, $addressbookid));
-		if (\OC_DB::isError($result)) {
-			\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-			return null;
-		}
-		return $result->fetchOne();
+		$addressBook = $this->getAddressBook($addressbookid);
+		return $addressBook ? $addressBook['lastmodified'] : null;
 	}
 
 	/**
