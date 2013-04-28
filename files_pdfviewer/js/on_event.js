@@ -1,4 +1,4 @@
-$(document).ready(function(){    
+$(document).ready(function(){
 	$('#viewThumbnail').on('click', function(){
 		PDFView.switchSidebarView('thumbs');
 	});
