@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-28 00:49+0200\n"
-"PO-Revision-Date: 2013-04-27 22:49+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-29 00:49+0200\n"
+"PO-Revision-Date: 2013-04-28 18:00+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgstr "A fotografía cargada non é válida."
 
 #: ajax/oc_photo.php:28
 msgid "No contact info was submitted."
-msgstr ""
+msgstr "Non foi enviada ningunha  información do contacto."
 
 #: ajax/oc_photo.php:32
 msgid "No photo path was submitted."
@@ -172,15 +172,15 @@ msgstr "Indexando os contactos"
 
 #: js/app.js:451
 msgid "Merge failed. Cannot find contact: {id}"
-msgstr ""
+msgstr "Non foi posíbel facer a mistura. Non foi posíbel atopar o contacto: {id}"
 
 #: js/app.js:464
 msgid "Merge failed."
-msgstr ""
+msgstr "Non foi posíbel facer a mistura."
 
 #: js/app.js:471
 msgid "Merge failed. Error saving contact."
-msgstr ""
+msgstr "Non foi posíbel facer a mistura. produciuse un erro ao gardar o contacto."
 
 #: js/app.js:490
 msgid "Select photo"
@@ -192,11 +192,11 @@ msgstr "Produciuse un erro na rede ou no servidor. Informe ao administrador."
 
 #: js/app.js:547
 msgid "Failed saving sort order: {error}"
-msgstr ""
+msgstr "Non foi posíbel gardar a ordenación: {error}"
 
 #: js/app.js:580
 msgid "Failed saving last group: {error}"
-msgstr ""
+msgstr "Non foi posíbel gardar o último grupo: {error}"
 
 #: js/app.js:726 js/app.js:764
 msgid "Error adding to group."
@@ -216,11 +216,11 @@ msgstr "Feita a eliminación. Prema aquí para cancelar a recarga."
 
 #: js/app.js:928
 msgid "Failed adding address book: {error}"
-msgstr ""
+msgstr "Non foi posíbel engadir o caderno  de enderezos"
 
 #: js/app.js:981
 msgid "Failed adding addres books: {error}"
-msgstr ""
+msgstr "Non foi posíbel engadir os cadernos de enderezos: {error}"
 
 #: js/app.js:994
 msgid "Add address book"
@@ -228,7 +228,7 @@ msgstr "Engadir un caderno de enderezos"
 
 #: js/app.js:1097
 msgid "Error setting {name} as favorite."
-msgstr ""
+msgstr "Produciuse un erro ao estabelecer {name} como favorito."
 
 #: js/app.js:1143
 msgid "Import done. Click here to cancel reloading."
@@ -257,7 +257,7 @@ msgstr "Importando de {filename}..."
 
 #: js/app.js:1209
 msgid "{success} imported, {failed} failed from {file}"
-msgstr ""
+msgstr "{success} foi importado, {failed} fracasou desde {file}"
 
 #: js/app.js:1221
 msgid "Importing..."
@@ -283,7 +283,7 @@ msgstr "Envío demasiado grande"
 
 #: js/app.js:1403 js/app.js:1407 templates/contacts.php:155
 msgid "Merge contacts"
-msgstr ""
+msgstr "Misturar os contactos"
 
 #: js/app.js:1429 js/app.js:1483 js/settings.js:120 templates/contacts.php:27
 #: templates/contacts.php:34 templates/contacts.php:302
@@ -314,7 +314,7 @@ msgstr "Produciuse un erro ao cargar a imaxe do perfil."
 
 #: js/contacts.js:307
 msgid "Failed deleting property: {error}"
-msgstr ""
+msgstr "Non foi posíbel eliminar as propiedades: {error}"
 
 #: js/contacts.js:498
 msgid "Is this correct?"
@@ -340,11 +340,11 @@ msgstr "Cancelada a eliminación de {num}"
 
 #: js/contacts.js:2084
 msgid "Failed loading contacts from {addressbook}: {error}"
-msgstr ""
+msgstr "Non foi posíbel cargar os contactos desde {addressbook}: {error}"
 
 #: js/contacts.js:2101
 msgid "Failed loading address books: {error}"
-msgstr ""
+msgstr "Non foi posíbel cargar o caderno de enderezos: {error}"
 
 #: js/groups.js:194
 msgid "Contact is already in this group."
@@ -368,7 +368,7 @@ msgstr "Os contactos non están neste grupo."
 
 #: js/groups.js:415
 msgid "Failed deleting group: {error}"
-msgstr ""
+msgstr "Non foi posíbel eliminar o grupo: {error}"
 
 #: js/groups.js:545
 msgid "A group named {group} already exists"
@@ -382,7 +382,7 @@ msgstr "Pode arrastrar grupos para\norganizalos como desexe."
 
 #: js/groups.js:594
 msgid "Failed adding group: {error}"
-msgstr ""
+msgstr "Non foi posíbel engadir o grupo: {error}"
 
 #: js/groups.js:605
 msgid "All"
@@ -445,11 +445,11 @@ msgstr "Menos..."
 
 #: js/storage.js:198
 msgid "Failed loading photo: {error}"
-msgstr ""
+msgstr "Non foi posíbel cargar a foto: {error}"
 
 #: js/storage.js:413 js/storage.js:426
 msgid "Request failed: {error}"
-msgstr ""
+msgstr "Non foi posíbel facer a petición: {error}"
 
 #: lib/backend/ldap.php:178
 msgid "There was an error updating the addressbook."
@@ -461,45 +461,45 @@ msgstr "Produciuse un erro ao eliminar este caderno de enderezos."
 
 #: lib/controller/addressbookcontroller.php:89
 msgid "Error creating address book"
-msgstr ""
+msgstr "Produciuse un erro ao crear o caderno de enderezos"
 
 #: lib/controller/addressbookcontroller.php:110
 msgid "Error deleting address book"
-msgstr ""
+msgstr "Produciuse un erro ao eliminar o caderno de enderezos"
 
 #: lib/controller/addressbookcontroller.php:129
 msgid "Error creating contact."
-msgstr ""
+msgstr "Produciuse un erro ao crear o contacto."
 
 #: lib/controller/addressbookcontroller.php:150
 msgid "Error deleting contact."
-msgstr ""
+msgstr "Produciuse un erro ao eliminar o contacto."
 
 #: lib/controller/contactcontroller.php:45
 #: lib/controller/contactcontroller.php:126
 #: lib/controller/contactcontroller.php:186
 msgid "Couldn't find contact."
-msgstr ""
+msgstr "Non foi posíbel atopar o contacto."
 
 #: lib/controller/contactcontroller.php:49
 msgid "Error merging into contact."
-msgstr ""
+msgstr "produciuse un erro ao misturar en contacto."
 
 #: lib/controller/contactcontroller.php:52
 #: lib/controller/contactcontroller.php:144
 msgid "Error saving contact to backend."
-msgstr ""
+msgstr "Produciuse un erro ao gardar o contacto na infraestrutura."
 
 #: lib/controller/contactcontroller.php:129
 #: lib/controller/contactcontroller.php:189
 msgid "Property name is not set."
-msgstr ""
+msgstr "Non foi estabelecido o nome da propiedade"
 
 #: lib/controller/contactcontroller.php:132
 #: lib/controller/contactcontroller.php:192
 #: lib/controller/contactcontroller.php:201
 msgid "Property checksum is not set."
-msgstr ""
+msgstr "Non foi estabelecida a suma de comprobación da propiedade"
 
 #: lib/controller/contactcontroller.php:138
 #: lib/controller/contactcontroller.php:207
@@ -508,15 +508,15 @@ msgstr "A información sobre a vCard é incorrecta. Volva cargar a páxina."
 
 #: lib/controller/contactcontroller.php:211
 msgid "Error setting property"
-msgstr ""
+msgstr "Produciuse un erro ao estabelecer a propiedade"
 
 #: lib/controller/contactcontroller.php:215
 msgid "Error saving property to backend"
-msgstr ""
+msgstr "Produciuse un erro ao gardar a propiedade na infraestrutura"
 
 #: lib/controller/groupcontroller.php:60 lib/controller/groupcontroller.php:84
 msgid "No group name given."
-msgstr ""
+msgstr "Non se indicou o nome do grupo."
 
 #: lib/controller/groupcontroller.php:67
 msgid "Error adding group."
@@ -534,11 +534,11 @@ msgstr "Falta o ID do contacto desde a solicitude."
 
 #: lib/controller/settingscontroller.php:36
 msgid "No key is given."
-msgstr ""
+msgstr "Non se indicou a chave."
 
 #: lib/controller/settingscontroller.php:40
 msgid "No value is given."
-msgstr ""
+msgstr "Non se indicou o valor."
 
 #: lib/hooks.php:183
 msgid "{name}'s Birthday"
@@ -564,7 +564,7 @@ msgstr "Jabber"
 
 #: lib/utils/properties.php:71
 msgid "Internet call"
-msgstr ""
+msgstr "Chamadas por Internet"
 
 #: lib/utils/properties.php:76
 msgid "AIM"
@@ -722,7 +722,7 @@ msgstr "Favorito"
 
 #: templates/contacts.php:76
 msgid "Merge selected"
-msgstr ""
+msgstr "Mistura seleccionada"
 
 #: templates/contacts.php:77
 msgid "Delete Contact"
@@ -792,11 +792,11 @@ msgstr "Engadir contacto"
 
 #: templates/contacts.php:156
 msgid "Which contact should the data be merged into?"
-msgstr ""
+msgstr "A cales contactos selle misturaran os datos?"
 
 #: templates/contacts.php:164
 msgid "Delete the other(s) after successful merge?"
-msgstr ""
+msgstr "Eliminar o(s) outro(s) despois dunha mistura satisfactoria?"
 
 #: templates/contacts.php:176
 msgid "Compose mail"
@@ -840,7 +840,7 @@ msgstr "Seleccionar grupos"
 
 #: templates/contacts.php:241
 msgid "Select address book"
-msgstr ""
+msgstr "Seleccione o caderno de enderezos"
 
 #: templates/contacts.php:245 templates/contacts.php:309
 msgid "Nickname"

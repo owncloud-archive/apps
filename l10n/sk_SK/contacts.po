@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-28 00:49+0200\n"
-"PO-Revision-Date: 2013-04-27 22:49+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-29 00:49+0200\n"
+"PO-Revision-Date: 2013-04-28 19:20+0000\n"
+"Last-Translator: mhh <marian.hvolka@stuba.sk>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,7 +42,7 @@ msgstr "Načítaná fotka je vadná."
 
 #: ajax/oc_photo.php:28
 msgid "No contact info was submitted."
-msgstr ""
+msgstr "Neboli odoslané žiadne informácie o kontakte."
 
 #: ajax/oc_photo.php:32
 msgid "No photo path was submitted."
@@ -173,15 +173,15 @@ msgstr "Indexovanie kontaktov"
 
 #: js/app.js:451
 msgid "Merge failed. Cannot find contact: {id}"
-msgstr ""
+msgstr "Zlúčenie zlyhalo. Nemožno nájsť kontakt: {id}"
 
 #: js/app.js:464
 msgid "Merge failed."
-msgstr ""
+msgstr "Zlúčenie zlyhalo."
 
 #: js/app.js:471
 msgid "Merge failed. Error saving contact."
-msgstr ""
+msgstr "Zlúčenie zlyhalo. Chyba pri ukladaní kontaktu."
 
 #: js/app.js:490
 msgid "Select photo"
@@ -193,11 +193,11 @@ msgstr "Chyba sieťe alebo servra. Informujte prosím administrátora."
 
 #: js/app.js:547
 msgid "Failed saving sort order: {error}"
-msgstr ""
+msgstr "Zlyhalo uloženie zoradenia: {error}"
 
 #: js/app.js:580
 msgid "Failed saving last group: {error}"
-msgstr ""
+msgstr "Zlyhalo uloženie poslednej skupiny: {error}"
 
 #: js/app.js:726 js/app.js:764
 msgid "Error adding to group."
@@ -217,11 +217,11 @@ msgstr "Odstraňovanie dokončené. Kliknite sem pre zrušenie obnovenia."
 
 #: js/app.js:928
 msgid "Failed adding address book: {error}"
-msgstr ""
+msgstr "Zlyhalo pridanie adresára: {error}"
 
 #: js/app.js:981
 msgid "Failed adding addres books: {error}"
-msgstr ""
+msgstr "Zlyhalo pridanie adresárov: {error}"
 
 #: js/app.js:994
 msgid "Add address book"
@@ -229,7 +229,7 @@ msgstr "Pridať adresár kontaktov"
 
 #: js/app.js:1097
 msgid "Error setting {name} as favorite."
-msgstr ""
+msgstr "Chyba pri zaradení {name} k obľúbeným."
 
 #: js/app.js:1143
 msgid "Import done. Click here to cancel reloading."
@@ -258,7 +258,7 @@ msgstr "Importujem z {filename}..."
 
 #: js/app.js:1209
 msgid "{success} imported, {failed} failed from {file}"
-msgstr ""
+msgstr "{success} importované, {failed} zlyhalo zo súboru {file}"
 
 #: js/app.js:1221
 msgid "Importing..."
@@ -284,7 +284,7 @@ msgstr "Nahrávanie je príliš veľké"
 
 #: js/app.js:1403 js/app.js:1407 templates/contacts.php:155
 msgid "Merge contacts"
-msgstr ""
+msgstr "Zlúčiť kontakty"
 
 #: js/app.js:1429 js/app.js:1483 js/settings.js:120 templates/contacts.php:27
 #: templates/contacts.php:34 templates/contacts.php:302
@@ -315,7 +315,7 @@ msgstr "Chyba pri nahrávaní profilového obrázku."
 
 #: js/contacts.js:307
 msgid "Failed deleting property: {error}"
-msgstr ""
+msgstr "Zlyhalo odstránenie údaja: {error}"
 
 #: js/contacts.js:498
 msgid "Is this correct?"
@@ -341,11 +341,11 @@ msgstr "Zrušené odstraňovanie {num} kontaktov."
 
 #: js/contacts.js:2084
 msgid "Failed loading contacts from {addressbook}: {error}"
-msgstr ""
+msgstr "Zlyhalo načítanie údaja z adresára {addressbook}: {error}"
 
 #: js/contacts.js:2101
 msgid "Failed loading address books: {error}"
-msgstr ""
+msgstr "Zlyhalo načítanie adresára: {error}"
 
 #: js/groups.js:194
 msgid "Contact is already in this group."
@@ -369,7 +369,7 @@ msgstr "Kontakty nie sú v danej skupine."
 
 #: js/groups.js:415
 msgid "Failed deleting group: {error}"
-msgstr ""
+msgstr "Zlyhalo zmazanie skupiny: {error}"
 
 #: js/groups.js:545
 msgid "A group named {group} already exists"
@@ -383,7 +383,7 @@ msgstr "Potiahnutím a pustením môžete \nusporiadať skupiny podľa ľúbosti
 
 #: js/groups.js:594
 msgid "Failed adding group: {error}"
-msgstr ""
+msgstr "Zlyhalo pridanie skupiny: {error}"
 
 #: js/groups.js:605
 msgid "All"
@@ -446,11 +446,11 @@ msgstr "Menej..."
 
 #: js/storage.js:198
 msgid "Failed loading photo: {error}"
-msgstr ""
+msgstr "Zlyhalo načítanie fotografií: {error}"
 
 #: js/storage.js:413 js/storage.js:426
 msgid "Request failed: {error}"
-msgstr ""
+msgstr "Zlyhalo požiadavka: {error}"
 
 #: lib/backend/ldap.php:178
 msgid "There was an error updating the addressbook."
@@ -462,45 +462,45 @@ msgstr "Vyskytla sa chyba pri mazaní tohto adresára."
 
 #: lib/controller/addressbookcontroller.php:89
 msgid "Error creating address book"
-msgstr ""
+msgstr "Chyba pri vytváraní adresára"
 
 #: lib/controller/addressbookcontroller.php:110
 msgid "Error deleting address book"
-msgstr ""
+msgstr "Chyba pri odstraňovaní adresára"
 
 #: lib/controller/addressbookcontroller.php:129
 msgid "Error creating contact."
-msgstr ""
+msgstr "Chyba pri vytváraní kontaktu."
 
 #: lib/controller/addressbookcontroller.php:150
 msgid "Error deleting contact."
-msgstr ""
+msgstr "Chyba pri odstraňovaní kontaktu."
 
 #: lib/controller/contactcontroller.php:45
 #: lib/controller/contactcontroller.php:126
 #: lib/controller/contactcontroller.php:186
 msgid "Couldn't find contact."
-msgstr ""
+msgstr "Kontakt nemožno nájsť."
 
 #: lib/controller/contactcontroller.php:49
 msgid "Error merging into contact."
-msgstr ""
+msgstr "Chyba pri zlučovaní do kontaktu."
 
 #: lib/controller/contactcontroller.php:52
 #: lib/controller/contactcontroller.php:144
 msgid "Error saving contact to backend."
-msgstr ""
+msgstr "Chyba pri ukladaní kontaktu do backendu."
 
 #: lib/controller/contactcontroller.php:129
 #: lib/controller/contactcontroller.php:189
 msgid "Property name is not set."
-msgstr ""
+msgstr "Údaj Meno nie je nastavené."
 
 #: lib/controller/contactcontroller.php:132
 #: lib/controller/contactcontroller.php:192
 #: lib/controller/contactcontroller.php:201
 msgid "Property checksum is not set."
-msgstr ""
+msgstr "Údaj Kontrolný súčet nie je nastavený."
 
 #: lib/controller/contactcontroller.php:138
 #: lib/controller/contactcontroller.php:207
@@ -509,15 +509,15 @@ msgstr "Informácie o vCard sú neplatné. Prosím obnovte stránku."
 
 #: lib/controller/contactcontroller.php:211
 msgid "Error setting property"
-msgstr ""
+msgstr "Chyba pri nastavovaní údaja"
 
 #: lib/controller/contactcontroller.php:215
 msgid "Error saving property to backend"
-msgstr ""
+msgstr "Chyba pri ukladaní údaja v backende."
 
 #: lib/controller/groupcontroller.php:60 lib/controller/groupcontroller.php:84
 msgid "No group name given."
-msgstr ""
+msgstr "Názov skupiny nie je zadaný."
 
 #: lib/controller/groupcontroller.php:67
 msgid "Error adding group."
@@ -535,11 +535,11 @@ msgstr "Chýbajúce kontaktné ID pri požiadavke."
 
 #: lib/controller/settingscontroller.php:36
 msgid "No key is given."
-msgstr ""
+msgstr "Kľúč nie je zadaný."
 
 #: lib/controller/settingscontroller.php:40
 msgid "No value is given."
-msgstr ""
+msgstr "Hodnota nie je zadaná."
 
 #: lib/hooks.php:183
 msgid "{name}'s Birthday"
@@ -565,7 +565,7 @@ msgstr "Jabber"
 
 #: lib/utils/properties.php:71
 msgid "Internet call"
-msgstr ""
+msgstr "Volanie cez internet"
 
 #: lib/utils/properties.php:76
 msgid "AIM"
@@ -723,7 +723,7 @@ msgstr "Obľúbené"
 
 #: templates/contacts.php:76
 msgid "Merge selected"
-msgstr ""
+msgstr "Zlúčiť vybrané"
 
 #: templates/contacts.php:77
 msgid "Delete Contact"
@@ -793,11 +793,11 @@ msgstr "Pridať kontakt"
 
 #: templates/contacts.php:156
 msgid "Which contact should the data be merged into?"
-msgstr ""
+msgstr "Do ktorého kontaktu si želáte zlúčiť dáta?"
 
 #: templates/contacts.php:164
 msgid "Delete the other(s) after successful merge?"
-msgstr ""
+msgstr "Zmazať ostatné po úspešnom zlúčení?"
 
 #: templates/contacts.php:176
 msgid "Compose mail"
@@ -841,7 +841,7 @@ msgstr "Vyber skupiny"
 
 #: templates/contacts.php:241
 msgid "Select address book"
-msgstr ""
+msgstr "Vybrať adresár"
 
 #: templates/contacts.php:245 templates/contacts.php:309
 msgid "Nickname"

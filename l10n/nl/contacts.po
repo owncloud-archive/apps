@@ -19,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-28 00:49+0200\n"
-"PO-Revision-Date: 2013-04-27 22:49+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-29 00:49+0200\n"
+"PO-Revision-Date: 2013-04-28 21:20+0000\n"
+"Last-Translator: André Koot <meneer@tken.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,7 +47,7 @@ msgstr "De geladen foto is niet goed."
 
 #: ajax/oc_photo.php:28
 msgid "No contact info was submitted."
-msgstr ""
+msgstr "Er was geen contactinfo ingevoerd."
 
 #: ajax/oc_photo.php:32
 msgid "No photo path was submitted."
@@ -178,15 +178,15 @@ msgstr "Bezig met indexeren van contactpersonen"
 
 #: js/app.js:451
 msgid "Merge failed. Cannot find contact: {id}"
-msgstr ""
+msgstr "Samenvoegen mislukt. Kan contactpersoon {id} niet vinden "
 
 #: js/app.js:464
 msgid "Merge failed."
-msgstr ""
+msgstr "Samenvoeging mislukt."
 
 #: js/app.js:471
 msgid "Merge failed. Error saving contact."
-msgstr ""
+msgstr "Samenvoegen mislukt. Fout bij opslaan contactpersoon."
 
 #: js/app.js:490
 msgid "Select photo"
@@ -198,7 +198,7 @@ msgstr "Netwerk- of serverfout. Neem contact op met de beheerder."
 
 #: js/app.js:547
 msgid "Failed saving sort order: {error}"
-msgstr ""
+msgstr "Opslaan volgorde mislukt: {error}"
 
 #: js/app.js:580
 msgid "Failed saving last group: {error}"
@@ -263,7 +263,7 @@ msgstr "Importeren van {filename}..."
 
 #: js/app.js:1209
 msgid "{success} imported, {failed} failed from {file}"
-msgstr ""
+msgstr "{success} geïnporteerd, {failed} mislukt van {file}"
 
 #: js/app.js:1221
 msgid "Importing..."
@@ -289,7 +289,7 @@ msgstr "Upload is te groot"
 
 #: js/app.js:1403 js/app.js:1407 templates/contacts.php:155
 msgid "Merge contacts"
-msgstr ""
+msgstr "Samenvoegen contactgegevens"
 
 #: js/app.js:1429 js/app.js:1483 js/settings.js:120 templates/contacts.php:27
 #: templates/contacts.php:34 templates/contacts.php:302
@@ -522,7 +522,7 @@ msgstr ""
 
 #: lib/controller/groupcontroller.php:60 lib/controller/groupcontroller.php:84
 msgid "No group name given."
-msgstr ""
+msgstr "Geen groepsnaam opgegeven."
 
 #: lib/controller/groupcontroller.php:67
 msgid "Error adding group."
@@ -540,11 +540,11 @@ msgstr "Contact ID niet opgegeven"
 
 #: lib/controller/settingscontroller.php:36
 msgid "No key is given."
-msgstr ""
+msgstr "Geen sleutel verstrekt."
 
 #: lib/controller/settingscontroller.php:40
 msgid "No value is given."
-msgstr ""
+msgstr "Geen waarde opgegeven."
 
 #: lib/hooks.php:183
 msgid "{name}'s Birthday"
@@ -570,7 +570,7 @@ msgstr "Jabber"
 
 #: lib/utils/properties.php:71
 msgid "Internet call"
-msgstr ""
+msgstr "Internet oproep"
 
 #: lib/utils/properties.php:76
 msgid "AIM"
@@ -728,7 +728,7 @@ msgstr "Favoriet"
 
 #: templates/contacts.php:76
 msgid "Merge selected"
-msgstr ""
+msgstr "Samenvoeging geselecteerd"
 
 #: templates/contacts.php:77
 msgid "Delete Contact"
@@ -846,7 +846,7 @@ msgstr "Selecteer groepen"
 
 #: templates/contacts.php:241
 msgid "Select address book"
-msgstr ""
+msgstr "Selecteer adresboek"
 
 #: templates/contacts.php:245 templates/contacts.php:309
 msgid "Nickname"
