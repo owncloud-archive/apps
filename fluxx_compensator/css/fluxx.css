@@ -55,6 +55,7 @@
 	background-color: #ddd;
 	box-shadow: 0 0 2px #999;
 }
+/* flip and move handle when panel is shown */
 .fluxx-handle.fluxx-horizontal.fluxx-shown {
 	transform: scale(-1,1) translate(15px,0);
 	-o-transform: scale(-1,1) translate(15px,0);

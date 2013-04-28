@@ -65,19 +65,17 @@ html.fluxx-state-H-hidden body > header > #header {
 	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5), inset 0 -2px 10px #222 !important;
 }
 /* move content up to top when header is hidden */
-html.fluxx-state-H-hidden body > nav> #navigation {
-	top: -45px !important;
-	height: 110%;
+html.fluxx-state-H-hidden body > nav > #navigation {
+	padding-top: 0;
+}
+html.fluxx-state-H-hidden body > nav > #navigation .fluxx-handle {
+	margin-top: -45px;
 }
 html.fluxx-state-H-hidden body #content-wrapper {
 	padding-top: 0px;
 }
-/* move bottom aligned 'settings' navigation entry down to the bottom again */
-html.fluxx-state-H-hidden body > nav > #navigation #settings {
-	bottom: 0;
-}
 
-/* some specific app dependent settings */
+/* below some specific app dependent settings to compensate for exotic in-app styles */
 
 /* no _known_ mode detected, so _guess_ */
 html.fluxx-modeless body { }
