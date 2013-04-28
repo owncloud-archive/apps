@@ -30,53 +30,53 @@
 
 /* some rules for the reference itself */
 a.imprint-anchor{
-	margin:0;
-	padding:0 2em;
-	position:relative;
-	font-size:1.2em;
-	font-weight:inherit;
+	margin: 0;
+	padding: 0 30px;
+	position: relative;
+	font-size: 100%;
+	font-weight: inherit;
 }
 #header a.imprint-anchor.header-left{
-	line-height:2.8em;
-	color:#BFBFBF;
+	line-height: 40px;
+	color: #BFBFBF;
 	float: left;
 	top: 11px;
 	left: 150px;
 	font-weight: bold;
 }
 #header a.imprint-anchor.header-right{
-	line-height:2.8em;
-	color:#BFBFBF;
+	line-height: 44px;
+	color: #BFBFBF;
 	float: right;
 	font-weight: bold;
 }
 #navigation a.imprint-anchor.navigation-top{
-	border:none;
-	color:666;
+	border: none;
+	color: 666;
 }
 #navigation a.imprint-anchor.navigation-bottom{
 	position: absolute;
 	bottom: 40px;
-	border:none;
-	color:666;
+	border: none;
+	color: 666;
 	border: 0;
 }
 
 /* some rules for the settings */
 .imprint-option{
-	vertical-align:middle;
+	vertical-align: middle;
 }
 .imprint-option label{
-	display:inline-block;
-	width:6em;
+	display: inline-block;
+	width: 85px;
 }
 .imprint-option textarea{
-	min-width: 60em;
-	min-height:5em;
+	min-width: 850px;
+	min-height: 70px;
 }
 .imprint-hint{
 	font-style: italic;
-	margin: 0 0.6em;
+	margin: 0 8.5px;
 }
 /* some rules for the 'dummy' content */
 .imprint-factoid{
@@ -86,20 +86,20 @@ a.imprint-anchor{
 	color: gray;
 }
 .imprint-suggestion{
-	margin: 0.3em;
+	margin: 4px;
 	font-size: 110%;
 	font-weight: light;
 	font-style: italic;
 	color: gray;
 }
 .imprint-explanation{
-	margin: 1em 0 2em;
+	margin: 14px 0 28px;
 	font-size: 100%;
 	font-weight: normal;
 	font-style: normal;
 	color: black;
 }
 .imprint-reference{
-	color:blue;
-	text-decoration:underline;
+	color: blue;
+	text-decoration: underline;
 }
