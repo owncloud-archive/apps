@@ -209,7 +209,6 @@ OC.FluXX={
 		switch (handle.Id){
 			case 'N':
 				handle.Position.Margin=$(handle.Selector).css('margin-top').replace(/[^-\d\.]/g, '');
-console.log('limit(): ',handle.Id,handle.Position);
 				;// case 'N';
 		}// switch
 		// general orientation specific values
