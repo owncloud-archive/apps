@@ -3,7 +3,6 @@
 	<id>user_openid_provider</id>
 	<name>OpenID Provider</name>
 	<description>Allows to use ownCloud as your OpenID provider.</description>
-	<version>0.1.1</version>
 	<licence>AGPL</licence>
 	<author>Florian Jacob</author>
 	<require>4</require>
@@ -13,6 +12,6 @@
 		<authentication/>
 	</types>
 	<remote>
-		<openid_provider>user_openid_provider/provider.php</openid_provider>
+		<openid_provider>provider.php</openid_provider>
 	</remote>
 </info>

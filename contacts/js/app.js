@@ -1,3 +1,25 @@
+Modernizr.load({
+	test: Modernizr.input.placeholder,
+	nope: [
+			OC.filePath('contacts', 'css', 'placeholder_polyfill.min.css'),
+			OC.filePath('contacts', 'js', 'placeholder_polyfill.jquery.min.combo.js')
+		]
+});
+
+(function($) {
+	$.QueryString = (function(a) {
+		if (a == "") return {};
+		var b = {};
+		for (var i = 0; i < a.length; ++i)
+		{
+			var p=a[i].split('=');
+			if (p.length != 2) continue;
+			b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+		}
+		return b;
+	})(window.location.search.substr(1).split('&'))
+})(jQuery);
+
 var utils = {};
 
 /**
@@ -22,11 +44,11 @@ utils.isArray = function(obj) {
 
 utils.isInt = function(s) {
   return typeof s === 'number' && (s.toString().search(/^-?[0-9]+$/) === 0);
-}
+};
 
 utils.isUInt = function(s) {
   return typeof s === 'number' && (s.toString().search(/^[0-9]+$/) === 0);
-}
+};
 
 /**
  * utils.type
@@ -50,15 +72,7 @@ utils.moveCursorToEnd = function(el) {
 		range.collapse(false);
 		range.select();
 	}
-}
-
-if (typeof Object.create !== 'function') {
-	Object.create = function (o) {
-		function F() {}
-		F.prototype = o;
-		return new F();
-	};
-}
+};
 
 Array.prototype.clone = function() {
   return this.slice(0);
@@ -77,8 +91,9 @@ Array.prototype.clean = function(deleteValue) {
 
 // Keep it DRY ;)
 var wrongKey = function(event) {
-	return (event.type === 'keydown' && (event.keyCode !== 32 && event.keyCode !== 13));
-}
+	return ((event.type === 'keydown' || event.type === 'keypress') 
+		&& (event.keyCode !== 32 && event.keyCode !== 13));
+};
 
 /**
  * Simply notifier
@@ -94,10 +109,6 @@ OC.notify = function(params) {
 	var self = this;
 	if(!self.notifier) {
 		self.notifier = $('#notification');
-		if(!self.notifier.length) {
-			$('#content').prepend('<div id="notification" />');
-			self.notifier = $('#notification');
-		}
 	}
 	if(params.cancel) {
 		self.notifier.off('click');
@@ -110,13 +121,9 @@ OC.notify = function(params) {
 		return;
 	}
 	self.notifier.text(params.message);
-	self.notifier.fadeIn();
+	self.notifier.fadeIn().css('display', 'inline');
 	self.notifier.on('click', function() { $(this).fadeOut();});
 	var timer = setTimeout(function() {
-		/*if(!self || !self.notifier) {
-			var self = OC.Contacts;
-			self.notifier = $('#notification');
-		}*/
 		self.notifier.fadeOut();
 		if(params.timeouthandler && $.isFunction(params.timeouthandler)) {
 			params.timeouthandler(self.notifier.data(dataid));
@@ -130,624 +137,43 @@ OC.notify = function(params) {
 	}
 	if(params.clickhandler && $.isFunction(params.clickhandler)) {
 		self.notifier.on('click', function() {
-			/*if(!self || !self.notifier) {
-				var self = OC.Contacts;
-				self.notifier = $(this);
-			}*/
 			clearTimeout(timer);
 			self.notifier.off('click');
 			params.clickhandler(self.notifier.data(dataid));
 			self.notifier.removeData(dataid);
 		});
 	}
-}
+};
 
-var GroupList = function(groupList, listItemTmpl) {
-	this.$groupList = groupList;
-	var self = this;
-	var numtypes = ['category', 'fav', 'all'];
-	this.$groupList.on('click', 'h3', function(event) {
-		$('.tipsy').remove();
-		if(wrongKey(event)) {
-			return;
-		}
-		console.log($(event.target));
-		if($(event.target).is('.action.delete')) {
-			var id = $(event.target).parents('h3').first().data('id');
-			self.deleteGroup(id, function(response) {
-				if(response.status !== 'success') {
-					OC.notify({message:response.data.message});
-				}
-			})
-		} else {
-			self.selectGroup({element:$(this)});
-		}
-	});
-
-	this.$groupListItemTemplate = listItemTmpl;
-	this.categories = [];
-}
-
-GroupList.prototype.nameById = function(id) {
-	return this.findById(id).contents().filter(function(){ return(this.nodeType == 3); }).text().trim()
-}
-
-GroupList.prototype.findById = function(id) {
-	return this.$groupList.find('h3[data-id="' + id + '"]');
-}
-
-GroupList.prototype.isFavorite = function(contactid) {
-	return this.inGroup(contactid, 'fav');
-}
-
-GroupList.prototype.selectGroup = function(params) {
-	var id, $elem;
-	if(typeof params.id !== 'undefined') {
-		id = params.id;
-		$elem = this.findById(id);
-	} else if(typeof params.element !== 'undefined') {
-		id = params.element.data('id');
-		$elem = params.element;
-	}
-	if(!$elem) {
-		self.selectGroup('all');
-		return;
-	}
-	console.log('selectGroup', id, $elem);
-	this.$groupList.find('h3').removeClass('active');
-	$elem.addClass('active');
-	if(id === 'new') {
-		return;
-	}
-	this.lastgroup = id;
-	$(document).trigger('status.group.selected', {
-		id: this.lastgroup,
-		type: $elem.data('type'),
-		contacts: $elem.data('contacts'),
-	});
-}
-
-GroupList.prototype.inGroup = function(contactid, groupid) {
-	var $groupelem = this.findById(groupid);
-	var contacts = $groupelem.data('contacts');
-	return (contacts.indexOf(contactid) !== -1);
-}
-
-GroupList.prototype.setAsFavorite = function(contactid, state, cb) {
-	contactid = parseInt(contactid);
-	var $groupelem = this.findById('fav');
-	var contacts = $groupelem.data('contacts');
-	if(state) {
-		OCCategories.addToFavorites(contactid, 'contact', function(jsondata) {
-			if(jsondata.status === 'success') {
-				contacts.push(contactid);
-				$groupelem.data('contacts', contacts);
-				$groupelem.find('.numcontacts').text(contacts.length);
-				if(contacts.length > 0 && $groupelem.is(':hidden')) {
-					$groupelem.show();
-				}
-			}
-			if(typeof cb === 'function') {
-				cb(jsondata);
-			} else if(jsondata.status !== 'success') {
-				OC.notify({message:t('contacts', jsondata.data.message)});
-			}
-		});
-	} else {
-		OCCategories.removeFromFavorites(contactid, 'contact', function(jsondata) {
-			if(jsondata.status === 'success') {
-				contacts.splice(contacts.indexOf(contactid), 1);
-				//console.log('contacts', contacts, contacts.indexOf(id), contacts.indexOf(String(id)));
-				$groupelem.data('contacts', contacts);
-				$groupelem.find('.numcontacts').text(contacts.length);
-				if(contacts.length === 0 && $groupelem.is(':visible')) {
-					$groupelem.hide();
-				}
-			}
-			if(typeof cb === 'function') {
-				cb(jsondata);
-			} else if(jsondata.status !== 'success') {
-				OC.notify({message:t('contacts', jsondata.data.message)});
-			}
-		});
-	}
-}
-
-/**
- * Add one or more contact ids to a group
- * @param contactid An integer id or an array of integer ids.
- * @param groupid The integer id of the group
- * @param cb Optional call-back function
- */
-GroupList.prototype.addTo = function(contactid, groupid, cb) {
-	console.log('GroupList.addTo', contactid, groupid);
-	var $groupelem = this.findById(groupid);
-	var contacts = $groupelem.data('contacts');
-	var ids = [];
-	if(!contacts) {
-		console.log('Contacts not found, adding list!!!');
-		contacts = [];
-	}
-	var self = this;
-	var doPost = false;
-	if(typeof contactid === 'number') {
-		if(contacts.indexOf(contactid) === -1) {
-			ids.push(contactid);
-			doPost = true;
-		} else {
-			if(typeof cb == 'function') {
-				cb({status:'error', message:t('contacts', 'Contact is already in this group.')});
-			}
-		}
-	} else if(utils.isArray(contactid)) {
-		$.each(contactid, function(i, id) {
-			if(contacts.indexOf(id) === -1) {
-				ids.push(id);
-			}
-		});
-		if(ids.length > 0) {
-			doPost = true;
-		} else {
-			if(typeof cb == 'function') {
-				cb({status:'error', message:t('contacts', 'Contacts are already in this group.')});
-			}
-		}
-	}
-	if(doPost) {
-		$.post(OC.filePath('contacts', 'ajax', 'categories/addto.php'), {contactids: ids, categoryid: groupid},function(jsondata) {
-			if(!jsondata) {
-				if(typeof cb === 'function') {
-					cb({status:'error', message:'Network or server error. Please inform administrator.'});
-				}
-				return;
-			}
-			if(jsondata.status === 'success') {
-				contacts = contacts.concat(ids).sort();
-				$groupelem.data('contacts', contacts);
-				var $numelem = $groupelem.find('.numcontacts');
-				$numelem.text(contacts.length).switchClass('', 'active', 200);
-				setTimeout(function() {
-					$numelem.switchClass('active', '', 1000);
-				}, 2000);
-				if(typeof cb === 'function') {
-					cb({status:'success', ids:ids});
-				} else {
-					$(document).trigger('status.group.contactadded', {
-						contactid: contactid,
-						groupid: groupid,
-						groupname: self.nameById(groupid),
-					});
-				}
-			} else {
-				if(typeof cb == 'function') {
-					cb({status:'error', message:jsondata.data.message});
-				}
-			}
-		});
-	}
-}
-
-GroupList.prototype.removeFrom = function(contactid, groupid, cb) {
-	console.log('GroupList.removeFrom', contactid, groupid);
-	var $groupelem = this.findById(groupid);
-	var contacts = $groupelem.data('contacts');
-	var ids = [];
-	
-	// If it's the 'all' group simply decrement the number
-	if(groupid === 'all') {
-		var $numelem = $groupelem.find('.numcontacts');
-		$numelem.text(parseInt($numelem.text()-1)).switchClass('', 'active', 200);
-		setTimeout(function() {
-			$numelem.switchClass('active', '', 1000);
-		}, 2000);
-		if(typeof cb === 'function') {
-			cb({status:'success', ids:[id]});
-		}
-	}
-	// If the contact is in the category remove it from internal list.
-	if(!contacts) {
-		if(typeof cb === 'function') {
-			cb({status:'error', message:t('contacts', 'Couldn\'t get contact list.')});
-		}
-		return;
-	}
-	var doPost = false;
-	if(typeof contactid === 'number') {
-		if(contacts.indexOf(contactid) !== -1) {
-			ids.push(contactid);
-			doPost = true;
-		} else {
-			if(typeof cb == 'function') {
-				cb({status:'error', message:t('contacts', 'Contact is not in this group.')});
-			}
-		}
-	} else if(utils.isArray(contactid)) {
-		$.each(contactid, function(i, id) {
-			if(contacts.indexOf(id) !== -1) {
-				ids.push(id);
-			}
-		});
-		if(ids.length > 0) {
-			doPost = true;
-		} else {
-			console.log(contactid, 'not in', contacts);
-			if(typeof cb == 'function') {
-				cb({status:'error', message:t('contacts', 'Contacts are not in this group.')});
-			}
-		}
-	}
-	if(doPost) {
-		$.post(OC.filePath('contacts', 'ajax', 'categories/removefrom.php'), {contactids: ids, categoryid: groupid},function(jsondata) {
-			if(!jsondata) {
-				if(typeof cb === 'function') {
-					cb({status:'error', message:'Network or server error. Please inform administrator.'});
-				}
-				return;
-			}
-			if(jsondata.status === 'success') {
-				$.each(ids, function(idx, id) {
-					contacts.splice(contacts.indexOf(id), 1);
-				});
-				//console.log('contacts', contacts, contacts.indexOf(id), contacts.indexOf(String(id)));
-				$groupelem.data('contacts', contacts);
-				var $numelem = $groupelem.find('.numcontacts');
-				$numelem.text(contacts.length).switchClass('', 'active', 200);
-				setTimeout(function() {
-					$numelem.switchClass('active', '', 1000);
-				}, 2000);
-				if(typeof cb === 'function') {
-					cb({status:'success', ids:ids});
-				}
-			} else {
-				if(typeof cb == 'function') {
-					cb({status:'error', message:jsondata.data.message});
-				}
-			}
-		});
-	}
-}
-
-GroupList.prototype.removeFromAll = function(contactid, alsospecial) {
-	var self = this;
-	var selector = alsospecial ? 'h3' : 'h3[data-type="category"]';
-	$.each(this.$groupList.find(selector), function(i, group) {
-		self.removeFrom(contactid, $(this).data('id'));
-	});
-}
-
-GroupList.prototype.categoriesChanged = function(newcategories) {
-	console.log('GroupList.categoriesChanged, I should do something');
-}
-
-GroupList.prototype.contactDropped = function(event, ui) {
-	var dragitem = ui.draggable, droptarget = $(this);
-	console.log('dropped', dragitem);
-	if(dragitem.is('tr')) {
-		console.log('tr dropped', dragitem.data('id'), 'on', $(this).data('id'));
-		if($(this).data('type') === 'fav') {
-			$(this).data('obj').setAsFavorite(dragitem.data('id'), true);
-		} else {
-			$(this).data('obj').addTo(dragitem.data('id'), $(this).data('id'));
-		}
-	}
-}
-
-GroupList.prototype.deleteGroup = function(groupid, cb) {
-	var $elem = this.findById(groupid);
-	var $newelem = $elem.prev('h3');
-	var name = this.nameById(groupid);
-	var contacts = $elem.data('contacts');
-	var self = this;
-	console.log('delete group', groupid, contacts);
-	$.post(OC.filePath('contacts', 'ajax', 'categories/delete.php'), {categories: name}, function(jsondata) {
-		if (jsondata && jsondata.status == 'success') {
-			$(document).trigger('status.group.groupremoved', {
-				groupid: groupid,
-				newgroupid: parseInt($newelem.data('id')),
-				groupname: self.nameById(groupid),
-				contacts: contacts,
-			});
-			$elem.remove();
-			self.selectGroup({element:$newelem});
-		} else {
-			//
-		}
-		if(typeof cb === 'function') {
-			cb(jsondata);
-		}
-	});
-}
-
-GroupList.prototype.editGroup = function(id) {
-	var self = this;
-	if(this.$editelem) {
-		console.log('Already editing, returning');
-		return;
-	}
-	// NOTE: Currently this only works for adding, not renaming
-	var saveChanges = function($elem, $input) {
-		console.log('saveChanges', $input.val());
-		var name = $input.val().trim();
-		if(name.length === 0) {
-			return false;
-		}
-		$input.prop('disabled', true);
-		$elem.data('name', '');
-		self.addGroup({name:name, element:$elem}, function(response) {
-			if(response.status === 'success') {
-				$elem.prepend(name).removeClass('editing').attr('data-id', response.id);
-				$input.next('.checked').remove()
-				$input.remove()
-				self.$editelem = null;
-			} else {
-				$input.prop('disabled', false);
-				OC.notify({message:response.message});
-			}
-		});
-	}
-	
-	if(typeof id === 'undefined') {
-		// Add new group
-		var tmpl = this.$groupListItemTemplate;
-		self.$editelem = (tmpl).octemplate({
-			id: 'new',
-			type: 'category',
-			num: 0,
-			name: '',
-		});
-		var $input = $('<input type="text" class="active" /><a class="action checked disabled" />');
-		self.$editelem.prepend($input).addClass('editing');
-		self.$editelem.data('contacts', []);
-		this.$groupList.find('h3.group[data-type="category"]').first().before(self.$editelem);
-		this.selectGroup({element:self.$editelem});
-		$input.on('input', function(event) {
-			if($(this).val().length > 0) {
-				$(this).next('.checked').removeClass('disabled');
-			} else {
-				$(this).next('.checked').addClass('disabled');
-			}
-		});
-		$input.on('keyup', function(event) {
-			var keyCode = Math.max(event.keyCode, event.which);
-			if(keyCode === 13) {
-				saveChanges(self.$editelem, $(this));
-			} else if(keyCode === 27) {
-				self.$editelem.remove();
-				self.$editelem = null;
-			}
-		});
-		$input.next('.checked').on('click keydown', function(event) {
-			console.log('clicked', event);
-			if(wrongKey(event)) {
-				return;
-			}
-			saveChanges(self.$editelem, $input);
-		});
-		$input.focus();
-	} else if(utils.isUInt(id)) {
-		var $elem = this.findById(id);
-		var $text = $elem.contents().filter(function(){ return(this.nodeType == 3); });
-		var name = $text.text();
-		console.log('Group name', $text, name);
-		$text.remove();
-		var $input = $('<input type="text" class="active" value="' + name + '" /><a class="action checked disabled />');
-		$elem.prepend($input).addClass('editing');
-		$input.focus();
-		
-	} else {
-		throw { name: 'WrongParameterType', message: 'GroupList.editGroup only accept integers.'}
-	}
-}
-
-GroupList.prototype.addGroup = function(params, cb) {
-	console.log('GroupList.addGroup', params.name);
-	var name = params.name;
-	contacts = []; // $.map(contacts, function(c) {return parseInt(c)});
-	var self = this, exists = false;
-	self.$groupList.find('h3[data-type="category"]').each(function() {
-		if ($(this).data('name').toLowerCase() === name.toLowerCase()) {
-			exists = true;
-			return false; //break out of loop
-		}
-	});
-	if(exists) {
-		if(typeof cb === 'function') {
-			cb({status:'error', message:t('contacts', 'A group named {group} already exists', {group: name})});
-		}
-		return;
-	}
-	$.post(OC.filePath('contacts', 'ajax', 'categories/add.php'), {category: name}, function(jsondata) {
-		if (jsondata && jsondata.status == 'success') {
-			var tmpl = self.$groupListItemTemplate;
-			var $elem = params.element
-				? params.element
-				: (tmpl).octemplate({
-					id: jsondata.data.id,
-					type: 'category',
-					num: contacts.length,
-					name: name,
-				})
-			self.categories.push({id: jsondata.data.id, name: name});
-			$elem.data('obj', self);
-			$elem.data('contacts', contacts);
-			$elem.data('name', name);
-			$elem.data('id', jsondata.data.id);
-			var added = false;
-			self.$groupList.find('h3.group[data-type="category"]').each(function() {
-				if ($(this).data('name').toLowerCase().localeCompare(name.toLowerCase()) > 0) {
-					$(this).before($elem);
-					added = true;
-					return false;
-				}
-			});
-			if(!added) {
-				$elem.insertAfter(self.$groupList.find('h3.group[data-type="category"]').last());
-			}
-			self.selectGroup({element:$elem});
-			$elem.tipsy({trigger:'manual', gravity:'w', fallback: t('contacts', 'You can drag groups to\narrange them as you like.')});
-			$elem.tipsy('show');
-			if(typeof cb === 'function') {
-				cb({status:'success', id:parseInt(jsondata.data.id), name:name});
-			}
-		} else {
-			if(typeof cb === 'function') {
-				cb({status:'error', message:jsondata.data.message});
-			}
-		}
-	});
-}
-
-GroupList.prototype.loadGroups = function(numcontacts, cb) {
-	var self = this;
-	var acceptdrop = 'tr.contact';
-	var $groupList = this.$groupList;
-	var tmpl = this.$groupListItemTemplate;
-
-	tmpl.octemplate({id: 'all', type: 'all', num: numcontacts, name: t('contacts', 'All')}).appendTo($groupList);
-	$.getJSON(OC.filePath('contacts', 'ajax', 'categories/list.php'), {}, function(jsondata) {
-		if (jsondata && jsondata.status == 'success') {
-			self.lastgroup = jsondata.data.lastgroup;
-			self.sortorder = jsondata.data.sortorder.length > 0
-				? $.map(jsondata.data.sortorder.split(','), function(c) {return parseInt(c)})
-				: [];
-			console.log('sortorder', self.sortorder);
-			// Favorites
-			var contacts = $.map(jsondata.data.favorites, function(c) {return parseInt(c)});
-			var $elem = tmpl.octemplate({
-				id: 'fav',
-				type: 'fav',
-				num: contacts.length,
-				name: t('contacts', 'Favorites')
-			}).appendTo($groupList);
-			$elem.data('obj', self);
-			$elem.data('contacts', contacts).find('.numcontacts').before('<span class="starred action" />');
-			$elem.droppable({
-						drop: self.contactDropped,
-						activeClass: 'ui-state-active',
-						hoverClass: 'ui-state-hover',
-						accept: acceptdrop
-					});
-			if(contacts.length === 0) {
-				$elem.hide();
-			}
-			console.log('favorites', $elem.data('contacts'));
-			// Normal groups
-			$.each(jsondata.data.categories, function(c, category) {
-				var contacts = $.map(category.contacts, function(c) {return parseInt(c)});
-				var $elem = (tmpl).octemplate({
-					id: category.id,
-					type: 'category',
-					num: contacts.length,
-					name: category.name,
-				});
-				self.categories.push({id: category.id, name: category.name});
-				$elem.data('obj', self);
-				$elem.data('contacts', contacts);
-				$elem.data('name', category.name);
-				$elem.data('id', category.id);
-				$elem.droppable({
-								drop: self.contactDropped,
-								activeClass: 'ui-state-hover',
-								accept: acceptdrop
-							});
-				$elem.appendTo($groupList);
-			});
-
-			var elems = $groupList.find('h3[data-type="category"]').get();
-
-			elems.sort(function(a, b) {
-				return self.sortorder.indexOf(parseInt($(a).data('id'))) > self.sortorder.indexOf(parseInt($(b).data('id')));
-			});
-
-			$.each(elems, function(index, elem) {
-				$groupList.append(elem);
-			});
-
-			// Shared addressbook
-			$.each(jsondata.data.shared, function(c, shared) {
-				var sharedindicator = '<img class="shared svg" src="' + OC.imagePath('core', 'actions/shared') + '"'
-					+ 'title="' + t('contacts', 'Shared by {owner}', {owner:shared.userid}) + '" />'
-				var $elem = (tmpl).octemplate({
-					id: shared.id,
-					type: 'shared',
-					num: '', //jsondata.data.shared.length,
-					name: shared.displayname,
-				});
-				$elem.find('.numcontacts').after(sharedindicator);
-				$elem.data('obj', self);
-				$elem.data('name', shared.displayname);
-				$elem.data('id', shared.id);
-				$elem.appendTo($groupList);
-			});
-			$groupList.sortable({
-				items: 'h3[data-type="category"]',
-				stop: function() {
-					console.log('stop sorting', $(this));
-					var ids = [];
-					$.each($(this).children('h3[data-type="category"]'), function(i, elem) {
-						ids.push($(elem).data('id'))
-					})
-					self.sortorder = ids;
-					$(document).trigger('status.groups.sorted', {
-						sortorder: self.sortorder.join(','),
-					});
-				},
-			});
-			var $elem = self.findById(self.lastgroup);
-			$elem.addClass('active');
-			$(document).trigger('status.group.selected', {
-				id: self.lastgroup,
-				type: $elem.data('type'),
-				contacts: $elem.data('contacts'),
-			});
-		} // TODO: else
-		if(typeof cb === 'function') {
-			cb();
-		}
-	});
-}
 
 OC.Contacts = OC.Contacts || {
-	init:function(id) {
+	init:function() {
 		if(oc_debug === true) {
-			$(document).ajaxError(function(e, xhr, settings, exception) {
-				// Don't try to get translation because it's likely a network error.
-				OC.notify({
-					message: 'error in: ' + settings.url + ', '+'error: ' + xhr.responseText,
-				});
+		$.error = console.error;
+		$(document).ajaxError(function(e, xhr, settings, exception) {
+				console.error('Error in: ', settings.url, ' : ', xhr.responseText, exception);
 			});
 		}
-		//if(id) {
-			this.currentid = parseInt(id);
-			console.log('init, id:', id);
-		//}
-		// Holds an array of {id,name} maps
+
 		this.scrollTimeoutMiliSecs = 100;
 		this.isScrolling = false;
 		this.cacheElements();
+		this.storage = new OC.Contacts.Storage();
 		this.contacts = new OC.Contacts.ContactList(
+			this.storage,
 			this.$contactList,
 			this.$contactListItemTemplate,
+			this.$contactDragItemTemplate,
 			this.$contactFullTemplate,
 			this.detailTemplates
 		);
-		this.groups = new GroupList(this.$groupList, this.$groupListItemTemplate);
+		this.groups = new OC.Contacts.GroupList(this.storage, this.$groupList, this.$groupListItemTemplate);
 		OCCategories.changed = this.groups.categoriesChanged;
 		OCCategories.app = 'contacts';
 		OCCategories.type = 'contact';
 		this.bindEvents();
 		this.$toggleAll.show();
 		this.showActions(['add']);
-
-		// Wait 2 mins then check if contacts are indexed.
-		setTimeout(function() {
-			if(!is_indexed) {
-				OC.notify({message:t('contacts', 'Indexing contacts'), timeout:20});
-				$.post(OC.filePath('contacts', 'ajax', 'indexproperties.php'));
-			} else {
-				console.log('contacts are indexed.');
-			}
-		}, 10000);
 	},
 	loading:function(obj, state) {
 		$(obj).toggleClass('loading', state);
@@ -777,13 +203,15 @@ OC.Contacts = OC.Contacts || {
 		// The weird double loading is because jquery apparently doesn't
 		// create a searchable object from a script element.
 		$.each($($('#contactDetailsTemplate').html()), function(idx, node) {
-			if(node.nodeType === Node.ELEMENT_NODE && node.nodeName === 'DIV') {
+			var $node = $(node);
+			if($node.is('div')) {
 				var $tmpl = $(node.innerHTML);
-				self.detailTemplates[$tmpl.data('element')] = $(node);
+				self.detailTemplates[$tmpl.data('element')] = $node;
 			}
 		});
 		this.$groupListItemTemplate = $('#groupListItemTemplate');
 		this.$contactListItemTemplate = $('#contactListItemTemplate');
+		this.$contactDragItemTemplate = $('#contactDragItemTemplate');
 		this.$contactFullTemplate = $('#contactFullTemplate');
 		this.$contactDetailsTemplate = $('#contactDetailsTemplate');
 		this.$rightContent = $('#rightcontent');
@@ -797,14 +225,17 @@ OC.Contacts = OC.Contacts || {
 		this.$ninjahelp = $('#ninjahelp');
 		this.$firstRun = $('#firstrun');
 		this.$settings = $('#contacts-settings');
-		this.$importFileInput = $('#import_fileupload');
+		this.$importFileInput = $('#import_upload_start');
 		this.$importIntoSelect = $('#import_into');
 	},
 	// Build the select to add/remove from groups.
 	buildGroupSelect: function() {
 		// If a contact is open we know which categories it's in
 		if(this.currentid) {
-			var contact = this.contacts.contacts[this.currentid];
+			var contact = this.contacts.findById(this.currentid);
+			if(contact === null) {
+				return false;
+			}
 			this.$groups.find('optgroup,option:not([value="-1"])').remove();
 			var addopts = '', rmopts = '';
 			$.each(this.groups.categories, function(i, category) {
@@ -848,12 +279,28 @@ OC.Contacts = OC.Contacts || {
 			$(window).trigger('beforeunload');
 		});
 
+		this.hashChange = function() {
+			//console.log('hashchange', window.location.hash)
+			var id = parseInt(window.location.hash.substr(1));
+			if(id && id !== self.currentid) {
+				self.openContact(id);
+			} else if(!id && self.currentid) {
+				self.closeContact(self.currentid);
+			}
+		}
+
+		$(window).bind('popstate', this.hashChange);
+		$(window).bind('hashchange', this.hashChange);
+		
 		// App specific events
 		$(document).bind('status.contact.deleted', function(e, data) {
 			var id = parseInt(data.id);
+			if(id === self.currentid) {
+				delete self.currentid;
+			}
 			console.log('contact', data.id, 'deleted');
 			// update counts on group lists
-			self.groups.removeFromAll(data.id, true)
+			self.groups.removeFromAll(data.id, true);
 		});
 
 		$(document).bind('status.contact.added', function(e, data) {
@@ -862,12 +309,15 @@ OC.Contacts = OC.Contacts || {
 			self.hideActions();
 		});
 
+		// Keep error messaging at one place to be able to replace it.
 		$(document).bind('status.contact.error', function(e, data) {
+			console.warn(data.message);
+			console.trace();
 			OC.notify({message:data.message});
 		});
 
 		$(document).bind('status.contact.enabled', function(e, enabled) {
-			console.log('status.contact.enabled', enabled)
+			console.log('status.contact.enabled', enabled);
 			/*if(enabled) {
 				self.showActions(['back', 'download', 'delete', 'groups']);
 			} else {
@@ -884,11 +334,29 @@ OC.Contacts = OC.Contacts || {
 				self.loading(self.$rightContent, false);
 				self.groups.loadGroups(self.numcontacts, function() {
 					self.loading($('#leftcontent'), false);
+					var id = $.QueryString['id']; // Keep for backwards compatible links.
+					self.currentid = parseInt(id);
+					if(!self.currentid) {
+						self.currentid = parseInt(window.location.hash.substr(1));
+					}
 					console.log('Groups loaded, currentid', self.currentid);
 					if(self.currentid) {
 						self.openContact(self.currentid);
 					}
 				});
+				if(!contacts_properties_indexed) {
+					// Wait a couple of mins then check if contacts are indexed.
+					setTimeout(function() {
+							$.when($.post(OC.Router.generate('contacts_index_properties')))
+								.then(function(response) {
+									if(!response.isIndexed) {
+										OC.notify({message:t('contacts', 'Indexing contacts'), timeout:20});
+									}
+								});
+					}, 10000);
+				} else {
+					console.log('contacts are indexed.');
+				}
 			}
 		});
 
@@ -906,7 +374,7 @@ OC.Contacts = OC.Contacts || {
 					self.dontScroll = false;
 				}, 100);
 			}
-			self.currentlistid = result.id
+			self.currentlistid = result.id;
 		});
 
 		$(document).bind('status.nomorecontacts', function(e, result) {
@@ -931,7 +399,7 @@ OC.Contacts = OC.Contacts || {
 				console.log('waiting for contacts to load');
 				setTimeout(function() {
 					$(document).trigger('request.loadcontact', {
-						id: result.id,
+						id: result.id
 					});
 				}, 1000);
 			}
@@ -943,45 +411,90 @@ OC.Contacts = OC.Contacts || {
 		});
 
 		$(document).bind('request.contact.addtogroup', function(e, data) {
-			console.log('contact', data.id, 'request.contact.addtogroup');
-			self.groups.addTo(data.id, data.groupid);
+			self.groups.addTo(data.id, data.groupid, function(response) {
+				console.log('contact', data.id, 'request.contact.addtogroup', response);
+			});
+		});
+
+		$(document).bind('request.contact.removefromgroup', function(e, data) {
+			console.log('contact', data.id, 'request.contact.removefromgroup');
+			self.groups.removeFrom(data.id, data.groupid);
 		});
 
 		$(document).bind('request.contact.export', function(e, data) {
-			var id = parseInt(data.id);
+			var id = String(data.id);
 			console.log('contact', data.id, 'request.contact.export');
-			document.location.href = OC.linkTo('contacts', 'export.php') + '?contactid=' + self.currentid;
+			document.location.href = OC.linkTo('contacts', 'export.php') + '?' + $.param(data);
 		});
 
 		$(document).bind('request.contact.close', function(e, data) {
-			var id = parseInt(data.id);
+			var id = String(data.id);
 			console.log('contact', data.id, 'request.contact.close');
 			self.closeContact(id);
 		});
 
 		$(document).bind('request.contact.delete', function(e, data) {
-			var id = parseInt(data.id);
-			console.log('contact', data.id, 'request.contact.delete');
-			self.contacts.delayedDelete(id);
+			var id = String(data.contactid);
+			console.log('contact', data, 'request.contact.delete');
+			self.closeContact(id);
+			self.contacts.delayedDelete(data);
 			self.$contactList.removeClass('dim');
 			self.showActions(['add']);
 		});
 
-		$(document).bind('request.select.contactphoto.fromlocal', function(e, result) {
-			console.log('request.select.contactphoto.fromlocal', result);
-			$('#contactphoto_fileupload').trigger('click');
+		$(document).bind('request.contact.merge', function(e, data) {
+			console.log('contact','request.contact.merge', data);
+			var merger = self.contacts.findById(data.merger);
+			var mergees = [];
+			if(!merger) {
+				$(document).trigger('status.contact.error', {
+					message: t('contacts', 'Merge failed. Cannot find contact: {id}', {id:data.merger})
+				});
+				return;
+			}
+			$.each(data.mergees, function(idx, id) {
+				var contact = self.contacts.findById(id);
+				if(!contact) {
+					console.warn('cannot find', id, 'by id');
+				}
+				mergees.push(contact);
+			});
+			if(!merger.merge(mergees)) {
+				$(document).trigger('status.contact.error', {
+					message: t('contacts', 'Merge failed.')
+				});
+				return;
+			}
+			merger.saveAll(function(response) {
+				if(response.error) {
+					$(document).trigger('status.contact.error', {
+						message: t('contacts', 'Merge failed. Error saving contact.')
+					});
+					return;
+				} else {
+					if(data.deleteOther) {
+						self.contacts.delayedDelete(mergees);
+					}
+					self.openContact(merger.getId());
+				}
+			});
 		});
 
-		$(document).bind('request.select.contactphoto.fromcloud', function(e, result) {
-			console.log('request.select.contactphoto.fromcloud', result);
+		$(document).bind('request.select.contactphoto.fromlocal', function(e, metadata) {
+			console.log('request.select.contactphoto.fromlocal', metadata);
+			$('#contactphoto_fileupload').trigger('click', metadata);
+		});
+
+		$(document).bind('request.select.contactphoto.fromcloud', function(e, metadata) {
+			console.log('request.select.contactphoto.fromcloud', metadata);
 			OC.dialogs.filepicker(t('contacts', 'Select photo'), function(path) {
-				self.cloudPhotoSelected(self.currentid, path);
+				self.cloudPhotoSelected(metadata, path);
 			}, false, 'image', true);
 		});
 
-		$(document).bind('request.edit.contactphoto', function(e, result) {
-			console.log('request.edit.contactphoto', result);
-			self.editCurrentPhoto(result.id);
+		$(document).bind('request.edit.contactphoto', function(e, metadata) {
+			console.log('request.edit.contactphoto', metadata);
+			self.editCurrentPhoto(metadata);
 		});
 
 		$(document).bind('request.addressbook.activate', function(e, result) {
@@ -1000,31 +513,39 @@ OC.Contacts = OC.Contacts || {
 		$(document).bind('status.group.groupremoved', function(e, result) {
 			console.log('status.group.groupremoved', result);
 			if(parseInt(result.groupid) === parseInt(self.currentgroup)) {
-				console.time('hiding');
 				self.contacts.showContacts([]);
-				console.timeEnd('hiding');
 				self.currentgroup = 'all';
 			}
 			$.each(result.contacts, function(idx, contactid) {
 				var contact = self.contacts.findById(contactid);
-				console.log('contactid', contactid, contact);
-				
-				self.contacts.findById(contactid).removeFromGroup(result.groupname);
+
+				contact.removeFromGroup(result.groupname);
 			});
 		});
 
 		$(document).bind('status.group.contactadded', function(e, result) {
 			console.log('status.group.contactadded', result);
-			self.contacts.contacts[parseInt(result.contactid)].addToGroup(result.groupname);
+			var contact = self.contacts.findById(result.contactid);
+			if(!contact) {
+				return false;
+			}
+			contact.addToGroup(result.groupname);
 		});
 
 		// Group sorted, save the sort order
 		$(document).bind('status.groups.sorted', function(e, result) {
 			console.log('status.groups.sorted', result);
-			$.post(OC.filePath('contacts', 'ajax', 'setpreference.php'), {'key':'groupsort', 'value':result.sortorder}, function(jsondata) {
-				if(jsondata.status !== 'success') {
-					OC.notify({message: jsondata ? jsondata.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
+			$.when(self.storage.setPreference('groupsort', result.sortorder)).then(function(response) {
+				if(response.error) {
+					OC.notify({message: response ? response.message : t('contacts', 'Network or server error. Please inform administrator.')});
 				}
+			})
+			.fail(function(jqxhr, textStatus, error) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
+				$(document).trigger('status.contact.error', {
+					message: t('contacts', 'Failed saving sort order: {error}', {error:err})
+				});
 			});
 		});
 		// Group selected, only show contacts from that group
@@ -1047,10 +568,17 @@ OC.Contacts = OC.Contacts || {
 			} else {
 				self.contacts.showContacts(self.currentgroup);
 			}
-			$.post(OC.filePath('contacts', 'ajax', 'setpreference.php'), {'key':'lastgroup', 'value':self.currentgroup}, function(jsondata) {
-				if(!jsondata || jsondata.status !== 'success') {
-					OC.notify({message: (jsondata && jsondata.data) ? jsondata.data.message : t('contacts', 'Network or server error. Please inform administrator.')});
+			$.when(self.storage.setPreference('lastgroup', self.currentgroup)).then(function(response) {
+				if(response.error) {
+					OC.notify({message: response.message});
 				}
+			})
+			.fail(function(jqxhr, textStatus, error) {
+				var err = textStatus + ', ' + error;
+				console.log( "Request Failed: " + err);
+				$(document).trigger('status.contact.error', {
+					message: t('contacts', 'Failed saving last group: {error}', {error:err})
+				});
 			});
 			self.$rightContent.scrollTop(0);
 		});
@@ -1083,20 +611,29 @@ OC.Contacts = OC.Contacts || {
 				if(self.$settings.find($(e.target)).length == 0) {
 					self.$settings.switchClass('open', '');
 				}
-			}
+			};
 			if(self.$settings.hasClass('open')) {
 				self.$settings.switchClass('open', '');
 				$('body').unbind('click', bodyListener);
 			} else {
+				// FIXME: Settings needs to be refactored
+				self.$settings.find('h2').trigger('click');
 				self.$settings.switchClass('', 'open');
 				$('body').bind('click', bodyListener);
 			}
 		});
+		$('#contactphoto_fileupload').on('click', function(event, metadata) {
+			var form = $('#file_upload_form');
+			form.find('input[name="contactid"]').val(metadata.contactid);
+			form.find('input[name="addressbookid"]').val(metadata.addressbookid);
+			form.find('input[name="backend"]').val(metadata.backend);
+		});
+
 		$('#contactphoto_fileupload').on('change', function() {
 			self.uploadPhoto(this.files);
 		});
 
-		$('#groupactions > .addgroup').on('click keydown',function(event) {
+		$('#groupsheader > .addgroup').on('click keydown',function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
@@ -1118,51 +655,48 @@ OC.Contacts = OC.Contacts || {
 				self.buildGroupSelect();
 			}
 			if(isChecked) {
-				self.showActions(['add', 'download', 'groups', 'delete', 'favorite']);
+				self.showActions(['add', 'download', 'groups', 'delete', 'favorite', 'merge']);
 			} else {
 				self.showActions(['add']);
 			}
 		});
 
 		this.$contactList.on('change', 'input:checkbox', function(event) {
-			if($(this).is(':checked')) {
-				if(self.$groups.find('option').length === 1) {
-					self.buildGroupSelect();
-				}
-				self.showActions(['add', 'download', 'groups', 'delete', 'favorite']);
-			} else if(self.contacts.getSelectedContacts().length === 0) {
+			var selected = self.contacts.getSelectedContacts();
+			console.log('selected', selected.length);
+			if(selected.length > 0 && self.$groups.find('option').length === 1) {
+				self.buildGroupSelect();
+			}
+			if(selected.length === 0) {
 				self.showActions(['add']);
+			} else if(selected.length === 1) {
+				self.showActions(['add', 'download', 'groups', 'delete', 'favorite']);
+			} else {
+				self.showActions(['add', 'download', 'groups', 'delete', 'favorite', 'merge']);
 			}
 		});
 
 		// Add to/remove from group multiple contacts.
-		// FIXME: Refactor this to be usable for favoriting also.
 		this.$groups.on('change', function() {
 			var $opt = $(this).find('option:selected');
 			var action = $opt.parent().data('action');
-			var ids, groupName, groupId, buildnow = false;
+			var groupName, groupId, buildnow = false;
 
-			// If a contact is open the action is only applied to that,
-			// otherwise on all selected items.
-			if(self.currentid) {
-				ids = [self.currentid,];
-				buildnow = true
-			} else {
-				ids = self.contacts.getSelectedContacts();
-			}
+			var contacts = self.contacts.getSelectedContacts();
+			var ids = $.map(contacts, function(c) {return c.getId();});
 
 			self.setAllChecked(false);
 			self.$toggleAll.prop('checked', false);
 			if(!self.currentid) {
 				self.showActions(['add']);
 			}
-			
+
 			if($opt.val() === 'add') { // Add new group
 				action = 'add';
 				console.log('add group...');
 				self.$groups.val(-1);
 				self.addGroup(function(response) {
-					if(response.status === 'success') {
+					if(!response.error) {
 						groupId = response.id;
 						groupName = response.name;
 						self.groups.addTo(ids, groupId, function(result) {
@@ -1171,7 +705,11 @@ OC.Contacts = OC.Contacts || {
 									// Delay each contact to not trigger too many ajax calls
 									// at a time.
 									setTimeout(function() {
-										self.contacts.contacts[id].addToGroup(groupName);
+										var contact = self.contacts.findById(id);
+										if(contact === null) {
+											return true;
+										}
+										contact.addToGroup(groupName);
 										// I don't think this is used...
 										if(buildnow) {
 											self.buildGroupSelect();
@@ -1179,7 +717,7 @@ OC.Contacts = OC.Contacts || {
 										$(document).trigger('status.contact.addedtogroup', {
 											contactid: id,
 											groupid: groupId,
-											groupname: groupName,
+											groupname: groupName
 										});
 									}, 1000);
 								});
@@ -1194,10 +732,9 @@ OC.Contacts = OC.Contacts || {
 				});
 				return;
 			}
-			
+
 			groupName = $opt.text(), groupId = $opt.val();
 
-			console.log('trut', groupName, groupId);
 			if(action === 'add') {
 				self.groups.addTo(ids, $opt.val(), function(result) {
 					console.log('after add', result);
@@ -1207,7 +744,11 @@ OC.Contacts = OC.Contacts || {
 							// at a time.
 							setTimeout(function() {
 								console.log('adding', id, 'to', groupName);
-								self.contacts.contacts[id].addToGroup(groupName);
+								var contact = self.contacts.findById(id);
+								if(contact === null) {
+									return true;
+								}
+								contact.addToGroup(groupName);
 								// I don't think this is used...
 								if(buildnow) {
 									self.buildGroupSelect();
@@ -1215,7 +756,7 @@ OC.Contacts = OC.Contacts || {
 								$(document).trigger('status.contact.addedtogroup', {
 									contactid: id,
 									groupid: groupId,
-									groupname: groupName,
+									groupname: groupName
 								});
 							}, 1000);
 						});
@@ -1233,7 +774,11 @@ OC.Contacts = OC.Contacts || {
 					if(result.status === 'success') {
 						var groupname = $opt.text(), groupid = $opt.val();
 						$.each(result.ids, function(idx, id) {
-							self.contacts.contacts[id].removeFromGroup(groupname);
+							var contact = self.contacts.findById(id);
+							if(contact === null) {
+								return true;
+							}
+							contact.removeFromGroup(groupname);
 							if(buildnow) {
 								self.buildGroupSelect();
 							}
@@ -1241,7 +786,7 @@ OC.Contacts = OC.Contacts || {
 							$(document).trigger('status.contact.removedfromgroup', {
 								contactid: id,
 								groupid: groupId,
-								groupname: groupName,
+								groupname: groupName
 							});
 						});
 					} else {
@@ -1264,14 +809,12 @@ OC.Contacts = OC.Contacts || {
 			if(event.ctrlKey || event.metaKey) {
 				event.stopPropagation();
 				event.preventDefault();
-				console.log('select', event);
 				self.dontScroll = true;
 				self.contacts.select($(this).data('id'), true);
 				return;
 			}
 			if($(event.target).is('a.mailto')) {
-				var mailto = 'mailto:' + $(this).find('.email').text().trim();
-				console.log('mailto', mailto);
+				var mailto = 'mailto:' + $.trim($(this).find('.email').text());
 				try {
 					window.location.href=mailto;
 				} catch(e) {
@@ -1281,85 +824,135 @@ OC.Contacts = OC.Contacts || {
 			}
 			self.openContact($(this).data('id'));
 		});
-		
-		this.$settings.find('h3').on('click keydown', function(event) {
+
+		/** Appends an address book entry to $list and adds the id to
+		 * internal list.
+		 *
+		 * @param object $list A jquery object of an unordered list
+		 * @param object book An object with the properties 'id', 'name' and 'permissions'.
+		 * @param bool add Whether the address book list should be updated.
+		 */
+		var appendAddressBook = function($list, book, add) {
+			if(add) {
+				self.contacts.setAddressbook(book);
+			}
+			var $li = self.$addressbookTmpl.octemplate({
+				id: book.id,
+				permissions: book.permissions,
+				displayname: book.displayname
+			});
+
+			$li.find('a.action').tipsy({gravity: 'w'});
+			$li.find('a.action.delete').on('click keypress', function() {
+				$('.tipsy').remove();
+				var id = parseInt($(this).parents('li').first().data('id'));
+				console.log('delete', id);
+				var $li = $(this).parents('li').first();
+				$.when(self.storage.deleteAddressBook('local',id))
+					.then(function(response) {
+					if(!response.error) {
+						self.contacts.unsetAddressbook(id);
+						$li.remove();
+						OC.notify({
+							message:t('contacts','Deleting done. Click here to cancel reloading.'),
+							timeout:5,
+							timeouthandler:function() {
+								console.log('reloading');
+								window.location.href = OC.Router.generate('contacts_index');
+							},
+							clickhandler:function() {
+								console.log('reloading cancelled');
+								OC.notify({cancel:true});
+							}
+						});
+					} else {
+						OC.notify({message:response.message});
+					}
+				});
+			});
+			$li.find('a.action.globe').on('click keypress', function() {
+				var id = parseInt($(this).parents('li').first().data('id'));
+				var book = self.contacts.addressbooks[id];
+				var uri = (book.owner === oc_current_user ) ? book.uri : book.uri + '_shared_by_' + book.owner;
+				var link = OC.linkToRemote('carddav')+'/addressbooks/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
+				var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" readonly /></div>');
+				$dropdown.appendTo($(this).parents('li').first());
+				var $input = $dropdown.find('input');
+				$input.focus().get(0).select();
+				$input.on('blur', function() {
+					$dropdown.hide('blind', function() {
+						$dropdown.remove();
+					});
+				});
+			});
+			$list.append($li);
+		};
+
+		this.$settings.find('.addaddressbook').on('click keydown', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			$(this).hide();
+			var $addAddressbookPart = $(this).next('ul').show();
+			var $addinput = $addAddressbookPart.find('input.addaddressbookinput').focus();
+			$addAddressbookPart.on('click keydown', 'button', function(event) {
+				if(wrongKey(event)) {
+					return;
+				}
+				if($(this).is('.addaddressbookok')) {
+					if($addinput.val().trim() === '') {
+						return false;
+					} else {
+						var name = $addinput.val().trim();
+						$addinput.addClass('loading');
+						$addAddressbookPart.find('button input').prop('disabled', true);
+						//console.log('adding', name);
+						$.when(self.storage.addAddressBook('local',
+						{displayname: name, description: ''})).then(function(response) {
+							if(response.error) {
+								OC.notify({message: response.message});
+								return false;
+							} else {
+								var book = response.data;
+								var $list = self.$settings.find('[data-id="addressbooks"]').next('ul');
+								appendAddressBook($list, book, true);
+							}
+							$addinput.removeClass('loading');
+							$addAddressbookPart.find('button input').prop('disabled', false);
+							$addAddressbookPart.hide().prev('button').show();
+						})
+						.fail(function(jqxhr, textStatus, error) {
+							var err = textStatus + ', ' + error;
+							console.log( "Request Failed: " + err);
+							$(document).trigger('status.contact.error', {
+								message: t('contacts', 'Failed adding address book: {error}', {error:err})
+							});
+						});
+					}
+				} else if($(this).is('.addaddressbookcancel')) {
+					$addAddressbookPart.hide().prev('button').show();
+				}
+			});
+		});
+
+		this.$settings.find('h2').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
 			if($(this).next('ul').is(':visible')) {
-				$(this).next('ul').slideUp();
 				return;
 			}
-			console.log('settings');
+			//console.log('settings');
 			var $list = $(this).next('ul');
 			if($(this).data('id') === 'addressbooks') {
-				console.log('addressbooks');
-				
+
 				if(!self.$addressbookTmpl) {
 					self.$addressbookTmpl = $('#addressbookTemplate');
 				}
 
 				$list.empty();
 				$.each(self.contacts.addressbooks, function(id, book) {
-					var $li = self.$addressbookTmpl.octemplate({
-						id: id, 
-						permissions: book.permissions,
-						displayname: book.displayname,
-					});
-
-					$list.append($li);
-				});
-				$list.find('a.action').tipsy({gravity: 'w'});
-				$list.find('a.action.delete').on('click keypress', function() {
-					$('.tipsy').remove();
-					var id = parseInt($(this).parents('li').first().data('id'));
-					console.log('delete', id);
-					var $li = $(this).parents('li').first();
-					$.ajax({
-						type:'POST',
-						url:OC.filePath('contacts', 'ajax', 'addressbook/delete.php'), 
-						data:{ id: id },
-						success:function(jsondata) {
-							console.log(jsondata);
-							if(jsondata.status == 'success') {
-								self.contacts.unsetAddressbook(id);
-								$li.remove();
-								OC.notify({
-									message:t('contacts','Deleting done. Click here to cancel reloading.'),
-									timeout:5,
-									timeouthandler:function() {
-										console.log('reloading');
-										window.location.href = OC.linkTo('contacts', 'index.php');
-									},
-									clickhandler:function() {
-										console.log('reloading cancelled');
-										OC.notify({cancel:true});
-									}
-								});
-							} else {
-								OC.notify({message:jsondata.data.message});
-							}
-						},
-						error:function(jqXHR, textStatus, errorThrown) {
-							OC.notify({message:textStatus + ': ' + errorThrown});
-							id = false;
-						},
-					});
-				});
-				$list.find('a.action.globe').on('click keypress', function() {
-					var id = parseInt($(this).parents('li').first().data('id'));
-					var book = self.contacts.addressbooks[id];
-					var uri = (book.owner === oc_current_user ) ? book.uri : book.uri + '_shared_by_' + book.owner;
-					var link = totalurl+'/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
-					var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" /></div>');
-					$dropdown.appendTo($(this).parents('li').first());
-					var $input = $dropdown.find('input');
-					$input.focus().get(0).select();
-					$input.on('blur', function() {
-						$dropdown.hide('blind', function() {
-							$dropdown.remove();
-						});
-					});
+					appendAddressBook($list, book, false);
 				});
 				if(typeof OC.Share !== 'undefined') {
 					OC.Share.loadIcons('addressbook');
@@ -1367,33 +960,29 @@ OC.Contacts = OC.Contacts || {
 					$list.find('a.action.share').css('display', 'none');
 				}
 			} else if($(this).data('id') === 'import') {
-				console.log('import');
 				$('.import-upload').show();
 				$('.import-select').hide();
 
 				var addAddressbookCallback = function(select, name) {
-					var id;
-					$.ajax({
-						type:'POST',
-						async:false,
-						url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'), 
-						data:{ name: name },
-						success:function(jsondata) {
-							console.log(jsondata);
-							if(jsondata.status == 'success') {
-								self.contacts.setAddressbook(jsondata.data.addressbook);
-								id = jsondata.data.addressbook.id
-							} else {
-								OC.notify({message:jsondata.data.message});
-							}
-						},
-						error:function(jqXHR, textStatus, errorThrown) {
-							OC.notify({message:textStatus + ': ' + errorThrown});
-							id = false;
-						},
+					var id = false;
+					$.when(this.storage.addAddressBook('local',
+						{name: name, description: ''})).then(function(response) {
+						if(response.error) {
+							OC.notify({message: response.message});
+							return false;
+						} else {
+							id = response.data.id;
+						}
+					})
+					.fail(function(jqxhr, textStatus, error) {
+						var err = textStatus + ', ' + error;
+						console.log( "Request Failed: " + err);
+						$(document).trigger('status.contact.error', {
+							message: t('contacts', 'Failed adding addres books: {error}', {error:err})
+						});
 					});
 					return id;
-				}
+				};
 
 				self.$importIntoSelect.empty();
 				$.each(self.contacts.addressbooks, function(id, book) {
@@ -1403,7 +992,7 @@ OC.Contacts = OC.Contacts || {
 					createCallback:addAddressbookCallback,
 					singleSelect: true,
 					createText:String(t('contacts', 'Add address book')),
-					minWidth: 120,
+					minWidth: 120
 				});
 
 			}
@@ -1411,24 +1000,45 @@ OC.Contacts = OC.Contacts || {
 			$list.toggle('slow');
 		});
 
-		this.$header.on('click keydown', '.add', function(event) {
-			if(wrongKey(event)) {
-				return;
-			}
+		var addContact = function() {
 			console.log('add');
 			self.$toggleAll.hide();
 			$(this).hide();
 			self.currentid = 'new';
 			// Properties that the contact doesn't know
-			console.log('addContact, groupid', self.currentgroup)
+			console.log('addContact, groupid', self.currentgroup);
+			self.$contactList.addClass('dim');
 			var groupprops = {
 				favorite: false,
 				groups: self.groups.categories,
-				currentgroup: {id:self.currentgroup, name:self.groups.nameById(self.currentgroup)},
+				currentgroup: {id:self.currentgroup, name:self.groups.nameById(self.currentgroup)}
 			};
+			self.$firstRun.hide();
+			self.$contactList.show();
+			self.$contactList.addClass('dim');
 			self.tmpcontact = self.contacts.addContact(groupprops);
 			self.$rightContent.prepend(self.tmpcontact);
 			self.hideActions();
+		};
+
+		this.$firstRun.on('click keydown', '.import', function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			self.$settings.find('.settings').click();
+		});
+
+		this.$firstRun.on('click keydown', '.addcontact', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			addContact();
+		});
+
+		this.$header.on('click keydown', '.add', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			addContact();
 		});
 
 		this.$header.on('click keydown', '.delete', function(event) {
@@ -1437,8 +1047,9 @@ OC.Contacts = OC.Contacts || {
 			}
 			console.log('delete');
 			if(self.currentid) {
-				console.assert(utils.isUInt(self.currentid), 'self.currentid is not an integer');
-				self.contacts.delayedDelete(self.currentid);
+				console.assert(typeof self.currentid === 'string', 'self.currentid is not a string');
+				contactInfo = self.contacts[self.currentid].metaData();
+				self.contacts.delayedDelete(contactInfo);
 			} else {
 				self.contacts.delayedDelete(self.contacts.getSelectedContacts());
 			}
@@ -1450,35 +1061,52 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			console.log('download');
-			document.location.href = OC.linkTo('contacts', 'export.php') 
-				+ '?selectedids=' + self.contacts.getSelectedContacts().join(',');
+			var contacts = self.contacts.getSelectedContacts();
+			var ids = $.map(contacts, function(c) {return c.getId();});
+			document.location.href = OC.linkTo('contacts', 'export.php')
+				+ '?selectedids=' + ids.join(',');
+		});
+
+		this.$header.on('click keydown', '.merge', function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			console.log('merge');
+			self.mergeSelectedContacts();
 		});
 
 		this.$header.on('click keydown', '.favorite', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
-			if(!utils.isUInt(self.currentid)) {
-				return;
+
+			var contacts = self.contacts.getSelectedContacts();
+
+			self.setAllChecked(false);
+			self.$toggleAll.prop('checked', false);
+			if(!self.currentid) {
+				self.showActions(['add']);
 			}
-			// FIXME: This should only apply for contacts list.
-			var state = self.groups.isFavorite(self.currentid);
-			console.log('Favorite?', this, state);
-			self.groups.setAsFavorite(self.currentid, !state, function(jsondata) {
-				if(jsondata.status === 'success') {
-					if(state) {
-						self.$header.find('.favorite').switchClass('active', '');
-					} else {
-						self.$header.find('.favorite').switchClass('', 'active');
-					}
-				} else {
-					OC.notify({message:t('contacts', jsondata.data.message)});
+
+			$.each(contacts, function(idx, contact) {
+				if(!self.groups.isFavorite(contact.getId())) {
+					self.groups.setAsFavorite(contact.getId(), true, function(result) {
+						if(result.status !== 'success') {
+							OC.notify({message:
+								t('contacts',
+									'Error setting {name} as favorite.',
+									{name:contact.getDisplayName()})
+							});
+						}
+					});
 				}
 			});
+
+			self.showActions(['add']);
 		});
 
 		this.$contactList.on('mouseenter', 'td.email', function(event) {
-			if($(this).text().trim().length > 3) {
+			if($.trim($(this).text()).length > 3) {
 				$(this).find('.mailto').css('display', 'inline-block'); //.fadeIn(100);
 			}
 		});
@@ -1488,14 +1116,28 @@ OC.Contacts = OC.Contacts || {
 
 		// Import using jquery.fileupload
 		$(function() {
-			var uploadingFiles = {}, numfiles = 0, uploadedfiles = 0, retries = 0;
+			var uploadingFiles = {},
+				numfiles = 0,
+				uploadedfiles = 0,
+				importedfiles = 0,
+				retries = 0,
+				succeded = 0
+				failed = 0;
 			var aid, importError = false;
 			var $progressbar = $('#import-progress');
 			var $status = $('#import-status-text');
 
+			self.$importFileInput.on('fileuploaddone', function(e, data) {
+				console.log('fileuploaddone', data);
+				var file = data.result.file;
+				console.log('fileuploaddone, file', file);
+				uploadedfiles += 1;
+			});
+
 			var waitForImport = function() {
-				if(numfiles == 0 && uploadedfiles == 0) {
-					$progressbar.progressbar('value',100);
+				console.log('waitForImport', numfiles, uploadedfiles, importedfiles);
+				if(uploadedfiles === importedfiles && importedfiles === numfiles) {
+					$progressbar.progressbar('value', 100);
 					if(!importError) {
 						OC.notify({
 							message:t('contacts','Import done. Click here to cancel reloading.'),
@@ -1510,7 +1152,9 @@ OC.Contacts = OC.Contacts || {
 							}
 						});
 					}
-					retries = aid = 0;
+					$status.text(t('contacts', '{success} imported, {failed} failed.',
+						{success:succeded, failed:failed})).fadeIn();
+					numfiles = uploadedfiles = importedfiles = retries = aid = failed = succeded = 0;
 					$progressbar.fadeOut();
 					setTimeout(function() {
 						$status.fadeOut('slow');
@@ -1538,11 +1182,11 @@ OC.Contacts = OC.Contacts || {
 
 			var importFiles = function(aid, uploadingFiles) {
 				console.log('importFiles', aid, uploadingFiles);
-				if(numfiles != uploadedfiles) {
+				if(numfiles !== uploadedfiles) {
 					OC.notify({message:t('contacts', 'Not all files uploaded. Retrying...')});
 					retries += 1;
 					if(retries > 3) {
-						numfiles = uploadedfiles = retries = aid = 0;
+						numfiles = uploadedfiles = importedfiles = retries = failed = succeded = aid = 0;
 						uploadingFiles = {};
 						$progressbar.fadeOut();
 						OC.dialogs.alert(t('contacts', 'Something went wrong with the upload, please retry.'), t('contacts', 'Error'));
@@ -1558,14 +1202,22 @@ OC.Contacts = OC.Contacts || {
 					$status.text(t('contacts', 'Importing from {filename}...', {filename:fileName})).fadeIn();
 					doImport(fileName, aid, function(response) {
 						if(response.status === 'success') {
-							$status.text(t('contacts', '{success} imported, {failed} failed.', 
-								{success:response.data.imported, failed:response.data.failed})).fadeIn();
+							importedfiles += 1;
+							succeded += response.data.imported;
+							failed += response.data.failed;
+							OC.notify({
+								message:t('contacts', '{success} imported, {failed} failed from {file}',
+									{success:response.data.imported, failed:response.data.failed, file:response.data.failed}
+								)
+							});
+						} else {
+							$('.import-upload').show();
+							$('.import-select').hide();
 						}
 						delete uploadingFiles[fileName];
-						numfiles -= 1; uploadedfiles -= 1;
 						$progressbar.progressbar('value',50+(50/(todo-uploadedfiles)));
 					});
-				})
+				});
 				//$status.text(t('contacts', 'Importing...')).fadeIn();
 				waitForImport();
 			};
@@ -1580,76 +1232,36 @@ OC.Contacts = OC.Contacts || {
 				importFiles(aid, uploadingFiles);
 			});
 
-			$('#import_fileupload').fileupload({
+			self.$importFileInput.fileupload({
 				acceptFileTypes:  /^text\/(directory|vcard|x-vcard)$/i,
 				add: function(e, data) {
-					var files = data.files;
+					var file = data.files[0];
+					console.log('add', file.name);
 					var totalSize=0;
-					if(files) {
-						numfiles += files.length; uploadedfiles = 0;
-						for(var i=0;i<files.length;i++) {
-							if(files[i].size ==0 && files[i].type== '') {
-								OC.dialogs.alert(t('files', 'Unable to upload your file as it is a directory or has 0 bytes'), t('files', 'Upload Error'));
-								return;
-							}
-							totalSize+=files[i].size;
+					if(file) {
+						numfiles += 1;
+						if(file.size === 0 || file.type== '') {
+							OC.dialogs.alert(t('contacts', 'Unable to upload your file as it is a directory or has 0 bytes'), t('contacts', 'Upload Error'));
+							return;
 						}
+						totalSize+=file.size;
 					}
 					if(totalSize>$('#max_upload').val()) {
 						OC.dialogs.alert(t('contacts','The file you are trying to upload exceed the maximum size for file uploads on this server.'), t('contacts','Upload too large'));
-						numfiles = uploadedfiles = retries = aid = 0;
+						numfiles = uploadedfiles = importedfiles = retries = failed = succeded = aid = 0;
 						uploadingFiles = {};
 						return;
-					} else {
-						if($.support.xhrFileUpload) {
-							$.each(files, function(i, file) {
-								var fileName = file.name;
-								console.log('file.name', file.name);
-								var jqXHR =  $('#import_fileupload').fileupload('send', 
-									{
-									files: file,
-									formData: function(form) {
-										var formArray = form.serializeArray();
-										formArray['aid'] = aid;
-										return formArray;
-									}})
-									.success(function(response, textStatus, jqXHR) {
-										if(response.status == 'success') {
-											// import the file
-											uploadedfiles += 1;
-										} else {
-											OC.notify({message:response.data.message});
-										}
-										return false;
-									})
-									.error(function(jqXHR, textStatus, errorThrown) {
-										console.log(textStatus);
-										OC.notify({message:errorThrown + ': ' + textStatus,});
-									});
-								uploadingFiles[fileName] = jqXHR;
-							});
-						} else {
-							data.submit().success(function(data, status) {
-								response = jQuery.parseJSON(data[0].body.innerText);
-								if(response[0] != undefined && response[0].status == 'success') {
-									var file=response[0];
-									delete uploadingFiles[file.name];
-									$('tr').filterAttr('data-file',file.name).data('mime',file.mime);
-									var size = $('tr').filterAttr('data-file',file.name).find('td.filesize').text();
-									if(size==t('files','Pending')){
-										$('tr').filterAttr('data-file',file.name).find('td.filesize').text(file.size);
-									}
-									FileList.loadingDone(file.name);
-								} else {
-									OC.notify({message:response.data.message});
-								}
-							});
-						}
 					}
+					var jqXHR = data.submit();
+					uploadingFiles[file.name] = jqXHR;
+
 				},
 				fail: function(e, data) {
 					console.log('fail');
 					OC.notify({message:data.errorThrown + ': ' + data.textStatus});
+					numfiles = uploadedfiles = importedfiles = retries = failed = succeded = aid = 0;
+					$('.import-upload').show();
+					$('.import-select').hide();
 					// TODO: Remove file from upload queue.
 				},
 				progressall: function(e, data) {
@@ -1659,25 +1271,22 @@ OC.Contacts = OC.Contacts || {
 				start: function(e, data) {
 					$progressbar.progressbar({value:0});
 					$progressbar.fadeIn();
-					if(data.dataType != 'iframe ') {
-						$('#upload input.stop').show();
-					}
 				},
 				stop: function(e, data) {
 					console.log('stop, data', data);
 					// stop only gets fired once so we collect uploaded items here.
 					$('.import-upload').hide();
 					$('.import-select').show();
-
-					if(data.dataType != 'iframe ') {
-						$('#upload input.stop').hide();
-					}
 				}
-			})
+			});
+		});
+
+		$('body').on('touchmove', function(event) {
+			event.preventDefault();
 		});
 		
-		$(document).on('keypress', function(event) {
-			if(!$(event.target).is('body')) {
+		$(document).on('keyup', function(event) {
+			if(!$(event.target).is('body') || event.isPropagationStopped()) {
 				return;
 			}
 			var keyCode = Math.max(event.keyCode, event.which);
@@ -1731,7 +1340,7 @@ OC.Contacts = OC.Contacts || {
 					break;
 				case 34: // PageDown
 				case 78: // n
-					console.log('page down')
+					console.log('page down');
 					break;
 				case 79: // o
 					console.log('open contact?');
@@ -1757,7 +1366,7 @@ OC.Contacts = OC.Contacts || {
 
 		});
 
-		 // find all with a title attribute and tipsy them
+		// find all with a title attribute and tipsy them
 		$('.tooltipped.downwards:not(.onfocus)').tipsy({gravity: 'n'});
 		$('.tooltipped.upwards:not(.onfocus)').tipsy({gravity: 's'});
 		$('.tooltipped.rightwards:not(.onfocus)').tipsy({gravity: 'w'});
@@ -1765,57 +1374,140 @@ OC.Contacts = OC.Contacts || {
 		$('.tooltipped.downwards.onfocus').tipsy({trigger: 'focus', gravity: 'n'});
 		$('.tooltipped.rightwards.onfocus').tipsy({trigger: 'focus', gravity: 'w'});
 	},
+	mergeSelectedContacts: function() {
+		var contacts = this.contacts.getSelectedContacts();
+		var self = this;
+		this.$rightContent.append('<div id="merge_contacts_dialog"></div>');
+		if(!this.$mergeContactsTmpl) {
+			this.$mergeContactsTmpl = $('#mergeContactsTemplate');
+		}
+		var $dlg = this.$mergeContactsTmpl.octemplate();
+		var $liTmpl = $dlg.find('li').detach();
+		var $mergeList = $dlg.find('.mergelist');
+		$.each(contacts, function(idx, contact) {
+			var $li = $liTmpl
+				.octemplate({idx: idx, id: contact.getId(), displayname: contact.getDisplayName()});
+			if(!contact.data.thumbnail) {
+				$li.addClass('thumbnail');
+			} else {
+				$li.css('background-image', 'url(data:image/png;base64,' + contact.data.thumbnail + ')');
+			}
+			if(idx === 0) {
+				$li.find('input:radio').prop('checked', true);
+			}
+			$mergeList.append($li);
+		});
+		this.$contactList.addClass('dim');
+		$('#merge_contacts_dialog').html($dlg).ocdialog({
+			closeOnEscape: true,
+			title:  t('contacts', 'Merge contacts'),
+			height: 'auto', width: 'auto',
+			buttons: [
+				{
+					text: t('contacts', 'Merge contacts'),
+					click:function() {
+						// Do the merging, use $(this) to get dialog
+						var contactid = $(this).find('input:radio:checked').val();
+						var others = [];
+						var deleteOther = $(this).find('#delete_other').prop('checked');
+						console.log('Selected contact', contactid, 'Delete others', deleteOther);
+						$.each($(this).find('input:radio:not(:checked)'), function(idx, item) {
+							others.push($(item).val());
+						});
+						console.log('others', others);
+						$(document).trigger('request.contact.merge', {
+							merger: contactid,
+							mergees: others,
+							deleteOther: deleteOther
+						});
+
+						$(this).ocdialog('close');
+					},
+					defaultButton: true
+				},
+				{
+					text: t('contacts', 'Cancel'),
+					click:function(dlg) {
+						$(this).ocdialog('close');
+						return false;
+					}
+				}
+			],
+			close: function(event, ui) {
+				$(this).ocdialog('destroy').remove();
+				$('#add_group_dialog').remove();
+				self.$contactList.removeClass('dim');
+			},
+			open: function(event, ui) {
+				$dlg.find('input').focus();
+			}
+		});
+	},
 	addGroup: function(cb) {
 		var self = this;
-		$('body').append('<div id="add_group_dialog"></div>');
+		this.$rightContent.append('<div id="add_group_dialog"></div>');
 		if(!this.$addGroupTmpl) {
 			this.$addGroupTmpl = $('#addGroupTemplate');
 		}
+		this.$contactList.addClass('dim');
 		var $dlg = this.$addGroupTmpl.octemplate();
-		$('#add_group_dialog').html($dlg).dialog({
+		$('#add_group_dialog').html($dlg).ocdialog({
 			modal: true,
 			closeOnEscape: true,
 			title:  t('contacts', 'Add group'),
 			height: 'auto', width: 'auto',
-			buttons: {
-				'Ok':function() {
-					self.groups.addGroup(
-						{name:$dlg.find('input:text').val()},
-						function(response) {
-							if(typeof cb === 'function') {
-								cb(response);
-							} else {
-								if(response.status !== 'success') {
-									OC.notify({message: response.message});
+			buttons: [
+				{
+					text: t('contacts', 'OK'),
+					click:function() {
+						var name = $(this).find('input').val();
+						if(name.trim() === '') {
+							return false;
+						}
+						self.groups.addGroup(
+							{name:$dlg.find('input:text').val()},
+							function(response) {
+								if(typeof cb === 'function') {
+									cb(response);
+								} else {
+									if(response.error) {
+										OC.notify({message: response.message});
+									}
 								}
-							}
-						});
-					$(this).dialog('close');
+							});
+						$(this).ocdialog('close');
+					},
+					defaultButton: true
 				},
-				'Cancel':function() { 
-					$(this).dialog('close'); 
-					return false;
+				{
+					text: t('contacts', 'Cancel'),
+					click:function(dlg) {
+						$(this).ocdialog('close');
+						return false;
+					}
 				}
-			},
+			],
 			close: function(event, ui) {
-				$(this).dialog('destroy').remove();
+				$(this).ocdialog('destroy').remove();
 				$('#add_group_dialog').remove();
+				self.$contactList.removeClass('dim');
 			},
 			open: function(event, ui) {
 				$dlg.find('input').focus();
-			},
+			}
 		});
 	},
 	setAllChecked: function(checked) {
 		var selector = checked ? 'input:checkbox:visible:not(checked)' : 'input:checkbox:visible:checked';
-		$.each(self.$contactList.find(selector), function() {
+		$.each(this.$contactList.find(selector), function() {
 			$(this).prop('checked', checked);
 		});
 	},
 	jumpToContact: function(id) {
-		this.$rightContent.scrollTop(this.contacts.contactPos(id)+10);
+		this.$rightContent.scrollTop(this.contacts.contactPos(id)-30);
 	},
 	closeContact: function(id) {
+		$(window).unbind('hashchange', this.hashChange);
 		if(typeof this.currentid === 'number') {
 			var contact = this.contacts.findById(id);
 			if(contact && contact.close()) {
@@ -1830,12 +1522,20 @@ OC.Contacts = OC.Contacts || {
 		delete this.currentid;
 		this.showActions(['add']);
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
+		if(this.contacts.length === 0) {
+			$(document).trigger('status.nomorecontacts');
+		}
+		//$('body').unbind('click', this.bodyListener);
+		window.location.hash = '';
+		$(window).bind('hashchange', this.hashChange);
 	},
 	openContact: function(id) {
+		this.hideActions();
 		console.log('Contacts.openContact', id);
 		if(this.currentid) {
 			this.closeContact(this.currentid);
 		}
+		$(window).unbind('hashchange', this.hashChange);
 		this.currentid = parseInt(id);
 		console.log('Contacts.openContact, Favorite', this.currentid, this.groups.isFavorite(this.currentid), this.groups);
 		this.setAllChecked(false);
@@ -1847,7 +1547,7 @@ OC.Contacts = OC.Contacts || {
 		var groupprops = {
 			favorite: this.groups.isFavorite(this.currentid),
 			groups: this.groups.categories,
-			currentgroup: {id:this.currentgroup, name:this.groups.nameById(this.currentgroup)},
+			currentgroup: {id:this.currentgroup, name:this.groups.nameById(this.currentgroup)}
 		};
 		var $contactelem = this.contacts.showContact(this.currentid, groupprops);
 		var self = this;
@@ -1861,6 +1561,20 @@ OC.Contacts = OC.Contacts || {
 		//$contact.resizable({ minWidth: 400, minHeight: 400, maxHeight: maxheight});
 		this.$rightContent.prepend($contactelem);
 		adjustElems();
+		/*this.bodyListener = function(e) {
+			if(!self.currentid) {
+				return;
+			}
+			var $contactelem = self.contacts.findById(self.currentid).$fullelem;
+			if($contactelem.find($(e.target)).length === 0) {
+				self.closeContact(self.currentid);
+			}
+		};*/
+		window.location.hash = this.currentid.toString();
+		setTimeout(function() {
+			//$('body').bind('click', self.bodyListener);
+			$(window).bind('hashchange', this.hashChange);
+		}, 500);
 	},
 	update: function() {
 		console.log('update');
@@ -1879,7 +1593,7 @@ OC.Contacts = OC.Contacts || {
 			OC.notify({
 				message:t(
 					'contacts',
-					'The file you are trying to upload exceed the maximum size for file uploads on this server.'),
+					'The file you are trying to upload exceed the maximum size for file uploads on this server.')
 			});
 			return;
 		} else {
@@ -1887,7 +1601,10 @@ OC.Contacts = OC.Contacts || {
 				var response=jQuery.parseJSON(target.contents().text());
 				if(response != undefined && response.status == 'success') {
 					console.log('response', response);
-					self.editPhoto(self.currentid, response.data.tmp);
+					self.editPhoto(
+						response.metadata,
+						response.data.tmp
+					);
 					//alert('File: ' + file.tmp + ' ' + file.name + ' ' + file.mime);
 				} else {
 					OC.notify({message:response.data.message});
@@ -1896,28 +1613,28 @@ OC.Contacts = OC.Contacts || {
 			form.submit();
 		}
 	},
-	cloudPhotoSelected:function(id, path) {
+	cloudPhotoSelected:function(metadata, path) {
 		var self = this;
-		console.log('cloudPhotoSelected, id', id)
+		console.log('cloudPhotoSelected', metadata);
 		$.getJSON(OC.filePath('contacts', 'ajax', 'oc_photo.php'),
-				  {path: path, id: id},function(jsondata) {
+				  {path: path, contact: metadata},function(jsondata) {
 			if(jsondata.status == 'success') {
 				//alert(jsondata.data.page);
-				self.editPhoto(jsondata.data.id, jsondata.data.tmp)
-				$('#edit_photo_dialog_img').html(jsondata.data.page);
+				self.editPhoto(metadata, jsondata.data.tmp);
+				//$('#edit_photo_dialog_img').html(jsondata.data.page);
 			}
 			else{
 				OC.notify({message: jsondata.data.message});
 			}
 		});
 	},
-	editCurrentPhoto:function(id) {
+	editCurrentPhoto:function(metadata) {
 		var self = this;
-		$.getJSON(OC.filePath('contacts', 'ajax', 'currentphoto.php'),
-				  {id: id}, function(jsondata) {
+		$.getJSON(OC.filePath('contacts', 'ajax', 'currentphoto.php'), metadata,
+			function(jsondata) {
 			if(jsondata.status == 'success') {
 				//alert(jsondata.data.page);
-				self.editPhoto(jsondata.data.id, jsondata.data.tmp)
+				self.editPhoto(metadata, jsondata.data.tmp);
 				$('#edit_photo_dialog_img').html(jsondata.data.page);
 			}
 			else{
@@ -1925,8 +1642,8 @@ OC.Contacts = OC.Contacts || {
 			}
 		});
 	},
-	editPhoto:function(id, tmpkey) {
-		console.log('editPhoto', id, tmpkey)
+	editPhoto:function(metadata, tmpkey) {
+		console.log('editPhoto', metadata, tmpkey);
 		$('.tipsy').remove();
 		// Simple event handler, called from onChange and onSelect
 		// event handlers, as per the Jcrop invocation above
@@ -1948,7 +1665,13 @@ OC.Contacts = OC.Contacts || {
 			this.$cropBoxTmpl = $('#cropBoxTemplate');
 		}
 		$('body').append('<div id="edit_photo_dialog"></div>');
-		var $dlg = this.$cropBoxTmpl.octemplate({id: id, tmpkey: tmpkey});
+		var $dlg = this.$cropBoxTmpl.octemplate(
+			{
+				backend: metadata.backend,
+				addressbookid: metadata.addressbookid,
+				contactid: metadata.contactid,
+				tmpkey: tmpkey
+			});
 
 		var cropphoto = new Image();
 		$(cropphoto).load(function () {
@@ -1961,7 +1684,7 @@ OC.Contacts = OC.Contacts || {
 				maxSize:	[399, 399],
 				bgColor:	'black',
 				bgOpacity:	.4,
-				boxWidth: 	400,
+				boxWidth:	400,
 				boxHeight:	400,
 				setSelect:	[ 100, 130, 50, 50 ]//,
 				//aspectRatio: 0.8
@@ -1988,190 +1711,38 @@ OC.Contacts = OC.Contacts || {
 						});
 		}).error(function () {
 			OC.notify({message:t('contacts','Error loading profile picture.')});
-		}).attr('src', OC.linkTo('contacts', 'tmpphoto.php')+'?tmpkey='+tmpkey);
+		}).attr('src', OC.linkTo('contacts', 'tmpphoto.php')+'?tmpkey='+tmpkey+'&refresh='+Math.random());
 	},
 	savePhoto:function($dlg) {
 		var form = $dlg.find('#cropform');
 		q = form.serialize();
 		console.log('savePhoto', q);
 		$.post(OC.filePath('contacts', 'ajax', 'savecrop.php'), q, function(response) {
-			var jsondata = $.parseJSON(response);
-			console.log('savePhoto, jsondata', typeof jsondata);
-			if(jsondata && jsondata.status === 'success') {
+			//var jsondata = $.parseJSON(response);
+			console.log('savePhoto, response', typeof response);
+			if(response && response.status === 'success') {
 				// load cropped photo.
 				$(document).trigger('status.contact.photoupdated', {
-					id: jsondata.data.id,
+					id: response.data.id,
+					thumbnail: response.data.thumbnail
 				});
 			} else {
-				if(!jsondata) {
+				if(!response) {
 					OC.notify({message:t('contacts', 'Network or server error. Please inform administrator.')});
 				} else {
-					OC.notify({message: jsondata.data.message});
+					OC.notify({message: response.data.message});
 				}
 			}
 		});
 	},
-	// NOTE: Deprecated
-	addAddressbook:function(data, cb) {
-		$.ajax({
-			type:'POST',
-			async:false,
-			url:OC.filePath('contacts', 'ajax', 'addressbook/add.php'), 
-			data:{ name: data.name, description: data.description },
-			success:function(jsondata) {
-				if(jsondata.status == 'success') {
-					if(typeof cb === 'function') {
-						cb({
-							status:'success',
-							addressbook: jsondata.data.addressbook,
-						});
-					}
-				} else {
-					if(typeof cb === 'function') {
-						cb({status:'error', message:jsondata.data.message});
-					}
-				}
-		}});
-	},
-	// NOTE: Deprecated
-	selectAddressbook:function(cb) {
-		var self = this;
-		var jqxhr = $.get(OC.filePath('contacts', 'templates', 'selectaddressbook.html'), function(data) {
-			$('body').append('<div id="addressbook_dialog"></div>');
-			var $dlg = $('#addressbook_dialog').html(data).octemplate({
-				nameplaceholder: t('contacts', 'Enter name'),
-				descplaceholder: t('contacts', 'Enter description'),
-			}).dialog({
-				modal: true, height: 'auto', width: 'auto',
-				title:  t('contacts', 'Select addressbook'),
-				buttons: {
-					'Ok':function() {
-						aid = $(this).find('input:checked').val();
-						if(aid == 'new') {
-							var displayname = $(this).find('input.name').val();
-							var description = $(this).find('input.desc').val();
-							if(!displayname.trim()) {
-								OC.dialogs.alert(t('contacts', 'The address book name cannot be empty.'), t('contacts', 'Error'));
-								return false;
-							}
-							console.log('ID, name and desc', aid, displayname, description);
-							if(typeof cb === 'function') {
-								// TODO: Create addressbook
-								var data = {name:displayname, description:description};
-								self.addAddressbook(data, function(data) {
-									if(data.status === 'success') {
-										cb({
-											status:'success',
-											addressbook:data.addressbook,
-										});
-									} else {
-										cb({status:'error'});
-									}
-								});
-							}
-							$(this).dialog('close');
-						} else {
-							console.log('aid ' + aid);
-							if(typeof cb === 'function') {
-								cb({
-									status:'success',
-									addressbook:self.contacts.addressbooks[parseInt(aid)],
-								});
-							}
-							$(this).dialog('close');
-						}
-					},
-					'Cancel':function() {
-						$(this).dialog('close');
-					}
-				},
-				close: function(event, ui) {
-					$(this).dialog('destroy').remove();
-					$('#addressbook_dialog').remove();
-				},
-				open: function(event, ui) {
-					console.log('open', $(this));
-					var $lastrow = $(this).find('tr.new');
-					$.each(self.contacts.addressbooks, function(i, book) {
-						console.log('book', i, book);
-						if(book.owner === OC.currentUser
-								|| (book.permissions & OC.PERMISSION_UPDATE
-								|| book.permissions & OC.PERMISSION_CREATE
-								|| book.permissions & OC.PERMISSION_DELETE)) {
-							var row = '<tr><td><input id="book_{id}" name="book" type="radio" value="{id}"</td>'
-								+ '<td><label for="book_{id}">{displayname}</label></td>'
-								+ '<td>{description}</td></tr>'
-							var $row = $(row).octemplate({
-									id:book.id,
-									displayname:book.displayname,
-									description:book.description
-								});
-							$lastrow.before($row);
-						}
-					});
-					$(this).find('input[type="radio"]').first().prop('checked', true);
-					$lastrow.find('input.name,input.desc').on('focus', function(e) {
-						$lastrow.find('input[type="radio"]').prop('checked', true);
-					});
-				},
-			});
-		}).error(function() {
-			OC.notify({message: t('contacts', 'Network or server error. Please inform administrator.')});
-		});
-	},
 };
-
-(function( $ ) {
-	// Support older browsers. From http://www.yelotofu.com/2008/08/jquery-outerhtml/
-	jQuery.fn.outerHTML = function(s) {
-		return s
-			? this.before(s).remove()
-			: jQuery('<p>').append(this.eq(0).clone()).html();
-	};
-	/**
-	* Object Template
-	* Inspired by micro templating done by e.g. underscore.js
-	*/
-	var Template = {
-		init: function(options, elem) {
-			// Mix in the passed in options with the default options
-			this.options = $.extend({},this.options,options);
-
-			// Save the element reference, both as a jQuery
-			// reference and a normal reference
-			this.elem  = elem;
-			this.$elem = $(elem);
-
-			var _html = this._build(this.options);
-			//console.log('html', this.$elem.html());
-			return $(_html);
-		},
-		// From stackoverflow.com/questions/1408289/best-way-to-do-variable-interpolation-in-javascript
-		_build: function(o){
-			var data = this.$elem.attr('type') === 'text/template'
-				? this.$elem.html() : this.$elem.outerHTML();
-			return data.replace(/{([^{}]*)}/g,
-				function (a, b) {
-					var r = o[b];
-					return typeof r === 'string' || typeof r === 'number' ? r : a;
-				}
-			);
-		},
-		options: {
-		},
-	};
-
-	$.fn.octemplate = function(options) {
-		if ( this.length ) {
-			var _template = Object.create(Template);
-			return _template.init(options, this);
-		}
-	};
-
-})( jQuery );
 
 $(document).ready(function() {
 
-	OC.Contacts.init(id);
+	OC.Router.registerLoadedCallback(function() {
+		$.getScript(OC.Router.generate('contacts_jsconfig'), function() {
+			OC.Contacts.init();
+		});
+	});
 
 });

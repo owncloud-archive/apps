@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <suganthi@nic.lk>, 2012.
+# suganthi <suganthi@nic.lk>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-16 00:06+0100\n"
-"PO-Revision-Date: 2012-12-15 23:06+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:24+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ta_LK\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ajax/openid.php:13
+msgid "OpenID Changed"
+msgstr "OpenID மாற்றப்பட்டது"
+
+#: ajax/openid.php:15
+msgid "Invalid request"
+msgstr "செல்லுபடியற்ற வேண்டுகோள்"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "

@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Georgi Stanojevski <glisha@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-15 00:07+0100\n"
-"PO-Revision-Date: 2012-12-14 23:08+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:24+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Macedonian (http://www.transifex.com/projects/p/owncloud/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -17,38 +18,38 @@ msgstr ""
 "Language: mk\n"
 "Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;\n"
 
-#: js/editor.js:72 js/editor.js:177 js/editor.js:185
+#: js/editor.js:73 js/editor.js:158 js/editor.js:166
 msgid "Save"
 msgstr "Сними"
 
-#: js/editor.js:74
+#: js/editor.js:75
 msgid "Search:"
-msgstr ""
+msgstr "Барај:"
 
-#: js/editor.js:74
+#: js/editor.js:78
 msgid "Close"
 msgstr "Затвои"
 
-#: js/editor.js:151
+#: js/editor.js:132
 msgid "Next"
 msgstr "Следно"
 
-#: js/editor.js:152
+#: js/editor.js:133
 msgid "Clear"
-msgstr ""
+msgstr "Исчисти"
 
-#: js/editor.js:170
+#: js/editor.js:151
 msgid "Saving..."
 msgstr "Снимам..."
 
-#: js/editor.js:178
+#: js/editor.js:159
 msgid "Failed to save file"
-msgstr ""
+msgstr "Снимањето на датотеката не успеа"
 
-#: js/editor.js:262
+#: js/editor.js:251
 msgid "An error occurred!"
-msgstr ""
+msgstr "Се случи грешка"
 
-#: js/editor.js:297
+#: js/editor.js:273
 msgid "There were unsaved changes, click here to go back"
-msgstr ""
+msgstr "Имаше неснимени промени, кликнете тука за да се вратите"

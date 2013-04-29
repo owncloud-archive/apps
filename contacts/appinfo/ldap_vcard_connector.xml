@@ -1,0 +1,107 @@
+<?xml version='1.0' standalone='yes'?>
+<entries>
+<vcard_entries>
+	<vcard_entry property="FN" type="" enabled="true">
+		<ldap_entry name="cn"/>
+	</vcard_entry>
+
+	<vcard_entry property="EMAIL" type="" enabled="true">
+		<ldap_entry name="mail"/>
+	</vcard_entry>
+
+	<!--<vcard_entry property="" type="" enabled="true">
+	<ldap_entry name=""/>
+	</vcard_entry>-->
+
+</vcard_entries>
+
+<ldap_entries>
+	<ldif_id value="cn" />
+
+	<ldif_entry name="cn" enabled="true">
+		<vcard_entry property="FN">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="mail" enabled="true">
+		<vcard_entry property="EMAIL" type="HOME">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="description" enabled="true">
+		<vcard_entry property="NOTE">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="displayname" enabled="true">
+		<vcard_entry property="FN">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="givenname" enabled="true">
+		<vcard_entry property="N" position="1">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="sn" enabled="true">
+		<vcard_entry property="N" position="0">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="facsimiletelephonenumber" enabled="true">
+		<vcard_entry property="TEL" type="FAX">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="telephonenumber" enabled="true">
+		<vcard_entry property="TEL" type="HOME">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="mobile" enabled="true">
+		<vcard_entry property="TEL" type="CELL">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="jpegphoto" enabled="true" image="true">
+		<vcard_entry property="PHOTO">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="street" enabled="true">
+		<vcard_entry property="ADR" type="HOME" position="2">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="l" enabled="true">
+		<vcard_entry property="ADR" type="HOME" position="3">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="st" enabled="true">
+		<vcard_entry property="ADR" type="HOME" position="4">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="postalcode" enabled="true">
+		<vcard_entry property="ADR" type="HOME" position="5">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="c" enabled="true">
+		<vcard_entry property="ADR" type="HOME" position="6">
+		</vcard_entry>
+	</ldif_entry>
+
+	<ldif_entry name="o" enabled="true">
+	<vcard_entry property="CATEGORIES">
+	</vcard_entry>
+	</ldif_entry>
+
+	<!--<ldif_entry name="" enabled="true">
+	<vcard_entry property="" type="" prefix="" position="">
+	</vcard_entry>
+	</ldif_entry>-->
+
+</ldap_entries>
+</entries>

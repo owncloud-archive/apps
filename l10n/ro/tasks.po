@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Claudiu  <claudiu@tanaselia.ro>, 2012.
-# Dumitru Ursu <>, 2012.
-#   <g.ciprian@osn.ro>, 2012.
+# Claudiu <claudiu@tanaselia.ro>, 2012
+# Dimon Pockemon <>, 2012
+# g.ciprian <g.ciprian@osn.ro>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-27 02:01+0200\n"
-"PO-Revision-Date: 2012-09-26 13:05+0000\n"
-"Last-Translator: g.ciprian <g.ciprian@osn.ro>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:24+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Romanian (http://www.transifex.com/projects/p/owncloud/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,19 +28,19 @@ msgstr "Data/timpul invalid"
 msgid "Tasks"
 msgstr "Sarcini"
 
-#: js/tasks.js:78
+#: js/tasks.js:86
 msgid "Due"
 msgstr "Până la"
 
-#: js/tasks.js:107
+#: js/tasks.js:115
 msgid "List"
 msgstr "Listă"
 
-#: js/tasks.js:128
+#: js/tasks.js:136
 msgid "Location"
 msgstr "Locație"
 
-#: js/tasks.js:415
+#: js/tasks.js:454
 msgid "No category"
 msgstr "Fără categorie"
 

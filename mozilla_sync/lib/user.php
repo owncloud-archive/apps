@@ -22,7 +22,7 @@ class User
 	* @param string $email
 	*/
 	public static function emailToUserId($email) {
-		$query = \OCP\DB::prepare( 'SELECT userid FROM *PREFIX*preferences WHERE appid = ? and configkey = ? and configvalue = ?');
+		$query = \OCP\DB::prepare( 'SELECT `userid` FROM `*PREFIX*preferences` WHERE `appid` = ? AND `configkey` = ? AND `configvalue` = ?');
 		$result = $query->execute( array('settings', 'email', $email) );
 
 		$row=$result->fetchRow();
@@ -42,7 +42,7 @@ class User
 	* @param string $userHash
 	*/
 	public static function userHashToUserName($userHash) {
-		$query = \OCP\DB::prepare( 'SELECT username FROM *PREFIX*mozilla_sync_users WHERE sync_user = ?');
+		$query = \OCP\DB::prepare( 'SELECT `username` FROM `*PREFIX*mozilla_sync_users` WHERE `sync_user` = ?');
 		$result = $query->execute( array($userHash) );
 
 		$row=$result->fetchRow();
@@ -55,7 +55,7 @@ class User
 	}
 
 	public static function userHashToId($userHash) {
-		$query = \OCP\DB::prepare( 'SELECT id FROM *PREFIX*mozilla_sync_users WHERE sync_user = ?');
+		$query = \OCP\DB::prepare( 'SELECT `id` FROM `*PREFIX*mozilla_sync_users` WHERE `sync_user` = ?');
 		$result = $query->execute( array($userHash) );
 
 		$row=$result->fetchRow();
@@ -85,7 +85,7 @@ class User
 			return false;
 		}
 
-		$query = \OCP\DB::prepare( 'INSERT INTO *PREFIX*mozilla_sync_users (username, sync_user) VALUES (?,?)' );
+		$query = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*mozilla_sync_users` (`username`, `sync_user`) VALUES (?,?)' );
 		$result = $query->execute( array($userId, $syncUserHash) );
 
 		if($result == false) {
@@ -102,7 +102,7 @@ class User
 	* @return boolean true if success
 	*/
 	public static function deleteUser($userId) {
-		$query = \OCP\DB::prepare( 'DELETE FROM *PREFIX*mozilla_sync_users WHERE id = ?');
+		$query = \OCP\DB::prepare( 'DELETE FROM `*PREFIX*mozilla_sync_users` WHERE `id` = ?');
 		$result = $query->execute( array($userId) );
 
 		if($result == false) {
@@ -119,7 +119,7 @@ class User
 	* @returns boolean
 	*/
 	public static function syncUserExists($userHash) {
-		$query = \OCP\DB::prepare( 'SELECT 1 FROM *PREFIX*mozilla_sync_users WHERE sync_user = ?');
+		$query = \OCP\DB::prepare( 'SELECT 1 FROM `*PREFIX*mozilla_sync_users` WHERE `sync_user` = ?');
 		$result = $query->execute( array($userHash) );
 
 		return $result->numRows() === '1';

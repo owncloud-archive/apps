@@ -1,0 +1,125 @@
+.error_msg{color:red;}
+.error{border-color:red;border-width:2px;}
+
+#loading {
+    display: none;
+    margin: 0;
+    padding:0;
+    vertical-align: middle;
+}
+
+#create_message { background-color:#5bb75b; border-right:none; z-index:1010; border: 1px solid #264B26; color: white ; text-shadow: 0 1px 0 #51A351 }
+
+#back_btn { background-color:#fd407a; border-right:none; z-index:1010; border: 1px solid #264B26; color: white ; text-shadow: 0 1px 0 #51A351 }
+
+#create_message:hover { background-color:#4b964b; }
+
+#messages_wall {
+    overflow: auto;
+    margin-top: 3.5em !important;
+}
+
+#messages_wall #ubication_label {
+    margin-left: 1em;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #133568;
+    padding-bottom: 1em;
+}
+
+#messages_wall table {
+    margin-left: 16px;
+    margin-right: 16px;
+    position:relative;
+    white-space: pre-line;
+    /*border-spacing: 0px 16px;*/
+    /*vertical-align: top;*/
+}
+
+#messages_wall table tr.unread {
+    /*background-color: lightYellow;*/
+    background-color: #b4f2c4;
+}
+
+#messages_wall table tr.users {
+    /*background-color: lightYellow;*/
+    background-color: #fdfdfd;
+}
+
+#messages_wall table td{
+    vertical-align: top;
+    border-bottom: 1px solid #EEE;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#messages_wall #message_photo {
+    margin-left: 1em;
+    float: left;
+    width: 48px;
+    height: 48px;
+    background: transparent url('%webroot%/apps/internal_messages/img/pattern.png');
+    border: 1px solid #D8D8D8;
+    padding: 5px;
+}
+
+#messages_wall #msg_content{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#messages_wall #cell_user{
+    font-weight: bold;
+    font-size: 1em;
+    color: #133568;
+}
+
+#messages_wall #cell_date{
+    text-align: center;
+    font-size: 90%;
+    white-space: pre;
+}
+
+#messages_wall #cell_time{
+    text-align: center;
+    font-weight: bold;
+}
+
+
+#messages_wall .message_action img {
+    padding-left: 1em;
+    padding-right: 1em;
+    opacity: 0.5;
+}
+
+#messages_wall .message_action img:hover {
+    opacity: 1;
+}
+
+.sendto.msglist {
+	white-space: normal;
+	margin-left: 1em;
+}
+
+.sendto.msglist li {
+	padding-top: 0.2em;
+    padding-bottom: 0.2em;	
+}
+
+.sendto.msglist li .msgactions  {
+	float: right;
+}
+
+.sendto.msglist li .msgactions img {
+	vertical-align: middle;
+	padding-right: 1em
+}
+
+#messages_wall table tr.updates {
+    /*background-color: lightYellow;*/
+    background-color: #fea5c0;
+}
+#messages_wall table tr:hover{
+    background-color:#E3FFE3;
+}
+

@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-17 00:01+0100\n"
+"Project-Id-Version: ownCloud Apps 5.0.0\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-04-29 00:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: appinfo/app.php:45 lib_media.php:77 templates/player.php:8
+#: appinfo/app.php:48 lib/media.php:80 templates/player.php:8
 msgid "Music"
 msgstr ""
 
@@ -37,42 +37,50 @@ msgstr ""
 msgid "Add album to playlist"
 msgstr ""
 
-#: templates/music.php:3 templates/player.php:12
+#: templates/music.php:3
+msgid "Previous"
+msgstr ""
+
+#: templates/music.php:4 templates/player.php:12
 msgid "Play"
 msgstr ""
 
-#: templates/music.php:4 templates/music.php:26 templates/player.php:13
+#: templates/music.php:5 templates/music.php:23 templates/player.php:13
 msgid "Pause"
-msgstr ""
-
-#: templates/music.php:5
-msgid "Previous"
 msgstr ""
 
 #: templates/music.php:6 templates/player.php:14
 msgid "Next"
 msgstr ""
 
-#: templates/music.php:7
+#: templates/music.php:13
 msgid "Mute"
 msgstr ""
 
-#: templates/music.php:8
+#: templates/music.php:14
 msgid "Unmute"
 msgstr ""
 
-#: templates/music.php:25
+#: templates/music.php:22
 msgid "Rescan Collection"
 msgstr ""
 
-#: templates/music.php:37
+#: templates/music.php:34
+msgid "Settings"
+msgstr ""
+
+#: templates/music.php:35
+msgid "Ampache address:"
+msgstr ""
+
+#: templates/music.php:44
 msgid "Artist"
 msgstr ""
 
-#: templates/music.php:38
+#: templates/music.php:45
 msgid "Album"
 msgstr ""
 
-#: templates/music.php:39
+#: templates/music.php:46
 msgid "Title"
 msgstr ""

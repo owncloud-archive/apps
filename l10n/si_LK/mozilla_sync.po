@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Chamara Disanayake <chamara@nic.lk>, 2012.
+# Chamara Disanayake <chamara@nic.lk>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-20 02:03+0200\n"
-"PO-Revision-Date: 2012-10-19 07:08+0000\n"
-"Last-Translator: Chamara Disanayake <chamara@nic.lk>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:25+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,14 +26,14 @@ msgstr "Mozilla සමකාල කිරීමේ සේවාව"
 msgid "Please set your email address in account settings"
 msgstr "කරුණාකර ඔබගේ ගිණුමේ ඉ-තැපැල් ලිපිනය ලබා දෙන්න"
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Email"
 msgstr " ඉ-තැපැල්"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Password and Confirmation"
 msgstr "මුරපදය හා තහවුරුකිරීම"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Server address"
 msgstr "සේවාදායකයේ ලිපිනය"

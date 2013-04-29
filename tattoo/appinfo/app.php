@@ -21,10 +21,10 @@
 *
 */
 
-OC_APP::registerPersonal('tattoo','settings');
+OCP\App::registerPersonal('tattoo','settings');
 
-$wallpaper=OC_Preferences::getValue(OC_User::getUser(),'tattoo','wallpaper','none');
+$wallpaper=OCP\Config::getUserValue(OCP\User::getUser(),'tattoo','wallpaper','none');
 if($wallpaper != 'none') {
-	OC_Util::addStyle('tattoo', 'tattoo');
-	OC_Util::addScript('tattoo', 'tattoo');
+	OCP\Util::addStyle('tattoo', 'tattoo');
+	OCP\Util::addScript('tattoo', 'tattoo');
 }

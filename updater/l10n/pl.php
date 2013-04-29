@@ -1,3 +1,7 @@
 <?php $TRANSLATIONS = array(
-"Update" => "Zaktualizuj"
+"In progress..." => "W toku...",
+"Done." => "Ukończono.",
+"Here is your backup: " => "Twoja kopia:",
+"Error" => "Błąd",
+"Update" => "Aktualizuj"
 );

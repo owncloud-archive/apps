@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2012.
+# Rivo Zängov <eraser@eraser.ee>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-09 02:01+0200\n"
-"PO-Revision-Date: 2012-09-08 13:33+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 11:23+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -31,22 +31,9 @@ msgid "An error has occurred"
 msgstr "Tekkis tõrge"
 
 #: templates/settings.php:2
-msgid "Export your user account"
-msgstr "Ekspordi oma kasutajakonto"
+msgid "User Account Migration"
+msgstr "Kasutajakonto migreerimine"
 
 #: templates/settings.php:3
-msgid ""
-"This will create a compressed file that contains your ownCloud account."
-msgstr "See loob kokkupakitud faili, milles on sinu ownCloud konto."
-
-#: templates/settings.php:13
-msgid "Import user account"
-msgstr "Impordi kasutajakonto"
-
-#: templates/settings.php:15
-msgid "ownCloud User Zip"
-msgstr "ownCloud kasutaja ZIP"
-
-#: templates/settings.php:17
-msgid "Import"
-msgstr "Impordi"
+msgid "Export and import ownCloud user accounts."
+msgstr "Ekspordi ja impordi ownCloud aksutajakontosid."

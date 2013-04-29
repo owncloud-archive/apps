@@ -32,49 +32,48 @@ $view = OCP\Files::getStorage('contacts');
 if(!$view->file_exists('imports')) {
 	$view->mkdir('imports');
 }
-$tmpfile = md5(rand());
-
-// If it is a Drag'n'Drop transfer it's handled here.
-$fn = (isset($_SERVER['HTTP_X_FILE_NAME']) ? $_SERVER['HTTP_X_FILE_NAME'] : false);
-if($fn) {
-	if($view->file_put_contents('/imports/'.$fn, file_get_contents('php://input'))) {
-		OCP\JSON::success(array('data' => array('file'=>$tmpfile, 'name'=>$fn)));
-		exit();
-	} else {
-		bailOut($l10n->t('Error uploading contacts to storage.'));
-	}
-}
 
 // File input transfers are handled here
-if (!isset($_FILES['importfile'])) {
-	OCP\Util::writeLog('contacts',
-		'ajax/uploadphoto.php: No file was uploaded. Unknown error.',
-		OCP\Util::DEBUG);
-	OCP\JSON::error(array('
-		data' => array(
-			'message' => 'No file was uploaded. Unknown error' )));
-	exit();
+if (!isset($_FILES['file'])) {
+	bailOut($l10n->t('No file was uploaded. Unknown error'));
 }
-$error = $_FILES['importfile']['error'];
-if($error !== UPLOAD_ERR_OK) {
+
+$file=$_FILES['file'];
+
+if($file['error'] !== UPLOAD_ERR_OK) {
 	$errors = array(
-		0=>$l10n->t("There is no error, the file uploaded with success"),
-		1=>$l10n->t("The uploaded file exceeds the upload_max_filesize directive in php.ini").ini_get('upload_max_filesize'),
-		2=>$l10n->t("The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form"),
-		3=>$l10n->t("The uploaded file was only partially uploaded"),
-		4=>$l10n->t("No file was uploaded"),
-		6=>$l10n->t("Missing a temporary folder")
+		UPLOAD_ERR_OK			=> $l10n->t("There is no error, the file uploaded with success"),
+		UPLOAD_ERR_INI_SIZE		=> $l10n->t("The uploaded file exceeds the upload_max_filesize directive in php.ini")
+			.ini_get('upload_max_filesize'),
+		UPLOAD_ERR_FORM_SIZE	=> $l10n->t("The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form"),
+		UPLOAD_ERR_PARTIAL		=> $l10n->t("The uploaded file was only partially uploaded"),
+		UPLOAD_ERR_NO_FILE		=> $l10n->t("No file was uploaded"),
+		UPLOAD_ERR_NO_TMP_DIR	=> $l10n->t('Missing a temporary folder'),
+		UPLOAD_ERR_CANT_WRITE	=> $l10n->t('Failed to write to disk'),
 	);
 	bailOut($errors[$error]);
 }
-$file=$_FILES['importfile'];
 
-if(file_exists($file['tmp_name'])) {
-	if($view->file_put_contents('/imports/'.$file['name'], file_get_contents($file['tmp_name']))) {
-		OCP\JSON::success(array('data' => array('file'=>$file['name'], 'name'=>$file['name'])));
+$maxUploadFilesize = OCP\Util::maxUploadFilesize('/');
+$maxHumanFilesize = OCP\Util::humanFileSize($maxUploadFilesize);
+
+$totalSize = $file['size'];
+if ($maxUploadFilesize >= 0 and $totalSize > $maxUploadFilesize) {
+	bailOut($l10n->t('Not enough storage available'));
+}
+
+$tmpname = $file['tmp_name'];
+$filename = strtr($file['name'], array('/' => '', "\\" => ''));
+if(is_uploaded_file($tmpname)) {
+	if(OC\Files\Filesystem::isFileBlacklisted($filename)) {
+		bailOut($l10n->t('Upload of blacklisted file:') . $filename);
+	}
+	if($view->file_put_contents('/imports/'.$filename, file_get_contents($tmpname))) {
+		OCP\JSON::success(array('file'=>$filename));
 	} else {
 		bailOut($l10n->t('Error uploading contacts to storage.'));
 	}
 } else {
-	bailOut('Temporary file: \''.$file['tmp_name'].'\' has gone AWOL?');
+	bailOut('Temporary file: \''.$tmpname.'\' has gone AWOL?');
 }
+

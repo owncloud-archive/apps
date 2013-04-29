@@ -141,11 +141,11 @@ class StorageService extends Service
 	*/
 	private function getInfoCollections($userId) {
 
-		$query = \OCP\DB::prepare( 'select name,
-																		(select max(modified) FROM *PREFIX*mozilla_sync_wbo
-																			WHERE *PREFIX*mozilla_sync_wbo.collectionid = *PREFIX*mozilla_sync_collections.id
-																		) as modified
-															FROM *PREFIX*mozilla_sync_collections WHERE userid = ?');
+		$query = \OCP\DB::prepare( 'SELECT `name`,
+																		(SELECT max(`modified`) FROM `*PREFIX*mozilla_sync_wbo`
+																			WHERE `*PREFIX*mozilla_sync_wbo`.`collectionid` = `*PREFIX*mozilla_sync_collections`.`id`
+																		) AS `modified`
+															FROM `*PREFIX*mozilla_sync_collections` WHERE `userid` = ?');
 		$result = $query->execute( array($userId) );
 
 		if($result == false) {
@@ -264,18 +264,18 @@ class StorageService extends Service
 		// full or id modifier
 		$queryFields = '';
 		if(isset($modifiers['full'])) {
-			$queryFields = 'payload, name as id, modified, parentid, predecessorid, sortindex, ttl';
+			$queryFields = '`payload`, `name` AS `id`, `modified`, `parentid`, `predecessorid`, `sortindex`, `ttl`';
 		}
 		else{
-			$queryFields = 'name as id';
+			$queryFields = '`name` AS `id`';
 		}
 
-		$whereString = 'WHERE collectionid = ?';
+		$whereString = 'WHERE `collectionid` = ?';
 		array_push($queryArgs, $collectionId);
 
 		$whereString .= Storage::modifiersToString($modifiers, $queryArgs);
 
-		$query = \OCP\DB::prepare( 'SELECT ' . $queryFields . ' FROM *PREFIX*mozilla_sync_wbo ' . $whereString );
+		$query = \OCP\DB::prepare( 'SELECT ' . $queryFields . ' FROM `*PREFIX*mozilla_sync_wbo` ' . $whereString );
 		$result = $query->execute( $queryArgs );
 
 		if($result == false) {
@@ -377,25 +377,25 @@ class StorageService extends Service
 
 		$queryArgs = array();
 
-		$whereString = 'WHERE collectionid = ?';
+		$whereString = 'WHERE `collectionid` = ?';
 		array_push($queryArgs, $collectionId);
 
 		$whereString .= Storage::modifiersToString($modifiers, $queryArgs);
 
-		$query = \OCP\DB::prepare( 'DELETE FROM *PREFIX*mozilla_sync_wbo ' . $whereString );
+		$query = \OCP\DB::prepare( 'DELETE FROM `*PREFIX*mozilla_sync_wbo` ' . $whereString );
 		$result = $query->execute( $queryArgs );
 
 		if($result == false) {
 			return false;
 		}
 
-		$query = \OCP\DB::prepare( 'SELECT 1 FROM *PREFIX*mozilla_sync_wbo WHERE collectionid = ?' );
+		$query = \OCP\DB::prepare( 'SELECT 1 FROM `*PREFIX*mozilla_sync_wbo` WHERE `collectionid` = ?' );
 		$result = $query->execute( array($collectionId) );
 
 		// No wbo found, delete colection
 		if($result->fetchRow() == false) {
 
-			$query = \OCP\DB::prepare( 'DELETE FROM *PREFIX*mozilla_sync_collections WHERE id = ?' );
+			$query = \OCP\DB::prepare( 'DELETE FROM `*PREFIX*mozilla_sync_collections` WHERE `id` = ?' );
 			$result = $query->execute( array($collectionId) );
 
 			if($result == false) {
@@ -418,8 +418,8 @@ class StorageService extends Service
 	* @return bool true if success
 	*/
 	private function getWBO($userId, $collectionId, $wboId) {
-		$query = \OCP\DB::prepare( 'SELECT sortindex, payload, name as id, modified FROM *PREFIX*mozilla_sync_wbo
-															WHERE collectionid = ? and name = ?');
+		$query = \OCP\DB::prepare( 'SELECT `sortindex`, `payload`, `name` AS `id`, `modified` FROM `*PREFIX*mozilla_sync_wbo`
+															WHERE `collectionid` = ? AND `name` = ?');
 		$result = $query->execute( array($collectionId, $wboId) );
 
 		if($result == false) {

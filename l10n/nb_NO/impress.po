@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <ajarmund@gmail.com>, 2012.
+# anjar <ajarmund@gmail.com>, 2012
+# espenbye <espenbye@me.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-02 02:02+0200\n"
-"PO-Revision-Date: 2012-09-02 00:03+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:24+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/projects/p/owncloud/language/nb_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nb_NO\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: templates/presentations.php:5
 msgid "Documentation"
@@ -25,4 +26,16 @@ msgstr "Dokumentasjon"
 #: templates/presentations.php:10
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
-msgstr ""
+msgstr "Ingen Impress-filer funnet i din ownCloud. Vennligst last opp en .impress-fil."
+
+#: templates/presentations.php:12
+msgid "Name"
+msgstr "Navn"
+
+#: templates/presentations.php:12
+msgid "Size"
+msgstr "Størrelse"
+
+#: templates/presentations.php:12
+msgid "Date"
+msgstr "Dato"

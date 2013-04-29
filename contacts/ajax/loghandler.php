@@ -20,17 +20,21 @@
  *
  */
 
-function bailOut($msg, $tracelevel=1, $debuglevel=OCP\Util::ERROR)
+function bailOut($msg, $tracelevel = 1, $debuglevel = OCP\Util::ERROR)
 {
 	OCP\JSON::error(array('data' => array('message' => $msg)));
 	debug($msg, $tracelevel, $debuglevel);
 	exit();
 }
 
-function debug($msg, $tracelevel=0, $debuglevel=OCP\Util::DEBUG)
+function debug($msg, $tracelevel = 0, $debuglevel = OCP\Util::DEBUG)
 {
+	if(!is_numeric($tracelevel)) {
+		return;
+	}
+
 	if(PHP_VERSION >= "5.4") {
-		$call = debug_backtrace(false, $tracelevel+1);
+		$call = debug_backtrace(false, $tracelevel + 1);
 	} else {
 		$call = debug_backtrace(false);
 	}

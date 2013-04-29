@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-14 02:01+0200\n"
-"PO-Revision-Date: 2012-09-13 12:18+0000\n"
-"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
+"POT-Creation-Date: 2013-04-17 09:53+0200\n"
+"PO-Revision-Date: 2013-04-17 07:55+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,14 +26,14 @@ msgstr "Mozilla Sync Service"
 msgid "Please set your email address in account settings"
 msgstr "Пожалуйста, введите адрес Вашей электронной почты в настройках учетной записи"
 
-#: templates/settings.php:5
+#: templates/settings.php:6
 msgid "Email"
 msgstr "Электронная почта"
 
-#: templates/settings.php:9
+#: templates/settings.php:10
 msgid "Password and Confirmation"
 msgstr "Пароль и подтверждение"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Server address"
 msgstr "Адрес сервера"

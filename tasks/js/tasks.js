@@ -36,7 +36,7 @@ OC.Tasks = {
 			.addClass('completed')
 			.append(checkbox)
 			.prependTo(task_container);
-		var priority = task.priority;
+		var priority = task.priority;		
 		$('<div>')
 			.addClass('tag')
 			.addClass('priority')
@@ -50,6 +50,14 @@ OC.Tasks = {
 				.text(task.location)
 				.appendTo(task_container);
 		}
+		if(task.due){			
+			var dateString = OC.Tasks.getDueDateString(task.due,task.due_date_only);	
+			$('<div>')
+			.addClass('tag')
+			.addClass('due_date')
+			.text(dateString)
+			.prependTo(task_container);
+		}	
 		var $categories = $('<div>')
 				.addClass('categories')
 				.appendTo(task_container);
@@ -255,6 +263,12 @@ OC.Tasks = {
 		$.post(OC.filePath('tasks', 'ajax', 'update_property.php'), {id:task.id, type:'due', due:due, date:date_only?1:0}, function(jsondata){
 			if(jsondata.status != 'success') {
 				task.due = old_due;
+			}else{
+				if(jsondata.data.due != ''){
+					
+					var dateString = OC.Tasks.getDueDateString(jsondata.data.due, jsondata.data.due_date_only);
+					$('#tasks_list').find(".task[data-id='"+jsondata.data.id+"']").find('div.due_date').text(dateString);
+				}
 			}
 		});
 	},
@@ -268,6 +282,7 @@ OC.Tasks = {
 		$task.find('input.categories').show();
 		$task.find('div.location').hide();
 		$task.find('input.location').show();
+		$task.find('div.due_date').hide();
 	},
 	lessClickHandler:function(event){
 		var $task = $(this).closest('.task'),
@@ -279,6 +294,8 @@ OC.Tasks = {
 		$task.find('input.categories').hide();
 		$task.find('div.location').show();
 		$task.find('input.location').hide();
+		$task.find('div.due_date').show();
+
 	},
 	deleteClickHandler:function(event){
 		var $task = $(this).closest('.task'),
@@ -317,6 +334,22 @@ OC.Tasks = {
 		categories = $.map(newcategories, function(v) {return v;});
 		console.log('Task categories changed to: ' + categories);
 		$('input.categories').multiple_autocomplete('option', 'source', categories);
+	},
+	getDueDateString:function(due, due_date_only) {
+		var date_ret =  new Date(parseInt(due)*1000);
+		var date = date_ret.getDate();
+		date = date > 9 ? date : '0'+date;
+		var month = date_ret.getMonth() + 1;
+		month = month > 9 ? month : '0'+month;
+		var year = date_ret.getFullYear();
+		var dateString;
+		
+		if (!due_date_only) {
+			dateString = year + '-' + month + '-' + date + " " + ( date_ret.getHours() > 9 ? date_ret.getHours() : '0' + date_ret.getHours() ) + ':' + ( date_ret.getMinutes() > 9 ? date_ret.getMinutes() : '0' + date_ret.getMinutes() );
+		}else{
+			dateString = year + '-' + month + '-' + date;
+		}
+		return dateString;		
 	},
 	List: {
 		create_list_div:function(category){
@@ -386,6 +419,7 @@ $(document).ready(function(){
 	});
 
 	$('#tasks_order_category').click(function(){
+		$('#controls input[type="button"]').removeClass('active');
 		var tasks = $('#tasks_list .task').not('.clone');
 		var collection = {};
 		tasks.each(function(i, task) {
@@ -421,44 +455,55 @@ $(document).ready(function(){
 			}
 			$('<h1>').text(label).appendTo(container);
 			container.append(collection[labels[index]]);
-		}
+		};
+		$('#tasks_order_category').addClass('active');
 	});
 
 	$('#tasks_order_due').click(function(){
+		$('#controls input[type="button"]').removeClass('active');
 		OC.Tasks.order(function(a, b){
 			a = $(a).data('task').due;
 			b = $(b).data('task').due;
 			return OC.Tasks.bool_string_cmp(a, b);
 		});
+		$('#tasks_order_due').addClass('active');
 	});
 
 	$('#tasks_order_complete').click(function(){
+		$('#controls input[type="button"]').removeClass('active');
 		OC.Tasks.order(function(a, b){
 			return ($(a).data('task').complete - $(b).data('task').complete) ||
 				OC.Tasks.bool_string_cmp($(a).data('task').completed, $(b).data('task').completed);
 		});
+		$('#tasks_order_complete').addClass('active');
 	});
 
 	$('#tasks_order_location').click(function(){
+		$('#controls input[type="button"]').removeClass('active');
 		OC.Tasks.order(function(a, b){
 			a = $(a).data('task').location;
 			b = $(b).data('task').location;
 			return OC.Tasks.bool_string_cmp(a, b);
 		});
+		$('#tasks_order_location').addClass('active');
 	});
 
 	$('#tasks_order_prio').click(function(){
+		$('#controls input[type="button"]').removeClass('active');
 		OC.Tasks.order(function(a, b){
 			return $(a).data('task').priority
 			     - $(b).data('task').priority;
 		});
+		$('#tasks_order_prio').addClass('active');
 	});
 
 	$('#tasks_order_label').click(function(){
+		$('#controls input[type="button"]').removeClass('active');
 		OC.Tasks.order(function(a, b){
 			return $(a).data('task').summary.localeCompare(
 			       $(b).data('task').summary);
 		});
+		$('#tasks_order_label').addClass('active');
 	});
 
 	$('#tasks_addtask').click(function(){

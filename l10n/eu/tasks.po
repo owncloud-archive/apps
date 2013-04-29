@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <asieriko@gmail.com>, 2012.
+# asieriko <asieriko@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-04 02:05+0200\n"
-"PO-Revision-Date: 2012-10-03 08:03+0000\n"
-"Last-Translator: asieriko <asieriko@gmail.com>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:24+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Basque (http://www.transifex.com/projects/p/owncloud/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,19 +26,19 @@ msgstr "Baliogabeko data/ordua"
 msgid "Tasks"
 msgstr "Zereginak"
 
-#: js/tasks.js:78
+#: js/tasks.js:86
 msgid "Due"
 msgstr "Epea"
 
-#: js/tasks.js:107
+#: js/tasks.js:115
 msgid "List"
 msgstr "Zerrenda"
 
-#: js/tasks.js:128
+#: js/tasks.js:136
 msgid "Location"
 msgstr "Kokapena"
 
-#: js/tasks.js:415
+#: js/tasks.js:454
 msgid "No category"
 msgstr "Kategoriarik ez"
 

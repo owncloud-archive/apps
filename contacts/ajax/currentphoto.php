@@ -20,22 +20,39 @@
  *
  */
 
+namespace OCA\Contacts;
+
 // Firefox and Konqueror tries to download application/json for me.  --Arthur
-OCP\JSON::setContentTypeHeader('text/plain');
-OCP\JSON::checkLoggedIn();
-OCP\JSON::checkAppEnabled('contacts');
+\OCP\JSON::setContentTypeHeader('text/plain');
+\OCP\JSON::checkLoggedIn();
+\OCP\JSON::checkAppEnabled('contacts');
 require_once 'loghandler.php';
 
-if (!isset($_GET['id'])) {
-	bailOut(OCA\Contacts\App::$l10n->t('No contact ID was submitted.'));
+$contactid = isset($_GET['contactid']) ? $_GET['contactid'] : '';
+$addressbookid = isset($_GET['addressbookid']) ? $_GET['addressbookid'] : '';
+$backend = isset($_GET['backend']) ? $_GET['backend'] : '';
+
+if(!$contactid) {
+	bailOut('Missing contact id.');
 }
 
-$contact = OCA\Contacts\App::getContactVCard($_GET['id']);
+if(!$addressbookid) {
+	bailOut('Missing address book id.');
+}
+
+$app = new App();
+// FIXME: Get backend and addressbookid
+$contact = $app->getContact($backend, $addressbookid, $contactid);
+if(!$contact) {
+	\OC_Cache::remove($tmpkey);
+	bailOut(App::$l10n
+		->t('Error getting contact object.'));
+}
 // invalid vcard
-if( is_null($contact)) {
-	bailOut(OCA\Contacts\App::$l10n->t('Error reading contact photo.'));
+if(!$contact) {
+	bailOut(App::$l10n->t('Error reading contact photo.'));
 } else {
-	$image = new OC_Image();
+	$image = new \OC_Image();
 	if(!isset($contact->PHOTO) || !$image->loadFromBase64((string)$contact->PHOTO)) {
 		if(isset($contact->LOGO)) {
 			$image->loadFromBase64((string)$contact->LOGO);
@@ -43,13 +60,13 @@ if( is_null($contact)) {
 	}
 	if($image->valid()) {
 		$tmpkey = 'contact-photo-'.$contact->UID;
-		if(OC_Cache::set($tmpkey, $image->data(), 600)) {
-			OCP\JSON::success(array('data' => array('id'=>$_GET['id'], 'tmp'=>$tmpkey)));
+		if(\OC_Cache::set($tmpkey, $image->data(), 600)) {
+			\OCP\JSON::success(array('data' => array('id'=>$_GET['id'], 'tmp'=>$tmpkey)));
 			exit();
 		} else {
-			bailOut(OCA\Contacts\App::$l10n->t('Error saving temporary file.'));
+			bailOut(App::$l10n->t('Error saving temporary file.'));
 		}
 	} else {
-		bailOut(OCA\Contacts\App::$l10n->t('The loading photo is not valid.'));
+		bailOut(App::$l10n->t('The loading photo is not valid.'));
 	}
 }

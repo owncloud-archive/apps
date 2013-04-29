@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <daniel@mouxy.net>, 2012.
 # Duarte Velez Grilo <duartegrilo@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-01 02:06+0200\n"
-"PO-Revision-Date: 2012-09-30 22:30+0000\n"
-"Last-Translator: Duarte Velez Grilo <duartegrilo@gmail.com>\n"
+"POT-Creation-Date: 2013-04-17 09:53+0200\n"
+"PO-Revision-Date: 2013-04-17 07:54+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/owncloud/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,22 +32,9 @@ msgid "An error has occurred"
 msgstr "Ocorreu um erro"
 
 #: templates/settings.php:2
-msgid "Export your user account"
-msgstr "Exporte a sua conta de utilizador"
+msgid "User Account Migration"
+msgstr "Migração da conta do utilizador"
 
 #: templates/settings.php:3
-msgid ""
-"This will create a compressed file that contains your ownCloud account."
-msgstr "Isto irá criar um ficheiro comprimido que contém a sua conta ownCloud."
-
-#: templates/settings.php:13
-msgid "Import user account"
-msgstr "Importar conta de utilizador"
-
-#: templates/settings.php:15
-msgid "ownCloud User Zip"
-msgstr "Zip do Utilizador ownCloud"
-
-#: templates/settings.php:17
-msgid "Import"
-msgstr "Importar"
+msgid "Export and import ownCloud user accounts."
+msgstr "Exportar e Importar contas de utilizadores do ownCloud"

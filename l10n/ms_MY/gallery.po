@@ -3,17 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <hadri.hilmi@gmail.com>, 2012.
-# Hadri Hilmi <hadri.hilmi@gmail.com>, 2012.
-# Hafiz Ismail <mhbinet@gmail.com>, 2012.
-# Zulhilmi Rosnin <zulhilmi.rosnin@gmail.com>, 2012.
+# Hadri Hilmi <hadri.hilmi@gmail.com>, 2012
+# Hadri Hilmi <hadri.hilmi@gmail.com>, 2012
+# Hafiz Ismail <mhbinet@gmail.com>, 2012
+# Zulhilmi Rosnin <zulhilmi.rosnin@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-11 02:02+0200\n"
-"PO-Revision-Date: 2012-09-11 00:02+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:23+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Malay (Malaysia) (http://www.transifex.com/projects/p/owncloud/language/ms_MY/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,29 +21,17 @@ msgstr ""
 "Language: ms_MY\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Gambar"
 
-#: appinfo/app.php:53
-msgid "Galleries"
+#: js/gallery.js:269
+msgid "Shared by"
 msgstr ""
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Kongi galeri"
-
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "Ralat:"
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "Ralat dalaman"
-
-#: templates/index.php:27
-msgid "Slideshow"
-msgstr "Paparan slide"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Kongsi"
 
 #: templates/no-image-app.php:9
 msgid ""

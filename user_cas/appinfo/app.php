@@ -26,20 +26,20 @@ if (OCP\App::isEnabled('user_cas')) {
 
 	include_once('CAS.php');
 
-	require_once 'apps/user_cas/user_cas.php';
+	require_once 'user_cas/user_cas.php';
 
 	OCP\App::registerAdmin('user_cas', 'settings');
 
 	// register user backend
 	OC_User::useBackend( 'CAS' );
 
-	OC::$CLASSPATH['OC_USER_CAS_Hooks'] = 'apps/user_cas/lib/hooks.php';
+	OC::$CLASSPATH['OC_USER_CAS_Hooks'] = 'user_cas/lib/hooks.php';
 	OCP\Util::connectHook('OC_User', 'post_login', 'OC_USER_CAS_Hooks', 'post_login');
 	OCP\Util::connectHook('OC_User', 'logout', 'OC_USER_CAS_Hooks', 'logout');
 
 	if( isset($_GET['app']) && $_GET['app'] == 'user_cas' ) {
 
-		require_once 'apps/user_cas/auth.php';
+		require_once 'user_cas/auth.php';
 
 		if (!OC_User::login('', '')) {
 			$error = true;
@@ -61,4 +61,5 @@ if (OCP\App::isEnabled('user_cas')) {
 		// Load js code in order to render the CAS link and to hide parts of the normal login form
 		OCP\Util::addScript('user_cas', 'utils');
 	}
+
 }

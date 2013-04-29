@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Romain DEP. <rom1dep@gmail.com>, 2012.
+# mishka <mishka.lazzlo@gmail.com>, 2013
+# ouafnico <nicolas@shivaserv.fr>, 2012
+# Romain DEP. <rom1dep@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-16 00:06+0100\n"
-"PO-Revision-Date: 2012-12-15 23:06+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:24+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +19,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ajax/openid.php:13
+msgid "OpenID Changed"
+msgstr "OpenID mis à jour"
+
+#: ajax/openid.php:15
+msgid "Invalid request"
+msgstr "Requête invalide"
 
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
@@ -44,7 +54,7 @@ msgstr "Erreur : <b>Aucun nom d'utilisateur n'a été saisi"
 
 #: templates/settings.php:3
 msgid "OpenID"
-msgstr ""
+msgstr "OpenID"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"

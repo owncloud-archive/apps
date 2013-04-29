@@ -2,8 +2,8 @@
 /**
  * ownCloud - Addressbook
  *
- * @author Jakob Sack
- * @copyright 2011 Jakob Sack mail@jakobsack.de
+ * @author Thomas Tanghus
+ * @copyright 2013 Thomas Tanghus (thomas@tanghus.net)
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
@@ -19,416 +19,276 @@
  * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-/*
- *
- * The following SQL statement is just a help for developers and will not be
- * executed!
- *
- * CREATE TABLE contacts_addressbooks (
- * id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
- * userid VARCHAR(255) NOT NULL,
- * displayname VARCHAR(255),
- * uri VARCHAR(100),
- * description TEXT,
- * ctag INT(11) UNSIGNED NOT NULL DEFAULT '1'
- * );
- *
- */
 
 namespace OCA\Contacts;
 
 /**
  * This class manages our addressbooks.
  */
-class Addressbook {
+class Addressbook extends AbstractPIMCollection {
+
+	protected $_count;
 	/**
-	 * @brief Returns the list of addressbooks for a specific user.
-	 * @param string $uid
-	 * @param boolean $active Only return addressbooks with this $active state, default(=false) is don't care
-	 * @param boolean $shared Whether to also return shared addressbook. Defaults to true.
-	 * @return array or false.
+	 * @var Backend\AbstractBackend
 	 */
-	public static function all($uid, $active = false, $shared = true) {
-		$values = array($uid);
-		$active_where = '';
-		if ($active) {
-			$active_where = ' AND `active` = ?';
-			$values[] = 1;
-		}
-		try {
-			$stmt = \OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_addressbooks` WHERE `userid` = ? ' . $active_where . ' ORDER BY `displayname`' );
-			$result = $stmt->execute($values);
-			if (\OC_DB::isError($result)) {
-				\OCP\Util::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
-				return false;
+	protected $backend;
+
+	/**
+	 * An array containing the mandatory:
+	 * 	'displayname'
+	 * 	'discription'
+	 * 	'permissions'
+	 *
+	 * And the optional:
+	 * 	'Etag'
+	 * 	'lastModified'
+	 *
+	 * @var array
+	 */
+	protected $addressBookInfo;
+
+	/**
+	 * @param AbstractBackend $backend The storage backend
+	 * @param array $addressBookInfo
+	 */
+	public function __construct(Backend\AbstractBackend $backend, array $addressBookInfo) {
+		$this->backend = $backend;
+		$this->addressBookInfo = $addressBookInfo;
+		if(is_null($this->getId())) {
+			$id = $this->backend->createAddressBook($addressBookInfo);
+			if($id === false) {
+				throw new \Exception('Error creating address book.');
 			}
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.' exception: '.$e->getMessage(), \OCP\Util::ERROR);
-			\OCP\Util::writeLog('contacts', __METHOD__.' uid: '.$uid, \OCP\Util::DEBUG);
+			$this->addressBookInfo = $this->backend->getAddressBook($id);
+			//print(__METHOD__. ' '. __LINE__ . ' addressBookInfo: ' . print_r($this->backend->getAddressBook($id), true));
+		}
+		//\OCP\Util::writeLog('contacts', __METHOD__.' backend: ' . print_r($this->backend, true), \OCP\Util::DEBUG);
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getId() {
+		return isset($this->addressBookInfo['id'])
+			? $this->addressBookInfo['id']
+			: null;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getMetaData() {
+		$metadata = $this->addressBookInfo;
+		$metadata['lastmodified'] = $this->lastModified();
+		$metadata['backend'] = $this->getBackend()->name;
+		return $metadata;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDisplayName() {
+		return $this->addressBookInfo['displayname'];
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getURI() {
+		return $this->addressBookInfo['uri'];
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getOwner() {
+		return $this->addressBookInfo['owner'];
+	}
+
+	/**
+	 * Returns the lowest permission of what the backend allows and what it supports.
+	 * @return int
+	 */
+	public function getPermissions() {
+		return min($this->addressBookInfo['permissions'], $this->backend->getAddressBookPermissions());
+	}
+
+	function getBackend() {
+		return $this->backend;
+	}
+
+	/**
+	* Returns a specific child node, referenced by its id
+	*
+	* @param string $id
+	* @return Contact|null
+	*/
+	function getChild($id) {
+		//\OCP\Util::writeLog('contacts', __METHOD__.' id: '.$id, \OCP\Util::DEBUG);
+		if(!$this->hasPermission(\OCP\PERMISSION_READ)) {
+			throw new \Exception('Access denied');
+		}
+		if(!isset($this->objects[$id])) {
+			$contact = $this->backend->getContact($this->getId(), $id);
+			if($contact) {
+				$this->objects[$id] = new Contact($this, $this->backend, $contact);
+			}
+		}
+		// When requesting a single contact we preparse it
+		if(isset($this->objects[$id])) {
+			$this->objects[$id]->retrieve();
+			return $this->objects[$id];
+		}
+	}
+
+	/**
+	* Checks if a child-node with the specified id exists
+	*
+	* @param string $id
+	* @return bool
+	*/
+	function childExists($id) {
+		return ($this->getChild($id) !== null);
+	}
+
+	/**
+	* Returns an array with all the child nodes
+	*
+	* @return Contact[]
+	*/
+	function getChildren($limit = null, $offset = null, $omitdata = false) {
+		if(!$this->hasPermission(\OCP\PERMISSION_READ)) {
+			throw new \Exception('Access denied');
+		}
+		//\OCP\Util::writeLog('contacts', __METHOD__.' backend: ' . print_r($this->backend, true), \OCP\Util::DEBUG);
+		$contacts = array();
+
+		foreach($this->backend->getContacts($this->getId(), $limit, $offset, $omitdata) as $contact) {
+			//\OCP\Util::writeLog('contacts', __METHOD__.' id: '.$contact['id'], \OCP\Util::DEBUG);
+			if(!isset($this->objects[$contact['id']])) {
+				$this->objects[$contact['id']] = new Contact($this, $this->backend, $contact);
+			}
+			$contacts[] = $this->objects[$contact['id']];
+		}
+		//\OCP\Util::writeLog('contacts', __METHOD__.' children: '.count($contacts), \OCP\Util::DEBUG);
+		return $contacts;
+	}
+
+	/**
+	 * Add a contact to the address book
+	 * This takes an array or a VCard|Contact and return
+	 * the ID or false.
+	 *
+	 * @param array|VObject\VCard $data
+	 * @return int|bool
+	 */
+	public function addChild($data = null) {
+		if(!$this->hasPermission(\OCP\PERMISSION_CREATE)) {
+			throw new \Exception('Access denied');
+		}
+		$contact = new Contact($this, $this->backend, $data);
+		if($contact->save() === false) {
 			return false;
 		}
-
-		$addressbooks = array();
-		while( $row = $result->fetchRow()) {
-			$row['permissions'] = \OCP\PERMISSION_ALL;
-			$addressbooks[] = $row;
+		$id = $contact->getId();
+		if($this->count() !== null) {
+			$this->_count += 1;
 		}
-
-		if($shared === true) {
-			$addressbooks = array_merge($addressbooks, \OCP\Share::getItemsSharedWith('addressbook', Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS));
-		}
-		if(!$active && !count($addressbooks)) {
-			$id = self::addDefault($uid);
-			return array(self::find($id),);
-		}
-		return $addressbooks;
-	}
-
-	/**
-	 * @brief Get active addressbook IDs for a user.
-	 * @param integer $uid User id. If null current user will be used.
-	 * @return array
-	 */
-	public static function activeIds($uid = null) {
-		if(is_null($uid)) {
-			$uid = \OCP\USER::getUser();
-		}
-
-		// query all addressbooks to force creation of default if it desn't exist.
-		$activeaddressbooks = self::all($uid);
-		$ids = array();
-		foreach($activeaddressbooks as $addressbook) {
-			if($addressbook['active']) {
-				$ids[] = $addressbook['id'];
-			}
-		}
-		return $ids;
-	}
-
-	/**
-	 * @brief Returns the list of active addressbooks for a specific user.
-	 * @param string $uid
-	 * @return array
-	 */
-	public static function active($uid) {
-		return self::all($uid, true);
-	}
-
-	/**
-	 * @brief Returns the list of addressbooks for a principal (DAV term of user)
-	 * @param string $principaluri
-	 * @return array
-	 */
-	public static function allWherePrincipalURIIs($principaluri) {
-		$uid = self::extractUserID($principaluri);
-		return self::all($uid);
-	}
-
-	/**
-	 * @brief Gets the data of one address book
-	 * @param integer $id
-	 * @return associative array or false.
-	 */
-	public static function find($id) {
-		try {
-			$stmt = \OCP\DB::prepare( 'SELECT * FROM `*PREFIX*contacts_addressbooks` WHERE `id` = ?' );
-			$result = $stmt->execute(array($id));
-			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-				return false;
-			}
-		} catch(Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
-			\OCP\Util::writeLog('contacts', __METHOD__.', id: ' . $id, \OCP\Util::DEBUG);
-			return false;
-		}
-		$row = $result->fetchRow();
-
-		if($row['userid'] != \OCP\USER::getUser() && !\OC_Group::inGroup(\OCP\User::getUser(), 'admin')) {
-			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $id);
-			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & \OCP\PERMISSION_READ)) {
-				throw new Exception(
-					App::$l10n->t(
-						'You do not have the permissions to read this addressbook.'
-					)
-				);
-			}
-			$row['permissions'] = $sharedAddressbook['permissions'];
-		} else {
-			$row['permissions'] = \OCP\PERMISSION_ALL;
-		}
-		return $row;
-	}
-
-	/**
-	 * @brief Adds default address book
-	 * @return $id ID of the newly created addressbook or false on error.
-	 */
-	public static function addDefault($uid = null) {
-		if(is_null($uid)) {
-			$uid = \OCP\USER::getUser();
-		}
-		$id = self::add($uid, 'Contacts', 'Default Address Book');
-		if($id !== false) {
-			self::setActive($id, true);
-		}
+		\OCP\Util::writeLog('contacts', __METHOD__.' id: '.$id, \OCP\Util::DEBUG);
 		return $id;
 	}
 
 	/**
-	 * @brief Creates a new address book
-	 * @param string $userid
-	 * @param string $name
-	 * @param string $description
-	 * @return insertid
+	 * Delete a contact from the address book
+	 *
+	 * @param string $id
+	 * @return bool
 	 */
-	public static function add($uid,$name,$description='') {
-		try {
-			$stmt = \OCP\DB::prepare( 'SELECT `uri` FROM `*PREFIX*contacts_addressbooks` WHERE `userid` = ? ' );
-			$result = $stmt->execute(array($uid));
-			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-				return false;
+	public function deleteChild($id) {
+		if(!$this->hasPermission(\OCP\PERMISSION_READ)) {
+			throw new \Exception('Access denied');
+		}
+		if($this->backend->deleteContact($this->getId(), $id)) {
+			if(isset($this->objects[$id])) {
+				unset($this->objects[$id]);
 			}
-		} catch(Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__ . ' exception: ' . $e->getMessage(), \OCP\Util::ERROR);
-			\OCP\Util::writeLog('contacts', __METHOD__ . ' uid: ' . $uid, \OCP\Util::DEBUG);
-			return false;
-		}
-		$uris = array();
-		while($row = $result->fetchRow()) {
-			$uris[] = $row['uri'];
-		}
-
-		$uri = self::createURI($name, $uris );
-		try {
-			$stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_addressbooks` (`userid`,`displayname`,`uri`,`description`,`ctag`) VALUES(?,?,?,?,?)' );
-			$result = $stmt->execute(array($uid,$name,$uri,$description,1));
-			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-				return false;
+			if($this->count() !== null) {
+				$this->_count -= 1;
 			}
-		} catch(Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '.$e->getMessage(), \OCP\Util::ERROR);
-			\OCP\Util::writeLog('contacts', __METHOD__.', uid: '.$uid, \OCP\Util::DEBUG);
-			return false;
-		}
-
-		return \OCP\DB::insertid('*PREFIX*contacts_addressbooks');
-	}
-
-	/**
-	 * @brief Creates a new address book from the data sabredav provides
-	 * @param string $principaluri
-	 * @param string $uri
-	 * @param string $name
-	 * @param string $description
-	 * @return insertid or false
-	 */
-	public static function addFromDAVData($principaluri, $uri, $name, $description) {
-		$uid = self::extractUserID($principaluri);
-
-		try {
-			$stmt = \OCP\DB::prepare('INSERT INTO `*PREFIX*contacts_addressbooks` '
-				. '(`userid`,`displayname`,`uri`,`description`,`ctag`) VALUES(?,?,?,?,?)');
-			$result = $stmt->execute(array($uid, $name, $uri, $description, 1));
-			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-				return false;
-			}
-		} catch(Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
-			\OCP\Util::writeLog('contacts', __METHOD__.', uid: ' . $uid, \OCP\Util::DEBUG);
-			\OCP\Util::writeLog('contacts', __METHOD__.', uri: ' . $uri, \OCP\Util::DEBUG);
-			return false;
-		}
-
-		return \OCP\DB::insertid('*PREFIX*contacts_addressbooks');
-	}
-
-	/**
-	 * @brief Edits an addressbook
-	 * @param integer $id
-	 * @param string $name
-	 * @param string $description
-	 * @return boolean
-	 */
-	public static function edit($id,$name,$description) {
-		// Need these ones for checking uri
-		$addressbook = self::find($id);
-		if ($addressbook['userid'] != \OCP\User::getUser() && !\OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
-			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $id);
-			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & \OCP\PERMISSION_UPDATE)) {
-				throw new \Exception(
-					App::$l10n->t(
-						'You do not have the permissions to update this addressbook.'
-					)
-				);
-			}
-		}
-		if(is_null($name)) {
-			$name = $addressbook['name'];
-		}
-		if(is_null($description)) {
-			$description = $addressbook['description'];
-		}
-
-		try {
-			$stmt = \OCP\DB::prepare('UPDATE `*PREFIX*contacts_addressbooks` SET `displayname`=?,`description`=?, `ctag`=`ctag`+1 WHERE `id`=?');
-			$result = $stmt->execute(array($name,$description,$id));
-			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-				throw new Exception(
-					App::$l10n->t(
-						'There was an error updating the addressbook.'
-					)
-				);
-			}
-		} catch(Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__ . ', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
-			\OCP\Util::writeLog('contacts', __METHOD__ . ', id: ' . $id, \OCP\Util::DEBUG);
-			throw new Exception(
-				App::$l10n->t(
-					'There was an error updating the addressbook.'
-				)
-			);
-		}
-
-		return true;
-	}
-
-	/**
-	 * @brief Activates an addressbook
-	 * @param integer $id
-	 * @param boolean $active
-	 * @return boolean
-	 */
-	public static function setActive($id,$active) {
-		$sql = 'UPDATE `*PREFIX*contacts_addressbooks` SET `active` = ? WHERE `id` = ?';
-
-		try {
-			$stmt = \OCP\DB::prepare($sql);
-			$stmt->execute(array(intval($active), $id));
 			return true;
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__ . ', exception for ' . $id.': ' . $e->getMessage(), \OCP\Util::ERROR);
+		}
+		return false;
+	}
+
+	/**
+	 * @internal implements Countable
+	 * @return int|null
+	 */
+	public function count() {
+		if(!isset($this->_count)) {
+			$this->_count = $this->backend->numContacts($this->getId());
+		}
+		return $this->_count;
+	}
+
+	/**
+	 * Update and save the address book data to backend
+	 * NOTE: @see IPIMObject::update for consistency considerations.
+	 *
+	 * @param array $data
+	 * @return bool
+	 */
+	public function update(array $data) {
+		if(count($data) === 0) {
 			return false;
 		}
-	}
-
-	/**
-	 * @brief Checks if an addressbook is active.
-	 * @param integer $id ID of the address book.
-	 * @return boolean
-	 */
-	public static function isActive($id) {
-		$sql = 'SELECT `active` FROM `*PREFIX*contacts_addressbooks` WHERE `id` = ?';
-		try {
-			$stmt = \OCP\DB::prepare( $sql );
-			$result = $stmt->execute(array($id));
-			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-				return false;
-			}
-			$row = $result->fetchRow();
-			return (bool)$row['active'];
-		} catch(Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.', exception: ' . $e->getMessage(), \OCP\Util::ERROR);
-			return false;
-		}
-	}
-
-	/**
-	 * @brief removes an address book
-	 * @param integer $id
-	 * @return boolean true on success, otherwise an exception will be thrown
-	 */
-	public static function delete($id) {
-		$addressbook = self::find($id);
-
-		if ($addressbook['userid'] != \OCP\User::getUser() && !\OC_Group::inGroup(OCP\User::getUser(), 'admin')) {
-			$sharedAddressbook = \OCP\Share::getItemSharedWithBySource('addressbook', $id);
-			if (!$sharedAddressbook || !($sharedAddressbook['permissions'] & \OCP\PERMISSION_DELETE)) {
-				throw new Exception(
-					App::$l10n->t(
-						'You do not have the permissions to delete this addressbook.'
-					)
-				);
+		foreach($data as $key => $value) {
+			switch($key) {
+				case 'displayname':
+					$this->addressBookInfo['displayname'] = $value;
+					break;
+				case 'description':
+					$this->addressBookInfo['description'] = $value;
+					break;
 			}
 		}
-
-		// First delete cards belonging to this addressbook.
-		$cards = VCard::all($id);
-		foreach($cards as $card) {
-			try {
-				VCard::delete($card['id']);
-			} catch(Exception $e) {
-				\OCP\Util::writeLog('contacts',
-					__METHOD__.', exception deleting vCard '.$card['id'].': '
-					. $e->getMessage(),
-					\OCP\Util::ERROR);
-			}
-		}
-
-		try {
-			$stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*contacts_addressbooks` WHERE `id` = ?');
-			$stmt->execute(array($id));
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts',
-				__METHOD__.', exception for ' . $id . ': '
-				. $e->getMessage(),
-				\OCP\Util::ERROR);
-			throw new Exception(
-				App::$l10n->t(
-					'There was an error deleting this addressbook.'
-				)
-			);
-		}
-
-		\OCP\Share::unshareAll('addressbook', $id);
-
-		if(count(self::all(\OCP\User::getUser())) == 0) {
-			self::addDefault();
-		}
-
-		return true;
+		return $this->backend->updateAddressBook($this->getId(), $data);
 	}
 
 	/**
-	 * @brief Updates ctag for addressbook
-	 * @param integer $id
-	 * @return boolean
+	 * Save the address book data to backend
+	 * NOTE: @see IPIMObject::update for consistency considerations.
+	 *
+	 * @return bool
 	 */
-	public static function touch($id) {
-		$stmt = \OCP\DB::prepare( 'UPDATE `*PREFIX*contacts_addressbooks` SET `ctag` = `ctag` + 1 WHERE `id` = ?' );
-		$stmt->execute(array($id));
-
-		return true;
-	}
-
-	/**
-	 * @brief Creates a URI for Addressbook
-	 * @param string $name name of the addressbook
-	 * @param array  $existing existing addressbook URIs
-	 * @return string new name
-	 */
-	public static function createURI($name,$existing) {
-		$name = str_replace(' ', '_', strtolower($name));
-		$newname = $name;
-		$i = 1;
-		while(in_array($newname, $existing)) {
-			$newname = $name.$i;
-			$i = $i + 1;
+	public function save() {
+		if(!$this->hasPermission(OCP\PERMISSION_UPDATE)) {
+			throw new Exception('You don\'t have permissions to update the address book.');
 		}
-		return $newname;
 	}
 
 	/**
-	 * @brief gets the userid from a principal path
-	 * @return string
+	 * Delete the address book from backend
+	 *
+	 * @return bool
 	 */
-	public static function extractUserID($principaluri) {
-		list($prefix, $userid) = \Sabre_DAV_URLUtil::splitPath($principaluri);
-		return $userid;
+	public function delete() {
+		if(!$this->hasPermission(OCP\PERMISSION_DELETE)) {
+			throw new Exception('You don\'t have permissions to delete the address book.');
+		}
+		return $this->backend->deleteAddressBook($this->getId());
 	}
+
+	/**
+	 * @brief Get the last modification time for the object.
+	 *
+	 * Must return a UNIX time stamp or null if the backend
+	 * doesn't support it.
+	 *
+	 * @returns int | null
+	 */
+	public function lastModified() {
+		return $this->backend->lastModifiedAddressBook($this->getId());
+	}
+
 }

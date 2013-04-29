@@ -1,0 +1,5 @@
+ownCloud Contacts Changelog
+
+5.0.6:
+ - Unescape variables in search results and generated birthday events.
+ - AddressbookProviders could have duplicate keys.

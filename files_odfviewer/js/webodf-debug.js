@@ -1,5 +1,8 @@
 /*
 
+
+ Copyright (C) 2012 KO GmbH <copyright@kogmbh.com>
+
  @licstart
  The JavaScript code in this page is free software: you can redistribute it
  and/or modify it under the terms of the GNU Affero General Public License
@@ -28,18 +31,26 @@
  This license applies to this entire compilation.
  @licend
  @source: http://www.webodf.org/
- @source: http://gitorious.org/odfkit/webodf/
+ @source: http://gitorious.org/webodf/webodf/
 */
 var core = {};
 var gui = {};
 var xmldom = {};
 var odf = {};
+var ops = {};
 function Runtime() {
 }
 Runtime.ByteArray = function(size) {
 };
+Runtime.prototype.getVariable = function(name) {
+};
+Runtime.prototype.toJson = function(anything) {
+};
+Runtime.prototype.fromJson = function(jsonstr) {
+};
 Runtime.ByteArray.prototype.slice = function(start, end) {
 };
+Runtime.ByteArray.prototype.length = 0;
 Runtime.prototype.byteArrayFromArray = function(array) {
 };
 Runtime.prototype.byteArrayFromString = function(string, encoding) {
@@ -74,7 +85,11 @@ Runtime.prototype.type = function() {
 };
 Runtime.prototype.getDOMImplementation = function() {
 };
+Runtime.prototype.parseXML = function(xml) {
+};
 Runtime.prototype.getWindow = function() {
+};
+Runtime.prototype.assert = function(condition, message, callback) {
 };
 var IS_COMPILED_CODE = false;
 Runtime.byteArrayToString = function(bytearray, encoding) {
@@ -115,6 +130,19 @@ Runtime.byteArrayToString = function(bytearray, encoding) {
     result = byteArrayToString(bytearray)
   }
   return result
+};
+Runtime.getVariable = function(name) {
+  try {
+    return eval(name)
+  }catch(e) {
+    return undefined
+  }
+};
+Runtime.toJson = function(anything) {
+  return JSON.stringify(anything)
+};
+Runtime.fromJson = function(jsonstr) {
+  return JSON.parse(jsonstr)
 };
 Runtime.getFunctionName = function getFunctionName(f) {
   var m;
@@ -211,9 +239,12 @@ function BrowserRuntime(logoutput) {
     return result
   };
   this.byteArrayToString = Runtime.byteArrayToString;
+  this.getVariable = Runtime.getVariable;
+  this.fromJson = Runtime.fromJson;
+  this.toJson = Runtime.toJson;
   function log(msgOrCategory, msg) {
     var node, doc, category;
-    if(msg) {
+    if(msg !== undefined) {
       category = msgOrCategory
     }else {
       msg = msgOrCategory
@@ -236,6 +267,18 @@ function BrowserRuntime(logoutput) {
         console.log(msg)
       }
     }
+    if(category === "alert") {
+      alert(msg)
+    }
+  }
+  function assert(condition, message, callback) {
+    if(!condition) {
+      log("alert", "ASSERTION FAILED:\n" + message);
+      if(callback) {
+        callback()
+      }
+      throw message;
+    }
   }
   function readFile(path, encoding, callback) {
     if(cache.hasOwnProperty(path)) {
@@ -251,7 +294,7 @@ function BrowserRuntime(logoutput) {
         }else {
           if(xhr.status === 200 || xhr.status === 0) {
             if(encoding === "binary") {
-              if(typeof VBArray !== "undefined") {
+              if(String(typeof VBArray) !== "undefined") {
                 data = (new VBArray(xhr.responseBody)).toArray()
               }else {
                 data = self.byteArrayFromString(xhr.responseText, "binary")
@@ -295,7 +338,7 @@ function BrowserRuntime(logoutput) {
           callback("File " + path + " is empty.")
         }else {
           if(xhr.status === 200 || xhr.status === 0) {
-            if(typeof VBArray !== "undefined") {
+            if(String(typeof VBArray) !== "undefined") {
               data = (new VBArray(xhr.responseBody)).toArray()
             }else {
               data = self.byteArrayFromString(xhr.responseText, "binary")
@@ -373,6 +416,7 @@ function BrowserRuntime(logoutput) {
     }
   }
   function deleteFile(path, callback) {
+    delete cache[path];
     var xhr = new XMLHttpRequest;
     xhr.open("DELETE", path, true);
     xhr.onreadystatechange = function() {
@@ -457,6 +501,7 @@ function BrowserRuntime(logoutput) {
   this.isFile = isFile;
   this.getFileSize = getFileSize;
   this.log = log;
+  this.assert = assert;
   this.setTimeout = function(f, msec) {
     setTimeout(function() {
       f()
@@ -473,15 +518,26 @@ function BrowserRuntime(logoutput) {
   this.getDOMImplementation = function() {
     return window.document.implementation
   };
+  this.parseXML = function(xml) {
+    var parser = new DOMParser;
+    return parser.parseFromString(xml, "text/xml")
+  };
   this.exit = function(exitCode) {
     log("Calling exit with code " + String(exitCode) + ", but exit() is not implemented.")
   };
   this.getWindow = function() {
     return window
+  };
+  this.getNetwork = function() {
+    var now = this.getVariable("now");
+    if(now === undefined) {
+      return{networkStatus:"unavailable"}
+    }
+    return now
   }
 }
 function NodeJSRuntime() {
-  var self = this, fs = require("fs"), currentDirectory = "";
+  var self = this, fs = require("fs"), pathmod = require("path"), currentDirectory = "", parser, domImplementation;
   this.ByteArray = function(size) {
     return new Buffer(size)
   };
@@ -504,34 +560,45 @@ function NodeJSRuntime() {
   this.byteArrayToString = function(bytearray, encoding) {
     return bytearray.toString(encoding)
   };
+  this.getVariable = Runtime.getVariable;
+  this.fromJson = Runtime.fromJson;
+  this.toJson = Runtime.toJson;
   function isFile(path, callback) {
-    if(currentDirectory) {
-      path = currentDirectory + "/" + path
-    }
+    path = pathmod.resolve(currentDirectory, path);
     fs.stat(path, function(err, stats) {
       callback(!err && stats.isFile())
     })
   }
-  function loadXML(path, callback) {
-    throw"Not implemented.";
-  }
-  this.readFile = function(path, encoding, callback) {
+  function readFile(path, encoding, callback) {
+    path = pathmod.resolve(currentDirectory, path);
     if(encoding !== "binary") {
       fs.readFile(path, encoding, callback)
     }else {
       fs.readFile(path, null, callback)
     }
-  };
+  }
+  this.readFile = readFile;
+  function loadXML(path, callback) {
+    readFile(path, "utf-8", function(err, data) {
+      if(err) {
+        return callback(err)
+      }
+      callback(null, self.parseXML(data))
+    })
+  }
+  this.loadXML = loadXML;
   this.writeFile = function(path, data, callback) {
+    path = pathmod.resolve(currentDirectory, path);
     fs.writeFile(path, data, "binary", function(err) {
       callback(err || null)
     })
   };
-  this.deleteFile = fs.unlink;
+  this.deleteFile = function(path, callback) {
+    path = pathmod.resolve(currentDirectory, path);
+    fs.unlink(path, callback)
+  };
   this.read = function(path, offset, length, callback) {
-    if(currentDirectory) {
-      path = currentDirectory + "/" + path
-    }
+    path = pathmod.resolve(currentDirectory, path);
     fs.open(path, "r+", 666, function(err, fd) {
       if(err) {
         callback(err);
@@ -548,14 +615,14 @@ function NodeJSRuntime() {
     if(!encoding) {
       return""
     }
+    if(encoding === "binary") {
+      return fs.readFileSync(path, null)
+    }
     return fs.readFileSync(path, encoding)
   };
-  this.loadXML = loadXML;
   this.isFile = isFile;
   this.getFileSize = function(path, callback) {
-    if(currentDirectory) {
-      path = currentDirectory + "/" + path
-    }
+    path = pathmod.resolve(currentDirectory, path);
     fs.stat(path, function(err, stats) {
       if(err) {
         callback(-1)
@@ -564,9 +631,31 @@ function NodeJSRuntime() {
       }
     })
   };
-  this.log = function(msg) {
-    process.stderr.write(msg + "\n")
-  };
+  function log(msgOrCategory, msg) {
+    var category;
+    if(msg !== undefined) {
+      category = msgOrCategory
+    }else {
+      msg = msgOrCategory
+    }
+    if(category === "alert") {
+      process.stderr.write("\n!!!!! ALERT !!!!!" + "\n")
+    }
+    process.stderr.write(msg + "\n");
+    if(category === "alert") {
+      process.stderr.write("!!!!! ALERT !!!!!" + "\n")
+    }
+  }
+  this.log = log;
+  function assert(condition, message, callback) {
+    if(!condition) {
+      process.stderr.write("ASSERTION FAILED: " + message);
+      if(callback) {
+        callback()
+      }
+    }
+  }
+  this.assert = assert;
   this.setTimeout = function(f, msec) {
     setTimeout(function() {
       f()
@@ -585,12 +674,24 @@ function NodeJSRuntime() {
     return"NodeJSRuntime"
   };
   this.getDOMImplementation = function() {
-    return null
+    return domImplementation
+  };
+  this.parseXML = function(xml) {
+    return parser.parseFromString(xml, "text/xml")
   };
   this.exit = process.exit;
   this.getWindow = function() {
     return null
+  };
+  this.getNetwork = function() {
+    return{networkStatus:"unavailable"}
+  };
+  function init() {
+    var DOMParser = require("xmldom").DOMParser;
+    parser = new DOMParser;
+    domImplementation = self.parseXML("<a/>").implementation
   }
+  init()
 }
 function RhinoRuntime() {
   var self = this, dom = Packages.javax.xml.parsers.DocumentBuilderFactory.newInstance(), builder, entityresolver, currentDirectory = "";
@@ -622,6 +723,9 @@ function RhinoRuntime() {
     return a
   };
   this.byteArrayToString = Runtime.byteArrayToString;
+  this.getVariable = Runtime.getVariable;
+  this.fromJson = Runtime.fromJson;
+  this.toJson = Runtime.toJson;
   this.concatByteArrays = function(bytearray1, bytearray2) {
     return bytearray1.concat(bytearray2)
   };
@@ -637,6 +741,9 @@ function RhinoRuntime() {
     callback(null, document)
   }
   function runtimeReadFile(path, encoding, callback) {
+    if(currentDirectory) {
+      path = currentDirectory + "/" + path
+    }
     var file = new Packages.java.io.File(path), data, rhinoencoding = encoding === "binary" ? "latin1" : encoding;
     if(!file.isFile()) {
       callback(path + " is not a file.")
@@ -668,6 +775,9 @@ function RhinoRuntime() {
   this.loadXML = loadXML;
   this.readFile = runtimeReadFile;
   this.writeFile = function(path, data, callback) {
+    if(currentDirectory) {
+      path = currentDirectory + "/" + path
+    }
     var out = new Packages.java.io.FileOutputStream(path), i, l = data.length;
     for(i = 0;i < l;i += 1) {
       out.write(data[i])
@@ -676,6 +786,9 @@ function RhinoRuntime() {
     callback(null)
   };
   this.deleteFile = function(path, callback) {
+    if(currentDirectory) {
+      path = currentDirectory + "/" + path
+    }
     var file = new Packages.java.io.File(path);
     if(file["delete"]()) {
       callback(null)
@@ -708,7 +821,31 @@ function RhinoRuntime() {
     var file = new Packages.java.io.File(path);
     callback(file.length())
   };
-  this.log = print;
+  function log(msgOrCategory, msg) {
+    var category;
+    if(msg !== undefined) {
+      category = msgOrCategory
+    }else {
+      msg = msgOrCategory
+    }
+    if(category === "alert") {
+      print("\n!!!!! ALERT !!!!!")
+    }
+    print(msg);
+    if(category === "alert") {
+      print("!!!!! ALERT !!!!!")
+    }
+  }
+  this.log = log;
+  function assert(condition, message, callback) {
+    if(!condition) {
+      log("alert", "ASSERTION FAILED: " + message);
+      if(callback) {
+        callback()
+      }
+    }
+  }
+  this.assert = assert;
   this.setTimeout = function(f, msec) {
     f()
   };
@@ -727,17 +864,23 @@ function RhinoRuntime() {
   this.getDOMImplementation = function() {
     return builder.getDOMImplementation()
   };
+  this.parseXML = function(xml) {
+    return builder.parse(xml)
+  };
   this.exit = quit;
   this.getWindow = function() {
     return null
+  };
+  this.getNetwork = function() {
+    return{networkStatus:"unavailable"}
   }
 }
 var runtime = function() {
   var result;
-  if(typeof window !== "undefined") {
+  if(String(typeof window) !== "undefined") {
     result = new BrowserRuntime(window.document.getElementById("logoutput"))
   }else {
-    if(typeof require !== "undefined") {
+    if(String(typeof require) !== "undefined") {
       result = new NodeJSRuntime
     }else {
       result = new RhinoRuntime
@@ -830,27 +973,31 @@ var runtime = function() {
   }
 })();
 (function(args) {
-  args = Array.prototype.slice.call(args);
+  if(args) {
+    args = Array.prototype.slice.call(args)
+  }else {
+    args = []
+  }
   function run(argv) {
     if(!argv.length) {
       return
     }
     var script = argv[0];
     runtime.readFile(script, "utf8", function(err, code) {
-      var path = "", paths = runtime.libraryPaths();
+      var path = "", paths = runtime.libraryPaths(), codestring = code;
       if(script.indexOf("/") !== -1) {
         path = script.substring(0, script.indexOf("/"))
       }
       runtime.setCurrentDirectory(path);
       function run() {
         var script, path, paths, args, argv, result;
-        result = eval(code);
+        result = eval(codestring);
         if(result) {
           runtime.exit(result)
         }
         return
       }
-      if(err) {
+      if(err || codestring === null) {
         runtime.log(err);
         runtime.exit(1)
       }else {
@@ -867,7 +1014,7 @@ var runtime = function() {
       run(args.slice(1))
     }
   }
-})(typeof arguments !== "undefined" && arguments);
+})(String(typeof arguments) !== "undefined" && arguments);
 core.Base64 = function() {
   var b64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", b64charcodes = function() {
     var a = [], i, codeA = "A".charCodeAt(0), codea = "a".charCodeAt(0), code0 = "0".charCodeAt(0);
@@ -889,7 +1036,7 @@ core.Base64 = function() {
       t[bin.charAt(i)] = i
     }
     return t
-  }(b64chars), convertUTF16StringToBase64, convertBase64ToUTF16String, btoa, atob;
+  }(b64chars), convertUTF16StringToBase64, convertBase64ToUTF16String, window = runtime.getWindow(), btoa, atob;
   function stringToArray(s) {
     var a = [], i, l = s.length;
     for(i = 0;i < l;i += 1) {
@@ -1037,8 +1184,10 @@ core.Base64 = function() {
   function convertUTF16StringToUTF8String(uni) {
     return String.fromCharCode.apply(String, convertUTF16ArrayToUTF8Array(stringToArray(uni)))
   }
-  btoa = runtime.getWindow() && runtime.getWindow().btoa;
-  if(btoa) {
+  if(window && window.btoa) {
+    btoa = function(b) {
+      return window.btoa(b)
+    };
     convertUTF16StringToBase64 = function(uni) {
       return btoa(convertUTF16StringToUTF8String(uni))
     }
@@ -1048,8 +1197,10 @@ core.Base64 = function() {
       return convertUTF8ArrayToBase64(convertUTF16StringToUTF8Array(uni))
     }
   }
-  atob = runtime.getWindow() && runtime.getWindow().atob;
-  if(atob) {
+  if(window && window.atob) {
+    atob = function(a) {
+      return window.atob(a)
+    };
     convertBase64ToUTF16String = function(b64) {
       var b = atob(b64);
       return convertUTF8StringToUTF16String_internal(b, 0, b.length)
@@ -2132,7 +2283,7 @@ core.RawDeflate = function() {
     var i, j;
     zip_deflate_data = str;
     zip_deflate_pos = 0;
-    if(typeof level === "undefined") {
+    if(String(typeof level) === "undefined") {
       level = zip_DEFAULT_LEVEL
     }
     zip_deflate_start(level);
@@ -2795,133 +2946,184 @@ core.RawInflate = function RawInflate() {
   };
   this.inflate = zip_inflate
 };
-core.Cursor = function Cursor(selection, document) {
-  var cursorns, cursorNode;
-  cursorns = "urn:webodf:names:cursor";
-  cursorNode = document.createElementNS(cursorns, "cursor");
-  function putCursorIntoTextNode(container, offset) {
-    var len, ref, textnode, parent;
-    parent = container.parentNode;
-    if(offset === 0) {
-      parent.insertBefore(cursorNode, container)
-    }else {
-      if(offset === container.length) {
-        parent.appendChild(cursorNode)
-      }else {
-        len = container.length;
-        ref = container.nextSibling;
-        textnode = document.createTextNode(container.substringData(offset, len));
-        container.deleteData(offset, len);
-        if(ref) {
-          parent.insertBefore(textnode, ref)
-        }else {
-          parent.appendChild(textnode)
-        }
-        parent.insertBefore(cursorNode, textnode)
+core.Selection = function Selection(domDocument) {
+  var self = this, ranges = [];
+  this.getRangeAt = function(i) {
+    return ranges[i]
+  };
+  this.addRange = function(range) {
+    if(ranges.length === 0) {
+      self.focusNode = range.startContainer;
+      self.focusOffset = range.startOffset
+    }
+    ranges.push(range);
+    self.rangeCount += 1
+  };
+  this.removeAllRanges = function() {
+    ranges = [];
+    self.rangeCount = 0;
+    self.focusNode = null;
+    self.focusOffset = 0
+  };
+  this.collapse = function(node, offset) {
+    runtime.assert(offset >= 0, "invalid offset " + offset + " in Selection.collapse");
+    ranges.length = self.rangeCount = 1;
+    var range = ranges[0];
+    if(!range) {
+      ranges[0] = range = domDocument.createRange()
+    }
+    range.setStart(node, offset);
+    range.collapse(true);
+    self.focusNode = node;
+    self.focusOffset = offset
+  };
+  this.extend = function(node, offset) {
+  };
+  this.rangeCount = 0;
+  this.focusNode = null;
+  this.focusOffset = 0
+};
+core.LoopWatchDog = function LoopWatchDog(timeout, maxChecks) {
+  var startTime = Date.now(), checks = 0;
+  function check() {
+    var t;
+    if(timeout) {
+      t = Date.now();
+      if(t - startTime > timeout) {
+        runtime.log("alert", "watchdog timeout");
+        throw"timeout!";
+      }
+    }
+    if(maxChecks > 0) {
+      checks += 1;
+      if(checks > maxChecks) {
+        runtime.log("alert", "watchdog loop overflow");
+        throw"loop overflow";
       }
     }
   }
+  this.check = check
+};
+runtime.loadClass("core.Selection");
+core.Cursor = function Cursor(selection, document) {
+  var self = this, cursorNode, cursorTextNode;
+  function putCursorIntoTextNode(container, offset) {
+    var parent = container.parentNode;
+    if(offset > 0) {
+      cursorTextNode.data = container.substringData(0, offset);
+      container.deleteData(0, offset);
+      parent.insertBefore(cursorTextNode, container)
+    }
+    parent.insertBefore(cursorNode, container)
+  }
   function putCursorIntoContainer(container, offset) {
-    var node;
-    node = container.firstChild;
-    while(node && offset) {
+    var node = container.firstChild;
+    while(node !== null && offset > 0) {
       node = node.nextSibling;
       offset -= 1
     }
     container.insertBefore(cursorNode, node)
   }
-  function getPotentialParentOrNode(parent, node) {
-    var n = node;
-    while(n && n !== parent) {
-      n = n.parentNode
-    }
-    return n || node
-  }
-  function removeCursorFromSelectionRange(range, cursorpos) {
-    var cursorParent, start, end;
-    cursorParent = cursorNode.parentNode;
-    start = getPotentialParentOrNode(cursorNode, range.startContainer);
-    end = getPotentialParentOrNode(cursorNode, range.endContainer);
-    if(start === cursorNode) {
-      range.setStart(cursorParent, cursorpos)
-    }else {
-      if(start === cursorParent && range.startOffset > cursorpos) {
-        range.setStart(cursorParent, range.startOffset - 1)
+  function removeCursor(onCursorRemove) {
+    var t = cursorNode.nextSibling, textNodeIncrease = 0;
+    if(cursorTextNode.parentNode) {
+      cursorTextNode.parentNode.removeChild(cursorTextNode);
+      if(t && t.nodeType === 3) {
+        t.insertData(0, cursorTextNode.nodeValue);
+        textNodeIncrease = cursorTextNode.length
       }
     }
-    if(range.endContainer === cursorNode) {
-      range.setEnd(cursorParent, cursorpos)
-    }else {
-      if(range.endContainer === cursorParent && range.endOffset > cursorpos) {
-        range.setEnd(cursorParent, range.endOffset - 1)
-      }
+    onCursorRemove(t, textNodeIncrease);
+    if(cursorNode.parentNode) {
+      cursorNode.parentNode.removeChild(cursorNode)
     }
   }
-  function adaptRangeToMergedText(range, prev, textnodetomerge, cursorpos) {
-    var diff = prev.length - textnodetomerge.length;
-    if(range.startContainer === textnodetomerge) {
-      range.setStart(prev, diff + range.startOffset)
-    }else {
-      if(range.startContainer === prev.parentNode && range.startOffset === cursorpos) {
-        range.setStart(prev, diff)
-      }
-    }
-    if(range.endContainer === textnodetomerge) {
-      range.setEnd(prev, diff + range.endOffset)
-    }else {
-      if(range.endContainer === prev.parentNode && range.endOffset === cursorpos) {
-        range.setEnd(prev, diff)
-      }
-    }
-  }
-  function removeCursor() {
-    var i, cursorpos, node, textnodetoremove, range;
-    if(!cursorNode.parentNode) {
-      return
-    }
-    cursorpos = 0;
-    node = cursorNode.parentNode.firstChild;
-    while(node && node !== cursorNode) {
-      cursorpos += 1;
-      node = node.nextSibling
-    }
-    if(cursorNode.previousSibling && cursorNode.previousSibling.nodeType === 3 && cursorNode.nextSibling && cursorNode.nextSibling.nodeType === 3) {
-      textnodetoremove = cursorNode.nextSibling;
-      cursorNode.previousSibling.appendData(textnodetoremove.nodeValue)
-    }
-    for(i = 0;i < selection.rangeCount;i += 1) {
-      removeCursorFromSelectionRange(selection.getRangeAt(i), cursorpos)
-    }
-    if(textnodetoremove) {
-      for(i = 0;i < selection.rangeCount;i += 1) {
-        adaptRangeToMergedText(selection.getRangeAt(i), cursorNode.previousSibling, textnodetoremove, cursorpos)
-      }
-      textnodetoremove.parentNode.removeChild(textnodetoremove)
-    }
-    cursorNode.parentNode.removeChild(cursorNode)
-  }
-  function putCursor(container, offset) {
+  function putCursor(container, offset, onCursorAdd) {
+    var text, element;
     if(container.nodeType === 3) {
-      putCursorIntoTextNode(container, offset)
+      text = container;
+      putCursorIntoTextNode(text, offset);
+      onCursorAdd(cursorNode.nextSibling, offset)
     }else {
-      if(container.nodeType !== 9) {
-        putCursorIntoContainer(container, offset)
+      if(container.nodeType === 1) {
+        element = container;
+        putCursorIntoContainer(element, offset);
+        onCursorAdd(cursorNode.nextSibling, 0)
       }
     }
   }
   this.getNode = function() {
     return cursorNode
   };
-  this.updateToSelection = function() {
+  this.getSelection = function() {
+    return selection
+  };
+  this.updateToSelection = function(onCursorRemove, onCursorAdd) {
     var range;
-    removeCursor();
+    removeCursor(onCursorRemove);
     if(selection.focusNode) {
-      putCursor(selection.focusNode, selection.focusOffset)
+      putCursor(selection.focusNode, selection.focusOffset, onCursorAdd)
     }
   };
-  this.remove = function() {
-    removeCursor()
+  this.remove = function(onCursorRemove) {
+    removeCursor(onCursorRemove)
+  };
+  function init() {
+    var cursorns = "urn:webodf:names:cursor";
+    cursorNode = document.createElementNS(cursorns, "cursor");
+    cursorTextNode = document.createTextNode("")
   }
+  init()
+};
+core.EditInfo = function EditInfo(container, odtDocument) {
+  var self = this, editInfoNode, editHistory = {};
+  function sortEdits() {
+    var arr = [], memberid;
+    for(memberid in editHistory) {
+      if(editHistory.hasOwnProperty(memberid)) {
+        arr.push({"memberid":memberid, "time":editHistory[memberid].time})
+      }
+    }
+    arr.sort(function(a, b) {
+      return a.time - b.time
+    });
+    return arr
+  }
+  this.getNode = function() {
+    return editInfoNode
+  };
+  this.getOdtDocument = function() {
+    return odtDocument
+  };
+  this.getEdits = function() {
+    return editHistory
+  };
+  this.getSortedEdits = function() {
+    return sortEdits()
+  };
+  this.addEdit = function(memberid, timestamp) {
+    var id, userid = memberid.split("___")[0];
+    if(!editHistory[memberid]) {
+      for(id in editHistory) {
+        if(editHistory.hasOwnProperty(id)) {
+          if(id.split("___")[0] === userid) {
+            delete editHistory[id];
+            break
+          }
+        }
+      }
+    }
+    editHistory[memberid] = {time:timestamp}
+  };
+  this.clearEdits = function() {
+    editHistory = {}
+  };
+  function init() {
+    var editInfons = "urn:webodf:names:editinfo", dom = odtDocument.getDOM();
+    editInfoNode = dom.createElementNS(editInfons, "editinfo");
+    container.insertBefore(editInfoNode, container.firstChild)
+  }
+  init()
 };
 core.UnitTest = function UnitTest() {
 };
@@ -2934,6 +3136,19 @@ core.UnitTest.prototype.description = function() {
 core.UnitTest.prototype.tests = function() {
 };
 core.UnitTest.prototype.asyncTests = function() {
+};
+core.UnitTest.provideTestAreaDiv = function() {
+  var maindoc = runtime.getWindow().document, testarea = maindoc.getElementById("testarea");
+  runtime.assert(!testarea, 'Unclean test environment, found a div with id "testarea".');
+  testarea = maindoc.createElement("div");
+  testarea.setAttribute("id", "testarea");
+  maindoc.body.appendChild(testarea);
+  return testarea
+};
+core.UnitTest.cleanupTestAreaDiv = function() {
+  var maindoc = runtime.getWindow().document, testarea = maindoc.getElementById("testarea");
+  runtime.assert(!!testarea && testarea.parentNode === maindoc.body, 'Test environment broken, found no div with id "testarea" below body.');
+  maindoc.body.removeChild(testarea)
 };
 core.UnitTestRunner = function UnitTestRunner() {
   var failedTests = 0;
@@ -3001,7 +3216,7 @@ core.UnitTestRunner = function UnitTestRunner() {
       if(isResultCorrect(av, bv)) {
         testPassed(a + " is " + b)
       }else {
-        if(typeof av === typeof bv) {
+        if(String(typeof av) === String(typeof bv)) {
           testFailed(a + " should be " + bv + ". Was " + stringify(av) + ".")
         }else {
           testFailed(a + " should be " + bv + " (of type " + typeof bv + "). Was " + av + " (of type " + typeof av + ").")
@@ -3040,7 +3255,7 @@ core.UnitTester = function UnitTester() {
   var failedTests = 0, results = {};
   this.runTests = function(TestClass, callback) {
     var testName = Runtime.getFunctionName(TestClass), tname, runner = new core.UnitTestRunner, test = new TestClass(runner), testResults = {}, i, t, tests, lastFailCount;
-    if(testName.hasOwnProperty(results)) {
+    if(results.hasOwnProperty(testName)) {
       runtime.log("Test " + testName + " has already run.");
       return
     }
@@ -3083,130 +3298,249 @@ core.UnitTester = function UnitTester() {
     return results
   }
 };
-core.PointWalker = function PointWalker(node) {
-  var currentNode = node, before = null, after = node && node.firstChild, root = node, pos = 0;
-  function getPosition(node) {
-    var p = -1, n = node;
-    while(n) {
-      n = n.previousSibling;
-      p += 1
+core.PositionIterator = function PositionIterator(root, whatToShow, filter, expandEntityReferences) {
+  function EmptyTextNodeFilter() {
+    this.acceptNode = function(node) {
+      if(node.nodeType === 3 && node.length === 0) {
+        return 2
+      }
+      return 1
     }
-    return p
   }
-  this.setPoint = function(node, position) {
-    currentNode = node;
-    pos = position;
-    if(currentNode.nodeType === 3) {
-      after = null;
-      before = null
+  function FilteredEmptyTextNodeFilter(filter) {
+    this.acceptNode = function(node) {
+      if(node.nodeType === 3 && node.length === 0) {
+        return 2
+      }
+      return filter.acceptNode(node)
+    }
+  }
+  var self = this, walker, currentPos;
+  this.nextPosition = function() {
+    if(walker.currentNode === root) {
+      return false
+    }
+    if(currentPos === 0 && walker.currentNode.nodeType === 1) {
+      if(walker.firstChild() === null) {
+        currentPos = 1
+      }
     }else {
-      after = currentNode.firstChild;
-      while(position) {
-        position -= 1;
-        after = after.nextSibling
-      }
-      if(after) {
-        before = after.previousSibling
+      if(walker.currentNode.nodeType === 3 && currentPos + 1 < walker.currentNode.length) {
+        currentPos += 1
       }else {
-        before = currentNode.lastChild
-      }
-    }
-  };
-  this.stepForward = function() {
-    var len;
-    if(currentNode.nodeType === 3) {
-      if(typeof currentNode.nodeValue.length === "number") {
-        len = currentNode.nodeValue.length
-      }else {
-        len = currentNode.nodeValue.length()
-      }
-      if(pos < len) {
-        pos += 1;
-        return true
-      }
-    }
-    if(after) {
-      if(after.nodeType === 1) {
-        currentNode = after;
-        before = null;
-        after = currentNode.firstChild;
-        pos = 0
-      }else {
-        if(after.nodeType === 3) {
-          currentNode = after;
-          before = null;
-          after = null;
-          pos = 0
+        if(walker.nextSibling() !== null) {
+          currentPos = 0
         }else {
-          before = after;
-          after = after.nextSibling;
-          pos += 1
+          walker.parentNode();
+          currentPos = 1
         }
       }
-      return true
     }
-    if(currentNode !== root) {
-      before = currentNode;
-      after = before.nextSibling;
-      currentNode = currentNode.parentNode;
-      pos = getPosition(before) + 1;
-      return true
+    return true
+  };
+  function setAtEnd() {
+    var type = walker.currentNode.nodeType;
+    if(type === 3) {
+      currentPos = walker.currentNode.length - 1
+    }else {
+      currentPos = type === 1 ? 1 : 0
     }
-    return false
-  };
-  this.stepBackward = function() {
-    if(currentNode.nodeType === 3) {
-      if(pos > 0) {
-        pos -= 1;
-        return true
-      }
-    }
-    if(before) {
-      if(before.nodeType === 1) {
-        currentNode = before;
-        before = currentNode.lastChild;
-        after = null;
-        pos = getPosition(before) + 1
-      }else {
-        if(before.nodeType === 3) {
-          currentNode = before;
-          before = null;
-          after = null;
-          if(typeof currentNode.nodeValue.length === "number") {
-            pos = currentNode.nodeValue.length
-          }else {
-            pos = currentNode.nodeValue.length()
-          }
-        }else {
-          after = before;
-          before = before.previousSibling;
-          pos -= 1
-        }
-      }
-      return true
-    }
-    if(currentNode !== root) {
-      after = currentNode;
-      before = after.previousSibling;
-      currentNode = currentNode.parentNode;
-      pos = getPosition(after);
-      return true
-    }
-    return false
-  };
-  this.node = function() {
-    return currentNode
-  };
-  this.position = function() {
-    return pos
-  };
-  this.precedingSibling = function() {
-    return before
-  };
-  this.followingSibling = function() {
-    return after
   }
+  this.previousPosition = function() {
+    var moved = true;
+    if(currentPos === 0) {
+      if(walker.previousSibling() === null) {
+        walker.parentNode();
+        if(walker.currentNode === root) {
+          walker.firstChild();
+          return false
+        }
+        currentPos = 0
+      }else {
+        setAtEnd()
+      }
+    }else {
+      if(walker.currentNode.nodeType === 3) {
+        currentPos -= 1
+      }else {
+        if(walker.lastChild() !== null) {
+          setAtEnd()
+        }else {
+          if(walker.currentNode === root) {
+            moved = false
+          }else {
+            currentPos = 0
+          }
+        }
+      }
+    }
+    return moved
+  };
+  this.container = function() {
+    var n = walker.currentNode, t = n.nodeType;
+    if(currentPos === 0 && t !== 3) {
+      return n.parentNode
+    }
+    return n
+  };
+  this.offset = function() {
+    if(walker.currentNode.nodeType === 3) {
+      return currentPos
+    }
+    var c = 0, startNode = walker.currentNode, n, nextNode;
+    if(currentPos === 1) {
+      n = walker.lastChild()
+    }else {
+      n = walker.previousSibling()
+    }
+    while(n) {
+      if(n.nodeType !== 3 || n.nextSibling !== nextNode || nextNode.nodeType !== 3) {
+        c += 1
+      }
+      nextNode = n;
+      n = walker.previousSibling()
+    }
+    walker.currentNode = startNode;
+    return c
+  };
+  this.domOffset = function() {
+    if(walker.currentNode.nodeType === 3) {
+      return currentPos
+    }
+    var c = 0, startNode = walker.currentNode, n;
+    if(currentPos === 1) {
+      n = walker.lastChild()
+    }else {
+      n = walker.previousSibling()
+    }
+    while(n) {
+      c += 1;
+      n = walker.previousSibling()
+    }
+    walker.currentNode = startNode;
+    return c
+  };
+  this.unfilteredDomOffset = function() {
+    if(walker.currentNode.nodeType === 3) {
+      return currentPos
+    }
+    var c = 0, n = walker.currentNode;
+    if(currentPos === 1) {
+      n = n.lastChild
+    }else {
+      n = n.previousSibling
+    }
+    while(n) {
+      c += 1;
+      n = n.previousSibling
+    }
+    return c
+  };
+  this.textOffset = function() {
+    if(walker.currentNode.nodeType !== 3) {
+      return 0
+    }
+    var offset = currentPos, n = walker.currentNode;
+    while(walker.previousSibling() && walker.currentNode.nodeType === 3) {
+      offset += walker.currentNode.length
+    }
+    walker.currentNode = n;
+    return offset
+  };
+  this.substr = function(start, length) {
+    var n = walker.currentNode, t, data = "";
+    if(n.nodeType !== 3) {
+      return data
+    }
+    while(walker.previousSibling()) {
+      if(walker.currentNode.nodeType !== 3) {
+        walker.nextSibling();
+        break
+      }
+    }
+    do {
+      data += walker.currentNode.data
+    }while(walker.nextSibling() && walker.currentNode.nodeType === 3);
+    walker.currentNode = n;
+    return data.substr(start, length)
+  };
+  this.setPosition = function(container, offset) {
+    runtime.assert(container !== null, "PositionIterator.setPosition called with container===null");
+    walker.currentNode = container;
+    if(container.nodeType === 3) {
+      currentPos = offset;
+      if(offset > container.length) {
+        throw"Error in setPosition: " + offset + " > " + container.length;
+      }else {
+        if(offset < 0) {
+          throw"Error in setPosition: " + offset + " < 0";
+        }
+      }
+      if(offset === container.length) {
+        if(walker.nextSibling()) {
+          currentPos = 0
+        }else {
+          if(walker.parentNode()) {
+            currentPos = 1
+          }else {
+            throw"Error in setPosition: position not valid.";
+          }
+        }
+      }
+      return true
+    }
+    var o = offset, n = walker.firstChild(), prevNode;
+    while(offset > 0 && n) {
+      offset -= 1;
+      prevNode = n;
+      n = walker.nextSibling();
+      while(n && n.nodeType === 3 && prevNode.nodeType === 3 && n.previousSibling === prevNode) {
+        prevNode = n;
+        n = walker.nextSibling()
+      }
+    }
+    if(offset !== 0) {
+      throw"Error in setPosition: offset " + o + " is out of range.";
+    }
+    if(n === null) {
+      walker.currentNode = container;
+      currentPos = 1
+    }else {
+      currentPos = 0
+    }
+    return true
+  };
+  this.moveToEnd = function() {
+    walker.currentNode = root;
+    currentPos = 1
+  };
+  function init() {
+    var f, acceptNode;
+    if(filter) {
+      f = new FilteredEmptyTextNodeFilter(filter)
+    }else {
+      f = new EmptyTextNodeFilter
+    }
+    acceptNode = f.acceptNode;
+    acceptNode.acceptNode = acceptNode;
+    whatToShow = whatToShow || 4294967295;
+    walker = root.ownerDocument.createTreeWalker(root, whatToShow, acceptNode, expandEntityReferences);
+    currentPos = 0;
+    if(walker.firstChild() === null) {
+      currentPos = 1
+    }
+  }
+  init()
 };
+runtime.loadClass("core.PositionIterator");
+core.PositionFilter = function PositionFilter() {
+};
+core.PositionFilter.FilterResult = {FILTER_ACCEPT:1, FILTER_REJECT:2, FILTER_SKIP:3};
+core.PositionFilter.prototype.acceptPosition = function(point) {
+};
+(function() {
+  return core.PositionFilter
+})();
 core.Async = function Async() {
   this.forEach = function(items, f, callback) {
     var i, l = items.length, itemsDone = 0;
@@ -3297,7 +3631,7 @@ core.Zip = function Zip(url, entriesReadCallback) {
         size = filesize - offset
       }
       runtime.read(url, offset, size, function(err, data) {
-        if(err) {
+        if(err || data === null) {
           callback(err, data)
         }else {
           handleEntryData(data, callback)
@@ -3379,7 +3713,11 @@ core.Zip = function Zip(url, entriesReadCallback) {
     cdsOffset = stream.readUInt16LE();
     cdsOffset = filesize - 22 - cdsSize;
     runtime.read(url, cdsOffset, filesize - cdsOffset, function(err, data) {
-      handleCentralDirectory(data, callback)
+      if(err || data === null) {
+        callback(err, zip)
+      }else {
+        handleCentralDirectory(data, callback)
+      }
     })
   }
   function load(filename, callback) {
@@ -3403,15 +3741,15 @@ core.Zip = function Zip(url, entriesReadCallback) {
   }
   function loadAsString(filename, callback) {
     load(filename, function(err, data) {
-      if(err) {
+      if(err || data === null) {
         return callback(err, null)
       }
-      data = runtime.byteArrayToString(data, "utf8");
-      callback(null, data)
+      var d = runtime.byteArrayToString(data, "utf8");
+      callback(null, d)
     })
   }
   function loadContentXmlAsFragments(filename, handler) {
-    loadAsString(filename, function(err, data) {
+    zip.loadAsString(filename, function(err, data) {
       if(err) {
         return handler.rootElementReady(err)
       }
@@ -3448,14 +3786,13 @@ core.Zip = function Zip(url, entriesReadCallback) {
     })
   }
   function loadAsDOM(filename, callback) {
-    loadAsString(filename, function(err, xmldata) {
-      if(err) {
+    zip.loadAsString(filename, function(err, xmldata) {
+      if(err || xmldata === null) {
         callback(err, null);
         return
       }
-      var parser = new DOMParser;
-      xmldata = parser.parseFromString(xmldata, "text/xml");
-      callback(null, xmldata)
+      var parser = new DOMParser, dom = parser.parseFromString(xmldata, "text/xml");
+      callback(null, dom)
     })
   }
   function save(filename, data, compressed, date) {
@@ -3523,10 +3860,10 @@ core.Zip = function Zip(url, entriesReadCallback) {
       loadAllEntries(position + 1, callback)
     })
   }
-  function write(callback) {
+  function createByteArray(successCallback, errorCallback) {
     loadAllEntries(0, function(err) {
       if(err) {
-        callback(err);
+        errorCallback(err);
         return
       }
       var data = new core.ByteArrayWriter("utf8"), i, e, codoffset, codsize, offsets = [0];
@@ -3546,12 +3883,22 @@ core.Zip = function Zip(url, entriesReadCallback) {
       data.appendUInt32LE(codsize);
       data.appendUInt32LE(codoffset);
       data.appendArray([0, 0]);
-      runtime.writeFile(url, data.getByteArray(), callback)
+      successCallback(data.getByteArray())
     })
+  }
+  function writeAs(newurl, callback) {
+    createByteArray(function(data) {
+      runtime.writeFile(newurl, data, callback)
+    }, callback)
+  }
+  function write(callback) {
+    writeAs(url, callback)
   }
   this.load = load;
   this.save = save;
   this.write = write;
+  this.writeAs = writeAs;
+  this.createByteArray = createByteArray;
   this.loadContentXmlAsFragments = loadContentXmlAsFragments;
   this.loadAsString = loadAsString;
   this.loadAsDOM = loadAsDOM;
@@ -3570,7 +3917,7 @@ core.Zip = function Zip(url, entriesReadCallback) {
       entriesReadCallback("File '" + url + "' cannot be read.", zip)
     }else {
       runtime.read(url, filesize - 22, 22, function(err, data) {
-        if(err || entriesReadCallback === null) {
+        if(err || entriesReadCallback === null || data === null) {
           entriesReadCallback(err, zip)
         }else {
           handleCentralDirectoryEnd(data, entriesReadCallback)
@@ -3578,6 +3925,23 @@ core.Zip = function Zip(url, entriesReadCallback) {
       })
     }
   })
+};
+core.CSSUnits = function CSSUnits() {
+  var sizemap = {"in":1, "cm":2.54, "mm":25.4, "pt":72, "pc":12};
+  this.convert = function(value, oldUnit, newUnit) {
+    return value * sizemap[newUnit] / sizemap[oldUnit]
+  };
+  this.convertMeasure = function(measure, newUnit) {
+    var value, oldUnit, newMeasure;
+    if(measure && newUnit) {
+      value = parseFloat(measure);
+      oldUnit = measure.replace(value.toString(), "");
+      newMeasure = this.convert(value, oldUnit, newUnit)
+    }else {
+      newMeasure = ""
+    }
+    return newMeasure.toString()
+  }
 };
 xmldom.LSSerializerFilter = function LSSerializerFilter() {
 };
@@ -3607,7 +3971,7 @@ xmldom.LSSerializer = function LSSerializer() {
   function startNode(nsmap, node) {
     var s = "", atts = node.attributes, length, i, attr, attstr = "", accept, prefix;
     if(atts) {
-      if(nsmap[node.namespaceURI] !== node.prefix) {
+      if(node.namespaceURI && nsmap[node.namespaceURI] !== node.prefix) {
         nsmap[node.namespaceURI] = node.prefix
       }
       s += "<" + node.nodeName;
@@ -4927,7 +5291,7 @@ xmldom.XPath = function() {
   };
   XPathIterator.prototype.reset = function() {
   };
-  function NodeIterator() {
+  function XPathNodeIterator() {
     var node, done = false;
     this.setNode = function setNode(n) {
       node = n
@@ -5013,7 +5377,7 @@ xmldom.XPath = function() {
     })
   }
   function createPredicateFilteredIterator(it, p, namespaceResolver) {
-    var nit = new NodeIterator, pit = createXPathPathIterator(nit, p, namespaceResolver), value = p.value;
+    var nit = new XPathNodeIterator, pit = createXPathPathIterator(nit, p, namespaceResolver), value = p.value;
     if(value === undefined) {
       return new ConditionIterator(it, function(node) {
         nit.setNode(node);
@@ -5056,7 +5420,7 @@ xmldom.XPath = function() {
     return it
   };
   function fallback(node, xpath, namespaceResolver) {
-    var it = new NodeIterator, i, nodelist, parsedXPath, pos;
+    var it = new XPathNodeIterator, i, nodelist, parsedXPath, pos;
     it.setNode(node);
     parsedXPath = parseXPath(xpath);
     it = createXPathPathIterator(it, parsedXPath, namespaceResolver);
@@ -5070,7 +5434,7 @@ xmldom.XPath = function() {
   }
   function getODFElementsWithXPath(node, xpath, namespaceResolver) {
     var doc = node.ownerDocument, nodes, elements = [], n = null;
-    if(!doc || !doc.evaluate || !n) {
+    if(!doc || !doc.evaluate) {
       elements = fallback(node, xpath, namespaceResolver)
     }else {
       nodes = doc.evaluate(xpath, node, namespaceResolver, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
@@ -5089,40 +5453,50 @@ xmldom.XPath = function() {
   };
   return xmldom.XPath
 }();
+runtime.loadClass("xmldom.XPath");
 odf.StyleInfo = function StyleInfo() {
   var chartns = "urn:oasis:names:tc:opendocument:xmlns:chart:1.0", dbns = "urn:oasis:names:tc:opendocument:xmlns:database:1.0", dr3dns = "urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0", drawns = "urn:oasis:names:tc:opendocument:xmlns:drawing:1.0", fons = "urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0", formns = "urn:oasis:names:tc:opendocument:xmlns:form:1.0", numberns = "urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0", officens = "urn:oasis:names:tc:opendocument:xmlns:office:1.0", 
-  presentationns = "urn:oasis:names:tc:opendocument:xmlns:presentation:1.0", stylens = "urn:oasis:names:tc:opendocument:xmlns:style:1.0", svgns = "urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0", tablens = "urn:oasis:names:tc:opendocument:xmlns:table:1.0", textns = "urn:oasis:names:tc:opendocument:xmlns:text:1.0", elementstyles = {"text":[{ens:stylens, en:"tab-stop", ans:stylens, a:"leader-text-style"}, {ens:stylens, en:"drop-cap", ans:stylens, a:"style-name"}, {ens:textns, en:"notes-configuration", 
-  ans:textns, a:"citation-body-style-name"}, {ens:textns, en:"notes-configuration", ans:textns, a:"citation-style-name"}, {ens:textns, en:"a", ans:textns, a:"style-name"}, {ens:textns, en:"alphabetical-index", ans:textns, a:"style-name"}, {ens:textns, en:"linenumbering-configuration", ans:textns, a:"style-name"}, {ens:textns, en:"list-level-style-number", ans:textns, a:"style-name"}, {ens:textns, en:"ruby-text", ans:textns, a:"style-name"}, {ens:textns, en:"span", ans:textns, a:"style-name"}, {ens:textns, 
-  en:"a", ans:textns, a:"visited-style-name"}, {ens:stylens, en:"text-properties", ans:stylens, a:"text-line-through-text-style"}, {ens:textns, en:"alphabetical-index-source", ans:textns, a:"main-entry-style-name"}, {ens:textns, en:"index-entry-bibliography", ans:textns, a:"style-name"}, {ens:textns, en:"index-entry-chapter", ans:textns, a:"style-name"}, {ens:textns, en:"index-entry-link-end", ans:textns, a:"style-name"}, {ens:textns, en:"index-entry-link-start", ans:textns, a:"style-name"}, {ens:textns, 
-  en:"index-entry-page-number", ans:textns, a:"style-name"}, {ens:textns, en:"index-entry-span", ans:textns, a:"style-name"}, {ens:textns, en:"index-entry-tab-stop", ans:textns, a:"style-name"}, {ens:textns, en:"index-entry-text", ans:textns, a:"style-name"}, {ens:textns, en:"index-title-template", ans:textns, a:"style-name"}, {ens:textns, en:"list-level-style-bullet", ans:textns, a:"style-name"}, {ens:textns, en:"outline-level-style", ans:textns, a:"style-name"}], "paragraph":[{ens:drawns, en:"caption", 
-  ans:drawns, a:"text-style-name"}, {ens:drawns, en:"circle", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"connector", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"control", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"custom-shape", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"ellipse", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"frame", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"line", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"measure", ans:drawns, 
-  a:"text-style-name"}, {ens:drawns, en:"path", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"polygon", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"polyline", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"rect", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"regular-polygon", ans:drawns, a:"text-style-name"}, {ens:officens, en:"annotation", ans:drawns, a:"text-style-name"}, {ens:formns, en:"column", ans:formns, a:"text-style-name"}, {ens:stylens, en:"style", ans:stylens, a:"next-style-name"}, 
-  {ens:tablens, en:"body", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"even-columns", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"even-rows", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"first-column", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"first-row", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"last-column", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"last-row", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, 
-  en:"odd-columns", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"odd-rows", ans:tablens, a:"paragraph-style-name"}, {ens:textns, en:"notes-configuration", ans:textns, a:"default-style-name"}, {ens:textns, en:"alphabetical-index-entry-template", ans:textns, a:"style-name"}, {ens:textns, en:"bibliography-entry-template", ans:textns, a:"style-name"}, {ens:textns, en:"h", ans:textns, a:"style-name"}, {ens:textns, en:"illustration-index-entry-template", ans:textns, a:"style-name"}, {ens:textns, 
-  en:"index-source-style", ans:textns, a:"style-name"}, {ens:textns, en:"object-index-entry-template", ans:textns, a:"style-name"}, {ens:textns, en:"p", ans:textns, a:"style-name"}, {ens:textns, en:"table-index-entry-template", ans:textns, a:"style-name"}, {ens:textns, en:"table-of-content-entry-template", ans:textns, a:"style-name"}, {ens:textns, en:"table-index-entry-template", ans:textns, a:"style-name"}, {ens:textns, en:"user-index-entry-template", ans:textns, a:"style-name"}, {ens:stylens, en:"page-layout-properties", 
-  ans:stylens, a:"register-truth-ref-style-name"}], "chart":[{ens:chartns, en:"axis", ans:chartns, a:"style-name"}, {ens:chartns, en:"chart", ans:chartns, a:"style-name"}, {ens:chartns, en:"data-label", ans:chartns, a:"style-name"}, {ens:chartns, en:"data-point", ans:chartns, a:"style-name"}, {ens:chartns, en:"equation", ans:chartns, a:"style-name"}, {ens:chartns, en:"error-indicator", ans:chartns, a:"style-name"}, {ens:chartns, en:"floor", ans:chartns, a:"style-name"}, {ens:chartns, en:"footer", 
-  ans:chartns, a:"style-name"}, {ens:chartns, en:"grid", ans:chartns, a:"style-name"}, {ens:chartns, en:"legend", ans:chartns, a:"style-name"}, {ens:chartns, en:"mean-value", ans:chartns, a:"style-name"}, {ens:chartns, en:"plot-area", ans:chartns, a:"style-name"}, {ens:chartns, en:"regression-curve", ans:chartns, a:"style-name"}, {ens:chartns, en:"series", ans:chartns, a:"style-name"}, {ens:chartns, en:"stock-gain-marker", ans:chartns, a:"style-name"}, {ens:chartns, en:"stock-loss-marker", ans:chartns, 
-  a:"style-name"}, {ens:chartns, en:"stock-range-line", ans:chartns, a:"style-name"}, {ens:chartns, en:"subtitle", ans:chartns, a:"style-name"}, {ens:chartns, en:"title", ans:chartns, a:"style-name"}, {ens:chartns, en:"wall", ans:chartns, a:"style-name"}], "section":[{ens:textns, en:"alphabetical-index", ans:textns, a:"style-name"}, {ens:textns, en:"bibliography", ans:textns, a:"style-name"}, {ens:textns, en:"illustration-index", ans:textns, a:"style-name"}, {ens:textns, en:"index-title", ans:textns, 
-  a:"style-name"}, {ens:textns, en:"object-index", ans:textns, a:"style-name"}, {ens:textns, en:"section", ans:textns, a:"style-name"}, {ens:textns, en:"table-of-content", ans:textns, a:"style-name"}, {ens:textns, en:"table-index", ans:textns, a:"style-name"}, {ens:textns, en:"user-index", ans:textns, a:"style-name"}], "ruby":[{ens:textns, en:"ruby", ans:textns, a:"style-name"}], "table":[{ens:dbns, en:"query", ans:dbns, a:"style-name"}, {ens:dbns, en:"table-representation", ans:dbns, a:"style-name"}, 
-  {ens:tablens, en:"background", ans:tablens, a:"style-name"}, {ens:tablens, en:"table", ans:tablens, a:"style-name"}], "table-column":[{ens:dbns, en:"column", ans:dbns, a:"style-name"}, {ens:tablens, en:"table-column", ans:tablens, a:"style-name"}], "table-row":[{ens:dbns, en:"query", ans:dbns, a:"default-row-style-name"}, {ens:dbns, en:"table-representation", ans:dbns, a:"default-row-style-name"}, {ens:tablens, en:"table-row", ans:tablens, a:"style-name"}], "table-cell":[{ens:dbns, en:"column", 
-  ans:dbns, a:"default-cell-style-name"}, {ens:tablens, en:"table-column", ans:tablens, a:"default-cell-style-name"}, {ens:tablens, en:"table-row", ans:tablens, a:"default-cell-style-name"}, {ens:tablens, en:"body", ans:tablens, a:"style-name"}, {ens:tablens, en:"covered-table-cell", ans:tablens, a:"style-name"}, {ens:tablens, en:"even-columns", ans:tablens, a:"style-name"}, {ens:tablens, en:"covered-table-cell", ans:tablens, a:"style-name"}, {ens:tablens, en:"even-columns", ans:tablens, a:"style-name"}, 
-  {ens:tablens, en:"even-rows", ans:tablens, a:"style-name"}, {ens:tablens, en:"first-column", ans:tablens, a:"style-name"}, {ens:tablens, en:"first-row", ans:tablens, a:"style-name"}, {ens:tablens, en:"last-column", ans:tablens, a:"style-name"}, {ens:tablens, en:"last-row", ans:tablens, a:"style-name"}, {ens:tablens, en:"odd-columns", ans:tablens, a:"style-name"}, {ens:tablens, en:"odd-rows", ans:tablens, a:"style-name"}, {ens:tablens, en:"table-cell", ans:tablens, a:"style-name"}], "graphic":[{ens:dr3dns, 
-  en:"cube", ans:drawns, a:"style-name"}, {ens:dr3dns, en:"extrude", ans:drawns, a:"style-name"}, {ens:dr3dns, en:"rotate", ans:drawns, a:"style-name"}, {ens:dr3dns, en:"scene", ans:drawns, a:"style-name"}, {ens:dr3dns, en:"sphere", ans:drawns, a:"style-name"}, {ens:drawns, en:"caption", ans:drawns, a:"style-name"}, {ens:drawns, en:"circle", ans:drawns, a:"style-name"}, {ens:drawns, en:"connector", ans:drawns, a:"style-name"}, {ens:drawns, en:"control", ans:drawns, a:"style-name"}, {ens:drawns, en:"custom-shape", 
-  ans:drawns, a:"style-name"}, {ens:drawns, en:"ellipse", ans:drawns, a:"style-name"}, {ens:drawns, en:"frame", ans:drawns, a:"style-name"}, {ens:drawns, en:"g", ans:drawns, a:"style-name"}, {ens:drawns, en:"line", ans:drawns, a:"style-name"}, {ens:drawns, en:"measure", ans:drawns, a:"style-name"}, {ens:drawns, en:"page-thumbnail", ans:drawns, a:"style-name"}, {ens:drawns, en:"path", ans:drawns, a:"style-name"}, {ens:drawns, en:"polygon", ans:drawns, a:"style-name"}, {ens:drawns, en:"polyline", ans:drawns, 
-  a:"style-name"}, {ens:drawns, en:"rect", ans:drawns, a:"style-name"}, {ens:drawns, en:"regular-polygon", ans:drawns, a:"style-name"}, {ens:officens, en:"annotation", ans:drawns, a:"style-name"}], "presentation":[{ens:dr3dns, en:"cube", ans:presentationns, a:"style-name"}, {ens:dr3dns, en:"extrude", ans:presentationns, a:"style-name"}, {ens:dr3dns, en:"rotate", ans:presentationns, a:"style-name"}, {ens:dr3dns, en:"scene", ans:presentationns, a:"style-name"}, {ens:dr3dns, en:"sphere", ans:presentationns, 
-  a:"style-name"}, {ens:drawns, en:"caption", ans:presentationns, a:"style-name"}, {ens:drawns, en:"circle", ans:presentationns, a:"style-name"}, {ens:drawns, en:"connector", ans:presentationns, a:"style-name"}, {ens:drawns, en:"control", ans:presentationns, a:"style-name"}, {ens:drawns, en:"custom-shape", ans:presentationns, a:"style-name"}, {ens:drawns, en:"ellipse", ans:presentationns, a:"style-name"}, {ens:drawns, en:"frame", ans:presentationns, a:"style-name"}, {ens:drawns, en:"g", ans:presentationns, 
-  a:"style-name"}, {ens:drawns, en:"line", ans:presentationns, a:"style-name"}, {ens:drawns, en:"measure", ans:presentationns, a:"style-name"}, {ens:drawns, en:"page-thumbnail", ans:presentationns, a:"style-name"}, {ens:drawns, en:"path", ans:presentationns, a:"style-name"}, {ens:drawns, en:"polygon", ans:presentationns, a:"style-name"}, {ens:drawns, en:"polyline", ans:presentationns, a:"style-name"}, {ens:drawns, en:"rect", ans:presentationns, a:"style-name"}, {ens:drawns, en:"regular-polygon", 
-  ans:presentationns, a:"style-name"}, {ens:officens, en:"annotation", ans:presentationns, a:"style-name"}], "drawing-page":[{ens:drawns, en:"page", ans:drawns, a:"style-name"}, {ens:presentationns, en:"notes", ans:drawns, a:"style-name"}, {ens:stylens, en:"handout-master", ans:drawns, a:"style-name"}, {ens:stylens, en:"master-page", ans:drawns, a:"style-name"}], "list-style":[{ens:textns, en:"list", ans:textns, a:"style-name"}, {ens:textns, en:"numbered-paragraph", ans:textns, a:"style-name"}, {ens:textns, 
-  en:"list-item", ans:textns, a:"style-override"}, {ens:stylens, en:"style", ans:stylens, a:"list-style-name"}, {ens:stylens, en:"style", ans:stylens, a:"data-style-name"}, {ens:stylens, en:"style", ans:stylens, a:"percentage-data-style-name"}, {ens:presentationns, en:"date-time-decl", ans:stylens, a:"data-style-name"}, {ens:textns, en:"creation-date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"creation-time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"database-display", ans:stylens, 
-  a:"data-style-name"}, {ens:textns, en:"date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"editing-duration", ans:stylens, a:"data-style-name"}, {ens:textns, en:"expression", ans:stylens, a:"data-style-name"}, {ens:textns, en:"meta-field", ans:stylens, a:"data-style-name"}, {ens:textns, en:"modification-date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"modification-time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"print-date", ans:stylens, a:"data-style-name"}, {ens:textns, 
-  en:"print-time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"table-formula", ans:stylens, a:"data-style-name"}, {ens:textns, en:"time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"user-defined", ans:stylens, a:"data-style-name"}, {ens:textns, en:"user-field-get", ans:stylens, a:"data-style-name"}, {ens:textns, en:"user-field-input", ans:stylens, a:"data-style-name"}, {ens:textns, en:"variable-get", ans:stylens, a:"data-style-name"}, {ens:textns, en:"variable-input", ans:stylens, 
-  a:"data-style-name"}, {ens:textns, en:"variable-set", ans:stylens, a:"data-style-name"}], "data":[{ens:stylens, en:"style", ans:stylens, a:"data-style-name"}, {ens:stylens, en:"style", ans:stylens, a:"percentage-data-style-name"}, {ens:presentationns, en:"date-time-decl", ans:stylens, a:"data-style-name"}, {ens:textns, en:"creation-date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"creation-time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"database-display", ans:stylens, a:"data-style-name"}, 
-  {ens:textns, en:"date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"editing-duration", ans:stylens, a:"data-style-name"}, {ens:textns, en:"expression", ans:stylens, a:"data-style-name"}, {ens:textns, en:"meta-field", ans:stylens, a:"data-style-name"}, {ens:textns, en:"modification-date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"modification-time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"print-date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"print-time", 
-  ans:stylens, a:"data-style-name"}, {ens:textns, en:"table-formula", ans:stylens, a:"data-style-name"}, {ens:textns, en:"time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"user-defined", ans:stylens, a:"data-style-name"}, {ens:textns, en:"user-field-get", ans:stylens, a:"data-style-name"}, {ens:textns, en:"user-field-input", ans:stylens, a:"data-style-name"}, {ens:textns, en:"variable-get", ans:stylens, a:"data-style-name"}, {ens:textns, en:"variable-input", ans:stylens, a:"data-style-name"}, 
-  {ens:textns, en:"variable-set", ans:stylens, a:"data-style-name"}], "page-layout":[{ens:presentationns, en:"notes", ans:stylens, a:"page-layout-name"}, {ens:stylens, en:"handout-master", ans:stylens, a:"page-layout-name"}, {ens:stylens, en:"master-page", ans:stylens, a:"page-layout-name"}]}, elements;
+  presentationns = "urn:oasis:names:tc:opendocument:xmlns:presentation:1.0", stylens = "urn:oasis:names:tc:opendocument:xmlns:style:1.0", svgns = "urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0", tablens = "urn:oasis:names:tc:opendocument:xmlns:table:1.0", textns = "urn:oasis:names:tc:opendocument:xmlns:text:1.0", xmlns = "http://www.w3.org/XML/1998/namespace", elementstyles = {"text":[{ens:stylens, en:"tab-stop", ans:stylens, a:"leader-text-style"}, {ens:stylens, en:"drop-cap", ans:stylens, 
+  a:"style-name"}, {ens:textns, en:"notes-configuration", ans:textns, a:"citation-body-style-name"}, {ens:textns, en:"notes-configuration", ans:textns, a:"citation-style-name"}, {ens:textns, en:"a", ans:textns, a:"style-name"}, {ens:textns, en:"alphabetical-index", ans:textns, a:"style-name"}, {ens:textns, en:"linenumbering-configuration", ans:textns, a:"style-name"}, {ens:textns, en:"list-level-style-number", ans:textns, a:"style-name"}, {ens:textns, en:"ruby-text", ans:textns, a:"style-name"}, 
+  {ens:textns, en:"span", ans:textns, a:"style-name"}, {ens:textns, en:"a", ans:textns, a:"visited-style-name"}, {ens:stylens, en:"text-properties", ans:stylens, a:"text-line-through-text-style"}, {ens:textns, en:"alphabetical-index-source", ans:textns, a:"main-entry-style-name"}, {ens:textns, en:"index-entry-bibliography", ans:textns, a:"style-name"}, {ens:textns, en:"index-entry-chapter", ans:textns, a:"style-name"}, {ens:textns, en:"index-entry-link-end", ans:textns, a:"style-name"}, {ens:textns, 
+  en:"index-entry-link-start", ans:textns, a:"style-name"}, {ens:textns, en:"index-entry-page-number", ans:textns, a:"style-name"}, {ens:textns, en:"index-entry-span", ans:textns, a:"style-name"}, {ens:textns, en:"index-entry-tab-stop", ans:textns, a:"style-name"}, {ens:textns, en:"index-entry-text", ans:textns, a:"style-name"}, {ens:textns, en:"index-title-template", ans:textns, a:"style-name"}, {ens:textns, en:"list-level-style-bullet", ans:textns, a:"style-name"}, {ens:textns, en:"outline-level-style", 
+  ans:textns, a:"style-name"}], "paragraph":[{ens:drawns, en:"caption", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"circle", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"connector", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"control", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"custom-shape", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"ellipse", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"frame", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"line", ans:drawns, 
+  a:"text-style-name"}, {ens:drawns, en:"measure", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"path", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"polygon", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"polyline", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"rect", ans:drawns, a:"text-style-name"}, {ens:drawns, en:"regular-polygon", ans:drawns, a:"text-style-name"}, {ens:officens, en:"annotation", ans:drawns, a:"text-style-name"}, {ens:formns, en:"column", ans:formns, a:"text-style-name"}, 
+  {ens:stylens, en:"style", ans:stylens, a:"next-style-name"}, {ens:tablens, en:"body", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"even-columns", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"even-rows", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"first-column", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"first-row", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"last-column", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"last-row", 
+  ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"odd-columns", ans:tablens, a:"paragraph-style-name"}, {ens:tablens, en:"odd-rows", ans:tablens, a:"paragraph-style-name"}, {ens:textns, en:"notes-configuration", ans:textns, a:"default-style-name"}, {ens:textns, en:"alphabetical-index-entry-template", ans:textns, a:"style-name"}, {ens:textns, en:"bibliography-entry-template", ans:textns, a:"style-name"}, {ens:textns, en:"h", ans:textns, a:"style-name"}, {ens:textns, en:"illustration-index-entry-template", 
+  ans:textns, a:"style-name"}, {ens:textns, en:"index-source-style", ans:textns, a:"style-name"}, {ens:textns, en:"object-index-entry-template", ans:textns, a:"style-name"}, {ens:textns, en:"p", ans:textns, a:"style-name"}, {ens:textns, en:"table-index-entry-template", ans:textns, a:"style-name"}, {ens:textns, en:"table-of-content-entry-template", ans:textns, a:"style-name"}, {ens:textns, en:"table-index-entry-template", ans:textns, a:"style-name"}, {ens:textns, en:"user-index-entry-template", ans:textns, 
+  a:"style-name"}, {ens:stylens, en:"page-layout-properties", ans:stylens, a:"register-truth-ref-style-name"}], "chart":[{ens:chartns, en:"axis", ans:chartns, a:"style-name"}, {ens:chartns, en:"chart", ans:chartns, a:"style-name"}, {ens:chartns, en:"data-label", ans:chartns, a:"style-name"}, {ens:chartns, en:"data-point", ans:chartns, a:"style-name"}, {ens:chartns, en:"equation", ans:chartns, a:"style-name"}, {ens:chartns, en:"error-indicator", ans:chartns, a:"style-name"}, {ens:chartns, en:"floor", 
+  ans:chartns, a:"style-name"}, {ens:chartns, en:"footer", ans:chartns, a:"style-name"}, {ens:chartns, en:"grid", ans:chartns, a:"style-name"}, {ens:chartns, en:"legend", ans:chartns, a:"style-name"}, {ens:chartns, en:"mean-value", ans:chartns, a:"style-name"}, {ens:chartns, en:"plot-area", ans:chartns, a:"style-name"}, {ens:chartns, en:"regression-curve", ans:chartns, a:"style-name"}, {ens:chartns, en:"series", ans:chartns, a:"style-name"}, {ens:chartns, en:"stock-gain-marker", ans:chartns, a:"style-name"}, 
+  {ens:chartns, en:"stock-loss-marker", ans:chartns, a:"style-name"}, {ens:chartns, en:"stock-range-line", ans:chartns, a:"style-name"}, {ens:chartns, en:"subtitle", ans:chartns, a:"style-name"}, {ens:chartns, en:"title", ans:chartns, a:"style-name"}, {ens:chartns, en:"wall", ans:chartns, a:"style-name"}], "section":[{ens:textns, en:"alphabetical-index", ans:textns, a:"style-name"}, {ens:textns, en:"bibliography", ans:textns, a:"style-name"}, {ens:textns, en:"illustration-index", ans:textns, a:"style-name"}, 
+  {ens:textns, en:"index-title", ans:textns, a:"style-name"}, {ens:textns, en:"object-index", ans:textns, a:"style-name"}, {ens:textns, en:"section", ans:textns, a:"style-name"}, {ens:textns, en:"table-of-content", ans:textns, a:"style-name"}, {ens:textns, en:"table-index", ans:textns, a:"style-name"}, {ens:textns, en:"user-index", ans:textns, a:"style-name"}], "ruby":[{ens:textns, en:"ruby", ans:textns, a:"style-name"}], "table":[{ens:dbns, en:"query", ans:dbns, a:"style-name"}, {ens:dbns, en:"table-representation", 
+  ans:dbns, a:"style-name"}, {ens:tablens, en:"background", ans:tablens, a:"style-name"}, {ens:tablens, en:"table", ans:tablens, a:"style-name"}], "table-column":[{ens:dbns, en:"column", ans:dbns, a:"style-name"}, {ens:tablens, en:"table-column", ans:tablens, a:"style-name"}], "table-row":[{ens:dbns, en:"query", ans:dbns, a:"default-row-style-name"}, {ens:dbns, en:"table-representation", ans:dbns, a:"default-row-style-name"}, {ens:tablens, en:"table-row", ans:tablens, a:"style-name"}], "table-cell":[{ens:dbns, 
+  en:"column", ans:dbns, a:"default-cell-style-name"}, {ens:tablens, en:"table-column", ans:tablens, a:"default-cell-style-name"}, {ens:tablens, en:"table-row", ans:tablens, a:"default-cell-style-name"}, {ens:tablens, en:"body", ans:tablens, a:"style-name"}, {ens:tablens, en:"covered-table-cell", ans:tablens, a:"style-name"}, {ens:tablens, en:"even-columns", ans:tablens, a:"style-name"}, {ens:tablens, en:"covered-table-cell", ans:tablens, a:"style-name"}, {ens:tablens, en:"even-columns", ans:tablens, 
+  a:"style-name"}, {ens:tablens, en:"even-rows", ans:tablens, a:"style-name"}, {ens:tablens, en:"first-column", ans:tablens, a:"style-name"}, {ens:tablens, en:"first-row", ans:tablens, a:"style-name"}, {ens:tablens, en:"last-column", ans:tablens, a:"style-name"}, {ens:tablens, en:"last-row", ans:tablens, a:"style-name"}, {ens:tablens, en:"odd-columns", ans:tablens, a:"style-name"}, {ens:tablens, en:"odd-rows", ans:tablens, a:"style-name"}, {ens:tablens, en:"table-cell", ans:tablens, a:"style-name"}], 
+  "graphic":[{ens:dr3dns, en:"cube", ans:drawns, a:"style-name"}, {ens:dr3dns, en:"extrude", ans:drawns, a:"style-name"}, {ens:dr3dns, en:"rotate", ans:drawns, a:"style-name"}, {ens:dr3dns, en:"scene", ans:drawns, a:"style-name"}, {ens:dr3dns, en:"sphere", ans:drawns, a:"style-name"}, {ens:drawns, en:"caption", ans:drawns, a:"style-name"}, {ens:drawns, en:"circle", ans:drawns, a:"style-name"}, {ens:drawns, en:"connector", ans:drawns, a:"style-name"}, {ens:drawns, en:"control", ans:drawns, a:"style-name"}, 
+  {ens:drawns, en:"custom-shape", ans:drawns, a:"style-name"}, {ens:drawns, en:"ellipse", ans:drawns, a:"style-name"}, {ens:drawns, en:"frame", ans:drawns, a:"style-name"}, {ens:drawns, en:"g", ans:drawns, a:"style-name"}, {ens:drawns, en:"line", ans:drawns, a:"style-name"}, {ens:drawns, en:"measure", ans:drawns, a:"style-name"}, {ens:drawns, en:"page-thumbnail", ans:drawns, a:"style-name"}, {ens:drawns, en:"path", ans:drawns, a:"style-name"}, {ens:drawns, en:"polygon", ans:drawns, a:"style-name"}, 
+  {ens:drawns, en:"polyline", ans:drawns, a:"style-name"}, {ens:drawns, en:"rect", ans:drawns, a:"style-name"}, {ens:drawns, en:"regular-polygon", ans:drawns, a:"style-name"}, {ens:officens, en:"annotation", ans:drawns, a:"style-name"}], "presentation":[{ens:dr3dns, en:"cube", ans:presentationns, a:"style-name"}, {ens:dr3dns, en:"extrude", ans:presentationns, a:"style-name"}, {ens:dr3dns, en:"rotate", ans:presentationns, a:"style-name"}, {ens:dr3dns, en:"scene", ans:presentationns, a:"style-name"}, 
+  {ens:dr3dns, en:"sphere", ans:presentationns, a:"style-name"}, {ens:drawns, en:"caption", ans:presentationns, a:"style-name"}, {ens:drawns, en:"circle", ans:presentationns, a:"style-name"}, {ens:drawns, en:"connector", ans:presentationns, a:"style-name"}, {ens:drawns, en:"control", ans:presentationns, a:"style-name"}, {ens:drawns, en:"custom-shape", ans:presentationns, a:"style-name"}, {ens:drawns, en:"ellipse", ans:presentationns, a:"style-name"}, {ens:drawns, en:"frame", ans:presentationns, a:"style-name"}, 
+  {ens:drawns, en:"g", ans:presentationns, a:"style-name"}, {ens:drawns, en:"line", ans:presentationns, a:"style-name"}, {ens:drawns, en:"measure", ans:presentationns, a:"style-name"}, {ens:drawns, en:"page-thumbnail", ans:presentationns, a:"style-name"}, {ens:drawns, en:"path", ans:presentationns, a:"style-name"}, {ens:drawns, en:"polygon", ans:presentationns, a:"style-name"}, {ens:drawns, en:"polyline", ans:presentationns, a:"style-name"}, {ens:drawns, en:"rect", ans:presentationns, a:"style-name"}, 
+  {ens:drawns, en:"regular-polygon", ans:presentationns, a:"style-name"}, {ens:officens, en:"annotation", ans:presentationns, a:"style-name"}], "drawing-page":[{ens:drawns, en:"page", ans:drawns, a:"style-name"}, {ens:presentationns, en:"notes", ans:drawns, a:"style-name"}, {ens:stylens, en:"handout-master", ans:drawns, a:"style-name"}, {ens:stylens, en:"master-page", ans:drawns, a:"style-name"}], "list-style":[{ens:textns, en:"list", ans:textns, a:"style-name"}, {ens:textns, en:"numbered-paragraph", 
+  ans:textns, a:"style-name"}, {ens:textns, en:"list-item", ans:textns, a:"style-override"}, {ens:stylens, en:"style", ans:stylens, a:"list-style-name"}, {ens:stylens, en:"style", ans:stylens, a:"data-style-name"}, {ens:stylens, en:"style", ans:stylens, a:"percentage-data-style-name"}, {ens:presentationns, en:"date-time-decl", ans:stylens, a:"data-style-name"}, {ens:textns, en:"creation-date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"creation-time", ans:stylens, a:"data-style-name"}, {ens:textns, 
+  en:"database-display", ans:stylens, a:"data-style-name"}, {ens:textns, en:"date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"editing-duration", ans:stylens, a:"data-style-name"}, {ens:textns, en:"expression", ans:stylens, a:"data-style-name"}, {ens:textns, en:"meta-field", ans:stylens, a:"data-style-name"}, {ens:textns, en:"modification-date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"modification-time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"print-date", ans:stylens, 
+  a:"data-style-name"}, {ens:textns, en:"print-time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"table-formula", ans:stylens, a:"data-style-name"}, {ens:textns, en:"time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"user-defined", ans:stylens, a:"data-style-name"}, {ens:textns, en:"user-field-get", ans:stylens, a:"data-style-name"}, {ens:textns, en:"user-field-input", ans:stylens, a:"data-style-name"}, {ens:textns, en:"variable-get", ans:stylens, a:"data-style-name"}, {ens:textns, 
+  en:"variable-input", ans:stylens, a:"data-style-name"}, {ens:textns, en:"variable-set", ans:stylens, a:"data-style-name"}], "data":[{ens:stylens, en:"style", ans:stylens, a:"data-style-name"}, {ens:stylens, en:"style", ans:stylens, a:"percentage-data-style-name"}, {ens:presentationns, en:"date-time-decl", ans:stylens, a:"data-style-name"}, {ens:textns, en:"creation-date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"creation-time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"database-display", 
+  ans:stylens, a:"data-style-name"}, {ens:textns, en:"date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"editing-duration", ans:stylens, a:"data-style-name"}, {ens:textns, en:"expression", ans:stylens, a:"data-style-name"}, {ens:textns, en:"meta-field", ans:stylens, a:"data-style-name"}, {ens:textns, en:"modification-date", ans:stylens, a:"data-style-name"}, {ens:textns, en:"modification-time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"print-date", ans:stylens, a:"data-style-name"}, 
+  {ens:textns, en:"print-time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"table-formula", ans:stylens, a:"data-style-name"}, {ens:textns, en:"time", ans:stylens, a:"data-style-name"}, {ens:textns, en:"user-defined", ans:stylens, a:"data-style-name"}, {ens:textns, en:"user-field-get", ans:stylens, a:"data-style-name"}, {ens:textns, en:"user-field-input", ans:stylens, a:"data-style-name"}, {ens:textns, en:"variable-get", ans:stylens, a:"data-style-name"}, {ens:textns, en:"variable-input", 
+  ans:stylens, a:"data-style-name"}, {ens:textns, en:"variable-set", ans:stylens, a:"data-style-name"}], "page-layout":[{ens:presentationns, en:"notes", ans:stylens, a:"page-layout-name"}, {ens:stylens, en:"handout-master", ans:stylens, a:"page-layout-name"}, {ens:stylens, en:"master-page", ans:stylens, a:"page-layout-name"}]}, elements, xpath = new xmldom.XPath;
+  function hasDerivedStyles(odfbody, nsResolver, styleElement) {
+    var nodes, xp, stylens = nsResolver("style"), styleName = styleElement.getAttributeNS(stylens, "name"), styleFamily = styleElement.getAttributeNS(stylens, "family");
+    xp = "//style:*[@style:parent-style-name='" + styleName + "'][@style:family='" + styleFamily + "']";
+    nodes = xpath.getODFElementsWithXPath(odfbody, xp, nsResolver);
+    if(nodes.length) {
+      return true
+    }
+    return false
+  }
   function canElementHaveStyle(family, element) {
     var elname = elements[element.localName], elns = elname && elname[element.namespaceURI], length = elns ? elns.length : 0, i;
-    return elns && elns.length > 0
+    return length > 0
   }
   function getStyleRef(family, element) {
     var elname = elements[element.localName], elns = elname && elname[element.namespaceURI], length = elns ? elns.length : 0, i, attr;
@@ -5131,30 +5505,27 @@ odf.StyleInfo = function StyleInfo() {
     }
     return null
   }
-  function getUsedStylesForAutomatic(element, keys) {
-    var elname = elements[element.localName], elns = elname && elname[element.namespaceURI], length = elns ? elns.length : 0, i, attr, group, map, e;
+  function determineUsedStyles(styleUsingElementsRoot, usedStyles) {
+    var elname = elements[styleUsingElementsRoot.localName], elns = elname && elname[styleUsingElementsRoot.namespaceURI], length = elns ? elns.length : 0, i, stylename, keyname, map, e;
     for(i = 0;i < length;i += 1) {
-      attr = element.getAttributeNS(elns[i].ns, elns[i].localname);
-      if(attr) {
-        group = elns[i].keygroup;
-        map = keys[group];
-        if(!map) {
-          map = keys[group] = {}
-        }
-        map[attr] = 1
+      stylename = styleUsingElementsRoot.getAttributeNS(elns[i].ns, elns[i].localname);
+      if(stylename) {
+        keyname = elns[i].keyname;
+        map = usedStyles[keyname] = usedStyles[keyname] || {};
+        map[stylename] = 1
       }
     }
-    i = element.firstChild;
+    i = styleUsingElementsRoot.firstChild;
     while(i) {
       if(i.nodeType === 1) {
         e = i;
-        getUsedStylesForAutomatic(e, keys)
+        determineUsedStyles(e, usedStyles)
       }
       i = i.nextSibling
     }
   }
   function inverse(elementstyles) {
-    var keyname, i, list, item, l, elements = {}, map, array;
+    var keyname, i, l, list, item, elements = {}, map, array;
     for(keyname in elementstyles) {
       if(elementstyles.hasOwnProperty(keyname)) {
         list = elementstyles[keyname];
@@ -5163,14 +5534,14 @@ odf.StyleInfo = function StyleInfo() {
           item = list[i];
           map = elements[item.en] = elements[item.en] || {};
           array = map[item.ens] = map[item.ens] || [];
-          array.push({ns:item.ans, localname:item.a, keygroup:keyname})
+          array.push({ns:item.ans, localname:item.a, keyname:keyname})
         }
       }
     }
     return elements
   }
-  this.UsedKeysList = function(element) {
-    var usedKeys = {};
+  this.UsedStyleList = function(styleUsingElementsRoot) {
+    var usedStyles = {};
     this.uses = function(element) {
       var localName = element.localName, name = element.getAttributeNS(drawns, "name") || element.getAttributeNS(stylens, "name"), keyName, map;
       if(localName === "style") {
@@ -5182,46 +5553,51 @@ odf.StyleInfo = function StyleInfo() {
           keyName = localName
         }
       }
-      map = usedKeys[keyName];
+      map = usedStyles[keyName];
       return map ? map[name] > 0 : false
     };
-    getUsedStylesForAutomatic(element, usedKeys)
+    determineUsedStyles(styleUsingElementsRoot, usedStyles)
   };
   this.canElementHaveStyle = canElementHaveStyle;
+  this.hasDerivedStyles = hasDerivedStyles;
   elements = inverse(elementstyles)
 };
 odf.Style2CSS = function Style2CSS() {
   var xlinkns = "http://www.w3.org/1999/xlink", drawns = "urn:oasis:names:tc:opendocument:xmlns:drawing:1.0", fons = "urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0", officens = "urn:oasis:names:tc:opendocument:xmlns:office:1.0", presentationns = "urn:oasis:names:tc:opendocument:xmlns:presentation:1.0", stylens = "urn:oasis:names:tc:opendocument:xmlns:style:1.0", svgns = "urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0", tablens = "urn:oasis:names:tc:opendocument:xmlns:table:1.0", 
-  textns = "urn:oasis:names:tc:opendocument:xmlns:text:1.0", namespaces = {"draw":drawns, "fo":fons, "office":officens, "presentation":presentationns, "style":stylens, "svg":svgns, "table":tablens, "text":textns, "xlink":xlinkns}, familynamespaceprefixes = {"graphic":"draw", "paragraph":"text", "presentation":"presentation", "ruby":"text", "section":"text", "table":"table", "table-cell":"table", "table-column":"table", "table-row":"table", "text":"text", "list":"text"}, familytagnames = {"graphic":["circle", 
-  "connected", "control", "custom-shape", "ellipse", "frame", "g", "line", "measure", "page", "page-thumbnail", "path", "polygon", "polyline", "rect", "regular-polygon"], "paragraph":["alphabetical-index-entry-template", "h", "illustration-index-entry-template", "index-source-style", "object-index-entry-template", "p", "table-index-entry-template", "table-of-content-entry-template", "user-index-entry-template"], "presentation":["caption", "circle", "connector", "control", "custom-shape", "ellipse", 
-  "frame", "g", "line", "measure", "page-thumbnail", "path", "polygon", "polyline", "rect", "regular-polygon"], "ruby":["ruby", "ruby-text"], "section":["alphabetical-index", "bibliography", "illustration-index", "index-title", "object-index", "section", "table-of-content", "table-index", "user-index"], "table":["background", "table"], "table-cell":["body", "covered-table-cell", "even-columns", "even-rows", "first-column", "first-row", "last-column", "last-row", "odd-columns", "odd-rows", "table-cell"], 
-  "table-column":["table-column"], "table-row":["table-row"], "text":["a", "index-entry-chapter", "index-entry-link-end", "index-entry-link-start", "index-entry-page-number", "index-entry-span", "index-entry-tab-stop", "index-entry-text", "index-title-template", "linenumbering-configuration", "list-level-style-number", "list-level-style-bullet", "outline-level-style", "span"], "list":["list-item"]}, textPropertySimpleMapping = [[fons, "color", "color"], [fons, "background-color", "background-color"], 
-  [fons, "font-weight", "font-weight"], [fons, "font-style", "font-style"], [fons, "font-size", "font-size"]], bgImageSimpleMapping = [[stylens, "repeat", "background-repeat"]], paragraphPropertySimpleMapping = [[fons, "background-color", "background-color"], [fons, "text-align", "text-align"], [fons, "padding-left", "padding-left"], [fons, "padding-right", "padding-right"], [fons, "padding-top", "padding-top"], [fons, "padding-bottom", "padding-bottom"], [fons, "border-left", "border-left"], [fons, 
-  "border-right", "border-right"], [fons, "border-top", "border-top"], [fons, "border-bottom", "border-bottom"], [fons, "margin-left", "margin-left"], [fons, "margin-right", "margin-right"], [fons, "margin-top", "margin-top"], [fons, "margin-bottom", "margin-bottom"], [fons, "border", "border"]], graphicPropertySimpleMapping = [[drawns, "fill-color", "background-color"], [drawns, "fill", "background"], [fons, "min-height", "min-height"], [drawns, "stroke", "border"], [svgns, "stroke-color", "border-color"]], 
-  tablecellPropertySimpleMapping = [[fons, "background-color", "background-color"], [fons, "border-left", "border-left"], [fons, "border-right", "border-right"], [fons, "border-top", "border-top"], [fons, "border-bottom", "border-bottom"]];
+  textns = "urn:oasis:names:tc:opendocument:xmlns:text:1.0", xmlns = "http://www.w3.org/XML/1998/namespace", namespaces = {"draw":drawns, "fo":fons, "office":officens, "presentation":presentationns, "style":stylens, "svg":svgns, "table":tablens, "text":textns, "xlink":xlinkns, "xml":xmlns}, familynamespaceprefixes = {"graphic":"draw", "paragraph":"text", "presentation":"presentation", "ruby":"text", "section":"text", "table":"table", "table-cell":"table", "table-column":"table", "table-row":"table", 
+  "text":"text", "list":"text"}, familytagnames = {"graphic":["circle", "connected", "control", "custom-shape", "ellipse", "frame", "g", "line", "measure", "page", "page-thumbnail", "path", "polygon", "polyline", "rect", "regular-polygon"], "paragraph":["alphabetical-index-entry-template", "h", "illustration-index-entry-template", "index-source-style", "object-index-entry-template", "p", "table-index-entry-template", "table-of-content-entry-template", "user-index-entry-template"], "presentation":["caption", 
+  "circle", "connector", "control", "custom-shape", "ellipse", "frame", "g", "line", "measure", "page-thumbnail", "path", "polygon", "polyline", "rect", "regular-polygon"], "ruby":["ruby", "ruby-text"], "section":["alphabetical-index", "bibliography", "illustration-index", "index-title", "object-index", "section", "table-of-content", "table-index", "user-index"], "table":["background", "table"], "table-cell":["body", "covered-table-cell", "even-columns", "even-rows", "first-column", "first-row", 
+  "last-column", "last-row", "odd-columns", "odd-rows", "table-cell"], "table-column":["table-column"], "table-row":["table-row"], "text":["a", "index-entry-chapter", "index-entry-link-end", "index-entry-link-start", "index-entry-page-number", "index-entry-span", "index-entry-tab-stop", "index-entry-text", "index-title-template", "linenumbering-configuration", "list-level-style-number", "list-level-style-bullet", "outline-level-style", "span"], "list":["list-item"]}, textPropertySimpleMapping = [[fons, 
+  "color", "color"], [fons, "background-color", "background-color"], [fons, "font-weight", "font-weight"], [fons, "font-style", "font-style"], [fons, "font-size", "font-size"]], bgImageSimpleMapping = [[stylens, "repeat", "background-repeat"]], paragraphPropertySimpleMapping = [[fons, "background-color", "background-color"], [fons, "text-align", "text-align"], [fons, "padding-left", "padding-left"], [fons, "padding-right", "padding-right"], [fons, "padding-top", "padding-top"], [fons, "padding-bottom", 
+  "padding-bottom"], [fons, "border-left", "border-left"], [fons, "border-right", "border-right"], [fons, "border-top", "border-top"], [fons, "border-bottom", "border-bottom"], [fons, "margin-left", "margin-left"], [fons, "margin-right", "margin-right"], [fons, "margin-top", "margin-top"], [fons, "margin-bottom", "margin-bottom"], [fons, "border", "border"]], graphicPropertySimpleMapping = [[drawns, "fill-color", "background-color"], [drawns, "fill", "background"], [fons, "min-height", "min-height"], 
+  [drawns, "stroke", "border"], [svgns, "stroke-color", "border-color"]], tablecellPropertySimpleMapping = [[fons, "background-color", "background-color"], [fons, "border-left", "border-left"], [fons, "border-right", "border-right"], [fons, "border-top", "border-top"], [fons, "border-bottom", "border-bottom"], [fons, "border", "border"]], tablecolumnPropertySimpleMapping = [[stylens, "column-width", "width"]], tablerowPropertySimpleMapping = [[stylens, "row-height", "height"], [fons, "keep-together", 
+  null]], tablePropertySimpleMapping = [[stylens, "width", "width"], [fons, "margin-left", "margin-left"], [fons, "margin-right", "margin-right"], [fons, "margin-top", "margin-top"], [fons, "margin-bottom", "margin-bottom"]], fontFaceDeclsMap = {};
   function namespaceResolver(prefix) {
     return namespaces[prefix] || null
   }
   function getStyleMap(doc, stylesnode) {
-    var stylemap = {}, node, name, family, map;
+    var stylemap = {}, node, name, family, style;
     if(!stylesnode) {
       return stylemap
     }
     node = stylesnode.firstChild;
     while(node) {
-      if(node.namespaceURI === stylens && node.localName === "style") {
+      if(node.namespaceURI === stylens && (node.localName === "style" || node.localName === "default-style")) {
         family = node.getAttributeNS(stylens, "family")
       }else {
         if(node.namespaceURI === textns && node.localName === "list-style") {
           family = "list"
+        }else {
+          family = undefined
         }
       }
-      name = family && node.getAttributeNS && node.getAttributeNS(stylens, "name");
-      if(name) {
-        if(!stylemap[family]) {
-          stylemap[family] = {}
+      if(family) {
+        name = node.getAttributeNS && node.getAttributeNS(stylens, "name");
+        if(!name) {
+          name = ""
         }
-        stylemap[family][name] = node
+        style = stylemap[family] = stylemap[family] || {};
+        style[name] = node
       }
       node = node.nextSibling
     }
@@ -5283,12 +5659,21 @@ odf.Style2CSS = function Style2CSS() {
     if(prefix === null) {
       return null
     }
-    namepart = "[" + prefix + '|style-name="' + name + '"]';
+    if(name) {
+      namepart = "[" + prefix + '|style-name="' + name + '"]'
+    }else {
+      namepart = "[" + prefix + "|style-name]"
+    }
     if(prefix === "presentation") {
       prefix = "draw";
-      namepart = '[presentation|style-name="' + name + '"]'
+      if(name) {
+        namepart = '[presentation|style-name="' + name + '"]'
+      }else {
+        namepart = "[presentation|style-name]"
+      }
     }
-    return prefix + "|" + familytagnames[family].join(namepart + "," + prefix + "|") + namepart
+    selector = prefix + "|" + familytagnames[family].join(namepart + "," + prefix + "|") + namepart;
+    return selector
   }
   function getSelectors(family, name, node) {
     var selectors = [], n, ss, s;
@@ -5332,22 +5717,51 @@ odf.Style2CSS = function Style2CSS() {
     }
     return rule
   }
+  function makeFontFaceDeclsMap(doc, fontFaceDeclsNode) {
+    var fontFaceDeclsMap = {}, node, name, family, map;
+    if(!fontFaceDeclsNode) {
+      return fontFaceDeclsNode
+    }
+    node = fontFaceDeclsNode.firstChild;
+    while(node) {
+      if(node.nodeType === 1) {
+        family = node.getAttributeNS(svgns, "font-family");
+        name = node.getAttributeNS(stylens, "name");
+        if(family || node.getElementsByTagNameNS(svgns, "font-face-uri")[0]) {
+          if(name) {
+            if(!fontFaceDeclsMap[name]) {
+              fontFaceDeclsMap[name] = {}
+            }
+            fontFaceDeclsMap[name] = family
+          }
+        }
+      }
+      node = node.nextSibling
+    }
+    return fontFaceDeclsMap
+  }
   function getFontDeclaration(name) {
-    return'"' + name + '"'
+    return fontFaceDeclsMap[name]
   }
   function getTextProperties(props) {
-    var rule = "", value;
+    var rule = "", fontName, value, textDecoration = "";
     rule += applySimpleMapping(props, textPropertySimpleMapping);
     value = props.getAttributeNS(stylens, "text-underline-style");
     if(value === "solid") {
-      rule += "text-decoration: underline;"
+      textDecoration += " underline"
     }
-    value = props.getAttributeNS(stylens, "font-name");
-    if(value) {
-      value = getFontDeclaration(value);
-      if(value) {
-        rule += "font-family: " + value + ";"
-      }
+    value = props.getAttributeNS(stylens, "text-line-through-style");
+    if(value === "solid") {
+      textDecoration += " line-through"
+    }
+    if(textDecoration.length) {
+      textDecoration = "text-decoration:" + textDecoration + ";";
+      rule += textDecoration
+    }
+    fontName = props.getAttributeNS(stylens, "font-name");
+    if(fontName) {
+      value = getFontDeclaration(fontName);
+      rule += "font-family: " + (value || fontName) + ";"
     }
     return rule
   }
@@ -5375,6 +5789,21 @@ odf.Style2CSS = function Style2CSS() {
     rule += applySimpleMapping(props, tablecellPropertySimpleMapping);
     return rule
   }
+  function getTableRowProperties(props) {
+    var rule = "";
+    rule += applySimpleMapping(props, tablerowPropertySimpleMapping);
+    return rule
+  }
+  function getTableColumnProperties(props) {
+    var rule = "";
+    rule += applySimpleMapping(props, tablecolumnPropertySimpleMapping);
+    return rule
+  }
+  function getTableProperties(props) {
+    var rule = "";
+    rule += applySimpleMapping(props, tablePropertySimpleMapping);
+    return rule
+  }
   function addStyleRule(sheet, family, name, node) {
     var selectors = getSelectors(family, name, node), selector = selectors.join(","), rule = "", properties = getDirectChild(node, stylens, "text-properties");
     if(properties) {
@@ -5391,6 +5820,21 @@ odf.Style2CSS = function Style2CSS() {
     properties = getDirectChild(node, stylens, "table-cell-properties");
     if(properties) {
       rule += getTableCellProperties(properties)
+    }
+    properties = getDirectChild(node, stylens, "table-row-properties");
+    if(properties) {
+      rule += getTableRowProperties(properties)
+    }
+    properties = getDirectChild(node, stylens, "table-column-properties");
+    if(properties) {
+      rule += getTableColumnProperties(properties)
+    }
+    properties = getDirectChild(node, stylens, "table-properties");
+    if(properties) {
+      rule += getTableProperties(properties)
+    }
+    if(family === "table") {
+      runtime.log(rule)
     }
     if(rule.length === 0) {
       return
@@ -5429,15 +5873,38 @@ odf.Style2CSS = function Style2CSS() {
     return"content: '" + bulletChar + "';"
   }
   function addListStyleRule(sheet, name, node, itemrule) {
-    var selector = 'text|list[text|style-name="' + name + '"]', level = node.getAttributeNS(textns, "level"), rule = "";
+    var selector = 'text|list[text|style-name="' + name + '"]', level = node.getAttributeNS(textns, "level"), itemSelector, listItemRule, listLevelProps = node.firstChild, listLevelLabelAlign = listLevelProps.firstChild, labelAlignAttr, bulletIndent, listIndent, bulletWidth, rule = "";
+    if(listLevelLabelAlign) {
+      labelAlignAttr = listLevelLabelAlign.attributes;
+      bulletIndent = labelAlignAttr["fo:text-indent"].value;
+      listIndent = labelAlignAttr["fo:margin-left"].value
+    }
+    if(!bulletIndent) {
+      bulletIndent = "-0.6cm"
+    }
+    if(bulletIndent.charAt(0) === "-") {
+      bulletWidth = bulletIndent.substring(1)
+    }else {
+      bulletWidth = "-" + bulletIndent
+    }
     level = level && parseInt(level, 10);
     while(level > 1) {
       selector += " > text|list-item > text|list";
       level -= 1
     }
-    selector += " > list-item:before";
+    itemSelector = selector;
+    itemSelector += " > text|list-item > *:not(text|list):first-child";
+    if(listIndent !== undefined) {
+      listItemRule = itemSelector + "{margin-left:" + listIndent + ";}";
+      sheet.insertRule(listItemRule, sheet.cssRules.length)
+    }
+    selector += " > text|list-item > *:not(text|list):first-child:before";
     rule = itemrule;
-    rule = selector + "{" + rule + "}";
+    rule = selector + "{" + rule + ";";
+    rule += "counter-increment:list;";
+    rule += "margin-left:" + bulletIndent + ";";
+    rule += "width:" + bulletWidth + ";";
+    rule += "display:inline-block}";
     try {
       sheet.insertRule(rule, sheet.cssRules.length)
     }catch(e) {
@@ -5486,7 +5953,8 @@ odf.Style2CSS = function Style2CSS() {
   this.namespaces = namespaces;
   this.namespaceResolver = namespaceResolver;
   this.namespaceResolver.lookupNamespaceURI = this.namespaceResolver;
-  this.style2css = function(stylesheet, styles, autostyles) {
+  this.makeFontFaceDeclsMap = makeFontFaceDeclsMap;
+  this.style2css = function(stylesheet, fontFaceDecls, styles, autostyles) {
     var doc, prefix, styletree, tree, name, rule, family, stylenodes, styleautonodes;
     while(stylesheet.cssRules.length) {
       stylesheet.deleteRule(stylesheet.cssRules.length - 1)
@@ -5510,6 +5978,7 @@ odf.Style2CSS = function Style2CSS() {
         }
       }
     }
+    fontFaceDeclsMap = makeFontFaceDeclsMap(doc, fontFaceDecls);
     stylenodes = getStyleMap(doc, styles);
     styleautonodes = getStyleMap(doc, autostyles);
     styletree = {};
@@ -5533,25 +6002,28 @@ runtime.loadClass("odf.Style2CSS");
 odf.FontLoader = function() {
   var style2CSS = new odf.Style2CSS, xpath = new xmldom.XPath, base64 = new core.Base64;
   function getEmbeddedFontDeclarations(fontFaceDecls) {
-    var decls = {}, fonts, i, font, name, uris, href;
+    var decls = {}, fonts, i, font, name, uris, href, family;
     if(!fontFaceDecls) {
       return decls
     }
     fonts = xpath.getODFElementsWithXPath(fontFaceDecls, "style:font-face[svg:font-face-src]", style2CSS.namespaceResolver);
     for(i = 0;i < fonts.length;i += 1) {
       font = fonts[i];
-      name = font.getAttributeNS(style2CSS.namespaces["style"], "name");
+      name = font.getAttributeNS(style2CSS.namespaces.style, "name");
+      family = font.getAttributeNS(style2CSS.namespaces.svg, "font-family");
       uris = xpath.getODFElementsWithXPath(font, "svg:font-face-src/svg:font-face-uri", style2CSS.namespaceResolver);
       if(uris.length > 0) {
         href = uris[0].getAttributeNS(style2CSS.namespaces["xlink"], "href");
-        decls[name] = {href:href}
+        decls[name] = {href:href, family:family}
       }
     }
     return decls
   }
   function addFontToCSS(name, font, fontdata, stylesheet) {
-    stylesheet = document.styleSheets[0];
-    var rule = '@font-face { font-family: "' + name + '"; src: ' + "url(data:application/x-font-ttf;charset=binary;base64," + base64.convertUTF8ArrayToBase64(fontdata) + ') format("truetype"); }';
+    if(!stylesheet) {
+      stylesheet = document.styleSheets[0]
+    }
+    var cssFamily = font.family || name, rule = "@font-face { font-family: '" + cssFamily + "'; src: " + "url(data:application/x-font-ttf;charset=binary;base64," + base64.convertUTF8ArrayToBase64(fontdata) + ') format("truetype"); }';
     try {
       stylesheet.insertRule(rule, stylesheet.cssRules.length)
     }catch(e) {
@@ -5600,7 +6072,7 @@ runtime.loadClass("odf.StyleInfo");
 runtime.loadClass("odf.Style2CSS");
 runtime.loadClass("odf.FontLoader");
 odf.OdfContainer = function() {
-  var styleInfo = new odf.StyleInfo, style2CSS = new odf.Style2CSS, namespaces = style2CSS.namespaces, officens = "urn:oasis:names:tc:opendocument:xmlns:office:1.0", manifestns = "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0", nodeorder = ["meta", "settings", "scripts", "font-face-decls", "styles", "automatic-styles", "master-styles", "body"], base64 = new core.Base64, fontLoader = new odf.FontLoader, partMimetypes = {};
+  var styleInfo = new odf.StyleInfo, style2CSS = new odf.Style2CSS, namespaces = style2CSS.namespaces, officens = "urn:oasis:names:tc:opendocument:xmlns:office:1.0", manifestns = "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0", webodfns = "urn:webodf:names:origin", nodeorder = ["meta", "settings", "scripts", "font-face-decls", "styles", "automatic-styles", "master-styles", "body"], base64 = new core.Base64, fontLoader = new odf.FontLoader, partMimetypes = {};
   function getDirectChild(node, ns, name) {
     node = node ? node.firstChild : null;
     while(node) {
@@ -5620,24 +6092,28 @@ odf.OdfContainer = function() {
     }
     return-1
   }
-  function OdfNodeFilter(odfroot, usedStylesElement) {
-    var automaticStyles = odfroot.automaticStyles, usedKeysList;
-    if(usedStylesElement) {
-      usedKeysList = new styleInfo.UsedKeysList(usedStylesElement)
+  function OdfNodeFilter(odfroot, styleUsingElementsRoot) {
+    var automaticStyles = odfroot.automaticStyles, usedStyleList;
+    if(styleUsingElementsRoot) {
+      usedStyleList = new styleInfo.UsedStyleList(styleUsingElementsRoot)
     }
     this.acceptNode = function(node) {
       var styleName, styleFamily, result;
       if(node.namespaceURI === "http://www.w3.org/1999/xhtml") {
         result = 3
       }else {
-        if(usedKeysList && node.parentNode === automaticStyles && node.nodeType === 1) {
-          if(usedKeysList.uses(node)) {
-            result = 1
-          }else {
-            result = 2
-          }
+        if(node.namespaceURI && node.namespaceURI.match(/^urn:webodf:/)) {
+          result = 2
         }else {
-          result = 1
+          if(usedStyleList && node.parentNode === automaticStyles && node.nodeType === 1) {
+            if(usedStyleList.uses(node)) {
+              result = 1
+            }else {
+              result = 2
+            }
+          }else {
+            result = 1
+          }
         }
       }
       return result
@@ -5685,6 +6161,9 @@ odf.OdfContainer = function() {
     this.DONE = 2;
     this.state = this.EMPTY;
     this.load = function() {
+      if(zip === null) {
+        return
+      }
       var mimetype = partMimetypes[name];
       this.mimetype = mimetype;
       zip.loadAsDataURL(name, mimetype, function(err, url) {
@@ -5715,7 +6194,7 @@ odf.OdfContainer = function() {
     }
   }
   odf.OdfContainer = function OdfContainer(url, onstatereadychange) {
-    var self = this, zip = null, contentXmlCompletelyLoaded = false;
+    var self = this, zip, contentXmlCompletelyLoaded = false;
     this.onstatereadychange = onstatereadychange;
     this.onchange = null;
     this.state = null;
@@ -5735,6 +6214,32 @@ odf.OdfContainer = function() {
         }
         n = next
       }
+    }
+    function tagAutomaticStylesOrigin(stylesRootElement, origin) {
+      var n = stylesRootElement && stylesRootElement.firstChild;
+      while(n) {
+        if(n.nodeType === 1) {
+          n.setAttributeNS(webodfns, "origin", origin)
+        }
+        n = n.nextSibling
+      }
+    }
+    function cloneStylesByOrigin(stylesRootElement, origin) {
+      var copy = null, n, s;
+      if(stylesRootElement) {
+        copy = stylesRootElement.cloneNode(true);
+        n = copy.firstChild;
+        while(n) {
+          s = n.nextSibling;
+          if(n.nodeType === 1) {
+            if(n.getAttributeNS(webodfns, "origin") !== origin) {
+              copy.removeChild(n)
+            }
+          }
+          n = s
+        }
+      }
+      return copy
     }
     function importRootNode(xmldoc) {
       var doc = self.rootElement.ownerDocument, node;
@@ -5782,10 +6287,13 @@ odf.OdfContainer = function() {
       root.styles = getDirectChild(node, officens, "styles");
       setChild(root, root.styles);
       root.automaticStyles = getDirectChild(node, officens, "automatic-styles");
+      tagAutomaticStylesOrigin(root.automaticStyles, "styles.xml");
       setChild(root, root.automaticStyles);
       root.masterStyles = getDirectChild(node, officens, "master-styles");
       setChild(root, root.masterStyles);
-      fontLoader.loadFonts(root.fontFaceDecls, zip, null)
+      if(root.fontFaceDecls) {
+        fontLoader.loadFonts(root.fontFaceDecls, zip, null)
+      }
     }
     function handleContentXml(xmldoc) {
       var node = importRootNode(xmldoc), root, automaticStyles, fontFaceDecls, c;
@@ -5808,6 +6316,7 @@ odf.OdfContainer = function() {
         }
       }
       automaticStyles = getDirectChild(node, officens, "automatic-styles");
+      tagAutomaticStylesOrigin(automaticStyles, "content.xml");
       if(root.automaticStyles && automaticStyles) {
         c = automaticStyles.firstChild;
         while(c) {
@@ -5921,6 +6430,12 @@ odf.OdfContainer = function() {
       s += "</office:document-meta>";
       return s
     }
+    function serializeManifestXml() {
+      var xml = "<manifest:manifest xmlns:manifest='urn:oasis:names:tc:opendocument:xmlns:manifest:1.0' manifest:version='1.2'><manifest:file-entry manifest:media-type='application/vnd.oasis.opendocument.text' manifest:full-path='/'/>" + "<manifest:file-entry manifest:media-type='text/xml' manifest:full-path='content.xml'/>" + "<manifest:file-entry manifest:media-type='text/xml' manifest:full-path='styles.xml'/>" + "<manifest:file-entry manifest:media-type='text/xml' manifest:full-path='meta.xml'/>" + 
+      "<manifest:file-entry manifest:media-type='text/xml' manifest:full-path='settings.xml'/>" + "</manifest:manifest>", manifest = runtime.parseXML(xml), serializer = new xmldom.LSSerializer;
+      serializer.filter = new OdfNodeFilter(self.rootElement);
+      return serializer.writeToString(manifest, style2CSS.namespaces)
+    }
     function serializeSettingsXml() {
       var nsmap = style2CSS.namespaces, serializer = new xmldom.LSSerializer, s = documentElement("document-settings", nsmap);
       serializer.filter = new OdfNodeFilter(self.rootElement);
@@ -5929,19 +6444,19 @@ odf.OdfContainer = function() {
       return s
     }
     function serializeStylesXml() {
-      var nsmap = style2CSS.namespaces, serializer = new xmldom.LSSerializer, s = documentElement("document-styles", nsmap);
-      serializer.filter = new OdfNodeFilter(self.rootElement, self.rootElement.masterStyles);
+      var nsmap = style2CSS.namespaces, serializer = new xmldom.LSSerializer, automaticStyles = cloneStylesByOrigin(self.rootElement.automaticStyles, "styles.xml"), s = documentElement("document-styles", nsmap);
+      serializer.filter = new OdfNodeFilter(self.rootElement);
       s += serializer.writeToString(self.rootElement.fontFaceDecls, nsmap);
       s += serializer.writeToString(self.rootElement.styles, nsmap);
-      s += serializer.writeToString(self.rootElement.automaticStyles, nsmap);
+      s += serializer.writeToString(automaticStyles, nsmap);
       s += serializer.writeToString(self.rootElement.masterStyles, nsmap);
       s += "</office:document-styles>";
       return s
     }
     function serializeContentXml() {
-      var nsmap = style2CSS.namespaces, serializer = new xmldom.LSSerializer, s = documentElement("document-content", nsmap);
-      serializer.filter = new OdfNodeFilter(self.rootElement, self.rootElement.body);
-      s += serializer.writeToString(self.rootElement.automaticStyles, nsmap);
+      var nsmap = style2CSS.namespaces, serializer = new xmldom.LSSerializer, automaticStyles = cloneStylesByOrigin(self.rootElement.automaticStyles, "content.xml"), s = documentElement("document-content", nsmap);
+      serializer.filter = new OdfNodeFilter(self.rootElement);
+      s += serializer.writeToString(automaticStyles, nsmap);
       s += serializer.writeToString(self.rootElement.body, nsmap);
       s += "</office:document-content>";
       return s
@@ -5967,36 +6482,66 @@ odf.OdfContainer = function() {
     this.getPart = function(partname) {
       return new OdfPart(partname, self, zip)
     };
-    this.save = function(callback) {
-      var data;
+    function createEmptyTextDocument() {
+      var zip = new core.Zip("", null), data = runtime.byteArrayFromString("application/vnd.oasis.opendocument.text", "utf8"), root = self.rootElement, text = document.createElementNS(officens, "text");
+      zip.save("mimetype", data, false, new Date);
+      root.body = document.createElementNS(officens, "body");
+      root.body.appendChild(text);
+      root.appendChild(root.body);
+      setState(OdfContainer.DONE);
+      return zip
+    }
+    function fillZip() {
+      var data, date = new Date;
       data = runtime.byteArrayFromString(serializeSettingsXml(), "utf8");
-      zip.save("settings.xml", data, true, new Date);
+      zip.save("settings.xml", data, true, date);
       data = runtime.byteArrayFromString(serializeMetaXml(), "utf8");
-      zip.save("meta.xml", data, true, new Date);
+      zip.save("meta.xml", data, true, date);
       data = runtime.byteArrayFromString(serializeStylesXml(), "utf8");
-      zip.save("styles.xml", data, true, new Date);
+      zip.save("styles.xml", data, true, date);
       data = runtime.byteArrayFromString(serializeContentXml(), "utf8");
-      zip.save("content.xml", data, true, new Date);
-      zip.write(function(err) {
+      zip.save("content.xml", data, true, date);
+      data = runtime.byteArrayFromString(serializeManifestXml(), "utf8");
+      zip.save("META-INF/manifest.xml", data, true, date)
+    }
+    function createByteArray(successCallback, errorCallback) {
+      fillZip();
+      zip.createByteArray(successCallback, errorCallback)
+    }
+    this.createByteArray = createByteArray;
+    function saveAs(newurl, callback) {
+      fillZip();
+      zip.writeAs(newurl, function(err) {
         callback(err)
       })
+    }
+    this.saveAs = saveAs;
+    this.save = function(callback) {
+      saveAs(url, callback)
+    };
+    this.getUrl = function() {
+      return url
     };
     this.state = OdfContainer.LOADING;
     this.rootElement = createElement(ODFDocumentElement);
     this.parts = new OdfPartList(this);
-    zip = new core.Zip(url, function(err, zipobject) {
-      zip = zipobject;
-      if(err) {
-        loadFromXML(url, function(xmlerr) {
-          if(err) {
-            zip.error = err + "\n" + xmlerr;
-            setState(OdfContainer.INVALID)
-          }
-        })
-      }else {
-        loadComponents()
-      }
-    })
+    if(url) {
+      zip = new core.Zip(url, function(err, zipobject) {
+        zip = zipobject;
+        if(err) {
+          loadFromXML(url, function(xmlerr) {
+            if(err) {
+              zip.error = err + "\n" + xmlerr;
+              setState(OdfContainer.INVALID)
+            }
+          })
+        }else {
+          loadComponents()
+        }
+      })
+    }else {
+      zip = createEmptyTextDocument()
+    }
   };
   odf.OdfContainer.EMPTY = 0;
   odf.OdfContainer.LOADING = 1;
@@ -6010,7 +6555,7 @@ odf.OdfContainer = function() {
   return odf.OdfContainer
 }();
 odf.Formatting = function Formatting() {
-  var odfContainer, styleInfo = new odf.StyleInfo;
+  var odfContainer, styleInfo = new odf.StyleInfo, style2CSS = new odf.Style2CSS, namespaces = style2CSS.namespaces;
   function RangeElementIterator(range) {
     function getNthChild(parent, n) {
       var c = parent && parent.firstChild;
@@ -6028,6 +6573,23 @@ odf.Formatting = function Formatting() {
       }
       return null
     }
+  }
+  function mergeRecursive(obj1, obj2) {
+    var p;
+    for(p in obj2) {
+      if(obj2.hasOwnProperty(p)) {
+        try {
+          if(obj2[p].constructor === Object) {
+            obj1[p] = mergeRecursive(obj1[p], obj2[p])
+          }else {
+            obj1[p] = obj2[p]
+          }
+        }catch(e) {
+          obj1[p] = obj2[p]
+        }
+      }
+    }
+    return obj1
   }
   function getParentStyle(element) {
     var n = element.firstChild, e;
@@ -6050,6 +6612,10 @@ odf.Formatting = function Formatting() {
   this.setOdfContainer = function(odfcontainer) {
     odfContainer = odfcontainer
   };
+  this.getFontMap = function() {
+    var doc = odfContainer.rootElement.ownerDocument, fontFaceDecls = odfContainer.rootElement.fontFaceDecls;
+    return style2CSS.makeFontFaceDeclsMap(doc, fontFaceDecls)
+  };
   this.isCompletelyBold = function(selection) {
     return false
   };
@@ -6059,7 +6625,7 @@ odf.Formatting = function Formatting() {
   };
   this.getParagraphStyles = function(selection) {
     var i, j, s, styles = [];
-    for(i = 0;i < selection.length;i += 0) {
+    for(i = 0;i < selection.length;i += 1) {
       s = getParagraphStyles(selection[i]);
       for(j = 0;j < s.length;j += 1) {
         if(styles.indexOf(s[j]) === -1) {
@@ -6068,6 +6634,114 @@ odf.Formatting = function Formatting() {
       }
     }
     return styles
+  };
+  this.getAvailableParagraphStyles = function() {
+    var node = odfContainer.rootElement.styles && odfContainer.rootElement.styles.firstChild, p_family, p_name, p_displayName, paragraphStyles = [], style;
+    while(node) {
+      if(node.nodeType === 1 && node.localName === "style" && node.namespaceURI === namespaces.style) {
+        style = node;
+        p_family = style.getAttributeNS(namespaces.style, "family");
+        if(p_family === "paragraph") {
+          p_name = style.getAttributeNS(namespaces.style, "name");
+          p_displayName = style.getAttributeNS(namespaces.style, "display-name") || p_name;
+          if(p_name && p_displayName) {
+            paragraphStyles.push({name:p_name, displayName:p_displayName})
+          }
+        }
+      }
+      node = node.nextSibling
+    }
+    return paragraphStyles
+  };
+  this.isStyleUsed = function(styleElement) {
+    var hasDerivedStyles, isUsed;
+    hasDerivedStyles = styleInfo.hasDerivedStyles(odfContainer.rootElement, style2CSS.namespaceResolver, styleElement);
+    isUsed = (new styleInfo.UsedStyleList(odfContainer.rootElement.styles)).uses(styleElement) || (new styleInfo.UsedStyleList(odfContainer.rootElement.automaticStyles)).uses(styleElement) || (new styleInfo.UsedStyleList(odfContainer.rootElement.body)).uses(styleElement);
+    return hasDerivedStyles || isUsed
+  };
+  function getDefaultStyleElement(styleListElement, family) {
+    var node = styleListElement.firstChild;
+    while(node) {
+      if(node.nodeType === 1 && node.namespaceURI === namespaces.style && node.localName === "default-style" && node.getAttributeNS(namespaces.style, "family") === family) {
+        return node
+      }
+      node = node.nextSibling
+    }
+    return null
+  }
+  function getStyleElement(styleListElement, styleName, family) {
+    var node = styleListElement.firstChild;
+    while(node) {
+      if(node.nodeType === 1 && node.namespaceURI === namespaces.style && node.localName === "style" && node.getAttributeNS(namespaces.style, "family") === family && node.getAttributeNS(namespaces.style, "name") === styleName) {
+        return node
+      }
+      node = node.nextSibling
+    }
+    return null
+  }
+  this.getStyleElement = getStyleElement;
+  function getStyleAttributes(styleNode) {
+    var i, propertiesMap = {}, propertiesNode = styleNode.firstChild;
+    while(propertiesNode) {
+      if(propertiesNode.nodeType === 1 && propertiesNode.namespaceURI === namespaces.style) {
+        propertiesMap[propertiesNode.nodeName] = {};
+        for(i = 0;i < propertiesNode.attributes.length;i += 1) {
+          propertiesMap[propertiesNode.nodeName][propertiesNode.attributes[i].name] = propertiesNode.attributes[i].value
+        }
+      }
+      propertiesNode = propertiesNode.nextSibling
+    }
+    return propertiesMap
+  }
+  this.getStyleAttributes = getStyleAttributes;
+  function getInheritedStyleAttributes(styleListElement, styleNode) {
+    var i, parentStyleName, propertiesMap = {}, inheritedPropertiesMap = {}, node = styleNode;
+    while(node) {
+      propertiesMap = getStyleAttributes(node);
+      inheritedPropertiesMap = mergeRecursive(propertiesMap, inheritedPropertiesMap);
+      parentStyleName = node.getAttributeNS(namespaces.style, "parent-style-name");
+      if(parentStyleName) {
+        node = getStyleElement(styleListElement, parentStyleName, styleNode.getAttributeNS(namespaces.style, "family"))
+      }else {
+        node = null
+      }
+    }
+    propertiesMap = getStyleAttributes(getDefaultStyleElement(styleListElement, styleNode.getAttributeNS(namespaces.style, "family")));
+    inheritedPropertiesMap = mergeRecursive(propertiesMap, inheritedPropertiesMap);
+    return inheritedPropertiesMap
+  }
+  this.getInheritedStyleAttributes = getInheritedStyleAttributes;
+  this.getFirstNamedParentStyleNameOrSelf = function(styleName) {
+    var automaticStyleElementList = odfContainer.rootElement.automaticStyles, styleElementList = odfContainer.rootElement.styles, styleElement;
+    while((styleElement = getStyleElement(automaticStyleElementList, styleName, "paragraph")) !== null) {
+      styleName = styleElement.getAttributeNS(namespaces.style, "parent-style-name")
+    }
+    styleElement = getStyleElement(styleElementList, styleName, "paragraph");
+    if(!styleElement) {
+      return null
+    }
+    return styleName
+  };
+  this.hasParagraphStyle = function(styleName) {
+    return getStyleElement(odfContainer.rootElement.automaticStyles, styleName, "paragraph") || getStyleElement(odfContainer.rootElement.styles, styleName, "paragraph")
+  };
+  this.getParagraphStyleAttribute = function(styleName, attributeNameNS, attributeName) {
+    var automaticStyleElementList = odfContainer.rootElement.automaticStyles, styleElementList = odfContainer.rootElement.styles, styleElement, attributeValue;
+    while((styleElement = getStyleElement(automaticStyleElementList, styleName, "paragraph")) !== null) {
+      attributeValue = styleElement.getAttributeNS(attributeNameNS, attributeName);
+      if(attributeValue) {
+        return attributeValue
+      }
+      styleName = styleElement.getAttributeNS(namespaces.style, "parent-style-name")
+    }
+    while((styleElement = getStyleElement(styleElementList, styleName, "paragraph")) !== null) {
+      attributeValue = styleElement.getAttributeNS(attributeNameNS, attributeName);
+      if(attributeValue) {
+        return attributeValue
+      }
+      styleName = styleElement.getAttributeNS(namespaces.style, "parent-style-name")
+    }
+    return null
   };
   this.getTextStyles = function(selection) {
     return[]
@@ -6112,6 +6786,10 @@ odf.OdfCanvas = function() {
       sheet.insertRule("office|presentation draw|page {display:none;}", 0);
       sheet.insertRule("office|presentation draw|page:nth-child(" + position + ") {display:block;}", 1)
     }
+    this.showFirstPage = function() {
+      position = 1;
+      updateCSS()
+    };
     this.showNextPage = function() {
       position += 1;
       updateCSS()
@@ -6119,6 +6797,12 @@ odf.OdfCanvas = function() {
     this.showPreviousPage = function() {
       if(position > 1) {
         position -= 1;
+        updateCSS()
+      }
+    };
+    this.showPage = function(n) {
+      if(n > 0) {
+        position = n;
         updateCSS()
       }
     };
@@ -6215,25 +6899,7 @@ odf.OdfCanvas = function() {
     listenEvent(element, "keyup", checkSelection);
     listenEvent(element, "keydown", checkSelection)
   }
-  var style2CSS = new odf.Style2CSS, namespaces = style2CSS.namespaces, drawns = namespaces.draw, fons = namespaces.fo, officens = namespaces.office, svgns = namespaces.svg, textns = namespaces.text, xlinkns = namespaces.xlink, window = runtime.getWindow(), xpath = new xmldom.XPath, eventHandlers = {}, editparagraph, loadingQueue = new LoadingQueue;
-  function addEventListener(eventType, eventHandler) {
-    var handlers = eventHandlers[eventType];
-    if(handlers === undefined) {
-      handlers = eventHandlers[eventType] = []
-    }
-    if(eventHandler && handlers.indexOf(eventHandler) === -1) {
-      handlers.push(eventHandler)
-    }
-  }
-  function fireEvent(eventType, args) {
-    if(!eventHandlers.hasOwnProperty(eventType)) {
-      return
-    }
-    var handlers = eventHandlers[eventType], i;
-    for(i = 0;i < handlers.length;i += 1) {
-      handlers[i](args)
-    }
-  }
+  var style2CSS = new odf.Style2CSS, namespaces = style2CSS.namespaces, drawns = namespaces.draw, fons = namespaces.fo, officens = namespaces.office, stylens = namespaces.style, svgns = namespaces.svg, tablens = namespaces.table, textns = namespaces.text, xlinkns = namespaces.xlink, xmlns = namespaces.xml, window = runtime.getWindow(), xpath = new xmldom.XPath;
   function clear(element) {
     while(element.firstChild) {
       element.removeChild(element.firstChild)
@@ -6241,7 +6907,7 @@ odf.OdfCanvas = function() {
   }
   function handleStyles(odfelement, stylesxmlcss) {
     var style2css = new odf.Style2CSS;
-    style2css.style2css(stylesxmlcss.sheet, odfelement.styles, odfelement.automaticStyles)
+    style2css.style2css(stylesxmlcss.sheet, odfelement.fontFaceDecls, odfelement.styles, odfelement.automaticStyles)
   }
   function setFramePosition(id, frame, stylesheet) {
     frame.setAttribute("styleid", id);
@@ -6327,6 +6993,37 @@ odf.OdfCanvas = function() {
       }
     }
   }
+  function modifyTables(container, odffragment, stylesheet) {
+    var i, tableCells, node;
+    function modifyTableCell(container, node, stylesheet) {
+      if(node.hasAttributeNS(tablens, "number-columns-spanned")) {
+        node.setAttribute("colspan", node.getAttributeNS(tablens, "number-columns-spanned"))
+      }
+      if(node.hasAttributeNS(tablens, "number-rows-spanned")) {
+        node.setAttribute("rowspan", node.getAttributeNS(tablens, "number-rows-spanned"))
+      }
+    }
+    tableCells = odffragment.getElementsByTagNameNS(tablens, "table-cell");
+    for(i = 0;i < tableCells.length;i += 1) {
+      node = tableCells.item(i);
+      modifyTableCell(container, node, stylesheet)
+    }
+  }
+  function modifyLinks(container, odffragment, stylesheet) {
+    var i, links, node;
+    function modifyLink(container, node, stylesheet) {
+      if(node.hasAttributeNS(xlinkns, "href")) {
+        node.onclick = function() {
+          window.open(node.getAttributeNS(xlinkns, "href"))
+        }
+      }
+    }
+    links = odffragment.getElementsByTagNameNS(textns, "a");
+    for(i = 0;i < links.length;i += 1) {
+      node = links.item(i);
+      modifyLink(container, node, stylesheet)
+    }
+  }
   function modifyImages(container, odfbody, stylesheet) {
     var node, frames, i, images;
     function namespaceResolver(prefix) {
@@ -6355,27 +7052,15 @@ odf.OdfCanvas = function() {
     }
     formatParagraphAnchors(odfbody)
   }
-  function loadImages(container, odffragment, stylesheet) {
-    var i, images, node;
-    function loadImage(name, container, node, stylesheet) {
-      loadingQueue.addToQueue(function() {
-        setImage(name, container, node, stylesheet)
-      })
-    }
-    images = odffragment.getElementsByTagNameNS(drawns, "image");
-    for(i = 0;i < images.length;i += 1) {
-      node = images.item(i);
-      loadImage("image" + String(i), container, node, stylesheet)
-    }
-  }
   function setVideo(id, container, plugin, stylesheet) {
     var video, source, url, videoType, doc = plugin.ownerDocument, part, node;
     url = plugin.getAttributeNS(xlinkns, "href");
     function callback(url, mimetype) {
+      var ns = doc.documentElement.namespaceURI;
       if(mimetype.substr(0, 6) === "video/") {
-        video = doc.createElementNS(doc.documentElement.namespaceURI, "video");
+        video = doc.createElementNS(ns, "video");
         video.setAttribute("controls", "controls");
-        source = doc.createElement("source");
+        source = doc.createElementNS(ns, "source");
         source.setAttribute("src", url);
         source.setAttribute("type", mimetype);
         video.appendChild(source);
@@ -6405,97 +7090,270 @@ odf.OdfCanvas = function() {
       callback(url, "video/mp4")
     }
   }
-  function loadVideos(container, odffragment, stylesheet) {
-    var i, plugins, node;
-    function loadVideo(name, container, node, stylesheet) {
-      loadingQueue.addToQueue(function() {
-        setVideo(name, container, node, stylesheet)
-      })
+  function getNumberRule(node) {
+    var style = node.getAttributeNS(stylens, "num-format"), suffix = node.getAttributeNS(stylens, "num-suffix"), prefix = node.getAttributeNS(stylens, "num-prefix"), rule = "", stylemap = {1:"decimal", "a":"lower-latin", "A":"upper-latin", "i":"lower-roman", "I":"upper-roman"}, content;
+    content = prefix || "";
+    if(stylemap.hasOwnProperty(style)) {
+      content += " counter(list, " + stylemap[style] + ")"
+    }else {
+      if(style) {
+        content += "'" + style + "';"
+      }else {
+        content += " ''"
+      }
     }
-    plugins = odffragment.getElementsByTagNameNS(drawns, "plugin");
-    runtime.log("Loading Videos:");
-    for(i = 0;i < plugins.length;i += 1) {
-      runtime.log("...Found a video.");
-      node = plugins.item(i);
-      loadVideo("video" + String(i), container, node, stylesheet)
+    if(suffix) {
+      content += " '" + suffix + "'"
+    }
+    rule = "content: " + content + ";";
+    return rule
+  }
+  function getImageRule(node) {
+    var rule = "content: none;";
+    return rule
+  }
+  function getBulletRule(node) {
+    var rule = "", bulletChar = node.getAttributeNS(textns, "bullet-char");
+    return"content: '" + bulletChar + "';"
+  }
+  function getBulletsRule(node) {
+    var itemrule;
+    if(node.localName === "list-level-style-number") {
+      itemrule = getNumberRule(node)
+    }else {
+      if(node.localName === "list-level-style-image") {
+        itemrule = getImageRule(node)
+      }else {
+        if(node.localName === "list-level-style-bullet") {
+          itemrule = getBulletRule(node)
+        }
+      }
+    }
+    return itemrule
+  }
+  function loadLists(container, odffragment, stylesheet) {
+    var i, lists, svgns = namespaces.svg, node, id, continueList, styleName, rule, listMap = {}, parentList, listStyles, listStyle, listStyleMap = {}, bulletRule;
+    listStyles = window.document.getElementsByTagNameNS(textns, "list-style");
+    for(i = 0;i < listStyles.length;i += 1) {
+      node = listStyles.item(i);
+      styleName = node.getAttributeNS(stylens, "name");
+      if(styleName) {
+        listStyleMap[styleName] = node
+      }
+    }
+    lists = odffragment.getElementsByTagNameNS(textns, "list");
+    for(i = 0;i < lists.length;i += 1) {
+      node = lists.item(i);
+      id = node.getAttributeNS(xmlns, "id");
+      if(id) {
+        continueList = node.getAttributeNS(textns, "continue-list");
+        node.setAttribute("id", id);
+        rule = "text|list#" + id + " > text|list-item > *:first-child:before {";
+        styleName = node.getAttributeNS(textns, "style-name");
+        if(styleName) {
+          node = listStyleMap[styleName];
+          bulletRule = getBulletsRule(node.firstChild)
+        }
+        if(continueList) {
+          parentList = listMap[continueList];
+          while(parentList) {
+            continueList = parentList;
+            parentList = listMap[continueList]
+          }
+          rule += "counter-increment:" + continueList + ";";
+          if(bulletRule) {
+            bulletRule = bulletRule.replace("list", continueList);
+            rule += bulletRule
+          }else {
+            rule += "content:counter(" + continueList + ");"
+          }
+        }else {
+          continueList = "";
+          if(bulletRule) {
+            bulletRule = bulletRule.replace("list", id);
+            rule += bulletRule
+          }else {
+            rule += "content: counter(" + id + ");"
+          }
+          rule += "counter-increment:" + id + ";";
+          stylesheet.insertRule("text|list#" + id + " {counter-reset:" + id + "}", stylesheet.cssRules.length)
+        }
+        rule += "}";
+        listMap[id] = continueList;
+        if(rule) {
+          stylesheet.insertRule(rule, stylesheet.cssRules.length)
+        }
+      }
     }
   }
-  function addStyleSheet(document) {
-    var styles = document.getElementsByTagName("style"), head = document.getElementsByTagName("head")[0], text = "", prefix, a = "", b;
-    if(styles && styles.length > 0) {
-      styles = styles[0].cloneNode(false)
+  function addWebODFStyleSheet(document) {
+    var head = document.getElementsByTagName("head")[0], style, href;
+    if(String(typeof webodf_css) !== "undefined") {
+      style = document.createElementNS(head.namespaceURI, "style");
+      style.setAttribute("media", "screen, print, handheld, projection");
+      style.appendChild(document.createTextNode(webodf_css))
     }else {
-      styles = document.createElement("style")
+      style = document.createElementNS(head.namespaceURI, "link");
+      href = "webodf.css";
+      if(runtime.currentDirectory) {
+        href = runtime.currentDirectory() + "/../" + href
+      }
+      style.setAttribute("href", href);
+      style.setAttribute("rel", "stylesheet")
     }
+    style.setAttribute("type", "text/css");
+    head.appendChild(style);
+    return style
+  }
+  function addStyleSheet(document) {
+    var head = document.getElementsByTagName("head")[0], style = document.createElementNS(head.namespaceURI, "style"), text = "", prefix;
+    style.setAttribute("type", "text/css");
+    style.setAttribute("media", "screen, print, handheld, projection");
     for(prefix in namespaces) {
       if(namespaces.hasOwnProperty(prefix) && prefix) {
         text += "@namespace " + prefix + " url(" + namespaces[prefix] + ");\n"
       }
     }
-    styles.appendChild(document.createTextNode(text));
-    head.appendChild(styles);
-    return styles
+    style.appendChild(document.createTextNode(text));
+    head.appendChild(style);
+    return style
   }
   odf.OdfCanvas = function OdfCanvas(element) {
-    var self = this, document = element.ownerDocument, odfcontainer, formatting = new odf.Formatting, selectionWatcher = new SelectionWatcher(element), slidecssindex = 0, pageSwitcher = new PageSwitcher(addStyleSheet(document)), stylesxmlcss = addStyleSheet(document), positioncss = addStyleSheet(document), editable = false, zoomLevel = 1;
+    var self = this, doc = element.ownerDocument, odfcontainer, formatting = new odf.Formatting, selectionWatcher = new SelectionWatcher(element), slidecssindex = 0, pageSwitcher, stylesxmlcss, positioncss, editable = false, zoomLevel = 1, eventHandlers = {}, editparagraph, loadingQueue = new LoadingQueue;
+    addWebODFStyleSheet(doc);
+    pageSwitcher = new PageSwitcher(addStyleSheet(doc));
+    stylesxmlcss = addStyleSheet(doc);
+    positioncss = addStyleSheet(doc);
+    function loadImages(container, odffragment, stylesheet) {
+      var i, images, node;
+      function loadImage(name, container, node, stylesheet) {
+        loadingQueue.addToQueue(function() {
+          setImage(name, container, node, stylesheet)
+        })
+      }
+      images = odffragment.getElementsByTagNameNS(drawns, "image");
+      for(i = 0;i < images.length;i += 1) {
+        node = images.item(i);
+        loadImage("image" + String(i), container, node, stylesheet)
+      }
+    }
+    function loadVideos(container, odffragment, stylesheet) {
+      var i, plugins, node;
+      function loadVideo(name, container, node, stylesheet) {
+        loadingQueue.addToQueue(function() {
+          setVideo(name, container, node, stylesheet)
+        })
+      }
+      plugins = odffragment.getElementsByTagNameNS(drawns, "plugin");
+      for(i = 0;i < plugins.length;i += 1) {
+        node = plugins.item(i);
+        loadVideo("video" + String(i), container, node, stylesheet)
+      }
+    }
+    function addEventListener(eventType, eventHandler) {
+      var handlers = eventHandlers[eventType];
+      if(handlers === undefined) {
+        handlers = eventHandlers[eventType] = []
+      }
+      if(eventHandler && handlers.indexOf(eventHandler) === -1) {
+        handlers.push(eventHandler)
+      }
+    }
+    function fireEvent(eventType, args) {
+      if(!eventHandlers.hasOwnProperty(eventType)) {
+        return
+      }
+      var handlers = eventHandlers[eventType], i;
+      for(i = 0;i < handlers.length;i += 1) {
+        handlers[i].apply(null, args)
+      }
+    }
     function fixContainerSize() {
       var sizer = element.firstChild, odfdoc = sizer.firstChild;
       if(!odfdoc) {
         return
       }
-      element.style.WebkitTransform = "scale(" + zoomLevel + ")";
-      element.style.WebkitTransformOrigin = "left top";
-      element.style.width = Math.round(zoomLevel * odfdoc.offsetWidth) + "px";
-      element.style.height = Math.round(zoomLevel * odfdoc.offsetHeight) + "px"
+      if(zoomLevel > 1) {
+        sizer.style.MozTransformOrigin = "center top";
+        sizer.style.WebkitTransformOrigin = "center top";
+        sizer.style.OTransformOrigin = "center top";
+        sizer.style.msTransformOrigin = "center top"
+      }else {
+        sizer.style.MozTransformOrigin = "left top";
+        sizer.style.WebkitTransformOrigin = "left top";
+        sizer.style.OTransformOrigin = "left top";
+        sizer.style.msTransformOrigin = "left top"
+      }
+      sizer.style.WebkitTransform = "scale(" + zoomLevel + ")";
+      sizer.style.MozTransform = "scale(" + zoomLevel + ")";
+      sizer.style.OTransform = "scale(" + zoomLevel + ")";
+      sizer.style.msTransform = "scale(" + zoomLevel + ")";
+      element.style.width = Math.round(zoomLevel * sizer.offsetWidth) + "px";
+      element.style.height = Math.round(zoomLevel * sizer.offsetHeight) + "px"
     }
     function handleContent(container, odfnode) {
       var css = positioncss.sheet, sizer;
       modifyImages(container, odfnode.body, css);
       css.insertRule("draw|page { background-color:#fff; }", css.cssRules.length);
       clear(element);
-      sizer = document.createElement("div");
+      sizer = doc.createElementNS(element.namespaceURI, "div");
       sizer.style.display = "inline-block";
       sizer.style.background = "white";
       sizer.appendChild(odfnode);
       element.appendChild(sizer);
+      modifyTables(container, odfnode.body, css);
+      modifyLinks(container, odfnode.body, css);
       loadImages(container, odfnode.body, css);
       loadVideos(container, odfnode.body, css);
+      loadLists(container, odfnode.body, css);
       fixContainerSize()
     }
-    function refreshOdf(container) {
-      if(odfcontainer !== container) {
-        return
-      }
+    function refreshOdf() {
       function callback() {
         clear(element);
         element.style.display = "inline-block";
-        var odfnode = container.rootElement;
+        var odfnode = odfcontainer.rootElement;
         element.ownerDocument.importNode(odfnode, true);
-        formatting.setOdfContainer(container);
+        formatting.setOdfContainer(odfcontainer);
         handleStyles(odfnode, stylesxmlcss);
-        handleContent(container, odfnode);
-        fireEvent("statereadychange")
+        handleContent(odfcontainer, odfnode);
+        fireEvent("statereadychange", [odfcontainer])
       }
       if(odfcontainer.state === odf.OdfContainer.DONE) {
         callback()
       }else {
-        odfcontainer.onchange = callback
+        runtime.log("WARNING: refreshOdf called but ODF was not DONE.");
+        runtime.setTimeout(function later_cb() {
+          if(odfcontainer.state === odf.OdfContainer.DONE) {
+            callback()
+          }else {
+            runtime.log("will be back later...");
+            runtime.setTimeout(later_cb, 500)
+          }
+        }, 100)
       }
     }
+    this.refreshCSS = function() {
+      handleStyles(odfcontainer.rootElement, stylesxmlcss)
+    };
     this.odfContainer = function() {
       return odfcontainer
     };
     this.slidevisibilitycss = function() {
       return pageSwitcher.css
     };
+    this.setOdfContainer = function(container) {
+      odfcontainer = container;
+      refreshOdf()
+    };
     this["load"] = this.load = function(url) {
       loadingQueue.clearQueue();
       element.innerHTML = "loading " + url;
+      element.removeAttribute("style");
       odfcontainer = new odf.OdfContainer(url, function(container) {
         odfcontainer = container;
-        refreshOdf(container)
-      });
-      odfcontainer.onstatereadychange = refreshOdf
+        refreshOdf()
+      })
     };
     function stopEditing() {
       if(!editparagraph) {
@@ -6535,7 +7393,7 @@ odf.OdfCanvas = function() {
     };
     function processClick(evt) {
       evt = evt || window.event;
-      var e = evt.target, selection = window.getSelection(), range = selection.rangeCount > 0 ? selection.getRangeAt(0) : null, startContainer = range && range.startContainer, startOffset = range && range.startOffset, endContainer = range && range.endContainer, endOffset = range && range.endOffset;
+      var e = evt.target, selection = window.getSelection(), range = selection.rangeCount > 0 ? selection.getRangeAt(0) : null, startContainer = range && range.startContainer, startOffset = range && range.startOffset, endContainer = range && range.endContainer, endOffset = range && range.endOffset, doc, ns;
       while(e && !((e.localName === "p" || e.localName === "h") && e.namespaceURI === textns)) {
         e = e.parentNode
       }
@@ -6545,11 +7403,10 @@ odf.OdfCanvas = function() {
       if(!e || e.parentNode === editparagraph) {
         return
       }
+      doc = e.ownerDocument;
+      ns = doc.documentElement.namespaceURI;
       if(!editparagraph) {
-        editparagraph = e.ownerDocument.createElement("p");
-        if(!editparagraph.style) {
-          editparagraph = e.ownerDocument.createElementNS("http://www.w3.org/1999/xhtml", "p")
-        }
+        editparagraph = doc.createElementNS(ns, "p");
         editparagraph.style.margin = "0px";
         editparagraph.style.padding = "0px";
         editparagraph.style.border = "0px";
@@ -6572,10 +7429,16 @@ odf.OdfCanvas = function() {
       cancelEvent(evt)
     }
     this.addListener = function(eventName, handler) {
-      if(eventName === "selectionchange") {
-        selectionWatcher.addListener(eventName, handler)
-      }else {
-        addEventListener(eventName, handler)
+      switch(eventName) {
+        case "selectionchange":
+          selectionWatcher.addListener(eventName, handler);
+          break;
+        case "click":
+          listenEvent(element, eventName, handler);
+          break;
+        default:
+          addEventListener(eventName, handler);
+          break
       }
     };
     this.getFormatting = function() {
@@ -6601,10 +7464,26 @@ odf.OdfCanvas = function() {
       zoomLevel = width / realWidth;
       fixContainerSize()
     };
+    this.fitSmart = function(width, height) {
+      var realWidth, realHeight, newScale;
+      realWidth = element.offsetWidth / zoomLevel;
+      realHeight = element.offsetHeight / zoomLevel;
+      newScale = width / realWidth;
+      if(height !== undefined) {
+        if(height / realHeight < newScale) {
+          newScale = height / realHeight
+        }
+      }
+      zoomLevel = Math.min(1, newScale);
+      fixContainerSize()
+    };
     this.fitToHeight = function(height) {
       var realHeight = element.offsetHeight / zoomLevel;
       zoomLevel = height / realHeight;
       fixContainerSize()
+    };
+    this.showFirstPage = function() {
+      pageSwitcher.showFirstPage()
     };
     this.showNextPage = function() {
       pageSwitcher.showNextPage()
@@ -6612,12 +7491,1738 @@ odf.OdfCanvas = function() {
     this.showPreviousPage = function() {
       pageSwitcher.showPreviousPage()
     };
+    this.showPage = function(n) {
+      pageSwitcher.showPage(n)
+    };
     this.showAllPages = function() {
     };
-    listenEvent(element, "click", processClick)
+    this.getElement = function() {
+      return element
+    }
   };
   return odf.OdfCanvas
 }();
+runtime.loadClass("odf.OdfCanvas");
+odf.CommandLineTools = function CommandLineTools() {
+  this.roundTrip = function(inputfilepath, outputfilepath, callback) {
+    function onready(odfcontainer) {
+      if(odfcontainer.state === odf.OdfContainer.INVALID) {
+        return callback("Document " + inputfilepath + " is invalid.")
+      }
+      if(odfcontainer.state === odf.OdfContainer.DONE) {
+        odfcontainer.saveAs(outputfilepath, function(err) {
+          callback(err)
+        })
+      }else {
+        callback("Document was not completely loaded.")
+      }
+    }
+    var odfcontainer = new odf.OdfContainer(inputfilepath, onready)
+  };
+  this.render = function(inputfilepath, document, callback) {
+    var body = document.getElementsByTagName("body")[0], odfcanvas;
+    while(body.firstChild) {
+      body.removeChild(body.firstChild)
+    }
+    odfcanvas = new odf.OdfCanvas(body);
+    odfcanvas.addListener("statereadychange", function(err) {
+      callback(err)
+    });
+    odfcanvas.load(inputfilepath)
+  }
+};
+ops.Operation = function Operation(session) {
+};
+/*
+
+ Copyright (C) 2012 KO GmbH <copyright@kogmbh.com>
+
+ @licstart
+ The JavaScript code in this page is free software: you can redistribute it
+ and/or modify it under the terms of the GNU Affero General Public License
+ (GNU AGPL) as published by the Free Software Foundation, either version 3 of
+ the License, or (at your option) any later version.  The code is distributed
+ WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU AGPL for more details.
+
+ As additional permission under GNU AGPL version 3 section 7, you
+ may distribute non-source (e.g., minimized or compacted) forms of
+ that code without the copy of the GNU GPL normally required by
+ section 4, provided you include this license notice and a URL
+ through which recipients can access the Corresponding Source.
+
+ As a special exception to the AGPL, any HTML file which merely makes function
+ calls to this code, and for that purpose includes it by reference shall be
+ deemed a separate work for copyright law purposes. In addition, the copyright
+ holders of this code give you permission to combine this code with free
+ software libraries that are released under the GNU LGPL. You may copy and
+ distribute such a system following the terms of the GNU AGPL for this code
+ and the LGPL for the libraries. If you modify this code, you may extend this
+ exception to your version of the code, but you are not obligated to do so.
+ If you do not wish to do so, delete this exception statement from your
+ version.
+
+ This license applies to this entire compilation.
+ @licend
+ @source: http://www.webodf.org/
+ @source: http://gitorious.org/webodf/webodf/
+*/
+ops.OpAddCursor = function OpAddCursor(session) {
+  var memberid, timestamp;
+  this.init = function(data) {
+    memberid = data.memberid;
+    timestamp = data.timestamp
+  };
+  this.execute = function(rootNode) {
+    var odtDocument = session.getOdtDocument(), cursor = new ops.OdtCursor(memberid, odtDocument);
+    odtDocument.addCursor(cursor);
+    session.emit(ops.Session.signalCursorAdded, cursor)
+  };
+  this.spec = function() {
+    return{optype:"AddCursor", memberid:memberid, timestamp:timestamp}
+  }
+};
+/*
+
+ Copyright (C) 2012 KO GmbH <copyright@kogmbh.com>
+
+ @licstart
+ The JavaScript code in this page is free software: you can redistribute it
+ and/or modify it under the terms of the GNU Affero General Public License
+ (GNU AGPL) as published by the Free Software Foundation, either version 3 of
+ the License, or (at your option) any later version.  The code is distributed
+ WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU AGPL for more details.
+
+ As additional permission under GNU AGPL version 3 section 7, you
+ may distribute non-source (e.g., minimized or compacted) forms of
+ that code without the copy of the GNU GPL normally required by
+ section 4, provided you include this license notice and a URL
+ through which recipients can access the Corresponding Source.
+
+ As a special exception to the AGPL, any HTML file which merely makes function
+ calls to this code, and for that purpose includes it by reference shall be
+ deemed a separate work for copyright law purposes. In addition, the copyright
+ holders of this code give you permission to combine this code with free
+ software libraries that are released under the GNU LGPL. You may copy and
+ distribute such a system following the terms of the GNU AGPL for this code
+ and the LGPL for the libraries. If you modify this code, you may extend this
+ exception to your version of the code, but you are not obligated to do so.
+ If you do not wish to do so, delete this exception statement from your
+ version.
+
+ This license applies to this entire compilation.
+ @licend
+ @source: http://www.webodf.org/
+ @source: http://gitorious.org/webodf/webodf/
+*/
+ops.OpRemoveCursor = function OpRemoveCursor(session) {
+  var memberid, timestamp, cursorns = "urn:webodf:names:cursor";
+  this.init = function(data) {
+    memberid = data.memberid;
+    timestamp = data.timestamp
+  };
+  this.execute = function(domroot) {
+    session.getOdtDocument().removeCursor(memberid);
+    session.emit(ops.Session.signalCursorRemoved, memberid)
+  };
+  this.spec = function() {
+    return{optype:"RemoveCursor", memberid:memberid, timestamp:timestamp}
+  }
+};
+/*
+
+ Copyright (C) 2012 KO GmbH <copyright@kogmbh.com>
+
+ @licstart
+ The JavaScript code in this page is free software: you can redistribute it
+ and/or modify it under the terms of the GNU Affero General Public License
+ (GNU AGPL) as published by the Free Software Foundation, either version 3 of
+ the License, or (at your option) any later version.  The code is distributed
+ WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU AGPL for more details.
+
+ As additional permission under GNU AGPL version 3 section 7, you
+ may distribute non-source (e.g., minimized or compacted) forms of
+ that code without the copy of the GNU GPL normally required by
+ section 4, provided you include this license notice and a URL
+ through which recipients can access the Corresponding Source.
+
+ As a special exception to the AGPL, any HTML file which merely makes function
+ calls to this code, and for that purpose includes it by reference shall be
+ deemed a separate work for copyright law purposes. In addition, the copyright
+ holders of this code give you permission to combine this code with free
+ software libraries that are released under the GNU LGPL. You may copy and
+ distribute such a system following the terms of the GNU AGPL for this code
+ and the LGPL for the libraries. If you modify this code, you may extend this
+ exception to your version of the code, but you are not obligated to do so.
+ If you do not wish to do so, delete this exception statement from your
+ version.
+
+ This license applies to this entire compilation.
+ @licend
+ @source: http://www.webodf.org/
+ @source: http://gitorious.org/webodf/webodf/
+*/
+ops.OpMoveCursor = function OpMoveCursor(session) {
+  var memberid, timestamp, number;
+  this.init = function(data) {
+    memberid = data.memberid;
+    timestamp = data.timestamp;
+    number = data.number
+  };
+  this.execute = function(domroot) {
+    var odtDocument = session.getOdtDocument(), cursor = odtDocument.getCursor(memberid), positionFilter = odtDocument.getPositionFilter(), stepCounter, steps;
+    runtime.assert(cursor !== undefined, "cursor for [" + memberid + "] not found (MoveCursor).");
+    stepCounter = cursor.getStepCounter();
+    if(number > 0) {
+      steps = stepCounter.countForwardSteps(number, positionFilter)
+    }else {
+      if(number < 0) {
+        steps = -stepCounter.countBackwardSteps(-number, positionFilter)
+      }else {
+        return
+      }
+    }
+    cursor.move(steps);
+    session.emit(ops.Session.signalCursorMoved, cursor)
+  };
+  this.spec = function() {
+    return{optype:"MoveCursor", memberid:memberid, timestamp:timestamp, number:number}
+  }
+};
+/*
+
+ Copyright (C) 2012 KO GmbH <copyright@kogmbh.com>
+
+ @licstart
+ The JavaScript code in this page is free software: you can redistribute it
+ and/or modify it under the terms of the GNU Affero General Public License
+ (GNU AGPL) as published by the Free Software Foundation, either version 3 of
+ the License, or (at your option) any later version.  The code is distributed
+ WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU AGPL for more details.
+
+ As additional permission under GNU AGPL version 3 section 7, you
+ may distribute non-source (e.g., minimized or compacted) forms of
+ that code without the copy of the GNU GPL normally required by
+ section 4, provided you include this license notice and a URL
+ through which recipients can access the Corresponding Source.
+
+ As a special exception to the AGPL, any HTML file which merely makes function
+ calls to this code, and for that purpose includes it by reference shall be
+ deemed a separate work for copyright law purposes. In addition, the copyright
+ holders of this code give you permission to combine this code with free
+ software libraries that are released under the GNU LGPL. You may copy and
+ distribute such a system following the terms of the GNU AGPL for this code
+ and the LGPL for the libraries. If you modify this code, you may extend this
+ exception to your version of the code, but you are not obligated to do so.
+ If you do not wish to do so, delete this exception statement from your
+ version.
+
+ This license applies to this entire compilation.
+ @licend
+ @source: http://www.webodf.org/
+ @source: http://gitorious.org/webodf/webodf/
+*/
+ops.OpInsertText = function OpInsertText(session) {
+  var memberid, timestamp, position, text;
+  this.init = function(data) {
+    memberid = data.memberid;
+    timestamp = data.timestamp;
+    position = data.position;
+    text = data.text
+  };
+  this.execute = function(domroot) {
+    session.getOdtDocument().insertText(memberid, timestamp, position, text)
+  };
+  this.spec = function() {
+    return{optype:"InsertText", memberid:memberid, timestamp:timestamp, position:position, text:text}
+  }
+};
+ops.OpRemoveText = function OpRemoveText(session) {
+  var memberid, timestamp, position, length, text;
+  this.init = function(data) {
+    memberid = data.memberid;
+    timestamp = data.timestamp;
+    position = data.position;
+    length = data.length;
+    text = data.text
+  };
+  this.execute = function(domroot) {
+    session.getOdtDocument().removeText(memberid, timestamp, position, length)
+  };
+  this.spec = function() {
+    return{optype:"RemoveText", memberid:memberid, timestamp:timestamp, position:position, length:length, text:text}
+  }
+};
+ops.OpSplitParagraph = function OpSplitParagraph(session) {
+  var memberid, timestamp, position;
+  this.init = function(data) {
+    memberid = data.memberid;
+    timestamp = data.timestamp;
+    position = data.position
+  };
+  this.execute = function(rootNode) {
+    var odtDocument = session.getOdtDocument(), domPosition, paragraphNode, textNodeCopy, node, splitNode, splitChildNode, keptChildNode;
+    domPosition = odtDocument.getPositionInTextNode(position);
+    if(domPosition) {
+      paragraphNode = odtDocument.getParagraphElement(domPosition.textNode);
+      if(paragraphNode) {
+        if(domPosition.offset === 0) {
+          keptChildNode = domPosition.textNode.previousSibling;
+          splitChildNode = null
+        }else {
+          if(domPosition.textNode.nextSibling && domPosition.textNode.nextSibling.namespaceURI === "urn:webodf:names:cursor" && domPosition.textNode.nextSibling.localName === "cursor") {
+            textNodeCopy = domPosition.textNode.cloneNode(false);
+            domPosition.textNode.parentNode.insertBefore(textNodeCopy, domPosition.textNode);
+            domPosition.textNode.parentNode.removeChild(domPosition.textNode);
+            domPosition.textNode = "";
+            domPosition.textNode = textNodeCopy
+          }
+          keptChildNode = domPosition.textNode;
+          if(domPosition.offset >= domPosition.textNode.length) {
+            splitChildNode = null
+          }else {
+            splitChildNode = domPosition.textNode.splitText(domPosition.offset)
+          }
+        }
+        node = domPosition.textNode;
+        while(node !== paragraphNode) {
+          node = node.parentNode;
+          splitNode = node.cloneNode(false);
+          if(!keptChildNode) {
+            node.parentNode.insertBefore(splitNode, node);
+            keptChildNode = splitNode;
+            splitChildNode = node
+          }else {
+            if(splitChildNode) {
+              splitNode.appendChild(splitChildNode)
+            }
+            while(keptChildNode.nextSibling) {
+              splitNode.appendChild(keptChildNode.nextSibling)
+            }
+            node.parentNode.insertBefore(splitNode, node.nextSibling);
+            keptChildNode = node;
+            splitChildNode = splitNode
+          }
+        }
+        odtDocument.emit("paragraphEdited", {element:paragraphNode, memberId:memberid, timeStamp:timestamp});
+        odtDocument.emit("paragraphEdited", {element:splitChildNode, memberId:memberid, timeStamp:timestamp})
+      }
+    }
+  };
+  this.spec = function() {
+    return{optype:"SplitParagraph", memberid:memberid, timestamp:timestamp, position:position}
+  }
+};
+ops.OpSetParagraphStyle = function OpSetParagraphStyle(session) {
+  var memberid, timestamp, position, styleNameBefore, styleNameAfter;
+  this.init = function(data) {
+    memberid = data.memberid;
+    timestamp = data.timestamp;
+    position = data.position;
+    styleNameBefore = data.styleNameBefore;
+    styleNameAfter = data.styleNameAfter
+  };
+  this.execute = function(domroot) {
+    var domPosition, paragraphNode, odtDocument = session.getOdtDocument();
+    odtDocument.setParagraphStyle(memberid, timestamp, position, styleNameBefore, styleNameAfter);
+    domPosition = odtDocument.getPositionInTextNode(position);
+    if(domPosition) {
+      paragraphNode = odtDocument.getParagraphElement(domPosition.textNode);
+      session.emit(ops.Session.signalParagraphChanged, paragraphNode)
+    }
+  };
+  this.spec = function() {
+    return{optype:"SetParagraphStyle", memberid:memberid, timestamp:timestamp, position:position, styleNameBefore:styleNameBefore, styleNameAfter:styleNameAfter}
+  }
+};
+ops.OpUpdateParagraphStyle = function OpUpdateParagraphStyle(session) {
+  var memberid, timestamp, position, styleName, info;
+  this.init = function(data) {
+    memberid = data.memberid;
+    timestamp = data.timestamp;
+    position = data.position;
+    styleName = data.styleName;
+    info = data.info
+  };
+  this.execute = function(domroot) {
+    var odtDocument = session.getOdtDocument();
+    odtDocument.updateParagraphStyle(styleName, info);
+    session.emit(ops.Session.signalParagraphStyleModified, styleName)
+  };
+  this.spec = function() {
+    return{optype:"UpdateParagraphStyle", memberid:memberid, timestamp:timestamp, position:position, styleName:styleName, info:info}
+  }
+};
+ops.OpCloneStyle = function OpCloneStyle(session) {
+  var memberid, timestamp, styleName, newStyleName, newStyleDisplayName, stylens = "urn:oasis:names:tc:opendocument:xmlns:style:1.0";
+  this.init = function(data) {
+    memberid = data.memberid;
+    timestamp = data.timestamp;
+    styleName = data.styleName;
+    newStyleName = data.newStyleName;
+    newStyleDisplayName = data.newStyleDisplayName
+  };
+  this.execute = function(domroot) {
+    var odtDocument = session.getOdtDocument(), styleNode = odtDocument.getParagraphStyleElement(styleName), newStyleNode = styleNode.cloneNode(true);
+    newStyleNode.setAttributeNS(stylens, "style:name", newStyleName);
+    newStyleNode.setAttributeNS(stylens, "style:display-name", newStyleDisplayName);
+    styleNode.parentNode.appendChild(newStyleNode);
+    odtDocument.getOdfCanvas().refreshCSS();
+    session.emit(ops.Session.signalStyleCreated, newStyleName)
+  };
+  this.spec = function() {
+    return{optype:"CloneStyle", memberid:memberid, timestamp:timestamp, styleName:styleName, newStyleName:newStyleName, newStyleDisplayName:newStyleDisplayName}
+  }
+};
+ops.OpDeleteStyle = function OpDeleteStyle(session) {
+  var memberid, timestamp, styleName;
+  this.init = function(data) {
+    memberid = data.memberid;
+    timestamp = data.timestamp;
+    styleName = data.styleName
+  };
+  this.execute = function(domroot) {
+    var odtDocument = session.getOdtDocument();
+    odtDocument.deleteStyle(styleName);
+    session.emit(ops.Session.signalStyleDeleted, styleName)
+  };
+  this.spec = function() {
+    return{optype:"DeleteStyle", memberid:memberid, timestamp:timestamp, styleName:styleName}
+  }
+};
+runtime.loadClass("ops.OpAddCursor");
+runtime.loadClass("ops.OpRemoveCursor");
+runtime.loadClass("ops.OpMoveCursor");
+runtime.loadClass("ops.OpInsertText");
+runtime.loadClass("ops.OpRemoveText");
+runtime.loadClass("ops.OpSplitParagraph");
+runtime.loadClass("ops.OpSetParagraphStyle");
+runtime.loadClass("ops.OpUpdateParagraphStyle");
+runtime.loadClass("ops.OpCloneStyle");
+runtime.loadClass("ops.OpDeleteStyle");
+ops.OperationFactory = function OperationFactory(session) {
+  var self = this;
+  this.create = function(spec) {
+    var op = null;
+    if(spec.optype === "AddCursor") {
+      op = new ops.OpAddCursor(session)
+    }else {
+      if(spec.optype === "InsertText") {
+        op = new ops.OpInsertText(session)
+      }else {
+        if(spec.optype === "RemoveText") {
+          op = new ops.OpRemoveText(session)
+        }else {
+          if(spec.optype === "SplitParagraph") {
+            op = new ops.OpSplitParagraph(session)
+          }else {
+            if(spec.optype === "SetParagraphStyle") {
+              op = new ops.OpSetParagraphStyle(session)
+            }else {
+              if(spec.optype === "UpdateParagraphStyle") {
+                op = new ops.OpUpdateParagraphStyle(session)
+              }else {
+                if(spec.optype === "CloneStyle") {
+                  op = new ops.OpCloneStyle(session)
+                }else {
+                  if(spec.optype === "DeleteStyle") {
+                    op = new ops.OpDeleteStyle(session)
+                  }else {
+                    if(spec.optype === "MoveCursor") {
+                      op = new ops.OpMoveCursor(session)
+                    }else {
+                      if(spec.optype === "RemoveCursor") {
+                        op = new ops.OpRemoveCursor(session)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    if(op) {
+      op.init(spec)
+    }
+    return op
+  }
+};
+runtime.loadClass("core.Cursor");
+ops.OdtCursor = function OdtCursor(memberId, odtDocument) {
+  var self = this, selectionMover, cursor;
+  this.removeFromOdtDocument = function() {
+    cursor.remove(function(nodeAfterCursor, textNodeIncrease) {
+    })
+  };
+  this.move = function(number) {
+    var moved = 0;
+    if(number > 0) {
+      moved = selectionMover.movePointForward(number)
+    }else {
+      if(number <= 0) {
+        moved = -selectionMover.movePointBackward(-number)
+      }
+    }
+    self.handleUpdate();
+    return moved
+  };
+  this.handleUpdate = function() {
+  };
+  this.getStepCounter = function() {
+    return selectionMover.getStepCounter()
+  };
+  this.getMemberId = function() {
+    return memberId
+  };
+  this.getNode = function() {
+    return cursor.getNode()
+  };
+  this.getSelection = function() {
+    return cursor.getSelection()
+  };
+  this.getOdtDocument = function() {
+    return odtDocument
+  };
+  function init() {
+    var distanceToFirstTextNode, selection;
+    selection = new core.Selection(odtDocument.getDOM());
+    cursor = new core.Cursor(selection, odtDocument.getDOM());
+    cursor.getNode().setAttributeNS("urn:webodf:names:cursor", "memberId", memberId);
+    selectionMover = odtDocument.getSelectionManager().createSelectionMover(cursor)
+  }
+  init()
+};
+runtime.loadClass("core.Cursor");
+runtime.loadClass("core.PositionIterator");
+runtime.loadClass("core.PositionFilter");
+runtime.loadClass("core.LoopWatchDog");
+gui.SelectionMover = function SelectionMover(cursor, rootNode, onCursorAdd, onCursorRemove) {
+  var self = this, selection = cursor.getSelection(), positionIterator;
+  function doMove(steps, extend, move) {
+    var left = steps;
+    onCursorRemove = onCursorRemove || self.adaptToCursorRemoval;
+    onCursorAdd = onCursorAdd || self.adaptToInsertedCursor;
+    cursor.remove(onCursorRemove);
+    while(left > 0 && move()) {
+      left -= 1
+    }
+    if(steps - left > 0) {
+      selection.collapse(positionIterator.container(), positionIterator.unfilteredDomOffset())
+    }
+    cursor.updateToSelection(onCursorRemove, onCursorAdd);
+    return steps - left
+  }
+  this.movePointForward = function(steps, extend) {
+    return doMove(steps, extend, positionIterator.nextPosition)
+  };
+  this.movePointBackward = function(steps, extend) {
+    return doMove(steps, extend, positionIterator.previousPosition)
+  };
+  function countForwardSteps(steps, filter) {
+    var c = positionIterator.container(), o = positionIterator.offset(), watch = new core.LoopWatchDog(1E3), stepCount = 0, count = 0;
+    while(steps > 0 && positionIterator.nextPosition()) {
+      stepCount += 1;
+      watch.check();
+      if(filter.acceptPosition(positionIterator) === 1) {
+        count += stepCount;
+        stepCount = 0;
+        steps -= 1
+      }
+    }
+    positionIterator.setPosition(c, o);
+    return count
+  }
+  function countBackwardSteps(steps, filter) {
+    var c = positionIterator.container(), o = positionIterator.offset(), watch = new core.LoopWatchDog(1E3), stepCount = 0, count = 0;
+    while(steps > 0 && positionIterator.previousPosition()) {
+      stepCount += 1;
+      watch.check();
+      if(filter.acceptPosition(positionIterator) === 1) {
+        count += stepCount;
+        stepCount = 0;
+        steps -= 1
+      }
+    }
+    positionIterator.setPosition(c, o);
+    return count
+  }
+  function getOffset(el) {
+    var x = 0, y = 0;
+    while(el && el.nodeType === 1) {
+      x += el.offsetLeft - el.scrollLeft;
+      y += el.offsetTop - el.scrollTop;
+      el = el.parentNode
+    }
+    return{top:y, left:x}
+  }
+  function countLineUpSteps(range, filter) {
+    var c = positionIterator.container(), o = positionIterator.offset(), stepCount = 0, count = 0, bestc = null, besto, bestXDiff, bestCount = 0, rect, top, left, newTop, xDiff;
+    range.setStart(c, o);
+    rect = range.getClientRects()[0];
+    newTop = top = rect.top;
+    left = rect.left;
+    while(positionIterator.previousPosition()) {
+      stepCount += 1;
+      if(filter.acceptPosition(positionIterator) === 1) {
+        count += stepCount;
+        stepCount = 0;
+        c = positionIterator.container();
+        o = positionIterator.offset();
+        range.setStart(c, o);
+        rect = range.getClientRects()[0];
+        if(rect.top !== top) {
+          if(rect.top !== newTop) {
+            break
+          }
+          newTop = top;
+          xDiff = Math.abs(left - rect.left);
+          if(bestc === null || xDiff < bestXDiff) {
+            bestc = c;
+            besto = o;
+            bestXDiff = xDiff;
+            bestCount = count
+          }
+        }
+      }
+    }
+    if(bestc !== null) {
+      positionIterator.setPosition(bestc, besto);
+      count = bestCount
+    }else {
+      count = 0
+    }
+    return count
+  }
+  function countLinesUpSteps(lines, filter) {
+    var c = positionIterator.container(), o = positionIterator.offset(), stepCount, count = 0, range = c.ownerDocument.createRange();
+    while(lines > 0) {
+      stepCount += countLineUpSteps(range, filter);
+      if(stepCount === 0) {
+        break
+      }
+      count += stepCount;
+      lines -= 1
+    }
+    range.detach();
+    positionIterator.setPosition(c, o);
+    return count
+  }
+  function countLineDownSteps(lines, filter) {
+    var c = positionIterator.container(), o = positionIterator.offset(), span = cursor.getNode().firstChild, watch = new core.LoopWatchDog(1E3), stepCount = 0, count = 0, offset = span.offsetTop, i;
+    onCursorRemove = onCursorRemove || self.adaptToCursorRemoval;
+    onCursorAdd = onCursorAdd || self.adaptToInsertedCursor;
+    while(lines > 0 && positionIterator.nextPosition()) {
+      watch.check();
+      stepCount += 1;
+      if(filter.acceptPosition(positionIterator) === 1) {
+        offset = span.offsetTop;
+        selection.collapse(positionIterator.container(), positionIterator.offset());
+        cursor.updateToSelection(onCursorRemove, onCursorAdd);
+        offset = span.offsetTop;
+        if(offset !== span.offsetTop) {
+          count += stepCount;
+          stepCount = 0;
+          lines -= 1
+        }
+      }
+    }
+    positionIterator.setPosition(c, o);
+    selection.collapse(positionIterator.container(), positionIterator.offset());
+    cursor.updateToSelection(onCursorRemove, onCursorAdd);
+    return count
+  }
+  function getPositionInContainingNode(node, container) {
+    var offset = 0, n;
+    while(node.parentNode !== container) {
+      runtime.assert(node.parentNode !== null, "parent is null");
+      node = node.parentNode
+    }
+    n = container.firstChild;
+    while(n !== node) {
+      offset += 1;
+      n = n.nextSibling
+    }
+    return offset
+  }
+  function comparePoints(c1, o1, c2, o2) {
+    if(c1 === c2) {
+      return o2 - o1
+    }
+    var comparison = c1.compareDocumentPosition(c2);
+    if(comparison === 2) {
+      comparison = -1
+    }else {
+      if(comparison === 4) {
+        comparison = 1
+      }else {
+        if(comparison === 10) {
+          o1 = getPositionInContainingNode(c1, c2);
+          comparison = o1 < o2 ? 1 : -1
+        }else {
+          o2 = getPositionInContainingNode(c2, c1);
+          comparison = o2 < o1 ? -1 : 1
+        }
+      }
+    }
+    return comparison
+  }
+  function countStepsToPosition(element, offset, filter) {
+    runtime.assert(element !== null, "SelectionMover.countStepsToPosition called with element===null");
+    var c = positionIterator.container(), o = positionIterator.offset(), steps = 0, watch = new core.LoopWatchDog(1E3), comparison;
+    positionIterator.setPosition(element, offset);
+    element = positionIterator.container();
+    runtime.assert(element !== null, "SelectionMover.countStepsToPosition: positionIterator.container() returned null");
+    offset = positionIterator.offset();
+    positionIterator.setPosition(c, o);
+    comparison = comparePoints(element, offset, c, o);
+    if(comparison < 0) {
+      while(positionIterator.nextPosition()) {
+        watch.check();
+        if(filter.acceptPosition(positionIterator) === 1) {
+          steps += 1
+        }
+        if(positionIterator.container() === element) {
+          if(positionIterator.offset() === offset) {
+            positionIterator.setPosition(c, o);
+            return steps
+          }
+        }
+      }
+      positionIterator.setPosition(c, o)
+    }else {
+      if(comparison > 0) {
+        while(positionIterator.previousPosition()) {
+          watch.check();
+          if(filter.acceptPosition(positionIterator) === 1) {
+            steps -= 1
+          }
+          if(positionIterator.container() === element) {
+            if(positionIterator.offset() === offset) {
+              positionIterator.setPosition(c, o);
+              return steps
+            }
+          }
+        }
+        positionIterator.setPosition(c, o)
+      }
+    }
+    return steps
+  }
+  this.getStepCounter = function() {
+    return{countForwardSteps:countForwardSteps, countBackwardSteps:countBackwardSteps, countLineDownSteps:countLineDownSteps, countLinesUpSteps:countLinesUpSteps, countStepsToPosition:countStepsToPosition}
+  };
+  this.adaptToCursorRemoval = function(nodeAfterCursor, textNodeIncrease) {
+    if(textNodeIncrease === 0 || nodeAfterCursor === null || nodeAfterCursor.nodeType !== 3) {
+      return
+    }
+    var c = positionIterator.container();
+    if(c === nodeAfterCursor) {
+      positionIterator.setPosition(c, positionIterator.offset() + textNodeIncrease)
+    }
+  };
+  this.adaptToInsertedCursor = function(nodeAfterCursor, textNodeDecrease) {
+    if(textNodeDecrease === 0 || nodeAfterCursor === null || nodeAfterCursor.nodeType !== 3) {
+      return
+    }
+    var c = positionIterator.container(), oldOffset = positionIterator.offset();
+    if(c === nodeAfterCursor) {
+      if(oldOffset < textNodeDecrease) {
+        do {
+          c = c.previousSibling
+        }while(c && c.nodeType !== 3);
+        if(c) {
+          positionIterator.setPosition(c, oldOffset)
+        }
+      }else {
+        positionIterator.setPosition(c, positionIterator.offset() - textNodeDecrease)
+      }
+    }
+  };
+  function init() {
+    positionIterator = gui.SelectionMover.createPositionIterator(rootNode);
+    selection.collapse(positionIterator.container(), positionIterator.offset());
+    onCursorRemove = onCursorRemove || self.adaptToCursorRemoval;
+    onCursorAdd = onCursorAdd || self.adaptToInsertedCursor;
+    cursor.updateToSelection(onCursorRemove, onCursorAdd)
+  }
+  init()
+};
+gui.SelectionMover.createPositionIterator = function(rootNode) {
+  function CursorFilter() {
+    this.acceptNode = function(node) {
+      if(node.namespaceURI === "urn:webodf:names:cursor" || node.namespaceURI === "urn:webodf:names:editinfo") {
+        return 2
+      }
+      return 1
+    }
+  }
+  var filter = new CursorFilter;
+  return new core.PositionIterator(rootNode, 5, filter, false)
+};
+(function() {
+  return gui.SelectionMover
+})();
+gui.Avatar = function Avatar(parentElement) {
+  var handle, image, displayShown = "block", displayHidden = "none";
+  this.setColor = function(color) {
+    image.style.borderColor = color
+  };
+  this.setImageUrl = function(url) {
+    image.src = url
+  };
+  this.isVisible = function() {
+    return handle.style.display === displayShown
+  };
+  this.show = function() {
+    handle.style.display = displayShown
+  };
+  this.hide = function() {
+    handle.style.display = displayHidden
+  };
+  this.markAsFocussed = function(isFocussed) {
+    handle.className = isFocussed ? "active" : ""
+  };
+  function init() {
+    var document = parentElement.ownerDocument, htmlns = document.documentElement.namespaceURI;
+    handle = document.createElementNS(htmlns, "div");
+    image = document.createElementNS(htmlns, "img");
+    image.width = 64;
+    image.height = 64;
+    handle.appendChild(image);
+    handle.style.width = "64px";
+    handle.style.height = "70px";
+    handle.style.position = "absolute";
+    handle.style.top = "-80px";
+    handle.style.left = "-34px";
+    handle.style.display = displayShown;
+    parentElement.appendChild(handle)
+  }
+  init()
+};
+runtime.loadClass("gui.Avatar");
+runtime.loadClass("ops.OdtCursor");
+gui.Caret = function Caret(cursor) {
+  function clearNode(node) {
+    while(node.firstChild !== null) {
+      node.removeNode(node.firstChild)
+    }
+  }
+  var self = this, span, avatar, cursorNode, focussed = false, blinking = false, color = "";
+  function blink() {
+    if(!focussed || !cursorNode.parentNode) {
+      return
+    }
+    if(!blinking) {
+      blinking = true;
+      span.style.borderColor = span.style.borderColor === "transparent" ? color : "transparent";
+      runtime.setTimeout(function() {
+        blinking = false;
+        blink()
+      }, 500)
+    }
+  }
+  function pixelCount(size) {
+    var match;
+    if(typeof size === "string") {
+      if(size === "") {
+        return 0
+      }
+      match = /^(\d+)(\.\d+)?px$/.exec(size);
+      runtime.assert(match !== null, "size [" + size + "] does not have unit px.");
+      return parseFloat(match[1])
+    }
+    return size
+  }
+  function getOffsetBaseElement(element) {
+    var anchorElement = element, nodeStyle, window = runtime.getWindow();
+    runtime.assert(window !== null, "Expected to be run in an environment which has a global window, like a browser.");
+    do {
+      anchorElement = anchorElement.parentElement;
+      if(!anchorElement) {
+        break
+      }
+      nodeStyle = window.getComputedStyle(anchorElement, null)
+    }while(nodeStyle.display !== "block");
+    return anchorElement
+  }
+  function getRelativeOffsetTopLeftBySpacing(element, containerElement) {
+    var x = 0, y = 0, elementStyle, window = runtime.getWindow();
+    runtime.assert(window !== null, "Expected to be run in an environment which has a global window, like a browser.");
+    while(element && element !== containerElement) {
+      elementStyle = window.getComputedStyle(element, null);
+      x += pixelCount(elementStyle.marginLeft) + pixelCount(elementStyle.borderLeftWidth) + pixelCount(elementStyle.paddingLeft);
+      y += pixelCount(elementStyle.marginTop) + pixelCount(elementStyle.borderTopWidth) + pixelCount(elementStyle.paddingTop);
+      element = element.parentElement
+    }
+    return{x:x, y:y}
+  }
+  function getRelativeOffsetTopLeft(element, containerElement) {
+    var reachedContainerElement, offsetParent, e, x = 0, y = 0, resultBySpacing;
+    if(!element || !containerElement) {
+      return{x:0, y:0}
+    }
+    reachedContainerElement = false;
+    do {
+      offsetParent = element.offsetParent;
+      e = element.parentNode;
+      while(e !== offsetParent) {
+        if(e === containerElement) {
+          resultBySpacing = getRelativeOffsetTopLeftBySpacing(element, containerElement);
+          x += resultBySpacing.x;
+          y += resultBySpacing.y;
+          reachedContainerElement = true;
+          break
+        }
+        e = e.parentNode
+      }
+      if(reachedContainerElement) {
+        break
+      }
+      x += pixelCount(element.offsetLeft);
+      y += pixelCount(element.offsetTop);
+      element = offsetParent
+    }while(element && element !== containerElement);
+    return{x:x, y:y}
+  }
+  function getRelativeCaretOffsetRect(caretElement, containerElement, margin) {
+    var caretOffsetTopLeft, offsetBaseNode;
+    offsetBaseNode = getOffsetBaseElement(caretElement);
+    caretOffsetTopLeft = getRelativeOffsetTopLeft(offsetBaseNode, containerElement);
+    caretOffsetTopLeft.x += caretElement.offsetLeft;
+    caretOffsetTopLeft.y += caretElement.offsetTop;
+    return{left:caretOffsetTopLeft.x - margin, top:caretOffsetTopLeft.y - margin, right:caretOffsetTopLeft.x + caretElement.scrollWidth - 1 + margin, bottom:caretOffsetTopLeft.y + caretElement.scrollHeight - 1 + margin}
+  }
+  this.setFocus = function() {
+    focussed = true;
+    avatar.markAsFocussed(true);
+    blink()
+  };
+  this.removeFocus = function() {
+    focussed = false;
+    avatar.markAsFocussed(false);
+    span.style.borderColor = color
+  };
+  this.setAvatarImageUrl = function(url) {
+    avatar.setImageUrl(url)
+  };
+  this.setColor = function(newColor) {
+    if(color === newColor) {
+      return
+    }
+    color = newColor;
+    if(span.style.borderColor !== "transparent") {
+      span.style.borderColor = color
+    }
+    avatar.setColor(color)
+  };
+  this.getCursor = function() {
+    return cursor
+  };
+  this.getFocusElement = function() {
+    return span
+  };
+  this.toggleHandleVisibility = function() {
+    if(avatar.isVisible()) {
+      avatar.hide()
+    }else {
+      avatar.show()
+    }
+  };
+  this.showHandle = function() {
+    avatar.show()
+  };
+  this.hideHandle = function() {
+    avatar.hide()
+  };
+  this.ensureVisible = function() {
+    var canvasElement = cursor.getOdtDocument().getOdfCanvas().getElement(), canvasContainerElement = canvasElement.parentNode, caretOffsetRect, caretMargin = 5;
+    caretOffsetRect = getRelativeCaretOffsetRect(span, canvasContainerElement, caretMargin);
+    if(caretOffsetRect.top < canvasContainerElement.scrollTop) {
+      canvasContainerElement.scrollTop = caretOffsetRect.top
+    }else {
+      if(caretOffsetRect.bottom > canvasContainerElement.scrollTop + canvasContainerElement.clientHeight - 1) {
+        canvasContainerElement.scrollTop = caretOffsetRect.bottom - canvasContainerElement.clientHeight + 1
+      }
+    }
+    if(caretOffsetRect.left < canvasContainerElement.scrollLeft) {
+      canvasContainerElement.scrollLeft = caretOffsetRect.left
+    }else {
+      if(caretOffsetRect.right > canvasContainerElement.scrollLeft + canvasContainerElement.clientWidth - 1) {
+        canvasContainerElement.scrollLeft = caretOffsetRect.right - canvasContainerElement.clientWidth + 1
+      }
+    }
+  };
+  function init() {
+    var dom = cursor.getOdtDocument().getDOM(), htmlns = dom.documentElement.namespaceURI;
+    span = dom.createElementNS(htmlns, "span");
+    cursorNode = cursor.getNode();
+    cursorNode.appendChild(span);
+    avatar = new gui.Avatar(cursorNode)
+  }
+  init()
+};
+runtime.loadClass("ops.OpAddCursor");
+runtime.loadClass("ops.OpRemoveCursor");
+runtime.loadClass("ops.OpMoveCursor");
+runtime.loadClass("ops.OpInsertText");
+runtime.loadClass("ops.OpRemoveText");
+runtime.loadClass("ops.OpSplitParagraph");
+runtime.loadClass("ops.OpSetParagraphStyle");
+gui.SessionController = function() {
+  gui.SessionController = function SessionController(session, inputMemberId) {
+    var self = this, namespaces = (new odf.Style2CSS).namespaces;
+    function listenEvent(eventTarget, eventType, eventHandler) {
+      if(eventTarget.addEventListener) {
+        eventTarget.addEventListener(eventType, eventHandler, false)
+      }else {
+        if(eventTarget.attachEvent) {
+          eventType = "on" + eventType;
+          eventTarget.attachEvent(eventType, eventHandler)
+        }else {
+          eventTarget["on" + eventType] = eventHandler
+        }
+      }
+    }
+    function cancelEvent(event) {
+      if(event.preventDefault) {
+        event.preventDefault()
+      }else {
+        event.returnValue = false
+      }
+    }
+    function dummyHandler(e) {
+      cancelEvent(e)
+    }
+    function handleMouseClick(e) {
+      var selection = runtime.getWindow().getSelection(), steps, op, node, odtDocument = session.getOdtDocument(), canvasElement = odtDocument.getOdfCanvas().getElement();
+      node = selection.focusNode;
+      while(node !== canvasElement) {
+        if(node.namespaceURI === "urn:webodf:names:cursor" && node.localName === "cursor") {
+          return
+        }
+        node = node.parentNode
+      }
+      steps = odtDocument.getDistanceFromCursor(inputMemberId, selection.focusNode, selection.focusOffset);
+      if(steps !== 0) {
+        op = new ops.OpMoveCursor(session);
+        op.init({memberid:inputMemberId, number:steps});
+        session.enqueue(op)
+      }
+    }
+    function createOpMoveCursor(number) {
+      var op = new ops.OpMoveCursor(session);
+      op.init({memberid:inputMemberId, number:number});
+      return op
+    }
+    function createOpMoveCursorByHomeKey() {
+      var odtDocument = session.getOdtDocument(), steps, paragraphNode, op = null;
+      paragraphNode = odtDocument.getParagraphElement(odtDocument.getCursor(inputMemberId).getNode());
+      steps = odtDocument.getDistanceFromCursor(inputMemberId, paragraphNode, 0);
+      if(steps !== 0) {
+        op = new ops.OpMoveCursor(session);
+        op.init({memberid:inputMemberId, number:steps})
+      }
+      return op
+    }
+    function createOpRemoveTextByBackspaceKey() {
+      var odtDocument = session.getOdtDocument(), position = odtDocument.getCursorPosition(inputMemberId), domPosition = odtDocument.getPositionInTextNode(position - 1), op = null;
+      if(domPosition) {
+        op = new ops.OpRemoveText(session);
+        op.init({memberid:inputMemberId, position:position, length:-1})
+      }
+      return op
+    }
+    function createOpRemoveTextByDeleteKey() {
+      var odtDocument = session.getOdtDocument(), position = odtDocument.getCursorPosition(inputMemberId), domPosition = odtDocument.getPositionInTextNode(position + 1), op = null;
+      if(domPosition) {
+        op = new ops.OpRemoveText(session);
+        op.init({memberid:inputMemberId, position:position, length:1})
+      }
+      return op
+    }
+    function enqueueParagraphSplittingOps() {
+      var odtDocument = session.getOdtDocument(), position = odtDocument.getCursorPosition(inputMemberId), isAtEndOfParagraph = false, paragraphNode, styleName, nextStyleName, op;
+      op = new ops.OpSplitParagraph(session);
+      op.init({memberid:inputMemberId, position:position});
+      session.enqueue(op)
+    }
+    function handleKeyDown(e) {
+      var keyCode = e.keyCode, op = null, handled = false;
+      if(keyCode === 37) {
+        op = createOpMoveCursor(-1);
+        handled = true
+      }else {
+        if(keyCode === 39) {
+          op = createOpMoveCursor(1);
+          handled = true
+        }else {
+          if(keyCode === 38) {
+            op = createOpMoveCursor(-10);
+            handled = true
+          }else {
+            if(keyCode === 40) {
+              op = createOpMoveCursor(10);
+              handled = true
+            }else {
+              if(keyCode === 36) {
+                op = createOpMoveCursorByHomeKey();
+                handled = true
+              }else {
+                if(keyCode === 35) {
+                  handled = true
+                }else {
+                  if(keyCode === 8) {
+                    op = createOpRemoveTextByBackspaceKey();
+                    handled = op !== null
+                  }else {
+                    if(keyCode === 46) {
+                      op = createOpRemoveTextByDeleteKey();
+                      handled = op !== null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      if(op) {
+        session.enqueue(op)
+      }
+      if(handled) {
+        cancelEvent(e)
+      }
+    }
+    function stringFromKeyPress(event) {
+      if(event.which === null) {
+        return String.fromCharCode(event.keyCode)
+      }
+      if(event.which !== 0 && event.charCode !== 0) {
+        return String.fromCharCode(event.which)
+      }
+      return null
+    }
+    function handleKeyPress(e) {
+      var op, text = stringFromKeyPress(e);
+      if(e.keyCode === 13) {
+        enqueueParagraphSplittingOps();
+        cancelEvent(e)
+      }else {
+        if(text && !(e.altKey || e.ctrlKey || e.metaKey)) {
+          op = new ops.OpInsertText(session);
+          op.init({memberid:inputMemberId, position:session.getOdtDocument().getCursorPosition(inputMemberId), text:text});
+          session.enqueue(op);
+          cancelEvent(e)
+        }
+      }
+    }
+    this.startListening = function() {
+      var canvasElement = session.getOdtDocument().getOdfCanvas().getElement();
+      listenEvent(canvasElement, "keydown", handleKeyDown);
+      listenEvent(canvasElement, "keypress", handleKeyPress);
+      listenEvent(canvasElement, "keyup", dummyHandler);
+      listenEvent(canvasElement, "copy", dummyHandler);
+      listenEvent(canvasElement, "cut", dummyHandler);
+      listenEvent(canvasElement, "paste", dummyHandler);
+      listenEvent(canvasElement, "click", handleMouseClick)
+    };
+    this.startEditing = function() {
+      var op = new ops.OpAddCursor(session);
+      op.init({memberid:inputMemberId});
+      session.enqueue(op)
+    };
+    this.endEditing = function() {
+      var op = new ops.OpRemoveCursor(session);
+      op.init({memberid:inputMemberId});
+      session.enqueue(op)
+    };
+    this.getInputMemberId = function() {
+      return inputMemberId
+    };
+    this.getSession = function() {
+      return session
+    }
+  };
+  return gui.SessionController
+}();
+runtime.loadClass("gui.SelectionMover");
+gui.SelectionManager = function SelectionManager(rootNode) {
+  var movers = [];
+  function onCursorRemove(nodeAfterCursor, textNodeIncrease) {
+    var i;
+    for(i = 0;i < movers.length;i += 1) {
+      movers[i].adaptToCursorRemoval(nodeAfterCursor, textNodeIncrease)
+    }
+  }
+  function onCursorAdd(nodeAfterCursor, textNodeIncrease) {
+    var i;
+    for(i = 0;i < movers.length;i += 1) {
+      movers[i].adaptToInsertedCursor(nodeAfterCursor, textNodeIncrease)
+    }
+  }
+  this.createSelectionMover = function(cursor) {
+    var selectionMover = new gui.SelectionMover(cursor, rootNode, onCursorAdd, onCursorRemove);
+    movers.push(selectionMover);
+    return selectionMover
+  }
+};
+ops.UserModel = function UserModel() {
+};
+ops.UserModel.prototype.getUserDetailsAndUpdates = function(memberId, subscriber) {
+};
+ops.UserModel.prototype.unsubscribeUserDetailsUpdates = function(memberId, subscriber) {
+};
+/*
+
+ Copyright (C) 2012 KO GmbH <copyright@kogmbh.com>
+
+ @licstart
+ The JavaScript code in this page is free software: you can redistribute it
+ and/or modify it under the terms of the GNU Affero General Public License
+ (GNU AGPL) as published by the Free Software Foundation, either version 3 of
+ the License, or (at your option) any later version.  The code is distributed
+ WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU AGPL for more details.
+
+ As additional permission under GNU AGPL version 3 section 7, you
+ may distribute non-source (e.g., minimized or compacted) forms of
+ that code without the copy of the GNU GPL normally required by
+ section 4, provided you include this license notice and a URL
+ through which recipients can access the Corresponding Source.
+
+ As a special exception to the AGPL, any HTML file which merely makes function
+ calls to this code, and for that purpose includes it by reference shall be
+ deemed a separate work for copyright law purposes. In addition, the copyright
+ holders of this code give you permission to combine this code with free
+ software libraries that are released under the GNU LGPL. You may copy and
+ distribute such a system following the terms of the GNU AGPL for this code
+ and the LGPL for the libraries. If you modify this code, you may extend this
+ exception to your version of the code, but you are not obligated to do so.
+ If you do not wish to do so, delete this exception statement from your
+ version.
+
+ This license applies to this entire compilation.
+ @licend
+ @source: http://www.webodf.org/
+ @source: http://gitorious.org/webodf/webodf/
+*/
+ops.TrivialUserModel = function TrivialUserModel() {
+  var users = {};
+  users.bob = {memberid:"bob", fullname:"Bob Pigeon", color:"red", imageurl:"avatar-pigeon.png"};
+  users.alice = {memberid:"alice", fullname:"Alice Bee", color:"green", imageurl:"avatar-flower.png"};
+  users.you = {memberid:"you", fullname:"I, Robot", color:"blue", imageurl:"avatar-joe.png"};
+  this.getUserDetailsAndUpdates = function(memberId, subscriber) {
+    var userid = memberId.split("___")[0];
+    subscriber(memberId, users[userid] || null)
+  };
+  this.unsubscribeUserDetailsUpdates = function(memberId, subscriber) {
+  }
+};
+ops.NowjsUserModel = function NowjsUserModel() {
+  var cachedUserData = {}, memberDataSubscribers = {}, net = runtime.getNetwork();
+  function userIdFromMemberId(memberId) {
+    return memberId.split("___")[0]
+  }
+  function cacheUserDatum(userId, userData) {
+    var subscribers, i;
+    cachedUserData[userId] = userData;
+    subscribers = memberDataSubscribers[userId];
+    if(subscribers) {
+      for(i = 0;i < subscribers.length;i += 1) {
+        subscribers[i].subscriber(subscribers[i].memberId, userData)
+      }
+    }
+    runtime.log("data for user [" + userId + "] cached.")
+  }
+  this.getUserDetailsAndUpdates = function(memberId, subscriber) {
+    var userId = userIdFromMemberId(memberId), userData = cachedUserData[userId], subscribers = memberDataSubscribers[userId] = memberDataSubscribers[userId] || [], i;
+    runtime.assert(subscriber !== undefined, "missing callback");
+    for(i = 0;i < subscribers.length;i += 1) {
+      if(subscribers[i].subscriber === subscriber && subscribers[i].memberId === memberId) {
+        break
+      }
+    }
+    if(i < subscribers.length) {
+      runtime.log("double subscription request for " + memberId + " in NowjsUserModel::getUserDetailsAndUpdates")
+    }else {
+      subscribers.push({memberId:memberId, subscriber:subscriber})
+    }
+    if(userData === undefined) {
+      net.getUserData(userId, function(udata) {
+        cacheUserDatum(userId, udata ? {userid:udata.uid, fullname:udata.fullname, imageurl:"/user/" + udata.uid + "/avatar.png", color:udata.color} : null)
+      })
+    }else {
+      subscriber(memberId, userData)
+    }
+  };
+  this.unsubscribeUserDetailsUpdates = function(memberId, subscriber) {
+    var i, userId = userIdFromMemberId(memberId), subscribers = memberDataSubscribers[userId];
+    runtime.assert(subscriber !== undefined, "missing subscriber parameter or null");
+    runtime.assert(subscribers, "tried to unsubscribe when no one is subscribed ('" + memberId + "')");
+    if(subscribers) {
+      for(i = 0;i < subscribers.length;i += 1) {
+        if(subscribers[i].subscriber === subscriber && subscribers[i].memberId === memberId) {
+          break
+        }
+      }
+      runtime.assert(i < subscribers.length, "tried to unsubscribe when not subscribed for memberId '" + memberId + "'");
+      subscribers.splice(i, 1)
+    }
+  };
+  runtime.assert(net.networkStatus === "ready", "network not ready")
+};
+/*
+
+ Copyright (C) 2012 KO GmbH <copyright@kogmbh.com>
+
+ @licstart
+ The JavaScript code in this page is free software: you can redistribute it
+ and/or modify it under the terms of the GNU Affero General Public License
+ (GNU AGPL) as published by the Free Software Foundation, either version 3 of
+ the License, or (at your option) any later version.  The code is distributed
+ WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU AGPL for more details.
+
+ As additional permission under GNU AGPL version 3 section 7, you
+ may distribute non-source (e.g., minimized or compacted) forms of
+ that code without the copy of the GNU GPL normally required by
+ section 4, provided you include this license notice and a URL
+ through which recipients can access the Corresponding Source.
+
+ As a special exception to the AGPL, any HTML file which merely makes function
+ calls to this code, and for that purpose includes it by reference shall be
+ deemed a separate work for copyright law purposes. In addition, the copyright
+ holders of this code give you permission to combine this code with free
+ software libraries that are released under the GNU LGPL. You may copy and
+ distribute such a system following the terms of the GNU AGPL for this code
+ and the LGPL for the libraries. If you modify this code, you may extend this
+ exception to your version of the code, but you are not obligated to do so.
+ If you do not wish to do so, delete this exception statement from your
+ version.
+
+ This license applies to this entire compilation.
+ @licend
+ @source: http://www.webodf.org/
+ @source: http://gitorious.org/webodf/webodf/
+*/
+ops.TrivialOperationRouter = function TrivialOperationRouter() {
+  var self = this;
+  this.setOperationFactory = function(f) {
+    self.op_factory = f
+  };
+  this.setPlaybackFunction = function(playback_func) {
+    self.playback_func = playback_func
+  };
+  this.push = function(op) {
+    var timedOp, opspec = op.spec();
+    opspec.timestamp = (new Date).getTime();
+    timedOp = self.op_factory.create(opspec);
+    self.playback_func(timedOp)
+  }
+};
+ops.NowjsOperationRouter = function NowjsOperationRouter(sessionId, memberid) {
+  var self = this, net = runtime.getNetwork(), last_server_seq = -1, reorder_queue = {}, sends_since_server_op = 0, router_sequence = 1E3;
+  function nextNonce() {
+    runtime.assert(memberid !== null, "Router sequence N/A without memberid");
+    router_sequence += 1;
+    return"C:" + memberid + ":" + router_sequence
+  }
+  this.setOperationFactory = function(f) {
+    self.op_factory = f
+  };
+  this.setPlaybackFunction = function(playback_func) {
+    self.playback_func = playback_func
+  };
+  function receiveOpFromNetwork(opspec) {
+    var idx, seq, op = self.op_factory.create(opspec);
+    runtime.log(" op in: " + runtime.toJson(opspec));
+    if(op !== null) {
+      seq = Number(opspec.server_seq);
+      runtime.assert(!isNaN(seq), "server seq is not a number");
+      if(seq === last_server_seq + 1) {
+        self.playback_func(op);
+        last_server_seq = seq;
+        sends_since_server_op = 0;
+        for(idx = last_server_seq + 1;reorder_queue.hasOwnProperty(idx);idx += 1) {
+          self.playback_func(reorder_queue[idx]);
+          delete reorder_queue[idx];
+          runtime.log("op with server seq " + seq + " taken from hold (reordered)")
+        }
+      }else {
+        runtime.assert(seq !== last_server_seq + 1, "received incorrect order from server");
+        runtime.assert(!reorder_queue.hasOwnProperty(seq), "reorder_queue has incoming op");
+        runtime.log("op with server seq " + seq + " put on hold");
+        reorder_queue[seq] = op
+      }
+    }else {
+      runtime.log("ignoring invalid incoming opspec: " + opspec)
+    }
+  }
+  net.ping = function(pong) {
+    if(memberid !== null) {
+      pong(memberid)
+    }
+  };
+  net.receiveOp = function(op_session_id, opspec) {
+    if(op_session_id === sessionId) {
+      receiveOpFromNetwork(opspec)
+    }
+  };
+  this.push = function(op) {
+    var opspec = op.spec();
+    opspec.client_nonce = nextNonce();
+    opspec.parent_op = last_server_seq + "+" + sends_since_server_op;
+    sends_since_server_op += 1;
+    runtime.log("op out: " + runtime.toJson(opspec));
+    net.deliverOp(sessionId, opspec)
+  };
+  this.requestReplay = function(done_cb) {
+    net.requestReplay(sessionId, function(opspec) {
+      runtime.log("replaying: " + runtime.toJson(opspec));
+      receiveOpFromNetwork(opspec)
+    }, function(count) {
+      runtime.log("replay done (" + count + " ops).");
+      if(done_cb) {
+        done_cb()
+      }
+    })
+  };
+  function init() {
+    var sessionJoinSuccess;
+    net.memberid = memberid;
+    sessionJoinSuccess = net.joinSession(sessionId, function(sessionJoinSuccess) {
+      runtime.assert(sessionJoinSuccess, "Trying to join a session which does not exists or where we are already in")
+    })
+  }
+  init()
+};
+gui.EditInfoHandle = function EditInfoHandle(parentElement) {
+  var edits = [], handle, document = parentElement.ownerDocument, htmlns = document.documentElement.namespaceURI, editinfons = "urn:webodf:names:editinfo";
+  function renderEdits() {
+    var i, infoDiv, colorSpan, authorSpan, timeSpan;
+    handle.innerHTML = "";
+    for(i = 0;i < edits.length;i += 1) {
+      infoDiv = document.createElementNS(htmlns, "div");
+      infoDiv.className = "editInfo";
+      colorSpan = document.createElementNS(htmlns, "span");
+      colorSpan.className = "editInfoColor";
+      colorSpan.setAttributeNS(editinfons, "editinfo:memberid", edits[i].memberid);
+      authorSpan = document.createElementNS(htmlns, "span");
+      authorSpan.className = "editInfoAuthor";
+      authorSpan.setAttributeNS(editinfons, "editinfo:memberid", edits[i].memberid);
+      timeSpan = document.createElementNS(htmlns, "span");
+      timeSpan.className = "editInfoTime";
+      timeSpan.setAttributeNS(editinfons, "editinfo:memberid", edits[i].memberid);
+      timeSpan.innerHTML = edits[i].time;
+      infoDiv.appendChild(colorSpan);
+      infoDiv.appendChild(authorSpan);
+      infoDiv.appendChild(timeSpan);
+      handle.appendChild(infoDiv)
+    }
+  }
+  this.setEdits = function(editArray) {
+    edits = editArray;
+    renderEdits()
+  };
+  this.show = function() {
+    handle.style.display = "block"
+  };
+  this.hide = function() {
+    handle.style.display = "none"
+  };
+  function init() {
+    handle = document.createElementNS(htmlns, "div");
+    handle.setAttribute("class", "editInfoHandle");
+    handle.style.display = "none";
+    parentElement.appendChild(handle)
+  }
+  init()
+};
+runtime.loadClass("core.EditInfo");
+runtime.loadClass("gui.EditInfoHandle");
+gui.EditInfoMarker = function EditInfoMarker(editInfo) {
+  var self = this, editInfoNode, handle, marker, editinfons = "urn:webodf:names:editinfo", decay1, decay2, decayTimeStep = 1E4;
+  function applyDecay(opacity, delay) {
+    return window.setTimeout(function() {
+      marker.style.opacity = opacity
+    }, delay)
+  }
+  function deleteDecay(timer) {
+    window.clearTimeout(timer)
+  }
+  function setLastAuthor(memberid) {
+    marker.setAttributeNS(editinfons, "editinfo:memberid", memberid)
+  }
+  this.addEdit = function(memberid, timestamp) {
+    var age = Date.now() - timestamp;
+    editInfo.addEdit(memberid, timestamp);
+    handle.setEdits(editInfo.getSortedEdits());
+    setLastAuthor(memberid);
+    if(decay1) {
+      deleteDecay(decay1)
+    }
+    if(decay2) {
+      deleteDecay(decay2)
+    }
+    if(age < decayTimeStep) {
+      applyDecay(1, 0);
+      decay1 = applyDecay(0.5, decayTimeStep - age);
+      decay2 = applyDecay(0.2, decayTimeStep * 2 - age)
+    }else {
+      if(age >= decayTimeStep && age < decayTimeStep * 2) {
+        applyDecay(0.5, 0);
+        decay2 = applyDecay(0.2, decayTimeStep * 2 - age)
+      }else {
+        applyDecay(0.2, 0)
+      }
+    }
+  };
+  this.getEdits = function() {
+    return editInfo.getEdits()
+  };
+  this.clearEdits = function() {
+    editInfo.clearEdits();
+    handle.setEdits([]);
+    if(marker.hasAttributeNS(editinfons, "editinfo:memberid")) {
+      marker.removeAttributeNS(editinfons, "editinfo:memberid")
+    }
+  };
+  this.getEditInfo = function() {
+    return editInfo
+  };
+  this.showHandle = function() {
+    handle.show()
+  };
+  this.hideHandle = function() {
+    handle.hide()
+  };
+  function init() {
+    var dom = editInfo.getOdtDocument().getDOM(), htmlns = dom.documentElement.namespaceURI;
+    marker = dom.createElementNS(htmlns, "div");
+    marker.setAttribute("class", "editInfoMarker");
+    marker.onmouseover = function() {
+      self.showHandle()
+    };
+    marker.onmouseout = function() {
+      self.hideHandle()
+    };
+    editInfoNode = editInfo.getNode();
+    editInfoNode.appendChild(marker);
+    handle = new gui.EditInfoHandle(editInfoNode)
+  }
+  init()
+};
+/*
+
+ Copyright (C) 2012 KO GmbH <copyright@kogmbh.com>
+
+ @licstart
+ The JavaScript code in this page is free software: you can redistribute it
+ and/or modify it under the terms of the GNU Affero General Public License
+ (GNU AGPL) as published by the Free Software Foundation, either version 3 of
+ the License, or (at your option) any later version.  The code is distributed
+ WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU AGPL for more details.
+
+ As additional permission under GNU AGPL version 3 section 7, you
+ may distribute non-source (e.g., minimized or compacted) forms of
+ that code without the copy of the GNU GPL normally required by
+ section 4, provided you include this license notice and a URL
+ through which recipients can access the Corresponding Source.
+
+ As a special exception to the AGPL, any HTML file which merely makes function
+ calls to this code, and for that purpose includes it by reference shall be
+ deemed a separate work for copyright law purposes. In addition, the copyright
+ holders of this code give you permission to combine this code with free
+ software libraries that are released under the GNU LGPL. You may copy and
+ distribute such a system following the terms of the GNU AGPL for this code
+ and the LGPL for the libraries. If you modify this code, you may extend this
+ exception to your version of the code, but you are not obligated to do so.
+ If you do not wish to do so, delete this exception statement from your
+ version.
+
+ This license applies to this entire compilation.
+ @licend
+ @source: http://www.webodf.org/
+ @source: http://gitorious.org/webodf/webodf/
+*/
+runtime.loadClass("gui.Caret");
+runtime.loadClass("ops.TrivialUserModel");
+runtime.loadClass("core.EditInfo");
+runtime.loadClass("gui.EditInfoMarker");
+gui.SessionView = function() {
+  function SessionView(session, caretFactory) {
+    var carets = {}, avatarInfoStyles, headlineNodeName = "text|h", paragraphNodeName = "text|p", editHighlightingEnabled = true, editInfons = "urn:webodf:names:editinfo", editInfoMap = {};
+    function createAvatarInfoNodeMatch(nodeName, className, memberId) {
+      var userId = memberId.split("___")[0];
+      return nodeName + "." + className + '[editinfo|memberid^="' + userId + '"]'
+    }
+    function getAvatarInfoStyle(nodeName, className, memberId) {
+      var node = avatarInfoStyles.firstChild, nodeMatch = createAvatarInfoNodeMatch(nodeName, className, memberId);
+      while(node) {
+        if(node.nodeType === 3 && node.data.indexOf(nodeMatch) === 0) {
+          return node
+        }
+        node = node.nextSibling
+      }
+      return null
+    }
+    function setAvatarInfoStyle(memberId, name, color) {
+      function setStyle(nodeName, className, rule) {
+        var styleRule = createAvatarInfoNodeMatch(nodeName, className, memberId) + rule, styleNode = getAvatarInfoStyle(nodeName, className, memberId);
+        if(styleNode) {
+          styleNode.data = styleRule
+        }else {
+          avatarInfoStyles.appendChild(document.createTextNode(styleRule))
+        }
+      }
+      setStyle("div", "editInfoMarker", "{ background-color: " + color + "; }");
+      setStyle("span", "editInfoColor", "{ background-color: " + color + "; }");
+      setStyle("span", "editInfoAuthor", ':before { content: "' + name + '"; }')
+    }
+    function removeAvatarInfoStyle(nodeName, className, memberId) {
+      var styleNode = getAvatarInfoStyle(nodeName, className, memberId);
+      if(styleNode) {
+        avatarInfoStyles.removeChild(styleNode)
+      }
+    }
+    function highlightEdit(element, memberId, timestamp) {
+      var editInfo, editInfoMarker, id = "", userModel = session.getUserModel(), editInfoNode = element.getElementsByTagNameNS(editInfons, "editinfo")[0];
+      if(editInfoNode) {
+        id = editInfoNode.getAttributeNS(editInfons, "id");
+        editInfoMarker = editInfoMap[id]
+      }else {
+        id = Math.random().toString();
+        editInfo = new core.EditInfo(element, session.getOdtDocument());
+        editInfoMarker = new gui.EditInfoMarker(editInfo);
+        editInfoNode = element.getElementsByTagNameNS(editInfons, "editinfo")[0];
+        editInfoNode.setAttributeNS(editInfons, "id", id);
+        editInfoMap[id] = editInfoMarker
+      }
+      editInfoMarker.addEdit(memberId, new Date(timestamp))
+    }
+    session.getOdtDocument().subscribe("paragraphEdited", function(info) {
+      highlightEdit(info.element, info.memberId, info.timeStamp)
+    });
+    this.enableEditHighlighting = function() {
+      if(editHighlightingEnabled) {
+        return
+      }
+      editHighlightingEnabled = true
+    };
+    this.disableEditHighlighting = function() {
+      if(!editHighlightingEnabled) {
+        return
+      }
+      editHighlightingEnabled = false
+    };
+    this.getSession = function() {
+      return session
+    };
+    this.getCaret = function(memberid) {
+      return carets[memberid]
+    };
+    function renderMemberData(memberId, userData) {
+      var caret = carets[memberId];
+      if(userData === undefined) {
+        runtime.log('UserModel sent undefined data for member "' + memberId + '".');
+        return
+      }
+      if(userData === null) {
+        userData = {memberid:memberId, fullname:"Unknown Identity", color:"black", imageurl:"avatar-joe.png"}
+      }
+      if(caret) {
+        caret.setAvatarImageUrl(userData.imageurl);
+        caret.setColor(userData.color)
+      }
+      if(editHighlightingEnabled) {
+        setAvatarInfoStyle(memberId, userData.fullname, userData.color)
+      }
+    }
+    function onCursorAdded(cursor) {
+      var caret = caretFactory.createCaret(cursor), memberId = cursor.getMemberId(), userModel = session.getUserModel();
+      carets[memberId] = caret;
+      renderMemberData(memberId, null);
+      userModel.getUserDetailsAndUpdates(memberId, renderMemberData);
+      runtime.log("+++ View here +++ eagerly created an Caret for '" + memberId + "'! +++")
+    }
+    function onCursorRemoved(memberid) {
+      delete carets[memberid]
+    }
+    function init() {
+      var head = document.getElementsByTagName("head")[0];
+      session.subscribe(ops.Session.signalCursorAdded, onCursorAdded);
+      session.subscribe(ops.Session.signalCursorRemoved, onCursorRemoved);
+      avatarInfoStyles = document.createElementNS(head.namespaceURI, "style");
+      avatarInfoStyles.type = "text/css";
+      avatarInfoStyles.media = "screen, print, handheld, projection";
+      avatarInfoStyles.appendChild(document.createTextNode("@namespace editinfo url(urn:webodf:names:editinfo);"));
+      head.appendChild(avatarInfoStyles)
+    }
+    init()
+  }
+  return SessionView
+}();
+/*
+
+ Copyright (C) 2012 KO GmbH <copyright@kogmbh.com>
+
+ @licstart
+ The JavaScript code in this page is free software: you can redistribute it
+ and/or modify it under the terms of the GNU Affero General Public License
+ (GNU AGPL) as published by the Free Software Foundation, either version 3 of
+ the License, or (at your option) any later version.  The code is distributed
+ WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU AGPL for more details.
+
+ As additional permission under GNU AGPL version 3 section 7, you
+ may distribute non-source (e.g., minimized or compacted) forms of
+ that code without the copy of the GNU GPL normally required by
+ section 4, provided you include this license notice and a URL
+ through which recipients can access the Corresponding Source.
+
+ As a special exception to the AGPL, any HTML file which merely makes function
+ calls to this code, and for that purpose includes it by reference shall be
+ deemed a separate work for copyright law purposes. In addition, the copyright
+ holders of this code give you permission to combine this code with free
+ software libraries that are released under the GNU LGPL. You may copy and
+ distribute such a system following the terms of the GNU AGPL for this code
+ and the LGPL for the libraries. If you modify this code, you may extend this
+ exception to your version of the code, but you are not obligated to do so.
+ If you do not wish to do so, delete this exception statement from your
+ version.
+
+ This license applies to this entire compilation.
+ @licend
+ @source: http://www.webodf.org/
+ @source: http://gitorious.org/webodf/webodf/
+*/
+runtime.loadClass("gui.Caret");
+gui.CaretFactory = function CaretFactory(sessionController) {
+  this.createCaret = function(cursor) {
+    var memberid = cursor.getMemberId(), odtDocument = sessionController.getSession().getOdtDocument(), canvasElement = odtDocument.getOdfCanvas().getElement(), caret = new gui.Caret(cursor);
+    if(memberid === sessionController.getInputMemberId()) {
+      runtime.log("Starting to track input on new cursor of " + memberid);
+      odtDocument.subscribe("paragraphEdited", function(info) {
+        if(info.memberId === memberid) {
+          caret.ensureVisible()
+        }
+      });
+      cursor.handleUpdate = caret.ensureVisible;
+      canvasElement.setAttribute("tabindex", 0);
+      canvasElement.onfocus = caret.setFocus;
+      canvasElement.onblur = caret.removeFocus;
+      canvasElement.focus();
+      sessionController.startListening()
+    }
+    return caret
+  }
+};
 runtime.loadClass("xmldom.XPath");
 runtime.loadClass("odf.Style2CSS");
 gui.PresenterUI = function() {
@@ -6792,138 +9397,7 @@ gui.PresenterUI = function() {
     document.addEventListener("keydown", self.keyDownHandler, false)
   }
 }();
-gui.Caret = function Caret(selection, rootNode) {
-  var document = rootNode.ownerDocument, cursorns, cursorNode;
-  cursorns = "urn:webodf:names:cursor";
-  cursorNode = document.createElementNS(cursorns, "cursor");
-  this.updateToSelection = function() {
-    var range;
-    if(selection.rangeCount === 1) {
-      range = selection.getRangeAt(0)
-    }
-  }
-};
-runtime.loadClass("core.Cursor");
-gui.SelectionMover = function SelectionMover(selection, pointWalker) {
-  var doc = pointWalker.node().ownerDocument, cursor = new core.Cursor(selection, doc);
-  function getActiveRange(node) {
-    var range;
-    if(selection.rangeCount === 0) {
-      selection.addRange(node.ownerDocument.createRange())
-    }
-    return selection.getRangeAt(selection.rangeCount - 1)
-  }
-  function setStart(node, offset) {
-    var ranges = [], i, range;
-    for(i = 0;i < selection.rangeCount;i += 1) {
-      ranges[i] = selection.getRangeAt(i)
-    }
-    selection.removeAllRanges();
-    if(ranges.length === 0) {
-      ranges[0] = node.ownerDocument.createRange()
-    }
-    ranges[ranges.length - 1].setStart(pointWalker.node(), pointWalker.position());
-    for(i = 0;i < ranges.length;i += 1) {
-      selection.addRange(ranges[i])
-    }
-  }
-  function doMove(extend, move) {
-    if(selection.rangeCount === 0) {
-      return
-    }
-    var range = selection.getRangeAt(0), element;
-    if(!range.startContainer || range.startContainer.nodeType !== 1) {
-      return
-    }
-    element = range.startContainer;
-    pointWalker.setPoint(element, range.startOffset);
-    move();
-    setStart(pointWalker.node(), pointWalker.position())
-  }
-  function doMoveForward(extend, move) {
-    if(selection.rangeCount === 0) {
-      return
-    }
-    move();
-    var range = selection.getRangeAt(0), element;
-    if(!range.startContainer || range.startContainer.nodeType !== 1) {
-      return
-    }
-    element = range.startContainer;
-    pointWalker.setPoint(element, range.startOffset)
-  }
-  function moveCursor(node, offset, selectMode) {
-    if(selectMode) {
-      selection.extend(node, offset)
-    }else {
-      selection.collapse(node, offset)
-    }
-    cursor.updateToSelection()
-  }
-  function moveCursorLeft() {
-    var element;
-    if(!selection.focusNode || selection.focusNode.nodeType !== 1) {
-      return
-    }
-    element = selection.focusNode;
-    pointWalker.setPoint(element, selection.focusOffset);
-    pointWalker.stepBackward();
-    moveCursor(pointWalker.node(), pointWalker.position(), false)
-  }
-  function moveCursorRight() {
-    cursor.remove();
-    var element;
-    if(!selection.focusNode || selection.focusNode.nodeType !== 1) {
-      return
-    }
-    element = selection.focusNode;
-    pointWalker.setPoint(element, selection.focusOffset);
-    pointWalker.stepForward();
-    moveCursor(pointWalker.node(), pointWalker.position(), false)
-  }
-  function moveCursorUp() {
-    var rect = cursor.getNode().getBoundingClientRect(), x = rect.left, y = rect.top, arrived = false, left = 200;
-    while(!arrived && left) {
-      left -= 1;
-      moveCursorLeft();
-      rect = cursor.getNode().getBoundingClientRect();
-      arrived = rect.top !== y && rect.left < x
-    }
-  }
-  function moveCursorDown() {
-    cursor.updateToSelection();
-    var rect = cursor.getNode().getBoundingClientRect(), x = rect.left, y = rect.top, arrived = false, left = 200;
-    while(!arrived) {
-      left -= 1;
-      moveCursorRight();
-      rect = cursor.getNode().getBoundingClientRect();
-      arrived = rect.top !== y && rect.left > x
-    }
-  }
-  this.movePointForward = function(extend) {
-    doMove(extend, pointWalker.stepForward)
-  };
-  this.movePointBackward = function(extend) {
-    doMove(extend, pointWalker.stepBackward)
-  };
-  this.moveLineForward = function(extend) {
-    if(selection.modify) {
-      selection.modify(extend ? "extend" : "move", "forward", "line")
-    }else {
-      doMove(extend, moveCursorDown)
-    }
-  };
-  this.moveLineBackward = function(extend) {
-    if(selection.modify) {
-      selection.modify(extend ? "extend" : "move", "backward", "line")
-    }else {
-      doMove(extend, function() {
-      })
-    }
-  };
-  return this
-};
-runtime.loadClass("core.PointWalker");
+runtime.loadClass("core.PositionIterator");
 runtime.loadClass("core.Cursor");
 gui.XMLEdit = function XMLEdit(element, stylesheet) {
   var simplecss, cssprefix, documentElement, customNS = "customns", walker = null;
@@ -7110,14 +9584,422 @@ gui.XMLEdit = function XMLEdit(element, stylesheet) {
     }
     element.appendChild(node);
     updateCSS();
-    walker = new core.PointWalker(node)
+    walker = new core.PositionIterator(node)
   }
   initElement(element);
   this.updateCSS = updateCSS;
   this.setXML = setXML;
   this.getXML = getXML
 };
+ops.SessionPointFilter = function SessionPointFilter() {
+  this.acceptNode = function(node) {
+    return 1
+  }
+};
+runtime.loadClass("ops.TrivialOperationRouter");
+runtime.loadClass("gui.SelectionManager");
+ops.OdtDocument = function OdtDocument(odfCanvas) {
+  var self = this, textns = "urn:oasis:names:tc:opendocument:xmlns:text:1.0", fons = "urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0", stylens = "urn:oasis:names:tc:opendocument:xmlns:style:1.0", svgns = "urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0", rootNode, selectionManager, filter, cursors = {}, eventListener = {};
+  eventListener.paragraphEdited = [];
+  function TextPositionFilter() {
+    var accept = core.PositionFilter.FilterResult.FILTER_ACCEPT, reject = core.PositionFilter.FilterResult.FILTER_REJECT;
+    this.acceptPosition = function(iterator) {
+      var n = iterator.container(), p, o, d;
+      if(n.nodeType !== 3) {
+        if(n.localName !== "p" && n.localName !== "h" && n.localName !== "span") {
+          return reject
+        }
+        return accept
+      }
+      if(n.length === 0) {
+        return reject
+      }
+      p = n.parentNode;
+      o = p && p.localName;
+      if(o !== "p" && o !== "span" && o !== "h") {
+        return reject
+      }
+      o = iterator.textOffset();
+      if(o > 0 && iterator.substr(o - 1, 2) === "  ") {
+        return reject
+      }
+      return accept
+    }
+  }
+  function findTextRoot(odfcontainer) {
+    var root = odfcontainer.rootElement.firstChild;
+    while(root && root.localName !== "body") {
+      root = root.nextSibling
+    }
+    root = root && root.firstChild;
+    while(root && root.localName !== "text") {
+      root = root.nextSibling
+    }
+    return root
+  }
+  function getPositionInTextNode(position) {
+    var iterator = gui.SelectionMover.createPositionIterator(rootNode), lastTextNode = null, node, nodeOffset = 0;
+    position += 1;
+    if(filter.acceptPosition(iterator) === 1) {
+      node = iterator.container();
+      if(node.nodeType === 3) {
+        lastTextNode = node;
+        nodeOffset = 0
+      }else {
+        if(position === 0) {
+          lastTextNode = rootNode.ownerDocument.createTextNode("");
+          node.insertBefore(lastTextNode, null);
+          nodeOffset = 0
+        }
+      }
+    }
+    while(position > 0 || lastTextNode === null) {
+      if(!iterator.nextPosition()) {
+        return null
+      }
+      if(filter.acceptPosition(iterator) === 1) {
+        position -= 1;
+        node = iterator.container();
+        if(node.nodeType === 3) {
+          if(node !== lastTextNode) {
+            lastTextNode = node;
+            nodeOffset = 0
+          }else {
+            nodeOffset += 1
+          }
+        }else {
+          if(lastTextNode !== null) {
+            if(position === 0) {
+              nodeOffset = lastTextNode.length;
+              break
+            }
+            lastTextNode = null
+          }else {
+            if(position === 0) {
+              lastTextNode = node.ownerDocument.createTextNode("");
+              node.appendChild(lastTextNode);
+              nodeOffset = 0;
+              break
+            }
+          }
+        }
+      }
+    }
+    if(lastTextNode === null) {
+      return null
+    }
+    while(nodeOffset === 0 && lastTextNode.previousSibling && lastTextNode.previousSibling.localName === "cursor") {
+      node = lastTextNode.previousSibling.previousSibling;
+      while(node && node.nodeType !== 3) {
+        node = node.previousSibling
+      }
+      if(node === null) {
+        node = rootNode.ownerDocument.createTextNode("");
+        lastTextNode.parentNode.insertBefore(node, lastTextNode.parentNode.firstChild)
+      }
+      lastTextNode = node;
+      nodeOffset = lastTextNode.length
+    }
+    return{textNode:lastTextNode, offset:nodeOffset}
+  }
+  function getParagraphElement(node) {
+    while(node && !((node.localName === "p" || node.localName === "h") && node.namespaceURI === textns)) {
+      node = node.parentNode
+    }
+    return node
+  }
+  function getParagraphStyleElement(styleName) {
+    var node;
+    node = odfCanvas.getFormatting().getStyleElement(odfCanvas.odfContainer().rootElement.styles, styleName, "paragraph");
+    return node
+  }
+  function getParagraphStyleAttributes(styleName) {
+    var node = getParagraphStyleElement(styleName);
+    if(node) {
+      return odfCanvas.getFormatting().getInheritedStyleAttributes(odfCanvas.odfContainer().rootElement.styles, node)
+    }
+    return null
+  }
+  this.getParagraphStyleElement = getParagraphStyleElement;
+  this.getParagraphElement = getParagraphElement;
+  this.getParagraphStyleAttributes = getParagraphStyleAttributes;
+  this.getPositionInTextNode = getPositionInTextNode;
+  this.getDistanceFromCursor = function(memberid, node, offset) {
+    var counter, cursor = cursors[memberid], steps = 0;
+    runtime.assert(node !== null, "OdtDocument.getDistanceFromCursor called with node===null");
+    if(cursor) {
+      counter = cursor.getStepCounter().countStepsToPosition;
+      steps = counter(node, offset, filter)
+    }
+    return steps
+  };
+  this.getCursorPosition = function(memberid) {
+    return-self.getDistanceFromCursor(memberid, rootNode, 0)
+  };
+  this.getPositionFilter = function() {
+    return filter
+  };
+  this.getOdfCanvas = function() {
+    return odfCanvas
+  };
+  this.getRootNode = function() {
+    return rootNode
+  };
+  this.getDOM = function() {
+    return rootNode.ownerDocument
+  };
+  this.getSelectionManager = function() {
+    return selectionManager
+  };
+  function triggerLayoutInWebkit(textNode) {
+    var parent = textNode.parentNode, next = textNode.nextSibling;
+    parent.removeChild(textNode);
+    parent.insertBefore(textNode, next)
+  }
+  this.insertText = function(memberid, timestamp, position, text) {
+    var domPosition, textNode;
+    domPosition = getPositionInTextNode(position);
+    if(domPosition) {
+      textNode = domPosition.textNode;
+      textNode.insertData(domPosition.offset, text);
+      triggerLayoutInWebkit(textNode);
+      self.emit("paragraphEdited", {element:getParagraphElement(domPosition.textNode), memberId:memberid, timeStamp:timestamp});
+      return true
+    }
+    return false
+  };
+  this.removeText = function(memberid, timestamp, position, length) {
+    var domPosition;
+    if(length < 0) {
+      length = -length;
+      position -= length;
+      domPosition = getPositionInTextNode(position)
+    }else {
+      domPosition = getPositionInTextNode(position + 1);
+      if(domPosition.offset !== 1) {
+        runtime.log("unexpected!");
+        return false
+      }
+      domPosition.offset -= 1
+    }
+    if(domPosition) {
+      domPosition.textNode.deleteData(domPosition.offset, length);
+      self.emit("paragraphEdited", {element:getParagraphElement(domPosition.textNode), memberId:memberid, timeStamp:timestamp});
+      return true
+    }
+    return false
+  };
+  this.setParagraphStyle = function(memberid, timestamp, position, styleNameBefore, styleNameAfter) {
+    var domPosition, paragraphNode;
+    domPosition = getPositionInTextNode(position);
+    runtime.log("Setting paragraph style:" + domPosition + " -- " + position + " " + styleNameBefore + "->" + styleNameAfter);
+    if(domPosition) {
+      paragraphNode = getParagraphElement(domPosition.textNode);
+      if(paragraphNode) {
+        paragraphNode.setAttributeNS(textns, "text:style-name", styleNameAfter);
+        self.emit("paragraphEdited", {element:paragraphNode, timeStamp:timestamp, memberId:memberid});
+        return true
+      }
+    }
+    return false
+  };
+  function setRealAttributeNS(node, ns, prefixedAttribute, value, unit) {
+    if(value !== undefined) {
+      if(unit !== undefined) {
+        node.setAttributeNS(ns, prefixedAttribute, value + unit)
+      }else {
+        node.setAttributeNS(ns, prefixedAttribute, value)
+      }
+    }
+  }
+  function isFontDeclared(fontName) {
+    var fontMap = odfCanvas.getFormatting().getFontMap();
+    if(fontMap.hasOwnProperty(fontName)) {
+      return true
+    }
+    return false
+  }
+  function declareFont(name, family) {
+    var declaration;
+    if(!name || !family) {
+      return
+    }
+    declaration = rootNode.ownerDocument.createElementNS(stylens, "style:font-face");
+    declaration.setAttributeNS(stylens, "style:name", name);
+    declaration.setAttributeNS(svgns, "svg:font-family", family);
+    odfCanvas.odfContainer().rootElement.fontFaceDecls.appendChild(declaration)
+  }
+  this.updateParagraphStyle = function(styleName, info) {
+    var styleNode, paragraphPropertiesNode, textPropertiesNode;
+    styleNode = getParagraphStyleElement(styleName);
+    if(styleNode) {
+      paragraphPropertiesNode = styleNode.getElementsByTagNameNS(stylens, "paragraph-properties")[0];
+      textPropertiesNode = styleNode.getElementsByTagNameNS(stylens, "text-properties")[0];
+      if(paragraphPropertiesNode === undefined && info.paragraphProperties) {
+        paragraphPropertiesNode = rootNode.ownerDocument.createElementNS(stylens, "style:paragraph-properties");
+        styleNode.appendChild(paragraphPropertiesNode)
+      }
+      if(textPropertiesNode === undefined && info.textProperties) {
+        textPropertiesNode = rootNode.ownerDocument.createElementNS(stylens, "style:text-properties");
+        styleNode.appendChild(textPropertiesNode)
+      }
+      if(info.paragraphProperties) {
+        setRealAttributeNS(paragraphPropertiesNode, fons, "fo:margin-top", info.paragraphProperties.topMargin, "mm");
+        setRealAttributeNS(paragraphPropertiesNode, fons, "fo:margin-bottom", info.paragraphProperties.bottomMargin, "mm");
+        setRealAttributeNS(paragraphPropertiesNode, fons, "fo:margin-left", info.paragraphProperties.leftMargin, "mm");
+        setRealAttributeNS(paragraphPropertiesNode, fons, "fo:margin-right", info.paragraphProperties.rightMargin, "mm");
+        setRealAttributeNS(paragraphPropertiesNode, fons, "fo:text-align", info.paragraphProperties.textAlign)
+      }
+      if(info.textProperties) {
+        setRealAttributeNS(textPropertiesNode, fons, "fo:font-size", info.textProperties.fontSize, "pt");
+        if(!isFontDeclared(info.textProperties.fontName)) {
+          declareFont(info.textProperties.fontName, info.textProperties.fontName)
+        }
+        setRealAttributeNS(textPropertiesNode, stylens, "style:font-name", info.textProperties.fontName);
+        setRealAttributeNS(textPropertiesNode, fons, "fo:color", info.textProperties.color);
+        setRealAttributeNS(textPropertiesNode, fons, "fo:background-color", info.textProperties.backgroundColor);
+        setRealAttributeNS(textPropertiesNode, fons, "fo:font-weight", info.textProperties.fontWeight);
+        setRealAttributeNS(textPropertiesNode, fons, "fo:font-style", info.textProperties.fontStyle);
+        setRealAttributeNS(textPropertiesNode, stylens, "style:text-underline-style", info.textProperties.underline);
+        setRealAttributeNS(textPropertiesNode, stylens, "style:text-line-through-style", info.textProperties.strikethrough)
+      }
+      odfCanvas.refreshCSS();
+      return true
+    }
+    return false
+  };
+  this.deleteStyle = function(styleName) {
+    var styleNode = getParagraphStyleElement(styleName);
+    styleNode.parentNode.removeChild(styleNode);
+    odfCanvas.refreshCSS()
+  };
+  this.getCursor = function(memberid) {
+    return cursors[memberid]
+  };
+  this.getCursors = function() {
+    var list = [], i;
+    for(i in cursors) {
+      if(cursors.hasOwnProperty(i)) {
+        list.push(cursors[i])
+      }
+    }
+    return list
+  };
+  this.addCursor = function(cursor) {
+    var distanceToFirstTextNode = cursor.getStepCounter().countForwardSteps(1, filter);
+    cursor.move(distanceToFirstTextNode);
+    cursors[cursor.getMemberId()] = cursor
+  };
+  this.removeCursor = function(memberid) {
+    var cursor = cursors[memberid], cursorNode;
+    if(cursor) {
+      cursor.removeFromOdtDocument();
+      delete cursors[memberid]
+    }
+  };
+  this.getMetaData = function(metadataId) {
+    var node = odfCanvas.odfContainer().rootElement.firstChild;
+    while(node && node.localName !== "meta") {
+      node = node.nextSibling
+    }
+    node = node && node.firstChild;
+    while(node && node.localName !== metadataId) {
+      node = node.nextSibling
+    }
+    node = node && node.firstChild;
+    while(node && node.nodeType !== 3) {
+      node = node.nextSibling
+    }
+    return node ? node.data : null
+  };
+  this.getFormatting = function() {
+    return odfCanvas.getFormatting()
+  };
+  this.emit = function(eventid, args) {
+    var i, subscribers;
+    runtime.assert(eventListener.hasOwnProperty(eventid), 'unknown event fired "' + eventid + '"');
+    subscribers = eventListener[eventid];
+    for(i = 0;i < subscribers.length;i += 1) {
+      subscribers[i](args)
+    }
+  };
+  this.subscribe = function(eventid, cb) {
+    runtime.assert(eventListener.hasOwnProperty(eventid), 'tried to subscribe to unknown event "' + eventid + '"');
+    eventListener[eventid].push(cb);
+    runtime.log('event "' + eventid + '" subscribed.')
+  };
+  function init() {
+    filter = new TextPositionFilter;
+    rootNode = findTextRoot(odfCanvas.odfContainer());
+    selectionManager = new gui.SelectionManager(rootNode)
+  }
+  init()
+};
+runtime.loadClass("ops.TrivialUserModel");
+runtime.loadClass("ops.TrivialOperationRouter");
+runtime.loadClass("ops.OperationFactory");
+runtime.loadClass("gui.SelectionManager");
+runtime.loadClass("ops.OdtDocument");
+ops.Session = function Session(odfCanvas) {
+  var self = this, odtDocument = new ops.OdtDocument(odfCanvas), style2CSS = new odf.Style2CSS, namespaces = style2CSS.namespaces, m_user_model = null, m_operation_router = null, m_event_listener = {};
+  m_event_listener[ops.Session.signalCursorAdded] = [];
+  m_event_listener[ops.Session.signalCursorRemoved] = [];
+  m_event_listener[ops.Session.signalCursorMoved] = [];
+  m_event_listener[ops.Session.signalParagraphChanged] = [];
+  m_event_listener[ops.Session.signalStyleCreated] = [];
+  m_event_listener[ops.Session.signalStyleDeleted] = [];
+  m_event_listener[ops.Session.signalParagraphStyleModified] = [];
+  function setUserModel(userModel) {
+    m_user_model = userModel
+  }
+  this.setUserModel = setUserModel;
+  function setOperationRouter(opRouter) {
+    m_operation_router = opRouter;
+    opRouter.setPlaybackFunction(self.playOperation);
+    opRouter.setOperationFactory(new ops.OperationFactory(self))
+  }
+  this.setOperationRouter = setOperationRouter;
+  function getUserModel() {
+    return m_user_model
+  }
+  this.getUserModel = getUserModel;
+  this.getOdtDocument = function() {
+    return odtDocument
+  };
+  this.emit = function(eventid, args) {
+    var i, subscribers;
+    runtime.assert(m_event_listener.hasOwnProperty(eventid), 'unknown event fired "' + eventid + '"');
+    subscribers = m_event_listener[eventid];
+    for(i = 0;i < subscribers.length;i += 1) {
+      subscribers[i](args)
+    }
+  };
+  this.subscribe = function(eventid, cb) {
+    runtime.assert(m_event_listener.hasOwnProperty(eventid), 'tried to subscribe to unknown event "' + eventid + '"');
+    m_event_listener[eventid].push(cb);
+    runtime.log('event "' + eventid + '" subscribed.')
+  };
+  this.enqueue = function(operation) {
+    m_operation_router.push(operation)
+  };
+  this.playOperation = function(op) {
+    op.execute(odtDocument.getRootNode())
+  };
+  function init() {
+    setUserModel(new ops.TrivialUserModel);
+    setOperationRouter(new ops.TrivialOperationRouter)
+  }
+  init()
+};
+ops.Session.signalCursorAdded = "cursor/added";
+ops.Session.signalCursorRemoved = "cursor/removed";
+ops.Session.signalCursorMoved = "cursor/moved";
+ops.Session.signalParagraphChanged = "paragraph/changed";
+ops.Session.signalStyleCreated = "style/created";
+ops.Session.signalStyleDeleted = "style/deleted";
+ops.Session.signalParagraphStyleModified = "paragraphstyle/modified";
 (function() {
-  return["core/Async.js", "core/Base64.js", "core/ByteArray.js", "core/ByteArrayWriter.js", "core/Cursor.js", "core/JSLint.js", "core/PointWalker.js", "core/RawDeflate.js", "core/RawInflate.js", "core/UnitTester.js", "core/Zip.js", "gui/Caret.js", "gui/SelectionMover.js", "gui/XMLEdit.js", "gui/PresenterUI.js", "odf/FontLoader.js", "odf/Formatting.js", "odf/OdfCanvas.js", "odf/OdfContainer.js", "odf/Style2CSS.js", "odf/StyleInfo.js", "xmldom/LSSerializer.js", "xmldom/LSSerializerFilter.js", "xmldom/OperationalTransformDOM.js", 
-  "xmldom/OperationalTransformInterface.js", "xmldom/RelaxNG.js", "xmldom/RelaxNG2.js", "xmldom/RelaxNGParser.js", "xmldom/XPath.js"]
+  return ops.Session
 })();
+var webodf_css = "@namespace draw url(urn:oasis:names:tc:opendocument:xmlns:drawing:1.0);\n@namespace fo url(urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0);\n@namespace office url(urn:oasis:names:tc:opendocument:xmlns:office:1.0);\n@namespace presentation url(urn:oasis:names:tc:opendocument:xmlns:presentation:1.0);\n@namespace style url(urn:oasis:names:tc:opendocument:xmlns:style:1.0);\n@namespace svg url(urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0);\n@namespace table url(urn:oasis:names:tc:opendocument:xmlns:table:1.0);\n@namespace text url(urn:oasis:names:tc:opendocument:xmlns:text:1.0);\n@namespace runtimens url(urn:webodf); /* namespace for runtime only */\n@namespace cursor url(urn:webodf:names:cursor);\n@namespace editinfo url(urn:webodf:names:editinfo);\n\noffice|document > *, office|document-content > * {\n  display: none;\n}\noffice|body, office|document {\n  display: inline-block;\n  position: relative;\n}\n\ntext|p, text|h {\n  display: block;\n  padding: 0;\n  margin: 0;\n  line-height: normal;\n  position: relative;\n}\n*[runtimens|containsparagraphanchor] {\n  position: relative;\n}\ntext|s:before { /* this needs to be the number of spaces given by text:c */\n  content: ' ';\n}\ntext|tab:before {\n  display: inline;\n  content: '        ';\n}\ntext|line-break {\n  content: \" \";\n  display: block;\n}\ntext|tracked-changes {\n  /*Consumers that do not support change tracking, should ignore changes.*/\n  display: none;\n}\noffice|binary-data {\n  display: none;\n}\noffice|text {\n  display: block;\n  width: 216mm; /* default to A4 width */\n  min-height: 279mm;\n  padding-left: 32mm;\n  padding-right: 32mm;\n  padding-top: 25mm;\n  padding-bottom: 13mm;\n  margin: 2px;\n  text-align: left;\n  overflow: hidden;\n}\noffice|spreadsheet {\n  display: block;\n  border-collapse: collapse;\n  empty-cells: show;\n  font-family: sans-serif;\n  font-size: 10pt;\n  text-align: left;\n  page-break-inside: avoid;\n  overflow: hidden;\n}\noffice|presentation {\n  display: inline-block;\n  text-align: left;\n}\ndraw|page {\n  display: block;\n  height: 21cm;\n  width: 28cm;\n  margin: 3px;\n  position: relative;\n  overflow: hidden;\n}\npresentation|notes {\n    display: none;\n}\n@media print {\n  draw|page {\n    border: 1pt solid black;\n    page-break-inside: avoid;\n  }\n  presentation|notes {\n    /*TODO*/\n  }\n}\noffice|spreadsheet text|p {\n  border: 0px;\n  padding: 1px;\n  margin: 0px;\n}\noffice|spreadsheet table|table {\n  margin: 3px;\n}\noffice|spreadsheet table|table:after {\n  /* show sheet name the end of the sheet */\n  /*content: attr(table|name);*/ /* gives parsing error in opera */\n}\noffice|spreadsheet table|table-row {\n  counter-increment: row;\n}\noffice|spreadsheet table|table-row:before {\n  width: 3em;\n  background: #cccccc;\n  border: 1px solid black;\n  text-align: center;\n  content: counter(row);\n  display: table-cell;\n}\noffice|spreadsheet table|table-cell {\n  border: 1px solid #cccccc;\n}\ntable|table {\n  display: table;\n}\ndraw|frame table|table {\n  width: 100%;\n  height: 100%;\n  background: white;\n}\ntable|table-header-rows {\n  display: table-header-group;\n}\ntable|table-row {\n  display: table-row;\n}\ntable|table-column {\n  display: table-column;\n}\ntable|table-cell {\n  width: 0.889in;\n  display: table-cell;\n}\ndraw|frame {\n  display: block;\n}\ndraw|image {\n  display: block;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0px;\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  -moz-background-size: 100% 100%;\n}\n/* only show the first image in frame */\ndraw|frame > draw|image:nth-of-type(n+2) {\n  display: none;\n}\ntext|list:before {\n    display: none;\n    content:\"\";\n}\ntext|list {\n    counter-reset: list;\n}\ntext|list-item {\n    display: block;\n}\ntext|number {\n    display:none;\n}\n\ntext|a {\n    color: blue;\n    text-decoration: underline;\n    cursor: pointer;\n}\ntext|note-citation {\n    vertical-align: super;\n    font-size: smaller;\n}\ntext|note-body {\n    display: none;\n}\ntext|note:hover text|note-citation {\n    background: #dddddd;\n}\ntext|note:hover text|note-body {\n    display: block;\n    left:1em;\n    max-width: 80%;\n    position: absolute;\n    background: #ffffaa;\n}\nsvg|title, svg|desc {\n    display: none;\n}\nvideo {\n    width: 100%;\n    height: 100%\n}\n\n/* below set up the cursor */\ncursor|cursor {\n    display: inline;\n    width: 0px;\n    height: 1em;\n    /* making the position relative enables the avatar to use\n       the cursor as reference for its absolute position */\n    position: relative;\n}\ncursor|cursor > span {\n    display: inline;\n    position: absolute;\n    height: 1em;\n    border-left: 2px solid black;\n    outline: none;\n}\n\ncursor|cursor > div {\n    padding: 3px;\n    box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.75);\n    border: none !important;\n    border-radius: 5px;\n    opacity: 0.3;\n}\n\ncursor|cursor > div > img {\n    border-radius: 5px;\n}\n\ncursor|cursor > div.active {\n    opacity: 0.8;\n}\n\ncursor|cursor > div:after {\n    content: ' ';\n    position: absolute;\n    width: 0px;\n    height: 0px;\n    border-style: solid;\n    border-width: 8.7px 5px 0 5px;\n    border-color: black transparent transparent transparent;\n\n    top: 100%;\n    left: 43%;\n}\n\n\n.editInfoMarker {\n    position: absolute;\n    width: 10px;\n    height: 100%;\n    left: -20px;\n    opacity: 0.8;\n    top: 0;\n    border-radius: 5px;\n    background-color: transparent;\n    box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.75);\n}\n.editInfoMarker:hover {\n    box-shadow: 0px 0px 8px rgba(0, 0, 0, 1);\n}\n\n.editInfoHandle {\n    position: absolute;\n    background-color: black;\n    padding: 5px;\n    border-radius: 5px;\n    opacity: 0.8;\n    box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.75);\n    bottom: 100%;\n    margin-bottom: 10px;\n    z-index: 3;\n    left: -25px;\n}\n.editInfoHandle:after {\n    content: ' ';\n    position: absolute;\n    width: 0px;\n    height: 0px;\n    border-style: solid;\n    border-width: 8.7px 5px 0 5px;\n    border-color: black transparent transparent transparent;\n\n    top: 100%;\n    left: 5px;\n}\n.editInfo {\n    font-family: sans-serif;\n    font-weight: normal;\n    font-style: normal;\n    text-decoration: none;\n    color: white;\n    width: 100%;\n    height: 12pt;\n}\n.editInfoColor {\n    float: left;\n    width: 10pt;\n    height: 10pt;\n    border: 1px solid white;\n}\n.editInfoAuthor {\n    float: left;\n    margin-left: 5pt;\n    font-size: 10pt;\n    text-align: left;\n    height: 12pt;\n    line-height: 12pt;\n}\n.editInfoTime {\n    float: right;\n    margin-left: 30pt;\n    font-size: 8pt;\n    font-style: italic;\n    color: yellow;\n    height: 12pt;\n    line-height: 12pt;\n}\n";
+

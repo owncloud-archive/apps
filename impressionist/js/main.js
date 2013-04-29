@@ -1504,14 +1504,14 @@ function generatePreview(str)
 {
 	$.ajax({
 			type: 'POST',
-			 url: 'apps/impressionist/lib/generatePreview.php',
+			 url: 'lib/generatePreview.php',
 			 data: {generateddata:str},
 			 dataType: "html",
 			 success: function(msg)
 			 {
 			 	if(!markedfordownload)
 			 	{
-			 		window.open("apps/impressionist/lib/viewer.php", "_blank");
+			 		window.open("lib/viewer.php", "_blank");
 			 	}
 			 }
 	});

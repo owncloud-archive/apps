@@ -26,7 +26,10 @@
 OCP\User::checkLoggedIn();
 
 OCP\App::checkAppEnabled('user_migrate');
-if (isset($_POST['user_import'])) {
+if (!empty($_POST)) {
+	// CSRF check
+	OCP\JSON::callCheck();
+	
 	$root = OC::$SERVERROOT . "/";
 	$importname = "owncloud_import_" . date("y-m-d_H-i-s");
 
@@ -42,7 +45,7 @@ if (isset($_POST['user_import'])) {
 		OCP\Util::writeLog( 'user_migrate', "Failed to copy the uploaded file", OCP\Util::ERROR );
 		$tmpl = new OCP\Template('user_migrate', 'settings');
 		$tmpl->assign('error',$error);
-    	//return $tmpl->fetchPage();
+    	return $tmpl->fetchPage();
 	}
 
 
@@ -72,7 +75,7 @@ if (isset($_POST['user_import'])) {
 				$error = array('error'=>'Some app data failed to import','hint'=>'App data for: '.implode(', ', $failed).' failed to import.');
 				$tmpl = new OCP\Template('user_migrate', 'settings');
 				$tmpl->assign('error',$error);
-			//return $tmpl->fetchPage();
+				return $tmpl->fetchPage();
 			} else if( count( $notsupported ) > 0 ) {
 				$error = array('error'=>'Some app data could not be imported, as the apps are not installed on this instance','hint'=>'App data for: '.implode(', ', $notsupported).' failed to import as they were not found. Please install the apps and try again');
 				$tmpl = new OCP\Template('user_migrate', 'settings');

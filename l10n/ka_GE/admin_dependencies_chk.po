@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Romeo Pirtskhalava <romeo@energo-pro.ge>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:02+0200\n"
-"PO-Revision-Date: 2012-08-12 22:33+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-04-17 09:53+0200\n"
+"PO-Revision-Date: 2013-04-17 07:53+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,56 +22,56 @@ msgstr ""
 msgid ""
 "The php-json module is needed by the many applications for inter "
 "communications"
-msgstr ""
+msgstr "ბევს აპლიკაციას შიდა კომუნიკაციისთვის სჭირდება php-json მოდული"
 
 #: settings.php:39
 msgid ""
 "The php-curl module is needed to fetch the page title when adding a bookmark"
-msgstr ""
+msgstr "php-curl მოდული არის საჭირო გვერდის სათაურის მისაღებად გვერდის ბუქმარქებში დამატების დროს"
 
 #: settings.php:45
 msgid "The php-gd module is needed to create thumbnails of your images"
-msgstr ""
+msgstr "სურათების ესკიზების გასაკეთებლად საჭიროა php-gd მოდული"
 
 #: settings.php:51
 msgid "The php-ldap module is needed connect to your ldap server"
-msgstr ""
+msgstr "php-ldap მოდული არის საჭირო იმისათვის რომ დაუკავშირდეთ ldap სერვერს"
 
 #: settings.php:57
 msgid "The php-zip module is needed download multiple files at once"
-msgstr ""
+msgstr "php-zip მოდული არის საჭირო ფაილების ერთობლიობის ერთად გადმოსაწერად"
 
 #: settings.php:63
 msgid ""
 "The php-mb_multibyte module is needed to manage correctly the encoding."
-msgstr ""
+msgstr "php-mb_multibyte მოდული არის საჭირო კორექტული ენკოდირებისთვის."
 
 #: settings.php:69
 msgid "The php-ctype module is needed validate data."
-msgstr ""
+msgstr "php-ctype მოდული არის საჭირო ინფორმაციის შესამოწმებლად."
 
 #: settings.php:75
 msgid "The php-xml module is needed to share files with webdav."
-msgstr ""
+msgstr "php-xml მოდული არის საჭირო ფაილების გაზიარებისთვის webdav პროტოკოლით."
 
 #: settings.php:81
 msgid ""
 "The allow_url_fopen directive of your php.ini should be set to 1 to retrieve"
 " knowledge base from OCS servers"
-msgstr ""
+msgstr " php.ini ფაილის allow_url_fopen დირექტივა უნდა იყოს 1–იანზე დაყენებული იმისათვის რომ მოხდეს ინფორმაციის მიღება OCS სერვერებიდან"
 
 #: settings.php:87
 msgid "The php-pdo module is needed to store owncloud data into a database."
-msgstr ""
+msgstr " php-pdo მოდული არის საჭირო იმისათვირ ომ მოხდეს owncloud ინფორმაციის მონაცემთა ბაზაში შენახვა."
 
 #: settings.php:93
 msgid "The iconv module is needed to convert data into the correct charset."
-msgstr ""
+msgstr " iconv მოდული არის საჭირო ინფორმაციის კონვერტირებისათვის კორექტულ კოდირებაში."
 
 #: templates/settings.php:2
 msgid "Dependencies status"
-msgstr ""
+msgstr "დამოკიდებულებების სტატუსი"
 
 #: templates/settings.php:7
 msgid "Used by :"
-msgstr ""
+msgstr "გამოყენებულია:"

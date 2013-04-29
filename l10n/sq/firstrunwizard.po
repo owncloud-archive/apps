@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Odeen <rapid_odeen@zoho.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:25+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Language-Team: Albanian (http://www.transifex.com/projects/p/owncloud/language/sq/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sq\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/wizard.php:7
+msgid "Welcome to ownCloud"
+msgstr "Mirësevini në ownCloud"
+
+#: templates/wizard.php:8
+msgid ""
+"Your personal web services. All your files, contacts, calendar and more, in "
+"one place."
+msgstr "Shërbimet tuaja web personale. Të gjithë skedarët tuaj, kontaktet, kalendarët e të tjera, në një vend."
+
+#: templates/wizard.php:11
+msgid "Get the apps to sync your files"
+msgstr "Merrni app-et për sinkronizimin e skedarëve tuaj"
+
+#: templates/wizard.php:23
+msgid "Connect your desktop apps to ownCloud"
+msgstr "Lidhni app-et e desktop-it tuaj me ownCloud-in"
+
+#: templates/wizard.php:25
+msgid "Connect your Calendar"
+msgstr "Lidhni Kalendarin tuaj"
+
+#: templates/wizard.php:28
+msgid "Connect your Contacts"
+msgstr "Lidhni Kontaket tuaja"
+
+#: templates/wizard.php:31
+msgid "Access files via WebDAV"
+msgstr "Dispononi skedarët tuaj me anë të WebDAV-it"
+
+#: templates/wizard.php:34
+msgid ""
+"There’s more information in the <a "
+"href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
+"and on our <a href=\"http://owncloud.org\">website</a>."
+msgstr ""
+
+#: templates/wizard.php:35
+msgid ""
+"If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
+"great open software to sync and share your files. You can freely get it from"
+" http://owncloud.org\">recommend it to your friends</a>!"
+msgstr ""

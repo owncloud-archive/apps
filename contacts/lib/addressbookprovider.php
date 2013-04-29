@@ -24,6 +24,7 @@ namespace OCA\Contacts;
 
 /**
  * This class manages our addressbooks.
+ * TODO: Port this to use the new backend
  */
 class AddressbookProvider implements \OCP\IAddressBook {
 
@@ -48,7 +49,6 @@ class AddressbookProvider implements \OCP\IAddressBook {
 	 */
 	public function __construct($id) {
 		$this->id = $id;
-		\Sabre\VObject\Property::$classMap['GEO'] = 'Sabre\\VObject\\Property\\Compound';
 	}
 	
 	public function getAddressbook() {
@@ -63,7 +63,7 @@ class AddressbookProvider implements \OCP\IAddressBook {
 	*/
 	public function getKey() {
 		$book = $this->getAddressbook();
-		return $book['uri'];
+		return $book['uri'].':'.$book['userid'];
 	}
 
 	/**
@@ -131,17 +131,21 @@ class AddressbookProvider implements \OCP\IAddressBook {
 	* @return array|false
 	*/
 	public function search($pattern, $searchProperties, $options) {
+		\OCP\Util::writeLog('contacts', __METHOD__.' pattern: '.$pattern.' book: '.$this->id, \OCP\Util::DEBUG);
 		$ids = array();
 		$results = array();
-		$query = 'SELECT DISTINCT `contactid` FROM `' . self::PROPERTY_TABLE . '` WHERE 1 AND (';
+		$query = 'SELECT DISTINCT `contactid` FROM `' . self::PROPERTY_TABLE . '` WHERE (';
+		$params = array();
 		foreach($searchProperties as $property) {
-			$query .= '(`name` = "' . $property . '" AND `value` LIKE "%' . $pattern . '%") OR ';
+			$params[] = $property;
+			$params[] = '%' . $pattern . '%';
+			$query .= '(`name` = ? AND `value` LIKE ?) OR ';
 		}
 		$query = substr($query, 0, strlen($query) - 4);
 		$query .= ')';
 
 		$stmt = \OCP\DB::prepare($query);
-		$result = $stmt->execute();
+		$result = $stmt->execute($params);
 		if (\OC_DB::isError($result)) {
 			\OC_Log::write('contacts', __METHOD__ . 'DB error: ' . \OC_DB::getErrorMessage($result), 
 				\OCP\Util::ERROR);
@@ -151,16 +155,19 @@ class AddressbookProvider implements \OCP\IAddressBook {
 			$ids[] = $row['contactid'];
 		}
 
-		$query = 'SELECT `' . self::CONTACT_TABLE . '`.`addressbookid`, `' . self::PROPERTY_TABLE . '`.`contactid`, `' 
-			. self::PROPERTY_TABLE . '`.`name`, `' . self::PROPERTY_TABLE . '`.`value` FROM `' 
-			. self::PROPERTY_TABLE . '`,`' . self::CONTACT_TABLE . '` WHERE `'
-			. self::CONTACT_TABLE . '`.`addressbookid` = \'' . $this->id . '\' AND `'
-			. self::PROPERTY_TABLE . '`.`contactid` = `' . self::CONTACT_TABLE . '`.`id` AND `' 
-			. self::PROPERTY_TABLE . '`.`contactid` IN (' . join(',', array_fill(0, count($ids), '?')) . ')';
+		if(count($ids) > 0) {
+			$query = 'SELECT `' . self::CONTACT_TABLE . '`.`addressbookid`, `' . self::PROPERTY_TABLE . '`.`contactid`, `' 
+				. self::PROPERTY_TABLE . '`.`name`, `' . self::PROPERTY_TABLE . '`.`value` FROM `' 
+				. self::PROPERTY_TABLE . '`,`' . self::CONTACT_TABLE . '` WHERE `'
+				. self::CONTACT_TABLE . '`.`addressbookid` = \'' . $this->id . '\' AND `'
+				. self::PROPERTY_TABLE . '`.`contactid` = `' . self::CONTACT_TABLE . '`.`id` AND `' 
+				. self::PROPERTY_TABLE . '`.`contactid` IN (' . join(',', array_fill(0, count($ids), '?')) . ')';
 
-		//\OC_Log::write('contacts', __METHOD__ . 'DB query: ' . $query, \OCP\Util::DEBUG);
-		$stmt = \OCP\DB::prepare($query);
-		$result = $stmt->execute($ids);
+			\OC_Log::write('contacts', __METHOD__ . 'DB query: ' . $query, \OCP\Util::DEBUG);
+		\OCP\Util::writeLog('contacts', __METHOD__.' params: '.print_r($ids, true), \OCP\Util::DEBUG);
+			$stmt = \OCP\DB::prepare($query);
+			$result = $stmt->execute($ids);
+		}
 		while( $row = $result->fetchRow()) {
 			$this->getProperty($results, $row);
 		}

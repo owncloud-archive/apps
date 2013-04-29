@@ -1,5 +1,21 @@
 <?php
 
+/**
+ *  Copyright 2012 François Kooman <fkooman@tuxed.net>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 namespace OAuth;
 
 class RemoteResourceServer
@@ -35,7 +51,31 @@ class RemoteResourceServer
         $headerKeys = array_keys($apacheHeaders);
         $keyPositionInArray = array_search(strtolower("Authorization"), array_map('strtolower', $headerKeys));
         $authorizationHeader = (FALSE !== $keyPositionInArray) ? $apacheHeaders[$headerKeys[$keyPositionInArray]] : NULL;
-        $this->verifyAuthorizationHeader($authorizationHeader);
+        $this->verifyAuthorization($authorizationHeader, $_GET);
+    }
+
+    public function verifyAuthorization($authorizationHeader = NULL, array $queryParameters = NULL)
+    {
+        // FIXME: only one authorization mechanism should be allowed
+        if (NULL !== $authorizationHeader) {
+            $this->verifyAuthorizationHeader($authorizationHeader);
+
+            return;
+        }
+        if (array_key_exists('access_token', $queryParameters)) {
+            $this->verifyQueryParameter($queryParameters);
+
+            return;
+        }
+        $this->_handleException("no_token", "no access token provided");
+    }
+
+    public function verifyQueryParameter(array $queryParameters)
+    {
+        if (!array_key_exists('access_token', $queryParameters)) {
+            $this->_handleException("no_token", "no access token in query parameter");
+        }
+        $this->verifyBearerToken($queryParameters['access_token']);
     }
 
     /**
@@ -47,7 +87,7 @@ class RemoteResourceServer
     public function verifyAuthorizationHeader($authorizationHeader)
     {
         if (NULL === $authorizationHeader) {
-            $this->_handleException("no_token", "no authorization header in the request");
+            $this->_handleException("no_token", "no authorization header");
         }
         // b64token = 1*( ALPHA / DIGIT / "-" / "." / "_" / "~" / "+" / "/" ) *"="
         $b64TokenRegExp = '(?:[[:alpha:][:digit:]-._~+/]+=*)';
@@ -56,13 +96,26 @@ class RemoteResourceServer
             $this->_handleException("invalid_token", "the access token is malformed");
         }
         $accessToken = $matches['value'];
+        $this->verifyBearerToken($accessToken);
+    }
 
+    public function verifyBearerToken($accessToken)
+    {
         $getParameters = array();
         $getParameters["access_token"] = $accessToken;
 
         $curlChannel = curl_init();
+
+        $tokenInfoUrl = $this->_getRequiredConfigParameter("tokenInfoEndpoint");
+        if (0 !== strpos($tokenInfoUrl, "file://")) {
+            $separator = (FALSE === strpos($tokenInfoUrl, "?")) ? "?" : "&";
+            $tokenInfoUrl .= $separator . http_build_query($getParameters);
+        } else {
+            // file cannot have query parameter, use accesstoken as file instead
+            $tokenInfoUrl .= $accessToken . ".json";
+        }
         curl_setopt_array($curlChannel, array (
-            CURLOPT_URL => $this->_getRequiredConfigParameter("tokenInfoEndpoint") . "?" . http_build_query($getParameters),
+            CURLOPT_URL => $tokenInfoUrl,
             //CURLOPT_FOLLOWLOCATION => 1,
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_SSL_VERIFYPEER => 1,
@@ -70,11 +123,20 @@ class RemoteResourceServer
         ));
 
         $output = curl_exec($curlChannel);
+
+        if (FALSE === $output) {
+            $error = curl_error($curlChannel);
+            $this->_handleException("internal_server_error", "cURL error while talking to tokenInfoEndpoint: $error");
+        }
+
         $httpCode = curl_getinfo($curlChannel, CURLINFO_HTTP_CODE);
         curl_close($curlChannel);
 
-        if (200 !== $httpCode) {
-            $this->_handleException("invalid_token", "the access token is not valid");
+        if (0 !== strpos($tokenInfoUrl, "file://")) {
+            // not a file
+            if (200 !== $httpCode) {
+                $this->_handleException("invalid_token", "the access token is not valid");
+            }
         }
 
         $token = json_decode($output, TRUE);
@@ -119,11 +181,11 @@ class RemoteResourceServer
         if (!$this->_isVerified) {
             $this->_handleException("internal_server_error", "verify method needs to be requested first");
         }
-        if (!array_key_exists("entitlement", $this->_resourceOwnerAttributes)) {
+        if (!array_key_exists('eduPersonEntitlement', $this->_resourceOwnerAttributes)) {
             return array();
         }
 
-        return $this->_resourceOwnerAttributes['entitlement'];
+        return $this->_resourceOwnerAttributes['eduPersonEntitlement'];
     }
 
     public function hasScope($scope)
@@ -152,16 +214,37 @@ class RemoteResourceServer
         }
     }
 
+    /**
+     * At least one of the scopes should be granted
+     *
+     * @param array $scope the list of scopes of which one
+     *                                       should be granted
+     * @throws RemoteResourceServerException if not at least one of the provided
+     *                                       scopes was granted
+     */
+    public function requireAnyScope(array $scope)
+    {
+        if (!$this->_isVerified) {
+            $this->_handleException("internal_server_error", "verify method needs to be requested first");
+        }
+        foreach ($scope as $s) {
+            if (TRUE === $this->hasScope($s)) {
+                return;
+            }
+        }
+        $this->_handleException("insufficient_scope", "no permission for this call with granted scope");
+    }
+
     public function hasEntitlement($entitlement)
     {
         if (!$this->_isVerified) {
             $this->_handleException("internal_server_error", "verify method needs to be requested first");
         }
-        if (!array_key_exists("entitlement", $this->_resourceOwnerAttributes)) {
+        if (!array_key_exists('eduPersonEntitlement', $this->_resourceOwnerAttributes)) {
             return FALSE;
         }
 
-        return in_array($entitlement, $this->_resourceOwnerAttributes['entitlement']);
+        return in_array($entitlement, $this->_resourceOwnerAttributes['eduPersonEntitlement']);
     }
 
     public function requireEntitlement($entitlement)

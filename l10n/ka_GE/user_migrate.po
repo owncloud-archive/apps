@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Romeo Pirtskhalava <romeo@energo-pro.ge>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-22 02:04+0200\n"
-"PO-Revision-Date: 2012-08-12 22:45+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-04-17 09:53+0200\n"
+"PO-Revision-Date: 2013-04-17 07:54+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,33 +20,20 @@ msgstr ""
 
 #: js/export.js:14 js/export.js:20
 msgid "Export"
-msgstr ""
+msgstr "ექსპორტი"
 
 #: js/export.js:19
 msgid "Something went wrong while the export file was being generated"
-msgstr ""
+msgstr "მოხდა შეცდომა ექსპორტ ფაილის გენერაციის დროს"
 
 #: js/export.js:19
 msgid "An error has occurred"
-msgstr ""
+msgstr "დაფიქსირდა შეცდომა"
 
 #: templates/settings.php:2
-msgid "Export your user account"
-msgstr ""
+msgid "User Account Migration"
+msgstr "მომხმარებლის ანგარიშის მიგრაცია"
 
 #: templates/settings.php:3
-msgid ""
-"This will create a compressed file that contains your ownCloud account."
-msgstr ""
-
-#: templates/settings.php:13
-msgid "Import user account"
-msgstr ""
-
-#: templates/settings.php:15
-msgid "ownCloud User Zip"
-msgstr ""
-
-#: templates/settings.php:17
-msgid "Import"
-msgstr ""
+msgid "Export and import ownCloud user accounts."
+msgstr "ownCloud მომხმარებლის ექსპორტი და იმპორტი."

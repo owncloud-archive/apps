@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Hydriz <admin@alphacorp.tk>, 2013
+# Hydriz <admin@alphacorp.tk>, 2013
+# pellaeon <nfsmwlin@gmail.com>, 2013
+# ronnietse <tseronnie@ymail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:25+0000\n"
+"Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: templates/wizard.php:7
+msgid "Welcome to ownCloud"
+msgstr "歡迎來到 ownCloud"
+
+#: templates/wizard.php:8
+msgid ""
+"Your personal web services. All your files, contacts, calendar and more, in "
+"one place."
+msgstr "您的個人線上服務，所有檔案、文件、聯絡人、日曆都在這。"
+
+#: templates/wizard.php:11
+msgid "Get the apps to sync your files"
+msgstr "下載應用程式來同步您的檔案"
+
+#: templates/wizard.php:23
+msgid "Connect your desktop apps to ownCloud"
+msgstr "把您的桌面應用程式與 ownCloud 連結"
+
+#: templates/wizard.php:25
+msgid "Connect your Calendar"
+msgstr "連結您的日曆"
+
+#: templates/wizard.php:28
+msgid "Connect your Contacts"
+msgstr "連結您的聯絡人"
+
+#: templates/wizard.php:31
+msgid "Access files via WebDAV"
+msgstr "透過 WebDAV 存取檔案"
+
+#: templates/wizard.php:34
+msgid ""
+"There’s more information in the <a "
+"href=\"http://doc.owncloud.org/server/5.0/user_manual/\">documentation</a> "
+"and on our <a href=\"http://owncloud.org\">website</a>."
+msgstr "<a href=\"http://doc.owncloud.org/server/5.0/user_manual/\">說明文件</a>和我們的<a href=\"http://owncloud.org\">網站</a>還有更多資訊。"
+
+#: templates/wizard.php:35
+msgid ""
+"If you like ownCloud, <a href=\"mailto:?subject=ownCloud&body=ownCloud is a "
+"great open software to sync and share your files. You can freely get it from"
+" http://owncloud.org\">recommend it to your friends</a>!"
+msgstr "如果您喜歡 ownCloud，<a href=\"mailto:?subject=ownCloud&body=ownCloud ownCloud 讓您輕鬆的同步和分享檔案， 請至http://owncloud.org 免費取得\">把它推薦給朋友</a>吧！"

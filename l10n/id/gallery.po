@@ -3,16 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <mr.pige_ina@yahoo.co.id>, 2012.
-# Muhammad Fauzan <yosanpro@gmail.com>, 2012.
-# Muhammad Panji <sumodirjo@gmail.com>, 2012.
+# elmakong <mr.pige_ina@yahoo.co.id>, 2012
+# Muhammad Fauzan <yosanpro@gmail.com>, 2012
+# Muhammad Panji <sumodirjo@gmail.com>, 2012
+# rodin <romihardiyanto@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-21 02:03+0200\n"
-"PO-Revision-Date: 2012-10-20 23:02+0000\n"
-"Last-Translator: elmakong <mr.pige_ina@yahoo.co.id>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:23+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,32 +21,20 @@ msgstr ""
 "Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: appinfo/app.php:45
+#: appinfo/app.php:36
 msgid "Pictures"
 msgstr "Gambar"
 
-#: appinfo/app.php:53
-msgid "Galleries"
-msgstr "galeri galeri"
+#: js/gallery.js:269
+msgid "Shared by"
+msgstr "Dibagikan oleh"
 
-#: js/pictures.js:12
-msgid "Share gallery"
-msgstr "Bagikan galeri"
-
-#: js/pictures.js:32
-msgid "Error: "
-msgstr "kesalahan:"
-
-#: js/pictures.js:32
-msgid "Internal error"
-msgstr "kesalahan internal"
-
-#: templates/index.php:27
-msgid "Slideshow"
-msgstr "Tampilan bergeser"
+#: templates/index.php:4 templates/index.php:5
+msgid "Share"
+msgstr "Bagikan"
 
 #: templates/no-image-app.php:9
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr "aplikasi \"penampil gambar\" butuh di aktifkan untuk menggunakan aplikasi ini"
+msgstr "Aplikasi \"Penampil Gambar\" juga harus diaktifkan untuk untuk menggunakan aplikasi ini"

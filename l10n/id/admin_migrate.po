@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Mohamad Hasan Al Banna <se7entime@gmail.com>, 2013.
 #   <putu.sutha@yahoo.com>, 2012.
+#  <romihardiyanto@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-07 00:01+0100\n"
-"PO-Revision-Date: 2012-11-05 23:30+0000\n"
+"POT-Creation-Date: 2013-04-17 09:53+0200\n"
+"PO-Revision-Date: 2013-04-17 07:53+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -32,18 +34,18 @@ msgstr "Akan membuat file terkompresi yang berisi data dari ownlcloud ini."
 msgid "Please choose the export type:"
 msgstr "Silahkan pilih tipe ekspor:"
 
-#: templates/settings.php:10
-msgid "ownCloud instance (user data and database"
-msgstr ""
-
 #: templates/settings.php:11
+msgid "ownCloud instance (user data and database)"
+msgstr "Instalasi ownCloud (data pengguna dan basis data)"
+
+#: templates/settings.php:12
 msgid "ownCloud system files"
 msgstr "Sitem file ownCloud"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Just user files"
 msgstr "Hanya file user saja"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Export"
 msgstr "Ekspor"

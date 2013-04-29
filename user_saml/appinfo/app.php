@@ -24,20 +24,20 @@
 
 if (OCP\App::isEnabled('user_saml')) {
 
-	require_once 'apps/user_saml/user_saml.php';
+	require_once 'user_saml/user_saml.php';
 
 	OCP\App::registerAdmin('user_saml', 'settings');
 
 	// register user backend
 	OC_User::useBackend( 'SAML' );
 
-	OC::$CLASSPATH['OC_USER_SAML_Hooks'] = 'apps/user_saml/lib/hooks.php';
+	OC::$CLASSPATH['OC_USER_SAML_Hooks'] = 'user_saml/lib/hooks.php';
 	OCP\Util::connectHook('OC_User', 'post_login', 'OC_USER_SAML_Hooks', 'post_login');
 	OCP\Util::connectHook('OC_User', 'logout', 'OC_USER_SAML_Hooks', 'logout');
 
 	if( isset($_GET['app']) && $_GET['app'] == 'user_saml' ) {
 
-		require_once 'apps/user_saml/auth.php';
+		require_once 'user_saml/auth.php';
 
 		if (!OC_User::login('', '')) {
 			$error = true;

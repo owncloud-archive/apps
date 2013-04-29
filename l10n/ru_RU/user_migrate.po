@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-22 00:01+0100\n"
-"PO-Revision-Date: 2012-11-21 07:11+0000\n"
-"Last-Translator: AnnaSch <cdewqazxsqwe@gmail.com>\n"
+"POT-Creation-Date: 2013-04-17 09:53+0200\n"
+"PO-Revision-Date: 2013-04-17 07:54+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/owncloud/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,22 +31,9 @@ msgid "An error has occurred"
 msgstr "Произошла ошибка"
 
 #: templates/settings.php:2
-msgid "Export your user account"
-msgstr "Экспортировать Ваш пользовательский аккаунт"
+msgid "User Account Migration"
+msgstr "Перенос пользовательского аккаунта"
 
 #: templates/settings.php:3
-msgid ""
-"This will create a compressed file that contains your ownCloud account."
-msgstr "Это создаст сжатый файл, содержащий Ваш ownCloud аккаунт."
-
-#: templates/settings.php:13
-msgid "Import user account"
-msgstr "Импортировать пользовательскую учетную запись"
-
-#: templates/settings.php:15
-msgid "ownCloud User Zip"
-msgstr "Zip-файл с данными пользователя ownCloud"
-
-#: templates/settings.php:17
-msgid "Import"
-msgstr "Импортировать"
+msgid "Export and import ownCloud user accounts."
+msgstr "Экспорт и импорт пользовательских аккаунтов ownCloud."

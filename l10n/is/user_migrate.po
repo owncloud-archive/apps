@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <sveinng@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-06 00:09+0100\n"
-"PO-Revision-Date: 2012-08-12 22:45+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-04-17 09:53+0200\n"
+"PO-Revision-Date: 2013-04-17 07:54+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Icelandic (http://www.transifex.com/projects/p/owncloud/language/is/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,33 +20,20 @@ msgstr ""
 
 #: js/export.js:14 js/export.js:20
 msgid "Export"
-msgstr ""
+msgstr "Flytja út"
 
 #: js/export.js:19
 msgid "Something went wrong while the export file was being generated"
-msgstr ""
+msgstr "Eitthvað fór úrskeðis við gerð skráar til útflutning"
 
 #: js/export.js:19
 msgid "An error has occurred"
-msgstr ""
+msgstr "Villa kom upp"
 
 #: templates/settings.php:2
-msgid "Export your user account"
-msgstr ""
+msgid "User Account Migration"
+msgstr "Flutningur notenda aðganga"
 
 #: templates/settings.php:3
-msgid ""
-"This will create a compressed file that contains your ownCloud account."
-msgstr ""
-
-#: templates/settings.php:13
-msgid "Import user account"
-msgstr ""
-
-#: templates/settings.php:15
-msgid "ownCloud User Zip"
-msgstr ""
-
-#: templates/settings.php:17
-msgid "Import"
-msgstr ""
+msgid "Export and import ownCloud user accounts."
+msgstr "Inn- og útflutningur fyrir ownCloud notenda aðganga"

@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Gilad Naaman <gilad.doom@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: ownCloud\n"
+"Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:25+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"Language-Team: Hebrew (http://www.transifex.com/projects/p/owncloud/language/he/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: he\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/notification.php:1
+msgid "Greetings {user},"
+msgstr "ברוך הבא {user},"
+
+#: templates/notification.php:2
+msgid ""
+"Sorry, but a malware was detected in a file you tried to upload and it had "
+"to be deleted."
+msgstr "סליחה, אבל התגלתה נוזקה באחד מהקבצים שניסית להעלות והוא נאלץ להמחק."
+
+#: templates/notification.php:3
+msgid "This email is a notification from {host}. Please, do not reply."
+msgstr "דוא\"ל זה הוא התראה מ{host}. אנא, אל תגיב אליו."
+
+#: templates/notification.php:4
+msgid "File uploaded: {file}"
+msgstr "קובץ הועלה: {file}"
+
+#: templates/settings.php:3
+msgid "Antivirus Configuration"
+msgstr "הגדרות אנטי-וירוס"
+
+#: templates/settings.php:4
+msgid "Mode"
+msgstr "מצב"
+
+#: templates/settings.php:5
+msgid "Executable"
+msgstr "קובץ הפעלה"
+
+#: templates/settings.php:5
+msgid "Daemon"
+msgstr "Daemon"
+
+#: templates/settings.php:7
+msgid "Host"
+msgstr "מארח"
+
+#: templates/settings.php:7
+msgid "Address of Antivirus Host."
+msgstr "כתובת של מארח האנטי-וירוס."
+
+#: templates/settings.php:7 templates/settings.php:8 templates/settings.php:9
+msgid "Not required in Executable Mode."
+msgstr "לא הכרחי במצב קובץ הפעלה."
+
+#: templates/settings.php:8
+msgid "Port"
+msgstr "פורט"
+
+#: templates/settings.php:8
+msgid "Port number of Antivirus Host."
+msgstr "מספר פורט של מארח אנטי-וירוס."
+
+#: templates/settings.php:9
+msgid "Stream Length"
+msgstr "אורך הזרם"
+
+#: templates/settings.php:9
+msgid "ClamAV StreamMaxLength value in bytes."
+msgstr "ערך של ClamAV StreamMaxLength בבתים."
+
+#: templates/settings.php:10
+msgid "Path to clamscan"
+msgstr "נתיב אל clamscan"
+
+#: templates/settings.php:10
+msgid "Path to clamscan executable."
+msgstr "נתיב אל קובץ ההפעלה של clamscan."
+
+#: templates/settings.php:10
+msgid "Not required in Daemon Mode."
+msgstr "לא נדרש במצב Daemon."
+
+#: templates/settings.php:11
+msgid "Action for infected files found while scanning"
+msgstr "פעולה שתנקט במקרה של מציאת קבצים נגועים בזמן הסריקה"
+
+#: templates/settings.php:12
+msgid "Only log"
+msgstr "רק לוג"
+
+#: templates/settings.php:12
+msgid "Delete file"
+msgstr "מחק קובץ"
+
+#: templates/settings.php:15
+msgid "Save"
+msgstr "שמירה"

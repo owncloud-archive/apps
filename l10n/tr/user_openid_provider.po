@@ -3,32 +3,33 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Necdet Yücel <necdetyucel@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-18 22:56+0200\n"
-"PO-Revision-Date: 2012-10-18 20:57+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-04-17 09:53+0200\n"
+"PO-Revision-Date: 2013-04-17 07:54+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: templates/settings.php:3
 msgid "OpenID Provider remembered sites"
-msgstr ""
+msgstr "OpenID Sağlayıcı adresler"
 
 #: templates/settings.php:8
 msgid "Trusted"
-msgstr ""
+msgstr "Güvenilen"
 
 #: templates/settings.php:8
 msgid "Denied"
-msgstr ""
+msgstr "Reddedildi"
 
 #: templates/settings.php:9
 msgid "Remove"
-msgstr ""
+msgstr "Sil"

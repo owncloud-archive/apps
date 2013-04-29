@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Mustermann;Max;;;
+FN:Max Mustermann
+ORG:ownCloud
+URL:http://owncloud.org/
+UID:e472ea61
+EMAIL;TYPE=INTERNET:max.mustermann@example.org
+TEL;TYPE=voice,work,pref:+49 1234 56788
+ADR;TYPE=intl,work,postal,parcel:;;Musterstraße 1;Musterstadt;;12345;Germany
+END:VCARD

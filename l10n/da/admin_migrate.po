@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Bawl <transifex@bawl.dk>, 2013.
+#   <cronner@gmail.com>, 2012.
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2012.
 #   <sr@ybnet.dk>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-07 00:01+0100\n"
-"PO-Revision-Date: 2012-11-05 23:30+0000\n"
+"POT-Creation-Date: 2013-04-17 09:53+0200\n"
+"PO-Revision-Date: 2013-04-17 07:53+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -33,18 +35,18 @@ msgstr "Dette vil generere en pakket fil med dataene fra denne ownCloud-installa
 msgid "Please choose the export type:"
 msgstr "Vælg eksporttype:"
 
-#: templates/settings.php:10
-msgid "ownCloud instance (user data and database"
-msgstr ""
-
 #: templates/settings.php:11
+msgid "ownCloud instance (user data and database)"
+msgstr "ownCloud instans (brugerdata og database)"
+
+#: templates/settings.php:12
 msgid "ownCloud system files"
 msgstr "ownClouds systemfiler"
 
-#: templates/settings.php:12
+#: templates/settings.php:13
 msgid "Just user files"
 msgstr "Kun brugeres filer"
 
-#: templates/settings.php:13
+#: templates/settings.php:14
 msgid "Export"
 msgstr "Eksporter"

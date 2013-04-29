@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-30 00:01+0100\n"
-"PO-Revision-Date: 2012-11-28 23:14+0000\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 23:02+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -18,394 +18,146 @@ msgstr ""
 "Language: si_LK\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ajax/changefoldername.php:30
-msgid "Error changing name of folder "
-msgstr "ෆොල්ඩරයේ නම වෙනස් කිරීමේදී දෝෂයක් සිදුවිය"
-
-#: ajax/collapsefolder.php:36
-msgid "Error collapsing folder."
-msgstr "ෆොල්ඩරය හැකිළීමේදි දෝෂයක්"
-
-#: ajax/createfeed.php:52
-msgid "Feed already exists."
-msgstr "සංග්‍රහය දැනටමත් පවතී"
-
-#: ajax/createfeed.php:58
-msgid "Error adding feed."
-msgstr "සංග්‍රහය එකතු කිරීමේදී දෝෂයක් සිදුවිය"
-
-#: ajax/createfeed.php:71
-msgid "Feed added!"
-msgstr "සංග්‍රහය එකතු කරන ලදී"
-
-#: ajax/createfolder.php:37
-msgid "Error adding folder."
-msgstr "ෆොල්ඩරය එකතු කිරීමේදි දෝෂයක් සිදුවිය"
-
-#: ajax/createfolder.php:47
-msgid "Folder added!"
-msgstr "ෆොල්ඩරය එකතු කරන ලදී"
-
-#: ajax/deletefeed.php:29
-msgid "Error removing feed."
-msgstr "සංග්‍රහය ඉවත් කිරීමේදී දෝෂයක් සිදුවිය"
-
-#: ajax/deletefolder.php:27
-msgid "Error removing folder."
-msgstr "ෆොල්ඩරය ඉවත් කිරීමේදී දෝෂයක් සිදුවිය"
-
-#: ajax/feedlist.php:28
-msgid "Error updating feeds."
-msgstr "සංග්‍රහ යාවත්කාලීන කිරීමේදී දෝෂයක් සිදුවිය"
-
-#: ajax/importopml.php:40
-msgid "Empty filename"
-msgstr "ගොනු නාමය හිස්"
-
-#: ajax/importopml.php:50
-msgid "No source argument passed"
-msgstr "මුල් තර්කයක් ලබාදී නැත"
-
-#: ajax/importopml.php:54
-msgid "Error while reading file"
-msgstr "ගොනුව කියවීමේදී දෝෂයක්"
-
-#: ajax/importopml.php:64
-msgid "An error occurred while parsing the file."
-msgstr "ගොනුවේ ව්‍යාකරණ විග්‍රහ කිරීමේදී දෝෂයක් සිදුවිය"
-
-#: ajax/loadfeed.php:52
-msgid "Feed loaded!"
-msgstr "සංග්‍රහය පූරණය කරන ලදි!"
-
-#: ajax/movefeedtofolder.php:37
-msgid "Error moving feed into folder."
-msgstr "සංග්‍රහය ෆොල්ඩරයට ගෙනයෑමේදී දෝෂයක් සිදුවිය"
-
-#: ajax/selectfromcloud.php:31
-msgid "No file path was submitted."
-msgstr "ගොනු පෙතක් ලබාදී නැත"
-
-#: ajax/selectfromcloud.php:38
-msgid "File doesn't exist:"
-msgstr "ගොනුව නොපවතී"
-
-#: ajax/selectfromcloud.php:44
-msgid "Couldn't save temporary image: "
-msgstr "තාවකාලික රූපය සුරැකීමට නොහැකි විය"
-
-#: ajax/setallitemsread.php:63
-msgid "Error setting all items as read."
-msgstr "සියලු අයිතම කියවන ලදී යයි සලකුණු කිරීමේදි දෝෂයක් සිදුවිය"
-
-#: ajax/setitemstatus.php:47
-msgid "Error marking item as read."
-msgstr "මෙම අයිතමය කියවන ලදී යයි සලකුණු කිරීමේදි දෝෂයක් සිදුවිය"
-
-#: ajax/updatefeed.php:37
-msgid "Error updating feed."
-msgstr "සංග්‍රහය යාවත්කාලීන කිරීමේදී දෝෂයක් සිදුවිය"
-
-#: ajax/updatefeed.php:45
-msgid "Feed updated!"
-msgstr "සංග්‍රහය යාවත්කාලීන කරන ලදී!"
-
-#: appinfo/app.php:38 lib/search.php:21 opmlexporter.php:43
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "ප්‍රවෘත්ති"
 
-#: js/items.js:122
-msgid "Error while loading the feed"
-msgstr "සංග්‍රහය පූරණය කිරීමේදී දෝෂයක් සිදුවිය"
+#: templates/part.addnew.php:7
+msgid "New"
+msgstr "නව"
 
-#: js/items.js:122 js/items.js:589 js/items.js:700 js/main.js:114
-#: js/menu.js:532 js/menu.js:592 js/menu.js:614 js/menu.js:641 js/menu.js:663
-#: js/menu.js:914 js/news.js:28 js/news.js:46 js/news.js:58 js/news.js:76
-#: js/news.js:90 js/news.js:116 js/settings.js:10 js/settings.js:17
-#: js/settings.js:68
-msgid "Error"
-msgstr "දෝෂයක්"
-
-#: js/main.js:33
-msgid "None"
-msgstr "කිසිවක් නැත"
-
-#: js/main.js:101 templates/main.php:17
-msgid "Show only unread"
-msgstr "කියවා නැති පමණක් පෙන්වන්න"
-
-#: js/main.js:105 templates/main.php:13
-msgid "Show everything"
-msgstr "සියල්ල පෙන්වන්න"
-
-#: js/menu.js:505
-msgid "Are you sure you want to delete this feed?"
-msgstr "මෙම සංග්‍රහය මකන බවට සහතිකද?"
-
-#: js/menu.js:513
-msgid "Are you sure you want to delete this folder and all its feeds?"
-msgstr "මෙම ෆොල්ඩරය හා එහි අඩංගු සංග්‍රහ මකන බවට සහතිකද?"
-
-#: js/menu.js:521
-msgid "Warning"
-msgstr "අවවාදය"
-
-#: js/news.js:28 js/news.js:58
-msgid "Name of the folder cannot be empty."
-msgstr "ෆොල්ඩරයේ නම හිස් විය නොහැක."
-
-#: js/news.js:33 js/news.js:95
-msgid "Adding..."
-msgstr "එකතුවේ..."
-
-#: js/news.js:50 templates/part.dialogues.php:9
-msgid "Add folder"
-msgstr "ෆොල්ඩරය එකතු කරන්න"
-
-#: js/news.js:63
-msgid "Changing..."
-msgstr "වෙනස්වේ..."
-
-#: js/news.js:79 templates/part.dialogues.php:34
-#: templates/part.dialogues.php:38 templates/part.dialogues.php:43
-msgid "Change folder name"
-msgstr "ෆොල්ඩරයේ නම වෙනස් කරන්න"
-
-#: js/news.js:90
-msgid "URL cannot be empty."
-msgstr "යොමුව හිස් විය නොහැක"
-
-#: js/news.js:120 js/news.js:127 templates/firstrun.php:5
-msgid "Add feed"
-msgstr "සංග්‍රහය එකතු කරන්න"
-
-#: js/news.js:124
-msgid "Error while parsing the feed"
-msgstr "සංග්‍රහය ව්‍යාකරණ විග්‍රහ කිරීමේදී දෝෂයක් සිදුවිය"
-
-#: js/news.js:124
-msgid "Fatal Error"
-msgstr "මාරක දෝෂයක්"
-
-#: js/settings.js:17
-msgid "No files selected."
-msgstr "ගොනුවක් තෝරා නැත"
-
-#: js/settings.js:31
-msgid "Importing OPML file..."
-msgstr "OPML ගොනුවක් ආයාත කරනවා..."
-
-#: js/settings.js:42
-msgid "Not a valid type"
-msgstr "වලංගු වර්ගයක් නොවේ"
-
-#: js/settings.js:60
-msgid "Importing done"
-msgstr "ආයාත කිරීම අවසන්"
-
-#: js/settings.js:64
-msgid "Error while importing feeds."
-msgstr "සංග්‍රහ ආයාත කිරීමේ දෝෂයක්"
-
-#: js/settings.js:88
-msgid "Select file"
-msgstr "ගොනුව තෝරන්න"
-
-#: lib/feedmapper.php:180 lib/itemmapper.php:221
-msgid "no title"
-msgstr "මාතෘකාවක් නැත"
-
-#: lib/foldermapper.php:127
-msgid "no name"
-msgstr "නමක් නැත"
-
-#: lib/itemmapper.php:226
-msgid "no body"
-msgstr "සිරුරක් නැත"
-
-#: opmlexporter.php:53
-msgid "subscriptions in ownCloud - News"
-msgstr "ownCloudහි දායකවුවන් - ප්‍රවෘත්ති"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "දෝෂයක් සිදුවිය"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "විශිෂ්ඨයි! ඔබ දැන් දායකවී ඇත්තේ"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr ""
-
-#: templates/firstrun.php:2
-msgid "You don't have any feed in your reader."
-msgstr "ඔබගේ පාඨකයා තුළ සංග්‍රහ කිසිවක් නැත"
-
-#: templates/firstrun.php:6 templates/part.dialogues.php:28
-msgid "Address"
-msgstr "ලිපිනය"
-
-#: templates/firstrun.php:7 templates/subscribelet.php:7
-msgid "Subscribe"
-msgstr "දායකවන්න"
-
-#: templates/firstrun.php:11
-msgid "Import OPML"
-msgstr "OPML ආයාත කරන්න"
-
-#: templates/firstrun.php:12
-msgid "Upload file from desktop"
-msgstr "වැඩතලයෙන් ගොනුවක් උඩුගත කරන්න"
-
-#: templates/firstrun.php:12
-msgid "Upload"
-msgstr "උඩුගත කරන්න"
-
-#: templates/firstrun.php:13
-msgid "Select file from ownCloud"
-msgstr "ownCloudවලින් ගොනුවක් තෝරන්න"
-
-#: templates/firstrun.php:13
-msgid "Select"
-msgstr "තෝරන්න"
-
-#: templates/firstrun.php:15 templates/settings.php:4
-msgid ""
-"Select file from <a href=\"#\" class=\"settings\" id=\"browselink\">local "
-"filesystem</a> or <a href=\"#\" class=\"settings\" "
-"id=\"cloudlink\">cloud</a>"
-msgstr "ගොනුව තේරිය යුත්තේ <a href=\"#\" class=\"settings\" id=\"browselink\">පෙදෙසි ගොනු පද්ධතියෙන් </a> හෝ <a href=\"#\" class=\"settings\" id=\"cloudlink\">වළාකුලින්</a>"
-
-#: templates/firstrun.php:18
-msgid "Import"
-msgstr "ආයාත කරන්න"
-
-#: templates/firstrun.php:24
-msgid "Or..."
-msgstr "නැතහොත්..."
-
-#: templates/main.php:34
-msgid "Add feed or folder"
-msgstr "සංග්‍රහය හෝ ෆොල්ඩරය එකතු කරන්න"
-
-#: templates/main.php:35
-msgid "Add Feed/Folder"
-msgstr "සංග්‍රහය/ෆොල්ඩරය එකතු කරන්න"
-
-#: templates/main.php:37
-msgid "Feed"
-msgstr "සංග්‍රහය"
-
-#: templates/main.php:38
-msgid "Folder"
-msgstr "ෆොල්ඩරය"
-
-#: templates/main.php:45
-msgid "Settings"
-msgstr "සිටුවම්"
-
-#: templates/part.dialogues.php:1
-msgid "Add Folder"
-msgstr "ෆොල්ඩරය එකතු කරන්න"
-
-#: templates/part.dialogues.php:4
-msgid "Add new folder"
-msgstr "නව ෆොල්ඩරයක් එකතු කරන්න"
-
-#: templates/part.dialogues.php:8 templates/part.dialogues.php:42
-msgid "Folder name"
-msgstr "ෆොල්ඩරයේ නම"
-
-#: templates/part.dialogues.php:14
+#: templates/part.addnew.php:12
 msgid "Add Subscription"
 msgstr "දායකත්වය එකතු කරන්න"
 
-#: templates/part.dialogues.php:17
-msgid "Add new feed"
-msgstr "නව සංග්‍රහයක් එකතු කරන්න"
+#: templates/part.addnew.php:14
+msgid "Address must not be empty!"
+msgstr ""
 
-#: templates/part.dialogues.php:20
-msgid "Choose folder"
-msgstr "ෆොල්ඩරය තෝරන්න"
+#: templates/part.addnew.php:16
+msgid ""
+"Could not add feed! Check if feed contains valid RSS or exists already!"
+msgstr ""
 
-#: templates/part.dialogues.php:29
+#: templates/part.addnew.php:18
+msgid "Folder exists already"
+msgstr ""
+
+#: templates/part.addnew.php:23
+msgid "Address"
+msgstr "ලිපිනය"
+
+#: templates/part.addnew.php:25 templates/part.addnew.php:28
 msgid "Add"
 msgstr "එකතු කරන්න"
 
-#: templates/part.feeds.php:48
-msgid "New articles"
-msgstr "නවතම ලිපි"
+#: templates/part.addnew.php:30
+msgid "New folder"
+msgstr ""
 
-#: templates/part.feeds.php:51 templates/part.listfeed.php:34
-#: templates/part.listfolder.php:35
-msgid "Mark all read"
-msgstr "සියල්ල කියවා ඇතැයි සලකුණු කරන්න"
+#: templates/part.addnew.php:31
+msgid "Folder"
+msgstr "ෆෝල්ඩරය"
 
-#: templates/part.feeds.php:55
+#: templates/part.addnew.php:36
+msgid "No folder"
+msgstr ""
+
+#: templates/part.feed.starred.php:6
 msgid "Starred"
 msgstr "තරු දැමු"
 
-#: templates/part.items.php:17 templates/part.shared.php:18
-msgid "Mark as unimportant"
-msgstr "නොවැදගත් යයි ලකුණු කරන්න"
+#: templates/part.feed.unread.php:10
+msgid "Unread articles"
+msgstr ""
 
-#: templates/part.items.php:20 templates/part.shared.php:21
-msgid "Mark as important"
-msgstr "වැදගත් යයි ලකුණු කරන්න"
+#: templates/part.feed.unread.php:16
+msgid "All articles"
+msgstr ""
 
-#: templates/part.items.php:38 templates/part.shared.php:38
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:29
+#: templates/part.listfolder.php:33
+msgid "Mark all read"
+msgstr "සියල්ල කියවා ඇතැයි සලකුණු කරන්න"
+
+#: templates/part.items.php:27
 msgid "from"
-msgstr "වෙතින්"
+msgstr ""
 
-#: templates/part.items.php:44 templates/part.shared.php:44
+#: templates/part.items.php:32
 msgid "by"
-msgstr "විසින්"
+msgstr ""
 
-#: templates/part.items.php:70 templates/part.items.php:71
-#: templates/part.shared.php:55
-msgid "Share"
-msgstr "බෙදා හදාගන්න"
+#: templates/part.items.php:39
+msgid "Cant play audio format"
+msgstr ""
 
-#: templates/part.items.php:72 templates/part.shared.php:60
+#: templates/part.items.php:52
 msgid "Keep unread"
 msgstr "නොකියවුදේ තබාගන්න"
 
-#: templates/part.listfeed.php:33
+#: templates/part.listfeed.php:20
 msgid "Delete feed"
 msgstr "සංග්‍රහය මකන්න"
 
-#: templates/part.listfolder.php:29
+#: templates/part.listfolder.php:12
 msgid "Collapse"
 msgstr "හකුළන්න"
 
-#: templates/part.listfolder.php:33
+#: templates/part.listfolder.php:24
 msgid "Delete folder"
 msgstr "ෆොල්ඩරය මකන්න"
 
-#: templates/part.listfolder.php:34
+#: templates/part.listfolder.php:37
 msgid "Rename folder"
 msgstr "ෆොල්ඩරය නැවත නම් කරන්න"
 
-#: templates/settings.php:2
-msgid "Import feeds"
-msgstr "සංග්‍රහ ආයාත කරන්න"
+#: templates/part.settings.php:2
+msgid "Import / Export OPML"
+msgstr ""
 
-#: templates/settings.php:8
-msgid "Export feeds"
-msgstr "සංග්‍රහ නිර්යාත කරන්න"
+#: templates/part.settings.php:4 templates/part.settings.php:5
+msgid "Import"
+msgstr "ආයාත කරන්න"
 
-#: templates/settings.php:10
-msgid "Download OPML"
-msgstr "OPML බාගත කරන්න"
+#: templates/part.settings.php:7 templates/part.settings.php:9
+msgid "Export"
+msgstr "නිර්යාත කරන්න"
 
-#: templates/settings.php:12
+#: templates/part.settings.php:13
 msgid "Subscribelet"
 msgstr ""
 
-#: templates/subscribelet.php:5
+#: templates/part.showall.php:2
+msgid "Show all"
+msgstr ""
+
+#: templates/part.showall.php:6
+msgid "Show only unread"
+msgstr "කියවා නැති පමණක් පෙන්වන්න"
+
+#: templates/part.subscribelet.php:3
 msgid ""
 "Drag this to your browser bookmarks and click on it whenever you want to "
 "subscribe to a webpage quickly:"
 msgstr "වෙබ්පිටුවකට ඉක්මනින් දායකවීම සඳහා, මෙය ඔබගේ බ්‍රවුසරයේ පිටුසන වෙත ඇදගෙන ගොස් අතහරින්න"
+
+#: templates/part.subscribelet.php:17
+msgid "Subscribe"
+msgstr "දායකවන්න"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "දෝෂයක් සිදුවිය"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "විශිෂ්ඨයි! ඔබ දැන් දායකවී ඇත්තේ"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr ""
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "ownCloudහි දායකවුවන් - ප්‍රවෘත්ති"

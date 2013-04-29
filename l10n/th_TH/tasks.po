@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# AriesAnywhere Anywhere <ariesanywhere@gmail.com>, 2012.
+# AriesAnywhere Anywhere <ariesanywhere@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-09-27 02:01+0200\n"
-"PO-Revision-Date: 2012-09-26 11:27+0000\n"
-"Last-Translator: AriesAnywhere Anywhere <ariesanywhere@gmail.com>\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:24+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,19 +26,19 @@ msgstr "วันที่ / เวลา ไม่ถูกต้อง"
 msgid "Tasks"
 msgstr "งาน"
 
-#: js/tasks.js:78
+#: js/tasks.js:86
 msgid "Due"
 msgstr "วันที่ครบกำหนด"
 
-#: js/tasks.js:107
+#: js/tasks.js:115
 msgid "List"
 msgstr "รายการ"
 
-#: js/tasks.js:128
+#: js/tasks.js:136
 msgid "Location"
 msgstr "ตำแหน่งที่อยู่"
 
-#: js/tasks.js:415
+#: js/tasks.js:454
 msgid "No category"
 msgstr "ไม่มีหมวดหมู่"
 

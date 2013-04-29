@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <mbouzada@gmail.com>, 2012.
-# Xosé M. Lamas <correo.xmgz@gmail.com>, 2012.
+# mbouzada <mbouzada@gmail.com>, 2013
+# mbouzada <mbouzada@gmail.com>, 2012
+# Xosé M. Lamas <correo.xmgz@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-12-16 00:06+0100\n"
-"PO-Revision-Date: 2012-12-15 23:06+0000\n"
+"POT-Creation-Date: 2013-04-27 00:49+0200\n"
+"PO-Revision-Date: 2013-04-26 08:24+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -19,9 +20,17 @@ msgstr ""
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ajax/openid.php:13
+msgid "OpenID Changed"
+msgstr "OpenID cambiou"
+
+#: ajax/openid.php:15
+msgid "Invalid request"
+msgstr "Petición incorrecta"
+
 #: templates/nomode.php:12
 msgid "This is an OpenID server endpoint. For more information, see "
-msgstr "Este é un final do servidor OpenID. Para obter máis información consulte"
+msgstr "Este é un servidor final  do OpenID. Para obter máis información consulte"
 
 #: templates/nomode.php:14
 msgid "Identity: <b>"
@@ -41,11 +50,11 @@ msgstr "Acceso"
 
 #: templates/nomode.php:22
 msgid "Error: <b>No user Selected"
-msgstr "Erro:<b>Non se seleccionou ningún usuario"
+msgstr "Erro:<b>Non foi seleccionou ningún usuario"
 
 #: templates/settings.php:3
 msgid "OpenID"
-msgstr ""
+msgstr "OpenID"
 
 #: templates/settings.php:4
 msgid "you can authenticate to other sites with this address"
@@ -53,7 +62,7 @@ msgstr "pode autenticarse noutros sitios con este enderezo"
 
 #: templates/settings.php:5
 msgid "Authorized OpenID provider"
-msgstr "Fornecedor de OpenID autorizado"
+msgstr "Fornecedor  autorizado de OpenID"
 
 #: templates/settings.php:6
 msgid "Your address at Wordpress, Identi.ca, &hellip;"

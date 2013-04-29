@@ -21,8 +21,9 @@
  */
 
 OCP\App::checkAppEnabled('contacts');
+require_once __DIR__ . '/classpath.php';
 
-if(substr($_SERVER["REQUEST_URI"], 0, strlen(OC_App::getAppWebPath('contacts').'/carddav.php')) == OC_App::getAppWebPath('contacts').'/carddav.php') {
+if(substr(OCP\Util::getRequestUri(), 0, strlen(OC_App::getAppWebPath('contacts').'/carddav.php')) == OC_App::getAppWebPath('contacts').'/carddav.php') {
 	$baseuri = OC_App::getAppWebPath('contacts').'/carddav.php';
 }
 
@@ -33,14 +34,19 @@ OC_App::loadApps($RUNTIME_APPTYPES);
 // Backends
 $authBackend = new OC_Connector_Sabre_Auth();
 $principalBackend = new OC_Connector_Sabre_Principal();
-$carddavBackend   = new OC_Connector_Sabre_CardDAV();
+
+$addressbookbackends = array();
+$addressbookbackends[] = new OCA\Contacts\Backend\Shared();
+$addressbookbackends[] = new OCA\Contacts\Backend\Database();
+$carddavBackend = new OCA\Contacts\CardDAV\Backend($addressbookbackends);
+$requestBackend = new OC_Connector_Sabre_Request();
 
 // Root nodes
 $principalCollection = new Sabre_CalDAV_Principal_Collection($principalBackend);
-$principalCollection->disableListing = true; // Disable listening
+$principalCollection->disableListing = true; // Disable listing
 
-$addressBookRoot = new OC_Connector_Sabre_CardDAV_AddressBookRoot($principalBackend, $carddavBackend);
-$addressBookRoot->disableListing = true; // Disable listening
+$addressBookRoot = new OCA\Contacts\CardDAV\AddressBookRoot($principalBackend, $carddavBackend);
+$addressBookRoot->disableListing = true; // Disable listing
 
 $nodes = array(
 	$principalCollection,
@@ -49,13 +55,17 @@ $nodes = array(
 
 // Fire up server
 $server = new Sabre_DAV_Server($nodes);
+$server->httpRequest = $requestBackend;
 $server->setBaseUri($baseuri);
 // Add plugins
 $server->addPlugin(new Sabre_DAV_Auth_Plugin($authBackend, 'ownCloud'));
-$server->addPlugin(new Sabre_CardDAV_Plugin());
+$server->addPlugin(new OCA\Contacts\CardDAV\Plugin());
 $server->addPlugin(new Sabre_DAVACL_Plugin());
 $server->addPlugin(new Sabre_DAV_Browser_Plugin(false)); // Show something in the Browser, but no upload
 $server->addPlugin(new Sabre_CardDAV_VCFExportPlugin());
 
+if(defined('DEBUG') && DEBUG) {
+	$server->debugExceptions = true;
+}
 // And off we go!
 $server->exec();
