@@ -35,7 +35,7 @@ jQuery.fn.slideShow.loadImage = function (url) {
 	return jQuery.fn.slideShow.cache[url];
 };
 
-jQuery.fn.slideShow.showImage = function (url) {
+jQuery.fn.slideShow.showImage = function (url, preloadUrl) { 
 	var container = jQuery.fn.slideShow.container;
 	jQuery.fn.slideShow.loadImage(url).then(function (image) {
 		var ratio = image.naturalWidth / image.naturalHeight,
@@ -71,6 +71,9 @@ jQuery.fn.slideShow.showImage = function (url) {
 		});
 		if (jQuery.fn.slideShow.settings.play) {
 			jQuery.fn.slideShow.setTimeout();
+		}
+		if (preloadUrl) {  
+			jQuery.fn.slideShow.loadImage(preloadUrl);  
 		}
 	});
 };
