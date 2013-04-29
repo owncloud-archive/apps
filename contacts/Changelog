@@ -1,5 +1,7 @@
 ownCloud Contacts Changelog
 
 5.0.6:
- - Unescape variables in search results and generated birthday events.
- - AddressbookProviders could have duplicate keys.
+ - Fix: Older Firefox/Iceweasel didn't show email/tel/url because of missing outerHTML.
+ - Fix: Unescape variables in search results and generated birthday events.
+ - Fix: AddressbookProviders could have duplicate keys.
+ - Feature: Add support for IMPP:SIP aka Internet calls.
