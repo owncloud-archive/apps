@@ -203,7 +203,7 @@
 "Organization" => "Organización",
 "Enter organization" => "Ingrese organización",
 "Birthday" => "Cumpleaños",
-"Notes go here..." => "Las notas van acá...",
+"Notes go here..." => "Las notas van aquí...",
 "Export as VCF" => "Exportar como VCF",
 "Add" => "Añadir",
 "Phone" => "Teléfono",

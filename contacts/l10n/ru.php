@@ -127,6 +127,7 @@
 "Other" => "Другое",
 "HomePage" => "Домашняя страница",
 "Jabber" => "Jabber",
+"Internet call" => "выход в интернет",
 "AIM" => "AIM",
 "MSN" => "MSN",
 "Twitter" => "Twitter",

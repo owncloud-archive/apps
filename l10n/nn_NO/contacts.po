@@ -5,13 +5,14 @@
 # Translators:
 # unhammer <unhammer+dill@mm.st>, 2011
 # olealX <post@olealx.net>, 2012
+# unhammer <unhammer+dill@mm.st>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-29 00:49+0200\n"
-"PO-Revision-Date: 2013-04-28 22:00+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-30 00:49+0200\n"
+"PO-Revision-Date: 2013-04-29 17:30+0000\n"
+"Last-Translator: unhammer <unhammer+dill@mm.st>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -89,7 +90,7 @@ msgstr ""
 
 #: ajax/uploadimport.php:38 ajax/uploadphoto.php:80
 msgid "No file was uploaded. Unknown error"
-msgstr ""
+msgstr "Ingen filer lasta opp. Ukjend feil"
 
 #: ajax/uploadimport.php:45 ajax/uploadphoto.php:86
 msgid "There is no error, the file uploaded with success"
@@ -119,11 +120,11 @@ msgstr "Manglar ei mellombels mappe"
 
 #: ajax/uploadimport.php:52
 msgid "Failed to write to disk"
-msgstr ""
+msgstr "Klarte ikkje å skriva til disk"
 
 #: ajax/uploadimport.php:62
 msgid "Not enough storage available"
-msgstr ""
+msgstr "Ikkje nok lagringsplass tilgjengeleg"
 
 #: ajax/uploadimport.php:69
 msgid "Upload of blacklisted file:"
@@ -143,7 +144,7 @@ msgstr ""
 
 #: appinfo/app.php:28
 msgid "Contacts"
-msgstr "Kotaktar"
+msgstr "Kontaktar"
 
 #: export.php:68
 #, php-format
@@ -261,7 +262,7 @@ msgstr ""
 
 #: js/app.js:1244
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr ""
+msgstr "Klarte ikkje å lasta opp fila sidan ho er ei mappe eller er på 0 byte"
 
 #: js/app.js:1244
 msgid "Upload Error"
@@ -880,11 +881,11 @@ msgstr "Legg til"
 
 #: templates/contacts.php:311
 msgid "Phone"
-msgstr "Telefonnummer"
+msgstr "Telefon"
 
 #: templates/contacts.php:312
 msgid "Email"
-msgstr "Epost"
+msgstr "E-post"
 
 #: templates/contacts.php:313
 msgid "Instant Messaging"
@@ -974,7 +975,7 @@ msgstr ""
 
 #: templates/contacts.php:398
 msgid "City"
-msgstr "Stad"
+msgstr "By"
 
 #: templates/contacts.php:402
 msgid "Some region"
@@ -1002,7 +1003,7 @@ msgstr ""
 
 #: templates/contacts.php:442 templates/settings.php:36
 msgid "Share"
-msgstr ""
+msgstr "Del"
 
 #: templates/contacts.php:443
 msgid "Export"

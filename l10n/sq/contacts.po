@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-28 00:49+0200\n"
-"PO-Revision-Date: 2013-04-27 22:49+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-04-30 00:49+0200\n"
+"PO-Revision-Date: 2013-04-29 22:00+0000\n"
+"Last-Translator: Odeen <rapid_odeen@zoho.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/projects/p/owncloud/language/sq/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: ajax/currentphoto.php:53
 msgid "Error reading contact photo."
-msgstr ""
+msgstr "Veprim i gabuar gjatë leximit të fotos së kontaktit."
 
 #: ajax/currentphoto.php:67
 msgid "Error saving temporary file."
@@ -48,7 +48,7 @@ msgstr ""
 
 #: ajax/oc_photo.php:44 ajax/oc_photo.php:47
 msgid "Error loading image."
-msgstr ""
+msgstr "Veprim i gabuar gjatë ngarkimit të fotos."
 
 #: ajax/savecrop.php:96
 msgid "Error getting PHOTO property."
@@ -142,7 +142,7 @@ msgstr ""
 
 #: appinfo/app.php:28
 msgid "Contacts"
-msgstr ""
+msgstr "Kontake"
 
 #: export.php:68
 #, php-format
@@ -421,7 +421,7 @@ msgstr "Shkarko"
 
 #: js/settings.js:101 templates/settings.php:45
 msgid "Edit"
-msgstr ""
+msgstr "Ndrysho"
 
 #: js/settings.js:102 templates/contacts.php:249 templates/contacts.php:256
 #: templates/contacts.php:263 templates/contacts.php:270
@@ -499,7 +499,7 @@ msgstr ""
 #: lib/controller/contactcontroller.php:138
 #: lib/controller/contactcontroller.php:207
 msgid "Information about vCard is incorrect. Please reload the page."
-msgstr ""
+msgstr "Informacioni mbi vCard-in është i pasaktë. Ju lutemi ringarkoni faqen."
 
 #: lib/controller/contactcontroller.php:211
 msgid "Error setting property"
@@ -541,7 +541,7 @@ msgstr ""
 
 #: lib/searchprovider.php:24
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #: lib/utils/jsonserializer.php:104 lib/utils/properties.php:155
 #: lib/utils/properties.php:168 lib/utils/properties.php:175
@@ -608,16 +608,16 @@ msgstr ""
 #: lib/utils/properties.php:153 lib/utils/properties.php:161
 #: lib/utils/properties.php:172 lib/utils/properties.php:189
 msgid "Work"
-msgstr ""
+msgstr "Punë"
 
 #: lib/utils/properties.php:154 lib/utils/properties.php:159
 #: lib/utils/properties.php:173
 msgid "Home"
-msgstr ""
+msgstr "Shtëpi"
 
 #: lib/utils/properties.php:160
 msgid "Mobile"
-msgstr ""
+msgstr "Celular"
 
 #: lib/utils/properties.php:162
 msgid "Text"
@@ -625,7 +625,7 @@ msgstr "Tekst"
 
 #: lib/utils/properties.php:163
 msgid "Voice"
-msgstr ""
+msgstr "Zë"
 
 #: lib/utils/properties.php:164
 msgid "Message"
@@ -633,15 +633,15 @@ msgstr ""
 
 #: lib/utils/properties.php:165
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 #: lib/utils/properties.php:166
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: lib/utils/properties.php:167
 msgid "Pager"
-msgstr ""
+msgstr "Pager-i"
 
 #: lib/utils/properties.php:174
 msgid "Internet"
@@ -855,7 +855,7 @@ msgstr ""
 
 #: templates/contacts.php:259 templates/contacts.php:307
 msgid "Organization"
-msgstr ""
+msgstr "Organizata/Firma"
 
 #: templates/contacts.php:262
 msgid "Enter organization"
@@ -863,7 +863,7 @@ msgstr ""
 
 #: templates/contacts.php:266 templates/contacts.php:310
 msgid "Birthday"
-msgstr ""
+msgstr "Ditëlindja"
 
 #: templates/contacts.php:297
 msgid "Notes go here..."
@@ -879,11 +879,11 @@ msgstr "Shto"
 
 #: templates/contacts.php:311
 msgid "Phone"
-msgstr ""
+msgstr "Telefoni"
 
 #: templates/contacts.php:312
 msgid "Email"
-msgstr ""
+msgstr "Email-i"
 
 #: templates/contacts.php:313
 msgid "Instant Messaging"
@@ -903,13 +903,13 @@ msgstr ""
 
 #: templates/contacts.php:318
 msgid "Delete contact"
-msgstr ""
+msgstr "Elimino kontaktin"
 
 #: templates/contacts.php:331 templates/contacts.php:346
 #: templates/contacts.php:360 templates/contacts.php:385
 #: templates/contacts.php:422
 msgid "Preferred"
-msgstr ""
+msgstr "Kryesor"
 
 #: templates/contacts.php:333
 msgid "Please specify a valid email address."
@@ -973,7 +973,7 @@ msgstr ""
 
 #: templates/contacts.php:398
 msgid "City"
-msgstr ""
+msgstr "Qyteti"
 
 #: templates/contacts.php:402
 msgid "Some region"
@@ -989,7 +989,7 @@ msgstr ""
 
 #: templates/contacts.php:408
 msgid "Country"
-msgstr ""
+msgstr "Shteti"
 
 #: templates/contacts.php:430
 msgid "Instant Messenger"
@@ -1033,11 +1033,11 @@ msgstr ""
 
 #: templates/settings.php:11
 msgid "Addressbooks"
-msgstr ""
+msgstr "Blloqe numrash"
 
 #: templates/settings.php:58
 msgid "New Address Book"
-msgstr ""
+msgstr "Bllok numrash i ri"
 
 #: templates/settings.php:59
 msgid "Name"

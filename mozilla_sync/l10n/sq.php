@@ -1,3 +1,3 @@
 <?php $TRANSLATIONS = array(
-"Share" => "Del"
+"Email" => "Email-i"
 );

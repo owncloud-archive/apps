@@ -18,13 +18,14 @@
 # rodrigo.calvo <rodrigo.calvo@gmail.com>, 2012
 # Rubén Trujillo <rubentrf@gmail.com>, 2012
 # xsergiolpx <sergioballesterossolanas@gmail.com>, 2011-2012
+# scambra <sergio@programatica.es>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-29 00:49+0200\n"
-"PO-Revision-Date: 2013-04-28 04:10+0000\n"
-"Last-Translator: msoko <sokolovitch@yahoo.com>\n"
+"POT-Creation-Date: 2013-04-30 00:49+0200\n"
+"PO-Revision-Date: 2013-04-29 09:30+0000\n"
+"Last-Translator: scambra <sergio@programatica.es>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -881,7 +882,7 @@ msgstr "Cumpleaños"
 
 #: templates/contacts.php:297
 msgid "Notes go here..."
-msgstr "Las notas van acá..."
+msgstr "Las notas van aquí..."
 
 #: templates/contacts.php:304
 msgid "Export as VCF"
