@@ -105,9 +105,11 @@ html .fluxx-handle.fluxx-vertical img {
 }
 
 /* switch cursor to a 'move' indication during move mode */
-html.fluxx-handle-move-H, html.fluxx-handle-move-H * {
+html.fluxx-handle-move-H, 
+html.fluxx-handle-move-H img {
 	cursor: col-resize !important;
 }
-html.fluxx-handle-move-N, html.fluxx-handle-move-N * {
+html.fluxx-handle-move-N, 
+html.fluxx-handle-move-N img {
 	cursor: row-resize !important;
 }
