@@ -1,5 +1,12 @@
 ownCloud Contacts Changelog
 
+6.0
+ - Rewritten backend to allow for multiple address book sources.
+ - Abstraction layer for address books and contacts.
+ - Partially ported to App Framework.
+ - Use updated app styles.
+ - Experimental contacts merge. Might eat kittens!
+
 5.0.6:
  - Unescape variables in search results and generated birthday events.
  - AddressbookProviders could have duplicate keys.

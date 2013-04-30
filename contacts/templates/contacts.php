@@ -72,13 +72,13 @@
 		<div id="contactsHeader">
 			<input type="checkbox" class="toggle" title="<?php p($l->t('(De-)select all')); ?>" />
 			<span class="actions">
-				<a class="download svg action text permanent"><?php p($l->t('Download Contact(s)')); ?></a>
 				<select class="groups svg action text permanent" name="groups">
 					<option value="-1" disabled="disabled" selected="selected"><?php p($l->t('Groups')); ?></option>
 				</select>
-				<a class="favorite action svg inactive control permanent" title="<?php p($l->t('Favorite')); ?>"></a>
+				<!--a class="favorite action svg inactive control permanent" title="<?php p($l->t('Favorite')); ?>"></a -->
 				<a class="merge"><?php p($l->t('Merge selected')); ?></a>
-				<a class="delete action permanent" title="<?php p($l->t('Delete Contact')); ?>"></a>
+				<a class="download svg action text permanent"><?php p($l->t('Download')); ?></a>
+				<a class="delete action permanent" title="<?php p($l->t('Delete')); ?>"></a>
 			</span>
 		</div>
 		<table id="contactlist">
@@ -453,11 +453,12 @@
 
 <script id="addressbookTemplate" class="hidden" type="text/template">
 <li data-id="{id}">
-	<label class="float">{displayname}</label>
+	<label>{displayname}</label>
 	<span class="actions">
-	<a title="<?php p($l->t('Share')); ?>" class="share action" data-possible-permissions="{permissions}" data-item="{id}" data-item-type="addressbook"></a>
-	<a title="<?php p($l->t('Export')); ?>" class="download action" href="<?php print_unescaped(OCP\Util::linkTo('contacts', 'export.php')); ?>?bookid={id}"></a>
-	<a  title="<?php p($l->t('CardDAV link')); ?>" class="globe action"></a>
-	<a  title="<?php p($l->t('Delete')); ?>" class="delete action"></a>
-</span></li>
+		<a title="<?php p($l->t('Share')); ?>" class="share action" data-possible-permissions="{permissions}" data-item="{id}" data-item-type="addressbook"></a>
+		<a title="<?php p($l->t('Export')); ?>" class="download action" href="<?php print_unescaped(OCP\Util::linkTo('contacts', 'export.php')); ?>?bookid={id}"></a>
+		<a  title="<?php p($l->t('CardDAV link')); ?>" class="globe action"></a>
+		<a  title="<?php p($l->t('Delete')); ?>" class="delete action"></a>
+	</span>
+</li>
 </script>

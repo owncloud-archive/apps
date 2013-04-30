@@ -609,25 +609,6 @@ OC.Contacts = OC.Contacts || {
 				//console.log('scroll, unseen:', offset, self.$rightContent.height());
 			}
 		});*/
-		this.$settings.find('.settings').on('click keydown',function(event) {
-			if(wrongKey(event)) {
-				return;
-			}
-			var bodyListener = function(e) {
-				if(self.$settings.find($(e.target)).length == 0) {
-					self.$settings.switchClass('open', '');
-				}
-			};
-			if(self.$settings.hasClass('open')) {
-				self.$settings.switchClass('open', '');
-				$('body').unbind('click', bodyListener);
-			} else {
-				// FIXME: Settings needs to be refactored
-				self.$settings.find('h2').trigger('click');
-				self.$settings.switchClass('', 'open');
-				$('body').bind('click', bodyListener);
-			}
-		});
 		$('#contactphoto_fileupload').on('click', function(event, metadata) {
 			var form = $('#file_upload_form');
 			form.find('input[name="contactid"]').val(metadata.contactid);
@@ -933,6 +914,25 @@ OC.Contacts = OC.Contacts || {
 			});
 		});
 
+		this.$settings.find('#app-settings-header').on('click keydown',function(event) {
+			if(wrongKey(event)) {
+				return;
+			}
+			var bodyListener = function(e) {
+				if(self.$settings.find($(e.target)).length == 0) {
+					self.$settings.switchClass('open', '');
+				}
+			};
+			if(self.$settings.hasClass('open')) {
+				self.$settings.switchClass('open', '');
+				$('body').unbind('click', bodyListener);
+			} else {
+				// FIXME: Settings needs to be refactored
+				self.$settings.find('h2').trigger('click');
+				self.$settings.switchClass('', 'open');
+				$('body').bind('click', bodyListener);
+			}
+		});
 		this.$settings.find('h2').on('click keydown', function(event) {
 			if(wrongKey(event)) {
 				return;
