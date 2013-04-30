@@ -40,16 +40,20 @@ if(\OCP\App::isEnabled('appframework')) {
 	$api->connectHook('\OC_Calendar', 'getEvents', '\OCA\Contacts\Hooks', 'getBirthdayEvents');
 	$api->connectHook('\OC_Calendar', 'getSources', '\OCA\Contacts\Hooks', 'getCalenderSources');
 
-}
-\OCP\Util::addscript('contacts', 'loader');
+	\OCP\Util::addscript('contacts', 'loader');
 
-\OC_Search::registerProvider('OCA\Contacts\SearchProvider');
-//\OCP\Share::registerBackend('contact', 'OCA\Contacts\Share_Backend_Contact');
-\OCP\Share::registerBackend('addressbook', 'OCA\Contacts\Share\Addressbook', 'contact');
+	\OC_Search::registerProvider('OCA\Contacts\SearchProvider');
+	//\OCP\Share::registerBackend('contact', 'OCA\Contacts\Share_Backend_Contact');
+	\OCP\Share::registerBackend('addressbook', 'OCA\Contacts\Share\Addressbook', 'contact');
 
-/*
-if(OCP\User::isLoggedIn()) {
-	foreach(OCA\Contacts\Addressbook::all(OCP\USER::getUser()) as $addressbook)  {
-		OCP\Contacts::registerAddressBook(new OCA\Contacts\AddressbookProvider($addressbook['id']));
+
+	if(\OCP\User::isLoggedIn()) {
+		$app = new App($api->getUserId());
+		$addressBooks = $app->getAddressBooksForUser();
+		foreach($addressBooks as $addressBook)  {
+			if($addressBook->getBackend()->name === 'local') {
+				\OCP\Contacts::registerAddressBook(new AddressbookProvider($addressBook));
+			}
+		}
 	}
-}*/
+}

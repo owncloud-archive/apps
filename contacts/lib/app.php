@@ -117,7 +117,7 @@ class App {
 	public function getAddressBook($backendName, $addressbookid) {
 		\OCP\Util::writeLog('contacts', __METHOD__ . ': '. $backendName . ', ' . $addressbookid, \OCP\Util::DEBUG);
 		foreach(self::$addressBooks as $addressBook) {
-			if($addressBook->backend->name === $backendName
+			if($addressBook->getBackend()->name === $backendName
 				&& $addressBook->getId() === $addressbookid
 			) {
 				\OCP\Util::writeLog('contacts', __METHOD__ . ' returning: '. print_r($addressBook, true), \OCP\Util::DEBUG);

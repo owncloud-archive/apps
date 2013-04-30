@@ -21,6 +21,7 @@
  */
 
 namespace OCA\Contacts;
+use OCA\Contacts\Utils\Properties;
 
 /**
  * This class manages our addressbooks.
@@ -39,31 +40,28 @@ class AddressbookProvider implements \OCP\IAddressBook {
 	
 	/**
 	 * Addressbook info array
-	 * @var array
+	 * @var AddressBook
 	 */
-	public $addressbook;
+	public $addressBook;
 
 	/**
 	 * Constructor
 	 * @param integer $id
 	 */
-	public function __construct($id) {
-		$this->id = $id;
+	public function __construct($addressBook) {
+		$this->addressBook = $addressBook;
 	}
 	
 	public function getAddressbook() {
-		if(!$this->addressbook) {
-			$this->addressbook = Addressbook::find($this->id);
-		}
-		return $this->addressbook;
+		return $this->addressBook;
 	}
 	
 	/**
 	* @return string defining the technical unique key
 	*/
 	public function getKey() {
-		$book = $this->getAddressbook();
-		return $book['uri'].':'.$book['userid'];
+		$metaData = $this->addressBook->getMetaData();
+		return $metaData['backend'].':'.$metaData['id'];
 	}
 
 	/**
@@ -71,16 +69,14 @@ class AddressbookProvider implements \OCP\IAddressBook {
 	* @return mixed
 	*/
 	public function getDisplayName() {
-		$book = $this->getAddressbook();
-		return $book['displayname'];
+		return $this->addressBook->getDisplayName();
 	}
 
 	/**
 	* @return mixed
 	*/
 	public function getPermissions() {
-		$book = $this->getAddressbook();
-		return $book['permissions'];
+		return $this->addressBook->getPermissions();
 	}
 
 	private function getProperty(&$results, $row) {
@@ -107,7 +103,7 @@ class AddressbookProvider implements \OCP\IAddressBook {
 				break;
 		}
 		
-		if(in_array($row['name'], App::$multi_properties)) {
+		if(in_array($row['name'], Properties::$multi_properties)) {
 			if(!isset($results[$row['contactid']])) {
 				$results[$row['contactid']] = array('id' => $row['contactid'], $row['name'] => array($value));
 			} elseif(!isset($results[$row['contactid']][$row['name']])) {
@@ -159,7 +155,7 @@ class AddressbookProvider implements \OCP\IAddressBook {
 			$query = 'SELECT `' . self::CONTACT_TABLE . '`.`addressbookid`, `' . self::PROPERTY_TABLE . '`.`contactid`, `' 
 				. self::PROPERTY_TABLE . '`.`name`, `' . self::PROPERTY_TABLE . '`.`value` FROM `' 
 				. self::PROPERTY_TABLE . '`,`' . self::CONTACT_TABLE . '` WHERE `'
-				. self::CONTACT_TABLE . '`.`addressbookid` = \'' . $this->id . '\' AND `'
+				. self::CONTACT_TABLE . '`.`addressbookid` = \'' . $this->addressBook->getId() . '\' AND `'
 				. self::PROPERTY_TABLE . '`.`contactid` = `' . self::CONTACT_TABLE . '`.`id` AND `' 
 				. self::PROPERTY_TABLE . '`.`contactid` IN (' . join(',', array_fill(0, count($ids), '?')) . ')';
 
