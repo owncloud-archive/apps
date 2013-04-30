@@ -186,7 +186,7 @@
 .no-svg .checked.disabled { background-image:url('%appswebroot%/contacts/img/checkmark-gray.png'); cursor: default; }
 
 .svg .action.text, .svg .icon.text, .svg .svg.text {
-	background-size: 20px 16px;
+	background-size: 16px 16px;
 	background-origin: content-box;
 	background-repeat: no-repeat;
 	width: auto; height: auto;
@@ -539,7 +539,7 @@ fieldset.adr ul li input.label { margin-top: -4px !important; }
 	-moz-box-sizing: border-box;
 	left: 315px; right: 15px; top: 45px;
 	position: fixed;
-	height: 40px;
+	height: 32px;
 	z-index: 2;
     background: none repeat scroll 0 0 rgba(230, 230, 230, .8);
     border-bottom: 0 none;
@@ -557,8 +557,16 @@ fieldset.adr ul li input.label { margin-top: -4px !important; }
 	padding: 0 .5em; margin: 0 auto;
 	float: right;
 }
+#contactsHeader .actions > * {
+	height: 20px;
+	margin: 0;
+	padding: 0 5px;
+}
+#contactsHeader .actions > .delete {
+	margin-top: 6px;
+}
 #contactlist.multiselect {
-	top: 40px;
+	top: 32px;
 }
 #contactlist { position: relative; top: 0; left: 0; right: 0; width: 100%; }
 #contactlist tr.contact { height: 3em; display: none; }
