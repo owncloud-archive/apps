@@ -388,7 +388,7 @@ OC.Contacts = OC.Contacts || {};
 		var name = this.nameById(groupid);
 		var contacts = $elem.data('contacts');
 		var self = this;
-		console.log('delete group', groupid, contacts);
+		console.log('delete group', $elem, groupid, contacts);
 		$.when(this.storage.deleteGroup(name)).then(function(response) {
 			if (!response.error) {
 				$.each(self.categories, function(idx, category) {
@@ -445,11 +445,9 @@ OC.Contacts = OC.Contacts || {};
 			}
 			$input.prop('disabled', true);
 			$elem.data('rawname', '');
-			self.addGroup({name:name, element: $elem}, function(response) {
+			self.addGroup({name:name}, function(response) {
 				if(!response.error) {
-					$elem.prepend(escapeHTML(response.name)).removeClass('editing').attr('data-id', response.id);
-					$input.next('.checked').remove();
-					$input.remove();
+					$elem.remove();
 					self.$editelem = null;
 				} else {
 					$input.prop('disabled', false);
@@ -555,9 +553,7 @@ OC.Contacts = OC.Contacts || {};
 				name = response.data.name;
 				var id = response.data.id;
 				var tmpl = self.$groupListItemTemplate;
-				var $elem = params.element
-					? params.element
-					: (tmpl).octemplate({
+				var $elem = (tmpl).octemplate({
 						id: id,
 						type: 'category',
 						num: contacts.length,
@@ -577,7 +573,10 @@ OC.Contacts = OC.Contacts || {};
 					}
 				});
 				if(!added) {
-					$elem.insertAfter(self.$groupList.find('li.group[data-type="category"]').last());
+					var $insertAfter = self.$groupList.find('li.group[data-type="category"]').last()
+						|| self.$groupList.find('li.group[data-id="fav"]')
+						|| self.$groupList.find('li.group[data-id="all"]');
+					$elem.insertAfter($insertAfter);
 				}
 				self.selectGroup({element:$elem});
 				$elem.tipsy({trigger:'manual', gravity:'w', fallback: t('contacts', 'You can drag groups to\narrange them as you like.')});
