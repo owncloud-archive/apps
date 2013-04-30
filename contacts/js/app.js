@@ -173,7 +173,7 @@ OC.Contacts = OC.Contacts || {
 		OCCategories.type = 'contact';
 		this.bindEvents();
 		this.$toggleAll.show();
-		this.showActions(['add']);
+		this.hideActions();
 	},
 	loading:function(obj, state) {
 		$(obj).toggleClass('loading', state);
@@ -190,7 +190,12 @@ OC.Contacts = OC.Contacts || {
 		//console.trace();
 		this.$headeractions.children().hide();
 		if(act && act.length > 0) {
+			this.$contactList.addClass('multiselect');
+			this.$contactListHeader.show();
 			this.$headeractions.children('.'+act.join(',.')).show();
+		} else {
+			this.$contactListHeader.hide();
+			this.$contactList.removeClass('multiselect');
 		}
 	},
 	showAction:function(act, show) {
@@ -214,17 +219,18 @@ OC.Contacts = OC.Contacts || {
 		this.$contactDragItemTemplate = $('#contactDragItemTemplate');
 		this.$contactFullTemplate = $('#contactFullTemplate');
 		this.$contactDetailsTemplate = $('#contactDetailsTemplate');
-		this.$rightContent = $('#rightcontent');
-		this.$header = $('#contactsheader');
-		this.$headeractions = this.$header.find('div.actions');
+		this.$rightContent = $('#app-content');
+		this.$navigation = $('#app-navigation');
+		//this.$header = $('#contactsheader');
 		this.$groupList = $('#grouplist');
 		this.$contactList = $('#contactlist');
-		this.$contactListHeader = $('#contactlistheader');
-		this.$toggleAll = $('#toggle_all');
+		this.$contactListHeader = $('#contactsHeader');
+		this.$headeractions = this.$contactListHeader.find('.actions');
+		this.$toggleAll = this.$contactListHeader.find('.toggle');
 		this.$groups = this.$headeractions.find('.groups');
 		this.$ninjahelp = $('#ninjahelp');
 		this.$firstRun = $('#firstrun');
-		this.$settings = $('#contacts-settings');
+		this.$settings = $('#app-settings');
 		this.$importFileInput = $('#import_upload_start');
 		this.$importIntoSelect = $('#import_into');
 	},
@@ -333,7 +339,7 @@ OC.Contacts = OC.Contacts || {
 				self.numcontacts = result.numcontacts;
 				self.loading(self.$rightContent, false);
 				self.groups.loadGroups(self.numcontacts, function() {
-					self.loading($('#leftcontent'), false);
+					self.loading(self.$navigation, false);
 					var id = $.QueryString['id']; // Keep for backwards compatible links.
 					self.currentid = parseInt(id);
 					if(!self.currentid) {
@@ -439,7 +445,7 @@ OC.Contacts = OC.Contacts || {
 			self.closeContact(id);
 			self.contacts.delayedDelete(data);
 			self.$contactList.removeClass('dim');
-			self.showActions(['add']);
+			self.hideActions();
 		});
 
 		$(document).bind('request.contact.merge', function(e, data) {
@@ -560,7 +566,7 @@ OC.Contacts = OC.Contacts || {
 			}
 			self.$contactList.show();
 			self.$toggleAll.show();
-			self.showActions(['add']);
+			self.hideActions();
 			if(result.type === 'category' ||  result.type === 'fav') {
 				self.contacts.showContacts(result.contacts);
 			} else if(result.type === 'shared') {
@@ -633,14 +639,6 @@ OC.Contacts = OC.Contacts || {
 			self.uploadPhoto(this.files);
 		});
 
-		$('#groupsheader > .addgroup').on('click keydown',function(event) {
-			if(wrongKey(event)) {
-				return;
-			}
-			self.groups.editGroup();
-			//self.addGroup();
-		});
-
 		this.$ninjahelp.find('.close').on('click keydown',function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -657,7 +655,7 @@ OC.Contacts = OC.Contacts || {
 			if(isChecked) {
 				self.showActions(['add', 'download', 'groups', 'delete', 'favorite', 'merge']);
 			} else {
-				self.showActions(['add']);
+				self.hideActions();
 			}
 		});
 
@@ -668,7 +666,7 @@ OC.Contacts = OC.Contacts || {
 				self.buildGroupSelect();
 			}
 			if(selected.length === 0) {
-				self.showActions(['add']);
+				self.hideActions();
 			} else if(selected.length === 1) {
 				self.showActions(['add', 'download', 'groups', 'delete', 'favorite']);
 			} else {
@@ -688,7 +686,7 @@ OC.Contacts = OC.Contacts || {
 			self.setAllChecked(false);
 			self.$toggleAll.prop('checked', false);
 			if(!self.currentid) {
-				self.showActions(['add']);
+				self.hideActions();
 			}
 
 			if($opt.val() === 'add') { // Add new group
@@ -1027,21 +1025,21 @@ OC.Contacts = OC.Contacts || {
 			self.$settings.find('.settings').click();
 		});
 
-		this.$firstRun.on('click keydown', '.addcontact', function(event) {
+		this.$firstRun.on('click keydown', '.add-contact', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
 			addContact();
 		});
 
-		this.$header.on('click keydown', '.add', function(event) {
+		this.$groupList.on('click keydown', '.add-contact', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
 			addContact();
 		});
 
-		this.$header.on('click keydown', '.delete', function(event) {
+		this.$contactListHeader.on('click keydown', '.delete', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
@@ -1053,10 +1051,10 @@ OC.Contacts = OC.Contacts || {
 			} else {
 				self.contacts.delayedDelete(self.contacts.getSelectedContacts());
 			}
-			self.showActions(['add']);
+			self.hideActions();
 		});
 
-		this.$header.on('click keydown', '.download', function(event) {
+		this.$contactListHeader.on('click keydown', '.download', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
@@ -1067,7 +1065,7 @@ OC.Contacts = OC.Contacts || {
 				+ '?selectedids=' + ids.join(',');
 		});
 
-		this.$header.on('click keydown', '.merge', function(event) {
+		this.$contactListHeader.on('click keydown', '.merge', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
@@ -1075,7 +1073,7 @@ OC.Contacts = OC.Contacts || {
 			self.mergeSelectedContacts();
 		});
 
-		this.$header.on('click keydown', '.favorite', function(event) {
+		this.$contactListHeader.on('click keydown', '.favorite', function(event) {
 			if(wrongKey(event)) {
 				return;
 			}
@@ -1085,7 +1083,7 @@ OC.Contacts = OC.Contacts || {
 			self.setAllChecked(false);
 			self.$toggleAll.prop('checked', false);
 			if(!self.currentid) {
-				self.showActions(['add']);
+				self.hideActions();
 			}
 
 			$.each(contacts, function(idx, contact) {
@@ -1102,7 +1100,7 @@ OC.Contacts = OC.Contacts || {
 				}
 			});
 
-			self.showActions(['add']);
+			self.hideActions();
 		});
 
 		this.$contactList.on('mouseenter', 'td.email', function(event) {
@@ -1520,7 +1518,7 @@ OC.Contacts = OC.Contacts || {
 		}
 		this.$contactList.removeClass('dim');
 		delete this.currentid;
-		this.showActions(['add']);
+		this.hideActions();
 		this.$groups.find('optgroup,option:not([value="-1"])').remove();
 		if(this.contacts.length === 0) {
 			$(document).trigger('status.nomorecontacts');

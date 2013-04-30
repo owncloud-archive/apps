@@ -21,19 +21,23 @@ OC.Contacts = OC.Contacts || {};
 		this.$groupList = groupList;
 		var self = this;
 		var numtypes = ['category', 'fav', 'all'];
-		this.$groupList.on('click', 'h3', function(event) {
+		this.$groupList.on('click', 'li', function(event) {
 			$('.tipsy').remove();
 			if(wrongKey(event)) {
 				return;
 			}
 			console.log($(event.target));
 			if($(event.target).is('.action.delete')) {
-				var id = $(event.target).parents('h3').first().data('id');
+				var id = $(event.target).parents('li').first().data('id');
 				self.deleteGroup(id, function(response) {
 					if(response.error) {
 						OC.notify({message:response.data.message});
 					}
 				});
+			} else if($(event.target).is('.add-group')) {
+				self.editGroup();
+			} else if($(event.target).is('.add-contact')) {
+				$.noop(); // handled elsewhere in app.js
 			} else {
 				self.selectGroup({element:$(this)});
 			}
@@ -65,7 +69,7 @@ OC.Contacts = OC.Contacts || {};
 			return;
 		}
 		console.log('selectGroup', id, $elem);
-		this.$groupList.find('h3').removeClass('active');
+		this.$groupList.find('li').removeClass('active');
 		$elem.addClass('active');
 		if(id === 'new') {
 			return;
@@ -98,7 +102,7 @@ OC.Contacts = OC.Contacts || {};
 	 * @returns object The jQuery object.
 	 */
 	GroupList.prototype.findById = function(id) {
-		return this.$groupList.find('h3[data-id="' + id + '"]');
+		return this.$groupList.find('li[data-id="' + id + '"]');
 	};
 
 	/**
@@ -327,7 +331,7 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	GroupList.prototype.removeFromAll = function(contactid, alsospecial) {
 		var self = this;
-		var selector = alsospecial ? 'h3' : 'h3[data-type="category"]';
+		var selector = alsospecial ? 'li' : 'li[data-type="category"]';
 		$.each(this.$groupList.find(selector), function(i, group) {
 			self.removeFrom(contactid, $(this).data('id'));
 		});
@@ -380,7 +384,7 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	GroupList.prototype.deleteGroup = function(groupid, cb) {
 		var $elem = this.findById(groupid);
-		var $newelem = $elem.prev('h3');
+		var $newelem = $elem.prev('li');
 		var name = this.nameById(groupid);
 		var contacts = $elem.data('contacts');
 		var self = this;
@@ -467,7 +471,7 @@ OC.Contacts = OC.Contacts || {};
 			self.$editelem.prepend($input).addClass('editing');
 			self.$editelem.data('contacts', []);
 			self.$editelem.data('rawname', '');
-			this.$groupList.find('h3.group[data-type="category"]').first().before(self.$editelem);
+			this.$groupList.find('li.group[data-type="category"]').first().before(self.$editelem);
 			this.selectGroup({element:self.$editelem});
 			$input.on('input', function(event) {
 				if($(this).val().length > 0) {
@@ -534,7 +538,7 @@ OC.Contacts = OC.Contacts || {};
 		var name = params.name;
 		var contacts = []; // $.map(contacts, function(c) {return parseInt(c)});
 		var self = this, exists = false;
-		self.$groupList.find('h3[data-type="category"]').each(function() {
+		self.$groupList.find('li[data-type="category"]').each(function() {
 			if ($(this).data('rawname').toLowerCase() === name.toLowerCase()) {
 				exists = true;
 				return false; //break out of loop
@@ -565,7 +569,7 @@ OC.Contacts = OC.Contacts || {};
 				$elem.data('rawname', name);
 				$elem.data('id', id);
 				var added = false;
-				self.$groupList.find('h3.group[data-type="category"]').each(function() {
+				self.$groupList.find('li.group[data-type="category"]').each(function() {
 					if ($(this).data('rawname').toLowerCase().localeCompare(name.toLowerCase()) > 0) {
 						$(this).before($elem);
 						added = true;
@@ -573,7 +577,7 @@ OC.Contacts = OC.Contacts || {};
 					}
 				});
 				if(!added) {
-					$elem.insertAfter(self.$groupList.find('h3.group[data-type="category"]').last());
+					$elem.insertAfter(self.$groupList.find('li.group[data-type="category"]').last());
 				}
 				self.selectGroup({element:$elem});
 				$elem.tipsy({trigger:'manual', gravity:'w', fallback: t('contacts', 'You can drag groups to\narrange them as you like.')});
@@ -659,7 +663,7 @@ OC.Contacts = OC.Contacts || {};
 					$elem.appendTo($groupList);
 				});
 
-				var elems = $groupList.find('h3[data-type="category"]').get();
+				var elems = $groupList.find('li[data-type="category"]').get();
 
 				elems.sort(function(a, b) {
 					return self.sortorder.indexOf(parseInt($(a).data('id'))) > self.sortorder.indexOf(parseInt($(b).data('id')));
@@ -672,7 +676,7 @@ OC.Contacts = OC.Contacts || {};
 				// Shared addressbook
 				$.each(response.data.shared, function(c, shared) {
 					var sharedindicator = '<img class="shared svg" src="' + OC.imagePath('core', 'actions/shared') + '"'
-						+ 'title="' + t('contacts', 'Shared by {owner}', {owner:shared.userid}) + '" />';
+						+ 'title="' + t('contacts', 'Shared by {owner}', {owner:shared.owner}) + '" />';
 					var $elem = (tmpl).octemplate({
 						id: shared.id,
 						type: 'shared',
@@ -686,11 +690,11 @@ OC.Contacts = OC.Contacts || {};
 					$elem.appendTo($groupList);
 				});
 				$groupList.sortable({
-					items: 'h3[data-type="category"]',
+					items: 'li[data-type="category"]',
 					stop: function() {
 						console.log('stop sorting', $(this));
 						var ids = [];
-						$.each($(this).children('h3[data-type="category"]'), function(i, elem) {
+						$.each($(this).children('li[data-type="category"]'), function(i, elem) {
 							ids.push($(elem).data('id'));
 						});
 						self.sortorder = ids;

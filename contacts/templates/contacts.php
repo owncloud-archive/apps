@@ -1,126 +1,140 @@
-<form class="float" id="file_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php')); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
-	<input type="hidden" name="contactid" value="">
-	<input type="hidden" name="addressbookid" value="">
-	<input type="hidden" name="backend" value="">
-	<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>">
-	<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
-	<input type="hidden" class="max_human_file_size" value="(max <?php p($_['uploadMaxHumanFilesize']); ?>)">
-	<input id="contactphoto_fileupload" type="file" accept="image/*" name="imagefile" />
-</form>
-<iframe name="file_upload_target" id='file_upload_target' src=""></iframe>
-<div id="groupsheader">
-	<button class="addgroup icon-plus text"><?php p($l->t('New Group')); ?></button>
-</div>
-<div id="leftcontent" class="loading">
-	<nav id="grouplist">
-	</nav>
-	<div id="contacts-settings">
-			<h3 class="settings action text" tabindex="0" role="button" title="<?php p($l->t('Settings')); ?>"></h3>
-			<h2 data-id="addressbooks" tabindex="0" role="button"><?php p($l->t('Address books')); ?></h2>
-				<ul class="hidden addressbooklist">
-				</ul>
-				<button class="addaddressbook icon-plus text"><?php p($l->t('New')); ?></button>
-				<ul class="hidden">
-					<li><input class="addaddressbookinput" type="text" placeholder="<?php p($l->t('Display name')); ?>" /></li>
-					<li>
-						<button class="addaddressbookok"><?php p($l->t('OK')); ?></button>
-						<button class="addaddressbookcancel"><?php p($l->t('Cancel')); ?></button>
-					</li>
-				</ul>
-				<ul class="hidden">
-					<li><input class="addaddressbookinput" type="text" placeholder="<?php p($l->t('Display name')); ?>" /></li>
-					<li>
-						<button class="addaddressbookok"><?php p($l->t('OK')); ?></button>
-						<button class="addaddressbookcancel"><?php p($l->t('Cancel')); ?></button>
-					</li>
-				</ul>
-			<h2 data-id="import" tabindex="0" role="button"><?php p($l->t('Import')); ?></h2>
-				<ul class="hidden">
-					<li class="import-upload">
-						<form
-							id="import_upload_form"
-							data-upload-id="1"
-							action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadimport.php')); ?>"
-							method="post" enctype="multipart/form-data"
-							target="import_upload_target_1">
-						<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
-						<label for="import_upload_start"><?php p($l->t('Select files to import')); ?>
-							<button class="import-upload-button" title="<?php p($l->t('Select files')); ?>"></button>
-						</label>
-						<input id="import_upload_start" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" name="file" />
-						</form>
-						<!-- iframe name="import_upload_target" id='import_upload_target' src=""></iframe -->
-					</li>
-					<li class="import-select hidden"><label><?php p($l->t('Import into:')); ?></label></li>
-					<li class="import-select hidden">
-						<select id="import_into" title="<?php p($l->t('Import into:')); ?>">
-						</select>
-					<button class="doImport"><?php p($l->t('OK')); ?></button>
-					</li>
-					<li>
-						<label id="import-status-text"></label>
-						<div id="import-progress"></div>
-					</li>
-				</ul>
-	</div>
-</div>
-<div id="contactsheader">
-	<input type="checkbox" id="toggle_all" title="<?php p($l->t('(De-)select all')); ?>" />
-	<div class="actions">
-		<button class="add svg icon-plus action text"><?php p($l->t('New Contact')); ?></button>
-		<button class="download svg action text"><?php p($l->t('Download Contact(s)')); ?></button>
-		<select class="groups svg action text button" name="groups">
-			<option value="-1" disabled="disabled" selected="selected"><?php p($l->t('Groups')); ?></option>
-		</select>
-		<button class="favorite action svg inactive control" title="<?php p($l->t('Favorite')); ?>"></button>
-		<button class="merge"><?php p($l->t('Merge selected')); ?></button>
-		<a class="delete action" title="<?php p($l->t('Delete Contact')); ?>"></a>
-	</div>
-</div>
-<div id="rightcontent" class="loading">
-	<table id="contactlist">
-	</table>
-	<div class="hidden popup" id="ninjahelp">
-		<a class="close" tabindex="0" role="button" title="<?php p($l->t('Close')); ?>"></a>
-		<h2><?php p($l->t('Keyboard shortcuts')); ?></h2>
-		<div class="help-section">
-			<h3><?php p($l->t('Navigation')); ?></h3>
-			<dl>
-				<dt>j/Down</dt>
-				<dd><?php p($l->t('Next contact in list')); ?></dd>
-				<dt>k/Up</dt>
-				<dd><?php p($l->t('Previous contact in list')); ?></dd>
-				<dt>o</dt>
-				<dd><?php p($l->t('Expand/collapse current addressbook')); ?></dd>
-				<dt>n/PageDown</dt>
-				<dd><?php p($l->t('Next addressbook')); ?></dd>
-				<dt>p/PageUp</dt>
-				<dd><?php p($l->t('Previous addressbook')); ?></dd>
-			</dl>
-		</div>
-		<div class="help-section">
-			<h3><?php p($l->t('Actions')); ?></h3>
-			<dl>
-				<dt>r</dt>
-				<dd><?php p($l->t('Refresh contacts list')); ?></dd>
-				<dt>a</dt>
-				<dd><?php p($l->t('Add new contact')); ?></dd>
-				<!-- dt>Shift-a</dt>
-				<dd><?php p($l->t('Add new addressbook')); ?></dd -->
-				<dt>Shift-Delete</dt>
-				<dd><?php p($l->t('Delete current contact')); ?></dd>
-			</dl>
+<div id="app">
+	<div id="app-navigation" class="loading">
+		<ul id="grouplist">
+			<li>
+				<a role="button" class="add-group">
+					<i class="icon-plus"></i>
+					<?php p($l->t('New Group')); ?>
+				</a>
+			</li>
+			<li>
+				<a role="button" class="add-contact">
+					<i class="icon-plus"></i>
+					<?php p($l->t('New Contact')); ?>
+				</a>
+			</li>
+		</ul>
+		<div id="app-settings">
+			<div id="app-settings-header">
+				<button class="settings-button" tabindex="0"></button>
+			</div>
+			<div id="app-settings-content">
+				<h2 data-id="addressbooks" tabindex="0" role="button"><?php p($l->t('Address books')); ?></h2>
+					<ul class="hidden addressbooklist">
+					</ul>
+					<button class="addaddressbook icon-plus text"><?php p($l->t('New')); ?></button>
+					<ul class="hidden">
+						<li><input class="addaddressbookinput" type="text" placeholder="<?php p($l->t('Display name')); ?>" /></li>
+						<li>
+							<button class="addaddressbookok"><?php p($l->t('OK')); ?></button>
+							<button class="addaddressbookcancel"><?php p($l->t('Cancel')); ?></button>
+						</li>
+					</ul>
+					<ul class="hidden">
+						<li><input class="addaddressbookinput" type="text" placeholder="<?php p($l->t('Display name')); ?>" /></li>
+						<li>
+							<button class="addaddressbookok"><?php p($l->t('OK')); ?></button>
+							<button class="addaddressbookcancel"><?php p($l->t('Cancel')); ?></button>
+						</li>
+					</ul>
+				<h2 data-id="import" tabindex="0" role="button"><?php p($l->t('Import')); ?></h2>
+					<ul class="hidden">
+						<li class="import-upload">
+							<form
+								id="import_upload_form"
+								data-upload-id="1"
+								action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadimport.php')); ?>"
+								method="post" enctype="multipart/form-data"
+								target="import_upload_target_1">
+							<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
+							<label for="import_upload_start"><?php p($l->t('Select files to import')); ?>
+								<button class="import-upload-button" title="<?php p($l->t('Select files')); ?>"></button>
+							</label>
+							<input id="import_upload_start" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" name="file" />
+							</form>
+							<!-- iframe name="import_upload_target" id='import_upload_target' src=""></iframe -->
+						</li>
+						<li class="import-select hidden"><label><?php p($l->t('Import into:')); ?></label></li>
+						<li class="import-select hidden">
+							<select id="import_into" title="<?php p($l->t('Import into:')); ?>">
+							</select>
+						<button class="doImport"><?php p($l->t('OK')); ?></button>
+						</li>
+						<li>
+							<label id="import-status-text"></label>
+							<div id="import-progress"></div>
+						</li>
+					</ul>
+			</div> <!-- app-settings-content -->
 		</div>
 	</div>
-	<div id="firstrun" class="hidden">
-		<?php print_unescaped($l->t('<h3>You have no contacts in your addressbook.</h3>'
-			. '<p>Add a new contact or import existing contacts from a VCF file.</p>')) ?>
-		<div id="selections">
-			<button class="addcontact icon-plus text"><?php p($l->t('Add contact')) ?></button>
-			<button class="import icon text"><?php p($l->t('Import')) ?></button>
+	<div id="app-content" class="loading">
+		<div id="contactsHeader">
+			<input type="checkbox" class="toggle" title="<?php p($l->t('(De-)select all')); ?>" />
+			<span class="actions">
+				<a class="download svg action text permanent"><?php p($l->t('Download Contact(s)')); ?></a>
+				<select class="groups svg action text permanent" name="groups">
+					<option value="-1" disabled="disabled" selected="selected"><?php p($l->t('Groups')); ?></option>
+				</select>
+				<a class="favorite action svg inactive control permanent" title="<?php p($l->t('Favorite')); ?>"></a>
+				<a class="merge"><?php p($l->t('Merge selected')); ?></a>
+				<a class="delete action permanent" title="<?php p($l->t('Delete Contact')); ?>"></a>
+			</span>
 		</div>
-	</div>
-</div>
+		<table id="contactlist">
+		</table>
+		<div class="hidden popup" id="ninjahelp">
+			<a class="close" tabindex="0" role="button" title="<?php p($l->t('Close')); ?>"></a>
+			<h2><?php p($l->t('Keyboard shortcuts')); ?></h2>
+			<div class="help-section">
+				<h3><?php p($l->t('Navigation')); ?></h3>
+				<dl>
+					<dt>j/Down</dt>
+					<dd><?php p($l->t('Next contact in list')); ?></dd>
+					<dt>k/Up</dt>
+					<dd><?php p($l->t('Previous contact in list')); ?></dd>
+					<dt>o</dt>
+					<dd><?php p($l->t('Expand/collapse current addressbook')); ?></dd>
+					<dt>n/PageDown</dt>
+					<dd><?php p($l->t('Next addressbook')); ?></dd>
+					<dt>p/PageUp</dt>
+					<dd><?php p($l->t('Previous addressbook')); ?></dd>
+				</dl>
+			</div>
+			<div class="help-section">
+				<h3><?php p($l->t('Actions')); ?></h3>
+				<dl>
+					<dt>r</dt>
+					<dd><?php p($l->t('Refresh contacts list')); ?></dd>
+					<dt>a</dt>
+					<dd><?php p($l->t('Add new contact')); ?></dd>
+					<!-- dt>Shift-a</dt>
+					<dd><?php p($l->t('Add new addressbook')); ?></dd -->
+					<dt>Shift-Delete</dt>
+					<dd><?php p($l->t('Delete current contact')); ?></dd>
+				</dl>
+			</div>
+		</div>
+		<div id="firstrun" class="hidden">
+			<?php print_unescaped($l->t('<h3>You have no contacts in your addressbook.</h3>'
+				. '<p>Add a new contact or import existing contacts from a VCF file.</p>')) ?>
+			<div id="selections">
+				<button class="add-contact icon-plus text"><?php p($l->t('Add contact')) ?></button>
+				<button class="import icon text"><?php p($l->t('Import')) ?></button>
+			</div>
+		</div>
+		<form class="float" id="file_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadphoto.php')); ?>" method="post" enctype="multipart/form-data" target="file_upload_target">
+			<input type="hidden" name="contactid" value="">
+			<input type="hidden" name="addressbookid" value="">
+			<input type="hidden" name="backend" value="">
+			<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>">
+			<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
+			<input type="hidden" class="max_human_file_size" value="(max <?php p($_['uploadMaxHumanFilesize']); ?>)">
+			<input id="contactphoto_fileupload" type="file" accept="image/*" name="imagefile" />
+		</form>
+		<iframe name="file_upload_target" id='file_upload_target' src=""></iframe>
+	</div> <!-- app-content -->
+</div> <!-- app -->
 <script id="cropBoxTemplate" type="text/template">
 	<form id="cropform"
 		class="coords"
@@ -188,11 +202,13 @@
 </script>
 
 <script id="groupListItemTemplate" type="text/template">
-	<h3 class="group" data-type="{type}" data-id="{id}">
-		{name}
-		<a class="action delete tooltipped rightwards" title="<?php p($l->t('Delete group')); ?>"></a>
-		<span class="action numcontacts">{num}</span>
-	</h3>
+	<li class="group" data-type="{type}" data-id="{id}">
+		<a role="button">{name}</a>
+		<span class="utils">
+			<button class="action delete tooltipped rightwards" title="<?php p($l->t('Delete group')); ?>"></button>
+			<span class="action numcontacts">{num}</span>
+		</span>
+	</li>
 </script>
 
 <script id="contactFullTemplate" type="text/template">
