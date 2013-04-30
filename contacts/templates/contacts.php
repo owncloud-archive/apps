@@ -181,7 +181,7 @@
 </script>
 
 <script id="contactListItemTemplate" type="text/template">
-	<tr class="contact" data-id="{id}">
+	<tr class="contact" data-id="{id}" data-parent="{parent}" data-backend="{backend}">
 		<td class="name thumbnail">
 			<input type="checkbox" name="id" value="{id}" /><span class="nametext">{name}</span>
 		</td>
