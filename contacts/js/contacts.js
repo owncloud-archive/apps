@@ -873,6 +873,20 @@ OC.Contacts = OC.Contacts || {};
 				&& !(this.metadata.permissions & OC.PERMISSION_UPDATE
 				|| this.metadata.permissions & OC.PERMISSION_DELETE)) {
 			this.$listelem.find('input:checkbox').prop('disabled', true).css('opacity', '0');
+			console.log('not draggable', this.$listelem.find('td.name'));
+		} else {
+			var self = this;
+			this.$listelem.find('td.name')
+				.draggable({
+					cursor: 'move',
+					distance: 10,
+					revert: 'invalid',
+					helper: function (e,ui) {
+						return self.renderDragItem().appendTo('body');
+					},
+					opacity: 1,
+					scope: 'contacts'
+				});
 		}
 		if(isnew) {
 			this.setThumbnail();
@@ -2036,7 +2050,8 @@ OC.Contacts = OC.Contacts || {};
 
 	/**
 	* Save addressbook data
-	* @param object book
+	* @param object book An object with the properties:
+	* 	id, displayname, description, lastmodified, owner, uri, permissions and backend.
 	*/
 	ContactList.prototype.setAddressbook = function(book) {
 		console.log('setAddressbook', book.id, this.addressbooks);
@@ -2045,8 +2060,7 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	/**
-	* Load contacts
-	* @param int offset
+	* Load address books
 	*/
 	ContactList.prototype.getAddressBooks = function() {
 		var self = this;
@@ -2105,7 +2119,9 @@ OC.Contacts = OC.Contacts || {};
 
 	/**
 	* Load contacts
-	* @param int offset
+	* @param string backend Name of the backend ('local', 'ldap' etc.)
+	* @param string addressBookId
+	* @param function cb Optional call back function.
 	*/
 	ContactList.prototype.loadContacts = function(backend, addressBookId, cb) {
 		var self = this;
@@ -2130,7 +2146,7 @@ OC.Contacts = OC.Contacts || {};
 					self.length +=1;
 					var $item = self.contacts[id].renderListItem();
 					items.push($item.get(0));
-					$item.find('td.name').draggable({
+					/*$item.find('td.name').draggable({
 						cursor: 'move',
 						distance: 10,
 						revert: 'invalid',
@@ -2139,7 +2155,7 @@ OC.Contacts = OC.Contacts || {};
 						},
 						opacity: 1,
 						scope: 'contacts'
-					});
+					});*/
 					if(items.length === 100) {
 						self.$contactList.append(items);
 						items = [];
