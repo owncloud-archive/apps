@@ -1738,8 +1738,12 @@ OC.Contacts = OC.Contacts || {
 $(document).ready(function() {
 
 	OC.Router.registerLoadedCallback(function() {
-		$.getScript(OC.Router.generate('contacts_jsconfig'), function() {
+		$.getScript(OC.Router.generate('contacts_jsconfig'))
+		.done(function() {
 			OC.Contacts.init();
+		})
+		.fail(function(jqxhr, settings, exception) {
+			console.log('Failed loading settings.', jqxhr, settings, exception);
 		});
 	});
 
