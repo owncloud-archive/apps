@@ -2,15 +2,15 @@
 	<div id="app-navigation" class="loading">
 		<ul id="grouplist">
 			<li>
-				<a role="button" class="add-group">
-					<i class="icon-plus"></i>
-					<?php p($l->t('New Group')); ?>
-				</a>
-			</li>
-			<li>
 				<a role="button" class="add-contact">
 					<i class="icon-plus"></i>
 					<?php p($l->t('New Contact')); ?>
+				</a>
+			</li>
+			<li>
+				<a role="button" class="add-group">
+					<i class="icon-plus"></i>
+					<?php p($l->t('New Group')); ?>
 				</a>
 			</li>
 		</ul>
