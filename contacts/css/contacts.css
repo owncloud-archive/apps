@@ -84,9 +84,10 @@
 }
 #app-navigation .utils > * {
     float: right;
+	margin: 6px 2px;
 }
-#app-navigation img.shared { float: right; opacity: 0.4; margin: 0 .5em; }
-#app-navigation img.shared:hover { opacity: 1; }
+/*#app-navigation img.shared { float: right; opacity: 0.4; margin: 0 .5em; }
+#app-navigation img.shared:hover { opacity: 1; }*/
 #app-navigation li.editing .checked {
 	margin: 10px 0 0 -27px;
 	opacity: 1;
@@ -107,8 +108,9 @@
 }
 
 #grouplist { z-index: 100; }
-#grouplist li .action:not(.starred):not(.checked):not(.favorite):not([class^="add-"]) { float: right; display: none; padding: 0; margin: auto; }
-#grouplist li:not([data-type="shared"]):not(.editing):hover .action.numcontacts, #grouplist li:not([data-type="shared"]):not(.editing) .active.action.numcontacts { display: inline-block; }
+#grouplist li .action:not(.starred):not(.checked):not(.favorite):not([class^="add-"]) { display: none; padding: 0; }
+#grouplist li:not([data-type="shared"]):not(.editing):hover .action.numcontacts,
+#grouplist li:not([data-type="shared"]):not(.editing) .active.action.numcontacts { display: inline-block; }
 .action.numcontacts { width: 6em; }
 #grouplist li.active[data-type="category"]:not(.editing):hover .action.delete { display: inline-block; }
 #grouplist li:not(.editing) .action.delete { width: 20px; height: 20px; }
@@ -383,18 +385,14 @@ dt[data-element="org"] { margin-top: 4px; }
 }
 #contacts-settings li,#contacts-settings li:hover { background-color: transparent; white-space: nowrap; }
 #contacts-settings a.action:not(.settings) { width: 16px; height: 16px; }
-#contacts-settings .actions { float: right; }
-#contacts-settings h2 {
-	text-indent: .5em;
-	font-weight: bold;
-	font-size: 1.2em;
-}
+*/
+.addressbooklist .actions { float: right; }
 
 #contacts-settings .addressbooklist {
 	max-height: 250px;
 	overflow-y: auto;
 }
-*/
+
 /* Single elements */
 #file_upload_form, #file_upload_target, #import_upload_target, #crop_target { display:none; }
 #import_upload_start {

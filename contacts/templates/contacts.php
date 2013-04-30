@@ -205,7 +205,7 @@
 	<li class="group" data-type="{type}" data-id="{id}">
 		<a role="button">{name}</a>
 		<span class="utils">
-			<button class="action delete tooltipped rightwards" title="<?php p($l->t('Delete group')); ?>"></button>
+			<a class="action delete tooltipped rightwards" title="<?php p($l->t('Delete group')); ?>"></a>
 			<span class="action numcontacts">{num}</span>
 		</span>
 	</li>
