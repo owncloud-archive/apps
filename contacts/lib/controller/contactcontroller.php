@@ -112,8 +112,8 @@ class ContactController extends BaseController {
 		$name = $request->post['name'];
 		$checksum = isset($request->post['checksum']) ? $request->post['checksum'] : null;
 
-		$response->debug('contacts_contact_delete_property, name: ' . print_r($name, true));
-		$response->debug('contacts_contact_delete_property, checksum: ' . print_r($checksum, true));
+		$response->debug(__METHOD__ . ', name: ' . print_r($name, true));
+		$response->debug(__METHOD__ . ', checksum: ' . print_r($checksum, true));
 
 		$app = new App($request->parameters['user']);
 		$contact = $app->getContact(
@@ -171,10 +171,10 @@ class ContactController extends BaseController {
 		$checksum = isset($request->post['checksum']) ? $request->post['checksum'] : null;
 		$parameters = isset($request->post['parameters']) ? $request->post['parameters'] : null;
 
-		$response->debug('contacts_contact_delete_property, name: ' . print_r($name, true));
-		$response->debug('contacts_contact_save_property, value: ' . print_r($value, true));
-		$response->debug('contacts_contact_delete_property, checksum: ' . print_r($checksum, true));
-		$response->debug('contacts_contact_save_property, parameters: ' . print_r($parameters, true));
+		$response->debug(__METHOD__ . ', name: ' . print_r($name, true));
+		$response->debug(__METHOD__ . ', value: ' . print_r($value, true));
+		$response->debug(__METHOD__ . ', checksum: ' . print_r($checksum, true));
+		$response->debug(__METHOD__ . ', parameters: ' . print_r($parameters, true));
 
 		$contact = $app->getContact(
 			$request->parameters['backend'],
