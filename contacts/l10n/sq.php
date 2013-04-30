@@ -27,7 +27,6 @@
 "Fax" => "Fax",
 "Video" => "Video",
 "Pager" => "Pager-i",
-"Settings" => "Parametrat",
 "New" => "I ri",
 "Title" => "Titulli",
 "Organization" => "Organizata/Firma",

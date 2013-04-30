@@ -55,7 +55,6 @@
 "Video" => "Video",
 "Pager" => "Alat Kelui",
 "Internet" => "Internet",
-"Settings" => "Tetapan",
 "New" => "Baru",
 "Import" => "Import",
 "Groups" => "Kumpulan",

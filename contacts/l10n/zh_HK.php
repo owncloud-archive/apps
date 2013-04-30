@@ -23,7 +23,6 @@
 "Fax" => "傳真",
 "Pager" => "傳呼機",
 "Internet" => "互聯網",
-"Settings" => "設定",
 "Import" => "導入",
 "Groups" => "群組",
 "Close" => "關閉",

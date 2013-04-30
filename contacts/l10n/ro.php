@@ -45,7 +45,6 @@
 "Video" => "Video",
 "Pager" => "Pager",
 "Internet" => "Internet",
-"Settings" => "Setări",
 "New" => "Nou",
 "Import" => "Importă",
 "Groups" => "Grupuri",

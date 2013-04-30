@@ -34,7 +34,6 @@
 "Video" => "Vaizdo",
 "Pager" => "Pranešimų gaviklis",
 "Internet" => "Internetas",
-"Settings" => "Nustatymai",
 "New" => "Naujas",
 "Import" => "Importuoti",
 "Groups" => "Grupės",

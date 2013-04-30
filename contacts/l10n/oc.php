@@ -18,7 +18,6 @@
 "Delete" => "Escafa",
 "Other" => "Autres",
 "Work" => "Trabalh",
-"Settings" => "Configuracion",
 "New" => "Nòu",
 "Import" => "Importa",
 "Groups" => "Grops",

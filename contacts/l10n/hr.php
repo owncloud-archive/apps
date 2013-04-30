@@ -47,7 +47,6 @@
 "Video" => "Video",
 "Pager" => "Pager",
 "Internet" => "Internet",
-"Settings" => "Postavke",
 "New" => "novo",
 "Import" => "Uvezi",
 "Groups" => "Grupe",

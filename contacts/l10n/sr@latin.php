@@ -20,7 +20,6 @@
 "Fax" => "Faks",
 "Video" => "Video",
 "Pager" => "Pejdžer",
-"Settings" => "Podešavanja",
 "Groups" => "Grupe",
 "Close" => "Zatvori",
 "Title" => "Naslov",

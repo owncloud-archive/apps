@@ -22,7 +22,6 @@
 "Video" => "Video",
 "Pager" => "Pager",
 "Internet" => "Internet",
-"Settings" => "Configurationes",
 "New" => "Nove",
 "Import" => "Importar",
 "Groups" => "Gruppos",

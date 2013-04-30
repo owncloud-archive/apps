@@ -77,7 +77,6 @@
 "Video" => "视频",
 "Pager" => "分页",
 "Internet" => "互联网",
-"Settings" => "设置",
 "New" => "新建",
 "Import" => "导入",
 "Groups" => "群组",

@@ -37,7 +37,6 @@
 "Video" => "Video",
 "Pager" => "Pager",
 "Internet" => "Internet",
-"Settings" => "Astellungen",
 "New" => "Nei",
 "Import" => "Import",
 "Groups" => "Gruppen",

@@ -85,7 +85,6 @@
 "Friends" => "دوستان",
 "Family" => "خانواده",
 "New Group" => "گروه جدید",
-"Settings" => "تنظیمات",
 "New" => "جدید",
 "Import" => "وارد کردن",
 "Download Contact(s)" => "دانلود تماس(ها)",

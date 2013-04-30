@@ -1,3 +1,3 @@
 <?php $TRANSLATIONS = array(
-"Save" => "tallentaa"
+"Email" => "E-bost"
 );
