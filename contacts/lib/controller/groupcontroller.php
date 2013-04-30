@@ -97,9 +97,9 @@ class GroupController extends BaseController {
 	 */
 	public function addToGroup() {
 		$response = new JSONResponse();
-		$categoryid = $request['categoryid'];
-		$ids = $request->post['contactids'];
-		$response->debug('request: '.print_r($request->post, true));
+		$categoryid = $this->request['categoryid'];
+		$ids = $this->request->post['contactids'];
+		$response->debug('request: '.print_r($this->request->post, true));
 
 		if(is_null($categoryid) || $categoryid === '') {
 			$response->bailOut(App::$l10n->t('Group ID missing from request.'));
@@ -125,9 +125,9 @@ class GroupController extends BaseController {
 	 */
 	public function removeFromGroup() {
 		$response = new JSONResponse();
-		$categoryid = $request['categoryid'];
-		$ids = $request->post['contactids'];
-		$response->debug('request: '.print_r($request->post, true));
+		$categoryid = $this->request['categoryid'];
+		$ids = $this->request->post['contactids'];
+		$response->debug('request: '.print_r($this->request->post, true));
 
 		if(is_null($categoryid) || $categoryid === '') {
 			$response->bailOut(App::$l10n->t('Group ID missing from request.'));
