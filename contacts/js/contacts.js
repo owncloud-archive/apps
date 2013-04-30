@@ -891,6 +891,7 @@ OC.Contacts = OC.Contacts || {};
 		if(isnew) {
 			this.setThumbnail();
 		}
+		this.$listelem.data('obj', this);
 		return this.$listelem;
 	};
 
