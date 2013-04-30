@@ -18,9 +18,8 @@ class JSONResponse extends OriginalResponse {
 
 	public function __construct($params = array()) {
 		//\OCP\Util::writeLog('contacts', __METHOD__.' request: '.print_r($request, true), \OCP\Util::DEBUG);
+		parent::__construct();
 		$this->data['data'] = $params;
-		$this->error = false;
-		$this->data['status'] = 'success';
 	}
 
 	/**
