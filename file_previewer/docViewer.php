@@ -5,6 +5,7 @@ OCP\App::checkAppEnabled('file_previewer');
 
 $dir = isset($_GET['dir']) ? $_GET['dir'] : '';
 $file = isset($_GET['file']) ? $_GET['file'] : '';
+$type = isset($_GET['type']) ? $_GET['type'] : 'html';
 $doc_root = $_SERVER["DOCUMENT_ROOT"];
 $user = OCP\User::getUser();
 
@@ -28,15 +29,39 @@ $inputFile = $doc_root.'/owncloud/data/'.$user.'/files'.$sourceDir.$file;
 $outputDir = $doc_root.'/owncloud/data/'.$user.'/files_previewer'.$previewDir;
 $outputFile = $outputDir.'/'.$file_name.'.html';
 
+switch ($type)
+{
+	case "epub":
+		$outputFile = $outputDir.'/'.$file_name.'.epub';
+		break;
+	case "pdf":
+		$outputFile = $outputDir.'/'.$file_name.'.pdf';
+		break;
+	default:
+		$outputFile = $outputDir.'/'.$file_name.'.html';
+}
+
 if (!(file_exists($outputFile) && (filemtime($outputFile) > filemtime($inputFile)))) 
 {
 	// New file, create a preview and store in local file system
-	$command = 'python /opt/jischtml5/tools/commandline/WordDownOO.py --dataURIs '.escapeshellarg($inputFile).' '.escapeshellarg($outputDir);
+	$command = 'python /opt/jischtml5/tools/commandline/WordDownOO.py --dataURIs --epub '.escapeshellarg($inputFile).' '.escapeshellarg($outputDir);
 	system($command, $retval);
-} 
-$content = file_get_contents($outputFile);
+}
 
-//TODO check whether to run this or not, either using date/time or hash of file content
-//TODO: MIME TYPE!!!!
+switch ($type)
+{
+	case "epub":
+		//Download epub
+		header("Content-type:application/epub+zip");
+		header("Content-Type: application/force-download");
+		header("Content-Disposition: attachment;filename=".$file_name.'.epub');
+		readfile($outputFile);
+	case "pdf":
+		//TODO
+		break;
+	default:
+		$content = file_get_contents($outputFile);
+		print $content;
+}
+
 //TODO: stop using data URIs
-print $content;

@@ -23,6 +23,7 @@ function showDOCviewer(dir,filename){
 
 $(document).ready(function(){
 	if(!$.browser.msie){//doesn't work on IE
+		
 		if(location.href.indexOf("files")!=-1) {
 			if(typeof FileActions!=='undefined'){
 				FileActions.register('application/msword','Edit', OC.PERMISSION_READ, '',function(filename){
@@ -31,5 +32,15 @@ $(document).ready(function(){
 				FileActions.setDefault('application/msword','Edit');
 			}
 		}
+		
+		if(location.href.indexOf("files")!=-1) {
+			if(typeof FileActions!=='undefined'){
+				FileActions.register('application/msword','ePub', OC.PERMISSION_READ, '',function(filename){
+					window.location = OC.linkTo('file_previewer', 'docViewer.php')+'?dir='+encodeURIComponent($('#dir').val()).replace(/%2F/g, '/')+'&file='+encodeURIComponent(filename.replace('&', '%26'))+'&type=epub';
+				});
+			}
+		}
+		
+		
 	}
 });
