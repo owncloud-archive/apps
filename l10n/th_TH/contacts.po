@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-01 00:49+0200\n"
-"PO-Revision-Date: 2013-04-30 22:49+0000\n"
+"POT-Creation-Date: 2013-05-02 00:49+0200\n"
+"PO-Revision-Date: 2013-05-01 22:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/owncloud/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
@@ -194,23 +194,23 @@ msgstr ""
 msgid "Failed saving last group: {error}"
 msgstr ""
 
-#: js/app.js:724 js/app.js:762
+#: js/app.js:705 js/app.js:743
 msgid "Error adding to group."
 msgstr "เกิดข้อผิดพลาดในการเพิ่มเข้าไปยังกลุ่ม"
 
-#: js/app.js:791
+#: js/app.js:772
 msgid "Error removing from group."
 msgstr "เกิดข้อผิดพลาดในการลบออกจากกลุ่ม"
 
-#: js/app.js:819
+#: js/app.js:800
 msgid "There was an error opening a mail composer."
 msgstr "เกิดข้อผิดพลาดในการระหว่างการเปิดหน้าเครื่องมือเขียนอีเมล"
 
-#: js/app.js:855
+#: js/app.js:836
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "ลบเสร็จสิ้น คลิกที่นี่เพื่อยกเลิกการโหลดซ้ำ"
 
-#: js/app.js:926
+#: js/app.js:907
 msgid "Failed adding address book: {error}"
 msgstr ""
 
@@ -316,29 +316,29 @@ msgstr ""
 msgid "Is this correct?"
 msgstr "คุณแน่ใจแล้วหรือว่าถูกต้อง?"
 
-#: js/contacts.js:904 js/contacts.js:945
+#: js/contacts.js:919 js/contacts.js:960
 msgid "# groups"
 msgstr "# กลุ่ม"
 
-#: js/contacts.js:1830
+#: js/contacts.js:1845
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "ข้อมูลผู้ติดต่อบางรายการได้ถูกทำเครื่องหมายสำหรับลบทิ้งเอาไว้, แต่ยังไม่ได้ถูกลบทิ้ง, กรุณารอให้รายการดังกล่าวถูกลบทิ้งเสียก่อน"
 
-#: js/contacts.js:1841
+#: js/contacts.js:1856
 msgid "Click to undo deletion of {num} contacts"
 msgstr "คลิกเพื่อเลิกทำ การลบรายชื่อผู้ติดต่อ {num} รายการ"
 
-#: js/contacts.js:1856
+#: js/contacts.js:1871
 msgid "Cancelled deletion of {num}"
 msgstr "ยกเลิกการลบ {num} รายการแล้ว"
 
-#: js/contacts.js:2084
+#: js/contacts.js:2099
 msgid "Failed loading contacts from {addressbook}: {error}"
 msgstr ""
 
-#: js/contacts.js:2101
+#: js/contacts.js:2116
 msgid "Failed loading address books: {error}"
 msgstr ""
 
@@ -366,29 +366,29 @@ msgstr "รายชื่อผู้ติดต่อดังกล่าว
 msgid "Failed deleting group: {error}"
 msgstr ""
 
-#: js/groups.js:549
+#: js/groups.js:547
 msgid "A group named {group} already exists"
 msgstr "ชื่อกลุ่มดังกล่าว {group} มีอยู่แล้ว"
 
-#: js/groups.js:583
+#: js/groups.js:582
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "คุณสามารถลากชื่อกลุ่ม\nเพื่อจัดระเบียบตามที่คุณต้องการได้."
 
-#: js/groups.js:598
+#: js/groups.js:597
 msgid "Failed adding group: {error}"
 msgstr ""
 
-#: js/groups.js:609
+#: js/groups.js:608
 msgid "All"
 msgstr "ทั้งหมด"
 
-#: js/groups.js:622 js/groups.js:625
+#: js/groups.js:621 js/groups.js:624
 msgid "Favorites"
 msgstr "รายการโปรด"
 
-#: js/groups.js:679
+#: js/groups.js:678
 msgid "Shared by {owner}"
 msgstr "ถูกแชร์โดย {owner}"
 
@@ -416,7 +416,8 @@ msgstr "แสดงลิงก์ CardDav"
 msgid "Show read-only VCF link"
 msgstr "แสดงลิงก์ VCF สำหรับอ่านเท่านั้น"
 
-#: js/settings.js:99 templates/contacts.php:320 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:80 templates/contacts.php:320
+#: templates/settings.php:40
 msgid "Download"
 msgstr "ดาวน์โหลด"
 
@@ -424,10 +425,10 @@ msgstr "ดาวน์โหลด"
 msgid "Edit"
 msgstr "แก้ไข"
 
-#: js/settings.js:102 templates/contacts.php:265 templates/contacts.php:272
-#: templates/contacts.php:279 templates/contacts.php:286
-#: templates/contacts.php:334 templates/contacts.php:461
-#: templates/settings.php:50
+#: js/settings.js:102 templates/contacts.php:81 templates/contacts.php:265
+#: templates/contacts.php:272 templates/contacts.php:279
+#: templates/contacts.php:286 templates/contacts.php:334
+#: templates/contacts.php:461 templates/settings.php:50
 msgid "Delete"
 msgstr "ลบ"
 
@@ -661,12 +662,12 @@ msgid "There was an error deleting properties for this contact."
 msgstr "เกิดข้อผิดพลาดในการลบคุณสมบัติของรายชื่อผู้ติดต่อนี้"
 
 #: templates/contacts.php:7
-msgid "New Group"
-msgstr "สร้างกลุ่มใหม่"
-
-#: templates/contacts.php:13
 msgid "New Contact"
 msgstr "สร้างรายชื่อผู้ติดต่อใหม่"
+
+#: templates/contacts.php:13
+msgid "New Group"
+msgstr "สร้างกลุ่มใหม่"
 
 #: templates/contacts.php:22
 msgid "Address books"
@@ -700,25 +701,17 @@ msgstr "นำเข้าข้อมูลไปไว้ที่:"
 msgid "(De-)select all"
 msgstr "ยกเลิกการเลือกทั้งหมด"
 
-#: templates/contacts.php:75
-msgid "Download Contact(s)"
-msgstr "ดาวน์โหลดรายชื่อผู้ติดต่อ"
-
-#: templates/contacts.php:77
+#: templates/contacts.php:76
 msgid "Groups"
 msgstr "กลุ่ม"
 
-#: templates/contacts.php:79
+#: templates/contacts.php:78
 msgid "Favorite"
 msgstr "รายการโปรด"
 
-#: templates/contacts.php:80
+#: templates/contacts.php:79
 msgid "Merge selected"
 msgstr ""
-
-#: templates/contacts.php:81
-msgid "Delete Contact"
-msgstr "ลบรายชื่อผู้ติดต่อ"
 
 #: templates/contacts.php:87 templates/contacts.php:319
 msgid "Close"

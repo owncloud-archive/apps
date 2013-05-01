@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-01 00:49+0200\n"
-"PO-Revision-Date: 2013-04-30 22:49+0000\n"
+"POT-Creation-Date: 2013-05-02 00:49+0200\n"
+"PO-Revision-Date: 2013-05-01 22:49+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -195,23 +195,23 @@ msgstr "Sorteerimisjärjestuse salvestamine ebaõnnestus: {error}"
 msgid "Failed saving last group: {error}"
 msgstr "Viimase grupi salvestamine ebaõnnestus: {error}"
 
-#: js/app.js:724 js/app.js:762
+#: js/app.js:705 js/app.js:743
 msgid "Error adding to group."
 msgstr "Viga gruppi lisamisel."
 
-#: js/app.js:791
+#: js/app.js:772
 msgid "Error removing from group."
 msgstr "Viga grupist eemaldamisel."
 
-#: js/app.js:819
+#: js/app.js:800
 msgid "There was an error opening a mail composer."
 msgstr "Meiliprogrammi avamisel tekkis viga."
 
-#: js/app.js:855
+#: js/app.js:836
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Kustutatud. Kliki siia peatamaks taaslaadimist."
 
-#: js/app.js:926
+#: js/app.js:907
 msgid "Failed adding address book: {error}"
 msgstr "Aadressiramatu lisamine ebaõnnestus: {error}"
 
@@ -317,29 +317,29 @@ msgstr "Omaduse salvestamine ebaõnnetus: {error}"
 msgid "Is this correct?"
 msgstr "Kas see on õige?"
 
-#: js/contacts.js:904 js/contacts.js:945
+#: js/contacts.js:919 js/contacts.js:960
 msgid "# groups"
 msgstr "Gruppide arv"
 
-#: js/contacts.js:1830
+#: js/contacts.js:1845
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Mõned kontaktid on märgitud kustutamiseks, aga pole veel kustutatud. Palun oota, kuni need kustutatakse."
 
-#: js/contacts.js:1841
+#: js/contacts.js:1856
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Kliki, et tühistada {num} kontakti kustutamine"
 
-#: js/contacts.js:1856
+#: js/contacts.js:1871
 msgid "Cancelled deletion of {num}"
 msgstr "{num} kustutamine tühistati"
 
-#: js/contacts.js:2084
+#: js/contacts.js:2099
 msgid "Failed loading contacts from {addressbook}: {error}"
 msgstr "Kontaktide laadimine aadressiraamatust {addressbook} ebaõnnestus: {error}"
 
-#: js/contacts.js:2101
+#: js/contacts.js:2116
 msgid "Failed loading address books: {error}"
 msgstr "Aadressiraamatute laadimine ebaõnnestus: {error}"
 
@@ -367,29 +367,29 @@ msgstr "Kontaktid pole selles grupis."
 msgid "Failed deleting group: {error}"
 msgstr "Grupi kustutamine ebaõnnestus: {error}"
 
-#: js/groups.js:549
+#: js/groups.js:547
 msgid "A group named {group} already exists"
 msgstr "Grupp nimega {group} on juba olemas"
 
-#: js/groups.js:583
+#: js/groups.js:582
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Pukseeri gruppe märgile ⏎\nsobivamaks reastuseks"
 
-#: js/groups.js:598
+#: js/groups.js:597
 msgid "Failed adding group: {error}"
 msgstr "Grupi lisamine ebaõnnestus: {error}"
 
-#: js/groups.js:609
+#: js/groups.js:608
 msgid "All"
 msgstr "Kõik"
 
-#: js/groups.js:622 js/groups.js:625
+#: js/groups.js:621 js/groups.js:624
 msgid "Favorites"
 msgstr "Lemmikud"
 
-#: js/groups.js:679
+#: js/groups.js:678
 msgid "Shared by {owner}"
 msgstr "Jagas {owner}"
 
@@ -417,7 +417,8 @@ msgstr "Näita CardDav linki"
 msgid "Show read-only VCF link"
 msgstr "Näita VCF linki (ainult lugemisõigusega)"
 
-#: js/settings.js:99 templates/contacts.php:320 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:80 templates/contacts.php:320
+#: templates/settings.php:40
 msgid "Download"
 msgstr "Lae alla"
 
@@ -425,10 +426,10 @@ msgstr "Lae alla"
 msgid "Edit"
 msgstr "Muuda"
 
-#: js/settings.js:102 templates/contacts.php:265 templates/contacts.php:272
-#: templates/contacts.php:279 templates/contacts.php:286
-#: templates/contacts.php:334 templates/contacts.php:461
-#: templates/settings.php:50
+#: js/settings.js:102 templates/contacts.php:81 templates/contacts.php:265
+#: templates/contacts.php:272 templates/contacts.php:279
+#: templates/contacts.php:286 templates/contacts.php:334
+#: templates/contacts.php:461 templates/settings.php:50
 msgid "Delete"
 msgstr "Kustuta"
 
@@ -662,12 +663,12 @@ msgid "There was an error deleting properties for this contact."
 msgstr "Selle kontakti omaduste kustutamisel tekkis viga."
 
 #: templates/contacts.php:7
-msgid "New Group"
-msgstr "Uus grupp"
-
-#: templates/contacts.php:13
 msgid "New Contact"
 msgstr "Uus kontakt"
+
+#: templates/contacts.php:13
+msgid "New Group"
+msgstr "Uus grupp"
 
 #: templates/contacts.php:22
 msgid "Address books"
@@ -701,25 +702,17 @@ msgstr "Impordi:"
 msgid "(De-)select all"
 msgstr "(Ära) vali kõik"
 
-#: templates/contacts.php:75
-msgid "Download Contact(s)"
-msgstr "Lae kontakt(id) alla"
-
-#: templates/contacts.php:77
+#: templates/contacts.php:76
 msgid "Groups"
 msgstr "Grupid"
 
-#: templates/contacts.php:79
+#: templates/contacts.php:78
 msgid "Favorite"
 msgstr "Lemmik"
 
-#: templates/contacts.php:80
+#: templates/contacts.php:79
 msgid "Merge selected"
 msgstr "Ühendus valitud"
-
-#: templates/contacts.php:81
-msgid "Delete Contact"
-msgstr "Kustuta kontakt"
 
 #: templates/contacts.php:87 templates/contacts.php:319
 msgid "Close"

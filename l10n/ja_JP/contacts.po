@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-01 00:49+0200\n"
-"PO-Revision-Date: 2013-04-30 22:49+0000\n"
+"POT-Creation-Date: 2013-05-02 00:49+0200\n"
+"PO-Revision-Date: 2013-05-01 22:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr "写真の読み込みは無効です。"
 
 #: ajax/oc_photo.php:28
 msgid "No contact info was submitted."
-msgstr ""
+msgstr "連絡先情報は何も送信されませんでした。"
 
 #: ajax/oc_photo.php:32
 msgid "No photo path was submitted."
@@ -170,15 +170,15 @@ msgstr "連絡先のインデックスを作成中"
 
 #: js/app.js:457
 msgid "Merge failed. Cannot find contact: {id}"
-msgstr ""
+msgstr "マージに失敗しました。連絡先が見つかりません: {id}"
 
 #: js/app.js:470
 msgid "Merge failed."
-msgstr ""
+msgstr "マージに失敗しました。"
 
 #: js/app.js:477
 msgid "Merge failed. Error saving contact."
-msgstr ""
+msgstr "マージに失敗しました。連絡先の保存エラー。"
 
 #: js/app.js:496
 msgid "Select photo"
@@ -190,43 +190,43 @@ msgstr "ネットワークもしくはサーバエラーです。管理者に連
 
 #: js/app.js:553
 msgid "Failed saving sort order: {error}"
-msgstr ""
+msgstr "並び順の保存に失敗: {error}"
 
 #: js/app.js:586
 msgid "Failed saving last group: {error}"
-msgstr ""
+msgstr "最後のグループの保存に失敗: {error}"
 
-#: js/app.js:724 js/app.js:762
+#: js/app.js:705 js/app.js:743
 msgid "Error adding to group."
 msgstr "グループに追加エラー。"
 
-#: js/app.js:791
+#: js/app.js:772
 msgid "Error removing from group."
 msgstr "グループから削除エラー。"
 
-#: js/app.js:819
+#: js/app.js:800
 msgid "There was an error opening a mail composer."
 msgstr "メールコンポーザの起動エラーが発生しました。"
 
-#: js/app.js:855
+#: js/app.js:836
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "削除完了。再読込みをキャンセルする場合はここをクリック。"
 
-#: js/app.js:926
+#: js/app.js:907
 msgid "Failed adding address book: {error}"
-msgstr ""
+msgstr "アドレス帳の追加に失敗: {error}"
 
 #: js/app.js:979
 msgid "Failed adding addres books: {error}"
-msgstr ""
+msgstr "アドレス帳の追加に失敗: {error}"
 
 #: js/app.js:992
 msgid "Add address book"
-msgstr "アドレスブックを追加"
+msgstr "アドレス帳を追加"
 
 #: js/app.js:1095
 msgid "Error setting {name} as favorite."
-msgstr ""
+msgstr "{name} をお気に入りに設定する際にエラー."
 
 #: js/app.js:1141
 msgid "Import done. Click here to cancel reloading."
@@ -255,7 +255,7 @@ msgstr "{filename} からインポート中..."
 
 #: js/app.js:1207
 msgid "{success} imported, {failed} failed from {file}"
-msgstr ""
+msgstr "{file} から {success} をインポートし、{failed} を失敗しました"
 
 #: js/app.js:1219
 msgid "Importing..."
@@ -281,7 +281,7 @@ msgstr "アップロードには大きすぎます。"
 
 #: js/app.js:1401 js/app.js:1405 templates/contacts.php:169
 msgid "Merge contacts"
-msgstr ""
+msgstr "連絡先のマージ"
 
 #: js/app.js:1427 js/app.js:1481 js/settings.js:120 templates/contacts.php:30
 #: templates/contacts.php:37 templates/contacts.php:318
@@ -312,37 +312,37 @@ msgstr "プロファイルの画像の読み込みエラー"
 
 #: js/contacts.js:307
 msgid "Failed deleting property: {error}"
-msgstr ""
+msgstr "プロパティの削除に失敗: {error}"
 
 #: js/contacts.js:498
 msgid "Is this correct?"
 msgstr "これは正しいですか？"
 
-#: js/contacts.js:904 js/contacts.js:945
+#: js/contacts.js:919 js/contacts.js:960
 msgid "# groups"
 msgstr "グループ数"
 
-#: js/contacts.js:1830
+#: js/contacts.js:1845
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "いくつかの連絡先が削除対象としてマークされていますが、まだ削除されていません。削除するまでお待ちください。"
 
-#: js/contacts.js:1841
+#: js/contacts.js:1856
 msgid "Click to undo deletion of {num} contacts"
 msgstr "{num} 個の連絡先の削除を元に戻す"
 
-#: js/contacts.js:1856
+#: js/contacts.js:1871
 msgid "Cancelled deletion of {num}"
 msgstr "{num} 個の削除をキャンセルしました"
 
-#: js/contacts.js:2084
+#: js/contacts.js:2099
 msgid "Failed loading contacts from {addressbook}: {error}"
-msgstr ""
+msgstr "{addressbook} からの連絡先の読み込みエラー: {error}"
 
-#: js/contacts.js:2101
+#: js/contacts.js:2116
 msgid "Failed loading address books: {error}"
-msgstr ""
+msgstr "アドレス帳の読み込みに失敗: {error}"
 
 #: js/groups.js:198
 msgid "Contact is already in this group."
@@ -366,31 +366,31 @@ msgstr "連絡先はこのグループに存在しません。"
 
 #: js/groups.js:419
 msgid "Failed deleting group: {error}"
-msgstr ""
+msgstr "グループの削除に失敗: {error}"
 
-#: js/groups.js:549
+#: js/groups.js:547
 msgid "A group named {group} already exists"
 msgstr "{group} のグループはすでに存在します"
 
-#: js/groups.js:583
+#: js/groups.js:582
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "グループをドラックすることで好きな\nように並べ替えることができます。"
 
-#: js/groups.js:598
+#: js/groups.js:597
 msgid "Failed adding group: {error}"
-msgstr ""
+msgstr "グループの追加に失敗: {error}"
 
-#: js/groups.js:609
+#: js/groups.js:608
 msgid "All"
 msgstr "すべて"
 
-#: js/groups.js:622 js/groups.js:625
+#: js/groups.js:621 js/groups.js:624
 msgid "Favorites"
 msgstr "お気に入り"
 
-#: js/groups.js:679
+#: js/groups.js:678
 msgid "Shared by {owner}"
 msgstr "{owner} と共有中"
 
@@ -418,7 +418,8 @@ msgstr "CarDavリンクを表示"
 msgid "Show read-only VCF link"
 msgstr "読み取り専用のVCFリンクを表示"
 
-#: js/settings.js:99 templates/contacts.php:320 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:80 templates/contacts.php:320
+#: templates/settings.php:40
 msgid "Download"
 msgstr "ダウンロード"
 
@@ -426,10 +427,10 @@ msgstr "ダウンロード"
 msgid "Edit"
 msgstr "編集"
 
-#: js/settings.js:102 templates/contacts.php:265 templates/contacts.php:272
-#: templates/contacts.php:279 templates/contacts.php:286
-#: templates/contacts.php:334 templates/contacts.php:461
-#: templates/settings.php:50
+#: js/settings.js:102 templates/contacts.php:81 templates/contacts.php:265
+#: templates/contacts.php:272 templates/contacts.php:279
+#: templates/contacts.php:286 templates/contacts.php:334
+#: templates/contacts.php:461 templates/settings.php:50
 msgid "Delete"
 msgstr "削除"
 
@@ -443,11 +444,11 @@ msgstr "簡略..."
 
 #: js/storage.js:198
 msgid "Failed loading photo: {error}"
-msgstr ""
+msgstr "写真の読み込みに失敗: {error}"
 
 #: js/storage.js:413 js/storage.js:426
 msgid "Request failed: {error}"
-msgstr ""
+msgstr "リクエストに失敗: {error}"
 
 #: lib/backend/ldap.php:178
 msgid "There was an error updating the addressbook."
@@ -459,45 +460,45 @@ msgstr "アドレス帳を削除するときにエラーが発生しました。
 
 #: lib/controller/addressbookcontroller.php:90
 msgid "Error creating address book"
-msgstr ""
+msgstr "アドレス帳の作成エラー"
 
 #: lib/controller/addressbookcontroller.php:111
 msgid "Error deleting address book"
-msgstr ""
+msgstr "アドレス帳の削除エラー"
 
 #: lib/controller/addressbookcontroller.php:130
 msgid "Error creating contact."
-msgstr ""
+msgstr "連絡先の作成エラー。"
 
 #: lib/controller/addressbookcontroller.php:151
 msgid "Error deleting contact."
-msgstr ""
+msgstr "連絡先の削除エラー。"
 
 #: lib/controller/contactcontroller.php:45
 #: lib/controller/contactcontroller.php:126
 #: lib/controller/contactcontroller.php:186
 msgid "Couldn't find contact."
-msgstr ""
+msgstr "連絡先が見つかりませんでした。"
 
 #: lib/controller/contactcontroller.php:49
 msgid "Error merging into contact."
-msgstr ""
+msgstr "連絡先へのマージエラー。"
 
 #: lib/controller/contactcontroller.php:52
 #: lib/controller/contactcontroller.php:144
 msgid "Error saving contact to backend."
-msgstr ""
+msgstr "バックエンドへの連絡先の保存エラー"
 
 #: lib/controller/contactcontroller.php:129
 #: lib/controller/contactcontroller.php:189
 msgid "Property name is not set."
-msgstr ""
+msgstr "プロパティ名が設定されていません。"
 
 #: lib/controller/contactcontroller.php:132
 #: lib/controller/contactcontroller.php:192
 #: lib/controller/contactcontroller.php:201
 msgid "Property checksum is not set."
-msgstr ""
+msgstr "プロパティのチェックサムが設定されていません。"
 
 #: lib/controller/contactcontroller.php:138
 #: lib/controller/contactcontroller.php:207
@@ -506,15 +507,15 @@ msgstr "vCardの情報に誤りがあります。ページをリロードして�
 
 #: lib/controller/contactcontroller.php:211
 msgid "Error setting property"
-msgstr ""
+msgstr "プロパティの設定エラー"
 
 #: lib/controller/contactcontroller.php:215
 msgid "Error saving property to backend"
-msgstr ""
+msgstr "バックエンドへのプロパティの保存エラー"
 
 #: lib/controller/groupcontroller.php:60 lib/controller/groupcontroller.php:84
 msgid "No group name given."
-msgstr ""
+msgstr "グループ名が指定されていません。"
 
 #: lib/controller/groupcontroller.php:67
 msgid "Error adding group."
@@ -532,11 +533,11 @@ msgstr "リクエストには連絡先IDがありません。"
 
 #: lib/controller/settingscontroller.php:36
 msgid "No key is given."
-msgstr ""
+msgstr "キーが指定されていません。"
 
 #: lib/controller/settingscontroller.php:40
 msgid "No value is given."
-msgstr ""
+msgstr "値が指定されていません。"
 
 #: lib/hooks.php:183
 msgid "{name}'s Birthday"
@@ -562,7 +563,7 @@ msgstr "Jabber"
 
 #: lib/utils/properties.php:71
 msgid "Internet call"
-msgstr ""
+msgstr "インターネット電話"
 
 #: lib/utils/properties.php:76
 msgid "AIM"
@@ -663,16 +664,16 @@ msgid "There was an error deleting properties for this contact."
 msgstr "この連絡先のプロパティの削除エラーが発生しました。"
 
 #: templates/contacts.php:7
-msgid "New Group"
-msgstr "新しいグループ"
-
-#: templates/contacts.php:13
 msgid "New Contact"
 msgstr "新しい連絡先"
 
+#: templates/contacts.php:13
+msgid "New Group"
+msgstr "新しいグループ"
+
 #: templates/contacts.php:22
 msgid "Address books"
-msgstr "アドレスブック"
+msgstr "アドレス帳"
 
 #: templates/contacts.php:25
 msgid "New"
@@ -702,25 +703,17 @@ msgstr "インポート情報:"
 msgid "(De-)select all"
 msgstr "すべての選択を解除"
 
-#: templates/contacts.php:75
-msgid "Download Contact(s)"
-msgstr "連絡先をダウンロード"
-
-#: templates/contacts.php:77
+#: templates/contacts.php:76
 msgid "Groups"
 msgstr "グループ"
 
-#: templates/contacts.php:79
+#: templates/contacts.php:78
 msgid "Favorite"
 msgstr "お気に入り"
 
-#: templates/contacts.php:80
+#: templates/contacts.php:79
 msgid "Merge selected"
-msgstr ""
-
-#: templates/contacts.php:81
-msgid "Delete Contact"
-msgstr "連絡先を削除"
+msgstr "選択をマージ"
 
 #: templates/contacts.php:87 templates/contacts.php:319
 msgid "Close"
@@ -778,7 +771,7 @@ msgstr "現在の連絡先を削除"
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
-msgstr "<h3>アドレスブックに連絡先がありません。</h3><p>新しい連絡先を追加、もしくは既存の連絡先をVCFファイルからインポートしてください。</p>"
+msgstr "<h3>アドレス帳に連絡先がありません。</h3><p>新しい連絡先を追加、もしくは既存の連絡先をVCFファイルからインポートしてください。</p>"
 
 #: templates/contacts.php:122
 msgid "Add contact"
@@ -786,11 +779,11 @@ msgstr "連絡先を追加"
 
 #: templates/contacts.php:170
 msgid "Which contact should the data be merged into?"
-msgstr ""
+msgstr "どの連絡先のデータをマージしますか？"
 
 #: templates/contacts.php:178
 msgid "Delete the other(s) after successful merge?"
-msgstr ""
+msgstr "マージが成功した後に他を削除しますか？"
 
 #: templates/contacts.php:190
 msgid "Compose mail"
@@ -834,7 +827,7 @@ msgstr "グループを選択"
 
 #: templates/contacts.php:257
 msgid "Select address book"
-msgstr ""
+msgstr "アドレス帳を選択"
 
 #: templates/contacts.php:261 templates/contacts.php:325
 msgid "Nickname"

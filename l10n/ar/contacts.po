@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-01 00:49+0200\n"
-"PO-Revision-Date: 2013-04-30 22:49+0000\n"
+"POT-Creation-Date: 2013-05-02 00:49+0200\n"
+"PO-Revision-Date: 2013-05-01 22:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/owncloud/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -195,23 +195,23 @@ msgstr ""
 msgid "Failed saving last group: {error}"
 msgstr ""
 
-#: js/app.js:724 js/app.js:762
+#: js/app.js:705 js/app.js:743
 msgid "Error adding to group."
 msgstr ""
 
-#: js/app.js:791
+#: js/app.js:772
 msgid "Error removing from group."
 msgstr ""
 
-#: js/app.js:819
+#: js/app.js:800
 msgid "There was an error opening a mail composer."
 msgstr ""
 
-#: js/app.js:855
+#: js/app.js:836
 msgid "Deleting done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:926
+#: js/app.js:907
 msgid "Failed adding address book: {error}"
 msgstr ""
 
@@ -317,29 +317,29 @@ msgstr ""
 msgid "Is this correct?"
 msgstr ""
 
-#: js/contacts.js:904 js/contacts.js:945
+#: js/contacts.js:919 js/contacts.js:960
 msgid "# groups"
 msgstr ""
 
-#: js/contacts.js:1830
+#: js/contacts.js:1845
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1841
+#: js/contacts.js:1856
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1856
+#: js/contacts.js:1871
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
-#: js/contacts.js:2084
+#: js/contacts.js:2099
 msgid "Failed loading contacts from {addressbook}: {error}"
 msgstr ""
 
-#: js/contacts.js:2101
+#: js/contacts.js:2116
 msgid "Failed loading address books: {error}"
 msgstr ""
 
@@ -367,29 +367,29 @@ msgstr ""
 msgid "Failed deleting group: {error}"
 msgstr ""
 
-#: js/groups.js:549
+#: js/groups.js:547
 msgid "A group named {group} already exists"
 msgstr ""
 
-#: js/groups.js:583
+#: js/groups.js:582
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr ""
 
-#: js/groups.js:598
+#: js/groups.js:597
 msgid "Failed adding group: {error}"
 msgstr ""
 
-#: js/groups.js:609
+#: js/groups.js:608
 msgid "All"
 msgstr ""
 
-#: js/groups.js:622 js/groups.js:625
+#: js/groups.js:621 js/groups.js:624
 msgid "Favorites"
 msgstr ""
 
-#: js/groups.js:679
+#: js/groups.js:678
 msgid "Shared by {owner}"
 msgstr ""
 
@@ -417,7 +417,8 @@ msgstr ""
 msgid "Show read-only VCF link"
 msgstr ""
 
-#: js/settings.js:99 templates/contacts.php:320 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:80 templates/contacts.php:320
+#: templates/settings.php:40
 msgid "Download"
 msgstr "انزال"
 
@@ -425,10 +426,10 @@ msgstr "انزال"
 msgid "Edit"
 msgstr "تعديل"
 
-#: js/settings.js:102 templates/contacts.php:265 templates/contacts.php:272
-#: templates/contacts.php:279 templates/contacts.php:286
-#: templates/contacts.php:334 templates/contacts.php:461
-#: templates/settings.php:50
+#: js/settings.js:102 templates/contacts.php:81 templates/contacts.php:265
+#: templates/contacts.php:272 templates/contacts.php:279
+#: templates/contacts.php:286 templates/contacts.php:334
+#: templates/contacts.php:461 templates/settings.php:50
 msgid "Delete"
 msgstr "حذف"
 
@@ -662,11 +663,11 @@ msgid "There was an error deleting properties for this contact."
 msgstr ""
 
 #: templates/contacts.php:7
-msgid "New Group"
+msgid "New Contact"
 msgstr ""
 
 #: templates/contacts.php:13
-msgid "New Contact"
+msgid "New Group"
 msgstr ""
 
 #: templates/contacts.php:22
@@ -701,24 +702,16 @@ msgstr ""
 msgid "(De-)select all"
 msgstr ""
 
-#: templates/contacts.php:75
-msgid "Download Contact(s)"
-msgstr ""
-
-#: templates/contacts.php:77
+#: templates/contacts.php:76
 msgid "Groups"
 msgstr "مجموعات"
 
-#: templates/contacts.php:79
+#: templates/contacts.php:78
 msgid "Favorite"
 msgstr "المفضلة"
 
-#: templates/contacts.php:80
+#: templates/contacts.php:79
 msgid "Merge selected"
-msgstr ""
-
-#: templates/contacts.php:81
-msgid "Delete Contact"
 msgstr ""
 
 #: templates/contacts.php:87 templates/contacts.php:319

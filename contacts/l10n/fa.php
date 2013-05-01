@@ -87,7 +87,6 @@
 "New Group" => "گروه جدید",
 "New" => "جدید",
 "Import" => "وارد کردن",
-"Download Contact(s)" => "دانلود تماس(ها)",
 "Groups" => "گروه ها",
 "Close" => "بستن",
 "Keyboard shortcuts" => "میان بر صفحه ی کلید",

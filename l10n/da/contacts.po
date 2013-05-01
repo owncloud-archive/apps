@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-01 00:49+0200\n"
-"PO-Revision-Date: 2013-04-30 22:49+0000\n"
+"POT-Creation-Date: 2013-05-02 00:49+0200\n"
+"PO-Revision-Date: 2013-05-01 22:49+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/owncloud/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -203,23 +203,23 @@ msgstr ""
 msgid "Failed saving last group: {error}"
 msgstr ""
 
-#: js/app.js:724 js/app.js:762
+#: js/app.js:705 js/app.js:743
 msgid "Error adding to group."
 msgstr "Fejl ved tilføjelse til gruppen."
 
-#: js/app.js:791
+#: js/app.js:772
 msgid "Error removing from group."
 msgstr "Fejl ved fjernelse af gruppen."
 
-#: js/app.js:819
+#: js/app.js:800
 msgid "There was an error opening a mail composer."
 msgstr "Der opstod en fejl under åbning af en e-mail klient."
 
-#: js/app.js:855
+#: js/app.js:836
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Sletning udføres. Klik her for at annullere genindlæsningen."
 
-#: js/app.js:926
+#: js/app.js:907
 msgid "Failed adding address book: {error}"
 msgstr ""
 
@@ -325,29 +325,29 @@ msgstr ""
 msgid "Is this correct?"
 msgstr "Er dette korrekt?"
 
-#: js/contacts.js:904 js/contacts.js:945
+#: js/contacts.js:919 js/contacts.js:960
 msgid "# groups"
 msgstr "# grupper"
 
-#: js/contacts.js:1830
+#: js/contacts.js:1845
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Nogle kontakter er markeret til sletning, men er endnu ikke slettet. Vent venligst på, at de bliver slettet."
 
-#: js/contacts.js:1841
+#: js/contacts.js:1856
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Klik for at fortryde sletning af {num} kontakter"
 
-#: js/contacts.js:1856
+#: js/contacts.js:1871
 msgid "Cancelled deletion of {num}"
 msgstr "Annulleret sletning af {num}"
 
-#: js/contacts.js:2084
+#: js/contacts.js:2099
 msgid "Failed loading contacts from {addressbook}: {error}"
 msgstr ""
 
-#: js/contacts.js:2101
+#: js/contacts.js:2116
 msgid "Failed loading address books: {error}"
 msgstr ""
 
@@ -375,29 +375,29 @@ msgstr "Kontakter er ikke i denne gruppe."
 msgid "Failed deleting group: {error}"
 msgstr ""
 
-#: js/groups.js:549
+#: js/groups.js:547
 msgid "A group named {group} already exists"
 msgstr "En gruppe med navnet {group} findes allerede"
 
-#: js/groups.js:583
+#: js/groups.js:582
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Du kan trække grupper til⏎ arranger dem som du vil."
 
-#: js/groups.js:598
+#: js/groups.js:597
 msgid "Failed adding group: {error}"
 msgstr ""
 
-#: js/groups.js:609
+#: js/groups.js:608
 msgid "All"
 msgstr "Alle"
 
-#: js/groups.js:622 js/groups.js:625
+#: js/groups.js:621 js/groups.js:624
 msgid "Favorites"
 msgstr "Foretrukne"
 
-#: js/groups.js:679
+#: js/groups.js:678
 msgid "Shared by {owner}"
 msgstr "Delt af {owner}"
 
@@ -425,7 +425,8 @@ msgstr "Vis CardDav link"
 msgid "Show read-only VCF link"
 msgstr "Vis skrivebeskyttet VCF link"
 
-#: js/settings.js:99 templates/contacts.php:320 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:80 templates/contacts.php:320
+#: templates/settings.php:40
 msgid "Download"
 msgstr "Download"
 
@@ -433,10 +434,10 @@ msgstr "Download"
 msgid "Edit"
 msgstr "Rediger"
 
-#: js/settings.js:102 templates/contacts.php:265 templates/contacts.php:272
-#: templates/contacts.php:279 templates/contacts.php:286
-#: templates/contacts.php:334 templates/contacts.php:461
-#: templates/settings.php:50
+#: js/settings.js:102 templates/contacts.php:81 templates/contacts.php:265
+#: templates/contacts.php:272 templates/contacts.php:279
+#: templates/contacts.php:286 templates/contacts.php:334
+#: templates/contacts.php:461 templates/settings.php:50
 msgid "Delete"
 msgstr "Slet"
 
@@ -670,12 +671,12 @@ msgid "There was an error deleting properties for this contact."
 msgstr "Der opstod en fejl under sletning egenskaber for denne kontakt."
 
 #: templates/contacts.php:7
-msgid "New Group"
-msgstr "Ny Gruppe"
-
-#: templates/contacts.php:13
 msgid "New Contact"
 msgstr "Ny Kontakt"
+
+#: templates/contacts.php:13
+msgid "New Group"
+msgstr "Ny Gruppe"
 
 #: templates/contacts.php:22
 msgid "Address books"
@@ -709,25 +710,17 @@ msgstr "Importere til:"
 msgid "(De-)select all"
 msgstr "(Af)marker alle"
 
-#: templates/contacts.php:75
-msgid "Download Contact(s)"
-msgstr "Hent Kontakt(er)"
-
-#: templates/contacts.php:77
+#: templates/contacts.php:76
 msgid "Groups"
 msgstr "Grupper"
 
-#: templates/contacts.php:79
+#: templates/contacts.php:78
 msgid "Favorite"
 msgstr "favorit"
 
-#: templates/contacts.php:80
+#: templates/contacts.php:79
 msgid "Merge selected"
 msgstr ""
-
-#: templates/contacts.php:81
-msgid "Delete Contact"
-msgstr "Slet Kontakt"
 
 #: templates/contacts.php:87 templates/contacts.php:319
 msgid "Close"

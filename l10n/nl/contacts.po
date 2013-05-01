@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-01 00:49+0200\n"
-"PO-Revision-Date: 2013-04-30 22:49+0000\n"
+"POT-Creation-Date: 2013-05-02 00:49+0200\n"
+"PO-Revision-Date: 2013-05-01 22:50+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/owncloud/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -202,31 +202,31 @@ msgstr "Opslaan volgorde mislukt: {error}"
 
 #: js/app.js:586
 msgid "Failed saving last group: {error}"
-msgstr ""
+msgstr "Mislukt: opslaan laatste groep: {error}"
 
-#: js/app.js:724 js/app.js:762
+#: js/app.js:705 js/app.js:743
 msgid "Error adding to group."
 msgstr "Fout bij het toevoegen aan de groep."
 
-#: js/app.js:791
+#: js/app.js:772
 msgid "Error removing from group."
 msgstr "Fout bij het verwijderen uit de groep."
 
-#: js/app.js:819
+#: js/app.js:800
 msgid "There was an error opening a mail composer."
 msgstr "Er is iets misgegaan tijdens het openen van een email programma."
 
-#: js/app.js:855
+#: js/app.js:836
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Verwijderen gereed. Klik hier om herladen te annuleren."
 
-#: js/app.js:926
+#: js/app.js:907
 msgid "Failed adding address book: {error}"
-msgstr ""
+msgstr "Mislukt: toevoegen adresboek: {error}"
 
 #: js/app.js:979
 msgid "Failed adding addres books: {error}"
-msgstr ""
+msgstr "Mislukt: toevoegen adresboeken: {error}"
 
 #: js/app.js:992
 msgid "Add address book"
@@ -234,7 +234,7 @@ msgstr "Toevoegen adresboek"
 
 #: js/app.js:1095
 msgid "Error setting {name} as favorite."
-msgstr ""
+msgstr "Fout bij instellen {name} als favoriet"
 
 #: js/app.js:1141
 msgid "Import done. Click here to cancel reloading."
@@ -320,37 +320,37 @@ msgstr "Fout profiel plaatje kan niet worden geladen."
 
 #: js/contacts.js:307
 msgid "Failed deleting property: {error}"
-msgstr ""
+msgstr "Fout: verwijderen eigenschap: {error}"
 
 #: js/contacts.js:498
 msgid "Is this correct?"
 msgstr "Is dit correct?"
 
-#: js/contacts.js:904 js/contacts.js:945
+#: js/contacts.js:919 js/contacts.js:960
 msgid "# groups"
 msgstr "# groepen"
 
-#: js/contacts.js:1830
+#: js/contacts.js:1845
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Enkele contacten zijn gemarkeerd om verwijderd te worden, maar zijn nog niet verwijderd.  Wacht totdat ze zijn verwijderd."
 
-#: js/contacts.js:1841
+#: js/contacts.js:1856
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Klik om het verwijderen van {num} contactpersonen ongedaan te maken."
 
-#: js/contacts.js:1856
+#: js/contacts.js:1871
 msgid "Cancelled deletion of {num}"
 msgstr "Verwijderen geannuleerd van {num}"
 
-#: js/contacts.js:2084
+#: js/contacts.js:2099
 msgid "Failed loading contacts from {addressbook}: {error}"
-msgstr ""
+msgstr "Mislukt: inladen contacten van {addressbook}: {error}"
 
-#: js/contacts.js:2101
+#: js/contacts.js:2116
 msgid "Failed loading address books: {error}"
-msgstr ""
+msgstr "Mislukt: inladen adresboeken: {error}"
 
 #: js/groups.js:198
 msgid "Contact is already in this group."
@@ -374,31 +374,31 @@ msgstr "De contactpersonen bevinden zich niet in deze groep"
 
 #: js/groups.js:419
 msgid "Failed deleting group: {error}"
-msgstr ""
+msgstr "Mislukt: verwijderen groep: {error}"
 
-#: js/groups.js:549
+#: js/groups.js:547
 msgid "A group named {group} already exists"
 msgstr "Er bestaat al een groep {group}"
 
-#: js/groups.js:583
+#: js/groups.js:582
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "U kunt groepen slepen\nom ze naar wens te rangschikken."
 
-#: js/groups.js:598
+#: js/groups.js:597
 msgid "Failed adding group: {error}"
-msgstr ""
+msgstr "Mislukt: toevoegen groep: {error}"
 
-#: js/groups.js:609
+#: js/groups.js:608
 msgid "All"
 msgstr "Alle"
 
-#: js/groups.js:622 js/groups.js:625
+#: js/groups.js:621 js/groups.js:624
 msgid "Favorites"
 msgstr "Favorieten"
 
-#: js/groups.js:679
+#: js/groups.js:678
 msgid "Shared by {owner}"
 msgstr "Gedeeld door {owner}"
 
@@ -426,7 +426,8 @@ msgstr "Laat CardDav link zien"
 msgid "Show read-only VCF link"
 msgstr "Laat alleen lezen VCF link zien"
 
-#: js/settings.js:99 templates/contacts.php:320 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:80 templates/contacts.php:320
+#: templates/settings.php:40
 msgid "Download"
 msgstr "Download"
 
@@ -434,10 +435,10 @@ msgstr "Download"
 msgid "Edit"
 msgstr "Bewerken"
 
-#: js/settings.js:102 templates/contacts.php:265 templates/contacts.php:272
-#: templates/contacts.php:279 templates/contacts.php:286
-#: templates/contacts.php:334 templates/contacts.php:461
-#: templates/settings.php:50
+#: js/settings.js:102 templates/contacts.php:81 templates/contacts.php:265
+#: templates/contacts.php:272 templates/contacts.php:279
+#: templates/contacts.php:286 templates/contacts.php:334
+#: templates/contacts.php:461 templates/settings.php:50
 msgid "Delete"
 msgstr "Verwijderen"
 
@@ -451,11 +452,11 @@ msgstr "Minder..."
 
 #: js/storage.js:198
 msgid "Failed loading photo: {error}"
-msgstr ""
+msgstr "Mislukt: inladen foto: {error}"
 
 #: js/storage.js:413 js/storage.js:426
 msgid "Request failed: {error}"
-msgstr ""
+msgstr "Aanvraag mislukt: {error}"
 
 #: lib/backend/ldap.php:178
 msgid "There was an error updating the addressbook."
@@ -467,45 +468,45 @@ msgstr "Er is een fout opgetreden bij het verwijderen van dit adresboek."
 
 #: lib/controller/addressbookcontroller.php:90
 msgid "Error creating address book"
-msgstr ""
+msgstr "Fout bij aanmaken adresboek"
 
 #: lib/controller/addressbookcontroller.php:111
 msgid "Error deleting address book"
-msgstr ""
+msgstr "Fout bij verwijderen adresboek"
 
 #: lib/controller/addressbookcontroller.php:130
 msgid "Error creating contact."
-msgstr ""
+msgstr "Fout bij aanmaken contactpersoon."
 
 #: lib/controller/addressbookcontroller.php:151
 msgid "Error deleting contact."
-msgstr ""
+msgstr "Fout bij verwijderen contactpersoon."
 
 #: lib/controller/contactcontroller.php:45
 #: lib/controller/contactcontroller.php:126
 #: lib/controller/contactcontroller.php:186
 msgid "Couldn't find contact."
-msgstr ""
+msgstr "Kon contactpersoon niet vinden."
 
 #: lib/controller/contactcontroller.php:49
 msgid "Error merging into contact."
-msgstr ""
+msgstr "Fout bij samenvoegen bij contactpersoon."
 
 #: lib/controller/contactcontroller.php:52
 #: lib/controller/contactcontroller.php:144
 msgid "Error saving contact to backend."
-msgstr ""
+msgstr "Fout bij bewaren contactpersoon in backend."
 
 #: lib/controller/contactcontroller.php:129
 #: lib/controller/contactcontroller.php:189
 msgid "Property name is not set."
-msgstr ""
+msgstr "Naam van eigenschap niet ingesteld."
 
 #: lib/controller/contactcontroller.php:132
 #: lib/controller/contactcontroller.php:192
 #: lib/controller/contactcontroller.php:201
 msgid "Property checksum is not set."
-msgstr ""
+msgstr "Controlegetal van eigenschap niet ingesteld."
 
 #: lib/controller/contactcontroller.php:138
 #: lib/controller/contactcontroller.php:207
@@ -514,11 +515,11 @@ msgstr "Informatie over de vCard is onjuist. Herlaad de pagina."
 
 #: lib/controller/contactcontroller.php:211
 msgid "Error setting property"
-msgstr ""
+msgstr "Fout bij instellen eigenschap"
 
 #: lib/controller/contactcontroller.php:215
 msgid "Error saving property to backend"
-msgstr ""
+msgstr "Fout bij opslaan eigenschap in backend"
 
 #: lib/controller/groupcontroller.php:60 lib/controller/groupcontroller.php:84
 msgid "No group name given."
@@ -671,12 +672,12 @@ msgid "There was an error deleting properties for this contact."
 msgstr "Er is iets misgegaan tijdens het verwijderen van de eigenschappen van dit contact."
 
 #: templates/contacts.php:7
-msgid "New Group"
-msgstr "Nieuwe Groep"
-
-#: templates/contacts.php:13
 msgid "New Contact"
 msgstr "Nieuw Contact"
+
+#: templates/contacts.php:13
+msgid "New Group"
+msgstr "Nieuwe Groep"
 
 #: templates/contacts.php:22
 msgid "Address books"
@@ -710,25 +711,17 @@ msgstr "Importeer naar:"
 msgid "(De-)select all"
 msgstr "(De-)selecteer alle"
 
-#: templates/contacts.php:75
-msgid "Download Contact(s)"
-msgstr "Downloaden Contactperso(o)n(en)"
-
-#: templates/contacts.php:77
+#: templates/contacts.php:76
 msgid "Groups"
 msgstr "Groepen"
 
-#: templates/contacts.php:79
+#: templates/contacts.php:78
 msgid "Favorite"
 msgstr "Favoriet"
 
-#: templates/contacts.php:80
+#: templates/contacts.php:79
 msgid "Merge selected"
 msgstr "Samenvoeging geselecteerd"
-
-#: templates/contacts.php:81
-msgid "Delete Contact"
-msgstr "Verwijder Contact"
 
 #: templates/contacts.php:87 templates/contacts.php:319
 msgid "Close"
@@ -794,11 +787,11 @@ msgstr "Contactpersoon toevoegen"
 
 #: templates/contacts.php:170
 msgid "Which contact should the data be merged into?"
-msgstr ""
+msgstr "Bij welke contactpersoon moeten de gegevens worden samengevoegd?"
 
 #: templates/contacts.php:178
 msgid "Delete the other(s) after successful merge?"
-msgstr ""
+msgstr "Verwijder de andere(n) na een succesvolle samenvoeging?"
 
 #: templates/contacts.php:190
 msgid "Compose mail"

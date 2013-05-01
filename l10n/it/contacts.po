@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-01 00:49+0200\n"
-"PO-Revision-Date: 2013-04-30 22:49+0000\n"
+"POT-Creation-Date: 2013-05-02 00:49+0200\n"
+"PO-Revision-Date: 2013-05-01 22:49+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/owncloud/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -197,23 +197,23 @@ msgstr "Salvataggio dell'ordinamento non riuscito: {error}"
 msgid "Failed saving last group: {error}"
 msgstr "Salvataggio dell'ultimo gruppo non riuscito: {error}"
 
-#: js/app.js:724 js/app.js:762
+#: js/app.js:705 js/app.js:743
 msgid "Error adding to group."
 msgstr "Errore durante l'aggiunta al gruppo."
 
-#: js/app.js:791
+#: js/app.js:772
 msgid "Error removing from group."
 msgstr "Errore durante la rimozione dal gruppo."
 
-#: js/app.js:819
+#: js/app.js:800
 msgid "There was an error opening a mail composer."
 msgstr "Si è verificato un errore durante l'apertura del compositore."
 
-#: js/app.js:855
+#: js/app.js:836
 msgid "Deleting done. Click here to cancel reloading."
 msgstr "Eliminazione completata. Fai clic qui per annullare il ricaricamento."
 
-#: js/app.js:926
+#: js/app.js:907
 msgid "Failed adding address book: {error}"
 msgstr "Aggiunta della rubrica non riuscita: {error}"
 
@@ -319,29 +319,29 @@ msgstr "Eliminazione della proprietà non riuscita: {error}"
 msgid "Is this correct?"
 msgstr "È corretto?"
 
-#: js/contacts.js:904 js/contacts.js:945
+#: js/contacts.js:919 js/contacts.js:960
 msgid "# groups"
 msgstr "# gruppi"
 
-#: js/contacts.js:1830
+#: js/contacts.js:1845
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Alcuni contatti sono marcati per l'eliminazione, ma non sono stati ancora rimossi. Attendere fino al completamento dell'operazione."
 
-#: js/contacts.js:1841
+#: js/contacts.js:1856
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Un clic per annullare l'eliminazione di {num} contatti"
 
-#: js/contacts.js:1856
+#: js/contacts.js:1871
 msgid "Cancelled deletion of {num}"
 msgstr "Eliminazione di {num} annullata"
 
-#: js/contacts.js:2084
+#: js/contacts.js:2099
 msgid "Failed loading contacts from {addressbook}: {error}"
 msgstr "Caricamento dei contatti da {addressbook} non riuscito: {error}"
 
-#: js/contacts.js:2101
+#: js/contacts.js:2116
 msgid "Failed loading address books: {error}"
 msgstr "Caricamento rubriche non riuscito: {error}"
 
@@ -369,29 +369,29 @@ msgstr "I contatti non sono in questo gruppo."
 msgid "Failed deleting group: {error}"
 msgstr "Eliminazione gruppo non riuscita: {error}"
 
-#: js/groups.js:549
+#: js/groups.js:547
 msgid "A group named {group} already exists"
 msgstr "Un gruppo con nome {group} esiste già"
 
-#: js/groups.js:583
+#: js/groups.js:582
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "Puoi trascinare i gruppi per\norganizzarli come preferisci."
 
-#: js/groups.js:598
+#: js/groups.js:597
 msgid "Failed adding group: {error}"
 msgstr "Aggiunta gruppo non riuscita: {error}"
 
-#: js/groups.js:609
+#: js/groups.js:608
 msgid "All"
 msgstr "Tutti"
 
-#: js/groups.js:622 js/groups.js:625
+#: js/groups.js:621 js/groups.js:624
 msgid "Favorites"
 msgstr "Preferiti"
 
-#: js/groups.js:679
+#: js/groups.js:678
 msgid "Shared by {owner}"
 msgstr "Condiviso da {owner}"
 
@@ -419,7 +419,8 @@ msgstr "Mostra collegamento CardDav"
 msgid "Show read-only VCF link"
 msgstr "Mostra collegamento VCF in sola lettura"
 
-#: js/settings.js:99 templates/contacts.php:320 templates/settings.php:40
+#: js/settings.js:99 templates/contacts.php:80 templates/contacts.php:320
+#: templates/settings.php:40
 msgid "Download"
 msgstr "Scarica"
 
@@ -427,10 +428,10 @@ msgstr "Scarica"
 msgid "Edit"
 msgstr "Modifica"
 
-#: js/settings.js:102 templates/contacts.php:265 templates/contacts.php:272
-#: templates/contacts.php:279 templates/contacts.php:286
-#: templates/contacts.php:334 templates/contacts.php:461
-#: templates/settings.php:50
+#: js/settings.js:102 templates/contacts.php:81 templates/contacts.php:265
+#: templates/contacts.php:272 templates/contacts.php:279
+#: templates/contacts.php:286 templates/contacts.php:334
+#: templates/contacts.php:461 templates/settings.php:50
 msgid "Delete"
 msgstr "Elimina"
 
@@ -664,12 +665,12 @@ msgid "There was an error deleting properties for this contact."
 msgstr "Si è verificato un errore durante l'eliminazione delle proprietà di questo contatto."
 
 #: templates/contacts.php:7
-msgid "New Group"
-msgstr "Nuovo gruppo"
-
-#: templates/contacts.php:13
 msgid "New Contact"
 msgstr "Nuovo contatto"
+
+#: templates/contacts.php:13
+msgid "New Group"
+msgstr "Nuovo gruppo"
 
 #: templates/contacts.php:22
 msgid "Address books"
@@ -703,25 +704,17 @@ msgstr "Importa in:"
 msgid "(De-)select all"
 msgstr "(De)seleziona tutto"
 
-#: templates/contacts.php:75
-msgid "Download Contact(s)"
-msgstr "Scarica contatto(i)"
-
-#: templates/contacts.php:77
+#: templates/contacts.php:76
 msgid "Groups"
 msgstr "Gruppi"
 
-#: templates/contacts.php:79
+#: templates/contacts.php:78
 msgid "Favorite"
 msgstr "Preferito"
 
-#: templates/contacts.php:80
+#: templates/contacts.php:79
 msgid "Merge selected"
 msgstr "Unisci selezionati"
-
-#: templates/contacts.php:81
-msgid "Delete Contact"
-msgstr "Elimina contatto"
 
 #: templates/contacts.php:87 templates/contacts.php:319
 msgid "Close"
