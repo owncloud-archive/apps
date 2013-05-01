@@ -13,10 +13,6 @@ namespace OCA\Contacts;
 \OCP\User::checkLoggedIn();
 \OCP\App::checkAppEnabled('contacts');
 
-// Get active address books. This creates a default one if none exists.
-//$ids = OCA\Contacts\Addressbook::activeIds(OCP\USER::getUser());
-
-// Load the files we need
 \OCP\App::setActiveNavigationEntry('contacts_index');
 
 $impp_types = Utils\Properties::getTypesForProperty('IMPP');
@@ -37,6 +33,7 @@ $maxUploadFilesize = \OCP\Util::maxUploadFilesize('/');
 \OCP\Util::addscript('', 'octemplate');
 \OCP\Util::addscript('contacts', 'modernizr.custom');
 \OCP\Util::addscript('contacts', 'app');
+\OCP\Util::addscript('contacts', 'addressbooks');
 \OCP\Util::addscript('contacts', 'contacts');
 \OCP\Util::addscript('contacts', 'storage');
 \OCP\Util::addscript('contacts', 'groups');
@@ -58,7 +55,6 @@ $tmpl = new \OCP\Template( "contacts", "contacts", "user" );
 $tmpl->assign('uploadMaxFilesize', $maxUploadFilesize);
 $tmpl->assign('uploadMaxHumanFilesize',
 	\OCP\Util::humanFileSize($maxUploadFilesize), false);
-//$tmpl->assign('addressbooks', OCA\Contacts\Addressbook::all(OCP\USER::getUser()));
 $tmpl->assign('phone_types', $phone_types);
 $tmpl->assign('email_types', $email_types);
 $tmpl->assign('adr_types', $adr_types);
