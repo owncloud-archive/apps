@@ -386,7 +386,7 @@ dt[data-element="org"] { margin-top: 4px; }
 #contacts-settings li,#contacts-settings li:hover { background-color: transparent; white-space: nowrap; }
 #contacts-settings a.action:not(.settings) { width: 16px; height: 16px; }
 */
-.addressbooklist .actions { float: right; }
+.addressbooklist .actions { position: absolute; right: 5px; }
 
 #contacts-settings .addressbooklist {
 	max-height: 250px;
