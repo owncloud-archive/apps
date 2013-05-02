@@ -213,7 +213,7 @@ OC.Contacts = OC.Contacts || {};
 				doPost = true;
 			} else {
 				if(typeof cb == 'function') {
-					cb({status:'error', message:t('contacts', 'Contact is already in this group.')});
+					cb({error:true, message:t('contacts', 'Contact is already in this group.')});
 				}
 			}
 		} else if(utils.isArray(contactid)) {
@@ -226,7 +226,7 @@ OC.Contacts = OC.Contacts || {};
 				doPost = true;
 			} else {
 				if(typeof cb == 'function') {
-					cb({status:'error', message:t('contacts', 'Contacts are already in this group.')});
+					cb({error:true, message:t('contacts', 'Contacts are already in this group.')});
 				}
 			}
 		} else {
@@ -243,7 +243,7 @@ OC.Contacts = OC.Contacts || {};
 						$numelem.switchClass('active', '', 1000);
 					}, 2000);
 					if(typeof cb === 'function') {
-						cb({status:'success', ids:ids});
+						cb({ids:ids});
 					} else {
 						$(document).trigger('status.group.contactadded', {
 							contactid: contactid,
@@ -253,7 +253,7 @@ OC.Contacts = OC.Contacts || {};
 					}
 				} else {
 					if(typeof cb == 'function') {
-						cb({status:'error', message:response.message});
+						cb({error:true, message:response.message});
 					}
 				}
 			});
@@ -280,13 +280,13 @@ OC.Contacts = OC.Contacts || {};
 				$numelem.switchClass('active', '', 1000);
 			}, 2000);
 			if(typeof cb === 'function') {
-				cb({status:'success', ids:[id]});
+				cb({ids:[id]});
 			}
 		}
 		// If the contact is in the category remove it from internal list.
 		if(!contacts) {
 			if(typeof cb === 'function') {
-				cb({status:'error', message:t('contacts', 'Couldn\'t get contact list.')});
+				cb({error:true, message:t('contacts', 'Couldn\'t get contact list.')});
 			}
 			return;
 		}
@@ -297,7 +297,7 @@ OC.Contacts = OC.Contacts || {};
 				doPost = true;
 			} else {
 				if(typeof cb == 'function') {
-					cb({status:'error', message:t('contacts', 'Contact is not in this group.')});
+					cb({error:true, message:t('contacts', 'Contact is not in this group.')});
 				}
 			}
 		} else if(utils.isArray(contactid)) {
@@ -311,7 +311,7 @@ OC.Contacts = OC.Contacts || {};
 			} else {
 				console.log(contactid, 'not in', contacts);
 				if(typeof cb == 'function') {
-					cb({status:'error', message:t('contacts', 'Contacts are not in this group.')});
+					cb({error:true, message:t('contacts', 'Contacts are not in this group.')});
 				}
 			}
 		}
@@ -329,11 +329,11 @@ OC.Contacts = OC.Contacts || {};
 						$numelem.switchClass('active', '', 1000);
 					}, 2000);
 					if(typeof cb === 'function') {
-						cb({status:'success', ids:ids});
+						cb({ids:ids});
 					}
 				} else {
 					if(typeof cb == 'function') {
-						cb({status:'error', message:response.message});
+						cb({error:true, message:response.message});
 					}
 				}
 			});

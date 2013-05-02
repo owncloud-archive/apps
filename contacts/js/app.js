@@ -424,7 +424,6 @@ OC.Contacts = OC.Contacts || {
 			console.log('status.nomorecontacts', result);
 			self.$contactList.hide();
 			self.$firstRun.show();
-			// TODO: Show a first-run page.
 		});
 
 		$(document).bind('status.visiblecontacts', function(e, result) {
@@ -716,7 +715,7 @@ OC.Contacts = OC.Contacts || {
 						groupId = response.id;
 						groupName = response.name;
 						self.groups.addTo(ids, groupId, function(result) {
-							if(result.status === 'success') {
+							if(!result.error) {
 								$.each(ids, function(idx, id) {
 									// Delay each contact to not trigger too many ajax calls
 									// at a time.
@@ -738,8 +737,7 @@ OC.Contacts = OC.Contacts || {
 									}, 1000);
 								});
 							} else {
-								// TODO: Use message returned from groups object.
-								OC.notify({message:t('contacts', t('contacts', 'Error adding to group.'))});
+								OC.notify({message:result.message});
 							}
 						});
 					} else {
@@ -754,7 +752,7 @@ OC.Contacts = OC.Contacts || {
 			if(action === 'add') {
 				self.groups.addTo(ids, $opt.val(), function(result) {
 					console.log('after add', result);
-					if(result.status === 'success') {
+					if(!result.error) {
 						$.each(result.ids, function(idx, id) {
 							// Delay each contact to not trigger too many ajax calls
 							// at a time.
@@ -787,7 +785,7 @@ OC.Contacts = OC.Contacts || {
 			} else if(action === 'remove') {
 				self.groups.removeFrom(ids, $opt.val(), function(result) {
 					console.log('after remove', result);
-					if(result.status === 'success') {
+					if(!result.error) {
 						var groupname = $opt.text(), groupid = $opt.val();
 						$.each(result.ids, function(idx, id) {
 							var contact = self.contacts.findById(id);

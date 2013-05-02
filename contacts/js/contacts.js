@@ -251,7 +251,6 @@ OC.Contacts = OC.Contacts || {};
 		$.when(this.storage.deleteProperty(this.metadata.backend, this.metadata.parent, this.id, params))
 			.then(function(response) {
 			if(!response.error) {
-				// TODO: Test if removing from internal data structure works
 				if(self.multi_properties.indexOf(element) !== -1) {
 					// First find out if an existing element by looking for checksum
 					var checksum = self.checksumFor(obj);
@@ -636,7 +635,6 @@ OC.Contacts = OC.Contacts || {};
 	 * @returns The callback gets an object as argument with a variable 'status' of either 'success'
 	 * or 'error'. On success the 'data' property of that object contains the contact id as 'id', the
 	 * addressbook id as 'aid' and the contact data structure as 'details'.
-	 * TODO: Use Storage for adding and make sure to get all metadata.
 	 */
 	Contact.prototype.add = function(params, cb) {
 		var self = this;
@@ -938,9 +936,7 @@ OC.Contacts = OC.Contacts || {};
 		
 		var buildAddressBookSelect = function(availableAddressBooks) {
 			console.log('address books', availableAddressBooks.length, availableAddressBooks);
-			/* TODO:
-			 * - Check address books permissions.
-			 * - Add method to change address book.
+			/* TODO: Add method to change address book.
 			 */
 			$.each(availableAddressBooks, function(idx, addressBook) {
 				//console.log('addressBook', idx, addressBook);

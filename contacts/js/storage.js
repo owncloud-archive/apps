@@ -27,7 +27,7 @@ OC.Contacts = OC.Contacts || {};
 	* All methods returns a jQuery.Deferred object which resolves
 	* to either the requested response or an error object:
 	* {
-	*	status: 'error',
+	*	error: true,
 	*	message: The error message
 	* }
 	*
@@ -422,17 +422,8 @@ OC.Contacts = OC.Contacts || {};
 			processData: processData,
 			data: params
 		};
+
 		var defer = $.Deferred();
-		/*$.when($.ajax(ajaxParams)).then(function(response) {
-			defer.resolve(new JSONResponse(response));
-		}).fail(function(jqxhr, textStatus, error) {
-			defer.reject(
-				new JSONResponse({
-					status:'error',
-					data:{message:t('contacts', 'Request failed: {error}', {error:textStatus + ', ' + error})}
-				})
-			);
-		});*/
 
 		var jqxhr = $.ajax(ajaxParams)
 			.done(function(response) {
@@ -441,7 +432,7 @@ OC.Contacts = OC.Contacts || {};
 			.fail(function(jqxhr, textStatus, error) {
 				defer.reject(
 					new JSONResponse({
-						status:'error',
+						error:true,
 						data:{message:t('contacts', 'Request failed: {error}', {error:textStatus + ', ' + error})}
 					})
 				);
