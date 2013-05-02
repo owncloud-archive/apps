@@ -112,6 +112,13 @@
 }
 
 #grouplist { z-index: 100; }
+#grouplist .oc-addnew-init { padding: 0 16px; }
+#grouplist .add-contact:before {
+	content: '+';
+	font-weight: bold;
+	font-size: 180%;
+	padding-right: 5px;
+}
 #grouplist li .action:not(.starred):not(.checked):not(.favorite):not([class^="add-"]) { display: none; padding: 0; }
 #grouplist li:not([data-type="shared"]):not(.editing):hover .action.numcontacts,
 #grouplist li:not([data-type="shared"]):not(.editing) .active.action.numcontacts { display: inline-block; }
@@ -119,6 +126,7 @@
 #grouplist li.active[data-type="category"]:not(.editing):hover .action.delete { display: inline-block; }
 #grouplist li:not(.editing) .action.delete { width: 20px; height: 20px; }
 #grouplist .group span.numcontacts { width: 30px; text-align: right; margin-right: 10px !important; }
+#grouplist li.special { height: 40px; }
 
 /* First run */
 

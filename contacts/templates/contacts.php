@@ -1,17 +1,13 @@
 <div id="app">
 	<div id="app-navigation" class="loading">
 		<ul id="grouplist">
-			<li>
+			<li class="special">
 				<a role="button" class="add-contact">
-					<i class="icon-plus"></i>
 					<?php p($l->t('New Contact')); ?>
 				</a>
 			</li>
-			<li>
-				<a role="button" class="add-group">
-					<i class="icon-plus"></i>
-					<?php p($l->t('New Group')); ?>
-				</a>
+			<li class="special">
+				<input class="add-group" type="text" tabindex="0" autofocus placeholder="<?php p($l->t('Group name')); ?>" title="<?php p($l->t('New Group')); ?>" />
 			</li>
 		</ul>
 		<div id="app-settings">
@@ -23,7 +19,7 @@
 				<h2 data-id="addressbooks" tabindex="0" role="button"><?php p($l->t('Address books')); ?></h2>
 					<ul class="addressbooklist">
 					</ul>
-					<input type="text" id="add-address-book" placeholder="<?php p($l->t('Display name')); ?>" title="<?php p($l->t('Add Address Book')); ?>" />
+					<input type="text" tabindex="0" autofocus id="add-address-book" placeholder="<?php p($l->t('Display name')); ?>" title="<?php p($l->t('Add Address Book')); ?>" />
 				</div>
 				<div id="import">
 				<h2 data-id="import" tabindex="0" role="button"><?php p($l->t('Import')); ?></h2>

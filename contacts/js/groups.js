@@ -35,11 +35,29 @@ OC.Contacts = OC.Contacts || {};
 					}
 				});
 			} else if($(event.target).is('.add-group')) {
-				self.editGroup();
+				//self.editGroup();
 			} else if($(event.target).is('.add-contact')) {
 				$.noop(); // handled elsewhere in app.js
 			} else {
 				self.selectGroup({element:$(this)});
+			}
+		});
+		var $addInput = this.$groupList.find('.add-group');
+		$addInput.addnew({
+			ok: function(event, name) {
+				console.log('add-address-book ok', name);
+				$addInput.addClass('loading');
+				self.addGroup({name:name}, function(response) {
+					console.log('response', response);
+					if(response.error) {
+						$(document).trigger('status.contact.error', {
+							message: response.message
+						});
+					} else {
+						$addInput.addnew('close');
+					}
+					$addInput.removeClass('loading');
+				});
 			}
 		});
 
@@ -430,7 +448,7 @@ OC.Contacts = OC.Contacts || {};
 	 * FIXME: This works fine for adding, but will need refactoring
 	 * if used for renaming.
 	 */
-	GroupList.prototype.editGroup = function(id) {
+	/*GroupList.prototype.editGroup = function(id) {
 		var self = this;
 		if(this.$editelem) {
 			console.log('Already editing, returning');
@@ -510,7 +528,7 @@ OC.Contacts = OC.Contacts || {};
 		} else {
 			throw { name: 'WrongParameterType', message: 'GroupList.editGroup only accept integers.'};
 		}
-	};
+	};*/
 
 	/**
 	 * Add a new group.
@@ -544,7 +562,7 @@ OC.Contacts = OC.Contacts || {};
 		});
 		if(exists) {
 			if(typeof cb === 'function') {
-				cb({status:'error', message:t('contacts', 'A group named {group} already exists', {group: escapeHTML(name)})});
+				cb({error:true, message:t('contacts', 'A group named {group} already exists', {group: escapeHTML(name)})});
 			}
 			return;
 		}
