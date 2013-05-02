@@ -1,0 +1,84 @@
+/**
+ * ownCloud - Add new jQuery plugin
+ *
+ * @author Bernhard Posselt, Thomas Tanghus
+ * @copyright 2012 Bernhard Posselt nukeawhale@gmail.com
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+ * License as published by the Free Software Foundation; either
+ * version 3 of the License, or any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+.oc-addnew > li > a.oc-addnew-init:before {
+	content: '+';
+	font-weight: bold;
+	font-size: 180%;
+	padding-right: 5px;
+}
+
+.oc-addnew input[type=text] {
+	width: 120px !important;
+	margin-top: 15px;
+	height: 16px !important;
+}
+
+.oc-addnew select {
+	width: 133px;
+	margin-top: 1px !important;
+	height: 30px;
+	background-color: #eee;
+}
+
+.oc-addnew input,
+.oc-addnew select {
+	margin: 0 0 5px 0;
+	display: inline-block;
+	float: left;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-right: 0;
+}
+
+.oc-addnew button {
+	margin: 5px 0;
+	display: inline-block;
+	float: left;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	height: 30px !important;
+}
+
+.oc-addnew .action-button {
+	width: 30px;
+	background-position: center;
+	background-repeat: no-repeat;	
+}
+
+.oc-addnew .back-button {
+	border-radius: 0;
+	background-image: url('%webroot%/core/img/actions/delete.svg');
+}
+
+.oc-addnew .new-button {
+	border-radius: 0;
+	background-image: url('%webroot%/core/img/add.svg');
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px; 
+}
+
+.oc-addnew .create-button {
+	border-radius: 0;
+	background-image: url('%appswebroot%/contacts/img/checkmark-gray.svg');
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px; 
+}
