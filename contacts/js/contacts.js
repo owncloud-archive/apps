@@ -37,7 +37,7 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.getDisplayName = function() {
-		return this.getPreferredValue('FN');
+		return this.getPreferredValue('FN') || this.getPreferredValue('ORG') || this.getPreferredValue('EMAIL');
 	};
 
 	Contact.prototype.getId = function() {
@@ -862,7 +862,7 @@ OC.Contacts = OC.Contacts || {};
 			id: this.id,
 			parent: this.metadata.parent,
 			backend: this.metadata.backend,
-			name: this.getPreferredValue('FN', ''),
+			name: this.getDisplayName(),
 			email: this.getPreferredValue('EMAIL', ''),
 			tel: this.getPreferredValue('TEL', ''),
 			adr: this.getPreferredValue('ADR', []).clean('').join(', '),
