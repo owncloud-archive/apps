@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-02 00:49+0200\n"
-"PO-Revision-Date: 2013-05-01 22:50+0000\n"
+"POT-Creation-Date: 2013-05-03 00:57+0200\n"
+"PO-Revision-Date: 2013-05-02 22:58+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -95,40 +95,47 @@ msgid "Could not set preference: "
 msgstr "無法設置偏好設定"
 
 #: ajax/uploadimport.php:38 ajax/uploadphoto.php:80
+#: lib/controller/importcontroller.php:39
 msgid "No file was uploaded. Unknown error"
 msgstr "沒有檔案被上傳. 未知的錯誤."
 
 #: ajax/uploadimport.php:45 ajax/uploadphoto.php:86
+#: lib/controller/importcontroller.php:47
 msgid "There is no error, the file uploaded with success"
 msgstr "無錯誤，檔案上傳成功"
 
 #: ajax/uploadimport.php:46 ajax/uploadphoto.php:87
+#: lib/controller/importcontroller.php:48
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr "上傳的檔案超過了 php.ini 中的 upload_max_filesize 設定"
 
 #: ajax/uploadimport.php:48 ajax/uploadphoto.php:88
+#: lib/controller/importcontroller.php:50
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr "上傳黨案的超過 HTML 表單中指定 MAX_FILE_SIZE 限制"
 
 #: ajax/uploadimport.php:49 ajax/uploadphoto.php:89
+#: lib/controller/importcontroller.php:51
 msgid "The uploaded file was only partially uploaded"
 msgstr "只有部分檔案被上傳"
 
 #: ajax/uploadimport.php:50 ajax/uploadphoto.php:90
+#: lib/controller/importcontroller.php:52
 msgid "No file was uploaded"
 msgstr "沒有已上傳的檔案"
 
 #: ajax/uploadimport.php:51 ajax/uploadphoto.php:91
+#: lib/controller/importcontroller.php:53
 msgid "Missing a temporary folder"
 msgstr "遺失暫存資料夾"
 
-#: ajax/uploadimport.php:52
+#: ajax/uploadimport.php:52 lib/controller/importcontroller.php:54
 msgid "Failed to write to disk"
 msgstr "寫入硬碟失敗"
 
-#: ajax/uploadimport.php:62
+#: ajax/uploadimport.php:62 lib/controller/importcontroller.php:65
 msgid "Not enough storage available"
 msgstr "儲存空間不足"
 
@@ -136,7 +143,7 @@ msgstr "儲存空間不足"
 msgid "Upload of blacklisted file:"
 msgstr "上傳黑名單:"
 
-#: ajax/uploadimport.php:74
+#: ajax/uploadimport.php:74 lib/controller/importcontroller.php:91
 msgid "Error uploading contacts to storage."
 msgstr "上傳聯絡人到儲存空間時發生錯誤"
 
@@ -157,161 +164,122 @@ msgstr "通訊錄"
 msgid "%d_selected_contacts"
 msgstr "已選擇%d個聯絡人"
 
-#: js/app.js:256 js/app.js:270
-msgid "Add to..."
-msgstr "添加至…"
-
-#: js/app.js:260 js/app.js:272
-msgid "Remove from..."
-msgstr "從...移除"
-
-#: js/app.js:277
-msgid "Add group..."
-msgstr "新增群組"
-
-#: js/app.js:359
-msgid "Indexing contacts"
-msgstr "正在索引聯絡人..."
-
-#: js/app.js:457
-msgid "Merge failed. Cannot find contact: {id}"
+#: js/addressbooks.js:144
+msgid "Uploading..."
 msgstr ""
 
-#: js/app.js:470
-msgid "Merge failed."
+#: js/addressbooks.js:200
+msgid "Imported {count} of {total} contacts"
 msgstr ""
 
-#: js/app.js:477
-msgid "Merge failed. Error saving contact."
+#: js/addressbooks.js:217
+msgid "Imported {imported} contacts. {failed} failed."
 msgstr ""
 
-#: js/app.js:496
-msgid "Select photo"
-msgstr "選擇相片"
-
-#: js/app.js:546 js/app.js:1729
-msgid "Network or server error. Please inform administrator."
-msgstr "網路或伺服器錯誤，請通知系統管理員"
-
-#: js/app.js:553
-msgid "Failed saving sort order: {error}"
+#: js/addressbooks.js:310
+msgid "An address book called {name} already exists"
 msgstr ""
 
-#: js/app.js:586
-msgid "Failed saving last group: {error}"
-msgstr ""
-
-#: js/app.js:705 js/app.js:743
-msgid "Error adding to group."
-msgstr "新增到群組時錯誤"
-
-#: js/app.js:772
-msgid "Error removing from group."
-msgstr "從群組中移除錯誤"
-
-#: js/app.js:800
-msgid "There was an error opening a mail composer."
-msgstr "開啟郵件編寫器發生錯誤"
-
-#: js/app.js:836
-msgid "Deleting done. Click here to cancel reloading."
-msgstr "刪除完成，點擊此處以取消重新載入"
-
-#: js/app.js:907
+#: js/addressbooks.js:338
 msgid "Failed adding address book: {error}"
 msgstr ""
 
-#: js/app.js:979
-msgid "Failed adding addres books: {error}"
+#: js/addressbooks.js:374
+msgid "Failed loading address books: {error}"
 msgstr ""
 
-#: js/app.js:992
-msgid "Add address book"
-msgstr "新增通訊錄"
+#: js/app.js:293 js/app.js:307
+msgid "Add to..."
+msgstr "添加至…"
 
-#: js/app.js:1095
+#: js/app.js:297 js/app.js:309
+msgid "Remove from..."
+msgstr "從...移除"
+
+#: js/app.js:314
+msgid "Add group..."
+msgstr "新增群組"
+
+#: js/app.js:396
+msgid "Indexing contacts"
+msgstr "正在索引聯絡人..."
+
+#: js/app.js:494
+msgid "Merge failed. Cannot find contact: {id}"
+msgstr ""
+
+#: js/app.js:507
+msgid "Merge failed."
+msgstr ""
+
+#: js/app.js:514
+msgid "Merge failed. Error saving contact."
+msgstr ""
+
+#: js/app.js:533
+msgid "Select photo"
+msgstr "選擇相片"
+
+#: js/app.js:583 js/app.js:1423
+msgid "Network or server error. Please inform administrator."
+msgstr "網路或伺服器錯誤，請通知系統管理員"
+
+#: js/app.js:590
+msgid "Failed saving sort order: {error}"
+msgstr ""
+
+#: js/app.js:623
+msgid "Failed saving last group: {error}"
+msgstr ""
+
+#: js/app.js:742 js/app.js:780
+msgid "Error adding to group."
+msgstr "新增到群組時錯誤"
+
+#: js/app.js:809
+msgid "Error removing from group."
+msgstr "從群組中移除錯誤"
+
+#: js/app.js:837
+msgid "There was an error opening a mail composer."
+msgstr "開啟郵件編寫器發生錯誤"
+
+#: js/app.js:956
 msgid "Error setting {name} as favorite."
 msgstr ""
 
-#: js/app.js:1141
-msgid "Import done. Click here to cancel reloading."
-msgstr "匯入完成，點擊此處取消重新載入"
-
-#: js/app.js:1153
-msgid "{success} imported, {failed} failed."
-msgstr "{success}已載入, {failed} 失敗"
-
-#: js/app.js:1184
-msgid "Not all files uploaded. Retrying..."
-msgstr "未完成所有檔案上傳，重試中..."
-
-#: js/app.js:1190
-msgid "Something went wrong with the upload, please retry."
-msgstr "上傳時出現錯誤，請重新嘗試"
-
-#: js/app.js:1190 js/settings.js:25 js/settings.js:45 js/settings.js:75
-#: js/settings.js:112
-msgid "Error"
-msgstr "錯誤"
-
-#: js/app.js:1200
-msgid "Importing from {filename}..."
-msgstr "從 {filename} 匯入檔案..."
-
-#: js/app.js:1207
-msgid "{success} imported, {failed} failed from {file}"
+#: js/app.js:1095 js/app.js:1099 templates/contacts.php:141
+msgid "Merge contacts"
 msgstr ""
 
-#: js/app.js:1219
-msgid "Importing..."
-msgstr "匯入中…"
+#: js/app.js:1121 js/app.js:1175 js/settings.js:120 templates/contacts.php:290
+#: templates/settings.php:62
+msgid "Cancel"
+msgstr "取消"
 
-#: js/app.js:1242
-msgid "Unable to upload your file as it is a directory or has 0 bytes"
-msgstr "無法上傳您的檔案因為它可能是一個目錄或檔案大小為0"
+#: js/app.js:1149 templates/contacts.php:133
+msgid "Add group"
+msgstr "新增群組"
 
-#: js/app.js:1242
-msgid "Upload Error"
-msgstr "上傳發生錯誤"
+#: js/app.js:1153
+msgid "OK"
+msgstr "好"
 
-#: js/app.js:1248 js/app.js:1594
+#: js/app.js:1277
+msgid "No files selected for upload."
+msgstr "沒有選定上傳的檔案。"
+
+#: js/app.js:1288
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "您想要上傳的檔案大小超過伺服器限制。"
 
-#: js/app.js:1248
-msgid "Upload too large"
-msgstr "上傳過大"
-
-#: js/app.js:1401 js/app.js:1405 templates/contacts.php:169
-msgid "Merge contacts"
-msgstr ""
-
-#: js/app.js:1427 js/app.js:1481 js/settings.js:120 templates/contacts.php:30
-#: templates/contacts.php:37 templates/contacts.php:318
-#: templates/settings.php:62
-msgid "Cancel"
-msgstr "取消"
-
-#: js/app.js:1455 templates/contacts.php:161
-msgid "Add group"
-msgstr "新增群組"
-
-#: js/app.js:1459 templates/contacts.php:29 templates/contacts.php:36
-#: templates/contacts.php:61
-msgid "OK"
-msgstr "好"
-
-#: js/app.js:1583
-msgid "No files selected for upload."
-msgstr "沒有選定上傳的檔案。"
-
-#: js/app.js:1693
+#: js/app.js:1387
 msgid "Edit profile picture"
 msgstr "編輯個人資料照片"
 
-#: js/app.js:1711
+#: js/app.js:1405
 msgid "Error loading profile picture."
 msgstr "載入大頭照發生錯誤"
 
@@ -327,75 +295,67 @@ msgstr "是否正確?"
 msgid "# groups"
 msgstr "#群組"
 
-#: js/contacts.js:1845
+#: js/contacts.js:1860
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "有一些聯絡人被標記為將刪除但是尚未刪除，稍等一下就會刪除了。"
 
-#: js/contacts.js:1856
+#: js/contacts.js:1871
 msgid "Click to undo deletion of {num} contacts"
 msgstr "點擊已取消刪除 {num} 個聯絡人"
 
-#: js/contacts.js:1871
+#: js/contacts.js:1886
 msgid "Cancelled deletion of {num}"
 msgstr "取消 {num} 個刪除動作"
 
-#: js/contacts.js:2099
-msgid "Failed loading contacts from {addressbook}: {error}"
-msgstr ""
-
-#: js/contacts.js:2116
-msgid "Failed loading address books: {error}"
-msgstr ""
-
-#: js/groups.js:198
+#: js/groups.js:216
 msgid "Contact is already in this group."
 msgstr "該聯絡人已在此群組中"
 
-#: js/groups.js:211
+#: js/groups.js:229
 msgid "Contacts are already in this group."
 msgstr "聯絡人皆已在此群組中"
 
-#: js/groups.js:271
+#: js/groups.js:289
 msgid "Couldn't get contact list."
 msgstr "無法取得聯絡人清單"
 
-#: js/groups.js:282
+#: js/groups.js:300
 msgid "Contact is not in this group."
 msgstr "聯絡人不在此群組中"
 
-#: js/groups.js:296
+#: js/groups.js:314
 msgid "Contacts are not in this group."
 msgstr "聯絡人皆不在此群組中"
 
-#: js/groups.js:419
+#: js/groups.js:437
 msgid "Failed deleting group: {error}"
 msgstr ""
 
-#: js/groups.js:547
+#: js/groups.js:565
 msgid "A group named {group} already exists"
 msgstr "群組 {group} 已經存在"
 
-#: js/groups.js:582
+#: js/groups.js:600
 msgid ""
 "You can drag groups to\n"
 "arrange them as you like."
 msgstr "你可以拖曳群組以你喜歡的方式排列"
 
-#: js/groups.js:597
+#: js/groups.js:615
 msgid "Failed adding group: {error}"
 msgstr ""
 
-#: js/groups.js:608
+#: js/groups.js:626
 msgid "All"
 msgstr "所有"
 
-#: js/groups.js:621 js/groups.js:624
+#: js/groups.js:639 js/groups.js:642
 msgid "Favorites"
 msgstr "最愛"
 
-#: js/groups.js:678
+#: js/groups.js:696
 msgid "Shared by {owner}"
 msgstr "由 {owner} 分享"
 
@@ -411,6 +371,10 @@ msgstr "已匯入，"
 msgid " failed."
 msgstr "失敗。"
 
+#: js/settings.js:25 js/settings.js:45 js/settings.js:75 js/settings.js:112
+msgid "Error"
+msgstr "錯誤"
+
 #: js/settings.js:75
 msgid "Displayname cannot be empty."
 msgstr "顯示名稱不能留空。"
@@ -423,7 +387,7 @@ msgstr "顯示 CardDAV 連結"
 msgid "Show read-only VCF link"
 msgstr "顯示 VCF 唯讀連結"
 
-#: js/settings.js:99 templates/contacts.php:80 templates/contacts.php:320
+#: js/settings.js:99 templates/contacts.php:52 templates/contacts.php:292
 #: templates/settings.php:40
 msgid "Download"
 msgstr "下載"
@@ -432,10 +396,10 @@ msgstr "下載"
 msgid "Edit"
 msgstr "編輯"
 
-#: js/settings.js:102 templates/contacts.php:81 templates/contacts.php:265
-#: templates/contacts.php:272 templates/contacts.php:279
-#: templates/contacts.php:286 templates/contacts.php:334
-#: templates/contacts.php:461 templates/settings.php:50
+#: js/settings.js:102 templates/contacts.php:53 templates/contacts.php:237
+#: templates/contacts.php:244 templates/contacts.php:251
+#: templates/contacts.php:258 templates/contacts.php:306
+#: templates/contacts.php:433 templates/settings.php:50
 msgid "Delete"
 msgstr "刪除"
 
@@ -451,7 +415,7 @@ msgstr "較少..."
 msgid "Failed loading photo: {error}"
 msgstr ""
 
-#: js/storage.js:413 js/storage.js:426
+#: js/storage.js:432 js/storage.js:445
 msgid "Request failed: {error}"
 msgstr ""
 
@@ -535,6 +499,27 @@ msgstr "該要求缺少群組ID"
 #: lib/controller/groupcontroller.php:137
 msgid "Contact ID missing from request."
 msgstr "該要求缺少聯絡人ID"
+
+#: lib/controller/importcontroller.php:73
+msgid "Attempt to upload blacklisted file:"
+msgstr ""
+
+#: lib/controller/importcontroller.php:118
+msgid "File name missing from request."
+msgstr ""
+
+#: lib/controller/importcontroller.php:123
+#: lib/controller/importcontroller.php:226
+msgid "Progress key missing from request."
+msgstr ""
+
+#: lib/controller/importcontroller.php:129
+msgid "Attempt to access blacklisted file:"
+msgstr ""
+
+#: lib/controller/importcontroller.php:168
+msgid "No contacts found in: "
+msgstr ""
 
 #: lib/controller/settingscontroller.php:36
 msgid "No key is given."
@@ -668,343 +653,347 @@ msgstr "親人"
 msgid "There was an error deleting properties for this contact."
 msgstr "刪除該聯絡人的屬性時發生錯誤"
 
-#: templates/contacts.php:7
+#: templates/contacts.php:6
 msgid "New Contact"
 msgstr "新聯絡人"
 
-#: templates/contacts.php:13
+#: templates/contacts.php:10
+msgid "Group name"
+msgstr ""
+
+#: templates/contacts.php:10
 msgid "New Group"
 msgstr "新群組"
 
-#: templates/contacts.php:22
+#: templates/contacts.php:19
 msgid "Address books"
 msgstr "通訊錄"
 
-#: templates/contacts.php:25
-msgid "New"
-msgstr "新增"
-
-#: templates/contacts.php:27 templates/contacts.php:34
+#: templates/contacts.php:22
 msgid "Display name"
 msgstr "顯示名稱"
 
-#: templates/contacts.php:40 templates/contacts.php:123
+#: templates/contacts.php:22
+msgid "Add Address Book"
+msgstr ""
+
+#: templates/contacts.php:25 templates/contacts.php:95
 msgid "Import"
 msgstr "匯入"
 
-#: templates/contacts.php:50
-msgid "Select files to import"
-msgstr "選擇要匯入的檔案"
-
-#: templates/contacts.php:51
-msgid "Select files"
-msgstr "選擇檔案"
-
-#: templates/contacts.php:57 templates/contacts.php:59
+#: templates/contacts.php:28
 msgid "Import into:"
 msgstr "匯入至："
 
-#: templates/contacts.php:73
+#: templates/contacts.php:29
+msgid "Select Address Book"
+msgstr ""
+
+#: templates/contacts.php:32
+msgid "Select files"
+msgstr "選擇檔案"
+
+#: templates/contacts.php:45
 msgid "(De-)select all"
 msgstr "(反)全選"
 
-#: templates/contacts.php:76
+#: templates/contacts.php:48
 msgid "Groups"
 msgstr "群組"
 
-#: templates/contacts.php:78
+#: templates/contacts.php:50
 msgid "Favorite"
 msgstr "我的最愛"
 
-#: templates/contacts.php:79
+#: templates/contacts.php:51
 msgid "Merge selected"
 msgstr ""
 
-#: templates/contacts.php:87 templates/contacts.php:319
+#: templates/contacts.php:59 templates/contacts.php:291
 msgid "Close"
 msgstr "關閉"
 
-#: templates/contacts.php:88
+#: templates/contacts.php:60
 msgid "Keyboard shortcuts"
 msgstr "快速鍵"
 
-#: templates/contacts.php:90
+#: templates/contacts.php:62
 msgid "Navigation"
 msgstr "導覽"
 
-#: templates/contacts.php:93
+#: templates/contacts.php:65
 msgid "Next contact in list"
 msgstr "清單中的下一位聯絡人"
 
-#: templates/contacts.php:95
+#: templates/contacts.php:67
 msgid "Previous contact in list"
 msgstr "清單中的上一位聯絡人"
 
-#: templates/contacts.php:97
+#: templates/contacts.php:69
 msgid "Expand/collapse current addressbook"
 msgstr "展開/收合目前的聯絡簿"
 
-#: templates/contacts.php:99
+#: templates/contacts.php:71
 msgid "Next addressbook"
 msgstr "下一本聯絡簿"
 
-#: templates/contacts.php:101
+#: templates/contacts.php:73
 msgid "Previous addressbook"
 msgstr "上一本聯絡簿"
 
-#: templates/contacts.php:105
+#: templates/contacts.php:77
 msgid "Actions"
 msgstr "動作"
 
-#: templates/contacts.php:108
+#: templates/contacts.php:80
 msgid "Refresh contacts list"
 msgstr "重新整理聯絡人清單"
 
-#: templates/contacts.php:110
+#: templates/contacts.php:82
 msgid "Add new contact"
 msgstr "新增聯絡人"
 
-#: templates/contacts.php:112
+#: templates/contacts.php:84
 msgid "Add new addressbook"
 msgstr "新增聯絡簿"
 
-#: templates/contacts.php:114
+#: templates/contacts.php:86
 msgid "Delete current contact"
 msgstr "刪除這個聯絡人"
 
-#: templates/contacts.php:119
+#: templates/contacts.php:91
 msgid ""
 "<h3>You have no contacts in your addressbook.</h3><p>Add a new contact or "
 "import existing contacts from a VCF file.</p>"
 msgstr "<h3>你的通訊錄中無聯絡人</h3><p>請添加一個新的聯絡人或從VCF檔案匯入聯絡人</p>"
 
-#: templates/contacts.php:122
+#: templates/contacts.php:94
 msgid "Add contact"
 msgstr "新增聯絡人"
 
-#: templates/contacts.php:170
+#: templates/contacts.php:142
 msgid "Which contact should the data be merged into?"
 msgstr ""
 
-#: templates/contacts.php:178
+#: templates/contacts.php:150
 msgid "Delete the other(s) after successful merge?"
 msgstr ""
 
-#: templates/contacts.php:190
+#: templates/contacts.php:162
 msgid "Compose mail"
 msgstr "編寫郵件"
 
-#: templates/contacts.php:208
+#: templates/contacts.php:180
 msgid "Delete group"
 msgstr "刪除群組"
 
-#: templates/contacts.php:222
+#: templates/contacts.php:194
 msgid "Delete current photo"
 msgstr "刪除這張相片"
 
-#: templates/contacts.php:223
+#: templates/contacts.php:195
 msgid "Edit current photo"
 msgstr "編輯目前相片"
 
-#: templates/contacts.php:224
+#: templates/contacts.php:196
 msgid "Upload new photo"
 msgstr "上傳新照片"
 
-#: templates/contacts.php:225
+#: templates/contacts.php:197
 msgid "Select photo from ownCloud"
 msgstr "從 ownCloud 中挑選相片"
 
-#: templates/contacts.php:236 templates/contacts.php:237
+#: templates/contacts.php:208 templates/contacts.php:209
 msgid "First name"
 msgstr "名子"
 
-#: templates/contacts.php:241 templates/contacts.php:242
+#: templates/contacts.php:213 templates/contacts.php:214
 msgid "Additional names"
 msgstr "額外名"
 
-#: templates/contacts.php:246 templates/contacts.php:247
+#: templates/contacts.php:218 templates/contacts.php:219
 msgid "Last name"
 msgstr "姓氏"
 
-#: templates/contacts.php:254
+#: templates/contacts.php:226
 msgid "Select groups"
 msgstr "選擇群組"
 
-#: templates/contacts.php:257
+#: templates/contacts.php:229
 msgid "Select address book"
 msgstr ""
 
-#: templates/contacts.php:261 templates/contacts.php:325
+#: templates/contacts.php:233 templates/contacts.php:297
 msgid "Nickname"
 msgstr "綽號"
 
-#: templates/contacts.php:264
+#: templates/contacts.php:236
 msgid "Enter nickname"
 msgstr "輸入綽號"
 
-#: templates/contacts.php:268 templates/contacts.php:324
+#: templates/contacts.php:240 templates/contacts.php:296
 msgid "Title"
 msgstr "標題"
 
-#: templates/contacts.php:271
+#: templates/contacts.php:243
 msgid "Enter title"
 msgstr "輸入標題"
 
-#: templates/contacts.php:275 templates/contacts.php:323
+#: templates/contacts.php:247 templates/contacts.php:295
 msgid "Organization"
 msgstr "組織"
 
-#: templates/contacts.php:278
+#: templates/contacts.php:250
 msgid "Enter organization"
 msgstr "輸入組織"
 
-#: templates/contacts.php:282 templates/contacts.php:326
+#: templates/contacts.php:254 templates/contacts.php:298
 msgid "Birthday"
 msgstr "生日"
 
-#: templates/contacts.php:313
+#: templates/contacts.php:285
 msgid "Notes go here..."
 msgstr "註釋在此處"
 
-#: templates/contacts.php:320
+#: templates/contacts.php:292
 msgid "Export as VCF"
 msgstr "以VCF匯出"
 
-#: templates/contacts.php:322
+#: templates/contacts.php:294
 msgid "Add"
 msgstr "新增"
 
-#: templates/contacts.php:327
+#: templates/contacts.php:299
 msgid "Phone"
 msgstr "電話"
 
-#: templates/contacts.php:328
+#: templates/contacts.php:300
 msgid "Email"
 msgstr "電子郵件"
 
-#: templates/contacts.php:329
+#: templates/contacts.php:301
 msgid "Instant Messaging"
 msgstr "即時通訊"
 
-#: templates/contacts.php:330
+#: templates/contacts.php:302
 msgid "Address"
 msgstr "地址"
 
-#: templates/contacts.php:331
+#: templates/contacts.php:303
 msgid "Note"
 msgstr "註解"
 
-#: templates/contacts.php:332
+#: templates/contacts.php:304
 msgid "Web site"
 msgstr "網站"
 
-#: templates/contacts.php:334
+#: templates/contacts.php:306
 msgid "Delete contact"
 msgstr "刪除通訊錄"
 
-#: templates/contacts.php:347 templates/contacts.php:362
-#: templates/contacts.php:376 templates/contacts.php:401
-#: templates/contacts.php:438
+#: templates/contacts.php:319 templates/contacts.php:334
+#: templates/contacts.php:348 templates/contacts.php:373
+#: templates/contacts.php:410
 msgid "Preferred"
 msgstr "首選"
 
-#: templates/contacts.php:349
+#: templates/contacts.php:321
 msgid "Please specify a valid email address."
 msgstr "註填入合法的電子郵件住址"
 
-#: templates/contacts.php:349
+#: templates/contacts.php:321
 msgid "someone@example.com"
 msgstr "someone@example.com"
 
-#: templates/contacts.php:351
+#: templates/contacts.php:323
 msgid "Mail to address"
 msgstr "寄送住址"
 
-#: templates/contacts.php:352
+#: templates/contacts.php:324
 msgid "Delete email address"
 msgstr "刪除電子郵件住址"
 
-#: templates/contacts.php:364
+#: templates/contacts.php:336
 msgid "Enter phone number"
 msgstr "輸入電話號碼"
 
-#: templates/contacts.php:366
+#: templates/contacts.php:338
 msgid "Delete phone number"
 msgstr "刪除電話號碼"
 
-#: templates/contacts.php:380
+#: templates/contacts.php:352
 msgid "Go to web site"
 msgstr "打開網站"
 
-#: templates/contacts.php:381
+#: templates/contacts.php:353
 msgid "Delete URL"
 msgstr "刪除 URL"
 
-#: templates/contacts.php:392
+#: templates/contacts.php:364
 msgid "View on map"
 msgstr "在地圖上檢視"
 
-#: templates/contacts.php:393
+#: templates/contacts.php:365
 msgid "Delete address"
 msgstr "刪除地址"
 
-#: templates/contacts.php:405
+#: templates/contacts.php:377
 msgid "1 Main Street"
 msgstr "1 主街道"
 
-#: templates/contacts.php:406
+#: templates/contacts.php:378
 msgid "Street address"
 msgstr "街道地址"
 
-#: templates/contacts.php:410
+#: templates/contacts.php:382
 msgid "12345"
 msgstr "12345"
 
-#: templates/contacts.php:411
+#: templates/contacts.php:383
 msgid "Postal code"
 msgstr "郵遞區號"
 
-#: templates/contacts.php:413
+#: templates/contacts.php:385
 msgid "Your city"
 msgstr "城市"
 
-#: templates/contacts.php:414
+#: templates/contacts.php:386
 msgid "City"
 msgstr "城市"
 
-#: templates/contacts.php:418
+#: templates/contacts.php:390
 msgid "Some region"
 msgstr "部分地區"
 
-#: templates/contacts.php:419
+#: templates/contacts.php:391
 msgid "State or province"
 msgstr "州或省"
 
-#: templates/contacts.php:423
+#: templates/contacts.php:395
 msgid "Your country"
 msgstr "國家"
 
-#: templates/contacts.php:424
+#: templates/contacts.php:396
 msgid "Country"
 msgstr "國家"
 
-#: templates/contacts.php:446
+#: templates/contacts.php:418
 msgid "Instant Messenger"
 msgstr "即時通訊軟體"
 
-#: templates/contacts.php:448
+#: templates/contacts.php:420
 msgid "Delete IM"
 msgstr "刪除 IM"
 
-#: templates/contacts.php:458 templates/settings.php:36
+#: templates/contacts.php:430 templates/settings.php:36
 msgid "Share"
 msgstr "分享"
 
-#: templates/contacts.php:459
+#: templates/contacts.php:431
 msgid "Export"
 msgstr "匯出"
 
-#: templates/contacts.php:460
+#: templates/contacts.php:432
 msgid "CardDAV link"
 msgstr "顯示CardDav連接"
 

@@ -1,6 +1,6 @@
 <?php $TRANSLATIONS = array(
-"Error" => "పొరపాటు",
 "Cancel" => "రద్దుచేయి",
+"Error" => "పొరపాటు",
 "Delete" => "తొలగించు",
 "Close" => "మూసివేయి",
 "Add" => "చేర్చు",

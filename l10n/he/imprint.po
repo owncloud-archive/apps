@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Yaron Shahrabani <sh.yaron@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-17 09:53+0200\n"
-"PO-Revision-Date: 2013-04-17 07:55+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-05-03 00:57+0200\n"
+"PO-Revision-Date: 2013-05-02 09:10+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/projects/p/owncloud/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,23 +22,23 @@ msgstr ""
 #: js/imprint_header_right.js:33 js/imprint_navigation_bottom.js:33
 #: js/imprint_navigation_top.js:33
 msgid "Legal notice"
-msgstr ""
+msgstr "הערות משפטיות"
 
 #: templates/tmpl_dummy.php:45
 msgid "Nothing here yet"
-msgstr ""
+msgstr "אין כאן כלום עדיין"
 
 #: templates/tmpl_dummy.php:46
 msgid "The content of the legal notice has to be configured first"
-msgstr ""
+msgstr "יש להגדיר את תוכן ההערות המשפטיות תחילה"
 
 #: templates/tmpl_dummy.php:53
 msgid "That configuration is done in the administration section."
-msgstr ""
+msgstr "ניתן לשנות הגדרות אלו באגף הניהול."
 
 #: templates/tmpl_dummy.php:55
 msgid "That configuration has to be done by the system administration."
-msgstr ""
+msgstr "הגדרות אלו ניתנות לשינוי על ידי מנהל המערכת."
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"
@@ -49,27 +50,27 @@ msgstr ""
 
 #: templates/tmpl_settings.php:48
 msgid "Standalone app"
-msgstr ""
+msgstr "יישום עצמאי"
 
 #: templates/tmpl_settings.php:49
 msgid "Header left"
-msgstr ""
+msgstr "כותרת שמאלית"
 
 #: templates/tmpl_settings.php:50
 msgid "Header right"
-msgstr ""
+msgstr "כותרת ימנית"
 
 #: templates/tmpl_settings.php:51
 msgid "Navigation top"
-msgstr ""
+msgstr "ניווט עליון"
 
 #: templates/tmpl_settings.php:52
 msgid "Navigation bottom"
-msgstr ""
+msgstr "ניווט תחתון"
 
 #: templates/tmpl_settings.php:55
 msgid "Content"
-msgstr ""
+msgstr "תוכן"
 
 #: templates/tmpl_settings.php:60
 msgid ""

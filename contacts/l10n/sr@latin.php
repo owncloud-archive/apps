@@ -5,7 +5,6 @@
 "The uploaded file was only partially uploaded" => "Poslati fajl je samo delimično otpremljen!",
 "No file was uploaded" => "Nijedan fajl nije poslat",
 "Missing a temporary folder" => "Nedostaje privremena fascikla",
-"Upload too large" => "Pošiljka je prevelika",
 "Cancel" => "Otkaži",
 "Download" => "Preuzmi",
 "Edit" => "Uredi",

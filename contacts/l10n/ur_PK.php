@@ -1,5 +1,5 @@
 <?php $TRANSLATIONS = array(
-"Error" => "ایرر",
 "Cancel" => "منسوخ کریں",
+"Error" => "ایرر",
 "Add" => "شامل کریں"
 );
