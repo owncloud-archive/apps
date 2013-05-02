@@ -86,6 +86,36 @@ $this->create('contacts_address_book_delete_contact', 'addressbook/{backend}/{ad
 	)
 	->requirements(array('backend', 'addressbookid', 'contactid'));
 
+$this->create('contacts_import_upload', 'addressbook/{backend}/{addressbookid}/import/upload')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			Main::main('ImportController', 'upload', $params, new DIContainer());
+		}
+	)
+	->requirements(array('backend', 'addressbookid'));
+
+$this->create('contacts_import_start', 'addressbook/{backend}/{addressbookid}/import/start')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			Main::main('ImportController', 'start', $params, new DIContainer());
+		}
+	)
+	->requirements(array('backend', 'addressbookid'));
+
+$this->create('contacts_import_status', 'addressbook/{backend}/{addressbookid}/import/status')
+	->post()
+	->action(
+		function($params) {
+			session_write_close();
+			Main::main('ImportController', 'status', $params, new DIContainer());
+		}
+	)
+	->requirements(array('backend', 'addressbookid'));
+
 $this->create('contacts_contact_photo', 'addressbook/{backend}/{addressbookid}/contact/{contactid}/photo')
 	->get()
 	->action(
@@ -197,3 +227,4 @@ $this->create('contacts_index_properties', 'indexproperties/{user}/')
 	)
 	->requirements(array('user'))
 	->defaults(array('user' => \OCP\User::getUser()));
+

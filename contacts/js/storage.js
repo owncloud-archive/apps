@@ -388,6 +388,25 @@ OC.Contacts = OC.Contacts || {};
 		);
 	}
 
+	Storage.prototype.startImport = function(backend, addressbookid, params) {
+		console.log('Storage.startImport', backend, addressbookid);
+		return this.requestRoute(
+			'contacts_import_start',
+			'POST',
+			{backend: backend, addressbookid: addressbookid},
+			params
+		);
+	}
+
+	Storage.prototype.importStatus = function(backend, addressbookid, params) {
+		return this.requestRoute(
+			'contacts_import_status',
+			'POST',
+			{backend: backend, addressbookid: addressbookid},
+			params
+		);
+	}
+
 	Storage.prototype.requestRoute = function(route, type, routeParams, params) {
 		var isJSON = (typeof params === 'string');
 		var contentType = isJSON ? 'application/json' : 'application/x-www-form-urlencoded';

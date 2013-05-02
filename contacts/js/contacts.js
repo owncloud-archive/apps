@@ -945,10 +945,10 @@ OC.Contacts = OC.Contacts || {};
 			$.each(availableAddressBooks, function(idx, addressBook) {
 				//console.log('addressBook', idx, addressBook);
 				var $option = $('<option data-backend="'
-					+ addressBook.backend + '" value="' + addressBook.id + '">'
-					+ addressBook.displayname + '(' + addressBook.backend + ')</option>');
-				if(self.metadata.parent === addressBook.id
-					&& self.metadata.backend === addressBook.backend) {
+					+ addressBook.getBackend() + '" value="' + addressBook.getId() + '">'
+					+ addressBook.getDisplayName() + '(' + addressBook.getBackend() + ')</option>');
+				if(self.metadata.parent === addressBook.getId()
+					&& self.metadata.backend === addressBook.getBackend()) {
 					$option.attr('selected', 'selected');
 				}
 				self.$addressBookSelect.append($option);
@@ -995,9 +995,9 @@ OC.Contacts = OC.Contacts || {};
 		this.$groupSelect = this.$fullelem.find('#contactgroups');
 		buildGroupSelect(groupprops.groups);
 		
-		if(Object.keys(this.parent.addressbooks).length > 1) {
+		if(this.parent.addressBooks.count() > 1) {
 			this.$addressBookSelect = this.$fullelem.find('#contactaddressbooks');
-			buildAddressBookSelect(this.parent.addressbooks);
+			buildAddressBookSelect(this.parent.addressBooks.selectByPermission(OC.PERMISSION_UPDATE));
 		}
 
 		this.$addMenu = this.$fullelem.find('#addproperty');
@@ -1638,6 +1638,7 @@ OC.Contacts = OC.Contacts || {};
 
 	var ContactList = function(
 			storage,
+			addressBooks,
 			contactlist,
 			contactlistitemtemplate,
 			contactdragitemtemplate,
@@ -1648,7 +1649,7 @@ OC.Contacts = OC.Contacts || {};
 		var self = this;
 		this.length = 0;
 		this.contacts = {};
-		this.addressbooks = {};
+		this.addressBooks = addressBooks;
 		this.deletionQueue = [];
 		this.storage = storage;
 		this.$contactList = contactlist;
@@ -1657,7 +1658,7 @@ OC.Contacts = OC.Contacts || {};
 		this.$contactFullTemplate = contactfulltemplate;
 		this.contactDetailTemplates = contactdetailtemplates;
 		this.$contactList.scrollTop(0);
-		this.getAddressBooks();
+		//this.getAddressBooks();
 		$(document).bind('status.contact.added', function(e, data) {
 			self.length += 1;
 			self.contacts[String(data.id)] = data.contact;
@@ -1670,6 +1671,20 @@ OC.Contacts = OC.Contacts || {};
 				self.insertContact(data.contact.renderListItem(true));
 			}
 		});
+		$(document).bind('status.addressbook.removed', function(e, data) {
+			var addressBook = data.addressbook;
+			$.each(self.contacts, function(idx, contact) {
+				if(contact.getBackend() === addressBook.getBackend()
+					&& contact.getParent() === addressBook.getId()) {
+					console.log('Removing', contact);
+					delete self.contacts[contact.getId()];
+					//var c = self.contacts.splice(self.contacts.indexOf(contact.getId()), 1);
+					//console.log('Removed', c);
+					contact.detach();
+					contact = null;
+				}
+			});
+		});
 	};
 
 	/**
@@ -1678,7 +1693,7 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	ContactList.prototype.count = function() {
 		return Object.keys(this.contacts.contacts).length
-	}
+	};
 
 	/**
 	* Show/hide contacts belonging to an addressbook.
@@ -1965,7 +1980,9 @@ OC.Contacts = OC.Contacts || {};
 	* @param object props
 	*/
 	ContactList.prototype.addContact = function(props) {
-		var addressBook = this.addressbooks[Object.keys(this.addressbooks)[0]]
+		// Get first address book
+		var addressBooks = this.addressBooks.selectByPermission(OC.PERMISSION_UPDATE);
+		var addressBook = addressBooks[0];
 		var metadata = {
 			parent: addressBook.id,
 			backend: addressBook.backend,
@@ -2042,83 +2059,6 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	/**
-	* Save addressbook data
-	* @param int id
-	*/
-	ContactList.prototype.unsetAddressbook = function(id) {
-		delete this.addressbooks[id];
-	};
-
-	/**
-	* Save addressbook data
-	* @param object book An object with the properties:
-	* 	id, displayname, description, lastmodified, owner, uri, permissions and backend.
-	*/
-	ContactList.prototype.setAddressbook = function(book) {
-		console.log('setAddressbook', book.id, this.addressbooks);
-		var id = String(book.id);
-		this.addressbooks[id] = book;
-	};
-
-	/**
-	* Load address books
-	*/
-	ContactList.prototype.getAddressBooks = function() {
-		var self = this;
-		$.when(this.storage.getAddressBooksForUser()).then(function(response) {
-			console.log('ContactList.getAddressBooks', response);
-			if(!response.error) {
-				var num = response.data.addressbooks.length;
-				$.each(response.data.addressbooks, function(idx, addressBook) {
-					self.setAddressbook(addressBook);
-					self.loadContacts(
-						addressBook['backend'],
-						addressBook['id'],
-						function(cbresponse) {
-							//console.log('loaded', idx, cbresponse);
-							num -= 1;
-							if(num === 0) {
-								if(self.length > 0) {
-									setTimeout(function() {
-										self.doSort(); // TODO: Test this
-										self.setCurrent(self.$contactList.find('tr:visible').first().data('id'), false);
-									}
-									, 2000);
-								}
-								$(document).trigger('status.contacts.loaded', {
-									status: true,
-									numcontacts: self.length
-								});
-								if(self.length === 0) {
-									$(document).trigger('status.nomorecontacts');
-								}
-							}
-							if(cbresponse.error) {
-								$(document).trigger('status.contact.error', {
-									message:
-										t('contacts', 'Failed loading contacts from {addressbook}: {error}',
-											{addressbook:addressBook['displayname'], error:cbresponse.message})
-								});
-							}
-						});
-				});
-			} else {
-				$(document).trigger('status.contact.error', {
-					message: response.message
-				});
-				return false;
-			}
-		})
-		.fail(function(jqxhr, textStatus, error) {
-			var err = textStatus + ', ' + error;
-			console.warn( "Request Failed: " + err);
-			$(document).trigger('status.contact.error', {
-				message: t('contacts', 'Failed loading address books: {error}', {error:err})
-			});
-		});
-	};
-
-	/**
 	* Load contacts
 	* @param string backend Name of the backend ('local', 'ldap' etc.)
 	* @param string addressBookId
@@ -2147,16 +2087,6 @@ OC.Contacts = OC.Contacts || {};
 					self.length +=1;
 					var $item = self.contacts[id].renderListItem();
 					items.push($item.get(0));
-					/*$item.find('td.name').draggable({
-						cursor: 'move',
-						distance: 10,
-						revert: 'invalid',
-						helper: function (e,ui) {
-							return self.contacts[id].renderDragItem().appendTo('body');
-						},
-						opacity: 1,
-						scope: 'contacts'
-					});*/
 					if(items.length === 100) {
 						self.$contactList.append(items);
 						items = [];

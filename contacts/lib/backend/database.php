@@ -112,6 +112,7 @@ class Database extends AbstractBackend {
 			}
 			$row = $result->fetchRow();
 			$row['permissions'] = \OCP\PERMISSION_ALL;
+			$row['backend'] = $this->name;
 			$this->addressbooks[$addressbookid] = $row;
 			return $row;
 		} catch(\Exception $e) {

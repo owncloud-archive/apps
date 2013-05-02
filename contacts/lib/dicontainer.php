@@ -13,6 +13,7 @@ use OCA\Contacts\Controller\AddressBookController;
 use OCA\Contacts\Controller\GroupController;
 use OCA\Contacts\Controller\ContactController;
 use OCA\Contacts\Controller\SettingsController;
+use OCA\Contacts\Controller\ImportController;
 
 class DIContainer extends BaseContainer {
 
@@ -41,6 +42,10 @@ class DIContainer extends BaseContainer {
 
 		$this['SettingsController'] = $this->share(function($c){
 			return new SettingsController($c['API'], $c['Request']);
+		});
+
+		$this['ImportController'] = $this->share(function($c){
+			return new ImportController($c['API'], $c['Request']);
 		});
 
 	}

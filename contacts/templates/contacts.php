@@ -19,52 +19,28 @@
 				<button class="settings-button" tabindex="0"></button>
 			</div>
 			<div id="app-settings-content">
+				<div id="addressbooks">
 				<h2 data-id="addressbooks" tabindex="0" role="button"><?php p($l->t('Address books')); ?></h2>
-					<ul class="hidden addressbooklist">
+					<ul class="addressbooklist">
 					</ul>
-					<button class="addaddressbook icon-plus text"><?php p($l->t('New')); ?></button>
-					<ul class="hidden">
-						<li><input class="addaddressbookinput" type="text" placeholder="<?php p($l->t('Display name')); ?>" /></li>
-						<li>
-							<button class="addaddressbookok"><?php p($l->t('OK')); ?></button>
-							<button class="addaddressbookcancel"><?php p($l->t('Cancel')); ?></button>
-						</li>
-					</ul>
-					<ul class="hidden">
-						<li><input class="addaddressbookinput" type="text" placeholder="<?php p($l->t('Display name')); ?>" /></li>
-						<li>
-							<button class="addaddressbookok"><?php p($l->t('OK')); ?></button>
-							<button class="addaddressbookcancel"><?php p($l->t('Cancel')); ?></button>
-						</li>
-					</ul>
+					<input type="text" id="add-address-book" placeholder="<?php p($l->t('Display name')); ?>" title="<?php p($l->t('Add Address Book')); ?>" />
+				</div>
+				<div id="import">
 				<h2 data-id="import" tabindex="0" role="button"><?php p($l->t('Import')); ?></h2>
-					<ul class="hidden">
+					<ul>
 						<li class="import-upload">
-							<form
-								id="import_upload_form"
-								data-upload-id="1"
-								action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadimport.php')); ?>"
-								method="post" enctype="multipart/form-data"
-								target="import_upload_target_1">
-							<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
-							<label for="import_upload_start"><?php p($l->t('Select files to import')); ?>
-								<button class="import-upload-button" title="<?php p($l->t('Select files')); ?>"></button>
-							</label>
-							<input id="import_upload_start" type="file" accept="text/vcard,text/x-vcard,text/directory" multiple="multiple" name="file" />
-							</form>
-							<!-- iframe name="import_upload_target" id='import_upload_target' src=""></iframe -->
+								<select id="import_into" title="<?php p($l->t('Import into:')); ?>">
+									<option value="-1"><?php p($l->t('Select Address Book')); ?></option>
+								</select>
+								<button class="import-upload-button" ></button>
+								<input id="import_upload_start" class="tooltipped rightwards" type="file" accept="text/vcard,text/x-vcard,text/directory" name="file" title="<?php p($l->t('Select files')); ?>" disabled />
 						</li>
-						<li class="import-select hidden"><label><?php p($l->t('Import into:')); ?></label></li>
-						<li class="import-select hidden">
-							<select id="import_into" title="<?php p($l->t('Import into:')); ?>">
-							</select>
-						<button class="doImport"><?php p($l->t('OK')); ?></button>
-						</li>
-						<li>
+						<li class="import-status">
 							<label id="import-status-text"></label>
-							<div id="import-progress"></div>
+							<div id="import-status-progress"></div>
 						</li>
 					</ul>
+				</div>
 			</div> <!-- app-settings-content -->
 		</div>
 	</div>
@@ -452,13 +428,13 @@
 </script>
 
 <script id="addressbookTemplate" class="hidden" type="text/template">
-<li data-id="{id}">
+<li data-id="{id}" data-backend="{backend}" data-permissions="{permissions}">
 	<label>{displayname}</label>
 	<span class="actions">
 		<a title="<?php p($l->t('Share')); ?>" class="share action" data-possible-permissions="{permissions}" data-item="{id}" data-item-type="addressbook"></a>
 		<a title="<?php p($l->t('Export')); ?>" class="download action" href="<?php print_unescaped(OCP\Util::linkTo('contacts', 'export.php')); ?>?bookid={id}"></a>
-		<a  title="<?php p($l->t('CardDAV link')); ?>" class="globe action"></a>
-		<a  title="<?php p($l->t('Delete')); ?>" class="delete action"></a>
+		<a title="<?php p($l->t('CardDAV link')); ?>" class="globe action"></a>
+		<a title="<?php p($l->t('Delete')); ?>" class="delete action"></a>
 	</span>
 </li>
 </script>
