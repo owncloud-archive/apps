@@ -19,6 +19,26 @@
  *
  */
 
+.oc-addnew {
+	display: block !important;
+	padding: 0 !important;
+}
+.oc-addnew li:first-child {
+	display: block;
+}
+.oc-addnew li:not(:first-child) {
+	display: none;
+}
+.oc-addnew.open li:first-child {
+	display: none;
+}
+.oc-addnew.open li:not(:first-child) {
+	display: block;
+}
+.oc-addnew > li {
+}
+.oc-addnew > li > a.oc-addnew-init {
+}
 .oc-addnew > li > a.oc-addnew-init:before {
 	content: '+';
 	font-weight: bold;

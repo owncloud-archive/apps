@@ -119,6 +119,7 @@
 			this.$ul.addClass('open');
 			this.$ul.find('li:first-child').hide();
 			this.element.show().next('button').show().parent('li').show();
+			this.element.focus();
 			if(this.options.addTo) {
 			}
 		},
