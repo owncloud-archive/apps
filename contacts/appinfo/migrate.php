@@ -31,6 +31,15 @@ class OC_Migration_Provider_Contacts extends OC_Migration_Provider{
 
 	// Import function for contacts
 	function import( ) {
+		$existingURIs = array();
+		$existingNames = array();
+		$query = $this->content->prepare('SELECT `displayname`, `uri` FROM *PREFIX*contacts_addressbooks WHERE userid = ?');
+		$results = $query->execute( array( $this->uid ) );
+		while($row = $results->fetchRow()) {
+			\OCP\Util::writeLog('contacts', __METHOD__.', row: ' . print_r($row, true), \OCP\Util::DEBUG);
+			$existingURIs[] = $row['uri'];
+			$existingNames[] = $row['displayname'];
+		}
 		switch( $this->appinfo->version ) {
 			default:
 				// All versions of the app have had the same db structure, so all can use the same import function
@@ -40,7 +49,15 @@ class OC_Migration_Provider_Contacts extends OC_Migration_Provider{
 				while( $row = $results->fetchRow() ) {
 					// Import each addressbook
 					$addressbookquery = OCP\DB::prepare( 'INSERT INTO `*PREFIX*contacts_addressbooks` (`userid`, `displayname`, `uri`, `description`, `ctag`) VALUES (?, ?, ?, ?, ?)' );
-					$addressbookquery->execute( array( $this->uid, $row['displayname'], $row['uri'], $row['description'], $row['ctag'] ) );
+					$uriSuffix = '';
+					$nameSuffix = '';
+					while (in_array($row['uri'].$uriSuffix, $existingURIs)) {
+						$uriSuffix++;
+					}
+					while (in_array($row['displayname'].$nameSuffix, $existingNames)) {
+						$nameSuffix++;
+					}
+					$addressbookquery->execute( array( $this->uid, $row['displayname'].$nameSuffix, $row['uri'].$uriSuffix, $row['description'], $row['ctag'] ) );
 					// Map the id
 					$idmap[$row['id']] = OCP\DB::insertid('*PREFIX*contacts_addressbooks');
 					// Make the addressbook active
