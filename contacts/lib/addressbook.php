@@ -205,7 +205,7 @@ class Addressbook extends AbstractPIMCollection {
 	 * @return bool
 	 */
 	public function deleteChild($id) {
-		if(!$this->hasPermission(\OCP\PERMISSION_READ)) {
+		if(!$this->hasPermission(\OCP\PERMISSION_DELETE)) {
 			throw new \Exception('Access denied');
 		}
 		if($this->backend->deleteContact($this->getId(), $id)) {
@@ -239,6 +239,9 @@ class Addressbook extends AbstractPIMCollection {
 	 * @return bool
 	 */
 	public function update(array $data) {
+		if(!$this->hasPermission(\OCP\PERMISSION_UPDATE)) {
+			throw new \Exception('Access denied');
+		}
 		if(count($data) === 0) {
 			return false;
 		}
