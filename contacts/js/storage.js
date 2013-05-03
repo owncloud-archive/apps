@@ -7,7 +7,10 @@ OC.Contacts = OC.Contacts || {};
 (function(window, $, OC) {
 	'use strict';
 
-	var JSONResponse = function(response) {
+	var JSONResponse = function(response, jqXHR) {
+		this.getAllResponseHeaders = jqXHR.getAllResponseHeaders;
+		this.getResponseHeader = jqXHR.getResponseHeader;
+		this.status = jqXHR.status;
 		if(!response || !response.status || response.status === 'error') {
 			this.error = true;
 			this.message = response.data.message || 'Unknown error.';
@@ -418,6 +421,7 @@ OC.Contacts = OC.Contacts || {};
 			type: type,
 			url: url,
 			dataType: 'json',
+			ifModified: true,
 			contentType: contentType,
 			processData: processData,
 			data: params
@@ -426,15 +430,15 @@ OC.Contacts = OC.Contacts || {};
 		var defer = $.Deferred();
 
 		var jqxhr = $.ajax(ajaxParams)
-			.done(function(response) {
-				defer.resolve(new JSONResponse(response));
+			.done(function(response, textStatus, jqXHR) {
+				defer.resolve(new JSONResponse(response, jqXHR));
 			})
 			.fail(function(jqxhr, textStatus, error) {
 				defer.reject(
 					new JSONResponse({
 						error:true,
 						data:{message:t('contacts', 'Request failed: {error}', {error:textStatus + ', ' + error})}
-					})
+					}, jqXHR)
 				);
 			});
 
