@@ -8,5 +8,11 @@ ownCloud Contacts Changelog
  - Experimental contacts merge. Might eat kittens!
 
 5.0.6:
+ - Improvement: If contacts display name doesn't exists check first for ORG then EMAIL.
+ - Fix: Check for existing address books on migrate->import to avoid duplicate records..
+ - Fix: Older Firefox/Iceweasel didn't show email/tel/url because of missing outerHTML.
+ - Fix: Unescape variables in search results and generated birthday events.
+ - Fix: AddressbookProviders could have duplicate keys.
+ - Feature: Add support for IMPP:SIP aka Internet calls.
  - Unescape variables in search results and generated birthday events.
  - AddressbookProviders could have duplicate keys.
