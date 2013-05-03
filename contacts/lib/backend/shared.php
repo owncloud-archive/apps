@@ -47,6 +47,9 @@ class Shared extends Database {
 			Contacts\Share\Addressbook::FORMAT_ADDRESSBOOKS
 		);
 
+		foreach($this->addressbooks as &$addressBook) {
+			$addressBook['backend'] = $this->name;
+		}
 		return $this->addressbooks;
 	}
 
@@ -58,68 +61,63 @@ class Shared extends Database {
 	 * @return mixed
 	 */
 	public function getAddressBook($addressbookid) {
-		$addressbook = \OCP\Share::getItemSharedWithBySource(
+		$addressBook = \OCP\Share::getItemSharedWithBySource(
 			'addressbook',
 			$addressbookid,
 			Contacts\Share\Addressbook::FORMAT_ADDRESSBOOKS
 		);
 		// Not sure if I'm doing it wrongly, or if its supposed to return
 		// the info in an array?
-		$addressBook = (isset($addressbook['permissions']) ? $addressbook : $addressbook[0]);
+		$addressBook = (isset($addressBook['permissions']) ? $addressBook : $addressBook[0]);
 		$addressBook['backend'] = $this->name;
+		return $addressBook;
 	}
 
 	/**
 	 * Returns all contacts for a specific addressbook id.
-	 *
-	 * TODO: Check for parent permissions
 	 *
 	 * @param string $addressbookid
 	 * @param bool $omitdata Don't fetch the entire carddata or vcard.
 	 * @return array
 	 */
 	public function getContacts($addressbookid, $limit = null, $offset = null, $omitdata = false) {
-		//\OCP\Util::writeLog('contacts', __METHOD__.' addressbookid: '
-		//	. $addressbookid, \OCP\Util::DEBUG);
-		$addressbook = \OCP\Share::getItemSharedWithBySource(
-			'addressbook',
-			$addressbookid,
-			Contacts\Share\Addressbook::FORMAT_ADDRESSBOOKS,
-			null, // parameters
-			true // includeCollection
-		);
-		\OCP\Util::writeLog('contacts', __METHOD__.' shared: '
-			. print_r($addressbook, true), \OCP\Util::DEBUG);
 
-		$addressbook = $this->getAddressBook($addressbookid);
-		$permissions = $addressbook['permissions'];
-
-		$cards = array();
-		try {
-			$qfields = $omitdata ? '`id`, `fullname` AS `displayname`, `lastmodified`' : '*';
-			$query = 'SELECT ' . $qfields . ' FROM `' . $this->cardsTableName
-				. '` WHERE `addressbookid` = ? ORDER BY `fullname`';
-			$stmt = \OCP\DB::prepare($query, $limit, $offset);
-			$result = $stmt->execute(array($addressbookid));
-			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: '
-					. \OC_DB::getErrorMessage($result), \OCP\Util::ERROR);
-				return $cards;
-			}
-		} catch(\Exception $e) {
-			\OCP\Util::writeLog('contacts', __METHOD__.', exception: '
-				. $e->getMessage(), \OCP\Util::ERROR);
-			return $cards;
+		$addressBook = $this->getAddressBook($addressbookid);
+		if(!$addressBook) {
+			throw new \Exception('Shared Address Book not found: ' . $addressbookid, 404);
 		}
+		$permissions = $addressBook['permissions'];
 
-		if(!is_null($result)) {
-			while( $row = $result->fetchRow()) {
-				$row['permissions'] = $permissions;
-				$cards[] = $row;
-			}
+		$cards = parent::getContacts($addressbookid, $limit, $offset, $omitdata);
+
+		foreach($cards as &$card) {
+			$card['permissions'] = $permissions;
 		}
 
 		return $cards;
 	}
 
+	/**
+	 * Returns a specific contact.
+	 *
+	 * The $id for Database and Shared backends can be an array containing
+	 * either 'id' or 'uri' to be able to play seamlessly with the
+	 * CardDAV backend.
+	 * @see \Database\getContact
+	 *
+	 * @param string $addressbookid
+	 * @param mixed $id Contact ID
+	 * @return array|false
+	 */
+	public function getContact($addressbookid, $id, $noCollection = false) {
+		$addressBook = $this->getAddressBook($addressbookid);
+		if(!$addressBook) {
+			throw new \Exception('Shared Address Book not found: ' . $addressbookid, 404);
+		}
+		$permissions = $addressBook['permissions'];
+
+		$card = parent::getContact($addressbookid, $id, $noCollection);
+		$card['permissions'] = $permissions;
+		return $card;
+	}
 }
