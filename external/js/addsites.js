@@ -29,7 +29,7 @@ $(document).ready(function(){
 		var post = $('#external').serialize();
 		if ($('#global').val() == 'true'){
 			$.post( OC.filePath('external','ajax','setglobalsites.php') , post, function(data) {
-                ehoStatusMessage('#external .msg', data);
+                echoStatusMessage('#external .msg', data);
 			});
 		} else {
 			$.post( OC.filePath('external','ajax','setsites.php') , post, function(data) {
@@ -50,6 +50,8 @@ $(document).ready(function(){
     function echoStatusMessage(element, data){
         if (data.status == 'error'){
             $(element).text(data.data.message);
+        } else {
+            $(element).empty();
         }
     }
 	// Initialize events
@@ -69,5 +71,8 @@ $(document).ready(function(){
 		$('#external li:last').hover(showDeleteButton, hideDeleteButton);
 
 	});
+    
+
+ 
 
 });

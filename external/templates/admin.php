@@ -34,6 +34,7 @@ else $checked ='';
 		</ul>
 		<input type="hidden" value="true" name="global" id="global" />
         <input type="button" id="add_external_site" value="<?php p($l->t("Add extra field")); ?>" />
-		<span class="msg"></span>
+		<br>
+        <span class="msg"></span>
 	</form>
 </fieldset>
