@@ -23,12 +23,12 @@ $(document).ready(function(){
 		var post = $('#external').serialize();
 		if ($('#global').val() == 'true'){
 			$.post( OC.filePath('external','ajax','setglobalsites.php') , post, function(data) {
-			// OC.msg.finishedSaving('#site_name .msg', data);
+                ehoStatusMessage('#external .msg', data);
 			});
 		} else {
 			$.post( OC.filePath('external','ajax','setsites.php') , post, function(data) {
-			// OC.msg.finishedSaving('#site_name .msg', data);
-			});
+                echoStatusMessage('#external .msg', data);
+            });
 		}
 	}
 
@@ -39,7 +39,13 @@ $(document).ready(function(){
 	function hideDeleteButton(event) {
 		$(this).find('img.delete_button').fadeOut(100);
 	}
+    
 
+    function echoStatusMessage(element, data){
+        if (data.status == 'error'){
+            $(element).text(data.data.message);
+        }
+    }
 	// Initialize events
 	$('input[name^=site_]').change(addSiteEventHandler);
 	$('img.delete_button').click(deleteButtonEventHandler);

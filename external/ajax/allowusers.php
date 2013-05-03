@@ -1,9 +1,9 @@
 <?php
-OCP\User::checkAdminUser();
+OCP\JSON::checkAdminUser();
 
 if (isset($_POST['allowUsers']) && $_POST['allowUsers']) {
 	OCP\Config::setAppValue('external', 'allowUsers', 'true');
 } else{
 	OCP\Config::setAppValue('external', 'allowUsers', 'false');
 }
-echo 'true';
+OCP\JSON::success();

@@ -6,7 +6,7 @@
  * See the COPYING-README file.
  */
 
-OCP\User::checkAdminUser();
+OCP\JSON::checkAdminUser();
 OCP\JSON::callCheck();
 
 $sites = array();
@@ -23,4 +23,4 @@ else {
 	OCP\Config::setAppValue('external', 'globalSites', json_encode($sites));
 }
 
-echo 'true';
+OCP\JSON::success();
