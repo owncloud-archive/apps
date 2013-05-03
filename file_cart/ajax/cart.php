@@ -12,7 +12,7 @@ $action = $_GET['action'];
 switch ($action) {
 	case 'add':
 		if ($cart) {
-			$cart .= ','.$dir.$file;
+			$cart .= ','.$dir.$file; //TODO check if this file is already in the cart
 		} else {
 			$cart = $dir.$file;
 		}
