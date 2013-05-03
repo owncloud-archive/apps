@@ -30,6 +30,7 @@
 "Couldn't load temporary image: " => "無法載入暫存圖片：",
 "Contacts" => "通訊錄",
 "%d_selected_contacts" => "已選擇%d個聯絡人",
+"Uploading..." => "上傳中...",
 "Add to..." => "添加至…",
 "Remove from..." => "從...移除",
 "Add group..." => "新增群組",

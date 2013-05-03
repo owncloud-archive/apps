@@ -31,6 +31,7 @@
 "Couldn't load temporary image: " => "Impossible de charger l'image temporaire :",
 "Contacts" => "Contacts",
 "%d_selected_contacts" => "%d_contacts_selectionnés",
+"Uploading..." => "Téléversement en cours…",
 "Failed adding address book: {error}" => "Échec de l'ajout du carnet d'adresses : {error}",
 "Failed loading address books: {error}" => "Échec du chargement des carnets d'adresses : {error}",
 "Add to..." => "Ajouter à…",

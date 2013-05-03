@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-03 00:57+0200\n"
-"PO-Revision-Date: 2013-05-02 22:58+0000\n"
+"POT-Creation-Date: 2013-05-04 00:49+0200\n"
+"PO-Revision-Date: 2013-05-02 23:10+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Georgian (Georgia) (http://www.transifex.com/projects/p/owncloud/language/ka_GE/)\n"
 "MIME-Version: 1.0\n"
@@ -159,7 +159,7 @@ msgstr "%d_selected_contacts"
 
 #: js/addressbooks.js:144
 msgid "Uploading..."
-msgstr ""
+msgstr "მიმდინარეობს ატვირთვა..."
 
 #: js/addressbooks.js:200
 msgid "Imported {count} of {total} contacts"
@@ -197,108 +197,108 @@ msgstr "ჯგუფში დამატება..."
 msgid "Indexing contacts"
 msgstr "კონტაქტების ინდექსირება"
 
-#: js/app.js:494
+#: js/app.js:493
 msgid "Merge failed. Cannot find contact: {id}"
 msgstr "შერწყმა ვერ განხორციელდა. კონტაქტი ვერ მოიძებნა: {id}"
 
-#: js/app.js:507
+#: js/app.js:506
 msgid "Merge failed."
 msgstr "შერწყმა ვერ განხორციელდა."
 
-#: js/app.js:514
+#: js/app.js:513
 msgid "Merge failed. Error saving contact."
 msgstr "შერწყმა ვერ განხორციელდა. შეცდომა კონტაქტის შენახვისას."
 
-#: js/app.js:533
+#: js/app.js:532
 msgid "Select photo"
 msgstr "ფოტოს არჩევა"
 
-#: js/app.js:583 js/app.js:1423
+#: js/app.js:582 js/app.js:1421
 msgid "Network or server error. Please inform administrator."
 msgstr "ქსელი ან სერვერის შეცდომა. გთხოვთ დაუკავშირდეთ ადმინისტრატორს."
 
-#: js/app.js:590
+#: js/app.js:589
 msgid "Failed saving sort order: {error}"
 msgstr "დასორტირებული შენახვა ვერ განხორციელდა: {error}"
 
-#: js/app.js:623
+#: js/app.js:622
 msgid "Failed saving last group: {error}"
 msgstr "ბოლო ჯგუფის შენახვა ვერ მოხერხდა: {error}"
 
-#: js/app.js:742 js/app.js:780
+#: js/app.js:778
 msgid "Error adding to group."
 msgstr "შეცდომა ჯგუფში დამატებისას."
 
-#: js/app.js:809
+#: js/app.js:807
 msgid "Error removing from group."
 msgstr "შეცდომა ჯგუფიდან წაშლისას."
 
-#: js/app.js:837
+#: js/app.js:835
 msgid "There was an error opening a mail composer."
 msgstr "შეცდომა მეილის დაწერის გვერდის გახსნის დროს."
 
-#: js/app.js:956
+#: js/app.js:954
 msgid "Error setting {name} as favorite."
 msgstr "პარამეტების {name} დაფავორიტების შეცდომა"
 
-#: js/app.js:1095 js/app.js:1099 templates/contacts.php:141
+#: js/app.js:1093 js/app.js:1097 templates/contacts.php:141
 msgid "Merge contacts"
 msgstr "კონტაქტების შერწყმა"
 
-#: js/app.js:1121 js/app.js:1175 js/settings.js:120 templates/contacts.php:290
+#: js/app.js:1119 js/app.js:1173 js/settings.js:120 templates/contacts.php:290
 #: templates/settings.php:62
 msgid "Cancel"
 msgstr "უარყოფა"
 
-#: js/app.js:1149 templates/contacts.php:133
+#: js/app.js:1147 templates/contacts.php:133
 msgid "Add group"
 msgstr "ჯგუფის დამატება"
 
-#: js/app.js:1153
+#: js/app.js:1151
 msgid "OK"
 msgstr "დიახ"
 
-#: js/app.js:1277
+#: js/app.js:1275
 msgid "No files selected for upload."
 msgstr "ფაილები არ არის მონიშნული ასატვირთად."
 
-#: js/app.js:1288
+#: js/app.js:1286
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "ფაილი რომლის ატვირთვასაც თქვენ ცდილობთ აჭარბებს ფაილების აპლოუდის მაქსიმუმს ამ სერვერზე."
 
-#: js/app.js:1387
+#: js/app.js:1385
 msgid "Edit profile picture"
 msgstr "პროფილის სურათის რედაქტირება"
 
-#: js/app.js:1405
+#: js/app.js:1403
 msgid "Error loading profile picture."
 msgstr "შეცდომა პროფილის სურათის ჩატვირთვისას."
 
-#: js/contacts.js:307
+#: js/contacts.js:306
 msgid "Failed deleting property: {error}"
 msgstr "პარამეტრების წაშლა ვერ მოხერხდა: {error}"
 
-#: js/contacts.js:498
+#: js/contacts.js:497
 msgid "Is this correct?"
 msgstr "არის ეს სწორი?"
 
-#: js/contacts.js:919 js/contacts.js:960
+#: js/contacts.js:917 js/contacts.js:956
 msgid "# groups"
 msgstr "# ჯგუფები"
 
-#: js/contacts.js:1860
+#: js/contacts.js:1856
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "ზოგიერთი კონტაქტი მონიშნულია წასაშლელად, მაგრამ ჯერ ვერ წაიშლება. გთხოვთ დაიცადოთ სანამ ისინი წაიშლება."
 
-#: js/contacts.js:1871
+#: js/contacts.js:1867
 msgid "Click to undo deletion of {num} contacts"
 msgstr "დააჭირეთ წაშლილი  {num}–ი ცონტაქტის დასაბრუნებლად"
 
-#: js/contacts.js:1886
+#: js/contacts.js:1882
 msgid "Cancelled deletion of {num}"
 msgstr "{num}–ი წასაშლელის უარყოფა"
 
@@ -404,11 +404,11 @@ msgstr "უფორ მეტი..."
 msgid "Less..."
 msgstr "ნაკლები..."
 
-#: js/storage.js:198
+#: js/storage.js:201
 msgid "Failed loading photo: {error}"
 msgstr "შეცდომა სურათის ჩატვირთვისას:  {error}"
 
-#: js/storage.js:432 js/storage.js:445
+#: js/storage.js:440
 msgid "Request failed: {error}"
 msgstr "მოთხოვნის შეცდომა:  {error}"
 

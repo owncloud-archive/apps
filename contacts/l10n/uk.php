@@ -30,6 +30,7 @@
 "Couldn't load temporary image: " => "Не вдалося завантажити тимчасове зображення: ",
 "Contacts" => "Контакти",
 "%d_selected_contacts" => "%d_selected_contacts",
+"Uploading..." => "Вивантаження...",
 "Add to..." => "Додати до...",
 "Remove from..." => "Видалити з...",
 "Add group..." => "Додати групу...",

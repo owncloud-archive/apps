@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-03 00:57+0200\n"
-"PO-Revision-Date: 2013-05-02 22:58+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-05-04 00:49+0200\n"
+"PO-Revision-Date: 2013-05-03 12:30+0000\n"
+"Last-Translator: ismail yenigül <ismail.yenigul@surgate.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,19 +166,19 @@ msgstr "%d_selected_contacts"
 
 #: js/addressbooks.js:144
 msgid "Uploading..."
-msgstr ""
+msgstr "Yükleniyor..."
 
 #: js/addressbooks.js:200
 msgid "Imported {count} of {total} contacts"
-msgstr ""
+msgstr "{total} kişilerin {count} tanesi içeri aktarıldı"
 
 #: js/addressbooks.js:217
 msgid "Imported {imported} contacts. {failed} failed."
-msgstr ""
+msgstr "{imported} kişiler içeri aktarıldı.  {failed} başarısız oldu."
 
 #: js/addressbooks.js:310
 msgid "An address book called {name} already exists"
-msgstr ""
+msgstr "{name} isimli adres defteri zaten var."
 
 #: js/addressbooks.js:338
 msgid "Failed adding address book: {error}"
@@ -186,7 +186,7 @@ msgstr "Adres kitape birlemedi. (hata)"
 
 #: js/addressbooks.js:374
 msgid "Failed loading address books: {error}"
-msgstr ""
+msgstr "Adres defterleri yüklenirken başarısız olundu: : {error}"
 
 #: js/app.js:293 js/app.js:307
 msgid "Add to..."
@@ -204,108 +204,108 @@ msgstr "Grup ekle..."
 msgid "Indexing contacts"
 msgstr "Bağlantılar listeleniyor"
 
-#: js/app.js:494
+#: js/app.js:493
 msgid "Merge failed. Cannot find contact: {id}"
 msgstr "Birlikme basarmadi. Id munasebet bulmak edeme"
 
-#: js/app.js:507
+#: js/app.js:506
 msgid "Merge failed."
 msgstr "Birleme olmadi "
 
-#: js/app.js:514
+#: js/app.js:513
 msgid "Merge failed. Error saving contact."
 msgstr "Birlikme olmadi. Itiraf hatali"
 
-#: js/app.js:533
+#: js/app.js:532
 msgid "Select photo"
 msgstr "Fotograf seç"
 
-#: js/app.js:583 js/app.js:1423
+#: js/app.js:582 js/app.js:1421
 msgid "Network or server error. Please inform administrator."
 msgstr "Ağ veya sunucu hatası. Lütfen sistem yöneticisini bilgilendirin."
 
-#: js/app.js:590
+#: js/app.js:589
 msgid "Failed saving sort order: {error}"
 msgstr "Tasnif seceneyin\n yapamami (hata)"
 
-#: js/app.js:623
+#: js/app.js:622
 msgid "Failed saving last group: {error}"
-msgstr ""
+msgstr "Son grubu kaydetme başarısız oldu: {error}"
 
-#: js/app.js:742 js/app.js:780
+#: js/app.js:778
 msgid "Error adding to group."
 msgstr "Grup eklenirken hata."
 
-#: js/app.js:809
+#: js/app.js:807
 msgid "Error removing from group."
 msgstr "Grup çıkartılırken hata."
 
-#: js/app.js:837
+#: js/app.js:835
 msgid "There was an error opening a mail composer."
 msgstr "Bir posta bestecisi açarken bir hata oluştu."
 
-#: js/app.js:956
+#: js/app.js:954
 msgid "Error setting {name} as favorite."
-msgstr ""
+msgstr "{name} favori olarak ayarlanırken hata oluştu."
 
-#: js/app.js:1095 js/app.js:1099 templates/contacts.php:141
+#: js/app.js:1093 js/app.js:1097 templates/contacts.php:141
 msgid "Merge contacts"
-msgstr ""
+msgstr "Kişileri birleştir"
 
-#: js/app.js:1121 js/app.js:1175 js/settings.js:120 templates/contacts.php:290
+#: js/app.js:1119 js/app.js:1173 js/settings.js:120 templates/contacts.php:290
 #: templates/settings.php:62
 msgid "Cancel"
 msgstr "İptal"
 
-#: js/app.js:1149 templates/contacts.php:133
+#: js/app.js:1147 templates/contacts.php:133
 msgid "Add group"
 msgstr "Grup ekle"
 
-#: js/app.js:1153
+#: js/app.js:1151
 msgid "OK"
 msgstr "OK"
 
-#: js/app.js:1277
+#: js/app.js:1275
 msgid "No files selected for upload."
 msgstr "Yükleme için dosya seçilmedi."
 
-#: js/app.js:1288
+#: js/app.js:1286
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Yüklemeye çalıştığınız dosya sunucudaki dosya yükleme maksimum boyutunu aşmaktadır. "
 
-#: js/app.js:1387
+#: js/app.js:1385
 msgid "Edit profile picture"
 msgstr "Profil fotografı ekle"
 
-#: js/app.js:1405
+#: js/app.js:1403
 msgid "Error loading profile picture."
 msgstr "Profil resmi yüklenirken hata oluştu."
 
-#: js/contacts.js:307
+#: js/contacts.js:306
 msgid "Failed deleting property: {error}"
 msgstr "Silme olmadi (hata)"
 
-#: js/contacts.js:498
+#: js/contacts.js:497
 msgid "Is this correct?"
 msgstr "Doğru mu?"
 
-#: js/contacts.js:919 js/contacts.js:960
+#: js/contacts.js:917 js/contacts.js:956
 msgid "# groups"
 msgstr "# gruplar"
 
-#: js/contacts.js:1860
+#: js/contacts.js:1856
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Bazı kişiler silinmek için işaretlendi, hala silinmedi. Silinmesi için bekleyin."
 
-#: js/contacts.js:1871
+#: js/contacts.js:1867
 msgid "Click to undo deletion of {num} contacts"
 msgstr "{num} kişinin silinmesini geri almak için tıklayın"
 
-#: js/contacts.js:1886
+#: js/contacts.js:1882
 msgid "Cancelled deletion of {num}"
 msgstr "{num} silinmesi iptal edildi"
 
@@ -331,7 +331,7 @@ msgstr "Bağlantılar bu grupta değiller."
 
 #: js/groups.js:437
 msgid "Failed deleting group: {error}"
-msgstr ""
+msgstr "Grup silme başarısız oldu: {error}"
 
 #: js/groups.js:565
 msgid "A group named {group} already exists"
@@ -411,13 +411,13 @@ msgstr "Devamı..."
 msgid "Less..."
 msgstr "daha küçük"
 
-#: js/storage.js:198
+#: js/storage.js:201
 msgid "Failed loading photo: {error}"
 msgstr "Foto yuklemedi (hata)"
 
-#: js/storage.js:432 js/storage.js:445
+#: js/storage.js:440
 msgid "Request failed: {error}"
-msgstr ""
+msgstr "İstek başarısız oldu: {error}"
 
 #: lib/backend/ldap.php:178
 msgid "There was an error updating the addressbook."
@@ -447,7 +447,7 @@ msgstr "Bağlantıları depoya yükleme hatası"
 #: lib/controller/contactcontroller.php:126
 #: lib/controller/contactcontroller.php:186
 msgid "Couldn't find contact."
-msgstr ""
+msgstr "Kişi bulunamadı."
 
 #: lib/controller/contactcontroller.php:49
 msgid "Error merging into contact."
@@ -480,11 +480,11 @@ msgstr "Yukleme dogru degil "
 
 #: lib/controller/contactcontroller.php:215
 msgid "Error saving property to backend"
-msgstr ""
+msgstr "Nitelik geri plana kaydedilirken başarısız oldu"
 
 #: lib/controller/groupcontroller.php:60 lib/controller/groupcontroller.php:84
 msgid "No group name given."
-msgstr ""
+msgstr "Grub adı tanımlanmadı."
 
 #: lib/controller/groupcontroller.php:67
 msgid "Error adding group."
@@ -502,32 +502,32 @@ msgstr "İstekde Contact IP eksik"
 
 #: lib/controller/importcontroller.php:73
 msgid "Attempt to upload blacklisted file:"
-msgstr ""
+msgstr "Şu karaliste dosyasını yüklemeyi dene:"
 
 #: lib/controller/importcontroller.php:118
 msgid "File name missing from request."
-msgstr ""
+msgstr "İstekte dosya adı yok."
 
 #: lib/controller/importcontroller.php:123
 #: lib/controller/importcontroller.php:226
 msgid "Progress key missing from request."
-msgstr ""
+msgstr "İstekte süreç anahtarı(Progress key) eksik."
 
 #: lib/controller/importcontroller.php:129
 msgid "Attempt to access blacklisted file:"
-msgstr ""
+msgstr "Şu karaliste dosyasına erişimi dene:"
 
 #: lib/controller/importcontroller.php:168
 msgid "No contacts found in: "
-msgstr ""
+msgstr "Hiçbir kişi bulunamadı:"
 
 #: lib/controller/settingscontroller.php:36
 msgid "No key is given."
-msgstr ""
+msgstr "Hiç bir anahtar belirtilmedi."
 
 #: lib/controller/settingscontroller.php:40
 msgid "No value is given."
-msgstr ""
+msgstr "Hiçbir değer belirtilmedi."
 
 #: lib/hooks.php:183
 msgid "{name}'s Birthday"
@@ -553,7 +553,7 @@ msgstr "Jabber"
 
 #: lib/utils/properties.php:71
 msgid "Internet call"
-msgstr ""
+msgstr "İnternet araması"
 
 #: lib/utils/properties.php:76
 msgid "AIM"
@@ -659,7 +659,7 @@ msgstr "Yeni Kişi"
 
 #: templates/contacts.php:10
 msgid "Group name"
-msgstr ""
+msgstr "Grup adı"
 
 #: templates/contacts.php:10
 msgid "New Group"
@@ -675,7 +675,7 @@ msgstr "Ekran Adı"
 
 #: templates/contacts.php:22
 msgid "Add Address Book"
-msgstr ""
+msgstr "Adres defteri ekle"
 
 #: templates/contacts.php:25 templates/contacts.php:95
 msgid "Import"
@@ -687,7 +687,7 @@ msgstr "İçe aktar:"
 
 #: templates/contacts.php:29
 msgid "Select Address Book"
-msgstr ""
+msgstr "Adres defteri seç"
 
 #: templates/contacts.php:32
 msgid "Select files"
@@ -707,7 +707,7 @@ msgstr "Favori"
 
 #: templates/contacts.php:51
 msgid "Merge selected"
-msgstr ""
+msgstr "Birleştirme seçildi"
 
 #: templates/contacts.php:59 templates/contacts.php:291
 msgid "Close"
@@ -773,11 +773,11 @@ msgstr "Bağlatı ekle"
 
 #: templates/contacts.php:142
 msgid "Which contact should the data be merged into?"
-msgstr ""
+msgstr "Veri hangi kişi ile birleştirilecek."
 
 #: templates/contacts.php:150
 msgid "Delete the other(s) after successful merge?"
-msgstr ""
+msgstr "Başarılı bir şekilde birleştirme yaptıktan sonra diğerlerini sil."
 
 #: templates/contacts.php:162
 msgid "Compose mail"
@@ -821,7 +821,7 @@ msgstr "Grupları seç"
 
 #: templates/contacts.php:229
 msgid "Select address book"
-msgstr ""
+msgstr "Adres defteri seç"
 
 #: templates/contacts.php:233 templates/contacts.php:297
 msgid "Nickname"

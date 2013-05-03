@@ -24,8 +24,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-03 00:57+0200\n"
-"PO-Revision-Date: 2013-05-02 22:58+0000\n"
+"POT-Creation-Date: 2013-05-04 00:49+0200\n"
+"PO-Revision-Date: 2013-05-02 23:10+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/owncloud/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -174,7 +174,7 @@ msgstr "%d_contacts_selectionnés"
 
 #: js/addressbooks.js:144
 msgid "Uploading..."
-msgstr ""
+msgstr "Téléversement en cours…"
 
 #: js/addressbooks.js:200
 msgid "Imported {count} of {total} contacts"
@@ -212,108 +212,108 @@ msgstr "Ajouter un groupe…"
 msgid "Indexing contacts"
 msgstr "Indexation des contacts"
 
-#: js/app.js:494
+#: js/app.js:493
 msgid "Merge failed. Cannot find contact: {id}"
 msgstr "Échec de la fusion. Impossible de trouver le contact : {id}"
 
-#: js/app.js:507
+#: js/app.js:506
 msgid "Merge failed."
 msgstr "Echec de la fusion."
 
-#: js/app.js:514
+#: js/app.js:513
 msgid "Merge failed. Error saving contact."
 msgstr "Échec de la fusion. Erreur d'enregistrement du contact."
 
-#: js/app.js:533
+#: js/app.js:532
 msgid "Select photo"
 msgstr "Sélectionner une photo"
 
-#: js/app.js:583 js/app.js:1423
+#: js/app.js:582 js/app.js:1421
 msgid "Network or server error. Please inform administrator."
 msgstr "Erreur de serveur ou du réseau. Veuillez contacter votre administrateur."
 
-#: js/app.js:590
+#: js/app.js:589
 msgid "Failed saving sort order: {error}"
 msgstr "Echec de la sauvegarde de l'ordre de tri : {error}"
 
-#: js/app.js:623
+#: js/app.js:622
 msgid "Failed saving last group: {error}"
 msgstr "Echec de l'enregistrement du dernier groupe : {error}"
 
-#: js/app.js:742 js/app.js:780
+#: js/app.js:778
 msgid "Error adding to group."
 msgstr "Erreur lors de l'ajout au groupe."
 
-#: js/app.js:809
+#: js/app.js:807
 msgid "Error removing from group."
 msgstr "Erreur lors du retrait du groupe."
 
-#: js/app.js:837
+#: js/app.js:835
 msgid "There was an error opening a mail composer."
 msgstr "Une erreur s'est produite lors de l’ouverture d'un outil de composition email."
 
-#: js/app.js:956
+#: js/app.js:954
 msgid "Error setting {name} as favorite."
 msgstr "Échec de la mise en favori de {name}."
 
-#: js/app.js:1095 js/app.js:1099 templates/contacts.php:141
+#: js/app.js:1093 js/app.js:1097 templates/contacts.php:141
 msgid "Merge contacts"
 msgstr "Fusionner les contacts"
 
-#: js/app.js:1121 js/app.js:1175 js/settings.js:120 templates/contacts.php:290
+#: js/app.js:1119 js/app.js:1173 js/settings.js:120 templates/contacts.php:290
 #: templates/settings.php:62
 msgid "Cancel"
 msgstr "Annuler"
 
-#: js/app.js:1149 templates/contacts.php:133
+#: js/app.js:1147 templates/contacts.php:133
 msgid "Add group"
 msgstr "Ajouter un groupe"
 
-#: js/app.js:1153
+#: js/app.js:1151
 msgid "OK"
 msgstr "OK"
 
-#: js/app.js:1277
+#: js/app.js:1275
 msgid "No files selected for upload."
 msgstr "Aucun fichier choisi pour être chargé"
 
-#: js/app.js:1288
+#: js/app.js:1286
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Le fichier que vous tentez de charger dépasse la taille maximum de fichier autorisée sur ce serveur."
 
-#: js/app.js:1387
+#: js/app.js:1385
 msgid "Edit profile picture"
 msgstr "Éditer l'image de profil"
 
-#: js/app.js:1405
+#: js/app.js:1403
 msgid "Error loading profile picture."
 msgstr "Erreur pendant le chargement de la photo de profil."
 
-#: js/contacts.js:307
+#: js/contacts.js:306
 msgid "Failed deleting property: {error}"
 msgstr "Echec de le suppression de la propriété : {error}"
 
-#: js/contacts.js:498
+#: js/contacts.js:497
 msgid "Is this correct?"
 msgstr "Est-ce correct ?"
 
-#: js/contacts.js:919 js/contacts.js:960
+#: js/contacts.js:917 js/contacts.js:956
 msgid "# groups"
 msgstr "# groupes"
 
-#: js/contacts.js:1860
+#: js/contacts.js:1856
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Certains contacts sont marqués pour être supprimés, mais ne le sont pas encore. Veuillez attendre que l'opération se termine."
 
-#: js/contacts.js:1871
+#: js/contacts.js:1867
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Cliquer pour annuler la suppression de {num} contacts"
 
-#: js/contacts.js:1886
+#: js/contacts.js:1882
 msgid "Cancelled deletion of {num}"
 msgstr "Suppression annulée pour {num} contacts"
 
@@ -419,11 +419,11 @@ msgstr "Plus…"
 msgid "Less..."
 msgstr "Moins..."
 
-#: js/storage.js:198
+#: js/storage.js:201
 msgid "Failed loading photo: {error}"
 msgstr "Echec du chargement de la photo : {error}"
 
-#: js/storage.js:432 js/storage.js:445
+#: js/storage.js:440
 msgid "Request failed: {error}"
 msgstr "Echec de la requête : {error}"
 

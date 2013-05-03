@@ -29,6 +29,7 @@
 "Couldn't load temporary image: " => "Không thể tải hình ảnh tạm thời:",
 "Contacts" => "Liên lạc",
 "%d_selected_contacts" => "%d_liên_hệ_được_chọn",
+"Uploading..." => "tải lên...",
 "Add to..." => "Thêm đến...",
 "Remove from..." => "Xóa từ...",
 "Add group..." => "Thêm nhóm...",

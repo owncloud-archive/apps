@@ -10,6 +10,7 @@
 "Failed to write to disk" => "Не могу да пишем на диск",
 "Not enough storage available" => "Нема довољно простора",
 "Contacts" => "Контакти",
+"Uploading..." => "Отпремам…",
 "Cancel" => "Откажи",
 "OK" => "У реду",
 "Error" => "Грешка",

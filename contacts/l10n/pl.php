@@ -30,6 +30,7 @@
 "Couldn't load temporary image: " => "Nie można wczytać obrazu tymczasowego: ",
 "Contacts" => "Kontakty",
 "%d_selected_contacts" => "%d_wybrane_kontakty",
+"Uploading..." => "Wgrywanie....",
 "Add to..." => "Dodaj do...",
 "Remove from..." => "Usuń z...",
 "Add group..." => "Dodaj grupę....",

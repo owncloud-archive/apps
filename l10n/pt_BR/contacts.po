@@ -17,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-03 00:57+0200\n"
-"PO-Revision-Date: 2013-05-02 22:58+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-05-04 00:49+0200\n"
+"PO-Revision-Date: 2013-05-03 01:00+0000\n"
+"Last-Translator: Flávio Veras <flaviove@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/owncloud/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -167,19 +167,19 @@ msgstr "%d_selected_contacts"
 
 #: js/addressbooks.js:144
 msgid "Uploading..."
-msgstr ""
+msgstr "Enviando..."
 
 #: js/addressbooks.js:200
 msgid "Imported {count} of {total} contacts"
-msgstr ""
+msgstr "Importado {count} de {total} contatos"
 
 #: js/addressbooks.js:217
 msgid "Imported {imported} contacts. {failed} failed."
-msgstr ""
+msgstr "Importado {imported} contatos. {failed} falhou."
 
 #: js/addressbooks.js:310
 msgid "An address book called {name} already exists"
-msgstr ""
+msgstr "Um livro de endereços chamado {name} já existe"
 
 #: js/addressbooks.js:338
 msgid "Failed adding address book: {error}"
@@ -205,108 +205,108 @@ msgstr "Adicionar grupo..."
 msgid "Indexing contacts"
 msgstr "Indexando contatos"
 
-#: js/app.js:494
+#: js/app.js:493
 msgid "Merge failed. Cannot find contact: {id}"
 msgstr "A mesclagem falhou. Não foi possível encontrar o contato: {id}"
 
-#: js/app.js:507
+#: js/app.js:506
 msgid "Merge failed."
 msgstr "A mesclagem falhou."
 
-#: js/app.js:514
+#: js/app.js:513
 msgid "Merge failed. Error saving contact."
 msgstr "A mesclagem falhou. Erro salvando o contato."
 
-#: js/app.js:533
+#: js/app.js:532
 msgid "Select photo"
 msgstr "Selecione foto"
 
-#: js/app.js:583 js/app.js:1423
+#: js/app.js:582 js/app.js:1421
 msgid "Network or server error. Please inform administrator."
 msgstr "Erro no servidor ou rede. Por favor, informe o administrador."
 
-#: js/app.js:590
+#: js/app.js:589
 msgid "Failed saving sort order: {error}"
 msgstr "Falha salvando em ordem de classificação: {error}"
 
-#: js/app.js:623
+#: js/app.js:622
 msgid "Failed saving last group: {error}"
 msgstr "Falha ao salvar último grupo: {error}"
 
-#: js/app.js:742 js/app.js:780
+#: js/app.js:778
 msgid "Error adding to group."
 msgstr "Erro ao adicionar ao grupo."
 
-#: js/app.js:809
+#: js/app.js:807
 msgid "Error removing from group."
 msgstr "Erro ao remover ao grupo."
 
-#: js/app.js:837
+#: js/app.js:835
 msgid "There was an error opening a mail composer."
 msgstr "Houve um erro ao abrir um editor de correio."
 
-#: js/app.js:956
+#: js/app.js:954
 msgid "Error setting {name} as favorite."
 msgstr "Erro configurando {name} como favorito."
 
-#: js/app.js:1095 js/app.js:1099 templates/contacts.php:141
+#: js/app.js:1093 js/app.js:1097 templates/contacts.php:141
 msgid "Merge contacts"
 msgstr "Mesclar contatos"
 
-#: js/app.js:1121 js/app.js:1175 js/settings.js:120 templates/contacts.php:290
+#: js/app.js:1119 js/app.js:1173 js/settings.js:120 templates/contacts.php:290
 #: templates/settings.php:62
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: js/app.js:1149 templates/contacts.php:133
+#: js/app.js:1147 templates/contacts.php:133
 msgid "Add group"
 msgstr "Adicionar grupo"
 
-#: js/app.js:1153
+#: js/app.js:1151
 msgid "OK"
 msgstr "OK"
 
-#: js/app.js:1277
+#: js/app.js:1275
 msgid "No files selected for upload."
 msgstr "Nenhum arquivo selecionado para carregar."
 
-#: js/app.js:1288
+#: js/app.js:1286
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "O arquivo que você está tentando enviar excede o tamanho máximo para este servidor."
 
-#: js/app.js:1387
+#: js/app.js:1385
 msgid "Edit profile picture"
 msgstr "Editar imagem do perfil"
 
-#: js/app.js:1405
+#: js/app.js:1403
 msgid "Error loading profile picture."
 msgstr "Erro ao carregar imagem de perfil."
 
-#: js/contacts.js:307
+#: js/contacts.js:306
 msgid "Failed deleting property: {error}"
 msgstr "Falha ao excluir propriedade: {error}"
 
-#: js/contacts.js:498
+#: js/contacts.js:497
 msgid "Is this correct?"
 msgstr "Isto está certo?"
 
-#: js/contacts.js:919 js/contacts.js:960
+#: js/contacts.js:917 js/contacts.js:956
 msgid "# groups"
 msgstr "# grupos"
 
-#: js/contacts.js:1860
+#: js/contacts.js:1856
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Alguns contatos foram marcados para remoção, mas não foram removidos ainda. Por favor aguarde a remoção desses contatos."
 
-#: js/contacts.js:1871
+#: js/contacts.js:1867
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Clique para desfazer a exclusão de {num} contatos"
 
-#: js/contacts.js:1886
+#: js/contacts.js:1882
 msgid "Cancelled deletion of {num}"
 msgstr "Exclusão de {num} contatos cancelada"
 
@@ -412,11 +412,11 @@ msgstr "Mais..."
 msgid "Less..."
 msgstr "Menos..."
 
-#: js/storage.js:198
+#: js/storage.js:201
 msgid "Failed loading photo: {error}"
 msgstr "Falha carregendo foto: {error}"
 
-#: js/storage.js:432 js/storage.js:445
+#: js/storage.js:440
 msgid "Request failed: {error}"
 msgstr "Requisição falhou: {error}"
 
@@ -503,24 +503,24 @@ msgstr "Falta ID do contato na solicitação."
 
 #: lib/controller/importcontroller.php:73
 msgid "Attempt to upload blacklisted file:"
-msgstr ""
+msgstr "Tente fazer o envio do arquivo de lista negra:"
 
 #: lib/controller/importcontroller.php:118
 msgid "File name missing from request."
-msgstr ""
+msgstr "Nome do arquivo ausente do pedido."
 
 #: lib/controller/importcontroller.php:123
 #: lib/controller/importcontroller.php:226
 msgid "Progress key missing from request."
-msgstr ""
+msgstr "Chave de progresso faltando no pedido."
 
 #: lib/controller/importcontroller.php:129
 msgid "Attempt to access blacklisted file:"
-msgstr ""
+msgstr "Tentando acessar o arquivo de lista negra:"
 
 #: lib/controller/importcontroller.php:168
 msgid "No contacts found in: "
-msgstr ""
+msgstr "Nenhum contato encontrado em:"
 
 #: lib/controller/settingscontroller.php:36
 msgid "No key is given."
@@ -660,7 +660,7 @@ msgstr "Novo Contato"
 
 #: templates/contacts.php:10
 msgid "Group name"
-msgstr ""
+msgstr "Nome do grupo"
 
 #: templates/contacts.php:10
 msgid "New Group"
@@ -676,7 +676,7 @@ msgstr "Nome de exibição"
 
 #: templates/contacts.php:22
 msgid "Add Address Book"
-msgstr ""
+msgstr "Adicionar Livro de Endereço"
 
 #: templates/contacts.php:25 templates/contacts.php:95
 msgid "Import"
@@ -688,7 +688,7 @@ msgstr "Importar para:"
 
 #: templates/contacts.php:29
 msgid "Select Address Book"
-msgstr ""
+msgstr "Selecionar Livro de Endereço"
 
 #: templates/contacts.php:32
 msgid "Select files"

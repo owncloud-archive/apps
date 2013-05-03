@@ -24,6 +24,7 @@
 "Couldn't save temporary image: " => "不能保存临时相片：",
 "Couldn't load temporary image: " => "不能载入临时相片：",
 "Contacts" => "联系人",
+"Uploading..." => "上传中...",
 "Select photo" => "选择相片",
 "Cancel" => "取消",
 "OK" => "好",

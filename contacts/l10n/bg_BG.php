@@ -6,6 +6,7 @@
 "Missing a temporary folder" => "Липсва временна папка",
 "Failed to write to disk" => "Възникна проблем при запис в диска",
 "Contacts" => "Контакти",
+"Uploading..." => "Качване...",
 "Cancel" => "Отказ",
 "Error" => "Грешка",
 "Download" => "Изтегляне",

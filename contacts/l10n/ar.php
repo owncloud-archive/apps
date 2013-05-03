@@ -14,6 +14,7 @@
 "Failed to write to disk" => "خطأ في الكتابة على القرص الصلب",
 "Not enough storage available" => "لا يوجد مساحة تخزينية كافية",
 "Contacts" => "المعارف",
+"Uploading..." => "ترفيع...",
 "Cancel" => "الغاء",
 "OK" => "تم",
 "Error" => "خطأ",

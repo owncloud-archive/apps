@@ -29,6 +29,7 @@
 "Couldn't load temporary image: " => "Nevarēja ielādēt pagaidu attēlu:",
 "Contacts" => "Kontakti",
 "%d_selected_contacts" => "%d_izvēlētu_kontaktu",
+"Uploading..." => "Augšupielādē...",
 "Add to..." => "Pievienot pie...",
 "Remove from..." => "Izņemt no...",
 "Add group..." => "Pievienot grupu...",

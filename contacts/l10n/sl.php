@@ -31,6 +31,7 @@
 "Couldn't load temporary image: " => "Začasne slike ni mogoče naložiti: ",
 "Contacts" => "Stiki",
 "%d_selected_contacts" => "%d izbranih stikov",
+"Uploading..." => "Poteka pošiljanje ...",
 "Add to..." => "Dodaj v ...",
 "Remove from..." => "Odstrani iz ...",
 "Add group..." => "Dodaj skupino ...",

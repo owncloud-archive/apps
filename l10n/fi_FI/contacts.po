@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-03 00:57+0200\n"
-"PO-Revision-Date: 2013-05-02 22:58+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-05-04 00:49+0200\n"
+"PO-Revision-Date: 2013-05-03 10:30+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/owncloud/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -164,7 +164,7 @@ msgstr ""
 
 #: js/addressbooks.js:144
 msgid "Uploading..."
-msgstr ""
+msgstr "Lähetetään..."
 
 #: js/addressbooks.js:200
 msgid "Imported {count} of {total} contacts"
@@ -172,15 +172,15 @@ msgstr ""
 
 #: js/addressbooks.js:217
 msgid "Imported {imported} contacts. {failed} failed."
-msgstr ""
+msgstr "Tuotiin {imported} yhteystietoa. {failed} epäonnistui."
 
 #: js/addressbooks.js:310
 msgid "An address book called {name} already exists"
-msgstr ""
+msgstr "Osoitekirja nimeltä {name} on jo olemassa"
 
 #: js/addressbooks.js:338
 msgid "Failed adding address book: {error}"
-msgstr ""
+msgstr "Virhe osoitekirjaa lisättäessä: {error}"
 
 #: js/addressbooks.js:374
 msgid "Failed loading address books: {error}"
@@ -202,108 +202,108 @@ msgstr "Lisää ryhmä..."
 msgid "Indexing contacts"
 msgstr "Indeksoidaan yhteystietoja"
 
-#: js/app.js:494
+#: js/app.js:493
 msgid "Merge failed. Cannot find contact: {id}"
 msgstr ""
 
-#: js/app.js:507
+#: js/app.js:506
 msgid "Merge failed."
 msgstr "Yhdistäminen epäonnistui."
 
-#: js/app.js:514
+#: js/app.js:513
 msgid "Merge failed. Error saving contact."
 msgstr "Yhdistäminen epäonnistui. Virhe yhteystietoa tallennettaessa."
 
-#: js/app.js:533
+#: js/app.js:532
 msgid "Select photo"
 msgstr "Valitse valokuva"
 
-#: js/app.js:583 js/app.js:1423
+#: js/app.js:582 js/app.js:1421
 msgid "Network or server error. Please inform administrator."
 msgstr "Verkko- tai palvelinvirhe. Ilmoita asiasta ylläpitäjälle."
 
-#: js/app.js:590
+#: js/app.js:589
 msgid "Failed saving sort order: {error}"
 msgstr ""
 
-#: js/app.js:623
+#: js/app.js:622
 msgid "Failed saving last group: {error}"
 msgstr ""
 
-#: js/app.js:742 js/app.js:780
+#: js/app.js:778
 msgid "Error adding to group."
 msgstr "Virhe ryhmään lisättäessä."
 
-#: js/app.js:809
+#: js/app.js:807
 msgid "Error removing from group."
 msgstr "Virhe poistettaessa ryhmästä."
 
-#: js/app.js:837
+#: js/app.js:835
 msgid "There was an error opening a mail composer."
 msgstr ""
 
-#: js/app.js:956
+#: js/app.js:954
 msgid "Error setting {name} as favorite."
 msgstr ""
 
-#: js/app.js:1095 js/app.js:1099 templates/contacts.php:141
+#: js/app.js:1093 js/app.js:1097 templates/contacts.php:141
 msgid "Merge contacts"
 msgstr ""
 
-#: js/app.js:1121 js/app.js:1175 js/settings.js:120 templates/contacts.php:290
+#: js/app.js:1119 js/app.js:1173 js/settings.js:120 templates/contacts.php:290
 #: templates/settings.php:62
 msgid "Cancel"
 msgstr "Peru"
 
-#: js/app.js:1149 templates/contacts.php:133
+#: js/app.js:1147 templates/contacts.php:133
 msgid "Add group"
 msgstr "Lisää ryhmä"
 
-#: js/app.js:1153
+#: js/app.js:1151
 msgid "OK"
 msgstr "OK"
 
-#: js/app.js:1277
+#: js/app.js:1275
 msgid "No files selected for upload."
 msgstr "Tiedostoja ei ole valittu lähetettäväksi."
 
-#: js/app.js:1288
+#: js/app.js:1286
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Tiedosto, jota yrität ladata ylittää suurimman sallitun koon tällä palvelimella."
 
-#: js/app.js:1387
+#: js/app.js:1385
 msgid "Edit profile picture"
 msgstr "Muokkaa profiilikuvaa"
 
-#: js/app.js:1405
+#: js/app.js:1403
 msgid "Error loading profile picture."
 msgstr "Virhe profiilikuvaa ladatessa."
 
-#: js/contacts.js:307
+#: js/contacts.js:306
 msgid "Failed deleting property: {error}"
 msgstr ""
 
-#: js/contacts.js:498
+#: js/contacts.js:497
 msgid "Is this correct?"
 msgstr "Onko tämä oikein?"
 
-#: js/contacts.js:919 js/contacts.js:960
+#: js/contacts.js:917 js/contacts.js:956
 msgid "# groups"
 msgstr ""
 
-#: js/contacts.js:1860
+#: js/contacts.js:1856
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Jotkin yhteystiedot on merkitty poistettaviksi, mutta niitä ei ole vielä poistettu. Odota hetki, että kyseiset yhteystiedot poistetaan."
 
-#: js/contacts.js:1871
+#: js/contacts.js:1867
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1886
+#: js/contacts.js:1882
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
@@ -409,11 +409,11 @@ msgstr "Lisää..."
 msgid "Less..."
 msgstr "Vähemmän..."
 
-#: js/storage.js:198
+#: js/storage.js:201
 msgid "Failed loading photo: {error}"
 msgstr ""
 
-#: js/storage.js:432 js/storage.js:445
+#: js/storage.js:440
 msgid "Request failed: {error}"
 msgstr "Pyyntö epäonnistui: {error}"
 
@@ -482,7 +482,7 @@ msgstr ""
 
 #: lib/controller/groupcontroller.php:60 lib/controller/groupcontroller.php:84
 msgid "No group name given."
-msgstr ""
+msgstr "Ryhmän nimeä ei annettu."
 
 #: lib/controller/groupcontroller.php:67
 msgid "Error adding group."
@@ -504,7 +504,7 @@ msgstr ""
 
 #: lib/controller/importcontroller.php:118
 msgid "File name missing from request."
-msgstr ""
+msgstr "Tiedoston nimi puuttuu pyynnöstä."
 
 #: lib/controller/importcontroller.php:123
 #: lib/controller/importcontroller.php:226
@@ -525,7 +525,7 @@ msgstr ""
 
 #: lib/controller/settingscontroller.php:40
 msgid "No value is given."
-msgstr ""
+msgstr "Arvoa ei annettu."
 
 #: lib/hooks.php:183
 msgid "{name}'s Birthday"
@@ -657,7 +657,7 @@ msgstr "Uusi yhteystieto"
 
 #: templates/contacts.php:10
 msgid "Group name"
-msgstr ""
+msgstr "Ryhmän nimi"
 
 #: templates/contacts.php:10
 msgid "New Group"
@@ -673,7 +673,7 @@ msgstr "Näyttönimi"
 
 #: templates/contacts.php:22
 msgid "Add Address Book"
-msgstr ""
+msgstr "Lisää osoitekirja"
 
 #: templates/contacts.php:25 templates/contacts.php:95
 msgid "Import"
@@ -685,7 +685,7 @@ msgstr ""
 
 #: templates/contacts.php:29
 msgid "Select Address Book"
-msgstr ""
+msgstr "Valitse osoitekirja"
 
 #: templates/contacts.php:32
 msgid "Select files"

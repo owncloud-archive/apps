@@ -31,6 +31,7 @@
 "Couldn't load temporary image: " => "Konnte das temporäre Bild nicht laden:",
 "Contacts" => "Kontakte",
 "%d_selected_contacts" => "%d_markierte_kontakte",
+"Uploading..." => "Hochladen...",
 "Failed adding address book: {error}" => "Fehler beim hinzufügen eines Addressbuchs: {error}",
 "Failed loading address books: {error}" => "Fehler beim Laden von Adressbüchern: {error}",
 "Add to..." => "Füge hinzu...",

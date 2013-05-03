@@ -31,6 +31,7 @@
 "Couldn't load temporary image: " => "Kan tijdelijk plaatje niet op laden:",
 "Contacts" => "Contacten",
 "%d_selected_contacts" => "%d_selected_contacts",
+"Uploading..." => "Uploading...",
 "Failed adding address book: {error}" => "Mislukt: toevoegen adresboek: {error}",
 "Failed loading address books: {error}" => "Mislukt: inladen adresboeken: {error}",
 "Add to..." => "Toevoegen aan...",

@@ -29,6 +29,7 @@
 "Couldn't load temporary image: " => "임시 그림을 불러올 수 없음:",
 "Contacts" => "연락처",
 "%d_selected_contacts" => "%d개의_연락처_선택됨",
+"Uploading..." => "업로드 중...",
 "Add to..." => "다음에 추가...",
 "Remove from..." => "다음에서 삭제...",
 "Add group..." => "그룹 추가...",

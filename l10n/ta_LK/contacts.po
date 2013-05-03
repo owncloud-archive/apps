@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-03 00:57+0200\n"
-"PO-Revision-Date: 2013-05-02 22:58+0000\n"
+"POT-Creation-Date: 2013-05-04 00:49+0200\n"
+"PO-Revision-Date: 2013-05-02 23:10+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Tamil (Sri-Lanka) (http://www.transifex.com/projects/p/owncloud/language/ta_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -158,7 +158,7 @@ msgstr ""
 
 #: js/addressbooks.js:144
 msgid "Uploading..."
-msgstr ""
+msgstr "பதிவேற்றல்..."
 
 #: js/addressbooks.js:200
 msgid "Imported {count} of {total} contacts"
@@ -196,108 +196,108 @@ msgstr "குழுவிற்கு சேர்க்க..."
 msgid "Indexing contacts"
 msgstr "தொடர்புகளை அட்டவணையிடுதல்"
 
-#: js/app.js:494
+#: js/app.js:493
 msgid "Merge failed. Cannot find contact: {id}"
 msgstr ""
 
-#: js/app.js:507
+#: js/app.js:506
 msgid "Merge failed."
 msgstr ""
 
-#: js/app.js:514
+#: js/app.js:513
 msgid "Merge failed. Error saving contact."
 msgstr ""
 
-#: js/app.js:533
+#: js/app.js:532
 msgid "Select photo"
 msgstr "படத்தை தெரிக"
 
-#: js/app.js:583 js/app.js:1423
+#: js/app.js:582 js/app.js:1421
 msgid "Network or server error. Please inform administrator."
 msgstr "வ​லைய​மைப்பு அல்லது சேவையக வழு. தயவுசெய்து நிர்வாகிக்கு தெரியப்படுத்தவும்."
 
-#: js/app.js:590
+#: js/app.js:589
 msgid "Failed saving sort order: {error}"
 msgstr ""
 
-#: js/app.js:623
+#: js/app.js:622
 msgid "Failed saving last group: {error}"
 msgstr ""
 
-#: js/app.js:742 js/app.js:780
+#: js/app.js:778
 msgid "Error adding to group."
 msgstr "குழுவில் சேர்ப்பதில் வழு."
 
-#: js/app.js:809
+#: js/app.js:807
 msgid "Error removing from group."
 msgstr "குழுவிலிருந்து அகற்றுவதிலிருந்து வழு."
 
-#: js/app.js:837
+#: js/app.js:835
 msgid "There was an error opening a mail composer."
 msgstr "மின்னஞ்சல் செய்தியாக்குகையை திறப்பதில் வழு."
 
-#: js/app.js:956
+#: js/app.js:954
 msgid "Error setting {name} as favorite."
 msgstr ""
 
-#: js/app.js:1095 js/app.js:1099 templates/contacts.php:141
+#: js/app.js:1093 js/app.js:1097 templates/contacts.php:141
 msgid "Merge contacts"
 msgstr ""
 
-#: js/app.js:1121 js/app.js:1175 js/settings.js:120 templates/contacts.php:290
+#: js/app.js:1119 js/app.js:1173 js/settings.js:120 templates/contacts.php:290
 #: templates/settings.php:62
 msgid "Cancel"
 msgstr "இரத்து செய்க"
 
-#: js/app.js:1149 templates/contacts.php:133
+#: js/app.js:1147 templates/contacts.php:133
 msgid "Add group"
 msgstr "குழுவில் சேர்க்க"
 
-#: js/app.js:1153
+#: js/app.js:1151
 msgid "OK"
 msgstr "சரி "
 
-#: js/app.js:1277
+#: js/app.js:1275
 msgid "No files selected for upload."
 msgstr "பதிவேற்றுவதற்கு கோப்புகள் தெரிவுசெய்யப்படவில்லை"
 
-#: js/app.js:1288
+#: js/app.js:1286
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "நீங்கள் பதிவேற்ற முயற்சிக்கும் கோப்பானது இந்த சேவையகத்தில் பதிவேற்றக்கூடிய கோப்பின் ஆகக்கூடிய அளவைவிட கூடியது. "
 
-#: js/app.js:1387
+#: js/app.js:1385
 msgid "Edit profile picture"
 msgstr "விபரக்கோவை படத்தை தொகுக்க "
 
-#: js/app.js:1405
+#: js/app.js:1403
 msgid "Error loading profile picture."
 msgstr "விபரக்கோவை படத்தை ஏற்றுவதில் வழு"
 
-#: js/contacts.js:307
+#: js/contacts.js:306
 msgid "Failed deleting property: {error}"
 msgstr ""
 
-#: js/contacts.js:498
+#: js/contacts.js:497
 msgid "Is this correct?"
 msgstr "இது சரியா?"
 
-#: js/contacts.js:919 js/contacts.js:960
+#: js/contacts.js:917 js/contacts.js:956
 msgid "# groups"
 msgstr ""
 
-#: js/contacts.js:1860
+#: js/contacts.js:1856
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "சில தொடர்புகள் அழிப்பதற்காக அடையாளப்படுத்தப்பட்டுள்ளது, ஆனால் இன்னும் அழிக்கவில்லை. தயவுசெய்து அது அழியும் வரை காத்திருக்கவும்."
 
-#: js/contacts.js:1871
+#: js/contacts.js:1867
 msgid "Click to undo deletion of {num} contacts"
 msgstr "தொடர்புகள் நீக்கியதை முன் செயல் நீக்கம் {num} செய்வதற்கு சொடக்குக"
 
-#: js/contacts.js:1886
+#: js/contacts.js:1882
 msgid "Cancelled deletion of {num}"
 msgstr "{num} ஐ நீக்குவதை இரத்துசெய்க"
 
@@ -403,11 +403,11 @@ msgstr "மேலதிக..."
 msgid "Less..."
 msgstr "குறைவு..."
 
-#: js/storage.js:198
+#: js/storage.js:201
 msgid "Failed loading photo: {error}"
 msgstr ""
 
-#: js/storage.js:432 js/storage.js:445
+#: js/storage.js:440
 msgid "Request failed: {error}"
 msgstr ""
 

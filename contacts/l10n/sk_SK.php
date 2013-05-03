@@ -31,6 +31,7 @@
 "Couldn't load temporary image: " => "Nemôžem načítať dočasný obrázok: ",
 "Contacts" => "Kontakty",
 "%d_selected_contacts" => "%d_selected_contacts",
+"Uploading..." => "Odosielanie...",
 "Failed adding address book: {error}" => "Zlyhalo pridanie adresára: {error}",
 "Failed loading address books: {error}" => "Zlyhalo načítanie adresára: {error}",
 "Add to..." => "Pridať do...",

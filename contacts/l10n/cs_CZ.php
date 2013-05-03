@@ -31,6 +31,7 @@
 "Couldn't load temporary image: " => "Nelze načíst dočasný obrázek: ",
 "Contacts" => "Kontakty",
 "%d_selected_contacts" => "%d_vybranych_kontaktu",
+"Uploading..." => "Odesílám...",
 "Failed adding address book: {error}" => "Přidání knihy adres selhalo: {error}",
 "Failed loading address books: {error}" => "Načtení knihy adres selhalo: {error}",
 "Add to..." => "Přidat do...",

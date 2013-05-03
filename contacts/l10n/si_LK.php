@@ -19,6 +19,7 @@
 "Error uploading contacts to storage." => "ගබඩාවට පුද්ගල විස්තර උඩුගත කිරීමේ දෝෂයක්",
 "Couldn't save temporary image: " => "තාවකාලික රූපය සුරැකීමට නොහැකි විය",
 "Contacts" => "සබඳතා",
+"Uploading..." => "උඩුගත කෙරේ...",
 "Cancel" => "එපා",
 "OK" => "හරි",
 "No files selected for upload." => "උඩුගත කිරීමට ගොනු තෝරා නැත",

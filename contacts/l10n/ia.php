@@ -6,6 +6,7 @@
 "Missing a temporary folder" => "Manca un dossier temporari",
 "Contacts" => "Contactos",
 "Cancel" => "Cancellar",
+"Error" => "Error",
 "Download" => "Discargar",
 "Edit" => "Modificar",
 "Delete" => "Deler",

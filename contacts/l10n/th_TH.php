@@ -30,6 +30,7 @@
 "Couldn't load temporary image: " => "ไม่สามารถโหลดรูปภาพชั่วคราวได้: ",
 "Contacts" => "ข้อมูลการติดต่อ",
 "%d_selected_contacts" => "%d_selected_contacts",
+"Uploading..." => "กำลังอัพโหลด...",
 "Add to..." => "เพิ่มเข้าไปที่...",
 "Remove from..." => "ลบออกจาก...",
 "Add group..." => "เพิ่มกลุ่ม...",

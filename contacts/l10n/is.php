@@ -8,6 +8,7 @@
 "Missing a temporary folder" => "Vantar bráðabirgðamöppu",
 "Failed to write to disk" => "Tókst ekki að skrifa á disk",
 "Couldn't save temporary image: " => "Gat ekk vistað bráðabirgða mynd:",
+"Uploading..." => "Sendi inn ...",
 "Cancel" => "Hætta við",
 "Error" => "<strong>Villa</strong>",
 "Download" => "Niðurhal",

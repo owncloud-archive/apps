@@ -31,6 +31,7 @@
 "Couldn't load temporary image: " => "一時的な画像の読み込みができませんでした: ",
 "Contacts" => "連絡先",
 "%d_selected_contacts" => "%d個の選択された連絡先",
+"Uploading..." => "アップロード中...",
 "Failed adding address book: {error}" => "アドレス帳の追加に失敗: {error}",
 "Failed loading address books: {error}" => "アドレス帳の読み込みに失敗: {error}",
 "Add to..." => "追加...",

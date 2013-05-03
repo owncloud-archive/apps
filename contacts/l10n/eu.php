@@ -30,6 +30,7 @@
 "Couldn't load temporary image: " => "Ezin izan da aldi bateko irudia kargatu:",
 "Contacts" => "Kontaktuak",
 "%d_selected_contacts" => "%d_kontaktu_hautatuta",
+"Uploading..." => "Igotzen...",
 "Add to..." => "Gehitu hemen...",
 "Remove from..." => "Ezabatu hemendik...",
 "Add group..." => "Gehitu taldea...",

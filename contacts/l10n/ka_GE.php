@@ -31,6 +31,7 @@
 "Couldn't load temporary image: " => "დროებითი სურათის ჩატვირთვა ვერ მოხერხდა:",
 "Contacts" => "კონტაქტები",
 "%d_selected_contacts" => "%d_selected_contacts",
+"Uploading..." => "მიმდინარეობს ატვირთვა...",
 "Failed adding address book: {error}" => "მისამართების წიგნის დამატება ვერ მოხერხდა: {error}",
 "Failed loading address books: {error}" => "მისამართების წიგნის ჩატვირთვა ვერ მოხერხდა:  {error}",
 "Add to..." => "დაამატე...",

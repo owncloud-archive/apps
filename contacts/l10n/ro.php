@@ -17,6 +17,7 @@
 "Error uploading contacts to storage." => "Eroare la încărcarea contactelor.",
 "Couldn't save temporary image: " => "Nu s-a putut salva imaginea temporară",
 "Contacts" => "Contacte",
+"Uploading..." => "Încărcăm...",
 "Cancel" => "Anulează",
 "OK" => "OK",
 "Result: " => "Rezultat:",

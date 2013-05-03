@@ -30,6 +30,7 @@
 "Couldn't load temporary image: " => "No se pudo cargar la imagen temporal",
 "Contacts" => "Contactos",
 "%d_selected_contacts" => "%d_selected_contacts",
+"Uploading..." => "Subiendo...",
 "Add to..." => "Añadir a...",
 "Remove from..." => "Borrar de...",
 "Add group..." => "Añadir grupo",

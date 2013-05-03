@@ -25,6 +25,7 @@
 "Couldn't save temporary image: " => "Methwyd cadw delwedd dros dro:",
 "Couldn't load temporary image: " => "Methwyd llwytho delwedd dros dro:",
 "Contacts" => "Cysylltiadau",
+"Uploading..." => "Yn llwytho i fyny...",
 "Cancel" => "Diddymu",
 "OK" => "Iawn",
 "No files selected for upload." => "Ni ddewiswyd ffeiliau i'w llwytho fyny.",

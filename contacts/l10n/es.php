@@ -31,6 +31,7 @@
 "Couldn't load temporary image: " => "Fallo no pudo cargara de una imagen temporal",
 "Contacts" => "Contactos",
 "%d_selected_contacts" => "%d_contactos_seleccionados",
+"Uploading..." => "Subiendo...",
 "Failed adding address book: {error}" => "Fallo añadiendo libreta de direcciones: {error}",
 "Failed loading address books: {error}" => "Fallo cargando libretas de direcciones: {error}",
 "Add to..." => "Añadir a...",

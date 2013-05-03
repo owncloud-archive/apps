@@ -30,6 +30,7 @@
 "Couldn't load temporary image: " => "Tidak dapat memuat gambar sementara:",
 "Contacts" => "Kontak",
 "%d_selected_contacts" => "%d_selected_contacts",
+"Uploading..." => "Mengunggah...",
 "Add to..." => "Tambahkan ke...",
 "Remove from..." => "Hapus dari...",
 "Add group..." => "Tambah grup...",

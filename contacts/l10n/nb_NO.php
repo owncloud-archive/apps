@@ -24,6 +24,7 @@
 "Couldn't save temporary image: " => "Kunne ikke lagre midlertidig bilde:",
 "Couldn't load temporary image: " => "Kunne ikke laste midlertidig bilde:",
 "Contacts" => "Kontakter",
+"Uploading..." => "Laster opp...",
 "Select photo" => "Velg bilde",
 "Cancel" => "Avbryt",
 "OK" => "OK",

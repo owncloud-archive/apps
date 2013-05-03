@@ -30,6 +30,7 @@
 "Couldn't load temporary image: " => "Ideiglenes kép betöltése sikertelen",
 "Contacts" => "Címjegyzékek",
 "%d_selected_contacts" => "%d_kijelölt_kapcsolat",
+"Uploading..." => "Feltöltés...",
 "Add to..." => "Hozzáadás ehhez...",
 "Remove from..." => "Eltávolítás innen...",
 "Add group..." => "Csoport hozzáadása...",

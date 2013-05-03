@@ -23,6 +23,7 @@
 "Couldn't save temporary image: " => "אין אפשרות לשמור תמונה זמנית:",
 "Couldn't load temporary image: " => "אין אפשרות לטעון תמונה זמנית:",
 "Contacts" => "אנשי קשר",
+"Uploading..." => "העלאה...",
 "Add to..." => "הוסף אל...",
 "Remove from..." => "הסר מ...",
 "Add group..." => "הוסף קבוצה...",

@@ -30,6 +30,7 @@
 "Couldn't load temporary image: " => "无法加载临时图像: ",
 "Contacts" => "联系人",
 "%d_selected_contacts" => "%d_个已选定的联系人",
+"Uploading..." => "上传中……",
 "Add to..." => "添加到……",
 "Remove from..." => "从……删除",
 "Add group..." => "添加分组……",

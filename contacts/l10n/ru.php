@@ -31,6 +31,7 @@
 "Couldn't load temporary image: " => "Не удалось загрузить временное изображение:",
 "Contacts" => "Контакты",
 "%d_selected_contacts" => "%d_выбранные_контакты",
+"Uploading..." => "Загрузка...",
 "Failed adding address book: {error}" => "Не удалось добавить адресную книгу: {error}",
 "Failed loading address books: {error}" => "Ошибка загрузки адресных книг: {error}",
 "Add to..." => "Добавить в...",

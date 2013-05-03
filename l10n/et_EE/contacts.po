@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-03 00:57+0200\n"
-"PO-Revision-Date: 2013-05-02 22:58+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-05-04 00:49+0200\n"
+"PO-Revision-Date: 2013-05-03 06:20+0000\n"
+"Last-Translator: pisike.sipelgas <pisike.sipelgas@gmail.com>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,19 +160,19 @@ msgstr "%d_valitud_kontakti"
 
 #: js/addressbooks.js:144
 msgid "Uploading..."
-msgstr ""
+msgstr "Üleslaadimine..."
 
 #: js/addressbooks.js:200
 msgid "Imported {count} of {total} contacts"
-msgstr ""
+msgstr "Imporditud {count} kontakti {total}-st"
 
 #: js/addressbooks.js:217
 msgid "Imported {imported} contacts. {failed} failed."
-msgstr ""
+msgstr "Imporditud {imported} kontakti. Ebaõnnestus {failed}."
 
 #: js/addressbooks.js:310
 msgid "An address book called {name} already exists"
-msgstr ""
+msgstr "Aadressiraamat nimega {name} on juba olemas"
 
 #: js/addressbooks.js:338
 msgid "Failed adding address book: {error}"
@@ -198,108 +198,108 @@ msgstr "Lisa gruppi..."
 msgid "Indexing contacts"
 msgstr "Kontaktide indekseerimine"
 
-#: js/app.js:494
+#: js/app.js:493
 msgid "Merge failed. Cannot find contact: {id}"
 msgstr "Ühendamine ebaõnnestus. Ei suuda leida kontakti: {id}"
 
-#: js/app.js:507
+#: js/app.js:506
 msgid "Merge failed."
 msgstr "Ühendamine ebaõnnestus."
 
-#: js/app.js:514
+#: js/app.js:513
 msgid "Merge failed. Error saving contact."
 msgstr "Ühendamine ebaõnnestus. Viga kontakti salvestamisel."
 
-#: js/app.js:533
+#: js/app.js:532
 msgid "Select photo"
 msgstr "Vali foto"
 
-#: js/app.js:583 js/app.js:1423
+#: js/app.js:582 js/app.js:1421
 msgid "Network or server error. Please inform administrator."
 msgstr "Võrgu või serveri viga. Palun informeeri administraatorit."
 
-#: js/app.js:590
+#: js/app.js:589
 msgid "Failed saving sort order: {error}"
 msgstr "Sorteerimisjärjestuse salvestamine ebaõnnestus: {error}"
 
-#: js/app.js:623
+#: js/app.js:622
 msgid "Failed saving last group: {error}"
 msgstr "Viimase grupi salvestamine ebaõnnestus: {error}"
 
-#: js/app.js:742 js/app.js:780
+#: js/app.js:778
 msgid "Error adding to group."
 msgstr "Viga gruppi lisamisel."
 
-#: js/app.js:809
+#: js/app.js:807
 msgid "Error removing from group."
 msgstr "Viga grupist eemaldamisel."
 
-#: js/app.js:837
+#: js/app.js:835
 msgid "There was an error opening a mail composer."
 msgstr "Meiliprogrammi avamisel tekkis viga."
 
-#: js/app.js:956
+#: js/app.js:954
 msgid "Error setting {name} as favorite."
 msgstr "Viga {name} lemmikuks määramisel."
 
-#: js/app.js:1095 js/app.js:1099 templates/contacts.php:141
+#: js/app.js:1093 js/app.js:1097 templates/contacts.php:141
 msgid "Merge contacts"
 msgstr "Ühenda kontaktid"
 
-#: js/app.js:1121 js/app.js:1175 js/settings.js:120 templates/contacts.php:290
+#: js/app.js:1119 js/app.js:1173 js/settings.js:120 templates/contacts.php:290
 #: templates/settings.php:62
 msgid "Cancel"
 msgstr "Loobu"
 
-#: js/app.js:1149 templates/contacts.php:133
+#: js/app.js:1147 templates/contacts.php:133
 msgid "Add group"
 msgstr "Lisa grupp"
 
-#: js/app.js:1153
+#: js/app.js:1151
 msgid "OK"
 msgstr "OK"
 
-#: js/app.js:1277
+#: js/app.js:1275
 msgid "No files selected for upload."
 msgstr "Üleslaadimiseks pole faile valitud."
 
-#: js/app.js:1288
+#: js/app.js:1286
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "Fail , mida sa proovid üles laadida ületab sinu serveri poolt määratud maksimaalse üleslaadimise limiidi."
 
-#: js/app.js:1387
+#: js/app.js:1385
 msgid "Edit profile picture"
 msgstr "Muuda profiili pilti"
 
-#: js/app.js:1405
+#: js/app.js:1403
 msgid "Error loading profile picture."
 msgstr "Viga profiilipildi laadimisel"
 
-#: js/contacts.js:307
+#: js/contacts.js:306
 msgid "Failed deleting property: {error}"
 msgstr "Omaduse salvestamine ebaõnnetus: {error}"
 
-#: js/contacts.js:498
+#: js/contacts.js:497
 msgid "Is this correct?"
 msgstr "Kas see on õige?"
 
-#: js/contacts.js:919 js/contacts.js:960
+#: js/contacts.js:917 js/contacts.js:956
 msgid "# groups"
 msgstr "Gruppide arv"
 
-#: js/contacts.js:1860
+#: js/contacts.js:1856
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Mõned kontaktid on märgitud kustutamiseks, aga pole veel kustutatud. Palun oota, kuni need kustutatakse."
 
-#: js/contacts.js:1871
+#: js/contacts.js:1867
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Kliki, et tühistada {num} kontakti kustutamine"
 
-#: js/contacts.js:1886
+#: js/contacts.js:1882
 msgid "Cancelled deletion of {num}"
 msgstr "{num} kustutamine tühistati"
 
@@ -405,11 +405,11 @@ msgstr "Veel..."
 msgid "Less..."
 msgstr "Vähem..."
 
-#: js/storage.js:198
+#: js/storage.js:201
 msgid "Failed loading photo: {error}"
 msgstr "Pildi laadimine ebaõnnestus: {error}"
 
-#: js/storage.js:432 js/storage.js:445
+#: js/storage.js:440
 msgid "Request failed: {error}"
 msgstr "Päring ebaõnnestus: {error}"
 
@@ -496,24 +496,24 @@ msgstr "Päringust puudub kontakti ID."
 
 #: lib/controller/importcontroller.php:73
 msgid "Attempt to upload blacklisted file:"
-msgstr ""
+msgstr "Katse üles laadida mustas nimekirjas olevat faili:"
 
 #: lib/controller/importcontroller.php:118
 msgid "File name missing from request."
-msgstr ""
+msgstr "Päringust puudub faili nimi."
 
 #: lib/controller/importcontroller.php:123
 #: lib/controller/importcontroller.php:226
 msgid "Progress key missing from request."
-msgstr ""
+msgstr "Päringust puudub edenemise võti."
 
 #: lib/controller/importcontroller.php:129
 msgid "Attempt to access blacklisted file:"
-msgstr ""
+msgstr "Katse kasutada mustas nimekirjas olevat faili:"
 
 #: lib/controller/importcontroller.php:168
 msgid "No contacts found in: "
-msgstr ""
+msgstr "Kontakte ei leitud: "
 
 #: lib/controller/settingscontroller.php:36
 msgid "No key is given."
@@ -653,7 +653,7 @@ msgstr "Uus kontakt"
 
 #: templates/contacts.php:10
 msgid "Group name"
-msgstr ""
+msgstr "Grupi nimi"
 
 #: templates/contacts.php:10
 msgid "New Group"
@@ -669,7 +669,7 @@ msgstr "Kuvatav nimi"
 
 #: templates/contacts.php:22
 msgid "Add Address Book"
-msgstr ""
+msgstr "Lisa aadressiraamat"
 
 #: templates/contacts.php:25 templates/contacts.php:95
 msgid "Import"
@@ -681,7 +681,7 @@ msgstr "Impordi:"
 
 #: templates/contacts.php:29
 msgid "Select Address Book"
-msgstr ""
+msgstr "Vali aadressiraamat"
 
 #: templates/contacts.php:32
 msgid "Select files"

@@ -30,6 +30,7 @@
 "Couldn't load temporary image: " => "Δεν ήταν δυνατή η φόρτωση της προσωρινής εικόνας: ",
 "Contacts" => "Επαφές",
 "%d_selected_contacts" => "%d_επιλεγμένες_επαφές",
+"Uploading..." => "Μεταφόρτωση...",
 "Failed loading address books: {error}" => "Απέτυχε να φορτώσει βιβλία διευθύνσεων. (σφάλμα)",
 "Add to..." => "Προσθήκη στο...",
 "Remove from..." => "Αφαίρεση από το...",

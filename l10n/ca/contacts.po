@@ -5,16 +5,16 @@
 # Translators:
 # jmontane <joan@montane.cat>, 2012
 # Josep Tomàs <jtomas.binsoft@gmail.com>, 2012-2013
-# rogerc <rcalvoi@yahoo.com>, 2013
-# rogerc <rcalvoi@yahoo.com>, 2011-2013
+# rogerc, 2013
+# rogerc, 2011-2013
 # aseques <sacoo2@hotmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-03 00:57+0200\n"
-"PO-Revision-Date: 2013-05-02 22:58+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-05-04 00:49+0200\n"
+"PO-Revision-Date: 2013-05-03 07:40+0000\n"
+"Last-Translator: rogerc\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/owncloud/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -162,19 +162,19 @@ msgstr "%d_contactes_selecionats"
 
 #: js/addressbooks.js:144
 msgid "Uploading..."
-msgstr ""
+msgstr "Pujant..."
 
 #: js/addressbooks.js:200
 msgid "Imported {count} of {total} contacts"
-msgstr ""
+msgstr "S'han importat {count} de {total} contactes"
 
 #: js/addressbooks.js:217
 msgid "Imported {imported} contacts. {failed} failed."
-msgstr ""
+msgstr "S'han importat {imported} contactes. {failed} han fallat."
 
 #: js/addressbooks.js:310
 msgid "An address book called {name} already exists"
-msgstr ""
+msgstr "Ja existeix una llibreta d'adreces amb el nom {name} "
 
 #: js/addressbooks.js:338
 msgid "Failed adding address book: {error}"
@@ -200,108 +200,108 @@ msgstr "Afegeix grup..."
 msgid "Indexing contacts"
 msgstr "Indexant contactes"
 
-#: js/app.js:494
+#: js/app.js:493
 msgid "Merge failed. Cannot find contact: {id}"
 msgstr "La combinació ha fallat. No es pot trobar el contacte: {id}"
 
-#: js/app.js:507
+#: js/app.js:506
 msgid "Merge failed."
 msgstr "La combinació ha fallat"
 
-#: js/app.js:514
+#: js/app.js:513
 msgid "Merge failed. Error saving contact."
 msgstr "La combinació ha fallat. Error en desar el contacte."
 
-#: js/app.js:533
+#: js/app.js:532
 msgid "Select photo"
 msgstr "Selecciona una foto"
 
-#: js/app.js:583 js/app.js:1423
+#: js/app.js:582 js/app.js:1421
 msgid "Network or server error. Please inform administrator."
 msgstr "Error de xarxa o del servidor. Informeu a l'administrador."
 
-#: js/app.js:590
+#: js/app.js:589
 msgid "Failed saving sort order: {error}"
 msgstr "Ha fallat en desar l'ordre d'ordenació: {error}"
 
-#: js/app.js:623
+#: js/app.js:622
 msgid "Failed saving last group: {error}"
 msgstr "Ha fallat en desar l'últim grup: {error}"
 
-#: js/app.js:742 js/app.js:780
+#: js/app.js:778
 msgid "Error adding to group."
 msgstr "Error en afegir grup"
 
-#: js/app.js:809
+#: js/app.js:807
 msgid "Error removing from group."
 msgstr "Error en eliminar del grup"
 
-#: js/app.js:837
+#: js/app.js:835
 msgid "There was an error opening a mail composer."
 msgstr "S'ha produït un error en obrir un redactor de correus electrónics."
 
-#: js/app.js:956
+#: js/app.js:954
 msgid "Error setting {name} as favorite."
 msgstr "Error en establir {name} com a preferit."
 
-#: js/app.js:1095 js/app.js:1099 templates/contacts.php:141
+#: js/app.js:1093 js/app.js:1097 templates/contacts.php:141
 msgid "Merge contacts"
 msgstr "Combina contactes"
 
-#: js/app.js:1121 js/app.js:1175 js/settings.js:120 templates/contacts.php:290
+#: js/app.js:1119 js/app.js:1173 js/settings.js:120 templates/contacts.php:290
 #: templates/settings.php:62
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: js/app.js:1149 templates/contacts.php:133
+#: js/app.js:1147 templates/contacts.php:133
 msgid "Add group"
 msgstr "Afegeix grup"
 
-#: js/app.js:1153
+#: js/app.js:1151
 msgid "OK"
 msgstr "D'acord"
 
-#: js/app.js:1277
+#: js/app.js:1275
 msgid "No files selected for upload."
 msgstr "No s'han seleccionat fitxers per a la pujada."
 
-#: js/app.js:1288
+#: js/app.js:1286
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr "El fitxer que intenteu pujar excedeix la mida màxima de pujada en aquest servidor."
 
-#: js/app.js:1387
+#: js/app.js:1385
 msgid "Edit profile picture"
 msgstr "Edita la fotografia de perfil"
 
-#: js/app.js:1405
+#: js/app.js:1403
 msgid "Error loading profile picture."
 msgstr "Error en carregar la imatge de perfil."
 
-#: js/contacts.js:307
+#: js/contacts.js:306
 msgid "Failed deleting property: {error}"
 msgstr "Ha fallat en eliminar la propietat: {error}"
 
-#: js/contacts.js:498
+#: js/contacts.js:497
 msgid "Is this correct?"
 msgstr "És correcte?"
 
-#: js/contacts.js:919 js/contacts.js:960
+#: js/contacts.js:917 js/contacts.js:956
 msgid "# groups"
 msgstr "# grups"
 
-#: js/contacts.js:1860
+#: js/contacts.js:1856
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr "Heu marcat eliminar alguns contactes, però encara no s'han eliminat. Espereu mentre s'esborren."
 
-#: js/contacts.js:1871
+#: js/contacts.js:1867
 msgid "Click to undo deletion of {num} contacts"
 msgstr "Feu clic a desfés eliminació de {num} contactes"
 
-#: js/contacts.js:1886
+#: js/contacts.js:1882
 msgid "Cancelled deletion of {num}"
 msgstr "S'ha cancel·lat l'eliminació de {num}"
 
@@ -407,11 +407,11 @@ msgstr "Més..."
 msgid "Less..."
 msgstr "Menys..."
 
-#: js/storage.js:198
+#: js/storage.js:201
 msgid "Failed loading photo: {error}"
 msgstr "Ha fallat en carregar la foto: {error}"
 
-#: js/storage.js:432 js/storage.js:445
+#: js/storage.js:440
 msgid "Request failed: {error}"
 msgstr "La petició ha fallat: {error}"
 
@@ -498,24 +498,24 @@ msgstr "La ID del contacte s'ha perdut en el requeriment."
 
 #: lib/controller/importcontroller.php:73
 msgid "Attempt to upload blacklisted file:"
-msgstr ""
+msgstr "Heu intentat pujar un fitxer de la llista negra:"
 
 #: lib/controller/importcontroller.php:118
 msgid "File name missing from request."
-msgstr ""
+msgstr "Falta el nom del fitxer en la petició."
 
 #: lib/controller/importcontroller.php:123
 #: lib/controller/importcontroller.php:226
 msgid "Progress key missing from request."
-msgstr ""
+msgstr "Falta la clau de progrés en la petició."
 
 #: lib/controller/importcontroller.php:129
 msgid "Attempt to access blacklisted file:"
-msgstr ""
+msgstr "Heu intentat accedir a un fitxer de la llista negra:"
 
 #: lib/controller/importcontroller.php:168
 msgid "No contacts found in: "
-msgstr ""
+msgstr "No s'han trobat contactes a:"
 
 #: lib/controller/settingscontroller.php:36
 msgid "No key is given."
@@ -655,7 +655,7 @@ msgstr "Contacte nou"
 
 #: templates/contacts.php:10
 msgid "Group name"
-msgstr ""
+msgstr "Nom del grup"
 
 #: templates/contacts.php:10
 msgid "New Group"
@@ -671,7 +671,7 @@ msgstr "Nom a mostrar"
 
 #: templates/contacts.php:22
 msgid "Add Address Book"
-msgstr ""
+msgstr "Afegeix una llibreta d'adreces"
 
 #: templates/contacts.php:25 templates/contacts.php:95
 msgid "Import"
@@ -683,7 +683,7 @@ msgstr "Importa a:"
 
 #: templates/contacts.php:29
 msgid "Select Address Book"
-msgstr ""
+msgstr "Selecciona una llibreta d'adreces"
 
 #: templates/contacts.php:32
 msgid "Select files"

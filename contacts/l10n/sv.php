@@ -30,6 +30,7 @@
 "Couldn't load temporary image: " => "Kunde inte ladda tillfällig bild:",
 "Contacts" => "Kontakter",
 "%d_selected_contacts" => "%d_selected_contacts",
+"Uploading..." => "Laddar upp...",
 "Add to..." => "Lägga till...",
 "Remove from..." => "Ta bort från...",
 "Add group..." => "Lägg till grupp...",

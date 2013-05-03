@@ -28,6 +28,7 @@
 "Couldn't load temporary image: " => "Ne eblis ŝargi provizoran bildon: ",
 "Contacts" => "Kontaktoj",
 "%d_selected_contacts" => "%d_selected_contacts",
+"Uploading..." => "Alŝutante...",
 "Add to..." => "Aldoni al...",
 "Remove from..." => "Forigi el...",
 "Add group..." => "Aldoni grupon...",

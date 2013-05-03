@@ -30,6 +30,7 @@
 "Couldn't load temporary image: " => "Kunne ikke indlæse midlertidigt billede",
 "Contacts" => "Kontaktpersoner",
 "%d_selected_contacts" => "%d_selected_contacts",
+"Uploading..." => "Uploader...",
 "Add to..." => "Føj til...",
 "Remove from..." => "Fjern fra...",
 "Add group..." => "Tilføj gruppe...",

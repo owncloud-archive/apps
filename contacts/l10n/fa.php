@@ -25,6 +25,7 @@
 "Couldn't save temporary image: " => "قابلیت ذخیره تصویر  موقت وجود ندارد:",
 "Couldn't load temporary image: " => "قابلیت بارگذاری تصویر  موقت وجود ندارد:",
 "Contacts" => "اشخاص",
+"Uploading..." => "درحال بارگذاری...",
 "Add to..." => "اضافه کن در...",
 "Remove from..." => "پاک کردن تماس ها",
 "Add group..." => "افزودن گروه..",
