@@ -3,9 +3,9 @@
 /**
  * ownCloud - External plugin
  *
- * @author Frank Karlitschek
- * @copyright 2012 Frank Karlitschek frank@owncloud.org
- *
+ * @author Tobia De Koninck
+ * @copyright 2013 Tobia De Koninck tobia@ledfan.be
+ * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
  * License as published by the Free Software Foundation; either

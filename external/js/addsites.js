@@ -1,3 +1,9 @@
+/**
+ * 2013 Tobia De Koninck tobia@ledfan.be
+ * This file is licensed under the Affero General Public License version 3 or later.
+ * See the COPYING-README file.
+ */
+
 $(document).ready(function(){
     	newSiteHtml = '<li><input type="text" class="site_name" name="site_name[]" value="" placeholder="Name" />\n\
     <input type="text" name="site_url[]" class="site_url" value=""  placeholder="URL" />\n\
