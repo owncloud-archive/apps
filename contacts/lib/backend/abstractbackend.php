@@ -71,10 +71,12 @@ abstract class AbstractBackend {
 	*
 	* Returns the supported actions as int to be
 	* compared with \OCP\PERMISSION_CREATE etc.
-	* TODO: When getting the permissions we also have to check for
+	* When getting the permissions we also have to check for
 	* configured permissions and return min() of the two values.
 	* A user can for example configure an address book with a backend
 	* that implements deleteContact() but wants to set it read-only.
+	* This is done in the AddressBook and Contact classes.
+	* NOTE: A more suitable
 	*/
 	public function getContactPermissions() {
 		$permissions = 0;
@@ -168,9 +170,9 @@ abstract class AbstractBackend {
 	/**
 	 * Get an addressbook's properties
 	 *
-	 * The returned array MUST contain 'displayname' and an integer 'permissions'
-	 * value using there ownCloud CRUDS constants (which MUST be at least
-	 * \OCP\PERMISSION_READ).
+	 * The returned array MUST contain string: 'displayname',string: 'backend'
+	 * and integer: 'permissions' value using there ownCloud CRUDS constants
+	 * (which MUST be at least \OCP\PERMISSION_READ).
 	 * Currently the only ones supported are 'displayname' and
 	 * 'description', but backends can implement additional.
 	 *
