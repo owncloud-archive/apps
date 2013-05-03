@@ -27,6 +27,10 @@ OC.Contacts = OC.Contacts || {};
 		this.multi_properties = ['EMAIL', 'TEL', 'IMPP', 'ADR', 'URL'];
 	};
 
+	Contact.prototype.getDisplayName = function() {
+		return this.getPreferredValue('FN') || this.getPreferredValue('ORG') || this.getPreferredValue('EMAIL');
+	};
+
 	Contact.prototype.showActions = function(act) {
 		this.$footer.children().hide();
 		if(act && act.length > 0) {
@@ -683,10 +687,10 @@ OC.Contacts = OC.Contacts || {};
 	Contact.prototype.renderListItem = function(isnew) {
 		this.$listelem = this.$listTemplate.octemplate({
 			id: this.id,
-			name: isnew ? this.getPreferredValue('FN', '') : this.getPreferredValue('FN', ''),
-			email: isnew ? this.getPreferredValue('EMAIL', '') : this.getPreferredValue('EMAIL', ''),
-			tel: isnew ? this.getPreferredValue('TEL', '') : this.getPreferredValue('TEL', ''),
-			adr: isnew ? this.getPreferredValue('ADR', []).clean('').join(', ') : this.getPreferredValue('ADR', []).clean('').join(', '),
+			name: this.getDisplayName(),
+			email: this.getPreferredValue('EMAIL', ''),
+			tel: this.getPreferredValue('TEL', ''),
+			adr: this.getPreferredValue('ADR', []).clean('').join(', '),
 			categories: this.getPreferredValue('CATEGORIES', [])
 				.clean('').join(' / ')
 		});
