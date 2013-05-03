@@ -39,7 +39,7 @@ class OC_Migration_Provider_Calendar extends OC_Migration_Provider{
 				$idmap = array();
 				while( $row = $results->fetchRow() ) {
 					// Import each calendar
-					$calendarquery = OCP\DB::prepare( 'INSERT INTO `*PREFIX*calendar_calendars` (`userid`,`displayname`,`uri`,`ctag`,`calendarorder`,`calendarcolor`,`timezone`,`components`) VALUES(?,?,?,?,?,?,?,?)' );
+					$stmt = OCP\DB::prepare( 'INSERT INTO `*PREFIX*calendar_calendars` (`userid`,`displayname`,`uri`,`ctag`,`calendarorder`,`calendarcolor`,`timezone`,`components`) VALUES(?,?,?,?,?,?,?,?)' );
 					$calendarquery = $stmt->execute(array( $this->uid, $row['displayname'], $row['uri'], $row['ctag'], $row['calendarorder'], $row['calendarcolor'], $row['timezone'], $row['components']));
 					// Map the id
 					$idmap[$row['id']] = OCP\DB::insertid('*PREFIX*calendar_calendars');
