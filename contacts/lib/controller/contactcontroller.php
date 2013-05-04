@@ -116,11 +116,8 @@ class ContactController extends BaseController {
 		$response->debug(__METHOD__ . ', checksum: ' . print_r($checksum, true));
 
 		$app = new App($request->parameters['user']);
-		$contact = $app->getContact(
-			$request->parameters['backend'],
-			$request->parameters['addressbookid'],
-			$request->parameters['contactid']
-		);
+		$addressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
+		$contact = $addressBook->getChild($params['contactid']);
 
 		if(!$contact) {
 			$response->bailOut(App::$l10n->t('Couldn\'t find contact.'));
@@ -176,11 +173,9 @@ class ContactController extends BaseController {
 		$response->debug(__METHOD__ . ', checksum: ' . print_r($checksum, true));
 		$response->debug(__METHOD__ . ', parameters: ' . print_r($parameters, true));
 
-		$contact = $app->getContact(
-			$request->parameters['backend'],
-			$request->parameters['addressbookid'],
-			$request->parameters['contactid']
-		);
+		$addressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
+		$response->debug(__METHOD__ . ', addressBook: ' . print_r($addressBook, true));
+		$contact = $addressBook->getChild($params['contactid']);
 
 		if(!$contact) {
 			$response->bailOut(App::$l10n->t('Couldn\'t find contact.'));
