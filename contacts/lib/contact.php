@@ -643,9 +643,9 @@ class Contact extends VObject\VCard implements IPIMObject {
 	}
 
 	public function __set($key, $value) {
-		if(!$this->hasPermission(\OCP\PERMISSION_UPDATE)) {
+		/*if(!$this->hasPermission(\OCP\PERMISSION_UPDATE)) {
 			throw new \Exception('Access denied');
-		}
+		}*/
 		parent::__set($key, $value);
 		$this->setSaved(false);
 	}
