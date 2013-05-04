@@ -433,7 +433,7 @@ OC.Contacts = OC.Contacts || {};
 			.done(function(response, textStatus, jqXHR) {
 				defer.resolve(new JSONResponse(response, jqXHR));
 			})
-			.fail(function(jqxhr, textStatus, error) {
+			.fail(function(jqXHR, textStatus, error) {
 				defer.reject(
 					new JSONResponse({
 						error:true,
