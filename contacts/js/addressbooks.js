@@ -56,6 +56,14 @@ OC.Contacts = OC.Contacts || {};
 		return this.book.permissions;
 	};
 
+	AddressBook.prototype.getOwner = function() {
+		return this.book.owner;
+	};
+
+	AddressBook.prototype.getMetaData = function() {
+		return {permissions:this.getPermissions, backend: this.getBackend(), parent: this.getId()};
+	};
+
 	/**
 	 * Delete address book from data store and remove it from the DOM
 	 * @param cb Optional callback function which
