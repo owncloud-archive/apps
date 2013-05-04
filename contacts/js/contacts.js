@@ -7,7 +7,7 @@ OC.Contacts = OC.Contacts || {};
 	* An item which binds the appropriate html and event handlers
 	* @param parent the parent ContactList
 	* @param id The integer contact id.
-	* @param metadata An metadata object containing and 'owner' string variable and an integer 'permissions' variable.
+	* @param metadata An metadata object containing and 'owner' string variable, a 'backend' string variable and an integer 'permissions' variable.
 	* @param data the data used to populate the contact
 	* @param listtemplate the jquery object used to render the contact list item
 	* @param fulltemplate the jquery object used to render the entire contact
@@ -1980,10 +1980,10 @@ OC.Contacts = OC.Contacts || {};
 		var addressBooks = this.addressBooks.selectByPermission(OC.PERMISSION_UPDATE);
 		var addressBook = addressBooks[0];
 		var metadata = {
-			parent: addressBook.id,
-			backend: addressBook.backend,
-			permissions: addressBook.permissions,
-			owner: addressBook.owner
+			parent: addressBook.getId(),
+			backend: addressBook.getBackend(),
+			permissions: addressBook.getPermissions(),
+			owner: addressBook.getOwner()
 		};
 		var contact = new Contact(
 			this,
