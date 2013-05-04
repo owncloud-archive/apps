@@ -130,7 +130,7 @@ class AddressBookController extends BaseController {
 			$response->bailOut(App::$l10n->t('Error creating contact.'));
 		}
 		$contact = $addressBook->getChild($id);
-		$response->setParams(Utils\JSONSerializer::serializeContact($contact));
+		$response->setParams(JSONSerializer::serializeContact($contact));
 		return $response;
 	}
 
