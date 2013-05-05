@@ -25,8 +25,8 @@
 				<h2 data-id="import" tabindex="0" role="button"><?php p($l->t('Import')); ?></h2>
 					<ul>
 						<li class="import-upload">
-								<select id="import_into" title="<?php p($l->t('Import into:')); ?>">
-									<option value="-1"><?php p($l->t('Select Address Book')); ?></option>
+								<select id="import_into">
+									<option value="-1"><?php p($l->t('Import into...')); ?></option>
 								</select>
 								<button class="import-upload-button" ></button>
 								<input id="import_upload_start" class="tooltipped rightwards" type="file" accept="text/vcard,text/x-vcard,text/directory" name="file" title="<?php p($l->t('Select files')); ?>" disabled />
@@ -223,10 +223,10 @@
 			<input class="value" type="hidden" id="n_4" name="value[4]" value="{n4}" />
 			</fieldset>
 			<div class="groupscontainer propertycontainer" data-element="categories">
-				<select id="contactgroups" title="<?php p($l->t('Select groups')); ?>" name="value" multiple></select>
+				<select class="hidden" id="contactgroups" title="<?php p($l->t('Select groups')); ?>" name="value" multiple></select>
 			</div>
 			<div>
-				<select class="hidden" id="contactaddressbooks" title="<?php p($l->t('Select address book')); ?>" name="value" multiple></select>
+				<select class="hidden" id="contactaddressbooks" title="<?php p($l->t('Select address book')); ?>" name="value"></select>
 			</div>
 			<dl class="form">
 				<dt data-element="nickname">
