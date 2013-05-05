@@ -561,6 +561,7 @@ class Database extends AbstractBackend {
 	 * @return bool
 	 */
 	public function updateContact($addressbookid, $id, $contact, $noCollection = false) {
+		$updateRevision = true;
 		if(!$contact instanceof Contact) {
 			try {
 				$contact = Reader::read($contact);
@@ -576,6 +577,7 @@ class Database extends AbstractBackend {
 				$id = $id['id'];
 				$qname = 'createcontactbyid';
 			} elseif(isset($id['uri'])) {
+				$updateRevision = false;
 				$where_query = '`id` = ?';
 				$id = $id['uri'];
 				$qname = 'createcontactbyuri';
@@ -588,8 +590,10 @@ class Database extends AbstractBackend {
 			$qname = 'createcontactbyid';
 		}
 
-		$now = new \DateTime;
-		$contact->REV = $now->format(\DateTime::W3C);
+		if($updateRevision || !isset($contact->REV)) {
+			$now = new \DateTime;
+			$contact->REV = $now->format(\DateTime::W3C);
+		}
 
 		$data = $contact->serialize();
 
