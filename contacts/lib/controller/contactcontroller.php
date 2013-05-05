@@ -95,6 +95,9 @@ class ContactController extends BaseController {
 				$image->resize($max_size);
 			}
 			return $response;
+		} else {
+			$response = new JSONResponse();
+			$response->bailOut('Error getting user photo');
 		}
 	}
 
