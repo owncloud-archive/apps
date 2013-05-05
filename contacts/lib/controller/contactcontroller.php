@@ -104,9 +104,10 @@ class ContactController extends BaseController {
 	 * @Ajax
 	 */
 	public function deleteProperty() {
-		$app = new App($$this->api->getUserId());
+		$app = new App($this->api->getUserId());
 
 		$request = $this->request;
+		$params = $request->urlParams;
 		$response = new JSONResponse();
 
 		$name = $request->post['name'];
@@ -115,7 +116,7 @@ class ContactController extends BaseController {
 		$response->debug(__METHOD__ . ', name: ' . print_r($name, true));
 		$response->debug(__METHOD__ . ', checksum: ' . print_r($checksum, true));
 
-		$app = new App($request->parameters['user']);
+		$app = new App($this->api->getUserId());
 		$addressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
 		$contact = $addressBook->getChild($params['contactid']);
 
