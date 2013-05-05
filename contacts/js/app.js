@@ -1198,15 +1198,14 @@ OC.Contacts = OC.Contacts || {
 	},
 	closeContact: function(id) {
 		$(window).unbind('hashchange', this.hashChange);
-		if(typeof this.currentid === 'number') {
-			var contact = this.contacts.findById(id);
-			if(contact && contact.close()) {
-				this.$contactList.show();
-				this.jumpToContact(id);
-			}
-		} else if(this.currentid === 'new') {
+		if(this.currentid === 'new') {
 			this.tmpcontact.remove();
 			this.$contactList.show();
+		} else {
+			var contact = this.contacts.findById(id);
+			if(contact && contact.close()) {
+				this.jumpToContact(id);
+			}
 		}
 		this.$contactList.removeClass('dim');
 		delete this.currentid;
