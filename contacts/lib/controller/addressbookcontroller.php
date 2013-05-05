@@ -85,6 +85,10 @@ class AddressBookController extends BaseController {
 		$response = new JSONResponse();
 
 		$backend = App::getBackend('local', $this->api->getUserId());
+		// TODO: Check actual permissions
+		if(!$backend->hasAddressBookMethodFor(\OCP\PERMISSION_CREATE)) {
+			throw new \Exception('Not implemented');
+		}
 		$id = $backend->createAddressBook($this->request->post);
 		if($id === false) {
 			$response->bailOut(App::$l10n->t('Error creating address book'));
@@ -107,6 +111,10 @@ class AddressBookController extends BaseController {
 		$response = new JSONResponse();
 
 		$backend = App::getBackend('local', $this->api->getUserId());
+		// TODO: Check actual permissions
+		if(!$backend->hasAddressBookMethodFor(\OCP\PERMISSION_DELETE)) {
+			throw new \Exception('Not implemented');
+		}
 		if(!$backend->deleteAddressBook($params['addressbookid'])) {
 			$response->bailOut(App::$l10n->t('Error deleting address book'));
 		}
