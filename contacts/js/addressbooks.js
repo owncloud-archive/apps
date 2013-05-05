@@ -25,10 +25,10 @@ OC.Contacts = OC.Contacts || {};
 			self.destroy();
 		});
 		this.$li.find('a.action.globe').on('click keypress', function() {
-			var uri = (this.book.owner === oc_current_user ) ? this.book.uri : this.book.uri + '_shared_by_' + this.book.owner;
+			var uri = (self.book.owner === oc_current_user ) ? self.book.uri : self.book.uri + '_shared_by_' + self.book.owner;
 			var link = OC.linkToRemote('carddav')+'/addressbooks/'+encodeURIComponent(oc_current_user)+'/'+encodeURIComponent(uri);
-			var $dropdown = $('<div id="dropdown" class="drop"><input type="text" value="' + link + '" readonly /></div>');
-			$dropdown.appendTo($li);
+			var $dropdown = $('<li><div id="dropdown" class="drop"><input type="text" value="' + link + '" readonly /></div></li>');
+			$dropdown.insertAfter(self.$li);
 			var $input = $dropdown.find('input');
 			$input.focus().get(0).select();
 			$input.on('blur', function() {
@@ -61,7 +61,12 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	AddressBook.prototype.getMetaData = function() {
-		return {permissions:this.getPermissions, backend: this.getBackend(), parent: this.getId()};
+		return {
+			permissions:this.getPermissions,
+			backend: this.getBackend(),
+			id: this.getId(),
+			displayname: this.getDisplayName()
+		};
 	};
 
 	/**
@@ -277,6 +282,49 @@ OC.Contacts = OC.Contacts || {};
 		}
 		return book;
 	};
+
+	/**
+	 * Get an AddressBook
+	 *
+	 * @param object info An object with the string  properties 'id' and 'backend'
+	 * @return AddressBook|null
+	 */
+	AddressBookList.prototype.find = function(info) {
+		var addressBook = null;
+		$.each(this.addressBooks, function(idx, book) {
+			if(book.getId() === info.id && book.getBackend() === info.backend) {
+				addressBook = book;
+				return false; // break loop
+			}
+		});
+		return addressBook;
+	}
+
+	/**
+	 * Move a contacts from one address book to another..
+	 *
+	 * @param Contact The contact to move
+	 * @param object from An object with properties 'id' and 'backend'.
+	 * @param object target An object with properties 'id' and 'backend'.
+	 */
+	AddressBookList.prototype.moveContact = function(contact, from, target) {
+		console.log('AddressBookList.moveContact, contact', contact, from, target);
+		var self = this;
+		$.when(this.storage.moveContact(from.backend, from.id, contact.getId(), {target:target}))
+			.then(function(response) {
+			if(!response.error) {
+				console.log('Contact moved', response);
+				$(document).trigger('status.contact.moved', {
+					contact: contact,
+					data: response.data
+				});
+			} else {
+				$(document).trigger('status.contact.error', {
+					message: response.message
+				});
+			}
+		});
+	}
 
 	/**
 	 * Get an array of address books with at least the required permission.

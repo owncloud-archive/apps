@@ -161,6 +161,37 @@ class AddressBookController extends BaseController {
 		return $response;
 	}
 
+	/**
+	 * @IsAdminExemption
+	 * @IsSubAdminExemption
+	 * @Ajax
+	 */
+	public function moveChild() {
+		$params = $this->request->urlParams;
+		$targetInfo = $this->request->post['target'];
+		$app = new App($this->api->getUserId());
+
+		$response = new JSONResponse();
+
+		$fromAddressBook = $app->getAddressBook($params['backend'], $params['addressbookid']);
+		$targetAddressBook = $app->getAddressBook($targetInfo['backend'], $targetInfo['id']);
+		$contact = $fromAddressBook->getChild($params['contactid']);
+		if(!$contact) {
+			$response->bailOut(App::$l10n->t('Error retrieving contact.'));
+		}
+		$contactid = $targetAddressBook->addChild($contact);
+		$contact = $targetAddressBook->getChild($contactid);
+		if(!$contact) {
+			$response->bailOut(App::$l10n->t('Error saving contact.'));
+		}
+		$result = $fromAddressBook->deleteChild($params['contactid']);
+		if($result === false) {
+			// Don't bail out because we have to return the contact
+			$response->debug(App::$l10n->t('Error removing contact from other address book.'));
+		}
+		$response->setParams(JSONSerializer::serializeContact($contact));
+		return $response;
+	}
 
 }
 

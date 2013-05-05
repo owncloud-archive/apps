@@ -447,6 +447,15 @@ OC.Contacts = OC.Contacts || {
 			}
 		});
 
+		$(document).bind('request.contact.move', function(e, data) {
+			console.log('contact', data, 'request.contact.move');
+			var from = self.addressBooks.find(data.from);
+			var to = self.addressBooks.find(data.target);
+			console.log('From:', from);
+			console.log('To:', to);
+			self.addressBooks.moveContact(data.contact, data.from, data.target);
+		});
+
 		$(document).bind('request.contact.setasfavorite', function(e, data) {
 			console.log('contact', data.id, 'request.contact.setasfavorite');
 			self.groups.setAsFavorite(data.id, data.state);
@@ -1221,11 +1230,11 @@ OC.Contacts = OC.Contacts || {
 	openContact: function(id) {
 		this.hideActions();
 		console.log('Contacts.openContact', id);
-		if(this.currentid) {
+		if(this.currentid && this.currentid !== id) {
 			this.closeContact(this.currentid);
 		}
 		$(window).unbind('hashchange', this.hashChange);
-		this.currentid = parseInt(id);
+		this.currentid = id;
 		console.log('Contacts.openContact, Favorite', this.currentid, this.groups.isFavorite(this.currentid), this.groups);
 		this.setAllChecked(false);
 		//this.$contactList.hide();
@@ -1239,6 +1248,15 @@ OC.Contacts = OC.Contacts || {
 			currentgroup: {id:this.currentgroup, name:this.groups.nameById(this.currentgroup)}
 		};
 		var $contactelem = this.contacts.showContact(this.currentid, groupprops);
+		if(!$contactelem) {
+			console.warn('Error opening', this.currentid);
+			this.$contactList.removeClass('dim');
+			$(document).trigger('status.contact.error', {
+				message: t('contacts', 'Could not find contact: {id}', {id:this.currentid})
+			});
+			this.currentid = null;
+			return;
+		}
 		var self = this;
 		var $contact = $contactelem.find('#contact');
 		var adjustElems = function() {

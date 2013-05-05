@@ -44,12 +44,37 @@ OC.Contacts = OC.Contacts || {};
 		return this.id;
 	};
 
+	Contact.prototype.getOwner = function() {
+		return this.metadata.owner;
+	};
+
+	Contact.prototype.setOwner = function(owner) {
+		this.metadata.owner = owner;
+	};
+
+	Contact.prototype.getPermissions = function() {
+		return this.metadata.permissions;
+	};
+
+	Contact.prototype.hasPermission = function(permission) {
+		//console.log('hasPermission', this.getPermissions(), permission, this.getPermissions() & permission);
+		return (this.getPermissions() & permission);
+	};
+
 	Contact.prototype.getParent = function() {
 		return this.metadata.parent;
 	};
 
+	Contact.prototype.setParent = function(parent) {
+		this.metadata.parent = parent;
+	};
+
 	Contact.prototype.getBackend = function() {
 		return this.metadata.backend;
+	};
+
+	Contact.prototype.setBackend = function(backend) {
+		this.metadata.backend = backend;
 	};
 
 	Contact.prototype.merge = function(mergees) {
@@ -617,7 +642,7 @@ OC.Contacts = OC.Contacts || {};
 		if(enabled) {
 			this.$fullelem.find('#addproperty').show();
 		} else {
-			this.$fullelem.find('#addproperty').hide();
+			this.$fullelem.find('#addproperty,.action.delete,.action.edit').hide();
 		}
 		this.enabled = enabled;
 		this.$fullelem.find('.value,.action,.parameter').each(function () {
@@ -867,11 +892,10 @@ OC.Contacts = OC.Contacts || {};
 			categories: this.getPreferredValue('CATEGORIES', [])
 				.clean('').join(' / ')
 		});
-		if(this.metadata.owner !== OC.currentUser
+		if(this.getOwner() !== OC.currentUser
 				&& !(this.metadata.permissions & OC.PERMISSION_UPDATE
 				|| this.metadata.permissions & OC.PERMISSION_DELETE)) {
 			this.$listelem.find('input:checkbox').prop('disabled', true).css('opacity', '0');
-			console.log('not draggable', this.$listelem.find('td.name'));
 		} else {
 			var self = this;
 			this.$listelem.find('td.name')
@@ -929,7 +953,7 @@ OC.Contacts = OC.Contacts || {};
 					self.removeFromGroup(ui.text);
 				}
 			});
-			if(!self.id) {
+			if(!self.id || !self.hasPermission(OC.PERMISSION_UPDATE)) {
 				self.$groupSelect.multiselect('disable');
 			}
 		};
@@ -940,9 +964,11 @@ OC.Contacts = OC.Contacts || {};
 			 */
 			$.each(availableAddressBooks, function(idx, addressBook) {
 				//console.log('addressBook', idx, addressBook);
-				var $option = $('<option data-backend="'
-					+ addressBook.getBackend() + '" value="' + addressBook.getId() + '">'
-					+ addressBook.getDisplayName() + '(' + addressBook.getBackend() + ')</option>');
+				var $option = $('<option />')
+					.val(addressBook.getId())
+					.text(addressBook.getDisplayName() + '(' + addressBook.getBackend() + ')')
+					.data('backend', addressBook.getBackend())
+					.data('owner', addressBook.getOwner());
 				if(self.metadata.parent === addressBook.getId()
 					&& self.metadata.backend === addressBook.getBackend()) {
 					$option.attr('selected', 'selected');
@@ -951,12 +977,30 @@ OC.Contacts = OC.Contacts || {};
 			});
 			self.$addressBookSelect.multiselect({
 				header: false,
+				multiple: false,
 				selectedList: 3,
 				noneSelectedText: self.$addressBookSelect.attr('title'),
 				selectedText: t('contacts', '# groups')
 			});
+			self.$addressBookSelect.on("multiselectclick", function(event, ui) {
+				console.log('AddressBook select', ui);
+				self.$addressBookSelect.val(ui.value);
+				var opt = self.$addressBookSelect.find(':selected');
+				if(self.id) {
+					console.log('AddressBook', opt);
+					$(document).trigger('request.contact.move', {
+						contact: self,
+						from: {id:self.getParent(), backend:self.getBackend()},
+						target: {id:opt.val(), backend:opt.data('backend')}
+					});
+				} else {
+					self.setBackend(opt.data('backend'));
+					self.setParent(opt.val());
+					self.setOwner(opt.data('owner'));
+				}
+			});
 			if(self.id) {
-				self.$addressBookSelect.multiselect('disable');
+				//self.$addressBookSelect.multiselect('disable');
 			}
 		};
 
@@ -966,7 +1010,7 @@ OC.Contacts = OC.Contacts || {};
 			? {
 				id: this.id,
 				favorite:groupprops.favorite ? 'active' : '',
-				name: this.getPreferredValue('FN', ''),
+				name: this.getDisplayName(),
 				n0: n[0]||'', n1: n[1]||'', n2: n[2]||'', n3: n[3]||'', n4: n[4]||'',
 				nickname: this.getPreferredValue('NICKNAME', ''),
 				title: this.getPreferredValue('TITLE', ''),
@@ -988,12 +1032,15 @@ OC.Contacts = OC.Contacts || {};
 			return false;
 		});
 		
-		this.$groupSelect = this.$fullelem.find('#contactgroups');
-		buildGroupSelect(groupprops.groups);
+		if(this.hasPermission(OC.PERMISSION_UPDATE)) {
+			this.$groupSelect = this.$fullelem.find('#contactgroups');
+			buildGroupSelect(groupprops.groups);
+		}
 		
-		if(this.parent.addressBooks.count() > 1) {
+		var writeableAddressBooks = this.parent.addressBooks.selectByPermission(OC.PERMISSION_CREATE);
+		if(writeableAddressBooks.length > 1 && this.hasPermission(OC.PERMISSION_DELETE)) {
 			this.$addressBookSelect = this.$fullelem.find('#contactaddressbooks');
-			buildAddressBookSelect(this.parent.addressBooks.selectByPermission(OC.PERMISSION_UPDATE));
+			buildAddressBookSelect(writeableAddressBooks);
 		}
 
 		this.$addMenu = this.$fullelem.find('#addproperty');
@@ -1209,8 +1256,8 @@ OC.Contacts = OC.Contacts || {};
 			}
 		});
 		if(this.metadata.owner !== OC.currentUser
-			&& !(this.metadata.permissions & OC.PERMISSION_UPDATE
-				|| this.metadata.permissions & OC.PERMISSION_DELETE)) {
+			&& !(this.hasPermission(OC.PERMISSION_UPDATE)
+				|| this.hasPermission(OC.PERMISSION_DELETE))) {
 			this.setEnabled(false);
 			this.showActions(['close', 'export']);
 		} else {
@@ -1660,7 +1707,12 @@ OC.Contacts = OC.Contacts || {};
 			self.contacts[String(data.id)] = data.contact;
 			self.insertContact(data.contact.renderListItem(true));
 		});
-
+		$(document).bind('status.contact.moved', function(e, data) {
+			console.log('status.contact.moved', data);
+		});
+		$(document).bind('request.contact.close', function(e, data) {
+			self.currentContact = null;
+		});
 		$(document).bind('status.contact.updated', function(e, data) {
 			if(['FN', 'EMAIL', 'TEL', 'ADR', 'CATEGORIES'].indexOf(data.property) !== -1) {
 				data.contact.getListItemElement().remove();
@@ -1701,7 +1753,7 @@ OC.Contacts = OC.Contacts || {};
 		console.log('ContactList.showFromAddressbook', aid, show);
 		aid = String(aid);
 		for(var contact in this.contacts) {
-			if(this.contacts[contact].metadata.parent === aid) {
+			if(this.contacts[contact].getParent() === aid) {
 				this.contacts[contact].getListItemElement().toggle(show);
 			} else if(hideothers) {
 				this.contacts[contact].getListItemElement().hide();
@@ -1932,7 +1984,7 @@ OC.Contacts = OC.Contacts || {};
 	*/
 	ContactList.prototype.showContact = function(id, props) {
 		var contact = this.findById(id);
-		if(contact === null) {
+		if(!contact) {
 			return false;
 		}
 		this.currentContact = id;
@@ -1995,7 +2047,7 @@ OC.Contacts = OC.Contacts || {};
 			this.$contactFullTemplate,
 			this.contactDetailTemplates
 		);
-		if(utils.isUInt(this.currentContact)) {
+		if(this.currentContact) {
 			this.contacts[this.currentContact].close();
 		}
 		return contact.renderContact(props);

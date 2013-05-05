@@ -170,6 +170,23 @@ OC.Contacts = OC.Contacts || {};
 	}
 
 	/**
+	 * Move a contact to an address book from a specific backend
+	 *
+	 * @param string backend
+	 * @param string addressbookid Address book ID
+	 * @param string contactid Address book ID
+	 */
+	Storage.prototype.moveContact = function(backend, addressbookid, contactid, target) {
+		console.log('Storage.moveContact', backend, addressbookid, contactid, target);
+		return this.requestRoute(
+			'contacts_address_book_move_contact',
+			'POST',
+			{backend: backend, addressbookid: addressbookid, contactid: contactid},
+			target
+		);
+	}
+
+	/**
 	 * Get Image instance for a contacts profile picture
 	 *
 	 * @param string backend
