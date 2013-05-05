@@ -153,7 +153,13 @@
 #content div.multiselect, #content div.multiselect > * { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
 
 /* Reset values for jquery.multiselect */
-.ui-multiselect-checkboxes label { width: 100%; color: #333; font-size: 1em !important; }
+.ui-multiselect-checkboxes {
+    overflow-y: auto;
+	height: auto !important;
+	max-height: 200px;
+}
+.ui-multiselect-checkboxes label { width: 100%; color: #333 !important; font-size: 100% !important; }
+.ui-multiselect-checkboxes label > span {color: #333 !important; font-size: 100% !important; }
 .ui-multiselect-checkboxes input[type="checkbox"] { margin: 3px !important; }
 button.ui-multiselect { height: 25px; } /* No idea why this is needed? */
 
