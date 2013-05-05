@@ -42,7 +42,7 @@ use Sabre\VObject;
 /**
  * This class manages our vCards
  */
-class VCard {
+class VCardLegacy {
 
 	/**
 	 * @brief Mass updates an array of cards
