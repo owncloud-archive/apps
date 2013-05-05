@@ -63,8 +63,8 @@ class Contact extends VObject\VCard implements IPIMObject {
 			if($data instanceof VObject\VCard) {
 				foreach($data->children as $child) {
 					$this->add($child);
-					$this->setRetrieved(true);
 				}
+				$this->setRetrieved(true);
 			} elseif(is_array($data)) {
 				foreach($data as $key => $value) {
 					switch($key) {
@@ -283,7 +283,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 	public function retrieve() {
 		//error_log(__METHOD__);
 		//\OCP\Util::writeLog('contacts', __METHOD__.' ' . print_r($this->props, true), \OCP\Util::DEBUG);
-		if($this->isRetrieved()) {
+		if($this->isRetrieved() || count($this->children) > 0) {
 			//\OCP\Util::writeLog('contacts', __METHOD__. ' children', \OCP\Util::DEBUG);
 			return true;
 		} else {
