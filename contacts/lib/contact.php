@@ -52,7 +52,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 	 * @param mixed $data
 	 */
 	public function __construct($parent, $backend, $data = null) {
-		//\OCP\Util::writeLog('contacts', __METHOD__ . ' ' . print_r($data, true), \OCP\Util::DEBUG);
+		//\OCP\Util::writeLog('contacts', __METHOD__ . ' parent: ' . print_r($parent, true) . ', backend: ' . print_r($backend, true) . ', data: ' . print_r($data, true), \OCP\Util::DEBUG);
 		//\OCP\Util::writeLog('contacts', __METHOD__, \OCP\Util::DEBUG);
 		$this->props['parent'] = $parent;
 		$this->props['backend'] = $backend;
@@ -643,9 +643,9 @@ class Contact extends VObject\VCard implements IPIMObject {
 	}
 
 	public function __set($key, $value) {
-		/*if(!$this->hasPermission(\OCP\PERMISSION_UPDATE)) {
+		if(!$this->hasPermission(\OCP\PERMISSION_UPDATE)) {
 			throw new \Exception('Access denied');
-		}*/
+		}
 		parent::__set($key, $value);
 		$this->setSaved(false);
 	}
