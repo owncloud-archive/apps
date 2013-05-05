@@ -110,7 +110,8 @@ class Addressbook extends AbstractPIMCollection {
 	 * @return int
 	 */
 	public function getPermissions() {
-		return min($this->addressBookInfo['permissions'], $this->backend->getAddressBookPermissions());
+		return $this->addressBookInfo['permissions'];
+		//return min($this->addressBookInfo['permissions'], $this->backend->getAddressBookPermissions());
 	}
 
 	function getBackend() {
@@ -186,6 +187,9 @@ class Addressbook extends AbstractPIMCollection {
 		if(!$this->hasPermission(\OCP\PERMISSION_CREATE)) {
 			throw new \Exception('Access denied');
 		}
+		if(!$this->getBackend()->hasContactMethodFor(\OCP\PERMISSION_CREATE)) {
+			throw new \Exception('Not implemented');
+		}
 		$contact = new Contact($this, $this->backend, $data);
 		if($contact->save() === false) {
 			return false;
@@ -207,6 +211,9 @@ class Addressbook extends AbstractPIMCollection {
 	public function deleteChild($id) {
 		if(!$this->hasPermission(\OCP\PERMISSION_DELETE)) {
 			throw new \Exception('Access denied');
+		}
+		if(!$this->getBackend()->hasContactMethodFor(\OCP\PERMISSION_DELETE)) {
+			throw new \Exception('Not implemented');
 		}
 		if($this->backend->deleteContact($this->getId(), $id)) {
 			if(isset($this->objects[$id])) {

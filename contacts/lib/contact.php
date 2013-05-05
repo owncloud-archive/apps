@@ -88,7 +88,7 @@ class Contact extends VObject\VCard implements IPIMObject {
 						case 'displayname':
 						case 'fullname':
 							$this->props['displayname'] = $value;
-							$this->FN = $value;
+							//$this->FN = $value;
 							break;
 					}
 				}
@@ -247,7 +247,10 @@ class Contact extends VObject\VCard implements IPIMObject {
 			$this->props['displayname'] = (string)$this->FN;
 		}
 		if($this->getId()) {
-			if($this->props['backend']
+			if(!$this->getBackend()->hasContactMethodFor(\OCP\PERMISSION_UPDATE)) {
+				throw new \Exception('Not implemented');
+			}
+			if($this->getBackend()
 				->updateContact(
 					$this->getParent()->getId(),
 					$this->getId(),
@@ -262,7 +265,10 @@ class Contact extends VObject\VCard implements IPIMObject {
 			}
 		} else {
 			//print(__METHOD__.' ' . print_r($this->getParent(), true));
-			$this->props['id'] = $this->props['backend']->createContact(
+			if(!$this->getBackend()->hasContactMethodFor(\OCP\PERMISSION_CREATE)) {
+				throw new \Exception('Not implemented');
+			}
+			$this->props['id'] = $this->getBackend()->createContact(
 				$this->getParent()->getId(), $this
 			);
 			$this->setSaved(true);

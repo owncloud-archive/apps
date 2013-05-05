@@ -86,6 +86,7 @@ abstract class AbstractBackend {
 			}
 		}
 
+		\OCP\Util::writeLog('contacts', __METHOD__.', permissions' . $permissions, \OCP\Util::DEBUG);
 		return $permissions;
 	}
 
@@ -104,6 +105,7 @@ abstract class AbstractBackend {
 			}
 		}
 
+		\OCP\Util::writeLog('contacts', __METHOD__.', permissions' . $permissions, \OCP\Util::DEBUG);
 		return $permissions;
 	}
 
@@ -115,7 +117,7 @@ abstract class AbstractBackend {
 	* Returns the supported actions as int to be
 	* compared with \OCP\PERMISSION_CREATE etc.
 	*/
-	public function hasContactPermission($permission) {
+	public function hasContactMethodFor($permission) {
 		return (bool)($this->getContactPermissions() & $permission);
 	}
 
@@ -127,7 +129,7 @@ abstract class AbstractBackend {
 	* Returns the supported actions as int to be
 	* compared with \OCP\PERMISSION_CREATE etc.
 	*/
-	public function hasAddressBooksPermission($permission) {
+	public function hasAddressBooksMethodFor($permission) {
 		return (bool)($this->getAddressBooksPermissions() & $permission);
 	}
 
