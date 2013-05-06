@@ -1032,6 +1032,9 @@ class OC_Calendar_Object{
 	public static function getowner($id) {
 		$event = self::find($id);
 		$cal = OC_Calendar_Calendar::find($event['calendarid']);
+		if($cal === false || is_array($cal) === false){
+			return null;
+		}
 		if(array_key_exists('userid', $cal)){
 			return $cal['userid'];
 		}else{
