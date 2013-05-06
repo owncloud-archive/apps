@@ -18,7 +18,7 @@ for ($i = 0; $i < sizeof($_POST['site_name']); $i++) {
            array_push($sites, array(strip_tags($_POST['site_name'][$i]), strip_tags($_POST['site_url'][$i])));
         } else {
             $error = true;
-            OCP\JSON::error(array('data'=>array('message'=>p($l->t('One of the URLS is invalid')))));
+            OCP\JSON::error(array('data'=>array('message'=>'One of the URLS is invalid'))));
         }
    } 
 }

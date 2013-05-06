@@ -10,20 +10,28 @@ OCP\JSON::CheckLoggedIn();
 OCP\JSON::callCheck();
 
 $sites = array();
-for ($i = 0; $i < sizeof($_POST['site_name']); $i++) {
-	if (!empty($_POST['site_name'][$i]) && !empty($_POST['site_url'][$i])) {
-		array_push($sites, array(strip_tags($_POST['site_name'][$i]), strip_tags($_POST['site_url'][$i])));
-	}
-}
+$error = ''; 
 
-if(OCP\Config::getAppValue('external', 'allowUsers') == 'true'){
-    if (sizeof($sites) == 0){
-    	OCP\Config::setUserValue(OCP\User::getUser(), 'external', 'sites', '');
+for ($i = 0; $i < sizeof($_POST['site_name']); $i++) {
+    if (!empty($_POST['site_name'][$i]) && !empty($_POST['site_url'][$i])) {
+	    if (filter_var($_POST['site_url'][$i], FILTER_VALIDATE_URL)) {
+                array_push($sites, array(strip_tags($_POST['site_name'][$i]), strip_tags($_POST['site_url'][$i])));
+        } else {
+            $error = true;
+            OCP\JSON::error(array('data'=>array('message'=>'One of the URLS is invalid')));
+        }
     }
-    else{
-    	OCP\Config::setUserValue(OCP\User::getUser(), 'external', 'sites', json_encode($sites));
+}
+if (!$error){
+    if(OCP\Config::getAppValue('external', 'allowUsers') == 'true'){
+        if (sizeof($sites) == 0){
+        	OCP\Config::setUserValue(OCP\User::getUser(), 'external', 'sites', '');
+        }
+        else{
+        	OCP\Config::setUserValue(OCP\User::getUser(), 'external', 'sites', json_encode($sites));
+        }
+        OCP\JSON::success();
+    } else {
+        OCP\JSON::error(array('data'=>array('message'=>'The user is not allowed to add personal links')));
     }
-    OCP\JSON::success();
-} else {
-    OCP\JSON::error(array('data'=>array('message'=>'The user is not allowed to add personal links')));
 }

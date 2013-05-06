@@ -13,11 +13,20 @@ if (isset($_GET['id'])) {
 
 	$id = $_GET['id'];
 	$id = (int) $id;
+    
+    if (isset($_GET['user'])){
+        $sites = OC_External::getSites();
+    } else {
+        $sites = OC_External::getGlobalSites();
+    }
 
-	$sites = OC_External::getSites();
 	if (sizeof($sites) >= $id) {
 		$url = $sites[$id - 1][1];
-		OCP\App::setActiveNavigationEntry('external_index' . $id);
+        if (isset($_GET['user'])){
+            OCP\App::setActiveNavigationEntry('external_index' . $id . 'user');
+        } else {
+            OCP\App::setActiveNavigationEntry('external_index' . $id);
+        }
 		
 		$tmpl = new OCP\Template('external', 'frame', 'user');
 		//overwrite x-frame-options
