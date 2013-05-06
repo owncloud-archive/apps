@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<info>
+	<id>crate_it</id>
+	<name>Cr8It</name>
+	<description>Simple file cart which act as a cart to hold files selected by the user to package, share etc.</description>
+	<version>0.1</version>
+	<licence>AGPL</licence>
+	<author>Lloyd Harischandra</author>
+	<require>4.93</require>
+	<shipped>true</shipped>
+	<default_enable/>
+</info>
