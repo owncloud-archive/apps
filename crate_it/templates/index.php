@@ -1,4 +1,4 @@
-<div 
+<div>
 	<span style="font-weight:bold;font-size:large; padding:20px;">Items</span>
 </div>
 
@@ -13,13 +13,16 @@
 
 <div style="float:left; padding:20px;">
 	<input onClick="createZipPackage();" type="button" value="Package Zip"/>
-	<input type="button" value="Bag It"/>
+</div><br>
+<div>
+<?php //print_r(get_loaded_extensions())?>
 </div>
 
 <script type="text/javascript">
 
 function createZipPackage(){
-	$.ajax(OC.linkTo('crate_it', 'ajax/zippackage.php')+'?action=zip');
+	//$.ajax(OC.linkTo('crate_it', 'ajax/zippackage.php')+'?action=zip');
+	window.location = OC.linkTo('crate_it', 'ajax/zippackage.php')+'?dir=/';
 	//alert("clicked packageZip...");
 }
 

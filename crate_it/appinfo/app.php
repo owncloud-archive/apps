@@ -1,4 +1,13 @@
 <?php
+
+//add 3rdparty folder to include path
+$dir = dirname(dirname(__FILE__)).'/3rdparty';
+set_include_path(get_include_path() . PATH_SEPARATOR . $dir);
+
+OC::$CLASSPATH['BagIt'] = 'apps/crate_it/3rdparty/BagIt/bagit.php';
+OC::$CLASSPATH['BagItManifest'] = 'apps/crate_it/3rdparty/BagIt/bagit_manifest.php';
+OC::$CLASSPATH['BagItFetch'] = 'apps/crate_it/3rdparty/BagIt/bagit_fetch.php';
+
 //load the required files
 OCP\Util::addscript( 'crate_it', 'loader');
 

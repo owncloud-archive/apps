@@ -1,24 +1,26 @@
 <?php
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('crate_it');
-session_start();
 
-$doc_root = $_SERVER["DOCUMENT_ROOT"];
 $user = OCP\User::getUser();
 
-//get file and story it in session
-$cart = $_SESSION['cart'];
-$action = $_GET['action'];
-print phpinfo();
+$outputDir = OC::$SERVERROOT.'/data/'.$user.'/crate_it';
 
-$inputDir = $doc_root.'/owncloud/data/'.$user.'/files';
-$outputDir = $doc_root.'/owncloud/data/'.$user.'/crate_it/'.date("Y-m-d H:i:s").'/';
+//create a bag at the outputDir
+$bag = new BagIt($outputDir);
 
-if ($cart) {
-	$items = explode(',',$cart);
-}
+$bag->package($outputDir, 'zip');
 
-//if true, good; if false, zip creation failed
-$result = \OCA\crate_it\lib\PackageManager::create_zip($items, $inputDir, $outputDir.$user.'-package.zip');
+echo "Zip created at ".OC::$SERVERROOT.'/data/'.$user;
+//call zip class
+/*$filename = OC_Helper::tmpFile('.zip');
 
-print $result;
+$zip=new ZipArchive();
+$ab = $zip->open($filename, ZipArchive::OVERWRITE);
+$res = $zip->addFile($inputDir.$items[0], $items[0]);
+//$zipFile = OC_Archive_ZIP::open($filename);
+//$res = $zipFile->addFile($items[0], $inputDir.$items[0]);
+echo "res : ".$res;*/
+
+
+
