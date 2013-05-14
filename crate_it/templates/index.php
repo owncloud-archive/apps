@@ -4,14 +4,15 @@
 
 <div style="padding-left:20px;">
 <ul>
-<?php foreach($_['cart_files'] as $file):?>
+<?php foreach($_['bagged_files'] as $file):?>
 	<li><?php print_unescaped($file);?>
-	<input type="checkbox"></input></li>
+	<!-- <input type="checkbox"></input></li>-->
 <?php endforeach;?>
 </ul>
 </div>
 
 <div style="float:left; padding:20px;">
+	<input onClick="emptyBag();" type="button" value="Clear Bag"/>
 	<input onClick="createZipPackage();" type="button" value="Package Zip"/>
 </div><br>
 <div>
@@ -24,6 +25,10 @@ function createZipPackage(){
 	//$.ajax(OC.linkTo('crate_it', 'ajax/zippackage.php')+'?action=zip');
 	window.location = OC.linkTo('crate_it', 'ajax/zippackage.php')+'?dir=/';
 	//alert("clicked packageZip...");
+}
+
+function emptyBag(){
+	//TODO empty the bag
 }
 
 </script>

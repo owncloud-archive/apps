@@ -7,14 +7,34 @@ $file = isset($_GET['file']) ? $_GET['file'] : '';
 
 $user = OCP\User::getUser();
 
-$inputDir = OC::$SERVERROOT.'/data/'.$user.'/files/';
-$outputDir = OC::$SERVERROOT.'/data/'.$user.'/crate_it';
+$crateRoot = OC::$SERVERROOT.'/data/'.$user.'/crate_it';//TODO this must be a constant
+
+if(!file_exists($crateRoot)){
+	mkdir($crateRoot);
+}
+$inputDir = OC::$SERVERROOT.'/data/'.$user.'/files';
+$bagDir = $crateRoot.'/crate';
+$dataDir = 'data';
 
 //create bag if not and store file in the bag
-$bag = new BagIt($outputDir);
+$bag = new BagIt($bagDir);
 
-// add a file; these are relative to the data directory
-$bag->addFile($inputDir.$file, $file);
+	
+if(basename($dir) === 'Shared'){
+	//need to fetch the url from relevant location
+}
+else if(substr($dir, -1) === '/'){
+	$inputDir .= '/';
+	$dataDir .= '/';
+}
+else{
+	$inputDir .= $dir.'/';
+	$dataDir .= $dir.'/';
+}
+
+//add the file urls to fetch.txt so when you package the bag,
+//you can populate the data dir with those files
+$bag->fetch->add($inputDir.$file, $dataDir.$file);
 
 // update the hashes
 $bag->update();

@@ -438,7 +438,7 @@ function BagIt_compressBag($dirname, $output, $method='tgz')
         $zip->open($output, ZIPARCHIVE::CREATE);
 
         foreach (rls($dirname) as $file) {
-            $zip->addFile($file, substr($file, $stripLen));
+            $zip->addFile($file, substr($file, strlen($dirname)));
         }
 
         $zip->close();

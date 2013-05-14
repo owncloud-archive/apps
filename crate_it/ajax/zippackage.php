@@ -4,14 +4,29 @@ OCP\App::checkAppEnabled('crate_it');
 
 $user = OCP\User::getUser();
 
-$outputDir = OC::$SERVERROOT.'/data/'.$user.'/crate_it';
+$crateRoot = OC::$SERVERROOT.'/data/'.$user.'/crate_it'; //TODO make this a constant
+$bagDir = $crateRoot.'/crate';
+
+$tmp = OC_Helper::tmpFolder();
+OC_Helper::copyr($bagDir, $tmp);
 
 //create a bag at the outputDir
-$bag = new BagIt($outputDir);
+$bag = new BagIt($tmp);
 
-$bag->package($outputDir, 'zip');
+if(count($bag->getBagErrors(true)) == 0){
+	$bag->fetch->download();
+	$bag->update();
+	
+	//see if there's one already
+	//check if it's latest, if so only create the package
+	if(!file_exists($crateRoot.'/packages')){
+		mkdir($crateRoot.'/packages');
+	}
+	$bag->package($crateRoot.'/packages/crate', 'zip');
+}
 
-echo "Zip created at ".OC::$SERVERROOT.'/data/'.$user;
+echo "Zip created at ".$crateRoot.'/packages/';
+
 //call zip class
 /*$filename = OC_Helper::tmpFile('.zip');
 
