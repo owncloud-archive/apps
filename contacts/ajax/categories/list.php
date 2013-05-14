@@ -28,11 +28,20 @@ foreach($categories as &$category) {
 
 $favorites = $catmgr->getFavorites();
 
+// workaround for https://github.com/owncloud/core/issues/2814
+$sharedAddressbooks = array();
+$maybeSharedAddressBook = OCP\Share::getItemsSharedWith('addressbook', OCA\Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS);
+foreach($maybeSharedAddressBook as $sharedAddressbook) {
+	if(isset($sharedAddressbook['id']) && OCA\Contacts\Addressbook::find($sharedAddressbook['id'])) {
+		$sharedAddressbooks[] = $sharedAddressbook;
+	}
+}
+
 OCP\JSON::success(array(
 	'data' => array(
 		'categories' => $categories,
 		'favorites' => $favorites,
-		'shared' => OCP\Share::getItemsSharedWith('addressbook', OCA\Contacts\Share_Backend_Addressbook::FORMAT_ADDRESSBOOKS),
+		'shared' => $sharedAddressbooks,
 		'lastgroup' => OCP\Config::getUserValue(
 						OCP\User::getUser(),
 						'contacts',
