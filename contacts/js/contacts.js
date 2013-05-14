@@ -31,6 +31,10 @@ OC.Contacts = OC.Contacts || {};
 		return this.getPreferredValue('FN') || this.getPreferredValue('ORG') || this.getPreferredValue('EMAIL');
 	};
 
+	Contact.prototype.getId = function() {
+		return this.id;
+	};
+
 	Contact.prototype.showActions = function(act) {
 		this.$footer.children().hide();
 		if(act && act.length > 0) {
@@ -199,9 +203,13 @@ OC.Contacts = OC.Contacts || {};
 						newvalue: $container.find('input.value').val()
 					});
 					self.setAsSaving(obj, false);
-					self.$fullelem.find('[data-element="' + element.toLowerCase() + '"]').hide();
-					$container.find('input.value').val('');
-					self.$addMenu.find('option[value="' + element.toUpperCase() + '"]').prop('disabled', false);
+					if(element === 'PHOTO') {
+						self.data.PHOTO[0].value = false;
+					} else {
+						self.$fullelem.find('[data-element="' + element.toLowerCase() + '"]').hide();
+						$container.find('input.value').val('');
+						self.$addMenu.find('option[value="' + element.toUpperCase() + '"]').prop('disabled', false);
+					}
 				}
 				$(document).trigger('status.contact.updated', {
 					property: element,
@@ -1404,6 +1412,10 @@ OC.Contacts = OC.Contacts || {};
 			if(['FN', 'EMAIL', 'TEL', 'ADR', 'CATEGORIES'].indexOf(data.property) !== -1) {
 				data.contact.getListItemElement().remove();
 				self.insertContact(data.contact.renderListItem(true));
+			} else if(data.property === 'PHOTO') {
+				$(document).trigger('status.contact.photoupdated', {
+					id: data.contact.getId()
+				});
 			}
 		});
 	};
