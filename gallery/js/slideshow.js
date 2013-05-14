@@ -40,10 +40,9 @@ jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
 	jQuery.fn.slideShow.loadImage(url).then(function (image) {
 		var nWidth = image.naturalWidth, nHeight = image.naturalHeight;
 		if (!nWidth || !nHeight) {
-			var img = new Image();
-			img.src = image.src;
-			nWidth = img.Width;
-			nHeight = img.Height;
+			$(image).css({width: 'auto', height: 'auto'});
+			nWidth = image.Width;
+			nHeight = image.Height;
 		}
 		var ratio = nWidth / nHeight,
 			screenRatio = container.width() / container.height(),
