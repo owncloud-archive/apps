@@ -32,14 +32,23 @@ jQuery.fn.slideShow.loadImage = function (url) {
 	if (!jQuery.fn.slideShow.cache[url]) {
 		jQuery.fn.slideShow.cache[url] = new jQuery.Deferred();
 		var image = new Image();
+		jQuery.fn.slideShow.cache[url].fail(function (u) {
+			image = false;
+			jQuery.fn.slideShow.cache[url] = false;
+		});
 		image.onload = function () {
-			image.natWidth = image.width;
-			image.natHeight = image.height;
-			jQuery.fn.slideShow.cache[url].resolve(image);
+			if (image) {
+				image.natWidth = image.width;
+				image.natHeight = image.height;
+			}
+			if (jQuery.fn.slideShow.cache[url]) {
+				jQuery.fn.slideShow.cache[url].resolve(image);
+			}
 		};
 		image.onerror = function () {
-			jQuery.fn.slideShow.cache[url].reject(image);
-			jQuery.fn.slideShow.cache[url] = false;
+			if (jQuery.fn.slideShow.cache[url]) {
+				jQuery.fn.slideShow.cache[url].reject(url);
+			}
 		};
 		image.src = url;
 	}
@@ -81,14 +90,16 @@ jQuery.fn.slideShow.fitImage = function (container, image) {
 jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
 	var container = jQuery.fn.slideShow.container;
 	jQuery.fn.slideShow.loadImage(url).then(function (image) {
-		container.children('img').remove();
-		container.append(image);
-		jQuery.fn.slideShow.fitImage(container, image);
-		if (jQuery.fn.slideShow.settings.play) {
-			jQuery.fn.slideShow.setTimeout();
-		}
-		if (preloadUrl) {  
-			jQuery.fn.slideShow.loadImage(preloadUrl);  
+		if (url == jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]) {
+			container.children('img').remove();
+			container.append(image);
+			jQuery.fn.slideShow.fitImage(container, image);
+			if (jQuery.fn.slideShow.settings.play) {
+				jQuery.fn.slideShow.setTimeout();
+			}
+			if (preloadUrl) {  
+				jQuery.fn.slideShow.loadImage(preloadUrl);  
+			}
 		}
 	});
 };
@@ -126,6 +137,7 @@ jQuery.fn.slideShow.clearTimeout = function () {
 
 jQuery.fn.slideShow.next = function () {
 	if (jQuery.fn.slideShow.container) {
+		//jQuery.fn.slideShow.cache[jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]].reject(jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]);
 		jQuery.fn.slideShow.current++;
 		if (jQuery.fn.slideShow.current >= jQuery.fn.slideShow.images.length) {
 			jQuery.fn.slideShow.current = 0;
@@ -138,6 +150,7 @@ jQuery.fn.slideShow.next = function () {
 
 jQuery.fn.slideShow.previous = function () {
 	if (jQuery.fn.slideShow.container) {
+		//jQuery.fn.slideShow.cache[jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]].reject(jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]);
 		jQuery.fn.slideShow.current--;
 		if (jQuery.fn.slideShow.current < 0) {
 			jQuery.fn.slideShow.current = jQuery.fn.slideShow.images.length - 1;
