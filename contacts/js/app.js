@@ -878,7 +878,7 @@ OC.Contacts = OC.Contacts || {
 							var $list = self.$settings.find('[data-id="addressbooks"]').next('ul');
 							appendAddressBook($list, book, true);
 						}
-						$addInput.removeClass('loading');
+						$addInput.removeClass('loading').val('');
 						$addAddressBookPart.find('button input').prop('disabled', false);
 						$addAddressBookPart.hide().prev('button').show();
 					});
