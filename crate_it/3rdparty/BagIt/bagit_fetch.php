@@ -116,7 +116,7 @@ class BagItFetch
         $fetch = array();
 
         foreach ($lines as $line) {
-            $fields = preg_split('/\s+/', $line);
+            $fields = preg_split('/\|+/', $line);
             if (count($fields) == 3) {
                 array_push(
                     $fetch,
@@ -140,7 +140,7 @@ class BagItFetch
 
         foreach ($this->data as $fetch) {
             $data = array($fetch['url'], $fetch['length'], $fetch['filename']);
-            array_push($lines, join(' ', $data) . "\n");
+            array_push($lines, join('|', $data) . "\n");
         }
 
         writeFileText($this->fileName, $this->fileEncoding, join('', $lines));

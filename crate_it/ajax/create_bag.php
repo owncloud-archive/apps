@@ -18,10 +18,9 @@ $dataDir = 'data';
 
 //create bag if not and store file in the bag
 $bag = new BagIt($bagDir);
-
 	
 if(basename($dir) === 'Shared'){
-	//need to fetch the url from relevant location
+	//TODO need to fetch the url from relevant location
 }
 else if(substr($dir, -1) === '/'){
 	$inputDir .= '/';
@@ -34,7 +33,17 @@ else{
 
 //add the file urls to fetch.txt so when you package the bag,
 //you can populate the data dir with those files
-$bag->fetch->add($inputDir.$file, $dataDir.$file);
+$fetchItems = $bag->fetch->getData();
+$file_exists = false;
+foreach ($fetchItems as $item){
+	if($item['url'] === $inputDir.$file){
+		$file_exists = true;
+		break;
+	}
+}
+if(!$file_exists){
+	$bag->fetch->add($inputDir.$file, $dataDir.$file);
+}
 
 // update the hashes
 $bag->update();

@@ -14,7 +14,12 @@ OC_Helper::copyr($bagDir, $tmp);
 $bag = new BagIt($tmp);
 
 if(count($bag->getBagErrors(true)) == 0){
-	$bag->fetch->download();
+	//use the fetch file to add data to bag, but don't use $bag->fetch->download(), yea I know it's weird
+	//but have to do at this time
+	$fetchItems = $bag->fetch->getData();
+	foreach ($fetchItems as $item){
+		$bag->addFile($item['url'], $item['filename']);
+	}
 	$bag->update();
 	
 	//see if there's one already
