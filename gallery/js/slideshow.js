@@ -137,7 +137,6 @@ jQuery.fn.slideShow.clearTimeout = function () {
 
 jQuery.fn.slideShow.next = function () {
 	if (jQuery.fn.slideShow.container) {
-		//jQuery.fn.slideShow.cache[jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]].reject(jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]);
 		jQuery.fn.slideShow.current++;
 		if (jQuery.fn.slideShow.current >= jQuery.fn.slideShow.images.length) {
 			jQuery.fn.slideShow.current = 0;
@@ -150,7 +149,6 @@ jQuery.fn.slideShow.next = function () {
 
 jQuery.fn.slideShow.previous = function () {
 	if (jQuery.fn.slideShow.container) {
-		//jQuery.fn.slideShow.cache[jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]].reject(jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]);
 		jQuery.fn.slideShow.current--;
 		if (jQuery.fn.slideShow.current < 0) {
 			jQuery.fn.slideShow.current = jQuery.fn.slideShow.images.length - 1;
