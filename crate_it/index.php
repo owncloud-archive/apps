@@ -6,17 +6,9 @@ OCP\User::checkLoggedIn();
 
 $user = OCP\User::getUser();
 
-//get the files which are in the cart
-$bagDir = OC::$SERVERROOT.'/data/'.$user.'/crate_it/crate';
-$bag = new BagIt($bagDir);
-$fetchItems = $bag->fetch->getData();
-$items = array();
-
-foreach ($fetchItems as $fetch){
-	array_push($items, $fetch['filename']);
-}
+$bagit_manager = \OCA\crate_it\lib\BagItManager::getInstance();
 
 // create a new template to show the cart
 $tmpl = new OCP\Template('crate_it', 'index', 'user');
-$tmpl->assign('bagged_files', $items);
+$tmpl->assign('bagged_files', $bagit_manager->getFetchData());
 $tmpl->printPage();

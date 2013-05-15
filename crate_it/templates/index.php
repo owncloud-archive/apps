@@ -22,13 +22,17 @@
 <script type="text/javascript">
 
 function createZipPackage(){
-	//$.ajax(OC.linkTo('crate_it', 'ajax/zippackage.php')+'?action=zip');
-	window.location = OC.linkTo('crate_it', 'ajax/zippackage.php')+'?dir=/';
+	$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=zip');
+	//window.location = OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=zip';
 	//alert("clicked packageZip...");
 }
 
 function emptyBag(){
 	//TODO empty the bag
+	$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=clear');
+	window.location = OC.linkTo('crate_it', 'index.php');
+	//$.ajax(OC.linkTo('crate_it', 'index.php'));
+	
 }
 
 </script>

@@ -14,20 +14,22 @@ $file_name = basename($file, '.'.$path_parts['extension']);
 
 $mime = "application/msword";
 
-if($dir === '/')
-{
+if($dir === '/'){
 	$sourceDir = $dir;
 	$previewDir = $dir.$user.'/'.$file_name;
 }
-else
-{
+else{
 	$sourceDir = $dir.'/';
 	$previewDir = $dir.'/'.$file_name;
 }
 
-$inputFile = $doc_root.'/owncloud/data/'.$user.'/files'.$sourceDir.$file;
-$outputDir = $doc_root.'/owncloud/data/'.$user.'/files_previewer'.$previewDir;
+//OC::$SERVERROOT
+
+$inputFile = OC::$SERVERROOT.'/data/'.$user.'/files'.$sourceDir.$file;
+$outputDir = OC::$SERVERROOT.'/files_previewer'.$previewDir;
 $outputFile = $outputDir.'/'.$file_name.'.html';
+
+$web = OC::$WEBROOT;
 
 switch ($type)
 {
@@ -41,15 +43,13 @@ switch ($type)
 		$outputFile = $outputDir.'/'.$file_name.'.html';
 }
 
-if (!(file_exists($outputFile) && (filemtime($outputFile) > filemtime($inputFile)))) 
-{
+if (!(file_exists($outputFile) && (filemtime($outputFile) > filemtime($inputFile)))){
 	// New file, create a preview and store in local file system
 	$command = 'python /opt/jischtml5/tools/commandline/WordDownOO.py --dataURIs --epub '.escapeshellarg($inputFile).' '.escapeshellarg($outputDir);
 	system($command, $retval);
 }
 
-switch ($type)
-{
+switch ($type){
 	case "epub":
 		//Download epub
 		header("Content-type:application/epub+zip");
