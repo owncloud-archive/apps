@@ -6,7 +6,6 @@ OCP\App::checkAppEnabled('file_previewer');
 $dir = isset($_GET['dir']) ? $_GET['dir'] : '';
 $file = isset($_GET['file']) ? $_GET['file'] : '';
 $type = isset($_GET['type']) ? $_GET['type'] : 'html';
-$doc_root = $_SERVER["DOCUMENT_ROOT"];
 $user = OCP\User::getUser();
 
 $path_parts = pathinfo($file);
@@ -23,10 +22,8 @@ else{
 	$previewDir = $dir.'/'.$file_name;
 }
 
-//OC::$SERVERROOT
-
 $inputFile = OC::$SERVERROOT.'/data/'.$user.'/files'.$sourceDir.$file;
-$outputDir = OC::$SERVERROOT.'/files_previewer'.$previewDir;
+$outputDir = OC::$SERVERROOT.'/data/'.$user.'/files_previewer'.$previewDir;
 $outputFile = $outputDir.'/'.$file_name.'.html';
 
 $web = OC::$WEBROOT;
