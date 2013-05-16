@@ -1799,6 +1799,10 @@ OC.Contacts = OC.Contacts || {};
 						);
 					self.length +=1;
 					var $item = self.contacts[parseInt(contact.id)].renderListItem();
+					if(!$item) {
+						console.warn('Contact', contact, 'could not be rendered!');
+						return true; // continue
+					}
 					items.push($item.get(0));
 					$item.find('td.name').draggable({
 						cursor: 'move',
