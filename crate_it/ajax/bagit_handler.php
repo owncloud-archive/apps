@@ -19,6 +19,11 @@ switch ($action){
 		break;
 	case 'zip':
 		$zip_file = $bagit_manager->createZip();
+		if(!isset($zip_file))
+		{
+			echo "No files in the bag to download";
+			break;
+		}
 		//Download file
 		header("Content-type:application/zip");
 		header("Content-Type: application/force-download");

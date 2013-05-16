@@ -78,6 +78,11 @@ class BagItManager{
 	
 	public function createZip(){
 		
+		$bag_items = $this->bag->fetch->getData();
+		if(count($bag_items) === 0)
+		{
+			return null;
+		}
 		$tmp = \OC_Helper::tmpFolder();
 		\OC_Helper::copyr($this->bag_dir, $tmp);
 		
