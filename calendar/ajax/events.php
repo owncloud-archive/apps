@@ -13,12 +13,14 @@ session_write_close();
 $calendar_id = null;
 if (strval(intval($_GET['calendar_id'])) == strval($_GET['calendar_id'])) { // integer for sure.
 	$id = intval($_GET['calendar_id']);
-	$calendarrow = OC_Calendar_App::getCalendar($id, true, false); // Let's at least security check otherwise we might as well use OC_Calendar_Calendar::find()
+	$calendarrow = OC_Calendar_App::getCalendar($id, true, false); // Let's at least security check otherwise we might as well use OC_Calendar_Calendar::find())
 	if($calendarrow !== false) {
 		$calendar_id = $id;
 	}else{
-		OCP\JSON::encodedPrint(array());
-		exit;
+		if(OCP\Share::getItemSharedWithBySource('calendar', $id) === false){
+			OCP\JSON::encodedPrint(array());
+			exit;
+		}
 	}
 }
 $calendar_id = (is_null($calendar_id)?strip_tags($_GET['calendar_id']):$calendar_id);
