@@ -71,6 +71,9 @@ class BagItManager{
 	
 	public function clearBag(){
 		$this->bag->fetch->clear();
+		if(file_exists($this->crate_root.'/packages/crate.zip')){
+			unlink($this->crate_root.'/packages/crate.zip');
+		}
 	}
 	
 	public function createZip(){
@@ -82,23 +85,24 @@ class BagItManager{
 		$bag = new \BagIt($tmp);
 		
 		if(count($bag->getBagErrors(true)) == 0){
-			//use the fetch file to add data to bag, but don't use $bag->fetch->download(), yea I know it's weird
-			//but have to do at this time
+			//use the fetch file to add data to bag, but don't use $bag->fetch->download(), 
+			//yea I know it's weird but have to do at this time
 			$fetch_items = $bag->fetch->getData();
 			foreach ($fetch_items as $item){
 				$bag->addFile($item['url'], $item['filename']);
 			}
 			$bag->update();
 		
-			//see if there's one already
+			//TODO see if there's one already
 			//check if it's latest, if so only create the package
 			if(!file_exists($this->crate_root.'/packages')){
 				mkdir($this->crate_root.'/packages');
 			}
-			$bag->package($this->crate_root.'/packages/crate', 'zip');
-		}
-		
-		echo "Zip created at ".$this->crate_root.'/packages/';
+			$zip_file = $this->crate_root.'/packages/crate';
+			$bag->package($zip_file, 'zip');
+			
+			return $zip_file.'.zip';
+		}		
 	}
 	
 	public function getFetchData(){

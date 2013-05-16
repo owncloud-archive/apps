@@ -18,6 +18,11 @@ switch ($action){
 		$bagit_manager->clearBag();
 		break;
 	case 'zip':
-		$bagit_manager->createZip();
+		$zip_file = $bagit_manager->createZip();
+		//Download file
+		header("Content-type:application/zip");
+		header("Content-Type: application/force-download");
+		header("Content-Disposition: attachment;filename=crate.zip");
+		readfile($zip_file);
 		break;
 }

@@ -13,7 +13,7 @@
 
 <div style="float:left; padding:20px;">
 	<input onClick="emptyBag();" type="button" value="Clear Bag"/>
-	<input onClick="createZipPackage();" type="button" value="Package Zip"/>
+	<input onClick="createZipPackage();" type="button" value="Download Zip"/>
 </div><br>
 <div>
 <?php //print_r(get_loaded_extensions())?>
@@ -22,8 +22,8 @@
 <script type="text/javascript">
 
 function createZipPackage(){
-	$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=zip');
-	//window.location = OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=zip';
+	//$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=zip');
+	window.location = OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=zip';
 	//alert("clicked packageZip...");
 }
 
