@@ -14,16 +14,19 @@ OC::$CLASSPATH['OC_Connector_Sabre_CardDAV_Card'] = 'contacts/lib/sabre/card.php
 OC::$CLASSPATH['OCA\Contacts\VObject\StringProperty'] = 'contacts/lib/vobject/stringproperty.php';
 OC::$CLASSPATH['OCA\\Contacts\\SearchProvider'] = 'contacts/lib/search.php';
 
-Sabre\VObject\Property::$classMap['FN'] = 'OCA\Contacts\VObject\StringProperty';
-Sabre\VObject\Property::$classMap['TITLE'] = 'OCA\Contacts\VObject\StringProperty';
-Sabre\VObject\Property::$classMap['ROLE'] = 'OCA\Contacts\VObject\StringProperty';
-Sabre\VObject\Property::$classMap['NOTE'] = 'OCA\Contacts\VObject\StringProperty';
-Sabre\VObject\Property::$classMap['NICKNAME'] = 'OCA\Contacts\VObject\StringProperty';
-Sabre\VObject\Property::$classMap['EMAIL'] = 'OCA\Contacts\VObject\StringProperty';
-Sabre\VObject\Property::$classMap['TEL'] = 'OCA\Contacts\VObject\StringProperty';
-Sabre\VObject\Property::$classMap['IMPP'] = 'OCA\Contacts\VObject\StringProperty';
-Sabre\VObject\Property::$classMap['URL'] = 'OCA\Contacts\VObject\StringProperty';
-Sabre\VObject\Property::$classMap['GEO'] = 'Sabre\VObject\Property\Compound';
+Sabre\VObject\Property::$classMap['FN'] = 'OC\VObject\StringProperty';
+Sabre\VObject\Property::$classMap['TITLE'] = 'OC\VObject\StringProperty';
+Sabre\VObject\Property::$classMap['ROLE'] = 'OC\VObject\StringProperty';
+Sabre\VObject\Property::$classMap['NOTE'] = 'OC\VObject\StringProperty';
+Sabre\VObject\Property::$classMap['NICKNAME'] = 'OC\VObject\StringProperty';
+Sabre\VObject\Property::$classMap['EMAIL'] = 'OC\VObject\StringProperty';
+Sabre\VObject\Property::$classMap['TEL'] = 'OC\VObject\StringProperty';
+Sabre\VObject\Property::$classMap['IMPP'] = 'OC\VObject\StringProperty';
+Sabre\VObject\Property::$classMap['URL'] = 'OC\VObject\StringProperty';
+Sabre\VObject\Property::$classMap['FN'] = 'OC\VObject\CompoundProperty';
+Sabre\VObject\Property::$classMap['ADR'] = 'OC\VObject\CompoundProperty';
+Sabre\VObject\Property::$classMap['CATEGORIES'] = 'OC\VObject\CompoundProperty';
+Sabre\VObject\Property::$classMap['GEO'] = 'OC\VObject\CompoundProperty';
 
 OCP\Util::connectHook('OC_User', 'post_createUser', 'OCA\Contacts\Hooks', 'createUser');
 OCP\Util::connectHook('OC_User', 'post_deleteUser', 'OCA\Contacts\Hooks', 'deleteUser');
