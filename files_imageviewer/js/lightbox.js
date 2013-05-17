@@ -5,7 +5,7 @@ $(document).ready(function() {
 			if(filename.indexOf('.psd')>0)
 				return;
 			var pos = null;
-			var gallerie = $('#filestable tr[data-mime^="image/"]').map(function(index){
+			var gallery = $('#filestable tr[data-mime^="image/"]').map(function(index){
 				if($(this).attr('data-file') == filename)
 					pos = index;
 
@@ -16,7 +16,7 @@ $(document).ready(function() {
 				else
 					return href;
 			}).get();
-			$.fancybox(gallerie, {
+			$.fancybox(gallery, {
 				type: 'image', 
 				index: pos, 
 				onStart:function(){
