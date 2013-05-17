@@ -1,7 +1,22 @@
 $(document).ready(function() {
 	if(typeof FileActions!=='undefined'){
 		FileActions.register('image','View', OC.PERMISSION_READ, '',function(filename){
-			viewImage($('#dir').val(),filename);
+			//viewImage($('#dir').val(),filename);
+			var pos = null;
+			var gallerie = $('#filestable tr[data-mime^="image/"]').map(function(index){
+				if($(this).attr('data-file') == filename)
+					pos = index;
+
+				return $(this).find('a.name').attr('href');
+			}).get();
+			$.fancybox(gallerie, {
+				type: 'image', 
+				index: pos, 
+				onStart:function(){
+					this.title = this.content.substr(this.content.lastIndexOf('/') + 1);
+				},
+				titlePosition: "inside"
+			});
 		});
 		FileActions.setDefault('image','View');
 	}
@@ -23,7 +38,9 @@ function viewImage(dir, file) {
 	if(file.indexOf('.psd')>0){//can't view those
 		return;
 	}
+	
 	var location = fileDownloadPath(dir, file);
+alert(dir+'\n\n'+file+'\n\n'+location);
 	$.fancybox({
 		"href": location,
 		"title": file.replace(/</, "&lt;").replace(/>/, "&gt;"),
