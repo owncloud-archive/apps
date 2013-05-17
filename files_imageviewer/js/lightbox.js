@@ -47,7 +47,7 @@ function viewImage(dir, file) {
 	}
 	
 	var location = fileDownloadPath(dir, file);
-alert(dir+'\n\n'+file+'\n\n'+location);
+
 	$.fancybox({
 		"href": location,
 		"title": file.replace(/</, "&lt;").replace(/>/, "&gt;"),
