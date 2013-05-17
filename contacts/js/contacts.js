@@ -14,7 +14,6 @@ OC.Contacts = OC.Contacts || {};
 	* @param detailtemplates A map of jquery objects used to render the contact parts e.g. EMAIL, TEL etc.
 	*/
 	var Contact = function(parent, id, access, data, listtemplate, dragtemplate, fulltemplate, detailtemplates) {
-		//console.log('contact:', id, access); //parent, id, data, listtemplate, fulltemplate);
 		this.parent = parent,
 			this.id = id,
 			this.access = access,
@@ -530,7 +529,8 @@ OC.Contacts = OC.Contacts || {};
 				self.$groupSelect.multiselect('enable');
 				// Add contact to current group
 				if(self.groupprops && self.groupprops.currentgroup.id !== 'all'
-					&& self.groupprops.currentgroup.id !== 'fav') {
+					&& self.groupprops.currentgroup.id !== 'fav'
+					&& self.groupprops.currentgroup.type === 'category') {
 					if(!self.data.CATEGORIES) {
 						self.addToGroup(self.groupprops.currentgroup.name);
 						$(document).trigger('request.contact.addtogroup', {

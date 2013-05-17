@@ -970,10 +970,18 @@ OC.Contacts = OC.Contacts || {
 			self.currentid = 'new';
 			// Properties that the contact doesn't know
 			console.log('addContact, groupid', self.currentgroup);
+			var $groupelem = self.groups.findById(self.currentgroup);
+			var currentgroup = $groupelem
+				? {
+					id: self.currentgroup,
+					name: self.groups.nameById(self.currentgroup),
+					type: $groupelem.data('type')
+				}
+				: null;
 			var groupprops = {
 				favorite: false,
 				groups: self.groups.categories,
-				currentgroup: {id:self.currentgroup, name:self.groups.nameById(self.currentgroup)}
+				currentgroup: currentgroup
 			};
 			self.$firstRun.hide();
 			self.$contactList.show();
