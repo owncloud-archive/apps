@@ -2,12 +2,19 @@ $(document).ready(function() {
 	if(typeof FileActions!=='undefined'){
 		FileActions.register('image','View', OC.PERMISSION_READ, '',function(filename){
 			//viewImage($('#dir').val(),filename);
+			if(filename.indexOf('.psd')>0)
+				return;
 			var pos = null;
 			var gallerie = $('#filestable tr[data-mime^="image/"]').map(function(index){
 				if($(this).attr('data-file') == filename)
 					pos = index;
 
-				return $(this).find('a.name').attr('href');
+				var href = $(this).find('a.name').attr('href');
+
+				if(href.indexOf('.psd')>0)
+					return;
+				else
+					return href;
 			}).get();
 			$.fancybox(gallerie, {
 				type: 'image', 
