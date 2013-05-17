@@ -203,13 +203,13 @@ class App {
 	 * @brief returns the vcategories object of the user
 	 * @return (object) $vcategories
 	 */
-	public static function getVCategories() {
+	public static function getVCategories($user = null) {
 		if (is_null(self::$categories)) {
 			if(\OC_VCategories::isEmpty('contact')) {
 				self::scanCategories();
 			}
 			self::$categories = new \OC_VCategories('contact',
-				null,
+				$user,
 				self::getDefaultCategories());
 		}
 		return self::$categories;
@@ -278,11 +278,11 @@ class App {
 	 * check VCard for new categories.
 	 * @see OC_VCategories::loadFromVObject
 	 */
-	public static function loadCategoriesFromVCard($id, $contact) {
+	public static function loadCategoriesFromVCard($id, $contact, $user = null) {
 		if(!$contact instanceof \OC_VObject) {
 			$contact = new \OC_VObject($contact);
 		}
-		self::getVCategories()->loadFromVObject($id, $contact, true);
+		self::getVCategories($user)->loadFromVObject($id, $contact, true);
 	}
 
 	/**
