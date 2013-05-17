@@ -6,14 +6,13 @@
 <ul>
 <?php foreach($_['bagged_files'] as $file):?>
 	<li><?php print_unescaped($file);?>
-	<!-- <input type="checkbox"></input></li>-->
 <?php endforeach;?>
 </ul>
 </div>
 
 <div style="float:left; padding:20px;">
-	<input onClick="emptyBag();" type="button" value="Clear Bag"/>
-	<input onClick="createZipPackage();" type="button" value="Download Zip"/>
+	<input class="clear" type="button" value="Clear Crate"/>
+	<input class="download" type="button" value="Download Crate as zip"/>
 </div><br>
 <div>
 <?php //print_r(get_loaded_extensions())?>

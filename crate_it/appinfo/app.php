@@ -11,6 +11,7 @@ OC::$CLASSPATH['BagItFetch'] = 'apps/crate_it/3rdparty/BagIt/bagit_fetch.php';
 
 //load the required files
 OCP\Util::addscript( 'crate_it', 'loader');
+OCP\Util::addscript('crate_it', 'crate');
 
 OCP\App::addNavigationEntry( array( "id" => "crate",
 									"order" => 250,
