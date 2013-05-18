@@ -229,6 +229,9 @@ class App {
 	 * @return (array) $categories
 	 */
 	public static function getDefaultCategories() {
+		if(\OCP\Config::getUserValue(\OCP\User::getUser(), 'contacts', 'categories_scanned', 'no') === 'yes') {
+			return array();
+		}
 		return array(
 			(string)self::$l10n->t('Friends'),
 			(string)self::$l10n->t('Family'),
@@ -242,6 +245,9 @@ class App {
 	 * @param $vccontacts VCards to scan. null to check all vcards for the current user.
 	 */
 	public static function scanCategories($vccontacts = null) {
+		if(\OCP\Config::getUserValue(\OCP\User::getUser(), 'contacts', 'categories_scanned', 'no') === 'yes') {
+			return;
+		}
 		if (is_null($vccontacts)) {
 			$vcaddressbooks = Addressbook::all(\OCP\USER::getUser());
 			if(count($vcaddressbooks) > 0) {
@@ -272,6 +278,7 @@ class App {
 				}
 			}
 		}
+		\OCP\Config::setUserValue(\OCP\User::getUser(), 'contacts', 'categories_scanned', 'yes');
 	}
 
 	/**
