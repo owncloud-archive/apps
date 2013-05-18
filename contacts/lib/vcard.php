@@ -169,19 +169,50 @@ class VCard {
 	}
 
 	/**
-	* @brief Format property TYPE parameters for upgrading from v. 2.1
-	* @param $property Reference to a Sabre_VObject_Property.
+	* VCards with version 2.1, 3.0 and 4.0 are found.
+	*
+	* If the VCARD doesn't know its version, 3.0 is assumed and if
+	* option UPGRADE is given it will be upgraded to version 3.0.
+	*/
+	const DEFAULT_VERSION = '3.0';
+
+	/**
+	* The vCard 2.1 specification allows parameter values without a name.
+	* The parameter name is then determined from the unique parameter value.
 	* In version 2.1 e.g. a phone can be formatted like: TEL;HOME;CELL:123456789
 	* This has to be changed to either TEL;TYPE=HOME,CELL:123456789 or TEL;TYPE=HOME;TYPE=CELL:123456789 - both are valid.
+	*
+	* From: https://github.com/barnabywalters/vcard/blob/master/barnabywalters/VCard/VCard.php
+	*
+	* @param string value
+	* @return string
 	*/
-	public static function formatPropertyTypes(&$property) {
-		foreach($property->parameters as $key=>&$parameter) {
-			$types = App::getTypesOfProperty($property->name);
-			if(is_array($types) && in_array(strtoupper($parameter->name), array_keys($types)) || strtoupper($parameter->name) == 'PREF') {
-				$property->parameters[] = new \Sabre\VObject\Parameter('TYPE', $parameter->name);
-			}
-			unset($property->parameters[$key]);
+	public static function paramName($value) {
+		static $types = array (
+				'DOM', 'INTL', 'POSTAL', 'PARCEL','HOME', 'WORK',
+				'PREF', 'VOICE', 'FAX', 'MSG', 'CELL', 'PAGER',
+				'BBS', 'MODEM', 'CAR', 'ISDN', 'VIDEO',
+				'AOL', 'APPLELINK', 'ATTMAIL', 'CIS', 'EWORLD',
+				'INTERNET', 'IBMMAIL', 'MCIMAIL',
+				'POWERSHARE', 'PRODIGY', 'TLX', 'X400',
+				'GIF', 'CGM', 'WMF', 'BMP', 'MET', 'PMB', 'DIB',
+				'PICT', 'TIFF', 'PDF', 'PS', 'JPEG', 'QTIME',
+				'MPEG', 'MPEG2', 'AVI',
+				'WAVE', 'AIFF', 'PCM',
+				'X509', 'PGP');
+		static $values = array (
+				'INLINE', 'URL', 'CID');
+		static $encodings = array (
+				'7BIT', 'QUOTED-PRINTABLE', 'BASE64');
+		$name = 'UNKNOWN';
+		if (in_array($value, $types)) {
+			$name = 'TYPE';
+		} elseif (in_array($value, $values)) {
+			$name = 'VALUE';
+		} elseif (in_array($value, $encodings)) {
+			$name = 'ENCODING';
 		}
+		return $name;
 	}
 
 	/**
@@ -193,6 +224,10 @@ class VCard {
 	public static function decodeProperty(&$property) {
 		// Check out for encoded string and decode them :-[
 		foreach($property->parameters as $key=>&$parameter) {
+			if(trim($parameter->value) === '') {
+				$parameter->value = $parameter->name;
+				$parameter->name = self::paramName($parameter->name);
+			}
 			if(strtoupper($parameter->name) == 'ENCODING') {
 				if(strtoupper($parameter->value) == 'QUOTED-PRINTABLE') { // what kind of other encodings could be used?
 					// Decode quoted-printable and strip any control chars
@@ -253,19 +288,18 @@ class VCard {
 	* @param vcard A Sabre\VObject\Component of type VCARD (passed by reference).
 	*/
 	protected static function updateValuesFromAdd($aid, &$vcard) { // any suggestions for a better method name? ;-)
-		$stringprops = array('N', 'FN', 'ORG', 'NICK', 'ADR', 'NOTE');
-		$typeprops = array('ADR', 'TEL', 'EMAIL');
+		$stringprops = array('N', 'FN', 'ORG', 'NICK', 'ADR', 'NOTE', 'TEL', 'EMAIL', 'URL');
 		$upgrade = false;
 		$fn = $n = $uid = $email = $org = null;
 		$version = isset($vcard->VERSION) ? $vcard->VERSION : null;
 		// Add version if needed
 		if($version && $version < '3.0') {
 			$upgrade = true;
-			//OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. Updating from version: '.$version, OCP\Util::DEBUG);
+			\OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. Updating from version: '.$version, \OCP\Util::DEBUG);
 		}
 		foreach($vcard->children as &$property) {
 			// Decode string properties and remove obsolete properties.
-			if($upgrade && in_array($property->name, $stringprops)) {
+			if($upgrade) {
 				self::decodeProperty($property);
 			}
 			if(function_exists('iconv')) {
@@ -276,12 +310,7 @@ class VCard {
 			if(in_array($property->name, $stringprops)) {
 				$property->value = strip_tags($property->value);
 			}
-			// Fix format of type parameters.
-			if($upgrade && in_array($property->name, $typeprops)) {
-				//OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. before: '.$property->serialize(), OCP\Util::DEBUG);
-				self::formatPropertyTypes($property);
-				//OCP\Util::writeLog('contacts', 'OCA\Contacts\VCard::updateValuesFromAdd. after: '.$property->serialize(), OCP\Util::DEBUG);
-			}
+
 			if($property->name == 'FN') {
 				$fn = $property->value;
 			}
