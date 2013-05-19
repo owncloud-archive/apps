@@ -571,6 +571,18 @@ OC.Contacts = OC.Contacts || {
 			self.uploadPhoto(this.files);
 		});
 
+		var target = $('#file_upload_target');
+		target.load(function() {
+			var response=jQuery.parseJSON(target.contents().text());
+			if(response != undefined && response.status == 'success') {
+				console.log('response', response);
+				self.editPhoto(self.currentid, response.data.tmp);
+				//alert('File: ' + file.tmp + ' ' + file.name + ' ' + file.mime);
+			} else if(response) {
+				OC.notify({message:response.data.message});
+			}
+		});
+
 		$('#groupsheader > .addgroup').on('click keydown',function(event) {
 			if(wrongKey(event)) {
 				return;
@@ -1481,7 +1493,6 @@ OC.Contacts = OC.Contacts || {
 			return;
 		}
 		var file = filelist[0];
-		var target = $('#file_upload_target');
 		var form = $('#file_upload_form');
 		form.find('input[name="id"]').val(this.currentid);
 		var totalSize=0;
@@ -1493,16 +1504,6 @@ OC.Contacts = OC.Contacts || {
 			});
 			return;
 		} else {
-			target.load(function() {
-				var response=jQuery.parseJSON(target.contents().text());
-				if(response != undefined && response.status == 'success') {
-					console.log('response', response);
-					self.editPhoto(self.currentid, response.data.tmp);
-					//alert('File: ' + file.tmp + ' ' + file.name + ' ' + file.mime);
-				} else {
-					OC.notify({message:response.data.message});
-				}
-			});
 			form.submit();
 		}
 	},
