@@ -1567,6 +1567,7 @@ OC.Contacts = OC.Contacts || {
 
 		var cropphoto = new Image();
 		$(cropphoto).load(function () {
+			var x = 5, y = 5, w = this.width-10, h = this.height-10;
 			$(this).attr('id', 'cropbox');
 			$(this).prependTo($dlg).fadeIn();
 			$(this).Jcrop({
@@ -1578,7 +1579,7 @@ OC.Contacts = OC.Contacts || {
 				bgOpacity:	.4,
 				boxWidth:	400,
 				boxHeight:	400,
-				setSelect:	[ 100, 130, 50, 50 ]//,
+				setSelect:	[ w, h, x, y ]//,
 				//aspectRatio: 0.8
 			});
 			$('#edit_photo_dialog').html($dlg).dialog({
@@ -1598,7 +1599,7 @@ OC.Contacts = OC.Contacts || {
 								$('#edit_photo_dialog').remove();
 							},
 							open: function(event, ui) {
-								// Jcrop maybe?
+								showCoords({x:x,y:y,w:w,h:h});
 							}
 						});
 		}).error(function () {
