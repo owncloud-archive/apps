@@ -48,7 +48,7 @@ class BagItManager{
 			$data_dir .= $dir.'/';
 		}
 		if(is_dir($input_dir.'/'.$file)){
-			return;
+			return "Cannot add a directory";
 		}
 		
 		//add the file urls to fetch.txt so when you package the bag,
@@ -61,8 +61,12 @@ class BagItManager{
 				break;
 			}
 		}
-		if(!$file_exists){
+		if($file_exists){
+			return "File is already in crate";
+		}
+		else {
 			$this->bag->fetch->add($input_dir.$file, $data_dir.$file);
+			return "File added to crate";
 		}
 		
 		// update the hashes

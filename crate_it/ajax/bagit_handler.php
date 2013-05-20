@@ -12,7 +12,8 @@ $bagit_manager = \OCA\crate_it\lib\BagItManager::getInstance();
 
 switch ($action){
 	case 'add':
-		$bagit_manager->addToBag($dir, $file);
+		$msg = $bagit_manager->addToBag($dir, $file);
+		print $msg;
 		break;
 	case 'clear':
 		$bagit_manager->clearBag();
