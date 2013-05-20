@@ -1460,11 +1460,15 @@ OC.Contacts = OC.Contacts || {
 		};
 		var $contactelem = this.contacts.showContact(this.currentid, groupprops);
 		var self = this;
-		var $contact = $contactelem.find('#contact');
 		var adjustElems = function() {
+			var $contact = $contactelem.find('#contact');
 			var maxheight = document.documentElement.clientHeight - 200; // - ($contactelem.offset().top+70);
-			console.log('contact maxheight', maxheight);
-			$contactelem.find('ul').first().css({'max-height': maxheight, 'overflow-y': 'auto', 'overflow-x': 'hidden'});
+			var $footer = $contactelem.find('footer');
+			var minWidth = 0;
+			$.each($footer.children(), function(idx, child) {
+				minWidth += $(child).outerWidth();
+			});
+			$contact.css({'min-width' : Math.round(minWidth), 'max-height': maxheight, 'overflow-y': 'auto', 'overflow-x': 'hidden'});
 		};
 		$(window).resize(adjustElems);
 		//$contact.resizable({ minWidth: 400, minHeight: 400, maxHeight: maxheight});

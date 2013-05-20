@@ -540,8 +540,21 @@ input[type="checkbox"].propertytype { width: 10px; }
 
 .note { margin-left: 120px; }
 
-#rightcontent footer { padding: 1em; width: 100%; -moz-box-sizing: border-box; box-sizing: border-box; clear: both; }
-#rightcontent footer > { display: inline-block; }
+#contact footer {
+	padding: 5px;
+	width: 100%;
+	-moz-box-sizing: border-box; box-sizing: border-box;
+	clear: both;
+	white-space: nowrap;
+}
+#contact footer > * {
+	display: inline-block;
+	float: left;
+}
+#contact footer > .delete {
+	display: inline-block;
+	float: right;
+}
 /* contact list */
 
 #contactlist { position: relative; top: 0; left: 0; right: 0; width: 100%; }
