@@ -299,20 +299,14 @@ class App {
 	 */
 	public static function lastModified($contact = null) {
 		if(is_null($contact)) {
-			// FIXME: This doesn't take shared address books into account.
-			$sql = 'SELECT MAX(`lastmodified`) FROM `*PREFIX*contacts_cards`, `*PREFIX*contacts_addressbooks` ' .
-				'WHERE  `*PREFIX*contacts_cards`.`addressbookid` = `*PREFIX*contacts_addressbooks`.`id` AND ' .
-				'`*PREFIX*contacts_addressbooks`.`userid` = ?';
-			$stmt = \OCP\DB::prepare($sql);
-			$result = $stmt->execute(array(\OCP\USER::getUser()));
-			if (\OC_DB::isError($result)) {
-				\OC_Log::write('contacts', __METHOD__. 'DB error: ' . \OC_DB::getErrorMessage($result), \OC_Log::ERROR);
-				return null;
+			$addressBooks = Addressbook::all(\OCP\User::getUser());
+			$lastModified = 0;
+			foreach($addressBooks as $addressBook) {
+				if(isset($addressBook['ctag']) and (int)$addressBook['ctag'] > $lastModified) {
+					$lastModified = $addressBook['ctag'];
+				}
 			}
-			$lastModified = $result->fetchOne();
-			if(!is_null($lastModified)) {
-				return new \DateTime('@' . $lastModified);
-			}
+			return new \DateTime('@' . $lastModified);
 		} else if(is_numeric($contact)) {
 			$card = VCard::find($contact, array('lastmodified'));
 			return ($card ? new \DateTime('@' . $card['lastmodified']) : null);

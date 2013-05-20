@@ -409,8 +409,9 @@ class Addressbook {
 	 * @return boolean
 	 */
 	public static function touch($id) {
-		$stmt = \OCP\DB::prepare( 'UPDATE `*PREFIX*contacts_addressbooks` SET `ctag` = `ctag` + 1 WHERE `id` = ?' );
-		$stmt->execute(array($id));
+		$stmt = \OCP\DB::prepare( 'UPDATE `*PREFIX*contacts_addressbooks` SET `ctag` = ? + 1 WHERE `id` = ?' );
+		$ctag = time();
+		$stmt->execute(array($ctag, $id));
 
 		return true;
 	}
