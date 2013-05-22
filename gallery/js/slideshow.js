@@ -48,7 +48,8 @@ jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
 				width = image.width + 'px';
 				top = ((container.height() - image.height) / 2) + 'px';
 			} else {
-				width = '100%';
+				width = container.width()+'px';
+				height = (container.width()/ratio)+'px';				
 				top = ((container.height() - (container.width() / ratio)) / 2) + 'px';
 			}
 		} else {
@@ -56,7 +57,8 @@ jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
 				top = ((container.height() - image.height) / 2) + 'px';
 				height = image.height + 'px';
 			} else {
-				height = '100%';
+				height = container.height()+'px';
+				width = (container.height()*ratio)+"px";
 			}
 		}
 		$(image).css({
