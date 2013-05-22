@@ -406,7 +406,7 @@ window.onhashchange = function () {
 	if (!album) {
 		album = OC.currentUser;
 	}
-	console.log(OC.dirname(album));
+	//console.log(OC.dirname(album));
 	if (Gallery.images.indexOf(album) === -1) {
 		Gallery.slideshow.end();
 		Gallery.view.viewAlbum(album);
