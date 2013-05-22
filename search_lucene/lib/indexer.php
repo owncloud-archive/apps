@@ -51,6 +51,13 @@ class Indexer {
 				Util::WARN);
 			return false;
 		}
+		
+		if(!$view->file_exists($path)) {
+			Util::writeLog('search_lucene',
+				'file vanished, ignoring',
+				Util::DEBUG);
+			return true;
+		}
 
 		$root = $view->getRoot();
 		$pk = md5($root . $path);
