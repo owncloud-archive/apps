@@ -35,28 +35,33 @@ jQuery.fn.slideShow.loadImage = function (url) {
 	return jQuery.fn.slideShow.cache[url];
 };
 
-jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
+jQuery.fn.slideShow.showImage = function (url, preloadUrl) { 
 	var container = jQuery.fn.slideShow.container;
 	jQuery.fn.slideShow.loadImage(url).then(function (image) {
-		var ratio = image.width / image.height,
+		var ratio = image.naturalWidth / image.naturalHeight,
 			screenRatio = container.width() / container.height(),
 			width = null, height = null, top = null;
 		container.children('img').remove();
 		container.append(image);
 		if (ratio > screenRatio) {
-			if (container.width() > image.width * jQuery.fn.slideShow.settings.maxScale) {
-				width = image.width + 'px';
-				top = ((container.height() - image.height) / 2) + 'px';
+			if (container.width() > image.naturalWidth * jQuery.fn.slideShow.settings.maxScale) {
+				top = ((container.height() - (image.naturalHeight * jQuery.fn.slideShow.settings.maxScale)) / 2) + 'px';
+				height = (image.naturalHeight * jQuery.fn.slideShow.settings.maxScale) + 'px';
+				width = (image.naturalWidth * jQuery.fn.slideShow.settings.maxScale) + 'px';
 			} else {
-				width = '100%';
+				width = container.width()+'px';
+				height = (container.width()/ratio)+'px';
 				top = ((container.height() - (container.width() / ratio)) / 2) + 'px';
 			}
 		} else {
-			if (container.height() > image.height * jQuery.fn.slideShow.settings.maxScale) {
-				top = ((container.height() - image.height) / 2) + 'px';
-				height = image.height + 'px';
+			if (container.height() > image.naturalHeight * jQuery.fn.slideShow.settings.maxScale) {
+				top = ((container.height() - (image.naturalHeight * jQuery.fn.slideShow.settings.maxScale)) / 2) + 'px';
+				height = (image.naturalHeight * jQuery.fn.slideShow.settings.maxScale) + 'px';
+				width = (image.naturalWidth * jQuery.fn.slideShow.settings.maxScale) + 'px';
 			} else {
-				height = '100%';
+				top = 0;
+				height = container.height()+'px';
+				width = (container.height()*ratio)+"px";
 			}
 		}
 		$(image).css({
@@ -67,8 +72,8 @@ jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
 		if (jQuery.fn.slideShow.settings.play) {
 			jQuery.fn.slideShow.setTimeout();
 		}
-		if (preloadUrl) {
-			jQuery.fn.slideShow.loadImage(preloadUrl);
+		if (preloadUrl) {  
+			jQuery.fn.slideShow.loadImage(preloadUrl);  
 		}
 	});
 };
