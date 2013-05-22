@@ -2,7 +2,8 @@ function hidePDFviewer() {
 	$('#content table').show();
 	$("#controls").show();
 	$("#editor").show();
-	$('#pdframe, #pdfbar').remove();
+	$('iframe').remove();
+	$('a.action').remove();
 }
 
 function showPDFviewer(dir,filename){
