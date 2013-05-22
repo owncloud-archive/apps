@@ -23,10 +23,10 @@ else{
 }
 
 $inputFile = OC::$SERVERROOT.'/data/'.$user.'/files'.$sourceDir.$file;
-$outputDir = OC::$SERVERROOT.'/data/'.$user.'/files_previewer'.$previewDir;
+$outputDir = OC::$SERVERROOT.'/data/previews/'.$user.'/files'.$sourceDir.$file;
 $outputFile = $outputDir.'/'.$file_name.'.html';
 
-$web = OC::$WEBROOT;
+//$web = OC::$WEBROOT;
 
 switch ($type)
 {
@@ -40,11 +40,11 @@ switch ($type)
 		$outputFile = $outputDir.'/'.$file_name.'.html';
 }
 
-if (!(file_exists($outputFile) && (filemtime($outputFile) > filemtime($inputFile)))){
+/*if (!(file_exists($outputFile) && (filemtime($outputFile) > filemtime($inputFile)))){
 	// New file, create a preview and store in local file system
 	$command = 'python /opt/jischtml5/tools/commandline/WordDownOO.py --dataURIs --epub '.escapeshellarg($inputFile).' '.escapeshellarg($outputDir);
 	system($command, $retval);
-}
+}*/
 
 switch ($type){
 	case "epub":
