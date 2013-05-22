@@ -36,7 +36,7 @@ $(document).ready(function(){
 		PDFView.download();
 	});
 	$('#close').on('click', function(){
-		window.parent.hidePDFviewer();
+		parent.hidePDFviewer();
 	});
 	$('#zoomOut').on('click', function(){
 		PDFView.zoomOut();
