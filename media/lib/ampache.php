@@ -174,7 +174,7 @@ class Ampache {
 			$songData['length'] = $song['song_length'];
 			$songData['track'] = $song['song_track'];
 			$songData['size'] = $song['song_size'];
-			$url = \OCP\Util::linkToRemote('ampache') . 'server/xml.server.php/?action=play&song=' . $songData['id'] . '&auth=' . $_GET['auth'];
+			$url = xmlentities(\OCP\Util::linkToRemote('ampache') . 'server/xml.server.php/?action=play&song=' . $songData['id'] . '&auth=' . $_GET['auth']);
 			$songData['url'] = xmlentities($url);
 			$tmpl->append('songs', $songData);
 		}
@@ -260,8 +260,9 @@ class Ampache {
 		if ($song = $this->collection->getSong($params['song'])) {
 			\OC_Util::setupFS($song["song_user"]);
 
-			header('Content-type: ' . \OC_Filesystem::getMimeType($song['song_path']));
-			header('Content-Length: ' . $song['song_size']);
+			//These break Streaming clients & add no functionality that I can tell. -Ryan
+			//header('Content-type: ' . \OC_Filesystem::getMimeType($song['song_path']));
+			//header('Content-Length: ' . $song['song_size']);
 			\OC_Filesystem::readfile($song['song_path']);
 		}
 	}
