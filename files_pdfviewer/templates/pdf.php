@@ -106,8 +106,8 @@
 						</button>
 
                                                 <button id="download" class="toolbarButton download" title="Download" tabindex="15" data-l10n-id="download">
--                                                 <span data-l10n-id="download_label">Download</span>
--                                               </button>
+                                                  <span data-l10n-id="download_label">Download</span>
+                                                </button>
 
 						<!-- <div class="toolbarButtonSpacer"></div> -->
 						<a href="#" id="viewBookmark" style="display:none;" class="toolbarButton bookmark" title="Current view (copy or open in new window)" tabindex="15" data-l10n-id="bookmark"><span data-l10n-id="bookmark_label">Current View</span></a>
