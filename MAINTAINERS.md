@@ -27,7 +27,6 @@ Apps repo
 | impress | [@karlitschek]
 | impressionist | [@raghunayyar]
 | imprint | [@arkascha], **New maintainer needed**
-| media | **No maintainer**
 | mozilla_sync | [@jaskoola]
 | notify | [@CBiX]
 | ownpad_lite | [@VicDeo]
@@ -67,6 +66,7 @@ Other repos
 | /[appframework] | appframework | [@Raydiation]
 | /[apptemplateadvanced] | apptemplateadvanced | [@Raydiation]
 | /[mail] | mail | *Jakob, Bart, Tom* [@DeepDiver1975]
+| /[media] | media | [@kabum]
 | /[news] | news | [@zimba12], [@Raydiation], [@jancborchardt]
 | /[notes] | notes | [@icewind1991], [@jancborchardt], [@caco3]
 | /[apps-playground] | movies | [@karlitschek]
