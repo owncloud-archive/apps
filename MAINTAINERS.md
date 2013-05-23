@@ -79,6 +79,7 @@ Other repos
 [appframework]: https://github.com/owncloud/appframework
 [apptemplateadvanced]: https://github.com/owncloud/apptemplateadvanced
 [mail]: https://github.com/owncloud/mail
+[media]: https://github.com/owncloud/media
 [news]: https://github.com/owncloud/news
 [notes]: https://github.com/owncloud/notes
 [apps-playground]: https://github.com/owncloud/apps-playground
@@ -101,7 +102,9 @@ Other repos
 [@icewind1991]: https://github.com/icewind1991
 [@jancborchardt]: https://github.com/jancborchardt
 [@jaskoola]: https://github.com/jaskoola
+[@kabum]: https://github.com/kabum
 [@karlitschek]: https://github.com/karlitschek
+[@ldidry]: https://github.com/ldidry
 [@LukasReschke]: https://github.com/LukasReschke
 [@michielbdejong]: https://github.com/michielbdejong
 [@MTGap]: https://github.com/MTGap
