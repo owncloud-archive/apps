@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# uqkun <uqkun@outlook.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-02 00:49+0200\n"
-"PO-Revision-Date: 2012-08-25 23:18+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Uighur (http://www.transifex.com/projects/p/owncloud/language/ug/)\n"
+"POT-Creation-Date: 2013-05-24 00:48+0200\n"
+"PO-Revision-Date: 2013-05-08 16:20+0000\n"
+"Last-Translator: uqkun <uqkun@outlook.com>\n"
+"Language-Team: Uighur <uqkun@outlook.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,21 +20,21 @@ msgstr ""
 
 #: templates/presentations.php:5
 msgid "Documentation"
-msgstr ""
+msgstr "قوللانما"
 
 #: templates/presentations.php:10
 msgid ""
 "No Impress files are found in your ownCloud. Please upload a .impress file."
-msgstr ""
+msgstr "No Impress files are found in your ownCloud. Please upload a .impress file."
 
 #: templates/presentations.php:12
 msgid "Name"
-msgstr ""
+msgstr "ئاتى"
 
 #: templates/presentations.php:12
 msgid "Size"
-msgstr ""
+msgstr "چوڭلۇقى"
 
 #: templates/presentations.php:12
 msgid "Date"
-msgstr ""
+msgstr "چېسلا"

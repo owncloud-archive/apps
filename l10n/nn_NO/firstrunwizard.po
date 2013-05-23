@@ -4,12 +4,13 @@
 # 
 # Translators:
 # unhammer <unhammer+dill@mm.st>, 2013
+# unhammer <unhammer+dill@mm.st>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-30 00:49+0200\n"
-"PO-Revision-Date: 2013-04-29 12:00+0000\n"
+"POT-Creation-Date: 2013-05-24 00:48+0200\n"
+"PO-Revision-Date: 2013-05-16 09:30+0000\n"
 "Last-Translator: unhammer <unhammer+dill@mm.st>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +35,7 @@ msgstr "Få app-ar som kan synkronisera filene dine"
 
 #: templates/wizard.php:23
 msgid "Connect your desktop apps to ownCloud"
-msgstr "Kopla skrivebordsapplikasjonane dine til ownCloud"
+msgstr "Kopla skrivebordsprogramma dine til ownCloud"
 
 #: templates/wizard.php:25
 msgid "Connect your Calendar"

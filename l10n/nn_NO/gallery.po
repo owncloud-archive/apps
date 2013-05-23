@@ -4,12 +4,13 @@
 # 
 # Translators:
 # erviker <erviker@gmail.com>, 2012
+# unhammer <unhammer+dill@mm.st>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-01 00:49+0200\n"
-"PO-Revision-Date: 2013-04-30 12:21+0000\n"
+"POT-Creation-Date: 2013-05-24 00:48+0200\n"
+"PO-Revision-Date: 2013-05-16 09:30+0000\n"
 "Last-Translator: unhammer <unhammer+dill@mm.st>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +21,11 @@ msgstr ""
 
 #: appinfo/app.php:36
 msgid "Pictures"
-msgstr ""
+msgstr "Bilete"
 
 #: js/gallery.js:269
 msgid "Shared by"
-msgstr ""
+msgstr "Delt av"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
@@ -34,4 +35,4 @@ msgstr "Del"
 msgid ""
 "The \"Image Viewer\" application also need to be enabled to use this "
 "application."
-msgstr ""
+msgstr "«Biletvisar»-programmet må òg vera skrudd på for å bruka dette programmet."

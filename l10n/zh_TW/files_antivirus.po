@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-27 00:49+0200\n"
-"PO-Revision-Date: 2013-04-26 08:25+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-05-24 00:48+0200\n"
+"PO-Revision-Date: 2013-05-06 07:20+0000\n"
+"Last-Translator: pellaeon <nfsmwlin@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/owncloud/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +46,7 @@ msgstr "模式"
 
 #: templates/settings.php:5
 msgid "Executable"
-msgstr "可執行"
+msgstr "執行檔"
 
 #: templates/settings.php:5
 msgid "Daemon"
@@ -66,7 +66,7 @@ msgstr "在可執行模式中不需要"
 
 #: templates/settings.php:8
 msgid "Port"
-msgstr "連接阜"
+msgstr "連接埠"
 
 #: templates/settings.php:8
 msgid "Port number of Antivirus Host."

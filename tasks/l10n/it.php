@@ -22,7 +22,7 @@
 "Order Label" => "Ordina etichetta",
 "Loading tasks..." => "Caricamento attività in corso...",
 "Important" => "Importante",
-"More" => "Più",
+"More" => "Altro",
 "Less" => "Meno",
 "Delete" => "Elimina"
 );
