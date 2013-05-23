@@ -388,8 +388,11 @@ $(document).ready(function () {
 		var i = $('#gallery').children('a.image').index(this),
 			image = $(this).data('path');
 		event.preventDefault();
-		location.hash = image;
 		Gallery.slideshow.start(i, {play: Gallery.slideshow.playPause.playing});
+		if (location.hash != image) {
+			location.hash = image;
+			Gallery.slideshow.start(i, {play: Gallery.slideshow.playPause.playing});
+		}
 	});
 	$('body').append($('#slideshow')); //move the slideshow outside the content so we can hide the content
 
@@ -406,7 +409,6 @@ window.onhashchange = function () {
 	if (!album) {
 		album = OC.currentUser;
 	}
-	//console.log(OC.dirname(album));
 	if (Gallery.images.indexOf(album) === -1) {
 		Gallery.slideshow.end();
 		Gallery.view.viewAlbum(album);
