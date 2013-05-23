@@ -293,8 +293,10 @@ $(document).ready(function () {
 		var i = images.index(this),
 			image = $(this).data('path');
 		event.preventDefault();
-		location.hash = image;
-		Slideshow.start(images, i, {play: Slideshow.playPause.playing});
+		if (location.hash != image) {
+			location.hash = image;
+			Slideshow.start(images, i, {play: Slideshow.playPause.playing});
+		}
 	});
 
 	jQuery.fn.slideShow.onstop = function () {
@@ -310,12 +312,11 @@ window.onhashchange = function () {
 	if (!album) {
 		album = OC.currentUser;
 	}
-	//console.log(OC.dirname(album));
 	if (Gallery.images.indexOf(album) === -1) {
 		Slideshow.end();
 		Gallery.view.viewAlbum(album);
 	} else {
 		Gallery.view.viewAlbum(OC.dirname(album));
-		//$('#gallery a.image[data-path="' + album + '"]').click();
+		$('#gallery a.image[data-path="' + album + '"]').click();
 	}
 };
