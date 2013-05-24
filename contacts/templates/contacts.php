@@ -297,7 +297,7 @@
 				</select>
 				<input type="checkbox" class="parameter tooltipped rightwards" data-parameter="TYPE" name="parameters[TYPE][]" value="PREF" title="<?php p($l->t('Preferred')); ?>" />
 			</span>
-			<input type="email" class="nonempty value" name="value" value="{value}" x-moz-errormessage="<?php p($l->t('Please specify a valid email address.')); ?>" placeholder="<?php p($l->t('someone@example.com')); ?>" required />
+			<input type="email" class="nonempty value" name="value" value="{value}" x-moz-errormessage="<?php p($l->t('Please specify a valid email address.')); ?>" placeholder="someone@example.com" required />
 			<span class="listactions">
 				<a class="action mail tooltipped leftwards" title="<?php p($l->t('Mail to address')); ?>"></a>
 				<a role="button" class="action delete tooltipped leftwards" title="<?php p($l->t('Delete email address')); ?>"></a>
