@@ -54,6 +54,17 @@ OC.Contacts = OC.Contacts || {};
 		}*/
 	};
 
+	Contact.prototype.handleURL = function(obj) {
+		if(!obj) {
+			return;
+		}
+		var $container = this.propertyContainerFor(obj);
+		$(document).trigger('request.openurl', {
+			type: $container.data('element'),
+			url: this.valueFor(obj)
+		});
+	};
+
 	Contact.prototype.pushToUndo = function(params) {
 		// Check if the same property has been changed before
 		// and update it's checksum if so.
@@ -820,6 +831,14 @@ OC.Contacts = OC.Contacts || {};
 				return;
 			}
 			self.deleteProperty({obj:event.target});
+		});
+
+		this.$fullelem.on('click keydown', '.globe,.mail', function(event) {
+			$('.tipsy').remove();
+			if(wrongKey(event)) {
+				return;
+			}
+			self.handleURL(event.target);
 		});
 
 		this.$footer.on('click keydown', 'button', function(event) {

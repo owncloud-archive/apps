@@ -385,6 +385,41 @@ OC.Contacts = OC.Contacts || {
 			// TODO: To be decided.
 		});
 
+		$(document).bind('request.openurl', function(e, data) {
+			console.log('request.openurl');
+			switch(data.type) {
+				case 'url':
+					var regexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!-\/]))?/;
+					//if(new RegExp("[a-zA-Z0-9]+://([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(data.url)) {
+					if(regexp.test(data.url)) {
+						var newWindow = window.open(data.url,'_blank');
+						newWindow.focus();
+					} else {
+						$(document).trigger('status.contact.error', {
+							status: 'error',
+							message: t('contacts', 'Invalid URL: "{url}"', {url:data.url})
+						});
+					}
+					break;
+				case 'email':
+					var regexp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+					if(regexp.test(data.url)) {
+						console.log('success');
+						try {
+							window.location = 'mailto:' + data.url;
+						} catch(e) {
+							alert(t('contacts', 'There was an error opening a mail composer.'));
+						}
+					} else {
+						$(document).trigger('status.contact.error', {
+							status: 'error',
+							message: t('contacts', 'Invalid email: "{url}"', {url:data.url})
+						});
+					}
+					break;
+			}
+		});
+
 		// A contact id was in the request
 		$(document).bind('request.loadcontact', function(e, result) {
 			console.log('request.loadcontact', result);
@@ -769,13 +804,10 @@ OC.Contacts = OC.Contacts || {
 				return;
 			}
 			if($(event.target).is('a.mailto')) {
-				var mailto = 'mailto:' + $.trim($(this).find('.email').text());
-				console.log('mailto', mailto);
-				try {
-					window.location.href=mailto;
-				} catch(e) {
-					alert(t('contacts', 'There was an error opening a mail composer.'));
-				}
+				$(document).trigger('request.openurl', {
+					type: 'email',
+					url: $.trim($(this).find('.email').text())
+				});
 				return;
 			}
 			self.openContact($(this).data('id'));
@@ -1459,6 +1491,7 @@ OC.Contacts = OC.Contacts || {
 			currentgroup: {id:this.currentgroup, name:this.groups.nameById(this.currentgroup)}
 		};
 		var $contactelem = this.contacts.showContact(this.currentid, groupprops);
+		console.log('$contactelem', $contactelem);
 		var self = this;
 		var adjustElems = function() {
 			var $contact = $contactelem.find('#contact');
