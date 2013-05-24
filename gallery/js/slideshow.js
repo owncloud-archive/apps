@@ -1,7 +1,7 @@
 jQuery.fn.slideShow = function (container, start, options) {
 	var i, images = [], settings;
 	start = start || 0;
-	settings = $.extend({
+	settings = jQuery.extend({
 		'interval': 5000,
 		'play': true,
 		'maxScale': 2
@@ -17,7 +17,12 @@ jQuery.fn.slideShow = function (container, start, options) {
 	jQuery.fn.slideShow.images = images;
 	jQuery.fn.slideShow.cache = [];
 	jQuery.fn.slideShow.showImage(images[start], images[start + 1]);
-	jQuery.fn.slideShow.progressBar = container.find('.progress');
+	jQuery.fn.slideShow.progressBar = container.find('.progress');	
+	jQuery(window).resize(function () {
+		jQuery.fn.slideShow.loadImage(jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]).then(function(image) {
+			jQuery.fn.slideShow.fitImage(container, image);
+		});
+	});
 	return jQuery.fn.slideShow;
 };
 
@@ -26,49 +31,75 @@ jQuery.fn.slideShow.progressBar = null;
 jQuery.fn.slideShow.loadImage = function (url) {
 	if (!jQuery.fn.slideShow.cache[url]) {
 		jQuery.fn.slideShow.cache[url] = new jQuery.Deferred();
-		image = new Image();
+		var image = new Image();
+		jQuery.fn.slideShow.cache[url].fail(function (u) {
+			image = false;
+			jQuery.fn.slideShow.cache[url] = false;
+		});
 		image.onload = function () {
-			jQuery.fn.slideShow.cache[url].resolve(image);
+			if (image) {
+				image.natWidth = image.width;
+				image.natHeight = image.height;
+			}
+			if (jQuery.fn.slideShow.cache[url]) {
+				jQuery.fn.slideShow.cache[url].resolve(image);
+			}
+		};
+		image.onerror = function () {
+			if (jQuery.fn.slideShow.cache[url]) {
+				jQuery.fn.slideShow.cache[url].reject(url);
+			}
 		};
 		image.src = url;
 	}
 	return jQuery.fn.slideShow.cache[url];
 };
 
+jQuery.fn.slideShow.fitImage = function (container, image) {
+	var ratio = image.natWidth / image.natHeight,
+		screenRatio = container.width() / container.height(),
+		width = null, height = null, top = null;
+	if (ratio > screenRatio) {
+		if (container.width() > image.natWidth * jQuery.fn.slideShow.settings.maxScale) {
+			top = ((container.height() - (image.natHeight * jQuery.fn.slideShow.settings.maxScale)) / 2) + 'px';
+			height = (image.natHeight * jQuery.fn.slideShow.settings.maxScale) + 'px';
+			width = (image.natWidth * jQuery.fn.slideShow.settings.maxScale) + 'px';
+		} else {
+			width = container.width()+'px';
+			height = (container.width()/ratio)+'px';
+			top = ((container.height() - (container.width() / ratio)) / 2) + 'px';
+		}
+	} else {
+		if (container.height() > image.natHeight * jQuery.fn.slideShow.settings.maxScale) {
+			top = ((container.height() - (image.natHeight * jQuery.fn.slideShow.settings.maxScale)) / 2) + 'px';
+			height = (image.natHeight * jQuery.fn.slideShow.settings.maxScale) + 'px';
+			width = (image.natWidth * jQuery.fn.slideShow.settings.maxScale) + 'px';
+		} else {
+			top = 0;
+			height = container.height()+'px';
+			width = (container.height()*ratio)+"px";
+		}
+	}
+	jQuery(image).css({
+		top: top,
+		width: width,
+		height: height
+	});
+}
+
 jQuery.fn.slideShow.showImage = function (url, preloadUrl) {
 	var container = jQuery.fn.slideShow.container;
 	jQuery.fn.slideShow.loadImage(url).then(function (image) {
-		var ratio = image.width / image.height,
-			screenRatio = container.width() / container.height(),
-			width = null, height = null, top = null;
-		container.children('img').remove();
-		container.append(image);
-		if (ratio > screenRatio) {
-			if (container.width() > image.width * jQuery.fn.slideShow.settings.maxScale) {
-				width = image.width + 'px';
-				top = ((container.height() - image.height) / 2) + 'px';
-			} else {
-				width = '100%';
-				top = ((container.height() - (container.width() / ratio)) / 2) + 'px';
+		if (url == jQuery.fn.slideShow.images[jQuery.fn.slideShow.current]) {
+			container.children('img').remove();
+			container.append(image);
+			jQuery.fn.slideShow.fitImage(container, image);
+			if (jQuery.fn.slideShow.settings.play) {
+				jQuery.fn.slideShow.setTimeout();
 			}
-		} else {
-			if (container.height() > image.height * jQuery.fn.slideShow.settings.maxScale) {
-				top = ((container.height() - image.height) / 2) + 'px';
-				height = image.height + 'px';
-			} else {
-				height = '100%';
+			if (preloadUrl) {  
+				jQuery.fn.slideShow.loadImage(preloadUrl);  
 			}
-		}
-		$(image).css({
-			top: top,
-			width: width,
-			height: height
-		});
-		if (jQuery.fn.slideShow.settings.play) {
-			jQuery.fn.slideShow.setTimeout();
-		}
-		if (preloadUrl) {
-			jQuery.fn.slideShow.loadImage(preloadUrl);
 		}
 	});
 };
@@ -111,7 +142,7 @@ jQuery.fn.slideShow.next = function () {
 			jQuery.fn.slideShow.current = 0;
 		}
 		var image = jQuery.fn.slideShow.images[jQuery.fn.slideShow.current],
-			nextImage = jQuery.fn.slideShow.images[jQuery.fn.slideShow.current + 1];
+			nextImage = jQuery.fn.slideShow.images[(jQuery.fn.slideShow.current + 1) % jQuery.fn.slideShow.images.length];
 		jQuery.fn.slideShow.showImage(image, nextImage);
 	}
 };
@@ -123,7 +154,7 @@ jQuery.fn.slideShow.previous = function () {
 			jQuery.fn.slideShow.current = jQuery.fn.slideShow.images.length - 1;
 		}
 		var image = jQuery.fn.slideShow.images[jQuery.fn.slideShow.current],
-			previousImage = jQuery.fn.slideShow.images[jQuery.fn.slideShow.current - 1];
+			previousImage = jQuery.fn.slideShow.images[(jQuery.fn.slideShow.current - 1 + jQuery.fn.slideShow.images.length) % jQuery.fn.slideShow.images.length];
 		jQuery.fn.slideShow.showImage(image, previousImage);
 	}
 };
@@ -146,3 +177,4 @@ jQuery.fn.slideShow.hideImage = function () {
 };
 
 jQuery.fn.slideShow.onstop = null;
+
