@@ -3,5 +3,6 @@
 "Done." => "Valmis.",
 "Here is your backup: " => "Siin on su varukoopia:",
 "Error" => "Viga",
-"Update" => "Uuenda"
+"Update" => "Uuenda",
+"Up to date" => "Ajakohane"
 );

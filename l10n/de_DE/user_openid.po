@@ -5,7 +5,7 @@
 # Translators:
 # a.tangemann <a.tangemann@web.de>, 2013
 # Mirodin <blobbyjj@ymail.com>, 2012
-# deh3nne <deh3nne@deviantdev.com>, 2012
+# deh3nne, 2012
 # Lukas Reschke <lukas@statuscode.ch>, 2012
 # JamFX <niko@nik-o-mat.de>, 2012
 # I Robot <owncloud-bot@tmit.eu>, 2012
@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-04-27 00:49+0200\n"
-"PO-Revision-Date: 2013-04-26 08:24+0000\n"
+"POT-Creation-Date: 2013-05-25 00:49+0200\n"
+"PO-Revision-Date: 2013-05-24 13:25+0000\n"
 "Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: German (Germany) <translations@owncloud.org>\n"
 "MIME-Version: 1.0\n"
