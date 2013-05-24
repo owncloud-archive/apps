@@ -3,42 +3,15 @@
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('file_previewer');
 
-$dir = isset($_GET['dir']) ? $_GET['dir'] : '';
-$file = isset($_GET['file']) ? $_GET['file'] : '';
-$type = isset($_GET['type']) ? $_GET['type'] : 'html';
+$file = isset($_GET['link']) ? $_GET['link'] : '';
+
 $user = OCP\User::getUser();
 
 $path_parts = pathinfo($file);
-$file_name = basename($file, '.'.$path_parts['extension']);
+$extension = $path_parts['extension'];
 
-$mime = "application/msword";
-
-if($dir === '/'){
-	$sourceDir = $dir;
-	$previewDir = $dir.$user.'/'.$file_name;
-}
-else{
-	$sourceDir = $dir.'/';
-	$previewDir = $dir.'/'.$file_name;
-}
-
-$inputFile = OC::$SERVERROOT.'/data/'.$user.'/files'.$sourceDir.$file;
-$outputDir = OC::$SERVERROOT.'/data/previews/'.$user.'/files'.$sourceDir.$file;
-$outputFile = $outputDir.'/'.$file_name.'.html';
-
-//$web = OC::$WEBROOT;
-
-switch ($type)
-{
-	case "epub":
-		$outputFile = $outputDir.'/'.$file_name.'.epub';
-		break;
-	case "pdf":
-		$outputFile = $outputDir.'/'.$file_name.'.pdf';
-		break;
-	default:
-		$outputFile = $outputDir.'/'.$file_name.'.html';
-}
+$sourceDir = OC::$SERVERROOT.'/data/previews/'.$user.'/files'.$path_parts['dirname'];
+$outputFile = $sourceDir.'/'.$path_parts['basename'];
 
 /*if (!(file_exists($outputFile) && (filemtime($outputFile) > filemtime($inputFile)))){
 	// New file, create a preview and store in local file system
@@ -46,12 +19,12 @@ switch ($type)
 	system($command, $retval);
 }*/
 
-switch ($type){
+switch ($extension){
 	case "epub":
 		//Download epub
 		header("Content-type:application/epub+zip");
 		header("Content-Type: application/force-download");
-		header("Content-Disposition: attachment;filename=".$file_name.'.epub');
+		header("Content-Disposition: attachment;filename=".$path_parts['basename']);
 		readfile($outputFile);
 	case "pdf":
 		//TODO
@@ -60,5 +33,3 @@ switch ($type){
 		$content = file_get_contents($outputFile);
 		print $content;
 }
-
-//TODO: stop using data URIs
