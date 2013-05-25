@@ -146,3 +146,140 @@ jQuery.fn.slideShow.hideImage = function () {
 };
 
 jQuery.fn.slideShow.onstop = null;
+
+Slideshow = {};
+Slideshow.start = function (images, start, options) {
+	
+	var content = $('#content');
+	start = start || 0;
+	Thumbnail.concurrent = 1; //make sure we can load the image and doesn't get blocked by loading thumbnail
+	if (content.is(":visible") && typeof Gallery!=='undefined') {
+		Gallery.scrollLocation = $(window).scrollTop();
+	}
+	images.slideShow($('#slideshow'), start, options);
+	content.hide();
+};
+
+Slideshow.end = function () {
+	jQuery.fn.slideShow.stop();
+};
+
+Slideshow.next = function (event) {
+	if (event) {
+		event.stopPropagation();
+	}
+	jQuery.fn.slideShow.hideImage();
+	jQuery.fn.slideShow.next();
+};
+
+Slideshow.previous = function (event) {
+	if (event) {
+		event.stopPropagation();
+	}
+	jQuery.fn.slideShow.hideImage();
+	jQuery.fn.slideShow.previous();
+};
+
+Slideshow.pause = function (event) {
+	if (event) {
+		event.stopPropagation();
+	}
+	$('#slideshow').children('.play').show();
+	$('#slideshow').children('.pause').hide();
+	Slideshow.playPause.playing = false;
+	jQuery.fn.slideShow.pause();
+};
+
+Slideshow.play = function (event) {
+	if (event) {
+		event.stopPropagation();
+	}
+	$('#slideshow').children('.play').hide();
+	$('#slideshow').children('.pause').show();
+	Slideshow.playPause.playing = true;
+	jQuery.fn.slideShow.play();
+};
+Slideshow.playPause = function () {
+	if (Slideshow.playPause.playing) {
+		Slideshow.pause();
+	} else {
+		Slideshow.play();
+	}
+};
+Slideshow.playPause.playing = true;
+Slideshow._getSlideshowTemplate = function() {
+	var defer = $.Deferred();
+	if(!this.$slideshowTemplate) {
+		var self = this;
+		$.get(OC.filePath('gallery', 'templates', 'slideshow.html'), function(tmpl) {
+			self.$slideshowTemplate = $(tmpl);
+			defer.resolve(self.$slideshowTemplate);
+		})
+		.fail(function() {
+			defer.reject();
+		});
+	} else {
+		defer.resolve(this.$slideshowTemplate);
+	}
+	return defer.promise();
+};
+
+$(document).ready(function () {
+
+	//close slideshow on esc
+	$(document).keyup(function (e) {
+		if (e.keyCode === 27) { // esc
+			Slideshow.end();
+		} else if (e.keyCode == 37) { // left
+			Slideshow.previous();
+		} else if (e.keyCode == 39) { // right
+			Slideshow.next();
+		} else if (e.keyCode == 32) { // space
+			Slideshow.playPause();
+		}
+	});
+	
+	$.when(Slideshow._getSlideshowTemplate()).then(function($tmpl) {
+		$('body').append($tmpl); //move the slideshow outside the content so we can hide the content
+		
+		var slideshow = $('#slideshow');
+		slideshow.children('.next').click(Slideshow.next);
+		slideshow.children('.previous').click(Slideshow.previous);
+		slideshow.children('.exit').click(jQuery.fn.slideShow.stop);
+		slideshow.children('.pause').click(Slideshow.pause);
+		slideshow.children('.play').click(Slideshow.play);
+		slideshow.click(Slideshow.next);
+		
+		if ($.fn.mousewheel) {
+			slideshow.bind('mousewheel.fb', function(e, delta) {
+					e.preventDefault();
+				if ($(e.target).get(0).clientHeight == 0 || $(e.target).get(0).scrollHeight === $(e.target).get(0).clientHeight) {
+					if (delta > 0) {
+						Slideshow.previous();
+					} else {
+						Slideshow.next();
+					}
+				}
+			});
+		}
+	})
+	.fail(function() {
+		alert(t('core', 'Error loading slideshow template'));
+	});
+
+
+	
+	if(typeof FileActions!=='undefined' && typeof Slideshow!=='undefined'){
+		FileActions.register('image','View', OC.PERMISSION_READ, '',function(filename){
+			var images = $('#fileList tr[data-mime^="image"] a.name');
+			var start = 0;
+			$.each(images, function (i,e) {
+				if ($(e).parents('tr').data('file') == filename) {
+					start = i;
+				}
+			});
+			images.slideShow($('#slideshow'), start);
+		});
+		FileActions.setDefault('image','View');
+	}
+});

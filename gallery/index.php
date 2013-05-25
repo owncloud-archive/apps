@@ -11,7 +11,6 @@ OCP\App::checkAppEnabled('gallery');
 OCP\App::setActiveNavigationEntry('gallery_index');
 
 OCP\Util::addScript('gallery', 'gallery');
-OCP\Util::addScript('gallery', 'slideshow');
 OCP\Util::addScript('gallery', 'thumbnail');
 OCP\Util::addStyle('gallery', 'styles');
 
