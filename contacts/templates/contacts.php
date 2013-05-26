@@ -30,7 +30,7 @@
 					<li class="import-upload">
 						<form id="import_upload_form" action="<?php print_unescaped(OCP\Util::linkTo('contacts', 'ajax/uploadimport.php')); ?>" method="post" enctype="multipart/form-data" target="import_upload_target">
 						<input type="hidden" name="MAX_FILE_SIZE" value="<?php p($_['uploadMaxFilesize']) ?>" id="max_upload">
-						<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>" id="max_upload">
+						<input type="hidden" name="requesttoken" value="<?php p($_['requesttoken']) ?>" id="requesttoken">
 						<label for="import_fileupload"><?php p($l->t('Select files to import')); ?>
 							<button class="import-upload-button" title="<?php p($l->t('Select files')); ?>"></button>
 						</label>
