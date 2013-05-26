@@ -461,6 +461,7 @@ OC.Contacts = OC.Contacts || {};
 	 */
 	Contact.prototype.close = function() {
 		console.log('Contact.close', this);
+		$(document).unbind('status.contact.photoupdated');
 		if(this.$fullelem) {
 			this.$fullelem.remove();
 			return true;
