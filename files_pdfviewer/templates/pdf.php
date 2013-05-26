@@ -7,9 +7,11 @@
 
 
     <link rel="stylesheet" href="<?php print_unescaped(OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.css')); ?>"/>
+    <link rel="stylesheet" href="<?php print_unescaped(OC_Helper::linkTo('files_pdfviewer', 'css/closebutton.css')); ?>">
 
     <!-- oC changes-->
     <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery-1.7.2.min.js')); ?>"></script>
+    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('files_pdfviewer', 'js/on_event.js')); ?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkToRoute('js_config'));?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/oc-dialogs.js')); ?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/js.js')); ?>"></script>
@@ -113,6 +115,9 @@
 
                 <!-- <div class="toolbarButtonSpacer"></div> -->
                 <a href="#" id="viewBookmark" class="toolbarButton bookmark hiddenSmallView" title="Current view (copy or open in new window)" tabindex="16" data-l10n-id="bookmark"><span data-l10n-id="bookmark_label">Current View</span></a>
+                <button id="close" class="toolbarButton close" title="Close" tabindex="17" data-l10n-id="close">
+                  <span data-l10n-id="close_label">Close</span>
+                </button>
               </div>
               <div class="outerCenter">
                 <div class="innerCenter" id="toolbarViewerMiddle">

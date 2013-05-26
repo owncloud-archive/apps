@@ -1,4 +1,4 @@
-$(document).ready(function(){    
+$(document).ready(function(){
 	$('#viewThumbnail').on('click', function(){
 		PDFView.switchSidebarView('thumbs');
 	});
@@ -36,7 +36,7 @@ $(document).ready(function(){
 		PDFView.download();
 	});
 	$('#close').on('click', function(){
-		parent.hidePDFviewer();
+		window.parent.hidePDFviewer();
 	});
 	$('#zoomOut').on('click', function(){
 		PDFView.zoomOut();

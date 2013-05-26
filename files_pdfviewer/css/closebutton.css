@@ -1,0 +1,6 @@
+.toolbarButton.close::before {
+  display: inline-block;
+  margin-top: 1px;
+  opacity: .7;
+  content: url(../img/toolbarButton-close.png);
+}
