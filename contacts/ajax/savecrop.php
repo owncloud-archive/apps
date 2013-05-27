@@ -80,6 +80,7 @@ if($data) {
 							->t('Error getting PHOTO property.'));
 					}
 					$property->setValue($image->__toString());
+					$property->parameters = array();
 					$property->parameters[]
 						= new Sabre\VObject\Parameter('ENCODING', 'b');
 					$property->parameters[]
