@@ -4,12 +4,13 @@
 # 
 # Translators:
 # pisike.sipelgas <pisike.sipelgas@gmail.com>, 2013
+# Rivo Zängov <eraser@eraser.ee>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-25 00:49+0200\n"
-"PO-Revision-Date: 2013-05-24 13:27+0000\n"
+"POT-Creation-Date: 2013-05-29 00:49+0200\n"
+"PO-Revision-Date: 2013-05-28 05:50+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>\n"
 "Language-Team: Estonian (Estonia) (http://www.transifex.com/projects/p/owncloud/language/et_EE/)\n"
 "MIME-Version: 1.0\n"
@@ -34,11 +35,11 @@ msgstr "Õigusalase teabe sisu tuleb esmalt seadistada"
 
 #: templates/tmpl_dummy.php:53
 msgid "That configuration is done in the administration section."
-msgstr "Seda saab seadistada administratiivses sektsioonis."
+msgstr "Seda saab seadistada admini lehel."
 
 #: templates/tmpl_dummy.php:55
 msgid "That configuration has to be done by the system administration."
-msgstr "Selle peab seadistama süsteemiadministraator."
+msgstr "Selle peab seadistama süsteemi administraator."
 
 #: templates/tmpl_settings.php:42
 msgid "Imprint"
@@ -76,4 +77,4 @@ msgstr "Sisu"
 msgid ""
 "You can use html markup (e.g. &lt;br&gt; for a linebreak) and inline style "
 "attributes (e.g. &lt;a style=\"color:red;\"&gt;)."
-msgstr "Saad kasutada HTML märgendeid (nt. &lt;br&gt; for a reavahetuseks) ning sisestiili atribuute (nt. &lt;a style=\"color:red;\"&gt;)."
+msgstr "Saad kasutada HTML märgendeid (nt. &lt;br&gt; reavahetuseks) ning sisestiili atribuute (nt. &lt;a style=\"color:red;\"&gt;)."
