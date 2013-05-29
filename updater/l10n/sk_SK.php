@@ -3,5 +3,6 @@
 "Done." => "Hotovo.",
 "Here is your backup: " => "Tu je Vaša záloha:",
 "Error" => "Chyba",
-"Update" => "Aktualizovať"
+"Update" => "Aktualizovať",
+"Up to date" => "Až do dnešného dňa"
 );

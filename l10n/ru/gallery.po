@@ -14,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-29 00:49+0200\n"
-"PO-Revision-Date: 2013-05-27 23:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-05-30 01:10+0200\n"
+"PO-Revision-Date: 2013-05-29 10:40+0000\n"
+"Last-Translator: Langaru <langaru@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +34,7 @@ msgstr "Опубликовано"
 
 #: js/slideshow.js:267
 msgid "Error loading slideshow template"
-msgstr ""
+msgstr "Ошибка при загрузке шаблона слайд-шоу"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"
