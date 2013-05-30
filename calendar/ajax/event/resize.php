@@ -14,7 +14,8 @@ $id = $_POST['id'];
 $vcalendar = OC_Calendar_App::getVCalendar($id, false, false);
 $vevent = $vcalendar->VEVENT;
 
-$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT, $vevent->CLASS->value);
+$accessclass = $vevent->getAsString('CLASS');
+$permissions = OC_Calendar_App::getPermissions($id, OC_Calendar_App::EVENT, $accessclass);
 if(!$permissions & OCP\PERMISSION_UPDATE) {
 	OCP\JSON::error(array('message'=>'permission denied'));
 	exit;
