@@ -56,10 +56,10 @@ switch($dtstart->getDateType()) {
 		break;
 }
 
-$summary = $vevent->getAsString('SUMMARY');
-$location = $vevent->getAsString('LOCATION');
+$summary = strtr($vevent->getAsString('SUMMARY'), array('\,' => ',', '\;' => ';'));
+$location = strtr($vevent->getAsString('LOCATION'), array('\,' => ',', '\;' => ';'));
 $categories = $vevent->getAsString('CATEGORIES');
-$description = $vevent->getAsString('DESCRIPTION');
+$description = strtr($vevent->getAsString('DESCRIPTION'), array('\,' => ',', '\;' => ';'));
 $last_modified = $vevent->__get('LAST-MODIFIED');
 if ($last_modified) {
 	$lastmodified = $last_modified->getDateTime()->format('U');

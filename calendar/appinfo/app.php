@@ -39,3 +39,7 @@ OCP\App::addNavigationEntry( array(
 OC_Search::registerProvider('OC_Search_Provider_Calendar');
 OCP\Share::registerBackend('calendar', 'OC_Share_Backend_Calendar');
 OCP\Share::registerBackend('event', 'OC_Share_Backend_Event');
+
+Sabre\VObject\Property::$classMap['SUMMARY'] = 'OC\VObject\StringProperty';
+Sabre\VObject\Property::$classMap['DESCRIPTION'] = 'OC\VObject\StringProperty';
+Sabre\VObject\Property::$classMap['LOCATION'] = 'OC\VObject\StringProperty';
