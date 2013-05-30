@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php print_unescaped(OC_Helper::linkTo('files_pdfviewer', '3rdparty/pdfjs/viewer.css')); ?>"/>
 
     <!-- oC changes-->
-    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery-1.7.2.min.js')); ?>"></script>
+    <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/jquery-1.10.0.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkToRoute('js_config'));?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/oc-dialogs.js')); ?>"></script>
     <script type="text/javascript" src="<?php print_unescaped(OC_Helper::linkTo('core', 'js/js.js')); ?>"></script>
