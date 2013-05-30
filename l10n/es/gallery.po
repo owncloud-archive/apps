@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# abeldiazolmo <abeldiazolmo@gmail.com>, 2013
 # Javier Llorente <javier@opensuse.org>, 2012
 # juanman <juanma@kde.org.ar>, 2012
 # rodrigo.calvo <rodrigo.calvo@gmail.com>, 2012
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-30 01:10+0200\n"
-"PO-Revision-Date: 2013-05-28 23:13+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-05-31 00:49+0200\n"
+"PO-Revision-Date: 2013-05-30 18:20+0000\n"
+"Last-Translator: abeldiazolmo <abeldiazolmo@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/owncloud/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +34,7 @@ msgstr "Compartido por"
 
 #: js/slideshow.js:267
 msgid "Error loading slideshow template"
-msgstr ""
+msgstr "Error cargando la plantilla de presentación"
 
 #: templates/index.php:4 templates/index.php:5
 msgid "Share"

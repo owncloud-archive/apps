@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# unhammer <unhammer+dill@mm.st>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-05-30 01:10+0200\n"
-"PO-Revision-Date: 2013-05-28 23:15+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-05-31 00:49+0200\n"
+"PO-Revision-Date: 2013-05-30 10:50+0000\n"
+"Last-Translator: unhammer <unhammer+dill@mm.st>\n"
 "Language-Team: Norwegian Nynorsk (Norway) (http://www.transifex.com/projects/p/owncloud/language/nn_NO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,15 +20,15 @@ msgstr ""
 
 #: js/updater.js:5
 msgid "In progress..."
-msgstr ""
+msgstr "I gang …"
 
 #: js/updater.js:16
 msgid "Done."
-msgstr ""
+msgstr "Ferdig."
 
 #: js/updater.js:17
 msgid "Here is your backup: "
-msgstr ""
+msgstr "Her er tryggleikskopien din:"
 
 #: js/updater.js:21 js/updater.js:27
 msgid "Error"
@@ -39,4 +40,4 @@ msgstr "Oppdater"
 
 #: templates/admin.php:24
 msgid "Up to date"
-msgstr ""
+msgstr "Oppdatert"
