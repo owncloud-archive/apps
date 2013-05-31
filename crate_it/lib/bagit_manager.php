@@ -46,6 +46,7 @@ class BagItManager{
 		
 		$input_dir = $this->base_dir.'/files';
 		$data_dir = 'data';
+		$title = '';
 		
 		if(basename($dir) === 'Shared'){
 			//TODO need to fetch the url from relevant location
@@ -53,10 +54,12 @@ class BagItManager{
 		else if(substr($dir, -1) === '/'){
 			$input_dir .= '/';
 			$data_dir .= '/';
+			$title = $file;
 		}
 		else{
 			$input_dir .= $dir.'/';
 			$data_dir .= $dir.'/';
+			$title = substr($dir, 1).'/'.$file;
 		}
 		if(is_dir($input_dir.'/'.$file)){
 			return "Cannot add a directory";
@@ -79,7 +82,7 @@ class BagItManager{
 			$this->bag->fetch->add($input_dir.$file, $data_dir.$file);
 			
 			//add an entry to manifest as well
-			$entry = array("title" => array($file));
+			$entry = array("title" => array($title));
 			if(filesize($this->manifest) == 0) {
 				$fp = fopen($this->manifest, 'w');
 				fwrite($fp, json_encode($entry));
@@ -88,7 +91,7 @@ class BagItManager{
 			else {
 				$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
 				$element = $contents['title'];
-				array_push($element, $file);
+				array_push($element, $title);
 				$contents['title'] = $element;
 				$fp = fopen($this->manifest, 'w');
 				fwrite($fp, json_encode($contents));

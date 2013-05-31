@@ -1,6 +1,15 @@
 $(document).ready(function() {
 	
-	$('#crateList').sortable();
+	$('#crateList').sortable({
+		stop: function(e, ui) {
+			$.map($(this).find('li'), function(el) {
+				//call backend to update manifest
+				return el.id + ' = ' + $(el).index();
+				
+			});
+		}
+	});
+	
 	$('#crateList').disableSelection();
 	
 	$('#download').click('click', function(event) { 
