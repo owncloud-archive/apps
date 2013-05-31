@@ -94,11 +94,11 @@ class BagItManager{
 				fwrite($fp, json_encode($contents));
 				fclose($fp);
 			}
-			return "File added to crate";
 		}
 		
 		// update the hashes
 		$this->bag->update();
+		return "File added to crate";
 	}
 	
 	public function clearBag(){
