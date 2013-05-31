@@ -3,12 +3,16 @@
 </div>
 
 <div style="padding-left:20px;">
-<ul id="crateList">
+<!-- don't think about hiearchi now, just create a list
+and let user drag and drop -->
+
+<ul id="crateList" class="connectedSortable">
 <?php foreach($_['bagged_files'] as $file):?>
 	<li><?php print_unescaped($file);?>
 <?php endforeach;?>
 </ul>
 </div>
+<!-- <div id='toc'></div>  -->
 
 <div style="float:left; padding:20px;">
 	<input id="clear" type="button" value="Clear Crate"/>
@@ -17,7 +21,3 @@
 <div>
 <?php //print_r(get_loaded_extensions())?>
 </div>
-
-<script type="text/javascript">
-
-</script>

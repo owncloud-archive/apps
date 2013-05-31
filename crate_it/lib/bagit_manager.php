@@ -8,6 +8,7 @@ class BagItManager{
 	var $base_dir; 
 	var $bag_dir;
 	var $crate_root;
+	var $manifest;
 	
 	var $bag;
 	var $user;
@@ -22,6 +23,16 @@ class BagItManager{
 		}
 		$this->bag_dir = $this->crate_root.'/crate';
 		$this->bag = new \BagIt($this->bag_dir);
+		
+	    //$this->manifest = $this->bag_dir.'/manifest.json';
+	    $data_dir = $this->bag->getDataDirectory();
+	    $this->manifest = $data_dir.'/manifest.json';
+		
+		//create manifest file if it doesn't exist
+		if(!file_exists($this->manifest)){
+			$fp = fopen($this->manifest, 'x');
+			fclose($fp);
+		}
 	}
 	
 	public static function getInstance(){
@@ -55,17 +66,34 @@ class BagItManager{
 		//you can populate the data dir with those files
 		$fetch_items = $this->bag->fetch->getData();
 		$file_exists = false;
-		foreach ($fetch_items as $item){
-			if($item['url'] === $input_dir.$file){
+		foreach ($fetch_items as $item) {
+			if($item['url'] === $input_dir.$file) {
 				$file_exists = true;
 				break;
 			}
 		}
-		if($file_exists){
+		if($file_exists) {
 			return "File is already in crate";
 		}
 		else {
 			$this->bag->fetch->add($input_dir.$file, $data_dir.$file);
+			
+			//add an entry to manifest as well
+			$entry = array("title" => array($file));
+			if(filesize($this->manifest) == 0) {
+				$fp = fopen($this->manifest, 'w');
+				fwrite($fp, json_encode($entry));
+				fclose($fp);
+			}
+			else {
+				$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
+				$element = $contents['title'];
+				array_push($element, $file);
+				$contents['title'] = $element;
+				$fp = fopen($this->manifest, 'w');
+				fwrite($fp, json_encode($contents));
+				fclose($fp);
+			}
 			return "File added to crate";
 		}
 		
@@ -75,6 +103,15 @@ class BagItManager{
 	
 	public function clearBag(){
 		$this->bag->fetch->clear();
+		
+		//clear the manifest as well
+		$fp = fopen($this->manifest, 'w+');
+		//$entry = json_decode(fread($fp), true); // convert it to an array.
+		
+		//unset($my_var["title"]);
+		//fwrite($fp, json_encode($entry));
+		fclose($fp);
+		
 		if(file_exists($this->crate_root.'/packages/crate.zip')){
 			unlink($this->crate_root.'/packages/crate.zip');
 		}
@@ -116,11 +153,22 @@ class BagItManager{
 	
 	public function getFetchData(){
 		
-		$items = array();
-		$fetch_items = $this->bag->fetch->getData();
-		foreach ($fetch_items as $item){
-			array_push($items, $item['filename']);
+		//$items = array();
+		//$fetch_items = $this->bag->fetch->getData();
+		
+		//read from manifest
+		$fp = fopen($this->manifest, 'r');
+		$contents = file_get_contents($this->manifest);
+		$cont_array = json_decode($contents);
+		
+		
+		foreach ($cont_array as $key=>$value){
+			$items = $value;
 		}
 		return $items;
 	}
+	
+	//GUI tree related operations
+	//When init, create manifest.json
+	
 }
