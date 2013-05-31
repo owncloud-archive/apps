@@ -6,7 +6,7 @@
 <!-- don't think about hiearchi now, just create a list
 and let user drag and drop -->
 
-<ul id="crateList" class="connectedSortable">
+<ul id="crateList">
 <?php foreach($_['bagged_files'] as $file):?>
 	<li><?php print_unescaped($file);?>
 <?php endforeach;?>

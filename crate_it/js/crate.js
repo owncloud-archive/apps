@@ -1,8 +1,7 @@
 $(document).ready(function() {
 	
-	$('#crateList').sortable({
-	      connectWith: ".connectedSortable"
-	}).disableSelection();
+	$('#crateList').sortable();
+	$('#crateList').disableSelection();
 	
 	$('#download').click('click', function(event) { 
 		if($('#crateList li').length == 0){
