@@ -349,6 +349,16 @@ OC.Contacts = OC.Contacts || {};
 						case 'CATEGORIES':
 							// We deal with this in addToGroup()
 							break;
+						case 'BDAY':
+							// reverse order again.
+							value = $.datepicker.formatDate('yy-mm-dd', $.datepicker.parseDate('dd-mm-yy', value));
+							self.data[element][0] = {
+								name: element,
+								value: value,
+								parameters: self.parametersFor(obj),
+								checksum: jsondata.data.checksum
+							};
+							break;
 						case 'FN':
 							if(!self.data.FN || !self.data.FN.length) {
 								self.data.FN = [{name:'FN', value:'', parameters:[]}];
@@ -417,7 +427,6 @@ OC.Contacts = OC.Contacts || {};
 								}, 1000);
 							}
 						case 'NICKNAME':
-						case 'BDAY':
 						case 'ORG':
 						case 'TITLE':
 						case 'NOTE':
