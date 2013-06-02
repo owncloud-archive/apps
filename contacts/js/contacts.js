@@ -728,6 +728,18 @@ OC.Contacts = OC.Contacts || {};
 				|| this.access.permissions & OC.PERMISSION_DELETE)) {
 			this.$listelem.find('input:checkbox').prop('disabled', true).css('opacity', '0');
 		}
+		if(this.access.owner === OC.currentUser) {
+			this.$listelem.find('td.name').draggable({
+				distance: 10,
+				revert: 'invalid',
+				//containment: '#content',
+				helper: function (e,ui) {
+					return $(this).clone().appendTo('body').css('zIndex', 5).show();
+				},
+				opacity: 0.8,
+				scope: 'contacts'
+			});
+		}
 		return this.$listelem;
 	};
 
@@ -1675,16 +1687,6 @@ OC.Contacts = OC.Contacts || {};
 	 * @param contact jQuery object.
 	 */
 	ContactList.prototype.insertContact = function($contact) {
-		$contact.draggable({
-			distance: 10,
-			revert: 'invalid',
-			//containment: '#content',
-			helper: function (e,ui) {
-				return $(this).clone().appendTo('body').css('zIndex', 5).show();
-			},
-			opacity: 0.8,
-			scope: 'contacts'
-		});
 		var name = $contact.find('.nametext').text().toLowerCase();
 		var added = false;
 		this.$contactList.find('tr').each(function() {
@@ -1833,16 +1835,6 @@ OC.Contacts = OC.Contacts || {};
 						return true; // continue
 					}
 					items.push($item.get(0));
-					$item.find('td.name').draggable({
-						cursor: 'move',
-						distance: 10,
-						revert: 'invalid',
-						helper: function (e,ui) {
-							return self.contacts[parseInt(contact.id)].renderDragItem().appendTo('body');
-						},
-						opacity: 1,
-						scope: 'contacts'
-					});
 					if(items.length === 100) {
 						self.$contactList.append(items);
 						items = [];
