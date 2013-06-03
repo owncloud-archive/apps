@@ -8,7 +8,7 @@ and let user drag and drop -->
 
 <ul id="crateList">
 <?php foreach($_['bagged_files'] as $file):?>
-	<li><?php print_unescaped($file);?>
+	<li id="<?php echo $file;?>"><?php print_unescaped($file);?>
 <?php endforeach;?>
 </ul>
 </div>

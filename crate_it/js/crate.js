@@ -1,13 +1,13 @@
 $(document).ready(function() {
 	
 	$('#crateList').sortable({
-		stop: function(e, ui) {
-			$.map($(this).find('li'), function(el) {
-				//call backend to update manifest
-				return el.id + ' = ' + $(el).index();
-				
-			});
-		}
+		update: function (event, ui) {
+            var neworder = [];
+            ui.item.parent().children().each(function () {
+                neworder.push(this.id);
+            });
+            $.get(OC.linkTo('crate_it', 'ajax/bagit_handler.php'),{'action':'update','neworder':neworder});
+        }
 	});
 	
 	$('#crateList').disableSelection();

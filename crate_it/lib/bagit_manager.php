@@ -82,7 +82,7 @@ class BagItManager{
 			$this->bag->fetch->add($input_dir.$file, $data_dir.$file);
 			
 			//add an entry to manifest as well
-			$entry = array("title" => array($title));
+			$entry = array("titles" => array($title));
 			if(filesize($this->manifest) == 0) {
 				$fp = fopen($this->manifest, 'w');
 				fwrite($fp, json_encode($entry));
@@ -90,9 +90,9 @@ class BagItManager{
 			}
 			else {
 				$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-				$element = $contents['title'];
-				array_push($element, $title);
-				$contents['title'] = $element;
+				$elements = $contents['titles'];
+				array_push($elements, $title);
+				$contents['titles'] = $elements;
 				$fp = fopen($this->manifest, 'w');
 				fwrite($fp, json_encode($contents));
 				fclose($fp);
@@ -118,6 +118,13 @@ class BagItManager{
 		if(file_exists($this->crate_root.'/packages/crate.zip')){
 			unlink($this->crate_root.'/packages/crate.zip');
 		}
+	}
+	
+	public function updateOrder($neworder){
+		$newentry = array("titles" => $neworder);
+		$fp = fopen($this->manifest, 'w+');
+		fwrite($fp, json_encode($newentry));
+		fclose($fp);
 	}
 	
 	public function createZip(){
@@ -170,8 +177,5 @@ class BagItManager{
 		}
 		return $items;
 	}
-	
-	//GUI tree related operations
-	//When init, create manifest.json
 	
 }
