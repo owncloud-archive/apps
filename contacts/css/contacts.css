@@ -163,6 +163,11 @@
 /* Reset values for jquery.multiselect */
 .ui-multiselect-checkboxes label { width: 100%; color: #333; font-size: 1em !important; }
 .ui-multiselect-checkboxes input[type="checkbox"] { margin: 3px !important; }
+.ui-multiselect-checkboxes {
+    height: auto !important;
+    max-height: 200px;
+    overflow-y: auto;
+}
 
 #content .multiselectoptions > li > * { 
 	-webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; 
