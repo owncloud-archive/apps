@@ -317,9 +317,16 @@ class App {
 		}
 	}
 
-	public static function cacheThumbnail($id, \OC_Image $image = null) {
-		if(\OC_Cache::hasKey(self::THUMBNAIL_PREFIX . $id) && $image === null) {
-			return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
+	public static function cacheThumbnail($id, \OC_Image $image = null, $remove = false, $update = false) {
+		$key = self::THUMBNAIL_PREFIX . $id;
+		if(\OC_Cache::hasKey($key) && $image === null && $remove === false && $update === false) {
+			return \OC_Cache::get($key);
+		}
+		if($remove) {
+			\OC_Cache::remove($key);
+			if(!$update) {
+				return false;
+			}
 		}
 		if(is_null($image)) {
 			$vcard = self::getContactVCard($id);
@@ -352,9 +359,9 @@ class App {
 			return false;
 		}
 		 // Cache for around a month
-		\OC_Cache::set(self::THUMBNAIL_PREFIX . $id, $image->data(), 3000000);
+		\OC_Cache::set($key, $image->data(), 3000000);
 		\OCP\Util::writeLog('contacts', 'Caching ' . $id, \OCP\Util::DEBUG);
-		return \OC_Cache::get(self::THUMBNAIL_PREFIX . $id);
+		return \OC_Cache::get($key);
 	}
 
 	public static function updateDBProperties($contactid, $vcard = null) {
