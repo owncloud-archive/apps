@@ -24,6 +24,11 @@ $(document).ready(function() {
 		
 	});
 	
+	$('#epub').click(function(event) {
+		//get all the html previews available, concatenate 'em all
+		$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=epub');
+	});
+	
 	$('#clear').click(function(event) {
 		$.ajax(OC.linkTo('crate_it', 'ajax/bagit_handler.php')+'?action=clear');
 		$('#crateList').empty();

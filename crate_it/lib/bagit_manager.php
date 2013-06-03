@@ -16,6 +16,7 @@ class BagItManager{
 	private function __construct(){
 		$this->user = \OCP\User::getUser();
 	    $this->base_dir = \OC::$SERVERROOT.'/data/'.$this->user;
+	    $this->preview_dir = \OC::$SERVERROOT.'/data/previews/'.$this->user.'/files/';
 	    $this->crate_root =$this->base_dir.'/crate_it'; 
 		
 		if(!file_exists($this->crate_root)){
@@ -125,6 +126,28 @@ class BagItManager{
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($newentry));
 		fclose($fp);
+	}
+	
+	public function createEpub(){
+		//create temp html from manifest
+		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
+		$elements = $contents['titles'];
+		
+		$pre_content = "<html><body><h1>Table of Contents</h1><p style='text-indent:0pt'>";
+		foreach ($elements as $value) {
+			
+			$path_parts = pathinfo($value);
+			$html_file = $path_parts['filename'].'.html';
+			$url = $this->preview_dir.$value.'/'.$html_file;
+			$pre_content .= "<a href='".$url."'>".$html_file."</a></br>";
+		}
+		$manifest_html = $pre_content."</p></body></html>";
+		
+		$tmp = tmpfile();
+		fwrite($tmp, $manifest_html);
+		//feed it to calibre
+		//send the epub to user
+		fclose($tmp);
 	}
 	
 	public function createZip(){

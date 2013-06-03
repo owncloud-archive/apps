@@ -23,6 +23,9 @@ switch ($action){
 	case 'update':
 		$bagit_manager->updateOrder($neworder);
 		break;
+	case 'epub':
+		$bagit_manager->createEpub();
+		break;
 	case 'zip':
 		$zip_file = $bagit_manager->createZip();
 		if(!isset($zip_file))

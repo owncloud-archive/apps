@@ -16,6 +16,7 @@ and let user drag and drop -->
 
 <div style="float:left; padding:20px;">
 	<input id="clear" type="button" value="Clear Crate"/>
+	<input id="epub" type="button" value="EPUB"/>
 	<input id="download" type="button" value="Download Crate as zip"/>
 </div><br>
 <div>
