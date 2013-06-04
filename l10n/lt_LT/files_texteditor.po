@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Dr. ROX <to.dr.rox@gmail.com>, 2012
+# fizikiukas <fizikiukas@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-06-04 00:56+0200\n"
-"PO-Revision-Date: 2013-06-03 00:32+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-06-05 00:57+0200\n"
+"PO-Revision-Date: 2013-06-04 17:02+0000\n"
+"Last-Translator: fizikiukas <fizikiukas@gmail.com>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/projects/p/owncloud/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgstr "Išsaugoti"
 
 #: js/editor.js:75
 msgid "Search:"
-msgstr ""
+msgstr "Ieškoti:"
 
 #: js/editor.js:78
 msgid "Close"
@@ -36,7 +37,7 @@ msgstr "Kitas"
 
 #: js/editor.js:133
 msgid "Clear"
-msgstr ""
+msgstr "Išvalyti"
 
 #: js/editor.js:151
 msgid "Saving..."
@@ -44,7 +45,7 @@ msgstr "Saugoma..."
 
 #: js/editor.js:159
 msgid "Failed to save file"
-msgstr ""
+msgstr "Nepavyko išsaugoti failo"
 
 #: js/editor.js:251
 msgid "An error occurred!"
