@@ -25,7 +25,6 @@ class BagItManager{
 		$this->bag_dir = $this->crate_root.'/crate';
 		$this->bag = new \BagIt($this->bag_dir);
 		
-	    //$this->manifest = $this->bag_dir.'/manifest.json';
 	    $data_dir = $this->bag->getDataDirectory();
 	    $this->manifest = $data_dir.'/manifest.json';
 		
@@ -33,6 +32,7 @@ class BagItManager{
 		if(!file_exists($this->manifest)){
 			$fp = fopen($this->manifest, 'x');
 			fclose($fp);
+			$this->bag->update();
 		}
 	}
 	
@@ -115,6 +115,7 @@ class BagItManager{
 		//unset($my_var["title"]);
 		//fwrite($fp, json_encode($entry));
 		fclose($fp);
+		$this->bag->update();
 		
 		if(file_exists($this->crate_root.'/packages/crate.zip')){
 			unlink($this->crate_root.'/packages/crate.zip');
@@ -126,6 +127,7 @@ class BagItManager{
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($newentry));
 		fclose($fp);
+		$this->bag->update();
 	}
 	
 	public function createEpub(){
@@ -143,11 +145,18 @@ class BagItManager{
 		}
 		$manifest_html = $pre_content."</p></body></html>";
 		
-		$tmp = tmpfile();
-		fwrite($tmp, $manifest_html);
+		$fp = fopen('/tmp/manifest.html', 'w+');
+		fwrite($fp, $manifest_html);
+		fclose($fp);
+		
 		//feed it to calibre
+		$command = 'ebook-convert /tmp/manifest.html /tmp/temp.epub';
+		system($command, $retval);
+		
 		//send the epub to user
-		fclose($tmp);
+		$f = '/tmp/temp.epub';
+		return $f;
+		
 	}
 	
 	public function createZip(){
@@ -181,14 +190,15 @@ class BagItManager{
 			$bag->package($zip_file, 'zip');
 			
 			return $zip_file.'.zip';
+		}
+		else
+		{
+			$err = $bag->getBagErrors(true);
+			print $err;
 		}		
 	}
 	
 	public function getFetchData(){
-		
-		//$items = array();
-		//$fetch_items = $this->bag->fetch->getData();
-		
 		//read from manifest
 		$fp = fopen($this->manifest, 'r');
 		$contents = file_get_contents($this->manifest);

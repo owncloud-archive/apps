@@ -24,7 +24,20 @@ switch ($action){
 		$bagit_manager->updateOrder($neworder);
 		break;
 	case 'epub':
-		$bagit_manager->createEpub();
+		$epub = $bagit_manager->createEpub();
+		if(!isset($epub))
+		{
+			echo "No epub";
+			break;
+		}
+		
+		if (headers_sent()) throw new Exception('Headers sent.');
+		while (ob_get_level() && ob_end_clean());
+		if (ob_get_level()) throw new Exception('Buffering is still active.');
+		header("Content-type:application/epub+zip");
+		header("Content-Type: application/force-download");
+		header("Content-Disposition: attachment;filename=crate.epub");
+		readfile($epub);
 		break;
 	case 'zip':
 		$zip_file = $bagit_manager->createZip();
@@ -34,6 +47,9 @@ switch ($action){
 			break;
 		}
 		//Download file
+		if (headers_sent()) throw new Exception('Headers sent.');
+		while (ob_get_level() && ob_end_clean());
+		if (ob_get_level()) throw new Exception('Buffering is still active.');
 		header("Content-type:application/zip");
 		header("Content-Type: application/force-download");
 		header("Content-Disposition: attachment;filename=crate.zip");
