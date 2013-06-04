@@ -145,17 +145,21 @@ class BagItManager{
 		}
 		$manifest_html = $pre_content."</p></body></html>";
 		
-		$fp = fopen('/tmp/manifest.html', 'w+');
-		fwrite($fp, $manifest_html);
-		fclose($fp);
-		
-		//feed it to calibre
-		$command = 'ebook-convert /tmp/manifest.html /tmp/temp.epub';
-		system($command, $retval);
-		
+		$tempfile = tempnam(sys_get_temp_dir(),'');
+    	if (file_exists($tempfile)) { 
+    		unlink($tempfile); 
+    	}
+    	mkdir($tempfile);
+    	if (is_dir($tempfile)) {
+    		$fp = fopen($tempfile.'/manifest.html', 'w+');
+			fwrite($fp, $manifest_html);
+			fclose($fp);
+			//feed it to calibre
+			$command = 'ebook-convert '.$tempfile.'/manifest.html '.$tempfile.'/temp.epub';
+			system($command, $retval);
+    	}
 		//send the epub to user
-		$f = '/tmp/temp.epub';
-		return $f;
+		return $tempfile.'/temp.epub';
 		
 	}
 	
