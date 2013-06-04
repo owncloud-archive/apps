@@ -155,7 +155,7 @@ class BagItManager{
 			fwrite($fp, $manifest_html);
 			fclose($fp);
 			//feed it to calibre
-			$command = 'ebook-convert '.$tempfile.'/manifest.html '.$tempfile.'/temp.epub';
+			$command = 'ebook-convert '.$tempfile.'/manifest.html '.$tempfile.'/temp.epub --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3';
 			system($command, $retval);
     	}
 		//send the epub to user
