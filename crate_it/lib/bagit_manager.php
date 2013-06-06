@@ -16,7 +16,7 @@ class BagItManager{
 	private function __construct(){
 		$this->user = \OCP\User::getUser();
 	    $this->base_dir = \OC::$SERVERROOT.'/data/'.$this->user;
-	    $this->preview_dir = \OC::$SERVERROOT.'/data/previews/'.$this->user.'/files/';
+	    $this->preview_dir = \OC::$SERVERROOT.'/data/previews/'.$this->user.'/files';
 	    $this->crate_root =$this->base_dir.'/crate_it'; 
 		
 		if(!file_exists($this->crate_root)){
@@ -55,7 +55,7 @@ class BagItManager{
 		else if(substr($dir, -1) === '/'){
 			$input_dir .= '/';
 			$data_dir .= '/';
-			$title = $file;
+			$title = $file; //TODO get the title from the preview
 		}
 		else{
 			$input_dir .= $dir.'/';
@@ -95,10 +95,10 @@ class BagItManager{
 			}
 			else {
 				$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-				$elements = $contents['titles'];
+				$elements = &$contents['titles'];
 				array_push($elements, array('id' => $id, 'title' => $title,
 				'filename' => $input_dir.$file));
-				$contents['titles'] = $elements;
+				//$contents['titles'] = $elements;
 				$fp = fopen($this->manifest, 'w');
 				fwrite($fp, json_encode($contents));
 				fclose($fp);
@@ -162,10 +162,12 @@ class BagItManager{
 		//create temp html from manifest
 		$pre_content = "<html><body><h1>Table of Contents</h1><p style='text-indent:0pt'>";
 		
+		$source_dir = $this->base_dir.'/files';
 		foreach ($this->getItemList() as $value) {
 			$path_parts = pathinfo($value['filename']);
 			$html_file = $path_parts['filename'].'.html';
-			$url = $this->preview_dir.$path_parts['basename'].'/'.$html_file;
+			$dir = str_replace($source_dir, "", $path_parts['dirname']);
+			$url = $this->preview_dir.$dir.'/'.$path_parts['basename'].'/'.$html_file;
 			$pre_content .= "<a href='".$url."'>".$html_file."</a></br>";
 		}
 		$manifest_html = $pre_content."</p></body></html>";
