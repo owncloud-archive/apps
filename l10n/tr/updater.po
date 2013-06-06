@@ -4,15 +4,16 @@
 # 
 # Translators:
 # alpere <info@beyboo.de>, 2012
+# ismail yenigül <ismail.yenigul@surgate.com>, 2013
 # atakan96 <tayancatakan@gmail.com>, 2013
 # KAT.RAT12 <spanish.katerina@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-06-04 00:56+0200\n"
-"PO-Revision-Date: 2013-06-02 23:16+0000\n"
-"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
+"POT-Creation-Date: 2013-06-07 00:55+0200\n"
+"PO-Revision-Date: 2013-06-06 18:52+0000\n"
+"Last-Translator: ismail yenigül <ismail.yenigul@surgate.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/owncloud/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,4 +43,4 @@ msgstr "Güncelleme"
 
 #: templates/admin.php:24
 msgid "Up to date"
-msgstr ""
+msgstr "Güncel"

@@ -3,5 +3,6 @@
 "Done." => "Oldu",
 "Here is your backup: " => "Backup sizin burda ",
 "Error" => "Hata",
-"Update" => "Güncelleme"
+"Update" => "Güncelleme",
+"Up to date" => "Güncel"
 );
