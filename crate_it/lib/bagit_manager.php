@@ -86,7 +86,8 @@ class BagItManager{
 			//TODO id and title
 			$id = hash_file('sha256', $input_dir.$file);
 			
-			$entry = array("titles" => array(array('id' => $id, 'title' => $title)));
+			$entry = array("titles" => array(array('id' => $id, 'title' => $title,
+					'filename' => $input_dir.$file)));
 			if(filesize($this->manifest) == 0) {
 				$fp = fopen($this->manifest, 'w');
 				fwrite($fp, json_encode($entry));
@@ -95,7 +96,8 @@ class BagItManager{
 			else {
 				$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
 				$elements = $contents['titles'];
-				array_push($elements, array('id' => $id, 'title' => $title));
+				array_push($elements, array('id' => $id, 'title' => $title,
+				'filename' => $input_dir.$file));
 				$contents['titles'] = $elements;
 				$fp = fopen($this->manifest, 'w');
 				fwrite($fp, json_encode($contents));
@@ -122,7 +124,17 @@ class BagItManager{
 	}
 	
 	public function updateOrder($neworder){
-		$newentry = array("titles" => $neworder);
+		$shuffledItems = array();
+		//Get id and loop
+		foreach ($neworder as $id) {
+			foreach ($this->getItemList() as $item) {
+				if($id === $item['id'])
+				{
+					array_push($shuffledItems, $item);
+				}
+			}
+		}
+		$newentry = array("titles" => $shuffledItems);
 		$fp = fopen($this->manifest, 'w+');
 		fwrite($fp, json_encode($newentry));
 		fclose($fp);
@@ -148,15 +160,12 @@ class BagItManager{
 	
 	public function createEpub(){
 		//create temp html from manifest
-		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
-		$elements = $contents['titles'];
-		
 		$pre_content = "<html><body><h1>Table of Contents</h1><p style='text-indent:0pt'>";
-		foreach ($elements as $value) {
-			
-			$path_parts = pathinfo($value);
+		
+		foreach ($this->getItemList() as $value) {
+			$path_parts = pathinfo($value['filename']);
 			$html_file = $path_parts['filename'].'.html';
-			$url = $this->preview_dir.$value.'/'.$html_file;
+			$url = $this->preview_dir.$path_parts['basename'].'/'.$html_file;
 			$pre_content .= "<a href='".$url."'>".$html_file."</a></br>";
 		}
 		$manifest_html = $pre_content."</p></body></html>";
@@ -177,6 +186,11 @@ class BagItManager{
 		//send the epub to user
 		return $tempfile.'/temp.epub';
 		
+	}
+	
+	private function getItemList(){
+		$contents = json_decode(file_get_contents($this->manifest), true); // convert it to an array.
+		return $contents['titles'];
 	}
 	
 	public function createZip(){

@@ -8,7 +8,7 @@ $(document).ready(function() {
             	if(!title) {
             		title = this.textContent;
             	}
-                neworder.push({'id': this.id, 'title': title});
+                neworder.push(this.id);
             });
             $.get(OC.linkTo('crate_it', 'ajax/bagit_handler.php'),{'action':'update','neworder':neworder});
         }
